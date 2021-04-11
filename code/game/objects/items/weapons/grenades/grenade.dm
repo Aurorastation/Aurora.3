@@ -65,9 +65,9 @@
 
 	if(ismob(user))
 		var/mob/M = user
-		msg_admin_attack("[M.name] ([M.ckey]) primed \a [fake ? ("fake ") : ("")][src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)",ckey=key_name(M))
+		msg_admin_attack("[M.name] ([M.ckey]) primed \a [fake ? ("fake") : ("")] [istype(loc, /obj/item/toy/plushie) ? ("plushie") : ("")] [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)",ckey=key_name(M))
 	else
-		log_and_message_admins("[user.name] primed \a [fake ? ("fake ") : ("")] [istype(loc, /obj/item/toy/plushie) ? "plushie" : ""] [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
+		log_and_message_admins("[user.name] primed \a [fake ? ("fake") : ("")] [istype(loc, /obj/item/toy/plushie) ? ("plushie") : ("")] [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
 
 	icon_state = initial(icon_state) + "_active"
 	active = 1
