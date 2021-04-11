@@ -1,6 +1,0 @@
-author: WickedCybs
-
-delete-after: True
-
-changes:
-  - bugfix: "Patterns for Tajara that affected the hands had some issues I overlooked. They've been improved and should look more natural."
