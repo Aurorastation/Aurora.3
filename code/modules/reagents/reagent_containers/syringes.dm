@@ -219,17 +219,18 @@
 					return
 
 			if(ismob(target) && target != user)
+				var/inject_time = time
 				if(isliving(target))
 					var/mob/living/L = target
-					var/injtime = L.can_inject(user, TRUE, user.zone_sel.selecting)
-					if(!injtime)
+					var/inject_mod = L.can_inject(user, TRUE, user.zone_sel.selecting)
+					if(!inject_mod)
 						return
-					time *= injtime
+					inject_time *= inject_mod
 
 				user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 				user.do_attack_animation(target)
 
-				if(!do_mob(user, target, time))
+				if(!do_mob(user, target, inject_time))
 					return
 
 				user.visible_message(SPAN_WARNING("[user] injects [target] with the syringe!"))
