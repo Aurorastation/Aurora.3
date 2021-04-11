@@ -154,12 +154,14 @@
 	..()
 	var/sweater = list()
 	sweater["sweater"] = /obj/item/clothing/accessory/sweater
-	sweater["argyle sweater"] = /obj/item/clothing/accessory/sweaterargyle
+	sweater["crewneck sweater"] = /obj/item/clothing/accessory/sweatercrewneck
 	sweater["sweater vest"] = /obj/item/clothing/accessory/sweatervest
-	sweater["argyle sweater vest"] = /obj/item/clothing/accessory/sweatervestargyle
 	sweater["turtleneck sweater"] = /obj/item/clothing/accessory/sweaterturtleneck
-	sweater["argyle turtleneck sweater"] = /obj/item/clothing/accessory/sweaterargyleturtleneck
 	sweater["tubeneck sweater"] = /obj/item/clothing/accessory/sweatertubeneck
+	sweater["argyle sweater"] = /obj/item/clothing/accessory/sweaterargyle
+	sweater["argyle crewneck sweater"] = /obj/item/clothing/accessory/sweaterargylecrewneck
+	sweater["argyle sweater vest"] = /obj/item/clothing/accessory/sweatervestargyle
+	sweater["argyle turtleneck sweater"] = /obj/item/clothing/accessory/sweaterargyleturtleneck
 	sweater["argyle tubeneck sweater"] = /obj/item/clothing/accessory/sweaterargyletubeneck
 	gear_tweaks += new/datum/gear_tweak/path(sweater)
 
