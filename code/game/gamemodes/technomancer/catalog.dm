@@ -270,16 +270,17 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 	..()
 	var/mob/living/carbon/human/H = usr
 
-	if(H.stat || H.restrained())
+	if(use_check_and_message(H))
 		return
-	if(!istype(H, /mob/living/carbon/human))
+
+	if(!ishuman(H))
 		return 1 //why does this return 1?
 
 	if(H != owner)
-		to_chat(H, "\The [src] won't allow you to do that, as you don't own \the [src]!")
+		to_chat(H, SPAN_WARNING("\The [src] won't allow you to do that, as you don't own \the [src]!"))
 		return
 
-	if(loc == H || (in_range(src, H) && istype(loc, /turf)))
+	if(loc == H || (in_range(src, H) && isturf(loc)))
 		H.set_machine(src)
 		if(href_list["tab_choice"])
 			tab = text2num(href_list["tab_choice"])

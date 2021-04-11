@@ -20,31 +20,29 @@
 	modifier_duration = 10 SECONDS
 
 /datum/modifier/technomancer/mend_synthetic
-	name = "mend synthetic"
-	desc = "Something seems to be repairing you."
-	mob_overlay_state = "cyan_sparkles"
-
 	on_created_text = "<span class='warning'>Sparkles begin to appear around you, and your systems report integrity rising.</span>"
 	on_expired_text = "<span class='notice'>The sparkles have faded, although your systems seem to be better than before.</span>"
-	stacks = MODIFIER_STACK_EXTEND
 
-/datum/modifier/technomancer/mend_synthetic/tick()
-	if(!holder.getActualBruteLoss() && !holder.getActualFireLoss()) // No point existing if the spell can't heal.
-		expire()
-		return
-	if(ishuman(holder))
-		var/mob/living/carbon/human/H = holder
-		for(var/obj/item/organ/external/E in H.organs)
-			var/obj/item/organ/external/O = E
-			if(O.robotic >= ORGAN_ROBOT)
-				O.heal_damage(4 * spell_power, 4 * spell_power, 0, 1)
-	else
-		if(holder.isSynthetic())
-			holder.adjustBruteLoss(-4 * spell_power) // Should heal roughly 20 burn/brute over 10 seconds, as tick() is run every 2 seconds.
-			holder.adjustFireLoss(-4 * spell_power) // Ditto.
+/datum/modifier/technomancer/mend_synthetic/process()
+	. = ..()
+	if(isliving(target))
+		var/mob/living/M = target
+		if(!M.getBruteLoss() && !M.getFireLoss()) // No point existing if the spell can't heal.
+			deactivate()
+			return
+		if(ishuman(M))
+			var/mob/living/carbon/human/H = target
+			for(var/obj/item/organ/external/E in H.organs)
+				var/obj/item/organ/external/O = E
+				if(O.robotic >= ORGAN_ROBOT)
+					O.heal_damage(4 * strength, 4 * strength, 0, TRUE)
+		else
+			if(M.isSynthetic())
+				M.adjustBruteLoss(-4 * strength) // Should heal roughly 20 burn/brute over 10 seconds, as tick() is run every 2 seconds.
+				M.adjustFireLoss(-4 * strength) // Ditto.
 
-	holder.adjust_instability(1)
-	if(origin)
-		var/mob/living/L = origin.resolve()
-		if(istype(L))
-			L.adjust_instability(1) //TODOMATT: Tick this file and figure this out
+		M.adjust_instability(1)
+		if(source)
+			var/mob/living/L = source
+			if(istype(L))
+				L.adjust_instability(1)

@@ -14,8 +14,8 @@
 	aspect = ASPECT_LIGHT
 	var/color_to_use = "#FFFFFF"
 
-/obj/item/spell/chroma/New()
-	..()
+/obj/item/spell/chroma/Initialize()
+	. = ..()
 	set_light(6, 5, l_color = color_to_use)
 
 /obj/effect/temporary_effect/chroma

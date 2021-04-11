@@ -3,21 +3,22 @@
 	icon = 'icons/mob/screen_spells.dmi'
 	icon_state = "grey_spell_ready"
 	var/list/obj/screen/ability/ability_objects = list()
-	var/showing = 0 // If we're 'open' or not.
+	var/showing = FALSE // If we're 'open' or not.
 
 	var/open_state = "master_open"		// What the button looks like when it's 'open', showing the other buttons.
 	var/closed_state = "master_closed"	// Button when it's 'closed', hiding everything else.
 
 	screen_loc = ui_spell_master // TODO: Rename
 
-	var/mob/my_mob = null // The mob that possesses this hud object.
+	var/mob/my_mob // The mob that possesses this hud object.
 
-/obj/screen/movable/ability_master/New(owner)
+/obj/screen/movable/ability_master/Initialize(mapload, owner)
+	. = ..()
 	if(owner)
 		my_mob = owner
 		update_abilities(0, owner)
 	else
-		message_admins("ERROR: ability_master's New() was not given an owner argument.  This is a bug.")
+		message_admins("ERROR: ability_master's Initialize() was not given an owner argument.  This is a bug.")
 
 /obj/screen/movable/ability_master/Destroy()
 	. = ..()
@@ -49,13 +50,13 @@
 		for(var/obj/screen/ability/O in ability_objects)
 			if(my_mob && my_mob.client)
 				my_mob.client.screen -= O
-		showing = 0
+		showing = FALSE
 		overlays.len = 0
 		overlays.Add(closed_state)
 	else if(forced_state != 1) // We're opening it, show the icons.
 		open_ability_master()
 		update_abilities(1)
-		showing = 1
+		showing = TRUE
 		overlays.len = 0
 		overlays.Add(open_state)
 	update_icon()
@@ -80,7 +81,6 @@
 		A.screen_loc = "[encode_screen_X(xpos)]:[x_pix],[encode_screen_Y(ypos)]:[y_pix]"
 		if(my_mob && my_mob.client)
 			my_mob.client.screen += A
-//			A.handle_icon_updates = 1
 
 /obj/screen/movable/ability_master/proc/update_abilities(forced = 0, mob/user)
 	update_icon()
@@ -101,7 +101,8 @@
 		invisibility = 101
 
 /obj/screen/movable/ability_master/proc/add_ability(var/name_given)
-	if(!name) return
+	if(!name)
+		return
 
 	var/obj/screen/ability/new_button = new /obj/screen/ability
 	new_button.ability_master = src
@@ -131,19 +132,19 @@
 	for(var/obj/screen/ability/A in ability_objects)
 		if(A.name == name_to_search)
 			return A
-	return null
+	return
 
 /obj/screen/movable/ability_master/proc/get_ability_by_proc_ref(proc_ref)
 	for(var/obj/screen/ability/verb_based/V in ability_objects)
 		if(V.verb_to_call == proc_ref)
 			return V
-	return null
+	return
 
 /obj/screen/movable/ability_master/proc/get_ability_by_instance(var/obj/instance/)
 	for(var/obj/screen/ability/obj_based/O in ability_objects)
 		if(O.object == instance)
 			return O
-	return null
+	return
 
 /mob/Login()
 	..()
@@ -153,7 +154,7 @@
 
 /mob/Initialize()
 	. = ..()
-	ability_master = new /obj/screen/movable/ability_master(src)
+	ability_master = new /obj/screen/movable/ability_master(src, src)
 
 ///////////ACTUAL ABILITIES////////////
 //This is what you click to do things//
@@ -202,16 +203,14 @@
 
 // Makes the ability be triggered.  The subclasses of this are responsible for carrying it out in whatever way it needs to.
 /obj/screen/ability/proc/activate()
-	to_world("[src] had activate() called.")
-	return
+	log_debug("[src] had activate() called.")
 
 // This checks if the ability can be used.
 /obj/screen/ability/proc/can_activate()
-	return 1
+	return TRUE
 
 /client/verb/activate_ability(var/slot as num)
 	set name = ".activate_ability"
-//	set hidden = 1
 	if(!mob)
 		return // Paranoid.
 	if(isnull(slot) || !isnum(slot))

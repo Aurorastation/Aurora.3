@@ -18,7 +18,7 @@
 	instability_per_shot = 10
 	cooldown = 20
 	pre_shot_delay = 10
-	fire_sound = 'sound/weapons/gaussrifle1.ogg'
+	fire_sound = 'sound/effects/psi/thunderstrike.ogg'
 
 /obj/item/projectile/beam/lightning
 	name = "lightning"
@@ -30,13 +30,8 @@
 	tracer_type = /obj/effect/projectile/tracer/tesla
 	impact_type = /obj/effect/projectile/impact/tesla
 
-	var/power = 60				//How hard it will hit for with electrocute_act().
+	var/power = 6000
 
 /obj/item/projectile/beam/lightning/attack_mob(var/mob/living/target_mob, var/distance, var/miss_modifier=0)
-	if(ishuman(target_mob))
-		var/mob/living/carbon/human/H = target_mob
-		var/obj/item/organ/external/affected = H.get_organ(check_zone(BP_CHEST))
-		H.electrocute_act(power, src, H.get_siemens_coefficient_organ(affected), BP_CHEST, 0)
-	else
-		target_mob.electrocute_act(power, src, 0.75, BP_CHEST)
+	tesla_zap(target_mob, 3, power)
 	return 1

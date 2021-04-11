@@ -29,7 +29,7 @@
 			return
 
 		//Teleporting an item.
-		if(istype(hit_atom, /obj/item))
+		if(isitem(hit_atom))
 			var/obj/item/I = hit_atom
 
 			spark(I, 5, cardinal)
@@ -43,30 +43,31 @@
 			log_and_message_admins("has stolen [I] with [src].")
 			qdel(src)
 		//Now let's try to teleport a living mob.
-		else if(istype(hit_atom, /mob/living))
+		else if(isliving(hit_atom))
 			var/mob/living/L = hit_atom
-			to_chat(L, "<span class='danger'>You are teleported towards \the [user].</span>")
+			to_chat(L, "<span class='danger'>You are teleported towards \the [user]!</span>")
 			spark(L, 5, cardinal)
 			spark(user, 5, cardinal)
-			L.throw_at(get_step(get_turf(src),get_turf(L)), 4, 1, src)
+			L.throw_at(get_step(get_turf(src), get_dir(src, L)), 4, 1, src)
+			addtimer(CALLBACK(src, .proc/seize_mob, L, user), 1)
 			user.drop_item(src)
 			src.loc = null
 
-			spawn(1 SECOND)
-				if(!user.Adjacent(L))
-					to_chat(user, "<span class='warning'>\The [L] is out of your reach.</span>")
-					qdel(src)
-					return
+/obj/item/spell/apportation/proc/seize_mob(var/mob/living/L, var/mob/user)
+	if(!user.Adjacent(L))
+		to_chat(user, "<span class='warning'>\The [L] is out of your reach.</span>")
+		qdel(src)
+		return
 
-				L.Weaken(3)
-				user.visible_message("<span class='warning'><b>\The [user]</b> seizes [L]!</span>")
+	L.Weaken(3)
+	user.visible_message("<span class='warning'><b>\The [user]</b> seizes [L]!</span>")
 
-				var/obj/item/grab/G = new(user,L)
+	var/obj/item/grab/G = new(user, L)
 
-				user.put_in_hands(G)
+	user.put_in_hands(G)
 
-				G.state = GRAB_PASSIVE
-				G.icon_state = "grabbed1"
-				G.synch()
-				qdel(src)
+	G.state = GRAB_PASSIVE
+	G.icon_state = "grabbed1"
+	G.synch()
+	qdel(src)
 

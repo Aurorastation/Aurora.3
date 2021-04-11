@@ -528,7 +528,7 @@
 	name = "instability"
 	icon = 'icons/mob/screen_gen.dmi'
 	icon_state = "instability-1"
-	invisibility = 0
+	invisibility = 101
 
 /obj/screen/energy
 	name = "energy"

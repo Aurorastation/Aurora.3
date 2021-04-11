@@ -8,16 +8,13 @@
 	item_state = "technomancer_core"
 	w_class = ITEMSIZE_HUGE
 	slot_flags = SLOT_BACK
-	unacidable = 1
-	origin_tech = list(
-		TECH_MATERIAL = 8, TECH_ENGINEERING = 8, TECH_POWER = 8, TECH_BLUESPACE = 10,
-		TECH_COMBAT = 7, TECH_MAGNET = 9, TECH_DATA = 5
-		)
+	unacidable = TRUE
+	origin_tech = list(TECH_MATERIAL = 8, TECH_ENGINEERING = 8, TECH_POWER = 8, TECH_BLUESPACE = 10,TECH_COMBAT = 7, TECH_MAGNET = 9, TECH_DATA = 5)
 	var/energy = 10000
 	var/max_energy = 10000
 	var/regen_rate = 50				// 200 seconds to full
 	var/energy_delta = 0			// How much we're gaining (or perhaps losing) every process().
-	var/mob/living/wearer = null	// Reference to the mob wearing the core.
+	var/mob/living/wearer			// Reference to the mob wearing the core.
 	var/instability_modifier = 0.8	// Multiplier on how much instability is added.
 	var/energy_cost_modifier = 1.0	// Multiplier on how much spells will cost.
 	var/spell_power_modifier = 1.0	// Multiplier on how strong spells are.
@@ -25,7 +22,6 @@
 	var/list/spells = list()		// This contains the buttons used to make spells in the user's hand.
 	var/list/appearances = list(	// Assoc list containing possible icon_states that the wiz can change the core to.
 		"default"			= "technomancer_core",
-		"wizard's cloak"	= "wizard_cloak"
 		)
 
 	// Some spell-specific variables go here, since spells themselves are temporary.  Cores are more long term and more accessable than
@@ -34,8 +30,8 @@
 	var/list/wards_in_use = list()	// Wards don't count against the cap for other summons.
 	var/max_summons = 10			// Maximum allowed summoned entities.  Some cores will have different caps.
 
-/obj/item/technomancer_core/New()
-	..()
+/obj/item/technomancer_core/Initialize()
+	. = ..()
 	START_PROCESSING(SSprocessing, src)
 
 /obj/item/technomancer_core/Destroy()
@@ -59,24 +55,24 @@
 
 // 'pay_energy' is too vague of a name for a proc at the mob level.
 /mob/proc/technomancer_pay_energy(amount)
-	return 0
+	return FALSE
 
 /mob/living/carbon/human/technomancer_pay_energy(amount)
 	if(istype(back, /obj/item/technomancer_core))
 		var/obj/item/technomancer_core/TC = back
 		return TC.pay_energy(amount)
-	return 0
+	return FALSE
 
 /obj/item/technomancer_core/proc/pay_energy(amount)
 	amount = round(amount * energy_cost_modifier, 0.1)
 	if(amount <= energy)
 		energy = max(energy - amount, 0)
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 /obj/item/technomancer_core/proc/give_energy(amount)
 	energy = min(energy + amount, max_energy)
-	return 1
+	return TRUE
 
 /obj/item/technomancer_core/process()
 	var/old_energy = energy
@@ -100,7 +96,7 @@
 // We pay for on-going effects here.
 /obj/item/technomancer_core/proc/pay_dues()
 	if(summoned_mobs.len)
-		pay_energy( round(summoned_mobs.len * 5) )
+		pay_energy(round(summoned_mobs.len * 5))
 
 // Because sometimes our summoned mobs will stop existing and leave a null entry in the list, we need to do cleanup every
 // so often so .len remains reliable.
@@ -117,11 +113,13 @@
 			var/mob/living/L = A
 			if(L.stat == DEAD)
 				summoned_mobs -= L
-				spawn(1)
-					L.visible_message("<span class='notice'>\The [L] begins to fade away...</span>")
-					animate(L, alpha = 255, alpha = 0, time = 30) // Makes them fade into nothingness.
-					sleep(30)
-					qdel(L)
+				addtimer(CALLBACK(src, .proc/remove_summon, L), 1)
+
+/obj/item/technomancer_core/proc/remove_summon(var/mob/living/L)
+	L.visible_message("<span class='notice'>\The [L] begins to fade away...</span>")
+	animate(L, alpha = 255, alpha = 0, time = 30) // Makes them fade into nothingness.
+	sleep(30)
+	qdel(L)
 
 // Deletes all the summons and wards from the core, so that Destroy() won't have issues.
 /obj/item/technomancer_core/proc/dismiss_all_summons()
@@ -135,9 +133,9 @@
 // This is what is clicked on to place a spell in the user's hands.
 /obj/spellbutton
 	name = "generic spellbutton"
-	var/spellpath = null
-	var/obj/item/technomancer_core/core = null
-	var/ability_icon_state = null
+	var/spellpath
+	var/obj/item/technomancer_core/core
+	var/ability_icon_state
 
 /obj/spellbutton/New(loc, var/path, var/new_name, var/new_icon_state)
 	if(!path || !ispath(path))
@@ -202,19 +200,21 @@
 /obj/item/technomancer_core/proc/has_spell(var/datum/technomancer/spell_to_check)
 	for(var/obj/spellbutton/spell in spells)
 		if(spell.spellpath == spell_to_check.obj_path)
-			return 1
-	return 0
+			return TRUE
+	return FALSE
 
 /mob/living/carbon/human/proc/wiz_energy_update_hud()
 	if(client && hud_used)
 		if(istype(back, /obj/item/technomancer_core)) //I reckon there's a better way of doing this.
 			var/obj/item/technomancer_core/core = back
 			energy_display.invisibility = 0
+			instability_display.invisibility = 0
 			var/ratio = core.energy / core.max_energy
 			ratio = max(round(ratio, 0.05) * 100, 5)
 			energy_display.icon_state = "wiz_energy[ratio]"
 		else
 			energy_display.invisibility = 101
+			instability_display.invisibility = 101
 
 //Resonance Aperture
 

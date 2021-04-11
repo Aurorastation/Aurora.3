@@ -18,11 +18,5 @@
 	modifier_duration = 5 SECONDS
 
 /datum/modifier/technomancer/haste
-	name = "haste"
-	desc = "Moving is almost effortless!"
-	mob_overlay_state = "haste"
-
 	on_created_text = "<span class='notice'>You suddenly find it much easier to move.</span>"
 	on_expired_text = "<span class='warning'>You feel slow again.</span>"
-	haste = TRUE
-	stacks = MODIFIER_STACK_EXTEND //TODOMATT: Tick this file and figure this out

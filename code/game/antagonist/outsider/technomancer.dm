@@ -34,7 +34,7 @@ var/datum/antagonist/technomancer/technomancers
 /datum/antagonist/technomancer/equip(var/mob/living/carbon/human/technomancer_mob)
 
 	if(!..())
-		return 0
+		return FALSE
 
 	technomancer_mob.equip_to_slot_or_del(new /obj/item/clothing/under/technomancer/master(technomancer_mob), slot_w_uniform)
 	create_id("Technomagus", technomancer_mob)
@@ -47,7 +47,7 @@ var/datum/antagonist/technomancer/technomancers
 	technomancer_mob.equip_to_slot_or_del(new /obj/item/device/flashlight(technomancer_mob), slot_belt)
 	technomancer_mob.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(technomancer_mob), slot_shoes)
 	technomancer_mob.equip_to_slot_or_del(new /obj/item/clothing/head/technomancer/master(technomancer_mob), slot_head)
-	return 1
+	return TRUE
 
 /datum/antagonist/technomancer/proc/equip_apprentice(var/mob/living/carbon/human/technomancer_mob)
 
@@ -66,7 +66,7 @@ var/datum/antagonist/technomancer/technomancers
 	technomancer_mob.equip_to_slot_or_del(new /obj/item/device/flashlight(technomancer_mob), slot_belt)
 	technomancer_mob.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(technomancer_mob), slot_shoes)
 	technomancer_mob.equip_to_slot_or_del(new /obj/item/clothing/head/technomancer/apprentice(technomancer_mob), slot_head)
-	return 1
+	return TRUE
 
 /datum/antagonist/technomancer/check_victory()
 	var/survivor
