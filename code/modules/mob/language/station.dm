@@ -46,11 +46,13 @@
 // tajaran languages
 /datum/language/tajaran
 	name = LANGUAGE_SIIK_MAAS
+	short = "MAAS"
 	desc = "The traditionally employed tongue of Adhomai, composed of expressive yowls and chirps. Native to the Tajara."
 	speech_verb = list("mrowls")
 	ask_verb = list("mrowls")
 	exclaim_verb = list("yowls")
 	colour = "tajaran"
+	written_style = "siikmaas"
 	key = "j"
 	flags = WHITELISTED|TCOMSSIM
 	syllables = list("mrr","rr","tajr","kir","raj","kii","mir","kra","ahk","nal","vah","khaz","jri","ran","darr",
@@ -99,11 +101,13 @@
 
 /datum/language/yassa
 	name = LANGUAGE_YA_SSA
+	short = "YAS"
 	desc = "The traditional language of the tajaran nobility."
 	speech_verb = list("mrowls")
 	ask_verb = list("mrowls")
 	exclaim_verb = list("yowls")
 	colour = "yassa"
+	written_style = "yassa"
 	key = "r"
 	flags = WHITELISTED|TCOMSSIM
 	syllables = list("hrr","rhr","tarj","khir","rajh","kir","mier","kre","ahek","nlhal","veh","khaz","dri","rhan","darrer",
@@ -115,11 +119,13 @@
 
 /datum/language/delvahhi
 	name = LANGUAGE_DELVAHII
+	short = "DEL"
 	desc = "A dialect developed by the Zhan-Khazan communities, commonly used in religious ceremonies dedicated to the Snow God and amongst settlements comprised mostly of Zhan-Khazan."
 	speech_verb = list("mrowls")
 	ask_verb = list("mrowls")
 	exclaim_verb = list("yowls")
 	colour = "delvahhi"
+	written_style = "delvahhi"
 	key = "n"
 	flags = WHITELISTED|TCOMSSIM
 	syllables = list("mrr","rr","tajr","kir","raj","kii","mir","kra","ahk","nal","vah","khaz","jri","ran","darr",
@@ -261,11 +267,13 @@
 
 /datum/language/machine
 	name = LANGUAGE_EAL
+	short = "EAL"
 	desc = "A language of encoded tones that allow for IPCs to communicate auditorily between each other in a manner that allows for easier transfer of information."
 	speech_verb = list("beeps")
 	ask_verb = list("beeps")
 	exclaim_verb = list("loudly beeps")
 	colour = "changeling"
+	written_style = "encodedaudiolanguage"
 	key = "6"
 	flags = RESTRICTED | NO_STUTTER | TCOMSSIM
 	syllables = list("beep","beep","beep","beep","beep","boop","boop","boop","bop","bop","dee","dee","doo","doo","hiss","hss","buzz","buzz","bzz","ksssh","keey","wurr","wahh","tzzz")

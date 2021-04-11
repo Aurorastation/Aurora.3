@@ -435,7 +435,15 @@ var/list/asset_datums = list()
 		"praflag.png" = 'html/images/praflag.png',
 		"dpraflag.png" = 'html/images/dpraflag.png',
 		"nkaflag.png" = 'html/images/nkaflag.png',
-		"izweskiflag.png" = 'html/images/izweskiflag.png'
+		"izweskiflag.png" = 'html/images/izweskiflag.png',
+		"bluebird.woff" = 'html/fonts/OFL/Bluebird.woff',
+		"grandhotel.woff" = 'html/fonts/OFL/GrandHotel.woff',
+		"lashema.woff" = 'html/fonts/OFL/Lashema.woff',
+		"sourcecodepro.woff" = 'html/fonts/OFL/SourceCodePro.woff',
+		"sovjetbox.woff" = 'html/fonts/OFL/SovjetBox.woff',
+		"torsha.woff" = 'html/fonts/OFL/Torsha.woff',
+		"web3of9ascii.woff" = 'html/fonts/OFL/Web3Of9ASCII.woff',
+		"zeshit.woff" = 'html/fonts/OFL/zeshit.woff'
 	)
 
 /datum/asset/simple/changelog
