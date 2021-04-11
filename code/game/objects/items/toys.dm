@@ -1041,19 +1041,21 @@
 /obj/item/toy/ringbell
 	name = "ringside bell"
 	desc = "A bell used to signal the beginning and end of various ring sports."
-	icon_state= "ringbell"
-	anchored = 1
+	desc_info = "Use help intent on the bell to signal the start of a contest\ndisarm intent to signal the end of a contest and\nharm intent to signal a disqualification."
+	icon_state = "ringbell"
+	anchored = TRUE
 
-/obj/item/toy/ringbell/attack_hand(mob/user as mob)
-	if (user.a_intent == I_HELP)
-		user.visible_message("<span class='notice'>[user] rings \the [src], signalling the beginning of the contest.</span>")
-		playsound(user.loc, 'sound/items/oneding.ogg', 60, 1)
-	else if (user.a_intent == I_DISARM)
-		user.visible_message("<span class='notice'>[user] rings \the [src] three times, signalling the end of the contest!</span>")
-		playsound(user.loc, 'sound/items/threedings.ogg', 60, 1)
-	else if (user.a_intent == I_HURT)
-		user.visible_message("<span class='warning'>[user] rings \the [src] repeatedly, signalling a disqualification!</span>")
-		playsound(user.loc, 'sound/items/manydings.ogg', 60, 1)
+/obj/item/toy/ringbell/attack_hand(mob/user)
+	switch(user.a_intent)
+		if (I_HELP)
+			user.visible_message(FONT_LARGE (SPAN_NOTICE("[user] rings \the [src], signalling the beginning of the contest.")))
+			playsound(user.loc, 'sound/items/oneding.ogg', 60, 1)
+		if (I_DISARM)
+			user.visible_message(FONT_LARGE (SPAN_NOTICE("[user] rings \the [src] three times, signalling the end of the contest!")))
+			playsound(user.loc, 'sound/items/threedings.ogg', 60, 1)
+		if (I_HURT)
+			user.visible_message(FONT_LARGE (SPAN_WARNING("[user] rings \the [src] repeatedly, signalling a disqualification!")))
+			playsound(user.loc, 'sound/items/manydings.ogg', 60, 1)
 
 //baystation desk toys
 
