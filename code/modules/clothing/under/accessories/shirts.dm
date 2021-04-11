@@ -13,16 +13,16 @@
 	item_state = "sweatervest"
 
 /obj/item/clothing/accessory/sweatercrewneck
-	name = "crewneck sweater "
+	name = "crewneck sweater"
 	desc = "A sewn crewneck sweater featuring a collarless neckline."
 	desc_fluff = "Fortunately, they even have a type of sweater for the sporty and informal."
 	icon_state = "sweatercrewneck"
 	item_state = "sweatercrewneck"
 
 /obj/item/clothing/accessory/sweatervneck
-	name = "v-neck sweater "
+	name = "v-neck sweater"
 	desc = "A sewn vneck sweater featuring a collarless neckline."
-	desc_fluff = "Fortunately, they even have a type of sweater for the sporty and informal"
+	desc_fluff = "Fortunately, they even have a type of sweater for the sporty and informal."
 	icon_state = "sweatervneck"
 	item_state = "sweatervneck"
 
@@ -64,7 +64,7 @@
 /obj/item/clothing/accessory/sweaterargylevneck
 	name = "argyle v-neck sweater"
 	desc = "A sewn v-neck sweater featuring a collarless neckline and an argyle pattern."
-	desc_fluff = "Fortunately, they even have a type of sweater for the sporty and informal"
+	desc_fluff = "Fortunately, they even have a type of sweater for the sporty and informal."
 	icon_state = "sweaterargylevneck"
 	item_state = "sweaterargylevneck"
 
