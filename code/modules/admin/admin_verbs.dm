@@ -72,6 +72,7 @@ var/list/admin_verbs_admin = list(
 	/client/proc/toggleghostwriters,
 	/client/proc/toggledrones,
 	/datum/admins/proc/show_skills,
+	/client/proc/damage_menu,
 	/client/proc/man_up,
 	/client/proc/global_man_up,
 	/client/proc/response_team, // Response Teams admin verb,
@@ -135,8 +136,6 @@ var/list/admin_verbs_fun = list(
 	/client/proc/show_tip,
 	/client/proc/fab_tip,
 	/client/proc/apply_sunstate,
-	/client/proc/cure_traumas,
-	/client/proc/add_traumas,
 	/datum/admins/proc/ccannoucment
 	)
 
@@ -263,6 +262,7 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/toggledrones,
 	/datum/admins/proc/show_skills,
 	/client/proc/restart_sql,
+	/client/proc/damage_menu,
 	/client/proc/man_up,
 	/client/proc/global_man_up,
 	/client/proc/connect_ntsl,
@@ -350,8 +350,6 @@ var/list/admin_verbs_hideable = list(
 	/datum/admins/proc/spawn_plant,
 	/client/proc/show_plant_genes,
 	/datum/admins/proc/spawn_atom,
-	/client/proc/cure_traumas,
-	/client/proc/add_traumas,
 	/client/proc/respawn_character,
 	/client/proc/spawn_chemdisp_cartridge,
 	/client/proc/jobbans,
@@ -710,52 +708,6 @@ var/list/admin_verbs_cciaa = list(
 	message_admins("<span class='notice'>[ckey] creating an admin explosion at [epicenter.loc].</span>")
 	feedback_add_details("admin_verb","DB") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/client/proc/cure_traumas(mob/T as mob in mob_list)
-	set category = "Fun"
-	set name = "Cure Traumas"
-	set desc = "Cure the traumas of a given mob."
-
-	if(!istype(T,/mob/living/carbon/human))
-		to_chat(usr, "This can only be done to instances of type /mob/living/carbon/human")
-		return
-
-	var/mob/living/carbon/human/C = T
-
-	C.cure_all_traumas(TRUE, CURE_ADMIN)
-	log_and_message_admins("<span class='notice'>cured [key_name(C)]'s traumas.</span>")
-	feedback_add_details("admin_verb","TB") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
-/client/proc/add_traumas(mob/T as mob in mob_list)
-	set category = "Fun"
-	set name = "Add Traumas"
-	set desc = "Induces traumas on a given mob."
-
-	if(!istype(T,/mob/living/carbon/human))
-		to_chat(usr, "This can only be done to instances of type /mob/living/carbon/human")
-		return
-
-	var/mob/living/carbon/human/C = T
-
-	var/list/traumas = subtypesof(/datum/brain_trauma)
-	var/result = input(usr, "Choose the brain trauma to apply","Traumatize") as null|anything in traumas
-	if(!result) return
-	var/permanent = alert("Do you want to make the trauma unhealable?", "Permanently Traumatize", "Yes", "No")
-	if(permanent == "Yes")
-		permanent = TRUE
-	else
-		permanent = FALSE
-	if(!usr)
-		return
-	if(!C)
-		to_chat(usr, "Mob doesn't exist anymore")
-		return
-
-	if(result)
-		C.gain_trauma(result, permanent)
-
-	log_and_message_admins("<span class='notice'>gave [key_name(C)] [result].</span>")
-	feedback_add_details("admin_verb","BT") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
 /client/proc/make_sound(var/obj/O in range(world.view)) // -- TLE
 	set category = "Special Verbs"
 	set name = "Make Sound"
@@ -1094,6 +1046,13 @@ var/list/admin_verbs_cciaa = list(
 	else
 		to_chat(usr, "You now won't get debug log messages")
 
+/client/proc/damage_menu(mob/living/carbon/human/H as null|mob in human_mob_list)
+	set name = "Damage Menu"
+	set desc = "Access a human mob's damage menu, allowing you to make their life hell."
+	set category = "Fun"
+
+	if(H)
+		new /datum/vueui_module/damage_menu(WEAKREF(H), usr)
 
 /client/proc/man_up(mob/T as mob in mob_list)
 	set category = "Fun"

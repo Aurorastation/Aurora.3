@@ -11,7 +11,7 @@
 	if(vampire.stealth)
 		to_chat(src, SPAN_NOTICE("Your victims will now forget your interactions, and get paralyzed when you do them."))
 	else
-		to_chat(src, SPAN_NOTICE("Your victims will now remember your interactions, and stay completely mobile during them."))
+		to_chat(src, SPAN_NOTICE("Your victims will now remember your interactions."))
 
 // Drains the target's blood.
 /mob/living/carbon/human/proc/vampire_drain_blood()

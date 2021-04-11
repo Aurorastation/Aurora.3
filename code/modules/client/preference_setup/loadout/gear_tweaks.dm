@@ -47,6 +47,23 @@ Color adjustment
 	I.color = sanitize_hexcolor(metadata, I.color)
 
 /*
+Color Rotation adjustment
+*/
+var/datum/gear_tweak/color_rotation/gear_tweak_color_rotation = new()
+
+/datum/gear_tweak/color_rotation/get_contents(var/metadata)
+	return "Color Rotation: [metadata]"
+
+/datum/gear_tweak/color_rotation/get_default()
+	return 0
+
+/datum/gear_tweak/color_rotation/get_metadata(var/user, var/metadata, var/title = "Color Rotation")
+	return clamp(input(user, "Choose the amount of degrees to rotate the hue around the color wheel. (-180 - 180)", title, metadata) as num, -180, 180)
+
+/datum/gear_tweak/color_rotation/tweak_item(var/obj/item/I, var/metadata)
+	I.color = color_rotation(metadata)
+
+/*
 Path adjustment
 */
 

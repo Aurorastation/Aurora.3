@@ -6,7 +6,7 @@
 	name = "space helmet"
 	icon_state = "space"
 	desc = "A special helmet designed for work in a hazardous, low-pressure environment."
-	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL | AIRTIGHT
+	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL | INJECTIONPORT | AIRTIGHT
 	item_state_slots = list(
 		slot_l_hand_str = "s_helmet",
 		slot_r_hand_str = "s_helmet"
@@ -40,7 +40,7 @@
 	w_class = ITEMSIZE_LARGE//bulky item
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.02
-	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL
+	item_flags = STOPPRESSUREDAMAGE|THICKMATERIAL|INJECTIONPORT
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank/emergency_oxygen,/obj/item/device/suit_cooling_unit)
 	slowdown = 3
