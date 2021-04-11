@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Vaurca tunnel cloaks now have standard backpack storage size."

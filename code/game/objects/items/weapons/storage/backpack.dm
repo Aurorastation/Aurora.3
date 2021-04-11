@@ -172,9 +172,8 @@
 
 /obj/item/storage/backpack/cloak
 	name = "tunnel cloak"
-	desc = "It's a Vaurca cloak, with paltry storage options."
+	desc = "It's a Vaurca cloak with storage pockets."
 	icon_state = "cape"
-	max_storage_space = 12
 	sprite_sheets = list(BODYTYPE_VAURCA = 'icons/mob/species/vaurca/back.dmi')
 
 /obj/item/storage/backpack/syndie
