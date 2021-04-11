@@ -21,7 +21,7 @@
 
 /obj/item/clothing/accessory/sweatervneck
 	name = "v-neck sweater"
-	desc = "A sewn vneck sweater featuring a collarless neckline."
+	desc = "A sewn v-neck sweater featuring a collarless neckline."
 	desc_fluff = "Fortunately, they even have a type of sweater for the sporty and informal."
 	icon_state = "sweatervneck"
 	item_state = "sweatervneck"
