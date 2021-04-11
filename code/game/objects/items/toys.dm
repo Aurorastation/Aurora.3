@@ -861,17 +861,54 @@
 	pickup_sound = 'sound/items/pickup/plushie.ogg'
 	var/phrase = "Hewwo!"
 
-/obj/item/toy/plushie/attack_self(mob/user as mob)
+	var/stuffed = TRUE //If the plushie has stuffing in it
+	var/obj/item/grenade/grenade //You can remove the stuffing from a plushie and add a grenade to it for *nefarious uses*
+
+/obj/item/toy/plushie/Destroy()
+	QDEL_NULL(grenade)
+	return ..()
+
+/obj/item/toy/plushie/attack_self(mob/user)
+	if(grenade && !QDELETED(grenade))
+		grenade.activate(user, 10)
 	if(user.a_intent == I_HELP)
-		user.visible_message("<span class='notice'><b>\The [user]</b> hugs [src]!</span>","<span class='notice'>You hug [src]!</span>")
+		user.visible_message("<b>[user]</b> hugs \the [src]!", SPAN_NOTICE("You hug \the [src]!"))
 	else if (user.a_intent == I_HURT)
-		user.visible_message("<span class='warning'><b>\The [user]</b> punches [src]!</span>","<span class='warning'>You punch [src]!</span>")
+		user.visible_message("<b>[user]</b> punches \the [src]!", SPAN_WARNING("You punch \the [src]!"))
 	else if (user.a_intent == I_GRAB)
-		user.visible_message("<span class='warning'><b>\The [user]</b> attempts to strangle [src]!</span>","<span class='warning'>You attempt to strangle [src]!</span>")
+		user.visible_message("<b>[user]</b> attempts to strangle \the [src]!", SPAN_WARNING("You attempt to strangle \the [src]!"))
 	else
-		user.visible_message("<span class='notice'><b>\The [user]</b> pokes the [src].</span>","<span class='notice'>You poke the [src].</span>")
+		user.visible_message("<b>[user]</b> pokes \the [src].", SPAN_NOTICE("You poke the \the [src]."))
 		playsound(src, 'sound/items/drop/plushie.ogg', 25, 0)
 		visible_message("[src] says, \"[phrase]\"")
+
+/obj/item/toy/plushie/attackby(obj/item/I, mob/living/user)
+	if(I.sharp || I.edge)
+		if(!grenade || QDELETED(grenade))
+			if(!stuffed)
+				to_chat(user, SPAN_WARNING("\The [src] has already been murdered!"))
+				return
+			user.visible_message("<b>[user]</b> tears out the stuffing from \the [src]!", SPAN_NOTICE("You rip a bunch of the stuffing from [src]. Murderer."))
+			playsound(I, I.usesound, 50, TRUE)
+			stuffed = FALSE
+		else
+			to_chat(user, SPAN_NOTICE("You remove \the [grenade] from \the [src]."))
+			user.put_in_hands(grenade)
+			grenade = null
+		return
+	else if(istype(I, /obj/item/grenade))
+		if(stuffed)
+			to_chat(user, SPAN_WARNING("You need to remove some stuffing first!"))
+			return
+		if(grenade && !QDELETED(grenade))
+			to_chat(user, SPAN_WARNING("\The [src] already has a grenade!"))
+			return
+		user.drop_from_inventory(I, src)
+		user.visible_message("<b>[user]</b> slides \the [grenade] into \the [src].", SPAN_NOTICE("You slide \the [I] into \the [src]."))
+		grenade = I
+		log_and_message_admins("[key_name(user)] added a grenade ([I.name]) to [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
+		return
+	return ..()
 
 //Large plushies.
 

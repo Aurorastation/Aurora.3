@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "You can now hide grenades inside plushies after tearing out their stuffing."

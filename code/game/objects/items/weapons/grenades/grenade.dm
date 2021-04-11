@@ -59,7 +59,7 @@
 	return
 
 
-/obj/item/grenade/proc/activate(var/atom/user)
+/obj/item/grenade/proc/activate(var/atom/user, var/volume = 75)
 	if(active)
 		return
 
@@ -67,11 +67,11 @@
 		var/mob/M = user
 		msg_admin_attack("[M.name] ([M.ckey]) primed \a [fake ? ("fake ") : ("")][src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)",ckey=key_name(M))
 	else
-		message_admins("[user.name] primed \a [fake ? ("fake ") : ("")][src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
+		log_and_message_admins("[user.name] primed \a [fake ? ("fake ") : ("")] [istype(loc, /obj/item/toy/plushie) ? "plushie" : ""] [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
 
 	icon_state = initial(icon_state) + "_active"
 	active = 1
-	playsound(loc, activation_sound, 75, 1, -3)
+	playsound(loc, activation_sound, volume, 1, -3)
 
 	addtimer(CALLBACK(src, .proc/prime), det_time)
 
