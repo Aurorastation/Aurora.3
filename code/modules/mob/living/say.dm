@@ -236,7 +236,7 @@ proc/get_radio_key_from_channel(var/channel)
 	message = process_chat_markup(message, list("~", "_"))
 	if(is_singing)
 		var/randomnote = pick("\u2669", "\u266A", "\u266B")
-		message = "<span class='singing'>[randomnote] [message] [randomnote]</span>"
+		message = "[randomnote] <span class='singing'>[message]</span> [randomnote]"
 
 	//handle nonverbal and sign languages here
 	if (speaking)
