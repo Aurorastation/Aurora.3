@@ -189,11 +189,6 @@ proc/get_radio_key_from_channel(var/channel)
 		else
 			message = copytext(message,3)
 
-	var/is_singing = FALSE
-	if(length(message) >= 1 && copytext(message, 1, 2) == "%")
-		message = copytext(message, 2)
-		is_singing = TRUE
-
 	message = trim(message)
 	message = formalize_text(message)
 
@@ -204,6 +199,11 @@ proc/get_radio_key_from_channel(var/channel)
 		message = copytext(message,2+length(speaking.key))
 	else
 		speaking = get_default_language()
+
+	var/is_singing = FALSE
+	if(length(message) >= 1 && copytext(message, 1, 2) == "%")
+		message = copytext(message, 2)
+		is_singing = TRUE
 
 	// This is broadcast to all mobs with the language,
 	// irrespective of distance or anything else.
