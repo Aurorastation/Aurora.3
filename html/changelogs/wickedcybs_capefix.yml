@@ -3,4 +3,4 @@ author: WickedCybs
 delete-after: True
 
 changes:
-  - bugfix: "The tribunalist cape can be rolled up now, which was always its intentional behaviour."
+  - bugfix: "The tribunalist cape can be rolled up now, if desired."
