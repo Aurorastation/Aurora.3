@@ -101,7 +101,7 @@ var/list/admin_verbs_admin = list(
 	/client/proc/reset_openturf,
 	/client/proc/toggle_aooc,
 	/client/proc/force_away_mission,
-	/client/proc/adminlooc
+	/client/proc/alooc
 )
 var/list/admin_verbs_ban = list(
 	/client/proc/unban_panel,
@@ -423,7 +423,7 @@ var/list/admin_verbs_mod = list(
 	/client/proc/check_ai_laws,			/*shows AI and borg laws*/
 	/client/proc/aooc,
 	/client/proc/toggle_aooc,
-	/client/proc/adminlooc
+	/client/proc/alooc
 )
 
 var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
@@ -1301,7 +1301,7 @@ var/list/admin_verbs_cciaa = list(
 	else
 		log_and_message_admins("forced the following away mission: [mission_name].")
 
-/client/proc/adminlooc(msg as text)
+/client/proc/alooc(msg as text)
 	set name = "Admin LOOC"
 	set desc = "Admin Local OOC, seen only by those in view, regardless of their LOOC preferences."
 	set category = "Admin"
