@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed the cybersuit choice in the ninja hardsuit token not working properly."
+  - bugfix: "Fixed voidsuit modkits deleting voidsuits pieces."
