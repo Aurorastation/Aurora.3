@@ -1048,13 +1048,13 @@
 /obj/item/toy/ringbell/attack_hand(mob/user)
 	switch(user.a_intent)
 		if (I_HELP)
-			user.visible_message(FONT_LARGE (SPAN_NOTICE("[user] rings \the [src], signalling the beginning of the contest.")))
+			user.visible_message(FONT_LARGE(SPAN_NOTICE("[user] rings \the [src], signalling the beginning of the contest.")), SPAN_NOTICE("You ring \the [src] to signal the beginning of the contest!"))
 			playsound(user.loc, 'sound/items/oneding.ogg', 60, 1)
 		if (I_DISARM)
-			user.visible_message(FONT_LARGE (SPAN_NOTICE("[user] rings \the [src] three times, signalling the end of the contest!")))
+			user.visible_message(FONT_LARGE(SPAN_NOTICE("[user] rings \the [src] three times, signalling the end of the contest!")), SPAN_NOTICE("You ring \the [src] to signal the end of the contest!"))
 			playsound(user.loc, 'sound/items/threedings.ogg', 60, 1)
 		if (I_HURT)
-			user.visible_message(FONT_LARGE (SPAN_WARNING("[user] rings \the [src] repeatedly, signalling a disqualification!")))
+			user.visible_message(FONT_LARGE(SPAN_WARNING("[user] rings \the [src] repeatedly, signalling a disqualification!")), SPAN_WARNING("You ring \the [src] to signal a disqualification!"))
 			playsound(user.loc, 'sound/items/manydings.ogg', 60, 1)
 
 //baystation desk toys
