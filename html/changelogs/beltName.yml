@@ -1,6 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscadd: "Ordinary belts from the loadout can now be given unique names & descriptions."
