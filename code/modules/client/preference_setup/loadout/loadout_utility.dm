@@ -113,3 +113,21 @@
 	cards["business card, glass"] = /obj/item/paper/business_card/glass
 	gear_tweaks += new /datum/gear_tweak/path(cards)
 	gear_tweaks += new /datum/gear_tweak/paper_data()
+
+/datum/gear/utility/pills
+	display_name = "pill bottle selection"
+	description = "A selection of prescription pill. NOTICE: most of these are considered contraband if possessed without the relevant prescription noted in the medical records."
+	path = /obj/item/reagent_containers/pill
+
+/datum/gear/utility/pills/New()
+	..()
+	var/pills = list()
+	pills["Corophenidate"] = /obj/item/storage/pill_bottle/corophenidate
+	pills["Emoxanyl"] = /obj/item/storage/pill_bottle/emoxanyl
+	pills["Minaphobin"] = /obj/item/storage/pill_bottle/minaphobin/small
+	pills["Nerospectan"] = /obj/item/storage/pill_bottle/nerospectan
+	pills["Neuropan"] = /obj/item/storage/pill_bottle/neurapan
+	pills["Neurostabin "] = /obj/item/storage/pill_bottle/neurostabin
+	pills["Orastabin"] = /obj/item/storage/pill_bottle/orastabin
+	pills["Parvosil"] = /obj/item/storage/pill_bottle/parvosil
+	gear_tweaks += new/datum/gear_tweak/path(pills)
