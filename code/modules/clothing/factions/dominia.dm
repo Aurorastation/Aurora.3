@@ -293,6 +293,7 @@
 /obj/item/clothing/accessory/poncho/dominia/red/verb/roll_up_mantle()
 	set name = "Roll Up Cape Mantle"
 	set desc = "Roll up your cape's mantle. Doesn't work with some capes."
+	set category = "Object"
 	set src in usr
 
 	if(use_check_and_message(usr))
