@@ -1,6 +1,0 @@
-author: WickedCybs
-
-delete-after: True
-
-changes:
-  - bugfix: "The tribunalist cape can be rolled up from the objects menu now, also allowing this function to remain when worn as an accessory."
