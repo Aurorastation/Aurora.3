@@ -12,6 +12,7 @@
 		var/decl/nanomachine_effect/NE = decls_repository.get_decl(program)
 		program_names += NE.name
 	nanomachines.speak_to_owner("Programs loaded: [english_list(program_names)].")
+	nanomachines.speak_to_owner("Note: Post-Infusement sickness will take effect for up to three minutes. You may experience: Muscle weakness, mild discomfort, and coordination impairment.")
 
 /mob/living/carbon/human/proc/remove_nanomachines()
 	nanomachines.owner = null
