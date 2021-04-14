@@ -18,6 +18,7 @@
         <vui-button v-else-if="!channel.direct" @click="title = channel.title">Change title</vui-button>
         <vui-button :params="{delete: reference}" @click="$emit('on-leave')">Delete channel</vui-button>
       </template>
+      <vui-button :class="{'selected': channel.focused == true}" :params="{focus: reference}">{{ channel.focused == true ? "Disable Speech-To-Text" : "Enable Speech-To-Text" }}</vui-button>
     </div>
     <div>
       <div v-for="(user, uref) in channel.users" :key="uref">
@@ -58,8 +59,8 @@ export default {
   props: {
     reference: {
       type: String,
-      default: "",
-    },
+      default: ""
+    }
   },
   methods: {
     send_msg() {

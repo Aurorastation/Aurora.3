@@ -13,6 +13,8 @@
 	silent = FALSE
 
 	var/datum/ntnet_user/my_user
+	var/datum/ntnet_conversation/focused_conv
+
 	var/netadmin_mode = FALSE		// Administrator mode (invisible to other users + bypasses passwords)
 	var/set_offline = FALSE			// appear "invisible"
 
@@ -62,6 +64,19 @@
 			if(ishuman(user))
 				user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
 			conv.cl_send(src, message, user)
+	if(href_list["focus"])
+		var/mob/living/user = usr
+		var/datum/ntnet_conversation/conv = locate(href_list["focus"])
+		if(istype(conv))
+			if(ishuman(user))
+				user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
+			if(focused_conv == conv)
+				focused_conv = null
+				listening_objects -= computer
+			else
+				focused_conv = conv
+				listening_objects |= computer
+		SSvueui.check_uis_for_change(src)
 	if(href_list["join"])
 		var/datum/ntnet_conversation/conv = locate(href_list["join"]["target"])
 		var/password = href_list["join"]["password"]
@@ -121,8 +136,7 @@
 			if(ishuman(user))
 				user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
 			conv.cl_send(src, message, user)
-	
-				
+
 /datum/computer_file/program/chat_client/service_activate()
 	. = ..()
 	if(istype(my_user) && get_signal(NTNET_COMMUNICATION))
@@ -220,7 +234,8 @@
 					"direct" = Channel.direct,
 					"password" = !!Channel.password,
 					"can_interact" = can_interact,
-					"can_manage" = can_manage
+					"can_manage" = can_manage,
+					"focused" = focused_conv == Channel ? TRUE : FALSE
 				)
 				if(can_interact)
 					data["channels"][ref]["msg"] = Channel.messages
