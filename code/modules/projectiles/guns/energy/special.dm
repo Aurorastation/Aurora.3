@@ -224,21 +224,22 @@
 	w_class = ITEMSIZE_LARGE
 	force = 10
 	projectile_type = /obj/item/projectile/beam/gatlinglaser
-	max_shots = 80
+	max_shots = 500
 	sel_mode = 1
 	burst = 10
 	burst_delay = 1
-	fire_delay = 10
+	fire_delay = 6
 	dispersion = GATLINGLASER_DISPERSION_CONCENTRATED
 
 	is_wieldable = TRUE
 
 	firemodes = list(
-		list(mode_name="concentrated burst", burst=10, burst_delay = 1, fire_delay = 10, dispersion = GATLINGLASER_DISPERSION_CONCENTRATED),
-		list(mode_name="spray", burst=20, burst_delay = 1, move_delay = 5, fire_delay = 30, dispersion = GATLINGLASER_DISPERSION_SPRAY)
+		list(mode_name="short bursts",	can_autofire=0, burst=10, move_delay=8, burst_accuracy = list(0,-1,-1,-2,-2),          dispersion = list(3, 6, 9)),
+		list(mode_name="long bursts",	can_autofire=0, burst=20, move_delay=9, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(8)),
+		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=1, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25))
 		)
 
-	charge_cost = 50
+	charge_cost = 30
 
 /obj/item/gun/energy/vaurca/gatlinglaser/special_check(var/mob/user)
 	if(is_charging)
