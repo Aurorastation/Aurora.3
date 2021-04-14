@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a slider to the modular computer hardware configurator that affects how far audible alerts will get output, 0 being only to the person directly holding it."
+  - rscadd: "Added a Mute Messages button to the chat client that makes it so that received messages don't appear in your chat. Running the chat in the background will still make the beeps, however."

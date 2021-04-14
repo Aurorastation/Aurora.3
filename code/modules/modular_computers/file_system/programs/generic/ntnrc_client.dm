@@ -17,6 +17,8 @@
 	var/set_offline = FALSE			// appear "invisible"
 
 	var/ringtone = "beep"
+	var/message_mute = FALSE
+
 	var/syndi_auth = FALSE
 
 
@@ -27,7 +29,7 @@
 	return ((program_state > PROGRAM_STATE_KILLED || service_state > PROGRAM_STATE_KILLED) && from != src && get_signal(NTNET_COMMUNICATION))
 
 /datum/computer_file/program/chat_client/proc/play_notification_sound(var/datum/computer_file/program/chat_client/from)
-	if(!silent && src != from && program_state == PROGRAM_STATE_BACKGROUND)
+	if(!silent && src != from && (program_state == PROGRAM_STATE_BACKGROUND || (program_state == PROGRAM_STATE_KILLED && service_state == PROGRAM_STATE_ACTIVE)))
 		playsound(computer, 'sound/machines/twobeep.ogg', 50, 1)
 		computer.output_message("[icon2html(computer, world)] *[ringtone]*", 2)
 
@@ -46,6 +48,10 @@
 			newRingtone = sanitize(newRingtone, 20)
 			ringtone = newRingtone
 			SSvueui.check_uis_for_change(src)
+
+	if(href_list["mute_message"])
+		message_mute = !message_mute
+		SSvueui.check_uis_for_change(src)
 	
 	// User only commands
 	if(!istype(my_user))
@@ -206,6 +212,7 @@
 	data["ringtone"] = ringtone
 	data["netadmin_mode"] = netadmin_mode
 	data["can_netadmin_mode"] = can_run(user, FALSE, access_network)
+	data["message_mute"] = message_mute
 
 	if(data["registered"] && data["service"] && data["signal"])
 		data["channels"] = list()
