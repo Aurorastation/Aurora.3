@@ -122,11 +122,8 @@
 /datum/gear/utility/pills/New()
 	..()
 	var/pills = list()
-	pills["Corophenidate"] = /obj/item/storage/pill_bottle/corophenidate
 	pills["Emoxanyl"] = /obj/item/storage/pill_bottle/emoxanyl
 	pills["Minaphobin"] = /obj/item/storage/pill_bottle/minaphobin/small
-	pills["Nerospectan"] = /obj/item/storage/pill_bottle/nerospectan
-	pills["Neuropan"] = /obj/item/storage/pill_bottle/neurapan
 	pills["Neurostabin "] = /obj/item/storage/pill_bottle/neurostabin
 	pills["Orastabin"] = /obj/item/storage/pill_bottle/orastabin
 	pills["Parvosil"] = /obj/item/storage/pill_bottle/parvosil
