@@ -14,3 +14,6 @@ Gelasio.woff - Copyright (c) 2016, Eben Sorkin (http://sorkintype.com), with Res
 Classico.woff - Copyright (c) 2011, wmk69 (wmk69@o2.pl), with Reserved Font Name 'Classica'.
 Stormning.woff - Copyright (c) 2015, Mew Too, Robert Jablonski (Cannot Into Space Fonts) (cannotintospacefonts@gmail.com), with Reserved Font Name Stormning.
 Copt-B.woff - Copyright (c) 2014, Nick Matavka (https://fontlibrary.org/en/member/nmatavka), with Reserved Font Name "Copt-B".
+KawkabMono.woff - Copyright (c) 2015, Abdullah Arif (abdullah.a@gmail.com), with Reserved Font Name 'Kawkab Mono'.
+KaushanScript.woff - Copyright (c) 2011, Pablo Impallari (www.impallari.com|impallari@gmail.com), Copyright (c) 2011, Igino Marini. (www.ikern.com|mail@iginomarini.com), with Reserved Font Name Kaushan Script.
+Ducados.woff - Copyright (c) 2015, Rafael Ferran i Peralta (https://fontlibrary.org/en/member/rferran), with Reserved Font Name 'Ducados'.

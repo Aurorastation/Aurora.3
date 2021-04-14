@@ -14,6 +14,9 @@
 @font-face { font-family: classica; src: url(classica.woff); }
 @font-face { font-family: stormning; src: url(stormning.woff); }
 @font-face { font-family: copt-b; src: url(copt-b.woff); }
+@font-face { font-family: ducados; src: url(ducados.woff); }
+@font-face { font-family: kawkabmono; src: url(kawkabmono.woff); }
+@font-face { font-family: kaushanscript; src: url(kaushanscript.woff); }
 
 .siikmaas.understood { font-family: sovjetbox; }
 .siikmaas.scramble { font-family: lashema; }
@@ -28,13 +31,13 @@
 .encodedaudiolanguage.scramble { font-family: web3of9ascii; }
 
 .solcommon.understood { font-family: mo5v56; }
-.solcommon.scramble { text-decoration: underline; }
+.solcommon.scramble { font-family: ducados; }
 
 .tradeband.understood { font-family: gelasio; }
 .tradeband.scramble { font-family: gelasio; }
 
-.freespeak.understood { text-decoration: underline; }
-.freespeak.scramble { text-decoration: underline; }
+.freespeak.understood { font-family: kawkabmono; }
+.freespeak.scramble { font-family: kaushanscript; }
 
 .sintaunathi.understood { font-family: classica; }
 .sintaunathi.scramble { font-family: copt-b; }
