@@ -6,6 +6,11 @@
 @font-face { font-family: torsha; src: url(torsha.woff); }
 @font-face { font-family: web3of9ascii; src: url(web3of9ascii.woff); }
 @font-face { font-family: zeshit; src: url(zeshit.woff); }
+@font-face { font-family: bilboinc; src: url(bilboinc.woff); }
+@font-face { font-family: fproject; src: url(fproject.woff); }
+@font-face { font-family: gelasio; src: url(gelasio.woff); }
+@font-face { font-family: mo5v56; src: url(mo5v56.woff); }
+@font-face { font-family: runasans; src: url(runasans.woff); }
 
 .siikmaas.understood { font-family: sovjetbox; }
 .siikmaas.scramble { font-family: lashema; }
@@ -18,3 +23,21 @@
 
 .encodedaudiolanguage.understood { font-family: sourcecodepro; }
 .encodedaudiolanguage.scramble { font-family: web3of9ascii; }
+
+.solcommon.understood { font-family: mo5v56; }
+.solcommon.scramble { text-decoration: underline; }
+
+.tradeband.understood { font-family: gelasio; }
+.tradeband.scramble { font-family: gelasio; }
+
+.freespeak.understood { text-decoration: underline; }
+.freespeak.scramble { text-decoration: underline; }
+
+.sintaunathi.understood { text-decoration: underline; }
+.sintaunathi.scramble { text-decoration: underline; }
+
+.sintaazaziba.understood { font-family: fproject; }
+.sintaazaziba.scramble { text-decoration: underline; }
+
+.nralmalic.understood { font-family: bilboinc; font-size: 150%; }
+.nralmalic.scramble { font-family: runasans; }

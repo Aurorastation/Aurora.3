@@ -6,3 +6,8 @@ Zeshit.woff - Copyright (c) 13 July 2019, T. Christopher White (amenemsu@gmail.c
 Bluebird.woff - Copyright (c) 2015, Jasper @ Cannot Into Space Fonts (cannotintospacefonts@gmail.com), with Reserved Font Name "Bluebird".
 Web3Of9ASCII.woff - Copyright (c) 2014, Nathaniel Reeser (nathaniel.reeser@gmail.com), with Reserved Font Name Web 3 Of 9 ASCII.
 SourceCodePro.woff - Copyright 2010, 2012 Adobe Systems Incorporated (http://www.adobe.com/), with Reserved Font Name 'Source'. All Rights Reserved. Source is a trademark of Adobe Systems Incorporated in the United States and/or other countries.
+RunaSans.woff - Copyright (c) 2015, Hermes Saucedo (http://wyrdeswegas.com | herael@gmail.com), with Reserved Font Name "RunaSans".
+BilboINC.woff - Copyright (c) 2015, Hélène Marian-Srodogora (https://www.helenemarian.com), with Reserved Font Name "BilboINC".
+Mo5V56.woff - Copyright (c) 2011, D. Kanjahn (https://fonts2u.com/font-designers/d-kanjahn.html), with Reserved Font Name "Mo5V56".
+FProject.woff - Copyright (c) 2020, Subhraman Sarkar (https://fontlibrary.org/en/member/BSSarkar), with Reserved Font Name "FProject".
+Gelasio.woff - Copyright (c) 2016, Eben Sorkin (http://sorkintype.com), with Reserved Font Name "Gelasio".

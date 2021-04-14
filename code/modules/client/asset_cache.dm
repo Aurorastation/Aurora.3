@@ -443,7 +443,12 @@ var/list/asset_datums = list()
 		"sovjetbox.woff" = 'html/fonts/OFL/SovjetBox.woff',
 		"torsha.woff" = 'html/fonts/OFL/Torsha.woff',
 		"web3of9ascii.woff" = 'html/fonts/OFL/Web3Of9ASCII.woff',
-		"zeshit.woff" = 'html/fonts/OFL/zeshit.woff'
+		"zeshit.woff" = 'html/fonts/OFL/zeshit.woff',
+		"bilboinc.woff" = 'html/fonts/OFL/BilboINC.woff',
+		"fproject.woff" = 'html/fonts/OFL/FProject.woff',
+		"gelasio.woff" = 'html/fonts/OFL/Gelasio.woff',
+		"mo5v56.woff" = 'html/fonts/OFL/Mo5V56.woff',
+		"runasans.woff" = 'html/fonts/OFL/RunaSans.woff'
 	)
 
 /datum/asset/simple/changelog

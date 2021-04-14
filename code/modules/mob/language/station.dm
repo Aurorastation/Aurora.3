@@ -22,11 +22,13 @@
 
 /datum/language/unathi
 	name = LANGUAGE_UNATHI
+	short = "UNA"
 	desc = "The common language of Moghes, composed of sibilant hisses and rattles. Spoken natively by Unathi."
 	speech_verb = list("hisses")
 	ask_verb = list("hisses")
 	exclaim_verb = list("roars")
 	colour = "soghun"
+	written_style = "sintaunathi"
 	key = "o"
 	flags = WHITELISTED|TCOMSSIM
 	allow_accents = TRUE
@@ -137,11 +139,13 @@
 
 /datum/language/skrell
 	name = LANGUAGE_SKRELLIAN
+	short = "NRAL"
 	desc = "A melodic and complex language spoken by the Skrell of Qerrbalak. Some of the notes are inaudible to humans."
 	speech_verb = list("warbles")
 	ask_verb = list("warbles")
 	exclaim_verb = list("warbles")
 	colour = "skrell"
+	written_style = "nralmalic"
 	key = "k"
 	flags = WHITELISTED|TCOMSSIM
 	syllables = list("qr","qrr","xuq","qil","quum","xuqm","vol","xrim","zaoo","qu-uu","qix","qoo","zix","*","!")
@@ -242,7 +246,7 @@
 	short = "SOL"
 	desc = "With its roots in Mandarin Chinese, Common evolved as the official language of the Sol Alliance, with officials working to tie it together with a common tongue. It's spoken by state officials, taught in schools, and spoken by those who either feel a sense of national pride in the Alliance or otherwise fell sway to the culture."
 	colour = "solcom"
-	written_style = "sol_common"
+	written_style = "solcommon"
 	key = "1"
 	flags = WHITELISTED | TCOMSSIM
 	syllables = list("a", "abe", "ade", "ai", "an", "ana", "ba", "bae", "bai", "bang", "bao", "bei", "ben", "beo", "bi", "bian", "bing", "bo", "bu", "bugu", "bun", "cai", "can", "cao", "cau", "chan", "chen", "cheong",
@@ -286,12 +290,14 @@
 
 /datum/language/unathi_azaziba
 	name = LANGUAGE_AZAZIBA
+	short = "AZA"
 	desc = "A language of Moghes consisting of a combination of spoken word and gesticulation. While waning since Moghes entered the galactic stage, it enjoys popular use by Unathi that never fell to the Hegemony's cultural dominance."
 	speech_verb = list("hisses")
 	ask_verb = list("hisses")
 	exclaim_verb = list("roars")
 	signlang_verb = list("signs", "gestures aggressively")
 	colour = "soghun_alt"
+	written_style = "sintaazaziba"
 	key = "p"
 	flags = WHITELISTED | NONVERBAL
 	syllables = list("azs","zis","zau","azua","skiu","zuakz","izo","aei","ki","kut","zo")
