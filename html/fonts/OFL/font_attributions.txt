@@ -11,3 +11,6 @@ BilboINC.woff - Copyright (c) 2015, Hélène Marian-Srodogora (https://www.helen
 Mo5V56.woff - Copyright (c) 2011, D. Kanjahn (https://fonts2u.com/font-designers/d-kanjahn.html), with Reserved Font Name "Mo5V56".
 FProject.woff - Copyright (c) 2020, Subhraman Sarkar (https://fontlibrary.org/en/member/BSSarkar), with Reserved Font Name "FProject".
 Gelasio.woff - Copyright (c) 2016, Eben Sorkin (http://sorkintype.com), with Reserved Font Name "Gelasio".
+Classico.woff - Copyright (c) 2011, wmk69 (wmk69@o2.pl), with Reserved Font Name 'Classica'.
+Stormning.woff - Copyright (c) 2015, Mew Too, Robert Jablonski (Cannot Into Space Fonts) (cannotintospacefonts@gmail.com), with Reserved Font Name Stormning.
+Copt-B.woff - Copyright (c) 2014, Nick Matavka (https://fontlibrary.org/en/member/nmatavka), with Reserved Font Name "Copt-B".

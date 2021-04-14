@@ -11,6 +11,9 @@
 @font-face { font-family: gelasio; src: url(gelasio.woff); }
 @font-face { font-family: mo5v56; src: url(mo5v56.woff); }
 @font-face { font-family: runasans; src: url(runasans.woff); }
+@font-face { font-family: classica; src: url(classica.woff); }
+@font-face { font-family: stormning; src: url(stormning.woff); }
+@font-face { font-family: copt-b; src: url(copt-b.woff); }
 
 .siikmaas.understood { font-family: sovjetbox; }
 .siikmaas.scramble { font-family: lashema; }
@@ -33,11 +36,11 @@
 .freespeak.understood { text-decoration: underline; }
 .freespeak.scramble { text-decoration: underline; }
 
-.sintaunathi.understood { text-decoration: underline; }
-.sintaunathi.scramble { text-decoration: underline; }
+.sintaunathi.understood { font-family: classica; }
+.sintaunathi.scramble { font-family: copt-b; }
 
 .sintaazaziba.understood { font-family: fproject; }
-.sintaazaziba.scramble { text-decoration: underline; }
+.sintaazaziba.scramble { font-family: stormning; }
 
 .nralmalic.understood { font-family: bilboinc; font-size: 150%; }
 .nralmalic.scramble { font-family: runasans; }

@@ -448,7 +448,10 @@ var/list/asset_datums = list()
 		"fproject.woff" = 'html/fonts/OFL/FProject.woff',
 		"gelasio.woff" = 'html/fonts/OFL/Gelasio.woff',
 		"mo5v56.woff" = 'html/fonts/OFL/Mo5V56.woff',
-		"runasans.woff" = 'html/fonts/OFL/RunaSans.woff'
+		"runasans.woff" = 'html/fonts/OFL/RunaSans.woff',
+		"classica.woff" = 'html/fonts/OFL/Classica.woff',
+		"stormning.woff" = 'html/fonts/OFL/Stormning.woff',
+		"copt-b.woff" = 'html/fonts/OFL/Copt-B.woff'
 	)
 
 /datum/asset/simple/changelog
