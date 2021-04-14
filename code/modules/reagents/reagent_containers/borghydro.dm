@@ -57,12 +57,8 @@
 	return 1
 
 /obj/item/reagent_containers/hypospray/borghypo/inject(var/mob/living/M, var/mob/user, proximity)
-
-	if(!proximity)
+	if(!proximity || !istype(M))
 		return
-
-	if(!istype(M))
-		return ..()
 
 	if(!reagent_volumes[reagent_ids[mode]])
 		to_chat(user,"<span class='warning'>The injector is empty.</span>")

@@ -76,11 +76,7 @@
 		add_overlay(filling)
 
 /obj/item/reagent_containers/hypospray/proc/inject(var/mob/M, var/mob/user, proximity)
-
-	if (!istype(M))
-		return ..()
-
-	if(!proximity)
+	if(!proximity || !istype(M))
 		return
 
 	if(!reagents.total_volume)
