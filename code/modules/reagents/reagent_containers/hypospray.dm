@@ -50,14 +50,16 @@
 	if(isliving(M))
 		var/mob/living/L = M
 		var/inj_time = time
-		inj_time *= L.can_inject(user, TRUE)
-		if(!inj_time)
+		var/mod_time = L.can_inject(user, TRUE, target_zone, armorcheck)
+		if(!mod_time)
 			return
+		else if(inj_time <= 0 && mod_time > 1)
+			inj_time = (1 SECOND) * mod_time
+		else
+			inj_time *= mod_time
 		user.visible_message(SPAN_WARNING("\The [user] is trying to inject \the [L] with \the [src]!"), SPAN_NOTICE("You are trying to inject \the [L] with \the [src]."))
-		if(armorcheck && L.get_blocked_ratio(target_zone, BRUTE, damage = 10))
-			inj_time += 6 SECONDS
-		if(!do_mob(user, L, inj_time))
-			return 1
+		if(do_mob(user, L, inj_time))
+			inject(M, user, M.Adjacent(user))
 
 /obj/item/reagent_containers/hypospray/update_icon()
 	cut_overlays()
@@ -73,7 +75,7 @@
 		filling.color = reagents.get_color()
 		add_overlay(filling)
 
-/obj/item/reagent_containers/hypospray/afterattack(var/mob/M, var/mob/user, proximity)
+/obj/item/reagent_containers/hypospray/proc/inject(var/mob/M, var/mob/user, proximity)
 
 	if (!istype(M))
 		return ..()
@@ -100,6 +102,13 @@
 
 	update_icon()
 	return TRUE
+
+/obj/item/reagent_containers/hypospray/afterattack(atom/target, mob/user, proximity)
+	if (!proximity)
+		return
+
+	if (!isliving(target))
+		return ..()
 
 /obj/item/reagent_containers/hypospray/autoinjector
 	name = "autoinjector"
@@ -132,7 +141,7 @@
 		return FALSE
 	. = ..()
 
-/obj/item/reagent_containers/hypospray/autoinjector/afterattack(mob/M, mob/user, proximity)
+/obj/item/reagent_containers/hypospray/autoinjector/inject(mob/M, mob/user, proximity)
 	. = ..()
 	if(.)
 		spent = TRUE
@@ -230,7 +239,7 @@
 	item_state = "combat_hypo"
 	icon_state = "combat_hypo"
 	volume = 20
-	armorcheck = 0
+	armorcheck = FALSE
 	time = 0
 
 	reagents_to_add = list(/decl/reagent/oxycomorphine = 5, /decl/reagent/synaptizine = 5, /decl/reagent/hyperzine = 5, /decl/reagent/arithrazine = 5)

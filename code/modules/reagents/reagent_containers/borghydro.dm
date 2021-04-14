@@ -56,7 +56,7 @@
 					reagent_volumes[T] = min(reagent_volumes[T] + 5, volume)
 	return 1
 
-/obj/item/reagent_containers/hypospray/borghypo/afterattack(var/mob/living/M, var/mob/user, proximity)
+/obj/item/reagent_containers/hypospray/borghypo/inject(var/mob/living/M, var/mob/user, proximity)
 
 	if(!proximity)
 		return
@@ -68,27 +68,23 @@
 		to_chat(user,"<span class='warning'>The injector is empty.</span>")
 		return
 
-	var/mob/living/carbon/human/H = M
-	if(istype(H))
-		var/obj/item/organ/external/affected = H.get_organ(user.zone_sel.selecting)
-		if(!affected)
-			to_chat(user,"<span class='danger'>\The [H] is missing that limb!</span>")
-			return
-		else if(affected.status & ORGAN_ROBOT)
-			to_chat(user,"<span class='danger'>You cannot inject a robotic limb.</span>")
-			return
+	user.visible_message("<span class='notice'>[user] injects [M] with their hypospray!</span>", "<span class='notice'>You inject [M] with your hypospray!</span>", "<span class='notice'>You hear a hissing noise.</span>")
+	to_chat(M,"<span class='notice'>You feel a tiny prick!</span>")
 
-	if (M.can_inject(user, 1))
-		user.visible_message("<span class='notice'>[user] injects [M] with their hypospray!</span>", "<span class='notice'>You inject [M] with your hypospray!</span>", "<span class='notice'>You hear a hissing noise.</span>")
-		to_chat(M,"<span class='notice'>You feel a tiny prick!</span>")
-
-		if(M.reagents)
-			var/t = min(amount_per_transfer_from_this, reagent_volumes[reagent_ids[mode]])
-			M.reagents.add_reagent(reagent_ids[mode], t)
-			reagent_volumes[reagent_ids[mode]] -= t
-			admin_inject_log(user, M, src, reagent_ids[mode], reagents.get_temperature(), t)
-			to_chat(user,"<span class='notice'>[t] units injected. [reagent_volumes[reagent_ids[mode]]] units remaining.</span>")
+	if(M.reagents)
+		var/t = min(amount_per_transfer_from_this, reagent_volumes[reagent_ids[mode]])
+		M.reagents.add_reagent(reagent_ids[mode], t)
+		reagent_volumes[reagent_ids[mode]] -= t
+		admin_inject_log(user, M, src, reagent_ids[mode], reagents.get_temperature(), t)
+		to_chat(user,"<span class='notice'>[t] units injected. [reagent_volumes[reagent_ids[mode]]] units remaining.</span>")
 	return
+
+/obj/item/reagent_containers/hypospray/borghypo/afterattack(atom/target, mob/user, proximity)
+	if (!proximity)
+		return
+
+	if (!isliving(target))
+		return ..()
 
 /obj/item/reagent_containers/hypospray/borghypo/attack_self(mob/user as mob) //Change the mode
 	var/t = ""
