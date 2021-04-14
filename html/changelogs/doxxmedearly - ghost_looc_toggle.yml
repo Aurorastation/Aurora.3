@@ -1,0 +1,7 @@
+author: Doxxmedearly
+
+delete-after: True
+
+changes:
+  - rscadd: "Added the option to hide LOOC from ghosts/observers only. Check Show/Hide LOOC (Observers) in the Preferences tab, or the Observers LOOC setting under the Global tab in character setup. You do not need to toggle this if you already have regular LOOC disabled."
+  - rscadd: "Adds Admin LOOC for mods/admins, which functions as LOOC but displays regardless of a person's LOOC preferences. Has a slightly different color to LOOC."
