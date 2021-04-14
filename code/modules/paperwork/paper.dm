@@ -370,7 +370,7 @@
 	while (written_lang_regex.Find(.))
 		var/datum/language/L = language_keys[written_lang_regex.group[2]]
 		// Unknown language.
-		if (!L || !L.written_regex)
+		if (!L || !L.written_style)
 			continue
 
 		var/content = written_lang_regex.group[3]
@@ -385,7 +385,7 @@
 		
 		if(!language_check)
 			// Refer to paper/proc/show_content to edit the spans here.
-			. = L.written_regex.Replace(., "<span class='[L.written_style] [reader_understands ? "understood" : "scramble"]'>[L.short && reader_understands ? "([L.short]) [content]" : content]</span>", 1, 0)
+			. = replacetext(., written_lang_regex.match, "<span class='[L.written_style] [reader_understands ? "understood" : "scramble"]'>[L.short && reader_understands ? "([L.short]) [content]" : content]</span>")
 
 /obj/item/paper/Topic(href, href_list)
 	..()
