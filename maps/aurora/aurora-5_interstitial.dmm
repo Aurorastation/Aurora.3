@@ -6257,6 +6257,9 @@
 /obj/structure/bed/chair/comfy/sofa/left/leather{
 	dir = 8
 	},
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/medical/nanomachine)
 "uD" = (
