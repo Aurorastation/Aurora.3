@@ -287,6 +287,34 @@
 /obj/item/organ/proc/is_infected()
 	return (germ_level >= INFECTION_LEVEL_ONE)
 
+/obj/item/organ/proc/estimated_infection_level()
+	if(germ_level < INFECTION_LEVEL_ONE)
+		return "Healthy"
+	else if(germ_level >= INFECTION_LEVEL_ONE && germ_level < INFECTION_LEVEL_TWO)
+		return "Infection Level One"
+	else if(germ_level >= INFECTION_LEVEL_TWO && germ_level < INFECTION_LEVEL_THREE)
+		return "Infection Level Two"
+	else
+		return "Infection Level Three"
+
+/obj/item/organ/proc/increase_germ_level()
+	switch(estimated_infection_level())
+		if("Healthy")
+			germ_level = INFECTION_LEVEL_ONE
+		if("Infection Level One")
+			germ_level = INFECTION_LEVEL_TWO
+		if("Infection Level Two")
+			germ_level = INFECTION_LEVEL_THREE
+
+/obj/item/organ/proc/decrease_germ_level()
+	switch(estimated_infection_level())
+		if("Infection Level One")
+			germ_level = 0
+		if("Infection Level Two")
+			germ_level = INFECTION_LEVEL_ONE
+		if("Infection Level Three")
+			germ_level = INFECTION_LEVEL_TWO
+
 //Germs
 /obj/item/organ/proc/handle_antibiotics()
 	if(!owner || !(CE_ANTIBIOTIC in owner.chem_effects) || (germ_level <= 0))

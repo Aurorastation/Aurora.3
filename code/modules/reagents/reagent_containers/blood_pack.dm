@@ -22,7 +22,7 @@
 	volume = 200
 
 	amount_per_transfer_from_this = 0.2
-	possible_transfer_amounts = list(0.2, 1, 2)
+	possible_transfer_amounts = list(0.2, 1, 2, 3, 4)
 	flags = OPENCONTAINER
 
 	var/datum/weakref/attached_mob
