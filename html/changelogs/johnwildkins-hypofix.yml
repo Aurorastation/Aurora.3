@@ -1,0 +1,5 @@
+author: JohnWildkins
+delete-after: True
+
+changes:
+  - bugfix: "Hyposprays and autoinjectors should now account for armor coverage properly, and prevent injection on invalid targets (incl. robotic limbs)."

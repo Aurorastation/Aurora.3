@@ -1514,7 +1514,7 @@
 #define BASE_INJECTION_MOD 1 // x1 multiplier with no effects
 #define SUIT_INJECTION_MOD 2 // x2 multiplier if target is wearing spacesuit
 
-/mob/living/carbon/human/can_inject(var/mob/user, var/error_msg, var/target_zone)
+/mob/living/carbon/human/can_inject(var/mob/user, var/error_msg, var/target_zone, var/handle_coverage = TRUE)
 	. = BASE_INJECTION_MOD
 
 	if(!target_zone)
@@ -1533,7 +1533,7 @@
 	else if (affecting.status & ORGAN_ROBOT)
 		. = INJECTION_FAIL
 		fail_msg = "That limb is robotic."
-	else
+	else if (handle_coverage)
 		. *= get_bp_coverage(target_zone)
 		if(isvaurca(src) && . == SUIT_INJECTION_MOD)
 			user.visible_message("<b>[user]</b> begins hunting for an injection port on \the [src]'s carapace.")
