@@ -11,6 +11,11 @@
 	path = /obj/item/clothing/head/beret/security/idris
 	faction = "Idris Incorporated"
 
+/datum/gear/faction/idris_beret_alt
+	display_name = "idris beret (alt)"
+	path = /obj/item/clothing/head/beret/security/idris/alt
+	faction = "Idris Incorporated"
+
 /datum/gear/faction/idris_uniform_alt
 	display_name = "idris service skirt"
 	description = "Not for security usage."
@@ -27,6 +32,11 @@
 	display_name = "idris jacket"
 	path = /obj/item/clothing/suit/storage/toggle/idris
 	slot = slot_wear_suit
+	faction = "Idris Incorporated"
+
+/datum/gear/faction/idris_passcard
+	display_name = "idris silversun passcard"
+	path = /obj/item/clothing/accessory/badge/passcard/sol/silversun
 	faction = "Idris Incorporated"
 
 /datum/gear/faction/zavodskoi_beret
@@ -88,9 +98,28 @@
 	faction = "Zeng-Hu Pharmaceuticals"
 
 /datum/gear/faction/zenghu_labcoat
-	display_name = "zeng-hu labcoat"
+	display_name = "zeng-hu labcoat selection"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
 	slot = slot_wear_suit
+	faction = "Zeng-Hu Pharmaceuticals"
+
+/datum/gear/faction/zenghu_labcoat/New()
+	..()
+	var/masks = list()
+	masks["zeng-hu labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
+	masks["zeng-hu labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
+	gear_tweaks += new/datum/gear_tweak/path(masks)
+
+/datum/gear/faction/zenghu_apron
+	display_name = "zeng-hu vinyl apron"
+	path = /obj/item/clothing/suit/apron/surgery/zeng
+	slot = slot_wear_suit
+	faction = "Zeng-Hu Pharmaceuticals"
+
+/datum/gear/faction/zenghu_gloves
+	display_name = "zeng-hu vinyl gloves"
+	path = /obj/item/clothing/gloves/zeng
+	slot = slot_gloves
 	faction = "Zeng-Hu Pharmaceuticals"
 
 /datum/gear/faction/zavodskoi_patch
@@ -128,4 +157,9 @@
 	display_name = "hephaestus beret"
 	path = /obj/item/clothing/head/beret/heph
 	slot = slot_head
+	faction = "Hephaestus Industries"
+
+/datum/gear/faction/heph_passcard
+	display_name = "hephaestus burszia passcard"
+	path = /obj/item/clothing/accessory/badge/passcard/burszia
 	faction = "Hephaestus Industries"

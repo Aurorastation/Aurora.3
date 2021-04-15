@@ -327,3 +327,8 @@
 	display_name = "fisanduhian ushanka"
 	path = /obj/item/clothing/head/ushanka/dominia
 	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/head/dominia_consular
+	display_name = "dominian consular cap"
+	path = /obj/item/clothing/head/dominia
+	allowed_roles = list("Consular Officer")

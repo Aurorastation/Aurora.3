@@ -93,6 +93,7 @@
 /datum/gear/eyes/sechuds/New()
 	..()
 	var/sechud = list()
+	sechud["sunglasses, security"] = /obj/item/clothing/glasses/sunglasses/sechud
 	sechud["aviators, security"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator
 	sechud["HUD, security"] = /obj/item/clothing/glasses/hud/security
 	sechud["HUDpatch, security"] = /obj/item/clothing/glasses/eyepatch/hud/security

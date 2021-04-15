@@ -64,7 +64,6 @@
 	icon_state = "scell"
 	organ_tag = BP_CELL
 	parent_organ = BP_CHEST
-	vital = TRUE
 	max_damage = 80
 	relative_size = 80
 	var/open = FALSE
@@ -74,7 +73,7 @@
 
 /obj/item/organ/internal/cell/Initialize()
 	robotize()
-	cell = new cell(src)
+	replace_cell(new cell(src))
 	. = ..()
 
 /obj/item/organ/internal/cell/proc/percent()
@@ -88,11 +87,6 @@
 	if(status & ORGAN_DEAD)
 		return 0
 	return round(cell.charge*(1 - damage/max_damage))
-
-/obj/item/organ/internal/cell/proc/checked_use(var/amount)
-	if(!is_usable() || !cell)
-		return FALSE
-	return cell.checked_use(amount)
 
 /obj/item/organ/internal/cell/proc/use(var/amount)
 	if(!is_usable() || !cell)
@@ -108,12 +102,9 @@
 	var/cost = get_power_drain()
 	if(world.time - owner.l_move_time < 15)
 		cost *= 2
-	if(!checked_use(cost) && owner.isSynthetic())
-		if(!owner.lying && !owner.buckled_to)
-			to_chat(owner, "<span class='warning'>You don't have enough energy to function!</span>")
-		owner.Paralyse(3)
+	use(cost)
 
-/obj/item/organ/internal/cell/proc/get_power_drain()	
+/obj/item/organ/internal/cell/proc/get_power_drain()
 	return servo_cost
 
 /obj/item/organ/internal/cell/emp_act(severity)
@@ -122,7 +113,7 @@
 		cell.emp_act(severity)
 
 /obj/item/organ/internal/cell/attackby(obj/item/W, mob/user)
-	if(isscrewdriver(W))
+	if(W.isscrewdriver())
 		if(open)
 			open = FALSE
 			to_chat(user, SPAN_NOTICE("You screw the battery panel in place."))
@@ -130,20 +121,34 @@
 			open = TRUE
 			to_chat(user, SPAN_NOTICE("You unscrew the battery panel."))
 
-	if(iscrowbar(W))
+	if(W.iscrowbar())
 		if(open)
 			if(cell)
 				user.put_in_hands(cell)
 				to_chat(user, SPAN_NOTICE("You remove \the [cell] from \the [src]."))
 				cell = null
+			else
+				to_chat(user, SPAN_WARNING("There is no cell to remove."))
+		else
+			to_chat(user, SPAN_WARNING("You need to unscrew the battery panel first."))
 
-	if (istype(W, /obj/item/cell))
+	if(istype(W, /obj/item/cell))
 		if(open)
 			if(cell)
 				to_chat(user, SPAN_WARNING("There is a power cell already installed."))
 			else if(user.unEquip(W, src))
-				cell = W
+				replace_cell(W)
 				to_chat(user, SPAN_NOTICE("You insert \the [cell]."))
+		else
+			to_chat(user, SPAN_WARNING("You need to unscrew the battery panel first."))
+
+/obj/item/organ/internal/cell/proc/replace_cell(var/obj/item/cell/C)
+	if(istype(cell))
+		qdel(cell)
+	if(C.loc != src)
+		C.forceMove(src)
+	cell = C
+	name = "[initial(name)] ([C.name])"
 
 /obj/item/organ/internal/cell/listen()
 	if(get_charge())

@@ -29,7 +29,7 @@
 	faction = "cult"
 	status_flags = CANPUSH
 	hunger_enabled = 0
-	appearance_flags = NO_CLIENT_COLOR
+	appearance_flags = NO_CLIENT_COLOR|KEEP_TOGETHER
 	var/obj/item/residue = /obj/item/ectoplasm
 
 /mob/living/simple_animal/shade/cultify()
@@ -40,6 +40,11 @@
 	visible_message("<span class='warning'>[src] lets out a contented sigh as their form unwinds.</span>")
 	new residue(loc)
 	qdel(src)
+
+/mob/living/simple_animal/shade/ghostize()
+	. = ..()
+	if(!QDELETED(src) && stat != DEAD)
+		SSghostroles.add_spawn_atom("shade", src)
 
 /mob/living/simple_animal/shade/can_name(var/mob/living/M)
 	return FALSE
@@ -52,6 +57,7 @@
 		var/obj/item/device/soulstone/S = O;
 		S.transfer_soul("SHADE", src, user)
 		return
+	return ..()
 
 /mob/living/simple_animal/shade/can_fall()
 	return FALSE

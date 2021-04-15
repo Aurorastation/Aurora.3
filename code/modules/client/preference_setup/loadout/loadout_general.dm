@@ -100,6 +100,7 @@
 
 	..()
 	var/banners = list()
+	banners["banner, Stellar Corporate Conglomerate"] = /obj/item/flag/scc
 	banners["banner, SolGov"] = /obj/item/flag/sol
 	banners["banner, Dominia"] = /obj/item/flag/dominia
 	banners["banner, Elyra"] = /obj/item/flag/elyra
@@ -119,6 +120,8 @@
 	banners["banner, Zenghu Pharmaceuticals"] = /obj/item/flag/zenghu
 	banners["banner, Zavodskoi Interstellar"] = /obj/item/flag/zavodskoi
 	banners["banner, Coalition of Colonies"] = /obj/item/flag/coalition
+	banners["banner, Confederate States of Fisanduh"] = /obj/item/flag/fisanduh
+	banners["banner, Gadpathur"] = /obj/item/flag/gadpathur
 	gear_tweaks += new/datum/gear_tweak/path(banners)
 
 /datum/gear/standard
@@ -145,6 +148,7 @@
 /datum/gear/flag/New()
 	..()
 	var/flags = list()
+	flags["flag, Stellar Corporate Conglomerate"] = /obj/item/flag/scc/l
 	flags["flag, SolGov"] = /obj/item/flag/sol/l
 	flags["flag, Dominia"] = /obj/item/flag/dominia/l
 	flags["flag, Elyra"] = /obj/item/flag/elyra/l
@@ -163,6 +167,8 @@
 	flags["flag, Zeng-Hu Pharmaceuticals"] = /obj/item/flag/zenghu/l
 	flags["flag, Zavodskoi Interstellar"] = /obj/item/flag/zavodskoi/l
 	flags["flag, Coalition of Colonies"] = /obj/item/flag/coalition/l
+	flags["flag, Confederate States of Fisanduh"] = /obj/item/flag/fisanduh/l
+	flags["flag, Gadpathur"] = /obj/item/flag/gadpathur/l
 	gear_tweaks += new/datum/gear_tweak/path(flags)
 
 /datum/gear/towel

@@ -41,6 +41,13 @@ obj/item/clothing/suit/apron/overalls/blue
 	allowed = list(/obj/item/stack/medical, /obj/item/reagent_containers/dropper, /obj/item/reagent_containers/hypospray, /obj/item/reagent_containers/syringe, \
 	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank/emergency_oxygen, /obj/item/device/breath_analyzer, /obj/item/reagent_containers/blood)
 
+/obj/item/clothing/suit/apron/surgery/zeng
+	name = "zeng-hu vinyl apron"
+	desc = "A key design element in the labwear was utility and compatibility with the Zeng-Hu positronic chassis workers that are ubiquitous throughout the corporation. As a result \
+	they are breathable yet non-porous, allowing for ample airflow while retaining the cleanroom standards expected of a medical and scientific uniform."
+	icon_state = "zeng_apron"
+	item_state = "zeng_apron"
+
 //Chaplain
 /obj/item/clothing/suit/chaplain_hoodie
 	name = "chaplain hoodie"
@@ -82,48 +89,48 @@ obj/item/clothing/suit/apron/overalls/blue
 
 //Security
 
-/obj/item/clothing/suit/security/officer
+/obj/item/clothing/suit/storage/security/officer
 	name = "security officer's jacket"
 	desc = "This jacket is for those special occasions when a security officer actually feels safe."
 	icon_state = "officerjacket"
 	item_state = "officerjacket"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
-/obj/item/clothing/suit/security/officer/blue
+/obj/item/clothing/suit/storage/security/officer/blue
 	icon_state = "officerbluejacket"
 	item_state = "officerbluejacket"
 
-/obj/item/clothing/suit/security/officer/dnavy
+/obj/item/clothing/suit/storage/security/officer/dnavy
 	icon_state = "officerdnavyjacket"
 	item_state = "officerdnavyjacket"
 
-/obj/item/clothing/suit/security/warden
+/obj/item/clothing/suit/storage/security/warden
 	name = "warden's jacket"
 	desc = "Perfectly suited for the warden that wants to leave an impression of style on those who visit the brig."
 	icon_state = "wardenjacket"
 	item_state = "wardenjacket"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
-/obj/item/clothing/suit/security/warden/blue
+/obj/item/clothing/suit/storage/security/warden/blue
 	icon_state = "wardenbluejacket"
 	item_state = "wardenbluejacket"
 
-/obj/item/clothing/suit/security/warden/dnavy
+/obj/item/clothing/suit/storage/security/warden/dnavy
 	icon_state = "wardendnavyjacket"
 	item_state = "wardendnavyjacket"
 
-/obj/item/clothing/suit/security/hos
+/obj/item/clothing/suit/storage/security/hos
 	name = "head of security's jacket"
 	desc = "This piece of clothing was specifically designed for asserting superior authority."
 	icon_state = "hosjacket"
 	item_state = "hosjacket"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
-/obj/item/clothing/suit/security/hos/blue
+/obj/item/clothing/suit/storage/security/hos/blue
 	icon_state = "hosbluejacket"
 	item_state = "hosbluejacket"
 
-/obj/item/clothing/suit/security/hos/dnavy
+/obj/item/clothing/suit/storage/security/hos/dnavy
 	icon_state = "hosdnavyjacket"
 	item_state = "hosdnavyjacket"
 

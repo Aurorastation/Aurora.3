@@ -90,7 +90,7 @@
 
 /obj/item/paper/examine(mob/user)
 	..()
-	if (old_name && icon_state == "paper_plane")
+	if (old_name && icon_state == "paper_plane" || icon_state == "paper_swan")
 		to_chat(user, SPAN_NOTICE("You're going to have to unfold it before you can read it."))
 		return
 	if(name != initial(name))
@@ -153,11 +153,32 @@
 		name = "paper plane"
 		return
 
+	if (user.a_intent == I_DISARM && icon_state != "scrap" && !istype(src, /obj/item/paper/carbon))
+		if (icon_state == "paper_swan")
+			user.show_message(SPAN_ALERT("The paper is already folded into a swan."))
+			return
+		user.visible_message(SPAN_NOTICE("\The [user] carefully folds \the [src] into an origami swan."),
+			SPAN_NOTICE("You carefully fold \the [src] into a swan."), "\The [user] folds \the [src] into a swan.")
+		playsound(src, 'sound/bureaucracy/paperfold.ogg', 50, 1)
+		icon_state = "paper_swan"
+		old_name = name
+		name = "origami swan"
+		return
+
 	if (user.a_intent == I_HELP && old_name && icon_state == "paper_plane")
 		user.visible_message(SPAN_NOTICE("\The [user] unfolds \the [src]."), SPAN_NOTICE("You unfold \the [src]."), "You hear paper rustling.")
 		playsound(src, 'sound/bureaucracy/paperfold.ogg', 50, 1)
 		icon_state = initial(icon_state)
 		throw_range = initial(throw_range)
+		name = old_name
+		old_name = null
+		update_icon()
+		return
+
+	if (user.a_intent == I_HELP && old_name && icon_state == "paper_swan")
+		user.visible_message(SPAN_NOTICE("\The [user] unfolds \the [src]."), SPAN_NOTICE("You unfold \the [src]."), "You hear paper rustling.")
+		playsound(src, 'sound/bureaucracy/paperfold.ogg', 50, 1)
+		icon_state = initial(icon_state)
 		name = old_name
 		old_name = null
 		update_icon()

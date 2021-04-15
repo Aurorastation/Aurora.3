@@ -100,7 +100,7 @@
 	emagged = 0 //Ignores if somebody doesn't have card access to that machine.
 	var/seconds_electrified = 0 //Shock customers like an airlock.
 	var/shoot_inventory = 0 //Fire items at customers! We're broken!
-	var/shoot_inventory_chance = 2
+	var/shoot_inventory_chance = 1
 
 	var/scan_id = 1
 	var/obj/item/coin/coin
@@ -831,6 +831,6 @@
 	if(!throw_item)
 		return FALSE
 	throw_item.vendor_action(src)
-	INVOKE_ASYNC(throw_item, /atom/movable.proc/throw_at, target, 16, 3, src)
+	INVOKE_ASYNC(throw_item, /atom/movable.proc/throw_at, target, rand(3, 10), rand(1, 3), src)
 	src.visible_message("<span class='warning'>[src] launches [throw_item.name] at [target.name]!</span>")
 	return 1

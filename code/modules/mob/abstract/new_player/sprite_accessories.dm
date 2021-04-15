@@ -2723,6 +2723,58 @@ Follow by example and make good judgement based on length which list to include 
 			name = "yellow IPC screen"
 			icon_state = "ipc_yellow"
 
+		ipc_screen_nanotrasen
+			name = "nanotrasen IPC screen"
+			icon_state = "ipc_nt"
+
+		ipc_screen_hephaestus
+			name = "hephaestus IPC screen"
+			icon_state = "ipc_heph"
+
+		ipc_screen_idris
+			name = "idris IPC screen"
+			icon_state = "ipc_idris"
+
+		ipc_screen_zavodskoi
+			name = "zavodskoi IPC screen"
+			icon_state = "ipc_zavod"
+
+		ipc_screen_zenghu
+			name = "zeng-hu IPC screen"
+			icon_state = "ipc_zenghu"
+
+		ipc_screen_scc
+			name = "scc IPC screen"
+			icon_state = "ipc_scc"
+
+		ipc_screen_biesel
+			name = "republic of biesel IPC screen"
+			icon_state = "ipc_biesel"
+
+		ipc_screen_sol
+			name = "sol alliance IPC screen"
+			icon_state = "ipc_sol"
+
+		ipc_screen_coalition
+			name = "coalition of colonies IPC screen"
+			icon_state = "ipc_coc"
+
+		ipc_screen_elyra
+			name = "republic of elyra IPC screen"
+			icon_state = "ipc_elyra"
+
+		ipc_screen_eridani
+			name = "eridani IPC screen"
+			icon_state = "ipc_eridani"
+
+		ipc_screen_burzsia
+			name = "burzsia IPC screen"
+			icon_state = "ipc_burzsia"
+
+		ipc_screen_tp
+			name = "trinary perfection IPC screen"
+			icon_state = "ipc_tp"
+
 	diona_eye
 		icon = 'icons/mob/human_face/dionae_hair.dmi'
 		name = "Mono Eye"
@@ -2903,7 +2955,7 @@ Follow by example and make good judgement based on length which list to include 
 		do_colouration = FALSE
 		body_parts = list(BP_CHEST)
 		species_allowed = list(/datum/species/bug, /datum/species/bug/type_b)
-		
+
 		mecha_abdomen
 			name = "Mecha Abdomen"
 			icon_state = "mecha_abdomen"
@@ -3483,7 +3535,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "taj_pawsocks"
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG)
 		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
-	
+
 	taj_glovesfull_alt
 		name = "Socks Coloration (Full Gloves Alt)"
 		icon_state = "taj_pawsocks_alternate"

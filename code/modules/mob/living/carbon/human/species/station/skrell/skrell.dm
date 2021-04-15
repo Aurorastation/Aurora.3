@@ -7,7 +7,6 @@
 	age_min = 30
 	age_max = 500
 	default_genders = list(PLURAL)
-	selectable_pronouns = null
 	economic_modifier = 12
 	icobase = 'icons/mob/human_races/skrell/r_skrell.dmi'
 	deform = 'icons/mob/human_races/skrell/r_def_skrell.dmi'
@@ -80,7 +79,7 @@
 
 	default_accent = ACCENT_SKRELL
 	allowed_accents = list(ACCENT_SKRELL, ACCENT_CETI, ACCENT_GIBSON, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_VENUS, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_ELYRA,
-							ACCENT_SILVERSUN, ACCENT_KONYAN, ACCENT_EUROPA)
+							ACCENT_SILVERSUN_EXPATRIATE, ACCENT_KONYAN, ACCENT_EUROPA)
 
 	zombie_type = SPECIES_ZOMBIE_SKRELL
 	bodyfall_sound = /decl/sound_category/bodyfall_skrell_sound

@@ -144,9 +144,6 @@ STOCK_ITEM_UNCOMMON(advwelder, 2)
 	else
 		new /obj/item/weldingtool/hugetank(L)
 
-STOCK_ITEM_UNCOMMON(sord, 1)
-	new /obj/item/sord(L)
-
 STOCK_ITEM_UNCOMMON(policebaton, 1.5)
 	new /obj/item/melee/classic_baton(L)
 

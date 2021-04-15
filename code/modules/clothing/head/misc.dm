@@ -595,7 +595,7 @@
 	item_state = "helmet_tac_sol"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
 		laser = ARMOR_LASER_MAJOR,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED

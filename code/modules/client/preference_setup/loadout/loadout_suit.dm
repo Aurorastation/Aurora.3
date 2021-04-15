@@ -23,8 +23,9 @@
 	..()
 	var/jackets = list()
 	jackets["bomber jacket"] = /obj/item/clothing/suit/storage/toggle/bomber
-	jackets["corporate black jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/nanotrasen
-	jackets["corporate brown jacket"] = /obj/item/clothing/suit/storage/toggle/brown_jacket/nanotrasen
+	jackets["Stellar Corporate Conglomerate jacket"] = /obj/item/clothing/suit/storage/toggle/brown_jacket/scc
+	jackets["NanoTrasen black jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/nanotrasen
+	jackets["NanoTrasen brown jacket"] = /obj/item/clothing/suit/storage/toggle/brown_jacket/nanotrasen
 	jackets["black jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket
 	jackets["brown jacket"] = /obj/item/clothing/suit/storage/toggle/brown_jacket
 	jackets["biker jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/biker
@@ -217,41 +218,41 @@
 
 /datum/gear/suit/secjacketofficer
 	display_name = "security jacket selection (Security Officer)"
-	path = /obj/item/clothing/suit/security/officer
+	path = /obj/item/clothing/suit/storage/security/officer
 	allowed_roles = list("Security Officer", "Head of Security", "Warden")
 
 /datum/gear/suit/secjacketofficer/New()
 	..()
 	var/secjacket = list()
-	secjacket["security jacket"] = /obj/item/clothing/suit/security/officer
-	secjacket["security jacket, blue"] = /obj/item/clothing/suit/security/officer/blue
-	secjacket["security jacket, dark navy"] = /obj/item/clothing/suit/security/officer/dnavy
+	secjacket["security jacket"] = /obj/item/clothing/suit/storage/security/officer
+	secjacket["security jacket, blue"] = /obj/item/clothing/suit/storage/security/officer/blue
+	secjacket["security jacket, dark navy"] = /obj/item/clothing/suit/storage/security/officer/dnavy
 	gear_tweaks += new/datum/gear_tweak/path(secjacket)
 
 /datum/gear/suit/secjacketwarden
 	display_name = "security jacket selection (Warden)"
-	path = /obj/item/clothing/suit/security/warden
+	path = /obj/item/clothing/suit/storage/security/warden
 	allowed_roles = list("Head of Security", "Warden")
 
 /datum/gear/suit/secjacketwarden/New()
 	..()
 	var/secjacket = list()
-	secjacket["security jacket"] = /obj/item/clothing/suit/security/warden
-	secjacket["security jacket, blue"] = /obj/item/clothing/suit/security/warden/blue
-	secjacket["security jacket, dark navy"] = /obj/item/clothing/suit/security/warden/dnavy
+	secjacket["security jacket"] = /obj/item/clothing/suit/storage/security/warden
+	secjacket["security jacket, blue"] = /obj/item/clothing/suit/storage/security/warden/blue
+	secjacket["security jacket, dark navy"] = /obj/item/clothing/suit/storage/security/warden/dnavy
 	gear_tweaks += new/datum/gear_tweak/path(secjacket)
 
 /datum/gear/suit/secjackethos
 	display_name = "security jacket selection (Head of Security)"
-	path = /obj/item/clothing/suit/security/hos
+	path = /obj/item/clothing/suit/storage/security/hos
 	allowed_roles = list("Head of Security")
 
 /datum/gear/suit/secjackethos/New()
 	..()
 	var/secjacket = list()
-	secjacket["security jacket"] = /obj/item/clothing/suit/security/hos
-	secjacket["security jacket, blue"] = /obj/item/clothing/suit/security/hos/blue
-	secjacket["security jacket, dark navy"] = /obj/item/clothing/suit/security/hos/dnavy
+	secjacket["security jacket"] = /obj/item/clothing/suit/storage/security/hos
+	secjacket["security jacket, blue"] = /obj/item/clothing/suit/storage/security/hos/blue
+	secjacket["security jacket, dark navy"] = /obj/item/clothing/suit/storage/security/hos/dnavy
 	gear_tweaks += new/datum/gear_tweak/path(secjacket)
 
 /datum/gear/suit/secjacketforensictech
@@ -297,6 +298,12 @@
 	coat["dominia great coat, black"] = /obj/item/clothing/suit/storage/toggle/dominia/black
 	coat["dominian bomber jacket"] = /obj/item/clothing/suit/storage/toggle/dominia/bomber
 	gear_tweaks += new/datum/gear_tweak/path(coat)
+
+/datum/gear/suit/dominia/consular
+	display_name = "dominian consular officer greatcoat"
+	description = "A Dominian great coat belonging to the Diplomatic Service."
+	path = /obj/item/clothing/suit/storage/dominia/consular
+	allowed_roles = list("Consular Officer")
 
 /datum/gear/suit/tcfl
 	display_name = "Tau Ceti Foreign Legion jacket selection"
@@ -371,6 +378,11 @@
 	cardigan["argyle cardigan"] = /obj/item/clothing/suit/storage/toggle/cardigan/argyle
 	gear_tweaks += new/datum/gear_tweak/path(cardigan)
 
+/datum/gear/suit/asymmetriccoat
+	display_name = "asymmetric coat"
+	path = /obj/item/clothing/suit/storage/toggle/asymmetriccoat
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/suit/himeo
 	display_name = "himean coat selection"
 	path = /obj/item/clothing/suit/storage/toggle/himeo
@@ -386,15 +398,15 @@
 /datum/gear/suit/vysoka
 	display_name = "chokha selection"
 	description = "A selection of Vysokan chokhas."
-	path = /obj/item/clothing/suit/storage/vysoka_m
-	flags = GEAR_HAS_DESC_SELECTION
+	path = /obj/item/clothing/suit/storage/vysoka
+	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/vysoka/New()
 	..()
-	var/coat = list()
-	coat["feminine chokha"] = /obj/item/clothing/suit/storage/vysoka_f
-	coat["masculine chokha"] = /obj/item/clothing/suit/storage/vysoka_m
-	gear_tweaks += new/datum/gear_tweak/path(coat)
+	var/list/coat = list()
+	coat["feminine chokha"] = /obj/item/clothing/suit/storage/vysoka/f
+	coat["masculine chokha"] = /obj/item/clothing/suit/storage/vysoka
+	gear_tweaks += new /datum/gear_tweak/path(coat)
 
 /datum/gear/suit/submariner
 	display_name = "submariner jacket"

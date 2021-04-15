@@ -305,25 +305,24 @@
 				return 0
 
 /obj/item/throw_impact(atom/hit_atom)
-	..()
 	if(isliving(hit_atom)) //Living mobs handle hit sounds differently.
 		var/mob/living/L = hit_atom
 		if(L.in_throw_mode)
 			playsound(hit_atom, pickup_sound, PICKUP_SOUND_VOLUME, TRUE)
-			return
-		var/volume = get_volume_by_throwforce_and_or_w_class()
-		if(throwforce > 0)
-			if(mob_throw_hit_sound)
-				playsound(hit_atom, mob_throw_hit_sound, volume, TRUE, -1)
-			else if(hitsound)
-				playsound(hit_atom, hitsound, volume, TRUE, -1)
-			else
-				playsound(hit_atom, 'sound/weapons/genhit.ogg', volume, TRUE, -1)
 		else
-			playsound(hit_atom, 'sound/weapons/throwtap.ogg', 1, volume, -1)
+			var/volume = get_volume_by_throwforce_and_or_w_class()
+			if(throwforce > 0)
+				if(mob_throw_hit_sound)
+					playsound(hit_atom, mob_throw_hit_sound, volume, TRUE, -1)
+				else if(hitsound)
+					playsound(hit_atom, hitsound, volume, TRUE, -1)
+				else
+					playsound(hit_atom, 'sound/weapons/genhit.ogg', volume, TRUE, -1)
+			else
+				playsound(hit_atom, 'sound/weapons/throwtap.ogg', 1, volume, -1)
 	else
 		playsound(src, drop_sound, THROW_SOUND_VOLUME)
-
+	return ..()
 
 //Apparently called whenever an item is dropped on the floor, thrown, or placed into a container.
 //It is called after loc is set, so if placed in a container its loc will be that container.
@@ -696,10 +695,6 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		to_chat(M, SPAN_WARNING("You are too distracted to look through the [devicename], perhaps if it was in your active hand this might work better."))
 		cannotzoom = 1
 
-	if(ishuman(M)) //this code is here to stop species night vision from being used on the cameras, since it does not make sense since cameras are just images. this is probably not the best way to do this, but it works
-		var/mob/living/carbon/human/H = M
-		H.disable_organ_night_vision()
-
 	if(!zoom && !cannotzoom)
 		if(M.hud_used.hud_shown)
 			M.toggle_zoom_hud()	// If the user has already limited their HUD this avoids them having a HUD when they zoom in
@@ -736,6 +731,10 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 		if(!cannotzoom)
 			M.visible_message("[zoomdevicename ? "<b>[M]</b> looks up from \the [src.name]" : "<b>[M]</b> lowers \the [src.name]"].")
+
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		H.handle_vision()
 
 /obj/item/proc/pwr_drain()
 	return 0 // Process Kill

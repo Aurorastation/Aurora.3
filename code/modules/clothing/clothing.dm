@@ -39,6 +39,7 @@
 		for(var/T in starting_accessories)
 			var/obj/item/clothing/accessory/tie = new T(src)
 			src.attach_accessory(null, tie)
+	update_icon()
 
 /obj/item/clothing/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -534,7 +535,6 @@
 	return our_image
 
 /obj/item/clothing/head/update_icon(var/mob/user)
-
 	cut_overlays()
 	var/mob/living/carbon/human/H
 	if(istype(user,/mob/living/carbon/human))
@@ -551,6 +551,8 @@
 		if(!SSicon_cache.light_overlay_cache[cache_key])
 			var/use_icon = 'icons/mob/light_overlays.dmi'
 			SSicon_cache.light_overlay_cache[cache_key] = image("icon" = use_icon, "icon_state" = "[light_overlay]")
+
+	..()
 
 	if(H)
 		H.update_inv_head()
@@ -883,7 +885,9 @@
 		H = src.loc
 
 	var/icon/under_icon
-	if(icon_override)
+	if(contained_sprite)
+		under_icon = icon
+	else if(icon_override)
 		under_icon = icon_override
 	else if(H && sprite_sheets && sprite_sheets[H.species.get_bodytype()])
 		under_icon = sprite_sheets[H.species.get_bodytype()]
@@ -893,7 +897,7 @@
 		under_icon = INV_W_UNIFORM_DEF_ICON
 
 	// The _s is because the icon update procs append it.
-	if(("[worn_state]_d_s") in icon_states(under_icon))
+	if(("[worn_state]_d[contained_sprite ? "_un" : "_s"]") in icon_states(under_icon))
 		if(rolled_down != 1)
 			rolled_down = 0
 	else
@@ -906,7 +910,9 @@
 		H = src.loc
 
 	var/icon/under_icon
-	if(icon_override)
+	if(contained_sprite)
+		under_icon = icon
+	else if(icon_override)
 		under_icon = icon_override
 	else if(H && sprite_sheets && sprite_sheets[H.species.get_bodytype(H)])
 		under_icon = sprite_sheets[H.species.get_bodytype(H)]
@@ -916,7 +922,7 @@
 		under_icon = INV_W_UNIFORM_DEF_ICON
 
 	// The _s is because the icon update procs append it.
-	if(("[worn_state]_r_s") in icon_states(under_icon))
+	if(("[worn_state]_r[contained_sprite ? "_un" : "_s"]") in icon_states(under_icon))
 		if(rolled_sleeves != 1)
 			rolled_sleeves = 0
 	else
