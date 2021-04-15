@@ -2,7 +2,7 @@
 	display_name = "earmuffs"
 	path = /obj/item/clothing/ears/earmuffs
 	sort_category = "Earwear"
-	slot = slot_r_ear
+	slot = null
 
 /datum/gear/ears/bandanna
 	display_name = "neck bandanna selection"
