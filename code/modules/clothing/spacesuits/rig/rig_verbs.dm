@@ -175,7 +175,7 @@
 		to_chat(usr, SPAN_WARNING("The visor is suffering a hardware fault and cannot be configured."))
 		return
 
-	visor.engage(null, usr)
+	visor.do_engage(null, usr)
 
 /obj/item/rig/verb/alter_voice()
 	set name = "Configure Voice Synthesiser"
@@ -198,7 +198,7 @@
 		to_chat(usr, SPAN_WARNING("The hardsuit does not have a speech synthesiser."))
 		return
 
-	speech.engage(null, usr)
+	speech.do_engage(null, usr)
 
 /obj/item/rig/verb/select_module()
 	set name = "Select Module"
@@ -303,4 +303,4 @@
 		return
 
 	to_chat(usr, "<font color='blue'><b>You attempt to engage the [module.interface_name].</b></font>")
-	module.engage(null, usr)
+	module.do_engage(null, usr)

@@ -29,6 +29,8 @@ var/global/datum/robolimb/basic_robolimb
 		SPECIES_VAURCA_WORKER,
 		SPECIES_VAURCA_WARRIOR,
 		SPECIES_IPC,
+		SPECIES_IPC_SHELL,
+		SPECIES_IPC_BISHOP,
 		SPECIES_HUMAN_OFFWORLD
 	)
 	var/paintable = 0 //tired of istype exceptions. bullshit to find, and by god do i know it after this project.
@@ -98,6 +100,7 @@ var/global/datum/robolimb/basic_robolimb
 	species_can_use = list(SPECIES_HUMAN)
 	linked_frame = SPECIES_IPC_SHELL
 	fabricator_available = TRUE
+	paintable = TRUE
 	lifelike = TRUE
 
 /datum/robolimb/autakh

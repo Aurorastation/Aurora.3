@@ -66,7 +66,14 @@
 			new /datum/stack_recipe("key", /obj/item/key, 1, time = 10, one_per_turf = 0, on_floor = 1),
 			new /datum/stack_recipe("custodial cart", /obj/structure/janitorialcart, BUILD_AMT, time = 120, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("closet", /obj/structure/closet, BUILD_AMT, time = 15, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("canister", /obj/machinery/portable_atmospherics/canister, 10, time = 15, one_per_turf = 1, on_floor = 1)
+			new /datum/stack_recipe("canister", /obj/machinery/portable_atmospherics/canister, 10, time = 15, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("dark office chair", /obj/structure/bed/chair/office/dark, BUILD_AMT, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("light office chair", /obj/structure/bed/chair/office/light, BUILD_AMT, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("plain comfy chair", /obj/structure/bed/chair/comfy, BUILD_AMT, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("sofa (middle)", /obj/structure/bed/chair/comfy/sofa, BUILD_AMT, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("sofa (left)", /obj/structure/bed/chair/comfy/sofa/left, BUILD_AMT, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("sofa (right)", /obj/structure/bed/chair/comfy/sofa/right, BUILD_AMT, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("sofa (corner)", /obj/structure/bed/chair/comfy/sofa/corner, BUILD_AMT, one_per_turf = 1, on_floor = 1)
 		))
 
 	recipes += new /datum/stack_recipe_list("airlock assemblies",
@@ -88,25 +95,6 @@
 			new /datum/stack_recipe("vault assembly", /obj/structure/door_assembly/door_assembly_vault, BUILD_AMT, time = 100, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("emergency shutter", /obj/structure/firedoor_assembly, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("multi-tile airlock assembly", /obj/structure/door_assembly/multi_tile, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1)
-		))
-
-	recipes += new /datum/stack_recipe_list("office chairs",
-		list(
-			new /datum/stack_recipe("dark office chair", /obj/structure/bed/chair/office/dark, BUILD_AMT, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("light office chair", /obj/structure/bed/chair/office/light, BUILD_AMT, one_per_turf = 1, on_floor = 1)
-		))
-
-	recipes += new /datum/stack_recipe_list("comfy chairs",
-		list(
-			new /datum/stack_recipe("beige comfy chair", /obj/structure/bed/chair/comfy/beige, BUILD_AMT, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("black comfy chair", /obj/structure/bed/chair/comfy/black, BUILD_AMT, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("brown comfy chair", /obj/structure/bed/chair/comfy/brown, BUILD_AMT, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("lime comfy chair", /obj/structure/bed/chair/comfy/lime, BUILD_AMT, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("teal comfy chair", /obj/structure/bed/chair/comfy/teal, BUILD_AMT, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("red comfy chair", /obj/structure/bed/chair/comfy/red, BUILD_AMT, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("blue comfy chair", /obj/structure/bed/chair/comfy/blue, BUILD_AMT, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("purple comfy chair", /obj/structure/bed/chair/comfy/purp, BUILD_AMT, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("green comfy chair", /obj/structure/bed/chair/comfy/green, BUILD_AMT, one_per_turf = 1, on_floor = 1)
 		))
 
 	recipes += new /datum/stack_recipe_list("turret frames",

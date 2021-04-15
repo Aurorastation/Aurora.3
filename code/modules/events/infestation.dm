@@ -116,7 +116,7 @@
 				chosen_mob_types += chosen_slime_type
 
 		if(INFESTATION_SPIDERLINGS)
-			event_name = "Spiderling Infestation"
+			event_name = "Greimorian Infestation"
 			chosen_verb = "have burrowed into"
 			for(var/i = 1, i < rand(3,6),i++)
 				chosen_mob_types += /obj/effect/spider/spiderling

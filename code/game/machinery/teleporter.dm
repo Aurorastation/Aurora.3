@@ -1,25 +1,24 @@
 /obj/machinery/teleport
 	name = "teleport"
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'icons/obj/teleporter.dmi'
 	density = TRUE
 	anchored = TRUE
 
 /obj/machinery/teleport/pad
-	name = "teleporter hub"
-	desc = "It's the hub of a teleporting machine."
-	icon_state = "tele0"
-	dir = EAST
+	name = "teleporter pad"
+	desc = "It's the pad of a teleporting machine."
+	icon_state = "pad"
 	use_power = 1
 	idle_power_usage = 10
 	active_power_usage = 2000
 
 	var/obj/machinery/teleport/station/station
+	light_color = "#02d1c7"
 
 /obj/machinery/teleport/pad/Initialize()
 	. = ..()
 	station = locate() in range(2, src)
-	underlays.Cut()
-	underlays += image('icons/obj/stationobjs.dmi', icon_state = "tele-wires")
+	queue_icon_update()
 
 /obj/machinery/teleport/pad/Destroy()
 	station = null
@@ -45,16 +44,23 @@
 		station.calibration = min(station.calibration + 5, 100)
 
 /obj/machinery/teleport/pad/update_icon()
-	if(station?.engaged)
-		icon_state = "tele1"
+	cut_overlays()
+	if (station?.engaged)
+		var/image/I = image(icon, src, "[initial(icon_state)]_active_overlay")
+		I.layer = EFFECTS_ABOVE_LIGHTING_LAYER
+		add_overlay(I)
+		set_light(4, 0.4)
 	else
-		icon_state = "tele0"
+		set_light(0)
+		if (operable())
+			var/image/I = image(icon, src, "[initial(icon_state)]_idle_overlay")
+			I.layer = EFFECTS_ABOVE_LIGHTING_LAYER
+			add_overlay(I)
 
 /obj/machinery/teleport/station
 	name = "teleportation station"
 	desc = "A teleportation hub that can be used to lock onto beacons and implants and relaying the coordinates precisely to a nearby teleportation pad."
-	icon_state = "controller"
-	dir = EAST
+	icon_state = "station"
 	use_power = 1
 	idle_power_usage = 10
 	active_power_usage = 2000
@@ -72,8 +78,21 @@
 /obj/machinery/teleport/station/Initialize()
 	. = ..()
 	pad = locate() in range(2, src)
+	set_dir(get_dir(src, pad))
 	id = "[rand(1000, 9999)]"
-	set_overlays("controller-wires")
+	queue_icon_update()
+
+/obj/machinery/teleport/station/update_icon()
+	. = ..()
+	cut_overlays()
+	if (engaged)
+		var/image/I = image(icon, src, "[initial(icon_state)]_active_overlay")
+		I.layer = EFFECTS_ABOVE_LIGHTING_LAYER
+		add_overlay(I)
+	else if (operable())
+		var/image/I = image(icon, src, "[initial(icon_state)]_idle_overlay")
+		I.layer = EFFECTS_ABOVE_LIGHTING_LAYER
+		add_overlay(I)
 
 /obj/machinery/teleport/station/attack_hand(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
@@ -187,7 +206,8 @@
 	visible_message(SPAN_NOTICE("Teleporter engaged!"))
 	add_fingerprint(usr)
 	engaged = TRUE
-	pad.update_icon()
+	pad.queue_icon_update()
+	queue_icon_update()
 
 /obj/machinery/teleport/station/proc/disengage()
 	if(stat & (BROKEN|NOPOWER))
@@ -200,16 +220,14 @@
 	visible_message(SPAN_NOTICE("Teleporter disengaged!"))
 	add_fingerprint(usr)
 	engaged = FALSE
-	pad.update_icon()
+	pad.queue_icon_update()
+	queue_icon_update()
 
 /obj/machinery/teleport/station/power_change()
 	..()
-	if(stat & NOPOWER)
-		icon_state = "controller-p"
-		if(pad)
-			pad.update_icon()
-	else
-		icon_state = "controller"
+	queue_icon_update()
+	if(pad)
+		pad.queue_icon_update()
 
 /obj/machinery/teleport/station/proc/start_recalibration()
 	audible_message(SPAN_NOTICE("Recalibrating..."))
