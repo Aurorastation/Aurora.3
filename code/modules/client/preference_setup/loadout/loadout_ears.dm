@@ -1,7 +1,12 @@
 /datum/gear/ears
+	display_name = "earwear, circuitry (empty)"
+	path = /obj/item/clothing/ears/circuitry
+	sort_category = "Earwear"
+	slot = slot_r_ear
+
+/datum/gear/ears/double
 	display_name = "earmuffs"
 	path = /obj/item/clothing/ears/earmuffs
-	sort_category = "Earwear"
 	slot = null
 
 /datum/gear/ears/bandanna
@@ -21,13 +26,9 @@
 	path = /obj/item/clothing/ears/bandanna_colorable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/ears/headphones
+/datum/gear/ears/double/headphones
 	display_name = "headphones"
 	path = /obj/item/clothing/ears/earmuffs/headphones
-
-/datum/gear/ears/circuitry
-	display_name = "earwear, circuitry (empty)"
-	path = /obj/item/clothing/ears/circuitry
 
 /datum/gear/ears/earrings
 	display_name = "earring selection"

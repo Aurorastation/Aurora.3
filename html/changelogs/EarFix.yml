@@ -4,4 +4,4 @@ delete-after: True
 
 changes:
   - bugfix: "Ear slot mob sprites will now update properly again."
-  - bugfix: "Prevented an issue from causing earmuffs & headphones to replace headsets for latejoins. All loadout ear items now spawn in a bag."
+  - bugfix: "Prevented an issue from causing earmuffs & headphones to replace headsets for latejoins. All two ear items will now spawn in bags rather than on the ear."
