@@ -860,6 +860,7 @@
 					return
 
 				thralls.remove_antagonist(T.mind, 0, 0)
+				T.mind.antag_datums -= MODE_VAMPIRE
 				qdel(draining_vamp)
 				draining_vamp = null
 			else
