@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Catching something will now longer deafen you with the item's dropsound, instead, it'll just smoothly play the pick-up sound."
