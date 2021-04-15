@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - imageadd: "Changed the telebaton's sprite, it should be easier to see in your inventory now."
