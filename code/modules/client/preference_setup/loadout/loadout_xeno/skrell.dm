@@ -124,4 +124,4 @@
 	scrunchy["tentacle tie, reef"] = /obj/item/clothing/ears/skrell/scrunchy/reef
 	scrunchy["tentacle tie, hoop"] = /obj/item/clothing/ears/skrell/scrunchy/hoop
 	scrunchy["tentacle tie, backwater"] = /obj/item/clothing/ears/skrell/scrunchy/backwater
-	gear_tweaks += new/datum/gear_tweak/path(scrunchy)
+	gear_tweaks += new /datum/gear_tweak/path(scrunchy)
