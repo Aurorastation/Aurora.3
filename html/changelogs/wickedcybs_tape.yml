@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - tweak: "Medical belts can hold medical tape now, if desired."
