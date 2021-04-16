@@ -1,0 +1,6 @@
+author: Geeves, Caelphon
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a Jargon Federation passport to the Xenowear - Skrell loadout, selectable by humans, skrell, vaurca, and diona. You must have a skrell, vaurca, or diona whitelist to take it, however."
