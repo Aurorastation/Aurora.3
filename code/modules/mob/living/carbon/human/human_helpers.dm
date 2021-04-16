@@ -160,7 +160,7 @@
 
 	return O
 
-/mob/living/carbon/human/proc/awaken_psi_basic(var/source)
+/mob/living/carbon/human/proc/awaken_psi_basic(var/source, var/allow_latency = TRUE)
 	var/static/list/psi_operancy_messages = list(
 		"There's something in your skull!",
 		"Something is eating your thoughts!",
@@ -176,11 +176,9 @@
 	var/list/faculties = list(PSI_COERCION, PSI_REDACTION, PSI_ENERGISTICS, PSI_PSYCHOKINESIS)
 	for(var/i = 1 to new_latencies)
 		custom_pain(SPAN_DANGER("<font size = 3>[pick(psi_operancy_messages)]</font>"), 25)
-		set_psi_rank(pick_n_take(faculties), 1)
+		set_psi_rank(pick_n_take(faculties), allow_latency ? PSI_RANK_LATENT : PSI_RANK_OPERANT) // if set to latent, it spikes anywhere from OPERANT to PARAMOUNT
 		sleep(30)
-		psi.update()
-	sleep(45)
-	psi.check_latency_trigger(100, source, TRUE)
+	addtimer(CALLBACK(psi, /datum/psi_complexus/.proc/check_latency_trigger, 100, source, TRUE), 4.5 SECONDS)
 
 /mob/living/carbon/human/get_resist_power()
 	return species.resist_mod
@@ -194,6 +192,8 @@
 
 /mob/living/carbon/human/proc/has_hearing_aid()
 	if(istype(l_ear, /obj/item/device/hearing_aid) || istype(r_ear, /obj/item/device/hearing_aid))
+		return TRUE
+	if(has_functioning_augment(BP_AUG_COCHLEAR))
 		return TRUE
 	return FALSE
 
@@ -286,5 +286,16 @@
 		return TRUE
 	var/datum/changeling/changeling = get_antag_datum(MODE_CHANGELING)
 	if(changeling?.space_adapted)
+		return TRUE
+	return FALSE
+
+/mob/living/carbon/human/get_cell()
+	var/obj/item/organ/internal/cell/C = internal_organs_by_name[BP_CELL]
+	if(C)
+		return C.cell
+
+/mob/living/carbon/human/proc/has_functioning_augment(var/aug_tag)
+	var/obj/item/organ/internal/augment/aug = internal_organs_by_name[aug_tag]
+	if(aug && !aug.is_broken())
 		return TRUE
 	return FALSE

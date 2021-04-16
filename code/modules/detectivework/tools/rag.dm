@@ -182,7 +182,10 @@
 	if(!proximity)
 		return
 
-	if(istype(A, /obj/structure/reagent_dispensers) || istype(A, /obj/structure/mopbucket) || istype(A, /obj/item/reagent_containers/glass) || istype(A, /obj/structure/sink))
+	if(istype(A, /obj/structure/sink))
+		return
+
+	else if(istype(A, /obj/structure/reagent_dispensers) || istype(A, /obj/structure/mopbucket) || istype(A, /obj/item/reagent_containers/glass))
 		if(!REAGENTS_FREE_SPACE(reagents))
 			to_chat(user, SPAN_WARNING("\The [src] is already soaked."))
 			return
@@ -194,7 +197,7 @@
 			update_icon()
 		return
 
-	if(!on_fire && istype(A) && (src in user))
+	else if(!on_fire && istype(A) && (src in user))
 		if(A.is_open_container() && !(A in user))
 			remove_contents(user, A)
 		else if(!ismob(A)) //mobs are handled in attack() - this prevents us from wiping down people while smothering them.

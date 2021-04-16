@@ -260,6 +260,7 @@
 	w_class = ITEMSIZE_TINY
 	flippable = FALSE
 	v_flippable = FALSE
+	badge_string = null
 
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
@@ -446,6 +447,7 @@
 	w_class = ITEMSIZE_TINY
 	flippable = FALSE
 	v_flippable = FALSE
+	badge_string = null
 
 	drop_sound = 'sound/items/drop/cloth.ogg'
 

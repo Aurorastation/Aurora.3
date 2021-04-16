@@ -254,7 +254,7 @@ var/global/list/radial_menus = list()
 	current_user = M.client
 	//Blank
 	menu_holder = image(icon = 'icons/effects/effects.dmi', loc = anchor, icon_state = "nothing", layer = HUD_LAYER)
-	menu_holder.appearance_flags |= KEEP_APART
+	menu_holder.appearance_flags |= KEEP_APART|RESET_ALPHA|RESET_COLOR|RESET_TRANSFORM
 	menu_holder.vis_contents += elements + close_button
 	current_user.images += menu_holder
 

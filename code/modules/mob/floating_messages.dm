@@ -44,14 +44,15 @@ var/list/floating_chat_colors = list()
 			C.images += gibberish
 
 /proc/generate_floating_text(atom/movable/holder, message, style, size, duration, show_to)
-	var/image/I = image(null, recursive_loc_turf_check(holder))
+	var/atom/movable/attached_holder = recursive_loc_turf_check(holder)
+	var/image/I = image(null, attached_holder)
 	I.layer = FLY_LAYER
 	I.alpha = 0
 	I.maptext_width = 80
 	I.maptext_height = 64
 	I.plane = FLOAT_PLANE
 	I.layer = HUD_LAYER - 0.01
-	I.pixel_x = (-round(I.maptext_width/2) + 16) + holder.get_floating_chat_x_offset()
+	I.pixel_x = (-round(I.maptext_width/2) + 16) + attached_holder.get_floating_chat_x_offset()
 	I.appearance_flags = RESET_COLOR|RESET_ALPHA|RESET_TRANSFORM
 
 	style = "font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: [size]px; [style]"

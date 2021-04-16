@@ -240,6 +240,19 @@
 		suit["[D.name]"] = D.type
 	gear_tweaks += new/datum/gear_tweak/path(suit)
 
+/datum/gear/uniform/dominia_consular
+	display_name = "dominian consular clothing selection"
+	description = "A selection of Dominian clothing belonging to the Diplomatic Service."
+	path = /obj/item/clothing/under/dominia/consular
+	allowed_roles = list("Consular Officer")
+
+/datum/gear/uniform/dominia_consular/New()
+	..()
+	var/list/consular = list()
+	consular["dominian consular officer's uniform, masculine"] = /obj/item/clothing/under/dominia/consular
+	consular["dominian consular officer's uniform, feminine"] = /obj/item/clothing/under/dominia/consular/dress
+	gear_tweaks += new/datum/gear_tweak/path(consular)
+
 /datum/gear/uniform/elyra_holo
 	display_name = "elyran holographic suit selection"
 	description = "A marvel of Elyran technology, uses hardlight fabric and masks to transform a skin-tight, cozy suit into cultural apparel of your choosing. Has a dial for Midenean, Aemaqii and Persepolis clothes respectively."

@@ -21,6 +21,12 @@
 	path = /obj/item/organ/internal/augment/cyber_hair
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_IPC_SHELL)
 
+/datum/gear/augment/synthetic_cords
+	display_name = "synthetic vocal cords"
+	description = "Vocal cords of synthetic nature packed into an augment kit. This allows users who are mute due to structural damage of the throat to speak."
+	path = /obj/item/organ/internal/augment/synthetic_cords
+	cost = 1
+
 /datum/gear/augment/combitool
 	display_name = "retractable combitool"
 	description = "An augment that allows the user to deploy a robotic combitool."
@@ -33,6 +39,25 @@
 	augs["retractable combitool, right hand"] = /obj/item/organ/internal/augment/tool/combitool
 	augs["retractable combitool, left hand"] = /obj/item/organ/internal/augment/tool/combitool/left
 	gear_tweaks += new /datum/gear_tweak/path(augs)
+
+/datum/gear/augment/lighter
+	display_name = "retractable lighter"
+	description = "An augment that allows the user to project a lighter out of their fingertip."
+	path = /obj/item/organ/internal/augment/tool/combitool/lighter
+	cost = 2
+
+/datum/gear/augment/lighter/New()
+	..()
+	var/list/augs = list()
+	augs["retractable lighter, right hand"] = /obj/item/organ/internal/augment/tool/combitool/lighter
+	augs["retractable lighter, left hand"] = /obj/item/organ/internal/augment/tool/combitool/lighter/left
+	gear_tweaks += new /datum/gear_tweak/path(augs)
+
+/datum/gear/augment/cochlear
+	display_name = "cochlear implant"
+	description = "A synthetic replacement for the structures within the ear, allowing the user to hear without requiring external tools."
+	path = /obj/item/organ/internal/augment/cochlear
+	cost = 3
 
 /datum/gear/augment/health_scanner
 	display_name = "integrated health scanner"
