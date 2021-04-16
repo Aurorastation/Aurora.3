@@ -149,7 +149,7 @@ emp_act
 /mob/living/carbon/human/proc/check_head_airtight_coverage()
 	var/list/clothing = list(head, wear_mask, wear_suit)
 	for(var/obj/item/clothing/C in clothing)
-		if((C.body_parts_covered & HEAD) && (C.item_flags & (AIRTIGHT|STOPPRESSUREDAMAGE)))
+		if((C.body_parts_covered & HEAD) && (C.item_flags & (AIRTIGHT)))
 			return TRUE
 	return FALSE
 

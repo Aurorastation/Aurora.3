@@ -107,9 +107,9 @@
 // Calculate how vulnerable the human is to the current pressure.
 // Returns 0 (equals 0 %) if sealed in an undamaged suit that's rated for the pressure, 1 if unprotected (equals 100%).
 // Suitdamage can modifiy this in 10% steps.
-/mob/living/carbon/human/proc/get_pressure_weakness(pressure)
+/mob/living/carbon/human/get_pressure_weakness(pressure)
 	var/pressure_adjustment_coefficient = 0
-	var/list/zones = list(SLOT_HEAD, SLOT_UPPER_BODY, SLOT_LOWER_BODY, SLOT_LEGS, SLOT_FEET, SLOT_ARMS, SLOT_HANDS)
+	var/list/zones = list(HEAD, UPPER_TORSO, LOWER_TORSO, LEGS, FEET, ARMS, HANDS)
 	for(var/zone in zones)
 		var/list/covers = get_covering_equipped_items(zone)
 		var/zone_exposure = 1

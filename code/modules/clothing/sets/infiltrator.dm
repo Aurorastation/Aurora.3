@@ -6,8 +6,10 @@
 	item_state = "mask"
 	contained_sprite = TRUE
 	adjustable = FALSE
-	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL | INJECTIONPORT | AIRTIGHT
-	body_parts_covered = FACE|EYES
+	item_flags = THICKMATERIAL | INJECTIONPORT | AIRTIGHT
+	body_parts_covered = HEAD|FACE|EYES
+	max_pressure_protection = SPACE_SUIT_MAX_PRESSURE
+	min_pressure_protection = 0
 
 /obj/item/clothing/under/infiltrator
 	name = "infiltration suit"
@@ -16,12 +18,14 @@
 	icon_state = "uniform"
 	item_state = "uniform"
 	contained_sprite = TRUE
-	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL | INJECTIONPORT | AIRTIGHT
+	item_flags = THICKMATERIAL | INJECTIONPORT | AIRTIGHT
 	armor = list(
 		melee = ARMOR_MELEE_SMALL,
 		bullet = ARMOR_BALLISTIC_SMALL,
 		laser = ARMOR_LASER_SMALL
 	)
+	max_pressure_protection = SPACE_SUIT_MAX_PRESSURE
+	min_pressure_protection = 0
 
 /obj/item/clothing/gloves/infiltrator
 	name = "infiltration gloves"
@@ -34,7 +38,9 @@
 	permeability_coefficient = 0.05
 	germ_level = 0
 	fingerprint_chance = 0
-	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL | INJECTIONPORT | AIRTIGHT
+	item_flags = THICKMATERIAL | INJECTIONPORT | AIRTIGHT
+	max_pressure_protection = SPACE_SUIT_MAX_PRESSURE
+	min_pressure_protection = 0
 
 /obj/item/clothing/shoes/infiltrator
 	name = "infiltration shoes"
@@ -44,7 +50,9 @@
 	item_state = "shoes"
 	contained_sprite = TRUE
 	silent = TRUE
-	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL | INJECTIONPORT | AIRTIGHT
+	item_flags = THICKMATERIAL | INJECTIONPORT | AIRTIGHT
+	max_pressure_protection = SPACE_SUIT_MAX_PRESSURE
+	min_pressure_protection = 0
 
 /obj/item/storage/toolbox/infiltration
 	name = "infiltration case"

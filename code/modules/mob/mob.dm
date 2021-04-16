@@ -1089,6 +1089,7 @@
 
 /mob/proc/get_pressure_weakness()
 	return 1
+
 /mob/living/proc/flash_strong_pain()
 	return
 
