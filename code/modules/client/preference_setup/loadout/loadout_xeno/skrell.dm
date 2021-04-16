@@ -118,7 +118,7 @@
 
 /datum/gear/ears/skrell/scrunchy/New()
 	..()
-	var/scrunchy = list()
+	var/list/scrunchy = list()
 	scrunchy["tentacle tie, seaweed"] = /obj/item/clothing/ears/skrell/scrunchy
 	scrunchy["tentacle tie, driftwood"] = /obj/item/clothing/ears/skrell/scrunchy/driftwood
 	scrunchy["tentacle tie, reef"] = /obj/item/clothing/ears/skrell/scrunchy/reef
