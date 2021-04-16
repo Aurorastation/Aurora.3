@@ -108,3 +108,17 @@
 	path = /obj/item/clothing/mask/breath/skrell
 	whitelisted = list(SPECIES_SKRELL)
 	sort_category = "Xenowear - Skrell"
+
+/datum/gear/accessory/skrell_passport
+	display_name = "jargon federation passport"
+	path = /obj/item/clothing/accessory/badge/passport/jargon
+	sort_category = "Xenowear - Skrell"
+	whitelisted = list(SPECIES_SKRELL)
+	cost = 0
+	flags = 0
+
+/datum/gear/accessory/skrell_passport/spawn_item(location, metadata, mob/living/carbon/human/H)
+	var/obj/item/clothing/accessory/badge/passport/jargon/J = ..()
+	if(isskrell(H))
+		J.skrellian = TRUE
+	return J

@@ -436,6 +436,10 @@
 
 //passports
 
+#define CANT_OPEN -1
+#define CLOSED 0
+#define OPEN 1
+
 /obj/item/clothing/accessory/badge/passport
 	name = "biesellite passport"
 	desc = "A passport issued to a citizen of the Republic of Biesel."
@@ -449,9 +453,28 @@
 	v_flippable = FALSE
 	badge_string = null
 
+	var/open = CANT_OPEN
+
 	drop_sound = 'sound/items/drop/cloth.ogg'
 
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
+
+/obj/item/clothing/accessory/badge/passport/Initialize()
+	. = ..()
+	if(open != CANT_OPEN)
+		verbs += /obj/item/clothing/accessory/badge/passport/proc/open_passport
+
+/obj/item/clothing/accessory/badge/passport/proc/open_passport()
+	set name = "Open/Close Passport"
+	set desc = "Open/Close Passport"
+	set src = usr
+
+	open = !open
+	to_chat(usr, SPAN_NOTICE("You [open ? "open" : "close"] \the [src]."))
+	update_icon()
+
+/obj/item/clothing/accessory/badge/passport/update_icon()
+	icon_state = "[initial(icon_state)][open ? "_o" : ""]"
 
 /obj/item/clothing/accessory/badge/passport/sol
 	name = "solarian passport"
@@ -476,3 +499,18 @@
 	desc = "A passport issued to a resident of the Empire of Dominia. Popular among those whose debt is great but pockets light."
 	icon_state = "passport_dominia"
 	item_state = "passport_dominia"
+
+/obj/item/clothing/accessory/badge/passport/jargon
+	name = "jargon federation passport"
+	desc = "A passport issued to citizens of the Jargon Federation. Shiny, and compact, its perfect to use on the go."
+	icon_state = "passport_jargon"
+	item_state = "passport_jargon"
+	open = CLOSED
+	var/skrellian = FALSE
+
+/obj/item/clothing/accessory/badge/passport/jargon/update_icon()
+	icon_state = "[initial(icon_state)][open ? skrellian ? "_o_s" : "_o" : ""]"
+
+#undef CANT_OPEN
+#undef CLOSED
+#undef OPEN
