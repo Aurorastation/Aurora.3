@@ -220,7 +220,6 @@
 	var/list/suit = list()
 	suit["dominia suit, red"] = /obj/item/clothing/under/dominia
 	suit["dominia suit, black"] = /obj/item/clothing/under/dominia/black
-	suit["dominia sweater"] = /obj/item/clothing/under/dominia/sweater
 	suit["lyodsuit"] = /obj/item/clothing/under/dominia/lyodsuit
 	suit["hoodied lyodsuit"] = /obj/item/clothing/under/dominia/lyodsuit/hoodie
 	suit["dominia noblewoman dress"] = /obj/item/clothing/under/dominia/dress
@@ -252,6 +251,11 @@
 	consular["dominian consular officer's uniform, masculine"] = /obj/item/clothing/under/dominia/consular
 	consular["dominian consular officer's uniform, feminine"] = /obj/item/clothing/under/dominia/consular/dress
 	gear_tweaks += new/datum/gear_tweak/path(consular)
+
+/datum/gear/uniform/dominia/sweater
+	display_name = "fisanduhian sweater"
+	path = /obj/item/clothing/under/dominia/sweater
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/uniform/elyra_holo
 	display_name = "elyran holographic suit selection"
