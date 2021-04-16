@@ -251,12 +251,8 @@
 	name = "skrell tentacle tie"
 	desc = "A self-powered hard-light 'scrunchy' used to comfortably tie back the tentacles."
 	icon = 'icons/clothing/head/skrellscrunchies.dmi'
-	contained_sprite = FALSE
 	icon_state = "skrellhairtie"
 	item_state = "scrunchy_seaweed"
-	w_class = ITEMSIZE_TINY
-	slot_flags = SLOT_HEAD | SLOT_EARS
-	species_restricted = list(SPECIES_SKRELL)
 
 /obj/item/clothing/ears/skrell/scrunchy/hoop
 	icon_state = "skrellhairtie"
