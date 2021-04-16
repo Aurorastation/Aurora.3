@@ -565,8 +565,8 @@
 	name = "dogtags"
 	desc = "A pair of engraved metal identification tags."
 	icon = 'icons/clothing/accessories/dogtags.dmi'
-	icon_state = "tags"
-	item_state = "tags"
+	icon_state = "dogtags"
+	item_state = "dogtags"
 	contained_sprite = TRUE
 	slot_flags = SLOT_MASK | SLOT_TIE
 	overlay_state = "tags"

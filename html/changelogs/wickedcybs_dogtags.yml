@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - tweak: "Dogtags can now be worn on the mask slot which will also showcase its on-mob sprite that hangs from the neck. When attached as an accessory, it will no longer be directly visible."
