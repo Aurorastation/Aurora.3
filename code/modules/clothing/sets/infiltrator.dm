@@ -4,6 +4,8 @@
 	icon = 'icons/clothing/kit/infiltrator.dmi'
 	icon_state = "mask"
 	item_state = "mask"
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("una", "taj")
 	contained_sprite = TRUE
 	adjustable = FALSE
 	item_flags = THICKMATERIAL | INJECTIONPORT | AIRTIGHT
@@ -41,6 +43,7 @@
 	item_flags = THICKMATERIAL | INJECTIONPORT | AIRTIGHT
 	max_pressure_protection = SPACE_SUIT_MAX_PRESSURE
 	min_pressure_protection = 0
+	species_restricted = null
 
 /obj/item/clothing/shoes/infiltrator
 	name = "infiltration shoes"
@@ -53,6 +56,7 @@
 	item_flags = THICKMATERIAL | INJECTIONPORT | AIRTIGHT
 	max_pressure_protection = SPACE_SUIT_MAX_PRESSURE
 	min_pressure_protection = 0
+	species_restricted = null
 
 /obj/item/storage/toolbox/infiltration
 	name = "infiltration case"
