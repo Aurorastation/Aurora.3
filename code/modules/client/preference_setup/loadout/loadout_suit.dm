@@ -304,7 +304,7 @@
 	path = /obj/item/clothing/suit/storage/dominia/consular
 	allowed_roles = list("Consular Officer")
 
-/datum/gear/suit/dominia/bomber
+/datum/gear/suit/fisanduhian_bomber
 	display_name = "fisanduhian bomber jacket"
 	path = /obj/item/clothing/suit/storage/toggle/dominia/bomber
 	flags = GEAR_HAS_DESC_SELECTION

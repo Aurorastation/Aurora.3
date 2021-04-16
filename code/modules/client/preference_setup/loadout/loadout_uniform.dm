@@ -252,7 +252,7 @@
 	consular["dominian consular officer's uniform, feminine"] = /obj/item/clothing/under/dominia/consular/dress
 	gear_tweaks += new/datum/gear_tweak/path(consular)
 
-/datum/gear/uniform/dominia/sweater
+/datum/gear/uniform/fisanduhian_sweater
 	display_name = "fisanduhian sweater"
 	path = /obj/item/clothing/under/dominia/sweater
 	flags = GEAR_HAS_DESC_SELECTION
