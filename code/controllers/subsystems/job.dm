@@ -752,7 +752,7 @@
 			else
 				permitted = TRUE
 
-			if(G.whitelisted && (!(H.species.name in G.whitelisted)))
+			if(!G.check_species_whitelist(H))
 				permitted = FALSE
 
 			if(G.faction && G.faction != H.employer_faction)

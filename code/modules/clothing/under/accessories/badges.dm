@@ -466,8 +466,7 @@
 
 /obj/item/clothing/accessory/badge/passport/proc/open_passport()
 	set name = "Open/Close Passport"
-	set desc = "Open/Close Passport"
-	set src = usr
+	set src in usr
 
 	open = !open
 	to_chat(usr, SPAN_NOTICE("You [open ? "open" : "close"] \the [src]."))
@@ -502,14 +501,14 @@
 
 /obj/item/clothing/accessory/badge/passport/jargon
 	name = "jargon federation passport"
-	desc = "A passport issued to citizens of the Jargon Federation. Shiny, and compact, its perfect to use on the go."
+	desc = "A passport issued to citizens of the Jargon Federation. Shiny, and compact, it's perfect to use on the go."
 	icon_state = "passport_jargon"
 	item_state = "passport_jargon"
 	open = CLOSED
-	var/skrellian = FALSE
+	var/species_tag = ""
 
 /obj/item/clothing/accessory/badge/passport/jargon/update_icon()
-	icon_state = "[initial(icon_state)][open ? skrellian ? "_o_s" : "_o" : ""]"
+	icon_state = "[initial(icon_state)][open ? "_o[species_tag]" : ""]"
 
 #undef CANT_OPEN
 #undef CLOSED

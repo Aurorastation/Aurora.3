@@ -332,3 +332,8 @@ var/list/gear_datums = list()
 	for(var/datum/gear_tweak/gt in gear_tweaks)
 		gt.tweak_item(item, gt.get_random())
 	return item
+
+/datum/gear/proc/check_species_whitelist(mob/living/carbon/human/H)
+	if(whitelisted && (!(H.species.name in whitelisted)))
+		return FALSE
+	return TRUE
