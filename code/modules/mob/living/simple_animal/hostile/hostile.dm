@@ -175,6 +175,8 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	setClickCooldown(attack_delay)
 	if(!Adjacent(target_mob))
 		return
+	if(!canmove)
+		return
 	if(!see_target())
 		LoseTarget()
 	for(var/grab in grabbed_by)
@@ -209,6 +211,8 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 
 /mob/living/simple_animal/hostile/proc/PostAttack(var/atom/target)
 	if(stat)
+		return
+	if(!isturf(loc)) // no teleporting out of lockers
 		return
 	for(var/grab in grabbed_by)
 		var/obj/item/grab/G = grab

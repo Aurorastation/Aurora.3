@@ -39,11 +39,23 @@ export default {
     overflow: hidden;
     background: #000000;
   }
+  .displayBar.good {
+    border: 1px solid #4f7529;
+  }
+  .displayBar.average {
+    border: 1px solid #cd6500;
+  }
+  .displayBar.bad {
+    border: 1px solid #ee0000;
+  }
+  .displayBar.highlight {
+    border: 1px solid #8BA5C4;
+  }
   .displayBarFill {
     line-height: 1em;
     white-space: nowrap;
     overflow: visible;
-    text-align: center;
+    text-align: left;
     span {
       vertical-align: middle;
       margin-left: 2px;

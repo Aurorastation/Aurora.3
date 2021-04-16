@@ -39,6 +39,7 @@
 		for(var/T in starting_accessories)
 			var/obj/item/clothing/accessory/tie = new T(src)
 			src.attach_accessory(null, tie)
+	update_icon()
 
 /obj/item/clothing/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -534,7 +535,6 @@
 	return our_image
 
 /obj/item/clothing/head/update_icon(var/mob/user)
-
 	cut_overlays()
 	var/mob/living/carbon/human/H
 	if(istype(user,/mob/living/carbon/human))
@@ -551,6 +551,8 @@
 		if(!SSicon_cache.light_overlay_cache[cache_key])
 			var/use_icon = 'icons/mob/light_overlays.dmi'
 			SSicon_cache.light_overlay_cache[cache_key] = image("icon" = use_icon, "icon_state" = "[light_overlay]")
+
+	..()
 
 	if(H)
 		H.update_inv_head()

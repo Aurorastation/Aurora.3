@@ -48,7 +48,7 @@
 		if(slide.has_swab)
 			var/obj/item/forensics/swab/swab = slide.has_swab
 
-			pname = "GSR report #[++report_num]: [swab.name]"
+			pname = "GSR report #[report_num]"
 			info = "<b>Scanned item:</b><br>[swab.name]<br><br>"
 
 			if(swab.gsr)
@@ -58,10 +58,10 @@
 
 		else if(slide.has_sample)
 			var/obj/item/sample/fibers/fibers = slide.has_sample
-			pname = "Fiber report #[++report_num]: [initial(fibers.name)]"
+			pname = "Fiber report #[report_num]"
 			info = "<b>Scanned item:</b><br>[initial(fibers.name)]<br><br>"
 			if(fibers.evidence)
-				info = "Molecular analysis on provided sample has determined the presence of unique fiber strings.<br><br>"
+				info = "Molecular analysis on [fibers.name] has determined the presence of unique fiber strings.<br><br>"
 				for(var/fiber in fibers.evidence)
 					info += "<span class='notice'>Most likely match for fibers: [fiber]</span><br><br>"
 			else
@@ -70,7 +70,7 @@
 			pname = "Empty slide report #[report_num]"
 			info = "Evidence suggests that there's nothing in this slide."
 	else if(istype(sample, /obj/item/sample/print))
-		pname = "Fingerprint report #[report_num]: [sample.name]"
+		pname = "Fingerprint report #[report_num]"
 		info = "<b>Fingerprint analysis report #[report_num]</b>: [sample.name]<br>"
 		var/obj/item/sample/print/card = sample
 		if(card.evidence && card.evidence.len)

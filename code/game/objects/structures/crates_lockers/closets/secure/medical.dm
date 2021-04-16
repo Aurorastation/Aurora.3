@@ -217,6 +217,8 @@
 	new /obj/item/storage/box/syringes(src)
 	new /obj/item/storage/box/beakers(src)
 	new /obj/item/storage/box/beakers(src)
+	new /obj/item/storage/bag/chemistry(src)
+	new /obj/item/storage/bag/chemistry(src)
 
 /obj/structure/closet/secure_closet/medical_wall
 	name = "first aid closet"

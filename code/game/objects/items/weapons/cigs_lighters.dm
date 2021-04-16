@@ -676,6 +676,19 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
+/obj/item/flame/lighter/zippo/augment
+	name = "retractable lighter"
+	desc = "An augmented lighter, implanted directly into the hand, popping through the finger."
+	icon_state = "lighter-aug"
+	item_state = "lighter-aug"
+
+/obj/item/flame/lighter/zippo/augment/throw_at(atom/target, range, speed, mob/thrower)
+	thrower.drop_from_inventory(src)
+
+/obj/item/flame/lighter/zippo/augment/dropped()
+	loc = null
+	qdel(src)
+
 /obj/item/flame/lighter/zippo/dominia
 	name = "\improper Dominian Zippo lighter"
 	desc = "A zippo lighter with a depiction of the Imperial standard of Dominia."
