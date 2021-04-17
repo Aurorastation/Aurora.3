@@ -68,7 +68,7 @@
 	name = "sandals"
 	icon_state = "sandals"
 	species_restricted = null
-	icon_auto_adapt = TRUE
+	body_parts_covered = FALSE
 	sprite_sheets = list(
 		"Tajara" = 'icons/mob/species/tajaran/shoes.dmi')
 
