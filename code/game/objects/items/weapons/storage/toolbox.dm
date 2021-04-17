@@ -206,7 +206,7 @@
 	filled = TRUE
 
 /obj/item/storage/toolbox/lunchbox/idris
-	name = "NanoTrasen brand lunchbox"
+	name = "Idris Incorporated lunchbox"
 	icon_state = "lunchbox_idris"
 	item_state = "lunchbox_idris"
 	desc = "A little lunchbox. This one features a durable holographic screen on the side that showcases the Idris logo."

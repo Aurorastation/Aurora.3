@@ -528,5 +528,5 @@
 		/obj/item/material/knife,
 		/obj/item/material/hatchet/butch,
 		/obj/item/reagent_containers/food/drinks/drinkingglass,
-		/obj/item/storage/toolbox/lunchbox/nt
+		/obj/item/storage/toolbox/lunchbox
 		)
