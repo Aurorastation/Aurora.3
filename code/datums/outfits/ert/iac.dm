@@ -33,7 +33,7 @@
 		/obj/item/reagent_containers/glass/bottle/dexalin_plus = 1,
 		/obj/item/reagent_containers/glass/bottle/butazoline = 1,
 		/obj/item/reagent_containers/glass/bottle/dermaline = 1,
-		/obj/item/reagent_containers/glass/bottle/perconol
+		/obj/item/reagent_containers/glass/bottle/perconol = 1
 		)
 
 /datum/outfit/admin/ert/iac/get_id_access()
