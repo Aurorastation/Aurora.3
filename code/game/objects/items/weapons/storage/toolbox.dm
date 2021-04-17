@@ -205,6 +205,15 @@
 /obj/item/storage/toolbox/lunchbox/nt/filled
 	filled = TRUE
 
+/obj/item/storage/toolbox/lunchbox/idris
+	name = "NanoTrasen brand lunchbox"
+	icon_state = "lunchbox_idris"
+	item_state = "lunchbox_idris"
+	desc = "A little lunchbox. This one features a durable holographic screen on the side that showcases the Idris logo."
+
+/obj/item/storage/toolbox/lunchbox/idris/filled
+	filled = TRUE
+
 /obj/item/storage/toolbox/lunchbox/nymph
 	name = "\improper diona nymph lunchbox"
 	icon_state = "lunchbox_dionanymph"
