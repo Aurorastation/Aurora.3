@@ -121,10 +121,10 @@
 
 /datum/gear/utility/pills/New()
 	..()
-	var/pills = list()
+	var/list/pills = list()
 	pills["Emoxanyl"] = /obj/item/storage/pill_bottle/emoxanyl
 	pills["Minaphobin"] = /obj/item/storage/pill_bottle/minaphobin/small
 	pills["Neurostabin "] = /obj/item/storage/pill_bottle/neurostabin
 	pills["Orastabin"] = /obj/item/storage/pill_bottle/orastabin
 	pills["Parvosil"] = /obj/item/storage/pill_bottle/parvosil
-	gear_tweaks += new/datum/gear_tweak/path(pills)
+	gear_tweaks += new /datum/gear_tweak/path(pills)
