@@ -22,7 +22,8 @@
 		/obj/item/storage/firstaid/surgery = 1,
 		/obj/item/storage/box/gloves = 1,
 		/obj/item/storage/box/syringes = 1,
-		/obj/item/device/flashlight/pen = 1
+		/obj/item/device/flashlight/pen = 1,
+		/obj/item/device/healthanalyzer = 1
 	)
 
 	belt_contents = list(

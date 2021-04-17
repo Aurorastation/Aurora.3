@@ -41,6 +41,7 @@
 		/obj/item/ammo_magazine/a10mm = 2,
 		/obj/item/storage/firstaid/combat = 1,
 		/obj/item/storage/firstaid/adv = 2,
+		/obj/item/device/healthanalyzer = 1,
 		/obj/item/tank/oxygen = 1,
 		/obj/item/reagent_containers/glass/bottle/thetamycin = 1,
 		/obj/item/reagent_containers/hypospray/autoinjector/coagzolug = 1

@@ -101,6 +101,7 @@
 		/obj/item/storage/box/donkpockets = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/storage/firstaid/adv = 1,
+		/obj/item/device/healthanalyzer = 1,
 		/obj/item/reagent_containers/glass/bottle/thetamycin = 1,
 		/obj/item/reagent_containers/hypospray/autoinjector/coagzolug = 1
 	)
