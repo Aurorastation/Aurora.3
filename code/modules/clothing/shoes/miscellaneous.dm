@@ -69,8 +69,7 @@
 	icon_state = "sandals"
 	species_restricted = null
 	body_parts_covered = FALSE
-	sprite_sheets = list(
-		"Tajara" = 'icons/mob/species/tajaran/shoes.dmi')
+	sprite_sheets = list("Tajara" = 'icons/mob/species/tajaran/shoes.dmi')
 
 /obj/item/clothing/shoes/sandal/marisa
 	desc = "A pair of magic, black shoes."
@@ -84,16 +83,14 @@
 	desc = "A pair of foam flip flops. For those not afraid to show a little ankle."
 	icon_state = "thongsandal"
 	item_state = "thongsandal"
-	sprite_sheets = list(
-		"Tajara" = 'icons/mob/species/tajaran/shoes.dmi')
+	sprite_sheets = list("Tajara" = 'icons/mob/species/tajaran/shoes.dmi')
 
 obj/item/clothing/shoes/sandal/clogs
 	name = "plastic clogs"
 	desc = "A pair of plastic clog shoes."
 	icon_state = "clogs"
 	item_state = "clogs"
-	sprite_sheets = list(
-		"Tajara" = 'icons/mob/species/tajaran/shoes.dmi')
+	sprite_sheets = list("Tajara" = 'icons/mob/species/tajaran/shoes.dmi')
 
 /obj/item/clothing/shoes/clown_shoes
 	desc = "The prankster's standard-issue clowning shoes. Damn they're huge!"
@@ -295,9 +292,7 @@ obj/item/clothing/shoes/sandal/clogs
 	silent = TRUE
 	cold_protection = FEET
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
-	sprite_sheets = list(
-		"Tajara" = 'icons/mob/species/tajaran/shoes.dmi'
-	)
+	sprite_sheets = list("Tajara" = 'icons/mob/species/tajaran/shoes.dmi')
 
 /obj/item/clothing/shoes/iac
 	name = "IAC shoes"
