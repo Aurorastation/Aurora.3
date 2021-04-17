@@ -68,7 +68,9 @@
 	name = "sandals"
 	icon_state = "sandals"
 	species_restricted = null
-	body_parts_covered = 0
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("taj") 
+	body_parts_covered = FALSE
 
 /obj/item/clothing/shoes/sandal/marisa
 	desc = "A pair of magic, black shoes."
@@ -82,12 +84,16 @@
 	desc = "A pair of foam flip flops. For those not afraid to show a little ankle."
 	icon_state = "thongsandal"
 	item_state = "thongsandal"
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("taj") 
 
 obj/item/clothing/shoes/sandal/clogs
 	name = "plastic clogs"
 	desc = "A pair of plastic clog shoes."
 	icon_state = "clogs"
 	item_state = "clogs"
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("taj") 
 
 /obj/item/clothing/shoes/clown_shoes
 	desc = "The prankster's standard-issue clowning shoes. Damn they're huge!"
@@ -124,6 +130,8 @@ obj/item/clothing/shoes/sandal/clogs
 	silent = 1
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("taj") 
 
 /obj/item/clothing/shoes/slippers_worn
 	name = "worn bunny slippers"
@@ -133,6 +141,8 @@ obj/item/clothing/shoes/sandal/clogs
 	force = 0
 	w_class = ITEMSIZE_SMALL
 	silent = 1
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("taj") 
 
 /obj/item/clothing/shoes/laceup
 	name = "black oxford shoes"
@@ -287,9 +297,10 @@ obj/item/clothing/shoes/sandal/clogs
 	icon_state = "carpslippers"
 	species_restricted = null
 	silent = TRUE
-
 	cold_protection = FEET
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("taj") 
 
 /obj/item/clothing/shoes/iac
 	name = "IAC shoes"
