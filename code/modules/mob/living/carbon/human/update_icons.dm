@@ -720,7 +720,7 @@ There are several things that need to be remembered:
 	if(QDELING(src))
 		return
 
-	if(check_draw_ears())
+	if(check_draw_left_ear())
 		if(l_ear)
 			var/image/result_layer = null
 
@@ -763,7 +763,7 @@ There are several things that need to be remembered:
 	if(QDELING(src))
 		return
 
-	if(check_draw_ears())
+	if(check_draw_right_ear())
 		if(r_ear)
 			var/image/result_layer = null
 
@@ -1568,15 +1568,24 @@ There are several things that need to be remembered:
 	else
 		return TRUE
 
-/mob/living/carbon/human/proc/check_draw_ears()
-	if (!l_ear && !r_ear)
+/mob/living/carbon/human/proc/check_draw_right_ear()
+	if (!r_ear)
 		return FALSE
-	else if ((l_ear && (l_ear.flags_inv & ALWAYSDRAW)) || (r_ear && (r_ear.flags_inv & ALWAYSDRAW)))
+	else if (r_ear.flags_inv & ALWAYSDRAW)
 		return TRUE
-	else if( (head && (head.flags_inv & (HIDEEARS))) || (wear_mask && (wear_mask.flags_inv & (HIDEEARS))))
+	else if ((head && (head.flags_inv & (HIDEEARS))) || (wear_mask && (wear_mask.flags_inv & (HIDEEARS))))
 		return FALSE
-	else
+	return TRUE
+
+
+/mob/living/carbon/human/proc/check_draw_left_ear()
+	if (!l_ear)
+		return FALSE
+	else if (l_ear.flags_inv & ALWAYSDRAW)
 		return TRUE
+	else if ((head && (head.flags_inv & (HIDEEARS))) || (wear_mask && (wear_mask.flags_inv & (HIDEEARS))))
+		return FALSE
+	return TRUE
 
 /mob/living/carbon/human/proc/check_draw_glasses()
 	if (!glasses)
