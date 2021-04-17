@@ -1,0 +1,6 @@
+author: Doxxmedearly
+
+delete-after: True
+
+changes:
+  - tweak: "Espresso cartridges now contain 500u like all other dispenser cartridges."
