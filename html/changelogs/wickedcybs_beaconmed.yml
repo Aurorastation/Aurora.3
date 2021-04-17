@@ -1,0 +1,8 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - tweak: "Medical responders for off station roles now have loadouts that will allow them to treat their teams effectively. Mainly, you'll find they now have a belt full of useful liquid medicine that can be injected along with some adjustments to what they carry in their bags."
+  - tweak: "Added a variant of the combat hypo that doesn't start loaded with reagents already."
+  - rcsadd: "Added a butazoline reagent bottle that can be spawned on demand by admins if needed, put into loadouts or mapped in if desired."
