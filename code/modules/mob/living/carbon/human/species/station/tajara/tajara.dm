@@ -26,6 +26,10 @@
 
 	age_max = 80
 
+	damage_overlays = 'icons/mob/human_races/masks/dam_tajara.dmi'
+	damage_mask = 'icons/mob/human_races/masks/dam_mask_tajara.dmi'
+	blood_mask = 'icons/mob/human_races/masks/blood_tajara.dmi'
+
 	num_alternate_languages = 2
 	secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR, LANGUAGE_YA_SSA)
 	name_language = LANGUAGE_SIIK_MAAS

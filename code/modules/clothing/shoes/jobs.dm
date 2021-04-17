@@ -9,8 +9,8 @@
 	species_restricted = null
 	drop_sound = 'sound/items/drop/rubber.ogg'
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
-	icon_auto_adapt = TRUE
-	icon_supported_species_tags = list("taj") 
+	sprite_sheets = list(
+		"Tajara" = 'icons/mob/species/tajaran/shoes.dmi')
 
 /obj/item/clothing/shoes/jackboots
 	name = "black boots"
