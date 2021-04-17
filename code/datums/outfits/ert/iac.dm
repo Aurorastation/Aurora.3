@@ -11,6 +11,7 @@
 	belt = /obj/item/storage/belt/medical
 	back = /obj/item/storage/backpack/satchel_med
 	accessory = /obj/item/clothing/accessory/storage/white_vest
+	id = /obj/item/card/id/distress/iac
 	accessory_contents = list(/obj/item/stack/medical/advanced/bruise_pack = 1, /obj/item/stack/medical/advanced/ointment = 1, /obj/item/reagent_containers/glass/bottle/mortaphenyl = 1)
 
 	l_ear = /obj/item/device/radio/headset/distress
