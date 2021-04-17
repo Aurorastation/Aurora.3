@@ -70,7 +70,7 @@
 	species_restricted = null
 	icon_auto_adapt = TRUE
 	sprite_sheets = list(
-		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi')
+		"Tajara" = 'icons/mob/species/tajaran/shoes.dmi')
 
 /obj/item/clothing/shoes/sandal/marisa
 	desc = "A pair of magic, black shoes."
