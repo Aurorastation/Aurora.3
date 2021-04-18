@@ -11,6 +11,7 @@
 	force = 10
 	max_shots = 20
 	fire_delay = 6
+	burst_delay = 3
 	accuracy = -1
 	can_turret = 1
 	secondary_projectile_type = /obj/item/projectile/beam
@@ -20,7 +21,7 @@
 	turret_is_lethal = 0
 	has_item_ratio = FALSE
 
-	fire_delay_wielded = 1
+	fire_delay_wielded = 4
 	accuracy_wielded = 2
 	sel_mode = 1
 
