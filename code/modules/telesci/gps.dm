@@ -200,6 +200,7 @@ var/list/GPS_list = list()
 
 		if(GPS_list[new_tag])
 			tracking |= new_tag
+			update_compass(TRUE)
 		else
 			to_chat(usr, "Could not locate GPS tag.")
 
@@ -207,20 +208,20 @@ var/list/GPS_list = list()
 
 	if(href_list["remove_tag"])
 		tracking -= href_list["remove_tag"]
-
+		update_compass(TRUE)
 		return TRUE
 
 	if(href_list["add_all"])
 		tracking.Cut()
 		for(var/gps in GPS_list)
 			tracking += GPS_list[gps]["tag"]
-
+		update_compass(TRUE)
 		return TRUE
 
 	if(href_list["clear_all"])
 		tracking.Cut()
 		tracking |= gpstag // always want to track ourselves
-
+		update_compass(TRUE)
 		return TRUE
 
 	if(href_list["compass"])
