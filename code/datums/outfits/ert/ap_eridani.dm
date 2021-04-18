@@ -104,7 +104,6 @@
 		/obj/item/storage/firstaid/adv = 1,
 		/obj/item/storage/firstaid/surgery = 1,
 		/obj/item/device/advanced_healthanalyzer = 1,
-		/obj/item/device/healthanalyzer = 1
 		/obj/item/clothing/accessory/storage/pouches/black = 1,
 		/obj/item/melee/baton/stunrod = 1,
 		/obj/item/reagent_containers/glass/bottle/thetamycin = 1
@@ -136,7 +135,7 @@
 	accessory = /obj/item/clothing/accessory/holster/thigh
 	accessory_contents = list(/obj/item/gun/energy/disruptorpistol/magnum = 1)
 	l_pocket = /obj/item/device/healthanalyzer
-	r_pocket = /obj/item/crowbar = 1
+	r_pocket = /obj/item/crowbar
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
