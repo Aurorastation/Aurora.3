@@ -22,10 +22,10 @@
 	spawner = /datum/ghostspawner/human/ert/med_eridani
 	equipment_map = /datum/map_template/distress_iac
 
-/datum/responseteam/fsf_ert
+/datum/responseteam/fsf
 	name = "Free Solarian Fleets Fireteam"
 	chance = 15
-	spawner = /datum/ghostspawner/human/ert/fsf_ert
+	spawner = /datum/ghostspawner/human/ert/fsf
 
 /datum/responseteam/syndicate
 	name = "Syndicate Commandos"
