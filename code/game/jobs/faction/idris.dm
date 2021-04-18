@@ -46,7 +46,8 @@
 		/datum/species/skrell,
 		/datum/species/machine,
 		/datum/species/tajaran,
-		/datum/species/diona
+		/datum/species/diona,
+		/datum/species/unathi
 	)
 
 	titles_to_loadout = list(
