@@ -312,6 +312,7 @@
 			outfit_catagories["TCFL"] = typesof(/datum/outfit/admin/ert/legion)
 			outfit_catagories["Syndicate"] = typesof(/datum/outfit/admin/deathsquad/syndicate)
 			outfit_catagories["Freelance Mercenaries"] = typesof(/datum/outfit/admin/ert/mercenary)
+			outfit_catagories["Free Solarian Fleets Marines"] = typesof(/datum/outfit/admin/ert/fsf_ert)
 			outfit_catagories["Kataphracts"] = typesof(/datum/outfit/admin/ert/kataphract)
 			outfit_catagories["IAC"] = typesof(/datum/outfit/admin/ert/iac)
 		if("Admin")

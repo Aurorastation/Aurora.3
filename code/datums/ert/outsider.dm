@@ -18,9 +18,14 @@
 
 /datum/responseteam/med_eridani
 	name = "Eridani Medical Team"
-	chance = 10
+	chance = 15
 	spawner = /datum/ghostspawner/human/ert/med_eridani
 	equipment_map = /datum/map_template/distress_iac
+
+/datum/responseteam/fsf_ert
+	name = "Free Solarian Fleets Fireteam"
+	chance = 15
+	spawner = /datum/ghostspawner/human/ert/fsf_ert
 
 /datum/responseteam/syndicate
 	name = "Syndicate Commandos"
