@@ -15,6 +15,7 @@
 	belt = /obj/item/storage/belt/military
 	id = /obj/item/card/id/distress/ap_eridani 
 	l_ear = /obj/item/device/radio/headset/distress
+	l_pocket = /obj/item/crowbar
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
