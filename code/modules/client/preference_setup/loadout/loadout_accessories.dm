@@ -154,12 +154,16 @@
 	..()
 	var/sweater = list()
 	sweater["sweater"] = /obj/item/clothing/accessory/sweater
-	sweater["argyle sweater"] = /obj/item/clothing/accessory/sweaterargyle
+	sweater["crewneck sweater"] = /obj/item/clothing/accessory/sweatercrewneck
+	sweater["v-neck sweater"] = /obj/item/clothing/accessory/sweatervneck
 	sweater["sweater vest"] = /obj/item/clothing/accessory/sweatervest
-	sweater["argyle sweater vest"] = /obj/item/clothing/accessory/sweatervestargyle
 	sweater["turtleneck sweater"] = /obj/item/clothing/accessory/sweaterturtleneck
-	sweater["argyle turtleneck sweater"] = /obj/item/clothing/accessory/sweaterargyleturtleneck
 	sweater["tubeneck sweater"] = /obj/item/clothing/accessory/sweatertubeneck
+	sweater["argyle sweater"] = /obj/item/clothing/accessory/sweaterargyle
+	sweater["argyle crewneck sweater"] = /obj/item/clothing/accessory/sweaterargylecrewneck
+	sweater["argyle v-neck sweater"] = /obj/item/clothing/accessory/sweaterargylevneck
+	sweater["argyle sweater vest"] = /obj/item/clothing/accessory/sweatervestargyle
+	sweater["argyle turtleneck sweater"] = /obj/item/clothing/accessory/sweaterargyleturtleneck
 	sweater["argyle tubeneck sweater"] = /obj/item/clothing/accessory/sweaterargyletubeneck
 	gear_tweaks += new/datum/gear_tweak/path(sweater)
 
@@ -292,6 +296,22 @@
 	gadpathur["industrial cadre brassard"] = /obj/item/clothing/accessory/armband/gadpathur/ind
 	gadpathur["medical cadre brassard"] = /obj/item/clothing/accessory/armband/gadpathur/med
 	gear_tweaks += new/datum/gear_tweak/path(gadpathur)
+
+/datum/gear/accessory/dominia/sash
+	display_name = "dominian house sash selection"
+	description = "A selection of sashes representing the Great Houses of Dominia."
+	path = /obj/item/clothing/accessory/dominia/sash
+
+/datum/gear/accessory/dominia/sash/New()
+	..()
+	var/dominia = list()
+	dominia["dominian sash"] = /obj/item/clothing/accessory/dominia/sash
+	dominia["strelitz sash"] = /obj/item/clothing/accessory/dominia/sash/strelitz
+	dominia["volvalaad sash"] = /obj/item/clothing/accessory/dominia/sash/volvalaad
+	dominia["kazhkz sash"] = /obj/item/clothing/accessory/dominia/sash/kazhkz
+	dominia["caladius sash"] = /obj/item/clothing/accessory/dominia/sash/caladius
+	dominia["zhao sash"] =/obj/item/clothing/accessory/dominia/sash/zhao
+	gear_tweaks += new/datum/gear_tweak/path(dominia)
 
 /datum/gear/accessory/passcard
 	display_name = "human passcard selection"

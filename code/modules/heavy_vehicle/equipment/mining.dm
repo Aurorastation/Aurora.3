@@ -21,14 +21,14 @@
 				B.disconnect()
 				if(length(held_braces) < 2)
 					owner.visible_message(SPAN_NOTICE("\The [owner] starts loading \the [B] into \the [src]."))
-					if(do_after(owner, 50, act_target = B))
+					if(do_after(user, 5 SECONDS, act_target = owner, extra_checks = CALLBACK(GLOBAL_PROC, .proc/atom_maintain_position, B, B.loc)))
 						owner.visible_message(SPAN_NOTICE("\The [owner] loads \the [B] into \the [src]."))
 						B.forceMove(src)
 						LAZYADD(held_braces, B)
 			if(!held_drill && istype(M, /obj/machinery/mining/drill))
 				var/obj/machinery/mining/drill/D = M
 				owner.visible_message(SPAN_NOTICE("\The [owner] starts loading \the [D] into \the [src]."))
-				if(do_after(owner, 50, act_target = D))
+				if(do_after(user, 5 SECONDS, act_target = owner, extra_checks = CALLBACK(GLOBAL_PROC, .proc/atom_maintain_position, D, D.loc)))
 					owner.visible_message(SPAN_NOTICE("\The [owner] loads \the [D] into \the [src]."))
 					D.anchored = FALSE
 					D.active = FALSE

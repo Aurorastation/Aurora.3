@@ -4,6 +4,7 @@
 	speech_verb = list("creaks and rustles")
 	ask_verb = list("creaks")
 	exclaim_verb = list("rustles")
+	sing_verb = list("croaks")
 	colour = "soghun"
 	key = "q"
 	flags = RESTRICTED|TCOMSSIM
@@ -27,6 +28,7 @@
 	speech_verb = list("hisses")
 	ask_verb = list("hisses")
 	exclaim_verb = list("roars")
+	sing_verb = list("hisses")
 	colour = "soghun"
 	written_style = "sintaunathi"
 	key = "o"
@@ -53,6 +55,7 @@
 	speech_verb = list("mrowls")
 	ask_verb = list("mrowls")
 	exclaim_verb = list("yowls")
+	sing_verb = list("mrowmbles")
 	colour = "tajaran"
 	written_style = "siikmaas"
 	key = "j"
@@ -92,6 +95,7 @@
 	ask_verb = list("mrowls")
 	exclaim_verb = list("yowls")
 	signlang_verb = list("signs", "flicks their ears", "gestures")
+	sing_verb = list("mrowmbles")
 	colour = "tajaran_signlang"
 	key = "w"
 	flags = WHITELISTED | NONVERBAL
@@ -108,6 +112,7 @@
 	speech_verb = list("mrowls")
 	ask_verb = list("mrowls")
 	exclaim_verb = list("yowls")
+	sing_verb = list("mrowmbles")
 	colour = "yassa"
 	written_style = "yassa"
 	key = "r"
@@ -126,6 +131,7 @@
 	speech_verb = list("mrowls")
 	ask_verb = list("mrowls")
 	exclaim_verb = list("yowls")
+	sing_verb = list("mrowmbles")
 	colour = "delvahhi"
 	written_style = "delvahhi"
 	key = "n"
@@ -144,6 +150,7 @@
 	speech_verb = list("warbles")
 	ask_verb = list("warbles")
 	exclaim_verb = list("warbles")
+	sing_verb = list("warbles")
 	colour = "skrell"
 	written_style = "nralmalic"
 	key = "k"
@@ -276,6 +283,7 @@
 	speech_verb = list("beeps")
 	ask_verb = list("beeps")
 	exclaim_verb = list("loudly beeps")
+	exclaim_verb = list("rhythmically beeps")
 	colour = "changeling"
 	written_style = "encodedaudiolanguage"
 	key = "6"
@@ -296,6 +304,7 @@
 	ask_verb = list("hisses")
 	exclaim_verb = list("roars")
 	signlang_verb = list("signs", "gestures aggressively")
+	sing_verb = list("hisses")
 	colour = "soghun_alt"
 	written_style = "sintaazaziba"
 	key = "p"

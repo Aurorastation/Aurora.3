@@ -184,7 +184,8 @@
 				src.SpinAnimation(speed = 4, loops = 1)
 
 	//done throwing, either because it hit something or it finished moving
-	if(isobj(src)) src.throw_impact(get_turf(src),speed)
+	if(isturf(loc) && isobj(src))
+		throw_impact(loc, speed)
 	src.throwing = 0
 	src.thrower = null
 	src.throw_source = null

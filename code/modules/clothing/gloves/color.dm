@@ -152,9 +152,9 @@
 	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/white/unathi
- 	name = "white gloves"
- 	desc = "White gloves made for Unathi use."
- 	species_restricted = list(BODYTYPE_UNATHI)
+	name = "white gloves"
+	desc = "White gloves made for Unathi use."
+	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/rainbow/unathi
 	name = "rainbow gloves"

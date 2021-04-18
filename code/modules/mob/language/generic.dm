@@ -39,6 +39,7 @@
 	short = "TRADE"
 	desc = "Descended from latin and romance languages of old Earth, Tradeband remains the main tongue of the upper class of humanity. The language sounds elegant and well structured to most ears. It remains in popular use with traders, diplomats, and those seeking to hold onto a piece of a romantic past."
 	speech_verb = list("enunciates")
+	sing_verb = list("performs")
 	colour = "say_quote"
 	written_style = "tradeband"
 	key = "2"
@@ -58,6 +59,7 @@
 	short = "FREE"
 	desc = "A language of renegades and frontiersmen descending from various languages from Earth like Hindi combined into a multi-rooted jumble that sounds incoherent or even barbarian to non-native speakers. This language is the only common cultural identity for humans in the frontier. Speaking this language in itself boldly declares the speaker a free spirit. Often called 'Gutter' by Alliance citizens."
 	speech_verb = list("growls")
+	sing_verb = list("croons")
 	colour = "rough"
 	written_style = "freespeak"
 	key = "3"
@@ -94,6 +96,7 @@
 	ask_verb = list("mumbles")
 	whisper_verb = list("mutters")
 	exclaim_verb = list("screams incoherently")
+	sing_verb = list("gibbers")
 	key = "gi"
 	syllables = list("m","n","gh","h","l","s","r","a","e","i","o","u")
 	space_chance = 20

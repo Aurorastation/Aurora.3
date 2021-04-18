@@ -426,7 +426,7 @@
 	new /obj/item/ammo_magazine/plasma(src)
 	new /obj/item/ammo_magazine/plasma(src)
 
-/obj/structure/closet/crate/secure/gear_loadout/ninja/hacker/fill()
+/obj/structure/closet/crate/secure/gear_loadout/ninja/hacker
 	associated_hardsuit = /obj/item/rig/light/hacker/ninja
 
 /obj/structure/closet/crate/secure/gear_loadout/ninja/hacker/fill()
