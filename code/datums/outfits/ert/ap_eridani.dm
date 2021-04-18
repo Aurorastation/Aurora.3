@@ -76,7 +76,7 @@
 	)
 
 /datum/outfit/admin/ert/ap_eridani/doctor
-	name = "Eridani Doctor"
+	name = "Eridani Medical Officer"
 
 	uniform = /obj/item/clothing/under/rank/eridani_medic
 	suit = /obj/item/clothing/suit/storage/medical_chest_rig
@@ -91,7 +91,6 @@
 	accessory = /obj/item/clothing/accessory/holster/thigh
 	accessory_contents = list(/obj/item/gun/energy/disruptorpistol/magnum = 1)
 
-	l_ear = /obj/item/device/radio/headset/distress
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
@@ -116,8 +115,8 @@
         /obj/item/reagent_containers/glass/bottle/perconol = 1
 	)
 
-/datum/outfit/admin/ert/ap_eridani/paramedic
-	name = "Eridani Paramedic"
+/datum/outfit/admin/ert/ap_eridani/corpsman
+	name = "Eridani Corpsman"
 
 	uniform = /obj/item/clothing/under/rank/eridani_medic
 	suit = /obj/item/clothing/suit/storage/medical_chest_rig
