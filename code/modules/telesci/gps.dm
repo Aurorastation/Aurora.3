@@ -11,8 +11,8 @@ var/list/GPS_list = list()
 	var/gps_prefix = "COM"
 	var/gpstag = "COM0"
 	var/emped = 0
-	var/held_by = null
-	var/implanted_into = null
+	var/atom/held_by = null
+	var/atom/implanted_into = null
 	var/turf/locked_location
 	var/list/tracking = list()
 	var/list/static/gps_count = list()
@@ -22,7 +22,6 @@ var/list/GPS_list = list()
 	gpstag = next_initial_tag()
 	name = "global positioning system ([gpstag])"
 	update_position()
-	add_overlay("working")
 
 	if(ismob(loc))
 		if(ishuman(loc))
@@ -35,6 +34,8 @@ var/list/GPS_list = list()
 			implanted_into = loc
 	else if(istype(loc, /obj/item/robot_module))
 		implanted_into = loc.loc
+
+	update_icon()
 
 	if(held_by)
 		moved_event.register(held_by, src, /obj/item/device/gps/proc/update_position)
@@ -56,27 +57,39 @@ var/list/GPS_list = list()
 		implanted_into = null
 	return ..()
 
+/obj/item/device/gps/update_icon()
+	cut_overlays()
+	if(emped)
+		add_overlay("emp")
+	else if(held_by || implanted_into)
+		add_overlay("working")
+	else
+		add_overlay("confused")
+
 /obj/item/device/gps/pickup(var/mob/user)
 	..()
+	if(held_by)
+		moved_event.unregister(held_by, src)
 	held_by = user
 	moved_event.register(user, src, /obj/item/device/gps/proc/update_position)
+	update_icon()
 
 /obj/item/device/gps/dropped(var/mob/user)
 	..()
-	held_by = null
-	moved_event.unregister(user, src)
+	if(isturf(loc))
+		held_by = null
+		moved_event.unregister(user, src)
+	update_icon()
 
 /obj/item/device/gps/emp_act(severity)
-	emped = 1
-	cut_overlay("working")
-	add_overlay("emp")
+	emped = TRUE
 	addtimer(CALLBACK(src, .proc/post_emp), 300)
+	update_icon()
 	update_position()
 
 /obj/item/device/gps/proc/post_emp()
-	emped = 0
-	cut_overlay("emp")
-	add_overlay("working")
+	emped = FALSE
+	update_icon()
 	update_position()
 
 /obj/item/device/gps/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
@@ -171,6 +184,11 @@ var/list/GPS_list = list()
 
 /obj/item/device/gps/proc/update_position()
 	var/turf/T = get_turf(src)
+	if(held_by && (held_by.x != T.x || held_by.y != T.y || held_by.z != T.z) && held_by != recursive_loc_turf_check(src, 3, held_by))
+		moved_event.unregister(held_by, src)
+		held_by = null
+		update_icon()
+		return
 	var/area/gpsarea = get_area(src)
 	GPS_list[gpstag] = list("tag" = gpstag, "pos_x" = T.x, "pos_y" = T.y, "pos_z" = T.z, "area" = "[gpsarea.name]", "emped" = emped)
 	SSvueui.check_uis_for_change(src)
