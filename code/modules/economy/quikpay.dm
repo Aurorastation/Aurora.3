@@ -96,7 +96,6 @@
 
 
 /obj/item/device/nanoquikpay/attackby(obj/O, mob/user)
-	var/obj/item/card/id/I = O.GetID()
 	
 	if (istype(O, /obj/item/spacecash/ewallet))
 		var/obj/item/spacecash/ewallet/E = O
@@ -114,12 +113,15 @@
 			sum = 0
 			receipt = ""
 			to_chat(src.loc, SPAN_NOTICE("Transaction completed, please return to the home screen."))
+		else if (transaction_amount > E.worth)
+			to_chat(user, "[icon2html(src, user)]<span class='warning'>\The [E] doesn't have that much money!</span>")
+		return
 	
+	var/obj/item/card/id/I = O.GetID()
 	if (!I) 
 		return
 	if (!istype(O))
 		return
-
 	
 	else
 
