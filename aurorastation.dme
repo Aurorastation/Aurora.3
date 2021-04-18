@@ -1215,6 +1215,7 @@
 #include "code\modules\admin\verbs\SDQL_2_parser.dm"
 #include "code\modules\admin\verbs\ticklag.dm"
 #include "code\modules\admin\verbs\tripAI.dm"
+#include "code\modules\admin\verbs\viewlist.dm"
 #include "code\modules\admin\verbs\warning.dm"
 #include "code\modules\admin\view_variables\helpers.dm"
 #include "code\modules\admin\view_variables\topic.dm"
