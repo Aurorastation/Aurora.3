@@ -23,7 +23,7 @@
 		/obj/item/storage/firstaid/regular = 1,
 		/obj/item/clothing/head/softcap/eri = 1,
 		/obj/item/gun/energy/gun/nuclear = 1,
-		/obj/item/storage/belt/utility/very_full = 1,
+		/obj/item/storage/belt/utility/very_full = 1
 	)
 
 	belt_contents = list(
