@@ -1,9 +1,9 @@
 /datum/ghostspawner/human/ert/ap_eridani
-	name = "Eridani Security Specialist"
+	name = "Eridani Asset Protectio Specialist"
 	short_name = "eridaniassetprotection"
 	mob_name_prefix = "Spc. "
 	max_count = 2
-	desc = "A security specialist suited for close asset protection and policing duties. Ensure your colleagues ledgers remain in the black."
+	desc = "A specialist suited for close asset protection and policing duties. Ensure your colleagues ledgers remain in the black."
 	welcome_message = "You are part of an Eridani Private Military Company Asset Protection Team, a highly trained group of security specialists and medical professionals \
 	contracted by the Stellar Corporate Conglomerate to protect its investments."
 	outfit = /datum/outfit/admin/ert/ap_eridani
@@ -23,7 +23,7 @@
 	short_name = "eridanidoctor"
 	mob_name_prefix = "Dr. "
 	max_count = 1
-	desc = "A highly trained Eridani medical officer. Well versed in surgical procedures and is expected to work in a hot zone. Not a stranger to a bank run."
+	desc = "A highly trained Eridani medical officer. Well versed in surgical procedures and expected to work in a hot zone. Not a stranger to a bank run."
 	outfit = /datum/outfit/admin/ert/ap_eridani/doctor
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 

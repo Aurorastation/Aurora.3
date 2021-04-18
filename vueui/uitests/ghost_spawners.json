@@ -317,9 +317,9 @@
           "tags": ["Response Teams"],
           "spawnpoints": ["ERTSpawn"]
         },
-        "eridanispecialist": {
-          "name": "Eridani Security Specialist",
-          "desc": "A security specialist suited for close asset protection and policing duties. Ensure your colleagues ledgers remain in the black. (This spawner is not enabled.)",
+        "eridaniassetprotection": {
+          "name": "Eridani Asset Protection Specialist",
+          "desc": "A specialist suited for close asset protection and policing duties. Ensure your colleagues ledgers remain in the black. (This spawner is not enabled.)",
           "cant_spawn": "This spawner is not enabled.",
           "can_edit": 1,
           "enabled": 0,
@@ -329,7 +329,7 @@
           "tags": ["Response Teams"],
           "spawnpoints": ["ERTSpawn"]
         },
-        "eridaniparamedic": {
+        "eridanicorpsman": {
           "name": "Eridani Corpsman",
           "desc": "An Eridani corpsman that can handle nursing duties as well. Trained to operate in combat environments if needed. Make sure to check your quarterlies. (This spawner is not enabled.)",
           "cant_spawn": "This spawner is not enabled.",
@@ -355,7 +355,7 @@
         },
           "eridanidoctor": {
             "name": "Eridani Medical Officer",
-            "desc": " highly trained Eridani medical officer. Well versed in surgical procedures and is expected to work in a hot zone. Not a stranger to a bank run. (This spawner is not enabled.)",
+            "desc": " highly trained Eridani medical officer. Well versed in surgical procedures and expected to work in a hot zone. Not a stranger to a bank run. (This spawner is not enabled.)",
             "cant_spawn": "This spawner is not enabled.",
             "can_edit": 1,
             "enabled": 0,

@@ -1,5 +1,5 @@
 /datum/outfit/admin/ert/ap_eridani
-	name = "Eridani Security Specialist"
+	name = "Eridani Asset Protection Specialist"
 
 	uniform = /obj/item/clothing/under/rank/security/eridani
 	accessory = /obj/item/clothing/accessory/holster/thigh
@@ -11,11 +11,11 @@
 	gloves = /obj/item/clothing/gloves/combat
 	glasses =  /obj/item/clothing/glasses/sunglasses
 	suit_store = /obj/item/gun/energy/rifle
-	back = /obj/item/storage/backpack/satchel_norm
+	back = /obj/item/storage/backpack/satchel_sec
 	belt = /obj/item/storage/belt/military
 	id = /obj/item/card/id/distress/ap_eridani 
 	l_ear = /obj/item/device/radio/headset/distress
-	l_pocket = /obj/item/crowbar
+	l_pocket = /obj/item/grenade/chem_grenade/teargas
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
@@ -24,7 +24,6 @@
 		/obj/item/clothing/head/softcap/eri = 1,
 		/obj/item/gun/energy/gun/nuclear = 1,
 		/obj/item/storage/belt/utility/very_full = 1,
-		/obj/item/grenade/chem_grenade/teargas = 1
 	)
 
 	belt_contents = list(
@@ -75,7 +74,7 @@
 		/obj/item/device/flash = 1,
 		/obj/item/handcuffs/ziptie = 1,
 		/obj/item/melee/baton/stunrod = 1,
-		/obj/item/device/flashlight/maglight = 1,
+		/obj/item/grenade/flashbang = 1,
 		/obj/item/shield/riot/tact = 1,
 		/obj/item/melee/telebaton = 1
 	)
@@ -98,6 +97,7 @@
 	r_ear = /obj/item/device/flashlight/pen
 	l_pocket = /obj/item/device/healthanalyzer
 	r_pocket = /obj/item/crowbar
+	l_hand = /obj/item/surgery/scalpel/manager
 
 
 	backpack_contents = list(
@@ -127,7 +127,7 @@
 	suit = /obj/item/clothing/suit/storage/medical_chest_rig
 	suit_store = /obj/item/clothing/head/hardhat/first_responder
 	head = /obj/item/clothing/head/softcap/eri
-	mask = /obj/item/clothing/mask/balaclava
+	mask = /obj/item/clothing/mask/surgical
 	glasses = /obj/item/clothing/glasses/hud/health/aviator
 	gloves = /obj/item/clothing/gloves/latex/nitrile
 	shoes = /obj/item/clothing/shoes/swat/ert
@@ -137,6 +137,7 @@
 	accessory_contents = list(/obj/item/gun/energy/disruptorpistol/magnum = 1)
 	l_pocket = /obj/item/device/healthanalyzer
 	r_pocket = /obj/item/crowbar
+	l_hand = /obj/item/storage/firstaid/adv
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
@@ -144,7 +145,8 @@
 		/obj/item/storage/firstaid/combat = 1,
 		/obj/item/clothing/accessory/storage/pouches/black = 1,
 		/obj/item/melee/baton/stunrod = 1,
-		/obj/item/reagent_containers/glass/bottle/thetamycin = 1
+		/obj/item/reagent_containers/glass/bottle/thetamycin = 1,
+		/obj/item/storage/pill_bottle/mortaphenyl = 1
 	)
 
 	belt_contents = list(
