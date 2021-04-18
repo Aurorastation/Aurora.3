@@ -14,6 +14,7 @@
 	back = /obj/item/storage/backpack/satchel_norm
 	belt = /obj/item/storage/belt/military
 	id = /obj/item/card/id/distress/ap_eridani 
+	l_ear = /obj/item/device/radio/headset/distress
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
@@ -57,11 +58,14 @@
 
 	uniform = /obj/item/clothing/under/rank/security/eridani/alt
 	suit = null
-	head = null
+	head = /obj/item/clothing/head/beret/security/eri
+	mask = /obj/item/clothing/mask/smokable/cigarette/cigar/cohiba
 	back = /obj/item/rig/strike/distress
 	suit_store = null
 	l_hand = /obj/item/gun/energy/rifle
-	r_hand = /obj/item/clothing/head/beret/security/eri
+	r_hand = /obj/item/flame/lighter/zippo
+	l_pocket = /obj/item/clothing/mask/gas/tactical
+	r_pocket = /obj/item/storage/box/fancy/cigarettes/cigar
 
 	backpack_contents = list()
 
@@ -90,16 +94,17 @@
 	back = /obj/item/storage/backpack/satchel_med
 	accessory = /obj/item/clothing/accessory/holster/thigh
 	accessory_contents = list(/obj/item/gun/energy/disruptorpistol/magnum = 1)
+	r_ear = /obj/item/device/flashlight/pen
+	l_pocket = /obj/item/device/healthanalyzer
+	r_pocket = /obj/item/crowbar
 
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
 		/obj/item/storage/firstaid/adv = 1,
 		/obj/item/storage/firstaid/surgery = 1,
-		/obj/item/device/healthanalyzer = 1,
-		/obj/item/storage/box/gloves = 1,
-		/obj/item/storage/box/syringes = 1,
-		/obj/item/device/flashlight/pen = 1,
+		/obj/item/device/advanced_healthanalyzer = 1,
+		/obj/item/device/healthanalyzer = 1
 		/obj/item/clothing/accessory/storage/pouches/black = 1,
 		/obj/item/melee/baton/stunrod = 1,
 		/obj/item/reagent_containers/glass/bottle/thetamycin = 1
@@ -130,14 +135,14 @@
 	belt = /obj/item/storage/belt/medical/first_responder
 	accessory = /obj/item/clothing/accessory/holster/thigh
 	accessory_contents = list(/obj/item/gun/energy/disruptorpistol/magnum = 1)
+	l_pocket = /obj/item/device/healthanalyzer
+	r_pocket = /obj/item/crowbar = 1
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
-		/obj/item/device/healthanalyzer = 1,
 		/obj/item/storage/firstaid/adv = 1,
 		/obj/item/storage/firstaid/combat = 1,
 		/obj/item/clothing/accessory/storage/pouches/black = 1,
-		/obj/item/crowbar = 1,
 		/obj/item/melee/baton/stunrod = 1,
 		/obj/item/reagent_containers/glass/bottle/thetamycin = 1
 	)
