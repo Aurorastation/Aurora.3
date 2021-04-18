@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "GPSs now have an idle mode, where they will update their transmitted location every six seconds. This mode activates if they're not in someone's possession."
+  - tweak: "You can now keep your GPS in your bag, webbing, etc. It will keep actively updating as you move. If you drop the bag, webbing, etc., it'll swap into idle mode after you move again."
+  - rscadd: "Ported the GPS compass, selecting a GPS to track on the C-Track column will add it to the compass. The GPS must be in your active hand/slot to show you the compass."
