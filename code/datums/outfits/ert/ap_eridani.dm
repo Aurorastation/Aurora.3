@@ -16,6 +16,7 @@
 	id = /obj/item/card/id/distress/ap_eridani 
 	l_ear = /obj/item/device/radio/headset/distress
 	l_pocket = /obj/item/grenade/chem_grenade/teargas
+	r_pocket = /obj/item/tank/emergency_oxygen/double
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
@@ -96,8 +97,9 @@
 	accessory_contents = list(/obj/item/gun/energy/disruptorpistol/magnum = 1)
 	r_ear = /obj/item/device/flashlight/pen
 	l_pocket = /obj/item/device/healthanalyzer
-	r_pocket = /obj/item/crowbar
-	l_hand = /obj/item/surgery/scalpel/manager
+	r_pocket = /obj/item/melee/telebaton 
+	l_hand = /obj/item/clothing/head/helmet/space/void/medical
+	r_hand = /obj/item/clothing/suit/space/void/medical
 
 
 	backpack_contents = list(
@@ -106,8 +108,8 @@
 		/obj/item/storage/firstaid/surgery = 1,
 		/obj/item/device/advanced_healthanalyzer = 1,
 		/obj/item/clothing/accessory/storage/pouches/black = 1,
-		/obj/item/melee/baton/stunrod = 1,
-		/obj/item/reagent_containers/glass/bottle/thetamycin = 1
+		/obj/item/reagent_containers/glass/bottle/thetamycin = 1,
+		/obj/item/surgery/scalpel/manager = 1
 	)
 
 	belt_contents = list(

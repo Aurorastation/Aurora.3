@@ -23,9 +23,9 @@
 	short_name = "eridanidoctor"
 	mob_name_prefix = "Dr. "
 	max_count = 1
-	desc = "A highly trained Eridani medical officer. Well versed in surgical procedures and expected to work in a hot zone. Not a stranger to a bank run."
+	desc = "A highly trained Eridani medical officer and the second in command of the EPMC Asset Protection Team. Well versed in surgical procedures and expected to work in a hot zone. Not a stranger to a bank run."
 	outfit = /datum/outfit/admin/ert/ap_eridani/doctor
-	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_SKRELL, SPECIES_IPC_SHELL)
 
 /datum/ghostspawner/human/ert/ap_eridani/corpsman
 	name = "Eridani Corpsman"

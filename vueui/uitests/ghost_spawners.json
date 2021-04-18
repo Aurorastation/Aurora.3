@@ -355,7 +355,7 @@
         },
           "eridanidoctor": {
             "name": "Eridani Medical Officer",
-            "desc": " highly trained Eridani medical officer. Well versed in surgical procedures and expected to work in a hot zone. Not a stranger to a bank run. (This spawner is not enabled.)",
+            "desc": " highly trained Eridani medical officer and the second in command of the EPMC Asset Protection Team. Well versed in surgical procedures and expected to work in a hot zone. Not a stranger to a bank run. (This spawner is not enabled.)",
             "cant_spawn": "This spawner is not enabled.",
             "can_edit": 1,
             "enabled": 0,
