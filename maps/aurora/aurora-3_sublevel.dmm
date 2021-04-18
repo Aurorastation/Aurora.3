@@ -26519,6 +26519,16 @@
 	},
 /turf/simulated/floor,
 /area/engineering/gravity_gen)
+"czB" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/medical/morgue)
 "cFw" = (
 /turf/simulated/wall,
 /area/medical/patient_wing_post2)
@@ -29933,6 +29943,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/scisublevel)
+"jvA" = (
+/obj/structure/morgue/crematorium{
+	_wifi_id = "morgue_crema";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/sign/flag/scc{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/medical/morgue)
 "jvK" = (
 /obj/structure/morgue/crematorium,
 /turf/simulated/floor/tiled{
@@ -32091,6 +32115,17 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_hazard)
+"nOX" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/medical/morgue)
 "nPj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -36536,6 +36571,23 @@
 	},
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_library)
+"xow" = (
+/obj/machinery/button/switch/crematorium{
+	_wifi_id = "xenobio_crema";
+	dir = 8;
+	pixel_x = 32;
+	pixel_y = -6;
+	req_access = null
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/medical/morgue)
 "xqo" = (
 /obj/structure/window/phoronreinforced{
 	dir = 8
@@ -74533,8 +74585,8 @@ aHe
 cla
 fIn
 aHe
-aHe
-aHe
+xow
+czB
 aGi
 aPA
 aQi
@@ -74790,8 +74842,8 @@ aJg
 aKe
 aHf
 aHf
-aHf
-aHf
+nOX
+jvA
 aGi
 bbK
 aQj
