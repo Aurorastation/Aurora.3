@@ -1,5 +1,5 @@
 /datum/ghostspawner/human/ert/ap_eridani
-	name = "Eridani Asset Protectio Specialist"
+	name = "Eridani Asset Protection Specialist"
 	short_name = "eridaniassetprotection"
 	mob_name_prefix = "Spc. "
 	max_count = 2
