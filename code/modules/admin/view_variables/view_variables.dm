@@ -81,7 +81,6 @@
 				<b>E</b> - Edit, tries to determine the variable type by itself.<br/>
 				<b>C</b> - Change, asks you for the var type first.<br/>
 				<b>M</b> - Mass modify: changes this variable for all objects of this type.<br/>
-				<b>V</b> - View: shows an extended list viewer for easy browsing of large lists<br/>
 			</font>
 			<hr/>
 			<table width='100%'><tr>
@@ -174,7 +173,6 @@
 			(<a href='?_src_=vars;datumedit=\ref[D];varnameedit=[varname]'>E</a>)
 			(<a href='?_src_=vars;datumchange=\ref[D];varnamechange=[varname]'>C</a>)
 			(<a href='?_src_=vars;datummass=\ref[D];varnamemass=[varname]'>M</a>)
-			(<a href='?_src_=vars;datumview=\ref[D];varnameview=[varname]'>V</a>)
 			"}
 
 	var/valuestr = make_view_variables_value(value, varname)

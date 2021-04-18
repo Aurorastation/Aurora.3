@@ -61,11 +61,6 @@
 	else if(href_list["varnameview"] && href_list["datumview"])
 		if(!check_rights(R_VAREDIT|R_DEV))	return
 
-		var/list/L = locate(href_list["datumview"])
-		if(!istype(L))
-			to_chat(usr, "This can only be used on instances of type /list")
-			return
-
 		view_extended_list(L, href_list["varnameview"])
 
 	else if(href_list["mob_player_panel"])
