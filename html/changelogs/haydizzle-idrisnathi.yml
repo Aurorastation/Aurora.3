@@ -1,4 +1,6 @@
 author: Haydizzle
 
 delete-after: True
+
+changes:
   - rscadd: "Adds the ability for unathi to be Idris contractors."
