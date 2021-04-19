@@ -564,8 +564,11 @@
 /obj/item/clothing/accessory/dogtags
 	name = "dogtags"
 	desc = "A pair of engraved metal identification tags."
-	icon_state = "tags"
-	item_state = "tags"
+	icon = 'icons/clothing/accessories/dogtags.dmi'
+	icon_state = "dogtags"
+	item_state = "dogtags"
+	contained_sprite = TRUE
+	slot_flags = SLOT_MASK | SLOT_TIE
 	overlay_state = "tags"
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'

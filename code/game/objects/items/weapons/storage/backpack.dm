@@ -125,6 +125,14 @@
 	icon_state = "medicalpack"
 	item_state_slots = null
 
+/obj/item/storage/backpack/medic/first_responder
+	name = "first responder backpack"
+	desc = "A bulky easy-clean backpack specially designed to carry a First Responder's equipment."
+	icon = 'icons/clothing/kit/first_responder.dmi'
+	icon_state = "firstresponderbackpack"
+	item_state = "firstresponderbackpack"
+	contained_sprite = TRUE
+
 /obj/item/storage/backpack/security
 	name = "security backpack"
 	desc = "It's a very robust backpack."

@@ -1514,19 +1514,16 @@
 #define BASE_INJECTION_MOD 1 // x1 multiplier with no effects
 #define SUIT_INJECTION_MOD 2 // x2 multiplier if target is wearing spacesuit
 
-/mob/living/carbon/human/can_inject(var/mob/user, var/error_msg, var/target_zone)
+/mob/living/carbon/human/can_inject(var/mob/user, var/error_msg, var/target_zone, var/handle_coverage = TRUE)
 	. = BASE_INJECTION_MOD
 
 	if(!target_zone)
 		if(!user)
-			target_zone = pick(BP_CHEST,BP_CHEST,BP_CHEST,"left leg","right leg","left arm", "right arm", BP_HEAD)
+			target_zone = pick(BP_CHEST, BP_CHEST, BP_CHEST, BP_L_LEG, BP_R_LEG, BP_L_ARM, BP_R_ARM, BP_HEAD)
 		else
 			target_zone = user.zone_sel.selecting
 
 	. *= species.get_injection_modifier()
-
-	if(isvaurca(src))
-		user.visible_message(SPAN_WARNING("[user] begins hunting for an injection port on [src]'s carapace!"))
 
 	var/obj/item/organ/external/affecting = get_organ(target_zone)
 	var/fail_msg
@@ -1536,22 +1533,46 @@
 	else if (affecting.status & ORGAN_ROBOT)
 		. = INJECTION_FAIL
 		fail_msg = "That limb is robotic."
-	else
-		switch(target_zone)
-			if(BP_HEAD)
-				if(head && head.item_flags & THICKMATERIAL)
-					. = INJECTION_FAIL
-			else
-				if(wear_suit && wear_suit.item_flags & THICKMATERIAL)
-					if(istype(wear_suit, /obj/item/clothing/suit/space))
-						user.visible_message(SPAN_WARNING("[user] begins hunting for an injection port on [src]'s suit!"))
-						. *= SUIT_INJECTION_MOD
-					else
-						. = INJECTION_FAIL
+	else if (handle_coverage)
+		. *= get_bp_coverage(target_zone)
+		if(isvaurca(src) && . == SUIT_INJECTION_MOD)
+			user.visible_message("<b>[user]</b> begins hunting for an injection port on \the [src]'s carapace.")
+		else if(. >= SUIT_INJECTION_MOD)
+			user.visible_message("<b>[user]</b> begins hunting for \the [src]'s injection port.")
 	if(!. && error_msg && user)
 		if(!fail_msg)
 			fail_msg = "There is no exposed flesh or thin material [target_zone == BP_HEAD ? "on their head" : "on their body"] to inject into."
 		to_chat(user, SPAN_ALERT("[fail_msg]"))
+
+/mob/living/carbon/human/proc/get_bp_coverage(var/bp)
+	. = BASE_INJECTION_MOD
+	var/static/list/bp_to_coverage = list(
+		BP_HEAD = HEAD,
+		BP_EYES = EYES,
+		BP_MOUTH = FACE,
+		BP_CHEST = UPPER_TORSO,
+		BP_GROIN = LOWER_TORSO,
+		BP_L_ARM = (ARMS|ARM_LEFT),
+		BP_R_ARM = (ARMS|ARM_RIGHT),
+		BP_L_HAND = (HANDS|HAND_LEFT),
+		BP_R_HAND = (HANDS|HAND_RIGHT),
+		BP_L_LEG = (LEGS|LEG_LEFT),
+		BP_R_LEG = (LEGS|LEG_RIGHT),
+		BP_L_FOOT = (FEET|FOOT_LEFT),
+		BP_R_FOOT = (FEET|FOOT_RIGHT)
+	)
+	for(var/obj/item/C in list(wear_suit, head, wear_mask, w_uniform, gloves, shoes))
+		var/injection_modifier = BASE_INJECTION_MOD
+		if(C.item_flags & INJECTIONPORT)
+			injection_modifier = SUIT_INJECTION_MOD
+		else if(C.item_flags & THICKMATERIAL)
+			injection_modifier = INJECTION_FAIL
+		if(. == SUIT_INJECTION_MOD && injection_modifier != INJECTION_FAIL) // don't reset it back to the base, unless it completely blocks
+			continue
+		if(C.body_parts_covered & bp_to_coverage[bp])
+			. = injection_modifier
+		if(. == INJECTION_FAIL)
+			return
 
 #undef INJECTION_FAIL
 #undef BASE_INJECTION_MOD

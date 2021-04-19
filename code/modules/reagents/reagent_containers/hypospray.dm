@@ -50,14 +50,16 @@
 	if(isliving(M))
 		var/mob/living/L = M
 		var/inj_time = time
-		inj_time *= L.can_inject(user, TRUE)
-		if(!inj_time)
+		var/mod_time = L.can_inject(user, TRUE, target_zone, armorcheck)
+		if(!mod_time)
 			return
+		else if(inj_time <= 0 && mod_time > 1)
+			inj_time = (1 SECOND) * mod_time
+		else
+			inj_time *= mod_time
 		user.visible_message(SPAN_WARNING("\The [user] is trying to inject \the [L] with \the [src]!"), SPAN_NOTICE("You are trying to inject \the [L] with \the [src]."))
-		if(armorcheck && L.get_blocked_ratio(target_zone, BRUTE, damage = 10))
-			inj_time += 6 SECONDS
-		if(!do_mob(user, L, inj_time))
-			return 1
+		if(do_mob(user, L, inj_time))
+			inject(M, user, M.Adjacent(user))
 
 /obj/item/reagent_containers/hypospray/update_icon()
 	cut_overlays()
@@ -73,12 +75,8 @@
 		filling.color = reagents.get_color()
 		add_overlay(filling)
 
-/obj/item/reagent_containers/hypospray/afterattack(var/mob/M, var/mob/user, proximity)
-
-	if (!istype(M))
-		return ..()
-
-	if(!proximity)
+/obj/item/reagent_containers/hypospray/proc/inject(var/mob/M, var/mob/user, proximity)
+	if(!proximity || !istype(M))
 		return
 
 	if(!reagents.total_volume)
@@ -101,22 +99,36 @@
 	update_icon()
 	return TRUE
 
+/obj/item/reagent_containers/hypospray/afterattack(atom/target, mob/user, proximity)
+	if (!proximity)
+		return
+
+	if (!isliving(target))
+		return ..()
+
 /obj/item/reagent_containers/hypospray/autoinjector
 	name = "autoinjector"
 	desc = "A rapid and safe way to administer small amounts of drugs by untrained or trained personnel."
-	icon_state = "autoinjector1"
-	item_state = "autoinjector1"
-	var/empty_state = "autoinjector0"
-	flags = OPENCONTAINER
+	desc_fluff = "Funded by the Stellar Corporate Conglomerate, produced by Zeng-Hu Pharmaceuticals, this autoinjector system was rebuilt from the ground up from the old variant to provide maximum user feedback."
+	desc_info = "Autoinjectors are spent after using them. To re-use, use a screwdriver to open the back panel, then simply pour any desired reagent inside. Use in-hand, or click it while it's in your active hand to prepare it for reuse."
+	icon_state = "autoinjector"
+	item_state = "autoinjector"
+	var/name_label
+	var/spent = TRUE
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = null
 	volume = 5
 	time = 0
 
 /obj/item/reagent_containers/hypospray/autoinjector/Initialize()
-	. =..()
-	icon_state = empty_state
-	item_state = empty_state
+	. = ..()
+	if(name_label)
+		name_unlabel = name
+		name = "[name] ([name_label])"
+		verbs += /atom/proc/remove_label
+	if(reagents_to_add)
+		flags = 0
+		spent = FALSE
 	update_icon()
 
 /obj/item/reagent_containers/hypospray/autoinjector/attack(var/mob/M, var/mob/user, target_zone)
@@ -125,10 +137,17 @@
 		return FALSE
 	. = ..()
 
+/obj/item/reagent_containers/hypospray/autoinjector/inject(mob/M, mob/user, proximity)
+	. = ..()
+	if(.)
+		spent = TRUE
+		update_icon()
+
 /obj/item/reagent_containers/hypospray/autoinjector/attack_self(mob/user as mob)
 	if(is_open_container())
 		if(LAZYLEN(reagents.reagent_volumes))
 			to_chat(user, SPAN_NOTICE("With a quick twist of \the [src]'s lid, you secure the reagents inside."))
+			spent = FALSE
 			flags &= ~OPENCONTAINER
 			update_icon()
 		else
@@ -146,12 +165,18 @@
 	. = ..()
 
 /obj/item/reagent_containers/hypospray/autoinjector/update_icon()
-	if(reagents.total_volume > 0 && !is_open_container())
-		icon_state = initial(icon_state)
-		item_state = initial(icon_state)
-	else
-		icon_state = empty_state
-		item_state = empty_state
+	cut_overlays()
+	if(!is_open_container())
+		var/mutable_appearance/backing_overlay = mutable_appearance(icon, "autoinjector_secured")
+		add_overlay(backing_overlay)
+
+	icon_state = "[initial(icon_state)][spent]"
+	item_state = "[initial(item_state)][spent]"
+
+	if(reagents.total_volume)
+		var/mutable_appearance/reagent_overlay = mutable_appearance(icon, "autoinjector_reagents")
+		reagent_overlay.color = reagents.get_color()
+		add_overlay(reagent_overlay)
 
 /obj/item/reagent_containers/hypospray/autoinjector/examine(mob/user)
 	..(user)
@@ -162,11 +187,11 @@
 
 
 /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline
-	name = "autoinjector (inaprovaline)"
+	name_label = "inaprovaline"
 	reagents_to_add = list(/decl/reagent/inaprovaline = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/emergency
-	name = "autoinjector (emergency)"
+	name_label = "emergency"
 	reagents_to_add = list(/decl/reagent/inaprovaline = 2.5, /decl/reagent/dexalin = 2.5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/emergency/Initialize()
@@ -174,14 +199,14 @@
 	desc += " This auto-injector is to be used in emergencies. It contains a small amount of inaprovaline and dexalin."
 
 /obj/item/reagent_containers/hypospray/autoinjector/coagzolug
-	name = "autoinjector (coagzolug)"
+	name_label = "coagzolug"
 	desc = "A rapid and safe way to administer small amounts of drugs by untrained or trained personnel. This one contains coagzolug, a quick-acting blood coagulant that will slow bleeding for as long as it's within the bloodstream."
 	volume = 5
 	flags = 0
 	reagents_to_add = list(/decl/reagent/coagzolug = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/sideeffectbgone
-	name = "sideeffects-be-gone! autoinjector"
+	name_label = "sideeffects-be-gone!"
 	desc = "A special cocktail designed to counter the side-effects of various drugs. Has 2 uses."
 	volume = 30
 	amount_per_transfer_from_this = 15
@@ -210,7 +235,7 @@
 	item_state = "combat_hypo"
 	icon_state = "combat_hypo"
 	volume = 20
-	armorcheck = 0
+	armorcheck = FALSE
 	time = 0
 
 	reagents_to_add = list(/decl/reagent/oxycomorphine = 5, /decl/reagent/synaptizine = 5, /decl/reagent/hyperzine = 5, /decl/reagent/arithrazine = 5)

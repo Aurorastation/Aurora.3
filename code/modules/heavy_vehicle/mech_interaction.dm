@@ -546,7 +546,7 @@
 		src.visible_message("<span class='warning'>\The [src] hums with life as it is released from its lockdown mode!</span>")
 
 /mob/living/heavy_vehicle/get_floating_chat_x_offset()
-	return 8
+	return -offset_x // reverse the offset
 
 /mob/living/heavy_vehicle/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "", var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
 	if(can_listen())

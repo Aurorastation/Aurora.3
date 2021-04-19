@@ -677,3 +677,14 @@
 	'sound/weapons/laserdeep.ogg',
 	'sound/weapons/laserstrong.ogg'
 )
+
+/decl/sound_category/quick_arcade // quick punchy arcade sounds
+	sounds = list(
+		'sound/arcade/get_fuel.ogg',
+		'sound/arcade/heal.ogg',
+		'sound/arcade/hit.ogg',
+		'sound/arcade/kill_crew.ogg',
+		'sound/arcade/lose_fuel.ogg',
+		'sound/arcade/mana.ogg',
+		'sound/arcade/steal.ogg'
+	)
