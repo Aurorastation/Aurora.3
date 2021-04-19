@@ -9,6 +9,7 @@
 	contained_sprite = TRUE
 	adjustable = FALSE
 	item_flags = THICKMATERIAL | INJECTIONPORT | AIRTIGHT
+	flags_inv = HIDEFACE|BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
 	max_pressure_protection = SPACE_SUIT_MAX_PRESSURE
 	min_pressure_protection = 0
