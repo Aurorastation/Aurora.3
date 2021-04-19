@@ -135,7 +135,8 @@
 /obj/item/gun/projectile/automatic/rifle/sts35
 	name = "assault rifle"
 	desc = "A durable, rugged looking automatic weapon of a make popular on the frontier worlds. Uses 7.62mm rounds. It is unmarked."
-	desc_fluff = "The STS35 is a durable, reliable and cheap to buy fully automatic assault rifle with many licensed manufacturers across the galaxy. It comes in different versions and calibres, this one uses 7.62 rounds. The manufacturer markings have been filed off."
+	desc_fluff = "The STS35 is a durable, reliable and cheap to buy fully automatic assault rifle with many licensed manufacturers across \
+	the galaxy. It comes in different versions and calibres, this one uses 7.62 rounds. The manufacturer markings have been filed off."
 	can_bayonet = TRUE
 	knife_x_offset = 23
 	knife_y_offset = 13
@@ -143,6 +144,31 @@
 /obj/item/gun/projectile/automatic/rifle/sts35/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "arifle" : "arifle-empty"
+
+/obj/item/gun/projectile/automatic/rifle/carbine
+	name = "ballistic carbine"
+	desc = "A durable, rugged looking semi-automatic weapon of a make popular on the frontier worlds. Uses 5.56mm rounds and does not accept large \
+	capacity magazines. It is unmarked."
+	desc_fluff = "The ST24 is often considered the little brother of its larger and fully automatic counterpart, the STS35. It is a \
+	reliable and cheap to buy semi automatic carbine with many licensed manufacturers across the galaxy. It comes in different versions \
+	and calibres, this one uses 5.56 rounds. The manufacturer markings have been filed off."
+	icon = 'icons/obj/guns/bcarbine.dmi'
+	icon_state = "bcarbine"
+	item_state = "bcarbine"
+	caliber = "a556"
+	can_bayonet = TRUE
+	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 1, TECH_ILLEGAL = 3)
+	magazine_type = /obj/item/ammo_magazine/a556/carbine
+	allowed_magazines = list(/obj/item/ammo_magazine/a556/carbine)
+	knife_x_offset = 23
+	knife_y_offset = 13
+
+	firemodes = list(
+		list(mode_name="semiauto",	burst=1, fire_delay=10),)
+
+/obj/item/gun/projectile/automatic/rifle/carbine/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "bcarbine" : "bcarbine-empty"
 
 /obj/item/gun/projectile/automatic/rifle/sol
 	name = "battle rifle"
@@ -181,7 +207,7 @@
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a556
-	allowed_magazines = list(/obj/item/ammo_magazine/a556)
+	allowed_magazines = list(/obj/item/ammo_magazine/a556, /obj/item/ammo_magazine/a556/carbine)
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
