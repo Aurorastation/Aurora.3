@@ -171,6 +171,11 @@
 	turns_since_move = turns_per_move
 	..()
 
+/mob/living/simple_animal/revive(reset_to_roundstart)
+	. = ..()
+	blood_amount = initial(blood_amount)
+	bleeding = FALSE
+
 /mob/living/simple_animal/LateLogin()
 	if(src && src.client)
 		src.client.screen = null
