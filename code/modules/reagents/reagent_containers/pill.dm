@@ -153,19 +153,19 @@
 
 /obj/item/reagent_containers/pill/nerospectan
 	name = "2u Nerospectan Pill"
-	desc = "Used to treat a large variety of disorders including tourette, depression, anxiety and psychoses."
+	desc = "Used to treat a large variety of disorders including tourettes, depression, anxiety and psychosis."
 	icon_state = "pill8"
 	reagents_to_add = list(/decl/reagent/mental/nerospectan = 2)
 
 /obj/item/reagent_containers/pill/neurapan
 	name = "2u Neurapan Pill"
-	desc = "Used to treat a large variety of disorders including tourette, depression, anxiety and psychoses."
+	desc = "Used to treat a large variety of disorders including tourettes, depression, anxiety and psychosis."
 	icon_state = "pill8"
 	reagents_to_add = list(/decl/reagent/mental/neurapan = 2)
 
 /obj/item/reagent_containers/pill/neurostabin
 	name = "2u Neurostabin Pill"
-	desc = "Used to treat psychoses and muscle weakness."
+	desc = "Used to treat psychosis and muscle weakness."
 	icon_state = "pill8"
 	reagents_to_add = list(/decl/reagent/mental/neurostabin = 2)
 
