@@ -92,6 +92,7 @@
 
 
 	var/charge_failure_message = " cannot be recharged."
+	var/held_maptext
 
 	var/cleaving = FALSE
 	var/reach = 1 // Length of tiles it can reach, 1 is adjacent.
@@ -105,6 +106,9 @@
 			if(armor[type])
 				AddComponent(/datum/component/armor, armor)
 				break
+	if(flags & HELDMAPTEXT)
+		set_initial_maptext()
+		check_maptext()
 
 /obj/item/Destroy()
 	if(ismob(loc))
@@ -305,25 +309,24 @@
 				return 0
 
 /obj/item/throw_impact(atom/hit_atom)
-	..()
 	if(isliving(hit_atom)) //Living mobs handle hit sounds differently.
 		var/mob/living/L = hit_atom
 		if(L.in_throw_mode)
 			playsound(hit_atom, pickup_sound, PICKUP_SOUND_VOLUME, TRUE)
-			return
-		var/volume = get_volume_by_throwforce_and_or_w_class()
-		if(throwforce > 0)
-			if(mob_throw_hit_sound)
-				playsound(hit_atom, mob_throw_hit_sound, volume, TRUE, -1)
-			else if(hitsound)
-				playsound(hit_atom, hitsound, volume, TRUE, -1)
-			else
-				playsound(hit_atom, 'sound/weapons/genhit.ogg', volume, TRUE, -1)
 		else
-			playsound(hit_atom, 'sound/weapons/throwtap.ogg', 1, volume, -1)
+			var/volume = get_volume_by_throwforce_and_or_w_class()
+			if(throwforce > 0)
+				if(mob_throw_hit_sound)
+					playsound(hit_atom, mob_throw_hit_sound, volume, TRUE, -1)
+				else if(hitsound)
+					playsound(hit_atom, hitsound, volume, TRUE, -1)
+				else
+					playsound(hit_atom, 'sound/weapons/genhit.ogg', volume, TRUE, -1)
+			else
+				playsound(hit_atom, 'sound/weapons/throwtap.ogg', 1, volume, -1)
 	else
 		playsound(src, drop_sound, THROW_SOUND_VOLUME)
-
+	return ..()
 
 //Apparently called whenever an item is dropped on the floor, thrown, or placed into a container.
 //It is called after loc is set, so if placed in a container its loc will be that container.
@@ -342,6 +345,8 @@
 /obj/item/proc/pickup(mob/user)
 	pixel_x = 0
 	pixel_y = 0
+	if(flags & HELDMAPTEXT)
+		addtimer(CALLBACK(src, .proc/check_maptext), 1) // invoke async does not work here
 	do_pickup_animation(user)
 
 // called when this item is removed from a storage item, which is passed on as S. The loc variable is already set to the new destination before this is called.
@@ -503,8 +508,8 @@ var/list/global/slot_flags_enumeration = list(
 
 // override for give shenanigans
 /obj/item/proc/on_give(var/mob/giver, var/mob/receiver)
-	return
-
+	if(flags & HELDMAPTEXT)
+		check_maptext()
 
 //This proc is executed when someone clicks the on-screen UI button. To make the UI button show, set the 'icon_action_button' to the icon_state of the image of the button in screen1_action.dmi
 //The default action is attack_self().
@@ -886,6 +891,27 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 // this gets called when the item gets chucked by the vending machine
 /obj/item/proc/vendor_action(var/obj/machinery/vending/V)
 	return
+
+/obj/item/proc/set_initial_maptext()
+	return
+
+/obj/item/proc/check_maptext(var/new_maptext)
+	if(new_maptext)
+		held_maptext = new_maptext
+	if(ismob(loc) || (loc && ismob(loc.loc)))
+		maptext = held_maptext
+	else
+		maptext = ""
+
+/obj/item/throw_at()
+	..()
+	if(flags & HELDMAPTEXT)
+		check_maptext()
+
+/obj/item/dropped()
+	..()
+	if(flags & HELDMAPTEXT)
+		check_maptext()
 
 // used to check whether the item is capable of popping things like balloons, inflatable barriers, or cutting police tape.
 /obj/item/proc/can_puncture()

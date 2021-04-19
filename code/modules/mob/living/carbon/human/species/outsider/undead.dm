@@ -5,10 +5,9 @@
 	var/master
 
 /mob/living/carbon/human/skeleton/assign_player(var/mob/user)
-	src.ckey = user.ckey
+	. = ..()
 	if(master)
 		to_chat(src, "<B>You are a skeleton minion to [master], they are your master. Obey and protect your master at all costs, you have no free will.</B>")
-	return src
 
 /datum/species/skeleton //SPOOKY
 	name = SPECIES_SKELETON

@@ -298,6 +298,8 @@ var/list/gear_datums = list()
 		gear_tweaks += list(gear_tweak_free_name)
 	if(flags & GEAR_HAS_DESC_SELECTION)
 		gear_tweaks += list(gear_tweak_free_desc)
+	if(flags & GEAR_HAS_COLOR_ROTATION_SELECTION)
+		gear_tweaks += list(gear_tweak_color_rotation)
 
 /datum/gear_data
 	var/path

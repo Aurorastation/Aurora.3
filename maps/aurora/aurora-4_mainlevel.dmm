@@ -5113,6 +5113,7 @@
 	pixel_y = 9
 	},
 /obj/item/pen,
+/obj/item/storage/slide_projector,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "aki" = (
@@ -6853,7 +6854,6 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/power/port_gen/pacman,
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "anI" = (
@@ -7139,6 +7139,10 @@
 	name = "consular's laptop"
 	},
 /obj/structure/table/wood,
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Consular Office";
+	dir = 8
+	},
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
 "aol" = (
@@ -8202,6 +8206,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
+/obj/machinery/power/radial_floodlight,
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "apZ" = (
@@ -20454,15 +20459,10 @@
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "aJz" = (
-/obj/structure/table/standard,
-/obj/item/paper_bin{
-	pixel_x = -3;
-	pixel_y = 5
-	},
-/obj/item/pen,
 /obj/structure/noticeboard{
 	pixel_y = 32
 	},
+/obj/structure/reagent_dispensers/water_cooler,
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "aJA" = (
@@ -21504,6 +21504,13 @@
 /obj/machinery/newscaster{
 	pixel_x = -27
 	},
+/obj/structure/table/standard,
+/obj/item/paper_bin{
+	pixel_x = -3;
+	pixel_y = 5
+	},
+/obj/item/pen,
+/obj/item/storage/box/cups,
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "aLx" = (
@@ -23560,6 +23567,9 @@
 "aOS" = (
 /obj/structure/table/wood,
 /obj/item/modular_computer/laptop/preset/security/hos,
+/obj/item/storage/slide_projector{
+	pixel_y = 12
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hos)
 "aOT" = (
@@ -24271,6 +24281,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/item/storage/slide_projector,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "aPZ" = (
@@ -25424,6 +25435,9 @@
 	},
 /obj/item/folder/yellow,
 /obj/item/stamp/ce,
+/obj/item/storage/slide_projector{
+	pixel_y = 12
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
 "aRV" = (
@@ -26991,6 +27005,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
+/obj/item/storage/slide_projector{
+	pixel_y = 16
+	},
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
 "aUD" = (
@@ -28471,6 +28488,9 @@
 	},
 /obj/item/toy/figure/corgi,
 /obj/item/device/megaphone/command,
+/obj/item/storage/slide_projector{
+	pixel_y = 12
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "aXq" = (
@@ -35413,6 +35433,7 @@
 /obj/effect/floor_decal/corner_wide/paleblue/full{
 	dir = 8
 	},
+/obj/item/storage/slide_projector,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "bjo" = (
@@ -44376,6 +44397,9 @@
 "bBz" = (
 /obj/structure/table/standard,
 /obj/item/modular_computer/laptop/preset/research/rd,
+/obj/item/storage/slide_projector{
+	pixel_y = 12
+	},
 /turf/simulated/floor/carpet/blue,
 /area/rnd/rdoffice)
 "bBB" = (
@@ -59107,8 +59131,6 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/obj/item/stack/packageWrap,
-/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled/dark,
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
@@ -59709,8 +59731,8 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "dGy" = (
-/obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/appliance/cooker/grill,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "dGU" = (
@@ -61467,6 +61489,8 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
+/obj/item/stack/packageWrap,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/lino/grey,
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
@@ -64367,14 +64391,10 @@
 	},
 /obj/machinery/ringer_button{
 	id = "Representative";
+	layer = 3.3;
 	name = "Representative ringer button";
 	pixel_x = -24;
 	pixel_y = 32
-	},
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Diplomatic Reception";
-	network = list("Civilian Main","Rep_Office");
-	pixel_x = -10
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice)
@@ -64387,6 +64407,9 @@
 	},
 /obj/structure/sign/flag/nanotrasen/left{
 	pixel_y = 31
+	},
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Representative Office"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/lawoffice/representative)
@@ -65594,6 +65617,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
+"pam" = (
+/obj/machinery/power/port_gen/pacman,
+/turf/simulated/floor/plating,
+/area/engineering/storage_hard)
 "pch" = (
 /turf/simulated/floor/plating,
 /area/maintenance/workshop)
@@ -67019,6 +67046,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Diplomatic Reception";
+	network = list("Civilian Main","Rep_Office")
+	},
 /turf/simulated/floor/carpet,
 /area/lawoffice)
 "ryB" = (
@@ -68357,6 +68388,7 @@
 	dir = 6
 	},
 /obj/item/book/manual/wiki/security_space_law,
+/obj/item/storage/slide_projector,
 /turf/simulated/floor/tiled/dark,
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
@@ -68787,12 +68819,6 @@
 	spawn_cartridges = list(/obj/item/reagent_containers/chem_disp_cartridge/coffee,/obj/item/reagent_containers/chem_disp_cartridge/milk,/obj/item/reagent_containers/chem_disp_cartridge/cream,/obj/item/reagent_containers/chem_disp_cartridge/sugar)
 	},
 /obj/structure/table/wood,
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Diplomatic Reception";
-	dir = 8;
-	network = list("Civilian Main","Rep_Office");
-	pixel_y = -22
-	},
 /turf/simulated/floor/carpet,
 /area/lawoffice)
 "ulG" = (
@@ -69873,6 +69899,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"wdB" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/power/radial_floodlight,
+/turf/simulated/floor/plating,
+/area/engineering/storage_hard)
 "wee" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -69946,6 +69981,11 @@
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/carpet/rubber,
 /area/maintenance/workshop)
+"whV" = (
+/obj/structure/table/wood/gamblingtable,
+/obj/item/storage/slide_projector,
+/turf/simulated/floor/lino/grey,
+/area/engineering/foyer)
 "wil" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/closet/secure_closet/freezer/kitchen,
@@ -71083,6 +71123,7 @@
 /obj/structure/table/standard,
 /obj/item/folder/sec,
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -87470,7 +87511,7 @@ akz
 akz
 amu
 anF
-anF
+wdB
 apY
 anE
 asA
@@ -87726,7 +87767,7 @@ ajL
 akz
 akz
 amv
-anE
+pam
 gaR
 apZ
 arm
@@ -91080,7 +91121,7 @@ aAF
 aCc
 aDU
 aFL
-oKJ
+whV
 oKJ
 aLc
 aMS

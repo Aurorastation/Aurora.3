@@ -178,7 +178,7 @@
 	name = "tie with a gold clip"
 	build_from_parts = TRUE
 	worn_overlay = "clip"
-	
+
 /obj/item/clothing/accessory/tie/colourable/clip/silver
 	name = "tie with a silver clip"
 	worn_overlay = "sclip"
@@ -220,6 +220,16 @@
 
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
+
+/obj/item/clothing/accessory/assunzione
+	name = "luceian amulent"
+	desc = "A common symbol of the Luceian faith abroad this amulet featuring the religion's all-seeing eye and eight-pointed crest \
+	seems to be made of real gold and gemstones. While not as critical to faithful abroad as a warding sphere, it is considered good form \
+	to ensure one's amulet is well-maintained."
+	icon = 'icons/clothing/accessories/assunzione_amulet.dmi'
+	item_state = "assunzione_amulet"
+	icon_state = "assunzione_amulet"
+	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/suspenders
 	name = "suspenders"
@@ -554,8 +564,11 @@
 /obj/item/clothing/accessory/dogtags
 	name = "dogtags"
 	desc = "A pair of engraved metal identification tags."
-	icon_state = "tags"
-	item_state = "tags"
+	icon = 'icons/clothing/accessories/dogtags.dmi'
+	icon_state = "dogtags"
+	item_state = "dogtags"
+	contained_sprite = TRUE
+	slot_flags = SLOT_MASK | SLOT_TIE
 	overlay_state = "tags"
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'

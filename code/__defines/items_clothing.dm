@@ -30,16 +30,18 @@
 #define PHORONGUARD        0x20  // Does not get contaminated by phoron.
 #define NOREACT            0x40  // Reagents don't react inside this container.
 #define PROXMOVE           0x80  // Does this object require proximity checking in Enter()?
+#define HELDMAPTEXT        0x100 // Uses the special held maptext system, which sets a specific maptext if the item is in possession of a mob.
 
 //Flags for items (equipment)
-#define THICKMATERIAL          0x1  // Prevents syringes, parapens and hyposprays if equiped to slot_suit or slot_head.
-#define STOPPRESSUREDAMAGE     0x2  // Counts towards pressure protection. Note that like temperature protection, body_parts_covered is considered here as well.
-#define AIRTIGHT               0x4  // Functions with internals.
-#define NOSLIP                 0x8  // Prevents from slipping on wet floors, in space, etc.
-#define BLOCK_GAS_SMOKE_EFFECT 0x10 // Blocks the effect that chemical clouds would have on a mob -- glasses, mask and helmets ONLY! (NOTE: flag shared with ONESIZEFITSALL)
-#define FLEXIBLEMATERIAL       0x20 // At the moment, masks with this flag will not prevent eating even if they are covering your face.
-#define SOUNDPROTECTION        0x40 // whether wearing this item will protect you from loud noises such as flashbangs | this only works for ear slots or the head slot
-#define LIGHTSTEP              0x80 // When applied to footwear, this makes it so that they don't trigger things like landmines and mouse traps
+#define THICKMATERIAL          0x1   // Prevents syringes, parapens and hyposprays if equiped to slot_suit or slot_head.
+#define STOPPRESSUREDAMAGE     0x2   // Counts towards pressure protection. Note that like temperature protection, body_parts_covered is considered here as well.
+#define AIRTIGHT               0x4   // Functions with internals.
+#define NOSLIP                 0x8   // Prevents from slipping on wet floors, in space, etc.
+#define BLOCK_GAS_SMOKE_EFFECT 0x10  // Blocks the effect that chemical clouds would have on a mob -- glasses, mask and helmets ONLY! (NOTE: flag shared with ONESIZEFITSALL)
+#define FLEXIBLEMATERIAL       0x20  // At the moment, masks with this flag will not prevent eating even if they are covering your face.
+#define SOUNDPROTECTION        0x40  // whether wearing this item will protect you from loud noises such as flashbangs | this only works for ear slots or the head slot
+#define LIGHTSTEP              0x80  // When applied to footwear, this makes it so that they don't trigger things like landmines and mouse traps
+#define INJECTIONPORT          0x100 // Allows syringes and hyposprays to inject, even if the material is thick
 
 // Flags for pass_flags.
 #define PASSTABLE		0x1

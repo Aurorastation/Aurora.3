@@ -296,8 +296,18 @@
 	coat["dominia great coat, red"] = /obj/item/clothing/suit/storage/toggle/dominia
 	coat["dominia great coat, gold"] = /obj/item/clothing/suit/storage/toggle/dominia/gold
 	coat["dominia great coat, black"] = /obj/item/clothing/suit/storage/toggle/dominia/black
-	coat["dominian bomber jacket"] = /obj/item/clothing/suit/storage/toggle/dominia/bomber
 	gear_tweaks += new/datum/gear_tweak/path(coat)
+
+/datum/gear/suit/dominia/consular
+	display_name = "dominian consular officer greatcoat"
+	description = "A Dominian great coat belonging to the Diplomatic Service."
+	path = /obj/item/clothing/suit/storage/dominia/consular
+	allowed_roles = list("Consular Officer")
+
+/datum/gear/suit/fisanduhian_bomber
+	display_name = "fisanduhian bomber jacket"
+	path = /obj/item/clothing/suit/storage/toggle/dominia/bomber
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/tcfl
 	display_name = "Tau Ceti Foreign Legion jacket selection"
@@ -372,6 +382,11 @@
 	cardigan["argyle cardigan"] = /obj/item/clothing/suit/storage/toggle/cardigan/argyle
 	gear_tweaks += new/datum/gear_tweak/path(cardigan)
 
+/datum/gear/suit/asymmetriccoat
+	display_name = "asymmetric coat"
+	path = /obj/item/clothing/suit/storage/toggle/asymmetriccoat
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/suit/himeo
 	display_name = "himean coat selection"
 	path = /obj/item/clothing/suit/storage/toggle/himeo
@@ -387,15 +402,15 @@
 /datum/gear/suit/vysoka
 	display_name = "chokha selection"
 	description = "A selection of Vysokan chokhas."
-	path = /obj/item/clothing/suit/storage/vysoka_m
-	flags = GEAR_HAS_DESC_SELECTION
+	path = /obj/item/clothing/suit/storage/vysoka
+	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/vysoka/New()
 	..()
-	var/coat = list()
-	coat["feminine chokha"] = /obj/item/clothing/suit/storage/vysoka_f
-	coat["masculine chokha"] = /obj/item/clothing/suit/storage/vysoka_m
-	gear_tweaks += new/datum/gear_tweak/path(coat)
+	var/list/coat = list()
+	coat["feminine chokha"] = /obj/item/clothing/suit/storage/vysoka/f
+	coat["masculine chokha"] = /obj/item/clothing/suit/storage/vysoka
+	gear_tweaks += new /datum/gear_tweak/path(coat)
 
 /datum/gear/suit/submariner
 	display_name = "submariner jacket"

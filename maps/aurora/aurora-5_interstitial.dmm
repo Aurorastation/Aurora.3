@@ -2106,6 +2106,7 @@
 "eH" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/item/reagent_containers/glass/rag,
 /obj/item/storage/box/snack{
 	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
 	name = "corporate care package"
@@ -2431,7 +2432,7 @@
 /turf/simulated/floor/plating,
 /area/security/training_theoretical)
 "fA" = (
-/obj/structure/banner,
+/obj/structure/banner/scc,
 /turf/simulated/floor/wood,
 /area/security/training_theoretical)
 "fB" = (
@@ -2441,16 +2442,7 @@
 	},
 /turf/simulated/floor/wood,
 /area/security/training_theoretical)
-"fC" = (
-/obj/structure/sign/double/map/left{
-	pixel_y = 32
-	},
-/turf/simulated/floor/wood,
-/area/security/training_theoretical)
 "fD" = (
-/obj/structure/sign/double/map/right{
-	pixel_y = 32
-	},
 /obj/effect/landmark/start{
 	name = "Warden"
 	},
@@ -2513,6 +2505,9 @@
 "fX" = (
 /obj/structure/table/wood,
 /obj/item/folder/sec,
+/obj/item/storage/slide_projector{
+	pixel_x = -16
+	},
 /turf/simulated/floor/wood,
 /area/security/training_theoretical)
 "fY" = (
@@ -10655,6 +10650,11 @@
 "Sw" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/disposalpipe/segment,
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 2
+	},
 /turf/simulated/floor/tiled/white,
 /area/security/break_room)
 "Sx" = (
@@ -44837,7 +44837,7 @@ eJ
 eW
 fh
 rp
-fC
+fZ
 fY
 gq
 gH

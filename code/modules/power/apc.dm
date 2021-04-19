@@ -990,9 +990,12 @@
 
 	if (issilicon(user))
 		var/permit = FALSE // Malfunction variable. If AI hacks APC it can control it even without AI control wire.
-		var/mob/living/silicon/robot/robot = user
-		if(hacker == user || hacker == robot.connected_ai) // Cyborgs can use APCs hacked by their AI
-			permit = TRUE
+		if(hacker) // handle malf hacking
+			var/mob/living/silicon/robot/robot = user
+			if(hacker == user)
+				permit = TRUE
+			else if(istype(robot) && hacker == robot.connected_ai) // Cyborgs can use APCs hacked by their AI
+				permit = TRUE
 
 		if(aidisabled && !permit)
 			if(!loud)

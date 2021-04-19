@@ -23,7 +23,7 @@
 	return TRUE
 
 /decl/surgery_step/robotics/unscrew_hatch
-	name = "Unscrew hatch"
+	name = "Unscrew Hatch"
 	allowed_tools = list(
 		/obj/item/screwdriver = 100,
 		/obj/item/coin = 50,
@@ -37,8 +37,13 @@
 	if(!..())
 		return FALSE
 
+	if(target_zone == BP_MOUTH)
+		return FALSE
+
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	return affected && affected.open == ORGAN_CLOSED && target_zone != BP_MOUTH
+	if(affected?.open == ORGAN_CLOSED)
+		return TRUE
+	return FALSE
 
 /decl/surgery_step/robotics/unscrew_hatch/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -57,8 +62,48 @@
 	user.visible_message(SPAN_WARNING("[user]'s [tool.name] slips, failing to unscrew [target]'s [affected.name]."), \
 		SPAN_WARNING("Your [tool] slips, failing to unscrew [target]'s [affected.name]."))
 
+/decl/surgery_step/robotics/screw_hatch
+	name = "Screw Hatch"
+	allowed_tools = list(
+		/obj/item/screwdriver = 100,
+		/obj/item/coin = 50,
+		/obj/item/material/kitchen/utensil/knife = 50
+	)
+
+	min_duration = 90
+	max_duration = 110
+
+/decl/surgery_step/robotics/screw_hatch/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	if(target_zone == BP_MOUTH)
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	if(affected?.open == ORGAN_OPEN_INCISION)
+		return TRUE
+	return FALSE
+
+/decl/surgery_step/robotics/screw_hatch/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	user.visible_message("<b>[user]</b> starts to screw the maintenance hatch on [target]'s [affected.name] with \the [tool].", \
+		SPAN_NOTICE("You start to screw the maintenance hatch on [target]'s [affected.name] with \the [tool]."))
+	..()
+
+/decl/surgery_step/robotics/screw_hatch/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	user.visible_message("<b>[user]</b> has closed the maintenance hatch on [target]'s [affected.name] with \the [tool].", \
+		SPAN_NOTICE("You have closed the maintenance hatch on [target]'s [affected.name] with \the [tool]."),)
+	affected.open = ORGAN_OPEN_INCISION
+
+/decl/surgery_step/robotics/screw_hatch/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	user.visible_message(SPAN_WARNING("[user]'s [tool.name] slips, failing to screw [target]'s [affected.name]."), \
+		SPAN_WARNING("Your [tool] slips, failing to screw [target]'s [affected.name]."))
+
 /decl/surgery_step/robotics/open_hatch
-	name = "Open hatch"
+	name = "Open Hatch"
 	allowed_tools = list(
 		/obj/item/surgery/retractor = 100,
 		/obj/item/crowbar = 100,
@@ -73,7 +118,9 @@
 		return FALSE
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	return affected && affected.open == ORGAN_OPEN_INCISION
+	if(affected?.open == ORGAN_OPEN_INCISION)
+		return TRUE
+	return FALSE
 
 /decl/surgery_step/robotics/open_hatch/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -93,7 +140,7 @@
 		SPAN_WARNING("Your [tool] slips, failing to open the hatch on [target]'s [affected.name]."))
 
 /decl/surgery_step/robotics/close_hatch
-	name = "Close hatch"
+	name = "Close Hatch"
 	allowed_tools = list(
 		/obj/item/surgery/retractor = 100,
 		/obj/item/crowbar = 100,
@@ -107,20 +154,25 @@
 	if(!..())
 		return FALSE
 
+	if(target_zone == BP_MOUTH)
+		return FALSE
+
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	return affected && affected.open > ORGAN_CLOSED && target_zone != BP_MOUTH
+	if(affected?.open > ORGAN_OPEN_INCISION)
+		return TRUE
+	return FALSE
 
 /decl/surgery_step/robotics/close_hatch/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("<b>[user]</b> begins to close and secure the hatch on [target]'s [affected.name] with \the [tool]." , \
-		SPAN_NOTICE("You begin to close and secure the hatch on [target]'s [affected.name] with \the [tool]."))
+	user.visible_message("<b>[user]</b> begins to close the hatch on [target]'s [affected.name] with \the [tool]." , \
+		SPAN_NOTICE("You begin to close the hatch on [target]'s [affected.name] with \the [tool]."))
 	..()
 
 /decl/surgery_step/robotics/close_hatch/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("<b>[user]</b> closes and secures the hatch on [target]'s [affected.name] with \the [tool].", \
-		SPAN_NOTICE("You close and secure the hatch on [target]'s [affected.name] with \the [tool]."))
-	affected.open = ORGAN_CLOSED
+	user.visible_message("<b>[user]</b> closes the hatch on [target]'s [affected.name] with \the [tool].", \
+		SPAN_NOTICE("You close the hatch on [target]'s [affected.name] with \the [tool]."))
+	affected.open = ORGAN_OPEN_INCISION
 	affected.germ_level = 0
 
 /decl/surgery_step/robotics/close_hatch/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
