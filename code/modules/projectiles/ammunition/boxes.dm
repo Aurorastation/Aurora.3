@@ -219,7 +219,6 @@
 
 /obj/item/ammo_magazine/a556/carbine/practice
 	name = "carbine magazine (5.56mm practice)"
-	desc = "A 5.56 ammo magazine fit for a carbine, not an assault rifle."
 	ammo_type = /obj/item/ammo_casing/a556/practice
 
 /obj/item/ammo_magazine/a556/carbine/ap
