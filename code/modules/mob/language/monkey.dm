@@ -5,7 +5,7 @@
 	ask_verb = list("chimpers")
 	exclaim_verb = list("screeches")
 	sing_verb = list("belts out")
-	key = "6"
+	key = "ch"
 	machine_understands = FALSE
 	flags = RESTRICTED
 

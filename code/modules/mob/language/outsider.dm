@@ -90,7 +90,7 @@
 	exclaim_verb = list("buzzes")
 	sing_verb = list("buzzes")
 	colour = "bad"
-	key = "#"
+	key = "hd"
 	flags = RESTRICTED | HIVEMIND
 	syllables = list("beep","beep","beep","beep","beep","boop","boop","boop","bop","bop","dee","dee","doo","doo","hiss","hss","buzz","buzz","bzz","ksssh","keey","wurr","wahh","tzzz")
 	space_chance = 10
