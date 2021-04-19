@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscdel: "IPCs can no longer take the Moroz religion."
