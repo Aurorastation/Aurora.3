@@ -94,6 +94,7 @@
 
 
 	var/charge_failure_message = " cannot be recharged."
+	var/held_maptext
 
 	var/cleaving = FALSE
 	var/reach = 1 // Length of tiles it can reach, 1 is adjacent.
@@ -107,6 +108,9 @@
 			if(armor[type])
 				AddComponent(/datum/component/armor, armor)
 				break
+	if(flags & HELDMAPTEXT)
+		set_initial_maptext()
+		check_maptext()
 
 /obj/item/Destroy()
 	if(ismob(loc))
@@ -343,6 +347,8 @@
 /obj/item/proc/pickup(mob/user)
 	pixel_x = 0
 	pixel_y = 0
+	if(flags & HELDMAPTEXT)
+		addtimer(CALLBACK(src, .proc/check_maptext), 1) // invoke async does not work here
 	do_pickup_animation(user)
 
 // called when this item is removed from a storage item, which is passed on as S. The loc variable is already set to the new destination before this is called.
@@ -504,8 +510,8 @@ var/list/global/slot_flags_enumeration = list(
 
 // override for give shenanigans
 /obj/item/proc/on_give(var/mob/giver, var/mob/receiver)
-	return
-
+	if(flags & HELDMAPTEXT)
+		check_maptext()
 
 //This proc is executed when someone clicks the on-screen UI button. To make the UI button show, set the 'icon_action_button' to the icon_state of the image of the button in screen1_action.dmi
 //The default action is attack_self().
@@ -887,6 +893,27 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 // this gets called when the item gets chucked by the vending machine
 /obj/item/proc/vendor_action(var/obj/machinery/vending/V)
 	return
+
+/obj/item/proc/set_initial_maptext()
+	return
+
+/obj/item/proc/check_maptext(var/new_maptext)
+	if(new_maptext)
+		held_maptext = new_maptext
+	if(ismob(loc) || (loc && ismob(loc.loc)))
+		maptext = held_maptext
+	else
+		maptext = ""
+
+/obj/item/throw_at()
+	..()
+	if(flags & HELDMAPTEXT)
+		check_maptext()
+
+/obj/item/dropped()
+	..()
+	if(flags & HELDMAPTEXT)
+		check_maptext()
 
 /obj/item/proc/get_pressure_weakness(pressure, zone)
 	. = 1

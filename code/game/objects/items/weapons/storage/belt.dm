@@ -156,7 +156,8 @@
 		/obj/item/crowbar,
 		/obj/item/device/flashlight,
 		/obj/item/extinguisher/mini,
-		/obj/item/device/radio
+		/obj/item/device/radio,
+		/obj/item/taperoll/medical
 		)
 
 /obj/item/storage/belt/medical/first_responder

@@ -103,10 +103,6 @@
 	item_cost = 6
 	path = /obj/item/device/powersink
 
-/datum/uplink_item/item/tools/teleporter/New()
-	..()
-	antag_roles = list(MODE_MERCENARY)
-
 /datum/uplink_item/item/tools/ai_module
 	name = "Hacked AI Upload Module"
 	item_cost = 4

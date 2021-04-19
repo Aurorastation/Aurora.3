@@ -30,6 +30,7 @@
 #define PHORONGUARD        0x20  // Does not get contaminated by phoron.
 #define NOREACT            0x40  // Reagents don't react inside this container.
 #define PROXMOVE           0x80  // Does this object require proximity checking in Enter()?
+#define HELDMAPTEXT        0x100 // Uses the special held maptext system, which sets a specific maptext if the item is in possession of a mob.
 
 //Flags for items (equipment)
 #define THICKMATERIAL          0x1   // Prevents syringes, parapens and hyposprays if equiped to slot_suit or slot_head.
