@@ -823,11 +823,18 @@
 	layer = 5;
 	name = "adjusted reinforced window"
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/security/forensics_laboratory)
 "abT" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
@@ -963,6 +970,11 @@
 /obj/machinery/door/window/brigdoor/westright{
 	name = "Forensics Desk";
 	req_access = list(4)
+	},
+/obj/machinery/ringer_button{
+	id = "investigation_ringer";
+	pixel_x = 5;
+	pixel_y = 5
 	},
 /turf/simulated/floor/tiled,
 /area/security/forensics_laboratory)
@@ -1350,6 +1362,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "acR" = (
@@ -1444,13 +1457,10 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
-	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
+/obj/structure/disposalpipe/junction,
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "adb" = (
@@ -3987,6 +3997,12 @@
 	pixel_y = 5
 	},
 /obj/item/pen/red,
+/obj/machinery/ringer{
+	department = "Security";
+	id = "investigation_ringer";
+	pixel_x = -30;
+	req_access = list(1)
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -61175,6 +61191,12 @@
 	pixel_y = 5
 	},
 /obj/item/pen,
+/obj/item/device/radio/intercom{
+	desc = "Talk... listen through this.";
+	name = "Station Intercom (Brig Radio)";
+	pixel_y = 25;
+	wires = 7
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -61984,6 +62006,12 @@
 /area/rnd/chemistry)
 "hIP" = (
 /obj/structure/table/standard,
+/obj/item/device/radio/intercom{
+	desc = "Talk... listen through this.";
+	name = "Station Intercom (Brig Radio)";
+	pixel_x = -28;
+	wires = 7
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -62402,6 +62430,9 @@
 "itx" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_laboratory)
 "ivh" = (
@@ -64793,6 +64824,12 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
+/obj/item/device/radio/intercom{
+	desc = "Talk... listen through this.";
+	name = "Station Intercom (Brig Radio)";
+	pixel_y = 25;
+	wires = 7
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
@@ -65506,6 +65543,12 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/machinery/ringer{
+	department = "Security";
+	id = "investigation_ringer";
+	pixel_y = 30;
+	req_access = list(1)
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -65566,6 +65609,16 @@
 /obj/structure/target_stake,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"oUH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_laboratory)
 "oVj" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_research{
@@ -65723,6 +65776,16 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"phk" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/machinery/ringer{
+	department = "Security";
+	id = "investigation_ringer";
+	pixel_y = -30;
+	req_access = list(1)
+	},
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_laboratory)
 "phM" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -66107,6 +66170,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"pLP" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled,
+/area/security/brig)
 "pQp" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
@@ -66287,6 +66357,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"qkc" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_laboratory)
 "qkU" = (
 /obj/machinery/light{
 	dir = 8
@@ -66782,6 +66861,9 @@
 	pixel_y = 16
 	},
 /obj/item/storage/briefcase/crimekit,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/security/forensics_laboratory)
 "rbT" = (
@@ -66963,6 +67045,12 @@
 	},
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/machinery/ringer{
+	department = "Security";
+	id = "investigation_ringer";
+	pixel_x = 30;
+	req_access = list(1)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/forensics_office{
@@ -67901,6 +67989,12 @@
 /obj/machinery/microscope{
 	pixel_x = 5;
 	pixel_y = 3
+	},
+/obj/item/device/radio/intercom{
+	desc = "Talk... listen through this.";
+	name = "Station Intercom (Brig Radio)";
+	pixel_y = 25;
+	wires = 7
 	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_laboratory)
@@ -100597,7 +100691,7 @@ xcZ
 xBx
 abb
 abx
-xBx
+phk
 afe
 abQ
 acI
@@ -102139,7 +102233,7 @@ tsx
 srX
 dob
 abB
-abB
+qkc
 acj
 ltW
 acN
@@ -102396,7 +102490,7 @@ aaJ
 srX
 abf
 abC
-tOQ
+oUH
 ack
 tOQ
 acO
@@ -102911,8 +103005,8 @@ aaV
 abh
 abE
 abT
-abT
-abT
+pLP
+pLP
 acQ
 ada
 adu

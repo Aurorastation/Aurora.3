@@ -1,0 +1,8 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - maptweak: "Added a ringer to the investigations office, forensic lab, evidence storage & autopsy linked to a button by the lab front desk."
+  - maptweak: "Added intercoms to the forensic lab, evidence storage, autopsy & investigations office."
+  - maptweak: "Fixed the disposal in the forensic lab."
