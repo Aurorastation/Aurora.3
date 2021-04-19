@@ -7138,6 +7138,10 @@
 	name = "consular's laptop"
 	},
 /obj/structure/table/wood,
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Consular Office";
+	dir = 8
+	},
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
 "aol" = (
@@ -64369,14 +64373,10 @@
 	},
 /obj/machinery/ringer_button{
 	id = "Representative";
+	layer = 3.3;
 	name = "Representative ringer button";
 	pixel_x = -24;
 	pixel_y = 32
-	},
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Diplomatic Reception";
-	network = list("Civilian Main","Rep_Office");
-	pixel_x = -10
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice)
@@ -64389,6 +64389,9 @@
 	},
 /obj/structure/sign/flag/nanotrasen/left{
 	pixel_y = 31
+	},
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Representative Office"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/lawoffice/representative)
@@ -67025,6 +67028,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Diplomatic Reception";
+	network = list("Civilian Main","Rep_Office")
+	},
 /turf/simulated/floor/carpet,
 /area/lawoffice)
 "ryB" = (
@@ -68793,12 +68800,6 @@
 	spawn_cartridges = list(/obj/item/reagent_containers/chem_disp_cartridge/coffee,/obj/item/reagent_containers/chem_disp_cartridge/milk,/obj/item/reagent_containers/chem_disp_cartridge/cream,/obj/item/reagent_containers/chem_disp_cartridge/sugar)
 	},
 /obj/structure/table/wood,
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Diplomatic Reception";
-	dir = 8;
-	network = list("Civilian Main","Rep_Office");
-	pixel_y = -22
-	},
 /turf/simulated/floor/carpet,
 /area/lawoffice)
 "ulG" = (
