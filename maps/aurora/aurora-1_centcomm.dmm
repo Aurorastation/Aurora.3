@@ -29103,6 +29103,12 @@
 /obj/machinery/acting/changer,
 /turf/unsimulated/floor,
 /area/antag/mercenary)
+"oFg" = (
+/obj/structure/table/holotable,
+/obj/item/toy/ringbell,
+/obj/item/clothing/gloves/boxing/hologlove,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_boxingcourt)
 "oGi" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal{
 	dir = 8
@@ -107035,7 +107041,7 @@ adx
 adx
 aeJ
 aeO
-afj
+oFg
 afk
 afJ
 afP

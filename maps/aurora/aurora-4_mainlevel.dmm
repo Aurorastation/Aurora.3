@@ -5113,6 +5113,7 @@
 	pixel_y = 9
 	},
 /obj/item/pen,
+/obj/item/storage/slide_projector,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "aki" = (
@@ -7138,6 +7139,10 @@
 	name = "consular's laptop"
 	},
 /obj/structure/table/wood,
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Consular Office";
+	dir = 8
+	},
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
 "aol" = (
@@ -23562,6 +23567,9 @@
 "aOS" = (
 /obj/structure/table/wood,
 /obj/item/modular_computer/laptop/preset/security/hos,
+/obj/item/storage/slide_projector{
+	pixel_y = 12
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hos)
 "aOT" = (
@@ -24273,6 +24281,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/item/storage/slide_projector,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "aPZ" = (
@@ -25426,6 +25435,9 @@
 	},
 /obj/item/folder/yellow,
 /obj/item/stamp/ce,
+/obj/item/storage/slide_projector{
+	pixel_y = 12
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
 "aRV" = (
@@ -26993,6 +27005,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
+/obj/item/storage/slide_projector{
+	pixel_y = 16
+	},
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
 "aUD" = (
@@ -28473,6 +28488,9 @@
 	},
 /obj/item/toy/figure/corgi,
 /obj/item/device/megaphone/command,
+/obj/item/storage/slide_projector{
+	pixel_y = 12
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "aXq" = (
@@ -35415,6 +35433,7 @@
 /obj/effect/floor_decal/corner_wide/paleblue/full{
 	dir = 8
 	},
+/obj/item/storage/slide_projector,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "bjo" = (
@@ -44378,6 +44397,9 @@
 "bBz" = (
 /obj/structure/table/standard,
 /obj/item/modular_computer/laptop/preset/research/rd,
+/obj/item/storage/slide_projector{
+	pixel_y = 12
+	},
 /turf/simulated/floor/carpet/blue,
 /area/rnd/rdoffice)
 "bBB" = (
@@ -64369,14 +64391,10 @@
 	},
 /obj/machinery/ringer_button{
 	id = "Representative";
+	layer = 3.3;
 	name = "Representative ringer button";
 	pixel_x = -24;
 	pixel_y = 32
-	},
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Diplomatic Reception";
-	network = list("Civilian Main","Rep_Office");
-	pixel_x = -10
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice)
@@ -64389,6 +64407,9 @@
 	},
 /obj/structure/sign/flag/nanotrasen/left{
 	pixel_y = 31
+	},
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Representative Office"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/lawoffice/representative)
@@ -67025,6 +67046,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Diplomatic Reception";
+	network = list("Civilian Main","Rep_Office")
+	},
 /turf/simulated/floor/carpet,
 /area/lawoffice)
 "ryB" = (
@@ -68363,6 +68388,7 @@
 	dir = 6
 	},
 /obj/item/book/manual/wiki/security_space_law,
+/obj/item/storage/slide_projector,
 /turf/simulated/floor/tiled/dark,
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
@@ -68793,12 +68819,6 @@
 	spawn_cartridges = list(/obj/item/reagent_containers/chem_disp_cartridge/coffee,/obj/item/reagent_containers/chem_disp_cartridge/milk,/obj/item/reagent_containers/chem_disp_cartridge/cream,/obj/item/reagent_containers/chem_disp_cartridge/sugar)
 	},
 /obj/structure/table/wood,
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Diplomatic Reception";
-	dir = 8;
-	network = list("Civilian Main","Rep_Office");
-	pixel_y = -22
-	},
 /turf/simulated/floor/carpet,
 /area/lawoffice)
 "ulG" = (
@@ -69961,6 +69981,11 @@
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/carpet/rubber,
 /area/maintenance/workshop)
+"whV" = (
+/obj/structure/table/wood/gamblingtable,
+/obj/item/storage/slide_projector,
+/turf/simulated/floor/lino/grey,
+/area/engineering/foyer)
 "wil" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/closet/secure_closet/freezer/kitchen,
@@ -91096,7 +91121,7 @@ aAF
 aCc
 aDU
 aFL
-oKJ
+whV
 oKJ
 aLc
 aMS
