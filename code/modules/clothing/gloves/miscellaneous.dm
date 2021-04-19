@@ -386,3 +386,10 @@
 	slot_flags = SLOT_GLOVES|SLOT_WRISTS
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
+
+/obj/item/clothing/gloves/black/forensic
+	name = "forensic gloves"
+	desc = "Specially made gloves for investigative personnel. The luminescent threads woven into the material stand out under scrutiny."
+	icon_state = "forensic"
+	item_state = "forensicgloves"
+	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
