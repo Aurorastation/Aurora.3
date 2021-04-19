@@ -335,7 +335,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			last_drag = world.time
 			H.visible_message("<span class='notice'>[H.name] takes a drag of their [name].</span>")
 			playsound(H, 'sound/items/cigs_lighters/inhale.ogg', 50, 0, -1)
-			reagents.trans_to_mob(H, (rand(10,20)/10), CHEM_BREATHE) //Smokes it faster. Slightly random amount.
+			reagents.trans_to_mob(H, (rand(5,10)/10), CHEM_BREATHE) //Smokes it faster. Slightly random amount.
 			return 1
 	return ..()
 
