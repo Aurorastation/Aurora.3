@@ -218,7 +218,7 @@ Follow by example and make good judgement based on length which list to include 
 	bob
 		name = "Bob"
 		icon_state = "hair_bob"
-		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi)
+		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie)
 		chatname = "short hair"
 
 	bob_chin
@@ -239,7 +239,7 @@ Follow by example and make good judgement based on length which list to include 
 	bobcurl
 		name = "Bobcurl"
 		icon_state = "hair_bobcurl"
-		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi)
+		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie)
 		chatname = "curls"
 
 	bobcurl2
@@ -374,13 +374,13 @@ Follow by example and make good judgement based on length which list to include 
 	buzzcut
 		name = "Buzzcut"
 		icon_state = "hair_buzzcut"
-		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi)
+		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie)
 		chatname = "unbuzzed hair"	//grabbing the grabbable hair
 
 	buzzcut2
 		name = "Buzzcut 2"
 		icon_state = "hair_buzzcut2"
-		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi)
+		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie)
 		chatname = "unbuzzed hair"
 
 	chrono
@@ -1197,7 +1197,7 @@ Follow by example and make good judgement based on length which list to include 
 	spiky
 		name = "Spiky"
 		icon_state = "hair_spiky"
-		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi)
+		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie)
 		chatname = "mighty spikes"
 
 	straightlong
@@ -1726,7 +1726,7 @@ Follow by example and make good judgement based on length which list to include 
 	elvis
 		name = "Elvis Sideburns"
 		icon_state = "facial_elvis"
-		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi)
+		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie)
 
 	fullbeard
 		name = "Full Beard"
@@ -2098,6 +2098,36 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "verylong_s"
 			length = 6
 			chatname = "Very Long Tentacles"
+
+		skr_tentacle_ponytail
+			name = "Skrell Seaweed Ponytail"
+			icon_state = "skrell_seaweed"
+			length = 3
+			chatname = "Ponytail, Seaweed"
+
+		skr_tentacle_doubletail
+			name = "Skrell Hoop Ponytail"
+			icon_state = "skrell_hoop"
+			length = 3
+			chatname = "Ponytail, Hoop"
+
+		skr_tentacle_flb
+			name = "Skrell Reef Ponytail"
+			icon_state = "skrell_reef"
+			length = 6
+			chatname = "Ponytail, Reef"
+
+		skr_tentacle_ponytailm
+			name = "Skrell Driftwood Ponytail"
+			icon_state = "skrell_driftwood"
+			length = 6
+			chatname = "Ponytail, Driftwood"
+
+		skr_tentacle_backwater
+			name = "Skrell Backwater"
+			icon_state = "skrell_backwater"
+			length = 6
+			chatname = "Backwater"
 
 
 //tajaran hair

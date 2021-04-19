@@ -109,6 +109,23 @@
 	whitelisted = list(SPECIES_SKRELL)
 	sort_category = "Xenowear - Skrell"
 
+/datum/gear/ears/skrell/scrunchy
+	display_name = "tentacle tie selection"
+	path = /obj/item/clothing/ears/skrell/scrunchy
+	whitelisted = list(SPECIES_SKRELL)
+	sort_category = "Xenowear - Skrell"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/ears/skrell/scrunchy/New()
+	..()
+	var/list/scrunchy = list()
+	scrunchy["tentacle tie, seaweed"] = /obj/item/clothing/ears/skrell/scrunchy
+	scrunchy["tentacle tie, driftwood"] = /obj/item/clothing/ears/skrell/scrunchy/driftwood
+	scrunchy["tentacle tie, reef"] = /obj/item/clothing/ears/skrell/scrunchy/reef
+	scrunchy["tentacle tie, hoop"] = /obj/item/clothing/ears/skrell/scrunchy/hoop
+	scrunchy["tentacle tie, backwater"] = /obj/item/clothing/ears/skrell/scrunchy/backwater
+	gear_tweaks += new /datum/gear_tweak/path(scrunchy)
+
 /datum/gear/accessory/skrell_passport
 	display_name = "jargon federation passport"
 	path = /obj/item/clothing/accessory/badge/passport/jargon
