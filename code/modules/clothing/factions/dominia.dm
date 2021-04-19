@@ -107,8 +107,12 @@
 	item_state = "dominia_noble_black"
 
 /obj/item/clothing/suit/storage/toggle/dominia/bomber
-	name = "dominia bomber jacket"
-	desc = "This is a bomber jacket of Dominian style."
+	name = "fisanduhian bomber jacket"
+	desc = "A bomber jacket based off of styles created by Fisanduhian refugees. The double-breasted design works well for insulating \
+	heat, or concealing a small pistol."
+	desc_fluff = "Fisanduhian fashion remains as rugged and steadfast as its people, as well as very distinctive from the usual Morozi fashions \
+	sourced from Moroz proper. Bomber jackets such as these were also frequently seen worn by members of the Fisanduh Freedom Front and came \
+	to be seen as an enduring symbol of their struggle for liberty."
 	icon = 'icons/clothing/suits/coats/dominia_bomber.dmi'
 	icon_state = "dominia_bomber"
 	item_state = "dominia_bomber"
@@ -130,8 +134,12 @@
 	item_state = "dominia_uniform_black"
 
 /obj/item/clothing/under/dominia/sweater
-	name = "dominia sweater"
-	desc = "This is a sweater of Dominian style."
+	name = "fisanduhian sweater"
+	desc = "This is a sweater of Fisanduhian style. Practical and utilitarian."
+	desc_fluff = "Fisanduhian fashion remains as rugged and steadfast as its people, as well as very distinctive from the usual Morozi fashions \
+	sourced from Moroz proper. Sweaters such as this were a common sight in the region of Fisanduh, being comfortable to wear and very useful \
+	in the cold mountainous environment they lived in. It tends to be seen as something rather basic and droll by Imperials when compared \
+	to their more extravagant and colorful attire, but this suits the Confederates just fine."
 	icon = 'icons/clothing/under/uniforms/dominia_sweater.dmi'
 	icon_state = "dom_sweater"
 	item_state = "dom_sweater"
@@ -427,6 +435,9 @@
 /obj/item/clothing/head/ushanka/dominia
 	name = "fisanduhian ushanka"
 	desc = "A warm fur hat with ear flaps that can be raised and tied to be out of the way. This one has a large Fisanduhian flag on the front."
+	desc_fluff = "Fisanduhian fashion remains as rugged and steadfast as its people, as well as very distinctive from the usual Morozi fashions \
+	sourced from Moroz proper. Ushankas such as these are still a common sight in the semi-autonomous region of Fisanduh, flag and all. Much to \
+	the ire of Moroz's Imperials."
 	icon_state = "fishushanka"
 	item_state = "fishushanka"
 
