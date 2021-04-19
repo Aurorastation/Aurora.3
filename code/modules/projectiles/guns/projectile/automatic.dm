@@ -150,8 +150,8 @@
 	desc = "A durable, rugged looking semi-automatic weapon of a make popular on the frontier worlds. Uses 5.56mm rounds and does not accept large \
 	capacity magazines. It is unmarked."
 	desc_fluff = "The ST24 is often considered the little brother of its larger and fully automatic counterpart, the STS35. It is a \
-	reliable and cheap to buy semi automatic carbine with many licensed manufacturers across the galaxy. It comes in different versions \
-	and calibres, this one uses 5.56 rounds. The manufacturer markings have been filed off."
+	reliable and cheap to buy carbine with many licensed manufacturers across the galaxy. It comes in different versions and calibres, some even \
+	some even boasting select fire functionality. This one uses 5.56 rounds and is semi-automatic. The manufacturer markings have been filed off."
 	icon = 'icons/obj/guns/bcarbine.dmi'
 	icon_state = "bcarbine"
 	item_state = "bcarbine"
@@ -163,8 +163,7 @@
 	knife_x_offset = 23
 	knife_y_offset = 13
 
-	firemodes = list(
-		list(mode_name="semiauto",	burst=1, fire_delay=10),)
+	firemodes = list(mode_name="semiauto", burst=1, fire_delay=12)
 
 /obj/item/gun/projectile/automatic/rifle/carbine/update_icon()
 	..()
