@@ -2099,6 +2099,36 @@ Follow by example and make good judgement based on length which list to include 
 			length = 6
 			chatname = "Very Long Tentacles"
 
+		skr_tentacle_ponytail
+			name = "Skrell Seaweed Ponytail"
+			icon_state = "skrell_seaweed"
+			length = 3
+			chatname = "Ponytail, Seaweed"
+
+		skr_tentacle_doubletail
+			name = "Skrell Hoop Ponytail"
+			icon_state = "skrell_hoop"
+			length = 3
+			chatname = "Ponytail, Hoop"
+
+		skr_tentacle_flb
+			name = "Skrell Reef Ponytail"
+			icon_state = "skrell_reef"
+			length = 6
+			chatname = "Ponytail, Reef"
+
+		skr_tentacle_ponytailm
+			name = "Skrell Driftwood Ponytail"
+			icon_state = "skrell_driftwood"
+			length = 6
+			chatname = "Ponytail, Driftwood"
+
+		skr_tentacle_backwater
+			name = "Skrell Backwater"
+			icon_state = "skrell_backwater"
+			length = 6
+			chatname = "Backwater"
+
 
 //tajaran hair
 
