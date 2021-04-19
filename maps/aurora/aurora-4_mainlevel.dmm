@@ -3271,8 +3271,12 @@
 "agu" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/bodybags,
-/obj/machinery/firealarm/west,
 /obj/item/device/healthanalyzer,
+/obj/machinery/requests_console{
+	department = "Autopsy";
+	departmentType = 5;
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -60531,6 +60535,7 @@
 /area/hallway/primary/port)
 "fiO" = (
 /obj/structure/closet/crate/freezer,
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -71218,6 +71223,9 @@
 /obj/item/folder/sec,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/item/device/hand_labeler,
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
