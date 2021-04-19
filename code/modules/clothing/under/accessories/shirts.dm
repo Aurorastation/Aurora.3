@@ -5,13 +5,6 @@
 	icon_state = "sweater"
 	item_state = "sweater"
 
-/obj/item/clothing/accessory/sweaterargyle
-	name = "argyle sweater"
-	desc = "A warm knit sweater with an argyle pattern."
-	desc_fluff = "Never go unprepared for the next work-mandated secret santa with this fashion statement! Revel in their awkward thanks as they unbox it! Realize that you've received one too!"
-	icon_state = "sweaterargyle"
-	item_state = "sweaterargyle"
-
 /obj/item/clothing/accessory/sweatervest
 	name = "sweater vest"
 	desc = "A warm knit sweater vest."
@@ -19,12 +12,19 @@
 	icon_state = "sweatervest"
 	item_state = "sweatervest"
 
-/obj/item/clothing/accessory/sweatervestargyle
-	name = "argyle sweater vest"
-	desc = "A warm knit sweater vest with an argyle pattern."
-	desc_fluff = "Reminds you of family picture day. Wearing this is entirely your own volition, unfortunately."
-	icon_state = "sweaterargylevest"
-	item_state = "sweaterargylevest"
+/obj/item/clothing/accessory/sweatercrewneck
+	name = "crewneck sweater"
+	desc = "A sewn crewneck sweater featuring a collarless neckline."
+	desc_fluff = "Fortunately, they even have a type of sweater for the sporty and informal."
+	icon_state = "sweatercrewneck"
+	item_state = "sweatercrewneck"
+
+/obj/item/clothing/accessory/sweatervneck
+	name = "v-neck sweater"
+	desc = "A sewn v-neck sweater featuring a collarless neckline."
+	desc_fluff = "Fortunately, they even have a type of sweater for the sporty and informal."
+	icon_state = "sweatervneck"
+	item_state = "sweatervneck"
 
 /obj/item/clothing/accessory/sweaterturtleneck
 	name = "turtleneck sweater"
@@ -33,19 +33,47 @@
 	icon_state = "sweaterturtleneck"
 	item_state = "sweaterturtleneck"
 
-/obj/item/clothing/accessory/sweaterargyleturtleneck
-	name = "argyle turtleneck sweater"
-	desc = "A warm knit argyle turtleneck sweater."
-	desc_fluff = "Now your clothing can be as stuffy as your personality."
-	icon_state = "sweaterargyleturtleneck"
-	item_state = "sweaterargyleturtleneck"
-
 /obj/item/clothing/accessory/sweatertubeneck
 	name = "tubeneck sweater"
 	desc = "A warm knit tubeneck sweater."
 	desc_fluff = "What the hell is cashmere anyway?"
 	icon_state = "sweatertubeneck"
 	item_state = "sweatertubeneck"
+
+/obj/item/clothing/accessory/sweaterargyle
+	name = "argyle sweater"
+	desc = "A warm knit sweater with an argyle pattern."
+	desc_fluff = "Never go unprepared for the next work-mandated secret santa with this fashion statement! Revel in their awkward thanks as they unbox it! Realize that you've received one too!"
+	icon_state = "sweaterargyle"
+	item_state = "sweaterargyle"
+
+/obj/item/clothing/accessory/sweatervestargyle
+	name = "argyle sweater vest"
+	desc = "A warm knit sweater vest with an argyle pattern."
+	desc_fluff = "Reminds you of family picture day. Wearing this is entirely your own volition, unfortunately."
+	icon_state = "sweaterargylevest"
+	item_state = "sweaterargylevest"
+
+/obj/item/clothing/accessory/sweaterargylecrewneck
+	name = "argyle crewneck sweater"
+	desc = "A sewn crewneck sweater featuring a collarless neckline and an argyle pattern."
+	desc_fluff = "Fortunately, they even have a type of sweater for the sporty and informal."
+	icon_state = "sweaterargylecrewneck"
+	item_state = "sweaterargylecrewneck"
+
+/obj/item/clothing/accessory/sweaterargylevneck
+	name = "argyle v-neck sweater"
+	desc = "A sewn v-neck sweater featuring a collarless neckline and an argyle pattern."
+	desc_fluff = "Fortunately, they even have a type of sweater for the sporty and informal."
+	icon_state = "sweaterargylevneck"
+	item_state = "sweaterargylevneck"
+
+/obj/item/clothing/accessory/sweaterargyleturtleneck
+	name = "argyle turtleneck sweater"
+	desc = "A warm knit argyle turtleneck sweater."
+	desc_fluff = "Now your clothing can be as stuffy as your personality."
+	icon_state = "sweaterargyleturtleneck"
+	item_state = "sweaterargyleturtleneck"
 
 /obj/item/clothing/accessory/sweaterargyletubeneck
 	name = "argyle tubeneck sweater"

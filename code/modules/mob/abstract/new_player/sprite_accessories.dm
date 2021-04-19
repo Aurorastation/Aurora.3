@@ -218,7 +218,7 @@ Follow by example and make good judgement based on length which list to include 
 	bob
 		name = "Bob"
 		icon_state = "hair_bob"
-		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi)
+		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie)
 		chatname = "short hair"
 
 	bob_chin
@@ -239,7 +239,7 @@ Follow by example and make good judgement based on length which list to include 
 	bobcurl
 		name = "Bobcurl"
 		icon_state = "hair_bobcurl"
-		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi)
+		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie)
 		chatname = "curls"
 
 	bobcurl2
@@ -374,13 +374,13 @@ Follow by example and make good judgement based on length which list to include 
 	buzzcut
 		name = "Buzzcut"
 		icon_state = "hair_buzzcut"
-		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi)
+		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie)
 		chatname = "unbuzzed hair"	//grabbing the grabbable hair
 
 	buzzcut2
 		name = "Buzzcut 2"
 		icon_state = "hair_buzzcut2"
-		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi)
+		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie)
 		chatname = "unbuzzed hair"
 
 	chrono
@@ -1197,7 +1197,7 @@ Follow by example and make good judgement based on length which list to include 
 	spiky
 		name = "Spiky"
 		icon_state = "hair_spiky"
-		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi)
+		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie)
 		chatname = "mighty spikes"
 
 	straightlong
@@ -1726,7 +1726,7 @@ Follow by example and make good judgement based on length which list to include 
 	elvis
 		name = "Elvis Sideburns"
 		icon_state = "facial_elvis"
-		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi)
+		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie)
 
 	fullbeard
 		name = "Full Beard"
