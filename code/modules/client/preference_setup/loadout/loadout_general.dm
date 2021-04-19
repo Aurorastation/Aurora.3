@@ -191,6 +191,7 @@
 
 /datum/gear/plushie
 	display_name = "plushie selection"
+	description = "A selection of plush toys."
 	path = /obj/item/toy/plushie
 
 /datum/gear/plushie/New()
@@ -210,6 +211,7 @@
 	plushies["plushie, cool schlorrgo"] = /obj/item/toy/plushie/coolschlorrgo
 	plushies["plushie, slime"] = /obj/item/toy/plushie/slime
 	plushies["plushie, penny"] = /obj/item/toy/plushie/pennyplush
+	plushies["plushie, greimorian"] = /obj/item/toy/plushie/greimorian
 	gear_tweaks += new/datum/gear_tweak/path(plushies)
 
 /datum/gear/toothpaste
