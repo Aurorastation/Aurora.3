@@ -298,7 +298,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_off = "cigoff"
 	type_butt = /obj/item/trash/cigbutt
 	chem_volume = 30
-	burn_rate = 0.012 //Lasts ~83 seconds)
+	burn_rate = 0.006 //Lasts ~166 seconds)
 	matchmes = "<span class='notice'>USER lights their NAME with their FLAME.</span>"
 	lightermes = "<span class='notice'>USER manages to light their NAME with FLAME.</span>"
 	zippomes = "<span class='notice'>With a flick of their wrist, USER lights their NAME with their FLAME.</span>"
