@@ -5113,6 +5113,7 @@
 	pixel_y = 9
 	},
 /obj/item/pen,
+/obj/item/storage/slide_projector,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "aki" = (
@@ -23566,6 +23567,9 @@
 "aOS" = (
 /obj/structure/table/wood,
 /obj/item/modular_computer/laptop/preset/security/hos,
+/obj/item/storage/slide_projector{
+	pixel_y = 12
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hos)
 "aOT" = (
@@ -24277,6 +24281,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/item/storage/slide_projector,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "aPZ" = (
@@ -25430,6 +25435,9 @@
 	},
 /obj/item/folder/yellow,
 /obj/item/stamp/ce,
+/obj/item/storage/slide_projector{
+	pixel_y = 12
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
 "aRV" = (
@@ -26997,6 +27005,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
+/obj/item/storage/slide_projector{
+	pixel_y = 16
+	},
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
 "aUD" = (
@@ -28477,6 +28488,9 @@
 	},
 /obj/item/toy/figure/corgi,
 /obj/item/device/megaphone/command,
+/obj/item/storage/slide_projector{
+	pixel_y = 12
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "aXq" = (
@@ -35419,6 +35433,7 @@
 /obj/effect/floor_decal/corner_wide/paleblue/full{
 	dir = 8
 	},
+/obj/item/storage/slide_projector,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "bjo" = (
@@ -44382,6 +44397,9 @@
 "bBz" = (
 /obj/structure/table/standard,
 /obj/item/modular_computer/laptop/preset/research/rd,
+/obj/item/storage/slide_projector{
+	pixel_y = 12
+	},
 /turf/simulated/floor/carpet/blue,
 /area/rnd/rdoffice)
 "bBB" = (
@@ -68370,6 +68388,7 @@
 	dir = 6
 	},
 /obj/item/book/manual/wiki/security_space_law,
+/obj/item/storage/slide_projector,
 /turf/simulated/floor/tiled/dark,
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
@@ -69962,6 +69981,11 @@
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/carpet/rubber,
 /area/maintenance/workshop)
+"whV" = (
+/obj/structure/table/wood/gamblingtable,
+/obj/item/storage/slide_projector,
+/turf/simulated/floor/lino/grey,
+/area/engineering/foyer)
 "wil" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/closet/secure_closet/freezer/kitchen,
@@ -91097,7 +91121,7 @@ aAF
 aCc
 aDU
 aFL
-oKJ
+whV
 oKJ
 aLc
 aMS
