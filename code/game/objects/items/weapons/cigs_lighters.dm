@@ -777,6 +777,12 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	flame_light_color = LIGHT_COLOR_BLUE
 	flame_light_range = 2
 
+/obj/item/flame/lighter/zippo/nt
+	name = "\improper NanoTrasen Zippo lighter"
+	desc = "A zippo lighter with a depiction of the Imperial standard of Dominia"
+	icon_state = "ntzippo"
+	item_state = "ntzippo"
+
 /obj/item/flame/lighter/random/Initialize()
 	. = ..()
 	icon_state = "lighter-[pick("r","c","y","g")]"
