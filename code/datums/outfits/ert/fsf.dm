@@ -112,7 +112,6 @@
 	head = null
 	suit = null
 	suit_store = null
-	id = /obj/item/card/id/syndicate
 	l_pocket = null
 	belt_contents = null
 
