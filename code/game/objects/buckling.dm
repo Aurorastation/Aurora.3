@@ -23,7 +23,7 @@
 	return ..()
 
 
-/obj/proc/buckle(atom/movable/MA)
+/obj/proc/buckle(atom/movable/MA, mob/user)
 	if ((MA.loc != loc) && !(density && get_dist(src, MA) <= 1))
 		return 0
 	if (MA.loc != loc)
@@ -31,6 +31,10 @@
 	if (is_type_in_list(MA, can_buckle))
 		if(!(MA.can_be_buckled) || MA.buckled_to)
 			return 0
+		if(user)
+			if(MA != user)
+				if(!do_mob(user, MA, 3 SECONDS))
+					return 0
 		MA.buckled_to = src
 		buckled = MA
 		if(istype(MA, /mob/living))
@@ -83,7 +87,7 @@
 	add_fingerprint(user)
 	unbuckle()//this is now just for safety, buckling someone into an occupied chair will fail, instead of removing the occupant
 
-	if(buckle(MA))
+	if(buckle(MA, user))
 		if(MA == user)
 			MA.visible_message(\
 				"<b>[MA.name]</b> buckles themselves to [src].",\
