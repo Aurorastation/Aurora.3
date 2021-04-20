@@ -1,0 +1,7 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - tweak: "The PRA Cosmonauts are slightly rebalanced. Their uniforms provide marginal protections like other military uniforms and their belts have a few pistol magazines."
+  - tweak: "The TCFL uniforms now have a small melee resist like other fatigue type clothing."

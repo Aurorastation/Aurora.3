@@ -46,6 +46,10 @@
 	contracted engineers, access to higher education abroad and training from Sol Alliance naval advisers, the People's Republic has been able to commission and crew some of its own \
 	ships. The Republican Navy's space-arm primarily conducts counter piracy operations in conjunction with fending off raiders."
 	starting_accessories = (/obj/item/clothing/accessory/storage/bayonet)
+	siemens_coefficient = 0.5 // Every Kosmostrelki is expected to assist in repairs when push comes to shove, so their uniform is slightly better at absorbing shocks compared to other combat uniforms
+	armor = list(
+		melee = ARMOR_MELEE_SMALL,
+		bullet = ARMOR_BALLISTIC_MINOR)
 
 /obj/item/clothing/under/tajaran/cosmonaut/commissar
 	name = "kosmostrelki commissar uniform"
