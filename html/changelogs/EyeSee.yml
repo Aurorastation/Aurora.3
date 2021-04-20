@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Eye contact! Examine someone within 5 seconds of them examining you and you will make eye contact."
