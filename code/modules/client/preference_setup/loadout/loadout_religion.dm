@@ -100,3 +100,7 @@
 	display_name = "assunzione warding sphere sheath"
 	description = "A small metal shell designed to hold a warding sphere."
 	path = "/obj/item/storage/assunzionesheath"
+
+/datum/gear/religion/dominia/codex
+	display_name = "tribunal codex"
+	path = /obj/item/device/litanybook

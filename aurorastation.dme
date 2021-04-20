@@ -826,6 +826,7 @@
 #include "code\game\objects\items\devices\laserpointer.dm"
 #include "code\game\objects\items\devices\lightmeter.dm"
 #include "code\game\objects\items\devices\lightreplacer.dm"
+#include "code\game\objects\items\devices\litanybook.dm"
 #include "code\game\objects\items\devices\magnetic_lock.dm"
 #include "code\game\objects\items\devices\medicaltools.dm"
 #include "code\game\objects\items\devices\megaphone.dm"

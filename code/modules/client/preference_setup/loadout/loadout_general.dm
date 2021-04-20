@@ -228,3 +228,7 @@
 	display_name = "photo"
 	path =  /obj/item/photo
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/gadbook
+	display_name = "gadpathurian morale manual"
+	path = /obj/item/device/litanybook/gadpathur
