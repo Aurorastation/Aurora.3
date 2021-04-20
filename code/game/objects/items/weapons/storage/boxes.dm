@@ -127,7 +127,7 @@
 	desc = "A faithful box that will remain with you, no matter where you go, and probably save you."
 	icon_state = "e_box"
 	autodrobe_no_remove = 1
-	var/max_storage_space = 14
+	max_storage_space = 14
 	can_hold = list(
 				/obj/item/clothing/mask,
 				/obj/item/tank/emergency_oxygen,
