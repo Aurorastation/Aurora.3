@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added the abilty to change the layering of glasses/goggles, to make them go over or under your hair, via a right click menu. By default, they'll go under."
