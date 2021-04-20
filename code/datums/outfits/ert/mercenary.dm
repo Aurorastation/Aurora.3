@@ -40,15 +40,21 @@
 		/obj/item/gun/projectile/automatic/c20r = 1,
 		/obj/item/ammo_magazine/a10mm = 2,
 		/obj/item/storage/firstaid/combat = 1,
-		/obj/item/storage/firstaid/adv = 1,
-		/obj/item/tank/oxygen = 1
+		/obj/item/storage/firstaid/adv = 2,
+		/obj/item/device/healthanalyzer = 1,
+		/obj/item/tank/oxygen = 1,
+		/obj/item/reagent_containers/glass/bottle/thetamycin = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/coagzolug = 1
 	)
 
 	belt_contents = list(
-		/obj/item/reagent_containers/hypospray = 1,
-		/obj/item/stack/medical/advanced/bruise_pack = 1,
-		/obj/item/stack/medical/advanced/ointment = 1,
-		/obj/item/reagent_containers/glass/bottle/thetamycin = 1
+		/obj/item/reagent_containers/hypospray/cmo = 1,
+		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
+		/obj/item/reagent_containers/glass/bottle/antitoxin = 1,
+		/obj/item/reagent_containers/glass/bottle/dexalin_plus = 1,
+		/obj/item/reagent_containers/glass/bottle/butazoline = 1,
+		/obj/item/reagent_containers/glass/bottle/dermaline = 1,
+		/obj/item/reagent_containers/glass/bottle/perconol = 1	
 	)
 
 /datum/outfit/admin/ert/mercenary/engineer
