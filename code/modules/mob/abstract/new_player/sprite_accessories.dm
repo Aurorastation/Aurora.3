@@ -3818,7 +3818,7 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "xion_lights"
 			body_parts = list(BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_HEAD)
 
-	//Tajara
+//Tajara
 
 	taj_tigerstripes
 		name = "Tiger Stripes (Tajara)"
