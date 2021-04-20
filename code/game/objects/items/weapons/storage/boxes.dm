@@ -147,6 +147,7 @@
 	starts_with = list(
 					/obj/item/clothing/mask/breath = 1,
 					/obj/item/tank/emergency_oxygen = 1,
+					/obj/item/device/oxycandle = 1,
 					/obj/item/device/flashlight/flare/glowstick/red = 1,
 					/obj/item/stack/medical/bruise_pack = 1,
 					/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1
