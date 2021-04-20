@@ -157,13 +157,18 @@
 	icon_state = "prauniform"
 	item_state = "prauniform"
 	starting_accessories = list(/obj/item/clothing/accessory/storage/bayonet)
+	siemens_coefficient = 0.7
+	armor = list(
+		melee = ARMOR_MELEE_SMALL,
+		bullet = ARMOR_BALLISTIC_MINOR)
 
 /obj/item/clothing/under/tajaran/nka_uniform
 	name = "imperial adhomian army uniform"
-	desc = "A military uniform used by the forces of New Kingdom's army."
+	desc = "A military uniform used by the forces of the New Kingdom of Adhomai's army."
 	icon_state = "nka_uniform"
 	item_state = "nka_uniform"
 	starting_accessories = list(/obj/item/clothing/accessory/storage/bayonet)
+	armor = list(melee = ARMOR_MELEE_SMALL)
 
 /obj/item/clothing/under/tajaran/consular
 	name = "people's republic consular uniform"
