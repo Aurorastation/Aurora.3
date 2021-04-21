@@ -1,4 +1,0 @@
-author: Karolis2011
-delete-after: True
-changes:
-  - backend: "Added shortcut for vueui ui's to make topic calls in a nicer way."
