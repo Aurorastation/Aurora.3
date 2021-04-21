@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a NanoTrasen and Fisanduhian zippo to the game. You can find these in the zippo selection in the loadout."
