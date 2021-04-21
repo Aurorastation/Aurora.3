@@ -110,8 +110,10 @@
    for it but just ignore it.
 */
 
-/mob/proc/say_quote(var/message, var/datum/language/speaking = null)
+/mob/proc/say_quote(var/message, var/datum/language/speaking = null, var/singing = FALSE)
 	. = "says"
+	if(singing)
+		return "sings"
 	var/ending = copytext(message, length(message))
 	var/pre_ending = copytext(message, length(message) - 1, length(message))
 	if(ending == "!")

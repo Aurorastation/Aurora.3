@@ -7,7 +7,7 @@
 
 	w_class = ITEMSIZE_NORMAL
 
-	volume = CARTRIDGE_VOLUME_SMALL
+	volume = CARTRIDGE_VOLUME_LARGE
 	amount_per_transfer_from_this = 20
 	possible_transfer_amounts = list(20, 40)
 	unacidable = 1

@@ -84,6 +84,11 @@
 		list(/decl/emote/audible/grunt, /decl/emote/audible/groan, /decl/emote/audible/hiss) = 10,
 	)
 
+/datum/species/skrell
+	default_emotes = list(
+		/decl/emote/audible/warble
+	)
+
 /mob/living/carbon/human/set_species(var/new_species, var/default_colour = 1)
 	UNLINT(. = ..())
 	update_emotes()
