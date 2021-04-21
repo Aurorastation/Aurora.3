@@ -82,6 +82,18 @@
 		/obj/item/rig_module/actuators/combat
 		)
 
+/obj/item/rig/military/fsf
+	initial_modules = list(
+		/obj/item/rig_module/mounted,
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/power_sink,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/grenade_launcher/frag,
+		/obj/item/rig_module/grenade_launcher,
+		/obj/item/rig_module/vision/nvg
+		)
+
 /obj/item/rig/military/ninja
 	initial_modules = list(
 		/obj/item/rig_module/maneuvering_jets,

@@ -239,3 +239,8 @@
 	time = 0
 
 	reagents_to_add = list(/decl/reagent/oxycomorphine = 5, /decl/reagent/synaptizine = 5, /decl/reagent/hyperzine = 5, /decl/reagent/arithrazine = 5)
+
+/obj/item/reagent_containers/hypospray/combat/empty
+	name = "combat hypospray"
+	desc = "A sleek black hypospray. Its needle has the ability to bypass armor."
+	reagents_to_add = FALSE

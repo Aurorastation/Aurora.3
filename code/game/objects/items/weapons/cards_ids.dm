@@ -498,6 +498,11 @@ var/const/NO_EMAG_ACT = -50
 	access = list(access_distress, access_maint_tunnels, access_external_airlocks)
 	..()
 
+/obj/item/card/id/distress/fsf
+	name = "\improper Free Solarian Fleets ID"
+	icon_state = "centcom"
+	assignment = "Free Solarian Fleets Marine ID"
+
 /obj/item/card/id/distress/kataphract
 	name = "\improper Kataphract ID"
 	icon_state = "centcom"

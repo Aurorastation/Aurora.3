@@ -130,18 +130,16 @@ Frequency:
 	icon_state = "hand_tele"
 	item_state = "electronic"
 	throwforce = 5
+	flags = HELDMAPTEXT
 	w_class = ITEMSIZE_SMALL
 	throw_speed = 3
 	throw_range = 5
 	origin_tech = list(TECH_MAGNET = 1, TECH_BLUESPACE = 3)
 	matter = list(DEFAULT_WALL_MATERIAL = 10000)
 	var/list/active_teleporters = list()
-	var/held_maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">Ready</span>"
 
-/obj/item/hand_tele/Initialize()
-	. = ..()
-	if(get(loc, /mob))
-		maptext = held_maptext
+/obj/item/hand_tele/set_initial_maptext()
+	held_maptext = SMALL_FONTS(7, "Ready")
 
 /obj/item/hand_tele/attack_self(mob/user)
 	var/turf/current_location = get_turf(user)//What turf is the user on?
@@ -184,36 +182,13 @@ Frequency:
 	var/obj/effect/portal/P = new /obj/effect/portal(get_turf(src), T, src)
 	active_teleporters += P
 	if(length(active_teleporters) >= 3)
-		check_maptext("<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 6px;\">Charge</span>")
+		check_maptext(SMALL_FONTS(6, "Charge"))
 	add_fingerprint(user)
 
 /obj/item/hand_tele/proc/remove_portal(var/obj/effect/portal/P)
 	active_teleporters -= P
 	if(length(active_teleporters) < 3)
-		check_maptext("<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">Ready</span>")
-
-/obj/item/hand_tele/proc/check_maptext(var/new_maptext)
-	if(new_maptext)
-		held_maptext = new_maptext
-	if(ismob(loc) || ismob(loc.loc))
-		maptext = held_maptext
-	else
-		maptext = ""
-
-/obj/item/hand_tele/throw_at()
-	..()
-	check_maptext()
-
-/obj/item/hand_tele/dropped()
-	..()
-	check_maptext()
-
-/obj/item/hand_tele/on_give()
-	check_maptext()
-
-/obj/item/hand_tele/pickup()
-	..()
-	addtimer(CALLBACK(src, .proc/check_maptext), 1) // invoke async does not work here
+		check_maptext(SMALL_FONTS(7, "Ready"))
 
 /obj/item/closet_teleporter
 	name = "closet teleporter"

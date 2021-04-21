@@ -246,3 +246,26 @@
 /obj/item/clothing/ears/skrell/goop/circles
 	icon_state = "skrell_circles"
 	item_state = "skrell_circles"
+
+/obj/item/clothing/ears/skrell/scrunchy
+	name = "skrell tentacle tie"
+	desc = "A self-powered hard-light 'scrunchy' used to comfortably tie back the tentacles."
+	icon = 'icons/clothing/head/skrellscrunchies.dmi'
+	icon_state = "skrellhairtie"
+	item_state = "scrunchy_seaweed"
+
+/obj/item/clothing/ears/skrell/scrunchy/hoop
+	icon_state = "skrellhairtie"
+	item_state = "scrunchy_hoop"
+
+/obj/item/clothing/ears/skrell/scrunchy/backwater
+	icon_state = "skrellhairtie"
+	item_state = "scrunchy_backwater"
+
+/obj/item/clothing/ears/skrell/scrunchy/driftwood
+	icon_state = "skrellhairtie"
+	item_state = "scrunchy_driftwood"
+
+/obj/item/clothing/ears/skrell/scrunchy/reef
+	icon_state = "skrellhairtie"
+	item_state = "scrunchy_reef"

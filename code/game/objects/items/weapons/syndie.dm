@@ -90,6 +90,7 @@
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "pen"
 	item_state = "pen"
+	flags = HELDMAPTEXT
 	slot_flags = SLOT_BELT | SLOT_EARS
 	throwforce = 0
 	w_class = ITEMSIZE_TINY
@@ -101,12 +102,9 @@
 	maptext_y = 2
 	var/ready_to_use = TRUE
 	var/recharge_time = 1 MINUTE
-	var/held_maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">Ready</span>"
 
-/obj/item/syndie/teleporter/Initialize()
-	. = ..()
-	if(ismob(loc) || ismob(loc.loc))
-		maptext = held_maptext
+/obj/item/syndie/teleporter/set_initial_maptext()
+	held_maptext = SMALL_FONTS(7, "Ready")
 
 /obj/item/syndie/teleporter/attack()
 	return
@@ -134,34 +132,11 @@
 	user.visible_message("<b>[user]</b> appears out of thin air!", SPAN_NOTICE("You successfully step into your destination."))
 	use()
 
-/obj/item/syndie/teleporter/proc/check_maptext(var/new_maptext)
-	if(new_maptext)
-		held_maptext = new_maptext
-	if(ismob(loc) || ismob(loc.loc))
-		maptext = held_maptext
-	else
-		maptext = ""
-
 /obj/item/syndie/teleporter/proc/use()
 	addtimer(CALLBACK(src, .proc/recharge), recharge_time)
 	ready_to_use = FALSE
-	check_maptext("<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 6px;\">Charge</span>")
+	check_maptext(SMALL_FONTS(6, "Charge"))
 
 /obj/item/syndie/teleporter/proc/recharge()
 	ready_to_use = TRUE
-	check_maptext("<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">Ready</span>")
-
-/obj/item/syndie/teleporter/throw_at()
-	..()
-	check_maptext()
-
-/obj/item/syndie/teleporter/dropped()
-	..()
-	check_maptext()
-
-/obj/item/syndie/teleporter/on_give()
-	check_maptext()
-
-/obj/item/syndie/teleporter/pickup()
-	..()
-	addtimer(CALLBACK(src, .proc/check_maptext), 1) // invoke async does not work here
+	check_maptext(SMALL_FONTS(7, "Ready"))
