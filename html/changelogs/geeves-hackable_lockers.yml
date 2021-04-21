@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "It's now possible to hack into secure lockers. Use a crowbar to pry open the maintenance panel, then try and pulse the correct wire. One of the wires are trapped to break the lock open, making it very unstealthy, so be careful."
