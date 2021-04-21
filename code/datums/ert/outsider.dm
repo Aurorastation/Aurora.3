@@ -16,17 +16,10 @@
 	equipment_map = /datum/map_template/distress_iac
 	admin = TRUE
 
-<<<<<<< HEAD
 /datum/responseteam/ap_eridani
 	name = "Eridani Asset Protection Team"
 	chance = 10
 	spawner = /datum/ghostspawner/human/ert/ap_eridani
-=======
-/datum/responseteam/med_eridani
-	name = "Eridani Medical Team"
-	chance = 15
-	spawner = /datum/ghostspawner/human/ert/med_eridani
->>>>>>> master
 	equipment_map = /datum/map_template/distress_iac
 
 /datum/responseteam/fsf
