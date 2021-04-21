@@ -89,24 +89,6 @@ obj/item/clothing/shoes/sandal/clogs
 	icon_state = "clogs"
 	item_state = "clogs"
 
-/obj/item/clothing/shoes/clown_shoes
-	desc = "The prankster's standard-issue clowning shoes. Damn they're huge!"
-	name = "clown shoes"
-	icon_state = "clown"
-	item_state = "clown_shoes"
-	slowdown = 1
-	species_restricted = null
-
-/obj/item/clothing/shoes/clown_shoes/handle_movement(var/turf/walking, var/running)
-	if(!running)
-		if(footstep >= 2)
-			footstep = 0
-			playsound(src, /decl/sound_category/clown_sound, 20, 1)
-		else
-			footstep++
-	else
-		playsound(src, /decl/sound_category/clown_sound, 50, 1) // Running is louder.
-
 /obj/item/clothing/shoes/cyborg
 	name = "cyborg boots"
 	desc = "Shoes for a cyborg costume"

@@ -491,8 +491,6 @@ STOCK_ITEM_COMMON(gasmask, 2)
 		/obj/item/clothing/mask/gas = 10,
 		/obj/item/clothing/mask/gas/plaguedoctor = 1,
 		/obj/item/clothing/mask/gas/swat = 5,
-		/obj/item/clothing/mask/gas/clown_hat = 0.5,
-		/obj/item/clothing/mask/gas/sexyclown = 0.5,
 		/obj/item/clothing/mask/gas/mime = 0.5,
 		/obj/item/clothing/mask/gas/monkeymask = 0.5,
 		/obj/item/clothing/mask/gas/sexymime = 0.5,
