@@ -311,7 +311,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		medHUD = 1
 		to_chat(src, "<span class='notice'><B>Medical HUD Enabled</B></span>")
 
-/mob/abstractobserver/verb/scan_target()
+/mob/abstract/observer/verb/scan_target()
 	set category = "Ghost"
 	set name = "Medical Scan Target"
 	set desc = "Analyse the health of whatever you are following."
