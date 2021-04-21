@@ -1,10 +1,8 @@
 <template>
   <div>
     <table>
-      <ul v-for="listitem in listvar" :key="listitem.key">
-        <li>
-            {{listitem}}
-        </li>
+      <ul v-for="(v, k) in listvar" :key="k">
+        <li>{{k}}: {{v}}</li>
       </ul>
     </table>
   </div>
