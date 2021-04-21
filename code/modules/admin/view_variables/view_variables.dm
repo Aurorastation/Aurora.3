@@ -148,7 +148,7 @@
 	else if(islist(value))
 		var/list/L = value
 		vtext = "([L.len])"
-		if(!(varname in view_variables_dont_expand) && L.len > 0 && L.len < 3)
+		if(!(varname in view_variables_dont_expand) && L.len > 0 && L.len < 100)
 			extra += "<ul>"
 			for (var/index = 1 to L.len)
 				var/entry = L[index]
@@ -157,7 +157,7 @@
 				else
 					extra += "<li>[index]: [make_view_variables_value(entry)]</li>"
 			extra += "</ul>"
-		else if(L.len >= 3)
+		else if(L.len >= 100)
 			vtext = "([L.len]): <ul><li><a href='?_src_=vars;datumview=\ref[L];varnameview=[varname]'>List too large to display, click to view.</a></ul>"
 
 	else
