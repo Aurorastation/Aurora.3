@@ -231,7 +231,7 @@
 	icon_broken = "medical_wall_spark"
 	icon_off = "medical_wall_off"
 	store_mobs = FALSE
-	anchored = 1
-	density = 0
-	wall_mounted = 1
+	anchored = TRUE
+	density = FALSE
+	wall_mounted = TRUE
 	req_access = list(access_medical_equip)

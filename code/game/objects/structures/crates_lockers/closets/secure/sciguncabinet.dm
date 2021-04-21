@@ -8,9 +8,8 @@
 	icon_locked ="base"
 	icon_closed ="base"
 	icon_opened = "base"
-	anchored = 1
-	canbemoved = 1
-
+	anchored = TRUE
+	canbemoved = TRUE
 
 /obj/structure/closet/secure_closet/sciguncabinet/Initialize()
 	..()

@@ -453,7 +453,6 @@
 	req_access = list(access_security)
 	icon = 'icons/obj/walllocker.dmi'
 	icon_state = "wall-locker1"
-	density = 1
 	icon_closed = "wall-locker"
 	icon_locked = "wall-locker1"
 	icon_opened = "wall-lockeropen"
@@ -461,7 +460,7 @@
 	icon_off = "wall-lockeroff"
 
 	//too small to put a man in
-	large = 0
+	large = FALSE
 
 /obj/structure/closet/secure_closet/wall/update_icon()
 	if(broken)
