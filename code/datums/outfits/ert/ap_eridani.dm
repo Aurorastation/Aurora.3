@@ -117,7 +117,7 @@
         /obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
         /obj/item/reagent_containers/glass/bottle/antitoxin = 1,
         /obj/item/reagent_containers/glass/bottle/dexalin_plus = 1,
-        /obj/item/reagent_containers/glass/bottle/bicaridine = 1,
+        /obj/item/reagent_containers/glass/bottle/butazoline = 1,
         /obj/item/reagent_containers/glass/bottle/dermaline = 1,
         /obj/item/reagent_containers/glass/bottle/perconol = 1
 	)
@@ -156,7 +156,7 @@
         /obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
         /obj/item/reagent_containers/glass/bottle/antitoxin = 1,
         /obj/item/reagent_containers/glass/bottle/dexalin_plus = 1,
-        /obj/item/reagent_containers/glass/bottle/bicaridine = 1,
+        /obj/item/reagent_containers/glass/bottle/butazoline = 1,
         /obj/item/reagent_containers/glass/bottle/dermaline = 1,
         /obj/item/reagent_containers/glass/bottle/perconol = 1
 	)

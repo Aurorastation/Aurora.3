@@ -18,7 +18,7 @@
 
 /datum/responseteam/ap_eridani
 	name = "Eridani Asset Protection Team"
-	chance = 10
+	chance = 15
 	spawner = /datum/ghostspawner/human/ert/ap_eridani
 	equipment_map = /datum/map_template/distress_iac
 
