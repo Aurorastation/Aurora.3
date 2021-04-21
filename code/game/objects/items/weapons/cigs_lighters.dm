@@ -779,7 +779,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/flame/lighter/zippo/nt
 	name = "\improper NanoTrasen Zippo lighter"
-	desc = "A zippo lighter with a depiction of the Imperial standard of Dominia"
+	desc = "A zippo lighter with a depiction of NanoTrasen's iconic logo."
 	icon_state = "ntzippo"
 	item_state = "ntzippo"
 
