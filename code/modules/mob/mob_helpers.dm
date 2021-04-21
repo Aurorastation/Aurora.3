@@ -1232,3 +1232,6 @@ proc/is_blind(A)
 
 /mob/get_cell()
 	return FALSE
+
+/mob/proc/can_electrocute(var/contact_zone)
+	return TRUE

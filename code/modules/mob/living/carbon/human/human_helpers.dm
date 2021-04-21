@@ -299,3 +299,10 @@
 	if(aug && !aug.is_broken())
 		return TRUE
 	return FALSE
+
+/mob/living/carbon/human/can_electrocute(var/contact_zone)
+	if(gloves && contact_zone == "hand")
+		var/obj/item/clothing/gloves/G = gloves
+		if(G.siemens_coefficient == 0)
+			return FALSE
+	return ..()

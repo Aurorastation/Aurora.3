@@ -349,17 +349,8 @@
 	//If following checks determine user is protected we won't alarm for long.
 	if(PN)
 		PN.trigger_warning(5)
-	var/mob/living/carbon/human/H
-	if(ishuman(M))
-		H = M
-	if(H)
-		if(H.species.siemens_coefficient == 0)
-			return
-		if(H.species.is_naturally_insulated())
-			return
-		if(H.gloves && contact_zone == "hand")
-			var/obj/item/clothing/gloves/G = H.gloves
-			if(G.siemens_coefficient == 0)	return 0		//to avoid spamming with insulated glvoes on
+	if(!M.can_electrocute(contact_zone))
+		return
 
 	//Checks again. If we are still here subject will be shocked, trigger standard 20 tick warning
 	//Since this one is longer it will override the original one.

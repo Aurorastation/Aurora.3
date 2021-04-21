@@ -10,6 +10,7 @@
 	icon_opened = "base"
 	anchored = TRUE
 	canbemoved = TRUE
+	secured_wires = TRUE
 
 /obj/structure/closet/secure_closet/sciguncabinet/Initialize()
 	..()
@@ -47,9 +48,11 @@
 		add_overlay("door")
 		if(welded)
 			add_overlay(welded_overlay_state)
+		if(crowbarred)
+			add_overlay("crowbarred")
 
 		if(broken)
-			add_overlay("broken")
+			add_overlay("off")
 		else if (locked)
 			add_overlay("locked")
 		else

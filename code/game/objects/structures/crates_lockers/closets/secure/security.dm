@@ -7,6 +7,7 @@
 	icon_opened = "capsecureopen"
 	icon_broken = "capsecurebroken"
 	icon_off = "capsecureoff"
+	secured_wires = TRUE
 
 /obj/structure/closet/secure_closet/captains/fill()
 	// Backpack
@@ -39,6 +40,7 @@
 	icon_opened = "capsecureopen"
 	icon_broken = "capsecurebroken"
 	icon_off = "capsecureoff"
+	secured_wires = TRUE
 
 /obj/structure/closet/secure_closet/captains2/fill()
 	new /obj/item/storage/backpack/captain(src)

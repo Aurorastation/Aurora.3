@@ -1,17 +1,3 @@
-/obj/structure/closet/secure_closet/freezer
-
-/obj/structure/closet/secure_closet/freezer/update_icon()
-	if(broken)
-		icon_state = icon_broken
-	else
-		if(!opened)
-			if(locked)
-				icon_state = icon_locked
-			else
-				icon_state = icon_closed
-		else
-			icon_state = icon_opened
-
 /obj/structure/closet/secure_closet/freezer/kitchen
 	name = "kitchen cabinet"
 	req_access = list(access_kitchen)
@@ -33,6 +19,8 @@
 	icon_opened = "fridgeopen"
 	icon_broken = "fridgebroken"
 	icon_off = "fridge1"
+	welded_overlay_state = "welded_fridge"
+	crowbarred_overlay_state = "crowbarred_fridge"
 
 /obj/structure/closet/secure_closet/freezer/meat/fill()
 	..()
@@ -61,6 +49,8 @@
 	icon_opened = "fridgeopen"
 	icon_broken = "fridgebroken"
 	icon_off = "fridge1"
+	welded_overlay_state = "welded_fridge"
+	crowbarred_overlay_state = "crowbarred_fridge"
 
 /obj/structure/closet/secure_closet/freezer/fridge/fill()
 	..()
@@ -80,6 +70,8 @@
 	icon_opened = "fridgeopen"
 	icon_broken = "fridgebroken"
 	icon_off = "fridge1"
+	welded_overlay_state = "welded_fridge"
+	crowbarred_overlay_state = "crowbarred_fridge"
 	req_access = list(access_heads_vault)
 
 /obj/structure/closet/secure_closet/freezer/money/fill()

@@ -230,6 +230,7 @@
 	icon_opened = "medical_wall_open"
 	icon_broken = "medical_wall_spark"
 	icon_off = "medical_wall_off"
+	crowbarred_overlay_state = "crowbarred_medical_wall"
 	store_mobs = FALSE
 	anchored = TRUE
 	density = FALSE

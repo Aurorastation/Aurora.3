@@ -134,6 +134,13 @@
 			sleeping = 0
 			willfully_sleeping = FALSE
 
+/mob/living/carbon/can_electrocute(var/contact_zone)
+	if(species.siemens_coefficient == 0)
+		return FALSE
+	if(species.is_naturally_insulated())
+		return FALSE
+	return TRUE
+
 /mob/living/carbon/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
 	if(status_flags & GODMODE)
 		return 0	//godmode

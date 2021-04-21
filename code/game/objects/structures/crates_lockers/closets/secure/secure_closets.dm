@@ -20,6 +20,17 @@
 	wall_mounted = FALSE //never solid (You can always pass over it)
 	health = 200
 
+	//hacking
+	var/crowbarred = FALSE
+	var/crowbarred_overlay_state = "crowbarred"
+	var/secured_wires = FALSE
+	var/datum/wires/secure_closet/wires = null
+
+/obj/structure/closet/secure_closet/Initialize(mapload)
+	. = ..()
+	var/wire_path = secured_wires ? /datum/wires/secure_closet/scrambled : /datum/wires/secure_closet
+	wires = new wire_path(src)
+
 /obj/structure/closet/secure_closet/can_open()
 	if(locked)
 		return FALSE
@@ -107,6 +118,12 @@
 			user.drop_from_inventory(W,loc)
 		else
 			user.drop_item()
+	else if(W.ismultitool() || W.iswirecutter())
+		if(!crowbarred)
+			to_chat(user, SPAN_WARNING("The secure locker's maintenance panel is still closed."))
+			return
+		wires.Interact(user)
+		return
 	else if(W.isscrewdriver() && canbemoved)
 		if(screwed)
 			to_chat(user, SPAN_NOTICE("You start to unscrew the locker from the floor..."))
@@ -145,7 +162,14 @@
 			return
 		else
 			togglelock(user)
-	else if(!opened)
+	else if(W.iscrowbar())
+		user.visible_message("<b>[user]</b> starts forcing the secure locker's maintenance panel [crowbarred ? "closed" : "open"] with \the [W]...", SPAN_NOTICE("You start forcing the secure locker's maintenance panel [crowbarred ? "closed" : "open"] with \the [W]..."))
+		if(!do_after(user, 10 SECONDS))
+			return
+		playsound(src, /decl/sound_category/crowbar_sound, 80)
+		crowbarred = !crowbarred
+		update_icon()
+	else
 		if(!broken && istype(W,/obj/item/material/twohanded/chainsaw))
 			var/obj/item/material/twohanded/chainsaw/ChainSawVar = W
 			ChainSawVar.cutting = TRUE
@@ -222,15 +246,18 @@
 /obj/structure/closet/secure_closet/update_icon()//Putting the welded stuff in update_icon() so it's easy to overwrite for special cases (Fridges, cabinets, and whatnot)
 	cut_overlays()
 	if(!opened)
-		if(locked)
+		if(broken)
+			icon_state = icon_broken
+		else if(locked)
 			icon_state = icon_locked
 		else
 			icon_state = icon_closed
 		if(welded)
 			add_overlay(welded_overlay_state)
+		if(crowbarred)
+			add_overlay(crowbarred_overlay_state)
 	else
 		icon_state = icon_opened
-
 
 /obj/structure/closet/secure_closet/req_breakout()
 	if(!opened && locked)
