@@ -785,7 +785,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/flame/lighter/zippo/fisanduh
 	name = "\improper Fisanduhian Zippo lighter"
-	desc = "A zippo with a depiction of the flag of the Confederate States of Fisanduh on it. This is a well crafted model that burns brighter and hotter than \
+	desc = "A zippo with a depiction of the flag of the Confederate States of Fisanduh. This is a well crafted model that burns brighter and hotter than \
 	the usual lighter."
 	desc_fluff = "On Moroz it's rather hard to find a Confederate without at least some manner of lighter on their person. Fisanduhians don't \
 	smoke anymore than the rest of Moroz does, instead they prize these lighters for their utility. From burning loose thread to lighting a \
