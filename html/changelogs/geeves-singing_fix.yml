@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "You can no longer sing in sign language."
+  - bugfix: "Singing will no longer get the music notes scrambled if you don't understand the language."
