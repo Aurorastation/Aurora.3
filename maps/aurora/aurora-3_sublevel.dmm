@@ -1639,8 +1639,8 @@
 /area/rnd/xenoarch_atrium)
 "adR" = (
 /obj/structure/table/rack,
-/obj/item/storage/briefcase/inflatable,
-/obj/item/storage/briefcase/inflatable,
+/obj/item/storage/bag/inflatable,
+/obj/item/storage/bag/inflatable,
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
 "adS" = (
@@ -2638,7 +2638,7 @@
 /area/engineering/storage_sublevel)
 "agu" = (
 /obj/structure/table/rack,
-/obj/item/storage/briefcase/inflatable,
+/obj/item/storage/bag/inflatable,
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /turf/simulated/floor/tiled,
@@ -14980,7 +14980,7 @@
 /area/maintenance/medsublevel_port)
 "aDh" = (
 /obj/structure/table/steel,
-/obj/item/storage/briefcase/inflatable,
+/obj/item/storage/bag/inflatable,
 /turf/simulated/floor/plating,
 /area/maintenance/medsublevel_port)
 "aDi" = (
@@ -27871,7 +27871,7 @@
 /obj/structure/closet/crate,
 /obj/item/storage/box/lights/coloredmixed,
 /obj/item/storage/box/lights/mixed,
-/obj/item/storage/briefcase/inflatable,
+/obj/item/storage/bag/inflatable,
 /obj/item/device/floor_painter,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,

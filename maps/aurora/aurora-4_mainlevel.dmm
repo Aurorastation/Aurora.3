@@ -5365,11 +5365,11 @@
 /area/engineering/atmos/storage)
 "akE" = (
 /obj/structure/table/standard,
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/storage/briefcase/inflatable,
+/obj/item/storage/bag/inflatable,
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
 	},
@@ -20190,13 +20190,13 @@
 /area/engineering/engineering_hallway_main)
 "aIZ" = (
 /obj/structure/table/standard,
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_x = -3
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_y = 3
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_y = 3
 	},
 /obj/machinery/light{
@@ -22581,14 +22581,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ai_monitored/storage/eva)
 "aNa" = (
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_x = 3;
 	pixel_y = 6
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_y = 3
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_x = -3
 	},
 /obj/structure/table/reinforced,

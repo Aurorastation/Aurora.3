@@ -174,7 +174,7 @@
 	return
 
 /obj/item/toy/balloon/attackby(obj/item/W as obj, mob/user as mob)
-	if(can_puncture(W))
+	if(W.can_puncture())
 		burst()
 
 /obj/item/toy/balloon/latex
