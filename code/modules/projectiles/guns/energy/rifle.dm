@@ -18,6 +18,7 @@
 	can_switch_modes = 1
 	turret_sprite_set = "carbine"
 	turret_is_lethal = 0
+	has_item_ratio = FALSE
 
 	fire_delay_wielded = 1
 	accuracy_wielded = 2

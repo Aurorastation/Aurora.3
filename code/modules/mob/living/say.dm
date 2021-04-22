@@ -200,6 +200,11 @@ proc/get_radio_key_from_channel(var/channel)
 	else
 		speaking = get_default_language()
 
+	var/is_singing = FALSE
+	if(length(message) >= 1 && copytext(message, 1, 2) == "%")
+		message = copytext(message, 2)
+		is_singing = TRUE
+
 	// This is broadcast to all mobs with the language,
 	// irrespective of distance or anything else.
 	if(speaking && (speaking.flags & HIVEMIND))
@@ -209,7 +214,7 @@ proc/get_radio_key_from_channel(var/channel)
 		speaking.broadcast(src,trim(message))
 		return 1
 
-	verb = say_quote(message, speaking)
+	verb = say_quote(message, speaking, is_singing)
 
 	if(is_muzzled())
 		to_chat(src, "<span class='danger'>You're muzzled and cannot speak!</span>")
@@ -229,6 +234,9 @@ proc/get_radio_key_from_channel(var/channel)
 		return 0
 
 	message = process_chat_markup(message, list("~", "_"))
+	if(is_singing)
+		var/randomnote = pick("\u2669", "\u266A", "\u266B")
+		message = "[randomnote] <span class='singing'>[message]</span> [randomnote]"
 
 	//handle nonverbal and sign languages here
 	if (speaking)

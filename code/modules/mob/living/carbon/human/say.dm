@@ -109,12 +109,12 @@
    for it but just ignore it.
 */
 
-/mob/living/carbon/human/say_quote(var/message, var/datum/language/speaking = null)
+/mob/living/carbon/human/say_quote(var/message, var/datum/language/speaking = null, var/singing = FALSE)
 	var/ending = copytext(message, length(message))
 	var/pre_ending = copytext(message, length(message) - 1, length(message))
 
 	if(speaking)
-		. = speaking.get_spoken_verb(ending, pre_ending)
+		. = speaking.get_spoken_verb(ending, pre_ending, singing)
 	else
 		. = ..()
 

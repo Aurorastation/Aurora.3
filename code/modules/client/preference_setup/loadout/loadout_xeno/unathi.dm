@@ -48,6 +48,14 @@
 	un_gloves["black leather gloves"] = /obj/item/clothing/gloves/black_leather/unathi
 	gear_tweaks += new/datum/gear_tweak/path(un_gloves)
 
+/datum/gear/gloves/unathi_handwraps
+	display_name = "cloth handwraps"
+	path = /obj/item/clothing/gloves/handwraps
+	cost = 1
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/uniform/unathi
 	display_name = "sinta tunic"
 	path = /obj/item/clothing/under/unathi

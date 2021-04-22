@@ -3,6 +3,7 @@
 	desc_info = "Use in your hand to bring up the recipe menu.  If you have enough sheets, click on something on the list to build it."
 	force = 5
 	throwforce = 5
+	flags = HELDMAPTEXT
 	w_class = ITEMSIZE_NORMAL
 	throw_speed = 3
 	throw_range = 3
@@ -15,16 +16,15 @@
 	var/apply_colour //temp pending icon rewrite
 	var/use_material_sound = TRUE
 
-/obj/item/stack/material/Initialize()
-	. = ..()
+/obj/item/stack/material/Initialize(mapload, amount)
+	..()
 	randpixel_xy()
 
 	if(!default_type)
 		default_type = DEFAULT_WALL_MATERIAL
 	material = SSmaterials.get_material_by_name(default_type)
 	if(!material)
-		qdel(src)
-		return
+		return INITIALIZE_HINT_QDEL
 
 	recipes = material.get_recipes()
 	stacktype = material.stack_type
@@ -43,6 +43,9 @@
 		flags |= CONDUCT
 
 	matter = material.get_matter()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/item/stack/material/LateInitialize()
 	update_strings()
 
 /obj/item/stack/material/get_material()
@@ -60,6 +63,7 @@
 		name = "[material.use_name] [material.sheet_singular_name]"
 		desc = "A [material.sheet_singular_name] of [material.use_name]."
 		gender = NEUTER
+	check_maptext(SMALL_FONTS(7, amount))
 
 /obj/item/stack/material/use(var/used)
 	. = ..()
