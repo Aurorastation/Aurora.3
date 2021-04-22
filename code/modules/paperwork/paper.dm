@@ -95,12 +95,7 @@
 		return
 	if(name != initial(name))
 		to_chat(user,"It's titled '[name]'.")
-	var/near_slide_projector = FALSE
-	if(istype(loc, /obj/item/storage/slide_projector))
-		var/obj/item/storage/slide_projector/SP = loc
-		if(SP.current_slide == src && (SP.projection in view(world.view, user)))
-			near_slide_projector = TRUE
-	if(in_range(user, src) || isobserver(user) || near_slide_projector)
+	if(in_range(user, src) || isobserver(user) || in_slide_projector(user))
 		show_content(usr)
 	else
 		to_chat(user, SPAN_NOTICE("You have to go closer if you want to read it."))

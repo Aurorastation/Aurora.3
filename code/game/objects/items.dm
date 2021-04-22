@@ -920,3 +920,10 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	if(isFlameSource())
 		return TRUE
 	return FALSE
+
+/obj/item/proc/in_slide_projector(var/mob/user)
+	if(istype(loc, /obj/item/storage/slide_projector))
+		var/obj/item/storage/slide_projector/SP = loc
+		if(SP.current_slide == src && (SP.projection in view(world.view, user)))
+			return TRUE
+	return FALSE
