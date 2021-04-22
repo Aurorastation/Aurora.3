@@ -230,3 +230,8 @@
 	display_name = "photo"
 	path =  /obj/item/photo
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/photo_album
+	display_name = "photo album"
+	path =  /obj/item/storage/photo_album
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
