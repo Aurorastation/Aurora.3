@@ -118,6 +118,10 @@
 			new /obj/item/material/sword/katana(src)
 		if(93)
 			new /obj/item/dnainjector/xraymut(src) // Probably the least OP
+		if(94)
+			new /obj/item/clothing/suit/space/void/zavodskoi(src)
+			new /obj/item/clothing/head/helmet/space/void/zavodskoi(src)
+			new /obj/item/flag/zavodskoi/l(src)
 		if(95)
 			new /obj/item/clothing/under/mime(src)
 			new /obj/item/clothing/shoes/black(src)
