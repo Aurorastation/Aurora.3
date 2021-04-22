@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Crime scene markers can now be placed on a turf by clicking on it."
