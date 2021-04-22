@@ -1,5 +1,6 @@
 #define SEC_HUDTYPE "security"
 #define MED_HUDTYPE "medical"
+#define EYECONTACTDIS 4
 
 /mob/living/carbon/human/proc/get_covered_body_parts(var/thick)
 	var/skipbody = 0
@@ -380,9 +381,9 @@
 
 	to_chat(user, msg.Join())
 
-	if(istype(user, /mob/living/carbon/human))
+	if(ishuman(user))
 		var/mob/living/carbon/human/U = user
-		if(U.species.can_make_eye_contact && distance < 4)
+		if(U.species.can_make_eye_contact && distance < EYECONTACTDIS)
 			var/eyescovered = FALSE
 			for(var/obj/item/clothing/C in list(U.wear_mask, U.head, U.glasses))
 				if(C.body_parts_covered & EYES)
@@ -390,18 +391,18 @@
 					break
 			if(!eyescovered)
 				U.handle_examine(src)
-				U.recent_examines += src //Done after so that it doesn't work with itself
+				LAZYADD(U.recent_examines, WEAKREF(src)) //Done after so that it doesn't work with itself
 				addtimer(CALLBACK(U, .proc/removeexamine, src), 5 SECONDS)
 
 // Helper proc for the timer above. 
 /mob/living/carbon/human/proc/removeexamine(item)
-	recent_examines -= item
+	LAZYREMOVE(recent_examines, item)
 
 //Should be called on the mob that is doing the examining by examine() above. Checks the examined mob's recent examine list; if we are in that list, then
 //it is safe to say that they examined us recently, so we should make eye contact.
 //Returns TRUE if we successfully made eye contact, false otherwise.
 /mob/living/carbon/human/proc/handle_examine(mob/living/carbon/human/examinee)
-	if(examinee == src || !examinee.recent_examines || !examinee.recent_examines.len)
+	if(examinee == src || !examinee.recent_examines || !LAZYLEN(examinee.recent_examines))
 		return FALSE
 
 	for(var/M in examinee.recent_examines)
