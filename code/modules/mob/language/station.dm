@@ -283,7 +283,7 @@
 	speech_verb = list("beeps")
 	ask_verb = list("beeps")
 	exclaim_verb = list("loudly beeps")
-	exclaim_verb = list("rhythmically beeps")
+	sing_verb = list("rhythmically beeps")
 	colour = "changeling"
 	written_style = "encodedaudiolanguage"
 	key = "6"

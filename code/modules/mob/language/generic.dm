@@ -58,7 +58,7 @@
 	name = LANGUAGE_GUTTER
 	short = "FREE"
 	desc = "A language of renegades and frontiersmen descending from various languages from Earth like Hindi combined into a multi-rooted jumble that sounds incoherent or even barbarian to non-native speakers. This language is the only common cultural identity for humans in the frontier. Speaking this language in itself boldly declares the speaker a free spirit. Often called 'Gutter' by Alliance citizens."
-	speech_verb = list("growls")
+	speech_verb = list("says")
 	sing_verb = list("croons")
 	colour = "rough"
 	written_style = "freespeak"
