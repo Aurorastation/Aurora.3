@@ -34,6 +34,7 @@
 	var/cleantime = 30
 	var/last_clean
 	var/clean_msg = FALSE
+	var/name_change = TRUE
 
 /obj/item/reagent_containers/glass/rag/Initialize()
 	. = ..()
@@ -65,11 +66,13 @@
 	update_icon()
 
 /obj/item/reagent_containers/glass/rag/proc/update_name()
-	if(on_fire)
+	if(on_fire && name_change)
 		name = "burning [initial(name)]"
-	else if(reagents.total_volume)
+	else if(reagents.total_volume && name_change)
+		base_name = name
 		name = "damp [initial(name)]"
-	else
+	else if (name_change)
+		base_name = name
 		name = "dry [initial(name)]"
 
 /obj/item/reagent_containers/glass/rag/update_icon()
@@ -307,3 +310,4 @@
 	desc = "For cleaning a lady's hand, your bruised ego or a crime scene."
 	volume = 5
 	icon_state = "handkerchief"
+	name_change = FALSE
