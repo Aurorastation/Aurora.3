@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Tajara & vaurca will no longer visibly dilate their eyes when using night vision & their eyes are hidden under clothing/glasses."
