@@ -174,7 +174,7 @@
 	return
 
 /obj/item/toy/balloon/attackby(obj/item/W as obj, mob/user as mob)
-	if(can_puncture(W))
+	if(W.can_puncture())
 		burst()
 
 /obj/item/toy/balloon/latex
@@ -980,6 +980,12 @@
 	name = "bee plush"
 	desc = "A chunky plushie bee. Your new buzz-t friend!"
 	icon_state = "beeplushie"
+
+/obj/item/toy/plushie/greimorian
+	name = "greimorian plushie"
+	desc = "A lovable plushie of a fierce greimorian! This one takes a few liberties."
+	icon_state = "greimorianplushie"
+	phrase = "Gort!"
 
 //Squid Plushies
 

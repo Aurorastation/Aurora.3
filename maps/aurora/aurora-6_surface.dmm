@@ -5284,7 +5284,7 @@
 	},
 /obj/item/airbubble,
 /obj/item/airbubble,
-/obj/item/storage/briefcase/inflatable,
+/obj/item/storage/bag/inflatable,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/device/flashlight/flare,
 /obj/item/device/flashlight/flare,

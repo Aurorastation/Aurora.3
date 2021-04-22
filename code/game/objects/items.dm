@@ -915,6 +915,14 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	if(flags & HELDMAPTEXT)
 		check_maptext()
 
+// used to check whether the item is capable of popping things like balloons, inflatable barriers, or cutting police tape.
+/obj/item/proc/can_puncture()
+	if(sharp || edge)
+		return TRUE
+	if(isFlameSource())
+		return TRUE
+	return FALSE
+
 /obj/item/proc/get_pressure_weakness(pressure, zone)
 	. = 1
 	if(pressure > ONE_ATMOSPHERE)
