@@ -78,6 +78,7 @@
 	desc = "A signed version of Ceti Basic, though its intent is primarily to help out people who are deaf and mute, "
 	speech_verb = list("signs")
 	signlang_verb = list("signs", "gestures")
+	sing_verb = null
 	colour = "i"
 	key = "4"
 	flags = NO_STUTTER|SIGNLANG

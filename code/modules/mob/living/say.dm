@@ -203,7 +203,8 @@ proc/get_radio_key_from_channel(var/channel)
 	var/is_singing = FALSE
 	if(length(message) >= 1 && copytext(message, 1, 2) == "%")
 		message = copytext(message, 2)
-		is_singing = TRUE
+		if(speaking?.sing_verb)
+			is_singing = TRUE
 
 	// This is broadcast to all mobs with the language,
 	// irrespective of distance or anything else.
