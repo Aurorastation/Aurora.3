@@ -1,0 +1,7 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a ballistic carbine, a less powerful counterpart of the assault rifle. It is only semi auto, has lower ammo capacity and uses a slightly weaker type of rifle round, 5.56. Currently, merchants and antags that recieve random guns can obtain it."
+  - rscadd: "Added a smaller variant of the 5.56 mag that only holds 15 rounds rather than 30. It can be printed from a lathe if desired."

@@ -434,8 +434,14 @@
 	category = "Arms and Ammunition"
 
 /datum/autolathe/recipe/magazine_carbine
-	name = "ammunition (5.56mm)"
+	name = "ammunition (5.56mm, large)"
 	path = /obj/item/ammo_magazine/a556
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/magazine_smallcarbine
+	name = "ammunition (5.56mm, small)"
+	path = /obj/item/ammo_magazine/a556/carbine
 	hidden = 1
 	category = "Arms and Ammunition"
 
