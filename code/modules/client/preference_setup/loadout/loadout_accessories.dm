@@ -297,6 +297,11 @@
 	gadpathur["medical cadre brassard"] = /obj/item/clothing/accessory/armband/gadpathur/med
 	gear_tweaks += new/datum/gear_tweak/path(gadpathur)
 
+/datum/gear/accessory/sash_coloured
+	display_name = "sash (colourable)"
+	path = /obj/item/clothing/accessory/sash/colourable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/accessory/sash
 	display_name = "sash selection"
 	description = "A selection of sashes in various colours."

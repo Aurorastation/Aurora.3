@@ -404,6 +404,12 @@
 	item_state = "white_sash"
 	icon_state = "white_sash"
 
+/obj/item/clothing/accessory/sash/colourable
+	name = "sash"
+	desc = "A sash, designed to be worn over one shoulder and come down to the opposing hip."
+	item_state = "sash_colourable"
+	icon_state = "sash_colourable"
+
 /*
  * Cloak
  */
