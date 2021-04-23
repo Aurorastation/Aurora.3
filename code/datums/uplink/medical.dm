@@ -47,12 +47,12 @@
 
 /datum/uplink_item/item/medical/advfirstaid
 	name = "Advanced First-Aid Kit"
-	item_cost = 2
+	item_cost = 1
 	path = /obj/item/storage/firstaid/adv
 	desc = "Note: doesn't come with a medical scanner."
 
 /datum/uplink_item/item/medical/bloodpack
 	name = "O- blood pack"
-	item_cost = 2
+	item_cost = 1
 	path = /obj/item/reagent_containers/blood/OMinus
 	desc = "If transferring to self or others without a stand, hold firmly in hand, configure the transfer rate and attach the tubing carefully."
