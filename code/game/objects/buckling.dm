@@ -35,7 +35,7 @@
 			if(MA != user)
 				if(isliving(MA))
 					var/mob/living/L = MA
-					if(!L.resting)
+					if(!L.lying)
 						if(!do_mob(user, L, 3 SECONDS))
 							return 0
 		MA.buckled_to = src
