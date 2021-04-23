@@ -69,10 +69,26 @@
 	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/poncho/unathimantle
-	name = "hide mantle"
-	desc = "A rather grisly selection of cured hides and skin, sewn together to form a ragged mantle."
+	name = "desert hide mantle"
+	desc = "The cured hide and skin of a large beast, tapered off with a colorful collar. This one is a popular trophy among Wastelanders: someone's been hunting!"
+	desc_fluff = "With the expansion of the Touched Lands, the normal beasts that prowl and stalk the dunes have proliferated at unprecedented rates. Those stranded outside of the greenery of the Izweski take up arms to cull the herdes of klazd, and their skins make valuable mantles to protect wearers from the sun."
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "mantle-unathi"
 	item_state = "mantle-unathi"
 	icon_override = null
+	species_restricted = list(BODYTYPE_UNATHI)
 	contained_sprite = TRUE
+	build_from_parts = TRUE
+	worn_overlay = "desert"
+
+/obj/item/clothing/accessory/poncho/unathimantle/forest
+	name = "forest hide mantle"
+	desc = "The cured hide and skin of a large beast, tapered off with a colorful collar. These are seen exclusively by warriors, nobles, and those with credits to spare."
+	desc_fluff = "After the Contact War, the prized horns of the tul quickly vanished from the market. Nobles and wealthy guildsmen were swift to monopolize and purchase all the remaining cloaks; a peasant seen with one of these is likely enough a death sentence."
+	worn_overlay = "forest"
+
+/obj/item/clothing/accessory/poncho/unathimantle/mountain
+	name = "mountain hide mantle"
+	desc = "The cured hide and skin of a large beast, tapered off with a colorful collar. Mountainous arbek, massive snakes longer than a bus, have a long enough hide for multiple mantles."
+	desc_fluff = "Hunting an arbek is no easy task. Brave Zo'saa looking to prove themselves in battle and be promoted to Saa rarely understand the gravity of these trials. Serpents large enough to swallow unathi whole, they can live up to half a millenia— should enough foolish adventurers try to slay it, that is."
+	worn_overlay = "mountain"
