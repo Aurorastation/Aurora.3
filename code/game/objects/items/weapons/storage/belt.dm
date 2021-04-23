@@ -209,7 +209,7 @@
 		/obj/item/melee/baton,
 		/obj/item/shield/riot/tact,
 		/obj/item/grenade,
-		/obj/item/reagent_containers/blood/OMinus
+		/obj/item/reagent_containers/blood
 		)
 
 /obj/item/storage/belt/medical/first_responder/combat/full
