@@ -166,6 +166,61 @@
 	icon_state = "emsbelt"
 	item_state = "emsbelt"
 
+/obj/item/storage/belt/medical/first_responder/combat
+	name = "combat medical belt"
+	desc = "A sturdy black webbing belt with attached pouches. This one is designed for medical professionals who expect to see combat and has increased storage and utility."
+	storage_slots = 9
+	max_storage_space = 28
+	can_hold = list(
+		/obj/item/device/breath_analyzer,
+		/obj/item/device/healthanalyzer,
+		/obj/item/dnainjector,
+		/obj/item/reagent_containers/dropper,
+		/obj/item/reagent_containers/glass/beaker,
+		/obj/item/reagent_containers/glass/bottle,
+		/obj/item/reagent_containers/pill,
+		/obj/item/reagent_containers/syringe,
+		/obj/item/reagent_containers/inhaler,
+		/obj/item/reagent_containers/personal_inhaler_cartridge,
+		/obj/item/personal_inhaler,
+		/obj/item/flame/lighter/zippo,
+		/obj/item/storage/box/fancy/cigarettes,
+		/obj/item/storage/pill_bottle,
+		/obj/item/stack/medical,
+		/obj/item/device/flashlight/pen,
+		/obj/item/clothing/mask/surgical,
+		/obj/item/clothing/head/surgery,
+		/obj/item/clothing/gloves/latex,
+		/obj/item/reagent_containers/hypospray,
+		/obj/item/clothing/glasses/hud/health,
+		/obj/item/crowbar,
+		/obj/item/device/flashlight,
+		/obj/item/extinguisher/mini,
+		/obj/item/device/radio,
+		/obj/item/taperoll/medical,
+		/obj/item/handcuffs,
+		/obj/item/ammo_casing/shotgun,
+		/obj/item/ammo_magazine,
+		/obj/item/device/flash,
+		/obj/item/device/flashlight/maglight,
+		/obj/item/device/flashlight/flare,
+		/obj/item/material/knife,
+		/obj/item/stack/telecrystal,
+		/obj/item/melee/baton
+		)
+
+/obj/item/storage/belt/medical/first_responder/combat/full
+		starts_with = list(
+		/obj/item/reagent_containers/hypospray/cmo = 1,
+		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
+		/obj/item/reagent_containers/glass/bottle/antitoxin = 1,
+		/obj/item/reagent_containers/glass/bottle/dexalin_plus = 1,
+		/obj/item/reagent_containers/glass/bottle/butazoline = 1,
+		/obj/item/reagent_containers/glass/bottle/dermaline = 1,
+		/obj/item/reagent_containers/glass/bottle/perconol = 1,
+		/obj/item/reagent_containers/glass/bottle/thetamycin = 1
+	)
+
 /obj/item/storage/belt/security
 	name = "security belt"
 	desc = "Can hold security gear like handcuffs and flashes."

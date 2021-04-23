@@ -32360,11 +32360,11 @@
 	pixel_y = -12
 	},
 /obj/item/reagent_containers/glass/bottle/dermaline,
-/obj/item/reagent_containers/glass/bottle/bicaridine{
+/obj/item/reagent_containers/glass/bottle/butazoline{
 	pixel_x = -3;
 	pixel_y = -8
 	},
-/obj/item/reagent_containers/glass/bottle/bicaridine{
+/obj/item/reagent_containers/glass/bottle/butazoline{
 	pixel_x = -3;
 	pixel_y = -8
 	},
@@ -32378,6 +32378,14 @@
 	},
 /obj/item/reagent_containers/glass/bottle/thetamycin{
 	pixel_x = 9
+	},
+/obj/item/reagent_containers/glass/bottle/perconol{
+	pixel_x = -7;
+	pixel_y = -4
+	},
+/obj/item/reagent_containers/glass/bottle/perconol{
+	pixel_x = -7;
+	pixel_y = -4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
@@ -37915,6 +37923,7 @@
 /obj/item/clothing/mask/surgical,
 /obj/item/clothing/mask/surgical,
 /obj/item/storage/belt/medical,
+/obj/item/storage/belt/medical/first_responder/combat,
 /obj/item/storage/belt/medical,
 /obj/structure/sink{
 	dir = 4;
@@ -41636,14 +41645,14 @@
 /area/centcom/specops)
 "wWK" = (
 /obj/structure/table/rack,
-/obj/item/storage/belt/medical{
+/obj/item/storage/belt/medical/first_responder/combat{
+	pixel_x = 5;
+	pixel_y = -5
+	},
+/obj/item/storage/belt/medical/first_responder/combat,
+/obj/item/storage/belt/medical/first_responder/combat{
 	pixel_x = -4;
 	pixel_y = 5
-	},
-/obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical{
-	pixel_x = 4;
-	pixel_y = -5
 	},
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
