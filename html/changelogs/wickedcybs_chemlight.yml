@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - tweak: "Glowsticks now illuminate a range of three tiles. Prior to this, it was one and half."
