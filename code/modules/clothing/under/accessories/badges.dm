@@ -472,9 +472,6 @@
 	to_chat(usr, SPAN_NOTICE("You [open ? "open" : "close"] \the [src]."))
 	update_icon()
 
-/obj/item/clothing/accessory/badge/passport/update_icon()
-	icon_state = "[initial(icon_state)][open ? "_o" : ""]"
-
 /obj/item/clothing/accessory/badge/passport/sol
 	name = "solarian passport"
 	desc = "A passport issued to a citizen of the Alliance of Sovereign Solarian Nations, or Sol Alliance. An outdated document for passage abroad."
