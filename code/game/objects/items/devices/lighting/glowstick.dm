@@ -2,8 +2,8 @@
 	name = "green glowstick"
 	desc = "A green military-grade glowstick."
 	w_class = ITEMSIZE_SMALL
-	brightness_on = 1.3
-	light_power = 2.2
+	brightness_on = 1.2
+	light_power = 2
 	color = "#49F37C"
 	icon_state = "glowstick"
 	item_state = "glowstick"
