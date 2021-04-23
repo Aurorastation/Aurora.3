@@ -206,7 +206,9 @@
 		/obj/item/device/flashlight/flare,
 		/obj/item/material/knife,
 		/obj/item/stack/telecrystal,
-		/obj/item/melee/baton
+		/obj/item/melee/baton,
+		/obj/item/shield/riot/tact,
+		/obj/item/grenade
 		)
 
 /obj/item/storage/belt/medical/first_responder/combat/full
