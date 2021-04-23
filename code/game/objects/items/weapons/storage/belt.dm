@@ -167,8 +167,8 @@
 	item_state = "emsbelt"
 
 /obj/item/storage/belt/medical/first_responder/combat
-	name = "combat medical belt"
-	desc = "A sturdy black webbing belt with attached pouches. This one is designed for medical professionals who expect to see combat and has increased storage and utility."
+	name = "tactical medical belt"
+	desc = "A sturdy black webbing belt with attached pouches. This one is designed for medical professionals who expect to enter conflict zones on the daily. It has increased storage and utility."
 	storage_slots = 9
 	max_storage_space = 28
 	can_hold = list(
