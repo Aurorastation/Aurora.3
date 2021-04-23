@@ -1,0 +1,7 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a new pattern for the head. Tiger stripes very minor. It's like Tiger stripes minor, just with a bit less going on. Anyone can use it."
+  - tweak: "Reorganized Taj markings so they're not mixed in with other species patterns. This is more of a contributor facing change, if you're a player, don't worry about it."
