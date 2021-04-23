@@ -3,4 +3,4 @@ author: WickedCybs
 delete-after: True
 
 changes:
-  - tweak: "Glowsticks now illuminate a range of three tiles. Prior to this, it was one and half."
+  - tweak: "Glowsticks now illuminate a bit further, a bit more than a PDA light. They've been made dimmer to compensate."
