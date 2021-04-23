@@ -33,8 +33,11 @@
 			return 0
 		if(user)
 			if(MA != user)
-				if(!do_mob(user, MA, 3 SECONDS))
-					return 0
+				if(isliving(MA))
+					var/mob/living/L = MA
+					if(!L.resting)
+						if(!do_mob(user, L, 3 SECONDS))
+							return 0
 		MA.buckled_to = src
 		buckled = MA
 		if(istype(MA, /mob/living))
