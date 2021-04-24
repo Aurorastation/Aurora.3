@@ -109,7 +109,8 @@
 		/obj/item/device/advanced_healthanalyzer = 1,
 		/obj/item/clothing/accessory/storage/pouches/black = 1,
 		/obj/item/reagent_containers/glass/bottle/thetamycin = 1,
-		/obj/item/surgery/scalpel/manager = 1
+		/obj/item/surgery/scalpel/manager = 1,
+		/obj/item/tank/emergency_oxygen/double = 1
 	)
 
 	belt_contents = list(
