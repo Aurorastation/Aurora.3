@@ -96,6 +96,10 @@
 		)
 	content_overlays = TRUE
 
+/obj/item/storage/belt/utility/ce
+	icon_state = "utilitybelt_ce"
+	item_state = "utility_ce"
+
 /obj/item/storage/belt/utility/full
 	starts_with = list(
 		/obj/item/screwdriver = 1,
