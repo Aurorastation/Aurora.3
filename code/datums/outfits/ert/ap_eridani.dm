@@ -113,7 +113,7 @@
 	)
 
 	belt_contents = list(
-		/obj/item/reagent_containers/hypospray/combat/empty,
+		/obj/item/reagent_containers/hypospray/combat/empty = 1,
         /obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
         /obj/item/reagent_containers/glass/bottle/antitoxin = 1,
         /obj/item/reagent_containers/glass/bottle/dexalin_plus = 1,
