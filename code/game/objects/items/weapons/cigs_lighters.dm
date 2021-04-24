@@ -777,6 +777,25 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	flame_light_color = LIGHT_COLOR_BLUE
 	flame_light_range = 2
 
+/obj/item/flame/lighter/zippo/nt
+	name = "\improper NanoTrasen Zippo lighter"
+	desc = "A zippo lighter with a depiction of NanoTrasen's iconic logo."
+	icon_state = "ntzippo"
+	item_state = "ntzippo"
+
+/obj/item/flame/lighter/zippo/fisanduh
+	name = "\improper Fisanduhian Zippo lighter"
+	desc = "A zippo with a depiction of the flag of the Confederate States of Fisanduh. This is a well crafted model that burns brighter and hotter than \
+	the usual lighter."
+	desc_fluff = "On Moroz it's rather hard to find a Confederate without at least some manner of lighter on their person. Fisanduhians don't \
+	smoke anymore than the rest of Moroz does, instead they prize these lighters for their utility. From burning loose thread to lighting a \
+	molotov and more. A common adage is that the fire of Fisanduh burns brighter than Dominia's, which seems to be true for their lighters at least. \
+	These have found purchase throughout the Spur due to their reliability and impressive capability to light up various things, causing a \
+	competition of sorts to arise with Fisanduhian and Himean producers over the best quality lighter."
+	icon_state = "fisanduhzippo"
+	item_state = "fisanduhzippo"
+	flame_light_range = 2
+
 /obj/item/flame/lighter/random/Initialize()
 	. = ..()
 	icon_state = "lighter-[pick("r","c","y","g")]"
