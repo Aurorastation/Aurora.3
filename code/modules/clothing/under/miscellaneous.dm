@@ -512,6 +512,8 @@
 	item_state = "bl_suit"
 	worn_state = "taucetilegion"
 	siemens_coefficient = 0.7
+	armor = list(
+		melee = ARMOR_MELEE_MINOR)
 
 /obj/item/clothing/under/legion/sentinel
 	name = "Tau Ceti Foreign Legion sentinel uniform"

@@ -6,7 +6,6 @@
 /mob/living/parasite/captive_brain/say(var/message)
 	if(istype(src.loc,/mob/living/parasite/meme))
 
-		message = sanitize(message)
 		if (!message)
 			return
 		log_say("[key_name(src)] : [message]",ckey=key_name(src))

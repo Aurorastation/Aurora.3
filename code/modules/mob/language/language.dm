@@ -53,6 +53,8 @@
 		if(LAZYACCESS(partial_understanding, L.name))
 			understand_chance += partial_understanding[L.name]
 
+	var/static/list/music_notes = list("\u2669", "\u266A", "\u266B")
+
 	var/list/words = splittext(input, " ")
 	var/list/scrambled_text = list()
 	var/new_sentence = 0
@@ -60,7 +62,7 @@
 		var/nword = "[w] "
 		var/input_ending = copytext(w, length(w))
 		var/ends_sentence = findtext(".?!",input_ending)
-		if(!prob(understand_chance))
+		if(!prob(understand_chance) && !(w in music_notes))
 			nword = scramble_word(w)
 			if(new_sentence)
 				nword = capitalize(nword)

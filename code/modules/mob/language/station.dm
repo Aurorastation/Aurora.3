@@ -83,6 +83,7 @@
 	desc = "A sign language developed by Adhomai hunters"
 	speech_verb = list("signs")
 	signlang_verb = list("signs", "flicks their ears", "gestures")
+	sing_verb = null
 	colour = "i"
 	key = "i"
 	flags = NO_STUTTER | SIGNLANG | WHITELISTED
@@ -283,7 +284,7 @@
 	speech_verb = list("beeps")
 	ask_verb = list("beeps")
 	exclaim_verb = list("loudly beeps")
-	exclaim_verb = list("rhythmically beeps")
+	sing_verb = list("rhythmically beeps")
 	colour = "changeling"
 	written_style = "encodedaudiolanguage"
 	key = "6"

@@ -102,15 +102,20 @@
 
 
 /obj/item/paper/proc/show_content(mob/user, forceshow)
+	var/datum/browser/paper_win = new(user, name, null, 450, 500, null, TRUE)
+	paper_win.set_content(get_content(user, can_read(user, forceshow)))
+	paper_win.add_stylesheet("paper_languages", 'html/browser/paper_languages.css')
+	paper_win.open()
+
+/obj/item/paper/proc/can_read(var/mob/user, var/forceshow = FALSE)
 	var/can_read = (istype(user, /mob/living/carbon/human) || isobserver(user) || istype(user, /mob/living/silicon)) || forceshow
 	if(!forceshow && istype(user,/mob/living/silicon/ai))
 		var/mob/living/silicon/ai/AI
 		can_read = get_dist(src, AI.camera) < 2
+	return can_read
 
-	var/datum/browser/paper_win = new(user, name, null, 450, 500, null, TRUE)
-	paper_win.set_content("<head><title>[capitalize_first_letters(name)]</title><style>body {background-color: [color];}</style></head><body>[can_read ? parse_languages(user, info) : stars(info)][stamps]</body>")
-	paper_win.add_stylesheet("paper_languages", 'html/browser/paper_languages.css')
-	paper_win.open()
+/obj/item/paper/proc/get_content(var/mob/user, var/can_read = TRUE)
+	return "<head><title>[capitalize_first_letters(name)]</title><style>body {background-color: [color];}</style></head><body>[can_read ? parse_languages(user, info) : stars(info)][stamps]</body>"
 
 /obj/item/paper/verb/rename()
 	set name = "Rename paper"

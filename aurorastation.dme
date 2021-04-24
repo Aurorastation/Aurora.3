@@ -1425,6 +1425,7 @@
 #include "code\modules\clothing\rings\rings.dm"
 #include "code\modules\clothing\sets\acting_captain.dm"
 #include "code\modules\clothing\sets\captain.dm"
+#include "code\modules\clothing\sets\infiltrator.dm"
 #include "code\modules\clothing\sets\laser_tag.dm"
 #include "code\modules\clothing\shoes\colour.dm"
 #include "code\modules\clothing\shoes\jobs.dm"

@@ -24,16 +24,16 @@
 	volume = 10
 	can_be_placed_into = null
 	flags = OPENCONTAINER | NOBLUDGEON
-	unacidable = 0
+	unacidable = FALSE
+	fragile = FALSE
+	drop_sound = 'sound/items/drop/cloth.ogg'
+	pickup_sound = 'sound/items/pickup/cloth.ogg'
 
 	var/on_fire = 0
 	var/burn_time = 20 //if the rag burns for too long it turns to ashes
 	var/cleantime = 30
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
 	var/last_clean
 	var/clean_msg = FALSE
-	fragile = 0
 
 /obj/item/reagent_containers/glass/rag/Initialize()
 	. = ..()
@@ -301,3 +301,9 @@
 	possible_transfer_amounts = list(5)
 	volume = 10
 	cleantime = 15
+
+/obj/item/reagent_containers/glass/rag/handkerchief
+	name = "handkerchief"
+	desc = "For cleaning a lady's hand, your bruised ego or a crime scene."
+	volume = 5
+	icon_state = "handkerchief"
