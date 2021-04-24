@@ -399,6 +399,12 @@ var/list/slot_equipment_priority = list( \
 		drop_from_inventory(entry)
 		qdel(entry)
 
+/mob/proc/get_covering_equipped_items(var/body_parts)
+	. = list()
+	for(var/entry in get_equipped_items())
+		var/obj/item/I = entry
+		if(I.body_parts_covered & body_parts)
+			. += I
 
 /mob/living/carbon/human/proc/equipOutfit(outfit, visualsOnly = FALSE)
 	var/datum/outfit/O = null

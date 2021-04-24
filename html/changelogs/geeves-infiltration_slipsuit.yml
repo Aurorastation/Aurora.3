@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added an infiltration kit to the Devices and Tools uplink. It spawns a case containing a mask, a uniform, gloves, and shoes, capable of protecting you from the vacuum of space, as well as two atmospheres of overpressure."
+  - rscadd: "Ported max and min pressure tolerances for items and clothing, meaning that certain gear will now protect better from overpressure, such as atmos voidsuits, firesuits, bomb suits, and to a lesser extent, engineering voidsuits."
