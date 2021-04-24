@@ -407,12 +407,6 @@
 		'sound/weapons/punchmiss2.ogg'
 	)
 
-/decl/sound_category/clown_sound
-	sounds = list(
-		'sound/effects/clownstep1.ogg',
-		'sound/effects/clownstep2.ogg'
-	)
-
 /decl/sound_category/swing_hit_sound
 	sounds = list(
 		'sound/weapons/genhit1.ogg',

@@ -466,7 +466,6 @@ var/list/worths = list(
 //SHOES,
 					/obj/item/clothing/shoes/galoshes = 50,
 					/obj/item/clothing/shoes/syndigaloshes = 250,
-					/obj/item/clothing/shoes/clown_shoes = 100,
 					/obj/item/clothing/shoes/cult = 350,
 					/obj/item/clothing/shoes/magboots = 350,
 					/obj/item/clothing/shoes/swat = 200,
