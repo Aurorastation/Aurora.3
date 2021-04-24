@@ -96,7 +96,6 @@
 
 
 /obj/item/device/nanoquikpay/attackby(obj/O, mob/user)
-	
 	if (istype(O, /obj/item/spacecash/ewallet))
 		var/obj/item/spacecash/ewallet/E = O
 		var/transaction_amount = sum
