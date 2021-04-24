@@ -42,6 +42,10 @@
 	. = ..()
 	update_flip_verb()
 
+/obj/item/storage/belt/fill()
+	. = ..()
+	update_icon()
+
 /obj/item/storage/belt/proc/update_flip_verb()
 	if(("[initial(icon_state)]_flip") in icon_states(icon)) // Check for whether it has a flipped icon. Prevents invisible sprites.
 		verbs += /obj/item/storage/belt/proc/flipbelt
