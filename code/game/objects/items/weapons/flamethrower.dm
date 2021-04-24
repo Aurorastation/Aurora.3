@@ -1,9 +1,10 @@
 /obj/item/flamethrower
 	name = "flamethrower"
 	desc = "A flamethrower created by modifying a welding tool to fit an external gas tank."
-	icon = 'icons/obj/flamethrower.dmi'
-	icon_state = "flamethrowerbase"
+	icon = 'icons/obj/contained_items/weapons/flamethrower.dmi'
+	icon_state = "flamethrower"
 	item_state = "flamethrower_0"
+	contained_sprite = TRUE
 	var/fire_sound = 'sound/weapons/flamethrower.ogg'
 	flags = CONDUCT
 	force = 3.0
@@ -20,13 +21,13 @@
 	var/turf/previousturf = null
 	var/obj/item/weldingtool/weldtool = null
 	var/obj/item/device/assembly/igniter/igniter = null
-	var/obj/item/tank/phoron/ptank = null
+	var/obj/item/tank/gas_tank = null
 
 /obj/item/flamethrower/examine(mob/user)
 	..()
 	if(Adjacent(user))
-		if(ptank)
-			to_chat(user, SPAN_NOTICE("Release pressure is set to [throw_amount] kPa. The tank has about [round(ptank.air_contents.return_pressure(), 10)] kPa left in it."))
+		if(gas_tank)
+			to_chat(user, SPAN_NOTICE("Release pressure is set to [throw_amount] kPa. The tank has about [round(gas_tank.air_contents.return_pressure(), 10)] kPa left in it."))
 		else
 			to_chat(user, SPAN_WARNING("It has no gas tank installed."))
 		if(igniter)
@@ -39,8 +40,8 @@
 		qdel(weldtool)
 	if(igniter)
 		qdel(igniter)
-	if(ptank)
-		qdel(ptank)
+	if(gas_tank)
+		qdel(gas_tank)
 
 	return ..()
 
@@ -61,8 +62,10 @@
 	cut_overlays()
 	if(igniter)
 		add_overlay("+igniter[secured]")
-	if(ptank)
-		add_overlay("+ptank")
+	if(istype(gas_tank, /obj/item/tank/phoron))
+		add_overlay("+phoron_tank")
+	else if(istype(gas_tank, /obj/item/tank/hydrogen))
+		add_overlay("+hydro_tank")
 	if(lit)
 		add_overlay("+lit")
 		item_state = "flamethrower_1"
@@ -75,9 +78,9 @@
 /obj/item/flamethrower/afterattack(atom/target, mob/user, proximity)
 	if(proximity)
 		return
-	if(!ptank)
+	if(!gas_tank)
 		return
-	if(ptank.air_contents.get_by_flag(XGM_GAS_FUEL) < 1)
+	if(gas_tank.air_contents.get_by_flag(XGM_GAS_FUEL) < 1)
 		to_chat(user, SPAN_WARNING("\The [src] doesn't have enough fuel left to throw!"))
 		return
 	// Make sure our user is still holding us
@@ -99,9 +102,9 @@
 		if(igniter)
 			igniter.forceMove(T)
 			igniter = null
-		if(ptank)
-			ptank.forceMove(T)
-			ptank = null
+		if(gas_tank)
+			gas_tank.forceMove(T)
+			gas_tank = null
 		new /obj/item/stack/rods(T)
 		qdel(src)
 		return
@@ -125,12 +128,12 @@
 		update_icon()
 		return
 
-	else if(istype(W, /obj/item/tank/phoron))
-		if(ptank)
+	else if(istype(W, /obj/item/tank/phoron) || istype(W, /obj/item/tank/hydrogen))
+		if(gas_tank)
 			to_chat(user, SPAN_WARNING("There appears to already be a tank loaded in \the [src]!"))
 			return
 		user.drop_from_inventory(W, src)
-		ptank = W
+		gas_tank = W
 		update_icon()
 		return
 
@@ -149,7 +152,7 @@
 /obj/item/flamethrower/attack_self(mob/user)
 	if(use_check_and_message(user))
 		return
-	if(!ptank)
+	if(!gas_tank)
 		to_chat(user, SPAN_WARNING("Attach a phoron tank first!"))
 		return
 	var/list/options = list(
@@ -163,10 +166,10 @@
 		return
 	switch(handle)
 		if("Eject Tank")
-			if(!ptank)
+			if(!gas_tank)
 				return
-			user.put_in_hands(ptank)
-			ptank = null
+			user.put_in_hands(gas_tank)
+			gas_tank = null
 			lit = FALSE
 		if("Light")
 			attempt_lighting(user)
@@ -194,10 +197,10 @@
 	if(lit)
 		to_chat(user, SPAN_WARNING("\The [src] is already lit."))
 		return
-	if(!ptank)
+	if(!gas_tank)
 		to_chat(user, SPAN_WARNING("\The [src] doesn't have a tank installed."))
 		return
-	if(ptank.air_contents.get_by_flag(XGM_GAS_FUEL) < 1)
+	if(gas_tank.air_contents.get_by_flag(XGM_GAS_FUEL) < 1)
 		to_chat(user, SPAN_WARNING("\The [src] doesn't have any flammable fuel to light!"))
 		return
 	lit = TRUE
@@ -233,13 +236,13 @@
 
 
 /obj/item/flamethrower/proc/ignite_turf(turf/target)
-	var/datum/gas_mixture/air_transfer = ptank.air_contents.remove_ratio(0.02 * (throw_amount / 100))
+	var/datum/gas_mixture/air_transfer = gas_tank.air_contents.remove_ratio(0.02 * (throw_amount / 100))
 	new /obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel(target, air_transfer.get_by_flag(XGM_GAS_FUEL) * 15, get_dir(loc, target))
 	for(var/g in air_transfer.gas)
 		if(gas_data.flags[g] & XGM_GAS_FUEL)
 			air_transfer.gas[g] = 0
 	target.assume_air(air_transfer)
-	target.hotspot_expose((ptank.air_contents.temperature*2) + 400, 500)
+	target.hotspot_expose((gas_tank.air_contents.temperature*2) + 400, 500)
 
 /obj/item/flamethrower/full/Initialize()
 	. = ..()
