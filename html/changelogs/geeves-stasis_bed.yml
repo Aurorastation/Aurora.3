@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Ported stasis beds. RnD can print their circuitboards once they've reached level four research in magnets, engineering and bio."
