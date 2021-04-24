@@ -14,11 +14,19 @@
 	pickup_sound = 'sound/items/pickup/toolbelt.ogg'
 	var/flipped = FALSE
 	var/show_above_suit = FALSE
+	var/content_overlays = FALSE //If this is true, the belt will gain overlays based on what it's holding
 
 /obj/item/storage/belt/proc/update_clothing_icon()
 	if(ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_belt()
+
+/obj/item/storage/belt/update_icon()
+	cut_overlays()
+	if(content_overlays)
+		for(var/obj/item/I in contents)
+			add_overlay(I.get_belt_overlay())
+	..()
 
 /obj/item/storage/belt/verb/toggle_layer()
 	set name = "Switch Belt Layer"
@@ -86,7 +94,7 @@
 		/obj/item/device/debugger,
 		/obj/item/device/eftpos
 		)
-
+	content_overlays = TRUE
 
 /obj/item/storage/belt/utility/full
 	starts_with = list(
@@ -200,6 +208,7 @@
 		/obj/item/device/holowarrant,
 		/obj/item/device/radio
 		)
+	content_overlays = TRUE
 
 /obj/item/storage/belt/soulstone
 	name = "soul stone belt"

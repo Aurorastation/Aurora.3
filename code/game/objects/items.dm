@@ -937,3 +937,6 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 				return min(1, round((min_pressure_protection - pressure) / min_pressure_protection, 0.01))
 			else
 				return 0
+
+/obj/item/proc/get_belt_overlay() //Returns the icon used for overlaying the object on a belt
+	return mutable_appearance('icons/obj/clothing/belt_overlays.dmi', icon_state)

@@ -82,6 +82,13 @@
 		tf.Translate(-3,0) //Could do this with pixel_x but let's just update the appearance once.
 	transform = tf
 
+/obj/item/screwdriver/get_belt_overlay()
+	var/mutable_appearance/body = mutable_appearance('icons/obj/clothing/belt_overlays.dmi', "screwdriver")
+	var/mutable_appearance/head = mutable_appearance('icons/obj/clothing/belt_overlays.dmi', "screwdriver_head")
+	body.color = color
+	head.add_overlay(body)
+	return head
+
 /obj/item/screwdriver/pickup(mob/user)
 	..()
 	update_icon()
