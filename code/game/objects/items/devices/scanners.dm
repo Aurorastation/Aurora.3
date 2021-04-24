@@ -322,8 +322,10 @@ BREATH ANALYZER
 /obj/item/device/analyzer
 	name = "analyzer"
 	desc = "A hand-held environmental scanner which reports current gas levels."
-	icon_state = "atmos"
+	icon = 'icons/obj/contained_items/tools/air_analyzer.dmi'
+	icon_state = "analyzer"
 	item_state = "analyzer"
+	contained_sprite = TRUE
 	w_class = ITEMSIZE_SMALL
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
