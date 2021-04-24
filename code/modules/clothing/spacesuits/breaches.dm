@@ -228,3 +228,8 @@ var/global/list/breach_burn_descriptors = list(
 	if(can_breach && breaches && breaches.len)
 		for(var/datum/breach/B in breaches)
 			to_chat(user, "<span class='danger'>It has \a [B.descriptor].</span>")
+
+/obj/item/clothing/suit/space/get_pressure_weakness(pressure)
+	. = ..()
+	if(can_breach && damage)
+		. = min(1, . + damage * 0.1)

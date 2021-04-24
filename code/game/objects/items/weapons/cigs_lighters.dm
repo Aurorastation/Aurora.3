@@ -298,7 +298,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_off = "cigoff"
 	type_butt = /obj/item/trash/cigbutt
 	chem_volume = 30
-	burn_rate = 0.012 //Lasts ~83 seconds)
+	burn_rate = 0.006 //Lasts ~166 seconds)
 	matchmes = "<span class='notice'>USER lights their NAME with their FLAME.</span>"
 	lightermes = "<span class='notice'>USER manages to light their NAME with FLAME.</span>"
 	zippomes = "<span class='notice'>With a flick of their wrist, USER lights their NAME with their FLAME.</span>"
@@ -335,7 +335,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			last_drag = world.time
 			H.visible_message("<span class='notice'>[H.name] takes a drag of their [name].</span>")
 			playsound(H, 'sound/items/cigs_lighters/inhale.ogg', 50, 0, -1)
-			reagents.trans_to_mob(H, (rand(10,20)/10), CHEM_BREATHE) //Smokes it faster. Slightly random amount.
+			reagents.trans_to_mob(H, (rand(5,10)/10), CHEM_BREATHE) //Smokes it faster. Slightly random amount.
 			return 1
 	return ..()
 
@@ -754,7 +754,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/flame/lighter/zippo/europa
 	name = "\improper Europan Zippo lighter"
-	desc = "A smokeless electrical coil lighter in the style of a zippo with the tricolour of the Jovian moon Europa on the side. It even its outside feels somewhat hot to the touch when it is turned on."
+	desc = "A smokeless electrical coil lighter in the style of a zippo with the tricolour of the Jovian moon Europa on the side. Even its outside feels somewhat hot to the touch when it is turned on."
 	desc_fluff = "Traditional lighters are often frowned upon in the various submarines and underwater bases of Europa for the fumes their open flames produce. As a result, flameless lighters using heated metal coils that ignite flammable material upon contact are employed instead. These lighters are often prized personal possessions of those who own them, as with living space, privacy and individual possessions are a luxury in the cramped quarters of Europan vessels and stations. A side effect of having lighters that use electrically heated metal coils as opposed to flames however, is that the exteriors of the lighters themselves can become heated to a point of inflicting superficial burns if left on for relatively short periods of time."
 	icon_state = "europazippo"
 	item_state = "europazippo"

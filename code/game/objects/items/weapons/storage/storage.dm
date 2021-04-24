@@ -22,6 +22,7 @@
 	var/max_w_class = ITEMSIZE_NORMAL //Max size of objects that this object can store (in effect only if can_hold isn't set)
 	var/max_storage_space = 8 //The sum of the storage costs of all the items in this storage item.
 	var/storage_slots //The number of storage slots in this container.
+	var/force_column_number // the number of columns the storage item will appear to have
 	var/obj/screen/storage/boxes
 	var/obj/screen/storage/storage_start //storage UI
 	var/obj/screen/storage/storage_continue
@@ -294,7 +295,7 @@
 		space_orient_objs(numbered_contents, defer_overlays)
 	else
 		var/row_num = 0
-		var/col_count = min(7,storage_slots) -1
+		var/col_count = force_column_number ? force_column_number : min(7, storage_slots) - 1
 		if (adjusted_contents > 7)
 			row_num = round((adjusted_contents-1) / 7) // 7 is the maximum allowed width.
 		src.slot_orient_objs(row_num, col_count, numbered_contents)

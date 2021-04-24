@@ -9403,7 +9403,7 @@
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/gloves/yellow,
-/obj/item/storage/briefcase/inflatable,
+/obj/item/storage/bag/inflatable,
 /obj/machinery/camera/network/engineering_outpost{
 	c_tag = "Engineering Outpost Storage";
 	dir = 1

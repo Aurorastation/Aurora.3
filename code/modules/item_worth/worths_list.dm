@@ -82,6 +82,7 @@ var/list/worths = list(
 					/obj/item/gun/launcher = 300,
 //AUTOMATICS,
 					/obj/item/gun/projectile/automatic/rifle/sts35 = 3800,
+					/obj/item/gun/projectile/automatic/rifle/carbine = 3000,
 					/obj/item/gun/projectile/automatic/rifle/z8 = 3100,
 					/obj/item/gun/projectile/automatic/rifle/l6_saw = 13400,
 					/obj/item/gun/projectile/automatic/rifle/shotgun = 8500,

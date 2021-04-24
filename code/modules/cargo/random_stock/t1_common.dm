@@ -171,7 +171,7 @@ STOCK_ITEM_COMMON(weldgear, 2)
 		new /obj/item/reagent_containers/weldpack(L)
 
 STOCK_ITEM_COMMON(inflatable, 3)
-	new /obj/item/storage/briefcase/inflatable(L)
+	new /obj/item/storage/bag/inflatable(L)
 
 STOCK_ITEM_COMMON(wheelchair, 1)
 	//Wheelchair is not dense so it doesnt NEED a clear tile, but it looks a little silly to

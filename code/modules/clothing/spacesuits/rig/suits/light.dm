@@ -14,9 +14,11 @@
 	)
 	emp_protection = 10
 	slowdown = 0
-	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL
+	item_flags = THICKMATERIAL
 	offline_slowdown = 0
 	offline_vision_restriction = 0
+	max_pressure_protection = LIGHT_RIG_MAX_PRESSURE
+	min_pressure_protection = 0
 
 	chest_type = /obj/item/clothing/suit/space/rig/light
 	helm_type =  /obj/item/clothing/head/helmet/space/rig/light
@@ -240,7 +242,6 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_SHIELDED
 	)
-	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL
 	slowdown = -1
 	offline_slowdown = 0
 	airtight = 1
