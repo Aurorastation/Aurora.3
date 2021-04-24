@@ -21,6 +21,15 @@
 	entered_event.register(loc, reflection, /obj/effect/reflection/proc/check_vampire_enter)
 	exited_event.register(loc, reflection, /obj/effect/reflection/proc/check_vampire_exit)
 
+/obj/structure/mirror/Destroy()
+	var/obj/effect/reflection/reflection = ref.resolve()
+	if(istype(reflection))
+		entered_event.unregister(loc, reflection)
+		exited_event.unregister(loc, reflection)
+		qdel(reflection)
+	ref = null
+	return ..()
+
 /obj/structure/mirror/attack_hand(mob/user as mob)
 	if(shattered)
 		return
