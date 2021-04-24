@@ -316,10 +316,14 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set name = "Medical Scan Target"
 	set desc = "Analyse the health of whatever you are following."
 
+	if(!following)
+		to_chat(src, SPAN_WARNING("You aren't following anything!"))
+		return
+
 	if(ishuman(following))
 		health_scan_mob(following, usr, TRUE, TRUE)
-
-	else to_chat(src, "<span class='notice'>Not a scannable target.</span>")
+	else 
+		to_chat(src, SPAN_WARNING("This isn't a scannable target."))
 
 /mob/abstract/observer/verb/toggle_antagHUD()
 	set category = "Ghost"
