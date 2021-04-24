@@ -621,3 +621,11 @@
 	desc = "A digital patch which can be attached to the shoulder sleeve of clothing. This one shows the Idris Incorporated logo with a flashing chevron."
 	icon_state = "idrissec_patch"
 	overlay_state = "idrissec_patch"
+
+/obj/item/clothing/accessory/kneepads
+	name = "kneepads"
+	desc = "A pair of synthetic kneepads. Doesn't provide protection from more than arthritis."
+	icon = 'icons/clothing/accessories/kneepads.dmi'
+	icon_state = "kneepads"
+	item_state = "kneepads"
+	contained_sprite = TRUE

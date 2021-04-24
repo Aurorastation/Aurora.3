@@ -353,3 +353,7 @@
 	passport["passport, dominia"] = /obj/item/clothing/accessory/badge/passport/dominia
 	passport["passport, coalition"] = /obj/item/clothing/accessory/badge/passport/coc
 	gear_tweaks += new/datum/gear_tweak/path(passport)
+
+/datum/gear/accessory/kneepads
+	display_name = "kneepads"
+	path = /obj/item/clothing/accessory/kneepads
