@@ -157,6 +157,13 @@
 		tf.Translate(-1,0) //Could do this with pixel_x but let's just update the appearance once.
 	transform = tf
 
+/obj/item/wirecutters/get_belt_overlay()
+	var/mutable_appearance/body = mutable_appearance('icons/obj/clothing/belt_overlays.dmi', "wirecutters")
+	var/mutable_appearance/head = mutable_appearance('icons/obj/clothing/belt_overlays.dmi', "wirecutters_head")
+	body.color = color
+	head.add_overlay(body)
+	return head
+
 /obj/item/wirecutters/pickup(mob/user)
 	..()
 	update_icon()
@@ -207,8 +214,6 @@
 	drop_sound = 'sound/items/drop/weldingtool.ogg'
 	pickup_sound = 'sound/items/pickup/weldingtool.ogg'
 	usesound = 'sound/items/welder.ogg'
-	var/base_iconstate = "welder"//These are given an _on/_off suffix before being used
-	var/base_itemstate = "welder"
 
 	//Amount of OUCH when it's thrown
 	force = 3
@@ -236,8 +241,8 @@
 /obj/item/weldingtool/largetank
 	name = "industrial welding tool"
 	desc = "A welding tool with an extended-capacity built-in fuel tank, standard issue for engineers."
-	base_iconstate = "indwelder"
-	base_itemstate = "welder"
+	icon_state = "indwelder"
+	item_state = "welder"
 	max_fuel = 40
 	matter = list(DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 60)
 	origin_tech = list(TECH_ENGINEERING = 2)
@@ -245,8 +250,8 @@
 /obj/item/weldingtool/hugetank
 	name = "advanced welding tool"
 	desc = "A rare and powerful welding tool with a super-extended fuel tank."
-	base_iconstate = "advwelder"
-	base_itemstate = "advwelder"
+	icon_state = "advwelder"
+	item_state = "advwelder"
 	max_fuel = 80
 	matter = list(DEFAULT_WALL_MATERIAL = 200, MATERIAL_GLASS = 120)
 	origin_tech = list(TECH_ENGINEERING = 3)
@@ -255,8 +260,8 @@
 /obj/item/weldingtool/experimental
 	name = "experimental welding tool"
 	desc = "A scientifically-enhanced welding tool that uses fuel-producing microbes to gradually replenish its fuel supply."
-	base_iconstate = "expwelder"
-	base_itemstate = "expwelder"
+	icon_state = "expwelder"
+	item_state = "expwelder"
 	max_fuel = 40
 	matter = list(DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 120)
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_BIO = 4)
