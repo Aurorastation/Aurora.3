@@ -198,13 +198,10 @@
 /obj/item/weldingtool
 	name = "welding tool"
 	desc = "A welding tool with a built-in fuel tank, designed for welding and cutting metal."
-	icon = 'icons/obj/tools.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_tools.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_tools.dmi',
-		)
-	icon_state = "welder_off"
-	item_state = "welder_off"
+	icon = 'icons/obj/contained_items/tools/welding_tools.dmi'
+	icon_state = "welder"
+	item_state = "welder"
+	contained_sprite = TRUE
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	drop_sound = 'sound/items/drop/weldingtool.ogg'
@@ -231,14 +228,16 @@
 	var/status = 1 		//Whether the welder is secured or unsecured (able to attach rods to it to make a flamethrower)
 	var/max_fuel = 20 	//The max amount of fuel the welder can hold
 
+	var/change_icons = TRUE
+
 /obj/item/weldingtool/iswelder()
 	return TRUE
 
 /obj/item/weldingtool/largetank
 	name = "industrial welding tool"
 	desc = "A welding tool with an extended-capacity built-in fuel tank, standard issue for engineers."
-	base_iconstate = "ind_welder"
-	base_itemstate = "ind_welder"
+	base_iconstate = "indwelder"
+	base_itemstate = "welder"
 	max_fuel = 40
 	matter = list(DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 60)
 	origin_tech = list(TECH_ENGINEERING = 2)
@@ -246,8 +245,8 @@
 /obj/item/weldingtool/hugetank
 	name = "advanced welding tool"
 	desc = "A rare and powerful welding tool with a super-extended fuel tank."
-	base_iconstate = "adv_welder"
-	base_itemstate = "adv_welder"
+	base_iconstate = "advwelder"
+	base_itemstate = "advwelder"
 	max_fuel = 80
 	matter = list(DEFAULT_WALL_MATERIAL = 200, MATERIAL_GLASS = 120)
 	origin_tech = list(TECH_ENGINEERING = 3)
@@ -256,16 +255,16 @@
 /obj/item/weldingtool/experimental
 	name = "experimental welding tool"
 	desc = "A scientifically-enhanced welding tool that uses fuel-producing microbes to gradually replenish its fuel supply."
-	base_iconstate = "exp_welder"
-	base_itemstate = "exp_welder"
+	base_iconstate = "expwelder"
+	base_itemstate = "expwelder"
 	max_fuel = 40
 	matter = list(DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 120)
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_BIO = 4)
 
-
 	var/last_gen = 0
 	var/fuelgen_delay = 400 //The time, in deciseconds, required to regenerate one unit of fuel
 	//400 = 1 unit per 40 seconds
+	change_icons = FALSE
 
 //Welding tool functionality here
 /obj/item/weldingtool/Initialize()
@@ -277,17 +276,27 @@
 	R.add_reagent(/decl/reagent/fuel, max_fuel)
 	update_icon()
 
-/obj/item/weldingtool/update_icon()
-	..()
-	var/add = welding ? "_on" : "_off"
-	icon_state = base_iconstate + add //These are given an _on/_off suffix before being used
-	item_state = base_itemstate + add
+/obj/item/weldingtool/proc/update_torch()
+	if(welding)
+		add_overlay("[initial(icon_state)]-on")
+		item_state = "[initial(item_state)]1"
+	else
+		item_state = "[initial(item_state)]"
+
 	if(welding == 2)
 		set_light(0.7, 2, l_color = LIGHT_COLOR_CYAN)
 	else if (welding == 1)
 		set_light(0.6, 1.5, l_color = LIGHT_COLOR_LAVA)
 	else
 		set_light(0)
+
+/obj/item/weldingtool/update_icon()
+	cut_overlays()
+	if(change_icons)
+		var/ratio = get_fuel() / max_fuel
+		ratio = CEILING(ratio*4, 1) * 25
+		add_overlay("[initial(icon_state)][ratio]")
+	update_torch()
 	var/mob/M = loc
 	if(istype(M))
 		M.update_inv_l_hand()
