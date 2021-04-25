@@ -222,8 +222,8 @@
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
 /obj/item/clothing/accessory/assunzione
-	name = "luceian amulent"
-	desc = "A common symbol of the Luceian faith abroad this amulet featuring the religion's all-seeing eye and eight-pointed crest \
+	name = "luceian amulet"
+	desc = "A common symbol of the Luceian faith abroad, this amulet featuring the religion's all-seeing eye and eight-pointed crest \
 	seems to be made of real gold and gemstones. While not as critical to faithful abroad as a warding sphere, it is considered good form \
 	to ensure one's amulet is well-maintained."
 	icon = 'icons/clothing/accessories/assunzione_amulet.dmi'
