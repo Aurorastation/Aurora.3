@@ -12,6 +12,10 @@ var/list/active_buddy_tags = list()
 	var/on = FALSE
 	var/id = 1
 
+/obj/item/clothing/accessory/buddytag/Initialize()
+	. = ..()
+	id = round(rand(1, 1000))
+
 /obj/item/clothing/accessory/buddytag/update_icon()
 	icon_state = "buddytag[on]"
 
