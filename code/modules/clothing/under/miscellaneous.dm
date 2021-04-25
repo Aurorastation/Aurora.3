@@ -45,14 +45,6 @@
 	item_state = "waiter"
 	worn_state = "waiter"
 
-/obj/item/clothing/under/sexyclown
-	name = "sexy-clown suit"
-	desc = "It makes you look HONKable!"
-	icon_state = "sexyclown"
-	item_state = "clown"
-	worn_state = "sexyclown"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-
 //This set of uniforms looks fairly fancy and is generally used for high-ranking NT personnel from what I've seen, so lets give them appropriate ranks.
 /obj/item/clothing/under/rank/centcom
 	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Captain.\""

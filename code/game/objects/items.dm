@@ -938,5 +938,12 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 			else
 				return 0
 
+/obj/item/proc/in_slide_projector(var/mob/user)
+	if(istype(loc, /obj/item/storage/slide_projector))
+		var/obj/item/storage/slide_projector/SP = loc
+		if(SP.current_slide == src && (SP.projection in view(world.view, user)))
+			return TRUE
+	return FALSE
+
 /obj/item/proc/get_belt_overlay() //Returns the icon used for overlaying the object on a belt
 	return mutable_appearance('icons/obj/clothing/belt_overlays.dmi', icon_state)
