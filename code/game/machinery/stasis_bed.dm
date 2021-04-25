@@ -6,6 +6,7 @@
 	icon_state = "stasis"
 
 	buckle_lying = TRUE
+	can_buckle = list(/mob/living/carbon/human)
 
 	idle_power_usage = 40
 	active_power_usage = 340
@@ -27,7 +28,6 @@
 
 /obj/machinery/stasis_bed/Initialize(mapload, d, populate_components)
 	. = ..()
-	LAZYADD(can_buckle, /mob/living/carbon/human)
 	update_icon()
 
 /obj/machinery/stasis_bed/attackby(obj/item/I, mob/user)
