@@ -2173,6 +2173,11 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "hair_curly"
 			chatname = "curly mane"
 
+		taj_ears_curlsalt
+			name = "Tajara Curly Alt"
+			icon_state = "hair_curlyalt"
+			chatname = "curly mane"
+
 		taj_ears_fingercurl
 			name = "Tajara Finger Curls"
 			icon_state = "hair_fingerwave"
@@ -2239,6 +2244,26 @@ Follow by example and make good judgement based on length which list to include 
 			gender = MALE
 			chatname = "long mane"
 
+		taj_ears_sidepony
+			name = "Tajara Side Ponytail"
+			icon_state = "hair_sidepony"
+			chatname = "sidepony"
+
+		taj_ears_governmentman
+			name = "Tajara Government Man"
+			icon_state = "hair_gman"
+			chatname = "gman"
+
+		taj_ears_bun
+			name = "Tajara Bun"
+			icon_state = "hair_bun"
+			chatname = "bun"
+
+		taj_ears_shoulderlength
+			name = "Tajara Shoulderlength"
+			icon_state = "hair_shoulderlength"
+			chatname = "shoulderlength"
+
 //msai hair, longer ears
 	msai_ears
 		icon = 'icons/mob/human_face/msai_hair.dmi'
@@ -2279,6 +2304,11 @@ Follow by example and make good judgement based on length which list to include 
 		msai_ears_curls
 			name = "M'sai Curly"
 			icon_state = "msai_curly"
+			chatname = "curly mane"
+
+		msai_ears_curls
+			name = "M'sai Curly Alt"
+			icon_state = "msai_curlyalt"
 			chatname = "curly mane"
 
 		msai_ears_fingercurl
@@ -2346,6 +2376,26 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "msai_mane"
 			gender = MALE
 			chatname = "long mane"
+
+		msai_ears_sidepony
+			name = "M'sai Side Ponytail"
+			icon_state = "msai_sidepony"
+			chatname = "sidepony"
+
+		msai_ears_governmentman
+			name = "M'sai Government Man"
+			icon_state = "msai_gman"
+			chatname = "gman"
+
+		msai_ears_bun
+			name = "M'sai Bun"
+			icon_state = "msai_bun"
+			chatname = "bun"
+
+		msai_ears_shoulderlength
+			name = "M'sai Shoulderlength"
+			icon_state = "msai_shoulderlength"
+			chatname = "shoulderlength"
 
 //vaurca antennae
 	vaurca_classic
