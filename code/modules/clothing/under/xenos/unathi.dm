@@ -76,7 +76,6 @@
 	icon_state = "mantle-unathi"
 	item_state = "mantle-unathi"
 	icon_override = null
-	species_restricted = list(BODYTYPE_UNATHI)
 	contained_sprite = TRUE
 	build_from_parts = TRUE
 	worn_overlay = "desert"
