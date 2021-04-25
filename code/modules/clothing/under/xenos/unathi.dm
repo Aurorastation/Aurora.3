@@ -30,7 +30,7 @@
 
 /obj/item/clothing/under/unathi/zazali
 	name = "zazali garb"
-	desc = "An old fashioned, extremely striking garb for the Unathi man with pointy shoulders. It's typically worn by those in the warrior caste... Or those with something to prove."
+	desc = "An old fashioned, extremely striking garb for a Unathi man with pointy shoulders. It's typically worn by those in the warrior caste... Or those with something to prove."
 	icon_state = "zazali"
 	item_state = "zazali"
 
@@ -42,14 +42,14 @@
 
 /obj/item/clothing/under/unathi/zozo
 	name = "zo'zo top"
-	desc = "A modern blend of Ouerean and Moghean style for the Unathi man on the go. Great for sunbathing."
+	desc = "A modern blend of Ouerean and Moghean style for anyone on the go. Great for sunbathing!"
 	icon_state = "zozo"
 	item_state = "zozo"
 
 /obj/item/clothing/suit/unathi/mantle/wrapping
 	name = "unathi wrappings"
 	desc = "Stitched together clothing with bandages covering them, looks tailored for an unathi."
-	desc_fluff = "This is a very traditional Sinta wear for Th'akh shamans, most modern Sinta do not wear these."
+	desc_fluff = "The old-fashioned choice of Sinta wear for Th'akh shamans— most modern Sinta do not wear these."
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "thakh_wrappings" //special thanks to Araskael
 	item_state = "thakh_wrappings"
@@ -60,7 +60,7 @@
 
 /obj/item/clothing/mask/gas/wrapping
 	name = "unathi head wrappings"
-	desc = "A bunch of stitched together bandages with a fibreglass breath mask on it, openings for the eyes. Looks tailored for an unathi."
+	desc = "A bunch of stitched together bandages on a fibreglass breath mask that also contains openings for the eyes. Looks tailored for a Unathi."
 	desc_fluff = "This is a very traditional Sinta wear for Th'akh shamans, most modern Sinta do not wear these."
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "thakh_mask" //special thanks to Araskael
