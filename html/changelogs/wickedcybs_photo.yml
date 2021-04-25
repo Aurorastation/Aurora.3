@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - rscadd: "You can now get a photo album from the general section of the loadout, if desired."
