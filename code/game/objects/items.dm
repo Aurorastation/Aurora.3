@@ -937,3 +937,10 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 				return min(1, round((min_pressure_protection - pressure) / min_pressure_protection, 0.01))
 			else
 				return 0
+
+/obj/item/proc/in_slide_projector(var/mob/user)
+	if(istype(loc, /obj/item/storage/slide_projector))
+		var/obj/item/storage/slide_projector/SP = loc
+		if(SP.current_slide == src && (SP.projection in view(world.view, user)))
+			return TRUE
+	return FALSE

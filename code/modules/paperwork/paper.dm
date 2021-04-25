@@ -89,13 +89,13 @@
 		free_space -= length(strip_html_properly(new_text))
 
 /obj/item/paper/examine(mob/user)
-	..()
+	. = ..()
 	if (old_name && icon_state == "paper_plane" || icon_state == "paper_swan")
 		to_chat(user, SPAN_NOTICE("You're going to have to unfold it before you can read it."))
 		return
 	if(name != initial(name))
 		to_chat(user,"It's titled '[name]'.")
-	if(in_range(user, src) || isobserver(user))
+	if(in_range(user, src) || isobserver(user) || in_slide_projector(user))
 		show_content(usr)
 	else
 		to_chat(user, SPAN_NOTICE("You have to go closer if you want to read it."))

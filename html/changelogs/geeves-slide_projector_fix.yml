@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "You can now examine papers and photos in slide projectors as long as you can see its projection."
+  - bugfix: "You can now put slide projectors down on tables without them projecting onto it."
