@@ -629,3 +629,4 @@
 	icon_state = "kneepads"
 	item_state = "kneepads"
 	contained_sprite = TRUE
+	gender = PLURAL
