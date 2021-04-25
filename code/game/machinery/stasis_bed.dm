@@ -54,9 +54,9 @@
 		stasis_enabled = !stasis_enabled
 		stasis_can_toggle = world.time + 5 SECONDS
 		playsound(src, 'sound/machines/click.ogg', 60, TRUE)
-		user.visible_message("<span class='notice'>\The [src] [stasis_enabled ? "powers on" : "shuts down"].</span>", \
-					"<span class='notice'>You [stasis_enabled ? "power on" : "shut down"] \the [src].</span>", \
-					"<span class='hear'>You hear a nearby machine [stasis_enabled ? "power on" : "shut down"].</span>")
+		user.visible_message(SPAN_NOTICE("\The [src] [stasis_enabled ? "powers on" : "shuts down"]."), \
+					SPAN_NOTICE("You [stasis_enabled ? "power on" : "shut down"] \the [src]."), \
+					SPAN_NOTICE("You hear a nearby machine [stasis_enabled ? "power on" : "shut down"]."))
 		play_power_sound()
 		update_icon()
 
