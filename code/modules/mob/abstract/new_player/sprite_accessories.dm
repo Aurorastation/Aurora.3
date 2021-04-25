@@ -2264,6 +2264,16 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "hair_bunsmall"
 			chatname = "smallbun"
 
+		taj_ears_lowbun
+			name = "Tajara Bun (Low)"
+			icon_state = "hair_lowbun"
+			chatname = "lowbun"
+
+		taj_ears_smalllowbun
+			name = "Tajara Bun (Low, Small)"
+			icon_state = "hair_lowbunsmall"
+			chatname = "lowsmallbun"
+
 		taj_ears_shoulderlength
 			name = "Tajara Shoulderlength"
 			icon_state = "hair_shoulderlength"
@@ -2401,6 +2411,16 @@ Follow by example and make good judgement based on length which list to include 
 			name = "M'sai Bun (Small)"
 			icon_state = "msai_bunsmall"
 			chatname = "smallbun"
+
+		msai_ears_lowbun
+			name = "M'sai Bun (Low)"
+			icon_state = "msai_lowbun"
+			chatname = "lowbun"
+
+		msai_ears_lowsmallbun
+			name = "M'sai Bun (Low, Small)"
+			icon_state = "msai_lowbunsmall"
+			chatname = "lowsmallbun"
 
 		msai_ears_shoulderlength
 			name = "M'sai Shoulderlength"
