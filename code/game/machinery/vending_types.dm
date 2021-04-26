@@ -459,6 +459,7 @@
 		/obj/item/reagent_containers/glass/bottle/perconol = 3,
 		/obj/item/reagent_containers/glass/bottle/toxin = 1,
 		/obj/item/reagent_containers/glass/bottle/coughsyrup = 4,
+		/obj/item/reagent_containers/glass/bottle/thetamycin = 1,
 		/obj/item/reagent_containers/syringe = 12,
 		/obj/item/device/healthanalyzer = 5,
 		/obj/item/device/breath_analyzer = 2,
@@ -474,7 +475,7 @@
 		/obj/item/reagent_containers/pill/perconol = 6,
 		/obj/item/reagent_containers/food/drinks/medcup = 4,
 		/obj/item/storage/pill_bottle = 4,
-		/obj/item/reagent_containers/spray/sterilizine = 2
+		/obj/item/reagent_containers/spray/sterilizine = 2 
 	)
 	contraband = list(
 		/obj/item/reagent_containers/inhaler/space_drugs = 2,
