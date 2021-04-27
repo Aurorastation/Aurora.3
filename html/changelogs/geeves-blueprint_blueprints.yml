@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Holding the station blueprints in your hand will now give you a t-ray scanner like view of the pipes, cables, and disposal pipes as they were at the start of the round."
