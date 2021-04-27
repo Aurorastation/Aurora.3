@@ -176,10 +176,6 @@
 	. = ..()
 	owner.update_hud_hands()
 
-/obj/item/organ/external/hand/sever_tendon()
-	. = ..()
-	owner.update_hud_hands()
-
 /obj/item/organ/external/hand/removed()
 	owner.drop_from_inventory(owner.gloves)
 	owner.update_hud_hands()
