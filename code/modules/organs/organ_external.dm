@@ -821,10 +821,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	//Bone fractures
 	if(config.bones_can_break && brute_dam > min_broken_damage * config.organ_health_multiplier && !(status & ORGAN_ROBOT))
-		if(istype(tendon) && brute_dam > tendon.threshold && cut_dam > brute_dam * 0.5)
-			tendon.sever()
-		else
-			fracture()
+		fracture()
 	update_damage_ratios()
 
 /obj/item/organ/external/proc/update_damage_ratios()
