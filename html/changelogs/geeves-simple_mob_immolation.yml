@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Buffed the amount of damage that fire does to simplemobs to make it worthwhile using against them."

@@ -416,8 +416,7 @@ datum/gas_mixture/proc/check_recombustability(list/fuel_objs)
 
 
 /mob/living/proc/FireBurn(var/firelevel, var/last_temperature, var/pressure)
-	var/mx = 5 * firelevel/vsc.fire_firelevel_multiplier * min(pressure / ONE_ATMOSPHERE, 1)
-	apply_damage(2.5*mx, BURN)
+	apply_damage(5 * firelevel * vsc.fire_firelevel_multiplier * min(pressure / ONE_ATMOSPHERE, 1), BURN)
 
 
 /mob/living/carbon/human/FireBurn(var/firelevel, var/last_temperature, var/pressure)
