@@ -176,6 +176,11 @@
 	path = /obj/item/towel
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/handkerchief
+	display_name = "handkerchief"
+	path = /obj/item/reagent_containers/glass/rag/handkerchief
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/gameboard
 	display_name = "holo board game"
 	path = /obj/item/board
@@ -191,6 +196,7 @@
 
 /datum/gear/plushie
 	display_name = "plushie selection"
+	description = "A selection of plush toys."
 	path = /obj/item/toy/plushie
 
 /datum/gear/plushie/New()
@@ -210,6 +216,7 @@
 	plushies["plushie, cool schlorrgo"] = /obj/item/toy/plushie/coolschlorrgo
 	plushies["plushie, slime"] = /obj/item/toy/plushie/slime
 	plushies["plushie, penny"] = /obj/item/toy/plushie/pennyplush
+	plushies["plushie, greimorian"] = /obj/item/toy/plushie/greimorian
 	gear_tweaks += new/datum/gear_tweak/path(plushies)
 
 /datum/gear/toothpaste
@@ -227,4 +234,9 @@
 /datum/gear/photo
 	display_name = "photo"
 	path =  /obj/item/photo
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/photo_album
+	display_name = "photo album"
+	path =  /obj/item/storage/photo_album
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION

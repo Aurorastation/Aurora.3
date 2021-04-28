@@ -1,9 +1,18 @@
 /datum/gear/suit/unathi_mantle
-	display_name = "hide mantle"
+	display_name = "hide mantle selection"
 	path = /obj/item/clothing/accessory/poncho/unathimantle
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/suit/unathi_mantle/New()
+	..()
+	var/mantles = list()
+	mantles["hide mantle, desert"] = /obj/item/clothing/accessory/poncho/unathimantle
+	mantles["hide mantle, forest"] = /obj/item/clothing/accessory/poncho/unathimantle/forest
+	mantles["hide mantle, mountain"] = /obj/item/clothing/accessory/poncho/unathimantle/mountain
+	gear_tweaks += new/datum/gear_tweak/path(mantles)
 
 /datum/gear/suit/unathi_robe
 	display_name = "roughspun robe"
@@ -47,6 +56,14 @@
 	un_gloves["rainbow gloves"] = /obj/item/clothing/gloves/rainbow/unathi
 	un_gloves["black leather gloves"] = /obj/item/clothing/gloves/black_leather/unathi
 	gear_tweaks += new/datum/gear_tweak/path(un_gloves)
+
+/datum/gear/gloves/unathi_handwraps
+	display_name = "cloth handwraps"
+	path = /obj/item/clothing/gloves/handwraps
+	cost = 1
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/uniform/unathi
 	display_name = "sinta tunic"

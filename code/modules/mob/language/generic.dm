@@ -36,9 +36,12 @@
 // Galactic common languages (systemwide accepted standards).
 /datum/language/trader
 	name = LANGUAGE_TRADEBAND
+	short = "TRADE"
 	desc = "Descended from latin and romance languages of old Earth, Tradeband remains the main tongue of the upper class of humanity. The language sounds elegant and well structured to most ears. It remains in popular use with traders, diplomats, and those seeking to hold onto a piece of a romantic past."
 	speech_verb = list("enunciates")
+	sing_verb = list("performs")
 	colour = "say_quote"
+	written_style = "tradeband"
 	key = "2"
 	flags = TCOMSSIM
 	allow_accents = TRUE
@@ -53,9 +56,12 @@
 // Criminal language.
 /datum/language/gutter
 	name = LANGUAGE_GUTTER
+	short = "FREE"
 	desc = "A language of renegades and frontiersmen descending from various languages from Earth like Hindi combined into a multi-rooted jumble that sounds incoherent or even barbarian to non-native speakers. This language is the only common cultural identity for humans in the frontier. Speaking this language in itself boldly declares the speaker a free spirit. Often called 'Gutter' by Alliance citizens."
-	speech_verb = list("growls")
+	speech_verb = list("says")
+	sing_verb = list("croons")
 	colour = "rough"
+	written_style = "freespeak"
 	key = "3"
 	flags = TCOMSSIM
 	allow_accents = TRUE
@@ -72,6 +78,7 @@
 	desc = "A signed version of Ceti Basic, though its intent is primarily to help out people who are deaf and mute, "
 	speech_verb = list("signs")
 	signlang_verb = list("signs", "gestures")
+	sing_verb = null
 	colour = "i"
 	key = "4"
 	flags = NO_STUTTER|SIGNLANG
@@ -90,7 +97,8 @@
 	ask_verb = list("mumbles")
 	whisper_verb = list("mutters")
 	exclaim_verb = list("screams incoherently")
-	key = "i"
+	sing_verb = list("gibbers")
+	key = "gi"
 	syllables = list("m","n","gh","h","l","s","r","a","e","i","o","u")
 	space_chance = 20
 	flags = RESTRICTED
