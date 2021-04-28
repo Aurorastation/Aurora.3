@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - tweak: "Research Directors are now able to select the alternate tool belt variant in the loadout."
