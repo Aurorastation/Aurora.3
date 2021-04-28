@@ -113,34 +113,40 @@ var/datum/antagonist/traitor/traitors
 	if(!istype(traitor_mob))
 		return
 
-	var/loc = ""
-	var/obj/item/R = locate() //Hide the uplink in a PDA if available, otherwise radio
+	var/atom/R //Hide the uplink in a PDA if available, otherwise radio
 
-	if(traitor_mob.client.prefs.uplinklocation == "Headset")
-		R = locate(/obj/item/device/radio) in traitor_mob.contents
-		if(!R)
+	switch(traitor_mob.client.prefs.uplinklocation)
+		if("Headset")
+			R = locate(/obj/item/device/radio) in traitor_mob.contents
+			if(!R)
+				R = locate(/obj/item/modular_computer) in traitor_mob.contents
+				to_chat(traitor_mob, "Could not locate a Radio, installing in PDA instead!")
+			if (!R)
+				to_chat(traitor_mob, "Unfortunately, neither a radio or a PDA relay could be installed.")
+		if("Pen")
+			var/obj/item/modular_computer/MC = locate() in traitor_mob.contents
+			if(MC)
+				R = locate(/obj/item/pen) in MC.contents
+				if(!R)
+					R = MC
+					to_chat(traitor_mob, "Could not locate a Pen, installing in PDA instead!")
+			if(!MC)
+				R = locate(/obj/item/device/radio) in traitor_mob.contents
+				if(R)
+					to_chat(traitor_mob, "Could not locate a PDA, installing into a Radio instead!")
+			if(!R)
+				to_chat(traitor_mob, "Could not locate a pen, PDA, or radio!")
+		if("Implant")
+			R = traitor_mob
+		if("None")
+			to_chat(traitor_mob, "You have elected to not have an AntagCorp portable teleportation relay installed!")
+		else // the PDA one is the default one
 			R = locate(/obj/item/modular_computer) in traitor_mob.contents
-			to_chat(traitor_mob, "Could not locate a Radio, installing in PDA instead!")
-		if (!R)
-			to_chat(traitor_mob, "Unfortunately, neither a radio or a PDA relay could be installed.")
-	else if(traitor_mob.client.prefs.uplinklocation == "PDA")
-		R = locate(/obj/item/modular_computer) in traitor_mob.contents
-		if(!R)
-			R = locate(/obj/item/device/radio) in traitor_mob.contents
-			to_chat(traitor_mob, "Could not locate a PDA, installing into a Radio instead!")
-		if(!R)
-			to_chat(traitor_mob, "Unfortunately, neither a radio or a PDA relay could be installed.")
-	else if(traitor_mob.client.prefs.uplinklocation == "None")
-		to_chat(traitor_mob, "You have elected to not have an AntagCorp portable teleportation relay installed!")
-		R = null
-	else
-		to_chat(traitor_mob, "You have not selected a location for your relay in the antagonist options! Defaulting to PDA!")
-		R = locate(/obj/item/modular_computer) in traitor_mob.contents
-		if (!R)
-			R = locate(/obj/item/device/radio) in traitor_mob.contents
-			to_chat(traitor_mob, "Could not locate a PDA, installing into a Radio instead!")
-		if (!R)
-			to_chat(traitor_mob, "Unfortunately, neither a radio or a PDA relay could be installed.")
+			if(!R)
+				R = locate(/obj/item/device/radio) in traitor_mob.contents
+				to_chat(traitor_mob, "Could not locate a PDA, installing into a Radio instead!")
+			if(!R)
+				to_chat(traitor_mob, "Unfortunately, neither a radio or a PDA relay could be installed.")
 
 	if(!R)
 		return
@@ -160,19 +166,42 @@ var/datum/antagonist/traitor/traitors
 		var/obj/item/device/uplink/hidden/T = new(R, traitor_mob.mind)
 		target_radio.hidden_uplink = T
 		target_radio.traitor_frequency = freq
-		R.autodrobe_no_remove = TRUE
-		to_chat(traitor_mob, "A portable object teleportation relay has been installed in your [R.name] [loc]. Simply dial the frequency [format_frequency(freq)] to unlock its hidden features.")
-		traitor_mob.mind.store_memory("<B>Radio Freq:</B> [format_frequency(freq)] ([R.name] [loc]).")
+		target_radio.autodrobe_no_remove = TRUE
+		to_chat(traitor_mob, "A portable object teleportation relay has been installed in your [R.name]. Simply dial the frequency [format_frequency(freq)] to unlock its hidden features.")
+		traitor_mob.mind.store_memory("<B>Radio Freq:</B> [format_frequency(freq)] ([R.name]).")
 
 	else if (istype(R, /obj/item/modular_computer))
+		var/obj/item/modular_computer/MC = R
 		// generate a passcode if the uplink is hidden in a PDA
 		var/pda_pass = "[rand(100,999)] [pick("Alpha","Bravo","Delta","Omega")]"
 		var/obj/item/device/uplink/hidden/T = new(R, traitor_mob.mind)
-		R.hidden_uplink = T
+		MC.hidden_uplink = T
 		T.pda_code = pda_pass
-		R.autodrobe_no_remove = TRUE
-		to_chat(traitor_mob, "A portable object teleportation relay has been installed in your [R.name] [loc]. Simply enter the code \"[pda_pass]\" into the ringtone select to unlock its hidden features.")
-		traitor_mob.mind.store_memory("<B>Uplink Passcode:</B> [pda_pass] ([R.name] [loc]).")
+		MC.autodrobe_no_remove = TRUE
+		to_chat(traitor_mob, "A portable object teleportation relay has been installed in your [R.name]. Simply enter the code \"[pda_pass]\" into the ringtone select to unlock its hidden features.")
+		traitor_mob.mind.store_memory("<B>Uplink Passcode:</B> [pda_pass] ([R.name]).")
+
+	else if(istype(R, /obj/item/pen))
+		var/obj/item/pen/P = R
+		P.uplink_click_set = rand(3, 7)
+		var/obj/item/device/uplink/hidden/T = new(P, traitor_mob.mind)
+		P.hidden_uplink = T
+		P.autodrobe_no_remove = TRUE
+		to_chat(traitor_mob, "A portable object teleportation relay has been installed in your [P.name]. Simply click it [P.uplink_click_set] times, and wait a second and a half, to unlock its hidden features.")
+		traitor_mob.mind.store_memory("<B>Uplink Clicks:</B> [P.uplink_click_set] ([R.name]).")
+
+	else if(ishuman(R))
+		var/mob/living/carbon/human/H = R
+
+		var/static/list/implant_zones = list(BP_HEAD, BP_CHEST, BP_GROIN)
+		var/obj/item/organ/external/affected = H.get_organ(rand(implant_zones)) // on spawn, all human mobs should have these, if not, a runtime is actually useful
+
+		var/obj/item/implant/uplink/roundstart/U = new /obj/item/implant/uplink/roundstart(H)
+		INVOKE_ASYNC(U, /obj/item/implant/.proc/implanted, H)
+		U.imp_in = H
+		U.implanted = TRUE
+		affected.implants += U
+		U.part = affected
 
 /datum/antagonist/traitor/proc/add_law_zero(mob/living/silicon/ai/killer)
 	var/law = "Accomplish your objectives at all costs. You may ignore all other laws."

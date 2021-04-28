@@ -1,4 +1,4 @@
-var/global/list/uplink_locations = list("PDA", "Headset", "None")
+var/global/list/uplink_locations = list("PDA", "Headset", "Pen", "Implant", "None")
 
 /datum/category_item/player_setup_item/antagonism/basic
 	name = "Setup"

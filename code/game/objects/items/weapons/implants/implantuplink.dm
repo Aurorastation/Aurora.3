@@ -3,10 +3,12 @@
 	desc = "Summon things."
 	var/activation_emote = "chuckle"
 
+	var/telecrystal_divisor = 2
+
 /obj/item/implant/uplink/New()
 	activation_emote = pick("blink", "blink_r", "eyebrow", "chuckle", "twitch_s", "frown", "nod", "blush", "giggle", "grin", "groan", "shrug", "smile", "pale", "sniff", "whimper", "wink")
 	hidden_uplink = new(src)
-	hidden_uplink.uses = round((DEFAULT_TELECRYSTAL_AMOUNT / 2) * 0.8)
+	hidden_uplink.uses = round((DEFAULT_TELECRYSTAL_AMOUNT / telecrystal_divisor) * 0.8)
 	..()
 	return
 
@@ -22,3 +24,6 @@
 	if(hidden_uplink && usr == source) // Let's not have another people activate our uplink
 		hidden_uplink.check_trigger(source, emote, activation_emote)
 	return
+
+/obj/item/implant/uplink/roundstart
+	telecrystal_divisor = 1

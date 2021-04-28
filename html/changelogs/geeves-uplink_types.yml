@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added new uplink types for antags, pen and implant. The pen one will spawn in your PDA, whilst the implant will be implanted somewhere in your body. The implant one will spawn with 80% the normal amount of telecrystals."

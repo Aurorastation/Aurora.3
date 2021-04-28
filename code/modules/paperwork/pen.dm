@@ -48,6 +48,9 @@ Pen exclusive commands
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
+	var/uplink_click_set = 0 // how many clicks a user needs to input and wait before the uplink opens
+	var/uplink_clicks = 0 // how many clicks a user has set
+
 /obj/item/pen/ispen()
 	return TRUE
 
@@ -126,7 +129,17 @@ Pen exclusive commands
 	return
 
 /obj/item/pen/attack_self(var/mob/user)
+	to_chat(user, SPAN_NOTICE("You click \the [src].")) // for deaf players
 	playsound(loc, 'sound/items/penclick.ogg', 50, 1)
+	if(hidden_uplink)
+		uplink_clicks++
+		addtimer(CALLBACK(src, .proc/check_uplink, user), 1.5 SECONDS, TIMER_UNIQUE|TIMER_OVERRIDE) // you need to wait 1.5 seconds after the click for it to register, prevents bruteforcing
+
+/obj/item/pen/proc/check_uplink(var/mob/user)
+	if(uplink_clicks == uplink_click_set)
+		hidden_uplink.trigger(user)
+	else
+		uplink_clicks = 0
 
 /*
  * Fountain Pens
