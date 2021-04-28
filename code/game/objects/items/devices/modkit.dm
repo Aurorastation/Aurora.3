@@ -116,7 +116,7 @@
 			return
 
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
-		var/obj/item/P = new voidsuit_product(W.loc)
+		var/obj/item/P = new voidsuit_product(get_turf(W))
 
 		if(!reconverting)
 			to_chat(user, SPAN_NOTICE("Your permit for a [P] has been processed. Enjoy!"))

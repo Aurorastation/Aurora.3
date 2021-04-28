@@ -86,6 +86,9 @@
 	if(!(prefs.toggles & CHAT_LOOC))
 		to_chat(src, "<span class='danger'>You have LOOC muted.</span>")
 		return
+	if(mob.stat == DEAD && !(prefs.toggles & CHAT_GHOSTLOOC))
+		to_chat(src, "<span class='danger'>You have observer LOOC muted.</span>")
+		return
 
 	if(!holder)
 		if(!config.looc_allowed)
@@ -138,6 +141,8 @@
 	var/admin_stuff
 	for(var/client/target in clients)
 		if(target.prefs.toggles & CHAT_LOOC)
+			if(mob.stat == DEAD && !(target.prefs.toggles & CHAT_GHOSTLOOC))
+				continue
 			admin_stuff = ""
 			var/display_remote = 0
 			if (target.holder && ((R_MOD|R_ADMIN) & target.holder.rights))
