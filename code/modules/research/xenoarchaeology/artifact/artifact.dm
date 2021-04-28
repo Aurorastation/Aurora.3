@@ -37,7 +37,7 @@
 	opacity = 1
 	anchored = 1
 	var/excavation_level = 0
-	var/datum/geosample/geological_data
+	var/datum/geosample/geologic_data
 	var/datum/artifact_find/artifact_find
 	var/last_act = 0
 
@@ -47,8 +47,8 @@
 
 /obj/structure/boulder/attackby(obj/item/W as obj, mob/user as mob)
 	if (istype(W, /obj/item/device/core_sampler))
-		src.geological_data.artifact_distance = rand(-100,100) / 100
-		src.geological_data.artifact_id = artifact_find.artifact_id
+		src.geologic_data.artifact_distance = rand(-100,100) / 100
+		src.geologic_data.artifact_id = artifact_find.artifact_id
 
 		var/obj/item/device/core_sampler/C = W
 		C.sample_item(src, user)

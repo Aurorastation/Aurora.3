@@ -239,7 +239,6 @@ var/list/mineral_can_smooth_with = list(
 		return
 
 	if(istype(W, /obj/item/device/core_sampler))
-		geologic_data.UpdateNearbyArtifactInfo(src) // good god
 		var/obj/item/device/core_sampler/C = W
 		C.sample_item(src, user)
 		return
@@ -305,8 +304,7 @@ var/list/mineral_can_smooth_with = list(
 				else
 					O = new /obj/item/ore(src)
 				if(istype(O))
-					geologic_data.UpdateNearbyArtifactInfo(src)
-					O.geologic_data = geologic_data
+					O.geologic_data = get_geodata()
 				addtimer(CALLBACK(O, /atom/movable/.proc/forceMove, user.loc), 1)
 
 			if(finds?.len)
@@ -367,6 +365,12 @@ var/list/mineral_can_smooth_with = list(
 		new /obj/structure/sculpting_block(src)
 		GetDrilled(1)
 
+/turf/simulated/mineral/proc/get_geodata()
+	if(!geologic_data)
+		geologic_data = new /datum/geosample(src)
+	geologic_data.UpdateNearbyArtifactInfo(src)
+	return geologic_data
+
 /turf/simulated/mineral/proc/clear_ore_effects()
 	if(my_mineral)
 		qdel(my_mineral)
@@ -378,8 +382,7 @@ var/list/mineral_can_smooth_with = list(
 	clear_ore_effects()
 	var/obj/item/ore/O = new mineral.ore(src)
 	if(istype(O))
-		geologic_data.UpdateNearbyArtifactInfo(src) //whoever named this proc must be shot - geeves
-		O.geologic_data = geologic_data
+		O.geologic_data = get_geodata()
 	return O
 
 /turf/simulated/mineral/proc/GetDrilled(var/artifact_fail = 0)
@@ -413,12 +416,12 @@ var/list/mineral_can_smooth_with = list(
 	if(prob_clean)
 		X = new /obj/item/archaeological_find(src, new_item_type = F.find_type)
 	else
-		X = new /obj/item/ore/strangerock(src, inside_item_type = F.find_type)
-		geologic_data.UpdateNearbyArtifactInfo(src) //AAAAAAAAAAAAAAAAAAAAAAAAAA
-		X:geologic_data = geologic_data //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+		var/obj/item/ore/strangerock/SR = new /obj/item/ore/strangerock(src, inside_item_type = F.find_type)
+		SR.geologic_data = get_geodata()
+		X = SR
 
 	//some find types delete the /obj/item/archaeological_find and replace it with something else, this handles when that happens
-	//yuck //yuck indeed.
+	//yuck //yuck indeed. //yuck ultra
 	var/display_name = "something"
 	if(!X)
 		X = last_find

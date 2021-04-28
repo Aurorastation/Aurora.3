@@ -24,9 +24,9 @@
 	sharp = 1
 	//item_state = "electronic"
 	var/source_rock = "/turf/simulated/mineral/"
-	var/datum/geosample/geological_data
+	var/datum/geosample/geologic_data
 
-/obj/item/rocksliver/New()
+/obj/item/rocksliver/Initialize(mapload, geodata)
 	icon_state = "sliver[rand(1,3)]"
 	randpixel_xy()
 	create_reagents(50)
