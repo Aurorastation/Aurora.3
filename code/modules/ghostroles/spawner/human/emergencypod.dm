@@ -115,7 +115,7 @@
 
 	uniform = /obj/item/clothing/under/rank/chaplain
 	shoes = /obj/item/clothing/shoes/black
-	pda = /obj/item/modular_computer/handheld/pda/civilian/chaplain
+	pda = /obj/item/modular_computer/handheld/pda/civilian
 
 	backpack_contents = list(
 		/obj/item/device/oxycandle = 1,

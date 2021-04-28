@@ -26,8 +26,8 @@
 	uniform = /obj/item/clothing/under/rank/liaison
 	suit = /obj/item/clothing/suit/storage/toggle/liaison
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/lawyer
-	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/lawyer
-	tablet = /obj/item/modular_computer/handheld/preset/civilian/lawyer
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
+	tablet = /obj/item/modular_computer/handheld/preset/civilian
 	shoes = /obj/item/clothing/shoes/laceup
 	glasses = /obj/item/clothing/glasses/sunglasses/big
 	headset = /obj/item/device/radio/headset/representative

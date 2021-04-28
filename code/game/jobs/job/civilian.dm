@@ -23,8 +23,8 @@
 
 	uniform = /obj/item/clothing/under/rank/bartender
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/bartender
-	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/bartender
-	tablet = /obj/item/modular_computer/handheld/preset/civilian/bartender
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
+	tablet = /obj/item/modular_computer/handheld/preset/civilian
 	shoes = /obj/item/clothing/shoes/black
 	headset = /obj/item/device/radio/headset/headset_service
 	bowman = /obj/item/device/radio/headset/headset_service/alt

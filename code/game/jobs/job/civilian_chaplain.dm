@@ -21,9 +21,9 @@
 	shoes = /obj/item/clothing/shoes/black
 	headset = /obj/item/device/radio/headset/headset_service
 	bowman = /obj/item/device/radio/headset/headset_service/alt
-	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/chaplain
-	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/chaplain
-	tablet = /obj/item/modular_computer/handheld/preset/civilian/chaplain
+	tab_pda = /obj/item/modular_computer/handheld/pda/civilian
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
+	tablet = /obj/item/modular_computer/handheld/preset/civilian
 
 /datum/outfit/job/chaplain/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
