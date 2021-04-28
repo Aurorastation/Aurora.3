@@ -1,7 +1,0 @@
-author: Haydizzle
-delete-after: True
-
-changes:
-- rscadd: "Added a colorable version of the hide mantle with three different hides to choose from."
-- rscdel: "Replaced the old hide mantle sprite for unathi."
-- spellcheck: "Tweaks the wording for unathi clothes descriptions."
