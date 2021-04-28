@@ -1,0 +1,9 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a combat medical belt. It can hold nine things compared to the usual seven and accepts a few more items as well, like handcuffs and even ammo magazines."
+  - rscadd: "The medical section of the antag uplink now has a few more options to choose from. A fully loaded combat medical belt, an advanced medical kit and O- bloodpacks."
+  - tweak: "Mercenaries now have butazoline and perconol added to their starting medical supplies as well as one combat medical belt."
+  - tweak: "Some ERT responders now start with combat medical belts as well. Would be TCFL, FSF, Kataphracts, Freelancers, NT-ERT."

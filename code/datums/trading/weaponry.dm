@@ -164,5 +164,6 @@
 		/obj/item/clothing/mask/gas/tactical                      = TRADER_THIS_TYPE,
 		/obj/item/shield/riot/tact                         = TRADER_THIS_TYPE,
 		/obj/item/storage/belt/security/tactical           = TRADER_THIS_TYPE,
+		/obj/item/storage/belt/medical/first_responder/combat	 = TRADER_THIS_TYPE,
 		/obj/item/clothing/accessory/storage/bandolier            = TRADER_THIS_TYPE
 	)
