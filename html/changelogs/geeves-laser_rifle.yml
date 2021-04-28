@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added laser rifles and energy carbines to the dangerous weapons uplink."
