@@ -90,33 +90,21 @@
 	network_card = new /obj/item/computer_hardware/network_card(src)
 	battery_module = new /obj/item/computer_hardware/battery_module(src)
 	card_slot = new /obj/item/computer_hardware/card_slot(src)
-	card_slot.stored_item = new /obj/item/pen
+	card_slot.stored_item = new pen_type(src)
 	tesla_link = new /obj/item/computer_hardware/tesla_link/charging_cable(src)
 	flashlight = new /obj/item/computer_hardware/flashlight(src)
 	battery_module.charge_to_full()
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
 	_app_preset_type = /datum/modular_computer_app_presets/civilian
-
-/obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/bartender/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/fountain
+	pen_type = /obj/item/pen/fountain
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/librarian/Initialize()
 	. = ..()
-	card_slot.stored_item = new /obj/item/pen/fountain
 	silence_notifications()
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/janitor
 	_app_preset_type = /datum/modular_computer_app_presets/civilian/janitor
-
-/obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/chaplain/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/fountain
-
-/obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/lawyer/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/fountain
 
 // Engineering
 
@@ -125,10 +113,7 @@
 	icon_state = "wristbound_engineering"
 	item_state = "wristbound_engineering"
 	icon_state_unpowered = "wristbound_engineering"
-
-/obj/item/modular_computer/handheld/wristbound/preset/pda/engineering/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/silver
+	pen_type = /obj/item/pen/silver
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/engineering/atmos
 	_app_preset_type = /datum/modular_computer_app_presets/engineering/atmos
@@ -142,14 +127,10 @@
 	icon_state = "wristbound_cargo"
 	item_state = "wristbound_cargo"
 	icon_state_unpowered = "wristbound_cargo"
+	pen_type = /obj/item/pen/silver
 
-/obj/item/modular_computer/handheld/wristbound/preset/pda/supply/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/silver
-
-/obj/item/modular_computer/handheld/wristbound/preset/pda/supply/qm/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/fountain
+/obj/item/modular_computer/handheld/wristbound/preset/pda/supply/qm
+	pen_type = /obj/item/pen/fountain
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/supply/miner
 	_app_preset_type = /datum/modular_computer_app_presets/civilian
@@ -161,14 +142,10 @@
 	icon_state = "wristbound_medical"
 	item_state = "wristbound_medical"
 	icon_state_unpowered = "wristbound_medical"
+	pen_type = /obj/item/pen/white
 
-/obj/item/modular_computer/handheld/wristbound/preset/pda/medical/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/white
-
-/obj/item/modular_computer/handheld/wristbound/preset/pda/medical/psych/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/fountain/white
+/obj/item/modular_computer/handheld/wristbound/preset/pda/medical/psych
+	pen_type = /obj/item/pen/fountain/white
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/medical/cmo
 	_app_preset_type = /datum/modular_computer_app_presets/medical/cmo
@@ -180,10 +157,7 @@
 	icon_state = "wristbound_science"
 	item_state = "wristbound_science"
 	icon_state_unpowered = "wristbound_science"
-
-/obj/item/modular_computer/handheld/wristbound/preset/pda/research/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/white
+	pen_type = /obj/item/pen/white
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/research/rd
 	_app_preset_type = /datum/modular_computer_app_presets/research/rd
@@ -209,10 +183,7 @@
 	icon_state = "wristbound_command"
 	item_state = "wristbound_command"
 	icon_state_unpowered = "wristbound_command"
-
-/obj/item/modular_computer/handheld/wristbound/preset/pda/command/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/fountain/head
+	pen_type = /obj/item/pen/fountain/head
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/command/cciaa
 	_app_preset_type = /datum/modular_computer_app_presets/command
@@ -222,10 +193,7 @@
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/command/captain
 	_app_preset_type = /datum/modular_computer_app_presets/command/captain
-
-/obj/item/modular_computer/handheld/wristbound/preset/pda/command/captain/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/fountain/captain
+	pen_type = /obj/item/pen/fountain/captain
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/command/bst
 	hidden = TRUE

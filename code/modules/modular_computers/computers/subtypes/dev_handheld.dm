@@ -13,6 +13,8 @@
 	max_hardware_size = 1
 	w_class = ITEMSIZE_SMALL
 
+	var/pen_type = /obj/item/pen
+
 /obj/item/modular_computer/handheld/Initialize()
 	. = ..()
 	set_icon()

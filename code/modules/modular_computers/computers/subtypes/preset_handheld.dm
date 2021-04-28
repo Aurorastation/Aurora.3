@@ -36,42 +36,28 @@
 	network_card = new /obj/item/computer_hardware/network_card(src)
 	battery_module = new /obj/item/computer_hardware/battery_module(src)
 	card_slot = new /obj/item/computer_hardware/card_slot(src)
-	card_slot.stored_item = new /obj/item/pen
+	card_slot.stored_item = new pen_type(src)
 	tesla_link = new /obj/item/computer_hardware/tesla_link/charging_cable(src)
 	flashlight = new /obj/item/computer_hardware/flashlight(src)
 	battery_module.charge_to_full()
 
 /obj/item/modular_computer/handheld/preset/civilian
 	_app_preset_type = /datum/modular_computer_app_presets/civilian
-
-/obj/item/modular_computer/handheld/preset/civilian/bartender/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/fountain
+	pen_type = /obj/item/pen/fountain
 
 /obj/item/modular_computer/handheld/preset/civilian/librarian/Initialize()
 	. = ..()
-	card_slot.stored_item = new /obj/item/pen/fountain
 	silence_notifications()
 
 /obj/item/modular_computer/handheld/preset/civilian/janitor
 	_app_preset_type = /datum/modular_computer_app_presets/civilian/janitor
-
-/obj/item/modular_computer/handheld/preset/civilian/chaplain/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/fountain
-
-/obj/item/modular_computer/handheld/preset/civilian/lawyer/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/fountain
+	pen_type = /obj/item/pen
 
 // Engineering
 
 /obj/item/modular_computer/handheld/preset/engineering
 	_app_preset_type = /datum/modular_computer_app_presets/engineering
-
-/obj/item/modular_computer/handheld/preset/engineering/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/silver
+	pen_type = /obj/item/pen/silver
 
 /obj/item/modular_computer/handheld/preset/engineering/atmos
 	_app_preset_type = /datum/modular_computer_app_presets/engineering/atmos
@@ -82,27 +68,19 @@
 // Supply
 /obj/item/modular_computer/handheld/preset/supply
 	_app_preset_type = /datum/modular_computer_app_presets/supply
+	pen_type = /obj/item/pen/silver
 
-/obj/item/modular_computer/handheld/preset/supply/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/silver
-
-/obj/item/modular_computer/handheld/preset/supply/qm/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/fountain
+/obj/item/modular_computer/handheld/preset/supply/qm
+	pen_type = /obj/item/pen/fountain/silver
 
 // Medical
 
 /obj/item/modular_computer/handheld/preset/medical
 	_app_preset_type = /datum/modular_computer_app_presets/medical
+	pen_type = /obj/item/pen/white
 
-/obj/item/modular_computer/handheld/preset/medical/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/white
-
-/obj/item/modular_computer/handheld/preset/medical/psych/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/fountain/white
+/obj/item/modular_computer/handheld/preset/medical/psych
+	pen_type = /obj/item/pen/fountain/white
 
 /obj/item/modular_computer/handheld/preset/medical/cmo
 	_app_preset_type = /datum/modular_computer_app_presets/medical/cmo
@@ -111,10 +89,7 @@
 
 /obj/item/modular_computer/handheld/preset/research
 	_app_preset_type = /datum/modular_computer_app_presets/research
-
-/obj/item/modular_computer/handheld/preset/research/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/white
+	pen_type = /obj/item/pen/white
 
 /obj/item/modular_computer/handheld/preset/research/robotics
 	_app_preset_type = /datum/modular_computer_app_presets/research/robotics
@@ -137,10 +112,7 @@
 
 /obj/item/modular_computer/handheld/preset/command
 	_app_preset_type = /datum/modular_computer_app_presets/command
-
-/obj/item/modular_computer/handheld/preset/command/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/fountain/head
+	pen_type = /obj/item/pen/fountain/head
 
 /obj/item/modular_computer/handheld/preset/command/cciaa
 	_app_preset_type = /datum/modular_computer_app_presets/command
@@ -150,10 +122,7 @@
 
 /obj/item/modular_computer/handheld/preset/command/captain
 	_app_preset_type = /datum/modular_computer_app_presets/command/captain
-
-/obj/item/modular_computer/handheld/preset/command/captain/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/fountain/captain
+	pen_type = /obj/item/pen/fountain/captain
 
 /obj/item/modular_computer/handheld/preset/command/bst
 	hidden = TRUE

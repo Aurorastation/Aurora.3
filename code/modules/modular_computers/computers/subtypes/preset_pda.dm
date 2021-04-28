@@ -5,7 +5,7 @@
 	network_card = new /obj/item/computer_hardware/network_card(src)
 	battery_module = new /obj/item/computer_hardware/battery_module(src)
 	card_slot = new /obj/item/computer_hardware/card_slot(src)
-	card_slot.stored_item = new /obj/item/pen
+	card_slot.stored_item = new pen_type(src)
 	tesla_link = new /obj/item/computer_hardware/tesla_link/charging_cable(src)
 	flashlight = new /obj/item/computer_hardware/flashlight(src)
 	battery_module.charge_to_full()
@@ -17,40 +17,29 @@
 
 /obj/item/modular_computer/handheld/pda/civilian
 	_app_preset_type = /datum/modular_computer_app_presets/civilian
+	pen_type = /obj/item/pen/fountain
 
-/obj/item/modular_computer/handheld/pda/civilian/bartender/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/fountain
+/obj/item/modular_computer/handheld/pda/civilian/bartender
+	pen_type = /obj/item/pen
 
 /obj/item/modular_computer/handheld/pda/civilian/librarian
 	icon_add = "libb"
 
 /obj/item/modular_computer/handheld/pda/civilian/librarian/Initialize()
 	. = ..()
-	card_slot.stored_item = new /obj/item/pen/fountain
 	silence_notifications()
 
 /obj/item/modular_computer/handheld/pda/civilian/janitor
 	_app_preset_type = /datum/modular_computer_app_presets/civilian/janitor
-
-/obj/item/modular_computer/handheld/pda/civilian/chaplain/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/fountain
+	pen_type = /obj/item/pen
 
 /obj/item/modular_computer/handheld/pda/civilian/lawyer
 	icon_add = "h"
 
-/obj/item/modular_computer/handheld/pda/civilian/lawyer/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/fountain
-
 /obj/item/modular_computer/handheld/pda/civilian/clown
 	_app_preset_type = /datum/modular_computer_app_presets/civilian/clown
 	icon_add = "clown"
-
-/obj/item/modular_computer/handheld/pda/civilian/clown/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/crayon
+	pen_type = /obj/item/pen/crayon
 
 /obj/item/modular_computer/handheld/pda/civilian/mime
 	_app_preset_type = /datum/modular_computer_app_presets/civilian/mime
@@ -61,10 +50,7 @@
 /obj/item/modular_computer/handheld/pda/engineering
 	_app_preset_type = /datum/modular_computer_app_presets/engineering
 	icon_add = "e"
-
-/obj/item/modular_computer/handheld/pda/engineering/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/silver
+	pen_type = /obj/item/pen/silver
 
 /obj/item/modular_computer/handheld/pda/engineering/atmos
 	_app_preset_type = /datum/modular_computer_app_presets/engineering/atmos
@@ -77,34 +63,24 @@
 /obj/item/modular_computer/handheld/pda/supply
 	_app_preset_type = /datum/modular_computer_app_presets/supply
 	icon_add = "sup"
-
-/obj/item/modular_computer/handheld/pda/supply/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/silver
+	pen_type = /obj/item/pen/silver
 
 /obj/item/modular_computer/handheld/pda/supply/miner
 	_app_preset_type = /datum/modular_computer_app_presets/civilian
 
 /obj/item/modular_computer/handheld/pda/supply/qm
 	icon_add = "q"
-
-/obj/item/modular_computer/handheld/pda/supply/qm/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/fountain
+	pen_type = /obj/item/pen/fountain/silver
 
 // Medical
 
 /obj/item/modular_computer/handheld/pda/medical
 	_app_preset_type = /datum/modular_computer_app_presets/medical
 	icon_add = "m"
+	pen_type = /obj/item/pen/white
 
-/obj/item/modular_computer/handheld/pda/medical/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/white
-
-/obj/item/modular_computer/handheld/pda/medical/psych/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/fountain/white
+/obj/item/modular_computer/handheld/pda/medical/psych
+	pen_type = /obj/item/pen/fountain/white
 
 /obj/item/modular_computer/handheld/pda/medical/cmo
 	_app_preset_type = /datum/modular_computer_app_presets/medical/cmo
@@ -115,10 +91,7 @@
 /obj/item/modular_computer/handheld/pda/research
 	_app_preset_type = /datum/modular_computer_app_presets/research
 	icon_add = "tox"
-
-/obj/item/modular_computer/handheld/pda/research/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/white
+	pen_type = /obj/item/pen/white
 
 /obj/item/modular_computer/handheld/pda/research/robotics
 	_app_preset_type = /datum/modular_computer_app_presets/research/robotics
@@ -145,15 +118,11 @@
 /obj/item/modular_computer/handheld/pda/command
 	_app_preset_type = /datum/modular_computer_app_presets/command
 	icon_add = "h"
-
-/obj/item/modular_computer/handheld/pda/command/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/fountain/head
+	pen_type = /obj/item/pen/fountain/head
 
 /obj/item/modular_computer/handheld/pda/command/cciaa
 	_app_preset_type = /datum/modular_computer_app_presets/command
 	icon_add = "h"
-	// detonate = 0
 
 /obj/item/modular_computer/handheld/pda/command/hop
 	_app_preset_type = /datum/modular_computer_app_presets/command/hop
@@ -162,10 +131,7 @@
 /obj/item/modular_computer/handheld/pda/command/captain
 	_app_preset_type = /datum/modular_computer_app_presets/command/captain
 	icon_add = "c"
-
-/obj/item/modular_computer/handheld/pda/command/captain/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/fountain/captain
+	pen_type = /obj/item/pen/fountain/captain
 
 /obj/item/modular_computer/handheld/pda/command/bst
 	icon_add = "h"
