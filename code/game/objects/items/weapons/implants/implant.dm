@@ -13,6 +13,7 @@
 	var/implant_color = "b"
 	var/allow_reagents = 0
 	var/malfunction = 0
+	var/stealth_scanner = FALSE // will not appear on body scanner readouts
 
 /obj/item/implant/Initialize()
 	. = ..()
@@ -599,6 +600,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 	icon_state = "implant_evil"
 	var/activation_emote = "sigh"
 	var/obj/item/scanned = null
+	stealth_scanner = TRUE
 
 /obj/item/implant/compressed/attackby(var/obj/item/T, mob/user)
 	if(T.isscrewdriver())

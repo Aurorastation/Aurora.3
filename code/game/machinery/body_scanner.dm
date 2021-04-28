@@ -528,7 +528,11 @@
 				if (is_type_in_list(I, known_implants))
 					wounds += "\a [I.name] is installed."
 				else
-					unk += 1
+					if(istype(I, /obj/item/implant))
+						var/obj/item/implant/imp = I
+						if(imp.stealth_scanner)
+							continue
+					unk++
 			if (unk)
 				wounds += "Has an abnormal mass present."
 
@@ -743,6 +747,10 @@
 				if(is_type_in_list(I,known_implants))
 					imp += "[I] implanted:"
 				else
+					if(istype(I, /obj/item/implant))
+						var/obj/item/implant/implant = I
+						if(implant.stealth_scanner)
+							continue
 					unknown_body++
 			if(unknown_body)
 				imp += "Unknown body present:"

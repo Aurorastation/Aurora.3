@@ -11,7 +11,7 @@
 
 /datum/uplink_item/item/implants/imp_compress
 	name = "Compressed Matter Implant"
-	desc = "A box containing a single implanter and matter cartridge. To remove an unintended target, use the implanter in-hand then open the cartridge with a screwdriver."
+	desc = "A box containing a single implanter and matter cartridge. To remove an unintended target, use the implanter in-hand then open the cartridge with a screwdriver. It will not appear on body scans."
 	item_cost = 1
 	path = /obj/item/storage/box/syndie_kit/imp_compress
 
@@ -29,9 +29,10 @@
 
 /datum/uplink_item/item/implants/imp_uplink
 	name = "Uplink Implant"
+	desc = "A box containing a single implanter with an uplink implant. It will not appear on body scans."
 	path = /obj/item/storage/box/syndie_kit/imp_uplink
 
 /datum/uplink_item/item/implants/imp_uplink/New()
 	..()
 	item_cost = round(DEFAULT_TELECRYSTAL_AMOUNT / 2)
-	desc = "Contains [round((DEFAULT_TELECRYSTAL_AMOUNT / 2) * 0.8)] Telecrystal\s"
+	desc += " Contains [round((DEFAULT_TELECRYSTAL_AMOUNT / 2) * 0.8)] Telecrystal\s."

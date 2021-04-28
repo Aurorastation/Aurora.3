@@ -1,6 +1,7 @@
 /obj/item/implant/uplink
 	name = "uplink"
 	desc = "Summon things."
+	stealth_scanner = TRUE
 	var/activation_emote = "chuckle"
 
 /obj/item/implant/uplink/New()
