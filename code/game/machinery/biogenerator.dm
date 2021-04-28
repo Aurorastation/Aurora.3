@@ -371,7 +371,7 @@
 					var/lastclass = "Commands"
 
 					for (var/k in decls_repository.get_decls_of_subtype(/decl/biorecipe))
-						var/decl/biorecipe/current_recipe = k
+						var/decl/biorecipe/current_recipe = decls_repository.get_decl(k)
 
 						if(emagged || !current_recipe.emag)
 							if(lastclass != current_recipe.class)
