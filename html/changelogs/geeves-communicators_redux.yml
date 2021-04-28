@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added Speech-To-Text to the NTIRC program. Simply open the desired chat, enable Speech-To-Text, and chat away. You can even close the program, as long as the chat service remains running. Only one chat can have an active STT at a time, and you have to be at least adjacent to the device."
