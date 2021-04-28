@@ -1,6 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - tweak: "The entertainment radio channel's color has been changed to silver on the dark chat theme, to visually separate it from Supply + Engineering."
