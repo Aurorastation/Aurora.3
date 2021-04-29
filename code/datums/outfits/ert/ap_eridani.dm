@@ -91,7 +91,7 @@
 	glasses = /obj/item/clothing/glasses/hud/health/aviator
 	shoes = /obj/item/clothing/shoes/swat/ert
 	gloves = /obj/item/clothing/gloves/latex/nitrile
-	belt = /obj/item/storage/belt/medical
+	belt = /obj/item/storage/belt/medical/first_responder/combat
 	back = /obj/item/storage/backpack/satchel_med
 	accessory = /obj/item/clothing/accessory/holster/thigh
 	accessory_contents = list(/obj/item/gun/energy/disruptorpistol/magnum = 1)
@@ -120,7 +120,8 @@
         /obj/item/reagent_containers/glass/bottle/dexalin_plus = 1,
         /obj/item/reagent_containers/glass/bottle/butazoline = 1,
         /obj/item/reagent_containers/glass/bottle/dermaline = 1,
-        /obj/item/reagent_containers/glass/bottle/perconol = 1
+        /obj/item/reagent_containers/glass/bottle/perconol = 1,
+		/obj/item/storage/pill_bottle/mortaphenyl = 1
 	)
 
 /datum/outfit/admin/ert/ap_eridani/corpsman
@@ -135,7 +136,7 @@
 	gloves = /obj/item/clothing/gloves/latex/nitrile
 	shoes = /obj/item/clothing/shoes/swat/ert
 	back = /obj/item/storage/backpack/messenger/med
-	belt = /obj/item/storage/belt/medical/first_responder
+	belt = /obj/item/storage/belt/medical/first_responder/combat
 	accessory = /obj/item/clothing/accessory/holster/thigh
 	accessory_contents = list(/obj/item/gun/energy/disruptorpistol/magnum = 1)
 	l_pocket = /obj/item/device/healthanalyzer
@@ -147,7 +148,6 @@
 		/obj/item/storage/firstaid/adv = 1,
 		/obj/item/storage/firstaid/combat = 1,
 		/obj/item/clothing/accessory/storage/pouches/black = 1,
-		/obj/item/melee/baton/stunrod = 1,
 		/obj/item/reagent_containers/glass/bottle/thetamycin = 1,
 		/obj/item/storage/pill_bottle/mortaphenyl = 1
 	)
@@ -159,5 +159,6 @@
         /obj/item/reagent_containers/glass/bottle/dexalin_plus = 1,
         /obj/item/reagent_containers/glass/bottle/butazoline = 1,
         /obj/item/reagent_containers/glass/bottle/dermaline = 1,
-        /obj/item/reagent_containers/glass/bottle/perconol = 1
+        /obj/item/reagent_containers/glass/bottle/perconol = 1,
+		/obj/item/melee/baton/stunrod = 1
 	)
