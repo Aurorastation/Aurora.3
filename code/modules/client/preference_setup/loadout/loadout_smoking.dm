@@ -11,11 +11,13 @@
 	..()
 	var/zippolighters = list()
 	zippolighters["regular zippo"] = /obj/item/flame/lighter/zippo
+	zippolighters["nanotrasen zippo"] = /obj/item/flame/lighter/zippo/nt
 	zippolighters["black zippo"] = /obj/item/flame/lighter/zippo/black
 	zippolighters["black cross zippo"] = /obj/item/flame/lighter/zippo/black/cross
 	zippolighters["golden zippo"] = /obj/item/flame/lighter/zippo/gold
 	zippolighters["royal zippo"] = /obj/item/flame/lighter/zippo/royal
 	zippolighters["dominian zippo"] = /obj/item/flame/lighter/zippo/dominia
+	zippolighters["fisanduhian zippo"] = /obj/item/flame/lighter/zippo/fisanduh
 	zippolighters["coalition zippo"] = /obj/item/flame/lighter/zippo/coalition
 	zippolighters["solarian zippo"] = /obj/item/flame/lighter/zippo/sol
 	zippolighters["bieselite zippo"] = /obj/item/flame/lighter/zippo/tcfl

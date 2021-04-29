@@ -4304,11 +4304,11 @@
 
 /obj/item/reagent_containers/food/snacks/breakfast_wrap
 	name = "breakfast wrap"
-	desc = "Bacon, eggs, cheese, and tortilla grilled to perfection."
+	desc = "Bacon, eggs, cheese, and tortilla spiced and grilled to perfection."
 	icon_state = "breakfast_wrap"
 	bitesize = 4
 	center_of_mass = list("x"=16, "y"=16)
-	reagents_to_add = list(/decl/reagent/nutriment = 6, /decl/reagent/nutriment/protein = 9, /decl/reagent/capsaicin/condensed = 20) //what could possibly go wrong
+	reagents_to_add = list(/decl/reagent/nutriment = 6, /decl/reagent/nutriment/protein = 9, /decl/reagent/capsaicin = 10) //It's kind of spicy
 	reagent_data = list(/decl/reagent/nutriment = list("tortilla" = 6))
 	filling_color = "#FFF454"
 

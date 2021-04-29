@@ -87,6 +87,12 @@
 	item_cost = 2
 	path = /obj/item/storage/box/syndie_kit/space
 
+/datum/uplink_item/item/tools/infiltration_kit
+	name = "Infiltration Kit"
+	desc = "A large infiltration case containing an undersuit, a mask, gloves, and shoes. It will protect you against the vacuum of space and two atmospheres of overpressure."
+	item_cost = 2
+	path = /obj/item/storage/toolbox/infiltration
+
 /datum/uplink_item/item/tools/thermal
 	name = "Thermal Imaging Glasses"
 	item_cost = 2
@@ -96,10 +102,6 @@
 	name = "Powersink (DANGER!)"
 	item_cost = 6
 	path = /obj/item/device/powersink
-
-/datum/uplink_item/item/tools/teleporter/New()
-	..()
-	antag_roles = list(MODE_MERCENARY)
 
 /datum/uplink_item/item/tools/ai_module
 	name = "Hacked AI Upload Module"

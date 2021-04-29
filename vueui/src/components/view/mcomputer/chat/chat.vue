@@ -36,7 +36,6 @@
 </template>
 
 <script>
-import { sendToTopic } from '@/utils'
 export default {
   data() {
     return {
@@ -63,17 +62,17 @@ export default {
   },
   methods: {
     send_msg() {
-      sendToTopic({
+      this.$toTopic({
         send: { message: this.send_buffer, target: this.reference },
       })
       this.send_buffer = ""
     },
     set_password() {
-      sendToTopic({set_password: {target: this.reference, password: this.password}})
+      this.$toTopic({set_password: {target: this.reference, password: this.password}})
       this.password = null
     },
     set_title() {
-      sendToTopic({change_title: {target: this.reference, title: this.title}})
+      this.$toTopic({change_title: {target: this.reference, title: this.title}})
       this.title = null
     },
     scrollBottom() {

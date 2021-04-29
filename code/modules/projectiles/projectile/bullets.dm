@@ -210,7 +210,7 @@
 	damage = 40
 	armor_penetration = 15
 
-/obj/item/projectile/bullet/rifle/a556/ap
+/obj/item/projectile/bullet/rifle/a556/ap 
 	damage = 35
 	armor_penetration = 40
 

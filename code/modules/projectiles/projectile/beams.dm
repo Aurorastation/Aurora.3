@@ -175,7 +175,8 @@
 /obj/item/projectile/beam/gatlinglaser
 	name = "diffused laser"
 	icon_state = "heavylaser"
-	damage = 10
+	damage = 20
+	armor_penetration = 35
 	no_attack_log = 1
 
 	muzzle_type = /obj/effect/projectile/muzzle/disabler

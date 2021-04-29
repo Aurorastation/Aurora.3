@@ -31,6 +31,7 @@ BLIND     // can't see anything
 	var/obj/screen/overlay = null
 	var/obj/item/clothing/glasses/hud/hud = null	// Hud glasses, if any
 	var/activated_color = null
+	var/normal_layer = TRUE
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_WARFORM = 'icons/mob/species/warriorform/eyes.dmi'
 		)
@@ -41,6 +42,14 @@ BLIND     // can't see anything
 // Called in mob/RangedAttack() and mob/UnarmedAttack.
 /obj/item/clothing/glasses/proc/Look(var/atom/A, mob/user, var/proximity)
 	return 0 // return 1 to cancel attack_hand/RangedAttack()
+
+/obj/item/clothing/glasses/verb/change_layer()
+	set category = "Object"
+	set name = "Change Glasses Layer"
+	set src in usr
+
+	normal_layer = !normal_layer
+	to_chat(usr, SPAN_NOTICE("\The [src] will now layer [normal_layer ? "under" : "over"] your hair."))
 
 /obj/item/clothing/glasses/update_clothing_icon()
 	if (ismob(src.loc))
