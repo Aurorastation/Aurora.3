@@ -653,3 +653,48 @@
 	allow_backbag_choice = FALSE
 
 	l_ear = /obj/item/device/radio/headset/bluespace
+
+/datum/outfit/admin/techomancer
+	name = "Technomancer"
+	allow_backbag_choice = FALSE
+
+	head = /obj/item/clothing/head/technomancer/master
+	l_ear = /obj/item/device/radio/headset/bluespace
+	uniform = /obj/item/clothing/under/technomancer/master
+	belt = /obj/item/device/flashlight
+	back = /obj/item/technomancer_core
+	shoes = /obj/item/clothing/shoes/laceup
+
+	r_pocket = /obj/item/disposable_teleporter/free
+	l_pocket = /obj/item/technomancer_catalog
+
+	id = /obj/item/card/id/bluespace
+	var/id_assignment = "Technomagus"
+
+/datum/outfit/admin/techomancer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(visualsOnly)
+		return
+
+	var/obj/item/card/id/W = H.wear_id
+	if(W)
+		W.assignment = id_assignment
+		H.set_id_info(W)
+
+	var/obj/item/technomancer_core/TC = H.back
+	if(TC)
+		technomancer_belongings.Add(TC)
+
+	var/obj/item/technomancer_catalog/catalog = H.l_store
+	if(catalog)
+		catalog.bind_to_owner(H)
+
+/datum/outfit/admin/techomancer/apprentice
+	name = "Technomancer Apprentice"
+
+	head = /obj/item/clothing/head/technomancer/apprentice
+	uniform = /obj/item/clothing/under/technomancer/apprentice
+
+	l_pocket = /obj/item/technomancer_catalog/apprentice
+
+	id_assignment = "Techno-apprentice"
