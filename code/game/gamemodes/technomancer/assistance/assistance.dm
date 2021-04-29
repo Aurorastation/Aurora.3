@@ -9,3 +9,14 @@
 	catalog.  Note that apprentices cannot purchase more apprentices."
 	cost = 300
 	obj_path = /obj/item/antag_spawner/technomancer_apprentice
+	has_additional_info = TRUE
+
+/datum/technomancer/assistance/apprentice/additional_info()
+	var/technomancer_count = 0
+	var/ghost_count = 0
+	for(var/mob/abstract/observer/O in player_list)
+		if(O.client && (O.client.inactivity < 5 MINUTES))
+			if("technomancer" in O.client.prefs.be_special_role)
+				technomancer_count++
+			ghost_count++
+	return "There [technomancer_count > 1 ? "are" : "is"] <b>[technomancer_count]</b> out of <b>[ghost_count]</b> active observer\s with the technomancer role enabled."
