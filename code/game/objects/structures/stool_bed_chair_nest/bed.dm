@@ -31,7 +31,7 @@
 	slowdown = 5
 
 /obj/structure/bed/Initialize()
-	..()
+	. = ..()
 	LAZYADD(can_buckle, /mob/living)
 
 /obj/structure/bed/New(newloc, new_material = MATERIAL_STEEL, new_padding_material)

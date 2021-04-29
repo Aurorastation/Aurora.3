@@ -4,6 +4,7 @@
 	speech_verb = list("creaks and rustles")
 	ask_verb = list("creaks")
 	exclaim_verb = list("rustles")
+	sing_verb = list("croaks")
 	colour = "soghun"
 	key = "q"
 	flags = RESTRICTED|TCOMSSIM
@@ -22,11 +23,14 @@
 
 /datum/language/unathi
 	name = LANGUAGE_UNATHI
+	short = "UNA"
 	desc = "The common language of Moghes, composed of sibilant hisses and rattles. Spoken natively by Unathi."
 	speech_verb = list("hisses")
 	ask_verb = list("hisses")
 	exclaim_verb = list("roars")
+	sing_verb = list("hisses")
 	colour = "soghun"
+	written_style = "sintaunathi"
 	key = "o"
 	flags = WHITELISTED|TCOMSSIM
 	allow_accents = TRUE
@@ -46,11 +50,14 @@
 // tajaran languages
 /datum/language/tajaran
 	name = LANGUAGE_SIIK_MAAS
+	short = "MAAS"
 	desc = "The traditionally employed tongue of Adhomai, composed of expressive yowls and chirps. Native to the Tajara."
 	speech_verb = list("mrowls")
 	ask_verb = list("mrowls")
 	exclaim_verb = list("yowls")
+	sing_verb = list("mrowmbles")
 	colour = "tajaran"
+	written_style = "siikmaas"
 	key = "j"
 	flags = WHITELISTED|TCOMSSIM
 	syllables = list("mrr","rr","tajr","kir","raj","kii","mir","kra","ahk","nal","vah","khaz","jri","ran","darr",
@@ -76,6 +83,7 @@
 	desc = "A sign language developed by Adhomai hunters"
 	speech_verb = list("signs")
 	signlang_verb = list("signs", "flicks their ears", "gestures")
+	sing_verb = null
 	colour = "i"
 	key = "i"
 	flags = NO_STUTTER | SIGNLANG | WHITELISTED
@@ -88,6 +96,7 @@
 	ask_verb = list("mrowls")
 	exclaim_verb = list("yowls")
 	signlang_verb = list("signs", "flicks their ears", "gestures")
+	sing_verb = list("mrowmbles")
 	colour = "tajaran_signlang"
 	key = "w"
 	flags = WHITELISTED | NONVERBAL
@@ -99,11 +108,14 @@
 
 /datum/language/yassa
 	name = LANGUAGE_YA_SSA
+	short = "YAS"
 	desc = "The traditional language of the tajaran nobility."
 	speech_verb = list("mrowls")
 	ask_verb = list("mrowls")
 	exclaim_verb = list("yowls")
+	sing_verb = list("mrowmbles")
 	colour = "yassa"
+	written_style = "yassa"
 	key = "r"
 	flags = WHITELISTED|TCOMSSIM
 	syllables = list("hrr","rhr","tarj","khir","rajh","kir","mier","kre","ahek","nlhal","veh","khaz","dri","rhan","darrer",
@@ -115,11 +127,14 @@
 
 /datum/language/delvahhi
 	name = LANGUAGE_DELVAHII
+	short = "DEL"
 	desc = "A dialect developed by the Zhan-Khazan communities, commonly used in religious ceremonies dedicated to the Snow God and amongst settlements comprised mostly of Zhan-Khazan."
 	speech_verb = list("mrowls")
 	ask_verb = list("mrowls")
 	exclaim_verb = list("yowls")
+	sing_verb = list("mrowmbles")
 	colour = "delvahhi"
+	written_style = "delvahhi"
 	key = "n"
 	flags = WHITELISTED|TCOMSSIM
 	syllables = list("mrr","rr","tajr","kir","raj","kii","mir","kra","ahk","nal","vah","khaz","jri","ran","darr",
@@ -131,11 +146,14 @@
 
 /datum/language/skrell
 	name = LANGUAGE_SKRELLIAN
+	short = "NRAL"
 	desc = "A melodic and complex language spoken by the Skrell of Qerrbalak. Some of the notes are inaudible to humans."
 	speech_verb = list("warbles")
 	ask_verb = list("warbles")
 	exclaim_verb = list("warbles")
+	sing_verb = list("warbles")
 	colour = "skrell"
+	written_style = "nralmalic"
 	key = "k"
 	flags = WHITELISTED|TCOMSSIM
 	syllables = list("qr","qrr","xuq","qil","quum","xuqm","vol","xrim","zaoo","qu-uu","qix","qoo","zix","*","!")
@@ -233,8 +251,10 @@
 
 /datum/language/human
 	name = LANGUAGE_SOL_COMMON
+	short = "SOL"
 	desc = "With its roots in Mandarin Chinese, Common evolved as the official language of the Sol Alliance, with officials working to tie it together with a common tongue. It's spoken by state officials, taught in schools, and spoken by those who either feel a sense of national pride in the Alliance or otherwise fell sway to the culture."
 	colour = "solcom"
+	written_style = "solcommon"
 	key = "1"
 	flags = WHITELISTED | TCOMSSIM
 	syllables = list("a", "abe", "ade", "ai", "an", "ana", "ba", "bae", "bai", "bang", "bao", "bei", "ben", "beo", "bi", "bian", "bing", "bo", "bu", "bugu", "bun", "cai", "can", "cao", "cau", "chan", "chen", "cheong",
@@ -259,11 +279,14 @@
 
 /datum/language/machine
 	name = LANGUAGE_EAL
+	short = "EAL"
 	desc = "A language of encoded tones that allow for IPCs to communicate auditorily between each other in a manner that allows for easier transfer of information."
 	speech_verb = list("beeps")
 	ask_verb = list("beeps")
 	exclaim_verb = list("loudly beeps")
+	sing_verb = list("rhythmically beeps")
 	colour = "changeling"
+	written_style = "encodedaudiolanguage"
 	key = "6"
 	flags = RESTRICTED | NO_STUTTER | TCOMSSIM
 	syllables = list("beep","beep","beep","beep","beep","boop","boop","boop","bop","bop","dee","dee","doo","doo","hiss","hss","buzz","buzz","bzz","ksssh","keey","wurr","wahh","tzzz")
@@ -276,12 +299,15 @@
 
 /datum/language/unathi_azaziba
 	name = LANGUAGE_AZAZIBA
+	short = "AZA"
 	desc = "A language of Moghes consisting of a combination of spoken word and gesticulation. While waning since Moghes entered the galactic stage, it enjoys popular use by Unathi that never fell to the Hegemony's cultural dominance."
 	speech_verb = list("hisses")
 	ask_verb = list("hisses")
 	exclaim_verb = list("roars")
 	signlang_verb = list("signs", "gestures aggressively")
+	sing_verb = list("hisses")
 	colour = "soghun_alt"
+	written_style = "sintaazaziba"
 	key = "p"
 	flags = WHITELISTED | NONVERBAL
 	syllables = list("azs","zis","zau","azua","skiu","zuakz","izo","aei","ki","kut","zo")
