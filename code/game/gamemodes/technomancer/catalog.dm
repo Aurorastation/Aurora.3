@@ -16,6 +16,10 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 	var/hidden = 0
 	var/obj_path = null
 	var/ability_icon_state = null
+	var/has_additional_info = FALSE
+
+/datum/technomancer/proc/additional_info()
+	return
 
 /datum/technomancer/spell
 	var/category = ALL_SPELLS
@@ -136,6 +140,8 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 					dat += "<font color='purple'>Spell Power: [spell.spell_power_desc]</font><br>"
 				if(spell.enhancement_desc)
 					dat += "<font color='blue'>Scepter Effect: [spell.enhancement_desc]</font><br>"
+				if(spell.has_additional_info)
+					dat += "<i><font color='green'>[spell.additional_info()]</font></i><br>"
 				if(spell.cost <= budget)
 					dat += "<a href='byond://?src=\ref[src];spell_choice=[spell.name]'>Purchase</a> ([spell.cost])<br><br>"
 				else
@@ -154,6 +160,8 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 			for(var/datum/technomancer/equipment/E in equipment_instances)
 				dat += "<b>[E.name]</b><br>"
 				dat += "<i>[E.desc]</i><br>"
+				if(E.has_additional_info)
+					dat += "<i><font color='green'>[E.additional_info()]</font></i><br>"
 				if(E.cost <= budget)
 					dat += "<a href='byond://?src=\ref[src];item_choice=[E.name]'>Purchase</a> ([E.cost])<br><br>"
 				else
@@ -172,6 +180,8 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 			for(var/datum/technomancer/consumable/C in consumable_instances)
 				dat += "<b>[C.name]</b><br>"
 				dat += "<i>[C.desc]</i><br>"
+				if(C.has_additional_info)
+					dat += "<i><font color='green'>[C.additional_info()]</font></i><br>"
 				if(C.cost <= budget)
 					dat += "<a href='byond://?src=\ref[src];item_choice=[C.name]'>Purchase</a> ([C.cost])<br><br>"
 				else
@@ -190,6 +200,8 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 			for(var/datum/technomancer/assistance/A in assistance_instances)
 				dat += "<b>[A.name]</b><br>"
 				dat += "<i>[A.desc]</i><br>"
+				if(A.has_additional_info)
+					dat += "<i><font color='green'>[A.additional_info()]</font></i><br>"
 				if(A.cost <= budget)
 					dat += "<a href='byond://?src=\ref[src];item_choice=[A.name]'>Purchase</a> ([A.cost])<br><br>"
 				else
