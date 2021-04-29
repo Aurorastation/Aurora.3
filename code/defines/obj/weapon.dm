@@ -306,8 +306,14 @@
 /obj/item/cane/telecane
 	name = "telescopic cane"
 	desc = "A compact cane which can be collapsed for storage."
-	icon = 'icons/obj/weapons.dmi'
+	icon = 'icons/obj/contained_items/weapons/telecane.dmi'
 	icon_state = "telecane"
+	contained_sprite = TRUE
+	w_class = ITEMSIZE_SMALL
+	slot_flags = SLOT_BELT
+	drop_sound = 'sound/items/drop/crowbar.ogg'
+	pickup_sound = 'sound/items/pickup/crowbar.ogg'
+	var/on = FALSE
 
 /obj/item/cane/telecane/attack_self(mob/user)
 	on = !on
@@ -315,14 +321,16 @@
 		user.visible_message(SPAN_WARNING("With a flick of their wrist, [user] extends their telescopic cane."), SPAN_WARNING("You extend the cane."), SPAN_WARNING("You hear an ominous click."))
 		icon_state = "telecane_1"
 		item_state = "telestick"
-		w_class = ITEMSIZE_NORMAL
+		w_class = ITEMSIZE_LARGE
+		slot_flags = null
 		force = 10 //quite robust
 		attack_verb = list("smacked", "struck", "slapped")
 	else
 		user.visible_message(SPAN_NOTICE("\The [user] collapses their telescopic cane."), SPAN_NOTICE("You collapse the cane."), SPAN_NOTICE("You hear a click."))
-		icon_state = "telecane_0"
+		icon_state = "telecane"
 		item_state = "telestick_0"
 		w_class = ITEMSIZE_SMALL
+		slot_flags = SLOT_BELT
 		force = 3 //not so robust now
 		attack_verb = list("hit", "punched")
 
@@ -332,6 +340,7 @@
 		H.update_inv_r_hand()
 
 	playsound(src.loc, 'sound/weapons/click.ogg', 50, 1)
+	add_fingerprint(user)
 
 /obj/item/disk
 	name = "disk"
