@@ -298,7 +298,7 @@
 	handle_limb_gibbing(used_weapon, brute, burn)
 
 	if(brute_dam + brute > min_broken_damage && prob(brute_dam + brute * (1 + blunt)))
-		if((brute && !blunt) && istype(tendon) && brute_dam + brute > tendon.threshold)
+		if(istype(tendon) && (brute && !blunt) && brute_dam + brute > tendon.threshold)
 			tendon.sever()
 			if(brute_dam > FRACTURE_AND_TENDON_DAM_THRESHOLD)
 				fracture()
@@ -1154,7 +1154,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 /obj/item/organ/external/is_usable()
 	if(is_dislocated())
 		return FALSE
-	if(istype(tendon) && !tendon.intact)
+	if(!tendon?.intact)
 		return FALSE
 	if(parent && !parent.tendon?.intact)
 		return FALSE
