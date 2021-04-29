@@ -33,7 +33,7 @@
 /datum/outfit/admin/ert/mercenary/specialist
 	name = "Mercenary Freelancer Medic"
 
-	belt = /obj/item/storage/belt/medical
+	belt = /obj/item/storage/belt/medical/first_responder/combat
 	gloves = /obj/item/clothing/gloves/latex
 
 	backpack_contents = list(
