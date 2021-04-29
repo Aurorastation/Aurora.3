@@ -32,40 +32,17 @@ var/datum/antagonist/technomancer/technomancers
 	technomancer.current.name = technomancer.current.real_name
 
 /datum/antagonist/technomancer/equip(var/mob/living/carbon/human/technomancer_mob)
-
 	if(!..())
 		return FALSE
 
-	technomancer_mob.equip_to_slot_or_del(new /obj/item/clothing/under/technomancer/master(technomancer_mob), slot_w_uniform)
-	create_id("Technomagus", technomancer_mob)
-	technomancer_mob.equip_to_slot_or_del(new /obj/item/disposable_teleporter/free(technomancer_mob), slot_r_store)
-	technomancer_mob.equip_to_slot_or_del(new /obj/item/technomancer_catalog(technomancer_mob), slot_l_store)
-	technomancer_mob.equip_to_slot_or_del(new /obj/item/device/radio/headset(technomancer_mob), slot_l_ear)
-	var/obj/item/technomancer_core/core = new /obj/item/technomancer_core(technomancer_mob)
-	technomancer_mob.equip_to_slot_or_del(core, slot_back)
-	technomancer_belongings.Add(core) // So it can be Tracked.
-	technomancer_mob.equip_to_slot_or_del(new /obj/item/device/flashlight(technomancer_mob), slot_belt)
-	technomancer_mob.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(technomancer_mob), slot_shoes)
-	technomancer_mob.equip_to_slot_or_del(new /obj/item/clothing/head/technomancer/master(technomancer_mob), slot_head)
+	technomancer_mob.preEquipOutfit(/datum/outfit/admin/techomancer, FALSE)
+	technomancer_mob.equipOutfit(/datum/outfit/admin/techomancer, FALSE)
+
 	return TRUE
 
 /datum/antagonist/technomancer/proc/equip_apprentice(var/mob/living/carbon/human/technomancer_mob)
-
-	technomancer_mob.equip_to_slot_or_del(new /obj/item/clothing/under/technomancer/apprentice(technomancer_mob), slot_w_uniform)
-	create_id("Techno-apprentice", technomancer_mob)
-	technomancer_mob.equip_to_slot_or_del(new /obj/item/disposable_teleporter/free(technomancer_mob), slot_r_store)
-
-	var/obj/item/technomancer_catalog/apprentice/catalog = new /obj/item/technomancer_catalog/apprentice()
-	catalog.bind_to_owner(technomancer_mob)
-	technomancer_mob.equip_to_slot_or_del(catalog, slot_l_store)
-
-	technomancer_mob.equip_to_slot_or_del(new /obj/item/device/radio/headset(technomancer_mob), slot_l_ear)
-	var/obj/item/technomancer_core/core = new /obj/item/technomancer_core(technomancer_mob)
-	technomancer_mob.equip_to_slot_or_del(core, slot_back)
-	technomancer_belongings.Add(core) // So it can be Tracked.
-	technomancer_mob.equip_to_slot_or_del(new /obj/item/device/flashlight(technomancer_mob), slot_belt)
-	technomancer_mob.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(technomancer_mob), slot_shoes)
-	technomancer_mob.equip_to_slot_or_del(new /obj/item/clothing/head/technomancer/apprentice(technomancer_mob), slot_head)
+	technomancer_mob.preEquipOutfit(/datum/outfit/admin/techomancer/apprentice, FALSE)
+	technomancer_mob.equipOutfit(/datum/outfit/admin/techomancer/apprentice, FALSE)
 	return TRUE
 
 /datum/antagonist/technomancer/check_victory()
