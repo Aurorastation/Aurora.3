@@ -1,6 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - bugfix: "Diona ear slot is now aligned correctly on the hud."
