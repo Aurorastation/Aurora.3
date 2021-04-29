@@ -1,0 +1,5 @@
+author: Haydizzle
+delete-after: True
+
+changes:
+  - bugfix: "Swaps the east and west facing sprites of the mecha eye (yellow) augment for vaurca so it displays properly."
