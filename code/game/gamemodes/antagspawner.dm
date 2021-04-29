@@ -53,7 +53,7 @@
 /obj/item/antag_spawner/technomancer_apprentice
 	name = "apprentice teleporter"
 	desc = "A teleportation device, which will bring a less potent manipulator of space to you."
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/device.dmi'
 	icon_state = "locator"
 	mob_type = /mob/living/carbon/human
 	ghost_role_id = "technoapprentice"
@@ -61,25 +61,28 @@
 /obj/item/antag_spawner/technomancer_apprentice/attack_self(var/mob/user)
 	if(uses <= 0)
 		to_chat(user, SPAN_WARNING("This teleporter is out of charge."))
+		return
 	to_chat(user, SPAN_NOTICE("The teleporter is now attempting to lock on to your apprentice!"))
 	request_player()
-/*
-/obj/item/antag_spawner/technomancer_apprentice/equip_antag(var/mob/M) TODOMATT: this should go on the ghost spawner
-	var/mob/living/carbon/human/H = M
-	C.prefs.copy_to(H)
-	H.key = C.key
 
-	to_chat(H, "<b>You are the Technomancer's apprentice! Your goal is to assist them in their mission at the [station_name()].</b>")
-	to_chat(H, "<b>Your service has not gone unrewarded, however. Studying under them, you have learned how to use a Manipulation Core \
-	of your own.  You also have a catalog, to purchase your own functions and equipment as you see fit.</b>")
-	to_chat(H, "<b>It would be wise to speak to your master, and learn what their plans are for today.</b>")
+/obj/item/antag_spawner/technomancer_apprentice/request_player(mob/user)
+	SSghostroles.add_spawn_atom(ghost_role_id, src)
 
-	spawn(1)
-		technomancers.add_antagonist(H.mind, 0, 1, 0, 0, 0)
-		equip_antag(H)
-		used = 1
-		qdel(src)
+/obj/item/antag_spawner/technomancer_apprentice/Destroy()
+	SSghostroles.remove_spawn_atom(ghost_role_id, src)
+	return ..()
 
-/obj/item/antag_spawner/technomancer_apprentice/equip_antag(mob/technomancer_mob)
-	var/datum/antagonist/technomancer/antag_datum = all_antag_types[MODE_TECHNOMANCER]
-	antag_datum.equip_apprentice(technomancer_mob)*/
+/obj/item/antag_spawner/technomancer_apprentice/assign_player(var/mob/user)
+	var/turf/T = get_turf(src)
+	var/mob/living/carbon/human/G = new /mob/living/carbon/human(T)
+	G.ckey = user.ckey
+
+	anim(T, G, 'icons/mob/mob.dmi', null,"phasein-blue", null, G.dir)
+
+	G.preEquipOutfit(/datum/outfit/admin/techomancer/apprentice, FALSE)
+	G.equipOutfit(/datum/outfit/admin/techomancer/apprentice, FALSE)
+	technomancers.add_antagonist(G.mind, FALSE, TRUE, FALSE, FALSE, FALSE)
+
+	qdel(src)
+
+	return G

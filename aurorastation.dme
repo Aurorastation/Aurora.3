@@ -1727,6 +1727,7 @@
 #include "code\modules\ghostroles\spawner\atom\shade.dm"
 #include "code\modules\ghostroles\spawner\atom\skeleton.dm"
 #include "code\modules\ghostroles\spawner\atom\syndicate_cyborg.dm"
+#include "code\modules\ghostroles\spawner\atom\technomancer_apprentice.dm"
 #include "code\modules\ghostroles\spawner\atom\wizard_familiar.dm"
 #include "code\modules\ghostroles\spawner\atom\wizardapprentice.dm"
 #include "code\modules\ghostroles\spawner\human\emergencypod.dm"
