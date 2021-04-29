@@ -9,6 +9,7 @@
 	S["html_UI_style"]  >> pref.html_UI_style
 	S["ooccolor"]       >> pref.ooccolor
 	S["clientfps"]			>> pref.clientfps
+	S["floating_chat_color"] >> pref.floating_chat_color
 
 /datum/category_item/player_setup_item/player_global/ui/save_preferences(var/savefile/S)
 	S["UI_style"]       << pref.UI_style
@@ -17,6 +18,7 @@
 	S["html_UI_style"]  << pref.html_UI_style
 	S["ooccolor"]       << pref.ooccolor
 	S["clientfps"]			<< pref.clientfps
+	S["floating_chat_color"] << pref.floating_chat_color
 
 /datum/category_item/player_setup_item/player_global/ui/gather_load_query()
 	return list(
@@ -28,7 +30,8 @@
 				"html_UI_style",
 				"ooccolor",
 				"clientfps",
-				"tooltip_style"
+				"tooltip_style",
+				"floating_chat_color"
 			),
 			"args" = list("ckey")
 		)
@@ -47,6 +50,7 @@
 			"ooccolor",
 			"clientfps",
 			"tooltip_style",
+			"floating_chat_color",
 			"ckey" = 1
 		)
 	)
@@ -60,7 +64,8 @@
 		"html_UI_style" = pref.html_UI_style,
 		"ooccolor" = pref.ooccolor,
 		"clientfps" = pref.clientfps,
-		"tooltip_style" = pref.tooltip_style
+		"tooltip_style" = pref.tooltip_style,
+		"floating_chat_color" = pref.floating_chat_color
 	)
 
 /datum/category_item/player_setup_item/player_global/ui/sanitize_preferences()
@@ -70,6 +75,7 @@
 	pref.clientfps = sanitize_integer(text2num(pref.clientfps), 0, 1000, initial(pref.clientfps))
 	pref.html_UI_style       = sanitize_inlist(pref.html_UI_style, SStheming.available_html_themes, initial(pref.html_UI_style))
 	pref.ooccolor       = sanitize_hexcolor(pref.ooccolor, initial(pref.ooccolor))
+	pref.floating_chat_color = sanitize_hexcolor(pref.floating_chat_color, get_random_colour(0, 160, 230))
 
 /datum/category_item/player_setup_item/player_global/ui/content(mob/user)
 	var/list/dat = list()
@@ -80,13 +86,14 @@
 	dat += "-Alpha(transparency): <a href='?src=\ref[src];select_alpha=1'><b>[pref.UI_style_alpha]</b></a> - <a href='?src=\ref[src];reset=alpha'>reset</a><br>"
 	dat += "<b>Tooltip Style:</b> <a href='?src=\ref[src];select_tooltip_style=1'><b>[pref.tooltip_style]</b></a><br>"
 	dat += "<b>HTML UI Style:</b> <a href='?src=\ref[src];select_html=1'><b>[pref.html_UI_style]</b></a><br>"
-	dat += "-FPS: <a href='?src=\ref[src];select_fps=1'><b>[pref.clientfps]</b></a> - <a href='?src=\ref[src];reset=fps'>reset</a><br>"
+	dat += "<b>FPS:</b> <a href='?src=\ref[src];select_fps=1'><b>[pref.clientfps]</b></a> - <a href='?src=\ref[src];reset=fps'>reset</a><br>"
 	if(can_select_ooc_color(user))
 		dat += "<b>OOC Color:</b> "
 		if(pref.ooccolor == initial(pref.ooccolor))
 			dat += "<a href='?src=\ref[src];select_ooc_color=1'><b>Using Default</b></a><br>"
 		else
 			dat += "<a href='?src=\ref[src];select_ooc_color=1'><b>[pref.ooccolor]</b></a> [HTML_RECT(pref.ooccolor)] - <a href='?src=\ref[src];reset=ooc'>reset</a><br>"
+	dat += "<b>Floating Chat Color:</b> <a href='?src=\ref[src];select_floating_chat_color=1'><b>[pref.floating_chat_color]</b></a><br>"
 
 	. = dat.Join()
 
@@ -119,6 +126,12 @@
 		var/new_ooccolor = input(user, "Choose OOC color:", "Global Preference") as color|null
 		if(new_ooccolor && can_select_ooc_color(user) && CanUseTopic(user))
 			pref.ooccolor = new_ooccolor
+			return TOPIC_REFRESH
+
+	else if(href_list["select_floating_chat_color"])
+		var/new_fc_color = input(user, "Choose Floating Chat Color:", "Global Preference") as color|null
+		if(new_fc_color && CanUseTopic(user))
+			pref.floating_chat_color = new_fc_color
 			return TOPIC_REFRESH
 
 	else if(href_list["select_fps"])

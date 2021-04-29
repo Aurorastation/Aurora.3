@@ -4,6 +4,14 @@ var/list/floating_chat_colors = list()
 /atom/movable
 	var/list/stored_chat_text
 
+/atom/movable/proc/get_floating_chat_color()
+	return get_random_colour(0, 160, 230)
+
+/mob/living/carbon/human/get_floating_chat_color()
+	if(client)
+		if(client.prefs)
+			return client.prefs.floating_chat_color
+
 /atom/movable/proc/animate_chat(message, datum/language/language, small, list/show_to, duration)
 	set waitfor = FALSE
 
@@ -21,7 +29,7 @@ var/list/floating_chat_colors = list()
 		message = "[copytext(message, 1, limit)]..."
 
 	if(!floating_chat_colors[name])
-		floating_chat_colors[name] = get_random_colour(0, 160, 230)
+		floating_chat_colors[name] = get_floating_chat_color()
 	style += "color: [floating_chat_colors[name]];"
 
 	// create 2 messages, one that appears if you know the language, and one that appears when you don't know the language
