@@ -297,21 +297,26 @@
 	gadpathur["medical cadre brassard"] = /obj/item/clothing/accessory/armband/gadpathur/med
 	gear_tweaks += new/datum/gear_tweak/path(gadpathur)
 
-/datum/gear/accessory/dominia/sash
-	display_name = "dominian house sash selection"
-	description = "A selection of sashes representing the Great Houses of Dominia."
-	path = /obj/item/clothing/accessory/dominia/sash
+/datum/gear/accessory/sash_coloured
+	display_name = "sash (colourable)"
+	path = /obj/item/clothing/accessory/sash/colourable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/accessory/dominia/sash/New()
+/datum/gear/accessory/sash
+	display_name = "sash selection"
+	description = "A selection of sashes in various colours."
+	path = /obj/item/clothing/accessory/sash
+
+/datum/gear/accessory/sash/New()
 	..()
-	var/dominia = list()
-	dominia["dominian sash"] = /obj/item/clothing/accessory/dominia/sash
-	dominia["strelitz sash"] = /obj/item/clothing/accessory/dominia/sash/strelitz
-	dominia["volvalaad sash"] = /obj/item/clothing/accessory/dominia/sash/volvalaad
-	dominia["kazhkz sash"] = /obj/item/clothing/accessory/dominia/sash/kazhkz
-	dominia["caladius sash"] = /obj/item/clothing/accessory/dominia/sash/caladius
-	dominia["zhao sash"] =/obj/item/clothing/accessory/dominia/sash/zhao
-	gear_tweaks += new/datum/gear_tweak/path(dominia)
+	var/sash = list()
+	sash["yellow sash"] = /obj/item/clothing/accessory/sash
+	sash["red sash"] = /obj/item/clothing/accessory/sash/red
+	sash["blue sash"] = /obj/item/clothing/accessory/sash/blue
+	sash["orange sash"] = /obj/item/clothing/accessory/sash/orange
+	sash["purple sash"] = /obj/item/clothing/accessory/sash/purple
+	sash["white sash"] =/obj/item/clothing/accessory/sash/white
+	gear_tweaks += new/datum/gear_tweak/path(sash)
 
 /datum/gear/accessory/passcard
 	display_name = "human passcard selection"

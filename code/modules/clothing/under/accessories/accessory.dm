@@ -362,6 +362,55 @@
 	item_state = "cargoponcho"
 
 /*
+ * Sashes
+ */
+
+/obj/item/clothing/accessory/sash
+	name = "yellow sash"
+	desc = "A yellow sash, designed to be worn over one shoulder and come down to the opposing hip."
+	desc_fluff = "Sashes such as this one are a common sight throughout the Empire of Dominia, though they are hardly as fashionable as the typical cape."
+	icon = 'icons/clothing/accessories/sash.dmi'
+	item_state = "sash"
+	icon_state = "sash"
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/sash/red
+	name = "red sash"
+	desc = "A red sash, designed to be worn over one shoulder and come down to the opposing hip."
+	item_state = "red_sash"
+	icon_state = "red_sash"
+
+/obj/item/clothing/accessory/sash/blue
+	name = "blue sash"
+	desc = "A blue sash, designed to be worn over one shoulder and come down to the opposing hip."
+	item_state = "blue_sash"
+	icon_state = "blue_sash"
+
+/obj/item/clothing/accessory/sash/orange
+	name = "orange sash"
+	desc = "An orange sash, designed to be worn over one shoulder and come down to the opposing hip."
+	item_state = "orange_sash"
+	icon_state = "orange_sash"
+
+/obj/item/clothing/accessory/sash/purple
+	name = "purple sash"
+	desc = "A purple sash, designed to be worn over one shoulder and come down to the opposing hip."
+	item_state = "purple_sash"
+	icon_state = "purple_sash"
+
+/obj/item/clothing/accessory/sash/white
+	name = "white sash"
+	desc = "A white sash, designed to be worn over one shoulder and come down to the opposing hip."
+	item_state = "white_sash"
+	icon_state = "white_sash"
+
+/obj/item/clothing/accessory/sash/colourable
+	name = "sash"
+	desc = "A sash, designed to be worn over one shoulder and come down to the opposing hip."
+	item_state = "sash_colourable"
+	icon_state = "sash_colourable"
+
+/*
  * Cloak
  */
 /obj/item/clothing/accessory/poncho/roles/cloak
