@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added vitals monitors for rollerbeds, two mapped into medical's GTR."
