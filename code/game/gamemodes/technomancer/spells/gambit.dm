@@ -46,7 +46,6 @@
 // Gives a "random" spell.
 /obj/item/spell/gambit/proc/biased_random_spell()
 	var/list/potential_spells = list()
-	var/rare_spell_chance = between(0, calculate_spell_power(100) - 100, 100)
 
 	// First the spell will concern itself with the health of the technomancer.
 	if(prob(owner.getBruteLoss() + owner.getBruteLoss() * 2)) // Having 20 brute means a 40% chance of being added to the pool.
@@ -62,7 +61,7 @@
 		// Spiders, carp... bears.
 		if(istype(L, /mob/living/simple_animal))
 			var/mob/living/simple_animal/SM = L
-			if(!is_ally(SM) && SM.has_AI() && SM.ai_holder.hostile)
+			if(!is_ally(SM))
 				hostile_mobs++
 				if(SM.summoned || SM.supernatural) // Our creations might be trying to kill us.
 					potential_spells |= /obj/item/spell/abjuration

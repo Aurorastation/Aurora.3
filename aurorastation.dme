@@ -627,6 +627,7 @@
 #include "code\game\gamemodes\technomancer\spells\modifier\corona.dm"
 #include "code\game\gamemodes\technomancer\spells\modifier\haste.dm"
 #include "code\game\gamemodes\technomancer\spells\modifier\mend_life.dm"
+#include "code\game\gamemodes\technomancer\spells\modifier\mend_synthetic.dm"
 #include "code\game\gamemodes\technomancer\spells\modifier\modifier.dm"
 #include "code\game\gamemodes\technomancer\spells\projectile\beam.dm"
 #include "code\game\gamemodes\technomancer\spells\projectile\chain_lightning.dm"
