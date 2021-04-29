@@ -323,7 +323,7 @@
 		item_state = "telestick"
 		w_class = ITEMSIZE_LARGE
 		slot_flags = null
-		force = 10 //quite robust
+		force = 6
 		attack_verb = list("smacked", "struck", "slapped")
 	else
 		user.visible_message(SPAN_NOTICE("\The [user] collapses their telescopic cane."), SPAN_NOTICE("You collapse the cane."), SPAN_NOTICE("You hear a click."))
@@ -331,7 +331,7 @@
 		item_state = "telestick_0"
 		w_class = ITEMSIZE_SMALL
 		slot_flags = SLOT_BELT
-		force = 3 //not so robust now
+		force = 3
 		attack_verb = list("hit", "punched")
 
 	if(istype(user,/mob/living/carbon/human))
