@@ -248,7 +248,7 @@ BREATH ANALYZER
 			if(!found_bleed && (e.status & ORGAN_ARTERY_CUT))
 				dat += "<span class='scan_warning'>Arterial bleeding detected. Advanced scanner required for location.</span>"
 				found_bleed = TRUE
-			if(!found_tendon && (istype(e.tendon) && !e.tendon.intact))
+			if(!found_tendon && !e.tendon?.intact)
 				dat += "<span class='scan_warning'>Tendon or ligament damage detected. Advanced scanner required for location.</span>"
 				found_tendon = TRUE
 		if(found_disloc && found_bleed && found_tendon)

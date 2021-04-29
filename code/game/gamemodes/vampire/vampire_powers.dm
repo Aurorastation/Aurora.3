@@ -616,7 +616,7 @@
 			if(E.status & ORGAN_ARTERY_CUT)
 				E.status &= ~ORGAN_ARTERY_CUT
 				blood_used += 2
-			if(istype(E.tendon) && !E.tendon.intact)
+			if(!E.tendon?.intact)
 				E.tendon.heal()
 				blood_used += 2
 			if(E.status & ORGAN_BROKEN)

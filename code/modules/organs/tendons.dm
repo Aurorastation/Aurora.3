@@ -29,7 +29,8 @@
 	if(!parent?.owner || intact)
 		return FALSE
 
-	. = intact = TRUE
+	intact = TRUE
+	return TRUE
 
 /datum/tendon/proc/sever()
 	if(!parent?.owner || !intact)

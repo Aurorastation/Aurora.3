@@ -190,7 +190,7 @@
 							E.status &= ~ORGAN_ARTERY_CUT
 							return
 
-						if(istype(E.tendon) && !E.tendon.intact)
+						if(!E.tendon?.intact)
 							to_chat(H, SPAN_NOTICE("Your autoredactive faculty repairs the severed tendon in your [E.name]."))
 							E.tendon.heal()
 							return TRUE
