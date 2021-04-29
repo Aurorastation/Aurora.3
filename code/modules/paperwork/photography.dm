@@ -54,8 +54,8 @@ var/global/photo_count = 0
 	..()
 
 /obj/item/photo/examine(mob/user)
-	.=..()
-	if(in_range(user, src))
+	. = ..()
+	if(in_range(user, src) || isobserver(user) || in_slide_projector(user))
 		show(user)
 		to_chat(user, "<span class='notice'>[picture_desc]</span>")
 	else

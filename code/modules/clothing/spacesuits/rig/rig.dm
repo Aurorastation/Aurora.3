@@ -27,6 +27,9 @@
 	)
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
+	max_pressure_protection = RIG_MAX_PRESSURE
+	min_pressure_protection = 0
+
 	siemens_coefficient = 0.35
 	permeability_coefficient = 0.1
 	unacidable = 1
@@ -86,7 +89,7 @@
 	var/offline_slowdown = 3                                  // If the suit is deployed and unpowered, it sets slowdown to this.
 	var/vision_restriction = TINT_NONE
 	var/offline_vision_restriction = TINT_HEAVY
-	var/airtight = 1 //If set, will adjust AIRTIGHT and STOPPRESSUREDAMAGE flags on components. Otherwise it should leave them untouched.
+	var/airtight = 1 //If set, will adjust the AIRTIGHT flag on components. Otherwise it should leave them untouched.
 
 	var/emp_protection = 0
 
@@ -210,7 +213,9 @@
 		if(!piece) continue
 		piece.icon_state = "[initial(icon_state)]"
 		if(airtight)
-			piece.item_flags &= ~(STOPPRESSUREDAMAGE|AIRTIGHT)
+			piece.max_pressure_protection = initial(piece.max_pressure_protection)
+			piece.min_pressure_protection = initial(piece.min_pressure_protection)
+			piece.item_flags &= ~AIRTIGHT
 	update_icon(1)
 
 /obj/item/rig/proc/toggle_seals(var/mob/initiator,var/instant)
@@ -341,9 +346,13 @@
 /obj/item/rig/proc/update_component_sealed()
 	for(var/obj/item/piece in list(helmet,boots,gloves,chest))
 		if(canremove)
-			piece.item_flags &= ~(STOPPRESSUREDAMAGE|AIRTIGHT)
+			piece.max_pressure_protection = initial(piece.max_pressure_protection)
+			piece.min_pressure_protection = initial(piece.min_pressure_protection)
+			piece.item_flags &= ~AIRTIGHT
 		else
-			piece.item_flags |=  (STOPPRESSUREDAMAGE|AIRTIGHT)
+			piece.max_pressure_protection = max_pressure_protection
+			piece.min_pressure_protection = min_pressure_protection
+			piece.item_flags |= AIRTIGHT
 	update_icon(1)
 
 /obj/item/rig/process()

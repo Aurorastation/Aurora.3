@@ -738,7 +738,6 @@
 	if(speak_emote.len)
 		verb = pick(speak_emote)
 
-	message = sanitize(message)
 	if(emote_sounds.len)
 		var/sound_chance = TRUE
 		if(client) // we do not want people who assume direct control to spam

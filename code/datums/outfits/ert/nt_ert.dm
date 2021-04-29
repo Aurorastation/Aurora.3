@@ -34,7 +34,7 @@
 /datum/outfit/admin/ert/nanotrasen/specialist/medical
 	name = "Nanotrasen ERT Medical Specialist"
 
-	belt = /obj/item/storage/belt/medical
+	belt = /obj/item/storage/belt/medical/first_responder/combat
 	back = /obj/item/rig/ert/medical
 	r_hand = /obj/item/storage/firstaid/combat
 

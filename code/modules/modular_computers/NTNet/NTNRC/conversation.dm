@@ -125,6 +125,8 @@ var/global/ntnrc_uid = 0
 /datum/ntnet_conversation/proc/cl_leave(var/datum/computer_file/program/chat_client/Cl)
 	if(!istype(Cl) || !istype(Cl.my_user) || !(Cl.my_user in users) || !can_interact(Cl) || direct)
 		return
+	if(Cl.focused_conv == src)
+		Cl.focused_conv = null
 	var/datum/ntnet_message/leave/msg = new(Cl)
 	Cl.my_user.channels.Remove(src)
 	users.Remove(Cl.my_user)

@@ -95,7 +95,7 @@
 	..(user)
 	if(LAZYLEN(accessories))
 		for(var/obj/item/clothing/accessory/A in accessories)
-			to_chat(user, "\A [A] is attached to it.")
+			to_chat(user, "\A [A] [A.gender == PLURAL ? "are" : "is"] attached to it.")
 
 /obj/item/clothing/proc/update_accessory_slowdown()
 	slowdown_accessory = 0

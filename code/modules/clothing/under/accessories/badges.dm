@@ -473,7 +473,8 @@
 	update_icon()
 
 /obj/item/clothing/accessory/badge/passport/update_icon()
-	icon_state = "[initial(icon_state)][open ? "_o" : ""]"
+	if(open != CANT_OPEN)
+		icon_state = "[initial(icon_state)][open ? "_o" : ""]"
 
 /obj/item/clothing/accessory/badge/passport/sol
 	name = "solarian passport"
