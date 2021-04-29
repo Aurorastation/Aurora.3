@@ -2,6 +2,10 @@
 	display_name = "cane"
 	path = /obj/item/cane
 
+/datum/gear/cane/telecane
+	display_name = "telecopic cane"
+	path = /obj/item/cane/telecane
+
 /datum/gear/cane/crutch
 	display_name = "crutch"
 	path = /obj/item/cane/crutch

@@ -303,6 +303,36 @@
 	item_state = "shillelagh"
 	contained_sprite = TRUE
 
+/obj/item/cane/telecane
+	name = "telescopic cane"
+	desc = "A compact cane which can be collapsed for storage."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "telecane"
+
+/obj/item/cane/telecane/attack_self(mob/user)
+	on = !on
+	if(on)
+		user.visible_message(SPAN_WARNING("With a flick of their wrist, [user] extends their telescopic cane."), SPAN_WARNING("You extend the cane."), SPAN_WARNING("You hear an ominous click."))
+		icon_state = "telecane_1"
+		item_state = "telestick"
+		w_class = ITEMSIZE_NORMAL
+		force = 10 //quite robust
+		attack_verb = list("smacked", "struck", "slapped")
+	else
+		user.visible_message(SPAN_NOTICE("\The [user] collapses their telescopic cane."), SPAN_NOTICE("You collapse the cane."), SPAN_NOTICE("You hear a click."))
+		icon_state = "telecane_0"
+		item_state = "telestick_0"
+		w_class = ITEMSIZE_SMALL
+		force = 3 //not so robust now
+		attack_verb = list("hit", "punched")
+
+	if(istype(user,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = user
+		H.update_inv_l_hand()
+		H.update_inv_r_hand()
+
+	playsound(src.loc, 'sound/weapons/click.ogg', 50, 1)
+
 /obj/item/disk
 	name = "disk"
 	icon = 'icons/obj/items.dmi'
@@ -371,36 +401,6 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "cane"
 	item_state = "stick"
-
-/obj/item/staff/k_cane
-	name = "telescopic cane"
-	desc = "A compact cane which can be collapsed for storage."
-	icon = 'icons/obj/weapons.dmi'
-	icon_state = "k-cane"
-
-/obj/item/staff/k_cane/attack_self(mob/user)
-	on = !on
-	if(on)
-		user.visible_message(SPAN_WARNING("With a flick of their wrist, [user] extends their telescopic cane."), SPAN_WARNING("You extend the cane."), SPAN_WARNING("You hear an ominous click."))
-		icon_state = "k_cane_1"
-		item_state = "k-stick"
-		w_class = ITEMSIZE_NORMAL
-		force = 10 //quite robust
-		attack_verb = list("smacked", "struck", "slapped")
-	else
-		user.visible_message(SPAN_NOTICE("\The [user] collapses their telescopic cane."), SPAN_NOTICE("You collapse the cane."), SPAN_NOTICE("You hear a click."))
-		icon_state = "k-cane_0"
-		item_state = "k-stick_0"
-		w_class = ITEMSIZE_SMALL
-		force = 3 //not so robust now
-		attack_verb = list("hit", "punched")
-
-	if(istype(user,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = user
-		H.update_inv_l_hand()
-		H.update_inv_r_hand()
-
-	playsound(src.loc, 'sound/weapons/click.ogg', 50, 1)
 
 /obj/item/staff/stick
 	name = "stick"
