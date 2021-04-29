@@ -153,7 +153,9 @@ Pen exclusive commands
 	colour = "#1c1713" //dark ashy brownish
 	var/cursive = FALSE
 
-/obj/item/pen/fountain/attack_self(var/mob/user)
+/obj/item/pen/fountain/AltClick(mob/user)
+	if(use_check_and_message(user))
+		return
 	playsound(loc, 'sound/items/penclick.ogg', 50, 1)
 	to_chat(user, SPAN_NOTICE("You snap the nib into position to write [cursive ? "normally" : "in cursive"]."))
 	cursive = !cursive

@@ -4,3 +4,5 @@ delete-after: True
 
 changes:
   - rscadd: "Added new uplink types for antags, pen and implant. The pen one will spawn in your PDA, whilst the implant will be implanted somewhere in your body. The implant one will spawn with 80% the normal amount of telecrystals."
+  - tweak: "Selecting your uplink location will now show a pop-up input with a list of them."
+  - tweak: "You can now click fountain pens ICly. Alt-clicking them OOCly will cause them to go from cursive to normal writing and vice versa."

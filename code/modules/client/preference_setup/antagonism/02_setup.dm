@@ -67,9 +67,12 @@ var/global/list/uplink_locations = list("PDA", "Headset", "Pen", "Implant", "Non
 	. = dat.Join()
 
 /datum/category_item/player_setup_item/antagonism/basic/OnTopic(var/href,var/list/href_list, var/mob/user)
-	if (href_list["antagtask"])
-		pref.uplinklocation = next_in_list(pref.uplinklocation, uplink_locations)
-		return TOPIC_REFRESH
+	if(href_list["antagtask"])
+		var/chosen_location = input(user, "Choose your uplink spawn location.", "Uplink Location") as null|anything in uplink_locations
+		if(chosen_location)
+			pref.uplinklocation = chosen_location
+			return TOPIC_REFRESH
+		return TOPIC_NOACTION
 
 	if(href_list["exploitable_record"])
 		var/exploitmsg = sanitize(input(user,"Set exploitable information about you here.","Exploitable Information", html_decode(pref.exploit_record)) as message|null, MAX_PAPER_MESSAGE_LEN, extra = 0)
