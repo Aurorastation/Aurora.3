@@ -9,7 +9,7 @@
 	name = "disposable teleporter"
 	desc = "A very compact personal teleportation device.  It's very precise and safe, however it can only be used a few times."
 	icon = 'icons/obj/device.dmi'
-	icon_state = "hand_tele" //temporary
+	icon_state = "hand_tele"
 	var/uses = 3.0
 	w_class = ITEMSIZE_TINY
 	item_state = "paper"
@@ -23,8 +23,8 @@
 	uses = 1
 
 /obj/item/disposable_teleporter/examine(mob/user)
-	. = ..()
-	. += "[uses] uses remaining."
+	..()
+	to_chat(user, "[uses] uses remaining.")
 
 /obj/item/disposable_teleporter/attack_self(mob/user as mob)
 	if(!uses)

@@ -9,7 +9,7 @@
 
 /obj/item/spell/modifier/corona
 	name = "corona"
-	desc = "How brillient!"
+	desc = "How brilliant!"
 	icon_state = "radiance"
 	cast_methods = CAST_RANGED
 	aspect = ASPECT_LIGHT

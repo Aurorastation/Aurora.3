@@ -9,7 +9,7 @@
 
 /obj/item/spell/modifier/haste
 	name = "haste"
-	desc = "Now you can outrun a Teshari!"
+	desc = "Now you can outrun a Tajara!"
 	icon_state = "haste"
 	cast_methods = CAST_RANGED
 	aspect = ASPECT_FORCE
@@ -20,3 +20,18 @@
 /datum/modifier/technomancer/haste
 	on_created_text = "<span class='notice'>You suddenly find it much easier to move.</span>"
 	on_expired_text = "<span class='warning'>You feel slow again.</span>"
+
+/datum/modifier/technomancer/haste/activate()
+	. = ..()
+	if(ishuman(target))
+		var/mob/living/carbon/human/H = target
+		H.move_delay_mod += -0.8
+		H.sprint_cost_factor += -0.2
+
+/datum/modifier/technomancer/haste/deactivate()
+	. = ..()
+	if(ishuman(target))
+		var/mob/living/carbon/human/H = target
+		H.move_delay_mod += 0.8
+		H.sprint_cost_factor += 0.2
+

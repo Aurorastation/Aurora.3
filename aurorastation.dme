@@ -600,6 +600,7 @@
 #include "code\game\gamemodes\technomancer\spells\dispel.dm"
 #include "code\game\gamemodes\technomancer\spells\energy_siphon.dm"
 #include "code\game\gamemodes\technomancer\spells\flame_tongue.dm"
+#include "code\game\gamemodes\technomancer\spells\gambit.dm"
 #include "code\game\gamemodes\technomancer\spells\illusion.dm"
 #include "code\game\gamemodes\technomancer\spells\instability_tap.dm"
 #include "code\game\gamemodes\technomancer\spells\mark_recall.dm"

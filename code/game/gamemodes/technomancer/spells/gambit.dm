@@ -9,12 +9,11 @@
 	obj_path = /obj/item/spell/gambit
 	category = UTILITY_SPELLS
 
-/var/global/list/all_technomancer_gambit_spells = typesof(/obj/item/spell) - list(
-	/obj/item/spell,
+/var/global/list/all_technomancer_gambit_spells = subtypesof(/obj/item/spell) - list(
 	/obj/item/spell/gambit,
 	/obj/item/spell/projectile,
 	/obj/item/spell/aura,
-//	/obj/item/spell/insert,
+	/obj/item/spell/insert,
 	/obj/item/spell/spawner,
 	/obj/item/spell/summon,
 	/obj/item/spell/modifier)
@@ -25,10 +24,6 @@
 	icon_state = "gambit"
 	cast_methods = CAST_USE
 	aspect = ASPECT_UNSTABLE
-	/*var/list/rare_spells = list(
-		/obj/item/spell/modifier/mend_all todomatt: this bs
-	)*/
-
 
 /obj/item/spell/gambit/on_use_cast(mob/living/carbon/human/user)
 	if(pay_energy(200))
@@ -46,20 +41,12 @@
 // Gives a random spell.
 /obj/item/spell/gambit/proc/random_spell()
 	var/list/potential_spells = all_technomancer_gambit_spells.Copy()
-	var/rare_spell_chance = between(0, calculate_spell_power(100) - 100, 100) // Having 120% spellpower means a 20% chance to get to roll for rare spells.
-	if(prob(rare_spell_chance))
-		potential_spells += rare_spells.Copy()
-		to_chat(owner, "<span class='notice'>You feel a bit luckier...</span>")
 	return pick(potential_spells)
 
 // Gives a "random" spell.
 /obj/item/spell/gambit/proc/biased_random_spell()
 	var/list/potential_spells = list()
 	var/rare_spell_chance = between(0, calculate_spell_power(100) - 100, 100)
-	var/give_rare_spells = FALSE
-	if(prob(rare_spell_chance))
-		give_rare_spells = TRUE
-		to_chat(owner, "<span class='notice'>You feel a bit luckier...</span>")
 
 	// First the spell will concern itself with the health of the technomancer.
 	if(prob(owner.getBruteLoss() + owner.getBruteLoss() * 2)) // Having 20 brute means a 40% chance of being added to the pool.
@@ -67,8 +54,6 @@
 			potential_spells |= /obj/item/spell/modifier/mend_life
 		else
 			potential_spells |= /obj/item/spell/modifier/mend_synthetic
-		if(give_rare_spells)
-			potential_spells |= /obj/item/spell/modifier/mend_all
 
 	// Second, the spell will try to prepare the technomancer for threats.
 	var/hostile_mobs = 0 // Counts how many hostile mobs.  Higher numbers make it more likely for AoE spells to be chosen.
