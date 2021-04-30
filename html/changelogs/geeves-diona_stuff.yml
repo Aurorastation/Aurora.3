@@ -1,0 +1,6 @@
+author: Geeves, SleepyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed diona blinking helmethead and blinking p-body blinking very rapidly."
