@@ -443,7 +443,7 @@
 	return
 
 /obj/machinery/biogenerator/proc/create_product(var/itemtype, var/count)
-	if (!ispath(itemtype))
+	if (!ispath(itemtype, /decl/biorecipe))
 		return FALSE
 
 	var/decl/biorecipe/recipe = decls_repository.get_decl(itemtype)
@@ -521,7 +521,7 @@
 				beaker = null
 				update_icon()
 		if("create")
-			create_product(href_list["itemtype"], text2num(href_list["count"]))
+			create_product(text2path(href_list["itemtype"]), text2num(href_list["count"]))
 		if("menu")
 			menustat = "menu"
 	updateUsrDialog()
