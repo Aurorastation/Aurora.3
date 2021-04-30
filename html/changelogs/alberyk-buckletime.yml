@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes:
+  - tweak: "Buckling someone else now takes some seconds. Buckling is still instant if they are lying down."
