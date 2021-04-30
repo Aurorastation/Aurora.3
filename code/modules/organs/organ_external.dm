@@ -64,6 +64,7 @@
 	var/list/internal_organs = list() 	// Internal organs of this body part
 
 	var/datum/tendon/tendon
+	var/tendon_path = /datum/tendon
 	var/tendon_name = "tendon"   // Name of the limb's tendon. Achilles heel, etc.
 	var/tendon_dt 			 // Damage threshold required to possibly snap a tendon
 	var/list/tendon_msgs = list("tore apart", "ripped away")
@@ -231,8 +232,8 @@
 
 	get_icon()
 
-	if(limb_flags & ORGAN_HAS_TENDON)
-		tendon = new(src, tendon_name, tendon_dt, tendon_msgs)
+	if((limb_flags & ORGAN_HAS_TENDON) && !BP_IS_ROBOTIC(src))
+		tendon = new tendon_path(src, tendon_name, tendon_dt, tendon_msgs)
 
 /obj/item/organ/external/replaced(var/mob/living/carbon/human/target)
 	..()
