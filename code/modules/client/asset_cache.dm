@@ -150,7 +150,6 @@ var/list/asset_datums = list()
 
 /datum/asset
 	var/_abstract = /datum/asset
-	var/delayed = FALSE
 
 /datum/asset/New()
 	asset_datums[type] = src
@@ -482,7 +481,6 @@ var/list/asset_datums = list()
 
 /datum/asset/spritesheet/vending
 	name = "vending"
-	delayed = TRUE
 
 /datum/asset/spritesheet/vending/register()
 	var/list/vending_products = list()
@@ -517,6 +515,8 @@ var/list/asset_datums = list()
 		if(istype(O, /obj/item/seeds))
 			// thanks seeds for being overlays defined at runtime
 			var/obj/item/seeds/S = O
+			if(!S.seed && S.seed_type && !isnull(SSplants.seeds) && SSplants.seeds[S.seed_type])
+				S.seed = SSplants.seeds[S.seed_type]
 			I = S.update_appearance(TRUE)
 			Insert(imgid, I, forced=I)
 		else
