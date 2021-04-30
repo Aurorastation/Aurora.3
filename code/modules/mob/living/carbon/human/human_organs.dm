@@ -113,10 +113,9 @@
 	// One cane mitigates a broken leg+foot, or a missing foot.
 	// No double caning allowed, sorry. Canes also don't work if you're missing a functioning pair of feet or legs.
 	if(has_opposite_limb)
-		if(l_hand && istype(l_hand, /obj/item/cane))
-			stance_damage -= 2
-		else if(r_hand && istype(r_hand, /obj/item/cane))
-			stance_damage -= 2
+		var/obj/item/cane/C = get_type_in_hands(/obj/item/cane)
+		if(C?.can_support)
+			stance_damage -=2
 
 	//Standing is poor.
 	if(stance_damage >= 4 || (stance_damage >= 2 && prob(5)))
