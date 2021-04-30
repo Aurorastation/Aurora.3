@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - imageadd: "Ported and tweaked sprites for: Toolbelts, Belt Overlays, Welding Tools, Impact Wrench, Air Analyzer, T-ray Scanner, Flamethrower, Multitool."
