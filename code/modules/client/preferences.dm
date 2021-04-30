@@ -405,6 +405,7 @@ datum/preferences
 	character.set_species(species)
 	if(character.dna)
 		character.dna.real_name = character.real_name
+	character.set_floating_chat_color(floating_chat_color)
 
 	character.flavor_texts["general"] = flavor_texts["general"]
 	character.flavor_texts[BP_HEAD] = flavor_texts[BP_HEAD]
@@ -659,6 +660,8 @@ datum/preferences
 		disabilities = list()
 
 		nanotrasen_relation = "Neutral"
+	
+	update_preview_icon()
 
 // Deletes a character from the database
 /datum/preferences/proc/delete_character_sql(var/client/C)

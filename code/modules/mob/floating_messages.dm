@@ -7,12 +7,10 @@ var/list/floating_chat_colors = list()
 /atom/movable/proc/get_floating_chat_color()
 	return get_random_colour(0, 160, 230)
 
-/mob/living/carbon/human/get_floating_chat_color()
-	if(client)
-		if(client.prefs)
-			return client.prefs.floating_chat_color
+/atom/movable/proc/set_floating_chat_color(color)
+	floating_chat_colors[name] = color
 
-/atom/movable/proc/animate_chat(message, datum/language/language, small, list/show_to, duration)
+/atom/movable/proc/animate_chat(message, datum/language/language, small, list/show_to, duration, override_color)
 	set waitfor = FALSE
 
 	var/style	//additional style params for the message
