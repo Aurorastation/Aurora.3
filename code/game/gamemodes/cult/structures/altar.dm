@@ -18,7 +18,7 @@
 					to_chat(H, SPAN_WARNING("Severed artery found in [O.name], repairing..."))
 					if(do_after(user, 20))
 						O.status &= ~ORGAN_ARTERY_CUT
-				if(!O.tendon?.intact)
+				if(istype(O.tendon) && !O.tendon.intact)
 					to_chat(H, SPAN_WARNING("Severed tendon found in [O.name], repairing..."))
 					if(do_after(user, 20))
 						O.tendon.heal()

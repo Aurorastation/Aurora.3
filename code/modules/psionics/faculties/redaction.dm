@@ -83,7 +83,7 @@
 				to_chat(user, SPAN_NOTICE("You painstakingly mend the torn veins in \the [E], stemming the internal bleeding."))
 				E.status &= ~ORGAN_ARTERY_CUT
 				return TRUE
-			if(!E.tendon?.intact)
+			if(istype(E.tendon) && !E.tendon.intact)
 				to_chat(user, SPAN_NOTICE("You interleave and repair the severed tendon in \the [E]."))
 				E.tendon.heal()
 				return TRUE

@@ -67,7 +67,7 @@
 			E.stage = 0
 			return 1
 
-		if(!E.tendon?.intact)
+		if(istype(E.tendon) && !E.tendon.intact)
 			to_chat(user, "<span class='notice'>You place your hands over [target]'s [E.name], joining the two ends of their [E.tendon_name] in the process.</span>")
 			E.tendon.heal()
 			return 1
