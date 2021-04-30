@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Antags that don't appear at roundstart no longer appear in the Role menu in character creation."
