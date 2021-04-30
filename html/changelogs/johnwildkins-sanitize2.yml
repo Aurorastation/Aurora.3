@@ -1,6 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "Adminhelps/PMs should no longer have issues displaying apostrophes and other special characters."
