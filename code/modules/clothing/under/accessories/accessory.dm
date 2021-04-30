@@ -679,3 +679,45 @@
 	item_state = "kneepads"
 	contained_sprite = TRUE
 	gender = PLURAL
+
+/obj/item/clothing/accessory/blood_patch
+	name = "O- blood patch"
+	desc = "An embroidered patch indicating the wearer's blood type as O NEGATIVE."
+	icon = 'icons/clothing/accessories/blood_patch.dmi'
+	icon_state = "onegtag"
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/blood_patch/opos
+	name = "O+ blood patch"
+	desc = "An embroidered patch indicating the wearer's blood type as O POSITIVE."
+	icon_state = "opostag"
+
+/obj/item/clothing/accessory/blood_patch/apos
+	name = "A+ blood patch"
+	desc = "An embroidered patch indicating the wearer's blood type as A POSITIVE."
+	icon_state = "apostag"
+
+/obj/item/clothing/accessory/blood_patch/aneg
+	name = "A- blood patch"
+	desc = "An embroidered patch indicating the wearer's blood type as A NEGATIVE."
+	icon_state = "anegtag"
+
+/obj/item/clothing/accessory/blood_patch/bpos
+	name = "B+ blood patch"
+	desc = "An embroidered patch indicating the wearer's blood type as B POSITIVE."
+	icon_state = "bpostag"
+
+/obj/item/clothing/accessory/blood_patch/bneg
+	name = "B- blood patch"
+	desc = "An embroidered patch indicating the wearer's blood type as B NEGATIVE."
+	icon_state = "bnegtag"
+
+/obj/item/clothing/accessory/blood_patch/abpos
+	name = "AB+ blood patch"
+	desc = "An embroidered patch indicating the wearer's blood type as AB POSITIVE."
+	icon_state = "abpostag"
+
+/obj/item/clothing/accessory/blood_patch/abneg
+	name = "AB- blood patch"
+	desc = "An embroidered patch indicating the wearer's blood type as AB NEGATIVE."
+	icon_state = "abnegtag"

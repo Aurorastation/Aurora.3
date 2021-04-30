@@ -362,3 +362,16 @@
 /datum/gear/accessory/kneepads
 	display_name = "kneepads"
 	path = /obj/item/clothing/accessory/kneepads
+
+/datum/gear/accessory/blood_patch
+	display_name = "blood patch selection"
+	description = "An embroidered patch indicating the wearer's blood type."
+	path = /obj/item/clothing/accessory/blood_patch
+
+/datum/gear/accessory/blood_patch/New()
+	..()
+	var/list/patches = list()
+	for(var/type in typesof(/obj/item/clothing/accessory/blood_patch))
+		var/obj/item/clothing/accessory/blood_patch/BP = type
+		patches[initial(BP.name)] = type
+	gear_tweaks += new /datum/gear_tweak/path(patches)
