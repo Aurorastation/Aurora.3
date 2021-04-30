@@ -109,6 +109,8 @@
 		set_temp = text2num(desired_temp) + T0C
 		to_chat(user, SPAN_NOTICE("You set [src] to [round(set_temp-T0C)]C."))
 		stat &= ~POWEROFF
+		if(use_power == 0)
+			use_power = 1
 	use_power = !(stat & POWEROFF) && use_power
 	if(wasoff != (stat & POWEROFF))
 		activation_message(user)
