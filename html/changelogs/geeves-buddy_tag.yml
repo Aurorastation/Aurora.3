@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added buddy tags to the utility loadout. They're small devices that can be attached to uniforms that will beep if they don't have a paired buddy in range."
