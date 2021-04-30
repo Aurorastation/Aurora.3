@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - imageadd: "Ported various sprites related to robotics, cyborgs, and exosuits."
