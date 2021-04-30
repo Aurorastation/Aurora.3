@@ -1488,6 +1488,7 @@
 #include "code\modules\clothing\under\accessories\armband.dm"
 #include "code\modules\clothing\under\accessories\armor.dm"
 #include "code\modules\clothing\under\accessories\badges.dm"
+#include "code\modules\clothing\under\accessories\buddy_tag.dm"
 #include "code\modules\clothing\under\accessories\holster.dm"
 #include "code\modules\clothing\under\accessories\lockets.dm"
 #include "code\modules\clothing\under\accessories\medal.dm"
