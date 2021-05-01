@@ -1279,8 +1279,8 @@
 		var/mob/living/carbon/human/H = M
 		for (var/A in H.organs)
 			var/obj/item/organ/external/E = A
-			if(E.status & ORGAN_TENDON_CUT)
-				E.status &= ~ORGAN_TENDON_CUT
+			if(istype(E.tendon) && !E.tendon.intact)
+				E.tendon.heal()
 				return 1
 
 			if(E.status & ORGAN_ARTERY_CUT)
