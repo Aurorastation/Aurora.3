@@ -42,12 +42,12 @@
 #define DROP_SOUND_VOLUME 20
 #define THROW_SOUND_VOLUME 90
 
-/proc/playsound(atom/source, soundin, vol, vary, extrarange, falloff, is_global, usepressure = 1, environment = -1, required_preferences = 0, required_asfx_toggles = 0)
+/proc/playsound(atom/source, soundin, vol, vary, extrarange, falloff, is_global, usepressure = 1, environment = -1, required_preferences = 0, required_asfx_toggles = 0, frequency = 0)
 	if (isarea(source))
 		crash_with("[source] is an area and is trying to make the sound: [soundin]")
 		return
 
-	var/sound/original_sound = playsound_get_sound(soundin, vol, falloff, 0, environment)
+	var/sound/original_sound = playsound_get_sound(soundin, vol, falloff, frequency, environment)
 
 	if (!original_sound)
 		crash_with("Could not construct original sound.")

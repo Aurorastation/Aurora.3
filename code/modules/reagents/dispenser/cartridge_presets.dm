@@ -53,6 +53,7 @@
 	clean_kois	spawn_reagent = /decl/reagent/kois/clean
 	cola		spawn_reagent = /decl/reagent/drink/space_cola
 	dr_gibb		spawn_reagent = /decl/reagent/drink/dr_gibb
+	grenadine	spawn_reagent = /decl/reagent/drink/grenadine
 	ice			spawn_reagent = /decl/reagent/drink/ice
 	icetea		spawn_reagent = /decl/reagent/drink/icetea
 	lemon_lime	spawn_reagent = /decl/reagent/drink/lemon_lime

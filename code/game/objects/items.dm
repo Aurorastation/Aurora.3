@@ -910,7 +910,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	if(flags & HELDMAPTEXT)
 		check_maptext()
 
-/obj/item/dropped()
+/obj/item/dropped(var/mob/user)
 	..()
 	if(flags & HELDMAPTEXT)
 		check_maptext()
@@ -944,3 +944,6 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		if(SP.current_slide == src && (SP.projection in view(world.view, user)))
 			return TRUE
 	return FALSE
+
+/obj/item/proc/get_belt_overlay() //Returns the icon used for overlaying the object on a belt
+	return mutable_appearance('icons/obj/clothing/belt_overlays.dmi', icon_state)

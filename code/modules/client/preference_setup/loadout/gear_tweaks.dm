@@ -195,6 +195,8 @@ var/datum/gear_tweak/custom_name/gear_tweak_free_name = new()
 	if(!metadata)
 		return I.name
 	I.name = metadata
+	if(I.vars["base_name"])
+		I.vars["base_name"] = metadata
 
 /*
 Custom Description

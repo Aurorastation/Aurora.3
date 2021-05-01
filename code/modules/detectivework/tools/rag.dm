@@ -34,7 +34,6 @@
 	var/cleantime = 30
 	var/last_clean
 	var/clean_msg = FALSE
-	var/name_change = TRUE
 
 /obj/item/reagent_containers/glass/rag/Initialize()
 	. = ..()
@@ -66,14 +65,12 @@
 	update_icon()
 
 /obj/item/reagent_containers/glass/rag/proc/update_name()
-	if(on_fire && name_change)
-		name = "burning [initial(name)]"
-	else if(reagents.total_volume && name_change)
-		base_name = name
-		name = "damp [initial(name)]"
-	else if (name_change)
-		base_name = name
-		name = "dry [initial(name)]"
+	if(on_fire)
+		name = "burning [base_name]"
+	else if(reagents.total_volume)
+		name = "damp [base_name]"
+	else
+		name = "dry [base_name]"
 
 /obj/item/reagent_containers/glass/rag/update_icon()
 	if(on_fire)
@@ -110,7 +107,7 @@
 
 /obj/item/reagent_containers/glass/rag/proc/wipe_down(atom/A, mob/user)
 	if(!reagents.total_volume)
-		to_chat(user, SPAN_WARNING("\The [initial(name)] is dry!"))
+		to_chat(user, SPAN_WARNING("\The [base_name] is dry!"))
 	else
 		if (!(last_clean && world.time < last_clean + 120) )
 			user.visible_message("<b>[user]</b> starts to wipe [A] with [src].")
@@ -310,4 +307,3 @@
 	desc = "For cleaning a lady's hand, your bruised ego or a crime scene."
 	volume = 5
 	icon_state = "handkerchief"
-	name_change = FALSE

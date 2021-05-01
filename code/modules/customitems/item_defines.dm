@@ -2170,3 +2170,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 		update_icon()
 		return
 	return ..()
+
+/obj/item/clothing/accessory/poncho/dominia_cape/fluff/godard_cape //House godard cape - Pierre Godard - desven
+	name = "house godard cape"
+	desc = "This is a cape in the style of Dominian nobility. This one is in the colours of House Godard."
+	icon = 'icons/obj/custom_items/godard_cape.dmi'
+	icon_state = "godard_cape"
+	item_state = "godard_cape"
+	contained_sprite = TRUE
