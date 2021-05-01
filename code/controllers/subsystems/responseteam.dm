@@ -12,7 +12,6 @@
 	var/list/datum/responseteam/available_teams = list()
 	var/datum/responseteam/picked_team
 	var/list/datum/ghostspawner/human/ert/sent_teams = list()
-	var/list/possible_space_sector = list()
 
 /datum/controller/subsystem/responseteam/Recover()
 	send_emergency_team = SSresponseteam.send_emergency_team
@@ -27,7 +26,7 @@
 	for(var/team in all_teams)
 		CHECK_TICK
 		var/datum/responseteam/ert = new team
-		if(SSatlas.possible_sectors.name in ert.possible_space_sector)
+		if(SSatlas.current_sector.name in ert.possible_space_sector)
 			available_teams += ert
 		all_ert_teams += ert
 
