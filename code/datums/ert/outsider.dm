@@ -9,7 +9,7 @@
 	chance = 15
 	spawner = /datum/ghostspawner/human/ert/kataphract
 	equipment_map = /datum/map_template/distress_kataphract
-	possible_space_sector = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE)
+	possible_space_sector = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
 
 /datum/responseteam/iac
 	name = "Interstellar Aid Corps"

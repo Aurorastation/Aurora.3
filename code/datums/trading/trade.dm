@@ -12,7 +12,7 @@
 	var/list/possible_trading_items                             //List of all possible trading items. Structure is (type = mode)
 	var/list/trading_items = list()                             //What items they are currently trading away.
 	var/list/blacklisted_trade_items = list(/mob/living/carbon/human)
-	                                                            //Things they will automatically refuse
+	var/list/allowed_space_sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE)	//which sector this merchant can show up                                                            //Things they will automatically refuse
 
 	var/list/speech = list()                                    //The list of all their replies and messages. Structure is (id = talk)
 	/*SPEECH IDS:
