@@ -38,7 +38,7 @@
 
 	for(var/a in possible)
 		var/datum/trader/T = a
-		if(!(SSatlas.current_sector in T.allowed_space_sectors))
+		if(!(SSatlas.current_sector.name in T.allowed_space_sectors))
 			possible -= T
 
 	for(var/i in 1 to 10)
