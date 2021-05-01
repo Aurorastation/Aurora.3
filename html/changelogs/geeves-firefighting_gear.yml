@@ -7,3 +7,4 @@ changes:
   - rscadd: "Added a proper firefighter helmet to the fire-safety closets."
   - tweak: "Firesuits now give a slight amount of protection against negative pressure, enough to buy a couple of seconds of spacewalking."
   - tweak: "Very slightly reduced firesuit slowdown, from 1 to 0.8."
+  - rscadd: "Added a firesuit to the CE's office."
