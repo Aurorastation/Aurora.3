@@ -10,7 +10,7 @@
 /obj/item/clothing/suit/armor/tesla
 	name = "tesla armor"
 	desc = "This rather dangerous looking armor will hopefully shock your enemies, and not you in the process."
-	icon_state = "tesla_armor_1" //wip
+	icon_state = "tesla_armor_1"
 	blood_overlay_type = "armor"
 	slowdown = 1
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
@@ -42,15 +42,17 @@
 
 		//Deal with protecting our wearer now.
 		if(ready)
-			ready = 0
-			spawn(cooldown_to_charge)
-				ready = 1
-				update_icon()
-				to_chat(user, "<span class='notice'>\The [src] is ready to protect you once more.</span>")
+			ready = FALSE
+			addtimer(CALLBACK(src, .proc/recharge, user), cooldown_to_charge)
 			visible_message("<span class='danger'>\The [user]'s [src.name] blocks [attack_text]!</span>")
 			update_icon()
 			return 1
 	return 0
+
+/obj/item/clothing/suit/armor/tesla/proc/recharge(var/mob/user)
+	ready = TRUE
+	update_icon()
+	to_chat(user, "<span class='notice'>\The [src] is ready to protect you once more.</span>")
 
 /obj/item/clothing/suit/armor/tesla/attack_self(mob/user)
 	active = !active

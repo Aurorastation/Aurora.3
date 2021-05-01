@@ -132,7 +132,7 @@
 /obj/item/storage/belt/holding
 	name = "Belt of Holding"
 	desc = "Can hold more than you'd expect."
-	icon_state = "ems"
+	icon_state = "emsbelt"
 	max_w_class = ITEMSIZE_NORMAL // Can hold normal sized items.
 	storage_slots = 14	// Twice the capacity of a typical belt.
 	max_storage_space = 16
@@ -161,7 +161,7 @@
 	desc = "A pair of goggles which, while on the surface appear to be build very poorly, reveal to be very advanced in \
 	capabilities.  The lens appear to be multiple optical matrices layered together, allowing the wearer to see almost anything \
 	across physical barriers."
-	icon_state = "uzenwa_sissra_1"
+	icon_state = "omnisight"
 	action_button_name = "Toggle Goggles"
 	origin_tech = list(TECH_MAGNET = 6, TECH_ENGINEERING = 6)
 	toggleable = 1
