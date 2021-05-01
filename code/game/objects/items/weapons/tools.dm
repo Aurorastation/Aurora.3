@@ -336,9 +336,7 @@
 		R.use(1)
 		add_fingerprint(user)
 		user.drop_from_inventory(src)
-		var/obj/item/flamethrower/F = new /obj/item/flamethrower
-		F.weldtool = src
-		forceMove(F)
+		var/obj/item/flamethrower/F = new /obj/item/flamethrower(get_turf(src), src)
 		user.put_in_hands(F)
 		return
 
