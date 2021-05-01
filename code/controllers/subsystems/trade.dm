@@ -5,17 +5,11 @@
 	wait = 1 MINUTE
 	flags = SS_NO_TICK_CHECK
 	var/list/traders = list() //List of all nearby traders
-	var/list/all_possible_traders = list()
 
 /datum/controller/subsystem/trade/New()
 	NEW_SS_GLOBAL(SStrade)
 
 /datum/controller/subsystem/trade/Initialize()
-	for (var/type in subtypesof(/datum/trader))
-		var/datum/trader/trader = new type()
-
-		all_possible_traders[trader.name] = trader
-
 	for(var/i in 1 to rand(1,3))
 		generateTrader(1)
 	..()
@@ -42,7 +36,10 @@
 		else
 			possible += subtypesof(/datum/trader/ship) - typesof(/datum/trader/ship/unique)
 
-
+	for(var/a in possible)
+		var/datum/trader/T = a
+		if(!(SSatlas.current_sector in T.allowed_space_sectors))
+			possible -= T
 
 	for(var/i in 1 to 10)
 		var/type = pick(possible)
@@ -51,14 +48,7 @@
 			if(istype(trader,type))
 				bad = 1
 				break
-
-		var/datum/trader/selected_trader = SStrade.all_possible_traders[type]
-		if(!(SSatlas.current_sector in selected_trader.allowed_space_sectors))
-			bad = 1
-			break
-
 		if(bad)
 			continue
 		traders += new type
 		return
-
