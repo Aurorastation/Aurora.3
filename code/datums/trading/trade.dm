@@ -259,3 +259,9 @@
 
 /datum/trader/proc/bribe_to_stay_longer(var/amt)
 	return get_response("bribe_refusal", "How about... no?")
+
+/datum/trader/proc/system_allowed()
+	if(SSatlas.current_sector.name in allowed_space_sectors)
+		return TRUE
+	else
+		return FALSE

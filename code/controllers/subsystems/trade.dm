@@ -23,6 +23,12 @@
 		if(!T.tick())
 			traders -= T
 			qdel(T)
+
+		if(!T.system_allowed())
+			traders -= T
+			qdel(T)
+			generateTrader()
+
 	if(prob(100-traders.len*10))
 		generateTrader()
 
@@ -35,11 +41,6 @@
 			possible += subtypesof(/datum/trader/ship/unique)
 		else
 			possible += subtypesof(/datum/trader/ship) - typesof(/datum/trader/ship/unique)
-
-	for(var/a in possible)
-		var/datum/trader/T = a
-		if(!(SSatlas.current_sector.name in T.allowed_space_sectors))
-			possible -= T
 
 	for(var/i in 1 to 10)
 		var/type = pick(possible)
