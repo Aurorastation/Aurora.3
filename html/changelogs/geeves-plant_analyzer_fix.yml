@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - tweak: "Changed the plant analyzer's sprite."
-  - bugfix: "Fixed the plant analyzer turning you into a square when held."

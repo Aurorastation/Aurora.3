@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "You can now slide items across tables by click dragging from the item to the table."
