@@ -42,10 +42,7 @@
 		else
 			possible += subtypesof(/datum/trader/ship) - typesof(/datum/trader/ship/unique)
 
-	for(var/current_options in possible)
-		var/datum/trader/selected_trader = SStrade.all_possible_traders[selected_trader]
-		if(!(SSatlas.current_sector in selected_trader.allowed_space_sectors))
-			possible -= selected_trader
+
 
 	for(var/i in 1 to 10)
 		var/type = pick(possible)
@@ -54,6 +51,12 @@
 			if(istype(trader,type))
 				bad = 1
 				break
+
+		var/datum/trader/selected_trader = SStrade.all_possible_traders[type]
+		if(!(SSatlas.current_sector in selected_trader.allowed_space_sectors))
+			bad = 1
+			break
+
 		if(bad)
 			continue
 		traders += new type
