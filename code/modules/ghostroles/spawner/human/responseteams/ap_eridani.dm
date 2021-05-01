@@ -1,6 +1,6 @@
 /datum/ghostspawner/human/ert/ap_eridani
 	name = "Eridani Asset Protection Specialist"
-	short_name = "eridaniassetprotection"
+	short_name = "eridaniprotection"
 	mob_name_prefix = "Spc. "
 	max_count = 2
 	desc = "A specialist suited for close asset protection and policing duties. Ensure your colleagues ledgers remain in the black."
@@ -9,13 +9,13 @@
 	outfit = /datum/outfit/admin/ert/ap_eridani
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
 
-/datum/ghostspawner/human/ert/ap_eridani/commander
-	name = "Eridani Section Commander"
-	short_name = "eridanicommander"
-	mob_name_prefix = "Cmdr. "
+/datum/ghostspawner/human/ert/ap_eridani/lead
+	name = "Eridani Section Leader"
+	short_name = "eridanileader"
+	mob_name_prefix = "Ldr. "
 	max_count = 1
 	desc = "The leader of the EPMC Asset Protection Team. Ensure your employers bottom line remains protected and don't sign blindly."
-	outfit = /datum/outfit/admin/ert/ap_eridani/commander
+	outfit = /datum/outfit/admin/ert/ap_eridani/lead
 	possible_species = list(SPECIES_HUMAN)
 
 /datum/ghostspawner/human/ert/ap_eridani/doctor

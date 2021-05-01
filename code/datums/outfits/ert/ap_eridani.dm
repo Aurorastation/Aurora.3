@@ -37,9 +37,6 @@
 		/obj/item/grenade/flashbang = 1
 	)
 
-/datum/outfit/admin/ert/ap_eridani/get_id_access()
-	return get_distress_access()
-
 /datum/outfit/admin/ert/ap_eridani/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(visualsOnly)
@@ -54,8 +51,8 @@
 		var/obj/item/clothing/shoes/jackboots/toeless/shoes = new(src)
 		H.equip_to_slot_if_possible(shoes, slot_shoes)	
 
-/datum/outfit/admin/ert/ap_eridani/commander
-	name = "Eridani Section Commander"
+/datum/outfit/admin/ert/ap_eridani/lead
+	name = "Eridani Section Leader"
 
 	uniform = /obj/item/clothing/under/rank/security/eridani/alt
 	suit = null
