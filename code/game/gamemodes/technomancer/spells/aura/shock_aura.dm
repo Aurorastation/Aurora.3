@@ -1,6 +1,6 @@
 /datum/technomancer/spell/shock_aura
 	name = "Electric Aura"
-	desc = "Repeatively electrocutes enemies within four meters of you, as well as nearby electronics."
+	desc = "Repeatedly electrocutes enemies within four meters of you, as well as nearby electronics."
 	enhancement_desc = "Aura does twice as much damage."
 	spell_power_desc = "Radius and damage scaled up."
 	cost = 100
