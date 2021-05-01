@@ -910,7 +910,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	if(flags & HELDMAPTEXT)
 		check_maptext()
 
-/obj/item/dropped()
+/obj/item/dropped(var/mob/user)
 	..()
 	if(flags & HELDMAPTEXT)
 		check_maptext()
