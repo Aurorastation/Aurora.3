@@ -350,6 +350,11 @@
 			H.buckled_to.forceMove(H.loc)
 			H.buckled_to.set_dir(H.dir)
 
+	if(SSatlas.current_sector.description)
+		var/sector_desc = "<div align='center'><hr1><B>Current Sector: [SSatlas.current_sector.name]!</B></hr1><br>"
+		sector_desc += "<i>[SSatlas.current_sector.description]</i><hr>"
+		to_chat(H, sector_desc)
+
 	if(H.mind)
 		// If they're a department supervisor/head give them the account info for that department
 		var/remembered_info = ""
