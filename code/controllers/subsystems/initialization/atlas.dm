@@ -19,6 +19,8 @@ var/datum/controller/subsystem/atlas/SSatlas
 
 	var/list/list/connected_z_cache = list()
 	var/z_levels = 0	// Each bit represents a connection between adjacent levels.  So the first bit means levels 1 and 2 are connected.
+	var/datum/space_sector/current_sector
+	var/list/possible_sectors = list ()
 
 /datum/controller/subsystem/atlas/stat_entry()
 	..("W:{X:[world.maxx] Y:[world.maxy] Z:[world.maxz]} ZL:[z_levels]")
@@ -75,6 +77,8 @@ var/datum/controller/subsystem/atlas/SSatlas
 	setup_multiz()
 
 	QDEL_NULL(maploader)
+
+	InitializeSectors()
 
 	..()
 
@@ -163,6 +167,15 @@ var/datum/controller/subsystem/atlas/SSatlas
 	for (var/type in current_map.spawn_types)
 		var/datum/spawnpoint/S = new type
 		spawn_locations[S.display_name] = S
+
+/datum/controller/subsystem/records/proc/InitializeSectors()
+	for (var/type in subtypesof(/datum/space_sector))
+		var/datum/space_sector/space_sector = new type()
+
+		possible_sectors[space_sector.name] = space_sector
+
+	if (!possible_sectors.len)
+		crash_with("No space sectors located in SSatlas.")
 
 // Called when there's a fatal, unrecoverable error in mapload. This reboots the server.
 /world/proc/map_panic(reason)
