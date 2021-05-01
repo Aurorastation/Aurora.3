@@ -80,6 +80,17 @@ var/datum/controller/subsystem/atlas/SSatlas
 
 	InitializeSectors()
 
+	var/chosen_sector
+
+	if(config.current_space_sector)
+		chosen_sector = config.current_space_sector
+	else
+		chosen_sector = current_map.default_sector
+
+	var/datum/space_sector/selected_sector = SSatlas.possible_sectors[chosen_sector]
+
+	current_sector = selected_sector
+
 	..()
 
 /datum/controller/subsystem/atlas/proc/load_map_directory(directory, overwrite_default_z = FALSE)
@@ -168,7 +179,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 		var/datum/spawnpoint/S = new type
 		spawn_locations[S.display_name] = S
 
-/datum/controller/subsystem/records/proc/InitializeSectors()
+/datum/controller/subsystem/atlas/proc/InitializeSectors()
 	for (var/type in subtypesof(/datum/space_sector))
 		var/datum/space_sector/space_sector = new type()
 
@@ -197,10 +208,6 @@ var/datum/controller/subsystem/atlas/SSatlas
 	if (world.name != sname)
 		world.name = sname
 		world.log <<  "Set world.name to [sname]."
-
-/proc/system_name()
-	ASSERT(current_map)
-	return current_map.system_name
 
 /proc/commstation_name()
 	ASSERT(current_map)
