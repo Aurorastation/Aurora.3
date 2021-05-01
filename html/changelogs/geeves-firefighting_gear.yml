@@ -1,0 +1,9 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - imageadd: "Added some species-specific sprites for firesuits and their helmets."
+  - rscadd: "Added a proper firefighter helmet to the fire-safety closets."
+  - tweak: "Firesuits now give a slight amount of protection against negative pressure, enough to buy a couple of seconds of spacewalking."
+  - tweak: "Very slightly reduced firesuit slowdown, from 1 to 0.8."
