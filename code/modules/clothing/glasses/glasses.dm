@@ -56,9 +56,10 @@ BLIND     // can't see anything
 	if(stabbed && (body_parts_covered & EYES) && !(item_flags & THICKMATERIAL) && glass_material)
 		var/mob/M = loc
 		M.visible_message(SPAN_WARNING("\The [src] [M] is wearing gets shattered!"))
-		qdel(src)
 		playsound(loc, /decl/sound_category/glass_break_sound, 70, TRUE)
 		new /obj/item/material/shard(M.loc)
+		qdel(src)
+		return FALSE
 	return ..()
 
 /obj/item/clothing/glasses/update_clothing_icon()
