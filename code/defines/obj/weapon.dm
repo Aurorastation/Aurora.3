@@ -295,6 +295,7 @@
 	desc = "A white cane, used by the visually impaired."
 	icon_state = "whitecane"
 	item_state = "whitecane"
+	can_support = FALSE
 
 /obj/item/cane/shillelagh
 	name = "adhomian shillelagh"
