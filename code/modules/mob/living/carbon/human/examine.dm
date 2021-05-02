@@ -391,8 +391,8 @@
 					break
 			if(!eyescovered)
 				U.handle_examine(src)
-				LAZYADD(U.recent_examines, WEAKREF(src)) //Done after so that it doesn't work with itself
-				addtimer(CALLBACK(U, .proc/removeexamine, src), 5 SECONDS)
+				LAZYADD(U.recent_examines, src) //Done after so that it doesn't work with itself
+				// addtimer(CALLBACK(U, .proc/removeexamine, src), 5 SECONDS)
 
 // Helper proc for the timer above. 
 /mob/living/carbon/human/proc/removeexamine(item)
