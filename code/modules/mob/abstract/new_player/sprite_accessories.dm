@@ -178,6 +178,12 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Bedhead 3"
 		icon_state = "hair_bedhead3"
 		chatname = "wavy hair"
+	
+	bedhead4
+		name = "Bedhead 4"
+		icon_state = "hair_bedhead4"
+		length = 4
+		chatname = "messy locks"
 
 	beehive
 		name = "Beehive"
