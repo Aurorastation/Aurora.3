@@ -1839,9 +1839,9 @@
 //Get fluffy numbers
 /mob/living/carbon/human/proc/blood_pressure()
 	if(status_flags & FAKEDEATH)
-		return list(Floor(120+rand(-5,5))*0.25, Floor(80+rand(-5,5)*0.25))
+		return list(Floor(BP_BASE_SYSTOLIC+rand(-5,5))*0.25, Floor(BP_BASE_DISATOLIC+rand(-5,5)*0.25))
 	var/blood_result = get_blood_circulation()
-	return list(Floor((120+rand(-5,5))*(blood_result/100)), Floor((80+rand(-5,5))*(blood_result/100)))
+	return list(Floor((BP_BASE_SYSTOLIC+rand(-5,5))*(blood_result/100)), Floor((BP_BASE_DISATOLIC+rand(-5,5))*(blood_result/100)))
 
 //Formats blood pressure for text display
 /mob/living/carbon/human/proc/get_blood_pressure()
