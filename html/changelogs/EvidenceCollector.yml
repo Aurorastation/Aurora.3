@@ -1,6 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscadd: "The fiber & print collection kits can now take samples by drag clicking them in addition to ordinary clicks."

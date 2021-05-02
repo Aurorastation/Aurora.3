@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Mobs that are invisible to the AI will no longer show their security and medical HUDs to it."
