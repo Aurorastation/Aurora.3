@@ -104,7 +104,7 @@
 /obj/item/screwdriver/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(!istype(M) || user.a_intent == "help")
 		return ..()
-	if(target_zone != BP_EYES && target_zone != BP_HEAD)
+	if((target_zone != BP_EYES && target_zone != BP_HEAD) || M.eyes_protected(FALSE))
 		return ..()
 	if((user.is_clumsy()) && prob(50))
 		M = user

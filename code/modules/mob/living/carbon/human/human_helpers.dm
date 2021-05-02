@@ -299,3 +299,12 @@
 	if(aug && !aug.is_broken())
 		return TRUE
 	return FALSE
+
+/mob/living/carbon/human/eyes_protected(var/stabbed = FALSE) // if stabbed is set to true if we're being stabbed and not just checking
+	. = ..()
+	if(.)
+		return
+	for(var/obj/item/protection in list(head, wear_mask, glasses))
+		if(protection.protects_eyestab(stabbed))
+			return TRUE
+	return FALSE
