@@ -21,7 +21,7 @@
 
 /datum/ghostspawner/human/rescuepodsurv/New()
 	. = ..()
-	var/t = pick(list("star", "priest", "rep", "smuggler", "hunter", "occultist", "pmc"))
+	var/t = pick(list("star", "priest", "rep", "smuggler", "hunter", "occultist", "pmc", "tcfl"))
 	if(t == "star")
 		welcome_message = "You are a stranded star!<br>You were relaxing comfortably in your cryo pod as tragedy struck - the pilot of your luxury yacht fell asleep under some mysterious circumstances. You were unceremoniously stuffed into an escape pod, and left to wander in space. What a despicable, low-quality plot to get rid of you. Should've chosen murder instead - you certainly know you'll convince someone nice to lend you a shuttle."
 		outfit = /datum/outfit/admin/pod/star
@@ -45,6 +45,10 @@
 		welcome_message = "You are a stranded Eridani paramilitary sergeant!<br>You aren't getting paid enough for this shit. Where's the pickup shuttle?"
 		outfit = /datum/outfit/admin/pod/pmc
 		possible_species = list(SPECIES_HUMAN) // no cycler in the pod, spawns in a voidsuit
+	else if(t == "tcfl")
+		welcome_message = "You are a stranded member of the Tau Ceti Foreign Legion!<br>Perhaps there was a training accident or maybe something went wrong during a routine operation in the Romanavich. The Prefect will never let you hear the end of this..."
+		outfit = /datum/outfit/admin/pod/tcfl
+		possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_DIONA) // TCFL accepts everyone. G1 and G2 have been excluded because they can't wear the hardsuit, which has the suit cooler.
 	else
 		welcome_message = "You are a stranded drugs smuggler!<br>You shouldn't have had the fucking Tajara pilot your ship. <i>Of course</i> we crashed into a rock. Good thing you've got some of the stuff with you while evacuating - maybe you'll crash somewhere you could sell it for a ticket back?"
 		outfit = /datum/outfit/admin/pod/smuggler
@@ -229,6 +233,38 @@
 
 /datum/outfit/admin/pod/pmc/get_id_rank()
 	return "Security Officer"
+
+/datum/outfit/admin/pod/tcfl
+	name = "RescuePod - TCFL Member"
+	head = /obj/item/clothing/head/beret/legion/field
+	l_ear = /obj/item/device/radio/headset/legion
+	glasses = /obj/item/clothing/glasses/sunglasses/aviator
+	suit = /obj/item/clothing/suit/storage/vest/legion
+	suit_store = /obj/item/gun/energy/blaster/carbine
+	back = /obj/item/rig/retro // has an oxygen tank built in
+	belt = /obj/item/storage/belt/security/tactical
+	gloves = /obj/item/clothing/gloves/swat/ert
+	shoes = /obj/item/clothing/shoes/swat/ert
+	id = /obj/item/card/id/distress/legion
+	uniform = /obj/item/clothing/under/legion
+	accessory = /obj/item/clothing/accessory/holster/thigh
+	accessory_contents = list(/obj/item/gun/energy/blaster/revolver = 1)
+	l_hand =  /obj/item/material/twohanded/pike/flag
+	r_hand = /obj/item/storage/backpack/legion
+
+	belt_contents = list(
+		/obj/item/melee/energy/sword/knife = 1,
+		/obj/item/shield/riot/tact/legion = 1,
+		/obj/item/grenade/flashbang = 1,
+		/obj/item/device/flashlight/flare = 1,
+		/obj/item/device/radio = 1
+	)
+
+/datum/outfit/admin/pod/tcfl/get_id_assignment()
+	return "TCFL"
+
+/datum/outfit/admin/pod/tcfl/get_id_rank()
+	return "TCFL"
 
 /datum/ghostspawner/human/rescuepodsurv/burglar
 	short_name = "burglarpod"
