@@ -42,7 +42,7 @@
 	var/datum/artifact_find/artifact_find
 	var/last_act = 0
 
-/obj/structure/boulder/Initialize(mapload, var/coloration = "#D9C179")
+/obj/structure/boulder/Initialize(mapload, var/coloration = "#9c9378")
 	. = ..()
 	icon_state = "boulder[rand(1,6)]"
 	if(coloration)

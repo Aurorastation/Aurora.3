@@ -327,14 +327,14 @@ var/list/mineral_can_smooth_with = list(
 				if(artifact_find)
 					if(excavation_level > 0 || prob(15))
 						//boulder with an artifact inside
-						B = new(src, "#D9C179") // if we ever get natural walls, edit this
+						B = new(src, "#9c9378") // if we ever get natural walls, edit this
 						if(artifact_find)
 							B.artifact_find = artifact_find
 					else
 						artifact_debris(1)
 				else if(prob(15))
 					//empty boulder
-					B = new(src, "#D9C179") // if we ever get natural walls, edit this
+					B = new(src, "#9c9378") // if we ever get natural walls, edit this
 
 				if(B)
 					GetDrilled(0)
