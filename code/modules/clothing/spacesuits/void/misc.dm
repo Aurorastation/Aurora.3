@@ -655,7 +655,6 @@
 		slot_l_hand_str = "mining_helm",
 		slot_r_hand_str = "mining_helm"
 		)
-	light_overlay = "helmet_light_dual"
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_TAJARA)
 
@@ -690,7 +689,6 @@
 		slot_r_hand_str = "engineering_helm"
 		)
 
-	light_overlay = "helmet_light_dual"
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_TAJARA)
 
@@ -725,7 +723,6 @@
 		slot_r_hand_str = "atmos_helm"
 		)
 
-	light_overlay = "helmet_light_dual"
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_TAJARA)
 
@@ -736,12 +733,12 @@
 	Its modular design means that they're adapted for use everywhere from the depths of Himeo to protect from debris, its surface to protect from the bitter cold, and in orbit, to work in the void. Their similarity to flightsuits have been noted, and the planet \
 	enjoys jolly cooperation with fellow designers from Crosk who seek to invent new suits to keep their racers going faster. They quickly found purchase among Himeo's population of Tajaran expatriates, who were shown how to modify and use the voidsuits. \
 	Many of the first Tajaran-fitted suits were a product of collaborations between the two species making them all the more sentimental to those who use them."
+	icon = 'icons/obj/contained_items/voidsuits/himeotaj.dmi'
+	item_state = "rig-himeotaj-engineering"
+	icon_state = "rig-himeotaj-engineering"
 	item_state_slots = list(
 		slot_l_hand_str = "atmos_hardsuit",
 		slot_r_hand_str = "atmos_hardsuit"
 	)
-	icon = 'icons/obj/contained_items/voidsuits/himeotaj.dmi'
-	item_state = "rig-himeotaj-engineering"
-	icon_state = "rig-himeotaj-engineering"
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_TAJARA)
