@@ -346,6 +346,7 @@
 /obj/item/projectile/bullet/gauss/highex
 	name = "high-ex shell"
 	damage = 10
+	armor_penetration = 30
 
 /obj/item/projectile/bullet/gauss/highex/on_impact(var/atom/A)
 	explosion(A, -1, 0, 2)
