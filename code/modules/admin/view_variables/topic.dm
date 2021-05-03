@@ -8,7 +8,8 @@
 
 	//~CARN: for renaming mobs (updates their name, real_name, mind.name, their ID/PDA and datacore records).
 	else if(href_list["rename"])
-		if(!check_rights(R_VAREDIT|R_DEV))	return
+		if(!check_rights(R_VAREDIT|R_DEV|R_MOD))
+			return
 
 		var/mob/M = locate(href_list["rename"])
 		if(!istype(M))
