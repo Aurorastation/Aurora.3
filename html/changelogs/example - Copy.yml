@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - rscadd: "Added Tajaran variants of the Himean voidsuits and a modkit in the loadout that allows them to be used, either on a mining or engineering voidsuit."
