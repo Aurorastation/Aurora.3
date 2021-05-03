@@ -67,6 +67,7 @@
 	desc = "A heavy, powerful hardsuit used by construction crews and mining corporations."
 	icon = 'icons/clothing/rig/industrial.dmi'
 	icon_state = "industrial_rig"
+	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_PISTOL,
@@ -117,6 +118,7 @@
 	desc = "A light hardsuit for repairs and maintenance to the outside of habitats and vessels."
 	icon = 'icons/clothing/rig/eva.dmi'
 	icon_state = "eva_rig"
+	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_MINOR,
@@ -166,6 +168,7 @@
 	desc = "An advanced voidsuit that protects against hazardous, low pressure environments. Shines with a high polish."
 	icon = 'icons/clothing/rig/ce.dmi'
 	icon_state = "ce_rig"
+	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_SMALL,
@@ -213,6 +216,7 @@
 	desc = "An Anomalous Material Interaction hardsuit that protects against the strangest energies the universe can throw at it."
 	icon = 'icons/clothing/rig/hazmat.dmi'
 	icon_state = "hazmat_rig"
+	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_MINOR,
@@ -251,6 +255,7 @@
 	desc = "A durable suit designed for medical rescue in high risk areas."
 	icon = 'icons/clothing/rig/medical.dmi'
 	icon_state = "medical_rig"
+	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_MINOR,
@@ -292,6 +297,7 @@
 	desc = "A security hardsuit designed for prolonged EVA in dangerous environments."
 	icon = 'icons/clothing/rig/hazard.dmi'
 	icon_state = "hazard_rig"
+	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_PISTOL,

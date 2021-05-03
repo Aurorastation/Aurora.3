@@ -117,6 +117,7 @@
 	desc = "An old repurposed construction exoskeleton redesigned for combat. Its colors and insignias match those of the Tau Ceti Foreign Legion."
 	icon = 'icons/clothing/rig/legion.dmi'
 	icon_state = "legion_rig"
+	icon_supported_species_tags = list("ipc", "skr", "taj", "una", "vau", "vaw")
 	suit_type = "retrofitted military hardsuit"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,

@@ -4,6 +4,7 @@
 	desc = "A lighter, less armored hardsuit."
 	icon = 'icons/clothing/rig/light_ninja.dmi'
 	icon_state = "ninja_rig"
+	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	suit_type = "light suit"
 	allowed = list(/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/cell,/obj/item/material/twohanded/fireaxe)
 	armor = list(
@@ -103,6 +104,7 @@
 	desc = "A unique, vacuum-proof suit of nano-enhanced armor designed specifically for stealth operations."
 	icon = 'icons/clothing/rig/light_ninja.dmi'
 	icon_state = "ninja_rig"
+	icon_supported_species_tags = list("ipc", "skr", "taj", "una", "vau", "vaw")
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_PISTOL,
@@ -177,6 +179,7 @@
 	desc = "A highly advanced and expensive suit designed for covert operations."
 	icon = 'icons/clothing/rig/light_stealth.dmi'
 	icon_state = "stealth_rig"
+	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_SMALL,

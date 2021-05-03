@@ -165,6 +165,9 @@
 		piece.icon_state = "[initial(icon_state)]_[piece.clothing_class()]"
 		piece.item_state = "[initial(icon_state)]"
 		piece.contained_sprite = TRUE
+		if(length(icon_supported_species_tags))
+			piece.icon_auto_adapt = TRUE
+			piece.icon_supported_species_tags = icon_supported_species_tags
 		piece.min_cold_protection_temperature = min_cold_protection_temperature
 		piece.max_heat_protection_temperature = max_heat_protection_temperature
 		if(piece.siemens_coefficient > siemens_coefficient) //So that insulated gloves keep their insulation.

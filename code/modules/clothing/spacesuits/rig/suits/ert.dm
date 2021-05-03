@@ -8,6 +8,7 @@
 	suit_type = "ERT commander"
 	icon = 'icons/clothing/rig/nt_ert/commander.dmi'
 	icon_state = "ert_commander_rig"
+	icon_supported_species_tags = list("skr")
 	emp_protection = 35
 	helm_type = /obj/item/clothing/head/helmet/space/rig/ert
 	req_access = list(access_cent_specops)
