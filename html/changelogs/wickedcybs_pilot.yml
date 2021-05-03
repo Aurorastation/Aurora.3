@@ -1,6 +1,0 @@
-author: WickedCybs
-
-delete-after: True
-
-changes:
-  - bugfix: "The TCFL pilot now gets their protective variant of the pilots jacket. Used to be the common crew version which had no resistances."

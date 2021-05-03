@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Hardsuits now have injection ports again, so do magboots. You no longer have to heal people through their feet. You know who you are."
