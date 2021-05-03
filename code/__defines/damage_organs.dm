@@ -59,6 +59,9 @@
 #define ORGAN_CAN_MAIM     (1<<4) //Can this organ be maimed?
 #define ORGAN_HAS_TENDON   (1<<5) //Does this organ have tendons?
 
+#define TENDON_BRUISED (1<<0)
+#define TENDON_CUT     (1<<1)
+
 #define DROPLIMB_EDGE 0
 #define DROPLIMB_BLUNT 1
 #define DROPLIMB_BURN 2

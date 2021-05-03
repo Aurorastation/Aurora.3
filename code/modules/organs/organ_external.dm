@@ -66,7 +66,7 @@
 	var/datum/tendon/tendon
 	var/tendon_path = /datum/tendon
 	var/tendon_name = "tendon"   // Name of the limb's tendon. Achilles heel, etc.
-	var/tendon_dt 			 // Damage threshold required to possibly snap a tendon
+	var/tendon_health = 30 		 // HP value of the limb's tendon
 	var/list/tendon_msgs = list("tore apart", "ripped away")
 
 	var/damage_msg = "<span class='warning'>You feel an intense pain!</span>"
@@ -233,7 +233,7 @@
 	get_icon()
 
 	if((limb_flags & ORGAN_HAS_TENDON) && !BP_IS_ROBOTIC(src))
-		tendon = new tendon_path(src, tendon_name, tendon_dt, tendon_msgs)
+		tendon = new tendon_path(src, tendon_name, tendon_health, tendon_msgs)
 
 /obj/item/organ/external/replaced(var/mob/living/carbon/human/target)
 	..()
@@ -299,11 +299,7 @@
 	handle_limb_gibbing(used_weapon, brute, burn)
 
 	if(brute_dam + brute > min_broken_damage && prob(brute_dam + brute * (1 + blunt)))
-		if((brute && !blunt) && istype(tendon) && brute_dam + brute > tendon.threshold)
-			tendon.sever()
-			if(brute_dam > FRACTURE_AND_TENDON_DAM_THRESHOLD)
-				fracture()
-		else
+		if(blunt || brute > FRACTURE_AND_TENDON_DAM_THRESHOLD)
 			fracture()
 
 	// High brute damage or sharp objects may damage internal organs
@@ -469,6 +465,9 @@ This function completely restores a damaged organ to perfect condition.
 			implanted_object.forceMove(owner.loc)
 			implants -= implanted_object
 
+	if(istype(tendon))
+		tendon.rejuvenate()
+
 	owner.updatehealth()
 
 
@@ -479,14 +478,18 @@ This function completely restores a damaged organ to perfect condition.
 	//moved this before the open_wound check so that having many small wounds for example doesn't somehow protect you from taking internal damage (because of the return)
 	//Possibly trigger an internal wound, too.
 	var/local_damage = brute_dam + burn_dam + damage
-	if(damage > 15 && !(type in list(BURN, LASER)) && local_damage > 30 && !(status & ORGAN_ROBOT))
-		if(prob(damage) && sever_artery())
-			owner.custom_pain("You feel something rip in your [name]!", 25)
 
-	if(istype(tendon) && type == CUT && !(status & ORGAN_ROBOT))
-		var/DT = tendon.threshold
-		if(DT && local_damage > DT && damage > (DT / 2) && prob(damage))
-			tendon.sever()
+	if(damage > (min_broken_damage / 2) && local_damage > min_broken_damage && !(status & ORGAN_ROBOT))
+		if(!(type in list(BURN, LASER)))
+			if(prob(damage) && sever_artery())
+				owner.custom_pain("You feel something rip in your [name]!", 25)
+
+		if(istype(tendon) && type == CUT)
+			var/new_brute = damage
+			if(min_broken_damage - brute_dam > 0)
+				// Only pass on damage that goes over the broken threshold
+				new_brute = brute_dam + damage - min_broken_damage
+			tendon.damage(new_brute)
 
 	//Burn damage can cause fluid loss due to blistering and cook-off
 	if((type in list(BURN, LASER)) && (damage > 5 || damage + burn_dam >= 15) && !BP_IS_ROBOTIC(src))
@@ -820,9 +823,9 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if (open && !clamped && (H && !(H.species.flags & NO_BLOOD)))
 		status |= ORGAN_BLEEDING
 
-	//Bone fractures
-	if(config.bones_can_break && brute_dam > min_broken_damage * config.organ_health_multiplier && !(status & ORGAN_ROBOT))
-		fracture()
+	if (istype(tendon))
+		tendon.update_damage(cut_dam - min_broken_damage)
+
 	update_damage_ratios()
 
 /obj/item/organ/external/proc/update_damage_ratios()
@@ -1155,9 +1158,9 @@ Note that amputating the affected organ does in fact remove the infection from t
 /obj/item/organ/external/is_usable()
 	if(is_dislocated())
 		return FALSE
-	if(istype(tendon) && !tendon.intact)
+	if(tendon_status() & TENDON_CUT)
 		return FALSE
-	if(parent && (istype(parent.tendon) && !parent.tendon.intact))
+	if(parent && parent.tendon_status() & TENDON_CUT)
 		return FALSE
 	if(can_feel_pain() && get_pain() > pain_disability_threshold)
 		return FALSE
@@ -1360,6 +1363,16 @@ Note that amputating the affected organ does in fact remove the infection from t
 	else
 		status |= ORGAN_ARTERY_CUT
 		return TRUE
+
+/obj/item/organ/external/proc/tendon_status()
+	if(!(limb_flags & ORGAN_HAS_TENDON))
+		return
+
+	if(!istype(tendon))
+		// Somehow this limb should have a tendon but doesn't. Assume it was destroyed
+		return TENDON_CUT
+
+	return tendon.status
 
 // Damage procs
 /obj/item/organ/external/proc/get_brute_damage()
