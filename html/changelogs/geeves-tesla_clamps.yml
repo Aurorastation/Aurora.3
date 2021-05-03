@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added sprites to bolted and welded tesla equipment to more easily see whether it's bolted or not."
