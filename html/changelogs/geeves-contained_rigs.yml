@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - refactor: "Changed all hardsuits over to the contained sprite system, there should be no player-facing changes."
