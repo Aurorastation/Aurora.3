@@ -2,6 +2,7 @@
 /obj/item/rig/light
 	name = "light suit control module"
 	desc = "A lighter, less armored hardsuit."
+	icon = 'icons/clothing/rig/light_ninja.dmi'
 	icon_state = "ninja_rig"
 	suit_type = "light suit"
 	allowed = list(/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/cell,/obj/item/material/twohanded/fireaxe)
@@ -42,6 +43,7 @@
 	name = "cybersuit control module"
 	suit_type = "cyber"
 	desc = "An advanced powered armor suit with many cyberwarfare enhancements. Comes with built-in insulated gloves for safely tampering with electronics."
+	icon = 'icons/clothing/rig/light_hacker.dmi'
 	icon_state = "hacker_rig"
 
 	req_access = list(access_syndicate)
@@ -99,6 +101,7 @@
 	name = "stealth suit control module"
 	suit_type = "stealth suit"
 	desc = "A unique, vacuum-proof suit of nano-enhanced armor designed specifically for stealth operations."
+	icon = 'icons/clothing/rig/light_ninja.dmi'
 	icon_state = "ninja_rig"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
@@ -172,6 +175,7 @@
 	name = "stealth suit control module"
 	suit_type = "stealth"
 	desc = "A highly advanced and expensive suit designed for covert operations."
+	icon = 'icons/clothing/rig/light_stealth.dmi'
 	icon_state = "stealth_rig"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
@@ -196,6 +200,7 @@
 	name = "exo-stellar skeleton module"
 	suit_type = "exo-stellar skeleton"
 	desc = "A compact exoskeleton that hugs the body tightly and has various inbuilt utilities for life support."
+	icon = 'icons/clothing/rig/offworlder.dmi'
 	icon_state = "offworlder_rig"
 	allowed = list(/obj/item/tank, /obj/item/device/flashlight)
 	armor = list(
@@ -231,6 +236,7 @@
 /obj/item/rig/light/offworlder/techno
 	name = "techno-conglomerate mobility hardsuit control module"
 	desc = "A sleek hardsuit used by the Coalition forces of the Techno-Conglomerate."
+	icon = 'icons/clothing/rig/techno.dmi'
 	icon_state = "techno_rig"
 	suit_type = "techno-conglomerate mobility hardsuit"
 	armor = list(
