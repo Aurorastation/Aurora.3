@@ -164,6 +164,7 @@
 	path = /obj/item/clothing/under/unathi/zazali
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ADDITIONAL_COLOR_SELECTION
 
 /datum/gear/uniform/unathi/huytai
 	display_name = "huytai outfit"
@@ -184,7 +185,7 @@
 	path = /obj/item/clothing/mask/gas/wrapping
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
-	allowed_roles = list("Chaplain", "Roboticist")
+	allowed_roles = list(CHAPLAIN, ROBOTICIST)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -195,7 +196,7 @@
 	path = /obj/item/clothing/suit/unathi/mantle/wrapping
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
-	allowed_roles = list("Chaplain", "Roboticist")
+	allowed_roles = list(CHAPLAIN, ROBOTICIST)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -245,7 +246,7 @@
 	path = /obj/item/clothing/accessory/poncho/maxtlatl
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
-	allowed_roles = list("Chaplain")
+	allowed_roles = list(CHAPLAIN)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -253,7 +254,7 @@
 	display_name = "Th'akhist wristguards"
 	path = /obj/item/clothing/wrists/maxtlatl
 	whitelisted = list(SPECIES_UNATHI)
-	allowed_roles = list("Chaplain")
+	allowed_roles = list(CHAPLAIN)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -261,7 +262,7 @@
 	display_name = "Th'akhist headgear"
 	path = /obj/item/clothing/head/maxtlatl
 	whitelisted = list(SPECIES_UNATHI)
-	allowed_roles = list("Chaplain")
+	allowed_roles = list(CHAPLAIN)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
 
