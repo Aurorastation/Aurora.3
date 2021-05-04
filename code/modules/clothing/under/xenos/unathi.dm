@@ -184,7 +184,7 @@
 /obj/item/clothing/head/maxtlatl/worn_overlays(icon_file, slot)
 	. = ..()
 	if(slot == slot_head)
-		var/mutable_appearance/M = mutable_appearance(icon_file, "maxtlatl-head_he")
+		var/mutable_appearance/M = mutable_appearance(icon_file, "[item_state]_he")
 		M.appearance_flags = RESET_COLOR|RESET_ALPHA
 		M.pixel_y = 12
 		. += M
@@ -208,9 +208,9 @@
 		skirt.appearance_flags = RESET_COLOR
 		skirt.color = additional_color
 		. += skirt
-		var/image/belt = image(icon_file, null, "himation_un_belt")
-		belt.appearance_flags = RESET_COLOR
-		. += belt
+		var/image/belt2 = image(icon_file, null, "himation_un_belt2")
+		belt2.appearance_flags = RESET_COLOR
+		. += belt2
 
 /obj/item/clothing/wrists/jeweled
 	name = "jeweled bracers"
@@ -220,7 +220,7 @@
 	item_state = "noble-bracers"
 	contained_sprite = TRUE
 	build_from_parts = TRUE
-	worn_overlay = "trim"
+	worn_overlay = "trim2"
 
 /obj/item/clothing/accessory/gyazo
 	name = "gyazo belt"
