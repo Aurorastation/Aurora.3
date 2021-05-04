@@ -205,6 +205,7 @@
 	desc = "A compact exoskeleton that hugs the body tightly and has various inbuilt utilities for life support."
 	icon = 'icons/clothing/rig/offworlder.dmi'
 	icon_state = "offworlder_rig"
+	icon_supported_species_tags = null
 	allowed = list(/obj/item/tank, /obj/item/device/flashlight)
 	armor = list(
 		bio = ARMOR_BIO_MINOR,
@@ -256,6 +257,7 @@
 	airtight = 1
 	offline_vision_restriction = TINT_HEAVY
 	siemens_coefficient = 0.2
+	icon_supported_species_tags = null
 
 	allowed = list(
 		/obj/item/device/flashlight,

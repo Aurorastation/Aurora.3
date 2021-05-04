@@ -124,6 +124,7 @@
 	suit_type = "heavy asset protection"
 	icon = 'icons/clothing/rig/asset_protection.dmi'
 	icon_state = "asset_protection_rig"
+	icon_supported_species_tags = null
 	armor = list(
 		melee = ARMOR_MELEE_SHIELDED,
 		bullet = ARMOR_BALLISTIC_RIFLE,

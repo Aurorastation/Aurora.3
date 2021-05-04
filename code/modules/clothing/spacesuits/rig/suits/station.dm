@@ -28,6 +28,7 @@
 	desc = "Prepare for paperwork."
 	icon = 'icons/clothing/rig/tie.dmi'
 	icon_state = "internalaffairs_rig"
+	icon_supported_species_tags = null
 	armor = null
 	siemens_coefficient = 0.9
 	slowdown = 0
