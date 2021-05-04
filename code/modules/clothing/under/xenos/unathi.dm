@@ -36,10 +36,11 @@
 	worn by those in the warrior caste or those with something to prove."
 	icon_state = "zazali"
 	item_state = "zazali"
+	var/additional_color = COLOR_GRAY // The default color.
 
 /obj/item/clothing/under/unathi/zazali/worn_overlays(icon_file, contained_flag)
 	. = ..()
-	if(contained_flag == WORN_UNIFORM)
+	if(contained_flag == WORN_UNDER)
 		var/image/top = image(icon_file, null, "zazali_un_top")
 		top.appearance_flags = RESET_COLOR
 		top.color = additional_color
@@ -127,10 +128,11 @@
 	item_state = "rockstone"
 	icon_override = null
 	contained_sprite = TRUE
+	var/additional_color = COLOR_GRAY
 
 /obj/item/clothing/accessory/poncho/rockstone/worn_overlays(icon_file, contained_flag)
 	. = ..()
-	if(contained_flag == WORN_UNIFORM || WORN_SUIT || get_mob_overlay)
+	if(contained_flag == WORN_UNDER || WORN_SUIT)
 		var/image/gem = image(icon_file, null, "rockstone_un_gem")
 		gem.appearance_flags = RESET_COLOR
 		gem.color = additional_color
@@ -197,11 +199,11 @@
 	for simple noble wear (the cloth can be embroidered), and practical for labor!"
 	icon_state = "himation"
 	item_state = "himation"
-	var/additional_color = COLOR_GRAY // The default color.
+	var/additional_color = COLOR_GRAY
 
 /obj/item/clothing/under/unathi/himation/worn_overlays(icon_file, contained_flag)
 	. = ..()
-	if(contained_flag == WORN_UNIFORM)
+	if(contained_flag == WORN_UNDER)
 		var/image/skirt = image(icon_file, null, "himation_un_skirt")
 		skirt.appearance_flags = RESET_COLOR
 		skirt.color = additional_color
