@@ -1,5 +1,0 @@
-author: JohnWildkins
-delete-after: True
-
-changes:
-  - tweak: "Fractures are no longer guaranteed once a limb takes 30 brute damage. Repairing a broken bone no longer relies on the limb being healed HP-wise."
