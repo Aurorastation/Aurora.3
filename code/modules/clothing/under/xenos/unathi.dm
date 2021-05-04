@@ -166,6 +166,7 @@
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "maxtlatl-wrists"
 	item_state = "maxtlatl-wrists"
+	gender = PLURAL
 	contained_sprite = TRUE
 
 /obj/item/clothing/head/maxtlatl
@@ -218,6 +219,7 @@
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "noble-bracers"
 	item_state = "noble-bracers"
+	gender = PLURAL
 	contained_sprite = TRUE
 	build_from_parts = TRUE
 	worn_overlay = "trim2"
