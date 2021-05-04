@@ -215,13 +215,6 @@ world
 
 #define TO_HEX_DIGIT(n) ascii2text((n&15) + ((n&15)<10 ? 48 : 87))
 
-icon/RscFile()
-	try
-		return fcopy_rsc(icon)
-	catch(var/exception/e)
-		world.log << "[e] on [e.file]:[e.line]"
-		world.log << json_encode(vars)
-
 icon
 	proc/MakeLying()
 		var/icon/I = new(src,dir=SOUTH)
