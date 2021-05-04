@@ -43,12 +43,13 @@
 /datum/tendon/proc/update_damage(var/total_dmg)
 	// called by organ/external/update_damages()
 	var/lost_health = max_health - health
-	var/dmg_update = total_dmg - lost_health
-
-	if(dmg_update >= 0)
-		damage(dmg_update)
+	if(total_dmg <= 0)
+		heal(max_health)
 	else
-		heal(dmg_update)
+		if(total_dmg < lost_health)
+			heal(lost_health - total_dmg)
+		else
+			damage(total_dmg - lost_health)
 
 /datum/tendon/proc/get_health()
 	if(!parent?.owner)

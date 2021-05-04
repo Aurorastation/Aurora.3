@@ -1160,7 +1160,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		return FALSE
 	if(tendon_status() & TENDON_CUT)
 		return FALSE
-	if(parent && parent.tendon_status() & TENDON_CUT)
+	if(parent && (parent.tendon_status() & TENDON_CUT))
 		return FALSE
 	if(can_feel_pain() && get_pain() > pain_disability_threshold)
 		return FALSE

@@ -201,7 +201,7 @@
 		return FALSE
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	return affected && affected.tendon_status() & TENDON_CUT && affected.open >= ORGAN_OPEN_RETRACTED
+	return affected && (affected.tendon_status() & TENDON_CUT) && affected.open >= ORGAN_OPEN_RETRACTED
 
 /decl/surgery_step/fix_tendon/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
