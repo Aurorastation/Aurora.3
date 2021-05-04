@@ -89,6 +89,7 @@
 	desc = "A helmet clearly belonging to a TCFL pilot, it has aged pilot visor mounted to it. The visor feeds its wearer in-flight information via a heads-up display."
 	icon_state = "legion_pilot"
 	item_state = "legion_pilot"
+	camera = /obj/machinery/camera/network/tcfl
 
 /obj/pilot_overlay_holder
 	name = null
