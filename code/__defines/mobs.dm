@@ -59,16 +59,6 @@
 #define PULSE_MAX_BPM 250 // Highest, readable BPM by machines and humans.
 
 // Blood pressure levels, simplified
-#define BP_BASE_SYSTOLIC        160
-#define BP_HIGH_SYSTOLIC 		(BP_BASE_SYSTOLIC+20) // 140
-#define BP_PRE_HIGH_SYSTOLIC 	(BP_BASE_SYSTOLIC+5) //125
-#define BP_IDEAL_SYSTOLIC		(BP_BASE_SYSTOLIC-40) // 80
-
-#define BP_BASE_DISATOLIC       120
-#define BP_HIGH_DIASTOLIC 		(BP_BASE_DISATOLIC+20) // 100
-#define BP_PRE_HIGH_DIASTOLIC	(BP_BASE_DISATOLIC+5) // 85
-#define BP_IDEAL_DIASTOLIC 		(BP_BASE_DISATOLIC-20) // 60
-
 #define BLOOD_PRESSURE_HIGH     4
 #define BLOOD_PRESSURE_PRE_HIGH 3
 #define BLOOD_PRESSURE_IDEAL    2

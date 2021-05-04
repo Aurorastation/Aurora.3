@@ -1021,3 +1021,42 @@ default behaviour is:
 //Used by simple animals and monkey species for renaming. M is the one doing the renaming
 /mob/living/proc/can_name(var/mob/living/M)
 	return FALSE
+
+/mob/living/proc/get_base_systolic()
+	return 120
+
+/mob/living/proc/get_bp_high_systolic()
+	return 140
+
+/mob/living/proc/get_pre_high_systolic()
+	return 125
+
+/mob/living/proc/get_ideal_systolic()
+	return 80
+
+/mob/living/proc/get_base_disatolic()
+	return 180
+
+/mob/living/proc/get_bp_high_disatolic()
+	return 100
+
+/mob/living/proc/get_pre_high_disatolic()
+	return 85
+
+/mob/living/proc/get_ideal_disatolic()
+	return 60
+
+/mob/living/proc/get_low_pulse()
+	return 40
+
+/mob/living/proc/get_norm_pulse()
+	return 60
+
+/mob/living/proc/get_fast_pulse()
+	return 90
+
+/mob/living/proc/get_v_fast_pulse()
+	return 120
+
+/mob/living/proc/get_max_pulse()
+	return 160
