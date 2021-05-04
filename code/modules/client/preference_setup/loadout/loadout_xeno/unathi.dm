@@ -72,6 +72,14 @@
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/uniform/unathi_robe
+	display_name = "himation cloak"
+	path = /obj/item/clothing/under/unathi/himation
+	cost = 1
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ADDITIONAL_COLOR_SELECTION
+
 /datum/gear/head/sinta_ronin
 	display_name = "straw hat"
 	path = /obj/item/clothing/head/sinta_ronin
