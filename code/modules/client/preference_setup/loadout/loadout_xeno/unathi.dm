@@ -179,24 +179,24 @@
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/suit/unathi/wrapping_head
-	display_name = "Th'akhist head wrappings"
+	display_name = "Thakhist head wrappings"
 	description = "Head wrappings with a breath mask. This is considered humble Sinta wear for \
 	Th'akh shamans— most Unathi don't wear these, barring Aut'akh."
 	path = /obj/item/clothing/mask/gas/wrapping
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
-	allowed_roles = list(CHAPLAIN, ROBOTICIST)
+	allowed_roles = list("Chaplain", "Roboticist")
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/unathi/wrapping_body
-	display_name = "Th'akhist body wrappings"
+	display_name = "Thakhist body wrappings"
 	description = "Closed body wrappings. This is considered humble Sinta wear for Th'akh shamans— \
 	most Unathi don't wear these, barring Aut'akh."
 	path = /obj/item/clothing/suit/unathi/mantle/wrapping
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
-	allowed_roles = list(CHAPLAIN, ROBOTICIST)
+	allowed_roles = list("Chaplain", "Roboticist")
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -242,27 +242,27 @@
 	whitelisted = list(SPECIES_UNATHI)
 
 /datum/gear/suit/maxtlatl
-	display_name = "Th'akhist maxtlatl"
+	display_name = "Thakhist maxtlatl"
 	path = /obj/item/clothing/accessory/poncho/maxtlatl
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
-	allowed_roles = list(CHAPLAIN)
+	allowed_roles = list("Chaplain")
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/wrists/maxtlatl
-	display_name = "Th'akhist wristguards"
+	display_name = "Thakhist wristguards"
 	path = /obj/item/clothing/wrists/maxtlatl
 	whitelisted = list(SPECIES_UNATHI)
-	allowed_roles = list(CHAPLAIN)
+	allowed_roles = list("Chaplain")
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/head/maxtlatl
-	display_name = "Th'akhist headgear"
+	display_name = "Thakhist headgear"
 	path = /obj/item/clothing/head/maxtlatl
 	whitelisted = list(SPECIES_UNATHI)
-	allowed_roles = list(CHAPLAIN)
+	allowed_roles = list("Chaplain")
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
 
