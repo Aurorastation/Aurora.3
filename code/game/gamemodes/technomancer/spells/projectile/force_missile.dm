@@ -21,6 +21,6 @@
 
 /obj/item/projectile/force_missile
 	name = "force missile"
-	icon_state = "force_missile"
+	icon_state = "plasma_bolt"
 	damage = 25
 	damage_type = BRUTE

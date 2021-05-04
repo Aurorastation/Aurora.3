@@ -27,9 +27,9 @@
 		"Corgi"			=	/mob/living/simple_animal/corgi,
 		"Corgi Pup"		=	/mob/living/simple_animal/corgi/puppy,
 		"BAT"			=	/mob/living/simple_animal/hostile/scarybat,
-		"SPIDER"		=	/mob/living/simple_animal/hostile/giant_spider,
-		"SPIDER HUNTER"	=	/mob/living/simple_animal/hostile/giant_spider/hunter,
-		"SPIDER NURSE"	=	/mob/living/simple_animal/hostile/giant_spider/nurse,
+		"GREIMORIAN"		=	/mob/living/simple_animal/hostile/giant_spider,
+		"GREIMORIAN HUNTER"	=	/mob/living/simple_animal/hostile/giant_spider/hunter,
+		"GREIMORIAN NURSE"	=	/mob/living/simple_animal/hostile/giant_spider/nurse,
 		"CARP"			=	/mob/living/simple_animal/hostile/carp,
 		"BEAR"			=	/mob/living/simple_animal/hostile/bear
 		)

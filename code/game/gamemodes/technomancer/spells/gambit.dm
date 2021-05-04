@@ -95,8 +95,6 @@
 		potential_spells |= /obj/item/spell/warp_strike
 
 		if(hostile_mobs >= 3) // Lots of baddies, give them AoE.
-			potential_spells |= /obj/item/spell/projectile/chain_lightning
-			potential_spells |= /obj/item/spell/projectile/chain_lightning/lesser
 			potential_spells |= /obj/item/spell/spawner/fire_blast
 			potential_spells |= /obj/item/spell/condensation
 			potential_spells |= /obj/item/spell/aura/frost

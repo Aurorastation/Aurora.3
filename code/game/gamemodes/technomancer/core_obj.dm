@@ -48,6 +48,8 @@
 
 // Removes the spell buttons from the HUD.
 /obj/item/technomancer_core/dropped(mob/user)
+	if(!wearer)
+		return
 	for(var/obj/screen/ability/obj_based/technomancer/A in wearer.ability_master.ability_objects)
 		wearer.ability_master.remove_ability(A)
 	wearer = null

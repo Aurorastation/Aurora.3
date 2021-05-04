@@ -8,7 +8,7 @@
 
 /obj/item/spell/projectile/ionic_bolt
 	name = "ionic bolt"
-	icon_state = "ionic bolt"
+	icon_state = "force_missile"
 	desc = "For those pesky security units."
 	cast_methods = CAST_RANGED
 	aspect = ASPECT_EMP
