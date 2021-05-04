@@ -184,7 +184,7 @@
 /obj/item/clothing/head/maxtlatl/worn_overlays(icon_file, slot)
 	. = ..()
 	if(slot == slot_head)
-		var/mutable_appearance/M = mutable_appearance(icon_file, "[item_state]_he")
+		var/mutable_appearance/M = mutable_appearance(icon_file, "[item_state]")
 		M.appearance_flags = RESET_COLOR|RESET_ALPHA
 		M.pixel_y = 12
 		. += M
