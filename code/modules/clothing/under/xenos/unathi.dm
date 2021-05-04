@@ -36,13 +36,21 @@
 	worn by those in the warrior caste or those with something to prove."
 	icon_state = "zazali"
 	item_state = "zazali"
-	build_from_parts = TRUE
-	worn_overlay = list("top", "belt")
 	var/additional_color = COLOR_GRAY // The default color.
 
-/obj/item/clothing/under/unathi/zazali/worn_overlays(icon_file, contained_flag)
+/obj/item/clothing/under/unathi/zazali/update_icon()
+	cut_overlays()
+	var/image/top = image(icon, null, "zazali_top")
+	top.appearance_flags = RESET_COLOR
+	top.color = additional_color
+	add_overlay(top)
+	var/image/belt = image(icon, null, "zazali_belt")
+	belt.appearance_flags = RESET_COLOR
+	add_overlay(belt)
+
+/obj/item/clothing/under/unathi/zazali/worn_overlays(icon_file, slot)
 	. = ..()
-	if(contained_flag == WORN_UNDER)
+	if(slot == slot_w_uniform)
 		var/image/top = image(icon_file, null, "zazali_un_top")
 		top.appearance_flags = RESET_COLOR
 		top.color = additional_color
@@ -130,12 +138,21 @@
 	item_state = "rockstone"
 	icon_override = null
 	contained_sprite = TRUE
-	worn_overlay = list("gem", "chain")
 	var/additional_color = COLOR_GRAY
 
-/obj/item/clothing/accessory/poncho/rockstone/worn_overlays(icon_file, contained_flag)
+/obj/item/clothing/accessory/poncho/rockstone/update_icon()
+	cut_overlays()
+	var/image/gem = image(icon, null, "rockstone_gem")
+	gem.appearance_flags = RESET_COLOR
+	gem.color = additional_color
+	add_overlay(gem)
+	var/image/chain = image(icon, null, "rockstone_chain")
+	chain.appearance_flags = RESET_COLOR
+	add_overlay(chain)
+
+/obj/item/clothing/accessory/poncho/rockstone/worn_overlays(icon_file, slot)
 	. = ..()
-	if(contained_flag == WORN_UNDER || WORN_SUIT)
+	if(slot == slot_wear_suit)
 		var/image/gem = image(icon_file, null, "rockstone_un_gem")
 		gem.appearance_flags = RESET_COLOR
 		gem.color = additional_color
@@ -143,6 +160,17 @@
 		var/image/chain = image(icon_file, null, "rockstone_un_chain")
 		chain.appearance_flags = RESET_COLOR
 		. += chain
+
+/obj/item/clothing/accessory/poncho/rockstone/get_mob_overlay(force)
+	var/image/base = ..()
+	var/image/gem = image(icon, null, "rockstone_un_gem")
+	gem.appearance_flags = RESET_COLOR
+	gem.color = additional_color
+	base.add_overlay(gem)
+	var/image/chain = image(icon, null, "rockstone_un_chain")
+	chain.appearance_flags = RESET_COLOR
+	base.add_overlay(chain)
+	return base
 
 /obj/item/clothing/accessory/poncho/maxtlatl
 	name = "Th'akhist maxtlatl"
@@ -188,7 +216,7 @@
 /obj/item/clothing/head/maxtlatl/worn_overlays(icon_file, slot)
 	. = ..()
 	if(slot == slot_head)
-		var/mutable_appearance/M = mutable_appearance(icon_file, "maxtlatl-head_translate")
+		var/mutable_appearance/M = mutable_appearance(icon_file, "maxtlatl-head_head")
 		M.appearance_flags = RESET_COLOR|RESET_ALPHA
 		M.pixel_y = 12
 		. += M
@@ -203,20 +231,28 @@
 	for simple noble wear (the cloth can be embroidered), and practical for labor!"
 	icon_state = "himation"
 	item_state = "himation"
-	build_from_parts = TRUE
-	worn_overlay = list("skirt", "belt2")
 	var/additional_color = COLOR_GRAY
 
-/obj/item/clothing/under/unathi/himation/worn_overlays(icon_file, contained_flag)
+/obj/item/clothing/under/unathi/himation/update_icon()
+	cut_overlays()
+	var/image/skirt = image(icon, null, "himation_skirt")
+	skirt.appearance_flags = RESET_COLOR
+	skirt.color = additional_color
+	add_overlay(skirt)
+	var/image/belt = image(icon, null, "himation_belt")
+	belt.appearance_flags = RESET_COLOR
+	add_overlay(belt)
+
+/obj/item/clothing/under/unathi/himation/worn_overlays(icon_file, slot)
 	. = ..()
-	if(contained_flag == WORN_UNDER)
+	if(slot_w_uniform)
 		var/image/skirt = image(icon_file, null, "himation_un_skirt")
 		skirt.appearance_flags = RESET_COLOR
 		skirt.color = additional_color
 		. += skirt
-		var/image/belt2 = image(icon_file, null, "himation_un_belt2")
-		belt2.appearance_flags = RESET_COLOR
-		. += belt2
+		var/image/belt = image(icon_file, null, "himation_un_belt")
+		belt.appearance_flags = RESET_COLOR
+		. += belt
 
 /obj/item/clothing/wrists/jeweled
 	name = "jeweled bracers"

@@ -72,12 +72,10 @@
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/uniform/unathi_robe
+/datum/gear/uniform/unathi/himation
 	display_name = "himation cloak"
 	path = /obj/item/clothing/under/unathi/himation
 	cost = 1
-	whitelisted = list(SPECIES_UNATHI)
-	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ADDITIONAL_COLOR_SELECTION
 
 /datum/gear/head/sinta_ronin
@@ -265,13 +263,6 @@
 	allowed_roles = list("Chaplain")
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
-
-/datum/gear/uniform/himation
-	display_name = "himation cloak"
-	path = /obj/item/clothing/under/unathi/himation
-	whitelisted = list(SPECIES_UNATHI)
-	sort_category = "Xenowear - Unathi"
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ADDITIONAL_COLOR_SELECTION
 
 /datum/gear/suit/rockstone
 	display_name = "rockstone cape"

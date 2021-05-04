@@ -60,6 +60,7 @@ var/datum/gear_tweak/color/additional/gear_tweak_additional_color = new()
 		return
 	if(I.vars["additional_color"]) // set var/additional_color = COLOR_GREY on item
 		I.vars["additional_color"] = metadata
+	I.update_icon()
 
 /*
 Color Rotation adjustment
