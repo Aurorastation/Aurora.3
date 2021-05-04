@@ -58,7 +58,7 @@
 			if(R.boot_type)
 				if(!("[short][R.icon_state]_sh" in rig_states))
 					fail("[short] [R.name]'s shoes item_state isn't in its icon file.")
-				if(!("[short][R.icon_state]_sealed_he" in rig_states))
+				if(!("[short][R.icon_state]_sealed_sh" in rig_states))
 					fail("[short] [R.name]'s sealed shoes item_state isn't in its icon file.")
 
 	if(!reported)
