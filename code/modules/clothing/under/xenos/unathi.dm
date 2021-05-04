@@ -36,6 +36,8 @@
 	worn by those in the warrior caste or those with something to prove."
 	icon_state = "zazali"
 	item_state = "zazali"
+	build_from_parts = TRUE
+	worn_overlay = "top", "belt"
 	var/additional_color = COLOR_GRAY // The default color.
 
 /obj/item/clothing/under/unathi/zazali/worn_overlays(icon_file, contained_flag)
@@ -200,6 +202,8 @@
 	for simple noble wear (the cloth can be embroidered), and practical for labor!"
 	icon_state = "himation"
 	item_state = "himation"
+	build_from_parts = TRUE
+	worn_overlay = "skirt", "belt2"
 	var/additional_color = COLOR_GRAY
 
 /obj/item/clothing/under/unathi/himation/worn_overlays(icon_file, contained_flag)
