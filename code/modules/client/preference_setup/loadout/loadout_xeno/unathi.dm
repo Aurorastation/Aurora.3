@@ -296,7 +296,7 @@
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/suit/jokfar
+/datum/gear/suit/noble_vest
 	display_name = "jokfar vest"
 	path = /obj/item/clothing/suit/unathi/jokfar
 	cost = 1
