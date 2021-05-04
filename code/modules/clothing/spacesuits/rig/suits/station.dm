@@ -40,8 +40,9 @@
 	req_access = list()
 	req_one_access = list()
 
-	glove_type = null
 	helm_type = null
+	suit_type = null
+	glove_type = null
 	boot_type = null
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
