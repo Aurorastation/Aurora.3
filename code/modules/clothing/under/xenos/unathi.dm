@@ -37,8 +37,7 @@
 	icon_state = "zazali"
 	item_state = "zazali"
 	build_from_parts = TRUE
-	worn_overlay = "top"
-	worn_overlay = "belt"
+	worn_overlay = list("top", "belt")
 	var/additional_color = COLOR_GRAY // The default color.
 
 /obj/item/clothing/under/unathi/zazali/worn_overlays(icon_file, contained_flag)
@@ -131,6 +130,7 @@
 	item_state = "rockstone"
 	icon_override = null
 	contained_sprite = TRUE
+	worn_overlay = list("gem", "chain")
 	var/additional_color = COLOR_GRAY
 
 /obj/item/clothing/accessory/poncho/rockstone/worn_overlays(icon_file, contained_flag)
@@ -204,8 +204,7 @@
 	icon_state = "himation"
 	item_state = "himation"
 	build_from_parts = TRUE
-	worn_overlay = "skirt"
-	worn_overlay = "belt2"
+	worn_overlay = list("skirt", "belt2")
 	var/additional_color = COLOR_GRAY
 
 /obj/item/clothing/under/unathi/himation/worn_overlays(icon_file, contained_flag)
