@@ -8,6 +8,24 @@
 	var/hacked = FALSE   // Has been emagged, no access restrictions.
 
 	var/ui_template = "shuttle_control_console.tmpl"
+	var/list/linked_helmets = list()
+
+/obj/machinery/computer/shuttle_control/Destroy()
+	for(var/obj/item/clothing/head/helmet/legion_pilot/PH as anything in linked_helmets)
+		PH.linked_console = null
+	return ..()
+
+/obj/machinery/computer/shuttle_control/attackby(obj/item/I, user)
+	if(istype(I, /obj/item/clothing/head/helmet/legion_pilot))
+		var/obj/item/clothing/head/helmet/legion_pilot/PH = I
+		if(I in linked_helmets)
+			to_chat(user, SPAN_NOTICE("You unlink \the [I] from \the [src]."))
+			linked_helmets -= PH
+		else
+			to_chat(user, SPAN_NOTICE("You link \the [I] to \the [src]."))
+			linked_helmets += PH
+		return
+	return ..()
 
 /obj/machinery/computer/shuttle_control/attack_hand(mob/user)
 	ui_interact(user)
