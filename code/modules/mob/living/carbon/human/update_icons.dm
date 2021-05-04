@@ -571,6 +571,11 @@ There are several things that need to be remembered:
 
 		var/image/standing = image(icon = under_icon, icon_state = under_state)
 		standing.color = w_uniform.color
+
+		var/image/worn_overlays = w_uniform.worn_overlays(under_icon, slot_w_uniform, w_uniform.contained_sprite ? WORN_UNDER : null)
+		if(worn_overlays)
+			standing.overlays.Add(worn_overlays)
+
 		var/list/ovr
 
 		//apply blood overlay
