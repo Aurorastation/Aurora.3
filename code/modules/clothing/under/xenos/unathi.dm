@@ -156,7 +156,7 @@
 	contained_sprite = TRUE
 
 /obj/item/clothing/wrists/maxtlatl
-	name = "Th'akhist bracers"
+	name = "Th'akhist wristguards"
 	desc = "A traditional garment worn by Th'akh shamans. Popular adornments include dried and pressed grass and \
 	feathers, as well as precious metals and colorful stones in the cuff itself."
 	desc_fluff = "Wristguards as a part of the maxtatl did not become prevalent until much later in Th'akh \

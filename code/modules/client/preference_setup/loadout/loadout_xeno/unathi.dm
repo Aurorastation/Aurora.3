@@ -250,7 +250,7 @@
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/wrists/maxtlatl
-	display_name = "Th'akhist bracers"
+	display_name = "Th'akhist wristguards"
 	path = /obj/item/clothing/wrists/maxtlatl
 	whitelisted = list(SPECIES_UNATHI)
 	allowed_roles = list("Chaplain")
@@ -275,6 +275,7 @@
 /datum/gear/suit/rockstone
 	display_name = "rockstone cape"
 	path = /obj/item/clothing/accessory/poncho/rockstone
+	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ADDITIONAL_COLOR_SELECTION
@@ -289,6 +290,7 @@
 /datum/gear/suit/sash
 	display_name = "gyazo belt"
 	path = /obj/item/clothing/accessory/gyazo
+	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
@@ -296,6 +298,7 @@
 /datum/gear/suit/jokfar
 	display_name = "jokfar vest"
 	path = /obj/item/clothing/suit/unathi/jokfar
+	cost = 1
 	whitelisted = list(SPECIES_UNATHI)	
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
