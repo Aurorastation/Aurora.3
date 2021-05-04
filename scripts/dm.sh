@@ -55,7 +55,6 @@ if [[ $retval == 0 ]]; then
     mv $dmepath.mdme.dmb $dmepath.dmb
     mv $dmepath.mdme.rsc $dmepath.rsc
     chmod a+rwX $dmepath.rsc
-    chmod a+rwX $dmepath.dyn.rsc
 fi
 
 rm $dmepath.mdme
