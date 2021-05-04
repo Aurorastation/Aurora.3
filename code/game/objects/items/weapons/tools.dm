@@ -737,6 +737,7 @@
 	icon_state = "impact_wrench-screw"
 	item_state = "impact_wrench"
 	contained_sprite = TRUE
+	flags = HELDMAPTEXT
 	force = 8
 	attack_verb = list("gored", "drilled", "screwed", "punctured")
 	w_class = ITEMSIZE_SMALL
@@ -751,6 +752,9 @@
 /obj/item/powerdrill/Initialize()
 	. = ..()
 	update_tool()
+
+/obj/item/powerdrill/set_initial_maptext()
+	held_maptext = SMALL_FONTS(7, "S")
 
 /obj/item/powerdrill/examine(var/mob/user)
 	. = ..()
@@ -778,11 +782,13 @@
 
 /obj/item/powerdrill/proc/update_tool()
 	if(isscrewdriver())
-		usesound = 'sound/items/air_wrench.ogg'
-		icon_state = "impact_wrench-screw"
-	else if(iswrench())
 		usesound = 'sound/items/drill_use.ogg'
+		icon_state = "impact_wrench-screw"
+		check_maptext(SMALL_FONTS(7, "S"))
+	else if(iswrench())
+		usesound = 'sound/items/air_wrench.ogg'
 		icon_state = "impact_wrench-wrench"
+		check_maptext(SMALL_FONTS(7, "W"))
 
 /obj/item/powerdrill/attack_self(var/mob/user)
 	if(++current_tool > tools.len)
