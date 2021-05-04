@@ -86,7 +86,7 @@
 				. = "Standing-by at \the [shuttle.get_location_name()]."
 
 		if(WAIT_LAUNCH, FORCE_LAUNCH)
-			. = "Shuttle has received command and will depart shortly."
+			. = "Shuttle has received a command and will depart shortly."
 		if(WAIT_ARRIVE)
 			. = "Proceeding to \the [shuttle.get_destination_name()]."
 		if(WAIT_FINISH)
