@@ -16,7 +16,7 @@
 	desc = "Chitter chitter."
 	summoned_mob_type = null
 	summon_options = list(
-		"Mouse"			=	/mob/living/simple_animal/rat,
+		"Rat"			=	/mob/living/simple_animal/rat,
 		"Lizard"		=	/mob/living/simple_animal/lizard,
 		"Chicken"		=	/mob/living/simple_animal/chicken,
 		"Chick"			=	/mob/living/simple_animal/chick,
