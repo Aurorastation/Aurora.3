@@ -66,4 +66,4 @@
 
 	return TRUE
 
-#undef UNDERSCORE_OR_NULL(target)
+#undef UNDERSCORE_OR_NULL
