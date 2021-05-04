@@ -660,8 +660,6 @@ datum/preferences
 		disabilities = list()
 
 		nanotrasen_relation = "Neutral"
-	
-	update_preview_icon()
 
 // Deletes a character from the database
 /datum/preferences/proc/delete_character_sql(var/client/C)
