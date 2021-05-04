@@ -178,20 +178,24 @@
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/suit/unathi/wrapping_head
-	display_name = "thakh shaman head wrappings"
-	description = "Head wrappings with a breath mask. Only very traditional Th'akh Shamans would wear these."
+	display_name = "Th'akhist head wrappings"
+	description = "Head wrappings with a breath mask. This is considered humble Sinta wear for \
+	Th'akh shamans— most Unathi don't wear these, barring Aut'akh."
 	path = /obj/item/clothing/mask/gas/wrapping
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
+	allowed_roles = list("Chaplain", "Roboticist")
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/unathi/wrapping_body
-	display_name = "thakh shaman body wrappings"
-	description = "Closed body wrappings. Only very traditional Th'akh Shamans would wear these."
+	display_name = "Th'akhist body wrappings"
+	description = "Closed body wrappings. This is considered humble Sinta wear for Th'akh shamans— \
+	most Unathi don't wear these, barring Aut'akh."
 	path = /obj/item/clothing/suit/unathi/mantle/wrapping
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
+	allowed_roles = list("Chaplain", "Roboticist")
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -235,3 +239,63 @@
 	path = /obj/item/cane/shaman
 	sort_category = "Xenowear - Unathi"
 	whitelisted = list(SPECIES_UNATHI)
+
+/datum/gear/suit/maxtlatl
+	display_name = "Th'akhist maxtlatl"
+	path = /obj/item/clothing/accessory/poncho/maxtlatl
+	cost = 1
+	whitelisted = list(SPECIES_UNATHI)
+	allowed_roles = list("Chaplain")
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/wrists/maxtlatl
+	display_name = "Th'akhist bracers"
+	path = /obj/item/clothing/wrists/maxtlatl
+	whitelisted = list(SPECIES_UNATHI)
+	allowed_roles = list("Chaplain")
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/head/maxtlatl
+	display_name = "Th'akhist headgear"
+	path = /obj/item/clothing/head/maxtlatl
+	whitelisted = list(SPECIES_UNATHI)
+	allowed_roles = list("Chaplain")
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/uniform/himation
+	display_name = "himation cloak"
+	path = /obj/item/clothing/under/unathi/himation
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ADDITIONAL_COLOR_SELECTION
+
+/datum/gear/suit/rockstone
+	display_name = "rockstone cape"
+	path = /obj/item/clothing/accessory/poncho/rockstone
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ADDITIONAL_COLOR_SELECTION
+
+/datum/gear/wrists/noble_bracers
+	display_name = "jeweled bracers"
+	path = /obj/item/clothing/wrists/jeweled
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/suit/sash
+	display_name = "gyazo belt"
+	path = /obj/item/clothing/accessory/gyazo
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/suit/jokfar
+	display_name = "jokfar vest"
+	path = /obj/item/clothing/suit/unathi/jokfar
+	whitelisted = list(SPECIES_UNATHI)	
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION

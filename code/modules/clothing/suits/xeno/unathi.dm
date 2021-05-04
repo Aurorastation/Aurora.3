@@ -23,3 +23,11 @@
 	desc = "A casual garment native to Moghes typically worn by Unathi."
 	icon_state = "robe_coat"
 	item_state = "robe_coat"
+
+/obj/item/clothing/suit/unathi/jokfar
+	name = "jokfar vest"
+	desc = "A stylistic garment to be worn alone or over a jumpsuit exclusively by Unathite nobility."
+	icon_state = "robe_coat"
+	item_state = "robe_coat"
+	build_from_parts = TRUE
+	worn_overlay = "trim"
