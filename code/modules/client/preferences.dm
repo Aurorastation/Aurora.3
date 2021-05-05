@@ -190,6 +190,7 @@ datum/preferences
 			load_path(C.ckey)
 			load_preferences()
 			load_and_update_character()
+			update_preview_icon()
 
 /datum/preferences/Destroy()
 	. = ..()
@@ -660,8 +661,6 @@ datum/preferences
 		disabilities = list()
 
 		nanotrasen_relation = "Neutral"
-	
-	update_preview_icon()
 
 // Deletes a character from the database
 /datum/preferences/proc/delete_character_sql(var/client/C)
