@@ -190,6 +190,7 @@ datum/preferences
 			load_path(C.ckey)
 			load_preferences()
 			load_and_update_character()
+			update_preview_icon()
 
 /datum/preferences/Destroy()
 	. = ..()
