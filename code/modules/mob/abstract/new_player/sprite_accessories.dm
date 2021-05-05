@@ -178,11 +178,11 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Bedhead 3"
 		icon_state = "hair_bedhead3"
 		chatname = "wavy hair"
-
+	
 	bedhead4
 		name = "Bedhead 4"
 		icon_state = "hair_bedhead4"
-		length = 3
+		length = 4
 		chatname = "messy locks"
 
 	beehive
@@ -1914,15 +1914,11 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Wise Beard"
 		icon_state = "facial_wise"
 
-	brokenman
+	chinstrap2
 		icon = 'icons/mob/human_face/facial_hair_multiply.dmi'
-		name = "Broken Man"
-		icon_state = "facial_brokenman"
+		name = "Chinstrap, Alt"
+		icon_state = "facial_chinstrap_ii"
 		icon_blend_mode = ICON_MULTIPLY
-
-		chinstrap2
-			name = "Chinstrap, Alt"
-			icon_state = "facial_chinstrap_ii"
 
 		stark
 			name = "Stark"
