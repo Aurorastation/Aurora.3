@@ -17701,7 +17701,7 @@
 	},
 /area/centcom/specops)
 "hum" = (
-/obj/machinery/hologram/holopad,
+/obj/machinery/hologram/holopad/central,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -25210,6 +25210,12 @@
 	icon_state = "2,5"
 	},
 /area/shuttle/merchant)
+"mlA" = (
+/obj/machinery/hologram/holopad/central,
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/specops)
 "mmb" = (
 /turf/simulated/floor,
 /area/tdome/tdome2)
@@ -64523,7 +64529,7 @@ ngi
 jTO
 nlQ
 nGs
-vjQ
+mlA
 ocD
 oik
 vjQ
