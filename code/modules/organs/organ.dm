@@ -230,12 +230,12 @@
 	if (CE_ANTIBIOTIC in owner.chem_effects)
 		antibiotics = owner.chem_effects[CE_ANTIBIOTIC]
 
-	if (germ_level > 0 && germ_level < INFECTION_LEVEL_ONE/2 && prob(30))
+	if (germ_level > 0 && germ_level < INFECTION_LEVEL_ONE/2 && prob(35))
 		germ_level--
 
 	if (germ_level >= INFECTION_LEVEL_ONE/2)
-		//aiming for germ level to go from ambient to INFECTION_LEVEL_TWO in an average of 15 minutes
-		if(antibiotics < 5 && prob(round(germ_level/6)))
+		//aiming for germ level to go from ambient to INFECTION_LEVEL_TWO in an average of 17 minutes
+		if(antibiotics < 5 && prob(round(germ_level/7)))
 			germ_level++
 
 	if (germ_level >= INFECTION_LEVEL_TWO)

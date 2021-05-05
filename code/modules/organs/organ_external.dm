@@ -658,10 +658,10 @@ Note that amputating the affected organ does in fact remove the infection from t
 		if (owner.germ_level > W.germ_level && W.infection_check())
 			W.germ_level++
 
-	if (antibiotics < 5)
+	if(antibiotics < 5)
 		for(var/datum/wound/W in wounds)
 			//Infected wounds raise the organ's germ level
-			if (W.germ_level > germ_level)
+			if (W.germ_level > germ_level && W.infection_check())
 				germ_level++
 				break	//limit increase to a maximum of one per second
 
