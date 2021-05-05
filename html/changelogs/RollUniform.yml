@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed the taj mechanic & NT overall uniforms. They can now be rolled down."
