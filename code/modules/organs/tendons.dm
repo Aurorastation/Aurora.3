@@ -70,7 +70,7 @@
 	heal(max_health, TRUE)
 
 /datum/tendon/proc/heal(var/hp, var/fix_cut)
-	if(!parent?.owner || health >= max_health || hp <= 0)
+	if(!parent?.owner || hp <= 0)
 		return
 
 	health = min(max_health, health + hp)
