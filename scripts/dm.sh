@@ -46,8 +46,6 @@ if [[ $DM == "" ]]; then
     exit 3
 fi
 
-cat /etc/os-release
-
 touch $dmepath.rsc
 touch $dmepath.dyn.rsc
 chmod a+rwX $dmepath.rsc
