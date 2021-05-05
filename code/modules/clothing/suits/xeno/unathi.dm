@@ -14,7 +14,8 @@
 
 /obj/item/clothing/suit/unathi/robe/kilt
 	name = "wasteland kilt"
-	desc = "A long tunic made of old material that acts as a kilt for the poorest of Unathi, who aren't afraid to let the sand and sun strike their scales."
+	desc = "A long tunic made of old material that acts as a kilt for the poorest of Unathi, who aren't afraid to let \
+	the sand and sun strike their scales."
 	icon_state = "wasteland_kilt"
 	item_state = "wasteland_kilt"
 
@@ -26,7 +27,8 @@
 
 /obj/item/clothing/suit/unathi/jokfar
 	name = "jokfar vest"
-	desc = "A stylistic garment to be worn alone or over a jumpsuit exclusively by Unathite nobility."
+	desc = "The nobility favor this vest for its glamor, but although it isn't a garment to get in the way, it is \
+	not ideal for physical labor."
 	icon_state = "jokfar"
 	item_state = "jokfar"
 	build_from_parts = TRUE

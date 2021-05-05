@@ -1,6 +1,7 @@
 /obj/item/clothing/accessory/sinta_hood
 	name = "clan hood"
-	desc = "A hood worn commonly by unathi away from home. No better way of both representing your clan to foreigners and keeping the sun out of your eyes in style!"
+	desc = "A hood worn commonly by unathi away from home. No better way of both representing your clan to \
+	foreigners and keeping the sun out of your eyes in style!"
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "sinta_hood"
 	item_state = "sinta_hood_up"
@@ -37,7 +38,7 @@
 /obj/item/clothing/accessory/unathi
 	name = "gyazo belt"
 	desc = "A simple belt fashioned from cloth, the gyazo belt is an adornment that can be paired with practically \
-	any Unathi outfit. Fashionable and comes in a variety of colors!"
+	any Unathite outfit and is a staple for any Sinta. Fashionable and comes in a variety of colors!"
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "sash"
 	item_state = "sash"
@@ -87,7 +88,7 @@
 	snakes longer than a bus, have a long enough hide for multiple mantles."
 	desc_fluff = "Hunting an arbek is no easy task. Brave Zo'saa looking to prove themselves in battle and be \
 	promoted to Saa rarely understand the gravity of these trials. Serpents large enough to swallow Unathi whole, \
-	they can live up to half a millenia— should enough foolish adventurers try to slay it, that is."
+	they can live up to half a millenia- should enough foolish adventurers try to slay it, that is."
 	worn_overlay = "mountain"
 
 /obj/item/clothing/accessory/poncho/rockstone

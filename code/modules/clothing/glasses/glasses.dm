@@ -241,7 +241,8 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/safety/goggles/wasteland
 	name = "wasteland goggles"
-	desc = "A pair of old goggles common in the Wasteland. A few denizens unfortunate enough to not keep this protection on them after the nukes dropped no longer have the ability to see."
+	desc = "A pair of old goggles common in the Wasteland. A few denizens unfortunate enough to not \
+	keep this protection on them after the nukes dropped no longer have the ability to see."
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "wasteland_goggles"
 	item_state = "wasteland_goggles"

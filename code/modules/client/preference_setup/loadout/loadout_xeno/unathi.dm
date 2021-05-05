@@ -1,5 +1,7 @@
 /datum/gear/suit/unathi_mantle
 	display_name = "hide mantle selection"
+	description = "A selection of hide mantles, one for each of the desert, forest, and mountainous \
+	regions of Moghes. The forest mantle from the coveted Tul is exclusively for nobility these days."
 	path = /obj/item/clothing/accessory/poncho/unathimantle
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
@@ -178,8 +180,6 @@
 
 /datum/gear/suit/unathi/wrapping_head
 	display_name = "Thakhist head wrappings"
-	description = "Head wrappings with a breath mask. This is considered humble Sinta wear for \
-	Th'akh shamans- most Unathi don't wear these, barring Aut'akh."
 	path = /obj/item/clothing/mask/gas/unathi
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
@@ -189,8 +189,6 @@
 
 /datum/gear/suit/unathi/wrapping_body
 	display_name = "Thakhist body wrappings"
-	description = "Closed body wrappings. This is considered humble Sinta wear for Th'akh shamans- \
-	most Unathi don't wear these, barring Aut'akh."
 	path = /obj/item/clothing/suit/unathi/wrapping
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
@@ -200,7 +198,8 @@
 
 /datum/gear/augment/autakh
 	display_name = "soul anchor"
-	description = "A rune inscribed mirror or piece of glass placed behind the eyes. Believed to be the 'Window to the Soul' and house the concentrated spirit of an individual."
+	description = "A rune inscribed mirror or piece of glass placed behind the eyes. Believed to \
+	be the 'Window to the Soul' and house the concentrated spirit of an individual."
 	path = /obj/item/organ/internal/anchor
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
@@ -208,17 +207,20 @@
 
 /datum/gear/augment/autakh/calf_override
 	display_name = "calf overdrive"
-	description = "An Aut'akh augment that allows the user to run at high speeds without the cost of stamina, causes damage to the lower body when used."
+	description = "An Aut'akh augment that allows the user to run at high speeds without the cost \
+	of stamina, causes damage to the lower body when used."
 	path = /obj/item/organ/internal/augment/calf_override
 
 /datum/gear/augment/autakh/protein_valve
 	display_name = "protein breakdown valve"
-	description = "An aut'akh valve on the chest that releases a dangerous chemical into the stomach, forcing rapid digestion for immediate adrenal stimulation. Causes long-term damage."
+	description = "An aut'akh valve on the chest that releases a dangerous chemical into the \
+	stomach, forcing rapid digestion for immediate adrenal stimulation. Causes long-term damage."
 	path = /obj/item/organ/internal/augment/protein_valve
 
 /datum/gear/augment/autakh/venomous_rest
 	display_name = "venomous rest implant"
-	description = "An aut'akh compartment connected to the blood system that administers a traditional Unathi healing agent."
+	description = "An aut'akh compartment connected to the blood system that administers a \
+	traditional Unathi healing agent."
 	path = /obj/item/organ/internal/augment/venomous_rest
 
 /datum/gear/augment/autakh/eyes
