@@ -2341,7 +2341,12 @@ Follow by example and make good judgement based on length which list to include 
 		taj_ears_sidepony
 			name = "Tajara Side Ponytail"
 			icon_state = "hair_sidepony"
-			chatname = "sidepony"
+			chatname = "sideponytail"
+
+		taj_ears_sideponyalt
+			name = "Tajara Side Ponytail Alt"
+			icon_state = "hair_sideponyalt"
+			chatname = "sideponytail"
 
 		taj_ears_governmentman
 			name = "Tajara Government Man"
@@ -2371,6 +2376,11 @@ Follow by example and make good judgement based on length which list to include 
 		taj_ears_shoulderlength
 			name = "Tajara Shoulderlength"
 			icon_state = "hair_shoulderlength"
+			chatname = "styled mane"
+
+		taj_ears_shoulderlengthalt
+			name = "Tajara Shoulderlength Alt"
+			icon_state = "hair_shoulderlengthalt"
 			chatname = "styled mane"
 
 //msai hair, longer ears
@@ -2489,7 +2499,12 @@ Follow by example and make good judgement based on length which list to include 
 		msai_ears_sidepony
 			name = "M'sai Side Ponytail"
 			icon_state = "msai_sidepony"
-			chatname = "sidepony"
+			chatname = "sideponytail"
+
+		msai_ears_sideponyalt
+			name = "M'sai Side Ponytail Alt"
+			icon_state = "msai_sideponyalt"
+			chatname = "sideponytail"
 
 		msai_ears_governmentman
 			name = "M'sai Government Man"
@@ -2519,6 +2534,11 @@ Follow by example and make good judgement based on length which list to include 
 		msai_ears_shoulderlength
 			name = "M'sai Shoulderlength"
 			icon_state = "msai_shoulderlength"
+			chatname = "styled mane"
+
+		msai_ears_shoulderlengthalt
+			name = "M'sai Shoulderlength Alt"
+			icon_state = "msai_shoulderlengthalt"
 			chatname = "styled mane"
 
 //vaurca antennae
