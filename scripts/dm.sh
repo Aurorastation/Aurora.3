@@ -47,7 +47,9 @@ if [[ $DM == "" ]]; then
 fi
 
 touch $dmepath.rsc
+touch $dmepath.dyn.rsc
 chmod a+rwX $dmepath.rsc
+chmod a+rwX $dmepath.dyn.rsc
 chmod -R a+rwX .
 
 "$DM" -clean $dmepath.mdme | grep --invert-match -E "^including.*\.dmm?\$" | tee build_log.txt
