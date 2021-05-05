@@ -95,7 +95,7 @@
 
 /obj/item/clothing/under/unathi/himation/worn_overlays(icon_file, slot)
 	. = ..()
-	if(slot_w_uniform)
+	if(slot == slot_w_uniform)
 		var/image/skirt = image(icon_file, null, "himation_un_skirt")
 		skirt.appearance_flags = RESET_COLOR
 		skirt.color = additional_color
