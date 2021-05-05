@@ -33,7 +33,7 @@
 
 			for(var/obj/item/organ/O in H.internal_organs)
 				if(O.damage > 0) // Fix internal damage
-					O.heal_damage(heal_power / 2) //todomatt: test healing out
+					O.heal_damage(heal_power / 2)
 				if(O.damage <= 5 && O.organ_tag == BP_EYES) // Fix eyes
 					H.sdisabilities &= ~BLIND
 

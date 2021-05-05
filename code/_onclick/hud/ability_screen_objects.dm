@@ -17,8 +17,6 @@
 	if(owner)
 		my_mob = owner
 		update_abilities(0, owner)
-	else
-		message_admins("ERROR: ability_master's Initialize() was not given an owner argument.  This is a bug.")
 
 /obj/screen/movable/ability_master/Destroy()
 	. = ..()
@@ -154,7 +152,7 @@
 
 /mob/Initialize()
 	. = ..()
-	ability_master = new /obj/screen/movable/ability_master(src, src)
+	ability_master = new /obj/screen/movable/ability_master(FALSE, src)
 
 ///////////ACTUAL ABILITIES////////////
 //This is what you click to do things//

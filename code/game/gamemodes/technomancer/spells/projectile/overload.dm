@@ -41,14 +41,3 @@
 /obj/item/spell/projectile/overload/on_ranged_cast(atom/hit_atom, mob/living/user)
 	energy_cost_per_shot = round(core.max_energy * 0.10)
 	..()
-/*	var/energy_before_firing = core.energy
-	if(set_up(hit_atom, user))
-		var/obj/item/projectile/overload/P = new spell_projectile(get_turf(user))
-		P.launch(hit_atom)
-		if(check_for_scepter())
-			P.damage = round(energy_before_firing * 0.004) // .4% of their current energy pool.
-		else
-			P.damage = round(energy_before_firing * 0.003) // .3% of their current energy pool.
-		adjust_instability(instability_per_shot)
-		return 1
-*/

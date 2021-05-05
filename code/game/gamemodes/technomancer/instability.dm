@@ -204,7 +204,7 @@
 				rng = rand(0,8)
 				switch(rng)
 					if(0)
-						apply_damage(instability * 0.7, IRRADIATE)
+						apply_damage(instability * 0.2, IRRADIATE)
 					if(1)
 						return
 					if(2)
@@ -224,7 +224,7 @@
 						to_chat(src, "<span class='danger'>You feel your body slowly degenerate.</span>")
 
 			if(100 to 200) //Lethal
-				rng = rand(0,8)
+				rng = rand(0,7)
 				switch(rng)
 					if(0)
 						apply_effect(instability, IRRADIATE)
@@ -247,8 +247,6 @@
 					if(6)
 						adjustCloneLoss(instability * 0.10) //5 cloneloss @ 100 instability
 						to_chat(src, "<span class='danger'>You feel your body slowly degenerate.</span>")
-					if(7)
-						adjustToxLoss(instability * 0.40) //40 tox @ 100 instability
 
 /mob/living/proc/radiate_instability(amount)
 	var/distance = round(sqrt(instability / 2))

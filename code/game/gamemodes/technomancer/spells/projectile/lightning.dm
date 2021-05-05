@@ -23,7 +23,8 @@
 /obj/item/projectile/beam/lightning
 	name = "lightning"
 	icon_state = "lightning"
-	damage = 20
+	damage = 40
+	armor_penetration = 10
 	damage_type = BURN
 
 	muzzle_type = /obj/effect/projectile/muzzle/tesla
@@ -33,5 +34,6 @@
 	var/power = 6000
 
 /obj/item/projectile/beam/lightning/attack_mob(var/mob/living/target_mob, var/distance, var/miss_modifier=0)
+	..()
 	tesla_zap(target_mob, 3, power)
 	return 1

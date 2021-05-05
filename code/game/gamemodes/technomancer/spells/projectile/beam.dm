@@ -20,8 +20,8 @@
 	fire_sound = 'sound/weapons/laserstrong.ogg'
 
 /obj/item/projectile/beam/techno
-	damage = 30
-	armor_penetration = 10
+	damage = 35
+	armor_penetration = 25
 
 	muzzle_type = /obj/effect/projectile/muzzle/solar
 	tracer_type = /obj/effect/projectile/tracer/solar

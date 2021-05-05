@@ -135,8 +135,8 @@
 // Proc: New()
 // Parameters: 0
 // Description: Sets owner to equal its loc, links to the owner's core, then applies overlays if needed.
-/obj/item/spell/New()
-	..()
+/obj/item/spell/Initialize()
+	. = ..()
 	if(isliving(loc))
 		owner = loc
 	if(owner)
@@ -145,8 +145,6 @@
 			to_chat(owner, "<span class='warning'>You need a Core to do that.</span>")
 			qdel(src)
 			return
-//		if(istype(/obj/item/technomancer_core, owner.back))
-//			core = owner.back
 	update_icon()
 
 // Proc: Destroy()
@@ -237,15 +235,15 @@
 		..()
 
 // Proc: afterattack()
-// Parameters: 4 (target - the atom clicked on by user, user - the technomancer who clicked with the spell, proximity_flag - argument
+// Parameters: 4 (target - the atom clicked on by user, user - the technomancer who clicked with the spell, proximity - argument
 // telling the proc if target is adjacent to user, click_parameters - information on where exactly the click occured on the screen.)
 // Description: Tests to make sure it can cast, then casts a combined, ranged, or melee spell based on what it can do and the
 // range the click occured.  Melee casts have higher priority than ranged if both are possible.  Sets cooldown at the end.
 // Don't override this for spells, override the on_*_cast() spells shown above.
-/obj/item/spell/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
+/obj/item/spell/afterattack(atom/target, mob/user, proximity, click_parameters)
 	if(!run_checks())
 		return
-	if(!proximity_flag)
+	if(!proximity)
 		if(cast_methods & CAST_RANGED)
 			on_ranged_cast(target, user)
 	else
@@ -254,14 +252,19 @@
 			if(spell.cast_methods & CAST_COMBINE)
 				spell.on_combine_cast(src, user)
 				return
-		if(cast_methods & CAST_MELEE)
+		else if(cast_methods & CAST_MELEE)
 			on_melee_cast(target, user)
-		else if(cast_methods & CAST_RANGED) //Try to use a ranged method if a melee one doesn't exist.
+		if(cast_methods & CAST_RANGED) //Try to use a ranged method if a melee one doesn't exist.
 			on_ranged_cast(target, user)
 	if(cooldown)
 		var/effective_cooldown = round(cooldown * core.cooldown_modifier, 5)
 		user.setClickCooldown(effective_cooldown)
 		flick("cooldown_[effective_cooldown]",src)
+
+/obj/item/spell/apply_hit_effect(mob/living/target, mob/living/user, hit_zone)
+	. = ..()
+	if(cast_methods & CAST_MELEE)
+		on_melee_cast(target, user) //afterattack is not called if the target isn't the user and this proc isn't called if the target is the user
 
 // Proc: place_spell_in_hand()
 // Parameters: 1 (path - the type path for the spell that is desired.)

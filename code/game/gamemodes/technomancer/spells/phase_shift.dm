@@ -42,6 +42,9 @@
 /obj/effect/phase_shift/process()
 	for(var/mob/living/L in contents)
 		L.adjust_instability(2)
+		if(L.stat == DEAD || L.stat == UNCONSCIOUS)
+			L.forceMove(get_turf(src))
+			L.visible_message(SPAN_WARNING("\The [src] ejects [L]!"))
 
 /obj/effect/phase_shift/relaymove(mob/user as mob)
 	if(user.stat)
