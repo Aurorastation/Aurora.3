@@ -274,18 +274,12 @@
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ADDITIONAL_COLOR_SELECTION
 
-/*
-The jeweled bracers don't work currently with the build_from_parts and worn_overlay code.
-I assume this has something to do with the wrist code; if anyone can fix it, uncomment this.
-
 /datum/gear/wrists/noble_bracers
 	display_name = "jeweled bracers"
 	path = /obj/item/clothing/wrists/unathi/jeweled
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
-*/
 
 /datum/gear/suit/sash
 	display_name = "gyazo belt"

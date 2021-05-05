@@ -1380,25 +1380,19 @@ There are several things that need to be remembered:
 	if(check_draw_wrists())
 		//determine icon state to use
 		var/t_state = wrists.item_state || wrists.icon_state
-
+		var/icon/t_icon
 		var/image/result_layer
 		if(wrists.contained_sprite)
 			wrists.auto_adapt_species(src)
+			t_icon = wrists.icon
 			t_state = "[UNDERSCORE_OR_NULL(wrists.icon_species_tag)][wrists.item_state][WORN_WRISTS]"
 
 			result_layer = image(wrists.icon_override || wrists.icon, t_state)
-
-			if(wrists.color)
-				result_layer.color = wrists.color
-
-			result_layer.appearance_flags = RESET_ALPHA
-			overlays_raw[WRISTS_LAYER] = result_layer
 		else
 			if(wrists.item_state_slots && wrists.item_state_slots[slot_wrists_str])
 				t_state = wrists.item_state_slots[slot_wrists_str]
 
 			//determine icon to use
-			var/icon/t_icon
 			if(wrists.item_icons && (slot_wrists_str in wrists.item_icons))
 				t_icon = wrists.item_icons[slot_wrists_str]
 			else if(wrists.icon_override)
@@ -1409,15 +1403,15 @@ There are several things that need to be remembered:
 
 			result_layer = image(t_icon, t_state)
 
-			if(wrists.color)
-				result_layer.color = wrists.color
+		if(wrists.color)
+			result_layer.color = wrists.color
 
-			var/image/worn_overlays = wrists.worn_overlays(t_icon, slot_wrists, wrists.contained_sprite ? WORN_WRISTS : null)
-			if(worn_overlays)
-				result_layer.overlays.Add(worn_overlays)
+		var/image/worn_overlays = wrists.worn_overlays(t_icon, slot_wrists, wrists.contained_sprite ? WORN_WRISTS : null)
+		if(worn_overlays)
+			result_layer.overlays.Add(worn_overlays)
 
-			result_layer.appearance_flags = RESET_ALPHA
-			overlays_raw[WRISTS_LAYER] = result_layer
+		result_layer.appearance_flags = RESET_ALPHA
+		overlays_raw[WRISTS_LAYER] = result_layer
 
 	if(update_icons)
 		update_icon()
