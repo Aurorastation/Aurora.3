@@ -250,7 +250,7 @@
 
 /datum/gear/wrists/maxtlatl
 	display_name = "Thakhist wristguards"
-	path = /obj/item/clothing/wrists/unathi/maxtlatl
+	path = /obj/item/clothing/wrists/maxtlatl
 	whitelisted = list(SPECIES_UNATHI)
 	allowed_roles = list("Chaplain")
 	sort_category = "Xenowear - Unathi"
@@ -274,7 +274,7 @@
 
 /datum/gear/wrists/noble_bracers
 	display_name = "jeweled bracers"
-	path = /obj/item/clothing/wrists/unathi
+	path = /obj/item/clothing/wrists/jeweled
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
