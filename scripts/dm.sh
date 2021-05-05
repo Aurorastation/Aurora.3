@@ -55,7 +55,6 @@ chmod -R a+rwX .
 "$DM" -clean $dmepath.mdme | grep --invert-match -E "^including.*\.dmm?\$" | tee build_log.txt
 retval=$?
 
-
 if [[ $retval == 0 ]]; then
     mv $dmepath.mdme.dmb $dmepath.dmb
     mv $dmepath.mdme.rsc $dmepath.rsc
