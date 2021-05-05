@@ -80,7 +80,7 @@
 
 /datum/gear/head/sinta_ronin
 	display_name = "straw hat"
-	path = /obj/item/clothing/head/sinta_ronin
+	path = /obj/item/clothing/head/unathi
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 
@@ -179,8 +179,8 @@
 /datum/gear/suit/unathi/wrapping_head
 	display_name = "Thakhist head wrappings"
 	description = "Head wrappings with a breath mask. This is considered humble Sinta wear for \
-	Th'akh shamans— most Unathi don't wear these, barring Aut'akh."
-	path = /obj/item/clothing/mask/gas/wrapping
+	Th'akh shamans- most Unathi don't wear these, barring Aut'akh."
+	path = /obj/item/clothing/mask/gas/unathi
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
 	allowed_roles = list("Chaplain", "Roboticist")
@@ -189,9 +189,9 @@
 
 /datum/gear/suit/unathi/wrapping_body
 	display_name = "Thakhist body wrappings"
-	description = "Closed body wrappings. This is considered humble Sinta wear for Th'akh shamans— \
+	description = "Closed body wrappings. This is considered humble Sinta wear for Th'akh shamans- \
 	most Unathi don't wear these, barring Aut'akh."
-	path = /obj/item/clothing/suit/unathi/mantle/wrapping
+	path = /obj/item/clothing/suit/unathi/wrapping
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
 	allowed_roles = list("Chaplain", "Roboticist")
@@ -250,7 +250,7 @@
 
 /datum/gear/wrists/maxtlatl
 	display_name = "Thakhist wristguards"
-	path = /obj/item/clothing/wrists/maxtlatl
+	path = /obj/item/clothing/wrists/unathi/maxtlatl
 	whitelisted = list(SPECIES_UNATHI)
 	allowed_roles = list("Chaplain")
 	sort_category = "Xenowear - Unathi"
@@ -258,7 +258,7 @@
 
 /datum/gear/head/maxtlatl
 	display_name = "Thakhist headgear"
-	path = /obj/item/clothing/head/maxtlatl
+	path = /obj/item/clothing/head/unathi/maxtlatl
 	whitelisted = list(SPECIES_UNATHI)
 	allowed_roles = list("Chaplain")
 	sort_category = "Xenowear - Unathi"
@@ -274,14 +274,14 @@
 
 /datum/gear/wrists/noble_bracers
 	display_name = "jeweled bracers"
-	path = /obj/item/clothing/wrists/jeweled
+	path = /obj/item/clothing/wrists/unathi
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/sash
 	display_name = "gyazo belt"
-	path = /obj/item/clothing/accessory/gyazo
+	path = /obj/item/clothing/accessory/unathi
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
