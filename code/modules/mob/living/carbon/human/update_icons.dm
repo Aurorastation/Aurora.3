@@ -1414,7 +1414,7 @@ There are several things that need to be remembered:
 
 			var/image/worn_overlays = wrists.worn_overlays(t_icon, slot_wrists, wrists.contained_sprite ? WORN_WRISTS : null)
 			if(worn_overlays)
-				standing.overlays.Add(worn_overlays)
+				result_layer.overlays.Add(worn_overlays)
 
 			result_layer.appearance_flags = RESET_ALPHA
 			overlays_raw[WRISTS_LAYER] = result_layer
