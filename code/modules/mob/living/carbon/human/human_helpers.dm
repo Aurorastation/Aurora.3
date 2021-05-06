@@ -300,11 +300,11 @@
 		return TRUE
 	return FALSE
 
-/mob/living/carbon/human/eyes_protected(var/stabbed = FALSE) // if stabbed is set to true if we're being stabbed and not just checking
+/mob/living/carbon/human/eyes_protected(var/obj/stab_item, var/stabbed = FALSE) // if stabbed is set to true if we're being stabbed and not just checking
 	. = ..()
 	if(.)
 		return
 	for(var/obj/item/protection in list(head, wear_mask, glasses))
-		if(protection.protects_eyestab(stabbed))
+		if(protection.protects_eyestab(stab_item, stabbed))
 			return TRUE
 	return FALSE

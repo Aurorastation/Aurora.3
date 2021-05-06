@@ -809,7 +809,7 @@ default behaviour is:
 /mob/living/proc/has_eyes()
 	return 1
 
-/mob/living/proc/eyes_protected(var/stabbed = FALSE) // if stabbed is set to true if we're being stabbed and not just checking
+/mob/living/proc/eyes_protected(var/obj/stab_item, var/stabbed = FALSE) // if stabbed is set to true if we're being stabbed and not just checking
 	if(!has_eyes())
 		return TRUE
 	return FALSE

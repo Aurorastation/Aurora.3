@@ -32,7 +32,7 @@ BLIND     // can't see anything
 	var/obj/item/clothing/glasses/hud/hud = null	// Hud glasses, if any
 	var/activated_color = null
 	var/normal_layer = TRUE
-	var/glass_material = TRUE
+	var/shatter_material = /obj/item/material/shard
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_WARFORM = 'icons/mob/species/warriorform/eyes.dmi'
 		)
@@ -52,12 +52,12 @@ BLIND     // can't see anything
 	normal_layer = !normal_layer
 	to_chat(usr, SPAN_NOTICE("\The [src] will now layer [normal_layer ? "under" : "over"] your hair."))
 
-/obj/item/clothing/glasses/protects_eyestab(var/stabbed = FALSE)
-	if(stabbed && (body_parts_covered & EYES) && !(item_flags & THICKMATERIAL) && glass_material)
+/obj/item/clothing/glasses/protects_eyestab(var/obj/stab_item, var/stabbed = FALSE)
+	if(stabbed && (body_parts_covered & EYES) && !(item_flags & THICKMATERIAL) && shatter_material && prob(stab_item.force * 5))
 		var/mob/M = loc
 		M.visible_message(SPAN_WARNING("\The [src] [M] is wearing gets shattered!"))
 		playsound(loc, /decl/sound_category/glass_break_sound, 70, TRUE)
-		new /obj/item/material/shard(M.loc)
+		new shatter_material(M.loc)
 		qdel(src)
 		return FALSE
 	return ..()
@@ -522,7 +522,7 @@ BLIND     // can't see anything
 	icon_state = "blindfold"
 	item_state = "blindfold"
 	tint = TINT_BLIND
-	glass_material = FALSE
+	shatter_material = FALSE
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
@@ -544,7 +544,7 @@ BLIND     // can't see anything
 	icon_state = "blinders"
 	item_state = "blinders"
 	contained_sprite = TRUE
-	glass_material = FALSE
+	shatter_material = FALSE
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 

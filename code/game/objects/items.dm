@@ -537,7 +537,7 @@ var/list/global/slot_flags_enumeration = list(
 	return loc
 
 /obj/item/proc/eyestab(mob/living/carbon/M, mob/living/carbon/user)
-	if(M.eyes_protected(TRUE))
+	if(M.eyes_protected(src, TRUE))
 		return
 
 	var/mob/living/carbon/human/H = M
@@ -584,7 +584,7 @@ var/list/global/slot_flags_enumeration = list(
 		M.take_organ_damage(7)
 	M.eye_blurry += rand(3,4)
 
-/obj/item/proc/protects_eyestab(var/stabbed = FALSE) // if stabbed is set to true if we're being stabbed and not just checking
+/obj/item/proc/protects_eyestab(var/obj/stab_item, var/stabbed = FALSE) // if stabbed is set to true if we're being stabbed and not just checking
 	if((item_flags & THICKMATERIAL) && (body_parts_covered & EYES))
 		return TRUE
 	return FALSE
