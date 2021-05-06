@@ -4816,13 +4816,15 @@
 	dir = 10
 	},
 /obj/structure/table/steel,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialt,
 /obj/item/clothing/gloves/yellow,
 /obj/item/clothing/gloves/yellow,
 /obj/item/storage/belt/utility/full,
 /obj/item/storage/belt/utility/full,
-/obj/item/device/multitool,
 /obj/item/device/multitool,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/device/multitool,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/shuttle/skipjack)
@@ -43651,6 +43653,9 @@
 /area/antag/burglar)
 "ygE" = (
 /obj/structure/table/rack,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow,
 /obj/item/storage/belt/utility/very_full,
 /obj/item/storage/belt/utility/very_full,
 /obj/item/storage/belt/utility/very_full,
