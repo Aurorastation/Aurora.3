@@ -483,6 +483,7 @@ BLIND     // can't see anything
 			flags_inv |= HIDEEYES
 			body_parts_covered |= EYES
 			icon_state = initial(icon_state)
+			item_state = initial(icon_state)
 			flash_protection = initial(flash_protection)
 			tint = initial(tint)
 			to_chat(usr, "You flip \the [src] down to protect your eyes.")
@@ -491,6 +492,7 @@ BLIND     // can't see anything
 			flags_inv &= ~HIDEEYES
 			body_parts_covered &= ~EYES
 			icon_state = "[initial(icon_state)]up"
+			item_state = "[initial(item_state)]up"
 			flash_protection = FLASH_PROTECTION_NONE
 			tint = TINT_NONE
 			to_chat(usr, "You push \the [src] up out of your face.")
@@ -503,6 +505,15 @@ BLIND     // can't see anything
 	icon_state = "rwelding-g"
 	item_state = "rwelding-g"
 	tint = TINT_MODERATE
+
+/obj/item/clothing/glasses/welding/emergency
+	name = "emergency welding goggles"
+	desc = "A cheaper version of standard welding goggles, approved for emergency use by the Nanotrasen Safety Board."
+	icon = 'icons/clothing/eyes/welding_goggles.dmi'
+	icon_state = "ewelding-g"
+	item_state = "ewelding-g"
+	contained_sprite = TRUE
+	tint = TINT_BLIND // yes, this is on purpose
 
 /obj/item/clothing/glasses/sunglasses/blindfold
 	name = "blindfold"

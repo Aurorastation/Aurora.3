@@ -256,6 +256,13 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 200, MATERIAL_GLASS = 120)
 	origin_tech = list(TECH_ENGINEERING = 3)
 
+/obj/item/weldingtool/emergency
+	name = "emergency welding tool"
+	desc = "A miniaturized version of a standard welding tool, this one was made to be used during emergencies."
+	icon_state = "miniwelder"
+	item_state = "miniwelder"
+	max_fuel = 10
+
 //The Experimental Welding Tool!
 /obj/item/weldingtool/experimental
 	name = "experimental welding tool"
