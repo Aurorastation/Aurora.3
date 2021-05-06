@@ -189,7 +189,7 @@ var/datum/gear_tweak/custom_name/gear_tweak_free_name = new()
 /datum/gear_tweak/custom_name/get_metadata(var/user, var/metadata)
 	if(valid_custom_names)
 		return input(user, "Choose an item name.", "Character Preference", metadata) as null|anything in valid_custom_names
-	return sanitize(input(user, "Choose the item's name. Leave it blank to use the default name.", "Item Name", metadata) as text|null, MAX_LNAME_LEN, extra = 0)
+	return sanitize(input(user, "Choose the item's name. Leave it blank to use the default name.", "Item Name", metadata) as text|null, MAX_LNAME_LEN, extra = 0, encode = FALSE)
 
 /datum/gear_tweak/custom_name/tweak_item(var/obj/item/I, var/metadata)
 	if(!metadata)
@@ -219,7 +219,7 @@ var/datum/gear_tweak/custom_desc/gear_tweak_free_desc = new()
 /datum/gear_tweak/custom_desc/get_metadata(var/user, var/metadata)
 	if(valid_custom_desc)
 		return input(user, "Choose an item description.", "Character Preference", metadata) as null|anything in valid_custom_desc
-	return sanitize(input(user, "Choose the item's description. Leave it blank to use the default description.", "Item Description", metadata) as message|null, extra = 0)
+	return sanitize(input(user, "Choose the item's description. Leave it blank to use the default description.", "Item Description", html_decode(metadata)) as message|null, extra = 0)
 
 /datum/gear_tweak/custom_desc/tweak_item(var/obj/item/I, var/metadata)
 	if(!metadata)

@@ -541,6 +541,7 @@
 	return t
 
 /proc/html2pencode(t)
+	t = html_decode(t)
 	t = replacetext(t, "<B>", "\[b\]")
 	t = replacetext(t, "</B>", "\[/b\]")
 	t = replacetext(t, "<I>", "\[i\]")

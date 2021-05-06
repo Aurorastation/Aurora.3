@@ -1,0 +1,5 @@
+author: JohnWildkins
+delete-after: True
+
+changes:
+  - bugfix: "Signatures and custom loadout names/descriptions should no longer show HTML encodings in-game."
