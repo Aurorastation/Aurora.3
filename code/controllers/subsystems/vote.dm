@@ -200,6 +200,7 @@ var/datum/controller/subsystem/vote/SSvote
 		if(vote in choices)
 			if(current_votes[ckey])
 				choices[current_votes[ckey]]["votes"]--
+			log_vote("[ckey] submitted their vote for: [vote]")
 			voted += usr.ckey
 			choices[vote]["votes"]++	//check this
 			current_votes[ckey] = vote
