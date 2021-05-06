@@ -201,7 +201,14 @@ var/datum/controller/subsystem/vote/SSvote
 			if(current_votes[ckey])
 				choices[current_votes[ckey]["vote"]]["votes"] -= current_votes[ckey]["tally"]
 			voted += usr.ckey
-			var/vote_tally = (!ROUND_IS_STARTED || !(isnewplayer(usr) || isobserver(usr))) ? 1 : 0.5
+			var/is_playing = !isnewplayer(usr)
+			if(is_playing && isobserver(usr))
+				var/mob/abstract/observer/O = usr
+				if(O.admin_ghosted || !O.started_as_observer)
+					is_playing = TRUE
+				else
+					is_playing = FALSE
+			var/vote_tally = (!ROUND_IS_STARTED || is_playing) ? 1 : 0.5
 			choices[vote]["votes"] += vote_tally
 			current_votes[ckey] = list("vote" = vote, "tally" = vote_tally)
 			return 1
