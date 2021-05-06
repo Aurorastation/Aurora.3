@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "You can now test the siemens coefficient of gloves in two ways. The first way is simply probing them with a multitool, the second, holding a battery cell in one hand, the multitool in the other, then probing the cell with your multitool."

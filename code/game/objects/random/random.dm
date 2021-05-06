@@ -128,7 +128,7 @@
 		/obj/item/stack/packageWrap = 1,
 		/obj/random/bomb_supply = 2,
 		/obj/item/extinguisher = 1,
-		/obj/item/clothing/gloves/fyellow = 1,
+		/obj/item/clothing/gloves/yellow/budget = 1,
 		/obj/item/stack/cable_coil = 3,
 		/obj/random/toolbox = 2,
 		/obj/item/storage/belt/utility = 2,
@@ -995,7 +995,7 @@
 		/obj/item/clothing/gloves/boxing/green = 0.3,
 		/obj/item/clothing/gloves/captain = 0.1,
 		/obj/item/clothing/gloves/combat = 0.2,
-		/obj/item/clothing/gloves/fyellow = 1.2,
+		/obj/item/clothing/gloves/yellow/budget = 1.2,
 		/obj/item/clothing/gloves/latex = 0.5,
 		/obj/item/clothing/gloves/latex/nitrile = 0.4,
 		/obj/item/clothing/gloves/yellow = 0.9
