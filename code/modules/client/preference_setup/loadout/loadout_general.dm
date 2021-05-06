@@ -217,6 +217,9 @@
 	plushies["plushie, slime"] = /obj/item/toy/plushie/slime
 	plushies["plushie, penny"] = /obj/item/toy/plushie/pennyplush
 	plushies["plushie, greimorian"] = /obj/item/toy/plushie/greimorian
+	plushies["plushie, Axic"] = /obj/item/toy/plushie/axic
+	plushies["plushie, Qill"] = /obj/item/toy/plushie/qill
+	plushies["plushie, Xana"] = /obj/item/toy/plushie/xana
 	gear_tweaks += new/datum/gear_tweak/path(plushies)
 
 /datum/gear/toothpaste
