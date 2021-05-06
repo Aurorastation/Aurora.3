@@ -40,7 +40,7 @@
 	name = "TCFL Dropship Pilot"
 	uniform = /obj/item/clothing/under/legion/pilot
 	head = /obj/item/clothing/head/helmet/legion_pilot
-	suit = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion
+	suit = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion/alt
 	gloves = null
 	back = null
 	belt = /obj/item/storage/belt/security/tactical

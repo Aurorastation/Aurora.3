@@ -643,11 +643,14 @@
 			stamina_recovery *= 1 + 0.3 * chem_effects[CE_SPEEDBOOST]
 			move_delay_mod += -1.5 * chem_effects[CE_SPEEDBOOST]
 
-		var/total_phoronloss = 0
 		for(var/obj/item/I in src)
 			if(I.contaminated && !(isvaurca(src) && src.species.has_organ[BP_FILTRATION_BIT]))
-				total_phoronloss += vsc.plc.CONTAMINATION_LOSS
-		if(!(status_flags & GODMODE)) adjustToxLoss(total_phoronloss)
+				if(I == r_hand)
+					apply_damage(vsc.plc.CONTAMINATION_LOSS, BURN, BP_R_HAND)
+				else if(I == l_hand)
+					apply_damage(vsc.plc.CONTAMINATION_LOSS, BURN, BP_L_HAND)
+				else
+					adjustFireLoss(vsc.plc.CONTAMINATION_LOSS)
 
 	if (intoxication)
 		handle_intoxication()

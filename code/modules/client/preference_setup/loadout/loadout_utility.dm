@@ -128,3 +128,8 @@
 	pills["Orastabin"] = /obj/item/storage/pill_bottle/orastabin
 	pills["Parvosil"] = /obj/item/storage/pill_bottle/parvosil
 	gear_tweaks += new /datum/gear_tweak/path(pills)
+
+/datum/gear/utility/buddy_tag
+	display_name = "buddy tag"
+	path = /obj/item/clothing/accessory/buddytag
+	cost = 2

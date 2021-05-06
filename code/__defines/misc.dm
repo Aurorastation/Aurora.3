@@ -441,6 +441,8 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define GET_ABOVE(A) (HAS_ABOVE(A:z) ? get_step(A, UP) : null)
 #define GET_BELOW(A) (HAS_BELOW(A:z) ? get_step(A, DOWN) : null)
 
+#define GET_Z(A) (get_step(A, 0)?.z || 0)
+
 #define NULL_OR_EQUAL(self,other) (!(self) || (self) == (other))
 
 //Lying animation

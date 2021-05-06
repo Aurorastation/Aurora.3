@@ -35,7 +35,7 @@
 
 	uniform = /obj/item/clothing/under/rank/chief_engineer
 	head = /obj/item/clothing/head/hardhat/white
-	belt = /obj/item/storage/belt/utility
+	belt = /obj/item/storage/belt/utility/ce
 	tab_pda = /obj/item/modular_computer/handheld/pda/engineering/ce
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/engineering/ce
 	tablet = /obj/item/modular_computer/handheld/preset/engineering/ce

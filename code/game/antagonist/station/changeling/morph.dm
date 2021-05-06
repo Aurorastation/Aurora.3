@@ -8,10 +8,10 @@ var/datum/antagonist/morph/morphs = null
 	antaghud_indicator = "hudchangeling"
 	faction = "Changeling"
 	antag_sound = 'sound/effects/antag_notice/ling_alert.ogg'
+	flags = ANTAG_NO_ROUNDSTART_SPAWN
 
 /datum/antagonist/morph/New()
 	..()
-
 	morphs = src
 
 /datum/antagonist/morph/greet(datum/mind/player)

@@ -39336,6 +39336,11 @@
 	icon_state = "0-2"
 	},
 /obj/structure/table/standard,
+/obj/item/vitals_monitor,
+/obj/item/vitals_monitor{
+	pixel_x = 2;
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/gen_treatment)
 "bqJ" = (

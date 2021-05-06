@@ -26,6 +26,7 @@
 	var/footstep_sound = /decl/sound_category/tiles_footstep
 
 	var/list/decals
+	var/list/blueprints
 
 	var/is_hole		// If true, turf will be treated as space or a hole
 	var/tmp/turf/baseturf
