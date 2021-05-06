@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed the fire blast projectile air blow thing on the industrial welding tool being misaligned with the sprite."
