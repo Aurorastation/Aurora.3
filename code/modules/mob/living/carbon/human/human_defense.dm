@@ -295,7 +295,6 @@ emp_act
 
 		var/is_sharp_weapon = is_sharp(I)
 		var/blood_probability = is_sharp_weapon ? effective_force * 4 : effective_force * 2
-		message_admins(blood_probability)
 		if(prob(blood_probability))
 			var/turf/location = loc
 			if(istype(location, /turf/simulated))
