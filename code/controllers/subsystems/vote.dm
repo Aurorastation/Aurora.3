@@ -199,10 +199,11 @@ var/datum/controller/subsystem/vote/SSvote
 						return 0
 		if(vote in choices)
 			if(current_votes[ckey])
-				choices[current_votes[ckey]]["votes"]--
+				choices[current_votes[ckey]["vote"]]["votes"] -= current_votes[ckey]["tally"]
 			voted += usr.ckey
-			choices[vote]["votes"]++	//check this
-			current_votes[ckey] = vote
+			var/vote_tally = (!ROUND_IS_STARTED || !(isnewplayer(usr) || isobserver(usr))) ? 1 : 0.5
+			choices[vote]["votes"] += vote_tally
+			current_votes[ckey] = list("vote" = vote, "tally" = vote_tally)
 			return 1
 	return 0
 
@@ -382,7 +383,7 @@ var/datum/controller/subsystem/vote/SSvote
 		VUEUI_SET_CHECK(data["choices"][choice]["votes"], choices[choice]["votes"], ., data) // Only votes trigger data update
 
 	VUEUI_SET_CHECK(data["mode"], mode, ., data)
-	VUEUI_SET_CHECK(data["voted"], current_votes[user.ckey], ., data)
+	VUEUI_SET_CHECK(data["voted"], LAZYACCESS(current_votes[user.ckey], "vote"), ., data)
 	VUEUI_SET_CHECK(data["endtime"], started_time + config.vote_period, ., data)
 	VUEUI_SET_CHECK(data["allow_vote_restart"], config.allow_vote_restart, ., data)
 	VUEUI_SET_CHECK(data["allow_vote_mode"], config.allow_vote_mode, ., data)

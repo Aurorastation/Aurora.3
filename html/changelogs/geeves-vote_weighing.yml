@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Ghosts and observer votes will now count as a half vote, while votes from people in-game count as a full vote."
