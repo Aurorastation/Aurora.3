@@ -4823,8 +4823,8 @@
 /obj/item/storage/belt/utility/full,
 /obj/item/storage/belt/utility/full,
 /obj/item/device/multitool,
-/obj/effect/decal/cleanable/dirt,
 /obj/item/device/multitool,
+/obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/shuttle/skipjack)
@@ -23912,8 +23912,8 @@
 	},
 /area/antag/wizard)
 "lzh" = (
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialt,
 /obj/item/clothing/gloves/yellow,
 /obj/item/clothing/gloves/yellow,
 /obj/item/storage/box/lights/mixed{
