@@ -123,7 +123,7 @@
 
 //returns 0 if the effects failed to apply for some reason, 1 otherwise.
 /mob/living/proc/standard_weapon_hit_effects(obj/item/I, mob/living/user, var/effective_force, var/hit_zone)
-	if(!effective_force || blocked >= 100)
+	if(!effective_force)
 		return FALSE
 
 	//Hulk modifier
@@ -136,7 +136,7 @@
 		damage_flags &= ~DAM_SHARP
 		damage_flags &= ~DAM_EDGE
 
-	apply_damage(effective_force, I.damtype, hit_zone, blocked, used_weapon=I, damage_flags = damage_flags)
+	apply_damage(effective_force, I.damtype, hit_zone, I, damage_flags, I.armor_penetration)
 
 	return TRUE
 
