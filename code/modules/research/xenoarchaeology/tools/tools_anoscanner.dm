@@ -39,6 +39,9 @@
 	last_scan_time = world.time
 	nearest_artifact_distance = -1
 	var/turf/cur_turf = get_turf(src)
+	if(!cur_turf)
+		return
+
 	if (SSxenoarch) //Sanity check due to runtimes ~Z
 		for(var/turf/simulated/mineral/T in SSxenoarch.artifact_spawning_turfs)
 			if(T.artifact_find)
