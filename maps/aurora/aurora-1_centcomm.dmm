@@ -13672,7 +13672,7 @@
 /obj/item/melee/energy/sword/knife{
 	pixel_x = 9;
 	pixel_y = -4
-	},
+	}
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "fcL" = (
