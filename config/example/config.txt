@@ -203,6 +203,12 @@ ALLOW_VOTE_RESTART
 ## allow players to initate a mode-change start
 ALLOW_VOTE_MODE
 
+## use the weighing system, which sets fresh observer / lobbysitter vote value to the value below, unless it's roundstart
+VOTE_WEIGHING
+
+## if the vote weighing system is used, fresh observer / lobbysitter votes will be worth this much, unless it's roundstart (default 0.5)
+VOTE_NONPLAYER_VALUE 0.5
+
 ## min delay (deciseconds) between voting sessions (default 10 minutes)
 VOTE_DELAY 6000
 

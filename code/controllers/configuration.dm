@@ -37,6 +37,8 @@ var/list/gamemode_cache = list()
 	var/restart_timeout = 1200			// time after round end & admin tickets are resolved until server restarts (deciseconds, 2 minute default)
 	var/vote_no_default = 0				// vote does not default to nochange/norestart (tbi)
 	var/vote_no_dead = 0				// dead people can't vote (tbi)
+	var/vote_weighing = 0				// if enabled, fresh observers and lobbysitters votes are set to the vote_nonplayer_value below (roundstart being the exception)
+	var/vote_nonplayer_value = 0.5		// if vote_weighing is enabled, fresh observers and lobbysitter votes will count this much (roundstart being the exception)
 //	var/enable_authentication = 0		// goon authentication
 	var/del_new_on_log = 1				// del's new players if they log before they spawn in
 	var/feature_object_spell_system = 0 //spawns a spellbook which gives object-type spells instead of verb-type spells for the wizard
@@ -473,6 +475,12 @@ var/list/gamemode_cache = list()
 
 				if ("no_dead_vote")
 					config.vote_no_dead = 1
+
+				if ("vote_weighing")
+					config.vote_weighing = TRUE
+
+				if ("vote_nonplayer_value")
+					config.vote_nonplayer_value = text2num(value)
 
 				if ("default_no_vote")
 					config.vote_no_default = 1
