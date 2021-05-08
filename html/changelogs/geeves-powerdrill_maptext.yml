@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added maptext to the impact wrench to let you know which mode it's in."
-  - bugfix: "Fixed the impact wrench having flipped sounds."
