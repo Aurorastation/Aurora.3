@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - tweak: "Tweaked TCFL projectiles, like the heavy blaster bolt and highex gauss round. They have some AP now, with the former being rifle level and the latter having enough to not get blocked by a standard corporate vest."
