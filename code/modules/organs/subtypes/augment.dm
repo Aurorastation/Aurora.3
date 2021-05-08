@@ -573,15 +573,15 @@
 		set_light(0)
 
 /obj/item/organ/internal/augment/sightlights/emp_act(severity)
-	..()
+	. = ..()
 	set_light(0)
 
 /obj/item/organ/internal/augment/sightlights/take_damage(var/amount, var/silent = 0)
-	..()
+	. = ..()
 	set_light(0)
 
 /obj/item/organ/internal/augment/sightlights/take_internal_damage(var/amount, var/silent = 0)
-	..()
+	. = ..()
 	set_light(0)
 
 /obj/item/organ/internal/augment/zenghu_plate

@@ -32,6 +32,7 @@ BLIND     // can't see anything
 	var/obj/item/clothing/glasses/hud/hud = null	// Hud glasses, if any
 	var/activated_color = null
 	var/normal_layer = TRUE
+	var/shatter_material = /obj/item/material/shard
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_WARFORM = 'icons/mob/species/warriorform/eyes.dmi'
 		)
@@ -50,6 +51,16 @@ BLIND     // can't see anything
 
 	normal_layer = !normal_layer
 	to_chat(usr, SPAN_NOTICE("\The [src] will now layer [normal_layer ? "under" : "over"] your hair."))
+
+/obj/item/clothing/glasses/protects_eyestab(var/obj/stab_item, var/stabbed = FALSE)
+	if(stabbed && (body_parts_covered & EYES) && !(item_flags & THICKMATERIAL) && shatter_material && prob(stab_item.force * 5))
+		var/mob/M = loc
+		M.visible_message(SPAN_WARNING("\The [src] [M] is wearing gets shattered!"))
+		playsound(loc, /decl/sound_category/glass_break_sound, 70, TRUE)
+		new shatter_material(M.loc)
+		qdel(src)
+		return FALSE
+	return ..()
 
 /obj/item/clothing/glasses/update_clothing_icon()
 	if (ismob(src.loc))
@@ -199,7 +210,7 @@ BLIND     // can't see anything
 	desc = "A simple pair of safety glasses. Thinner than their goggle counterparts, for those who can't decide between safety and style."
 	icon_state = "plaingoggles"
 	item_state = "plaingoggles"
-	item_flags = AIRTIGHT
+	item_flags = AIRTIGHT|THICKMATERIAL
 	unacidable = 1
 
 /obj/item/clothing/glasses/safety/goggles
@@ -466,6 +477,7 @@ BLIND     // can't see anything
 	item_state = "welding-g"
 	action_button_name = "Flip Welding Goggles"
 	var/up = 0
+	item_flags = THICKMATERIAL
 	flash_protection = FLASH_PROTECTION_MAJOR
 	tint = TINT_HEAVY
 
@@ -510,6 +522,7 @@ BLIND     // can't see anything
 	icon_state = "blindfold"
 	item_state = "blindfold"
 	tint = TINT_BLIND
+	shatter_material = FALSE
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
@@ -531,6 +544,7 @@ BLIND     // can't see anything
 	icon_state = "blinders"
 	item_state = "blinders"
 	contained_sprite = TRUE
+	shatter_material = FALSE
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
@@ -560,7 +574,7 @@ BLIND     // can't see anything
 	desc = "Flash-resistant goggles with inbuilt combat and security information."
 	icon_state = "swatgoggles"
 	item_state = "swatgoggles"
-	item_flags = AIRTIGHT
+	item_flags = AIRTIGHT|THICKMATERIAL
 
 /obj/item/clothing/glasses/sunglasses/sechud/head
 	name = "advanced aviators"

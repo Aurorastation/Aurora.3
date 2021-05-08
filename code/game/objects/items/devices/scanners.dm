@@ -544,7 +544,8 @@ BREATH ANALYZER
 
 	if ( ((user.is_clumsy()) || (DUMB in user.mutations)) && prob(20))
 		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
-		eyestab(H,user)
+		if(!H.eyes_protected(src, FALSE))
+			eyestab(H,user)
 		to_chat(user,"<span class='danger'>Alert: No breathing detected.</span>")
 		return
 
