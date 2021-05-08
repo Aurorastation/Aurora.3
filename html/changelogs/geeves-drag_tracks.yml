@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Dragging a bloody person across the floor will now leave nice looking blood smears."
-  - tweak: "Footwraps will now place down the species footprint style instead of a normal shoe footprint."

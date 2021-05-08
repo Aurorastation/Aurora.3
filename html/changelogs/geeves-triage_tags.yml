@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added triage tags. Examine any humanoid while wearing any MedHUD to edit their triage tags. It comes in four variants, green, yellow, red, black, to show how critical the patient is."
-  - tweak: "Made HUD elements for humanoids not inherit the rotation applied to them, so a horizontal human will still have a normal upright medHUD display."
