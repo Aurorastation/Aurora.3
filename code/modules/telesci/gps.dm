@@ -256,6 +256,8 @@ var/list/GPS_list = list()
 				continue
 			if(!(tracking_tag in tracking))
 				continue
+			if(GPS_list[tracking_tag]["pos_x"] == GPS_list[gpstag]["pos_x"] && GPS_list[tracking_tag]["pos_y"] == GPS_list[gpstag]["pos_y"])
+				continue
 			compass.set_waypoint(tracking_tag, tracking_tag, GPS_list[tracking_tag]["pos_x"], GPS_list[tracking_tag]["pos_y"], GPS_list[tracking_tag]["pos_z"], GPS_list[tracking_tag]["compass_color"])
 			var/turf/origin = get_turf(src)
 			if(!emped && !GPS_list[tracking_tag]["emped"] && origin.z == GPS_list[tracking_tag]["pos_z"])
