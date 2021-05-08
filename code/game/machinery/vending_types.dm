@@ -459,6 +459,7 @@
 		/obj/item/reagent_containers/glass/bottle/perconol = 3,
 		/obj/item/reagent_containers/glass/bottle/toxin = 1,
 		/obj/item/reagent_containers/glass/bottle/coughsyrup = 4,
+		/obj/item/reagent_containers/glass/bottle/thetamycin = 1,
 		/obj/item/reagent_containers/syringe = 12,
 		/obj/item/device/healthanalyzer = 5,
 		/obj/item/device/breath_analyzer = 2,
@@ -653,13 +654,16 @@
 		/obj/item/seeds/chiliseed = 3,
 		/obj/item/seeds/cocoapodseed = 3,
 		/obj/item/seeds/cornseed = 3,
+		/obj/item/seeds/dynseed = 3,
 		/obj/item/seeds/replicapod = 3,
 		/obj/item/seeds/earthenroot = 2,
 		/obj/item/seeds/eggplantseed = 3,
+		/obj/item/seeds/eki = 3,
 		/obj/item/seeds/garlicseed = 3,
 		/obj/item/seeds/grapeseed = 3,
 		/obj/item/seeds/grassseed = 3,
 		/obj/item/seeds/greengrapeseed = 3,
+		/obj/item/seeds/guamiseed = 3,
 		/obj/item/seeds/harebell = 3,
 		/obj/item/seeds/lemonseed = 3,
 		/obj/item/seeds/limeseed = 3,
@@ -674,6 +678,7 @@
 		/obj/item/seeds/poppyseed = 3,
 		/obj/item/seeds/potatoseed = 3,
 		/obj/item/seeds/pumpkinseed = 3,
+		/obj/item/seeds/qlortseed = 3,
 		/obj/item/seeds/riceseed = 3,
 		/obj/item/seeds/reishimycelium = 3,
 		/obj/item/seeds/shandseed = 3,
@@ -687,8 +692,8 @@
 		/obj/item/seeds/watermelonseed = 3,
 		/obj/item/seeds/wheatseed = 3,
 		/obj/item/seeds/whitebeetseed = 3,
-		/obj/item/seeds/dynseed = 3,
-		/obj/item/seeds/wulumunushaseed = 2
+		/obj/item/seeds/wulumunushaseed = 2,
+		/obj/item/seeds/ylpha = 3
 	)
 	contraband = list(
 		/obj/item/seeds/amanitamycelium = 3,

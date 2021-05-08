@@ -5177,7 +5177,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/storage/box/lights/coloredmixed,
 /obj/item/storage/box/lights/mixed,
-/obj/item/storage/briefcase/inflatable,
+/obj/item/storage/bag/inflatable,
 /obj/item/device/floor_painter,
 /obj/structure/closet/crate,
 /turf/simulated/floor/airless,
@@ -6563,7 +6563,7 @@
 	},
 /area/mine/unexplored)
 "wd" = (
-/obj/item/storage/briefcase/inflatable,
+/obj/item/storage/bag/inflatable,
 /obj/structure/table/rack{
 	dir = 1
 	},

@@ -203,7 +203,8 @@ proc/get_radio_key_from_channel(var/channel)
 	var/is_singing = FALSE
 	if(length(message) >= 1 && copytext(message, 1, 2) == "%")
 		message = copytext(message, 2)
-		is_singing = TRUE
+		if(speaking?.sing_verb)
+			is_singing = TRUE
 
 	// This is broadcast to all mobs with the language,
 	// irrespective of distance or anything else.
@@ -304,11 +305,9 @@ proc/get_radio_key_from_channel(var/channel)
 	INVOKE_ASYNC(GLOBAL_PROC, /proc/animate_speechbubble, speech_bubble, hear_clients, 30)
 	do_animate_chat(message, speaking, italics, hear_clients, 30)
 
-	for(var/o in listening_obj)
-		var/obj/O = o
-		spawn(0)
-			if(O) //It's possible that it could be deleted in the meantime.
-				O.hear_talk(src, message, verb, speaking)
+	for(var/obj/O as anything in listening_obj)
+		if(O) //It's possible that it could be deleted in the meantime.
+			INVOKE_ASYNC(O, /obj/.proc/hear_talk, src, message, verb, speaking)
 
 	if(mind)
 		mind.last_words = message

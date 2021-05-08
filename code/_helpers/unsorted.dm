@@ -818,23 +818,6 @@ var/global/list/common_tools = list(
 		return 1
 	return 0
 
-//Returns 1 if the given item is capable of popping things like balloons, inflatable barriers, or cutting police tape.
-/proc/can_puncture(obj/item/W as obj)		// For the record, WHAT THE HELL IS THIS METHOD OF DOING IT?
-	if(!W)
-		return 0
-	if(W.sharp)
-		return 1
-	return ( \
-		W.sharp													  || \
-		W.isscrewdriver()                   || \
-		W.ispen()                           || \
-		W.iswelder()					  || \
-		istype(W, /obj/item/flame/lighter/zippo)			  || \
-		istype(W, /obj/item/flame/match)            		  || \
-		istype(W, /obj/item/clothing/mask/smokable/cigarette) 		      || \
-		istype(W, /obj/item/shovel) \
-	)
-
 /proc/is_surgery_tool(obj/item/W)
 	return istype(W, /obj/item/surgery)
 
@@ -845,7 +828,7 @@ var/global/list/common_tools = list(
 /proc/can_operate(mob/living/carbon/M) //If it's 2, commence surgery, if it's 1, fail surgery, if it's 0, attack
 	var/surgery_attempt = SURGERY_IGNORE
 	var/located = FALSE
-	if(locate(/obj/machinery/optable, M.loc))
+	if(istype(M.buckled_to, /obj/machinery/stasis_bed) || locate(/obj/machinery/optable, M.loc))
 		located = TRUE
 		surgery_attempt = SURGERY_SUCCESS
 	else if(locate(/obj/structure/bed/roller, M.loc))

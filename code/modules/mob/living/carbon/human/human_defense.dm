@@ -149,7 +149,7 @@ emp_act
 /mob/living/carbon/human/proc/check_head_airtight_coverage()
 	var/list/clothing = list(head, wear_mask, wear_suit)
 	for(var/obj/item/clothing/C in clothing)
-		if((C.body_parts_covered & HEAD) && (C.item_flags & (AIRTIGHT|STOPPRESSUREDAMAGE)))
+		if((C.body_parts_covered & HEAD) && (C.item_flags & (AIRTIGHT)))
 			return TRUE
 	return FALSE
 
@@ -269,7 +269,7 @@ emp_act
 		if(!..(I, user, effective_force, hit_zone))
 			return FALSE
 
-		attack_joint(affecting, I, blocked) //but can dislocate joints
+		attack_joint(affecting, I) //but can dislocate joints
 
 	else if(!..())
 		return FALSE
@@ -320,9 +320,11 @@ emp_act
 	return TRUE
 
 /mob/living/carbon/human/proc/attack_joint(var/obj/item/organ/external/organ, var/obj/item/W, var/blocked)
-	if(!organ || (organ.dislocated == 2) || (organ.dislocated == -1) || blocked >= 100)
+	if(!organ || (organ.dislocated == 2) || (organ.dislocated == -1))
 		return 0
-	if(prob(W.force * BLOCKED_MULT(blocked)))
+
+	var/blocked_ratio = get_blocked_ratio(organ.limb_name, W.damtype, W.damage_flags(), W.armor_penetration, W.force)
+	if(prob(W.force * (1 - blocked_ratio)))
 		visible_message("<span class='danger'>[src]'s [organ.joint] [pick("gives way","caves in","crumbles","collapses")]!</span>")
 		organ.dislocate(1)
 		return 1

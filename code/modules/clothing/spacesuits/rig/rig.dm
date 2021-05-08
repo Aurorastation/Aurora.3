@@ -8,8 +8,9 @@
 
 /obj/item/rig
 	name = "hardsuit control module"
-	icon = 'icons/obj/rig_modules.dmi'
 	desc = "A back-mounted hardsuit deployment and control mechanism."
+	icon = 'icons/obj/rig_modules.dmi'
+	contained_sprite = TRUE
 	slot_flags = SLOT_BACK
 	req_one_access = list()
 	req_access = list()
@@ -27,6 +28,9 @@
 	)
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
+	max_pressure_protection = RIG_MAX_PRESSURE
+	min_pressure_protection = 0
+
 	siemens_coefficient = 0.35
 	permeability_coefficient = 0.1
 	unacidable = 1
@@ -86,7 +90,7 @@
 	var/offline_slowdown = 3                                  // If the suit is deployed and unpowered, it sets slowdown to this.
 	var/vision_restriction = TINT_NONE
 	var/offline_vision_restriction = TINT_HEAVY
-	var/airtight = 1 //If set, will adjust AIRTIGHT and STOPPRESSUREDAMAGE flags on components. Otherwise it should leave them untouched.
+	var/airtight = 1 //If set, will adjust the AIRTIGHT flag on components. Otherwise it should leave them untouched.
 
 	var/emp_protection = 0
 
@@ -157,8 +161,13 @@
 		piece.canremove = 0
 		piece.name = "[suit_type] [initial(piece.name)]"
 		piece.desc = "It seems to be part of a [src.name]."
-		piece.icon_state = "[initial(icon_state)]"
+		piece.icon = icon
+		piece.icon_state = "[initial(icon_state)]_[piece.clothing_class()]"
 		piece.item_state = "[initial(icon_state)]"
+		piece.contained_sprite = TRUE
+		if(length(icon_supported_species_tags))
+			piece.icon_auto_adapt = TRUE
+			piece.icon_supported_species_tags = icon_supported_species_tags
 		piece.min_cold_protection_temperature = min_cold_protection_temperature
 		piece.max_heat_protection_temperature = max_heat_protection_temperature
 		if(piece.siemens_coefficient > siemens_coefficient) //So that insulated gloves keep their insulation.
@@ -210,7 +219,9 @@
 		if(!piece) continue
 		piece.icon_state = "[initial(icon_state)]"
 		if(airtight)
-			piece.item_flags &= ~(STOPPRESSUREDAMAGE|AIRTIGHT)
+			piece.max_pressure_protection = initial(piece.max_pressure_protection)
+			piece.min_pressure_protection = initial(piece.min_pressure_protection)
+			piece.item_flags &= ~AIRTIGHT
 	update_icon(1)
 
 /obj/item/rig/proc/toggle_seals(var/mob/initiator,var/instant)
@@ -254,7 +265,7 @@
 		else
 			for(var/list/piece_data in list(list(wearer.shoes,boots,"boots",boot_type),list(wearer.gloves,gloves,"gloves",glove_type),list(wearer.head,helmet,"helmet",helm_type),list(wearer.wear_suit,chest,BP_CHEST,chest_type)))
 
-				var/obj/item/piece = piece_data[1]
+				var/obj/item/clothing/piece = piece_data[1]
 				var/obj/item/compare_piece = piece_data[2]
 				var/msg_type = piece_data[3]
 				var/piece_type = piece_data[4]
@@ -273,7 +284,7 @@
 					if(seal_delay && !instant && !do_after(wearer,seal_delay,needhand=0, act_target = src))
 						failed_to_seal = 1
 
-					piece.icon_state = "[initial(icon_state)][!seal_target ? "_sealed" : ""]"
+					piece.icon_state = "[initial(icon_state)][!seal_target ? "_sealed" : ""]_[piece.clothing_class()]"
 					piece.item_state = "[initial(icon_state)][!seal_target ? "_sealed" : ""]"
 					switch(msg_type)
 						if("boots")
@@ -341,9 +352,13 @@
 /obj/item/rig/proc/update_component_sealed()
 	for(var/obj/item/piece in list(helmet,boots,gloves,chest))
 		if(canremove)
-			piece.item_flags &= ~(STOPPRESSUREDAMAGE|AIRTIGHT)
+			piece.max_pressure_protection = initial(piece.max_pressure_protection)
+			piece.min_pressure_protection = initial(piece.min_pressure_protection)
+			piece.item_flags &= ~AIRTIGHT
 		else
-			piece.item_flags |=  (STOPPRESSUREDAMAGE|AIRTIGHT)
+			piece.max_pressure_protection = max_pressure_protection
+			piece.min_pressure_protection = min_pressure_protection
+			piece.item_flags |= AIRTIGHT
 	update_icon(1)
 
 /obj/item/rig/process()

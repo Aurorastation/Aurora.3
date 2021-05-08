@@ -251,11 +251,11 @@
 	belt = /obj/item/storage/belt/medical
 	back = /obj/item/storage/backpack/satchel_med
 	accessory = /obj/item/clothing/accessory/storage/white_vest
-	accessory_contents = list(/obj/item/reagent_containers/hypospray/cmo = 1, /obj/item/storage/pill_bottle/dexalin_plus = 1, /obj/item/storage/pill_bottle/mortaphenyl = 1)
+	accessory_contents = list(/obj/item/stack/medical/advanced/bruise_pack = 1, /obj/item/stack/medical/advanced/ointment = 1, /obj/item/reagent_containers/glass/bottle/mortaphenyl = 1)
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
-		/obj/item/storage/firstaid/regular = 2,
+		/obj/item/storage/firstaid/adv = 1,
 		/obj/item/storage/firstaid/surgery = 1,
 		/obj/item/storage/box/gloves = 1,
 		/obj/item/storage/box/syringes = 1,
@@ -263,11 +263,13 @@
 	)
 
 	belt_contents = list(
-		/obj/item/stack/medical/advanced/bruise_pack = 2,
-		/obj/item/stack/medical/advanced/ointment = 2,
-		/obj/item/stack/medical/splint = 1,
-		/obj/item/reagent_containers/syringe = 1,
-		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1
+		/obj/item/reagent_containers/hypospray/cmo = 1,
+		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
+		/obj/item/reagent_containers/glass/bottle/antitoxin = 1,
+		/obj/item/reagent_containers/glass/bottle/dexalin_plus = 1,
+		/obj/item/reagent_containers/glass/bottle/butazoline = 1,
+		/obj/item/reagent_containers/glass/bottle/dermaline = 1,
+		/obj/item/reagent_containers/glass/bottle/perconol = 1	
 	)
 
 	id_access = "Medical Doctor"

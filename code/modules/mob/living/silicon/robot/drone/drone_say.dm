@@ -3,8 +3,6 @@
 		return ..(message)
 
 	if(local_transmit)
-		message = sanitize(message)
-
 		if(stat == DEAD)
 			return say_dead(message)
 

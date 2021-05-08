@@ -22,6 +22,8 @@
 	var/cold_protection = 0 //flags which determine which body parts are protected from cold. Use the HEAD, UPPER_TORSO, LOWER_TORSO, etc. flags. See setup.dm
 	var/max_heat_protection_temperature //Set this variable to determine up to which temperature (IN KELVIN) the item protects against heat damage. Keep at null to disable protection. Only protects areas set by heat_protection flags
 	var/min_cold_protection_temperature //Set this variable to determine down to which temperature (IN KELVIN) the item protects against cold damage. 0 is NOT an acceptable number due to if(varname) tests!! Keep at null to disable protection. Only protects areas set by cold_protection flags
+	var/max_pressure_protection // Set this variable if the item protects its wearer against high pressures below an upper bound. Keep at null to disable protection.
+	var/min_pressure_protection // Set this variable if the item protects its wearer against low pressures above a lower bound. Keep at null to disable protection. 0 represents protection against hard vacuum.
 
 	var/datum/action/item_action/action
 	var/action_button_name //It is also the text which gets displayed on the action button. If not set it defaults to 'Use [name]'. If it's not set, there'll be no button.
@@ -534,35 +536,18 @@ var/list/global/slot_flags_enumeration = list(
 		L = L.loc
 	return loc
 
-/obj/item/proc/eyestab(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
-
-	var/mob/living/carbon/human/H = M
-	if(istype(H))
-		for(var/obj/item/protection in list(H.head, H.wear_mask, H.glasses))
-			if(protection && (protection.body_parts_covered & EYES))
-				// you can't stab someone in the eyes wearing a mask!
-				to_chat(user, "<span class='warning'>You're going to need to remove the eye covering first.</span>")
-				return
-
-	if(!M.has_eyes())
-		to_chat(user, "<span class='warning'>You cannot locate any eyes on [M]!</span>")
+/obj/item/proc/eyestab(mob/living/carbon/M, mob/living/carbon/user)
+	if(M.eyes_protected(src, TRUE))
 		return
 
+	var/mob/living/carbon/human/H = M
 	admin_attack_log(user, M, "attacked [key_name(M)] with [src]", "was attacked by [key_name(user)] using \a [src]", "used \a [src] to eyestab")
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	playsound(loc, hitsound, 70, TRUE)
 	user.do_attack_animation(M)
 
-	src.add_fingerprint(user)
-	//if((CLUMSY in user.mutations) && prob(50))
-	//	M = user
-		/*
-		to_chat(M, "<span class='warning'>You stab yourself in the eye.</span>")
-		M.sdisabilities |= BLIND
-		M.weakened += 4
-		M.adjustBruteLoss(10)
-		*/
-
+	add_fingerprint(user)
 	if(istype(H))
 		var/obj/item/organ/internal/eyes/eyes = H.get_eyes()
 
@@ -579,26 +564,30 @@ var/list/global/slot_flags_enumeration = list(
 
 		eyes.take_damage(rand(3,4))
 		if(eyes.damage >= eyes.min_bruised_damage)
-			if(M.stat != 2)
+			if(H.stat != DEAD)
 				if(eyes.robotic <= 1) //robot eyes bleeding might be a bit silly
-					to_chat(M, "<span class='danger'>Your eyes start to bleed profusely!</span>")
+					to_chat(H, "<span class='danger'>Your eyes start to bleed profusely!</span>")
 			if(prob(50))
-				if(M.stat != 2)
-					to_chat(M, "<span class='warning'>You drop what you're holding and clutch at your eyes!</span>")
-					M.drop_item()
-				M.eye_blurry += 10
-				M.Paralyse(1)
-				M.Weaken(4)
+				if(H.stat != DEAD)
+					to_chat(H, "<span class='warning'>You drop what you're holding and clutch at your eyes!</span>")
+					H.drop_item()
+				H.eye_blurry += 10
+				H.Paralyse(1)
+				H.Weaken(4)
 			if (eyes.damage >= eyes.min_broken_damage)
-				if(M.stat != 2)
-					to_chat(M, "<span class='warning'>You go blind!</span>")
+				if(H.stat != DEAD)
+					to_chat(H, "<span class='warning'>You go blind!</span>")
 		var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
-		if(affecting.take_damage(7))
-			M:UpdateDamageIcon()
+		if(affecting.take_damage(7, 0, damage_flags(), src))
+			H.UpdateDamageIcon()
 	else
 		M.take_organ_damage(7)
 	M.eye_blurry += rand(3,4)
-	return
+
+/obj/item/proc/protects_eyestab(var/obj/stab_item, var/stabbed = FALSE) // if stabbed is set to true if we're being stabbed and not just checking
+	if((item_flags & THICKMATERIAL) && (body_parts_covered & EYES))
+		return TRUE
+	return FALSE
 
 /obj/item/clean_blood()
 	. = ..()
@@ -908,7 +897,40 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	if(flags & HELDMAPTEXT)
 		check_maptext()
 
-/obj/item/dropped()
+/obj/item/dropped(var/mob/user)
 	..()
 	if(flags & HELDMAPTEXT)
 		check_maptext()
+
+// used to check whether the item is capable of popping things like balloons, inflatable barriers, or cutting police tape.
+/obj/item/proc/can_puncture()
+	if(sharp || edge)
+		return TRUE
+	if(isFlameSource())
+		return TRUE
+	return FALSE
+
+/obj/item/proc/get_pressure_weakness(pressure, zone)
+	. = 1
+	if(pressure > ONE_ATMOSPHERE)
+		if(max_pressure_protection != null)
+			if(max_pressure_protection < pressure)
+				return min(1, round((pressure - max_pressure_protection) / max_pressure_protection, 0.01))
+			else
+				return 0
+	if(pressure < ONE_ATMOSPHERE)
+		if(min_pressure_protection != null)
+			if(min_pressure_protection > pressure)
+				return min(1, round((min_pressure_protection - pressure) / min_pressure_protection, 0.01))
+			else
+				return 0
+
+/obj/item/proc/in_slide_projector(var/mob/user)
+	if(istype(loc, /obj/item/storage/slide_projector))
+		var/obj/item/storage/slide_projector/SP = loc
+		if(SP.current_slide == src && (SP.projection in view(world.view, user)))
+			return TRUE
+	return FALSE
+
+/obj/item/proc/get_belt_overlay() //Returns the icon used for overlaying the object on a belt
+	return mutable_appearance('icons/obj/clothing/belt_overlays.dmi', icon_state)

@@ -723,6 +723,28 @@
 	M.dizziness = max(150, M.dizziness)
 	M.make_dizzy(5)
 
+/decl/reagent/steramycin
+	name = "Steramycin"
+	description = "A preventative antibiotic that will stop small infections from growing, but only if administered early. Has no effect on internal organs, wounds, or if the infection has grown beyond its early stages."
+	reagent_state = LIQUID
+	color = "#81b38b"
+	od_minimum_dose = 1
+	overdose = 15
+	taste_description = "bleach"
+	fallback_specific_heat = 0.605
+
+/decl/reagent/steramycin/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(check_min_dose(M, 1))
+		for(var/obj/item/organ/external/E in M.organs)
+			if(E.germ_level >= INFECTION_LEVEL_ONE || !E.germ_level) //No effect if it's not infected or the infection has progressed.
+				continue
+			E.germ_level = max(E.germ_level - 4, 0)
+
+/decl/reagent/steramycin/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
+	M.dizziness = max(150, M.dizziness)
+	M.make_dizzy(5)
+	M.adjustToxLoss(1) //Antibodies start fighting your body
+
 /decl/reagent/asinodryl
 	name = "Asinodryl"
 	description = "Asinodryl is an anti-emetic medication which acts by preventing the two regions in the brain responsible for vomiting from controlling the act of emesis."
@@ -1279,8 +1301,8 @@
 		var/mob/living/carbon/human/H = M
 		for (var/A in H.organs)
 			var/obj/item/organ/external/E = A
-			if(E.status & ORGAN_TENDON_CUT)
-				E.status &= ~ORGAN_TENDON_CUT
+			if(istype(E.tendon) && !E.tendon.intact)
+				E.tendon.heal()
 				return 1
 
 			if(E.status & ORGAN_ARTERY_CUT)
