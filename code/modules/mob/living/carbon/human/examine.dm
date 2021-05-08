@@ -384,7 +384,7 @@
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/U = user
-		if(U.species.can_make_eye_contact && distance < EYECONTACTDIS)
+		if(U.species.eye_contact_message && distance < EYECONTACTDIS && !U.stat)
 			var/eyescovered = FALSE
 			for(var/obj/item/clothing/C in list(U.wear_mask, U.head, U.glasses))
 				if(C.body_parts_covered & EYES)
@@ -393,7 +393,7 @@
 			if(!eyescovered)
 				U.handle_examine(src)
 				LAZYADD(U.recent_examines, WEAKREF(src)) //Done after so that it doesn't work with itself
-				addtimer(CALLBACK(U, .proc/removeexamine, src), 5 SECONDS)
+				// addtimer(CALLBACK(U, .proc/removeexamine, src), 5 SECONDS)
 
 // Helper proc for the timer above. 
 /mob/living/carbon/human/proc/removeexamine(item)
@@ -406,13 +406,14 @@
 	if(examinee == src || !examinee.recent_examines || !LAZYLEN(examinee.recent_examines))
 		return FALSE
 
-	//for(var/M in examinee.recent_examines)
-		//if(M == WEAKREF(src))
-	// if(WEAKREF(src) in examinee.recent_examines)
 	var/datum/weakref/WR = WEAKREF(src)
 	if(WR in examinee.recent_examines)
-		to_chat(src, SPAN_SUBTLE("You make eye contact with \the [examinee]."))
-		to_chat(examinee, SPAN_SUBTLE("You make eye contact with \the [src]."))
+		if(src.species != examinee.species)
+			to_chat(src, SPAN_SUBTLE(replacetext(examinee.species.eye_contact_message, "%SRCNAME%", "\the [examinee]")))
+			to_chat(examinee, SPAN_SUBTLE(replacetext(src.species.eye_contact_message, "%SRCNAME%", "\the [src]")))
+		else
+			to_chat(src, SPAN_SUBTLE("You make eye contact with \the [examinee]."))
+			to_chat(examinee, SPAN_SUBTLE("You make eye contact with \the [src]."))
 		recent_examines -= examinee   //Remove them from our list
 		examinee.recent_examines -= WR //Remove us from their list
 		return TRUE

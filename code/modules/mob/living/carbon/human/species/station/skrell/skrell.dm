@@ -27,6 +27,7 @@
 	language = LANGUAGE_SKRELLIAN
 	name_language = LANGUAGE_SKRELLIAN
 	rarity_value = 3
+	eye_contact_message = "%SRCNAME% looks up, making eye contact."
 
 	grab_mod = 2
 	resist_mod = 0.5 // LIKE BABBY

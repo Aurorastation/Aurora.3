@@ -184,7 +184,7 @@
 	var/rarity_value = 1          // Relative rarity/collector value for this species.
 	var/ethanol_resistance = 1	  // How well the mob resists alcohol, lower values get drunk faster, higher values need to drink more
 	var/taste_sensitivity = TASTE_NORMAL // How sensitive the species is to minute tastes. Higher values means less sensitive. Lower values means more sensitive.
-	var/can_make_eye_contact = TRUE 	 // Wether or not the species can make direct eye contact with other things.
+	var/eye_contact_message  = "You make eye contact with %SRCNAME%."	 // Wether or not the species can make direct eye contact with other things.
 
 	var/stamina	=	100			  	// The maximum stamina this species has. Determines how long it can sprint
 	var/stamina_recovery = 3	  	// Flat amount of stamina species recovers per proc
