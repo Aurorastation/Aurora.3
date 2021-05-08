@@ -1,6 +1,7 @@
 /obj/item/gun/projectile/colt
 	name = "vintage .45 pistol"
-	desc = "A cheap Martian knock-off of a Colt M1911. Uses .45 rounds."
+	desc = "A rugged Zavodskoi-designed pistol. Uses .45 rounds."
+	desc_fluff = "The Zavodskoi Interstellar Colt was designed and marketed as an homage to classic Human firearms, and looks and acts much the same way - it was deliberately designed with some anachronistic features, but in spite of that artificial age of the design it performs well enough to see service all over Human space. Chambered in .45 caliber."
 	magazine_type = /obj/item/ammo_magazine/c45m
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 	icon = 'icons/obj/guns/colt.dmi'
