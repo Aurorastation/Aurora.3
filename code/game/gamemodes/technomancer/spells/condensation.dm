@@ -40,5 +40,5 @@
 			else
 				log_and_message_admins("has wetted the floor with [src] at [T.x],[T.y],[T.z].")
 		else if(hit_atom.reagents && !ismob(hit_atom))		//TODO: Something for the scepter
-			hit_atom.reagents.add_reagent(id = "water", amount = 60, data = null, safety = 0)
+			hit_atom.reagents.add_reagent(/decl/reagent/water, 60, safety = FALSE)
 		adjust_instability(5)

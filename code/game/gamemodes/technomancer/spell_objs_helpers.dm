@@ -49,7 +49,7 @@
 			continue
 		if(L.invisibility > owner.see_invisible) // Don't target ourselves or people we can't see.
 			continue
-		if(!L in viewers(owner)) // So we don't shoot at walls if someone is hiding behind one.
+		if(!(L in viewers(owner))) // So we don't shoot at walls if someone is hiding behind one.
 			continue
 		if(!L.stat) // Don't want to target dead people or SSDs.
 			chosen_target = L
