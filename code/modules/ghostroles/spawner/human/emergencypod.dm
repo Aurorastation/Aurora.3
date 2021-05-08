@@ -275,7 +275,7 @@
 	return "TCFL"
 
 /datum/outfit/admin/pod/fsf
-	name = "RescuePod - FSF Member"
+	name = "RescuePod - FSF Crewman"
 	uniform = /obj/item/clothing/under/rank/fatigues/
 	shoes = /obj/item/clothing/shoes/jackboots
 	belt = /obj/item/storage/belt/military
@@ -300,12 +300,12 @@
     )
 	
 /datum/outfit/admin/pod/fsf/get_id_assignment()
-	return "FSF"
+	return "Free Solarian Fleets Crewman"
 
 /datum/outfit/admin/pod/fsf/get_id_rank()
-	return "FSF"
+	return "Free Solarian Fleets Crewman"
 
-/datum/outfit/admin/pod/rep
+/datum/outfit/admin/pod/scc
 	name = "RescuePod - SCC"
 
 	uniform = /obj/item/clothing/under/rank/scc
@@ -323,11 +323,11 @@
 
 
 
-/datum/outfit/admin/pod/rep/get_id_assignment()
-	return "Corporate Liaison (SCC)"
+/datum/outfit/admin/pod/scc/get_id_assignment()
+	return "Stellar Corporate Conglomerate Functionary"
 
-/datum/outfit/admin/pod/rep/get_id_rank()
-	return "Corporate Liaison"
+/datum/outfit/admin/pod/scc/get_id_rank()
+	return "Stellar Corporate Conglomerate Functionary"
 
 /datum/ghostspawner/human/rescuepodsurv/burglar
 	short_name = "burglarpod"
