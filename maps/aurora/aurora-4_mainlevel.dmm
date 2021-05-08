@@ -823,11 +823,18 @@
 	layer = 5;
 	name = "adjusted reinforced window"
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/security/forensics_laboratory)
 "abT" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
@@ -963,6 +970,11 @@
 /obj/machinery/door/window/brigdoor/westright{
 	name = "Forensics Desk";
 	req_access = list(4)
+	},
+/obj/machinery/ringer_button{
+	id = "investigation_ringer";
+	pixel_x = 5;
+	pixel_y = 5
 	},
 /turf/simulated/floor/tiled,
 /area/security/forensics_laboratory)
@@ -1350,6 +1362,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "acR" = (
@@ -1444,13 +1457,10 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
-	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
+/obj/structure/disposalpipe/junction,
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "adb" = (
@@ -3261,8 +3271,12 @@
 "agu" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/bodybags,
-/obj/machinery/firealarm/west,
 /obj/item/device/healthanalyzer,
+/obj/machinery/requests_console{
+	department = "Autopsy";
+	departmentType = 5;
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -3987,6 +4001,12 @@
 	pixel_y = 5
 	},
 /obj/item/pen/red,
+/obj/machinery/ringer{
+	department = "Security";
+	id = "investigation_ringer";
+	pixel_x = -30;
+	req_access = list(1)
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -5113,6 +5133,7 @@
 	pixel_y = 9
 	},
 /obj/item/pen,
+/obj/item/storage/slide_projector,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "aki" = (
@@ -5344,11 +5365,11 @@
 /area/engineering/atmos/storage)
 "akE" = (
 /obj/structure/table/standard,
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/storage/briefcase/inflatable,
+/obj/item/storage/bag/inflatable,
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
 	},
@@ -7138,6 +7159,10 @@
 	name = "consular's laptop"
 	},
 /obj/structure/table/wood,
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Consular Office";
+	dir = 8
+	},
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
 "aol" = (
@@ -20165,13 +20190,13 @@
 /area/engineering/engineering_hallway_main)
 "aIZ" = (
 /obj/structure/table/standard,
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_x = -3
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_y = 3
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_y = 3
 	},
 /obj/machinery/light{
@@ -22556,14 +22581,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ai_monitored/storage/eva)
 "aNa" = (
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_x = 3;
 	pixel_y = 6
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_y = 3
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_x = -3
 	},
 /obj/structure/table/reinforced,
@@ -23562,6 +23587,9 @@
 "aOS" = (
 /obj/structure/table/wood,
 /obj/item/modular_computer/laptop/preset/security/hos,
+/obj/item/storage/slide_projector{
+	pixel_y = 12
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hos)
 "aOT" = (
@@ -24273,6 +24301,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/item/storage/slide_projector,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "aPZ" = (
@@ -25426,6 +25455,9 @@
 	},
 /obj/item/folder/yellow,
 /obj/item/stamp/ce,
+/obj/item/storage/slide_projector{
+	pixel_y = 12
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
 "aRV" = (
@@ -26993,6 +27025,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
+/obj/item/storage/slide_projector{
+	pixel_y = 16
+	},
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
 "aUD" = (
@@ -28473,6 +28508,9 @@
 	},
 /obj/item/toy/figure/corgi,
 /obj/item/device/megaphone/command,
+/obj/item/storage/slide_projector{
+	pixel_y = 12
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "aXq" = (
@@ -35415,6 +35453,7 @@
 /obj/effect/floor_decal/corner_wide/paleblue/full{
 	dir = 8
 	},
+/obj/item/storage/slide_projector,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "bjo" = (
@@ -39297,6 +39336,11 @@
 	icon_state = "0-2"
 	},
 /obj/structure/table/standard,
+/obj/item/vitals_monitor,
+/obj/item/vitals_monitor{
+	pixel_x = 2;
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/gen_treatment)
 "bqJ" = (
@@ -44378,6 +44422,9 @@
 "bBz" = (
 /obj/structure/table/standard,
 /obj/item/modular_computer/laptop/preset/research/rd,
+/obj/item/storage/slide_projector{
+	pixel_y = 12
+	},
 /turf/simulated/floor/carpet/blue,
 /area/rnd/rdoffice)
 "bBB" = (
@@ -59709,8 +59756,8 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "dGy" = (
-/obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/appliance/cooker/grill,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "dGU" = (
@@ -60493,6 +60540,7 @@
 /area/hallway/primary/port)
 "fiO" = (
 /obj/structure/closet/crate/freezer,
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -61153,6 +61201,12 @@
 	pixel_y = 5
 	},
 /obj/item/pen,
+/obj/item/device/radio/intercom{
+	desc = "Talk... listen through this.";
+	name = "Station Intercom (Brig Radio)";
+	pixel_y = 25;
+	wires = 7
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -61962,6 +62016,12 @@
 /area/rnd/chemistry)
 "hIP" = (
 /obj/structure/table/standard,
+/obj/item/device/radio/intercom{
+	desc = "Talk... listen through this.";
+	name = "Station Intercom (Brig Radio)";
+	pixel_x = -28;
+	wires = 7
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -62380,6 +62440,9 @@
 "itx" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_laboratory)
 "ivh" = (
@@ -63541,10 +63604,6 @@
 /turf/simulated/floor/tiled,
 /area/rnd/lab)
 "liM" = (
-/obj/item/clothing/mask/gas/clown_hat,
-/obj/item/clothing/shoes/clown_shoes,
-/obj/item/clothing/under/rank/clown,
-/obj/item/storage/backpack/clown,
 /obj/item/toy/figure/clown,
 /obj/structure/closet{
 	icon_closed = "cabinet_closed";
@@ -64369,14 +64428,10 @@
 	},
 /obj/machinery/ringer_button{
 	id = "Representative";
+	layer = 3.3;
 	name = "Representative ringer button";
 	pixel_x = -24;
 	pixel_y = 32
-	},
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Diplomatic Reception";
-	network = list("Civilian Main","Rep_Office");
-	pixel_x = -10
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice)
@@ -64389,6 +64444,9 @@
 	},
 /obj/structure/sign/flag/nanotrasen/left{
 	pixel_y = 31
+	},
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Representative Office"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/lawoffice/representative)
@@ -64771,6 +64829,12 @@
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
+	},
+/obj/item/device/radio/intercom{
+	desc = "Talk... listen through this.";
+	name = "Station Intercom (Brig Radio)";
+	pixel_y = 25;
+	wires = 7
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/forensics_office{
@@ -65485,6 +65549,12 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/machinery/ringer{
+	department = "Security";
+	id = "investigation_ringer";
+	pixel_y = 30;
+	req_access = list(1)
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -65545,6 +65615,16 @@
 /obj/structure/target_stake,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"oUH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_laboratory)
 "oVj" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_research{
@@ -65702,6 +65782,16 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"phk" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/machinery/ringer{
+	department = "Security";
+	id = "investigation_ringer";
+	pixel_y = -30;
+	req_access = list(1)
+	},
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_laboratory)
 "phM" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -66086,6 +66176,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"pLP" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled,
+/area/security/brig)
 "pQp" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
@@ -66266,6 +66363,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"qkc" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_laboratory)
 "qkU" = (
 /obj/machinery/light{
 	dir = 8
@@ -66761,6 +66867,9 @@
 	pixel_y = 16
 	},
 /obj/item/storage/briefcase/crimekit,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/security/forensics_laboratory)
 "rbT" = (
@@ -66943,6 +67052,12 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/ringer{
+	department = "Security";
+	id = "investigation_ringer";
+	pixel_x = 30;
+	req_access = list(1)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
@@ -67024,6 +67139,10 @@
 /obj/machinery/disposal/small/south,
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Diplomatic Reception";
+	network = list("Civilian Main","Rep_Office")
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice)
@@ -67877,6 +67996,12 @@
 	pixel_x = 5;
 	pixel_y = 3
 	},
+/obj/item/device/radio/intercom{
+	desc = "Talk... listen through this.";
+	name = "Station Intercom (Brig Radio)";
+	pixel_y = 25;
+	wires = 7
+	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_laboratory)
 "sYI" = (
@@ -68363,6 +68488,7 @@
 	dir = 6
 	},
 /obj/item/book/manual/wiki/security_space_law,
+/obj/item/storage/slide_projector,
 /turf/simulated/floor/tiled/dark,
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
@@ -68793,12 +68919,6 @@
 	spawn_cartridges = list(/obj/item/reagent_containers/chem_disp_cartridge/coffee,/obj/item/reagent_containers/chem_disp_cartridge/milk,/obj/item/reagent_containers/chem_disp_cartridge/cream,/obj/item/reagent_containers/chem_disp_cartridge/sugar)
 	},
 /obj/structure/table/wood,
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Diplomatic Reception";
-	dir = 8;
-	network = list("Civilian Main","Rep_Office");
-	pixel_y = -22
-	},
 /turf/simulated/floor/carpet,
 /area/lawoffice)
 "ulG" = (
@@ -69961,6 +70081,11 @@
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/carpet/rubber,
 /area/maintenance/workshop)
+"whV" = (
+/obj/structure/table/wood/gamblingtable,
+/obj/item/storage/slide_projector,
+/turf/simulated/floor/lino/grey,
+/area/engineering/foyer)
 "wil" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/closet/secure_closet/freezer/kitchen,
@@ -71099,6 +71224,10 @@
 /obj/item/folder/sec,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/item/device/hand_labeler,
+/obj/machinery/alarm{
+	pixel_y = 28;
+	target_temperature = 278
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -91096,7 +91225,7 @@ aAF
 aCc
 aDU
 aFL
-oKJ
+whV
 oKJ
 aLc
 aMS
@@ -100572,7 +100701,7 @@ xcZ
 xBx
 abb
 abx
-xBx
+phk
 afe
 abQ
 acI
@@ -102114,7 +102243,7 @@ tsx
 srX
 dob
 abB
-abB
+qkc
 acj
 ltW
 acN
@@ -102371,7 +102500,7 @@ aaJ
 srX
 abf
 abC
-tOQ
+oUH
 ack
 tOQ
 acO
@@ -102886,8 +103015,8 @@ aaV
 abh
 abE
 abT
-abT
-abT
+pLP
+pLP
 acQ
 ada
 adu

@@ -14,11 +14,19 @@
 	pickup_sound = 'sound/items/pickup/toolbelt.ogg'
 	var/flipped = FALSE
 	var/show_above_suit = FALSE
+	var/content_overlays = FALSE //If this is true, the belt will gain overlays based on what it's holding
 
 /obj/item/storage/belt/proc/update_clothing_icon()
 	if(ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_belt()
+
+/obj/item/storage/belt/update_icon()
+	cut_overlays()
+	if(content_overlays)
+		for(var/obj/item/I in contents)
+			add_overlay(I.get_belt_overlay())
+	..()
 
 /obj/item/storage/belt/verb/toggle_layer()
 	set name = "Switch Belt Layer"
@@ -33,6 +41,10 @@
 /obj/item/storage/belt/Initialize()
 	. = ..()
 	update_flip_verb()
+
+/obj/item/storage/belt/fill()
+	. = ..()
+	update_icon()
 
 /obj/item/storage/belt/proc/update_flip_verb()
 	if(("[initial(icon_state)]_flip") in icon_states(icon)) // Check for whether it has a flipped icon. Prevents invisible sprites.
@@ -86,7 +98,11 @@
 		/obj/item/device/debugger,
 		/obj/item/device/eftpos
 		)
+	content_overlays = TRUE
 
+/obj/item/storage/belt/utility/ce
+	icon_state = "utilitybelt_ce"
+	item_state = "utility_ce"
 
 /obj/item/storage/belt/utility/full
 	starts_with = list(
@@ -156,7 +172,8 @@
 		/obj/item/crowbar,
 		/obj/item/device/flashlight,
 		/obj/item/extinguisher/mini,
-		/obj/item/device/radio
+		/obj/item/device/radio,
+		/obj/item/taperoll/medical
 		)
 
 /obj/item/storage/belt/medical/first_responder
@@ -164,6 +181,64 @@
 	desc = "A sturdy black webbing belt with attached pouches."
 	icon_state = "emsbelt"
 	item_state = "emsbelt"
+
+/obj/item/storage/belt/medical/first_responder/combat
+	name = "tactical medical belt"
+	desc = "A sturdy black webbing belt with attached pouches. This one is designed for medical professionals who expect to enter conflict zones on the daily. It has increased storage and utility."
+	storage_slots = 9
+	max_storage_space = 28
+	can_hold = list(
+		/obj/item/device/breath_analyzer,
+		/obj/item/device/healthanalyzer,
+		/obj/item/dnainjector,
+		/obj/item/reagent_containers/dropper,
+		/obj/item/reagent_containers/glass/beaker,
+		/obj/item/reagent_containers/glass/bottle,
+		/obj/item/reagent_containers/pill,
+		/obj/item/reagent_containers/syringe,
+		/obj/item/reagent_containers/inhaler,
+		/obj/item/reagent_containers/personal_inhaler_cartridge,
+		/obj/item/personal_inhaler,
+		/obj/item/flame/lighter/zippo,
+		/obj/item/storage/box/fancy/cigarettes,
+		/obj/item/storage/pill_bottle,
+		/obj/item/stack/medical,
+		/obj/item/device/flashlight/pen,
+		/obj/item/clothing/mask/surgical,
+		/obj/item/clothing/head/surgery,
+		/obj/item/clothing/gloves/latex,
+		/obj/item/reagent_containers/hypospray,
+		/obj/item/clothing/glasses/hud/health,
+		/obj/item/crowbar,
+		/obj/item/device/flashlight,
+		/obj/item/extinguisher/mini,
+		/obj/item/device/radio,
+		/obj/item/taperoll/medical,
+		/obj/item/handcuffs,
+		/obj/item/ammo_casing/shotgun,
+		/obj/item/ammo_magazine,
+		/obj/item/device/flash,
+		/obj/item/device/flashlight/maglight,
+		/obj/item/device/flashlight/flare,
+		/obj/item/material/knife,
+		/obj/item/stack/telecrystal,
+		/obj/item/melee/baton,
+		/obj/item/shield/riot/tact,
+		/obj/item/grenade,
+		/obj/item/reagent_containers/blood
+		)
+
+/obj/item/storage/belt/medical/first_responder/combat/full
+		starts_with = list(
+		/obj/item/reagent_containers/hypospray/cmo = 1,
+		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
+		/obj/item/reagent_containers/glass/bottle/antitoxin = 1,
+		/obj/item/reagent_containers/glass/bottle/dexalin_plus = 1,
+		/obj/item/reagent_containers/glass/bottle/butazoline = 1,
+		/obj/item/reagent_containers/glass/bottle/dermaline = 1,
+		/obj/item/reagent_containers/glass/bottle/perconol = 1,
+		/obj/item/reagent_containers/glass/bottle/thetamycin = 1
+	)
 
 /obj/item/storage/belt/security
 	name = "security belt"
@@ -199,6 +274,7 @@
 		/obj/item/device/holowarrant,
 		/obj/item/device/radio
 		)
+	content_overlays = TRUE
 
 /obj/item/storage/belt/soulstone
 	name = "soul stone belt"

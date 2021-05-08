@@ -28,6 +28,8 @@
 		/obj/item/gun/projectile/revolver/deckard     = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/leyon                = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/automatic/x9         = TRADER_THIS_TYPE,
+		/obj/item/gun/projectile/automatic/rifle/carbine = TRADER_THIS_TYPE,
+		/obj/item/ammo_magazine/a556/carbine 			 = TRADER_THIS_TYPE,
 		/obj/item/ammo_magazine/c45m                         = TRADER_ALL,
 		/obj/item/ammo_magazine/c45m/empty                   = TRADER_BLACKLIST,
 		/obj/item/ammo_magazine/mc10mm                       = TRADER_ALL,
@@ -162,5 +164,6 @@
 		/obj/item/clothing/mask/gas/tactical                      = TRADER_THIS_TYPE,
 		/obj/item/shield/riot/tact                         = TRADER_THIS_TYPE,
 		/obj/item/storage/belt/security/tactical           = TRADER_THIS_TYPE,
+		/obj/item/storage/belt/medical/first_responder/combat	 = TRADER_THIS_TYPE,
 		/obj/item/clothing/accessory/storage/bandolier            = TRADER_THIS_TYPE
 	)

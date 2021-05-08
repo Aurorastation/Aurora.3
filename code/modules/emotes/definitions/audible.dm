@@ -243,3 +243,8 @@
 	emote_message_3p_target = "USER bellows deeply at TARGET!"
 	emote_message_3p = "USER bellows!"
 	emote_sound = 'sound/voice/LizardBellow.ogg'
+
+/decl/emote/audible/warble
+	key = "warble"
+	emote_message_3p = "USER warbles!"
+	emote_sound = 'sound/voice/warble.ogg'

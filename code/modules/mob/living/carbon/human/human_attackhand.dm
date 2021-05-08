@@ -102,7 +102,7 @@
 
 	switch(M.a_intent)
 		if(I_HELP)
-			if(H != src && istype(H) && (is_asystole() || (status_flags & FAKEDEATH) || failed_last_breath))
+			if(H != src && istype(H) && (is_asystole() || (status_flags & FAKEDEATH) || failed_last_breath) && !src.on_fire)
 				if (cpr)
 					cpr = FALSE
 					return

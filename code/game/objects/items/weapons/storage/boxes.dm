@@ -127,10 +127,31 @@
 	desc = "A faithful box that will remain with you, no matter where you go, and probably save you."
 	icon_state = "e_box"
 	autodrobe_no_remove = 1
-	starts_with = list(/obj/item/clothing/mask/breath = 1,
-					   /obj/item/tank/emergency_oxygen = 1,
-					   /obj/item/device/flashlight/flare/glowstick/red = 1
-						)
+	max_storage_space = 14
+	can_hold = list(
+				/obj/item/clothing/mask,
+				/obj/item/tank/emergency_oxygen,
+				/obj/item/device/flashlight/flare/glowstick,
+				/obj/item/stack/medical,
+				/obj/item/reagent_containers/hypospray/autoinjector,
+				/obj/item/reagent_containers/inhaler,
+				/obj/item/device/oxycandle,
+				/obj/item/extinguisher/mini,
+				/obj/item/device/radio,
+				/obj/item/device/flashlight,
+				/obj/item/reagent_containers/food/drinks/flask,
+				/obj/item/storage/box/fancy/cigarettes,
+				/obj/item/flame/lighter,
+				/obj/item/disk/nuclear
+				)
+	starts_with = list(
+					/obj/item/clothing/mask/breath = 1,
+					/obj/item/tank/emergency_oxygen = 1,
+					/obj/item/device/oxycandle = 1,
+					/obj/item/device/flashlight/flare/glowstick/red = 1,
+					/obj/item/stack/medical/bruise_pack = 1,
+					/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1
+					)
 
 /obj/item/storage/box/survival/fill()
 	..()
