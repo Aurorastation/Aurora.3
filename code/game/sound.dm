@@ -414,6 +414,12 @@
 		'sound/weapons/genhit3.ogg'
 	)
 
+/decl/sound_category/flesh_burn_sound
+	sounds = list(
+		'sound/effects/fleshburn1.ogg',
+		'sound/effects/fleshburn2.ogg'
+	)
+
 /decl/sound_category/hiss_sound
 	sounds = list(
 		'sound/voice/hiss1.ogg',

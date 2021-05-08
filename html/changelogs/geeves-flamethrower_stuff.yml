@@ -1,0 +1,11 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Updated flamethrowers to use the sprites of the welding tools they were made from."
+  - rscadd: "Flamethrowers now instantly light anyone in their path on fire."
+  - soundadd: "Gave flamethrowers a nicer sound effect."
+  - admin: "The full flamethrower now comes with a gas tank installed."
+  - tweak: "Tweaked the attack verbs of lit welders."
+  - soundadd: "Added sounds to the attack of lit welders."

@@ -215,6 +215,8 @@
 	pickup_sound = 'sound/items/pickup/weldingtool.ogg'
 	usesound = 'sound/items/welder.ogg'
 
+	attack_verb = list("hit", "bludgeoned", "whacked")
+
 	//Amount of OUCH when it's thrown
 	force = 3
 	throwforce = 5
@@ -336,9 +338,7 @@
 		R.use(1)
 		add_fingerprint(user)
 		user.drop_from_inventory(src)
-		var/obj/item/flamethrower/F = new /obj/item/flamethrower
-		F.weldtool = src
-		forceMove(F)
+		var/obj/item/flamethrower/F = new /obj/item/flamethrower(get_turf(src), src)
 		user.put_in_hands(F)
 		return
 
@@ -516,6 +516,8 @@
 			damtype = BURN
 			w_class = ITEMSIZE_LARGE
 			welding = TRUE
+			hitsound = /decl/sound_category/flesh_burn_sound
+			attack_verb = list("scorched", "burned", "blasted", "blazed")
 			update_icon()
 			set_processing(TRUE)
 		else
@@ -533,6 +535,8 @@
 		damtype = BRUTE
 		w_class = initial(w_class)
 		welding = FALSE
+		hitsound = /decl/sound_category/swing_hit_sound
+		attack_verb = list("hit", "bludgeoned", "whacked")
 		set_processing(FALSE)
 		update_icon()
 
