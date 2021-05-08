@@ -392,7 +392,7 @@
 					break
 			if(!eyescovered)
 				U.handle_examine(src)
-				LAZYADD(U.recent_examines, src) //Done after so that it doesn't work with itself
+				LAZYADD(U.recent_examines, WEAKREF(src)) //Done after so that it doesn't work with itself
 				addtimer(CALLBACK(U, .proc/removeexamine, src), 5 SECONDS)
 
 // Helper proc for the timer above. 
@@ -406,13 +406,16 @@
 	if(examinee == src || !examinee.recent_examines || !LAZYLEN(examinee.recent_examines))
 		return FALSE
 
-	for(var/M in examinee.recent_examines)
-		if(M == src)
-			to_chat(src, SPAN_SUBTLE("You make eye contact with \the [examinee]."))
-			to_chat(examinee, SPAN_SUBTLE("You make eye contact with \the [src]."))
-			recent_examines -= examinee   //Remove them from our list
-			examinee.recent_examines -= M //Remove us from their list
-			return TRUE
+	//for(var/M in examinee.recent_examines)
+		//if(M == WEAKREF(src))
+	// if(WEAKREF(src) in examinee.recent_examines)
+	var/datum/weakref/WR = WEAKREF(src)
+	if(WR in examinee.recent_examines)
+		to_chat(src, SPAN_SUBTLE("You make eye contact with \the [examinee]."))
+		to_chat(examinee, SPAN_SUBTLE("You make eye contact with \the [src]."))
+		recent_examines -= examinee   //Remove them from our list
+		examinee.recent_examines -= WR //Remove us from their list
+		return TRUE
 	return FALSE
 
 //Helper procedure. Called by /mob/living/carbon/human/examine() and /mob/living/carbon/human/Topic() to determine HUD access to security and medical records.
