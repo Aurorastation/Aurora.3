@@ -2,6 +2,7 @@
 	name = "Independent Mercenaries"
 	chance = 15
 	spawner = /datum/ghostspawner/human/ert/mercenary
+	equipment_map = /datum/map_template/distress_freelancers
 
 /datum/responseteam/kataphracts
 	name = "Kataphracts"
