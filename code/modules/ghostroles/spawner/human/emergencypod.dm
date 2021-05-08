@@ -316,7 +316,7 @@
 	back = /obj/item/storage/backpack/satchel
 	backpack_contents = list(
 		/obj/item/device/camera = 1,
-		/obj/item/gun/energy/pistol = 1,
+		/obj/item/gun/energy/repeater = 1,
 		/obj/item/device/oxycandle = 1,
 		/obj/item/airbubble = 1
 	)
