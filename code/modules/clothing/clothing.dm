@@ -440,6 +440,9 @@
 	if (.)
 		INVOKE_ASYNC(src, .proc/update_wearer)
 
+/obj/item/clothing/gloves/clothing_class()
+	return "gloves"
+
 ///////////////////////////////////////////////////////////////////////
 //Head
 /obj/item/clothing/head
@@ -561,6 +564,9 @@
 	if (ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_head()
+
+/obj/item/clothing/head/clothing_class()
+	return "helmet"
 
 ///////////////////////////////////////////////////////////////////////
 //Mask
@@ -781,6 +787,9 @@
 					to_chat(M, SPAN_WARNING("You trip from running in \the [src]!"))
 			return
 
+/obj/item/clothing/shoes/clothing_class()
+	return "shoes"
+
 ///////////////////////////////////////////////////////////////////////
 //Suit
 /obj/item/clothing/suit
@@ -821,6 +830,9 @@
 	if (ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_wear_suit()
+
+/obj/item/clothing/suit/clothing_class()
+	return "suit"
 
 ///////////////////////////////////////////////////////////////////////
 //Under clothing
@@ -1076,6 +1088,9 @@
 	sensor_mode = pick(0,1,2,3)
 	. = ..()
 
+/obj/item/clothing/under/clothing_class()
+	return "uniform"
+
 
 //Rings
 
@@ -1088,3 +1103,6 @@
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
 	var/undergloves = TRUE
+
+/obj/item/clothing/proc/clothing_class()
+	return "clothing"

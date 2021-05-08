@@ -11,13 +11,6 @@
 	cold_protection =    HEAD|FACE|EYES
 	brightness_on = 4
 	light_wedge = LIGHT_WIDE
-	sprite_sheets = list(
-		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/helmet.dmi',
-		BODYTYPE_SKRELL = 'icons/mob/species/skrell/helmet.dmi',
-		BODYTYPE_UNATHI = 'icons/mob/species/unathi/helmet.dmi',
-		BODYTYPE_VAURCA = 'icons/mob/species/vaurca/helmet.dmi',
-		BODYTYPE_IPC = 'icons/mob/species/machine/helmet.dmi',
-	)
 
 /obj/item/clothing/gloves/rig
 	name = "gauntlets"
@@ -28,12 +21,6 @@
 	species_restricted = null
 	gender = PLURAL
 	punch_force = 5
-	sprite_sheets = list(
-		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/gloves.dmi',
-		BODYTYPE_UNATHI = 'icons/mob/species/unathi/gloves.dmi',
-		BODYTYPE_VAURCA = 'icons/mob/species/vaurca/gloves.dmi',
-		BODYTYPE_IPC = 'icons/mob/species/machine/gloves.dmi',
-	)
 
 /obj/item/clothing/shoes/magboots/rig
 	name = "boots"
@@ -43,12 +30,6 @@
 	species_restricted = null
 	gender = PLURAL
 	icon_base = null
-	sprite_sheets = list(
-		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/shoes.dmi',
-		BODYTYPE_UNATHI = 'icons/mob/species/unathi/shoes.dmi',
-		BODYTYPE_VAURCA = 'icons/mob/species/vaurca/shoes.dmi',
-		BODYTYPE_IPC = 'icons/mob/species/machine/shoes.dmi',
-	)
 
 /obj/item/clothing/suit/space/rig
 	name = "chestpiece"
@@ -63,12 +44,6 @@
 	breach_threshold = 38
 	resilience = 0.2
 	can_breach = 1
-	sprite_sheets = list(
-		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/suit.dmi',
-		BODYTYPE_UNATHI = 'icons/mob/species/unathi/suit.dmi',
-		BODYTYPE_VAURCA = 'icons/mob/species/vaurca/suit.dmi',
-		BODYTYPE_IPC = 'icons/mob/species/machine/suit.dmi',
-		)
 
 	supporting_limbs = list()
 
