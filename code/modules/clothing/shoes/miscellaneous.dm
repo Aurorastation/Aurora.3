@@ -159,6 +159,7 @@ obj/item/clothing/shoes/sandal/clogs
 	silent = 1
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	move_trail = null
 
 /obj/item/clothing/shoes/cowboy
 	name = "cowboy boots"
