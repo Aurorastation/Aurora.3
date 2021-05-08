@@ -4,6 +4,7 @@
 	that armor designed to protect from blunt force will mitigate this function as well."
 	spell_power_desc = "Increases damage dealt."
 	cost = 50
+	ability_icon_state = "wiz_blink"
 	obj_path = /obj/item/spell/projectile/force_missile
 	category = OFFENSIVE_SPELLS
 

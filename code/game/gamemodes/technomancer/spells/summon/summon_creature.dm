@@ -8,6 +8,7 @@
 	enhancement_desc = "Summoned entities will never harm their summoner."
 	spell_power_desc = "The strength and endurance of the summoned creature will be greater."
 	cost = 100
+	ability_icon_state = "wiz_carp"
 	obj_path = /obj/item/spell/summon/summon_creature
 	category = UTILITY_SPELLS
 

@@ -658,12 +658,13 @@
 	name = "Technomancer"
 	allow_backbag_choice = FALSE
 
-	head = /obj/item/clothing/head/technomancer/master
+	head = /obj/item/clothing/head/chameleon/technomancer
 	l_ear = /obj/item/device/radio/headset/bluespace
-	uniform = /obj/item/clothing/under/technomancer/master
+	uniform = /obj/item/clothing/under/chameleon/technomancer
+	suit = /obj/item/clothing/suit/chameleon/technomancer
 	belt = /obj/item/device/flashlight
 	back = /obj/item/technomancer_core
-	shoes = /obj/item/clothing/shoes/laceup
+	shoes = /obj/item/clothing/shoes/chameleon/technomancer
 
 	r_pocket = /obj/item/disposable_teleporter/free
 	l_pocket = /obj/item/technomancer_catalog
@@ -692,8 +693,10 @@
 /datum/outfit/admin/techomancer/apprentice
 	name = "Technomancer Apprentice"
 
-	head = /obj/item/clothing/head/technomancer/apprentice
-	uniform = /obj/item/clothing/under/technomancer/apprentice
+	head = /obj/item/clothing/head/chameleon/technomancer
+	uniform = /obj/item/clothing/under/chameleon/technomancer
+	suit = /obj/item/clothing/suit/chameleon/technomancer
+	shoes = /obj/item/clothing/shoes/chameleon/technomancer
 
 	l_pocket = /obj/item/technomancer_catalog/apprentice
 
@@ -707,4 +710,4 @@
 	to_chat(H, "<b>You are the Technomancer's apprentice! Your goal is to assist them in their mission at the [station_name()].</b>")
 	to_chat(H, "<b>Your service has not gone unrewarded, however. Studying under them, you have learned how to use a Manipulation Core \
 	of your own.  You also have a catalog, to purchase your own functions and equipment as you see fit.</b>")
-	to_chat(H, "<b>It would be wise to speak to your master, and learn what their plans are for today.</b>")
+	to_chat(H, "<b>It would be wise to speak to your master, and learn what their plans are for today. Your clothing is holographic, you should change its look before leaving.</b>")

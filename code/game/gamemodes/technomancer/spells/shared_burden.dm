@@ -3,6 +3,7 @@
 	desc = "One of the few functions able to adjust instability, this allows you to take someone else's instability."
 	spell_power_desc = "Draws bonus instability from the target, with the bonus dissipating harmlessly, for 'free'."
 	cost = 50
+	ability_icon_state = "ling_recursive_enhancement"
 	obj_path = /obj/item/spell/shared_burden
 	category = SUPPORT_SPELLS
 

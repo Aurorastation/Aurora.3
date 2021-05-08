@@ -4,6 +4,7 @@
 	for a directed lightning strike to occur.  The lightning is very strong, however it requires a few seconds to prepare a \
 	strike.  Lightning functions cannot miss due to distance."
 	cost = 150
+	ability_icon_state = "tech_chain_lightning"
 	obj_path = /obj/item/spell/projectile/lightning
 	category = OFFENSIVE_SPELLS
 

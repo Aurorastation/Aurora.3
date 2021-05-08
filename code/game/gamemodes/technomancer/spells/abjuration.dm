@@ -3,6 +3,7 @@
 	desc = "This ability attempts to send summoned or teleported entities or anomalies to the place from whence they came, or at least \
 	far away from the caster.  Failing that, it may inhibit those entities in some form."
 	cost = 25
+	ability_icon_state = "wiz_jaunt"
 	obj_path = /obj/item/spell/abjuration
 	category = UTILITY_SPELLS
 

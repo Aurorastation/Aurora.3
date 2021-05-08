@@ -5,6 +5,7 @@
 	enhancement_desc = "Radiation will not affect the caster or their allies."
 	spell_power_desc = "Spell power increases the amount of radiation and heat radiated, as well as the radius."
 	cost = 100
+	ability_icon_state = "swarm_zeropoint"
 	obj_path = /obj/item/spell/radiance
 	category = OFFENSIVE_SPELLS
 

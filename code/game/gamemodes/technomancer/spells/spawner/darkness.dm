@@ -2,6 +2,7 @@
 	name = "Darkness"
 	desc = "Disrupts photons moving in a local area, causing darkness to shroud yourself or a position of your choosing."
 	cost = 25
+	ability_icon_state = "artificer"
 	obj_path = /obj/item/spell/spawner/darkness
 	category = UTILITY_SPELLS
 

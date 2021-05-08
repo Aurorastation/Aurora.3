@@ -75,3 +75,43 @@
 	item_state = "technomancer_hat"
 	icon = 'icons/obj/clothing/technomancer.dmi'
 	contained_sprite = TRUE
+
+/obj/item/clothing/under/chameleon/technomancer
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR, 
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_RESISTANT,
+		bomb = ARMOR_BOMB_MINOR,
+		rad = ARMOR_RAD_RESISTANT
+	)
+
+/obj/item/clothing/head/chameleon/technomancer
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR, 
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_RESISTANT,
+		bomb = ARMOR_BOMB_MINOR,
+		rad = ARMOR_RAD_RESISTANT
+	)
+
+/obj/item/clothing/shoes/chameleon/technomancer
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR, 
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_RESISTANT,
+		bomb = ARMOR_BOMB_MINOR,
+		rad = ARMOR_RAD_RESISTANT
+	)
+
+/obj/item/clothing/suit/chameleon/technomancer
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR, 
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_RESISTANT,
+		bomb = ARMOR_BOMB_MINOR,
+		rad = ARMOR_RAD_RESISTANT
+	)

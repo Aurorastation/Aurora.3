@@ -1,29 +1,30 @@
-/datum/technomancer/spell/destablize
-	name = "Destablize"
+/datum/technomancer/spell/destabilize
+	name = "destabilize"
 	desc = "Creates an unstable disturbance at the targeted tile, which will afflict anyone nearby with instability who remains nearby.  This can affect you \
 	and your allies as well.  The disturbance lasts for twenty seconds."
 	cost = 100
-	obj_path = /obj/item/spell/spawner/destablize
+	ability_icon_state = "wiz_shield"
+	obj_path = /obj/item/spell/spawner/destabilize
 	category = OFFENSIVE_SPELLS
 
-/obj/item/spell/spawner/destablize
-	name = "destablize"
+/obj/item/spell/spawner/destabilize
+	name = "destabilize"
 	desc = "Now your enemies can feel what you go through when you have too much fun."
-	icon_state = "destablize"
+	icon_state = "destabilize"
 	cast_methods = CAST_RANGED
 	aspect = ASPECT_UNSTABLE
-	spawner_type = /obj/effect/temporary_effect/destablize
+	spawner_type = /obj/effect/temporary_effect/destabilize
 
-/obj/item/spell/spawner/destablize/New()
+/obj/item/spell/spawner/destabilize/New()
 	..()
 	set_light(3, 2, l_color = "#C26DDE")
 
-/obj/item/spell/spawner/destablize/on_ranged_cast(atom/hit_atom, mob/user)
+/obj/item/spell/spawner/destabilize/on_ranged_cast(atom/hit_atom, mob/user)
 	if(within_range(hit_atom) && pay_energy(2000))
 		adjust_instability(15)
 		..()
 
-/obj/effect/temporary_effect/destablize
+/obj/effect/temporary_effect/destabilize
 	name = "destablizing disturbance"
 	desc = "This can't be good..."
 	icon_state = "blueshatter"
@@ -35,11 +36,11 @@
 	var/instability_power = 5
 	var/instability_range = 6
 
-/obj/effect/temporary_effect/destablize/Initialize()
+/obj/effect/temporary_effect/destabilize/Initialize()
 	. = ..()
 	radiate_loop()
 
-/obj/effect/temporary_effect/destablize/proc/radiate_loop()
+/obj/effect/temporary_effect/destabilize/proc/radiate_loop()
 	set waitfor = FALSE
 
 	while(pulses_remaining)

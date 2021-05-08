@@ -4,6 +4,7 @@
 	enhancement_desc = "An extremely loud bike horn sound that costs  large amount of energy and instability becomes available, \
 	which will deafen and stun all who are near the targeted tile, including yourself if unprotected."
 	cost = 50
+	ability_icon_state = "boo"
 	obj_path = /obj/item/spell/audible_deception
 	ability_icon_state = "tech_audibledeception"
 	category = UTILITY_SPELLS

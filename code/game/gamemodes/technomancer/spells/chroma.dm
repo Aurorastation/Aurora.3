@@ -3,6 +3,7 @@
 	desc = "Creates light around you, or in a location of your choosing.  You can choose what color the light is.  This could be \
 	useful to trick someone into believing you're casting a different spell, or perhaps just for fun."
 	cost = 25
+	ability_icon_state = "const_ambush"
 	obj_path = /obj/item/spell/chroma
 	category = UTILITY_SPELLS
 

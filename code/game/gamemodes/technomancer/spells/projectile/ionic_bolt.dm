@@ -3,6 +3,7 @@
 	desc = "Shoots a bolt of ion energy at the target.  If it hits something, it will generally drain energy, corrupt electronics, \
 	or otherwise ruin complex machinery."
 	cost = 50
+	ability_icon_state = "swarm_warp"
 	obj_path = /obj/item/spell/projectile/ionic_bolt
 	category = OFFENSIVE_SPELLS
 

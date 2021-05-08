@@ -4,6 +4,7 @@
 	will grab them automatically."
 	enhancement_desc = "Range is unlimited."
 	cost = 25
+	ability_icon_state = "wiz_subj"
 	obj_path = /obj/item/spell/apportation
 	category = UTILITY_SPELLS
 

@@ -3,6 +3,7 @@
 	desc = "Causes a disturbance on a targeted tile.  After two and a half seconds, it will explode in a small radius around it.  Be \
 	sure to not be close to the disturbance yourself."
 	cost = 175
+	ability_icon_state = "wiz_fireball"
 	obj_path = /obj/item/spell/spawner/fire_blast
 	category = OFFENSIVE_SPELLS
 
