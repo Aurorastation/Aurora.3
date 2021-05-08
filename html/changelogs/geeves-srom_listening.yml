@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Skrell in Srom will now be able to hear people talking around them, and hear things on the radio if they body has one."
+  - bugfix: "You will now be properly able to hear things from your old body if you're remote controlling something."
