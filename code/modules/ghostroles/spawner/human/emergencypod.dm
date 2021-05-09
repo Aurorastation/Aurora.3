@@ -302,7 +302,7 @@
 
 	backpack_contents = list(
 		/obj/item/clothing/head/navy = 1
-    )
+	)
 
 /datum/outfit/admin/pod/fsf/get_id_assignment()
 	return "Free Solarian Fleets Crewman"
@@ -352,7 +352,7 @@
 		/obj/item/device/oxycandle = 1,
 		/obj/item/airbubble = 1,
 		/obj/item/ammo_magazine/c45m = 1
-    )
+	)
 
 
 
