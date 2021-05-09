@@ -334,7 +334,7 @@
 /datum/outfit/admin/pod/scc/get_id_rank()
 	return "Stellar Corporate Conglomerate Functionary"
 
-	/datum/outfit/admin/pod/fib
+/datum/outfit/admin/pod/fib
  	name = "RescuePod - FIB" // Doctor Pavel, I'm FIB.
 
 		uniform = /obj/item/clothing/under/rank/fib
