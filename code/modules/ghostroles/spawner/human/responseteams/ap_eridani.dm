@@ -30,7 +30,7 @@
 /datum/ghostspawner/human/ert/ap_eridani/corpsman
 	name = "Eridani Corpsman"
 	short_name = "eridanicorpsman"
-	mob_name_prefix = "Pm. "
+	mob_name_prefix = "Cm. "
 	max_count = 2
 	desc = "An Eridani corpsman that can handle nursing duties as well. Trained to operate in combat environments if needed. Make sure to check your quarterlies."
 	outfit = /datum/outfit/admin/ert/ap_eridani/corpsman
