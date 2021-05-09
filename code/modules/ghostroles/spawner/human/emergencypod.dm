@@ -335,18 +335,18 @@
 	return "Stellar Corporate Conglomerate Functionary"
 
 /datum/outfit/admin/pod/fib
- 	name = "RescuePod - FIB" // Doctor Pavel, I'm FIB.
+	name = "RescuePod - FIB" // Doctor Pavel, I'm FIB.
 
-		uniform = /obj/item/clothing/under/rank/fib
-		suit = /obj/item/clothing/suit/storage/toggle/fib
-		shoes = /obj/item/clothing/shoes/laceup
-		gloves = /obj/item/clothing/gloves/black
-		l_pocket = /obj/item/reagent_containers/spray/pepper
-		glasses = /obj/item/clothing/glasses/sunglasses
-		accessory = /obj/item/clothing/accessory/holster/hip
-		accessory_contents = list(/obj/item/gun/projectile/sec/lethal = 1)
-		back = /obj/item/storage/backpack/satchel
-		backpack_contents = list(
+	uniform = /obj/item/clothing/under/rank/fib
+	suit = /obj/item/clothing/suit/storage/toggle/fib
+	shoes = /obj/item/clothing/shoes/laceup
+	gloves = /obj/item/clothing/gloves/black
+	l_pocket = /obj/item/reagent_containers/spray/pepper
+	glasses = /obj/item/clothing/glasses/sunglasses
+	accessory = /obj/item/clothing/accessory/holster/hip
+	accessory_contents = list(/obj/item/gun/projectile/sec/lethal = 1)
+	back = /obj/item/storage/backpack/satchel
+	backpack_contents = list(
     	/obj/item/device/camera = 1,
 		/obj/item/handcuffs = 1,
 		/obj/item/device/oxycandle = 1,
