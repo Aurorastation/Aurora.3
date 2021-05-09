@@ -1850,29 +1850,31 @@
 
 //Works out blood pressure alert level -- not very accurate
 /mob/living/carbon/human/proc/get_blood_pressure_alert()
-	var/list/bp = blood_pressure()
+	var/list/bp_list = blood_pressure()
 	// For a blood pressure, e.g. 120/80
 	var/systolic_alert // this is the top number '120' -- highest pressure when heart beats
 	var/diastolic_alert // this is the bottom number '80' -- lowest pressure when heart relaxes
-
-	switch(bp[1])
-		if(get_bp_high_systolic() to INFINITY)
+	
+	var/blood_pressure_systolic = bp_list[1]
+	if (blood_pressure_systolic)
+		if (blood_pressure_systolic >= get_bp_high_systolic())
 			systolic_alert = BLOOD_PRESSURE_HIGH
-		if(get_pre_high_systolic() to get_bp_high_systolic())
+		else if (blood_pressure_systolic >= get_pre_high_systolic() && blood_pressure_systolic <= get_bp_high_systolic())
 			systolic_alert = BLOOD_PRESSURE_PRE_HIGH
-		if(get_ideal_systolic() to get_pre_high_systolic())
+		else if (blood_pressure_systolic >= get_ideal_systolic() && blood_pressure_systolic <= get_pre_high_systolic())
 			systolic_alert = BLOOD_PRESSURE_IDEAL
-		if(-INFINITY to get_ideal_systolic())
+		else if (blood_pressure_systolic <= get_ideal_systolic())
 			systolic_alert = BLOOD_PRESSURE_LOW
 
-	switch(bp[2])
-		if(get_bp_high_disatolic() to INFINITY)
+	var/blood_pressure_disatolic = bp_list[2]
+	if (blood_pressure_disatolic)
+		if (blood_pressure_disatolic >= get_bp_high_disatolic())
 			diastolic_alert = BLOOD_PRESSURE_HIGH
-		if(get_pre_high_disatolic() to get_bp_high_disatolic())
+		else if (blood_pressure_disatolic >= get_pre_high_disatolic() && blood_pressure_disatolic <= get_bp_high_disatolic())
 			diastolic_alert = BLOOD_PRESSURE_PRE_HIGH
-		if(get_ideal_disatolic() to get_pre_high_disatolic())
+		else if(blood_pressure_disatolic >= get_ideal_disatolic() && blood_pressure_disatolic <=  get_pre_high_disatolic())
 			diastolic_alert = BLOOD_PRESSURE_IDEAL
-		if(-INFINITY to get_ideal_disatolic())
+		else if (blood_pressure_disatolic >=  get_ideal_disatolic())
 			diastolic_alert = BLOOD_PRESSURE_LOW
 
 	if(systolic_alert == BLOOD_PRESSURE_HIGH || diastolic_alert == BLOOD_PRESSURE_HIGH)
