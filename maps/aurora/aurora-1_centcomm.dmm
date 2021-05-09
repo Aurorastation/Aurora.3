@@ -4816,6 +4816,8 @@
 	dir = 10
 	},
 /obj/structure/table/steel,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialt,
 /obj/item/clothing/gloves/yellow,
 /obj/item/clothing/gloves/yellow,
 /obj/item/storage/belt/utility/full,
@@ -23934,8 +23936,8 @@
 	},
 /area/antag/wizard)
 "lzh" = (
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialt,
 /obj/item/clothing/gloves/yellow,
 /obj/item/clothing/gloves/yellow,
 /obj/item/storage/box/lights/mixed{
@@ -43675,6 +43677,9 @@
 /area/antag/burglar)
 "ygE" = (
 /obj/structure/table/rack,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow,
 /obj/item/storage/belt/utility/very_full,
 /obj/item/storage/belt/utility/very_full,
 /obj/item/storage/belt/utility/very_full,
