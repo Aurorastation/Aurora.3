@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - imageadd: "Stock parts have been given new sprites."
