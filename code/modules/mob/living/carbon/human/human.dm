@@ -9,7 +9,7 @@
 
 	var/species_items_equipped // used so species that need special items (autoinhalers for vaurca/RMT for offworlders) don't get them twice when they shouldn't.
 
-	var/list/hud_list[10]
+	var/list/hud_list[11]
 	var/embedded_flag	  //To check if we've need to roll for damage on movement while an item is imbedded in us.
 	var/obj/item/rig/wearing_rig // This is very not good, but it's much much better than calling get_rig() every update_canmove() call.
 	mob_size = 9//Based on average weight of a human
@@ -47,6 +47,7 @@
 	hud_list[SPECIALROLE_HUD] = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
 	hud_list[STATUS_HUD_OOC]  = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudhealthy")
 	hud_list[LIFE_HUD]	      = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudhealthy")
+	hud_list[TRIAGE_HUD]      = new /image/hud_overlay('icons/mob/hud_med.dmi', src, triage_tag)
 
 	//Scaling down the ID hud
 	var/image/holder = hud_list[ID_HUD]
@@ -758,6 +759,18 @@
 				if(isrobot(usr))
 					var/mob/living/silicon/robot/U = usr
 					R.medical.comments += text("Made by [U.name] ([U.mod_type] [U.braintype]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [game_year]<BR>[t1]")
+
+	if(href_list["triagetag"])
+		if(hasHUD(usr, "medical"))
+			var/static/list/tags = list()
+			if(!length(tags))
+				for(var/thing in list(TRIAGE_NONE, TRIAGE_GREEN, TRIAGE_YELLOW, TRIAGE_RED, TRIAGE_BLACK))
+					tags[thing] = image(icon = 'icons/mob/screen/triage_tag.dmi', icon_state = thing)
+			var/chosen_tag = show_radial_menu(usr, src, tags, radius = 42, tooltips = TRUE)
+			if(chosen_tag)
+				triage_tag = chosen_tag
+			BITSET(hud_updateflag, HEALTH_HUD)
+			handle_hud_list()
 
 	if (href_list["lookitem"])
 		var/obj/item/I = locate(href_list["lookitem"])

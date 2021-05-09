@@ -7,6 +7,7 @@
 	species_restricted = null
 	force = 5
 	overshoes = 1
+	item_flags = THICKMATERIAL|AIRTIGHT|INJECTIONPORT
 	var/magpulse = 0
 	var/icon_base = "magboots"
 	action_button_name = "Toggle Magboots"

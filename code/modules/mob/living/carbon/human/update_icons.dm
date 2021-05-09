@@ -249,7 +249,7 @@ There are several things that need to be remembered:
 //Overlays for the worn overlay so you can overlay while you overlay
 //eg: ammo counters, primed grenade flashing, etc.
 //"icon_file" is used automatically for inhands etc. to make sure it gets the correct inhand file
-/obj/item/proc/worn_overlays(icon_file, var/contained_flag = "")
+/obj/item/proc/worn_overlays(icon_file, slot, var/contained_flag = "")
 	. = list()
 	if(build_from_parts)
 		var/mutable_appearance/M = mutable_appearance(icon_file, "[item_state][contained_flag]_[worn_overlay]")
@@ -571,6 +571,11 @@ There are several things that need to be remembered:
 
 		var/image/standing = image(icon = under_icon, icon_state = under_state)
 		standing.color = w_uniform.color
+
+		var/image/worn_overlays = w_uniform.worn_overlays(under_icon, slot_w_uniform, w_uniform.contained_sprite ? WORN_UNDER : null)
+		if(worn_overlays)
+			standing.overlays.Add(worn_overlays)
+
 		var/list/ovr
 
 		//apply blood overlay
@@ -765,7 +770,7 @@ There are several things that need to be remembered:
 			if(l_ear.color)
 				result_layer.color = l_ear.color
 
-			var/image/worn_overlays = l_ear.worn_overlays(t_icon, l_ear.contained_sprite ? WORN_LEAR : null)
+			var/image/worn_overlays = l_ear.worn_overlays(t_icon, slot_l_ear, l_ear.contained_sprite ? WORN_LEAR : null)
 			if(worn_overlays)
 				result_layer.overlays.Add(worn_overlays)
 
@@ -808,7 +813,7 @@ There are several things that need to be remembered:
 			if(r_ear.color)
 				result_layer.color = r_ear.color
 
-			var/image/worn_overlays = r_ear.worn_overlays(t_icon, r_ear.contained_sprite ? WORN_REAR : null)
+			var/image/worn_overlays = r_ear.worn_overlays(t_icon, slot_r_ear, r_ear.contained_sprite ? WORN_REAR : null)
 			if(worn_overlays)
 				result_layer.overlays.Add(worn_overlays)
 
@@ -849,7 +854,7 @@ There are several things that need to be remembered:
 		if(shoes.color)
 			result_layer.color = shoes.color
 
-		var/image/worn_overlays = shoes.worn_overlays(t_icon, shoes.contained_sprite ? WORN_SHOES : null)
+		var/image/worn_overlays = shoes.worn_overlays(t_icon, slot_shoes, shoes.contained_sprite ? WORN_SHOES : null)
 		if(worn_overlays)
 			result_layer.overlays.Add(worn_overlays)
 
@@ -942,7 +947,7 @@ There are several things that need to be remembered:
 
 		standing.color = head.color
 		standing.appearance_flags = RESET_ALPHA
-		var/image/worn_overlays = head.worn_overlays(t_icon, head.contained_sprite ? WORN_HEAD : null)
+		var/image/worn_overlays = head.worn_overlays(t_icon, slot_head, head.contained_sprite ? WORN_HEAD : null)
 		if(worn_overlays)
 			standing.overlays.Add(worn_overlays)
 
@@ -998,7 +1003,7 @@ There are several things that need to be remembered:
 			result_layer.color = belt.color
 
 		result_layer.appearance_flags = RESET_ALPHA
-		var/image/worn_overlays = belt.worn_overlays(t_icon, belt.contained_sprite ? WORN_BELT : null)
+		var/image/worn_overlays = belt.worn_overlays(t_icon, slot_belt, belt.contained_sprite ? WORN_BELT : null)
 		if(worn_overlays)
 			result_layer.add_overlay(worn_overlays)
 
@@ -1064,7 +1069,7 @@ There are several things that need to be remembered:
 			result_layer.color = wear_suit.color
 
 		result_layer.appearance_flags = RESET_ALPHA
-		var/image/worn_overlays = wear_suit.worn_overlays(t_icon, wear_suit.contained_sprite ? WORN_SUIT : null)
+		var/image/worn_overlays = wear_suit.worn_overlays(t_icon, slot_wear_suit, wear_suit.contained_sprite ? WORN_SUIT : null)
 		if(worn_overlays)
 			result_layer.overlays.Add(worn_overlays)
 
@@ -1307,7 +1312,7 @@ There are several things that need to be remembered:
 			if(l_hand.color)
 				result_layer.color = l_hand.color
 
-			var/image/worn_overlays = l_hand.worn_overlays(t_icon, l_hand.contained_sprite ? WORN_LHAND : null)
+			var/image/worn_overlays = l_hand.worn_overlays(t_icon, slot_l_hand, l_hand.contained_sprite ? WORN_LHAND : null)
 			if(worn_overlays)
 				result_layer.overlays.Add(worn_overlays)
 
@@ -1357,7 +1362,7 @@ There are several things that need to be remembered:
 			if(r_hand.color)
 				result_layer.color = r_hand.color
 
-			var/image/worn_overlays = r_hand.worn_overlays(t_icon, r_hand.contained_sprite ? WORN_RHAND : null)
+			var/image/worn_overlays = r_hand.worn_overlays(t_icon, slot_r_hand, r_hand.contained_sprite ? WORN_RHAND : null)
 			if(worn_overlays)
 				result_layer.overlays.Add(worn_overlays)
 
@@ -1375,25 +1380,19 @@ There are several things that need to be remembered:
 	if(check_draw_wrists())
 		//determine icon state to use
 		var/t_state = wrists.item_state || wrists.icon_state
-
+		var/icon/t_icon
 		var/image/result_layer
 		if(wrists.contained_sprite)
 			wrists.auto_adapt_species(src)
+			t_icon = wrists.icon
 			t_state = "[UNDERSCORE_OR_NULL(wrists.icon_species_tag)][wrists.item_state][WORN_WRISTS]"
 
 			result_layer = image(wrists.icon_override || wrists.icon, t_state)
-
-			if(wrists.color)
-				result_layer.color = wrists.color
-
-			result_layer.appearance_flags = RESET_ALPHA
-			overlays_raw[WRISTS_LAYER] = result_layer
 		else
 			if(wrists.item_state_slots && wrists.item_state_slots[slot_wrists_str])
 				t_state = wrists.item_state_slots[slot_wrists_str]
 
 			//determine icon to use
-			var/icon/t_icon
 			if(wrists.item_icons && (slot_wrists_str in wrists.item_icons))
 				t_icon = wrists.item_icons[slot_wrists_str]
 			else if(wrists.icon_override)
@@ -1404,15 +1403,15 @@ There are several things that need to be remembered:
 
 			result_layer = image(t_icon, t_state)
 
-			if(wrists.color)
-				result_layer.color = wrists.color
+		if(wrists.color)
+			result_layer.color = wrists.color
 
-			var/image/worn_overlays = wrists.worn_overlays(t_icon, wrists.contained_sprite ? WORN_WRISTS : null)
-			if(worn_overlays)
-				result_layer.overlays.Add(worn_overlays)
+		var/image/worn_overlays = wrists.worn_overlays(t_icon, slot_wrists, wrists.contained_sprite ? WORN_WRISTS : null)
+		if(worn_overlays)
+			result_layer.overlays.Add(worn_overlays)
 
-			result_layer.appearance_flags = RESET_ALPHA
-			overlays_raw[WRISTS_LAYER] = result_layer
+		result_layer.appearance_flags = RESET_ALPHA
+		overlays_raw[WRISTS_LAYER] = result_layer
 
 	if(update_icons)
 		update_icon()

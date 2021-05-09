@@ -188,9 +188,10 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 			ret += "[D.materials[M] - materials[M]] [M]"
 	for(var/C in D.chemicals)
 		if(!reagents.has_reagent(C, D.chemicals[C]))
+			var/decl/reagent/R = decls_repository.get_decl(C)
 			if(ret != "")
 				ret += ", "
-			ret += "[C]"
+			ret += "[R.name]"
 	return ret
 
 /obj/machinery/r_n_d/circuit_imprinter/proc/build(var/datum/design/D)

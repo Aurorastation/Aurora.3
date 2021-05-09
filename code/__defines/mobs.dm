@@ -382,6 +382,13 @@
 #define CURE_SURGERY "surgery"
 #define CURE_ADMIN "all"
 
+// triage tags
+#define TRIAGE_NONE "None"
+#define TRIAGE_GREEN "Green"
+#define TRIAGE_YELLOW "Yellow"
+#define TRIAGE_RED "Red"
+#define TRIAGE_BLACK "Black"
+
 // Surgery Stuff
 #define SURGERY_SUCCESS 2 // Proceed with surgery
 #define SURGERY_FAIL 1 // Autofail surgery

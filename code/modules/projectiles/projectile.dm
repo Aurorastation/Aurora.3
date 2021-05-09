@@ -79,6 +79,7 @@
 	//Fired processing vars
 	var/fired = FALSE	//Have we been fired yet
 	var/paused = FALSE	//for suspending the projectile midair
+	var/reflected = FALSE
 	var/last_projectile_move = 0
 	var/last_process = 0
 	var/time_offset = 0
@@ -310,6 +311,8 @@
 /obj/item/projectile/proc/old_style_target(atom/target, atom/source)
 	if(!source)
 		source = get_turf(src)
+	starting = get_turf(source)
+	original = target
 	setAngle(get_projectile_angle(source, target))
 
 /obj/item/projectile/proc/fire(angle, atom/direct_target)
@@ -572,6 +575,9 @@
 	if(trajectory)
 		trajectory.set_angle(new_angle)
 	return TRUE
+
+/obj/item/projectile/proc/redirect(x, y, starting, source)
+	old_style_target(locate(x, y, z), starting? get_turf(starting) : get_turf(source))
 
 /obj/item/projectile/forceMove(atom/target)
 	. = ..()
