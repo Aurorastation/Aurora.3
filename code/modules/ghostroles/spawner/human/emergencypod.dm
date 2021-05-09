@@ -21,7 +21,7 @@
 
 /datum/ghostspawner/human/rescuepodsurv/New()
 	. = ..()
-	var/t = pick(list("star", "priest", "rep", "smuggler", "hunter", "occultist", "pmc", "tcfl", "fsf", "scc"))
+	var/t = pick(list("star", "priest", "rep", "smuggler", "hunter", "occultist", "pmc", "tcfl", "fsf", "scc", "fib"))
 	if(t == "star")
 		welcome_message = "You are a stranded star!<br>You were relaxing comfortably in your cryo pod as tragedy struck - the pilot of your luxury yacht fell asleep under some mysterious circumstances. You were unceremoniously stuffed into an escape pod, and left to wander in space. What a despicable, low-quality plot to get rid of you. Should've chosen murder instead - you certainly know you'll convince someone nice to lend you a shuttle."
 		outfit = /datum/outfit/admin/pod/star
@@ -57,6 +57,11 @@
 		welcome_message = "You are a stranded Stellar Corporate Conglomerate functionary!<br>A routine inspection of SCC assets in the Romanovich cloud turned into disaster when your private shuttle's reactor failed. You narrowly escaped with your life. Worst of all? You lost your paperwork."
 		outfit = /datum/outfit/admin/pod/scc
 		possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL)
+	else if(t == "fib")
+		welcome_message = "You are a stranded Federal Investigation Bureau Agent!<br>What was supposed to be a standard investigation turned into a nightmare when the vessel you were supposed to board opened fire! You just managed to reach an escape pod before your own ship was turned into smoldering rubble. You really need some coffee"
+		outfit = /datum/outfit/admin/pod/fib
+		possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL)
+
 	else
 		welcome_message = "You are a stranded drugs smuggler!<br>You shouldn't have had the fucking Tajara pilot your ship. <i>Of course</i> we crashed into a rock. Good thing you've got some of the stuff with you while evacuating - maybe you'll crash somewhere you could sell it for a ticket back?"
 		outfit = /datum/outfit/admin/pod/smuggler
@@ -294,11 +299,11 @@
 		/obj/item/device/flashlight/flare = 1,
 		/obj/item/device/radio = 1
 	)
-	
+
 	backpack_contents = list(
 		/obj/item/clothing/head/navy = 1
     )
-	
+
 /datum/outfit/admin/pod/fsf/get_id_assignment()
 	return "Free Solarian Fleets Crewman"
 
@@ -328,6 +333,35 @@
 
 /datum/outfit/admin/pod/scc/get_id_rank()
 	return "Stellar Corporate Conglomerate Functionary"
+
+	/datum/outfit/admin/pod/fib
+ 	name = "RescuePod - FIB" // Doctor Pavel, I'm FIB.
+
+		uniform = /obj/item/clothing/under/rank/fib
+		suit = /obj/item/clothing/suit/storage/toggle/fib
+		shoes = /obj/item/clothing/shoes/laceup
+		gloves = /obj/item/clothing/gloves/black
+		l_pocket = /obj/item/reagent_containers/spray/pepper
+		glasses = /obj/item/clothing/glasses/sunglasses
+		accessory = /obj/item/clothing/accessory/holster/hip
+		accessory_contents = list(/obj/item/gun/projectile/sec/lethal = 1)
+		back = /obj/item/storage/backpack/satchel
+		backpack_contents = list(
+    	/obj/item/device/camera = 1,
+		/obj/item/handcuffs = 1,
+		/obj/item/device/oxycandle = 1,
+		/obj/item/airbubble = 1,
+		/obj/item/ammo_magazine/c45m = 1
+    )
+
+
+
+/datum/outfit/admin/pod/fib/get_id_assignment()
+	return "Federal Investigation Bureau Agent"
+
+/datum/outfit/admin/pod/fib/get_id_rank()
+	return "Federal Investigation Bureau Agent"
+
 
 /datum/ghostspawner/human/rescuepodsurv/burglar
 	short_name = "burglarpod"
