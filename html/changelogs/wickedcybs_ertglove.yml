@@ -1,8 +1,0 @@
-author: WickedCybs
-
-delete-after: True
-
-changes:
-  - maptweak: "Raiders now have one set of Tajaran and Unathi insulated gloves added to their engineering supplies."
-  - maptweak: "The distress team base now has three pairs of insulated gloves added to its engineering rack. Standard, Tajaran and Unathi."
-  - maptweak: "The TCFL now have insulated gloves that can fit other species."
