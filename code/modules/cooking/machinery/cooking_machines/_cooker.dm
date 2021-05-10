@@ -109,7 +109,7 @@
 		set_temp = text2num(desired_temp) + T0C
 		to_chat(user, SPAN_NOTICE("You set [src] to [round(set_temp-T0C)]C."))
 		stat &= ~POWEROFF
-	use_power = !(stat & POWEROFF) && use_power
+	use_power = !(stat & POWEROFF) // will be updated again after heat_up
 	if(wasoff != (stat & POWEROFF))
 		activation_message(user)
 	playsound(src, 'sound/machines/click.ogg', 40, 1)

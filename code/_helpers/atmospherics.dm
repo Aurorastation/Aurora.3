@@ -45,4 +45,4 @@
 	if(P)	return atmosanalyzer_scan(src, src.P.air_contents, user)
 
 /obj/item/flamethrower/atmosanalyze(var/mob/user)
-	if(ptank)	return atmosanalyzer_scan(src, ptank.air_contents, user)
+	if(gas_tank)	return atmosanalyzer_scan(src, gas_tank.air_contents, user)

@@ -26,7 +26,9 @@
 	name = "augmented tie"
 	suit_type = "augmented suit"
 	desc = "Prepare for paperwork."
+	icon = 'icons/clothing/rig/tie.dmi'
 	icon_state = "internalaffairs_rig"
+	icon_supported_species_tags = null
 	armor = null
 	siemens_coefficient = 0.9
 	slowdown = 0
@@ -38,8 +40,9 @@
 	req_access = list()
 	req_one_access = list()
 
-	glove_type = null
 	helm_type = null
+	suit_type = null
+	glove_type = null
 	boot_type = null
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
@@ -64,7 +67,9 @@
 	name = "industrial suit control module"
 	suit_type = "industrial hardsuit"
 	desc = "A heavy, powerful hardsuit used by construction crews and mining corporations."
+	icon = 'icons/clothing/rig/industrial.dmi'
 	icon_state = "industrial_rig"
+	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_PISTOL,
@@ -113,7 +118,9 @@
 	name = "EVA suit control module"
 	suit_type = "EVA hardsuit"
 	desc = "A light hardsuit for repairs and maintenance to the outside of habitats and vessels."
+	icon = 'icons/clothing/rig/eva.dmi'
 	icon_state = "eva_rig"
+	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_MINOR,
@@ -161,7 +168,9 @@
 	name = "advanced voidsuit control module"
 	suit_type = "advanced voidsuit"
 	desc = "An advanced voidsuit that protects against hazardous, low pressure environments. Shines with a high polish."
+	icon = 'icons/clothing/rig/ce.dmi'
 	icon_state = "ce_rig"
+	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_SMALL,
@@ -207,7 +216,9 @@
 	name = "AMI control module"
 	suit_type = "hazmat hardsuit"
 	desc = "An Anomalous Material Interaction hardsuit that protects against the strangest energies the universe can throw at it."
+	icon = 'icons/clothing/rig/hazmat.dmi'
 	icon_state = "hazmat_rig"
+	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_MINOR,
@@ -244,7 +255,9 @@
 	name = "rescue suit control module"
 	suit_type = "rescue hardsuit"
 	desc = "A durable suit designed for medical rescue in high risk areas."
+	icon = 'icons/clothing/rig/medical.dmi'
 	icon_state = "medical_rig"
+	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_MINOR,
@@ -284,7 +297,9 @@
 	name = "hazard hardsuit control module"
 	suit_type = "hazard hardsuit"
 	desc = "A security hardsuit designed for prolonged EVA in dangerous environments."
+	icon = 'icons/clothing/rig/hazard.dmi'
 	icon_state = "hazard_rig"
+	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_PISTOL,
@@ -328,6 +343,7 @@
 	name = "diving suit control module"
 	suit_type = "diving suit"
 	desc = "A heavy hardsuit designated for operations under the water, you are not sure what it is doing here however."
+	icon = 'icons/clothing/rig/diving.dmi'
 	icon_state = "diving_rig"
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,

@@ -4,6 +4,10 @@
 	var/anchored = 0
 	var/movable_flags
 
+	var/icon_scale_x = 1 // Used to scale icons up or down horizonally in update_transform().
+	var/icon_scale_y = 1 // Used to scale icons up or down vertically in update_transform().
+	var/icon_rotation = 0 // Used to rotate icons in update_transform()
+
 	// var/elevation = 2    - not used anywhere
 	var/move_speed = 10
 	var/l_move_time = 1
@@ -267,6 +271,34 @@
 //by default, transition randomly to another zlevel
 /atom/movable/proc/get_transit_zlevel()
 	return current_map.get_transit_zlevel()
+
+// Returns the current scaling of the sprite.
+// Note this DOES NOT measure the height or width of the icon, but returns what number is being multiplied with to scale the icons, if any.
+/atom/movable/proc/get_icon_scale_x()
+	return icon_scale_x
+
+/atom/movable/proc/get_icon_scale_y()
+	return icon_scale_y
+
+/atom/movable/proc/update_transform()
+	var/matrix/M = matrix()
+	M.Scale(icon_scale_x, icon_scale_y)
+	M.Turn(icon_rotation)
+	src.transform = M
+
+// Use this to set the object's scale.
+/atom/movable/proc/adjust_scale(new_scale_x, new_scale_y)
+	if(isnull(new_scale_y))
+		new_scale_y = new_scale_x
+	if(new_scale_x != 0)
+		icon_scale_x = new_scale_x
+	if(new_scale_y != 0)
+		icon_scale_y = new_scale_y
+	update_transform()
+
+/atom/movable/proc/adjust_rotation(new_rotation)
+	icon_rotation = new_rotation
+	update_transform()
 
 // Parallax stuff.
 
