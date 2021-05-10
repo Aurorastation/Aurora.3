@@ -104,7 +104,7 @@
 /obj/item/screwdriver/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(!istype(M) || user.a_intent == "help")
 		return ..()
-	if(target_zone != BP_EYES && target_zone != BP_HEAD)
+	if((target_zone != BP_EYES && target_zone != BP_HEAD) || M.eyes_protected(src, FALSE))
 		return ..()
 	if((user.is_clumsy()) && prob(50))
 		M = user
@@ -214,6 +214,8 @@
 	drop_sound = 'sound/items/drop/weldingtool.ogg'
 	pickup_sound = 'sound/items/pickup/weldingtool.ogg'
 	usesound = 'sound/items/welder.ogg'
+
+	attack_verb = list("hit", "bludgeoned", "whacked")
 
 	//Amount of OUCH when it's thrown
 	force = 3
@@ -336,9 +338,7 @@
 		R.use(1)
 		add_fingerprint(user)
 		user.drop_from_inventory(src)
-		var/obj/item/flamethrower/F = new /obj/item/flamethrower
-		F.weldtool = src
-		forceMove(F)
+		var/obj/item/flamethrower/F = new /obj/item/flamethrower(get_turf(src), src)
 		user.put_in_hands(F)
 		return
 
@@ -516,6 +516,8 @@
 			damtype = BURN
 			w_class = ITEMSIZE_LARGE
 			welding = TRUE
+			hitsound = /decl/sound_category/flesh_burn_sound
+			attack_verb = list("scorched", "burned", "blasted", "blazed")
 			update_icon()
 			set_processing(TRUE)
 		else
@@ -533,6 +535,8 @@
 		damtype = BRUTE
 		w_class = initial(w_class)
 		welding = FALSE
+		hitsound = /decl/sound_category/swing_hit_sound
+		attack_verb = list("hit", "bludgeoned", "whacked")
 		set_processing(FALSE)
 		update_icon()
 
@@ -737,6 +741,7 @@
 	icon_state = "impact_wrench-screw"
 	item_state = "impact_wrench"
 	contained_sprite = TRUE
+	flags = HELDMAPTEXT
 	force = 8
 	attack_verb = list("gored", "drilled", "screwed", "punctured")
 	w_class = ITEMSIZE_SMALL
@@ -751,6 +756,9 @@
 /obj/item/powerdrill/Initialize()
 	. = ..()
 	update_tool()
+
+/obj/item/powerdrill/set_initial_maptext()
+	held_maptext = SMALL_FONTS(7, "S")
 
 /obj/item/powerdrill/examine(var/mob/user)
 	. = ..()
@@ -778,11 +786,13 @@
 
 /obj/item/powerdrill/proc/update_tool()
 	if(isscrewdriver())
-		usesound = 'sound/items/air_wrench.ogg'
-		icon_state = "impact_wrench-screw"
-	else if(iswrench())
 		usesound = 'sound/items/drill_use.ogg'
+		icon_state = "impact_wrench-screw"
+		check_maptext(SMALL_FONTS(7, "S"))
+	else if(iswrench())
+		usesound = 'sound/items/air_wrench.ogg'
 		icon_state = "impact_wrench-wrench"
+		check_maptext(SMALL_FONTS(7, "W"))
 
 /obj/item/powerdrill/attack_self(var/mob/user)
 	if(++current_tool > tools.len)

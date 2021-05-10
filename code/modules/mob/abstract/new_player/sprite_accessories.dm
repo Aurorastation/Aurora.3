@@ -178,11 +178,11 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Bedhead 3"
 		icon_state = "hair_bedhead3"
 		chatname = "wavy hair"
-
+	
 	bedhead4
 		name = "Bedhead 4"
 		icon_state = "hair_bedhead4"
-		length = 3
+		length = 4
 		chatname = "messy locks"
 
 	beehive
@@ -1914,15 +1914,11 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Wise Beard"
 		icon_state = "facial_wise"
 
-	brokenman
+	chinstrap2
 		icon = 'icons/mob/human_face/facial_hair_multiply.dmi'
-		name = "Broken Man"
-		icon_state = "facial_brokenman"
+		name = "Chinstrap, Alt"
+		icon_state = "facial_chinstrap_ii"
 		icon_blend_mode = ICON_MULTIPLY
-
-		chinstrap2
-			name = "Chinstrap, Alt"
-			icon_state = "facial_chinstrap_ii"
 
 		stark
 			name = "Stark"
@@ -2341,7 +2337,12 @@ Follow by example and make good judgement based on length which list to include 
 		taj_ears_sidepony
 			name = "Tajara Side Ponytail"
 			icon_state = "hair_sidepony"
-			chatname = "sidepony"
+			chatname = "sideponytail"
+
+		taj_ears_sideponyalt
+			name = "Tajara Side Ponytail Alt"
+			icon_state = "hair_sideponyalt"
+			chatname = "sideponytail"
 
 		taj_ears_governmentman
 			name = "Tajara Government Man"
@@ -2371,6 +2372,11 @@ Follow by example and make good judgement based on length which list to include 
 		taj_ears_shoulderlength
 			name = "Tajara Shoulderlength"
 			icon_state = "hair_shoulderlength"
+			chatname = "styled mane"
+
+		taj_ears_shoulderlengthalt
+			name = "Tajara Shoulderlength Alt"
+			icon_state = "hair_shoulderlengthalt"
 			chatname = "styled mane"
 
 //msai hair, longer ears
@@ -2489,7 +2495,12 @@ Follow by example and make good judgement based on length which list to include 
 		msai_ears_sidepony
 			name = "M'sai Side Ponytail"
 			icon_state = "msai_sidepony"
-			chatname = "sidepony"
+			chatname = "sideponytail"
+
+		msai_ears_sideponyalt
+			name = "M'sai Side Ponytail Alt"
+			icon_state = "msai_sideponyalt"
+			chatname = "sideponytail"
 
 		msai_ears_governmentman
 			name = "M'sai Government Man"
@@ -2519,6 +2530,11 @@ Follow by example and make good judgement based on length which list to include 
 		msai_ears_shoulderlength
 			name = "M'sai Shoulderlength"
 			icon_state = "msai_shoulderlength"
+			chatname = "styled mane"
+
+		msai_ears_shoulderlengthalt
+			name = "M'sai Shoulderlength Alt"
+			icon_state = "msai_shoulderlengthalt"
 			chatname = "styled mane"
 
 //vaurca antennae
