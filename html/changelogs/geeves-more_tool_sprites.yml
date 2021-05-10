@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - imageadd: "Resprited wrenches and crowbars to match the new tool style."
-  - tweak: "Tweaked wirecutters to spawn in the same color as the other tools in your toolbelt. Random wirecutters will still have random colors."
