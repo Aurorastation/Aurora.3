@@ -220,7 +220,7 @@
 	icon_state = "designer_jeans"
 	item_state = "designer_jeans"
 
-/obj/item/clothing/under/pants/customjeans
+/obj/item/clothing/under/pants/tailoredjeans
 	name = "tailored jeans"
 	desc = "Close fitting denim jeans carefully distressed to perfection. They're not as rugged as they look."
 	icon_state = "tailored_jeans"
