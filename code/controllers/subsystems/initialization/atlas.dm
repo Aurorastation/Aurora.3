@@ -81,15 +81,23 @@ var/datum/controller/subsystem/atlas/SSatlas
 	InitializeSectors()
 
 	var/chosen_sector
+	var/using_sector_config = FALSE
 
 	if(config.current_space_sector)
 		chosen_sector = config.current_space_sector
+		using_sector_config = TRUE
 	else
 		chosen_sector = current_map.default_sector
 
 	var/datum/space_sector/selected_sector = SSatlas.possible_sectors[chosen_sector]
 
-	current_sector = selected_sector
+	if(!selected_sector)
+		if(using_sector_config)
+			log_debug("[chosen_sector] used in the config file is not a valid space sector")
+		current_sector = new /datum/space_sector/tau_ceti //if all fails, we go with tau ceti
+		log_debug("Unable to select [chosen_sector] as a valid space sector. Tau Ceti will be used instead.")
+	else
+		current_sector = selected_sector
 
 	..()
 
