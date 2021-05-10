@@ -223,8 +223,8 @@
 /obj/item/clothing/under/pants/customjeans
 	name = "tailored jeans"
 	desc = "Close fitting denim jeans carefully distressed to perfection. They're not as rugged as they look."
-	icon_state = "custom_jeans"
-	item_state = "custom_jeans"
+	icon_state = "tailored_jeans"
+	item_state = "tailored_jeans"
 	build_from_parts = TRUE
 	worn_overlay = "belt"
 
