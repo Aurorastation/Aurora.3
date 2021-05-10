@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added a chance for emergency toolboxes to spawn emergency welding tools and emergency goggles."
