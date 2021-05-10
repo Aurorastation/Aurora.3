@@ -38,7 +38,8 @@
 
 	if ( ((user.is_clumsy()) || (DUMB in user.mutations)) && prob(10))
 		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
-		eyestab(H,user)
+		if(!H.eyes_protected(src, FALSE))
+			eyestab(H,user)
 		if(H.reagents)
 			var/contained = reagentlist()
 			var/trans = reagents.trans_to_mob(H, amount_per_transfer_from_this, CHEM_TOUCH)

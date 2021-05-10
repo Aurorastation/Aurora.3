@@ -28,7 +28,8 @@ var/global/ntnrc_uid = 0
 		for(var/datum/computer_file/program/chat_client/Cl in U.clients)
 			var/notification_text = message.format_chat_notification(src, Cl)
 			if(notification_text && Cl.can_receive_notification(message.client))
-				Cl.computer.output_message(notification_text, 0)
+				if(!Cl.message_mute)
+					Cl.computer.output_message(notification_text, 0)
 				if(message.play_sound)
 					Cl.play_notification_sound(message.client)
 

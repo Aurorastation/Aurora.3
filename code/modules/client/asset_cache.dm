@@ -520,6 +520,7 @@ var/list/asset_datums = list()
 			I = S.update_appearance(TRUE)
 			Insert(imgid, I, forced=I)
 		else
+			O.update_icon()
 			if(O.overlay_queued)
 				O.compile_overlays()
 			if(O.overlays.len)

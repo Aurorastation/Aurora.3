@@ -16680,6 +16680,7 @@
 /obj/effect/floor_decal/corner_wide/mauve/full{
 	dir = 1
 	},
+/obj/item/taperoll/science,
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "aHx" = (
@@ -20656,6 +20657,7 @@
 	dir = 5
 	},
 /obj/item/folder/purple,
+/obj/item/taperoll/science,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/hallway)
 "aQx" = (
@@ -21040,6 +21042,7 @@
 /obj/structure/table/standard,
 /obj/item/reagent_containers/spray/chemsprayer/xenobiology,
 /obj/item/reagent_containers/spray/chemsprayer/xenobiology,
+/obj/item/taperoll/science,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "aRA" = (
@@ -21262,6 +21265,7 @@
 	dir = 1
 	},
 /obj/item/folder/purple,
+/obj/item/taperoll/science,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/hallway)
 "aSk" = (
@@ -31510,6 +31514,7 @@
 /obj/effect/floor_decal/corner_wide/mauve{
 	dir = 5
 	},
+/obj/item/taperoll/science,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "mZC" = (

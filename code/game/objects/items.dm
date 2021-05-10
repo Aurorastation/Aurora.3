@@ -536,35 +536,18 @@ var/list/global/slot_flags_enumeration = list(
 		L = L.loc
 	return loc
 
-/obj/item/proc/eyestab(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
-
-	var/mob/living/carbon/human/H = M
-	if(istype(H))
-		for(var/obj/item/protection in list(H.head, H.wear_mask, H.glasses))
-			if(protection && (protection.body_parts_covered & EYES))
-				// you can't stab someone in the eyes wearing a mask!
-				to_chat(user, "<span class='warning'>You're going to need to remove the eye covering first.</span>")
-				return
-
-	if(!M.has_eyes())
-		to_chat(user, "<span class='warning'>You cannot locate any eyes on [M]!</span>")
+/obj/item/proc/eyestab(mob/living/carbon/M, mob/living/carbon/user)
+	if(M.eyes_protected(src, TRUE))
 		return
 
+	var/mob/living/carbon/human/H = M
 	admin_attack_log(user, M, "attacked [key_name(M)] with [src]", "was attacked by [key_name(user)] using \a [src]", "used \a [src] to eyestab")
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	playsound(loc, hitsound, 70, TRUE)
 	user.do_attack_animation(M)
 
-	src.add_fingerprint(user)
-	//if((CLUMSY in user.mutations) && prob(50))
-	//	M = user
-		/*
-		to_chat(M, "<span class='warning'>You stab yourself in the eye.</span>")
-		M.sdisabilities |= BLIND
-		M.weakened += 4
-		M.adjustBruteLoss(10)
-		*/
-
+	add_fingerprint(user)
 	if(istype(H))
 		var/obj/item/organ/internal/eyes/eyes = H.get_eyes()
 
@@ -581,26 +564,30 @@ var/list/global/slot_flags_enumeration = list(
 
 		eyes.take_damage(rand(3,4))
 		if(eyes.damage >= eyes.min_bruised_damage)
-			if(M.stat != 2)
+			if(H.stat != DEAD)
 				if(eyes.robotic <= 1) //robot eyes bleeding might be a bit silly
-					to_chat(M, "<span class='danger'>Your eyes start to bleed profusely!</span>")
+					to_chat(H, "<span class='danger'>Your eyes start to bleed profusely!</span>")
 			if(prob(50))
-				if(M.stat != 2)
-					to_chat(M, "<span class='warning'>You drop what you're holding and clutch at your eyes!</span>")
-					M.drop_item()
-				M.eye_blurry += 10
-				M.Paralyse(1)
-				M.Weaken(4)
+				if(H.stat != DEAD)
+					to_chat(H, "<span class='warning'>You drop what you're holding and clutch at your eyes!</span>")
+					H.drop_item()
+				H.eye_blurry += 10
+				H.Paralyse(1)
+				H.Weaken(4)
 			if (eyes.damage >= eyes.min_broken_damage)
-				if(M.stat != 2)
-					to_chat(M, "<span class='warning'>You go blind!</span>")
+				if(H.stat != DEAD)
+					to_chat(H, "<span class='warning'>You go blind!</span>")
 		var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
-		if(affecting.take_damage(7))
-			M:UpdateDamageIcon()
+		if(affecting.take_damage(7, 0, damage_flags(), src))
+			H.UpdateDamageIcon()
 	else
 		M.take_organ_damage(7)
 	M.eye_blurry += rand(3,4)
-	return
+
+/obj/item/proc/protects_eyestab(var/obj/stab_item, var/stabbed = FALSE) // if stabbed is set to true if we're being stabbed and not just checking
+	if((item_flags & THICKMATERIAL) && (body_parts_covered & EYES))
+		return TRUE
+	return FALSE
 
 /obj/item/clean_blood()
 	. = ..()
@@ -910,7 +897,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	if(flags & HELDMAPTEXT)
 		check_maptext()
 
-/obj/item/dropped()
+/obj/item/dropped(var/mob/user)
 	..()
 	if(flags & HELDMAPTEXT)
 		check_maptext()

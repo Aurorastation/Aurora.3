@@ -17,10 +17,10 @@
 	spawner = /datum/ghostspawner/human/ert/iac
 	equipment_map = /datum/map_template/distress_iac
 
-/datum/responseteam/med_eridani
-	name = "Eridani Medical Team"
+/datum/responseteam/ap_eridani
+	name = "Eridani Asset Protection Team"
 	chance = 15
-	spawner = /datum/ghostspawner/human/ert/med_eridani
+	spawner = /datum/ghostspawner/human/ert/ap_eridani
 	equipment_map = /datum/map_template/distress_iac
 	possible_space_sector = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE)
 

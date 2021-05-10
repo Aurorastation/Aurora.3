@@ -1,27 +1,41 @@
 /obj/item/flamethrower
 	name = "flamethrower"
 	desc = "A flamethrower created by modifying a welding tool to fit an external gas tank."
+
 	icon = 'icons/obj/contained_items/weapons/flamethrower.dmi'
-	icon_state = "flamethrower"
+	icon_state = "flamethrower1"
 	item_state = "flamethrower_0"
 	contained_sprite = TRUE
-	var/fire_sound = 'sound/weapons/flamethrower.ogg'
+
+	w_class = ITEMSIZE_LARGE
 	flags = CONDUCT
-	force = 3.0
-	throwforce = 10.0
+	force = 3
+	throwforce = 10
 	throw_speed = 1
 	throw_range = 5
-	w_class = ITEMSIZE_LARGE
+
+	light_color = LIGHT_COLOR_FIRE
+
 	origin_tech = list(TECH_COMBAT = 1, TECH_PHORON = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 500)
+
+	var/fire_sound = 'sound/weapons/flamethrower.ogg'
 	var/secured = FALSE // Whether we have an igniter secured (screwdrivered) to us or not
 	var/throw_amount = 100
 	var/lit = FALSE //on or off
 	var/operating = FALSE //cooldown
-	var/turf/previousturf = null
-	var/obj/item/weldingtool/weldtool = null
+	var/turf/previous_turf = null
+	var/obj/item/weldingtool/welding_tool = null
 	var/obj/item/device/assembly/igniter/igniter = null
 	var/obj/item/tank/gas_tank = null
+
+/obj/item/flamethrower/Initialize(mapload, var/welder)
+	. = ..()
+	icon_state = "flamethrower" // update to use the non-map version
+	if(welder)
+		welding_tool = welder
+		welding_tool.forceMove(src)
+	update_icon()
 
 /obj/item/flamethrower/examine(mob/user)
 	..()
@@ -36,15 +50,10 @@
 			to_chat(user, SPAN_WARNING("It has no igniter installed."))
 
 /obj/item/flamethrower/Destroy()
-	if(weldtool)
-		qdel(weldtool)
-	if(igniter)
-		qdel(igniter)
-	if(gas_tank)
-		qdel(gas_tank)
-
+	QDEL_NULL(welding_tool)
+	QDEL_NULL(igniter)
+	QDEL_NULL(gas_tank)
 	return ..()
-
 
 /obj/item/flamethrower/process()
 	if(!lit)
@@ -60,16 +69,22 @@
 
 /obj/item/flamethrower/update_icon()
 	cut_overlays()
+	add_overlay("+[initial(welding_tool.icon_state)]")
+
 	if(igniter)
 		add_overlay("+igniter[secured]")
+
 	if(istype(gas_tank, /obj/item/tank/phoron))
 		add_overlay("+phoron_tank")
 	else if(istype(gas_tank, /obj/item/tank/hydrogen))
 		add_overlay("+hydro_tank")
+
 	if(lit)
 		add_overlay("+lit")
+		set_light(1.4, 2)
 		item_state = "flamethrower_1"
 	else
+		set_light(0)
 		item_state = "flamethrower_0"
 
 /obj/item/flamethrower/isFlameSource()
@@ -96,9 +111,9 @@
 
 	if(W.iswrench() && !secured)//Taking this apart
 		var/turf/T = get_turf(src)
-		if(weldtool)
-			weldtool.forceMove(T)
-			weldtool = null
+		if(welding_tool)
+			welding_tool.forceMove(T)
+			welding_tool = null
 		if(igniter)
 			igniter.forceMove(T)
 			igniter = null
@@ -218,20 +233,21 @@
 
 //Called from turf.dm turf/dblclick
 /obj/item/flamethrower/proc/flame_turf(turflist)
-	if(!lit || operating)	return
+	if(!lit || operating)
+		return
 	operating = TRUE
 	playsound(src, fire_sound, 70, 1)
 	for(var/turf/T in turflist)
 		if(T.density || istype(T, /turf/space))
 			break
-		if(!previousturf && length(turflist)>1)
-			previousturf = get_turf(src)
+		if(!previous_turf && length(turflist)>1)
+			previous_turf = get_turf(src)
 			continue	//so we don't burn the tile we be standin on
-		if(previousturf && LinkBlocked(previousturf, T))
+		if(previous_turf && LinkBlocked(previous_turf, T))
 			break
 		ignite_turf(T)
 		sleep(1)
-	previousturf = null
+	previous_turf = null
 	operating = FALSE
 
 
@@ -243,12 +259,14 @@
 			air_transfer.gas[g] = 0
 	target.assume_air(air_transfer)
 	target.hotspot_expose((gas_tank.air_contents.temperature*2) + 400, 500)
+	for(var/mob/living/M in target)
+		M.IgniteMob(1)
 
-/obj/item/flamethrower/full/Initialize()
-	. = ..()
-	weldtool = new /obj/item/weldingtool(src)
-	weldtool.status = FALSE
+/obj/item/flamethrower/full/Initialize() // slightly weird looking initialize cuz it has to do some stuff first
+	welding_tool = new /obj/item/weldingtool(src)
+	welding_tool.status = FALSE
 	igniter = new /obj/item/device/assembly/igniter(src)
 	igniter.secured = FALSE
 	secured = TRUE
-	update_icon()
+	gas_tank = new /obj/item/tank/phoron(src)
+	return ..()

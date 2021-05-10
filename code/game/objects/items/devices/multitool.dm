@@ -5,8 +5,8 @@
 
 /obj/item/device/multitool
 	name = "multitool"
-	desc = "Used for pulsing wires to test which to cut. Not recommended by doctors."
-	desc_info = "You can use this on airlocks or APCs to try to hack them without cutting wires."
+	desc = "This small, handheld device is made of durable, insulated plastic. It has a electrode jack, perfect for interfacing with numerous machines, as well as an in-built NT-SmartTrack! system."
+	desc_info = "You can use this on airlocks or APCs to try to hack them without cutting wires. You can also use it to wire circuits, and track APCs by using it in-hand."
 	icon = 'icons/obj/contained_items/tools/multitool.dmi'
 	icon_state = "multitool"
 	item_state = "multitool"
@@ -30,11 +30,15 @@
 	var/buffer_name
 	var/atom/buffer_object
 
+	var/tracking_apc = FALSE
+	var/mutable_appearance/apc_indicator
+
 	var/datum/integrated_io/selected_io = null
 	var/mode = 0
 
 /obj/item/device/multitool/Destroy()
 	unregister_buffer(buffer_object)
+	QDEL_NULL(apc_indicator)
 	return ..()
 
 /obj/item/device/multitool/ismultitool()
@@ -84,15 +88,50 @@
 	return 1
 
 /obj/item/device/multitool/attack_self(mob/user)
+	interact(user)
+
+/obj/item/device/multitool/interact(mob/user)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	if(!ui)
+		ui = new(user, src, "devices-multitool", 300, 250, capitalize_first_letters(name), state = inventory_state)
+	ui.open()
+
+/obj/item/device/multitool/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
+	if(!data)
+		data = list()
+
+	VUEUI_SET_CHECK(data["tracking_apc"], tracking_apc, ., data)
+
+	VUEUI_SET_CHECK(data["has_selected_io"], !isnull(selected_io), ., data)
 	if(selected_io)
+		VUEUI_SET_CHECK(data["selected_io_name"], selected_io.name, ., data)
+		VUEUI_SET_CHECK(data["selected_io_type"], selected_io.io_type, ., data)
+
+/obj/item/device/multitool/Topic(href, href_list)
+	. = ..()
+	if(.)
+		return TRUE
+
+	if(href_list["track_apc"])
+		tracking_apc = !tracking_apc
+		if(tracking_apc)
+			START_PROCESSING(SSprocessing, src)
+			apc_indicator = mutable_appearance(icon, "lost")
+			add_overlay(apc_indicator)
+		else
+			STOP_PROCESSING(SSprocessing, src)
+			QDEL_NULL(apc_indicator)
+
+	if(href_list["clear_io"])
 		selected_io = null
-		to_chat(user, "<span class='notice'>You clear the wired connection from the multitool.</span>")
-	else
-		..()
+
 	update_icon()
+	SSvueui.check_uis_for_change(src)
 
 /obj/item/device/multitool/update_icon()
-	if(selected_io)
+	if(tracking_apc)
+		icon_state = "multitool_clear"
+	else if(selected_io)
 		if(buffer || connecting || buffer_object)
 			icon_state = "multitool_tracking"
 		else
@@ -102,6 +141,30 @@
 			icon_state = "multitool_tracking_fail"
 		else
 			icon_state = "multitool"
+
+/obj/item/device/multitool/process()
+	if(!apc_indicator)
+		return PROCESS_KILL
+
+	var/turf/T = get_turf(src)
+	var/area/A = T.loc
+	var/obj/machinery/power/apc/APC = A.apc
+
+	if(!APC || (APC.z != T.z))
+		apc_indicator.icon_state = "lost"
+	else
+		// shamelessly stolen from technomancer
+		dir = get_dir(T, APC.loc) // overlays can't have different dirs than their atoms, but the multitool only has one dir sprite, so this works
+		switch(get_dist(T, APC.loc))
+			if(-1 to 0)
+				apc_indicator.icon_state = "direct"
+			if(1 to 8)
+				apc_indicator.icon_state = "close"
+			if(9 to 16)
+				apc_indicator.icon_state = "medium"
+			if(16 to INFINITY)
+				apc_indicator.icon_state = "far"
+	set_overlays(apc_indicator)
 
 /obj/item/device/multitool/proc/wire(datum/integrated_io/io, mob/user)
 	if(!io.holder.assembly)
@@ -131,6 +194,7 @@
 		to_chat(user, "<span class='notice'>You link \the multitool to \the [selected_io.holder]'s [selected_io.name] data channel.</span>")
 
 	update_icon()
+	SSvueui.check_uis_for_change(src)
 
 /obj/item/device/multitool/proc/unwire(datum/integrated_io/io1, datum/integrated_io/io2, mob/user)
 	if(!io1.linked.len || !io2.linked.len)
