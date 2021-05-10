@@ -250,3 +250,15 @@
 	icon_state = "rosette"
 	item_state = "rosette"
 	flippable = FALSE
+
+/obj/item/clothing/accessory/tajara/council_badge
+	name = "free tajaran council badge"
+	desc = "A medal badge used by the members of the Free Tajaran Council."
+	icon_state = "council_badge"
+	item_state = "council_badge"
+	overlay_state = "council_badge"
+	desc_fluff = "."
+	flippable = TRUE
+
+	drop_sound = 'sound/items/drop/ring.ogg'
+	pickup_sound = 'sound/items/pickup/ring.ogg'

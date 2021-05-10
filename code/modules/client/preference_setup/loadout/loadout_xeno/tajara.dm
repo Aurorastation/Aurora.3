@@ -196,7 +196,7 @@
 	circlet["silver dress circlet"] = /obj/item/clothing/head/tajaran/circlet/silver
 	circlet["fur hat"] = /obj/item/clothing/head/tajaran/fur
 	circlet["matake priest hat"] = /obj/item/clothing/head/tajaran/matake
-	circlet["Raakti Shariim beret"] = /obj/item/clothing/head/beret/tajaran/raakti_shariim
+	circlet["raakti shariim beret"] = /obj/item/clothing/head/beret/tajaran/raakti_shariim
 	gear_tweaks += new/datum/gear_tweak/path(circlet)
 
 /datum/gear/accessory/tajara_wrap
@@ -264,6 +264,22 @@
 	card["honorary party member card"] = /obj/item/clothing/accessory/badge/hadii_card
 	card["almariist pin"] = /obj/item/clothing/accessory/dpra_badge
 	card["royalist badge"] = /obj/item/clothing/accessory/nka_badge
+	card["free tajaran council badge"] = /obj/item/clothing/accessory/tajara/council_badge
+	gear_tweaks += new/datum/gear_tweak/path(card)
+
+/datum/gear/accessory/tajaranbooks
+	display_name = "tajaran political books"
+	path = /obj/item/book/manual/pra_manifesto
+	sort_category = "Xenowear - Tajara"
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/tajaranbooks/New()
+	..()
+	var/card = list()
+	card["honorary party member card"] = /obj/item/book/manual/pra_manifesto
+	card["in defense of al'mari's legacy"] = /obj/item/book/manual/dpra_manifesto
+	card["the new kingdom"] = /obj/item/book/manual/nka_manifesto
 	gear_tweaks += new/datum/gear_tweak/path(card)
 
 /datum/gear/tajaran_passports
