@@ -6,7 +6,7 @@
 
 /datum/gear/computer/laptop
 	display_name = "laptop computer"
-	path = /obj/item/modular_computer/laptop/preset
+	path = /obj/item/modular_computer/laptop/preset/loadout
 	cost = 3
 
 /datum/gear/computer/handheld/wristbound
