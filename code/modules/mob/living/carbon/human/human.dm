@@ -1870,25 +1870,25 @@
 	
 	var/blood_pressure_systolic = bp_list[1]
 	if (blood_pressure_systolic)
-		if (blood_pressure_systolic >= get_bp_high_systolic())
-			systolic_alert = BLOOD_PRESSURE_HIGH
-		else if (blood_pressure_systolic >= get_pre_high_systolic() && blood_pressure_systolic <= get_bp_high_systolic())
-			systolic_alert = BLOOD_PRESSURE_PRE_HIGH
-		else if (blood_pressure_systolic >= get_ideal_systolic() && blood_pressure_systolic <= get_pre_high_systolic())
+		if (blood_pressure_systolic >= get_ideal_systolic() && blood_pressure_systolic <= get_pre_high_systolic())
 			systolic_alert = BLOOD_PRESSURE_IDEAL
 		else if (blood_pressure_systolic <= get_ideal_systolic())
 			systolic_alert = BLOOD_PRESSURE_LOW
+		else if (blood_pressure_systolic >= get_pre_high_systolic() && blood_pressure_systolic <= get_bp_high_systolic())
+			systolic_alert = BLOOD_PRESSURE_PRE_HIGH
+		else if (blood_pressure_systolic >= get_bp_high_systolic())
+			systolic_alert = BLOOD_PRESSURE_HIGH
 
 	var/blood_pressure_disatolic = bp_list[2]
 	if (blood_pressure_disatolic)
-		if (blood_pressure_disatolic >= get_bp_high_disatolic())
-			diastolic_alert = BLOOD_PRESSURE_HIGH
-		else if (blood_pressure_disatolic >= get_pre_high_disatolic() && blood_pressure_disatolic <= get_bp_high_disatolic())
-			diastolic_alert = BLOOD_PRESSURE_PRE_HIGH
-		else if(blood_pressure_disatolic >= get_ideal_disatolic() && blood_pressure_disatolic <=  get_pre_high_disatolic())
+		if(blood_pressure_disatolic >= get_ideal_disatolic() && blood_pressure_disatolic <=  get_pre_high_disatolic())
 			diastolic_alert = BLOOD_PRESSURE_IDEAL
 		else if (blood_pressure_disatolic >=  get_ideal_disatolic())
 			diastolic_alert = BLOOD_PRESSURE_LOW
+		else if (blood_pressure_disatolic >= get_pre_high_disatolic() && blood_pressure_disatolic <= get_bp_high_disatolic())
+			diastolic_alert = BLOOD_PRESSURE_PRE_HIGH
+		else if (blood_pressure_disatolic >= get_bp_high_disatolic())
+			diastolic_alert = BLOOD_PRESSURE_HIGH
 
 	if(systolic_alert == BLOOD_PRESSURE_HIGH || diastolic_alert == BLOOD_PRESSURE_HIGH)
 		return BLOOD_PRESSURE_HIGH

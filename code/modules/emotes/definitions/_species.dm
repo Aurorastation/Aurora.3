@@ -1,15 +1,5 @@
 /datum/species
 	var/list/default_emotes = list()
-	// Pulse modifiers
-	var/low_pulse = 40
-	var/norm_pulse = 60
-	var/fast_pulse = 90
-	var/v_fast_pulse = 120
-	var/max_pulse = 160
-
-	// Blood pressure modifiers
-	var/bp_base_systolic = 120
-	var/bp_base_disatolic = 80
 
 /mob/living/carbon/update_emotes()
 	. = ..(skip_sort=1)
