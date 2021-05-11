@@ -12,18 +12,45 @@
 
 	req_one_access = list(access_bar, access_kitchen)
 
+	var/rave_mode = FALSE
 	var/menu_text = ""
 	var/border_on = FALSE
+
+	var/image/holo_lights
+	var/image/holo_text
+	var/image/holo_border
+
+/obj/item/holomenu/Initialize()
+	. = ..()
+	holo_lights = image(icon, null, "holomenu-lights")
+	holo_text = image(icon, null, "holomenu-text")
+	holo_border = image(icon, null, "holomenu-border")
+
+/obj/item/holomenu/Destroy()
+	STOP_PROCESSING(SSfast_process, src)
+	return ..()
+
+/obj/item/holomenu/process()
+	update_icon()
 
 /obj/item/holomenu/update_icon()
 	cut_overlays()
 	if(anchored)
 		set_light(2)
-		add_overlay("holomenu-lights")
+		if(rave_mode)
+			var/color_rotate = color_rotation(rand(-80, 80))
+			holo_lights.color = color_rotate
+			holo_text.color = color_rotate
+			holo_border.color = color_rotate
+		else
+			holo_lights.color = null
+			holo_text.color = null
+			holo_border.color = null
+		add_overlay(holo_lights)
 		if(length(menu_text))
-			add_overlay("holomenu-text")
+			add_overlay(holo_text)
 		if(border_on)
-			add_overlay("holomenu-border")
+			add_overlay(holo_border)
 	else
 		set_light(0)
 
@@ -68,6 +95,23 @@
 			border_on = !border_on
 			to_chat(user, SPAN_NOTICE("You toggle \the [src]'s border to be [border_on ? "on" : "off"]."))
 			update_icon()
+		else
+			to_chat(user, SPAN_WARNING("Access denied."))
+		return
+	return ..()
+
+/obj/item/holomenu/CtrlClick(mob/user)
+	if(Adjacent(user))
+		if(allowed(user))
+			rave_mode = !rave_mode
+			to_chat(user, SPAN_NOTICE("You toggle \the [src]'s rave mode [rave_mode ? "on" : "off"]."))
+			update_icon()
+			if(rave_mode)
+				START_PROCESSING(SSfast_process, src)
+				light_color = LIGHT_COLOR_HALOGEN // a more generic lighting
+			else
+				STOP_PROCESSING(SSfast_process, src)
+				light_color = initial(light_color)
 		else
 			to_chat(user, SPAN_WARNING("Access denied."))
 		return
