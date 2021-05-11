@@ -371,7 +371,6 @@
 	TCFLcard["veteran"] = /obj/item/clothing/accessory/badge/tcfl_papers/service/veteran
 	gear_tweaks += new/datum/gear_tweak/path(TCFLcard)
 
-
 /datum/gear/accessory/kneepads
 	display_name = "kneepads"
 	path = /obj/item/clothing/accessory/kneepads
