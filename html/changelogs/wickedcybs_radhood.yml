@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - bugfix: "Left facing sprite of the radhood was misaligned, it's been corrected by being shifted one pixel to the left."
