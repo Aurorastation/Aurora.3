@@ -59,6 +59,11 @@
 #define PULSE_MAX_BPM 250 // Highest, readable BPM by machines and humans.
 
 // Blood pressure levels, simplified
+#define HIGH_BP_MOD 20
+#define PRE_HIGH_BP_MOD 5
+#define BP_SYS_IDEAL_MOD 40
+#define BP_DIS_IDEAL_MOD 20
+
 #define BLOOD_PRESSURE_HIGH     4
 #define BLOOD_PRESSURE_PRE_HIGH 3
 #define BLOOD_PRESSURE_IDEAL    2

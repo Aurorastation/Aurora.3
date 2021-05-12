@@ -1812,13 +1812,13 @@
 		if(PULSE_NONE)
 			return 0
 		if(PULSE_SLOW)
-			return rand(get_low_pulse(), get_norm_pulse())
+			return rand(species.low_pulse, species.norm_pulse)
 		if(PULSE_NORM)
-			return rand(get_norm_pulse(), get_fast_pulse())
+			return rand(species.norm_pulse, species.fast_pulse)
 		if(PULSE_FAST)
-			return rand(get_fast_pulse(), get_v_fast_pulse())
+			return rand(species.fast_pulse, species.v_fast_pulse)
 		if(PULSE_2FAST)
-			return rand(get_v_fast_pulse(), get_max_pulse())
+			return rand(species.v_fast_pulse, species.max_pulse)
 		if(PULSE_THREADY)
 			return PULSE_MAX_BPM
 	return 0
@@ -1852,9 +1852,9 @@
 //Get fluffy numbers
 /mob/living/carbon/human/proc/blood_pressure()
 	if(status_flags & FAKEDEATH)
-		return list(Floor(get_base_systolic()+rand(-5,5))*0.25, Floor(get_base_disatolic()+rand(-5,5)*0.25))
+		return list(Floor(species.bp_base_systolic+rand(-5,5))*0.25, Floor(species.bp_base_disatolic+rand(-5,5)*0.25))
 	var/blood_result = get_blood_circulation()
-	return list(Floor((get_base_systolic()+rand(-5,5))*(blood_result/100)), Floor((get_base_disatolic()+rand(-5,5))*(blood_result/100)))
+	return list(Floor((species.bp_base_systolic+rand(-5,5))*(blood_result/100)), Floor((species.bp_base_disatolic+rand(-5,5))*(blood_result/100)))
 
 //Formats blood pressure for text display
 /mob/living/carbon/human/proc/get_blood_pressure()
@@ -1870,24 +1870,24 @@
 	
 	var/blood_pressure_systolic = bp_list[1]
 	if (blood_pressure_systolic)
-		if (blood_pressure_systolic >= get_ideal_systolic() && blood_pressure_systolic <= get_pre_high_systolic())
+		if (blood_pressure_systolic >= (species.bp_base_systolic - BP_SYS_IDEAL_MOD) && blood_pressure_systolic <= (species.bp_base_systolic + HIGH_BP_MOD))
 			systolic_alert = BLOOD_PRESSURE_IDEAL
-		else if (blood_pressure_systolic <= get_ideal_systolic())
+		else if (blood_pressure_systolic <= (species.bp_base_systolic - BP_SYS_IDEAL_MOD))
 			systolic_alert = BLOOD_PRESSURE_LOW
-		else if (blood_pressure_systolic >= get_pre_high_systolic() && blood_pressure_systolic <= get_bp_high_systolic())
+		else if (blood_pressure_systolic >= (species.bp_base_systolic + PRE_HIGH_BP_MOD) && blood_pressure_systolic <= (species.bp_base_systolic + HIGH_BP_MOD))
 			systolic_alert = BLOOD_PRESSURE_PRE_HIGH
-		else if (blood_pressure_systolic >= get_bp_high_systolic())
+		else if (blood_pressure_systolic >= (species.bp_base_systolic + HIGH_BP_MOD))
 			systolic_alert = BLOOD_PRESSURE_HIGH
 
 	var/blood_pressure_disatolic = bp_list[2]
 	if (blood_pressure_disatolic)
-		if(blood_pressure_disatolic >= get_ideal_disatolic() && blood_pressure_disatolic <=  get_pre_high_disatolic())
+		if(blood_pressure_disatolic >= (species.bp_base_disatolic - BP_DIS_IDEAL_MOD) && blood_pressure_disatolic <=  (species.bp_base_disatolic + HIGH_BP_MOD))
 			diastolic_alert = BLOOD_PRESSURE_IDEAL
-		else if (blood_pressure_disatolic >=  get_ideal_disatolic())
+		else if (blood_pressure_disatolic >=  (species.bp_base_disatolic - BP_DIS_IDEAL_MOD))
 			diastolic_alert = BLOOD_PRESSURE_LOW
-		else if (blood_pressure_disatolic >= get_pre_high_disatolic() && blood_pressure_disatolic <= get_bp_high_disatolic())
+		else if (blood_pressure_disatolic >= (species.bp_base_disatolic + PRE_HIGH_BP_MOD) && blood_pressure_disatolic <= (species.bp_base_disatolic + PRE_HIGH_BP_MOD))
 			diastolic_alert = BLOOD_PRESSURE_PRE_HIGH
-		else if (blood_pressure_disatolic >= get_bp_high_disatolic())
+		else if (blood_pressure_disatolic >= (species.bp_base_disatolic + HIGH_BP_MOD))
 			diastolic_alert = BLOOD_PRESSURE_HIGH
 
 	if(systolic_alert == BLOOD_PRESSURE_HIGH || diastolic_alert == BLOOD_PRESSURE_HIGH)
@@ -2065,42 +2065,3 @@
 		var/obj/item/organ/internal/eyes/night/N = E
 		if(N.night_vision )
 			N.disable_night_vision()
-
-/mob/living/carbon/human/get_base_systolic()
-	return species.bp_base_systolic
-
-/mob/living/carbon/human/get_bp_high_systolic()
-	return species.bp_base_systolic + 20
-
-/mob/living/carbon/human/get_pre_high_systolic()
-	return species.bp_base_systolic + 5
-
-/mob/living/carbon/human/get_ideal_systolic()
-	return species.bp_base_systolic - 40
-
-/mob/living/carbon/human/get_base_disatolic()
-	return species.bp_base_disatolic
-
-/mob/living/carbon/human/get_bp_high_disatolic()
-	return species.bp_base_disatolic + 20
-
-/mob/living/carbon/human/get_pre_high_disatolic()
-	return species.bp_base_disatolic + 5
-
-/mob/living/carbon/human/get_ideal_disatolic()
-	return species.bp_base_disatolic - 20
-
-/mob/living/carbon/human/get_low_pulse()
-	return species.low_pulse
-
-/mob/living/carbon/human/get_norm_pulse()
-	return species.norm_pulse
-
-/mob/living/carbon/human/get_fast_pulse()
-	return species.fast_pulse
-
-/mob/living/carbon/human/get_v_fast_pulse()
-	return species.v_fast_pulse
-
-/mob/living/carbon/human/get_max_pulse()
-	return species.max_pulse
