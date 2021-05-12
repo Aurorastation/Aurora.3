@@ -366,8 +366,9 @@
 		if(istype(R))
 			medical = R.physical_status
 
-		msg += "<span class = 'deptradio'>Physical status:</span> <a href='?src=\ref[src];medical=1'>\[[medical]\]</a>\n"
-		msg += "<span class = 'deptradio'>Medical records:</span> <a href='?src=\ref[src];medrecord=`'>\[View\]</a> <a href='?src=\ref[src];medrecordadd=`'>\[Add comment\]</a>\n"
+		msg += "<span class = 'deptradio'>Physical Status:</span> <a href='?src=\ref[src];medical=1'>\[[medical]\]</a>\n"
+		msg += "<span class = 'deptradio'>Medical Records:</span> <a href='?src=\ref[src];medrecord=`'>\[View\]</a> <a href='?src=\ref[src];medrecordadd=`'>\[Add Comment\]</a>\n"
+		msg += "<span class = 'deptradio'>Triage Tag:</span> <a href='?src=\ref[src];triagetag=1'>\[[triage_tag]\]</a>\n"
 
 
 	if(print_flavor_text()) msg += "[print_flavor_text()]\n"

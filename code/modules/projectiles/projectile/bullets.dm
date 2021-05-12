@@ -280,7 +280,7 @@
 
 	if(isanimal(target))
 		target.visible_message("<b>[target]</b> twitches, foaming at the mouth.")
-		L.apply_damage(35, TOX) //temporary until simple_mob paralysis actually works.
+		L.apply_damage(35, TOX) //temporary until simple_animal paralysis actually works.
 	..()
 
 /* Miscellaneous */
@@ -346,6 +346,7 @@
 /obj/item/projectile/bullet/gauss/highex
 	name = "high-ex shell"
 	damage = 10
+	armor_penetration = 30
 
 /obj/item/projectile/bullet/gauss/highex/on_impact(var/atom/A)
 	explosion(A, -1, 0, 2)

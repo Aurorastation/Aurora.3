@@ -28,6 +28,8 @@
 	var/material_armor_modifer = 1 // Adjust if you want seperate types of armor made from the same material to have different protectiveness (e.g. makeshift vs real armor)
 	var/refittable = TRUE // If false doesn't let the clothing be refit in suit cyclers
 
+	var/move_trail = /obj/effect/decal/cleanable/blood/tracks/footprints
+
 
 /obj/item/clothing/Initialize(var/mapload, var/material_key)
 	. = ..(mapload)
