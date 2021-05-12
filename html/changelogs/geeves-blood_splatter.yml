@@ -1,8 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Attacking someone with a sharp or edged weapon now has a chance to splatter blood to any tile around them."
-  - tweak: "Arterial sprays can now go onto walls."
-  - tweak: "Sharp or edged weapons are now twice as likely to cover you in blood as an attacker."

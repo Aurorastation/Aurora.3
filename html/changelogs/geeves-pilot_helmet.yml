@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Flight helmets can now link to shuttle computers to give you a status readout on your main HUD, though the visor needs to be flipped down."
