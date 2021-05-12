@@ -54,11 +54,11 @@
 		outfit = /datum/outfit/admin/pod/fsf
 		possible_species = list(SPECIES_HUMAN)
 	else if(t == "scc")
-		welcome_message = "You are a stranded Stellar Corporate Conglomerate functionary!<br>A routine inspection of SCC assets in the Romanovich cloud turned into disaster when your private shuttle's reactor failed. You narrowly escaped with your life. Worst of all? You lost your paperwork."
+		welcome_message = "You are a stranded Stellar Corporate Conglomerate low-level functionary!<br>A routine inspection of SCC assets in the Romanovich cloud turned into disaster when your shuttle's reactor suddenly and mysteriously failed. You narrowly escaped with your life. Worst of all? You lost your paperwork."
 		outfit = /datum/outfit/admin/pod/scc
 		possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL)
 	else if(t == "fib")
-		welcome_message = "You are a stranded Federal Investigation Bureau Agent!<br>What was supposed to be a standard investigation turned into a nightmare when the vessel you were supposed to board opened fire! You just managed to reach an escape pod before your own ship was turned into smoldering rubble. You really need some coffee"
+		welcome_message = "You are a stranded Federal Investigation Bureau Agent!<br>What was supposed to be a standard investigation turned into a nightmare when the vessel you were supposed to board opened fire! You just managed to reach an escape pod before your own ship was turned into smoldering rubble. You really need some coffee."
 		outfit = /datum/outfit/admin/pod/fib
 		possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL)
 
@@ -319,6 +319,7 @@
 	glasses = /obj/item/clothing/glasses/sunglasses
 	l_hand =  /obj/item/storage/briefcase
 	back = /obj/item/storage/backpack/satchel
+	accessory = /obj/item/clothing/accessory/holster/hip/
 	backpack_contents = list(
 		/obj/item/device/camera = 1,
 		/obj/item/gun/energy/repeater = 1,
@@ -338,7 +339,6 @@
 	name = "RescuePod - FIB" // Doctor Pavel, I'm FIB.
 
 	uniform = /obj/item/clothing/under/rank/fib
-	suit = /obj/item/clothing/suit/storage/toggle/fib
 	shoes = /obj/item/clothing/shoes/laceup
 	gloves = /obj/item/clothing/gloves/black
 	l_pocket = /obj/item/reagent_containers/spray/pepper
@@ -348,6 +348,7 @@
 	back = /obj/item/storage/backpack/satchel
 	backpack_contents = list(
     	/obj/item/device/camera = 1,
+		/obj/item/clothing/suit/storage/toggle/fib = 1,
 		/obj/item/handcuffs = 1,
 		/obj/item/device/oxycandle = 1,
 		/obj/item/airbubble = 1,
