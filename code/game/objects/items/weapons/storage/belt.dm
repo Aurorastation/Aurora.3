@@ -104,13 +104,21 @@
 	icon_state = "utilitybelt_ce"
 	item_state = "utility_ce"
 
+	starts_with = list(
+		/obj/item/weldingtool/largetank = 1, // industrial welding tool
+		/obj/item/crowbar = 1,
+		/obj/item/wirecutters/toolbelt = 1,
+		/obj/item/stack/cable_coil/random = 1,
+		/obj/item/powerdrill = 1
+	)
+
 /obj/item/storage/belt/utility/full
 	starts_with = list(
 		/obj/item/screwdriver = 1,
 		/obj/item/wrench = 1,
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,
-		/obj/item/wirecutters = 1,
+		/obj/item/wirecutters/toolbelt = 1,
 		/obj/item/stack/cable_coil/random = 1,
 		/obj/item/powerdrill = 1
 	)
@@ -119,7 +127,7 @@
 	starts_with = list(
 		/obj/item/weldingtool/largetank = 1,
 		/obj/item/crowbar = 1,
-		/obj/item/wirecutters = 1,
+		/obj/item/wirecutters/toolbelt = 1,
 		/obj/item/stack/cable_coil/random = 1,
 		/obj/item/powerdrill = 1,
 		/obj/item/device/multitool = 1,
