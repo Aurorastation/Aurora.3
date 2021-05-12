@@ -171,6 +171,11 @@
 	turns_since_move = turns_per_move
 	..()
 
+/mob/living/simple_animal/revive(reset_to_roundstart)
+	. = ..()
+	blood_amount = initial(blood_amount)
+	bleeding = FALSE
+
 /mob/living/simple_animal/LateLogin()
 	if(src && src.client)
 		src.client.screen = null
@@ -733,7 +738,6 @@
 	if(speak_emote.len)
 		verb = pick(speak_emote)
 
-	message = sanitize(message)
 	if(emote_sounds.len)
 		var/sound_chance = TRUE
 		if(client) // we do not want people who assume direct control to spam

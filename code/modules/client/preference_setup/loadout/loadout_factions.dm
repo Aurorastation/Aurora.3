@@ -11,6 +11,11 @@
 	path = /obj/item/clothing/head/beret/security/idris
 	faction = "Idris Incorporated"
 
+/datum/gear/faction/idris_beret_alt
+	display_name = "idris beret (alt)"
+	path = /obj/item/clothing/head/beret/security/idris/alt
+	faction = "Idris Incorporated"
+
 /datum/gear/faction/idris_uniform_alt
 	display_name = "idris service skirt"
 	description = "Not for security usage."
@@ -27,6 +32,16 @@
 	display_name = "idris jacket"
 	path = /obj/item/clothing/suit/storage/toggle/idris
 	slot = slot_wear_suit
+	faction = "Idris Incorporated"
+
+/datum/gear/faction/idris_passcard
+	display_name = "idris silversun passcard"
+	path = /obj/item/clothing/accessory/badge/passcard/sol/silversun
+	faction = "Idris Incorporated"
+
+/datum/gear/faction/idris_rag
+	display_name = "idris advanced service cloth"
+	path = /obj/item/reagent_containers/glass/rag/advanced/idris
 	faction = "Idris Incorporated"
 
 /datum/gear/faction/zavodskoi_beret
@@ -147,4 +162,9 @@
 	display_name = "hephaestus beret"
 	path = /obj/item/clothing/head/beret/heph
 	slot = slot_head
+	faction = "Hephaestus Industries"
+
+/datum/gear/faction/heph_passcard
+	display_name = "hephaestus burszia passcard"
+	path = /obj/item/clothing/accessory/badge/passcard/burszia
 	faction = "Hephaestus Industries"

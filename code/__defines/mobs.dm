@@ -146,21 +146,24 @@
 #define BP_AUG_PEN          "retractable combipen"
 #define BP_AUG_LIGHTER      "retractable lighter"
 #define BP_AUG_HEALTHSCAN   "integrated health scanner"
+#define BP_AUG_GUSTATORIAL   "integrated gustatorial centre"
 #define BP_AUG_TESLA        "tesla spine"
 #define BP_AUG_EYE_SENSORS  "integrated eyes sensors"
 #define BP_AUG_HAIR         "synthetic hair extensions"
-#define BP_AUG_SUSPENSION   "calf suspension"
+#define BP_AUG_CORDS           "synthetic vocal cords"
+#define BP_AUG_COCHLEAR        "cochlear implant"
+#define BP_AUG_SUSPENSION      "calf suspension"
 #define BP_AUG_TASTE_BOOSTER   "taste booster"
-#define BP_AUG_RADIO        "integrated radio"
-#define BP_AUG_FUEL_CELL    "integrated fuel cell"
-#define BP_AUG_AIR_ANALYZER "integrated air analyzer"
-#define BP_AUG_LANGUAGE     "integrated language processor"
-#define BP_AUG_PSI         "psionic receiver"
-#define BP_AUG_CALF_OVERRIDE     "calf overdrive"
-#define BP_AUG_MEMORY         "memory inhibitor"
+#define BP_AUG_RADIO           "integrated radio"
+#define BP_AUG_FUEL_CELL       "integrated fuel cell"
+#define BP_AUG_AIR_ANALYZER    "integrated air analyzer"
+#define BP_AUG_LANGUAGE        "integrated language processor"
+#define BP_AUG_PSI             "psionic receiver"
+#define BP_AUG_CALF_OVERRIDE   "calf overdrive"
+#define BP_AUG_MEMORY          "memory inhibitor"
 #define BP_AUG_EMOTION         "emotional manipulator"
-#define BP_AUG_ENCHANED_VISION   "vision enhanced retinas"
-#define BP_AUG_SIGHTLIGHTS   "ocular installed sightlights"
+#define BP_AUG_ENCHANED_VISION "vision enhanced retinas"
+#define BP_AUG_SIGHTLIGHTS     "ocular installed sightlights"
 
 //Organ defines
 #define PROCESS_ACCURACY 10
@@ -381,15 +384,18 @@
 #define BRAIN_DAMAGE_MILD 10
 #define BRAIN_DAMAGE_SEVERE 40
 
-#define BRAIN_TRAUMA_MILD /datum/brain_trauma/mild
-#define BRAIN_TRAUMA_SEVERE /datum/brain_trauma/severe
-#define BRAIN_TRAUMA_SPECIAL /datum/brain_trauma/special
-
 #define CURE_CRYSTAL "crystal"
 #define CURE_SOLITUDE "solitude"
 #define CURE_HYPNOSIS "hypnosis"
 #define CURE_SURGERY "surgery"
 #define CURE_ADMIN "all"
+
+// triage tags
+#define TRIAGE_NONE "None"
+#define TRIAGE_GREEN "Green"
+#define TRIAGE_YELLOW "Yellow"
+#define TRIAGE_RED "Red"
+#define TRIAGE_BLACK "Black"
 
 // Surgery Stuff
 #define SURGERY_SUCCESS 2 // Proceed with surgery

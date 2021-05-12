@@ -1,6 +1,4 @@
 /mob/abstract/observer/say(var/message)
-	message = sanitize(message)
-
 	if (!message)
 		return
 

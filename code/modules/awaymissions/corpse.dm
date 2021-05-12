@@ -172,18 +172,6 @@
 	species = SPECIES_SKELETON
 	corpseid = 0
 
-/obj/effect/landmark/corpse/clown
-	name = "Clown"
-	corpseuniform = /obj/item/clothing/under/rank/clown
-	corpseshoes = /obj/item/clothing/shoes/clown_shoes
-	corpseradio = /obj/item/device/radio/headset
-	corpsemask = /obj/item/clothing/mask/gas/clown_hat
-	corpsepocket1 = /obj/item/bikehorn
-	corpseback = /obj/item/storage/backpack/clown
-	corpseid = 1
-	corpseidjob = "Clown"
-	corpseidaccess = "Clown"
-
 /obj/effect/landmark/corpse/scientist
 	name = "Scientist"
 	corpseradio = /obj/item/device/radio/headset/headset_sci

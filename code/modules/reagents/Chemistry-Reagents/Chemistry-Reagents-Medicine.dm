@@ -433,13 +433,13 @@
 
 /decl/reagent/alkysine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(check_min_dose(M, 2)) //Increased effectiveness & no side-effects if given via IV drip with low transfer rate.
+		if(prob(M.chem_doses[type]))
+			to_chat(M, SPAN_WARNING(pick("Everything is spinning!", "The room won't stop moving...", "You lose track of your thoughts.")))
 		M.dizziness = max(125, M.dizziness)
 		M.make_dizzy(5)
-		if(!(REAGENT_VOLUME(holder, type) > 10))
-			var/obj/item/organ/internal/brain/B = M.internal_organs_by_name[BP_BRAIN]
-			if(B && M.species && M.species.has_organ[BP_BRAIN] && !isipc(M))
-				if(prob(M.chem_doses[type]/5) && !B.has_trauma_type(BRAIN_TRAUMA_MILD))
-					B.gain_trauma_type(pick(/datum/brain_trauma/mild/dumbness, /datum/brain_trauma/mild/muscle_weakness, /datum/brain_trauma/mild/colorblind)) //Handpicked suggested traumas considered less disruptive and conducive to roleplay.
+		if(!(REAGENT_VOLUME(holder, type) > 10)) //Prevents doubling up with overdose
+			M.confused = max(M.confused, 10)
+			M.slurring = max(M.slurring, 50)
 
 /decl/reagent/alkysine/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
@@ -452,13 +452,11 @@
 			M.add_chemical_effect(CE_PAINKILLER, 10)
 
 /decl/reagent/alkysine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.hallucination = max(M.hallucination, 15)
-	var/obj/item/organ/internal/brain/B = M.internal_organs_by_name[BP_BRAIN]
-	if(B && M.species && M.species.has_organ[BP_BRAIN] && !isipc(M))
-		if(prob(M.chem_doses[type] / 2) && !B.has_trauma_type(BRAIN_TRAUMA_SEVERE) && !B.has_trauma_type(BRAIN_TRAUMA_MILD) && !B.has_trauma_type(BRAIN_TRAUMA_SPECIAL))
-			B.gain_trauma_type(/datum/brain_trauma/severe/paralysis, /datum/brain_trauma/severe/aphasia, /datum/brain_trauma/special/imaginary_friend)
+	M.hallucination = max(M.hallucination, 50)
+	M.add_chemical_effect(CE_UNDEXTROUS)
 	if(prob(M.chem_doses[type]))
-		to_chat(M, SPAN_WARNING(pick("You have a painful headache!", "You feel a throbbing pain behind your eyes!")))
+		to_chat(M, SPAN_WARNING(pick("You lose motor control for a moment!", "Your body seizes up!")))
+		M.paralysis = max(M.paralysis, 3 SECONDS)
 	..()
 
 /decl/reagent/oculine
@@ -725,6 +723,28 @@
 	M.dizziness = max(150, M.dizziness)
 	M.make_dizzy(5)
 
+/decl/reagent/steramycin
+	name = "Steramycin"
+	description = "A preventative antibiotic that will stop small infections from growing, but only if administered early. Has no effect on internal organs, wounds, or if the infection has grown beyond its early stages."
+	reagent_state = LIQUID
+	color = "#81b38b"
+	od_minimum_dose = 1
+	overdose = 15
+	taste_description = "bleach"
+	fallback_specific_heat = 0.605
+
+/decl/reagent/steramycin/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(check_min_dose(M, 1))
+		for(var/obj/item/organ/external/E in M.organs)
+			if(E.germ_level >= INFECTION_LEVEL_ONE || !E.germ_level) //No effect if it's not infected or the infection has progressed.
+				continue
+			E.germ_level = max(E.germ_level - 4, 0)
+
+/decl/reagent/steramycin/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
+	M.dizziness = max(150, M.dizziness)
+	M.make_dizzy(5)
+	M.adjustToxLoss(1) //Antibodies start fighting your body
+
 /decl/reagent/asinodryl
 	name = "Asinodryl"
 	description = "Asinodryl is an anti-emetic medication which acts by preventing the two regions in the brain responsible for vomiting from controlling the act of emesis."
@@ -848,7 +868,7 @@
 
 /* mental */
 
-#define ANTIDEPRESSANT_MESSAGE_DELAY 1800 //3 minutes
+#define MEDICATION_MESSAGE_DELAY 10 MINUTES 
 
 /decl/reagent/mental
 	name = null //Just like alcohol
@@ -863,77 +883,32 @@
 	taste_description = "bugs"
 	ingest_mul = 1
 	var/alchohol_affected = 1
-	var/min_dose = 1
-	var/messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY
-	var/list/goodmessage = list() //Messages when all your brain traumas are cured.
-	var/list/badmessage = list() //Messages when you still have at least one brain trauma it's suppose to cure.
-	var/list/worstmessage = list() //Messages when the user is at possible risk for more trauma
-	var/list/suppress_traumas  //List of brain traumas that the medication temporarily suppresses, with the key being the brain trauma and the value being the minimum dosage required to cure. Negative values means that the trauma is temporarily gained on the value instead.
-	var/list/dosage_traumas //List of brain traumas that the medication permanently adds at these dosages, with the key being the brain trauma and the value being base percent chance to add.
-	var/list/withdrawal_traumas //List of withdrawl effects that the medication permanently adds during withdrawl, with the key being the brain trauma, and the value being the base percent chance to add.
-	var/list/suppressing_reagents = list() // List of reagents that suppress the withdrawal effects, with the key being the reagent and the vlue being the minimum dosage required to suppress.
+	var/messagedelay = MEDICATION_MESSAGE_DELAY
+	var/list/goodmessage = list() //Fluff messages
 
 	fallback_specific_heat = 1.5
 
 /decl/reagent/mental/initialize_data(newdata, datum/reagents/holder)
 	var/data = newdata
-	LAZYSET(data, "last_tick_time", 0)
+	LAZYSET(data, "last_tick_time", world.time + (messagedelay / 2)) //Small startup delay
 	return data
 
 /decl/reagent/mental/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
-	if(!istype(H) || LAZYACCESS(H.chem_doses, type) < min_dose || (world.time < holder.reagent_data[type]["last_tick_time"] && holder.reagent_volumes[type] > removed) || messagedelay == -1)
+	if(!istype(H) || world.time < holder.reagent_data[type]["last_tick_time"] || messagedelay == -1)
 		return
 
-	var/hastrauma = 0 //whether or not the brain has trauma
-	var/obj/item/organ/internal/brain/B = H.internal_organs_by_name[BP_BRAIN]
 	var/bac = H.get_blood_alcohol()
-	var/mdelay = messagedelay
-
 	if(alchohol_affected && bac > 0.03)
 		H.hallucination = max(H.hallucination, bac * 400)
 
-	if(B) //You won't feel anything if you don't have a brain.
-		for(var/datum/brain_trauma/BT in B.traumas)
-			var/goal_volume = suppress_traumas[BT]
-			if (REAGENT_VOLUME(holder, type) >= goal_volume) // If the dosage is greater than the goal, then suppress the trauma.
-				if(!BT.suppressed && !BT.permanent)
-					BT.suppressed = 1
-					BT.on_lose()
-			else if(REAGENT_VOLUME(holder, type) < goal_volume-1 && goal_volume > 0) // -1 So it doesn't spam back and forth constantly if reagents are being metabolized
-				if(BT.suppressed)
-					BT.suppressed = 0
-					BT.on_gain()
-					hastrauma = 1
-		for(var/datum/brain_trauma/BT in dosage_traumas)
-			var/percentchance = max(0,dosage_traumas[BT] - LAZYACCESS(H.chem_doses, type)*10) // If you've been taking this medication for a while then side effects are rarer.
-			if(!H.has_trauma_type(BT) && prob(percentchance))
-				B.gain_trauma(BT,FALSE)
-		if(REAGENT_VOLUME(holder, type) < LAZYACCESS(H.chem_doses, type)/4) //If you haven't been taking your regular dose, then cause issues.
-			var/suppress_withdrawl = FALSE
-			for(var/k in suppressing_reagents)
-				var/decl/reagent/v = suppressing_reagents[k]
-				if(H.reagents.has_reagent(v,k))
-					suppress_withdrawl = TRUE
-					break
-			if(!suppress_withdrawl)
-				if (H.shock_stage < 20 && worstmessage.len)
-					to_chat(H, SPAN_DANGER("[pick(worstmessage)]"))
-				mdelay /= 4
-				for(var/k in withdrawal_traumas)
-					var/datum/brain_trauma/BT = k
-					var/percentchance = max(withdrawal_traumas[k] * (LAZYACCESS(H.chem_doses, type)/20)) //The higher the dosage, the more likely it is do get withdrawal traumas.
-					if(!H.has_trauma_type(BT) && prob(percentchance))
-						B.gain_trauma(BT,FALSE)
-		else if(hastrauma || REAGENT_VOLUME(holder, type) < LAZYACCESS(H.chem_doses, type)/2) //If your current dose is not high enough, then alert the player.
-			if (H.shock_stage < 10 && badmessage.len)
-				to_chat(H, SPAN_WARNING("[pick(badmessage)]"))
-			mdelay /= 2
-		else
-			if (H.shock_stage < 5 && goodmessage.len)
-				to_chat(H, SPAN_GOOD("[pick(goodmessage)]"))
+	if(H.chem_doses[type] < overdose && H.shock_stage < 5) //Don't want feel-good messages when we're suffering an OD or particularly hurt/injured
+		to_chat(H, SPAN_GOOD("[pick(goodmessage)]"))
 
 	LAZYINITLIST(holder.reagent_data)
-	LAZYSET(holder.reagent_data[type], "last_tick_time", world.time + (mdelay SECONDS))
+	LAZYSET(holder.reagent_data[type], "last_tick_time", world.time + (messagedelay))
+
+/decl/reagent/mental/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
+	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type] / 6)
 
 /decl/reagent/mental/nicotine
 	name = "Nicotine"
@@ -944,16 +919,8 @@
 	overdose = 15
 	od_minimum_dose = 3
 	taste_description = "bitterness"
+	messagedelay = MEDICATION_MESSAGE_DELAY * 0.75
 	goodmessage = list("You feel good.","You feel relaxed.","You feel alert and focused.")
-	badmessage = list("You start to crave nicotine...")
-	worstmessage = list("You need your nicotine fix!")
-	suppress_traumas  = list(
-		/datum/brain_trauma/mild/phobia = 0.1,
-		/datum/brain_trauma/mild/muscle_weakness/ = 0.05
-	)
-	suppressing_reagents = list(/decl/reagent/mental/nicotine) //The way to suppress nicotine withdrawal... is nicotine.
-	conflicting_reagent = null
-	min_dose = 0.0064 * REM
 
 /decl/reagent/mental/nicotine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
@@ -974,27 +941,10 @@
 	od_minimum_dose = 0.2
 	taste_description = "paper"
 	goodmessage = list("You feel focused.","You feel like you have no distractions.","You feel willing to work.")
-	badmessage = list("You feel a little distracted...","You feel slight agitation...","You feel a dislike towards work...")
-	worstmessage = list("You feel completely distracted...","You feel like you don't want to work...","You think you see things...")
-	suppress_traumas  = list(
-		/datum/brain_trauma/special/imaginary_friend = 20,
-		/datum/brain_trauma/mild/hallucinations = 10,
-		/datum/brain_trauma/mild/phobia/ = 10
-	)
-	dosage_traumas = list(
-		/datum/brain_trauma/mild/hallucinations = 5
-	)
-	withdrawal_traumas = list(
-		/datum/brain_trauma/mild/phobia/ = 5,
-		/datum/brain_trauma/mild/hallucinations = 2
-	)
 
 /decl/reagent/mental/corophenidate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_HALLUCINATE, -1)
 	..()
-
-/decl/reagent/mental/corophendiate/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
-	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type] / 6)
 
 /decl/reagent/mental/neurostabin
 	name = "Neurostabin"
@@ -1005,24 +955,6 @@
 	od_minimum_dose = 0.2
 	taste_description = "bitterness"
 	goodmessage = list("You do not feel the need to worry about simple things.","You feel calm and level-headed.","You feel fine.")
-	badmessage = list("You feel a little blue.","You feel slight agitation...","You feel a little nervous...")
-	worstmessage = list("You worry about the littlest thing...","You feel like you are at risk...","You think you see things...")
-	suppress_traumas  = list(
-		/datum/brain_trauma/mild/phobia/ = 2,
-		/datum/brain_trauma/severe/split_personality = 10,
-		/datum/brain_trauma/special/imaginary_friend = 20,
-		/datum/brain_trauma/mild/muscle_weakness = 10
-	)
-	dosage_traumas = list(
-		/datum/brain_trauma/mild/hallucinations = 5
-	)
-	withdrawal_traumas = list(
-		/datum/brain_trauma/mild/phobia/ = 5,
-		/datum/brain_trauma/mild/hallucinations = 2
-	)
-
-/decl/reagent/mental/neurostabin/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
-	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type] / 6)
 
 /decl/reagent/mental/parvosil
 	name = "Parvosil"
@@ -1032,23 +964,7 @@
 	metabolism = 0.02 * REM
 	od_minimum_dose = 0.4
 	taste_description = "paper"
-	goodmessage = list("You feel fine.","You feel rational.","You feel decent.")
-	badmessage = list("You feel a little blue.","You feel slight agitation...","You feel a little nervous...")
-	worstmessage = list("You worry about the littlest thing...","You feel like you are at risk...","You think you see things...")
-	suppress_traumas  = list(
-		/datum/brain_trauma/mild/phobia/ = 2
-	)
-	dosage_traumas = list(
-		/datum/brain_trauma/mild/hallucinations = 5
-	)
-	withdrawal_traumas = list(
-		/datum/brain_trauma/mild/phobia/ = 10,
-		/datum/brain_trauma/mild/hallucinations = 5
-	)
-	suppressing_reagents = list(/decl/reagent/mental/neurostabin = 5)
-
-/decl/reagent/mental/parvosil/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
-	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type] / 6)
+	goodmessage = list("You feel fine.","You feel rational.","You feel secure.")
 
 /decl/reagent/mental/minaphobin
 	name = "Minaphobin"
@@ -1058,27 +974,7 @@
 	metabolism = 0.01 * REM
 	od_minimum_dose = 0.2
 	taste_description = "duct tape"
-	goodmessage = list("You feel relaxed.","You feel at ease.","You feel care free.")
-	badmessage = list("You feel worried.","You feel slight agitation.","You feel nervous.")
-	worstmessage = list("You worry about the littlest thing...","You feel like you are at risk...","You think you see things...")
-	suppress_traumas  = list(
-		/datum/brain_trauma/mild/phobia/ = 1,
-		/datum/brain_trauma/severe/monophobia = 5
-	)
-	dosage_traumas = list(
-		/datum/brain_trauma/mild/hallucinations = 5
-	)
-	withdrawal_traumas = list(
-		/datum/brain_trauma/mild/phobia/ = 10,
-		/datum/brain_trauma/mild/hallucinations = 10
-	)
-	suppressing_reagents = list(
-		/decl/reagent/mental/neurostabin = 5,
-		/decl/reagent/mental/parvosil = 5
-	)
-
-/decl/reagent/mental/minaphobin/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
-	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type] / 6)
+	goodmessage = list("You feel relaxed.","You feel at ease.","You feel carefree.")
 
 /decl/reagent/mental/emoxanyl
 	name = "Emoxanyl"
@@ -1088,66 +984,23 @@
 	metabolism = 0.01 * REM
 	od_minimum_dose = 0.2
 	taste_description = "scotch tape"
-	goodmessage = list("You feel at ease.","Your mind feels healthy..")
-	badmessage = list("You worry about the littlest thing.","Your head starts to feel weird...","You think you see things.")
-	worstmessage = list("You start to overreact to sounds and movement...","Your head feels really weird.","You are really starting to see things...")
-	messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY * 0.75
-	suppress_traumas  = list(
-		/datum/brain_trauma/mild/concussion = 5,
-		/datum/brain_trauma/mild/phobia/ = 5
-	)
-	dosage_traumas = list(
-		/datum/brain_trauma/mild/hallucinations = 5
-	)
-	withdrawal_traumas = list(
-		/datum/brain_trauma/mild/phobia/ = 25,
-		/datum/brain_trauma/mild/hallucinations = 25,
-		/datum/brain_trauma/mild/concussion = 10
-	)
-	suppressing_reagents = list(
-		/decl/reagent/mental/neurapan = 5,
-		/decl/reagent/mental/minaphobin = 5,
-		/decl/reagent/mental/neurostabin = 10,
-		/decl/reagent/mental/parvosil = 10
-	)
-
-/decl/reagent/mental/emoxanyl/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
-	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type] / 6)
+	goodmessage = list("You feel at ease.","Your mind feels great.", "You feel centered.")
+	messagedelay = MEDICATION_MESSAGE_DELAY * 0.75
 
 /decl/reagent/mental/orastabin
 	name = "Orastabin"
 	description = "Orastabin is a new generation, complex psychoactive medication used in the treatment of anxiety disorders and speech impediments. It has fewer side effects than many other forms of psychoactive drugs. Withdrawal symptoms include hallucinations and heightened anxiety."
 	reagent_state = LIQUID
 	color = "#FF88FF"
-	metabolism = 0.01 * REM
+	metabolism = 0.005 * REM
 	od_minimum_dose = 0.2
 	taste_description = "glue"
-	goodmessage = list("You feel at ease.","Your mind feels healthy..","You feel unafraid to speak...")
-	badmessage = list("You worry about the littlest thing.","You think you see things.")
-	worstmessage = list("You start to overreact to sounds and movement...","You are really starting to see things...")
-	messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY * 0.75
-	suppress_traumas  = list(
-		/datum/brain_trauma/mild/phobia = 5,
-		/datum/brain_trauma/mild/stuttering = 2,
-		/datum/brain_trauma/severe/monophobia = 5
-	)
-	dosage_traumas = list(
-		/datum/brain_trauma/mild/hallucinations = 10
-	)
-	withdrawal_traumas = list(
-		/datum/brain_trauma/mild/phobia/ = 25,
-		/datum/brain_trauma/mild/hallucinations = 25
-	)
-	suppressing_reagents = list(
-		/decl/reagent/mental/emoxanyl = 5,
-		/decl/reagent/mental/neurapan = 5,
-		/decl/reagent/mental/minaphobin = 5,
-		/decl/reagent/mental/neurostabin = 10,
-		/decl/reagent/mental/parvosil = 10
-	)
+	goodmessage = list("You feel at ease.","You feel like you can speak with confidence.","You feel unafraid to speak.")
+	messagedelay = MEDICATION_MESSAGE_DELAY * 0.75
 
-/decl/reagent/mental/orastabin/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
-	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type] / 6)
+/decl/reagent/mental/orastabin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	M.add_chemical_effect(CE_NOSTUTTER, 2)
+	..()
 
 /decl/reagent/mental/neurapan
 	name = "Neurapan"
@@ -1159,38 +1012,11 @@
 	od_minimum_dose = 0.4
 	taste_description = "tranquility"
 	goodmessage = list("Your mind feels as one.","You feel incredibly comfortable.","Your body feels good.","Your thoughts are clear.", "You feel stress free.", "Nothing is bothering you anymore.")
-	badmessage = list("The tranquility fades and you start hearing voices...","You think you see things...","You remember the stress you left behind...","You want attention...")
-	worstmessage = list("You think you start seeing things...","You swear someone inside you spoke to you...","You hate feeling alone...","You feel really upset...")
-	messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY * 0.5
-	suppress_traumas  = list(
-		/datum/brain_trauma/severe/split_personality = 5,
-		/datum/brain_trauma/special/imaginary_friend = 10,
-		/datum/brain_trauma/mild/stuttering = 2,
-		/datum/brain_trauma/mild/speech_impediment = 5,
-		/datum/brain_trauma/severe/monophobia = 5,
-		/datum/brain_trauma/mild/hallucinations = 5,
-		/datum/brain_trauma/mild/muscle_spasms = 10,
-		/datum/brain_trauma/mild/tourettes = 10
-	)
-	dosage_traumas = list(
-		/datum/brain_trauma/severe/pacifism = 25
-	)
-	withdrawal_traumas = list(
-		/datum/brain_trauma/mild/hallucinations = 100,
-		/datum/brain_trauma/severe/split_personality = 10,
-		/datum/brain_trauma/special/imaginary_friend = 20,
-		/datum/brain_trauma/mild/tourettes = 50,
-		/datum/brain_trauma/severe/monophobia = 50
-	)
-	suppressing_reagents = list(
-		/decl/reagent/mental/orastabin = 20,
-		/decl/reagent/mental/emoxanyl = 20,
-		/decl/reagent/mental/neurapan = 20,
-		/decl/reagent/mental/minaphobin = 20
-	)
+	messagedelay = MEDICATION_MESSAGE_DELAY * 0.5
 
 /decl/reagent/mental/neurapan/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_HALLUCINATE, -2)
+	M.add_chemical_effect(CE_NOSTUTTER, 1)
 	..()
 
 /decl/reagent/mental/neurapan/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
@@ -1215,35 +1041,11 @@
 	od_minimum_dose = 0.4
 	taste_description = "paint"
 	goodmessage = list("Your mind feels as one.","You feel comfortable speaking.","Your body feels good.","Your thoughts are pure.","Your body feels responsive.","You can handle being alone.")
-	badmessage = list("You start hearing voices...","You think you see things...","You want a friend...")
-	worstmessage = list("You think you start seeing things...","You swear someone inside you spoke to you...")
-	messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY * 0.5
-	suppress_traumas  = list(
-		/datum/brain_trauma/severe/split_personality = 5,
-		/datum/brain_trauma/special/imaginary_friend = 10,
-		/datum/brain_trauma/mild/stuttering = 1,
-		/datum/brain_trauma/mild/speech_impediment = 2,
-		/datum/brain_trauma/severe/monophobia = 2,
-		/datum/brain_trauma/mild/muscle_spasms = 5,
-		/datum/brain_trauma/mild/tourettes = 10
-	)
-	dosage_traumas = list(
-		/datum/brain_trauma/severe/pacifism = 25
-	)
-	withdrawal_traumas = list(
-		/datum/brain_trauma/mild/hallucinations = 200,
-		/datum/brain_trauma/severe/split_personality = 50,
-		/datum/brain_trauma/special/imaginary_friend = 50
-	)
-	suppressing_reagents = list(
-		/decl/reagent/mental/orastabin = 20,
-		/decl/reagent/mental/emoxanyl = 20,
-		/decl/reagent/mental/neurapan = 20,
-		/decl/reagent/mental/minaphobin = 20
-	)
+	messagedelay = MEDICATION_MESSAGE_DELAY * 0.5
 
 /decl/reagent/mental/nerospectan/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_HALLUCINATE, -2)
+	M.add_chemical_effect(CE_NOSTUTTER, 1)
 	..()
 
 /decl/reagent/mental/nerospectan/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
@@ -1258,19 +1060,11 @@
 	od_minimum_dose = 1
 	taste_description = "something"
 	goodmessage = list("You feel like you have nothing to hide.","You feel compelled to spill your secrets.","You feel like you can trust those around you.")
-	badmessage = list()
-	worstmessage = list()
-	suppress_traumas  = list(
-		/datum/brain_trauma/mild/tourettes = 1
-	)
-	dosage_traumas = list(
-		/datum/brain_trauma/severe/pacifism = 25
-	)
 	messagedelay = 30
 	ingest_mul = 1
 
 /decl/reagent/mental/truthserum/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
-	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type] / 6)
+	M.add_chemical_effect(CE_PACIFIED, 1)
 
 /decl/reagent/mental/vaam
 	name = "V'krexi Amino Acid Mixture"
@@ -1278,16 +1072,10 @@
 	reagent_state = LIQUID
 	color = "#bcd827"
 	metabolism = 0.4 * REM
-	overdose = 20
 	taste_description = "bitterness"
 	metabolism_min = 0.5
 	breathe_mul = 0
-	goodmessage = list("You feel great.","You feel full of energy.","You feel alert and focused.")
-	badmessage = list("You can't think straight...","You're sweating heavily...","Your heart is racing...")
-	worstmessage = list("You feel incredibly lightheaded!","You feel incredibly dizzy!")
-	suppress_traumas  = list(
-		/datum/brain_trauma/mild/muscle_weakness/ = 0.01
-	)
+	goodmessage = list("You feel great!","You feel full of energy!","You feel alert and focused.")
 
 /decl/reagent/mental/vaam/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
@@ -1304,9 +1092,6 @@
 	if (prob(10))
 		to_chat(M, pick("You feel nauseous", "Ugghh....", "Your stomach churns uncomfortably", "You feel like you're about to throw up", "You feel queasy","You feel pressure in your abdomen"))
 
-	if (prob(M.chem_doses[type]))
-		M.vomit()
-
 
 /decl/reagent/mental/kokoreed
 	name = "Koko Reed Juice"
@@ -1318,11 +1103,6 @@
 	od_minimum_dose = 3
 	taste_description = "sugar"
 	goodmessage = list("You feel pleasantly warm.","You feel like you've been basking in the sun.","You feel focused and warm...")
-	badmessage = list()
-	worstmessage = list()
-	suppress_traumas  = list()
-	conflicting_reagent = null
-	min_dose = 0.0064 * REM
 
 /decl/reagent/mental/kokoreed/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
@@ -1344,13 +1124,7 @@
 	scannable = TRUE
 	taste_description = "bitterness"
 	metabolism_min = REM * 0.25
-	var/list/curable_traumas = list(
-		/datum/brain_trauma/mild/dumbness/,
-		/datum/brain_trauma/severe/blindness/,
-		/datum/brain_trauma/severe/paralysis/,
-		/datum/brain_trauma/severe/total_colorblind/,
-		/datum/brain_trauma/severe/aphasia/
-	)
+
 
 /decl/reagent/cataleptinol/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_PAINKILLER, 10)
@@ -1363,27 +1137,13 @@
 	else
 		M.add_chemical_effect(CE_BRAIN_REGEN, 20) //1 unit of Cataleptinol will raise brain activity by 5%.
 
-	if(prob(chance))
-		M.cure_trauma_type(pick(curable_traumas))
 
 /decl/reagent/cataleptinol/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.hallucination = max(M.hallucination, 15)
-	var/obj/item/organ/internal/brain/B = M.internal_organs_by_name[BP_BRAIN]
-	if(B && M.species && M.species.has_organ[BP_BRAIN] && !isipc(M))
-		if(prob(M.chem_doses[type] / 2) && !B.has_trauma_type(BRAIN_TRAUMA_SEVERE) && !B.has_trauma_type(BRAIN_TRAUMA_MILD) && !B.has_trauma_type(BRAIN_TRAUMA_SPECIAL))
-			B.gain_trauma_type(pick(/datum/brain_trauma/severe/paralysis, /datum/brain_trauma/severe/aphasia, /datum/brain_trauma/mild/dumbness, /datum/brain_trauma/mild/muscle_weakness, /datum/brain_trauma/mild/colorblind, /datum/brain_trauma/special/imaginary_friend))
 	if(prob(5))
 		to_chat(M, SPAN_WARNING(pick("You have a painful headache!", "You feel a throbbing pain behind your eyes!")))
 	..()
 
-
-//Things that are not cured/treated by medication:
-//Gerstmann Syndrome
-//Cerebral Near-Blindness
-//Mutism
-//Cerebral Blindness
-//Narcolepsy
-//Discoordination
 
 /decl/reagent/fluvectionem
 	name = "Fluvectionem"
@@ -1541,8 +1301,8 @@
 		var/mob/living/carbon/human/H = M
 		for (var/A in H.organs)
 			var/obj/item/organ/external/E = A
-			if(E.status & ORGAN_TENDON_CUT)
-				E.status &= ~ORGAN_TENDON_CUT
+			if(istype(E.tendon) && !E.tendon.intact)
+				E.tendon.heal()
 				return 1
 
 			if(E.status & ORGAN_ARTERY_CUT)

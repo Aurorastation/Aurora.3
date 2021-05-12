@@ -227,6 +227,7 @@
 			AM.forceMove(loc)
 		captured = WEAKREF(L)
 		buckle(L)
+		layer = L.layer + 0.1
 		playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
 		deployed = FALSE
 		src.shake_animation()
@@ -368,6 +369,7 @@
 	shake_animation()
 	update_icon()
 	release_time = world.time
+	layer = initial(layer)
 
 /obj/item/trap/animal/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/grab))
@@ -585,7 +587,7 @@
 			return
 
 		user.visible_message("<span class='notice'>[user] begins [anchored ? "un" : "" ]securing \the [src]!</span>",
-							  "<span class='notice'>You beign [anchored ? "un" : "" ]securing \the [src]!</span>")
+							  "<span class='notice'>You begin [anchored ? "un" : "" ]securing \the [src]!</span>")
 		playsound(src.loc, W.usesound, 50, 1)
 
 		if(do_after(user, 30/W.toolspeed, act_target = src))

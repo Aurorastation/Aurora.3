@@ -110,6 +110,7 @@
 	allow_backbag_choice = FALSE
 
 	uniform = /obj/item/clothing/under/syndicate/ninja
+	l_hand = /obj/item/hardsuit_token
 	back = null
 	belt = /obj/item/storage/belt/ninja
 	shoes = /obj/item/clothing/shoes/swat/ert
@@ -137,10 +138,6 @@
 	. = ..()
 	if(visualsOnly)
 		return
-
-	var/obj/item/rig/light/ninja/rig = new /obj/item/rig/light/ninja(src)
-	rig.dnaLock = H.dna
-	H.equip_to_slot_or_del(rig, slot_l_hand)
 
 	H.equip_to_slot_or_del(new /obj/item/device/special_uplink/ninja(H, H.mind), slot_l_store)
 
@@ -656,3 +653,61 @@
 	allow_backbag_choice = FALSE
 
 	l_ear = /obj/item/device/radio/headset/bluespace
+
+/datum/outfit/admin/techomancer
+	name = "Technomancer"
+	allow_backbag_choice = FALSE
+
+	head = /obj/item/clothing/head/chameleon/technomancer
+	l_ear = /obj/item/device/radio/headset/bluespace
+	uniform = /obj/item/clothing/under/chameleon/technomancer
+	suit = /obj/item/clothing/suit/chameleon/technomancer
+	belt = /obj/item/device/flashlight
+	back = /obj/item/technomancer_core
+	shoes = /obj/item/clothing/shoes/chameleon/technomancer
+
+	r_pocket = /obj/item/disposable_teleporter/free
+	l_pocket = /obj/item/technomancer_catalog
+
+	id = /obj/item/card/id/bluespace
+	var/id_assignment = "Technomagus"
+
+/datum/outfit/admin/techomancer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(visualsOnly)
+		return
+
+	var/obj/item/card/id/W = H.wear_id
+	if(W)
+		W.assignment = id_assignment
+		H.set_id_info(W)
+
+	var/obj/item/technomancer_core/TC = H.back
+	if(TC)
+		technomancer_belongings.Add(TC)
+
+	var/obj/item/technomancer_catalog/catalog = H.l_store
+	if(catalog)
+		catalog.bind_to_owner(H)
+
+/datum/outfit/admin/techomancer/apprentice
+	name = "Technomancer Apprentice"
+
+	head = /obj/item/clothing/head/chameleon/technomancer
+	uniform = /obj/item/clothing/under/chameleon/technomancer
+	suit = /obj/item/clothing/suit/chameleon/technomancer
+	shoes = /obj/item/clothing/shoes/chameleon/technomancer
+
+	l_pocket = /obj/item/technomancer_catalog/apprentice
+
+	id_assignment = "Techno-apprentice"
+
+/datum/outfit/admin/techomancer/apprentice/post_equip(mob/living/carbon/human/H, visualsOnly)
+	. = ..()
+	if(visualsOnly)
+		return
+	
+	to_chat(H, "<b>You are the Technomancer's apprentice! Your goal is to assist them in their mission at the [station_name()].</b>")
+	to_chat(H, "<b>Your service has not gone unrewarded, however. Studying under them, you have learned how to use a Manipulation Core \
+	of your own.  You also have a catalog, to purchase your own functions and equipment as you see fit.</b>")
+	to_chat(H, "<b>It would be wise to speak to your master, and learn what their plans are for today. Your clothing is holographic, you should change its look before leaving.</b>")

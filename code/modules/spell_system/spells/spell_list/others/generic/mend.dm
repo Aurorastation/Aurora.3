@@ -67,9 +67,9 @@
 			E.stage = 0
 			return 1
 
-		if(E.status & ORGAN_TENDON_CUT)
+		if(istype(E.tendon) && !E.tendon.intact)
 			to_chat(user, "<span class='notice'>You place your hands over [target]'s [E.name], joining the two ends of their [E.tendon_name] in the process.</span>")
-			E.status &= ~ORGAN_TENDON_CUT
+			E.tendon.heal()
 			return 1
 
 		for(var/obj/item/organ/I in E.internal_organs)

@@ -248,7 +248,7 @@ BREATH ANALYZER
 			if(!found_bleed && (e.status & ORGAN_ARTERY_CUT))
 				dat += "<span class='scan_warning'>Arterial bleeding detected. Advanced scanner required for location.</span>"
 				found_bleed = TRUE
-			if(!found_tendon && (e.status & ORGAN_TENDON_CUT))
+			if(!found_tendon && (istype(e.tendon) && !e.tendon.intact))
 				dat += "<span class='scan_warning'>Tendon or ligament damage detected. Advanced scanner required for location.</span>"
 				found_tendon = TRUE
 		if(found_disloc && found_bleed && found_tendon)
@@ -322,8 +322,10 @@ BREATH ANALYZER
 /obj/item/device/analyzer
 	name = "analyzer"
 	desc = "A hand-held environmental scanner which reports current gas levels."
-	icon_state = "atmos"
+	icon = 'icons/obj/contained_items/tools/air_analyzer.dmi'
+	icon_state = "analyzer"
 	item_state = "analyzer"
+	contained_sprite = TRUE
 	w_class = ITEMSIZE_SMALL
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
@@ -504,6 +506,7 @@ BREATH ANALYZER
 	name = "price scanner"
 	desc = "Using an up-to-date database of various costs and prices, this device estimates the market price of an item up to 0.001% accuracy."
 	icon_state = "price_scanner"
+	flags = NOBLUDGEON
 	slot_flags = SLOT_BELT
 	w_class = ITEMSIZE_SMALL
 	throwforce = 0
@@ -541,7 +544,8 @@ BREATH ANALYZER
 
 	if ( ((user.is_clumsy()) || (DUMB in user.mutations)) && prob(20))
 		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
-		eyestab(H,user)
+		if(!H.eyes_protected(src, FALSE))
+			eyestab(H,user)
 		to_chat(user,"<span class='danger'>Alert: No breathing detected.</span>")
 		return
 

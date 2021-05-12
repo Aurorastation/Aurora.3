@@ -230,12 +230,12 @@
 	if (CE_ANTIBIOTIC in owner.chem_effects)
 		antibiotics = owner.chem_effects[CE_ANTIBIOTIC]
 
-	if (germ_level > 0 && germ_level < INFECTION_LEVEL_ONE/2 && prob(30))
+	if (germ_level > 0 && germ_level < INFECTION_LEVEL_ONE/2 && prob(35))
 		germ_level--
 
 	if (germ_level >= INFECTION_LEVEL_ONE/2)
-		//aiming for germ level to go from ambient to INFECTION_LEVEL_TWO in an average of 15 minutes
-		if(antibiotics < 5 && prob(round(germ_level/6)))
+		//aiming for germ level to go from ambient to INFECTION_LEVEL_TWO in an average of 17 minutes
+		if(antibiotics < 5 && prob(round(germ_level/7)))
 			germ_level++
 
 	if (germ_level >= INFECTION_LEVEL_TWO)
@@ -287,6 +287,34 @@
 /obj/item/organ/proc/is_infected()
 	return (germ_level >= INFECTION_LEVEL_ONE)
 
+/obj/item/organ/proc/estimated_infection_level()
+	if(germ_level < INFECTION_LEVEL_ONE)
+		return "Healthy"
+	else if(germ_level >= INFECTION_LEVEL_ONE && germ_level < INFECTION_LEVEL_TWO)
+		return "Infection Level One"
+	else if(germ_level >= INFECTION_LEVEL_TWO && germ_level < INFECTION_LEVEL_THREE)
+		return "Infection Level Two"
+	else
+		return "Infection Level Three"
+
+/obj/item/organ/proc/increase_germ_level()
+	switch(estimated_infection_level())
+		if("Healthy")
+			germ_level = INFECTION_LEVEL_ONE
+		if("Infection Level One")
+			germ_level = INFECTION_LEVEL_TWO
+		if("Infection Level Two")
+			germ_level = INFECTION_LEVEL_THREE
+
+/obj/item/organ/proc/decrease_germ_level()
+	switch(estimated_infection_level())
+		if("Infection Level One")
+			germ_level = 0
+		if("Infection Level Two")
+			germ_level = INFECTION_LEVEL_ONE
+		if("Infection Level Three")
+			germ_level = INFECTION_LEVEL_TWO
+
 //Germs
 /obj/item/organ/proc/handle_antibiotics()
 	if(!owner || !(CE_ANTIBIOTIC in owner.chem_effects) || (germ_level <= 0))
@@ -298,11 +326,11 @@
 		if(antibiotics >= 5)
 			germ_level = 0 //just finish up this small infection
 		else
-			germ_level -= antibiotics * 5 //Clears very quickly, finishing up remnants of infection
+			germ_level = max(germ_level - (antibiotics * 5), 0) //Clears very quickly, finishing up remnants of infection
 	else if(germ_level <= INFECTION_LEVEL_TWO)
-		germ_level -= min(antibiotics, 6) //Still quick, infection's not too bad. At max dose and germ_level 500, should take a minute or two
+		germ_level = max(germ_level - min(antibiotics, 6), 0) //Still quick, infection's not too bad. At max dose and germ_level 500, should take a minute or two
 	else
-		germ_level -= min(antibiotics * 0.5, 3) //Big infections, very slow to stop. At max dose and germ_level 1000, should take five to six minutes
+		germ_level = max(germ_level - min(antibiotics * 0.5, 3), 0) //Big infections, very slow to stop. At max dose and germ_level 1000, should take five to six minutes
 
 //Adds autopsy data for used_weapon.
 /obj/item/organ/proc/add_autopsy_data(var/used_weapon, var/damage)

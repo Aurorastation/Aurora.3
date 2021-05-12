@@ -79,6 +79,15 @@
 	icon_state = "zhao_cape"
 	item_state = "zhao_cape"
 
+/obj/item/clothing/suit/storage/dominia/consular
+	name = "Dominian consular officer's greatcoat"
+	desc = "A Dominian greatcoat issued to members of His Majesty's Diplomatic Service, designed in the typical Dominian fashion."
+	desc_fluff = "His Majesty's Diplomatic Service - as with much of the Empire tends to be dominated by the great houses, though \
+	the Service also employs many commoners - as long as they can pass the rigorous examinations required to become a full member."
+	icon = 'icons/clothing/suits/coats/dominia_consular_coat.dmi'
+	icon_state = "dominia_consular_coat"
+	item_state = "dominia_consular_coat"
+
 /obj/item/clothing/suit/storage/toggle/dominia
 	name = "dominia great coat"
 	desc = "This is a great coat in the style of Dominia nobility. It's the latest fashion across Dominian space."
@@ -98,8 +107,12 @@
 	item_state = "dominia_noble_black"
 
 /obj/item/clothing/suit/storage/toggle/dominia/bomber
-	name = "dominia bomber jacket"
-	desc = "This is a bomber jacket of Dominian style."
+	name = "fisanduhian bomber jacket"
+	desc = "A bomber jacket based off of styles created by Fisanduhian refugees. The double-breasted design works well for insulating \
+	heat, or concealing a small pistol."
+	desc_fluff = "Fisanduhian fashion remains as rugged and steadfast as its people, as well as very distinctive from the usual Morozi fashions \
+	sourced from Moroz proper. Bomber jackets such as these were also frequently seen worn by members of the Fisanduh Freedom Front and came \
+	to be seen as an enduring symbol of their struggle for liberty."
 	icon = 'icons/clothing/suits/coats/dominia_bomber.dmi'
 	icon_state = "dominia_bomber"
 	item_state = "dominia_bomber"
@@ -121,8 +134,12 @@
 	item_state = "dominia_uniform_black"
 
 /obj/item/clothing/under/dominia/sweater
-	name = "dominia sweater"
-	desc = "This is a sweater of Dominian style."
+	name = "fisanduhian sweater"
+	desc = "This is a sweater of Fisanduhian style. Practical and utilitarian."
+	desc_fluff = "Fisanduhian fashion remains as rugged and steadfast as its people, as well as very distinctive from the usual Morozi fashions \
+	sourced from Moroz proper. Sweaters such as this were a common sight in the region of Fisanduh, being comfortable to wear and very useful \
+	in the cold mountainous environment they lived in. It tends to be seen as something rather basic and droll by Imperials when compared \
+	to their more extravagant and colorful attire, but this suits the Confederates just fine."
 	icon = 'icons/clothing/under/uniforms/dominia_sweater.dmi'
 	icon_state = "dom_sweater"
 	item_state = "dom_sweater"
@@ -284,6 +301,7 @@
 /obj/item/clothing/accessory/poncho/dominia/red/verb/roll_up_mantle()
 	set name = "Roll Up Cape Mantle"
 	set desc = "Roll up your cape's mantle. Doesn't work with some capes."
+	set category = "Object"
 	set src in usr
 
 	if(use_check_and_message(usr))
@@ -303,6 +321,35 @@
 	overlay_state = rolled ? new_state : initial_state
 	update_icon()
 	update_clothing_icon()
+
+/obj/item/clothing/accessory/poncho/dominia/consular
+	name = "tribunalist consular's cape"
+	desc = "A truly majestic gold and red cape worn by members of the clergy affiliated with His Majesty's Diplomatic Service."
+	desc_fluff = "His Majesty's Diplomatic Service - as with much of the Empire tends to be dominated by the great houses, though the Service also \
+	employs may commoners - as long as they can pass the rigorous examinations required to become a full member of the Diplomatic Service."
+	icon = 'icons/clothing/suits/capes/dominia_consular_cape.dmi'
+	icon_state = "dominia_cape_consular"
+	item_state = "dominia_cape_consular"
+	overlay_state = "dominia_cape_consular"
+	contained_sprite = TRUE
+	icon_override = null
+	var/rolled = FALSE
+
+/obj/item/clothing/under/dominia/consular
+	name = "dominian consular officer's uniform"
+	desc = "The traditional red-black-gold uniform of a member of His Majesty's Diplomatic Service."
+	desc_fluff = "His Majesty's Diplomatic Service - as with much of the Empire tends to be dominated by the great houses, though the Service also employs many \
+	commoners - as long as they can pass the rigorous examinations required to become a full member of the Diplomatic Service."
+	icon = 'icons/clothing/under/uniforms/dominia_consular.dmi'
+	icon_state = "dominia_consular"
+	item_state = "dominia_consular"
+
+/obj/item/clothing/under/dominia/consular/dress
+	name = "dominian consular officer's uniform"
+	desc = "The traditional red-black-gold uniform of a member of His Majesty's Diplomatic Service. This variant has a skirt, for the female diplomat on the go."
+	icon = 'icons/clothing/under/uniforms/dominia_consular.dmi'
+	icon_state = "dominia_consular_fem"
+	item_state = "dominia_consular_fem"
 
 /obj/item/clothing/under/dominia/initiate
 	name = "tribunal initiate's robe"
@@ -327,14 +374,42 @@
 	item_state = "dominia_priest"
 	slot_flags = SLOT_OCLOTHING | SLOT_ICLOTHING
 
+/obj/item/clothing/under/dominia/priest/consular
+	name = "tribunalist consular's uniform"
+	desc = "The traditional red-black-gold uniform of a priestly member of His Majesty's Diplomatic Service."
+	desc_fluff = "His Majesty's Diplomatic Service - as with much of the Empire tends to be dominated by the great houses, though the Service also employs many commoners \
+	- as long as they can pass the rigorous examinations required to become a full member of the Diplomatic Service."
+	icon = 'icons/clothing/under/uniforms/dominia_consular_priest.dmi'
+	icon_state = "dominia_consular_priest"
+	item_state = "dominia_consular_priest"
+	slot_flags = SLOT_OCLOTHING | SLOT_ICLOTHING
+
+/obj/item/clothing/head/dominia
+	name = "dominian consular officer's dress cap"
+	desc = "A quite fashionable cap issued to the members of His Majesty's Diplomatic Service."
+	desc_fluff = "His Majesty's Diplomatic Service - as with much of the Empire tends to be dominated by the great houses, though the Service also employs many \
+    commoners - as long as they can pass the rigorous examinations required to become a full member of the Diplomatic Service."
+	icon = 'icons/clothing/head/dominia_consular_cap.dmi'
+	icon_state = "dominia_consular_cap"
+	item_state = "dominia_consular_cap"
+	contained_sprite = TRUE
+
 /obj/item/clothing/head/beret/dominia
 	name = "tribunal initiate's beret"
 	desc = "A simple red beret with a golden badge marking its wearer as an initiate of the Moroz Holy Tribunal."
-	desc_fluff = " While initiates dress humbly in white and red clothing, this does not mean that House Caladius - the primary source of the Holy Tribunal's \
+	desc_fluff = "While initiates dress humbly in white and red clothing, this does not mean that House Caladius - the primary source of the Holy Tribunal's \
 	funding - spares any expenses funding them, and these berets are made of luxurious velvet."
 	icon = 'icons/clothing/head/dominia_beret.dmi'
 	icon_state = "dominia_beret"
 	item_state = "dominia_beret"
+
+/obj/item/clothing/head/beret/dominia/medical
+	name = "tribunalist medical beret"
+	desc = "A white-and-green beret bearing the sigil of the Moroz Holy Tribunal on its front. Worn by those medical workers affiliated with the Moroz Holy Tribunal."
+	desc_fluff = "Unlike the black and gold clothing of their priestly counterparts, the medical staff of the Moroz Holy Tribunal's temples are generally clad in white and green due to typically not being full members of the clergy. Occasionally, if a doctor is dedicated enough, they will be granted the right to wear the beret of a full Tribunal priest. This beret features an emblem of the eye made of green and white cloth."
+	icon = 'icons/clothing/head/dominia_beret_hospital.dmi'
+	icon_state = "dominia_beret_hospital"
+	item_state = "dominia_beret_hospital"
 
 /obj/item/clothing/head/beret/dominia/priest
 	name = "tribunalist's beret"
@@ -344,6 +419,15 @@
 	icon = 'icons/clothing/head/dominia_beret_priest.dmi'
 	icon_state = "dominia_beret_priest"
 	item_state = "dominia_beret_priest"
+
+/obj/item/clothing/head/beret/dominia/consular
+	name = "tribunalist’s beret"
+	desc = "A beret in gold and red worn by members of the clergy affiliated with His Majesty's Diplomatic Service."
+	desc_fluff = "His Majesty's Diplomatic Service - as with much of the Empire tends to be dominated by the great houses, though the Service also employs may commoners - \
+	as long as they can pass the rigorous examinations required to become a full member of the Diplomatic Service."
+	icon = 'icons/clothing/head/dominia_beret_consular.dmi'
+	icon_state = "dominia_beret_consular_priest"
+	item_state = "dominia_beret_consular_priest"
 
 /obj/item/clothing/accessory/dominia
 	name = "tribunal necklace"
@@ -359,6 +443,9 @@
 /obj/item/clothing/head/ushanka/dominia
 	name = "fisanduhian ushanka"
 	desc = "A warm fur hat with ear flaps that can be raised and tied to be out of the way. This one has a large Fisanduhian flag on the front."
+	desc_fluff = "Fisanduhian fashion remains as rugged and steadfast as its people, as well as very distinctive from the usual Morozi fashions \
+	sourced from Moroz proper. Ushankas such as these are still a common sight in the semi-autonomous region of Fisanduh, flag and all. Much to \
+	the ire of Moroz's Imperials."
 	icon_state = "fishushanka"
 	item_state = "fishushanka"
 
@@ -366,8 +453,8 @@
 	name = "Morozi dress"
 	desc = "Feminine commoner's fashion from the Empire of Dominia. This particular variant has sleeves."
 	desc_fluff = "Dresses such as this one are a common sight in the more developed colonies of the Empire of Dominia, and their origins can be traced back to \
-				the fashion houses of Nova Luxembourg. While both sleeved and sleeveless variants exist, the sleeved one is far more common \
-				due to the often frigid temperatures of Moroz."
+	the fashion houses of Nova Luxembourg. While both sleeved and sleeveless variants exist, the sleeved one is far more common \
+	due to the often frigid temperatures of Moroz."
 	icon = 'icons/clothing/under/uniforms/dominia_dresses.dmi'
 	icon_state = "morozi_dress"
 	item_state = "morozi_dress"
@@ -440,5 +527,3 @@
 /obj/item/clothing/under/dominia/dress/fancy/sleeveless/kazhkz
 	name = "sleeveless house kazhkz Morozi dress"
 	house = "kazhkz"
-
-

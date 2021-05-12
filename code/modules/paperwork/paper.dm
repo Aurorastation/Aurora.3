@@ -89,25 +89,33 @@
 		free_space -= length(strip_html_properly(new_text))
 
 /obj/item/paper/examine(mob/user)
-	..()
-	if (old_name && icon_state == "paper_plane")
+	. = ..()
+	if (old_name && icon_state == "paper_plane" || icon_state == "paper_swan")
 		to_chat(user, SPAN_NOTICE("You're going to have to unfold it before you can read it."))
 		return
 	if(name != initial(name))
 		to_chat(user,"It's titled '[name]'.")
-	if(in_range(user, src) || isobserver(user))
+	if(in_range(user, src) || isobserver(user) || in_slide_projector(user))
 		show_content(usr)
 	else
 		to_chat(user, SPAN_NOTICE("You have to go closer if you want to read it."))
 
 
 /obj/item/paper/proc/show_content(mob/user, forceshow)
+	var/datum/browser/paper_win = new(user, name, null, 450, 500, null, TRUE)
+	paper_win.set_content(get_content(user, can_read(user, forceshow)))
+	paper_win.add_stylesheet("paper_languages", 'html/browser/paper_languages.css')
+	paper_win.open()
+
+/obj/item/paper/proc/can_read(var/mob/user, var/forceshow = FALSE)
 	var/can_read = (istype(user, /mob/living/carbon/human) || isobserver(user) || istype(user, /mob/living/silicon)) || forceshow
 	if(!forceshow && istype(user,/mob/living/silicon/ai))
 		var/mob/living/silicon/ai/AI
 		can_read = get_dist(src, AI.camera) < 2
-	user << browse("<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY bgcolor='[color]'>[can_read ? info : stars(info)][stamps]</BODY></HTML>", "window=[name]")
-	onclose(user, "[name]")
+	return can_read
+
+/obj/item/paper/proc/get_content(var/mob/user, var/can_read = TRUE)
+	return "<head><title>[capitalize_first_letters(name)]</title><style>body {background-color: [color];}</style></head><body>[can_read ? parse_languages(user, info) : stars(info)][stamps]</body>"
 
 /obj/item/paper/verb/rename()
 	set name = "Rename paper"
@@ -153,11 +161,32 @@
 		name = "paper plane"
 		return
 
+	if (user.a_intent == I_DISARM && icon_state != "scrap" && !istype(src, /obj/item/paper/carbon))
+		if (icon_state == "paper_swan")
+			user.show_message(SPAN_ALERT("The paper is already folded into a swan."))
+			return
+		user.visible_message(SPAN_NOTICE("\The [user] carefully folds \the [src] into an origami swan."),
+			SPAN_NOTICE("You carefully fold \the [src] into a swan."), "\The [user] folds \the [src] into a swan.")
+		playsound(src, 'sound/bureaucracy/paperfold.ogg', 50, 1)
+		icon_state = "paper_swan"
+		old_name = name
+		name = "origami swan"
+		return
+
 	if (user.a_intent == I_HELP && old_name && icon_state == "paper_plane")
 		user.visible_message(SPAN_NOTICE("\The [user] unfolds \the [src]."), SPAN_NOTICE("You unfold \the [src]."), "You hear paper rustling.")
 		playsound(src, 'sound/bureaucracy/paperfold.ogg', 50, 1)
 		icon_state = initial(icon_state)
 		throw_range = initial(throw_range)
+		name = old_name
+		old_name = null
+		update_icon()
+		return
+
+	if (user.a_intent == I_HELP && old_name && icon_state == "paper_swan")
+		user.visible_message(SPAN_NOTICE("\The [user] unfolds \the [src]."), SPAN_NOTICE("You unfold \the [src]."), "You hear paper rustling.")
+		playsound(src, 'sound/bureaucracy/paperfold.ogg', 50, 1)
+		icon_state = initial(icon_state)
 		name = old_name
 		old_name = null
 		update_icon()
@@ -267,7 +296,7 @@
 	return signfont
 
 /obj/item/paper/proc/parsepencode(t, obj/item/pen/P, mob/user, iscrayon, isfountain)
-
+	t = parse_languages(user, t, TRUE)
 	t = replacetext(t, "\[sign\]", "<font face=\"[get_signfont(P, user)]\">[get_signature(P, user)]</font>")
 
 	if(iscrayon) // If it is a crayon, and he still tries to use these, make them empty!
@@ -325,17 +354,64 @@
 		else
 			flick("paper_onfire", src)
 
-		//I was going to add do_after in here, but keeping the current method allows people to burn papers they're holding, while they move. That seems fine to keep -Nanako
-		spawn(20)
-			if(get_dist(src, user) < 2 && user.get_active_hand() == P)
-				user.visible_message("<span class='[class]'>[user] burns right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>", \
-				"<span class='[class]'>You burn right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>")
-				new /obj/effect/decal/cleanable/ash(src.loc)
-				qdel(src)
+		addtimer(CALLBACK(src, .proc/burnpaper_callback, P, user, class), 20, TIMER_UNIQUE)
 
+/obj/item/paper/proc/burnpaper_callback(obj/item/P, mob/user, class = "warning")
+	if (QDELETED(user) || QDELETED(src))
+		return
+
+	if(get_dist(src, user) < 2 && user.get_active_hand() == P)
+		user.visible_message("<span class='[class]'>[user] burns right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>", \
+		"<span class='[class]'>You burn right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>")
+
+		if(user.get_inactive_hand() == src)
+			user.drop_from_inventory(src)
+
+		new /obj/effect/decal/cleanable/ash(src.loc)
+		qdel(src)
+
+	else
+		to_chat(user, "<span class='warning'>You must hold \the [P] steady to burn \the [src].</span>")
+
+/**
+ * Takes the paper's info variable, a user, and parses language markers that exist
+ * in it. It returns an HTML string which represents the languages properly.
+ *
+ * @param	user The mob we're parsing the text for.
+ *
+ * @return	An HTML string where all of the [lang][/lang] marker contents are replaced
+ * with scrambled and properly fonted content depending on what languages the user knows.
+ */
+/obj/item/paper/proc/parse_languages(mob/user, input, language_check = FALSE)
+	// Just a safety fallback.
+	if (!user)
+		return input
+
+	var/static/regex/written_lang_regex
+	if (!written_lang_regex)
+		written_lang_regex = new(@"(\[lang=([#_a-zA-Z0-9\^]{1})])(.*?)(\[\/lang])", "g")
+
+	. = input
+
+	while (written_lang_regex.Find(.))
+		var/datum/language/L = language_keys[written_lang_regex.group[2]]
+		// Unknown language.
+		if (!L || !L.written_style)
+			continue
+
+		var/content = written_lang_regex.group[3]
+		var/reader_understands = user.say_understands(null, L)
+
+		// Replace the content with <p>content here</p>
+		if(!reader_understands)
+			if(language_check)
+				. = replacetext(., written_lang_regex.match, "")
 			else
-				to_chat(user, SPAN_WARNING("You must hold \the [P] steady to burn \the [src]."))
-
+				content = L.scramble(content)
+		
+		if(!language_check)
+			// Refer to paper/proc/show_content to edit the spans here.
+			. = replacetext(., written_lang_regex.match, "<span class='[L.written_style] [reader_understands ? "understood" : "scramble"]'>[L.short && reader_understands ? "([L.short]) [content]" : content]</span>")
 
 /obj/item/paper/Topic(href, href_list)
 	..()
@@ -408,7 +484,10 @@
 
 		update_space(t)
 
-		usr << browse("<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY bgcolor='[color]'>[info_links][stamps]</BODY></HTML>", "window=[name]") // Update the window
+		var/datum/browser/paper_win = new(usr, name, null, 450, 500, null, TRUE)
+		paper_win.set_content("<head><title>[capitalize_first_letters(name)]</title><style>body {background-color: [color];}</style></head><body>[parse_languages(usr, info_links)][stamps]</body>")
+		paper_win.add_stylesheet("paper_languages", 'html/browser/paper_languages.css')
+		paper_win.open()
 
 		playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
 		update_icon()
@@ -482,7 +561,10 @@
 		if ( istype(RP) && RP.mode == 2 )
 			RP.RenamePaper(user,src)
 		else
-			user << browse("<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY bgcolor='[color]'>[info_links][stamps]</BODY></HTML>", "window=[name]")
+			var/datum/browser/paper_win = new(user, name, null, 450, 500, null, TRUE)
+			paper_win.set_content("<head><title>[capitalize_first_letters(name)]</title><style>body {background-color: [color];}</style></head><body>[info_links][stamps]</body>")
+			paper_win.add_stylesheet("paper_languages", 'html/browser/paper_languages.css')
+			paper_win.open()
 		return
 
 	else if(istype(P, /obj/item/stamp) || istype(P, /obj/item/clothing/ring/seal))

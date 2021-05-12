@@ -201,7 +201,7 @@
 		return FALSE
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	return affected && (affected.status & ORGAN_TENDON_CUT) && affected.open >= ORGAN_OPEN_RETRACTED
+	return affected && istype(affected.tendon) && !affected.tendon.intact && affected.open >= ORGAN_OPEN_RETRACTED
 
 /decl/surgery_step/fix_tendon/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -214,7 +214,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_NOTICE("[user] has reattached the [affected.tendon_name] in [target]'s [affected.name] with \the [tool]."), \
 		SPAN_NOTICE("You have reattached the [affected.tendon_name] in [target]'s [affected.name] with \the [tool]."))
-	affected.status &= ~ORGAN_TENDON_CUT
+	affected.tendon.heal()
 	affected.update_damages()
 
 /decl/surgery_step/fix_tendon/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

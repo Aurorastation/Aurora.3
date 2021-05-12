@@ -50,7 +50,7 @@
 	owner.last_special = world.time + 20
 
 /obj/item/organ/internal/eyes/night/take_damage(var/amount, var/silent = 0)
-	..()
+	. = ..()
 	disable_night_vision()
 
 /obj/item/organ/internal/eyes/night/take_internal_damage(var/amount, var/silent = 0)
@@ -61,10 +61,11 @@
 	if(!owner)
 		return
 
-	to_chat(owner, SPAN_WARNING("Your eyes burn with the intense light of the flash!"))
-	owner.Weaken(5)
-	disable_night_vision()
-	owner.last_special = world.time + 100
+	if(night_vision)
+		to_chat(owner, SPAN_WARNING("Your eyes burn with the intense light of the flash!"))
+		owner.Weaken(5)
+		disable_night_vision()
+		owner.last_special = world.time + 100
 
 /obj/item/organ/internal/eyes/night/proc/can_change_invisible()
 	if(owner.client && ((owner.client.view != world.view) || (owner.client.pixel_x != 0) || (owner.client.pixel_y != 0))) //using binoculars
@@ -81,8 +82,8 @@
 	var/show_message = TRUE
 	for(var/obj/item/protection in list(owner.head, owner.wear_mask, owner.glasses))
 		if((protection && (protection.body_parts_covered & EYES)))
-			break
 			show_message = FALSE
+			break
 	if(show_message && eye_emote)
 		owner.visible_message("<b>[owner]</b>[eye_emote]")
 

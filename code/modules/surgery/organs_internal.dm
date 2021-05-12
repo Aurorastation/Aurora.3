@@ -81,9 +81,6 @@
 			I.surgical_fix(user)
 			user.visible_message("\The [user] finishes treating damage within \the [target]'s [affected.name] with [tool_name].", \
 			"You finish treating damage within \the [target]'s [affected.name] with [tool_name].")
-			var/obj/item/organ/internal/brain/sponge = target.internal_organs_by_name[BP_BRAIN]
-			if(sponge && istype(I, sponge))
-				target.cure_all_traumas(cure_type = CURE_SURGERY)
 			if(I.status & ORGAN_DEAD)
 				to_chat(user, SPAN_DANGER("This organ is still dead! You must remove the dead tissue with a scalpel!"))
 
@@ -156,9 +153,6 @@
 				user.visible_message("<b>[user]</b> repairs [target]'s [I.name] with [tool].", \
 					SPAN_NOTICE("You repair [target]'s [I.name] with [tool].") )
 				I.damage = 0
-				var/obj/item/organ/internal/brain/sponge = target.internal_organs_by_name[BP_BRAIN]
-				if(sponge && istype(I, sponge))
-					target.cure_all_traumas()
 				if(istype(tool, /obj/item/stack/nanopaste))
 					var/obj/item/stack/nanopaste/nanopaste = tool
 					nanopaste.use(1)

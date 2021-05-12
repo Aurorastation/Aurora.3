@@ -68,7 +68,8 @@
 	name = "sandals"
 	icon_state = "sandals"
 	species_restricted = null
-	body_parts_covered = 0
+	body_parts_covered = FALSE
+	sprite_sheets = list("Tajara" = 'icons/mob/species/tajaran/shoes.dmi')
 
 /obj/item/clothing/shoes/sandal/marisa
 	desc = "A pair of magic, black shoes."
@@ -82,30 +83,14 @@
 	desc = "A pair of foam flip flops. For those not afraid to show a little ankle."
 	icon_state = "thongsandal"
 	item_state = "thongsandal"
+	sprite_sheets = list("Tajara" = 'icons/mob/species/tajaran/shoes.dmi')
 
 obj/item/clothing/shoes/sandal/clogs
 	name = "plastic clogs"
 	desc = "A pair of plastic clog shoes."
 	icon_state = "clogs"
 	item_state = "clogs"
-
-/obj/item/clothing/shoes/clown_shoes
-	desc = "The prankster's standard-issue clowning shoes. Damn they're huge!"
-	name = "clown shoes"
-	icon_state = "clown"
-	item_state = "clown_shoes"
-	slowdown = 1
-	species_restricted = null
-
-/obj/item/clothing/shoes/clown_shoes/handle_movement(var/turf/walking, var/running)
-	if(!running)
-		if(footstep >= 2)
-			footstep = 0
-			playsound(src, /decl/sound_category/clown_sound, 20, 1)
-		else
-			footstep++
-	else
-		playsound(src, /decl/sound_category/clown_sound, 50, 1) // Running is louder.
+	sprite_sheets = list("Tajara" = 'icons/mob/species/tajaran/shoes.dmi')
 
 /obj/item/clothing/shoes/cyborg
 	name = "cyborg boots"
@@ -174,6 +159,7 @@ obj/item/clothing/shoes/sandal/clogs
 	silent = 1
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	move_trail = null
 
 /obj/item/clothing/shoes/cowboy
 	name = "cowboy boots"
@@ -204,7 +190,7 @@ obj/item/clothing/shoes/sandal/clogs
 /obj/item/clothing/shoes/heels/attack(mob/living/carbon/M, mob/living/carbon/user, var/target_zone)
 	if(!istype(M) || user.a_intent == "help")
 		return ..()
-	if(target_zone != BP_EYES && target_zone != BP_HEAD)
+	if((target_zone != BP_EYES && target_zone != BP_HEAD) || M.eyes_protected(src, FALSE))
 		return ..()
 	if((user.is_clumsy()) && prob(50))
 		M = user
@@ -287,9 +273,9 @@ obj/item/clothing/shoes/sandal/clogs
 	icon_state = "carpslippers"
 	species_restricted = null
 	silent = TRUE
-
 	cold_protection = FEET
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
+	sprite_sheets = list("Tajara" = 'icons/mob/species/tajaran/shoes.dmi')
 
 /obj/item/clothing/shoes/iac
 	name = "IAC shoes"

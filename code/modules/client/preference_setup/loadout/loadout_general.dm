@@ -89,7 +89,7 @@
 			lunchboxes[initial(lunchbox.name)] = lunchbox_type
 	sortTim(lunchboxes, /proc/cmp_text_asc)
 	gear_tweaks += new/datum/gear_tweak/path(lunchboxes)
-	gear_tweaks += new/datum/gear_tweak/contents(lunchables_lunches(), lunchables_snacks(), lunchables_drinks())
+	gear_tweaks += new/datum/gear_tweak/contents(lunchables_lunches(), lunchables_snacks(), lunchables_drinks(), lunchables_utensil())
 
 /datum/gear/banner
 	display_name = "banner selection"
@@ -120,6 +120,8 @@
 	banners["banner, Zenghu Pharmaceuticals"] = /obj/item/flag/zenghu
 	banners["banner, Zavodskoi Interstellar"] = /obj/item/flag/zavodskoi
 	banners["banner, Coalition of Colonies"] = /obj/item/flag/coalition
+	banners["banner, Confederate States of Fisanduh"] = /obj/item/flag/fisanduh
+	banners["banner, Gadpathur"] = /obj/item/flag/gadpathur
 	gear_tweaks += new/datum/gear_tweak/path(banners)
 
 /datum/gear/standard
@@ -165,11 +167,18 @@
 	flags["flag, Zeng-Hu Pharmaceuticals"] = /obj/item/flag/zenghu/l
 	flags["flag, Zavodskoi Interstellar"] = /obj/item/flag/zavodskoi/l
 	flags["flag, Coalition of Colonies"] = /obj/item/flag/coalition/l
+	flags["flag, Confederate States of Fisanduh"] = /obj/item/flag/fisanduh/l
+	flags["flag, Gadpathur"] = /obj/item/flag/gadpathur/l
 	gear_tweaks += new/datum/gear_tweak/path(flags)
 
 /datum/gear/towel
 	display_name = "towel"
 	path = /obj/item/towel
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/handkerchief
+	display_name = "handkerchief"
+	path = /obj/item/reagent_containers/glass/rag/handkerchief
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/gameboard
@@ -187,6 +196,7 @@
 
 /datum/gear/plushie
 	display_name = "plushie selection"
+	description = "A selection of plush toys."
 	path = /obj/item/toy/plushie
 
 /datum/gear/plushie/New()
@@ -206,6 +216,7 @@
 	plushies["plushie, cool schlorrgo"] = /obj/item/toy/plushie/coolschlorrgo
 	plushies["plushie, slime"] = /obj/item/toy/plushie/slime
 	plushies["plushie, penny"] = /obj/item/toy/plushie/pennyplush
+	plushies["plushie, greimorian"] = /obj/item/toy/plushie/greimorian
 	gear_tweaks += new/datum/gear_tweak/path(plushies)
 
 /datum/gear/toothpaste
@@ -223,4 +234,9 @@
 /datum/gear/photo
 	display_name = "photo"
 	path =  /obj/item/photo
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/photo_album
+	display_name = "photo album"
+	path =  /obj/item/storage/photo_album
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION

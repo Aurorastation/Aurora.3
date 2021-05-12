@@ -4816,6 +4816,8 @@
 	dir = 10
 	},
 /obj/structure/table/steel,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialt,
 /obj/item/clothing/gloves/yellow,
 /obj/item/clothing/gloves/yellow,
 /obj/item/storage/belt/utility/full,
@@ -7481,16 +7483,16 @@
 	},
 /area/centcom/legion/hangar5)
 "bir" = (
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_y = 8
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_y = 8
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_y = 8
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_y = 8
 	},
 /obj/item/grenade/chem_grenade/metalfoam{
@@ -8301,8 +8303,8 @@
 	},
 /area/shuttle/administration)
 "bHu" = (
-/obj/item/storage/briefcase/inflatable,
-/obj/item/storage/briefcase/inflatable,
+/obj/item/storage/bag/inflatable,
+/obj/item/storage/bag/inflatable,
 /obj/structure/closet/l3closet,
 /obj/item/clothing/suit/bio_suit/virology,
 /obj/item/clothing/head/bio_hood/virology,
@@ -8378,8 +8380,8 @@
 	},
 /area/centcom/bar)
 "bJW" = (
-/obj/item/storage/briefcase/inflatable,
-/obj/item/storage/briefcase/inflatable,
+/obj/item/storage/bag/inflatable,
+/obj/item/storage/bag/inflatable,
 /obj/structure/closet/l3closet,
 /obj/item/clothing/suit/bio_suit/virology,
 /obj/item/clothing/head/bio_hood/virology,
@@ -9944,7 +9946,7 @@
 /obj/item/storage/firstaid/o2{
 	pixel_y = 2
 	},
-/obj/item/storage/briefcase/inflatable,
+/obj/item/storage/bag/inflatable,
 /obj/item/device/flashlight/flare/glowstick/red,
 /obj/item/device/flashlight/flare/glowstick/red,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -13649,6 +13651,30 @@
 	pixel_x = 2;
 	pixel_y = 9
 	},
+/obj/item/melee/energy/sword/knife{
+	pixel_x = 9;
+	pixel_y = -4
+	},
+/obj/item/melee/energy/sword/knife{
+	pixel_x = 9;
+	pixel_y = -4
+	},
+/obj/item/melee/energy/sword/knife{
+	pixel_x = 9;
+	pixel_y = -4
+	},
+/obj/item/melee/energy/sword/knife{
+	pixel_x = 9;
+	pixel_y = -4
+	},
+/obj/item/melee/energy/sword/knife{
+	pixel_x = 9;
+	pixel_y = -4
+	},
+/obj/item/melee/energy/sword/knife{
+	pixel_x = 9;
+	pixel_y = -4
+	},
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "fcL" = (
@@ -16277,7 +16303,7 @@
 	amount = 50;
 	pixel_x = 1
 	},
-/obj/item/storage/briefcase/inflatable,
+/obj/item/storage/bag/inflatable,
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
@@ -22422,7 +22448,7 @@
 /obj/item/storage/firstaid/o2{
 	pixel_y = 2
 	},
-/obj/item/storage/briefcase/inflatable,
+/obj/item/storage/bag/inflatable,
 /obj/item/device/flashlight/flare,
 /obj/item/device/flashlight/flare,
 /obj/machinery/light{
@@ -23910,8 +23936,8 @@
 	},
 /area/antag/wizard)
 "lzh" = (
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialt,
 /obj/item/clothing/gloves/yellow,
 /obj/item/clothing/gloves/yellow,
 /obj/item/storage/box/lights/mixed{
@@ -25312,7 +25338,7 @@
 	},
 /obj/effect/decal/fake_object{
 	density = 1;
-	icon = 'icons/obj/inflatable.dmi';
+	icon = 'icons/obj/contained_items/tools/inflatables.dmi';
 	icon_state = "wall";
 	layer = 2.3;
 	name = "inflatable wall"
@@ -28069,13 +28095,13 @@
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "nTr" = (
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_y = 2
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_y = 2
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_y = 2
 	},
 /obj/structure/table/steel,
@@ -29103,6 +29129,12 @@
 /obj/machinery/acting/changer,
 /turf/unsimulated/floor,
 /area/antag/mercenary)
+"oFg" = (
+/obj/structure/table/holotable,
+/obj/item/toy/ringbell,
+/obj/item/clothing/gloves/boxing/hologlove,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_boxingcourt)
 "oGi" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal{
 	dir = 8
@@ -32354,11 +32386,11 @@
 	pixel_y = -12
 	},
 /obj/item/reagent_containers/glass/bottle/dermaline,
-/obj/item/reagent_containers/glass/bottle/bicaridine{
+/obj/item/reagent_containers/glass/bottle/butazoline{
 	pixel_x = -3;
 	pixel_y = -8
 	},
-/obj/item/reagent_containers/glass/bottle/bicaridine{
+/obj/item/reagent_containers/glass/bottle/butazoline{
 	pixel_x = -3;
 	pixel_y = -8
 	},
@@ -32372,6 +32404,14 @@
 	},
 /obj/item/reagent_containers/glass/bottle/thetamycin{
 	pixel_x = 9
+	},
+/obj/item/reagent_containers/glass/bottle/perconol{
+	pixel_x = -7;
+	pixel_y = -4
+	},
+/obj/item/reagent_containers/glass/bottle/perconol{
+	pixel_x = -7;
+	pixel_y = -4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
@@ -37909,6 +37949,7 @@
 /obj/item/clothing/mask/surgical,
 /obj/item/clothing/mask/surgical,
 /obj/item/storage/belt/medical,
+/obj/item/storage/belt/medical/first_responder/combat,
 /obj/item/storage/belt/medical,
 /obj/structure/sink{
 	dir = 4;
@@ -41630,14 +41671,14 @@
 /area/centcom/specops)
 "wWK" = (
 /obj/structure/table/rack,
-/obj/item/storage/belt/medical{
+/obj/item/storage/belt/medical/first_responder/combat{
+	pixel_x = 5;
+	pixel_y = -5
+	},
+/obj/item/storage/belt/medical/first_responder/combat,
+/obj/item/storage/belt/medical/first_responder/combat{
 	pixel_x = -4;
 	pixel_y = 5
-	},
-/obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical{
-	pixel_x = 4;
-	pixel_y = -5
 	},
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
@@ -43636,6 +43677,9 @@
 /area/antag/burglar)
 "ygE" = (
 /obj/structure/table/rack,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow,
 /obj/item/storage/belt/utility/very_full,
 /obj/item/storage/belt/utility/very_full,
 /obj/item/storage/belt/utility/very_full,
@@ -107035,7 +107079,7 @@ adx
 adx
 aeJ
 aeO
-afj
+oFg
 afk
 afJ
 afP

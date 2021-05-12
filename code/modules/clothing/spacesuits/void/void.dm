@@ -15,6 +15,8 @@
 		rad = ARMOR_RAD_MINOR
 	)
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
+	max_pressure_protection = VOIDSUIT_MAX_PRESSURE
+	min_pressure_protection = 0
 	siemens_coefficient = 0.5
 
 	//Species-specific stuff.
