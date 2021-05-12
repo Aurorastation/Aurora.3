@@ -33,10 +33,10 @@
 	name = "emergency toolbox"
 	icon_state = "red"
 	item_state = "toolbox_red"
-	starts_with = list(\
-		/obj/item/crowbar/red = 1,\
-		/obj/item/extinguisher/mini = 1,\
-		/obj/item/device/radio = 1\
+	starts_with = list(
+		/obj/item/crowbar/red = 1,
+		/obj/item/extinguisher/mini = 1,
+		/obj/item/device/radio = 1
 	)
 
 /obj/item/storage/toolbox/emergency/fill()
@@ -45,6 +45,9 @@
 		new /obj/item/device/flashlight(src)
 	else
 		new /obj/item/device/flashlight/flare/glowstick/red(src)
+	if(prob(30))
+		new /obj/item/weldingtool/emergency(src)
+		new /obj/item/clothing/glasses/welding/emergency(src)
 
 /obj/item/storage/toolbox/mechanical
 	name = "mechanical toolbox"
