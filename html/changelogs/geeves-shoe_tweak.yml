@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a loadout option to shoes to make them spawn in your choice of under or over their uniforms."
