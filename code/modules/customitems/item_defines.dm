@@ -2187,3 +2187,18 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "kathira_legbrace"
 	item_state = "kathira_legbrace_onmob"
 	parent_organ = BP_R_LEG
+	supports_limb = TRUE
+	min_broken_damage = 15
+	var/last_drop = 0
+
+/obj/item/organ/internal/augment/fluff/kath_legbrace/process()
+	if(QDELETED(src) || !owner)
+		return
+	if(last_drop + 6 SECONDS > world.time)
+		return
+	if(is_bruised() && prob(20))
+		owner.Weaken(2)
+		last_drop = world.time
+	else if(is_broken() && prob(40))
+		owner.Weaken(3)
+		last_drop = world.time
