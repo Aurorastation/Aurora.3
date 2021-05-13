@@ -50,7 +50,7 @@
 		outfit = /datum/outfit/admin/pod/tcfl
 		possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_DIONA) // TCFL accepts everyone. G1 and G2 have been excluded because they can't wear the hardsuit, which has the suit cooler.
 	else if(t == "fsf")
-		welcome_message = "You are a stranded Petty Officer of the Free Solarian Fleets!<br>Your skip out of the FSFV Sforza was on a routine patrol when an accident or an attack forced you to abandon ship. Thankfully, you seem to be in friendly territory..."
+		welcome_message = "You are a stranded Petty Officer of the Free Solarian Fleets!<br>Your skiff out of the FSFV Sforza was on a routine patrol when an accident or an attack forced you to abandon ship. Thankfully, you seem to be in friendly territory..."
 		outfit = /datum/outfit/admin/pod/fsf
 		possible_species = list(SPECIES_HUMAN)
 	else if(t == "scc")
