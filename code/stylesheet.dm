@@ -105,6 +105,8 @@ h1.alert, h2.alert		{color: #000000;}
 .yassa					{color: #400987;}
 .delvahhi				{color: #5E2612; font-weight: bold;}
 .siiktau				{color: #A52A2A;}
+.freespeak				{color: #FF4500;}
+.tradeband				{color: #5C16C6;}
 
 .interface				{color: #330033;}
 
