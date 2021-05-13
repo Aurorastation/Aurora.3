@@ -4816,6 +4816,8 @@
 	dir = 10
 	},
 /obj/structure/table/steel,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialt,
 /obj/item/clothing/gloves/yellow,
 /obj/item/clothing/gloves/yellow,
 /obj/item/storage/belt/utility/full,
@@ -13648,6 +13650,30 @@
 /obj/item/melee/telebaton{
 	pixel_x = 2;
 	pixel_y = 9
+	},
+/obj/item/melee/energy/sword/knife{
+	pixel_x = 9;
+	pixel_y = -4
+	},
+/obj/item/melee/energy/sword/knife{
+	pixel_x = 9;
+	pixel_y = -4
+	},
+/obj/item/melee/energy/sword/knife{
+	pixel_x = 9;
+	pixel_y = -4
+	},
+/obj/item/melee/energy/sword/knife{
+	pixel_x = 9;
+	pixel_y = -4
+	},
+/obj/item/melee/energy/sword/knife{
+	pixel_x = 9;
+	pixel_y = -4
+	},
+/obj/item/melee/energy/sword/knife{
+	pixel_x = 9;
+	pixel_y = -4
 	},
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
@@ -23910,8 +23936,8 @@
 	},
 /area/antag/wizard)
 "lzh" = (
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialt,
 /obj/item/clothing/gloves/yellow,
 /obj/item/clothing/gloves/yellow,
 /obj/item/storage/box/lights/mixed{
@@ -25312,7 +25338,7 @@
 	},
 /obj/effect/decal/fake_object{
 	density = 1;
-	icon = 'icons/obj/inflatable.dmi';
+	icon = 'icons/obj/contained_items/tools/inflatables.dmi';
 	icon_state = "wall";
 	layer = 2.3;
 	name = "inflatable wall"
@@ -43651,6 +43677,9 @@
 /area/antag/burglar)
 "ygE" = (
 /obj/structure/table/rack,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow,
 /obj/item/storage/belt/utility/very_full,
 /obj/item/storage/belt/utility/very_full,
 /obj/item/storage/belt/utility/very_full,
