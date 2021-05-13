@@ -1,0 +1,6 @@
+author: Doxxmedearly
+
+delete-after: True
+
+changes:
+  - rscadd: "Vampire blood heal now gradually heals infections and disinfects wounds, at the cost of additional blood. The blood requirement is small unless the infection is large."
