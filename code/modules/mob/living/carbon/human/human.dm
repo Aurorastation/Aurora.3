@@ -1603,6 +1603,9 @@
 	var/feet_exposed = 1
 
 	for(var/obj/item/clothing/C in equipment)
+		if(C.item_flags & SHOWFLAVORTEXT)
+			continue
+
 		if(C.body_parts_covered & HEAD)
 			head_exposed = 0
 		if(C.body_parts_covered & FACE)
