@@ -1,0 +1,7 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - tweak: "Resprited the Taj balaclavas, they don't leave the face hanging out anymore. The old sprite is the new rolled up sprite for them."
+  - tweak: "The sterile mask now covers the face of Tajara properly."
