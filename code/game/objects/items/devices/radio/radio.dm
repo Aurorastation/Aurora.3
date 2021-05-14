@@ -306,7 +306,7 @@ var/global/list/default_medbay_channels = list(
 	// If we were to send to a channel we don't have, drop it.
 	return null
 
-/obj/item/device/radio/talk_into(mob/living/M, message, channel, var/verb = "says", var/datum/language/speaking = null)
+/obj/item/device/radio/talk_into(mob/living/M, message, channel, var/verb = "says", var/datum/language/speaking = null, var/ignore_restrained)
 	if(!on)
 		return 0 // the device has to be on
 	//  Fix for permacell radios, but kinda eh about actually fixing them.
@@ -323,7 +323,7 @@ var/global/list/default_medbay_channels = list(
 			return FALSE
 
 	if(istype(M))
-		if(M.restrained())
+		if(M.restrained() && !ignore_restrained)
 			to_chat(M, SPAN_WARNING("You can't speak into \the [src.name] while restrained."))
 			return FALSE
 		M.trigger_aiming(TARGET_CAN_RADIO)
@@ -537,7 +537,7 @@ var/global/list/default_medbay_channels = list(
 
 	if (broadcasting)
 		if(get_dist(src, M) <= canhear_range)
-			talk_into(M, msg,null,verb,speaking)
+			talk_into(M, msg,null,verb,speaking, ignore_restrained = TRUE)
 
 /obj/item/device/radio/proc/receive_range(freq, level)
 	// check if this radio can receive on the given frequency, and if so,
