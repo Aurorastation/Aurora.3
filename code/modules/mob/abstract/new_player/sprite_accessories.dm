@@ -482,7 +482,7 @@ Follow by example and make good judgement based on length which list to include 
 		emofringe_longbun
 		name = "Emo Fringe Long Bun"
 		icon_state = "hair_emofringe_longbun"
-		length = 2
+		length = 3
 		chatname = "hair bun"
 
 	emorightfringe_long
