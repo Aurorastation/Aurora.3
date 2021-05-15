@@ -1,0 +1,6 @@
+author: UncleJo, WickedCybs
+
+delete-after: True
+
+changes:
+  - tweak: "Tweaked how the triage tags look. They should be more visible now."
