@@ -2409,6 +2409,16 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "hair_shoulderlengthalt"
 			chatname = "styled mane"
 
+		taj_ears_tresses
+			name = "Tajara Tresses"
+			icon_state = "hair_tresses"
+			chatname = "styled mane"
+
+		taj_ears_tressesalt
+			name = "Tajara Tresses Alt"
+			icon_state = "hair_tressesalt"
+			chatname = "styled mane"
+
 //msai hair, longer ears
 	msai_ears
 		icon = 'icons/mob/human_face/msai_hair.dmi'
@@ -2565,6 +2575,16 @@ Follow by example and make good judgement based on length which list to include 
 		msai_ears_shoulderlengthalt
 			name = "M'sai Shoulderlength Alt"
 			icon_state = "msai_shoulderlengthalt"
+			chatname = "styled mane"
+
+		msai_ears_tresses
+			name = "M'sai Tresses"
+			icon_state = "msai_tresses"
+			chatname = "styled mane"
+
+		msai_ears_tressesalt
+			name = "M'sai Tresses Alt"
+			icon_state = "msai_tressesalt"
 			chatname = "styled mane"
 
 //vaurca antennae
