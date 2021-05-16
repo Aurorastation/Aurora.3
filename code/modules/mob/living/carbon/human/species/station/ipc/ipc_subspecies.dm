@@ -76,7 +76,7 @@
 	bodyfall_sound = /decl/sound_category/bodyfall_sound
 
 	allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_ELYRA, ACCENT_KONYAN, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_LUNA,
-							ACCENT_HIMEO, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_PHONG, ACCENT_SILVERSUN, ACCENT_TTS, ACCENT_EUROPA, ACCENT_EARTH)
+							ACCENT_HIMEO, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_PHONG, ACCENT_SILVERSUN_ORIGINAL, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_TTS, ACCENT_EUROPA, ACCENT_EARTH, ACCENT_PLUTO, ACCENT_ASSUNZIONE)
 
 /datum/species/machine/shell/get_species(var/reference, var/mob/living/carbon/human/H, var/records)
 	if(reference)
@@ -139,6 +139,9 @@
 	resist_mod = 10 // Good luck wrestling against this powerhouse.
 
 	slowdown = 4
+
+	allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_ELYRA, ACCENT_KONYAN, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_LUNA,
+							ACCENT_HIMEO, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_PHONG, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_TTS, ACCENT_EUROPA, ACCENT_EARTH, ACCENT_ASSUNZIONE)
 
 	blurb = "The first commercialized attempt Hephaestus Industries made at an industrial-type IPC. Designed for extra durability and increased weight loads, the first generation Industrial was considered a success, though it possessed some issues. A limited power cell and actuators designed for heavy lifting and not locomotion resulted in a slow and frequently charging machine. A special addition to the chassis makes up for these drawbacks - the ability to simply slot a suit cooling unit onto the model's back and make use of its built-in heat transferal conduits, allowing the Industrial to perform EVA without any extra peripherals such as a voidsuit."
 
@@ -329,6 +332,9 @@
 
 	examine_color = "#688359"
 
+	allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_ELYRA, ACCENT_KONYAN, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_LUNA,
+							ACCENT_HIMEO, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_PHONG, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_TTS, ACCENT_EUROPA, ACCENT_EARTH, ACCENT_ASSUNZIONE)
+
 	blurb = "An extremely durable and heavy Industrial model branded by Hephaestus Industries. It is their improved Industrial model, with thicker plating and improved power cell. Its actuators struggle to carry the immense weight, however, making the unit quite slow. This chassis would be seen in roles where it would be dangerous or inefficient to use a less durable unit, such as engineering, security, and mining. While this unit still possesses built-in cooling conduits, the increased plating and thickness of said plating proved a difficult challenge for the engineers to develop good cooling, so the unit suffers somewhat from increased heat loads. Overtaxing its hardware will quickly lead to overheating."
 
 	has_limbs = list(
@@ -344,6 +350,7 @@
 		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/ipc/industrial/hephaestus),
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/ipc/industrial/hephaestus)
 	)
+
 
 /datum/species/machine/industrial/hephaestus/get_light_color(mob/living/carbon/human/H)
 	if (istype(H))
@@ -377,6 +384,9 @@
 	passive_temp_gain = 0
 
 	examine_color = "#bc4b00"
+
+	allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_ELYRA, ACCENT_KONYAN, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_LUNA,
+							ACCENT_HIMEO, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_PHONG, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_TTS, ACCENT_EUROPA, ACCENT_EARTH, ACCENT_ASSUNZIONE)
 
 	blurb = "The Xion Manufacturing Group, being a subsidiary of Hephaestus Industries, saw the original Industrial models and wanted to develop their own chassis based off of the original design. The result is the Xion Industrial model. Sturdy and strong, this chassis is quite powerful and equally durable, with an ample power cell and improved actuators for carrying the increased weight of the body. The Xion model also retains sturdiness without covering the chassis in plating, allowing for the cooling systems to vent heat much easier than the Hephaestus-brand model. This unit can perform EVA without assistance."
 
@@ -426,6 +436,9 @@
 
 	grab_mod = 1.1 // Smooth, fast
 	resist_mod = 4 // Not super strong, but still rather strong
+
+	allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_ELYRA, ACCENT_KONYAN, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_LUNA,
+							ACCENT_HIMEO, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_PHONG, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_TTS, ACCENT_EUROPA, ACCENT_EARTH, ACCENT_ASSUNZIONE)
 
 	slowdown = -1.2
 
@@ -505,7 +518,7 @@
 
 
 	allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_ELYRA, ACCENT_KONYAN, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_LUNA,
-							ACCENT_HIMEO, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_PHONG, ACCENT_SILVERSUN, ACCENT_TTS, ACCENT_EUROPA, ACCENT_EARTH)
+							ACCENT_HIMEO, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_PHONG, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_TTS, ACCENT_EUROPA, ACCENT_EARTH, ACCENT_ASSUNZIONE)
 
 /datum/species/machine/bishop/get_light_color(mob/living/carbon/human/H)
 	if (istype(H))

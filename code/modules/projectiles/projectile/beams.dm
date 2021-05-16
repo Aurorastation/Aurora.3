@@ -28,6 +28,7 @@
 
 /obj/item/projectile/beam/pistol
 	damage = 25
+	armor_penetration = 5
 
 /obj/item/projectile/beam/pistol/scc
 	armor_penetration = 15
@@ -47,7 +48,7 @@
 
 /obj/item/projectile/beam/midlaser
 	damage = 35
-	armor_penetration = 5
+	armor_penetration = 10
 
 /obj/item/projectile/beam/heavylaser
 	name = "heavy laser"
@@ -62,8 +63,8 @@
 /obj/item/projectile/beam/xray
 	name = "xray beam"
 	icon_state = "xray"
-	damage = 30
-	armor_penetration = 30
+	damage = 15
+	armor_penetration = 35
 
 	muzzle_type = /obj/effect/projectile/muzzle/xray
 	tracer_type = /obj/effect/projectile/tracer/xray
@@ -174,7 +175,8 @@
 /obj/item/projectile/beam/gatlinglaser
 	name = "diffused laser"
 	icon_state = "heavylaser"
-	damage = 10
+	damage = 20
+	armor_penetration = 35
 	no_attack_log = 1
 
 	muzzle_type = /obj/effect/projectile/muzzle/disabler
@@ -425,7 +427,7 @@
 /obj/item/projectile/beam/tesla/on_impact(atom/target)
 	. = ..()
 	if(isliving(target))
-		tesla_zap(target, 3, 5000)
+		tesla_zap(target, 5, 5000)
 
 /obj/item/projectile/beam/tesla/master
 	damage = 15

@@ -1,6 +1,6 @@
 <template>
   <div class="item">
-    <!-- DEPRICATE PLEASE USE VUI-GROUP AND VUI-GROUP-ITEM -->
+    <!-- DEPRECATED PLEASE USE VUI-GROUP AND VUI-GROUP-ITEM -->
     <div v-if="label" class="itemLabel" :style="{ width: (1 - balance) * 100 + '%' }">{{ label }}</div>
     <div class="itemContent" :style="{ width: (label ? balance : 1) * 100 + '%' }"><slot/></div>
   </div>

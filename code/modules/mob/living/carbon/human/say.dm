@@ -109,20 +109,17 @@
    for it but just ignore it.
 */
 
-/mob/living/carbon/human/say_quote(var/message, var/datum/language/speaking = null)
+/mob/living/carbon/human/say_quote(var/message, var/datum/language/speaking = null, var/singing = FALSE)
 	var/ending = copytext(message, length(message))
 	var/pre_ending = copytext(message, length(message) - 1, length(message))
 
 	if(speaking)
-		. = speaking.get_spoken_verb(ending, pre_ending)
+		. = speaking.get_spoken_verb(ending, pre_ending, singing)
 	else
 		. = ..()
 
 /mob/living/carbon/human/handle_speech_problems(var/message, var/verb, var/message_mode)
 	message = handle_speech_muts(message,verb)
-	for(var/datum/brain_trauma/trauma in get_traumas())
-		if(!trauma.suppressed)
-			message = trauma.on_say(message)
 	if(silent || (sdisabilities & MUTE))
 		message = ""
 		speech_problem_flag = 1
@@ -215,13 +212,6 @@
 	var/list/returns = ..()
 	returns = species.handle_speech_sound(src, returns)
 	return returns
-
-/mob/living/carbon/human/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "",var/italics = 0, var/mob/speaker = null)
-	for(var/T in get_traumas())
-		var/datum/brain_trauma/trauma = T
-		if(!trauma.suppressed)
-			message = trauma.on_hear(message, verb, language, alt_name, italics, speaker)
-	return ..()
 
 /mob/living/carbon/human/proc/handle_speech_muts(var/message, var/verb)
 	if(message)

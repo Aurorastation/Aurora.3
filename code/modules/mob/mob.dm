@@ -873,10 +873,13 @@
 					stat("Failsafe Controller:", "ERROR")
 				if (Master)
 					stat(null, "- Subsystems -")
+					var/amt = 0
 					for(var/datum/controller/subsystem/SS in Master.subsystems)
 						if (!Master.initializing && SS.flags & SS_NO_DISPLAY)
 							continue
-
+						if(amt >= 70)
+							break
+						amt++
 						SS.stat_entry()
 
 		if(listed_turf && client)
@@ -1086,6 +1089,7 @@
 
 /mob/proc/get_pressure_weakness()
 	return 1
+
 /mob/living/proc/flash_strong_pain()
 	return
 
@@ -1372,6 +1376,10 @@
 		src.throw_icon.icon_state = "act_throw_on"
 
 /mob/proc/is_invisible_to(var/mob/viewer)
+	if(isAI(viewer))
+		for(var/image/I as anything in SSai_obfuscation.obfuscation_images)
+			if(I.loc == src)
+				return TRUE
 	return (!alpha || !mouse_opacity || viewer.see_invisible < invisibility)
 
 //Admin helpers

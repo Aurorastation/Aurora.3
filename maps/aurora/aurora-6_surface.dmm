@@ -5284,7 +5284,7 @@
 	},
 /obj/item/airbubble,
 /obj/item/airbubble,
-/obj/item/storage/briefcase/inflatable,
+/obj/item/storage/bag/inflatable,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/device/flashlight/flare,
 /obj/item/device/flashlight/flare,
@@ -5296,6 +5296,7 @@
 /obj/item/tank/oxygen,
 /obj/item/clothing/suit/space,
 /obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/half,
 /obj/item/clothing/head/helmet/space,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/research)

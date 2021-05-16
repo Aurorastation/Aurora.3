@@ -1191,6 +1191,7 @@ proc/is_blind(A)
 
 /mob/assign_player(var/mob/user)
 	ckey = user.ckey
+	resting = FALSE // ghosting sets resting to true
 	return src
 
 /mob/proc/get_standard_pixel_x()
@@ -1228,3 +1229,11 @@ proc/is_blind(A)
 		if(G.state >= GRAB_NECK)
 			return TRUE
 	return FALSE
+
+/mob/get_cell()
+	return FALSE
+
+/mob/proc/can_hear_radio(var/list/speaker_coverage = list())
+	var/turf/ear = get_turf(src)
+	if(ear && speaker_coverage[ear])
+		return TRUE

@@ -168,7 +168,8 @@
 		if((!D.client && !D.mind) || D.stat == DEAD)
 			qdel(D)
 
-/datum/species/diona/equip_later_gear(mob/living/carbon/human/H)
+/datum/species/diona/after_equip(mob/living/carbon/human/H, visualsOnly, datum/job/J)
+	. = ..()
 	var/obj/item/storage/box/survival/SB = locate() in H
 	if(!SB)
 		for(var/obj/item/storage/S in H)

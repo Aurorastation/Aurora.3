@@ -43,12 +43,19 @@
 	individual ships, most of which have their own unique variations upon the standard Scarab accent."
 	tag_icon = "scarabs"
 
-/datum/accent/silversun
-	name = ACCENT_SILVERSUN
-	description = "The native accent of Silversun is a sing-songy take on standard Sol Common that has, since massive investment into the planet by Idris Incorporated, come to be \
-	associated with the planet's renowned tourism industry. Many native residents of Silversun are bitter that their accent - and planet - are seen as nothing more than an enormous \
-	vacation retreat by the greater Orion Spur."
-	tag_icon = "silversun"
+/datum/accent/silversun_original
+	name = ACCENT_SILVERSUN_ORIGINAL
+	description = "The native accent of Silversun is a sing-song take on standard Sol Common that has, since massive investment into the planet by Idris Incorporated, come to be associated with the planet’s renowned tourism industry. \
+	Many native residents of Silversun are bitter that their accent - and planet - are seen as nothing more than an enormous vacation retreat by the greater Orion Spur. This accent is commonly used by Idris Incorporated shell positronic \
+	frames, much to the consternation of Silversun's Originals."
+	tag_icon = "silversun_original"
+
+/datum/accent/silversun_expatriate
+	name = ACCENT_SILVERSUN_EXPATRIATE
+	description = "The accent of Silversun's wealthy Idris Incorporated-aligned minority population is rooted in Tradeband dialects from Eridani and Luna rather than the Sol Common dialect of the Originals, making it audibly distinctive \
+	compared to the 'native' accent of the planet. This accent is most commonly associated with Idris Incorporated employees from Silversun, which tend to be overwhelmingly from the Expatriate population. Many Idris Incorporated positronics \
+	are programmed with this accent, and it is often regarded as the unofficial accent of the megacorporation."
+	tag_icon = "silversun_expatriate"
 
 /datum/accent/phong
 	name = ACCENT_PHONG
@@ -163,3 +170,16 @@
 	isolation of the planet during its period of reunification. Due to the government's tight control over Gadpathur, and push for unity in the face of the Sol Alliance, Gadpathurians have \
 	been described as sounding relatively similar no matter which area of the planet they hail from."
 	tag_icon = "gadpathur"
+
+/datum/accent/pluto
+	name = ACCENT_PLUTO
+	description = "The Plutonian accent is one of many Sol Common accents found throughout the Sol System itself, though it is almost undoubtedly the furthest one out from the Sun itself. Rooted in a combination \
+	of Central Asian and Eastern European dialects, the Plutonian accent is notable for its slow, methodical method of speech. Very few positronics can be found with this accent, due to Pluto's unusual relationship with corporations."
+	tag_icon = "pluto"
+
+/datum/accent/assunzione
+	name = ACCENT_ASSUNZIONE
+	description = "The Assunzionii accent is one of the most unusual found in the Coalition of Colonies, due to the planet's colonial roots in the Mediterranean. Heavily influenced by Romance languages the Assunzionii dialect is \
+	most notable for its elegant-sounding and evenly-paced method of speaking compared to rougher-sounding Coalition and frontier dialects. Liturgical Assunzionii is a small subset of this dialect, and is generally only spoken during \
+	Luceian services and can be distinguished by its use of archaic language."
+	tag_icon = "assunzione"

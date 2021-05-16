@@ -68,7 +68,7 @@ Follow by example and make good judgement based on length which list to include 
 	bald
 		name = "Bald"   // try to capitalize the names please~
 		icon_state = "bald" // you do not need to define _s or _l sub-states, game automatically does this for you
-		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi)
+		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi,/datum/species/diona)
 		length = 0
 		chatname = "bald head" //aim to keep these lowercase so they fit into the hair tugging message
 
@@ -178,11 +178,11 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Bedhead 3"
 		icon_state = "hair_bedhead3"
 		chatname = "wavy hair"
-
+	
 	bedhead4
 		name = "Bedhead 4"
 		icon_state = "hair_bedhead4"
-		length = 3
+		length = 4
 		chatname = "messy locks"
 
 	beehive
@@ -218,7 +218,7 @@ Follow by example and make good judgement based on length which list to include 
 	bob
 		name = "Bob"
 		icon_state = "hair_bob"
-		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi)
+		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie)
 		chatname = "short hair"
 
 	bob_chin
@@ -239,7 +239,7 @@ Follow by example and make good judgement based on length which list to include 
 	bobcurl
 		name = "Bobcurl"
 		icon_state = "hair_bobcurl"
-		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi)
+		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie)
 		chatname = "curls"
 
 	bobcurl2
@@ -374,13 +374,13 @@ Follow by example and make good judgement based on length which list to include 
 	buzzcut
 		name = "Buzzcut"
 		icon_state = "hair_buzzcut"
-		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi)
+		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie)
 		chatname = "unbuzzed hair"	//grabbing the grabbable hair
 
 	buzzcut2
 		name = "Buzzcut 2"
 		icon_state = "hair_buzzcut2"
-		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi)
+		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie)
 		chatname = "unbuzzed hair"
 
 	chrono
@@ -1197,7 +1197,7 @@ Follow by example and make good judgement based on length which list to include 
 	spiky
 		name = "Spiky"
 		icon_state = "hair_spiky"
-		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi)
+		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie)
 		chatname = "mighty spikes"
 
 	straightlong
@@ -1303,6 +1303,99 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Wheeler"
 		icon_state = "hair_wheeler"
 		chatname = "short hair"
+
+	bug_eyes
+		icon = 'icons/mob/human_face/dionae_hair.dmi'
+		name = "Bug Eyes"
+		icon_state = "bugeyes"
+		species_allowed = list(/datum/species/diona)
+		gender = NEUTER
+		do_colouration = FALSE
+
+		human_eyes
+			name = "Human Eyes"
+			icon_state = "humaneyes"
+
+		skrell_eyes
+			name = "Skrell Eyes"
+			icon_state = "skrelleyes"
+
+		skrell_eyes_2
+			name = "Skrell Eyes 2"
+			icon_state = "skrelleyes2"
+
+		cat_ears
+			name = "Cat Ears"
+			icon_state = "catears"
+
+		horny
+			name = "Horny"
+			icon_state = "horny"
+
+		headtails
+			name = "Headtails"
+			icon_state = "headtails"
+
+		headtails_2
+			name = "Headtails 2"
+			icon_state = "headtails2"
+
+		tiny_eye
+			name = "Tiny Eye"
+			icon_state = "tinyeye"
+
+		eyebrow
+			name = "Eyebrow"
+			icon_state = "eyebrow"
+
+		bullhorn
+			name = "Bullhorn"
+			icon_state = "bullhorn"
+
+		blinkinghelmethead
+			name = "Blinking Helmethead"
+			icon_state = "blinkinghelmethead"
+
+		periscope
+			name = "Periscope"
+			icon_state = "periscope"
+
+		glorp
+			name = "Glorp"
+			icon_state = "glorp"
+
+		mellow_cap
+			name = "Mellow Cap"
+			icon_state = "mellowcap"
+
+		red_cap
+			name = "Red Cap"
+			icon_state = "redcap"
+
+		fun_guy
+			name = "Fun Guy"
+			icon_state = "funguy"
+
+		spanish_moss
+			name = "Spanish Moss"
+			icon_state = "spanishmoss"
+
+		shelflife
+			name = "Shelflife"
+			icon_state = "shelflife"
+			do_colouration = TRUE
+
+		oak
+			name = "Oak"
+			icon_state = "oak"
+
+		thorns
+			name = "Thorns"
+			icon_state = "thorns"
+
+		stump
+			name = "Stump"
+			icon_state = "stump"
 
 	// TG-format hair - uses ICON_MULTIPLY instead of ICON_ADD
 	balding
@@ -1648,6 +1741,7 @@ Follow by example and make good judgement based on length which list to include 
 		name = "M'sai Inner Ear Fur"
 		icon_state = "taj_msai_innerearfur"
 		species_allowed = list(/datum/species/tajaran/m_sai)
+
 /*
 ///////////////////////////////////
 /  =---------------------------=  /
@@ -1665,7 +1759,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "bald"
 		gender = NEUTER
 		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi,
-		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,/datum/species/skrell,/datum/species/zombie/skrell)
+		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,/datum/species/skrell,/datum/species/zombie/skrell,/datum/species/diona)
 
 	threeOclock
 		name = "3 O'clock Shadow"
@@ -1726,7 +1820,7 @@ Follow by example and make good judgement based on length which list to include 
 	elvis
 		name = "Elvis Sideburns"
 		icon_state = "facial_elvis"
-		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi)
+		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie)
 
 	fullbeard
 		name = "Full Beard"
@@ -1820,15 +1914,11 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Wise Beard"
 		icon_state = "facial_wise"
 
-	brokenman
+	chinstrap2
 		icon = 'icons/mob/human_face/facial_hair_multiply.dmi'
-		name = "Broken Man"
-		icon_state = "facial_brokenman"
+		name = "Chinstrap, Alt"
+		icon_state = "facial_chinstrap_ii"
 		icon_blend_mode = ICON_MULTIPLY
-
-		chinstrap2
-			name = "Chinstrap, Alt"
-			icon_state = "facial_chinstrap_ii"
 
 		stark
 			name = "Stark"
@@ -2099,6 +2189,36 @@ Follow by example and make good judgement based on length which list to include 
 			length = 6
 			chatname = "Very Long Tentacles"
 
+		skr_tentacle_ponytail
+			name = "Skrell Seaweed Ponytail"
+			icon_state = "skrell_seaweed"
+			length = 3
+			chatname = "Ponytail, Seaweed"
+
+		skr_tentacle_doubletail
+			name = "Skrell Hoop Ponytail"
+			icon_state = "skrell_hoop"
+			length = 3
+			chatname = "Ponytail, Hoop"
+
+		skr_tentacle_flb
+			name = "Skrell Reef Ponytail"
+			icon_state = "skrell_reef"
+			length = 6
+			chatname = "Ponytail, Reef"
+
+		skr_tentacle_ponytailm
+			name = "Skrell Driftwood Ponytail"
+			icon_state = "skrell_driftwood"
+			length = 6
+			chatname = "Ponytail, Driftwood"
+
+		skr_tentacle_backwater
+			name = "Skrell Backwater"
+			icon_state = "skrell_backwater"
+			length = 6
+			chatname = "Backwater"
+
 
 //tajaran hair
 
@@ -2141,6 +2261,11 @@ Follow by example and make good judgement based on length which list to include 
 		taj_ears_curls
 			name = "Tajara Curly"
 			icon_state = "hair_curly"
+			chatname = "curly mane"
+
+		taj_ears_curlsalt
+			name = "Tajara Curly Alt"
+			icon_state = "hair_curlyalt"
 			chatname = "curly mane"
 
 		taj_ears_fingercurl
@@ -2209,6 +2334,61 @@ Follow by example and make good judgement based on length which list to include 
 			gender = MALE
 			chatname = "long mane"
 
+		taj_ears_sidepony
+			name = "Tajara Side Ponytail"
+			icon_state = "hair_sidepony"
+			chatname = "sideponytail"
+
+		taj_ears_sideponyalt
+			name = "Tajara Side Ponytail Alt"
+			icon_state = "hair_sideponyalt"
+			chatname = "sideponytail"
+
+		taj_ears_governmentman
+			name = "Tajara Government Man"
+			icon_state = "hair_gman"
+			chatname = "styled mane"
+
+		taj_ears_bun
+			name = "Tajara Bun"
+			icon_state = "hair_bun"
+			chatname = "bun"
+
+		taj_ears_smallbun
+			name = "Tajara Bun (Small)"
+			icon_state = "hair_bunsmall"
+			chatname = "bun"
+
+		taj_ears_lowbun
+			name = "Tajara Bun (Low)"
+			icon_state = "hair_lowbun"
+			chatname = "bun"
+
+		taj_ears_smalllowbun
+			name = "Tajara Bun (Low, Small)"
+			icon_state = "hair_lowbunsmall"
+			chatname = "bun"
+
+		taj_ears_shoulderlength
+			name = "Tajara Shoulderlength"
+			icon_state = "hair_shoulderlength"
+			chatname = "styled mane"
+
+		taj_ears_shoulderlengthalt
+			name = "Tajara Shoulderlength Alt"
+			icon_state = "hair_shoulderlengthalt"
+			chatname = "styled mane"
+
+		taj_ears_tresses
+			name = "Tajara Tresses"
+			icon_state = "hair_tresses"
+			chatname = "styled mane"
+
+		taj_ears_tressesalt
+			name = "Tajara Tresses Alt"
+			icon_state = "hair_tressesalt"
+			chatname = "styled mane"
+
 //msai hair, longer ears
 	msai_ears
 		icon = 'icons/mob/human_face/msai_hair.dmi'
@@ -2249,6 +2429,11 @@ Follow by example and make good judgement based on length which list to include 
 		msai_ears_curls
 			name = "M'sai Curly"
 			icon_state = "msai_curly"
+			chatname = "curly mane"
+
+		msai_ears_curls
+			name = "M'sai Curly Alt"
+			icon_state = "msai_curlyalt"
 			chatname = "curly mane"
 
 		msai_ears_fingercurl
@@ -2316,6 +2501,61 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "msai_mane"
 			gender = MALE
 			chatname = "long mane"
+
+		msai_ears_sidepony
+			name = "M'sai Side Ponytail"
+			icon_state = "msai_sidepony"
+			chatname = "sideponytail"
+
+		msai_ears_sideponyalt
+			name = "M'sai Side Ponytail Alt"
+			icon_state = "msai_sideponyalt"
+			chatname = "sideponytail"
+
+		msai_ears_governmentman
+			name = "M'sai Government Man"
+			icon_state = "msai_gman"
+			chatname = "styled mane"
+
+		msai_ears_bun
+			name = "M'sai Bun"
+			icon_state = "msai_bun"
+			chatname = "bun"
+
+		taj_ears_smallbun
+			name = "M'sai Bun (Small)"
+			icon_state = "msai_bunsmall"
+			chatname = "bun"
+
+		msai_ears_lowbun
+			name = "M'sai Bun (Low)"
+			icon_state = "msai_lowbun"
+			chatname = "bun"
+
+		msai_ears_lowsmallbun
+			name = "M'sai Bun (Low, Small)"
+			icon_state = "msai_lowbunsmall"
+			chatname = "bun"
+
+		msai_ears_shoulderlength
+			name = "M'sai Shoulderlength"
+			icon_state = "msai_shoulderlength"
+			chatname = "styled mane"
+
+		msai_ears_shoulderlengthalt
+			name = "M'sai Shoulderlength Alt"
+			icon_state = "msai_shoulderlengthalt"
+			chatname = "styled mane"
+
+		msai_ears_tresses
+			name = "M'sai Tresses"
+			icon_state = "msai_tresses"
+			chatname = "styled mane"
+
+		msai_ears_tressesalt
+			name = "M'sai Tresses Alt"
+			icon_state = "msai_tressesalt"
+			chatname = "styled mane"
 
 //vaurca antennae
 	vaurca_classic
@@ -2723,6 +2963,58 @@ Follow by example and make good judgement based on length which list to include 
 			name = "yellow IPC screen"
 			icon_state = "ipc_yellow"
 
+		ipc_screen_nanotrasen
+			name = "nanotrasen IPC screen"
+			icon_state = "ipc_nt"
+
+		ipc_screen_hephaestus
+			name = "hephaestus IPC screen"
+			icon_state = "ipc_heph"
+
+		ipc_screen_idris
+			name = "idris IPC screen"
+			icon_state = "ipc_idris"
+
+		ipc_screen_zavodskoi
+			name = "zavodskoi IPC screen"
+			icon_state = "ipc_zavod"
+
+		ipc_screen_zenghu
+			name = "zeng-hu IPC screen"
+			icon_state = "ipc_zenghu"
+
+		ipc_screen_scc
+			name = "scc IPC screen"
+			icon_state = "ipc_scc"
+
+		ipc_screen_biesel
+			name = "republic of biesel IPC screen"
+			icon_state = "ipc_biesel"
+
+		ipc_screen_sol
+			name = "sol alliance IPC screen"
+			icon_state = "ipc_sol"
+
+		ipc_screen_coalition
+			name = "coalition of colonies IPC screen"
+			icon_state = "ipc_coc"
+
+		ipc_screen_elyra
+			name = "republic of elyra IPC screen"
+			icon_state = "ipc_elyra"
+
+		ipc_screen_eridani
+			name = "eridani IPC screen"
+			icon_state = "ipc_eridani"
+
+		ipc_screen_burzsia
+			name = "burzsia IPC screen"
+			icon_state = "ipc_burzsia"
+
+		ipc_screen_tp
+			name = "trinary perfection IPC screen"
+			icon_state = "ipc_tp"
+
 	diona_eye
 		icon = 'icons/mob/human_face/dionae_hair.dmi'
 		name = "Mono Eye"
@@ -2731,21 +3023,61 @@ Follow by example and make good judgement based on length which list to include 
 		gender = NEUTER
 		do_colouration = FALSE
 
-		diona_eye_trioptics
+		trioptics
 			name = "Trioptics"
 			icon_state = "trioptics"
 
-		diona_eye_lopsided
+		lopsided
 			name = "Lopsided Eyes"
 			icon_state = "lopsided"
 
-		diona_eye_helmethead
+		helmethead
 			name = "Helmethead"
 			icon_state = "helmethead"
 
-		diona_eye_eyestalk
+		eyestalk
 			name = "Eyestalk"
 			icon_state = "eyestalk"
+
+		treebeard
+			name = "Treebeard"
+			icon_state = "treebeard"
+
+		bug_eyes
+			name = "Bug Eyes"
+			icon_state = "bugeyes"
+
+		human_eyes
+			name = "Human Eyes"
+			icon_state = "humaneyes"
+
+		skrell_eyes
+			name = "Skrell Eyes"
+			icon_state = "skrelleyes"
+
+		skrell_eyes_2
+			name = "Skrell Eyes 2"
+			icon_state = "skrelleyes2"
+
+		tiny_eye
+			name = "Tiny Eye"
+			icon_state = "tinyeye"
+
+		eyebrow
+			name = "Eyebrow"
+			icon_state = "eyebrow"
+
+		blinkinghelmethead
+			name = "Blinking Helmethead"
+			icon_state = "blinkinghelmethead"
+
+		periscope
+			name = "Periscope"
+			icon_state = "periscope"
+
+		glorp
+			name = "Glorp"
+			icon_state = "glorp"
 
 /*
 ////////////////////////////
@@ -2903,7 +3235,7 @@ Follow by example and make good judgement based on length which list to include 
 		do_colouration = FALSE
 		body_parts = list(BP_CHEST)
 		species_allowed = list(/datum/species/bug, /datum/species/bug/type_b)
-		
+
 		mecha_abdomen
 			name = "Mecha Abdomen"
 			icon_state = "mecha_abdomen"
@@ -3442,71 +3774,11 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list(BP_HEAD)
 		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
-	tiger_stripes
-		name = "Tiger Stripes (Tajara)"
-		icon_state = "tiger"
-		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_GROIN)
-		species_allowed = list(/datum/species/unathi,/datum/species/zombie/unathi,/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
-
-	taj_paw_socks
-		name = "Socks Coloration (Tajara)"
-		icon_state = "taj_pawsocks"
-		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND)
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
-
-	taj_pawsocks_alternate
-		name = "Socks Coloration (Tajara Alternate)"
-		icon_state = "taj_pawsocks_alternate"
-		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_GROIN,BP_CHEST)
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
-
-	taj_gloves
-		name = "Socks Coloration (Gloves)"
-		icon_state = "taj_pawsocks"
-		body_parts = list(BP_L_HAND,BP_R_HAND)
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
-
-	taj_paws
-		name = "Socks Coloration (Paws)"
-		icon_state = "taj_pawsocks"
-		body_parts = list(BP_L_FOOT,BP_R_FOOT)
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
-
-	taj_glovesfull
-		name = "Socks Coloration (Full Gloves)"
-		icon_state = "taj_pawsocks"
-		body_parts = list(BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM)
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
-
-	taj_pawsfull
-		name = "Socks Coloration (Full Paws)"
-		icon_state = "taj_pawsocks"
-		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG)
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
-	
-	taj_glovesfull_alt
-		name = "Socks Coloration (Full Gloves Alt)"
-		icon_state = "taj_pawsocks_alternate"
-		body_parts = list(BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND)
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
-
-	taj_pawsfull_alt
-		name = "Socks Coloration (Full Paws Alt)"
-		icon_state = "taj_pawsocks_alternate"
-		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG)
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
-
-	taj_glovesfull_alt2
-		name = "Socks Coloration (Full Gloves Alt 2)"
-		icon_state = "taj_bellyhandsfeet_minor"
-		body_parts = list(BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM)
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
-
-	taj_pawsfull_alt2
-		name = "Socks Coloration (Full Paws Alt 2)"
-		icon_state = "taj_bellyhandsfeet_minor"
-		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG)
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+	backstripe
+		name = "Back Stripe"
+		icon_state = "backstripe"
+		body_parts = list(BP_CHEST)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,/datum/species/unathi,/datum/species/zombie/unathi)
 
 	una_paw_socks
 		name = "Socks Coloration (Unathi)"
@@ -3515,155 +3787,17 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND)
 		species_allowed = list(/datum/species/unathi,/datum/species/zombie/unathi)
 
-	taj_belly_hands_feet_minor
-		name = "Hands,Feet,Belly Color (Minor)"
-		icon_state = "taj_bellyhandsfeet_minor"
-		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_GROIN,BP_CHEST)
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
-
-	taj_belly_hands_feet_minor_female
-		name = "Hands,Feet,Belly Color (Female, Minor)"
-		icon_state = "taj_bellyhandsfeet_minor_female"
-		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_GROIN,BP_CHEST)
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
-
-	taj_belly_male
-		name = "Belly Color (Male)"
-		icon_state = "taj_bellyhandsfeet_minor"
-		body_parts = list(BP_GROIN,BP_CHEST)
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
-
-	taj_belly_female
-		name = "Belly Color (Female)"
-		icon_state = "taj_bellyhandsfeet_minor_female"
-		body_parts = list(BP_GROIN,BP_CHEST)
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
-
-	taj_chest_male
-		name = "Chest,Belly Coloration (Male)"
-		icon_state = "taj_bellyhandsfeet"
-		body_parts = list(BP_GROIN,BP_CHEST)
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
-
-	taj_chest_female
-		name = "Chest,Belly Coloration (Female)"
-		icon_state = "taj_bellyhandsfeet_female"
-		body_parts = list(BP_GROIN,BP_CHEST)
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
-
-	taj_patches_full
-		name = "Color Patches (Full)"
-		icon_state = "taj_patches"
-		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_CHEST,BP_GROIN)
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
-
-	taj_patches_leftleg
-		name = "Color Patches (Left Leg)"
-		icon_state = "taj_patches"
-		body_parts = list(BP_L_FOOT,BP_L_LEG)
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
-
-	taj_patches_rightleg
-		name = "Color Patches (Right Leg)"
-		icon_state = "taj_patches"
-		body_parts = list(BP_R_FOOT,BP_R_LEG)
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
-
-	taj_patches_leftarm
-		name = "Color Patches (Left Arm)"
-		icon_state = "taj_patches"
-		body_parts = list(BP_L_ARM,BP_L_HAND)
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
-
-	taj_patches_rightarm
-		name = "Color Patches (Right Arm)"
-		icon_state = "taj_patches"
-		body_parts = list(BP_R_ARM,BP_R_HAND)
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
-
-	taj_patches_chest
-		name = "Color Patches (Torso)"
-		icon_state = "taj_patches"
-		body_parts = list(BP_CHEST,BP_GROIN)
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
-
-	patchesface
-		name = "Color Patches (Face)"
-		icon_state = "taj_patchesface"
-		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
-
 	bands
 		name = "Color Bands"
 		icon_state = "bands"
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_CHEST,BP_GROIN)
 		species_allowed = list(/datum/species/unathi,/datum/species/zombie/unathi)
 
-	bands_tajara
-		name = "Color Bands (Tajara)"
-		icon_state = "bands"
-		body_parts = list(BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_CHEST,BP_GROIN)
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
-
 	bandsface
 		name = "Color Bands (Face)"
 		icon_state = "bandsface"
 		body_parts = list(BP_HEAD)
 		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,/datum/species/unathi,/datum/species/zombie/unathi)
-
-	tigerhead
-		name = "Tiger Stripes (Head, Minor)"
-		icon_state = "tigerhead"
-		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
-
-	tigerface
-		name = "Tiger Stripes (Head, Major)"
-		icon_state = "tigerface"
-		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
-
-	backstripe
-		name = "Back Stripe"
-		icon_state = "backstripe"
-		body_parts = list(BP_CHEST)
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,/datum/species/unathi,/datum/species/zombie/unathi)
-
-	taj_nose
-		name = "Nose Color"
-		icon_state = "taj_nose"
-		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
-
-	taj_muzzle
-		name = "Muzzle Color"
-		icon_state = "taj_muzzle"
-		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
-
-	taj_muzzle_female
-		name = "Muzzle Color (Female)"
-		icon_state = "taj_muzzle_female"
-		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
-
-	taj_face_minor
-		name = "Cheeks Color (Minor)"
-		icon_state = "taj_face_minor"
-		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
-
-	taj_face
-		name = "Cheeks Color"
-		icon_state = "taj_face"
-		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
-
-	taj_all
-		name = "All Tajara Head"
-		icon_state = "taj_all"
-		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 	una_face
 		name = "Face Color"
@@ -3740,54 +3874,149 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_GROIN,BP_HEAD)
 		species_allowed = list(/datum/species/diona)
 
-	diona_thorns_head
-		name = "Diona Thorns (Head)"
-		icon = 'icons/mob/human_races/markings_diona.dmi'
-		icon_state = "diona_thorns"
-		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/diona)
+		thorns_head
+			name = "Diona Thorns (Head)"
+			icon_state = "diona_thorns"
+			body_parts = list(BP_HEAD)
 
-	diona_thorns_torso
-		name = "Diona Thorns (Torso)"
-		icon = 'icons/mob/human_races/markings_diona.dmi'
-		icon_state = "diona_thorns"
-		body_parts = list(BP_CHEST)
-		species_allowed = list(/datum/species/diona)
+		thorns_torso
+			name = "Diona Thorns (Torso)"
+			icon_state = "diona_thorns"
+			body_parts = list(BP_CHEST)
 
-	diona_flowers_head
-		name = "Diona Flowers (Head)"
-		icon = 'icons/mob/human_races/markings_diona.dmi'
-		icon_state = "diona_flowers"
-		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/diona)
+		flowers_head
+			name = "Diona Flowers (Head)"
+			icon_state = "diona_flowers"
+			body_parts = list(BP_HEAD)
 
-	diona_flowers_torso
-		name = "Diona Flowers (Torso)"
-		icon = 'icons/mob/human_races/markings_diona.dmi'
-		icon_state = "diona_flowers"
-		body_parts = list(BP_CHEST)
-		species_allowed = list(/datum/species/diona)
+		flowers_torso
+			name = "Diona Flowers (Torso)"
+			icon_state = "diona_flowers"
+			body_parts = list(BP_CHEST)
 
-	diona_moss
-		name = "Diona Moss"
-		icon = 'icons/mob/human_races/markings_diona.dmi'
-		icon_state = "diona_moss"
-		body_parts = list(BP_CHEST)
-		species_allowed = list(/datum/species/diona)
+		moss
+			name = "Diona Moss"
+			icon_state = "diona_moss"
+			body_parts = list(BP_CHEST)
 
-	diona_mushroom
-		name = "Diona Mushroom"
-		icon = 'icons/mob/human_races/markings_diona.dmi'
-		icon_state = "diona_mushroom"
-		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/diona)
+		mushroom
+			name = "Diona Mushroom"
+			icon_state = "diona_mushroom"
+			body_parts = list(BP_HEAD)
 
-	diona_antennae
-		name = "Diona Antennae"
-		icon = 'icons/mob/human_races/markings_diona.dmi'
-		icon_state = "diona_antennae"
-		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/diona)
+			antennae
+				name = "Diona Antennae"
+				icon_state = "diona_antennae"
+
+		bug_eyes
+			name = "Bug Eyes"
+			icon_state = "bugeyes"
+			body_parts = list(BP_HEAD)
+			do_colouration = FALSE
+
+			human_eyes
+				name = "Human Eyes"
+				icon_state = "humaneyes"
+
+			skrell_eyes
+				name = "Skrell Eyes"
+				icon_state = "skrelleyes"
+
+			skrell_eyes_2
+				name = "Skrell Eyes 2"
+				icon_state = "skrelleyes2"
+
+			cat_ears
+				name = "Skrell Eyes 2"
+				icon_state = "skrelleyes2"
+
+			horny
+				name = "Horny"
+				icon_state = "horny"
+
+			treebeard
+				name = "Treebeard"
+				icon_state = "treebeard"
+
+			tinyeye
+				name = "Tiny Eye"
+				icon_state = "tinyeye"
+
+			eyebrow
+				name = "Eyebrow"
+				icon_state = "eyebrow"
+
+			bullhorn
+				name = "Bullhorn"
+				icon_state = "bullhorn"
+
+			mono_eye
+				name = "Mono Eye"
+				icon_state = "monoeye"
+
+			trioptics
+				name = "Trioptics"
+				icon_state = "trioptics"
+
+			lopsided
+				name = "Lopsided"
+				icon_state = "lopsided"
+			
+			helmethead
+				name = "Helmethead"
+				icon_state = "helmethead"
+
+			eyestalk
+				name = "Eyestalk"
+				icon_state = "eyestalk"
+
+			periscope
+				name = "Periscope"
+				icon_state = "periscope"
+
+			glorp
+				name = "Glorp"
+				icon_state = "glorp"
+
+			oak
+				name = "Oak"
+				icon_state = "oak"
+
+			thorns
+				name = "Thorns"
+				icon_state = "thorns"
+
+			stump
+				name = "Stump"
+				icon_state = "stump"
+
+		pbody
+			name = "P-Body"
+			icon_state = "pbody"
+			body_parts = list(BP_CHEST)
+			do_colouration = FALSE
+
+			blinking
+				name = "Blinking P-Body"
+				icon_state = "blinkingpbody"
+
+		foot_eye
+			name = "Foot Eye"
+			icon_state = "footeye"
+			body_parts = list(BP_L_FOOT)
+			do_colouration = FALSE
+
+		hand_eyes
+			name = "Hand Eyes"
+			icon_state = "handeye"
+			body_parts = list(BP_R_HAND, BP_L_HAND)
+			do_colouration = FALSE
+
+		tail
+			name = "Tail"
+			icon_state = "dionatail"
+			body_parts = list(BP_GROIN)
+			do_colouration = FALSE
 
 //bishop
 	bishop_lights
@@ -3933,3 +4162,235 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Xion - Lights Color"
 			icon_state = "xion_lights"
 			body_parts = list(BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_HEAD)
+
+//Tajara
+
+	taj_tigerstripes
+		name = "Tiger Stripes (Tajara)"
+		icon = "icons/mob/human_races/markings_tajara.dmi"
+		icon_state = "tiger"
+		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_GROIN)
+		species_allowed = list(/datum/species/unathi,/datum/species/zombie/unathi,/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_paw_socks
+		name = "Socks Coloration (Tajara)"
+		icon = "icons/mob/human_races/markings_tajara.dmi"
+		icon_state = "taj_pawsocks"
+		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_pawsocks_alternate
+		name = "Socks Coloration (Tajara Alternate)"
+		icon = "icons/mob/human_races/markings_tajara.dmi"
+		icon_state = "taj_pawsocks_alternate"
+		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_GROIN,BP_CHEST)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_gloves
+		name = "Socks Coloration (Gloves)"
+		icon = "icons/mob/human_races/markings_tajara.dmi"
+		icon_state = "taj_pawsocks"
+		body_parts = list(BP_L_HAND,BP_R_HAND)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_paws
+		name = "Socks Coloration (Paws)"
+		icon = "icons/mob/human_races/markings_tajara.dmi"
+		icon_state = "taj_pawsocks"
+		body_parts = list(BP_L_FOOT,BP_R_FOOT)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_glovesfull
+		name = "Socks Coloration (Full Gloves)"
+		icon = "icons/mob/human_races/markings_tajara.dmi"
+		icon_state = "taj_pawsocks"
+		body_parts = list(BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_pawsfull
+		name = "Socks Coloration (Full Paws)"
+		icon = "icons/mob/human_races/markings_tajara.dmi"
+		icon_state = "taj_pawsocks"
+		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_glovesfull_alt
+		name = "Socks Coloration (Full Gloves Alt)"
+		icon = "icons/mob/human_races/markings_tajara.dmi"
+		icon_state = "taj_pawsocks_alternate"
+		body_parts = list(BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_pawsfull_alt
+		name = "Socks Coloration (Full Paws Alt)"
+		icon = "icons/mob/human_races/markings_tajara.dmi"
+		icon_state = "taj_pawsocks_alternate"
+		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_glovesfull_alt2
+		name = "Socks Coloration (Full Gloves Alt 2)"
+		icon = "icons/mob/human_races/markings_tajara.dmi"
+		icon_state = "taj_bellyhandsfeet_minor"
+		body_parts = list(BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_pawsfull_alt2
+		name = "Socks Coloration (Full Paws Alt 2)"
+		icon = "icons/mob/human_races/markings_tajara.dmi"
+		icon_state = "taj_bellyhandsfeet_minor"
+		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_bands
+		name = "Color Bands (Tajara)"
+		icon_state = "bands"
+		body_parts = list(BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_CHEST,BP_GROIN)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_tigerhead_veryminor
+		name = "Tiger Stripes (Head, Very Minor)"
+		icon = "icons/mob/human_races/markings_tajara.dmi"
+		icon_state = "tigerheadminor"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+
+	taj_tigerface
+		name = "Tiger Stripes (Head, Major)"
+		icon = "icons/mob/human_races/markings_tajara.dmi"
+		icon_state = "tigerface"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_nose
+		name = "Nose Color"
+		icon = "icons/mob/human_races/markings_tajara.dmi"
+		icon_state = "taj_nose"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_muzzle
+		name = "Muzzle Color"
+		icon = "icons/mob/human_races/markings_tajara.dmi"
+		icon_state = "taj_muzzle"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_muzzle_female
+		name = "Muzzle Color (Female)"
+		icon = "icons/mob/human_races/markings_tajara.dmi"
+		icon_state = "taj_muzzle_female"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_face_minor
+		name = "Cheeks Color (Minor)"
+		icon = "icons/mob/human_races/markings_tajara.dmi"
+		icon_state = "taj_face_minor"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_face
+		name = "Cheeks Color"
+		icon = "icons/mob/human_races/markings_tajara.dmi"
+		icon_state = "taj_face"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_all
+		name = "All Tajara Head"
+		icon = "icons/mob/human_races/markings_tajara.dmi"
+		icon_state = "taj_all"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_belly_hands_feet_minor
+		name = "Hands,Feet,Belly Color (Minor)"
+		icon = "icons/mob/human_races/markings_tajara.dmi"
+		icon_state = "taj_bellyhandsfeet_minor"
+		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_GROIN,BP_CHEST)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_belly_hands_feet_minor_female
+		name = "Hands,Feet,Belly Color (Female, Minor)"
+		icon = "icons/mob/human_races/markings_tajara.dmi"
+		icon_state = "taj_bellyhandsfeet_minor_female"
+		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_GROIN,BP_CHEST)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_belly_male
+		name = "Belly Color (Male)"
+		icon = "icons/mob/human_races/markings_tajara.dmi"
+		icon_state = "taj_bellyhandsfeet_minor"
+		body_parts = list(BP_GROIN,BP_CHEST)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_belly_female
+		name = "Belly Color (Female)"
+		icon = "icons/mob/human_races/markings_tajara.dmi"
+		icon_state = "taj_bellyhandsfeet_minor_female"
+		body_parts = list(BP_GROIN,BP_CHEST)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_chest_male
+		name = "Chest,Belly Coloration (Male)"
+		icon = "icons/mob/human_races/markings_tajara.dmi"
+		icon_state = "taj_bellyhandsfeet"
+		body_parts = list(BP_GROIN,BP_CHEST)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_chest_female
+		name = "Chest,Belly Coloration (Female)"
+		icon = "icons/mob/human_races/markings_tajara.dmi"
+		icon_state = "taj_bellyhandsfeet_female"
+		body_parts = list(BP_GROIN,BP_CHEST)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_patches_full
+		name = "Color Patches (Full)"
+		icon = "icons/mob/human_races/markings_tajara.dmi"
+		icon_state = "taj_patches"
+		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_CHEST,BP_GROIN)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_patches_leftleg
+		name = "Color Patches (Left Leg)"
+		icon = "icons/mob/human_races/markings_tajara.dmi"
+		icon_state = "taj_patches"
+		body_parts = list(BP_L_FOOT,BP_L_LEG)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_patches_rightleg
+		name = "Color Patches (Right Leg)"
+		icon = "icons/mob/human_races/markings_tajara.dmi"
+		icon_state = "taj_patches"
+		body_parts = list(BP_R_FOOT,BP_R_LEG)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_patches_leftarm
+		name = "Color Patches (Left Arm)"
+		icon = "icons/mob/human_races/markings_tajara.dmi"
+		icon_state = "taj_patches"
+		body_parts = list(BP_L_ARM,BP_L_HAND)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_patches_rightarm
+		name = "Color Patches (Right Arm)"
+		icon = "icons/mob/human_races/markings_tajara.dmi"
+		icon_state = "taj_patches"
+		body_parts = list(BP_R_ARM,BP_R_HAND)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_patches_chest
+		name = "Color Patches (Torso)"
+		icon = "icons/mob/human_races/markings_tajara.dmi"
+		icon_state = "taj_patches"
+		body_parts = list(BP_CHEST,BP_GROIN)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+	taj_patchesface
+		name = "Color Patches (Face)"
+		icon = "icons/mob/human_races/markings_tajara.dmi"
+		icon_state = "taj_patchesface"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)

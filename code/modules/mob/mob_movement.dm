@@ -299,10 +299,12 @@
 
 		// Apply human specific modifiers.
 		var/mob_is_human = ishuman(mob)	// Only check this once and just reuse the value.
+		var/sprint_tally = 0
 		if (mob_is_human)
 			var/mob/living/carbon/human/H = mob
 			//If we're sprinting and able to continue sprinting, then apply the sprint bonus ontop of this
-			if (H.m_intent == M_RUN && (H.status_flags & GODMODE || H.species.handle_sprint_cost(H, tally))) //This will return false if we collapse from exhaustion
+			if (H.m_intent == M_RUN && (H.status_flags & GODMODE || H.species.handle_sprint_cost(H, tally, TRUE))) //This will return false if we collapse from exhaustion
+				sprint_tally = tally
 				tally = (tally / (1 + H.sprint_speed_factor)) * config.run_delay_multiplier
 			else
 				tally = max(tally * config.walk_delay_multiplier, H.min_walk_delay) //clamp walking speed if its limited
@@ -326,6 +328,8 @@
 		if(istype(mob.pulledby, /obj/structure/bed/chair/wheelchair) || istype(mob.pulledby, /obj/structure/janitorialcart))
 			move_delay += 1
 			return mob.pulledby.relaymove(mob, direct)
+
+		var/old_loc = mob.loc
 
 		//We are now going to move
 		moving = 1
@@ -362,7 +366,7 @@
 							M.animate_movement = 2
 							return
 
-		else if(mob.confused && prob(25))
+		else if(mob.confused && prob(25) && mob.m_intent == M_RUN)
 			step(mob, pick(cardinal))
 		else
 			. = mob.SelfMove(n, direct)
@@ -376,6 +380,10 @@
 			G.adjust_position()
 
 		moving = 0
+
+		if(sprint_tally && mob.loc != old_loc)
+			var/mob/living/carbon/human/H = mob
+			H.species.handle_sprint_cost(H, sprint_tally, FALSE)
 
 	if(isobj(mob.loc) || ismob(mob.loc))	//Inside an object, tell it we moved
 		var/atom/O = mob.loc

@@ -24,16 +24,16 @@
 	volume = 10
 	can_be_placed_into = null
 	flags = OPENCONTAINER | NOBLUDGEON
-	unacidable = 0
+	unacidable = FALSE
+	fragile = FALSE
+	drop_sound = 'sound/items/drop/cloth.ogg'
+	pickup_sound = 'sound/items/pickup/cloth.ogg'
 
 	var/on_fire = 0
 	var/burn_time = 20 //if the rag burns for too long it turns to ashes
 	var/cleantime = 30
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
 	var/last_clean
 	var/clean_msg = FALSE
-	fragile = 0
 
 /obj/item/reagent_containers/glass/rag/Initialize()
 	. = ..()
@@ -66,11 +66,11 @@
 
 /obj/item/reagent_containers/glass/rag/proc/update_name()
 	if(on_fire)
-		name = "burning [initial(name)]"
+		name = "burning [base_name]"
 	else if(reagents.total_volume)
-		name = "damp [initial(name)]"
+		name = "damp [base_name]"
 	else
-		name = "dry [initial(name)]"
+		name = "dry [base_name]"
 
 /obj/item/reagent_containers/glass/rag/update_icon()
 	if(on_fire)
@@ -107,7 +107,7 @@
 
 /obj/item/reagent_containers/glass/rag/proc/wipe_down(atom/A, mob/user)
 	if(!reagents.total_volume)
-		to_chat(user, SPAN_WARNING("\The [initial(name)] is dry!"))
+		to_chat(user, SPAN_WARNING("\The [base_name] is dry!"))
 	else
 		if (!(last_clean && world.time < last_clean + 120) )
 			user.visible_message("<b>[user]</b> starts to wipe [A] with [src].")
@@ -182,7 +182,10 @@
 	if(!proximity)
 		return
 
-	if(istype(A, /obj/structure/reagent_dispensers) || istype(A, /obj/structure/mopbucket) || istype(A, /obj/item/reagent_containers/glass) || istype(A, /obj/structure/sink))
+	if(istype(A, /obj/structure/sink))
+		return
+
+	else if(istype(A, /obj/structure/reagent_dispensers) || istype(A, /obj/structure/mopbucket) || istype(A, /obj/item/reagent_containers/glass))
 		if(!REAGENTS_FREE_SPACE(reagents))
 			to_chat(user, SPAN_WARNING("\The [src] is already soaked."))
 			return
@@ -194,7 +197,7 @@
 			update_icon()
 		return
 
-	if(!on_fire && istype(A) && (src in user))
+	else if(!on_fire && istype(A) && (src in user))
 		if(A.is_open_container() && !(A in user))
 			remove_contents(user, A)
 		else if(!ismob(A)) //mobs are handled in attack() - this prevents us from wiping down people while smothering them.
@@ -298,3 +301,15 @@
 	possible_transfer_amounts = list(5)
 	volume = 10
 	cleantime = 15
+
+/obj/item/reagent_containers/glass/rag/advanced/idris
+	name = "Idris advanced service cloth"
+	desc = "An advanced rag developed and sold by Idris Incorporated at a steep price. It's dry-clean design and advanced insulating synthetic weave make this the pinnacle of service cloths for any self respecting chef or bartender!"
+	icon_state = "idrisrag"
+	volume = 15
+
+/obj/item/reagent_containers/glass/rag/handkerchief
+	name = "handkerchief"
+	desc = "For cleaning a lady's hand, your bruised ego or a crime scene."
+	volume = 5
+	icon_state = "handkerchief"

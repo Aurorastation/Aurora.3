@@ -1,0 +1,3 @@
+weapons/flamethrower.ogg - Obtained from https://www.zapsplat.com
+effects/fleshburn1.ogg - Obtained from https://www.zapsplat.com
+effects/fleshburn2.ogg - Obtained from https://www.zapsplat.com

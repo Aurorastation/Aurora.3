@@ -156,7 +156,6 @@
 		/obj/item/clothing/shoes                        = TRADER_SUBTYPES_ONLY,
 		/obj/item/clothing/shoes/chameleon              = TRADER_BLACKLIST,
 		/obj/item/clothing/shoes/combat                 = TRADER_BLACKLIST,
-		/obj/item/clothing/shoes/clown_shoes            = TRADER_BLACKLIST,
 		/obj/item/clothing/shoes/cult                   = TRADER_BLACKLIST,
 		/obj/item/clothing/shoes/cyborg                 = TRADER_BLACKLIST,
 		/obj/item/clothing/shoes/lightrig               = TRADER_BLACKLIST_ALL,
@@ -353,6 +352,8 @@ Sells devices, odds and ends, and medical stuff
 		/obj/item/gun/energy/plasmacutter         = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/helmet/space/void/mining = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/space/void/mining        = TRADER_THIS_TYPE,
+		/obj/item/clothing/head/helmet/space/void/mining/fluff = TRADER_BLACKLIST, //No custom items
+		/obj/item/clothing/suit/space/void/mining/fluff        = TRADER_BLACKLIST, //No custom items
 		/obj/machinery/mining/drill                      = TRADER_THIS_TYPE,
 		/obj/machinery/mining/brace                      = TRADER_THIS_TYPE,
 		/mob/living/heavy_vehicle/premade/ripley                      = TRADER_THIS_TYPE,

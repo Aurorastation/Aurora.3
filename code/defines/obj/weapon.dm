@@ -56,6 +56,7 @@
 	w_class = ITEMSIZE_LARGE
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("bludgeoned", "whacked", "disciplined", "thrashed")
+	var/can_support = TRUE
 
 /obj/item/cane/attack(mob/living/target, mob/living/carbon/human/user, target_zone = BP_CHEST)
 
@@ -294,6 +295,7 @@
 	desc = "A white cane, used by the visually impaired."
 	icon_state = "whitecane"
 	item_state = "whitecane"
+	can_support = FALSE
 
 /obj/item/cane/shillelagh
 	name = "adhomian shillelagh"
@@ -302,6 +304,48 @@
 	icon_state = "shillelagh"
 	item_state = "shillelagh"
 	contained_sprite = TRUE
+
+/obj/item/cane/telecane
+	name = "telescopic cane"
+	desc = "A compact cane which can be collapsed for storage."
+	icon = 'icons/obj/contained_items/weapons/telecane.dmi'
+	icon_state = "telecane"
+	contained_sprite = TRUE
+	w_class = ITEMSIZE_SMALL
+	slot_flags = SLOT_BELT
+	drop_sound = 'sound/items/drop/crowbar.ogg'
+	pickup_sound = 'sound/items/pickup/crowbar.ogg'
+	var/on = FALSE
+	can_support = FALSE
+
+/obj/item/cane/telecane/attack_self(mob/user)
+	on = !on
+	if(on)
+		user.visible_message(SPAN_WARNING("With a flick of their wrist, [user] extends their telescopic cane."), SPAN_WARNING("You extend the cane."), SPAN_WARNING("You hear an ominous click."))
+		icon_state = "telecane_1"
+		item_state = "telestick"
+		w_class = ITEMSIZE_LARGE
+		slot_flags = null
+		force = 6
+		attack_verb = list("smacked", "struck", "slapped")
+		can_support = TRUE
+	else
+		user.visible_message(SPAN_NOTICE("\The [user] collapses their telescopic cane."), SPAN_NOTICE("You collapse the cane."), SPAN_NOTICE("You hear a click."))
+		icon_state = "telecane"
+		item_state = "telestick_0"
+		w_class = ITEMSIZE_SMALL
+		slot_flags = SLOT_BELT
+		force = 3
+		attack_verb = list("hit", "punched")
+		can_support = FALSE
+
+	if(istype(user,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = user
+		H.update_inv_l_hand()
+		H.update_inv_r_hand()
+
+	playsound(src.loc, 'sound/weapons/click.ogg', 50, 1)
+	add_fingerprint(user)
 
 /obj/item/disk
 	name = "disk"

@@ -14,6 +14,18 @@
 
 /obj/item/stack/wrapping_paper/attackby(obj/item/W, mob/user)
 	..()
+	if (isrobot(user))
+		if(istype(W.loc, /obj/item/gripper))
+			var/obj/item/gripper/G = W.loc
+			if(!is_type_in_list(G, list(/obj/item/gripper/service, /obj/item/gripper/paperwork)))
+				to_chat(user, SPAN_WARNING("\The [G] isn't deft enough to wrap up \the [G.wrapped]."))
+				return
+		else if(istype(W, /obj/item/gripper))
+			return
+		else
+			to_chat(user, SPAN_WARNING("You can't wrap up a cyborg module!"))
+			// Prevent robots from accidentally wrapping any of their internal tools, and non-service borgs from wrapping up parcels
+			return
 	if (!isturf(loc))
 		to_chat(user, SPAN_WARNING("The paper must be set down for you to wrap a gift!"))
 		return

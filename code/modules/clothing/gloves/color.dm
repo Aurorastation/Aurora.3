@@ -152,9 +152,9 @@
 	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/white/unathi
- 	name = "white gloves"
- 	desc = "White gloves made for Unathi use."
- 	species_restricted = list(BODYTYPE_UNATHI)
+	name = "white gloves"
+	desc = "White gloves made for Unathi use."
+	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/rainbow/unathi
 	name = "rainbow gloves"
@@ -193,3 +193,10 @@
 /obj/item/clothing/gloves/fingerless/colour
 	icon_state = "fingerlessgloves_colour"
 	item_state = "fingerlessgloves_colour"
+
+/obj/item/clothing/gloves/zeng
+	name = "zeng-hu vinyl gloves"
+	desc = "A key design element in the labwear was utility and compatibility with the Zeng-Hu positronic chassis workers that are ubiquitous throughout the corporation. \
+	As a result they are breathable yet non-porous, allowing for ample airflow while retaining the cleanroom standards expected of a medical and scientific uniform."
+	icon_state = "zeng_gloves"
+	item_state = "zeng_gloves"

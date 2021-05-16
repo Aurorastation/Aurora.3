@@ -107,6 +107,7 @@
 	new /obj/item/clothing/head/hardhat/first_responder(src)
 	new /obj/item/device/radio/headset/headset_med(src)
 	new /obj/item/clothing/glasses/hud/health(src)
+	new /obj/item/storage/backpack/medic/first_responder(src)
 	new /obj/item/clothing/suit/storage/medical_chest_rig(src)
 	new /obj/item/clothing/suit/storage/medical_chest_rig/first_responder(src)
 	new /obj/item/clothing/under/rank/medical/first_responder(src)
@@ -120,8 +121,8 @@
 	new /obj/item/device/radio(src)
 	new /obj/item/roller(src)
 	new /obj/item/crowbar/red(src)
-
-
+	new /obj/item/clothing/mask/gas/alt(src)
+	new /obj/item/clothing/mask/gas/half(src)
 
 /obj/structure/closet/secure_closet/CMO
 	name = "chief medical officer's locker"
@@ -217,6 +218,8 @@
 	new /obj/item/storage/box/syringes(src)
 	new /obj/item/storage/box/beakers(src)
 	new /obj/item/storage/box/beakers(src)
+	new /obj/item/storage/bag/chemistry(src)
+	new /obj/item/storage/bag/chemistry(src)
 
 /obj/structure/closet/secure_closet/medical_wall
 	name = "first aid closet"

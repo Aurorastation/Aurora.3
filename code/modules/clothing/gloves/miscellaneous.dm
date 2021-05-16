@@ -231,7 +231,7 @@
 	punch_force = 10
 	clipped = 1
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	drop_sound = 'sound/items/drop/toolbox.ogg'
 	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 
@@ -374,3 +374,10 @@
 	if(ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_gloves()
+
+/obj/item/clothing/gloves/black/forensic
+	name = "forensic gloves"
+	desc = "Specially made gloves for investigative personnel. The luminescent threads woven into the material stand out under scrutiny."
+	icon_state = "forensic"
+	item_state = "forensicgloves"
+	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)

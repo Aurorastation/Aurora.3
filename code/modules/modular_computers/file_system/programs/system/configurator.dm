@@ -61,6 +61,12 @@
 			var/new_brightness = Clamp(0, data["brightness"]/10, 1)
 			computer.flashlight.tweak_brightness(new_brightness)
 
+	VUEUI_SET_CHECK_IFNOTSET(data["message_range"], computer.message_output_range, ., data)
+	VUEUI_SET_CHECK_IFNOTSET(data["max_message_range"], initial(computer.message_output_range) + 3, ., data)
+
+	if(data["message_range"])
+		computer.message_output_range = clamp(data["message_range"], 0, initial(computer.message_output_range) + 3)
+
 	LAZYINITLIST(data["hardware"])
 	for(var/obj/item/computer_hardware/H in hardware)
 		LAZYINITLIST(data["hardware"][H.name])

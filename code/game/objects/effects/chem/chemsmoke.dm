@@ -236,9 +236,11 @@
 					break
 			if(bad_turf)
 				continue
-			if(prob(min(seed.get_trait(TRAIT_POTENCY),50)) && sporecount < max(1,round(seed.get_trait(TRAIT_POTENCY)/20),1))
+			if(prob(min(seed.get_trait(TRAIT_POTENCY), 50)))
 				new /obj/machinery/portable_atmospherics/hydroponics/soil/invisible(T,seed)
 				sporecount++
+			if(sporecount < max(1, round(seed.get_trait(TRAIT_POTENCY) / 20), 1))
+				break
 
 
 //------------------------------------------

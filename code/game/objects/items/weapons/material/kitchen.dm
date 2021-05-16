@@ -37,7 +37,7 @@
 		return ..()
 
 	if(user.a_intent != I_HELP)
-		if(target_zone == BP_HEAD || target_zone == BP_EYES)
+		if((target_zone == BP_HEAD || target_zone == BP_EYES) && !M.eyes_protected(src, FALSE))
 			if((user.is_clumsy()) && prob(50))
 				M = user
 			return eyestab(M,user)

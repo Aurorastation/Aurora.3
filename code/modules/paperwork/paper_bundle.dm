@@ -120,11 +120,13 @@
 
 	if(istype(pages[page], /obj/item/paper))
 		var/obj/item/paper/P = W
-		if(!(istype(usr, /mob/living/carbon/human) || istype(usr, /mob/abstract/observer) || istype(usr, /mob/living/silicon)))
-			dat+= "<HTML><HEAD><TITLE>[P.name]</TITLE></HEAD><BODY>[stars(P.info)][P.stamps]</BODY></HTML>"
-		else
-			dat+= "<HTML><HEAD><TITLE>[P.name]</TITLE></HEAD><BODY>[P.info][P.stamps]</BODY></HTML>"
-		user << browse(dat, "window=[name]")
+		dat += P.get_content(user, P.can_read(user))
+
+		var/datum/browser/paper_win = new(user, name, null, 450, 500, null, TRUE)
+		paper_win.set_content(dat)
+		paper_win.add_stylesheet("paper_languages", 'html/browser/paper_languages.css')
+		paper_win.open()
+
 	else if(istype(pages[page], /obj/item/photo))
 		var/obj/item/photo/P = W
 		send_rsc(user, P.img, "tmp_photo.png")

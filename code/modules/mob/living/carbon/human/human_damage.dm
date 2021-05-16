@@ -256,9 +256,11 @@
 ////////////////////////////////////////////
 
 //Returns a list of damaged organs
-/mob/living/carbon/human/proc/get_damaged_organs(var/brute, var/burn)
+/mob/living/carbon/human/proc/get_damaged_organs(var/brute, var/burn, var/prosthetic = TRUE)
 	var/list/obj/item/organ/external/parts = list()
 	for(var/obj/item/organ/external/O in organs)
+		if(!prosthetic && BP_IS_ROBOTIC(O))
+			continue
 		if((brute && O.brute_dam) || (burn && O.burn_dam))
 			parts += O
 	return parts
@@ -274,11 +276,12 @@
 //Heals ONE external organ, organ gets randomly selected from damaged ones.
 //It automatically updates damage overlays if necesary
 //It automatically updates health status
-/mob/living/carbon/human/heal_organ_damage(var/brute, var/burn)
-	var/list/obj/item/organ/external/parts = get_damaged_organs(brute,burn)
-	if(!parts.len)	return
+/mob/living/carbon/human/heal_organ_damage(var/brute, var/burn, var/prosthetic = TRUE)
+	var/list/obj/item/organ/external/parts = get_damaged_organs(brute, burn, prosthetic)
+	if(!length(parts))
+		return
 	var/obj/item/organ/external/picked = pick(parts)
-	if(picked.heal_damage(brute,burn))
+	if(picked.heal_damage(brute, burn, robo_repair = prosthetic))
 		UpdateDamageIcon()
 		BITSET(hud_updateflag, HEALTH_HUD)
 	updatehealth()

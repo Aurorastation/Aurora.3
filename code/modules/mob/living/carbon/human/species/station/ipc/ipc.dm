@@ -119,7 +119,8 @@
 	bodyfall_sound = /decl/sound_category/bodyfall_machine_sound
 
 	allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_ELYRA, ACCENT_KONYAN, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_LUNA,
-							ACCENT_HIMEO, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_PHONG, ACCENT_TTS, ACCENT_EUROPA, ACCENT_EARTH)
+							ACCENT_HIMEO, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_PHONG, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_TTS, ACCENT_EUROPA, ACCENT_EARTH, ACCENT_PLUTO, ACCENT_ASSUNZIONE)
+	allowed_religions = list(RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_JUDAISM, RELIGION_HINDU, RELIGION_BUDDHISM, RELIGION_TRINARY, RELIGION_SCARAB, RELIGION_TAOISM, RELIGION_LUCEISM)
 
 	alterable_internal_organs = list()
 
@@ -131,8 +132,8 @@
 	. = ..()
 	check_tag(H, H.client)
 
-/datum/species/machine/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
-	if (H.stat == CONSCIOUS)
+/datum/species/machine/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost, var/pre_move)
+	if(!pre_move && H.stat == CONSCIOUS)
 		H.bodytemperature += cost * sprint_temperature_factor
 	return TRUE
 
@@ -289,6 +290,45 @@
 
 		if ("waiting IPC screen")
 			return "#FFFFFF"
+
+		if ("nanotrasen IPC screen")
+			return LIGHT_COLOR_BLUE
+
+		if ("hephaestus IPC screen")
+			return LIGHT_COLOR_ORANGE
+
+		if ("idris IPC screen")
+			return LIGHT_COLOR_CYAN
+
+		if ("zavodskoi IPC screen")
+			return LIGHT_COLOR_RED
+
+		if ("zeng-hu IPC screen")
+			return "#FFFFFF"
+
+		if ("scc IPC screen")
+			return LIGHT_COLOR_BLUE
+
+		if ("republic of biesel IPC screen")
+			return "#FFFFFF"
+
+		if ("sol alliance IPC screen")
+			return "#FFFFFF"
+
+		if ("coalition of colonies IPC screen")
+			return LIGHT_COLOR_BLUE
+
+		if ("republic of elyra IPC screen")
+			return LIGHT_COLOR_YELLOW
+
+		if ("eridani IPC screen")
+			return "#FFFFFF"
+
+		if ("burzsia IPC screen")
+			return LIGHT_COLOR_ORANGE
+
+		if ("trinary perfection IPC screen")
+			return LIGHT_COLOR_RED
 
 /datum/species/machine/before_equip(var/mob/living/carbon/human/H)
 	. = ..()

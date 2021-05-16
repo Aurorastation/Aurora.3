@@ -194,7 +194,8 @@
 	gear_tweaks += new/datum/gear_tweak/path(pants)
 
 /datum/gear/uniform/colorpants
-	display_name = "pants (recolorable)"
+	display_name = "pants selection (recolorable)"
+	description = "A selection of recolourable pants."
 	path = /obj/item/clothing/under/pants/dress
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -202,7 +203,10 @@
 	..()
 	var/list/colorpants = list()
 	colorpants["dress pants"] = /obj/item/clothing/under/pants/dress
+	colorpants["dress pants, with belt"] = /obj/item/clothing/under/pants/dress/belt
 	colorpants["striped pants"] = /obj/item/clothing/under/pants/striped
+	colorpants["tailored jeans"] = /obj/item/clothing/under/pants/tailoredjeans
+	colorpants["mustang jeans"] = /obj/item/clothing/under/pants/musthangcolour
 	gear_tweaks += new/datum/gear_tweak/path(colorpants)
 
 /datum/gear/uniform/turtleneck
@@ -220,7 +224,6 @@
 	var/list/suit = list()
 	suit["dominia suit, red"] = /obj/item/clothing/under/dominia
 	suit["dominia suit, black"] = /obj/item/clothing/under/dominia/black
-	suit["dominia sweater"] = /obj/item/clothing/under/dominia/sweater
 	suit["lyodsuit"] = /obj/item/clothing/under/dominia/lyodsuit
 	suit["hoodied lyodsuit"] = /obj/item/clothing/under/dominia/lyodsuit/hoodie
 	suit["dominia noblewoman dress"] = /obj/item/clothing/under/dominia/dress
@@ -239,6 +242,24 @@
 		var/obj/item/clothing/under/dominia/dress/D = new dress //I'm not typing all this shit manually. Jesus christ.
 		suit["[D.name]"] = D.type
 	gear_tweaks += new/datum/gear_tweak/path(suit)
+
+/datum/gear/uniform/dominia_consular
+	display_name = "dominian consular clothing selection"
+	description = "A selection of Dominian clothing belonging to the Diplomatic Service."
+	path = /obj/item/clothing/under/dominia/consular
+	allowed_roles = list("Consular Officer")
+
+/datum/gear/uniform/dominia_consular/New()
+	..()
+	var/list/consular = list()
+	consular["dominian consular officer's uniform, masculine"] = /obj/item/clothing/under/dominia/consular
+	consular["dominian consular officer's uniform, feminine"] = /obj/item/clothing/under/dominia/consular/dress
+	gear_tweaks += new/datum/gear_tweak/path(consular)
+
+/datum/gear/uniform/fisanduhian_sweater
+	display_name = "fisanduhian sweater"
+	path = /obj/item/clothing/under/dominia/sweater
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/uniform/elyra_holo
 	display_name = "elyran holographic suit selection"

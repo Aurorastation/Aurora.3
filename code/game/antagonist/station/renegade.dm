@@ -5,7 +5,7 @@ var/datum/antagonist/renegade/renegades
 	role_text_plural = "Renegades"
 	welcome_text = "You're extremely paranoid today. For your entire life, you've theorized about a shadow corporation out for your blood and yours only. Something's here to kill you, but you don't know what... Remember that you're not a full antagonist. You can prepare to murder someone and kill, but you shouldn't actively seek conflict."
 	id = MODE_RENEGADE
-	flags = ANTAG_SUSPICIOUS | ANTAG_IMPLANT_IMMUNE | ANTAG_VOTABLE
+	flags = ANTAG_SUSPICIOUS | ANTAG_IMPLANT_IMMUNE | ANTAG_VOTABLE | ANTAG_NO_ROUNDSTART_SPAWN
 	hard_cap = 5
 	hard_cap_round = 7
 

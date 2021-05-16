@@ -376,6 +376,8 @@
 		/obj/item/storage/box/fancy/cigarettes/dromedaryco = 5,
 		/obj/item/storage/box/fancy/cigarettes/nicotine = 3,
 		/obj/item/storage/box/fancy/cigarettes/pra = 6,
+		/obj/item/storage/box/fancy/cigarettes/dpra = 6,
+		/obj/item/storage/box/fancy/cigarettes/nka = 6,
 		/obj/item/storage/chewables/rollable = 8,
 		/obj/item/storage/chewables/rollable/unathi = 6,
 		/obj/item/storage/chewables/rollable/fine = 5,
@@ -406,6 +408,8 @@
 		/obj/item/storage/box/fancy/cigarettes/dromedaryco = 82,
 		/obj/item/storage/box/fancy/cigarettes/nicotine = 89,
 		/obj/item/storage/box/fancy/cigarettes/pra = 79,
+		/obj/item/storage/box/fancy/cigarettes/dpra = 84,
+		/obj/item/storage/box/fancy/cigarettes/nka = 74,
 		/obj/item/storage/chewables/rollable = 63,
 		/obj/item/storage/chewables/rollable/unathi = 65,
 		/obj/item/storage/chewables/rollable/fine = 69,
@@ -459,6 +463,7 @@
 		/obj/item/reagent_containers/glass/bottle/perconol = 3,
 		/obj/item/reagent_containers/glass/bottle/toxin = 1,
 		/obj/item/reagent_containers/glass/bottle/coughsyrup = 4,
+		/obj/item/reagent_containers/glass/bottle/thetamycin = 1,
 		/obj/item/reagent_containers/syringe = 12,
 		/obj/item/device/healthanalyzer = 5,
 		/obj/item/device/breath_analyzer = 2,
@@ -473,7 +478,8 @@
 		/obj/item/reagent_containers/pill/cetahydramine = 6,
 		/obj/item/reagent_containers/pill/perconol = 6,
 		/obj/item/reagent_containers/food/drinks/medcup = 4,
-		/obj/item/storage/pill_bottle = 4
+		/obj/item/storage/pill_bottle = 4,
+		/obj/item/reagent_containers/spray/sterilizine = 2
 	)
 	contraband = list(
 		/obj/item/reagent_containers/inhaler/space_drugs = 2,
@@ -652,13 +658,16 @@
 		/obj/item/seeds/chiliseed = 3,
 		/obj/item/seeds/cocoapodseed = 3,
 		/obj/item/seeds/cornseed = 3,
+		/obj/item/seeds/dynseed = 3,
 		/obj/item/seeds/replicapod = 3,
 		/obj/item/seeds/earthenroot = 2,
 		/obj/item/seeds/eggplantseed = 3,
+		/obj/item/seeds/eki = 3,
 		/obj/item/seeds/garlicseed = 3,
 		/obj/item/seeds/grapeseed = 3,
 		/obj/item/seeds/grassseed = 3,
 		/obj/item/seeds/greengrapeseed = 3,
+		/obj/item/seeds/guamiseed = 3,
 		/obj/item/seeds/harebell = 3,
 		/obj/item/seeds/lemonseed = 3,
 		/obj/item/seeds/limeseed = 3,
@@ -673,6 +682,7 @@
 		/obj/item/seeds/poppyseed = 3,
 		/obj/item/seeds/potatoseed = 3,
 		/obj/item/seeds/pumpkinseed = 3,
+		/obj/item/seeds/qlortseed = 3,
 		/obj/item/seeds/riceseed = 3,
 		/obj/item/seeds/reishimycelium = 3,
 		/obj/item/seeds/shandseed = 3,
@@ -686,8 +696,8 @@
 		/obj/item/seeds/watermelonseed = 3,
 		/obj/item/seeds/wheatseed = 3,
 		/obj/item/seeds/whitebeetseed = 3,
-		/obj/item/seeds/dynseed = 3,
-		/obj/item/seeds/wulumunushaseed = 2
+		/obj/item/seeds/wulumunushaseed = 2,
+		/obj/item/seeds/ylpha = 3
 	)
 	contraband = list(
 		/obj/item/seeds/amanitamycelium = 3,

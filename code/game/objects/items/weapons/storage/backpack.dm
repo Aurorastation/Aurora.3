@@ -113,17 +113,19 @@
 	name = "adorned backpack"
 	desc = "A backpack adorned with various decorations."
 
-/obj/item/storage/backpack/clown
-	name = "Giggles von Honkerton"
-	desc = "It's a backpack made by Honk! Co."
-	icon_state = "clownpack"
-	item_state_slots = null
-
 /obj/item/storage/backpack/medic
 	name = "medical backpack"
 	desc = "It's a backpack especially designed for use in a sterile environment."
 	icon_state = "medicalpack"
 	item_state_slots = null
+
+/obj/item/storage/backpack/medic/first_responder
+	name = "first responder backpack"
+	desc = "A bulky easy-clean backpack specially designed to carry a First Responder's equipment."
+	icon = 'icons/clothing/kit/first_responder.dmi'
+	icon_state = "firstresponderbackpack"
+	item_state = "firstresponderbackpack"
+	contained_sprite = TRUE
 
 /obj/item/storage/backpack/security
 	name = "security backpack"
@@ -172,9 +174,8 @@
 
 /obj/item/storage/backpack/cloak
 	name = "tunnel cloak"
-	desc = "It's a Vaurca cloak, with paltry storage options."
+	desc = "It's a Vaurca cloak with storage pockets."
 	icon_state = "cape"
-	max_storage_space = 12
 	sprite_sheets = list(BODYTYPE_VAURCA = 'icons/mob/species/vaurca/back.dmi')
 
 /obj/item/storage/backpack/syndie
@@ -528,5 +529,5 @@
 		/obj/item/material/knife,
 		/obj/item/material/hatchet/butch,
 		/obj/item/reagent_containers/food/drinks/drinkingglass,
-		/obj/item/storage/toolbox/lunchbox/nt
+		/obj/item/storage/toolbox/lunchbox
 		)

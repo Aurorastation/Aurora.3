@@ -113,10 +113,9 @@
 	// One cane mitigates a broken leg+foot, or a missing foot.
 	// No double caning allowed, sorry. Canes also don't work if you're missing a functioning pair of feet or legs.
 	if(has_opposite_limb)
-		if(l_hand && istype(l_hand, /obj/item/cane))
-			stance_damage -= 2
-		else if(r_hand && istype(r_hand, /obj/item/cane))
-			stance_damage -= 2
+		var/obj/item/cane/C = get_type_in_hands(/obj/item/cane)
+		if(C?.can_support)
+			stance_damage -=2
 
 	//Standing is poor.
 	if(stance_damage >= 4 || (stance_damage >= 2 && prob(5)))
@@ -224,9 +223,9 @@
 /mob/living/carbon/human/is_asystole()
 	if(isSynthetic())
 		var/obj/item/organ/internal/cell/C = internal_organs_by_name[BP_CELL]
-		if(istype(C))
-			if(!C.is_usable() || !C.percent())
-				return TRUE
+		if(istype(C) && C.is_usable() && C.percent())
+			return FALSE
+		return TRUE
 	else if(should_have_organ(BP_HEART))
 		var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
 		if(!istype(heart) || !heart.is_working())

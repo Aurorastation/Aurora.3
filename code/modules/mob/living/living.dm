@@ -671,7 +671,7 @@ default behaviour is:
 		stop_pulling()
 		. = ..()
 
-	if (s_active && !( s_active in contents ) && get_turf(s_active) != get_turf(src))	//check !( s_active in contents ) first so we hopefully don't have to call get_turf() so much.
+	if (s_active && !s_active.Adjacent(src))	//check !( s_active in contents ) first so we hopefully don't have to call get_turf() so much.
 		s_active.close(src)
 
 	if(update_slimes)
@@ -808,6 +808,11 @@ default behaviour is:
 
 /mob/living/proc/has_eyes()
 	return 1
+
+/mob/living/proc/eyes_protected(var/obj/stab_item, var/stabbed = FALSE) // if stabbed is set to true if we're being stabbed and not just checking
+	if(!has_eyes())
+		return TRUE
+	return FALSE
 
 /mob/living/proc/slip(var/slipped_on,stun_duration=8)
 	return 0

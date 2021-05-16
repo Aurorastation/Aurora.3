@@ -30,7 +30,7 @@
 	user.drop_item()
 	playsound(src.loc, 'sound/items/package_unwrap.ogg', 50,1)
 	if(src.gift)
-		user.put_in_active_hand(gift)
+		user.put_in_hands(gift)
 		src.gift.add_fingerprint(user)
 	else
 		to_chat(user, "<span class='warning'>The gift was empty!</span>")
@@ -200,7 +200,6 @@
 		/obj/item/storage/box/fancy/cigarettes/dromedaryco,
 		/obj/item/toy/bosunwhistle,
 		/obj/item/clothing/mask/fakemoustache,
-		/obj/item/clothing/mask/gas/clown_hat,
 		/obj/item/clothing/mask/gas/mime,
 		/obj/item/clothing/head/festive/santa,
 		/obj/item/stack/material/animalhide/lizard,
@@ -244,7 +243,6 @@
 
 /obj/item/xmasgift/medium/get_gift_type()
 	var/picked_gift_type = pick(
-		/obj/item/sord,
 		/obj/random/booze,
 		/obj/random/random_flag,
 		/obj/item/storage/belt/champion,
@@ -269,7 +267,6 @@
 		/obj/item/device/flashlight/lantern,
 		/obj/item/clothing/mask/balaclava,
 		/obj/item/clothing/accessory/badge/old,
-		/obj/item/clothing/mask/gas/clown_hat,
 		/obj/item/clothing/mask/gas/mime,
 		/obj/item/clothing/shoes/galoshes,
 		/mob/living/simple_animal/lizard,
@@ -312,7 +309,6 @@
 		/obj/item/inflatable_duck,
 		/obj/item/beach_ball,
 		/obj/item/clothing/under/syndicate/tracksuit,
-		/obj/item/clothing/under/rank/clown,
 		/obj/item/clothing/under/mime,
 		/obj/item/clothing/under/rank/fatigues/marine,
 		/obj/item/clothing/under/rank/dress/marine,

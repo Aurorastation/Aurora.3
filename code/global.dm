@@ -134,8 +134,7 @@ var/static/list/scarySounds = list(
 	'sound/items/welder.ogg',
 	'sound/items/welder_pry.ogg',
 	'sound/machines/airlock.ogg',
-	'sound/effects/clownstep1.ogg',
-	'sound/effects/clownstep2.ogg'
+
 )
 
 // Bomb cap!

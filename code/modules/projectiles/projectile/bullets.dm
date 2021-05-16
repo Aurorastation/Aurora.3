@@ -122,6 +122,7 @@
 
 /obj/item/projectile/bullet/pistol
 	damage = 25
+	armor_penetration = 10
 
 /obj/item/projectile/bullet/pistol/medium
 	damage = 30
@@ -202,14 +203,14 @@
 	penetrating = TRUE
 
 /obj/item/projectile/bullet/rifle/a762
-	damage = 45
+	damage = 40
 	armor_penetration = 20
 
 /obj/item/projectile/bullet/rifle/a556
-	damage = 45
+	damage = 40
 	armor_penetration = 15
 
-/obj/item/projectile/bullet/rifle/a556/ap
+/obj/item/projectile/bullet/rifle/a556/ap 
 	damage = 35
 	armor_penetration = 40
 
@@ -279,7 +280,7 @@
 
 	if(isanimal(target))
 		target.visible_message("<b>[target]</b> twitches, foaming at the mouth.")
-		L.apply_damage(35, TOX) //temporary until simple_mob paralysis actually works.
+		L.apply_damage(35, TOX) //temporary until simple_animal paralysis actually works.
 	..()
 
 /* Miscellaneous */
@@ -345,6 +346,7 @@
 /obj/item/projectile/bullet/gauss/highex
 	name = "high-ex shell"
 	damage = 10
+	armor_penetration = 30
 
 /obj/item/projectile/bullet/gauss/highex/on_impact(var/atom/A)
 	explosion(A, -1, 0, 2)

@@ -1,12 +1,13 @@
 /obj/item/rig/terminator
 	name = "\improper Military Frame exoskeleton"
 	desc = "A robust synth exoskeleton outfitted with state of the art infiltration tools. Creepy."
+	icon = 'icons/clothing/rig/terminator.dmi'
 	icon_state = "terminator_rig"
 	suit_type = "synthetic exoskeleton"
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
 		bullet = ARMOR_BALLISTIC_RIFLE,
-		laser = ARMOR_LASER_RIFLES,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_MELEE_MINOR,
 		bomb = ARMOR_BOMB_SHIELDED,
 		bio = ARMOR_BIO_SHIELDED,

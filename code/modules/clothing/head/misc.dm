@@ -531,7 +531,7 @@
 
 /obj/item/clothing/head/navy
 	name = "sol navy utility cover"
-	desc = "An eight pointed cover issued to Sol Alliance navy members as part of their field uniform."
+	desc = "A military cover issued to Sol Alliance navy members as part of their field uniform."
 	icon = 'icons/obj/sol_uniform.dmi'
 	icon_state = "greyutility"
 	item_state = "greyutility"
@@ -556,32 +556,32 @@
 	contained_sprite = 1
 
 /obj/item/clothing/head/dress
-	name = "sol navy dress cap"
-	desc = "A white cap issued as part of the Sol Alliance navy dress uniform."
+	name = "sol navy black peaked cap"
+	desc = "A black cap issued as part of the Sol Alliance naval officer uniforms. This one is worn by junior officers."
 	icon = 'icons/obj/sol_uniform.dmi'
 	icon_state = "whitepeakcap"
 	item_state = "whitepeakcap"
 	contained_sprite = 1
 
 /obj/item/clothing/head/dress/marine
-	name = "sol marine dress cap"
-	desc = "A green cap issued as part of the Sol Alliance marine dress uniform."
+	name = "sol marine peaked cap"
+	desc = "A green cap issued as part of the Sol Alliance marine service and dress uniforms."
 	icon = 'icons/obj/sol_uniform.dmi'
 	icon_state = "whitepeakcap"
 	item_state = "whitepeakcap"
 	contained_sprite = 1
 
 /obj/item/clothing/head/dress/officer
-	name = "sol navy officer dress cap"
-	desc = "A white cap issued as part of the Sol Alliance navy officers dress uniform."
+	name = "sol navy officer peaked cap"
+	desc = "A white cap issued as part of the Sol Alliance naval officer uniforms. This one is worn by senior officers."
 	icon = 'icons/obj/sol_uniform.dmi'
 	icon_state = "whitewheelcap"
 	item_state = "whitewheelcap"
 	contained_sprite = 1
 
 /obj/item/clothing/head/dress/admiral
-	name = "sol navy admiral dress cap"
-	desc = "A fancy looking cap issued to a higher member of the Sol Alliance navy."
+	name = "sol navy admiral peaked cap"
+	desc = "A white cap issued as part of the Sol Alliance naval officer uniforms. This one is worn by admirals."
 	icon = 'icons/obj/sol_uniform.dmi'
 	icon_state = "admiral_cap"
 	item_state = "admiral_cap"
@@ -595,7 +595,7 @@
 	item_state = "helmet_tac_sol"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
 		laser = ARMOR_LASER_MAJOR,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED

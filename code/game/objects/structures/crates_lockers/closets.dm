@@ -155,9 +155,12 @@
 	if(linked_teleporter)
 		if(linked_teleporter.last_use + 600 > world.time)
 			return
+		var/did_teleport = FALSE
 		for(var/mob/M in contents)
+			did_teleport = TRUE
 			linked_teleporter.do_teleport(M)
-		linked_teleporter.last_use = world.time
+		if(did_teleport)
+			linked_teleporter.last_use = world.time
 
 	playsound(get_turf(src), close_sound, 25, 0, -3)
 	density = initial(density)

@@ -208,7 +208,7 @@
 	muzzle_flash = 10
 
 #define GATLINGLASER_DISPERSION_CONCENTRATED list(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-#define GATLINGLASER_DISPERSION_SPRAY list(0, 5, 5, 10, 10, 15, 15, 20, 20, 25, 25, 30, 30, 35, 40, 45)
+#define GATLINGLASER_DISPERSION_SPRAY list(0, 5, 5, 10, 10, 15, 15, 20, 20, 25, 25, 25, 30, 30, 35, 40)
 
 /obj/item/gun/energy/vaurca/gatlinglaser
 	name = "gatling laser"
@@ -224,21 +224,22 @@
 	w_class = ITEMSIZE_LARGE
 	force = 10
 	projectile_type = /obj/item/projectile/beam/gatlinglaser
-	max_shots = 80
+	max_shots = 350
 	sel_mode = 1
 	burst = 10
 	burst_delay = 1
-	fire_delay = 10
+	fire_delay = 8
 	dispersion = GATLINGLASER_DISPERSION_CONCENTRATED
 
 	is_wieldable = TRUE
 
 	firemodes = list(
-		list(mode_name="concentrated burst", burst=10, burst_delay = 1, fire_delay = 10, dispersion = GATLINGLASER_DISPERSION_CONCENTRATED),
-		list(mode_name="spray", burst=20, burst_delay = 1, move_delay = 5, fire_delay = 30, dispersion = GATLINGLASER_DISPERSION_SPRAY)
+		list(mode_name="concentrated burst", burst=12, burst_delay = 1, move_delay=5, dispersion = GATLINGLASER_DISPERSION_CONCENTRATED),
+		list(mode_name="spray", burst=22, burst_delay = 1, move_delay = 8, dispersion = GATLINGLASER_DISPERSION_SPRAY),
+		list(mode_name="massive spray", burst=32, burst_delay = 1, move_delay = 10, dispersion = GATLINGLASER_DISPERSION_SPRAY),
 		)
 
-	charge_cost = 50
+	charge_cost = 40
 
 /obj/item/gun/energy/vaurca/gatlinglaser/special_check(var/mob/user)
 	if(is_charging)
@@ -314,7 +315,7 @@
 	burst_delay = 1
 	fire_delay = 30
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	anchored = 0
 	armor_penetration = 40
 	flags = NOBLOODY

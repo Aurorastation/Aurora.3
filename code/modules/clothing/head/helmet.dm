@@ -9,8 +9,8 @@
 	item_flags = THICKMATERIAL
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_RESISTANT,
-		laser = ARMOR_LASER_HANDGUNS,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED
 	)
@@ -134,7 +134,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_SMALL,
 		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_RIFLES,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_RESISTANT
 	)
 	siemens_coefficient = 0
@@ -165,7 +165,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
 		bullet = ARMOR_BALLISTIC_RIFLE,
-		laser = ARMOR_LASER_HANDGUNS,
+		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_RESISTANT,
 		bomb = ARMOR_BOMB_PADDED
 	)
@@ -184,8 +184,8 @@
 	item_state = "swat"
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_RESISTANT,
-		laser = ARMOR_LASER_HANDGUNS,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_RESISTANT,
 		bomb = ARMOR_BOMB_PADDED
 	)
@@ -223,8 +223,8 @@
 	icon_state = "thunderdome"
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_RESISTANT,
-		laser = ARMOR_LASER_HANDGUNS,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_RESISTANT,
 		bomb = ARMOR_BOMB_PADDED
 	)
@@ -252,7 +252,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_RIFLE,
-		laser = ARMOR_LASER_HANDGUNS,
+		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_RESISTANT,
 		bomb = ARMOR_BOMB_PADDED
 	)
@@ -265,8 +265,8 @@
 	icon_state = "v62"
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_RESISTANT,
-		laser = ARMOR_LASER_HANDGUNS,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_RESISTANT,
 		bomb = ARMOR_BOMB_PADDED
 	)
@@ -299,7 +299,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_HANDGUNS,
+		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
 	)
@@ -313,7 +313,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
 		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_HANDGUNS,
+		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED,
 		rad = ARMOR_RAD_MINOR
@@ -329,7 +329,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_HANDGUNS,
+		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_RESISTANT,
 		bomb = ARMOR_BOMB_PADDED,
 		rad = ARMOR_RAD_RESISTANT
@@ -368,7 +368,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_RIFLE,
-		laser = ARMOR_LASER_HANDGUNS,
+		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_RESISTANT,
 		bomb = ARMOR_BIO_MINOR
 	)
@@ -423,41 +423,3 @@
 	light_wedge = LIGHT_WIDE
 	camera = /obj/machinery/camera/network/tcfl
 	on = 0
-
-/obj/item/clothing/head/helmet/legion_pilot
-	name = "foreign legion flight helmet"
-	desc = "A helmet with an aged pilot visor mounted to it. The visor feeds its wearer in-flight information via a heads-up display."
-	icon_state = "legion_pilot_up"
-	body_parts_covered = null
-	flags_inv = BLOCKHEADHAIR
-	armor = list(
-		melee = ARMOR_MELEE_KNIVES,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED
-	)
-	camera = /obj/machinery/camera/network/tcfl
-	siemens_coefficient = 0.35
-	action_button_name = "Flip Pilot Visor"
-
-/obj/item/clothing/head/helmet/legion_pilot/attack_self()
-	flip_visor()
-
-/obj/item/clothing/head/helmet/legion_pilot/verb/flip_visor()
-	set category = "Object"
-	set name = "Flip pilot visor"
-	var/mob/living/carbon/human/user
-	if(istype(usr,/mob/living/carbon/human))
-		user = usr
-	else
-		return
-	if(icon_state == initial(icon_state))
-		icon_state = "legion_pilot"
-		to_chat(user, "You flip down the pilot visor.")
-		sound_to(user, 'sound/items/goggles_charge.ogg')
-	else
-		icon_state = initial(icon_state)
-		to_chat(user, "You flip up the pilot visor.")
-	update_clothing_icon()
-	user.update_action_buttons()

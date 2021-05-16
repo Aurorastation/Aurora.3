@@ -647,6 +647,13 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	if (progbar)
 		qdel(progbar)
 
+/proc/atom_maintain_position(var/atom/A, var/atom/location)
+	if(QDELETED(A) || QDELETED(location))
+		return FALSE
+	if(A.loc != location)
+		return FALSE
+	return TRUE
+
 //Takes: Anything that could possibly have variables and a varname to check.
 //Returns: 1 if found, 0 if not.
 /proc/hasvar(var/datum/A, var/varname)
@@ -717,6 +724,21 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	else if (zone == BP_R_HAND) return "right hand"
 	else if (zone == BP_L_FOOT) return "left foot"
 	else if (zone == BP_R_FOOT) return "right foot"
+	else return zone
+
+/proc/reverse_parse_zone(zone)
+	if(zone == "right hand") return BP_R_HAND
+	else if (zone == "left hand") return BP_L_HAND
+	else if (zone == "left arm") return BP_L_ARM
+	else if (zone == "right arm") return BP_R_ARM
+	else if (zone == "left leg") return BP_L_LEG
+	else if (zone == "right leg") return BP_R_LEG
+	else if (zone == "left foot") return BP_L_FOOT
+	else if (zone == "right foot") return BP_R_FOOT
+	else if (zone == "left hand") return BP_L_HAND
+	else if (zone == "right hand") return BP_R_HAND
+	else if (zone == "left foot") return BP_L_FOOT
+	else if (zone == "right foot") return BP_R_FOOT
 	else return zone
 
 /proc/get(atom/loc, type)
@@ -796,23 +818,6 @@ var/global/list/common_tools = list(
 		return 1
 	return 0
 
-//Returns 1 if the given item is capable of popping things like balloons, inflatable barriers, or cutting police tape.
-/proc/can_puncture(obj/item/W as obj)		// For the record, WHAT THE HELL IS THIS METHOD OF DOING IT?
-	if(!W)
-		return 0
-	if(W.sharp)
-		return 1
-	return ( \
-		W.sharp													  || \
-		W.isscrewdriver()                   || \
-		W.ispen()                           || \
-		W.iswelder()					  || \
-		istype(W, /obj/item/flame/lighter/zippo)			  || \
-		istype(W, /obj/item/flame/match)            		  || \
-		istype(W, /obj/item/clothing/mask/smokable/cigarette) 		      || \
-		istype(W, /obj/item/shovel) \
-	)
-
 /proc/is_surgery_tool(obj/item/W)
 	return istype(W, /obj/item/surgery)
 
@@ -823,7 +828,7 @@ var/global/list/common_tools = list(
 /proc/can_operate(mob/living/carbon/M) //If it's 2, commence surgery, if it's 1, fail surgery, if it's 0, attack
 	var/surgery_attempt = SURGERY_IGNORE
 	var/located = FALSE
-	if(locate(/obj/machinery/optable, M.loc))
+	if(istype(M.buckled_to, /obj/machinery/stasis_bed) || locate(/obj/machinery/optable, M.loc))
 		located = TRUE
 		surgery_attempt = SURGERY_SUCCESS
 	else if(locate(/obj/structure/bed/roller, M.loc))

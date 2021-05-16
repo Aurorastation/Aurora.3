@@ -67,7 +67,7 @@
 		"i_clothing" =   list("loc" = ui_iclothing, "name" = "uniform",      "slot" = slot_w_uniform, "state" = "center", "toggle" = 1),
 		"o_clothing" =   list("loc" = ui_shoes,     "name" = "suit",         "slot" = slot_wear_suit, "state" = "suit",   "toggle" = 1),
 		"l_ear" =        list("loc" = ui_glasses,   "name" = "left ear",     "slot" = slot_l_ear,     "state" = "l_ear",   "toggle" = 1),
-		"r_ear" =        list("loc" = ui_l_ear,		"name" = "right ear",    "slot" = slot_r_ear,     "state" = "r_ear",   "toggle" = 1),
+		"r_ear" =        list("loc" = ui_wrists,	"name" = "right ear",    "slot" = slot_r_ear,     "state" = "r_ear",   "toggle" = 1),
 		"head" =         list("loc" = ui_mask, 		"name" = "hat",          "slot" = slot_head,      "state" = "hair",   "toggle" = 1),
 		"suit storage" = list("loc" = ui_sstore1,   "name" = "suit storage", "slot" = slot_s_store,   "state" = "suitstore"),
 		"back" =         list("loc" = ui_back,      "name" = "back",         "slot" = slot_back,      "state" = "back"),

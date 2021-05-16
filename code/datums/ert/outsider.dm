@@ -2,6 +2,7 @@
 	name = "Independent Mercenaries"
 	chance = 15
 	spawner = /datum/ghostspawner/human/ert/mercenary
+	equipment_map = /datum/map_template/distress_freelancers
 
 /datum/responseteam/kataphracts
 	name = "Kataphracts"
@@ -16,11 +17,16 @@
 	equipment_map = /datum/map_template/distress_iac
 	admin = TRUE
 
-/datum/responseteam/med_eridani
-	name = "Eridani Medical Team"
-	chance = 10
-	spawner = /datum/ghostspawner/human/ert/med_eridani
+/datum/responseteam/ap_eridani
+	name = "Eridani Asset Protection Team"
+	chance = 15
+	spawner = /datum/ghostspawner/human/ert/ap_eridani
 	equipment_map = /datum/map_template/distress_iac
+
+/datum/responseteam/fsf
+	name = "Free Solarian Fleets Fireteam"
+	chance = 15
+	spawner = /datum/ghostspawner/human/ert/fsf
 
 /datum/responseteam/syndicate
 	name = "Syndicate Commandos"

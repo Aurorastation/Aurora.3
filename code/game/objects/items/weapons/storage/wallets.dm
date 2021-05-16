@@ -35,13 +35,22 @@
 		/obj/item/stamp,
 		/obj/item/device/paicard,
 		/obj/item/device/encryptionkey,
-		/obj/item/fluff)
+		/obj/item/fluff,
+		/obj/item/storage/business_card_holder,
+		/obj/item/clothing/head/bandana,
+		/obj/item/sample
+	)
 	slot_flags = SLOT_ID
 
 	var/obj/item/card/id/front_id = null
 	var/flipped = null
 	var/flippable = 1
 	var/wear_over_suit = 0
+	var/base_name = ""
+
+/obj/item/storage/wallet/Initialize()
+	. = ..()
+	base_name = name
 
 
 /obj/item/storage/wallet/remove_from_storage(obj/item/W as obj, atom/new_location)
@@ -49,7 +58,7 @@
 	if(.)
 		if(W == front_id)
 			front_id = null
-			name = initial(name)
+			name = base_name
 			update_icon()
 
 /obj/item/storage/wallet/handle_item_insertion(obj/item/W as obj, prevent_warning = 0)

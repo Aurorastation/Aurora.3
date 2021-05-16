@@ -104,22 +104,21 @@
 	if(!InStasis())
 		..()
 
-// Calculate how vulnerable the human is to under- and overpressure.
-// Returns 0 (equals 0 %) if sealed in an undamaged suit, 1 if unprotected (equals 100%).
+// Calculate how vulnerable the human is to the current pressure.
+// Returns 0 (equals 0 %) if sealed in an undamaged suit that's rated for the pressure, 1 if unprotected (equals 100%).
 // Suitdamage can modifiy this in 10% steps.
-/mob/living/carbon/human/get_pressure_weakness()
-	var/pressure_adjustment_coefficient = 1 // Assume no protection at first.
-
-	if(wear_suit && (wear_suit.item_flags & STOPPRESSUREDAMAGE) && head && (head.item_flags & STOPPRESSUREDAMAGE)) // Complete set of pressure-proof suit worn, assume fully sealed.
-		pressure_adjustment_coefficient = 0
-
-		// Handles breaches in your space suit. 10 suit damage equals a 100% loss of pressure protection.
-		if(istype(wear_suit,/obj/item/clothing/suit/space))
-			var/obj/item/clothing/suit/space/S = wear_suit
-			if(S.can_breach && S.damage)
-				pressure_adjustment_coefficient += S.damage * 0.1
-
-	pressure_adjustment_coefficient = min(1,max(pressure_adjustment_coefficient,0)) // So it isn't less than 0 or larger than 1.
+/mob/living/carbon/human/get_pressure_weakness(pressure)
+	var/pressure_adjustment_coefficient = 0
+	var/list/zones = list(HEAD, UPPER_TORSO, LOWER_TORSO, LEGS, FEET, ARMS, HANDS)
+	for(var/zone in zones)
+		var/list/covers = get_covering_equipped_items(zone)
+		var/zone_exposure = 1
+		for(var/obj/item/clothing/C in covers)
+			zone_exposure = min(zone_exposure, C.get_pressure_weakness(pressure,zone))
+		if(zone_exposure >= 1)
+			return 1
+		pressure_adjustment_coefficient = max(pressure_adjustment_coefficient, zone_exposure)
+	pressure_adjustment_coefficient = Clamp(pressure_adjustment_coefficient, 0, 1) // So it isn't less than 0 or larger than 1.
 
 	return pressure_adjustment_coefficient
 
@@ -216,10 +215,12 @@
 				pixel_x = old_x
 				pixel_y = old_y
 				return
-	if (disabilities & STUTTERING)
-		speech_problem_flag = 1
-		if (prob(10))
-			stuttering = max(10, stuttering)
+	if(disabilities & STUTTERING)
+		var/aid = 1 + chem_effects[CE_NOSTUTTER]
+		if(aid < 3) //NOSTUTTER at 2 or above prevents it completely.
+			speech_problem_flag = 1
+			if(prob(10/aid))
+				stuttering = max(10/aid, stuttering)
 
 /mob/living/carbon/human/handle_mutations_and_radiation()
 	if(InStasis())
@@ -642,11 +643,14 @@
 			stamina_recovery *= 1 + 0.3 * chem_effects[CE_SPEEDBOOST]
 			move_delay_mod += -1.5 * chem_effects[CE_SPEEDBOOST]
 
-		var/total_phoronloss = 0
 		for(var/obj/item/I in src)
 			if(I.contaminated && !(isvaurca(src) && src.species.has_organ[BP_FILTRATION_BIT]))
-				total_phoronloss += vsc.plc.CONTAMINATION_LOSS
-		if(!(status_flags & GODMODE)) adjustToxLoss(total_phoronloss)
+				if(I == r_hand)
+					apply_damage(vsc.plc.CONTAMINATION_LOSS, BURN, BP_R_HAND)
+				else if(I == l_hand)
+					apply_damage(vsc.plc.CONTAMINATION_LOSS, BURN, BP_L_HAND)
+				else
+					adjustFireLoss(vsc.plc.CONTAMINATION_LOSS)
 
 	if (intoxication)
 		handle_intoxication()
@@ -742,7 +746,7 @@
 			if (species.tail)
 				animate_tail_reset()
 			if(prob(2) && is_asystole() && isSynthetic())
-				visible_message("<b>[src]</b> [pick("emits low pitched whirr","beeps urgently")]")
+				visible_message("<b>[src]</b> [pick("emits low pitched whirr","beeps urgently")].")
 
 		if(paralysis)
 			AdjustParalysis(-1)
@@ -957,7 +961,7 @@
 
 			if(isSynthetic())
 				var/obj/item/organ/internal/cell/IC = internal_organs_by_name[BP_CELL]
-				if (istype(IC))
+				if(istype(IC) && IC.is_usable())
 					var/chargeNum = Clamp(Ceiling(IC.percent()/25), 0, 4)	//0-100 maps to 0-4, but give it a paranoid clamp just in case.
 					cells.icon_state = "charge[chargeNum]"
 				else
@@ -1073,16 +1077,22 @@
 /mob/living/carbon/human/proc/handle_shock()
 	if(status_flags & GODMODE)
 		return 0
+	var/is_asystole = is_asystole()
+	if(is_asystole && isSynthetic())
+		if(!lying && !buckled_to)
+			to_chat(src, SPAN_WARNING("You don't have enough energy to function!"))
+		Paralyse(3)
+		return
 	if(!can_feel_pain())
 		return
 
-	if(is_asystole())
+	if(is_asystole)
 		shock_stage = max(shock_stage + 1, 61)
 
 	var/traumatic_shock = get_shock()
 	if(traumatic_shock >= max(30, 0.8*shock_stage))
 		shock_stage += 1
-	else if (!is_asystole())
+	else if (!is_asystole)
 		shock_stage = min(shock_stage, 160)
 		var/recovery = 1
 		if(traumatic_shock < 0.5 * shock_stage) //lower shock faster if pain is gone completely
@@ -1143,15 +1153,21 @@
 /mob/living/carbon/human/proc/handle_hud_list(var/force_update = FALSE)
 	if(force_update)
 		hud_updateflag = 1022
-	if (BITTEST(hud_updateflag, HEALTH_HUD) && hud_list[HEALTH_HUD])
-		var/image/holder = hud_list[HEALTH_HUD]
-		if(stat == DEAD || (status_flags & FAKEDEATH))
-			holder.icon_state = "0" 	// X_X
-		else if(is_asystole())
-			holder.icon_state = "flatline"
-		else
-			holder.icon_state = "[pulse()]"
-		hud_list[HEALTH_HUD] = holder
+
+	if (BITTEST(hud_updateflag, HEALTH_HUD))
+		if(hud_list[HEALTH_HUD])
+			var/image/holder = hud_list[HEALTH_HUD]
+			if(stat == DEAD || (status_flags & FAKEDEATH))
+				holder.icon_state = "0" 	// X_X
+			else if(is_asystole())
+				holder.icon_state = "flatline"
+			else
+				holder.icon_state = "[pulse()]"
+			hud_list[HEALTH_HUD] = holder
+		if(hud_list[TRIAGE_HUD])
+			var/image/holder = hud_list[TRIAGE_HUD]
+			holder.icon_state = triage_tag
+			hud_list[TRIAGE_HUD] = holder
 
 	if (BITTEST(hud_updateflag, LIFE_HUD) && hud_list[LIFE_HUD])
 		var/image/holder = hud_list[LIFE_HUD]

@@ -134,8 +134,7 @@ var/list/localhost_addresses = list(
 
 		var/request_id = text2num(href_list["linkingrequest"])
 
-		establish_db_connection(dbcon)
-		if (!dbcon.IsConnected())
+		if (!establish_db_connection(dbcon))
 			to_chat(src, "<span class='warning'>Action failed! Database link could not be established!</span>")
 			return
 
@@ -338,9 +337,6 @@ var/list/localhost_addresses = list(
 /client/New(TopicData)
 	TopicData = null							//Prevent calls to client.Topic from connect
 
-	// Load goonchat
-	chatOutput = new(src)
-
 	if(!(connection in list("seeker", "web")))					//Invalid connection type.
 		return null
 	if(byond_version < MIN_CLIENT_VERSION)		//Out of date client.
@@ -357,12 +353,15 @@ var/list/localhost_addresses = list(
 	if (LAZYLEN(config.client_blacklist_version))
 		var/client_version = "[byond_version].[byond_build]"
 		if (client_version in config.client_blacklist_version)
-			to_chat(src, "<span class='danger'><b>Your version of BYOND is explicitly blacklisted from joining this server!</b></span>")
-			to_chat(src, "Your current version: [client_version].")
-			to_chat(src, "Visit http://www.byond.com/download/ to download a different version. Try looking for a newer one, or go one lower.")
+			to_chat_immediate(src, "<span class='danger'><b>Your version of BYOND is explicitly blacklisted from joining this server!</b></span>")
+			to_chat_immediate(src, "Your current version: [client_version].")
+			to_chat_immediate(src, "Visit http://www.byond.com/download/ to download a different version. Try looking for a newer one, or go one lower.")
 			log_access("Failed Login: [key] [computer_id] [address] - Blacklisted BYOND version: [client_version].")
 			del(src)
 			return 0
+
+	if(!chatOutput)
+		chatOutput = new(src)
 
 	if(IsGuestKey(key) && config.external_auth)
 		src.authed = FALSE
@@ -370,7 +369,6 @@ var/list/localhost_addresses = list(
 		m.client = src
 		src.InitPrefs() //Init some default prefs
 		m.LateLogin()
-		chatOutput.start()
 		return m
 		//Do auth shit
 	else
@@ -378,7 +376,6 @@ var/list/localhost_addresses = list(
 		src.InitClient()
 		src.InitPrefs()
 		mob.LateLogin()
-		chatOutput.start()
 
 /client/proc/InitPrefs()
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
@@ -483,8 +480,7 @@ var/list/localhost_addresses = list(
 // Returns null if no DB connection can be established, or -1 if the requested key was not found in the database
 
 /proc/get_player_age(key)
-	establish_db_connection(dbcon)
-	if(!dbcon.IsConnected())
+	if(!establish_db_connection(dbcon))
 		return null
 
 	var/DBQuery/query = dbcon.NewQuery("SELECT datediff(Now(),firstseen) as age FROM ss13_player WHERE ckey = :ckey:")
@@ -618,8 +614,7 @@ var/list/localhost_addresses = list(
 	if (!config.webint_url || !config.sql_enabled)
 		return
 
-	establish_db_connection(dbcon)
-	if (!dbcon.IsConnected())
+	if (!establish_db_connection(dbcon))
 		return
 
 	var/list/requests = list()
@@ -656,8 +651,7 @@ var/list/localhost_addresses = list(
 	if (!config.webint_url || !config.sql_enabled)
 		return
 
-	establish_db_connection(dbcon)
-	if (!dbcon.IsConnected())
+	if (!establish_db_connection(dbcon))
 		return
 
 	var/DBQuery/select_query = dbcon.NewQuery("SELECT COUNT(*) AS request_count FROM ss13_player_linking WHERE status = 'new' AND player_ckey = :ckey: AND deleted_at IS NULL")

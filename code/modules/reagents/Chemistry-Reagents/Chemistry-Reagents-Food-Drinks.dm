@@ -14,18 +14,29 @@
 /decl/reagent/kois/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!ishuman(M))
 		return
-	var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
-	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
-		M.heal_organ_damage(1.2 * removed, 1.2 * removed)
+	var/is_vaurcalike = (alien == IS_VAURCA)
+	if(!is_vaurcalike)
+		var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
+		if(istype(P) && P.stage >= 3)
+			is_vaurcalike = TRUE
+	if(is_vaurcalike)
+		M.heal_organ_damage(1.4 * removed, 1.6 * removed)
 		M.adjustNutritionLoss(-nutriment_factor * removed)
-		M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
-
 	else
 		infect(M, alien, removed)
 
 /decl/reagent/kois/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(ishuman(M))
 		infect(M, alien, removed)
+
+/decl/reagent/kois/affect_chem_effect(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	var/is_vaurcalike = (alien == IS_VAURCA)
+	if(!is_vaurcalike)
+		var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
+		if(istype(P) && P.stage >= 3)
+			is_vaurcalike = TRUE
+	if(is_vaurcalike)
+		M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
 
 /decl/reagent/kois/proc/infect(var/mob/living/carbon/human/H, var/alien, var/removed)
 	var/obj/item/organ/internal/parasite/P = H.internal_organs_by_name["blackkois"]
@@ -2501,14 +2512,14 @@
 
 /decl/reagent/alcohol/jovian_storm
 	name = "Jovian Storm"
-	description = "Named after Jupiter’s storm. It’ll blow you away."
+	description = "Named after Jupiter's storm. It'll blow you away."
 	color = "#AA856A"
 	strength = 15
 	taste_description = "stormy sweetness"
 
 	glass_icon_state = "jovianstormglass"
 	glass_name = "glass of Jovian Storm"
-	glass_desc = "A classic Callistean drink named after Jupiter’s storm. It’ll blow you away."
+	glass_desc = "A classic Callistean drink named after Jupiter's storm. It'll blow you away."
 	glass_center_of_mass = list("x"=16, "y"=5)
 
 /decl/reagent/alcohol/bananahonk

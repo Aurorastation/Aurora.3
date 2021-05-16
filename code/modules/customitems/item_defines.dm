@@ -1934,3 +1934,247 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "rhasdrimara_veil"
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_TAJARA)
+
+/obj/item/clothing/suit/storage/toggle/fr_jacket/fluff/akila_jacket //Reflective First Responder Jacket - Akila Aksha'Shalwariran - shestrying
+	name = "reflective first responder jacket"
+	desc = "A jacket in an eye-blinding yellow, with flourescent green, light-reflective striping along the cuffs and bottom edge. A bright red cross rests on the front, over the heart."
+	icon = 'icons/obj/custom_items/akila_jacket.dmi'
+	icon_state = "akila_jacket"
+	item_state = "akila_jacket"
+	contained_sprite = TRUE
+
+
+/obj/structure/sign/flag/red_coalition
+	name = "Red Coalition flag"
+	desc = "A high-quality copy of an original Red Coalition banner. This variant on the standard was flown by the Zelazny arcology during the Martian World War, Zelazny's origins as a \
+	mining colony represented in the center by the alchemical symbol for iron."
+	icon_state = "redcoalition"
+
+/obj/structure/sign/flag/red_coalition/left
+	icon_state = "redcoalition_l"
+
+/obj/structure/sign/flag/red_coalition/right
+	icon_state = "redcoalition_r"
+
+/obj/item/flag/fluff/nikita_flag //Red Coalition Banner - Nikita Yutani - sycmos
+	name = "Red Coalition flag"
+	icon = 'icons/obj/custom_items/nikita_flag.dmi'
+	icon_state = "nikita_flag"
+	desc = "A high-quality copy of an original Red Coalition banner. This variant on the standard was flown by the Zelazny arcology during the Martian World War, Zelazny's origins as a \
+	mining colony represented in the center by the alchemical symbol for iron."
+	flag_path = "redcoalition"
+
+/obj/item/flag/fluff/nikita_flag/l
+	flag_size = 1
+
+
+/obj/item/voidsuit_modkit/fluff/rajka_suit
+	name = "HEV-3 voidsuit kit"
+	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for a HEV-3 voidsuit."
+	suit_options = list(
+		/obj/item/clothing/suit/space/void/mining = /obj/item/clothing/suit/space/void/mining/fluff/rajka_suit,
+		/obj/item/clothing/head/helmet/space/void/mining = /obj/item/clothing/head/helmet/space/void/mining/fluff/rajka_helm)
+
+/obj/item/clothing/head/helmet/space/void/mining/fluff/rajka_helm //HEV-3 Helmet - Rajka Kaljurl'zar - abigbear
+	name = "HEV-3 helmet"
+	desc = "A Hephaestus Environmental Voidsuit variant tailored to Tajara, complete with temperature-circulation auxiliaries, spacious helmet interior to minimize friction, and complete anti-microbial filtration systems."
+	icon = 'icons/obj/custom_items/rajka_suit.dmi'
+	icon_state = "rajka_helm"
+	item_state = "rajka_helm"
+	contained_sprite = TRUE
+	species_restricted = list(BODYTYPE_TAJARA)
+
+/obj/item/clothing/suit/space/void/mining/fluff/rajka_suit //HEV-3 Voidsuit - Rajka Kaljurl'zar - abigbear
+	name = "HEV-3 voidsuit"
+	desc = "A Hephaestus Environmental Voidsuit variant tailored to Tajara, complete with temperature-circulation auxiliaries, heat exchange coils, anti-friction and anti-microbial fabric, and moderate grade external reinforcement for all your industrial EVA activities."
+	icon = 'icons/obj/custom_items/rajka_suit.dmi'
+	icon_state = "rajka_suit"
+	item_state = "rajka_suit"
+	contained_sprite = TRUE
+	species_restricted = list(BODYTYPE_TAJARA)
+
+
+/obj/item/fluff/holoconsole // Holoconsole - Qoi Liuiq - shestrying
+	name = "holoconsole"
+	desc = "A game console capable of displaying a three-dimensional, holographic image of the player's game of choice. It's pink!"
+	icon = 'icons/obj/custom_items/qoi_console.dmi'
+	icon_state = "console"
+
+	var/on = FALSE
+	var/obj/item/fluff/holoconsole_controller/left_controller
+	var/obj/item/fluff/holoconsole_controller/r/right_controller
+	var/mutable_appearance/screen
+
+	var/sound_delay = 0.5 SECONDS // so we don't deafen everyone by spam clicking
+	var/last_sound = 0
+
+/obj/item/fluff/holoconsole/Initialize()
+	. = ..()
+	left_controller = new /obj/item/fluff/holoconsole_controller(src)
+	right_controller = new /obj/item/fluff/holoconsole_controller/r(src)
+	verbs += /obj/item/fluff/holoconsole/proc/remove_left
+	verbs += /obj/item/fluff/holoconsole/proc/remove_right
+	screen = mutable_appearance(icon, "screen")
+	update_icon()
+
+/obj/item/fluff/holoconsole/Destroy()
+	QDEL_NULL(left_controller)
+	QDEL_NULL(right_controller)
+	return ..()
+
+/obj/item/fluff/holoconsole/update_icon()
+	icon_state = "console[left_controller ? "_l" : ""][right_controller ? "_r" : ""]"
+
+/obj/item/fluff/holoconsole/attack_self(mob/user)
+	if(on && !(world.time < last_sound + sound_delay))
+		playsound(loc, /decl/sound_category/quick_arcade, 60)
+		last_sound = world.time
+		return
+	return ..()
+
+/obj/item/fluff/holoconsole/attackby(obj/item/I, mob/user)
+	switch(I.type)
+		if(/obj/item/fluff/holoconsole_controller)
+			if(left_controller)
+				to_chat(user, SPAN_WARNING("\The [src] already has its left controller connected!"))
+				return
+			user.visible_message("<b>[user]</b> slots \the [I] back into to \the [src].", SPAN_NOTICE("You slot \the [I] back into \the [src]."))
+			user.drop_from_inventory(I, src)
+			left_controller = I
+			left_controller.parent_console = null
+			verbs += /obj/item/fluff/holoconsole/proc/remove_left
+			update_icon()
+			return
+		if(/obj/item/fluff/holoconsole_controller/r)
+			if(right_controller)
+				to_chat(user, SPAN_WARNING("\The [src] already has its right controller connected!"))
+				return
+			user.visible_message("<b>[user]</b> slots \the [I] back into to \the [src].", SPAN_NOTICE("You slot \the [I] back into \the [src]."))
+			user.drop_from_inventory(I, src)
+			right_controller = I
+			right_controller.parent_console = null
+			verbs += /obj/item/fluff/holoconsole/proc/remove_right
+			update_icon()
+			return
+	return ..()
+
+/obj/item/fluff/holoconsole/verb/toggle_on()
+	set name = "Toggle On"
+	set category = "Object"
+	set src in view(1)
+
+	on = !on
+	usr.visible_message("<b>[usr]</b> turns \the [src] [on ? "on" : "off"].", SPAN_NOTICE("You turn \the [src] [on ? "on" : "off"]."))
+	if(on)
+		playsound(loc, 'sound/machines/synth_yes.ogg', 50)
+		add_overlay(screen)
+	else
+		playsound(loc, 'sound/machines/synth_no.ogg', 50)
+		cut_overlay(screen)
+	update_icon()
+
+/obj/item/fluff/holoconsole/proc/remove_left()
+	set name = "Remove Left Controller"
+	set category = "Object"
+	set src in view(1)
+
+	usr.visible_message("<b>[usr]</b> removes the left controller from \the [src], flicking it open.", SPAN_NOTICE("You remove the left controller from \the [src], flicking it open."))
+	usr.put_in_hands(left_controller)
+	left_controller.parent_console = WEAKREF(src)
+	left_controller = null
+	verbs -= /obj/item/fluff/holoconsole/proc/remove_left
+	update_icon()
+
+/obj/item/fluff/holoconsole/proc/remove_right()
+	set name = "Remove Right Controller"
+	set category = "Object"
+	set src in view(1)
+
+	usr.visible_message("<b>[usr]</b> removes the right controller from \the [src], flicking it open.", SPAN_NOTICE("You remove the right controller from \the [src], flicking it open."))
+	usr.put_in_hands(right_controller)
+	right_controller.parent_console = WEAKREF(src)
+	right_controller = null
+	verbs -= /obj/item/fluff/holoconsole/proc/remove_right
+	update_icon()
+
+/obj/item/fluff/holoconsole_controller // Holoconsole - Qoi Liuiq - shestrying
+	name = "left holoconsole controller"
+	desc = "A controller for the Holoconsole, capable of folding in half and re-attaching to the machine. It's pink!"
+	icon = 'icons/obj/custom_items/qoi_console.dmi'
+	icon_state = "controller"
+
+	var/datum/weakref/parent_console
+	var/sound_delay = 0.5 SECONDS // so we don't deafen everyone by spam clicking
+	var/last_sound = 0
+
+/obj/item/fluff/holoconsole_controller/attack_self(mob/user)
+	if(world.time < last_sound + sound_delay)
+		return
+
+	var/obj/item/fluff/holoconsole/H = parent_console.resolve()
+	if(H?.on)
+		playsound(H.loc, /decl/sound_category/quick_arcade, 60)
+		last_sound = world.time
+
+/obj/item/fluff/holoconsole_controller/r // Holoconsole - Qoi Liuiq - shestrying
+	name = "right holoconsole controller"
+
+/obj/item/fluff/holocase // Holoconsole Case - Qoi Liuiq - shestrying
+	name = "holoconsole case"
+	desc = "A case for the Holoconsole. This one is made of fabric, with various iron-on patches attached to it. It's pink!"
+	icon = 'icons/obj/custom_items/qoi_console.dmi'
+	icon_state = "case"
+
+	var/spinned = FALSE
+	var/obj/item/fluff/holoconsole/contained_console
+
+/obj/item/fluff/holocase/Initialize()
+	. = ..()
+	contained_console = new /obj/item/fluff/holoconsole(src)
+
+/obj/item/fluff/holocase/Destroy()
+	QDEL_NULL(contained_console)
+	return ..()
+
+/obj/item/fluff/holocase/update_icon()
+	if(!contained_console)
+		icon_state = "case_o"
+		return
+	icon_state = spinned ? "case_b" : "case"
+
+/obj/item/fluff/holocase/attack_self(mob/user)
+	if(!contained_console)
+		to_chat(user, SPAN_WARNING("\The [src] doesn't have a console inside it! Insert it before trying to spin \the [src] around."))
+		return
+	spinned = !spinned
+	user.visible_message("<b>[usr]</b> deftly spins \the [src], showing its [spinned ? "back" : "front"].", SPAN_NOTICE("You deftly spin \the [src], showing its [spinned ? "back" : "front"]."))
+	update_icon()
+
+/obj/item/fluff/holocase/attack_hand(mob/user)
+	if(contained_console && src == user.get_inactive_hand())
+		user.visible_message("<b>[usr]</b> removes \the [contained_console] from \the [src].", SPAN_NOTICE("You remove \the [contained_console] from \the [src]."))
+		user.put_in_hands(contained_console)
+		contained_console = null
+		update_icon()
+		return
+	return ..()
+
+/obj/item/fluff/holocase/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/fluff/holoconsole))
+		if(contained_console)
+			to_chat(user, SPAN_WARNING("\The [src] already contains a holoconsole!"))
+			return
+		user.drop_from_inventory(I, src)
+		contained_console = I
+		user.visible_message("<b>[usr]</b> puts \the [contained_console] into \the [src], zipping it back up.", SPAN_NOTICE("You put \the [contained_console] into \the [src], zipping it back up."))
+		update_icon()
+		return
+	return ..()
+
+/obj/item/clothing/accessory/poncho/dominia_cape/fluff/godard_cape //House godard cape - Pierre Godard - desven
+	name = "house godard cape"
+	desc = "This is a cape in the style of Dominian nobility. This one is in the colours of House Godard."
+	icon = 'icons/obj/custom_items/godard_cape.dmi'
+	icon_state = "godard_cape"
+	item_state = "godard_cape"
+	contained_sprite = TRUE

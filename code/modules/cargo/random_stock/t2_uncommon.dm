@@ -14,11 +14,11 @@ STOCK_ITEM_UNCOMMON(plasteel, 3)
 STOCK_ITEM_UNCOMMON(silver, 2)
 	new /obj/item/stack/material/silver(L, rand(5,30))
 
-STOCK_ITEM_UNCOMMON(phoronsheets, 1)
-	new /obj/item/stack/material/phoron(L, rand(5,30))
+STOCK_ITEM_UNCOMMON(phoronsheets, 0.5)
+	new /obj/item/stack/material/phoron(L, rand(5,20))
 
-STOCK_ITEM_UNCOMMON(phoronglass, 1)
-	new /obj/item/stack/material/glass/phoronglass(L, rand(10,30))
+STOCK_ITEM_UNCOMMON(phoronglass, 0.5)
+	new /obj/item/stack/material/glass/phoronglass(L, rand(10,20))
 
 STOCK_ITEM_UNCOMMON(sandstone, 2)
 	new /obj/item/stack/material/sandstone(L, 50)
@@ -143,9 +143,6 @@ STOCK_ITEM_UNCOMMON(advwelder, 2)
 		new /obj/item/weldingtool/experimental(L)
 	else
 		new /obj/item/weldingtool/hugetank(L)
-
-STOCK_ITEM_UNCOMMON(sord, 1)
-	new /obj/item/sord(L)
 
 STOCK_ITEM_UNCOMMON(policebaton, 1.5)
 	new /obj/item/melee/classic_baton(L)

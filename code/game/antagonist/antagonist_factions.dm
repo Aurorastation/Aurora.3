@@ -1,5 +1,5 @@
 /mob/living/proc/convert_to_rev(mob/M as mob in oview(src))
-	set name = "Invite to the Contenders"
+	set name = "Invite to the Revolutionaries"
 	set category = "Abilities"
 	if(!M.mind)
 		return
@@ -47,13 +47,9 @@
 	to_chat(src, "<span class='danger'>\The [player.current] does not support the [faction.faction_descriptor]!</span>")
 
 /mob/living/proc/convert_to_loyalist(mob/M as mob in oview(src))
-	set name = "Invite to the Fellowship"
+	set name = "Invite to the Loyalists"
 	set category = "Abilities"
 	if(!M.mind)
 		return
-	for (var/obj/item/implant/mindshield/I in M)
-		if (I.implanted)
-			to_chat(src, "<span class='warning'>[M] is too loyal to be subverted!</span>")
-			return
 	convert_to_faction(M.mind, loyalists)
 
