@@ -8,6 +8,7 @@
 	desc_fluff = "Having direct and friendly contact with humanity, The People's Republic of Adhomai has been the most influenced by the spacer fashion. The most known \
 	being the \"assistant jumpsuits\" which directly inspired the design of factory overalls, the plight and low pay of the assistants being close to the hearts of Tajara Hadiist \
 	workers and their Republic."
+	no_overheat = 1
 
 /obj/item/clothing/under/tajaran/fancy
 	name = "fancy uniform"
