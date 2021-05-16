@@ -71,6 +71,14 @@
 			return ..()
 	return FALSE
 
+/decl/recipe/conecake
+	appliance = OVEN
+	reagents = list(/decl/reagent/drink/milk/adhomai = 5, /decl/reagent/nutriment/flour/nfrihi = 15, /decl/reagent/water = 5, /decl/reagent/sugar = 15)
+	// items = list(
+	// 	/obj/item/reagent_containers/food/snacks/tajaran_bread
+	// )
+	result = /obj/item/reagent_containers/food/snacks/cone_cake
+
 // Tajaran Seafood
 /decl/recipe/spicy_clams
 	fruit = list("chili" = 1, "cabbage" = 1)

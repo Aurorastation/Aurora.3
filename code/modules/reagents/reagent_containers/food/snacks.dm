@@ -4707,6 +4707,36 @@
 	bitesize = 4
 	reagents_to_add = list(/decl/reagent/nutriment/protein/seafood = 20, /decl/reagent/ammonia = 10)
 
+/obj/item/reagent_containers/food/snacks/cone_cake
+	name = "cone cake"
+	desc = "A spongy cone-shaped cake covered in sugar."
+	icon_state = "conecake"
+	bitesize = 2
+	reagents_to_add = list(/decl/reagent/nutriment = 15)
+	reagent_data = list(/decl/reagent/nutriment = list("Incredible sweetness" = 8, "Cake" = 7))
+	desc_fluff = "A spongy, sugar-coated cake that's baked on a spit shaped like a cone, giving it a signature look. Often sold alongside Azvah due to similar preparation methods, the difference between them being the unique shape, the crisp, flaky outside, and the tooth-aching sweetness of the dish that turns some foreigners away."
+	filling_color = "#BD8939"
+
+/obj/item/reagent_containers/food/snacks/fruit_rikazu // TODO: Finish this & variants
+	name = "fruit rikazu"
+	desc = "A small, crispy Adhomian pie meant for one person filled with fruits."
+	icon_state = "conecake"
+	bitesize = 2
+	reagents_to_add = list(/decl/reagent/nutriment = 15) 
+	reagent_data = list(/decl/reagent/nutriment = list("Incredible sweetness" = 8, "Cake" = 7))
+	desc_fluff = "Small pies, often hand-sized, usually made by folding dough overstuffing of fruit and cream cheese; commonly served hot. The simple preparation makes it a fast favorite, and the versatility of the ingredients has gained its favor with Tajara of all creeds. Different variations of Rikazu pop up all over Adhomai, some filled with meats, or vegetables, or even imported ingredients, like chocolate filling."
+	filling_color = "#BD8939"
+
+/obj/item/reagent_containers/food/snacks/avah
+	name = "avah"
+	desc = "A large fried dough ball covered in a sweet cream icing."
+	icon_state = "avah"
+	bitesize = 2
+	reagents_to_add = list(/decl/reagent/nutriment = 7, /decl/reagent/nutriment/protein/cheese = 5)
+	reagent_data = list(/decl/reagent/nutriment = list("Oily dough" = 7), /decl/reagent/nutriment/protein/cheese = list("sweet cream cheese" = 5))
+	desc_fluff = "Used to only mean 'sweets' or 'sweet thing', now singularly refers to a particular dessert. The batter is grilled and made into soft, spherical shapes, and then covered with fruit jams, sugar, or sweet cream cheese. These treats are often sold at festivals and celebrations, and foreigners compare them to pancakes."
+	filling_color = "#BD8939"
+
 /obj/item/reagent_containers/food/snacks/onionrings
 	name = "onion rings"
 	desc = "Like circular fries but better."
