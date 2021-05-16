@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - bugfix: "Tweaked the way some Taj boots sprites are arranged, made it so the knife overlay isn't invisible on them anymore. Did a minor touchup on the workboots. The species unrestricted swat boots now have a Taj specific sprite."
