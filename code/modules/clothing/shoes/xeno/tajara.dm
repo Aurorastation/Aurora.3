@@ -137,6 +137,7 @@
 	can_hold_knife = TRUE
 	build_from_parts = TRUE
 	species_restricted = list(BODYTYPE_TAJARA)
+	contained_sprite = TRUE
 
 /obj/item/clothing/shoes/tajara/combat
 	name = "tajaran combat boots"
