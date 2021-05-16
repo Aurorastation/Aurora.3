@@ -136,6 +136,7 @@
 	siemens_coefficient = 0.5
 	can_hold_knife = TRUE
 	build_from_parts = TRUE
+	species_restricted = list(BODYTYPE_TAJARA)
 
 /obj/item/clothing/shoes/tajara/combat
 	name = "tajaran combat boots"
