@@ -27,7 +27,7 @@
 #################################
 
 # Your name.
-author: NiennaB, Dumbdumn5
+author: NiennaB, Dumbdumn5, Stryker
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
 
@@ -37,6 +37,7 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Replaces the old IRU coat with a short coat and a long coat, available in black and white."
-  - tweak: "Tweaks the existing IRU dusters and trenchcoats. Brown has been replaced with white."
+  - rscadd: "Replaces the old IRU coat with a short coat and a long coat, available in black, brown and white."
+  - tweak: "Tweaks the existing IRU dusters and trenchcoats."
   - rscadd: "Adds a white windbreaker for IRUs to the idris jackets in the faction tab."
+  - rscadd: "Adds new Trinary Perfection capes."
