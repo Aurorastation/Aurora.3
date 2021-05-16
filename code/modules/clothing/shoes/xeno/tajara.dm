@@ -117,7 +117,27 @@
 	icon_state = "taj_workboots_dark"
 	item_state = "taj_workboots_dark"
 
-/obj/item/clothing/shoes/tajara/combat //SWAT shoes combined with galoshes.
+/obj/item/clothing/shoes/tajara/swat
+	name = "\improper tajaran SWAT shoes"
+	desc = "When you want to turn up the heat."
+	icon = 'icons/mob/species/tajaran/shoes.dmi'
+	icon_state = "taj_swat"
+	item_state = "taj_swat"
+	force = 5
+	armor = list(
+		melee = ARMOR_MELEE_VERY_HIGH,
+		bullet = ARMOR_BALLISTIC_RIFLE,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_MINOR
+	)
+	item_flags = NOSLIP
+	siemens_coefficient = 0.5
+	can_hold_knife = TRUE
+	build_from_parts = TRUE
+
+/obj/item/clothing/shoes/tajara/combat
 	name = "tajaran combat boots"
 	desc = "When you REALLY want to turn up the heat."
 	icon = 'icons/mob/species/tajaran/shoes.dmi'
