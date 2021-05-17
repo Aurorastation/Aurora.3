@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added a social credit score to the Jargon passport, remember to set yours if you have one."
