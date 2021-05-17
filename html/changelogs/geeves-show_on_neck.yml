@@ -3,5 +3,5 @@ author: Geeves
 delete-after: True
 
 changes:
-  - rscadd: "Lockets, holo-badges with the string thing, dogtags, and the Tajara pocketwatch now appears to hang around your neck when you get examined, instead of being on your face."
+  - rscadd: "Lockets, holo-badges with the string thing, dogtags, neck bandanas, and the Tajara pocketwatch now appears to hang around your neck when you get examined, instead of being on your face or ears."
   - rscadd: "Tajara pocketwatche can now be worn on the mask slot."

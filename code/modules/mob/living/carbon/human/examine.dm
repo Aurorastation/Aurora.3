@@ -184,11 +184,11 @@
 
 	//left ear
 	if(l_ear && !skipears)
-		msg += "[get_pronoun("He")] [get_pronoun("has")] [icon2html(l_ear, user)] <a href='?src=\ref[src];lookitem_desc_only=\ref[l_ear]'>\a [l_ear]</a> on [get_pronoun("his")] left ear.\n"
+		msg += "[get_pronoun("He")] [get_pronoun("has")] [icon2html(l_ear, user)] <a href='?src=\ref[src];lookitem_desc_only=\ref[l_ear]'>\a [l_ear]</a> [l_ear.get_ear_examine_text(src, "left")].\n"
 
 	//right ear
 	if(r_ear && !skipears)
-		msg += "[get_pronoun("He")] [get_pronoun("has")] [icon2html(r_ear, user)] <a href='?src=\ref[src];lookitem_desc_only=\ref[r_ear]'>\a [r_ear]</a> on [get_pronoun("his")] right ear.\n"
+		msg += "[get_pronoun("He")] [get_pronoun("has")] [icon2html(r_ear, user)] <a href='?src=\ref[src];lookitem_desc_only=\ref[r_ear]'>\a [r_ear]</a> [r_ear.get_ear_examine_text(src, "right")].\n"
 
 	//ID
 	if(wear_id)
