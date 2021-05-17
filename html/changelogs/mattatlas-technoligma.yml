@@ -44,3 +44,4 @@ changes:
   - bugfix: "Unstable and degen aura no longer affect mobs inside the user."
   - bugfix: "Degen aura no longer applies toxloss."
   - bugfix: "Mend organs now fixes tendon breaks and arterial bleeding."
+  - bugfix: "Visitors now spawns a technomancer instead of a wizard."
