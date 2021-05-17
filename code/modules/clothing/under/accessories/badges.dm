@@ -506,7 +506,12 @@
 	icon_state = "passport_jargon"
 	item_state = "passport_jargon"
 	open = CLOSED
+	var/credit_score = 5
 	var/species_tag = ""
+
+/obj/item/clothing/accessory/badge/passport/jargon/examine(mob/user)
+	. = ..()
+	to_chat(user, SPAN_NOTICE("The passport displays the owner's social credit score as: [credit_score]."))
 
 /obj/item/clothing/accessory/badge/passport/jargon/update_icon()
 	icon_state = "[initial(icon_state)][open ? "_o[species_tag]" : ""]"
