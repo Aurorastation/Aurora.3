@@ -209,6 +209,7 @@
 /obj/item/projectile/bullet/rifle/a556
 	damage = 40
 	armor_penetration = 15
+	penetrating = FALSE
 
 /obj/item/projectile/bullet/rifle/a556/ap 
 	damage = 35

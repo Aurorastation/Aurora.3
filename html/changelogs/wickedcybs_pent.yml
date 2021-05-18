@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - tweak: "The 5.56 rifle ammo can no longer penetrate people and obstacles anymore. The AP version is unchanged and still can."
