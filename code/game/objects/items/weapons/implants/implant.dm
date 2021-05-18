@@ -194,7 +194,7 @@ Implant Specifics:<BR>"}
 			small_countdown()
 			return	//to avoid hotspot_expose.
 		if(elevel == "Destroy Body")
-			explosion(get_turf(T), -1, 0, 1, 6)
+			explosion(get_turf(T), -1, 0, 2, 6)
 			T.gib()
 		if(elevel == "Full Explosion")
 			explosion_spread(get_turf(T), rand(8,13))
