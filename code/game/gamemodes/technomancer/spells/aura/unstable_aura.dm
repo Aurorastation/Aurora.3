@@ -11,7 +11,7 @@
 
 /obj/item/spell/aura/unstable
 	name = "degen aura"
-	desc = "Breaks down your entities from the inside."
+	desc = "Breaks down your entities from the inside. Synthetics will take brute damage while organics will take fire damage."
 	icon_state = "generic"
 	cast_methods = null
 	aspect = ASPECT_UNSTABLE
@@ -24,10 +24,13 @@
 	for(var/mob/living/L in nearby_mobs)
 		if(is_ally(L))
 			continue
+		
+		if(L.loc == owner)
+			continue
 
 		var/damage_to_inflict = max(L.health / L.getMaxHealth(), 0) // Otherwise, those in crit would actually be healed.
 
-		var/armor_factor = L.modify_damage_by_armor(BP_CHEST, 30, BURN, armor_pen = 30)
+		var/armor_factor = L.modify_damage_by_armor(BP_CHEST, 30, BURN, armor_pen = 40)
 		damage_to_inflict = damage_to_inflict * armor_factor
 
 		if(L.isSynthetic())
@@ -35,7 +38,7 @@
 			if(damage_to_inflict && prob(10))
 				to_chat(L, "<span class='danger'>Your chassis seems to slowly be decaying and breaking down.</span>")
 		else
-			L.adjustToxLoss(damage_to_inflict)
+			L.adjustFireLoss(damage_to_inflict)
 			if(damage_to_inflict && prob(10))
 				to_chat(L, "<span class='danger'>You feel almost like you're melting from the inside!</span>")
 
