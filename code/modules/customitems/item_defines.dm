@@ -2181,7 +2181,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 
 /obj/item/flame/lighter/zippo/fluff/sezrak_zippo //Imperial 16th Zippo - Sezrak Han'san - captaingecko
-	mame = "imperial 16th zippo"
+	name = "imperial 16th zippo"
 	desc = "A zippo lighter given by the Empire of Dominia to the men of the 16th Regiment of the Imperial Army, also known as the \"Suicide Regiments\", that would manage to survive more \
 	than a dozen deployments. The Imperial 16th is a regiment deployed by Dominia during battles that cannot be lost, their men ensuring victories through the use of unusual and highly \
 	dangerous tactics, resulting in extremely high losses during almost all of its engagements."
@@ -2192,7 +2192,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 
 /obj/item/clothing/glasses/spiffygogs/fluff/andersen_goggles //Red Goggles - Adam Andersen - cybercide
-	mame = "red goggles"
+	name = "red goggles"
 	desc = " A pair of worn black goggles with red tinted lenses, both the Kevlar strap and polycarbonate lenses have some scuffs and scratches but they still hold up nicely. \
 	There appears to be a Zavodskoi Interstellar insignia on the strap."
 	icon = 'icons/obj/custom_items/andersen_goggles.dmi'
