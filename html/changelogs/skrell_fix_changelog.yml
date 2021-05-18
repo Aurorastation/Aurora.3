@@ -1,0 +1,5 @@
+author: Haydizzle
+delete-after: True
+
+changes:
+- bugfix: "Adds prices for skrellian products in the vendors."
