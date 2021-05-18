@@ -3,4 +3,6 @@ author: WickedCybs
 delete-after: True
 
 changes:
-  - tweak: "The 5.56 rifle ammo can no longer penetrate people and obstacles anymore. The AP version is unchanged and still can."
+  - tweak: "The 5.56 rifle ammo can no longer penetrate people and obstacles anymore. The AP version is unchanged and still can pass through stuff."
+  - tweak: "Submachinegun turrets don't fire rifle rounds anymore. They'll do the same damage as a .45 now."
+  - tweak: "There were a few lesser used laser guns in the game that would fire as fast as you could pull the trigger, namely the x-ray guns. They have a bit of a longer fire delay now."

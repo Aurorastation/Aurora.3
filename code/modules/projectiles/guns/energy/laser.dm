@@ -8,6 +8,8 @@
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	accuracy = 1
+	fire_delay = 2
+	burst_delay = 2
 	w_class = ITEMSIZE_NORMAL
 	force = 10
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
@@ -120,7 +122,8 @@ obj/item/gun/energy/retro
 	projectile_type = /obj/item/projectile/beam/xray
 	charge_cost = 100
 	max_shots = 20
-	fire_delay = 1
+	fire_delay = 4
+	burst_delay = 4
 	can_turret = 1
 	turret_is_lethal = 1
 	turret_sprite_set = "xray"
