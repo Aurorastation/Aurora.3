@@ -39,5 +39,4 @@ delete-after: True
 changes:
   - rscadd: "Replaces the old IRU coat with a short coat and a long coat, available in black, brown and white."
   - tweak: "Tweaks the existing IRU dusters and trenchcoats."
-  - rscadd: "Adds a white windbreaker for IRUs to the idris jackets in the faction tab."
   - rscadd: "Adds new Trinary Perfection capes."

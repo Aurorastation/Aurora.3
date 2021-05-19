@@ -13,6 +13,18 @@
 	max_heat_protection_temperature = 0
 	contained_sprite = TRUE
 
+/obj/item/clothing/suit/storage/toggle/armor/vest/idris/white
+	name = "white Idris Unit coat"
+	desc = "A coat worn by the Idris units, notorious across space. This one is white."
+	icon_state = "idris_coat_white"
+	item_state = "idris_coat_white"
+
+/obj/item/clothing/suit/storage/toggle/armor/vest/idris/brown
+	name = "brown Idris Unit coat"
+	desc = "A coat worn by the Idris units, notorious across space. This one is white."
+	icon_state = "idris_coat_brown"
+	item_state = "idris_coat_brown"
+
 /obj/item/clothing/suit/storage/toggle/armor/vest/idris/longcoat
 	name = "black Idris Unit long coat"
 	desc = "A long coat worn by the Idris units, notorious across space. This one is black."
@@ -78,12 +90,4 @@
 	icon = 'icons/clothing/suits/coats/idris_windbreaker.dmi'
 	icon_state = "idris_windbreaker"
 	item_state = "idris_windbreaker"
-	contained_sprite = TRUE
-
-/obj/item/clothing/suit/storage/toggle/idris/white
-	name = "white Idris Incorporated jacket"
-	desc = "An unarmored windbreaker designed for Idris Reclamation Units when something lighter than a coat is needed. Many of the Idris patches and badges on the coat are holographic. This one is white."
-	icon = 'icons/clothing/suits/coats/idris_windbreaker.dmi'
-	icon_state = "idris_windbreaker_white"
-	item_state = "idris_windbreaker_white"
 	contained_sprite = TRUE

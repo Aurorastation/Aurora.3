@@ -29,18 +29,10 @@
 	faction = "Idris Incorporated"
 
 /datum/gear/faction/idris_windbreaker
-	display_name = "idris jacket selection"
-	description = "A selection of jackets for IRUs and Idris personnel."
+	display_name = "idris jacket"
 	path = /obj/item/clothing/suit/storage/toggle/idris
 	slot = slot_wear_suit
 	faction = "Idris Incorporated"
-
-/datum/gear/faction/idris_windbreaker/New()
-	..()
-	var/idrisjacket = list()
-	idrisjacket["idris jacket"] = /obj/item/clothing/suit/storage/toggle/idris
-	idrisjacket["idris jacket, iru"] = /obj/item/clothing/suit/storage/toggle/idris/white
-	gear_tweaks += new/datum/gear_tweak/path(idrisjacket)
 
 /datum/gear/faction/idris_passcard
 	display_name = "idris silversun passcard"
