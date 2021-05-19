@@ -40,7 +40,7 @@
 /obj/item/gun/energy/gun/nuclear
 	name = "advanced energy gun"
 	desc = "An energy gun with an experimental miniaturized reactor."
-	desc_info = "This is an energy weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
+	desc_info = "This is an energy weapon. To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
 	then click where you want to fire.  Most energy weapons can fire through windows harmlessly.  To switch between stun and lethal, click the weapon \
 	in your hand.  Unlike most weapons, this weapon recharges itself."
 	icon = 'icons/obj/guns/nucgun.dmi'

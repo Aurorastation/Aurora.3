@@ -967,3 +967,8 @@ mob/abstract/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)
 
 	if(SSpai.revokeCandidancy(src))
 		to_chat(src, "You have been removed from the pAI candidate pool.")
+
+/mob/abstract/observer/can_hear_radio(speaker_coverage = list())
+	if(client && (client.prefs.toggles & CHAT_GHOSTRADIO))
+		return TRUE
+	return ..()

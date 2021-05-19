@@ -50,14 +50,6 @@
 	dufflebag = /obj/item/storage/backpack/duffel/eng
 	messengerbag = /obj/item/storage/backpack/messenger/engi
 
-	belt_contents = list(
-		/obj/item/weldingtool/largetank = 1, // industrial welding tool
-		/obj/item/crowbar = 1,
-		/obj/item/wirecutters = 1,
-		/obj/item/stack/cable_coil/random = 1,
-		/obj/item/powerdrill = 1
-	)
-
 /datum/outfit/job/chief_engineer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(istajara(H))

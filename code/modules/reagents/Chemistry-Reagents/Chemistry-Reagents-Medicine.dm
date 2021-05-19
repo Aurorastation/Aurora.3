@@ -730,6 +730,7 @@
 	color = "#81b38b"
 	od_minimum_dose = 1
 	overdose = 15
+	scannable = TRUE
 	taste_description = "bleach"
 	fallback_specific_heat = 0.605
 

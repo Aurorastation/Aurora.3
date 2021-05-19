@@ -246,7 +246,24 @@
 	initial_modules = list(
 		/obj/item/rig_module/fabricator/energy_net,
 		/obj/item/rig_module/power_sink,
-		/obj/item/rig_module/mounted/taser
+		/obj/item/rig_module/mounted/egun,
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/ai_container,
+		/obj/item/rig_module/vision/nvg
+		)
+
+/obj/item/rig/strike/distress
+	req_access = list(access_distress)
+
+	initial_modules = list(
+		/obj/item/rig_module/fabricator/energy_net,
+		/obj/item/rig_module/power_sink,
+		/obj/item/rig_module/mounted/taser,
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/ai_container,
+		/obj/item/rig_module/vision/sechud
 		)
 
 /obj/item/rig/strike/ninja
