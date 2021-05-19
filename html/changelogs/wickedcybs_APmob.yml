@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - tweak: "Cult constructs and weapons now have armour penentration added so they stay deadly in close quarters. Before this, even an engineering voidsuit could block a cult sword."
