@@ -13901,6 +13901,14 @@
 	pixel_x = 2;
 	pixel_y = 9
 	},
+/obj/item/melee/telebaton{
+	pixel_x = 2;
+	pixel_y = 9
+	},
+/obj/item/melee/telebaton{
+	pixel_x = 2;
+	pixel_y = 9
+	},
 /obj/item/melee/energy/sword/knife{
 	pixel_x = 9;
 	pixel_y = -4

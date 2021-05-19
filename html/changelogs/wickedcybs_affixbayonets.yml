@@ -5,4 +5,4 @@ delete-after: True
 changes:
   - tweak: "Gauss thumpers and bolt slingers do the same amount of force as the average rifle when it comes to bashing a person with the gun now. Used to be carbine level before."
   - tweak: "Gauss thumpers and bolt slingers can now have bayonets affixed to them."
-  - maptweak: "The TCFL's tac knives have been exchanged for bayonets. Two telebatons have been removed, leaving them with four."
+  - maptweak: "The TCFL's tac knives have been exchanged for bayonets."
