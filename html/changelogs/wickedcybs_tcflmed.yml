@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - maptweak: "TCFL tactical medical belts start preloaded with medicines and a hypo now."
