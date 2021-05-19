@@ -38,6 +38,7 @@
 
 /obj/item/clothing/shoes/swat/ert
 	species_restricted = null
+	sprite_sheets = list("Tajara" = 'icons/mob/species/tajaran/shoes.dmi')
 
 /obj/item/clothing/shoes/combat //Basically SWAT shoes combined with galoshes.
 	name = "combat boots"
