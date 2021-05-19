@@ -622,6 +622,9 @@
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
+/obj/item/clothing/accessory/dogtags/get_mask_examine_text(mob/user)
+	return "around [user.get_pronoun("his")] neck"
+
 /obj/item/clothing/accessory/badge/namepin
 	name = "pin tag"
 	desc = "A small strip of metal to label its wearer."
