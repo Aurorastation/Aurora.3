@@ -13861,25 +13861,29 @@
 /area/centcom/holding)
 "fcm" = (
 /obj/structure/table/rack,
-/obj/item/material/knife/tacknife{
+/obj/item/material/knife/bayonet{
 	pixel_x = 3;
 	pixel_y = -2
 	},
-/obj/item/material/knife/tacknife{
+/obj/item/material/knife/bayonet{
 	pixel_x = 3;
 	pixel_y = -2
 	},
-/obj/item/material/knife/tacknife{
+/obj/item/material/knife/bayonet{
 	pixel_x = 3;
 	pixel_y = -2
 	},
-/obj/item/melee/telebaton{
-	pixel_x = 2;
-	pixel_y = 9
+/obj/item/material/knife/bayonet{
+	pixel_x = 3;
+	pixel_y = -2
 	},
-/obj/item/melee/telebaton{
-	pixel_x = 2;
-	pixel_y = 9
+/obj/item/material/knife/bayonet{
+	pixel_x = 3;
+	pixel_y = -2
+	},
+/obj/item/material/knife/bayonet{
+	pixel_x = 3;
+	pixel_y = -2
 	},
 /obj/item/melee/telebaton{
 	pixel_x = 2;
