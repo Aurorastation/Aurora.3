@@ -876,6 +876,7 @@
 #include "code\game\objects\items\draftingchalk.dm"
 #include "code\game\objects\items\eightball.dm"
 #include "code\game\objects\items\glassjar.dm"
+#include "code\game\objects\items\knitting.dm"
 #include "code\game\objects\items\paintkit.dm"
 #include "code\game\objects\items\shooting_range.dm"
 #include "code\game\objects\items\skrell.dm"
