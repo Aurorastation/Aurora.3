@@ -479,6 +479,30 @@ Follow by example and make good judgement based on length which list to include 
 		length = 3
 		chatname = "long fringe"
 
+		emofringe_longbun
+		name = "Emo Fringe Long Bun"
+		icon_state = "hair_emofringe_longbun"
+		length = 3
+		chatname = "hair bun"
+
+	emorightfringe_long
+		name = "Emo Right Fringe Long"
+		icon_state = "hair_emofringe_long"
+		length = 3
+		chatname = "long fringe"
+
+	emofringe_long_alt
+		name = "Emo Fringe Long Alt"
+		icon_state = "hair_emofringe_longalt"
+		length = 3
+		chatname = "long fringe"
+
+	emorightfringe_long_alt
+		name = "Emo Right Fringe Long Alt"
+		icon_state = "hair_emorightfringe_longalt"
+		length = 3
+		chatname = "long fringe"
+
 	fade_high
 		name = "Fade, High"
 		icon_state = "hair_fade_high"
@@ -535,6 +559,12 @@ Follow by example and make good judgement based on length which list to include 
 	gentle
 		name = "Gentle"
 		icon_state = "hair_gentle"
+		length = 3
+		chatname = "long hair"
+
+	gentlealt
+		name = "Gentle Alt"
+		icon_state = "hair_gentlealt"
 		length = 3
 		chatname = "long hair"
 
@@ -2379,6 +2409,16 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "hair_shoulderlengthalt"
 			chatname = "styled mane"
 
+		taj_ears_tresses
+			name = "Tajara Tresses"
+			icon_state = "hair_tresses"
+			chatname = "styled mane"
+
+		taj_ears_tressesalt
+			name = "Tajara Tresses Alt"
+			icon_state = "hair_tressesalt"
+			chatname = "styled mane"
+
 //msai hair, longer ears
 	msai_ears
 		icon = 'icons/mob/human_face/msai_hair.dmi'
@@ -2535,6 +2575,16 @@ Follow by example and make good judgement based on length which list to include 
 		msai_ears_shoulderlengthalt
 			name = "M'sai Shoulderlength Alt"
 			icon_state = "msai_shoulderlengthalt"
+			chatname = "styled mane"
+
+		msai_ears_tresses
+			name = "M'sai Tresses"
+			icon_state = "msai_tresses"
+			chatname = "styled mane"
+
+		msai_ears_tressesalt
+			name = "M'sai Tresses Alt"
+			icon_state = "msai_tressesalt"
 			chatname = "styled mane"
 
 //vaurca antennae
