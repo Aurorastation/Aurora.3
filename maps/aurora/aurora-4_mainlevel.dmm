@@ -32067,6 +32067,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
+/obj/item/auto_cpr,
 /turf/simulated/floor/tiled/dark,
 /area/medical/icu)
 "bdD" = (
@@ -39830,6 +39831,7 @@
 	},
 /obj/structure/table/standard,
 /obj/item/device/mass_spectrometer,
+/obj/item/auto_cpr,
 /turf/simulated/floor/tiled/dark,
 /area/medical/gen_treatment)
 "brR" = (
