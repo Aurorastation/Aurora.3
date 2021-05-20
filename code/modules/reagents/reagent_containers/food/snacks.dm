@@ -4801,6 +4801,30 @@
 	reagents_to_add = list(/decl/reagent/nutriment/protein = 2, /decl/reagent/nutriment = 2, /decl/reagent/alcohol/messa_mead = 1)
 	reagent_data = list(/decl/reagent/nutriment/protein = list("juicy meat" = 2), /decl/reagent/nutriment = list("flaky dough" = 1, "savoury vegetables" = 1))
 	
+/obj/item/reagent_containers/food/snacks/sliceable/zkahnkowafull
+	name = "Zkah'nkowa"
+	desc = "A large smoked sausage."
+	icon_state = "zkah'nkowa_full"
+	bitesize = 2
+	slice_path = /obj/item/reagent_containers/food/snacks/zkahnkowaslice
+	slices_num = 5
+	reagents_to_add = list(/decl/reagent/nutriment/protein = 25)
+	reagent_data = list(/decl/reagent/nutriment/protein = list("salty" = 10, "smoky meat" = 15))
+	desc_fluff = "A canned variety of the Fatshouter Bloodpudding, known for its low-fat content and lighter color. It was created shortly after the First Revolution to ease the food shortage after the conflict. Its low cost and nutritious value allowed it to become a staple of the Hadiist diet."
+	filling_color = "#BD8939"
+
+/obj/item/reagent_containers/food/snacks/zkahnkowaslice
+	name = "Zkah'nkowa slice"
+	desc = "A slice of smoked sausage."
+	icon_state = "zkah'nkowa_slice"
+	filling_color = "#FF7575"
+	desc_fluff = "A canned variety of the Fatshouter Bloodpudding, known for its low-fat content and lighter color. It was created shortly after the First Revolution to ease the food shortage after the conflict. Its low cost and nutritious value allowed it to become a staple of the Hadiist diet."
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/fatshouterslice/filled
+	reagents_to_add = list(/decl/reagent/nutriment/protein = 5)
+	reagent_data = list(/decl/reagent/nutriment/protein = list("salty" = 3, "smoky meat" = 5))
+
 /obj/item/reagent_containers/food/snacks/creamice
 	name = "creamice"
 	desc = "A bowl of delicious Tajaran ice cream"

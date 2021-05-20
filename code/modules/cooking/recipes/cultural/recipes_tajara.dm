@@ -142,6 +142,14 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/fatshouter_fillet
 
+/decl/recipe/zkahnkowafull
+	appliance = POT | SAUCEPAN
+	reagents = list(/decl/reagent/blood = 10, /decl/reagent/nutriment/flour/nfrihi = 5, /decl/reagent/sodiumchloride = 1, /decl/reagent/blackpepper = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat/adhomai
+	)
+	result = /obj/item/reagent_containers/food/snacks/sliceable/zkahnkowafull
+
 /decl/recipe/creamice
 	reagents = list(/decl/reagent/drink/milk/adhomai = 10, /decl/reagent/sugar = 10, /decl/reagent/drink/ice = 10)
 	result = /obj/item/reagent_containers/food/snacks/creamice

@@ -4,3 +4,4 @@ delete-after: True
 
 changes:
   - rscadd: "Several new tajaran food & recipes have been added."
+  - rscadd: "Ras'val clams now exist as a clam type."
