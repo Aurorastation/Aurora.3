@@ -362,6 +362,55 @@
 	item_state = "cargoponcho"
 
 /*
+ * Sashes
+ */
+
+/obj/item/clothing/accessory/sash
+	name = "yellow sash"
+	desc = "A yellow sash, designed to be worn over one shoulder and come down to the opposing hip."
+	desc_fluff = "Sashes such as this one are a common sight throughout the Empire of Dominia, though they are hardly as fashionable as the typical cape."
+	icon = 'icons/clothing/accessories/sash.dmi'
+	item_state = "sash"
+	icon_state = "sash"
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/sash/red
+	name = "red sash"
+	desc = "A red sash, designed to be worn over one shoulder and come down to the opposing hip."
+	item_state = "red_sash"
+	icon_state = "red_sash"
+
+/obj/item/clothing/accessory/sash/blue
+	name = "blue sash"
+	desc = "A blue sash, designed to be worn over one shoulder and come down to the opposing hip."
+	item_state = "blue_sash"
+	icon_state = "blue_sash"
+
+/obj/item/clothing/accessory/sash/orange
+	name = "orange sash"
+	desc = "An orange sash, designed to be worn over one shoulder and come down to the opposing hip."
+	item_state = "orange_sash"
+	icon_state = "orange_sash"
+
+/obj/item/clothing/accessory/sash/purple
+	name = "purple sash"
+	desc = "A purple sash, designed to be worn over one shoulder and come down to the opposing hip."
+	item_state = "purple_sash"
+	icon_state = "purple_sash"
+
+/obj/item/clothing/accessory/sash/white
+	name = "white sash"
+	desc = "A white sash, designed to be worn over one shoulder and come down to the opposing hip."
+	item_state = "white_sash"
+	icon_state = "white_sash"
+
+/obj/item/clothing/accessory/sash/colourable
+	name = "sash"
+	desc = "A sash, designed to be worn over one shoulder and come down to the opposing hip."
+	item_state = "sash_colourable"
+	icon_state = "sash_colourable"
+
+/*
  * Cloak
  */
 /obj/item/clothing/accessory/poncho/roles/cloak
@@ -573,6 +622,9 @@
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
+/obj/item/clothing/accessory/dogtags/get_mask_examine_text(mob/user)
+	return "around [user.get_pronoun("his")] neck"
+
 /obj/item/clothing/accessory/badge/namepin
 	name = "pin tag"
 	desc = "A small strip of metal to label its wearer."
@@ -621,3 +673,54 @@
 	desc = "A digital patch which can be attached to the shoulder sleeve of clothing. This one shows the Idris Incorporated logo with a flashing chevron."
 	icon_state = "idrissec_patch"
 	overlay_state = "idrissec_patch"
+
+/obj/item/clothing/accessory/kneepads
+	name = "kneepads"
+	desc = "A pair of synthetic kneepads. Doesn't provide protection from more than arthritis."
+	icon = 'icons/clothing/accessories/kneepads.dmi'
+	icon_state = "kneepads"
+	item_state = "kneepads"
+	contained_sprite = TRUE
+	gender = PLURAL
+
+/obj/item/clothing/accessory/blood_patch
+	name = "O- blood patch"
+	desc = "An embroidered patch indicating the wearer's blood type as O NEGATIVE."
+	icon = 'icons/clothing/accessories/blood_patch.dmi'
+	icon_state = "onegtag"
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/blood_patch/opos
+	name = "O+ blood patch"
+	desc = "An embroidered patch indicating the wearer's blood type as O POSITIVE."
+	icon_state = "opostag"
+
+/obj/item/clothing/accessory/blood_patch/apos
+	name = "A+ blood patch"
+	desc = "An embroidered patch indicating the wearer's blood type as A POSITIVE."
+	icon_state = "apostag"
+
+/obj/item/clothing/accessory/blood_patch/aneg
+	name = "A- blood patch"
+	desc = "An embroidered patch indicating the wearer's blood type as A NEGATIVE."
+	icon_state = "anegtag"
+
+/obj/item/clothing/accessory/blood_patch/bpos
+	name = "B+ blood patch"
+	desc = "An embroidered patch indicating the wearer's blood type as B POSITIVE."
+	icon_state = "bpostag"
+
+/obj/item/clothing/accessory/blood_patch/bneg
+	name = "B- blood patch"
+	desc = "An embroidered patch indicating the wearer's blood type as B NEGATIVE."
+	icon_state = "bnegtag"
+
+/obj/item/clothing/accessory/blood_patch/abpos
+	name = "AB+ blood patch"
+	desc = "An embroidered patch indicating the wearer's blood type as AB POSITIVE."
+	icon_state = "abpostag"
+
+/obj/item/clothing/accessory/blood_patch/abneg
+	name = "AB- blood patch"
+	desc = "An embroidered patch indicating the wearer's blood type as AB NEGATIVE."
+	icon_state = "abnegtag"

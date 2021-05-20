@@ -1,5 +1,6 @@
 #define ACCESSORY_SLOT_GENERIC			"decor"
 #define ACCESSORY_SLOT_UTILITY			"utility"
+#define ACCESSORY_SLOT_UTILITY_MINOR	"minor utility"
 #define ACCESSORY_SLOT_CAPE				"cape"
 #define ACCESSORY_SLOT_ARMBAND			"armband"
 #define ACCESSORY_SLOT_ARMOR_PLATE		"armor plate"

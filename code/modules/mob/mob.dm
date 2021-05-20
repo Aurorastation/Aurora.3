@@ -1376,6 +1376,10 @@
 		src.throw_icon.icon_state = "act_throw_on"
 
 /mob/proc/is_invisible_to(var/mob/viewer)
+	if(isAI(viewer))
+		for(var/image/I as anything in SSai_obfuscation.obfuscation_images)
+			if(I.loc == src)
+				return TRUE
 	return (!alpha || !mouse_opacity || viewer.see_invisible < invisibility)
 
 //Admin helpers

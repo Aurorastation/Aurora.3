@@ -616,14 +616,29 @@
 			if(E.status & ORGAN_ARTERY_CUT)
 				E.status &= ~ORGAN_ARTERY_CUT
 				blood_used += 2
-			if(E.status & ORGAN_TENDON_CUT)
-				E.status &= ~ORGAN_TENDON_CUT
+			if(istype(E.tendon) && !E.tendon.intact)
+				E.tendon.heal()
 				blood_used += 2
 			if(E.status & ORGAN_BROKEN)
 				E.status &= ~ORGAN_BROKEN
 				E.stage = 0
 				blood_used += 3
 				healed = TRUE
+			if(E.germ_level > 0)
+				if(E.is_infected())
+					E.germ_level = max(0, E.germ_level - 50)
+					blood_used += 1
+				else
+					E.germ_level = 0
+					blood_used += 0.25
+			for(var/datum/wound/W in E.wounds)
+				if(W.germ_level > 0)
+					W.germ_level = max(0, W.germ_level - 50)
+					blood_used += 0.5
+				if(!W.disinfected)
+					W.disinfect()
+					blood_used += 1
+
 
 			if(healed)
 				break

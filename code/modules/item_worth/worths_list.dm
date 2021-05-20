@@ -160,6 +160,7 @@ var/list/worths = list(
 					/obj/item/storage/belt/security/tactical = 500,
 					/obj/item/storage/belt/soulstone = 800,
 					/obj/item/storage/belt = -50,
+					/obj/item/storage/belt/medical/first_responder/combat = 650,
 					/obj/item/storage/backpack/holding = -3000,
 					/obj/item/storage = -30,
 //WEAPONS,

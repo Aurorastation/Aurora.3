@@ -81,6 +81,8 @@
 #define ui_oxygen "EAST-1:28,NORTH-4:23"
 #define ui_pressure "EAST-1:28,NORTH-5:21"
 #define ui_paralysis "EAST-1:28,NORTH-10:23"
+#define ui_energy_display "EAST-1:28,NORTH-6:50"
+#define ui_instability_display "EAST-1:28,NORTH-5:50"
 
 #define ui_alien_toxin "EAST-1:28,NORTH-2:25"
 #define ui_alien_fire "EAST-1:28,NORTH-3:25"

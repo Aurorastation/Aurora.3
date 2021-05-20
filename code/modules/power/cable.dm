@@ -66,7 +66,7 @@ By design, d1 is the smallest direction and d2 is the highest
 /obj/structure/cable/white
 	color = COLOR_WHITE
 
-/obj/structure/cable/Initialize()
+/obj/structure/cable/Initialize(mapload)
 	. = ..()
 
 	// ensure d1 & d2 reflect the icon_state for entering and exiting cable
@@ -82,6 +82,13 @@ By design, d1 is the smallest direction and d2 is the highest
 		hide(!T.is_plating())
 
 	SSpower.all_cables += src //add it to the global cable list
+
+	if(mapload)
+		var/image/I = image(icon, T, icon_state, EFFECTS_ABOVE_LIGHTING_LAYER, dir, pixel_x, pixel_y)
+		I.plane = 0
+		I.alpha = 125
+		I.color = color
+		LAZYADD(T.blueprints, I)
 
 /obj/structure/cable/Destroy()					// called when a cable is deleted
 	if(powernet)

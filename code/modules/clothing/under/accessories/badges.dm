@@ -121,6 +121,9 @@
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
 
+/obj/item/clothing/accessory/badge/holo/cord/get_mask_examine_text(mob/user)
+	return "around [user.get_pronoun("his")] neck"
+
 /obj/item/clothing/accessory/badge/holo/attack_self(mob/user as mob)
 	if(!stored_name)
 		to_chat(user, "Waving around a holobadge before swiping an ID would be pretty pointless.")
@@ -506,7 +509,12 @@
 	icon_state = "passport_jargon"
 	item_state = "passport_jargon"
 	open = CLOSED
+	var/credit_score = 5
 	var/species_tag = ""
+
+/obj/item/clothing/accessory/badge/passport/jargon/examine(mob/user)
+	. = ..()
+	to_chat(user, SPAN_NOTICE("The passport displays the owner's social credit score as: [credit_score]."))
 
 /obj/item/clothing/accessory/badge/passport/jargon/update_icon()
 	icon_state = "[initial(icon_state)][open ? "_o[species_tag]" : ""]"

@@ -82,7 +82,7 @@
 
 	head = /obj/item/clothing/head/helmet/space/void/kataphract/spec
 	suit = /obj/item/clothing/suit/space/void/kataphract/spec
-	belt = /obj/item/storage/belt/medical
+	belt = /obj/item/storage/belt/medical/first_responder/combat
 	l_hand = /obj/item/melee/hammer/powered/hegemony
 
 	belt_contents = list(

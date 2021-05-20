@@ -1,33 +1,6 @@
-/obj/item/modular_computer/handheld/custom_loadout/cheap/install_default_hardware()
-	..()
-	processor_unit = new /obj/item/computer_hardware/processor_unit/small(src)
-	hard_drive = new /obj/item/computer_hardware/hard_drive/micro(src)
-	network_card = new /obj/item/computer_hardware/network_card(src)
-	battery_module = new /obj/item/computer_hardware/battery_module(src)
-	card_slot = new /obj/item/computer_hardware/card_slot(src)
-	tesla_link = new /obj/item/computer_hardware/tesla_link/charging_cable(src)
-	battery_module.charge_to_full()
-
-/obj/item/modular_computer/handheld/custom_loadout/advanced/install_default_hardware()
-	..()
-	processor_unit = new /obj/item/computer_hardware/processor_unit/small(src)
-	hard_drive = new /obj/item/computer_hardware/hard_drive/small(src)
-	network_card = new /obj/item/computer_hardware/network_card(src)
-	nano_printer = new /obj/item/computer_hardware/nano_printer(src)
-	card_slot = new /obj/item/computer_hardware/card_slot(src)
-	battery_module = new /obj/item/computer_hardware/battery_module(src)
-	tesla_link = new /obj/item/computer_hardware/tesla_link/charging_cable(src)
-	battery_module.charge_to_full()
-
-
-// Cargo Delivery
-/obj/item/modular_computer/handheld/custom_loadout/advanced/cargo_delivery
-	_app_preset_type = /datum/modular_computer_app_presets/cargo_delivery
-	enrolled = DEVICE_PRIVATE
-
 // Tablet PDA presets
 /obj/item/modular_computer/handheld/preset
-	enrolled = DEVICE_PRIVATE
+	enrolled = DEVICE_COMPANY
 
 /obj/item/modular_computer/handheld/preset/install_default_hardware()
 	..()
@@ -43,6 +16,7 @@
 
 /obj/item/modular_computer/handheld/preset/civilian
 	_app_preset_type = /datum/modular_computer_app_presets/civilian
+	enrolled = DEVICE_PRIVATE
 	pen_type = /obj/item/pen/fountain
 
 /obj/item/modular_computer/handheld/preset/civilian/librarian/Initialize()
@@ -59,6 +33,11 @@
 	_app_preset_type = /datum/modular_computer_app_presets/engineering
 	pen_type = /obj/item/pen/silver
 
+/obj/item/modular_computer/handheld/preset/engineering/set_icon()
+	icon_state += "-brown"
+	icon_state_unpowered = icon_state
+	icon_state_broken = icon_state
+
 /obj/item/modular_computer/handheld/preset/engineering/atmos
 	_app_preset_type = /datum/modular_computer_app_presets/engineering/atmos
 
@@ -70,14 +49,27 @@
 	_app_preset_type = /datum/modular_computer_app_presets/supply
 	pen_type = /obj/item/pen/silver
 
+/obj/item/modular_computer/handheld/preset/supply/set_icon()
+	icon_state += "-brown"
+	icon_state_unpowered = icon_state
+	icon_state_broken = icon_state
 /obj/item/modular_computer/handheld/preset/supply/qm
 	pen_type = /obj/item/pen/fountain/silver
+
+// Cargo Delivery
+/obj/item/modular_computer/handheld/preset/supply/cargo_delivery
+	_app_preset_type = /datum/modular_computer_app_presets/cargo_delivery
 
 // Medical
 
 /obj/item/modular_computer/handheld/preset/medical
 	_app_preset_type = /datum/modular_computer_app_presets/medical
 	pen_type = /obj/item/pen/white
+
+/obj/item/modular_computer/handheld/preset/medical/set_icon()
+	icon_state += "-green"
+	icon_state_unpowered = icon_state
+	icon_state_broken = icon_state
 
 /obj/item/modular_computer/handheld/preset/medical/psych
 	pen_type = /obj/item/pen/fountain/white
@@ -101,6 +93,11 @@
 
 /obj/item/modular_computer/handheld/preset/security
 	_app_preset_type = /datum/modular_computer_app_presets/security
+
+/obj/item/modular_computer/handheld/preset/security/set_icon()
+	icon_state += "-blue"
+	icon_state_unpowered = icon_state
+	icon_state_broken = icon_state
 
 /obj/item/modular_computer/handheld/preset/security/detective
 	_app_preset_type = /datum/modular_computer_app_presets/security/investigations

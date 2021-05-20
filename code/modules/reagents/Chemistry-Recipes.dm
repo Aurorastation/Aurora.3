@@ -382,6 +382,13 @@
 	required_reagents = list(/decl/reagent/cryptobiolin = 1, /decl/reagent/dylovene = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/steramycin
+	name = "Steramycin"
+	id = "steramycin"
+	result = /decl/reagent/steramycin
+	required_reagents = list(/decl/reagent/thetamycin = 2, /decl/reagent/sterilizine = 1, /decl/reagent/radium = 1)
+	result_amount = 2
+
 /datum/chemical_reaction/cetahydramine
 	name = "Cetahydramine"
 	id = "cetahydramine"

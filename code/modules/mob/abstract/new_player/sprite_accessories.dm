@@ -178,11 +178,11 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Bedhead 3"
 		icon_state = "hair_bedhead3"
 		chatname = "wavy hair"
-
+	
 	bedhead4
 		name = "Bedhead 4"
 		icon_state = "hair_bedhead4"
-		length = 3
+		length = 4
 		chatname = "messy locks"
 
 	beehive
@@ -479,6 +479,30 @@ Follow by example and make good judgement based on length which list to include 
 		length = 3
 		chatname = "long fringe"
 
+		emofringe_longbun
+		name = "Emo Fringe Long Bun"
+		icon_state = "hair_emofringe_longbun"
+		length = 3
+		chatname = "hair bun"
+
+	emorightfringe_long
+		name = "Emo Right Fringe Long"
+		icon_state = "hair_emofringe_long"
+		length = 3
+		chatname = "long fringe"
+
+	emofringe_long_alt
+		name = "Emo Fringe Long Alt"
+		icon_state = "hair_emofringe_longalt"
+		length = 3
+		chatname = "long fringe"
+
+	emorightfringe_long_alt
+		name = "Emo Right Fringe Long Alt"
+		icon_state = "hair_emorightfringe_longalt"
+		length = 3
+		chatname = "long fringe"
+
 	fade_high
 		name = "Fade, High"
 		icon_state = "hair_fade_high"
@@ -535,6 +559,12 @@ Follow by example and make good judgement based on length which list to include 
 	gentle
 		name = "Gentle"
 		icon_state = "hair_gentle"
+		length = 3
+		chatname = "long hair"
+
+	gentlealt
+		name = "Gentle Alt"
+		icon_state = "hair_gentlealt"
 		length = 3
 		chatname = "long hair"
 
@@ -1914,15 +1944,11 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Wise Beard"
 		icon_state = "facial_wise"
 
-	brokenman
+	chinstrap2
 		icon = 'icons/mob/human_face/facial_hair_multiply.dmi'
-		name = "Broken Man"
-		icon_state = "facial_brokenman"
+		name = "Chinstrap, Alt"
+		icon_state = "facial_chinstrap_ii"
 		icon_blend_mode = ICON_MULTIPLY
-
-		chinstrap2
-			name = "Chinstrap, Alt"
-			icon_state = "facial_chinstrap_ii"
 
 		stark
 			name = "Stark"
@@ -2267,6 +2293,11 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "hair_curly"
 			chatname = "curly mane"
 
+		taj_ears_curlsalt
+			name = "Tajara Curly Alt"
+			icon_state = "hair_curlyalt"
+			chatname = "curly mane"
+
 		taj_ears_fingercurl
 			name = "Tajara Finger Curls"
 			icon_state = "hair_fingerwave"
@@ -2333,6 +2364,61 @@ Follow by example and make good judgement based on length which list to include 
 			gender = MALE
 			chatname = "long mane"
 
+		taj_ears_sidepony
+			name = "Tajara Side Ponytail"
+			icon_state = "hair_sidepony"
+			chatname = "sideponytail"
+
+		taj_ears_sideponyalt
+			name = "Tajara Side Ponytail Alt"
+			icon_state = "hair_sideponyalt"
+			chatname = "sideponytail"
+
+		taj_ears_governmentman
+			name = "Tajara Government Man"
+			icon_state = "hair_gman"
+			chatname = "styled mane"
+
+		taj_ears_bun
+			name = "Tajara Bun"
+			icon_state = "hair_bun"
+			chatname = "bun"
+
+		taj_ears_smallbun
+			name = "Tajara Bun (Small)"
+			icon_state = "hair_bunsmall"
+			chatname = "bun"
+
+		taj_ears_lowbun
+			name = "Tajara Bun (Low)"
+			icon_state = "hair_lowbun"
+			chatname = "bun"
+
+		taj_ears_smalllowbun
+			name = "Tajara Bun (Low, Small)"
+			icon_state = "hair_lowbunsmall"
+			chatname = "bun"
+
+		taj_ears_shoulderlength
+			name = "Tajara Shoulderlength"
+			icon_state = "hair_shoulderlength"
+			chatname = "styled mane"
+
+		taj_ears_shoulderlengthalt
+			name = "Tajara Shoulderlength Alt"
+			icon_state = "hair_shoulderlengthalt"
+			chatname = "styled mane"
+
+		taj_ears_tresses
+			name = "Tajara Tresses"
+			icon_state = "hair_tresses"
+			chatname = "styled mane"
+
+		taj_ears_tressesalt
+			name = "Tajara Tresses Alt"
+			icon_state = "hair_tressesalt"
+			chatname = "styled mane"
+
 //msai hair, longer ears
 	msai_ears
 		icon = 'icons/mob/human_face/msai_hair.dmi'
@@ -2373,6 +2459,11 @@ Follow by example and make good judgement based on length which list to include 
 		msai_ears_curls
 			name = "M'sai Curly"
 			icon_state = "msai_curly"
+			chatname = "curly mane"
+
+		msai_ears_curls
+			name = "M'sai Curly Alt"
+			icon_state = "msai_curlyalt"
 			chatname = "curly mane"
 
 		msai_ears_fingercurl
@@ -2440,6 +2531,61 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "msai_mane"
 			gender = MALE
 			chatname = "long mane"
+
+		msai_ears_sidepony
+			name = "M'sai Side Ponytail"
+			icon_state = "msai_sidepony"
+			chatname = "sideponytail"
+
+		msai_ears_sideponyalt
+			name = "M'sai Side Ponytail Alt"
+			icon_state = "msai_sideponyalt"
+			chatname = "sideponytail"
+
+		msai_ears_governmentman
+			name = "M'sai Government Man"
+			icon_state = "msai_gman"
+			chatname = "styled mane"
+
+		msai_ears_bun
+			name = "M'sai Bun"
+			icon_state = "msai_bun"
+			chatname = "bun"
+
+		taj_ears_smallbun
+			name = "M'sai Bun (Small)"
+			icon_state = "msai_bunsmall"
+			chatname = "bun"
+
+		msai_ears_lowbun
+			name = "M'sai Bun (Low)"
+			icon_state = "msai_lowbun"
+			chatname = "bun"
+
+		msai_ears_lowsmallbun
+			name = "M'sai Bun (Low, Small)"
+			icon_state = "msai_lowbunsmall"
+			chatname = "bun"
+
+		msai_ears_shoulderlength
+			name = "M'sai Shoulderlength"
+			icon_state = "msai_shoulderlength"
+			chatname = "styled mane"
+
+		msai_ears_shoulderlengthalt
+			name = "M'sai Shoulderlength Alt"
+			icon_state = "msai_shoulderlengthalt"
+			chatname = "styled mane"
+
+		msai_ears_tresses
+			name = "M'sai Tresses"
+			icon_state = "msai_tresses"
+			chatname = "styled mane"
+
+		msai_ears_tressesalt
+			name = "M'sai Tresses Alt"
+			icon_state = "msai_tressesalt"
+			chatname = "styled mane"
 
 //vaurca antennae
 	vaurca_classic
