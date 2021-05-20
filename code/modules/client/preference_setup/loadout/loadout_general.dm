@@ -250,3 +250,9 @@
 	path =  /obj/item/storage/box/knitting
 	description = "A box of knitting supplies."
 	flags = null
+
+/datum/gear/yarn_box
+	display_name = "knitting supplies"
+	path =  /obj/item/storage/box/yarn
+	description = "A box containing yarn."
+	flags = null

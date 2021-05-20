@@ -107,3 +107,15 @@
 	new /obj/item/yarn/green(src)
 	new /obj/item/yarn/purple(src)
 	new /obj/item/yarn/yellow(src)
+
+/obj/item/storage/box/yarn
+	name = "yarn box"
+
+/obj/item/storage/box/yarn/fill()
+	..()
+	new /obj/item/yarn(src)
+	new /obj/item/yarn/red(src)
+	new /obj/item/yarn/blue(src)
+	new /obj/item/yarn/green(src)
+	new /obj/item/yarn/purple(src)
+	new /obj/item/yarn/yellow(src)
