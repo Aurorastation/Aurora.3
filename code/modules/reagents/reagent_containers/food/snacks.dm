@@ -2222,10 +2222,6 @@
 	reagent_data = list(/decl/reagent/nutriment = list("tomato" = 4, "beet" = 4))
 	bitesize = 2
 
-/obj/item/reagent_containers/food/snacks/soup/beet/Initialize()
-	. = ..()
-	name = pick(list("borsch","bortsch","borstch","borsh","borshch","borscht"))
-
 /obj/item/reagent_containers/food/snacks/salad/tossedsalad
 	name = "tossed salad"
 	desc = "A proper salad, basic and simple, with little bits of carrot, tomato and apple intermingled. Vegan!"
