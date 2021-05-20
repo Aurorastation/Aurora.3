@@ -746,7 +746,7 @@
 		/obj/item/seeds/poppyseed = 10,
 		/obj/item/seeds/potatoseed = 30,
 		/obj/item/seeds/pumpkinseed = 40,
-		/obt/item/seeds/qlortseed = 70,
+		/obj/item/seeds/qlortseed = 70,
 		/obj/item/seeds/reishimycelium = 30,
 		/obj/item/seeds/replicapod = 200,
 		/obj/item/seeds/riceseed = 20,
