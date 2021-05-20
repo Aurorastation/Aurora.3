@@ -19,7 +19,7 @@
 /obj/item/spell/aura/shock/process()
 	if(!pay_energy(500))
 		qdel(src)
-	var/list/nearby_mobs = range(calculate_spell_power(4),owner)
+	var/list/nearby_mobs = range(calculate_spell_power(4), owner)
 	var/power = calculate_spell_power(7)
 	if(check_for_scepter())
 		power = calculate_spell_power(15)
@@ -27,6 +27,9 @@
 		light.flicker()
 	for(var/mob/living/L in nearby_mobs)
 		if(is_ally(L))
+			continue
+		
+		if(L.loc == owner)
 			continue
 
 		if(L.isSynthetic())

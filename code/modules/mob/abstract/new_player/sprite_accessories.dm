@@ -479,6 +479,30 @@ Follow by example and make good judgement based on length which list to include 
 		length = 3
 		chatname = "long fringe"
 
+		emofringe_longbun
+		name = "Emo Fringe Long Bun"
+		icon_state = "hair_emofringe_longbun"
+		length = 3
+		chatname = "hair bun"
+
+	emorightfringe_long
+		name = "Emo Right Fringe Long"
+		icon_state = "hair_emofringe_long"
+		length = 3
+		chatname = "long fringe"
+
+	emofringe_long_alt
+		name = "Emo Fringe Long Alt"
+		icon_state = "hair_emofringe_longalt"
+		length = 3
+		chatname = "long fringe"
+
+	emorightfringe_long_alt
+		name = "Emo Right Fringe Long Alt"
+		icon_state = "hair_emorightfringe_longalt"
+		length = 3
+		chatname = "long fringe"
+
 	fade_high
 		name = "Fade, High"
 		icon_state = "hair_fade_high"
@@ -535,6 +559,12 @@ Follow by example and make good judgement based on length which list to include 
 	gentle
 		name = "Gentle"
 		icon_state = "hair_gentle"
+		length = 3
+		chatname = "long hair"
+
+	gentlealt
+		name = "Gentle Alt"
+		icon_state = "hair_gentlealt"
 		length = 3
 		chatname = "long hair"
 

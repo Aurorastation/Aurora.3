@@ -135,7 +135,11 @@
 	icon_state = "adhomai_clock"
 	item_state = "adhomai_clock"
 	contained_sprite = TRUE
+	slot_flags = SLOT_MASK
 	var/static/months = list("Menshe-aysaif", "Sil'nryy-aysaif", "Menshe-rhazzimy", "Sil'nryy-rhazzimy")
+
+/obj/item/pocketwatch/adhomai/get_mask_examine_text(mob/user)
+	return "around [user.get_pronoun("his")] neck"
 
 /obj/item/pocketwatch/adhomai/checktime(mob/user)
 	set category = "Object"
