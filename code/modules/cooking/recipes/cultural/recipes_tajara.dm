@@ -71,47 +71,11 @@
 			return ..()
 	return FALSE
 
+// Tajaran cakes
 /decl/recipe/conecake
 	appliance = OVEN
 	reagents = list(/decl/reagent/drink/milk/adhomai = 5, /decl/reagent/nutriment/flour/nfrihi = 15, /decl/reagent/water = 5, /decl/reagent/sugar = 15)
 	result = /obj/item/reagent_containers/food/snacks/cone_cake
-
-/decl/recipe/fruitRikazu
-	appliance = OVEN
-	reagents = list(/decl/reagent/sugar = 5)
-	fruit = list("mtear" = 1)
-	items = list(
-		/obj/item/reagent_containers/food/snacks/tajaran_bread
-	)
-	result = /obj/item/reagent_containers/food/snacks/fruit_rikazu
-	// fruit = list("nifberries" = 2, "mushroom" = 1, "mtear" = 1) fruit = list("earthenroot" = 2)
-
-/decl/recipe/meatRikazu
-	appliance = OVEN
-	reagents = list(/decl/reagent/sodiumchloride = 1, /decl/reagent/blackpepper = 1)
-	items = list(
-		/obj/item/reagent_containers/food/snacks/tajaran_bread,
-		/obj/item/reagent_containers/food/snacks/meat/adhomai
-	)
-	result = /obj/item/reagent_containers/food/snacks/meat_rikazu
-
-/decl/recipe/vegetableRikazu
-	appliance = OVEN
-	reagents = list(/decl/reagent/nutriment/flour/nfrihi = 5)
-	fruit = list("earthenroot" = 1)
-	items = list(
-		/obj/item/reagent_containers/food/snacks/tajaran_bread
-	)
-	result = /obj/item/reagent_containers/food/snacks/vegetable_rikazu
-
-/decl/recipe/chocolateRikazu
-	appliance = OVEN
-	reagents = list(/decl/reagent/drink/milk/cream = 5)
-	items = list(
-		/obj/item/reagent_containers/food/snacks/tajaran_bread,
-		/obj/item/reagent_containers/food/snacks/chocolatebar
-	)
-	result = /obj/item/reagent_containers/food/snacks/chocolate_rikazu
 
 /decl/recipe/avah
 	appliance = FRYER
@@ -121,6 +85,43 @@
 		/obj/item/reagent_containers/food/snacks/cheesewedge
 	)
 	result = /obj/item/reagent_containers/food/snacks/avah
+
+// Tajaran pies
+/decl/recipe/fruitRikazu
+	appliance = OVEN
+	reagents = list(/decl/reagent/sugar = 5)
+	fruit = list("mtear" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/tajaran_bread
+	)
+	result = /obj/item/reagent_containers/food/snacks/fruit_rikazu
+
+/decl/recipe/meatrikazu
+	appliance = OVEN
+	reagents = list(/decl/reagent/sodiumchloride = 1, /decl/reagent/blackpepper = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/tajaran_bread,
+		/obj/item/reagent_containers/food/snacks/meat/adhomai
+	)
+	result = /obj/item/reagent_containers/food/snacks/meat_rikazu
+
+/decl/recipe/vegetablerikazu
+	appliance = OVEN
+	reagents = list(/decl/reagent/nutriment/flour/nfrihi = 5)
+	fruit = list("earthenroot" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/tajaran_bread
+	)
+	result = /obj/item/reagent_containers/food/snacks/vegetable_rikazu
+
+/decl/recipe/chocolaterikazu
+	appliance = OVEN
+	reagents = list(/decl/reagent/drink/milk/cream = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/tajaran_bread,
+		/obj/item/reagent_containers/food/snacks/chocolatebar
+	)
+	result = /obj/item/reagent_containers/food/snacks/chocolate_rikazu
 
 /decl/recipe/dirt_roast
 	appliance = OVEN
