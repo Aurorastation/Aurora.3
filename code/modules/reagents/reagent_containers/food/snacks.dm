@@ -2214,8 +2214,8 @@
 	reagents_to_add = list(/decl/reagent/nutriment/protein = 5)
 
 /obj/item/reagent_containers/food/snacks/soup/beet
-	name = "beet soup"
-	desc = "Wait, how do you spell it again..?"
+	name = "borscht"
+	desc = "A hearty beet soup that's hard to spell."
 	icon_state = "beetsoup"
 	filling_color = "#FAC9FF"
 	reagents_to_add = list(/decl/reagent/nutriment = 8)
