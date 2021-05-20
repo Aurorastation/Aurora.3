@@ -117,7 +117,7 @@
 	icon_state = "taj_workboots_dark"
 	item_state = "taj_workboots_dark"
 
-/obj/item/clothing/shoes/tajara/combat //SWAT shoes combined with galoshes.
+/obj/item/clothing/shoes/tajara/combat
 	name = "tajaran combat boots"
 	desc = "When you REALLY want to turn up the heat."
 	icon = 'icons/mob/species/tajaran/shoes.dmi'
