@@ -382,6 +382,9 @@
 	if(!vampire)
 		return
 
+	if(isAdminLevel(src.z))
+		return
+
 	if(pulledby)
 		if(pulledby.pulling == src)
 			pulledby.pulling = null
@@ -427,7 +430,7 @@
 
 /obj/effect/dummy/veil_walk/proc/eject_all()
 	for(var/atom/movable/A in src)
-		A.forceMove(loc)
+		A.forceMove(last_valid_turf)
 		if(ismob(A))
 			var/mob/M = A
 			M.reset_view(null)
