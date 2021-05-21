@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes:
-  - rscdel: "Removed the full explosion option from the explosive implant. It is now one telecrystal cheaper."

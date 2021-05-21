@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Random events such as Random Antagonist and Burglar Pod will no longer happen on extended."
