@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Softcaps, berets, and fezzes no longer block the head flavor text."
