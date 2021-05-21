@@ -8,7 +8,7 @@
 	var/one_shot	= 0	// If true, then the event will not be re-added to the list of available events
 	var/add_to_queue= 1	// If true, add back to the queue of events upon finishing.
 	var/list/role_weights = list()
-	var/list/excluded_gamemodes = list()	// A list of gamemodes during which this event won't fire.
+	var/list/excluded_gamemodes	// A lazylist of gamemodes during which this event won't fire.
 	var/datum/event/event_type
 
 /datum/event_meta/New(var/event_severity, var/event_name, var/datum/event/type, var/event_weight, var/list/job_weights, var/is_one_shot = 0, var/min_event_weight = 0, var/max_event_weight = 0, var/list/excluded_roundtypes, var/add_to_queue = TRUE)
@@ -29,9 +29,9 @@
 	if(!enabled)
 		return 0
 
-	if(excluded_gamemodes.len && (SSticker.mode in excluded_gamemodes))
+	if(LAZYISIN(excluded_gamemodes, SSticker.mode.name))
 		// There's no way it'll be run this round anyways.
-		enabled = 0
+		enabled = FALSE
 		return 0
 
 	var/job_weight = 0
