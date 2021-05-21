@@ -87,7 +87,7 @@
 	result = /obj/item/reagent_containers/food/snacks/avah
 
 // Tajaran pies
-/decl/recipe/fruitRikazu
+/decl/recipe/fruitrikazu
 	appliance = OVEN
 	reagents = list(/decl/reagent/sugar = 5)
 	fruit = list("mtear" = 1)
