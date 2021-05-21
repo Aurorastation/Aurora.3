@@ -1,8 +1,0 @@
-author: Doxxmedearly
-
-# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
-delete-after: True
-
-changes:
-  - tweak: "Drying racks now hold dried items in their inventory, instead of spitting it out onto its tile."
-  - bugfix: "Fixed the drying rack UI displaying pre-dried items as vendable after drying is done."
