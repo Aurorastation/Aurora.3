@@ -659,7 +659,6 @@
 		/obj/item/seeds/cocoapodseed = 3,
 		/obj/item/seeds/cornseed = 3,
 		/obj/item/seeds/dynseed = 3,
-		/obj/item/seeds/replicapod = 3,
 		/obj/item/seeds/earthenroot = 2,
 		/obj/item/seeds/eggplantseed = 3,
 		/obj/item/seeds/eki = 3,
@@ -683,8 +682,9 @@
 		/obj/item/seeds/potatoseed = 3,
 		/obj/item/seeds/pumpkinseed = 3,
 		/obj/item/seeds/qlortseed = 3,
-		/obj/item/seeds/riceseed = 3,
+		/obj/item/seeds/replicapod = 3,
 		/obj/item/seeds/reishimycelium = 3,
+		/obj/item/seeds/riceseed = 3,
 		/obj/item/seeds/shandseed = 3,
 		/obj/item/seeds/soyaseed = 3,
 		/obj/item/seeds/sugarcaneseed = 3,
@@ -723,13 +723,15 @@
 		/obj/item/seeds/chiliseed = 50,
 		/obj/item/seeds/cocoapodseed = 50,
 		/obj/item/seeds/cornseed = 30,
-		/obj/item/seeds/replicapod = 200,
+		/obj/item/seeds/dynseed = 80,
 		/obj/item/seeds/earthenroot = 70,
 		/obj/item/seeds/eggplantseed = 30,
+		/obj/item/seeds/eki = 90,
 		/obj/item/seeds/garlicseed = 30,
 		/obj/item/seeds/grapeseed = 40,
 		/obj/item/seeds/grassseed = 40,
 		/obj/item/seeds/greengrapeseed = 40,
+		/obj/item/seeds/guamiseed = 80,
 		/obj/item/seeds/harebell = 10,
 		/obj/item/seeds/lemonseed = 40,
 		/obj/item/seeds/limeseed = 50,
@@ -744,7 +746,9 @@
 		/obj/item/seeds/poppyseed = 10,
 		/obj/item/seeds/potatoseed = 30,
 		/obj/item/seeds/pumpkinseed = 40,
+		/obj/item/seeds/qlortseed = 70,
 		/obj/item/seeds/reishimycelium = 30,
+		/obj/item/seeds/replicapod = 200,
 		/obj/item/seeds/riceseed = 20,
 		/obj/item/seeds/shandseed = 60,
 		/obj/item/seeds/soyaseed = 40,
@@ -757,8 +761,8 @@
 		/obj/item/seeds/watermelonseed = 30,
 		/obj/item/seeds/wheatseed = 20,
 		/obj/item/seeds/whitebeetseed = 20,
-		/obj/item/seeds/dynseed = 80,
-		/obj/item/seeds/wulumunushaseed = 90
+		/obj/item/seeds/wulumunushaseed = 90,
+		/obj/item/seeds/ylpha = 95
 	)
 	restock_items = 1
 	random_itemcount = 0
@@ -902,7 +906,8 @@
 		/obj/item/wrench = 5,
 		/obj/item/device/analyzer = 5,
 		/obj/item/device/t_scanner = 5,
-		/obj/item/screwdriver = 5
+		/obj/item/screwdriver = 5,
+		/obj/item/tape_roll = 3
 	)
 	contraband = list(
 		/obj/item/weldingtool/hugetank = 2,
@@ -1032,7 +1037,8 @@
 		/obj/item/stock_parts/micro_laser = 5,
 		/obj/item/stock_parts/matter_bin = 5,
 		/obj/item/stock_parts/manipulator = 5,
-		/obj/item/stock_parts/console_screen = 5
+		/obj/item/stock_parts/console_screen = 5,
+		/obj/item/tape_roll = 5
 	)
 	// There was an incorrect entry (cablecoil/power).  I improvised to cablecoil/heavyduty.
 	// Another invalid entry, /obj/item/circuitry.  I don't even know what that would translate to, removed it.

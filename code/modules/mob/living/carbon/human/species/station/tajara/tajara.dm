@@ -87,6 +87,9 @@
 	default_accent = ACCENT_REPUBICLANSIIK
 	allowed_accents = list(ACCENT_REPUBICLANSIIK, ACCENT_NAZIRASIIK, ACCENT_CREVAN, ACCENT_DASNRRASIIK, ACCENT_HIGHHARRSIIK, ACCENT_LOWHARRSIIK, ACCENT_AMOHDASIIK, ACCENT_NORTHRASNRR, ACCENT_OLDYASSA)
 
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/tie_hair)
+
 	zombie_type = SPECIES_ZOMBIE_TAJARA
 
 	has_organ = list(

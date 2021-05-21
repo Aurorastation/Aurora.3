@@ -121,6 +121,9 @@
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
 
+/obj/item/clothing/accessory/badge/holo/cord/get_mask_examine_text(mob/user)
+	return "around [user.get_pronoun("his")] neck"
+
 /obj/item/clothing/accessory/badge/holo/attack_self(mob/user as mob)
 	if(!stored_name)
 		to_chat(user, "Waving around a holobadge before swiping an ID would be pretty pointless.")
