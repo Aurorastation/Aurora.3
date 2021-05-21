@@ -55,7 +55,7 @@
 		mob_overlay.color = color
 	if(build_from_parts)
 		mob_overlay.cut_overlays()
-		mob_overlay.add_overlay(overlay_image(I, "[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
+		mob_overlay.add_overlay(overlay_image(I, "[icon_state][WORN_UNDER]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	mob_overlay.appearance_flags = RESET_ALPHA
 	return mob_overlay
 

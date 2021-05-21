@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Tweaked items that can be attached as accessories to use the correct mob_overlay item_state. This might cause some accessories to break, so make a github issue or DM me on discord if you find any, preferably the former."
