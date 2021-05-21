@@ -9,8 +9,8 @@
 	var/machine_id = ""
 	var/list/items = list()
 	var/sum = 0
-	var/access_code = 0
 	var/editmode = 0
+	var/unlocking = 0
 	var/receipt = ""
 	var/ticket = ""
 	var/destinationact = "Civilian"
@@ -21,7 +21,6 @@
 /obj/machinery/orderterminal/Initialize()
 	. = ..()
 	machine_id = "Idris Ordering Terminal #[SSeconomy.num_financial_terminals++]"
-	print_reference()
 
 /obj/machinery/orderterminal/AltClick(var/mob/user)
 	var/obj/item/card/id/I = user.GetIdCard()
@@ -30,26 +29,26 @@
 		to_chat(user, SPAN_NOTICE("Command access granted."))
 		SSvueui.check_uis_for_change(src)
 
-/obj/machinery/orderterminal/proc/print_reference()
-	var/obj/item/paper/R = new(src.loc)
-	var/pname = "Reference: [machine_id]"
-	var/info = "<b>[machine_id] reference</b><br><br>"
-	info += "Access code: [access_code]<br><br>"
-	info += "<b>Do not lose or misplace this code.</b><br>"
-	R.set_content_unsafe(pname, info)
+// /obj/machinery/orderterminal/proc/print_reference()
+// 	var/obj/item/paper/R = new(src.loc)
+// 	var/pname = "Reference: [machine_id]"
+// 	var/info = "<b>[machine_id] reference</b><br><br>"
+// 	info += "Access code: [access_code]<br><br>"
+// 	info += "<b>Do not lose or misplace this code.</b><br>"
+// 	R.set_content_unsafe(pname, info)
 
-	//stamp the paper
-	var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
-	stampoverlay.icon_state = "paper_stamp-cent"
-	if(!R.stamped)
-		R.stamped = new
-	R.stamped += /obj/item/stamp
-	R.add_overlay(stampoverlay)
-	R.stamps += "<HR><i>This paper has been stamped by the Head of Personnel's desk.</i>"
-	var/obj/item/smallDelivery/D = new(R.loc)
-	R.forceMove(D)
-	D.wrapped = R
-	D.name = "small parcel - 'Quik Pay access code'"
+// 	//stamp the paper
+// 	var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
+// 	stampoverlay.icon_state = "paper_stamp-cent"
+// 	if(!R.stamped)
+// 		R.stamped = new
+// 	R.stamped += /obj/item/stamp
+// 	R.add_overlay(stampoverlay)
+// 	R.stamps += "<HR><i>This paper has been stamped by the Head of Personnel's desk.</i>"
+// 	var/obj/item/smallDelivery/D = new(R.loc)
+// 	R.forceMove(D)
+// 	D.wrapped = R
+// 	D.name = "small parcel - 'Quik Pay access code'"
 
 /obj/machinery/orderterminal/power_change()
 	..()
@@ -139,7 +138,6 @@
 		var/transaction_terminal = machine_id
 
 		if(transaction_amount <= E.worth)
-			playsound(src, 'sound/machines/chime.ogg', 50, 1)
 			src.visible_message("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes.")
 			
 			SSeconomy.charge_to_account(SSeconomy.get_department_account(destinationact)?.account_number, E.owner_name, transaction_purpose, transaction_terminal, transaction_amount)
@@ -158,9 +156,16 @@
 		return
 	if (!istype(O))
 		return
+
+	if(unlocking)
+		if(check_access(I))
+			to_chat(user, SPAN_NOTICE("You unlock \the [src]. Please return to the home screen."))
+			editmode = 1
+			unlocking = 0
+		else
+			to_chat(user, SPAN_WARNING("Access denied."))
 	
 	else
-
 		var/transaction_amount = sum
 		var/transaction_purpose = "[destinationact] Payment"
 		var/transaction_terminal = machine_id
@@ -237,7 +242,8 @@
 	if(href_list["return"])
 		sum = 0
 		receipt = ""
-		ui.activeui = "machinery-orderterminal-ordering"	
+		unlocking = 0
+		ui.activeui = "machinery-orderterminal-ordering"
 		. = TRUE
 
 	if(href_list["locking"])
@@ -247,11 +253,8 @@
 			SSvueui.check_uis_for_change(src)
 			return 0
 		if(editmode == 0)
-			var/attempt_code = input("Enter the edit code", "Confirm edit access code") as num //Copied the eftpos method, dont judge
-			if(attempt_code == access_code)
-				editmode = 1
-				to_chat(src, SPAN_NOTICE("Device Unlocked."))
-				SSvueui.check_uis_for_change(src)
+			unlocking = 1
+			ui.activeui = "machinery-orderterminal-editconfirmation"
 		. = TRUE
 
 	if(href_list["accountselect"])
@@ -275,5 +278,4 @@
 			if("Science")
 				destinationact = "Science"
 	. = TRUE
-	playsound(src, 'sound/machines/chime.ogg', 50, 1)
 	SSvueui.check_uis_for_change(src)
