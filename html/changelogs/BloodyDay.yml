@@ -1,6 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscadd: "Blood pressure & pulse is now different for several species. The affected species are: Tajara, Unathi & Skrell. The latter two also now have a lower body temperature."
