@@ -191,6 +191,17 @@
 	var/sprint_cost_factor = 0.9  	// Multiplier on stamina cost for sprinting
 	var/exhaust_threshold = 50	  	// When stamina runs out, the mob takes oxyloss up til this value. Then collapses and drops to walk
 
+	// Pulse modifiers
+	var/low_pulse = 40
+	var/norm_pulse = 60
+	var/fast_pulse = 90
+	var/v_fast_pulse = 120
+	var/max_pulse = 160
+
+	// Blood pressure modifiers
+	var/bp_base_systolic = 120
+	var/bp_base_disatolic = 80
+
 	var/gluttonous = 0            // Can eat some mobs. Values can be GLUT_TINY, GLUT_SMALLER, GLUT_ANYTHING, GLUT_ITEM_TINY, GLUT_ITEM_NORMAL, GLUT_ITEM_ANYTHING, GLUT_PROJECTILE_VOMIT
 	var/stomach_capacity = 5      // How much stuff they can stick in their stomach
 	var/allowed_eat_types = TYPE_ORGANIC
