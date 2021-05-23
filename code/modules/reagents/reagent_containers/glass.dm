@@ -215,7 +215,7 @@
 	w_class = ITEMSIZE_NORMAL
 	amount_per_transfer_from_this = 120
 	possible_transfer_amounts = list(10,20,30,60,120)
-	volume = 120
+	volume = 300
 	flags = OPENCONTAINER
 	unacidable = 0
 	drop_sound = 'sound/items/drop/helm.ogg'
