@@ -4,3 +4,4 @@ delete-after: True
 
 changes:
   -tweak: "Buckets no longer fit into chem dispensers or ChemMasters."
+  -tweak: "You can no longer put food in chem dispensers, including drink dispensers."
