@@ -2,13 +2,14 @@
 	display_name = "cane"
 	path = /obj/item/cane
 
-/datum/gear/cane/crutch
-	display_name = "crutch"
-	path = /obj/item/cane/crutch
-
-/datum/gear/cane/white
-	display_name = "white cane"
-	path = /obj/item/cane/white
+/datum/gear/cane/New()
+	..()
+	var/list/cane = list()
+	cane["cane"] = /obj/item/cane
+	cane["telescopic cane"] = /obj/item/cane/telecane
+	cane["crutch"] = /obj/item/cane/crutch
+	cane["white cane"] = /obj/item/cane/white
+	gear_tweaks += new /datum/gear_tweak/path(cane)
 
 /datum/gear/dice
 	display_name = "pack of dice"
@@ -217,6 +218,9 @@
 	plushies["plushie, slime"] = /obj/item/toy/plushie/slime
 	plushies["plushie, penny"] = /obj/item/toy/plushie/pennyplush
 	plushies["plushie, greimorian"] = /obj/item/toy/plushie/greimorian
+	plushies["plushie, Axic"] = /obj/item/toy/plushie/axic
+	plushies["plushie, Qill"] = /obj/item/toy/plushie/qill
+	plushies["plushie, Xana"] = /obj/item/toy/plushie/xana
 	gear_tweaks += new/datum/gear_tweak/path(plushies)
 
 /datum/gear/toothpaste

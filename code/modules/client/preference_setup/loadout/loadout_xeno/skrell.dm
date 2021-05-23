@@ -134,6 +134,10 @@
 	cost = 0
 	flags = 0
 
+/datum/gear/accessory/skrell_passport/New()
+	. = ..()
+	gear_tweaks += list(social_credit_tweak)
+
 // the whitelisted list ensures only people with skrell, vaurca, or diona whitelists can reach this check
 /datum/gear/accessory/skrell_passport/check_species_whitelist(mob/living/carbon/human/H)
 	var/static/list/species_list = list(SPECIES_SKRELL, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BREEDER, SPECIES_DIONA)
@@ -148,3 +152,25 @@
 	if(tag)
 		J.species_tag = tag
 	return J
+
+/*
+	Skrellian Social Score
+*/
+var/datum/gear_tweak/social_credit/social_credit_tweak = new()
+
+datum/gear_tweak/social_credit/get_contents(var/metadata)
+	return "Social Credit Score: [metadata]"
+
+datum/gear_tweak/social_credit/get_default()
+	return 5
+
+datum/gear_tweak/social_credit/get_metadata(var/user, var/metadata)
+	var/credit_score = input(user, "Set the credit score your passport will display, refer to the wiki to gauge it. (It will be slightly randomized to simulate Jargon calculations.)", "Social Credit Score") as null|num
+	if(credit_score)
+		return round(credit_score, 0.01)
+	return metadata
+
+datum/gear_tweak/social_credit/tweak_item(var/obj/item/clothing/accessory/badge/passport/jargon/PP, var/metadata)
+	if(!istype(PP))
+		return
+	PP.credit_score = metadata + pick(-0.01, 0, 0.01)

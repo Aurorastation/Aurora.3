@@ -1603,6 +1603,9 @@
 	var/feet_exposed = 1
 
 	for(var/obj/item/clothing/C in equipment)
+		if(C.item_flags & SHOWFLAVORTEXT)
+			continue
+
 		if(C.body_parts_covered & HEAD)
 			head_exposed = 0
 		if(C.body_parts_covered & FACE)
@@ -1812,13 +1815,13 @@
 		if(PULSE_NONE)
 			return 0
 		if(PULSE_SLOW)
-			return rand(40, 60)
+			return rand(species.low_pulse, species.norm_pulse)
 		if(PULSE_NORM)
-			return rand(60, 90)
+			return rand(species.norm_pulse, species.fast_pulse)
 		if(PULSE_FAST)
-			return rand(90, 120)
+			return rand(species.fast_pulse, species.v_fast_pulse)
 		if(PULSE_2FAST)
-			return rand(120, 160)
+			return rand(species.v_fast_pulse, species.max_pulse)
 		if(PULSE_THREADY)
 			return PULSE_MAX_BPM
 	return 0
@@ -1852,9 +1855,9 @@
 //Get fluffy numbers
 /mob/living/carbon/human/proc/blood_pressure()
 	if(status_flags & FAKEDEATH)
-		return list(Floor(120+rand(-5,5))*0.25, Floor(80+rand(-5,5)*0.25))
+		return list(Floor(species.bp_base_systolic+rand(-5,5))*0.25, Floor(species.bp_base_disatolic+rand(-5,5)*0.25))
 	var/blood_result = get_blood_circulation()
-	return list(Floor((120+rand(-5,5))*(blood_result/100)), Floor((80+rand(-5,5))*(blood_result/100)))
+	return list(Floor((species.bp_base_systolic+rand(-5,5))*(blood_result/100)), Floor((species.bp_base_disatolic+rand(-5,5))*(blood_result/100)))
 
 //Formats blood pressure for text display
 /mob/living/carbon/human/proc/get_blood_pressure()
@@ -1863,30 +1866,32 @@
 
 //Works out blood pressure alert level -- not very accurate
 /mob/living/carbon/human/proc/get_blood_pressure_alert()
-	var/list/bp = blood_pressure()
+	var/list/bp_list = blood_pressure()
 	// For a blood pressure, e.g. 120/80
 	var/systolic_alert // this is the top number '120' -- highest pressure when heart beats
 	var/diastolic_alert // this is the bottom number '80' -- lowest pressure when heart relaxes
-
-	switch(bp[1])
-		if(BP_HIGH_SYSTOLIC to INFINITY)
-			systolic_alert = BLOOD_PRESSURE_HIGH
-		if(BP_PRE_HIGH_SYSTOLIC to BP_HIGH_SYSTOLIC)
-			systolic_alert = BLOOD_PRESSURE_PRE_HIGH
-		if(BP_IDEAL_SYSTOLIC to BP_PRE_HIGH_SYSTOLIC)
+	
+	var/blood_pressure_systolic = bp_list[1]
+	if (blood_pressure_systolic)
+		if (blood_pressure_systolic >= (species.bp_base_systolic - BP_SYS_IDEAL_MOD) && blood_pressure_systolic <= (species.bp_base_systolic + HIGH_BP_MOD))
 			systolic_alert = BLOOD_PRESSURE_IDEAL
-		if(-INFINITY to BP_IDEAL_SYSTOLIC)
+		else if (blood_pressure_systolic <= (species.bp_base_systolic - BP_SYS_IDEAL_MOD))
 			systolic_alert = BLOOD_PRESSURE_LOW
+		else if (blood_pressure_systolic >= (species.bp_base_systolic + PRE_HIGH_BP_MOD) && blood_pressure_systolic <= (species.bp_base_systolic + HIGH_BP_MOD))
+			systolic_alert = BLOOD_PRESSURE_PRE_HIGH
+		else if (blood_pressure_systolic >= (species.bp_base_systolic + HIGH_BP_MOD))
+			systolic_alert = BLOOD_PRESSURE_HIGH
 
-	switch(bp[2])
-		if(BP_HIGH_DIASTOLIC to INFINITY)
-			diastolic_alert = BLOOD_PRESSURE_HIGH
-		if(BP_PRE_HIGH_DIASTOLIC to BP_HIGH_DIASTOLIC)
-			diastolic_alert = BLOOD_PRESSURE_PRE_HIGH
-		if(BP_IDEAL_DIASTOLIC to BP_PRE_HIGH_DIASTOLIC)
+	var/blood_pressure_disatolic = bp_list[2]
+	if (blood_pressure_disatolic)
+		if(blood_pressure_disatolic >= (species.bp_base_disatolic - BP_DIS_IDEAL_MOD) && blood_pressure_disatolic <=  (species.bp_base_disatolic + HIGH_BP_MOD))
 			diastolic_alert = BLOOD_PRESSURE_IDEAL
-		if(-INFINITY to BP_IDEAL_DIASTOLIC)
+		else if (blood_pressure_disatolic >=  (species.bp_base_disatolic - BP_DIS_IDEAL_MOD))
 			diastolic_alert = BLOOD_PRESSURE_LOW
+		else if (blood_pressure_disatolic >= (species.bp_base_disatolic + PRE_HIGH_BP_MOD) && blood_pressure_disatolic <= (species.bp_base_disatolic + PRE_HIGH_BP_MOD))
+			diastolic_alert = BLOOD_PRESSURE_PRE_HIGH
+		else if (blood_pressure_disatolic >= (species.bp_base_disatolic + HIGH_BP_MOD))
+			diastolic_alert = BLOOD_PRESSURE_HIGH
 
 	if(systolic_alert == BLOOD_PRESSURE_HIGH || diastolic_alert == BLOOD_PRESSURE_HIGH)
 		return BLOOD_PRESSURE_HIGH

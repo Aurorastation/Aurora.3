@@ -45,7 +45,7 @@
 	spawn(0)
 		for(var/i = 1 to BLOOD_SPRAY_DISTANCE)
 			sprayloc = get_step(sprayloc, spraydir)
-			if(!istype(sprayloc) || sprayloc.density)
+			if(!istype(sprayloc) || (sprayloc.density && !iswall(sprayloc)))
 				break
 			var/hit_mob
 			for(var/thing in sprayloc)
@@ -78,7 +78,7 @@
 
 			drip(amt, sprayloc, spraydir)
 			bled += amt
-			if(hit_mob)
+			if(hit_mob || iswall(sprayloc))
 				break
 	return bled
 #undef BLOOD_SPRAY_DISTANCE
