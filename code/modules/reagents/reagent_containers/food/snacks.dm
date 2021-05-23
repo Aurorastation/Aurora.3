@@ -2214,17 +2214,13 @@
 	reagents_to_add = list(/decl/reagent/nutriment/protein = 5)
 
 /obj/item/reagent_containers/food/snacks/soup/beet
-	name = "beet soup"
-	desc = "Wait, how do you spell it again..?"
+	name = "borscht"
+	desc = "A hearty beet soup that's hard to spell."
 	icon_state = "beetsoup"
 	filling_color = "#FAC9FF"
 	reagents_to_add = list(/decl/reagent/nutriment = 8)
 	reagent_data = list(/decl/reagent/nutriment = list("tomato" = 4, "beet" = 4))
 	bitesize = 2
-
-/obj/item/reagent_containers/food/snacks/soup/beet/Initialize()
-	. = ..()
-	name = pick(list("borsch","bortsch","borstch","borsh","borshch","borscht"))
 
 /obj/item/reagent_containers/food/snacks/salad/tossedsalad
 	name = "tossed salad"
