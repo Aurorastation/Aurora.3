@@ -2242,11 +2242,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/accessory/poncho/tajarancloak/fancy/fluff/valetzrhonaja_cloack //Nayrragh'Rakhan Cloak - Valetzrhonaja Nayrragh'Rakhan - ramke
+/obj/item/clothing/accessory/poncho/tajarancloak/fancy/fluff/valetzrhonaja_cloak //Nayrragh'Rakhan Cloak - Valetzrhonaja Nayrragh'Rakhan - ramke
 	name = "nayrragh'rakhan cloak"
 	desc = " A worn, black cloak with golden adornments decorating the edges of the fabric. The insignia of the Nayrragh'Rakhan family is embedded into the custom pin holding the cloak \
 	together, and each shoulder is decorated by the representation of a yellow or blue sun - the symbols of S'rendarr and Messa. The fabric is faded, having clearly been tested by time."
-	icon = 'icons/obj/custom_items/valetzrhonaja_cloack.dmi'
-	icon_state = "valetzrhonaja_cloack"
-	item_state = "valetzrhonaja_cloack"
+	icon = 'icons/obj/custom_items/valetzrhonaja_cloak.dmi'
+	icon_state = "valetzrhonaja_cloak"
+	item_state = "valetzrhonaja_cloak"
 	contained_sprite = TRUE
