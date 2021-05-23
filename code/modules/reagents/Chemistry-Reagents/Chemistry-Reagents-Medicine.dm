@@ -15,7 +15,7 @@
 /decl/reagent/inaprovaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(check_min_dose(M, 0.25))
 		M.add_chemical_effect(CE_STABLE)
-		M.add_chemical_effect(CE_PAINKILLER, 25)
+		M.add_chemical_effect(CE_PAINKILLER, 10)
 
 /decl/reagent/inaprovaline/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(2))
@@ -265,7 +265,12 @@
 
 /decl/reagent/perconol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(check_min_dose(M))
-		M.add_chemical_effect(CE_PAINKILLER, 50)
+		M.add_chemical_effect(CE_PAINKILLER, 35)
+		M.add_up_to_chemical_effect(CE_NOFEVER, 5) //Good enough to handle fevers for a few light infections or one bad one.
+
+/decl/reagent/perconol/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(check_min_dose(M))
+		M.add_chemical_effect(CE_PAINKILLER, 30)
 		M.add_up_to_chemical_effect(CE_NOFEVER, 5) //Good enough to handle fevers for a few light infections or one bad one.
 
 /decl/reagent/perconol/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
@@ -289,7 +294,7 @@
 
 /decl/reagent/mortaphenyl/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(check_min_dose(M))
-		M.add_chemical_effect(CE_PAINKILLER, 80)
+		M.add_chemical_effect(CE_PAINKILLER, 50)
 		if(!M.chem_effects[CE_CLEARSIGHT])
 			M.eye_blurry = max(M.eye_blurry, 5)
 		if(!M.chem_effects[CE_STRAIGHTWALK])
@@ -326,7 +331,7 @@
 	taste_description = "euphoric acid"
 
 /decl/reagent/mortaphenyl/aphrodite/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.add_chemical_effect(CE_PAINKILLER, 70)
+	M.add_chemical_effect(CE_PAINKILLER, 40)
 	if(!M.chem_effects[CE_CLEARSIGHT])
 		M.eye_blurry = max(M.eye_blurry, 3)
 	if(!M.chem_effects[CE_STRAIGHTWALK])
@@ -407,7 +412,7 @@
 	if(.)
 		M.add_chemical_effect(CE_CLEARSIGHT)
 		M.add_chemical_effect(CE_STRAIGHTWALK)
-		M.add_chemical_effect(CE_PAINKILLER, 40)
+		M.add_chemical_effect(CE_PAINKILLER, 30)
 		M.add_chemical_effect(CE_HALLUCINATE, -1)
 		M.add_up_to_chemical_effect(CE_ADRENALINE, 1)
 

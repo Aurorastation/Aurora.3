@@ -165,13 +165,13 @@
 	M.drowsyness += 1 * removed
 
 /decl/reagent/raskara_dust/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.add_chemical_effect(CE_PAINKILLER, 25)
+	M.add_chemical_effect(CE_PAINKILLER, 10)
 	M.drowsyness += 2 * removed
 	if(prob(5))
 		M.emote("cough")
 
 /decl/reagent/raskara_dust/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.add_chemical_effect(CE_PAINKILLER, 50)
+	M.add_chemical_effect(CE_PAINKILLER, 30)
 	M.drowsyness += 3 * removed
 	if(prob(5))
 		M.emote("twitch")
@@ -229,10 +229,10 @@
 		M.adjustHalLoss(removed*300) //So oxycomorphine can't be used with it.
 	else
 		if(dose > 5)
-			M.add_chemical_effect(CE_PAINKILLER, 50)
+			M.add_chemical_effect(CE_PAINKILLER, 30)
 			M.heal_organ_damage(5 * removed,5 * removed)
 		else
-			M.add_chemical_effect(CE_PAINKILLER, 10)
+			M.add_chemical_effect(CE_PAINKILLER, 5)
 			M.heal_organ_damage(2 * removed,2 * removed)
 
 /decl/reagent/toxin/stimm	//Homemade Hyperzine, ported from Polaris
@@ -271,7 +271,7 @@
 
 /decl/reagent/toxin/lean/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.hallucination = max(M.hallucination, 40)
-	M.add_chemical_effect(CE_PAINKILLER, 40) // basically like Perconol, but a bit worse
+	M.add_chemical_effect(CE_PAINKILLER, 20) // basically like Perconol, but a bit worse
 	// doesn't make you vomit, though
 	if(prob(7))
 		M.emote(pick("twitch", "drool", "moan", "giggle"))
@@ -306,7 +306,7 @@
 			if(HAND_RIGHT, ARM_RIGHT)
 				H.drop_r_hand()
 	if(robo)
-		H.add_chemical_effect(CE_PAINKILLER, 80) // equivalent to mortaphenyl
+		H.add_chemical_effect(CE_PAINKILLER, 30)
 	var/obj/item/organ/internal/eyes/eyes = H.internal_organs_by_name[H.species.vision_organ || BP_EYES]
 	if(eyes.status & ORGAN_ROBOT)
 		M.hallucination = max(M.hallucination, 40)

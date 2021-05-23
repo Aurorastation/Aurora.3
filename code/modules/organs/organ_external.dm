@@ -387,7 +387,7 @@
 	organ_hit_chance = min(organ_hit_chance, 100)
 	if(prob(organ_hit_chance))
 		var/obj/item/organ/internal/victim = pickweight(victims)
-		damage_amt = max(damage_amt*victim.damage_reduction, 0)
+		damage_amt -= max(damage_amt*victim.damage_reduction, 0)
 		victim.take_internal_damage(damage_amt)
 		return TRUE
 
@@ -1424,7 +1424,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		pain = 0
 		return
 	var/last_pain = pain
-	pain = max(0,min(max_damage,pain-amount))
+	pain = max(0, min(species.total_health * 2, pain - amount))
 	return -(pain-last_pain)
 
 /obj/item/organ/external/proc/add_pain(var/amount)
@@ -1437,8 +1437,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		amount -= (owner.chem_effects[CE_PAINKILLER]/3)
 		if(amount <= 0)
 			return
-	var/threshold = max_damage * 2
-	pain = max(0, min(threshold, pain + amount))
+	pain = max(0, min(pain + amount, species.total_health * 2))
 	if(owner && ((amount > 15 && prob(20)) || (amount > 30 && prob(60))))
 		owner.emote("scream")
 	return pain-last_pain

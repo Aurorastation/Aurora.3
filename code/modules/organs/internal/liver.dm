@@ -45,7 +45,7 @@
 		filter_effect += 1
 
 	if(filter_effect < 2) //Trouble. You're not filtering well.
-		owner.adjustToxLoss(0.8 * max(2 - filter_effect, 0))
+		owner.adjustToxLoss(0.5 * max(2 - filter_effect, 0))
 
 	// Heal a bit if needed and we're not busy. This allows recovery from low amounts of toxloss.
 	if(!owner.total_radiation && damage > 0)
