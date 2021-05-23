@@ -104,7 +104,7 @@
 /obj/item/screwdriver/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(!istype(M) || user.a_intent == "help")
 		return ..()
-	if(target_zone != BP_EYES && target_zone != BP_HEAD)
+	if((target_zone != BP_EYES && target_zone != BP_HEAD) || M.eyes_protected(src, FALSE))
 		return ..()
 	if((user.is_clumsy()) && prob(50))
 		M = user
@@ -144,10 +144,12 @@
 	build_from_parts = TRUE
 	worn_overlay = "head"
 
+	var/list/color_options = list(COLOR_BLUE, COLOR_RED, COLOR_PURPLE, COLOR_BROWN, COLOR_GREEN, COLOR_CYAN, COLOR_YELLOW)
+
 /obj/item/wirecutters/Initialize()
 	. = ..()
 	if(build_from_parts)
-		color = pick(COLOR_BLUE, COLOR_RED, COLOR_PURPLE, COLOR_BROWN, COLOR_GREEN, COLOR_CYAN, COLOR_YELLOW)
+		color = pick(color_options)
 		add_overlay(overlay_image(icon, "[initial(icon_state)]_[worn_overlay]", flags=RESET_COLOR))
 
 /obj/item/wirecutters/update_icon()
@@ -192,6 +194,9 @@
 /obj/item/wirecutters/iswirecutter()
 	return TRUE
 
+/obj/item/wirecutters/toolbelt
+	color_options = list(COLOR_TOOLS)
+
 /obj/item/wirecutters/bomb
 	name = "bomb defusal wirecutters"
 	desc = "A tool used to delicately sever the wires used in bomb fuses."
@@ -214,6 +219,8 @@
 	drop_sound = 'sound/items/drop/weldingtool.ogg'
 	pickup_sound = 'sound/items/pickup/weldingtool.ogg'
 	usesound = 'sound/items/welder.ogg'
+
+	attack_verb = list("hit", "bludgeoned", "whacked")
 
 	//Amount of OUCH when it's thrown
 	force = 3
@@ -255,6 +262,13 @@
 	max_fuel = 80
 	matter = list(DEFAULT_WALL_MATERIAL = 200, MATERIAL_GLASS = 120)
 	origin_tech = list(TECH_ENGINEERING = 3)
+
+/obj/item/weldingtool/emergency
+	name = "emergency welding tool"
+	desc = "A miniaturized version of a standard welding tool, this one was made to be used during emergencies."
+	icon_state = "miniwelder"
+	item_state = "miniwelder"
+	max_fuel = 10
 
 //The Experimental Welding Tool!
 /obj/item/weldingtool/experimental
@@ -336,9 +350,7 @@
 		R.use(1)
 		add_fingerprint(user)
 		user.drop_from_inventory(src)
-		var/obj/item/flamethrower/F = new /obj/item/flamethrower
-		F.weldtool = src
-		forceMove(F)
+		var/obj/item/flamethrower/F = new /obj/item/flamethrower(get_turf(src), src)
 		user.put_in_hands(F)
 		return
 
@@ -516,6 +528,8 @@
 			damtype = BURN
 			w_class = ITEMSIZE_LARGE
 			welding = TRUE
+			hitsound = /decl/sound_category/flesh_burn_sound
+			attack_verb = list("scorched", "burned", "blasted", "blazed")
 			update_icon()
 			set_processing(TRUE)
 		else
@@ -533,6 +547,8 @@
 		damtype = BRUTE
 		w_class = initial(w_class)
 		welding = FALSE
+		hitsound = /decl/sound_category/swing_hit_sound
+		attack_verb = list("hit", "bludgeoned", "whacked")
 		set_processing(FALSE)
 		update_icon()
 
@@ -737,6 +753,7 @@
 	icon_state = "impact_wrench-screw"
 	item_state = "impact_wrench"
 	contained_sprite = TRUE
+	flags = HELDMAPTEXT
 	force = 8
 	attack_verb = list("gored", "drilled", "screwed", "punctured")
 	w_class = ITEMSIZE_SMALL
@@ -751,6 +768,9 @@
 /obj/item/powerdrill/Initialize()
 	. = ..()
 	update_tool()
+
+/obj/item/powerdrill/set_initial_maptext()
+	held_maptext = SMALL_FONTS(7, "S")
 
 /obj/item/powerdrill/examine(var/mob/user)
 	. = ..()
@@ -778,11 +798,13 @@
 
 /obj/item/powerdrill/proc/update_tool()
 	if(isscrewdriver())
-		usesound = 'sound/items/air_wrench.ogg'
-		icon_state = "impact_wrench-screw"
-	else if(iswrench())
 		usesound = 'sound/items/drill_use.ogg'
+		icon_state = "impact_wrench-screw"
+		check_maptext(SMALL_FONTS(7, "S"))
+	else if(iswrench())
+		usesound = 'sound/items/air_wrench.ogg'
 		icon_state = "impact_wrench-wrench"
+		check_maptext(SMALL_FONTS(7, "W"))
 
 /obj/item/powerdrill/attack_self(var/mob/user)
 	if(++current_tool > tools.len)

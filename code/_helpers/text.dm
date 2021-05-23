@@ -540,7 +540,7 @@
 	t = replacetext(t, @"[image id=([\w]*?\.[\w]*?)]", "<img style=\"display:block;width:90%;\" src = [config.docs_image_host]$1></img>")
 	return t
 
-/proc/html2pencode(t)
+/proc/html2pencode(t, var/include_images = FALSE)
 	t = html_decode(t)
 	t = replacetext(t, "<B>", "\[b\]")
 	t = replacetext(t, "</B>", "\[/b\]")
@@ -557,6 +557,25 @@
 	t = replacetext(t, "</font>", "\[/large\]")
 	t = replacetext(t, "<font size = \"1\">", "\[small\]")
 	t = replacetext(t, "</font>", "\[/small\]")
+
+	if(include_images)
+		t = replacetext(t, "<img src = ntlogo.png>", "\[logo_nt\]")
+		t = replacetext(t, "<img src = ntlogo_small.png>", "\[logo_nt_small\]")
+		t = replacetext(t, "<img src = zhlogo.png>", "\[logo_zh\]")
+		t = replacetext(t, "<img src = idrislogo.png>", "\[logo_idris\]")
+		t = replacetext(t, "<img src = eridanilogo.png>", "\[logo_eridani\]")
+		t = replacetext(t, "<img src = zavodlogo.png>", "\[logo_zavod\]")
+		t = replacetext(t, "<img src = hplogo.png>", "\[logo_hp\]")
+		t = replacetext(t, "<img src = beflag.png>", "\[flag_be\]")
+		t = replacetext(t, "<img src = elyraflag.png>", "\[flag_elyra\]")
+		t = replacetext(t, "<img src = solflag.png>", "\[flag_sol\]")
+		t = replacetext(t, "<img src = cocflag.png>", "\[flag_coc\]")
+		t = replacetext(t, "<img src = domflag.png>", "\[flag_dom\]")
+		t = replacetext(t, "<img src = jargonflag.png>", "\[flag_jargon\]")
+		t = replacetext(t, "<img src = praflag.png>", "\[flag_pra\]")
+		t = replacetext(t, "<img src = dpraflag.png>", "\[flag_dpra\]")
+		t = replacetext(t, "<img src = nkaflag.png>", "\[flag_nka\]")
+		t = replacetext(t, "<img src = izweskiflag.png>", "\[flag_izweski\]")
 
 	return t
 

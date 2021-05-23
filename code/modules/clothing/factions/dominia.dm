@@ -397,11 +397,19 @@
 /obj/item/clothing/head/beret/dominia
 	name = "tribunal initiate's beret"
 	desc = "A simple red beret with a golden badge marking its wearer as an initiate of the Moroz Holy Tribunal."
-	desc_fluff = " While initiates dress humbly in white and red clothing, this does not mean that House Caladius - the primary source of the Holy Tribunal's \
+	desc_fluff = "While initiates dress humbly in white and red clothing, this does not mean that House Caladius - the primary source of the Holy Tribunal's \
 	funding - spares any expenses funding them, and these berets are made of luxurious velvet."
 	icon = 'icons/clothing/head/dominia_beret.dmi'
 	icon_state = "dominia_beret"
 	item_state = "dominia_beret"
+
+/obj/item/clothing/head/beret/dominia/medical
+	name = "tribunalist medical beret"
+	desc = "A white-and-green beret bearing the sigil of the Moroz Holy Tribunal on its front. Worn by those medical workers affiliated with the Moroz Holy Tribunal."
+	desc_fluff = "Unlike the black and gold clothing of their priestly counterparts, the medical staff of the Moroz Holy Tribunal's temples are generally clad in white and green due to typically not being full members of the clergy. Occasionally, if a doctor is dedicated enough, they will be granted the right to wear the beret of a full Tribunal priest. This beret features an emblem of the eye made of green and white cloth."
+	icon = 'icons/clothing/head/dominia_beret_hospital.dmi'
+	icon_state = "dominia_beret_hospital"
+	item_state = "dominia_beret_hospital"
 
 /obj/item/clothing/head/beret/dominia/priest
 	name = "tribunalist's beret"
@@ -413,7 +421,7 @@
 	item_state = "dominia_beret_priest"
 
 /obj/item/clothing/head/beret/dominia/consular
-	name = "tribunalist’s beret"
+	name = "tribunalist's beret"
 	desc = "A beret in gold and red worn by members of the clergy affiliated with His Majesty's Diplomatic Service."
 	desc_fluff = "His Majesty's Diplomatic Service - as with much of the Empire tends to be dominated by the great houses, though the Service also employs may commoners - \
 	as long as they can pass the rigorous examinations required to become a full member of the Diplomatic Service."

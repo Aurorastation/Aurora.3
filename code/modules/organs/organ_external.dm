@@ -544,7 +544,18 @@ This function completely restores a damaged organ to perfect condition.
 //external organs handle brokenness a bit differently when it comes to damage. Instead brute_dam is checked inside process()
 //this also ensures that an external organ cannot be "broken" without broken_description being set.
 /obj/item/organ/external/is_broken()
-	return ((status & ORGAN_CUT_AWAY) || ((status & ORGAN_BROKEN) && !(status & ORGAN_SPLINTED)))
+	if(status & ORGAN_CUT_AWAY)
+		return TRUE
+	if((status & ORGAN_BROKEN) && !(status & ORGAN_SPLINTED))
+		for(var/obj/item/organ/internal/augment/aug in internal_organs)
+			if(aug.supports_limb)
+				if(aug.is_broken())
+					continue
+				if(aug.is_bruised() && prob(60))
+					continue
+				return FALSE
+		return TRUE
+	return FALSE
 
 //Determines if we even need to process this organ.
 /obj/item/organ/external/proc/need_process()

@@ -293,10 +293,22 @@ emp_act
 		if(!(I.flags & NOBLOODY))
 			I.add_blood(src)
 
-		if(prob(effective_force * 2))
+		var/is_sharp_weapon = is_sharp(I)
+		var/blood_probability = is_sharp_weapon ? effective_force * 4 : effective_force * 2
+		if(prob(blood_probability))
 			var/turf/location = loc
 			if(istype(location, /turf/simulated))
 				location.add_blood(src)
+				if(is_sharp_weapon)
+					var/turf/splatter_turf
+					var/list/splatter_turfs = RANGE_TURFS(2, location) - location - get_turf(user)
+					for(var/turf/st as anything in splatter_turfs)
+						if(!st.Adjacent(location))
+							splatter_turfs -= st
+					splatter_turf = pick(splatter_turfs)
+					if(splatter_turf)
+						var/obj/effect/decal/cleanable/blood/B = blood_splatter(splatter_turf, src, TRUE, get_dir(src, splatter_turf))
+						B.icon_state = pick("dir_splatter_1", "dir_splatter_2")
 			if(ishuman(user))
 				var/mob/living/carbon/human/H = user
 				if(get_dist(H, src) <= 1) //people with TK won't get smeared with blood
