@@ -14,6 +14,7 @@
 
 	var/accept_drinking = 0
 	var/amount = 30
+	var/list/forbidden_containers = list(/obj/item/reagent_containers/glass/bucket) //For containers we don't want people to shove into the chem machine. Like big-ass buckets.
 
 	use_power = 1
 	idle_power_usage = 100
@@ -96,6 +97,10 @@
 			return
 
 		var/obj/item/reagent_containers/RC = W
+
+		if(is_type_in_list(RC, forbidden_containers))
+			to_chat(user, SPAN_WARNING("There's no way to fit [RC] into \the [src]!"))
+			return
 
 		if(!accept_drinking && istype(RC,/obj/item/reagent_containers/food))
 			to_chat(user, SPAN_WARNING("This machine only accepts beakers!"))
