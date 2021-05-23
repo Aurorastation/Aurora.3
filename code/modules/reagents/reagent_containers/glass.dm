@@ -214,7 +214,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 200)
 	w_class = ITEMSIZE_NORMAL
 	amount_per_transfer_from_this = 120
-	possible_transfer_amounts = list(10,20,30,60,120)
+	possible_transfer_amounts = list(5,10,15,25,30,50,60,100,120,250,300)
 	volume = 300
 	flags = OPENCONTAINER
 	unacidable = 0
