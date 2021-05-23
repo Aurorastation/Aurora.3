@@ -8,9 +8,11 @@
 	idle_power_usage = 10
 	var/machine_id = ""
 	var/list/items = list()
+	var/list/buying = list()
 	var/sum = 0
-	var/editmode = 0
-	var/unlocking = 0
+	var/editmode = FALSE
+	var/unlocking = FALSE
+	var/confirmorder = FALSE
 	var/receipt = ""
 	var/ticket = ""
 	var/destinationact = "Civilian"
@@ -21,34 +23,6 @@
 /obj/machinery/orderterminal/Initialize()
 	. = ..()
 	machine_id = "Idris Ordering Terminal #[SSeconomy.num_financial_terminals++]"
-
-/obj/machinery/orderterminal/AltClick(var/mob/user)
-	var/obj/item/card/id/I = user.GetIdCard()
-	if(istype(I) && (access_heads in I.access))
-		editmode = 1
-		to_chat(user, SPAN_NOTICE("Command access granted."))
-		SSvueui.check_uis_for_change(src)
-
-// /obj/machinery/orderterminal/proc/print_reference()
-// 	var/obj/item/paper/R = new(src.loc)
-// 	var/pname = "Reference: [machine_id]"
-// 	var/info = "<b>[machine_id] reference</b><br><br>"
-// 	info += "Access code: [access_code]<br><br>"
-// 	info += "<b>Do not lose or misplace this code.</b><br>"
-// 	R.set_content_unsafe(pname, info)
-
-// 	//stamp the paper
-// 	var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
-// 	stampoverlay.icon_state = "paper_stamp-cent"
-// 	if(!R.stamped)
-// 		R.stamped = new
-// 	R.stamped += /obj/item/stamp
-// 	R.add_overlay(stampoverlay)
-// 	R.stamps += "<HR><i>This paper has been stamped by the Head of Personnel's desk.</i>"
-// 	var/obj/item/smallDelivery/D = new(R.loc)
-// 	R.forceMove(D)
-// 	D.wrapped = R
-// 	D.name = "small parcel - 'Quik Pay access code'"
 
 /obj/machinery/orderterminal/power_change()
 	..()
@@ -70,36 +44,13 @@
 		set_light(FALSE)
 		return
 
-// --------------------
-// /obj/item/holomenu/attackby(obj/item/I, mob/user)
-// 	var/obj/item/card/id/ID = I.GetID()
-// 	if(istype(ID))
-// 		if(check_access(ID))
-// 			anchored = !anchored
-// 			to_chat(user, SPAN_NOTICE("You [anchored ? "" : "un"]anchor \the [src]."))
-// 			update_icon()
-// 		else
-// 			to_chat(user, SPAN_WARNING("Access denied."))
-// 		return
-// 	return ..()
-
-// /obj/machinery/orderterminal/attack_hand(mob/user)
-// 	if(allowed(user))
-// 		var/new_text = sanitize(input(user, "Enter new text for the holo-menu to display.", "Holo-Menu Display", html2pencode(menu_text, TRUE)) as null|message)
-// 		if(!isnull(new_text))
-// 			menu_text = pencode2html(new_text)
-// 			update_icon()
-// 	else
-// 		interact(user)
-// 	return
-
 /obj/machinery/orderterminal/attack_hand(var/mob/user)
 	ui_interact(user)
 
 /obj/machinery/orderterminal/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(usr, src)
 	if (!ui)
-		ui = new(usr, src, "machinery-orderterminal-ordering", 400, 400, "Idris Ordering Terminal")
+		ui = new(usr, src, "machinery-orderterminal-ordering", 450, 450, "Idris Ordering Terminal")
 	ui.open()
 
 /obj/machinery/orderterminal/proc/print_receipt()
@@ -116,12 +67,12 @@
 	R.add_overlay(stampoverlay)
 	R.stamps += "<HR><i>This paper has been stamped by the Idris Ordering Terminal.</i>"
 	
+	// And now we do it but for the ticket.
 	var/obj/item/paper/T = new(usr.loc)
 	var/tickettname = "Ticket: [ticket_number]"
 	ticket_number++
-	T.set_content_unsafe(tickettname, receipt, sum)
+	T.set_content_unsafe(tickettname, ticket, sum)
 
-	//stamp the ticket too
 	if(!T.stamped)
 		T.stamped = new
 	T.stamped += /obj/item/stamp
@@ -160,23 +111,24 @@
 	if(unlocking)
 		if(check_access(I))
 			to_chat(user, SPAN_NOTICE("You unlock \the [src]. Please return to the home screen."))
-			editmode = 1
-			unlocking = 0
+			editmode = TRUE
+			unlocking = FALSE
 		else
 			to_chat(user, SPAN_WARNING("Access denied."))
 	
-	else
+	else if (confirmorder)
 		var/transaction_amount = sum
 		var/transaction_purpose = "[destinationact] Payment"
 		var/transaction_terminal = machine_id
-
-		var/transaction = SSeconomy.transfer_money(I.associated_account_number, SSeconomy.get_department_account(destinationact)?.account_number,transaction_purpose,transaction_terminal,transaction_amount,null,usr)
-
-		if(transaction)
-			to_chat(user,"[icon2html(src, user)]<span class='warning'>[transaction].</span>")
+		if(sum < 0)
+			var/transaction = SSeconomy.transfer_money(I.associated_account_number, SSeconomy.get_department_account(destinationact)?.account_number,transaction_purpose,transaction_terminal,transaction_amount,null,usr)
+			if(transaction)
+				to_chat(user,"[icon2html(src, user)]<span class='warning'>[transaction].</span>")
 		else
 			playsound(src, 'sound/machines/chime.ogg', 50, 1)
 			src.visible_message("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes.")
+			ticket += "<br><b>Customer:</b> [I.registered_name]"
+			receipt += "<hr><b>Customer:</b> [I.registered_name]"
 			print_receipt()
 			sum = 0
 			receipt = ""
@@ -191,6 +143,7 @@
 
 	VUEUI_SET_CHECK_IFNOTSET(data["items"], items, ., data)
 	VUEUI_SET_CHECK_IFNOTSET(data["price"], items, ., data)
+	VUEUI_SET_CHECK_IFNOTSET(data["buying"], buying, ., data)
 	VUEUI_SET_CHECK_IFNOTSET(data["tmp_name"], "", ., data)
 	VUEUI_SET_CHECK_IFNOTSET(data["tmp_price"], 0, ., data)
 	VUEUI_SET_CHECK(data["tmp_price"], max(0, data["tmp_price"]), ., data)
@@ -208,7 +161,7 @@
 
 	if(href_list["add"])
 
-		if(editmode == 0)
+		if(!editmode)
 			to_chat(src, SPAN_NOTICE("You don't have access to use this option."))
 			return 0
 
@@ -218,47 +171,65 @@
 
 	if(href_list["remove"])
 
-		if(editmode == 0)
+		if(!editmode)
 			to_chat(src, SPAN_NOTICE("You don't have access to use this option."))
 			return 0
 		items -= href_list["remove"]
 		ui.data["items"] -= href_list["remove"]
 		. = TRUE
 
+	if(href_list["buy"])
+		// buying[href_list["buy"]["name"]] += href_list["buy"]["amount"]
+		ui.data["buying"][href_list["buy"]["name"]] += href_list["buy"]["amount"]
+		. = TRUE
+
+	if(href_list["removal"])
+		ui.data["buying"][href_list["removal"]["name"]] -= href_list["removal"]["amount"]
+		. = TRUE
+
+	if(href_list["clear"])
+		var/buying = ui.data["buying"]
+		for(var/name in buying)
+			if(buying[name])
+				buying[name] = 0
+		. = TRUE
+
 	if(href_list["confirm"])
-		var/selection = ui.data["selection"]
+		confirmorder = TRUE
+		var/buying = ui.data["buying"]
 		var/items = ui.data["items"]
-		for(var/name in selection)
-			if(items[name])
-				sum += items[name] * selection[name]
-				receipt += "<b>[name]</b> : [items[name]]x[selection[name]]:  [items[name] * selection[name]]<br>"
-				ticket += "<b>[name]</b> : [items[name]]<br>"
-		if(sum > 0)
-			ui.activeui = "machinery-orderterminal-orderconfirmation"
-		else
-			print_receipt()
+		receipt += "<b>Item:</b> Price x amount: total<hr>"
+		ticket += "<b>Item</b>: Amount<hr>"
+		for(var/name in buying)
+			if(buying[name])
+				sum += items[name] * buying[name]
+				receipt += "<b>[name]</b>: [items[name]] x [buying[name]]: [items[name] * buying[name]]<br>"
+				ticket += "<b>[name]</b>: [buying[name]]<br>"
+		ticket += "<hr><b>Price:</b> [sum]"
+		ui.activeui = "machinery-orderterminal-orderconfirmation"
 		. = TRUE
 
 	if(href_list["return"])
 		sum = 0
 		receipt = ""
-		unlocking = 0
+		unlocking = FALSE
+		confirmorder = FALSE
 		ui.activeui = "machinery-orderterminal-ordering"
 		. = TRUE
 
 	if(href_list["locking"])
-		if(editmode == 1)
-			editmode = 0
+		if(editmode)
+			editmode = FALSE
 			to_chat(src, SPAN_NOTICE("Device Locked."))
 			SSvueui.check_uis_for_change(src)
 			return 0
-		if(editmode == 0)
-			unlocking = 1
+		if(!editmode)
+			unlocking = TRUE
 			ui.activeui = "machinery-orderterminal-editconfirmation"
 		. = TRUE
 
 	if(href_list["accountselect"])
-		if(editmode == 0)
+		if(!editmode)
 			to_chat(usr, SPAN_NOTICE("You don't have access to use this option."))
 			return 0
 		switch(input("What account would you like to select?", "Destination Account") as null|anything in list("Civilian", "Cargo", "Command", "Medical", "Security", "Engineering", "Science"))

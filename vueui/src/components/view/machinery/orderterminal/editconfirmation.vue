@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h3> Awaiting ID confirmation</h3>
-    <span> Swipe id card to enter to configure the terminal.</span>
+    <h3> Activating Configuration Mode</h3>
+    <span> Swipe id card to enter configuration mode.</span>
     <vui-button :params="{ return: 1 }" width="3em">Return to order menu</vui-button>
   </div>
 </template>
