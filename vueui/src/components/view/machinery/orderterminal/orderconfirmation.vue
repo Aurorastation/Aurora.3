@@ -6,7 +6,7 @@
         {{buying[name] }}x  {{ name }}: at {{ price * buying[name] }} Credits
       </span>
     </div>
-    <h3> Total: {{ priceSum }}</h3>
+    <h3> Total: {{ sum }}</h3>
     <h3>Please swipe your ID to pay.</h3>
     <vui-button :params="{ return: 1 }" width="3em">Return to order menu</vui-button>
   </div>
@@ -17,15 +17,5 @@ export default {
   data() {
     return this.$root.$data.state;
   },
-  computed: {
-    priceSum()  {
-      return Object.keys(this.buying).reduce((sum, name) => {
-        if(isNaN(sum)) {
-          return (this.items[name] * this.buying[name])
-        }
-        return sum + (this.items[name] * this.buying[name])
-      })
-    }
-  }
 };
 </script>
