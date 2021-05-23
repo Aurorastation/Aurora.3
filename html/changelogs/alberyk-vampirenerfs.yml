@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes:
+  - tweak: "Vampire veilwalk no longer allows the vampire to stand inside walls or solid objects."
+  - tweak: "Vampires can no longer use veilwalk in admin levels."
