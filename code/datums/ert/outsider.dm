@@ -2,6 +2,7 @@
 	name = "Independent Mercenaries"
 	chance = 15
 	spawner = /datum/ghostspawner/human/ert/mercenary
+	equipment_map = /datum/map_template/distress_freelancers
 
 /datum/responseteam/kataphracts
 	name = "Kataphracts"
@@ -16,10 +17,10 @@
 	equipment_map = /datum/map_template/distress_iac
 	admin = TRUE
 
-/datum/responseteam/med_eridani
-	name = "Eridani Medical Team"
+/datum/responseteam/ap_eridani
+	name = "Eridani Asset Protection Team"
 	chance = 15
-	spawner = /datum/ghostspawner/human/ert/med_eridani
+	spawner = /datum/ghostspawner/human/ert/ap_eridani
 	equipment_map = /datum/map_template/distress_iac
 
 /datum/responseteam/fsf

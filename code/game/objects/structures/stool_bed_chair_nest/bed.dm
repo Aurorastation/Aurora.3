@@ -237,7 +237,6 @@
 
 /obj/structure/bed/roller/Destroy()
 	QDEL_NULL(beaker)
-	vitals.bed = null
 	QDEL_NULL(vitals)
 	return ..()
 

@@ -63,6 +63,12 @@
 	var/supports_children = TRUE
 	var/list/internal_organs = list() 	// Internal organs of this body part
 
+	var/datum/tendon/tendon
+	var/tendon_path = /datum/tendon
+	var/tendon_name = "tendon"   // Name of the limb's tendon. Achilles heel, etc.
+	var/tendon_dt 			 // Damage threshold required to possibly snap a tendon
+	var/list/tendon_msgs = list("tore apart", "ripped away")
+
 	var/damage_msg = "<span class='warning'>You feel an intense pain!</span>"
 	var/broken_description
 	var/open = 0
@@ -72,7 +78,6 @@
 	var/encased       // Needs to be opened with a saw to access the organs.
 	var/joint = "joint"   // Descriptive string used in dislocation.
 	var/artery_name = "artery"   //Name of the artery. Cartoid, etc.
-	var/tendon_name = "tendon"   //Name of the limb's tendon. Achilles heel, etc.
 	var/amputation_point  // Descriptive string used in amputation.
 	var/dislocated = 0    // If you target a joint, you can dislocate the limb, causing temporary damage to the organ.
 
@@ -227,6 +232,9 @@
 
 	get_icon()
 
+	if((limb_flags & ORGAN_HAS_TENDON) && !BP_IS_ROBOTIC(src))
+		tendon = new tendon_path(src, tendon_name, tendon_dt, tendon_msgs)
+
 /obj/item/organ/external/replaced(var/mob/living/carbon/human/target)
 	..()
 	if(istype(owner))
@@ -291,8 +299,8 @@
 	handle_limb_gibbing(used_weapon, brute, burn)
 
 	if(brute_dam + brute > min_broken_damage && prob(brute_dam + brute * (1 + blunt)))
-		if(damage_flags & DAM_EDGE)
-			sever_tendon()
+		if((brute && !blunt) && istype(tendon) && brute_dam + brute > tendon.threshold)
+			tendon.sever()
 			if(brute_dam > FRACTURE_AND_TENDON_DAM_THRESHOLD)
 				fracture()
 		else
@@ -472,13 +480,13 @@ This function completely restores a damaged organ to perfect condition.
 	//Possibly trigger an internal wound, too.
 	var/local_damage = brute_dam + burn_dam + damage
 	if(damage > 15 && !(type in list(BURN, LASER)) && local_damage > 30 && !(status & ORGAN_ROBOT))
-		var/internal_damage
 		if(prob(damage) && sever_artery())
-			internal_damage = TRUE
-		if(prob(Ceiling(damage / 4)) && type == CUT && sever_tendon())
-			internal_damage = TRUE
-		if(internal_damage)
 			owner.custom_pain("You feel something rip in your [name]!", 25)
+
+	if(istype(tendon) && type == CUT && !(status & ORGAN_ROBOT))
+		var/DT = tendon.threshold
+		if(DT && local_damage > DT && damage > (DT / 2) && prob(damage))
+			tendon.sever()
 
 	//Burn damage can cause fluid loss due to blistering and cook-off
 	if((type in list(BURN, LASER)) && (damage > 5 || damage + burn_dam >= 15) && !BP_IS_ROBOTIC(src))
@@ -536,7 +544,18 @@ This function completely restores a damaged organ to perfect condition.
 //external organs handle brokenness a bit differently when it comes to damage. Instead brute_dam is checked inside process()
 //this also ensures that an external organ cannot be "broken" without broken_description being set.
 /obj/item/organ/external/is_broken()
-	return ((status & ORGAN_CUT_AWAY) || ((status & ORGAN_BROKEN) && !(status & ORGAN_SPLINTED)))
+	if(status & ORGAN_CUT_AWAY)
+		return TRUE
+	if((status & ORGAN_BROKEN) && !(status & ORGAN_SPLINTED))
+		for(var/obj/item/organ/internal/augment/aug in internal_organs)
+			if(aug.supports_limb)
+				if(aug.is_broken())
+					continue
+				if(aug.is_bruised() && prob(60))
+					continue
+				return FALSE
+		return TRUE
+	return FALSE
 
 //Determines if we even need to process this organ.
 /obj/item/organ/external/proc/need_process()
@@ -650,10 +669,10 @@ Note that amputating the affected organ does in fact remove the infection from t
 		if (owner.germ_level > W.germ_level && W.infection_check())
 			W.germ_level++
 
-	if (antibiotics < 5)
+	if(antibiotics < 5)
 		for(var/datum/wound/W in wounds)
 			//Infected wounds raise the organ's germ level
-			if (W.germ_level > germ_level)
+			if (W.germ_level > germ_level && W.infection_check())
 				germ_level++
 				break	//limit increase to a maximum of one per second
 
@@ -812,12 +831,6 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if (open && !clamped && (H && !(H.species.flags & NO_BLOOD)))
 		status |= ORGAN_BLEEDING
 
-	//Bone fractures
-	if(config.bones_can_break && brute_dam > min_broken_damage * config.organ_health_multiplier && !(status & ORGAN_ROBOT))
-		if(cut_dam > brute_dam * 0.5)
-			sever_tendon()
-		else
-			fracture()
 	update_damage_ratios()
 
 /obj/item/organ/external/proc/update_damage_ratios()
@@ -1150,9 +1163,9 @@ Note that amputating the affected organ does in fact remove the infection from t
 /obj/item/organ/external/is_usable()
 	if(is_dislocated())
 		return FALSE
-	if(status & ORGAN_TENDON_CUT)
+	if(istype(tendon) && !tendon.intact)
 		return FALSE
-	if(parent && (parent.status & ORGAN_TENDON_CUT))
+	if(parent && (istype(parent.tendon) && !parent.tendon.intact))
 		return FALSE
 	if(can_feel_pain() && get_pain() > pain_disability_threshold)
 		return FALSE
@@ -1355,25 +1368,6 @@ Note that amputating the affected organ does in fact remove the infection from t
 	else
 		status |= ORGAN_ARTERY_CUT
 		return TRUE
-
-/obj/item/organ/external/proc/sever_tendon()
-	if(!(limb_flags & ORGAN_HAS_TENDON) || (status & ORGAN_ROBOT) || (status & ORGAN_TENDON_CUT))
-		return FALSE
-
-	. = TRUE
-	playsound(src.loc, 'sound/effects/snap.ogg', 40, 1, -2)
-	status |= ORGAN_TENDON_CUT
-	if(!owner)
-		return
-
-	var/message = pick("tore apart", "ripped away")
-	owner.visible_message(\
-		"<span class='warning'><font size=2>You hear a loud snapping sound coming from \the [owner]!</font></span>",\
-		"<span class='danger'><font size=3>Something feels like it [message] in your [name]!</font></span>",\
-		"You hear a sickening snap!")
-	if(owner.species && owner.can_feel_pain())
-		owner.emote("scream")
-		owner.flash_strong_pain()
 
 // Damage procs
 /obj/item/organ/external/proc/get_brute_damage()

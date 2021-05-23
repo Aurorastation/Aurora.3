@@ -9,6 +9,10 @@
 	var/obj/structure/bed/roller/bed
 	var/reported_critical = FALSE
 
+/obj/item/vitals_monitor/Destroy()
+	bed = null
+	return ..()
+
 /obj/item/vitals_monitor/process()
 	if(!bed)
 		return

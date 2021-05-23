@@ -302,6 +302,12 @@
 	volume = 10
 	cleantime = 15
 
+/obj/item/reagent_containers/glass/rag/advanced/idris
+	name = "Idris advanced service cloth"
+	desc = "An advanced rag developed and sold by Idris Incorporated at a steep price. It's dry-clean design and advanced insulating synthetic weave make this the pinnacle of service cloths for any self respecting chef or bartender!"
+	icon_state = "idrisrag"
+	volume = 15
+
 /obj/item/reagent_containers/glass/rag/handkerchief
 	name = "handkerchief"
 	desc = "For cleaning a lady's hand, your bruised ego or a crime scene."

@@ -11,6 +11,9 @@
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS
 
+/obj/item/clothing/ears/bandanna/get_ear_examine_text(var/mob/user, var/ear_text = "left")
+	return "around [user.get_pronoun("his")] neck"
+
 /obj/item/clothing/ears/bandanna/blue
 	name = "blue bandanna"
 	desc = "A plain blue bandanna."

@@ -228,8 +228,9 @@
 
 /obj/item/clothing/head/fez
 	name = "fez"
-	icon_state = "fez"
 	desc = "You should wear a fez. Fezzes are cool."
+	icon_state = "fez"
+	item_flags = SHOWFLAVORTEXT
 
 //end bs12 hats
 
