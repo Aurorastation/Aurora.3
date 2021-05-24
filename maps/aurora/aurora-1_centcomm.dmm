@@ -41516,12 +41516,12 @@
 /area/centcom/specops)
 "wWK" = (
 /obj/structure/table/rack,
-/obj/item/storage/belt/medical/first_responder/combat{
+/obj/item/storage/belt/medical/first_responder/combat/full{
 	pixel_x = 5;
 	pixel_y = -5
 	},
-/obj/item/storage/belt/medical/first_responder/combat,
-/obj/item/storage/belt/medical/first_responder/combat{
+/obj/item/storage/belt/medical/first_responder/combat/full,
+/obj/item/storage/belt/medical/first_responder/combat/full{
 	pixel_x = -4;
 	pixel_y = 5
 	},

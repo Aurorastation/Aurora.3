@@ -421,7 +421,7 @@
 	item_state = "dominia_beret_priest"
 
 /obj/item/clothing/head/beret/dominia/consular
-	name = "tribunalist’s beret"
+	name = "tribunalist's beret"
 	desc = "A beret in gold and red worn by members of the clergy affiliated with His Majesty's Diplomatic Service."
 	desc_fluff = "His Majesty's Diplomatic Service - as with much of the Empire tends to be dominated by the great houses, though the Service also employs may commoners - \
 	as long as they can pass the rigorous examinations required to become a full member of the Diplomatic Service."

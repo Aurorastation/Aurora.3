@@ -504,7 +504,6 @@ var/list/worths = list(
 					/obj/item/clothing/suit/storage/hazardvest = 60,
 					/obj/item/clothing/suit/storage/toggle/labcoat = 55,
 					/obj/item/clothing/suit/armor/riot/laser_tag = 125,
-					/obj/item/clothing/suit/fire/heavy = 600,
 					/obj/item/clothing/suit/fire = 500,
 					/obj/item/clothing/suit/radiation = 450,
 					/obj/item/clothing/suit/bomb_suit = 300,
