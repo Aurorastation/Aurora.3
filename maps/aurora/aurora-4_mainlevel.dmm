@@ -2544,7 +2544,7 @@
 /obj/structure/table/rack{
 	dir = 1
 	},
-/obj/item/clothing/suit/fire/firefighter,
+/obj/item/clothing/suit/fire,
 /obj/item/tank/oxygen,
 /obj/item/clothing/mask/gas,
 /obj/item/extinguisher,
@@ -8362,7 +8362,7 @@
 /obj/structure/table/rack{
 	dir = 1
 	},
-/obj/item/clothing/suit/fire/firefighter,
+/obj/item/clothing/suit/fire,
 /obj/item/tank/oxygen,
 /obj/item/clothing/mask/gas,
 /obj/item/extinguisher,
@@ -22373,7 +22373,6 @@
 /area/crew_quarters/heads/chief)
 "aMI" = (
 /obj/structure/table/rack,
-/obj/item/rig/ce/equipped,
 /obj/item/clothing/mask/breath,
 /obj/structure/window/reinforced{
 	dir = 4
@@ -22381,6 +22380,12 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/light_switch{
 	pixel_y = 24
+	},
+/obj/item/clothing/suit/fire/atmos,
+/obj/item/clothing/head/hardhat/firefighter/chief,
+/obj/item/rig/ce/equipped{
+	pixel_x = -6;
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/heads/chief)
@@ -26917,7 +26922,7 @@
 /obj/structure/table/rack{
 	dir = 1
 	},
-/obj/item/clothing/suit/fire/firefighter,
+/obj/item/clothing/suit/fire,
 /obj/item/tank/oxygen,
 /obj/item/clothing/mask/gas,
 /obj/item/extinguisher,
@@ -49059,7 +49064,7 @@
 /obj/structure/table/rack{
 	dir = 1
 	},
-/obj/item/clothing/suit/fire/firefighter,
+/obj/item/clothing/suit/fire,
 /obj/item/tank/oxygen,
 /obj/item/clothing/mask/gas,
 /obj/item/extinguisher,
@@ -49691,7 +49696,7 @@
 /obj/structure/table/rack{
 	dir = 1
 	},
-/obj/item/clothing/suit/fire/firefighter,
+/obj/item/clothing/suit/fire,
 /obj/item/tank/oxygen,
 /obj/item/clothing/mask/gas,
 /obj/item/extinguisher,
