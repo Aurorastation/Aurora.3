@@ -396,5 +396,8 @@ STOCK_ITEM_UNCOMMON(alt_glasses, 1)
 STOCK_ITEM_UNCOMMON(gumballs, 3)
 	new /obj/item/glass_jar/gumball(L)
 
+STOCK_ITEM_UNCOMMON(googly, 0.75)
+	new /obj/item/storage/box/googly(L)
+
 STOCK_ITEM_UNCOMMON(nothing, 0)
 	// no-op
