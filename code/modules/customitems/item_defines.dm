@@ -2179,7 +2179,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "godard_cape"
 	contained_sprite = TRUE
 
-/obj/item/organ/internal/augment/fluff/kath_legbrace // Leg Support Augment - Kathira El-Hashem - TheGreyWolf
+/obj/item/organ/internal/augment/fluff/kath_legbrace // Leg Support Augment - Kathira El-Hashem - thegreywolf
 	name = "leg support augment"
 	desc = "A leg augment to aid in the mobility of an otherwise disabled leg."
 	icon = 'icons/obj/custom_items/kathira_legbrace.dmi'
@@ -2202,3 +2202,51 @@ All custom items with worn sprites must follow the contained sprite system: http
 	else if(is_broken() && prob(40))
 		owner.Weaken(3)
 		last_drop = world.time
+
+
+/obj/item/flame/lighter/zippo/fluff/sezrak_zippo //Imperial 16th Zippo - Sezrak Han'san - captaingecko
+	name = "imperial 16th zippo"
+	desc = "A zippo lighter given by the Empire of Dominia to the men of the 16th Regiment of the Imperial Army, also known as the \"Suicide Regiments\", that would manage to survive more \
+	than a dozen deployments. The Imperial 16th is a regiment deployed by Dominia during battles that cannot be lost, their men ensuring victories through the use of unusual and highly \
+	dangerous tactics, resulting in extremely high losses during almost all of its engagements."
+	icon = 'icons/obj/custom_items/sezrak_zippo.dmi'
+	icon_state = "sezrak_zippo"
+	item_state = "sezrak_zippo"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/glasses/spiffygogs/fluff/andersen_goggles //Red Goggles - Adam Andersen - cybercide
+	name = "red goggles"
+	desc = " A pair of worn black goggles with red tinted lenses, both the Kevlar strap and polycarbonate lenses have some scuffs and scratches but they still hold up nicely. \
+	There appears to be a Zavodskoi Interstellar insignia on the strap."
+	icon = 'icons/obj/custom_items/andersen_goggles.dmi'
+	icon_state = "andersen_goggles"
+	item_state = "andersen_goggles"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/glasses/welding/fluff/mahir_glasses //Hephaestus Auto-darkening Welding Glasses - Mahir Rrhamrare - veterangary
+	name = "hephaestus auto-darkening welding glasses"
+	desc = "A pair of Hephaestus produced safety glasses with the prototype incorporation of liquid crystal lenses that polarize intense light present in arc-welding."
+	icon = 'icons/obj/custom_items/mahir_glasses.dmi'
+	icon_state = "mahir_glasses"
+	item_state = "mahir_glasses"
+	contained_sprite = TRUE
+
+
+/obj/item/clipboard/fluff/kennard_ledger //Blue Ledger - Kennard Rose - 6thechamp9
+	name = "blue ledger"
+	desc = "An aluminum block runs the width of the dark blue plastic board, biting down on it with crocodile teeth and barely holding it together. Stuffed within the ledger, a cabbage \
+	of paperwork narrates numerous cases, most of them closed. Turning it on its back reveals the embossed letters: NT."
+	icon = 'icons/obj/custom_items/kennard_ledger.dmi'
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fancy/fluff/valetzrhonaja_cloak //Nayrragh'Rakhan Cloak - Valetzrhonaja Nayrragh'Rakhan - ramke
+	name = "nayrragh'rakhan cloak"
+	desc = " A worn, black cloak with golden adornments decorating the edges of the fabric. The insignia of the Nayrragh'Rakhan family is embedded into the custom pin holding the cloak \
+	together, and each shoulder is decorated by the representation of a yellow or blue sun - the symbols of S'rendarr and Messa. The fabric is faded, having clearly been tested by time."
+	icon = 'icons/obj/custom_items/valetzrhonaja_cloak.dmi'
+	icon_state = "valetzrhonaja_cloak"
+	item_state = "valetzrhonaja_cloak"
+	contained_sprite = TRUE
