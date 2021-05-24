@@ -2,7 +2,7 @@
 	name = "Idris Ordering Terminal"
 	desc = "An ordering terminal designed by Idris for quicker expedition."
 	icon = 'icons/obj/terminals.dmi'
-	icon_state = "atm"
+	icon_state = "kitchenterminal"
 	anchored = 1
 	use_power = 1
 	idle_power_usage = 10
@@ -21,8 +21,9 @@
 
 /obj/machinery/orderterminal/Initialize()
 	. = ..()
-	// machine_id = "Idris Ordering Terminal #[SSeconomy.num_financial_terminals++]"
+	machine_id = "Idris Ordering Terminal #[SSeconomy.num_financial_terminals++]"
 	// TODO: consider some way to get consistent terminal numbers
+	update_icon()
 
 /obj/machinery/orderterminal/power_change()
 	..()
@@ -34,7 +35,7 @@
 		set_light(FALSE)
 		return
 
-	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "atm-active", EFFECTS_ABOVE_LIGHTING_LAYER)
+	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "kitchenterminal-active", EFFECTS_ABOVE_LIGHTING_LAYER)
 	add_overlay(screen_overlay)
 	set_light(1.4, 1, COLOR_CYAN)
 
@@ -101,7 +102,7 @@
 				playsound(src, 'sound/machines/chime.ogg', 50, 1)
 				src.visible_message("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes.")
 				ticket += "<br><b>Customer:</b> [I.registered_name]"
-				receipt += "<hr><b>Customer:</b> [I.registered_name]"
+				receipt += "<br><b>Customer:</b> [I.registered_name]"
 				print_receipt()
 				sum = 0 
 				receipt = ""
@@ -168,14 +169,13 @@
 		confirmorder = TRUE
 		var/buying = ui.data["buying"]
 		var/items = ui.data["items"]
-		receipt += "<b>Item:</b> Price x amount: total<hr>"
-		ticket += "<b>Item</b>: Amount<hr>"
 		for(var/name in buying)
 			if(buying[name])
 				sum += items[name] * buying[name]
-				receipt += "<b>[name]</b>: [items[name]] x [buying[name]]: [items[name] * buying[name]]<br>"
+				receipt += "<b>[name]</b>: [buying[name]] x [items[name]]c: [items[name] * buying[name]]c<br>"
 				ticket += "<b>[name]</b>: [buying[name]]<br>"
-		ticket += "<hr><b>Price:</b> [sum]"
+		receipt += "<hr><b>Total:</b> [sum]c"
+		ticket += "<hr><b>Total:</b> [sum]c"
 		ui.data["sum"] = sum
 		ui.activeui = "machinery-orderterminal-orderconfirmation"
 		. = TRUE
