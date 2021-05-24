@@ -415,8 +415,9 @@
 		else
 			to_chat(src, SPAN_SUBTLE("You make eye contact with \the [examinee]."))
 			to_chat(examinee, SPAN_SUBTLE("You make eye contact with \the [src]."))
-		recent_examines -= WEAKREF(examinee) //Remove them from our list
-		examinee.recent_examines -= WR //Remove us from their list
+		// recent_examines -= WEAKREF(examinee) //Remove them from our list
+		LAZYREMOVE(recent_examines, examinee)
+		LAZYREMOVE(examinee.recent_examines, WR)
 		return TRUE
 	return FALSE
 
