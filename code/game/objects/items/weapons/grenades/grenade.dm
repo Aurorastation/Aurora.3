@@ -65,7 +65,7 @@
 
 	if(ismob(user))
 		var/mob/M = user
-		admin_attack_log(M, attacker_message = "primed \a [fake ? (" fake") : ("")][src]!", admin_message = "primed \a [fake ? ("fake ") : ("")][src]!")
+		admin_attack_log(M, attacker_message = "primed \a [fake ? ("fake ") : ("")][istype(loc, /obj/item/toy/plushie) ? ("plushie ") : ("")][src]!", admin_message = "primed \a [fake ? ("fake ") : ("")][istype(loc, /obj/item/toy/plushie) ? ("plushie ") : ("")][src]!")
 	else
 		log_and_message_admins("[user.name] primed \a [fake ? ("fake") : ("")] [istype(loc, /obj/item/toy/plushie) ? ("plushie") : ("")] [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
 
