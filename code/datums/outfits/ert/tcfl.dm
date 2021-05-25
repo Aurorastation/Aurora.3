@@ -63,7 +63,7 @@
 		/obj/item/handcuffs/ziptie = 3,
 		/obj/item/clothing/mask/gas/tactical = 1,
 		/obj/item/storage/firstaid/regular = 1,
-		/obj/item/clothing/gloves/swat/ert = 1 
+		/obj/item/clothing/gloves/swat/ert = 1, 
 		/obj/item/material/knife/bayonet = 1
 	)
 
