@@ -1,0 +1,9 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - tweak: "Gauss thumpers and bolt slingers do the same amount of force as the average rifle when it comes to bashing a person with the gun now. Used to be carbine level before."
+  - tweak: "Gauss thumpers and bolt slingers can now have bayonets affixed to them."
+  - tweak: "Coalition themed gear crates get bayonets to go with their gauss thumpers."
+  - maptweak: "The TCFL's tac knives have been exchanged for bayonets."
