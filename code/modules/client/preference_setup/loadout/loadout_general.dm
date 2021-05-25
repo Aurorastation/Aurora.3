@@ -244,3 +244,15 @@
 	display_name = "photo album"
 	path =  /obj/item/storage/photo_album
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/knitting_set
+	display_name = "knitting set"
+	path =  /obj/item/storage/box/knitting
+	description = "A box of knitting supplies."
+	flags = null
+
+/datum/gear/yarn_box
+	display_name = "knitting supplies"
+	path =  /obj/item/storage/box/yarn
+	description = "A box containing yarn."
+	flags = null
