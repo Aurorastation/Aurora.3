@@ -38,7 +38,7 @@
 	new /obj/item/device/radio/headset/qm(src)
 	new /obj/item/device/radio/headset/qm/alt(src)
 	new /obj/item/clothing/gloves/black(src)
-	new /obj/item/clothing/suit/fire/firefighter(src)
+	new /obj/item/clothing/suit/fire(src)
 	new /obj/item/tank/emergency_oxygen(src)
 	new /obj/item/clothing/mask/gas(src)
 	new /obj/item/clothing/head/softcap/cargo(src)

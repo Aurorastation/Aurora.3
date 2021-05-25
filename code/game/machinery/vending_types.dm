@@ -682,6 +682,7 @@
 		/obj/item/seeds/potatoseed = 3,
 		/obj/item/seeds/pumpkinseed = 3,
 		/obj/item/seeds/qlortseed = 3,
+		/obj/item/seeds/clam/rasval = 3,
 		/obj/item/seeds/replicapod = 3,
 		/obj/item/seeds/reishimycelium = 3,
 		/obj/item/seeds/riceseed = 3,
@@ -747,6 +748,7 @@
 		/obj/item/seeds/potatoseed = 30,
 		/obj/item/seeds/pumpkinseed = 40,
 		/obj/item/seeds/qlortseed = 70,
+		/obj/item/seeds/clam/rasval = 100,
 		/obj/item/seeds/reishimycelium = 30,
 		/obj/item/seeds/replicapod = 200,
 		/obj/item/seeds/riceseed = 20,
@@ -911,7 +913,7 @@
 	)
 	contraband = list(
 		/obj/item/weldingtool/hugetank = 2,
-		/obj/item/clothing/gloves/fyellow = 2
+		/obj/item/clothing/gloves/yellow/budget = 2
 	)
 	premium = list(
 		/obj/item/clothing/gloves/yellow = 1
