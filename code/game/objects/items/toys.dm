@@ -866,7 +866,8 @@
 	var/obj/item/grenade/grenade //You can remove the stuffing from a plushie and add a grenade to it for *nefarious uses*
 
 /obj/item/toy/plushie/Destroy()
-	QDEL_NULL(grenade)
+	if(grenade && !QDELING(grenade)) // prevents qdel loop
+		QDEL_NULL(grenade)
 	return ..()
 
 /obj/item/toy/plushie/attack_self(mob/user)

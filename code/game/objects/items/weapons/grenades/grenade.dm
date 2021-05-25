@@ -19,6 +19,11 @@
 	var/fake = FALSE
 	var/activation_sound = 'sound/weapons/armbomb.ogg'
 
+/obj/item/grenade/Destroy()
+	if(istype(loc, /obj/item/toy/plushie))
+		QDEL_IN(loc, 1) // can't straight qdel otherwise we enter a qdel loop
+	return ..()
+
 /obj/item/grenade/proc/clown_check(var/mob/living/user)
 	if((user.is_clumsy()) && prob(50))
 		to_chat(user, "<span class='warning'>Huh? How does this thing work?</span>")
