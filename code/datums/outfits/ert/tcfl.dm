@@ -39,8 +39,8 @@
 /datum/outfit/admin/ert/legion/pilot
 	name = "TCFL Dropship Pilot"
 	uniform = /obj/item/clothing/under/legion/pilot
-	head = /obj/item/clothing/head/helmet/legion_pilot
-	suit = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion
+	head = /obj/item/clothing/head/helmet/pilot/legion
+	suit = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion/alt
 	gloves = null
 	back = null
 	belt = /obj/item/storage/belt/security/tactical
@@ -63,7 +63,8 @@
 		/obj/item/handcuffs/ziptie = 3,
 		/obj/item/clothing/mask/gas/tactical = 1,
 		/obj/item/storage/firstaid/regular = 1,
-		/obj/item/clothing/gloves/swat/ert = 1
+		/obj/item/clothing/gloves/swat/ert = 1, 
+		/obj/item/material/knife/bayonet = 1
 	)
 
 	belt_contents = list(

@@ -59,6 +59,7 @@
 		return
 
 	//get message text, limit it's length.and clean/escape html
+	// only sanitize it if we're getting it from this proc
 	if(!msg)
 		msg = input(src,"Message:", "Private message to [key_name(C, 0, holder ? 1 : 0)]") as text|null
 
@@ -71,8 +72,8 @@
 				to_chat(src, "<span class='warning'>Error: Private-Message: Client not found. They may have lost connection, so try using an adminhelp!</span>")
 			return
 
-	if(!check_rights(R_SERVER|R_DEBUG|R_DEV, 0))
-		msg = sanitize(msg)
+		if(!check_rights(R_SERVER|R_DEBUG, 0))
+			msg = sanitize(msg)
 
 	if (handle_spam_prevention(msg, MUTE_ADMINHELP))
 		return

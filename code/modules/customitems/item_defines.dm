@@ -655,118 +655,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/gloves/fluff/lunea_gloves/isFlameSource()
 	return lit
 
-
-/obj/item/fluff/fernando_knittingneedles //Kitting Needles - Fernando Gonzales - resilynn
-	name = "knitting needles"
-	desc = "Silver knitting needles used for stitching yarn."
-	icon = 'icons/obj/custom_items/fernando_knitting.dmi'
-	icon_state = "knittingneedles"
-	item_state = "knittingneedles"
-	w_class = ITEMSIZE_SMALL
-	contained_sprite = TRUE
-	var/working = FALSE
-	var/obj/item/fluff/yarn/ball
-
-/obj/item/fluff/fernando_knittingneedles/Destroy()
-	if(ball)
-		QDEL_NULL(ball)
-	return ..()
-
-/obj/item/fluff/fernando_knittingneedles/examine(mob/user)
-	if(..(user, 1))
-		if(ball)
-			to_chat(user, "There is \the [ball] between the needles.")
-
-/obj/item/fluff/fernando_knittingneedles/update_icon()
-	if(working)
-		icon_state = "knittingneedles_on"
-		item_state = "knittingneedles_on"
-	else
-		icon_state = initial(icon_state)
-		item_state = initial(item_state)
-
-	if(ball)
-		add_overlay("[ball.icon_state]")
-	else
-		cut_overlays()
-
-/obj/item/fluff/fernando_knittingneedles/attackby(obj/item/O, mob/user)
-	if(istype(O, /obj/item/fluff/yarn))
-		if(!ball)
-			user.unEquip(O)
-			O.forceMove(src)
-			ball = O
-			to_chat(user, "<span class='notice'>You place \the [O] in \the [src]</span>")
-			update_icon()
-
-/obj/item/fluff/fernando_knittingneedles/attack_self(mob/user as mob)
-	if(!ball) //if there is no yarn ball, nothing happens
-		to_chat(user, "<span class='warning'>You need a yarn ball to stitch.</span>")
-		return
-
-	if(working)
-		to_chat(user, "<span class='warning'>You are already sitching something.</span>")
-		return
-
-	user.visible_message("<span class='notice'>\The [user] is knitting something soft and cozy.</span>")
-	working = TRUE
-	update_icon()
-
-	if(!do_after(user,2 MINUTES))
-		to_chat(user, "<span class='warning'>Your concentration is broken!</span>")
-		working = FALSE
-		update_icon()
-		return
-
-	var/obj/item/clothing/accessory/sweater/S = new(get_turf(user))
-	S.color = ball.color
-	qdel(ball)
-	ball = null
-	working = FALSE
-	update_icon()
-	to_chat(user, "<span class='warning'>You finish \the [S]!</span>")
-
-/obj/item/fluff/yarn
-	name = "ball of yarn"
-	desc = "A ball of yarn, this one is white."
-	icon = 'icons/obj/custom_items/fernando_knitting.dmi'
-	icon_state = "white_ball"
-	w_class = ITEMSIZE_TINY
-
-/obj/item/fluff/yarn/red
-	desc = "A ball of yarn, this one is red."
-	color = "#ff0000"
-
-/obj/item/fluff/yarn/blue
-	desc = "A ball of yarn, this one is blue."
-	color = "#0000FF"
-
-/obj/item/fluff/yarn/green
-	desc = "A ball of yarn, this one is green."
-	color = "#00ff00"
-
-/obj/item/fluff/yarn/purple
-	desc = "A ball of yarn, this one is purple."
-	color = "#800080"
-
-/obj/item/fluff/yarn/yellow
-	desc = "A ball of yarn, this one is yellow."
-	color = "#FFFF00"
-
-/obj/item/storage/box/fluff/knitting //a bunch of things, so it goes into the box
-	name = "knitting supplies"
-
-/obj/item/storage/box/fluff/knitting/fill()
-	..()
-	new /obj/item/fluff/fernando_knittingneedles(src)
-	new /obj/item/fluff/yarn(src)
-	new /obj/item/fluff/yarn/red(src)
-	new /obj/item/fluff/yarn/blue(src)
-	new /obj/item/fluff/yarn/green(src)
-	new /obj/item/fluff/yarn/purple(src)
-	new /obj/item/fluff/yarn/yellow(src)
-
-
 /obj/item/clothing/suit/fluff/eri_robes //Senior Alchemist Robes - Eri Akhandi - snakebittenn
 	name = "senior alchemist robes"
 	desc = "A green set of robes, trimmed with what appears to be real gold. Looking at the necklace, you can see the alchemical symbol for the Philosopher's Stone, made of ruby."
@@ -2170,3 +2058,83 @@ All custom items with worn sprites must follow the contained sprite system: http
 		update_icon()
 		return
 	return ..()
+
+/obj/item/clothing/accessory/poncho/dominia_cape/fluff/godard_cape //House godard cape - Pierre Godard - desven
+	name = "house godard cape"
+	desc = "This is a cape in the style of Dominian nobility. This one is in the colours of House Godard."
+	icon = 'icons/obj/custom_items/godard_cape.dmi'
+	icon_state = "godard_cape"
+	item_state = "godard_cape"
+	contained_sprite = TRUE
+
+/obj/item/organ/internal/augment/fluff/kath_legbrace // Leg Support Augment - Kathira El-Hashem - thegreywolf
+	name = "leg support augment"
+	desc = "A leg augment to aid in the mobility of an otherwise disabled leg."
+	icon = 'icons/obj/custom_items/kathira_legbrace.dmi'
+	on_mob_icon = 'icons/obj/custom_items/kathira_legbrace.dmi'
+	icon_state = "kathira_legbrace"
+	item_state = "kathira_legbrace_onmob"
+	parent_organ = BP_R_LEG
+	supports_limb = TRUE
+	min_broken_damage = 15
+	var/last_drop = 0
+
+/obj/item/organ/internal/augment/fluff/kath_legbrace/process()
+	if(QDELETED(src) || !owner)
+		return
+	if(last_drop + 6 SECONDS > world.time)
+		return
+	if(is_bruised() && prob(20))
+		owner.Weaken(2)
+		last_drop = world.time
+	else if(is_broken() && prob(40))
+		owner.Weaken(3)
+		last_drop = world.time
+
+
+/obj/item/flame/lighter/zippo/fluff/sezrak_zippo //Imperial 16th Zippo - Sezrak Han'san - captaingecko
+	name = "imperial 16th zippo"
+	desc = "A zippo lighter given by the Empire of Dominia to the men of the 16th Regiment of the Imperial Army, also known as the \"Suicide Regiments\", that would manage to survive more \
+	than a dozen deployments. The Imperial 16th is a regiment deployed by Dominia during battles that cannot be lost, their men ensuring victories through the use of unusual and highly \
+	dangerous tactics, resulting in extremely high losses during almost all of its engagements."
+	icon = 'icons/obj/custom_items/sezrak_zippo.dmi'
+	icon_state = "sezrak_zippo"
+	item_state = "sezrak_zippo"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/glasses/spiffygogs/fluff/andersen_goggles //Red Goggles - Adam Andersen - cybercide
+	name = "red goggles"
+	desc = " A pair of worn black goggles with red tinted lenses, both the Kevlar strap and polycarbonate lenses have some scuffs and scratches but they still hold up nicely. \
+	There appears to be a Zavodskoi Interstellar insignia on the strap."
+	icon = 'icons/obj/custom_items/andersen_goggles.dmi'
+	icon_state = "andersen_goggles"
+	item_state = "andersen_goggles"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/glasses/welding/fluff/mahir_glasses //Hephaestus Auto-darkening Welding Glasses - Mahir Rrhamrare - veterangary
+	name = "hephaestus auto-darkening welding glasses"
+	desc = "A pair of Hephaestus produced safety glasses with the prototype incorporation of liquid crystal lenses that polarize intense light present in arc-welding."
+	icon = 'icons/obj/custom_items/mahir_glasses.dmi'
+	icon_state = "mahir_glasses"
+	item_state = "mahir_glasses"
+	contained_sprite = TRUE
+
+
+/obj/item/clipboard/fluff/kennard_ledger //Blue Ledger - Kennard Rose - 6thechamp9
+	name = "blue ledger"
+	desc = "An aluminum block runs the width of the dark blue plastic board, biting down on it with crocodile teeth and barely holding it together. Stuffed within the ledger, a cabbage \
+	of paperwork narrates numerous cases, most of them closed. Turning it on its back reveals the embossed letters: NT."
+	icon = 'icons/obj/custom_items/kennard_ledger.dmi'
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fancy/fluff/valetzrhonaja_cloak //Nayrragh'Rakhan Cloak - Valetzrhonaja Nayrragh'Rakhan - ramke
+	name = "nayrragh'rakhan cloak"
+	desc = " A worn, black cloak with golden adornments decorating the edges of the fabric. The insignia of the Nayrragh'Rakhan family is embedded into the custom pin holding the cloak \
+	together, and each shoulder is decorated by the representation of a yellow or blue sun - the symbols of S'rendarr and Messa. The fabric is faded, having clearly been tested by time."
+	icon = 'icons/obj/custom_items/valetzrhonaja_cloak.dmi'
+	icon_state = "valetzrhonaja_cloak"
+	item_state = "valetzrhonaja_cloak"
+	contained_sprite = TRUE

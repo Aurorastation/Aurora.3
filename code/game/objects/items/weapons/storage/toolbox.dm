@@ -33,10 +33,10 @@
 	name = "emergency toolbox"
 	icon_state = "red"
 	item_state = "toolbox_red"
-	starts_with = list(\
-		/obj/item/crowbar/red = 1,\
-		/obj/item/extinguisher/mini = 1,\
-		/obj/item/device/radio = 1\
+	starts_with = list(
+		/obj/item/crowbar/red = 1,
+		/obj/item/extinguisher/mini = 1,
+		/obj/item/device/radio = 1
 	)
 
 /obj/item/storage/toolbox/emergency/fill()
@@ -45,6 +45,9 @@
 		new /obj/item/device/flashlight(src)
 	else
 		new /obj/item/device/flashlight/flare/glowstick/red(src)
+	if(prob(30))
+		new /obj/item/weldingtool/emergency(src)
+		new /obj/item/clothing/glasses/welding/emergency(src)
 
 /obj/item/storage/toolbox/mechanical
 	name = "mechanical toolbox"
@@ -250,4 +253,31 @@
 	item_state = "lunchbox_scc"
 
 /obj/item/storage/toolbox/lunchbox/scc/filled
+	filled = TRUE
+
+/obj/item/storage/toolbox/lunchbox/swimstars_axic
+	name = "Swimstars Axic lunchbox"
+	desc = "Created, and marketed, after the hit show, Swimstars!"
+	icon_state = "swimstars_axic"
+	item_state = "swimstars_axic"
+
+/obj/item/storage/toolbox/lunchbox/swimstars_axic/filled
+	filled = TRUE
+
+/obj/item/storage/toolbox/lunchbox/swimstars_qill
+	name = "Swimstars Qill lunchbox"
+	desc = "Created, and marketed, after the hit show, Swimstars!"
+	icon_state = "swimstars_qill"
+	item_state = "swimstars_qill"
+
+/obj/item/storage/toolbox/lunchbox/swimstars_qill/filled
+	filled = TRUE
+
+/obj/item/storage/toolbox/lunchbox/swimstars_xana
+	name = "Swimstars Xana lunchbox"
+	desc = "Created, and marketed, after the hit show, Swimstars!"
+	icon_state = "swimstars_xana"
+	item_state = "swimstars_xana"
+
+/obj/item/storage/toolbox/lunchbox/swimstars_xana/filled
 	filled = TRUE

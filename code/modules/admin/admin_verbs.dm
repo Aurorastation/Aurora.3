@@ -78,7 +78,6 @@ var/list/admin_verbs_admin = list(
 	/client/proc/response_team, // Response Teams admin verb,
 	/client/proc/toggle_antagHUD_use,
 	/client/proc/toggle_antagHUD_restrictions,
-	/client/proc/allow_character_respawn,    // Allows a ghost to respawn ,
 	/client/proc/allow_stationbound_reset,
 	/client/proc/end_round,
 	/client/proc/event_manager_panel,
@@ -423,7 +422,8 @@ var/list/admin_verbs_mod = list(
 	/client/proc/check_ai_laws,			/*shows AI and borg laws*/
 	/client/proc/aooc,
 	/client/proc/toggle_aooc,
-	/client/proc/alooc
+	/client/proc/alooc,
+	/client/proc/allow_character_respawn
 )
 
 var/list/admin_verbs_dev = list( //will need to be altered - Ryan784

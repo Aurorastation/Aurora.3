@@ -43,6 +43,8 @@ Possible to do for anyone motivated enough:
 	var/last_request = 0 //to prevent request spam. ~Carn
 	var/holo_range = 7 // Change to change how far the AI can move away from the holopad before deactivating
 
+	var/long_range = FALSE // ignores connected_z_levels check
+
 	var/incoming_connection = FALSE
 	var/established_connection = FALSE
 	var/obj/machinery/hologram/holopad/connected_pad
@@ -117,7 +119,7 @@ Possible to do for anyone motivated enough:
 						forced_call = TRUE
 			var/list/holopadlist = list()
 			for(var/obj/machinery/hologram/holopad/H in SSmachinery.processing_machines - src)
-				if(AreConnectedZLevels(H.z, z) && H.operable())
+				if((long_range || H.long_range || AreConnectedZLevels(H.z, z)) && H.operable())
 					holopadlist["[H.holopad_id]"] = H	//Define a list and fill it with the area of every holopad in the world
 			holopadlist = sortAssoc(holopadlist)
 			var/chosen_pad = input(user, "Which holopad would you like to contact?", "Holopad List") as null|anything in holopadlist
@@ -344,6 +346,9 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 			user.holo = null
 			clear_holo(user)
 	return TRUE
+
+/obj/machinery/hologram/holopad/central
+	long_range = TRUE
 
 /*
  * Hologram

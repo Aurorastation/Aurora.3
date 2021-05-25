@@ -124,3 +124,5 @@
 
 	var/datum/martial_art/primary_martial_art = null
 	var/list/datum/martial_art/known_martial_arts = null
+
+	var/triage_tag = TRIAGE_NONE

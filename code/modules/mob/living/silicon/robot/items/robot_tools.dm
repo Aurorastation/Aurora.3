@@ -19,6 +19,7 @@
 
 /obj/item/weldingtool/robotic
 	icon = 'icons/obj/robot_items.dmi'
+	change_icons = FALSE
 
 /obj/item/soap/drone
 	name = "integrated soap"

@@ -48,6 +48,10 @@
 	var/wear_over_suit = 0
 	var/base_name = ""
 
+/obj/item/storage/wallet/Initialize()
+	. = ..()
+	base_name = name
+
 
 /obj/item/storage/wallet/remove_from_storage(obj/item/W as obj, atom/new_location)
 	. = ..(W, new_location)
@@ -62,7 +66,6 @@
 	if(.)
 		if(!front_id && istype(W, /obj/item/card/id))
 			front_id = W
-			base_name = name
 			name = "[name] ([front_id])"
 			update_icon()
 

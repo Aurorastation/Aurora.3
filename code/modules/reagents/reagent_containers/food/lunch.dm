@@ -14,7 +14,8 @@ var/list/lunchables_lunches_ = list(
 	/obj/item/reagent_containers/food/snacks/koiswaffles,
 	/obj/item/reagent_containers/food/snacks/funnelcake,
 	/obj/item/reagent_containers/food/snacks/hotdog,
-	/obj/item/reagent_containers/food/snacks/tajaran_bread
+	/obj/item/reagent_containers/food/snacks/tajaran_bread,
+	/obj/item/reagent_containers/food/snacks/soup/earthenroot
 )
 
 var/list/lunchables_snacks_ = list(
@@ -49,7 +50,9 @@ var/list/lunchables_snacks_ = list(
 	/obj/item/reagent_containers/food/snacks/meatsnack,
 	/obj/item/reagent_containers/food/snacks/maps,
 	/obj/item/reagent_containers/food/snacks/nathisnack,
-	/obj/item/reagent_containers/food/snacks/adhomian_can
+	/obj/item/reagent_containers/food/snacks/adhomian_can,
+	/obj/item/reagent_containers/food/snacks/adhomian_sausage,
+	/obj/item/reagent_containers/food/snacks/chocolatebar
 )
 
 var/list/lunchables_drinks_ = list(
@@ -67,6 +70,14 @@ var/list/lunchables_drinks_ = list(
 	/obj/item/reagent_containers/food/drinks/cans/adhomai_milk,
 	/obj/item/reagent_containers/food/drinks/cans/beetle_milk,
 	/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda
+)
+
+var/list/lunchables_utensil_ = list(
+	/obj/item/material/kitchen/utensil/fork/chopsticks,
+	/obj/item/material/kitchen/utensil/fork/chopsticks/cheap,
+	/obj/item/material/kitchen/utensil/fork/plastic,
+	/obj/item/material/kitchen/utensil/spoon/plastic,
+	/obj/item/material/kitchen/utensil/knife/plastic
 )
 
 // This default list is a bit different, it contains items we don't want
@@ -111,6 +122,11 @@ var/list/lunchables_alcohol_reagents_ = list(
 	if(!(lunchables_drinks_[lunchables_drinks_[1]]))
 		lunchables_drinks_ = init_lunchable_list(lunchables_drinks_)
 	return lunchables_drinks_
+
+/proc/lunchables_utensil()
+	if(!(lunchables_utensil_[lunchables_utensil_[1]]))
+		lunchables_utensil_ = init_lunchable_list(lunchables_utensil_)
+	return lunchables_utensil_
 
 /proc/lunchables_drink_reagents()
 	if(!(lunchables_drink_reagents_[lunchables_drink_reagents_[1]]))

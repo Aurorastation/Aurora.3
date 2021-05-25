@@ -126,6 +126,7 @@
 	desc = "A magnifying glass and tweezers. Used to lift suit fibers."
 	icon_state = "m_glass"
 	w_class = ITEMSIZE_SMALL
+	flags = NOBLUDGEON
 	var/evidence_type = "fiber"
 	var/evidence_path = /obj/item/sample/fibers
 
@@ -146,6 +147,11 @@
 	else
 		to_chat(user, "<span class='warning'>You are unable to locate any [evidence_type]s on \the [A].</span>")
 		return ..()
+
+/obj/item/forensics/sample_kit/MouseDrop(atom/over)
+	var/mob/M = loc
+	if(ismob(M) && (M.get_active_hand() == src || M.get_inactive_hand() == src))
+		afterattack(over, usr, TRUE)
 
 /obj/item/forensics/sample_kit/powder
 	name = "fingerprint powder"
