@@ -37,7 +37,15 @@
 	use_power = 1
 	icon_state = "map_scrubber_on"
 
-/obj/machinery/atmospherics/unary/vent_scrubber/Initialize()
+/obj/machinery/atmospherics/unary/vent_scrubber/Initialize(mapload)
+	if(mapload)
+		var/turf/T = loc
+		var/image/I = image(icon, T, icon_state, EFFECTS_ABOVE_LIGHTING_LAYER, dir, pixel_x, pixel_y)
+		I.plane = 0
+		I.color = color
+		I.alpha = 125
+		LAZYADD(T.blueprints, I)
+
 	. = ..()
 	air_contents.volume = ATMOS_DEFAULT_VOLUME_FILTER
 

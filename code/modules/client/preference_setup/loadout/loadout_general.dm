@@ -2,13 +2,14 @@
 	display_name = "cane"
 	path = /obj/item/cane
 
-/datum/gear/cane/crutch
-	display_name = "crutch"
-	path = /obj/item/cane/crutch
-
-/datum/gear/cane/white
-	display_name = "white cane"
-	path = /obj/item/cane/white
+/datum/gear/cane/New()
+	..()
+	var/list/cane = list()
+	cane["cane"] = /obj/item/cane
+	cane["telescopic cane"] = /obj/item/cane/telecane
+	cane["crutch"] = /obj/item/cane/crutch
+	cane["white cane"] = /obj/item/cane/white
+	gear_tweaks += new /datum/gear_tweak/path(cane)
 
 /datum/gear/dice
 	display_name = "pack of dice"
@@ -89,7 +90,7 @@
 			lunchboxes[initial(lunchbox.name)] = lunchbox_type
 	sortTim(lunchboxes, /proc/cmp_text_asc)
 	gear_tweaks += new/datum/gear_tweak/path(lunchboxes)
-	gear_tweaks += new/datum/gear_tweak/contents(lunchables_lunches(), lunchables_snacks(), lunchables_drinks())
+	gear_tweaks += new/datum/gear_tweak/contents(lunchables_lunches(), lunchables_snacks(), lunchables_drinks(), lunchables_utensil())
 
 /datum/gear/banner
 	display_name = "banner selection"
@@ -217,6 +218,9 @@
 	plushies["plushie, slime"] = /obj/item/toy/plushie/slime
 	plushies["plushie, penny"] = /obj/item/toy/plushie/pennyplush
 	plushies["plushie, greimorian"] = /obj/item/toy/plushie/greimorian
+	plushies["plushie, Axic"] = /obj/item/toy/plushie/axic
+	plushies["plushie, Qill"] = /obj/item/toy/plushie/qill
+	plushies["plushie, Xana"] = /obj/item/toy/plushie/xana
 	gear_tweaks += new/datum/gear_tweak/path(plushies)
 
 /datum/gear/toothpaste
@@ -240,3 +244,15 @@
 	display_name = "photo album"
 	path =  /obj/item/storage/photo_album
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/knitting_set
+	display_name = "knitting set"
+	path =  /obj/item/storage/box/knitting
+	description = "A box of knitting supplies."
+	flags = null
+
+/datum/gear/yarn_box
+	display_name = "knitting supplies"
+	path =  /obj/item/storage/box/yarn
+	description = "A box containing yarn."
+	flags = null

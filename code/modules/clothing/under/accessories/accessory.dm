@@ -55,7 +55,7 @@
 		mob_overlay.color = color
 	if(build_from_parts)
 		mob_overlay.cut_overlays()
-		mob_overlay.add_overlay(overlay_image(I, "[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
+		mob_overlay.add_overlay(overlay_image(I, "[icon_state][WORN_UNDER]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	mob_overlay.appearance_flags = RESET_ALPHA
 	return mob_overlay
 
@@ -553,6 +553,20 @@
 	item_state = "trinary_cape"
 	overlay_state = "trinary_cape"
 
+/obj/item/clothing/accessory/poncho/trinary/pellegrina
+	name = "trinary perfection pellegrina"
+	desc = "A brilliant red and brown cape, commonly worn by those who serve the Trinary Perfection. This one is signifcantly shorter."
+	icon_state = "trinary_cape"
+	item_state = "trinary_cape"
+	overlay_state = "trinary_pellegrina"
+
+/obj/item/clothing/accessory/poncho/trinary/shouldercape
+	name = "trinary perfection shoulder cape"
+	desc = "A brilliant red and brown cape, commonly worn by those who serve the Trinary Perfection. This one is worn over one shoulder."
+	icon_state = "trinary_cape"
+	item_state = "trinary_cape"
+	overlay_state = "trinary_shouldercape"
+
 //tau ceti legion ribbons
 /obj/item/clothing/accessory/legion
 	name = "seniority ribbons"
@@ -622,6 +636,9 @@
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
+/obj/item/clothing/accessory/dogtags/get_mask_examine_text(mob/user)
+	return "around [user.get_pronoun("his")] neck"
+
 /obj/item/clothing/accessory/badge/namepin
 	name = "pin tag"
 	desc = "A small strip of metal to label its wearer."
@@ -679,3 +696,45 @@
 	item_state = "kneepads"
 	contained_sprite = TRUE
 	gender = PLURAL
+
+/obj/item/clothing/accessory/blood_patch
+	name = "O- blood patch"
+	desc = "An embroidered patch indicating the wearer's blood type as O NEGATIVE."
+	icon = 'icons/clothing/accessories/blood_patch.dmi'
+	icon_state = "onegtag"
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/blood_patch/opos
+	name = "O+ blood patch"
+	desc = "An embroidered patch indicating the wearer's blood type as O POSITIVE."
+	icon_state = "opostag"
+
+/obj/item/clothing/accessory/blood_patch/apos
+	name = "A+ blood patch"
+	desc = "An embroidered patch indicating the wearer's blood type as A POSITIVE."
+	icon_state = "apostag"
+
+/obj/item/clothing/accessory/blood_patch/aneg
+	name = "A- blood patch"
+	desc = "An embroidered patch indicating the wearer's blood type as A NEGATIVE."
+	icon_state = "anegtag"
+
+/obj/item/clothing/accessory/blood_patch/bpos
+	name = "B+ blood patch"
+	desc = "An embroidered patch indicating the wearer's blood type as B POSITIVE."
+	icon_state = "bpostag"
+
+/obj/item/clothing/accessory/blood_patch/bneg
+	name = "B- blood patch"
+	desc = "An embroidered patch indicating the wearer's blood type as B NEGATIVE."
+	icon_state = "bnegtag"
+
+/obj/item/clothing/accessory/blood_patch/abpos
+	name = "AB+ blood patch"
+	desc = "An embroidered patch indicating the wearer's blood type as AB POSITIVE."
+	icon_state = "abpostag"
+
+/obj/item/clothing/accessory/blood_patch/abneg
+	name = "AB- blood patch"
+	desc = "An embroidered patch indicating the wearer's blood type as AB NEGATIVE."
+	icon_state = "abnegtag"

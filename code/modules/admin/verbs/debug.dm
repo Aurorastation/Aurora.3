@@ -314,6 +314,7 @@
 			outfit_catagories["Freelance Mercenaries"] = typesof(/datum/outfit/admin/ert/mercenary)
 			outfit_catagories["Free Solarian Fleets Marines"] = typesof(/datum/outfit/admin/ert/fsf)
 			outfit_catagories["Kataphracts"] = typesof(/datum/outfit/admin/ert/kataphract)
+			outfit_catagories["Eridani"] = typesof(/datum/outfit/admin/ert/ap_eridani)
 			outfit_catagories["IAC"] = typesof(/datum/outfit/admin/ert/iac)
 		if("Admin")
 			outfit_catagories["Stellar Corporate Conglomerate"] = typesof(/datum/outfit/admin/scc)

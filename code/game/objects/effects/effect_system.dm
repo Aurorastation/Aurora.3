@@ -390,3 +390,15 @@ steam.start() -- spawns the effect
 				round(min(light, BOMBCAP_LIGHT_RADIUS)),
 				round(min(flash, BOMBCAP_FLASH_RADIUS))
 				)
+
+/obj/effect/temporary_effect
+	name = "self deleting effect"
+	desc = "How are you examining what which cannot be seen?"
+	icon = 'icons/effects/effects.dmi'
+	invisibility = 0
+	var/time_to_die = 10 SECONDS // Afer which, it will delete itself.
+
+/obj/effect/temporary_effect/Initialize()
+	. = ..()
+	if(time_to_die)
+		QDEL_IN(src, time_to_die)

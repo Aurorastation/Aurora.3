@@ -8,19 +8,15 @@
 	drop_sound = 'sound/items/drop/rubber.ogg'
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
 
-/obj/item/clothing/gloves/fyellow                             //Cheap Chinese Crap
-	desc = "These gloves are cheap copies of the coveted gloves, no way this can end badly."
+/obj/item/clothing/gloves/yellow/budget
 	name = "budget insulated gloves"
-	icon_state = "yellow"
-	item_state = "yellow"
-	siemens_coefficient = 1			//Set to a default of 1, gets overridden in New()
-	permeability_coefficient = 0.05
-	drop_sound = 'sound/items/drop/rubber.ogg'
-	pickup_sound = 'sound/items/pickup/rubber.ogg'
+	desc = "These gloves are cheap copies of the coveted gloves, no way this can end badly."
+	siemens_coefficient = 1
 
-	New()
-		//average of 0.5, somewhat better than regular gloves' 0.75
-		siemens_coefficient = pick(0,0.1,0.3,0.5,0.5,0.75,1.35)
+/obj/item/clothing/gloves/yellow/budget/Initialize(mapload, material_key)
+	. = ..()
+	// average of 0.5, somewhat better than regular gloves' 0.75
+	siemens_coefficient = pick(0, 0.1, 0.3, 0.5, 0.5, 0.75, 1.35)
 
 /obj/item/clothing/gloves/black
 	desc = "These work gloves are thick and fire-resistant."

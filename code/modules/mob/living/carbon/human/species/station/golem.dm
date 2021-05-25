@@ -18,6 +18,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 
 /datum/species/golem
 	name = SPECIES_GOLEM_COAL
+	short_name = "gol"
 	name_plural = "coal golems"
 
 	icobase = 'icons/mob/human_races/golem/r_coal.dmi'
@@ -164,6 +165,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 
 /datum/species/golem/bronze
 	name = SPECIES_GOLEM_BRONZE
+	short_name = null
 	name_plural = "bronze golems"
 
 	icobase = 'icons/mob/human_races/golem/r_bronze.dmi'
@@ -311,6 +313,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 
 /datum/species/golem/cloth
 	name = SPECIES_GOLEM_CLOTH
+	short_name = null
 	name_plural = "cloth golems"
 
 	icobase = 'icons/mob/human_races/golem/r_cloth.dmi'
@@ -770,6 +773,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 
 /datum/species/golem/homunculus
 	name = SPECIES_GOLEM_MEAT
+	short_name = null
 	name_plural = "homunculus"
 
 	flags = NO_PAIN | NO_SCAN
@@ -836,6 +840,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 
 /datum/species/golem/adamantine
 	name = SPECIES_GOLEM_ADAMANTINE
+	short_name = "ada"
 	name_plural = "adamantine golems"
 
 	icobase = 'icons/mob/human_races/r_golem.dmi'
