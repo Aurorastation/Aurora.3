@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import ByWin from '../../byWin';
+import ByWin from '@/byWin';
 export default {
   methods: {
     startResizing(x, y, event) {

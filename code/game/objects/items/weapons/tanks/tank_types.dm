@@ -90,9 +90,9 @@
 
 	if (istype(W, /obj/item/flamethrower))
 		var/obj/item/flamethrower/F = W
-		if ((!F.secured)||(F.ptank))	return
+		if ((!F.secured)||(F.gas_tank))	return
 		src.master = F
-		F.ptank = src
+		F.gas_tank = src
 		user.remove_from_mob(src)
 		src.forceMove(F)
 	return

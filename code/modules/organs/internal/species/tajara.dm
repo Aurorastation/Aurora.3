@@ -50,7 +50,7 @@
 	owner.last_special = world.time + 20
 
 /obj/item/organ/internal/eyes/night/take_damage(var/amount, var/silent = 0)
-	..()
+	. = ..()
 	disable_night_vision()
 
 /obj/item/organ/internal/eyes/night/take_internal_damage(var/amount, var/silent = 0)
@@ -82,8 +82,8 @@
 	var/show_message = TRUE
 	for(var/obj/item/protection in list(owner.head, owner.wear_mask, owner.glasses))
 		if((protection && (protection.body_parts_covered & EYES)))
-			break
 			show_message = FALSE
+			break
 	if(show_message && eye_emote)
 		owner.visible_message("<b>[owner]</b>[eye_emote]")
 

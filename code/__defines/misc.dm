@@ -57,6 +57,7 @@
 #define CHAT_GHOSTRADIO 0x2000
 #define SHOW_TYPING     0x4000
 #define CHAT_NOICONS    0x8000
+#define CHAT_GHOSTLOOC	0x10000
 
 #define PARALLAX_SPACE 0x1
 #define PARALLAX_DUST  0x2
@@ -65,7 +66,7 @@
 #define FLOATING_MESSAGES 0x10
 #define HOTKEY_DEFAULT 0x20
 
-#define TOGGLES_DEFAULT (SOUND_ADMINHELP|SOUND_MIDI|SOUND_AMBIENCE|SOUND_LOBBY|CHAT_OOC|CHAT_DEAD|CHAT_GHOSTEARS|CHAT_GHOSTSIGHT|CHAT_PRAYER|CHAT_RADIO|CHAT_ATTACKLOGS|CHAT_LOOC)
+#define TOGGLES_DEFAULT (SOUND_ADMINHELP|SOUND_MIDI|SOUND_AMBIENCE|SOUND_LOBBY|CHAT_OOC|CHAT_DEAD|CHAT_GHOSTEARS|CHAT_GHOSTSIGHT|CHAT_PRAYER|CHAT_RADIO|CHAT_ATTACKLOGS|CHAT_LOOC|CHAT_GHOSTLOOC)
 
 //Sound effects toggles
 #define ASFX_AMBIENCE	1
@@ -90,6 +91,7 @@
 #define SPECIALROLE_HUD 8 // AntagHUD image.
 #define  STATUS_HUD_OOC 9 // STATUS_HUD without virus DB check for someone being ill.
 #define 	  LIFE_HUD 10 // STATUS_HUD that only reports dead or alive
+#define     TRIAGE_HUD 11 // a HUD that creates a bar above the user showing their medical status
 
 //	Shuttles.
 
@@ -439,6 +441,8 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 
 #define GET_ABOVE(A) (HAS_ABOVE(A:z) ? get_step(A, UP) : null)
 #define GET_BELOW(A) (HAS_BELOW(A:z) ? get_step(A, DOWN) : null)
+
+#define GET_Z(A) (get_step(A, 0)?.z || 0)
 
 #define NULL_OR_EQUAL(self,other) (!(self) || (self) == (other))
 

@@ -389,7 +389,7 @@
 	new /obj/item/clothing/under/det/classic(src)
 	new /obj/item/clothing/accessory/badge/dia(src)
 	new /obj/item/clothing/suit/storage/toggle/forensics(src)
-	new /obj/item/clothing/gloves/black(src)
+	new /obj/item/clothing/gloves/black/forensic(src)
 	new /obj/item/clothing/shoes/brown(src)
 	new /obj/item/clothing/shoes/laceup(src)
 	//Tools

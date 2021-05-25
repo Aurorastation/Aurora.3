@@ -20,6 +20,7 @@ em						{font-style: normal;font-weight: bold;}
 
 .ooc .everyone			{color: #002eb8;}
 .ooc .looc				{color: #6699CC;}
+.ooc .adminlooc			{color: #3BBF6E;}
 .ooc .elevated			{color: #2e78d9;}
 .ooc .moderator			{color: #184880;}
 .ooc .developer			{color: #1b521f;}
@@ -104,6 +105,8 @@ h1.alert, h2.alert		{color: #000000;}
 .yassa					{color: #400987;}
 .delvahhi				{color: #5E2612; font-weight: bold;}
 .siiktau				{color: #A52A2A;}
+.freespeak				{color: #FF4500; font-family: "Trebuchet MS", cursive, sans-serif;}
+.tradeband				{color: #5C16C6; font-family: Georgia, Verdana, sans-serif;}
 
 .interface				{color: #330033;}
 

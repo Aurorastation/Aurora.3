@@ -55,9 +55,7 @@
 			new /obj/item/clothing/suit/space/emergency(src)
 			new /obj/item/clothing/head/helmet/space/emergency(src)
 			new /obj/item/device/oxycandle(src)
-			new /obj/item/inflatable/door(src)
-			new /obj/item/inflatable/wall(src)
-			new /obj/item/inflatable/wall(src)
+			new /obj/item/storage/bag/inflatable/emergency(src)
 		if ("all")
 			new /obj/item/storage/toolbox/emergency(src)
 			new /obj/item/tank/emergency_oxygen/engi(src)
@@ -74,9 +72,7 @@
 			new /obj/item/device/oxycandle(src)
 			new /obj/item/airbubble(src)
 			new /obj/item/airbubble(src)
-			new /obj/item/inflatable/door(src)
-			new /obj/item/inflatable/wall(src)
-			new /obj/item/inflatable/wall(src)
+			new /obj/item/storage/bag/inflatable/emergency(src)
 
 /obj/structure/closet/emcloset/legacy/fill()
 	..()
@@ -94,19 +90,19 @@
 	icon_opened = "fireclosetopen"
 
 /obj/structure/closet/firecloset/fill()
-	new /obj/item/clothing/suit/fire/firefighter(src)
+	new /obj/item/clothing/head/hardhat/firefighter(src)
+	new /obj/item/clothing/suit/fire(src)
 	new /obj/item/clothing/mask/gas(src)
 	new /obj/item/tank/oxygen/red(src)
 	new /obj/item/extinguisher(src)
-	new /obj/item/clothing/head/hardhat/red(src)
 
 /obj/structure/closet/firecloset/full/fill()
-	new /obj/item/clothing/suit/fire/firefighter(src)
+	new /obj/item/clothing/head/hardhat/firefighter(src)
+	new /obj/item/clothing/suit/fire(src)
 	new /obj/item/clothing/mask/gas(src)
 	new /obj/item/device/flashlight(src)
 	new /obj/item/tank/oxygen/red(src)
 	new /obj/item/extinguisher(src)
-	new /obj/item/clothing/head/hardhat/red(src)
 
 
 
@@ -220,12 +216,12 @@
 	wall_mounted = 1
 
 /obj/structure/closet/hydrant/fill()
-	new /obj/item/clothing/suit/fire/firefighter(src)
+	new /obj/item/clothing/head/hardhat/firefighter(src)
+	new /obj/item/clothing/suit/fire(src)
 	new /obj/item/clothing/mask/gas(src)
 	new /obj/item/device/flashlight(src)
 	new /obj/item/tank/oxygen/red(src)
 	new /obj/item/extinguisher(src)
-	new /obj/item/clothing/head/hardhat/red(src)
 
 	if (prob(25))
 		new /obj/item/ladder_mobile(src)

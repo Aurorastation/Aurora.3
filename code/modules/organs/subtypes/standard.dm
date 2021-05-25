@@ -176,10 +176,6 @@
 	. = ..()
 	owner.update_hud_hands()
 
-/obj/item/organ/external/hand/sever_tendon()
-	. = ..()
-	owner.update_hud_hands()
-
 /obj/item/organ/external/hand/removed()
 	owner.drop_from_inventory(owner.gloves)
 	owner.update_hud_hands()
@@ -235,7 +231,7 @@
 	..()
 
 /obj/item/organ/external/head/take_damage(brute, burn, damage_flags, used_weapon = null, list/forbidden_limbs = list(), var/silent)
-	..(brute, burn, damage_flags, used_weapon, forbidden_limbs, damage_flags, silent)
+	. = ..(brute, burn, damage_flags, used_weapon, forbidden_limbs, damage_flags, silent)
 	if (!disfigured)
 		if (brute_dam > 40)
 			if (prob(50))

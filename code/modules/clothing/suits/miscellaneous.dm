@@ -287,6 +287,12 @@
 	item_state = "brown_jacket_sleeveless"
 	body_parts_covered = UPPER_TORSO
 
+/obj/item/clothing/suit/storage/toggle/brown_jacket/sleeveless/colorable
+	name = "vest"
+	desc = "A vest made of synthetic fiber."
+	icon_state = "colored_vest"
+	item_state = "colored_vest"
+
 /obj/item/clothing/suit/storage/toggle/brown_jacket/nanotrasen
 	desc = "A brown leather coat. A corporate logo is proudly displayed on the back."
 	icon_state = "brown_jacket_nt"

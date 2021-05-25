@@ -16,6 +16,7 @@
  *		Action figures
  *		Plushies
  *		Toy cult sword
+ *		Ring bell
  */
 
 
@@ -173,7 +174,7 @@
 	return
 
 /obj/item/toy/balloon/attackby(obj/item/W as obj, mob/user as mob)
-	if(can_puncture(W))
+	if(W.can_puncture())
 		burst()
 
 /obj/item/toy/balloon/latex
@@ -1017,6 +1018,30 @@
 	desc = "A chunky plushie bee. Your new buzz-t friend!"
 	icon_state = "beeplushie"
 
+/obj/item/toy/plushie/greimorian
+	name = "greimorian plushie"
+	desc = "A lovable plushie of a fierce greimorian! This one takes a few liberties."
+	icon_state = "greimorianplushie"
+	phrase = "Gort!"
+
+/obj/item/toy/plushie/axic
+	name = "Axic plushie"
+	desc = "Plushie designed after the main characters of the hit show, Swimstars! This one is Axic. "
+	icon_state = "axicplushie"
+	phrase = "warble!"
+
+/obj/item/toy/plushie/qill
+	name = "Qill plushie"
+	desc = "Plushie designed after the main characters of the hit show, Swimstars! This one is Qill. "
+	icon_state = "qillplushie"
+	phrase = "warble!"
+
+/obj/item/toy/plushie/xana
+	name = "Xana plushie"
+	desc = "Plushie designed after the main characters of the hit show, Swimstars! This one is Xana. "
+	icon_state = "xanaplushie"
+	phrase = "warble!"
+
 //Squid Plushies
 
 /obj/item/toy/plushie/squid
@@ -1074,6 +1099,24 @@
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 
+/obj/item/toy/ringbell
+	name = "ringside bell"
+	desc = "A bell used to signal the beginning and end of various ring sports."
+	desc_info = "Use help intent on the bell to signal the start of a contest\ndisarm intent to signal the end of a contest and\nharm intent to signal a disqualification."
+	icon_state = "ringbell"
+	anchored = TRUE
+
+/obj/item/toy/ringbell/attack_hand(mob/user)
+	switch(user.a_intent)
+		if (I_HELP)
+			user.visible_message(FONT_LARGE(SPAN_NOTICE("[user] rings \the [src], signalling the beginning of the contest.")), SPAN_NOTICE("You ring \the [src] to signal the beginning of the contest!"))
+			playsound(user.loc, 'sound/items/oneding.ogg', 60, 1)
+		if (I_DISARM)
+			user.visible_message(FONT_LARGE(SPAN_NOTICE("[user] rings \the [src] three times, signalling the end of the contest!")), SPAN_NOTICE("You ring \the [src] to signal the end of the contest!"))
+			playsound(user.loc, 'sound/items/threedings.ogg', 60, 1)
+		if (I_HURT)
+			user.visible_message(FONT_LARGE(SPAN_WARNING("[user] rings \the [src] repeatedly, signalling a disqualification!")), SPAN_WARNING("You ring \the [src] to signal a disqualification!"))
+			playsound(user.loc, 'sound/items/manydings.ogg', 60, 1)
 
 //baystation desk toys
 

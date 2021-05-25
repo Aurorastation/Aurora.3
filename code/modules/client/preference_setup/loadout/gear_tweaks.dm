@@ -47,6 +47,22 @@ Color adjustment
 	I.color = sanitize_hexcolor(metadata, I.color)
 
 /*
+	Additional Color adjustment
+*/
+
+var/datum/gear_tweak/color/additional/gear_tweak_additional_color = new()
+
+/datum/gear_tweak/color/additional/get_contents(var/metadata)
+	return "Additional Color: <font color='[metadata]'>&#9899;</font>"
+
+/datum/gear_tweak/color/additional/tweak_item(var/obj/item/I, var/metadata)
+	if(valid_colors && !(metadata in valid_colors))
+		return
+	if(I.vars["additional_color"]) // set var/additional_color = COLOR_GREY on item
+		I.vars["additional_color"] = metadata
+	I.update_icon()
+
+/*
 Color Rotation adjustment
 */
 var/datum/gear_tweak/color_rotation/gear_tweak_color_rotation = new()
@@ -195,6 +211,8 @@ var/datum/gear_tweak/custom_name/gear_tweak_free_name = new()
 	if(!metadata)
 		return I.name
 	I.name = metadata
+	if(I.vars["base_name"])
+		I.vars["base_name"] = metadata
 
 /*
 Custom Description
