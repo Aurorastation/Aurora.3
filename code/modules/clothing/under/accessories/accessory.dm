@@ -55,7 +55,7 @@
 		mob_overlay.color = color
 	if(build_from_parts)
 		mob_overlay.cut_overlays()
-		mob_overlay.add_overlay(overlay_image(I, "[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
+		mob_overlay.add_overlay(overlay_image(I, "[icon_state][WORN_UNDER]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	mob_overlay.appearance_flags = RESET_ALPHA
 	return mob_overlay
 
@@ -552,6 +552,20 @@
 	icon_state = "trinary_cape"
 	item_state = "trinary_cape"
 	overlay_state = "trinary_cape"
+
+/obj/item/clothing/accessory/poncho/trinary/pellegrina
+	name = "trinary perfection pellegrina"
+	desc = "A brilliant red and brown cape, commonly worn by those who serve the Trinary Perfection. This one is signifcantly shorter."
+	icon_state = "trinary_cape"
+	item_state = "trinary_cape"
+	overlay_state = "trinary_pellegrina"
+
+/obj/item/clothing/accessory/poncho/trinary/shouldercape
+	name = "trinary perfection shoulder cape"
+	desc = "A brilliant red and brown cape, commonly worn by those who serve the Trinary Perfection. This one is worn over one shoulder."
+	icon_state = "trinary_cape"
+	item_state = "trinary_cape"
+	overlay_state = "trinary_shouldercape"
 
 //tau ceti legion ribbons
 /obj/item/clothing/accessory/legion

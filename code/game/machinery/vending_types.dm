@@ -682,6 +682,7 @@
 		/obj/item/seeds/potatoseed = 3,
 		/obj/item/seeds/pumpkinseed = 3,
 		/obj/item/seeds/qlortseed = 3,
+		/obj/item/seeds/clam/rasval = 3,
 		/obj/item/seeds/replicapod = 3,
 		/obj/item/seeds/reishimycelium = 3,
 		/obj/item/seeds/riceseed = 3,
@@ -747,6 +748,7 @@
 		/obj/item/seeds/potatoseed = 30,
 		/obj/item/seeds/pumpkinseed = 40,
 		/obj/item/seeds/qlortseed = 70,
+		/obj/item/seeds/clam/rasval = 100,
 		/obj/item/seeds/reishimycelium = 30,
 		/obj/item/seeds/replicapod = 200,
 		/obj/item/seeds/riceseed = 20,
@@ -906,11 +908,12 @@
 		/obj/item/wrench = 5,
 		/obj/item/device/analyzer = 5,
 		/obj/item/device/t_scanner = 5,
-		/obj/item/screwdriver = 5
+		/obj/item/screwdriver = 5,
+		/obj/item/tape_roll = 3
 	)
 	contraband = list(
 		/obj/item/weldingtool/hugetank = 2,
-		/obj/item/clothing/gloves/fyellow = 2
+		/obj/item/clothing/gloves/yellow/budget = 2
 	)
 	premium = list(
 		/obj/item/clothing/gloves/yellow = 1
@@ -1036,7 +1039,8 @@
 		/obj/item/stock_parts/micro_laser = 5,
 		/obj/item/stock_parts/matter_bin = 5,
 		/obj/item/stock_parts/manipulator = 5,
-		/obj/item/stock_parts/console_screen = 5
+		/obj/item/stock_parts/console_screen = 5,
+		/obj/item/tape_roll = 5
 	)
 	// There was an incorrect entry (cablecoil/power).  I improvised to cablecoil/heavyduty.
 	// Another invalid entry, /obj/item/circuitry.  I don't even know what that would translate to, removed it.

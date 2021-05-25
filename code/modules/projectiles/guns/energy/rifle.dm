@@ -97,6 +97,8 @@
 	projectile_type = /obj/item/projectile/beam/xray
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
 	max_shots = 40
+	fire_delay = 6
+	burst_delay = 6
 	secondary_projectile_type = null
 	secondary_fire_sound = null
 	can_switch_modes = 0
