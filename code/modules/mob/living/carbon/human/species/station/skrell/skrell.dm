@@ -70,6 +70,14 @@
 
 	stamina = 90
 	sprint_speed_factor = 1.25 //Evolved for rapid escapes from predators
+	bp_base_systolic = 100 // Default 120
+	bp_base_disatolic = 60 // Default 80
+	low_pulse = 30 // Default 40
+	norm_pulse = 50 // Default 60
+	fast_pulse = 70 // Default 90
+	v_fast_pulse = 90 // Default 120
+	max_pulse = 130 // Default 160
+	body_temperature = T0C + 27
 
 	default_h_style = "Skrell Short Tentacles"
 

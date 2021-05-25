@@ -274,7 +274,7 @@
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/scc_patch
-	display_name = "Stellar Corporate Conglomerate sleeve patch"
+	display_name = "stellar corporate conglomerate sleeve patch"
 	path = /obj/item/clothing/accessory/sleevepatch/scc
 	flags = 0
 
@@ -296,6 +296,18 @@
 	gadpathur["industrial cadre brassard"] = /obj/item/clothing/accessory/armband/gadpathur/ind
 	gadpathur["medical cadre brassard"] = /obj/item/clothing/accessory/armband/gadpathur/med
 	gear_tweaks += new/datum/gear_tweak/path(gadpathur)
+
+/datum/gear/accessory/gadpathur_leader
+	display_name = "gadpathurian section leader badge"
+	description = "A small metal badge worn by Gadpathurian Section Leaders."
+	path = /obj/item/clothing/accessory/gadpathurian_leader
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/gadpathur_dogtags
+	display_name = "gadpathurian dogtags"
+	description = "Dogtags issued to Gadpathurians."
+	path = /obj/item/clothing/accessory/dogtags/gadpathur
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/accessory/sash_coloured
 	display_name = "sash (colourable)"
@@ -358,6 +370,18 @@
 	passport["passport, dominia"] = /obj/item/clothing/accessory/badge/passport/dominia
 	passport["passport, coalition"] = /obj/item/clothing/accessory/badge/passport/coc
 	gear_tweaks += new/datum/gear_tweak/path(passport)
+
+/datum/gear/accessory/TCFLcard
+	display_name = "TCFL service cards"
+	description = "Identification cards given to active and former members of the Tau Ceti Foreign Legion."
+	path = /obj/item/clothing/accessory/badge/tcfl_papers
+
+/datum/gear/accessory/TCFLcard/New()
+	..()
+	var/TCFLcard = list()
+	TCFLcard["active service"] = /obj/item/clothing/accessory/badge/tcfl_papers/service
+	TCFLcard["veteran"] = /obj/item/clothing/accessory/badge/tcfl_papers/service/veteran
+	gear_tweaks += new/datum/gear_tweak/path(TCFLcard)
 
 /datum/gear/accessory/kneepads
 	display_name = "kneepads"
