@@ -93,6 +93,15 @@
 				usr.equip_to_slot_if_possible(src, slot_l_hand)
 		src.add_fingerprint(usr)
 
+/obj/item/storage/AltClick(var/mob/usr)
+	if(!canremove)
+		return ..()
+	if (!use_check_and_message(usr))
+		add_fingerprint(usr)
+		open(usr)
+		return TRUE
+	. = ..()
+
 /obj/item/storage/proc/return_inv()
 	. = contents.Copy()
 

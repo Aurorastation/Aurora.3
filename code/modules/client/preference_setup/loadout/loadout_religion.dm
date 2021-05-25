@@ -9,8 +9,17 @@
 	path = /obj/item/clothing/mask/trinary_mask
 
 /datum/gear/religion/trinary/cape
-	display_name = "trinary perfection cape"
+	display_name = "trinary perfection cape selection"
+	description = "A selection of capes worn by adherents to the Trinary Perfection."
 	path = /obj/item/clothing/accessory/poncho/trinary
+
+/datum/gear/religion/trinary/cape/New()
+	..()
+	var/trinarycape = list()
+	trinarycape["trinary perfection cape"] = /obj/item/clothing/accessory/poncho/trinary
+	trinarycape["trinary perfection shoulder cape"] = /obj/item/clothing/accessory/poncho/trinary/shouldercape
+	trinarycape["trinary perfection pellegrina"] = /obj/item/clothing/accessory/poncho/trinary/pellegrina
+	gear_tweaks += new/datum/gear_tweak/path(trinarycape)
 
 /datum/gear/religion/trinary/badge
 	display_name = "trinary perfection brooch"
@@ -64,6 +73,11 @@
 /datum/gear/religion/dominia/accessory
 	display_name = "tribunal necklace"
 	path = "/obj/item/clothing/accessory/dominia"
+
+/datum/gear/religion/dominia/medical
+	display_name = "tribunalist medical beret"
+	path = /obj/item/clothing/head/beret/dominia/medical
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
 
 /datum/gear/religion/shaman_staff
 	display_name = "shaman staff"

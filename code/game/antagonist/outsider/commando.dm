@@ -8,6 +8,7 @@ var/datum/antagonist/deathsquad/mercenary/commandos
 	welcome_text = "You are in the employ of a criminal syndicate hostile to corporate interests."
 	antag_sound = 'sound/effects/antag_notice/deathsquid_alert.ogg'
 	id_type = /obj/item/card/id/syndicate_ert
+	flags = ANTAG_NO_ROUNDSTART_SPAWN
 
 	faction = "syndicate"
 

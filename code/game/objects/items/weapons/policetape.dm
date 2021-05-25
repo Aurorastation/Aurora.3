@@ -61,6 +61,19 @@ var/list/tape_roll_applications = list()
 	req_one_access = list(access_medical_equip)
 	icon_base = "medical"
 
+/obj/item/taperoll/science
+	name = "science tape"
+	desc = "A high-tech roll of science tape, used to prevent curious onlookers from failing into a research-borne singularity."
+	icon_state = "science_start"
+	tape_type = /obj/item/tape/science
+	icon_base = "science"
+
+/obj/item/tape/science
+	name = "science tape"
+	desc = "A length of science tape. Better not cross it."
+	req_one_access = list(access_research)
+	icon_base = "science"
+
 /obj/item/taperoll/engineering
 	name = "engineering tape"
 	desc = "A roll of engineering tape used to block off working areas from the public."

@@ -157,6 +157,9 @@
 				else
 					extra += "<li>[index]: [make_view_variables_value(entry)]</li>"
 			extra += "</ul>"
+		else if(L.len >= 100)
+			vtext = "([L.len]): <ul><li><a href='?_src_=vars;datumview=\ref[L];varnameview=[varname]'>List too large to display, click to view.</a></ul>"
+
 	else
 		vtext = "[value]"
 

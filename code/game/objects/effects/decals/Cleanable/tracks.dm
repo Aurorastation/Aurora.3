@@ -187,3 +187,11 @@
 	going_state  = "claw2"
 	random_icon_states = null
 	amount = 0
+
+/obj/effect/decal/cleanable/blood/tracks/body
+	name = "wet trails"
+	dryname = "dried trails"
+	desc = "A still-wet trail left by someone crawling."
+	drydesc = "A dried trail left by someone crawling."
+	coming_state = "trail1"
+	going_state  = "trail2"

@@ -15,6 +15,7 @@
 	var/action_button_icon = "augment"
 	var/activable = FALSE
 	var/bypass_implant = FALSE
+	var/supports_limb = FALSE // if true, will make parent limb not count as broken, as long as it's not bruised (40%) and not broken (0%)
 
 /obj/item/organ/internal/augment/Initialize()
 	robotize()
@@ -573,15 +574,15 @@
 		set_light(0)
 
 /obj/item/organ/internal/augment/sightlights/emp_act(severity)
-	..()
+	. = ..()
 	set_light(0)
 
 /obj/item/organ/internal/augment/sightlights/take_damage(var/amount, var/silent = 0)
-	..()
+	. = ..()
 	set_light(0)
 
 /obj/item/organ/internal/augment/sightlights/take_internal_damage(var/amount, var/silent = 0)
-	..()
+	. = ..()
 	set_light(0)
 
 /obj/item/organ/internal/augment/zenghu_plate
