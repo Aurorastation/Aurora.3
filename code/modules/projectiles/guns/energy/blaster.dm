@@ -90,9 +90,12 @@
 	offhand_accuracy = 0
 	projectile_type = /obj/item/projectile/energy/blaster/heavy
 
+	force = 10
 	slot_flags = SLOT_BACK
 	w_class = ITEMSIZE_LARGE
-
+	can_bayonet = TRUE
+	knife_x_offset = 23
+	knife_y_offset = 13
 	fire_delay = 25
 	w_class = ITEMSIZE_LARGE
 	accuracy = -3
