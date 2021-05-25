@@ -100,7 +100,7 @@
 
 /datum/gear/suit/idris
 	display_name = "Idris Unit coats"
-	path = /obj/item/clothing/suit/armor/vest/idris
+	path = /obj/item/clothing/suit/storage/toggle/armor/vest/idris
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	sort_category = "Xenowear - IPC"
 	allowed_roles = list("Security Officer", "Warden", "Head of Security", "Investigator", "Security Cadet")
@@ -109,12 +109,18 @@
 /datum/gear/suit/idris/New()
 	..()
 	var/idris = list()
-	idris["Black Idris Unit coat"] = /obj/item/clothing/suit/armor/vest/idris
-	idris["Brown Idris Unit coat"] = /obj/item/clothing/suit/armor/vest/idris/brown
-	idris["Black Idris Unit trench coat"] = /obj/item/clothing/suit/armor/vest/idris/trenchcoat/black
-	idris["Brown Idris Unit trench coat"] = /obj/item/clothing/suit/armor/vest/idris/trenchcoat/brown
-	idris["Black Idris Unit duster coat"] = /obj/item/clothing/suit/armor/vest/idris/duster/black
-	idris["Brown Idris Unit duster coat"] = /obj/item/clothing/suit/armor/vest/idris/duster/brown
+	idris["black Idris Unit coat"] = /obj/item/clothing/suit/storage/toggle/armor/vest/idris
+	idris["white Idris Unit coat"] = /obj/item/clothing/suit/storage/toggle/armor/vest/idris/white
+	idris["brown Idris Unit coat"] = /obj/item/clothing/suit/storage/toggle/armor/vest/idris/brown
+	idris["black Idris Unit long coat"] = /obj/item/clothing/suit/storage/toggle/armor/vest/idris/longcoat
+	idris["white Idris Unit long coat"] = /obj/item/clothing/suit/storage/toggle/armor/vest/idris/longcoat/white
+	idris["brown Idris Unit long coat"] = /obj/item/clothing/suit/storage/toggle/armor/vest/idris/longcoat/brown
+	idris["black Idris Unit trench coat"] = /obj/item/clothing/suit/storage/toggle/armor/vest/idris/trenchcoat
+	idris["white Idris Unit trench coat"] = /obj/item/clothing/suit/storage/toggle/armor/vest/idris/trenchcoat/white
+	idris["brown Idris Unit trench coat"] = /obj/item/clothing/suit/storage/toggle/armor/vest/idris/trenchcoat/brown
+	idris["black Idris Unit duster coat"] = /obj/item/clothing/suit/storage/toggle/armor/vest/idris/duster
+	idris["white Idris Unit duster coat"] = /obj/item/clothing/suit/storage/toggle/armor/vest/idris/duster/white
+	idris["brown Idris Unit duster coat"] = /obj/item/clothing/suit/storage/toggle/armor/vest/idris/duster/brown
 	gear_tweaks += new/datum/gear_tweak/path(idris)
 
 /datum/gear/uniform/goldendeep
