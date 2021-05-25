@@ -21,21 +21,25 @@
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IPC
+	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_CAN_GRASP
 
 /obj/item/organ/external/arm/right/ipc
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IPC
+	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_CAN_GRASP
 
 /obj/item/organ/external/leg/ipc
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IPC
+	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM
 
 /obj/item/organ/external/leg/right/ipc
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IPC
+	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM
 
 /obj/item/organ/external/foot/ipc
 	dislocated = -1
@@ -51,11 +55,13 @@
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IPC
+	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_CAN_GRASP
 
 /obj/item/organ/external/hand/right/ipc
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IPC
+	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_CAN_GRASP
 
 /obj/item/organ/internal/cell
 	name = "microbattery"
