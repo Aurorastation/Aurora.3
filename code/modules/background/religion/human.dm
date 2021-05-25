@@ -73,4 +73,4 @@
 					the Ennoia. Though it is, unsurprisingly, strongest on Assunzione, followers of the faith can be found throughout the Orion Spur alongside their \
 					houses of worship."
 	book_name = "Luceian Book of Scripture and Prayers"
-	book_sprite = "luce"
+	book_sprite = "luce2"

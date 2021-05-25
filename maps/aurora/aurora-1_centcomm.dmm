@@ -13861,15 +13861,27 @@
 /area/centcom/holding)
 "fcm" = (
 /obj/structure/table/rack,
-/obj/item/material/knife/tacknife{
+/obj/item/material/knife/bayonet{
 	pixel_x = 3;
 	pixel_y = -2
 	},
-/obj/item/material/knife/tacknife{
+/obj/item/material/knife/bayonet{
 	pixel_x = 3;
 	pixel_y = -2
 	},
-/obj/item/material/knife/tacknife{
+/obj/item/material/knife/bayonet{
+	pixel_x = 3;
+	pixel_y = -2
+	},
+/obj/item/material/knife/bayonet{
+	pixel_x = 3;
+	pixel_y = -2
+	},
+/obj/item/material/knife/bayonet{
+	pixel_x = 3;
+	pixel_y = -2
+	},
+/obj/item/material/knife/bayonet{
 	pixel_x = 3;
 	pixel_y = -2
 	},
@@ -17945,7 +17957,7 @@
 	},
 /area/centcom/specops)
 "hum" = (
-/obj/machinery/hologram/holopad,
+/obj/machinery/hologram/holopad/central,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -25319,6 +25331,12 @@
 	icon_state = "2,5"
 	},
 /area/shuttle/merchant)
+"mlA" = (
+/obj/machinery/hologram/holopad/central,
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/specops)
 "mmb" = (
 /turf/simulated/floor,
 /area/tdome/tdome2)
@@ -42312,13 +42330,17 @@
 /area/centcom/legion/hangar5)
 "xuV" = (
 /obj/structure/table/rack,
-/obj/item/shield/energy/legion{
-	pixel_x = 3;
-	pixel_y = -2
-	},
 /obj/item/melee/energy/sword/knife{
 	pixel_x = -4;
 	pixel_y = 5
+	},
+/obj/item/material/knife/bayonet{
+	pixel_x = 3;
+	pixel_y = -2
+	},
+/obj/item/shield/energy/legion{
+	pixel_x = 3;
+	pixel_y = -2
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
@@ -64397,7 +64419,7 @@ ngi
 jTO
 nlQ
 nGs
-vjQ
+mlA
 ocD
 oik
 vjQ
