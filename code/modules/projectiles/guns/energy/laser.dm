@@ -120,7 +120,8 @@ obj/item/gun/energy/retro
 	projectile_type = /obj/item/projectile/beam/xray
 	charge_cost = 100
 	max_shots = 20
-	fire_delay = 1
+	fire_delay = 4
+	burst_delay = 4
 	can_turret = 1
 	turret_is_lethal = 1
 	turret_sprite_set = "xray"

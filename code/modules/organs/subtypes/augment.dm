@@ -15,6 +15,7 @@
 	var/action_button_icon = "augment"
 	var/activable = FALSE
 	var/bypass_implant = FALSE
+	var/supports_limb = FALSE // if true, will make parent limb not count as broken, as long as it's not bruised (40%) and not broken (0%)
 
 /obj/item/organ/internal/augment/Initialize()
 	robotize()

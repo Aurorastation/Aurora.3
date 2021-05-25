@@ -172,9 +172,9 @@
 	//mask
 	if(wear_mask && !skipmask)
 		if(wear_mask.blood_color)
-			msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("has")] [icon2html(wear_mask, user)] [wear_mask.gender==PLURAL?"some":"a"] [fluid_color_type_map(wear_mask.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_mask]'>[wear_mask.name]</a> on [get_pronoun("his")] face!</span>\n"
+			msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("has")] [icon2html(wear_mask, user)] [wear_mask.gender==PLURAL?"some":"a"] [fluid_color_type_map(wear_mask.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_mask]'>[wear_mask.name]</a> [wear_mask.get_mask_examine_text(src)]!</span>\n"
 		else
-			msg += "[get_pronoun("He")] [get_pronoun("has")] [icon2html(wear_mask, user)] <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_mask]'>\a [wear_mask]</a> on [get_pronoun("his")] face.\n"
+			msg += "[get_pronoun("He")] [get_pronoun("has")] [icon2html(wear_mask, user)] <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_mask]'>\a [wear_mask]</a> [wear_mask.get_mask_examine_text(src)].\n"
 
 	//eyes
 	if(glasses && !skipeyes)
@@ -185,11 +185,11 @@
 
 	//left ear
 	if(l_ear && !skipears)
-		msg += "[get_pronoun("He")] [get_pronoun("has")] [icon2html(l_ear, user)] <a href='?src=\ref[src];lookitem_desc_only=\ref[l_ear]'>\a [l_ear]</a> on [get_pronoun("his")] left ear.\n"
+		msg += "[get_pronoun("He")] [get_pronoun("has")] [icon2html(l_ear, user)] <a href='?src=\ref[src];lookitem_desc_only=\ref[l_ear]'>\a [l_ear]</a> [l_ear.get_ear_examine_text(src, "left")].\n"
 
 	//right ear
 	if(r_ear && !skipears)
-		msg += "[get_pronoun("He")] [get_pronoun("has")] [icon2html(r_ear, user)] <a href='?src=\ref[src];lookitem_desc_only=\ref[r_ear]'>\a [r_ear]</a> on [get_pronoun("his")] right ear.\n"
+		msg += "[get_pronoun("He")] [get_pronoun("has")] [icon2html(r_ear, user)] <a href='?src=\ref[src];lookitem_desc_only=\ref[r_ear]'>\a [r_ear]</a> [r_ear.get_ear_examine_text(src, "right")].\n"
 
 	//ID
 	if(wear_id)

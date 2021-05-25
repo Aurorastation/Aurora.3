@@ -239,7 +239,7 @@ default behaviour is:
 	return
 
 
-//sort of a legacy burn method for /electrocute, /shock, and the e_chair
+//sort of a legacy burn method for /electrocute, /shock
 /mob/living/proc/burn_skin(burn_amount)
 	if(istype(src, /mob/living/carbon/human))
 		if(mShock in src.mutations) //shockproof

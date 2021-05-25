@@ -47,5 +47,11 @@
 				if((affected.damage < affected.min_broken_damage * config.organ_health_multiplier) && (affected.status & ORGAN_BROKEN))
 					affected.status &= ~ORGAN_BROKEN
 
+				if(affected.tendon_status() & TENDON_CUT)
+					affected.tendon.heal()
+
+				if(E.status & ORGAN_ARTERY_CUT)
+					E.status &= ~ORGAN_ARTERY_CUT
+
 			H.restore_blood() // Fix bloodloss
 		qdel(src)
