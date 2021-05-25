@@ -112,7 +112,18 @@
 	to_chat(H, "<span class='notice'><b>Your account number is: [M.account_number], your account pin is: [M.remote_access_pin]</b></span>")
 
 // overrideable separately so AIs/borgs can have cardborg hats without unneccessary new()/del()
-/datum/job/proc/equip_preview(mob/living/carbon/human/H, var/alt_title)
+/datum/job/proc/equip_preview(mob/living/carbon/human/H, var/alt_title, var/faction_override)
+	if(faction_override)
+		var/faction = SSjobs.name_factions[faction_override]
+		if(faction)
+			var/datum/faction/F = faction
+			if(!F.is_default)
+				var/new_outfit = F.titles_to_loadout[title]
+				var/datum/outfit/O = new new_outfit
+				if(O)
+					O.pre_equip(H, TRUE)
+					O.equip(H, TRUE)
+					return
 	pre_equip(H, TRUE)
 	. = equip(H, TRUE, FALSE, alt_title=alt_title)
 

@@ -366,7 +366,7 @@
 							M.animate_movement = 2
 							return
 
-		else if(mob.confused && prob(25))
+		else if(mob.confused && prob(25) && mob.m_intent == M_RUN)
 			step(mob, pick(cardinal))
 		else
 			. = mob.SelfMove(n, direct)

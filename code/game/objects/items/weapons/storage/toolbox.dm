@@ -254,3 +254,30 @@
 
 /obj/item/storage/toolbox/lunchbox/scc/filled
 	filled = TRUE
+
+/obj/item/storage/toolbox/lunchbox/swimstars_axic
+	name = "Swimstars Axic lunchbox"
+	desc = "Created, and marketed, after the hit show, Swimstars!"
+	icon_state = "swimstars_axic"
+	item_state = "swimstars_axic"
+
+/obj/item/storage/toolbox/lunchbox/swimstars_axic/filled
+	filled = TRUE
+
+/obj/item/storage/toolbox/lunchbox/swimstars_qill
+	name = "Swimstars Qill lunchbox"
+	desc = "Created, and marketed, after the hit show, Swimstars!"
+	icon_state = "swimstars_qill"
+	item_state = "swimstars_qill"
+
+/obj/item/storage/toolbox/lunchbox/swimstars_qill/filled
+	filled = TRUE
+
+/obj/item/storage/toolbox/lunchbox/swimstars_xana
+	name = "Swimstars Xana lunchbox"
+	desc = "Created, and marketed, after the hit show, Swimstars!"
+	icon_state = "swimstars_xana"
+	item_state = "swimstars_xana"
+
+/obj/item/storage/toolbox/lunchbox/swimstars_xana/filled
+	filled = TRUE

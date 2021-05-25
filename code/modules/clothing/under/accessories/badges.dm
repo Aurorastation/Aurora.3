@@ -121,6 +121,9 @@
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
 
+/obj/item/clothing/accessory/badge/holo/cord/get_mask_examine_text(mob/user)
+	return "around [user.get_pronoun("his")] neck"
+
 /obj/item/clothing/accessory/badge/holo/attack_self(mob/user as mob)
 	if(!stored_name)
 		to_chat(user, "Waving around a holobadge before swiping an ID would be pretty pointless.")
@@ -194,6 +197,18 @@
 
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
+
+/obj/item/clothing/accessory/badge/tcfl_papers/service
+	name = "\improper TCFL service card"
+	desc = "A small card identifying one as a current member of the Tau Ceti Foreign Legion. Often used to secure discounts in \
+	Republic shops. Go Biesel!"
+	badge_string = "Tau Ceti Foreign Legion Service Member"
+
+/obj/item/clothing/accessory/badge/tcfl_papers/service/veteran
+	name = "\improper TCFL veteran's service card"
+	desc = "A small card identifying one as a former member of the Tau Ceti Foreign Legion. Often used to secure discounts in \
+	Republic shops. Go Biesel!"
+	badge_string = "Tau Ceti Foreign Legion Veteran"
 
 /obj/item/clothing/accessory/badge/sheriff
 	name = "sheriff badge"
@@ -506,7 +521,12 @@
 	icon_state = "passport_jargon"
 	item_state = "passport_jargon"
 	open = CLOSED
+	var/credit_score = 5
 	var/species_tag = ""
+
+/obj/item/clothing/accessory/badge/passport/jargon/examine(mob/user)
+	. = ..()
+	to_chat(user, SPAN_NOTICE("The passport displays the owner's social credit score as: [credit_score]."))
 
 /obj/item/clothing/accessory/badge/passport/jargon/update_icon()
 	icon_state = "[initial(icon_state)][open ? "_o[species_tag]" : ""]"

@@ -28,10 +28,10 @@
 	if(isliving(target))
 		var/mob/living/M = target
 		if(M.isSynthetic()) // Don't heal synths!
-			deactivate()
+			stop()
 			return
 		if(!M.getBruteLoss() && !M.getFireLoss()) // No point existing if the spell can't heal.
-			deactivate()
+			stop()
 			return
 		M.adjustBruteLoss(-4 * strength) // Should heal roughly 20 burn/brute over 10 seconds, as tick() is run every 2 seconds.
 		M.adjustFireLoss(-4 * strength) // Ditto.
