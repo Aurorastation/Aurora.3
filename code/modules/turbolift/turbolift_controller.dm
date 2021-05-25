@@ -17,10 +17,12 @@
 
 
 //TODO: UI
-//TODO:   Command Mode
-//TODO:   Remote Control
+//TODO:   Elevator-Status (unauthed)
+//TODO:   CTRL-Mode
+//TODO:   Cabin-Control
 //TODO:   Floor Lockout
-//TODO:   Function Lockout
+//TODO:   Safety-System
+//TODO:   Function Lockout?
 //TODO:   Floor Access Update?
 //TODO: Anti-Destruction
 //TODO: Interactions

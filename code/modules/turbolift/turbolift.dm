@@ -163,6 +163,7 @@
 	return TRUE
 
 // TODO: dummy machine ('lift mechanism') in powered area for functionality/blackout checks.
+// TODO: Move this to the lift machinery (disable switches/... when power is out, re-enable them when power is on, ...)
 /datum/turbolift/proc/is_functional()
 	return 1
 
