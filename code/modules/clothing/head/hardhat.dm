@@ -45,8 +45,13 @@
 	name = "atmospheric firefighter helmet"
 	desc = "An atmospheric firefighter's helmet, able to keep the user protected from heat and fire."
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE + 15000
+	icon = 'icons/clothing/kit/firefighter.dmi'
 	icon_state = "atmos_fire"
 	item_state = "atmos_fire"
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("una", "taj")
+	contained_sprite = TRUE
+	min_pressure_protection = FIRESUIT_MIN_PRESSURE
 
 /obj/item/clothing/head/hardhat/first_responder
 	name = "medical helmet"
@@ -54,3 +59,28 @@
 	icon_state = "helmet_paramed"
 	item_state = "helmet_paramed"
 	light_overlay = "EMS_light"
+
+/obj/item/clothing/head/hardhat/firefighter
+	name = "firefighter helmet"
+	desc = "A complete, face covering helmet specially designed for firefighting. It is airtight and has a port for internals."
+	icon = 'icons/clothing/kit/firefighter.dmi'
+	icon_state = "helmet_firefighter"
+	item_state = "helmet_firefighter"
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("una", "taj")
+	contained_sprite = TRUE
+	item_flags = THICKMATERIAL | AIRTIGHT
+	max_pressure_protection = FIRESUIT_MAX_PRESSURE
+	min_pressure_protection = FIRESUIT_MIN_PRESSURE
+	permeability_coefficient = 0
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
+	body_parts_covered = HEAD|FACE|EYES
+	cold_protection = HEAD
+	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
+	flash_protection = FLASH_PROTECTION_MODERATE
+
+/obj/item/clothing/head/hardhat/firefighter/chief
+	name = "chief firefighter helmet"
+	desc = "A complete, face covering helmet specially designed for firefighting. This one is in the colors of the Chief Engineer. It is airtight and has a port for internals."
+	icon_state = "helmet_firefighter_ce"
+	item_state = "helmet_firefighter_ce"
