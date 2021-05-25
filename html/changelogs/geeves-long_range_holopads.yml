@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a holopad to the ERT commander's office."
+  - tweak: "Made the holopad in Centcomm Control a long range one, allowing it to call to the station and vice-versa."
