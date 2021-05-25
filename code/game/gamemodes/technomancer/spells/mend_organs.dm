@@ -46,8 +46,8 @@
 				var/obj/item/organ/external/affected = E
 				if((affected.damage < affected.min_broken_damage * config.organ_health_multiplier) && (affected.status & ORGAN_BROKEN))
 					affected.status &= ~ORGAN_BROKEN
-				
-				if(istype(affected.tendon) && TENDON_CUT)
+
+				if(affected.tendon_status() & TENDON_CUT)
 					affected.tendon.heal()
 
 				if(E.status & ORGAN_ARTERY_CUT)

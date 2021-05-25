@@ -234,6 +234,8 @@
 
 	if((limb_flags & ORGAN_HAS_TENDON) && !BP_IS_ROBOTIC(src))
 		tendon = new tendon_path(src, tendon_name, tendon_health, tendon_msgs)
+	else if(limb_flags & ORGAN_HAS_TENDON)
+		limb_flags &= ~ORGAN_HAS_TENDON
 
 /obj/item/organ/external/replaced(var/mob/living/carbon/human/target)
 	..()
