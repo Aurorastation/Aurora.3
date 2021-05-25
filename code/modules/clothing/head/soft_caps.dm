@@ -3,6 +3,7 @@
 	desc = "It's a softcap in a tasteless color."
 	icon = 'icons/obj/clothing/hats/soft_caps.dmi'
 	icon_state = "softcap"
+	item_flags = SHOWFLAVORTEXT
 	contained_sprite = TRUE
 	var/flipped = FALSE
 	siemens_coefficient = 0.9

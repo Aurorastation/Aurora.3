@@ -5284,7 +5284,7 @@
 	},
 /obj/item/airbubble,
 /obj/item/airbubble,
-/obj/item/storage/briefcase/inflatable,
+/obj/item/storage/bag/inflatable,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/device/flashlight/flare,
 /obj/item/device/flashlight/flare,
@@ -11797,7 +11797,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
 "kEY" = (
-/obj/item/clothing/suit/fire/firefighter,
+/obj/item/clothing/suit/fire,
 /obj/item/tank/oxygen,
 /obj/item/clothing/mask/gas,
 /obj/item/extinguisher,

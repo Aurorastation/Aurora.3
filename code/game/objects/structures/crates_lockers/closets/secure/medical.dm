@@ -107,6 +107,7 @@
 	new /obj/item/clothing/head/hardhat/first_responder(src)
 	new /obj/item/device/radio/headset/headset_med(src)
 	new /obj/item/clothing/glasses/hud/health(src)
+	new /obj/item/storage/backpack/medic/first_responder(src)
 	new /obj/item/clothing/suit/storage/medical_chest_rig(src)
 	new /obj/item/clothing/suit/storage/medical_chest_rig/first_responder(src)
 	new /obj/item/clothing/under/rank/medical/first_responder(src)

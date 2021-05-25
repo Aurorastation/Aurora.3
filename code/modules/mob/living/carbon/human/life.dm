@@ -106,22 +106,21 @@
 	if(!InStasis())
 		..()
 
-// Calculate how vulnerable the human is to under- and overpressure.
-// Returns 0 (equals 0 %) if sealed in an undamaged suit, 1 if unprotected (equals 100%).
+// Calculate how vulnerable the human is to the current pressure.
+// Returns 0 (equals 0 %) if sealed in an undamaged suit that's rated for the pressure, 1 if unprotected (equals 100%).
 // Suitdamage can modifiy this in 10% steps.
-/mob/living/carbon/human/get_pressure_weakness()
-	var/pressure_adjustment_coefficient = 1 // Assume no protection at first.
-
-	if(wear_suit && (wear_suit.item_flags & STOPPRESSUREDAMAGE) && head && (head.item_flags & STOPPRESSUREDAMAGE)) // Complete set of pressure-proof suit worn, assume fully sealed.
-		pressure_adjustment_coefficient = 0
-
-		// Handles breaches in your space suit. 10 suit damage equals a 100% loss of pressure protection.
-		if(istype(wear_suit,/obj/item/clothing/suit/space))
-			var/obj/item/clothing/suit/space/S = wear_suit
-			if(S.can_breach && S.damage)
-				pressure_adjustment_coefficient += S.damage * 0.1
-
-	pressure_adjustment_coefficient = min(1,max(pressure_adjustment_coefficient,0)) // So it isn't less than 0 or larger than 1.
+/mob/living/carbon/human/get_pressure_weakness(pressure)
+	var/pressure_adjustment_coefficient = 0
+	var/list/zones = list(HEAD, UPPER_TORSO, LOWER_TORSO, LEGS, FEET, ARMS, HANDS)
+	for(var/zone in zones)
+		var/list/covers = get_covering_equipped_items(zone)
+		var/zone_exposure = 1
+		for(var/obj/item/clothing/C in covers)
+			zone_exposure = min(zone_exposure, C.get_pressure_weakness(pressure,zone))
+		if(zone_exposure >= 1)
+			return 1
+		pressure_adjustment_coefficient = max(pressure_adjustment_coefficient, zone_exposure)
+	pressure_adjustment_coefficient = Clamp(pressure_adjustment_coefficient, 0, 1) // So it isn't less than 0 or larger than 1.
 
 	return pressure_adjustment_coefficient
 
@@ -651,11 +650,14 @@
 			sprint_speed_factor -= 0.2 * chem_effects[CE_SLOWDOWN]
 			move_delay_mod += 1.5 * chem_effects[CE_SLOWDOWN]
 
-		var/total_phoronloss = 0
 		for(var/obj/item/I in src)
 			if(I.contaminated && !(isvaurca(src) && src.species.has_organ[BP_FILTRATION_BIT]))
-				total_phoronloss += vsc.plc.CONTAMINATION_LOSS
-		if(!(status_flags & GODMODE)) adjustToxLoss(total_phoronloss)
+				if(I == r_hand)
+					apply_damage(vsc.plc.CONTAMINATION_LOSS, BURN, BP_R_HAND)
+				else if(I == l_hand)
+					apply_damage(vsc.plc.CONTAMINATION_LOSS, BURN, BP_L_HAND)
+				else
+					adjustFireLoss(vsc.plc.CONTAMINATION_LOSS)
 
 	if (intoxication)
 		handle_intoxication()
@@ -1158,15 +1160,21 @@
 /mob/living/carbon/human/proc/handle_hud_list(var/force_update = FALSE)
 	if(force_update)
 		hud_updateflag = 1022
-	if (BITTEST(hud_updateflag, HEALTH_HUD) && hud_list[HEALTH_HUD])
-		var/image/holder = hud_list[HEALTH_HUD]
-		if(stat == DEAD || (status_flags & FAKEDEATH))
-			holder.icon_state = "0" 	// X_X
-		else if(is_asystole())
-			holder.icon_state = "flatline"
-		else
-			holder.icon_state = "[pulse()]"
-		hud_list[HEALTH_HUD] = holder
+
+	if (BITTEST(hud_updateflag, HEALTH_HUD))
+		if(hud_list[HEALTH_HUD])
+			var/image/holder = hud_list[HEALTH_HUD]
+			if(stat == DEAD || (status_flags & FAKEDEATH))
+				holder.icon_state = "0" 	// X_X
+			else if(is_asystole())
+				holder.icon_state = "flatline"
+			else
+				holder.icon_state = "[pulse()]"
+			hud_list[HEALTH_HUD] = holder
+		if(hud_list[TRIAGE_HUD])
+			var/image/holder = hud_list[TRIAGE_HUD]
+			holder.icon_state = triage_tag
+			hud_list[TRIAGE_HUD] = holder
 
 	if (BITTEST(hud_updateflag, LIFE_HUD) && hud_list[LIFE_HUD])
 		var/image/holder = hud_list[LIFE_HUD]

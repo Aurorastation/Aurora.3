@@ -164,8 +164,6 @@
 /mob/living/bot/say(var/message)
 	var/verb = "beeps"
 
-	message = sanitize(message)
-
 	..(message, null, verb)
 
 /mob/living/bot/Collide(atom/A)

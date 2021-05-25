@@ -2,7 +2,7 @@
 	name = "gas mask"
 	desc = "A face-covering mask that can be connected to an air supply. Filters harmful gases from the air."
 	icon_state = "gas_alt"
-	item_flags = BLOCK_GAS_SMOKE_EFFECT | AIRTIGHT
+	item_flags = BLOCK_GAS_SMOKE_EFFECT | AIRTIGHT | THICKMATERIAL
 	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
 	body_parts_covered = FACE|EYES
 	w_class = ITEMSIZE_NORMAL
@@ -77,18 +77,6 @@
 	icon_state = "swat"
 	item_state = "swat"
 	siemens_coefficient = 0.7
-
-/obj/item/clothing/mask/gas/clown_hat
-	name = "clown wig and mask"
-	desc = "A true prankster's facial attire. A clown is incomplete without their wig and mask."
-	icon_state = "clown"
-	item_state = "clown"
-
-/obj/item/clothing/mask/gas/sexyclown
-	name = "sexy-clown wig and mask"
-	desc = "A feminine clown mask for the dabbling crossdressers or female entertainers."
-	icon_state = "sexyclown"
-	item_state = "sexyclown"
 
 /obj/item/clothing/mask/gas/mime
 	name = "mime mask"

@@ -49,6 +49,7 @@
 #define MODE_BURGLAR "burglar"
 #define MODE_LONER "loner"
 #define MODE_WIZARD "wizard"
+#define MODE_TECHNOMANCER "technomancer"
 #define MODE_CHANGELING "changeling"
 #define MODE_MORPH "morph"
 #define MODE_CULTIST "cultist"

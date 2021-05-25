@@ -13,10 +13,14 @@
 	silent = FALSE
 
 	var/datum/ntnet_user/my_user
+	var/datum/ntnet_conversation/focused_conv
+
 	var/netadmin_mode = FALSE		// Administrator mode (invisible to other users + bypasses passwords)
 	var/set_offline = FALSE			// appear "invisible"
 
 	var/ringtone = "beep"
+	var/message_mute = FALSE
+
 	var/syndi_auth = FALSE
 
 
@@ -27,7 +31,7 @@
 	return ((program_state > PROGRAM_STATE_KILLED || service_state > PROGRAM_STATE_KILLED) && from != src && get_signal(NTNET_COMMUNICATION))
 
 /datum/computer_file/program/chat_client/proc/play_notification_sound(var/datum/computer_file/program/chat_client/from)
-	if(!silent && src != from && program_state == PROGRAM_STATE_BACKGROUND)
+	if(!silent && src != from && (program_state == PROGRAM_STATE_BACKGROUND || (program_state == PROGRAM_STATE_KILLED && service_state == PROGRAM_STATE_ACTIVE)))
 		playsound(computer, 'sound/machines/twobeep.ogg', 50, 1)
 		computer.output_message("[icon2html(computer, world)] *[ringtone]*", 2)
 
@@ -46,6 +50,10 @@
 			newRingtone = sanitize(newRingtone, 20)
 			ringtone = newRingtone
 			SSvueui.check_uis_for_change(src)
+
+	if(href_list["mute_message"])
+		message_mute = !message_mute
+		SSvueui.check_uis_for_change(src)
 	
 	// User only commands
 	if(!istype(my_user))
@@ -62,6 +70,19 @@
 			if(ishuman(user))
 				user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
 			conv.cl_send(src, message, user)
+	if(href_list["focus"])
+		var/mob/living/user = usr
+		var/datum/ntnet_conversation/conv = locate(href_list["focus"])
+		if(istype(conv))
+			if(ishuman(user))
+				user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
+			if(focused_conv == conv)
+				focused_conv = null
+				listening_objects -= computer
+			else
+				focused_conv = conv
+				listening_objects |= computer
+		SSvueui.check_uis_for_change(src)
 	if(href_list["join"])
 		var/datum/ntnet_conversation/conv = locate(href_list["join"]["target"])
 		var/password = href_list["join"]["password"]
@@ -121,8 +142,7 @@
 			if(ishuman(user))
 				user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
 			conv.cl_send(src, message, user)
-	
-				
+
 /datum/computer_file/program/chat_client/service_activate()
 	. = ..()
 	if(istype(my_user) && get_signal(NTNET_COMMUNICATION))
@@ -206,6 +226,7 @@
 	data["ringtone"] = ringtone
 	data["netadmin_mode"] = netadmin_mode
 	data["can_netadmin_mode"] = can_run(user, FALSE, access_network)
+	data["message_mute"] = message_mute
 
 	if(data["registered"] && data["service"] && data["signal"])
 		data["channels"] = list()
@@ -220,7 +241,8 @@
 					"direct" = Channel.direct,
 					"password" = !!Channel.password,
 					"can_interact" = can_interact,
-					"can_manage" = can_manage
+					"can_manage" = can_manage,
+					"focused" = focused_conv == Channel ? TRUE : FALSE
 				)
 				if(can_interact)
 					data["channels"][ref]["msg"] = Channel.messages

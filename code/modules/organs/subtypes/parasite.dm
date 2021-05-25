@@ -251,8 +251,8 @@
 				O.status &= ~ORGAN_ARTERY_CUT
 				owner.visible_message(SPAN_WARNING("The severed artery in \the [owner]'s [O] stitches itself back together..."), SPAN_NOTICE("The severed artery in your [O] stitches itself back together..."))
 				healed = TRUE
-			else if(O.status & ORGAN_TENDON_CUT)
-				O.status &= ~ORGAN_TENDON_CUT
+			else if((O.tendon_status() & TENDON_CUT) && O.tendon.can_recover())
+				O.tendon.rejuvenate()
 				owner.visible_message(SPAN_WARNING("The severed tendon in \the [owner]'s [O] stitches itself back together..."), SPAN_NOTICE("The severed tendon in your [O] stitches itself back together..."))
 				healed = TRUE
 			else if(O.status & ORGAN_BROKEN)

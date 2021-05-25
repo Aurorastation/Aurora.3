@@ -21,6 +21,19 @@
 							"/obj/item/stock_parts/console_screen" = 1,
 							"/obj/item/reagent_containers/glass/beaker/large" = 1)
 
+/obj/item/circuitboard/stasis_bed
+	name = T_BOARD("Lifeform Stasis Unit")
+	desc = "The circuitboard for a lifeform stasis unit."
+	build_path = /obj/machinery/stasis_bed
+	origin_tech = list(TECH_MAGNET = 4, TECH_ENGINEERING = 4, TECH_BIO = 4)
+	board_type = "machine"
+	req_components = list(
+		"/obj/item/stock_parts/micro_laser" = 1,
+		"/obj/item/stock_parts/capacitor" = 2,
+		"/obj/item/stock_parts/scanning_module" = 2,
+		"/obj/item/stock_parts/console_screen" = 1
+		)
+
 /obj/item/circuitboard/cryotube
 	name = T_BOARD("Cryo Cell")
 	desc = "The circuitboard for a cryo tube."

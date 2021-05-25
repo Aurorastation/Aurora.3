@@ -6,7 +6,9 @@
 /obj/item/rig/merc
 	name = "crimson hardsuit control module"
 	desc = "A blood-red hardsuit featuring some fairly illegal technology."
+	icon = 'icons/clothing/rig/merc_crimson.dmi'
 	icon_state = "merc_rig"
+	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	suit_type = "crimson hardsuit"
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
@@ -70,6 +72,7 @@
 /obj/item/rig/merc/distress
 	name = "rhino hardsuit control module"
 	desc = "A combat hardsuit utilized by many private military companies, packing some seriously heavy plating."
+	icon = 'icons/clothing/rig/rhino.dmi'
 	icon_state = "rhino"
 	suit_type = "rhino hardsuit"
 	armor = list(

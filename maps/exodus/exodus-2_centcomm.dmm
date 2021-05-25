@@ -5313,19 +5313,19 @@
 /obj/item/stack/material/glass/reinforced{
 	amount = 50
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_x = 3;
 	pixel_y = 3
 	},
@@ -20754,19 +20754,19 @@
 /obj/item/stack/material/glass/reinforced{
 	amount = 50
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_x = 3;
 	pixel_y = 3
 	},

@@ -50,6 +50,8 @@
 	new /obj/item/gun/energy/retro(src)
 	new /obj/item/gun/projectile/gauss(src)
 	new /obj/item/gun/projectile/gauss(src)
+	new /obj/item/material/knife/bayonet(src)
+	new /obj/item/material/knife/bayonet(src)
 	new /obj/item/ammo_magazine/gauss(src)
 	new /obj/item/ammo_magazine/gauss(src)
 	new /obj/item/ammo_magazine/gauss(src)
@@ -63,6 +65,7 @@
 	new /obj/item/clothing/head/helmet/space/void/coalition(src)
 	new /obj/item/clothing/suit/space/void/coalition(src)
 	new /obj/item/gun/projectile/gauss(src)
+	new /obj/item/material/knife/bayonet(src)
 	new /obj/item/ammo_magazine/gauss(src)
 	new /obj/item/ammo_magazine/gauss(src)
 	new /obj/item/ammo_magazine/gauss(src)
@@ -426,7 +429,7 @@
 	new /obj/item/ammo_magazine/plasma(src)
 	new /obj/item/ammo_magazine/plasma(src)
 
-/obj/structure/closet/crate/secure/gear_loadout/ninja/hacker/fill()
+/obj/structure/closet/crate/secure/gear_loadout/ninja/hacker
 	associated_hardsuit = /obj/item/rig/light/hacker/ninja
 
 /obj/structure/closet/crate/secure/gear_loadout/ninja/hacker/fill()

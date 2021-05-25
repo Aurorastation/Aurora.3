@@ -41,6 +41,14 @@
 	sprint_cost_factor = 1.45
 	sprint_speed_factor = 3.2
 	exhaust_threshold = 65
+	bp_base_systolic = 80 // Default 120
+	bp_base_disatolic = 50 // Default 80
+	low_pulse = 20 // Default 40
+	norm_pulse = 40 // Default 60
+	fast_pulse = 60 // Default 90
+	v_fast_pulse = 80// Default 120
+	max_pulse = 100// Default 160
+	body_temperature = T0C + 24
 
 	rarity_value = 3
 	break_cuffs = TRUE
@@ -101,7 +109,7 @@
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 
 	allowed_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_DOMINIA, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI)
-	allowed_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_SIAKH, RELIGION_AUTAKH, RELIGION_MOROZ, RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM)
+	allowed_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_SIAKH, RELIGION_AUTAKH, RELIGION_MOROZ, RELIGION_NONE, RELIGION_OTHER)
 	default_citizenship = CITIZENSHIP_IZWESKI
 
 	zombie_type = SPECIES_ZOMBIE_UNATHI

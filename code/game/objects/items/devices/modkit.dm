@@ -116,7 +116,7 @@
 			return
 
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
-		var/obj/item/P = new voidsuit_product(W.loc)
+		var/obj/item/P = new voidsuit_product(get_turf(W))
 
 		if(!reconverting)
 			to_chat(user, SPAN_NOTICE("Your permit for a [P] has been processed. Enjoy!"))
@@ -144,3 +144,20 @@
 	desc_fluff = "As part of a cost-cutting and productivity-enhancing initiative, NanoTrasen has authorized a number of Himean Type-76 'Fish Fur'\
 	for use by miners originating from the planet. Most of these suits are assembled in Cannington and painstakingly optimized on-site by their\
 	individual operator leading to a large trail of red tape as NanoTrasen is forced to inspect these suits to ensure their safety."
+
+/obj/item/voidsuit_modkit/himeo/tajara
+	name = "tajaran himeo voidsuit kit"
+	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for a Himean voidsuit fitted for Tajara."
+	desc_fluff = "As part of a cost-cutting and productivity-enhancing initiative, NanoTrasen has authorized a number of Himean Type-76 'Fish Fur'\
+	for use by miners and engineers originating from the planet. Most of these suits are assembled in Cannington and painstakingly optimized on-site by their\
+	individual operator leading to a large trail of red tape as NanoTrasen is forced to inspect these suits to ensure their safety."
+	suit_options = list(
+		/obj/item/clothing/suit/space/void/mining = /obj/item/clothing/suit/space/void/mining/himeo/tajara,
+		/obj/item/clothing/head/helmet/space/void/mining = /obj/item/clothing/head/helmet/space/void/mining/himeo/tajara,
+
+		/obj/item/clothing/suit/space/void/engineering = /obj/item/clothing/suit/space/void/engineering/himeo/tajara,
+		/obj/item/clothing/head/helmet/space/void/engineering = /obj/item/clothing/head/helmet/space/void/engineering/himeo/tajara,
+
+		/obj/item/clothing/suit/space/void/atmos = /obj/item/clothing/suit/space/void/atmos/himeo/tajara,
+		/obj/item/clothing/head/helmet/space/void/atmos = /obj/item/clothing/head/helmet/space/void/atmos/himeo/tajara
+	)
