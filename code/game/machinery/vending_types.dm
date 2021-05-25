@@ -913,7 +913,7 @@
 	)
 	contraband = list(
 		/obj/item/weldingtool/hugetank = 2,
-		/obj/item/clothing/gloves/fyellow = 2
+		/obj/item/clothing/gloves/yellow/budget = 2
 	)
 	premium = list(
 		/obj/item/clothing/gloves/yellow = 1
