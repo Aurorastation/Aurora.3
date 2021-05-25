@@ -12,36 +12,25 @@
 /obj/item/clothing/suit/fire
 	name = "firesuit"
 	desc = "A suit that protects against fire and heat."
+	icon = 'icons/clothing/kit/firefighter.dmi'
 	icon_state = "firesuit"
 	item_state = "firesuit"
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("ada", "gol")
+	contained_sprite = TRUE
 	w_class = ITEMSIZE_LARGE//bulky item
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.50
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	siemens_coefficient = 0.5
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank/emergency_oxygen,/obj/item/extinguisher)
-	slowdown = 1.0
+	slowdown = 0.8 // slightly better than voidsuits
 	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
 	max_pressure_protection = FIRESUIT_MAX_PRESSURE
+	min_pressure_protection = FIRESUIT_MIN_PRESSURE
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
-
-
-/obj/item/clothing/suit/fire/firefighter
-	icon_state = "firesuit"
-	item_state = "firesuit"
-
-
-/obj/item/clothing/suit/fire/heavy
-	name = "firesuit"
-	desc = "A suit that protects against extreme fire and heat."
-	//icon_state = "thermal"
-	siemens_coefficient = 0.35
-	item_state = "ro_suit"
-	w_class = ITEMSIZE_LARGE//bulky item
-	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE + 25000
-	slowdown = 1.5
 
 /obj/item/clothing/suit/fire/atmos
 	name = "atmospheric technician firesuit"

@@ -987,6 +987,24 @@
 	icon_state = "greimorianplushie"
 	phrase = "Gort!"
 
+/obj/item/toy/plushie/axic
+	name = "Axic plushie"
+	desc = "Plushie designed after the main characters of the hit show, Swimstars! This one is Axic. "
+	icon_state = "axicplushie"
+	phrase = "warble!"
+
+/obj/item/toy/plushie/qill
+	name = "Qill plushie"
+	desc = "Plushie designed after the main characters of the hit show, Swimstars! This one is Qill. "
+	icon_state = "qillplushie"
+	phrase = "warble!"
+
+/obj/item/toy/plushie/xana
+	name = "Xana plushie"
+	desc = "Plushie designed after the main characters of the hit show, Swimstars! This one is Xana. "
+	icon_state = "xanaplushie"
+	phrase = "warble!"
+
 //Squid Plushies
 
 /obj/item/toy/plushie/squid

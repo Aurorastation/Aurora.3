@@ -423,6 +423,15 @@ datum/gear/suit/colorvest
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/gadpathur
-	display_name = "gadpathurian overcoat"
+	display_name = "gadpathurian coat selection"
 	path = /obj/item/clothing/suit/storage/gadpathur
 	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/suit/gadpathur/New()
+	..()
+	var/gadpathur_coat = list()
+	gadpathur_coat["gadpathurian overcoat"] = /obj/item/clothing/suit/storage/gadpathur
+	gadpathur_coat["gadpathurian trenchcoat"] = /obj/item/clothing/suit/storage/toggle/trench/gadpathur
+	gadpathur_coat["gadpathurian leather coat"] = /obj/item/clothing/suit/storage/toggle/trench/gadpathur/leather
+	gadpathur_coat["thermal coat"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/gadpathur
+	gear_tweaks += new/datum/gear_tweak/path(gadpathur_coat)

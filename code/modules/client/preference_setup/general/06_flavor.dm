@@ -4,9 +4,9 @@
 
 /datum/category_item/player_setup_item/general/flavor/load_character(var/savefile/S)
 	S["flavor_texts_general"] >> pref.flavor_texts["general"]
-	S["flavor_texts_head"]    >> pref.flavor_texts[BP_HEAD]
+	S["flavor_texts_head"]    >> pref.flavor_texts["head"]
 	S["flavor_texts_face"]    >> pref.flavor_texts["face"]
-	S["flavor_texts_eyes"]    >> pref.flavor_texts[BP_EYES]
+	S["flavor_texts_eyes"]    >> pref.flavor_texts["eyes"]
 	S["flavor_texts_torso"]   >> pref.flavor_texts["torso"]
 	S["flavor_texts_arms"]    >> pref.flavor_texts["arms"]
 	S["flavor_texts_hands"]   >> pref.flavor_texts["hands"]
@@ -23,9 +23,9 @@
 
 /datum/category_item/player_setup_item/general/flavor/save_character(var/savefile/S)
 	S["flavor_texts_general"] << pref.flavor_texts["general"]
-	S["flavor_texts_head"]    << pref.flavor_texts[BP_HEAD]
+	S["flavor_texts_head"]    << pref.flavor_texts["head"]
 	S["flavor_texts_face"]    << pref.flavor_texts["face"]
-	S["flavor_texts_eyes"]    << pref.flavor_texts[BP_EYES]
+	S["flavor_texts_eyes"]    << pref.flavor_texts["eyes"]
 	S["flavor_texts_torso"]   << pref.flavor_texts["torso"]
 	S["flavor_texts_arms"]    << pref.flavor_texts["arms"]
 	S["flavor_texts_hands"]   << pref.flavor_texts["hands"]
@@ -94,9 +94,9 @@
 	var/list/var_list = list(
 		"char_id" = pref.current_character,
 		"flavour_general" = pref.flavor_texts["general"],
-		"flavour_head" = pref.flavor_texts[BP_HEAD],
+		"flavour_head" = pref.flavor_texts["head"],
 		"flavour_face" = pref.flavor_texts["face"],
-		"flavour_eyes" = pref.flavor_texts[BP_EYES],
+		"flavour_eyes" = pref.flavor_texts["eyes"],
 		"flavour_torso" = pref.flavor_texts["torso"],
 		"flavour_arms" = pref.flavor_texts["arms"],
 		"flavour_hands" = pref.flavor_texts["hands"],
@@ -219,13 +219,13 @@
 	HTML += TextPreview(pref.flavor_texts["general"])
 	HTML += "<br>"
 	HTML += "<a href='?src=\ref[src];flavor_text=head'>Head:</a> "
-	HTML += TextPreview(pref.flavor_texts[BP_HEAD])
+	HTML += TextPreview(pref.flavor_texts["head"])
 	HTML += "<br>"
 	HTML += "<a href='?src=\ref[src];flavor_text=face'>Face:</a> "
 	HTML += TextPreview(pref.flavor_texts["face"])
 	HTML += "<br>"
 	HTML += "<a href='?src=\ref[src];flavor_text=eyes'>Eyes:</a> "
-	HTML += TextPreview(pref.flavor_texts[BP_EYES])
+	HTML += TextPreview(pref.flavor_texts["eyes"])
 	HTML += "<br>"
 	HTML += "<a href='?src=\ref[src];flavor_text=torso'>Body:</a> "
 	HTML += TextPreview(pref.flavor_texts["torso"])

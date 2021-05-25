@@ -16,6 +16,8 @@ var/datum/controller/subsystem/processing/shuttle/SSshuttle
 	var/list/docking_registry = list()           //Docking controller tag -> docking controller program, mostly for init purposes.
 	var/list/shuttle_areas = list()              //All the areas of all shuttles.
 
+	var/list/lonely_shuttle_computers = list()   //shuttle computers that haven't been attached to their shuttles yet
+
 	var/list/landmarks_awaiting_sector = list()  //Stores automatic landmarks that are waiting for a sector to finish loading.
 	var/list/landmarks_still_needed = list()     //Stores landmark_tags that need to be assigned to the sector (landmark_tag = sector) when registered.
 	var/list/shuttles_to_initialize = list()     //A queue for shuttles to initialize at the appropriate time.

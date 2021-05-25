@@ -34,8 +34,9 @@
 /datum/outfit/admin/ert/fsf/medic
 	name = "Free Solarian Fleets Medic"
 
-	belt = /obj/item/storage/belt/medical
+	belt = /obj/item/storage/belt/medical/first_responder/combat
 	back = /obj/item/storage/backpack/satchel_med
+	glasses = /obj/item/clothing/glasses/hud/health
 	suit_store = /obj/item/gun/projectile/shotgun/pump/combat/sol
 	gloves = /obj/item/clothing/gloves/latex
 
@@ -45,6 +46,7 @@
 		/obj/item/storage/box/shotgunshells = 1,
 		/obj/item/storage/firstaid/adv = 1,
 		/obj/item/handcuffs/ziptie = 1,
+		/obj/item/device/healthanalyzer = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 		/obj/item/stack/medical/advanced/ointment = 1,
 		/obj/item/melee/energy/sword/knife/sol = 1
@@ -56,6 +58,7 @@
 		/obj/item/reagent_containers/glass/bottle/antitoxin = 1,
 		/obj/item/reagent_containers/glass/bottle/dexalin_plus = 1,
 		/obj/item/reagent_containers/glass/bottle/bicaridine = 1,
+		/obj/item/reagent_containers/glass/bottle/thetamycin = 1,
 		/obj/item/reagent_containers/glass/bottle/dermaline = 1,
 		/obj/item/reagent_containers/glass/bottle/perconol = 1
 	)
@@ -63,7 +66,7 @@
 /datum/outfit/admin/ert/fsf/sapper
 	name = "Free Solarian Fleets Sapper"
 
-	back = /obj/item/storage/backpack/duffel
+	back = /obj/item/storage/backpack/industrial
 	belt = /obj/item/storage/belt/utility/very_full
 	gloves = /obj/item/clothing/gloves/yellow
 	back = /obj/item/storage/backpack/duffel/eng
@@ -119,5 +122,7 @@
 
 	backpack_contents = list(
 		/obj/item/melee/energy/sword/knife/sol = 1,
+		/obj/item/grenade/smokebomb = 2,
+		/obj/item/device/binoculars = 1,
 		/obj/item/ammo_magazine/mc9mm = 2
 	)
