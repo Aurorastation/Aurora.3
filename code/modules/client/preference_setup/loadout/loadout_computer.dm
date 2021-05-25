@@ -1,6 +1,6 @@
 /datum/gear/computer
 	display_name = "laptop computer"
-	path = /obj/item/modular_computer/laptop/preset
+	path = /obj/item/modular_computer/laptop/preset/loadout
 	sort_category = "Modular Computers"
 	cost = 2
 

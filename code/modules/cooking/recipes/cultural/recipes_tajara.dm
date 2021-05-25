@@ -153,6 +153,7 @@
 
 /decl/recipe/creamice
 	reagents = list(/decl/reagent/drink/milk/adhomai = 10, /decl/reagent/sugar = 10, /decl/reagent/drink/ice = 10)
+	fruit = list("nifberries" = 1)
 	result = /obj/item/reagent_containers/food/snacks/creamice
 
 // Tajaran Seafood
