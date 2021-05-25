@@ -101,3 +101,14 @@
 		crack_shell(user)
 		return
 	return ..()
+
+/obj/item/mollusc/clam/rasval
+	name = "ras'val clam"
+	desc = "An adhomian clam, native to the sea of Ras'val."
+	icon_state = "ras'val_clams"
+	meat_type = /obj/item/reagent_containers/food/snacks/clam
+	shell_type = /obj/item/trash/mollusc_shell/clam/rasval
+
+/obj/item/trash/mollusc_shell/clam/rasval
+	name = "ras'val clam shell"
+	icon_state = "ras'val_clams_shell"

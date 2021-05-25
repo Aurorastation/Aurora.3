@@ -144,10 +144,12 @@
 	build_from_parts = TRUE
 	worn_overlay = "head"
 
+	var/list/color_options = list(COLOR_BLUE, COLOR_RED, COLOR_PURPLE, COLOR_BROWN, COLOR_GREEN, COLOR_CYAN, COLOR_YELLOW)
+
 /obj/item/wirecutters/Initialize()
 	. = ..()
 	if(build_from_parts)
-		color = pick(COLOR_BLUE, COLOR_RED, COLOR_PURPLE, COLOR_BROWN, COLOR_GREEN, COLOR_CYAN, COLOR_YELLOW)
+		color = pick(color_options)
 		add_overlay(overlay_image(icon, "[initial(icon_state)]_[worn_overlay]", flags=RESET_COLOR))
 
 /obj/item/wirecutters/update_icon()
@@ -191,6 +193,9 @@
 
 /obj/item/wirecutters/iswirecutter()
 	return TRUE
+
+/obj/item/wirecutters/toolbelt
+	color_options = list(COLOR_TOOLS)
 
 /obj/item/wirecutters/bomb
 	name = "bomb defusal wirecutters"
@@ -257,6 +262,13 @@
 	max_fuel = 80
 	matter = list(DEFAULT_WALL_MATERIAL = 200, MATERIAL_GLASS = 120)
 	origin_tech = list(TECH_ENGINEERING = 3)
+
+/obj/item/weldingtool/emergency
+	name = "emergency welding tool"
+	desc = "A miniaturized version of a standard welding tool, this one was made to be used during emergencies."
+	icon_state = "miniwelder"
+	item_state = "miniwelder"
+	max_fuel = 10
 
 //The Experimental Welding Tool!
 /obj/item/weldingtool/experimental

@@ -3,6 +3,7 @@
 	desc = "A sleek and dangerous hardsuit for active combat. This one is a Stellar Corporate Conglomerate design in color scheme and make."
 	icon = 'icons/clothing/rig/combat.dmi'
 	icon_state = "combat_rig"
+	icon_supported_species_tags = list("skr")
 	suit_type = "combat hardsuit"
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
@@ -22,7 +23,7 @@
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT
 
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)
 
 /obj/item/clothing/head/helmet/space/rig/combat
 	light_overlay = "helmet_light_dual_cyan"
@@ -246,7 +247,24 @@
 	initial_modules = list(
 		/obj/item/rig_module/fabricator/energy_net,
 		/obj/item/rig_module/power_sink,
-		/obj/item/rig_module/mounted/taser
+		/obj/item/rig_module/mounted/egun,
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/ai_container,
+		/obj/item/rig_module/vision/nvg
+		)
+
+/obj/item/rig/strike/distress
+	req_access = list(access_distress)
+
+	initial_modules = list(
+		/obj/item/rig_module/fabricator/energy_net,
+		/obj/item/rig_module/power_sink,
+		/obj/item/rig_module/mounted/taser,
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/ai_container,
+		/obj/item/rig_module/vision/sechud
 		)
 
 /obj/item/rig/strike/ninja

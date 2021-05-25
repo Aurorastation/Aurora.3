@@ -11797,7 +11797,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
 "kEY" = (
-/obj/item/clothing/suit/fire/firefighter,
+/obj/item/clothing/suit/fire,
 /obj/item/tank/oxygen,
 /obj/item/clothing/mask/gas,
 /obj/item/extinguisher,

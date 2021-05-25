@@ -2214,17 +2214,13 @@
 	reagents_to_add = list(/decl/reagent/nutriment/protein = 5)
 
 /obj/item/reagent_containers/food/snacks/soup/beet
-	name = "beet soup"
-	desc = "Wait, how do you spell it again..?"
+	name = "borscht"
+	desc = "A hearty beet soup that's hard to spell."
 	icon_state = "beetsoup"
 	filling_color = "#FAC9FF"
 	reagents_to_add = list(/decl/reagent/nutriment = 8)
 	reagent_data = list(/decl/reagent/nutriment = list("tomato" = 4, "beet" = 4))
 	bitesize = 2
-
-/obj/item/reagent_containers/food/snacks/soup/beet/Initialize()
-	. = ..()
-	name = pick(list("borsch","bortsch","borstch","borsh","borshch","borscht"))
 
 /obj/item/reagent_containers/food/snacks/salad/tossedsalad
 	name = "tossed salad"
@@ -4706,6 +4702,134 @@
 	filling_color = "#DB0000"
 	bitesize = 4
 	reagents_to_add = list(/decl/reagent/nutriment/protein/seafood = 20, /decl/reagent/ammonia = 10)
+
+/obj/item/reagent_containers/food/snacks/cone_cake
+	name = "cone cake"
+	desc = "A spongy cone-shaped cake covered in sugar."
+	icon_state = "conecake"
+	bitesize = 2
+	reagents_to_add = list(/decl/reagent/nutriment = 15)
+	reagent_data = list(/decl/reagent/nutriment = list("Incredible sweetness" = 8, "Cake" = 7))
+	desc_fluff = "A spongy, sugar-coated cake that's baked on a spit shaped like a cone, giving it a signature look. Often sold alongside Azvah due to similar preparation methods, the difference between them being the unique shape, the crisp, flaky outside, and the tooth-aching sweetness of the dish that turns some foreigners away."
+	filling_color = "#BD8939"
+
+/obj/item/reagent_containers/food/snacks/fruit_rikazu
+	name = "fruit rikazu"
+	desc = "A small, crispy Adhomian pie meant for one person filled with fruits."
+	icon_state = "rikazu_fruit"
+	bitesize = 2
+	reagents_to_add = list(/decl/reagent/nutriment = 8) 
+	reagent_data = list(/decl/reagent/nutriment = list("crispy dough" = 4, "sweet fruit" = 4))
+	desc_fluff = "Small pies, often hand-sized, usually made by folding dough overstuffing of fruit and cream cheese; commonly served hot. The simple preparation makes it a fast favorite, and the versatility of the ingredients has gained its favor with Tajara of all creeds. Different variations of Rikazu pop up all over Adhomai, some filled with meats, or vegetables, or even imported ingredients, like chocolate filling."
+	filling_color = "#BD8939"
+
+/obj/item/reagent_containers/food/snacks/meat_rikazu
+	name = "meat rikazu"
+	desc = "A small, crispy Adhomian pie meant for one person filled with meat."
+	icon_state = "rikazu_meat"
+	bitesize = 2
+	reagents_to_add = list(/decl/reagent/nutriment = 4, /decl/reagent/nutriment/protein = 4) 
+	reagent_data = list(/decl/reagent/nutriment = list("crispy dough" = 4), /decl/reagent/nutriment/protein = list("savory meat" = 4))
+	desc_fluff = "Small pies, often hand-sized, usually made by folding dough overstuffing of fruit and cream cheese; commonly served hot. The simple preparation makes it a fast favorite, and the versatility of the ingredients has gained its favor with Tajara of all creeds. Different variations of Rikazu pop up all over Adhomai, some filled with meats, or vegetables, or even imported ingredients, like chocolate filling."
+	filling_color = "#BD8939"
+
+/obj/item/reagent_containers/food/snacks/vegetable_rikazu
+	name = "vegetable rikazu"
+	desc = "A small, crispy Adhomian pie meant for one person filled with vegetables."
+	icon_state = "rikazu_veg"
+	bitesize = 2
+	reagents_to_add = list(/decl/reagent/nutriment = 8) 
+	reagent_data = list(/decl/reagent/nutriment = list("crispy dough" = 4, "cruncy vegetables" = 4))
+	desc_fluff = "Small pies, often hand-sized, usually made by folding dough overstuffing of fruit and cream cheese; commonly served hot. The simple preparation makes it a fast favorite, and the versatility of the ingredients has gained its favor with Tajara of all creeds. Different variations of Rikazu pop up all over Adhomai, some filled with meats, or vegetables, or even imported ingredients, like chocolate filling."
+	filling_color = "#BD8939"
+
+/obj/item/reagent_containers/food/snacks/chocolate_rikazu
+	name = "chocolate rikazu"
+	desc = "A small, crispy Adhomian pie meant for one person filled with chocolate."
+	icon_state = "rikazu_choc"
+	bitesize = 2
+	reagents_to_add = list(/decl/reagent/nutriment = 8) 
+	reagent_data = list(/decl/reagent/nutriment = list("crispy dough" = 4, "smooth chocolate" = 4))
+	desc_fluff = "Small pies, often hand-sized, usually made by folding dough overstuffing of fruit and cream cheese; commonly served hot. The simple preparation makes it a fast favorite, and the versatility of the ingredients has gained its favor with Tajara of all creeds. Different variations of Rikazu pop up all over Adhomai, some filled with meats, or vegetables, or even imported ingredients, like chocolate filling."
+	filling_color = "#BD8939"
+
+/obj/item/reagent_containers/food/snacks/avah
+	name = "avah"
+	desc = "A large fried dough ball covered in a sweet cream icing."
+	icon_state = "avah"
+	bitesize = 2
+	reagents_to_add = list(/decl/reagent/nutriment = 7, /decl/reagent/nutriment/protein/cheese = 5)
+	reagent_data = list(/decl/reagent/nutriment = list("Oily dough" = 7), /decl/reagent/nutriment/protein/cheese = list("sweet cream cheese" = 5))
+	desc_fluff = "Used to only mean 'sweets' or 'sweet thing', now singularly refers to a particular dessert. The batter is grilled and made into soft, spherical shapes, and then covered with fruit jams, sugar, or sweet cream cheese. These treats are often sold at festivals and celebrations, and foreigners compare them to pancakes."
+	filling_color = "#BD8939"
+
+/obj/item/reagent_containers/food/snacks/dirt_roast
+	name = "roasted dirtberries"
+	desc = "A bag of warm roasted dirtberries covered in spice."
+	icon_state = "roast_dirtberries"
+	bitesize = 2
+	reagents_to_add = list(/decl/reagent/nutriment = 4, /decl/reagent/drink/syrup_caramel = 4)
+	reagent_data = list(/decl/reagent/nutriment = list("warm crunchy nuts" = 2, "cinnamon" = 2), /decl/reagent/drink/syrup_caramel = list("caramel" = 5))
+	desc_fluff = "A traditional snack consisting of oven-roasted dirtberries covered in a mixture of spice and caramel. These crunchy fruits are usually sold at outdoor festivals and events and are enjoyed for their warming effect and pleasant taste."
+	filling_color = "#BD8939"
+
+/obj/item/reagent_containers/food/snacks/sliceable/fatshouter_fillet
+	name = "fatshouter fillet"
+	desc = "A medium rare fillet of Fatshouter meat covered in an earthenroot pate and wrapped in a flaky crust."
+	icon_state = "fatshouterfillet_full"
+	bitesize = 2
+	slice_path = /obj/item/reagent_containers/food/snacks/meatbreadslice
+	slices_num = 5
+	reagents_to_add = list(/decl/reagent/nutriment/protein = 10, /decl/reagent/nutriment = 10, /decl/reagent/alcohol/messa_mead = 5)
+	reagent_data = list(/decl/reagent/nutriment/protein = list("juicy meat" = 10), /decl/reagent/nutriment = list("flaky dough" = 5, "savoury vegetables" = 5))
+	desc_fluff = "for a time was considered the benchmark by which to rate the abilities of a chef. The production of this exquisite dish is no easy task, the preparation process begins with the aging of a high-grade tenderloin steak acquired from a Fatshouter fed exclusively on dirtberries. The high starch content of the dirtberries ensures that the creature has a high fat percentage and imparts a unique flavour to the meat and traditionally Noble families would keep a raise small herds of Fatshouters specifically for the production of this dish. After 28 days of dry aging, the tenderloin is ready for use. One day prior to serving the dish, a pâté is made by sauteéing thinly sliced pieces of earthenroot soaked in a generous amount of Messa’s Mead and then thickened with lard before being ground into a fine paste and left to - chill. On the day that the dish is to be served a flaky pastry dough is made. Next the aged 7 tenderloin is trimmed of accumulated mold and rind and coated in a dryrub after which the chilled pâté is spread across the surface of the meat and it is wrapped in the thinly rolled pastry dough. Next the pastry is washed with a small amount of clarified lard to give the crust a nice shine, after which it is placed into a large oven and cooked at a high heat for around 40 minutes. Though the dish was regarded as a symbol of the blatant excess and overindulgence of the ruling elite, it has since been reintroduced to the public by enterprising chefs seeking to recapture the high-class culinary culture of the past."
+	filling_color = "#BD8939"
+
+/obj/item/reagent_containers/food/snacks/fatshouterslice
+	name = "fatshouter fillet slice"
+	desc = "A medium rare fillet of Fatshouter meat covered in an earthenroot pate and wrapped in a flaky crust."
+	icon_state = "fatshouterfillet_slice"
+	filling_color = "#FF7575"
+	desc_fluff = "for a time was considered the benchmark by which to rate the abilities of a chef. The production of this exquisite dish is no easy task, the preparation process begins with the aging of a high-grade tenderloin steak acquired from a Fatshouter fed exclusively on dirtberries. The high starch content of the dirtberries ensures that the creature has a high fat percentage and imparts a unique flavour to the meat and traditionally Noble families would keep a raise small herds of Fatshouters specifically for the production of this dish. After 28 days of dry aging, the tenderloin is ready for use. One day prior to serving the dish, a pâté is made by sauteéing thinly sliced pieces of earthenroot soaked in a generous amount of Messa’s Mead and then thickened with lard before being ground into a fine paste and left to - chill. On the day that the dish is to be served a flaky pastry dough is made. Next the aged 7 tenderloin is trimmed of accumulated mold and rind and coated in a dryrub after which the chilled pâté is spread across the surface of the meat and it is wrapped in the thinly rolled pastry dough. Next the pastry is washed with a small amount of clarified lard to give the crust a nice shine, after which it is placed into a large oven and cooked at a high heat for around 40 minutes. Though the dish was regarded as a symbol of the blatant excess and overindulgence of the ruling elite, it has since been reintroduced to the public by enterprising chefs seeking to recapture the high-class culinary culture of the past."
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/fatshouterslice/filled
+	reagents_to_add = list(/decl/reagent/nutriment/protein = 2, /decl/reagent/nutriment = 2, /decl/reagent/alcohol/messa_mead = 1)
+	reagent_data = list(/decl/reagent/nutriment/protein = list("juicy meat" = 2), /decl/reagent/nutriment = list("flaky dough" = 1, "savoury vegetables" = 1))
+	
+/obj/item/reagent_containers/food/snacks/sliceable/zkahnkowafull
+	name = "Zkah'nkowa"
+	desc = "A large smoked sausage."
+	icon_state = "zkah'nkowa_full"
+	bitesize = 2
+	slice_path = /obj/item/reagent_containers/food/snacks/zkahnkowaslice
+	slices_num = 5
+	reagents_to_add = list(/decl/reagent/nutriment/protein = 25)
+	reagent_data = list(/decl/reagent/nutriment/protein = list("salty" = 10, "smoky meat" = 15))
+	desc_fluff = "A canned variety of the Fatshouter Bloodpudding, known for its low-fat content and lighter color. It was created shortly after the First Revolution to ease the food shortage after the conflict. Its low cost and nutritious value allowed it to become a staple of the Hadiist diet."
+	filling_color = "#BD8939"
+
+/obj/item/reagent_containers/food/snacks/zkahnkowaslice
+	name = "Zkah'nkowa slice"
+	desc = "A slice of smoked sausage."
+	icon_state = "zkah'nkowa_slice"
+	filling_color = "#FF7575"
+	desc_fluff = "A canned variety of the Fatshouter Bloodpudding, known for its low-fat content and lighter color. It was created shortly after the First Revolution to ease the food shortage after the conflict. Its low cost and nutritious value allowed it to become a staple of the Hadiist diet."
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/fatshouterslice/filled
+	reagents_to_add = list(/decl/reagent/nutriment/protein = 5)
+	reagent_data = list(/decl/reagent/nutriment/protein = list("salty" = 3, "smoky meat" = 5))
+
+/obj/item/reagent_containers/food/snacks/creamice
+	name = "creamice"
+	desc = "A bowl of delicious Tajaran ice cream"
+	icon_state = "creamice"
+	bitesize = 2
+	reagents_to_add = list(/decl/reagent/nutriment = 8)
+	reagent_data = list(/decl/reagent/nutriment = list("creamy" = 3, "sweet" = 3, "cold" = 2))
+	desc_fluff = "The traditional dessert of Northern Harr'masir is considered by many as being the mixture of ice, Fatshouters’s milk, sugar, and Nif-Berries’ oil, named Creamice. The popular tales claim it was invented after a famine desolated the land, resulting in the population resorting to eating snow, however, such tale has been classified by most historians as nothing but fiction. Creamice is commonly consumed by the nobility since they are the ones that can afford the luxury of refrigeration."
+	filling_color = "#BD8939"
 
 /obj/item/reagent_containers/food/snacks/onionrings
 	name = "onion rings"

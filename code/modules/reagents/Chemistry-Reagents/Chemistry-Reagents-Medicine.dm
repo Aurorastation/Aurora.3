@@ -730,6 +730,7 @@
 	color = "#81b38b"
 	od_minimum_dose = 1
 	overdose = 15
+	scannable = TRUE
 	taste_description = "bleach"
 	fallback_specific_heat = 0.605
 
@@ -1301,8 +1302,8 @@
 		var/mob/living/carbon/human/H = M
 		for (var/A in H.organs)
 			var/obj/item/organ/external/E = A
-			if(istype(E.tendon) && !E.tendon.intact)
-				E.tendon.heal()
+			if((E.tendon_status() & TENDON_CUT) && E.tendon.can_recover())
+				E.tendon.rejuvenate()
 				return 1
 
 			if(E.status & ORGAN_ARTERY_CUT)
