@@ -43,6 +43,6 @@
 	..()
 	to_chat(target, SPAN_WARNING(on_created_text))
 
-/datum/modifier/technomancer/deactivate()
+/datum/modifier/technomancer/stop()
 	..()
 	to_chat(target, SPAN_WARNING(on_expired_text))

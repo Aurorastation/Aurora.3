@@ -215,7 +215,7 @@
 			SSjobs.EquipCustom(mannequin, previewJob, src, leftovers, null, used_slots)
 
 		if((equip_preview_mob & EQUIP_PREVIEW_JOB) && previewJob)
-			previewJob.equip_preview(mannequin, player_alt_titles[previewJob.title])
+			previewJob.equip_preview(mannequin, player_alt_titles[previewJob.title], faction)
 
 		if(equip_preview_mob & EQUIP_PREVIEW_LOADOUT && leftovers.len)
 			SSjobs.EquipCustomDeferred(mannequin, src, leftovers, used_slots)

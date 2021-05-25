@@ -194,7 +194,8 @@
 	gear_tweaks += new/datum/gear_tweak/path(pants)
 
 /datum/gear/uniform/colorpants
-	display_name = "pants (recolorable)"
+	display_name = "pants selection (recolorable)"
+	description = "A selection of recolourable pants."
 	path = /obj/item/clothing/under/pants/dress
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -202,7 +203,10 @@
 	..()
 	var/list/colorpants = list()
 	colorpants["dress pants"] = /obj/item/clothing/under/pants/dress
+	colorpants["dress pants, with belt"] = /obj/item/clothing/under/pants/dress/belt
 	colorpants["striped pants"] = /obj/item/clothing/under/pants/striped
+	colorpants["tailored jeans"] = /obj/item/clothing/under/pants/tailoredjeans
+	colorpants["mustang jeans"] = /obj/item/clothing/under/pants/musthangcolour
 	gear_tweaks += new/datum/gear_tweak/path(colorpants)
 
 /datum/gear/uniform/turtleneck

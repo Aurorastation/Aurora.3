@@ -30,5 +30,12 @@
 	light_color = "#FF6A00"
 
 /obj/effect/temporary_effect/fire_blast/Destroy()
-	explosion(get_turf(src), -1, 1, 2, 5, adminlog = 1)
+	for(var/mob/living/M in oview(src, 2))
+		M.adjustFireLoss(30)
+		M.IgniteMob(2)
+	var/explosion_ogg = pick('sound/effects/Explosion1.ogg', 'sound/effects/Explosion2.ogg')
+	playsound(get_turf(src), explosion_ogg, 75)
+	var/datum/effect/system/explosion/E = new /datum/effect/system/explosion()
+	E.set_up(get_turf(src))
+	E.start()
 	return ..()

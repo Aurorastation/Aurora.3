@@ -45,7 +45,7 @@
 
 /datum/accent/silversun_original
 	name = ACCENT_SILVERSUN_ORIGINAL
-	description = "The native accent of Silversun is a sing-song take on standard Sol Common that has, since massive investment into the planet by Idris Incorporated, come to be associated with the planet’s renowned tourism industry. \
+	description = "The native accent of Silversun is a sing-song take on standard Sol Common that has, since massive investment into the planet by Idris Incorporated, come to be associated with the planet's renowned tourism industry. \
 	Many native residents of Silversun are bitter that their accent - and planet - are seen as nothing more than an enormous vacation retreat by the greater Orion Spur. This accent is commonly used by Idris Incorporated shell positronic \
 	frames, much to the consternation of Silversun's Originals."
 	tag_icon = "silversun_original"

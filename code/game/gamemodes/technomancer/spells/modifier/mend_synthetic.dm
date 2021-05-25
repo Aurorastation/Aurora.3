@@ -28,7 +28,7 @@
 	if(isliving(target))
 		var/mob/living/M = target
 		if(!M.getBruteLoss() && !M.getFireLoss()) // No point existing if the spell can't heal.
-			deactivate()
+			stop()
 			return
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = target
