@@ -1,7 +1,0 @@
-author: JohnWildkins
-delete-after: True
-
-changes:
-  - tweak: "Tendons now have their own health pool, making them overall more resistant to damage, and less likely to snap overall."
-  - tweak: "Damaged and destroyed tendons in the legs now cause movement slowdown."
-  - bugfix: "CUT/EDGE weapons can no longer break bones unless they meet the 30 damage threshold."
