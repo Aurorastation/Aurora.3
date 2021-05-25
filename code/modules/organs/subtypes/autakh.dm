@@ -29,25 +29,21 @@
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_AUTAKH
-	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_CAN_GRASP
 
 /obj/item/organ/external/arm/right/autakh
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_AUTAKH
-	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_CAN_GRASP
 
 /obj/item/organ/external/leg/autakh
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_AUTAKH
-	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM
 
 /obj/item/organ/external/leg/right/autakh
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_AUTAKH
-	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM
 
 /obj/item/organ/external/foot/autakh
 	dislocated = -1
@@ -63,13 +59,11 @@
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_AUTAKH
-	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_CAN_GRASP
 
 /obj/item/organ/external/hand/right/autakh
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_AUTAKH
-	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_CAN_GRASP
 
 //internal organs
 
