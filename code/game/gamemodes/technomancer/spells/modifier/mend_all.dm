@@ -21,7 +21,7 @@
 
 /datum/modifier/technomancer/mend_all/tick()
 	if(!holder.getBruteLoss() && !holder.getFireLoss() && !holder.getToxLoss() && !holder.getOxyLoss() && !holder.getCloneLoss()) // No point existing if the spell can't heal.
-		expire()
+		stop()
 		return
 	holder.adjustBruteLoss(-4 * spell_power) // Should heal roughly 120 damage over 1 minute, as tick() is run every 2 seconds.
 	holder.adjustFireLoss(-4 * spell_power)

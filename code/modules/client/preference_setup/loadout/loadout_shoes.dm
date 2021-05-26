@@ -5,6 +5,10 @@
 	slot = slot_shoes
 	sort_category = "Shoes and Footwear"
 
+/datum/gear/shoes/New()
+	..()
+	gear_tweaks += list(gear_tweak_shoe_layer)
+
 /datum/gear/shoes/color
 	display_name = "shoe selection"
 	path = /obj/item/clothing/shoes/black
@@ -122,3 +126,27 @@
 	display_name = "plastic clogs"
 	path = /obj/item/clothing/shoes/sandal/clogs
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/*
+	Shoe Layer Adjustment
+*/
+var/datum/gear_tweak/shoe_layer/gear_tweak_shoe_layer = new()
+
+/datum/gear_tweak/shoe_layer/get_contents(var/metadata)
+	return "Shoe Layer: [metadata] Uniform"
+
+/datum/gear_tweak/shoe_layer/get_default()
+	return "Over"
+
+/datum/gear_tweak/shoe_layer/get_metadata(var/user, var/metadata)
+	return input(user, "Choose whether you want the shoe to go over or under the uniform.", "Shoe Layer", metadata) as anything in list("Over", "Under")
+
+/datum/gear_tweak/shoe_layer/tweak_item(var/obj/item/clothing/shoes/S, var/metadata)
+	if(!istype(S))
+		return
+	if(S.shoes_under_pants == -1)
+		return
+	if(metadata == "Over")
+		S.shoes_under_pants = FALSE
+	else
+		S.shoes_under_pants = TRUE

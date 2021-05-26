@@ -294,6 +294,11 @@
 	icon_state = "wiz_spell_base"
 	background_base_state = "wiz"
 
+/obj/screen/ability/obj_based/technomancer/activate()
+	if(ability_master.my_mob.incapacitated())
+		return
+	. = ..()
+
 /obj/screen/movable/ability_master/proc/add_technomancer_ability(var/obj/object_given, var/ability_icon_given)
 	if(!object_given)
 		message_admins("ERROR: add_technomancer_ability() was not given an object in its arguments.")
