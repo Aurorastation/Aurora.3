@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - bugfix: "The SCC agent uniform had its right facing sprite show a rolled up sleeve even when not toggled. This was fixed so the sleeve is down to match the rest of the sprite."
