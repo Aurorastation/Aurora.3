@@ -71,7 +71,7 @@ BREATH ANALYZER
 		if (((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
 			user.visible_message("<b>[user]</b> runs the scanner over the floor.", "<span class='notice'>You run the scanner over the floor.</span>", "<span class='notice'>You hear metal repeatedly clunking against the floor.</span>")
 			to_chat(user, "<span class='notice'><b>Scan results for the floor:</b></span>")
-			to_chat(user, "Overall Status: Healthy</span>")
+			to_chat(user, "Overall Status: <span class='good'>Healthy</span>")
 			return
 
 		if(!usr.IsAdvancedToolUser())
