@@ -65,6 +65,7 @@
 	ticket_number++
 	T.set_content_unsafe(tickettname, ticket, sum)
 	stamp_receipt(T)
+	flick("kitchenterminal-receipt",src)
 
 /obj/machinery/orderterminal/proc/stamp_receipt(obj/item/paper/R) // Stamps the papers, made into a proc to avoid copy pasting too much
 	var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
@@ -169,6 +170,8 @@
 		confirmorder = TRUE
 		var/buying = ui.data["buying"]
 		var/items = ui.data["items"]
+		receipt += "<center><font size=\"4\"><b>Idris Food Terminal Receipt</b></font></br><img src = idrislogo.png></center><hr>"
+		ticket += "<center><font size=\"4\"><b>Idris Food Terminal Ticket</b></font></br><img src = idrislogo.png></center><hr>"
 		for(var/name in buying)
 			if(buying[name])
 				sum += items[name] * buying[name]
