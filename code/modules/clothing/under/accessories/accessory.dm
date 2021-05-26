@@ -556,14 +556,14 @@
 /obj/item/clothing/accessory/poncho/trinary/pellegrina
 	name = "trinary perfection pellegrina"
 	desc = "A brilliant red and brown cape, commonly worn by those who serve the Trinary Perfection. This one is signifcantly shorter."
-	icon_state = "trinary_cape"
+	icon_state = "trinary_pellegrina"
 	item_state = "trinary_cape"
 	overlay_state = "trinary_pellegrina"
 
 /obj/item/clothing/accessory/poncho/trinary/shouldercape
 	name = "trinary perfection shoulder cape"
 	desc = "A brilliant red and brown cape, commonly worn by those who serve the Trinary Perfection. This one is worn over one shoulder."
-	icon_state = "trinary_cape"
+	icon_state = "trinary_shouldercape"
 	item_state = "trinary_cape"
 	overlay_state = "trinary_shouldercape"
 
