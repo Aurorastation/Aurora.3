@@ -22,7 +22,6 @@
 /obj/machinery/orderterminal/Initialize()
 	. = ..()
 	machine_id = "Idris Ordering Terminal #[SSeconomy.num_financial_terminals++]"
-	// TODO: consider some way to get consistent terminal numbers
 	update_icon()
 
 /obj/machinery/orderterminal/power_change()
