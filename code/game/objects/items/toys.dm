@@ -1010,7 +1010,7 @@
 	desc = "A plushie of an old Hephaestus mascot, Aphy."
 	desc_fluff = "Aphy, a play on the name Aphrodite, was Hephaestus Industries' first baseline prototype. While the original Aphy is on display in Hephaestus' Mars headquarters, the unit has become a cutesy mascot in recent years."
 	icon_state = "ipcplushie"
-	phrase ="Bwoop!"
+	phrase = "Bwoop!"
 
 //Squid Plushies
 
