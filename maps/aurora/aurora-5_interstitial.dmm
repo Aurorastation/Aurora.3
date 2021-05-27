@@ -11207,11 +11207,24 @@
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay_virology)
 "PF" = (
-/obj/structure/railing/mapped{
-	layer = 4.01;
-	name = "polished railing"
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	id_tag = "fuckyou1";
+	pixel_x = -32;
+	tag_airpump = "fuckyou1_pump";
+	tag_chamber_sensor = "fuckyou1_sensor";
+	tag_exterior_door = "fuckyou1_outer";
+	tag_interior_door = "fuckyou1_inner"
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4;
+	frequency = 1379;
+	id_tag = "fuckyou1_pump"
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/mine/unexplored)
 "PJ" = (
@@ -11361,27 +11374,6 @@
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay_virology)
 "Qu" = (
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	id_tag = "fuckyou1";
-	pixel_x = -32;
-	tag_airpump = "fuckyou1_pump";
-	tag_chamber_sensor = "fuckyou1_sensor";
-	tag_exterior_door = "fuckyou1_outer";
-	tag_interior_door = "fuckyou1_inner"
-	},
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4;
-	frequency = 1379;
-	id_tag = "fuckyou1_pump"
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/mine/unexplored)
-"Qz" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -11392,6 +11384,27 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"Qz" = (
+/obj/machinery/airlock_sensor{
+	id_tag = "fuckyou1_sensor";
+	pixel_x = 32
+	},
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	frequency = 1379;
+	id_tag = "fuckyou1_pump"
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/camera/network/engineering{
+	c_tag = "Construction Level Exterior Airlock";
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/mine/unexplored)
 "QB" = (
@@ -11438,25 +11451,17 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_cargo)
 "QE" = (
-/obj/machinery/airlock_sensor{
-	id_tag = "fuckyou1_sensor";
-	pixel_x = 32
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
-/obj/machinery/light/small/emergency{
-	dir = 4
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/engineering{
+	name = "Construction Level Substation";
+	req_one_access = list(11,24)
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	frequency = 1379;
-	id_tag = "fuckyou1_pump"
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/camera/network/engineering{
-	c_tag = "Construction Level Exterior Airlock";
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/mine/unexplored)
 "QF" = (
 /obj/machinery/chemical_dispenser/bar_soft/full,
@@ -11594,10 +11599,14 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/engineering{
-	name = "Construction Level Substation";
-	req_one_access = list(11,24)
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24
 	},
 /turf/simulated/floor/plating,
 /area/mine/unexplored)
@@ -11763,19 +11772,18 @@
 /turf/simulated/floor/plating,
 /area/mine/unexplored)
 "RX" = (
+/obj/machinery/power/sensor{
+	long_range = 1;
+	name = "Powernet Sensor - Construction Level (Interstitial)";
+	name_tag = "Construction Level (Interstitial)"
+	},
 /obj/structure/cable/green{
-	d1 = 4;
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/structure/cable/green{
 	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/cable/green{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/plating,
 /area/mine/unexplored)
@@ -11885,20 +11893,24 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_cargo)
 "Ss" = (
-/obj/machinery/power/sensor{
-	long_range = 1;
-	name = "Powernet Sensor - Construction Level (Interstitial)";
-	name_tag = "Construction Level (Interstitial)"
+/obj/machinery/door/airlock/external{
+	frequency = 1379;
+	icon_state = "door_locked";
+	id_tag = "fuckyou1_outer";
+	locked = 1;
+	req_access = list(13)
 	},
-/obj/structure/cable/green{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	d1 = 1;
 	d2 = 2;
-	icon_state = "0-2"
+	icon_state = "1-2"
 	},
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/plating,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled,
 /area/mine/unexplored)
 "Sw" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -11988,24 +12000,17 @@
 /turf/simulated/open,
 /area/maintenance/medbay_virology)
 "SX" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1379;
-	icon_state = "door_locked";
-	id_tag = "fuckyou1_outer";
-	locked = 1;
-	req_access = list(13)
+/obj/machinery/power/terminal{
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
-	d1 = 1;
 	d2 = 2;
-	icon_state = "1-2"
+	icon_state = "0-2"
 	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
 /area/mine/unexplored)
 "SY" = (
 /obj/structure/window/reinforced,
@@ -12088,16 +12093,14 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_virology)
 "TB" = (
-/obj/machinery/power/terminal{
-	dir = 4
+/obj/machinery/power/smes/buildable{
+	RCon_tag = "Substation - Construction Level"
 	},
-/obj/structure/cable{
+/obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
+/obj/structure/cable/green,
 /turf/simulated/floor/plating,
 /area/mine/unexplored)
 "TD" = (
@@ -12224,14 +12227,16 @@
 /turf/simulated/floor/airless,
 /area/mine/unexplored)
 "Uq" = (
-/obj/machinery/power/smes/buildable{
-	RCon_tag = "Substation - Construction Level"
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
+/obj/machinery/door/airlock/engineering{
+	name = "Construction Level Substation";
+	req_one_access = list(11,24)
 	},
-/obj/structure/cable/green,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/mine/unexplored)
 "Ur" = (
@@ -12849,11 +12854,14 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/engineering{
-	name = "Construction Level Substation";
-	req_one_access = list(11,24)
+/obj/structure/cable{
+	icon_state = "1-8"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -28;
+	req_one_access = list(24,11,55)
+	},
 /turf/simulated/floor/plating,
 /area/mine/unexplored)
 "WU" = (
@@ -12993,18 +13001,8 @@
 /turf/simulated/floor/plating,
 /area/mine/unexplored)
 "XA" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -28;
-	req_one_access = list(24,11,55)
+/obj/machinery/power/breakerbox/activated{
+	RCon_tag = "Construction Level Substation Bypass"
 	},
 /turf/simulated/floor/plating,
 /area/mine/unexplored)
@@ -13013,10 +13011,12 @@
 /turf/simulated/floor/airless,
 /area/mine/unexplored)
 "XJ" = (
-/obj/machinery/power/breakerbox/activated{
-	RCon_tag = "Construction Level Substation Bypass"
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 10
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
 /area/mine/unexplored)
 "XQ" = (
 /obj/machinery/camera/network/medbay{
@@ -13085,9 +13085,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/mine/unexplored)
 "Yo" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	dir = 10
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/industrial/warning/dust,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
@@ -13164,20 +13170,6 @@
 	id = "cap"
 	},
 /turf/simulated/floor/plating,
-/area/mine/unexplored)
-"YK" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/industrial/warning/dust,
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
 /area/mine/unexplored)
 "YN" = (
 /obj/structure/lattice/catwalk,
@@ -31304,9 +31296,9 @@ Js
 ad
 ad
 ad
-Rh
+QE
 ad
-WS
+Uq
 aa
 aa
 aa
@@ -31561,9 +31553,9 @@ bv
 JK
 aX
 ad
-RX
-TB
-XA
+Rh
+SX
+WS
 aa
 aa
 aa
@@ -31818,9 +31810,9 @@ bH
 bv
 bQ
 ad
-Ss
-Uq
-XJ
+RX
+TB
+XA
 aa
 aa
 aa
@@ -34901,7 +34893,7 @@ IJ
 Jz
 Kq
 LC
-Qu
+PF
 Kq
 aa
 aa
@@ -35158,8 +35150,8 @@ Jm
 JG
 Kv
 LK
-Qz
-SX
+Qu
+Ss
 aa
 aa
 aa
@@ -35385,7 +35377,7 @@ ad
 ab
 ab
 ab
-ad
+nQ
 up
 up
 nQ
@@ -35415,7 +35407,7 @@ Jn
 JH
 Lc
 MX
-QE
+Qz
 Kq
 aa
 aa
@@ -35642,7 +35634,7 @@ rN
 ab
 ab
 ab
-ad
+hP
 up
 up
 hP
@@ -35899,7 +35891,7 @@ Ua
 ab
 ab
 ab
-ad
+jN
 up
 up
 jN
@@ -38728,8 +38720,8 @@ ZN
 ZN
 vN
 Md
-SM
-NT
+XV
+XV
 XV
 XV
 XV
@@ -38985,8 +38977,8 @@ ZN
 ZN
 nH
 OX
-PF
-pn
+XV
+XV
 XV
 XV
 MA
@@ -39242,8 +39234,8 @@ ZN
 ZN
 Rc
 ws
-PF
-Hj
+XV
+XV
 XV
 XV
 MA
@@ -39499,8 +39491,8 @@ gz
 ZN
 nx
 ws
-PF
-DT
+XV
+XV
 XV
 XV
 MA
@@ -39756,8 +39748,8 @@ Fx
 SE
 sQ
 YJ
-wU
-sF
+XV
+XV
 XV
 XV
 XV
@@ -41844,7 +41836,7 @@ ab
 ab
 ab
 md
-Yo
+XJ
 Pj
 UC
 ab
@@ -42101,7 +42093,7 @@ ab
 ab
 ab
 sK
-YK
+Yo
 ZS
 ab
 ab
