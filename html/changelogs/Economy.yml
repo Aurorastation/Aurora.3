@@ -1,0 +1,7 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - tweak: "Nanotrasen relations in the char setup has now been changed into economic status."
+  - rscdel: "The NTCC report spawning in the bridge at roundstart has been removed."
