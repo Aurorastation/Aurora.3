@@ -277,9 +277,6 @@ var/global/list/additional_antag_types = list()
 	spawn (ROUNDSTART_LOGOUT_REPORT_TIME)
 		display_logout_report()
 
-	spawn (rand(waittime_l, waittime_h))
-		send_intercept()
-
 	//Assign all antag types for this game mode. Any players spawned as antags earlier should have been removed from the pending list, so no need to worry about those.
 	for(var/datum/antagonist/antag in antag_templates)
 		if(!(antag.flags & ANTAG_OVERRIDE_JOB))
@@ -463,149 +460,6 @@ var/global/list/additional_antag_types = list()
 /datum/game_mode/proc/check_win() //universal trigger to be called at mob death, nuke explosion, etc. To be called from everywhere.
 	return 0
 
-/datum/game_mode/proc/send_intercept()
-
-	var/intercepttext = "<center><img src = ntlogo.png></center><BR><FONT size = 3><BR><B>Cent. Com. Update</B><BR>FOR YOUR EYES ONLY:</FONT><HR><font face='Courier New'>"
-
-	var/list/disregard_roles = list()
-	for(var/antag_type in all_antag_types)
-		var/datum/antagonist/antag = all_antag_types[antag_type]
-		if(antag.flags & ANTAG_SUSPICIOUS)
-			disregard_roles |= antag.role_text
-
-	var/list/suspects = list()
-	var/list/loyalists
-	var/list/repeat_offenders = list()
-	var/eng_suspect = 0
-	var/eng = 0
-	var/sec_suspect = 0
-	var/sec = 0
-	var/med_suspect = 0
-	var/med = 0
-	var/sci_suspect = 0
-	var/sci = 0
-	var/civ_suspect = 0
-	var/civ = 0
-	var/loyal_crew = 0
-	var/total_crew = 0
-	var/evil_department
-
-	for(var/mob/living/carbon/human/man in player_list) if(man.client && man.mind)
-
-		// NT relation option
-		var/special_role = man.mind.special_role
-		var/datum/antagonist/special_role_data = get_antag_data(special_role)
-
-		total_crew += 1
-		if (special_role in disregard_roles)
-			continue
-		else if(man.mind.assigned_job)
-			var/datum/job/job = man.mind.assigned_job
-			var/evil = 0
-			if(man.client.prefs.nanotrasen_relation == COMPANY_OPPOSED || man.client.prefs.nanotrasen_relation == COMPANY_SKEPTICAL)
-				evil = 1
-				if((DEPARTMENT_CIVILIAN in job.departments) || (DEPARTMENT_CARGO in job.departments))
-					civ += 1
-					if(evil)
-						civ_suspect += 1
-				if(DEPARTMENT_ENGINEERING in job.departments)
-					eng += 1
-					if(evil)
-						eng_suspect += 1
-				if(DEPARTMENT_SECURITY in job.departments)
-					sec += 1
-					if(evil)
-						sec_suspect += 1
-				if(DEPARTMENT_MEDICAL in job.departments)
-					med +=1
-					if(evil)
-						med_suspect += 1
-				if(DEPARTMENT_SCIENCE in job.departments)
-					sci += 1
-					if(evil)
-						sci_suspect += 1
-
-		else if(man.client.prefs.nanotrasen_relation == COMPANY_OPPOSED && prob(25))
-			suspects += man
-		else if(man.client.prefs.nanotrasen_relation == COMPANY_LOYAL || man.client.prefs.nanotrasen_relation == COMPANY_SUPPORTATIVE)
-			loyal_crew += 1
-			if(prob(25))
-				loyalists += man
-		// Antags
-		else if(special_role_data && prob(special_role_data.suspicion_chance))
-			suspects += man
-		if(man.incidents.len >= 3)
-			repeat_offenders += man
-
-	var/civ_ratio = 0
-	if(civ)
-		civ_ratio = civ_suspect / civ
-	var/eng_ratio = 0
-	if(eng)
-		eng_ratio = eng_suspect / eng
-	var/sec_ratio = 0
-	if(sec)
-		sec_ratio = sec_suspect / sec
-	var/med_ratio = 0
-	if(med)
-		med_ratio = med_suspect / med
-	var/sci_ratio  = 0
-	if(sci)
-		sci_ratio = sci_suspect / sci
-
-	var/most_evil = max(civ_ratio, eng_ratio, sec_ratio, med_ratio, sci_ratio)
-	if(most_evil >= 0.5)
-		if(most_evil == civ_ratio)
-			evil_department = "Civilian & Supply"
-		else if(most_evil == eng_ratio)
-			evil_department = "Engineering"
-		else if(most_evil == sec_ratio)
-			evil_department = "Security"
-		else if(most_evil == med_ratio)
-			evil_department = "Medical"
-		else if(most_evil == sci_ratio)
-			evil_department = "Science"
-
-	var/business_jargon = list("Collated incident reports","Assembled peer-reviews","Persistently negative staff reviews","Collected shift logs","Accumulated negative reports","Analyzed shift data")
-	var/mean_words = list("has expressed consistent disapproval with the network", "is no longer working efficiently","has gone on record against NanoTrasen practices","is spreading minor dissent in response to recent NanoTrasen behavior","has expressed subversive intent","is unhappy with their employment package")
-
-	if(suspects)
-		intercepttext += "<B>The personnel listed below have been marked at-risk elements that Cent. Com. has deemed priority handling for the current shift:</B><br>"
-		for(var/mob/living/carbon/human/M in suspects)
-			if(player_is_antag(M.mind, only_offstation_roles = 1))
-				continue
-			intercepttext += "<br>     + [pick(business_jargon)] indicate that [M.mind.assigned_role] [M.name] [pick(mean_words)].<br>"
-		intercepttext += "Cent. Com recommends coordinating with human resources to resolve any issues with employment.<br>"
-
-	if(repeat_offenders)
-		intercepttext += "<br><B>The personnel listed below possess three or more offenses listed on record:</B>"
-		for(var/mob/living/carbon/human/M in repeat_offenders)
-			if(player_is_antag(M.mind, only_offstation_roles = 1))
-				continue
-			intercepttext += "<br>     + [M.mind.assigned_role] [M.name], [M.incidents.len] offenses.<br>"
-		intercepttext += "Cent. Com recommends coordinating with internal security to monitor and rehabilitate these personnel.<br>"
-
-	if(loyalists)
-		intercepttext += "<br><B>The personnel listed below have been indicated as particularly loyal to NanoTrasen:</B>"
-		for(var/mob/living/carbon/human/M in loyalists)
-			if(player_is_antag(M.mind, only_offstation_roles = 1))
-				continue
-			intercepttext += "<br>     + [M.mind.assigned_role] [M.name].<br>"
-		intercepttext += "Cent. Com recommends coordinating with human resources to reward and further motivate these personnel for their loyalty.<br>"
-
-	if(evil_department)
-		intercepttext += "<br>[pick(business_jargon)] indicate that a majority of the [evil_department] department [pick(mean_words)]. This department has been marked at-risk and Cent. Com. recommends immediate action before the situation worsens.<br>"
-	if(total_crew)
-		intercepttext += "<br>Data collected and analyzed by Bubble indicate that [round((loyal_crew/total_crew)*100)]% of the current crew detail are supportive of NanoTrasen actions. Cent. Com. implores the current Head of Staff detail to increase this percentage.<br>"
-
-	intercepttext += "<hr> </font>Respectfully,<br><i>Quix Repi'Weish</i>, Chief Personnel Director<br>"
-	intercepttext += "<center><img src = barcode[rand(0, 3)].png></center>"
-
-	//New message handling
-	post_comm_message("Cent. Com. Status Summary", intercepttext)
-
-	sound_to(world, ('sound/AI/commandreport.ogg'))
-
 /datum/game_mode/proc/get_players_for_role(var/role, var/antag_id)
 	var/list/players = list()
 	var/list/candidates = list()
@@ -736,13 +590,13 @@ proc/display_logout_report()
 		return
 	to_chat(src,get_logout_report())
 
-proc/get_nt_opposed()
+proc/get_poor()
 	var/list/dudes = list()
 	for(var/mob/living/carbon/human/man in player_list)
 		if(man.client)
-			if(man.client.prefs.nanotrasen_relation == COMPANY_OPPOSED)
+			if(man.client.prefs.economic_status == ECONOMICALLY_POOR)
 				dudes += man
-			else if(man.client.prefs.nanotrasen_relation == COMPANY_SKEPTICAL && prob(50))
+			else if(man.client.prefs.economic_status == ECONOMICALLY_POOR && prob(50))
 				dudes += man
 	if(dudes.len == 0) return null
 	return pick(dudes)
