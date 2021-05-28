@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "AI can now choose to make their hologram appear as the selected character in their loadout. Simply select the Unique option, then Loadout Character."
