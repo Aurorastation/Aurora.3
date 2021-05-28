@@ -796,6 +796,17 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	item_state = "fisanduhzippo"
 	flame_light_range = 2
 
+/obj/item/flame/lighter/zippo/luceian
+	name = "\improper Luceian Zippo lighter"
+	desc = "A bright lighter with the all-seeing eye of Ennoia on its front. Clearly Luceian."
+	desc_fluff = "Luceian lighters, sometimes referred to as “Ennoic Fires,” are commonly carried by Assunzionii as an emergency light \
+	source. A genuine lighter in the Luceian tradition will have a proving mark stamped upon its base that shows when and where it was \
+	blessed following its construction."
+	icon_state = "luceianzippo"
+	item_state = "luceianzippo"
+	flame_light_color = "FFFCE3"
+	flame_light_range = 2
+
 /obj/item/flame/lighter/random/Initialize()
 	. = ..()
 	icon_state = "lighter-[pick("r","c","y","g")]"
