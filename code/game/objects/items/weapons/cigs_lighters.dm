@@ -804,7 +804,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	blessed following its construction."
 	icon_state = "luceianzippo"
 	item_state = "luceianzippo"
-	flame_light_color = "FFFCE3"
+	flame_light_color = LIGHT_COLOR_HALOGEN
 	flame_light_range = 2
 
 /obj/item/flame/lighter/random/Initialize()
