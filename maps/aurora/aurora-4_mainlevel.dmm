@@ -29816,21 +29816,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
-"aZn" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/fancy/vials,
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 28
-	},
-/obj/effect/floor_decal/corner/green{
-	dir = 6
-	},
-/obj/effect/floor_decal/corner/green{
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
 "aZo" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -29893,14 +29878,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"aZv" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 28
-	},
-/turf/simulated/floor/grass/alt,
-/area/hydroponics)
 "aZw" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -47093,9 +47070,9 @@
 	name = "Gardener"
 	},
 /obj/structure/cable/green{
-	d1 = 2;
+	d1 = 4;
 	d2 = 8;
-	icon_state = "2-8"
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
@@ -47107,6 +47084,11 @@
 	dir = 1
 	},
 /obj/machinery/firealarm/east,
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "bHy" = (
@@ -47359,40 +47341,36 @@
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "bIk" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
 /area/hydroponics)
 "bIl" = (
 /obj/structure/closet/secure_closet/hydroponics,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/watertank,
 /obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "bIm" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/pillbottles,
 /obj/machinery/newscaster{
 	pixel_y = 32
 	},
-/obj/item/storage/box/spraybottles,
-/obj/effect/floor_decal/corner/green/full{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/green,
-/turf/simulated/floor/tiled,
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/grass/alt,
 /area/hydroponics)
 "bIn" = (
 /obj/machinery/requests_console{
@@ -47401,44 +47379,29 @@
 	name = "Hydroponics Requests Console";
 	pixel_y = 30
 	},
-/obj/effect/floor_decal/corner/green{
-	dir = 5
-	},
-/obj/effect/floor_decal/corner/green{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/grass/alt,
 /area/hydroponics)
 "bIo" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk,
-/obj/effect/floor_decal/corner/green{
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
+/obj/machinery/disposal/small/south,
+/obj/structure/closet/crate/hydroponics,
+/obj/item/bee_smoker,
+/obj/item/beehive_assembly,
+/obj/item/bee_pack,
+/obj/item/bee_net,
+/obj/item/honey_frame,
+/obj/item/honey_frame,
+/turf/simulated/floor/grass/alt,
 /area/hydroponics)
 "bIp" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 5
-	},
-/obj/effect/floor_decal/corner/green,
-/turf/simulated/floor/tiled,
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/grass/alt,
 /area/hydroponics)
 "bIq" = (
-/obj/machinery/vending/hydroseeds{
-	prices = list()
-	},
 /obj/machinery/firealarm/east,
-/obj/effect/floor_decal/corner/green/full{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/green{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/grass/alt,
 /area/hydroponics)
 "bIr" = (
 /obj/machinery/vending/hydronutrients,
@@ -47742,39 +47705,20 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/reagent_dispensers/watertank,
 /obj/item/reagent_containers/glass/bucket,
-/obj/item/device/radio/intercom{
-	dir = 8;
-	name = "Station Intercom (General)";
-	pixel_x = 24
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bJg" = (
-/obj/structure/table/standard,
-/obj/item/device/nanoquikpay,
-/obj/effect/floor_decal/corner/green{
-	dir = 9
-	},
-/obj/effect/floor_decal/corner/green{
-	dir = 6
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "bJi" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/grass/alt,
 /area/hydroponics)
 "bJj" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/grass/alt,
 /area/hydroponics)
 "bJm" = (
 /obj/structure/curtain,
@@ -48038,68 +47982,55 @@
 /area/hydroponics)
 "bJX" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/table/standard,
-/obj/item/storage/toolbox/mechanical,
+/obj/structure/reagent_dispensers/fueltank,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "bJY" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
+/obj/structure/bed/chair/office/dark{
 	dir = 8
 	},
-/obj/structure/window/reinforced{
-	dir = 1
+/obj/effect/landmark/start{
+	name = "Gardener"
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
 /area/hydroponics)
 "bJZ" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/structure/window/reinforced{
-	dir = 1
+/obj/structure/largecrate/animal/chick,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/grass/alt,
 /area/hydroponics)
 "bKa" = (
-/obj/effect/floor_decal/corner/green/full{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bKb" = (
-/obj/machinery/door/window{
-	dir = 1;
-	name = "Hydroponics Backroom";
-	req_access = list(35)
-	},
-/obj/effect/floor_decal/corner/green{
-	dir = 5
-	},
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bKc" = (
-/obj/effect/floor_decal/corner/green/full{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/grass/alt,
+/area/hydroponics)
+"bKb" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/grass/alt,
+/area/hydroponics)
+"bKc" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/grass/alt,
 /area/hydroponics)
 "bKd" = (
 /obj/machinery/portable_atmospherics/hydroponics,
@@ -48363,11 +48294,13 @@
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "bKR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "bKS" = (
@@ -48378,41 +48311,24 @@
 	dir = 8;
 	network = list("Service")
 	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bKT" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 9
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
+/obj/item/storage/toolbox/mechanical,
+/obj/item/device/nanoquikpay,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "bKU" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/grass/alt,
 /area/hydroponics)
 "bKV" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 6
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/grass/alt,
 /area/hydroponics)
 "bKX" = (
 /obj/structure/disposalpipe/segment{
@@ -48630,40 +48546,22 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/hydroponics)
-"bLC" = (
-/obj/structure/bed/chair/office/dark{
-	dir = 8
-	},
-/obj/effect/landmark/start{
-	name = "Gardener"
-	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
 "bLD" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/table/standard,
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bLE" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/structure/window/reinforced,
-/turf/simulated/floor/grass/alt,
-/area/hydroponics)
-"bLF" = (
-/obj/structure/window/reinforced,
-/obj/effect/floor_decal/corner/green/full,
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
+/obj/machinery/honey_extractor{
+	density = 1
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "bLG" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 10
-	},
 /obj/machinery/door/window{
 	name = "Hydroponics Backroom";
 	req_access = list(35)
@@ -48671,17 +48569,12 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/grass/alt,
 /area/hydroponics)
 "bLH" = (
 /obj/structure/window/reinforced,
-/obj/effect/floor_decal/corner/green/full{
-	dir = 4
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/grass/alt,
 /area/hydroponics)
 "bLJ" = (
 /obj/structure/disposalpipe/junction/yjunction{
@@ -48946,6 +48839,16 @@
 	dir = 8;
 	name = "hydroponics sink";
 	pixel_x = 20
+	},
+/obj/item/device/radio/intercom{
+	dir = 8;
+	name = "Station Intercom (General)";
+	pixel_x = 24
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
@@ -49357,6 +49260,8 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
+/obj/item/storage/box/pillbottles,
+/obj/item/storage/box/spraybottles,
 /obj/item/storage/box/fancy/vials,
 /turf/simulated/floor/tiled,
 /area/hydroponics)
@@ -49585,6 +49490,11 @@
 	dir = 4;
 	icon_state = "pipe-j2"
 	},
+/obj/machinery/power/apc{
+	name = "south bump";
+	pixel_y = -24
+	},
+/obj/structure/cable/green,
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "bNH" = (
@@ -60849,6 +60759,11 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "fKx" = (
@@ -63321,11 +63236,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/medbreak)
 "kEs" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /obj/structure/flora/ausbushes/sparsegrass,
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/largecrate/animal/goat,
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 28
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
 /turf/simulated/floor/grass/alt,
 /area/hydroponics)
 "kGv" = (
@@ -63414,7 +63334,7 @@
 "kRF" = (
 /obj/structure/window/reinforced,
 /obj/structure/flora/ausbushes/sparsegrass,
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/grass/alt,
 /area/hydroponics)
 "kRK" = (
@@ -102067,11 +101987,11 @@ aYn
 bFt
 bGt
 bHv
-bIk
 bJe
 bJe
 bJe
-bLC
+bJY
+bJe
 bJe
 bMP
 bNF
@@ -102582,10 +102502,10 @@ bFv
 bGr
 bGr
 bGr
-bGr
-bJY
+bIk
 bJR
 bNz
+bGr
 bGr
 bJe
 bNH
@@ -102839,10 +102759,10 @@ bFw
 bGv
 bGr
 bIm
-bJg
+bKV
 bJZ
-sNw
-bLE
+bJj
+bLH
 bMk
 bLx
 bNI
@@ -103096,10 +103016,10 @@ bFx
 bGw
 bBP
 bIn
-rWM
+bJj
 bKa
-bKT
-bLF
+bKV
+kRF
 ays
 rWM
 bNJ
@@ -103867,9 +103787,9 @@ bFA
 bGz
 bBP
 bIq
-aZn
+bKV
 kEs
-aZv
+bKV
 kRF
 bMo
 bMT
