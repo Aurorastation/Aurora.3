@@ -47340,20 +47340,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
-"bIk" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/hydroponics)
 "bIl" = (
 /obj/structure/closet/secure_closet/hydroponics,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -47712,12 +47698,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
-"bJi" = (
-/obj/structure/disposalpipe/segment,
+"bJg" = (
 /turf/simulated/floor/grass/alt,
 /area/hydroponics)
-"bJj" = (
-/obj/structure/flora/ausbushes/sparsegrass,
+"bJi" = (
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/grass/alt,
 /area/hydroponics)
 "bJm" = (
@@ -47991,16 +47976,18 @@
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "bJY" = (
-/obj/structure/bed/chair/office/dark{
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/effect/landmark/start{
-	name = "Gardener"
+/obj/structure/window/reinforced{
+	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/hydroponics)
 "bJZ" = (
 /obj/structure/largecrate/animal/chick,
@@ -48327,9 +48314,6 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/grass/alt,
 /area/hydroponics)
-"bKV" = (
-/turf/simulated/floor/grass/alt,
-/area/hydroponics)
 "bKX" = (
 /obj/structure/disposalpipe/segment{
 	dir = 8;
@@ -48561,6 +48545,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
+"bLE" = (
+/obj/structure/window/reinforced,
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/grass/alt,
+/area/hydroponics)
+"bLF" = (
+/obj/structure/window/reinforced,
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/grass/alt,
+/area/hydroponics)
 "bLG" = (
 /obj/machinery/door/window{
 	name = "Hydroponics Backroom";
@@ -48569,11 +48564,6 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/grass/alt,
-/area/hydroponics)
-"bLH" = (
-/obj/structure/window/reinforced,
-/obj/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/grass/alt,
 /area/hydroponics)
 "bLJ" = (
@@ -62638,6 +62628,10 @@
 	},
 /turf/simulated/floor/tiled/old_white,
 /area/maintenance/research_port)
+"jch" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/grass/alt,
+/area/hydroponics)
 "jck" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(12)
@@ -63331,12 +63325,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"kRF" = (
-/obj/structure/window/reinforced,
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/machinery/portable_atmospherics/hydroponics/soil,
-/turf/simulated/floor/grass/alt,
-/area/hydroponics)
 "kRK" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -70784,6 +70772,18 @@
 /obj/item/storage/box/fancy/vials,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_laboratory)
+"xxw" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 8
+	},
+/obj/effect/landmark/start{
+	name = "Gardener"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
 "xxH" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -101990,7 +101990,7 @@ bHv
 bJe
 bJe
 bJe
-bJY
+xxw
 bJe
 bJe
 bMP
@@ -102502,7 +102502,7 @@ bFv
 bGr
 bGr
 bGr
-bIk
+bJY
 bJR
 bNz
 bGr
@@ -102759,10 +102759,10 @@ bFw
 bGv
 bGr
 bIm
-bKV
+bJg
 bJZ
-bJj
-bLH
+jch
+bLE
 bMk
 bLx
 bNI
@@ -103016,10 +103016,10 @@ bFx
 bGw
 bBP
 bIn
-bJj
+jch
 bKa
-bKV
-kRF
+bJg
+bLF
 ays
 rWM
 bNJ
@@ -103530,10 +103530,10 @@ bFz
 bGy
 bBP
 bIp
-bJj
+jch
 bKc
-bKV
-bLH
+bJg
+bLE
 bMn
 bMS
 baD
@@ -103787,10 +103787,10 @@ bFA
 bGz
 bBP
 bIq
-bKV
+bJg
 kEs
-bKV
-kRF
+bJg
+bLF
 bMo
 bMT
 bNM
