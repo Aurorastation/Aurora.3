@@ -65,6 +65,8 @@
 
 #define ispAI(A) istype(A, /mob/living/silicon/pai)
 
+#define isbot(A) istype(A, /mob/living/bot)
+
 #define isrobot(A) istype(A, /mob/living/silicon/robot)
 
 #define issilicon(A) istype(A, /mob/living/silicon)

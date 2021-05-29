@@ -222,9 +222,10 @@
 	animals lunging, etc.
 */
 /mob/proc/RangedAttack(var/atom/A, var/params)
-	if(!mutations.len) return
-	if((LASER_EYES in mutations) && a_intent == I_HURT)
+	if(length(mutations) && (LASER_EYES in mutations) && a_intent == I_HURT)
 		LaserEyes(A, params) // moved into a proc below
+		return
+	A.attack_ranged(src, params)
 
 /*
 	Restrained ClickOn

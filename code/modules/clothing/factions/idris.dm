@@ -1,17 +1,24 @@
 //iru coats
-
 /obj/item/clothing/suit/storage/toggle/armor/vest/idris
 	name = "black Idris Unit coat"
 	desc = "A coat worn by the Idris units, notorious across space."
 	icon = 'icons/clothing/suits/coats/idris_iru_coats.dmi'
 	icon_state = "idris_coat"
 	item_state = "idris_coat"
+	allowed = list(/obj/item/gun,/obj/item/reagent_containers/spray/pepper,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/device/flashlight)
 	body_parts_covered = UPPER_TORSO
 	cold_protection = 0
 	min_cold_protection_temperature = 0
 	heat_protection = 0
 	max_heat_protection_temperature = 0
 	contained_sprite = TRUE
+	armor = list(
+		melee = ARMOR_MELEE_KNIVES,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED
+	)
 
 /obj/item/clothing/suit/storage/toggle/armor/vest/idris/white
 	name = "white Idris Unit coat"
