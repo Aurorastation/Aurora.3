@@ -21,6 +21,7 @@
 
 /datum/ghostspawner/human/rescuepodsurv/New()
 	. = ..()
+	mob.rename_self("Pod Survivor")
 	var/t = pick(list("star", "priest", "rep", "smuggler", "hunter", "occultist", "pmc", "tcfl", "fsf", "scc", "fib"))
 	if(t == "star")
 		welcome_message = "You are a stranded star!<br>You were relaxing comfortably in your cryo pod as tragedy struck - the pilot of your luxury yacht fell asleep under some mysterious circumstances. You were unceremoniously stuffed into an escape pod, and left to wander in space. What a despicable, low-quality plot to get rid of you. Should've chosen murder instead - you certainly know you'll convince someone nice to lend you a shuttle."
