@@ -98,7 +98,7 @@
 /datum/outfit/admin/pod/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	//Offer them a rename
-	H.rename_self("Pod Survivor")
+	H.rename_self("a Pod Survivor")
 	//Turn on the oxygen tank
 	H.internal = H.s_store
 	if(istype(H.internal,/obj/item/tank) && H.internals)
