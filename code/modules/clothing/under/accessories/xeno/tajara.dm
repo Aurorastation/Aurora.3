@@ -257,7 +257,8 @@
 	icon_state = "council_badge"
 	item_state = "council_badge"
 	overlay_state = "council_badge"
-	desc_fluff = "."
+	desc_fluff = "The Free Tajaran Council is the largest Tajaran community in Himeo; its origin can be traced back to the First Revolution. Born in the city of Shungsta during the war, \
+	the Tajaran Free Council was a political movement that advocated for the total abolishment of authoritarian governments in favor of independent democratic councils. "
 	flippable = TRUE
 
 	drop_sound = 'sound/items/drop/ring.ogg'
