@@ -1,5 +1,5 @@
 /datum/technomancer/spell/destabilize
-	name = "destabilize"
+	name = "Destabilize"
 	desc = "Creates an unstable disturbance at the targeted tile, which will afflict anyone nearby with instability who remains nearby.  This can affect you \
 	and your allies as well.  The disturbance lasts for twenty seconds."
 	cost = 100
@@ -8,7 +8,7 @@
 	category = OFFENSIVE_SPELLS
 
 /obj/item/spell/spawner/destabilize
-	name = "destabilize"
+	name = "Destabilize"
 	desc = "Now your enemies can feel what you go through when you have too much fun."
 	icon_state = "destabilize"
 	cast_methods = CAST_RANGED

@@ -987,6 +987,31 @@
 	icon_state = "greimorianplushie"
 	phrase = "Gort!"
 
+/obj/item/toy/plushie/axic
+	name = "Axic plushie"
+	desc = "Plushie designed after the main characters of the hit show, Swimstars! This one is Axic. "
+	icon_state = "axicplushie"
+	phrase = "warble!"
+
+/obj/item/toy/plushie/qill
+	name = "Qill plushie"
+	desc = "Plushie designed after the main characters of the hit show, Swimstars! This one is Qill. "
+	icon_state = "qillplushie"
+	phrase = "warble!"
+
+/obj/item/toy/plushie/xana
+	name = "Xana plushie"
+	desc = "Plushie designed after the main characters of the hit show, Swimstars! This one is Xana. "
+	icon_state = "xanaplushie"
+	phrase = "warble!"
+
+/obj/item/toy/plushie/ipc
+	name = "Aphy plushie"
+	desc = "A plushie of an old Hephaestus mascot, Aphy."
+	desc_fluff = "Aphy, a play on the name Aphrodite, was Hephaestus Industries' first baseline prototype. While the original Aphy is on display in Hephaestus' Mars headquarters, the unit has become a cutesy mascot in recent years."
+	icon_state = "ipcplushie"
+	phrase = "Bwoop!"
+
 //Squid Plushies
 
 /obj/item/toy/plushie/squid

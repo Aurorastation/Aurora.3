@@ -321,6 +321,9 @@
 	var/gadpathur = list()
 	gadpathur["gadpathurian sidecap"] = /obj/item/clothing/head/gadpathur
 	gadpathur["gadpathurian beret"] = /obj/item/clothing/head/beret/gadpathur
+	gadpathur["gadpathurian engineer beret"] = /obj/item/clothing/head/beret/gadpathur/engineer
+	gadpathur["gadpathurian medical beret"] = /obj/item/clothing/head/beret/gadpathur/medical
+	gadpathur["gadpathurian turban"] = /obj/item/clothing/head/turban/gadpathur
 	gear_tweaks += new/datum/gear_tweak/path(gadpathur)
 
 /datum/gear/head/dominia

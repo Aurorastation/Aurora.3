@@ -250,9 +250,9 @@
 
 // Due to storage type consolidation this should get used more now.
 // I have cleaned it up a little, but it could probably use more.  -Sayu
-/obj/item/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/storage))
-		var/obj/item/storage/S = W
+/obj/item/attackby(obj/item/I, mob/user)
+	if(istype(I,/obj/item/storage))
+		var/obj/item/storage/S = I
 		if(S.use_to_pickup)
 			if(S.collection_mode && !is_type_in_list(src, S.pickup_blacklist)) //Mode is set to collect all items on a tile and we clicked on a valid one.
 				if(isturf(loc))
@@ -261,21 +261,21 @@
 					var/failure = FALSE
 					var/original_loc = user ? user.loc : null
 
-					for(var/obj/item/I in loc)
+					for(var/obj/item/item in loc)
 						if (user && user.loc != original_loc)
 							break
 
-						if(rejections[I.type]) // To limit bag spamming: any given type only complains once
+						if(rejections[item.type]) // To limit bag spamming: any given type only complains once
 							continue
 
-						if(!S.can_be_inserted(I))	// Note can_be_inserted still makes noise when the answer is no
-							rejections[I.type] = TRUE	// therefore full bags are still a little spammy
+						if(!S.can_be_inserted(item))	// Note can_be_inserted still makes noise when the answer is no
+							rejections[item.type] = TRUE	// therefore full bags are still a little spammy
 							failure = TRUE
 							CHECK_TICK
 							continue
 
 						success = TRUE
-						S.handle_item_insertion_deferred(I, user)	//The 1 stops the "You put the [src] into [S]" insertion message from being displayed.
+						S.handle_item_insertion_deferred(item, user)	//The 1 stops the "You put the [src] into [S]" insertion message from being displayed.
 						CHECK_TICK	// Because people insist on picking up huge-ass piles of stuff.
 
 					S.handle_storage_deferred(user)
@@ -934,3 +934,9 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 /obj/item/proc/get_belt_overlay() //Returns the icon used for overlaying the object on a belt
 	return mutable_appearance('icons/obj/clothing/belt_overlays.dmi', icon_state)
+
+/obj/item/proc/get_ear_examine_text(var/mob/user, var/ear_text = "left")
+	return "on [user.get_pronoun("his")] [ear_text] ear"
+
+/obj/item/proc/get_mask_examine_text(var/mob/user)
+	return "on [user.get_pronoun("his")] face"

@@ -651,17 +651,21 @@ var/list/ai_verbs_default = list(
 		else
 			to_chat(usr, SPAN_WARNING("There are no humanoids within camera view to base your hologram on."))
 	else
-		input = input("Please select a hologram:") as null|anything in list("default", "floating face", "carp", "custom")
+		input = input("Please select a hologram:") as null|anything in list("default", "floating face", "carp", "loadout character", "custom")
 		if(input)
-			if(input == "custom")
-				if(custom_sprite)
-					var/datum/custom_synth/sprite = robot_custom_icons[name]
-					if(istype(sprite) && sprite.synthckey == ckey && sprite.aiholoicon)
-						set_hologram_unique(icon("icons/mob/custom_synths/customhologram.dmi", "[sprite.aiholoicon]"))
+			switch(input)
+				if("custom")
+					if(custom_sprite)
+						var/datum/custom_synth/sprite = robot_custom_icons[name]
+						if(istype(sprite) && sprite.synthckey == ckey && sprite.aiholoicon)
+							set_hologram_unique(icon("icons/mob/custom_synths/customhologram.dmi", "[sprite.aiholoicon]"))
+					else
+						to_chat(src, SPAN_WARNING("You do not have a custom sprite!"))
+				if("loadout character")
+					var/mob/living/carbon/human/H = SSmob.get_mannequin(usr.client.ckey)
+					holo_icon.appearance = H.appearance
 				else
-					to_chat(src, SPAN_WARNING("You do not have a custom sprite!"))
-			else
-				set_hologram_unique(icon('icons/mob/AI.dmi', input))
+					set_hologram_unique(icon('icons/mob/AI.dmi', input))
 
 /mob/living/silicon/ai/proc/set_hologram_unique(var/icon/I)
 	QDEL_NULL(holo_icon)

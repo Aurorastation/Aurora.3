@@ -63,7 +63,12 @@
 		filter_strength *= 1.1
 
 	if (owner.intoxication > 0)
-		owner.intoxication -= min(owner.intoxication, filter_strength)
+		var/bac = owner.get_blood_alcohol()
+		var/res = owner.species ? owner.species.ethanol_resistance : 1
+		if(bac >= INTOX_MUSCLEIMP * res) //Excessive blood alcohol, difficult to filter
+			owner.intoxication -= min(owner.intoxication, filter_strength/2)
+		else
+			owner.intoxication -= min(owner.intoxication, filter_strength)
 		if(!owner.intoxication)
 			owner.handle_intoxication()
 
