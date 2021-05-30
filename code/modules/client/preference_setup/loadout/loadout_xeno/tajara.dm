@@ -277,7 +277,7 @@
 /datum/gear/accessory/tajaranbooks/New()
 	..()
 	var/card = list()
-	card["honorary party member card"] = /obj/item/book/manual/pra_manifesto
+	card["hadiist manifesto"] = /obj/item/book/manual/pra_manifesto
 	card["in defense of al'mari's legacy"] = /obj/item/book/manual/dpra_manifesto
 	card["the new kingdom"] = /obj/item/book/manual/nka_manifesto
 	gear_tweaks += new/datum/gear_tweak/path(card)
