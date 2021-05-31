@@ -161,7 +161,7 @@
 	overdose = REAGENTS_OVERDOSE
 	scannable = TRUE
 	taste_description = "bitterness"
-	metabolism = REM
+	metabolism = REM * 0.75
 	breathe_met = REM * 0.5
 	breathe_mul = 2
 	var/strength = 6
@@ -311,8 +311,11 @@
 		if(M.losebreath < 15)
 			M.losebreath++
 
-	if(REAGENT_VOLUME(M.reagents, /decl/reagent/oxycomorphine))
-		overdose = REAGENT_VOLUME(holder, type)/2 //Straight to overdose.
+	if(REAGENT_VOLUME(M.reagents, /decl/reagent/oxycomorphine)) //Straight to overdose.
+		M.hallucination = max(M.hallucination, 40)
+		M.add_chemical_effect(CE_EMETIC, M.chem_doses[type]/6)
+		if(M.losebreath < 15)
+			M.losebreath++
 
 /decl/reagent/mortaphenyl/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	..()

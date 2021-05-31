@@ -336,6 +336,7 @@ datum/wound/puncture/massive
 /datum/wound/burn
 	damage_type = BURN
 	max_bleeding_stage = 0
+
 /datum/wound/burn/bleeding()
 	return 0
 

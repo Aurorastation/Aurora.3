@@ -78,6 +78,7 @@
 	var/encased       // Needs to be opened with a saw to access the organs.
 	var/joint = "joint"   // Descriptive string used in dislocation.
 	var/artery_name = "artery"   //Name of the artery. Cartoid, etc.
+	var/arterial_bleed_severity = 1    // Multiplier for bleeding in a limb.
 	var/amputation_point  // Descriptive string used in amputation.
 	var/dislocated = 0    // If you target a joint, you can dislocate the limb, causing temporary damage to the organ.
 
