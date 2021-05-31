@@ -49532,8 +49532,9 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bNy" = (
-/obj/machinery/status_display{
-	pixel_x = 32
+/obj/machinery/atm{
+	pixel_x = 32;
+	pixel_y = -3
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
@@ -50052,9 +50053,8 @@
 /area/library)
 "bOP" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/atm{
-	pixel_x = -2;
-	pixel_y = 28
+/obj/machinery/orderterminal{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/aft)
@@ -51190,12 +51190,10 @@
 /obj/machinery/door/firedoor{
 	dir = 8
 	},
-/obj/structure/noticeboard{
-	desc = "A board for displaying menus.";
-	name = "Menu Board";
-	pixel_y = -25
-	},
 /obj/item/glass_jar,
+/obj/machinery/status_display{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bSn" = (
@@ -52472,14 +52470,8 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
+/obj/machinery/orderterminal{
+	pixel_y = 32
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
@@ -52829,12 +52821,25 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bVZ" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/wood,
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "west bump";
+	pixel_x = -24
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled/white,
 /area/crew_quarters/bar)
 "bWa" = (
 /turf/simulated/floor/wood,
@@ -52925,25 +52930,6 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/turf/simulated/floor/wood,
-/area/crew_quarters/bar)
-"bWn" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bWo" = (
@@ -101062,8 +101048,8 @@ bUW
 bSM
 bSM
 bVf
-bVZ
-bWn
+bWa
+bWo
 bZs
 dMw
 dWO
@@ -104144,7 +104130,7 @@ bkY
 bTz
 bUg
 bUI
-bUI
+bVZ
 bVC
 bTz
 bWr
