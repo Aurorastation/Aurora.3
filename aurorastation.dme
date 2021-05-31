@@ -891,6 +891,7 @@
 #include "code\game\objects\items\vitals_monitor.dm"
 #include "code\game\objects\items\devices\aicard.dm"
 #include "code\game\objects\items\devices\augment_implanter.dm"
+#include "code\game\objects\items\devices\auto_cpr.dm"
 #include "code\game\objects\items\devices\binoculars.dm"
 #include "code\game\objects\items\devices\chameleonproj.dm"
 #include "code\game\objects\items\devices\debugger.dm"
