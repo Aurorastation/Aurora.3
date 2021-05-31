@@ -72,6 +72,8 @@
 	var/two_part		=	0
 	//used for events that run secondary announcements, like releasing maint access.
 
+	var/has_skybox_image = FALSE
+
 /datum/event/nothing
 	no_fake = 1
 
@@ -86,6 +88,8 @@
 //Allows you to start before announcing or vice versa.
 //Only called once.
 /datum/event/proc/start()
+	if(has_skybox_image)
+		SSskybox.rebuild_skyboxes()
 	return
 
 //Called when the tick is equal to the announceWhen variable.
@@ -109,6 +113,8 @@
 //Only called once.
 //faked indicates this is a false alarm. Used to prevent announcements and other things from happening during false alarms.
 /datum/event/proc/end(var/faked)
+	if(has_skybox_image)
+		SSskybox.rebuild_skyboxes()
 	return
 
 //Returns the latest point of event processing.
@@ -176,3 +182,7 @@
 
 	setup()
 	..()
+
+//Called during building of skybox to get overlays
+/datum/event/proc/get_skybox_image()
+	return
