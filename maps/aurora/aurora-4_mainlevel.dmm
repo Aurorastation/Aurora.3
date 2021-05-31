@@ -32153,6 +32153,9 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/exam_room2)
 "bdL" = (
@@ -35313,6 +35316,9 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/machinery/light{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/exam_room)
@@ -43975,12 +43981,15 @@
 /area/medical/surgerywing)
 "bAn" = (
 /obj/machinery/computer/operating,
+/obj/machinery/light{
+	icon_state = "tube1"
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
 "bAo" = (
 /obj/structure/sink/kitchen{
 	dir = 8;
-	name = "Autopsy sink";
+	name = "surgical sink";
 	pixel_x = 20
 	},
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -49991,6 +50000,9 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
+/obj/machinery/light_switch{
+	pixel_y = -28
+	},
 /turf/simulated/floor/wood,
 /area/library)
 "bOH" = (
@@ -50063,7 +50075,9 @@
 /obj/machinery/newscaster{
 	pixel_y = 30
 	},
-/obj/item/stool/padded,
+/obj/structure/bed/chair/comfy/sofa/left{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/aft)
 "bOR" = (
@@ -50076,7 +50090,9 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/obj/item/stool/padded,
+/obj/structure/bed/chair/comfy/sofa/right{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/aft)
 "bOT" = (
@@ -54169,7 +54185,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bZu" = (
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/chair/comfy/sofa/right{
 	dir = 8
 	},
 /turf/simulated/floor/carpet,
@@ -61739,6 +61755,14 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/atmos_control)
+"hmb" = (
+/obj/machinery/computer/operating,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/surgerywing)
 "hnM" = (
 /obj/structure/disposalpipe/sortjunction{
 	dir = 8;
@@ -61820,6 +61844,13 @@
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"hsj" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/structure/bed/chair/comfy/sofa/left{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/hallway/primary/aft)
 "htm" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -63969,6 +64000,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"maY" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/structure/bed/chair/comfy/sofa/right{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/hallway/primary/aft)
 "mbc" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
@@ -66378,6 +66416,12 @@
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
 	})
+"qlw" = (
+/obj/structure/bed/chair/comfy/sofa/left{
+	dir = 8
+	},
+/turf/simulated/floor/carpet,
+/area/crew_quarters/bar)
 "qow" = (
 /obj/machinery/button/remote/blast_door{
 	id = "messhallshutters";
@@ -68559,7 +68603,7 @@
 /turf/simulated/floor/tiled,
 /area/security/forensics_laboratory)
 "tPg" = (
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/chair/comfy/sofa/left{
 	dir = 4
 	},
 /turf/simulated/floor/carpet,
@@ -71316,6 +71360,12 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"ymb" = (
+/obj/structure/bed/chair/comfy/sofa/right{
+	dir = 4
+	},
+/turf/simulated/floor/carpet,
+/area/crew_quarters/bar)
 
 (1,1,1) = {"
 aaa
@@ -100264,7 +100314,7 @@ vIq
 dEG
 bGr
 bOQ
-bPA
+maY
 bOT
 bPA
 bQW
@@ -100545,7 +100595,7 @@ bWL
 bVX
 bWP
 tPg
-tPg
+ymb
 bSM
 bNO
 cbh
@@ -100778,7 +100828,7 @@ bMM
 vIq
 bJb
 bOS
-bPA
+hsj
 bOT
 bQV
 mya
@@ -101316,7 +101366,7 @@ wVv
 wVv
 bYZ
 bZu
-bZu
+qlw
 bSM
 caN
 cbj
@@ -101830,7 +101880,7 @@ sEV
 sEV
 bYZ
 tPg
-tPg
+ymb
 bSM
 caP
 cbi
@@ -102601,7 +102651,7 @@ bWa
 bWa
 bYZ
 bZu
-bZu
+qlw
 bSM
 caR
 cbl
@@ -103115,7 +103165,7 @@ eSY
 dmg
 bYZ
 tPg
-tPg
+ymb
 bSM
 caS
 bEK
@@ -103886,7 +103936,7 @@ bWS
 bWS
 bZb
 bZu
-bZu
+qlw
 bSM
 bPH
 bGC
@@ -108475,7 +108525,7 @@ bCb
 bCc
 guf
 bvz
-bAn
+hmb
 bzl
 bxT
 acS
