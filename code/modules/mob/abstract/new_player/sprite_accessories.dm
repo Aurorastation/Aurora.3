@@ -2200,6 +2200,7 @@ Follow by example and make good judgement based on length which list to include 
 		species_allowed = list(/datum/species/skrell,/datum/species/zombie/skrell)
 		length = 6
 		chatname = "Short Tentacles"
+		var/scrunchy_style = "seaweed" // seaweed fits the normal tentacles pretty well
 
 		skr_tentacle_f
 			name = "Skrell Average Tentacles"
@@ -2230,24 +2231,28 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "skrell_hoop"
 			length = 3
 			chatname = "Ponytail, Hoop"
+			scrunchy_style = "hoop"
 
 		skr_tentacle_flb
 			name = "Skrell Reef Ponytail"
 			icon_state = "skrell_reef"
 			length = 6
 			chatname = "Ponytail, Reef"
+			scrunchy_style = "reef"
 
 		skr_tentacle_ponytailm
 			name = "Skrell Driftwood Ponytail"
 			icon_state = "skrell_driftwood"
 			length = 6
 			chatname = "Ponytail, Driftwood"
+			scrunchy_style = "driftwood"
 
 		skr_tentacle_backwater
 			name = "Skrell Backwater"
 			icon_state = "skrell_backwater"
 			length = 6
 			chatname = "Backwater"
+			scrunchy_style = "backwater"
 
 
 //tajaran hair
