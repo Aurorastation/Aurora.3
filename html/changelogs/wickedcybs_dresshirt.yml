@@ -1,0 +1,7 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - rscadd: "Added an alternate dress shirt to the shirt selection in the loadout. It has more detail and colours nicely"
+  - tweak: "All the loadout dress shirts can now have their sleeves rolled up by using the roll up shirt sleeves verb. The extra rolled variants in the loadout have been removed as they're no longer needed"

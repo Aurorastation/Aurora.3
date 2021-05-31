@@ -87,12 +87,38 @@
 	desc = "A casual dress shirt."
 	icon_state = "dressshirt"
 	item_state = "dressshirt"
+	var/rolled = FALSE
 
-/obj/item/clothing/accessory/dressshirt_r
-	name = "dress shirt"
-	desc = "A casual dress shirt. This one has its sleeves rolled up."
-	icon_state = "dressshirt_r"
-	item_state = "dressshirt_r"
+/obj/item/clothing/accessory/dressshirt/update_clothing_icon()
+	if(ismob(loc))
+		var/mob/M = loc
+		M.update_inv_wear_suit()
+	get_mob_overlay(TRUE)
+	get_inv_overlay(TRUE)
+
+/obj/item/clothing/accessory/dressshirt/verb/roll_up_shirt_sleeves()
+	set name = "Roll Up Shirt Sleeves"
+	set desc = "Roll up your shirt sleeves. Doesn't work with some shirts."
+	set category = "Object"
+	set src in usr
+
+	if(use_check_and_message(usr))
+		return FALSE
+
+	var/list/icon_states = icon_states(icon)
+	var/initial_state = initial(icon_state)
+	var/new_state = "[initial_state]_r"
+	if(!(new_state in icon_states))
+		to_chat(usr, SPAN_WARNING("Your shirt doesn't allow this!"))
+		return
+
+	rolled = !rolled
+	to_chat(usr, SPAN_NOTICE("You roll your shirt sleeves [rolled ? "up" : "down"]."))
+	icon_state = rolled ? new_state : initial_state
+	item_state = rolled ? new_state : initial_state
+	overlay_state = rolled ? new_state : initial_state
+	update_icon()
+	update_clothing_icon()
 
 /obj/item/clothing/accessory/dressshirt_crop
 	name = "cropped dress shirt"
@@ -100,11 +126,11 @@
 	icon_state = "dressshirt_crop"
 	item_state = "dressshirt_crop"
 
-/obj/item/clothing/accessory/dressshirt_crop_r
-	name = "cropped dress shirt"
-	desc = "A casual cropped dress shirt. This one has its sleeves rolled up."
-	icon_state = "dressshirt_crop_r"
-	item_state = "dressshirt_crop_r"
+/obj/item/clothing/accessory/dressshirt/alt
+	name = "dress shirt"
+	desc = "A casual dress shirt."
+	icon_state = "dressshirt_alt"
+	item_state = "dressshirt_alt"
 
 /obj/item/clothing/accessory/blouse
 	name = "blouse"
