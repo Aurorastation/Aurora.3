@@ -1,8 +1,0 @@
-author: WickedCybs, Schwann
-
-delete-after: True
-
-changes:
-  - rscadd: "Added a Luceian Zippo to the Zippo lighter selection. Now you can ruin your lungs while maintaining your faith."
-  - tweak: "Added a define for bright white light."
-  - tweak: "Tweaked the lit Fisanduhian zippo sprite."
