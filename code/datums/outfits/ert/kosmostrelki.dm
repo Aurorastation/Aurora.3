@@ -22,7 +22,6 @@
 	back = /obj/item/gun/projectile/automatic/rifle/adhomian
 	accessory = /obj/item/clothing/accessory/badge/hadii_card
 	r_pocket = /obj/item/crowbar/red
-	l_pocket = /obj/item/clothing/accessory/storage/bayonet
 
 /datum/outfit/admin/ert/pra_cosmonaut/get_id_access()
 	return get_distress_access()
@@ -104,7 +103,7 @@
 
 	glasses = /obj/item/clothing/glasses/hud/health
 
-	belt = /obj/item/storage/belt/medical
+	belt = /obj/item/storage/belt/medical/first_responder/combat
 
 	back = /obj/item/storage/backpack/satchel
 

@@ -41,3 +41,9 @@
 	chance = 15
 	spawner = /datum/ghostspawner/human/ert/pra_cosmonaut
 	possible_space_sector = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL)
+
+/datum/responseteam/elyra
+	name = "Elyran Navy"
+	chance = 15
+	spawner = /datum/ghostspawner/human/ert/elyra
+	possible_space_sector = list(SECTOR_BADLANDS, SECTOR_NEW_ANKARA)
