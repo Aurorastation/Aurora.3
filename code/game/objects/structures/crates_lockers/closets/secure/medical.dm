@@ -123,7 +123,7 @@
 	new /obj/item/crowbar/red(src)
 	new /obj/item/clothing/mask/gas/alt(src)
 	new /obj/item/clothing/mask/gas/half(src)
-	new /obj/item/auto_cpr
+	new /obj/item/auto_cpr(src)
 
 /obj/structure/closet/secure_closet/CMO
 	name = "chief medical officer's locker"
