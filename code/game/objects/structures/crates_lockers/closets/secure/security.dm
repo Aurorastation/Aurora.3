@@ -400,6 +400,8 @@
 	new /obj/item/taperoll/police(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/device/laser_pointer/blue(src)
+	new /obj/item/device/camera/detective(src)
+	new /obj/item/device/camera_film(src)
 	//Belts
 	new /obj/item/clothing/accessory/holster/waist(src)
 
