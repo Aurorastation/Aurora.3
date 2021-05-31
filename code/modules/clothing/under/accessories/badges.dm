@@ -224,10 +224,10 @@
 	badge_string = "Federal Marshal"
 
 /obj/item/clothing/accessory/badge/dia
-	name = "\improper DIA badge"
+	name = "\improper investigator badge"
 	desc = "This badge marks the holder as an investigative agent."
-	icon_state = "diabadge"
-	overlay_state = "diabadge"
+	icon_state = "invbadge"
+	overlay_state = "invbadge"
 	badge_string = "Corporate Investigator"
 
 /obj/item/clothing/accessory/badge/idbadge
