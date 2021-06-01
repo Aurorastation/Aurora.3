@@ -696,15 +696,14 @@
 	// TODO: stomach and bloodstream organ.
 	if(!isSynthetic())
 		handle_trace_chems()
+		// update the trace chems in our blood vessels
+		var/decl/reagent/blood/B = decls_repository.get_decl(/decl/reagent/blood)
+		B.handle_trace_chems(vessel)
 
 	for(var/_R in chem_doses)
 		if ((_R in bloodstr.reagent_volumes) || (_R in ingested.reagent_volumes) || (_R in breathing.reagent_volumes) || (_R in touching.reagent_volumes))
 			continue
 		chem_doses -= _R //We're no longer metabolizing this reagent. Remove it from chem_doses
-
-	// update the trace chems in our blood vessels
-	var/decl/reagent/blood/B = decls_repository.get_decl(/decl/reagent/blood)
-	B.handle_trace_chems(vessel)
 
 	updatehealth()
 
