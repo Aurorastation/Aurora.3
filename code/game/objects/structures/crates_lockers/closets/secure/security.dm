@@ -78,6 +78,7 @@
 	new /obj/item/device/radio/headset/heads/hop(src)
 	new /obj/item/device/radio/headset/heads/hop/alt(src)
 	new /obj/item/device/megaphone/command(src)
+	new /obj/item/storage/box/goldstar(src)
 	new /obj/item/gun/energy/disruptorpistol(src)
 	new /obj/item/gun/projectile/sec/flash(src)
 	new /obj/item/device/flash(src)
