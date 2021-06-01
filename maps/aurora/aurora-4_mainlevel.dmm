@@ -29349,7 +29349,7 @@
 /area/maintenance/maintcentral)
 "aYy" = (
 /turf/simulated/wall,
-/area/maintenance/substation/command)
+/area/maintenance/substation/interstitial)
 "aYz" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Command Substation";
@@ -29362,7 +29362,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/maintenance/substation/command)
+/area/maintenance/substation/interstitial)
 "aYA" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command{
@@ -30244,7 +30244,7 @@
 	},
 /obj/structure/cable/green,
 /turf/simulated/floor/plating,
-/area/maintenance/substation/command)
+/area/maintenance/substation/interstitial)
 "aZW" = (
 /obj/structure/cable/green{
 	d2 = 2;
@@ -30262,7 +30262,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/substation/command)
+/area/maintenance/substation/interstitial)
 "aZX" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -30698,7 +30698,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/substation/command)
+/area/maintenance/substation/interstitial)
 "baX" = (
 /obj/machinery/power/smes/buildable{
 	RCon_tag = "Substation - Command Main"
@@ -30709,7 +30709,7 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/substation/command)
+/area/maintenance/substation/interstitial)
 "baY" = (
 /obj/machinery/newscaster{
 	pixel_x = -30
@@ -31462,7 +31462,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/maintenance/substation/command)
+/area/maintenance/substation/interstitial)
 "bct" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -31475,13 +31475,13 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/substation/command)
+/area/maintenance/substation/interstitial)
 "bcu" = (
 /obj/machinery/power/breakerbox/activated{
 	RCon_tag = "Command Main Substation Bypass"
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/substation/command)
+/area/maintenance/substation/interstitial)
 "bcv" = (
 /obj/machinery/light{
 	dir = 8;

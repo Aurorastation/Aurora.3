@@ -36,6 +36,10 @@
 	name = "Central Primary Hallway"
 	icon_state = "hallC3"
 
+/area/hallway/secondary/interstitial
+	name = "Interstitial Primary Hallway"
+	icon_state = "hallC1"	
+
 /area/hallway/secondary/exit
 	name = "Surface - Red Dock"
 	icon_state = "escape"

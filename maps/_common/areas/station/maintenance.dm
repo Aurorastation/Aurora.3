@@ -71,6 +71,10 @@
 	name = "Bridge Maintenance"
 	icon_state = "maintcentral"
 
+/area/maintenance/maintcantral_diplomacy
+	name = "Diplomatic Zone Maintenance"
+	icon_state = "maintcentral"		
+
 /area/maintenance/bridge_elevator
 	name = "Bridge Elevator Maintenance"
 	icon_state = "maintcentral"
@@ -207,7 +211,7 @@
 	icon_state = "green"
 
 /area/maintenance/interstitial_main
-	name = "Construction Level"
+	name = "Interstitial Starboard Maintenance"
 	icon_state = "maintcentral"
 
 /area/maintenance/interstitial_cargo
@@ -217,6 +221,10 @@
 /area/maintenance/interstitial_bridge
 	name = "Bridge - Interstitial"
 	icon_state = "maintcentral"
+
+/area/maintenance/interstitial_docks
+	name = "Docking and Expedition Preparation - Interstitial"
+	icon_state = "maintcentral"	
 
 /area/maintenance/interstitial_construction_site
 	name = "Construction Zone"
@@ -273,14 +281,17 @@
 /area/maintenance/substation/civilian_west // PTS, locker room, probably arrivals, ...)
 	name = "Main Lvl. Civilian Substation"
 
-/area/maintenance/substation/command // AI and central cluster. This one will be between HoP office and meeting room (probably).
+/area/maintenance/substation/civilian_interstitial // The medial ring, and diplomatic offices, interstitial level.
+	name = "Interstitial Lvl. Substation"
+
+/area/maintenance/substation/command // The Command section of the Interstitial level.
 	name = "Command Substation"
 
 /area/maintenance/substation/security // Security, Brig, Permabrig, etc.
 	name = "Security Substation"
 
-/area/maintenance/substation/interstitial // Construction Level.
-	name = "Construction Level Substation"
+/area/maintenance/substation/interstitial // Eastern surface docks and expedition preparation stuff.
+	name = "Docking and Expedition Prep. Substation"
 
 /area/maintenance/substation/supply // Cargo and Mining.
 	name = "Main Lvl. Supply Substation"
