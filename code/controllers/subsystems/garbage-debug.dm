@@ -379,6 +379,7 @@
 	SearchVar(SSpipenet)
 	SearchVar(SSprocessing)
 	SearchVar(SSshuttle)
+	SearchVar(SSskybox)
 	SearchVar(base_law_type)
 	SearchVar(discord_bot)
 	SearchVar(diseases)

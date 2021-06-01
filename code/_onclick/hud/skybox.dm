@@ -4,8 +4,8 @@
 	anchored = TRUE
 	simulated = FALSE
 	screen_loc = "CENTER:-224,CENTER:-224"
-	layer = PLANE_SKYBOX
-	blend_mode = BLEND_MULTIPLY
+	plane = PLANE_SKYBOX
+	//	blend_mode = BLEND_MULTIPLY
 
 /client
 	var/obj/skybox/skybox
@@ -20,22 +20,10 @@
 	if(T)
 		if(rebuild)
 			skybox.overlays.Cut()
-			skybox.overlays += SSskybox.get_skybox(GET_Z(src))
+			skybox.overlays += SSskybox.get_skybox()
 			screen |= skybox
-		skybox.screen_loc = "CENTER:[-224 - T.x],CENTER:[-224 - T.y]"
+	skybox.screen_loc = "CENTER:[-224 - T.x],CENTER:[-224 - T.y]"
 
 /mob/Login()
 	..()
-	client.update_skybox(1)
-
-/mob/Move()
-	var/old_z = GET_Z(src)
-	. = ..()
-	if(. && client)
-		client.update_skybox(old_z != GET_Z(src))
-
-/mob/forceMove()
-	var/old_z = GET_Z(src)
-	. = ..()
-	if(. && client)
-		client.update_skybox(old_z != GET_Z(src))
+	client.update_skybox(TRUE)
