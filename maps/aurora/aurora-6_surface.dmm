@@ -3696,6 +3696,12 @@
 	},
 /turf/unsimulated/floor/asteroid/ash,
 /area/shuttle/research)
+"dbZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/arrivals)
 "dcQ" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/window/reinforced{
@@ -7344,7 +7350,6 @@
 /turf/simulated/open,
 /area/maintenance/bridge_elevator/surface)
 "gFw" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1379;
@@ -7353,6 +7358,9 @@
 	pixel_x = 26;
 	pixel_y = 25;
 	req_access = list(13)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
@@ -9323,11 +9331,7 @@
 /area/security/vacantoffice)
 "ilT" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8
-	},
-/obj/machinery/alarm{
-	dir = 4;
-	pixel_x = -28
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
@@ -9750,7 +9754,7 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod/pod1)
 "iGq" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall,
 /area/maintenance/elevator)
 "iGs" = (
 /obj/structure/grille,
@@ -12123,6 +12127,10 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/bridge/levela)
+"kUG" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/turf/simulated/floor/plating,
+/area/maintenance/arrivals)
 "kVe" = (
 /obj/structure/shuttle_part/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
@@ -13913,7 +13921,7 @@
 "mxa" = (
 /obj/structure/trash_pile,
 /turf/simulated/floor/plating,
-/area/maintenance/elevator)
+/area/maintenance/arrivals)
 "mxQ" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -17289,6 +17297,17 @@
 /obj/effect/floor_decal/corner/brown,
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
+"pwk" = (
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -28
+	},
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/plating,
+/area/maintenance/arrivals)
 "pxL" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -18311,10 +18330,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
 "qkC" = (
-/obj/structure/ladder{
-	pixel_y = 16
-	},
-/turf/simulated/open,
+/turf/simulated/floor/plating,
 /area/maintenance/elevator)
 "qmj" = (
 /obj/structure/grille,
@@ -20002,10 +20018,11 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
 "rIK" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
-/area/maintenance/arrivals)
+/area/maintenance/elevator)
 "rIO" = (
 /obj/structure/shuttle_part/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
@@ -21519,7 +21536,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/telecoms_ladder)
 "tcF" = (
-/turf/simulated/floor/plating,
+/obj/structure/ladder{
+	pixel_y = 16
+	},
+/turf/simulated/open,
 /area/maintenance/elevator)
 "ted" = (
 /obj/structure/bed/chair{
@@ -22209,11 +22229,11 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/qm)
 "tFN" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance_hatch{
-	name = "Elevator Maintenance";
+	name = "Interstitial Level Ladder";
 	req_access = list(12)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/elevator)
 "tFT" = (
@@ -23164,6 +23184,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
+"uvx" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/plating,
+/area/maintenance/arrivals)
 "uvJ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/portables_connector,
@@ -24501,6 +24528,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
+"vEE" = (
+/obj/structure/trash_pile,
+/turf/simulated/floor/plating,
+/area/maintenance/elevator)
 "vFZ" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(12)
@@ -56892,12 +56923,12 @@ oBi
 oBi
 oBi
 rYN
-rYN
-rYN
-rYN
-iGq
-qkC
-tcF
+wRb
+pwk
+uvx
+oug
+uWR
+uWR
 mxa
 lEd
 hfx
@@ -57150,12 +57181,12 @@ rYN
 rYN
 rYN
 wRb
-wRb
-wRb
-iGq
-iGq
-tFN
-iGq
+dbZ
+kUG
+ant
+ant
+ant
+ant
 lEd
 tyT
 jPl
@@ -57405,9 +57436,9 @@ rYN
 rYN
 rYN
 rYN
-rYN
 wRb
-rIK
+wRb
+ant
 ilT
 xxN
 mCF
@@ -57662,9 +57693,9 @@ rYN
 rYN
 rYN
 rYN
-rYN
 wRb
-rIK
+ant
+ant
 gFw
 ant
 ant
@@ -57918,9 +57949,9 @@ rYN
 rYN
 rYN
 rYN
-rYN
-rYN
-wRb
+iGq
+iGq
+tFN
 wRb
 hvj
 wRb
@@ -58175,9 +58206,9 @@ fdu
 rYN
 fdu
 fdu
-fdu
-efG
-efG
+iGq
+qkC
+qkC
 wRb
 tDe
 wRb
@@ -58432,9 +58463,9 @@ fdu
 fdu
 fdu
 fdu
-fdu
-fdu
-fdu
+iGq
+rIK
+vEE
 wRb
 jXR
 wRb
@@ -58689,9 +58720,9 @@ fdu
 fdu
 fdu
 fdu
-fdu
-fdu
-fdu
+iGq
+tcF
+iGq
 wRb
 aUE
 wRb
@@ -58946,9 +58977,9 @@ fdu
 fdu
 fdu
 fdu
-fdu
-fdu
-fdu
+iGq
+iGq
+iGq
 ivX
 gCo
 siP

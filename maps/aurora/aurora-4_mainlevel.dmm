@@ -27176,7 +27176,7 @@
 /area/bridge)
 "aUM" = (
 /obj/machinery/door/airlock/glass_command{
-	name = "B Lift Access";
+	name = "AI Core Lift Access";
 	req_access = list(19)
 	},
 /obj/machinery/door/firedoor,
@@ -27195,7 +27195,7 @@
 /obj/effect/map_effect/door_helper/unres{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/bridge/ailobby)
 "aUN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -27209,7 +27209,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/bridge/ailobby)
 "aUO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -27221,7 +27221,7 @@
 /obj/structure/sign/nosmoking_2{
 	pixel_y = 32
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/bridge/ailobby)
 "aUP" = (
 /obj/machinery/alarm{
@@ -27230,7 +27230,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/bridge/ailobby)
 "aUQ" = (
 /obj/machinery/light{
@@ -27242,7 +27242,7 @@
 /obj/structure/sign/securearea{
 	pixel_y = 32
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/bridge/ailobby)
 "aUR" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -27251,10 +27251,10 @@
 /obj/machinery/newscaster{
 	pixel_y = 32
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/bridge/ailobby)
 "aUS" = (
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/bridge/ailobby)
 "aUT" = (
 /obj/machinery/door/firedoor,
@@ -27262,7 +27262,7 @@
 	name = "Cyborg Station";
 	req_access = list(19)
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/bridge/ailobby)
 "aUU" = (
 /obj/structure/window/reinforced{
@@ -27271,7 +27271,7 @@
 /obj/machinery/computer/cryopod/robot{
 	pixel_y = 32
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/bridge/ailobby)
 "aUV" = (
 /obj/machinery/recharge_station,
@@ -27824,14 +27824,14 @@
 "aVS" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/glass_command{
-	name = "B Lift Access";
-	req_access = list(19)
-	},
 /obj/effect/map_effect/door_helper/unres{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/door/airlock/glass_command{
+	name = "AI Core Lift Access";
+	req_access = list(19)
+	},
+/turf/simulated/floor/tiled/dark,
 /area/bridge/ailobby)
 "aVT" = (
 /obj/structure/cable/green,
@@ -27839,15 +27839,15 @@
 	name = "south bump";
 	pixel_y = -24
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/bridge/ailobby)
 "aVU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/bridge/ailobby)
 "aVV" = (
 /obj/machinery/hologram/holopad,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/bridge/ailobby)
 "aVW" = (
 /obj/structure/bed/chair{
@@ -27857,7 +27857,7 @@
 	layer = 4;
 	pixel_x = 32
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/bridge/ailobby)
 "aVX" = (
 /obj/machinery/light{
@@ -27867,7 +27867,7 @@
 /obj/effect/landmark{
 	name = "JoinLateCyborg"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/bridge/ailobby)
 "aVY" = (
 /obj/structure/cable{
@@ -28637,7 +28637,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/bridge/ailobby)
 "aXE" = (
 /obj/structure/table/reinforced,
@@ -28653,13 +28653,13 @@
 	pixel_x = 32;
 	pixel_y = -32
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/bridge/ailobby)
 "aXF" = (
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/bridge/ailobby)
 "aXG" = (
 /obj/machinery/cryopod/robot,
@@ -35643,7 +35643,10 @@
 /area/maintenance/maintcentral)
 "bjD" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/random/junk,
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(19)
+	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
 "bjE" = (
@@ -71244,6 +71247,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"ydX" = (
+/turf/simulated/wall/r_wall,
+/area/crew_quarters/heads/cryo)
 "yfc" = (
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk{
@@ -118261,10 +118267,10 @@ aMq
 aOk
 aPQ
 aRF
-aBB
+aBC
 aUM
 aVS
-aXB
+ydX
 aYR
 bak
 bbn
@@ -118518,10 +118524,9 @@ aMr
 aOl
 aPR
 aRG
-aBB
+aBC
 aUN
 aVT
-aXC
 aTf
 aTf
 aTf
@@ -118529,9 +118534,10 @@ aTf
 aTf
 aTf
 aTf
-aRi
+aTf
+bam
 bjD
-bkA
+bkB
 blX
 bnp
 boV
@@ -118775,7 +118781,7 @@ aMr
 aMr
 aPS
 aRH
-aBB
+aBC
 aUO
 aVU
 aXD
@@ -119032,7 +119038,7 @@ aMr
 aKF
 aPT
 aRI
-aBB
+aBC
 aUP
 aUS
 aUS
@@ -119289,7 +119295,7 @@ aMs
 aOm
 aPU
 aRJ
-aBB
+aBC
 aUQ
 aVV
 aUS
@@ -119546,7 +119552,7 @@ aMt
 aOn
 aPV
 aRK
-aBB
+aBC
 aUR
 aUS
 aUS
@@ -119803,7 +119809,7 @@ aIP
 aIP
 aPW
 aRL
-aBB
+aBC
 aUS
 aVW
 aXE
@@ -120060,7 +120066,7 @@ aHm
 aHm
 aPX
 aRM
-aBB
+aBC
 aUT
 aTf
 aXC
@@ -120317,7 +120323,7 @@ aMu
 aOo
 aPY
 aRN
-aBB
+aBC
 aUS
 aUS
 aUS
