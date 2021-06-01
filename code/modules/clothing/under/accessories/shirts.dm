@@ -120,17 +120,17 @@
 	update_icon()
 	update_clothing_icon()
 
-/obj/item/clothing/accessory/dressshirt/crop
-	name = "cropped dress shirt"
-	desc = "A casual cropped dress shirt."
-	icon_state = "dressshirt_crop"
-	item_state = "dressshirt_crop"
-
 /obj/item/clothing/accessory/dressshirt/alt
 	name = "dress shirt"
 	desc = "A casual dress shirt."
 	icon_state = "dressshirt_alt"
 	item_state = "dressshirt_alt"
+
+/obj/item/clothing/accessory/dressshirt/crop
+	name = "cropped dress shirt"
+	desc = "A casual cropped dress shirt."
+	icon_state = "dressshirt_crop"
+	item_state = "dressshirt_crop"
 
 // So people can see how these appear in the loadout
 /obj/item/clothing/accessory/dressshirt/rolled
