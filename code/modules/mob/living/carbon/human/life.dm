@@ -696,6 +696,7 @@
 	// TODO: stomach and bloodstream organ.
 	if(!isSynthetic())
 		handle_trace_chems()
+	if(!(species.flags & NO_BLOOD))
 		// update the trace chems in our blood vessels
 		var/decl/reagent/blood/B = decls_repository.get_decl(/decl/reagent/blood)
 		B.handle_trace_chems(vessel)
