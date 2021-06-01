@@ -75,6 +75,6 @@
 
 /datum/accent/dinaak
 	name = ACCENT_DINAAK
-	description = "found in the isolated valleys of the Din'aak Mountains, little has changed in this accent since the first contact. It still clings to words and grammatical \
+	description = "Found in the isolated valleys of the Din'aak Mountains, little has changed in this accent since the first contact. It still clings to words and grammatical \
 	structures that have long since fallen out of use by other Siik'maas speakers. It is described as strong and abrupt by other Tajara."
 	tag_icon = "tajara_dinaak"
