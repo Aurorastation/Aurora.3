@@ -14,6 +14,7 @@
 	var/overdose = 0 // Volume of a chemical required in the blood to meet overdose criteria.
 	var/od_minimum_dose = 5 // Metabolised dose of a chemical required to meet overdose criteria.
 	var/scannable = 0 // Shows up on health analyzers.
+	var/spectro_hidden = FALSE // doesn't show up on basic mass spectrometers, only shows on the advanced variant
 	var/affects_dead = 0
 	var/glass_icon_state = null
 	var/glass_name = null
@@ -43,6 +44,12 @@
 
 /decl/reagent/proc/remove_self(var/amount, var/datum/reagents/holder) // Shortcut
 	holder.remove_reagent(type, amount) // Don't typecheck this, fix anywhere this is called with a null holder.
+	if(ishuman(holder.my_atom))
+		var/mob/living/carbon/human/H = holder.my_atom
+		if(H.vessel.reagent_data[/decl/reagent/blood]["trace_chem"][type])
+			H.vessel.reagent_data[/decl/reagent/blood]["trace_chem"][type] += amount
+		else
+			H.vessel.reagent_data[/decl/reagent/blood]["trace_chem"][type] = amount
 
 // This doesn't apply to skin contact - this is for, e.g. extinguishers and sprays. The difference is that reagent is not directly on the mob's skin - it might just be on their clothing.
 /decl/reagent/proc/touch_mob(var/mob/living/M, var/amount, var/datum/reagents/holder)

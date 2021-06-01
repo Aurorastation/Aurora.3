@@ -15,6 +15,7 @@
 		return
 
 	vessel.add_reagent(/decl/reagent/blood, species.blood_volume, temperature = species?.body_temperature)
+	fixblood()
 
 //Resets blood data
 /mob/living/carbon/human/proc/fixblood()
@@ -216,6 +217,13 @@ proc/blood_incompatible(donor,receiver,donor_species,receiver_species)
 	data["trace_chem"] = temp_chem
 	data["dose_chem"] = chem_doses.Copy()
 	return data
+
+/mob/living/carbon/human/get_blood_data()
+	. = ..()
+	var/list/trace_chems = list()
+	if(LAZYLEN(vessel.reagent_data))
+		trace_chems = LAZYACCESS(vessel.reagent_data[/decl/reagent/blood], "trace_chem") || list()
+	.["trace_chem"] = trace_chems.Copy()
 
 proc/blood_splatter(var/target, var/source, var/large, var/spray_dir, var/sourceless_color)
 

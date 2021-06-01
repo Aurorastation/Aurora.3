@@ -254,6 +254,7 @@
 	description = "A strong neurotoxin that puts the subject into a death-like state."
 	reagent_state = SOLID
 	color = "#669900"
+	spectro_hidden = TRUE
 	metabolism = REM
 	strength = 3
 	taste_description = "death"
@@ -762,6 +763,7 @@
 	description = "A complicated to make and highly illegal drug that cause paralysis mostly focused on the limbs."
 	reagent_state = LIQUID
 	color = "#002067"
+	spectro_hidden = TRUE
 	metabolism = REM * 0.2
 	strength = 0
 	taste_description = "danger"

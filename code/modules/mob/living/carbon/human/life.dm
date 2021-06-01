@@ -702,6 +702,10 @@
 			continue
 		chem_doses -= _R //We're no longer metabolizing this reagent. Remove it from chem_doses
 
+	// update the trace chems in our blood vessels
+	var/decl/reagent/blood/B = decls_repository.get_decl(/decl/reagent/blood)
+	B.handle_trace_chems(vessel)
+
 	updatehealth()
 
 	return //TODO: DEFERRED

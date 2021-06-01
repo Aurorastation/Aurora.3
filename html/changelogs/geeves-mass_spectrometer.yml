@@ -1,0 +1,11 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "All reagents processed in the body now get added to the bloodstream's trace chemicals. Trace chemicals decay at a rate ten times slower than normal blood metabolism."
+  - bugfix: "Mass spectrometers now properly access the blood's trace chemicals."
+  - tweak: "Mass spectrometers no longer delete the sample after being analyzed."
+  - rscadd: "Mass spectrometers will now show the correct color for the blood inside it."
+  - tweak: "Mass spectrometers now tell you when no trace chemicals are found."
+  - rscadd: "Zombie Powder and Dextrotoxin no longer show up on normal mass spectrometers, only the advanced version will detect them."
