@@ -1,7 +1,7 @@
 /datum/outfit/admin/ert/elyran_trooper
 	name = "Elyran Trooper"
 
-	uniform = /obj/item/clothing/under/syndicate/combat
+	uniform = /obj/item/clothing/under/rank/elyran_fatigues
 	shoes = /obj/item/clothing/shoes/magboots
 	gloves = /obj/item/clothing/gloves/combat
 	l_ear = /obj/item/device/radio/headset/distress
@@ -61,6 +61,7 @@
 /datum/outfit/admin/ert/elyran_trooper/medical
 	name = "Elyran Medical Trooper"
 
+	uniform = /obj/item/clothing/under/rank/elyran_fatigues/commander
 	belt = /obj/item/storage/belt/medical/first_responder/combat
 	back = /obj/item/storage/backpack/satchel_med
 	glasses = /obj/item/clothing/glasses/hud/health

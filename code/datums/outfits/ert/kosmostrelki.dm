@@ -118,10 +118,12 @@
 
 	belt_contents = list(
 		/obj/item/reagent_containers/hypospray = 1,
-		/obj/item/stack/medical/advanced/bruise_pack = 2,
-		/obj/item/stack/medical/advanced/ointment = 2,
 		/obj/item/stack/medical/splint = 1,
 		/obj/item/reagent_containers/glass/bottle/thetamycin = 1,
 		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
+		/obj/item/reagent_containers/glass/bottle/antitoxin = 1,
+		/obj/item/reagent_containers/glass/bottle/dexalin_plus = 1,
+		/obj/item/reagent_containers/glass/bottle/bicaridine = 1,
+		/obj/item/reagent_containers/glass/bottle/dermaline = 1,
 		/obj/item/device/healthanalyzer = 1
 	)
