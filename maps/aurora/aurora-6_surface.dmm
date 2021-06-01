@@ -9361,6 +9361,9 @@
 /obj/random/seed,
 /obj/random/seed,
 /obj/random/seed,
+/obj/item/wirecutters/clippers,
+/obj/item/wirecutters/clippers,
+/obj/item/wirecutters/clippers,
 /turf/simulated/floor/wood,
 /area/hydroponics/garden)
 "ioe" = (

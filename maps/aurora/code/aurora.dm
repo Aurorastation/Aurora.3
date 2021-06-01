@@ -35,7 +35,6 @@
 	boss_short = "CentCom"
 	company_name = "NanoTrasen"
 	company_short = "NT"
-	system_name = "Tau Ceti"
 
 	command_spawn_enabled = TRUE
 	command_spawn_message = "Welcome to the Odin! Simply proceed down and to the right to board the shuttle to your workplace!"

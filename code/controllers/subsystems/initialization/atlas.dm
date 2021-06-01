@@ -19,6 +19,8 @@ var/datum/controller/subsystem/atlas/SSatlas
 
 	var/list/list/connected_z_cache = list()
 	var/z_levels = 0	// Each bit represents a connection between adjacent levels.  So the first bit means levels 1 and 2 are connected.
+	var/datum/space_sector/current_sector
+	var/list/possible_sectors = list ()
 
 /datum/controller/subsystem/atlas/stat_entry()
 	..("W:{X:[world.maxx] Y:[world.maxy] Z:[world.maxz]} ZL:[z_levels]")
@@ -75,6 +77,27 @@ var/datum/controller/subsystem/atlas/SSatlas
 	setup_multiz()
 
 	QDEL_NULL(maploader)
+
+	InitializeSectors()
+
+	var/chosen_sector
+	var/using_sector_config = FALSE
+
+	if(config.current_space_sector)
+		chosen_sector = config.current_space_sector
+		using_sector_config = TRUE
+	else
+		chosen_sector = current_map.default_sector
+
+	var/datum/space_sector/selected_sector = SSatlas.possible_sectors[chosen_sector]
+
+	if(!selected_sector)
+		if(using_sector_config)
+			log_debug("atlas: [chosen_sector] used in the config file is not a valid space sector")
+		current_sector = new /datum/space_sector/tau_ceti //if all fails, we go with tau ceti
+		log_debug("atlas: Unable to select [chosen_sector] as a valid space sector. Tau Ceti will be used instead.")
+	else
+		current_sector = selected_sector
 
 	..()
 
@@ -164,6 +187,15 @@ var/datum/controller/subsystem/atlas/SSatlas
 		var/datum/spawnpoint/S = new type
 		spawn_locations[S.display_name] = S
 
+/datum/controller/subsystem/atlas/proc/InitializeSectors()
+	for (var/type in subtypesof(/datum/space_sector))
+		var/datum/space_sector/space_sector = new type()
+
+		possible_sectors[space_sector.name] = space_sector
+
+	if (!possible_sectors.len)
+		crash_with("No space sectors located in SSatlas.")
+
 // Called when there's a fatal, unrecoverable error in mapload. This reboots the server.
 /world/proc/map_panic(reason)
 	to_chat(world, "<span class='danger'>Fatal error during map setup, unable to continue! Server will reboot in 60 seconds.</span>")
@@ -184,10 +216,6 @@ var/datum/controller/subsystem/atlas/SSatlas
 	if (world.name != sname)
 		world.name = sname
 		world.log <<  "Set world.name to [sname]."
-
-/proc/system_name()
-	ASSERT(current_map)
-	return current_map.system_name
 
 /proc/commstation_name()
 	ASSERT(current_map)

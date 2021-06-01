@@ -32072,6 +32072,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
+/obj/item/auto_cpr,
 /turf/simulated/floor/tiled/dark,
 /area/medical/icu)
 "bdD" = (
@@ -32152,6 +32153,9 @@
 /obj/machinery/firealarm/east,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/exam_room2)
@@ -35313,6 +35317,9 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/machinery/light{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/exam_room)
@@ -39835,6 +39842,7 @@
 	},
 /obj/structure/table/standard,
 /obj/item/device/mass_spectrometer,
+/obj/item/auto_cpr,
 /turf/simulated/floor/tiled/dark,
 /area/medical/gen_treatment)
 "brR" = (
@@ -43975,12 +43983,15 @@
 /area/medical/surgerywing)
 "bAn" = (
 /obj/machinery/computer/operating,
+/obj/machinery/light{
+	icon_state = "tube1"
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
 "bAo" = (
 /obj/structure/sink/kitchen{
 	dir = 8;
-	name = "Autopsy sink";
+	name = "surgical sink";
 	pixel_x = 20
 	},
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -49532,8 +49543,9 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bNy" = (
-/obj/machinery/status_display{
-	pixel_x = 32
+/obj/machinery/atm{
+	pixel_x = 32;
+	pixel_y = -3
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
@@ -49990,6 +50002,9 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
+/obj/machinery/light_switch{
+	pixel_y = -28
+	},
 /turf/simulated/floor/wood,
 /area/library)
 "bOH" = (
@@ -50052,9 +50067,8 @@
 /area/library)
 "bOP" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/atm{
-	pixel_x = -2;
-	pixel_y = 28
+/obj/machinery/orderterminal{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/aft)
@@ -50063,7 +50077,9 @@
 /obj/machinery/newscaster{
 	pixel_y = 30
 	},
-/obj/item/stool/padded,
+/obj/structure/bed/chair/comfy/sofa/left{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/aft)
 "bOR" = (
@@ -50076,7 +50092,9 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/obj/item/stool/padded,
+/obj/structure/bed/chair/comfy/sofa/right{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/aft)
 "bOT" = (
@@ -51190,12 +51208,10 @@
 /obj/machinery/door/firedoor{
 	dir = 8
 	},
-/obj/structure/noticeboard{
-	desc = "A board for displaying menus.";
-	name = "Menu Board";
-	pixel_y = -25
-	},
 /obj/item/glass_jar,
+/obj/machinery/status_display{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bSn" = (
@@ -52472,14 +52488,8 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
+/obj/machinery/orderterminal{
+	pixel_y = 32
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
@@ -52829,12 +52839,25 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bVZ" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/wood,
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "west bump";
+	pixel_x = -24
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled/white,
 /area/crew_quarters/bar)
 "bWa" = (
 /turf/simulated/floor/wood,
@@ -52925,25 +52948,6 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/turf/simulated/floor/wood,
-/area/crew_quarters/bar)
-"bWn" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bWo" = (
@@ -54183,7 +54187,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bZu" = (
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/chair/comfy/sofa/right{
 	dir = 8
 	},
 /turf/simulated/floor/carpet,
@@ -61753,6 +61757,14 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/atmos_control)
+"hmb" = (
+/obj/machinery/computer/operating,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/surgerywing)
 "hnM" = (
 /obj/structure/disposalpipe/sortjunction{
 	dir = 8;
@@ -61834,6 +61846,13 @@
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"hsj" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/structure/bed/chair/comfy/sofa/left{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/hallway/primary/aft)
 "htm" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -63983,6 +64002,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"maY" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/structure/bed/chair/comfy/sofa/right{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/hallway/primary/aft)
 "mbc" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
@@ -66392,6 +66418,12 @@
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
 	})
+"qlw" = (
+/obj/structure/bed/chair/comfy/sofa/left{
+	dir = 8
+	},
+/turf/simulated/floor/carpet,
+/area/crew_quarters/bar)
 "qow" = (
 /obj/machinery/button/remote/blast_door{
 	id = "messhallshutters";
@@ -68573,7 +68605,7 @@
 /turf/simulated/floor/tiled,
 /area/security/forensics_laboratory)
 "tPg" = (
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/chair/comfy/sofa/left{
 	dir = 4
 	},
 /turf/simulated/floor/carpet,
@@ -71330,6 +71362,12 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"ymb" = (
+/obj/structure/bed/chair/comfy/sofa/right{
+	dir = 4
+	},
+/turf/simulated/floor/carpet,
+/area/crew_quarters/bar)
 
 (1,1,1) = {"
 aaa
@@ -100278,7 +100316,7 @@ vIq
 dEG
 bGr
 bOQ
-bPA
+maY
 bOT
 bPA
 bQW
@@ -100559,7 +100597,7 @@ bWL
 bVX
 bWP
 tPg
-tPg
+ymb
 bSM
 bNO
 cbh
@@ -100792,7 +100830,7 @@ bMM
 vIq
 bJb
 bOS
-bPA
+hsj
 bOT
 bQV
 mya
@@ -101062,8 +101100,8 @@ bUW
 bSM
 bSM
 bVf
-bVZ
-bWn
+bWa
+bWo
 bZs
 dMw
 dWO
@@ -101330,7 +101368,7 @@ wVv
 wVv
 bYZ
 bZu
-bZu
+qlw
 bSM
 caN
 cbj
@@ -101844,7 +101882,7 @@ sEV
 sEV
 bYZ
 tPg
-tPg
+ymb
 bSM
 caP
 cbi
@@ -102615,7 +102653,7 @@ bWa
 bWa
 bYZ
 bZu
-bZu
+qlw
 bSM
 caR
 cbl
@@ -103129,7 +103167,7 @@ eSY
 dmg
 bYZ
 tPg
-tPg
+ymb
 bSM
 caS
 bEK
@@ -103900,7 +103938,7 @@ bWS
 bWS
 bZb
 bZu
-bZu
+qlw
 bSM
 bPH
 bGC
@@ -104144,7 +104182,7 @@ bkY
 bTz
 bUg
 bUI
-bUI
+bVZ
 bVC
 bTz
 bWr
@@ -108489,7 +108527,7 @@ bCb
 bCc
 guf
 bvz
-bAn
+hmb
 bzl
 bxT
 acS
