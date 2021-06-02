@@ -258,3 +258,32 @@ Paper Data
 	if(!metadata || !istype(P))
 		return
 	P.info = P.parsepencode(metadata)
+
+/*
+Custom Badge
+*/
+
+var/datum/gear_tweak/custom_badge/gear_tweak_free_badge = new()
+
+/datum/gear_tweak/custom_badge
+	var/list/valid_custom_badge
+
+/datum/gear_tweak/custom_badge/New(var/list/valid_custom_badge)
+	src.valid_custom_badge = valid_custom_badge
+	..()
+
+/datum/gear_tweak/custom_badge/get_contents(var/metadata)
+	return "Badge id: [metadata]"
+
+/datum/gear_tweak/custom_badge/get_default()
+	return ""
+
+/datum/gear_tweak/custom_badge/get_metadata(var/user, var/metadata)
+	if(valid_custom_badge)
+		return input(user, "Choose a badge id.", "Character Preference", metadata) as null|anything in valid_custom_badge
+	return sanitize(input(user, "Choose the item's badge id. Leave it blank to use the default badge id.", "Badge ID", metadata) as text|null, MAX_LNAME_LEN, extra = 0)
+
+/datum/gear_tweak/custom_badge/tweak_item(var/obj/item/clothing/accessory/badge/I, var/metadata)
+	if(!metadata)
+		return I.badge_string
+	I.badge_string = metadata
