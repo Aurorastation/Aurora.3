@@ -223,7 +223,7 @@
 	icon_state = "marshalbadge"
 	badge_string = "Federal Marshal"
 
-/obj/item/clothing/accessory/badge/dia
+/obj/item/clothing/accessory/badge/investigator
 	name = "\improper investigator badge"
 	desc = "This badge marks the holder as an investigative agent."
 	icon_state = "invbadge"
