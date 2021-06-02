@@ -35748,6 +35748,10 @@
 "bjQ" = (
 /obj/structure/table/steel,
 /obj/item/crowbar,
+/obj/item/device/robotanalyzer{
+	pixel_y = 8
+	},
+/obj/item/device/robotanalyzer,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bjR" = (
@@ -36392,11 +36396,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/strongroom)
 "bkN" = (
-/obj/structure/table/steel,
-/obj/item/device/robotanalyzer,
-/obj/item/device/robotanalyzer{
-	pixel_y = 8
-	},
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bkO" = (
