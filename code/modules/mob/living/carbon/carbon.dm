@@ -498,4 +498,4 @@
 	. = contents - internal_organs
 
 /mob/living/carbon/proc/is_drowsy()
-	return (drowsyness >= 5)
+	return (drowsiness >= 5)

@@ -778,7 +778,7 @@
 		if(resting)
 			dizziness = max(0, dizziness - 15)
 			jitteriness = max(0, jitteriness - 15)
-			drowsyness = max(0, drowsyness - 5)
+			drowsiness = max(0, drowsiness - 5)
 			adjustHalLoss(-3)
 		else
 			dizziness = max(0, dizziness - 3)
@@ -788,20 +788,20 @@
 		//Other
 		handle_statuses()
 
-		if (drowsyness)
-			if (drowsyness < 0)
-				drowsyness = 0
+		if (drowsiness)
+			if (drowsiness < 0)
+				drowsiness = 0
 			else
-				drowsyness--
-				eye_blurry = max(drowsyness, eye_blurry)
-				if(drowsyness > 5)
-					if(prob(drowsyness/5))
+				drowsiness--
+				eye_blurry = max(drowsiness, eye_blurry)
+				if(drowsiness > 5)
+					if(prob(drowsiness/5))
 						slurring += rand(1, 5)
 					if(prob(3))
-						make_dizzy(100 + drowsyness)
+						make_dizzy(100 + drowsiness)
 						if(!sleeping)
 							emote("yawn")
-					if(prob(drowsyness/10))
+					if(prob(drowsiness/10))
 						eye_blind += 2
 
 		// If you're dirty, your gloves will become dirty, too.
@@ -1456,7 +1456,7 @@
 	if(prob(20/3)) // every 30 seconds, roughly
 		to_chat(src, SPAN_WARNING(pick("You feel cold and clammy...", "You shiver as if a breeze has passed through.", "Your muscles ache.", "You feel tired and fatigued.")))
 	if(prob(25)) // once every 8 seconds, roughly
-		drowsyness += 5
+		drowsiness += 5
 	if(prob(20))
 		adjustHalLoss(5 * min(fever, 5)) // muscle pain from fever
 	if(fever >= 7 && prob(10)) // your organs are boiling, figuratively speaking

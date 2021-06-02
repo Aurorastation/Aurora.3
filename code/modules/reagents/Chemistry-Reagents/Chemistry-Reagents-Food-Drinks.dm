@@ -716,7 +716,7 @@
 		if (caffeine)
 			M.add_up_to_chemical_effect(CE_SPEEDBOOST, caffeine)
 		M.dizziness = max(0, M.dizziness + adj_dizzy)
-		M.drowsyness = max(0, M.drowsyness + adj_drowsy)
+		M.drowsiness = max(0, M.drowsiness + adj_drowsy)
 		M.sleeping = max(0, M.sleeping + adj_sleepy)
 
 	if(add_nutrition == TRUE)
@@ -1368,7 +1368,7 @@
 
 	if(alien != IS_DIONA)
 		M.dizziness = max(0, M.dizziness - 5)
-		M.drowsyness = max(0, M.drowsyness - 3)
+		M.drowsiness = max(0, M.drowsiness - 3)
 		M.sleeping = max(0, M.sleeping - 2)
 		M.intoxication = max(0, (M.intoxication - (removed*0.25)))
 
@@ -1737,7 +1737,7 @@
 		M.make_jittery(20)
 		M.druggy = max(M.druggy, 30)
 		M.dizziness += 5
-		M.drowsyness = 0
+		M.drowsiness = 0
 
 /decl/reagent/drink/grenadine
 	name = "Grenadine Syrup"
@@ -2187,7 +2187,7 @@
 	..()
 	if(alien != IS_DIONA)
 		M.dizziness = max(0, M.dizziness - 5)
-		M.drowsyness = max(0, M.drowsyness - 3)
+		M.drowsiness = max(0, M.drowsiness - 3)
 		M.sleeping = max(0, M.sleeping - 2)
 	if(M.bodytemperature > 310)
 		M.bodytemperature = max(310, M.bodytemperature - (5 * TEMPERATURE_DAMAGE_COEFFICIENT))
@@ -2311,7 +2311,7 @@
 	..()
 	if(alien == IS_DIONA)
 		return
-	M.drowsyness = max(0, M.drowsyness - 7)
+	M.drowsiness = max(0, M.drowsiness - 7)
 	M.make_jittery(5)
 
 	if (M.bodytemperature > 310)
@@ -4437,7 +4437,7 @@
 	if(alien != IS_DIONA)
 		M.make_jittery(20)
 		M.dizziness += 5
-		M.drowsyness = 0
+		M.drowsiness = 0
 
 /decl/reagent/drink/zorasoda/venomgrass
 	name = "Zo'ra Soda Sour Venom Grass"
@@ -4520,7 +4520,7 @@
 	if(alien != IS_DIONA)
 		M.druggy = max(M.druggy, 30)
 		M.dizziness += 5
-		M.drowsyness = 0
+		M.drowsiness = 0
 
 /decl/reagent/drink/hrozamal_soda
 	name = "Hro'zamal Soda"
