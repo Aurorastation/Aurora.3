@@ -554,6 +554,8 @@
 		return 1 // Handled.
 
 	cost *= H.sprint_cost_factor
+	if(H.is_drowsy())
+		cost *= 1.25
 	if (H.stamina == -1)
 		log_debug("Error: Species with special sprint mechanics has not overridden cost function.")
 		return 0

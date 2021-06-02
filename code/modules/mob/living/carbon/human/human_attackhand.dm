@@ -303,6 +303,8 @@
 
 			if(M.max_stamina > 0)
 				disarm_cost = M.max_stamina / 6
+				if(M.is_drowsy())
+					disarm_cost *= 1.25
 				usesStamina = TRUE
 			else if(M.max_stamina <= 0)
 				if(M.isSynthetic())

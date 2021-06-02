@@ -496,3 +496,6 @@
 
 /mob/living/carbon/get_contained_external_atoms()
 	. = contents - internal_organs
+
+/mob/living/carbon/proc/is_drowsy()
+	return (drowsyness >= 5)
