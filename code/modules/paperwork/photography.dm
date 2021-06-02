@@ -29,7 +29,7 @@ var/global/photo_count = 0
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "photo"
 	item_state = "paper"
-	w_class = ITEMSIZE_SMALL
+	w_class = ITEMSIZE_TINY
 	var/picture_desc // Who and/or what's in the picture.
 	var/id
 	var/icon/img	//Big photo image
