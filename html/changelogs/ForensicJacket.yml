@@ -3,4 +3,4 @@ author: TheGreyWolf
 delete-after: True
 
 changes:
-  - rscadd: "The forensic technician's jacket can now carry the same things in the inventory slot as the detective jacket and both of them can now hold the DIA badge"
+  - rscadd: "The forensic technician's jacket can now carry the same things in the inventory slot as the detective jacket and both of them can now hold the investigator badge"
