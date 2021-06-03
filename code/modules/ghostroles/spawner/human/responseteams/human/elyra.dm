@@ -1,6 +1,6 @@
 /datum/ghostspawner/human/ert/elyra
 	short_name = "elyra_trooper"
-	name = "Elyran Trooper"
+	name = "Elyran Navy Crewman"
 	desc = "Rank and file of the Elyran Navy."
 	welcome_message = "You're a member of the Elyran Navy. While on patrol, your ship received a distress signal and you were sent to investigate. Obey the orders of your commander."
 	max_count = 3
