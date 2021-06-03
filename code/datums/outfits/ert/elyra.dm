@@ -34,6 +34,8 @@
 /datum/outfit/admin/ert/elyran_trooper/leader
 	name = "Elyran Navy Officer"
 
+	uniform = /obj/item/clothing/under/rank/elyran_fatigues/commander
+
 	belt_contents = list(
 			/obj/item/ammo_magazine/plasma = 5,
 			/obj/item/shield/energy = 1,
@@ -61,7 +63,6 @@
 /datum/outfit/admin/ert/elyran_trooper/medical
 	name = "Elyran Navy Corpsman"
 
-	uniform = /obj/item/clothing/under/rank/elyran_fatigues/commander
 	belt = /obj/item/storage/belt/medical/first_responder/combat
 	back = /obj/item/storage/backpack/satchel_med
 	glasses = /obj/item/clothing/glasses/hud/health
