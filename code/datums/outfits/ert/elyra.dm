@@ -32,7 +32,7 @@
 	return get_distress_access()
 
 /datum/outfit/admin/ert/elyran_trooper/leader
-	name = "Elyran Trooper Commander"
+	name = "Elyran Navy Officer"
 
 	belt_contents = list(
 			/obj/item/ammo_magazine/plasma = 5,
