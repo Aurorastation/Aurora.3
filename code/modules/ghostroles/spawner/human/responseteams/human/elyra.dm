@@ -27,7 +27,7 @@
 
 /datum/ghostspawner/human/ert/elyra/heavy
 	short_name = "elyra_heavy"
-	name = "Elyran Heavy Trooper"
+	name = "Elyran Navy Heavy Specialist"
 	desc = "The heavy trooper of the Elyran Navy squad."
 	max_count = 1
 	outfit = /datum/outfit/admin/ert/elyran_trooper/heavy
