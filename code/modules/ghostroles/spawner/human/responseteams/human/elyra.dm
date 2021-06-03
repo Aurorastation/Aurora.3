@@ -14,7 +14,7 @@
 	short_name = "elyra_leadertrooper"
 	name = "Elyran Commander"
 	desc = "The leader of the Elyran Navy squad."
-	welcome_message = "Your crew has is answering to a distress signal. Lead your squad."
+	welcome_message = "You're an officer of the Elyran Navy. While on patrol, your ship received a distress signal and you were sent to investigate. Lead your team."
 	max_count = 1
 	outfit = /datum/outfit/admin/ert/elyran_trooper/leader
 
