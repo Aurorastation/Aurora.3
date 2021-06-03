@@ -20,7 +20,7 @@
 
 /datum/ghostspawner/human/ert/elyra/engineer
 	short_name = "elyra_engtrooper"
-	name = "Elyran Engineering Trooper"
+	name = "Elyran Navy Engineer"
 	desc = "The engineering trooper of the Elyran Navy squad."
 	max_count = 1
 	outfit = /datum/outfit/admin/ert/elyran_trooper/engineer
