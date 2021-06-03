@@ -34,7 +34,7 @@
 
 /datum/ghostspawner/human/ert/elyra/medical
 	short_name = "elyra_medtrooper"
-	name = "Elyran Medical Trooper"
+	name = "Elyran Navy Corpsman"
 	desc = "The medical trooper of the Elyran Navy squad."
 	max_count = 1
 	outfit = /datum/outfit/admin/ert/elyran_trooper/medical
