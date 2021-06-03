@@ -19,8 +19,8 @@
 /datum/space_sector/nrrahrahul
 	name = SECTOR_NRRAHRAHUL
 	description = "Hro'zamal is the second planet in the Nrrahrahul system. Formerly named Nrrahrahul Two, it was given the name Hro'zamal after the establishment of a permanent civilian \
-	colony on the planet's surface in 2459. The planet is roughly the size of Earth. About 77% of the planet is covered in oceans. The remaining landmass is dominated by lush jungles \
-	except for the poles that possess a subtropical climate; Tajara can survive in these regions without the use of suits. The use of acclimatization systems is necessary during the \
+	colony on the planet's surface in 2459. The planet is roughly the size of Earth. Most of the planet is dominated by lush jungles except for the poles that possess a subtropical climate; \
+	Tajara can survive in these regions without the use of suits. The use of acclimatization systems is necessary during the \
 	warmer seasons."
 
 /datum/space_sector/gakal
