@@ -77,3 +77,6 @@ var/datum/antagonist/technomancer/technomancers
 			text += "<br>They've lost their core."
 
 	return text
+
+/datum/antagonist/technomancer/is_obvious_antag(datum/mind/player)
+	return TRUE

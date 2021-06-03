@@ -12,3 +12,7 @@ var/datum/antagonist/wizard_golem/wizard_golems = null
 	..()
 
 	wizard_golems = src
+
+
+/datum/antagonist/wizard_golem/is_obvious_antag(datum/mind/player)
+	return TRUE

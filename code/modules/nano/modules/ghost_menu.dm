@@ -49,7 +49,9 @@
 				name += " \[Dead\]"
 				category = "Dead"
 		else
-			if(M.mind && isobserver(user))
+			if(player_is_obvious_antag(M.mind))
+				category = M.mind.special_role
+			else if(isobserver(user))
 				var/mob/abstract/observer/O = user
 				if(O.antagHUD && player_is_antag(M.mind))
 					category = M.mind.special_role

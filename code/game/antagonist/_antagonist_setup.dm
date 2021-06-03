@@ -77,6 +77,12 @@ var/global/list/bantype_to_antag_age = list()
 		if(player in antag.pending_antagonists)
 			return antag
 
+/proc/player_is_obvious_antag(var/datum/mind/player, var/only_offstation_roles = FALSE)
+	var/datum/antagonist/antag = player_is_antag(player, only_offstation_roles)
+	if(antag)
+		return antag.is_obvious_antag(player)
+	return FALSE
+
 /**
  * This must be called after map loading is done!
  */
