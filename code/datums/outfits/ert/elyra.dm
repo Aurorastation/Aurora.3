@@ -46,7 +46,7 @@
 
 
 /datum/outfit/admin/ert/elyran_trooper/engineer
-	name = "Elyran Engineering Trooper"
+	name = "Elyran Navy Engineer"
 
 	back = /obj/item/storage/backpack/satchel_norm
 	belt = /obj/item/storage/belt/utility/full
