@@ -90,7 +90,7 @@
 	)
 
 /datum/outfit/admin/ert/elyran_trooper/heavy
-	name = "Elyran Heavy Trooper"
+	name = "Elyran Navy Heavy Specialist"
 
 	head = null
 	suit = null
