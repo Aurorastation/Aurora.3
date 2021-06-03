@@ -59,7 +59,7 @@
 	)
 
 /datum/outfit/admin/ert/elyran_trooper/medical
-	name = "Elyran Medical Trooper"
+	name = "Elyran Navy Corpsman"
 
 	uniform = /obj/item/clothing/under/rank/elyran_fatigues/commander
 	belt = /obj/item/storage/belt/medical/first_responder/combat
