@@ -58829,21 +58829,14 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "ckM" = (
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
-	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
 "ckY" = (
@@ -59409,6 +59402,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
+"dbJ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/chess_piece,
+/turf/simulated/floor/marble/dark,
+/area/maintenance/cargo)
 "dcu" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -59453,11 +59451,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/lab)
-"dfo" = (
-/obj/random/loot,
-/obj/structure/table/rack,
-/turf/simulated/floor/airless,
-/area/maintenance/cargo)
 "dgR" = (
 /obj/machinery/conveyor{
 	dir = 8
@@ -59607,6 +59600,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/old_white,
 /area/maintenance/medbay)
+"dwg" = (
+/obj/item/chess_piece/rook,
+/turf/simulated/floor/marble/dark,
+/area/maintenance/cargo)
 "dwz" = (
 /obj/machinery/photocopier,
 /obj/machinery/newscaster{
@@ -59807,10 +59804,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"dKW" = (
-/obj/item/stack/rods,
-/turf/simulated/floor/airless,
-/area/maintenance/cargo)
 "dMw" = (
 /obj/item/flame/candle{
 	pixel_x = -16;
@@ -59846,9 +59839,8 @@
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
 "dRX" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
+/obj/item/chess_piece/king,
+/turf/simulated/floor/marble/dark,
 /area/maintenance/cargo)
 "dTb" = (
 /obj/structure/table/rack,
@@ -59891,6 +59883,19 @@
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
+"dXf" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/maintenance/cargo)
 "dXu" = (
 /obj/item/flame/candle{
 	pixel_x = 1;
@@ -59900,8 +59905,8 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "dXS" = (
-/obj/structure/lattice,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/obj/item/chess_piece/black,
+/turf/simulated/floor/marble,
 /area/maintenance/cargo)
 "dYN" = (
 /obj/machinery/door/firedoor,
@@ -60214,8 +60219,8 @@
 /turf/simulated/floor/plating,
 /area/security/forensics_laboratory)
 "eJy" = (
-/obj/item/stack/rods,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/obj/item/chess_piece/black,
+/turf/simulated/floor/marble/dark,
 /area/maintenance/cargo)
 "eJM" = (
 /obj/structure/disposalpipe/segment{
@@ -60362,10 +60367,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/maintenance/vault)
-"eSN" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/maintenance/cargo)
 "eSY" = (
 /obj/item/flame/candle{
 	pixel_y = -10
@@ -60531,6 +60532,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/workshop)
+"ffC" = (
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/marble,
+/area/maintenance/cargo)
 "ffY" = (
 /obj/machinery/power/port_gen/pacman,
 /turf/simulated/floor/plating,
@@ -61238,6 +61245,15 @@
 	},
 /turf/simulated/floor/tiled/asteroid/airless,
 /area/outpost/mining_main/eva)
+"gnE" = (
+/obj/effect/floor_decal/spline/fancy{
+	dir = 4
+	},
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/maintenance/cargo)
 "goR" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -61679,6 +61695,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
+"hfc" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/marble/dark,
+/area/maintenance/cargo)
 "hfd" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
@@ -61875,9 +61895,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "hwc" = (
-/obj/structure/closet/crate,
-/obj/random/loot,
-/turf/simulated/floor/airless,
+/obj/item/chess_piece/knight/black,
+/turf/simulated/floor/marble/dark,
 /area/maintenance/cargo)
 "hwh" = (
 /obj/machinery/light{
@@ -61889,6 +61908,11 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/misc_lab)
+"hwm" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/chess_piece/queen,
+/turf/simulated/floor/marble,
+/area/maintenance/cargo)
 "hxb" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -62278,18 +62302,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"hYq" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
-/area/maintenance/cargo)
 "hYA" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -62389,13 +62401,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics_cyborgification)
-"ikb" = (
-/obj/item/stack/rods,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/maintenance/cargo)
 "ikm" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
@@ -62782,6 +62787,12 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/rnd/lab)
+"jkh" = (
+/obj/effect/floor_decal/spline/fancy{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/maintenance/cargo)
 "jkj" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -62960,8 +62971,8 @@
 /area/maintenance/vault)
 "jMq" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/table,
-/turf/simulated/floor/airless,
+/obj/item/chess_piece/knight/black,
+/turf/simulated/floor/marble,
 /area/maintenance/cargo)
 "jOm" = (
 /obj/machinery/door/firedoor,
@@ -63013,22 +63024,8 @@
 /turf/simulated/floor/tiled/old_white,
 /area/maintenance/medbay)
 "jXn" = (
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/turf/simulated/floor/plating,
+/obj/item/chess_piece/rook/black,
+/turf/simulated/floor/marble,
 /area/maintenance/cargo)
 "jXv" = (
 /obj/machinery/door/firedoor,
@@ -63703,14 +63700,6 @@
 /obj/random/soap,
 /turf/simulated/floor/tiled/freezer,
 /area/maintenance/medbay)
-"lqh" = (
-/obj/item/material/shard,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/grille/broken,
-/turf/simulated/floor/airless,
-/area/maintenance/cargo)
 "lrT" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/item/stool/padded,
@@ -63824,6 +63813,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"lFD" = (
+/obj/item/chess_piece/knight,
+/turf/simulated/floor/marble/dark,
+/area/maintenance/cargo)
 "lGd" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -64722,9 +64715,7 @@
 /area/maintenance/research_port)
 "njT" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
+/turf/simulated/floor/marble,
 /area/maintenance/cargo)
 "nlu" = (
 /obj/structure/cable/green{
@@ -64976,6 +64967,9 @@
 /obj/random/loot,
 /turf/simulated/floor/tiled/old_white,
 /area/maintenance/medbay)
+"nJZ" = (
+/turf/simulated/floor/marble,
+/area/maintenance/cargo)
 "nKn" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -65371,6 +65365,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
+"otn" = (
+/obj/item/chess_piece/bishop,
+/turf/simulated/floor/marble,
+/area/maintenance/cargo)
 "oud" = (
 /turf/simulated/wall,
 /area/maintenance/substation/supply)
@@ -65456,14 +65454,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
-"oAD" = (
-/obj/structure/grille/broken,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/airless,
-/area/maintenance/cargo)
 "oAO" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -66503,6 +66493,10 @@
 /obj/item/stack/cable_coil/random,
 /turf/simulated/floor/carpet/rubber,
 /area/maintenance/workshop)
+"qre" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/wall,
+/area/maintenance/cargo)
 "qrt" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_research{
@@ -66603,6 +66597,10 @@
 /obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/rnd/misc_lab)
+"qxd" = (
+/obj/item/chess_piece,
+/turf/simulated/floor/marble,
+/area/maintenance/cargo)
 "qzm" = (
 /obj/structure/table/steel,
 /obj/random/loot,
@@ -66626,8 +66624,8 @@
 /area/maintenance/workshop)
 "qCw" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/table/standard,
-/turf/simulated/floor/airless,
+/obj/item/chess_piece/black,
+/turf/simulated/floor/marble,
 /area/maintenance/cargo)
 "qCZ" = (
 /obj/structure/cable/yellow{
@@ -66663,6 +66661,10 @@
 	pixel_y = 28
 	},
 /turf/simulated/floor/plating,
+/area/maintenance/cargo)
+"qKU" = (
+/obj/item/chess_piece/knight,
+/turf/simulated/floor/marble,
 /area/maintenance/cargo)
 "qKZ" = (
 /obj/effect/floor_decal/corner/yellow{
@@ -67103,7 +67105,8 @@
 	name = "Security - Investigations Office"
 	})
 "rsz" = (
-/turf/simulated/floor/airless,
+/obj/item/chess_piece/bishop/black,
+/turf/simulated/floor/marble,
 /area/maintenance/cargo)
 "rsL" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -67128,16 +67131,12 @@
 /turf/simulated/floor/plating,
 /area/medical/cryo)
 "rut" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/mining{
-	name = "Storeroom 3";
-	welded = 1
-	},
-/obj/item/tape/engineering{
-	icon_state = "engineering_door";
-	layer = 4
-	},
-/turf/simulated/floor/plating,
+/obj/item/chess_piece/rook,
+/turf/simulated/floor/marble,
+/area/maintenance/cargo)
+"ruA" = (
+/obj/item/chess_piece/bishop,
+/turf/simulated/floor/marble/dark,
 /area/maintenance/cargo)
 "ruO" = (
 /obj/effect/decal/cleanable/dirt,
@@ -67791,7 +67790,8 @@
 "sHd" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/airless,
+/obj/item/chess_piece,
+/turf/simulated/floor/marble,
 /area/maintenance/cargo)
 "sHo" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -68162,14 +68162,19 @@
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "tjb" = (
-/obj/item/material/shard,
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
+/obj/item/chess_piece/queen/black,
+/turf/simulated/floor/marble/dark,
+/area/maintenance/cargo)
 "tjF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
+"tlL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/chess_piece,
+/turf/simulated/floor/marble,
+/area/maintenance/cargo)
 "tlV" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/loading/yellow{
@@ -68565,6 +68570,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/old,
 /area/maintenance/research_port)
+"tKz" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/chess_piece/rook/black,
+/turf/simulated/floor/marble/dark,
+/area/maintenance/cargo)
 "tKG" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -69303,13 +69313,9 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "uXj" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
+/obj/machinery/door/airlock/maintenance{
+	name = "Chess Arena";
+	req_access = list(12)
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
@@ -69954,7 +69960,8 @@
 	})
 "vTE" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/airless,
+/obj/item/chess_piece/black,
+/turf/simulated/floor/marble/dark,
 /area/maintenance/cargo)
 "vTW" = (
 /obj/structure/closet/crate,
@@ -69974,6 +69981,10 @@
 	},
 /turf/simulated/floor/carpet,
 /area/quartermaster/break_room)
+"vXj" = (
+/obj/item/chess_piece,
+/turf/simulated/floor/marble/dark,
+/area/maintenance/cargo)
 "vXD" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -70343,17 +70354,7 @@
 /turf/simulated/floor/tiled/old_white,
 /area/maintenance/medbay)
 "wxx" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
 "wzc" = (
@@ -70386,9 +70387,8 @@
 /turf/simulated/floor/tiled/old_white,
 /area/maintenance/research_port)
 "wAi" = (
-/obj/structure/table/standard,
-/obj/random/tech_supply,
-/turf/simulated/floor/airless,
+/obj/item/chess_piece/bishop/black,
+/turf/simulated/floor/marble/dark,
 /area/maintenance/cargo)
 "wAF" = (
 /obj/structure/cable{
@@ -70505,10 +70505,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
-"wYD" = (
-/obj/structure/girder,
-/turf/simulated/floor/airless,
-/area/maintenance/cargo)
 "wZe" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
@@ -70614,7 +70610,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "xeb" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/marble/dark,
 /area/maintenance/cargo)
 "xfy" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -71082,17 +71078,8 @@
 /turf/simulated/floor/tiled/asteroid/airless,
 /area/outpost/mining_main/eva)
 "xLG" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/airless,
+/obj/item/chess_piece/king/black,
+/turf/simulated/floor/marble,
 /area/maintenance/cargo)
 "xLH" = (
 /obj/structure/reagent_dispensers/extinguisher,
@@ -89280,7 +89267,7 @@ bbs
 bbs
 bbs
 bbs
-aox
+bbs
 aox
 aaa
 aab
@@ -89536,8 +89523,8 @@ bcY
 bcY
 bcY
 bcY
+aKU
 bbs
-aox
 aox
 aaa
 aab
@@ -89793,7 +89780,7 @@ bbs
 bbs
 bbs
 bcY
-bbs
+bFT
 bbs
 aox
 aab
@@ -90050,7 +90037,7 @@ bPL
 bSc
 bPt
 bcY
-bFT
+bqh
 bbs
 aab
 aab
@@ -90307,16 +90294,16 @@ bRo
 bSd
 bbs
 bcY
-bqh
 bbs
-aab
-aab
-aab
-aab
-tjb
-aaa
-aaa
-aaa
+cbQ
+cbQ
+wxx
+wxx
+wxx
+cbQ
+cbQ
+cbQ
+cbQ
 aaa
 aaa
 aaa
@@ -90564,16 +90551,16 @@ bcY
 bSe
 bbs
 bcY
-aKU
+bbs
+jkh
+jkh
+jkh
+jkh
+gnE
+jkh
+jkh
+jkh
 cbQ
-xLG
-lqh
-dKW
-oAD
-cbQ
-aaa
-aaa
-aox
 aox
 aox
 aox
@@ -90822,15 +90809,15 @@ oUD
 bbs
 bcY
 bbs
+jXn
+vTE
+nJZ
+hfc
+njT
+xeb
+qxd
+dwg
 cbQ
-vTE
-rsz
-vTE
-vTE
-cbQ
-aox
-aox
-aox
 aox
 aox
 aox
@@ -91081,12 +91068,12 @@ bcY
 bbs
 hwc
 dXS
-rsz
-rsz
-dXS
-cbQ
-cbQ
-cbQ
+xeb
+nJZ
+xeb
+nJZ
+vXj
+qKU
 cbQ
 cbQ
 cbQ
@@ -91337,14 +91324,14 @@ bbs
 bcY
 bbs
 rsz
-rsz
-dXS
+eJy
+nJZ
 xeb
-ikb
-cbQ
-vTE
-rsz
 njT
+xeb
+tlL
+ruA
+qre
 cbQ
 ciI
 cjd
@@ -91593,15 +91580,15 @@ bbs
 bFT
 bcY
 iWs
-rsz
-rsz
+tjb
+dXS
 xeb
 njT
-dXS
-rsz
-rsz
-njT
-njT
+xeb
+nJZ
+vXj
+hwm
+qre
 cbQ
 iPS
 ohF
@@ -91850,15 +91837,15 @@ bbs
 wmQ
 bcY
 bBv
-rsz
+xLG
 eJy
+nJZ
+hfc
+nJZ
 xeb
-njT
-rsz
-wYD
-rsz
+qxd
 dRX
-rsz
+cbQ
 cbQ
 sPj
 drh
@@ -92108,14 +92095,14 @@ hOu
 dhL
 txe
 wAi
-rsz
 dXS
-rsz
-vTE
+xeb
+nJZ
+hfc
+nJZ
+dbJ
+otn
 cbQ
-vTE
-rsz
-rsz
 cbQ
 dgR
 mbS
@@ -92365,14 +92352,14 @@ bcY
 ovG
 bbs
 jMq
-eSN
-rsz
-xeb
-hwc
-cbQ
-sHd
-rsz
 vTE
+nJZ
+xeb
+nJZ
+xeb
+sHd
+lFD
+qre
 eiB
 wQC
 drh
@@ -92621,13 +92608,13 @@ bbs
 bbs
 bVi
 bbs
-jMq
+tKz
 qCw
-rsz
-rsz
-dfo
-cbQ
-cbQ
+xeb
+ffC
+xeb
+nJZ
+vXj
 rut
 cbQ
 cbQ
@@ -92881,14 +92868,14 @@ cbQ
 cbQ
 wxx
 uXj
-hYq
+wxx
 cbQ
 cbQ
-eJM
-bWy
-bWy
-bWf
-jXn
+cbQ
+cbQ
+cbQ
+cdX
+cdX
 cdX
 cdR
 cbQ
@@ -93141,10 +93128,10 @@ bWy
 fwl
 bWy
 pgz
-dde
-cdX
-drh
-cbQ
+ckM
+ckM
+dXf
+ckM
 ckM
 bWy
 bWy
