@@ -12,7 +12,7 @@
 
 /datum/ghostspawner/human/ert/elyra/leader
 	short_name = "elyra_leadertrooper"
-	name = "Elyran Commander"
+	name = "Elyran Navy Officer"
 	desc = "The leader of the Elyran Navy squad."
 	welcome_message = "You're an officer of the Elyran Navy. While on patrol, your ship received a distress signal and you were sent to investigate. Lead your team."
 	max_count = 1
