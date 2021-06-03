@@ -237,10 +237,15 @@ var/datum/gear_tweak/custom_desc/gear_tweak_free_desc = new()
 		return input(user, "Choose an item description.", "Character Preference", metadata) as null|anything in valid_custom_desc
 	return sanitize(input(user, "Choose the item's description. Leave it blank to use the default description.", "Item Description", metadata) as message|null, extra = 0)
 
-/datum/gear_tweak/custom_desc/tweak_item(var/obj/item/I, var/metadata)
-	if(!metadata)
+/datum/gear_tweak/custom_desc/tweak_item(var/obj/item/I, var/metadata, var/mob/living/carbon/human/H)
+	if (!metadata && ("stored_name" in I.vars))
+		I.vars["stored_name"] = H.real_name
+		return I.desc += "\nThe name [H.real_name] is written on it."
+	if (!metadata)
 		return I.desc
 	I.desc = metadata
+	if ("stored_name" in I.vars)
+		I.vars["stored_name"] = H.real_name
 
 /*
 Paper Data
