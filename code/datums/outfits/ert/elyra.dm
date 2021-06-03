@@ -1,5 +1,5 @@
 /datum/outfit/admin/ert/elyran_trooper
-	name = "Elyran Trooper"
+	name = "Elyran Navy Crewman"
 
 	uniform = /obj/item/clothing/under/rank/elyran_fatigues
 	shoes = /obj/item/clothing/shoes/magboots
