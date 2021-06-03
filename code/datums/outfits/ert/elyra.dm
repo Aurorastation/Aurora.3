@@ -76,7 +76,7 @@
 		/obj/item/device/healthanalyzer = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 		/obj/item/stack/medical/advanced/ointment = 1,
-		/obj/item/melee/energy/sword/knife/sol = 1
+		/obj/item/melee/energy/sword = 1
 	)
 
 	belt_contents = list(
