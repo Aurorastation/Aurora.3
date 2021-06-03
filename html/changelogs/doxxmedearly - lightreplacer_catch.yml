@@ -1,6 +1,0 @@
-author: Doxxmedearly
-
-delete-after: True
-
-changes:
-  - bugfix: "You can no longer overfill a light replacer with bulbs by drawing from multiple boxes at the same time."
