@@ -29,7 +29,7 @@
 	new /obj/item/device/radio/headset/heads/ce/alt(src)
 	new /obj/item/device/megaphone/engi(src)
 	new /obj/item/storage/toolbox/mechanical(src)
-	new /obj/item/clothing/suit/storage/hazardvest(src)
+	new /obj/item/clothing/suit/storage/hazardvest/ce(src)
 	new /obj/item/clothing/mask/gas(src)
 	new /obj/item/clothing/mask/gas/half(src)
 	new /obj/item/device/multitool(src)
