@@ -23,7 +23,7 @@
 	short_name = "elyra_engtrooper"
 	name = "Elyran Navy Engineer"
 	desc = "The engineering trooper of the Elyran Navy team."
-	mob_name_prefix = "Po3. "
+	mob_name_prefix = "PO3. "
 	max_count = 1
 	outfit = /datum/outfit/admin/ert/elyran_trooper/engineer
 
@@ -31,7 +31,7 @@
 	short_name = "elyra_heavy"
 	name = "Elyran Navy Heavy Specialist"
 	desc = "The heavy trooper of the Elyran Navy team."
-	mob_name_prefix = "Po3. "
+	mob_name_prefix = "PO3. "
 	max_count = 1
 	outfit = /datum/outfit/admin/ert/elyran_trooper/heavy
 
@@ -39,6 +39,6 @@
 	short_name = "elyra_medtrooper"
 	name = "Elyran Navy Corpsman"
 	desc = "The medical trooper of the Elyran Navy team."
-	mob_name_prefix = "Po3. "
+	mob_name_prefix = "PO3. "
 	max_count = 1
 	outfit = /datum/outfit/admin/ert/elyran_trooper/medical
