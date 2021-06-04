@@ -223,6 +223,12 @@ obj/item/clothing/suit/apron/overalls/blue
 	icon_state = "hazard_g"
 	item_state = "hazard_g"
 
+/obj/item/clothing/suit/storage/hazardvest/ce
+	name = "chief engineer's hazard vest"
+	desc = "A high-visibility vest used in work zones. This one is a green-blue color with a gold stripe."
+	icon_state = "hazard_ce"
+	item_state = "hazard_ce"
+
 //Lawyer
 /obj/item/clothing/suit/storage/toggle/lawyer/bluejacket
 	name = "blue suit jacket"
