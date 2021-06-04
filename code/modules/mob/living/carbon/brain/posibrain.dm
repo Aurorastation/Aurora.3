@@ -16,6 +16,17 @@
 	brainmob.name = L.get_random_name()
 	brainmob.real_name = brainmob.name
 
+/obj/item/device/mmi/digital/posibrain/update_icon()
+	if(brainmob.ckey)
+		icon_state = "[initial(icon_state)]-occupied"
+	else if(searching)
+		icon_state = "[initial(icon_state)]-searching"
+	else
+		icon_state = initial(icon_state)
+
+/obj/item/device/mmi/digital/posibrain/attackby(obj/item/I, mob/user)
+	return
+
 /obj/item/device/mmi/digital/posibrain/attack_self(mob/user)
 	if(brainmob.ckey)
 		to_chat(user, SPAN_WARNING("\The [src] already has an active occupant!"))
@@ -23,12 +34,12 @@
 	if(brainmob && !brainmob.key)
 		if(!searching)
 			to_chat(user, SPAN_NOTICE("You carefully locate the manual activation switch and start \the [src]'s boot process."))
-			icon_state = "posibrain-searching"
+			update_icon()
 			searching = TRUE
 			SSghostroles.add_spawn_atom("posibrain", src)
 		else
 			to_chat(user, SPAN_NOTICE("You carefully locate the manual activation switch and disable \the [src]'s boot process."))
-			icon_state = initial(icon_state)
+			update_icon()
 			searching = FALSE
 			SSghostroles.remove_spawn_atom("posibrain", src)
 
@@ -36,9 +47,9 @@
 	if(brainmob.ckey)
 		return
 	brainmob.ckey = user.ckey
-	name = "positronic brain ([brainmob.name])"
-	icon_state = "posibrain-occupied"
 	searching = FALSE
+	update_icon()
+	update_name()
 
 	to_chat(brainmob, "<b>You are a positronic brain, brought into existence on [station_name()].</b>")
 	to_chat(brainmob, "<b>As a synthetic intelligence, you answer to all crewmembers, as well as the AI.</b>")
