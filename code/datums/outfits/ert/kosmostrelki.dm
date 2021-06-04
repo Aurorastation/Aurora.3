@@ -14,7 +14,7 @@
 	belt_contents = list(
 						/obj/item/ammo_magazine/boltaction = 5,
 						/obj/item/grenade/smokebomb = 1,
-						/obj/item/plastique = 1,
+						/obj/item/ammo_magazine/mc9mm = 1,
 						/obj/item/gun/projectile/pistol/adhomai = 1,
 						/obj/item/material/knife/trench = 1
 						)
@@ -59,7 +59,7 @@
 						/obj/item/ammo_magazine/mc9mm = 2,
 						/obj/item/ammo_magazine/submachinemag = 2,
 						/obj/item/grenade/frag = 2,
-						/obj/item/plastique = 1,
+						/obj/item/grenade/smokebomb = 1,
 						/obj/item/gun/projectile/pistol/adhomai = 1,
 						/obj/item/material/knife/trench = 1
 						)
@@ -85,7 +85,7 @@
 	belt_contents = list(
 						/obj/item/ammo_magazine/mc9mm = 4,
 						/obj/item/grenade/frag = 2,
-						/obj/item/plastique = 1,
+						/obj/item/grenade/smokebomb = 1,
 						/obj/item/gun/projectile/pistol/adhomai = 1,
 						/obj/item/material/knife/trench = 1
 						)
@@ -112,13 +112,12 @@
 		/obj/item/ammo_magazine/c45uzi = 2,
 		/obj/item/storage/firstaid/combat = 1,
 		/obj/item/storage/firstaid/adv = 1,
-		/obj/item/storage/firstaid/o2 = 1,
-		/obj/item/device/flashlight/pen = 1
+		/obj/item/device/flashlight/pen = 1,
+		/obj/item/gun/projectile/pistol/adhomai = 1
 	)
 
 	belt_contents = list(
 		/obj/item/reagent_containers/hypospray = 1,
-		/obj/item/stack/medical/splint = 1,
 		/obj/item/reagent_containers/glass/bottle/thetamycin = 1,
 		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
 		/obj/item/reagent_containers/glass/bottle/antitoxin = 1,
@@ -127,3 +126,28 @@
 		/obj/item/reagent_containers/glass/bottle/dermaline = 1,
 		/obj/item/device/healthanalyzer = 1
 	)
+
+/datum/outfit/admin/ert/pra_cosmonaut/engineer
+	name = "Kosmostrelki Sapper"
+
+	gloves = /obj/item/clothing/gloves/yellow/specialt
+
+	glasses = /obj/item/clothing/glasses/welding
+
+	belt = /obj/item/storage/belt/utility/very_full
+
+	back = /obj/item/storage/backpack/duffel/eng
+
+	accessory = /obj/item/clothing/accessory/storage/brown_vest
+	accessory_contents = list(
+		/obj/item/plastique = 5
+	)
+
+	backpack_contents = list(
+		/obj/item/gun/projectile/shotgun/pump/rifle/obrez = 1,
+		/obj/item/ammo_magazine/boltaction = 4,
+		/obj/item/gun/projectile/pistol/adhomai = 1,
+		/obj/item/material/knife/trench = 1
+	)
+
+	belt_contents = null

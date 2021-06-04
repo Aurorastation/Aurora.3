@@ -50,15 +50,17 @@
 /datum/outfit/admin/ert/elyran_trooper/engineer
 	name = "Elyran Navy Engineer"
 
-	back = /obj/item/storage/backpack/satchel_norm
-	belt = /obj/item/storage/belt/utility/full
+	back = /obj/item/storage/backpack/duffel/eng
+	belt = /obj/item/storage/belt/utility/very_full
 	r_pocket = /obj/item/plastique
 
 	backpack_contents = list(
 		/obj/item/tank/oxygen = 1,
 		/obj/item/clothing/gloves/yellow = 1,
-		/obj/item/material/knife/trench = 1
+		/obj/item/melee/energy/sword = 1
 	)
+
+	belt_contents = null
 
 /datum/outfit/admin/ert/elyran_trooper/medical
 	name = "Elyran Navy Corpsman"
