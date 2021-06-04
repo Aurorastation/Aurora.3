@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes:
-  - bugfix: "Smoke bombs should now work properly."
-  - bugfix: "Placing rods on the asteroid ash should no longer create a hole."
