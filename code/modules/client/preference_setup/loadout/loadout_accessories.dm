@@ -177,9 +177,11 @@
 	..()
 	var/shirt = list()
 	shirt["dress shirt"] = /obj/item/clothing/accessory/dressshirt
-	shirt["dress shirt, rolled up"] = /obj/item/clothing/accessory/dressshirt_r
-	shirt["dress shirt, cropped"] = /obj/item/clothing/accessory/dressshirt_crop
-	shirt["cropped dress shirt, rolled up"] = /obj/item/clothing/accessory/dressshirt_crop_r
+	shirt["dress shirt, rolled up"] = /obj/item/clothing/accessory/dressshirt/rolled
+	shirt["dress shirt, cropped"] = /obj/item/clothing/accessory/dressshirt/crop
+	shirt["cropped dress shirt, rolled up"] = /obj/item/clothing/accessory/dressshirt/crop/rolled
+	shirt["dress shirt, alt"] = /obj/item/clothing/accessory/dressshirt/alt
+	shirt["dress shirt, alt rolled up"] = /obj/item/clothing/accessory/dressshirt/alt/rolled
 	shirt["long-sleeved shirt"] = /obj/item/clothing/accessory/longsleeve
 	shirt["long-sleeved shirt, black striped"] = /obj/item/clothing/accessory/longsleeve_s
 	shirt["long-sleeved shirt, blue striped"] = /obj/item/clothing/accessory/longsleeve_sb
