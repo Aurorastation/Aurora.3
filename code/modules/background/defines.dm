@@ -93,7 +93,7 @@
 #define ACCENT_NOMADDELVAHHI "Nomadic Delvahhi"
 #define ACCENT_OLDYASSA "Old Ya'ssa"
 #define ACCENT_NORTHRASNRR "Northern Ras'nrr Siik'maas"
-#define ACCENT_DINAAK "Din'aak Mountains Siik'maas"
+#define ACCENT_DINAKK "Din'akk Mountains Siik'maas"
 
 #define ACCENT_HEGEMON_NOBLE "Noble Hegemonic"
 #define ACCENT_HEGEMON_PEASANT "Peasant Hegemonic"
