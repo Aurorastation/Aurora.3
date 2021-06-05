@@ -111,6 +111,32 @@
 	cost = 2
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/accessory/webbing_harness
+	display_name = "webbing, harness selection"
+	path = /obj/item/clothing/accessory/storage/webbingharness
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/webbing_harness/New()
+	..()
+	var/webbingharness = list()
+	webbingharness["webbing harness"] = /obj/item/clothing/accessory/storage/webbingharness
+	webbingharness["webbing harness, pouches"] = /obj/item/clothing/accessory/storage/webbingharness/pouches
+	webbingharness["webbing harness, pouches alt"] = /obj/item/clothing/accessory/storage/webbingharness/alt
+	gear_tweaks += new/datum/gear_tweak/path(webbingharness)
+
+/datum/gear/accessory/colorable_webbing_harness
+	display_name = "webbing, colorable harness selection"
+	path = /obj/item/clothing/accessory/storage/webbingharness/grayscale
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/colorable_webbing_harness/New()
+	..()
+	var/colorableharness = list()
+	colorableharness["webbing harness"] = /obj/item/clothing/accessory/storage/webbingharness/grayscale
+	colorableharness["webbing harness, pouches"] = /obj/item/clothing/accessory/storage/webbingharness/pouches/grayscale
+	colorableharness["webbing harness, pouches alt"] = /obj/item/clothing/accessory/storage/webbingharness/alt/grayscale
+	gear_tweaks += new/datum/gear_tweak/path(colorableharness)
+
 /datum/gear/accessory/brown_pouches
 	display_name = "drop pouches, engineering"
 	path = /obj/item/clothing/accessory/storage/pouches/brown

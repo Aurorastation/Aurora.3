@@ -38,9 +38,16 @@
 	dispersion = list(3,6,9,12)
 	firemodes = list()
 
+/obj/item/gun/energy/blaster/pilot_special
+	name = "pilot's sidearm"
+	desc = "A robust, low in maintenance blaster pistol. Customized for peak performance and perfect for self-defense purposes."
+	max_shots = 10 // Differntiate it from the usual
+	accuracy = 2 // Likely to get nothing else, so they gottak now how to make it count.
+	offhand_accuracy = 2
+
 /obj/item/gun/energy/blaster/revolver
 	name = "blaster revolver"
-	desc = "A robust eight-shot blaster.."
+	desc = "A robust eight-shot blaster."
 	icon = 'icons/obj/guns/blaster_revolver.dmi'
 	icon_state = "blaster_revolver"
 	item_state = "blaster_revolver"
@@ -61,10 +68,6 @@
 
 	user.visible_message(SPAN_WARNING("\The [user] spins the cylinder of \the [src]!"), SPAN_WARNING("You spin the cylinder of \the [src]!"), SPAN_NOTICE("You hear something metallic spin and click."))
 	playsound(src.loc, 'sound/weapons/revolver_spin.ogg', 100, 1)
-
-/obj/item/gun/energy/blaster/revolver/pilot
-	name = "pilot's sidearm"
-	desc = "A robust, low in maintenance, eight-shot blaster. Perfect for self-defense purposes."
 
 /obj/item/gun/energy/blaster/carbine
 	name = "blaster carbine"

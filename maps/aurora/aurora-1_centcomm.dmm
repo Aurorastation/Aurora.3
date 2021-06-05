@@ -16951,8 +16951,15 @@
 /turf/simulated/floor/wood,
 /area/centcom/shared_dream)
 "gOV" = (
-/obj/structure/table/reinforced,
+/obj/item/clothing/accessory/storage/webbingharness/pouches/ert,
+/obj/item/clothing/accessory/storage/webbingharness/alt{
+	slots = 5
+	},
+/obj/item/clothing/accessory/storage/webbingharness{
+	slots = 5
+	},
 /obj/item/device/binoculars,
+/obj/structure/table/reinforced,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "gPb" = (
@@ -17000,6 +17007,16 @@
 /obj/item/clothing/accessory/holster/armpit/brown,
 /obj/item/clothing/gloves/black_leather,
 /obj/item/clothing/gloves/black_leather,
+/obj/item/clothing/accessory/storage/webbingharness/alt{
+	slots = 5
+	},
+/obj/item/clothing/accessory/storage/webbingharness/pouches/ert,
+/obj/item/clothing/accessory/storage/webbingharness{
+	slots = 5
+	},
+/obj/item/clothing/accessory/storage/black_vest,
+/obj/item/clothing/accessory/storage/brown_vest,
+/obj/item/clothing/accessory/storage/white_vest,
 /turf/unsimulated/floor,
 /area/antag/burglar)
 "gPO" = (
