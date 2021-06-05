@@ -35738,6 +35738,10 @@
 "bjQ" = (
 /obj/structure/table/steel,
 /obj/item/crowbar,
+/obj/item/device/robotanalyzer{
+	pixel_y = 8
+	},
+/obj/item/device/robotanalyzer,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bjR" = (
@@ -36382,11 +36386,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/strongroom)
 "bkN" = (
-/obj/structure/table/steel,
-/obj/item/device/robotanalyzer,
-/obj/item/device/robotanalyzer{
-	pixel_y = 8
-	},
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bkO" = (
@@ -50067,7 +50068,7 @@
 /obj/machinery/newscaster{
 	pixel_y = 30
 	},
-/obj/structure/bed/chair/comfy/sofa/left{
+/obj/structure/bed/chair/comfy/sofa/left/comfy{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -50082,7 +50083,7 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/obj/structure/bed/chair/comfy/sofa/right{
+/obj/structure/bed/chair/comfy/sofa/right/comfy{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -54177,7 +54178,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bZu" = (
-/obj/structure/bed/chair/comfy/sofa/right{
+/obj/structure/bed/chair/comfy/sofa/right/comfy{
 	dir = 8
 	},
 /turf/simulated/floor/carpet,
@@ -61837,7 +61838,7 @@
 /area/maintenance/engineering)
 "hsj" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/structure/bed/chair/comfy/sofa/left{
+/obj/structure/bed/chair/comfy/sofa/left/comfy{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -63993,7 +63994,7 @@
 /area/maintenance/medbay)
 "maY" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/structure/bed/chair/comfy/sofa/right{
+/obj/structure/bed/chair/comfy/sofa/right/comfy{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -66406,7 +66407,7 @@
 	name = "Security - Investigations Office"
 	})
 "qlw" = (
-/obj/structure/bed/chair/comfy/sofa/left{
+/obj/structure/bed/chair/comfy/sofa/left/comfy{
 	dir = 8
 	},
 /turf/simulated/floor/carpet,
@@ -68590,7 +68591,7 @@
 /turf/simulated/floor/tiled,
 /area/security/forensics_laboratory)
 "tPg" = (
-/obj/structure/bed/chair/comfy/sofa/left{
+/obj/structure/bed/chair/comfy/sofa/left/comfy{
 	dir = 4
 	},
 /turf/simulated/floor/carpet,
@@ -71344,7 +71345,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "ymb" = (
-/obj/structure/bed/chair/comfy/sofa/right{
+/obj/structure/bed/chair/comfy/sofa/right/comfy{
 	dir = 4
 	},
 /turf/simulated/floor/carpet,

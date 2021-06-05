@@ -48,6 +48,7 @@
 	new /obj/item/export_scanner(src)
 	new /obj/item/device/orbital_dropper/drill(src)
 	new /obj/item/device/megaphone/cargo(src)
+	new /obj/item/storage/box/goldstar(src)
 
 /obj/structure/closet/secure_closet/merchant
 	name = "merchant locker"
