@@ -1027,6 +1027,10 @@ var/global/known_proc = new /proc/get_type_ref_bytes
 			colour += temp_col
 	return "#[colour]"
 
+/proc/color_square(red, green, blue, hex)
+	var/color = hex ? hex : "#[num2hex(red, 2)][num2hex(green, 2)][num2hex(blue, 2)]"
+	return "<span style='font-face: fixedsys; font-size: 14px; background-color: [color]; color: [color]'>___</span>"
+
 // call to generate a stack trace and print to runtime logs
 /proc/crash_with(msg)
 	CRASH(msg)

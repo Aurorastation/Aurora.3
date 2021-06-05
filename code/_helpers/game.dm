@@ -116,9 +116,9 @@
 			turfs += T
 	return turfs
 
-// Will recursively loop through an atom's locs until it finds the atom loc above a turf
-/proc/recursive_loc_turf_check(var/atom/O, var/recursion_limit = 3)
-	if(recursion_limit <= 0 || isturf(O.loc))
+// Will recursively loop through an atom's locs until it finds the atom loc above a turf or its target_atom
+/proc/recursive_loc_turf_check(var/atom/O, var/recursion_limit = 3, var/atom/target_atom)
+	if(recursion_limit <= 0 || isturf(O.loc) || O == target_atom)
 		return O
 	else
 		O = O.loc
