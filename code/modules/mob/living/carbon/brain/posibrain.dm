@@ -6,7 +6,6 @@
 	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 4, TECH_BLUESPACE = 2, TECH_DATA = 4)
 	req_access = list(access_robotics)
-	locked = FALSE
 	can_be_ipc = TRUE
 	var/searching = FALSE
 
@@ -78,6 +77,18 @@
 		msg += "<span class='deadsay'>It appears to be completely inactive.</span>\n"
 	msg += "</span><span class='info'>*---------*</span>"
 	to_chat(user, msg)
+	return
+
+/obj/item/device/mmi/digital/posibrain/ready_for_use(var/mob/user)
+	if(!brainmob)
+		to_chat(user, SPAN_WARNING("\The [src] doesn't have a personality loaded on it yet!"))
+		return
+	if(brainmob.stat == DEAD)
+		to_chat(user, SPAN_WARNING("The personality inside \the [src] is dead!"))
+		return FALSE
+	return TRUE
+
+/obj/item/device/mmi/digital/posibrain/set_cradle_state(var/new_state)
 	return
 
 /obj/item/device/mmi/digital/posibrain/emp_act(severity)

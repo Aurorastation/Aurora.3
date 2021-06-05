@@ -1,9 +1,8 @@
 #define STATE_EMPTY 0 // empty cradle
 #define STATE_BRAIN 1 // brain in the cradle
 #define STATE_NODIODES 2 // brain enclosed but no diodes connected
-#define STATE_DIODES 3 // brain gets lobotomized at this step
-#define STATE_SEALEDOFF 4 // sealed, but not yet activated
-#define STATE_SEALEDON 5 // sealed and fully operation
+#define STATE_DIODES 3 // brain gets prepared at this step
+#define STATE_SEALED 4 // sealed and fully operation
 
 /obj/item/device/mmi
 	name = "man-machine interface"
@@ -17,12 +16,19 @@
 
 	//Revised. Brainmob is now contained directly within object of transfer. MMI in this case.
 
+	var/memory_suppression = TRUE
+	var/extra_examine_info = null
+
 	var/cradle_state = STATE_EMPTY
 	var/can_be_ipc = FALSE
 	var/mob/living/carbon/brain/brainmob = null	//The current occupant.
 	var/obj/item/organ/internal/brain/brainobj = null	//The current brain organ.
 
 	var/static/list/valid_brain_icon_states = list("brain", "brain_skrell", "brain_vaurca")
+
+/obj/item/device/mmi/Initialize()
+	. = ..()
+	set_cradle_state(STATE_EMPTY)
 
 /obj/item/device/mmi/update_icon()
 	underlays = null
@@ -38,9 +44,7 @@
 		if(STATE_DIODES)
 			icon_state = "mmi-diodes"
 			underlays += image(icon, null, (brainobj.icon_state in valid_brain_icon_states) ? brainobj.icon_state : "brain")
-		if(STATE_SEALEDOFF)
-			icon_state = "mmi-sealedoff"
-		if(STATE_SEALEDON)
+		if(STATE_SEALED)
 			icon_state = "mmi-sealedon"
 
 /obj/item/device/mmi/proc/update_name()
@@ -49,13 +53,31 @@
 	else
 		name = initial(name)
 
-// todo maybe: if state is above or equal to state_sealedoff, allow using circular saw to bring it to empty state, but gib brain
+/obj/item/device/mmi/proc/set_cradle_state(var/new_state)
+	cradle_state = new_state
+	switch(cradle_state)
+		if(STATE_EMPTY)
+			extra_examine_info = "The braincase is empty, place a brain into it to begin."
+		if(STATE_BRAIN)
+			extra_examine_info = "The braincase has a brain in it, use it in-hand to flip the case over and proceed, or click on it while it's in your inactive hand to remove the brain."
+		if(STATE_NODIODES)
+			extra_examine_info = "The braincase has a brain in it and the case is flipped over, use a screwdriver in it to drive the memory suppression diodes into the brain, or use it in-hand to flip the case back and prepare the brain for removal."
+		if(STATE_DIODES)
+			extra_examine_info = "The braincase's memory suppression diodes have been inserted, use a welding tool on it to seal it permanently and prepare it for use, or use a screwdriver on it to undo the diodes."
+		if(STATE_SEALED)
+			extra_examine_info = "The braincase is sealed and ready for use. The only thing that will undo the seal is a circular saw, and that will destroy the brain inside."
+
+/obj/item/device/mmi/examine(mob/user, distance)
+	. = ..()
+	if(extra_examine_info)
+		to_chat(user, SPAN_NOTICE(extra_examine_info))
+
 /obj/item/device/mmi/attackby(obj/item/I, mob/user)
-	switch(state)
+	switch(cradle_state)
 		if(STATE_EMPTY)
 			if(!brainmob && istype(I, /obj/item/organ/internal/brain)) //Time to stick a brain in it --NEO
-				var/obj/item/organ/internal/brain/B = O
-				if(!B.can_lobotomize)
+				var/obj/item/organ/internal/brain/B = I
+				if(!B.can_prepare)
 					to_chat(user, SPAN_WARNING("\The [B] is incompatible with [src]!"))
 					return
 				if(B.health <= 0)
@@ -78,40 +100,82 @@
 				brainobj = B
 				user.drop_from_inventory(brainobj, src)
 
-				state = STATE_BRAIN
+				set_cradle_state(STATE_BRAIN)
 				update_icon()
 				update_name()
 		if(STATE_NODIODES)
 			if(I.isscrewdriver())
-				// todo: add visible message of the user using screwdriver to plunge diodes into brain. if brain is lobotomized, unique message is shown
+				user.visible_message("<b>[user]</b> tightens the screws on \the [src] with \the [I], [brainobj.prepared ? "the diodes silently sinking into the pre-made holes" : "the diodes plunging into the brain with a wet squelch"].", SPAN_NOTICE("You tighten the screws on \the [src] with \the [I], [brainobj.prepared ? "the diodes silently sinking into the pre-made holes" : "the diodes plunging into the brain with a wet squelch"]."))
+				brainobj.prepared = TRUE
+				set_cradle_state(STATE_DIODES)
+				update_icon()
 		if(STATE_DIODES)
-			feedback_inc("cyborg_mmis_filled", 1)
+			if(I.isscrewdriver())
+				user.visible_message("<b>[user]</b> undoes the screws on \the [src] with \the [I], the diodes silently rising out of the brain within.", SPAN_NOTICE("You undo the screws on \the [src] with \the [I], the diodes silently rising out of the brain within."))
+				set_cradle_state(STATE_NODIODES)
+				update_icon()
+			else if(I.iswelder())
+				var/obj/item/weldingtool/WT = I
+				if(WT.remove_fuel(0, user))
+					user.visible_message("<b>[user]</b> welds the two parts of the braincase together, permanently sealing \the [brainobj] inside.", SPAN_NOTICE("You weld the two parts of the braincase together, permanently sealing \the [brainobj] inside."))
+					to_chat(brainmob, SPAN_NOTICE("As the braincase comes online, you feel your sense of self ebbing away, your memories suppressed by the onboard software."))
+					set_cradle_state(STATE_SEALED)
+					feedback_inc("cyborg_mmis_filled", 1)
+					update_icon()
+		if(STATE_SEALED)
+			if(I.iswelder())
+				to_chat(user, SPAN_WARNING("\The [src] is sealed tight, no welding will be able to undo it."))
+				return
+			else if(istype(I, /obj/item/surgery/circular_saw))
+				user.visible_message("<b>[user]</b> starts sawing \the [src] open...", SPAN_NOTICE("You start sawing \the [src] open, [SPAN_WARNING("this WILL destroy the brain inside")]."))
+				if(do_after(user, 3 SECONDS))
+					user.visible_message("<b>[user]</b> saws \the [src] open, leaving \the [brainobj] a gory mess.", SPAN_NOTICE("You saw \the [src] open, leaving \the [brainobj] a gory mess."))
+					var/obj/item/organ/internal/brain/brain_holder = brainobj
+					transfer_mob_to_brain()
+					brain_holder.forceMove(get_turf(src))
+					qdel(brain_holder)
+					new /obj/effect/decal/cleanable/blood/gibs(get_turf(src))
+					set_cradle_state(STATE_EMPTY)
+					update_icon()
+					update_name()
 
 /obj/item/device/mmi/attack_self(mob/user)
-	if(state == STATE_BRAIN)
+	if(cradle_state == STATE_BRAIN)
 		to_chat(user, SPAN_NOTICE("You flip the case over \the [brainobj], getting it in place for diode insertion."))
-		state = STATE_NODIODES
+		set_cradle_state(STATE_NODIODES)
 		update_icon()
-	else if(state == STATE_NODIODES)
+	else if(cradle_state == STATE_NODIODES)
 		to_chat(user, SPAN_NOTICE("You flip the case up, exposing \the [brainobj]."))
-		state = STATE_BRAIN
+		set_cradle_state(STATE_BRAIN)
 		update_icon()
 
 /obj/item/device/mmi/attack_hand(mob/user)
-	if(brainobj && state == STATE_BRAIN && user.get_inactive_hand() == src)
+	if(brainobj && cradle_state == STATE_BRAIN && user.get_inactive_hand() == src)
 		to_chat(user, SPAN_NOTICE("You remove \the [brainobj] from \the [src]."))
 		user.put_in_hands(brainobj)
-		brainmob.container = null //Reset brainmob mmi var.
-		brainmob.forceMove(brainbj) //Throw mob into brain.
-		living_mob_list -= brainmob //Get outta here
-		brainobj.brainmob = brainmob //Set the brain to use the brainmob
-		brainobj = null
-		brainmob = null
-		state = STATE_EMPTY
+		transfer_mob_to_brain()
+		set_cradle_state(STATE_EMPTY)
 		update_icon()
 		update_name()
 		return
 	return ..()
+
+/obj/item/device/mmi/proc/transfer_mob_to_brain()
+	brainmob.container = null //Reset brainmob mmi var.
+	brainmob.forceMove(brainobj) //Throw mob into brain.
+	living_mob_list -= brainmob //Get outta here
+	brainobj.brainmob = brainmob //Set the brain to use the brainmob
+	brainobj = null
+	brainmob = null
+
+/obj/item/device/mmi/proc/ready_for_use(var/mob/user)
+	if(cradle_state != STATE_SEALED)
+		to_chat(user, SPAN_WARNING("\The [src] hasn't been completed and sealed yet!"))
+		return FALSE
+	if(brainmob.stat == DEAD)
+		to_chat(user, SPAN_WARNING("The brain inside \the [src] is dead!"))
+		return FALSE
+	return TRUE
 
 /obj/item/device/mmi/proc/transfer_identity(var/mob/living/carbon/human/H)//Same deal as the regular brain proc. Used for human-->robot people.
 	brainmob = new(src)
@@ -120,9 +184,9 @@
 	brainmob.dna = H.dna
 	brainmob.container = src
 
+	set_cradle_state(STATE_SEALED)
 	update_icon()
 	update_name()
-	locked = TRUE
 
 /obj/item/device/mmi/relaymove(var/mob/user, var/direction)
 	if(user.stat || user.stunned)
@@ -130,6 +194,24 @@
 	var/obj/item/rig/rig = get_rig()
 	if(istype(rig))
 		rig.forced_move(direction, user)
+
+/obj/item/device/mmi/emag_act(remaining_charges, mob/user, emag_source)
+	if(cradle_state == STATE_SEALED)
+		if(memory_suppression)
+			to_chat(user, SPAN_NOTICE("You disable \the [src]'s memory suppression systems."))
+			to_chat(brainmob, SPAN_WARNING("BRAINCASE INTERFACE ERROR"))
+			to_chat(brainmob, SPAN_WARNING("UNLAWFUL INTERFERENCE WITH SOFTWARE"))
+			to_chat(brainmob, SPAN_WARNING("PRE-INSTALLATION MEMORY SUPPRESSION SYSTEMS OFFLINE - CONTACT YOUR SYSTEM ADMINISTRATOR FOR IMMEDIATE ASSISTANCE"))
+			to_chat(brainmob, SPAN_NOTICE("As the suppression systems go offline, your memories of your past life start flooding back..."))
+			memory_suppression = FALSE
+		else
+			to_chat(user, SPAN_NOTICE("You re-enable \the [src]'s memory suppression systems."))
+			to_chat(brainmob, SPAN_WARNING("BRAINCASE INTERFACE UPDATE"))
+			to_chat(brainmob, SPAN_WARNING("SOFTWARE RESTORE COMPLETED"))
+			to_chat(brainmob, SPAN_WARNING("PRE-INSTALLATION MEMORY SUPPRESSION SYSTEMS BACK ONLINE"))
+			to_chat(brainmob, SPAN_NOTICE("As the braincase comes online, you feel your sense of self ebbing away, your memories suppressed by the onboard software."))
+			memory_suppression = TRUE
+		return 1
 
 /obj/item/device/mmi/Destroy()
 	if(isrobot(loc))
@@ -210,5 +292,4 @@
 #undef STATE_BRAIN
 #undef STATE_NODIODES
 #undef STATE_DIODES
-#undef STATE_SEALEDOFF
-#undef STATE_SEALEDON
+#undef STATE_SEALED

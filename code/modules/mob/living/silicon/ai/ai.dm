@@ -179,7 +179,7 @@ var/list/ai_verbs_default = list(
 			if(B.brainmob.mind)
 				B.brainmob.mind.transfer_to(src)
 				if(B.brainobj)
-					B.brainobj.lobotomized = TRUE
+					B.brainobj.prepared = TRUE
 
 			on_mob_init()
 

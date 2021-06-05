@@ -19,8 +19,8 @@
 	relative_size = 85
 
 	var/mob/living/carbon/brain/brainmob = null
-	var/lobotomized = 0
-	var/can_lobotomize = 1
+	var/prepared = FALSE
+	var/can_prepare = TRUE
 
 	var/const/damage_threshold_count = 10
 	var/damage_threshold_value
@@ -230,26 +230,15 @@
 	else
 		to_chat(user, "This one seems particularly lifeless. Perhaps it will regain some of its luster later..")
 
-/obj/item/organ/internal/brain/proc/lobotomize(mob/user)
-	lobotomized = TRUE
-
-	if(owner)
-		to_chat(owner, SPAN_DANGER("As part of your brain is drilled out, you feel your past self, your memories, your very being slip away..."))
-		to_chat(owner, "<b>Your brain has been surgically altered to remove your memory recall. Your ability to recall your former life has been surgically removed from your brain, and while your brain is in this state you remember nothing that ever came before this moment.</b>")
-
-	else if(brainmob)
-		to_chat(brainmob, SPAN_DANGER("As part of your brain is drilled out, you feel your past self, your memories, your very being slip away..."))
-		to_chat(brainmob, "<b>Your brain has been surgically altered to remove your memory recall. Your ability to recall your former life has been surgically removed from your brain, and while your brain is in this state you remember nothing that ever came before this moment.</b>")
-
 /obj/item/organ/internal/brain/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/surgery/surgicaldrill))
-		if(!can_lobotomize)
-			to_chat(user, SPAN_WARNING("\The [src] cannot be lobotomized!"))
+		if(!can_prepare)
+			to_chat(user, SPAN_WARNING("\The [src] cannot be prepared!"))
 			return
-		if(!lobotomized)
+		if(!prepared)
 			user.visible_message(SPAN_DANGER("[user] deftly uses \the [I] to drill into \the [src]!"))
-			lobotomize(user)
+			prepared = TRUE
 		else
-			to_chat(user, SPAN_WARNING("The brain has already been lobotomized!"))
+			to_chat(user, SPAN_WARNING("The brain has already been prepared!"))
 		return
 	return ..()

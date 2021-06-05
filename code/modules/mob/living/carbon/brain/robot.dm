@@ -21,6 +21,18 @@
 		brainmob.mind.assigned_role = "Robotic Intelligence"
 	to_chat(brainmob, "<span class='notify'>You feel slightly disoriented. That's normal when you're little more than a complex circuit.</span>")
 
+/obj/item/device/mmi/digital/robot/ready_for_use(var/mob/user)
+	if(!brainmob)
+		to_chat(user, SPAN_WARNING("\The [src] doesn't have a personality loaded on it yet!"))
+		return
+	if(brainmob.stat == DEAD)
+		to_chat(user, SPAN_WARNING("The personality inside \the [src] is dead!"))
+		return FALSE
+	return TRUE
+
+/obj/item/device/mmi/digital/robot/set_cradle_state(var/new_state)
+	return
+
 /obj/item/device/mmi/digital/robot/attackby(obj/item/I, mob/user)
 	return
 
