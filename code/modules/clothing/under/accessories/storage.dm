@@ -82,7 +82,7 @@
 	icon_state = "vest_harness_pouches"
 
 /obj/item/clothing/accessory/storage/webbingharness/pouches/ert
-	desc = "Durable mess of synthcotton belts and buckles. To better satiate a flyboy's need for storage and security."
+	desc = "Durable mess of synthcotton belts and buckles. To better satiate the need for storage and stability."
 	slots = 5
 
 /obj/item/clothing/accessory/storage/webbingharness/grayscale
