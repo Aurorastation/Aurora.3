@@ -250,7 +250,7 @@
 
 /datum/gear/accessory/detbadge
 	display_name = "badge, investigations"
-	path = /obj/item/clothing/accessory/badge/dia
+	path = /obj/item/clothing/accessory/badge/investigator
 	allowed_roles = list("Investigator")
 
 /datum/gear/accessory/badge
