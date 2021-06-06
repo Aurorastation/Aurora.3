@@ -1,9 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscdel: "Badges no longer have char names visible in the item name."
-  - tweak: "Badges from the loadout will automatically have the char name attached to them."
-  - tweak: "Badges will automatically add the name attached to them to the item description. The exception is badges that had their names changed through the custom loadout."
-  - tweak: "Badges will now give a popup to confirm if a character wishes to imprint their name on the badge when used in hand."
