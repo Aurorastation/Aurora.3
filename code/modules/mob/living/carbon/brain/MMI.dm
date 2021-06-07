@@ -66,6 +66,7 @@
 			extra_examine_info = "The braincase's memory suppression diodes have been inserted, use a welding tool on it to seal it permanently and prepare it for use, or use a screwdriver on it to undo the diodes."
 		if(STATE_SEALED)
 			extra_examine_info = "The braincase is sealed and ready for use. The only thing that will undo the seal is a circular saw, and that will destroy the brain inside."
+	update_icon()
 
 /obj/item/device/mmi/examine(mob/user, distance)
 	. = ..()
@@ -101,19 +102,16 @@
 				user.drop_from_inventory(brainobj, src)
 
 				set_cradle_state(STATE_BRAIN)
-				update_icon()
 				update_name()
 		if(STATE_NODIODES)
 			if(I.isscrewdriver())
 				user.visible_message("<b>[user]</b> tightens the screws on \the [src] with \the [I], [brainobj.prepared ? "the diodes silently sinking into the pre-made holes" : "the diodes plunging into the brain with a wet squelch"].", SPAN_NOTICE("You tighten the screws on \the [src] with \the [I], [brainobj.prepared ? "the diodes silently sinking into the pre-made holes" : "the diodes plunging into the brain with a wet squelch"]."))
 				brainobj.prepared = TRUE
 				set_cradle_state(STATE_DIODES)
-				update_icon()
 		if(STATE_DIODES)
 			if(I.isscrewdriver())
 				user.visible_message("<b>[user]</b> undoes the screws on \the [src] with \the [I], the diodes silently rising out of the brain within.", SPAN_NOTICE("You undo the screws on \the [src] with \the [I], the diodes silently rising out of the brain within."))
 				set_cradle_state(STATE_NODIODES)
-				update_icon()
 			else if(I.iswelder())
 				var/obj/item/weldingtool/WT = I
 				if(WT.remove_fuel(0, user))
@@ -121,7 +119,6 @@
 					to_chat(brainmob, SPAN_NOTICE("As the braincase comes online, you feel your sense of self ebbing away, your memories suppressed by the onboard software."))
 					set_cradle_state(STATE_SEALED)
 					feedback_inc("cyborg_mmis_filled", 1)
-					update_icon()
 		if(STATE_SEALED)
 			if(I.iswelder())
 				to_chat(user, SPAN_WARNING("\The [src] is sealed tight, no welding will be able to undo it."))
@@ -136,18 +133,15 @@
 					qdel(brain_holder)
 					new /obj/effect/decal/cleanable/blood/gibs(get_turf(src))
 					set_cradle_state(STATE_EMPTY)
-					update_icon()
 					update_name()
 
 /obj/item/device/mmi/attack_self(mob/user)
 	if(cradle_state == STATE_BRAIN)
 		to_chat(user, SPAN_NOTICE("You flip the case over \the [brainobj], getting it in place for diode insertion."))
 		set_cradle_state(STATE_NODIODES)
-		update_icon()
 	else if(cradle_state == STATE_NODIODES)
 		to_chat(user, SPAN_NOTICE("You flip the case up, exposing \the [brainobj]."))
 		set_cradle_state(STATE_BRAIN)
-		update_icon()
 
 /obj/item/device/mmi/attack_hand(mob/user)
 	if(brainobj && cradle_state == STATE_BRAIN && user.get_inactive_hand() == src)
@@ -155,7 +149,6 @@
 		user.put_in_hands(brainobj)
 		transfer_mob_to_brain()
 		set_cradle_state(STATE_EMPTY)
-		update_icon()
 		update_name()
 		return
 	return ..()
@@ -185,7 +178,6 @@
 	brainmob.container = src
 
 	set_cradle_state(STATE_SEALED)
-	update_icon()
 	update_name()
 
 /obj/item/device/mmi/relaymove(var/mob/user, var/direction)
