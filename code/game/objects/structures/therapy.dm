@@ -505,7 +505,7 @@
 					var/obj/item/organ/internal/brain/sponge = H.internal_organs_by_name[BP_BRAIN]
 					var/braindamage = H.getBrainLoss()
 					if(sponge && istype(sponge))
-						if(!sponge.lobotomized)
+						if(!sponge.prepared)
 							to_chat(user, "<span class='notice'>Scans indicate [braindamage] distinct abnormalities present in subject.</span>")
 							return
 						else

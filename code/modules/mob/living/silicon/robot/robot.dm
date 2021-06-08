@@ -151,7 +151,7 @@
 	setup_icon_cache()
 
 	if(mmi?.brainobj)
-		mmi.brainobj.lobotomized = TRUE
+		mmi.brainobj.prepared = TRUE
 		mmi.brainmob.name = src.name
 		mmi.brainmob.real_name = src.name
 		mmi.name = "[initial(mmi.name)]: [src.name]"
