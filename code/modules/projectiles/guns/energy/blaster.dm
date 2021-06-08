@@ -41,7 +41,7 @@
 /obj/item/gun/energy/blaster/pilot_special
 	name = "pilot's sidearm"
 	desc = "A robust, low in maintenance blaster pistol. Customized for peak performance and perfect for self-defense purposes."
-	max_shots = 10 // Differntiate it from the usual
+	max_shots = 8
 	accuracy = 2 // Likely to get nothing else, so they gotta know how to make it count.
 	offhand_accuracy = 2
 
