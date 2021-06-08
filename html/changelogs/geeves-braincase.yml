@@ -1,7 +1,0 @@
-author: Geeves, Scrambles
-
-delete-after: True
-
-changes:
-  - rscadd: "MMIs have been redone to be braincases instead of simple brain-cradles. They have a new description and a new process of completion. Examining it will give you step-by-step instructions. You no longer need to prepare the brain externally either."
-  - tweak: "Brain lobotomization has been renamed to be brain preparation."

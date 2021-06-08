@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added a chess arena to cargo's maintenance."
-  - rscadd: "Marble can now be used to craft light and dark marble floor tiles."
