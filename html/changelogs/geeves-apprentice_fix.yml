@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "You can no longer spam the technomancer apprentice teleporter to open infinite slots."
