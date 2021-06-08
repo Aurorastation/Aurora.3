@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "The investigator program set can now be selected as pre-installed when setting up a new modular computer device."
