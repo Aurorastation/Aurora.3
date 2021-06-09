@@ -6,13 +6,14 @@ var/datum/controller/subsystem/skybox/SSskybox
 	flags = SS_NO_FIRE
 	var/background_color
 	var/skybox_icon = 'icons/skybox/skybox.dmi' //Skyboxes need to be 736x736
-	var/base_icon = "test" //in case it all fails
+	var/base_icon = "ceti" //in case it all fails
 	var/image/current_skybox
 
 /datum/controller/subsystem/skybox/New()
 	NEW_SS_GLOBAL(SSskybox)
 
 /datum/controller/subsystem/skybox/Initialize()
+	..()
 	generate_skybox()
 
 /datum/controller/subsystem/skybox/Recover()

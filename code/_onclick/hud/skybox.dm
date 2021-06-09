@@ -14,7 +14,7 @@
 	if(!skybox)
 		skybox = new()
 		screen += skybox
-		rebuild = 1
+		rebuild = TRUE
 
 	var/turf/T = get_turf(eye)
 	if(T)
@@ -24,6 +24,7 @@
 			screen |= skybox
 	skybox.screen_loc = "CENTER:[-224 - T.x],CENTER:[-224 - T.y]"
 
-/mob/Login()
+/mob/LateLogin()
 	..()
-	client.update_skybox(TRUE)
+	if(client)
+		client.update_skybox(TRUE)
