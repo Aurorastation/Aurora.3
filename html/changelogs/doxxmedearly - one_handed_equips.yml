@@ -1,0 +1,6 @@
+author: Doxxmedearly
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed some strange behavior relating to missing arms or hands. For example, handgun magazines drop to the floor instead of disappearing, and liaison briefcases should be placed in your backpack instead of being deleted. Report any other buggy behavior."
