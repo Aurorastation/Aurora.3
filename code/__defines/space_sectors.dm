@@ -1,6 +1,8 @@
 #define SECTOR_ROMANOVICH			"Romanovich Cloud"
 #define SECTOR_TAU_CETI				"Tau Ceti"
 #define SECTOR_CORP_ZONE			"Corporate Reconstruction Zone"
+
+#define SECTOR_VALLEY_HALE			"Valley Hale"
 #define SECTOR_BADLANDS				"Badlands"
 #define SECTOR_NEW_ANKARA			"New Ankara"
 #define SECTOR_SRANDMARR			"S'rand'marr"
