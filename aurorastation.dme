@@ -1355,6 +1355,7 @@
 #include "code\modules\background\religion\vaurca.dm"
 #include "code\modules\background\space_sectors\space_sector.dm"
 #include "code\modules\background\space_sectors\tauceti.dm"
+#include "code\modules\balloon_alert\balloon_alert.dm"
 #include "code\modules\battlemonsters\datum_core.dm"
 #include "code\modules\battlemonsters\datum_elements.dm"
 #include "code\modules\battlemonsters\datum_monsters.dm"
