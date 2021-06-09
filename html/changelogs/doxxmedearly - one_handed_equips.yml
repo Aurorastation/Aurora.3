@@ -3,4 +3,5 @@ author: Doxxmedearly
 delete-after: True
 
 changes:
-  - bugfix: "Fixed some strange behavior relating to missing arms or hands. For example, handgun magazines drop to the floor instead of disappearing, and liaison briefcases should be placed in your backpack instead of being deleted. Report any other buggy behavior."
+  - bugfix: "Fixed some strange behavior relating to missing arms or hands. For example, unloading handgun magazines drops them to the floor instead of deleting them. Report any other buggy behavior."
+  - bugfix: "Fixed an issue where spawning with a missing hand would cause job items to be deleted, such as liaison briefcases. Now it tries to put it in your other hand. If it can't, it will spawn in your bag or on the floor."
