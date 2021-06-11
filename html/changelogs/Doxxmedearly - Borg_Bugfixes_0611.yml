@@ -1,0 +1,9 @@
+author: Doxxmedearly
+
+delete-after: True
+
+changes:
+  - bugfix: "Medical borgs should be able to reattach internal organs as well as limbs/prosthetics."
+  - bugfix: "Changing your name as a borg no longer changes your sprite to the default module."
+  - bugfix: "Fixed some weird interactions with grippers and paper bundles. The icon should update when you remove the last paper from a bundle, and detaching a bundle should leave you with one piece of paper in-gripper."
+  - bugfix: "Traitor borgs will no longer show that they have a damaged interface as if they were emagged."
