@@ -391,7 +391,14 @@
 		/obj/item/storage/box/fancy/cigpaper/fine = 4,
 		/obj/item/storage/box/fancy/matches = 10,
 		/obj/item/flame/lighter/random = 4,
-		/obj/item/spacecash/ewallet/lotto = 30
+		/obj/item/spacecash/ewallet/lotto = 30,
+		/obj/item/clothing/mask/smokable/ecig/util = 2,
+		/obj/item/clothing/mask/smokable/ecig/simple = 2,
+		/obj/item/reagent_containers/ecig_cartridge/med_nicotine = 10,
+		/obj/item/reagent_containers/ecig_cartridge/high_nicotine = 10,
+		/obj/item/reagent_containers/ecig_cartridge/orange = 10,
+		/obj/item/reagent_containers/ecig_cartridge/watermelon = 10,
+		/obj/item/reagent_containers/ecig_cartridge/grape = 10
 	)
 	contraband = list(
 		/obj/item/storage/box/fancy/cigarettes/blank = 5,
@@ -423,7 +430,14 @@
 		/obj/item/storage/cigfilters = 28,
 		/obj/item/storage/box/fancy/cigpaper = 35,
 		/obj/item/storage/box/fancy/cigpaper/fine = 42,
-		/obj/item/spacecash/ewallet/lotto = 200
+		/obj/item/spacecash/ewallet/lotto = 200,
+		/obj/item/clothing/mask/smokable/ecig/util = 100,
+		/obj/item/clothing/mask/smokable/ecig/simple = 150,
+		/obj/item/reagent_containers/ecig_cartridge/med_nicotine = 10,
+		/obj/item/reagent_containers/ecig_cartridge/high_nicotine = 15,
+		/obj/item/reagent_containers/ecig_cartridge/orange = 12,
+		/obj/item/reagent_containers/ecig_cartridge/watermelon = 12,
+		/obj/item/reagent_containers/ecig_cartridge/grape = 12
 	)
 	light_color = COLOR_BLUE_GRAY
 
