@@ -171,6 +171,13 @@
 	icon_state = "headset_alt"
 	item_state = "headset_alt"
 
+/obj/item/device/radio/headset/alt/double
+	name = "soundproof headset"
+	icon_state = "earset"
+	item_state = "headset_alt"
+	item_flags = SOUNDPROTECTION
+	slot_flags = SLOT_EARS | SLOT_TWOEARS
+
 /*
  * Civillian
  */
@@ -186,6 +193,11 @@
 	icon_state = "srv_headset_alt"
 	icon_state = "headset_alt"
 
+/obj/item/device/radio/headset/alt/double/service
+	name = "soundproof service headset"
+	icon_state = "earset_srv"
+	ks2type = /obj/item/device/encryptionkey/headset_service
+
 /obj/item/device/radio/headset/heads/hop
 	name = "head of personnel's headset"
 	desc = "The headset of the guy who will one day be captain."
@@ -196,6 +208,11 @@
 	name = "head of personnel's bowman headset"
 	icon_state = "hop_headset_alt"
 	item_state = "headset_alt"
+
+/obj/item/device/radio/headset/alt/double/hop
+	name = "soundproof head of personnel's headset"
+	icon_state = "earset_HoP"
+	ks2type = /obj/item/device/encryptionkey/heads/hop
 
 /*
  * Engineering
@@ -212,6 +229,11 @@
 	icon_state = "eng_headset_alt"
 	item_state = "headset_alt"
 
+/obj/item/device/radio/headset/alt/double/eng
+	name = "soundproof engineering headset"
+	icon_state = "earset_eng"
+	ks2type = /obj/item/device/encryptionkey/headset_eng
+
 /obj/item/device/radio/headset/heads/ce
 	name = "chief engineer's headset"
 	desc = "The headset of the guy who is in charge of morons."
@@ -222,6 +244,11 @@
 	name = "chief engineer's bowman headset"
 	icon_state = "ce_headset_alt"
 	item_state = "headset_alt"
+
+/obj/item/device/radio/headset/alt/double/ce
+	name = "soundproof chief engineer's headset"
+	icon_state = "earset_CE"
+	ks2type = /obj/item/device/encryptionkey/heads/ce
 
 /*
  * Cargo
@@ -238,6 +265,11 @@
 	icon_state = "cargo_headset_alt"
 	item_state = "headset_alt"
 
+/obj/item/device/radio/headset/alt/double/cargo
+	name = "soundproof cargo headset"
+	icon_state = "earset_cargo"
+	ks2type = /obj/item/device/encryptionkey/headset_cargo
+
 /obj/item/device/radio/headset/headset_mining
 	name = "mining radio headset"
 	desc = "Headset used by dwarves. It has an inbuilt subspace antenna for better reception."
@@ -249,6 +281,11 @@
 	icon_state = "mine_headset_alt"
 	item_state = "headset_alt"
 
+/obj/item/device/radio/headset/alt/double/mining
+	name = "soundproof mining headset"
+	icon_state = "earset_Mine"
+	ks2type = /obj/item/device/encryptionkey/headset_cargo
+
 /obj/item/device/radio/headset/qm
 	name = "quartermaster's headset"
 	desc = "A headset used by the head honcho of paper pushing."
@@ -259,6 +296,11 @@
 	name = "quartermaster bowman headset"
 	icon_state = "qm_headset_alt"
 	item_state = "headset_alt"
+
+/obj/item/device/radio/headset/alt/double/qm
+	name = "soundproof quartermaster headset"
+	icon_state = "earset_QM"
+	ks2type = /obj/item/device/encryptionkey/headset_cargo
 
 /*
  * Medical
@@ -275,6 +317,11 @@
 	icon_state = "med_headset_alt"
 	item_state = "headset_alt"
 
+/obj/item/device/radio/headset/alt/double/med
+	name = "soundproof medical headset"
+	icon_state = "earset_med"
+	ks2type = /obj/item/device/encryptionkey/headset_med
+
 /obj/item/device/radio/headset/heads/cmo
 	name = "chief medical officer's headset"
 	desc = "The headset of the highly trained medical chief."
@@ -285,6 +332,11 @@
 	name = "chief medical officer's bowman headset"
 	icon_state = "cmo_headset_alt"
 	item_state = "headset_alt"
+
+/obj/item/device/radio/headset/alt/double/cmo
+	name = "soundproof chief medical officer's headset"
+	icon_state = "earset_CMO"
+	ks2type = /obj/item/device/encryptionkey/heads/cmo
 
 /*
  * Science
@@ -299,6 +351,11 @@
 /obj/item/device/radio/headset/headset_sci/alt
 	name = "science bowman headset"
 	icon_state = "sci_headset_alt"
+
+/obj/item/device/radio/headset/alt/double/sci
+	name = "soundproof science headset"
+	icon_state = "earset_sci"
+	ks2type = /obj/item/device/encryptionkey/headset_sci
 
 /obj/item/device/radio/headset/headset_rob
 	name = "robotics radio headset"
@@ -317,6 +374,11 @@
 	icon_state = "rd_headset_alt"
 	item_state = "headset_alt"
 
+/obj/item/device/radio/headset/alt/double/rd
+	name = "soundproof research director's headset"
+	icon_state = "earset_RD"
+	ks2type = /obj/item/device/encryptionkey/heads/rd
+
 /*
  * Security
  */
@@ -332,6 +394,11 @@
 	icon_state = "sec_headset_alt"
 	item_state = "headset_alt"
 
+/obj/item/device/radio/headset/alt/double/sec
+	name = "soundproof security headset"
+	icon_state = "earset_Sec"
+	ks2type = /obj/item/device/encryptionkey/headset_sec
+
 /obj/item/device/radio/headset/headset_warden
 	name = "warden radio headset"
 	desc = "This is used by your all-powerful overseer."
@@ -342,6 +409,10 @@
 	name = "warden bowman headset"
 	icon_state = "sec_headset_alt"
 	item_state = "headset_alt"
+
+/obj/item/device/radio/headset/alt/double/sec/warden
+	name = "soundproof warden headset"
+	ks2type = /obj/item/device/encryptionkey/headset_warden
 
 /obj/item/device/radio/headset/headset_penal
 	name = "penal radio headset"
@@ -360,6 +431,11 @@
 	icon_state = "hos_headset_alt"
 	item_state = "headset_alt"
 
+/obj/item/device/radio/headset/alt/double/hos
+	name = "soundproof head of security's headset"
+	icon_state = "earset_HoS"
+	ks2type = /obj/item/device/encryptionkey/heads/hos
+
 /*
  * Captain
  */
@@ -375,6 +451,11 @@
 	icon_state = "com_headset_alt"
 	item_state = "headset_alt"
 
+/obj/item/device/radio/headset/alt/double/command
+	name = "soundproof command headset"
+	icon_state = "earset_com"
+	ks2type = /obj/item/device/encryptionkey/headset_com
+
 /obj/item/device/radio/headset/heads/captain
 	name = "captain's headset"
 	desc = "The headset of the boss."
@@ -385,6 +466,11 @@
 	name = "captain's bowman headset"
 	icon_state = "cap_headset_alt"
 	item_state = "headset_alt"
+
+/obj/item/device/radio/headset/alt/double/captain
+	name = "soundproof captain's headset"
+	icon_state = "earset_cap"
+	ks2type = /obj/item/device/encryptionkey/heads/captain
 
 /*
  * Misc

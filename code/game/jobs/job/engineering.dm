@@ -43,6 +43,7 @@
 	shoes = /obj/item/clothing/shoes/workboots
 	headset = /obj/item/device/radio/headset/heads/ce
 	bowman = /obj/item/device/radio/headset/heads/ce/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/ce
 	r_pocket = /obj/item/device/t_scanner
 
 	backpack = /obj/item/storage/backpack/industrial
@@ -91,6 +92,7 @@
 	shoes = /obj/item/clothing/shoes/workboots
 	headset = /obj/item/device/radio/headset/headset_eng
 	bowman = /obj/item/device/radio/headset/headset_eng/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/eng
 	r_pocket = /obj/item/device/t_scanner
 
 	backpack = /obj/item/storage/backpack/industrial
@@ -135,6 +137,7 @@
 	shoes = /obj/item/clothing/shoes/workboots
 	headset = /obj/item/device/radio/headset/headset_eng
 	bowman = /obj/item/device/radio/headset/headset_eng/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/eng
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel_eng
@@ -182,6 +185,7 @@
 	belt = /obj/item/storage/belt/utility
 	headset = /obj/item/device/radio/headset/headset_eng
 	bowman = /obj/item/device/radio/headset/headset_eng/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/eng
 
 	belt_contents = list(
 		/obj/item/weldingtool = 1,

@@ -38,6 +38,7 @@
 	shoes = /obj/item/clothing/shoes/brown
 	headset = /obj/item/device/radio/headset/heads/cmo
 	bowman = /obj/item/device/radio/headset/heads/cmo/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/cmo
 	tab_pda = /obj/item/modular_computer/handheld/pda/medical/cmo
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical/cmo
 	tablet = /obj/item/modular_computer/handheld/preset/medical/cmo
@@ -96,6 +97,7 @@
 	shoes = /obj/item/clothing/shoes/medical
 	headset = /obj/item/device/radio/headset/headset_med
 	bowman = /obj/item/device/radio/headset/headset_med/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/med
 	tab_pda = /obj/item/modular_computer/handheld/pda/medical
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
 	tablet = /obj/item/modular_computer/handheld/preset/medical
@@ -156,6 +158,7 @@
 	shoes = /obj/item/clothing/shoes/chemist
 	headset = /obj/item/device/radio/headset/headset_med
 	bowman = /obj/item/device/radio/headset/headset_med/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/med
 	tab_pda = /obj/item/modular_computer/handheld/pda/medical
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
 	tablet = /obj/item/modular_computer/handheld/preset/medical
@@ -196,6 +199,7 @@
 	shoes = /obj/item/clothing/shoes/psych
 	headset = /obj/item/device/radio/headset/headset_med
 	bowman = /obj/item/device/radio/headset/headset_med/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/med
 	tab_pda = /obj/item/modular_computer/handheld/pda/medical/psych
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical/psych
 	tablet = /obj/item/modular_computer/handheld/preset/medical/psych
@@ -234,6 +238,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	headset = /obj/item/device/radio/headset/headset_med
 	bowman = /obj/item/device/radio/headset/headset_med/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/med
 	l_hand = /obj/item/storage/firstaid/adv
 	r_hand = /obj/item/reagent_containers/hypospray
 	belt = /obj/item/storage/belt/medical/first_responder
@@ -271,6 +276,7 @@
 	shoes = /obj/item/clothing/shoes/medical
 	headset = /obj/item/device/radio/headset/headset_med
 	bowman = /obj/item/device/radio/headset/headset_med/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/med
 
 	backpack = /obj/item/storage/backpack/medic
 	satchel = /obj/item/storage/backpack/satchel_med

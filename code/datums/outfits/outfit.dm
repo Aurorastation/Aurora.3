@@ -16,6 +16,7 @@
 
 #define OUTFIT_HEADSET 2
 #define OUTFIT_BOWMAN 3
+#define OUTFIT_DOUBLE 4
 
 /datum/outfit
 	var/name = "Naked"
@@ -72,6 +73,7 @@
 	var/allow_headset_choice = FALSE
 	var/headset = /obj/item/device/radio/headset
 	var/bowman = /obj/item/device/radio/headset/alt
+	var/double_headset = /obj/item/device/radio/headset/alt/double
 
 	var/internals_slot = null //ID of slot containing a gas tank
 	var/list/backpack_contents = list() //In the list(path=count,otherpath=count) format
@@ -112,6 +114,8 @@
 				l_ear = null
 			if (OUTFIT_BOWMAN)
 				l_ear = bowman
+			if (OUTFIT_DOUBLE)
+				l_ear = double_headset
 			else
 				l_ear = headset //Department headset
 	if(l_ear)

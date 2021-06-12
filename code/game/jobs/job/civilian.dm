@@ -28,6 +28,7 @@
 	shoes = /obj/item/clothing/shoes/black
 	headset = /obj/item/device/radio/headset/headset_service
 	bowman = /obj/item/device/radio/headset/headset_service/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/service
 
 
 /datum/job/chef
@@ -61,6 +62,7 @@
 	shoes = /obj/item/clothing/shoes/black
 	headset = /obj/item/device/radio/headset/headset_service
 	bowman = /obj/item/device/radio/headset/headset_service/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/service
 
 	backpack_contents = list(
 		/obj/item/storage/box/produce = 1
@@ -96,6 +98,7 @@
 	shoes = /obj/item/clothing/shoes/black
 	headset = /obj/item/device/radio/headset/headset_service
 	bowman = /obj/item/device/radio/headset/headset_service/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/service
 	suit_store = /obj/item/device/analyzer/plant_analyzer
 
 	backpack = /obj/item/storage/backpack/hydroponics
@@ -145,6 +148,7 @@
 	shoes = /obj/item/clothing/shoes/brown
 	headset = /obj/item/device/radio/headset/qm
 	bowman = /obj/item/device/radio/headset/qm/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/qm
 	l_hand = /obj/item/clipboard
 	glasses = /obj/item/clothing/glasses/sunglasses
 
@@ -178,6 +182,7 @@
 	shoes = /obj/item/clothing/shoes/brown
 	headset = /obj/item/device/radio/headset/headset_cargo
 	bowman = /obj/item/device/radio/headset/headset_cargo/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/cargo
 
 
 /datum/job/mining
@@ -212,6 +217,7 @@
 	shoes = /obj/item/clothing/shoes/black
 	headset = /obj/item/device/radio/headset/headset_mining
 	bowman = /obj/item/device/radio/headset/headset_mining/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/mining
 
 	l_hand = /obj/item/coin/mining
 
@@ -255,6 +261,7 @@
 	shoes = /obj/item/clothing/shoes/black
 	headset = /obj/item/device/radio/headset/headset_service
 	bowman = /obj/item/device/radio/headset/headset_service/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/service
 
 /datum/job/journalist
 	title = "Corporate Reporter"
@@ -287,6 +294,7 @@
 	shoes = /obj/item/clothing/shoes/black
 	headset = /obj/item/device/radio/headset/headset_service
 	bowman = /obj/item/device/radio/headset/headset_service/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/service
 
 	backpack_contents = list(
 		/obj/item/clothing/accessory/badge/press = 1
@@ -335,6 +343,7 @@
 	shoes = /obj/item/clothing/shoes/black
 	headset = /obj/item/device/radio/headset/headset_service
 	bowman = /obj/item/device/radio/headset/headset_service/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/service
 	r_pocket = /obj/item/barcodescanner
 	l_hand = /obj/item/storage/bag/books
 

@@ -38,6 +38,7 @@
 	shoes = /obj/item/clothing/shoes/brown
 	headset = /obj/item/device/radio/headset/heads/rd
 	bowman = /obj/item/device/radio/headset/heads/rd/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/rd
 	tab_pda = /obj/item/modular_computer/handheld/pda/research/rd
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research/rd
 	tablet = /obj/item/modular_computer/handheld/preset/research/rd
@@ -81,6 +82,7 @@
 	shoes = /obj/item/clothing/shoes/science
 	headset = /obj/item/device/radio/headset/headset_sci
 	bowman = /obj/item/device/radio/headset/headset_sci/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/sci
 	tab_pda = /obj/item/modular_computer/handheld/pda/research
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research
 	tablet = /obj/item/modular_computer/handheld/preset/research
@@ -157,6 +159,7 @@
 	shoes = /obj/item/clothing/shoes/black
 	headset = /obj/item/device/radio/headset/headset_sci
 	bowman = /obj/item/device/radio/headset/headset_sci/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/sci
 	tab_pda = /obj/item/modular_computer/handheld/pda/research/robotics
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/advanced/research/robotics
 	tablet = /obj/item/modular_computer/handheld/preset/research/robotics
@@ -200,6 +203,7 @@
 	shoes = /obj/item/clothing/shoes/science
 	headset = /obj/item/device/radio/headset/headset_sci
 	bowman = /obj/item/device/radio/headset/headset_sci/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/sci
 
 	backpack = /obj/item/storage/backpack/toxins
 	satchel = /obj/item/storage/backpack/satchel_tox

@@ -212,6 +212,7 @@
 	id = /obj/item/card/id
 	headset = /obj/item/device/radio/headset
 	bowman = /obj/item/device/radio/headset/alt
+	double_headset = /obj/item/device/radio/headset/alt/double
 	back = /obj/item/storage/backpack
 	shoes = /obj/item/clothing/shoes/black
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian

@@ -21,6 +21,7 @@
 	shoes = /obj/item/clothing/shoes/black
 	headset = /obj/item/device/radio/headset/headset_service
 	bowman = /obj/item/device/radio/headset/headset_service/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/service
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/chaplain
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/chaplain
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/chaplain

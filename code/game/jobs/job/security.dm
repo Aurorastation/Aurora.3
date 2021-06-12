@@ -36,6 +36,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	headset = /obj/item/device/radio/headset/heads/hos
 	bowman = /obj/item/device/radio/headset/heads/hos/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/hos
 	tab_pda = /obj/item/modular_computer/handheld/pda/security/hos
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security/hos
 	tablet = /obj/item/modular_computer/handheld/preset/security/hos
@@ -92,6 +93,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	headset = /obj/item/device/radio/headset/headset_warden
 	bowman = /obj/item/device/radio/headset/headset_warden/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/sec/warden
 	tab_pda = /obj/item/modular_computer/handheld/pda/security
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security
 	tablet = /obj/item/modular_computer/handheld/preset/security
@@ -143,6 +145,7 @@
 	shoes = /obj/item/clothing/shoes/laceup
 	headset = /obj/item/device/radio/headset/headset_sec
 	bowman = /obj/item/device/radio/headset/headset_sec/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/sec
 	tab_pda = /obj/item/modular_computer/handheld/pda/security/detective
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security/detective
 	tablet = /obj/item/modular_computer/handheld/preset/security/detective
@@ -187,6 +190,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	headset = /obj/item/device/radio/headset/headset_sec
 	bowman = /obj/item/device/radio/headset/headset_sec/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/sec
 	tab_pda = /obj/item/modular_computer/handheld/pda/security
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security
 	tablet = /obj/item/modular_computer/handheld/preset/security
@@ -235,6 +239,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	headset = /obj/item/device/radio/headset/headset_sec
 	bowman = /obj/item/device/radio/headset/headset_sec/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/sec
 
 	backpack = /obj/item/storage/backpack/security
 	satchel = /obj/item/storage/backpack/satchel_sec
