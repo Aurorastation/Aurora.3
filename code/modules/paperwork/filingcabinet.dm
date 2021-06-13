@@ -33,7 +33,8 @@
 		/obj/item/clothing/accessory/badge,
 		/obj/item/pack,
 		/obj/item/hand,
-		/obj/item/key)
+		/obj/item/key
+)
 
 
 /obj/structure/filingcabinet/chestdrawer
