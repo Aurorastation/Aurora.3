@@ -6953,9 +6953,11 @@
 /turf/simulated/floor/plating,
 /area/tcommsat/entrance)
 "gqn" = (
-/obj/machinery/light,
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-33"
+	},
+/obj/machinery/light{
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/wood,
 /area/sconference_room)
@@ -9042,7 +9044,9 @@
 /obj/machinery/chemical_dispenser/coffee/full{
 	spawn_cartridges = list(/obj/item/reagent_containers/chem_disp_cartridge/coffee,/obj/item/reagent_containers/chem_disp_cartridge/milk,/obj/item/reagent_containers/chem_disp_cartridge/cream,/obj/item/reagent_containers/chem_disp_cartridge/sugar)
 	},
-/obj/machinery/light,
+/obj/machinery/light{
+	icon_state = "tube1"
+	},
 /turf/simulated/floor/wood,
 /area/sconference_room)
 "icV" = (
@@ -26105,7 +26109,9 @@
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-27"
 	},
-/obj/machinery/light,
+/obj/machinery/light{
+	icon_state = "tube1"
+	},
 /turf/simulated/floor/wood,
 /area/sconference_room)
 "wXr" = (
