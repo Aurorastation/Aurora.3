@@ -13006,7 +13006,8 @@
 "ezv" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Telecommunications Monitoring";
-	req_access = list(107)
+	req_access = null;
+	req_one_access = list(106,108,109)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -22573,7 +22574,7 @@
 "kzj" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Custodial Closet";
-	req_access = list(101)
+	req_access = list(103)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -39036,7 +39037,8 @@
 	name = "VIP Shuttle Access";
 	pixel_x = -7;
 	pixel_y = -23;
-	req_access = list(101)
+	req_access = null;
+	req_one_access = list(108,109)
 	},
 /turf/unsimulated/floor,
 /area/centcom/holding)
