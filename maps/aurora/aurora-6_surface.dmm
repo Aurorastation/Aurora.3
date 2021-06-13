@@ -6715,14 +6715,15 @@
 	pixel_y = 5
 	},
 /obj/structure/table/standard,
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/item/paper_bin{
 	pixel_x = -3;
 	pixel_y = 7
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
+	},
 /turf/simulated/floor/wood,
 /area/sconference_room)
 "gec" = (
@@ -17175,9 +17176,6 @@
 /obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Conference Room"
 	},
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -17188,6 +17186,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/wood,
 /area/sconference_room)
