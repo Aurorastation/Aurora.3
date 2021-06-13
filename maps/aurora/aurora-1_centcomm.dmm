@@ -9939,8 +9939,7 @@
 	id = "CentComArrivalsForeChkpt";
 	name = "Fore Checkpoint Blast Doors";
 	pixel_x = -23;
-	req_access = null;
-	req_one_access = list(101,103)
+	req_access = list(103)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -13007,7 +13006,7 @@
 "ezv" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Telecommunications Monitoring";
-	req_access = list(101)
+	req_access = list(107)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -16394,8 +16393,7 @@
 	opacity = 0
 	},
 /obj/machinery/door/window/brigdoor/northright{
-	req_access = null;
-	req_one_access = list(101,103)
+	req_access = list(103)
 	},
 /obj/structure/table/reinforced,
 /obj/machinery/button/remote/blast_door{
@@ -16404,8 +16402,7 @@
 	name = "inner blast door";
 	pixel_x = -24;
 	pixel_y = -3;
-	req_access = null;
-	req_one_access = list(101,103)
+	req_access = list(103)
 	},
 /obj/machinery/button/remote/blast_door{
 	dir = 8;
@@ -16413,8 +16410,7 @@
 	name = "outer blast door";
 	pixel_x = 27;
 	pixel_y = -3;
-	req_access = null;
-	req_one_access = list(101,103)
+	req_access = list(103)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/spawning)
@@ -18199,8 +18195,7 @@
 "hDo" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Security Checkpoint";
-	req_access = null;
-	req_one_access = list(101,103)
+	req_access = list(103)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -22539,8 +22534,7 @@
 	name = "Exterior Checkpoint";
 	pixel_x = 6;
 	pixel_y = -1;
-	req_access = null;
-	req_one_access = list(101,103)
+	req_access = list(103)
 	},
 /obj/machinery/turretid{
 	ailock = 1;
@@ -22670,8 +22664,7 @@
 	name = "checkpoint shutters";
 	pixel_x = 25;
 	pixel_y = 8;
-	req_access = null;
-	req_one_access = list(101,103)
+	req_access = list(103)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -23621,8 +23614,7 @@
 "liD" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Port Checkpoint Door";
-	req_access = null;
-	req_one_access = list(101,103)
+	req_access = list(103)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -27495,8 +27487,7 @@
 "nDp" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Civil Protection Station";
-	req_access = null;
-	req_one_access = list(101,103)
+	req_access = list(103)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -35384,8 +35375,7 @@
 	id = "CentComArrivalsAftChkpt";
 	name = "Aft Checkpoint Blast Doors";
 	pixel_x = -23;
-	req_access = null;
-	req_one_access = list(101,103)
+	req_access = list(103)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -36046,8 +36036,7 @@
 "tyu" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Starboard Checkpoint Door";
-	req_access = null;
-	req_one_access = list(101,103)
+	req_access = list(103)
 	},
 /obj/machinery/door/blast/odin{
 	_wifi_id = "odin_arrivals_lockdown";
@@ -39022,8 +39011,7 @@
 	name = "Interior Checkpoint";
 	pixel_x = -6;
 	pixel_y = 5;
-	req_access = null;
-	req_one_access = list(101,103)
+	req_access = list(103)
 	},
 /obj/machinery/turretid{
 	ailock = 1;
