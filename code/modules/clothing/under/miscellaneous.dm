@@ -573,3 +573,4 @@
 	desc = "A traditional Solarian women's garment, typically made of (synthetic) silk."
 	icon_state = "qipao"
 	item_state = "qipao"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
