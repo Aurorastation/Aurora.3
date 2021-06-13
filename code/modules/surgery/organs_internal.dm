@@ -456,8 +456,8 @@
 		SPAN_WARNING("Your hand slips, damaging the flesh in [target]'s [affected.name] with \the [tool]!"))
 	target.apply_damage(20, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
-/decl/surgery_step/internal/lobotomize
-	name = "Lobotomy"
+/decl/surgery_step/internal/prepare
+	name = "Prepare Brain"
 	allowed_tools = list(
 	/obj/item/surgery/scalpel/manager = 95,
 	/obj/item/surgery/surgicaldrill = 75,
@@ -467,7 +467,7 @@
 	min_duration = 100
 	max_duration = 120
 
-/decl/surgery_step/internal/lobotomize/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/decl/surgery_step/internal/prepare/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
 		return FALSE
 
@@ -476,26 +476,26 @@
 	if(!istype(sponge) || !(sponge in affected.internal_organs))
 		return FALSE
 
-	if(!sponge.can_lobotomize || sponge.lobotomized)
+	if(!sponge.can_prepare || sponge.prepared)
 		return FALSE
 
 	target.op_stage.current_organ = sponge
 	return TRUE
 
-/decl/surgery_step/internal/lobotomize/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/decl/surgery_step/internal/prepare/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/internal/brain/B = target.op_stage.current_organ
-	user.visible_message("[user] begins to modify [target]'s [B] to remove their memory recall with \the [tool].", \
-		"You start to modify [target]'s [B] to remove their memory recall with \the [tool].")
+	user.visible_message("[user] begins to modify [target]'s [B] to prepare it for Man-Machine-Interface compatibility with \the [tool].", \
+		"You start to modify [target]'s [B] to prepare it for Man-Machine-Interface compatibility with \the [tool].")
 	target.custom_pain("Someone's scraping away at your [B]!", 75)
 	..()
 
-/decl/surgery_step/internal/lobotomize/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/decl/surgery_step/internal/prepare/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/internal/brain/B = target.op_stage.current_organ
-	user.visible_message(SPAN_NOTICE("[user] has modified [target]'s [B] to remove their memory recall with \the [tool].") , \
-		SPAN_NOTICE("You have removed [target]'s memory recall with \the [tool]."))
-	B.lobotomize(user)
+	user.visible_message(SPAN_NOTICE("[user] has modified [target]'s [B] to prepare it for Man-Machine-Interface compatibility with \the [tool].") , \
+		SPAN_NOTICE("You prepare \the [target]'s brain for Man-Machine-Interface compatibility with \the [tool]."))
+	B.prepared = TRUE
 
-/decl/surgery_step/internal/lobotomize/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/decl/surgery_step/internal/prepare/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, damaging the flesh in [target]'s [affected.name] with \the [tool]!"), \
 		SPAN_WARNING("Your hand slips, damaging the flesh in [target]'s [affected.name] with \the [tool]!"))

@@ -100,9 +100,9 @@
 #define INTOX_DEATH      0.45
 
 //How many units of intoxication to remove per second
-#define INTOX_FILTER_HEALTHY 0.15
-#define INTOX_FILTER_BRUISED 0.10
-#define INTOX_FILTER_DAMAGED 0.05
+#define INTOX_FILTER_HEALTHY 0.10
+#define INTOX_FILTER_BRUISED 0.07
+#define INTOX_FILTER_DAMAGED 0.03
 
 #define	BASE_DIZZY 50 //Base dizziness from getting drunk.
 #define DIZZY_ADD_SCALE 15 //Amount added for every 0.01 percent over the JUDGEIMP limit

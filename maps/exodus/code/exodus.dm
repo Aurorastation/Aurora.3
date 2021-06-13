@@ -15,7 +15,6 @@
 	boss_short = "CentCom"
 	company_name = "NanoTrasen"
 	company_short = "NT"
-	system_name = "Tau Ceti"
 
 	station_networks = list(
 		NETWORK_CIVILIAN_EAST,

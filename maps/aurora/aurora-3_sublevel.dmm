@@ -32665,6 +32665,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/structure/anomaly_container,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/anomaly_storage)
 "pmn" = (
@@ -33972,6 +33973,7 @@
 /area/medical/patient_wing_picnic)
 "rWw" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/anomaly_container,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/anomaly_storage)
 "rXB" = (

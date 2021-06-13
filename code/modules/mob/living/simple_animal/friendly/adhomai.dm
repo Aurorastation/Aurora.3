@@ -95,7 +95,6 @@
 	maxHealth = 150
 	health = 150
 
-	harm_intent_damage = 3
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	attacktext = "bitten"

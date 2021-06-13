@@ -339,7 +339,7 @@
 // Called whenever an object is moved around inside the mob's contents.
 // Linker proc: mob/proc/prepare_for_slotmove, which is referenced in proc/handle_item_insertion and obj/item/attack_hand.
 // This shit exists so that dropped() could almost exclusively be called when an item is dropped.
-/obj/item/proc/on_slotmove(var/mob/user)
+/obj/item/proc/on_slotmove(var/mob/user, slot)
 	if(zoom)
 		zoom(user)
 
@@ -442,6 +442,16 @@ var/list/global/slot_flags_enumeration = list(
 				return 0
 		if(slot_wear_id)
 			return 1
+		if(slot_l_hand)
+			var/obj/item/organ/external/O
+			O = H.organs_by_name[BP_L_HAND]
+			if(!O || !O.is_usable() || O.is_malfunctioning())
+				return FALSE
+		if(slot_r_hand)
+			var/obj/item/organ/external/O
+			O = H.organs_by_name[BP_R_HAND]
+			if(!O || !O.is_usable() || O.is_malfunctioning())
+				return FALSE
 		if(slot_l_store, slot_r_store)
 			if(!H.w_uniform && (slot_w_uniform in mob_equip))
 				if(!disable_warning)

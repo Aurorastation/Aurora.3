@@ -137,6 +137,8 @@
 			return
 
 		if (do_after(user, load_interval, needhand = 0) && boxstartloc == box.loc && ourstartloc == src.loc)
+			if(uses >= max_uses) //catches loading from multiple boxes
+				break
 			uses++
 			to_chat(user, "<span class='notice'>Light loaded: [uses]/[max_uses]</span>")
 			playsound(src.loc, 'sound/machines/click.ogg', 20, 1)
