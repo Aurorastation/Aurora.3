@@ -119,8 +119,9 @@
 
 	return
 
-// Used to equip an item to the mob. Mainly to prevent copypasta for collect_not_del.
-/datum/outfit/proc/equip_item(mob/living/carbon/human/H, path, slot, var/set_no_remove = FALSE)
+// Used to equip an item to the mob. Mainly to prevent copypasta for collect_not_del. 
+//override_collect temporarily allows equip_or_collect without enabling it for the job. Mostly used to prevent weirdness with hand equips when the player is missing one
+/datum/outfit/proc/equip_item(mob/living/carbon/human/H, path, slot, var/set_no_remove = FALSE, var/override_collect = FALSE)
 	var/obj/item/I
 
 	if(isnum(path))	//Check if parameter is not numeric. Must be a path, list of paths or name of a gear datum
@@ -138,7 +139,7 @@
 	if(set_no_remove)
 		I.autodrobe_no_remove = TRUE
 
-	if(collect_not_del)
+	if(collect_not_del || override_collect)
 		H.equip_or_collect(I, slot)
 	else
 		H.equip_to_slot_or_del(I, slot)
@@ -240,10 +241,22 @@
 	if(suit_store)
 		equip_item(H, suit_store, slot_s_store)
 
+	//Hand equips. If person is missing an arm or hand it attempts to put it in the other hand. 
+	//Override_collect should attempt to collect any items that can't be equipped regardless of collect_not_del settings for the outfit.
 	if(l_hand)
-		equip_item(H, l_hand, slot_l_hand)
+		var/obj/item/organ/external/O
+		O = H.organs_by_name[BP_L_HAND]
+		if(!O || !O.is_usable())
+			equip_item(H, l_hand, slot_r_hand, override_collect = TRUE)
+		else
+			equip_item(H, l_hand, slot_l_hand, override_collect = TRUE)
 	if(r_hand)
-		equip_item(H, r_hand, slot_r_hand)
+		var/obj/item/organ/external/O
+		O = H.organs_by_name[BP_R_HAND]
+		if(!O || !O.is_usable())
+			equip_item(H, r_hand, slot_l_hand, override_collect = TRUE)
+		else
+			equip_item(H, r_hand, slot_r_hand, override_collect = TRUE)
 
 	if(allow_pda_choice)
 		switch(H.pda_choice)

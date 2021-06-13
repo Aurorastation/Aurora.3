@@ -55,7 +55,7 @@
 	var/response_help   = "tries to help"
 	var/response_disarm = "tries to disarm"
 	var/response_harm   = "hurts"
-	var/harm_intent_damage = 5
+	var/harm_intent_damage = 3 //The maximum amount of damage this mob can take from simple unarmed attacks that don't have damage values, like punches
 
 	//Temperature effect
 	var/minbodytemp = 250
@@ -502,7 +502,10 @@
 			simple_harm_attack(user)
 			return
 		attack.show_attack_simple(user, src, pick(organ_names))
-		apply_damage(attack.get_unarmed_damage(user), attack.damage_type)
+		var/actual_damage = attack.get_unarmed_damage(user) //Punch and kick no longer have get_unarmed_damage due to how humanmob combat works. If we have none, we'll apply a small random amount.
+		if(!actual_damage)
+			actual_damage = harm_intent_damage ? rand(1, harm_intent_damage) : 0
+		apply_damage(actual_damage, attack.damage_type)
 		user.do_attack_animation(src, FIST_ATTACK_ANIMATION)
 		return
 	simple_harm_attack(user)

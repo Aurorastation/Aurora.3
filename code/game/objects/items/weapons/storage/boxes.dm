@@ -902,3 +902,13 @@
 	var/obj/item/closet_teleporter/CT_2 = new /obj/item/closet_teleporter(src)
 	CT_1.linked_teleporter = CT_2
 	CT_2.linked_teleporter = CT_1
+
+/obj/item/storage/box/googly
+	name = "googly eye box"
+	desc = "A box containing googly eyes."
+	starts_with = list(/obj/item/sticker/googly_eye = 8)
+
+/obj/item/storage/box/goldstar
+	name = "gold star box"
+	desc = "A box containing gold star stickers."
+	starts_with = list(/obj/item/sticker/goldstar = 8)

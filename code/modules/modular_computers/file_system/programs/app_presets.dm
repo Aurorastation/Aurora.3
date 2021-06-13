@@ -377,7 +377,7 @@
 	name = "security_inv"
 	display_name = "Security - Investigations"
 	description = "Contains the most common security and forensics programs."
-	available = FALSE
+	available = TRUE
 
 /datum/modular_computer_app_presets/security/investigations/return_install_programs(obj/item/modular_computer/comp)
 	var/list/_prg_list = list(

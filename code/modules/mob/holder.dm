@@ -623,6 +623,10 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "rabbit_rest"
 	item_state = "rabbit"
 
+/obj/item/holder/pai/parrot
+	icon_state = "parrot_rest"
+	item_state = "parrot"
+
 /obj/item/holder/pai/custom
 	var/customsprite = 1
 

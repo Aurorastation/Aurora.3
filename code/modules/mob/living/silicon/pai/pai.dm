@@ -25,8 +25,8 @@
 		"Cat" = "cat",
 		"Rat" = "rat",
 		"Monkey" = "monkey",
-		"Rabbit" = "rabbit"
-
+		"Rabbit" = "rabbit",
+		"Parrot" = "parrot"
 		)
 
 	var/global/list/pai_holder_types = list(
@@ -34,7 +34,8 @@
 		"Cat" = /obj/item/holder/pai/cat,
 		"Rat" = /obj/item/holder/pai/rat,
 		"Monkey" = /obj/item/holder/pai/monkey,
-		"Rabbit" = /obj/item/holder/pai/rabbit
+		"Rabbit" = /obj/item/holder/pai/rabbit,
+		"Parrot" = /obj/item/holder/pai/parrot
 		)
 
 	var/global/list/possible_say_verbs = list(

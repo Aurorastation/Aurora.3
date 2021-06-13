@@ -14,12 +14,15 @@
         <th>Location</th>
         <th>Area</th>
         <th>Remove</th>
+        <th>C-Track</th>
       </tr>
       <tr v-for="gps in tracking_list" :key="gps.tag">
         <td> {{ gps.tag }} </td>
         <td> {{ gps.pos_x }}, {{ gps.pos_y }}, {{ gps.pos_z }} </td>
         <td> {{ gps.area }} </td>
-        <vui-button v-if="gps.tag != own_tag" :params="{ remove_tag: gps.tag }">Untrack</vui-button>
+        <td v-if="gps.tag != own_tag"><vui-button :params="{ remove_tag: gps.tag }">Untrack</vui-button></td>
+        <td v-else/>
+        <td v-if="gps.tag != own_tag"><vui-button :class="{selected: compass_list && compass_list.includes(gps.tag)}" :params="{ compass: gps.tag }">Compass</vui-button></td>
         <td v-else/>
       </tr>
     </table>
