@@ -16,7 +16,7 @@
 	icon_state = "filingcabinet"
 	density = 1
 	anchored = 1
-	var/list/accepted_items = list(
+	var/static/list/accepted_items = list(
 		/obj/item/paper, 
 		/obj/item/folder, 
 		/obj/item/photo, 
