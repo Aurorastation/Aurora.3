@@ -1,7 +1,0 @@
-author: Doxxmedearly
-
-# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
-delete-after: True
-
-changes:
-  - rscadd: "Filing cabinets can now hold books, cards (playing and ID), forensics slides and swabs, photo albums, clipboards, disks, pens, badges, passports, and keys."

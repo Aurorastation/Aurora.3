@@ -1,7 +1,0 @@
-author: Doxxmedearly
-
-delete-after: True
-
-changes:
-  - bugfix: "Stationbounds can now collapse rollerbeds, as well as attach bed-connected IVs to patients, remove IVs from beds, and remove vitals monitors from beds."
-  - rscadd: "Added a tip to the rollerbed description to indicate that stationbounds can unbuckle people by clicking the bed with an empty gripper (any kind)."
