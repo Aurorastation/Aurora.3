@@ -12,7 +12,7 @@
 	desc = "This is used to lie in, sleep in or strap on."
 	desc_info = "Click and drag yourself (or anyone) to this to buckle in. Click on this with an empty hand to undo the buckles.<br>\
 	Anyone with restraints, such as handcuffs, will not be able to unbuckle themselves. They must use the Resist button, or verb, to break free of \
-	the buckles, instead."
+	the buckles, instead. \ To unbuckle people as a stationbound, click the bed with an empty gripper."
 	icon = 'icons/obj/furniture.dmi'
 	icon_state = "bed"
 	anchored = TRUE
@@ -342,7 +342,7 @@
 	..()
 	if(use_check(usr) || !Adjacent(usr))
 		return
-	if(!ishuman(usr))
+	if(!ishuman(usr) && (!isrobot(usr) || isDrone(usr))) //Humans and borgs can collapse, but not drones
 		return
 	if(over_object == buckled && beaker)
 		if(iv_attached)
