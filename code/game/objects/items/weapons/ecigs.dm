@@ -227,7 +227,7 @@ obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
 				return
 			last_drag = world.time
 			idle = 0
-			C.visible_message(SPAN_NOTICE("[C.name] takes a drag of their [name].</span>"))
+			C.visible_message(SPAN_NOTICE("[C.name] takes a drag of their [name]."))
 			playsound(C, 'sound/items/cigs_lighters/inhale.ogg', 50, 0, -1)
 			ec_cartridge.reagents.trans_to_mob(C, REM, CHEM_BREATHE, 0.4) 
 			return TRUE
