@@ -4,3 +4,4 @@ delete-after: True
 
 changes:
   - bugfix: "Fixed a bug where farmbots would get stuck doing nothing because it could not path to a sink."
+  - bugfix: "You can no longer feed food to bots and borgs."
