@@ -45,6 +45,11 @@
 	. = ..()
 	charge = 0
 
+/obj/item/cell/crap/cig
+	name = "\improper rechargable mini-battery"
+	desc = "A miniature power cell designed to power very small handheld devices."
+	maxcharge = 200
+
 /obj/item/cell/secborg
 	name = "security borg rechargable D battery"
 	origin_tech = list(TECH_POWER = 0)

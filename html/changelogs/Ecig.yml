@@ -1,0 +1,7 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Ecigs now exist to ruin your lungs further. Find them at your closest cigarette machine or in the loadout."
+  - tweak: "The cigarette machine's vending delay has been made slightly faster."
