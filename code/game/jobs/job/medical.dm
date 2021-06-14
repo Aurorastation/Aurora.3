@@ -36,14 +36,17 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/cmo
 	suit_store = /obj/item/device/flashlight/pen
 	shoes = /obj/item/clothing/shoes/brown
+	id = /obj/item/card/id/navy
+	l_hand = /obj/item/storage/firstaid/adv
+	
 	headset = /obj/item/device/radio/headset/heads/cmo
 	bowman = /obj/item/device/radio/headset/heads/cmo/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/cmo
+	wrist_radio = /obj/item/device/radio/headset/wrist/cmo
+	
 	tab_pda = /obj/item/modular_computer/handheld/pda/medical/cmo
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical/cmo
 	tablet = /obj/item/modular_computer/handheld/preset/medical/cmo
-	id = /obj/item/card/id/navy
-	l_hand = /obj/item/storage/firstaid/adv
 
 	backpack = /obj/item/storage/backpack/medic
 	satchel = /obj/item/storage/backpack/satchel_med
@@ -95,14 +98,17 @@
 	uniform = /obj/item/clothing/under/rank/medical
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/medical
 	shoes = /obj/item/clothing/shoes/medical
+	id = /obj/item/card/id/white
+	suit_store = /obj/item/device/flashlight/pen
+	
 	headset = /obj/item/device/radio/headset/headset_med
 	bowman = /obj/item/device/radio/headset/headset_med/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/med
+	wrist_radio = /obj/item/device/radio/headset/wrist/med
+	
 	tab_pda = /obj/item/modular_computer/handheld/pda/medical
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
 	tablet = /obj/item/modular_computer/handheld/preset/medical
-	id = /obj/item/card/id/white
-	suit_store = /obj/item/device/flashlight/pen
 
 	backpack = /obj/item/storage/backpack/medic
 	satchel = /obj/item/storage/backpack/satchel_med
@@ -156,13 +162,16 @@
 	uniform = /obj/item/clothing/under/rank/pharmacist
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist
 	shoes = /obj/item/clothing/shoes/chemist
+	id = /obj/item/card/id/white
+	
 	headset = /obj/item/device/radio/headset/headset_med
 	bowman = /obj/item/device/radio/headset/headset_med/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/med
+	wrist_radio = /obj/item/device/radio/headset/wrist/med
+	
 	tab_pda = /obj/item/modular_computer/handheld/pda/medical
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
 	tablet = /obj/item/modular_computer/handheld/preset/medical
-	id = /obj/item/card/id/white
 
 	backpack = /obj/item/storage/backpack/pharmacy
 	satchel = /obj/item/storage/backpack/satchel_pharm
@@ -197,13 +206,16 @@
 	uniform = /obj/item/clothing/under/rank/psych
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/psych
 	shoes = /obj/item/clothing/shoes/psych
+	id = /obj/item/card/id/white
+	
 	headset = /obj/item/device/radio/headset/headset_med
 	bowman = /obj/item/device/radio/headset/headset_med/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/med
+	wrist_radio = /obj/item/device/radio/headset/wrist/med
+	
 	tab_pda = /obj/item/modular_computer/handheld/pda/medical/psych
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical/psych
 	tablet = /obj/item/modular_computer/handheld/preset/medical/psych
-	id = /obj/item/card/id/white
 
 /datum/outfit/job/psychiatrist/psycho
 	name = "Psychologist"
@@ -236,17 +248,20 @@
 	uniform = /obj/item/clothing/under/rank/medical/first_responder
 	suit = /obj/item/clothing/suit/storage/toggle/first_responder_jacket
 	shoes = /obj/item/clothing/shoes/jackboots
-	headset = /obj/item/device/radio/headset/headset_med
-	bowman = /obj/item/device/radio/headset/headset_med/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/med
+	id = /obj/item/card/id/white
+	head = /obj/item/clothing/head/hardhat/first_responder
 	l_hand = /obj/item/storage/firstaid/adv
 	r_hand = /obj/item/reagent_containers/hypospray
 	belt = /obj/item/storage/belt/medical/first_responder
+	
+	headset = /obj/item/device/radio/headset/headset_med
+	bowman = /obj/item/device/radio/headset/headset_med/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/med
+	wrist_radio = /obj/item/device/radio/headset/wrist/med
+	
 	tab_pda = /obj/item/modular_computer/handheld/pda/medical
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
 	tablet = /obj/item/modular_computer/handheld/preset/medical
-	id = /obj/item/card/id/white
-	head = /obj/item/clothing/head/hardhat/first_responder
 
 	backpack = /obj/item/storage/backpack/medic
 	satchel = /obj/item/storage/backpack/satchel_med
@@ -277,6 +292,7 @@
 	headset = /obj/item/device/radio/headset/headset_med
 	bowman = /obj/item/device/radio/headset/headset_med/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/med
+	wrist_radio = /obj/item/device/radio/headset/wrist/med
 
 	backpack = /obj/item/storage/backpack/medic
 	satchel = /obj/item/storage/backpack/satchel_med

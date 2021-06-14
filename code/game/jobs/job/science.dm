@@ -36,14 +36,17 @@
 	uniform = /obj/item/clothing/under/rank/research_director
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
 	shoes = /obj/item/clothing/shoes/brown
+	id = /obj/item/card/id/navy
+	l_hand = /obj/item/clipboard
+	
 	headset = /obj/item/device/radio/headset/heads/rd
 	bowman = /obj/item/device/radio/headset/heads/rd/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/rd
+	wrist_radio = /obj/item/device/radio/headset/wrist/rd
+	
 	tab_pda = /obj/item/modular_computer/handheld/pda/research/rd
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research/rd
 	tablet = /obj/item/modular_computer/handheld/preset/research/rd
-	id = /obj/item/card/id/navy
-	l_hand = /obj/item/clipboard
 
 	backpack = /obj/item/storage/backpack/toxins
 	satchel = /obj/item/storage/backpack/satchel_tox
@@ -80,13 +83,16 @@
 	uniform = /obj/item/clothing/under/rank/scientist
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
 	shoes = /obj/item/clothing/shoes/science
+	id = /obj/item/card/id/white
+	
 	headset = /obj/item/device/radio/headset/headset_sci
 	bowman = /obj/item/device/radio/headset/headset_sci/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/sci
+	wrist_radio = /obj/item/device/radio/headset/wrist/sci
+	
 	tab_pda = /obj/item/modular_computer/handheld/pda/research
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research
 	tablet = /obj/item/modular_computer/handheld/preset/research
-	id = /obj/item/card/id/white
 
 	backpack = /obj/item/storage/backpack/toxins
 	satchel = /obj/item/storage/backpack/satchel_tox
@@ -157,14 +163,17 @@
 	uniform = /obj/item/clothing/under/rank/roboticist
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 	shoes = /obj/item/clothing/shoes/black
+	id = /obj/item/card/id/white
+	belt = /obj/item/storage/belt/utility
+	
 	headset = /obj/item/device/radio/headset/headset_sci
 	bowman = /obj/item/device/radio/headset/headset_sci/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/sci
+	wrist_radio = /obj/item/device/radio/headset/wrist/sci
+	
 	tab_pda = /obj/item/modular_computer/handheld/pda/research/robotics
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/advanced/research/robotics
 	tablet = /obj/item/modular_computer/handheld/preset/research/robotics
-	id = /obj/item/card/id/white
-	belt = /obj/item/storage/belt/utility
 
 	backpack = /obj/item/storage/backpack/toxins
 	satchel = /obj/item/storage/backpack/satchel_tox
@@ -204,6 +213,7 @@
 	headset = /obj/item/device/radio/headset/headset_sci
 	bowman = /obj/item/device/radio/headset/headset_sci/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/sci
+	wrist_radio = /obj/item/device/radio/headset/wrist/sci
 
 	backpack = /obj/item/storage/backpack/toxins
 	satchel = /obj/item/storage/backpack/satchel_tox

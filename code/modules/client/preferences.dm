@@ -491,7 +491,7 @@ datum/preferences
 
 	character.pda_choice = pda_choice
 
-	if(headset_choice > OUTFIT_DOUBLE || headset_choice < OUTFIT_NOTHING)
+	if(headset_choice > OUTFIT_WRISTRAD || headset_choice < OUTFIT_NOTHING)
 		headset_choice = OUTFIT_HEADSET
 
 	character.headset_choice = headset_choice
