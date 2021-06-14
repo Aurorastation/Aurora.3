@@ -38,6 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - tweak: "Containers with noreact will no longer be heated by stoves."
-  - fix: "Certain recipes with sugar will no longer burn and be ruined in the oven. Sugar WILL melt on the stove."
+  - tweak: "Containers with noreact (oven dishes, fryer baskets, grill plates) will no longer be heated by appliances, to avoid accidents."
+  - fix: "Certain recipes with sugar will no longer be ruined in the oven or fryer due to caramelisation. Sugar WILL melt on the stove, though."
   - fix: "Containers without reagent data (i.e. things not containing nutriment or certain medicines) will now properly heat up."
