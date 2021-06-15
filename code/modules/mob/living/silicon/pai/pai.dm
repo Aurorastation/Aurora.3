@@ -372,18 +372,17 @@
 	set category = "pAI Commands"
 	set name = "Choose Chassis"
 
-	var/choice
-	var/finalized = "No"
-	while(finalized == "No" && src.client)
-		set_custom_sprite()
-		choice = input(usr,"What would you like to use for your mobile chassis icon? This decision can only be made once.") as null|anything in possible_chassis
-		if(!choice) return
+	var/list/options = list()
+	for(var/i in possible_chassis)
+		var/image/radial_button = image(icon = src.icon, icon_state = possible_chassis[i])
+		options[i] = radial_button
+	var/choice = show_radial_menu(src, recursive_loc_turf_check(src), options, radius = 42, tooltips = TRUE)
+	if(!choice)
+		return
+	icon_state = possible_chassis[choice]
+	holder_type = pai_holder_types[choice]
+	chassis = icon_state
 
-		icon_state = possible_chassis[choice]
-		holder_type = pai_holder_types[choice]
-		finalized = alert("Look at your sprite. Is this what you wish to use?",,"No","Yes")
-
-	chassis = possible_chassis[choice]
 	verbs -= /mob/living/silicon/pai/proc/choose_chassis
 	verbs += /mob/living/proc/hide
 
