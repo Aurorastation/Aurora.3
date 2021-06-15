@@ -23,7 +23,7 @@
 			skybox.overlays += SSskybox.get_skybox()
 			screen |= skybox
 	if(skybox)
-		skybox.screen_loc = "CENTER:[-224 - T.x],CENTER:[-224 - T.y]"
+		skybox.screen_loc = "LEFT+50%:[-224 - T.x],BOTTOM+50%:[-224 - T.y]"
 
 /mob/LateLogin()
 	..()
