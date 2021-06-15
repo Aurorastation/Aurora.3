@@ -254,6 +254,8 @@
 	W.forceMove(get_turf(src))
 	return FALSE
 
+/mob/living/silicon/robot/remove_from_mob(var/obj/O) //Necessary to clear gripper when trying to place items in things (grinders, smartfridges, vendors, etc)
+	drop_item()
 
 /mob/living/silicon/robot/drop_item()
 	if (istype(module_active, /obj/item/gripper))
