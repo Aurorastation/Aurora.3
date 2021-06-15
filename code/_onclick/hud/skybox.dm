@@ -3,7 +3,7 @@
 	mouse_opacity = 0
 	anchored = TRUE
 	simulated = FALSE
-	screen_loc = "CENTER:-224,CENTER:-224"
+	screen_loc = "LEFT+50%:-224,BOTTOM+50%:-224"
 	plane = PLANE_SKYBOX
 	//	blend_mode = BLEND_MULTIPLY
 
