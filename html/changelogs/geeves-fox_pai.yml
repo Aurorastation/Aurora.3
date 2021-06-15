@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a fox pAI chassis."
+  - bugfix: "Fixed the parrot pAI chassis in-hand sprites."
