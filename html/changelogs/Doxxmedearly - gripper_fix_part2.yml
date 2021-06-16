@@ -1,0 +1,7 @@
+author: Doxxmedearly
+
+delete-after: True
+
+changes:
+  - bugfix: "Borg grippers should pick up stacks of items correctly again, instead of dropping them each time a stack is merged."
+  - tweak: "Removed the message telling you that you released an item from your gripper when you're putting said item into something like a fridge or grinder."
