@@ -1,6 +1,0 @@
-author: Doxxmedearly
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed some incorrect surgery step titles and message text for closing and mending ribcages."

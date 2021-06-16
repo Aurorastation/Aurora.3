@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Goonchat no longer spaces messages out weirdly upon loading."
