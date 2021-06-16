@@ -116,6 +116,7 @@
 	affected.fracture()
 
 /decl/surgery_step/open_encased/close
+	name = "Bend bone closed"
 	allowed_tools = list(
 	/obj/item/surgery/retractor = 100, 	\
 	/obj/item/crowbar = 75
@@ -173,6 +174,7 @@
 			O.bruise()
 
 /decl/surgery_step/open_encased/mend
+	name = "Mend closed bone"
 	allowed_tools = list(
 	/obj/item/surgery/bonegel = 100,	\
 	/obj/item/tape_roll = 60
@@ -203,8 +205,8 @@
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
-	var/msg = "<b>[user]</b> starts applying \the [tool] to [target]'s [affected.encased]."
-	var/self_msg = "You start applying \the [tool] to [target]'s [affected.encased]."
+	var/msg = "<b>[user]</b> applies some of \the [tool] to [target]'s [affected.encased]."
+	var/self_msg = "You apply some of \the [tool] to [target]'s [affected.encased]."
 	user.visible_message(msg, SPAN_NOTICE(self_msg))
 	target.custom_pain("Something hurts horribly in your [affected.name]!", 75)
 	..()
