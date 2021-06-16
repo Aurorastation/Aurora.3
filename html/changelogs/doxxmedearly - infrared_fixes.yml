@@ -1,0 +1,7 @@
+author: Doxxmedearly
+
+delete-after: True
+
+changes:
+  - bugfix: "Infrared sensors now properly emit their beam when attached to a device, such as a bomb. Signalers can now activate infrared sensors."
+  - bugfix: "Fixed several instances where infrared beams would linger despite the sensor being moved or manipulated."
