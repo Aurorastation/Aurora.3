@@ -126,13 +126,8 @@
 
 			if(istype(P, /obj/item/device/mmi))
 				var/obj/item/device/mmi/M = P
-				if(!M.brainmob)
-					to_chat(user, "<span class='warning'>Sticking an empty [P] into the frame would sort of defeat the purpose.</span>")
+				if(!M.ready_for_use(user))
 					return
-				if(M.brainmob.stat == 2)
-					to_chat(user, "<span class='warning'>Sticking a dead [P] into the frame would sort of defeat the purpose.</span>")
-					return
-
 				if(jobban_isbanned(M.brainmob, "AI"))
 					to_chat(user, "<span class='warning'>This [P] does not seem to fit.</span>")
 					return

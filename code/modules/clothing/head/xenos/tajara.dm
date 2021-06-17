@@ -59,11 +59,25 @@
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "praberet"
 	item_state = "praberet"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/beret/tajaran/dpra
+	name = "liberation army beret"
+	desc = "A beret issued to liberation army soldiers."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "alaberet"
+	item_state = "alaberet"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/beret/tajaran/dpra/alt
+	icon_state = "alaberetalt"
+	item_state = "alaberetalt"
 
 /obj/item/clothing/head/beret/tajaran/raakti_shariim
 	name = "\improper Raakti Shariim beret"
 	desc = "A blue beret with a pale-gold twin-suns insignia, signifying a Constable of the NKA's Raakti Shariim."
-	icon = 'icons/obj/clothing/species/tajaran/raakti_shariim.dmi'
+	icon = 'icons/obj/tajara_items.dmi'
+	contained_sprite = TRUE
 	icon_state = "raakti_shariim_beret"
 	item_state = "raakti_shariim_beret"
 	desc_fluff = "The Raakti Shariim (Royal Peacekeepers in Ceti Basic) are the New Kingdom of Adhomai's policing and \

@@ -5,12 +5,12 @@
 	icon_state = "anomaly_container"
 	density = TRUE
 
-	var/obj/structure/artifact/contained
+	var/obj/machinery/artifact/contained
 
 /obj/structure/anomaly_container/Initialize()
 	. = ..()
 
-	var/obj/structure/artifact/A = locate() in loc
+	var/obj/machinery/artifact/A = locate() in loc
 	if(A)
 		contain(A)
 
@@ -21,7 +21,7 @@
 	if(Adjacent(user))
 		release()
 
-/obj/structure/anomaly_container/proc/contain(var/obj/structure/artifact/artifact)
+/obj/structure/anomaly_container/proc/contain(var/obj/machinery/artifact/artifact)
 	if(contained)
 		return
 	contained = artifact
@@ -37,7 +37,7 @@
 	underlays.Cut()
 	desc = initial(desc)
 
-/obj/structure/artifact/MouseDrop(atom/over)
+/obj/machinery/artifact/MouseDrop(atom/over)
 	if(istype(over, /obj/structure/anomaly_container))
 		var/obj/structure/anomaly_container/box = over
 		box.contain(src)

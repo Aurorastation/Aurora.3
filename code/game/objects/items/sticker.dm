@@ -78,6 +78,10 @@
 	desc = "A large googly eye sticker."
 	rand_icons = list("googly", "googly1", "googly2")
 
+/obj/item/sticker/goldstar
+	name = "gold star"
+	desc = "A sticker of a gold star, for those overachievers."
+	icon_state = "goldstar"
 
 /atom/movable/proc/take_off_sticker()
 	set name = "Remove Sticker"

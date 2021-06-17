@@ -20,6 +20,7 @@
 #define ABOVE_ALL_MOB_LAYER 4.5
 #define LIGHTING_LAYER 11
 #define EFFECTS_ABOVE_LIGHTING_LAYER 12 // For overlays you want to be above light.
+#define UNDER_HUD_LAYER 19
 #define HUD_LAYER 20			//Above lighting, but below obfuscation. For in-game HUD effects (whereas SCREEN_LAYER is for abstract/OOC things like inventory slots)
 #define OBFUSCATION_LAYER 21	//Where images covering the view for eyes are put
 #define SCREEN_LAYER 22			//Mob HUD/effects layer
