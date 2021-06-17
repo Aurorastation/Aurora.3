@@ -1,0 +1,7 @@
+author: Doxxmedearly
+
+delete-after: True
+
+changes:
+  - tweak: "Running with no stamina is now a little more painful, which makes you hit the exhaustion cap sooner, as it was way too high before. It also does slight oxy damage."
+  - rscdel: "Nicotine no longer acts as a painkiller."
