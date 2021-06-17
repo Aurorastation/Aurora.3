@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - maptweak: "The forensic lab has been slightly adjusted and the mass spectrometer, reagent scanner & crime scene cards spawn within the crime scene kit."

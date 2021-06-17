@@ -209,6 +209,11 @@ var/global/photo_count = 0
 		icon_state = icon_on
 		on = 1
 
+/obj/item/device/camera/detective
+	name = "detectives camera"
+	desc = "A one use - polaroid camera."
+	pictures_left = 30
+
 //Proc for capturing check
 /mob/living/proc/can_capture_turf(turf/T)
 	return TRUE	// DVIEW will do sanity checks, we've got no special checks.

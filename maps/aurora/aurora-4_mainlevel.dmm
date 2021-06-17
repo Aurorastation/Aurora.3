@@ -398,6 +398,9 @@
 	c_tag = "Security - Forensics Lab Port";
 	dir = 4
 	},
+/obj/item/storage/box/folders/blue{
+	pixel_y = 15
+	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_laboratory)
 "aaV" = (
@@ -460,11 +463,9 @@
 "abd" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/structure/table/glass,
-/obj/item/storage/box/fancy/csi_markers{
-	pixel_x = -5
-	},
-/obj/item/storage/box/fancy/csi_markers{
-	pixel_x = 5
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = 2;
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_laboratory)
@@ -642,17 +643,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
-"abv" = (
-/obj/effect/floor_decal/corner/beige/diagonal,
-/obj/structure/table/glass,
-/obj/item/device/reagent_scanner{
-	pixel_x = -8
-	},
-/obj/item/device/reagent_scanner{
-	pixel_x = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/security/forensics_laboratory)
 "abw" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/machinery/light,
@@ -60205,7 +60195,6 @@
 "eNv" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/structure/table/glass,
-/obj/item/reagent_containers/spray/cleaner,
 /obj/machinery/newscaster{
 	pixel_y = 32
 	},
@@ -64537,13 +64526,12 @@
 /obj/machinery/light_switch{
 	pixel_y = -26
 	},
-/obj/structure/closet/crate,
 /obj/machinery/light,
-/obj/item/folder/sec,
-/obj/item/folder/sec,
-/obj/item/folder/sec,
-/obj/item/folder/sec,
-/obj/item/folder/sec,
+/obj/structure/table/rack,
+/obj/item/storage/briefcase/crimekit,
+/obj/item/storage/briefcase/crimekit{
+	pixel_y = 16
+	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_laboratory)
 "ncB" = (
@@ -65462,12 +65450,6 @@
 "oOw" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/structure/table/glass,
-/obj/item/device/mass_spectrometer{
-	pixel_x = -8
-	},
-/obj/item/device/mass_spectrometer{
-	pixel_x = 8
-	},
 /obj/machinery/alarm{
 	dir = 4;
 	pixel_x = -28
@@ -66225,6 +66207,11 @@
 	pixel_y = 5
 	},
 /obj/item/storage/box/sharps,
+/obj/structure/noticeboard{
+	layer = 3.3;
+	pixel_x = 32;
+	pixel_y = 2
+	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_laboratory)
 "pZF" = (
@@ -66812,13 +66799,11 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/table/rack,
-/obj/item/storage/briefcase/crimekit{
-	pixel_y = 16
-	},
-/obj/item/storage/briefcase/crimekit,
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/structure/coatrack{
+	pixel_x = 4
 	},
 /turf/simulated/floor/tiled,
 /area/security/forensics_laboratory)
@@ -69493,12 +69478,6 @@
 /turf/simulated/wall,
 /area/assembly/chargebay)
 "vsB" = (
-/obj/item/device/camera_film,
-/obj/item/device/camera{
-	desc = "A one use - polaroid camera. 30 photos left.";
-	name = "detectives camera";
-	pictures_left = 30
-	},
 /obj/structure/closet/secure_closet/investigator,
 /turf/simulated/floor/lino/grey,
 /area/security/forensics_office{
@@ -71170,7 +71149,9 @@
 /obj/structure/table/standard,
 /obj/item/folder/sec,
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/item/device/hand_labeler,
+/obj/item/device/hand_labeler{
+	pixel_x = 16
+	},
 /obj/machinery/alarm{
 	pixel_y = 28;
 	target_temperature = 278
@@ -100139,7 +100120,7 @@ srX
 xxd
 aaU
 oOw
-abv
+vhY
 abP
 afe
 nmV
