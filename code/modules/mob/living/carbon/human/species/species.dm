@@ -588,9 +588,10 @@
 		if(O.is_bruised())
 			H.adjustOxyLoss(remainder*0.15)
 			H.adjustHalLoss(remainder*0.25)
+		H.adjustOxyLoss(remainder * 0.15) //Keeping oxyloss small when out of stamina to prevent old issue where running until exhausted sometimes gave you brain damage.
 
 	if(!pre_move)
-		H.adjustHalLoss(remainder*0.25)
+		H.adjustHalLoss(remainder*0.45)
 		H.updatehealth()
 		if((H.get_shock() >= 10) && prob(H.get_shock() *2))
 			H.flash_pain(H.get_shock())
