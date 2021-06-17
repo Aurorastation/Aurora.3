@@ -1,0 +1,9 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Revamped the Check Attacks menu. All attacks now have descriptions that roughly give you an idea how they work."
+  - rscadd: "Added a palm strike option to everyone, for when you're a martial arts character or when you have claws and don't want to instantly murder someone."
+  - rscadd: "Added sparring info to the check attacks menu, this will show you which type of attack you will do when you put on Pulled Punches."
+  - rscadd: "Unathi and Industrial IPCs have the option to use Heavy sparring attacks to show their martial dominance in the field. These are their defaults, but they can use the palm strike attack sparring method to dial it back."

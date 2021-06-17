@@ -621,18 +621,30 @@
 	return
 
 /mob/living/carbon/human/check_attacks()
-	var/dat = "<b><font size = 5>Known Attacks</font></b><br/><br/>"
+	var/dat = ""
 
 	if(default_attack)
-		dat += "Current default attack: [default_attack.attack_name] - <a href='byond://?src=\ref[src];default_attk=reset_attk'>reset</a><br/><br/>"
+		dat += "Current default attack: [default_attack.attack_name] - <a href='byond://?src=\ref[src];default_attk=reset_attk'>Reset</a><br/><br/>"
 
 	for(var/datum/unarmed_attack/u_attack in species.unarmed_attacks)
+		var/sparring_variant = ""
+		var/sparring_variant_desc = ""
+		if(u_attack.sparring_variant_type)
+			var/datum/unarmed_attack/spar_attack = u_attack.sparring_variant_type
+			sparring_variant = " | Sparring Variant: [capitalize_first_letters(initial(spar_attack.attack_name))]"
+			sparring_variant_desc = "[initial(spar_attack.desc)]<br/>"
 		if(u_attack == default_attack)
-			dat += "<b>Primarily [u_attack.attack_name]</b> - default - <a href='byond://?src=\ref[src];default_attk=reset_attk'>reset</a><br/><br/><br/>"
+			dat += "<b>Primarily [capitalize_first_letters(u_attack.attack_name)][sparring_variant]</b> - default - <a href='byond://?src=\ref[src];default_attk=reset_attk'>Reset</a><br/>"
+			dat += "Description: [u_attack.desc]<br/>[sparring_variant_desc]"
+			dat += "<br/>"
 		else
-			dat += "<b>Primarily [u_attack.attack_name]</b> - <a href='byond://?src=\ref[src];default_attk=\ref[u_attack]'>set default</a><br/><br/><br/>"
+			dat += "<b>Primarily [capitalize_first_letters(u_attack.attack_name)][sparring_variant]</b> - <a href='byond://?src=\ref[src];default_attk=\ref[u_attack]'>Set Default</a><br/>"
+			dat += "Description: [u_attack.desc]<br/>[sparring_variant_desc]"
+			dat += "<br/>"
 
-	src << browse(dat, "window=checkattack")
+	var/datum/browser/attack_win = new(src, "checkattack", "Known Attacks", 450, 500)
+	attack_win.set_content(dat)
+	attack_win.open()
 
 /mob/living/carbon/human/Topic(href, href_list)
 	if(href_list["default_attk"])

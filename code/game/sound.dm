@@ -401,6 +401,14 @@
 		'sound/weapons/punch4.ogg'
 	)
 
+/decl/sound_category/punch_bassy_sound
+	sounds = list(
+		'sound/weapons/punch1_bass.ogg',
+		'sound/weapons/punch2_bass.ogg',
+		'sound/weapons/punch3_bass.ogg',
+		'sound/weapons/punch4_bass.ogg'
+	)
+
 /decl/sound_category/punchmiss_sound
 	sounds = list(
 		'sound/weapons/punchmiss1.ogg',
