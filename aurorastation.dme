@@ -560,7 +560,6 @@
 #include "code\game\gamemodes\mixed\acolytes.dm"
 #include "code\game\gamemodes\mixed\bughunt.dm"
 #include "code\game\gamemodes\mixed\conflict.dm"
-#include "code\game\gamemodes\mixed\conflux.dm"
 #include "code\game\gamemodes\mixed\crossfire.dm"
 #include "code\game\gamemodes\mixed\feeding.dm"
 #include "code\game\gamemodes\mixed\incursion.dm"
