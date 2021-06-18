@@ -420,6 +420,8 @@
 #define REMOTE_PRISON_ROBOT "prisonrobots"
 #define REMOTE_WARDEN_ROBOT "wardenrobots"
 
+#define REMOTE_AI_ROBOT "airobots"
+
 // Robot Overlay Defines
 #define ROBOT_PANEL_EXPOSED  "exposed"
 #define ROBOT_PANEL_CELL     "cell"
