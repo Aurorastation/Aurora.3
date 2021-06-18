@@ -975,6 +975,14 @@
 	stack_type = /obj/item/stack/material/animalhide/human
 	icon_colour = "#833C00"
 
+/material/hide/barehide
+	name = "bare hide"
+	stack_type = /obj/item/stack/material/animalhide/barehide
+
+/material/hide/wetleather
+	name = "wet leather"
+	stack_type = /obj/item/stack/material/animalhide/wetleather
+
 /material/bone
 	name = MATERIAL_BONE
 	icon_colour = "#e3dac9"
