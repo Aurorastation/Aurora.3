@@ -118,7 +118,7 @@
 /obj/machinery/door/blast/attackby(obj/item/C as obj, mob/user as mob)
 	if(!istype(C, /obj/item/forensics))
 		src.add_fingerprint(user)
-	if((istype(C, /obj/item/material/twohanded/fireaxe) && C:wielded == 1) || (istype(C, /obj/item/melee/hammer)))
+	if((istype(C, /obj/item/material/twohanded/fireaxe) && C:wielded == 1) || (istype(C, /obj/item/melee/hammer)) || istype(C, /obj/item/crowbar/robotic/jawsoflife))
 		if (((stat & NOPOWER) || 	(stat & BROKEN)) && !( src.operating ))
 			force_toggle()
 		else

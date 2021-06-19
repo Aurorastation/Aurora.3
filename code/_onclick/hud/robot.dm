@@ -83,6 +83,11 @@ var/obj/screen/robot_inventory
 	if(r.module)
 		mymob.hands.icon_state = lowertext(r.mod_type)
 
+	if (istype(mymob, /mob/living/silicon/robot/shell))
+		mymob.hands.icon = 'icons/mob/screen/ai.dmi'
+		mymob.hands.icon_state = "remote_mech"
+		mymob.hands.name = "Return-to-core"
+
 //Module Panel
 	using = new /obj/screen()
 	using.name = "panel"

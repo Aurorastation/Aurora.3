@@ -221,37 +221,34 @@
 			to_chat(user, SPAN_WARNING("You need to attach a flash to it first!"))
 		return
 
-	// if(istype(W, /obj/item/remote_mecha/ai))
-	// 	var/obj/item/remote_mecha/ai/M = W
-	// 	if(check_completion())
-	// 		var/mob/living/silicon/robot/O = new /mob/living/silicon/robot(get_turf(src), TRUE)
-	// 			if(!O)
-	// 				return
+	if(istype(W, /obj/item/device/mmi/shell))
+		var/obj/item/device/mmi/shell/M = W
+		if(check_completion())
+			var/mob/living/silicon/robot/O = new /mob/living/silicon/robot/shell(get_turf(src), TRUE)
+			if(!O)
+				return
 
-	// 			user.drop_from_inventory(M, O)
-	// 			O.mmi = W
-	// 			O.invisibility = 0
-	// 			O.custom_name = "Ai shell"
-	// 			O.updatename("Default")
+			user.drop_from_inventory(M, O)
+			O.mmi = W
+			O.invisibility = 0
+			O.custom_name = "Ai shell"
 
-	// 			O.job = "Cyborg"
-	// 			O.cell = chest.cell
-	// 			O.cell.forceMove(O)
-	// 			W.forceMove(O) //Should fix cybros run time erroring when blown up. It got deleted before, along with the frame.
+			O.job = "Cyborg"
+			O.cell = chest.cell
+			O.cell.forceMove(O)
+			W.forceMove(O) //Should fix cybros run time erroring when blown up. It got deleted before, along with the frame.
 
-	// 			// Since we "magically" installed a cell, we also have to update the correct component.
-	// 			if(O.cell)
-	// 				var/datum/robot_component/cell_component = O.components["power cell"]
-	// 				cell_component.wrapped = O.cell
-	// 				cell_component.installed = TRUE
+			// Since we "magically" installed a cell, we also have to update the correct component.
+			if(O.cell)
+				var/datum/robot_component/cell_component = O.components["power cell"]
+				cell_component.wrapped = O.cell
+				cell_component.installed = TRUE
 
-	// 			O.spawn_module = /obj/item/robot_module/aicontrol
-
-	// 			feedback_inc("cyborg_birth", 1)
-	// 			qdel(src)
-	// 	else
-	// 		to_chat(user, SPAN_WARNING("\The [W] can only be inserted after everything else is installed."))
-	// 	return
+			feedback_inc("cyborg_birth", 1)
+			qdel(src)
+		else
+			to_chat(user, SPAN_WARNING("\The [W] can only be inserted after everything else is installed."))
+		return
 
 	if(istype(W, /obj/item/device/mmi))
 		var/obj/item/device/mmi/M = W

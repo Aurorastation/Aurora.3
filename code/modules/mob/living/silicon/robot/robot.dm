@@ -1071,6 +1071,9 @@
 	set name = "Choose Icon"
 	set waitfor = 0
 
+	if (istype(src, /mob/living/silicon/robot/shell))
+		return
+
 	if(!length(module_sprites))
 		to_chat(src, SPAN_DANGER("Something is badly wrong with the sprite selection. Harass a coder."))
 		return

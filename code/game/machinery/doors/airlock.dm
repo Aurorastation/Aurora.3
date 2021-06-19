@@ -1006,6 +1006,16 @@ About the new airlock wires panel:
 			cut_sound = 'sound/weapons/smash.ogg'
 			cut_delay *= 1
 			cutting = TRUE
+	else if(istype(tool, /obj/item/crowbar/robotic/jawsoflife))
+		if(src.bolt_cut_state == BOLTS_FINE)
+			to_chat(user, SPAN_WARNING("You force the bolt cover open!"))
+			playsound(src, 'sound/weapons/smash.ogg', 100, 1)
+			src.bolt_cut_state = BOLTS_EXPOSED
+		else if(src.bolt_cut_state != BOLTS_FINE)
+			cut_verb = "smashing"
+			cut_sound = 'sound/weapons/smash.ogg'
+			cut_delay *= 1
+			cutting = TRUE
 	if(cutting)
 		cut_procedure(user, cut_delay, cut_verb, cut_sound)
 	else
@@ -1275,7 +1285,10 @@ About the new airlock wires panel:
 		else if(arePowerSystemsOn())
 			to_chat(user, SPAN_NOTICE("The airlock's motors resist your efforts to force it."))
 		else if(locked)
-			to_chat(user, SPAN_NOTICE("The airlock's bolts prevent it from being forced."))
+			if (istype(C, /obj/item/crowbar/robotic/jawsoflife))
+				cut_bolts(C, user)
+			else
+				to_chat(user, SPAN_NOTICE("The airlock's bolts prevent it from being forced."))
 		else
 			if(density)
 				open(1)
