@@ -165,10 +165,10 @@ emp_act
 	for(var/obj/item/shield in list(l_hand, r_hand, wear_suit, back))
 		if(!shield)
 			continue
-		if(!shield.can_shield_back())
-			continue
 		var/is_on_back = FALSE
 		if(back && back == shield)
+			if(!shield.can_shield_back())
+				continue
 			is_on_back = TRUE
 		. = shield.handle_shield(src, is_on_back, damage, damage_source, attacker, def_zone, attack_text)
 		if(.)

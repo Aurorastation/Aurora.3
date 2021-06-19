@@ -21,7 +21,7 @@
 	. = ..()
 	set_light(3, 2, l_color = "#006AFF")
 
-/obj/item/spell/shield/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+/obj/item/spell/shield/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(user.incapacitated())
 		return 0
 
@@ -50,5 +50,5 @@
 		spark(src, 3, cardinal)
 		playsound(src, 'sound/weapons/blade.ogg', 50, 1)
 		adjust_instability(2)
-		return 1
-	return 0
+		return PROJECTILE_STOPPED
+	return FALSE
