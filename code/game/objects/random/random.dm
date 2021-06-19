@@ -578,7 +578,6 @@
 		/obj/machinery/vending/security = 0.3,
 		/obj/machinery/vending/hydronutrients = 1,
 		/obj/machinery/vending/hydroseeds = 1,
-		/obj/machinery/vending/magivend = 0.5,	//The things it dispenses are just costumes to non-wizards
 		/obj/machinery/vending/dinnerware = 1,
 		/obj/machinery/vending/sovietsoda = 2,
 		/obj/machinery/vending/tool = 1,
@@ -942,7 +941,8 @@
 		/obj/random/tool = 1,
 		/obj/random/toolbox = 1,
 		/obj/random_produce = 0.25,
-		/obj/random/watches = 1
+		/obj/random/watches = 1,
+		/obj/random/wizard_dressup = 0.25
 	)
 
 
@@ -1776,3 +1776,18 @@
 		/obj/item/seeds/soyaseed,
 		/obj/item/seeds/cabbageseed
 	)
+
+/obj/random/wizard_dressup
+	name = "random wizard clothes"
+	desc = "This is a random piece of fake wizard clothing."
+	icon = 'icons/obj/wizard.dmi'
+	icon_state = "staff"
+	has_postspawn = TRUE
+
+/obj/random/wizard_dressup/spawn_item()
+	var/obj/item/clothing/suit/wizrobe/W = pick(typesof(/obj/item/clothing/suit/wizrobe))
+	. = new W(loc)
+
+/obj/random/wizard_dressup/post_spawn(obj/thing)
+	var/obj/item/clothing/head/wizard/H = pick(typesof(/obj/item/clothing/head/wizard))
+	new H(loc)

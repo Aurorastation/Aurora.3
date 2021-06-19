@@ -496,52 +496,6 @@
 		W.name = "[H.real_name]'s ID"
 		W.registered_name = H.real_name
 
-/datum/outfit/admin/wizard
-	name = "Space Wizard"
-	allow_backbag_choice = FALSE
-
-	uniform = /obj/item/clothing/under/chameleon/wizard
-	back = /obj/item/storage/backpack/chameleon/wizard
-	suit = /obj/item/clothing/suit/chameleon/wizard
-	head = /obj/item/clothing/head/chameleon/wizard
-	shoes = /obj/item/clothing/shoes/chameleon/wizard
-	l_ear = /obj/item/device/radio/headset/bluespace
-	r_pocket = /obj/item/teleportation_scroll
-	l_hand = /obj/item/spellbook
-	id = /obj/item/card/id/bluespace
-
-	backpack_contents = list(
-		/obj/item/storage/box = 1
-	)
-
-/datum/outfit/admin/wizard/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	if(visualsOnly)
-		return
-
-	var/obj/item/card/id/W = H.wear_id
-	if(W)
-		W.registered_name = H.real_name
-
-/datum/outfit/admin/wizard/apprentice
-	name = "Space Wizard Apprentice"
-	l_hand = null
-	r_pocket = null
-
-/datum/outfit/admin/wizard/skeleton
-	name = "Skeleton Warrior"
-	allow_backbag_choice = FALSE
-
-	uniform = /obj/item/clothing/under/gladiator
-	back = /obj/item/material/twohanded/spear/bone
-	suit = /obj/item/clothing/suit/armor/bone
-	head = /obj/item/clothing/head/helmet/bone
-	l_ear = null
-	r_pocket = null
-	l_hand = null
-
-	backpack_contents = null
-
 /datum/outfit/admin/syndicate/cultist
 	name = "Cultist"
 	allow_backbag_choice = FALSE
@@ -580,7 +534,6 @@
 	shoes = /obj/item/clothing/shoes/sandal
 	head = null
 
-	back = /obj/item/gun/energy/staff/focus
 	belt = /obj/item/storage/belt/fannypack/component
 	gloves = null
 	l_ear = /obj/item/device/radio/headset/bluespace
@@ -601,36 +554,29 @@
 			head = /obj/item/clothing/head/wizard/nature
 			suit = /obj/item/clothing/suit/wizrobe/nature
 			suit_accessory = /obj/item/clothing/accessory/poncho/nature
-			spells = list(/spell/targeted/heal_target/major = 2, /spell/targeted/entangle = 2, /spell/aoe_turf/conjure/grove/sanctuary = 2)
 		if("Techno")
 			head = /obj/item/clothing/head/wizard/techno
 			suit = /obj/item/clothing/suit/wizrobe/techno
 			uniform = /obj/item/clothing/under/techo
 			shoes = /obj/item/clothing/shoes/techno
-			spells = list(/spell/aoe_turf/knock = 2, /spell/aoe_turf/conjure/forcewall = 2, /spell/aoe_turf/disable_tech = 2)
 		if("Cobra")
 			head = /obj/item/clothing/head/wizard/cobra
 			suit = /obj/item/clothing/suit/wizrobe/cobra
 			shoes = /obj/item/clothing/shoes/hitops/red
-			spells = list(/spell/targeted/mend = 2, /spell/targeted/life_steal = 2, /spell/aoe_turf/conjure/soulstone = 2)
 		if("Brawler")
 			head = /obj/item/clothing/head/wizard/brawler
 			suit = /obj/item/clothing/suit/wizrobe/brawler
 			shoes = /obj/item/clothing/shoes/caligae
-			spells = list(/spell/targeted/projectile/dumbfire/passage = 2, /spell/targeted/equip_item/shield = 2, /spell/targeted/torment = 2)
 		if("Shimmer")
 			head = /obj/item/clothing/head/wizard/shimmer
 			suit = /obj/item/clothing/suit/wizrobe/shimmer
-			spells = list(/spell/radiant_aura = 2, /spell/targeted/projectile/dumbfire/stuncuff = 2, /spell/aoe_turf/conjure/golem = 2)
 		if("Storm")
 			head = /obj/item/clothing/head/wizard/storm
 			suit = /obj/item/clothing/suit/wizrobe/storm
 			shoes = /obj/item/clothing/shoes/heels
-			spells = list(/spell/targeted/projectile/magic_missile = 2, /spell/targeted/genetic/blind = 2, /spell/targeted/shapeshift/avian = 2)
 		if("Sorceress")
 			head = /obj/item/clothing/head/wizard/sorceress
 			suit = /obj/item/clothing/suit/wizrobe/sorceress
-			spells = list(/spell/targeted/projectile/dumbfire/fireball = 2, /spell/aoe_turf/conjure/creature = 2, /spell/shadow_shroud = 2)
 	return ..()
 
 /datum/outfit/admin/syndicate/raider_mage/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)

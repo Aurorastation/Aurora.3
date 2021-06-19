@@ -77,7 +77,6 @@
 
 /datum/mind/proc/handle_mob_deletion(mob/living/deleted_mob)
 	if (current == deleted_mob)
-		current.spellremove()
 		current = null
 
 	if (original == deleted_mob)
@@ -580,15 +579,3 @@
 	..()
 	mind.assigned_role = "Syndicate Robot"
 	mind.special_role = "Mercenary"
-
-/mob/living/simple_animal/hostile/faithless/wizard/mind_initialize()
-	..()
-	mind.assigned_role = "Space Wizard"
-
-/mob/living/simple_animal/familiar/mind_initialize()
-	..()
-	mind.assigned_role = "Familiar"
-
-/mob/living/simple_animal/rat/familiar/familiar/mind_initialize()
-	..()
-	mind.assigned_role = "Familiar"

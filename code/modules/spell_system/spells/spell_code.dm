@@ -231,11 +231,6 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 				to_chat(user, "Mmmf mrrfff!")
 				return 0
 
-	var/spell/noclothes/spell = locate() in user.spell_list
-	if((spell_flags & NEEDSCLOTHES) && !(spell && istype(spell)) && holder == user)//clothes check
-		if(!user.wearing_wiz_garb())
-			return 0
-
 	return 1
 
 /spell/proc/check_charge(var/skipcharge, mob/user)

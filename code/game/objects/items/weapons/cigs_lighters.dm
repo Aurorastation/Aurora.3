@@ -1029,7 +1029,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	..()
 
 /obj/item/reagent_containers/food/snacks/grown/attackby(obj/item/I, mob/user)
-	if(is_type_in_list(I, list(/obj/item/paper/cig/, /obj/item/paper/, /obj/item/teleportation_scroll)))
+	if(is_type_in_list(I, list(/obj/item/paper/cig/, /obj/item/paper/)))
 		if(!dry)
 			to_chat(user, SPAN_WARNING("You need to dry [src] first!"))
 			return
