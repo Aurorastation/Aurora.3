@@ -2136,7 +2136,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	flag_size = 1
 
 
-/obj/item/organ/internal/augment/fluff/goldman_eye // Moneymaker Cybernetic Eye Overlay - Kobi Goldman - sleepywolf
+/obj/item/organ/internal/augment/fluff/goldman_eye //Moneymaker Cybernetic Eye Overlay - Kobi Goldman - sleepywolf
 	name = "moneymaker cybernetic eye overlay"
 	desc = "An advanced golden holographic overlay chip installed into prosthetic eyes. Manufactured by Zeng-Hu for Idris Businessmen in the Eridani Corporate sector, \
 	this specific chip is engraved with a signature, and small note. \"For the man who sees my true value. With Love, Renae.\""
@@ -2162,8 +2162,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 		user.visible_message("\The [user] scans \the [W] with \the [src]")
 		user.show_message("Price estimation of \the [W]: [value ? value : "N/A"] Credits")
 
-/obj/item/organ/internal/augment/fluff/goldman_chip // Moneymaker Cybernetic Eye Overlay - Kobi Goldman - sleepywolf
-	name = "moneymaker cybernetic eye overlay"
+/obj/item/organ/internal/augment/fluff/goldman_chip //Platinum Membership Banking Chip - Kobi Goldman - sleepywolf
+	name = "platinum membership banking chip"
 	desc = "A Platinum Membership Chip with Lazarus Banking, a subsidiary of Idris Banking that focuses completely on private and anonymous banking. Membership with Lazarus is exclusive, \
 	and Membership Chips are the only way to authenticate. The chip is usually implanted near the heart in an EMP proof slot for security purposes. There is a small button on the chip."
 	icon = 'icons/obj/custom_items/goldman_eye.dmi'
