@@ -14,8 +14,8 @@ var/datum/antagonist/raider_techno/raider_techno
 
 	hard_cap = 6
 	hard_cap_round = 10
-	initial_spawn_req = 4
-	initial_spawn_target = 6
+	initial_spawn_req = 3
+	initial_spawn_target = 4
 
 	faction = "Space Wizard"
 
