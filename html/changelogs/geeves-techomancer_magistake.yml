@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Magistake has been updated to be Technomancer themed. Instead of four apprentice mages, it'll be three technomancer apprentices."
+  - tweak: "The classes for magistake have been tweaked, instead of spawning with set spells, they spawn with different cores. If you don't like your core, refund it and buy a different one."
