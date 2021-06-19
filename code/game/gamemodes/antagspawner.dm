@@ -58,6 +58,7 @@
 	mob_type = /mob/living/carbon/human
 	ghost_role_id = "technoapprentice"
 	var/outfit_type = /datum/outfit/admin/techomancer/apprentice
+	var/preserve_appearance = FALSE
 
 /obj/item/antag_spawner/technomancer_apprentice/attack_self(var/mob/user)
 	if(uses <= 0)
@@ -83,13 +84,16 @@
 
 	G.preEquipOutfit(outfit_type, FALSE)
 	G.equipOutfit(outfit_type, FALSE)
-	technomancers.add_antagonist(G.mind, FALSE, TRUE, FALSE, FALSE, FALSE)
+	technomancers.add_antagonist(G.mind, FALSE, TRUE, FALSE, FALSE, preserve_appearance)
 
 	qdel(src)
 
 	return G
 
 /obj/item/antag_spawner/technomancer_apprentice/golem
+	name = "golem teleporter"
+	desc = "A teleportation device, which will bring a powerful synthetic helper to you."
 	mob_type = /mob/living/carbon/human/technomancer_golem
 	ghost_role_id = "technogolem"
 	outfit_type = /datum/outfit/admin/techomancer/golem
+	preserve_appearance = TRUE

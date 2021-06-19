@@ -727,9 +727,3 @@
 	l_pocket = /obj/item/technomancer_catalog/golem
 
 	id = /obj/item/card/id/bluespace
-
-/datum/outfit/admin/techomancer/golem/post_equip(mob/living/carbon/human/H, visualsOnly)
-	if(H.species.name != SPECIES_GOLEM_TECHOMANCER)
-		H.set_species(SPECIES_GOLEM_TECHOMANCER)
-	. = ..()
-	technomancers.add_antagonist(H.mind, TRUE, TRUE)
