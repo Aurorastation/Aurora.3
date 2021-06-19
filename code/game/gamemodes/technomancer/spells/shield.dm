@@ -21,6 +21,12 @@
 	. = ..()
 	set_light(3, 2, l_color = "#006AFF")
 
+/obj/item/spell/shield/update_icon()
+	var/mob/living/carbon/human/H = owner
+	if(istype(owner) && istype(H.species, /datum/species/golem/technomancer))
+		item_state = "shield_golem"
+	return ..()
+
 /obj/item/spell/shield/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(user.incapacitated())
 		return 0
