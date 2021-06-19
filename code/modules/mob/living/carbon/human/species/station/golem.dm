@@ -863,3 +863,79 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 	heat_level_3 = T0C+1538
 
 	golem_designation = "Adamantine"
+
+/datum/species/golem/technomancer
+	name = SPECIES_GOLEM_TECHOMANCER
+	short_name = "tgo"
+	name_plural = "technomancer golems"
+
+	icobase = 'icons/mob/human_races/golem/r_techno.dmi'
+	deform = 'icons/mob/human_races/golem/r_techno.dmi'
+
+	default_genders = list(NEUTER)
+	selectable_pronouns = list(NEUTER)
+
+	brute_mod = 0.4
+	burn_mod = 0.2
+
+	flags = NO_BREATHE | NO_PAIN | NO_ARTERIES | NO_SCAN | NO_POISON
+
+	inherent_verbs = list(/mob/living/carbon/human/proc/breath_of_life)
+
+	blood_color = "#33CCFF"
+
+	has_limbs = list(
+		BP_CHEST =  list("path" = /obj/item/organ/external/chest/unbreakable/techno_golem),
+		BP_GROIN =  list("path" = /obj/item/organ/external/groin/techno_golem),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/unbreakable/techno_golem),
+		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/unbreakable/techno_golem),
+		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/unbreakable/techno_golem),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand/unbreakable/techno_golem),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/unbreakable/techno_golem)
+		)
+
+	meat_type = /obj/item/anomaly_core
+	remains_type = /obj/item/ectoplasm
+
+	hud_type = /datum/hud_data/technomancer_golem
+
+	golem_designation = "Technomancer"
+
+/datum/species/golem/technomancer/handle_post_spawn(mob/living/carbon/human/H)
+	. = ..()
+	for(var/obj/item/organ/external/E as anything in H.organs)
+		E.status |= ORGAN_ASSISTED
+
+/datum/species/golem/technomancer/handle_movement_tally(var/mob/living/carbon/human/H)
+	var/tally = 0
+	if(istype(H.buckled_to, /obj/structure/bed/chair/wheelchair))
+		for(var/organ_name in list(BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM))
+			var/obj/item/organ/external/E = H.get_organ(organ_name)
+			if(!E || E.is_stump())
+				tally += 4
+			else if(E.status & ORGAN_SPLINTED)
+				tally += 0.5
+			else if(E.status & ORGAN_BROKEN)
+				tally += 1.5
+	else
+		var/obj/item/organ/external/E = H.get_organ(BP_GROIN)
+		if(!E || E.is_stump())
+			tally += 8
+		else if((E.status & ORGAN_BROKEN) || (E.tendon_status() & TENDON_CUT))
+			tally += 4
+		else if((E.status & ORGAN_SPLINTED) || (E.tendon_status() & TENDON_BRUISED))
+			tally += 2
+	return tally
+
+/datum/species/golem/technomancer/handle_stance_damage(var/mob/living/carbon/human/H, var/damage_only = FALSE)
+	var/stance_damage = 0
+	var/obj/item/organ/external/E = H.organs_by_name[BP_GROIN]
+	if(!E || !E.is_usable())
+		stance_damage += 10
+	else if (E.is_broken())
+		stance_damage += 3
+	return stance_damage
+
+/datum/species/golem/technomancer/handle_emp_act(mob/living/carbon/human/H, var/severity)
+	H.apply_damage(75 * (4 - severity)) // their brute_mod means damage needs to be high
+	return TRUE

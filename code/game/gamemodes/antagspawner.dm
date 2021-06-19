@@ -57,6 +57,7 @@
 	icon_state = "locator"
 	mob_type = /mob/living/carbon/human
 	ghost_role_id = "technoapprentice"
+	var/outfit_type = /datum/outfit/admin/techomancer/apprentice
 
 /obj/item/antag_spawner/technomancer_apprentice/attack_self(var/mob/user)
 	if(uses <= 0)
@@ -75,15 +76,20 @@
 
 /obj/item/antag_spawner/technomancer_apprentice/assign_player(var/mob/user)
 	var/turf/T = get_turf(src)
-	var/mob/living/carbon/human/G = new /mob/living/carbon/human(T)
+	var/mob/living/carbon/human/G = new mob_type(T)
 	G.ckey = user.ckey
 
 	anim(T, G, 'icons/mob/mob.dmi', null,"phasein-blue", null, G.dir)
 
-	G.preEquipOutfit(/datum/outfit/admin/techomancer/apprentice, FALSE)
-	G.equipOutfit(/datum/outfit/admin/techomancer/apprentice, FALSE)
+	G.preEquipOutfit(outfit_type, FALSE)
+	G.equipOutfit(outfit_type, FALSE)
 	technomancers.add_antagonist(G.mind, FALSE, TRUE, FALSE, FALSE, FALSE)
 
 	qdel(src)
 
 	return G
+
+/obj/item/antag_spawner/technomancer_apprentice/golem
+	mob_type = /mob/living/carbon/human/technomancer_golem
+	ghost_role_id = "technogolem"
+	outfit_type = /datum/outfit/admin/techomancer/golem

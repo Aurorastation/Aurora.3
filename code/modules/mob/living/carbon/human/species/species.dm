@@ -698,3 +698,67 @@
 	if(reference)
 		return src
 	return name
+
+// prevents EMP damage if return it returns TRUE
+/datum/species/proc/handle_emp_act(var/mob/living/carbon/human/H, var/severity)
+	return FALSE
+
+/datum/species/proc/handle_movement_tally(var/mob/living/carbon/human/H)
+	var/tally = 0
+	if(istype(H.buckled_to, /obj/structure/bed/chair/wheelchair))
+		for(var/organ_name in list(BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM))
+			var/obj/item/organ/external/E = H.get_organ(organ_name)
+			if(!E || E.is_stump())
+				tally += 4
+			else if(E.status & ORGAN_SPLINTED)
+				tally += 0.5
+			else if(E.status & ORGAN_BROKEN)
+				tally += 1.5
+	else
+		for(var/organ_name in list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG))
+			var/obj/item/organ/external/E = H.get_organ(organ_name)
+			if(!E || E.is_stump())
+				tally += 4
+			else if((E.status & ORGAN_BROKEN) || (E.tendon_status() & TENDON_CUT))
+				tally += 1.5
+			else if((E.status & ORGAN_SPLINTED) || (E.tendon_status() & TENDON_BRUISED))
+				tally += 0.5
+	return tally
+
+/datum/species/proc/handle_stance_damage(var/mob/living/carbon/human/H, var/damage_only = FALSE)
+	var/static/support_limbs = list(
+		BP_L_LEG = BP_R_LEG,
+		BP_L_FOOT = BP_R_FOOT
+	)
+
+	var/has_opposite_limb = FALSE
+	var/stance_damage = 0
+	for(var/limb_tag in list(BP_L_LEG, BP_L_FOOT, BP_R_LEG, BP_R_FOOT))
+		var/obj/item/organ/external/E = H.organs_by_name[limb_tag]
+		if(!E || (E.status & (ORGAN_MUTATED|ORGAN_DEAD)) || E.is_stump()) //should just be !E.is_usable() here but dislocation screws that up.
+			has_opposite_limb = H.get_organ(support_limbs[limb_tag])
+			if(!has_opposite_limb)
+				stance_damage += 10 //No walking for you with no supporting limb, buddy.
+				break
+			else
+				stance_damage += 2
+		else if (E.is_malfunctioning())
+			//malfunctioning only happens intermittently so treat it as a missing limb when it procs
+			stance_damage += 2
+			if(!damage_only && prob(10))
+				H.visible_message(SPAN_WARNING("\The [H]'s [E.name] [pick("twitches", "shudders")] and sparks!"))
+				spark(H, 5)
+		else if (E.is_broken() || !E.is_usable())
+			stance_damage += 1
+		else if (E.is_dislocated())
+			stance_damage += 0.5
+
+	// Canes and crutches help you stand (if the latter is ever added)
+	// One cane mitigates a broken leg+foot, or a missing foot.
+	// No double caning allowed, sorry. Canes also don't work if you're missing a functioning pair of feet or legs.
+	if(has_opposite_limb)
+		var/obj/item/cane/C = H.get_type_in_hands(/obj/item/cane)
+		if(C?.can_support)
+			stance_damage -=2
+
+	return stance_damage

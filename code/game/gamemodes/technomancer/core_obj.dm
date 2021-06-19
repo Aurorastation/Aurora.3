@@ -30,9 +30,15 @@
 	var/list/wards_in_use = list()	// Wards don't count against the cap for other summons.
 	var/max_summons = 10			// Maximum allowed summoned entities.  Some cores will have different caps.
 
+	var/never_remove = FALSE		// whether it can ever be removed
+
 /obj/item/technomancer_core/Initialize()
 	. = ..()
 	START_PROCESSING(SSprocessing, src)
+	if(!never_remove)
+		verbs += /obj/item/technomancer_core/proc/toggle_lock
+	else
+		canremove = FALSE
 
 /obj/item/technomancer_core/Destroy()
 	dismiss_all_summons()
@@ -86,7 +92,7 @@
 	if(wearer && wearer.mind)
 		if(!(technomancers.is_antagonist(wearer.mind))) // In case someone tries to wear a stolen core.
 			wearer.adjust_instability(20)
-	if(!wearer || wearer.stat == DEAD) // Unlock if we're dead or not worn.
+	if(!never_remove && (!wearer || wearer.stat == DEAD)) // Unlock if we're dead or not worn.
 		canremove = TRUE
 
 /obj/item/technomancer_core/proc/regenerate()
@@ -337,13 +343,15 @@
 	desc = "A bewilderingly complex 'black box' that allows the wearer to accomplish amazing feats.  This type is not meant \
 	to be worn on the back like other cores.  Instead it is meant to be installed inside a synthetic shell.  As a result, it's \
 	a lot more robust."
+	item_state = null
 	energy = 25000
 	max_energy = 25000
 	regen_rate = 100 //250 seconds to full
 	instability_modifier = 0.75
+	never_remove = TRUE
 
 
-/obj/item/technomancer_core/verb/toggle_lock()
+/obj/item/technomancer_core/proc/toggle_lock()
 	set name = "Toggle Core Lock"
 	set category = "Object"
 	set desc = "Toggles the locking mechanism on your manipulation core."

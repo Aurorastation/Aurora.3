@@ -98,3 +98,15 @@
 /datum/hud_data/construct
 	has_hydration = FALSE
 	has_nutrition = FALSE
+
+/datum/hud_data/technomancer_golem
+	has_hydration = FALSE
+	has_nutrition = FALSE
+
+	gear = list(
+		"l_ear" =        list("loc" = ui_shoes,     "name" = "left ear",     "slot" = slot_l_ear,     "state" = "l_ear",  "toggle" = 1),
+		"back" =         list("loc" = ui_back,      "name" = "back",         "slot" = slot_back,      "state" = "back", "slot_type" = /obj/screen/inventory/back),
+		"id" =           list("loc" = ui_id,        "name" = "id",           "slot" = slot_wear_id,   "state" = "id"),
+		"storage1" =     list("loc" = ui_storage1,  "name" = "left pocket",  "slot" = slot_l_store,   "state" = "pocket"),
+		"storage2" =     list("loc" = ui_storage2,  "name" = "right pocket", "slot" = slot_r_store,   "state" = "pocket")
+		)
