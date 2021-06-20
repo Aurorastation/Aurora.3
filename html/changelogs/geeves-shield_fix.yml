@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed a bug that caused technomancer shields to entirely not work."
-  - tweak: "Getting hit by a projectile will now properly say the limb name instead of the attack zone name."

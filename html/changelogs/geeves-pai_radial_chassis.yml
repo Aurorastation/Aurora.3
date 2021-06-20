@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Choosing a pAI chassis is now a radial menu."
