@@ -89,8 +89,8 @@
 	if(wielded && default_parry_check(user, attacker, damage_source) && prob(parry_chance))
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
 		playsound(user.loc, /decl/sound_category/punchmiss_sound, 50, 1)
-		return 1
-	return 0
+		return PROJECTILE_STOPPED
+	return FALSE
 
 /obj/item/material/twohanded/update_icon()
 	icon_state = "[base_icon][wielded]"

@@ -151,6 +151,7 @@
 		user.visible_message(SPAN_WARNING("\The [user] carefully removes \the [rig] from \the [src]."), \
 							SPAN_NOTICE("You carefully remove \the [rig] from \the [src]."))
 		rig.forceMove(get_turf(user))
+		rig.detached()
 		user.put_in_hands(rig)
 		rig = null
 		overlays = new/list()

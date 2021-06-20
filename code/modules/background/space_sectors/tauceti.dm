@@ -7,7 +7,7 @@
 /datum/space_sector/tau_ceti/romanovich
 	name = SECTOR_ROMANOVICH
 	description = "The Romanovich Cloud is a shell of icy, rocky and metallic bodies that orbit very distant Tau Ceti, past even the Dust Belt. Rich in deposits of precious and\
-	 semi-precious metals as well as radioactive elements, the Romanovich Cloud is the source of nearly all the raw materials used within Tau Ceti.The cloud is also one of the few\
+	 semi-precious metals as well as radioactive elements, the Romanovich Cloud is the source of nearly all the raw materials used within Tau Ceti. The cloud is also one of the few\
 	  sources of Phoron, a volatile but highly-sought after compound, known for its uses in the biomedical and energy industries. Most of the sources of Phoron within the Romanovich \
 	  Cloud are under control of NanoTrasen, which has consequently established many high-tech research facilities in the area in the past few years."
 

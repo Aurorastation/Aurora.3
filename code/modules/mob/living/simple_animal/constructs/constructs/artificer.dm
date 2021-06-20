@@ -8,7 +8,6 @@
 	maxHealth = 50
 	health_prefix = "artificer"
 	response_harm = "viciously beaten"
-	harm_intent_damage = 5
 	melee_damage_lower = 10
 	melee_damage_upper = 10
 	attacktext = "rammed"
