@@ -173,7 +173,7 @@ emp_act
 		. = shield.handle_shield(src, is_on_back, damage, damage_source, attacker, def_zone, attack_text)
 		if(.)
 			return
-	return 0
+	return FALSE
 
 /mob/living/carbon/human/emp_act(severity)
 	if(isipc(src))
