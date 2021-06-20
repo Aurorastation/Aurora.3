@@ -91,9 +91,6 @@ As a Cultist, invest in taking over xenobio, an adamantine golem army can quickl
 As a Cultist, your team starts off very weak, but if necessary can quickly convert everything they have into raw power. Make sure you have the numbers and equipment to support going loud, or the cult will fall flat on its face.
 As a Cultist, the Blood Boil rune will deal massive amounts of brute damage to non-cultists and some damage to fellow cultists of Nar-Sie nearby.
 As a Cultist, you can create an army of manifested goons using a combination of the Manifest rune, which creates homunculi from ghosts, and the Blood Drain rune, which drains life from anyone standing on any blood drain rune.
-As a Wizard, the fireball spell performs very poorly at close range, as it can easily catch you in the blast. It is best used as a form of artillery down long hallways.
-As a Wizard, most spells become unusable if you are not wearing your wizard robe and hat.
-As a Wizard, remember to get spells for yourself, and not scrolls, unless you want to give an ability away to someone. Scroll costs double!
 As a Ghost, you can double click on people, bots, or the singularity to follow them.
 Occasionally the tip of the round might lie to you. Don't panic, this is normal.
 To defeat your enemy, shoot at them until they die.
@@ -171,3 +168,15 @@ Fax machines cannot comprehend the elegant penmanship that is cursive. It is a s
 As a Xenobiologist, your monkeys are perfectly suitable for human consumption even after your slimes are done with them, perhaps you can work something out with the Chef?
 Never try to fight the hostile maintenance drones on your own.
 Spice up any round by spawning 100 greimorian larva on top of a vent.
+There is no cloning, but you can respawn... as a different person, obviously.
+As a Loner, your psionic powers are a mystery to us all.
+As a Maintenance Drone, you can put on hats, but not take them off.
+As a Maintenance Drone, you cannot repair yourself but you can ask other maintenance drones to do it for you.
+Destroy the bluespace inhibitor for a whacky, wild adventure.
+The Naintenance Drones will never threaten to stab you, and in fact, cannot speak.
+The Bluespace Technicians aren't real, they can't hurt you.
+During an Extended round, there is no escape.
+As a Dionaea, you can store items in your stomach, including guns.
+As a Janitor, you have an excuse to be almost anywhere.
+The Newscasters are actively updated with Aurora lore... please read them.
+Built wth resentment, contains technical debt, made in B̷̨͈̩͚͎̬̘̦̟͋̉͗͒̑̀̉̓̈́͐͛́͆̚͘͠ͅȳ̸̤͈͈̰̈́͒͗̏͆̓̾͌͒̏̚͠ơ̵̢͎̩̮̝͓͎̱͉̰̪̳͎̦̈̆̃̉̐̌̑̑́̚͜͝͝n̸̘̠̺̺͍̬̣͛̏̎͌̈́̅̓͆͋ͅd̷̢͇̖̘͎͙̰̮̯̻̹̖̬̣̖̄̑̏́̃̉͑̓͌̀͜.
