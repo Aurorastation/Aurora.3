@@ -272,8 +272,8 @@
 
 		spark(user.loc, 5)
 		playsound(user.loc, 'sound/weapons/blade.ogg', 50, 1)
-		return 1
-	return 0
+		return PROJECTILE_STOPPED
+	return FALSE
 
 /obj/item/holo/esword/New()
 	if(!item_color)

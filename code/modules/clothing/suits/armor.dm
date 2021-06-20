@@ -168,7 +168,7 @@
 
 		user.forceMove(picked)
 		return PROJECTILE_FORCE_MISS
-	return 0
+	return FALSE
 
 /obj/item/clothing/suit/armor/reactive/attack_self(mob/user as mob)
 	src.active = !( src.active )
