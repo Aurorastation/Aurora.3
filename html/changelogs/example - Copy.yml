@@ -1,9 +1,0 @@
-author: Doxxmedearly
-
-delete-after: True
-
-changes:
-  - bugfix: "Collectable HOS cap now has an on-mob sprite."
-  - bugfix: "Flipped versions of the Himean and Vysokan hats now have in-hand and worn sprites."
-  - bugfix: "Fixed an issue where flipped softcaps would reset to unflipped when being equipped."
-  - bugfix: "Absorbing nymphs should no longer duplicate hats worn by nymphs if they later are split from the gestalt."
