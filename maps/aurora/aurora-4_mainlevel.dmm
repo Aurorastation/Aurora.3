@@ -41223,7 +41223,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_medical{
 	name = "Custodial Closet";
-	req_access = list(66)
+	req_access = null;
+	req_one_access = list(26, 66)
 	},
 /obj/structure/cable/green{
 	d1 = 1;
