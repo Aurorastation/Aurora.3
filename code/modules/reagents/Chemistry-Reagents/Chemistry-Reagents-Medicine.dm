@@ -923,10 +923,6 @@
 	messagedelay = MEDICATION_MESSAGE_DELAY * 0.75
 	goodmessage = list("You feel good.","You feel relaxed.","You feel alert and focused.")
 
-/decl/reagent/mental/nicotine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	. = ..()
-	M.add_chemical_effect(CE_PAINKILLER, 5)
-
 /decl/reagent/mental/nicotine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale, var/datum/reagents/holder)
 	. = ..()
 	M.adjustOxyLoss(10 * removed * scale)

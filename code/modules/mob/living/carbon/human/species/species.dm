@@ -553,6 +553,7 @@
 	if (!H.exhaust_threshold)
 		return 1 // Handled.
 
+	cost += H.getOxyLoss() * 0.1 //The less oxygen we get, the more we strain. 
 	cost *= H.sprint_cost_factor
 	if (H.stamina == -1)
 		log_debug("Error: Species with special sprint mechanics has not overridden cost function.")
@@ -588,14 +589,15 @@
 		if(O.is_bruised())
 			H.adjustOxyLoss(remainder*0.15)
 			H.adjustHalLoss(remainder*0.25)
+		H.adjustOxyLoss(remainder * 0.2) //Keeping oxyloss small when out of stamina to prevent old issue where running until exhausted sometimes gave you brain damage.
 
 	if(!pre_move)
-		H.adjustHalLoss(remainder*0.25)
+		H.adjustHalLoss(remainder*0.3)
 		H.updatehealth()
 		if((H.get_shock() >= 10) && prob(H.get_shock() *2))
 			H.flash_pain(H.get_shock())
 
-	if((H.get_shock() + H.getOxyLoss()) >= (exhaust_threshold * 0.8))
+	if((H.get_shock() + H.getOxyLoss()*2) >= (exhaust_threshold * 0.8))
 		H.m_intent = M_WALK
 		H.hud_used.move_intent.update_move_icon(H)
 		to_chat(H, SPAN_DANGER("You're too exhausted to run anymore!"))
