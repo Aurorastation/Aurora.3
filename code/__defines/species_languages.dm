@@ -15,7 +15,7 @@
 // unused: 0x8000(32768) - higher than this will overflow
 
 // Base flags for IPCs.
-#define IS_IPC (NO_BREATHE|NO_SCAN|NO_BLOOD|NO_PAIN|NO_POISON|IS_MECHANICAL|NO_CHUBBY)
+#define IS_IPC (NO_BREATHE|NO_SCAN|NO_BLOOD|NO_PAIN|NO_POISON|IS_MECHANICAL|NO_CHUBBY|PHORON_IMMUNE)
 
 // Species spawn flags
 #define IS_WHITELISTED    0x1    // Must be whitelisted to play.
