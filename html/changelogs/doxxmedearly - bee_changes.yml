@@ -1,9 +1,0 @@
-author: Doxxmedearly
-
-delete-after: True
-
-changes:
-  - tweak: "Bee venom no longer does organ (Tox) damage. The tox damage has bee-n replaced by pain and oxyloss."
-  - tweak: "Bee behavior (Beehavior) should bee a little less finicky."
-  - tweak: "Synthetics should no longer bee targeted by bees or affected by their stings."
-  - tweak: "Some swarms of bees fired from the mobile apiary will bee slightly stronger than their natural counterparts."
