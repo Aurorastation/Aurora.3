@@ -1,0 +1,7 @@
+author: Geeves, Scrambles
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a new kind of non-hostile biological migration event."
+  - bugfix: "Goats will now properly beat someone up when they enter a fey mood."
