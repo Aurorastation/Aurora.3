@@ -5,6 +5,7 @@
 #define SECTOR_VALLEY_HALE			"Valley Hale"
 #define SECTOR_BADLANDS				"Badlands"
 #define SECTOR_NEW_ANKARA			"New Ankara"
+#define SECTOR_AEMAQ				"Aemaq"
 #define SECTOR_SRANDMARR			"S'rand'marr"
 #define SECTOR_NRRAHRAHUL			"Nrrahrahul"
 #define SECTOR_GAKAL				"Gakal"

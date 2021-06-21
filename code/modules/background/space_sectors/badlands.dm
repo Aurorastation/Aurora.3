@@ -17,6 +17,14 @@
 	before and after independence. Commercial and service sector jobs remain the highest employer, second to refineries processing phoron or other minerals transported to the planet's \
 	orbit. This is among the primary locations in Elyra where phoron can be found in abundance."
 
+/datum/space_sector/aemag
+	name = SECTOR_AEMAQ
+	description = "Located in the Serene Republic of Elyra, the al-Wakwak System is most well-known as the home of Aemaq -- one of the largest chemical production centres of the Orion \
+	Spur. Aemaq is known for its strikingly purple chemical seas that cover the entirety of its surface and its floating cities that hover above the sea, such as its capital of \
+	Rumaidair. The chemical seas are home to a variety of fauna, some of which are known as leviathans -- truly massive creatures able to grow up to two kilometers long! Though the \
+	planet well-known for its research into the seas the chemical industry remains the primary employer on Aemaq, and many hopeful immigrants to the Republic find themselves working \
+	in the massive chemical plants of Aemaq to make ends meet."
+
 /datum/space_sector/srandmarr
 	name = SECTOR_SRANDMARR
 	description = "S'rand'marr is the star system home to Adhomai, the homeworld of the Tajara species. Adhomai is the fourth planet from S'rendarr. It is a cold and icy world, suffering from \
