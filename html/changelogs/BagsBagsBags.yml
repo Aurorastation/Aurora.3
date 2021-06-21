@@ -1,7 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscadd: "Several new bags are now available in char setup, with pocketbooks being smaller than other bags."
-  - rscadd: "Purses are now available in the loadout under utility. Be fashionable today!"
