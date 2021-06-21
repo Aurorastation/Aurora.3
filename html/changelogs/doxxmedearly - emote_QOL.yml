@@ -1,0 +1,8 @@
+author: Doxxmedearly
+
+delete-after: True
+
+changes:
+  - bugfix: "The deathgasp emote no longer makes you vomit."
+  - rscdel: "Removed some leftover vox emotes."
+  - rscdel: "Removed some humanlike emotes from stationbounds, specifically the ones that you can't do because you don't have hands or a head."
