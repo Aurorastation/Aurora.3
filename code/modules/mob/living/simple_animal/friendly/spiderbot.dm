@@ -188,6 +188,9 @@
 	remove_language("Robot Talk")
 	positronic = null
 
+/mob/living/simple_animal/spiderbot/get_radio()
+	return radio
+
 /mob/living/simple_animal/spiderbot/Destroy()
 	eject_brain()
 	return ..()

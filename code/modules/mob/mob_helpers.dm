@@ -1233,6 +1233,9 @@ proc/is_blind(A)
 /mob/get_cell()
 	return FALSE
 
+/mob/proc/get_radio()
+	return null
+
 /mob/proc/can_hear_radio(var/list/speaker_coverage = list())
 	var/turf/ear = get_turf(src)
 	if(ear && speaker_coverage[ear])

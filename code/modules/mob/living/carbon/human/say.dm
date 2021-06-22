@@ -146,7 +146,7 @@
 	returns = species.handle_speech_problems(src, returns, message, verb, message_mode)
 	return returns
 
-/mob/living/carbon/human/proc/get_radio()
+/mob/living/carbon/human/get_radio()
 	var/list/headsets = list()
 	if(istype(l_ear, /obj/item/device/radio))
 		headsets["Left Ear"] = l_ear
