@@ -482,7 +482,7 @@ datum/preferences
 		else
 			all_underwear -= underwear_category_name
 
-	if(backbag > OUTFIT_MESSENGERBAG || backbag < OUTFIT_NOTHING)
+	if(backbag > OUTFIT_AUBURNPOCKETBOOK || backbag < OUTFIT_NOTHING)
 		backbag = OUTFIT_NOTHING //Same as above
 	character.backbag = backbag
 	character.backbag_style = backbag_style

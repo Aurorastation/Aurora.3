@@ -238,6 +238,14 @@
 	taste_description = "cold, bitter slime"
 	hydration_factor = 6
 
+/decl/reagent/nutriment/protein/seafood/cosmozoan
+	name = "Cosmozoan Protein"
+	taste_description = "cold, bitter slime"
+	hydration_factor = 8
+
+/decl/reagent/nutriment/protein/seafood/cosmozoan/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	M.add_chemical_effect(CE_PAINKILLER, 10)
+
 /decl/reagent/nutriment/protein/egg // Also bad for skrell.
 	name = "Egg Yolk"
 	color = "#FFFFAA"

@@ -110,9 +110,11 @@
 	name = "Free Solarian Fleets Synthetic Unit"
 
 	uniform = /obj/item/clothing/under/rank/fatigues
+	accessory = /obj/item/clothing/accessory/storage/webbingharness/pouches/ert
+	accessory_contents = list(/obj/item/gun/projectile/pistol/sol = 1, /obj/item/ammo_magazine/mc9mm = 2)
 	shoes = /obj/item/clothing/shoes/jackboots
 	belt = /obj/item/storage/belt/utility/very_full
-	head = null
+	head = /obj/item/clothing/head/helmet/pilot
 	suit = null
 	suit_store = null
 	l_pocket = null
@@ -123,6 +125,5 @@
 	backpack_contents = list(
 		/obj/item/melee/energy/sword/knife/sol = 1,
 		/obj/item/grenade/smokebomb = 2,
-		/obj/item/device/binoculars = 1,
-		/obj/item/ammo_magazine/mc9mm = 2
+		/obj/item/device/binoculars = 1
 	)
