@@ -338,7 +338,7 @@
 				if(WT.remove_fuel(0, user))
 					build_step++
 					name = "shielded frame assembly"
-					to_chat(user, "<span class='notice'>You welded the vest to [src].</span>")
+					to_chat(user, "<span class='notice'>You welded the armor to [src].</span>")
 					return 1
 		if(4)
 			if(istype(W, /obj/item/clothing/head/helmet))
