@@ -7,6 +7,7 @@
 	icon_has_variants = TRUE
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	default_type = MATERIAL_HIDE
 	var/bare = FALSE //is this hair devoid of fur, hair, scales, carapace? Prevents re-stripping. Can also apply it to a hide type if we don't want to tan, like, xeno hide.
 	var/hide_type = "hair" //type of skin this animal has; scales for lizard, carapace for xeno.
 
@@ -91,7 +92,7 @@
 /obj/item/stack/material/animalhide/wetleather
 	name = "wet leather"
 	desc = "This leather has been cleaned but still needs to be dried."
-	desc_info = "This can be dried into proper leather by exposing it to a fire of a sufficient temperature, or manually with a welding tool."
+	desc_info = "This can be dried into high-quality fine leather by exposing it to a fire of a sufficient temperature, or manually with a welding tool. You don't need eye protection for the welding tool."
 	singular_name = "wet leather piece"
 	icon_state = "sheet-wetleather"
 	default_type = "wet leather"
@@ -100,6 +101,11 @@
 	var/wetness = 30 //Reduced when exposed to high temperautres or manually dried with a welding tool.
 	var/drying_threshold_temperature = 500 //Kelvin to start drying from exposed fire.
 	var/being_dried = FALSE //If we're manually drying this.
+
+//Wet leather can't be used to make things. Too soggy.
+/obj/item/stack/material/animalhide/wetleather/list_recipes(mob/user, recipes_sublist, var/datum/stack_recipe/sublist)
+	to_chat(user, SPAN_WARNING("\The [src] isn't suitable for crafting!"))
+	return
 
 
 //Animal Hide to leather steps
@@ -125,7 +131,7 @@
 			if(locate(/obj/item/stack/material/animalhide/barehide) in get_turf(user))
 				for(var/obj/item/stack/material/animalhide/barehide/BH in get_turf(user))
 					if(BH.amount < BH.max_amount)
-						BH.amount++
+						BH.add(1)
 						to_chat(user, SPAN_NOTICE("You add the newly-stripped hide to the stack. It now contains [BH.amount] hides."))
 						break
 			//if there isn't one, just make a new hide.
@@ -154,11 +160,15 @@
 				return
 			user.visible_message(SPAN_NOTICE("\The [user] starts drying \the [src] with \the [WT]."), SPAN_NOTICE("You start drying the wet leather with \the [WT]..."))
 			being_dried = TRUE
-			while(do_after(user, 20, act_target = src) && wetness < 0)
+			while(do_after(user, 20, act_target = src) && wetness > 0)
 				if(!WT.remove_fuel(1) || !WT.isOn())
 					break
-				wetness = max(0, wetness - rand(1, 3))
+				if(prob(5))
+					var/msg = pick("You run the tool over \the [src]...", "The leather is drying nicely...", "You spread the heat out evenly...", "You continue to dry out \the [src].")
+					to_chat(user, SPAN_NOTICE(msg))
+				wetness = max(0, wetness - rand(3, 5)) //6 to 10 passes
 				if(wetness <= 0)
+					to_chat(user, SPAN_NOTICE("You dry \the [src] completely, making a piece of leather!"))
 					make_leather()
 				if(!amount || QDELETED(src)) //Safety
 					break
@@ -173,15 +183,15 @@
 //This will use one piece of the stack, create a piece of leather, then reset the wetness level to simulate drying the next piece of the stack.
 /obj/item/stack/material/animalhide/wetleather/proc/make_leather()
 	//see if there's a stack we can add to
-	if(locate(/obj/item/stack/material/leather) in get_turf(src))
-		for(var/obj/item/stack/material/leather/L in get_turf(src))
+	if(locate(/obj/item/stack/material/leather/fine) in get_turf(src))
+		for(var/obj/item/stack/material/leather/fine/L in get_turf(src))
 			if(L.amount < L.max_amount)
-				L.amount++
+				L.add(1)
 				use(1)
 				wetness = initial(wetness)
 				break
 	//If it gets to here it means it did not find a suitable stack on the tile.
 	else
-		new /obj/item/stack/material/leather(get_turf(src))
+		new /obj/item/stack/material/leather/fine(get_turf(src))
 		use(1)
 		wetness = initial(wetness)

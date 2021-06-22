@@ -72,6 +72,9 @@
 	if(state in list(1,3,6) )
 		usr.forceMove(src.loc)
 
+/obj/machinery/washing_machine/AltClick(mob/user)
+	if(Adjacent(user))
+		start()
 
 /obj/machinery/washing_machine/update_icon()
 	icon_state = "wm_[state][panel]"
