@@ -322,7 +322,7 @@
 				return 1
 
 		if(2)
-			if(istype(W, /obj/item/clothing/suit/storage/vest))
+			if(istype(W, /obj/item/clothing/accessory/armor_plate))
 				user.drop_from_inventory(W,get_turf(src))
 				qdel(W)
 				build_step++
@@ -377,7 +377,7 @@
 				return
 
 		if(7)
-			if(istype(W, /obj/item/gun/energy/taser))
+			if(istype(W, /obj/item/gun/energy/disruptorpistol))
 				name = "taser ED-209 assembly"
 				build_step++
 				to_chat(user, "<span class='notice'>You add [W] to [src].</span>")
