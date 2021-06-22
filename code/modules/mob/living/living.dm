@@ -845,11 +845,37 @@ default behaviour is:
 	..()
 
 //damage/heal the mob ears and adjust the deaf amount
-/mob/living/adjustEarDamage(var/damage, var/deaf)
+/mob/living/adjustEarDamage(var/damage, var/deaf, var/ringing = FALSE, var/deafened = FALSE)
+	//var/alreadydeaf
+	// if ()
+	if (istype(src, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = src
+		if (H.species.hearing_sensitive)
+			if (H.species.hearing_sensitive == 2)
+				damage *= 2
+			else
+				damage = round(damage *= 1.5)
 	ear_damage = max(0, ear_damage + damage)
 	ear_deaf = max(0, ear_deaf + deaf)
 
+	// if (ear_damage >= 5 && ringing)
+	// 	if (ear_damage >= 15)
+	// 		SPAN_DANGER("Your ears start to ring badly!")
+	// 	else
+	// 		SPAN_DANGER("Your ears start to ring!")
+
+	// if (M.ear_damage >= 15)
+	// 	to_chat(M, "<span class='danger'>Your ears start to ring badly!</span>")
+	// 	if(!banglet && !(istype(src , /obj/item/grenade/flashbang/clusterbang)))
+	// 		if (prob(M.ear_damage - 10 + 5))
+	// 			to_chat(M, "<span class='danger'>You can't hear anything!</span>")
+	// 			M.sdisabilities |= DEAF
+	// else
+	// 	if (M.ear_damage >= 5)
+	// 		to_chat(M, "<span class='danger'>Your ears start to ring!</span>")
+
 //pass a negative argument to skip one of the variable
+
 /mob/living/setEarDamage(var/damage, var/deaf)
 	if(damage >= 0)
 		ear_damage = damage

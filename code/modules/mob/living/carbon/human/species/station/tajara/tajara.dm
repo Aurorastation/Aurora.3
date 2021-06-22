@@ -47,8 +47,10 @@
 	low_pulse = 50 // Default 40
 	norm_pulse = 70 // Default 60
 	fast_pulse = 100 // Default 90
-	v_fast_pulse = 130// Default 120
-	max_pulse = 170// Default 160
+	v_fast_pulse = 130 // Default 120
+	max_pulse = 170 // Default 160
+
+	hearing_sensitive = 1 // Default 0
 
 	blurb = "The Tajaran race is a species of feline-like bipeds hailing from the planet of Adhomai in the S'rendarr \
 	system. They have been brought up into the space age by the Humans and Skrell, who alledgedly influenced their \

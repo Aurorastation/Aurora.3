@@ -61,6 +61,7 @@
 	heat_level_2 = 390 //RaceDefault 380 Default 400
 	heat_level_3 = 900 //RaceDefault 800 Default 1000
 
+	hearing_sensitive = 2 // Species default 1
 
 	default_h_style = "M'sai Ears"
 

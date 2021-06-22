@@ -103,6 +103,23 @@
 			message = replacetext(message, "b", "ß")
 
 	var/list/listening = hearers(message_range, src)
+	var/list/sensitivie_hearing = hearers(2, src)
+	var/list/very_sensitive_hearing = hearers(3, src)
+	
+	for (var/mob/M in listening)
+		sensitivie_hearing -= M
+		very_sensitive_hearing -= M
+	for (var/mob/M in sensitivie_hearing)
+		if (istype(M, /mob/living/carbon/human))
+			var/mob/living/carbon/human/H = M
+			if (H.species.hearing_sensitive == 1)
+				listening += M
+	for (var/mob/M in very_sensitive_hearing)
+		if (istype(M, /mob/living/carbon/human))
+			var/mob/living/carbon/human/H = M
+			if (H.species.hearing_sensitive == 2)
+				listening += M
+	
 	listening |= src
 
 	//ghosts

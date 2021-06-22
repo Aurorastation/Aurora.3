@@ -91,6 +91,7 @@
 	var/break_cuffs = FALSE                   //used in resist.dm to check if they can break hand/leg cuffs
 	var/natural_climbing = FALSE             //If true, the species always succeeds at climbing.
 	var/climb_coeff = 1.25                   //The coefficient to the climbing speed of the individual = 60 SECONDS * climb_coeff
+	
 	// Death vars.
 	var/respawn_type = CREW
 	var/meat_type = /obj/item/reagent_containers/food/snacks/meat/human
@@ -202,6 +203,10 @@
 	var/bp_base_systolic = 120
 	var/bp_base_disatolic = 80
 
+	// Hearing sensitivity
+	var/hearing_sensitive = 0 // 1: sensitive, 2: *very* sensitive
+
+	// Eating & nutrition related stuff
 	var/gluttonous = 0            // Can eat some mobs. Values can be GLUT_TINY, GLUT_SMALLER, GLUT_ANYTHING, GLUT_ITEM_TINY, GLUT_ITEM_NORMAL, GLUT_ITEM_ANYTHING, GLUT_PROJECTILE_VOMIT
 	var/stomach_capacity = 5      // How much stuff they can stick in their stomach
 	var/allowed_eat_types = TYPE_ORGANIC
