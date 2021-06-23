@@ -64,6 +64,7 @@
 	flags = WHITELISTED | NONVERBAL
 	syllables = list("azs","zis","zau","azua","skiu","zuakz","izo","aei","ki","kut","zo")
 	partial_understanding = list(LANGUAGE_UNATHI = 50)
+	allow_accents = TRUE
 
 // tajaran languages
 /datum/language/tajaran
