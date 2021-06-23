@@ -3490,3 +3490,10 @@
 	result = /decl/reagent/alcohol/fisfirebomb
 	required_reagents = list(/decl/reagent/alcohol/ale = 1, /decl/reagent/alcohol/fiscream = 1)
 	result_amount = 2
+
+/datum/chemical_reaction/drink/veterans_choice
+	name = "Veteran's Choice"
+	id = "veterans_choice"
+	result = /decl/reagent/alcohol/veterans_choice
+	required_reagents = list(/decl/reagent/alcohol/messa_mead = 1, /decl/reagent/gunpowder = 1)
+	result_amount = 2
