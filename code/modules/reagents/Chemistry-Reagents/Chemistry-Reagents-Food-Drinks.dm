@@ -1032,12 +1032,11 @@
 
 /decl/reagent/drink/milk/schlorrgo/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
-	if(ishuman(M))
+	if(alien == IS_TAJARA && prob(5))
 		var/mob/living/carbon/human/H = M
-		if(alien && alien == IS_TAJARA && prob(5))
-			if(H.can_feel_pain())
-				H.custom_pain("You feel a stinging pain in your abdomen!")
-				H.Stun(3)
+		if(H.can_feel_pain())
+			H.custom_pain("You feel a stinging pain in your abdomen!")
+			H.Stun(3)
 
 /decl/reagent/drink/tea
 	name = "Tea"
