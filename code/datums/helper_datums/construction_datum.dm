@@ -6,6 +6,7 @@
 	var/atom/holder
 	var/result
 	var/list/steps_desc
+	var/current_desc = null
 
 	New(atom)
 		..()
@@ -66,8 +67,11 @@
 
 	proc/set_desc(index as num)
 		var/list/step = steps[index]
-		holder.desc = step["desc"]
+		current_desc = step["desc"]
 		return
+
+	proc/get_desc()
+		return SPAN_NOTICE(current_desc)
 
 /datum/construction/reversible
 	var/index
