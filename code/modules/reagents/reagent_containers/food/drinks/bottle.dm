@@ -652,8 +652,9 @@
 	desc = "A fancy bottle contained sought-after Darmadhir's nm'shaan liquor. It is more of a collection piece than a beverage."
 	icon_state = "darmadhirbrew"
 	center_of_mass = list("x" = 16,"y" = 5)
-	desc_fluff = "A cocktail consisting of Messa's Mead and gunpowder. Supposedly originated among the ranks of the Liberation Army as an attempt to spice up the mead, the cocktail \
-	became a hit - not because of its taste - with the young Tajara. Drinking the Veteran's Choice is seen as a way to display one's bravado. ALA soldiers are known to consume the cocktail before going into battle believing that it brings luck."
+	desc_fluff = "A famous variation of the Nm'shaan Liquor; it is described as one of Adhomai's finest spirits. It is produced solely by a small family-owned brewery in Miran'mir. Its \
+	recipe is a secret passed down through the generations of the Darmadhir household since immemorial times. The only living member of the family, Hazyr Darmadhir, is a 68 years old \
+	Tajara. His sole heir and son died in the Second Revolution after being drafted to fight for the royal army. Alcohol collectors stipulate that the brew's price will skyrocket after Hazyr's death."
 	reagents_to_add = list(/decl/reagent/alcohol/nmshaan_liquor/darmadhirbrew = 100)
 	drink_flags = NO_EMPTY_ICON
 
