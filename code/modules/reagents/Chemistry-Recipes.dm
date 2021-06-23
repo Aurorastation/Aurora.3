@@ -3497,3 +3497,19 @@
 	result = /decl/reagent/alcohol/veterans_choice
 	required_reagents = list(/decl/reagent/alcohol/messa_mead = 1, /decl/reagent/gunpowder = 1)
 	result_amount = 2
+
+/datum/chemical_reaction/drink/mutthir
+	name = "Mutthir"
+	id = "mutthir"
+	result = /decl/reagent/drink/milk/adhomai/mutthir
+	required_reagents = list(/decl/reagent/drink/milk/adhomai = 1, /decl/reagent/sugar = 1)
+	catalysts = list(/decl/reagent/enzyme = 5)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/treebark_firewater
+	name = "Tree-Bark Firewater"
+	id = "treebark_firewater"
+	result = /decl/reagent/alcohol/treebark_firewater
+	required_reagents = list(/decl/reagent/drink/earthenrootjuice = 1, /decl/reagent/sugar = 1, /decl/reagent/woodpulp = 1)
+	catalysts = list(/decl/reagent/enzyme = 5)
+	result_amount = 3

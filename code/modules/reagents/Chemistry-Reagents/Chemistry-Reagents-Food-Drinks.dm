@@ -1025,6 +1025,20 @@
 	glass_name = "glass of hakhma milk"
 	glass_desc = "A milky substance extracted from the brood sac of the viviparous Hakhma, often consumed by Offworlders and Scarabs."
 
+/decl/reagent/drink/milk/schlorrgo
+	name = "Schlorrgo Milk"
+	description = "An opaque white liquid produced by the mammary glands of the Schlorrgo."
+	taste_description = "fatty milk"
+
+/decl/reagent/drink/milk/schlorrgo/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	..()
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(alien && alien == IS_TAJARA && prob(5))
+			if(H.can_feel_pain())
+				H.custom_pain("You feel a stinging pain in your abdomen!")
+				H.Stun(3)
+
 /decl/reagent/drink/tea
 	name = "Tea"
 	description = "Tasty black tea, it has antioxidants, it's good for you!"

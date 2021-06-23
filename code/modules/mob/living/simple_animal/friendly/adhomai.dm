@@ -127,9 +127,9 @@
 	health = 50
 
 	has_udder = TRUE
-	milk_type = /decl/reagent/drink/milk
+	milk_type = /decl/reagent/drink/milk/schlorrgo
 
-	meat_type = /obj/item/reagent_containers/food/snacks/meat/chicken
+	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	organ_names = list("head", "chest", "fatty core", "blubberous torso", "thick centre", "left leg", "right leg")
 	butchering_products = list(/obj/item/reagent_containers/food/snacks/spreads/lard = 5)
 
