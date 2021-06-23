@@ -369,11 +369,11 @@ var/list/slot_equipment_priority = list( \
 	if(!item)
 		return //Grab processing has a chance of returning null
 
-	if(a_intent != I_HURT && Adjacent(target) && isitem(item))
+	if(a_intent == I_HELP && Adjacent(target) && isitem(item))
 		var/obj/item/I = item
 		if(ishuman(target))
 			var/mob/living/carbon/human/H = target
-			if(H.in_throw_mode && H.a_intent != I_HURT && unEquip(I))
+			if(H.in_throw_mode && H.a_intent == I_HELP && unEquip(I))
 				I.on_give(src, target)
 				if(!QDELETED(I)) // if on_give deletes the item, we don't want runtimes below
 					H.put_in_hands(I) // If this fails it will just end up on the floor, but that's fitting for things like dionaea.

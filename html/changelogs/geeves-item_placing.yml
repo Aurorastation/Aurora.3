@@ -3,5 +3,5 @@ author: Geeves
 delete-after: True
 
 changes:
-  - rscadd: "Throwing something at a tile adjacent to you will instead put it down gently, provided you are on any intent but harm."
-  - rscadd: "Clicking on someone with an item in your hand while you have throw mode active and not on harm intent will offer it to them like you used the Give verb. If they're also on throw intent and not on harm intent, you put it into their hand directly."
+  - rscadd: "Throwing something at a tile adjacent to you will instead put it down gently, provided you are on help intent."
+  - rscadd: "Clicking on someone with an item in your hand while you have throw mode active and on help intent will offer it to them like you used the Give verb. If they're also on throw intent and on help intent, you put it into their hand directly."
