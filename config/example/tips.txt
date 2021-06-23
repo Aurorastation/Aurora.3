@@ -186,5 +186,5 @@ Your PDA messages can't be erased, so use them wisely.
 The rules are there to help, read them today!
 Role-playing isn't easy, the wiki contains resources to help.
 Trash piles are bounties of interesting loot, but you can also hide in them, just drag your sprite onto the pile.
-As a merchant, your offer goods and services in exchange for credits.
+As a merchant, you offer goods and services in exchange for credits.
 Stand up and move around at least once every hour... in real life.
