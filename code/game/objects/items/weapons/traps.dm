@@ -4,7 +4,7 @@
 	throw_speed = 2
 	throw_range = 1
 	gender = PLURAL
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/contained_items/weapons/traps.dmi'
 	var/icon_base = "beartrap"
 	icon_state = "beartrap0"
 	randpixel = 0
@@ -16,6 +16,10 @@
 	var/deployed = FALSE
 	var/time_to_escape = 60
 	var/activated_armor_penetration = 0
+
+/obj/item/trap/Initialize()
+	. = ..()
+	update_icon()
 
 /obj/item/trap/proc/can_use(mob/user)
 	return (user.IsAdvancedToolUser() && !issilicon(user) && !user.stat && !user.restrained())
@@ -62,34 +66,22 @@
 			anchored = FALSE
 
 /obj/item/trap/attack_hand(mob/user)
-	if(buckled && can_use(user))
-		user.visible_message(
-			SPAN_NOTICE("\The [user] begins freeing \the [buckled] from \the [src]..."),
-			SPAN_NOTICE("You carefully begin to free \the [buckled] from \the [src]...")
-			)
-		if(do_after(user, time_to_escape))
-			user.visible_message(
-				SPAN_NOTICE("\The user frees \the [buckled] from \the [src]."),
-				SPAN_NOTICE("You free \the [buckled] from \the [src].")
-				)
-			unbuckle()
-			anchored = FALSE
-	else if(deployed && can_use(user))
-		user.visible_message(
-			SPAN_NOTICE("\The [user] starts to disarm \the [src]..."),
-			SPAN_NOTICE("You begin disarming \the [src]..."),
-			SPAN_WARNING("You hear a latch click followed by the slow creaking of a spring.")
-			)
-		if(do_after(user, 6 SECONDS))
-			user.visible_message(
-				SPAN_NOTICE("\The [user] disarms \the [src]!"),
-				SPAN_NOTICE("You disarm \the [src]!")
-				)
-			deployed = FALSE
-			anchored = FALSE
-			update_icon()
-	else
-		..()
+	if(can_use(user))
+		if(buckled)
+			user_unbuckle(user)
+			return
+		else if(deployed)
+			disarm_trap(user)
+			return
+	..()
+
+/obj/item/trap/proc/disarm_trap(var/mob/user)
+	user.visible_message(SPAN_NOTICE("\The [user] starts to disarm \the [src]..."), SPAN_NOTICE("You begin disarming \the [src]..."), SPAN_WARNING("You hear a latch click followed by the slow creaking of a spring."))
+	if(do_after(user, 6 SECONDS))
+		user.visible_message(SPAN_NOTICE("\The [user] disarms \the [src]!"), SPAN_NOTICE("You disarm \the [src]!"))
+		deployed = FALSE
+		anchored = FALSE
+		update_icon()
 
 /obj/item/trap/proc/attack_mob(mob/living/L)
 	var/target_zone
@@ -101,6 +93,8 @@
 	var/success = L.apply_damage(30, BRUTE, target_zone, used_weapon = src, armor_pen = activated_armor_penetration)
 	if(!success)
 		return FALSE
+
+	L.visible_message(SPAN_DANGER("\The [L] steps on \the [src]!"), FONT_LARGE(SPAN_DANGER("You step on \the [src]!")), SPAN_WARNING("<b>You hear a loud metallic snap!</b>"))
 
 	var/did_trap = TRUE
 	if(ishuman(L))
@@ -124,6 +118,10 @@
 		bear.anger += 15//traps make bears really angry
 		bear.instant_aggro()
 
+	if(!buckled)
+		anchored = FALSE
+		deployed = FALSE
+
 /obj/item/trap/Crossed(atom/movable/AM)
 	if(ishuman(AM))
 		var/mob/living/carbon/human/H = AM
@@ -131,15 +129,7 @@
 			return
 	if(deployed && isliving(AM))
 		var/mob/living/L = AM
-		L.visible_message(
-			SPAN_DANGER("\The [L] steps on \the [src]!"),
-			FONT_LARGE(SPAN_DANGER("You step on \the [src]!")),
-			SPAN_WARNING("<b>You hear a loud metallic snap!</b>")
-			)
 		attack_mob(L)
-		if(!buckled)
-			anchored = FALSE
-		deployed = FALSE
 		update_icon()
 		shake_animation()
 
@@ -153,13 +143,9 @@
 
 /obj/item/trap/animal
 	name = "small trap"
-	throw_speed = 2
-	throw_range = 1
-	gender = PLURAL
-	icon = 'icons/obj/items.dmi'
+	desc = "A small mechanical trap that's used to catch small animals like rats, lizards, and chicks."
 	icon_base = "small"
 	icon_state = "small0"
-	desc = "A small mechanical trap that's used to catch small animals like rats, lizards, and chicks."
 	throwforce = 2
 	force = 1
 	w_class = ITEMSIZE_SMALL
@@ -190,7 +176,6 @@
 		to_chat(user, "<span class='warning'>\The [src] is already full!</span>")
 
 /obj/item/trap/animal/update_icon()
-	icon = initial(icon)
 	icon_state = "[icon_base][deployed]"
 
 /obj/item/trap/animal/examine(mob/user)
@@ -629,8 +614,8 @@
 /obj/item/large_trap_foundation
 	name = "large trap foundation"
 	desc = "A metal foundation for large trap, it is missing metals rods to hold the prey."
+	icon = 'icons/obj/contained_items/weapons/traps.dmi'
 	icon_state = "large_foundation"
-	icon = 'icons/obj/items.dmi'
 	throwforce = 4
 	force = 5
 	w_class = ITEMSIZE_HUGE
@@ -656,3 +641,44 @@
 		return
 	else
 		..()
+
+
+/obj/item/trap/tripwire
+	name = "tripwire trap"
+	icon_base = "tripwire"
+	color = COLOR_RED
+	layer = UNDERDOOR // so you can't cover it with items
+
+/obj/item/trap/tripwire/Initialize(mapload, var/new_cable_color)
+	. = ..()
+	if(!new_cable_color)
+		new_cable_color = COLOR_RED
+	color = new_cable_color
+
+/obj/item/trap/tripwire/update_icon()
+	underlays = null
+	icon_state = "[icon_base][deployed]"
+	var/image/I = image(icon, null, "[icon_state]_base")
+	I.appearance_flags = RESET_COLOR
+	underlays = list(I)
+
+/obj/item/trap/tripwire/deploy(mob/user)
+	user.visible_message(SPAN_WARNING("\The [user] starts to deploy \the [src]."), SPAN_WARNING("You begin deploying \the [src]!"))
+	if(do_after(user, 5 SECONDS))
+		user.visible_message(SPAN_WARNING("\The [user] deploys \the [src]."), SPAN_WARNING("You deploy \the [src]!"))
+		deployed = TRUE
+		update_icon()
+		return TRUE
+	return FALSE
+
+/obj/item/trap/tripwire/disarm_trap(var/mob/user)
+	user.visible_message(SPAN_NOTICE("\The [user] starts to take \the [src] down..."), SPAN_NOTICE("You begin taking \the [src] down..."), SPAN_WARNING("You hear a latch click followed by the slow creaking of a spring."))
+	if(do_after(user, 6 SECONDS))
+		deployed = FALSE
+		anchored = FALSE
+		update_icon()
+
+/obj/item/trap/tripwire/attack_mob(mob/living/L)
+	if((L.m_intent == M_RUN) || prob(5))
+		L.visible_message(SPAN_DANGER("\The [L] trips over \the [src]!"), FONT_LARGE(SPAN_DANGER("You trip over \the [src]!")))
+		L.Weaken(3)
