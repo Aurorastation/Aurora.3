@@ -1,0 +1,7 @@
+author: Doxxmedearly
+
+delete-after: True
+
+changes:
+  - bugfix: "Updated the ED-209 construction recipe to the new equipment. It now uses armor plates (NOT the plate carriers) instead of the old vests, and disruptor pistols instead of tasers."
+  - bugfix: "Fixed a bug where attaching armor plate to a plate carrier would also try to put the plate in its pockets, giving the message that the plate was too long to fit in the carrier."
