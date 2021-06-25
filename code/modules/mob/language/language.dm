@@ -15,6 +15,7 @@
 	var/list/whisper_verb = list("says quietly", "says softly", "whispers")  // Optional. When not specified speech_verb + quietly/softly is used instead.
 	var/list/signlang_verb = list("signs") // list of emotes that might be displayed if this language has NONVERBAL or SIGNLANG flags
 	var/list/sing_verb = list("sings")
+	var/list/sign_adv_length = list(" briefly", " a short message", " a message", " a lengthy message", " a very lengthy message") // 5 messages changing depending on the length of the signed language. A space should be added before the sentence as shown
 	var/colour = "body"               // CSS style to use for strings in this language.
 	var/written_style                 // CSS style used when writing language down, can't be written if null
 	var/key = "x"                     // Character used to speak in language eg. :o for Unathi.
