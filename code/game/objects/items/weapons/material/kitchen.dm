@@ -79,7 +79,7 @@
 	var/nsize = input("Bite Size","Pick the amount of reagents to pick up.") as null|anything in bite_sizes
 	if(nsize)
 		transfer_amt = nsize
-		to_chat(usr, SPAN_NOTICE("\the [src] will now scoop up [transfer_amt] reagents."))
+		to_chat(usr, SPAN_NOTICE("\The [src] will now scoop up [transfer_amt] reagents."))
 
 /obj/item/material/kitchen/utensil/fork
 	name = "fork"
