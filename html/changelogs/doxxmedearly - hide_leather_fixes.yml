@@ -1,0 +1,12 @@
+author: Doxxmedearly
+
+delete-after: True
+
+changes:
+  - bugfix: "Hide, bare hide, and wet leather no longer act like steel."
+  - bugfix: "Fixed an issue where you could queue up many clicks on hide sheets to generate extra bare hide."
+  - tweak: "Wet leather can no longer be used for crafting."
+  - rscadd: "You can now dry wet leather manually with a welding tool. You do not need a mask to do this."
+  - rscadd: "Washing machines can now be started with alt+click."
+  - rscadd: "Added additional examine info to hide sheets that tells you how to tan it into fine leather."
+  - rscadd: "Adds fine leather, which is only made by tanning animal hides. Other than being a little harder to burn, it's just fluff material for those who want to feel rich."
