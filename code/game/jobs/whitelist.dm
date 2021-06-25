@@ -162,4 +162,30 @@ var/list/whitelist_jobconfig = list()
 	var/diff = age_to_beat - C.player_age
 	return (diff > 0) ? diff : 0
 
+/proc/player_has_time_requirement_for_role(client/C, job)
+	if(!job || !C)
+		return FALSE
+
+	if(ismob(C))
+		var/mob/M = C
+		C = M.client
+
+	if(!istype(C) || C.holder)
+		return FALSE
+
+	if(!establish_db_connection(dbcon))
+		return FALSE
+
+	var/age_to_beat = 0
+	var/datum/job/J = SSjobs.GetJob(job)
+	if(J && config.use_playtime_restrictions)
+		if(config.use_playtime_restrictions_admin_bypass && check_rights(R_ADMIN, FALSE, C.mob))
+			age_to_beat = 0
+		else
+			age_to_beat = J.playtime_requirements
+
+	var/list/play_records = params2list(C.prefs.playtime)
+	var/diff = age_to_beat - text2num(play_records[J.playtime_type])
+	return (diff > 0) ? diff : 0
+
 #undef WHITELISTFILE

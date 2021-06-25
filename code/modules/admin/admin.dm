@@ -54,6 +54,7 @@ proc/admin_notice(var/message, var/rights)
 	if(M.client)
 		body += " played by <b>[M.client]</b> "
 		body += "\[<A href='?src=\ref[src];editrights=show'>[M.client.holder ? M.client.holder.rank : "Player"]</A>\]"
+		body += "\[<A href='?_src_=holder;getplaytimewindow=[ref(M)]'>" + M.client.get_playtime_type(PLAYTIME_TYPE_CREW) + " as [PLAYTIME_TYPE_CREW]</a>\]"
 
 	if(istype(M, /mob/abstract/new_player))
 		body += " <B>Hasn't Entered Game</B> "

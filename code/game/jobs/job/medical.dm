@@ -13,6 +13,10 @@
 
 	minimum_character_age = 35
 
+	minimal_player_age = 10
+	playtime_requirements = 20 HOURS
+	playtime_type = PLAYTIME_TYPE_MEDICAL
+
 	access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
 			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_construction,
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_external_airlocks, access_research,
@@ -21,8 +25,6 @@
 			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_construction,
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_external_airlocks, access_research,
 			access_first_responder, access_maint_tunnels)
-
-	minimal_player_age = 10
 	ideal_character_age = 50
 	outfit = /datum/outfit/job/cmo
 
@@ -63,6 +65,9 @@
 
 	minimum_character_age = 25
 
+	playtime_requirements = 8 HOURS
+	playtime_type = PLAYTIME_TYPE_MEDICAL
+
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_genetics, access_eva)
 	outfit = /datum/outfit/job/doctor
@@ -81,6 +86,9 @@
 	total_positions = 2
 
 	minimum_character_age = 30
+
+	playtime_requirements = 10 HOURS
+	playtime_type = PLAYTIME_TYPE_MEDICAL
 
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_genetics, access_eva)
@@ -143,6 +151,9 @@
 
 	minimum_character_age = 26
 
+	playtime_requirements = 8 HOURS
+	playtime_type = PLAYTIME_TYPE_MEDICAL
+
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics)
 	minimal_access = list(access_medical, access_medical_equip, access_pharmacy, access_virology)
 	outfit = /datum/outfit/job/pharmacist
@@ -177,6 +188,9 @@
 	economic_modifier = 5
 
 	minimum_character_age = 30
+
+	playtime_requirements = 8 HOURS
+	playtime_type = PLAYTIME_TYPE_MEDICAL
 
 	supervisors = "the chief medical officer"
 	selection_color = "#15903a"
@@ -219,6 +233,9 @@
 
 	minimum_character_age = 20
 
+	playtime_requirements = 10 HOURS
+	playtime_type = PLAYTIME_TYPE_MEDICAL
+
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_eva, access_maint_tunnels, access_external_airlocks, access_psychiatrist, access_first_responder)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_eva, access_maint_tunnels, access_external_airlocks, access_first_responder)
 	outfit = /datum/outfit/job/med_tech
@@ -258,6 +275,9 @@
 	spawn_positions = 3
 	supervisors = "the Chief Medical Officer"
 	selection_color = "#15903a"
+
+	playtime_type = PLAYTIME_TYPE_MEDICAL
+
 	access = list(access_medical, access_surgery, access_medical_equip)
 	minimal_access = list(access_medical, access_surgery, access_medical_equip)
 	minimum_character_age = 18

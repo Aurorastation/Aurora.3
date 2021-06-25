@@ -9,6 +9,10 @@
 	spawn_positions = 1
 	supervisors = "the head of personnel"
 	selection_color = "#90524b"
+
+	playtime_requirements = 10 HOURS // simply to weed out meme chaplains
+	playtime_type = PLAYTIME_TYPE_CIVILIAN
+
 	access = list(access_morgue, access_chapel_office, access_crematorium, access_maint_tunnels)
 	minimal_access = list(access_morgue, access_chapel_office, access_crematorium)
 	alt_titles = list("Presbyter","Rabbi","Imam","Priest","Shaman","Counselor")

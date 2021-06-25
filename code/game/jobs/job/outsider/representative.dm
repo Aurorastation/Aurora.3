@@ -13,6 +13,9 @@
 
 	minimum_character_age = 30
 
+	playtime_requirements = 20 HOURS
+	playtime_type = PLAYTIME_TYPE_CREW
+
 	access = list(access_lawyer, access_maint_tunnels)
 	minimal_access = list(access_lawyer)
 	outfit = /datum/outfit/job/representative
@@ -93,6 +96,9 @@
 	latejoin_at_spawnpoints = TRUE
 
 	minimum_character_age = 30
+
+	playtime_requirements = 20 HOURS
+	playtime_type = PLAYTIME_TYPE_CREW
 
 	access = list(access_consular, access_maint_tunnels)
 	minimal_access = list(access_consular)

@@ -150,4 +150,17 @@ var/list/nonhuman_positions = list(
 
 	return titles
 
-//Mahzel : Job preview not added because code don't exist in BS12
+var/global/list/playtime_jobsmap = list(
+	PLAYTIME_TYPE_LIVING = list(), // all living mobs
+	PLAYTIME_TYPE_CREW = list(titles = command_positions | engineering_positions | medical_positions | science_positions | cargo_positions | security_positions | civilian_positions | list("AI","Cyborg")), // crew positions
+	PLAYTIME_TYPE_SPECIAL = list(), // antags, ERT, etc
+	PLAYTIME_TYPE_GHOST = list(), // dead people, observers
+	PLAYTIME_TYPE_COMMAND = list(titles = command_positions),
+	PLAYTIME_TYPE_ENGINEERING = list(titles = engineering_positions),
+	PLAYTIME_TYPE_MEDICAL = list(titles = medical_positions),
+	PLAYTIME_TYPE_SCIENCE = list(titles = science_positions),
+	PLAYTIME_TYPE_SUPPLY = list(titles = cargo_positions),
+	PLAYTIME_TYPE_SECURITY = list(titles = security_positions),
+	PLAYTIME_TYPE_SILICON = list(titles = list("AI","Cyborg")),
+	PLAYTIME_TYPE_CIVILIAN = list(titles = civilian_positions)
+)

@@ -13,10 +13,13 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	selection_color = "#114dc1"
 	access = list() 			//See get_access()
 	minimal_access = list() 	//See get_access()
-	minimal_player_age = 14
 	economic_modifier = 20
 
 	minimum_character_age = 35
+
+	minimal_player_age = 14
+	playtime_requirements = 80 HOURS
+	playtime_type = PLAYTIME_TYPE_CREW // a lot of rounds as any crew type
 
 	ideal_character_age = 70 // Old geezer captains ftw
 
@@ -84,6 +87,9 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	ideal_character_age = 50
 
 	minimum_character_age = 30
+
+	playtime_requirements = 20 HOURS
+	playtime_type = PLAYTIME_TYPE_CREW
 
 	outfit = /datum/outfit/job/hop
 

@@ -8,8 +8,8 @@
 /datum/controller/subsystem/jobs
 	// Subsystem stuff.
 	name = "Jobs"
-	flags = SS_NO_FIRE
 	init_order = SS_INIT_JOBS
+	wait = 5 MINUTES // Dont ever make this a super low value since playtime updates are calculated from this value
 
 	// Vars.
 	var/list/datum/job/occupations = list()
@@ -37,6 +37,12 @@
 	InitializeFactions()
 
 	ProcessSanitizationQueue()
+
+// Only fires every 5 minutes
+/datum/controller/subsystem/jobs/fire()
+	if(!dbcon.IsConnected() || !config.use_playtime_tracking)
+		return
+	// TODO batch_update_player_playtime(announce = FALSE) // Set this to true if you ever want to inform players about their playtime gains
 
 /datum/controller/subsystem/jobs/Recover()
 	occupations = SSjobs.occupations
@@ -974,4 +980,127 @@
 		if(L.slot == slot_w_uniform)
 			H.equip_or_collect(new U.uniform(H), H.back)
 			break
+
+/* TODO
+// This proc will update all players PLAYTIME at once. It will calculate amount of time to add dynamically based on the SS fire time.
+/datum/controller/subsystem/jobs/proc/batch_update_player_playtime(announce = FALSE)
+	// Right off the bat
+	var/start_time = start_watch()
+	// First calculate minutes
+	var/divider = 10 // By default, 10 deciseconds in 1 second
+	if(flags & SS_TICKER)
+		divider = 20 // If this SS ever gets made into a ticker SS, account for that
+
+	var/minutes = (wait / divider) / 60 // Calculate minutes based on the SS wait time (How often this proc fires)
+
+	// Step 1: Get us a list of clients to process
+	var/list/client/clients_to_process = clients.Copy() // This is copied so that clients joining in the middle of this dont break things
+	Debug("Starting PLAYTIME update for [length(clients_to_process)] clients. (Adding [minutes] minutes)")
+
+	var/list/datum/db_query/select_queries = list() // List of SELECT queries to mass grab PLAYTIME.
+
+	for(var/i in clients_to_process)
+		var/client/C = i
+		if(!C)
+			continue // If a client logs out in the middle of this
+
+		var/datum/db_query/playtime_read = SSdbcore.NewQuery(
+			"SELECT playtime FROM ss13_player WHERE ckey=:ckey",
+			list("ckey" = C.ckey)
+		)
+
+		select_queries[C.ckey] = playtime_read
+
+	var/list/read_records = list()
+	// Playtimelanation for parameters:
+	// TRUE: We want warnings if these fail
+	// FALSE: Do NOT qdel() queries here, otherwise they wont be read. At all.
+	// TRUE: This is an assoc list, so it needs to prepare for that
+	// FALSE: We dont want to logspam
+	SSdbcore.MassExecute(select_queries, TRUE, FALSE, TRUE, FALSE) // Batch execute so we can take advantage of async magic
+
+	for(var/i in clients_to_process)
+		var/client/C = i
+		if(!C)
+			continue // If a client logs out in the middle of this
+
+		if(select_queries[C.ckey]) // This check should not be necessary, but I am paranoid
+			while(select_queries[C.ckey].NextRow())
+				read_records[C.ckey] = params2list(select_queries[C.ckey].item[1])
+
+	QDEL_LIST_ASSOC_VAL(select_queries) // Clean stuff up
+
+	var/list/play_records = list()
+
+	var/list/datum/db_query/player_update_queries = list() // List of queries to update player playtime
+
+	for(var/i in clients_to_process)
+		var/client/C = i
+		if(!C)
+			continue // If a client logs out in the middle of this
+		// Get us a container
+		play_records[C.ckey] = list()
+		for(var/rtype in playtime_jobsmap)
+			if(text2num(read_records[C.ckey][rtype]))
+				play_records[C.ckey][rtype] = text2num(read_records[C.ckey][rtype])
+			else
+				play_records[C.ckey][rtype] = 0
+
+
+		var/myrole
+		if(C.mob.mind)
+			if(C.mob.mind.playtime_role)
+				myrole = C.mob.mind.playtime_role
+			else if(C.mob.mind.assigned_role)
+				myrole = C.mob.mind.assigned_role
+
+		var/added_living = 0
+		var/added_ghost = 0
+		if(C.mob.stat == CONSCIOUS && myrole)
+			play_records[C.ckey][PLAYTIME_TYPE_LIVING] += minutes
+			added_living += minutes
+
+			if(announce)
+				to_chat(C.mob, "<span class='notice'>You got: [minutes] Living PLAYTIME!</span>")
+
+			for(var/category in playtime_jobsmap)
+				if(playtime_jobsmap[category]["titles"])
+					if(myrole in playtime_jobsmap[category]["titles"])
+						play_records[C.ckey][category] += minutes
+						if(announce)
+							to_chat(C.mob, "<span class='notice'>You got: [minutes] [category] PLAYTIME!</span>")
+
+			if(C.mob.mind.special_role)
+				play_records[C.ckey][PLAYTIME_TYPE_SPECIAL] += minutes
+				if(announce)
+					to_chat(C.mob, "<span class='notice'>You got: [minutes] Special PLAYTIME!</span>")
+
+		else if(isobserver(C.mob))
+			play_records[C.ckey][PLAYTIME_TYPE_GHOST] += minutes
+			added_ghost += minutes
+			if(announce)
+				to_chat(C.mob, "<span class='notice'>You got: [minutes] Ghost PLAYTIME!</span>")
+		else
+			continue
+
+		var/new_playtime = list2params(play_records[C.ckey])
+
+		C.prefs.playtime = new_playtime
+
+		var/datum/db_query/update_query = SSdbcore.NewQuery(
+			"UPDATE ss13_player SET playtime =:newplaytime, lastseen=NOW() WHERE ckey=:ckey",
+			list(
+				"newplaytime" = new_playtime,
+				"ckey" = C.ckey
+			)
+		)
+
+		player_update_queries += update_query
+
+
+	// warn=TRUE, qdel=TRUE, assoc=FALSE, log=FALSE
+	SSdbcore.MassExecute(player_update_queries, TRUE, TRUE, FALSE, FALSE) // Batch execute so we can take advantage of async magic
+
+	Debug("Successfully updated all PLAYTIME data in [stop_watch(start_time)]s")
+*/
 #undef Debug

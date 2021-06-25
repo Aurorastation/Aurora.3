@@ -120,6 +120,10 @@ var/list/jobban_keylist = list() // Global jobban list.
 		if (age_whitelist)
 			return "AGE WHITELISTED"
 
+		var/time_gate = player_has_time_requirement_for_role(player, rank)
+		if(time_gate)
+			return "TIMEGATE"
+
 		var/static/list/antag_bantypes
 
 		if (isnull(antag_bantypes))

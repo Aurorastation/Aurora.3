@@ -15,6 +15,9 @@
 	public_account = FALSE
 	initial_funds_override = 2500
 
+	playtime_requirements = 12 HOURS
+	playtime_type = PLAYTIME_TYPE_CIVILIAN
+
 	access = list(access_merchant)
 	minimal_access = list(access_merchant)
 

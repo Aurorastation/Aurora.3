@@ -15,6 +15,9 @@
 
 	ideal_character_age = 50
 
+	minimal_player_age = 7
+	playtime_requirements = 20 HOURS
+	playtime_type = PLAYTIME_TYPE_ENGINEERING
 
 	access = list(access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels,
 			            access_teleporter, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva,
@@ -24,7 +27,6 @@
 			            access_teleporter, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva,
 			            access_heads, access_construction, access_sec_doors, access_research, access_medical,
 			            access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload, access_it)
-	minimal_player_age = 7
 	outfit = /datum/outfit/job/chief_engineer
 
 	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
@@ -72,6 +74,9 @@
 	economic_modifier = 5
 
 	minimum_character_age = 25
+
+	playtime_requirements = 8 HOURS
+	playtime_type = PLAYTIME_TYPE_ENGINEERING
 
 	access = list(access_eva, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_external_airlocks, access_construction, access_atmospherics)
 	minimal_access = list(access_eva, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_external_airlocks, access_construction)
@@ -121,6 +126,9 @@
 
 	minimum_character_age = 25
 
+	playtime_requirements = 8 HOURS
+	playtime_type = PLAYTIME_TYPE_ENGINEERING
+
 	access = list(access_eva, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_external_airlocks, access_construction, access_atmospherics, access_external_airlocks)
 	minimal_access = list(access_eva, access_engine, access_atmospherics, access_maint_tunnels, access_emergency_storage, access_construction, access_external_airlocks)
 	outfit = /datum/outfit/job/atmos
@@ -166,6 +174,9 @@
 	intro_prefix = "an"
 	supervisors = "the Chief Engineer"
 	selection_color = "#c67519"
+
+	playtime_type = PLAYTIME_TYPE_ENGINEERING
+
 	access = list(access_maint_tunnels, access_construction, access_engine_equip, access_engine)
 	minimal_access = list(access_maint_tunnels, access_construction, access_engine_equip, access_engine)
 	outfit = /datum/outfit/job/intern_eng

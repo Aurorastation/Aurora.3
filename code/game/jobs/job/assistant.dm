@@ -10,6 +10,9 @@
 	supervisors = "absolutely everyone"
 	selection_color = "#90524b"
 	economic_modifier = 1
+
+	playtime_type = PLAYTIME_TYPE_CREW
+
 	access = list()			//See /datum/job/assistant/get_access()
 	minimal_access = list()	//See /datum/job/assistant/get_access()
 	outfit = /datum/outfit/job/assistant
@@ -38,6 +41,9 @@
 	supervisors = "any authority figure"
 	selection_color = "#90524b"
 	economic_modifier = 1
+
+	playtime_type = PLAYTIME_TYPE_CREW
+
 	access = list()
 	minimal_access = list()
 	outfit = /datum/outfit/job/visitor

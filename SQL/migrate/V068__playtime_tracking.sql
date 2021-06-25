@@ -1,0 +1,2 @@
+ALTER TABLE `ss13_player`
+	ADD COLUMN `playtime` MEDIUMTEXT DEFAULT NULL AFTER `computerid`;

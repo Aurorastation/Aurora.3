@@ -12,6 +12,8 @@
 
 	minimum_character_age = 18
 
+	playtime_type = PLAYTIME_TYPE_CIVILIAN
+
 	access = list(access_hydroponics, access_bar, access_kitchen)
 	minimal_access = list(access_bar)
 	alt_titles = list("Barista")
@@ -42,6 +44,8 @@
 	selection_color = "#90524b"
 
 	minimum_character_age = 18
+
+	playtime_type = PLAYTIME_TYPE_CIVILIAN
 
 	access = list(access_hydroponics, access_bar, access_kitchen)
 	minimal_access = list(access_kitchen)
@@ -78,6 +82,8 @@
 	selection_color = "#90524b"
 
 	minimum_character_age = 18
+
+	playtime_type = PLAYTIME_TYPE_CIVILIAN
 
 	access = list(access_hydroponics, access_bar, access_kitchen)
 	minimal_access = list(access_hydroponics)
@@ -127,6 +133,9 @@
 
 	minimum_character_age = 22
 
+	playtime_requirements = 8 HOURS
+	playtime_type = PLAYTIME_TYPE_CIVILIAN
+
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
 	minimal_access = list(access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
 
@@ -162,6 +171,8 @@
 
 	minimum_character_age = 18
 
+	playtime_type = PLAYTIME_TYPE_CIVILIAN
+
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
 	minimal_access = list(access_cargo, access_cargo_bot, access_mailsorting)
 	outfit = /datum/outfit/job/cargo_tech
@@ -193,6 +204,8 @@
 	economic_modifier = 5
 
 	minimum_character_age = 18
+
+	playtime_type = PLAYTIME_TYPE_CIVILIAN
 
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
 	minimal_access = list(access_mining, access_mining_station, access_mailsorting)
@@ -240,6 +253,9 @@
 	spawn_positions = 2
 	supervisors = "the head of personnel"
 	selection_color = "#90524b"
+
+	playtime_type = PLAYTIME_TYPE_CIVILIAN
+
 	access = list(access_janitor, access_maint_tunnels, access_engine, access_research, access_sec_doors, access_medical)
 	minimal_access = list(access_janitor, access_engine, access_research, access_sec_doors, access_medical)
 	outfit = /datum/outfit/job/janitor
@@ -268,6 +284,9 @@
 	selection_color = "#90524b"
 
 	minimum_character_age = 20
+
+	playtime_requirements = 10 HOURS // simply to weed out meme reporters
+	playtime_type = PLAYTIME_TYPE_CIVILIAN
 
 	access = list(access_journalist, access_maint_tunnels)
 	minimal_access = list(access_journalist, access_maint_tunnels)
@@ -317,6 +336,10 @@
 	spawn_positions = 1
 	supervisors = "the head of personnel"
 	selection_color = "#90524b"
+
+	playtime_requirements = 10 HOURS // simply to weed out meme librarians
+	playtime_type = PLAYTIME_TYPE_CIVILIAN
+
 	access = list(access_library, access_maint_tunnels)
 	minimal_access = list(access_library)
 	alt_titles = list("Curator", "Tech Support")

@@ -36,6 +36,13 @@ JOBS_HAVE_MINIMAL_ACCESS
 ## Unhash to enable loading of age restrictions from age_restrictions.txt.
 #LOAD_AGE_RESTRICTIONS_FROM_FILE
 
+##Unhash this to track player playtime in the database. Requires database to be enabled.
+#USE_EXP_TRACKING
+##Unhash this to enable playtime requirements for jobs that have them defined.
+#USE_EXP_RESTRICTIONS
+##Allows admins to bypass job playtime requirements.
+USE_EXP_RESTRICTIONS_ADMIN_BYPASS
+
 ## Unhash this to use iterative explosions, keep it hashed to use circle explosions. Iterative explosions react to walls, airlocks and blast doors, making them look a lot cooler than the boring old circular explosions. They require more CPU, but are generally better to use.
 #USE_SPREADING_EXPLOSIONS
 

@@ -173,6 +173,10 @@ var/list/gamemode_cache = list()
 	var/sql_saves = 0			//Defines whether the server uses an SQL based character and preference saving system. Config option in config.txt
 	var/sql_ccia_logs = 0		//Defines weather the server saves CCIA Logs to the database aswell
 
+	var/use_playtime_tracking = FALSE
+	var/use_playtime_restrictions = FALSE
+	var/use_playtime_restrictions_admin_bypass = FALSE
+
 	var/simultaneous_pm_warning_timeout = 100
 
 	var/use_spreading_explosions = 0 //Defines whether the server uses iterative or circular explosions.
@@ -385,6 +389,15 @@ var/list/gamemode_cache = list()
 
 				if ("load_age_restrictions_from_file")
 					config.age_restrictions_from_file = 1
+
+				if("use_playtime_tracking")
+					config.use_playtime_tracking = TRUE
+
+				if("use_playtime_restrictions")
+					config.use_playtime_restrictions = TRUE
+
+				if("use_playtime_restrictions_admin_bypass")
+					config.use_playtime_restrictions_admin_bypass = TRUE
 
 				if ("jobs_have_minimal_access")
 					config.jobs_have_minimal_access = 1

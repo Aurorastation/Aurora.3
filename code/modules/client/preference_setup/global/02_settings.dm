@@ -36,6 +36,12 @@
 				"parallax_speed"				
 			),
 			"args" = list("ckey")
+		),
+		"ss13_player" = list(
+			"vars" = list(
+				"playtime"
+			),
+			"args" = list("ckey")
 		)
 	)
 
@@ -54,6 +60,10 @@
 			"ckey" = 1,
 			"toggles_secondary",
 			"parallax_speed"
+		),
+		"ss13_player" = list(
+			"playtime",
+			"ckey" = 1
 		)
 	)
 
@@ -67,7 +77,8 @@
 		"lastmotd" = pref.motd_hash,
 		"lastmemo" = pref.memo_hash,
 		"toggles_secondary" = pref.toggles_secondary,
-		"parallax_speed" = pref.parallax_speed
+		"parallax_speed" = pref.parallax_speed,
+		"playtime" = pref.playtime
 	)
 
 /datum/category_item/player_setup_item/player_global/settings/sanitize_preferences(var/sql_load = 0)
@@ -75,14 +86,15 @@
 		pref.current_character = text2num(pref.current_character)
 		pref.current_character = validate_current_character()
 
-	pref.lastchangelog  = sanitize_text(pref.lastchangelog, initial(pref.lastchangelog))
-	pref.default_slot   = sanitize_integer(text2num(pref.default_slot), 1, config.character_slots, initial(pref.default_slot))
-	pref.toggles        = sanitize_integer(text2num(pref.toggles), 0, BITFIELDMAX, initial(pref.toggles))
-	pref.asfx_togs      = sanitize_integer(text2num(pref.asfx_togs), 0, BITFIELDMAX, initial(pref.toggles))
-	pref.motd_hash      = sanitize_text(pref.motd_hash, initial(pref.motd_hash))
-	pref.memo_hash      = sanitize_text(pref.memo_hash, initial(pref.memo_hash))
-	pref.parallax_speed = sanitize_integer(text2num(pref.parallax_speed), 1, 10, initial(pref.parallax_speed))
+	pref.lastchangelog      = sanitize_text(pref.lastchangelog, initial(pref.lastchangelog))
+	pref.default_slot       = sanitize_integer(text2num(pref.default_slot), 1, config.character_slots, initial(pref.default_slot))
+	pref.toggles            = sanitize_integer(text2num(pref.toggles), 0, BITFIELDMAX, initial(pref.toggles))
+	pref.asfx_togs          = sanitize_integer(text2num(pref.asfx_togs), 0, BITFIELDMAX, initial(pref.toggles))
+	pref.motd_hash          = sanitize_text(pref.motd_hash, initial(pref.motd_hash))
+	pref.memo_hash          = sanitize_text(pref.memo_hash, initial(pref.memo_hash))
+	pref.parallax_speed     = sanitize_integer(text2num(pref.parallax_speed), 1, 10, initial(pref.parallax_speed))
 	pref.toggles_secondary  = sanitize_integer(text2num(pref.toggles_secondary), 0, BITFIELDMAX, initial(pref.toggles_secondary))
+	pref.playtime           = sanitize_text(pref.playtime, initial(pref.playtime))
 
 /datum/category_item/player_setup_item/player_global/settings/content(mob/user)
 	var/list/dat = list(

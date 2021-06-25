@@ -1035,6 +1035,15 @@
 		var/mob/M = locate(href_list["jumpto"])
 		usr.client.jumptomob(M)
 
+	else if(href_list["getplaytimewindow"])
+		if(!check_rights(R_ADMIN|R_MOD))
+			return
+		var/mob/M = locate(href_list["getplaytimewindow"])
+		if(!ismob(M))
+			to_chat(usr, SPAN_WARNING("This can only be used on instances of type /mob!"))
+			return
+		cmd_show_playtime_panel(M.client)
+
 	else if(href_list["getmob"])
 		if(!check_rights(R_ADMIN))	return
 
