@@ -440,7 +440,7 @@
 #include "code\game\antagonist\outsider\mercenary.dm"
 #include "code\game\antagonist\outsider\ninja.dm"
 #include "code\game\antagonist\outsider\raider.dm"
-#include "code\game\antagonist\outsider\raider_mage.dm"
+#include "code\game\antagonist\outsider\raider_techno.dm"
 #include "code\game\antagonist\outsider\revenant.dm"
 #include "code\game\antagonist\outsider\technomancer.dm"
 #include "code\game\antagonist\outsider\wizard.dm"
