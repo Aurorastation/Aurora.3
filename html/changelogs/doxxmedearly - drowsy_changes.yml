@@ -1,8 +1,0 @@
-author: Doxxmedearly
-
-delete-after: True
-
-changes:
-  - tweak: "Changed how being drowsy works. Instead of randomly putting you to sleep with no warning, it now tries to replicate being drowsy via screen wobble, yawning, periodic slurring, and vision blurring/darkening."
-  - tweak: "Sufficient drowsiness has a small impact on your stamina recovery and stamina cost for things like disarming and sprinting."
-  - tweak: "Fevers have a slightly higher impact on drowsiness."

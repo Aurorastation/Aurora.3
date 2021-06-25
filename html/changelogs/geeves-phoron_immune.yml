@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Vaurca, IPCS, and golems are now immune to the skin burning effects of phoron."
