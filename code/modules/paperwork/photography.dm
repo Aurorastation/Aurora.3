@@ -175,6 +175,8 @@ var/global/photo_count = 0
 		return
 	..()
 
+/obj/item/device/camera/AltClick(var/mob/user)
+	change_size()
 
 /obj/item/device/camera/proc/get_mobs(turf/the_turf as turf)
 	var/mob_detail
