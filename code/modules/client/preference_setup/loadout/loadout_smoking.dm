@@ -119,7 +119,7 @@
 	var/cigpaper = list()
 	cigpaper["Gen. Eric cigarette paper"] = /obj/item/storage/box/fancy/cigpaper
 	cigpaper["Trident cigarette paper"] = /obj/item/storage/box/fancy/cigpaper/fine
-	gear_tweaks += new/datum/gear_tweak/path(cigpaper)
+	gear_tweaks += new /datum/gear_tweak/path(cigpaper)
 
 /datum/gear/smoking/ecig
 	display_name = "electronic cigarette selection"
@@ -128,8 +128,8 @@
 
 /datum/gear/smoking/ecig/New()
 	..()
-	var/ecig = list()
+	var/list/ecig = list()
 	ecig["cheap electronic cigarette"] = /obj/item/clothing/mask/smokable/ecig/simple
 	ecig["ordinary electronic cigarette"] = /obj/item/clothing/mask/smokable/ecig/util
 	ecig["deluxe electronic cigarette"] = /obj/item/clothing/mask/smokable/ecig/deluxe
-	gear_tweaks += new/datum/gear_tweak/path(ecig)
+	gear_tweaks += new /datum/gear_tweak/path(ecig)

@@ -20,10 +20,10 @@
 	var/idle = 0
 	var/idle_treshold = 30
 
-/obj/item/clothing/mask/smokable/ecig/New()
-	..()
+/obj/item/clothing/mask/smokable/ecig/initialize()
+	. = ..()
 	if(ispath(cell_type))
-		cigcell = new cell_type
+		cigcell = new cell_type(src)
 	ec_cartridge = new cartridge_type(src)
 
 /obj/item/clothing/mask/smokable/ecig/get_cell()
@@ -53,8 +53,8 @@
 	icon_on = "ecigon"
 	cell_type = /obj/item/cell/crap/cig //enough for two cartridges
 
-/obj/item/clothing/mask/smokable/ecig/util/New()
-	..()
+/obj/item/clothing/mask/smokable/ecig/util/initialize()
+	. = ..()
 	color = pick(ecig_colors)
 
 obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
@@ -92,7 +92,7 @@ obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
 	else
 		to_chat(user,SPAN_NOTICE("There's no cartridge connected."))
 
-/obj/item/clothing/mask/smokable/ecig/proc/Deactivate()
+/obj/item/clothing/mask/smokable/ecig/proc/deactivate()
 	active = FALSE
 	STOP_PROCESSING(SSprocessing, src)
 	update_icon()
@@ -150,11 +150,10 @@ obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
 		M.update_inv_l_hand(0)
 		M.update_inv_r_hand(1)
 
-
 /obj/item/clothing/mask/smokable/ecig/attackby(var/obj/item/I, var/mob/user)
 	if(istype(I, /obj/item/reagent_containers/ecig_cartridge))
 		if (ec_cartridge)//can't add second one
-			to_chat(user, SPAN_NOTICE("A cartridge has already been installed."))
+			to_chat(user, SPAN_WARNING("A cartridge has already been installed."))
 		else //fits in new one
 			user.drop_from_inventory(I,src)
 			ec_cartridge = I
@@ -164,21 +163,26 @@ obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
 	if(istype(I, /obj/item/screwdriver))
 		if(cigcell) //if contains powercell
 			cigcell.update_icon()
-			cigcell.dropInto(loc)
+			user.put_in_hands(cigcell)
 			cigcell = null
 			to_chat(user, SPAN_NOTICE("You remove \the [cigcell] from \the [src]."))
 		else //does not contains cell
-			to_chat(user, SPAN_NOTICE("There's no battery in \the [src]."))
+			to_chat(user, SPAN_WARNING("There's no battery in \the [src]."))
 
-	if(istype(I, /obj/item/cell/crap))
-		if(!cigcell && user.unEquip(I))
+	if (istype(I, /obj/item/cell))
+		if(cigcell)
+			to_chat(user, SPAN_WARNING("\The [src] already has a battery installed."))
+			return
+		var/obj/item/cell/C = I
+		var/obj/item/cell/max_cap = /obj/item/cell/crap
+		if (C.maxcharge > initial(max_cap.maxcharge)) // using initial means you don't have to instantiate the object
+			to_chat(user, SPAN_WARNING("\The [cigcell] is too powerful to be inserted into \the [src]."))
+			return
+		if(user.unEquip(I))
 			I.forceMove(src)
 			cigcell = I
 			to_chat(user, SPAN_NOTICE("You install \the [cigcell] into \the [src]."))
 			update_icon()
-		else
-			to_chat(user, SPAN_NOTICE("\The [src] already has a battery installed."))
-
 
 /obj/item/clothing/mask/smokable/ecig/attack_self(mob/user)
 	if (active)
@@ -187,24 +191,23 @@ obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
 	else
 		if(cigcell)
 			if (!ec_cartridge)
-				to_chat(user, SPAN_NOTICE("You can't use \the [src] with no cartridge installed!"))
+				to_chat(user, SPAN_WARNING("You can't use \the [src] with no cartridge installed!"))
 				return
 			else if(!ec_cartridge.reagents.total_volume)
-				to_chat(user, SPAN_NOTICE("You can't use \the [src] with no liquid left!"))
+				to_chat(user, SPAN_WARNING("You can't use \the [src] with no liquid left!"))
 				return
 			else if(!cigcell.check_charge(power_usage * CELLRATE))
-				to_chat(user, SPAN_NOTICE("\The [src]'s power meter flashes a low battery warning and refuses to operate."))
+				to_chat(user, SPAN_WARNING("\The [src]'s power meter flashes a low battery warning and refuses to operate."))
 				return
 			active = TRUE
 			START_PROCESSING(SSprocessing, src)
 			to_chat(user, SPAN_NOTICE("You turn on \the [src]."))
 			update_icon()
-
 		else
 			to_chat(user, SPAN_WARNING("\The [src] does not have a battery installed."))
 
-/obj/item/clothing/mask/smokable/ecig/attack_hand(mob/user)//eject cartridge
-	if(user.get_inactive_hand() == src)//if being hold
+/obj/item/clothing/mask/smokable/ecig/attack_hand(mob/user) //eject cartridge
+	if(user.get_inactive_hand() == src) //if being held
 		if (ec_cartridge)
 			active = FALSE
 			user.put_in_hands(ec_cartridge)
@@ -223,7 +226,7 @@ obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
 		if(last_drag <= world.time - 30) 
 			if(!cigcell.checked_use(power_usage * CELLRATE)) //if this passes, there's not enough power in the battery
 				Deactivate()
-				to_chat(C,SPAN_NOTICE("\The [src]'s power meter flashes a low battery warning and shuts down."))
+				to_chat(C,SPAN_WARNING("\The [src]'s power meter flashes a low battery warning and shuts down."))
 				return
 			last_drag = world.time
 			idle = 0
@@ -243,7 +246,7 @@ obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
 	volume = 20
 	flags = OPENCONTAINER
 
-/obj/item/reagent_containers/ecig_cartridge/examine(mob/user)//to see how much left
+/obj/item/reagent_containers/ecig_cartridge/examine(mob/user)
 	. = ..()
 	to_chat(user, "The cartridge has [reagents.total_volume] units of liquid remaining.")
 
@@ -255,68 +258,63 @@ obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
 /obj/item/reagent_containers/ecig_cartridge/blanknico
 	name = "flavorless nicotine cartridge"
 	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says you can add whatever flavoring agents you want."
-/obj/item/reagent_containers/ecig_cartridge/blanknico/New()
-	..()
-	reagents.add_reagent(/decl/reagent/toxin/tobacco/liquid, 5)
-	reagents.add_reagent(/decl/reagent/water, 10)
+
+/obj/item/reagent_containers/ecig_cartridge/blanknico/initialize()
+	. = ..()
+	reagents_to_add = list(/decl/reagent/toxin/tobacco/liquid = 5, /decl/reagent/water = 10)
 
 /obj/item/reagent_containers/ecig_cartridge/med_nicotine
 	name = "tobacco flavour cartridge"
 	desc =  "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says its tobacco flavored."
-/obj/item/reagent_containers/ecig_cartridge/med_nicotine/New()
-	..()
-	reagents.add_reagent(/decl/reagent/toxin/tobacco, 5)
-	reagents.add_reagent(/decl/reagent/water, 15)
+
+/obj/item/reagent_containers/ecig_cartridge/med_nicotine/initialize()
+	. = ..()
+	reagents_to_add = list(/decl/reagent/toxin/tobacco/liquid = 5, /decl/reagent/water = 15)
 
 /obj/item/reagent_containers/ecig_cartridge/high_nicotine
 	name = "high nicotine tobacco flavour cartridge"
 	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says its tobacco flavored, with extra nicotine."
-/obj/item/reagent_containers/ecig_cartridge/high_nicotine/New()
-	..()
-	reagents.add_reagent(/decl/reagent/toxin/tobacco, 10)
-	reagents.add_reagent(/decl/reagent/water, 10)
+
+/obj/item/reagent_containers/ecig_cartridge/high_nicotine/initialize()
+	. = ..()
+	reagents_to_add = list(/decl/reagent/toxin/tobacco/liquid = 10, /decl/reagent/water = 10)
 
 /obj/item/reagent_containers/ecig_cartridge/orange
 	name = "orange flavour cartridge"
 	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says its orange flavored."
-/obj/item/reagent_containers/ecig_cartridge/orange/New()
-	..()
-	reagents.add_reagent(/decl/reagent/toxin/tobacco/liquid, 5)
-	reagents.add_reagent(/decl/reagent/water, 10)
-	reagents.add_reagent(/decl/reagent/drink/orangejuice, 5)
+
+/obj/item/reagent_containers/ecig_cartridge/orange/initialize()
+	. = ..()
+	reagents_to_add = list(/decl/reagent/toxin/tobacco/liquid = 5, /decl/reagent/water = 10, /decl/reagent/drink/orangejuice = 5)
 
 /obj/item/reagent_containers/ecig_cartridge/watermelon
 	name = "watermelon flavour cartridge"
 	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says its watermelon flavored."
-/obj/item/reagent_containers/ecig_cartridge/watermelon/New()
-	..()
-	reagents.add_reagent(/decl/reagent/toxin/tobacco/liquid, 5)
-	reagents.add_reagent(/decl/reagent/water, 10)
-	reagents.add_reagent(/decl/reagent/drink/watermelonjuice, 5)
+
+/obj/item/reagent_containers/ecig_cartridge/watermelon/initialize()
+	. = ..()
+	reagents_to_add = list(/decl/reagent/toxin/tobacco/liquid = 10, /decl/reagent/water = 10, /decl/reagent/drink/watermelonjuice = 5)
 
 /obj/item/reagent_containers/ecig_cartridge/grape
 	name = "grape flavour cartridge"
 	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says its grape flavored."
-/obj/item/reagent_containers/ecig_cartridge/grape/New()
-	..()
-	reagents.add_reagent(/decl/reagent/toxin/tobacco/liquid, 5)
-	reagents.add_reagent(/decl/reagent/water, 10)
-	reagents.add_reagent(/decl/reagent/drink/grapejuice, 5)
+
+/obj/item/reagent_containers/ecig_cartridge/grape/initialize()
+	. = ..()
+	reagents_to_add = list(/decl/reagent/toxin/tobacco/liquid = 10, /decl/reagent/water = 10, /decl/reagent/drink/grapejuice = 5)
 
 /obj/item/reagent_containers/ecig_cartridge/lemonlime
 	name = "lemon-lime flavour cartridge"
 	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says its lemon-lime flavored."
-/obj/item/reagent_containers/ecig_cartridge/lemonlime/New()
-	..()
-	reagents.add_reagent(/decl/reagent/toxin/tobacco/liquid, 5)
-	reagents.add_reagent(/decl/reagent/water, 10)
-	reagents.add_reagent(/decl/reagent/drink/lemon_lime, 5)
+
+/obj/item/reagent_containers/ecig_cartridge/lemonlime/initialize()
+	. = ..()
+	reagents_to_add = list(/decl/reagent/toxin/tobacco/liquid = 10, /decl/reagent/water = 10, /decl/reagent/drink/lemon_lime = 5)
 
 /obj/item/reagent_containers/ecig_cartridge/coffee
 	name = "coffee flavour cartridge"
 	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says its coffee flavored."
-/obj/item/reagent_containers/ecig_cartridge/coffee/New()
-	..()
-	reagents.add_reagent(/decl/reagent/toxin/tobacco/liquid, 5)
-	reagents.add_reagent(/decl/reagent/water, 10)
-	reagents.add_reagent(/decl/reagent/drink/coffee, 5)
+
+/obj/item/reagent_containers/ecig_cartridge/coffee/initialize()
+	. = ..()
+	reagents_to_add = list(/decl/reagent/toxin/tobacco/liquid = 10, /decl/reagent/water = 10, /decl/reagent/drink/coffee = 5)
