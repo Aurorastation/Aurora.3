@@ -174,6 +174,10 @@
 		if(ban_reason == "WHITELISTED")
 			dat += "<del>[dispRank]</del></td><td><b> \[WHITELISTED]</b></td></tr>"
 			continue
+		else if(ban_reason == "TIMEGATE")
+			var/available_in_days = round(job.available_in_playtime(user.client) / 1440, 0.01)
+			dat += "<del>[dispRank]</del></td><td> \[IN [(available_in_days)] DAYS]</td></tr>"
+			continue
 		else if (ban_reason == "AGE WHITELISTED")
 			var/available_in_days = player_old_enough_for_role(user.client, rank)
 			dat += "<del>[dispRank]</del></td><td> \[IN [(available_in_days)] DAYS]</td></tr>"
