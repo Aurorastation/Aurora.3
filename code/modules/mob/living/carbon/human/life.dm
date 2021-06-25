@@ -644,7 +644,7 @@
 			move_delay_mod += -1.5 * chem_effects[CE_SPEEDBOOST]
 
 		for(var/obj/item/I in src)
-			if(I.contaminated && !(isvaurca(src) && src.species.has_organ[BP_FILTRATION_BIT]))
+			if(I.contaminated && !(species.flags & PHORON_IMMUNE))
 				if(I == r_hand)
 					apply_damage(vsc.plc.CONTAMINATION_LOSS, BURN, BP_R_HAND)
 				else if(I == l_hand)
