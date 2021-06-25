@@ -20,7 +20,7 @@
 	var/idle = 0
 	var/idle_treshold = 30
 
-/obj/item/clothing/mask/smokable/ecig/initialize()
+/obj/item/clothing/mask/smokable/ecig/Initialize()
 	. = ..()
 	if(ispath(cell_type))
 		cigcell = new cell_type(src)
@@ -53,7 +53,7 @@
 	icon_on = "ecigon"
 	cell_type = /obj/item/cell/crap/cig //enough for two cartridges
 
-/obj/item/clothing/mask/smokable/ecig/util/initialize()
+/obj/item/clothing/mask/smokable/ecig/util/Initialize()
 	. = ..()
 	color = pick(ecig_colors)
 
@@ -99,16 +99,16 @@ obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
 
 /obj/item/clothing/mask/smokable/ecig/process()
 	if(!cigcell)
-		Deactivate()
+		deactivate()
 		return
 	if(!ec_cartridge)
-		Deactivate()
+		deactivate()
 		return
 
 	if(idle >= idle_treshold) //idle too long -> automatic shut down
 		idle = 0
 		visible_message(SPAN_NOTICE("\The [src] powers down automatically."), null, 2)
-		Deactivate()
+		deactivate()
 		return
 
 	idle ++
@@ -119,14 +119,14 @@ obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
 		if (!active || !ec_cartridge || !ec_cartridge.reagents.total_volume)//no cartridge
 			if(!ec_cartridge.reagents.total_volume)
 				to_chat(C, SPAN_NOTICE("There's no liquid left in \the [src], so you shut it down."))
-			Deactivate()
+			deactivate()
 			return
 
 		if (src == C.wear_mask && C.check_has_mouth()) //transfer, but only when not disabled
 			idle = 0
 			//here we'll reduce battery by usage, and check powerlevel - you only use batery while smoking
 			if(!cigcell.checked_use(power_usage * CELLRATE)) //if this passes, there's not enough power in the battery
-				Deactivate()
+				deactivate()
 				to_chat(C,SPAN_NOTICE("\The [src]'s power meter flashes a low battery warning and shuts down."))
 				return
 			ec_cartridge.reagents.trans_to_mob(C, REM, CHEM_BREATHE, 0.4) // Most of it is not inhaled... balance reasons.
@@ -186,7 +186,7 @@ obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
 
 /obj/item/clothing/mask/smokable/ecig/attack_self(mob/user)
 	if (active)
-		Deactivate()
+		deactivate()
 		to_chat(user, SPAN_NOTICE("You turn off \the [src]."))
 	else
 		if(cigcell)
@@ -225,7 +225,7 @@ obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
 			return TRUE
 		if(last_drag <= world.time - 30) 
 			if(!cigcell.checked_use(power_usage * CELLRATE)) //if this passes, there's not enough power in the battery
-				Deactivate()
+				deactivate()
 				to_chat(C,SPAN_WARNING("\The [src]'s power meter flashes a low battery warning and shuts down."))
 				return
 			last_drag = world.time
@@ -259,7 +259,7 @@ obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
 	name = "flavorless nicotine cartridge"
 	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says you can add whatever flavoring agents you want."
 
-/obj/item/reagent_containers/ecig_cartridge/blanknico/initialize()
+/obj/item/reagent_containers/ecig_cartridge/blanknico/Initialize()
 	. = ..()
 	reagents_to_add = list(/decl/reagent/toxin/tobacco/liquid = 5, /decl/reagent/water = 10)
 
@@ -267,7 +267,7 @@ obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
 	name = "tobacco flavour cartridge"
 	desc =  "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says its tobacco flavored."
 
-/obj/item/reagent_containers/ecig_cartridge/med_nicotine/initialize()
+/obj/item/reagent_containers/ecig_cartridge/med_nicotine/Initialize()
 	. = ..()
 	reagents_to_add = list(/decl/reagent/toxin/tobacco/liquid = 5, /decl/reagent/water = 15)
 
@@ -275,7 +275,7 @@ obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
 	name = "high nicotine tobacco flavour cartridge"
 	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says its tobacco flavored, with extra nicotine."
 
-/obj/item/reagent_containers/ecig_cartridge/high_nicotine/initialize()
+/obj/item/reagent_containers/ecig_cartridge/high_nicotine/Initialize()
 	. = ..()
 	reagents_to_add = list(/decl/reagent/toxin/tobacco/liquid = 10, /decl/reagent/water = 10)
 
@@ -283,7 +283,7 @@ obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
 	name = "orange flavour cartridge"
 	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says its orange flavored."
 
-/obj/item/reagent_containers/ecig_cartridge/orange/initialize()
+/obj/item/reagent_containers/ecig_cartridge/orange/Initialize()
 	. = ..()
 	reagents_to_add = list(/decl/reagent/toxin/tobacco/liquid = 5, /decl/reagent/water = 10, /decl/reagent/drink/orangejuice = 5)
 
@@ -291,7 +291,7 @@ obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
 	name = "watermelon flavour cartridge"
 	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says its watermelon flavored."
 
-/obj/item/reagent_containers/ecig_cartridge/watermelon/initialize()
+/obj/item/reagent_containers/ecig_cartridge/watermelon/Initialize()
 	. = ..()
 	reagents_to_add = list(/decl/reagent/toxin/tobacco/liquid = 10, /decl/reagent/water = 10, /decl/reagent/drink/watermelonjuice = 5)
 
@@ -299,7 +299,7 @@ obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
 	name = "grape flavour cartridge"
 	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says its grape flavored."
 
-/obj/item/reagent_containers/ecig_cartridge/grape/initialize()
+/obj/item/reagent_containers/ecig_cartridge/grape/Initialize()
 	. = ..()
 	reagents_to_add = list(/decl/reagent/toxin/tobacco/liquid = 10, /decl/reagent/water = 10, /decl/reagent/drink/grapejuice = 5)
 
@@ -307,7 +307,7 @@ obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
 	name = "lemon-lime flavour cartridge"
 	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says its lemon-lime flavored."
 
-/obj/item/reagent_containers/ecig_cartridge/lemonlime/initialize()
+/obj/item/reagent_containers/ecig_cartridge/lemonlime/Initialize()
 	. = ..()
 	reagents_to_add = list(/decl/reagent/toxin/tobacco/liquid = 10, /decl/reagent/water = 10, /decl/reagent/drink/lemon_lime = 5)
 
@@ -315,6 +315,6 @@ obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
 	name = "coffee flavour cartridge"
 	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says its coffee flavored."
 
-/obj/item/reagent_containers/ecig_cartridge/coffee/initialize()
+/obj/item/reagent_containers/ecig_cartridge/coffee/Initialize()
 	. = ..()
 	reagents_to_add = list(/decl/reagent/toxin/tobacco/liquid = 10, /decl/reagent/water = 10, /decl/reagent/drink/coffee = 5)
