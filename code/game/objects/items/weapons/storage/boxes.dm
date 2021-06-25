@@ -912,3 +912,12 @@
 	name = "gold star box"
 	desc = "A box containing gold star stickers."
 	starts_with = list(/obj/item/sticker/goldstar = 8)
+
+/obj/item/storage/box/folders
+	name = "box of folders"
+	desc = "A box full of folders."
+	starts_with = list(/obj/item/folder = 5)
+
+/obj/item/storage/box/folders/blue
+	starts_with = list(/obj/item/folder/sec = 5)
+

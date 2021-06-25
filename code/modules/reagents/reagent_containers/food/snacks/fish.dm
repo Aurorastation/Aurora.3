@@ -35,6 +35,13 @@
 /obj/item/reagent_containers/food/snacks/fish/mollusc/barnacle
 	fish_type = "barnacle"
 
+/obj/item/reagent_containers/food/snacks/fish/cosmozoan
+	name = "slimy fillet"
+	desc = "A piece of slimy meat that could only come from a space jellyfish, a cosmozoan."
+	icon_state = "cozmofillet"
+	fish_type = "cosmozoan"
+	reagents_to_add = list(/decl/reagent/nutriment/protein/seafood/cosmozoan = 3)
+
 // Molluscs!
 /obj/item/trash/mollusc_shell
 	name = "mollusc shell"

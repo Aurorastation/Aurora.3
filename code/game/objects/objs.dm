@@ -228,6 +228,7 @@
 
 	set_dir(turn(dir, 90))
 	update_icon()
+	return TRUE
 
 /obj/AltClick(var/mob/user)
 	if(obj_flags & OBJ_FLAG_ROTATABLE)

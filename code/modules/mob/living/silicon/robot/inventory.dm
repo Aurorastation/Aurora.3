@@ -3,7 +3,10 @@
 
 //Returns the thing in our active hand (whatever is in our active module-slot, in this case)
 /mob/living/silicon/robot/get_active_hand()
-	// TODO: see if refactoring this to return the gripped object (should one exist) works - would make a lot of edge cases a lot simpler
+	if(istype(module_active, /obj/item/gripper))
+		var/obj/item/gripper/G = module_active
+		if(G.wrapped)
+			return G.wrapped
 	return module_active
 
 /mob/living/silicon/robot/proc/return_wirecutter()
@@ -251,11 +254,16 @@
 	W.forceMove(get_turf(src))
 	return FALSE
 
+/mob/living/silicon/robot/remove_from_mob(var/obj/O) //Necessary to clear gripper when trying to place items in things (grinders, smartfridges, vendors, etc)
+	if(istype(module_active, /obj/item/gripper))
+		var/obj/item/gripper/G = module_active
+		if(G.wrapped == O)
+			G.drop(get_turf(src), FALSE) //We don't need to see the "released X item" message if we're putting stuff in fridges and the like.
 
 /mob/living/silicon/robot/drop_item()
-	if (istype(module_active, /obj/item/gripper))
+	if(istype(module_active, /obj/item/gripper))
 		var/obj/item/gripper/G = module_active
-		if (G.wrapped)
+		if(G.wrapped)
 			G.drop_item()
 			return
 	uneq_active()

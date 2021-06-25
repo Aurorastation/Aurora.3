@@ -391,7 +391,7 @@
 			custom_name = newname
 
 		updatename()
-		if(module)
+		if(custom_sprite)
 			set_module_sprites(module.sprites) // custom synth icons
 		SSrecords.reset_manifest()
 
@@ -739,7 +739,7 @@
 				to_chat(user, SPAN_WARNING("\The [src] does not have a radio installed!"))
 				return
 		else if(W.GetID() || istype(W, /obj/item/card/robot))			// trying to unlock the interface with an ID card
-			if(emagged) //still allow them to open the cover
+			if(emagged && !is_traitor()) //still allow them to open the cover. is_traitor() dodges this text as being made traitor sets emagged to TRUE. 
 				to_chat(user, SPAN_NOTICE("You notice that \the [src]'s interface appears to be damaged."))
 			if(opened)
 				to_chat(user, SPAN_WARNING("You must close the cover to swipe an ID card."))

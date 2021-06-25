@@ -42,9 +42,12 @@
 	else
 		..(over_object)
 
-/obj/item/clothing/suit/armor/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/clothing/suit/armor/attackby(obj/item/W, mob/user)
 	..()
-	if (pockets)
+	if(istype(W, /obj/item/clothing/accessory/armor_plate))
+		if(W in accessories) //We already attached this. Don't try to put it in our pockets
+			return
+	if(pockets)
 		pockets.attackby(W, user)
 
 /obj/item/clothing/suit/armor/emp_act(severity)
@@ -168,7 +171,7 @@
 
 		user.forceMove(picked)
 		return PROJECTILE_FORCE_MISS
-	return 0
+	return FALSE
 
 /obj/item/clothing/suit/armor/reactive/attack_self(mob/user as mob)
 	src.active = !( src.active )
