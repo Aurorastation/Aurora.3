@@ -78,6 +78,7 @@
 	new /obj/item/device/radio/headset/heads/hop(src)
 	new /obj/item/device/radio/headset/heads/hop/alt(src)
 	new /obj/item/device/megaphone/command(src)
+	new /obj/item/storage/box/goldstar(src)
 	new /obj/item/gun/energy/disruptorpistol(src)
 	new /obj/item/gun/projectile/sec/flash(src)
 	new /obj/item/device/flash(src)
@@ -387,7 +388,7 @@
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/under/det/black(src)
 	new /obj/item/clothing/under/det/classic(src)
-	new /obj/item/clothing/accessory/badge/dia(src)
+	new /obj/item/clothing/accessory/badge/investigator(src)
 	new /obj/item/clothing/suit/storage/toggle/forensics(src)
 	new /obj/item/clothing/gloves/black/forensic(src)
 	new /obj/item/clothing/shoes/brown(src)
@@ -400,6 +401,8 @@
 	new /obj/item/taperoll/police(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/device/laser_pointer/blue(src)
+	new /obj/item/device/camera/detective(src)
+	new /obj/item/device/camera_film(src)
 	//Belts
 	new /obj/item/clothing/accessory/holster/waist(src)
 

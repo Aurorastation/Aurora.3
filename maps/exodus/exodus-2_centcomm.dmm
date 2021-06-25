@@ -14881,7 +14881,7 @@
 "aWM" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Teleporter Bay";
-	req_access = list(107)
+	req_access = list(106)
 	},
 /turf/unsimulated/floor{
 	icon_state = "delivery"

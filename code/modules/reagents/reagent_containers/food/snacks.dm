@@ -49,6 +49,11 @@
 	if(!istype(target))
 		return
 
+	if(isliving(target))
+		var/mob/living/L = target
+		if(L.isSynthetic() && !isipc(L)) //Catches bots, drones, borgs, etc. IPCs are handled below at the human level
+			return FALSE
+
 	if (isanimal(target))
 		var/mob/living/simple_animal/SA = target
 		if(!(reagents && SA.reagents))
