@@ -299,6 +299,9 @@
 			to_chat(usr, SPAN_NOTICE("Recording stopped."))
 			icon_state = "taperecorderidle"
 			return
+		else if(emagged)
+			to_chat(usr, SPAN_WARNING("The tape recorder's buttons doesn't react!"))
+			return
 		else if(playing)
 			playing = FALSE
 			audible_message("<font color=Maroon><B>Tape Recorder</B>: Playback stopped.</font>", hearing_distance = 3)
