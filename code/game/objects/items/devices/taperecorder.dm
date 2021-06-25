@@ -161,9 +161,6 @@
 
 	if(use_check_and_message(usr))
 		return
-	if(emagged)
-		to_chat(usr, SPAN_WARNING("The tape recorder makes a scratchy noise."))
-		return
 	if(recording)
 		to_chat(usr, SPAN_WARNING("You can't playback when recording!"))
 		return
@@ -197,15 +194,15 @@
 	playing = FALSE
 	if(emagged)
 		audible_message("<font color=Maroon><B>Tape Recorder</B>: This tape recorder will self-destruct in... Five.</font>", hearing_distance = 3)
-		sleep(10)
+		sleep(15)
 		audible_message("<font color=Maroon><B>Tape Recorder</B>: Four.</font>", hearing_distance = 3)
-		sleep(10)
+		sleep(15)
 		audible_message("<font color=Maroon><B>Tape Recorder</B>: Three.</font>", hearing_distance = 3)
-		sleep(10)
+		sleep(15)
 		audible_message("<font color=Maroon><B>Tape Recorder</B>: Two.</font>", hearing_distance = 3)
-		sleep(10)
+		sleep(15)
 		audible_message("<font color=Maroon><B>Tape Recorder</B>: One.</font>", hearing_distance = 3)
-		sleep(10)
+		sleep(15)
 		explode()
 
 /obj/item/device/taperecorder/verb/print_transcript()
