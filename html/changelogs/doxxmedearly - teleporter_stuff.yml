@@ -1,0 +1,11 @@
+author: Doxxmedearly
+
+delete-after: True
+
+changes:
+  - bugfix: "If there's a nearby bluespace inhibitor, portals made by the hand teleporter or jaunter will close when you try to go through them, instead of sitting there blocking the tile."
+  - bugfix: "Teleporting into open closets with the closet teleporter no longer melds you into the closet and makes you stuck."
+  - bugfix: "Addressed several runtime issues with teleportation handling."
+  - bugfix: "Hand teleporter portals should no longer view any turf in range of a working bluespace inhibitor as a valid exit. However, interference from a failed teleport somewhere else may still spit you out by one."
+  - tweak: "Closet teleporters are now affected by bluespace inhibitors. If either closet is in range of one, the teleportation will fail."
+  - tweak: "You can no longer create a portal with the jaunter or hand teleporter if in range of a working bluespace inhibitor."
