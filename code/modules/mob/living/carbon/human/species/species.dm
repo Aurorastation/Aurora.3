@@ -555,6 +555,8 @@
 
 	cost += H.getOxyLoss() * 0.1 //The less oxygen we get, the more we strain. 
 	cost *= H.sprint_cost_factor
+	if(H.is_drowsy())
+		cost *= 1.25
 	if (H.stamina == -1)
 		log_debug("Error: Species with special sprint mechanics has not overridden cost function.")
 		return 0
