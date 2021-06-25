@@ -24,6 +24,7 @@
 	var/is_liquid = FALSE //whether you've got liquid on your utensil
 	var/scoop_food = 1
 	var/transfer_amt = 5
+	var/list/bite_sizes = list(1,2,3,4,5)
 
 /obj/item/material/kitchen/utensil/New()
 	..()
@@ -72,6 +73,14 @@
 		to_chat(user, SPAN_WARNING("You don't have anything on \the [src].")) 	//if we have help intent and no food scooped up DON'T STAB OURSELVES WITH THE FORK)
 		return
 
+/obj/item/material/kitchen/utensil/verb/bite_size()
+	set name = "Change bite size"
+	set category = "Object"
+	var/nsize = input("Bite Size","Pick the amount of reagents to pick up.") as null|anything in bite_sizes
+	if(nsize)
+		transfer_amt = nsize
+		to_chat(usr, SPAN_NOTICE("\the [src] will now scoop up [transfer_amt] reagents."))
+
 /obj/item/material/kitchen/utensil/fork
 	name = "fork"
 	desc = "It's a fork. Sure is pointy."
@@ -87,6 +96,7 @@
 	icon_state = "chopsticks"
 	default_material = MATERIAL_WOOD
 	transfer_amt = 2 //Chopsticks are hard to grab stuff with
+	bite_sizes = list(1,2)
 
 /obj/item/material/kitchen/utensil/fork/chopsticks/cheap
 	name = "cheap chopsticks"
