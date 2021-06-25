@@ -134,18 +134,6 @@
 	icon_state = "lore_summary"
 	screen_loc = "LEFT+1,CENTER-6"
 
-/obj/screen/new_player/selection/MouseEntered(location,control,params) //Yellow color for the font
-	color = "#ffb200"
-	var/matrix/M = matrix()
-	M.Scale(1.1, 1.1)
-	animate(src, transform = M, time = 1, easing = CUBIC_EASING)
-	return ..()
-
-/obj/screen/new_player/selection/MouseExited(location,control,params)
-	color = null
-	animate(src, transform = null, time = 1, easing = CUBIC_EASING)
-	return ..()
-
 /obj/screen/new_player/selection/join_game/Initialize()
 	. = ..()
 	var/mob/abstract/new_player/player = hud.mymob
