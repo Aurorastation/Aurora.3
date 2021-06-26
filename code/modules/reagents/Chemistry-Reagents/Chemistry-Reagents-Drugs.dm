@@ -21,7 +21,7 @@
 	M.add_chemical_effect(CE_PAINKILLER, 5 + round(power,5))
 
 	if(power > 5)
-		M.drowsyness = min(20,max(M.drowsyness,power - 5))
+		M.drowsiness = min(20,max(M.drowsiness,power - 5))
 
 	if(power > 10)
 		var/nutrition_percent = M.nutrition/M.max_nutrition
@@ -92,7 +92,7 @@
 	if(prob(80))
 		M.add_chemical_effect(CE_NEUROTOXIC, 3*removed)
 	if(prob(50))
-		M.drowsyness = max(M.drowsyness, 3)
+		M.drowsiness = max(M.drowsiness, 3)
 	if(prob(10))
 		M.emote("drool")
 
@@ -162,17 +162,17 @@
 
 /decl/reagent/raskara_dust/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_PAINKILLER, 10)
-	M.drowsyness += 1 * removed
+	M.drowsiness += 1 * removed
 
 /decl/reagent/raskara_dust/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_PAINKILLER, 25)
-	M.drowsyness += 2 * removed
+	M.drowsiness += 2 * removed
 	if(prob(5))
 		M.emote("cough")
 
 /decl/reagent/raskara_dust/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_PAINKILLER, 50)
-	M.drowsyness += 3 * removed
+	M.drowsiness += 3 * removed
 	if(prob(5))
 		M.emote("twitch")
 
@@ -198,7 +198,7 @@
 	holder.reagent_data[type]["special"] += (REAGENT_VOLUME(holder, type)/10)*removed
 
 	M.make_jittery(5 + holder.reagent_data[type]["special"])
-	M.drowsyness = max(0,M.drowsyness - (1 + holder.reagent_data[type]["special"]*0.1))
+	M.drowsiness = max(0,M.drowsiness - (1 + holder.reagent_data[type]["special"]*0.1))
 	if(holder.reagent_data[type]["special"] > 5)
 		M.add_chemical_effect(CE_SPEEDBOOST, 1)
 		M.apply_effect(1 + holder.reagent_data[type]["special"]*0.25, STUTTER)
@@ -280,7 +280,7 @@
 	if(M.losebreath < 5)
 		M.losebreath++
 	if(prob(50))
-		M.drowsyness = max(M.drowsyness, 3)
+		M.drowsiness = max(M.drowsiness, 3)
 
 /decl/reagent/toxin/krok
 	name = "Krok Juice"

@@ -77,3 +77,10 @@ var/datum/antagonist/technomancer/technomancers
 			text += "<br>They've lost their core."
 
 	return text
+
+/datum/antagonist/technomancer/proc/is_technomancer(var/datum/mind/player)
+	if(player in current_antagonists)
+		return TRUE
+	if(raider_techno.is_antagonist(player))
+		return TRUE
+	return FALSE
