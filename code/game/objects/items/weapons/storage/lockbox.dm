@@ -1,5 +1,3 @@
-//This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:32
-
 /obj/item/storage/lockbox
 	name = "lockbox"
 	desc = "A locked box."
@@ -13,65 +11,68 @@
 	max_w_class = ITEMSIZE_NORMAL
 	max_storage_space = 14 //The sum of the w_classes of all the items in this storage item.
 	req_access = list(access_armory)
-	var/locked = 1
-	var/broken = 0
+	var/locked = TRUE
+	var/broken = FALSE
 	var/icon_locked = "lockbox+l"
 	var/icon_closed = "lockbox"
 	var/icon_broken = "lockbox+b"
 
-
-	attackby(obj/item/W as obj, mob/user as mob)
-		if (istype(W, /obj/item/card/id))
-			if(src.broken)
-				to_chat(user, "<span class='warning'>It appears to be broken.</span>")
+/obj/item/storage/lockbox/attackby(obj/item/I, mob/user)
+	var/obj/item/card/id/ID = I.GetID()
+	if(istype(ID))
+		if(broken)
+			to_chat(user, SPAN_WARNING("It appears to be broken."))
+			return
+		if(allowed(user))
+			locked = !locked
+			if(locked)
+				icon_state = icon_locked
+				to_chat(user, SPAN_NOTICE("You lock \the [src]!"))
 				return
-			if(src.allowed(user))
-				src.locked = !( src.locked )
-				if(src.locked)
-					src.icon_state = src.icon_locked
-					to_chat(user, "<span class='notice'>You lock \the [src]!</span>")
-					return
-				else
-					src.icon_state = src.icon_closed
-					to_chat(user, "<span class='notice'>You unlock \the [src]!</span>")
-					return
 			else
-				to_chat(user, "<span class='warning'>Access Denied</span>")
-		else if(istype(W, /obj/item/melee/energy/blade))
-			if(emag_act(INFINITY, user, W, "The locker has been sliced open by [user] with an energy blade!", "You hear metal being sliced and sparks flying."))
-				var/obj/item/melee/energy/blade/blade = W
-				blade.spark_system.queue()
-				playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
-				playsound(src.loc, /decl/sound_category/spark_sound, 50, 1)
-		if(!locked)
-			..()
+				icon_state = icon_closed
+				to_chat(user, SPAN_NOTICE("You unlock \the [src]!"))
+				return
 		else
-			to_chat(user, "<span class='warning'>It's locked!</span>")
+			to_chat(user, SPAN_WARNING("Access denied."))
+			return
+
+	if(istype(I, /obj/item/melee/energy/blade))
+		if(emag_act(INFINITY, user, I, "The locker has been sliced open by [user] with an energy blade!", "You hear metal being sliced and sparks flying."))
+			var/obj/item/melee/energy/blade/blade = I
+			blade.spark_system.queue()
+			playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
+			playsound(src.loc, /decl/sound_category/spark_sound, 50, 1)
+			return
+
+	if(locked)
+		to_chat(user, SPAN_WARNING("It's locked!"))
 		return
 
+	return ..()
 
-	show_to(mob/user as mob)
-		if(locked)
-			to_chat(user, "<span class='warning'>It's locked!</span>")
-		else
-			..()
+/obj/item/storage/lockbox/show_to(mob/user)
+	if(locked)
+		to_chat(user, SPAN_WARNING("It's locked!"))
 		return
+	return ..()
 
 /obj/item/storage/lockbox/emag_act(var/remaining_charges, var/mob/user, var/emag_source, var/visual_feedback = "", var/audible_feedback = "")
 	if(!broken)
 		if(visual_feedback)
-			visual_feedback = "<span class='warning'>[visual_feedback]</span>"
+			visual_feedback = SPAN_WARNING(visual_feedback)
 		else
-			visual_feedback = "<span class='warning'>The locker has been sliced open by [user] with an electromagnetic card!</span>"
-		if(audible_feedback)
-			audible_feedback = "<span class='warning'>[audible_feedback]</span>"
-		else
-			audible_feedback = "<span class='warning'>You hear a faint electrical spark.</span>"
+			visual_feedback = SPAN_WARNING("The locker has been sliced open by [user] with an electromagnetic card!")
 
-		broken = 1
-		locked = 0
-		desc = "It appears to be broken."
-		icon_state = src.icon_broken
+		if(audible_feedback)
+			audible_feedback = SPAN_WARNING(audible_feedback)
+		else
+			audible_feedback = SPAN_WARNING("You hear a faint electrical spark.")
+
+		broken = TRUE
+		locked = FALSE
+		desc += " It appears to be broken."
+		icon_state = icon_broken
 		visible_message(visual_feedback, audible_feedback)
 		return 1
 
@@ -98,13 +99,13 @@
 	starts_with = list(/obj/item/grenade/flashbang/clusterbang = 1)
 
 /obj/item/storage/lockbox/lawgiver
-	name = "Weapons lockbox"
-	desc = "A high security weapons lockbox"
+	name = "weapons lockbox"
+	desc = "A high security weapons lockbox."
 	req_access = list(access_armory)
 	starts_with = list(/obj/item/gun/energy/lawgiver = 1)
 
 /obj/item/storage/lockbox/medal
-	name = "medal box"
+	name = "captain's medal box"
 	desc = "A locked box used to store medals."
 	icon_state = "medalbox+l"
 	item_state = "box"
@@ -114,3 +115,25 @@
 	icon_locked = "medalbox+l"
 	icon_closed = "medalbox"
 	icon_broken = "medalbox+b"
+	starts_with = list(
+		/obj/item/clothing/accessory/medal/conduct = 3,
+		/obj/item/clothing/accessory/medal/corporate = 3,
+		/obj/item/clothing/accessory/medal/wound_ribbon = 3,
+		/obj/item/clothing/accessory/medal/silver/valor = 3
+	)
+
+/obj/item/storage/lockbox/medal/hop
+	name = "personnel medal box"
+	desc = "A locked box used to store medals. This one is given to the Head of Personnel."
+	req_access = list(access_hop)
+	starts_with = list(
+		/obj/item/clothing/accessory/medal/conduct = 2,
+		/obj/item/clothing/accessory/medal/corporate = 1,
+		/obj/item/clothing/accessory/medal/silver/valor = 1
+	)
+
+/obj/item/storage/lockbox/medal/head
+	name = "command medal box"
+	desc = "A locked box used to store medals. This one is distributed to the Heads of Staff."
+	req_access = list(access_heads)
+	starts_with = list(/obj/item/clothing/accessory/medal/conduct = 2)

@@ -21512,6 +21512,7 @@
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/flask/barflask,
 /obj/item/device/flashlight/heavy,
+/obj/item/storage/lockbox/medal/head,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
 "aLw" = (
@@ -22215,6 +22216,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/item/storage/lockbox/medal,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "aMp" = (
@@ -26203,6 +26205,7 @@
 	pixel_x = 2;
 	pixel_y = 2
 	},
+/obj/item/storage/lockbox/medal/head,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
 "aTm" = (
@@ -30697,6 +30700,7 @@
 /area/crew_quarters/heads/hop)
 "bba" = (
 /obj/structure/table/wood,
+/obj/item/storage/lockbox/medal/hop,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop)
 "bbb" = (
@@ -36736,6 +36740,7 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
 	},
+/obj/item/storage/lockbox/medal/head,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "blD" = (
@@ -44415,6 +44420,7 @@
 /obj/item/storage/slide_projector{
 	pixel_y = 12
 	},
+/obj/item/storage/lockbox/medal/head,
 /turf/simulated/floor/carpet/blue,
 /area/rnd/rdoffice)
 "bBB" = (

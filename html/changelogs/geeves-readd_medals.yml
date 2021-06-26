@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "The medal box has been returned to the Captain's office, albeit with more low-ranked medals."
+  - rscadd: "The Head of Personnel and the various heads of staff have also received medal boxes, though their medals are lower on the prestige scale than the Captain's."

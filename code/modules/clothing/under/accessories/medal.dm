@@ -8,6 +8,11 @@
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
+/obj/item/clothing/accessory/medal/conduct
+	name = "distinguished conduct medal"
+	desc = "A bronze medal awarded for distinguished conduct. Whilst a great honor, this is most basic award on offer."
+	icon_state = "bronze_nt"
+
 /obj/item/clothing/accessory/medal/sol
 	name = "\improper ASSN medal of bravery"
 	desc = "A bronze medal dedicated to those who have demonstrated courageous acts in the name of the Alliance of Sovereign Solarian Nations."
@@ -61,6 +66,11 @@
 	desc = "A silver medal."
 	icon_state = "silver"
 	overlay_state = "silver"
+
+/obj/item/clothing/accessory/medal/silver/valor
+	name = "medal of valor"
+	desc = "A silver medal awarded for acts of exceptional valor."
+	icon_state = "silver_sword"
 
 /obj/item/clothing/accessory/medal/silver/sol
 	name = "\improper ASSN medal of service"
