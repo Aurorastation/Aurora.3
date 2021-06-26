@@ -1,7 +1,6 @@
 //wrapper
 /proc/do_teleport(ateleatom, adestination, aprecision=0, afteleport=1, aeffectin=null, aeffectout=null, asoundin=null, asoundout=null)
-	var/datum/teleport/T
-	T = new /datum/teleport/instant/science(arglist(args))
+	var/datum/teleport/T = new /datum/teleport/instant/science(arglist(args))
 	if(T.stable_creation)
 		return TRUE
 	return FALSE
