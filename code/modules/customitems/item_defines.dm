@@ -578,30 +578,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "nikit_zippo"
 
 
-/obj/item/deck/tarot/fluff/klavdiya_cards //Adhomian Divination Cards Deck - Klavdiya Tikhomirov - alberyk
-	name = "adhomian divination cards deck"
-	desc = "An adhomian deck of divination cards, used to read the one's fortune or play games."
-	icon_state = "deck_adhomai"
-
-/obj/item/deck/tarot/fluff/klavdiya_cards/generate_deck()
-	var/datum/playingcard/P
-	for(var/name in list("D'as'ral Massacre","Clairvoyant","Suns' Sister","Queen","King","Father of the Parivara","S'rendal'Matir","Tank","Royal Grenadier","Kraszarrumalkarii","Hand of Fate","Great Revolution","Assassin","Assassination","Dymtris Line",
-	"Rrak'narrr","Steeple","Messa","Raskara","S'rendarr","Kazarrhaldiye","Adhomai"))
-		P = new()
-		P.name = "[name]"
-		P.card_icon = "adhomai_major"
-		P.back_icon = "card_back_adhomai"
-		cards += P
-	for(var/suit in list("wands","pentacles","cups","swords"))
-
-
-		for(var/number in list("ace","two","three","four","five","six","seven","eight","nine","ten","serf","soldier","queen","king"))
-			P = new()
-			P.name = "[number] of [suit]"
-			P.card_icon = "adhomai_[suit]"
-			P.back_icon = "card_back_adhomai"
-			cards += P
-
 /obj/item/clothing/accessory/locket/fluff/klavdiya_amulet //Moon Shaped Amulet - Klavdiya Tikhomirov - alberyk
 	name = "moon shaped amulet"
 	desc = "A metalic necklace that bears a silver moon shapped pendant."
@@ -2138,3 +2114,64 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "valetzrhonaja_cloak"
 	item_state = "valetzrhonaja_cloak"
 	contained_sprite = TRUE
+
+
+/obj/structure/sign/flag/fisanduh_coalition
+	name = "coalition fisanduh unity flag"
+	desc = "A well-loved flag often seen hung by those advocating for Fisanduh's legitimization and acceptance into the Coalition of Colonies."
+	icon_state = "coalition-fisanduh"
+
+/obj/structure/sign/flag/fisanduh_coalition/left
+	icon_state = "coalition-fisanduh_l"
+
+/obj/structure/sign/flag/fisanduh_coalition/right
+	icon_state = "coalition-fisanduh_r"
+
+/obj/item/flag/fluff/bian_flag //Coalition Fisanduh Unity Flag - Bian Quy Le - persephoneq
+	name = "coalition fisanduh unity flag"
+	icon = 'icons/obj/custom_items/bian_flag.dmi'
+	icon_state = "bian_flag"
+	desc = "A well-loved flag often seen hung by those advocating for Fisanduh's legitimization and acceptance into the Coalition of Colonies."
+	flag_path = "fisanduh_coalition"
+	flag_size = 1
+
+
+/obj/item/organ/internal/augment/fluff/goldman_eye //Moneymaker Cybernetic Eye Overlay - Kobi Goldman - sleepywolf
+	name = "moneymaker cybernetic eye overlay"
+	desc = "An advanced golden holographic overlay chip installed into prosthetic eyes. Manufactured by Zeng-Hu for Idris Businessmen in the Eridani Corporate sector, \
+	this specific chip is engraved with a signature, and small note. \"For the man who sees my true value. With Love, Renae.\""
+	icon = 'icons/obj/custom_items/goldman_eye.dmi'
+	on_mob_icon = 'icons/obj/custom_items/goldman_eye.dmi'
+	icon_state = "goldman_eye"
+	item_state = "goldman_eye_onmob"
+	parent_organ = BP_HEAD
+
+	action_button_icon = "goldman_eye"
+	action_button_name = "Activate The Moneymaker Cybernetic Eye"
+	activable = TRUE
+	cooldown = 25
+
+/obj/item/organ/internal/augment/fluff/goldman_eye/attack_self(var/mob/user)
+	. = ..()
+	if(!.)
+		return FALSE
+	var/obj/item/W = user.get_active_hand()
+
+	if(W)
+		var/value = get_value(W)
+		user.visible_message("\The [user] scans \the [W] with \the [src]")
+		user.show_message("Price estimation of \the [W]: [value ? value : "N/A"] Credits")
+
+/obj/item/organ/internal/augment/fluff/goldman_chip //Platinum Membership Banking Chip - Kobi Goldman - sleepywolf
+	name = "platinum membership banking chip"
+	desc = "A Platinum Membership Chip with Lazarus Banking, a subsidiary of Idris Banking that focuses completely on private and anonymous banking. Membership with Lazarus is exclusive, \
+	and Membership Chips are the only way to authenticate. The chip is usually implanted near the heart in an EMP proof slot for security purposes. There is a small button on the chip."
+	icon = 'icons/obj/custom_items/goldman_eye.dmi'
+	icon_state = "goldman_chip"
+	parent_organ = BP_CHEST
+
+/obj/item/organ/internal/augment/fluff/goldman_chip/attack_self(var/mob/user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	if (user)
+		visible_message("<b>Platinum Chip</b> states eloquently, \"Welcome, Platinum Member and Esteemed Colleague. Please retrieve your funds at the nearest Trade Hub. Please ensure you keep \
+		this Platinum Membership Chip in you at all times, unless for emergency anonymous withdraws. Have a nice day, and stay with Lazarus Banking for all your private and personal purchases.\"")

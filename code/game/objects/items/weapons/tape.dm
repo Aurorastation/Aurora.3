@@ -18,7 +18,7 @@
 				to_chat(user, "<span class='warning'>\The [H] doesn't have any eyes.</span>")
 				return
 			if(H.glasses)
-				to_chat(user, "<span class='warning'>\The [H] is already wearing somethign on their eyes.</span>")
+				to_chat(user, "<span class='warning'>\The [H] is already wearing something on their eyes.</span>")
 				return
 			if(H.head && (H.head.body_parts_covered & FACE))
 				to_chat(user, "<span class='warning'>Remove their [H.head] first.</span>")

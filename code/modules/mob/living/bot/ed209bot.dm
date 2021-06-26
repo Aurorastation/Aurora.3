@@ -322,7 +322,7 @@
 				return 1
 
 		if(2)
-			if(istype(W, /obj/item/clothing/suit/storage/vest))
+			if(istype(W, /obj/item/clothing/accessory/armor_plate))
 				user.drop_from_inventory(W,get_turf(src))
 				qdel(W)
 				build_step++
@@ -338,7 +338,7 @@
 				if(WT.remove_fuel(0, user))
 					build_step++
 					name = "shielded frame assembly"
-					to_chat(user, "<span class='notice'>You welded the vest to [src].</span>")
+					to_chat(user, "<span class='notice'>You welded the armor to [src].</span>")
 					return 1
 		if(4)
 			if(istype(W, /obj/item/clothing/head/helmet))
@@ -377,7 +377,7 @@
 				return
 
 		if(7)
-			if(istype(W, /obj/item/gun/energy/taser))
+			if(istype(W, /obj/item/gun/energy/disruptorpistol))
 				name = "taser ED-209 assembly"
 				build_step++
 				to_chat(user, "<span class='notice'>You add [W] to [src].</span>")

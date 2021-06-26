@@ -568,19 +568,9 @@
 	worn_state = "lance_dress_m"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 
-/obj/item/clothing/under/rank/elyran_fatigues
-	name = "elyran navy uniform"
-	desc = "An utility uniform worn by Elyran navy staff serving aboard ships and in the field."
-	icon_state = "elyran_fatigues"
-	item_state = "elyran_fatigues"
-	armor = list(
-		melee = ARMOR_MELEE_SMALL,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_MINOR
-		)
-
-/obj/item/clothing/under/rank/elyran_fatigues/commander
-	name = "elyran navy officer uniform"
-	desc = "An utility uniform worn by Elyran navy officers serving aboard ships and in the field."
-	icon_state = "elyran_commander"
-	item_state = "elyran_commander"
+/obj/item/clothing/under/qipao
+	name = "qipao"
+	desc = "A traditional Solarian women's garment, typically made of (synthetic) silk."
+	icon_state = "qipao"
+	item_state = "qipao"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO

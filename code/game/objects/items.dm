@@ -339,7 +339,7 @@
 // Called whenever an object is moved around inside the mob's contents.
 // Linker proc: mob/proc/prepare_for_slotmove, which is referenced in proc/handle_item_insertion and obj/item/attack_hand.
 // This shit exists so that dropped() could almost exclusively be called when an item is dropped.
-/obj/item/proc/on_slotmove(var/mob/user)
+/obj/item/proc/on_slotmove(var/mob/user, slot)
 	if(zoom)
 		zoom(user)
 
@@ -442,6 +442,16 @@ var/list/global/slot_flags_enumeration = list(
 				return 0
 		if(slot_wear_id)
 			return 1
+		if(slot_l_hand)
+			var/obj/item/organ/external/O
+			O = H.organs_by_name[BP_L_HAND]
+			if(!O || !O.is_usable() || O.is_malfunctioning())
+				return FALSE
+		if(slot_r_hand)
+			var/obj/item/organ/external/O
+			O = H.organs_by_name[BP_R_HAND]
+			if(!O || !O.is_usable() || O.is_malfunctioning())
+				return FALSE
 		if(slot_l_store, slot_r_store)
 			if(!H.w_uniform && (slot_w_uniform in mob_equip))
 				if(!disable_warning)
@@ -520,12 +530,11 @@ var/list/global/slot_flags_enumeration = list(
 	attack_self(usr)
 
 //RETURN VALUES
-//handle_shield should return a positive value to indicate that the attack is blocked and should be prevented.
-//If a negative value is returned, it should be treated as a special return value for bullet_act() and handled appropriately.
-//For non-projectile attacks this usually means the attack is blocked.
+//handle_shield
+//Return a negative value corresponding to the degree an attack is blocked. PROJECTILE_STOPPED stops the attack entirely, and is the default for projectile and non-projectile attacks
 //Otherwise should return 0 to indicate that the attack is not affected in any way.
 /obj/item/proc/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
-	return 0
+	return FALSE
 
 /obj/item/proc/can_shield_back()
 	return

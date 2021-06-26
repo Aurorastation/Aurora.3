@@ -94,12 +94,12 @@
 		var/thrall_response = alert(H, "Do you believe in hypnosis?", "Willpower", "Yes", "No")
 		if(thrall_response == "No")
 			H.sleeping = max(H.sleeping - 40, 0)
-			H.drowsyness = max(H.drowsyness - 60, 0)
+			H.drowsiness = max(H.drowsiness - 60, 0)
 			thrall = null
 			STOP_PROCESSING(SSfast_process, src)
 		else
 			H.sleeping = max(H.sleeping, 40)
-			H.drowsyness = max(H.drowsyness, 60)
+			H.drowsiness = max(H.drowsiness, 60)
 	else
 		STOP_PROCESSING(SSfast_process, src)
 
@@ -158,7 +158,7 @@
 		H.visible_message("<span class='warning'>[H] falls into a deep slumber!</span>", "<span class ='danger'>You fall into a deep slumber!</span>")
 
 		H.sleeping = max(H.sleeping, 40)
-		H.drowsyness = max(H.drowsyness, 60)
+		H.drowsiness = max(H.drowsiness, 60)
 		thrall = WEAKREF(H)
 		START_PROCESSING(SSfast_process, src)
 
@@ -505,7 +505,7 @@
 					var/obj/item/organ/internal/brain/sponge = H.internal_organs_by_name[BP_BRAIN]
 					var/braindamage = H.getBrainLoss()
 					if(sponge && istype(sponge))
-						if(!sponge.lobotomized)
+						if(!sponge.prepared)
 							to_chat(user, "<span class='notice'>Scans indicate [braindamage] distinct abnormalities present in subject.</span>")
 							return
 						else

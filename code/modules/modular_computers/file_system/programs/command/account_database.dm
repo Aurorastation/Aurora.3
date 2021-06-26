@@ -33,7 +33,7 @@
 	var/obj/item/card/id/held_card = get_held_card()
 	if (!held_card)
 		return 0
-	if(access_cent_captain in held_card.access)
+	if(access_cent_ccia in held_card.access)
 		return 2
 	else if((access_hop in held_card.access) || (access_captain in held_card.access))
 		return 1
@@ -135,7 +135,7 @@
 			//create a transaction log entry
 			var/datum/transaction/trx = create_transation(account_name, "New account activation", "([starting_funds])")
 			SSeconomy.add_transaction_log(SSeconomy.station_account,trx)
-	
+
 	if(href_list["suspend"])
 		var/account = href_list["suspend"]["account"]
 
@@ -143,14 +143,15 @@
 		if(Acc)
 			Acc.suspended = !Acc.suspended
 			callHook("change_account_status", list(Acc))
-		
-	
+
+
 	if(href_list["add_funds"] && access_level == 2)
 		var/account = href_list["add_funds"]["account"]
 		var/amount = href_list["add_funds"]["amount"]
 
 		var/datum/money_account/Acc = SSeconomy.get_account(account)
 		if(Acc)
+			log_and_message_admins("Added [amount] credits to the [Acc.owner_name] account.")
 			Acc.money = min(Acc.money + amount, FUND_CAP)
 
 	if(href_list["remove_funds"] && access_level == 2)
@@ -159,6 +160,7 @@
 
 		var/datum/money_account/Acc = SSeconomy.get_account(account)
 		if(Acc)
+			log_and_message_admins("Removed [amount] credits to the [Acc.owner_name] account.")
 			Acc.money = max(Acc.money - amount, -FUND_CAP)
 
 	if(href_list["revoke_payroll"])

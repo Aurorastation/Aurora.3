@@ -22,6 +22,12 @@
 	path = /obj/item/storage/secure/briefcase
 	cost = 2
 
+/datum/gear/utility/purse
+	display_name = "Purse"
+	description = "A small, fashionable bag typically worn over the shoulder."
+	path = /obj/item/storage/backpack/satchel/pocketbook/purse
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/utility/folder
 	display_name = "folders"
 	path = /obj/item/folder

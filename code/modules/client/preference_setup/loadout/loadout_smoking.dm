@@ -24,6 +24,7 @@
 	zippolighters["himeo zippo"] = /obj/item/flame/lighter/zippo/himeo
 	zippolighters["europan zippo"] = /obj/item/flame/lighter/zippo/europa
 	zippolighters["gadpathurian zippo"] = /obj/item/flame/lighter/zippo/gadpathur
+	zippolighters["luceian zippo"] = /obj/item/flame/lighter/zippo/luceian
 	zippolighters["asoral jet lighter"] = /obj/item/flame/lighter/zippo/asoral
 	gear_tweaks += new/datum/gear_tweak/path(zippolighters)
 

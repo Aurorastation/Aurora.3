@@ -110,17 +110,53 @@
 	icon_state = "sofamiddle_preview"
 	base_icon = "sofamiddle"
 
+/obj/structure/bed/chair/comfy/sofa/leather/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)
+
+obj/structure/bed/chair/comfy/sofa/comfy/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CARPET)
+
+obj/structure/bed/chair/comfy/sofa/cloth/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH)
+
 /obj/structure/bed/chair/comfy/sofa/left
 	icon_state = "sofaend_left_preview"
 	base_icon = "sofaend_left"
+
+/obj/structure/bed/chair/comfy/sofa/left/leather/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)
+
+obj/structure/bed/chair/comfy/sofa/left/comfy/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CARPET)
+
+obj/structure/bed/chair/comfy/sofa/left/cloth/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH)
 
 /obj/structure/bed/chair/comfy/sofa/right
 	icon_state = "sofaend_right_preview"
 	base_icon = "sofaend_right"
 
+/obj/structure/bed/chair/comfy/sofa/right/leather/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)
+
+obj/structure/bed/chair/comfy/sofa/right/comfy/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CARPET)
+
+obj/structure/bed/chair/comfy/sofa/right/cloth/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH)
+
 /obj/structure/bed/chair/comfy/sofa/corner
 	icon_state = "sofacorner_preview"
 	base_icon = "sofacorner"
+
+/obj/structure/bed/chair/comfy/sofa/corner/leather/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)
+
+obj/structure/bed/chair/comfy/sofa/corner/comfy/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CARPET)
+
+obj/structure/bed/chair/comfy/sofa/corner/cloth/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH)
 
 /obj/structure/bed/chair/office
 	name = "office chair"

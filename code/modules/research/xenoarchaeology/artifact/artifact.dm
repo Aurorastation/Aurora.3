@@ -29,26 +29,30 @@
 // Boulders - sometimes turn up after excavating turf - excavate further to try and find large xenoarch finds
 
 /obj/structure/boulder
-	name = "rocky debris"
+	name = "boulder"
 	desc = "Leftover rock from an excavation, it's been partially dug out already but there's still a lot to go."
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "boulder1"
 	density = 1
 	opacity = 1
 	anchored = 1
+	material = MATERIAL_SANDSTONE
 	var/excavation_level = 0
-	var/datum/geosample/geological_data
+	var/datum/geosample/geologic_data
 	var/datum/artifact_find/artifact_find
 	var/last_act = 0
 
-/obj/structure/boulder/New()
-	icon_state = "boulder[rand(1,4)]"
+/obj/structure/boulder/Initialize(mapload, var/coloration = "#9c9378")
+	. = ..()
+	icon_state = "boulder[rand(1,6)]"
+	if(coloration)
+		color = coloration
 	excavation_level = rand(5,50)
 
 /obj/structure/boulder/attackby(obj/item/W as obj, mob/user as mob)
 	if (istype(W, /obj/item/device/core_sampler))
-		src.geological_data.artifact_distance = rand(-100,100) / 100
-		src.geological_data.artifact_id = artifact_find.artifact_id
+		src.geologic_data.artifact_distance = rand(-100,100) / 100
+		src.geologic_data.artifact_id = artifact_find.artifact_id
 
 		var/obj/item/device/core_sampler/C = W
 		C.sample_item(src, user)

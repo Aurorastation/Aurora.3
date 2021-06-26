@@ -238,6 +238,14 @@
 	taste_description = "cold, bitter slime"
 	hydration_factor = 6
 
+/decl/reagent/nutriment/protein/seafood/cosmozoan
+	name = "Cosmozoan Protein"
+	taste_description = "cold, bitter slime"
+	hydration_factor = 8
+
+/decl/reagent/nutriment/protein/seafood/cosmozoan/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	M.add_chemical_effect(CE_PAINKILLER, 10)
+
 /decl/reagent/nutriment/protein/egg // Also bad for skrell.
 	name = "Egg Yolk"
 	color = "#FFFFAA"
@@ -716,7 +724,7 @@
 		if (caffeine)
 			M.add_up_to_chemical_effect(CE_SPEEDBOOST, caffeine)
 		M.dizziness = max(0, M.dizziness + adj_dizzy)
-		M.drowsyness = max(0, M.drowsyness + adj_drowsy)
+		M.drowsiness = max(0, M.drowsiness + adj_drowsy)
 		M.sleeping = max(0, M.sleeping + adj_sleepy)
 
 	if(add_nutrition == TRUE)
@@ -998,6 +1006,15 @@
 	glass_name = "glass of fermented fatshouters milk"
 	glass_desc = "A tajaran made fermented dairy product, traditionally consumed by nomadic population of Adhomai."
 
+/decl/reagent/drink/milk/adhomai/mutthir
+	name = "Mutthir"
+	description = "A beverage made with Fatshouters' yogurt mixed with Nm’shaan's sugar and sweet herbs."
+	taste_description = "sweet fatty yogurt"
+
+	glass_icon_state = "mutthir_glass"
+	glass_name = "glass of mutthir"
+	glass_desc = "A beverage made with Fatshouters' yogurt mixed with Nm’shaan's sugar and sweet herbs."
+
 /decl/reagent/drink/milk/beetle
 	name = "Hakhma Milk"
 	description = "A milky substance extracted from the brood sac of the viviparous Hakhma, often consumed by Offworlders and Scarabs."
@@ -1007,6 +1024,19 @@
 
 	glass_name = "glass of hakhma milk"
 	glass_desc = "A milky substance extracted from the brood sac of the viviparous Hakhma, often consumed by Offworlders and Scarabs."
+
+/decl/reagent/drink/milk/schlorrgo
+	name = "Schlorrgo Milk"
+	description = "An opaque white liquid produced by the mammary glands of the Schlorrgo."
+	taste_description = "fatty milk"
+
+/decl/reagent/drink/milk/schlorrgo/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	..()
+	if(alien == IS_TAJARA && prob(5))
+		var/mob/living/carbon/human/H = M
+		if(H.can_feel_pain())
+			H.custom_pain("You feel a stinging pain in your abdomen!")
+			H.Stun(3)
 
 /decl/reagent/drink/tea
 	name = "Tea"
@@ -1368,7 +1398,7 @@
 
 	if(alien != IS_DIONA)
 		M.dizziness = max(0, M.dizziness - 5)
-		M.drowsyness = max(0, M.drowsyness - 3)
+		M.drowsiness = max(0, M.drowsiness - 3)
 		M.sleeping = max(0, M.sleeping - 2)
 		M.intoxication = max(0, (M.intoxication - (removed*0.25)))
 
@@ -1737,7 +1767,7 @@
 		M.make_jittery(20)
 		M.druggy = max(M.druggy, 30)
 		M.dizziness += 5
-		M.drowsyness = 0
+		M.drowsiness = 0
 
 /decl/reagent/drink/grenadine
 	name = "Grenadine Syrup"
@@ -2187,7 +2217,7 @@
 	..()
 	if(alien != IS_DIONA)
 		M.dizziness = max(0, M.dizziness - 5)
-		M.drowsyness = max(0, M.drowsyness - 3)
+		M.drowsiness = max(0, M.drowsiness - 3)
 		M.sleeping = max(0, M.sleeping - 2)
 	if(M.bodytemperature > 310)
 		M.bodytemperature = max(310, M.bodytemperature - (5 * TEMPERATURE_DAMAGE_COEFFICIENT))
@@ -2311,7 +2341,7 @@
 	..()
 	if(alien == IS_DIONA)
 		return
-	M.drowsyness = max(0, M.drowsyness - 7)
+	M.drowsiness = max(0, M.drowsiness - 7)
 	M.make_jittery(5)
 
 	if (M.bodytemperature > 310)
@@ -4165,6 +4195,81 @@
 	glass_name = "glass of Rixulin Sundae"
 	glass_desc = "A fizzing drink that looks like a really great time."
 
+/decl/reagent/alcohol/khlibnyz
+	name = "Khlibnyz"
+	color = "#843113"
+	description = "A fermented beverage produced from Adhomian bread."
+	taste_description = "earthy and salty"
+
+	strength = 5
+	nutriment_factor = 1
+	carbonated = TRUE
+
+	glass_icon_state = "khlibnyzglass"
+	glass_name = "glass of khlibnyz"
+	glass_desc = "A fermented beverage produced from Adhomian bread."
+
+/decl/reagent/alcohol/shyyrkirrtyr_wine
+	name = "Shyyr Kirr'tyr Wine"
+	color = "#D08457"
+	description = "Tajaran spirit infused with some eel-like Adhomian creature."
+	taste_description = "dry alcohol with a hint of meat"
+
+	strength = 20
+	nutriment_factor = 1
+
+	glass_icon_state = "shyrrkirrtyrwineglass"
+	glass_name = "glass of shyyr kirr'tyr wine"
+	glass_desc = "Tajaran spirit infused with some eel-like Adhomian creature."
+
+/decl/reagent/alcohol/nmshaan_liquor
+	name = "Nm'shaan Liquor"
+	color = "#FE6B03"
+	description = "A strong Adhomian liquor reserved for special occasions."
+	taste_description = "sweet and silky alcohol"
+
+	strength = 70
+
+	glass_icon_state = "nmshaanliquorglass"
+	glass_name = "glass of nm'shaan liquor"
+	glass_desc = "A strong Adhomian liquor reserved for special occasions."
+
+/decl/reagent/alcohol/nmshaan_liquor/darmadhirbrew
+	name = "Darmadhir Brew"
+	color = "#E4A769"
+	description = "A rare and expensive brand of nm'shaan liquor."
+	taste_description = "expensive sweet and silky alcohol"
+
+	strength = 75
+
+	glass_icon_state = "darmadhirbrewglass"
+	glass_name = "glass of Darmadhir Brew"
+	description = "A rare and expensive brand of nm'shaan liquor."
+
+/decl/reagent/alcohol/treebark_firewater
+	name = "Tree-Bark Firewater"
+	color = "#ACAA1D"
+	description = "High-content alcohol distilled from Earthen-Root or Blizzard Ears."
+	taste_description = "earthy and bitter alcohol"
+
+	strength = 65
+
+	glass_icon_state = "treebarkfirewaterglass"
+	glass_name = "glass of tree-bark firewater"
+	glass_desc = "High-content alcohol distilled from Earthen-Root or Blizzard Ears."
+
+/decl/reagent/alcohol/veterans_choice
+	name = "Veteran's Choice"
+	color = "#7C7231"
+	description = "A cocktail consisting of Messa's Mead and gunpowder."
+	taste_description = "honey and salty"
+
+	strength = 25
+
+	glass_icon_state = "veteranschoiceglass"
+	glass_name = "glass of veteran's choice"
+	glass_desc = "A cocktail consisting of Messa's Mead and gunpowder."
+
 // Butanol-based alcoholic drinks
 //=====================================
 //These are mainly for unathi, and have very little (but still some) effect on other species
@@ -4437,7 +4542,7 @@
 	if(alien != IS_DIONA)
 		M.make_jittery(20)
 		M.dizziness += 5
-		M.drowsyness = 0
+		M.drowsiness = 0
 
 /decl/reagent/drink/zorasoda/venomgrass
 	name = "Zo'ra Soda Sour Venom Grass"
@@ -4520,7 +4625,7 @@
 	if(alien != IS_DIONA)
 		M.druggy = max(M.druggy, 30)
 		M.dizziness += 5
-		M.drowsyness = 0
+		M.drowsiness = 0
 
 /decl/reagent/drink/hrozamal_soda
 	name = "Hro'zamal Soda"
@@ -4614,3 +4719,14 @@
 	condiment_desc = "A vegetarian friendly way to add a little extra pizazz to any dish."
 	condiment_icon_state = "dionaepowder"
 	condiment_center_of_mass = list("x"=16, "y"=10)
+
+/decl/reagent/drink/midynhr_water
+	name = "Midynhr Water"
+	description = "A soft drink made from honey and tree syrup."
+	color = "#95D44C"
+	taste_description = "creamy sweetness"
+
+	glass_icon_state = "midynhrwaterglass"
+	glass_name = "glass of midynhr water"
+	glass_desc = "A soft drink made from honey and tree syrup."
+	glass_center_of_mass = list("x"=15, "y"=9)

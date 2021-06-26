@@ -111,6 +111,32 @@
 	cost = 2
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/accessory/webbing_harness
+	display_name = "webbing, harness selection"
+	path = /obj/item/clothing/accessory/storage/webbingharness
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/webbing_harness/New()
+	..()
+	var/webbingharness = list()
+	webbingharness["webbing harness"] = /obj/item/clothing/accessory/storage/webbingharness
+	webbingharness["webbing harness, pouches"] = /obj/item/clothing/accessory/storage/webbingharness/pouches
+	webbingharness["webbing harness, pouches alt"] = /obj/item/clothing/accessory/storage/webbingharness/alt
+	gear_tweaks += new/datum/gear_tweak/path(webbingharness)
+
+/datum/gear/accessory/colorable_webbing_harness
+	display_name = "webbing, colorable harness selection"
+	path = /obj/item/clothing/accessory/storage/webbingharness/grayscale
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/colorable_webbing_harness/New()
+	..()
+	var/colorableharness = list()
+	colorableharness["webbing harness"] = /obj/item/clothing/accessory/storage/webbingharness/grayscale
+	colorableharness["webbing harness, pouches"] = /obj/item/clothing/accessory/storage/webbingharness/pouches/grayscale
+	colorableharness["webbing harness, pouches alt"] = /obj/item/clothing/accessory/storage/webbingharness/alt/grayscale
+	gear_tweaks += new/datum/gear_tweak/path(colorableharness)
+
 /datum/gear/accessory/brown_pouches
 	display_name = "drop pouches, engineering"
 	path = /obj/item/clothing/accessory/storage/pouches/brown
@@ -177,9 +203,11 @@
 	..()
 	var/shirt = list()
 	shirt["dress shirt"] = /obj/item/clothing/accessory/dressshirt
-	shirt["dress shirt, rolled up"] = /obj/item/clothing/accessory/dressshirt_r
-	shirt["dress shirt, cropped"] = /obj/item/clothing/accessory/dressshirt_crop
-	shirt["cropped dress shirt, rolled up"] = /obj/item/clothing/accessory/dressshirt_crop_r
+	shirt["dress shirt, rolled up"] = /obj/item/clothing/accessory/dressshirt/rolled
+	shirt["dress shirt, cropped"] = /obj/item/clothing/accessory/dressshirt/crop
+	shirt["cropped dress shirt, rolled up"] = /obj/item/clothing/accessory/dressshirt/crop/rolled
+	shirt["dress shirt, alt"] = /obj/item/clothing/accessory/dressshirt/alt
+	shirt["dress shirt, alt rolled up"] = /obj/item/clothing/accessory/dressshirt/alt/rolled
 	shirt["long-sleeved shirt"] = /obj/item/clothing/accessory/longsleeve
 	shirt["long-sleeved shirt, black striped"] = /obj/item/clothing/accessory/longsleeve_s
 	shirt["long-sleeved shirt, blue striped"] = /obj/item/clothing/accessory/longsleeve_sb
@@ -248,7 +276,7 @@
 
 /datum/gear/accessory/detbadge
 	display_name = "badge, investigations"
-	path = /obj/item/clothing/accessory/badge/dia
+	path = /obj/item/clothing/accessory/badge/investigator
 	allowed_roles = list("Investigator")
 
 /datum/gear/accessory/badge
