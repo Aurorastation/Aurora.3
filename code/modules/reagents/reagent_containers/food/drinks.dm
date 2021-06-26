@@ -436,7 +436,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	The drink can also be smoked for flavor. Mutthir is believed to have originated from the worldwide appreciated Fatshouters' fermented milk. Rock Nomads living in the Nomadic Host \
 	were quick to adopt the drink to their diet."
 
-	reagents_to_add = list(/datum/chemical_reaction/drink/mutthir = 100)
+	reagents_to_add = list(/decl/reagent/drink/milk/adhomai/mutthir = 100)
 
 //////////////////////////drinkingglass and shaker//
 //Note by Darem: This code handles the mixing of drinks. New drinks go in three places: In Chemistry-Reagents.dm (for the drink
