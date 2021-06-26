@@ -1,6 +1,0 @@
-author: Doxxmedearly
-
-delete-after: True
-
-changes:
-  - tweak: "Spawning a chemical dispenser cartridge as an admin now uses a search function similar to how the spawn verb works."
