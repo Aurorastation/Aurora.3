@@ -1,7 +1,0 @@
-author: Alberyk, Ramke
-
-delete-after: True
-
-changes:
-  - rscadd: "Added some new Adhomian drinks. They can be found in the loadout selection and booze vending machine."
-  - tweak: "Butchering a fatshouter now gives lard."
