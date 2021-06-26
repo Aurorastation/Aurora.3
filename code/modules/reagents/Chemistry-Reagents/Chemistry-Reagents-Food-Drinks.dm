@@ -4205,7 +4205,7 @@
 	nutriment_factor = 1
 	carbonated = TRUE
 
-	glass_icon_state = "khlibnyzglass"
+	glass_icon_state = "khlibnyz_glass"
 	glass_name = "glass of khlibnyz"
 	glass_desc = "A fermented beverage produced from Adhomian bread."
 
@@ -4218,7 +4218,7 @@
 	strength = 20
 	nutriment_factor = 1
 
-	glass_icon_state = "shyrrkirrtyrwineglass"
+	glass_icon_state = "shyrrkirrtyrwine_glass"
 	glass_name = "glass of shyyr kirr'tyr wine"
 	glass_desc = "Tajaran spirit infused with some eel-like Adhomian creature."
 
@@ -4230,7 +4230,7 @@
 
 	strength = 70
 
-	glass_icon_state = "nmshaanliquorglass"
+	glass_icon_state = "nmshaanliquor_glass"
 	glass_name = "glass of nm'shaan liquor"
 	glass_desc = "A strong Adhomian liquor reserved for special occasions."
 
@@ -4242,7 +4242,7 @@
 
 	strength = 75
 
-	glass_icon_state = "darmadhirbrewglass"
+	glass_icon_state = "darmadhirbrew_glass"
 	glass_name = "glass of Darmadhir Brew"
 	description = "A rare and expensive brand of nm'shaan liquor."
 
@@ -4254,7 +4254,7 @@
 
 	strength = 65
 
-	glass_icon_state = "treebarkfirewaterglass"
+	glass_icon_state = "treebarkfirewater_glass"
 	glass_name = "glass of tree-bark firewater"
 	glass_desc = "High-content alcohol distilled from Earthen-Root or Blizzard Ears."
 
@@ -4266,7 +4266,7 @@
 
 	strength = 25
 
-	glass_icon_state = "veteranschoiceglass"
+	glass_icon_state = "veteranschoice_glass"
 	glass_name = "glass of veteran's choice"
 	glass_desc = "A cocktail consisting of Messa's Mead and gunpowder."
 
@@ -4726,7 +4726,7 @@
 	color = "#95D44C"
 	taste_description = "creamy sweetness"
 
-	glass_icon_state = "midynhrwaterglass"
+	glass_icon_state = "midynhrwater_glass"
 	glass_name = "glass of midynhr water"
 	glass_desc = "A soft drink made from honey and tree syrup."
 	glass_center_of_mass = list("x"=15, "y"=9)

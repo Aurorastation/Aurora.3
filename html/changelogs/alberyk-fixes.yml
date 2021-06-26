@@ -1,0 +1,8 @@
+author: Alberyk
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed admin winding displaying the wrong target message."
+  - bugfix: "Fixed the vampire bite hud icon covering the gun buttons."
+  - bugfix: "Fixed some adhomian drinks not having the correct icon."
