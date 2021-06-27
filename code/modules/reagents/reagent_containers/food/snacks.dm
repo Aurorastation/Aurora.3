@@ -4783,7 +4783,7 @@
 	desc = "A medium rare fillet of Fatshouter meat covered in an earthenroot pate and wrapped in a flaky crust."
 	icon_state = "fatshouterfillet_full"
 	bitesize = 2
-	slice_path = /obj/item/reagent_containers/food/snacks/meatbreadslice
+	slice_path = /obj/item/reagent_containers/food/snacks/fatshouterslice
 	slices_num = 5
 	reagents_to_add = list(/decl/reagent/nutriment/protein = 10, /decl/reagent/nutriment = 10, /decl/reagent/alcohol/messa_mead = 5)
 	reagent_data = list(/decl/reagent/nutriment/protein = list("juicy meat" = 10), /decl/reagent/nutriment = list("flaky dough" = 5, "savoury vegetables" = 5))
