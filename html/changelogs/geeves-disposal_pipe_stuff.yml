@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Disposal Pipe Dispensers now have their own sprite and uses a themed UI."
+  - rscadd: "Automatic Floor Layers now have their own sprite and no longer delete the tiles they dismantle."
+  - rscadd: "Automatic Cable Layers now have their own sprites."
