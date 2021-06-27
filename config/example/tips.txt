@@ -175,7 +175,7 @@ There is no cloning, but you can respawn... as a different person, obviously.
 As a Loner, your psionic powers are a mystery to us all.
 As a Maintenance Drone, you can put on hats, but not take them off.
 As a Maintenance Drone, you cannot repair yourself but you can ask other maintenance drones to do it for you.
-Destroy the bluespace inhibitor for a whacky, wild adventure.
+EMP or Emag the bluespace inhibitor for a whacky, wild adventure.
 The Maintenance Drones will never threaten to stab you, and in fact, cannot speak.
 The Bluespace Technicians aren't real, they can't hurt you.
 There is no escape.
