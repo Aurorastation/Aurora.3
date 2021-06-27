@@ -1,6 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - bugfix: "Slicing a fatshouter fillet now properly gives fatshouter fillet slices."
