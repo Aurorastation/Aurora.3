@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed the reverb of the cozmo migration event to sound like it's coming from the station."
