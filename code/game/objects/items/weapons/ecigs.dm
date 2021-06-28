@@ -1,6 +1,6 @@
 /obj/item/clothing/mask/smokable/ecig
 	name = "electronic cigarette"
-	desc = "Device with modern approach to smoking."
+	desc = "A battery powered cigarette."
 	icon = 'icons/obj/ecig.dmi'
 	contained_sprite = TRUE
 	var/active = FALSE
