@@ -2,11 +2,12 @@
 	name = "electronic cigarette"
 	desc = "Device with modern approach to smoking."
 	icon = 'icons/obj/ecig.dmi'
+	contained_sprite = TRUE
 	var/active = FALSE
 	var/obj/item/cell/cig_cell
 	var/cell_type = /obj/item/cell/crap/cig
-	var/cartridge_type = /obj/item/reagent_containers/ecig_cartridge/med_nicotine
 	var/obj/item/reagent_containers/ecig_cartridge/ec_cartridge
+	var/cartridge_type = /obj/item/reagent_containers/ecig_cartridge/med_nicotine
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS | SLOT_MASK
 	attack_verb = list("attacked", "poked", "battered")
@@ -40,7 +41,7 @@
 /obj/item/clothing/mask/smokable/ecig/simple/examine(mob/user)
 	. = ..()
 	if(ec_cartridge)
-		to_chat(user, SPAN_NOTICE("There are [round(ec_cartridge.reagents.total_volume, 1)] units of liquid remaining."))
+		to_chat(user, SPAN_NOTICE("There are [round(ec_cartridge.reagents.total_volume, 1)] unit\s of liquid remaining."))
 	else
 		to_chat(user, SPAN_NOTICE("There's no cartridge connected."))
 
@@ -60,7 +61,7 @@
 obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
 	. = ..()
 	if(ec_cartridge)
-		to_chat(user, SPAN_NOTICE("There are [round(ec_cartridge.reagents.total_volume, 1)] units of liquid remaining."))
+		to_chat(user, SPAN_NOTICE("There are [round(ec_cartridge.reagents.total_volume, 1)] unit\s of liquid remaining."))
 	else
 		to_chat(user, SPAN_NOTICE("There's no cartridge connected."))
 	if(cig_cell)
@@ -84,7 +85,7 @@ obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
 /obj/item/clothing/mask/smokable/ecig/deluxe/examine(mob/user)
 	. = ..()
 	if(ec_cartridge)
-		to_chat(user, SPAN_NOTICE("There are [round(ec_cartridge.reagents.total_volume, 1)] units of liquid remaining."))
+		to_chat(user, SPAN_NOTICE("There are [round(ec_cartridge.reagents.total_volume, 1)] unit\s of liquid remaining."))
 	else
 		to_chat(user, SPAN_NOTICE("There's no cartridge connected."))
 	if(cig_cell)
@@ -135,7 +136,7 @@ obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
 	if (active)
 		item_state = icon_on
 		icon_state = icon_on
-		set_light(0.6, 0.5, brightness_on)
+		set_light(1.4, 0.5, brightness_on)
 	else if (ec_cartridge)
 		set_light(0)
 		item_state = icon_off
@@ -150,7 +151,7 @@ obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
 		M.update_inv_l_hand(0)
 		M.update_inv_r_hand(1)
 
-/obj/item/clothing/mask/smokable/ecig/attackby(var/obj/item/I, var/mob/user)
+/obj/item/clothing/mask/smokable/ecig/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/reagent_containers/ecig_cartridge))
 		if (ec_cartridge)//can't add second one
 			to_chat(user, SPAN_WARNING("A cartridge has already been installed."))
@@ -160,7 +161,7 @@ obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
 			update_icon()
 			to_chat(user, SPAN_NOTICE("You insert \the [I] into \the [src]."))
 
-	if(istype(I, /obj/item/screwdriver))
+	if(I.isscrewdriver())
 		if(cig_cell) //if contains powercell
 			cig_cell.update_icon()
 			user.put_in_hands(cig_cell)
@@ -248,7 +249,7 @@ obj/item/clothing/mask/smokable/ecig/util/examine(mob/user)
 
 /obj/item/reagent_containers/ecig_cartridge/examine(mob/user)
 	. = ..()
-	to_chat(user, "The cartridge has [reagents.total_volume] units of liquid remaining.")
+	to_chat(user, "The cartridge has [reagents.total_volume] unit\s of liquid remaining.")
 
 //flavours
 /obj/item/reagent_containers/ecig_cartridge/blank
