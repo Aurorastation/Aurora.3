@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "You can now use any tool with a matching tool quality for surgery and RIG assembly, meaning you can open an IPC's hatch with a screwdriver augment. Most surgeries need you to use a surgery viable tool, meaning an impact drill cannot be used, the exception being the robotic surgeries."
