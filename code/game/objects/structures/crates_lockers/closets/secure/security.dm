@@ -128,14 +128,9 @@
 	new /obj/item/clothing/suit/armor/carrier/hos(src)
 	new /obj/item/clothing/accessory/leg_guard(src)
 	new /obj/item/clothing/accessory/arm_guard(src)
-	if(prob(50))
-		new /obj/item/clothing/under/rank/head_of_security(src)
-		new /obj/item/clothing/head/beret/security/hos(src)
-		new /obj/item/clothing/head/hos(src)
-	else
-		new /obj/item/clothing/under/rank/head_of_security/corp(src)
-		new /obj/item/clothing/head/beret/security/hos/corp(src)
-		new /obj/item/clothing/head/hos/corp(src)
+	new /obj/item/clothing/under/rank/head_of_security/corp(src)
+	new /obj/item/clothing/head/beret/security/hos/corp(src)
+	new /obj/item/clothing/head/hos/corp(src)
 	new /obj/item/clothing/head/helmet/hos(src)
 	new /obj/item/clothing/suit/storage/security/hos(src)
 	new /obj/item/clothing/accessory/badge/hos(src)
@@ -182,14 +177,9 @@
 	new /obj/item/clothing/suit/armor/carrier/hos(src)
 	new /obj/item/clothing/accessory/leg_guard(src)
 	new /obj/item/clothing/accessory/arm_guard(src)
-	if(prob(50))	// chance to spawn either corporate or regular outfit. to prevent locker bloat which makes it lag when right clicked
-		new /obj/item/clothing/under/rank/head_of_security(src)
-		new /obj/item/clothing/head/beret/security/hos(src)
-		new /obj/item/clothing/head/hos(src)
-	else
-		new /obj/item/clothing/under/rank/head_of_security/corp(src)
-		new /obj/item/clothing/head/beret/security/corp(src)
-		new /obj/item/clothing/head/hos/corp(src)
+	new /obj/item/clothing/under/rank/head_of_security/corp(src)
+	new /obj/item/clothing/head/beret/security/corp(src)
+	new /obj/item/clothing/head/hos/corp(src)
 	new /obj/item/clothing/head/helmet/hos(src)
 	new /obj/item/clothing/suit/storage/security/hos(src)
 	//Tools
@@ -225,17 +215,9 @@
 	new /obj/item/clothing/suit/armor/carrier/officer(src)
 	new /obj/item/clothing/accessory/arm_guard(src)
 	new /obj/item/clothing/accessory/leg_guard(src)
-	if(prob(50))
-		if(prob(50))
-			new /obj/item/clothing/under/rank/warden(src)
-		else
-			new /obj/item/clothing/under/rank/warden/blue(src)
-		new /obj/item/clothing/head/beret/security/warden(src)
-		new /obj/item/clothing/head/warden(src)
-	else
-		new /obj/item/clothing/under/rank/warden/corp(src)
-		new /obj/item/clothing/head/beret/security/corp(src)
-		new /obj/item/clothing/head/warden/corp(src)
+	new /obj/item/clothing/under/rank/warden/corp(src)
+	new /obj/item/clothing/head/beret/security/corp(src)
+	new /obj/item/clothing/head/warden/corp(src)
 	new /obj/item/clothing/head/helmet/security(src)
 	new	/obj/item/clothing/suit/storage/security/warden(src)
 	new /obj/item/clothing/accessory/badge/warden(src)
@@ -250,10 +232,7 @@
 	new /obj/item/melee/baton/loaded(src)
 	new /obj/item/gun/energy/disruptorpistol(src)
 	//Belts
-	if (prob(50))
-		new /obj/item/clothing/accessory/storage/black_vest(src)
-	else
-		new /obj/item/clothing/accessory/storage/pouches/black(src)
+	new /obj/item/clothing/accessory/storage/black_vest(src)
 	new /obj/item/storage/belt/security(src)
 
 
@@ -287,10 +266,7 @@
 	new /obj/item/device/holowarrant(src)
 	new /obj/item/device/flashlight/flare/glowstick/red(src)
 	//Belts
-	if (prob(50))
-		new /obj/item/clothing/accessory/storage/black_vest(src)
-	else
-		new /obj/item/clothing/accessory/storage/pouches/black(src)
+	new /obj/item/clothing/accessory/storage/black_vest(src)
 	new /obj/item/storage/belt/security(src)
 
 /obj/structure/closet/secure_closet/security
@@ -312,17 +288,9 @@
 	new /obj/item/clothing/suit/armor/carrier/officer(src)
 	new /obj/item/clothing/accessory/arm_guard(src)
 	new /obj/item/clothing/accessory/leg_guard(src)
-	if(prob(50))
-		if(prob(50))
-			new /obj/item/clothing/under/rank/security(src)
-		else
-			new /obj/item/clothing/under/rank/security/blue(src)
-		new /obj/item/clothing/head/beret/security/officer(src)
-		new /obj/item/clothing/head/softcap/security(src)
-	else
-		new /obj/item/clothing/under/rank/security/corp(src)
-		new /obj/item/clothing/head/beret/security/corp(src)
-		new /obj/item/clothing/head/softcap/security/corp(src)
+	new /obj/item/clothing/under/rank/security/corp(src)
+	new /obj/item/clothing/head/beret/security/corp(src)
+	new /obj/item/clothing/head/softcap/security/corp(src)
 	new /obj/item/clothing/head/helmet/security(src)
 	new /obj/item/clothing/suit/storage/security/officer(src)
 	new /obj/item/clothing/accessory/badge/officer(src)
@@ -343,10 +311,7 @@
 	new /obj/item/device/flashlight/flare/glowstick/red(src)
 	new /obj/item/handcuffs(src)
 	//Belts
-	if (prob(50))
-		new /obj/item/clothing/accessory/storage/black_vest(src)
-	else
-		new /obj/item/clothing/accessory/storage/pouches/black(src)
+	new /obj/item/clothing/accessory/storage/black_vest(src)
 	new /obj/item/clothing/accessory/holster/hip(src)
 	new /obj/item/storage/belt/security(src)
 
@@ -383,6 +348,7 @@
 
 /obj/structure/closet/secure_closet/investigator/fill()
 	//Appearance
+	new /obj/item/storage/backpack/satchel/leather(src)
 	new /obj/item/clothing/suit/storage/det_jacket(src)
 	new /obj/item/clothing/under/det(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
@@ -405,6 +371,7 @@
 	new /obj/item/device/camera_film(src)
 	//Belts
 	new /obj/item/clothing/accessory/holster/waist(src)
+	new /obj/item/clothing/accessory/storage/pouches/black(src)
 
 /obj/structure/closet/secure_closet/injection
 	name = "lethal injections locker"
