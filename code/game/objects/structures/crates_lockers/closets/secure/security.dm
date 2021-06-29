@@ -69,7 +69,9 @@
 	..()
 	//Supply
 	new /obj/item/storage/box/ids(src)
-	new /obj/item/storage/box/ids( src )
+	new /obj/item/storage/box/ids(src)
+	new /obj/item/storage/box/fancy/keypouch/cargo(src)
+	new /obj/item/storage/box/fancy/keypouch/service(src)
 	//Appearance
 	new /obj/item/clothing/glasses/sunglasses(src)
 	new /obj/item/clothing/suit/armor/carrier/generic(src)
