@@ -31,7 +31,7 @@
 	grab_mod = 2
 	resist_mod = 0.5 // LIKE BABBY
 
-	spawn_flags = CAN_JOIN | IS_WHITELISTED
+	spawn_flags = IS_RESTRICTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_SOCKS
 	flags = NO_SLIP
 
