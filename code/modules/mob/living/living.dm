@@ -854,7 +854,7 @@ default behaviour is:
 			if (H.species.hearing_sensitive == 2)
 				damage *= 2
 			else
-				damage = round(damage *= 1.5)
+				damage = round(damage *= 1.5, 1)
 	ear_damage = max(0, ear_damage + damage)
 	ear_deaf = max(0, ear_deaf + deaf)
 

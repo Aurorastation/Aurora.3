@@ -151,10 +151,24 @@ var/datum/controller/subsystem/explosives/SSexplosives
 
 					var/dist = get_dist(M_turf, epicenter)
 					var/explosion_dir = get_dir(M_turf, epicenter)
-					if (reception == 2 && (M.ear_deaf <= 0 || !M.ear_deaf))//Dont play sounds to deaf people
+					if (reception == 2 && (M.ear_deaf <= 0 || !M.ear_deaf)) //Dont play sounds to deaf people
+						
+						// Anyone with sensitive hearing gets a bonus to hearing explosions
+						var/extendeddist = closedist
+						if(ishuman(M))
+							var/mob/living/carbon/human/H = M
+							if (H.species.hearing_sensitive)
+								if (H.species.hearing_sensitive == 2)
+									extendeddist *= 2
+								else
+									extendeddist = round(closedist *= 1.5, 1)
+
 						// If inside the blast radius + world.view - 2
-						if(dist <= closedist)
+						if (dist <= closedist)
 							to_chat(M, FONT_LARGE(SPAN_WARNING("You hear the sound of a nearby explosion coming from \the [dir2text(explosion_dir)].")))
+							M.playsound_simple(epicenter, get_sfx(/decl/sound_category/explosion_sound), min(100, volume), use_random_freq = TRUE, falloff = 5)
+						else if (dist >> closedist && dist <= extendeddist) // People with sensitive hearing get a better idea of how far it is
+							to_chat(M, FONT_LARGE(SPAN_WARNING("You hear the sound of a semi-close explosion coming from \the [dir2text(explosion_dir)].")))
 							M.playsound_simple(epicenter, get_sfx(/decl/sound_category/explosion_sound), min(100, volume), use_random_freq = TRUE, falloff = 5)
 						else //You hear a far explosion if you're outside the blast radius. Small bombs shouldn't be heard all over the station.
 							volume = M.playsound_simple(epicenter, 'sound/effects/explosionfar.ogg', volume, use_random_freq = TRUE, falloff = 1000, use_pressure = TRUE)
