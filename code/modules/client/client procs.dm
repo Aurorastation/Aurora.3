@@ -390,6 +390,8 @@ var/list/localhost_addresses = list(
 	if (byond_version >= 511 && prefs.clientfps)
 		fps = prefs.clientfps
 
+	reload_theme()
+
 	// Server greeting shenanigans.
 	if (server_greeting.find_outdated_info(src, 1) && !info_sent)
 		server_greeting.display_to_client(src)
@@ -604,6 +606,14 @@ var/list/localhost_addresses = list(
 /client/proc/apply_fps(var/client_fps)
 	if(world.byond_version >= 511 && byond_version >= 511 && client_fps >= 0 && client_fps <= 1000)
 		vars["fps"] = prefs.clientfps
+
+/client/proc/reload_theme()
+	var/theme = prefs.theme_style
+	switch(theme)
+		if(THEME_BYOND_LIGHT)
+			force_white_theme()
+		if(THEME_BYOND_DARK)
+			force_dark_theme()
 
 //I honestly can't find a good place for this atm.
 //If the webint interaction gets more features, I'll move it. - Skull132
