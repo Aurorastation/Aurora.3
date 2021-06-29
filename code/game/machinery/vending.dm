@@ -364,13 +364,13 @@
 
 		// This is not a status display message, since it's something the character
 		// themselves is meant to see BEFORE putting the money in
-		to_chat(user, "[icon2html(cashmoney, user)] <span class='warning'>That is not enough money.</span>")
+		to_chat(usr, "\icon[cashmoney] <span class='warning'>That is not enough money.</span>")
 		return 0
 
 	if(istype(cashmoney, /obj/item/spacecash/bundle))
 		// Bundles can just have money subtracted, and will work
 
-		visible_message("<span class='info'>\The [user] inserts some cash into \the [src].</span>")
+		visible_message("<span class='info'>\The [usr] inserts some cash into \the [src].</span>")
 		var/obj/item/spacecash/bundle/cashmoney_bundle = cashmoney
 		cashmoney_bundle.worth -= currently_vending.price
 
@@ -385,9 +385,9 @@
 		// This is really dirty, but there's no superclass for all bills, so we
 		// just assume that all spacecash that's not something else is a bill
 
-		visible_message("<span class='info'>\The [user] inserts a bill into \the [src].</span>")
+		visible_message("<span class='info'>\The [usr] inserts a bill into \the [src].</span>")
 		var/left = cashmoney.worth - currently_vending.price
-		user.drop_from_inventory(cashmoney,get_turf(src))
+		usr.drop_from_inventory(cashmoney,get_turf(src))
 		qdel(cashmoney)
 
 		if(left)

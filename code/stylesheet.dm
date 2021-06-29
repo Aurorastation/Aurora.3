@@ -16,7 +16,7 @@ em						{font-style: normal;font-weight: bold;}
 
 /* OOC */
 .ooc					{font-weight: bold;}
-.ooc img.text_tag		{width: 32px; height: 10px; vertical-align: middle;}
+.ooc img.text_tag		{width: 32px; height: 10px;}
 
 .ooc .everyone			{color: #002eb8;}
 .ooc .looc				{color: #6699CC;}

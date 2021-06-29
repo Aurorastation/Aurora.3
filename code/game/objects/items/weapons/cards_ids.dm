@@ -132,10 +132,10 @@ var/const/NO_EMAG_ACT = -50
 /obj/item/card/id/proc/prevent_tracking()
 	return 0
 
-/obj/item/card/id/proc/show(mob/user)
+/obj/item/card/id/proc/show(mob/user as mob)
 	if(front && side)
-		send_rsc(user, front, "front.png")
-		send_rsc(user, side, "side.png")
+		to_chat(user, browse_rsc(front, "front.png"))
+		to_chat(user, browse_rsc(side, "side.png"))
 	var/datum/browser/popup = new(user, "idcard", name, 650, 260)
 	popup.set_content(dat())
 	popup.set_title_image(usr.browse_rsc_icon(src.icon, src.icon_state))
@@ -217,8 +217,8 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/proc/id_flash(var/mob/user, var/add_text = "", var/blind_add_text = "")
 	var/list/id_viewers = viewers(3, user) // or some other distance - this distance could be defined as a var on the ID
-	var/message = "<b>[user]</b> flashes [user.get_pronoun("his")] [icon2html(src, id_viewers)] [src.name]."
-	var/blind_message = "You flash your [icon2html(src, id_viewers)] [src.name]."
+	var/message = "<b>[user]</b> flashes [user.get_pronoun("his")] \icon[src] [src.name]."
+	var/blind_message = "You flash your \icon[src] [src.name]."
 	if(add_text != "")
 		message += " [add_text]"
 	if(blind_add_text != "")
@@ -296,7 +296,7 @@ var/const/NO_EMAG_ACT = -50
 	set category = "Object"
 	set src in usr
 
-	to_chat(usr, text("[icon2html(src, usr)] []: The current assignment on the card is [].", src.name, src.assignment))
+	to_chat(usr, text("\icon[] []: The current assignment on the card is [].", src, src.name, src.assignment))
 	to_chat(usr, "The age on the card is [age].")
 	to_chat(usr, "The citizenship on the card is [citizenship].")
 	to_chat(usr, "The religion on the card is [religion].")

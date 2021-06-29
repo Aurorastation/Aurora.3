@@ -389,26 +389,10 @@
 //For generating neat chat tag-images
 //The icon var could be local in the proc, but it's a waste of resources
 //	to always create it and then throw it out.
-/proc/create_text_tag(var/tagname, var/client/C = null)
+/proc/create_text_tag(var/tagname, var/tagdesc = tagname, var/client/C = null)
 	if(C && (C.prefs.toggles & CHAT_NOICONS))
-		return tagname
-
-	var/list/tagname_to_class = list(
-		"OOC" = "ooc",
-		"LOOC" = "looc",
-		"ALOOC" = "adminlooc",
-		"DEV" = "dev",
-		"ADMIN" = "admin",
-		"MOD" = "mod",
-		"DEAD" = "dead",
-		"PM ->" = "pmin",
-		"PM <-" = "pmout",
-		"PM <->" = "pmother",
-		"HELP" = "help",
-		"A-OOC" = "aooc"
-	)
-
-	return "<span class=\"tag [tagname_to_class[tagname]]_tag\">[tagname]</span>"
+		return tagdesc
+	return "<IMG src='\ref['./icons/chattags.dmi']' class='text_tag' iconstate='[tagname]'" + (tagdesc ? " alt='[tagdesc]'" : "") + ">"
 
 // For processing simple markup, similar to what Skype and Discord use.
 // Enabled from a config setting.

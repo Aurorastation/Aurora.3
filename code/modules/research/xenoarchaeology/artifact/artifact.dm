@@ -67,7 +67,7 @@
 		var/obj/item/device/measuring_tape/P = W
 		user.visible_message("<span class='notice'>[user] extends [P] towards [src].</span>","<span class='notice'>You extend [P] towards [src].</span>")
 		if(do_after(user,40))
-			to_chat(user, "<span class='notice'>[icon2html(P, user)] [src] has been excavated to a depth of [2*src.excavation_level]cm.</span>")
+			to_chat(user, "<span class='notice'>\icon[P] [src] has been excavated to a depth of [2*src.excavation_level]cm.</span>")
 		return
 
 	if (istype(W, /obj/item/pickaxe))
@@ -89,7 +89,7 @@
 
 		if(excavation_level > 100)
 			//failure
-			user.visible_message("<span class='warning'><b>[src] suddenly crumbles away.</b></span>",\
+			user.visible_message("<font color='red'><b>[src] suddenly crumbles away.</b></font>",\
 			"<span class='warning'>[src] has disintegrated under your onslaught, any secrets it was holding are long gone.</span>")
 			qdel(src)
 			return
@@ -103,9 +103,9 @@
 					var/obj/machinery/artifact/X = O
 					if(X.my_effect)
 						X.my_effect.artifact_id = artifact_find.artifact_id
-				src.visible_message("<span class='warning'><b>[src] suddenly crumbles away.</b></span>")
+				src.visible_message("<font color='red'><b>[src] suddenly crumbles away.</b></font>")
 			else
-				user.visible_message("<span class='warning'><b>[src] suddenly crumbles away.</b></span>",\
+				user.visible_message("<font color='red'><b>[src] suddenly crumbles away.</b></font>",\
 				"<span class='notice'>[src] has been whittled away under your careful excavation, but there was nothing of interest inside.</span>")
 			qdel(src)
 

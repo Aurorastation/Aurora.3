@@ -22,7 +22,7 @@
 		recorded = msg
 		listening = FALSE
 		var/turf/T = get_turf(src) //otherwise it won't work in hand
-		T.audible_message("[icon2html(src, viewers(get_turf(T)))] beeps, \"Activation message is '[recorded]'.\"")
+		T.audible_message("\icon[src] beeps, \"Activation message is '[recorded]'.\"")
 	else
 		if(findtext(msg, recorded))
 			pulse(FALSE)
@@ -31,7 +31,7 @@
 	if(secured && !holder)
 		listening = !listening
 		var/turf/T = get_turf(src)
-		T.audible_message("[icon2html(src, viewers(get_turf(T)))] beeps, \"[listening ? "Now" : "No longer"] recording input.\"")
+		T.audible_message("\icon[src] beeps, \"[listening ? "Now" : "No longer"] recording input.\"")
 
 /obj/item/device/assembly/voice/attack_self(mob/user)
 	if(!user)

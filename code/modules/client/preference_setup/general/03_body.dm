@@ -754,7 +754,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	if(current_species.preview_icon)
 		var/icon/preview = icon(current_species.preview_icon, "")
 		preview.Scale(64, 64)	// Scale it here to stop it blurring.
-		send_rsc(usr, icon(icon = preview, icon_state = ""), "species_preview_[current_species.short_name].png")
+		to_chat(usr, browse_rsc(icon(icon = preview, icon_state = ""), "species_preview_[current_species.short_name].png"))
 		dat += "<img src='species_preview_[current_species.short_name].png' width='64px' height='64px'><br/><br/>"
 	dat += "<b>Language:</b> [current_species.language]<br/>"
 	dat += "<small>"
@@ -795,9 +795,9 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 	if(restricted)
 		if(restricted == 1)
-			dat += "<span class='warning'><b>You cannot play as this species.</br><small>If you wish to be whitelisted, you can make an application post on <a href='?src=\ref[user];preference=open_whitelist_forum'>the forums</a>.</small></b></span></br>"
+			dat += "<font color='red'><b>You cannot play as this species.</br><small>If you wish to be whitelisted, you can make an application post on <a href='?src=\ref[user];preference=open_whitelist_forum'>the forums</a>.</small></b></font></br>"
 		else if(restricted == 2)
-			dat += "<span class='warning'><b>You cannot play as this species.</br><small>This species is not available for play as a station race.</small></b></span></br>"
+			dat += "<font color='red'><b>You cannot play as this species.</br><small>This species is not available for play as a station race.</small></b></font></br>"
 	if(!restricted || check_rights(R_ADMIN, 0))
 		dat += "\[<a href='?src=\ref[src];set_species=[html_encode(pref.species_preview)]'>select</a>\]"
 	dat += "</center>"

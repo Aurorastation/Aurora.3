@@ -163,9 +163,9 @@
 		for(var/datum/objective/O in objectives)
 			out += "<b>Objective #[num]:</b> [O.explanation_text] "
 			if(O.completed)
-				out += "(<span class='good'>complete</span>)"
+				out += "(<font color='green'>complete</font>)"
 			else
-				out += "(<span class='warning'>incomplete</span>)"
+				out += "(<font color='red'>incomplete</font>)"
 			out += " <a href='?src=\ref[src];obj_completed=\ref[O]'>\[toggle\]</a>"
 			out += " <a href='?src=\ref[src];obj_delete=\ref[O]'>\[remove\]</a><br>"
 			num++

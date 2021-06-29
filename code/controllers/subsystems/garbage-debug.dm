@@ -189,6 +189,7 @@
 	SearchVar(debugobj)
 	SearchVar(mods)
 	SearchVar(gravity_is_on)
+	SearchVar(server_greeting)
 	SearchVar(awaydestinations)
 	SearchVar(fileaccess_timer)
 	SearchVar(custom_event_msg)

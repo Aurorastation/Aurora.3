@@ -204,7 +204,30 @@ var/controlling
 		to_chat(M, "[message]")
 		to_chat(src, "You said: \"[message]\" to [M]")
 	return
+/*
+	var/list/candidates = indoctrinated.Copy()
+	if(!(src.host in candidates))
+		candidates.Add(src.host)
 
+	var/mob/target = select_indoctrinated("Thought", "Select a target which will hear your thought.")
+
+	if(!target) return
+
+	var/speaker = input("Select the voice in which you would like to make yourself heard.", "Voice") as text
+	//if(!speaker) return
+
+	var/message = input("What would you like to say?", "Message") as text
+	if(!message) return
+
+	// Use the points at the end rather than the beginning, because the user might cancel
+	if(!use_points(150)) return
+
+	message = say_quote(message)
+	var/rendered = "<span class='game say'><span class='name'>[speaker]</span> <span class='message'>[message]</span></span>"
+	target.show_message(rendered)
+
+	to_chat(usr, "<i>You make [target] hear:</i> [rendered]")
+*/
 // Mutes the host
 /mob/living/parasite/meme/verb/Mute()
 	set category = "Meme"

@@ -40,7 +40,7 @@ var/global/universe_has_ended = 0
 
 	to_world("<span class='danger' style='font-size:22pt'>You are blinded by a brilliant flash of energy.</span>")
 
-	sound_to(world, ('sound/effects/cascade.ogg'))
+	to_world(sound('sound/effects/cascade.ogg'))
 
 	for(var/mob/M in player_list)
 		M.flash_eyes()

@@ -163,7 +163,7 @@
 	if(!D)
 		return FALSE
 	if(!secured)
-		audible_message("[icon2html(src, viewers(get_turf(src)))] *beep* *beep*", "*beep* *beep*")
+		audible_message("\[icon[src] *beep* *beep*", "*beep* *beep*")
 	if(normal && a_right && a_left)
 		if(a_right != D)
 			a_right.pulsed(FALSE)

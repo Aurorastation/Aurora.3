@@ -50,7 +50,7 @@
 		return FALSE
 	pulse(FALSE)
 	if(!holder)
-		mainloc.audible_message("[icon2html(src, viewers(get_turf(src)))] *beep* *beep*", "*beep* *beep*")
+		mainloc.audible_message("\[icon[src] *beep* *beep*", "*beep* *beep*")
 	cooldown = 2
 	addtimer(CALLBACK(src, .proc/process_cooldown), 1 SECOND)
 

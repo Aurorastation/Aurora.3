@@ -111,11 +111,11 @@
 		// If the beaker is full, ping
 		if(amount == 0)
 			if(prob(5))
-				visible_message("[src] pings.")
+				visible_message("<b>[src]</b> pings.")
 			return
 
 		if(attached.get_blood_volume() < 90 && !blood_message_sent)
-			visible_message("[icon2html(src, viewers(get_turf(src)))] \The <b>[src]</b> flashes a warning light!")
+			visible_message("\icon[src] \The <b>[src]</b> flashes a warning light!")
 			playsound(src, 'sound/machines/buzz-two.ogg', 50)
 			blood_message_sent = TRUE
 

@@ -309,3 +309,4 @@ var/list/admin_departments
 	for(var/obj/item/modular_computer/pda in alert_pdas)
 		var/message = "New message has arrived!"
 		pda.get_notification(message, 1, "[department] [name]")
+		pda.get_notification(message, 1, "[department] [name]")

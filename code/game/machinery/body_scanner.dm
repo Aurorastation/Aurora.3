@@ -775,7 +775,7 @@
 		if(i.get_scarring_level() > 0.01)
 			necrotic += ", [i.get_scarring_results()]"
 		if(i.status & ORGAN_DEAD)
-			necrotic = ", <span class='warning'>necrotic and decaying</span>"
+			necrotic = ", <font color='red'>necrotic and decaying</font>"
 
 		dat += "<tr>"
 		dat += "<td>[i.name]</td><td>N/A</td><td>[get_internal_damage(i)]</td><td>[infection], [mech][necrotic]</td><td></td>"
@@ -785,10 +785,10 @@
 	var/list/species_organs = occ["species_organs"]
 	for(var/organ_name in species_organs)
 		if(!locate(species_organs[organ_name]) in occ["internal_organs"])
-			dat += text("<span class='warning'>No [organ_name] detected.</span><BR>")
+			dat += text("<font color='red'>No [organ_name] detected.</font><BR>")
 
 	if(occ["sdisabilities"] & BLIND)
-		dat += text("<span class='warning'>Cataracts detected.</span><BR>")
+		dat += text("<font color='red'>Cataracts detected.</font><BR>")
 	if(occ["sdisabilities"] & NEARSIGHTED)
 		dat += text("<font color='red'>Retinal misalignment detected.</font><BR>")
 	return dat

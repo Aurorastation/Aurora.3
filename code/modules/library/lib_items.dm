@@ -356,6 +356,6 @@
 		if(src.computer)
 			to_chat(user, "<font color=green>Computer has been associated with this unit.</font>")
 		else
-			to_chat(user, "<span class='attack'>No associated computer found. Only local scans will function properly.</span>")
+			to_chat(user, "<font color=red>No associated computer found. Only local scans will function properly.</font>")
 		to_chat(user, "\n")
 

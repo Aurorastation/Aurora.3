@@ -100,7 +100,7 @@
 /obj/item/clothing/suit/bomb_suit/equipped(var/mob/user, var/slot)
 	if (slot == slot_wear_suit)
 		var/mob/living/carbon/human/H = user
-		H.visible_message("<span class='notice'>[H] starts putting on \the [src]...</span>", "<span class='notice'>You start putting on \the [src]...</span>")
+		H.visible_message("<font color='blue'>[H] starts putting on \the [src]...</font>", "<font color='blue'>You start putting on \the [src]...</font>")
 		if(!do_after(H,50))
 			if(H && H.wear_suit == src)
 				H.wear_suit = null

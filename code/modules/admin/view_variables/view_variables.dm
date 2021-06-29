@@ -26,9 +26,9 @@
 		var/atom/A = D
 		if(A.icon && A.icon_state)
 			sprite = icon(A.icon, A.icon_state)
-			send_rsc(usr, sprite, "view_vars_sprite.png")
+			to_chat(usr, browse_rsc(sprite, "view_vars_sprite.png"))
 
-	send_rsc(usr, 'code/js/view_variables.js', "view_variables.js")
+	to_chat(usr, browse_rsc('code/js/view_variables.js', "view_variables.js"))
 
 	var/html = {"
 		<html>

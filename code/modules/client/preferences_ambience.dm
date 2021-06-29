@@ -27,7 +27,7 @@
 	if(prefs.asfx_togs & ASFX_AMBIENCE)
 		to_chat(src, "You will now hear ambient sounds.")
 	else
-		to_chat(src, "<span class='warning'>You will no longer hear ambient sounds.</span>")
+		to_chat(src, "<font color='red'>You will no longer hear ambient sounds.</font>")
 		src << sound(null, repeat = 0, wait = 0, volume = 0, channel = 1)
 		src << sound(null, repeat = 0, wait = 0, volume = 0, channel = 2)
 	feedback_add_details("admin_verb","TSFXAmbi") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -42,7 +42,7 @@
 	if(prefs.asfx_togs & ASFX_FOOTSTEPS)
 		to_chat(src, "You will now hear footstep sounds.")
 	else
-		to_chat(src, "<span class='warning'>You will no longer hear footstep sounds.</span>")
+		to_chat(src, "<font color='red'>You will no longer hear footstep sounds.</font>")
 	feedback_add_details("admin_verb","TSFXFS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/Toggle_asfx_vote()
@@ -54,7 +54,7 @@
 	if(prefs.asfx_togs & ASFX_VOTE)
 		to_chat(src, "You will now hear the vote alarm.")
 	else
-		to_chat(src, "<span class='warning'>You will no longer hear the vote alarm.</span>")
+		to_chat(src, "<font color='red'>You will no longer hear the vote alarm.</font>")
 	feedback_add_details("admin_verb","TSFXFV") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/Toggle_messagesounds()
@@ -76,7 +76,7 @@
 	if(prefs.asfx_togs & ASFX_DROPSOUND)
 		to_chat(src, "You will now hear dropping and throwing sounds.")
 	else
-		to_chat(src, "<span class='warning'>You will no longer hear dropping and throwing sounds.</span>")
+		to_chat(src, "<font color='red'>You will no longer hear dropping and throwing sounds.</font>")
 
 /client/proc/Toggle_arcadesounds()
 	set name = "Toggle Arcade SFX"
@@ -88,7 +88,7 @@
 	if(prefs.asfx_togs & ASFX_ARCADE)
 		to_chat(src, "You will now hear arcade sounds.")
 	else
-		to_chat(src, "<span class='warning'>You will no longer hear arcade sounds.</span>")
+		to_chat(src, "<font color='red'>You will no longer hear arcade sounds.</font>")
 
 /client/proc/Toggle_radiosounds()
 	set name = "Toggle Radio SFX"
@@ -100,7 +100,7 @@
 	if(prefs.asfx_togs & ASFX_RADIO)
 		to_chat(src, "You will now hear radio sounds.")
 	else
-		to_chat(src, "<span class='warning'>You will no longer hear radio sounds.</span>")
+		to_chat(src, "<font color='red'>You will no longer hear radio sounds.</font>")
 
 /client/proc/Toggle_instrumentsounds()
 	set name = "Toggle Instrument SFX"

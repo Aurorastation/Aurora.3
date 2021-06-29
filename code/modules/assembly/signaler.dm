@@ -122,9 +122,9 @@
 				log_signal("[key_name(user)] has sent a signal to [machine.name] ([machine.x]-[machine.y]-[machine.z])")
 		if(!found_user)
 			log_signal("A userless signaler has sent a signal to [machine.name] ([machine.x]-[machine.y]-[machine.z])")
-		machine.audible_message("[icon2html(machine, viewers(get_turf(machine)))] [capitalize_first_letters(src.name)] beeps, \"<b>Beep beep!</b>\"")
+		machine.audible_message("\icon[machine] [capitalize_first_letters(src.name)] beeps, \"<b>Beep beep!</b>\"")
 	else if(!holder)
-		audible_message("[icon2html(src, viewers(get_turf(src)))] [capitalize_first_letters(src.name)] beeps, \"<b>Beep beep!</b>\"")
+		audible_message("\icon[src] [capitalize_first_letters(src.name)] beeps, \"<b>Beep beep!</b>\"")
 
 /obj/item/device/assembly/signaler/proc/set_frequency(new_frequency)
 	if(!frequency)

@@ -520,7 +520,7 @@ proc/is_blind(A)
 	for(var/mob/M in targets)
 		var/turf/targetturf = get_turf(M)
 		if(targetturf && (targetturf.z == sourceturf.z))
-			M.show_message("<span class='info'>[icon2html(icon, M)] [message]</span>", 1)
+			M.show_message("<span class='info'>\icon[icon] [message]</span>", 1)
 
 /proc/mobs_in_area(var/area/A)
 	var/list/mobs = new
@@ -572,7 +572,7 @@ proc/is_blind(A)
 					else										// Everyone else (dead people who didn't ghost yet, etc.)
 						lname = name
 				lname = "<span class='name'>[lname]</span> "
-			to_chat(M, "[follow] <span class='deadsay'>" + create_text_tag("DEAD", M.client) + " [lname][message]</span>")
+			to_chat(M, "[follow] <span class='deadsay'>" + create_text_tag("dead", "DEAD:", M.client) + " [lname][message]</span>")
 
 //Announces that a ghost has joined/left, mainly for use with wizards
 /proc/announce_ghost_joinleave(O, var/joined_ghosts = 1, var/message = "")
@@ -1174,15 +1174,14 @@ proc/is_blind(A)
 /mob/proc/set_intent(var/set_intent)
 	a_intent = set_intent
 
-/mob/proc/get_accent_icon(var/datum/language/speaking, var/mob/hearer, var/force_accent)
+/mob/proc/get_accent_icon(var/datum/language/speaking = null, var/force_accent)
 	SHOULD_CALL_PARENT(TRUE)
 	var/used_accent = force_accent ? force_accent : accent
 	if(used_accent && speaking?.allow_accents)
 		var/datum/accent/a = SSrecords.accents[used_accent]
 		if(istype(a))
 			var/final_icon = a.tag_icon
-			var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/goonchat)
-			return S.icon_tag(final_icon)
+			return "<IMG src='\ref['./icons/accent_tags.dmi']' class='text_tag' iconstate='[final_icon]'>"
 
 /mob/proc/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
 	for(var/mob/M in contents)
@@ -1236,4 +1235,5 @@ proc/is_blind(A)
 /mob/proc/can_hear_radio(var/list/speaker_coverage = list())
 	var/turf/ear = get_turf(src)
 	if(ear && speaker_coverage[ear])
+		return TRUE
 		return TRUE

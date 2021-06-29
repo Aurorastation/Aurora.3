@@ -126,12 +126,6 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 /proc/register_asset(asset_name, asset)
 	SSassets.cache[asset_name] = asset
 
-//Generated names do not include file extention.
-//Used mainly for code that deals with assets in a generic way
-//The same asset will always lead to the same asset name
-/proc/generate_asset_name(file)
-	return "asset.[md5(fcopy_rsc(file))]"
-
 //These datums are used to populate the asset cache, the proc "register()" does this.
 
 //all of our asset datums, used for referring to these later
@@ -375,32 +369,6 @@ var/list/asset_datums = list()
 		"faction_unaffiliated.png" = 'icons/misc/factions/Unaffiliatedlogo.png'
 	)
 
-/datum/asset/simple/jquery
-	verify = FALSE
-	assets = list(
-		"jquery.min.js"            = 'code/modules/goonchat/browserassets/js/jquery.min.js',
-	)
-
-/datum/asset/simple/goonchat
-	verify = TRUE
-	assets = list(
-		"json2.min.js"             = 'code/modules/goonchat/browserassets/js/json2.min.js',
-		"browserOutput.js"         = 'code/modules/goonchat/browserassets/js/browserOutput.js',
-		"browserOutput.css"	       = 'code/modules/goonchat/browserassets/css/browserOutput.css',
-		"browserOutput_white.css"  = 'code/modules/goonchat/browserassets/css/browserOutput_white.css'
-	)
-
-/datum/asset/simple/fontawesome
-	verify = FALSE
-	assets = list(
-		"fa-regular-400.eot"  = 'html/font-awesome/webfonts/fa-regular-400.eot',
-		"fa-regular-400.woff" = 'html/font-awesome/webfonts/fa-regular-400.woff',
-		"fa-solid-900.eot"    = 'html/font-awesome/webfonts/fa-solid-900.eot',
-		"fa-solid-900.woff"   = 'html/font-awesome/webfonts/fa-solid-900.woff',
-		"font-awesome.css"    = 'html/font-awesome/css/all.min.css',
-		"v4shim.css"          = 'html/font-awesome/css/v4-shims.min.css'
-	)
-
 /datum/asset/simple/misc
 	assets = list(
 		"search.js" = 'html/search.js',
@@ -468,16 +436,6 @@ var/list/asset_datums = list()
 		"vueui.css" = 'vueui/dist/app.css'
 	)
 
-/datum/asset/spritesheet/goonchat
-	name = "chat"
-
-/datum/asset/spritesheet/goonchat/register()
-	var/icon/I = icon('icons/accent_tags.dmi')
-	for(var/path in subtypesof(/datum/accent))
-		var/datum/accent/A = new path
-		if(A.tag_icon)
-			Insert(A.tag_icon, I, A.tag_icon)
-	..()
 
 /datum/asset/spritesheet/vending
 	name = "vending"
@@ -534,9 +492,14 @@ var/list/asset_datums = list()
 	name = "chemmaster"
 	var/list/bottle_sprites = list("bottle-1", "bottle-2", "bottle-3", "bottle-4")
 	var/max_pill_sprite = 20
+	var/list/assets = list()
 
+/datum/asset/chem_master/register()
 /datum/asset/spritesheet/chem_master/register()
 	for (var/i = 1 to max_pill_sprite)
+		var/name = "pill[i].png"
+		register_asset(name, icon('icons/obj/chemical.dmi', "pill[i]"))
+		assets += name
 		Insert("pill[i]", 'icons/obj/chemical.dmi', "pill[i]")
 
 	for (var/sprite in bottle_sprites)

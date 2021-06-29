@@ -57,7 +57,7 @@
 		to_chat(user, SPAN_WARNING("You are already hacking this door!"))
 		return FALSE
 	if(!is_type_in_list(target, supported_types))
-		to_chat(user, "[icon2html(src, user)] <span class='warning'>Unable to hack this target!</span>")
+		to_chat(user, "\icon[src] <span class='warning'>Unable to hack this target!</span>")
 		return FALSE
 	if(istype(target, /obj/machinery/door/airlock))
 		var/obj/machinery/door/airlock/door = target

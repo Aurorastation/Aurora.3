@@ -24,16 +24,16 @@
 	set category = null
 
 	if(!src.holder)
-		to_chat(src, "<span class='warning'>Only Admins may use this command.</span>")
+		to_chat(src, "<font color='red'>Only Admins may use this command.</font>")
 		return
 
 	var/client/target = input(src,"Choose somebody to grant access to the server's runtime logs (permissions expire at the end of each round):","Grant Permissions",null) as null|anything in clients
 	if(!istype(target,/client))
-		to_chat(src, "<span class='warning'>Error: giveruntimelog(): Client not found.</span>")
+		to_chat(src, "<font color='red'>Error: giveruntimelog(): Client not found.</font>")
 		return
 
 	target.verbs |= /client/proc/getruntimelog
-	to_chat(target, "<span class='warning'>You have been granted access to runtime logs. Please use them responsibly or risk being banned.</span>")
+	to_chat(target, "<font color='red'>You have been granted access to runtime logs. Please use them responsibly or risk being banned.</font>")
 	return
 
 

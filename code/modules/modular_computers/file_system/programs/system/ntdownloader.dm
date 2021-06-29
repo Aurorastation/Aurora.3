@@ -225,7 +225,7 @@
 	if(download_queue[active_download] >= active_download_file.size)
 		finish_from_queue(active_download)
 		playsound(get_turf(computer), 'sound/machines/ping.ogg', 40, 0)
-		computer.output_message("[icon2html(computer, viewers(get_turf(computer)), computer.icon_state)] <b>[capitalize_first_letters(computer.name)]</b> pings: \"[active_download_file.filedesc ? active_download_file.filedesc : active_download_file.filename] downloaded successfully!\"", 1)
+		computer.output_message("\icon[computer] <b>[capitalize_first_letters(computer.name)]</b> pings: \"[active_download_file.filedesc ? active_download_file.filedesc : active_download_file.filename] downloaded successfully!\"", 1)
 		active_download = null
 
 	SSvueui.check_uis_for_change(src)

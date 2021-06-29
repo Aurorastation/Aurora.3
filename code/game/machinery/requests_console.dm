@@ -382,7 +382,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		if(inoperable(MAINT)) return
 		if(screen == RCS_MESSAUTH)
 			var/obj/item/stamp/T = O
-			msgStamped = text("<span class='notice'><b>Stamped with the [T.name]</b></span>")
+			msgStamped = text("<font color='blue'><b>Stamped with the [T.name]</b></font>")
 			updateUsrDialog()
 	else if (istype(O, /obj/item/paper_bundle))
 		var/obj/item/paper_bundle/C = O
