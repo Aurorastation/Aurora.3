@@ -355,15 +355,12 @@ var/list/localhost_addresses = list(
 	if (LAZYLEN(config.client_blacklist_version))
 		var/client_version = "[byond_version].[byond_build]"
 		if (client_version in config.client_blacklist_version)
-			to_chat_immediate(src, "<span class='danger'><b>Your version of BYOND is explicitly blacklisted from joining this server!</b></span>")
-			to_chat_immediate(src, "Your current version: [client_version].")
-			to_chat_immediate(src, "Visit http://www.byond.com/download/ to download a different version. Try looking for a newer one, or go one lower.")
+			to_chat(src, "<span class='danger'><b>Your version of BYOND is explicitly blacklisted from joining this server!</b></span>")
+			to_chat(src, "Your current version: [client_version].")
+			to_chat(src, "Visit http://www.byond.com/download/ to download a different version. Try looking for a newer one, or go one lower.")
 			log_access("Failed Login: [key] [computer_id] [address] - Blacklisted BYOND version: [client_version].")
 			del(src)
 			return 0
-
-	if(!chatOutput)
-		chatOutput = new(src)
 
 	if(IsGuestKey(key) && config.external_auth)
 		src.authed = FALSE
@@ -392,8 +389,6 @@ var/list/localhost_addresses = list(
 	prefs.last_id = computer_id			//these are gonna be used for banning
 	if (byond_version >= 511 && prefs.clientfps)
 		fps = prefs.clientfps
-	if(SStheming)
-		SStheming.apply_theme_from_perfs(src)
 
 	// Server greeting shenanigans.
 	if (server_greeting.find_outdated_info(src, 1) && !info_sent)

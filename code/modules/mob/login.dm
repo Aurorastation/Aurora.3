@@ -71,8 +71,6 @@
 
 	player_age = client.player_age
 
-	client.chatOutput.start()
-
 	if(loc && !isturf(loc))
 		client.eye = loc
 		client.perspective = EYE_PERSPECTIVE

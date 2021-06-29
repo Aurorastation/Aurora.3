@@ -895,7 +895,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		if (ghostimage)
 			client.images -= ghostimage //remove ourself
 
-mob/abstract/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)
+/mob/abstract/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)
 	if(!client)
 		return 0
 	if(config.antag_hud_restricted && has_enabled_antagHUD == 1)

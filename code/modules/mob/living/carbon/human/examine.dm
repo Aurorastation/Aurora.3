@@ -142,7 +142,7 @@
 
 	//handcuffed?
 	if(handcuffed)
-		msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")] \icon[handcuffed)] handcuffed!</span>\n"
+		msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")] \icon[handcuffed] handcuffed!</span>\n"
 
 	//handcuffed?
 	if(legcuffed)

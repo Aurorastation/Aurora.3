@@ -243,9 +243,6 @@
 	return "<span class='say_quote'>\[[worldtime2text()]\]</span>"
 
 /mob/proc/on_hear_radio(part_a, speaker_name, track, part_b, formatted, accent_icon)
-	var/accent_tag
-	if(accent_icon)
-		accent_tag = "<IMG src='\ref['./icons/accent_tags.dmi']' class='text_tag' iconstate='[accent_icon]'>"
 	to_chat(src, "[part_a][speaker_name][part_b][formatted]")
 	if(vr_mob)
 		to_chat(vr_mob, "[part_a][speaker_name][part_b][formatted]")

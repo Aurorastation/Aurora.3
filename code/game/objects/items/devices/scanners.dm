@@ -211,13 +211,13 @@ BREATH ANALYZER
 				if(is_bandaged && is_salved)
 					var/icon/B = icon('icons/obj/stacks/medical.dmi', "bandaged")
 					var/icon/S = icon('icons/obj/stacks/medical.dmi', "salved")
-					limb_result = "[limb_result] \[[icon2html(B, user)] | [icon2html(S, user)]\]"
+					limb_result = "[limb_result] \[\icon[B] | \icon[S]\]"
 				else if(is_bandaged)
 					var/icon/B = icon('icons/obj/stacks/medical.dmi', "bandaged")
-					limb_result = "[limb_result] \[[icon2html(B, user)]\]"
+					limb_result = "[limb_result] \[\icon[B]\]"
 				else if(is_salved)
 					var/icon/S = icon('icons/obj/stacks/medical.dmi', "salved")
-					limb_result = "[limb_result] \[[icon2html(S, user)]\]"
+					limb_result = "[limb_result] \[\icon[S]\]"
 				dat += limb_result
 		else
 			dat += "No detectable limb injuries."

@@ -16,6 +16,7 @@ em						{font-style: normal;font-weight: bold;}
 
 /* OOC */
 .ooc					{font-weight: bold;}
+.aooc					{font-weight: bold; color: #d1021e;}
 .ooc img.text_tag		{width: 32px; height: 10px;}
 
 .ooc .everyone			{color: #002eb8;}

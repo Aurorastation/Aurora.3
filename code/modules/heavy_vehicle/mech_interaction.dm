@@ -76,7 +76,8 @@
 		return
 
 	if(!(get_cell()?.checked_use(arms.power_use * CELLRATE)))
-		to_chat(user, power == MECH_POWER_ON ? SPAN_WARNING("Error: Power levels insufficient.") : SPAN_WARNING("\The [src] is powered off."))
+		var/message = power == MECH_POWER_ON ? SPAN_WARNING("Error: Power levels insufficient.") : SPAN_WARNING("\The [src] is powered off.")
+		to_chat(user, message)
 		return
 
 	if(user != src)

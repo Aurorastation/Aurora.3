@@ -11,8 +11,6 @@
 /mob/abstract/unauthed/LateLogin()
 	SHOULD_CALL_PARENT(FALSE)
 
-	client.chatOutput.start() //We have to unfortunately put this here too since the LateLogin chains are disconnected.
-
 	update_Login_details()
 	to_chat(src, "<span class='danger'><b>You need to authenticate before you can continue.</b></span>")
 	token = md5("[client.ckey][client.computer_id][world.time][rand()]")
@@ -30,7 +28,7 @@
 
 /mob/abstract/unauthed/proc/timeout()
 	if (client)
-		to_chat_immediate(client, "Your login time has expired. Please relog and try again.")
+		to_chat(client, "Your login time has expired. Please relog and try again.")
 	qdel(client)
 	qdel(src)
 
@@ -47,9 +45,9 @@
 	// Check for bans
 	var/list/ban_data = world.IsBanned(ckey(newkey), c.address, c.computer_id, 1, TRUE)
 	if(ban_data)
-		to_chat_immediate(c, "You are banned for this server.")
-		to_chat_immediate(c, "Reason: [ban_data["reason"]]")
-		to_chat_immediate(c, "Description: [ban_data["desc"]]")
+		to_chat(c, "You are banned for this server.")
+		to_chat(c, "Reason: [ban_data["reason"]]")
+		to_chat(c, "Description: [ban_data["desc"]]")
 		del(c)
 		return
 

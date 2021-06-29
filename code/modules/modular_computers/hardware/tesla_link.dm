@@ -37,7 +37,7 @@
 			to_chat(user, SPAN_NOTICE("You connect \the [src] to \the [power_source]."))
 			tether(power_source)
 		else
-			to_chat(SPAN_NOTICE("\The [src] is too far from \the [power_source] to connect."))
+			to_chat(user, SPAN_NOTICE("\The [src] is too far from \the [power_source] to connect."))
 	else
 		untether(message=FALSE)
 		to_chat(user, SPAN_NOTICE("You disconnect \the [src] from \the [power_source]."))

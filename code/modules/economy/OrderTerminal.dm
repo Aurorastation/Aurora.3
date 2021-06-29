@@ -97,10 +97,10 @@
 		if(sum > 0) // it will just get denied if the order is 0 credits. We still need the id regardless for the name
 			var/transaction = SSeconomy.transfer_money(I.associated_account_number, SSeconomy.get_department_account(destinationact)?.account_number,transaction_purpose,transaction_terminal,transaction_amount,null,usr)
 			if(transaction)
-				to_chat(user,"[icon2html(src, user)]<span class='warning'>[transaction].</span>")
+				to_chat(user,"\icon[src]<span class='warning'>[transaction].</span>")
 			else
 				playsound(src, 'sound/machines/chime.ogg', 50, 1)
-				src.visible_message("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes.")
+				src.visible_message("\icon[src] \The [src] chimes.")
 				ticket += "<br><b>Customer:</b> [I.registered_name]"
 				receipt += "<br><b>Customer:</b> [I.registered_name]"
 				print_receipt()

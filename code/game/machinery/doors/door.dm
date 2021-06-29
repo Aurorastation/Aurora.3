@@ -420,9 +420,7 @@
 
 /obj/machinery/door/proc/set_broken()
 	stat |= BROKEN
-	for (var/mob/O in viewers(src, null))
-		if ((O.client && !( O.blinded )))
-			O.show_message("[src.name] breaks!" )
+	visible_message(SPAN_WARNING("[src] breaks!"))
 	update_icon()
 	return
 

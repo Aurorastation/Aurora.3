@@ -123,7 +123,7 @@
 		return FALSE
 	pulse(FALSE)
 	if(!holder)
-		audible_message("[icon2html(src, viewers(get_turf(src)))] *beep* *beep*")
+		audible_message("\icon[src] *beep* *beep*")
 	cooldown = 2
 	addtimer(CALLBACK(src, .proc/process_cooldown), 10)
 

@@ -216,7 +216,6 @@ var/const/NO_EMAG_ACT = -50
 	return
 
 /obj/item/card/id/proc/id_flash(var/mob/user, var/add_text = "", var/blind_add_text = "")
-	var/list/id_viewers = viewers(3, user) // or some other distance - this distance could be defined as a var on the ID
 	var/message = "<b>[user]</b> flashes [user.get_pronoun("his")] \icon[src] [src.name]."
 	var/blind_message = "You flash your \icon[src] [src.name]."
 	if(add_text != "")

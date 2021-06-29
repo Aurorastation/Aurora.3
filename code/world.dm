@@ -213,11 +213,8 @@ var/list/world_api_rate_limit = list()
 	SSpersist_config.save_to_file("data/persistent_config.json")
 	Master.Shutdown()
 
-	var/datum/chatOutput/co
 	for(var/client/C in clients)
-		co = C.chatOutput
-		if(co)
-			co.ehjax_send(data = "roundrestart")
+		C << "<span class='danger'>The server is restarting. You should be reconnected automatically...</span>"
 
 	if(config.server)	//if you set a server location in config.txt, it sends you there instead of trying to reconnect to the same world address. -- NeoFite
 		for(var/client/C in clients)

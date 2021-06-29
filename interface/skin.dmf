@@ -1140,15 +1140,6 @@ window "outputwindow"
 		can-resize = false
 		is-pane = true
 		outer-size = 654x494
-	elem "browseroutput"
-		type = BROWSER
-		pos = 0,0
-		size = 640x480
-		anchor1 = 0,0
-		anchor2 = 100,100
-		background-color = #ffffff
-		is-visible = false
-		saved-params = ""
 	elem "output"
 		type = OUTPUT
 		pos = 0,0
@@ -1216,7 +1207,7 @@ window "rpane"
 		saved-params = "is-checked"
 		text = "Report Bug"
 		command = "reportbug"
-		group = "rpanemode"
+		group = "rpansemode"
 	elem "forumb"
 		type = BUTTON
 		pos = 215,0

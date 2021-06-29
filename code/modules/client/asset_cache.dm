@@ -131,6 +131,12 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 //all of our asset datums, used for referring to these later
 var/list/asset_datums = list()
 
+//Generated names do not include file extention.
+//Used mainly for code that deals with assets in a generic way
+//The same asset will always lead to the same asset name
+/proc/generate_asset_name(file)
+	return "asset.[md5(fcopy_rsc(file))]"
+
 //get a assetdatum or make a new one
 /proc/get_asset_datum(var/type)
 	if (!(type in asset_datums))
@@ -180,14 +186,6 @@ var/list/asset_datums = list()
 	for(var/type in children)
 		var/datum/asset/A = get_asset_datum(type)
 		A.send(C)
-
-/datum/asset/group/goonchat
-	children = list(
-		/datum/asset/simple/jquery,
-		/datum/asset/simple/goonchat,
-		/datum/asset/simple/fontawesome,
-		/datum/asset/spritesheet/goonchat
-	)
 
 // spritesheet implementation
 #define SPR_SIZE 1
@@ -335,6 +333,7 @@ var/list/asset_datums = list()
 	var/prefix = "default" //asset_name = "[prefix].[icon_state_name].png"
 	var/generic_icon_names = FALSE //generate icon filenames using generate_asset_name() instead the above format
 	verify = FALSE
+
 /datum/asset/simple/icon_states/register(_icon = icon)
 	for(var/icon_state_name in icon_states(_icon))
 		for(var/direction in directions)
@@ -492,14 +491,9 @@ var/list/asset_datums = list()
 	name = "chemmaster"
 	var/list/bottle_sprites = list("bottle-1", "bottle-2", "bottle-3", "bottle-4")
 	var/max_pill_sprite = 20
-	var/list/assets = list()
 
-/datum/asset/chem_master/register()
 /datum/asset/spritesheet/chem_master/register()
 	for (var/i = 1 to max_pill_sprite)
-		var/name = "pill[i].png"
-		register_asset(name, icon('icons/obj/chemical.dmi', "pill[i]"))
-		assets += name
 		Insert("pill[i]", 'icons/obj/chemical.dmi', "pill[i]")
 
 	for (var/sprite in bottle_sprites)

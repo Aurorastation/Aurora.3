@@ -33,7 +33,7 @@
 /datum/computer_file/program/chat_client/proc/play_notification_sound(var/datum/computer_file/program/chat_client/from)
 	if(!silent && src != from && (program_state == PROGRAM_STATE_BACKGROUND || (program_state == PROGRAM_STATE_KILLED && service_state == PROGRAM_STATE_ACTIVE)))
 		playsound(computer, 'sound/machines/twobeep.ogg', 50, 1)
-		computer.output_message("[icon2html(computer, world)] *[ringtone]*", 2)
+		computer.output_message("\icon[computer] *[ringtone]*", 2)
 
 /datum/computer_file/program/chat_client/Topic(href, href_list)
 	if(..())

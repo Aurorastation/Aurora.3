@@ -104,7 +104,7 @@
 
 		if(transaction_amount <= E.worth)
 			playsound(src, 'sound/machines/chime.ogg', 50, 1)
-			src.visible_message("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes.")
+			src.visible_message("\icon[src] \The [src] chimes.")
 			
 			SSeconomy.charge_to_account(SSeconomy.get_department_account(destinationact)?.account_number, E.owner_name, transaction_purpose, transaction_terminal, transaction_amount)
 			E.worth -= transaction_amount
@@ -113,7 +113,7 @@
 			receipt = ""
 			to_chat(src.loc, SPAN_NOTICE("Transaction completed, please return to the home screen."))
 		else if (transaction_amount > E.worth)
-			to_chat(user, "[icon2html(src, user)]<span class='warning'>\The [E] doesn't have that much money!</span>")
+			to_chat(user, "\icon[src]<span class='warning'>\The [E] doesn't have that much money!</span>")
 		return
 	
 	var/obj/item/card/id/I = O.GetID()

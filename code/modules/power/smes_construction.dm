@@ -21,8 +21,7 @@
 		to_chat(user, "The label reads:\
 			<div class='notice' style='padding-left:2rem'>Only certified professionals are allowed to handle and install this component.<br>\
 			Charge capacity: [ChargeCapacity/1000000] MJ<br>\
-			Input/Output rating: [IOCapacity/1000] kW</div>",
-			trailing_newline = FALSE)
+			Input/Output rating: [IOCapacity/1000] kW</div>")
 
 // 20% Charge Capacity, 60% I/O Capacity. Used for substation/outpost SMESs.
 /obj/item/smes_coil/weak
