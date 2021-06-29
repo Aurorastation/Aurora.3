@@ -37,6 +37,7 @@
 
 /datum/uplink_item/item/stealthy_weapons/sleepy_ring
 	name = "Sleepy Ring"
+	desc = "A silver ring that will quickly put its wearer to sleep. WARNING: Do not wear this yourself. It'll end about as well as you expect it to."
 	item_cost = 3
 	path = /obj/item/clothing/ring/reagent/sleepy
 

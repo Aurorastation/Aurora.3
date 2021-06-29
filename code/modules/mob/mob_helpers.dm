@@ -212,9 +212,9 @@ proc/getsensorlevel(A)
 
 /mob/living/proc/is_wizard(exclude_apprentice = FALSE)
 	if(exclude_apprentice)
-		return mind && (mind.assigned_role == "Space Wizard" || mind.assigned_role == "Raider Mage")
+		return mind && (mind.assigned_role == "Space Wizard")
 	else
-		return mind && (mind.assigned_role == "Space Wizard" || mind.assigned_role == "Raider Mage" || mind.assigned_role == "Apprentice")
+		return mind && (mind.assigned_role == "Space Wizard" || mind.assigned_role == "Apprentice")
 
 /mob/proc/is_berserk()
 	return FALSE

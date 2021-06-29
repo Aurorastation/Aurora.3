@@ -60,7 +60,7 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 // Parameters: 1 (new_owner - mob that the book is trying to bind to)
 // Description: Links the catalog to hopefully the technomancer, so that only they can access it.
 /obj/item/technomancer_catalog/proc/bind_to_owner(var/mob/living/carbon/human/new_owner)
-	if(!owner && technomancers.is_antagonist(new_owner.mind))
+	if(!owner && technomancers.is_technomancer(new_owner.mind))
 		owner = new_owner
 
 // Proc: New()

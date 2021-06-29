@@ -50,10 +50,11 @@
 		I.decontaminate()
 
 	//Tanning!
-	for(var/obj/item/stack/material/hairlesshide/HH in contents)
-		var/obj/item/stack/material/wetleather/WL = new(src)
-		WL.amount = HH.amount
-		qdel(HH)
+	for(var/obj/item/stack/material/animalhide/barehide/BH in contents)
+		var/obj/item/stack/material/animalhide/wetleather/WL = new(src)
+		WL.amount = BH.amount
+		contents -= BH
+		qdel(BH)
 
 	if( locate(/mob,contents) )
 		state = 7
@@ -71,6 +72,9 @@
 	if(state in list(1,3,6) )
 		usr.forceMove(src.loc)
 
+/obj/machinery/washing_machine/AltClick(mob/user)
+	if(Adjacent(user))
+		start()
 
 /obj/machinery/washing_machine/update_icon()
 	icon_state = "wm_[state][panel]"
@@ -94,7 +98,7 @@
 				state = 3
 		else
 			..()
-	else if(istype(W,/obj/item/stack/material/hairlesshide) || \
+	else if(istype(W,/obj/item/stack/material/animalhide/barehide) || \
 		istype(W,/obj/item/clothing/under) || \
 		istype(W,/obj/item/clothing/mask) || \
 		istype(W,/obj/item/clothing/head) || \
