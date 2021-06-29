@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Cameras (for taking photos) can now be alt clicked to change photo size."
