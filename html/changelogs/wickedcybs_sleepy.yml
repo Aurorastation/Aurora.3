@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - tweak: "The sleepy ring uplink item now gives a proper description of what it actually does. The amount of poly it injects has also been lowered from 15 to 10."
