@@ -591,3 +591,32 @@
 	icon_state = "zenghu_plate"
 	on_mob_icon = 'icons/mob/human_races/augments_external.dmi'
 	parent_organ = BP_HEAD
+
+/obj/item/organ/internal/augment/head_fluff
+	name = "head augmentation"
+	desc = "An augment installed inside the head of someone."
+	parent_organ = BP_HEAD
+
+/obj/item/organ/internal/augment/chest_fluff
+	name = "chest augmentation"
+	desc = "An augment installed inside the chest of someone."
+	parent_organ = BP_CHEST
+
+/obj/item/organ/internal/augment/rhand_fluff
+	name = "right hand augmentation"
+	desc = "An augment installed inside the right hand of someone."
+	parent_organ = BP_R_HAND
+
+/obj/item/organ/internal/augment/lhand_fluff
+	name = "left hand augmentation"
+	desc = "An augment installed inside the left hand of someone."
+	parent_organ = BP_L_HAND
+
+/obj/item/organ/internal/augment/tool/correctivelens
+	name = "corrective lenses"
+	icon_state = "augment-tool"
+	action_button_name = "Deploy Corrective Lenses"
+	action_button_icon = "augment-tool"
+	parent_organ = BP_EYES
+	organ_tag = BP_AUG_CORRECTIVE_LENS
+	augment_type = /obj/item/clothing/glasses/regular

@@ -161,6 +161,7 @@
 #define BP_AUG_EMOTION         "emotional manipulator"
 #define BP_AUG_ENCHANED_VISION "vision enhanced retinas"
 #define BP_AUG_SIGHTLIGHTS     "ocular installed sightlights"
+#define BP_AUG_CORRECTIVE_LENS "corrective lenses"
 
 //Organ defines
 #define PROCESS_ACCURACY 10
