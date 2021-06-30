@@ -108,8 +108,8 @@
 		qdel(I)
 		return
 	else if(I.iswrench())
-		playsound(src.loc, I.usesound, 50, 1)
-		if(!anchored)
+		playsound(get_turf(user), I.usesound, 50, 1)
+		if(anchored)
 			to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src] from the floor..."))
 			if(do_after(user, 40 / I.toolspeed))
 				user.visible_message("<b>[user]</b> unfastens \the [src].", SPAN_NOTICE("You have unfastened \the [src]. Now it can be pulled somewhere else."), SPAN_NOTICE("You hear ratcheting noise."))
