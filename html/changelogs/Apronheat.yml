@@ -3,4 +3,4 @@ author: TheGreyWolf
 delete-after: True
 
 changes:
-  - bugfix: "Aprons will no longer give overheating messages to taj."
+  - bugfix: "Aprons & sundresses will no longer give overheating messages to taj."
