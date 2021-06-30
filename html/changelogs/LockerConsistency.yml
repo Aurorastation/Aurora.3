@@ -4,4 +4,4 @@ delete-after: True
 
 changes:
   - tweak: "Engineering & security lockers have been tweaked to ensure their contents remain consistent instead of random. Bags remains random between satchel & backpack however."
-  - rscadd: "Investigator's locker now gets drop pouches and a bag to fit with the rest of security."
+  - rscadd: "Investigator's locker now gets drop pouches and a bag to fit with the rest of security. Warden & HoP are now issued holsters with their weapons."

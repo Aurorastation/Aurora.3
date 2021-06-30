@@ -74,6 +74,7 @@
 	new /obj/item/clothing/glasses/sunglasses(src)
 	new /obj/item/clothing/suit/armor/carrier/generic(src)
 	new /obj/item/clothing/head/helmet(src)
+	new /obj/item/clothing/accessory/holster/waist(src)
 	//Tools
 	new /obj/item/device/radio/headset/heads/hop(src)
 	new /obj/item/device/radio/headset/heads/hop/alt(src)
@@ -233,6 +234,7 @@
 	new /obj/item/gun/energy/disruptorpistol(src)
 	//Belts
 	new /obj/item/clothing/accessory/storage/black_vest(src)
+	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/storage/belt/security(src)
 
 
