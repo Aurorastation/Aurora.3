@@ -87,7 +87,7 @@ obj/item/clothing/suit/apron/overalls/blue
 	item_state = "apronchef"
 	blood_overlay_type = "armor"
 	body_parts_covered = 0
-	no_overheat TRUE
+	no_overheat = TRUE
 
 //Security
 
