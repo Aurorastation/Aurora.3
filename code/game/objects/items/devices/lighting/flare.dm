@@ -99,6 +99,9 @@
 	else
 		..()
 
+/obj/item/device/flashlight/flare/torch/isFlameSource()
+	return on
+
 /obj/item/torch
 	name = "torch handle"
 	desc = "A torch handle without its head."
