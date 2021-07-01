@@ -118,7 +118,7 @@
 		var/flag = text2num(href_list["paratoggle"])
 		pref.toggles_secondary ^= flag
 		if(flag == THEME_BYOND_DARK)
-			if(toggles_secondary & THEME_BYOND_DARK)
+			if(pref.toggles_secondary & THEME_BYOND_DARK)
 				user.client.force_dark_theme()
 			else
 				user.client.force_white_theme()
