@@ -6,11 +6,6 @@ var/all_ui_styles = list(
 	"old-noborder" = 'icons/mob/screen/old-noborder.dmi'
 	)
 
-var/all_theme_styles = list(
-	THEME_BYOND_LIGHT,
-	THEME_BYOND_DARK
-)
-
 var/all_tooltip_styles = list(
 	"Midnight", //Default for everyone is the first one,
 	"Plasmafire",

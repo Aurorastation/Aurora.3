@@ -98,6 +98,7 @@
 		"<b>Floating Messages:</b> <a href='?src=\ref[src];paratoggle=[FLOATING_MESSAGES]'><b>[(pref.toggles_secondary & FLOATING_MESSAGES) ? "Yes" : "No"]</b></a><br>",
 		"<b>Static Space:</b> <a href='?src=\ref[src];paratoggle=[PARALLAX_IS_STATIC]'><b>[(pref.toggles_secondary & PARALLAX_IS_STATIC) ? "Yes" : "No"]</b></a><br>",
 		"<b>Hotkey Mode Default:</b> <a href='?src=\ref[src];paratoggle=[HOTKEY_DEFAULT]'><b>[(pref.toggles_secondary & HOTKEY_DEFAULT) ? "On" : "Off"]</b></a><br>"
+		"<b>BYOND Dark Theme:</b> <a href='?src=\ref[src];paratoggle=[THEME_BYOND_DARK]'><b>[(pref.toggles_secondary & THEME_BYOND_DARK) ? "On" : "Off"]</b></a><br>"
 	)
 
 	. = dat.Join()
@@ -116,6 +117,11 @@
 	if(href_list["paratoggle"])
 		var/flag = text2num(href_list["paratoggle"])
 		pref.toggles_secondary ^= flag
+		if(flag == THEME_BYOND_DARK)
+			if(toggles_secondary & THEME_BYOND_DARK)
+				user.client.force_dark_theme()
+			else
+				user.client.force_white_theme()
 		return TOPIC_REFRESH
 
 	return ..()
