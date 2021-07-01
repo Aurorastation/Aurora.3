@@ -210,12 +210,6 @@ proc/getsensorlevel(A)
 /proc/hsl2rgb(h, s, l)
 	return //TODO: Implement
 
-/mob/living/proc/is_wizard(exclude_apprentice = FALSE)
-	if(exclude_apprentice)
-		return mind && (mind.assigned_role == "Space Wizard")
-	else
-		return mind && (mind.assigned_role == "Space Wizard" || mind.assigned_role == "Apprentice")
-
 /mob/proc/is_berserk()
 	return FALSE
 
