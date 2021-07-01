@@ -262,7 +262,7 @@
 /obj/structure/coatrack,
 /obj/item/clothing/accessory/tajaran,
 /obj/item/clothing/suit/storage/tajaran,
-/obj/item/clothing/suit/storage/tajaran/cloak/fancy,
+/obj/item/clothing/accessory/poncho/tajarancloak/fancy,
 /turf/simulated/floor/wood,
 /area/derelict/ship)
 "aL" = (
@@ -730,7 +730,7 @@
 	},
 /obj/effect/decal/cleanable/vomit,
 /obj/structure/closet/cabinet,
-/obj/item/clothing/suit/storage/tajaran/cloak,
+/obj/item/clothing/accessory/poncho/tajarancloak/fancy,
 /turf/simulated/floor/wood,
 /area/derelict/ship)
 "cl" = (
@@ -1135,11 +1135,6 @@
 /obj/machinery/vending/engivend{
 	req_access = null
 	},
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"dF" = (
-/obj/effect/floor_decal/corner/orange/diagonal,
-/obj/machinery/pipelayer,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "dG" = (
@@ -1674,7 +1669,7 @@ de
 cT
 dq
 dy
-dF
+cS
 dP
 eu
 eA

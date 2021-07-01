@@ -157,8 +157,8 @@
 			return
 		var/did_teleport = FALSE
 		for(var/mob/M in contents)
-			did_teleport = TRUE
-			linked_teleporter.do_teleport(M)
+			if(linked_teleporter.do_teleport(M))
+				did_teleport = TRUE
 		if(did_teleport)
 			linked_teleporter.last_use = world.time
 
