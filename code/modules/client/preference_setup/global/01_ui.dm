@@ -44,7 +44,6 @@
 			"UI_style_color",
 			"UI_style_alpha",
 			"html_UI_style",
-			"skin_theme",
 			"ooccolor",
 			"clientfps",
 			"tooltip_style",
