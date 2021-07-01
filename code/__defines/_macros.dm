@@ -5,6 +5,7 @@
 #define SPAN_NOTICE(X) "<span class='notice'>[X]</span>"
 #define SPAN_WARNING(X) "<span class='warning'>[X]</span>"
 #define SPAN_DANGER(X) "<span class='danger'>[X]</span>"
+#define SPAN_VOTE(X) "<span class='vote'>[X]</span>"
 #define SPAN_CULT(X) "<span class='cult'>[X]</span>"
 #define SPAN_GOOD(X) "<span class='good'>[X]</span>"
 #define SPAN_BAD(X) "<span class='bad'>[X]</span>"
@@ -87,8 +88,6 @@
 
 #define isprojectile(A) istype(A, /obj/item/projectile)
 
-#define to_chat(target, message)                            target << message
-#define to_world(message)                                   world << message
 #define sound_to(target, sound)                             target << sound
 #define to_file(file_entry, file_content)                   file_entry << file_content
 #define show_browser(target, browser_content, browser_name) target << browse(browser_content, browser_name)
