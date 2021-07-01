@@ -63,7 +63,7 @@ var/global/photo_count = 0
 
 
 /obj/item/photo/proc/show(mob/user as mob)
-	to_chat(user, browse_rsc(img, "tmp_photo_[id].png"))
+	user << browse_rsc(img, "tmp_photo_[id].png")
 	user << browse("<html><head><title>[name]</title></head>" + "<body style='overflow:hidden;margin:0;text-align:center'>" + "<img src='tmp_photo_[id].png' width='[64*photo_size]' style='-ms-interpolation-mode:nearest-neighbor' />" + "[scribble ? "<br>Written on the back:<br><i>[scribble]</i>" : ""]" + "</body></html>", "window=book;size=[64*photo_size]x[scribble ? 400 : 64*photo_size]")
 	onclose(user, "[name]")
 	return

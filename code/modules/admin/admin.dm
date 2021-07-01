@@ -464,7 +464,7 @@ proc/admin_notice(var/message, var/rights)
 						i++
 						dat+="<BLOCKQUOTE style=\"padding:4px;border-left:4px #797979 solid\">[MESSAGE.body] <FONT SIZE=1>\[Likes: <A href='?src=\ref[src];ac_setlikes=1;'><FONT COLOR='DarkGreen'>[MESSAGE.likes]</FONT></A> Dislikes: <A href='?src=\ref[src];ac_setdislikes=1;'><FONT COLOR='maroon'>[MESSAGE.dislikes]</FONT></A>\]</FONT><BR>"
 						if(MESSAGE.img)
-							to_chat(usr, browse_rsc(MESSAGE.img, "tmp_photo[i].png"))
+							usr << browse_rsc(MESSAGE.img, "tmp_photo[i].png")
 							dat+="<img src='tmp_photo[i].png' width = '180'><BR><BR>"
 						dat+="<FONT SIZE=1><A href='?src=\ref[src];ac_view_comments=1;ac_story=\ref[MESSAGE]'>View Comments</A> <A href='?src=\ref[src];ac_add_comment=1;ac_story=\ref[MESSAGE]'>Add Comment</A> <A href='?src=\ref[src];ac_like=1;ac_story=\ref[MESSAGE]'>Like Story</A> <A href='?src=\ref[src];ac_dislike=1;ac_story=\ref[MESSAGE]'>Dislike Story</A></FONT><BR>"
 						dat+="<FONT SIZE=1>\[Story by <FONT COLOR='maroon'>[MESSAGE.author] - [MESSAGE.time_stamp]</FONT>\]</FONT></BLOCKQUOTE><BR>"
@@ -580,7 +580,7 @@ proc/admin_notice(var/message, var/rights)
 				<B>Photo:</B>:
 			"}
 			if(SSnews.wanted_issue.img)
-				to_chat(usr, browse_rsc(SSnews.wanted_issue.img, "tmp_photow.png"))
+				usr << browse_rsc(SSnews.wanted_issue.img, "tmp_photow.png")
 				dat+="<BR><img src='tmp_photow.png' width = '180'>"
 			else
 				dat+="None"

@@ -101,13 +101,13 @@ var/datum/controller/subsystem/vote/SSvote
 					else
 						factor = 1.4
 				choices["Initiate Crew Transfer"]["votes"] = round(choices["Initiate Crew Transfer"]["votes"] * factor)
-				to_world("<font color='purple'>Crew Transfer Factor: [factor]</font>")
+				to_world(SPAN_VOTE("Crew Transfer Factor: [factor]"))
 				greatest_votes = max(choices["Initiate Crew Transfer"]["votes"], choices["Continue The Round"]["votes"])
 
 	if(mode == "crew_transfer")
 		if(round(get_round_duration() / 36000)+12 <= 14)
 			// Credit to Scopes @ oldcode.
-			to_world("<font color='purple'><b>Majority voting rule in effect. 2/3rds majority needed to initiate transfer.</b></font>")
+			to_world(SPAN_VOTE("<b>Majority voting rule in effect. 2/3rds majority needed to initiate transfer.</b>"))
 			choices["Initiate Crew Transfer"]["votes"] = round(choices["Initiate Crew Transfer"]["votes"] - round(total_votes / 3))
 			greatest_votes = max(choices["Initiate Crew Transfer"]["votes"], choices["Continue The Round"]["votes"])
 
@@ -146,7 +146,7 @@ var/datum/controller/subsystem/vote/SSvote
 		if(mode == "add_antagonist")
 			antag_add_failed = 1
 	log_vote(text)
-	to_world("<font color='purple'>[text]</font>")
+	to_world(SPAN_VOTE("[text]"))
 
 /datum/controller/subsystem/vote/proc/result()
 	. = announce_result()
@@ -176,7 +176,7 @@ var/datum/controller/subsystem/vote/SSvote
 	if(mode == "gamemode") //fire this even if the vote fails.
 		if(!round_progressing)
 			round_progressing = 1
-			to_world("<font color='red'><b>The round will start soon.</b></font>")
+			to_world(SPAN_DANGER("<b>The round will start soon.</b>"))
 
 	if(restart)
 		to_world("World restarting due to vote...")
@@ -190,12 +190,12 @@ var/datum/controller/subsystem/vote/SSvote
 		if (mode == "crew_transfer")
 			if(config.vote_no_dead && usr && !usr.client.holder)
 				if (isnewplayer(usr))
-					to_chat(usr, "<span class='warning'>You must be playing or have been playing to start a vote.</span>")
+					to_chat(usr, SPAN_WARNING("You must be playing or have been playing to start a vote."))
 					return 0
 				else if (isobserver(usr))
 					var/mob/abstract/observer/O = usr
 					if (O.started_as_observer)
-						to_chat(usr, "<span class='warning'>You must be playing or have been playing to start a vote.</span>")
+						to_chat(usr, SPAN_WARNING("You must be playing or have been playing to start a vote."))
 						return 0
 		if(vote in choices)
 			if(current_votes[ckey])
@@ -221,12 +221,12 @@ var/datum/controller/subsystem/vote/SSvote
 			if (vote_type == "crew_transfer")
 				if (config.vote_no_dead && !usr.client.holder)
 					if (isnewplayer(usr))
-						to_chat(usr, "<span class='warning'>You must be playing or have been playing to start a vote.</span>")
+						to_chat(usr, SPAN_WARNING("You must be playing or have been playing to start a vote."))
 						return 0
 					else if (isobserver(usr))
 						var/mob/abstract/observer/O = usr
 						if (O.started_as_observer)
-							to_chat(usr, "<span class='warning'>You must be playing or have been playing to start a vote.</span>")
+							to_chat(usr, SPAN_WARNING("You must be playing or have been playing to start a vote."))
 							return 0
 
 				if (last_transfer_vote)
@@ -296,7 +296,7 @@ var/datum/controller/subsystem/vote/SSvote
 			text += "\n[sanitizeSafe(question)]"
 
 		log_vote(text)
-		to_world("<font color='purple'><b>[text]</b>\nType <b>vote</b> or click <a href='?src=\ref[src];open=1'>here</a> to place your votes.\nYou have [config.vote_period/10] seconds to vote.</font>")
+		to_world(SPAN_VOTE("<b>[text]</b>\nType <b>vote</b> or click <a href='?src=\ref[src];open=1'>here</a> to place your votes.\nYou have [config.vote_period/10] seconds to vote."))
 		for(var/cc in clients)
 			var/client/C = cc
 			if(C.prefs.asfx_togs & ASFX_VOTE) //Personal mute
@@ -309,7 +309,7 @@ var/datum/controller/subsystem/vote/SSvote
 						C << sound('sound/ambience/vote_alarm.ogg', repeat = 0, wait = 0, volume = 50, channel = 3)
 		if(mode == "gamemode" && round_progressing)
 			round_progressing = 0
-			to_world("<font color='red'><b>Round start has been delayed.</b></font>")
+			to_world(SPAN_DANGER("<b>Round start has been delayed.</b>"))
 		SSvueui.check_uis_for_change(src)
 		return 1
 	return 0
@@ -358,7 +358,7 @@ var/datum/controller/subsystem/vote/SSvote
 					initiate_vote("restart", usr.key)
 				else
 					log_and_message_admins("tried to start a restart vote.", usr, null)
-					to_chat(usr, "<span class='notice'><b>There are active admins around! You cannot start a restart vote due to this.</b></span>")
+					to_chat(usr, SPAN_NOTICE("<b>There are active admins around! You cannot start a restart vote due to this.</b>"))
 		if("gamemode")
 			if(config.allow_vote_mode || isstaff)
 				initiate_vote("gamemode",usr.key)

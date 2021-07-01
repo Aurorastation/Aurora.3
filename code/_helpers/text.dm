@@ -642,3 +642,26 @@
 	if(ending && !correct_punctuation[ending])
 		string += "."
 	return string
+
+/proc/to_chat(var/target, var/message, var/confirmed_client)
+	var/client/C
+	if(confirmed_client)
+		C = target
+	else if(ismob(target))
+		var/mob/M = target
+		if(M.client)
+			C = M.client
+	else if(isclient(target))
+		C = target
+
+	if(!C)
+		return
+
+	if(C.prefs && (C.prefs.toggles_secondary & THEME_BYOND_DARK))
+		message = "<span class='darkmode'>[message]</span>"
+
+	target << message
+
+/proc/to_world(var/message)
+	for(var/client/C) // byond optimized loop
+		to_chat(C, message, TRUE)

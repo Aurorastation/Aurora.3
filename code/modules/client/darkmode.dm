@@ -20,6 +20,10 @@ Thanks to spacemaniac and mcdonald for help with the JS side of this.
 	winset(src, "rpane", "text-color = [COLOR_DARKMODE_TEXT];text-color = #000000")
 	winset(src, "info", "background-color = [COLOR_DARKMODE_BACKGROUND];background-color = none")
 	winset(src, "info", "text-color = [COLOR_DARKMODE_TEXT];text-color = #000000")
+	winset(src, "browseroutput", "background-color = [COLOR_DARKMODE_BACKGROUND];background-color = none")
+	winset(src, "browseroutput", "text-color = [COLOR_DARKMODE_TEXT];text-color = #000000")
+	winset(src, "outputwindow", "background-color = [COLOR_DARKMODE_BACKGROUND];background-color = none")
+	winset(src, "outputwindow", "text-color = [COLOR_DARKMODE_TEXT];text-color = #000000")
 	winset(src, "rpanewindow", "background-color = [COLOR_DARKMODE_BACKGROUND];background-color = none")
 	winset(src, "rpanewindow", "text-color = [COLOR_DARKMODE_TEXT];text-color = #000000")
 	winset(src, "mainwindow", "background-color = [COLOR_DARKMODE_DARKBACKGROUND];background-color = none")
@@ -49,6 +53,10 @@ Thanks to spacemaniac and mcdonald for help with the JS side of this.
 	winset(src, "hotkey_toggle", "background-color = #494949;background-color = none")
 	winset(src, "hotkey_toggle", "text-color = [COLOR_DARKMODE_TEXT];text-color = #000000")
 	//Status and verb tabs
+	winset(src, "output", "background-color = [COLOR_DARKMODE_BACKGROUND];background-color = none")
+	winset(src, "output", "text-color = [COLOR_DARKMODE_TEXT];text-color = #000000")
+	winset(src, "outputwindow", "background-color = [COLOR_DARKMODE_BACKGROUND];background-color = none")
+	winset(src, "outputwindow", "text-color = [COLOR_DARKMODE_TEXT];text-color = #000000")
 	winset(src, "statwindow", "background-color = [COLOR_DARKMODE_BACKGROUND];background-color = none")
 	winset(src, "statwindow", "text-color = #eaeaea;text-color = #000000")
 	winset(src, "info", "background-color = [COLOR_DARKMODE_DARKBACKGROUND];background-color = #FFFFFF")
@@ -61,7 +69,6 @@ Thanks to spacemaniac and mcdonald for help with the JS side of this.
 	winset(src, "saybutton", "background-color = [COLOR_DARKMODE_BACKGROUND];background-color = none")
 	winset(src, "saybutton", "text-color = [COLOR_DARKMODE_TEXT];text-color = #000000")
 	winset(src, "asset_cache_browser", "background-color = [COLOR_DARKMODE_BACKGROUND];background-color = none")
-	winset(src, "asset_cache_browser", "background-color = [COLOR_DARKMODE_BACKGROUND];background-color = none")
 
 /client/proc/force_dark_theme() //Inversely, if theyre using white theme and want to swap to the superior dark theme, let's get WINSET() ing
 	//Main windows
@@ -71,6 +78,10 @@ Thanks to spacemaniac and mcdonald for help with the JS side of this.
 	winset(src, "rpane", "text-color = #000000;text-color = [COLOR_DARKMODE_TEXT]")
 	winset(src, "info", "background-color = none;background-color = [COLOR_DARKMODE_BACKGROUND]")
 	winset(src, "info", "text-color = #000000;text-color = [COLOR_DARKMODE_TEXT]")
+	winset(src, "browseroutput", "background-color = none;background-color = [COLOR_DARKMODE_BACKGROUND]")
+	winset(src, "browseroutput", "text-color = #000000;text-color = [COLOR_DARKMODE_TEXT]")
+	winset(src, "outputwindow", "background-color = none;background-color = [COLOR_DARKMODE_BACKGROUND]")
+	winset(src, "outputwindow", "text-color = #000000;text-color = [COLOR_DARKMODE_TEXT]")
 	winset(src, "rpanewindow", "background-color = none;background-color = [COLOR_DARKMODE_BACKGROUND]")
 	winset(src, "rpanewindow", "text-color = #000000;text-color = [COLOR_DARKMODE_TEXT]")
 	winset(src, "mainwindow", "background-color = none;background-color = [COLOR_DARKMODE_BACKGROUND]")
@@ -100,6 +111,10 @@ Thanks to spacemaniac and mcdonald for help with the JS side of this.
 	winset(src, "hotkey_toggle", "background-color = none;background-color = #494949")
 	winset(src, "hotkey_toggle", "text-color = #000000;text-color = [COLOR_DARKMODE_TEXT]")
 	//Status and verb tabs
+	winset(src, "output", "background-color = none;background-color = [COLOR_DARKMODE_BACKGROUND]")
+	winset(src, "output", "text-color = #000000;text-color = [COLOR_DARKMODE_TEXT]")
+	winset(src, "outputwindow", "background-color = none;background-color = [COLOR_DARKMODE_BACKGROUND]")
+	winset(src, "outputwindow", "text-color = #000000;text-color = [COLOR_DARKMODE_TEXT]")
 	winset(src, "statwindow", "background-color = none;background-color = [COLOR_DARKMODE_DARKBACKGROUND]")
 	winset(src, "statwindow", "text-color = #000000;text-color = [COLOR_DARKMODE_TEXT]")
 	winset(src, "info", "background-color = #FFFFFF;background-color = [COLOR_DARKMODE_DARKBACKGROUND]")
