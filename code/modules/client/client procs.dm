@@ -390,6 +390,9 @@ var/list/localhost_addresses = list(
 	if (byond_version >= 511 && prefs.clientfps)
 		fps = prefs.clientfps
 
+	if(prefs.toggles_secondary & THEME_BYOND_DARK)
+		force_dark_theme()
+
 	// Server greeting shenanigans.
 	if (server_greeting.find_outdated_info(src, 1) && !info_sent)
 		server_greeting.display_to_client(src)
