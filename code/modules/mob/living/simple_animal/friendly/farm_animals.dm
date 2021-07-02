@@ -144,7 +144,7 @@
 	attacktext = "kicked"
 	health = 120
 	emote_sounds = list('sound/effects/creatures/pigsnort.ogg')
-	butchering_products = list(/obj/item/stack/material/hairlesshide = 6)
+	butchering_products = list(/obj/item/stack/material/animalhide/barehide = 6)
 	forbidden_foods = list(/obj/item/reagent_containers/food/snacks/egg)
 
 /mob/living/simple_animal/chick

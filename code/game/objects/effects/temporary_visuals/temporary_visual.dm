@@ -7,9 +7,12 @@
 	var/duration = 10 //in deciseconds
 	var/randomdir = TRUE
 
-/obj/effect/temp_visual/Initialize()
+/obj/effect/temp_visual/Initialize(mapload, var/new_dir)
 	. = ..()
-	if(randomdir)
+
+	if(new_dir)
+		set_dir(new_dir)
+	else if(randomdir)
 		set_dir(pick(global.cardinal))
 
 	QDEL_IN(src, duration)

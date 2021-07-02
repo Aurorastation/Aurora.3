@@ -246,7 +246,7 @@ proc/get_radio_key_from_channel(var/channel)
 				src.custom_emote(VISIBLE_MESSAGE, "[pick(speaking.signlang_verb)].")
 
 		if (speaking.flags & SIGNLANG)
-			return say_signlang(message, pick(speaking.signlang_verb), speaking)
+			return say_signlang(message, pick(speaking.signlang_verb), speaking, speaking.sign_adv_length)
 
 	var/list/obj/item/used_radios = new
 	var/list/successful_radio = new // passes a list because standard vars don't work when passed
@@ -332,11 +332,11 @@ proc/get_radio_key_from_channel(var/channel)
 	for(var/client/C in show_to)
 		C.images -= I
 
-/mob/living/proc/say_signlang(var/message, var/verb="gestures", var/datum/language/language)
+/mob/living/proc/say_signlang(var/message, var/verb="gestures", var/datum/language/language, var/list/sign_adv_length)
 	log_say("[key_name(src)] : ([get_lang_name(language)]) [message]",ckey=key_name(src))
 
 	for (var/mob/O in viewers(src, null))
-		O.hear_signlang(message, verb, language, src)
+		O.hear_signlang(message, verb, language, src, sign_adv_length)
 	return 1
 
 /obj/effect/speech_bubble
