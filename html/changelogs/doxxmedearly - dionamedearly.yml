@@ -7,5 +7,5 @@ changes:
   - bugfix: "Forbid hivenet and some other special case languages from being learned by dionae."
   - bugfix: "Nymphs can no long feed hydroponics trays from any distance."
   - bugfix: "Detached nymphs can no longer merge back with their gestalt from long distances; you now have to be adjacent to your gestalt, as intended."
-  - bugfix: "Nymphs now properly metabolize nutriment."
+  - bugfix: "Nymphs now properly metabolize nutriment. This also allows them to actually finish eating food."
   - bugfix: "Fixed some 'unusable emote' errors for nymphs when processing reagents that forced emotes. This also allows them to use the rapid blink emote."
