@@ -142,6 +142,7 @@ BIG IMG.icon 			{width: 32px; height: 32px;}
 .darkmode .ooc .admin			{color: #d43500;}
 .darkmode .ooc .ccia			{color: #22a9b4;}
 .darkmode .aooc					{color: #d1021e;}
+.darkmode .ooc img.text_tag		{width: 32px; height: 10px;}
 
 /* Admin: Private Messages */
 .darkmode .pm  .howto			{color: #ff0000;	font-weight: bold;		font-size: 200%;}

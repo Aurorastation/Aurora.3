@@ -361,7 +361,7 @@ var/list/datum/power/changeling/powerinstances = list()
 						return;
 					locked_tabs.push(id);
 					var notice_span = document.getElementById(notice_span_id);
-					notice_span.innerHTML = "<font color='red'>Locked</font> ";
+					notice_span.innerHTML = "<span class='warning'>Locked</span> ";
 				}
 
 				function attempt(ab) {

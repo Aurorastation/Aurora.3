@@ -266,10 +266,10 @@
 		return
 
 	if(module.active)
-		to_chat(usr, "<font color='blue'><b>You attempt to deactivate \the [module.interface_name].</b></font>")
+		to_chat(usr, "<span class='notice'><b>You attempt to deactivate \the [module.interface_name].</b></span>")
 		module.deactivate(usr)
 	else
-		to_chat(usr, "<font color='blue'><b>You attempt to activate \the [module.interface_name].</b></font>")
+		to_chat(usr, "<span class='notice'><b>You attempt to activate \the [module.interface_name].</b></span>")
 		module.activate(usr)
 
 /obj/item/rig/verb/engage_module()
@@ -302,5 +302,5 @@
 	if(!istype(module))
 		return
 
-	to_chat(usr, "<font color='blue'><b>You attempt to engage the [module.interface_name].</b></font>")
+	to_chat(usr, "<span class='notice'><b>You attempt to engage the [module.interface_name].</b></span>")
 	module.do_engage(null, usr)

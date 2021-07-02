@@ -39,7 +39,7 @@
 		to_chat(vampire.current, SPAN_NOTICE("<b>You have unlocked a new power:</b> [power.name]."))
 		to_chat(vampire.current, SPAN_NOTICE(" - [power.desc]"))
 		if (power.helptext)
-			to_chat(vampire.current, "<font color='green'>[power.helptext]</font>")
+			to_chat(vampire.current, "<span class='good'>[power.helptext]</span>")
 
 // Proc to safely remove blood, without resulting in negative amounts of blood.
 /datum/vampire/proc/use_blood(var/blood_to_use)

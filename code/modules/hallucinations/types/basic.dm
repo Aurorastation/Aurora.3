@@ -265,7 +265,7 @@
 			"[pal] will keep you safe.",
 			"You feel captivated by [pal]'s charisma.",
 			"[pal] might as well be family to you.")
-		to_chat(holder, "<font color='green'><i>[pick(halpal_emotes)]</i></font>")
+		to_chat(holder, "<span class='good'><i>[pick(halpal_emotes)]</i></span>")
 
 /datum/hallucination/passive
 	duration = 600	//minute fallback

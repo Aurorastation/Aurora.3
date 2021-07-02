@@ -67,7 +67,7 @@
 
 	//when the player is winded by an admin
 	if(paralysis > 6000)
-		msg += "<span><font color='#002eb8'><b>OOC Information:</b></font> <font color='red'>This player has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminhelp if you have further questions.</font></span>\n"
+		msg += "<span><font color='#002eb8'><b>OOC Information:</b></font> <span class='warning'>This player has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminhelp if you have further questions.</span></span>\n"
 
 	//head
 	if(head)

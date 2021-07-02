@@ -19,17 +19,17 @@
 			for(var/datum/objective/O in P.objectives)
 				text += print_objective(O, num)
 				if(O.check_completion())
-					text += "<font color='green'><B>Success!</B></font>"
+					text += "<span class='good'><B>Success!</B></span>"
 					feedback_add_details(feedback_tag,"[O.type]|SUCCESS")
 				else
-					text += "<font color='red'>Fail.</font>"
+					text += "<span class='warning'>Fail.</span>"
 					feedback_add_details(feedback_tag,"[O.type]|FAIL")
 					failed = 1
 				num++
 				if(failed)
-					text += "<br><font color='red'><B>The [role_text] has failed.</B></font>"
+					text += "<br><span class='warning'><B>The [role_text] has failed.</B></span>"
 				else
-					text += "<br><font color='green'><B>The [role_text] was successful!</B></font>"
+					text += "<br><span class='good'><B>The [role_text] was successful!</B></span>"
 
 	if(global_objectives && global_objectives.len)
 		text += "<BR><FONT size = 2>Their objectives were:</FONT>"
@@ -45,9 +45,9 @@
 	var/text = "<br><b>Objective [num]:</b> [O.explanation_text] "
 	if(append_success)
 		if(O.check_completion())
-			text += "<font color='green'><B>Success!</B></font>"
+			text += "<span class='good'><B>Success!</B></span>"
 		else
-			text += "<font color='red'>Fail.</font>"
+			text += "<span class='warning'>Fail.</span>"
 	return text
 
 /datum/antagonist/proc/print_special_role_report(var/datum/mind/ply)

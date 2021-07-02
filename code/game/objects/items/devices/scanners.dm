@@ -579,14 +579,14 @@ BREATH ANALYZER
 		if(0 to 25)
 			to_chat(user,"Subject oxygen levels nominal.")
 		if(25 to 50)
-			to_chat(user,"<font color='blue'>Subject oxygen levels abnormal.</font>")
+			to_chat(user,"<span class='notice'>Subject oxygen levels abnormal.</span>")
 		if(50 to INFINITY)
-			to_chat(user,"<font color='blue'><b>Severe oxygen deprivation detected.</b></font>")
+			to_chat(user,"<span class='notice'><b>Severe oxygen deprivation detected.</b></span>")
 
 	var/obj/item/organ/internal/L = H.internal_organs_by_name[BP_LUNGS]
 	if(istype(L))
 		if(L.is_bruised())
-			to_chat(user,"<font color='red'><b>Ruptured lung detected.</b></font>")
+			to_chat(user,"<span class='warning'><b>Ruptured lung detected.</b></span>")
 		else if(L.is_damaged())
 			to_chat(user,"<b>Damaged lung detected.</b>")
 		else
@@ -594,7 +594,7 @@ BREATH ANALYZER
 	else
 		to_chat(user,"<span class='warning'>Subject lung health unknown.</span>")
 
-	var/additional_string = "<font color='green'>\[NORMAL\]</font>"
+	var/additional_string = "<span class='good'>\[NORMAL\]</span>"
 	var/bac = H.get_blood_alcohol()
 	switch(bac)
 		if(INTOX_JUDGEIMP to INTOX_MUSCLEIMP)
@@ -602,11 +602,11 @@ BREATH ANALYZER
 		if(INTOX_MUSCLEIMP to INTOX_VOMIT)
 			additional_string = "\[MODERATELY INTOXICATED\]"
 		if(INTOX_VOMIT to INTOX_BALANCE)
-			additional_string = "<font color='red'>\[HEAVILY INTOXICATED\]</font>"
+			additional_string = "<span class='warning'>\[HEAVILY INTOXICATED\]</span>"
 		if(INTOX_BALANCE to INTOX_DEATH)
-			additional_string = "<font color='red'>\[ALCOHOL POISONING LIKELY\]</font>"
+			additional_string = "<span class='warning'>\[ALCOHOL POISONING LIKELY\]</span>"
 		if(INTOX_DEATH to INFINITY)
-			additional_string = "<font color='red'>\[DEATH IMMINENT\]</font>"
+			additional_string = "<span class='warning'>\[DEATH IMMINENT\]</span>"
 	to_chat(user,"<span class='normal'>Blood Alcohol Content: [round(bac,0.01)] <b>[additional_string]</b></span>")
 
 	if(H.breathing && H.breathing.total_volume)

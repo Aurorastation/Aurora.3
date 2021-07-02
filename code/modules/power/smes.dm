@@ -455,7 +455,7 @@
 		input_level = clamp(href_list["input"], 0, input_level_max)	// clamp to range
 	else if( href_list["output"] )
 		output_level = clamp(href_list["output"], 0, output_level_max)	// clamp to range
-	investigate_log("input/output; <font color='[input_level>output_level?"green":"red"][input_level]/[output_level]</font> | Output-mode: [output_attempt?"<font color='green'>on</font>":"<span class='warning'>off</span>"] | Input-mode: [input_attempt?"<font color='green'>auto</font>":"<span class='warning'>off</span>"] by [usr.key]","singulo")
+	investigate_log("input/output; <font color='[input_level>output_level?"green":"red"][input_level]/[output_level]</font> | Output-mode: [output_attempt?"<span class='good'>on</span>":"<span class='warning'>off</span>"] | Input-mode: [input_attempt?"<span class='good'>auto</span>":"<span class='warning'>off</span>"] by [usr.key]","singulo")
 	SSvueui.check_uis_for_change(src)
 	return 1
 

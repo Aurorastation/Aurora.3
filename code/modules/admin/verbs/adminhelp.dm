@@ -128,7 +128,7 @@ var/list/adminhelp_ignored_words = list("unknown","the","a","an","of","monkey","
 			to_chat(C, msg)
 
 	//show it to the person adminhelping too
-	to_chat(src, "<font color='blue'>PM to-<b>Staff </b>: [original_msg]</font>")
+	to_chat(src, "<span class='notice'>PM to-<b>Staff </b>: [original_msg]</span>")
 
 	var/admin_number_active = admin_number_present - admin_number_afk
 	log_admin("HELP: [key_name(src)]: [original_msg] - heard by [admin_number_present] non-AFK admins.",admin_key=key_name(src))

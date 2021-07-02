@@ -77,7 +77,7 @@
 
 /datum/announcement/priority/security/MessageAndSound(var/message as text, var/message_title as text, var/message_sound)
 	to_world("<font size=4 color='red'>[message_title]</font>")
-	to_world("<font color='red'>[message]</font>")
+	to_world("<span class='warning'>[message]</span>")
 	if(message_sound)
 		to_world(message_sound)
 

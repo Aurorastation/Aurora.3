@@ -49,7 +49,7 @@
 
 	feedback_add_details("admin_verb", "WARN-DB")
 	if (C)
-		to_chat(C, "<font color='red'><BIG><B>You have been warned by an administrator.</B></BIG><br>Click <a href='byond://?src=\ref[src];warnview=1'>here</a> to review and acknowledge them!</font>")
+		to_chat(C, "<span class='warning'><BIG><B>You have been warned by an administrator.</B></BIG><br>Click <a href='byond://?src=\ref[src];warnview=1'>here</a> to review and acknowledge them!</span>")
 
 	message_admins("[key_name_admin(src)] has warned [warned_ckey] for: [warning_reason].")
 
@@ -62,7 +62,7 @@
 
 /client/proc/warn_legacy(warned_ckey)
 	if (!warned_ckey)
-		to_chat(usr, "<font color='red'>Error: warn_legacy(): No ckey passed!</font>")
+		to_chat(usr, "<span class='warning'>Error: warn_legacy(): No ckey passed!</span>")
 		return
 
 	var/datum/preferences/D
@@ -71,7 +71,7 @@
 	else	D = preferences_datums[warned_ckey]
 
 	if(!D)
-		to_chat(src, "<font color='red'>Error: warn_legacy(): No such ckey found.</font>")
+		to_chat(src, "<span class='warning'>Error: warn_legacy(): No such ckey found.</span>")
 		return
 
 	if(++D.warns >= MAX_WARNS)					//uh ohhhh...you'reee iiiiin trouuuubble O:)
@@ -86,7 +86,7 @@
 		feedback_inc("ban_warn",1)
 	else
 		if(C)
-			to_chat(C, "<font color='red'><BIG><B>You have been warned by an administrator.</B></BIG><br>Further warnings will result in an autoban.</font>")
+			to_chat(C, "<span class='warning'><BIG><B>You have been warned by an administrator.</B></BIG><br>Further warnings will result in an autoban.</span>")
 			message_admins("[key_name_admin(src)] has warned [key_name_admin(C)]. They have [MAX_WARNS-D.warns] strikes remaining.")
 		else
 			message_admins("[key_name_admin(src)] has warned [warned_ckey] (DC). They have [MAX_WARNS-D.warns] strikes remaining.")

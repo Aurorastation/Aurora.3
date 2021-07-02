@@ -139,13 +139,13 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 				if(spell.spell_power_desc)
 					dat += "<font color='purple'>Spell Power: [spell.spell_power_desc]</font><br>"
 				if(spell.enhancement_desc)
-					dat += "<font color='blue'>Scepter Effect: [spell.enhancement_desc]</font><br>"
+					dat += "<span class='notice'>Scepter Effect: [spell.enhancement_desc]</span><br>"
 				if(spell.has_additional_info)
-					dat += "<i><font color='green'>[spell.additional_info()]</font></i><br>"
+					dat += "<i><span class='good'>[spell.additional_info()]</span></i><br>"
 				if(spell.cost <= budget)
 					dat += "<a href='byond://?src=\ref[src];spell_choice=[spell.name]'>Purchase</a> ([spell.cost])<br><br>"
 				else
-					dat += "<font color='red'><b>Cannot afford!</b></font><br><br>"
+					dat += "<span class='warning'><b>Cannot afford!</b></span><br><br>"
 			user << browse(dat, "window=radio")
 			onclose(user, "radio")
 		if(1) //Equipment
@@ -161,11 +161,11 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 				dat += "<b>[E.name]</b><br>"
 				dat += "<i>[E.desc]</i><br>"
 				if(E.has_additional_info)
-					dat += "<i><font color='green'>[E.additional_info()]</font></i><br>"
+					dat += "<i><span class='good'>[E.additional_info()]</span></i><br>"
 				if(E.cost <= budget)
 					dat += "<a href='byond://?src=\ref[src];item_choice=[E.name]'>Purchase</a> ([E.cost])<br><br>"
 				else
-					dat += "<font color='red'><b>Cannot afford!</b></font><br><br>"
+					dat += "<span class='warning'><b>Cannot afford!</b></span><br><br>"
 			user << browse(dat, "window=radio")
 			onclose(user, "radio")
 		if(2) //Consumables
@@ -181,11 +181,11 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 				dat += "<b>[C.name]</b><br>"
 				dat += "<i>[C.desc]</i><br>"
 				if(C.has_additional_info)
-					dat += "<i><font color='green'>[C.additional_info()]</font></i><br>"
+					dat += "<i><span class='good'>[C.additional_info()]</span></i><br>"
 				if(C.cost <= budget)
 					dat += "<a href='byond://?src=\ref[src];item_choice=[C.name]'>Purchase</a> ([C.cost])<br><br>"
 				else
-					dat += "<font color='red'><b>Cannot afford!</b></font><br><br>"
+					dat += "<span class='warning'><b>Cannot afford!</b></span><br><br>"
 			user << browse(dat, "window=radio")
 			onclose(user, "radio")
 		if(3) //Assistance
@@ -201,11 +201,11 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 				dat += "<b>[A.name]</b><br>"
 				dat += "<i>[A.desc]</i><br>"
 				if(A.has_additional_info)
-					dat += "<i><font color='green'>[A.additional_info()]</font></i><br>"
+					dat += "<i><span class='good'>[A.additional_info()]</span></i><br>"
 				if(A.cost <= budget)
 					dat += "<a href='byond://?src=\ref[src];item_choice=[A.name]'>Purchase</a> ([A.cost])<br><br>"
 				else
-					dat += "<font color='red'><b>Cannot afford!</b></font><br><br>"
+					dat += "<span class='warning'><b>Cannot afford!</b></span><br><br>"
 			user << browse(dat, "window=radio")
 			onclose(user, "radio")
 		if(4) //Info
@@ -265,7 +265,7 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 			a target of your choice.<br>"
 			dat += "Some functions can have their abilities enhanced by a special rod called the Scepter of Enhancement.  \
 			If a function is able to be boosted with it, it will be shown underneath the description of the function as \
-			<font color='blue'><i>'Scepter Effect:'</i></font>.  Note that you must hold the scepter for it to work, so try to avoid losing it.<br>"
+			<span class='notice'><i>'Scepter Effect:'</i></span>.  Note that you must hold the scepter for it to work, so try to avoid losing it.<br>"
 			dat += "Functions can also be boosted with the core itself.  A function that is able to benefit \
 			from this will have <font color='purple'><i>'Spell Power:'</i></font> underneath.  Different Cores have different \
 			amounts of spell power.<br>"

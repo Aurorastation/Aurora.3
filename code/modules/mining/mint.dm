@@ -61,10 +61,10 @@
 
 	if(!input)
 		dat += text("input connection status: ")
-		dat += text("<b><font color='red'>NOT CONNECTED</font></b><br>")
+		dat += text("<b><span class='warning'>NOT CONNECTED</span></b><br>")
 	if(!output)
 		dat += text("<br>output connection status: ")
-		dat += text("<b><font color='red'>NOT CONNECTED</font></b><br>")
+		dat += text("<b><span class='warning'>NOT CONNECTED</span></b><br>")
 
 	dat += text("<br><font color='#ffcc00'><b>Gold inserted: </b>[amt_gold]</font> ")
 	if(chosen == "gold")
@@ -105,7 +105,7 @@
 	dat += text("<A href='?src=\ref[src];chooseAmt=5'>+5</A> ")
 	dat += text("<A href='?src=\ref[src];chooseAmt=10'>+10</A> ")
 
-	dat += text("<br><br>In total this machine produced <font color='green'><b>[newCoins]</b></font> coins.")
+	dat += text("<br><br>In total this machine produced <span class='good'><b>[newCoins]</b></span> coins.")
 	dat += text("<br><A href='?src=\ref[src];makeCoins=[1]'>Make coins</A>")
 	user << browse("[dat]", "window=mint")
 

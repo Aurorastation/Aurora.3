@@ -17,9 +17,9 @@
 	name = "Rapid Core"
 	desc = "A core optimized for passive regeneration, however at the cost of capacity.  Has a capacity of 7,000 units of energy, and \
 	recharges at a rate of 70 units.  Complex gravatics and force manipulation allows the wearer to also run slightly faster.<br>\
-	<font color='red'>Capacity: 7k</font><br>\
-	<font color='green'><b>Recharge: 70/s</b></font><br>\
-	<font color='red'>Instability Modifier: 90%</font><br>\
+	<span class='warning'>Capacity: 7k</span><br>\
+	<span class='good'><b>Recharge: 70/s</b></span><br>\
+	<span class='warning'>Instability Modifier: 90%</span><br>\
 	Energy Cost Modifier: 100%<br>\
 	Spell Power: 100%"
 	cost = 100
@@ -30,11 +30,11 @@
 	desc = "This core has very large capacitors, however it also has a subpar fractal reactor.  The user is recommended to \
 	purchase one or more energy-generating Functions as well if using this core.  The intense weight of the core unfortunately can \
 	cause the wear to move slightly slower, and the closeness of the capacitors causes a slight increase in incoming instability.<br>\
-	<font color='green'><b>Capacity: 20k</b></font><br>\
-	<font color='red'>Recharge: 25/s</font><br>\
-	<font color='red'>Instability Modifier: 100%</font><br>\
+	<span class='good'><b>Capacity: 20k</b></span><br>\
+	<span class='warning'>Recharge: 25/s</span><br>\
+	<span class='warning'>Instability Modifier: 100%</span><br>\
 	Energy Cost Modifier: 100%<br>\
-	<font color='green'>Spell Power: 140%</font>"
+	<span class='good'>Spell Power: 140%</span>"
 	cost = 100
 	obj_path = /obj/item/technomancer_core/bulky
 
@@ -43,11 +43,11 @@
 	desc = "This core feeds off unstable energies around the user in addition to a fractal reactor.  This means that it performs \
 	better as the user has more instability, which could prove dangerous to the inexperienced or unprepared.  The rate of recharging \
 	increases as the user accumulates more instability, eventually exceeding even the rapid core in regen speed, at a huge risk.<br>\
-	<font color='green'>Capacity: 13k</font><br>\
-	<font color='green'>Recharge: 35/s to 110/s+</font><br>\
-	<font color='red'><b>Instability Modifier: 130%</b></font><br>\
-	<font color='green'>Energy Cost Modifier: 70%</font><br>\
-	<font color='green'>Spell Power: 110%</font>"
+	<span class='good'>Capacity: 13k</span><br>\
+	<span class='good'>Recharge: 35/s to 110/s+</span><br>\
+	<span class='warning'><b>Instability Modifier: 130%</b></span><br>\
+	<span class='good'>Energy Cost Modifier: 70%</span><br>\
+	<span class='good'>Spell Power: 110%</span>"
 	cost = 100
 	obj_path = /obj/item/technomancer_core/unstable
 
@@ -55,10 +55,10 @@
 	name = "Recycling Core"
 	desc = "This core is optimized for energy efficency, being able to sometimes recover energy that would have been lost with other \
 	cores.  Each time energy is spent, there is a 30% chance of recovering half of what was spent.<br>\
-	<font color='green'>Capacity: 12k</font><br>\
-	<font color='red'>Recharge: 40/s</font><br>\
-	<font color='green'>Instability Modifier: 60%</font><br>\
-	<font color='green'>Energy Cost Modifier: 80%</font><br>\
+	<span class='good'>Capacity: 12k</span><br>\
+	<span class='warning'>Recharge: 40/s</span><br>\
+	<span class='good'>Instability Modifier: 60%</span><br>\
+	<span class='good'>Energy Cost Modifier: 80%</span><br>\
 	Spell Power: 100%"
 	cost = 100
 	obj_path = /obj/item/technomancer_core/recycling
@@ -68,11 +68,11 @@
 	desc = "A unique type of core, this one sacrifices other characteristics in order to optimize it for the purposes teleporting \
 	entities from vast distances, and keeping them there.  Wearers of this core can maintain up to 40 summons at once, and the energy \
 	demand for maintaining summons is severely reduced.<br>\
-	<font color='red'>Capacity: 8k</font><br>\
-	<font color='red'>Recharge: 35/s</font><br>\
-	<font color='red'>Instability Modifier: 120%</font><br>\
+	<span class='warning'>Capacity: 8k</span><br>\
+	<span class='warning'>Recharge: 35/s</span><br>\
+	<span class='warning'>Instability Modifier: 120%</span><br>\
 	Energy Cost Modifier: 100%<br>\
-	<font color='green'>Spell Power: 120%</font>"
+	<span class='good'>Spell Power: 120%</span>"
 	cost = 100
 	obj_path = /obj/item/technomancer_core/summoner
 
@@ -80,11 +80,11 @@
 	name = "Safety Core"
 	desc = "This core is designed so that the wearer suffers almost no instability.  It unfortunately comes at a cost of subpar \
 	ratings for everything else.<br>\
-	<font color='red'>Capacity: 7k</font><br>\
-	<font color='red'>Recharge: 30/s</font><br>\
-	<font color='green'><b>Instability Modifier: 30%</b></font><br>\
+	<span class='warning'>Capacity: 7k</span><br>\
+	<span class='warning'>Recharge: 30/s</span><br>\
+	<span class='good'><b>Instability Modifier: 30%</b></span><br>\
 	Energy Cost Modifier: 100%<br>\
-	<font color='red'><b>Spell Power: 70%</b></font>"
+	<span class='warning'><b>Spell Power: 70%</b></span>"
 	cost = 100
 	obj_path = /obj/item/technomancer_core/safety
 
@@ -93,11 +93,11 @@
 	desc = "A core that was created in order to get the most power out of functions.  It does this by shoving the most power into \
 	those functions, so it is the opposite of energy efficent, however the enhancement of functions is second to none for other \
 	cores.<br>\
-	<font color='red'>Capacity: 15k (effectively 7.5k)</font><br>\
-	<font color='red'>Recharge: 40/s</font><br>\
-	<font color='red'>Instability Modifier: 110%</font><br>\
-	<font color='red'><b>Energy Cost Modifier: 200%</b></font><br>\
-	<font color='green'><b>Spell Power: 175%</b></font>"
+	<span class='warning'>Capacity: 15k (effectively 7.5k)</span><br>\
+	<span class='warning'>Recharge: 40/s</span><br>\
+	<span class='warning'>Instability Modifier: 110%</span><br>\
+	<span class='warning'><b>Energy Cost Modifier: 200%</b></span><br>\
+	<span class='good'><b>Spell Power: 175%</b></span>"
 	cost = 100
 	obj_path = /obj/item/technomancer_core/overcharged
 
