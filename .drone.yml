@@ -174,8 +174,10 @@ steps:
       - grep "All Unit Tests Passed" log.txt
       - (! grep "runtime error:" log.txt)
       - echo "Unit Tests Completed"
+
 ---
+
 kind: signature
-hmac: cbdd3f60362ed07b8be722e61a492e0b0f7141eb2e1a5747b74444f122df5302
+hmac: 7cff65ee30f9016729fc95ef5b3db67a4c9750753496128bd9d6f4c16df2d648
 
 ...
