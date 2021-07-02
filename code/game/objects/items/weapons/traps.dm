@@ -645,6 +645,7 @@
 
 /obj/item/trap/tripwire
 	name = "tripwire trap"
+	desc = "A piece of cable coil strung between two metal rods. Low-tech, but reliable."
 	icon_base = "tripwire"
 	color = COLOR_RED
 	layer = UNDERDOOR // so you can't cover it with items
@@ -679,6 +680,13 @@
 		update_icon()
 
 /obj/item/trap/tripwire/attack_mob(mob/living/L)
-	if((L.m_intent == M_RUN) || prob(5))
+	if(!ishuman(L))
+		return
+
+	var/mob/living/carbon/human/H = L
+	if(!H.organs_by_name[BP_L_LEG] && !H.organs_by_name[BP_R_LEG]) // tripwires are triggered by shin, so if you don't have legs, assume you fly or crawl
+		return
+
+	if(!L.lying && (L.m_intent == M_RUN) || prob(5))
 		L.visible_message(SPAN_DANGER("\The [L] trips over \the [src]!"), FONT_LARGE(SPAN_DANGER("You trip over \the [src]!")))
 		L.Weaken(3)
