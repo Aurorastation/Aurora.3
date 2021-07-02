@@ -26,6 +26,7 @@ em						{font-style: normal;font-weight: bold;}
 .ooc .moderator			{color: #184880;}
 .ooc .developer			{color: #1b521f;}
 .ooc .admin				{color: #b82e00;}
+.ooc .ccia				{color: #22a9b4;}
 
 /* Admin: Private Messages */
 .pm  .howto				{color: #ff0000;	font-weight: bold;		font-size: 200%;}
@@ -117,10 +118,17 @@ h1.alert, h2.alert		{color: #000000;}
 
 BIG IMG.icon 			{width: 32px; height: 32px;}
 
+/* // DARKMODE // */
+
+.darkmode h1, .darkmode h2, .darkmode h3, .darkmode h4, .darkmode h5, .darkmode h6	{color: #a4bad6; font-family: Georgia, Verdana, sans-serif;}
+
 /* MOTD */
 .darkmode .motd {color: #a4bad6;	font-family: Verdana, sans-serif;}
 .darkmode .motd h1, .darkmode .motd h2, .darkmode .motd h3, .darkmode .motd h4, .darkmode .motd h5, .darkmode .motd h6 {color: #a4bad6;	text-decoration: underline;}
 .darkmode .motd a, .darkmode .motd a:link, .darkmode .motd a:visited, .darkmode .motd a:active, .darkmode .motd a:hover {color: #a4bad6;}
+
+.darkmode a {color: #397ea5;}
+.darkmode a:visited {color: #7c00e6;}
 
 /* LOG */
 .darkmode .log_message			{color: #386aff;	font-weight: bold;}
@@ -132,6 +140,7 @@ BIG IMG.icon 			{width: 32px; height: 32px;}
 .darkmode .ooc .moderator		{color: #184880;}
 .darkmode .ooc .developer		{color: #2c7731;}
 .darkmode .ooc .admin			{color: #d43500;}
+.darkmode .ooc .ccia			{color: #22a9b4;}
 .darkmode .aooc					{color: #d1021e;}
 
 /* Admin: Private Messages */
@@ -160,7 +169,7 @@ BIG IMG.icon 			{width: 32px; height: 32px;}
 .darkmode .airadio				{color: #ec00ec;}
 .darkmode .entradio				{color: #cfcfcf;}
 
-.darkmode .secradio				{color: #e21111;}
+.darkmode .secradio				{color: #f01f1f;}
 .darkmode .engradio				{color: #cc7b01;}
 .darkmode .medradio				{color: #0f7e62;}
 .darkmode .sciradio				{color: #c03bc0;}
@@ -184,6 +193,7 @@ BIG IMG.icon 			{width: 32px; height: 32px;}
 .darkmode .rose					{color: #ff5050;}
 .darkmode .info					{color: #6685f5;}
 .darkmode .notice				{color: #6685f5;}
+.darkmode .subtle				{color: #6e6eff; font-size: 75%; font-style: italic;}
 .darkmode .alium				{color: #00ff00;}
 .darkmode .cult					{color: #aa1c1c;}
 
