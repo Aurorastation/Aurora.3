@@ -161,9 +161,16 @@ datum/gear/suit/colorvest
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/blazer
-	display_name = "blazer"
+	display_name = "blazer selection"
 	path = /obj/item/clothing/suit/storage/toggle/suitjacket/blazer
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/suit/blazer/New()
+	..()
+	var/blazers = list()
+	blazers["blazer"] = /obj/item/clothing/suit/storage/toggle/suitjacket/blazer
+	blazers["long blazer"] = /obj/item/clothing/suit/storage/toggle/suitjacket/blazer/long
+	gear_tweaks += new/datum/gear_tweak/path(blazers)
 
 /datum/gear/suit/trenchcoats
 	display_name = "trenchcoat selection"
