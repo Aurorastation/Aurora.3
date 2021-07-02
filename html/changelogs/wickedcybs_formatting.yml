@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - bugfix: "Tweaked the antag flavour text on the sleepy ring to improve its readability."
