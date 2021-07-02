@@ -1,5 +1,5 @@
 /obj/machinery/r_n_d/server
-	name = "R&D server"
+	name = "\improper R&D server"
 	desc = "A server which houses a back-up of all station research. It can be used to restore lost data, or to act as another point of retrieval."
 	icon = 'icons/obj/machines/research.dmi'
 	icon_state = "server"
@@ -10,10 +10,12 @@
 	var/id_with_upload_string = ""		//String versions for easy editing in map editor.
 	var/id_with_download_string = ""
 	var/server_id = 0
-	var/produces_heat = 1
+	var/produces_heat = TRUE
 	idle_power_usage = 800
 	var/delay = 10
 	req_access = list(access_rd) //Only the R&D can change server settings.
+
+	var/list/linked_processors
 
 	component_types = list(
 		/obj/item/circuitboard/rdserver,
@@ -22,6 +24,8 @@
 	)
 
 /obj/machinery/r_n_d/server/Destroy()
+	for(var/obj/machinery/r_n_d/tech_processor/TP as anything in linked_processors)
+		TP.set_server(null)
 	griefProtection()
 	return ..()
 
@@ -52,6 +56,9 @@
 			id_with_download += text2num(N)
 
 /obj/machinery/r_n_d/server/machinery_process()
+	if(stat & (NOPOWER|BROKEN))
+		return
+
 	var/datum/gas_mixture/environment = loc.return_air()
 	switch(environment.temperature)
 		if(0 to T0C)
@@ -73,6 +80,16 @@
 	else
 		produce_heat()
 		delay = initial(delay)
+	upgrade_techs()
+
+/obj/machinery/r_n_d/server/proc/upgrade_techs()
+	for(var/obj/machinery/r_n_d/tech_processor/TP as anything in linked_processors)
+		if(TP.stat & (NOPOWER|BROKEN))
+			continue
+		for(var/tech_id in files.known_tech)
+			var/datum/tech/T = files.known_tech[tech_id]
+			if(T.level)
+				files.UpdateTech(T.id, round(TP.tech_rate))
 
 /obj/machinery/r_n_d/server/emp_act(severity)
 	griefProtection()
@@ -113,7 +130,15 @@
 
 			env.merge(removed)
 
-/obj/machinery/r_n_d/server/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/r_n_d/server/attackby(obj/item/O, mob/user)
+	if(O.ismultitool())
+		var/obj/item/device/multitool/MT = O
+		var/obj/machinery/r_n_d/tech_processor/TP = MT.get_buffer(/obj/machinery/r_n_d/tech_processor)
+		if(TP)
+			TP.set_server(src)
+			MT.unregister_buffer(TP)
+		to_chat(user, SPAN_NOTICE("You link \the [TP] to \the [src]."))
+		return
 	if(default_deconstruction_screwdriver(user, O))
 		return
 	if(default_deconstruction_crowbar(user, O))

@@ -46,6 +46,11 @@
 	req_tech = list(TECH_DATA = 3)
 	build_path = /obj/item/circuitboard/rdserver
 
+/datum/design/circuit/machine/rdtechprocessor
+	name = "R&D Tech Processor"
+	req_tech = list(TECH_DATA = 3)
+	build_path = /obj/item/circuitboard/rdtechprocessor
+
 /datum/design/circuit/machine/mechfab
 	name = "Exosuit Fabricator"
 	req_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 3)

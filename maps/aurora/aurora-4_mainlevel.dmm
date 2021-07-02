@@ -1515,15 +1515,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/security)
-"adf" = (
-/obj/machinery/r_n_d/server/advanced/robotics,
-/turf/simulated/floor/bluegrid{
-	name = "Server Base";
-	nitrogen = 500;
-	oxygen = 0;
-	temperature = 80
-	},
-/area/server)
 "adg" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 4;
@@ -2183,6 +2174,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/machinery/r_n_d/server/advanced/core,
 /turf/simulated/floor/bluegrid{
 	name = "Server Base";
 	nitrogen = 500;
@@ -2638,6 +2630,15 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
 	},
+/obj/machinery/button/remote/airlock/screamer{
+	channel = "Science";
+	id = "server_door_lock";
+	message = "The Server Room Airlock's ID lock toggle has been used.";
+	name = "Server Room Control";
+	pixel_x = -24;
+	pixel_y = -24;
+	specialfunctions = 2
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "afi" = (
@@ -2894,15 +2895,6 @@
 	temperature = 278
 	},
 /area/security/investigations_storage)
-"afF" = (
-/obj/machinery/r_n_d/server/advanced/core,
-/turf/simulated/floor/bluegrid{
-	name = "Server Base";
-	nitrogen = 500;
-	oxygen = 0;
-	temperature = 80
-	},
-/area/server)
 "afG" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 4;
@@ -21682,6 +21674,8 @@
 	dir = 8
 	},
 /obj/machinery/firealarm/south,
+/obj/structure/table/steel,
+/obj/item/device/multitool,
 /turf/simulated/floor/carpet/rubber,
 /area/server)
 "aLL" = (
@@ -22973,7 +22967,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/window/westleft{
 	name = "Server Room";
-	req_access = list(30)
+	req_access = null
 	},
 /obj/machinery/door/window/eastleft{
 	name = "Server Room"
@@ -23860,6 +23854,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/glass_command{
+	id_tag = "server_door_lock";
 	name = "Server Room";
 	req_access = list(30)
 	},
@@ -34166,6 +34161,10 @@
 	dir = 8;
 	layer = 2.9
 	},
+/obj/item/circuitboard/rdtechprocessor{
+	pixel_x = -2;
+	pixel_y = 2
+	},
 /obj/item/circuitboard/unary_atmos/heater,
 /obj/item/circuitboard/unary_atmos/cooler{
 	pixel_x = 3;
@@ -34851,6 +34850,8 @@
 /obj/item/stock_parts/matter_bin,
 /obj/item/stock_parts/capacitor,
 /obj/item/stock_parts/capacitor,
+/obj/item/stock_parts/scanning_module,
+/obj/item/stock_parts/scanning_module,
 /turf/simulated/floor/plating,
 /area/storage/tech)
 "biw" = (
@@ -90678,9 +90679,9 @@ bnx
 boX
 bqk
 brr
-adf
+aes
 aer
-afF
+aes
 bvS
 bwP
 byt
