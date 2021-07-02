@@ -49,7 +49,16 @@
 			var/obj/item/clothing/under/suit = w_uniform
 			if(!istype(suit) || !LAZYLEN(suit.accessories))
 				return 0
-			var/obj/item/clothing/accessory/A = suit.accessories[1]
+			var/obj/item/clothing/accessory/A
+			if(LAZYLEN(suit.accessories) > 1)
+				var/list/options = list()
+				for (var/obj/item/clothing/accessory/i in suit.accessories)
+					var/image/radial_button = image(icon = i.icon, icon_state = i.icon_state)
+					options[i] = radial_button
+				A = show_radial_menu(user, user, options, radius = 42, tooltips = TRUE)
+			else
+				A = suit.accessories[1]
+
 			if(!istype(A))
 				return 0
 			visible_message("<span class='danger'>\The [usr] is trying to remove \the [src]'s [A.name]!</span>")
