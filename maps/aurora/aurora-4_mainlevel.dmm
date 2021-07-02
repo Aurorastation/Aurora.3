@@ -14298,6 +14298,10 @@
 	pixel_x = 10
 	},
 /obj/structure/table/wood,
+/obj/item/reagent_containers/food/drinks/pitcher{
+	pixel_x = -3;
+	pixel_y = 2
+	},
 /turf/simulated/floor/carpet,
 /area/lawoffice)
 "azU" = (
@@ -32244,6 +32248,10 @@
 	},
 /obj/machinery/light_switch{
 	pixel_x = 24
+	},
+/obj/item/reagent_containers/food/drinks/pitcher{
+	pixel_x = -3;
+	pixel_y = 2
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)

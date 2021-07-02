@@ -110,7 +110,21 @@
 		/obj/item/reagent_containers/food/drinks/flask/barflask = 2,
 		/obj/item/reagent_containers/food/drinks/flask/vacuumflask = 2,
 		/obj/item/reagent_containers/food/drinks/ice = 9,
-		/obj/item/reagent_containers/food/drinks/drinkingglass = 30
+		/obj/item/reagent_containers/food/drinks/drinkingglass = 30,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/pint = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/square = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/mug = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shake = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/goblet = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/wine = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/flute = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/cognac = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/rocks = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/cocktail = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 4,
+		/obj/item/reagent_containers/food/drinks/pitcher = 4
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/drinks/tea = 10
@@ -815,6 +829,9 @@
 		/obj/item/material/knife = 2,
 		/obj/item/material/hatchet/butch = 2,
 		/obj/item/reagent_containers/food/drinks/drinkingglass = 12,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 3,
+		/obj/item/reagent_containers/food/drinks/pitcher = 3,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup = 6,
 		/obj/item/clothing/suit/chef/classic = 2,
 		/obj/item/material/kitchen/rollingpin = 2,
 		/obj/item/reagent_containers/cooking_container/oven = 5,
@@ -847,7 +864,10 @@
 		/obj/item/material/kitchen/utensil/spoon/plastic = 12,
 		/obj/item/material/kitchen/utensil/knife/plastic = 12,
 		/obj/item/material/kitchen/utensil/fork/chopsticks/cheap = 12,
-		/obj/item/reagent_containers/food/drinks/drinkingglass = 12
+		/obj/item/reagent_containers/food/drinks/drinkingglass = 12,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 3,
+		/obj/item/reagent_containers/food/drinks/pitcher = 3,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup = 6
 	)
 
 /obj/machinery/vending/sovietsoda
