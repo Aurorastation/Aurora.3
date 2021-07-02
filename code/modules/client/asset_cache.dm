@@ -89,8 +89,6 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 	var/list/unreceived = asset_list - (client.cache + client.sending)
 	if(!unreceived || !unreceived.len)
 		return 0
-	if (unreceived.len >= ASSET_CACHE_TELL_CLIENT_AMOUNT)
-		to_chat(client, "Sending Resources...")
 	for(var/asset in unreceived)
 		if (asset in SSassets.cache)
 			client << browse_rsc(SSassets.cache[asset], asset)
