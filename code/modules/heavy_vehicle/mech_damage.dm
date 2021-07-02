@@ -88,9 +88,9 @@
 	//Only 2 types of damage concern mechs and vehicles
 	switch(damagetype)
 		if(BRUTE)
-			adjustBruteLoss(damage * BLOCKED_MULT(blocked), target)
+			adjustBruteLoss(damage, target)
 		if(BURN)
-			adjustFireLoss(damage * BLOCKED_MULT(blocked), target)
+			adjustFireLoss(damage, target)
 
 	if((damagetype == BRUTE || damagetype == BURN) && prob(25+(damage*2)))
 		spark(src, 3)
