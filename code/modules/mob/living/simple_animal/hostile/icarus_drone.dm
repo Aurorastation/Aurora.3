@@ -60,6 +60,10 @@
 
 /mob/living/simple_animal/hostile/icarus_drone/Initialize()
 	. = ..()
+	set_light(1.2, 3, LIGHT_COLOR_BLUE)
+
+/mob/living/simple_animal/hostile/icarus_drone/Initialize()
+	. = ..()
 	if(prob(5))
 		projectiletype = /obj/item/projectile/beam/pulse/drone
 		projectilesound = 'sound/weapons/pulse2.ogg'
