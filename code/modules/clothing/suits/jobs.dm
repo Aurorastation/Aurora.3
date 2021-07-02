@@ -279,6 +279,14 @@ obj/item/clothing/suit/apron/overalls/blue
 	item_state = "blazer"
 	opened = TRUE
 
+/obj/item/clothing/suit/storage/toggle/suitjacket/blazer/long
+	name = "long blazer"
+	desc = "A charming long jacket."
+	desc_fluff = "for when you want to play ball sports like an aristocrat."
+	icon_state = "longblazer"
+	item_state = "longblazer"
+	opened = TRUE
+
 //Medical
 /obj/item/clothing/suit/storage/toggle/fr_jacket
 	name = "first responder jacket"
