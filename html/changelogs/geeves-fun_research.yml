@@ -6,3 +6,4 @@ changes:
   - rscadd: "Added Tech Processors, circuits available in the Machinery section of the circuit imprinter. When linked to an RnD server with a multitool, it will passively increase any techs above level zero."
   - rscadd: "A single tech processor circuitboard and two basic scanning modules have been added to Tech Storage."
   - rscadd: "The entrance to the server room now has a button next to it that'll toggle ID Scan, it will also state that it has been used on the science radio channel."
+  - rscdel: "Removed the robotics server from the server room, the core server will now serve and be served by both consoles."
