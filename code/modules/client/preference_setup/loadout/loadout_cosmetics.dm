@@ -1,7 +1,8 @@
 /datum/gear/cosmetic
-	display_name = "purple comb"
+	display_name = "comb"
 	path = /obj/item/haircomb
-	sort_category = "Cosmetics"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	sort_category = "Cosmetics" 
 
 /datum/gear/cosmetic/lipstick
 	display_name = "lipstick selection"
