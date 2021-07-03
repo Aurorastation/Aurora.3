@@ -818,6 +818,9 @@
 	update_tool()
 	return TRUE
 
+/obj/item/powerdrill/issurgerycompatible()
+	return FALSE // too unwieldy for most surgeries
+
 /obj/item/steelwool
 	name = "steel wool"
 	desc = "Harvested from the finest NanoTrasen steel sheep."

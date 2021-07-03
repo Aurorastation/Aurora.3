@@ -110,7 +110,7 @@
 	allowed_tools = list(
 	/obj/item/stack/nanopaste = 100,
 	/obj/item/surgery/bonegel = 30,
-	/obj/item/screwdriver = 70
+	SCREWDRIVER = 70
 	)
 
 	min_duration = 70
@@ -242,7 +242,7 @@
 	name = "Remove organ"
 	allowed_tools = list(
 	/obj/item/surgery/hemostat = 100,	\
-	/obj/item/wirecutters = 75,	\
+	WIRECUTTER = 75,	\
 	/obj/item/material/kitchen/utensil/fork = 20
 	)
 

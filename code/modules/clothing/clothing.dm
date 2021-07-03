@@ -27,6 +27,7 @@
 	var/default_material = null // Set this to something else if you want material attributes on init.
 	var/material_armor_modifer = 1 // Adjust if you want seperate types of armor made from the same material to have different protectiveness (e.g. makeshift vs real armor)
 	var/refittable = TRUE // If false doesn't let the clothing be refit in suit cyclers
+	var/no_overheat = FALSE  // Checks to see if the clothing is ignored for the purpose of overheating messages.
 
 	var/move_trail = /obj/effect/decal/cleanable/blood/tracks/footprints
 

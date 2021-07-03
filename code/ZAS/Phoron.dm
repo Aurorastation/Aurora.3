@@ -81,7 +81,10 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 	if(vsc.plc.CLOTH_CONTAMINATION) contaminate()
 
 	//Anything else requires them to not be dead.
-	if(stat >= 2)
+	if(stat >= DEAD)
+		return
+
+	if(species.flags & PHORON_IMMUNE)
 		return
 
 	//Burn skin if exposed.
