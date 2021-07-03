@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Radiation suits have been given new sprites."
+  - rscadd: "Radiation closets now spawn with two anti-rad autoinjectors."
