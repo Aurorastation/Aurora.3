@@ -46,11 +46,9 @@
 		to_chat(user, "<span class='notice'>You begin dismantling \the [src].</span>")
 		if(do_after(user,25))
 			to_chat(user, "<span class='notice'>You dismantle \the [src].</span>")
-			new /obj/item/stack/material/wood(get_turf(src), 3)
 			for(var/obj/item/book/b in contents)
 				b.forceMove((get_turf(src)))
-			qdel(src)
-
+			dismantle()
 	else
 		..()
 
