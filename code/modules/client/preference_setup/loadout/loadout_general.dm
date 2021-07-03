@@ -95,7 +95,7 @@
 /datum/gear/coffeecup
 	display_name = "coffee cups"
 	description = "A coffee cup in various designs."
-	cost = 2
+	cost = 1
 	path = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup
 
 /datum/gear/coffeecup/New()
