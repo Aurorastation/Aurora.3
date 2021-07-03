@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes:
-  - tweak: "Grabs can not longer be used to force the person being grabbed to attack themselves."
-
