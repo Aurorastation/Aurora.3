@@ -27,6 +27,9 @@ var/datum/antagonist/revenant/revenants = null
 	if(revenants.rifts_left <= 0)
 		command_announcement.Announce("Aurora, we aren't detecting any more rift energy signatures. Mop up the rest of the invaders. Good work.", "Bluespace Breach Alert")
 
+/datum/antagonist/revenant/is_obvious_antag(datum/mind/player)
+	return TRUE
+
 /proc/message_all_revenants(var/message)
 	for(var/thing in human_mob_list)
 		if(isrevenant(thing))

@@ -2423,6 +2423,7 @@
 #include "code\modules\nano\modules\alarm_monitor.dm"
 #include "code\modules\nano\modules\atmos_control.dm"
 #include "code\modules\nano\modules\crew_monitor.dm"
+#include "code\modules\nano\modules\ghost_menu.dm"
 #include "code\modules\nano\modules\human_appearance.dm"
 #include "code\modules\nano\modules\law_manager.dm"
 #include "code\modules\nano\modules\lighting_ctrl.dm"

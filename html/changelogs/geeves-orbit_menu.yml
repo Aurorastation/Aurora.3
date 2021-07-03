@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "The standard ghost follow menu has been replaced with an upgraded VueUI version."
