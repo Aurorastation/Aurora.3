@@ -1,0 +1,7 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes some bugs related to loadout wristbound selection."
+  - bugfix: "The loadout tablet once again works."
