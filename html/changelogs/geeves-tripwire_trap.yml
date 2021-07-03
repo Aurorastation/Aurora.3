@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Wired rods and makeshift stun batons now use the color of cable coil you used to make them."
+  - rscadd: "You can now create a tripwire trap by combining two wired rods with eachother. The color of the wire will be of the wired rod you click on to make it."
