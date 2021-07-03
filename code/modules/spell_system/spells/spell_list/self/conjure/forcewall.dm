@@ -11,22 +11,8 @@
 
 	hud_state = "wiz_shield"
 
-/spell/aoe_turf/conjure/forcewall/mime
-	name = "Invisible wall"
-	desc = "Create an invisible wall on your location."
-	school = "mime"
-	panel = "Mime"
-	summon_type = list(/obj/effect/forcefield/mime)
-	invocation_type = SpI_EMOTE
-	invocation = "mimes placing their hands on a flat surfacing, and pushing against it."
-	charge_max = 300
-	cast_sound = null
-
-	override_base = "grey"
-	hud_state = "mime_wall"
-
 /obj/effect/forcefield
-	desc = "A space wizard's magic wall."
+	desc = "A strange wall that seems almost magical."
 	name = "forcewall"
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "m_shield"
@@ -47,11 +33,6 @@
 	if(istype(I, /obj/item/nullrod))
 		to_chat(user, "<span class='notice'>\the [src] dissipates at the touch of the \the [I].</span>")
 		qdel(src)
-
-/obj/effect/forcefield/mime
-	icon_state = null
-	name = "invisible wall"
-	desc = "You have a bad feeling about this."
 
 /obj/effect/forcefield/cultify()
 	new /obj/effect/forcefield/cult(get_turf(src))

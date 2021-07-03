@@ -836,6 +836,13 @@
 	drop_sound = 'sound/items/drop/leather.ogg'
 	pickup_sound = 'sound/items/pickup/leather.ogg'
 
+/material/leather/fine
+	name = MATERIAL_LEATHER_FINE
+	icon_colour = "#4B3A27"
+	stack_type = /obj/item/stack/material/leather/fine
+	ignition_point = T0C+320
+	melting_point = T0C+320
+
 /material/cotton
 	name = MATERIAL_COTTON
 	display_name ="cotton"
@@ -974,6 +981,14 @@
 	name = MATERIAL_HIDE_HUMAN
 	stack_type = /obj/item/stack/material/animalhide/human
 	icon_colour = "#833C00"
+
+/material/hide/barehide
+	name = "bare hide"
+	stack_type = /obj/item/stack/material/animalhide/barehide
+
+/material/hide/wetleather
+	name = "wet leather"
+	stack_type = /obj/item/stack/material/animalhide/wetleather
 
 /material/bone
 	name = MATERIAL_BONE

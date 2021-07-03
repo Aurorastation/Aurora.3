@@ -2,7 +2,7 @@
 	name = "Mend Wounds"
 	desc = "This spell heals internal wounds and broken bones."
 	feedback = "MW"
-	spell_flags = INCLUDEUSER | SELECTABLE | NEEDSCLOTHES
+	spell_flags = INCLUDEUSER | SELECTABLE
 	invocation = "Ges'undh'eit"
 	invocation_type = SpI_SHOUT
 
