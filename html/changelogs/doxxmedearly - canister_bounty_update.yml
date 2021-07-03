@@ -1,0 +1,6 @@
+author: Doxxmedearly
+
+delete-after: True
+
+changes:
+  - tweak: "Updated the phoron canister bounty to require less moles, and it will now tell you the exact minimum moles needed. Like the sheets bounty, this was a bit too heavy-handed, even for the scarcity arc."
