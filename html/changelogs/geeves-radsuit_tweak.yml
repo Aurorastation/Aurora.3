@@ -5,3 +5,4 @@ delete-after: True
 changes:
   - rscadd: "Radiation suits have been given new sprites."
   - rscadd: "Radiation closets now spawn with two anti-rad autoinjectors."
+  - rscadd: "Radiation suits can now hold a similar array of items to an EVA hardsuit in is storage slot now, as well as the hood and the anti-rad autoinjector."
