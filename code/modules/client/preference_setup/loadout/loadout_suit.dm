@@ -167,7 +167,7 @@ datum/gear/suit/colorvest
 
 /datum/gear/suit/blazer/New()
 	..()
-	var/blazers = list()
+	var/list/blazers = list()
 	blazers["blazer"] = /obj/item/clothing/suit/storage/toggle/suitjacket/blazer
 	blazers["long blazer"] = /obj/item/clothing/suit/storage/toggle/suitjacket/blazer/long
 	gear_tweaks += new/datum/gear_tweak/path(blazers)
