@@ -3,6 +3,9 @@
 	description = "Tau Ceti is a system located in close proximity of Sol, and serves as the main base of operation for the megacorporation NanoTrasen. Tau Ceti is governed by the \
 	Republic of Biesel, a young Republic that became independent of the economically troubled Sol Alliance in 2452 due to heavy pressure by Nanotrasen. There is still resentment in \
 	the Sol Alliance over the loss of such a wealthy system, while Nanotrasen continues to have a heavy hand in all levels of Tau Ceti."
+	cargo_price_coef = list("NanoTrasen" = 0.8, "Haephaestus" = 0.8, "Zeng-Hu" = 0.8, "Eckhart's Energy" = 1, "Getmore Products" = 0.8, "Arizi Guild" = 1, "BLAM! Products" = 1,
+								"Interstellar Aid Corps" = 1, "Zharrkov Shipping Company" = 1, "Virgo Freight Carriers" = 1, "Bishop Cybernetics" = 0.8, "Bishop Cybernetics" = 0.8,
+								"Xion Manufacturing Group" = 0.8, "Necropolis Industries" = 0.8)
 
 /datum/space_sector/tau_ceti/romanovich
 	name = SECTOR_ROMANOVICH
