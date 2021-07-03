@@ -224,7 +224,6 @@
 	icon_state = "golem"
 	unacidable = TRUE
 	layer = TURF_LAYER
-	var/wizardy = FALSE //if this rune can only be used by a wizard or not
 	var/golem_type = "Adamantine Golem"
 
 /obj/effect/golemrune/Initialize()
@@ -272,17 +271,11 @@
 	G.accent = G.species.default_accent
 	G.preEquipOutfit(/datum/outfit/admin/golem, FALSE)
 	G.equipOutfit(/datum/outfit/admin/golem, FALSE)
-	if(wizardy)
-		wizard_golems.add_antagonist(G.mind, TRUE, TRUE, FALSE, TRUE, TRUE)
-	else
-		to_chat(G, SPAN_NOTICE("You are a golem. Serve your master, and assist them in completing their goals at any cost."))
+	to_chat(G, SPAN_NOTICE("You are a golem. Serve your master, and assist them in completing their goals at any cost."))
 
 	qdel(src)
 
 	return G
-
-/obj/effect/golemrune/wizard
-	wizardy = TRUE
 
 /mob/living/carbon/slime/has_eyes()
 	return FALSE
