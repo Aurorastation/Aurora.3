@@ -263,3 +263,32 @@ Paper Data
 	if(!metadata || !istype(P))
 		return
 	P.info = P.parsepencode(metadata)
+
+
+
+// Buddy Tag Settings
+/datum/gear_tweak/buddy_tag_config/get_contents(var/metadata)
+	return "ID: [metadata[1]] | Distance: [metadata[2]] | Interval: [metadata[3]]s"
+
+/datum/gear_tweak/buddy_tag_config/get_default()
+	return list(1, 10, 30)
+
+/datum/gear_tweak/buddy_tag_config/get_metadata(var/user, var/metadata)
+	var/newcode = input("Set new buddy ID number.", "Buddy Tag ID", metadata[1]) as num|null
+	if(isnull(newcode))
+		newcode = metadata[1]
+	var/newdist = input("Set new maximum range.", "Buddy Tag Range", metadata[2]) as num|null
+	if(isnull(newdist))
+		newdist = metadata[2]
+	var/newtime = input("Set new search interval in seconds (minimum 30s).", "Buddy Tag Time Interval", metadata[3]) as num|null
+	if(isnull(newtime))
+		newtime = metadata[3]
+	newtime = max(30, newtime)
+	return list(newcode, newdist, newtime)
+
+/datum/gear_tweak/buddy_tag_config/tweak_item(var/obj/item/clothing/accessory/buddytag/BT, var/list/metadata, var/mob/living/carbon/human/H)
+	if(!length(metadata) || !istype(BT))
+		return
+	BT.id = metadata[1]
+	BT.distance = metadata[2]
+	BT.search_interval = metadata[3] SECONDS

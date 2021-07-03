@@ -11,6 +11,8 @@ var/list/active_buddy_tags = list()
 	var/next_search = 0
 	var/on = FALSE
 	var/id = 1
+	var/distance = 10
+	var/search_interval = 30 SECONDS
 
 /obj/item/clothing/accessory/buddytag/Initialize()
 	. = ..()
@@ -23,11 +25,13 @@ var/list/active_buddy_tags = list()
 	if(use_check_and_message(user))
 		return
 
-	var/dat = "<A href='?src=\ref[src];toggle=1;'>[on ? "Disable" : "Enable"]</a><br>"
-	dat += "ID: <A href='?src=\ref[src];setcode=1;'>[id]</a>"
+	var/list/dat = "<A href='?src=\ref[src];toggle=1;'>[on ? "Disable" : "Enable"]</a>"
+	dat += "<br>ID: <A href='?src=\ref[src];setcode=1;'>[id]</a>"
+	dat += "<br>Search Interval: <A href='?src=\ref[src];set_interval=1;'>[search_interval/10] seconds</a>"
+	dat += "<br>Search Distance: <A href='?src=\ref[src];set_distance=1;'>[distance]</a>"
 
 	var/datum/browser/popup = new(user, "buddytag", "Buddy Tag", 290, 200)
-	popup.set_content(dat)
+	popup.set_content(JOINTEXT(dat))
 	popup.open()
 
 /obj/item/clothing/accessory/buddytag/Topic(href, href_list, state)
@@ -44,10 +48,21 @@ var/list/active_buddy_tags = list()
 			active_buddy_tags -= src
 		update_icon()
 	if(href_list["setcode"])
-		var/newcode = input("Set new buddy ID number." , "Buddy Tag ID" , "") as num|null
+		var/newcode = input("Set new buddy ID number.", "Buddy Tag ID", id) as num|null
 		if(isnull(newcode) || !CanInteract(usr, state))
 			return
 		id = newcode
+	if(href_list["set_distance"])
+		var/newdist = input("Set new maximum range.", "Buddy Tag Range", distance) as num|null
+		if(isnull(newdist) || !CanInteract(usr, state))
+			return
+		distance = newdist
+	if(href_list["set_interval"])
+		var/newtime = input("Set new search interval in seconds (minimum 30s).", "Buddy Tag Time Interval", search_interval / 10) as num|null
+		if(isnull(newtime) || !CanInteract(usr, state))
+			return
+		newtime = max(30, newtime)
+		search_interval = newtime SECONDS
 	attack_self(usr)
 
 /obj/item/clothing/accessory/buddytag/process()
@@ -55,14 +70,14 @@ var/list/active_buddy_tags = list()
 		return PROCESS_KILL
 	if(world.time < next_search)
 		return
-	next_search = world.time + 30 SECONDS
+	next_search = world.time + search_interval
 	var/has_friend
 	for(var/obj/item/clothing/accessory/buddytag/buddy as anything in active_buddy_tags - src)
 		if(buddy.id != id)
 			continue
 		if(GET_Z(buddy) != GET_Z(src))
 			continue
-		if(get_dist(get_turf(src), get_turf(buddy)) <= 10)
+		if(get_dist(get_turf(src), get_turf(buddy)) <= distance)
 			has_friend = TRUE
 			break
 	if(!has_friend)

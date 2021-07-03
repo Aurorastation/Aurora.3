@@ -1,5 +1,6 @@
 #define Clamp(x, low, high) 	max(low, min(high, x))
 #define CLAMP01(x) 		(Clamp(x, 0, 1))
+#define JOINTEXT(X) jointext(X, null)
 
 #define span(class, text) "<span class='[class]'>[text]</span>"
 #define SPAN_NOTICE(X) "<span class='notice'>[X]</span>"
