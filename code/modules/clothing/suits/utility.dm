@@ -184,7 +184,7 @@
 	item_state = "radhood"
 	contained_sprite = TRUE
 	icon_auto_adapt = TRUE
-	icon_supported_species_tags = list("skr", "una")
+	icon_supported_species_tags = list("skr", "una", "taj")
 	flags_inv = BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
 	armor = list(
