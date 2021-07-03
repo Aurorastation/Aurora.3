@@ -76,7 +76,7 @@
 /obj/item/device/flashlight/flare/torch/attack_self(mob/user)
 	if (on)
 		turn_off()
-		user.visible_message(SPAN_NOTICE("\The [user] extinguishes \the [src]."),	SPAN_NOTICE("You extinguish \the [src]."))
+		user.visible_message("<b>[user]</b> extinguishes \the [src].", SPAN_NOTICE("You extinguish \the [src]."))
 	return
 
 /obj/item/device/flashlight/flare/torch/update_icon()
