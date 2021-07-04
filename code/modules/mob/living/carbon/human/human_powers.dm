@@ -796,6 +796,15 @@ mob/living/carbon/human/proc/change_monitor()
 
 	var/list/victims = list()
 
+	for (var/mob/living/carbon/human/T in hearers(4, src) - src)
+		if(T.protected_from_sound())
+			continue
+		if (T.species.hearing_sensitive)
+			earpain(5, TRUE)
+			adjustEarDamage(10, 5, FALSE)
+		else if (T in range(src, 2))
+			earpain(3, TRUE)
+	
 	for (var/mob/living/carbon/human/T in hearers(2, src) - src)
 		if(T.protected_from_sound())
 			continue
