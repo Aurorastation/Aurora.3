@@ -147,6 +147,11 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security/detective
 	tablet = /obj/item/modular_computer/handheld/preset/security/detective
 
+	backpack = /obj/item/storage/backpack/security
+	satchel = /obj/item/storage/backpack/satchel_sec
+	dufflebag = /obj/item/storage/backpack/duffel/sec
+	messengerbag = /obj/item/storage/backpack/messenger/sec
+
 	backpack_contents = list(
 		/obj/item/storage/box/evidence = 1
 	)
