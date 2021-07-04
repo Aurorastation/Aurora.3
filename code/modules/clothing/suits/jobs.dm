@@ -10,6 +10,7 @@
 	item_state = "blueapron"
 	blood_overlay_type = "armor"
 	body_parts_covered = 0
+	no_overheat = TRUE
 	allowed = list (/obj/item/reagent_containers/spray/plantbgone,/obj/item/device/analyzer/plant_analyzer,/obj/item/seeds,/obj/item/reagent_containers/glass/fertilizer,/obj/item/material/minihoe)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
@@ -86,6 +87,7 @@ obj/item/clothing/suit/apron/overalls/blue
 	item_state = "apronchef"
 	blood_overlay_type = "armor"
 	body_parts_covered = 0
+	no_overheat = TRUE
 
 //Security
 

@@ -3,9 +3,9 @@
 3. Type whatever you want/need and record it.
 4. I used audacity. Set the project rate (hz) to 16000.
 5. Apply reverb, the settings are this: 
-	Room size: 56
+	Room size: 40
 	Pre-delay: 48
-	Reverberance: 47
+	Reverberance: 70
 	Damping: 57
 	Tone low: 84
 	Tone High: 85

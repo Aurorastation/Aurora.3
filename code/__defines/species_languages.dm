@@ -1,20 +1,21 @@
 // Species flags.
-#define NO_BLOOD             1    // Vessel var is not filled with blood, cannot bleed out.
-#define NO_BREATHE           2    // Cannot suffocate or take oxygen loss.
-#define NO_SCAN              4    // Cannot be scanned in a DNA machine/genome-stolen.
-#define NO_PAIN              8    // Cannot suffer halloss/receives deceptive health indicator.
-#define NO_SLIP             16    // Cannot fall over.
-#define NO_POISON           32    // Cannot not suffer toxloss.
-#define IS_PLANT            64    // Is a treeperson.
-#define NO_EMBED            128    // Can not have shrapnel or any object embedded into its body
-#define IS_MECHANICAL       256    // Is a robot.
-#define ACCEPTS_COOLER      512    // Can wear suit coolers and have them work without a suit.
-#define NO_CHUBBY           1024   // Cannot be visibly fat from nutrition type.
-#define NO_ARTERIES         2048   // This species does not have arteries.
+#define NO_BLOOD            BITFLAG(1)    // Vessel var is not filled with blood, cannot bleed out.
+#define NO_BREATHE          BITFLAG(2)    // Cannot suffocate or take oxygen loss.
+#define NO_SCAN             BITFLAG(3)    // Cannot be scanned in a DNA machine/genome-stolen.
+#define NO_PAIN             BITFLAG(4)    // Cannot suffer halloss/receives deceptive health indicator.
+#define NO_SLIP             BITFLAG(5)    // Cannot fall over.
+#define NO_POISON           BITFLAG(6)    // Cannot not suffer toxloss.
+#define IS_PLANT            BITFLAG(7)    // Is a treeperson.
+#define NO_EMBED            BITFLAG(8)    // Can not have shrapnel or any object embedded into its body
+#define IS_MECHANICAL       BITFLAG(9)    // Is a robot.
+#define ACCEPTS_COOLER      BITFLAG(10)    // Can wear suit coolers and have them work without a suit.
+#define NO_CHUBBY           BITFLAG(11)   // Cannot be visibly fat from nutrition type.
+#define NO_ARTERIES         BITFLAG(12)   // This species does not have arteries.
+#define PHORON_IMMUNE       BITFLAG(13)   // species doesn't suffer the negative effects of phoron contamination
 // unused: 0x8000(32768) - higher than this will overflow
 
 // Base flags for IPCs.
-#define IS_IPC (NO_BREATHE|NO_SCAN|NO_BLOOD|NO_PAIN|NO_POISON|IS_MECHANICAL|NO_CHUBBY)
+#define IS_IPC (NO_BREATHE|NO_SCAN|NO_BLOOD|NO_PAIN|NO_POISON|IS_MECHANICAL|NO_CHUBBY|PHORON_IMMUNE)
 
 // Species spawn flags
 #define IS_WHITELISTED    0x1    // Must be whitelisted to play.

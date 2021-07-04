@@ -127,3 +127,10 @@ var/datum/antagonist/cultist/cult
 		to_chat(usr, SPAN_CULT("You get the sense that [target] would be an unworthy offering."))
 	else
 		to_chat(usr, SPAN_CULT("You get the sense that your master would be pleased to welcome [target] into the cult."))
+
+/datum/antagonist/cultist/is_obvious_antag(datum/mind/player)
+	if(istype(player.current, /mob/living/simple_animal/construct))
+		return TRUE
+	else if(istype(player.current, /mob/living/simple_animal/shade))
+		return TRUE
+	return FALSE
