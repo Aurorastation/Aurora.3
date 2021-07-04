@@ -779,7 +779,7 @@ mob/living/carbon/human/proc/change_monitor()
 	set desc = "Emit a powerful screech which stuns hearers in a two-tile radius."
 
 	if(last_special > world.time)
-		to_chat(src, SPAN_DANGER("You are too tired to screech!</span>"))
+		to_chat(src, SPAN_DANGER("You are too tired to screech!"))
 		return
 
 	if(stat || paralysis || stunned || weakened)
