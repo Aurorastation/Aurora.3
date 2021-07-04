@@ -779,18 +779,18 @@ mob/living/carbon/human/proc/change_monitor()
 	set desc = "Emit a powerful screech which stuns hearers in a two-tile radius."
 
 	if(last_special > world.time)
-		to_chat(src, "<span class='danger'>You are too tired to screech!</span>")
+		to_chat(src, SPAN_DANGER("You are too tired to screech!</span>"))
 		return
 
 	if(stat || paralysis || stunned || weakened)
-		to_chat(src, "<span class='danger'>You cannot screech in your current state!</span>")
+		to_chat(src, SPAN_DANGER("You cannot screech in your current state!"))
 		return
 
 	last_special = world.time + 100
 
-	visible_message("<span class='danger'>[src.name] lets out an ear piercing shriek!</span>",
-			"<span class='danger'>You let out an ear-shattering shriek!</span>",
-			"<span class='danger'>You hear a painfully loud shriek!</span>")
+	visible_message(SPAN_DANGER("[src.name] lets out an ear piercing shriek!"),
+			SPAN_DANGER("You let out an ear-shattering shriek!"),
+			SPAN_DANGER("You hear a painfully loud shriek!"))
 
 	playsound(loc, 'sound/voice/shriek1.ogg', 100, 1)
 
@@ -801,7 +801,6 @@ mob/living/carbon/human/proc/change_monitor()
 			continue
 		if (T.species.hearing_sensitive)
 			earpain(5, TRUE)
-			adjustEarDamage(10, 5, FALSE)
 		else if (T in range(src, 2))
 			earpain(3, TRUE)
 	
@@ -809,9 +808,9 @@ mob/living/carbon/human/proc/change_monitor()
 		if(T.protected_from_sound())
 			continue
 
-		to_chat(T, "<span class='danger'>You hear an ear piercing shriek and feel your senses go dull!</span>")
+		to_chat(T, SPAN_DANGER("You hear an ear piercing shriek and feel your senses go dull!"))
 		T.Weaken(5)
-		T.ear_deaf = 20
+		T.adjustEarDamage(10, 20)
 		T.stuttering = 20
 		T.Stun(5)
 

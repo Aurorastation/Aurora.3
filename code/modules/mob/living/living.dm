@@ -879,17 +879,17 @@ default behaviour is:
 	var/obj/item/organ/external/E = organs_by_name[BP_HEAD]
 	switch (intensity)
 		if (1)
-			custom_pain("Your ears hurts a little.", 5, 1, E, 0)
+			custom_pain("Your ears hurts a little.", 5, FALSE, E, 0)
 		if (2)
-			custom_pain("Your ears hurts.", 10, 1, E, 0)
+			custom_pain("Your ears hurts.", 10, TRUE, E, 0)
 		if (3)
-			custom_pain("Your ears hurts a lot!", 40, 1, E, 0)
+			custom_pain("Your ears hurts a lot!", 40, TRUE, E, 0)
 		if (4)
-			custom_pain("Your ears are extremely painful!", 70, 1, E, 0)
-			adjustEarDamage(5, 0, 0)
+			custom_pain("Your ears are extremely painful!", 70, TRUE, E, 0)
+			adjustEarDamage(5, 0, FALSE)
 		if (5)
-			custom_pain("YOUR EARS ARE DEAFENED BY THE PAIN!", 110, 1, E, 1)
-			adjustEarDamage(5, 5, 0)
+			custom_pain("YOUR EARS ARE DEAFENED BY THE PAIN!", 110, TRUE, E, 1)
+			adjustEarDamage(5, 5, FALSE)
 
 //pass a negative argument to skip one of the variable
 

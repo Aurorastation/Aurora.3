@@ -867,6 +867,23 @@
 	if(prob(2))
 		to_chat(M, SPAN_WARNING("You feel very cold..."))
 
+/decl/reagent/inacusiate
+	name = "Inacusiate"
+	description = ""
+	reagent_state = LIQUID
+	color = "#D2B48C"
+	overdose = 10
+	scannable = TRUE
+	metabolism = REM * 1
+	taste_description = "a roll of gauze"
+
+/decl/reagent/inacusiate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	M.adjustEarDamage(-0.6, -0.6, FALSE)
+
+/decl/reagent/inacusiate/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	var/obj/item/organ/external/E = M.organs_by_name[BP_HEAD]
+	M.custom_pain("Your head hurts a ton!", 70, FALSE, E, 1)
+
 /* mental */
 
 #define MEDICATION_MESSAGE_DELAY 10 MINUTES 
