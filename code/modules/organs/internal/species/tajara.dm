@@ -25,6 +25,7 @@
 	. = ..()
 	if(.)
 		action.button_icon_state = "night_eyes"
+		action.check_flags = AB_CHECK_STUNNED|AB_CHECK_ALIVE|AB_CHECK_INSIDE
 		if(action.button)
 			action.button.update_icon()
 
