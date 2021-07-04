@@ -295,8 +295,8 @@
 
 /obj/effect/meteor/supermatter
 	name = "supermatter shard"
-	icon = 'icons/obj/engine.dmi'
-	icon_state = "darkmatter"
+	icon = 'icons/obj/supermatter.dmi'
+	icon_state = "darkmatter_old"
 
 /obj/effect/meteor/supermatter/New()
 	..()
