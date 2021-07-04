@@ -283,15 +283,15 @@
 /*
  * Helping functions for everyone
  */
-/proc/GetAssignment(var/mob/living/carbon/human/H)
+/proc/GetAssignment(var/mob/living/carbon/human/H, var/include_faction_prefix)
+	var/return_value = "Unassigned"
 	if(H.mind?.role_alt_title)
-		return H.mind.role_alt_title
+		return_value = H.mind.role_alt_title
 	else if(H.mind?.assigned_role)
-		return H.mind.assigned_role
+		return_value = H.mind.assigned_role
 	else if(H.job)
-		return H.job
-	else
-		return "Unassigned"
+		return_value = H.job
+	return "[return_value][include_faction_prefix ? " ([H.mind.selected_faction.title_suffix])" : ""]"
 
 /proc/generate_record_id()
 	return add_zero(num2hex(rand(1, 65535)), 4)

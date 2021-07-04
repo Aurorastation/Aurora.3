@@ -53,7 +53,6 @@
 
 	var/has_been_rev = 0//Tracks if this mind has been a rev or not
 
-	var/datum/faction/faction 			//associated faction
 	var/list/antag_datums = list()
 
 	var/rev_cooldown = 0
