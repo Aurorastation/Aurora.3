@@ -845,10 +845,11 @@ default behaviour is:
 	..()
 
 //damage/heal the mob ears and adjust the deaf amount
-/mob/living/adjustEarDamage(var/damage, var/deaf, var/ringing = FALSE, var/deafened = FALSE)
-	//var/alreadydeaf
-	// if ()
-	if (istype(src, /mob/living/carbon/human))
+/mob/living/adjustEarDamage(var/damage, var/deaf, var/ringing = FALSE)
+	var/alreadydeaf = FALSE
+	if (ear_deaf)
+		alreadydeaf = TRUE
+	if (ishuman(src))
 		var/mob/living/carbon/human/H = src
 		if (H.species.hearing_sensitive)
 			if (H.species.hearing_sensitive == 2)
@@ -858,21 +859,37 @@ default behaviour is:
 	ear_damage = max(0, ear_damage + damage)
 	ear_deaf = max(0, ear_deaf + deaf)
 
-	// if (ear_damage >= 5 && ringing)
-	// 	if (ear_damage >= 15)
-	// 		SPAN_DANGER("Your ears start to ring badly!")
-	// 	else
-	// 		SPAN_DANGER("Your ears start to ring!")
+	if (ringing && !alreadydeaf)
+		if (ear_damage >= 5)
+			if (ear_damage >= 15)
+				to_chat(src, SPAN_DANGER("Your ears start to ring badly!"))
+			else
+				to_chat(src, SPAN_DANGER("Your ears start to ring!"))
 
-	// if (M.ear_damage >= 15)
-	// 	to_chat(M, "<span class='danger'>Your ears start to ring badly!</span>")
-	// 	if(!banglet && !(istype(src , /obj/item/grenade/flashbang/clusterbang)))
-	// 		if (prob(M.ear_damage - 10 + 5))
-	// 			to_chat(M, "<span class='danger'>You can't hear anything!</span>")
-	// 			M.sdisabilities |= DEAF
-	// else
-	// 	if (M.ear_damage >= 5)
-	// 		to_chat(M, "<span class='danger'>Your ears start to ring!</span>")
+/mob/living/carbon/proc/earpain(var/intensity, var/sensitive_only) // Intensity 1: mild, 2: hurts, 3: very painful, 4: extremely painful, 5: that's going to leave some damage
+	if (ear_deaf)
+		return
+	if (ishuman(src))
+		var/mob/living/carbon/human/H = src
+		if (sensitive_only && !H.species.hearing_sensitive)
+			return
+	else if (sensitive_only)
+		return
+	
+	var/obj/item/organ/external/E = organs_by_name[BP_HEAD]
+	switch (intensity)
+		if (1)
+			custom_pain("Your ears hurts a little.", 5, 1, E, 0)
+		if (2)
+			custom_pain("Your ears hurts.", 10, 1, E, 0)
+		if (3)
+			custom_pain("Your ears hurts a lot!", 40, 1, E, 0)
+		if (4)
+			custom_pain("Your ears are extremely painful!", 70, 1, E, 0)
+			adjustEarDamage(5, 0, 0)
+		if (5)
+			custom_pain("YOUR EARS ARE DEAFENED BY THE PAIN!", 110, 1, E, 1)
+			adjustEarDamage(5, 5, 0)
 
 //pass a negative argument to skip one of the variable
 

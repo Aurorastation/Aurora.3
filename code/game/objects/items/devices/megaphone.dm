@@ -41,14 +41,19 @@
 				return
 		if(emagged)
 			if(insults)
-				user.visible_message("<B>[user]</B> broadcasts, <FONT size=3>\"[pick(insultmsg)]\"</FONT>")
+				user.audible_message("<B>[user]</B> broadcasts, <FONT size=3>\"[pick(insultmsg)]\"</FONT>", "<B>[user]</B> speaks into \the [src].", 7)
 				insults--
 			else
 				to_chat(user, SPAN_WARNING("*BZZZZzzzzzt*"))
 		else
-			user.visible_message("<B>[user]</B> broadcasts, <FONT size=3>\"[message]\"</FONT>")
+			user.audible_message("<B>[user]</B> broadcasts, <FONT size=3>\"[message]\"</FONT>", "<B>[user]</B> speaks into \the [src].", 7)
 		if(activation_sound)
 			playsound(loc, activation_sound, 100, 0, 1)
+		for (var/mob/living/carbon/C in range(src, 2) - user)
+			if (C in range(src, 1))
+				C.earpain(4, TRUE)
+			else
+				C.earpain(2, TRUE)
 		spamcheck = world.time + 50
 		return
 

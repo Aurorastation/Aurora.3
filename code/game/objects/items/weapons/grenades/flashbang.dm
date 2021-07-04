@@ -67,12 +67,23 @@
 			if ((prob(14) || (M == src.loc && prob(70))))
 				M.adjustEarDamage(rand(1, 10), 0, TRUE)
 			else
-				M.adjustEarDamage(rand(0, 5), 15, TRUE, TRUE)
+				M.adjustEarDamage(rand(0, 5), 15, TRUE)
+			if(ishuman(M))
+				var/mob/living/carbon/human/H = M
+				if (H.species.hearing_sensitive)
+					if (H.species.hearing_sensitive == 2)
+						H.Weaken(5)
+					else 
+						H.Weaken(2)
 
 	else if(get_dist(M, T) <= 5)
 		if(!ear_safety)
 			sound_to(M, sound('sound/weapons/flash_ring.ogg',0,1,0,100))
-			M.adjustEarDamage(rand(0, 3), 10, TRUE, TRUE)
+			M.adjustEarDamage(rand(0, 3), 10, TRUE)
+			if(ishuman(M))
+				var/mob/living/carbon/human/H = M
+				if (H.species.hearing_sensitive == 2)
+					H.Weaken(2)
 
 	else if(!ear_safety)
 		M.adjustEarDamage(rand(0, 1), 5, TRUE)
@@ -86,15 +97,6 @@
 			if(!banglet && !(istype(src , /obj/item/grenade/flashbang/clusterbang)))
 				if (E.damage >= E.min_broken_damage)
 					to_chat(M, "<span class='danger'>You can't see anything!</span>")
-	if (M.ear_damage >= 15)
-		to_chat(M, "<span class='danger'>Your ears start to ring badly!</span>")
-		if(!banglet && !(istype(src , /obj/item/grenade/flashbang/clusterbang)))
-			if (prob(M.ear_damage - 10 + 5))
-				to_chat(M, "<span class='danger'>You can't hear anything!</span>")
-				M.sdisabilities |= DEAF
-	else
-		if (M.ear_damage >= 5)
-			to_chat(M, "<span class='danger'>Your ears start to ring!</span>")
 	M.update_icon()
 
 /obj/item/grenade/flashbang/clusterbang//Created by Polymorph, fixed by Sieve
