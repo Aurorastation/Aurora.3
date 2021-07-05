@@ -75,7 +75,7 @@
 		setClickCooldown(15)
 		return
 
-	if(!(get_cell()?.checked_use(arms.power_use * CELLRATE)))
+	if(!checked_use_cell(arms.power_use * CELLRATE))
 		to_chat(user, power == MECH_POWER_ON ? SPAN_WARNING("Error: Power levels insufficient.") : SPAN_WARNING("\The [src] is powered off."))
 		return
 
@@ -286,9 +286,15 @@
 		var/turf/target_loc = get_step(src, direction)
 		if(!legs.can_move_on(loc, target_loc))
 			return
-		Move(target_loc, direction)
+		if(incorporeal_move)
+			if(legs && legs.mech_step_sound)
+				playsound(src.loc,legs.mech_step_sound,40,1)
+			use_cell_power(legs.power_use * CELLRATE)
+			user.client.Process_Incorpmove(direction, src)
+		else
+			Move(target_loc, direction)
 	else
-		get_cell()?.use(legs.power_use * CELLRATE)
+		use_cell_power(legs.power_use * CELLRATE)
 		if(legs && legs.mech_turn_sound)
 			playsound(src.loc,legs.mech_turn_sound,40,1)
 		next_mecha_move = world.time + legs.turn_delay
@@ -307,8 +313,14 @@
 	if(..() && !istype(loc, /turf/space))
 		if(legs && legs.mech_step_sound)
 			playsound(src.loc,legs.mech_step_sound,40,1)
-		get_cell()?.use(legs.power_use * CELLRATE)
+		use_cell_power(legs.power_use * CELLRATE)
 	update_icon()
+
+/mob/living/heavy_vehicle/Post_Incorpmove()
+	if(istype(hardpoints[HARDPOINT_BACK], /obj/item/mecha_equipment/phazon))
+		var/obj/item/mecha_equipment/phazon/PZ = hardpoints[HARDPOINT_BACK]
+		use_cell_power(PZ.active_power_use * CELLRATE)
+	return ..()
 
 /mob/living/heavy_vehicle/attackby(var/obj/item/thing, var/mob/user)
 	if(user.a_intent != I_HURT && istype(thing, /obj/item/mecha_equipment))

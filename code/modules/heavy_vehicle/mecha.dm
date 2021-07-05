@@ -10,6 +10,7 @@
 	mob_push_flags = ALLMOBS
 	can_be_buckled = FALSE
 	accent = ACCENT_TTS
+	appearance_flags = KEEP_TOGETHER
 	var/decal
 
 	var/emp_damage = 0

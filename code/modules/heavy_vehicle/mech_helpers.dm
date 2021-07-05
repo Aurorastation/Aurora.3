@@ -18,7 +18,7 @@
 		next_mecha_move = world.time + 15
 		return
 
-	next_mecha_move = world.time + legs.move_delay
+	next_mecha_move = world.time + (incorporeal_move ? legs.move_delay / 2 : legs.move_delay)
 
 	if(maintenance_protocols)
 		if(user)
@@ -75,3 +75,39 @@
 	text = trim_left(text)
 	text = trim_right(text)
 	return text
+
+/mob/living/heavy_vehicle/proc/use_cell_power(var/power_to_use)
+	var/power_used = get_cell()?.use(power_to_use)
+	if(power_used <= 0)
+		for(var/hardpoint in hardpoints)
+			var/obj/item/mecha_equipment/ME = hardpoints[hardpoint]
+			if(ME)
+				ME.deactivate()
+	return power_used
+
+/mob/living/heavy_vehicle/proc/drain_cell_power(var/power_to_drain)
+	var/power_used = get_cell()?.drain_power(0, 0, power_to_drain)
+	if(power_used <= 0)
+		for(var/hardpoint in hardpoints)
+			var/obj/item/mecha_equipment/ME = hardpoints[hardpoint]
+			if(ME)
+				ME.deactivate()
+	return power_used
+
+/mob/living/heavy_vehicle/proc/checked_use_cell(var/power_to_drain)
+	var/can_use = get_cell()?.checked_use(0, 0, power_to_drain)
+	if(!get_cell()?.charge)
+		for(var/hardpoint in hardpoints)
+			var/obj/item/mecha_equipment/ME = hardpoints[hardpoint]
+			if(ME)
+				ME.deactivate()
+	return can_use
+
+/mob/living/heavy_vehicle/proc/set_mech_incorporeal(var/incorporeal_state)
+	incorporeal_move = incorporeal_state
+	if(incorporeal_move)
+		alpha = 150
+		add_filter("INCORPBLUR", 1, list("type" = "blur", "size" = 1.5))
+	else
+		alpha = initial(alpha)
+		remove_filter("INCORPBLUR")

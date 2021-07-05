@@ -272,9 +272,7 @@
 						log_and_message_admins("used [src] to throw [locked] at [target].", user, owner.loc)
 						locked = null
 
-						var/obj/item/cell/C = owner.get_cell()
-						if(istype(C))
-							C.use(active_power_use * CELLRATE)
+						owner.use_cell_power(active_power_use * CELLRATE)
 
 					else
 						locked = null
@@ -293,9 +291,8 @@
 
 
 				log_and_message_admins("used [src]'s area throw on [target].", user, owner.loc)
-				var/obj/item/cell/C = owner.get_cell()
-				if(istype(C))
-					C.use(active_power_use * CELLRATE * 2) //bit more expensive to throw all
+				
+				owner.use_cell_power(active_power_use * CELLRATE * 2) //bit more expensive to throw all
 
 /obj/item/material/drill_head
 	var/durability = 0
@@ -374,9 +371,7 @@
 			to_chat(user, "<span class='warning'>Your drill doesn't have a head!</span>")
 			return
 
-		var/obj/item/cell/C = owner.get_cell()
-		if(istype(C))
-			C.use(active_power_use * CELLRATE)
+		owner.use_cell_power(active_power_use * CELLRATE)
 		owner.visible_message("<span class='danger'>\The [owner] starts to drill \the [target]</span>", "<span class='warning'>You hear a large drill.</span>")
 
 		var/T = target.loc
@@ -657,6 +652,34 @@
 /obj/item/mecha_equipment/quick_enter/attack_self()
 	return
 
+/obj/item/mecha_equipment/phazon
+	name = "phazon bluespace transmission system"
+	desc = "A large back-mounted device that grants the exosuit it's mounted to the ability to semi-shift into bluespace, allowing it to pass through dense objects."
+	icon_state = "mecha_quickie"
+	restricted_hardpoints = list(HARDPOINT_BACK)
+	w_class = ITEMSIZE_HUGE
+	origin_tech = list(TECH_MATERIAL = 8, TECH_ENGINEERING = 9, TECH_BLUESPACE = 10)
+	active_power_use = 88 KILOWATTS
+
+/obj/item/mecha_equipment/phazon/attack_self(mob/user)
+	. = ..()
+	if(!.)
+		return
+
+	if(!owner.incorporeal_move)
+		to_chat(user, SPAN_NOTICE("You fire up \the [src], semi-shifting into another plane of existence!"))
+		owner.set_mech_incorporeal(INCORPOREAL_GHOST)
+	else
+		to_chat(user, SPAN_NOTICE("You disable \the [src], shifting back into your normal reality."))
+		owner.set_mech_incorporeal(INCORPOREAL_DISABLE)
+
+/obj/item/mecha_equipment/phazon/deactivate()
+	owner.set_mech_incorporeal(INCORPOREAL_DISABLE)
+	..()
+
+/obj/item/mecha_equipment/phazon/uninstalled()
+	owner.set_mech_incorporeal(INCORPOREAL_DISABLE)
+	..()
 
 /obj/item/mecha_equipment/mounted_system/grenadecleaner
 	name = "cleaner grenade launcher"
