@@ -14,6 +14,8 @@
 	var/tech_rate = 0
 	var/obj/machinery/r_n_d/server/linked_server
 
+	var/processing_stage = 0
+
 	var/heat_delay = 10
 
 /obj/machinery/r_n_d/tech_processor/Destroy()

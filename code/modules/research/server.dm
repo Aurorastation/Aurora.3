@@ -86,10 +86,13 @@
 	for(var/obj/machinery/r_n_d/tech_processor/TP as anything in linked_processors)
 		if(TP.stat & (NOPOWER|BROKEN))
 			continue
-		for(var/tech_id in files.known_tech)
-			var/datum/tech/T = files.known_tech[tech_id]
-			if(T.level)
-				files.UpdateTech(T.id, round(TP.tech_rate))
+		TP.processing_stage++
+		if(TP.processing_stage == 5)
+			for(var/tech_id in files.known_tech)
+				var/datum/tech/T = files.known_tech[tech_id]
+				if(T.level)
+					files.UpdateTech(T.id, round(TP.tech_rate))
+			TP.processing_stage = 0
 
 /obj/machinery/r_n_d/server/emp_act(severity)
 	griefProtection()
