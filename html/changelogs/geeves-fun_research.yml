@@ -7,3 +7,4 @@ changes:
   - rscadd: "A single tech processor circuitboard and two basic scanning modules have been added to Tech Storage."
   - rscadd: "The entrance to the server room now has a button next to it that'll toggle ID Scan, it will also state that it has been used on the science radio channel."
   - rscdel: "Removed the robotics server from the server room, the core server will now serve and be served by both consoles."
+  - bugfix: "Tech now properly adds the progress to the total progress when you increase a tech level."
