@@ -1,6 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscadd: "When selecting the wristbound PDA type in character setup, it now spawns in the wrist slot."
