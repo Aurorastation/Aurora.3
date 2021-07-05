@@ -700,7 +700,7 @@
 						playsound(src, 'sound/machines/rig/rig_retract.ogg', 20, FALSE)
 						use_obj.canremove = 1
 						holder.drop_from_inventory(use_obj,get_turf(src)) //TODO: TEST THIS CODE!
-						use_obj.dropped(user)
+						use_obj.dropped(wearer)
 						use_obj.canremove = 0
 						use_obj.forceMove(src)
 
