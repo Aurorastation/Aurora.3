@@ -278,6 +278,7 @@
 	M.detached = TRUE
 	M.update_verbs(TRUE)
 	M.languages = languages.Copy()
+	M.accent = accent
 
 	update_dionastats() //Re-find the organs in case they were lost or regained
 	nutrition -= REGROW_FOOD_REQ

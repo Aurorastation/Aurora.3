@@ -121,7 +121,7 @@
 	if(injectable)
 		affect_ingest(M, alien, removed, holder)
 
-/decl/reagent/nutriment/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
+/decl/reagent/nutriment/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!istype(M))
 		return
 	var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
