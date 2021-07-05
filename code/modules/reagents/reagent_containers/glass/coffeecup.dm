@@ -22,71 +22,16 @@
 		filling.color = reagents.get_color()
 		add_overlay(filling)
 
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/black
-	name = "black coffee cup"
-	desc = "A sleek black coffee cup."
-	icon_state = "coffeecup_black"
-
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/green
-	name = "green coffee cup"
-	desc = "A pale green and pink coffee cup."
-	icon_state = "coffeecup_green"
-
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/green/dark
-	desc = "A dark green coffee cup."
-	icon_state = "coffeecup_corp"
-
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/heart
-	name = "heart coffee cup"
-	desc = "A white coffee cup, it prominently features a red heart."
-	icon_state = "coffeecup_heart"
-
+// Nations
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/sol
 	name = "\improper sol coffee cup"
 	desc = "A blue coffee cup emblazoned with the crest of the Sol Alliance."
 	icon_state = "coffeecup_sol"
 
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/NT
-	name = "\improper NT coffee cup"
-	desc = "A blue NanoTrasen coffee cup."
-	icon_state = "coffeecup_NT"
-
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/one
-	name = "#1 coffee cup"
-	desc = "A white coffee cup, prominently featuring a #1."
-	icon_state = "coffeecup_one"
-
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/puni
-	name = "#1 monkey coffee cup"
-	desc = "A white coffee cup, prominently featuring a \"#1 monkey\" decal."
-	icon_state = "coffeecup_puni"
-
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/rainbow
-	name = "rainbow coffee cup"
-	desc = "A rainbow coffee cup. The colors are almost as blinding as a welder."
-	icon_state = "coffeecup_rainbow"
-
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal
-	name = "metal coffee cup"
-	desc = "A metal coffee cup. You're not sure which metal."
-	icon_state = "coffeecup_metal"
-	flags = OPENCONTAINER | CONDUCT
-	fragile = 0
-
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pawn
-	name = "pawn coffee cup"
-	desc = "A black coffee cup adorned with the image of a red chess pawn."
-	icon_state = "coffeecup_pawn"
-
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/diona
-	name = "diona nymph coffee cup"
-	desc = "A green coffee cup featuring the image of a diona nymph."
-	icon_state = "coffeecup_diona"
-
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/britcup
-	name = "british coffee cup"
-	desc = "A coffee cup with the British flag emblazoned on it."
-	icon_state = "coffeecup_brit"
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/dom
+	name = "\improper Dominian coffee cup"
+	desc = "A coffee cup with Dominia's flag proudly displayed on it."
+	icon_state = "coffeecup_dom"
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nka
 	name = "\improper NKA coffee cup"
@@ -103,12 +48,82 @@
 	desc = "A metal coffee cup bearing the flag of the Democratic People's Republic of Adhomai."
 	icon_state = "coffeecup_dpra"
 
+// Organisations
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/NT
+	name = "\improper NT coffee cup"
+	desc = "A blue NanoTrasen coffee cup."
+	icon_state = "coffeecup_NT"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcfl
+	name = "\improper Tau Ceti Foreign Legion coffee cup"
+	desc = "A coffee cup with the TCFL emblem emblazoned on it."
+	icon_state = "coffeecup_tcfl"
+
+// Symbols, markings
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/one
+	name = "#1 coffee cup"
+	desc = "A white coffee cup, prominently featuring a #1."
+	icon_state = "coffeecup_one"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/puni
+	name = "#1 monkey coffee cup"
+	desc = "A white coffee cup, prominently featuring a \"#1 monkey\" decal."
+	icon_state = "coffeecup_puni"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/heart
+	name = "heart coffee cup"
+	desc = "A white coffee cup, it prominently features a red heart."
+	icon_state = "coffeecup_heart"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pawn
+	name = "pawn coffee cup"
+	desc = "A black coffee cup adorned with the image of a red chess pawn."
+	icon_state = "coffeecup_pawn"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/diona
+	name = "diona nymph coffee cup"
+	desc = "A green coffee cup featuring the image of a diona nymph."
+	icon_state = "coffeecup_diona"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/britcup
+	name = "british coffee cup"
+	desc = "A coffee cup with the British flag emblazoned on it."
+	icon_state = "coffeecup_brit"
+
+// Pure colors & other
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/black
+	name = "black coffee cup"
+	desc = "A sleek black coffee cup."
+	icon_state = "coffeecup_black"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/green
+	name = "green coffee cup"
+	desc = "A pale green and pink coffee cup."
+	icon_state = "coffeecup_green"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/green/dark
+	desc = "A dark green coffee cup."
+	icon_state = "coffeecup_corp"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/rainbow
+	name = "rainbow coffee cup"
+	desc = "A rainbow coffee cup. The colors are almost as blinding as a welder."
+	icon_state = "coffeecup_rainbow"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal
+	name = "metal coffee cup"
+	desc = "A metal coffee cup. You're not sure which metal."
+	icon_state = "coffeecup_metal"
+	flags = OPENCONTAINER | CONDUCT
+	fragile = 0
+
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/glass
 	name = "glass coffee cup"
 	desc = "A glass coffee cup, using space age technology to keep it cool for use."
 	icon_state = "glasscoffeecup"
 	fillsource = "glasscoffeecup"
 
+// Tall coffee cups
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tall
 	name = "tall coffee cup"
 	desc = "An unreasonably tall coffee cup, for when you really need to wake up in the morning."
