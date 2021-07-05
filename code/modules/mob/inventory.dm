@@ -170,7 +170,7 @@ var/list/slot_equipment_priority = list( \
 	else
 		W.forceMove(get_turf(W))
 	W.layer = initial(W.layer)
-	W.dropped()
+	W.dropped(src)
 	return 0
 
 // Removes an item from inventory and places it in the target atom.

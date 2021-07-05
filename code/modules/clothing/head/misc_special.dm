@@ -76,6 +76,7 @@
 		to_chat(usr, "You push the [src] up out of your face.")
 	update_clothing_icon()	//so our mob-overlays
 	usr.update_action_buttons()
+	usr.handle_vision()
 
 
 /*
@@ -224,7 +225,7 @@
 		new /obj/item/clothing/head/pumpkin(src.loc)
 		new /obj/item/trash/candle(src.loc)
 		if(istype(src.loc, /mob))
-			src.dropped()
+			src.dropped(user)
 		to_chat(user, SPAN_NOTICE("The candle burns out."))
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 		STOP_PROCESSING(SSprocessing, src)

@@ -1231,3 +1231,6 @@ proc/is_blind(A)
 	var/turf/ear = get_turf(src)
 	if(ear && speaker_coverage[ear])
 		return TRUE
+
+/mob/proc/handle_vision()
+	return

@@ -57,7 +57,7 @@
 	if(!wax)
 		new /obj/item/trash/candle(src.loc)
 		if(istype(src.loc, /mob))
-			src.dropped()
+			src.dropped(user)
 		to_chat(user, SPAN_NOTICE("The candle burns out."))
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 		STOP_PROCESSING(SSprocessing, src)
