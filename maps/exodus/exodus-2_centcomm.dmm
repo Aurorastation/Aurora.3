@@ -9530,13 +9530,6 @@
 	icon_state = "wood"
 	},
 /area/antag/wizard)
-"aKf" = (
-/obj/machinery/vending/magivend,
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/antag/wizard)
 "aKg" = (
 /obj/structure/simple_door/wood{
 	icon_state = "wood"
@@ -14881,7 +14874,7 @@
 "aWM" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Teleporter Bay";
-	req_access = list(107)
+	req_access = list(106)
 	},
 /turf/unsimulated/floor{
 	icon_state = "delivery"
@@ -27533,7 +27526,7 @@ aJJ
 aJG
 aJV
 aJX
-aKf
+aJG
 aKi
 aJV
 aJG

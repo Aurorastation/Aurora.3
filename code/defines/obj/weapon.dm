@@ -86,7 +86,7 @@
 	if (targetIsHuman)
 		var/mob/living/carbon/human/targethuman = target
 		armorpercent = targethuman.get_blocked_ratio(target_zone, BRUTE, damage = force)*100
-		wasblocked = targethuman.check_shields(force, src, user, target_zone, null) //returns 1 if it's a block
+		wasblocked = targethuman.check_shields(force, src, user, target_zone, null)
 
 	var/damageamount = force
 
@@ -393,7 +393,7 @@
 
 /obj/item/staff
 	name = "wizards staff"
-	desc = "Apparently a staff used by the wizard."
+	desc = "A staff which only has the power to make you look like a nerd."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "staff"
 	force = 3.0

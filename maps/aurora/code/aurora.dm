@@ -7,7 +7,7 @@
 				   it is under the joint administration of the Republic of Biesel and the trans-stellar corporate conglomerate NanoTrasen."
 	path = "aurora"
 
-	lobby_icons = list('icons/misc/titlescreens/aurora/humans.dmi', 'icons/misc/titlescreens/aurora/synthetics.dmi', 'icons/misc/titlescreens/aurora/king_of_the_world.dmi', 'icons/misc/titlescreens/aurora/tajara.dmi')
+	lobby_icons = list('icons/misc/titlescreens/aurora/nss_aurora.dmi', 'icons/misc/titlescreens/aurora/synthetics.dmi', 'icons/misc/titlescreens/aurora/tajara.dmi')
 	lobby_transitions = 10 SECONDS
 
 	station_levels = list(2, 3, 4, 5, 6, 7)
@@ -35,7 +35,6 @@
 	boss_short = "CentCom"
 	company_name = "NanoTrasen"
 	company_short = "NT"
-	system_name = "Tau Ceti"
 
 	command_spawn_enabled = TRUE
 	command_spawn_message = "Welcome to the Odin! Simply proceed down and to the right to board the shuttle to your workplace!"

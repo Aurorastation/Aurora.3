@@ -11,7 +11,7 @@
 /datum/gear/computer/handheld/tablet/New()
 	..()
 	var/tablets = list()
-	tablets["generic tablet"] = /obj/item/modular_computer/handheld/preset
+	tablets["generic tablet"] = /obj/item/modular_computer/handheld/preset/generic
 	tablets["janitor tablet"] = /obj/item/modular_computer/handheld/preset/civilian/janitor
 	tablets["cargo tablet"] = /obj/item/modular_computer/handheld/preset/supply
 	tablets["engineering tablet"] = /obj/item/modular_computer/handheld/preset/engineering
@@ -23,11 +23,11 @@
 	tablets["robotics tablet"] = /obj/item/modular_computer/handheld/preset/research/robotics
 	gear_tweaks += new/datum/gear_tweak/path(tablets)
 
-/datum/gear/computer/handheld/wristbound
+/datum/gear/computer/handheld/wristbound/selection
 	display_name = "wristbound computer selection"
 	path = /obj/item/modular_computer/handheld/wristbound/preset
 
-/datum/gear/computer/handheld/wristbound/New()
+/datum/gear/computer/handheld/wristbound/selection/New()
 	..()
 	var/wristbounds = list()
 	wristbounds["cheap generic wristbound"] = /obj/item/modular_computer/handheld/wristbound/preset/cheap/generic

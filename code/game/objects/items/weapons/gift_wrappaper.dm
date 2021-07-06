@@ -167,6 +167,7 @@
 		/obj/random/spacecash,
 		/obj/random/glowstick,
 		/obj/random/gloves,
+		/obj/random/wizard_dressup,
 		/obj/item/storage/wallet,
 		/obj/item/storage/photo_album,
 		/obj/item/storage/box/snappops,

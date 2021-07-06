@@ -133,7 +133,7 @@
 		return
 
 	if(remove_generic)
-		M.drowsyness = max(0, M.drowsyness - 6 * removed)
+		M.drowsiness = max(0, M.drowsiness - 6 * removed)
 		M.hallucination -= (2 * removed)
 		if(check_min_dose(M, 0.5))
 			M.add_up_to_chemical_effect(CE_ANTITOXIN, 1)
@@ -392,7 +392,7 @@
 	metabolism_min = REM * 0.0125
 
 /decl/reagent/synaptizine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.drowsyness = max(M.drowsyness - 5, 0)
+	M.drowsiness = max(M.drowsiness - 5, 0)
 	if(REAGENT_VOLUME(holder, type) < 10) // Will prevent synaptizine interrupting a seizure caused by its own overdose.
 		M.AdjustParalysis(-1)
 	M.AdjustStunned(-1)
@@ -602,7 +602,7 @@
 
 	//These status effects will now take a little while for the dose to build up and remove them
 	M.dizziness = max(0, M.dizziness - DP)
-	M.drowsyness = max(0, M.drowsyness - DP)
+	M.drowsiness = max(0, M.drowsiness - DP)
 	M.stuttering = max(0, M.stuttering - DP)
 	M.confused = max(0, M.confused - DP)
 
@@ -788,7 +788,7 @@
 	if(prob(7))
 		M.add_chemical_effect(CE_NEUROTOXIC, 3 * removed)
 	if(prob(50))
-		M.drowsyness = max(M.drowsyness, 3)
+		M.drowsiness = max(M.drowsiness, 3)
 
 /decl/reagent/cetahydramine
 	name = "Cetahydramine"
@@ -806,7 +806,7 @@
 /decl/reagent/cetahydramine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_NOITCH, M.chem_doses[type] * 2) // 5 units of cetahydramine will counter 10 units of dermaline/butazoline itching.
 	if(prob(M.chem_doses[type]/2))
-		M.drowsyness += 2
+		M.drowsiness += 2
 
 /decl/reagent/sterilizine
 	name = "Sterilizine"
@@ -923,10 +923,6 @@
 	messagedelay = MEDICATION_MESSAGE_DELAY * 0.75
 	goodmessage = list("You feel good.","You feel relaxed.","You feel alert and focused.")
 
-/decl/reagent/mental/nicotine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	. = ..()
-	M.add_chemical_effect(CE_PAINKILLER, 5)
-
 /decl/reagent/mental/nicotine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale, var/datum/reagents/holder)
 	. = ..()
 	M.adjustOxyLoss(10 * removed * scale)
@@ -1025,7 +1021,7 @@
 	M.eye_blurry = max(M.eye_blurry, 30)
 	if(REAGENT_VOLUME(M.reagents, /decl/reagent/oxycomorphine))
 		M.ear_deaf = 20
-		M.drowsyness = max(M.drowsyness, 10)
+		M.drowsiness = max(M.drowsiness, 10)
 		M.make_dizzy(15)
 		if(prob(3))
 			to_chat(M, SPAN_GOOD(pick("You lose all sense of connection to the real world.", "Everything is so tranquil.", "You feel dettached from reality.", "Your feel disconnected from your body.", "You are aware of nothing but your conscious thoughts.")))
@@ -1081,7 +1077,7 @@
 /decl/reagent/mental/vaam/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
 	M.add_chemical_effect(CE_PAINKILLER, 5)
-	M.drowsyness = 0
+	M.drowsiness = 0
 
 /decl/reagent/mental/vaam/overdose(var/mob/living/carbon/human/M, var/alien, var/removed, var/scale, var/datum/reagents/holder)
 	. = ..()

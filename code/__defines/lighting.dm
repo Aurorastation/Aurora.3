@@ -82,6 +82,7 @@
 #define LIGHT_COLOR_PURPLE     "#A97FAA" //Soft purple. rgb(169, 127, 170)
 #define LIGHT_COLOR_VIOLET     "#B43CB8" //Deep purple. rgb(180, 60, 184)
 #define LIGHT_COLOR_SCARLET    "#E85656" //Light red. rgb(232, 86, 86)
+#define LIGHT_COLOR_WHITE  	   "#FFFFFF" //White. rgb(255, 255, 255)
 
 //These ones aren't a direct colour like the ones above, because nothing would fit
 #define LIGHT_COLOR_FIRE              "#FAA019" //Warm orange color, leaning strongly towards yellow. rgb(250, 160, 25)

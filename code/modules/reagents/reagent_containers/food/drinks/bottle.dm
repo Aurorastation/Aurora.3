@@ -216,9 +216,9 @@
 	desc = "Pour one out for Al'mari. His gun was on stun, bless his heart."
 	icon_state = "victorygin"
 	center_of_mass = list("x"=16, "y"=4)
-	desc_fluff = "Adhomian beverages are commonly made with fermented grains or vegetables, if alcoholic, or juices mixed with sugar or honey. Victory gin is the most \
-	widespread alcoholic drink in Adhomai, the result of the fermentation of honey extracted from Messa's tears, but its production and consumption is slowly declining due to the \
-	People's Republic situation in the current conflict."
+	desc_fluff = "Considered the official drink of the People's Republic of Adhomai, Victory Gin was created to celebrate the end of the revolution. It is commonly found in NanoTrasen's \
+	stations, due to a contract that allows the government to supply the corporation, and in the Tajaran communities of Tau Ceti. The destruction of Victory Gin's bottles and reserves \
+	was widespread when Republican positions and cities were taken by the opposition as the drink is deemed by many as a symbol of the Hadiist regime."
 	reagents_to_add = list(/decl/reagent/alcohol/victorygin = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/whiskey
@@ -454,8 +454,8 @@
 
 //Small bottles
 /obj/item/reagent_containers/food/drinks/bottle/small
-	name = "empty small bottle"
-	desc = "A sad empty bottle."
+	name = "small bottle"
+	desc = "A small bottle."
 	icon_state = "beer"
 	volume = 50
 	smash_duration = 1
@@ -552,9 +552,9 @@
 	desc = "A bottle of Messa's mead. Bottled somewhere in the icy world of Adhomai."
 	icon_state = "messa_mead"
 	center_of_mass = list("x" = 16,"y" = 5)
-	desc_fluff = "Adhomian beverages are commonly made with fermented grains or vegetables, if alcoholic, or juices mixed with sugar or honey. Victory gin is the most \
-	widespread alcoholic drink in Adhomai, the result of the fermentation of honey extracted from Messa's tears, but its production and consumption is slowly declining due to the \
-	People's Republic situation in the current conflict. Messa's mead is also another more traditional alternative, made with honey and fermented Earthen-Root juice."
+	desc_fluff = "A fermented alcoholic drink made from earthen-root juice and Messa's tears leaves. It has a relatively low alcohol content and characteristic honey flavor. \
+	Messa's Mead is one of the most popular alcoholic drinks in Adhomai; it is consumed both during celebrations and daily meals. Any proper Adhomian bar will have at least a keg or \
+	some bottles of the mead."
 	reagents_to_add = list(/decl/reagent/alcohol/messa_mead = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/sake
@@ -588,6 +588,75 @@
 	icon_state = "makgeollibottle"
 	center_of_mass = list("x"=16, "y"=5)
 	reagents_to_add = list(/decl/reagent/alcohol/makgeolli = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz
+	name = "khlibnyz"
+	desc = "A bottle traditionally made khlibnyz. Likely prepared in some Hadiist communal farm."
+	icon_state = "khlibnyz"
+	center_of_mass = list("x" = 16,"y" = 5)
+	desc_fluff = "A fermented beverage produced from Adhomian bread. Herbs, fruits, and tree sap can be added for flavoring. It is considered a non-alcoholic drink by Adhomian standards \
+	because of its very low alcohol content. Khlibnyz was mainly consumed by peasants during pre-contact times and is still very popular with the Hadiist rural population. Communal farms \
+	will brew their own Khlibnyz and sell it to the government for distribution."
+	reagents_to_add = list(/decl/reagent/alcohol/khlibnyz = 30)
+
+/obj/item/reagent_containers/food/drinks/bottle/shyyrkirrtyr_wine
+	name = "shyyr kirr'tyr wine"
+	desc = "Tajaran spirit infused with some eel-like Adhomian creature. The animal floating in the liquid appears to be well preserved."
+	icon_state = "shyyrkirrtyrwine"
+	center_of_mass = list("x" = 16,"y" = 5)
+	desc_fluff = "An alcoholic made by infusing a whole Shyyr Kirr'tyr in Dirt Berries or Earthen-Root spirit. The Water Snake Devil's poison is neutralized by ethanol, making the \
+	beverage safe to consume. The wine can be deadly if improperly prepared. The drink is native to the Southeast Harr'masir wetlands, where it is as common as Messa's Mead. Other \
+	Tajara consider the wine to be exotic or outright disgusting. The Shyyr Kirr'tyr is usually eaten after the beverage is imbibed."
+	reagents_to_add = list(/decl/reagent/alcohol/shyyrkirrtyr_wine = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor
+	name = "nm'shaan liquor"
+	desc = "A strong Adhomian liquor reserved for special occasions. A label on the bottle recommends diluting it with icy water before drinking."
+	icon_state = "nmshaanliquor"
+	center_of_mass = list("x" = 16,"y" = 5)
+	desc_fluff = "An alcoholic drink manufactured from the fruit of the Nm'shaan plant. It usually has a high level of alcohol by volume. Nm'shaan liquor was once reserved for the \
+	consumption of the nobility; even today it is considered a decadent drink reserved for fancy occasions."
+	reagents_to_add = list(/decl/reagent/alcohol/nmshaan_liquor = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water
+	name = "midynhr water"
+	desc = "A soft drink made from honey and tree syrup. The label claims it is good as the tap version."
+	icon_state = "midynhrwater"
+	center_of_mass = list("x" = 16,"y" = 5)
+	desc_fluff = "A soft drink based on Yve’kha's honey and tree syrups. The drink has a creamy consistency and is served cold from the tap of traditional soda fountains. Native to \
+	Das'nrra, the beverage is now widespread in the Al'mariist territories. Bottled versions exist, but they are considered to be inferior to what is served in bars and restaurants."
+	reagents_to_add = list(/decl/reagent/drink/midynhr_water = 30)
+
+/obj/item/reagent_containers/food/drinks/bottle/veterans_choice
+	name = "veteran's choice"
+	desc = "A home-made bottle of veteran's choice. Shake it carefully before serving."
+	icon_state = "veteranschoice"
+	center_of_mass = list("x" = 16,"y" = 5)
+	desc_fluff = "A cocktail consisting of Messa's Mead and gunpowder. Supposedly originated among the ranks of the Liberation Army as an attempt to spice up the mead, the cocktail \
+	became a hit - not because of its taste - with the young Tajara. Drinking the Veteran's Choice is seen as a way to display one's bravado. ALA soldiers are known to consume the cocktail before going into battle believing that it brings luck."
+	reagents_to_add = list(/decl/reagent/alcohol/veterans_choice = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/treebark_firewater
+	name = "tree-bark firewater"
+	desc = "A jug full of adhomian moonshine. The bottle states dubiously that it is a handmade recipe."
+	icon_state = "treebarkfirewater"
+	center_of_mass = list("x" = 16,"y" = 5)
+	desc_fluff = "High-content alcohol distilled from Earthen-Root or Blizzard Ears. Tree bark is commonly added to the drink to give it a distinct flavor. The firewater's origins can \
+	be traced back to the pre-contact times where impoverished peasants would make alcohol out of anything they could find. Homebrewing remains a tradition in the New Kingdom's rural \
+	parts. These traditional spirits are also manufactured by large breweries and sold to the urban population as handcrafted."
+	reagents_to_add = list(/decl/reagent/alcohol/treebark_firewater = 100)
+	drink_flags = NO_EMPTY_ICON
+
+/obj/item/reagent_containers/food/drinks/bottle/darmadhir_brew
+	name = "Darmadhir Brew"
+	desc = "A fancy bottle contained sought-after Darmadhir's nm'shaan liquor. It is more of a collection piece than a beverage."
+	icon_state = "darmadhirbrew"
+	center_of_mass = list("x" = 16,"y" = 5)
+	desc_fluff = "A famous variation of the Nm'shaan Liquor; it is described as one of Adhomai's finest spirits. It is produced solely by a small family-owned brewery in Miran'mir. Its \
+	recipe is a secret passed down through the generations of the Darmadhir household since immemorial times. The only living member of the family, Hazyr Darmadhir, is a 68 years old \
+	Tajara. His sole heir and son died in the Second Revolution after being drafted to fight for the royal army. Alcohol collectors stipulate that the brew's price will skyrocket after Hazyr's death."
+	reagents_to_add = list(/decl/reagent/alcohol/nmshaan_liquor/darmadhirbrew = 100)
+	drink_flags = NO_EMPTY_ICON
 
 // Butanol-based alcoholic drinks
 //=====================================

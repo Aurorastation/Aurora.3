@@ -46,6 +46,7 @@
 	var/stop_thinking = FALSE // prevents them from doing any AI stuff whatsoever
 	var/stop_automated_movement = 0 //Use this to temporarely stop random movement or to if you write special movement code for animals.
 	var/wander = 1	// Does the mob wander around when idle?
+	var/wanders_diagonally = FALSE // does the mob move diagonally when wandering?
 	var/stop_automated_movement_when_pulled = 1 //When set to 1 this stops the animal from moving when someone is pulling it.
 	var/atom/movement_target = null//Thing we're moving towards
 	var/turns_since_scan = 0
@@ -55,7 +56,7 @@
 	var/response_help   = "tries to help"
 	var/response_disarm = "tries to disarm"
 	var/response_harm   = "hurts"
-	var/harm_intent_damage = 5
+	var/harm_intent_damage = 3 //The maximum amount of damage this mob can take from simple unarmed attacks that don't have damage values, like punches
 
 	//Temperature effect
 	var/minbodytemp = 250
@@ -87,8 +88,6 @@
 	var/environment_smash = 0
 	var/resistance		  = 0	// Damage reduction
 	var/resist_mod = 1 // a multiplier for the chance the animal has to break out
-
-	var/wizard_master
 
 	//Null rod stuff
 	var/supernatural = 0
@@ -285,7 +284,7 @@
 		if(isturf(loc) && !resting && !buckled_to && canmove)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
 			if(turns_since_move >= turns_per_move && !(stop_automated_movement_when_pulled && pulledby))	 //Some animals don't move when pulled
 				var/moving_to = 0 // otherwise it always picks 4, fuck if I know.   Did I mention fuck BYOND
-				moving_to = pick(cardinal)
+				moving_to = wanders_diagonally ? pick(alldirs) : pick(cardinal)
 				set_dir(moving_to)			//How about we turn them the direction they are moving, yay.
 				Move(get_step(src,moving_to))
 				turns_since_move = 0
@@ -454,6 +453,9 @@
 	var/can_ghosts_hear = client ? GHOSTS_ALL_HEAR : ONLY_GHOSTS_IN_VIEW
 	custom_emote(AUDIBLE_MESSAGE, act_desc, can_ghosts_hear)
 
+/mob/living/simple_animal/proc/handle_attack_by(var/mob/M)
+	return
+
 /mob/living/simple_animal/attack_hand(mob/living/carbon/human/M as mob)
 	..()
 	switch(M.a_intent)
@@ -467,6 +469,7 @@
 			M.visible_message("<b>\The [M]</b> [response_disarm] \the [src]")
 			M.do_attack_animation(src)
 			poke(1)
+			handle_attack_by(M)
 			//TODO: Push the mob away or something
 
 		if(I_GRAB)
@@ -489,9 +492,11 @@
 			M.visible_message(SPAN_WARNING("\The [M] has grabbed \the [src] passively!"))
 			M.do_attack_animation(src)
 			poke(1)
+			handle_attack_by(M)
 
 		if(I_HURT)
 			unarmed_harm_attack(M)
+			handle_attack_by(M)
 
 	return
 
@@ -502,7 +507,10 @@
 			simple_harm_attack(user)
 			return
 		attack.show_attack_simple(user, src, pick(organ_names))
-		apply_damage(attack.get_unarmed_damage(user), attack.damage_type)
+		var/actual_damage = attack.get_unarmed_damage(user) //Punch and kick no longer have get_unarmed_damage due to how humanmob combat works. If we have none, we'll apply a small random amount.
+		if(!actual_damage)
+			actual_damage = harm_intent_damage ? rand(1, harm_intent_damage) : 0
+		apply_damage(actual_damage, attack.damage_type)
 		user.do_attack_animation(src, FIST_ATTACK_ANIMATION)
 		return
 	simple_harm_attack(user)
@@ -577,7 +585,18 @@
 	if(O.hitsound)
 		playsound(loc, O.hitsound, O.get_clamped_volume(), 1, -1)
 	user.do_attack_animation(src, O)
+	handle_attack_by(user)
 	return TRUE
+
+/mob/living/simple_animal/hitby(atom/movable/AM, speed)
+	. = ..()
+	if(ismob(AM.thrower))
+		handle_attack_by(AM.thrower)
+
+/mob/living/simple_animal/bullet_act(obj/item/projectile/P, def_zone)
+	. = ..()
+	if(ismob(P.firer))
+		handle_attack_by(P.firer)
 
 /mob/living/simple_animal/apply_damage(damage, damagetype, def_zone, blocked, used_weapon, damage_flags, armor_pen, silent = FALSE)
 	. = ..()

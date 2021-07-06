@@ -10,6 +10,7 @@
 	item_state = "blueapron"
 	blood_overlay_type = "armor"
 	body_parts_covered = 0
+	no_overheat = TRUE
 	allowed = list (/obj/item/reagent_containers/spray/plantbgone,/obj/item/device/analyzer/plant_analyzer,/obj/item/seeds,/obj/item/reagent_containers/glass/fertilizer,/obj/item/material/minihoe)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
@@ -86,6 +87,7 @@ obj/item/clothing/suit/apron/overalls/blue
 	item_state = "apronchef"
 	blood_overlay_type = "armor"
 	body_parts_covered = 0
+	no_overheat = TRUE
 
 //Security
 
@@ -143,7 +145,7 @@ obj/item/clothing/suit/apron/overalls/blue
 	item_state = "det_jacket"
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|ARMS
-	allowed = list(/obj/item/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/box/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder)
+	allowed = list(/obj/item/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/box/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder,/obj/item/clothing/accessory/badge/investigator)
 
 /obj/item/clothing/suit/storage/toggle/det_trench
 	name = "brown trenchcoat"
@@ -152,7 +154,8 @@ obj/item/clothing/suit/apron/overalls/blue
 	item_state = "detective"
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|ARMS
-	allowed = list(/obj/item/tank/emergency_oxygen,/obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/box/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder)
+	allowed = list(/obj/item/tank/emergency_oxygen,/obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/box/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder,/obj/item/clothing/accessory/badge/investigator)
+
 /obj/item/clothing/suit/storage/toggle/det_trench/black
 	name = "black trenchcoat"
 	icon_state = "detective2"
@@ -164,6 +167,7 @@ obj/item/clothing/suit/apron/overalls/blue
 	icon_state = "forensics"
 	item_state = "forensics"
 	body_parts_covered = UPPER_TORSO|ARMS
+	allowed = list(/obj/item/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/box/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder,/obj/item/clothing/accessory/badge/investigator)
 
 /obj/item/clothing/suit/storage/toggle/forensics/blue
 	icon_state = "forensicsblue"
@@ -222,6 +226,12 @@ obj/item/clothing/suit/apron/overalls/blue
 	desc = "A high-visibility vest used in work zones. This one is green."
 	icon_state = "hazard_g"
 	item_state = "hazard_g"
+
+/obj/item/clothing/suit/storage/hazardvest/ce
+	name = "chief engineer's hazard vest"
+	desc = "A high-visibility vest used in work zones. This one is a green-blue color with a gold stripe."
+	icon_state = "hazard_ce"
+	item_state = "hazard_ce"
 
 //Lawyer
 /obj/item/clothing/suit/storage/toggle/lawyer/bluejacket

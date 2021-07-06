@@ -7,7 +7,6 @@
 	blood_overlay_icon = 'icons/mob/npc/blood_overlay_hivebot.dmi'
 	health = 15
 	maxHealth = 15
-	harm_intent_damage = 3
 	melee_damage_lower = 10
 	melee_damage_upper = 10
 	break_stuff_probability = 25

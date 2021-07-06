@@ -211,7 +211,7 @@
 	if(istype(I, /obj/item/stack/rods))
 		var/obj/item/stack/rods/R = I
 		if (R.use(1))
-			var/obj/item/material/wirerod/W = new(get_turf(user))
+			var/obj/item/material/wirerod/W = new(get_turf(user), MATERIAL_STEEL, color)
 			user.put_in_hands(W)
 			to_chat(user, SPAN_NOTICE("You wrap \the [src] around the top of the rod."))
 			qdel(src)

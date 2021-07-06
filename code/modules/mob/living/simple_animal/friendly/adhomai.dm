@@ -72,7 +72,7 @@
 	milk_type = /decl/reagent/drink/milk/adhomai
 
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
-	butchering_products = list(/obj/item/stack/material/animalhide = 5)
+	butchering_products = list(/obj/item/stack/material/animalhide = 5, /obj/item/reagent_containers/food/snacks/spreads/lard = 5)
 
 
 /mob/living/simple_animal/hostile/retaliate/rafama
@@ -95,7 +95,6 @@
 	maxHealth = 150
 	health = 150
 
-	harm_intent_damage = 3
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	attacktext = "bitten"
@@ -128,9 +127,9 @@
 	health = 50
 
 	has_udder = TRUE
-	milk_type = /decl/reagent/drink/milk
+	milk_type = /decl/reagent/drink/milk/schlorrgo
 
-	meat_type = /obj/item/reagent_containers/food/snacks/meat/chicken
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
 	organ_names = list("head", "chest", "fatty core", "blubberous torso", "thick centre", "left leg", "right leg")
 	butchering_products = list(/obj/item/reagent_containers/food/snacks/spreads/lard = 5)
 

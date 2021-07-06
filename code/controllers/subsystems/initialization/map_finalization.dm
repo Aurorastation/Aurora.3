@@ -73,9 +73,9 @@
 			log_ss("map_finalization", "Error while creating away mission datum: [ec]")
 			continue
 
-		if(length(am.valid_maps))
-			if(!(current_map.name in am.valid_maps))
-				log_ss("map_finalization", "[current_map.name] is not a valid map for [am.name]")
+		if(length(am.valid_sectors))
+			if(!(SSatlas.current_sector.name in am.valid_sectors))
+				log_ss("map_finalization", "[SSatlas.current_sector.name] is not a valid map for [am.name]")
 				continue
 
 		if(!am.validate_maps(folder))
