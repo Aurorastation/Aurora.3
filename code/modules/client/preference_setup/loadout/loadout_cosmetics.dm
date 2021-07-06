@@ -9,7 +9,7 @@
 
 /datum/gear/cosmetic/lipstick/New()
 	..()
-	var/lipsticks = list()
+	var/list/lipsticks = list()
 	lipsticks["lipstick, red"] = /obj/item/lipstick
 	lipsticks["lipstick, purple"] = /obj/item/lipstick/purple
 	lipsticks["lipstick, jade"] = /obj/item/lipstick/jade
@@ -28,7 +28,7 @@
 	lipsticks["lipstick, skyblue"] = /obj/item/lipstick/skyblue
 	lipsticks["lipstick, teal"] = /obj/item/lipstick/teal
 
-	gear_tweaks += new/datum/gear_tweak/path(lipsticks)
+	gear_tweaks += new /datum/gear_tweak/path(lipsticks)
 
 /datum/gear/cosmetic/mirror
 	display_name = "handheld mirror"

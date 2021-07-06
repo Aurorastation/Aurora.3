@@ -45,7 +45,7 @@
 
 /datum/gear/flask/New()
 	..()
-	gear_tweaks += new/datum/gear_tweak/reagents(lunchables_alcohol_reagents())
+	gear_tweaks += new /datum/gear_tweak/reagents(lunchables_alcohol_reagents())
 
 /datum/gear/vacflask_cold
 	display_name = "cold vacuum-flask"
@@ -53,7 +53,7 @@
 
 /datum/gear/vacflask_cold/New()
 	..()
-	gear_tweaks += new/datum/gear_tweak/reagents(lunchables_drink_reagents())
+	gear_tweaks += new /datum/gear_tweak/reagents(lunchables_drink_reagents())
 
 /datum/gear/vacflask_cold/spawn_item(var/location, var/metadata)
 	. = ..()
@@ -67,7 +67,7 @@
 
 /datum/gear/vacflask_hot/New()
 	..()
-	gear_tweaks += new/datum/gear_tweak/reagents(lunchables_drink_reagents())
+	gear_tweaks += new /datum/gear_tweak/reagents(lunchables_drink_reagents())
 
 /datum/gear/vacflask_hot/spawn_item(var/location, var/metadata)
 	. = ..()
@@ -89,8 +89,8 @@
 		if(!initial(lunchbox.filled))
 			lunchboxes[initial(lunchbox.name)] = lunchbox_type
 	sortTim(lunchboxes, /proc/cmp_text_asc)
-	gear_tweaks += new/datum/gear_tweak/path(lunchboxes)
-	gear_tweaks += new/datum/gear_tweak/contents(lunchables_lunches(), lunchables_snacks(), lunchables_drinks(), lunchables_utensil())
+	gear_tweaks += new /datum/gear_tweak/path(lunchboxes)
+	gear_tweaks += new /datum/gear_tweak/contents(lunchables_lunches(), lunchables_snacks(), lunchables_drinks(), lunchables_utensil())
 
 /datum/gear/banner
 	display_name = "banner selection"
@@ -98,9 +98,8 @@
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/banner/New()
-
 	..()
-	var/banners = list()
+	var/list/banners = list()
 	banners["banner, Stellar Corporate Conglomerate"] = /obj/item/flag/scc
 	banners["banner, SolGov"] = /obj/item/flag/sol
 	banners["banner, Dominia"] = /obj/item/flag/dominia
@@ -123,7 +122,7 @@
 	banners["banner, Coalition of Colonies"] = /obj/item/flag/coalition
 	banners["banner, Confederate States of Fisanduh"] = /obj/item/flag/fisanduh
 	banners["banner, Gadpathur"] = /obj/item/flag/gadpathur
-	gear_tweaks += new/datum/gear_tweak/path(banners)
+	gear_tweaks += new /datum/gear_tweak/path(banners)
 
 /datum/gear/standard
 	display_name = "dominian great house standard selection"
@@ -132,13 +131,13 @@
 
 /datum/gear/standard/New()
 	..()
-	var/standards = list()
+	var/list/standards = list()
 	standards["standard, Strelitz"] = /obj/item/flag/strelitz
 	standards["standard, Volvalaad"] = /obj/item/flag/volvalaad
 	standards["standard, Kazkhz"] = /obj/item/flag/kazkhz
 	standards["standard, Caladius"] = /obj/item/flag/caladius
 	standards["standard, Zhao"] = /obj/item/flag/zhao
-	gear_tweaks += new/datum/gear_tweak/path(standards)
+	gear_tweaks += new /datum/gear_tweak/path(standards)
 
 /datum/gear/flag
 	display_name = "flag selection"
@@ -148,7 +147,7 @@
 
 /datum/gear/flag/New()
 	..()
-	var/flags = list()
+	var/list/flags = list()
 	flags["flag, Stellar Corporate Conglomerate"] = /obj/item/flag/scc/l
 	flags["flag, SolGov"] = /obj/item/flag/sol/l
 	flags["flag, Dominia"] = /obj/item/flag/dominia/l
@@ -170,7 +169,7 @@
 	flags["flag, Coalition of Colonies"] = /obj/item/flag/coalition/l
 	flags["flag, Confederate States of Fisanduh"] = /obj/item/flag/fisanduh/l
 	flags["flag, Gadpathur"] = /obj/item/flag/gadpathur/l
-	gear_tweaks += new/datum/gear_tweak/path(flags)
+	gear_tweaks += new /datum/gear_tweak/path(flags)
 
 /datum/gear/towel
 	display_name = "towel"
@@ -202,7 +201,7 @@
 
 /datum/gear/plushie/New()
 	..()
-	var/plushies = list()
+	var/list/plushies = list()
 	plushies["plushie, nymph"] = /obj/item/toy/plushie/nymph
 	plushies["plushie, mouse"] = /obj/item/toy/plushie/mouse
 	plushies["plushie, kitten"] = /obj/item/toy/plushie/kitten
@@ -222,7 +221,7 @@
 	plushies["plushie, Qill"] = /obj/item/toy/plushie/qill
 	plushies["plushie, Xana"] = /obj/item/toy/plushie/xana
 	plushies["plushie, Aphy"] = /obj/item/toy/plushie/ipc
-	gear_tweaks += new/datum/gear_tweak/path(plushies)
+	gear_tweaks += new /datum/gear_tweak/path(plushies)
 
 /datum/gear/toothpaste
 	display_name = "toothpaste and toothbrush"
@@ -230,11 +229,11 @@
 
 /datum/gear/toothpaste/New()
 	..()
-	var/toothpaste = list()
+	var/list/toothpaste = list()
 	toothpaste["toothpaste and blue toothbrush"] = /obj/item/storage/box/toothpaste
 	toothpaste["toothpaste and green toothbrush"] = /obj/item/storage/box/toothpaste/green
 	toothpaste["toothpaste and red toothbrush"] = /obj/item/storage/box/toothpaste/red
-	gear_tweaks += new/datum/gear_tweak/path(toothpaste)
+	gear_tweaks += new /datum/gear_tweak/path(toothpaste)
 
 /datum/gear/photo
 	display_name = "photo"

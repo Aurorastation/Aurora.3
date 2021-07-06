@@ -26,7 +26,7 @@ datum/gear/suit/colorvest
 
 /datum/gear/suit/leather/New()
 	..()
-	var/jackets = list()
+	var/list/jackets = list()
 	jackets["bomber jacket"] = /obj/item/clothing/suit/storage/toggle/bomber
 	jackets["Stellar Corporate Conglomerate jacket"] = /obj/item/clothing/suit/storage/toggle/brown_jacket/scc
 	jackets["NanoTrasen black jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/nanotrasen
@@ -57,7 +57,7 @@ datum/gear/suit/colorvest
 	jackets["puffer jacket"] = /obj/item/clothing/suit/jacket/puffer
 	jackets["puffer vest"] = /obj/item/clothing/suit/jacket/puffer/vest
 
-	gear_tweaks += new/datum/gear_tweak/path(jackets)
+	gear_tweaks += new /datum/gear_tweak/path(jackets)
 
 /datum/gear/suit/hazard_vest
 	display_name = "hazard vest selection"
@@ -65,12 +65,12 @@ datum/gear/suit/colorvest
 
 /datum/gear/suit/hazard_vest/New()
 	..()
-	var/hazard = list()
+	var/list/hazard = list()
 	hazard["hazard vest, orange"] = /obj/item/clothing/suit/storage/hazardvest
 	hazard["hazard vest, blue"] = /obj/item/clothing/suit/storage/hazardvest/blue
 	hazard["hazard vest, white"] = /obj/item/clothing/suit/storage/hazardvest/white
 	hazard["hazard vest, green"] = /obj/item/clothing/suit/storage/hazardvest/green
-	gear_tweaks += new/datum/gear_tweak/path(hazard)
+	gear_tweaks += new /datum/gear_tweak/path(hazard)
 
 /datum/gear/suit/hoodie
 	display_name = "hoodie selection"
@@ -79,12 +79,12 @@ datum/gear/suit/colorvest
 
 /datum/gear/suit/hoodie/New()
 	..()
-	var/l_hoodie = list()
+	var/list/l_hoodie = list()
 	l_hoodie["hoodie"] = /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie
 	l_hoodie["short-sleeved hoodie"] = /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/short
 	l_hoodie["crop top hoodie"] = /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/crop
 	l_hoodie["sleeveless hoodie"] = /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/sleeveless
-	gear_tweaks += new/datum/gear_tweak/path(l_hoodie)
+	gear_tweaks += new /datum/gear_tweak/path(l_hoodie)
 
 /datum/gear/suit/mars
 	display_name = "martian hoodie"
@@ -141,7 +141,7 @@ datum/gear/suit/colorvest
 
 /datum/gear/suit/poncho/New()
 	..()
-	var/poncho = list()
+	var/list/poncho = list()
 	poncho["poncho, tan"] = /obj/item/clothing/accessory/poncho
 	poncho["poncho, blue"] = /obj/item/clothing/accessory/poncho/blue
 	poncho["poncho, green"] = /obj/item/clothing/accessory/poncho/green
@@ -152,7 +152,7 @@ datum/gear/suit/colorvest
 	poncho["poncho, engineering"] = /obj/item/clothing/accessory/poncho/roles/engineering
 	poncho["poncho, science"] = /obj/item/clothing/accessory/poncho/roles/science
 	poncho["poncho, cargo"] = /obj/item/clothing/accessory/poncho/roles/cargo
-	gear_tweaks += new/datum/gear_tweak/path(poncho)
+	gear_tweaks += new /datum/gear_tweak/path(poncho)
 
 
 /datum/gear/suit/suitjacket
@@ -172,14 +172,14 @@ datum/gear/suit/colorvest
 
 /datum/gear/suit/trenchcoats/New()
 	..()
-	var/coat = list()
+	var/list/coat = list()
 	coat["trenchcoat, brown"] = /obj/item/clothing/suit/storage/toggle/trench
 	coat["trenchcoat, grey"] = /obj/item/clothing/suit/storage/toggle/trench/grey
 	coat["trenchcoat, dark brown"] = /obj/item/clothing/suit/storage/toggle/trench/alt
 	coat["trenchcoat, grey alternate"] = /obj/item/clothing/suit/storage/toggle/trench/grey_alt
 	coat["brown trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/det_trench
 	coat["black trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/det_trench/black
-	gear_tweaks += new/datum/gear_tweak/path(coat)
+	gear_tweaks += new /datum/gear_tweak/path(coat)
 
 /datum/gear/suit/trenchcoat_colorable
 	display_name = "colorable trenchcoat"
@@ -200,7 +200,7 @@ datum/gear/suit/colorvest
 
 /datum/gear/suit/winter/New()
 	..()
-	var/wintercoat = list()
+	var/list/wintercoat = list()
 	wintercoat["winter coat"] = /obj/item/clothing/suit/storage/hooded/wintercoat
 	wintercoat["winter coat, red"] = /obj/item/clothing/suit/storage/hooded/wintercoat/red
 	wintercoat["winter coat, captain"] = /obj/item/clothing/suit/storage/hooded/wintercoat/captain
@@ -213,7 +213,7 @@ datum/gear/suit/colorvest
 	wintercoat["winter coat, hydroponics"] = /obj/item/clothing/suit/storage/hooded/wintercoat/hydro
 	wintercoat["winter coat, cargo"] = /obj/item/clothing/suit/storage/hooded/wintercoat/cargo
 	wintercoat["winter coat, mining"] = /obj/item/clothing/suit/storage/hooded/wintercoat/miner
-	gear_tweaks += new/datum/gear_tweak/path(wintercoat)
+	gear_tweaks += new /datum/gear_tweak/path(wintercoat)
 
 /datum/gear/suit/winter_colorable
 	display_name = "colorable winter coat"
@@ -228,11 +228,11 @@ datum/gear/suit/colorvest
 
 /datum/gear/suit/secjacketofficer/New()
 	..()
-	var/secjacket = list()
+	var/list/secjacket = list()
 	secjacket["security jacket"] = /obj/item/clothing/suit/storage/security/officer
 	secjacket["security jacket, blue"] = /obj/item/clothing/suit/storage/security/officer/blue
 	secjacket["security jacket, dark navy"] = /obj/item/clothing/suit/storage/security/officer/dnavy
-	gear_tweaks += new/datum/gear_tweak/path(secjacket)
+	gear_tweaks += new /datum/gear_tweak/path(secjacket)
 
 /datum/gear/suit/secjacketwarden
 	display_name = "security jacket selection (Warden)"
@@ -241,11 +241,11 @@ datum/gear/suit/colorvest
 
 /datum/gear/suit/secjacketwarden/New()
 	..()
-	var/secjacket = list()
+	var/list/secjacket = list()
 	secjacket["security jacket"] = /obj/item/clothing/suit/storage/security/warden
 	secjacket["security jacket, blue"] = /obj/item/clothing/suit/storage/security/warden/blue
 	secjacket["security jacket, dark navy"] = /obj/item/clothing/suit/storage/security/warden/dnavy
-	gear_tweaks += new/datum/gear_tweak/path(secjacket)
+	gear_tweaks += new /datum/gear_tweak/path(secjacket)
 
 /datum/gear/suit/secjackethos
 	display_name = "security jacket selection (Head of Security)"
@@ -254,11 +254,11 @@ datum/gear/suit/colorvest
 
 /datum/gear/suit/secjackethos/New()
 	..()
-	var/secjacket = list()
+	var/list/secjacket = list()
 	secjacket["security jacket"] = /obj/item/clothing/suit/storage/security/hos
 	secjacket["security jacket, blue"] = /obj/item/clothing/suit/storage/security/hos/blue
 	secjacket["security jacket, dark navy"] = /obj/item/clothing/suit/storage/security/hos/dnavy
-	gear_tweaks += new/datum/gear_tweak/path(secjacket)
+	gear_tweaks += new /datum/gear_tweak/path(secjacket)
 
 /datum/gear/suit/secjacketforensictech
 	display_name = "security jacket selection (Forensic Technician)"
@@ -267,11 +267,11 @@ datum/gear/suit/colorvest
 
 /datum/gear/suit/secjacketforensictech/New()
 	..()
-	var/secjacket = list()
+	var/list/secjacket = list()
 	secjacket["security jacket"] = /obj/item/clothing/suit/storage/toggle/forensics
 	secjacket["security jacket, blue"] = /obj/item/clothing/suit/storage/toggle/forensics/blue
 	secjacket["security jacket, dark navy"] = /obj/item/clothing/suit/storage/toggle/forensics/dnavy
-	gear_tweaks += new/datum/gear_tweak/path(secjacket)
+	gear_tweaks += new /datum/gear_tweak/path(secjacket)
 
 /datum/gear/suit/dominia_cape
 	display_name = "dominian cape"
@@ -280,14 +280,14 @@ datum/gear/suit/colorvest
 
 /datum/gear/suit/dominia_cape/New()
 	..()
-	var/dominiacape = list()
+	var/list/dominiacape = list()
 	dominiacape["dominian cape"] = /obj/item/clothing/accessory/poncho/dominia_cape
 	dominiacape["dominian cape, strelitz"] = /obj/item/clothing/accessory/poncho/dominia_cape/strelitz
 	dominiacape["dominian cape, volvalaad"] = /obj/item/clothing/accessory/poncho/dominia_cape/volvalaad
 	dominiacape["dominian cape, kazhkz"] = /obj/item/clothing/accessory/poncho/dominia_cape/kazhkz
 	dominiacape["dominian cape, caladius"] = /obj/item/clothing/accessory/poncho/dominia_cape/caladius
 	dominiacape["dominian cape, zhao"] = /obj/item/clothing/accessory/poncho/dominia_cape/zhao
-	gear_tweaks += new/datum/gear_tweak/path(dominiacape)
+	gear_tweaks += new /datum/gear_tweak/path(dominiacape)
 
 /datum/gear/suit/dominia
 	display_name = "dominia coat and jacket selection"
@@ -297,11 +297,11 @@ datum/gear/suit/colorvest
 
 /datum/gear/suit/dominia/New()
 	..()
-	var/coat = list()
+	var/list/coat = list()
 	coat["dominia great coat, red"] = /obj/item/clothing/suit/storage/toggle/dominia
 	coat["dominia great coat, gold"] = /obj/item/clothing/suit/storage/toggle/dominia/gold
 	coat["dominia great coat, black"] = /obj/item/clothing/suit/storage/toggle/dominia/black
-	gear_tweaks += new/datum/gear_tweak/path(coat)
+	gear_tweaks += new /datum/gear_tweak/path(coat)
 
 /datum/gear/suit/dominia/consular
 	display_name = "dominian consular officer greatcoat"
@@ -322,10 +322,10 @@ datum/gear/suit/colorvest
 
 /datum/gear/suit/tcfl/New()
 	..()
-	var/tcfljac = list()
+	var/list/tcfljac = list()
 	tcfljac ["tcfl jacket"] = /obj/item/clothing/suit/storage/legion
 	tcfljac ["tcfl jacket, flight"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion
-	gear_tweaks += new/datum/gear_tweak/path(tcfljac)
+	gear_tweaks += new /datum/gear_tweak/path(tcfljac)
 
 /datum/gear/suit/dep_jacket
 	display_name = "department jackets selection"
@@ -334,14 +334,14 @@ datum/gear/suit/colorvest
 
 /datum/gear/suit/dep_jacket/New()
 	..()
-	var/jacket = list()
+	var/list/jacket = list()
 	jacket["department jacket, engineering"] = /obj/item/clothing/suit/storage/toggle/engi_dep_jacket
 	jacket["department jacket, supply"] = /obj/item/clothing/suit/storage/toggle/supply_dep_jacket
 	jacket["department jacket, science"] = /obj/item/clothing/suit/storage/toggle/sci_dep_jacket
 	jacket["department jacket, medical"] = /obj/item/clothing/suit/storage/toggle/med_dep_jacket
 	jacket["department jacket, security"] = /obj/item/clothing/suit/storage/toggle/sec_dep_jacket
 	jacket["departmental jacket, service"] = /obj/item/clothing/suit/storage/toggle/serv_dep_jacket
-	gear_tweaks += new/datum/gear_tweak/path(jacket)
+	gear_tweaks += new /datum/gear_tweak/path(jacket)
 
 
 /datum/gear/suit/miscellaneous/peacoat
@@ -359,7 +359,7 @@ datum/gear/suit/colorvest
 	for(var/varsity_style in typesof(/obj/item/clothing/suit/storage/toggle/varsity))
 		var/obj/item/clothing/suit/storage/toggle/varsity/varsity = varsity_style
 		varsities[initial(varsity.name)] = varsity
-	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(varsities))
+	gear_tweaks += new /datum/gear_tweak/path(sortAssoc(varsities))
 
 /datum/gear/suit/track
 	display_name = "track jacket selection"
@@ -371,7 +371,7 @@ datum/gear/suit/colorvest
 	for(var/track_style in typesof(/obj/item/clothing/suit/storage/toggle/track))
 		var/obj/item/clothing/suit/storage/toggle/track/track = track_style
 		tracks[initial(track.name)] = track
-	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(tracks))
+	gear_tweaks += new /datum/gear_tweak/path(sortAssoc(tracks))
 
 /datum/gear/suit/cardigan
 	display_name = "cardigan selection"
@@ -381,11 +381,11 @@ datum/gear/suit/colorvest
 
 /datum/gear/suit/cardigan/New()
 	..()
-	var/cardigan = list()
+	var/list/cardigan = list()
 	cardigan["cardigan"] = /obj/item/clothing/suit/storage/toggle/cardigan
 	cardigan["sweater cardigan"] = /obj/item/clothing/suit/storage/toggle/cardigan/sweater
 	cardigan["argyle cardigan"] = /obj/item/clothing/suit/storage/toggle/cardigan/argyle
-	gear_tweaks += new/datum/gear_tweak/path(cardigan)
+	gear_tweaks += new /datum/gear_tweak/path(cardigan)
 
 /datum/gear/suit/asymmetriccoat
 	display_name = "asymmetric coat"
@@ -399,10 +399,10 @@ datum/gear/suit/colorvest
 
 /datum/gear/suit/himeo/New()
 	..()
-	var/coat = list()
+	var/list/coat = list()
 	coat["brown himean bekesha"] = /obj/item/clothing/suit/storage/toggle/himeo
 	coat["grey himean bekesha"] = /obj/item/clothing/suit/storage/toggle/himeo/grey
-	gear_tweaks += new/datum/gear_tweak/path(coat)
+	gear_tweaks += new /datum/gear_tweak/path(coat)
 
 /datum/gear/suit/vysoka
 	display_name = "chokha selection"
@@ -429,9 +429,9 @@ datum/gear/suit/colorvest
 
 /datum/gear/suit/gadpathur/New()
 	..()
-	var/gadpathur_coat = list()
+	var/list/gadpathur_coat = list()
 	gadpathur_coat["gadpathurian overcoat"] = /obj/item/clothing/suit/storage/gadpathur
 	gadpathur_coat["gadpathurian trenchcoat"] = /obj/item/clothing/suit/storage/toggle/trench/gadpathur
 	gadpathur_coat["gadpathurian leather coat"] = /obj/item/clothing/suit/storage/toggle/trench/gadpathur/leather
 	gadpathur_coat["thermal coat"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/gadpathur
-	gear_tweaks += new/datum/gear_tweak/path(gadpathur_coat)
+	gear_tweaks += new /datum/gear_tweak/path(gadpathur_coat)
