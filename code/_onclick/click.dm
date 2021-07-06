@@ -120,10 +120,9 @@
 		return 1
 
 	if(in_throw_mode)
-		if(isturf(A) || isturf(A.loc))
-			throw_item(A)
-			return 1
-		throw_mode_off()
+		if((isturf(A) || isturf(A.loc)) && throw_item(A))
+			throw_mode_off()
+			return TRUE
 
 	var/obj/item/W = get_active_hand()
 

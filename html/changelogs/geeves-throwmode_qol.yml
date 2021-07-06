@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Throw mode no longer blocks clicks and will only block your click and toggle off throw mode if it succesfully does an item throwing action."
