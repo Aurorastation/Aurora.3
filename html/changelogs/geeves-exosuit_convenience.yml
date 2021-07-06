@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "You can now Ctrl and Alt click on mech equipment without having to select them first."

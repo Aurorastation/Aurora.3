@@ -42,17 +42,17 @@
 		return
 
 	if(modifiers["alt"])
-		if(selected_system)
-			if(selected_system == A)
-				selected_system.attack_self(user)
-				setClickCooldown(5)
+		var/obj/item/mecha_equipment/ME = A
+		if(istype(ME))
+			ME.attack_self(user)
+			setClickCooldown(5)
 			return
 
 	if(modifiers["ctrl"])
-		if(selected_system)
-			if(selected_system == A)
-				selected_system.CtrlClick(user)
-				setClickCooldown(5)
+		var/obj/item/mecha_equipment/ME = A
+		if(istype(ME))
+			ME.CtrlClick(user)
+			setClickCooldown(5)
 			return
 
 	if(!(user in pilots) && user != src)
