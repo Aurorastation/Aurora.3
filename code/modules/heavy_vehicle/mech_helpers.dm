@@ -104,10 +104,14 @@
 	return can_use
 
 /mob/living/heavy_vehicle/proc/set_mech_incorporeal(var/incorporeal_state)
+	var/old_corporeal_state = incorporeal_move
 	incorporeal_move = incorporeal_state
-	if(incorporeal_move)
-		alpha = 150
-		add_filter("INCORPBLUR", 1, list("type" = "blur", "size" = 1.5))
-	else
-		alpha = initial(alpha)
-		remove_filter("INCORPBLUR")
+	if(old_corporeal_state != incorporeal_move)
+		if(incorporeal_move)
+			add_filter("INCORPBLUR", 1, list("type" = "blur"))
+			animate(src, time = 1 SECOND, alpha = 150, flags = ANIMATION_PARALLEL)
+			animate(get_filter("INCORPBLUR"), time = 1 SECOND, size = 1.5, flags = ANIMATION_PARALLEL)
+		else
+			animate(get_filter("INCORPBLUR"), time = 1 SECOND, size = 1, flags = ANIMATION_PARALLEL)
+			animate(src, time = 1 SECOND, alpha = initial(alpha), flags = ANIMATION_PARALLEL)
+			remove_filter("INCORPBLUR")

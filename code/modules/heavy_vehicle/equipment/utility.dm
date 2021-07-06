@@ -676,7 +676,6 @@
 		desc_info = "\The [src] has an anomaly core installed! You can use a wrench to remove it."
 		anomaly_overlay = image(AC.icon, null, AC.icon_state)
 		anomaly_overlay.pixel_y = 3
-		anomaly_overlay.pixel_x = 1
 		add_overlay(anomaly_overlay)
 		return
 	if(I.iswrench())
@@ -705,7 +704,7 @@
 
 	if(!owner.incorporeal_move)
 		to_chat(user, SPAN_NOTICE("You fire up \the [src], semi-shifting into another plane of existence!"))
-		owner.set_mech_incorporeal(INCORPOREAL_GHOST)
+		owner.set_mech_incorporeal(INCORPOREAL_MECH)
 	else
 		to_chat(user, SPAN_NOTICE("You disable \the [src], shifting back into your normal reality."))
 		owner.set_mech_incorporeal(INCORPOREAL_DISABLE)

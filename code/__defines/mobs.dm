@@ -23,6 +23,7 @@
 #define INCORPOREAL_NINJA   2 // Pass through matter with a cool effect
 #define INCORPOREAL_BSTECH  3 // Like ninja, but also go across Z-levels and move in space freely
 #define INCORPOREAL_SHADE   4 // Shady
+#define INCORPOREAL_MECH    5 // stripped down bstech
 
 // Grab levels.
 #define GRAB_PASSIVE    1

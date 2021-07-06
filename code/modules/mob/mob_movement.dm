@@ -412,6 +412,9 @@
 			anim(mobloc, use_mob, 'icons/mob/mob.dmi', null, "shadow", null, use_mob.dir)
 			use_mob.forceMove(get_step(use_mob, direct))
 			use_mob.dir = direct
+		if(INCORPOREAL_MECH)
+			new /obj/effect/temp_visual/incorporeal_mech(mobloc, use_mob.dir, use_mob)
+			use_mob.forceMove(get_step(use_mob, direct))
 		if(INCORPOREAL_SHADE)
 			if(!use_mob.canmove || use_mob.anchored)
 				return
