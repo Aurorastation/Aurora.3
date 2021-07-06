@@ -3,6 +3,7 @@
 	desc = "A pair of Tajaran eyes accustomed to the low light conditions of Adhomai."
 	icon_state = "tajaran_eyes"
 	action_button_name = "Activate Low Light Vision"
+	default_action_type = /datum/action/item_action/organ/night_eyes
 	relative_size = 8
 	var/night_vision = FALSE
 	var/datum/client_color/vision_color = /datum/client_color/monochrome
@@ -20,14 +21,6 @@
 /obj/item/organ/internal/eyes/night/replaced()
 	. = ..()
 	disable_night_vision()
-
-/obj/item/organ/internal/eyes/night/refresh_action_button()
-	. = ..()
-	if(.)
-		action.button_icon_state = "night_eyes"
-		action.check_flags = AB_CHECK_STUNNED|AB_CHECK_ALIVE|AB_CHECK_INSIDE
-		if(action.button)
-			action.button.update_icon()
 
 /obj/item/organ/internal/eyes/night/attack_self(var/mob/user)
 	. = ..()
