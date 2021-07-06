@@ -191,7 +191,7 @@
 		Move_object(direct)
 
 	if(mob.incorporeal_move && isobserver(mob))
-		Process_Incorpmove(direct)
+		Process_Incorpmove(direct, mob)
 		return
 
 	if(moving || world.time < move_delay)
@@ -219,8 +219,8 @@
 
 	if(isliving(mob))
 		var/mob/living/L = mob
-		if(L.incorporeal_move && !isturf(mob.loc))//Move though walls
-			Process_Incorpmove(direct)
+		if(L.incorporeal_move && isturf(mob.loc))//Move though walls
+			Process_Incorpmove(direct, mob)
 			return
 		if(mob.client && ((mob.client.view != world.view) || (mob.client.pixel_x != 0) || (mob.client.pixel_y != 0)))		// If mob moves while zoomed in with device, unzoom them.
 			for(var/obj/item/item in mob)
