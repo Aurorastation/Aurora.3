@@ -170,7 +170,7 @@ datum/gear/suit/colorvest
 	var/list/blazers = list()
 	blazers["blazer"] = /obj/item/clothing/suit/storage/toggle/suitjacket/blazer
 	blazers["long blazer"] = /obj/item/clothing/suit/storage/toggle/suitjacket/blazer/long
-	gear_tweaks += new/datum/gear_tweak/path(blazers)
+	gear_tweaks += new /datum/gear_tweak/path(blazers)
 
 /datum/gear/suit/trenchcoats
 	display_name = "trenchcoat selection"
