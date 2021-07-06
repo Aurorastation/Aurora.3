@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "You can now use the tag [station] in papercode to have it replaced with the map's current station name."
