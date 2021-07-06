@@ -132,3 +132,13 @@
 	name = "Mounted Drill Loader System"
 	materials = list(DEFAULT_WALL_MATERIAL = 15000)
 	build_path = /obj/item/mecha_equipment/drill_mover
+
+/datum/design/item/mechfab/exosuit_equipment/phazon
+	name = "Phazon Bluespace Transmission System"
+	materials = list(MATERIAL_STEEL = 25000, MATERIAL_PHORON = 10000)
+	req_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 5, TECH_BLUESPACE = 5)
+	build_path = /obj/item/mecha_equipment/phazon
+
+/datum/design/item/mechfab/exosuit_equipment/phazon/AssembleDesignDesc()
+	. = ..()
+	desc += " It needs an anomaly core to function, however."
