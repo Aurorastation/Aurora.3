@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Lit torches can now be used to ignite stuff, be extinguished by using it in hand and reused."
