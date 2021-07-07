@@ -1,0 +1,8 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Ported coffee cups. They can be found in the 'general' section in the loadout, in the kitchen dinnerware machine and the diner utensil machine."
+  - rscadd: "Ported several new drinking glasses. They can be made in the autolathe, found in the booze-o-mat and a pitcher & carafe can be found ain the kitchen dinnerware machine & diner utensil machine."
+  - maptweak: "Mapped coffee pitchers into command, security, engineering sublevel & medical breakroom and into the surface meeting room alongside with the diplomatic reception."
