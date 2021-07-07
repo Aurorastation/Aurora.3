@@ -2999,6 +2999,7 @@
 #include "maps\exodus\code\exodus_holodeck.dm"
 #include "maps\exodus\code\exodus_shuttles.dm"
 #include "maps\exodus\code\exodus_unittest.dm"
+#include "maps\runtime\runtime_overmap.dm"
 #include "maps\runtime\code\runtime.dm"
 #include "maps\runtime\code\runtime_lifts.dm"
 #include "maps\runtime\code\runtime_unittest.dm"
