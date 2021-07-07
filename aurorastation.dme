@@ -2723,6 +2723,7 @@
 #include "code\modules\research\research.dm"
 #include "code\modules\research\server.dm"
 #include "code\modules\research\stockparts.dm"
+#include "code\modules\research\tech_processor.dm"
 #include "code\modules\research\weaponsanalyzer.dm"
 #include "code\modules\research\designs\designs.dm"
 #include "code\modules\research\designs\circuit\AI_law_boards.dm"
