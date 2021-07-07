@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - rscadd: "Blazers are now contained in their own selection and you can choose from the usual blazer you know and love, and a new extended long blazer variant. This does mean you will have to reselect it if you were using a blazer already, sorry about that."
