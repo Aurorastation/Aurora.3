@@ -92,6 +92,28 @@
 	gear_tweaks += new /datum/gear_tweak/path(lunchboxes)
 	gear_tweaks += new /datum/gear_tweak/contents(lunchables_lunches(), lunchables_snacks(), lunchables_drinks(), lunchables_utensil())
 
+/datum/gear/coffeecup
+	display_name = "coffee cups"
+	description = "A coffee cup in various designs."
+	cost = 1
+	path = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup
+
+/datum/gear/coffeecup/New()
+	..()
+	var/list/coffeecups = list()
+	for(var/coffeecup_type in typesof(/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup))
+		var/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/coffeecup = coffeecup_type
+		coffeecups[initial(coffeecup.name)] = coffeecup_type
+	sortTim(coffeecups, /proc/cmp_text_asc)
+	gear_tweaks += new /datum/gear_tweak/path(coffeecups)
+	gear_tweaks += new /datum/gear_tweak/reagents(lunchables_drink_reagents())
+
+/datum/gear/coffeecup/spawn_item(var/location, var/metadata)
+	. = ..()
+	var/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/spawned_cup = .
+	if(istype(spawned_cup) && spawned_cup.reagents)
+		spawned_cup.reagents.set_temperature(T0C + 45)
+
 /datum/gear/banner
 	display_name = "banner selection"
 	path = /obj/item/flag

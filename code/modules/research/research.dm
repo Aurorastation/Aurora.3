@@ -150,10 +150,12 @@ var/global/list/designs_imprinter_categories = list()
 		if(KT.level >= MAX_TECH_LEVEL)
 			break
 		if(KT.next_level_progress + progress >= KT.next_level_threshold)
-			progress -= KT.next_level_threshold - KT.next_level_progress
+			var/progress_left = KT.next_level_threshold - KT.next_level_progress
+			KT.next_level_progress += progress_left
 			KT.level++
 			KT.level = clamp(KT.level, 0, MAX_TECH_LEVEL)
 			KT.next_level_threshold = get_level_value(KT.level)
+			progress -= progress_left
 			continue
 		KT.next_level_progress += progress
 		break
