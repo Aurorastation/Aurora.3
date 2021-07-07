@@ -296,7 +296,7 @@
 /decl/reagent/lithium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(M.canmove && !M.restrained() && !(istype(M.loc, /turf/space)))
 		step(M, pick(cardinal))
-	if(prob(5))
+	if(prob(5) && ishuman(M))
 		M.emote(pick("twitch", "drool", "moan"))
 
 /decl/reagent/mercury
@@ -323,7 +323,7 @@
 		M.confused = max(M.confused, 10)
 	if(dose > 4)
 		M.add_chemical_effect(CE_CLUMSY, 1)
-		if(prob(dose/4))
+		if(prob(dose/4) && ishuman(M))
 			M.emote(pick("twitch", "shiver", "drool"))
 		if(prob(dose/4))
 			M.visible_message("<b>[M]</b> chuckles spontaneously.", "You chuckle spontaneously.")
@@ -446,7 +446,7 @@
 		M.take_organ_damage(0, removed * power * 0.2) //burn damage, since it causes chemical burns. Acid doesn't make bones shatter, like brute trauma would.
 		return
 	if(!M.unacidable && removed > 0)
-		if(istype(M, /mob/living/carbon/human) && REAGENT_VOLUME(holder, type) >= meltdose)
+		if(ishuman(M) && REAGENT_VOLUME(holder, type) >= meltdose)
 			var/mob/living/carbon/human/H = M
 			var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
 			if(affecting)

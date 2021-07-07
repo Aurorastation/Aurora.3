@@ -1,7 +1,10 @@
-/mob/living/carbon/human/verb/give(var/mob/living/target in view(1)-usr)
+/mob/living/carbon/verb/give(var/mob/living/target in view(1)-usr)
 	set category = "IC"
 	set name = "Give"
 
+	do_give(target)
+
+/mob/living/carbon/proc/do_give(var/mob/living/carbon/human/target)
 	if(use_check(target))
 		to_chat(usr, SPAN_WARNING("[target.name] is in no condition to handle items!"))
 		return
