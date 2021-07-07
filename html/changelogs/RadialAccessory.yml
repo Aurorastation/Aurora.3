@@ -1,6 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscadd: "Removing accessories is now a radial menu, and it is now also possible to pick which accessory to remove from another person."

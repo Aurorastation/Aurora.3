@@ -1,6 +1,0 @@
-author: WickedCybs
-
-delete-after: True
-
-changes:
-  - tweak: "The purple comb in the cosmetics section wasn't purple, it was gray. It's been renamed to 'comb' and can now be recoloured too."
