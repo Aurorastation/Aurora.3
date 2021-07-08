@@ -49,7 +49,7 @@
 	icon_state = "coffeecup_dpra"
 
 // Organisations
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/NT
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nt
 	name = "\improper NT coffee cup"
 	desc = "A blue NanoTrasen coffee cup."
 	icon_state = "coffeecup_NT"

@@ -477,6 +477,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	unacidable = TRUE
 	amount_per_transfer_from_this = 10
 	volume = 120
+	possible_transfer_amounts = list(5,10,15,30,60,120)
 
 /obj/item/reagent_containers/food/drinks/flask
 	name = "captain's flask"

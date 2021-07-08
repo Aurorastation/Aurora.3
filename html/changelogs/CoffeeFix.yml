@@ -1,0 +1,7 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes loadout coffee cup being the basic one when spawning."
+  - bugfix: "Fixes coffee cup placement on tables."
