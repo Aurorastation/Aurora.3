@@ -164,3 +164,42 @@
 /datum/species/bug/type_big/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.mutations.Add(HULK)
 	return ..()
+
+/datum/species/bug/type_e
+	name = SPECIES_VAURCA_BULWARK
+	short_name = "vak"
+	name_plural = "Type E"
+	icon_template = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
+	icobase = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
+	deform = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
+	slowdown = 6
+
+	unarmed_types = list(/datum/unarmed_attack/claws/vaurca_bulwark)
+
+	natural_armor = list(
+		melee = ARMOR_MELEE_SMALL
+	)
+
+	brute_mod = 0.65
+	burn_mod = 1
+	oxy_mod = 1
+	radiation_mod = 1
+	toxins_mod = 3
+
+	grab_mod = 0.8
+	resist_mod = 4
+
+	mob_size = 12
+	taste_sensitivity = TASTE_DULL
+	blurb = "Type BA, a sub-type of the generic Type B Warriors, are the second most prominent type of Vaurca society, taking the form of hive security and military grunts. \
+	Type BA can range in size from 6ft tall to 9ft tall, and are bipedal. Unlike most other Type B's, Type BA are deprived of advanced augments, especially aboard \
+	NanoTrasen stations. Warriors in general, unlike other types of Vaurca, are not typically passive. This means that they tend to be more suitable for combat \
+	orientated positions, more passive unlike workers. Compared to workers, they are more physically intimidating and more resistant to heat, but have a thinner carapace \
+	allowing for greater mobility at the cost of some trauma resistance. \
+	<b>Type BA are most comfortable obviously in security positions, but can rarely be found in the lower hierarchies of other departments.</b>"
+
+	heat_level_1 = 360 //Default 360
+	heat_level_2 = 400 //Default 400
+	heat_level_3 = 800 //Default 1000
+
+	sprint_speed_factor = 1.4

@@ -12,6 +12,7 @@
 #define SPECIES_VAURCA_WARRIOR		"Vaurca Warrior"
 #define SPECIES_VAURCA_BREEDER		"Vaurca Breeder"
 #define SPECIES_VAURCA_WARFORM		"Vaurca Warform"
+#define SPECIES_VAURCA_BULWARK		"Vaurca Bulwark"
 
 #define SPECIES_IPC					"Baseline Frame"
 #define SPECIES_IPC_SHELL			"Shell Frame"

@@ -937,21 +937,27 @@ About the new airlock wires panel:
 					user.visible_message(SPAN_WARNING("[user] headbutts the airlock. Good thing they're wearing a helmet."))
 				return
 
-		if(H.species.can_shred(H))
-
-			if(!src.density)
+		if(H.a_intent == I_HURT)
+			// todo figure this out
+			if(!(stat & BROKEN|NOPOWER) && H.default_attack?.attack_door)
+				user.visible_message(SPAN_DANGER("\The [user] forcefully strikes \the [src] with their [H.default_attack.attack_name]!"))
+				playsound(loc, hitsound, 60, 1)
+				take_damage(H.default_attack.damage * 2)
 				return
+			if((stat & BROKEN|NOPOWER) && (H.species.can_shred(H) || H.default_attack?.crowbar_door))
+				if(!density)
+					return
 
-			H.visible_message("<b>[H]</b> begins to pry open \the [src]!", SPAN_NOTICE("You begin to pry open \the [src]!"), SPAN_WARNING("You hear the sound of an airlock being forced open."))
+				H.visible_message("<b>[H]</b> begins to pry open \the [src]!", SPAN_NOTICE("You begin to pry open \the [src]!"), SPAN_WARNING("You hear the sound of an airlock being forced open."))
 
-			if(!do_after(H, 120, 1, act_target = src))
+				if(!do_after(H, 120, 1, act_target = src))
+					return
+
+				src.do_animate("spark")
+				src.stat |= BROKEN
+				var/check = src.open(1)
+				H.visible_message("<b>[H]</b> slices \the [src]'s controls, [check ? "ripping it open" : "breaking it"]!", SPAN_NOTICE("You slice \the [src]'s controls, [check ? "ripping it open" : "breaking it"]!"), SPAN_WARNING("You hear something sparking."))
 				return
-
-			src.do_animate("spark")
-			src.stat |= BROKEN
-			var/check = src.open(1)
-			H.visible_message("<b>[H]</b> slices \the [src]'s controls, [check ? "ripping it open" : "breaking it"]!", SPAN_NOTICE("You slice \the [src]'s controls, [check ? "ripping it open" : "breaking it"]!"), SPAN_WARNING("You hear something sparking."))
-			return
 	if(src.p_open)
 		user.set_machine(src)
 		wires.Interact(user)

@@ -208,9 +208,7 @@
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-
-		if(H.species.can_shred(H))
-
+		if(H.species.can_shred(H) || H.default_attack?.crowbar_door)
 			if(src.density)
 				visible_message("<span class='danger'>\The [H] forces \the [src] open!</span>")
 				open(1)

@@ -226,3 +226,14 @@
 	..()
 	if(prob(25))
 		target.apply_effect(1, INCINERATE, 0)
+
+/datum/unarmed_attack/claws/vaurca_bulwark
+	attack_verb = list("punched", "clobbered", "lacerated")
+	attack_noun = list("clawed fists")
+	eye_attack_text = "claws"
+	eye_attack_text_victim = "claws"
+	attack_name = "clawed fists"
+
+	damage = 7.5
+	attack_door = TRUE
+	crowbar_door = TRUE

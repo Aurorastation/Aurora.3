@@ -8,6 +8,8 @@ var/global/list/sparring_attack_cache = list()
 	var/attack_sound = /decl/sound_category/punch_sound
 	var/miss_sound = /decl/sound_category/punchmiss_sound
 	var/shredding = 0 // Calls the old attack_alien() behavior on objects/mobs when on harm intent.
+	var/attack_door = FALSE
+	var/crowbar_door = FALSE
 	var/sharp = 0
 	var/edge = FALSE
 
