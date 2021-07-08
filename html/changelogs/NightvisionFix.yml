@@ -1,6 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - bugfix: "Tajara & Vaurca nightvision can now be used even while restrained or laying down."

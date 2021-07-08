@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Machines that need a stack of materials to be made now spawns the right amount if mapped in."
