@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Burglars can now inspect their pens to see how far their pen has charged via a loading bar."
