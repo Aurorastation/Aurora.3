@@ -1,5 +1,5 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass
-	
+	center_of_mass = list("x"=16, "y"=14)
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/on_reagent_change()
 	update_icon()
