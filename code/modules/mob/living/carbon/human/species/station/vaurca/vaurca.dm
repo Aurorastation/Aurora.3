@@ -139,7 +139,7 @@
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	H.gender = NEUTER
-	var/obj/item/clothing/mask/breath/M = new /obj/item/clothing/mask/breath(H)
+	var/obj/item/clothing/mask/breath/vaurca/filter/M = new /obj/item/clothing/mask/breath/vaurca/filter(H)
 	if(H.equip_to_slot_or_del(M, slot_wear_mask))
 		M.autodrobe_no_remove = 1
 

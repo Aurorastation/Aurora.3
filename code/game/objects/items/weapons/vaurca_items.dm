@@ -17,7 +17,7 @@
 	desc = "A basic screw on filter attached beneath the mouthparts of the common Vaurca."
 	name = "filter port"
 	icon_state = "filterport"
-	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BREEDER)
+	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_WARFORM, BODYTYPE_VAURCA_BREEDER, BODYTYPE_VAURCA_BULWARK)
 	item_state = 0
 
 /obj/item/clothing/head/shaper

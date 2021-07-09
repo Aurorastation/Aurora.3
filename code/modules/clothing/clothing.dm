@@ -357,7 +357,7 @@
 	body_parts_covered = HANDS
 	slot_flags = SLOT_GLOVES
 	attack_verb = list("challenged")
-	species_restricted = list("exclude",BODYTYPE_UNATHI,BODYTYPE_TAJARA,BODYTYPE_VAURCA, BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
+	species_restricted = list("exclude",BODYTYPE_UNATHI,BODYTYPE_TAJARA,BODYTYPE_VAURCA, BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
@@ -459,7 +459,7 @@
 	slot_flags = SLOT_HEAD
 	w_class = ITEMSIZE_SMALL
 	uv_intensity = 50 //Light emitted by this object or creature has limited interaction with diona
-	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)
 
 	drop_sound = 'sound/items/drop/hat.ogg'
 	pickup_sound = 'sound/items/pickup/hat.ogg'
@@ -589,7 +589,7 @@
 		BODYTYPE_UNATHI = 'icons/mob/species/unathi/mask.dmi'
 		)
 
-	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)
 
 	var/voicechange = 0
 	var/list/say_messages
@@ -695,7 +695,7 @@
 	permeability_coefficient = 0.50
 	force = 0
 	var/overshoes = 0
-	species_restricted = list("exclude",BODYTYPE_UNATHI,BODYTYPE_TAJARA,BODYTYPE_VAURCA,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
+	species_restricted = list("exclude",BODYTYPE_UNATHI,BODYTYPE_TAJARA,BODYTYPE_VAURCA,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)
 	var/silent = 0
 	var/last_trip = 0
 
@@ -810,7 +810,7 @@
 	var/blood_overlay_type = "suit"
 	siemens_coefficient = 0.9
 	w_class = ITEMSIZE_NORMAL
-	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)
 
 	valid_accessory_slots = list(ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_CAPE)
 
@@ -862,7 +862,7 @@
 	var/displays_id = 1
 	var/rolled_down = -1 //0 = unrolled, 1 = rolled, -1 = cannot be toggled
 	var/rolled_sleeves = -1 //0 = unrolled, 1 = rolled, -1 = cannot be toggled
-	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_GOLEM)
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK,BODYTYPE_GOLEM)
 
 	//convenience var for defining the icon state for the overlay used when the clothing is worn.
 	//Also used by rolling/unrolling.

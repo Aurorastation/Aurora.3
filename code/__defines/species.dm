@@ -77,6 +77,7 @@
 
 #define BODYTYPE_VAURCA				"Vaurca"
 #define BODYTYPE_VAURCA_BREEDER		"Vaurca Breeder"
+#define BODYTYPE_VAURCA_BULWARK		"Vaurca Bulwark"
 #define BODYTYPE_VAURCA_WARFORM		"Vaurca Warform"
 
 #define BODYTYPE_IPC				"Machine"

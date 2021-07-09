@@ -14,7 +14,8 @@
 	body_parts_covered = 0
 	species_restricted = null
 	sprite_sheets = list(
-		BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/suit.dmi'
+		BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/suit.dmi',
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/uniform.dmi'
 		)
 
 /obj/item/clothing/under/pj/blue

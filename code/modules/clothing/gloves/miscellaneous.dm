@@ -189,7 +189,7 @@
 	force = 5
 	punch_force = 10
 	clipped = 1
-	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
+	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)
 	drop_sound = 'sound/items/drop/toolbox.ogg'
 	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 	gender = NEUTER
@@ -249,7 +249,7 @@
 	siemens_coefficient = 1
 	fingerprint_chance = 50
 	clipped = 1
-	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
+	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)
 	drop_sound = 'sound/items/drop/toolbox.ogg'
 	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 	gender = NEUTER
@@ -325,7 +325,7 @@
 	siemens_coefficient = 1
 	fingerprint_chance = 50
 	clipped = TRUE
-	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
+	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)
 	drop_sound = 'sound/items/drop/toolbox.ogg'
 	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 	gender = NEUTER
@@ -380,4 +380,4 @@
 	desc = "Specially made gloves for investigative personnel. The luminescent threads woven into the material stand out under scrutiny."
 	icon_state = "forensic"
 	item_state = "forensicgloves"
-	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
+	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)

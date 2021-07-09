@@ -36,7 +36,7 @@ BLIND     // can't see anything
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_WARFORM = 'icons/mob/species/warriorform/eyes.dmi'
 		)
-	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER)
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_BULWARK)
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 

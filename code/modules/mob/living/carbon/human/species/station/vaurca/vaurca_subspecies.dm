@@ -169,9 +169,23 @@
 	name = SPECIES_VAURCA_BULWARK
 	short_name = "vak"
 	name_plural = "Type E"
+	bodytype = BODYTYPE_VAURCA_BULWARK
 	icon_template = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
 	deform = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
+
+	icon_x_offset = -8
+	healths_x = 22
+	healths_overlay_x = 9
+
+	damage_overlays = 'icons/mob/human_races/masks/dam_mask_bulwark.dmi'
+	damage_mask = 'icons/mob/human_races/masks/dam_mask_bulwark.dmi'
+	blood_mask = 'icons/mob/human_races/masks/dam_mask_bulwark.dmi'
+	onfire_overlay = 'icons/mob/OnFire_bulwark.dmi'
+
+	eyes_icons = 'icons/mob/human_face/eyes48x48.dmi'
+	eyes = "bulwark_eyes"
+
 	slowdown = 6
 
 	unarmed_types = list(/datum/unarmed_attack/claws/vaurca_bulwark)
@@ -183,7 +197,7 @@
 	brute_mod = 0.65
 	burn_mod = 1
 	oxy_mod = 1
-	radiation_mod = 1
+	radiation_mod = 0
 	toxins_mod = 3
 
 	grab_mod = 0.8

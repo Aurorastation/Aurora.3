@@ -22,7 +22,7 @@
 	slot_flags = SLOT_BACK
 	max_w_class = ITEMSIZE_NORMAL
 	max_storage_space = 28
-	var/species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
+	var/species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)
 	drop_sound = 'sound/items/drop/backpack.ogg'
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
 	allow_quick_empty = TRUE
