@@ -168,6 +168,9 @@
 	var/healths_x // set this to specify where exactly the healths HUD element appears
 	var/healths_overlay_x = 0 // set this to tweak where the overlays on top of the healths HUD element goes
 
+	var/list/equip_overlays
+	var/list/equip_adjust
+
 	// Body/form vars.
 	var/list/inherent_verbs 	  // Species-specific verbs.
 	var/list/inherent_spells 	  // Species-specific spells.

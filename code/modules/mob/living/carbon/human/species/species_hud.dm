@@ -81,6 +81,7 @@
 
 /datum/hud_data/monkey
 	gear = list(
+		"head" =         list("loc" = ui_oclothing, "name" = "hat",          "slot" = slot_head,      "state" = "hair",   "toggle" = 1),
 		"mask" =         list("loc" = ui_shoes,     "name" = "mask",         "slot" = slot_wear_mask, "state" = "mask",   "toggle" = 1),
 		"i_clothing" =   list("loc" = ui_iclothing, "name" = "uniform",      "slot" = slot_w_uniform, "state" = "center", "toggle" = 1),
 		"back" =         list("loc" = ui_back,      "name" = "back",         "slot" = slot_back,      "state" = "back"),

@@ -1,0 +1,9 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - refactor: "The way humanoids generate the mob sprite for the clothing they wear and the items they hold has been refactored."
+  - rscadd: "Monkeys can now wear hats and helmets, and items they hold will now appear in their hands."
+  - bugfix: "Fixed monkey hands being detached from their bodies."
+  - rscadd: "Vaurca breeders now pixel shift items they hold to appear in their hands properly."

@@ -150,7 +150,7 @@
 	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "left" : "right"] side.")
 	update_clothing_icon()
 	src.inv_overlay = null
-	src.mob_overlay = null
+	src.accessory_mob_overlay = null
 
 /obj/item/clothing/accessory/storage/pouches/black
 	name = "black drop pouches"

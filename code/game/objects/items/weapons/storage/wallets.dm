@@ -198,8 +198,10 @@
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
 
-/obj/item/storage/wallet/lanyard/New()
-	..()
+	var/image/plastic_film
+
+/obj/item/storage/wallet/lanyard/Initialize()
+	. = ..()
 	var/image/film_image = new/image(icon, icon_state = "lanyard_film")
 	film_image.appearance_flags = RESET_COLOR
 	overlays += film_image
@@ -212,3 +214,13 @@
 	film_image.appearance_flags = RESET_COLOR
 	overlays += film_image
 	mob_icon_update()
+
+/obj/item/storage/wallet/lanyard/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(front_id)
+		I.add_overlay(image('icons/mob/lanyard_overlays.dmi', icon_state = "lanyard-[front_id_overlay_state]"))
+	else
+		if(!plastic_film)
+			plastic_film = image('icons/mob/lanyard_overlays.dmi', icon_state = "plasticfilm")
+		I.add_overlay(plastic_film)
+	return I

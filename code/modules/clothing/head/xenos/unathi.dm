@@ -17,10 +17,11 @@
 	icon_state = "maxtlatl-head"
 	item_state = "maxtlatl-head"
 
-/obj/item/clothing/head/unathi/maxtlatl/worn_overlays(icon_file, slot)
-	. = ..()
-	if(slot == slot_head)
-		var/mutable_appearance/M = mutable_appearance(icon_file, "[item_state]_translate")
+/obj/item/clothing/head/unathi/maxtlatl/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+	var/image/I = ..()
+	if(slot == slot_head_str)
+		var/mutable_appearance/M = mutable_appearance(mob_icon, "[item_state]_translate")
 		M.appearance_flags = RESET_COLOR|RESET_ALPHA
 		M.pixel_y = 12
-		. += M
+		I.add_overlay(M)
+	return I
