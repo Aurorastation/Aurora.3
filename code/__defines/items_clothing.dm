@@ -101,7 +101,6 @@
 #define slot_back_str		"slot_back"
 #define slot_l_hand_str		"slot_l_hand"
 #define slot_r_hand_str		"slot_r_hand"
-#define slot_belt_str	"slot_belt"
 #define slot_wear_id_str	"slot_wear_id"
 #define slot_w_uniform_str	"slot_w_uniform"
 #define slot_s_store_str	"slot_s_store"
