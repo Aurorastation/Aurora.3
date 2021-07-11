@@ -22,6 +22,7 @@
 /datum/sql_migration_manager
 	var/current_version = -1
 	var/last_migration_successful = TRUE
+	var/can_migrate = TRUE
 	var/DBConnection/conn
 
 /datum/sql_migration_manager/New(DBConnection/new_conn)
@@ -29,7 +30,8 @@
 
 	conn = new_conn
 
-	_get_db_version()
+	if (!_get_db_version())
+		can_migrate = FALSE
 
 /**
  * Updates the database to the specified version.
@@ -41,7 +43,10 @@
  */
 /datum/sql_migration_manager/proc/migrate_to(migration_target = -1)
 	if (!last_migration_successful)
-		error("SQL migration notice: migrations aborted due to the last migration having failed.")
+		error("SQL migration: migrations aborted due to the last migration having failed.")
+		return
+	else if (!can_migrate)
+		error("SQL migration: migrations skipped due to bad manager state.")
 		return
 
 	var/list/migrations = _get_migrations()
@@ -58,24 +63,33 @@
 #endif
 
 /datum/sql_migration_manager/proc/_get_db_version()
-	var/DBQuery/query = conn.NewQuery("SHOW TABLES LIKE ss13_migrations")
+	var/DBQuery/query = conn.NewQuery("SHOW TABLES LIKE 'ss13_migrations'")
 	query.Execute()
 
 	if (query.ErrorMsg())
-		throw EXCEPTION("Error checking for ss13_migrations table: [query.ErrorMsg()]")
+		error("SQL migration: Error checking for ss13_migrations table: [query.ErrorMsg()]")
+		return FALSE
 
 	if (!query.NextRow())
 		current_version = 0
 		last_migration_successful = TRUE
+		log_debug("SQL migration: ss13_migrations table missing. Resetting to baseline.")
 	else
 		query = conn.NewQuery("SELECT version_number, is_successful FROM ss13_migrations ORDER BY version_number DESC LIMIT 1")
+		query.Execute()
+
 		if (query.ErrorMsg())
-			throw EXCEPTION("Error querying latest migration from ss13_migrations table: [query.ErrorMsg()]")
+			error("Error querying latest migration from ss13_migrations table: [query.ErrorMsg()]")
+			return FALSE
 		else if (!query.NextRow())
-			throw EXCEPTION("Querying ss13_migrations table did not yield any results but it exists. This is a nonsense state.")
+			error("Querying ss13_migrations table did not yield any results but it exists. This is a nonsense state.")
+			return FALSE
 
 		current_version = text2num(query.item[1])
 		last_migration_successful = text2num(query.item[2])
+		log_debug("SQL migration: found latest migration as version [current_version] with success state [last_migration_successful].")
+
+	return TRUE
 
 /datum/sql_migration_manager/proc/_get_migrations()
 	var/list/migrations = list()
@@ -86,7 +100,7 @@
 
 		migrations += m
 
-	sortTim(migrations, cmp_sql_migration_versions)
+	sortTim(migrations, /proc/cmp_sql_migration_versions)
 
 	return migrations
 
@@ -94,9 +108,11 @@
 	var/DBQuery/log_query = conn.NewQuery("INSERT INTO ss13_migrations (version_number, is_successful) VALUES (:version:, :success:)")
 
 	try
+		log_debug("SQL migration: running migration [m.version].")
 		m.up(conn)
-		log_failed.Execute(list("version" = m.version, "success" = 1))
+		log_query.Execute(list("version" = m.version, "success" = 1))
+		log_debug("SQL migration: migration [m.version] successful.")
 	catch (var/exception/e)
-		log_failed.Execute(list("version" = m.version, "success" = 1))
+		log_query.Execute(list("version" = m.version, "success" = 0))
 
 		throw e
