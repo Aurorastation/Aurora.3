@@ -18,7 +18,11 @@ var/list/diona_banned_languages = list(
 	/datum/language/cultcommon,
 	/datum/language/corticalborer,
 	/datum/language/binary,
-	/datum/language/binary/drone)
+	/datum/language/binary/drone,
+	/datum/language/bug,
+	/datum/language/ling,
+	/datum/language/revenant,
+	/datum/language/machine)
 
 #define DIONA_LIGHT_COEFICIENT 0.25
 /mob/living/carbon/proc/diona_handle_light(var/datum/dionastats/DS) //Carbon is the highest common denominator between gestalts and nymphs. They will share light code
@@ -524,6 +528,7 @@ var/list/diona_banned_languages = list(
 	languages.Cut()
 
 	add_language(species.default_language) //They always have rootsong
+	accent = host.accent //Get the accent of the main gestalt
 
 	for (var/datum/language/L in host.languages)
 		var/chance = 40
@@ -548,7 +553,7 @@ var/list/diona_banned_languages = list(
 	if(!gestalt)
 		to_chat(src, SPAN_WARNING("You have no Gestalt!"))
 	else if(gestalt.stat == DEAD)
-		to_chat(src, SPAN_DANGER("Your Gestlat is not responding! Something could have happened to it!"))
+		to_chat(src, SPAN_DANGER("Your Gestalt is not responding! Something might have happened to it!"))
 	else
 		gestalt.key = key
 		return TRUE
@@ -559,8 +564,10 @@ var/list/diona_banned_languages = list(
 	set desc = "Allows you to merge back to your parent Gestalt."
 	set category = "Abilities"
 
-	for(var/mob/living/carbon/human/H in view(src, 7))
+	for(var/mob/living/carbon/human/H in range(1))
 		if(!H.is_diona())
+			continue
+		if(!Adjacent(H))
 			continue
 		var/mob/living/carbon/human/diona/C = H
 		if(C == gestalt)

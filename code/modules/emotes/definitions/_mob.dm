@@ -57,6 +57,7 @@
 		/decl/emote/visible/jump,
 		/decl/emote/visible/shiver,
 		/decl/emote/visible/collapse,
+		/decl/emote/visible/blink_r,
 		/decl/emote/audible/hiss,
 		/decl/emote/audible,
 		/decl/emote/audible/scretch,

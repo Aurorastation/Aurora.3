@@ -84,3 +84,6 @@ var/datum/antagonist/technomancer/technomancers
 	if(raider_techno.is_antagonist(player))
 		return TRUE
 	return FALSE
+
+/datum/antagonist/technomancer/is_obvious_antag(datum/mind/player)
+	return TRUE

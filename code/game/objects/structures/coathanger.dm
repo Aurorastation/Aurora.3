@@ -5,7 +5,7 @@
 	icon_state = "coatrack0"
 	var/obj/item/clothing/suit/coat
 	var/list/allowed = list(/obj/item/clothing/suit/storage/toggle/labcoat, /obj/item/clothing/suit/storage/toggle/det_trench,
-							/obj/item/clothing/suit/storage/forensics, /obj/item/clothing/suit/storage/toggle/trench)
+							/obj/item/clothing/suit/storage/toggle/forensics, /obj/item/clothing/suit/storage/toggle/trench)
 
 /obj/structure/coatrack/attack_hand(mob/user as mob)
 	if (!ishuman(user))

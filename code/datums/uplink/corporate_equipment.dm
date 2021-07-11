@@ -20,7 +20,7 @@
 	desc = "A full spaceworthy kit of a Hephaestus Industries Caiman-type terraforming suit. Very resistant against slow-moving blunt force, but heavy. Only wearable by Humans and Humanoid IPCs."
 
 /datum/uplink_item/item/corporate_equipment/suit/einstein
-	name = "Banshee Combat Suit"
+	name = "Banshee Infiltration Suit"
 	item_cost = 5
 	path = /obj/structure/closet/crate/gear_loadout/einstein
-	desc = "A full spaceworthy kit of an Einstein Engines Banshee-type infiltration suit. Resistant against lasers, but made of paper against anything else. Only wearable by Humans and Humanoid IPCs."
+	desc = "A full spaceworthy kit of an Einstein Engines Banshee-type infiltration suit. Resistant against small arms, but made of paper against anything else. Only wearable by Humans and Humanoid IPCs."
