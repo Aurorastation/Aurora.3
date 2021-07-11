@@ -1,6 +1,0 @@
-author: Skull132
-
-delete-after: True
-
-changes:
-  - bugfix: "You can now close the external auth window, if it doesn't close by itself."
