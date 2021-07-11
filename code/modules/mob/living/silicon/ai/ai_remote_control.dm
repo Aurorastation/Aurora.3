@@ -27,6 +27,7 @@
 	src.modules += new /obj/item/wrench/robotic(src)
 	src.modules += new /obj/item/device/healthanalyzer(src)
 	src.modules += new /obj/item/extinguisher/mini(src)
+	src.modules += new /obj/item/device/advanced_healthanalyzer/robotic(src)
 
 /mob/living/silicon/robot/shell
 	spawn_module = /obj/item/robot_module/aicontrol
@@ -52,3 +53,7 @@
 /obj/item/crowbar/robotic/jawsoflife/attack(mob/living/carbon/M, mob/living/carbon/user)
 	user.visible_message("\The [user] [pick("boops", "squeezes", "pokes", "prods", "strokes", "bonks")] \the [M] with \the [src]")
 	return FALSE
+
+/obj/item/device/advanced_healthanalyzer/robotic
+	name = "Shell body analyzer"
+	desc = "An advanced scanner capable of giving a full patient readout."
