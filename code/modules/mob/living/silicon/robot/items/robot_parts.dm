@@ -236,9 +236,8 @@
 			O.job = "Cyborg"
 			O.cell = chest.cell
 			O.cell.forceMove(O)
-			W.forceMove(O) //Should fix cybros run time erroring when blown up. It got deleted before, along with the frame.
-
-			// Since we "magically" installed a cell, we also have to update the correct component.
+			W.forceMove(O) 
+			
 			if(O.cell)
 				var/datum/robot_component/cell_component = O.components["power cell"]
 				cell_component.wrapped = O.cell
