@@ -280,6 +280,17 @@
 	if(H.mind)
 		H.mind.transfer_to(brainmob)
 
+/obj/item/device/mmi/shell
+	name = "ai shell control module"
+	memory_suppression = FALSE
+
+/obj/item/device/mmi/shell/attackby()
+	return
+
+/obj/item/device/mmi/shell/Initialize()
+	. = ..()
+	set_cradle_state(STATE_SEALED)
+
 #undef STATE_EMPTY
 #undef STATE_BRAIN
 #undef STATE_NODIODES

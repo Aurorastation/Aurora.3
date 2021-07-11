@@ -19,11 +19,11 @@
 					LANGUAGE_YA_SSA =      FALSE
 					)
 
-	sprites = list("Basic" = "robotserv")
+	sprites = list("Basic" = "shell")
 
 /obj/item/robot_module/aicontrol/Initialize()
 	. = ..()
-	src.modules += new /obj/item/crowbar/robotic/jawsoflife(src) // Base crowbar that all 'borgs should have access to.
+	src.modules += new /obj/item/crowbar/robotic/jawsoflife(src)
 	src.modules += new /obj/item/wrench/robotic(src)
 	src.modules += new /obj/item/device/healthanalyzer(src)
 	src.modules += new /obj/item/extinguisher/mini(src)
@@ -33,8 +33,6 @@
 	cell_type = /obj/item/cell/super
 	remote_network = REMOTE_AI_ROBOT
 	scrambled_codes = TRUE
-	mmi = /obj/item/device/mmi/shell
-
 
 /mob/living/silicon/robot/shell/Initialize()
 	. = ..()
@@ -42,8 +40,9 @@
 
 /obj/item/crowbar/robotic/jawsoflife
 	name = "jaws of life"
+	desc = "A set of specialized tools that functions as both the ordinary crowbar, but is additionally capable of brute forcing bolted doors."
 	icon = 'icons/obj/weapons.dmi'
-	icon_state = "fireaxe0"
+	icon_state = "jawspry"
 	flags = NOBLUDGEON
 	force = 0
 	sharp = FALSE
@@ -52,11 +51,3 @@
 /obj/item/crowbar/robotic/jawsoflife/attack(mob/living/carbon/M, mob/living/carbon/user)
 	user.visible_message("\The [user] [pick("boops", "squeezes", "pokes", "prods", "strokes", "bonks")] \the [M] with \the [src]")
 	return FALSE
-
-/obj/item/device/mmi/shell
-	name = "ai shell control module"
-	cradle_state = null
-	memory_suppression = FALSE
-
-/obj/item/device/mmi/shell/attackby()
-	return

@@ -229,7 +229,7 @@
 				return
 
 			user.drop_from_inventory(M, O)
-			O.mmi = W
+			O.mmi = M
 			O.invisibility = 0
 			O.custom_name = "Ai shell"
 
