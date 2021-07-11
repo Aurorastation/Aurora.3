@@ -94,5 +94,5 @@
 	// Check code/modules/admin/verbs/antag-ooc.dm for definition
 	client.add_aooc_if_necessary()
 
-	if(owner.prefs.toggles_secondary & GOONCHAT_ON)
+	if(client.prefs.toggles_secondary & GOONCHAT_ON)
 		client.chatOutput.start()
