@@ -1,0 +1,7 @@
+author: Pratepresidenten, TheGreyWolf, Kyres
+
+delete-after: True
+
+changes:
+  - rscadd: "AI shells have been added. A special type of stationbound controlled directly by the AI and with limited tools, for use when it is really needed."
+  - maptweak: "An AI shell has been added to the AI core."
