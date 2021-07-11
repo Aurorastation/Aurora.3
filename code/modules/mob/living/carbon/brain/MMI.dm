@@ -282,7 +282,6 @@
 
 /obj/item/device/mmi/shell
 	name = "ai shell control module"
-	memory_suppression = FALSE
 
 /obj/item/device/mmi/shell/attackby()
 	return
