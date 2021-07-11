@@ -43,6 +43,13 @@ datum/design/item/tool/advanced_light_replacer
 	materials = list(DEFAULT_WALL_MATERIAL = 1200, MATERIAL_GLASS = 500)
 	build_path = /obj/item/device/mmi/radio_enabled
 
+/datum/design/item/tool/mmi_shell
+	name = "ai shell control module"
+	req_tech = list(TECH_DATA = 6, TECH_ENGINEERING = 6)
+	build_type = PROTOLATHE | MECHFAB
+	materials = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 500)
+	build_path = /obj/item/device/mmi/shell
+
 /datum/design/item/tool/beacon
 	req_tech = list(TECH_BLUESPACE = 1)
 	materials = list (DEFAULT_WALL_MATERIAL = 20, MATERIAL_GLASS = 10)

@@ -6736,6 +6736,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -7636,6 +7637,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
+/mob/living/silicon/robot/shell,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278

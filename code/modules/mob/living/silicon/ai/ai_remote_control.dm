@@ -1,7 +1,7 @@
 /obj/item/robot_module/aicontrol
 	name = "ai controlled robot module"
-	channels = list(CHANNEL_SERVICE = TRUE)
-	networks = list(NETWORK_SERVICE)
+	channels = list(CHANNEL_COMMAND = TRUE, CHANNEL_SCIENCE = TRUE, CHANNEL_MEDICAL = TRUE, CHANNEL_ENGINEERING = TRUE, CHANNEL_SECURITY = TRUE, CHANNEL_SUPPLY = TRUE, CHANNEL_SERVICE = TRUE, CHANNEL_AI_PRIVATE = TRUE)
+	networks = list(NETWORK_COMMAND)
 	languages = list(
 					LANGUAGE_SOL_COMMON =  TRUE,
 					LANGUAGE_TRADEBAND =   TRUE,
@@ -37,6 +37,7 @@
 /mob/living/silicon/robot/shell/Initialize()
 	. = ..()
 	SSvirtualreality.add_robot(src, remote_network)
+	name = "AI shell"
 
 /obj/item/crowbar/robotic/jawsoflife
 	name = "jaws of life"
