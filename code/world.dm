@@ -348,6 +348,9 @@ var/list/world_api_rate_limit = list()
 	if(!config.sql_enabled)
 		world.log << "Database Connection disabled. - Skipping Connection Establishment"
 		return 1
+
+	migrate_main_db()
+
 	//Construct the database object from an init file.
 	dbcon = initialize_database_object("config/dbconfig.txt")
 
