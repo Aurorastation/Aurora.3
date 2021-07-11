@@ -414,6 +414,7 @@
 /datum/gear/accessory/kneepads
 	display_name = "kneepads"
 	path = /obj/item/clothing/accessory/kneepads
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/blood_patch
 	display_name = "blood patch selection"
