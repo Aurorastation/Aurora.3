@@ -5,6 +5,19 @@
 #define OUTFIT_SATCHEL_ALT 4
 #define OUTFIT_DUFFELBAG 5
 #define OUTFIT_MESSENGERBAG 6
+#define OUTFIT_RUCKSACK 7
+#define OUTFIT_BLUERUCKSACK 8
+#define OUTFIT_GREENRUCKSACK 9
+#define OUTFIT_NAVYRUCKSACK 10
+#define OUTFIT_TANRUCKSACK 11
+#define OUTFIT_KHAKISATCHEL 12
+#define OUTFIT_BLACKSATCHEL 13
+#define OUTFIT_NAVYSATCHEL 14
+#define OUTFIT_OLIVESATCHEL 15
+#define OUTFIT_AUBURNSATCHEL 16
+#define OUTFIT_POCKETBOOK 17
+#define OUTFIT_BROWNPOCKETBOOK 18
+#define OUTFIT_AUBURNPOCKETBOOK 19
 
 #define OUTFIT_TAB_PDA 2
 #define OUTFIT_PDA_OLD 3
@@ -60,9 +73,22 @@
 	var/allow_backbag_choice = FALSE
 	var/backpack = /obj/item/storage/backpack
 	var/satchel = /obj/item/storage/backpack/satchel_norm
-	var/satchel_alt = /obj/item/storage/backpack/satchel
+	var/satchel_alt = /obj/item/storage/backpack/satchel/leather
 	var/dufflebag = /obj/item/storage/backpack/duffel
 	var/messengerbag = /obj/item/storage/backpack/messenger
+	var/rucksack = /obj/item/storage/backpack/rucksack
+	var/bluerucksack = /obj/item/storage/backpack/rucksack/blue
+	var/greenrucksack = /obj/item/storage/backpack/rucksack/green
+	var/navyrucksack = /obj/item/storage/backpack/rucksack/navy
+	var/tanrucksack = /obj/item/storage/backpack/rucksack/tan
+	var/khakisatchel = /obj/item/storage/backpack/satchel/leather/khaki
+	var/blacksatchel = /obj/item/storage/backpack/satchel/leather/black
+	var/navysatchel = /obj/item/storage/backpack/satchel/leather/navy
+	var/olivesatchel = /obj/item/storage/backpack/satchel/leather/olive
+	var/auburnsatchel = /obj/item/storage/backpack/satchel/leather/reddish
+	var/pocketbook = /obj/item/storage/backpack/satchel/pocketbook
+	var/brownpocketbook = /obj/item/storage/backpack/satchel/pocketbook/brown
+	var/auburnpocketbook = /obj/item/storage/backpack/satchel/pocketbook/reddish
 
 	var/allow_pda_choice = FALSE
 	var/tab_pda = /obj/item/modular_computer/handheld/pda/civilian
@@ -92,11 +118,37 @@
 			if (OUTFIT_SATCHEL)
 				back = use_job_specific ? satchel : /obj/item/storage/backpack/satchel_norm
 			if (OUTFIT_SATCHEL_ALT)
-				back = use_job_specific ? satchel_alt : /obj/item/storage/backpack/satchel
+				back = use_job_specific ? satchel_alt : /obj/item/storage/backpack/satchel/leather
 			if (OUTFIT_DUFFELBAG)
 				back = use_job_specific ? dufflebag : /obj/item/storage/backpack/duffel
 			if (OUTFIT_MESSENGERBAG)
 				back = use_job_specific ? messengerbag : /obj/item/storage/backpack/messenger
+			if (OUTFIT_RUCKSACK)
+				back = use_job_specific ? rucksack : /obj/item/storage/backpack/rucksack
+			if (OUTFIT_BLUERUCKSACK)
+				back = use_job_specific ? bluerucksack : /obj/item/storage/backpack/rucksack/blue
+			if (OUTFIT_GREENRUCKSACK)
+				back = use_job_specific ? greenrucksack : /obj/item/storage/backpack/rucksack/green
+			if (OUTFIT_NAVYRUCKSACK)
+				back = use_job_specific ? navyrucksack : /obj/item/storage/backpack/rucksack/navy
+			if (OUTFIT_TANRUCKSACK)
+				back = use_job_specific ? tanrucksack : /obj/item/storage/backpack/rucksack/tan
+			if (OUTFIT_KHAKISATCHEL)
+				back = use_job_specific ? khakisatchel : /obj/item/storage/backpack/satchel/leather/khaki
+			if (OUTFIT_BLACKSATCHEL)
+				back = use_job_specific ? blacksatchel : /obj/item/storage/backpack/satchel/leather/black
+			if (OUTFIT_NAVYSATCHEL)
+				back = use_job_specific ? navysatchel : /obj/item/storage/backpack/satchel/leather/navy
+			if (OUTFIT_OLIVESATCHEL)
+				back = use_job_specific ? olivesatchel : /obj/item/storage/backpack/satchel/leather/olive
+			if (OUTFIT_AUBURNSATCHEL)
+				back = use_job_specific ? auburnsatchel : /obj/item/storage/backpack/satchel/leather/reddish
+			if (OUTFIT_POCKETBOOK)
+				back = use_job_specific ? pocketbook : /obj/item/storage/backpack/satchel/pocketbook
+			if (OUTFIT_BROWNPOCKETBOOK)
+				back = use_job_specific ? brownpocketbook : /obj/item/storage/backpack/satchel/pocketbook/brown
+			if (OUTFIT_AUBURNPOCKETBOOK)
+				back = use_job_specific ? auburnpocketbook : /obj/item/storage/backpack/satchel/pocketbook/reddish
 			else
 				back = backpack //Department backpack
 	if(back)
@@ -281,7 +333,10 @@
 			if(OUTFIT_PDA_SMART)
 				I.icon = 'icons/obj/pda_smart.dmi'
 		I.update_icon()
-		H.equip_or_collect(I, slot_wear_id)
+		if (H.pda_choice == OUTFIT_WRISTBOUND)
+			H.equip_or_collect(I, slot_wrists)
+		else
+			H.equip_or_collect(I, slot_wear_id)
 
 	if(id)
 		var/obj/item/modular_computer/P = H.wear_id

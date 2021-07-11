@@ -45,7 +45,7 @@
 	name = "Set bone"
 	allowed_tools = list(
 	/obj/item/surgery/bonesetter = 100,	\
-	/obj/item/wrench = 75		\
+	WRENCH = 75		\
 	)
 
 	min_duration = 60
@@ -85,7 +85,7 @@
 	name = "Repair skull"
 	allowed_tools = list(
 	/obj/item/surgery/bonesetter = 100,	\
-	/obj/item/wrench = 75		\
+	WRENCH = 75		\
 	)
 
 	min_duration = 60

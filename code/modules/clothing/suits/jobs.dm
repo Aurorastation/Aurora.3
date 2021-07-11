@@ -10,6 +10,7 @@
 	item_state = "blueapron"
 	blood_overlay_type = "armor"
 	body_parts_covered = 0
+	no_overheat = TRUE
 	allowed = list (/obj/item/reagent_containers/spray/plantbgone,/obj/item/device/analyzer/plant_analyzer,/obj/item/seeds,/obj/item/reagent_containers/glass/fertilizer,/obj/item/material/minihoe)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
@@ -86,6 +87,7 @@ obj/item/clothing/suit/apron/overalls/blue
 	item_state = "apronchef"
 	blood_overlay_type = "armor"
 	body_parts_covered = 0
+	no_overheat = TRUE
 
 //Security
 
@@ -275,6 +277,14 @@ obj/item/clothing/suit/apron/overalls/blue
 	desc_fluff = "for when you want to play ball sports like an aristocrat."
 	icon_state = "blazer"
 	item_state = "blazer"
+	opened = TRUE
+
+/obj/item/clothing/suit/storage/toggle/suitjacket/blazer/long
+	name = "long blazer"
+	desc = "A charming long jacket."
+	desc_fluff = "For when you want to play ball sports like an aristocrat."
+	icon_state = "longblazer"
+	item_state = "longblazer"
 	opened = TRUE
 
 //Medical

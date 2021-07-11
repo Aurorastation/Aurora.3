@@ -61,6 +61,9 @@
 /datum/antagonist/proc/handle_latelogin(var/mob/user)
 	return
 
+/datum/antagonist/proc/is_obvious_antag(var/datum/mind/player)
+	return FALSE
+
 /proc/all_random_antag_types()
 	// No caching as the ANTAG_RANDOM_EXCEPTED flag can be added/removed mid-round.
 	var/list/antag_candidates = all_antag_types.Copy()

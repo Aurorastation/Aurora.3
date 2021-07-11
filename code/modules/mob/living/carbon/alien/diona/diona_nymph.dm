@@ -94,6 +94,8 @@
 		flower_color = get_random_colour(1)
 	. = ..(mapload)
 	//species = all_species[]
+	ingested = new /datum/reagents/metabolism(500, src, CHEM_INGEST)
+	reagents = ingested
 	set_species(SPECIES_DIONA)
 	setup_dionastats()
 	eat_types |= TYPE_ORGANIC

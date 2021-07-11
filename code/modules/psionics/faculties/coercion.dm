@@ -216,7 +216,7 @@
 		var/coercion_rank = user.psi.get_rank(PSI_COERCION)
 		if(coercion_rank >= PSI_RANK_GRANDMASTER)
 			target.AdjustParalysis(-1)
-		target.drowsyness = 0
+		target.drowsiness = 0
 		if(istype(target, /mob/living/carbon))
 			var/mob/living/carbon/M = target
 			M.hallucination = max(M.hallucination, 10)

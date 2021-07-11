@@ -399,5 +399,8 @@ STOCK_ITEM_UNCOMMON(gumballs, 3)
 STOCK_ITEM_UNCOMMON(googly, 0.75)
 	new /obj/item/storage/box/googly(L)
 
+STOCK_ITEM_UNCOMMON(wizarddressup, 1)
+	new /obj/random/wizard_dressup(L)
+
 STOCK_ITEM_UNCOMMON(nothing, 0)
 	// no-op
