@@ -2877,6 +2877,8 @@
 #include "code\modules\spell_system\spells\spell_list\self\generic\rune_write.dm"
 #include "code\modules\spell_system\spells\spell_list\self\generic\shadow_shroud.dm"
 #include "code\modules\spell_system\spells\spell_list\self\generic\shift.dm"
+#include "code\modules\sql_migrations\migration_management.dm"
+#include "code\modules\sql_migrations\sql_migration.dm"
 #include "code\modules\supermatter\setup_supermatter.dm"
 #include "code\modules\supermatter\supermatter.dm"
 #include "code\modules\surgery\_defines.dm"
