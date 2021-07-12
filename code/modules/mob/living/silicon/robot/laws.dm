@@ -4,9 +4,6 @@
 	show_laws()
 
 /mob/living/silicon/robot/show_laws()
-	if (istype(src, /mob/living/silicon/robot/shell))
-		return
-
 	laws_sanity_check()
 
 	if(law_update)

@@ -780,10 +780,10 @@ var/list/ai_verbs_default = list(
 	toggle_sensor_mode()
 
 /mob/living/silicon/ai/proc/remote_control_shell()
-	set name = "Remote control shell"
+	set name = "Remote Control Shell"
 	set category = "AI Commands"
 	set desc = "Remotely control any active shells on your AI shell network."
-	SSvirtualreality.robot_selection(src, REMOTE_AI_ROBOT)
+	SSvirtualreality.bound_selection(src, REMOTE_AI_ROBOT)
 
 /mob/living/silicon/ai/proc/toggle_hologram_movement()
 	set name = "Toggle Hologram Movement"

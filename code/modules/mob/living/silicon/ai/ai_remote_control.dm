@@ -23,11 +23,11 @@
 
 /obj/item/robot_module/aicontrol/Initialize()
 	. = ..()
-	src.modules += new /obj/item/crowbar/robotic/jawsoflife(src)
-	src.modules += new /obj/item/wrench/robotic(src)
-	src.modules += new /obj/item/device/healthanalyzer(src)
-	src.modules += new /obj/item/extinguisher/mini(src)
-	src.modules += new /obj/item/device/advanced_healthanalyzer/robotic(src)
+	modules += new /obj/item/crowbar/robotic/jawsoflife(src)
+	modules += new /obj/item/wrench/robotic(src)
+	modules += new /obj/item/device/healthanalyzer(src)
+	modules += new /obj/item/extinguisher/mini(src)
+	modules += new /obj/item/device/advanced_healthanalyzer(src)
 
 /mob/living/silicon/robot/shell
 	spawn_module = /obj/item/robot_module/aicontrol
@@ -37,13 +37,19 @@
 
 /mob/living/silicon/robot/shell/Initialize()
 	. = ..()
-	SSvirtualreality.add_robot(src, remote_network)
+	SSvirtualreality.add_bound(src, remote_network)
 	name = "AI shell"
+
+/mob/living/silicon/robot/shell/show_laws()
+	return
+
+/mob/living/silicon/robot/shell/choose_icon()
+	return
 
 /obj/item/crowbar/robotic/jawsoflife
 	name = "jaws of life"
 	desc = "A set of specialized tools that functions as both the ordinary crowbar, but is additionally capable of brute forcing bolted doors."
-	icon = 'icons/obj/weapons.dmi'
+	icon = 'icons/obj/contained_items/weapons/jawsoflife.dmi'
 	icon_state = "jawspry"
 	flags = NOBLUDGEON
 	force = 0
@@ -55,5 +61,5 @@
 	return FALSE
 
 /obj/item/device/advanced_healthanalyzer/robotic
-	name = "Shell body analyzer"
+	name = "shell body analyzer"
 	desc = "An advanced scanner capable of giving a full patient readout."

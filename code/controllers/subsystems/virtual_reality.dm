@@ -10,8 +10,12 @@
 	var/list/list/mechs = list() // A list of lists, containing the mechs and their networks
 
 	// IPC BODIES
-	var/list/robotnetworks = list(REMOTE_GENERIC_ROBOT, REMOTE_BUNKER_ROBOT, REMOTE_PRISON_ROBOT, REMOTE_WARDEN_ROBOT, REMOTE_AI_ROBOT)
+	var/list/robotnetworks = list(REMOTE_GENERIC_ROBOT, REMOTE_BUNKER_ROBOT, REMOTE_PRISON_ROBOT, REMOTE_WARDEN_ROBOT)
 	var/list/list/robots = list()
+
+	// STATIONBOUND BODIES
+	var/list/boundnetworks = list(REMOTE_AI_ROBOT)
+	var/list/list/bounded = list()
 
 /datum/controller/subsystem/virtualreality/New()
 	NEW_SS_GLOBAL(SSvirtualreality)
@@ -21,6 +25,8 @@
 		mechs[network] = list()
 	for(var/network in robotnetworks)
 		robots[network] = list()
+	for(var/network in boundnetworks)
+		bounded[network] = list()
 	..()
 
 
@@ -39,6 +45,14 @@
 /datum/controller/subsystem/virtualreality/proc/remove_robot(var/mob/living/robot, var/network)
 	if(robot && network)
 		robots[network].Remove(robot)
+
+/datum/controller/subsystem/virtualreality/proc/add_bound(var/mob/living/silicon/bound, var/network)
+	if(bound && network)
+		bounded[network] += bound
+
+/datum/controller/subsystem/virtualreality/proc/remove_bound(var/mob/living/silicon/bound, var/network)
+	if(bound && network)
+		bounded[network].Remove(bound)
 
 
 /mob
@@ -203,3 +217,28 @@
 		return
 
 	mind_transfer(user, robot[choice])
+
+/datum/controller/subsystem/virtualreality/proc/bound_selection(var/user, var/network)
+	var/list/bound = list()
+
+	for(var/mob/living/silicon/R in bounded[network])
+		var/turf/T = get_turf(R)
+		if(!T)
+			continue
+		if(isNotStationLevel(T.z))
+			continue
+		if(R.client || R.ckey)
+			continue
+		if(R.stat == DEAD)
+			continue
+		bound[R.name] = R
+
+	if(!length(bound))
+		to_chat(user, SPAN_WARNING("No active remote units are available."))
+		return
+
+	var/choice = input("Please select a remote control unit to take over.", "Remote Unit Selection") as null|anything in bound
+	if(!choice)
+		return
+
+	mind_transfer(user, bound[choice])

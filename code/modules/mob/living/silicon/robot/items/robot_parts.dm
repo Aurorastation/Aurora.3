@@ -233,7 +233,7 @@
 			O.invisibility = 0
 			O.custom_name = "Ai shell"
 
-			O.job = "Cyborg"
+			O.job = "AI Shell"
 			O.cell = chest.cell
 			O.cell.forceMove(O)
 			W.forceMove(O) 
@@ -243,7 +243,6 @@
 				cell_component.wrapped = O.cell
 				cell_component.installed = TRUE
 
-			feedback_inc("cyborg_birth", 1)
 			qdel(src)
 		else
 			to_chat(user, SPAN_WARNING("\The [W] can only be inserted after everything else is installed."))
