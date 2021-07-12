@@ -110,10 +110,10 @@
 
 /datum/gear/faction/zenghu_labcoat/New()
 	..()
-	var/masks = list()
+	var/list/masks = list()
 	masks["zeng-hu labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
 	masks["zeng-hu labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
-	gear_tweaks += new/datum/gear_tweak/path(masks)
+	gear_tweaks += new /datum/gear_tweak/path(masks)
 
 /datum/gear/faction/zenghu_apron
 	display_name = "zeng-hu vinyl apron"

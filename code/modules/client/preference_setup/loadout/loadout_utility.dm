@@ -10,12 +10,12 @@
 
 /datum/gear/utility/briefcase/New()
 	..()
-	var/briefcases = list()
+	var/list/briefcases = list()
 	briefcases["brown briefcase"] = /obj/item/storage/briefcase
 	briefcases["black briefcase"] = /obj/item/storage/briefcase/black
 	briefcases["metal briefcase"] = /obj/item/storage/briefcase/aluminium
 	briefcases["NT briefcase"] = /obj/item/storage/briefcase/nt
-	gear_tweaks += new/datum/gear_tweak/path(briefcases)
+	gear_tweaks += new /datum/gear_tweak/path(briefcases)
 
 /datum/gear/utility/secure
 	display_name = "secure briefcase"
@@ -34,13 +34,13 @@
 
 /datum/gear/utility/folder/New()
 	..()
-	var/folders = list()
+	var/list/folders = list()
 	folders["blue folder"] = /obj/item/folder/blue
 	folders["grey folder"] = /obj/item/folder
 	folders["red folder"] = /obj/item/folder/red
 	folders["white folder"] = /obj/item/folder/white
 	folders["yellow folder"] = /obj/item/folder/yellow
-	gear_tweaks += new/datum/gear_tweak/path(folders)
+	gear_tweaks += new /datum/gear_tweak/path(folders)
 
 /datum/gear/utility/fountainpen
 	display_name = "fountain pen selection"
@@ -50,12 +50,12 @@
 
 /datum/gear/utility/fountainpen/New()
 	..()
-	var/fountainpens = list()
+	var/list/fountainpens = list()
 	fountainpens["black fountain pen"] = /obj/item/pen/fountain/black
 	fountainpens["grey fountain pen"] = /obj/item/pen/fountain
 	fountainpens["silver fountain pen"] = /obj/item/pen/fountain/silver
 	fountainpens["white fountain pen"] = /obj/item/pen/fountain/white
-	gear_tweaks += new/datum/gear_tweak/path(fountainpens)
+	gear_tweaks += new /datum/gear_tweak/path(fountainpens)
 
 /datum/gear/utility/paicard
 	display_name = "personal AI device"
@@ -68,10 +68,10 @@
 
 /datum/gear/utility/wallet/New()
 	..()
-	var/wallet = list()
+	var/list/wallet = list()
 	wallet["wallet, colourable"] = /obj/item/storage/wallet/colourable
 	wallet["wallet, purse"] = /obj/item/storage/wallet/purse
-	gear_tweaks += new/datum/gear_tweak/path(wallet)
+	gear_tweaks += new /datum/gear_tweak/path(wallet)
 
 /datum/gear/utility/lanyard
 	display_name = "lanyard"
