@@ -60,6 +60,3 @@
 	user.visible_message("\The [user] [pick("boops", "squeezes", "pokes", "prods", "strokes", "bonks")] \the [M] with \the [src]")
 	return FALSE
 
-/obj/item/device/advanced_healthanalyzer/robotic
-	name = "shell body analyzer"
-	desc = "An advanced scanner capable of giving a full patient readout."
