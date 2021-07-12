@@ -163,12 +163,12 @@
 	icon_closed = "radsuitcloset"
 
 /obj/structure/closet/radiation/fill()
-	new /obj/item/clothing/suit/radiation(src)
-	new /obj/item/clothing/head/radiation(src)
-	new /obj/item/clothing/glasses/safety/goggles(src)
-	new /obj/item/clothing/suit/radiation(src)
-	new /obj/item/clothing/head/radiation(src)
-	new /obj/item/clothing/glasses/safety/goggles(src)
+	for(var/i = 1 to 2)
+		new /obj/item/clothing/head/radiation(src)
+		new /obj/item/clothing/suit/radiation(src)
+		new /obj/item/clothing/glasses/safety/goggles(src)
+	for(var/i = 1 to 2)
+		new /obj/item/reagent_containers/hypospray/autoinjector/hyronalin(src)
 
 /*
  * Bombsuit closet

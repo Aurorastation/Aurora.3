@@ -18,3 +18,6 @@ var/datum/antagonist/morph/morphs = null
 	. = ..()
 	to_chat(player.current, SPAN_DANGER("As a morph, you can disguise as objects by alt-clicking on them."))
 	to_chat(player.current, SPAN_DANGER("You can eat people and items by clicking on them, but only if they're dead."))
+
+/datum/antagonist/morph/is_obvious_antag(datum/mind/player)
+	return TRUE

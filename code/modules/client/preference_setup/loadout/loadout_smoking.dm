@@ -9,7 +9,7 @@
 
 /datum/gear/smoking/zippo/New()
 	..()
-	var/zippolighters = list()
+	var/list/zippolighters = list()
 	zippolighters["regular zippo"] = /obj/item/flame/lighter/zippo
 	zippolighters["nanotrasen zippo"] = /obj/item/flame/lighter/zippo/nt
 	zippolighters["black zippo"] = /obj/item/flame/lighter/zippo/black
@@ -26,7 +26,7 @@
 	zippolighters["gadpathurian zippo"] = /obj/item/flame/lighter/zippo/gadpathur
 	zippolighters["luceian zippo"] = /obj/item/flame/lighter/zippo/luceian
 	zippolighters["asoral jet lighter"] = /obj/item/flame/lighter/zippo/asoral
-	gear_tweaks += new/datum/gear_tweak/path(zippolighters)
+	gear_tweaks += new /datum/gear_tweak/path(zippolighters)
 
 /datum/gear/smoking/lighter
 	display_name = "cheap lighter"
@@ -47,7 +47,7 @@
 
 /datum/gear/smoking/cigarettes/New()
 	..()
-	var/cigarettes = list()
+	var/list/cigarettes = list()
 	cigarettes["Laissez-Faires cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/rugged
 	cigarettes["Trans-Stellar Duty Free cigarette packet"] = /obj/item/storage/box/fancy/cigarettes
 	cigarettes["DromedaryCo cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/dromedaryco
@@ -55,7 +55,7 @@
 	cigarettes["Working Tajara cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/pra
 	cigarettes["Shastar Leaves cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/dpra
 	cigarettes["Royal Choice cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/nka
-	gear_tweaks += new/datum/gear_tweak/path(cigarettes)
+	gear_tweaks += new /datum/gear_tweak/path(cigarettes)
 
 /datum/gear/smoking/chew
 	display_name = "chewing tobacco selection"
@@ -66,12 +66,12 @@
 
 /datum/gear/smoking/chew/New()
 	..()
-	var/chews = list()
+	var/list/chews = list()
 	chews["Rredouane Cuts chewing tobacco"] = /obj/item/storage/chewables/tobacco/bad
 	chews["Mendell Smooth chewing tobacco"] = /obj/item/storage/chewables/tobacco
 	chews["Taba-Kamu chewing tobacco"] = /obj/item/storage/chewables/tobacco/fine
 	chews["box of Nico-Tine gum"] = /obj/item/storage/box/fancy/chewables/tobacco/nico
-	gear_tweaks += new/datum/gear_tweak/path(chews)
+	gear_tweaks += new /datum/gear_tweak/path(chews)
 
 /datum/gear/smoking/leaves
 	display_name = "tobacco leaf selection"
@@ -82,12 +82,12 @@
 
 /datum/gear/smoking/leaves/New()
 	..()
-	var/leaves = list()
+	var/list/leaves = list()
 	leaves["S'th Kasavakh tobacco leaves"] = /obj/item/storage/chewables/rollable/unathi
 	leaves["Agyre Lake tobacco leaves"] = /obj/item/storage/chewables/rollable
 	leaves["Excelsior Epsilon tobacco leaves"] = /obj/item/storage/chewables/rollable/fine
 	leaves["Golden Sol tobacco leaves"] = /obj/item/storage/chewables/rollable/nico
-	gear_tweaks += new/datum/gear_tweak/path(leaves)
+	gear_tweaks += new /datum/gear_tweak/path(leaves)
 
 /datum/gear/smoking/pipe
 	display_name = "pipe selection"
@@ -95,10 +95,10 @@
 
 /datum/gear/smoking/pipe/New()
 	..()
-	var/pipe = list()
+	var/list/pipe = list()
 	pipe["smoking pipe"] = /obj/item/clothing/mask/smokable/pipe
 	pipe["smoking pipe, corn"] = /obj/item/clothing/mask/smokable/pipe/cobpipe
-	gear_tweaks += new/datum/gear_tweak/path(pipe)
+	gear_tweaks += new /datum/gear_tweak/path(pipe)
 
 /datum/gear/smoking/bonepipe
 	display_name = "Europan bone pipe"
@@ -116,7 +116,7 @@
 
 /datum/gear/smoking/cigpaper/New()
 	..()
-	var/cigpaper = list()
+	var/list/cigpaper = list()
 	cigpaper["Gen. Eric cigarette paper"] = /obj/item/storage/box/fancy/cigpaper
 	cigpaper["Trident cigarette paper"] = /obj/item/storage/box/fancy/cigpaper/fine
 	gear_tweaks += new /datum/gear_tweak/path(cigpaper)

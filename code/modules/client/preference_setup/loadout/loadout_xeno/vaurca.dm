@@ -57,12 +57,12 @@
 
 /datum/gear/vaurca_robe/New()
 	..()
-	var/cloaks = list()
+	var/list/cloaks = list()
 	cloaks["hive cloak, red and golden"] = /obj/item/clothing/suit/vaurca
 	cloaks["hive cloak, red and silver"] = /obj/item/clothing/suit/vaurca/silver
 	cloaks["hive cloak, brown and silver"] = /obj/item/clothing/suit/vaurca/brown
 	cloaks["hive cloak, blue and golden"] = /obj/item/clothing/suit/vaurca/blue
-	gear_tweaks += new/datum/gear_tweak/path(cloaks)
+	gear_tweaks += new /datum/gear_tweak/path(cloaks)
 
 /datum/gear/uniform/vaurca
 	display_name = "vaurca clothes"
@@ -97,13 +97,13 @@
 
 /datum/gear/suit/vaurca_shroud/New()
 	..()
-	var/shrouds = list()
+	var/list/shrouds = list()
 	shrouds["vaurcan shroud, blue"] = /obj/item/clothing/head/shroud
 	shrouds["vaurcan shroud, red"] = /obj/item/clothing/head/shroud/red
 	shrouds["vaurcan shroud, green"] = /obj/item/clothing/head/shroud/green
 	shrouds["vaurcan shroud, purple"] = /obj/item/clothing/head/shroud/purple
 	shrouds["vaurcan shroud, brown"] = /obj/item/clothing/head/shroud/brown
-	gear_tweaks += new/datum/gear_tweak/path(shrouds)
+	gear_tweaks += new /datum/gear_tweak/path(shrouds)
 
 /datum/gear/suit/vaurca_mantle
 	display_name = "vaurcan mantle"
@@ -124,7 +124,7 @@
 
 /datum/gear/augment/language_processor/New()
 	..()
-	var/language_processors = list()
+	var/list/language_processors = list()
 	language_processors["K'laxan [LANGUAGE_UNATHI] language processor"] = /obj/item/organ/internal/augment/language/klax
 	language_processors["C'thur [LANGUAGE_SKRELLIAN] language processor"] = /obj/item/organ/internal/augment/language/cthur
 	gear_tweaks += new /datum/gear_tweak/path(language_processors)

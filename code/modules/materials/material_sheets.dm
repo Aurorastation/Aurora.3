@@ -348,7 +348,7 @@
 
 /obj/item/stack/material/leather
 	name = "leather"
-	desc = "The by-product of mob grinding."
+	desc = "Created by only the finest of biogenerators!"
 	icon_state = "sheet-leather"
 	default_type = MATERIAL_LEATHER
 	icon_has_variants = TRUE
@@ -357,6 +357,11 @@
 	. = ..()
 	amount = max_amount
 	update_icon()
+
+/obj/item/stack/material/leather/fine
+	name = "fine leather"
+	desc = "Handcrafted by an artisan, this leather is a wonderful status symbol for the wealthy few... Despite it not being any tougher than its biogenerated counterpart."
+	default_type = MATERIAL_LEATHER_FINE
 
 /obj/item/stack/material/glass
 	name = "glass"

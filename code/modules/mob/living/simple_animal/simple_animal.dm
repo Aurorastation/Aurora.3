@@ -89,8 +89,6 @@
 	var/resistance		  = 0	// Damage reduction
 	var/resist_mod = 1 // a multiplier for the chance the animal has to break out
 
-	var/wizard_master
-
 	//Null rod stuff
 	var/supernatural = 0
 	var/purge = 0

@@ -354,7 +354,7 @@
 					if(W && prob(holding[W]))
 						if(istype(W, /obj/item/grab))
 							var/obj/item/grab/G = W
-							if(G.affecting)
+							if(G.affecting && G.affecting != M)
 								visible_message(SPAN_WARNING("[src] repositions \the [G.affecting] to block \the [M]'s disarm attempt!"), SPAN_NOTICE("You reposition \the [G.affecting] to block \the [M]'s disarm attempt!"))
 								G.attack_hand(M)
 							return
