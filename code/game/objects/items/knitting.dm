@@ -68,7 +68,7 @@
 	working = TRUE
 	update_icon()
 
-	if(!do_after(user,5 SECONDS))
+	if(!do_after(user,2 MINUTES))
 		to_chat(user, SPAN_WARNING("Your concentration is broken!"))
 		working = FALSE
 		update_icon()
