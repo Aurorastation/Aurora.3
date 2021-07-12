@@ -8,6 +8,8 @@
 	contained_sprite = TRUE
 	var/working = FALSE
 	var/obj/item/yarn/ball
+	var/static/list/knitables = list(/obj/item/clothing/accessory/sweater, /obj/item/clothing/suit/storage/toggle/cardigan, /obj/item/clothing/suit/storage/toggle/cardigan/sweater, /obj/item/clothing/suit/storage/toggle/cardigan/argyle, /obj/item/clothing/accessory/sweatervest, /obj/item/clothing/accessory/sweaterturtleneck, /obj/item/clothing/gloves/fingerless/colour/knitted, /obj/item/clothing/gloves/knitted, /obj/item/clothing/ears/bandanna/colorable/knitted, /obj/item/clothing/accessory/scarf)
+	var/static/list/name2knit
 
 /obj/item/knittingneedles/Destroy()
 	if(ball)
@@ -38,35 +40,48 @@
 			user.unEquip(O)
 			O.forceMove(src)
 			ball = O
-			to_chat(user, "<span class='notice'>You place \the [O] in \the [src]</span>")
+			to_chat(user, SPAN_NOTICE("You place \the [O] in \the [src]"))
 			update_icon()
 
 /obj/item/knittingneedles/attack_self(mob/user as mob)
 	if(!ball) //if there is no yarn ball, nothing happens
-		to_chat(user, "<span class='warning'>You need a yarn ball to stitch.</span>")
+		to_chat(user, SPAN_WARNING("You need a yarn ball to stitch."))
 		return
 
 	if(working)
-		to_chat(user, "<span class='warning'>You are already sitching something.</span>")
+		to_chat(user, SPAN_WARNING("You are already sitching something."))
 		return
 
-	user.visible_message("<span class='notice'>\The [user] is knitting something soft and cozy.</span>")
+	if (!name2knit)
+		name2knit = list()
+		for(var/obj/thing as anything in knitables)
+			name2knit[initial(thing.name)] = thing
+
+	var/list/options = list()
+	for (var/obj/item/clothing/i as anything in knitables)
+		var/image/radial_button = image(icon = initial(i.icon), icon_state = initial(i.icon_state))
+		options[initial(i.name)] = radial_button
+	var/knit_name = show_radial_menu(user, user, options, radius = 42, tooltips = TRUE)
+	var/type_path = name2knit[knit_name]
+
+	user.visible_message("<b>[user]</b> begins knitting something soft and cozy.")
 	working = TRUE
 	update_icon()
 
-	if(!do_after(user,2 MINUTES))
-		to_chat(user, "<span class='warning'>Your concentration is broken!</span>")
+	if(!do_after(user,5 SECONDS))
+		to_chat(user, SPAN_WARNING("Your concentration is broken!"))
 		working = FALSE
 		update_icon()
 		return
 
-	var/obj/item/clothing/accessory/sweater/S = new(get_turf(user))
+	var/obj/item/clothing/S = new type_path(get_turf(user))
+	user.put_in_hands(S)
 	S.color = ball.color
 	qdel(ball)
 	ball = null
 	working = FALSE
 	update_icon()
-	to_chat(user, "<span class='warning'>You finish \the [S]!</span>")
+	user.visible_message("<b>[user]</b> finishes working on \the [S].")
 
 /obj/item/yarn
 	name = "ball of yarn"

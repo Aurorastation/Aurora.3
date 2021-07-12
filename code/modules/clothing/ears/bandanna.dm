@@ -26,10 +26,12 @@
 	icon_state = "band_bk"
 	item_state = "band_bk"
 
-/obj/item/clothing/ears/bandanna_colorable
+/obj/item/clothing/ears/bandanna/colorable
 	name = "neck bandanna"
 	desc = "A bandanna in 16,777,216 designer colors that goes around the neck."
 	icon_state = "band_wh"
 	item_state = "band_wh"
-	w_class = ITEMSIZE_TINY
-	slot_flags = SLOT_EARS
+
+/obj/item/clothing/ears/bandanna/colorable/knitted
+	name = "knitted neck bandanna"
+	desc = "A hand knitted neck bandanna. It looks quite soft."
