@@ -1,8 +1,8 @@
 /obj/machinery/computer/arcade/
 	name = "random arcade"
 	desc = "random arcade machine"
-	icon_state = "arcade"
-	icon_screen = "invaders"
+	icon_state = "arcade2"
+	icon_screen = "battler"
 	var/prize = /obj/random/arcade
 
 /obj/machinery/computer/arcade/Initialize()
@@ -50,7 +50,8 @@
 /obj/machinery/computer/arcade/battle
 	name = "arcade machine"
 	desc = "Does not support Pinball."
-	icon_state = "arcade"
+	icon_state = "arcade2"
+	icon_screen = "battler"
 	circuit = /obj/item/circuitboard/arcade/battle
 	var/enemy_name = "Space Villian"
 	var/temp = "Winners don't use space drugs" //Temporary message, for attack messages, etc
