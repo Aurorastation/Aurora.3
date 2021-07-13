@@ -353,6 +353,11 @@ var/list/ai_verbs_default = list(
 		<p>Familiarize yourself with the GUI buttons in world view. They are shortcuts to running commands for camera tracking, displaying alerts, moving up and down and such.</p>\
 		<p>While observing through a camera, you can use most (networked) devices which you can see, such as computers, APCs, intercoms, doors, etc. \
 			To use something, simply click on it.</p>\
+		<h2>AI Shell</h2>\
+		<p>As an AI, you have access to an unique, inhabitable AI shell that spawn behind your core.\
+			 This construct can be used in a variety of ways, but its primary function is to be a <strong>role play tool</strong> to give you the ability to have an actual physical presence on the station.\
+			 The shell is an extension of you, which means <strong>your laws apply to it aswell.</strong>\
+		</p>\
 		<h2>OOC Notes</h2>\
 		<p>Please remember that as an AI <strong>you can heavily skew the game in your (and thus usually the crew's) favour</strong>. \
 			You are extremely effective at identifying and stopping threats, which unfortunately also means that \
@@ -366,11 +371,6 @@ var/list/ai_verbs_default = list(
 			<div class='block' style='padding-left: 2rem'>[radio_keys]</div>\
 			Use these like any other radio with the <code>Say</code> command. \
 			Recall the channel list at any time by calling <code>Radio-Settings</code> under <em>AI Commands</em>.\
-		</p>\
-		<h2>AI Shell</h2>\
-		<p>As an AI, you have access to an unique, inhabitable AI shell that spawn behind your core.\
-			 This construct can be used in a variety of ways, but its primary function is to be a <strong>role play tool</strong> to give you the ability to have an actual physical presence on the station.\
-			 The shell is an extension of you, which means <strong>your laws apply to it aswell.</strong>\
 		</p>\
 		"
 	usr << browse(enable_ui_theme(usr, dat), "window=aihelp,size=520x700")
