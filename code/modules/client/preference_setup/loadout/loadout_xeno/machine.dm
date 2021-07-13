@@ -8,11 +8,11 @@
 
 /datum/gear/head/goldenchains/New()
 	..()
-	var/headchains = list()
+	var/list/headchains = list()
 	headchains["head chains, cobalt"] = /obj/item/clothing/head/headchain
 	headchains["head chains, emerald"] = /obj/item/clothing/head/headchain/emerald
 	headchains["head chains, ruby"] = /obj/item/clothing/head/headchain/ruby
-	gear_tweaks += new/datum/gear_tweak/path(headchains)
+	gear_tweaks += new /datum/gear_tweak/path(headchains)
 
 /datum/gear/head/goldencrests
 	display_name = "golden deep crests"
@@ -24,11 +24,11 @@
 
 /datum/gear/head/goldencrests/New()
 	..()
-	var/crest = list()
+	var/list/crest = list()
 	crest["crest, cobalt"] = /obj/item/clothing/head/crest
 	crest["crest, emerald"] = /obj/item/clothing/head/crest/emerald
 	crest["crest, ruby"] = /obj/item/clothing/head/crest/ruby
-	gear_tweaks += new/datum/gear_tweak/path(crest)
+	gear_tweaks += new /datum/gear_tweak/path(crest)
 
 /datum/gear/wrists/armchains
 	display_name = "golden deep armchains"
@@ -39,11 +39,11 @@
 
 /datum/gear/wrists/armchains/New()
 	..()
-	var/armchains = list()
+	var/list/armchains = list()
 	armchains["arm chains, cobalt"] = /obj/item/clothing/wrists/armchain
 	armchains["arm chains, emerald"] = /obj/item/clothing/wrists/armchain/emerald
 	armchains["arm chains, ruby"] = /obj/item/clothing/wrists/armchain/ruby
-	gear_tweaks += new/datum/gear_tweak/path(armchains)
+	gear_tweaks += new /datum/gear_tweak/path(armchains)
 
 /datum/gear/wrists/bracers
 	display_name = "golden deep bracers"
@@ -54,11 +54,11 @@
 
 /datum/gear/wrists/bracers/New()
 	..()
-	var/bracers = list()
+	var/list/bracers = list()
 	bracers["arm chains, cobalt"] = /obj/item/clothing/wrists/goldbracer
 	bracers["arm chains, emerald"] = /obj/item/clothing/wrists/goldbracer/emerald
 	bracers["arm chains, ruby"] = /obj/item/clothing/wrists/goldbracer/ruby
-	gear_tweaks += new/datum/gear_tweak/path(bracers)
+	gear_tweaks += new /datum/gear_tweak/path(bracers)
 
 /datum/gear/ears/antennae
 	display_name = "antennae"
@@ -70,7 +70,7 @@
 
 /datum/gear/ears/antennae/New()
 	..()
-	var/antenna = list()
+	var/list/antenna = list()
 	antenna["antenna, curved"] = /obj/item/clothing/ears/antenna/curved
 	antenna["antenna, straight"] = /obj/item/clothing/ears/antenna/straight
 	antenna["antenna, circle"] = /obj/item/clothing/ears/antenna/circle
@@ -81,7 +81,7 @@
 	antenna["antenna, dishes"] = /obj/item/clothing/ears/antenna/dish
 	antenna["antenna, dual whips"] = /obj/item/clothing/ears/antenna/whip
 	antenna["antenna, whip"] = /obj/item/clothing/ears/antenna/whip/single
-	gear_tweaks += new/datum/gear_tweak/path(antenna)
+	gear_tweaks += new /datum/gear_tweak/path(antenna)
 
 /datum/gear/ears/trinary_halo
 	display_name = "trinary perfection antenna"
@@ -108,7 +108,7 @@
 
 /datum/gear/suit/idris/New()
 	..()
-	var/idris = list()
+	var/list/idris = list()
 	idris["black Idris Unit coat"] = /obj/item/clothing/suit/storage/toggle/armor/vest/idris
 	idris["white Idris Unit coat"] = /obj/item/clothing/suit/storage/toggle/armor/vest/idris/white
 	idris["brown Idris Unit coat"] = /obj/item/clothing/suit/storage/toggle/armor/vest/idris/brown
@@ -121,7 +121,7 @@
 	idris["black Idris Unit duster coat"] = /obj/item/clothing/suit/storage/toggle/armor/vest/idris/duster
 	idris["white Idris Unit duster coat"] = /obj/item/clothing/suit/storage/toggle/armor/vest/idris/duster/white
 	idris["brown Idris Unit duster coat"] = /obj/item/clothing/suit/storage/toggle/armor/vest/idris/duster/brown
-	gear_tweaks += new/datum/gear_tweak/path(idris)
+	gear_tweaks += new /datum/gear_tweak/path(idris)
 
 /datum/gear/uniform/goldendeep
 	display_name = "golden deep outfit selection"
@@ -132,13 +132,13 @@
 
 /datum/gear/uniform/goldendeep/New()
 	..()
-	var/goldendeep = list()
+	var/list/goldendeep = list()
 	goldendeep["golden deep dress"] = /obj/item/clothing/under/goldendeep
 	goldendeep["golden deep wrap"] = /obj/item/clothing/under/goldendeep/wrap
 	goldendeep["golden deep vest"] = /obj/item/clothing/under/goldendeep/vest
 	goldendeep["golden deep suit"] = /obj/item/clothing/under/goldendeep/suit
 	goldendeep["golden deep skirtsuit"] = /obj/item/clothing/under/goldendeep/skirtsuit
-	gear_tweaks += new/datum/gear_tweak/path(goldendeep)
+	gear_tweaks += new /datum/gear_tweak/path(goldendeep)
 
 /datum/gear/augment/machine/gustatorial
 	display_name = "gustatorial centre (tongue)"

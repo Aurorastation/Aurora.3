@@ -176,13 +176,19 @@
  * Radiation protection
  */
 /obj/item/clothing/head/radiation
-	name = "radiation Hood"
-	icon_state = "rad"
-	desc = "A hood with radiation protective properties. Label: Made with lead, do not eat insulation"
+	name = "radiation hood"
+	desc = "A hood with radiation protective properties. Label: Made with lead, do not eat insulation."
+	icon = 'icons/clothing/kit/radsuit.dmi'
+	item_icons = null
+	icon_state = "radhood"
+	item_state = "radhood"
+	contained_sprite = TRUE
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("skr", "una", "taj")
 	flags_inv = BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
 	armor = list(
-		bio = ARMOR_BIO_RESISTANT, 
+		bio = ARMOR_BIO_RESISTANT,
 		rad = ARMOR_RAD_SHIELDED
 	)
 	siemens_coefficient = 0.35
@@ -191,13 +197,18 @@
 /obj/item/clothing/suit/radiation
 	name = "radiation suit"
 	desc = "A suit that protects against radiation. Label: Made with lead, do not eat insulation."
-	icon_state = "rad"
-	item_state = "rad_suit"
+	icon = 'icons/clothing/kit/radsuit.dmi'
+	item_icons = null
+	icon_state = "radsuit"
+	item_state = "radsuit"
+	contained_sprite = TRUE
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("una")
 	w_class = ITEMSIZE_LARGE//bulky item
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.50
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|HANDS|FEET
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank/emergency_oxygen,/obj/item/clothing/head/radiation,/obj/item/clothing/mask/gas)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/inflatable,/obj/item/device/t_scanner,/obj/item/rfd/construction,/obj/item/material/twohanded/fireaxe,/obj/item/storage/backpack/cell,/obj/item/clothing/head/radiation,/obj/item/clothing/mask/gas,/obj/item/reagent_containers/hypospray/autoinjector)
 	slowdown = 1.5
 	armor = list(
 		bio = ARMOR_BIO_RESISTANT, 
