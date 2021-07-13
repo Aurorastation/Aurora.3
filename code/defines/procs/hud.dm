@@ -4,7 +4,7 @@ the HUD updates properly! */
 
 //HUD image type used to properly clear client.images precisely
 /image/hud_overlay
-	appearance_flags = RESET_COLOR|RESET_ALPHA
+	appearance_flags = RESET_COLOR|RESET_ALPHA|RESET_TRANSFORM
 
 //Medical HUD outputs. Called by the Life() proc of the mob using it, usually.
 proc/process_med_hud(var/mob/M, var/local_scanner, var/mob/Alt)
@@ -19,12 +19,14 @@ proc/process_med_hud(var/mob/M, var/local_scanner, var/mob/Alt)
 		if(local_scanner)
 			P.Client.images += patient.hud_list[HEALTH_HUD]
 			P.Client.images += patient.hud_list[STATUS_HUD]
+			P.Client.images += patient.hud_list[TRIAGE_HUD]
 		else
 			var/sensor_level = getsensorlevel(patient)
 			if(sensor_level >= SUIT_SENSOR_VITAL)
 				P.Client.images += patient.hud_list[HEALTH_HUD]
 			if(sensor_level >= SUIT_SENSOR_BINARY)
 				P.Client.images += patient.hud_list[LIFE_HUD]
+				P.Client.images += patient.hud_list[TRIAGE_HUD]
 
 //Security HUDs. Pass a value for the second argument to enable implant viewing or other special features.
 proc/process_sec_hud(var/mob/M, var/advanced_mode, var/mob/Alt)

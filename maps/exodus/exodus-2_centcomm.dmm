@@ -5313,19 +5313,19 @@
 /obj/item/stack/material/glass/reinforced{
 	amount = 50
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_x = 3;
 	pixel_y = 3
 	},
@@ -9525,13 +9525,6 @@
 /area/antag/wizard)
 "aKe" = (
 /obj/structure/bookcase,
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/antag/wizard)
-"aKf" = (
-/obj/machinery/vending/magivend,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -14881,7 +14874,7 @@
 "aWM" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Teleporter Bay";
-	req_access = list(107)
+	req_access = list(106)
 	},
 /turf/unsimulated/floor{
 	icon_state = "delivery"
@@ -20754,19 +20747,19 @@
 /obj/item/stack/material/glass/reinforced{
 	amount = 50
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_x = 3;
 	pixel_y = 3
 	},
@@ -27533,7 +27526,7 @@ aJJ
 aJG
 aJV
 aJX
-aKf
+aJG
 aKi
 aJV
 aJG

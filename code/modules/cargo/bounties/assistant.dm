@@ -6,7 +6,7 @@
 	required_count = 4
 	random_count = 1
 	wanted_types = list(/obj/item/storage/briefcase)
-	exclude_types = list(/obj/item/storage/briefcase/inflatable, /obj/item/storage/briefcase/crimekit)
+	exclude_types = list(/obj/item/storage/briefcase/crimekit)
 
 /datum/bounty/item/assistant/lung
 	name = "Lungs"

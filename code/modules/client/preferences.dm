@@ -152,6 +152,7 @@ datum/preferences
 	var/parallax_speed = 2
 	var/toggles_secondary = PARALLAX_SPACE | PARALLAX_DUST | PROGRESS_BARS | FLOATING_MESSAGES | HOTKEY_DEFAULT
 	var/clientfps = 0
+	var/floating_chat_color
 
 	var/list/pai = list()	// A list for holding pAI related data.
 
@@ -404,6 +405,7 @@ datum/preferences
 	character.set_species(species)
 	if(character.dna)
 		character.dna.real_name = character.real_name
+	character.set_floating_chat_color(floating_chat_color)
 
 	character.flavor_texts["general"] = flavor_texts["general"]
 	character.flavor_texts[BP_HEAD] = flavor_texts[BP_HEAD]
@@ -479,7 +481,7 @@ datum/preferences
 		else
 			all_underwear -= underwear_category_name
 
-	if(backbag > OUTFIT_MESSENGERBAG || backbag < OUTFIT_NOTHING)
+	if(backbag > OUTFIT_AUBURNPOCKETBOOK || backbag < OUTFIT_NOTHING)
 		backbag = OUTFIT_NOTHING //Same as above
 	character.backbag = backbag
 	character.backbag_style = backbag_style

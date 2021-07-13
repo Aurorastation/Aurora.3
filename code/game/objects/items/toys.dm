@@ -16,6 +16,8 @@
  *		Action figures
  *		Plushies
  *		Toy cult sword
+ *		Ring bell
+ *		Chess Pieces
  */
 
 
@@ -173,7 +175,7 @@
 	return
 
 /obj/item/toy/balloon/attackby(obj/item/W as obj, mob/user as mob)
-	if(can_puncture(W))
+	if(W.can_puncture())
 		burst()
 
 /obj/item/toy/balloon/latex
@@ -980,6 +982,37 @@
 	desc = "A chunky plushie bee. Your new buzz-t friend!"
 	icon_state = "beeplushie"
 
+/obj/item/toy/plushie/greimorian
+	name = "greimorian plushie"
+	desc = "A lovable plushie of a fierce greimorian! This one takes a few liberties."
+	icon_state = "greimorianplushie"
+	phrase = "Gort!"
+
+/obj/item/toy/plushie/axic
+	name = "Axic plushie"
+	desc = "Plushie designed after the main characters of the hit show, Swimstars! This one is Axic. "
+	icon_state = "axicplushie"
+	phrase = "warble!"
+
+/obj/item/toy/plushie/qill
+	name = "Qill plushie"
+	desc = "Plushie designed after the main characters of the hit show, Swimstars! This one is Qill. "
+	icon_state = "qillplushie"
+	phrase = "warble!"
+
+/obj/item/toy/plushie/xana
+	name = "Xana plushie"
+	desc = "Plushie designed after the main characters of the hit show, Swimstars! This one is Xana. "
+	icon_state = "xanaplushie"
+	phrase = "warble!"
+
+/obj/item/toy/plushie/ipc
+	name = "Aphy plushie"
+	desc = "A plushie of an old Hephaestus mascot, Aphy."
+	desc_fluff = "Aphy, a play on the name Aphrodite, was Hephaestus Industries' first baseline prototype. While the original Aphy is on display in Hephaestus' Mars headquarters, the unit has become a cutesy mascot in recent years."
+	icon_state = "ipcplushie"
+	phrase = "Bwoop!"
+
 //Squid Plushies
 
 /obj/item/toy/plushie/squid
@@ -1037,6 +1070,24 @@
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 
+/obj/item/toy/ringbell
+	name = "ringside bell"
+	desc = "A bell used to signal the beginning and end of various ring sports."
+	desc_info = "Use help intent on the bell to signal the start of a contest\ndisarm intent to signal the end of a contest and\nharm intent to signal a disqualification."
+	icon_state = "ringbell"
+	anchored = TRUE
+
+/obj/item/toy/ringbell/attack_hand(mob/user)
+	switch(user.a_intent)
+		if (I_HELP)
+			user.visible_message(FONT_LARGE(SPAN_NOTICE("[user] rings \the [src], signalling the beginning of the contest.")), SPAN_NOTICE("You ring \the [src] to signal the beginning of the contest!"))
+			playsound(user.loc, 'sound/items/oneding.ogg', 60, 1)
+		if (I_DISARM)
+			user.visible_message(FONT_LARGE(SPAN_NOTICE("[user] rings \the [src] three times, signalling the end of the contest!")), SPAN_NOTICE("You ring \the [src] to signal the end of the contest!"))
+			playsound(user.loc, 'sound/items/threedings.ogg', 60, 1)
+		if (I_HURT)
+			user.visible_message(FONT_LARGE(SPAN_WARNING("[user] rings \the [src] repeatedly, signalling a disqualification!")), SPAN_WARNING("You ring \the [src] to signal a disqualification!"))
+			playsound(user.loc, 'sound/items/manydings.ogg', 60, 1)
 
 //baystation desk toys
 
@@ -1106,3 +1157,70 @@
 		new /obj/effect/decal/cleanable/confetti(T)
 	else
 		to_chat(user, SPAN_NOTICE("The [src] is already spent!"))
+
+/obj/item/chess_piece
+	name = "white pawn"
+	desc = "A %NAME% chess piece, this one is worth %POINT% points."
+	icon = 'icons/obj/contained_items/misc/chess.dmi'
+	icon_state = "white_pawn"
+	w_class = ITEMSIZE_HUGE // hugh mungus
+	var/piece_worth = 1
+
+/obj/item/chess_piece/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
+	if(proximity_flag && isturf(target))
+		user.drop_from_inventory(src, target)
+		pixel_y = initial(pixel_y)
+		pixel_x = initial(pixel_x)
+
+/obj/item/chess_piece/Initialize()
+	. = ..()
+	desc = "A [name] chess piece, this one is worth [piece_worth] point\s."
+
+/obj/item/chess_piece/black
+	name = "black pawn"
+	icon_state = "black_pawn"
+
+/obj/item/chess_piece/rook
+	name = "white rook"
+	icon_state = "white_rook"
+	piece_worth = 5
+
+/obj/item/chess_piece/rook/black
+	name = "black rook"
+	icon_state = "black_rook"
+
+/obj/item/chess_piece/knight
+	name = "white knight"
+	icon_state = "white_knight"
+	piece_worth = 3
+
+/obj/item/chess_piece/knight/black
+	name = "black knight"
+	icon_state = "black_knight"
+
+/obj/item/chess_piece/bishop
+	name = "white bishop"
+	icon_state = "white_bishop"
+	piece_worth = 3
+
+/obj/item/chess_piece/bishop/black
+	name = "black bishop"
+	icon_state = "black_bishop"
+
+/obj/item/chess_piece/king
+	name = "white king"
+	icon_state = "white_king"
+	piece_worth = 10 // not really, but i coded myself into a corner here
+
+/obj/item/chess_piece/king/black
+	name = "black king"
+	icon_state = "black_king"
+
+/obj/item/chess_piece/queen
+	name = "white queen"
+	icon_state = "white_queen"
+	piece_worth = 9
+
+/obj/item/chess_piece/queen/black
+	name = "black queen"
+	icon_state = "black_queen"

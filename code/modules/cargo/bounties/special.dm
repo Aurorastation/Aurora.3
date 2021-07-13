@@ -24,10 +24,10 @@
 /datum/bounty/item/phoron_sheet
 	name = "Phoron Sheets"
 	description = "Always prioritize this bounty. Failure to meet this quota may result in adverse impact upon your status in the NanoTrasen Corporation."
-	reward_low = 14000
-	reward_high = 18000
-	required_count = 150
-	random_count = 25
+	reward_low = 7000
+	reward_high = 9000
+	required_count = 75
+	random_count = 15
 	wanted_types = list(/obj/item/stack/material/phoron)
 	high_priority = TRUE
 
@@ -44,14 +44,14 @@
 
 /datum/bounty/item/phoron_canister
 	name = "Phoron Canisters"
-	description = "Updated requirement: Canisters must now be filled to at least 150% of standard stock amounts (approx. 6,800kPA at a temperature of 20C). Always prioritize this bounty. Failure to meet this quota may result in adverse impact upon your status in the NanoTrasen Corporation."
-	reward_low = 15000
-	reward_high = 18000
-	required_count = 5
-	random_count = 1 // 4 to 6
+	description = "Updated requirement: Canisters must now be filled to a minimum of 2000 moles. Always prioritize this bounty. Failure to meet this quota may result in adverse impact upon your status in the NanoTrasen Corporation."
+	reward_low = 8000
+	reward_high = 10000
+	required_count = 3
+	random_count = 1 // 2 to 4
 	wanted_types = list(/obj/machinery/portable_atmospherics/canister)
 	high_priority = TRUE	
-	var/moles_required = 2700 //Roundstart total_moles is about 1871 per tank. 50% more full w/ leeway
+	var/moles_required = 2000 //Roundstart total_moles for a FULL tank is about 1871 per tank. However during the arc this bounty is relevant, tanks are half full. 
 
 /datum/bounty/item/phoron_canister/applies_to(var/obj/machinery/portable_atmospherics/canister/O)
 	if(!..())

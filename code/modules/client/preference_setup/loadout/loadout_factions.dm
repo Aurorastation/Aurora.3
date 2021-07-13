@@ -39,6 +39,11 @@
 	path = /obj/item/clothing/accessory/badge/passcard/sol/silversun
 	faction = "Idris Incorporated"
 
+/datum/gear/faction/idris_rag
+	display_name = "idris advanced service cloth"
+	path = /obj/item/reagent_containers/glass/rag/advanced/idris
+	faction = "Idris Incorporated"
+
 /datum/gear/faction/zavodskoi_beret
 	display_name = "black zavodskoi beret"
 	path = /obj/item/clothing/head/beret/security/zavodskoi

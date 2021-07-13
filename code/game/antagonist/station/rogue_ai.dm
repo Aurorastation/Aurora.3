@@ -10,7 +10,7 @@ var/datum/antagonist/rogue_ai/malf
 	antag_sound = 'sound/effects/antag_notice/malf_alert.ogg'
 	victory_text = "The AI has taken control of all of the station's systems."
 	loss_text = "The AI has been shut down!"
-	flags = ANTAG_VOTABLE | ANTAG_OVERRIDE_MOB | ANTAG_OVERRIDE_JOB | ANTAG_CHOOSE_NAME
+	flags = ANTAG_VOTABLE | ANTAG_OVERRIDE_MOB | ANTAG_OVERRIDE_JOB | ANTAG_CHOOSE_NAME | ANTAG_NO_ROUNDSTART_SPAWN
 	hard_cap = 1
 	hard_cap_round = 1
 	initial_spawn_req = 1

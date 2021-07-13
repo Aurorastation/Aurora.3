@@ -30,16 +30,18 @@
 #define PHORONGUARD        0x20  // Does not get contaminated by phoron.
 #define NOREACT            0x40  // Reagents don't react inside this container.
 #define PROXMOVE           0x80  // Does this object require proximity checking in Enter()?
+#define HELDMAPTEXT        0x100 // Uses the special held maptext system, which sets a specific maptext if the item is in possession of a mob.
 
 //Flags for items (equipment)
-#define THICKMATERIAL          0x1  // Prevents syringes, parapens and hyposprays if equiped to slot_suit or slot_head.
-#define STOPPRESSUREDAMAGE     0x2  // Counts towards pressure protection. Note that like temperature protection, body_parts_covered is considered here as well.
-#define AIRTIGHT               0x4  // Functions with internals.
-#define NOSLIP                 0x8  // Prevents from slipping on wet floors, in space, etc.
-#define BLOCK_GAS_SMOKE_EFFECT 0x10 // Blocks the effect that chemical clouds would have on a mob -- glasses, mask and helmets ONLY! (NOTE: flag shared with ONESIZEFITSALL)
-#define FLEXIBLEMATERIAL       0x20 // At the moment, masks with this flag will not prevent eating even if they are covering your face.
-#define SOUNDPROTECTION        0x40 // whether wearing this item will protect you from loud noises such as flashbangs | this only works for ear slots or the head slot
-#define LIGHTSTEP              0x80 // When applied to footwear, this makes it so that they don't trigger things like landmines and mouse traps
+#define THICKMATERIAL          BITFLAG(0)  // Prevents syringes, parapens and hyposprays if equiped to slot_suit or slot_head.
+#define AIRTIGHT               BITFLAG(1)  // Functions with internals.
+#define NOSLIP                 BITFLAG(2)  // Prevents from slipping on wet floors, in space, etc.
+#define BLOCK_GAS_SMOKE_EFFECT BITFLAG(3)  // Blocks the effect that chemical clouds would have on a mob -- glasses, mask and helmets ONLY! (NOTE: flag shared with ONESIZEFITSALL)
+#define FLEXIBLEMATERIAL       BITFLAG(4)  // At the moment, masks with this flag will not prevent eating even if they are covering your face.
+#define SOUNDPROTECTION        BITFLAG(5)  // whether wearing this item will protect you from loud noises such as flashbangs | this only works for ear slots or the head slot
+#define LIGHTSTEP              BITFLAG(6)  // When applied to footwear, this makes it so that they don't trigger things like landmines and mouse traps
+#define INJECTIONPORT          BITFLAG(7)  // Allows syringes and hyposprays to inject, even if the material is thick
+#define SHOWFLAVORTEXT         BITFLAG(8)  // won't block flavourtext when worn on equipment slot
 
 // Flags for pass_flags.
 #define PASSTABLE		0x1
@@ -168,6 +170,15 @@
 #define WARNING_HIGH_PRESSURE 325 // This determines when the orange pressure icon is displayed (it is 0.7 * HAZARD_HIGH_PRESSURE)
 #define WARNING_LOW_PRESSURE  50  // This is when the gray low pressure icon is displayed. (it is 2.5 * HAZARD_LOW_PRESSURE)
 #define  HAZARD_LOW_PRESSURE  20  // This is when the black ultra-low pressure icon is displayed. (This one is set as a constant)
+
+#define FIRESUIT_MAX_PRESSURE       20 * ONE_ATMOSPHERE  // Firesuits and atmos voidsuits
+#define RIG_MAX_PRESSURE            10 * ONE_ATMOSPHERE  // Rigs
+#define LIGHT_RIG_MAX_PRESSURE       5 * ONE_ATMOSPHERE  // Rigs
+#define ENG_VOIDSUIT_MAX_PRESSURE   10 * ONE_ATMOSPHERE
+#define VOIDSUIT_MAX_PRESSURE        5 * ONE_ATMOSPHERE
+#define SPACE_SUIT_MAX_PRESSURE      2 * ONE_ATMOSPHERE
+
+#define FIRESUIT_MIN_PRESSURE        0.5 * ONE_ATMOSPHERE
 
 #define TEMPERATURE_DAMAGE_COEFFICIENT  1.5 // This is used in handle_temperature_damage() for humans, and in reagents that affect body temperature. Temperature damage is multiplied by this amount.
 #define BODYTEMP_AUTORECOVERY_DIVISOR   12  // This is the divisor which handles how much of the temperature difference between the current body temperature and 310.15K (optimal temperature) humans auto-regenerate each tick. The higher the number, the slower the recovery. This is applied each tick, so long as the mob is alive.

@@ -125,6 +125,14 @@
 				if(specialfunctions & SAFE)
 					D.set_safeties(1)
 
+/obj/machinery/button/remote/airlock/screamer
+	var/message = "REPLACE THIS!"
+	var/channel = "Common"
+
+/obj/machinery/button/remote/airlock/screamer/trigger()
+	. = ..()
+	global_announcer.autosay(message, capitalize_first_letters(name), channel)
+
 #undef OPEN
 #undef IDSCAN
 #undef BOLTS

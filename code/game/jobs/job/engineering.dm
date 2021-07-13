@@ -35,7 +35,7 @@
 
 	uniform = /obj/item/clothing/under/rank/chief_engineer
 	head = /obj/item/clothing/head/hardhat/white
-	belt = /obj/item/storage/belt/utility
+	belt = /obj/item/storage/belt/utility/ce
 	tab_pda = /obj/item/modular_computer/handheld/pda/engineering/ce
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/engineering/ce
 	tablet = /obj/item/modular_computer/handheld/preset/engineering/ce
@@ -49,14 +49,6 @@
 	satchel = /obj/item/storage/backpack/satchel_eng
 	dufflebag = /obj/item/storage/backpack/duffel/eng
 	messengerbag = /obj/item/storage/backpack/messenger/engi
-
-	belt_contents = list(
-		/obj/item/weldingtool/largetank = 1, // industrial welding tool
-		/obj/item/crowbar = 1,
-		/obj/item/wirecutters = 1,
-		/obj/item/stack/cable_coil/random = 1,
-		/obj/item/powerdrill = 1
-	)
 
 /datum/outfit/job/chief_engineer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()

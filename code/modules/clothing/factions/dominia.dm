@@ -107,8 +107,12 @@
 	item_state = "dominia_noble_black"
 
 /obj/item/clothing/suit/storage/toggle/dominia/bomber
-	name = "dominia bomber jacket"
-	desc = "This is a bomber jacket of Dominian style."
+	name = "fisanduhian bomber jacket"
+	desc = "A bomber jacket based off of styles created by Fisanduhian refugees. The double-breasted design works well for insulating \
+	heat, or concealing a small pistol."
+	desc_fluff = "Fisanduhian fashion remains as rugged and steadfast as its people, as well as very distinctive from the usual Morozi fashions \
+	sourced from Moroz proper. Bomber jackets such as these were also frequently seen worn by members of the Fisanduh Freedom Front and came \
+	to be seen as an enduring symbol of their struggle for liberty."
 	icon = 'icons/clothing/suits/coats/dominia_bomber.dmi'
 	icon_state = "dominia_bomber"
 	item_state = "dominia_bomber"
@@ -130,8 +134,12 @@
 	item_state = "dominia_uniform_black"
 
 /obj/item/clothing/under/dominia/sweater
-	name = "dominia sweater"
-	desc = "This is a sweater of Dominian style."
+	name = "fisanduhian sweater"
+	desc = "This is a sweater of Fisanduhian style. Practical and utilitarian."
+	desc_fluff = "Fisanduhian fashion remains as rugged and steadfast as its people, as well as very distinctive from the usual Morozi fashions \
+	sourced from Moroz proper. Sweaters such as this were a common sight in the region of Fisanduh, being comfortable to wear and very useful \
+	in the cold mountainous environment they lived in. It tends to be seen as something rather basic and droll by Imperials when compared \
+	to their more extravagant and colorful attire, but this suits the Confederates just fine."
 	icon = 'icons/clothing/under/uniforms/dominia_sweater.dmi'
 	icon_state = "dom_sweater"
 	item_state = "dom_sweater"
@@ -293,6 +301,7 @@
 /obj/item/clothing/accessory/poncho/dominia/red/verb/roll_up_mantle()
 	set name = "Roll Up Cape Mantle"
 	set desc = "Roll up your cape's mantle. Doesn't work with some capes."
+	set category = "Object"
 	set src in usr
 
 	if(use_check_and_message(usr))
@@ -388,11 +397,19 @@
 /obj/item/clothing/head/beret/dominia
 	name = "tribunal initiate's beret"
 	desc = "A simple red beret with a golden badge marking its wearer as an initiate of the Moroz Holy Tribunal."
-	desc_fluff = " While initiates dress humbly in white and red clothing, this does not mean that House Caladius - the primary source of the Holy Tribunal's \
+	desc_fluff = "While initiates dress humbly in white and red clothing, this does not mean that House Caladius - the primary source of the Holy Tribunal's \
 	funding - spares any expenses funding them, and these berets are made of luxurious velvet."
 	icon = 'icons/clothing/head/dominia_beret.dmi'
 	icon_state = "dominia_beret"
 	item_state = "dominia_beret"
+
+/obj/item/clothing/head/beret/dominia/medical
+	name = "tribunalist medical beret"
+	desc = "A white-and-green beret bearing the sigil of the Moroz Holy Tribunal on its front. Worn by those medical workers affiliated with the Moroz Holy Tribunal."
+	desc_fluff = "Unlike the black and gold clothing of their priestly counterparts, the medical staff of the Moroz Holy Tribunal's temples are generally clad in white and green due to typically not being full members of the clergy. Occasionally, if a doctor is dedicated enough, they will be granted the right to wear the beret of a full Tribunal priest. This beret features an emblem of the eye made of green and white cloth."
+	icon = 'icons/clothing/head/dominia_beret_hospital.dmi'
+	icon_state = "dominia_beret_hospital"
+	item_state = "dominia_beret_hospital"
 
 /obj/item/clothing/head/beret/dominia/priest
 	name = "tribunalist's beret"
@@ -404,7 +421,7 @@
 	item_state = "dominia_beret_priest"
 
 /obj/item/clothing/head/beret/dominia/consular
-	name = "tribunalist’s beret"
+	name = "tribunalist's beret"
 	desc = "A beret in gold and red worn by members of the clergy affiliated with His Majesty's Diplomatic Service."
 	desc_fluff = "His Majesty's Diplomatic Service - as with much of the Empire tends to be dominated by the great houses, though the Service also employs may commoners - \
 	as long as they can pass the rigorous examinations required to become a full member of the Diplomatic Service."
@@ -426,6 +443,9 @@
 /obj/item/clothing/head/ushanka/dominia
 	name = "fisanduhian ushanka"
 	desc = "A warm fur hat with ear flaps that can be raised and tied to be out of the way. This one has a large Fisanduhian flag on the front."
+	desc_fluff = "Fisanduhian fashion remains as rugged and steadfast as its people, as well as very distinctive from the usual Morozi fashions \
+	sourced from Moroz proper. Ushankas such as these are still a common sight in the semi-autonomous region of Fisanduh, flag and all. Much to \
+	the ire of Moroz's Imperials."
 	icon_state = "fishushanka"
 	item_state = "fishushanka"
 
@@ -507,43 +527,3 @@
 /obj/item/clothing/under/dominia/dress/fancy/sleeveless/kazhkz
 	name = "sleeveless house kazhkz Morozi dress"
 	house = "kazhkz"
-
-/obj/item/clothing/accessory/dominia/sash
-	name = "dominian sash"
-	desc = "A sash worn by commoners affiliated with a Dominian great house, intended for use when a cape is impractical. This one seems to represent Dominia as a whole, however."
-	desc_fluff = "Sashes such as this one are a common sight throughout the Empire of Dominia, though they are hardly as fashionable as the typical cape. While they are \
-	often used in formal uniforms - such as for attendants and domestic staff - these sashes can also be found used in positions where wearing a cape is impractical, such as the medical field."
-	icon = 'icons/clothing/accessories/dominia_sash.dmi'
-	item_state = "dominia_sash"
-	icon_state = "dominia_sash"
-	contained_sprite = TRUE
-
-/obj/item/clothing/accessory/dominia/sash/strelitz
-	name = "strelitz sash"
-	desc = "A sash worn by commoners affiliated with a Dominian great house, intended for use when a cape is impractical. This one marks its wearer as an affiliate of House Strelitz."
-	item_state = "strelitz_sash"
-	icon_state = "strelitz_sash"
-
-/obj/item/clothing/accessory/dominia/sash/volvalaad
-	name = "volvalaad sash"
-	desc = "A sash worn by commoners affiliated with a Dominian great house, intended for use when a cape is impractical. This one marks its wearer as an affiliate of House Volvalaad."
-	item_state = "volvalaad_sash"
-	icon_state = "volvalaad_sash"
-
-/obj/item/clothing/accessory/dominia/sash/kazhkz
-	name = "kazhkz sash"
-	desc = "A sash worn by commoners affiliated with a Dominian great house, intended for use when a cape is impractical. This one marks its wearer as an affiliate of House Kazhkz."
-	item_state = "kazhkz_sash"
-	icon_state = "kazhkz_sash"
-
-/obj/item/clothing/accessory/dominia/sash/caladius
-	name = "caladius sash"
-	desc = "A sash worn by commoners affiliated with a Dominian great house, intended for use when a cape is impractical. This one marks its wearer as an affiliate of House Caladius."
-	item_state = "caladius_sash"
-	icon_state = "caladius_sash"
-
-/obj/item/clothing/accessory/dominia/sash/zhao
-	name = "zhao sash"
-	desc = "A sash worn by commoners affiliated with a Dominian great house, intended for use when a cape is impractical. This one marks its wearer as an affiliate of House Zhao."
-	item_state = "zhao_sash"
-	icon_state = "zhao_sash"

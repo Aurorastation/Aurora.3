@@ -42,9 +42,12 @@
 	else
 		..(over_object)
 
-/obj/item/clothing/suit/armor/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/clothing/suit/armor/attackby(obj/item/W, mob/user)
 	..()
-	if (pockets)
+	if(istype(W, /obj/item/clothing/accessory/armor_plate))
+		if(W in accessories) //We already attached this. Don't try to put it in our pockets
+			return
+	if(pockets)
 		pockets.attackby(W, user)
 
 /obj/item/clothing/suit/armor/emp_act(severity)
@@ -106,7 +109,7 @@
 	item_state = "swat_suit"
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
-	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL
+	item_flags = THICKMATERIAL
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS
 	allowed = list(/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/tank/emergency_oxygen)
 	slowdown = 1
@@ -119,6 +122,8 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_SMALL
 	)
+	max_pressure_protection = FIRESUIT_MAX_PRESSURE
+	min_pressure_protection = 0
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
@@ -166,7 +171,7 @@
 
 		user.forceMove(picked)
 		return PROJECTILE_FORCE_MISS
-	return 0
+	return FALSE
 
 /obj/item/clothing/suit/armor/reactive/attack_self(mob/user as mob)
 	src.active = !( src.active )

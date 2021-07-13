@@ -113,17 +113,19 @@
 	name = "adorned backpack"
 	desc = "A backpack adorned with various decorations."
 
-/obj/item/storage/backpack/clown
-	name = "Giggles von Honkerton"
-	desc = "It's a backpack made by Honk! Co."
-	icon_state = "clownpack"
-	item_state_slots = null
-
 /obj/item/storage/backpack/medic
 	name = "medical backpack"
 	desc = "It's a backpack especially designed for use in a sterile environment."
 	icon_state = "medicalpack"
 	item_state_slots = null
+
+/obj/item/storage/backpack/medic/first_responder
+	name = "first responder backpack"
+	desc = "A bulky easy-clean backpack specially designed to carry a First Responder's equipment."
+	icon = 'icons/clothing/kit/first_responder.dmi'
+	icon_state = "firstresponderbackpack"
+	item_state = "firstresponderbackpack"
+	contained_sprite = TRUE
 
 /obj/item/storage/backpack/security
 	name = "security backpack"
@@ -172,9 +174,8 @@
 
 /obj/item/storage/backpack/cloak
 	name = "tunnel cloak"
-	desc = "It's a Vaurca cloak, with paltry storage options."
+	desc = "It's a Vaurca cloak with storage pockets."
 	icon_state = "cape"
-	max_storage_space = 12
 	sprite_sheets = list(BODYTYPE_VAURCA = 'icons/mob/species/vaurca/back.dmi')
 
 /obj/item/storage/backpack/syndie
@@ -184,8 +185,8 @@
 	empty_delay = 0.8 SECOND
 
 /obj/item/storage/backpack/wizard
-	name = "wizard federation sack"
-	desc = "Perfect for keeping your shining crystal balls inside of."
+	name = "magical sack"
+	desc = "Perfect for keeping your shining crystal balls inside of. May not contain actual magic."
 	icon_state = "wizardpack"
 	empty_delay = 0.8 SECOND
 
@@ -292,8 +293,8 @@
 	empty_delay = 0.8 SECOND
 
 /obj/item/storage/backpack/satchel_wizard
-	name = "wizard federation satchel"
-	desc = "This stylish satchel will put a spell on anyone with some fashion sense to spare."
+	name = "magic satchel"
+	desc = "This stylish satchel will put a spell on anyone with some fashion sense to spare. Contains %0 actual magic."
 	icon_state = "satchel-wizard"
 	empty_delay = 0.8 SECOND
 
@@ -423,8 +424,8 @@
 	empty_delay = 0.8 SECOND
 
 /obj/item/storage/backpack/duffel/wizard
-	name = "wizardly duffel bag"
-	desc = "A fancy blue wizard bag, duffel edition."
+	name = "magical duffel bag"
+	desc = "A fancy blue spell bag, duffel edition. Comes with zero spells because magic isn't real, nerd."
 	icon_state = "duffel-wizard"
 	slowdown = 0
 	empty_delay = 0.8 SECOND
@@ -528,5 +529,100 @@
 		/obj/item/material/knife,
 		/obj/item/material/hatchet/butch,
 		/obj/item/reagent_containers/food/drinks/drinkingglass,
-		/obj/item/storage/toolbox/lunchbox/nt
+		/obj/item/storage/toolbox/lunchbox
 		)
+
+/*
+ * Rucksacks
+ */
+
+/obj/item/storage/backpack/rucksack
+	name = "black rucksack"
+	desc = "A sturdy, military-grade backpack with low-profile straps. Designed to work well with armor."
+	icon_state = "rucksack"
+	item_state_slots = list(slot_l_hand_str = "rucksack", slot_r_hand_str = "rucksack")
+
+/obj/item/storage/backpack/rucksack/blue
+	name = "blue rucksack"
+	icon_state = "rucksack_blue"
+	item_state_slots = list(slot_l_hand_str = "rucksack_blue", slot_r_hand_str = "rucksack_blue")
+
+/obj/item/storage/backpack/rucksack/green
+	name = "green rucksack"
+	icon_state = "rucksack_green"
+	item_state_slots = list(slot_l_hand_str = "rucksack_green", slot_r_hand_str = "rucksack_green")
+
+/obj/item/storage/backpack/rucksack/navy
+	name = "navy rucksack"
+	icon_state = "rucksack_navy"
+	item_state_slots = list(slot_l_hand_str = "rucksack_navy", slot_r_hand_str = "rucksack_navy")
+
+/obj/item/storage/backpack/rucksack/tan
+	name = "tan rucksack"
+	icon_state = "rucksack_tan"
+	item_state_slots = list(slot_l_hand_str = "rucksack_tan", slot_r_hand_str = "rucksack_tan")
+
+/*
+ * Colored satchels
+ */
+
+/obj/item/storage/backpack/satchel/leather //brown, master type
+	name = "brown leather satchel"
+	desc = "A very fancy satchel made of some kind of leather."
+	icon_state = "satchel_colored"
+	item_state = "satchel_colored"
+	color = "#3d2711"
+
+/obj/item/storage/backpack/satchel/leather/khaki
+	name = "khaki leather satchel"
+	color = "#baa481"
+
+/obj/item/storage/backpack/satchel/leather/black
+	name = "black leather satchel"
+	color = "#212121"
+
+/obj/item/storage/backpack/satchel/leather/navy
+	name = "navy leather satchel"
+	color = "#1c2133"
+
+/obj/item/storage/backpack/satchel/leather/olive
+	name = "olive leather satchel"
+	color = "#544f3d"
+
+/obj/item/storage/backpack/satchel/leather/reddish
+	name = "auburn leather satchel"
+	color = "#512828"
+
+/*
+ * Colored pocketbooks
+ */
+
+/obj/item/storage/backpack/satchel/pocketbook //black, master type
+	name = "black pocketbook"
+	desc = "A neat little folding clasp pocketbook with a shoulder sling."
+	icon_state = "pocketbook"
+	item_state = "pocketbook"
+	w_class = ITEMSIZE_HUGE // to avoid recursive backpacks
+	slot_flags = SLOT_BACK
+	max_w_class = ITEMSIZE_NORMAL
+	max_storage_space = 20
+	color = "#212121"
+
+/obj/item/storage/backpack/satchel/pocketbook/brown
+	name = "brown pocketbook"
+	color = "#3d2711"
+
+/obj/item/storage/backpack/satchel/pocketbook/reddish
+	name = "auburn pocketbook"
+	color = "#512828"
+
+/*
+ * Colored pocketbooks
+ */
+
+/obj/item/storage/backpack/satchel/pocketbook/purse
+	name = "purse"
+	desc = "A small, fashionable bag typically worn over the shoulder."
+	icon_state = "purse"
+	item_state = "purse"
+	max_storage_space = 16

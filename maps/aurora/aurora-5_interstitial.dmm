@@ -2100,7 +2100,14 @@
 "eG" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/item/storage/box/cups,
+/obj/item/storage/box/drinkingglasses{
+	pixel_x = 1;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/food/drinks/pitcher{
+	pixel_x = -3;
+	pixel_y = 2
+	},
 /turf/simulated/floor/tiled/white,
 /area/security/break_room)
 "eH" = (
@@ -2432,7 +2439,7 @@
 /turf/simulated/floor/plating,
 /area/security/training_theoretical)
 "fA" = (
-/obj/structure/banner,
+/obj/structure/banner/scc,
 /turf/simulated/floor/wood,
 /area/security/training_theoretical)
 "fB" = (
@@ -2442,16 +2449,7 @@
 	},
 /turf/simulated/floor/wood,
 /area/security/training_theoretical)
-"fC" = (
-/obj/structure/sign/double/map/left{
-	pixel_y = 32
-	},
-/turf/simulated/floor/wood,
-/area/security/training_theoretical)
 "fD" = (
-/obj/structure/sign/double/map/right{
-	pixel_y = 32
-	},
 /obj/effect/landmark/start{
 	name = "Warden"
 	},
@@ -2472,9 +2470,8 @@
 /turf/simulated/floor/plating,
 /area/security/training_theoretical)
 "fF" = (
-/obj/structure/bed/chair/comfy/sofa/left{
-	dir = 4;
-	icon_state = "sofaend_left_preview"
+/obj/structure/bed/chair/comfy/sofa/left/comfy{
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/security/break_room)
@@ -2515,6 +2512,9 @@
 "fX" = (
 /obj/structure/table/wood,
 /obj/item/folder/sec,
+/obj/item/storage/slide_projector{
+	pixel_x = -16
+	},
 /turf/simulated/floor/wood,
 /area/security/training_theoretical)
 "fY" = (
@@ -2541,25 +2541,22 @@
 /turf/simulated/floor/plating,
 /area/security/training_theoretical)
 "gb" = (
-/obj/structure/bed/chair/comfy/sofa/corner{
-	dir = 4;
-	icon_state = "sofacorner_preview"
+/obj/structure/bed/chair/comfy/sofa/corner/comfy{
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/security/break_room)
 "gc" = (
-/obj/structure/bed/chair/comfy/sofa{
-	dir = 1;
-	icon_state = "sofamiddle_preview"
+/obj/structure/bed/chair/comfy/sofa/comfy{
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/security/break_room)
 "gd" = (
-/obj/structure/bed/chair/comfy/sofa/left{
-	dir = 1;
-	icon_state = "sofaend_left_preview"
-	},
 /obj/machinery/light,
+/obj/structure/bed/chair/comfy/sofa/left/comfy{
+	dir = 1
+	},
 /turf/simulated/floor/wood,
 /area/security/break_room)
 "ge" = (
@@ -5187,7 +5184,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/storage/box/lights/coloredmixed,
 /obj/item/storage/box/lights/mixed,
-/obj/item/storage/briefcase/inflatable,
+/obj/item/storage/bag/inflatable,
 /obj/item/device/floor_painter,
 /obj/structure/closet/crate,
 /turf/simulated/floor/airless,
@@ -6573,7 +6570,7 @@
 	},
 /area/mine/unexplored)
 "wd" = (
-/obj/item/storage/briefcase/inflatable,
+/obj/item/storage/bag/inflatable,
 /obj/structure/table/rack{
 	dir = 1
 	},
@@ -9185,7 +9182,7 @@
 /obj/structure/table/rack{
 	dir = 1
 	},
-/obj/item/clothing/suit/fire/firefighter,
+/obj/item/clothing/suit/fire,
 /obj/item/tank/oxygen,
 /obj/item/clothing/mask/gas,
 /obj/item/extinguisher,
@@ -44847,7 +44844,7 @@ eJ
 eW
 fh
 rp
-fC
+fZ
 fY
 gq
 gH

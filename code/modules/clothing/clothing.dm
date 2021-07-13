@@ -27,6 +27,9 @@
 	var/default_material = null // Set this to something else if you want material attributes on init.
 	var/material_armor_modifer = 1 // Adjust if you want seperate types of armor made from the same material to have different protectiveness (e.g. makeshift vs real armor)
 	var/refittable = TRUE // If false doesn't let the clothing be refit in suit cyclers
+	var/no_overheat = FALSE  // Checks to see if the clothing is ignored for the purpose of overheating messages.
+
+	var/move_trail = /obj/effect/decal/cleanable/blood/tracks/footprints
 
 
 /obj/item/clothing/Initialize(var/mapload, var/material_key)
@@ -440,6 +443,9 @@
 	if (.)
 		INVOKE_ASYNC(src, .proc/update_wearer)
 
+/obj/item/clothing/gloves/clothing_class()
+	return "gloves"
+
 ///////////////////////////////////////////////////////////////////////
 //Head
 /obj/item/clothing/head
@@ -561,6 +567,9 @@
 	if (ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_head()
+
+/obj/item/clothing/head/clothing_class()
+	return "helmet"
 
 ///////////////////////////////////////////////////////////////////////
 //Mask
@@ -781,6 +790,9 @@
 					to_chat(M, SPAN_WARNING("You trip from running in \the [src]!"))
 			return
 
+/obj/item/clothing/shoes/clothing_class()
+	return "shoes"
+
 ///////////////////////////////////////////////////////////////////////
 //Suit
 /obj/item/clothing/suit
@@ -822,6 +834,9 @@
 		var/mob/M = src.loc
 		M.update_inv_wear_suit()
 
+/obj/item/clothing/suit/clothing_class()
+	return "suit"
+
 ///////////////////////////////////////////////////////////////////////
 //Under clothing
 /obj/item/clothing/under
@@ -852,8 +867,8 @@
 	//convenience var for defining the icon state for the overlay used when the clothing is worn.
 	//Also used by rolling/unrolling.
 	var/worn_state = null
-	valid_accessory_slots = list(ACCESSORY_SLOT_UTILITY, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_CAPE)
-	restricted_accessory_slots = list(ACCESSORY_SLOT_UTILITY)
+	valid_accessory_slots = list(ACCESSORY_SLOT_UTILITY, ACCESSORY_SLOT_UTILITY_MINOR, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_CAPE)
+	restricted_accessory_slots = list(ACCESSORY_SLOT_UTILITY, ACCESSORY_SLOT_UTILITY_MINOR)
 
 
 /obj/item/clothing/under/attack_hand(var/mob/user)
@@ -1076,6 +1091,9 @@
 	sensor_mode = pick(0,1,2,3)
 	. = ..()
 
+/obj/item/clothing/under/clothing_class()
+	return "uniform"
+
 
 //Rings
 
@@ -1088,3 +1106,6 @@
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
 	var/undergloves = TRUE
+
+/obj/item/clothing/proc/clothing_class()
+	return "clothing"

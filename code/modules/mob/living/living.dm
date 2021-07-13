@@ -10,7 +10,7 @@
 
 //mob verbs are faster than object verbs. See above.
 var/mob/living/next_point_time = 0
-/mob/living/pointed(atom/A as mob|obj|turf in view())
+/mob/living/pointed(atom/movable/A as mob|obj|turf in view())
 	if(!isturf(src.loc) || !(A in range(world.view, get_turf(src))))
 		return FALSE
 	if(src.stat || !src.canmove || src.restrained())
@@ -29,14 +29,10 @@ var/mob/living/next_point_time = 0
 		pointing_effect.invisibility = invisibility
 		addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, pointing_effect), 2 SECONDS)
 	else
-		var/pointglow = filter(type = "drop_shadow", x = 0, y = -1, offset = 1, size = 1, color = "#F00")
-		LAZYADD(A.filters, pointglow)
-		addtimer(CALLBACK(src, .proc/remove_filter, A, pointglow), 20)
+		A.add_filter("pointglow", 1, list(type = "drop_shadow", x = 0, y = -1, offset = 1, size = 1, color = "#F00"))
+		addtimer(CALLBACK(A, /atom/movable.proc/remove_filter, "pointglow"), 2 SECONDS)
 	visible_message("<b>\The [src]</b> points to \the [A].")
 	return TRUE
-
-/mob/living/proc/remove_filter(var/atom/A, var/filter_to_remove)
-	LAZYREMOVE(A.filters, filter_to_remove)
 
 /*one proc, four uses
 swapping: if it's 1, the mobs are trying to switch, if 0, non-passive is pushing passive
@@ -239,7 +235,7 @@ default behaviour is:
 	return
 
 
-//sort of a legacy burn method for /electrocute, /shock, and the e_chair
+//sort of a legacy burn method for /electrocute, /shock
 /mob/living/proc/burn_skin(burn_amount)
 	if(istype(src, /mob/living/carbon/human))
 		if(mShock in src.mutations) //shockproof
@@ -808,6 +804,11 @@ default behaviour is:
 
 /mob/living/proc/has_eyes()
 	return 1
+
+/mob/living/proc/eyes_protected(var/obj/stab_item, var/stabbed = FALSE) // if stabbed is set to true if we're being stabbed and not just checking
+	if(!has_eyes())
+		return TRUE
+	return FALSE
 
 /mob/living/proc/slip(var/slipped_on,stun_duration=8)
 	return 0

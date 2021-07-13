@@ -127,10 +127,31 @@
 	desc = "A faithful box that will remain with you, no matter where you go, and probably save you."
 	icon_state = "e_box"
 	autodrobe_no_remove = 1
-	starts_with = list(/obj/item/clothing/mask/breath = 1,
-					   /obj/item/tank/emergency_oxygen = 1,
-					   /obj/item/device/flashlight/flare/glowstick/red = 1
-						)
+	max_storage_space = 14
+	can_hold = list(
+				/obj/item/clothing/mask,
+				/obj/item/tank/emergency_oxygen,
+				/obj/item/device/flashlight/flare/glowstick,
+				/obj/item/stack/medical,
+				/obj/item/reagent_containers/hypospray/autoinjector,
+				/obj/item/reagent_containers/inhaler,
+				/obj/item/device/oxycandle,
+				/obj/item/extinguisher/mini,
+				/obj/item/device/radio,
+				/obj/item/device/flashlight,
+				/obj/item/reagent_containers/food/drinks/flask,
+				/obj/item/storage/box/fancy/cigarettes,
+				/obj/item/flame/lighter,
+				/obj/item/disk/nuclear
+				)
+	starts_with = list(
+					/obj/item/clothing/mask/breath = 1,
+					/obj/item/tank/emergency_oxygen = 1,
+					/obj/item/device/oxycandle = 1,
+					/obj/item/device/flashlight/flare/glowstick/red = 1,
+					/obj/item/stack/medical/bruise_pack = 1,
+					/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1
+					)
 
 /obj/item/storage/box/survival/fill()
 	..()
@@ -881,3 +902,22 @@
 	var/obj/item/closet_teleporter/CT_2 = new /obj/item/closet_teleporter(src)
 	CT_1.linked_teleporter = CT_2
 	CT_2.linked_teleporter = CT_1
+
+/obj/item/storage/box/googly
+	name = "googly eye box"
+	desc = "A box containing googly eyes."
+	starts_with = list(/obj/item/sticker/googly_eye = 8)
+
+/obj/item/storage/box/goldstar
+	name = "gold star box"
+	desc = "A box containing gold star stickers."
+	starts_with = list(/obj/item/sticker/goldstar = 8)
+
+/obj/item/storage/box/folders
+	name = "box of folders"
+	desc = "A box full of folders."
+	starts_with = list(/obj/item/folder = 5)
+
+/obj/item/storage/box/folders/blue
+	starts_with = list(/obj/item/folder/sec = 5)
+

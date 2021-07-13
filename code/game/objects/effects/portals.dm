@@ -61,13 +61,19 @@
 	if(!target)
 		qdel(src)
 		return
+	var/has_teleported = FALSE
 	if(istype(M, /atom/movable))
 		if(has_failed) //oh dear a problem, put em in deep space
 			icon_state = "portal1" // only tell people the portal failed after a teleport has been done
 			desc = "A bluespace tear in space, reaching directly to another point within this region. Definitely unstable."
-			do_teleport(M, locate(rand(5, world.maxx - 5), rand(5, world.maxy -5), 3), 0)
+			if(do_teleport(M, locate(rand(5, world.maxx - 5), rand(5, world.maxy -5), 3), 0))
+				has_teleported = TRUE
 		else
-			do_teleport(M, target, precision)
+			if(do_teleport(M, target, precision))
+				has_teleported = TRUE
+	if(!has_teleported)
+		visible_message(SPAN_WARNING("\The [src] oscillates violently as \the [M] comes into contact with it, and collapses! Seems like the rift was unstable..."))
+		qdel(src)
 
 /obj/effect/portal/Destroy()
 	if(istype(creator, /obj/item/hand_tele))

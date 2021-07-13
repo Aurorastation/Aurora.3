@@ -196,7 +196,7 @@
 	circlet["silver dress circlet"] = /obj/item/clothing/head/tajaran/circlet/silver
 	circlet["fur hat"] = /obj/item/clothing/head/tajaran/fur
 	circlet["matake priest hat"] = /obj/item/clothing/head/tajaran/matake
-	circlet["Raakti Shariim beret"] = /obj/item/clothing/head/beret/tajaran/raakti_shariim
+	circlet["raakti shariim beret"] = /obj/item/clothing/head/beret/tajaran/raakti_shariim
 	gear_tweaks += new/datum/gear_tweak/path(circlet)
 
 /datum/gear/accessory/tajara_wrap
@@ -264,6 +264,22 @@
 	card["honorary party member card"] = /obj/item/clothing/accessory/badge/hadii_card
 	card["almariist pin"] = /obj/item/clothing/accessory/dpra_badge
 	card["royalist badge"] = /obj/item/clothing/accessory/nka_badge
+	card["free tajaran council badge"] = /obj/item/clothing/accessory/tajara/council_badge
+	gear_tweaks += new/datum/gear_tweak/path(card)
+
+/datum/gear/accessory/tajaranbooks
+	display_name = "tajaran political books"
+	path = /obj/item/book/manual/pra_manifesto
+	sort_category = "Xenowear - Tajara"
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/tajaranbooks/New()
+	..()
+	var/card = list()
+	card["hadiist manifesto"] = /obj/item/book/manual/pra_manifesto
+	card["in defense of al'mari's legacy"] = /obj/item/book/manual/dpra_manifesto
+	card["the new kingdom"] = /obj/item/book/manual/nka_manifesto
 	gear_tweaks += new/datum/gear_tweak/path(card)
 
 /datum/gear/tajaran_passports
@@ -298,6 +314,22 @@
 /datum/gear/tajaran_dice
 	display_name = "bag of adhomian dice"
 	path = /obj/item/storage/pill_bottle/dice/tajara
+	sort_category = "Xenowear - Tajara"
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/utility/himeo_kit/tajara
+	display_name = "tajaran himean voidsuit kit"
+	description = "A simple cardboard box containing the requisition forms, permits, and decal kits for a Himean voidsuit fitted for Tajara. Only \
+	Tajara connected to Himeo and the Free Tajaran Council would have this."
+	path = /obj/item/voidsuit_modkit/himeo/tajara
+	sort_category = "Xenowear - Tajara"
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	allowed_roles = list("Cargo Technician", "Shaft Miner", "Quartermaster", "Head of Personnel", "Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
+
+/datum/gear/tajaran_tarot
+	display_name = "adhomian divination cards deck"
+	path = /obj/item/deck/tarot/adhomai
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	flags = GEAR_HAS_DESC_SELECTION

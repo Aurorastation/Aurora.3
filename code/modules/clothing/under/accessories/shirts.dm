@@ -5,13 +5,6 @@
 	icon_state = "sweater"
 	item_state = "sweater"
 
-/obj/item/clothing/accessory/sweaterargyle
-	name = "argyle sweater"
-	desc = "A warm knit sweater with an argyle pattern."
-	desc_fluff = "Never go unprepared for the next work-mandated secret santa with this fashion statement! Revel in their awkward thanks as they unbox it! Realize that you've received one too!"
-	icon_state = "sweaterargyle"
-	item_state = "sweaterargyle"
-
 /obj/item/clothing/accessory/sweatervest
 	name = "sweater vest"
 	desc = "A warm knit sweater vest."
@@ -19,12 +12,19 @@
 	icon_state = "sweatervest"
 	item_state = "sweatervest"
 
-/obj/item/clothing/accessory/sweatervestargyle
-	name = "argyle sweater vest"
-	desc = "A warm knit sweater vest with an argyle pattern."
-	desc_fluff = "Reminds you of family picture day. Wearing this is entirely your own volition, unfortunately."
-	icon_state = "sweaterargylevest"
-	item_state = "sweaterargylevest"
+/obj/item/clothing/accessory/sweatercrewneck
+	name = "crewneck sweater"
+	desc = "A sewn crewneck sweater featuring a collarless neckline."
+	desc_fluff = "Fortunately, they even have a type of sweater for the sporty and informal."
+	icon_state = "sweatercrewneck"
+	item_state = "sweatercrewneck"
+
+/obj/item/clothing/accessory/sweatervneck
+	name = "v-neck sweater"
+	desc = "A sewn v-neck sweater featuring a collarless neckline."
+	desc_fluff = "Fortunately, they even have a type of sweater for the sporty and informal."
+	icon_state = "sweatervneck"
+	item_state = "sweatervneck"
 
 /obj/item/clothing/accessory/sweaterturtleneck
 	name = "turtleneck sweater"
@@ -33,19 +33,47 @@
 	icon_state = "sweaterturtleneck"
 	item_state = "sweaterturtleneck"
 
-/obj/item/clothing/accessory/sweaterargyleturtleneck
-	name = "argyle turtleneck sweater"
-	desc = "A warm knit argyle turtleneck sweater."
-	desc_fluff = "Now your clothing can be as stuffy as your personality."
-	icon_state = "sweaterargyleturtleneck"
-	item_state = "sweaterargyleturtleneck"
-
 /obj/item/clothing/accessory/sweatertubeneck
 	name = "tubeneck sweater"
 	desc = "A warm knit tubeneck sweater."
 	desc_fluff = "What the hell is cashmere anyway?"
 	icon_state = "sweatertubeneck"
 	item_state = "sweatertubeneck"
+
+/obj/item/clothing/accessory/sweaterargyle
+	name = "argyle sweater"
+	desc = "A warm knit sweater with an argyle pattern."
+	desc_fluff = "Never go unprepared for the next work-mandated secret santa with this fashion statement! Revel in their awkward thanks as they unbox it! Realize that you've received one too!"
+	icon_state = "sweaterargyle"
+	item_state = "sweaterargyle"
+
+/obj/item/clothing/accessory/sweatervestargyle
+	name = "argyle sweater vest"
+	desc = "A warm knit sweater vest with an argyle pattern."
+	desc_fluff = "Reminds you of family picture day. Wearing this is entirely your own volition, unfortunately."
+	icon_state = "sweaterargylevest"
+	item_state = "sweaterargylevest"
+
+/obj/item/clothing/accessory/sweaterargylecrewneck
+	name = "argyle crewneck sweater"
+	desc = "A sewn crewneck sweater featuring a collarless neckline and an argyle pattern."
+	desc_fluff = "Fortunately, they even have a type of sweater for the sporty and informal."
+	icon_state = "sweaterargylecrewneck"
+	item_state = "sweaterargylecrewneck"
+
+/obj/item/clothing/accessory/sweaterargylevneck
+	name = "argyle v-neck sweater"
+	desc = "A sewn v-neck sweater featuring a collarless neckline and an argyle pattern."
+	desc_fluff = "Fortunately, they even have a type of sweater for the sporty and informal."
+	icon_state = "sweaterargylevneck"
+	item_state = "sweaterargylevneck"
+
+/obj/item/clothing/accessory/sweaterargyleturtleneck
+	name = "argyle turtleneck sweater"
+	desc = "A warm knit argyle turtleneck sweater."
+	desc_fluff = "Now your clothing can be as stuffy as your personality."
+	icon_state = "sweaterargyleturtleneck"
+	item_state = "sweaterargyleturtleneck"
 
 /obj/item/clothing/accessory/sweaterargyletubeneck
 	name = "argyle tubeneck sweater"
@@ -59,24 +87,69 @@
 	desc = "A casual dress shirt."
 	icon_state = "dressshirt"
 	item_state = "dressshirt"
+	var/rolled = FALSE
 
-/obj/item/clothing/accessory/dressshirt_r
+/obj/item/clothing/accessory/dressshirt/update_clothing_icon()
+	if(ismob(loc))
+		var/mob/M = loc
+		M.update_inv_wear_suit()
+	get_mob_overlay(TRUE)
+	get_inv_overlay(TRUE)
+
+/obj/item/clothing/accessory/dressshirt/verb/roll_up_shirt_sleeves()
+	set name = "Roll Up Shirt Sleeves"
+	set desc = "Roll up your shirt sleeves. Doesn't work with some shirts."
+	set category = "Object"
+	set src in usr
+
+	if(use_check_and_message(usr))
+		return FALSE
+
+	var/list/icon_states = icon_states(icon)
+	var/initial_state = initial(icon_state)
+	var/new_state = "[initial_state]_r"
+	if(!(new_state in icon_states))
+		to_chat(usr, SPAN_WARNING("Your shirt doesn't allow this!"))
+		return
+
+	rolled = !rolled
+	to_chat(usr, SPAN_NOTICE("You roll your shirt sleeves [rolled ? "up" : "down"]."))
+	icon_state = rolled ? new_state : initial_state
+	item_state = rolled ? new_state : initial_state
+	overlay_state = rolled ? new_state : initial_state
+	update_icon()
+	update_clothing_icon()
+
+/obj/item/clothing/accessory/dressshirt/alt
 	name = "dress shirt"
-	desc = "A casual dress shirt. This one has its sleeves rolled up."
-	icon_state = "dressshirt_r"
-	item_state = "dressshirt_r"
+	desc = "A casual dress shirt."
+	icon_state = "dressshirt_alt"
+	item_state = "dressshirt_alt"
 
-/obj/item/clothing/accessory/dressshirt_crop
+/obj/item/clothing/accessory/dressshirt/crop
 	name = "cropped dress shirt"
 	desc = "A casual cropped dress shirt."
 	icon_state = "dressshirt_crop"
 	item_state = "dressshirt_crop"
 
-/obj/item/clothing/accessory/dressshirt_crop_r
+// So people can see how these appear in the loadout
+/obj/item/clothing/accessory/dressshirt/rolled
+	name = "dress shirt"
+	desc = "A casual dress shirt. This one has its sleeves rolled up."
+	icon_state = "dressshirt_r"
+	item_state = "dressshirt_r"
+
+/obj/item/clothing/accessory/dressshirt/alt/rolled
+	name = "dress shirt"
+	desc = "A casual dress shirt. This one has its sleeves rolled up."
+	icon_state = "dressshirt_alt_r"
+	item_state = "dressshirt_alt_r"
+
+/obj/item/clothing/accessory/dressshirt/crop/rolled
 	name = "cropped dress shirt"
-	desc = "A casual cropped dress shirt. This one has its sleeves rolled up."
-	icon_state = "dressshirt_crop_r"
-	item_state = "dressshirt_crop_r"
+	desc = "A casual cropped dress shirt. This one has its sleeves rolled up"
+	icon_state = "dressshirt_crop"
+	item_state = "dressshirt_crop"
 
 /obj/item/clothing/accessory/blouse
 	name = "blouse"

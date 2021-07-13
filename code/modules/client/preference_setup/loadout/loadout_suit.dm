@@ -14,6 +14,11 @@
 	cost = 2
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+datum/gear/suit/colorvest
+	display_name = "colorable vest"
+	path = /obj/item/clothing/suit/storage/toggle/brown_jacket/sleeveless/colorable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/suit/leather
 	display_name = "jacket selection"
 	description = "A selection of jackets."
@@ -156,9 +161,16 @@
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/blazer
-	display_name = "blazer"
+	display_name = "blazer selection"
 	path = /obj/item/clothing/suit/storage/toggle/suitjacket/blazer
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/suit/blazer/New()
+	..()
+	var/list/blazers = list()
+	blazers["blazer"] = /obj/item/clothing/suit/storage/toggle/suitjacket/blazer
+	blazers["long blazer"] = /obj/item/clothing/suit/storage/toggle/suitjacket/blazer/long
+	gear_tweaks += new /datum/gear_tweak/path(blazers)
 
 /datum/gear/suit/trenchcoats
 	display_name = "trenchcoat selection"
@@ -296,7 +308,6 @@
 	coat["dominia great coat, red"] = /obj/item/clothing/suit/storage/toggle/dominia
 	coat["dominia great coat, gold"] = /obj/item/clothing/suit/storage/toggle/dominia/gold
 	coat["dominia great coat, black"] = /obj/item/clothing/suit/storage/toggle/dominia/black
-	coat["dominian bomber jacket"] = /obj/item/clothing/suit/storage/toggle/dominia/bomber
 	gear_tweaks += new/datum/gear_tweak/path(coat)
 
 /datum/gear/suit/dominia/consular
@@ -304,6 +315,11 @@
 	description = "A Dominian great coat belonging to the Diplomatic Service."
 	path = /obj/item/clothing/suit/storage/dominia/consular
 	allowed_roles = list("Consular Officer")
+
+/datum/gear/suit/fisanduhian_bomber
+	display_name = "fisanduhian bomber jacket"
+	path = /obj/item/clothing/suit/storage/toggle/dominia/bomber
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/tcfl
 	display_name = "Tau Ceti Foreign Legion jacket selection"
@@ -414,6 +430,15 @@
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/gadpathur
-	display_name = "gadpathurian overcoat"
+	display_name = "gadpathurian coat selection"
 	path = /obj/item/clothing/suit/storage/gadpathur
 	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/suit/gadpathur/New()
+	..()
+	var/gadpathur_coat = list()
+	gadpathur_coat["gadpathurian overcoat"] = /obj/item/clothing/suit/storage/gadpathur
+	gadpathur_coat["gadpathurian trenchcoat"] = /obj/item/clothing/suit/storage/toggle/trench/gadpathur
+	gadpathur_coat["gadpathurian leather coat"] = /obj/item/clothing/suit/storage/toggle/trench/gadpathur/leather
+	gadpathur_coat["thermal coat"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/gadpathur
+	gear_tweaks += new/datum/gear_tweak/path(gadpathur_coat)

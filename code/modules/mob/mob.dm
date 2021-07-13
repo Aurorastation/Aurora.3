@@ -843,6 +843,7 @@
 		if(statpanel("Status") && SSticker.current_state != GAME_STATE_PREGAME)
 			stat("Game ID", game_id)
 			stat("Map", current_map.full_name)
+			stat("Current Space Sector", SSatlas.current_sector.name)
 			stat("Station Time", worldtime2text())
 			stat("Round Duration", get_round_duration_formatted())
 			stat("Last Transfer Vote", SSvote.last_transfer_vote ? time2text(SSvote.last_transfer_vote, "hh:mm") : "Never")
@@ -928,7 +929,7 @@
 				lying = 1
 				canmove = 0
 				pixel_y = V.mob_offset_y - 5
-			else 
+			else
 				if(buckled_to.buckle_lying != -1) lying = buckled_to.buckle_lying
 				canmove = 1
 				pixel_y = V.mob_offset_y
@@ -1089,6 +1090,7 @@
 
 /mob/proc/get_pressure_weakness()
 	return 1
+
 /mob/living/proc/flash_strong_pain()
 	return
 
@@ -1375,6 +1377,10 @@
 		src.throw_icon.icon_state = "act_throw_on"
 
 /mob/proc/is_invisible_to(var/mob/viewer)
+	if(isAI(viewer))
+		for(var/image/I as anything in SSai_obfuscation.obfuscation_images)
+			if(I.loc == src)
+				return TRUE
 	return (!alpha || !mouse_opacity || viewer.see_invisible < invisibility)
 
 //Admin helpers

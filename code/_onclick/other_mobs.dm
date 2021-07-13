@@ -30,7 +30,10 @@
 
 	A.attack_hand(src)
 
-/atom/proc/attack_hand(mob/user as mob)
+/atom/proc/attack_hand(mob/user)
+	return
+
+/atom/proc/attack_ranged(mob/user, params)
 	return
 
 /mob/proc/attack_empty_hand(var/bp_hand)

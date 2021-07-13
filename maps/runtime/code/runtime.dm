@@ -18,7 +18,8 @@
 	boss_short = "Coders"
 	company_name = "BanoTarsen"
 	company_short = "BT"
-	system_name = "runtime.dm"
+
+	use_overmap = TRUE
 
 	station_networks = list(
 		NETWORK_CIVILIAN_MAIN,

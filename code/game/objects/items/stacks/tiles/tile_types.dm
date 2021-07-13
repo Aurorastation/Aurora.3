@@ -202,6 +202,11 @@
 	throw_range = 10
 	flags = CONDUCT
 
+/obj/item/stack/tile/floor/full/Initialize(mapload)
+	. = ..()
+	amount = max_amount
+	update_icon()
+
 /obj/item/stack/tile/floor_red
 	name = "red floor tile"
 	singular_name = "red floor tile"
@@ -267,6 +272,17 @@
 	singular_name = "diamond floor tile"
 	icon_state = "tile_diamond"
 	matter = list(MATERIAL_DIAMOND = TILE_MATERIAL_AMOUNT)
+
+/obj/item/stack/tile/marble
+	name = "light marble floor tile"
+	singular_name = "light marble floor tile"
+	icon_state = "tile_lightmarble"
+	matter = list(MATERIAL_MARBLE = TILE_MATERIAL_AMOUNT)
+
+/obj/item/stack/tile/marble/dark
+	name = "dark marble floor tile"
+	singular_name = "dark marble floor tile"
+	icon_state = "tile_darkmarble"
 
 /*
  * Cyborg modules

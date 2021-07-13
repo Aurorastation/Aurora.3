@@ -298,7 +298,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_off = "cigoff"
 	type_butt = /obj/item/trash/cigbutt
 	chem_volume = 30
-	burn_rate = 0.012 //Lasts ~83 seconds)
+	burn_rate = 0.006 //Lasts ~166 seconds)
 	matchmes = "<span class='notice'>USER lights their NAME with their FLAME.</span>"
 	lightermes = "<span class='notice'>USER manages to light their NAME with FLAME.</span>"
 	zippomes = "<span class='notice'>With a flick of their wrist, USER lights their NAME with their FLAME.</span>"
@@ -335,7 +335,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			last_drag = world.time
 			H.visible_message("<span class='notice'>[H.name] takes a drag of their [name].</span>")
 			playsound(H, 'sound/items/cigs_lighters/inhale.ogg', 50, 0, -1)
-			reagents.trans_to_mob(H, (rand(10,20)/10), CHEM_BREATHE) //Smokes it faster. Slightly random amount.
+			reagents.trans_to_mob(H, (rand(5,10)/10), CHEM_BREATHE) //Smokes it faster. Slightly random amount.
 			return 1
 	return ..()
 
@@ -754,7 +754,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/flame/lighter/zippo/europa
 	name = "\improper Europan Zippo lighter"
-	desc = "A smokeless electrical coil lighter in the style of a zippo with the tricolour of the Jovian moon Europa on the side. It even its outside feels somewhat hot to the touch when it is turned on."
+	desc = "A smokeless electrical coil lighter in the style of a zippo with the tricolour of the Jovian moon Europa on the side. Even its outside feels somewhat hot to the touch when it is turned on."
 	desc_fluff = "Traditional lighters are often frowned upon in the various submarines and underwater bases of Europa for the fumes their open flames produce. As a result, flameless lighters using heated metal coils that ignite flammable material upon contact are employed instead. These lighters are often prized personal possessions of those who own them, as with living space, privacy and individual possessions are a luxury in the cramped quarters of Europan vessels and stations. A side effect of having lighters that use electrically heated metal coils as opposed to flames however, is that the exteriors of the lighters themselves can become heated to a point of inflicting superficial burns if left on for relatively short periods of time."
 	icon_state = "europazippo"
 	item_state = "europazippo"
@@ -775,6 +775,36 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_state = "lighter-asoral"
 	item_state = "lighter-asoral"
 	flame_light_color = LIGHT_COLOR_BLUE
+	flame_light_range = 2
+
+/obj/item/flame/lighter/zippo/nt
+	name = "\improper NanoTrasen Zippo lighter"
+	desc = "A zippo lighter with a depiction of NanoTrasen's iconic logo."
+	icon_state = "ntzippo"
+	item_state = "ntzippo"
+
+/obj/item/flame/lighter/zippo/fisanduh
+	name = "\improper Fisanduhian Zippo lighter"
+	desc = "A zippo with a depiction of the flag of the Confederate States of Fisanduh. This is a well crafted model that burns brighter and hotter than \
+	the usual lighter."
+	desc_fluff = "On Moroz it's rather hard to find a Confederate without at least some manner of lighter on their person. Fisanduhians don't \
+	smoke anymore than the rest of Moroz does, instead they prize these lighters for their utility. From burning loose thread to lighting a \
+	molotov and more. A common adage is that the fire of Fisanduh burns brighter than Dominia's, which seems to be true for their lighters at least. \
+	These have found purchase throughout the Spur due to their reliability and impressive capability to light up various things, causing a \
+	competition of sorts to arise with Fisanduhian and Himean producers over the best quality lighter."
+	icon_state = "fisanduhzippo"
+	item_state = "fisanduhzippo"
+	flame_light_range = 2
+
+/obj/item/flame/lighter/zippo/luceian
+	name = "\improper Luceian Zippo lighter"
+	desc = "A bright zippo lighter with the all-seeing eye of Ennoia on its front. Clearly Luceian."
+	desc_fluff = "Luceian lighters, sometimes referred to as “Ennoic Fires,” are commonly carried by Assunzionii as an emergency light \
+	source. A genuine lighter in the Luceian tradition will have a proving mark stamped upon its base that shows when and where it was \
+	blessed following its construction."
+	icon_state = "luceianzippo"
+	item_state = "luceianzippo"
+	flame_light_color = LIGHT_COLOR_WHITE
 	flame_light_range = 2
 
 /obj/item/flame/lighter/random/Initialize()
@@ -999,7 +1029,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	..()
 
 /obj/item/reagent_containers/food/snacks/grown/attackby(obj/item/I, mob/user)
-	if(is_type_in_list(I, list(/obj/item/paper/cig/, /obj/item/paper/, /obj/item/teleportation_scroll)))
+	if(is_type_in_list(I, list(/obj/item/paper/cig/, /obj/item/paper/)))
 		if(!dry)
 			to_chat(user, SPAN_WARNING("You need to dry [src] first!"))
 			return

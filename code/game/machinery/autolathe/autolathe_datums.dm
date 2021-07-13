@@ -143,6 +143,56 @@
 	path = /obj/item/reagent_containers/food/drinks/drinkingglass
 	category = "General"
 
+/datum/autolathe/recipe/half_pint_glass
+	name = "half pint glass"
+	path = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/square
+	category = "General"
+
+/datum/autolathe/recipe/rocks_glass
+	name = "rocks glass"
+	path = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/rocks
+	category = "General"
+
+/datum/autolathe/recipe/sherry_glass
+	name = "sherry glass"
+	path = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shake
+	category = "General"
+
+/datum/autolathe/recipe/cocktail_glass
+	name = "cocktail glass"
+	path = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/cocktail
+	category = "General"
+
+/datum/autolathe/recipe/shot_glass
+	name = "shot glass"
+	path = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot
+	category = "General"
+
+/datum/autolathe/recipe/pint_glass
+	name = "pint glass"
+	path = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/pint
+	category = "General"
+
+/datum/autolathe/recipe/mug_glass
+	name = "mug glass"
+	path = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/mug
+	category = "General"
+
+/datum/autolathe/recipe/flute_glass
+	name = "flute glass"
+	path = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/flute
+	category = "General"
+
+/datum/autolathe/recipe/cognac_glass
+	name = "cognac glass"
+	path = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/cognac
+	category = "General"
+
+/datum/autolathe/recipe/goblet_glass
+	name = "goblet glass"
+	path = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/goblet
+	category = "General"
+
 /datum/autolathe/recipe/bottle
 	name = "bottle"
 	path = /obj/item/reagent_containers/food/drinks/bottle
@@ -434,8 +484,14 @@
 	category = "Arms and Ammunition"
 
 /datum/autolathe/recipe/magazine_carbine
-	name = "ammunition (5.56mm)"
+	name = "ammunition (5.56mm, large)"
 	path = /obj/item/ammo_magazine/a556
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/magazine_smallcarbine
+	name = "ammunition (5.56mm, small)"
+	path = /obj/item/ammo_magazine/a556/carbine
 	hidden = 1
 	category = "Arms and Ammunition"
 

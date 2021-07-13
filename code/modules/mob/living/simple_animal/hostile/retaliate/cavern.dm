@@ -20,6 +20,7 @@
 
 	health = 60
 	maxHealth = 60
+	blood_type = "#006666"
 	melee_damage_lower = 10
 	melee_damage_upper = 10
 	attacktext = "chomped"

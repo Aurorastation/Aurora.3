@@ -175,7 +175,8 @@
 /obj/item/projectile/beam/gatlinglaser
 	name = "diffused laser"
 	icon_state = "heavylaser"
-	damage = 10
+	damage = 20
+	armor_penetration = 35
 	no_attack_log = 1
 
 	muzzle_type = /obj/effect/projectile/muzzle/disabler
@@ -426,7 +427,7 @@
 /obj/item/projectile/beam/tesla/on_impact(atom/target)
 	. = ..()
 	if(isliving(target))
-		tesla_zap(target, 3, 5000)
+		tesla_zap(target, 5, 5000)
 
 /obj/item/projectile/beam/tesla/master
 	damage = 15
@@ -460,3 +461,15 @@
 			if(H.bodytemperature <= H.species.cold_level_2)
 				new /obj/structure/closet/statue/ice(H.loc, H)
 				H.visible_message(SPAN_WARNING("\The [H] freezes!"))
+
+/obj/item/projectile/beam/stun/skrell
+	name = "particle stun beam"
+	icon_state = "beam_omni"
+	agony = 50
+
+	muzzle_type = /obj/effect/projectile/muzzle/disabler
+	tracer_type = /obj/effect/projectile/tracer/disabler
+	impact_type = /obj/effect/projectile/impact/disabler
+
+/obj/item/projectile/beam/pulse/skrell
+	name = "particle lethal beam"

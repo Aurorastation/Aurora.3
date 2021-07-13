@@ -9,8 +9,10 @@
 	can_hold = list(/obj/item/clothing/mask/smokable/cigarette, /obj/item/flame/lighter, /obj/item/trash/cigbutt, /obj/item/tajcard)
 
 /obj/item/storage/box/fancy/cigarettes/pra/update_icon()
+	. = ..()
 	var/card_count = instances_of_type_in_list(new /obj/item/tajcard, src.contents) //having cards in here doesn't count for icon
-	icon_state = "[initial(icon_state)][contents.len - card_count]"
+	if(opened)
+		icon_state = "[initial(icon_state)][contents.len - card_count]"
 
 /obj/item/storage/box/fancy/cigarettes/pra/fill()
 	..()
@@ -135,7 +137,11 @@
 	icon_state = "adhomai_clock"
 	item_state = "adhomai_clock"
 	contained_sprite = TRUE
+	slot_flags = SLOT_MASK
 	var/static/months = list("Menshe-aysaif", "Sil'nryy-aysaif", "Menshe-rhazzimy", "Sil'nryy-rhazzimy")
+
+/obj/item/pocketwatch/adhomai/get_mask_examine_text(mob/user)
+	return "around [user.get_pronoun("his")] neck"
 
 /obj/item/pocketwatch/adhomai/checktime(mob/user)
 	set category = "Object"
@@ -158,7 +164,7 @@
 				current_day += 61
 			if(3)
 				current_day += 59 + isLeap(text2num(time2text(world.realtime, "YYYY"))) // we can conveniently use the result of `isLeap` to add 1 when we are in a leap year
-		var/real_time = text2num(time2text(world.time + (roundstart_hour HOURS), "hh"))
+		var/real_time = text2num(time2text(world.time + (REALTIMEOFDAY - (TIME_OFFSET HOURS)), "hh"))
 		var/adhomian_time = real_time
 		if(ISEVEN(current_day))
 			adhomian_time = real_time + 24

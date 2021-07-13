@@ -45,14 +45,6 @@
 	item_state = "waiter"
 	worn_state = "waiter"
 
-/obj/item/clothing/under/sexyclown
-	name = "sexy-clown suit"
-	desc = "It makes you look HONKable!"
-	icon_state = "sexyclown"
-	item_state = "clown"
-	worn_state = "sexyclown"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-
 //This set of uniforms looks fairly fancy and is generally used for high-ranking NT personnel from what I've seen, so lets give them appropriate ranks.
 /obj/item/clothing/under/rank/centcom
 	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Captain.\""
@@ -303,6 +295,7 @@
 	item_state = "bl_suit"
 	worn_state = "sundress"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	no_overheat = TRUE
 
 /obj/item/clothing/under/sundress_white
 	name = "white sundress"
@@ -512,6 +505,8 @@
 	item_state = "bl_suit"
 	worn_state = "taucetilegion"
 	siemens_coefficient = 0.7
+	armor = list(
+		melee = ARMOR_MELEE_MINOR)
 
 /obj/item/clothing/under/legion/sentinel
 	name = "Tau Ceti Foreign Legion sentinel uniform"
@@ -573,3 +568,10 @@
 	item_state = "lance_dress_m"
 	worn_state = "lance_dress_m"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+
+/obj/item/clothing/under/qipao
+	name = "qipao"
+	desc = "A traditional Solarian women's garment, typically made of (synthetic) silk."
+	icon_state = "qipao"
+	item_state = "qipao"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO

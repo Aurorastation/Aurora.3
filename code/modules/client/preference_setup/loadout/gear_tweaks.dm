@@ -13,7 +13,7 @@
 /datum/gear_tweak/proc/tweak_gear_data(var/metadata, var/datum/gear_data)
 	return
 
-/datum/gear_tweak/proc/tweak_item(var/obj/item/I, var/metadata)
+/datum/gear_tweak/proc/tweak_item(var/obj/item/I, var/metadata, var/mob/living/carbon/human/H)
 	return
 
 /*
@@ -41,10 +41,26 @@ Color adjustment
 		return input(user, "Choose a color.", title, metadata) as null|anything in valid_colors
 	return input(user, "Choose a color.", title, metadata) as color|null
 
-/datum/gear_tweak/color/tweak_item(var/obj/item/I, var/metadata)
+/datum/gear_tweak/color/tweak_item(var/obj/item/I, var/metadata, var/mob/living/carbon/human/H)
 	if(valid_colors && !(metadata in valid_colors))
 		return
 	I.color = sanitize_hexcolor(metadata, I.color)
+
+/*
+	Additional Color adjustment
+*/
+
+var/datum/gear_tweak/color/additional/gear_tweak_additional_color = new()
+
+/datum/gear_tweak/color/additional/get_contents(var/metadata)
+	return "Additional Color: <font color='[metadata]'>&#9899;</font>"
+
+/datum/gear_tweak/color/additional/tweak_item(var/obj/item/I, var/metadata, var/mob/living/carbon/human/H)
+	if(valid_colors && !(metadata in valid_colors))
+		return
+	if(I.vars["additional_color"]) // set var/additional_color = COLOR_GREY on item
+		I.vars["additional_color"] = metadata
+	I.update_icon()
 
 /*
 Color Rotation adjustment
@@ -60,7 +76,7 @@ var/datum/gear_tweak/color_rotation/gear_tweak_color_rotation = new()
 /datum/gear_tweak/color_rotation/get_metadata(var/user, var/metadata, var/title = "Color Rotation")
 	return clamp(input(user, "Choose the amount of degrees to rotate the hue around the color wheel. (-180 - 180)", title, metadata) as num, -180, 180)
 
-/datum/gear_tweak/color_rotation/tweak_item(var/obj/item/I, var/metadata)
+/datum/gear_tweak/color_rotation/tweak_item(var/obj/item/I, var/metadata, var/mob/living/carbon/human/H)
 	I.color = color_rotation(metadata)
 
 /*
@@ -121,7 +137,7 @@ Content adjustment
 		else
 			return metadata
 
-/datum/gear_tweak/contents/tweak_item(var/obj/item/I, var/list/metadata)
+/datum/gear_tweak/contents/tweak_item(var/obj/item/I, var/list/metadata, var/mob/living/carbon/human/H)
 	if(metadata.len != valid_contents.len)
 		return
 	for(var/i = 1 to valid_contents.len)
@@ -158,7 +174,7 @@ Reagents adjustment
 	if(!.)
 		return metadata
 
-/datum/gear_tweak/reagents/tweak_item(var/obj/item/I, var/list/metadata)
+/datum/gear_tweak/reagents/tweak_item(var/obj/item/I, var/list/metadata, var/mob/living/carbon/human/H)
 	if(metadata == "None")
 		return
 	if(metadata == "Random")
@@ -191,10 +207,12 @@ var/datum/gear_tweak/custom_name/gear_tweak_free_name = new()
 		return input(user, "Choose an item name.", "Character Preference", metadata) as null|anything in valid_custom_names
 	return sanitize(input(user, "Choose the item's name. Leave it blank to use the default name.", "Item Name", metadata) as text|null, MAX_LNAME_LEN, extra = 0)
 
-/datum/gear_tweak/custom_name/tweak_item(var/obj/item/I, var/metadata)
+/datum/gear_tweak/custom_name/tweak_item(var/obj/item/I, var/metadata, var/mob/living/carbon/human/H)
 	if(!metadata)
 		return I.name
 	I.name = metadata
+	if(I.vars["base_name"])
+		I.vars["base_name"] = metadata
 
 /*
 Custom Description
@@ -219,10 +237,15 @@ var/datum/gear_tweak/custom_desc/gear_tweak_free_desc = new()
 		return input(user, "Choose an item description.", "Character Preference", metadata) as null|anything in valid_custom_desc
 	return sanitize(input(user, "Choose the item's description. Leave it blank to use the default description.", "Item Description", metadata) as message|null, extra = 0)
 
-/datum/gear_tweak/custom_desc/tweak_item(var/obj/item/I, var/metadata)
-	if(!metadata)
+/datum/gear_tweak/custom_desc/tweak_item(var/obj/item/I, var/metadata, var/mob/living/carbon/human/H)
+	if (!metadata && ("stored_name" in I.vars))
+		I.vars["stored_name"] = H.real_name
+		return I.desc += "\nThe name [H.real_name] is written on it."
+	if (!metadata)
 		return I.desc
 	I.desc = metadata
+	if ("stored_name" in I.vars)
+		I.vars["stored_name"] = H.real_name
 
 /*
 Paper Data
@@ -236,7 +259,7 @@ Paper Data
 /datum/gear_tweak/paper_data/get_metadata(var/user, var/metadata)
 	return sanitize(input(user, "Choose a pre-written message on the item.", "Pre-written Message", metadata) as message|null, MAX_PAPER_MESSAGE_LEN, extra = 0)
 
-/datum/gear_tweak/paper_data/tweak_item(var/obj/item/paper/P, var/metadata)
+/datum/gear_tweak/paper_data/tweak_item(var/obj/item/paper/P, var/metadata, var/mob/living/carbon/human/H)
 	if(!metadata || !istype(P))
 		return
 	P.info = P.parsepencode(metadata)

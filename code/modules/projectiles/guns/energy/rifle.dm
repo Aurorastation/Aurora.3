@@ -11,6 +11,7 @@
 	force = 10
 	max_shots = 20
 	fire_delay = 6
+	burst_delay = 3
 	accuracy = -1
 	can_turret = 1
 	secondary_projectile_type = /obj/item/projectile/beam
@@ -18,8 +19,9 @@
 	can_switch_modes = 1
 	turret_sprite_set = "carbine"
 	turret_is_lethal = 0
+	has_item_ratio = FALSE
 
-	fire_delay_wielded = 1
+	fire_delay_wielded = 4
 	accuracy_wielded = 2
 	sel_mode = 1
 
@@ -95,6 +97,8 @@
 	projectile_type = /obj/item/projectile/beam/xray
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
 	max_shots = 40
+	fire_delay = 6
+	burst_delay = 6
 	secondary_projectile_type = null
 	secondary_fire_sound = null
 	can_switch_modes = 0

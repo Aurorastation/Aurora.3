@@ -2,13 +2,14 @@
 	display_name = "cane"
 	path = /obj/item/cane
 
-/datum/gear/cane/crutch
-	display_name = "crutch"
-	path = /obj/item/cane/crutch
-
-/datum/gear/cane/white
-	display_name = "white cane"
-	path = /obj/item/cane/white
+/datum/gear/cane/New()
+	..()
+	var/list/cane = list()
+	cane["cane"] = /obj/item/cane
+	cane["telescopic cane"] = /obj/item/cane/telecane
+	cane["crutch"] = /obj/item/cane/crutch
+	cane["white cane"] = /obj/item/cane/white
+	gear_tweaks += new /datum/gear_tweak/path(cane)
 
 /datum/gear/dice
 	display_name = "pack of dice"
@@ -89,7 +90,49 @@
 			lunchboxes[initial(lunchbox.name)] = lunchbox_type
 	sortTim(lunchboxes, /proc/cmp_text_asc)
 	gear_tweaks += new/datum/gear_tweak/path(lunchboxes)
-	gear_tweaks += new/datum/gear_tweak/contents(lunchables_lunches(), lunchables_snacks(), lunchables_drinks())
+	gear_tweaks += new/datum/gear_tweak/contents(lunchables_lunches(), lunchables_snacks(), lunchables_drinks(), lunchables_utensil())	
+
+/datum/gear/coffeecup
+	display_name = "coffee cups"
+	description = "A coffee cup in various designs."
+	cost = 1
+	path = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup
+
+/datum/gear/coffeecup/New()
+	..()
+	var/coffeecups = list()
+	coffeecups["plain coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup
+	coffeecups["sol coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/sol
+	coffeecups["dominian coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/dom
+	coffeecups["NKA coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nka
+	coffeecups["PRA coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra
+	coffeecups["DPRA coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/dpra
+	coffeecups["NT coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nt
+	coffeecups["TCFL coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcfl
+	coffeecups["#1 coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/one
+	coffeecups["#1 monkey coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/puni
+	coffeecups["heart coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/heart
+	coffeecups["pawn coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pawn
+	coffeecups["diona coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/diona
+	coffeecups["british coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/britcup
+	coffeecups["black coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/black
+	coffeecups["green coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/green
+	coffeecups["dark green coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/green/dark
+	coffeecups["rainbow coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/rainbow
+	coffeecups["metal coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal
+	coffeecups["glass coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/glass
+	coffeecups["tall coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tall
+	coffeecups["tall black coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tall/black
+	coffeecups["tall metal coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tall/metal
+	coffeecups["tall rainbow coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tall/rainbow
+	gear_tweaks += new/datum/gear_tweak/path(coffeecups)
+	gear_tweaks += new/datum/gear_tweak/reagents(lunchables_drink_reagents())	
+
+/datum/gear/coffeecup/spawn_item(var/location, var/metadata)
+	. = ..()
+	var/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/spawned_cup = .
+	if(istype(spawned_cup) && spawned_cup.reagents)
+		spawned_cup.reagents.set_temperature(T0C + 45)
 
 /datum/gear/banner
 	display_name = "banner selection"
@@ -176,6 +219,11 @@
 	path = /obj/item/towel
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/handkerchief
+	display_name = "handkerchief"
+	path = /obj/item/reagent_containers/glass/rag/handkerchief
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/gameboard
 	display_name = "holo board game"
 	path = /obj/item/board
@@ -191,6 +239,7 @@
 
 /datum/gear/plushie
 	display_name = "plushie selection"
+	description = "A selection of plush toys."
 	path = /obj/item/toy/plushie
 
 /datum/gear/plushie/New()
@@ -210,6 +259,11 @@
 	plushies["plushie, cool schlorrgo"] = /obj/item/toy/plushie/coolschlorrgo
 	plushies["plushie, slime"] = /obj/item/toy/plushie/slime
 	plushies["plushie, penny"] = /obj/item/toy/plushie/pennyplush
+	plushies["plushie, greimorian"] = /obj/item/toy/plushie/greimorian
+	plushies["plushie, Axic"] = /obj/item/toy/plushie/axic
+	plushies["plushie, Qill"] = /obj/item/toy/plushie/qill
+	plushies["plushie, Xana"] = /obj/item/toy/plushie/xana
+	plushies["plushie, Aphy"] = /obj/item/toy/plushie/ipc
 	gear_tweaks += new/datum/gear_tweak/path(plushies)
 
 /datum/gear/toothpaste
@@ -228,3 +282,20 @@
 	display_name = "photo"
 	path =  /obj/item/photo
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/photo_album
+	display_name = "photo album"
+	path =  /obj/item/storage/photo_album
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/knitting_set
+	display_name = "knitting set"
+	path =  /obj/item/storage/box/knitting
+	description = "A box of knitting supplies."
+	flags = null
+
+/datum/gear/yarn_box
+	display_name = "knitting supplies"
+	path =  /obj/item/storage/box/yarn
+	description = "A box containing yarn."
+	flags = null

@@ -23,6 +23,12 @@
 		if(!T.tick())
 			traders -= T
 			qdel(T)
+
+		if(!T.system_allowed())
+			traders -= T
+			qdel(T)
+			generateTrader()
+
 	if(prob(100-traders.len*10))
 		generateTrader()
 

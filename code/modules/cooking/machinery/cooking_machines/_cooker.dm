@@ -109,7 +109,7 @@
 		set_temp = text2num(desired_temp) + T0C
 		to_chat(user, SPAN_NOTICE("You set [src] to [round(set_temp-T0C)]C."))
 		stat &= ~POWEROFF
-	use_power = !(stat & POWEROFF) && use_power
+	use_power = !(stat & POWEROFF) // will be updated again after heat_up
 	if(wasoff != (stat & POWEROFF))
 		activation_message(user)
 	playsound(src, 'sound/machines/click.ogg', 40, 1)
@@ -138,7 +138,7 @@
 		update_cooking_power() // update!
 	for(var/cooking_obj in cooking_objs)
 		var/datum/cooking_item/CI = cooking_obj
-		if(isemptylist(CI.container?.reagents.reagent_data))
+		if((CI.container.flags && NOREACT) || isemptylist(CI.container?.reagents.reagent_volumes))
 			continue
 		CI.container.reagents.set_temperature(min(temperature, CI.container.reagents.get_temperature() + 10*SIGN(temperature - CI.container.reagents.get_temperature()))) // max of 5C per second
 	return ..()

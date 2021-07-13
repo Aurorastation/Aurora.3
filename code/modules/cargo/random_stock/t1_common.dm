@@ -171,7 +171,7 @@ STOCK_ITEM_COMMON(weldgear, 2)
 		new /obj/item/reagent_containers/weldpack(L)
 
 STOCK_ITEM_COMMON(inflatable, 3)
-	new /obj/item/storage/briefcase/inflatable(L)
+	new /obj/item/storage/bag/inflatable(L)
 
 STOCK_ITEM_COMMON(wheelchair, 1)
 	//Wheelchair is not dense so it doesnt NEED a clear tile, but it looks a little silly to
@@ -491,8 +491,6 @@ STOCK_ITEM_COMMON(gasmask, 2)
 		/obj/item/clothing/mask/gas = 10,
 		/obj/item/clothing/mask/gas/plaguedoctor = 1,
 		/obj/item/clothing/mask/gas/swat = 5,
-		/obj/item/clothing/mask/gas/clown_hat = 0.5,
-		/obj/item/clothing/mask/gas/sexyclown = 0.5,
 		/obj/item/clothing/mask/gas/mime = 0.5,
 		/obj/item/clothing/mask/gas/monkeymask = 0.5,
 		/obj/item/clothing/mask/gas/sexymime = 0.5,

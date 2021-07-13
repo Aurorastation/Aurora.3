@@ -3,17 +3,12 @@
 	desc = "It's a softcap in a tasteless color."
 	icon = 'icons/obj/clothing/hats/soft_caps.dmi'
 	icon_state = "softcap"
+	item_flags = SHOWFLAVORTEXT
 	contained_sprite = TRUE
 	var/flipped = FALSE
 	siemens_coefficient = 0.9
 
 /obj/item/clothing/head/softcap/dropped()
-	icon_state = initial(icon_state)
-	item_state = icon_state
-	flipped = FALSE
-	..()
-
-/obj/item/clothing/head/softcap/on_slotmove()
 	icon_state = initial(icon_state)
 	item_state = icon_state
 	flipped = FALSE

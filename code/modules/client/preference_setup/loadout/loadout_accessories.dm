@@ -111,6 +111,32 @@
 	cost = 2
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/accessory/webbing_harness
+	display_name = "webbing, harness selection"
+	path = /obj/item/clothing/accessory/storage/webbingharness
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/webbing_harness/New()
+	..()
+	var/webbingharness = list()
+	webbingharness["webbing harness"] = /obj/item/clothing/accessory/storage/webbingharness
+	webbingharness["webbing harness, pouches"] = /obj/item/clothing/accessory/storage/webbingharness/pouches
+	webbingharness["webbing harness, pouches alt"] = /obj/item/clothing/accessory/storage/webbingharness/alt
+	gear_tweaks += new/datum/gear_tweak/path(webbingharness)
+
+/datum/gear/accessory/colorable_webbing_harness
+	display_name = "webbing, colorable harness selection"
+	path = /obj/item/clothing/accessory/storage/webbingharness/grayscale
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/colorable_webbing_harness/New()
+	..()
+	var/colorableharness = list()
+	colorableharness["webbing harness"] = /obj/item/clothing/accessory/storage/webbingharness/grayscale
+	colorableharness["webbing harness, pouches"] = /obj/item/clothing/accessory/storage/webbingharness/pouches/grayscale
+	colorableharness["webbing harness, pouches alt"] = /obj/item/clothing/accessory/storage/webbingharness/alt/grayscale
+	gear_tweaks += new/datum/gear_tweak/path(colorableharness)
+
 /datum/gear/accessory/brown_pouches
 	display_name = "drop pouches, engineering"
 	path = /obj/item/clothing/accessory/storage/pouches/brown
@@ -154,12 +180,16 @@
 	..()
 	var/sweater = list()
 	sweater["sweater"] = /obj/item/clothing/accessory/sweater
-	sweater["argyle sweater"] = /obj/item/clothing/accessory/sweaterargyle
+	sweater["crewneck sweater"] = /obj/item/clothing/accessory/sweatercrewneck
+	sweater["v-neck sweater"] = /obj/item/clothing/accessory/sweatervneck
 	sweater["sweater vest"] = /obj/item/clothing/accessory/sweatervest
-	sweater["argyle sweater vest"] = /obj/item/clothing/accessory/sweatervestargyle
 	sweater["turtleneck sweater"] = /obj/item/clothing/accessory/sweaterturtleneck
-	sweater["argyle turtleneck sweater"] = /obj/item/clothing/accessory/sweaterargyleturtleneck
 	sweater["tubeneck sweater"] = /obj/item/clothing/accessory/sweatertubeneck
+	sweater["argyle sweater"] = /obj/item/clothing/accessory/sweaterargyle
+	sweater["argyle crewneck sweater"] = /obj/item/clothing/accessory/sweaterargylecrewneck
+	sweater["argyle v-neck sweater"] = /obj/item/clothing/accessory/sweaterargylevneck
+	sweater["argyle sweater vest"] = /obj/item/clothing/accessory/sweatervestargyle
+	sweater["argyle turtleneck sweater"] = /obj/item/clothing/accessory/sweaterargyleturtleneck
 	sweater["argyle tubeneck sweater"] = /obj/item/clothing/accessory/sweaterargyletubeneck
 	gear_tweaks += new/datum/gear_tweak/path(sweater)
 
@@ -173,9 +203,11 @@
 	..()
 	var/shirt = list()
 	shirt["dress shirt"] = /obj/item/clothing/accessory/dressshirt
-	shirt["dress shirt, rolled up"] = /obj/item/clothing/accessory/dressshirt_r
-	shirt["dress shirt, cropped"] = /obj/item/clothing/accessory/dressshirt_crop
-	shirt["cropped dress shirt, rolled up"] = /obj/item/clothing/accessory/dressshirt_crop_r
+	shirt["dress shirt, rolled up"] = /obj/item/clothing/accessory/dressshirt/rolled
+	shirt["dress shirt, cropped"] = /obj/item/clothing/accessory/dressshirt/crop
+	shirt["cropped dress shirt, rolled up"] = /obj/item/clothing/accessory/dressshirt/crop/rolled
+	shirt["dress shirt, alt"] = /obj/item/clothing/accessory/dressshirt/alt
+	shirt["dress shirt, alt rolled up"] = /obj/item/clothing/accessory/dressshirt/alt/rolled
 	shirt["long-sleeved shirt"] = /obj/item/clothing/accessory/longsleeve
 	shirt["long-sleeved shirt, black striped"] = /obj/item/clothing/accessory/longsleeve_s
 	shirt["long-sleeved shirt, blue striped"] = /obj/item/clothing/accessory/longsleeve_sb
@@ -244,7 +276,7 @@
 
 /datum/gear/accessory/detbadge
 	display_name = "badge, investigations"
-	path = /obj/item/clothing/accessory/badge/dia
+	path = /obj/item/clothing/accessory/badge/investigator
 	allowed_roles = list("Investigator")
 
 /datum/gear/accessory/badge
@@ -270,7 +302,7 @@
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/scc_patch
-	display_name = "Stellar Corporate Conglomerate sleeve patch"
+	display_name = "stellar corporate conglomerate sleeve patch"
 	path = /obj/item/clothing/accessory/sleevepatch/scc
 	flags = 0
 
@@ -293,21 +325,38 @@
 	gadpathur["medical cadre brassard"] = /obj/item/clothing/accessory/armband/gadpathur/med
 	gear_tweaks += new/datum/gear_tweak/path(gadpathur)
 
-/datum/gear/accessory/dominia/sash
-	display_name = "dominian house sash selection"
-	description = "A selection of sashes representing the Great Houses of Dominia."
-	path = /obj/item/clothing/accessory/dominia/sash
+/datum/gear/accessory/gadpathur_leader
+	display_name = "gadpathurian section leader badge"
+	description = "A small metal badge worn by Gadpathurian Section Leaders."
+	path = /obj/item/clothing/accessory/gadpathurian_leader
+	flags = GEAR_HAS_DESC_SELECTION
 
-/datum/gear/accessory/dominia/sash/New()
+/datum/gear/accessory/gadpathur_dogtags
+	display_name = "gadpathurian dogtags"
+	description = "Dogtags issued to Gadpathurians."
+	path = /obj/item/clothing/accessory/dogtags/gadpathur
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/sash_coloured
+	display_name = "sash (colourable)"
+	path = /obj/item/clothing/accessory/sash/colourable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/sash
+	display_name = "sash selection"
+	description = "A selection of sashes in various colours."
+	path = /obj/item/clothing/accessory/sash
+
+/datum/gear/accessory/sash/New()
 	..()
-	var/dominia = list()
-	dominia["dominian sash"] = /obj/item/clothing/accessory/dominia/sash
-	dominia["strelitz sash"] = /obj/item/clothing/accessory/dominia/sash/strelitz
-	dominia["volvalaad sash"] = /obj/item/clothing/accessory/dominia/sash/volvalaad
-	dominia["kazhkz sash"] = /obj/item/clothing/accessory/dominia/sash/kazhkz
-	dominia["caladius sash"] = /obj/item/clothing/accessory/dominia/sash/caladius
-	dominia["zhao sash"] =/obj/item/clothing/accessory/dominia/sash/zhao
-	gear_tweaks += new/datum/gear_tweak/path(dominia)
+	var/sash = list()
+	sash["yellow sash"] = /obj/item/clothing/accessory/sash
+	sash["red sash"] = /obj/item/clothing/accessory/sash/red
+	sash["blue sash"] = /obj/item/clothing/accessory/sash/blue
+	sash["orange sash"] = /obj/item/clothing/accessory/sash/orange
+	sash["purple sash"] = /obj/item/clothing/accessory/sash/purple
+	sash["white sash"] =/obj/item/clothing/accessory/sash/white
+	gear_tweaks += new/datum/gear_tweak/path(sash)
 
 /datum/gear/accessory/passcard
 	display_name = "human passcard selection"
@@ -349,3 +398,32 @@
 	passport["passport, dominia"] = /obj/item/clothing/accessory/badge/passport/dominia
 	passport["passport, coalition"] = /obj/item/clothing/accessory/badge/passport/coc
 	gear_tweaks += new/datum/gear_tweak/path(passport)
+
+/datum/gear/accessory/TCFLcard
+	display_name = "TCFL service cards"
+	description = "Identification cards given to active and former members of the Tau Ceti Foreign Legion."
+	path = /obj/item/clothing/accessory/badge/tcfl_papers
+
+/datum/gear/accessory/TCFLcard/New()
+	..()
+	var/TCFLcard = list()
+	TCFLcard["active service"] = /obj/item/clothing/accessory/badge/tcfl_papers/service
+	TCFLcard["veteran"] = /obj/item/clothing/accessory/badge/tcfl_papers/service/veteran
+	gear_tweaks += new/datum/gear_tweak/path(TCFLcard)
+
+/datum/gear/accessory/kneepads
+	display_name = "kneepads"
+	path = /obj/item/clothing/accessory/kneepads
+
+/datum/gear/accessory/blood_patch
+	display_name = "blood patch selection"
+	description = "An embroidered patch indicating the wearer's blood type."
+	path = /obj/item/clothing/accessory/blood_patch
+
+/datum/gear/accessory/blood_patch/New()
+	..()
+	var/list/patches = list()
+	for(var/type in typesof(/obj/item/clothing/accessory/blood_patch))
+		var/obj/item/clothing/accessory/blood_patch/BP = type
+		patches[initial(BP.name)] = type
+	gear_tweaks += new /datum/gear_tweak/path(patches)

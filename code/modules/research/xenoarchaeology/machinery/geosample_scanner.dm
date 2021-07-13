@@ -283,8 +283,8 @@
 
 			if(/obj/item/rocksliver)
 				var/obj/item/rocksliver/O = scanned_item
-				if(O.geological_data)
-					G = O.geological_data
+				if(O.geologic_data)
+					G = O.geologic_data
 
 			if(/obj/item/archaeological_find)
 				data = " - Mundane object (archaic xenos origins)<br>"

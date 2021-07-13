@@ -104,22 +104,21 @@
 	if(!InStasis())
 		..()
 
-// Calculate how vulnerable the human is to under- and overpressure.
-// Returns 0 (equals 0 %) if sealed in an undamaged suit, 1 if unprotected (equals 100%).
+// Calculate how vulnerable the human is to the current pressure.
+// Returns 0 (equals 0 %) if sealed in an undamaged suit that's rated for the pressure, 1 if unprotected (equals 100%).
 // Suitdamage can modifiy this in 10% steps.
-/mob/living/carbon/human/get_pressure_weakness()
-	var/pressure_adjustment_coefficient = 1 // Assume no protection at first.
-
-	if(wear_suit && (wear_suit.item_flags & STOPPRESSUREDAMAGE) && head && (head.item_flags & STOPPRESSUREDAMAGE)) // Complete set of pressure-proof suit worn, assume fully sealed.
-		pressure_adjustment_coefficient = 0
-
-		// Handles breaches in your space suit. 10 suit damage equals a 100% loss of pressure protection.
-		if(istype(wear_suit,/obj/item/clothing/suit/space))
-			var/obj/item/clothing/suit/space/S = wear_suit
-			if(S.can_breach && S.damage)
-				pressure_adjustment_coefficient += S.damage * 0.1
-
-	pressure_adjustment_coefficient = min(1,max(pressure_adjustment_coefficient,0)) // So it isn't less than 0 or larger than 1.
+/mob/living/carbon/human/get_pressure_weakness(pressure)
+	var/pressure_adjustment_coefficient = 0
+	var/list/zones = list(HEAD, UPPER_TORSO, LOWER_TORSO, LEGS, FEET, ARMS, HANDS)
+	for(var/zone in zones)
+		var/list/covers = get_covering_equipped_items(zone)
+		var/zone_exposure = 1
+		for(var/obj/item/clothing/C in covers)
+			zone_exposure = min(zone_exposure, C.get_pressure_weakness(pressure,zone))
+		if(zone_exposure >= 1)
+			return 1
+		pressure_adjustment_coefficient = max(pressure_adjustment_coefficient, zone_exposure)
+	pressure_adjustment_coefficient = Clamp(pressure_adjustment_coefficient, 0, 1) // So it isn't less than 0 or larger than 1.
 
 	return pressure_adjustment_coefficient
 
@@ -644,11 +643,14 @@
 			stamina_recovery *= 1 + 0.3 * chem_effects[CE_SPEEDBOOST]
 			move_delay_mod += -1.5 * chem_effects[CE_SPEEDBOOST]
 
-		var/total_phoronloss = 0
 		for(var/obj/item/I in src)
-			if(I.contaminated && !(isvaurca(src) && src.species.has_organ[BP_FILTRATION_BIT]))
-				total_phoronloss += vsc.plc.CONTAMINATION_LOSS
-		if(!(status_flags & GODMODE)) adjustToxLoss(total_phoronloss)
+			if(I.contaminated && !(species.flags & PHORON_IMMUNE))
+				if(I == r_hand)
+					apply_damage(vsc.plc.CONTAMINATION_LOSS, BURN, BP_R_HAND)
+				else if(I == l_hand)
+					apply_damage(vsc.plc.CONTAMINATION_LOSS, BURN, BP_L_HAND)
+				else
+					adjustFireLoss(vsc.plc.CONTAMINATION_LOSS)
 
 	if (intoxication)
 		handle_intoxication()
@@ -776,6 +778,7 @@
 		if(resting)
 			dizziness = max(0, dizziness - 15)
 			jitteriness = max(0, jitteriness - 15)
+			drowsiness = max(0, drowsiness - 5)
 			adjustHalLoss(-3)
 		else
 			dizziness = max(0, dizziness - 3)
@@ -785,15 +788,21 @@
 		//Other
 		handle_statuses()
 
-		if (drowsyness)
-			if (drowsyness < 0)
-				drowsyness = 0
+		if (drowsiness)
+			if (drowsiness < 0)
+				drowsiness = 0
 			else
-				drowsyness--
-				eye_blurry = max(2, eye_blurry)
-				if (prob(5))
-					sleeping += 1
-					Paralyse(5)
+				drowsiness--
+				eye_blurry = max(drowsiness, eye_blurry)
+				if(drowsiness > 5)
+					if(prob(drowsiness/5))
+						slurring += rand(1, 5)
+					if(prob(3))
+						make_dizzy(100 + drowsiness)
+						if(!sleeping)
+							emote("yawn")
+					if(prob(drowsiness/10))
+						eye_blind += 2
 
 		// If you're dirty, your gloves will become dirty, too.
 		if(gloves && germ_level > gloves.germ_level && prob(10))
@@ -1151,15 +1160,21 @@
 /mob/living/carbon/human/proc/handle_hud_list(var/force_update = FALSE)
 	if(force_update)
 		hud_updateflag = 1022
-	if (BITTEST(hud_updateflag, HEALTH_HUD) && hud_list[HEALTH_HUD])
-		var/image/holder = hud_list[HEALTH_HUD]
-		if(stat == DEAD || (status_flags & FAKEDEATH))
-			holder.icon_state = "0" 	// X_X
-		else if(is_asystole())
-			holder.icon_state = "flatline"
-		else
-			holder.icon_state = "[pulse()]"
-		hud_list[HEALTH_HUD] = holder
+
+	if (BITTEST(hud_updateflag, HEALTH_HUD))
+		if(hud_list[HEALTH_HUD])
+			var/image/holder = hud_list[HEALTH_HUD]
+			if(stat == DEAD || (status_flags & FAKEDEATH))
+				holder.icon_state = "0" 	// X_X
+			else if(is_asystole())
+				holder.icon_state = "flatline"
+			else
+				holder.icon_state = "[pulse()]"
+			hud_list[HEALTH_HUD] = holder
+		if(hud_list[TRIAGE_HUD])
+			var/image/holder = hud_list[TRIAGE_HUD]
+			holder.icon_state = triage_tag
+			hud_list[TRIAGE_HUD] = holder
 
 	if (BITTEST(hud_updateflag, LIFE_HUD) && hud_list[LIFE_HUD])
 		var/image/holder = hud_list[LIFE_HUD]
@@ -1368,6 +1383,8 @@
 		//Any suffocation damage slows stamina regen.
 		//This includes oxyloss from low blood levels
 		var/regen = stamina_recovery * (1 - min(((getOxyLoss()) / exhaust_threshold) + ((get_shock()) / exhaust_threshold), 1))
+		if(is_drowsy())
+			regen *= 0.85
 		if (regen > 0)
 			stamina = min(max_stamina, stamina+regen)
 			adjustNutritionLoss(stamina_recovery*0.09)
@@ -1438,8 +1455,8 @@
 /mob/living/carbon/human/proc/do_fever_effects(var/fever)
 	if(prob(20/3)) // every 30 seconds, roughly
 		to_chat(src, SPAN_WARNING(pick("You feel cold and clammy...", "You shiver as if a breeze has passed through.", "Your muscles ache.", "You feel tired and fatigued.")))
-	if(prob(20)) // once every 10 seconds, roughly
-		drowsyness += 4
+	if(prob(25)) // once every 8 seconds, roughly
+		drowsiness += 5
 	if(prob(20))
 		adjustHalLoss(5 * min(fever, 5)) // muscle pain from fever
 	if(fever >= 7 && prob(10)) // your organs are boiling, figuratively speaking

@@ -9,7 +9,7 @@
 
 	var/species_items_equipped // used so species that need special items (autoinhalers for vaurca/RMT for offworlders) don't get them twice when they shouldn't.
 
-	var/list/hud_list[10]
+	var/list/hud_list[11]
 	var/embedded_flag	  //To check if we've need to roll for damage on movement while an item is imbedded in us.
 	var/obj/item/rig/wearing_rig // This is very not good, but it's much much better than calling get_rig() every update_canmove() call.
 	mob_size = 9//Based on average weight of a human
@@ -47,6 +47,7 @@
 	hud_list[SPECIALROLE_HUD] = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
 	hud_list[STATUS_HUD_OOC]  = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudhealthy")
 	hud_list[LIFE_HUD]	      = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudhealthy")
+	hud_list[TRIAGE_HUD]      = new /image/hud_overlay('icons/mob/hud_med.dmi', src, triage_tag)
 
 	//Scaling down the ID hud
 	var/image/holder = hud_list[ID_HUD]
@@ -758,6 +759,18 @@
 				if(isrobot(usr))
 					var/mob/living/silicon/robot/U = usr
 					R.medical.comments += text("Made by [U.name] ([U.mod_type] [U.braintype]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [game_year]<BR>[t1]")
+
+	if(href_list["triagetag"])
+		if(hasHUD(usr, "medical"))
+			var/static/list/tags = list()
+			if(!length(tags))
+				for(var/thing in list(TRIAGE_NONE, TRIAGE_GREEN, TRIAGE_YELLOW, TRIAGE_RED, TRIAGE_BLACK))
+					tags[thing] = image(icon = 'icons/mob/screen/triage_tag.dmi', icon_state = thing)
+			var/chosen_tag = show_radial_menu(usr, src, tags, radius = 42, tooltips = TRUE)
+			if(chosen_tag)
+				triage_tag = chosen_tag
+			BITSET(hud_updateflag, HEALTH_HUD)
+			handle_hud_list()
 
 	if (href_list["lookitem"])
 		var/obj/item/I = locate(href_list["lookitem"])
@@ -1514,19 +1527,16 @@
 #define BASE_INJECTION_MOD 1 // x1 multiplier with no effects
 #define SUIT_INJECTION_MOD 2 // x2 multiplier if target is wearing spacesuit
 
-/mob/living/carbon/human/can_inject(var/mob/user, var/error_msg, var/target_zone)
+/mob/living/carbon/human/can_inject(var/mob/user, var/error_msg, var/target_zone, var/handle_coverage = TRUE)
 	. = BASE_INJECTION_MOD
 
 	if(!target_zone)
 		if(!user)
-			target_zone = pick(BP_CHEST,BP_CHEST,BP_CHEST,"left leg","right leg","left arm", "right arm", BP_HEAD)
+			target_zone = pick(BP_CHEST, BP_CHEST, BP_CHEST, BP_L_LEG, BP_R_LEG, BP_L_ARM, BP_R_ARM, BP_HEAD)
 		else
 			target_zone = user.zone_sel.selecting
 
 	. *= species.get_injection_modifier()
-
-	if(isvaurca(src))
-		user.visible_message(SPAN_WARNING("[user] begins hunting for an injection port on [src]'s carapace!"))
 
 	var/obj/item/organ/external/affecting = get_organ(target_zone)
 	var/fail_msg
@@ -1536,22 +1546,46 @@
 	else if (affecting.status & ORGAN_ROBOT)
 		. = INJECTION_FAIL
 		fail_msg = "That limb is robotic."
-	else
-		switch(target_zone)
-			if(BP_HEAD)
-				if(head && head.item_flags & THICKMATERIAL)
-					. = INJECTION_FAIL
-			else
-				if(wear_suit && wear_suit.item_flags & THICKMATERIAL)
-					if(istype(wear_suit, /obj/item/clothing/suit/space))
-						user.visible_message(SPAN_WARNING("[user] begins hunting for an injection port on [src]'s suit!"))
-						. *= SUIT_INJECTION_MOD
-					else
-						. = INJECTION_FAIL
+	else if (handle_coverage)
+		. *= get_bp_coverage(target_zone)
+		if(isvaurca(src) && . == SUIT_INJECTION_MOD)
+			user.visible_message("<b>[user]</b> begins hunting for an injection port on \the [src]'s carapace.")
+		else if(. >= SUIT_INJECTION_MOD)
+			user.visible_message("<b>[user]</b> begins hunting for \the [src]'s injection port.")
 	if(!. && error_msg && user)
 		if(!fail_msg)
 			fail_msg = "There is no exposed flesh or thin material [target_zone == BP_HEAD ? "on their head" : "on their body"] to inject into."
 		to_chat(user, SPAN_ALERT("[fail_msg]"))
+
+/mob/living/carbon/human/proc/get_bp_coverage(var/bp)
+	. = BASE_INJECTION_MOD
+	var/static/list/bp_to_coverage = list(
+		BP_HEAD = HEAD,
+		BP_EYES = EYES,
+		BP_MOUTH = FACE,
+		BP_CHEST = UPPER_TORSO,
+		BP_GROIN = LOWER_TORSO,
+		BP_L_ARM = (ARMS|ARM_LEFT),
+		BP_R_ARM = (ARMS|ARM_RIGHT),
+		BP_L_HAND = (HANDS|HAND_LEFT),
+		BP_R_HAND = (HANDS|HAND_RIGHT),
+		BP_L_LEG = (LEGS|LEG_LEFT),
+		BP_R_LEG = (LEGS|LEG_RIGHT),
+		BP_L_FOOT = (FEET|FOOT_LEFT),
+		BP_R_FOOT = (FEET|FOOT_RIGHT)
+	)
+	for(var/obj/item/C in list(wear_suit, head, wear_mask, w_uniform, gloves, shoes))
+		var/injection_modifier = BASE_INJECTION_MOD
+		if(C.item_flags & INJECTIONPORT)
+			injection_modifier = SUIT_INJECTION_MOD
+		else if(C.item_flags & THICKMATERIAL)
+			injection_modifier = INJECTION_FAIL
+		if(. == SUIT_INJECTION_MOD && injection_modifier != INJECTION_FAIL) // don't reset it back to the base, unless it completely blocks
+			continue
+		if(C.body_parts_covered & bp_to_coverage[bp])
+			. = injection_modifier
+		if(. == INJECTION_FAIL)
+			return
 
 #undef INJECTION_FAIL
 #undef BASE_INJECTION_MOD
@@ -1569,6 +1603,9 @@
 	var/feet_exposed = 1
 
 	for(var/obj/item/clothing/C in equipment)
+		if(C.item_flags & SHOWFLAVORTEXT)
+			continue
+
 		if(C.body_parts_covered & HEAD)
 			head_exposed = 0
 		if(C.body_parts_covered & FACE)
@@ -1778,13 +1815,13 @@
 		if(PULSE_NONE)
 			return 0
 		if(PULSE_SLOW)
-			return rand(40, 60)
+			return rand(species.low_pulse, species.norm_pulse)
 		if(PULSE_NORM)
-			return rand(60, 90)
+			return rand(species.norm_pulse, species.fast_pulse)
 		if(PULSE_FAST)
-			return rand(90, 120)
+			return rand(species.fast_pulse, species.v_fast_pulse)
 		if(PULSE_2FAST)
-			return rand(120, 160)
+			return rand(species.v_fast_pulse, species.max_pulse)
 		if(PULSE_THREADY)
 			return PULSE_MAX_BPM
 	return 0
@@ -1818,9 +1855,9 @@
 //Get fluffy numbers
 /mob/living/carbon/human/proc/blood_pressure()
 	if(status_flags & FAKEDEATH)
-		return list(Floor(120+rand(-5,5))*0.25, Floor(80+rand(-5,5)*0.25))
+		return list(Floor(species.bp_base_systolic+rand(-5,5))*0.25, Floor(species.bp_base_disatolic+rand(-5,5)*0.25))
 	var/blood_result = get_blood_circulation()
-	return list(Floor((120+rand(-5,5))*(blood_result/100)), Floor((80+rand(-5,5))*(blood_result/100)))
+	return list(Floor((species.bp_base_systolic+rand(-5,5))*(blood_result/100)), Floor((species.bp_base_disatolic+rand(-5,5))*(blood_result/100)))
 
 //Formats blood pressure for text display
 /mob/living/carbon/human/proc/get_blood_pressure()
@@ -1829,30 +1866,32 @@
 
 //Works out blood pressure alert level -- not very accurate
 /mob/living/carbon/human/proc/get_blood_pressure_alert()
-	var/list/bp = blood_pressure()
+	var/list/bp_list = blood_pressure()
 	// For a blood pressure, e.g. 120/80
 	var/systolic_alert // this is the top number '120' -- highest pressure when heart beats
 	var/diastolic_alert // this is the bottom number '80' -- lowest pressure when heart relaxes
-
-	switch(bp[1])
-		if(BP_HIGH_SYSTOLIC to INFINITY)
-			systolic_alert = BLOOD_PRESSURE_HIGH
-		if(BP_PRE_HIGH_SYSTOLIC to BP_HIGH_SYSTOLIC)
-			systolic_alert = BLOOD_PRESSURE_PRE_HIGH
-		if(BP_IDEAL_SYSTOLIC to BP_PRE_HIGH_SYSTOLIC)
+	
+	var/blood_pressure_systolic = bp_list[1]
+	if (blood_pressure_systolic)
+		if (blood_pressure_systolic >= (species.bp_base_systolic - BP_SYS_IDEAL_MOD) && blood_pressure_systolic <= (species.bp_base_systolic + HIGH_BP_MOD))
 			systolic_alert = BLOOD_PRESSURE_IDEAL
-		if(-INFINITY to BP_IDEAL_SYSTOLIC)
+		else if (blood_pressure_systolic <= (species.bp_base_systolic - BP_SYS_IDEAL_MOD))
 			systolic_alert = BLOOD_PRESSURE_LOW
+		else if (blood_pressure_systolic >= (species.bp_base_systolic + PRE_HIGH_BP_MOD) && blood_pressure_systolic <= (species.bp_base_systolic + HIGH_BP_MOD))
+			systolic_alert = BLOOD_PRESSURE_PRE_HIGH
+		else if (blood_pressure_systolic >= (species.bp_base_systolic + HIGH_BP_MOD))
+			systolic_alert = BLOOD_PRESSURE_HIGH
 
-	switch(bp[2])
-		if(BP_HIGH_DIASTOLIC to INFINITY)
-			diastolic_alert = BLOOD_PRESSURE_HIGH
-		if(BP_PRE_HIGH_DIASTOLIC to BP_HIGH_DIASTOLIC)
-			diastolic_alert = BLOOD_PRESSURE_PRE_HIGH
-		if(BP_IDEAL_DIASTOLIC to BP_PRE_HIGH_DIASTOLIC)
+	var/blood_pressure_disatolic = bp_list[2]
+	if (blood_pressure_disatolic)
+		if(blood_pressure_disatolic >= (species.bp_base_disatolic - BP_DIS_IDEAL_MOD) && blood_pressure_disatolic <=  (species.bp_base_disatolic + HIGH_BP_MOD))
 			diastolic_alert = BLOOD_PRESSURE_IDEAL
-		if(-INFINITY to BP_IDEAL_DIASTOLIC)
+		else if (blood_pressure_disatolic >=  (species.bp_base_disatolic - BP_DIS_IDEAL_MOD))
 			diastolic_alert = BLOOD_PRESSURE_LOW
+		else if (blood_pressure_disatolic >= (species.bp_base_disatolic + PRE_HIGH_BP_MOD) && blood_pressure_disatolic <= (species.bp_base_disatolic + PRE_HIGH_BP_MOD))
+			diastolic_alert = BLOOD_PRESSURE_PRE_HIGH
+		else if (blood_pressure_disatolic >= (species.bp_base_disatolic + HIGH_BP_MOD))
+			diastolic_alert = BLOOD_PRESSURE_HIGH
 
 	if(systolic_alert == BLOOD_PRESSURE_HIGH || diastolic_alert == BLOOD_PRESSURE_HIGH)
 		return BLOOD_PRESSURE_HIGH

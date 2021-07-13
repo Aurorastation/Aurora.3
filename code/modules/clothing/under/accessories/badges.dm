@@ -52,13 +52,15 @@
 
 /obj/item/clothing/accessory/badge/proc/set_name(var/new_name)
 	stored_name = new_name
-	name = "[name] ([stored_name])"
+	desc += "\nThe name [stored_name] is written on it."
 
 /obj/item/clothing/accessory/badge/attack_self(mob/user as mob)
 
 	if(!stored_name)
-		to_chat(user, "You inspect your [src.name]. Everything seems to be in order and you give it a quick cleaning with your hand.")
-		set_name(user.real_name)
+		var/imprintID = alert(user,"Do you wish to imprint your name on \the [src.name]?","Imprint id","Yes", "No")
+		if(imprintID == "Yes")
+			to_chat(user, "You inspect your [src.name]. Everything seems to be in order and you give it a quick cleaning with your hand.")
+			set_name(user.real_name)
 		return
 
 	if(isliving(user))
@@ -120,6 +122,9 @@
 
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
+
+/obj/item/clothing/accessory/badge/holo/cord/get_mask_examine_text(mob/user)
+	return "around [user.get_pronoun("his")] neck"
 
 /obj/item/clothing/accessory/badge/holo/attack_self(mob/user as mob)
 	if(!stored_name)
@@ -195,6 +200,18 @@
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
 
+/obj/item/clothing/accessory/badge/tcfl_papers/service
+	name = "\improper TCFL service card"
+	desc = "A small card identifying one as a current member of the Tau Ceti Foreign Legion. Often used to secure discounts in \
+	Republic shops. Go Biesel!"
+	badge_string = "Tau Ceti Foreign Legion Service Member"
+
+/obj/item/clothing/accessory/badge/tcfl_papers/service/veteran
+	name = "\improper TCFL veteran's service card"
+	desc = "A small card identifying one as a former member of the Tau Ceti Foreign Legion. Often used to secure discounts in \
+	Republic shops. Go Biesel!"
+	badge_string = "Tau Ceti Foreign Legion Veteran"
+
 /obj/item/clothing/accessory/badge/sheriff
 	name = "sheriff badge"
 	desc = "A star-shaped brass badge denoting who the law is around these parts."
@@ -208,11 +225,11 @@
 	icon_state = "marshalbadge"
 	badge_string = "Federal Marshal"
 
-/obj/item/clothing/accessory/badge/dia
-	name = "\improper DIA badge"
+/obj/item/clothing/accessory/badge/investigator
+	name = "\improper investigator badge"
 	desc = "This badge marks the holder as an investigative agent."
-	icon_state = "diabadge"
-	overlay_state = "diabadge"
+	icon_state = "invbadge"
+	overlay_state = "invbadge"
 	badge_string = "Corporate Investigator"
 
 /obj/item/clothing/accessory/badge/idbadge
@@ -436,6 +453,10 @@
 
 //passports
 
+#define CANT_OPEN -1
+#define CLOSED 0
+#define OPEN 1
+
 /obj/item/clothing/accessory/badge/passport
 	name = "biesellite passport"
 	desc = "A passport issued to a citizen of the Republic of Biesel."
@@ -449,9 +470,28 @@
 	v_flippable = FALSE
 	badge_string = null
 
+	var/open = CANT_OPEN
+
 	drop_sound = 'sound/items/drop/cloth.ogg'
 
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
+
+/obj/item/clothing/accessory/badge/passport/Initialize()
+	. = ..()
+	if(open != CANT_OPEN)
+		verbs += /obj/item/clothing/accessory/badge/passport/proc/open_passport
+
+/obj/item/clothing/accessory/badge/passport/proc/open_passport()
+	set name = "Open/Close Passport"
+	set src in usr
+
+	open = !open
+	to_chat(usr, SPAN_NOTICE("You [open ? "open" : "close"] \the [src]."))
+	update_icon()
+
+/obj/item/clothing/accessory/badge/passport/update_icon()
+	if(open != CANT_OPEN)
+		icon_state = "[initial(icon_state)][open ? "_o" : ""]"
 
 /obj/item/clothing/accessory/badge/passport/sol
 	name = "solarian passport"
@@ -476,3 +516,23 @@
 	desc = "A passport issued to a resident of the Empire of Dominia. Popular among those whose debt is great but pockets light."
 	icon_state = "passport_dominia"
 	item_state = "passport_dominia"
+
+/obj/item/clothing/accessory/badge/passport/jargon
+	name = "jargon federation passport"
+	desc = "A passport issued to citizens of the Jargon Federation. Shiny, and compact, it's perfect to use on the go."
+	icon_state = "passport_jargon"
+	item_state = "passport_jargon"
+	open = CLOSED
+	var/credit_score = 5
+	var/species_tag = ""
+
+/obj/item/clothing/accessory/badge/passport/jargon/examine(mob/user)
+	. = ..()
+	to_chat(user, SPAN_NOTICE("The passport displays the owner's social credit score as: [credit_score]."))
+
+/obj/item/clothing/accessory/badge/passport/jargon/update_icon()
+	icon_state = "[initial(icon_state)][open ? "_o[species_tag]" : ""]"
+
+#undef CANT_OPEN
+#undef CLOSED
+#undef OPEN

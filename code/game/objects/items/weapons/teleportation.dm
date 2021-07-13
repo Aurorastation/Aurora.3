@@ -3,11 +3,26 @@
  *		Locator
  *		Hand-tele
  *		Closet Teleporter
+ *		Inhibitor handling proc for above
  */
+
+/*
+ * Special inhibitor handling. Different from the one used by teleport datums.
+ */
+/proc/check_inhibitors(var/turf/T)
+	for(var/found_inhibitor in bluespace_inhibitors)
+		var/obj/machinery/anti_bluespace/AB = found_inhibitor
+		if(T.z != AB.z || get_dist(T, AB) > 8 || (AB.stat & (NOPOWER | BROKEN)))
+			continue
+		else
+			return FALSE
+	return TRUE
 
 /*
  * Locator
  */
+
+
 /obj/item/locator
 	name = "locator"
 	desc = "A device that can be used to track those with locator implants."
@@ -130,23 +145,26 @@ Frequency:
 	icon_state = "hand_tele"
 	item_state = "electronic"
 	throwforce = 5
+	flags = HELDMAPTEXT
 	w_class = ITEMSIZE_SMALL
 	throw_speed = 3
 	throw_range = 5
 	origin_tech = list(TECH_MAGNET = 1, TECH_BLUESPACE = 3)
 	matter = list(DEFAULT_WALL_MATERIAL = 10000)
 	var/list/active_teleporters = list()
-	var/held_maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">Ready</span>"
 
-/obj/item/hand_tele/Initialize()
-	. = ..()
-	if(get(loc, /mob))
-		maptext = held_maptext
+/obj/item/hand_tele/set_initial_maptext()
+	held_maptext = SMALL_FONTS(7, "Ready")
 
 /obj/item/hand_tele/attack_self(mob/user)
 	var/turf/current_location = get_turf(user)//What turf is the user on?
 	if(!current_location || isNotStationLevel(current_location.z))
 		to_chat(user, SPAN_WARNING("\The [src] can't get a bearing on anything right now."))
+		return
+
+	//Cannot make one if too close to an inhibitor
+	if(!check_inhibitors(current_location))
+		to_chat(user, SPAN_DANGER("\The [src] can't seem to find a lock. Something in the area must be preventing the portal from opening..."))
 		return
 
 	var/list/teleport_options = list()
@@ -166,6 +184,9 @@ Frequency:
 			continue
 		if(T.density || turf_contains_dense_objects(T))
 			continue
+		if(!check_inhibitors(T))
+			continue
+		
 		potential_turfs += T
 
 	if(length(potential_turfs))
@@ -184,36 +205,13 @@ Frequency:
 	var/obj/effect/portal/P = new /obj/effect/portal(get_turf(src), T, src)
 	active_teleporters += P
 	if(length(active_teleporters) >= 3)
-		check_maptext("<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 6px;\">Charge</span>")
+		check_maptext(SMALL_FONTS(6, "Charge"))
 	add_fingerprint(user)
 
 /obj/item/hand_tele/proc/remove_portal(var/obj/effect/portal/P)
 	active_teleporters -= P
 	if(length(active_teleporters) < 3)
-		check_maptext("<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">Ready</span>")
-
-/obj/item/hand_tele/proc/check_maptext(var/new_maptext)
-	if(new_maptext)
-		held_maptext = new_maptext
-	if(ismob(loc) || ismob(loc.loc))
-		maptext = held_maptext
-	else
-		maptext = ""
-
-/obj/item/hand_tele/throw_at()
-	..()
-	check_maptext()
-
-/obj/item/hand_tele/dropped()
-	..()
-	check_maptext()
-
-/obj/item/hand_tele/on_give()
-	check_maptext()
-
-/obj/item/hand_tele/pickup()
-	..()
-	addtimer(CALLBACK(src, .proc/check_maptext), 1) // invoke async does not work here
+		check_maptext(SMALL_FONTS(7, "Ready"))
 
 /obj/item/closet_teleporter
 	name = "closet teleporter"
@@ -232,17 +230,21 @@ Frequency:
 /obj/item/closet_teleporter/proc/do_teleport(var/mob/user)
 	if(!attached_closet)
 		to_chat(user, SPAN_WARNING("\The [src] doesn't have an attached closet!"))
-		return
+		return FALSE
 	if(!linked_teleporter)
 		to_chat(user, SPAN_WARNING("\The [src] doesn't have a linked teleporter!"))
-		return
+		return FALSE
 	if(!linked_teleporter.attached_closet)
 		to_chat(user, SPAN_WARNING("The linked teleporter doesn't have an attached closet!"))
-		return
+		return FALSE
 	if(last_use + 600 > world.time)
-		return
+		return FALSE
+	if(!check_inhibitors(get_turf(attached_closet)) || !check_inhibitors(get_turf(linked_teleporter.attached_closet)))
+		to_chat(user, SPAN_WARNING("Something near you or your destination is destabilizing the bluespace network between the closets. \The [src] can't get a clear link to the other side!"))
+		return FALSE
+
 	var/obj/structure/closet/target_closet = linked_teleporter.attached_closet
-	user.forceMove(target_closet)
+	user.forceMove(target_closet.opened ? get_turf(target_closet) : target_closet)
 	if(target_closet.opened)
 		user.visible_message(SPAN_NOTICE("\The [user] steps out of the back of \the [target_closet]."), SPAN_NOTICE("You teleport into the linked closet, stepping out of it."))
 	else
@@ -250,6 +252,7 @@ Frequency:
 		to_chat(user, SPAN_NOTICE("You teleport into the target closet, bumping into the closed door."))
 		target_closet.shake_animation()
 		playsound(get_turf(src), 'sound/effects/grillehit.ogg', 100, TRUE)
+	return TRUE
 
 /obj/item/closet_teleporter/Destroy()
 	attached_closet = null

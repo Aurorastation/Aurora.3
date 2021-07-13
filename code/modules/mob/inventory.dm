@@ -38,8 +38,7 @@
 //This is an UNSAFE proc. It merely handles the actual job of equipping. All the checks on whether you can or can't eqip need to be done before! Use mob_can_equip() for that task.
 //In most cases you will want to use equip_to_slot_if_possible()
 /mob/proc/equip_to_slot(obj/item/W, slot, redraw_mob, assisted_equip)
-	W.on_slotmove(src)
-	return
+	W.on_slotmove(src, slot)
 
 //This is just a commonly used configuration for the equip_to_slot_if_possible() proc, used to equip people when the rounds tarts and when events happen and such.
 /mob/proc/equip_to_slot_or_del(obj/item/W as obj, slot)
@@ -199,17 +198,17 @@ var/list/slot_equipment_priority = list( \
 //Drops the item in our active hand. TODO: rename this to drop_active_hand or something
 
 /mob/proc/drop_item(var/atom/Target)
-    var/obj/item/item_dropped = null
+	var/obj/item/item_dropped = null
 
-    if (hand)
-        item_dropped = l_hand
-        . = drop_l_hand(Target)
-    else
-        item_dropped = r_hand
-        . = drop_r_hand(Target)
+	if (hand)
+		item_dropped = l_hand
+		. = drop_l_hand(Target)
+	else
+		item_dropped = r_hand
+		. = drop_r_hand(Target)
 
-    if (istype(item_dropped) && !QDELETED(item_dropped))
-        addtimer(CALLBACK(src, .proc/make_item_drop_sound, item_dropped), 1)
+	if (istype(item_dropped) && !QDELETED(item_dropped))
+		addtimer(CALLBACK(src, .proc/make_item_drop_sound, item_dropped), 1)
 
 /mob/proc/make_item_drop_sound(obj/item/I)
 	if(QDELETED(I))
@@ -343,7 +342,6 @@ var/list/slot_equipment_priority = list( \
 	if(!item)
 		return
 
-	var/can_throw = TRUE
 	if(istype(item, /obj/item/grab))
 		var/obj/item/grab/G = item
 		item = G.throw_held() //throw the person instead of the grab
@@ -366,13 +364,30 @@ var/list/slot_equipment_priority = list( \
 
 			qdel(G)
 		else
-			can_throw = FALSE
+			return
 
-	if(!item || !can_throw)
+	if(!item)
 		return //Grab processing has a chance of returning null
 
-	src.remove_from_mob(item)
-	item.loc = src.loc
+	if(a_intent == I_HELP && Adjacent(target) && isitem(item))
+		var/obj/item/I = item
+		if(ishuman(target))
+			var/mob/living/carbon/human/H = target
+			if(H.in_throw_mode && H.a_intent == I_HELP && unEquip(I))
+				I.on_give(src, target)
+				if(!QDELETED(I)) // if on_give deletes the item, we don't want runtimes below
+					H.put_in_hands(I) // If this fails it will just end up on the floor, but that's fitting for things like dionaea.
+					visible_message("<b>[src]</b> hands \the [H] \a [I].", SPAN_NOTICE("You give \the [target] \a [I]."))
+			else
+				to_chat(src, SPAN_NOTICE("You offer \the [I] to \the [target]."))
+				do_give(H)
+			return
+		remove_from_mob(I)
+		make_item_drop_sound(I)
+		I.forceMove(get_turf(target))
+		return
+
+	remove_from_mob(item)
 
 	if(is_pacified())
 		to_chat(src, "<span class='notice'>You set [item] down gently on the ground.</span>")
@@ -399,6 +414,12 @@ var/list/slot_equipment_priority = list( \
 		drop_from_inventory(entry)
 		qdel(entry)
 
+/mob/proc/get_covering_equipped_items(var/body_parts)
+	. = list()
+	for(var/entry in get_equipped_items())
+		var/obj/item/I = entry
+		if(I.body_parts_covered & body_parts)
+			. += I
 
 /mob/living/carbon/human/proc/equipOutfit(outfit, visualsOnly = FALSE)
 	var/datum/outfit/O = null

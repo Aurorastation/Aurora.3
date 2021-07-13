@@ -35,7 +35,6 @@
 	var/boss_short    = "Cap'"
 	var/company_name  = "BadMan"
 	var/company_short = "BM"
-	var/system_name   = "Uncharted System"
 
 	var/command_spawn_enabled = FALSE
 	var/command_spawn_message = "Someone didn't fill this in."
@@ -74,6 +73,7 @@
 	var/overmap_z = 0		//If 0 will generate overmap zlevel on init. Otherwise will populate the zlevel provided.
 	var/overmap_event_areas = 0 //How many event "clouds" will be generated
 	var/list/map_shuttles = list() // A list of all our shuttles.
+	var/default_sector = SECTOR_ROMANOVICH //What is the default space sector for this map
 
 /datum/map/New()
 	if(!map_levels)

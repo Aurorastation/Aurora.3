@@ -12,7 +12,7 @@
 	desc = "This is used to lie in, sleep in or strap on."
 	desc_info = "Click and drag yourself (or anyone) to this to buckle in. Click on this with an empty hand to undo the buckles.<br>\
 	Anyone with restraints, such as handcuffs, will not be able to unbuckle themselves. They must use the Resist button, or verb, to break free of \
-	the buckles, instead."
+	the buckles, instead. \ To unbuckle people as a stationbound, click the bed with an empty gripper."
 	icon = 'icons/obj/furniture.dmi'
 	icon_state = "bed"
 	anchored = TRUE
@@ -31,7 +31,7 @@
 	slowdown = 5
 
 /obj/structure/bed/Initialize()
-	..()
+	. = ..()
 	LAZYADD(can_buckle, /mob/living)
 
 /obj/structure/bed/New(newloc, new_material = MATERIAL_STEEL, new_padding_material)
@@ -228,6 +228,7 @@
 	var/base_state = "standard"
 	var/item_bedpath = /obj/item/roller
 	var/obj/item/reagent_containers/beaker
+	var/obj/item/vitals_monitor/vitals
 	var/iv_attached = 0
 	var/iv_stand = TRUE
 	var/patient_shift = 9 //How much are mobs moved up when they are buckled_to.
@@ -238,8 +239,14 @@
 	..()
 	LAZYADD(can_buckle, /obj/structure/closet/body_bag)
 
+/obj/structure/bed/roller/Destroy()
+	QDEL_NULL(beaker)
+	QDEL_NULL(vitals)
+	return ..()
+
 /obj/structure/bed/roller/update_icon()
-	overlays.Cut()
+	cut_overlays()
+	vis_contents = list()
 	if(density)
 		icon_state = "[base_state]_up"
 	else
@@ -249,18 +256,31 @@
 		var/percentage = round((beaker.reagents.total_volume / beaker.volume) * 100, 25)
 		var/image/filling = image(icon, "iv_filling[percentage]")
 		filling.color = beaker.reagents.get_color()
-		iv.overlays += filling
+		iv.add_overlay(filling)
 		if(percentage < 25)
-			iv.overlays += image(icon, "light_low")
+			iv.add_overlay(image(icon, "light_low"))
 		if(density)
 			iv.pixel_y = 6
-		overlays += iv
+		add_overlay(iv)
+	if(vitals)
+		vitals.update_monitor()
+		vis_contents += vitals
 	if(bag_strap && istype(buckled, /obj/structure/closet/body_bag))
 		LAZYADD(buckled.overlays, image(icon, bag_strap))
 
 /obj/structure/bed/roller/attackby(obj/item/I, mob/user)
 	if(iswrench(I) || istype(I, /obj/item/stack) || iswirecutter(I))
 		return 1
+	if(istype(I, /obj/item/vitals_monitor))
+		if(vitals)
+			to_chat(user, SPAN_WARNING("\The [src] already has a vitals monitor attached!"))
+			return
+		to_chat(user, SPAN_NOTICE("You attach \the [I] to \the [src]."))
+		user.drop_from_inventory(I, src)
+		vitals = I
+		vitals.bed = src
+		update_icon()
+		return
 	if(iv_stand && !beaker && (istype(I, /obj/item/reagent_containers/glass/beaker) || istype(I, /obj/item/reagent_containers/blood)))
 		if(!user.unEquip(I, target = src))
 			return
@@ -299,6 +319,14 @@
 	beaker = null
 	update_icon()
 
+/obj/structure/bed/roller/proc/remove_vitals(mob/user)
+	to_chat(user, SPAN_NOTICE("You detach \the [vitals] from \the [src]."))
+	vitals.bed = null
+	vitals.update_monitor()
+	user.put_in_hands(vitals)
+	vitals = null
+	update_icon()
+
 /obj/structure/bed/roller/proc/attach_iv(mob/living/carbon/human/target, mob/user)
 	if(!beaker)
 		return
@@ -318,7 +346,7 @@
 	..()
 	if(use_check(usr) || !Adjacent(usr))
 		return
-	if(!ishuman(usr))
+	if(!ishuman(usr) && (!isrobot(usr) || isDrone(usr))) //Humans and borgs can collapse, but not drones
 		return
 	if(over_object == buckled && beaker)
 		if(iv_attached)
@@ -332,6 +360,9 @@
 			return
 	if(beaker)
 		remove_beaker(usr)
+		return
+	if(vitals)
+		remove_vitals(usr)
 		return
 	if(buckled)
 		return

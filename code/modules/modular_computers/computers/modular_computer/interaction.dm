@@ -319,3 +319,11 @@
 /obj/item/modular_computer/GetID()
 	if(card_slot)
 		return card_slot.stored_card
+
+/obj/item/modular_computer/hear_talk(mob/M, text, verb, datum/language/speaking)
+	if(Adjacent(M))
+		var/datum/computer_file/program/chat_client/P = hard_drive.find_file_by_name("ntnrc_client")
+		if(!P || (P.program_state == PROGRAM_STATE_KILLED && P.service_state == PROGRAM_STATE_KILLED))
+			return
+		if(P.focused_conv)
+			P.focused_conv.cl_send(P, text, M)

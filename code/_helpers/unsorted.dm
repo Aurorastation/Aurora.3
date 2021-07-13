@@ -647,6 +647,13 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	if (progbar)
 		qdel(progbar)
 
+/proc/atom_maintain_position(var/atom/A, var/atom/location)
+	if(QDELETED(A) || QDELETED(location))
+		return FALSE
+	if(A.loc != location)
+		return FALSE
+	return TRUE
+
 //Takes: Anything that could possibly have variables and a varname to check.
 //Returns: 1 if found, 0 if not.
 /proc/hasvar(var/datum/A, var/varname)
@@ -811,23 +818,6 @@ var/global/list/common_tools = list(
 		return 1
 	return 0
 
-//Returns 1 if the given item is capable of popping things like balloons, inflatable barriers, or cutting police tape.
-/proc/can_puncture(obj/item/W as obj)		// For the record, WHAT THE HELL IS THIS METHOD OF DOING IT?
-	if(!W)
-		return 0
-	if(W.sharp)
-		return 1
-	return ( \
-		W.sharp													  || \
-		W.isscrewdriver()                   || \
-		W.ispen()                           || \
-		W.iswelder()					  || \
-		istype(W, /obj/item/flame/lighter/zippo)			  || \
-		istype(W, /obj/item/flame/match)            		  || \
-		istype(W, /obj/item/clothing/mask/smokable/cigarette) 		      || \
-		istype(W, /obj/item/shovel) \
-	)
-
 /proc/is_surgery_tool(obj/item/W)
 	return istype(W, /obj/item/surgery)
 
@@ -838,7 +828,7 @@ var/global/list/common_tools = list(
 /proc/can_operate(mob/living/carbon/M) //If it's 2, commence surgery, if it's 1, fail surgery, if it's 0, attack
 	var/surgery_attempt = SURGERY_IGNORE
 	var/located = FALSE
-	if(locate(/obj/machinery/optable, M.loc))
+	if(istype(M.buckled_to, /obj/machinery/stasis_bed) || locate(/obj/machinery/optable, M.loc))
 		located = TRUE
 		surgery_attempt = SURGERY_SUCCESS
 	else if(locate(/obj/structure/bed/roller, M.loc))
@@ -1036,6 +1026,10 @@ var/global/known_proc = new /proc/get_type_ref_bytes
 				temp_col  = "0[temp_col]"
 			colour += temp_col
 	return "#[colour]"
+
+/proc/color_square(red, green, blue, hex)
+	var/color = hex ? hex : "#[num2hex(red, 2)][num2hex(green, 2)][num2hex(blue, 2)]"
+	return "<span style='font-face: fixedsys; font-size: 14px; background-color: [color]; color: [color]'>___</span>"
 
 // call to generate a stack trace and print to runtime logs
 /proc/crash_with(msg)
