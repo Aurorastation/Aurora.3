@@ -367,6 +367,11 @@ var/list/ai_verbs_default = list(
 			Use these like any other radio with the <code>Say</code> command. \
 			Recall the channel list at any time by calling <code>Radio-Settings</code> under <em>AI Commands</em>.\
 		</p>\
+		<h2>AI Shell</h2>\
+		<p>As an AI, you have access to an unique, inhabitable AI shell that spawn behind your core.\
+			 This construct can be used in a variety of ways, but its primary function is to be a <strong>role play tool</strong> to give you the ability to have an actual physical presence on the station.\
+			 The shell is an extension of you, which means <strong>your laws apply to it aswell.</strong>\
+		</p>\
 		"
 	usr << browse(enable_ui_theme(usr, dat), "window=aihelp,size=520x700")
 
