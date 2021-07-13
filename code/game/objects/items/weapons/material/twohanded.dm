@@ -64,8 +64,8 @@
 	force = force_unwielded
 	throwforce = round(force*thrown_force_divisor)
 
-/obj/item/material/twohanded/New()
-	..()
+/obj/item/material/twohanded/Initialize(newloc, material_key)
+	. = ..()
 	update_icon()
 
 /obj/item/material/twohanded/mob_can_equip(M, slot, disable_warning = FALSE)
@@ -305,14 +305,14 @@
 			src.shatter()
 
 //predefined materials for spears
-/obj/item/material/twohanded/spear/steel/New(var/newloc)
-	..(newloc, MATERIAL_STEEL)
+/obj/item/material/twohanded/spear/steel/Initialize(newloc, material_key)
+	. = ..(newloc, MATERIAL_STEEL)
 
-/obj/item/material/twohanded/spear/plasteel/New(var/newloc)
-	..(newloc, MATERIAL_PLASTEEL)
+/obj/item/material/twohanded/spear/plasteel/Initialize(newloc, material_key)
+	. = ..(newloc, MATERIAL_PLASTEEL)
 
-/obj/item/material/twohanded/spear/diamond/New(var/newloc)
-	..(newloc, MATERIAL_DIAMOND)
+/obj/item/material/twohanded/spear/diamond/Initialize(newloc, material_key)
+	. = ..(newloc, MATERIAL_DIAMOND)
 
 /obj/structure/headspear
 	name = "head on a spear"

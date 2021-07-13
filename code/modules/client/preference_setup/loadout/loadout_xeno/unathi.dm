@@ -10,11 +10,11 @@
 
 /datum/gear/suit/unathi_mantle/New()
 	..()
-	var/mantles = list()
+	var/list/mantles = list()
 	mantles["hide mantle, desert"] = /obj/item/clothing/accessory/poncho/unathimantle
 	mantles["hide mantle, forest"] = /obj/item/clothing/accessory/poncho/unathimantle/forest
 	mantles["hide mantle, mountain"] = /obj/item/clothing/accessory/poncho/unathimantle/mountain
-	gear_tweaks += new/datum/gear_tweak/path(mantles)
+	gear_tweaks += new /datum/gear_tweak/path(mantles)
 
 /datum/gear/suit/unathi_robe
 	display_name = "roughspun robe"
@@ -44,7 +44,7 @@
 
 /datum/gear/gloves/unathi/New()
 	..()
-	var/un_gloves = list()
+	var/list/un_gloves = list()
 	un_gloves["black gloves"] = /obj/item/clothing/gloves/black/unathi
 	un_gloves["red gloves"] = /obj/item/clothing/gloves/red/unathi
 	un_gloves["blue gloves"] = /obj/item/clothing/gloves/blue/unathi
@@ -57,7 +57,7 @@
 	un_gloves["white gloves"] = /obj/item/clothing/gloves/white/unathi
 	un_gloves["rainbow gloves"] = /obj/item/clothing/gloves/rainbow/unathi
 	un_gloves["black leather gloves"] = /obj/item/clothing/gloves/black_leather/unathi
-	gear_tweaks += new/datum/gear_tweak/path(un_gloves)
+	gear_tweaks += new /datum/gear_tweak/path(un_gloves)
 
 /datum/gear/gloves/unathi_handwraps
 	display_name = "cloth handwraps"
@@ -230,7 +230,7 @@
 
 /datum/gear/augment/autakh/eyes/New()
 	..()
-	var/augs = list()
+	var/list/augs = list()
 	augs["farseer eye"] = /obj/item/organ/internal/augment/farseer_eye
 	augs["eye flashlight"] = /obj/item/organ/internal/augment/eye_flashlight
 	gear_tweaks += new /datum/gear_tweak/path(augs)

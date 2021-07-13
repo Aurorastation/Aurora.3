@@ -18,6 +18,7 @@ env:
     - USE_MAP=aurora
     - USE_MAP=runtime
     - USE_MAP=exodus
+    - USE_MAP=home
 
 cache:
   directories:
