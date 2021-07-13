@@ -289,6 +289,11 @@
 		return
 	for(var/M in D.materials)
 		materials[M] = max(0, materials[M] - D.materials[M] * mat_efficiency)
+
+	for(var/mob/living/carbon/human/H in range (7, src))
+		if(H.is_hearing_sensitive())
+			H.intent_listen(src)
+
 	if(D.build_path)
 		var/loc_offset = get_step(src, dir)
 		var/obj/new_item = D.Fabricate(loc_offset, src)

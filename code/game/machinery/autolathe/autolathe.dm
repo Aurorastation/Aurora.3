@@ -268,6 +268,10 @@
 		busy = TRUE
 		update_use_power(2)
 
+		for(var/mob/living/carbon/human/H in range (7, src))
+			if(H.is_hearing_sensitive())
+				H.intent_listen(src)
+
 		//Check if we still have the materials.
 		for(var/material in build_item.resources)
 			if(!isnull(stored_material[material]))

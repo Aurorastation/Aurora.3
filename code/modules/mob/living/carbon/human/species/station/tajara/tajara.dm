@@ -130,3 +130,13 @@
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
 	if(H.equip_to_slot_or_del(S,slot_shoes))
 		S.autodrobe_no_remove = TRUE
+
+// /datum/species/tajaran/after_equip(var/mob/living/carbon/human/H)
+// 	action_button_name = "Activate Low Light Vision"
+// 	default_action_type = /datum/action/item_action/organ/night_eyes
+
+/mob/living/carbon/human/proc/listening_close()
+	set category = "IC"
+	set name = "Listen closely"
+
+	visible_message("<b>[src]<b> begins to listen intently."))

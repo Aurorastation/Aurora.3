@@ -521,6 +521,10 @@
 		flush = FALSE
 		return
 
+	for(var/mob/living/carbon/human/H in range (7, src))
+		if(H.is_hearing_sensitive())
+			H.intent_listen(src)
+
 	flushing = 1
 	flick("[icon_state]-flush", src)
 

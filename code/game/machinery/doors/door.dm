@@ -503,6 +503,10 @@
 		return
 	operating = TRUE
 
+	for(var/mob/living/carbon/human/H in range (7, src))
+		if(H.is_hearing_sensitive())
+			H.intent_listen(src)
+
 	do_animate("opening")
 	icon_state = "door_open"
 	set_opacity(0)
@@ -538,6 +542,10 @@
 					addtimer(CALLBACK(src, .proc/autoclose), 60, TIMER_UNIQUE)
 					break
 	operating = TRUE
+
+	for(var/mob/living/carbon/human/H in range (7, src))
+		if(H.is_hearing_sensitive())
+			H.intent_listen(src)
 
 	do_animate("closing")
 	sleep(3)

@@ -200,6 +200,10 @@
 	for(var/C in D.chemicals)
 		reagents.remove_reagent(C, D.chemicals[C] * mat_efficiency)
 
+	for(var/mob/living/carbon/human/H in range (7, src))
+		if(H.is_hearing_sensitive())
+			H.intent_listen(src)
+
 	if(D.build_path)
 		var/obj/new_item = D.Fabricate(src, src)
 		new_item.forceMove(loc)
