@@ -24,6 +24,10 @@
 #define INCORPOREAL_BSTECH  3 // Like ninja, but also go across Z-levels and move in space freely
 #define INCORPOREAL_SHADE   4 // Shady
 
+#define MOB_GRAB_NONE 0
+#define MOB_GRAB_NORMAL 1
+#define MOB_GRAB_FIREMAN 2
+
 // Grab levels.
 #define GRAB_PASSIVE    1
 #define GRAB_AGGRESSIVE 2

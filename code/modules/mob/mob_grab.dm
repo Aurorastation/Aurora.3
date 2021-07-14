@@ -42,6 +42,9 @@
 	var/dancing //determines if assailant and affecting keep looking at each other. Basically a wrestling position
 	var/has_choked = FALSE //Used as a counter for choking people.
 
+	var/obj/item/grab/linked_grab
+	var/wielded = FALSE
+
 	layer = SCREEN_LAYER
 	abstract = 1
 	item_state = "nothing"
@@ -51,15 +54,13 @@
 	pickup_sound = null
 	equip_sound = null
 
-/obj/item/grab/New(mob/user, mob/victim)
-	..()
-	loc = user
+/obj/item/grab/Initialize(mapload, mob/user, mob/victim)
+	. = ..()
 	assailant = user
 	affecting = victim
 
 	if(affecting.anchored || !assailant.Adjacent(victim))
-		qdel(src)
-		return
+		return INITIALIZE_HINT_QDEL
 
 	affecting.grabbed_by += src
 
@@ -206,10 +207,17 @@
 	if(affecting.buckled_to)
 		animate(affecting, pixel_x = affecting.get_standard_pixel_x(), pixel_y = affecting.get_standard_pixel_y(), 4, 1, LINEAR_EASING)
 		return
-	if(affecting.lying || force_down)
+	if(affecting.lying || force_down || wielded)
 		affecting.update_canmove()
-		animate(affecting, pixel_x = affecting.get_standard_pixel_x(), pixel_y = affecting.get_standard_pixel_y(), 5, 1, LINEAR_EASING)
-		affecting.set_dir(SOUTH)
+		var/shift_amount = wielded ? 6 : 0
+		animate(affecting, pixel_x = affecting.get_standard_pixel_x(), pixel_y = affecting.get_standard_pixel_y() + shift_amount, 5, 1, LINEAR_EASING)
+		var/set_dir = wielded ? assailant.dir : SOUTH
+		affecting.set_dir(set_dir)
+		if(wielded)
+			if(assailant.dir != NORTH)
+				affecting.layer = assailant.layer - 0.1
+			else
+				affecting.layer = assailant.layer + 0.1
 		return
 	var/shift = 0
 	var/adir = get_dir(assailant, affecting)
@@ -250,6 +258,8 @@
 	if(!affecting)
 		return
 	if(state == GRAB_UPGRADING)
+		return
+	if(wielded)
 		return
 	if(!assailant.canClick())
 		return
@@ -400,8 +410,14 @@
 	var/destroying = 0
 
 /obj/item/grab/Destroy()
+	if(!QDELING(linked_grab))
+		qdel(linked_grab)
+
+	if(wielded)
+		moved_event.unregister(assailant, src, /obj/item/grab/proc/move_affecting)
+
 	animate(affecting, pixel_x = affecting.get_standard_pixel_x(), pixel_y = affecting.get_standard_pixel_y(), 4, 1, LINEAR_EASING)
-	affecting.layer = 4
+	affecting.layer = initial(affecting.layer)
 	if(affecting)
 		ADD_FALLING_ATOM(affecting) // Makes the grabbee check if they can fall.
 		affecting.grabbed_by -= src
@@ -414,3 +430,64 @@
 	hud = null
 	destroying = 1 // stops us calling qdel(src) on dropped()
 	return ..()
+
+/obj/item/grab/MouseDrop(mob/living/carbon/human/H)
+	if(wielded || affecting.buckled_to || !istype(H) || assailant != H || H.get_active_hand() != src)
+		return
+	if(!ishuman(affecting))
+		to_chat(H, SPAN_WARNING("You can only fireman carry humanoids!"))
+		return
+	var/mob/living/carbon/human/affected_human = affecting
+	if(affected_human.species.mob_size > 25)
+		to_chat(H, SPAN_WARNING("\The [affected_human] is way too big to fireman carry!"))
+		return
+	if(state < GRAB_AGGRESSIVE)
+		to_chat(H, SPAN_WARNING("You need an aggressive grab before you can fireman carry someone!"))
+		return
+	if(H.get_inactive_hand())
+		to_chat(H, SPAN_WARNING("Your other hand must be empty to fireman carry someone!"))
+		return
+
+	H.visible_message("<b>[H]</b> starts lifting \the [affecting] onto their shoulders...", SPAN_NOTICE("You start lifting \the [affecting] onto your shoulders..."))
+
+	if(!do_after(H, 3 SECONDS, TRUE))
+		return
+
+	if(H.get_inactive_hand())
+		to_chat(H, SPAN_WARNING("Your other hand must be empty to fireman carry someone!"))
+		return
+
+	var/obj/item/grab/offhand/OH = new /obj/item/grab/offhand(H, H, affecting, src)
+	H.put_in_hands(OH)
+
+	H.visible_message("<b>[H]</b> lifts \the [affecting] onto their shoulders!", SPAN_NOTICE("You lift \the [affecting] onto your shoulders!"))
+
+	affecting.forceMove(H.loc)
+	adjust_position()
+	moved_event.register(assailant, src, /obj/item/grab/proc/move_affecting)
+
+/obj/item/grab/proc/move_affecting()
+	if(affecting && assailant.Adjacent(affecting)) // Only move if it's near us.
+		affecting.forceMove(assailant.loc)
+
+/obj/item/grab/offhand
+	icon_state = "!reinforce"
+
+/obj/item/grab/offhand/Initialize(mapload, mob/user, mob/victim, var/obj/item/grab/linked)
+	. = ..()
+	linked_grab = linked
+	linked.linked_grab = src
+	linked_grab.wielded = TRUE
+
+	linked_grab.state = GRAB_AGGRESSIVE
+
+	icon_state = "!reinforce"
+	hud.icon_state = "!reinforce"
+	linked_grab.icon_state = "!reinforce"
+	linked_grab.hud.icon_state = "!reinforce"
+
+/obj/item/grab/offhand/process()
+	return
+
+/obj/item/grab/offhand/adjust_position()
+	return

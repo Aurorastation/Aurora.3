@@ -1231,3 +1231,18 @@ proc/is_blind(A)
 	var/turf/ear = get_turf(src)
 	if(ear && speaker_coverage[ear])
 		return TRUE
+
+/mob/proc/has_grab()
+	. = MOB_GRAB_NONE
+	if(istype(l_hand, /obj/item/grab))
+		var/obj/item/grab/l_grab = l_hand
+		if(l_grab.wielded)
+			. = max(MOB_GRAB_FIREMAN, .)
+		else
+			. = max(MOB_GRAB_NORMAL, .)
+	if(istype(r_hand, /obj/item/grab))
+		var/obj/item/grab/r_grab = r_hand
+		if(r_grab.wielded)
+			. = max(MOB_GRAB_FIREMAN, .)
+		else
+			. = max(MOB_GRAB_NORMAL, .)
