@@ -30,6 +30,8 @@
 		name = real_name
 		if(mind)
 			mind.name = real_name
+		if(species.hearing_sensitive)
+			verbs += /mob/living/carbon/human/proc/listening_close
 
 	// Randomize nutrition and hydration. Defines are in __defines/mobs.dm
 	if(max_nutrition > 0)

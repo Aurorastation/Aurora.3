@@ -136,7 +136,20 @@
 // 	default_action_type = /datum/action/item_action/organ/night_eyes
 
 /mob/living/carbon/human/proc/listening_close()
-	set category = "IC"
+	set category = "Special Abilities"
 	set name = "Listen closely"
 
-	visible_message("<b>[src]<b> begins to listen intently."))
+	if(last_special > world.time)
+		return
+
+	if(stat || paralysis || stunned || weakened)
+		return
+
+	visible_message("<b>[src]</b> begins to listen intently.")
+	species.listening_in = 1
+	log_and_message_admins("now listening in")
+	do_after(src, INFINITY, TRUE, display_progress = FALSE)
+	visible_message("<b>[src]</b> stops listening intently.")
+	species.listening_in = 0
+	log_and_message_admins("now not listening in")
+
