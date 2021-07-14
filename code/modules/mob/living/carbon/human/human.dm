@@ -2075,5 +2075,6 @@
 
 /mob/living/carbon/human/proc/intent_listen(var/source)
 	if (species.listening_in)
-		var/sound_dir = get_dir(get_turf(src), get_turf(source))
-		to_chat(src, SPAN_WARNING("You hear the sound of machinery from \the [dir2text(sound_dir)]."))
+		// var/sound_dir = get_dir(get_turf(src), get_turf(source))
+		var/sound_angle = angle2text(Get_Angle(get_turf(src), get_turf(source)))
+		to_chat(src, SPAN_WARNING("You hear the sound of machinery from \the [sound_angle]."))
