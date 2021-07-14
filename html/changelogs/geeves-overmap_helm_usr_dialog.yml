@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Overmap Helm consoles now update when the burn is ready to go again."
