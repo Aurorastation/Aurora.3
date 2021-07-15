@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added the phazon bluespace transmission system to the mechfab. When built and supplied with an anomaly core, it'll allow exosuit to pass through solid objects, at a massive energy cost."
