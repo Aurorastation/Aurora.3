@@ -7,6 +7,14 @@
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 	restricted_software = list(MECH_SOFTWARE_WEAPONS)
 
+/obj/item/mecha_equipment/mounted_system/combat/CtrlClick(mob/user)
+	if(owner && istype(holding, /obj/item/gun))
+		var/obj/item/gun/G = holding
+		G.iff_capable = !G.iff_capable
+		to_chat(user, SPAN_NOTICE("You [G.iff_capable ? "en" : "dis"]able \the [src]'s IFF systems!"))
+	else
+		return ..()
+
 /obj/item/mecha_equipment/mounted_system/combat/taser
 	name = "mounted electrolaser carbine"
 	desc = "A dual fire mode electrolaser system connected to the exosuit's targetting system."

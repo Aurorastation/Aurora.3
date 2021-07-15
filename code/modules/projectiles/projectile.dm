@@ -272,7 +272,6 @@
 		var/mob/M = A
 		if(isliving(A)) //so ghosts don't stop bullets
 			if(check_iff(M))
-				message_admins("iff matches, passing")
 				passthrough = TRUE
 			else
 				if(M.dir & get_dir(M, starting)) // only check neckgrab if they're facing in the direction the bullets came from
