@@ -28,7 +28,6 @@
 	boss_short = "Placeholder Shortened"
 	company_name = "Placeholder Inc"
 	company_short = "PI"
-	system_name = "Virtual Reality"
 
 	command_spawn_enabled = TRUE
 	command_spawn_message = "Welcome to the Shipyard!"
