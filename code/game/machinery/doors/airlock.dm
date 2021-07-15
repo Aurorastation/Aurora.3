@@ -997,21 +997,21 @@ About the new airlock wires panel:
 		var/obj/item/material/twohanded/fireaxe/F = tool
 		if (!F.wielded)
 			return FALSE
-		if(src.bolt_cut_state == BOLTS_FINE)
+		if(bolt_cut_state == BOLTS_FINE)
 			to_chat(user, SPAN_WARNING("You smash the bolt cover open!"))
 			playsound(src, 'sound/weapons/smash.ogg', 100, 1)
-			src.bolt_cut_state = BOLTS_EXPOSED
-		else if(src.bolt_cut_state != BOLTS_FINE)
+			bolt_cut_state = BOLTS_EXPOSED
+		else if(bolt_cut_state != BOLTS_FINE)
 			cut_verb = "smashing"
 			cut_sound = 'sound/weapons/smash.ogg'
 			cut_delay *= 1
 			cutting = TRUE
 	else if(istype(tool, /obj/item/crowbar/robotic/jawsoflife))
-		if(src.bolt_cut_state == BOLTS_FINE)
+		if(bolt_cut_state == BOLTS_FINE)
 			to_chat(user, SPAN_WARNING("You force the bolt cover open!"))
 			playsound(src, 'sound/weapons/smash.ogg', 100, 1)
-			src.bolt_cut_state = BOLTS_EXPOSED
-		else if(src.bolt_cut_state != BOLTS_FINE)
+			bolt_cut_state = BOLTS_EXPOSED
+		else if(bolt_cut_state != BOLTS_FINE)
 			cut_verb = "smashing"
 			cut_sound = 'sound/weapons/smash.ogg'
 			cut_delay *= 1
@@ -1049,11 +1049,11 @@ About the new airlock wires panel:
 						return
 					if(initial_state == BOLTS_FINE)
 						to_chat(user, SPAN_NOTICE("You remove the cover and expose the door bolts."))
-						src.bolt_cut_state = BOLTS_EXPOSED
+						bolt_cut_state = BOLTS_EXPOSED
 					else if(initial_state == BOLTS_EXPOSED)
 						to_chat(user, SPAN_NOTICE("You sever the door bolts, unlocking the door."))
-						src.bolt_cut_state = BOLTS_CUT
-						src.unlock(TRUE) //force it
+						bolt_cut_state = BOLTS_CUT
+						unlock(TRUE) //force it
 
 /obj/machinery/door/airlock/CanUseTopic(var/mob/user)
 	if(isobserver(user) && check_rights(R_ADMIN, FALSE, user))
