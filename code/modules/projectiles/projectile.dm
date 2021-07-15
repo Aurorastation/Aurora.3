@@ -202,14 +202,7 @@
 		if(PROJECTILE_STOPPED)
 			return TRUE
 
-	var/impacted_organ = parse_zone(def_zone)
-	if(isanimal(target_mob))
-		var/mob/living/simple_animal/SA = target_mob
-		impacted_organ = pick(SA.organ_names)
-	else if(ishuman(target_mob))
-		var/mob/living/carbon/human/H = target_mob
-		var/obj/item/organ/external/E = H.organs_by_name[impacted_organ]
-		impacted_organ = E.name
+	var/impacted_organ = target_mob.get_organ_name_from_zone(def_zone)
 	//hit messages
 	if(silenced)
 		to_chat(target_mob, "<span class='danger'>You've been hit in the [impacted_organ] by \a [src]!</span>")

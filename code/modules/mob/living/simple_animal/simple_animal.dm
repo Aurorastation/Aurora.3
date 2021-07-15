@@ -930,6 +930,9 @@
 /mob/living/simple_animal/set_respawn_time()
 	set_death_time(ANIMAL, world.time)
 
+/mob/living/simple_animal/get_organ_name_from_zone(var/def_zone)
+	return pick(organ_names)
+
 #undef BLOOD_NONE
 #undef BLOOD_LIGHT
 #undef BLOOD_MEDIUM

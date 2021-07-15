@@ -30,7 +30,7 @@
 	name = "mounted machinegun"
 	desc = "An exosuit-mounted automatic weapon. Handle with care."
 	icon_state = "mecha_ballistic"
-	holding_type = /obj/item/gun/energy/mountedsmg
+	holding_type = /obj/item/gun/energy/mountedsmg/mech
 
 /obj/item/mecha_equipment/mounted_system/combat/pulse
 	name = "heavy pulse cannon"
@@ -72,16 +72,19 @@
 	use_external_power = TRUE
 	self_recharge = TRUE
 	has_safety = FALSE
+	projectile_type = /obj/item/projectile/beam/midlaser/mech
 
 /obj/item/gun/energy/pulse/mounted/mech
 	use_external_power = TRUE
 	self_recharge = TRUE
 	has_safety = FALSE
+	projectile_type = /obj/item/projectile/beam/pulse/mech
 
 /obj/item/gun/energy/xray/mounted/mech
 	use_external_power = TRUE
 	self_recharge = TRUE
 	has_safety = FALSE
+	projectile_type = /obj/item/projectile/beam/xray/mech
 
 /*Launchers*/
 

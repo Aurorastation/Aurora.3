@@ -1231,3 +1231,6 @@ proc/is_blind(A)
 	var/turf/ear = get_turf(src)
 	if(ear && speaker_coverage[ear])
 		return TRUE
+
+/mob/proc/get_organ_name_from_zone(var/def_zone)
+	return parse_zone(def_zone)
