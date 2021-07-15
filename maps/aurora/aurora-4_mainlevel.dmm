@@ -13577,10 +13577,10 @@
 	},
 /area/bridge)
 "ayG" = (
-/obj/machinery/hologram/holopad,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "ayH" = (
@@ -25046,7 +25046,6 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "aRs" = (
-/obj/machinery/hologram/holopad,
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
 "aRt" = (
@@ -27032,6 +27031,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
+/obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/meeting_room)
 "aUE" = (
