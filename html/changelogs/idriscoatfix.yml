@@ -1,0 +1,6 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed the Idris trenchcoat having no on mob sprite when open."
