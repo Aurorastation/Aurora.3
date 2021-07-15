@@ -849,7 +849,8 @@ default behaviour is:
 	var/alreadydeaf = FALSE
 	if (ear_deaf)
 		alreadydeaf = TRUE
-	if (ishuman(src))
+
+	if (ishuman(src) && damage > 0)
 		var/mob/living/carbon/human/H = src
 		if (H.is_hearing_sensitive())
 			if (H.is_listening()) // if the person is listening in, the effect is way worse

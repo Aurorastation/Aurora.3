@@ -1264,13 +1264,19 @@ mob/living/carbon/human/proc/change_monitor()
 	if (stat || paralysis || stunned || weakened)
 		return
 
-	if (is_listening())
-		visible_message("<b>[src]</b> stops listening intently.")
-		species.listening_in = 0
+	if (!is_listening())
+		start_listening()
 	else
+		stop_listening()
+
+	last_special = world.time + 20
+
+/mob/living/carbon/human/proc/start_listening()
+	if (!is_listening())
 		visible_message("<b>[src]</b> begins to listen intently.")
 		species.listening_in = 1
 
 /mob/living/carbon/human/proc/stop_listening()
-	if (listening_close())
+	if (is_listening())
+		visible_message("<b>[src]</b> stops listening intently.")
 		species.listening_in = 0
