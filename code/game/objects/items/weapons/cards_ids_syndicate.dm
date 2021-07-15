@@ -2,6 +2,7 @@
 	name = "agent card"
 	assignment = "Agent"
 	origin_tech = list(TECH_ILLEGAL = 3)
+	iff_faction = "syndicate"
 	can_copy_access = TRUE
 	access_copy_msg = "The microscanner activates as you pass it over the ID, copying its access."
 	var/charge = 10000

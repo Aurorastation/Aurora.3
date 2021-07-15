@@ -98,6 +98,8 @@
 	var/impact_type
 	var/hit_effect
 
+	var/iff // identify friend or foe. will check mob's IDs to see if they match, if they do, won't hit
+
 /obj/item/projectile/CanPass()
 	return TRUE
 
@@ -172,7 +174,16 @@
 	shot_from = launcher.name
 	silenced = launcher.silenced
 
+	if(launcher.iff_capable && user)
+		iff = get_iff_from_user(user)
+
 	return launch_projectile(target, target_zone, user, params, angle_override, forced_spread)
+
+/obj/item/projectile/proc/get_iff_from_user(var/mob/user)
+	var/obj/item/card/id/ID = user.GetIdCard()
+	if(ID)
+		return ID.iff_faction
+	return null
 
 //Called when the projectile intercepts a mob. Returns 1 if the projectile hit the mob, 0 if it missed and should keep flying.
 /obj/item/projectile/proc/attack_mob(var/mob/living/target_mob, var/distance, var/miss_modifier=0)
@@ -260,15 +271,19 @@
 	if(ismob(A))
 		var/mob/M = A
 		if(isliving(A)) //so ghosts don't stop bullets
-			if(M.dir & get_dir(M, starting)) // only check neckgrab if they're facing in the direction the bullets came from
-				//if they have a neck grab on someone, that person gets hit instead
-				for(var/obj/item/grab/G in list(M.l_hand, M.r_hand))
-					if(!G.affecting.lying && G.state >= GRAB_NECK)
-						visible_message(SPAN_DANGER("\The [M] uses [G.affecting] as a shield!"))
-						if(Collide(G.affecting))
-							return //If Collide() returns 0 (keep going) then we continue on to attack M.
+			if(check_iff(M))
+				message_admins("iff matches, passing")
+				passthrough = TRUE
+			else
+				if(M.dir & get_dir(M, starting)) // only check neckgrab if they're facing in the direction the bullets came from
+					//if they have a neck grab on someone, that person gets hit instead
+					for(var/obj/item/grab/G in list(M.l_hand, M.r_hand))
+						if(!G.affecting.lying && G.state >= GRAB_NECK)
+							visible_message(SPAN_DANGER("\The [M] uses [G.affecting] as a shield!"))
+							if(Collide(G.affecting))
+								return //If Collide() returns 0 (keep going) then we continue on to attack M.
 
-			passthrough = !attack_mob(M, distance)
+				passthrough = !attack_mob(M, distance)
 		else
 			passthrough = TRUE
 	else
@@ -303,6 +318,12 @@
 
 	qdel(src)
 	return TRUE
+
+/obj/item/projectile/proc/check_iff(var/mob/M)
+	var/obj/item/card/id/ID = M.GetIdCard()
+	if(ID && (ID.iff_faction == iff))
+		return TRUE
+	return FALSE
 
 /obj/item/projectile/ex_act(var/severity = 2.0)
 	return //explosions probably shouldn't delete projectiles

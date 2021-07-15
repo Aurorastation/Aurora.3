@@ -26,6 +26,8 @@
 		/obj/item/storage/box/donkpockets = 1
 	)
 
+	id_iff = "kataphract"
+
 /datum/outfit/admin/ert/kataphract/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.w_uniform)
 		H.w_uniform.color = pick("#42b360", "#b68029", "#5574c2")

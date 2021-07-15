@@ -12,6 +12,8 @@
 
 	backpack_contents = null
 
+	id_iff = "tcfl"
+
 /datum/outfit/admin/ert/legion/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(isvaurca(H))

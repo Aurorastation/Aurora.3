@@ -28,6 +28,8 @@
 	accessory = /obj/item/clothing/accessory/holster/hip/brown
 	accessory_contents = list(/obj/item/gun/projectile/pistol/sol = 1)
 
+	id_iff = "fsf"
+
 /datum/outfit/admin/ert/fsf/get_id_access()
 	return get_distress_access_lesser()
 

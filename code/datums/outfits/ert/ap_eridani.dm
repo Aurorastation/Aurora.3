@@ -37,6 +37,8 @@
 		/obj/item/grenade/flashbang = 1
 	)
 
+	id_iff = "eridani"
+
 /datum/outfit/admin/ert/ap_eridani/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(visualsOnly)

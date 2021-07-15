@@ -99,6 +99,8 @@
 	var/headset = /obj/item/device/radio/headset
 	var/bowman = /obj/item/device/radio/headset/alt
 
+	var/id_iff = "station" // when spawning in, the ID will be set to this iff, preventing friendly fire
+
 	var/internals_slot = null //ID of slot containing a gas tank
 	var/list/backpack_contents = list() //In the list(path=count,otherpath=count) format
 	var/list/accessory_contents = list()
