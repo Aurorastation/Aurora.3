@@ -851,11 +851,19 @@ default behaviour is:
 		alreadydeaf = TRUE
 	if (ishuman(src))
 		var/mob/living/carbon/human/H = src
-		if (H.species.hearing_sensitive)
-			if (H.species.hearing_sensitive == 2)
-				damage *= 2
+		if (H.is_hearing_sensitive())
+			if (H.is_listening()) // if the person is listening in, the effect is way worse
+				if (H.is_hearing_sensitive() == 2)
+					damage *= 2
+				else
+					damage = round(damage *= 1.5, 1)
+				H.stop_listening()
 			else
-				damage = round(damage *= 1.5, 1)
+				if (H.is_hearing_sensitive() == 2)
+					damage = round(damage *= 1.4, 1)
+				else
+					damage = round(damage *= 1.2, 1)
+
 	ear_damage = max(0, ear_damage + damage)
 	ear_deaf = max(0, ear_deaf + deaf)
 
@@ -866,13 +874,19 @@ default behaviour is:
 			else
 				to_chat(src, SPAN_DANGER("Your ears start to ring!"))
 
-/mob/living/carbon/proc/earpain(var/intensity, var/sensitive_only) // Intensity 1: mild, 2: hurts, 3: very painful, 4: extremely painful, 5: that's going to leave some damage
+
+// Intensity 1: mild, 2: hurts, 3: very painful, 4: extremely painful, 5: that's going to leave some damage
+// Sensitive_only: If yes, only those with sensitive hearing are affected
+// Listening_pain: Increases the intensity by the listed amount if the person is listening in
+/mob/living/carbon/proc/earpain(var/intensity, var/sensitive_only = FALSE, var/listening_pain = 0) 
 	if (ear_deaf)
 		return
 	if (ishuman(src))
 		var/mob/living/carbon/human/H = src
-		if (sensitive_only && !H.species.hearing_sensitive)
+		if (sensitive_only && !H.is_hearing_sensitive())
 			return
+		if (listening_pain && H.is_listening())
+			intensity += listening_pain
 	else if (sensitive_only)
 		return
 	
@@ -887,9 +901,15 @@ default behaviour is:
 		if (4)
 			custom_pain("Your ears are extremely painful!", 70, TRUE, E, 0)
 			adjustEarDamage(5, 0, FALSE)
+			if (ishuman(src))
+				var/mob/living/carbon/human/H = src
+				H.stop_listening()
 		if (5)
 			custom_pain("YOUR EARS ARE DEAFENED BY THE PAIN!", 110, TRUE, E, 1)
 			adjustEarDamage(5, 5, FALSE)
+			if (ishuman(src))
+				var/mob/living/carbon/human/H = src
+				H.stop_listening()
 
 //pass a negative argument to skip one of the variable
 

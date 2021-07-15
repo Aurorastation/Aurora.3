@@ -50,7 +50,7 @@
 	v_fast_pulse = 130 // Default 120
 	max_pulse = 170 // Default 160
 
-	hearing_sensitive = 1 // Default 0
+	hearing_sensitivity = 1 // Default 0
 
 	blurb = "The Tajaran race is a species of feline-like bipeds hailing from the planet of Adhomai in the S'rendarr \
 	system. They have been brought up into the space age by the Humans and Skrell, who alledgedly influenced their \
@@ -130,26 +130,3 @@
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
 	if(H.equip_to_slot_or_del(S,slot_shoes))
 		S.autodrobe_no_remove = TRUE
-
-// /datum/species/tajaran/after_equip(var/mob/living/carbon/human/H)
-// 	action_button_name = "Activate Low Light Vision"
-// 	default_action_type = /datum/action/item_action/organ/night_eyes
-
-/mob/living/carbon/human/proc/listening_close()
-	set category = "Special Abilities"
-	set name = "Listen closely"
-
-	if(last_special > world.time)
-		return
-
-	if(stat || paralysis || stunned || weakened)
-		return
-
-	visible_message("<b>[src]</b> begins to listen intently.")
-	species.listening_in = 1
-	log_and_message_admins("now listening in")
-	do_after(src, INFINITY, TRUE, display_progress = FALSE)
-	visible_message("<b>[src]</b> stops listening intently.")
-	species.listening_in = 0
-	log_and_message_admins("now not listening in")
-

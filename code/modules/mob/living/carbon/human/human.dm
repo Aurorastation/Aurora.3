@@ -30,7 +30,7 @@
 		name = real_name
 		if(mind)
 			mind.name = real_name
-		if(species.hearing_sensitive)
+		if(is_hearing_sensitive())
 			verbs += /mob/living/carbon/human/proc/listening_close
 
 	// Randomize nutrition and hydration. Defines are in __defines/mobs.dm
@@ -2069,12 +2069,3 @@
 		var/obj/item/organ/internal/eyes/night/N = E
 		if(N.night_vision )
 			N.disable_night_vision()
-
-/mob/living/carbon/human/proc/is_hearing_sensitive()
-	return species.hearing_sensitive
-
-/mob/living/carbon/human/proc/intent_listen(var/source)
-	if (species.listening_in)
-		// var/sound_dir = get_dir(get_turf(src), get_turf(source))
-		var/sound_angle = angle2text(Get_Angle(get_turf(src), get_turf(source)))
-		to_chat(src, SPAN_WARNING("You hear the sound of machinery from \the [sound_angle]."))

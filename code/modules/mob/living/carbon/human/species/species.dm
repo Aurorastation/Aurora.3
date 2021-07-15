@@ -204,7 +204,7 @@
 	var/bp_base_disatolic = 80
 
 	// Hearing sensitivity
-	var/hearing_sensitive = 0 // 1: sensitive, 2: *very* sensitive
+	var/hearing_sensitivity = 0 // 1: sensitive, 2: *very* sensitive
 	var/listening_in = 0 // If they are trying to tune in to the environment
 
 	// Eating & nutrition related stuff

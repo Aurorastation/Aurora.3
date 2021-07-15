@@ -51,9 +51,9 @@
 			playsound(loc, activation_sound, 100, 0, 1)
 		for (var/mob/living/carbon/C in range(src, 2) - user)
 			if (C in range(src, 1))
-				C.earpain(4, TRUE)
+				C.earpain(3, TRUE, 2)
 			else
-				C.earpain(2, TRUE)
+				C.earpain(2, TRUE, 2)
 		spamcheck = world.time + 50
 		return
 

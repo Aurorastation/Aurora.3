@@ -308,3 +308,9 @@
 		if(protection.protects_eyestab(stab_item, stabbed))
 			return TRUE
 	return FALSE
+
+/mob/living/carbon/human/proc/is_hearing_sensitive()
+	return species.hearing_sensitivity
+
+/mob/living/carbon/human/proc/is_listening()
+	return species.listening_in

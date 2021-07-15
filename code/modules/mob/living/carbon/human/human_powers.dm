@@ -799,10 +799,10 @@ mob/living/carbon/human/proc/change_monitor()
 	for (var/mob/living/carbon/human/T in hearers(4, src) - src)
 		if(T.protected_from_sound())
 			continue
-		if (T.species.hearing_sensitive)
-			earpain(5, TRUE)
+		if (T.is_hearing_sensitive() == 2)
+			earpain(3, TRUE, 1)
 		else if (T in range(src, 2))
-			earpain(3, TRUE)
+			earpain(2, TRUE, 2)
 	
 	for (var/mob/living/carbon/human/T in hearers(2, src) - src)
 		if(T.protected_from_sound())
@@ -1248,3 +1248,29 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(M, SPAN_WARNING("You can't name a corpse."))
 		return FALSE
 	return TRUE
+
+/mob/living/carbon/human/proc/intent_listen(var/source)
+	if (is_listening())
+		var/sound_dir = angle2text(Get_Angle(get_turf(src), get_turf(source)))
+		to_chat(src, SPAN_WARNING("You hear the sound of machinery from \the [sound_dir]."))
+
+/mob/living/carbon/human/proc/listening_close()
+	set category = "Abilities"
+	set name = "Listen closely"
+
+	if (last_special > world.time)
+		return
+
+	if (stat || paralysis || stunned || weakened)
+		return
+
+	if (is_listening())
+		visible_message("<b>[src]</b> stops listening intently.")
+		species.listening_in = 0
+	else
+		visible_message("<b>[src]</b> begins to listen intently.")
+		species.listening_in = 1
+
+/mob/living/carbon/human/proc/stop_listening()
+	if (listening_close())
+		species.listening_in = 0

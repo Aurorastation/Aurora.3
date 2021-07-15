@@ -157,11 +157,17 @@ var/datum/controller/subsystem/explosives/SSexplosives
 						var/extendeddist = closedist
 						if(ishuman(M))
 							var/mob/living/carbon/human/H = M
-							if (H.species.hearing_sensitive)
-								if (H.species.hearing_sensitive == 2)
-									extendeddist *= 2
+							if (H.is_hearing_sensitive())
+								if(H.is_listening())
+									if (H.is_hearing_sensitive() == 2)
+										extendeddist *= 2
+									else
+										extendeddist = round(closedist *= 1.5, 1)
 								else
-									extendeddist = round(closedist *= 1.5, 1)
+									if (H.is_hearing_sensitive() == 2)
+										extendeddist *= 1.5
+									else
+										extendeddist = round(closedist *= 1.2, 1)
 
 						// If inside the blast radius + world.view - 2
 						if (dist <= closedist)
