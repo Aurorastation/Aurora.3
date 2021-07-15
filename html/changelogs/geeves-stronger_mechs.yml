@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Mech ballistic and laser armor has been buffed, allowing them to function for longer in firefights. Combat armor melee armor has also been buffed."
+  - bugfix: "Fixed analyzing mechs not giving the correct integrity values."
