@@ -10,7 +10,7 @@
 	var/slot = ACCESSORY_SLOT_GENERIC
 	var/obj/item/clothing/has_suit = null		//the suit the tie may be attached to
 	var/image/inv_overlay = null	//overlay used when attached to clothing.
-	var/image/mob_overlay = null
+	var/image/accessory_mob_overlay = null
 	var/flippable = 0 //whether it has an attack_self proc which causes the icon to flip horizontally
 	var/flipped = 0
 
@@ -23,9 +23,9 @@
 	update_icon()
 
 /obj/item/clothing/accessory/proc/get_inv_overlay(var/force = FALSE)
-	if(!mob_overlay)
-		get_mob_overlay()
-	var/I = mob_overlay.icon
+	if(!accessory_mob_overlay)
+		get_accessory_mob_overlay()
+	var/I = accessory_mob_overlay.icon
 	if(!inv_overlay || force)
 		var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
 		if(icon_override)
@@ -41,23 +41,23 @@
 		inv_overlay.add_overlay(overlay_image(I, "[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	return inv_overlay
 
-/obj/item/clothing/accessory/proc/get_mob_overlay(var/force = FALSE)
+/obj/item/clothing/accessory/proc/get_accessory_mob_overlay(var/force = FALSE)
 	var/I = icon_override ? icon_override : contained_sprite ? icon : INV_ACCESSORIES_DEF_ICON
-	if(!mob_overlay || force)
+	if(!accessory_mob_overlay || force)
 		var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
 		if(icon_override)
 			if("[tmp_icon_state]_mob" in icon_states(I))
 				tmp_icon_state = "[tmp_icon_state]_mob"
 		else if(contained_sprite)
 			tmp_icon_state = "[src.item_state][WORN_UNDER]"
-		mob_overlay = image("icon" = I, "icon_state" = "[tmp_icon_state]")
+		accessory_mob_overlay = image("icon" = I, "icon_state" = "[tmp_icon_state]")
 	if(color)
-		mob_overlay.color = color
+		accessory_mob_overlay.color = color
 	if(build_from_parts)
-		mob_overlay.cut_overlays()
-		mob_overlay.add_overlay(overlay_image(I, "[icon_state][WORN_UNDER]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
-	mob_overlay.appearance_flags = RESET_ALPHA
-	return mob_overlay
+		accessory_mob_overlay.cut_overlays()
+		accessory_mob_overlay.add_overlay(overlay_image(I, "[icon_state][WORN_UNDER]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
+	accessory_mob_overlay.appearance_flags = RESET_ALPHA
+	return accessory_mob_overlay
 
 //when user attached an accessory to S
 /obj/item/clothing/accessory/proc/on_attached(var/obj/item/clothing/S, var/mob/user)
@@ -113,7 +113,7 @@
 		to_chat(usr, "You change \the [src] to be on your [src.flipped ? "right" : "left"] side.")
 		update_clothing_icon()
 		inv_overlay = null
-		mob_overlay = null
+		accessory_mob_overlay = null
 		return
 	..()
 

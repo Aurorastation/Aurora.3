@@ -14,6 +14,12 @@
 	if(touching) touching.metabolize()
 	if(bloodstr) bloodstr.metabolize()
 	if(breathing) breathing.metabolize()
+	if(ingested) ingested.metabolize()
+
+	for(var/_R in chem_doses)
+		if ((_R in bloodstr.reagent_volumes) || (_R in ingested.reagent_volumes) || (_R in breathing.reagent_volumes) || (_R in touching.reagent_volumes))
+			continue
+		chem_doses -= _R //We're no longer metabolizing this reagent. Remove it from chem_doses
 
 	// nutrition decrease
 	if(nutrition > 0 && stat != DEAD)
