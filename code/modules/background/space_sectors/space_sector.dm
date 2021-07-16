@@ -2,6 +2,5 @@
 	var/name
 	var/description
 	var/list/possible_erts = list()
-	var/list/cargo_price_coef = list("NanoTrasen" = 1, "Haephaestus" = 1, "Zeng-Hu" = 1, "Eckhart's Energy" = 1, "Getmore Products" = 1, "Arizi Guild" = 1, "BLAM! Products" = 1,
-								"Interstellar Aid Corps" = 1, "Zharrkov Shipping Company" = 1, "Virgo Freight Carriers" = 1, "Bishop Cybernetics" = 1, "Bishop Cybernetics" = 1,
-								"Xion Manufacturing Group" = 1, "Necropolis Industries" = 1) //how much the space sector afffects how expensive is ordering from that cargo supplier
+	var/list/cargo_price_coef = list("nt" = 1, "hpi" = 1, "zhu" = 1, "een" = 1, "get" = 1, "arz" = 1, "blm" = 1,
+								"iac" = 1, "zsc" = 1, "vfc" = 1, "bis" = 1, "xmg" = 1, "npi" = 1) //how much the space sector afffects how expensive is ordering from that cargo supplier

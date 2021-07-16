@@ -73,7 +73,7 @@
 	var/final_coef = price_modifier
 	if(SSatlas.current_sector)
 		if(short_name in SSatlas.current_sector.cargo_price_coef)
-			final_coef = SSatlas.current_sector.cargo_price_coef["Name"] * price_modifier
+			final_coef = SSatlas.current_sector.cargo_price_coef["short_name"] * price_modifier
 
 	return final_coef
 /*
