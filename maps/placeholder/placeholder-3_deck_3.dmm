@@ -57,6 +57,19 @@
 	},
 /turf/simulated/floor,
 /area/maintenance/vault)
+"aj" = (
+/obj/structure/table/wood,
+/obj/item/device/camera_film,
+/obj/item/device/camera{
+	desc = "A one use - polaroid camera. 30 photos left.";
+	name = "detectives camera";
+	pictures_left = 30
+	},
+/obj/item/storage/slide_projector,
+/turf/simulated/floor/carpet,
+/area/security/forensics_office{
+	name = "Security - Investigations Office"
+	})
 "al" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -974,8 +987,8 @@
 /turf/simulated/floor/wood,
 /area/journalistoffice)
 "cY" = (
-/obj/structure/bed/chair/comfy/black,
 /obj/machinery/firealarm/north,
+/obj/structure/bed/chair/comfy/black,
 /turf/simulated/floor/carpet,
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
@@ -1060,6 +1073,9 @@
 /area/janitor)
 "dm" = (
 /obj/structure/table/wood,
+/obj/item/folder/sec,
+/obj/item/folder/sec,
+/obj/item/folder/sec,
 /obj/item/folder/sec,
 /obj/item/pen,
 /turf/simulated/floor/carpet,
@@ -2858,14 +2874,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
-"kh" = (
-/obj/structure/coatrack{
-	pixel_x = 4
-	},
-/turf/simulated/floor/carpet,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
 "ki" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 1
@@ -3083,14 +3091,6 @@
 /obj/structure/banner/scc,
 /turf/simulated/floor/wood,
 /area/security/vacantoffice2)
-"lj" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/reagentgrinder{
-	pixel_y = 7
-	},
-/obj/structure/table/glass,
-/turf/simulated/floor/tiled/white,
-/area/security/forensics_morgue)
 "lk" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -3473,6 +3473,13 @@
 "mC" = (
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
+"mD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/closet/secure_closet/investigator,
+/turf/simulated/floor/lino/grey,
+/area/security/forensics_office{
+	name = "Security - Investigations Office"
+	})
 "mI" = (
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -3833,9 +3840,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/beige/diagonal,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
 "oq" = (
@@ -3888,9 +3892,8 @@
 /obj/item/folder/sec,
 /obj/structure/table/glass,
 /obj/effect/floor_decal/corner/beige/diagonal,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
+/obj/item/folder/sec,
+/obj/item/folder/sec,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
 "ox" = (
@@ -3905,18 +3908,6 @@
 	},
 /turf/simulated/open/airless,
 /area/template_noop)
-"oA" = (
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "Security Lockdown";
-	name = "Security Blast Door";
-	opacity = 0
-	},
-/turf/simulated/floor/tiled,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
 "oC" = (
 /obj/item/device/mass_spectrometer/adv{
 	pixel_y = 3
@@ -4061,11 +4052,6 @@
 	pixel_x = 1;
 	pixel_y = -1
 	},
-/obj/item/storage/box/masks{
-	layer = 2.8;
-	pixel_x = 7;
-	pixel_y = 1
-	},
 /obj/item/device/healthanalyzer{
 	pixel_x = 7;
 	pixel_y = 16
@@ -4078,6 +4064,11 @@
 /obj/machinery/camera/network/security{
 	c_tag = "Security - Autopsy Lab";
 	dir = 8
+	},
+/obj/item/storage/box/masks{
+	layer = 2.8;
+	pixel_x = 7;
+	pixel_y = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_morgue)
@@ -4532,13 +4523,16 @@
 /area/crew_quarters/sleep/cryo)
 "rL" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/structure/closet,
 /obj/machinery/power/apc/low{
 	dir = 8;
 	name = "west bump";
 	pixel_x = -24
 	},
 /obj/structure/cable/green,
+/obj/structure/table/glass,
+/obj/machinery/reagentgrinder{
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_morgue)
 "rN" = (
@@ -4757,6 +4751,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/investigations)
+"sW" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/structure/morgue{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_morgue)
 "tb" = (
 /turf/simulated/floor/wood,
 /area/hallway/primary/starboard)
@@ -5479,21 +5480,19 @@
 /area/bridge)
 "wO" = (
 /obj/structure/cable/green,
-/obj/machinery/power/apc/low{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
+/obj/machinery/power/apc/low{
+	name = "south bump";
+	pixel_y = -24
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/investigations)
 "wQ" = (
-/obj/structure/filingcabinet/chestdrawer,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -5501,6 +5500,7 @@
 	pixel_y = 28;
 	target_temperature = 278
 	},
+/obj/structure/filingcabinet/chestdrawer,
 /turf/simulated/floor/carpet,
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
@@ -6123,6 +6123,8 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/beige/diagonal,
+/obj/machinery/disposal/small/south,
+/obj/structure/disposalpipe/trunk,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
 "zU" = (
@@ -7635,13 +7637,6 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
 "IP" = (
-/obj/structure/table/wood,
-/obj/item/device/camera_film,
-/obj/item/device/camera{
-	desc = "A one use - polaroid camera. 30 photos left.";
-	name = "detectives camera";
-	pictures_left = 30
-	},
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 32;
 	pixel_y = 0
@@ -7650,7 +7645,6 @@
 	pixel_x = 32;
 	pixel_y = 10
 	},
-/obj/item/storage/slide_projector,
 /obj/machinery/light_switch{
 	pixel_x = 26;
 	pixel_y = -10
@@ -8633,12 +8627,13 @@
 /obj/item/surgery/retractor,
 /obj/item/surgery/hemostat,
 /obj/item/surgery/circular_saw,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/structure/table/glass,
+/obj/item/surgery/surgicaldrill,
 /obj/item/surgery/scalpel{
 	pixel_x = -1;
 	pixel_y = 10
 	},
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/structure/table/glass,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_morgue)
 "OC" = (
@@ -8881,10 +8876,7 @@
 	c_tag = "Security - Forensics Lab";
 	dir = 4
 	},
-/obj/machinery/disposal/small/east,
-/obj/structure/disposalpipe/trunk{
-	dir = 4
-	},
+/obj/structure/table/glass,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
 "PO" = (
@@ -8915,7 +8907,8 @@
 	},
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/structure/disposalpipe/segment{
-	dir = 4
+	dir = 1;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
@@ -9374,7 +9367,6 @@
 /turf/simulated/floor/reinforced,
 /area/bridge)
 "Sq" = (
-/obj/structure/closet/secure_closet/investigator,
 /obj/machinery/requests_console{
 	department = "Investigations";
 	departmentType = 5;
@@ -35531,7 +35523,7 @@ wq
 wq
 Iv
 lY
-oA
+Iv
 Iv
 wq
 Fo
@@ -35731,7 +35723,7 @@ nP
 zE
 wq
 hH
-Xu
+mD
 rI
 Xu
 BZ
@@ -36338,7 +36330,7 @@ zE
 wq
 jS
 fy
-SV
+aj
 SV
 Cq
 wq
@@ -36541,7 +36533,7 @@ wq
 wQ
 Sq
 IP
-kh
+SV
 lU
 wq
 hx
@@ -36751,7 +36743,7 @@ Fo
 Fo
 Fo
 KX
-Fo
+AK
 JH
 mA
 jm
@@ -37564,7 +37556,7 @@ Ed
 nx
 mZ
 fF
-lj
+se
 vI
 at
 at
@@ -38170,7 +38162,7 @@ Ed
 nY
 pq
 pY
-se
+sW
 vI
 at
 at

@@ -13694,7 +13694,6 @@
 /turf/simulated/open,
 /area/maintenance/vault)
 "oJm" = (
-/obj/structure/table/steel,
 /obj/item/device/radio,
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -13705,6 +13704,7 @@
 /obj/item/device/radio,
 /obj/item/device/radio,
 /obj/machinery/firealarm/south,
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/security/main)
 "oJL" = (
