@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Being handcuffed or legcuffed makes it 50% more difficult to break out of grabs, being both handcuffed and legcuffed makes it impossible."
+  - bugfix: "Attempting to move while restrained will now longer spam your chat."

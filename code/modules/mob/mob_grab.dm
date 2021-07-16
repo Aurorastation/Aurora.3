@@ -20,7 +20,7 @@
 /client/proc/Process_Grab()
 	if(isliving(mob)) //if we are being grabbed
 		var/mob/living/L = mob
-		if(!L.canmove && L.grabbed_by.len)
+		if(!L.canmove && length(L.grabbed_by))
 			L.resist() //shortcut for resisting grabs
 	for(var/obj/item/grab/G in list(mob.l_hand, mob.r_hand))
 		G.reset_kill_state() //no wandering across the station/asteroid while choking someone

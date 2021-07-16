@@ -257,6 +257,7 @@
 				if(M.pulling == mob)
 					if(!M.restrained() && M.stat == 0 && M.canmove && mob.Adjacent(M))
 						to_chat(src, SPAN_NOTICE("You're restrained! You can't move!"))
+						move_delay = world.time + 1 SECOND // prevent spam
 						return 0
 					else
 						M.stop_pulling()

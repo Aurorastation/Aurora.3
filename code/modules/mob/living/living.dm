@@ -742,11 +742,10 @@ default behaviour is:
 		to_chat(src, "<span class='notice'>You can't move...</span>")
 		return
 	var/resisting = 0
-	for(var/obj/O in requests)
-		requests.Remove(O)
-		qdel(O)
-		resisting++
 	var/resist_power = get_resist_power() // How easily the mob can break out of a grab
+	if(length(grabbed_by) && resist_power <= 0)
+		to_chat(src, SPAN_WARNING("You don't have enough power to resist out of any grabs!"))
+		return
 	for(var/obj/item/grab/G in grabbed_by)
 		resisting++
 		var/resist_chance

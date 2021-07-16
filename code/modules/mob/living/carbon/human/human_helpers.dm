@@ -181,7 +181,12 @@
 	addtimer(CALLBACK(psi, /datum/psi_complexus/.proc/check_latency_trigger, 100, source, TRUE), 4.5 SECONDS)
 
 /mob/living/carbon/human/get_resist_power()
-	return species.resist_mod
+	var/mod = 1
+	if(handcuffed)
+		mod -= 0.5
+	if(legcuffed)
+		mod -= 0.5
+	return species.resist_mod * mod
 
 // Handle cases where the mob's awareness may reside in another mob, but still cares about how its brain is doing
 /mob/living/carbon/human/proc/find_mob_consciousness()
