@@ -268,6 +268,14 @@
 			new /datum/stack_recipe("diamond floor tile", /obj/item/stack/tile/diamond, 1, 4, 20)
 		))
 
+/material/stone/marble/generate_recipes()
+	..()
+	recipes += new /datum/stack_recipe_list("[display_name] construction",
+		list(
+			new /datum/stack_recipe("light marble floor tile", /obj/item/stack/tile/marble, 1, 4, 20),
+			new /datum/stack_recipe("dark marble floor tile", /obj/item/stack/tile/marble/dark, 1, 4, 20)
+		))
+
 /material/leather/generate_recipes()
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] construction",

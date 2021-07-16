@@ -426,3 +426,6 @@
 
 /atom/movable/proc/get_floating_chat_x_offset()
 	return 0
+
+/atom/movable/proc/can_attach_sticker(var/mob/user, var/obj/item/sticker/S)
+	return TRUE

@@ -165,15 +165,15 @@ emp_act
 	for(var/obj/item/shield in list(l_hand, r_hand, wear_suit, back))
 		if(!shield)
 			continue
-		if(!shield.can_shield_back())
-			continue
 		var/is_on_back = FALSE
 		if(back && back == shield)
+			if(!shield.can_shield_back())
+				continue
 			is_on_back = TRUE
 		. = shield.handle_shield(src, is_on_back, damage, damage_source, attacker, def_zone, attack_text)
 		if(.)
 			return
-	return 0
+	return FALSE
 
 /mob/living/carbon/human/emp_act(severity)
 	if(isipc(src))
@@ -213,7 +213,7 @@ emp_act
 	if(a_intent != I_HELP)
 		var/list/holding = list(get_active_hand() = 60, get_inactive_hand() = 40)
 		for(var/obj/item/grab/G in holding)
-			if(G.affecting && prob(holding[G]))
+			if(G.affecting && prob(holding[G]) && G.affecting != user)
 				visible_message(SPAN_WARNING("[src] repositions \the [G.affecting] to block \the [I]'s attack!"), SPAN_NOTICE("You reposition \the [G.affecting] to block \the [I]'s attack!"))
 				return G.affecting
 	return src

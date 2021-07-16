@@ -189,9 +189,11 @@
 	if (href_list["move"])
 		var/ndir = text2num(href_list["move"])
 		linked.relaymove(usr, ndir, accellimit)
+		addtimer(CALLBACK(src, .proc/updateUsrDialog), linked.burn_delay + 1) // remove when turning into vueui
 
 	if (href_list["brake"])
 		linked.decelerate()
+		addtimer(CALLBACK(src, .proc/updateUsrDialog), linked.burn_delay + 1) // remove when turning into vueui
 
 	if (href_list["apilot"])
 		autopilot = !autopilot
@@ -201,7 +203,6 @@
 
 	add_fingerprint(usr)
 	updateUsrDialog()
-
 
 /obj/machinery/computer/ship/navigation
 	name = "navigation console"

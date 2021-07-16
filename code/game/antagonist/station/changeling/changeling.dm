@@ -96,3 +96,8 @@
 		player.current.verbs -= /datum/changeling/proc/EvolutionMenu
 		for(var/datum/power/changeling/P in powerinstances)
 			player.current.verbs -= P.verbpath
+
+/datum/antagonist/changeling/is_obvious_antag(datum/mind/player)
+	if(istype(player.current, /mob/living/simple_animal/hostile/lesser_changeling))
+		return TRUE
+	return FALSE

@@ -471,17 +471,17 @@
 	M.add_chemical_effect(CE_PULSE, -2)
 	var/dose = M.chem_doses[type]
 	if(dose < 2)
-		if(dose == metabolism * 2 || prob(5))
+		if(ishuman(M) && (dose == metabolism * 2 || prob(5)))
 			M.emote("yawn")
 	else if(dose < 3.5)
 		M.eye_blurry = max(M.eye_blurry, 10)
 	else if(dose < 7)
 		if(prob(50))
 			M.Weaken(2)
-		M.drowsyness = max(M.drowsyness, 20)
+		M.drowsiness = max(M.drowsiness, 20)
 	else
 		M.sleeping = max(M.sleeping, 20)
-		M.drowsyness = max(M.drowsyness, 60)
+		M.drowsiness = max(M.drowsiness, 60)
 
 /decl/reagent/polysomnine
 	name = "Polysomnine"
@@ -501,7 +501,7 @@
 	var/dose = M.chem_doses[type]
 	if(dose == metabolism)
 		M.confused += 2
-		M.drowsyness += 2
+		M.drowsiness += 2
 	else if(dose < 2)
 		M.Weaken(30)
 		M.eye_blurry = max(M.eye_blurry, 10)
@@ -619,7 +619,7 @@
 	update_canmove()
 
 /mob/living/carbon/human/proc/berserk_process()
-	drowsyness = max(drowsyness - 5, 0)
+	drowsiness = max(drowsiness - 5, 0)
 	AdjustParalysis(-1)
 	AdjustStunned(-1)
 	AdjustWeakened(-1)

@@ -200,7 +200,7 @@
 /obj/structure/closet/crate/secure/gear_loadout/ram_ranch/fill()
 	for(var/i in 1 to 6)
 		var/obj/item/clothing/under/shorts/khaki/pants = new(src)
-		var/obj/item/clothing/accessory/dressshirt_r/shirt = new(src)
+		var/obj/item/clothing/accessory/dressshirt/rolled/shirt = new(src)
 		var/obj/item/clothing/accessory/chaps/chaps = new(src)
 		var/obj/item/clothing/accessory/suspenders/suspenders = new(src)
 		var/obj/item/clothing/accessory/wcoat_rec/waistcoat = new(src)
@@ -221,7 +221,7 @@
 
 /obj/structure/closet/crate/secure/gear_loadout/ram_ranch/single/fill()
 	var/obj/item/clothing/under/shorts/khaki/pants = new(src)
-	var/obj/item/clothing/accessory/dressshirt_r/shirt = new(src)
+	var/obj/item/clothing/accessory/dressshirt/rolled/shirt = new(src)
 	var/obj/item/clothing/accessory/chaps/chaps = new(src)
 	var/obj/item/clothing/accessory/suspenders/suspenders = new(src)
 	var/obj/item/clothing/accessory/wcoat_rec/waistcoat = new(src)

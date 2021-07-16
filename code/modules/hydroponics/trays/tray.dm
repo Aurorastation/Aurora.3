@@ -136,7 +136,8 @@
 
 /obj/machinery/portable_atmospherics/hydroponics/AltClick()
 	if (istype(usr, /mob/living/carbon/alien/diona))//A diona alt+clicking feeds the plant
-
+		if(!Adjacent(usr))
+			return
 		if (closed_system)
 			to_chat(usr, "The lid is closed, you don't have hands to open it and reach the plants inside!")
 			return

@@ -1,7 +1,12 @@
 /datum/gear/cosmetic
-	display_name = "purple comb"
+	display_name = "handheld mirror"
+	path = /obj/item/mirror
+	sort_category = "Cosmetics" 
+
+/datum/gear/cosmetic/haircomb
+	display_name = "comb"
 	path = /obj/item/haircomb
-	sort_category = "Cosmetics"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/cosmetic/lipstick
 	display_name = "lipstick selection"
@@ -9,7 +14,7 @@
 
 /datum/gear/cosmetic/lipstick/New()
 	..()
-	var/lipsticks = list()
+	var/list/lipsticks = list()
 	lipsticks["lipstick, red"] = /obj/item/lipstick
 	lipsticks["lipstick, purple"] = /obj/item/lipstick/purple
 	lipsticks["lipstick, jade"] = /obj/item/lipstick/jade
@@ -28,8 +33,5 @@
 	lipsticks["lipstick, skyblue"] = /obj/item/lipstick/skyblue
 	lipsticks["lipstick, teal"] = /obj/item/lipstick/teal
 
-	gear_tweaks += new/datum/gear_tweak/path(lipsticks)
+	gear_tweaks += new /datum/gear_tweak/path(lipsticks)
 
-/datum/gear/cosmetic/mirror
-	display_name = "handheld mirror"
-	path = /obj/item/mirror

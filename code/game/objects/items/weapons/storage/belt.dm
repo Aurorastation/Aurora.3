@@ -384,27 +384,6 @@
 		/obj/item/gun/energy/mousegun
 		)
 
-/obj/item/storage/belt/wands
-	name = "wand belt"
-	desc = "A belt designed to hold various rods of power."
-	icon_state = "soulstonebelt"
-	item_state = "soulstonebelt"
-	storage_slots = 5
-	max_w_class = ITEMSIZE_NORMAL
-	max_storage_space  = 28
-	can_hold = list(
-		/obj/item/gun/energy/wand
-	)
-
-/obj/item/storage/belt/wands/full
-	starts_with = list(
-		/obj/item/gun/energy/wand/fire = 1,
-		/obj/item/gun/energy/wand/polymorph = 1,
-		/obj/item/gun/energy/wand/teleport = 1,
-		/obj/item/gun/energy/wand/force = 1,
-		/obj/item/gun/energy/wand/animation = 1
-	)
-
 /obj/item/storage/belt/mining
 	name = "explorer's belt"
 	desc = "A versatile chest rig, cherished by miners and hunters alike."

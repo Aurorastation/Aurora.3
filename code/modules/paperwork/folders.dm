@@ -113,8 +113,10 @@
 
 /obj/item/folder/blue/nka/Initialize()
 	. = ..()
-	new /obj/item/paper/nka_pledge(src)
-	new /obj/item/paper/nka_pledge(src)
-	new /obj/item/paper/nka_pledge(src)
-	new /obj/item/paper/nka_pledge(src)
-	new /obj/item/paper/nka_pledge(src)
+	for (var/I = 1 to 5)
+		new /obj/item/paper/nka_pledge(src)
+
+/obj/item/folder/filled/Initialize()
+	. = ..()
+	for (var/I = 1 to 10)
+		new /obj/item/paper(src)

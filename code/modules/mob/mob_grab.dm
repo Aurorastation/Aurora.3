@@ -272,9 +272,9 @@
 		if(!allow_upgrade)
 			return
 		if(!affecting.lying)
-			assailant.visible_message(SPAN_WARNING("[assailant] grabs [affecting] aggressively by the hands!"), SPAN_WARNING("You grab [affecting] aggressively by the hands!"))
+			assailant.visible_message(SPAN_DANGER("[assailant] grabs [affecting] aggressively by the hands!"), SPAN_DANGER("You grab [affecting] aggressively by the hands!"))
 		else
-			assailant.visible_message(SPAN_WARNING("[assailant] pins [affecting] down to the ground by the hands!"), SPAN_WARNING("You pin [affecting] down to the ground by the hands!"))
+			assailant.visible_message(SPAN_DANGER("[assailant] pins [affecting] down to the ground by the hands!"), SPAN_DANGER("You pin [affecting] down to the ground by the hands!"))
 			apply_pinning(affecting, assailant)
 
 		state = GRAB_AGGRESSIVE
@@ -285,7 +285,7 @@
 			assailant.visible_message(SPAN_WARNING("[assailant] tries to squeeze [affecting], but [assailant.get_pronoun("his")] hands sink right through!"), SPAN_WARNING("You try to squeeze [affecting], but your hands sink right through!"))
 			return
 		playsound(loc, /decl/sound_category/grab_sound, 50, FALSE, -1)
-		assailant.visible_message(SPAN_WARNING("[assailant] reinforces [assailant.get_pronoun("his")] grip on [affecting]'s neck!"), SPAN_WARNING("You reinforce your grip on [affecting]'s neck!"))
+		assailant.visible_message(SPAN_DANGER("[assailant] reinforces [assailant.get_pronoun("his")] grip on [affecting]'s neck!"), SPAN_DANGER("You reinforce your grip on [affecting]'s neck!"))
 		state = GRAB_NECK
 		icon_state = "grabbed+1"
 		affecting.attack_log += "\[[time_stamp()]\] <font color='orange'>Has had their neck grabbed by [assailant.name] ([assailant.ckey])</font>"

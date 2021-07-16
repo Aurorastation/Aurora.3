@@ -21,8 +21,6 @@ var/datum/controller/subsystem/xenoarch/SSxenoarch
 	//create digsites
 	for(var/turf/simulated/mineral/M in turfs)
 		CHECK_TICK
-		if(!M.geologic_data)
-			M.geologic_data = new/datum/geosample(M)
 
 		if(!prob(XENOARCH_SPAWN_CHANCE))
 			continue

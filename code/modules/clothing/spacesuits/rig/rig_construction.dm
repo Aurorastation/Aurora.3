@@ -173,27 +173,27 @@
 	steps = list(
 				//1
 				list("key"=/obj/item/weldingtool,
-					"backkey"=/obj/item/wrench,
+					"backkey"=WRENCH,
 					"desc"="External armor is wrenched"),
 				//2
-				list("key"=/obj/item/wrench,
-						"backkey"=/obj/item/crowbar,
+				list("key"=WRENCH,
+						"backkey"=CROWBAR,
 						"desc"="External armor is installed"),
 				//3
 				list("key"=/obj/item/stack/material/steel,
-						"backkey"=/obj/item/screwdriver,
+						"backkey"=SCREWDRIVER,
 						"desc"="Central control module is secured"),
 				//4
-				list("key"=/obj/item/screwdriver,
-						"backkey"=/obj/item/crowbar,
+				list("key"=SCREWDRIVER,
+						"backkey"=CROWBAR,
 						"desc"="Central control module is installed"),
 				//5
 				list("key"=null,
-						"backkey"=/obj/item/wirecutters,
+						"backkey"=WIRECUTTER,
 						"desc"="The wiring is adjusted"),
 				//6
-				list("key"=/obj/item/wirecutters,
-						"backkey"=/obj/item/screwdriver,
+				list("key"=WIRECUTTER,
+						"backkey"=SCREWDRIVER,
 						"desc"="The wiring is added"),
 				//7
 				list("key"=/obj/item/stack/cable_coil,
@@ -266,11 +266,11 @@
 	steps = list(
 				//1
 				list("key"=/obj/item/weldingtool,
-						"backkey"=/obj/item/wrench,
+						"backkey"=WRENCH,
 						"desc"="External armor is wrenched."),
 				//2
-				list("key"=/obj/item/wrench,
-						"backkey"=/obj/item/crowbar,
+				list("key"=WRENCH,
+						"backkey"=CROWBAR,
 						"desc"="External armor is installed."),
 				//3
 				list("key"=/obj/item/stack/material/plasteel,
@@ -278,43 +278,43 @@
 						"desc"="Internal armor is welded."),
 				//4
 				list("key"=/obj/item/weldingtool,
-						"backkey"=/obj/item/wrench,
+						"backkey"=WRENCH,
 						"desc"="Internal armor is wrenched"),
 				//5
-				list("key"=/obj/item/wrench,
-						"backkey"=/obj/item/crowbar,
+				list("key"=WRENCH,
+						"backkey"=CROWBAR,
 						"desc"="Internal armor is installed"),
 				//6
 				list("key"=/obj/item/stack/material/steel,
-						"backkey"=/obj/item/screwdriver,
+						"backkey"=SCREWDRIVER,
 						"desc"="Advanced scanner module is secured"),
 				//7
-				list("key"=/obj/item/screwdriver,
-						"backkey"=/obj/item/crowbar,
+				list("key"=SCREWDRIVER,
+						"backkey"=CROWBAR,
 						"desc"="Advanced scanner module is installed"),
 				//8
 				list("key"=/obj/item/stock_parts/scanning_module/adv,
-						"backkey"=/obj/item/screwdriver,
+						"backkey"=SCREWDRIVER,
 						"desc"="Targeting module is secured"),
 				//9
-				list("key"=/obj/item/screwdriver,
-						"backkey"=/obj/item/crowbar,
+				list("key"=SCREWDRIVER,
+						"backkey"=CROWBAR,
 						"desc"="Targeting module is installed"),
 				//10
 				list("key"=null,
-						"backkey"=/obj/item/screwdriver,
+						"backkey"=SCREWDRIVER,
 						"desc"="Central control module is secured"),
 				//11
-				list("key"=/obj/item/screwdriver,
-						"backkey"=/obj/item/crowbar,
+				list("key"=SCREWDRIVER,
+						"backkey"=CROWBAR,
 						"desc"="Central control module is installed"),
 				//12
 				list("key"=null,
-						"backkey"=/obj/item/wirecutters,
+						"backkey"=WIRECUTTER,
 						"desc"="The wiring is adjusted"),
 				//13
-				list("key"=/obj/item/wirecutters,
-						"backkey"=/obj/item/screwdriver,
+				list("key"=WIRECUTTER,
+						"backkey"=SCREWDRIVER,
 						"desc"="The wiring is added"),
 				//14
 				list("key"=/obj/item/stack/cable_coil,

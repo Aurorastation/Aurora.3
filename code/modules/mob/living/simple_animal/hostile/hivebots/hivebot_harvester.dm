@@ -7,7 +7,6 @@
 	maxHealth = 100
 	blood_type = COLOR_OIL
 	blood_overlay_icon = 'icons/mob/npc/blood_overlay_hivebot.dmi'
-	harm_intent_damage = 3
 	melee_damage_lower = 30
 	melee_damage_upper = 30
 	destroy_surroundings = 0

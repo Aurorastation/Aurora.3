@@ -70,6 +70,30 @@
 	icon_state = "vest_white"
 	slots = 5
 
+/obj/item/clothing/accessory/storage/webbingharness
+	name = "webbing harness"
+	desc = "Durable mess of synthcotton belts and buckles. Has some pouches, but not a lot."
+	icon_state = "vest_harness"
+
+/obj/item/clothing/accessory/storage/webbingharness/alt
+	icon_state = "vest_harness_alt"
+
+/obj/item/clothing/accessory/storage/webbingharness/pouches
+	icon_state = "vest_harness_pouches"
+
+/obj/item/clothing/accessory/storage/webbingharness/pouches/ert
+	desc = "Durable mess of synthcotton belts and buckles. To better satiate the need for storage and stability."
+	slots = 5
+
+/obj/item/clothing/accessory/storage/webbingharness/grayscale
+	icon_state = "vest_harness_g"
+
+/obj/item/clothing/accessory/storage/webbingharness/alt/grayscale
+	icon_state = "vest_harness_alt_g"
+
+/obj/item/clothing/accessory/storage/webbingharness/pouches/grayscale
+	icon_state = "vest_harness_pouches_g"
+
 /obj/item/clothing/accessory/storage/overalls
 	name = "overalls"
 	desc = "Heavy-duty overalls for use on the work site, with plenty of convenient pockets to boot."

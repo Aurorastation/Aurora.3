@@ -155,7 +155,7 @@
 		return PSYCHOTIC
 	else if (druggy)
 		return DRUGGED
-	else if (drowsyness)
+	else if (drowsiness)
 		return DIZZY
 	else if (confused)
 		return DIZZY

@@ -81,15 +81,18 @@
 		/obj/item/reagent_containers/food/drinks/bottle/sake = 1,
 		/obj/item/reagent_containers/food/drinks/bottle/cremewhite = 4,
 		/obj/item/reagent_containers/food/drinks/bottle/mintsyrup = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/chartreuseyellow =5,
+		/obj/item/reagent_containers/food/drinks/bottle/messa_mead = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/small/ale = 6,
 		/obj/item/reagent_containers/food/drinks/bottle/small/beer = 6,
 		/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice = 8,
+		/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz = 4,
 		/obj/item/reagent_containers/food/drinks/bottle/cola = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/space_mountain_wind = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/space_up = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/hrozamal_soda = 2,
-		/obj/item/reagent_containers/food/drinks/cans/adhomai_milk = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water = 3,
 		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 6,
 		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 2,
 		/obj/item/reagent_containers/food/drinks/cans/sodawater = 15,
@@ -102,10 +105,26 @@
 		/obj/item/reagent_containers/food/drinks/carton/lemonjuice = 4,
 		/obj/item/reagent_containers/food/drinks/carton/orangejuice = 4,
 		/obj/item/reagent_containers/food/drinks/carton/tomatojuice = 4,
+		/obj/item/reagent_containers/food/drinks/carton/fatshouters = 2,
+		/obj/item/reagent_containers/food/drinks/carton/mutthir = 2,
 		/obj/item/reagent_containers/food/drinks/flask/barflask = 2,
 		/obj/item/reagent_containers/food/drinks/flask/vacuumflask = 2,
 		/obj/item/reagent_containers/food/drinks/ice = 9,
-		/obj/item/reagent_containers/food/drinks/drinkingglass = 30
+		/obj/item/reagent_containers/food/drinks/drinkingglass = 30,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/pint = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/square = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/mug = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shake = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/goblet = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/wine = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/flute = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/cognac = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/rocks = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/cocktail = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 4,
+		/obj/item/reagent_containers/food/drinks/pitcher = 4
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/drinks/tea = 10
@@ -796,32 +815,6 @@
 
 			src.product_records.Add(product)
 
-/obj/machinery/vending/magivend
-	name = "MagiVend"
-	desc = "A magic vending machine."
-	icon_state = "magivend"
-	product_slogans = "Sling spells the proper way with MagiVend!;Be your own Houdini! Use MagiVend!"
-	vend_delay = 15
-	vend_reply = "Have an enchanted evening!"
-	product_ads = "FJKLFJSD;AJKFLBJAKL;1234 LOONIES LOL!;>MFW;Kill them fuckers!;GET DAT FUKKEN DISK;HONK!;EI NATH;Destroy the station!;Admin conspiracies since forever!;Space-time bending hardware!" //What the fuck is this
-	vend_id = "magic"
-	products = list(
-		/obj/item/clothing/head/wizard = 1,
-		/obj/item/clothing/suit/wizrobe = 1,
-		/obj/item/clothing/shoes/sandal = 1,
-		/obj/item/staff = 1
-	)
-	contraband = list(
-		/obj/item/clothing/head/wizard/red = 1,
-		/obj/item/clothing/suit/wizrobe/red = 1,
-	)
-	premium = list(
-		/obj/item/clothing/head/wizard/fake = 1
-	)
-	restock_items = 1
-	random_itemcount = 0
-	light_color = COLOR_BABY_BLUE
-
 /obj/machinery/vending/dinnerware
 	name = "Dinnerware"
 	desc = "A kitchen and restaurant equipment vendor."
@@ -836,6 +829,9 @@
 		/obj/item/material/knife = 2,
 		/obj/item/material/hatchet/butch = 2,
 		/obj/item/reagent_containers/food/drinks/drinkingglass = 12,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 3,
+		/obj/item/reagent_containers/food/drinks/pitcher = 3,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup = 6,
 		/obj/item/clothing/suit/chef/classic = 2,
 		/obj/item/material/kitchen/rollingpin = 2,
 		/obj/item/reagent_containers/cooking_container/oven = 5,
@@ -868,7 +864,10 @@
 		/obj/item/material/kitchen/utensil/spoon/plastic = 12,
 		/obj/item/material/kitchen/utensil/knife/plastic = 12,
 		/obj/item/material/kitchen/utensil/fork/chopsticks/cheap = 12,
-		/obj/item/reagent_containers/food/drinks/drinkingglass = 12
+		/obj/item/reagent_containers/food/drinks/drinkingglass = 12,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 3,
+		/obj/item/reagent_containers/food/drinks/pitcher = 3,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup = 6
 	)
 
 /obj/machinery/vending/sovietsoda
