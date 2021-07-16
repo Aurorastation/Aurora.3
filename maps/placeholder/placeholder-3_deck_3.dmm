@@ -3592,9 +3592,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/theatre)
-"nh" = (
-/turf/template_noop,
-/area/security/forensics_laboratory)
 "ni" = (
 /obj/structure/bed/chair{
 	dir = 8
@@ -6178,9 +6175,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
-"Ai" = (
-/turf/template_noop,
-/area/maintenance/security_starboard)
 "An" = (
 /obj/effect/floor_decal/corner/red/full,
 /obj/structure/sink{
@@ -6855,9 +6849,6 @@
 "DQ" = (
 /turf/simulated/open,
 /area/maintenance/vault)
-"DW" = (
-/turf/template_noop,
-/area/security/investigations_storage)
 "DY" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -8593,11 +8584,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/janitor)
-"Om" = (
-/turf/template_noop,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
 "Op" = (
 /obj/machinery/light{
 	dir = 1
@@ -9046,7 +9032,8 @@
 	name = "Autopsy Lab";
 	req_access = list(4)
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
 "QO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -35559,12 +35546,12 @@ Wm
 Wm
 Wm
 Wm
-nh
-nh
-nh
-nh
-nh
-DW
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
 Wm
 Wm
 Wm
@@ -35761,12 +35748,12 @@ Wm
 Wm
 Wm
 Wm
-nh
-nh
-nh
-nh
-nh
-DW
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
 Wm
 Wm
 Wm
@@ -35963,12 +35950,12 @@ Wm
 Wm
 Wm
 Wm
-nh
-nh
-nh
-nh
-nh
-DW
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
 Wm
 Wm
 Wm
@@ -36165,12 +36152,12 @@ Wm
 Wm
 Wm
 Wm
-nh
-nh
-nh
-nh
-nh
-DW
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
 Wm
 Wm
 Wm
@@ -36367,12 +36354,12 @@ Wm
 Wm
 Wm
 Wm
-nh
-nh
-nh
-nh
-nh
-DW
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
 Wm
 Wm
 Wm
@@ -36569,12 +36556,12 @@ Wm
 Wm
 Wm
 Wm
-nh
-nh
-nh
-nh
-nh
-DW
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
 Wm
 Wm
 Wm
@@ -36771,12 +36758,12 @@ Wm
 Wm
 Wm
 Wm
-nh
-nh
-nh
-nh
-nh
-DW
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
 Wm
 Wm
 Wm
@@ -36973,12 +36960,12 @@ Wm
 Wm
 Wm
 Wm
-nh
-nh
-nh
-nh
-nh
-DW
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
 Wm
 Wm
 Wm
@@ -37175,12 +37162,12 @@ Wm
 Wm
 Wm
 Wm
-nh
-nh
-nh
-nh
-nh
-DW
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
 Wm
 Wm
 Wm
@@ -37377,12 +37364,12 @@ Wm
 Wm
 Wm
 Wm
-Ai
-nh
-nh
-nh
-nh
-nh
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
 Wm
 Wm
 Wm
@@ -39183,10 +39170,10 @@ fh
 Wm
 Wm
 Wm
-Om
-Om
-Om
-Om
+Wm
+Wm
+Wm
+Wm
 Wm
 Wm
 Wm
@@ -39385,10 +39372,10 @@ fh
 Wm
 Wm
 Wm
-Om
-Om
-Om
-Om
+Wm
+Wm
+Wm
+Wm
 Wm
 Wm
 Wm
@@ -39587,10 +39574,10 @@ Wm
 Wm
 Wm
 Wm
-Om
-Om
-Om
-Om
+Wm
+Wm
+Wm
+Wm
 Wm
 Wm
 Wm
@@ -39789,10 +39776,10 @@ Wm
 Wm
 Wm
 Wm
-Om
-Om
-Om
-Om
+Wm
+Wm
+Wm
+Wm
 Wm
 Wm
 Wm

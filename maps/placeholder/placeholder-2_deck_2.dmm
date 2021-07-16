@@ -662,7 +662,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
-/area/security/brig/processing)
+/area/security/brig/processing_secondary)
 "aHN" = (
 /obj/structure/table/standard,
 /obj/machinery/cell_charger,
@@ -2610,6 +2610,10 @@
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled,
 /area/security/prison)
+"cQu" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled,
+/area/security/brig/processing_secondary)
 "cQz" = (
 /obj/structure/table/rack,
 /obj/item/clothing/suit/space/void/engineering,
@@ -4891,7 +4895,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/security/brig/processing)
+/area/security/brig/processing_secondary)
 "fpm" = (
 /obj/structure/railing/mapped,
 /obj/structure/cable/green{
@@ -9482,7 +9486,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
-/area/security/brig/processing)
+/area/security/brig/processing_secondary)
 "kfZ" = (
 /obj/machinery/door/airlock,
 /obj/structure/cable/green{
@@ -10847,7 +10851,7 @@
 	pixel_x = -25
 	},
 /turf/simulated/floor/tiled,
-/area/security/brig/processing)
+/area/security/brig/processing_secondary)
 "lLn" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/wood,
@@ -15011,7 +15015,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/security/brig/processing)
+/area/security/brig/processing_secondary)
 "qjl" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -17186,7 +17190,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
-/area/security/brig/processing)
+/area/security/brig/processing_secondary)
 "sgQ" = (
 /obj/structure/lattice,
 /obj/structure/window/phoronreinforced,
@@ -17558,6 +17562,9 @@
 "sDz" = (
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/storage)
+"sEk" = (
+/turf/simulated/wall/placeholder_standard,
+/area/security/brig/processing_secondary)
 "sFf" = (
 /obj/machinery/light{
 	dir = 8
@@ -18051,7 +18058,7 @@
 	},
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
-/area/security/brig/processing)
+/area/security/brig/processing_secondary)
 "tfd" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
@@ -18820,6 +18827,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
+"tYK" = (
+/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled,
+/area/security/brig/processing_secondary)
 "tZr" = (
 /obj/structure/cable/orange{
 	icon_state = "1-4"
@@ -19088,7 +19102,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/security/brig/processing)
+/area/security/brig/processing_secondary)
 "uoj" = (
 /turf/simulated/wall/placeholder_standard,
 /area/hallway/engineering)
@@ -22418,7 +22432,7 @@
 	},
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/tiled,
-/area/security/brig/processing)
+/area/security/brig/processing_secondary)
 "xNn" = (
 /obj/machinery/computer/shuttle_control/lift{
 	pixel_y = -1;
@@ -48337,11 +48351,11 @@ aBa
 aAp
 aAp
 qFg
-czU
-czU
-czU
-czU
-czU
+sEk
+sEk
+sEk
+sEk
+sEk
 rhz
 kbZ
 dwK
@@ -48539,7 +48553,7 @@ qMd
 iRb
 iRb
 gec
-czU
+sEk
 lLj
 unV
 aHj
@@ -48741,11 +48755,11 @@ guh
 jxs
 jxs
 jxs
-czU
+sEk
 kep
-erH
+cQu
 qjh
-eNZ
+tYK
 wdY
 kat
 gjU
@@ -48943,11 +48957,11 @@ qMd
 qMd
 qMd
 qMd
-czU
+sEk
 xMV
 fpj
 tdv
-czU
+sEk
 rec
 iIM
 iqu
@@ -49145,11 +49159,11 @@ oVB
 vyd
 hyS
 hyS
-czU
-czU
-czU
-czU
-czU
+sEk
+sEk
+sEk
+sEk
+sEk
 yci
 vtf
 xUW
