@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "RnD can now produce inductive chargers, capable of wirelessly charging anything with a cell."
