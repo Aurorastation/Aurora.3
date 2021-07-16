@@ -351,9 +351,11 @@
 			if (T.is_listening())
 				T.Weaken(10)
 				T.Stun(10)
+				T.earpain(4)
 			else
 				T.Weaken(7)
 				T.Stun(7)
+				T.earpain(3)
 		else
 			T.Weaken(5)
 			T.Stun(5)
