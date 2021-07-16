@@ -28,6 +28,8 @@
 #define FONT_HUGE(X) "<font size='4'>[X]</font>"
 #define FONT_GIANT(X) "<font size='5'>[X]</font>"
 
+#define UNDERSCORE_OR_NULL(target) "[target ? "[target]_" : ""]"
+
 #define isAI(A) istype(A, /mob/living/silicon/ai)
 #define isDrone(A) istype(A, /mob/living/silicon/robot/drone)
 
