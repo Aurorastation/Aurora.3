@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes:
+  - rscadd: "Cargo suppliers can now have their prices influenced by the current space sector."
