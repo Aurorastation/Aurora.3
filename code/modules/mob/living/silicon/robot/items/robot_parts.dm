@@ -343,7 +343,7 @@
 	if(!right_flash)
 		to_chat(user, FONT_SMALL(SPAN_WARNING("It is lacking its right flash.")))
 
-/obj/item/robot_parts/head/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/robot_parts/head/attackby(obj/item/W, mob/user)
 	..()
 	if(W.ismultitool())
 		if(law_manager)
@@ -354,9 +354,9 @@
 			law_manager = TRUE
 
 	if(istype(W, /obj/item/device/flash))
-		if(istype(user, /mob/living/silicon/robot))
-			var/current_module = user.get_active_hand()
-			if(current_module == W)
+		if(isrobot(user))
+			var/mob/living/silicon/robot/R = user
+			if(istype(R.module_active, /obj/item/device/flash))
 				to_chat(user, SPAN_WARNING("You cannot detach your own flash and install it into \the [src]."))
 				return
 			else
