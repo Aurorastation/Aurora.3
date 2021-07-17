@@ -23,7 +23,7 @@
 
 /datum/gear/ears/bandanna_colorable
 	display_name = "neck bandanna (colorable)"
-	path = /obj/item/clothing/ears/bandanna_colorable
+	path = /obj/item/clothing/ears/bandanna/colorable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/ears/double/headphones
