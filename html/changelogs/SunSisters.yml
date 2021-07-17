@@ -1,0 +1,6 @@
+author: ChangeMe
+
+delete-after: True
+
+changes:
+  - bugfix: "The Sun Sister veil can now be used to hide ones face, no longer covers the eyes and is flexible so it is possible to eat/drink with it on."
