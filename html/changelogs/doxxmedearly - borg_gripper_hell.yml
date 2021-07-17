@@ -1,9 +1,0 @@
-author: Doxxmedearly
-
-# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
-delete-after: True
-
-changes:
-  - bugfix: "Borgs can once again put flashes in robot heads."
-  - bugfix: "Borgs can once again change access on airlock electronics."
-  - bugfix: "Borg service and medical grippers can now grasp chemical dispenser cartridges."
