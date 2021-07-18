@@ -3,6 +3,7 @@
 	icon = 'icons/obj/forensics.dmi'
 	w_class = ITEMSIZE_TINY
 	var/list/evidence = list()
+	var/list/source = list()
 
 /obj/item/sample/New(var/newloc, var/atom/supplied)
 	..(newloc)
