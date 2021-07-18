@@ -936,11 +936,12 @@
 		else if(buckled_to)
 			anchored = 1
 			canmove = 0
-			if(buckled_to.buckle_lying != -1)
-				lying = buckled_to.buckle_lying
-			if(buckled_to.buckle_movable)
-				anchored = 0
-				canmove = 1
+			if(isobj(buckled_to))
+				if(buckled_to.buckle_lying != -1)
+					lying = buckled_to.buckle_lying
+				if(buckled_to.buckle_movable)
+					anchored = 0
+					canmove = 1
 		else if(captured)
 			anchored = 1
 			canmove = 0

@@ -82,7 +82,7 @@
 //Used by throw code to hand over the mob, instead of throwing the grab. The grab is then deleted by the throw code.
 /obj/item/grab/proc/throw_held()
 	if(affecting)
-		if(affecting.buckled_to)
+		if(affecting.buckled_to && affecting.buckled_to != assailant) // can't throw in fireman carries atm, but future proofing
 			return null
 		if(state >= GRAB_AGGRESSIVE)
 			animate(affecting, pixel_x = affecting.get_standard_pixel_x(), pixel_y = affecting.get_standard_pixel_y(), 4, 1)
@@ -204,7 +204,7 @@
 /obj/item/grab/proc/adjust_position()
 	if(!affecting)
 		return
-	if(affecting.buckled_to)
+	if(affecting.buckled_to && affecting.buckled_to != assailant)
 		animate(affecting, pixel_x = affecting.get_standard_pixel_x(), pixel_y = affecting.get_standard_pixel_y(), 4, 1, LINEAR_EASING)
 		return
 	if(affecting.lying || force_down || wielded)
@@ -410,10 +410,14 @@
 	var/destroying = 0
 
 /obj/item/grab/Destroy()
-	if(!QDELING(linked_grab))
+	if(!QDELETED(linked_grab))
 		qdel(linked_grab)
 
 	if(wielded)
+		if(affecting.buckled_to == assailant)
+			affecting.buckled_to = null
+			affecting.update_canmove()
+			affecting.anchored = FALSE
 		moved_event.unregister(assailant, src, /obj/item/grab/proc/move_affecting)
 
 	animate(affecting, pixel_x = affecting.get_standard_pixel_x(), pixel_y = affecting.get_standard_pixel_y(), 4, 1, LINEAR_EASING)
@@ -453,6 +457,9 @@
 	if(!do_after(H, 3 SECONDS, TRUE))
 		return
 
+	if(affecting.buckled_to)
+		return
+
 	if(H.get_inactive_hand())
 		to_chat(H, SPAN_WARNING("Your other hand must be empty to fireman carry someone!"))
 		return
@@ -462,6 +469,7 @@
 
 	H.visible_message("<b>[H]</b> lifts \the [affecting] onto their shoulders!", SPAN_NOTICE("You lift \the [affecting] onto your shoulders!"))
 
+	affecting.buckled_to = assailant
 	affecting.forceMove(H.loc)
 	adjust_position()
 	moved_event.register(assailant, src, /obj/item/grab/proc/move_affecting)
