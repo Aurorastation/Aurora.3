@@ -70,7 +70,7 @@
 				M.adjustEarDamage(rand(0, 5), 15, TRUE)
 			if(ishuman(M))
 				var/mob/living/carbon/human/H = M
-				if (H.is_hearing_sensitive())
+				if (H.is_listening())
 					if (H.is_hearing_sensitive() == 2)
 						H.Weaken(5)
 					else 
