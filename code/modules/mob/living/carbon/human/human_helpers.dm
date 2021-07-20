@@ -313,4 +313,4 @@
 	return species.hearing_sensitivity
 
 /mob/living/carbon/human/proc/is_listening()
-	return species.listening_in
+	return LAZYISIN(intent_listener, src)

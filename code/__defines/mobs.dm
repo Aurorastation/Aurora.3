@@ -357,6 +357,11 @@
 #define HEARING_DAMAGE_LIMIT 100
 #define HEARING_DAMAGE_SLOW_HEAL 25
 
+// Used by hearing sensitivity
+#define HEARING_NORMAL 0
+#define HEARING_SENSITIVE 1
+#define HEARING_VERY_SENSITIVE 2
+
 //Used by emotes
 #define VISIBLE_MESSAGE 1
 #define AUDIBLE_MESSAGE 2

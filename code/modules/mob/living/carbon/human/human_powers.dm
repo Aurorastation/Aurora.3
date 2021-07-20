@@ -799,7 +799,7 @@ mob/living/carbon/human/proc/change_monitor()
 	for (var/mob/living/carbon/human/T in hearers(4, src) - src)
 		if(T.protected_from_sound())
 			continue
-		if (T.is_hearing_sensitive() == 2)
+		if (T.is_hearing_sensitive() == HEARING_VERY_SENSITIVE)
 			earpain(3, TRUE, 1)
 		else if (T in range(src, 2))
 			earpain(2, TRUE, 2)
@@ -1249,10 +1249,11 @@ mob/living/carbon/human/proc/change_monitor()
 		return FALSE
 	return TRUE
 
-/mob/living/carbon/human/proc/intent_listen(var/source)
+/mob/living/carbon/human/proc/intent_listen(var/source, var/type = 1)
 	if (is_listening())
 		var/sound_dir = angle2text(Get_Angle(get_turf(src), get_turf(source)))
-		to_chat(src, SPAN_WARNING("You hear the sound of machinery from \the [sound_dir]."))
+		if (type == 1) // future proofing in case other type of sounds are added. All sounds should be kept general-ish.
+			to_chat(src, SPAN_WARNING("You hear the sound of machinery from \the [sound_dir]."))
 
 /mob/living/carbon/human/proc/listening_close()
 	set category = "Abilities"
@@ -1274,9 +1275,9 @@ mob/living/carbon/human/proc/change_monitor()
 /mob/living/carbon/human/proc/start_listening()
 	if (!is_listening())
 		visible_message("<b>[src]</b> begins to listen intently.")
-		species.listening_in = 1
+		LAZYADD(intent_listener, src)
 
 /mob/living/carbon/human/proc/stop_listening()
 	if (is_listening())
 		visible_message("<b>[src]</b> stops listening intently.")
-		species.listening_in = 0
+		LAZYREMOVE(intent_listener, src)

@@ -159,12 +159,12 @@ var/datum/controller/subsystem/explosives/SSexplosives
 							var/mob/living/carbon/human/H = M
 							if (H.is_hearing_sensitive())
 								if(H.is_listening())
-									if (H.is_hearing_sensitive() == 2)
+									if (H.is_hearing_sensitive() == HEARING_VERY_SENSITIVE)
 										extendeddist *= 2
 									else
 										extendeddist = round(closedist *= 1.5, 1)
 								else
-									if (H.is_hearing_sensitive() == 2)
+									if (H.is_hearing_sensitive() == HEARING_VERY_SENSITIVE)
 										extendeddist *= 1.5
 									else
 										extendeddist = round(closedist *= 1.2, 1)
@@ -173,7 +173,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 						if (dist <= closedist)
 							to_chat(M, FONT_LARGE(SPAN_WARNING("You hear the sound of a nearby explosion coming from \the [explosion_dir].")))
 							M.playsound_simple(epicenter, get_sfx(/decl/sound_category/explosion_sound), min(100, volume), use_random_freq = TRUE, falloff = 5)
-						else if (dist >> closedist && dist <= extendeddist) // People with sensitive hearing get a better idea of how far it is
+						else if (dist > closedist && dist <= extendeddist) // People with sensitive hearing get a better idea of how far it is
 							to_chat(M, FONT_LARGE(SPAN_WARNING("You hear the sound of a semi-close explosion coming from \the [explosion_dir].")))
 							M.playsound_simple(epicenter, get_sfx(/decl/sound_category/explosion_sound), min(100, volume), use_random_freq = TRUE, falloff = 5)
 						else //You hear a far explosion if you're outside the blast radius. Small bombs shouldn't be heard all over the station.

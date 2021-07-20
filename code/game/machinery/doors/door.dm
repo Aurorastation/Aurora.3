@@ -503,8 +503,8 @@
 		return
 	operating = TRUE
 
-	for(var/mob/living/carbon/human/H in range (7, src))
-		if(H.is_hearing_sensitive())
+	for(var/mob/living/carbon/human/H as anything in intent_listener)
+		if(get_dist(src, H) <= 7)
 			H.intent_listen(src)
 
 	do_animate("opening")
@@ -543,8 +543,8 @@
 					break
 	operating = TRUE
 
-	for(var/mob/living/carbon/human/H in range (7, src))
-		if(H.is_hearing_sensitive())
+	for(var/mob/living/carbon/human/H as anything in intent_listener)
+		if(get_dist(src, H) <= 7)
 			H.intent_listen(src)
 
 	do_animate("closing")

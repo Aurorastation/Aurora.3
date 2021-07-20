@@ -2069,3 +2069,49 @@
 		var/obj/item/organ/internal/eyes/night/N = E
 		if(N.night_vision )
 			N.disable_night_vision()
+
+/mob/living/carbon/human/adjustEarDamage(var/damage, var/deaf, var/ringing = FALSE)
+	if (damage > 0)
+		if (is_hearing_sensitive())
+			if (is_listening()) // if the person is listening in, the effect is way worse
+				if (is_hearing_sensitive() == HEARING_VERY_SENSITIVE)
+					damage *= 2
+				else
+					damage = round(damage *= 1.5, 1)
+				stop_listening()
+			else
+				if (is_hearing_sensitive() == HEARING_VERY_SENSITIVE)
+					damage = round(damage *= 1.4, 1)
+				else
+					damage = round(damage *= 1.2, 1)
+	return ..()
+
+// Intensity 1: mild, 2: hurts, 3: very painful, 4: extremely painful, 5: that's going to leave some damage
+// Sensitive_only: If yes, only those with sensitive hearing are affected
+// Listening_pain: Increases the intensity by the listed amount if the person is listening in
+/mob/living/carbon/human/proc/earpain(var/intensity, var/sensitive_only = FALSE, var/listening_pain = 0) 
+	if (ear_deaf)
+		return
+	if (sensitive_only && !is_hearing_sensitive())
+		return
+	if (listening_pain && is_listening())
+		intensity += listening_pain
+	else if (sensitive_only)
+		return
+	
+	var/obj/item/organ/external/E = organs_by_name[BP_HEAD]
+	switch (intensity)
+		if (1)
+			custom_pain("Your ears hurts a little.", 5, FALSE, E, 0)
+		if (2)
+			custom_pain("Your ears hurts!", 10, TRUE, E, 0)
+		if (3)
+			custom_pain("Your ears are extremely painful!", 40, TRUE, E, 0)
+		if (4)
+			custom_pain("Your ears begins to ring faintly from the pain!", 70, TRUE, E, 0)
+			adjustEarDamage(5, 0, FALSE)
+			stop_listening()
+		if (5)
+			custom_pain("YOUR EARS ARE DEAFENED BY THE PAIN!", 110, TRUE, E, 1)
+			adjustEarDamage(5, 5, FALSE)
+			stop_listening()

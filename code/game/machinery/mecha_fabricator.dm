@@ -290,8 +290,8 @@
 	for(var/M in D.materials)
 		materials[M] = max(0, materials[M] - D.materials[M] * mat_efficiency)
 
-	for(var/mob/living/carbon/human/H in range (7, src))
-		if(H.is_hearing_sensitive())
+	for(var/mob/living/carbon/human/H as anything in intent_listener)
+		if(get_dist(src, H) <= 7)
 			H.intent_listen(src)
 
 	if(D.build_path)
