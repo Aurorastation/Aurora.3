@@ -14,7 +14,7 @@
 	name = ACCENT_QERRMALIC
 	description = "The Qerr'Malic accent is known for being rather soft, even hushed at some points. Because of the moon's tourist industry, it borrows elements from other accents to \
 	form a rather unique mixture that makes specific reference to keeping low tones accessible to non-Skrell, further cementing the overall 'quietness' to other Skrell as their sentences \
-	sound half-finished. "
+	sound half-finished."
 	tag_icon = "skrell_qerrmalic"
 
 /datum/accent/skrell/aliose
@@ -25,7 +25,7 @@
 
 /datum/accent/skrell/aweiji
 	name = ACCENT_AWEIJI
-	description = "This type of accent emphasizes on a balance ofhighs and lows. It uses the nasal canal to further produce a harmonic pattern of speech. Idols are often found replicating \
+	description = "This type of accent emphasizes on a balance of highs and lows. It uses the nasal canal to further produce a harmonic pattern of speech. Idols are often found replicating \
 	this accent due to how gentle it is on both Skrell and non-Skrell."
 	tag_icon = "skrell_aweiji"
 
