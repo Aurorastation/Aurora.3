@@ -108,7 +108,7 @@
 
 /datum/gear/accessory/vaurca_mantle
 	display_name = "vaurcan mantle"
-	path = /obj/item/clothing/accessory/vaurca
+	path = /obj/item/clothing/accessory/poncho/vaurca
 	cost = 1
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Vaurca"
