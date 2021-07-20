@@ -157,14 +157,15 @@ var/datum/controller/subsystem/explosives/SSexplosives
 						var/extendeddist = closedist
 						if(ishuman(M))
 							var/mob/living/carbon/human/H = M
-							if (H.is_hearing_sensitive())
+							var/hearing_sensitivity = H.is_hearing_sensitive()
+							if (hearing_sensitivity)
 								if(H.is_listening())
-									if (H.is_hearing_sensitive() == HEARING_VERY_SENSITIVE)
+									if (hearing_sensitivity == HEARING_VERY_SENSITIVE)
 										extendeddist *= 2
 									else
 										extendeddist = round(closedist *= 1.5, 1)
 								else
-									if (H.is_hearing_sensitive() == HEARING_VERY_SENSITIVE)
+									if (hearing_sensitivity == HEARING_VERY_SENSITIVE)
 										extendeddist *= 1.5
 									else
 										extendeddist = round(closedist *= 1.2, 1)

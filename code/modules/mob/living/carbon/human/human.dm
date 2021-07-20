@@ -2072,15 +2072,16 @@
 
 /mob/living/carbon/human/adjustEarDamage(var/damage, var/deaf, var/ringing = FALSE)
 	if (damage > 0)
-		if (is_hearing_sensitive())
+		var/hearing_sensitivity = is_hearing_sensitive()
+		if (hearing_sensitivity)
 			if (is_listening()) // if the person is listening in, the effect is way worse
-				if (is_hearing_sensitive() == HEARING_VERY_SENSITIVE)
+				if (hearing_sensitivity == HEARING_VERY_SENSITIVE)
 					damage *= 2
 				else
 					damage = round(damage *= 1.5, 1)
 				stop_listening()
 			else
-				if (is_hearing_sensitive() == HEARING_VERY_SENSITIVE)
+				if (hearing_sensitivity == HEARING_VERY_SENSITIVE)
 					damage = round(damage *= 1.4, 1)
 				else
 					damage = round(damage *= 1.2, 1)
