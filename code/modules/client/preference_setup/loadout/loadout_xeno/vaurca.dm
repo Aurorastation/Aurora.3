@@ -12,6 +12,7 @@
 	cost = 1
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Vaurca"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/mask/filterport
 	display_name = "filter port"
@@ -105,9 +106,9 @@
 	shrouds["vaurcan shroud, brown"] = /obj/item/clothing/head/shroud/brown
 	gear_tweaks += new /datum/gear_tweak/path(shrouds)
 
-/datum/gear/suit/vaurca_mantle
+/datum/gear/accessory/vaurca_mantle
 	display_name = "vaurcan mantle"
-	path = /obj/item/clothing/suit/vaurca/mantle
+	path = /obj/item/clothing/accessory/vaurca
 	cost = 1
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Vaurca"

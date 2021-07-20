@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Vaurca mantles now has color selection in the loadout and are considered accesories that can go both on accessory slots and on suit slots."
