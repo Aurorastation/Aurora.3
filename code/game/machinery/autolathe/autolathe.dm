@@ -269,7 +269,7 @@
 		update_use_power(2)
 
 		for(var/mob/living/carbon/human/H as anything in intent_listener)
-			if(get_dist(src, H) <= 7)
+			if(src.z == H.z && get_dist(src, H) <= 7)
 				H.intent_listen(src)
 
 		//Check if we still have the materials.
