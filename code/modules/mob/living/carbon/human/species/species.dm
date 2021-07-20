@@ -204,7 +204,7 @@
 	var/bp_base_disatolic = 80
 
 	// Hearing sensitivity
-	var/hearing_sensitivity = HEARING_NORMAL // 1: sensitive, 2: *very* sensitive
+	var/hearing_sensitivity = HEARING_NORMAL
 
 	// Eating & nutrition related stuff
 	var/gluttonous = 0            // Can eat some mobs. Values can be GLUT_TINY, GLUT_SMALLER, GLUT_ANYTHING, GLUT_ITEM_TINY, GLUT_ITEM_NORMAL, GLUT_ITEM_ANYTHING, GLUT_PROJECTILE_VOMIT
