@@ -3334,7 +3334,7 @@
 "agC" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
+	req_access = list(58)
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -64050,7 +64050,7 @@
 "mlY" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
+	req_access = list(58)
 	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable{
@@ -65257,9 +65257,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "orw" = (
-/obj/structure/ladder{
-	pixel_y = 16
-	},
 /obj/structure/cable{
 	d1 = 32;
 	d2 = 2;
