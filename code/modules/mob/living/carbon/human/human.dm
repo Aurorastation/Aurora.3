@@ -2105,7 +2105,7 @@
 		if (1)
 			custom_pain("Your ears hurt a little.", 5, FALSE, E, 0)
 		if (2)
-			custom_pain("Your ears hurts!", 10, TRUE, E, 0)
+			custom_pain("Your ears hurt!", 10, TRUE, E, 0)
 		if (3)
 			custom_pain("Your ears are extremely painful!", 40, TRUE, E, 0)
 		if (4)
