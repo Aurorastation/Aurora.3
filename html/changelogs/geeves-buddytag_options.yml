@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added additional configuration options to buddy tags. You can also set their configs in the loadout menu now, where it will persist."
