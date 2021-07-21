@@ -137,6 +137,23 @@
 		H.bodytemperature += cost * sprint_temperature_factor
 	return TRUE
 
+/datum/species/machine/handle_emp_act(mob/living/carbon/human/H, var/severity)
+	var/obj/item/organ/internal/surge/S = H.internal_organs_by_name["surge"]
+	if(!isnull(S))
+		if(S.surge_left >= 1)
+			playsound(H.loc, 'sound/magic/LightningShock.ogg', 25, 1)
+			S.surge_left -= 1
+			if(S.surge_left)
+				to_chat(H, SPAN_WARNING("Warning: EMP detected, integrated surge prevention module activated. There are [S.surge_left] preventions left."))
+			else
+				S.broken = TRUE
+				S.icon_state = "surge_ipc_broken"
+				to_chat(H, SPAN_DANGER("Warning: EMP detected, integrated surge prevention module activated. The surge prevention module is fried, replacement recommended."))
+			return TRUE
+		else
+			to_chat(src, SPAN_DANGER("Warning: EMP detected, integrated surge prevention module is fried and unable to protect from EMP. Replacement recommended."))
+	return FALSE
+
 /datum/species/machine/handle_death(var/mob/living/carbon/human/H)
 	..()
 	H.f_style = ""
