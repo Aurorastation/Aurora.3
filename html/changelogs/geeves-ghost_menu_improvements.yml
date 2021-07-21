@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - tweak: "The Ghost Menu now sorts its output in this order: Antags, Alive, Dead, Observer, NPCs, Dead NPCs."
