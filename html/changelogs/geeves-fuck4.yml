@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed latejoining breaking some manifest entries."
+  - rscadd: "Added a suffix to the independent faction."
