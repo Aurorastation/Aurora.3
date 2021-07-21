@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "It is now possible to fireman carry someone, provided you have an aggressive grab or higher on them. Simply drag the grab in your active hand onto your sprite and wait for a bit. To release, drop the grab."
-  - rscadd: "Pulling or grabbing someone and dragging them into a portal will now teleport it/them with you."
