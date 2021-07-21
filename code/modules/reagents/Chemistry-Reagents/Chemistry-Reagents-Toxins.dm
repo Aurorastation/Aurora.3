@@ -607,6 +607,13 @@
 	strength = 0.008
 	nicotine = 0.1
 
+/decl/reagent/toxin/tobacco/liquid
+	name = "Nicotine Solution"
+	description = "A diluted nicotine solution."
+	reagent_state = LIQUID
+	nicotine = REM * 0.1
+	taste_mult = 2
+
 /mob/living/carbon/human/proc/berserk_start()
 	to_chat(src, SPAN_DANGER("An uncontrollable rage overtakes your thoughts!"))
 	add_client_color(/datum/client_color/berserk)

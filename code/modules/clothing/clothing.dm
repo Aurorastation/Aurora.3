@@ -366,6 +366,14 @@
 		var/mob/M = src.loc
 		M.update_inv_gloves()
 
+/obj/item/clothing/gloves/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(blood_DNA)
+		var/image/bloodsies = image(H.species.blood_mask, "bloodyhands")
+		bloodsies.color = blood_color
+		I.add_overlay(bloodsies)
+	return I
+
 /obj/item/clothing/gloves/emp_act(severity)
 	if(cell)
 		//why is this not part of the powercell code?
@@ -563,6 +571,18 @@
 	if(H)
 		H.update_inv_head()
 
+/obj/item/clothing/head/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(blood_DNA)
+		var/image/bloodsies = image(H.species.blood_mask, icon_state = "helmetblood")
+		bloodsies.color = blood_color
+		bloodsies.appearance_flags = RESET_ALPHA
+		I.add_overlay(bloodsies)
+	var/cache_key = "[light_overlay]_[H.cached_bodytype || (H.cached_bodytype = H.species.get_bodytype())]"
+	if(on && SSicon_cache.light_overlay_cache[cache_key])
+		I.add_overlay(SSicon_cache.light_overlay_cache[cache_key])
+	return I
+
 /obj/item/clothing/head/update_clothing_icon()
 	if (ismob(src.loc))
 		var/mob/M = src.loc
@@ -601,6 +621,8 @@
 	var/adjustable = FALSE
 	var/hanging = 0
 
+	var/has_blood_overlay = TRUE
+
 /obj/item/clothing/mask/Initialize()
 	. = ..()
 	if(adjustable)
@@ -611,6 +633,15 @@
 	if (ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_wear_mask()
+
+/obj/item/clothing/mask/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(blood_DNA && has_blood_overlay)
+		var/image/bloodsies = image(H.species.blood_mask, "maskblood")
+		bloodsies.color = blood_color
+		bloodsies.appearance_flags = RESET_ALPHA
+		I.add_overlay(bloodsies)
+	return I
 
 /obj/item/clothing/mask/proc/filter_air(datum/gas_mixture/air)
 	return
@@ -766,6 +797,18 @@
 		M.update_inv_shoes()
 	return ..()
 
+/obj/item/clothing/shoes/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(blood_DNA)
+		for(var/limb_tag in list(BP_L_FOOT, BP_R_FOOT))
+			var/obj/item/organ/external/E = H.get_organ(limb_tag)
+			if(E && !E.is_stump())
+				var/image/bloodsies = image(H.species.blood_mask, "shoeblood_[E.limb_name]")
+				bloodsies.color = blood_color
+				bloodsies.appearance_flags = RESET_ALPHA
+				I.add_overlay(bloodsies)
+	return I
+
 /obj/item/clothing/shoes/proc/handle_movement(var/turf/walking, var/running)
 	return
 
@@ -828,6 +871,18 @@
 		our_image = image(INV_SUIT_DEF_ICON, icon_state)
 	our_image.color = color
 	return our_image
+
+/obj/item/clothing/suit/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	for(var/obj/item/clothing/accessory/A in accessories)
+		var/image/accessory_image = A.get_accessory_mob_overlay()
+		I.add_overlay(accessory_image)
+
+	if(blood_DNA)
+		var/image/bloodsies = image(icon = H.species.blood_mask, icon_state = "[blood_overlay_type]blood")
+		bloodsies.color = blood_color
+		I.add_overlay(bloodsies)
+	return I
 
 /obj/item/clothing/suit/update_clothing_icon()
 	if (ismob(src.loc))
@@ -893,6 +948,18 @@
 
 		if (SSicon_cache.uniform_states["[worn_state]_d_s"])
 			rolled_down = 0
+
+/obj/item/clothing/under/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	for(var/obj/item/clothing/accessory/A in accessories)
+		var/image/accessory_image = A.get_accessory_mob_overlay()
+		I.add_overlay(accessory_image)
+
+	if(blood_DNA)
+		var/image/bloodsies = image(icon = H.species.blood_mask, icon_state = "uniformblood")
+		bloodsies.color = blood_color
+		I.add_overlay(bloodsies)
+	return I
 
 /obj/item/clothing/under/proc/update_rolldown_status()
 	var/mob/living/carbon/human/H
