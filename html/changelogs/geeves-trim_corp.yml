@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Contractors now spawn with their faction next to their job title on the manifest and in their records."
+  - tweak: "Updating someone's ID will now instantly update the crew manifest."
+  - bugfix: "Contractors that have their ID assignment changed will no longer be shifted to the Misc category."
