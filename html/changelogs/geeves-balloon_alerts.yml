@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added balloon alerts, messages that appear on the screen to convey information quickly without using the chat."
+  - rscadd: "Added balloon alerts to gun jamming and unjamming so you don't need to look at the chat."
