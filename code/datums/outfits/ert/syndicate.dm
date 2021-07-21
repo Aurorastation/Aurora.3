@@ -22,7 +22,7 @@
 
 	syndie = TRUE
 
-	id_iff = "syndicate"
+	id_iff = IFF_SYNDICATE
 
 /datum/outfit/admin/deathsquad/syndicate/leader
 	name = "Syndicate Commando Lead"

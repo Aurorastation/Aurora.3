@@ -32,7 +32,7 @@
 		/obj/item/material/knife/trench = 1
 	)
 
-	id_iff = "freelancer"
+	id_iff = IFF_FREELANCER
 
 /datum/outfit/admin/ert/mercenary/get_id_access()
 	return get_distress_access_lesser()

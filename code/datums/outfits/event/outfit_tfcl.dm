@@ -24,7 +24,7 @@
 		/obj/item/shield/energy/legion = 1
 	)
 
-	id_iff = "tcfl"
+	id_iff = IFF_TCFL
 	var/id_access = "NanoTrasen Representative"
 
 /datum/outfit/admin/tcfl/get_id_access()

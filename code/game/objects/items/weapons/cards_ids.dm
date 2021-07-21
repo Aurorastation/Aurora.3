@@ -121,7 +121,7 @@ var/const/NO_EMAG_ACT = -50
 	var/dorm = 0			// determines if this ID has claimed a dorm already
 	var/datum/ntnet_user/chat_user
 
-	var/iff_faction = "station"
+	var/iff_faction = IFF_DEFAULT
 
 /obj/item/card/id/Destroy()
 	mob = null
@@ -604,14 +604,14 @@ var/const/NO_EMAG_ACT = -50
 	desc = "A stylized plastic card, belonging to one of the many specialists at Einstein Engines."
 	icon_state = "einstein_card"
 	overlay_state = "einstein_card"
-	iff_faction = "einstein"
+	iff_faction = IFF_EE
 
 /obj/item/card/id/bluespace
 	name = "bluespace identification card"
 	desc = "A bizarre imitation of Nanotrasen identification cards. It seems to function normally as well."
 	desc_antag = "Access can be copied from other ID cards by clicking on them."
 	icon_state = "crystalid"
-	iff_faction = "bluespace"
+	iff_faction = IFF_BLUESPACE
 
 /obj/item/card/id/bluespace/update_name()
 	return

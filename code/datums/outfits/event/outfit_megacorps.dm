@@ -26,7 +26,7 @@
 			/obj/item/melee/baton/loaded = 1,
 			/obj/item/grenade/flashbang = 2
 	)
-	id_iff = "hephaestus"
+	id_iff = IFF_HEPH
 
 /datum/outfit/admin/megacorp/hephaestus_trooper/heavy
 	name = "Hephaestus Heavy Asset Protection"
@@ -69,7 +69,7 @@
 			/obj/item/melee/baton/loaded = 1,
 			/obj/item/grenade/flashbang = 2
 	)
-	id_iff = "zenghu"
+	id_iff = IFF_ZENGHU
 
 /datum/outfit/admin/megacorp/zenghu_trooper/heavy
 	name = "Zeng Hu Pharmaceuticals Heavy Asset Protection"
@@ -113,7 +113,7 @@
 			/obj/item/ammo_magazine/mc9mmt = 2,
 			/obj/item/ammo_magazine/mc9mm = 3
 	)
-	id_iff = "zavodskoi"
+	id_iff = IFF_ZAVOD
 
 /datum/outfit/admin/megacorp/zavodskoi_trooper/heavy
 	name = "Zavodskoi Interstellar Heavy Asset Protection"
@@ -156,4 +156,4 @@
 		/obj/item/handcuffs = 2,
 		/obj/item/grenade/frag = 1
 	)
-	id_iff = "einstein"
+	id_iff = IFF_EE

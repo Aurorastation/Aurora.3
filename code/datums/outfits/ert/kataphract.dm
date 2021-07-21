@@ -26,7 +26,7 @@
 		/obj/item/storage/box/donkpockets = 1
 	)
 
-	id_iff = "kataphract"
+	id_iff = IFF_KATAPHRACT
 
 /datum/outfit/admin/ert/kataphract/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.w_uniform)
