@@ -213,7 +213,7 @@ emp_act
 	if(a_intent != I_HELP)
 		var/list/holding = list(get_active_hand() = 60, get_inactive_hand() = 40)
 		for(var/obj/item/grab/G in holding)
-			if(G.affecting && prob(holding[G]))
+			if(G.affecting && prob(holding[G]) && G.affecting != user)
 				visible_message(SPAN_WARNING("[src] repositions \the [G.affecting] to block \the [I]'s attack!"), SPAN_NOTICE("You reposition \the [G.affecting] to block \the [I]'s attack!"))
 				return G.affecting
 	return src
@@ -558,7 +558,7 @@ emp_act
 	if(src.w_uniform)
 		src.w_uniform.add_fingerprint(src)
 
-	var/obj/item/grab/G = new /obj/item/grab(user, src)
+	var/obj/item/grab/G = new /obj/item/grab(user, user, src)
 	if(buckled_to)
 		to_chat(user, "<span class='notice'>You cannot grab [src], [get_pronoun("he")] [get_pronoun("is")] buckled in!</span>")
 	if(!G)	//the grab will delete itself in New if affecting is anchored

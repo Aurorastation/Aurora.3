@@ -808,3 +808,7 @@ var/global/list/default_medbay_channels = list(
 /obj/item/device/radio/phone/medbay/Initialize()
 	. = ..()
 	internal_channels = default_medbay_channels.Copy()
+
+/obj/item/device/radio/all_channels/Initialize()
+	channels = ALL_RADIO_CHANNELS.Copy()
+	. = ..()

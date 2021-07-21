@@ -131,7 +131,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "ana_uniform"
 	contained_sprite = TRUE
 
-/obj/item/clothing/suit/storage/forensics/fluff/ana_jacket //CSI Jacket - Ana Roh'hi'tin - suethecake
+/obj/item/clothing/suit/storage/toggle/forensics/fluff/ana_jacket //CSI Jacket - Ana Roh'hi'tin - suethecake
 	name = "CSI jacket"
 	desc = "A black jacket with the words \"CSI\" printed in the back in bright, white letters."
 	icon = 'icons/obj/custom_items/ana_clothing.dmi'
@@ -2122,10 +2122,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "coalition-fisanduh"
 
 /obj/structure/sign/flag/fisanduh_coalition/left
-	icon_state = "coalition-fisanduh_l"
+	icon_state = "fisanduh_coalition_l"
 
 /obj/structure/sign/flag/fisanduh_coalition/right
-	icon_state = "coalition-fisanduh_r"
+	icon_state = "fisanduh_coalition_r"
 
 /obj/item/flag/fluff/bian_flag //Coalition Fisanduh Unity Flag - Bian Quy Le - persephoneq
 	name = "coalition fisanduh unity flag"

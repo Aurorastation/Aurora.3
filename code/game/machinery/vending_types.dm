@@ -110,7 +110,21 @@
 		/obj/item/reagent_containers/food/drinks/flask/barflask = 2,
 		/obj/item/reagent_containers/food/drinks/flask/vacuumflask = 2,
 		/obj/item/reagent_containers/food/drinks/ice = 9,
-		/obj/item/reagent_containers/food/drinks/drinkingglass = 30
+		/obj/item/reagent_containers/food/drinks/drinkingglass = 30,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/pint = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/square = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/mug = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shake = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/goblet = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/wine = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/flute = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/cognac = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/rocks = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/cocktail = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup = 10,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 4,
+		/obj/item/reagent_containers/food/drinks/pitcher = 4
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/drinks/tea = 10
@@ -372,7 +386,7 @@
 	desc = "If you want to get cancer, might as well do it in style!"
 	product_slogans = "Space cigs taste good like a cigarette should.;I'd rather toolbox than switch.;Smoke!;Don't believe the reports - smoke today!"
 	product_ads = "Probably not bad for you!;Don't believe the scientists!;It's good for you!;Don't quit, buy more!;Smoke!;Nicotine heaven.;Best cigarettes since 2150.;Award-winning cigs."
-	vend_delay = 34
+	vend_delay = 24
 	icon_state = "cigs"
 	vend_id = "smokes"
 	products = list(
@@ -396,7 +410,14 @@
 		/obj/item/storage/box/fancy/cigpaper/fine = 4,
 		/obj/item/storage/box/fancy/matches = 10,
 		/obj/item/flame/lighter/random = 4,
-		/obj/item/spacecash/ewallet/lotto = 30
+		/obj/item/spacecash/ewallet/lotto = 30,
+		/obj/item/clothing/mask/smokable/ecig/util = 2,
+		/obj/item/clothing/mask/smokable/ecig/simple = 2,
+		/obj/item/reagent_containers/ecig_cartridge/med_nicotine = 10,
+		/obj/item/reagent_containers/ecig_cartridge/high_nicotine = 10,
+		/obj/item/reagent_containers/ecig_cartridge/orange = 10,
+		/obj/item/reagent_containers/ecig_cartridge/watermelon = 10,
+		/obj/item/reagent_containers/ecig_cartridge/grape = 10
 	)
 	contraband = list(
 		/obj/item/storage/box/fancy/cigarettes/blank = 5,
@@ -428,7 +449,14 @@
 		/obj/item/storage/cigfilters = 28,
 		/obj/item/storage/box/fancy/cigpaper = 35,
 		/obj/item/storage/box/fancy/cigpaper/fine = 42,
-		/obj/item/spacecash/ewallet/lotto = 200
+		/obj/item/spacecash/ewallet/lotto = 200,
+		/obj/item/clothing/mask/smokable/ecig/simple = 200,
+		/obj/item/clothing/mask/smokable/ecig/util = 300,
+		/obj/item/reagent_containers/ecig_cartridge/med_nicotine = 34,
+		/obj/item/reagent_containers/ecig_cartridge/high_nicotine = 38,
+		/obj/item/reagent_containers/ecig_cartridge/orange = 32,
+		/obj/item/reagent_containers/ecig_cartridge/watermelon = 30,
+		/obj/item/reagent_containers/ecig_cartridge/grape = 33
 	)
 	light_color = COLOR_BLUE_GRAY
 
@@ -801,32 +829,6 @@
 
 			src.product_records.Add(product)
 
-/obj/machinery/vending/magivend
-	name = "MagiVend"
-	desc = "A magic vending machine."
-	icon_state = "magivend"
-	product_slogans = "Sling spells the proper way with MagiVend!;Be your own Houdini! Use MagiVend!"
-	vend_delay = 15
-	vend_reply = "Have an enchanted evening!"
-	product_ads = "FJKLFJSD;AJKFLBJAKL;1234 LOONIES LOL!;>MFW;Kill them fuckers!;GET DAT FUKKEN DISK;HONK!;EI NATH;Destroy the station!;Admin conspiracies since forever!;Space-time bending hardware!" //What the fuck is this
-	vend_id = "magic"
-	products = list(
-		/obj/item/clothing/head/wizard = 1,
-		/obj/item/clothing/suit/wizrobe = 1,
-		/obj/item/clothing/shoes/sandal = 1,
-		/obj/item/staff = 1
-	)
-	contraband = list(
-		/obj/item/clothing/head/wizard/red = 1,
-		/obj/item/clothing/suit/wizrobe/red = 1,
-	)
-	premium = list(
-		/obj/item/clothing/head/wizard/fake = 1
-	)
-	restock_items = 1
-	random_itemcount = 0
-	light_color = COLOR_BABY_BLUE
-
 /obj/machinery/vending/dinnerware
 	name = "Dinnerware"
 	desc = "A kitchen and restaurant equipment vendor."
@@ -841,6 +843,9 @@
 		/obj/item/material/knife = 2,
 		/obj/item/material/hatchet/butch = 2,
 		/obj/item/reagent_containers/food/drinks/drinkingglass = 12,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 3,
+		/obj/item/reagent_containers/food/drinks/pitcher = 3,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup = 6,
 		/obj/item/clothing/suit/chef/classic = 2,
 		/obj/item/material/kitchen/rollingpin = 2,
 		/obj/item/reagent_containers/cooking_container/oven = 5,
@@ -873,7 +878,10 @@
 		/obj/item/material/kitchen/utensil/spoon/plastic = 12,
 		/obj/item/material/kitchen/utensil/knife/plastic = 12,
 		/obj/item/material/kitchen/utensil/fork/chopsticks/cheap = 12,
-		/obj/item/reagent_containers/food/drinks/drinkingglass = 12
+		/obj/item/reagent_containers/food/drinks/drinkingglass = 12,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 3,
+		/obj/item/reagent_containers/food/drinks/pitcher = 3,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup = 6
 	)
 
 /obj/machinery/vending/sovietsoda

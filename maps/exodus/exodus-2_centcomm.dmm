@@ -9530,13 +9530,6 @@
 	icon_state = "wood"
 	},
 /area/antag/wizard)
-"aKf" = (
-/obj/machinery/vending/magivend,
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/antag/wizard)
 "aKg" = (
 /obj/structure/simple_door/wood{
 	icon_state = "wood"
@@ -27533,7 +27526,7 @@ aJJ
 aJG
 aJV
 aJX
-aKf
+aJG
 aKi
 aJV
 aJG

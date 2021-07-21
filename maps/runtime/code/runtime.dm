@@ -19,6 +19,8 @@
 	company_name = "BanoTarsen"
 	company_short = "BT"
 
+	use_overmap = TRUE
+
 	station_networks = list(
 		NETWORK_CIVILIAN_MAIN,
 		NETWORK_COMMAND,

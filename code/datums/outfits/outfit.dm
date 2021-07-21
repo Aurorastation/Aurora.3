@@ -333,7 +333,10 @@
 			if(OUTFIT_PDA_SMART)
 				I.icon = 'icons/obj/pda_smart.dmi'
 		I.update_icon()
-		H.equip_or_collect(I, slot_wear_id)
+		if (H.pda_choice == OUTFIT_WRISTBOUND)
+			H.equip_or_collect(I, slot_wrists)
+		else
+			H.equip_or_collect(I, slot_wear_id)
 
 	if(id)
 		var/obj/item/modular_computer/P = H.wear_id

@@ -296,6 +296,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	attack_verb = list("burnt", "singed")
 	icon_on = "cigon"  //Note - these are in masks.dmi not in cigarette.dmi
 	icon_off = "cigoff"
+	has_blood_overlay = FALSE
 	type_butt = /obj/item/trash/cigbutt
 	chem_volume = 30
 	burn_rate = 0.006 //Lasts ~166 seconds)
@@ -1029,7 +1030,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	..()
 
 /obj/item/reagent_containers/food/snacks/grown/attackby(obj/item/I, mob/user)
-	if(is_type_in_list(I, list(/obj/item/paper/cig/, /obj/item/paper/, /obj/item/teleportation_scroll)))
+	if(is_type_in_list(I, list(/obj/item/paper/cig/, /obj/item/paper/)))
 		if(!dry)
 			to_chat(user, SPAN_WARNING("You need to dry [src] first!"))
 			return

@@ -89,8 +89,6 @@
 	var/resistance		  = 0	// Damage reduction
 	var/resist_mod = 1 // a multiplier for the chance the animal has to break out
 
-	var/wizard_master
-
 	//Null rod stuff
 	var/supernatural = 0
 	var/purge = 0
@@ -483,7 +481,7 @@
 			if (!attempt_grab(M))
 				return
 
-			var/obj/item/grab/G = new /obj/item/grab(M, src)
+			var/obj/item/grab/G = new /obj/item/grab(M, M, src)
 
 			M.put_in_active_hand(G)
 

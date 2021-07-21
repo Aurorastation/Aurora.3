@@ -205,6 +205,11 @@
 	flags = 0
 	reagents_to_add = list(/decl/reagent/coagzolug = 5)
 
+/obj/item/reagent_containers/hypospray/autoinjector/hyronalin
+	name_label = "hyronalin"
+	flags = 0
+	reagents_to_add = list(/decl/reagent/hyronalin = 5)
+
 /obj/item/reagent_containers/hypospray/autoinjector/sideeffectbgone
 	name_label = "sideeffects-be-gone!"
 	desc = "A special cocktail designed to counter the side-effects of various drugs. Has 2 uses."
