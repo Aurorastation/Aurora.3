@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Pilot helmets are now compatible with overmap ships, providing a HUD display of all the essentials."
