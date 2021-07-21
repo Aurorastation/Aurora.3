@@ -10,8 +10,8 @@
 
 /datum/gear/computer/handheld/tablet/New()
 	..()
-	var/tablets = list()
-	tablets["generic tablet"] = /obj/item/modular_computer/handheld/preset
+	var/list/tablets = list()
+	tablets["generic tablet"] = /obj/item/modular_computer/handheld/preset/generic
 	tablets["janitor tablet"] = /obj/item/modular_computer/handheld/preset/civilian/janitor
 	tablets["cargo tablet"] = /obj/item/modular_computer/handheld/preset/supply
 	tablets["engineering tablet"] = /obj/item/modular_computer/handheld/preset/engineering
@@ -21,15 +21,15 @@
 	tablets["investigation tablet"] = /obj/item/modular_computer/handheld/preset/security/detective
 	tablets["research tablet"] = /obj/item/modular_computer/handheld/preset/research
 	tablets["robotics tablet"] = /obj/item/modular_computer/handheld/preset/research/robotics
-	gear_tweaks += new/datum/gear_tweak/path(tablets)
+	gear_tweaks += new /datum/gear_tweak/path(tablets)
 
-/datum/gear/computer/handheld/wristbound
+/datum/gear/computer/handheld/wristbound/selection
 	display_name = "wristbound computer selection"
 	path = /obj/item/modular_computer/handheld/wristbound/preset
 
-/datum/gear/computer/handheld/wristbound/New()
+/datum/gear/computer/handheld/wristbound/selection/New()
 	..()
-	var/wristbounds = list()
+	var/list/wristbounds = list()
 	wristbounds["cheap generic wristbound"] = /obj/item/modular_computer/handheld/wristbound/preset/cheap/generic
 	wristbounds["expensive generic wristbound"] = /obj/item/modular_computer/handheld/wristbound/preset/advanced/generic
 	wristbounds["cargo wristbound"] = /obj/item/modular_computer/handheld/wristbound/preset/advanced/cargo
@@ -38,7 +38,7 @@
 	wristbounds["security wristbound"] = /obj/item/modular_computer/handheld/wristbound/preset/advanced/security
 	wristbounds["investigation wristbound"] = /obj/item/modular_computer/handheld/wristbound/preset/advanced/security/investigations
 	wristbounds["research wristbound"] = /obj/item/modular_computer/handheld/wristbound/preset/advanced/research
-	gear_tweaks += new/datum/gear_tweak/path(wristbounds)
+	gear_tweaks += new /datum/gear_tweak/path(wristbounds)
 
 /datum/gear/computer/handheld/wristbound/ce
 	display_name = "wristbound computer (Chief Engineer)"

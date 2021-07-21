@@ -26,6 +26,7 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "pokes"
+	blood_type = "#51C404"
 	blood_amount = 150
 	stop_automated_movement_when_pulled = 0
 	maxHealth = 200

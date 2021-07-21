@@ -843,6 +843,7 @@
 		if(statpanel("Status") && SSticker.current_state != GAME_STATE_PREGAME)
 			stat("Game ID", game_id)
 			stat("Map", current_map.full_name)
+			stat("Current Space Sector", SSatlas.current_sector.name)
 			stat("Station Time", worldtime2text())
 			stat("Round Duration", get_round_duration_formatted())
 			stat("Last Transfer Vote", SSvote.last_transfer_vote ? time2text(SSvote.last_transfer_vote, "hh:mm") : "Never")
@@ -928,18 +929,19 @@
 				lying = 1
 				canmove = 0
 				pixel_y = V.mob_offset_y - 5
-			else 
+			else
 				if(buckled_to.buckle_lying != -1) lying = buckled_to.buckle_lying
 				canmove = 1
 				pixel_y = V.mob_offset_y
 		else if(buckled_to)
 			anchored = 1
 			canmove = 0
-			if(buckled_to.buckle_lying != -1)
-				lying = buckled_to.buckle_lying
-			if(buckled_to.buckle_movable)
-				anchored = 0
-				canmove = 1
+			if(isobj(buckled_to))
+				if(buckled_to.buckle_lying != -1)
+					lying = buckled_to.buckle_lying
+				if(buckled_to.buckle_movable)
+					anchored = 0
+					canmove = 1
 		else if(captured)
 			anchored = 1
 			canmove = 0
@@ -956,6 +958,10 @@
 		density = initial(density)
 
 	for(var/obj/item/grab/G in grabbed_by)
+		if(G.wielded)
+			canmove = FALSE
+			lying = TRUE
+			break
 		if(G.state >= GRAB_AGGRESSIVE)
 			canmove = 0
 			break

@@ -174,7 +174,14 @@
 
 		if(pages.len <= 1)
 			var/obj/item/paper/P = src[1]
-			usr.put_in_hands(P)
+			if(istype(loc, /obj/item/gripper)) //Hacky but without it there's a ghost icon with grippers and it all spills on the floor.
+				var/obj/item/gripper/G = loc
+				G.drop(get_turf(src), FALSE)
+				G.grip_item(P, usr, FALSE)
+			else
+				usr.put_in_hands(P)
+			usr.unset_machine(src)
+			usr << browse(null, "window=[name]")
 			qdel(src)
 			return
 

@@ -14,7 +14,7 @@
 		slurring = 0
 		confused = 0
 		eye_blurry = 0
-		drowsyness = 0
+		drowsiness = 0
 		paralysis = 0
 		sleeping = 0
 		//Many of these parameters normally tick down in life code, but some parts of that code don't run in godmode, so this prevents a BST being stuck with blurred vision

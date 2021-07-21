@@ -116,9 +116,9 @@
 			turfs += T
 	return turfs
 
-// Will recursively loop through an atom's locs until it finds the atom loc above a turf
-/proc/recursive_loc_turf_check(var/atom/O, var/recursion_limit = 3)
-	if(recursion_limit <= 0 || isturf(O.loc))
+// Will recursively loop through an atom's locs until it finds the atom loc above a turf or its target_atom
+/proc/recursive_loc_turf_check(var/atom/O, var/recursion_limit = 3, var/atom/target_atom)
+	if(recursion_limit <= 0 || isturf(O.loc) || O == target_atom)
 		return O
 	else
 		O = O.loc
@@ -524,6 +524,10 @@ datum/projectile_data
 		return 1
 	else
 		return (cult.current_antagonists.len > spookiness_threshold)
+
+/// Removes an image from a client's `.images`. Useful as a callback.
+/proc/remove_image_from_client(image/image, client/remove_from)
+	remove_from?.images -= image
 
 /proc/remove_images_from_clients(image/I, list/show_to)
 	for(var/client/C in show_to)

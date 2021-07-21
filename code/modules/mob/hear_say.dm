@@ -263,21 +263,23 @@
 	if(vr_mob)
 		to_chat(vr_mob, "[time][part_a][track][part_b][formatted]")
 
-/mob/proc/hear_signlang(var/message, var/verb = "gestures", var/datum/language/language, var/mob/speaker = null)
+/mob/proc/hear_signlang(var/message, var/verb = "gestures", var/datum/language/language, var/mob/speaker = null, var/list/sign_adv_length = null)
 	if(!client || !speaker)
 		return
 
 	if(say_understands(speaker, language))
 		message = "<B>[speaker]</B> [verb], \"[message]\""
 	else
+		if (length(sign_adv_length) <= 4)
+			sign_adv_length = list(" briefly", " a short message", " a message", " a lengthy message", " a very lengthy message")
 		var/adverb
 		var/length = length(message) * pick(0.8, 0.9, 1.0, 1.1, 1.2)	//Inserts a little fuzziness.
 		switch(length)
-			if(0 to 12) 	adverb = " briefly"
-			if(12 to 30)	adverb = " a short message"
-			if(30 to 48)	adverb = " a message"
-			if(48 to 90)	adverb = " a lengthy message"
-			else        	adverb = " a very lengthy message"
+			if(0 to 12) 	adverb = sign_adv_length[1]
+			if(12 to 30)	adverb = sign_adv_length[2]
+			if(30 to 48)	adverb = sign_adv_length[3]
+			if(48 to 90)	adverb = sign_adv_length[4]
+			else        	adverb = sign_adv_length[5]
 		message = "<B>[speaker]</B> [verb][adverb]."
 
 	if(src.status_flags & PASSEMOTES)

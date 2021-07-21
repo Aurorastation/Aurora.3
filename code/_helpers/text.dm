@@ -1,5 +1,12 @@
 #define SMALL_FONTS(FONTSIZE, MSG) "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: [FONTSIZE]px;\">[MSG]</span>"
 
+/// Macro from Lummox used to get height from a MeasureText proc
+#define WXH_TO_HEIGHT(x) text2num(copytext(x, findtextEx(x, "x") + 1))
+
+#define SPAN_RED(x) "<span style='color:[COLOR_RED]'>[x]</span>"
+#define SPAN_YELLOW(x) "<span style='color:[COLOR_YELLOW]'>[x]</span>"
+#define SPAN_GREEN(x) "<span style='color:[COLOR_GREEN]'>[x]</span>"
+
 /*
  * Holds procs designed to help with filtering text
  * Contains groups:
@@ -490,6 +497,7 @@
 	t = replacetext(t, "\[/large\]", "</font>")
 	t = replacetext(t, "\[small\]", "<font size = \"1\">")
 	t = replacetext(t, "\[/small\]", "</font>")
+	t = replacetext(t, "\[station\]", current_map.station_name)
 
 	// A break for signature customization code to use this proc as well.
 	if (limited)
@@ -658,3 +666,10 @@
 	if(ending && !correct_punctuation[ending])
 		string += "."
 	return string
+
+/proc/num2loadingbar(percent as num, numSquares = 20, reverse = FALSE)
+	var/loadstring = ""
+	var/limit = reverse ? numSquares - percent*numSquares : percent*numSquares
+	for (var/i in 1 to numSquares)
+		loadstring += i <= limit ? "█" : "░"
+	return "\[[loadstring]\]"

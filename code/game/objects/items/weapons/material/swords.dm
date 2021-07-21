@@ -32,8 +32,8 @@
 	if(default_parry_check(user, attacker, damage_source) && prob(parry_chance * parry_bonus))
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
 		playsound(user.loc, 'sound/weapons/bladeparry.ogg', 50, 1)
-		return 1
-	return 0
+		return PROJECTILE_STOPPED
+	return FALSE
 
 /obj/item/material/sword/perform_technique(var/mob/living/carbon/human/target, var/mob/living/carbon/human/user, var/target_zone)
 	var/armor_reduction = target.get_blocked_ratio(target_zone, BRUTE, DAM_EDGE|DAM_SHARP, damage = force)*100

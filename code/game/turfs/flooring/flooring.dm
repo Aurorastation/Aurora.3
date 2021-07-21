@@ -315,6 +315,19 @@
 	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK
 	build_type = /obj/item/stack/tile/diamond
 
+/decl/flooring/marble
+	name = "light marble floor"
+	desc = "A robust floor made from marble."
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_base = "lightmarble"
+	flags = TURF_REMOVE_CROWBAR
+	build_type = /obj/item/stack/tile/marble
+
+/decl/flooring/marble/dark
+	name = "dark marble floor"
+	icon_base = "darkmarble"
+	build_type = /obj/item/stack/tile/marble/dark
+
 //Shuttle turfs
 
 /decl/flooring/shuttle

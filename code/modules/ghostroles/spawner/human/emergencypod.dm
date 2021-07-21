@@ -17,7 +17,7 @@
 	special_role = "Pod Survivor"
 	respawn_flag = null
 
-	mob_name = FALSE
+	mob_name = null
 
 /datum/ghostspawner/human/rescuepodsurv/New()
 	. = ..()

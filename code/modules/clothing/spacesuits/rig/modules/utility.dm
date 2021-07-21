@@ -461,6 +461,8 @@
 /obj/item/rig_module/maneuvering_jets/activate(mob/user)
 	if(active)
 		return FALSE
+	if(use_check_and_message(user))
+		return FALSE
 
 	active = TRUE
 

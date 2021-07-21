@@ -188,7 +188,7 @@
 	if(core.loc != owner || owner.back != core) //Make sure the core's being worn.
 		to_chat(owner, "<span class='danger'>You need to be wearing a core on your back!</span>")
 		return 0
-	if(!technomancers.is_antagonist(owner.mind)) //Now make sure the person using this is the actual antag.
+	if(!technomancers.is_technomancer(owner.mind)) //Now make sure the person using this is the actual antag.
 		to_chat(owner, "<span class='danger'>You can't seem to figure out how to make the machine work properly.</span>")
 		return 0
 	return 1

@@ -93,14 +93,14 @@
 			return
 
 // Preset types - left here for the code that uses them
-/obj/item/material/shard/shrapnel/New(loc)
-	..(loc, MATERIAL_STEEL)
+/obj/item/material/shard/shrapnel/Initialize(newloc, material_key)
+	. = ..(loc, MATERIAL_STEEL)
 
-/obj/item/material/shard/shrapnel/flechette/New(loc)
-	..(loc, MATERIAL_TITANIUM)
+/obj/item/material/shard/shrapnel/flechette/Initialize(newloc, material_key)
+	. = ..(loc, MATERIAL_TITANIUM)
 
-/obj/item/material/shard/phoron/New(loc)
-	..(loc, MATERIAL_GLASS_PHORON)
+/obj/item/material/shard/phoron/Initialize(newloc, material_key)
+	. = ..(loc, MATERIAL_GLASS_PHORON)
 
-/obj/item/material/shard/wood/New(loc)
-	..(loc, MATERIAL_WOOD)
+/obj/item/material/shard/wood/Initialize(newloc, material_key)
+	. = ..(loc, MATERIAL_WOOD)

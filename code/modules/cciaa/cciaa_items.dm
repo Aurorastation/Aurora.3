@@ -336,7 +336,7 @@
 	name = "central command internal affairs jacket"
 
 /obj/item/storage/lockbox/cciaa
-	req_access = list(access_cent_captain)
+	req_access = list(access_cent_ccia)
 	name = "CCIA agent briefcase"
 	desc = "A smart looking briefcase with a NT logo on the side"
 	storage_slots = 8
