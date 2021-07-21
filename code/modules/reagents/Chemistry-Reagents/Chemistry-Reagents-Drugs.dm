@@ -162,13 +162,13 @@
 
 /decl/reagent/raskara_dust/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_PAINKILLER, 10)
-	M.drowsyness += 2 * removed
+	M.drowsiness += 2 * removed
 	if(prob(5) && ishuman(M))
 		M.emote("cough")
 
 /decl/reagent/raskara_dust/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_PAINKILLER, 30)
-	M.drowsyness += 3 * removed
+	M.drowsiness += 3 * removed
 	if(prob(5))
 		M.emote("twitch")
 
