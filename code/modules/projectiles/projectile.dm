@@ -319,6 +319,8 @@
 	return TRUE
 
 /obj/item/projectile/proc/check_iff(var/mob/M)
+	if(isnull(iff))
+		return FALSE
 	var/obj/item/card/id/ID = M.GetIdCard()
 	if(ID && (ID.iff_faction == iff))
 		return TRUE
