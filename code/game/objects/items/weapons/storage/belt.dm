@@ -28,6 +28,23 @@
 			add_overlay(I.get_belt_overlay())
 	..()
 
+/obj/item/storage/belt/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	for(var/obj/item/i in contents)
+		var/c_state
+		var/c_icon
+		if(i.contained_sprite)
+			c_state = "[UNDERSCORE_OR_NULL(i.icon_species_tag)][i.item_state][WORN_BELT]"
+			c_icon = icon_override || icon
+		else
+			c_icon = INV_BELT_DEF_ICON
+			c_state = i.item_state || i.icon_state
+		var/image/belt_item_image = image(c_icon, c_state)
+		belt_item_image.color = i.color
+		belt_item_image.appearance_flags = RESET_ALPHA
+		I.add_overlay(belt_item_image)
+	return I
+
 /obj/item/storage/belt/verb/toggle_layer()
 	set name = "Switch Belt Layer"
 	set category = "Object"

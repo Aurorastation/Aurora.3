@@ -62,5 +62,21 @@
 		else
 			menu_info[category] = list(list("name" = name, "ref" = ref(M)))
 
-	data["menuinfo"] = menu_info
+	data["menuinfo"] = sort_categories(menu_info)
 	return data
+
+/datum/vueui_module/ghost_menu/proc/sort_categories(var/list/menu_info)
+	var/static/list/ordered_categories = list("Alive", "Dead", "Observer", "NPCs", "Dead NPCs")
+	var/list/sorted_menu_info = list()
+
+	// antags first
+	for(var/category in menu_info)
+		if(!(category in ordered_categories))
+			sorted_menu_info[category] = menu_info[category]
+
+	// set categories in the order people probably want to look at them
+	for(var/ordered_category in ordered_categories)
+		if(menu_info[ordered_category])
+			sorted_menu_info[ordered_category] = menu_info[ordered_category]
+	
+	return sorted_menu_info
