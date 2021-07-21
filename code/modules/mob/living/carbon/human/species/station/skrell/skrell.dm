@@ -14,7 +14,7 @@
 	bandages_icon = 'icons/mob/bandage.dmi'
 	eyes = "skrell_eyes_s"
 	primitive_form = SPECIES_MONKEY_SKRELL
-	unarmed_types = list(/datum/unarmed_attack/punch, /datum/unarmed_attack/stomp, /datum/unarmed_attack/kick)
+	unarmed_types = list(/datum/unarmed_attack/punch, /datum/unarmed_attack/palm, /datum/unarmed_attack/stomp, /datum/unarmed_attack/kick)
 
 	blurb = "An amphibious species, Skrell come from the star system known as Nralakk, coined 'Jargon' by \
 	humanity.<br><br>Skrell are a highly advanced, ancient race who place knowledge as the highest ideal. \

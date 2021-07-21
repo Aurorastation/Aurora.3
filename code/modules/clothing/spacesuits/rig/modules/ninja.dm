@@ -73,6 +73,8 @@
 	usable = TRUE
 	selectable = 1
 	var/lastteleport
+	var/phase_in_visual = /obj/effect/temp_visual/phase
+	var/phase_out_visual = /obj/effect/temp_visual/phase/out
 
 	engage_string = "Emergency Leap"
 
@@ -88,14 +90,14 @@
 	holder.spark_system.queue()
 	playsound(T, 'sound/effects/phasein.ogg', 25, 1)
 	playsound(T, 'sound/effects/sparks2.ogg', 50, 1)
-	anim(T, M, 'icons/mob/mob.dmi', ,"phasein", , M.dir)
+	new phase_in_visual(T, M.dir)
 
 /obj/item/rig_module/teleporter/proc/phase_out(var/mob/M, var/turf/T)
 	if(!M || !T)
 		return
 
 	playsound(T, /decl/sound_category/spark_sound, 50, 1)
-	anim(T, M, 'icons/mob/mob.dmi', ,"phaseout", ,M.dir)
+	new phase_out_visual(T, M.dir)
 
 /obj/item/rig_module/teleporter/engage(atom/target, mob/user, var/notify_ai)
 	if(!..())
@@ -148,6 +150,15 @@
 
 	lastteleport = world.time
 	return TRUE
+
+/obj/item/rig_module/teleporter/skrell
+	name = "jargon teleportation module"
+
+	phase_in_visual = /obj/effect/temp_visual/phase/rift
+	phase_out_visual = /obj/effect/temp_visual/phase/rift
+
+	interface_name = "starshift teleportation module"
+	interface_desc = "An advanced teleportation system. It is capable of pinpoint precision or random leaps forward."
 
 /obj/item/rig_module/fabricator/energy_net
 	name = "net projector"

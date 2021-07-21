@@ -539,6 +539,9 @@ FORCE_MAP runtime
 # Reminds ticket handlers/all admin staff of not-closed tickets after this many SECONDS.
 #TICKET_REMINDER_PERIOD 600
 
+# What sector the station/station is currently on. Check _defines/space_sectors.dm for possible options
+CURRENT_SPACE_SECTOR Romanovich Cloud
+
 # If using TGS, counts how many regularly TGS hard restarts the server process.
 # -1 - never do this.
 # 0 - do this after every round.

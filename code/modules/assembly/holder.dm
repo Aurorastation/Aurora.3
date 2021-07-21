@@ -15,6 +15,10 @@
 	var/obj/special_assembly = null
 
 /obj/item/device/assembly_holder/proc/detached()
+	if(a_left)
+		a_left.holder_movement()
+	if(a_right)
+		a_right.holder_movement()
 	return
 
 /obj/item/device/assembly_holder/IsAssemblyHolder()

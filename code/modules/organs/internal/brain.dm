@@ -19,8 +19,8 @@
 	relative_size = 85
 
 	var/mob/living/carbon/brain/brainmob = null
-	var/lobotomized = 0
-	var/can_lobotomize = 1
+	var/prepared = FALSE
+	var/can_prepare = TRUE
 
 	var/const/damage_threshold_count = 10
 	var/damage_threshold_value
@@ -230,26 +230,15 @@
 	else
 		to_chat(user, "This one seems particularly lifeless. Perhaps it will regain some of its luster later..")
 
-/obj/item/organ/internal/brain/proc/lobotomize(mob/user as mob)
-	lobotomized = 1
-
-	if(owner)
-		to_chat(owner, "<span class='danger'>As part of your brain is drilled out, you feel your past self, your memories, your very being slip away...</span>")
-		to_chat(owner, "<b>Your brain has been surgically altered to remove your memory recall. Your ability to recall your former life has been surgically removed from your brain, and while your brain is in this state you remember nothing that ever came before this moment.</b>")
-
-	else if(brainmob)
-		to_chat(brainmob, "<span class='danger'>As part of your brain is drilled out, you feel your past self, your memories, your very being slip away...</span>")
-		to_chat(brainmob, "<b>Your brain has been surgically altered to remove your memory recall. Your ability to recall your former life has been surgically removed from your brain, and while your brain is in this state you remember nothing that ever came before this moment.</b>")
-
-	return
-
-/obj/item/organ/internal/brain/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/surgery/surgicaldrill))
-		if(!can_lobotomize)
+/obj/item/organ/internal/brain/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/surgery/surgicaldrill))
+		if(!can_prepare)
+			to_chat(user, SPAN_WARNING("\The [src] cannot be prepared!"))
 			return
-		if(!lobotomized)
-			user.visible_message("<span class='danger'>[user] drills [src] deftly with [W] into the brain!</span>")
-			lobotomize(user)
+		if(!prepared)
+			user.visible_message(SPAN_DANGER("[user] deftly uses \the [I] to drill into \the [src]!"))
+			prepared = TRUE
 		else
-			to_chat(user, "<span class='notice'>The brain has already been operated on!</span>")
-	..()
+			to_chat(user, SPAN_WARNING("The brain has already been prepared!"))
+		return
+	return ..()

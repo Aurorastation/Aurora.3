@@ -50,6 +50,11 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 	budget = 700
 	max_budget = 700
 
+/obj/item/technomancer_catalog/golem
+	name = "golem's catalog"
+	budget = 500
+	max_budget = 500
+
 /obj/item/technomancer_catalog/master //for badmins, I suppose
 	name = "master's catalog"
 	budget = 2000
@@ -60,7 +65,7 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 // Parameters: 1 (new_owner - mob that the book is trying to bind to)
 // Description: Links the catalog to hopefully the technomancer, so that only they can access it.
 /obj/item/technomancer_catalog/proc/bind_to_owner(var/mob/living/carbon/human/new_owner)
-	if(!owner && technomancers.is_antagonist(new_owner.mind))
+	if(!owner && technomancers.is_technomancer(new_owner.mind))
 		owner = new_owner
 
 // Proc: New()
@@ -89,7 +94,12 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 
 /obj/item/technomancer_catalog/apprentice/set_up()
 	..()
-	for(var/datum/technomancer/assistance/apprentice/A in assistance_instances)
+	for(var/datum/technomancer/assistance/A in assistance_instances)
+		assistance_instances.Remove(A)
+
+/obj/item/technomancer_catalog/golem/set_up()
+	..()
+	for(var/datum/technomancer/assistance/A in assistance_instances)
 		assistance_instances.Remove(A)
 
 // Proc: show_categories()

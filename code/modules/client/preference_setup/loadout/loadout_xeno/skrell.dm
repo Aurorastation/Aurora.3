@@ -10,7 +10,7 @@
 	for(var/chain_style in typesof(/obj/item/clothing/ears/skrell/chain))
 		var/obj/item/clothing/ears/skrell/chain/chain = chain_style
 		chaintypes[initial(chain.name)] = chain
-	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(chaintypes))
+	gear_tweaks += new /datum/gear_tweak/path(sortAssoc(chaintypes))
 
 /datum/gear/ears/skrell/bands
 	display_name = "headtail band selection"
@@ -24,7 +24,7 @@
 	for(var/band_style in typesof(/obj/item/clothing/ears/skrell/band))
 		var/obj/item/clothing/ears/skrell/band/band = band_style
 		bandtypes[initial(band.name)] = band
-	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(bandtypes))
+	gear_tweaks += new /datum/gear_tweak/path(sortAssoc(bandtypes))
 
 /datum/gear/ears/skrell/cloth/short
 	display_name = "short headtail cloth"
@@ -38,7 +38,7 @@
 	for(var/short_style in typesof(/obj/item/clothing/ears/skrell/cloth_short))
 		var/obj/item/clothing/ears/skrell/cloth_short/short = short_style
 		shorttypes[initial(short.name)] = short
-	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(shorttypes))
+	gear_tweaks += new /datum/gear_tweak/path(sortAssoc(shorttypes))
 
 /datum/gear/ears/skrell/cloth/average
 	display_name = "average headtail cloth"
@@ -52,7 +52,7 @@
 	for(var/average_style in typesof(/obj/item/clothing/ears/skrell/cloth_average))
 		var/obj/item/clothing/ears/skrell/cloth_average/average = average_style
 		averagetypes[initial(average.name)] = average
-	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(averagetypes))
+	gear_tweaks += new /datum/gear_tweak/path(sortAssoc(averagetypes))
 
 /datum/gear/accessory/capes
 	display_name = "shoulder capes"
@@ -62,12 +62,12 @@
 
 /datum/gear/accessory/capes/New()
 	..()
-	var/capes = list()
+	var/list/capes = list()
 	capes["star cape"] = /obj/item/clothing/accessory/poncho/shouldercape/star
 	capes["nebula cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nebula
 	capes["nova cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nova
 	capes["galaxy cape"] = /obj/item/clothing/accessory/poncho/shouldercape/galaxy
-	gear_tweaks += new/datum/gear_tweak/path(capes)
+	gear_tweaks += new /datum/gear_tweak/path(capes)
 
 /datum/gear/uniform/skrell
 	display_name = "qeblak ceremonial garment"
@@ -97,11 +97,11 @@
 
 /datum/gear/ears/skrell/goop/New()
 	..()
-	var/algae = list()
+	var/list/algae = list()
 	algae["glowing algae(dots)"] = /obj/item/clothing/ears/skrell/goop
 	algae["glowing algae(stripes)"] = /obj/item/clothing/ears/skrell/goop/stripes
 	algae["glowing algae(circles)"] = /obj/item/clothing/ears/skrell/goop/circles
-	gear_tweaks += new/datum/gear_tweak/path(algae)
+	gear_tweaks += new /datum/gear_tweak/path(algae)
 
 /datum/gear/mask/skrell
 	display_name = "skrell gill cover"
@@ -110,21 +110,11 @@
 	sort_category = "Xenowear - Skrell"
 
 /datum/gear/ears/skrell/scrunchy
-	display_name = "tentacle tie selection"
+	display_name = "tentacle tie"
 	path = /obj/item/clothing/ears/skrell/scrunchy
 	whitelisted = list(SPECIES_SKRELL)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
-/datum/gear/ears/skrell/scrunchy/New()
-	..()
-	var/list/scrunchy = list()
-	scrunchy["tentacle tie, seaweed"] = /obj/item/clothing/ears/skrell/scrunchy
-	scrunchy["tentacle tie, driftwood"] = /obj/item/clothing/ears/skrell/scrunchy/driftwood
-	scrunchy["tentacle tie, reef"] = /obj/item/clothing/ears/skrell/scrunchy/reef
-	scrunchy["tentacle tie, hoop"] = /obj/item/clothing/ears/skrell/scrunchy/hoop
-	scrunchy["tentacle tie, backwater"] = /obj/item/clothing/ears/skrell/scrunchy/backwater
-	gear_tweaks += new /datum/gear_tweak/path(scrunchy)
 
 /datum/gear/accessory/skrell_passport
 	display_name = "jargon federation passport"

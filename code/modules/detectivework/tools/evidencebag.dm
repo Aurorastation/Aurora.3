@@ -61,9 +61,10 @@
 
 	user.visible_message("<b>[user]</b> puts \the [I] into \the [src].", SPAN_NOTICE("You put \the [I] inside \the [src]."),\
 	"You hear a rustle as someone puts something into a plastic bag.")
+	store_item(I)
 
+/obj/item/evidencebag/proc/store_item(obj/item/I)
 	icon_state = "evidence"
-
 	var/mutable_appearance/MA = new(I)
 	MA.pixel_x = 0
 	MA.pixel_y = 0
@@ -74,7 +75,6 @@
 	I.forceMove(src)
 	stored_item = I
 	w_class = I.w_class
-	return
 
 
 /obj/item/evidencebag/attack_self(mob/user as mob)

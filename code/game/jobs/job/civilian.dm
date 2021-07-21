@@ -355,4 +355,4 @@
 	r_pocket = /obj/item/card/tech_support
 	r_hand = /obj/item/storage/bag/circuits/basic
 	l_hand = /obj/item/modular_computer/laptop/preset
-	gloves = /obj/item/modular_computer/handheld/wristbound/preset/advanced/generic
+	gloves = /obj/item/modular_computer/handheld/wristbound/preset/advanced/civilian
