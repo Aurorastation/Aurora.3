@@ -2103,7 +2103,7 @@
 	var/obj/item/organ/external/E = organs_by_name[BP_HEAD]
 	switch (intensity)
 		if (1)
-			custom_pain("Your ears hurts a little.", 5, FALSE, E, 0)
+			custom_pain("Your ears hurt a little.", 5, FALSE, E, 0)
 		if (2)
 			custom_pain("Your ears hurts!", 10, TRUE, E, 0)
 		if (3)
