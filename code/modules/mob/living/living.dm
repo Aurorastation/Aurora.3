@@ -744,7 +744,7 @@ default behaviour is:
 	var/resisting = 0
 	var/resist_power = get_resist_power() // How easily the mob can break out of a grab
 	if(length(grabbed_by) && resist_power <= 0)
-		to_chat(src, SPAN_WARNING("You don't have enough power to resist out of any grabs!"))
+		to_chat(src, SPAN_WARNING("You aren't powerful enough to break out of this grab!"))
 		return
 	for(var/obj/item/grab/G in grabbed_by)
 		resisting++
