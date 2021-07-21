@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "You can now choose which slot is your primary radio slot between your left and right ears. If both ears have a headset on them, the primary radio will be used."
