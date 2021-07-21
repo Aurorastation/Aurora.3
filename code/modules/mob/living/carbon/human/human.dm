@@ -2109,7 +2109,7 @@
 		if (3)
 			custom_pain("Your ears hurt badly!", 40, TRUE, E, 0)
 		if (4)
-			custom_pain("Your ears begins to ring faintly from the pain!", 70, TRUE, E, 0)
+			custom_pain("Your ears begin to ring faintly from the pain!", 70, TRUE, E, 0)
 			adjustEarDamage(5, 0, FALSE)
 			stop_listening()
 		if (5)
