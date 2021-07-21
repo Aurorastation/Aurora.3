@@ -14,6 +14,7 @@
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
 		/datum/unarmed_attack/claws,
+		/datum/unarmed_attack/palm,
 		/datum/unarmed_attack/bite/sharp
 	)
 	darksight = 8

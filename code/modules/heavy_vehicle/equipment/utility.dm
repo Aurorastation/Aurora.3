@@ -272,9 +272,7 @@
 						log_and_message_admins("used [src] to throw [locked] at [target].", user, owner.loc)
 						locked = null
 
-						var/obj/item/cell/C = owner.get_cell()
-						if(istype(C))
-							C.use(active_power_use * CELLRATE)
+						owner.use_cell_power(active_power_use * CELLRATE)
 
 					else
 						locked = null
@@ -293,9 +291,8 @@
 
 
 				log_and_message_admins("used [src]'s area throw on [target].", user, owner.loc)
-				var/obj/item/cell/C = owner.get_cell()
-				if(istype(C))
-					C.use(active_power_use * CELLRATE * 2) //bit more expensive to throw all
+				
+				owner.use_cell_power(active_power_use * CELLRATE * 2) //bit more expensive to throw all
 
 /obj/item/material/drill_head
 	var/durability = 0
@@ -374,9 +371,7 @@
 			to_chat(user, "<span class='warning'>Your drill doesn't have a head!</span>")
 			return
 
-		var/obj/item/cell/C = owner.get_cell()
-		if(istype(C))
-			C.use(active_power_use * CELLRATE)
+		owner.use_cell_power(active_power_use * CELLRATE)
 		owner.visible_message("<span class='danger'>\The [owner] starts to drill \the [target]</span>", "<span class='warning'>You hear a large drill.</span>")
 
 		var/T = target.loc
@@ -657,6 +652,70 @@
 /obj/item/mecha_equipment/quick_enter/attack_self()
 	return
 
+/obj/item/mecha_equipment/phazon
+	name = "phazon bluespace transmission system"
+	desc = "A large back-mounted device that grants the exosuit it's mounted to the ability to semi-shift into bluespace, allowing it to pass through dense objects."
+	desc_info = "It needs an anomaly core to function. You can install some simply by using a core on it."
+	icon_state = "mecha_phazon"
+	restricted_hardpoints = list(HARDPOINT_BACK)
+	w_class = ITEMSIZE_HUGE
+	origin_tech = list(TECH_MATERIAL = 6, TECH_ENGINEERING = 6, TECH_BLUESPACE = 6)
+	active_power_use = 88 KILOWATTS
+
+	var/obj/item/anomaly_core/AC
+	var/image/anomaly_overlay
+
+/obj/item/mecha_equipment/phazon/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/anomaly_core))
+		if(AC)
+			to_chat(user, SPAN_WARNING("\The [src] already has an anomaly core installed!"))
+			return
+		user.drop_from_inventory(I, src)
+		AC = I
+		to_chat(user, SPAN_NOTICE("You insert \the [AC] into \the [src]."))
+		desc_info = "\The [src] has an anomaly core installed! You can use a wrench to remove it."
+		anomaly_overlay = image(AC.icon, null, AC.icon_state)
+		anomaly_overlay.pixel_y = 3
+		add_overlay(anomaly_overlay)
+		return
+	if(I.iswrench())
+		if(!AC)
+			to_chat(user, SPAN_WARNING("\The [src] doesn't have an anomaly core installed!"))
+			return
+		to_chat(user, SPAN_NOTICE("You remove \the [AC] from \the [src]."))
+		playsound(loc, I.usesound, 50, TRUE)
+		user.put_in_hands(AC)
+		cut_overlay(anomaly_overlay)
+		qdel(anomaly_overlay)
+		AC = null
+		if(owner)
+			deactivate()
+		return
+	return ..()
+
+/obj/item/mecha_equipment/phazon/attack_self(mob/user)
+	. = ..()
+	if(!.)
+		return
+
+	if(!AC)
+		to_chat(user, SPAN_WARNING("\The [src] needs an anomaly core to function!"))
+		return
+
+	if(!owner.incorporeal_move)
+		to_chat(user, SPAN_NOTICE("You fire up \the [src], semi-shifting into another plane of existence!"))
+		owner.set_mech_incorporeal(INCORPOREAL_MECH)
+	else
+		to_chat(user, SPAN_NOTICE("You disable \the [src], shifting back into your normal reality."))
+		owner.set_mech_incorporeal(INCORPOREAL_DISABLE)
+
+/obj/item/mecha_equipment/phazon/deactivate()
+	owner.set_mech_incorporeal(INCORPOREAL_DISABLE)
+	..()
+
+/obj/item/mecha_equipment/phazon/uninstalled()
+	owner.set_mech_incorporeal(INCORPOREAL_DISABLE)
+	..()
 
 /obj/item/mecha_equipment/mounted_system/grenadecleaner
 	name = "cleaner grenade launcher"

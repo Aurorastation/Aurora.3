@@ -328,19 +328,15 @@ var/list/slot_equipment_priority = list( \
 
 //Throwing stuff
 /mob/proc/throw_item(atom/target)
-	return
+	return FALSE
 
 /mob/living/carbon/throw_item(atom/target)
-	src.throw_mode_off()
-	if(stat || !target)
-		return
-	if(target.type == /obj/screen)
-		return
+	if(stat || !target || istype(target, /obj/screen))
+		return FALSE
 
 	var/atom/movable/item = src.get_active_hand()
-
 	if(!item)
-		return
+		return FALSE
 
 	if(istype(item, /obj/item/grab))
 		var/obj/item/grab/G = item
@@ -354,7 +350,7 @@ var/list/slot_equipment_priority = list( \
 					to_chat(src, "<span class='notice'>You gently let go of [M].</span>")
 					src.remove_from_mob(item)
 					item.loc = src.loc
-					return
+					return TRUE
 				var/start_T_descriptor = "<font color='#6b5d00'>tile at [start_T.x], [start_T.y], [start_T.z] in area [get_area(start_T)]</font>"
 				var/end_T_descriptor = "<font color='#6b4400'>tile at [end_T.x], [end_T.y], [end_T.z] in area [get_area(end_T)]</font>"
 
@@ -364,10 +360,10 @@ var/list/slot_equipment_priority = list( \
 
 			qdel(G)
 		else
-			return
+			return FALSE
 
 	if(!item)
-		return //Grab processing has a chance of returning null
+		return FALSE //Grab processing has a chance of returning null
 
 	if(a_intent == I_HELP && Adjacent(target) && isitem(item))
 		var/obj/item/I = item
@@ -381,17 +377,17 @@ var/list/slot_equipment_priority = list( \
 			else
 				to_chat(src, SPAN_NOTICE("You offer \the [I] to \the [target]."))
 				do_give(H)
-			return
+			return TRUE
 		remove_from_mob(I)
 		make_item_drop_sound(I)
 		I.forceMove(get_turf(target))
-		return
+		return TRUE
 
 	remove_from_mob(item)
 
 	if(is_pacified())
 		to_chat(src, "<span class='notice'>You set [item] down gently on the ground.</span>")
-		return
+		return TRUE
 
 	//actually throw it!
 	if(item)
@@ -408,6 +404,9 @@ var/list/slot_equipment_priority = list( \
 			playsound(src, 'sound/effects/throw.ogg', volume, TRUE, -1)
 
 		item.throw_at(target, item.throw_range, item.throw_speed, src)
+		return TRUE
+
+	return FALSE
 
 /mob/proc/delete_inventory(var/include_carried = FALSE)
 	for(var/entry in get_equipped_items(include_carried))
