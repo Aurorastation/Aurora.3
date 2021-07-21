@@ -1419,6 +1419,9 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 4
 	},
+/obj/machinery/light_switch{
+	pixel_y = -26
+	},
 /turf/simulated/floor/tiled,
 /area/security/forensics_laboratory)
 "acZ" = (
@@ -41233,7 +41236,7 @@
 /obj/machinery/door/airlock/glass_medical{
 	name = "Custodial Closet";
 	req_access = null;
-	req_one_access = list(26, 66)
+	req_one_access = list(26,66)
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -64538,9 +64541,6 @@
 /area/security/brig)
 "nbN" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
-/obj/machinery/light_switch{
-	pixel_y = -26
-	},
 /obj/machinery/light,
 /obj/structure/table/rack,
 /obj/item/storage/briefcase/crimekit,
