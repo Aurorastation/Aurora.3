@@ -44,8 +44,10 @@
 	gloves = null
 	back = null
 	belt = /obj/item/storage/belt/security/tactical
-	accessory = /obj/item/clothing/accessory/holster/hip
-	accessory_contents = list(/obj/item/gun/energy/blaster/revolver/pilot  = 1)
+	accessory = /obj/item/clothing/accessory/storage/webbingharness/pouches/ert
+	accessory_contents = list(/obj/item/gun/energy/blaster/pilot_special = 1, /obj/item/device/binoculars = 1)
+
+	backpack_contents = null
 
 /datum/outfit/admin/ert/legion/sentinel
 	name = "TCFL Sentinel"
@@ -63,7 +65,8 @@
 		/obj/item/handcuffs/ziptie = 3,
 		/obj/item/clothing/mask/gas/tactical = 1,
 		/obj/item/storage/firstaid/regular = 1,
-		/obj/item/clothing/gloves/swat/ert = 1
+		/obj/item/clothing/gloves/swat/ert = 1, 
+		/obj/item/material/knife/bayonet = 1
 	)
 
 	belt_contents = list(

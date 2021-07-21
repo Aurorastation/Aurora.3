@@ -66,6 +66,7 @@
 	request_player()
 
 /obj/item/antag_spawner/technomancer_apprentice/request_player(mob/user)
+	uses = 0
 	SSghostroles.add_spawn_atom(ghost_role_id, src)
 
 /obj/item/antag_spawner/technomancer_apprentice/Destroy()

@@ -27,7 +27,7 @@
 /obj/item/clothing/suit/storage/tajaran/raakti_shariim
 	name = "\improper Raakti Shariim coat"
 	desc = "A blue adhomian wool coat with lilac purple accents and pale-gold insignia, signifying a Constable of the NKA's Raakti Shariim."
-	icon = 'icons/obj/clothing/species/tajaran/raakti_shariim.dmi'
+	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "raakti_shariim_coat"
 	item_state = "raakti_shariim_coat"
 	desc_fluff = "The Raakti Shariim (Royal Peacekeepers in Ceti Basic) are the New Kingdom of Adhomai's policing and \

@@ -20,7 +20,8 @@
 		/obj/item/cell,
 		/obj/item/modular_computer,
 		/obj/item/computer_hardware/battery_module,
-		/obj/item/device/flashlight/survival
+		/obj/item/device/flashlight/survival,
+		/obj/item/clothing/mask/smokable/ecig
 	)
 	var/icon_state_charged = "recharger100"
 	var/icon_state_charging = "recharger"

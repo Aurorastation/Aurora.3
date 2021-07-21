@@ -28,6 +28,23 @@
 			add_overlay(I.get_belt_overlay())
 	..()
 
+/obj/item/storage/belt/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	for(var/obj/item/i in contents)
+		var/c_state
+		var/c_icon
+		if(i.contained_sprite)
+			c_state = "[UNDERSCORE_OR_NULL(i.icon_species_tag)][i.item_state][WORN_BELT]"
+			c_icon = icon_override || icon
+		else
+			c_icon = INV_BELT_DEF_ICON
+			c_state = i.item_state || i.icon_state
+		var/image/belt_item_image = image(c_icon, c_state)
+		belt_item_image.color = i.color
+		belt_item_image.appearance_flags = RESET_ALPHA
+		I.add_overlay(belt_item_image)
+	return I
+
 /obj/item/storage/belt/verb/toggle_layer()
 	set name = "Switch Belt Layer"
 	set category = "Object"
@@ -383,27 +400,6 @@
 		/obj/item/reagent_containers/glass/rag,
 		/obj/item/gun/energy/mousegun
 		)
-
-/obj/item/storage/belt/wands
-	name = "wand belt"
-	desc = "A belt designed to hold various rods of power."
-	icon_state = "soulstonebelt"
-	item_state = "soulstonebelt"
-	storage_slots = 5
-	max_w_class = ITEMSIZE_NORMAL
-	max_storage_space  = 28
-	can_hold = list(
-		/obj/item/gun/energy/wand
-	)
-
-/obj/item/storage/belt/wands/full
-	starts_with = list(
-		/obj/item/gun/energy/wand/fire = 1,
-		/obj/item/gun/energy/wand/polymorph = 1,
-		/obj/item/gun/energy/wand/teleport = 1,
-		/obj/item/gun/energy/wand/force = 1,
-		/obj/item/gun/energy/wand/animation = 1
-	)
 
 /obj/item/storage/belt/mining
 	name = "explorer's belt"

@@ -84,7 +84,7 @@
 	if(world.time % 5 == 0) // Maintaining fat lists is expensive, I imagine.
 		maintain_summon_list()
 	if(wearer && wearer.mind)
-		if(!(technomancers.is_antagonist(wearer.mind))) // In case someone tries to wear a stolen core.
+		if(!technomancers.is_technomancer(wearer.mind)) // In case someone tries to wear a stolen core.
 			wearer.adjust_instability(20)
 	if(!wearer || wearer.stat == DEAD) // Unlock if we're dead or not worn.
 		canremove = TRUE

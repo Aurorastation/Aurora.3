@@ -325,6 +325,17 @@
 	icon_state = "diamond"
 	initial_flooring = /decl/flooring/diamond
 
+/turf/simulated/floor/marble
+	name = "light marble floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "lightmarble"
+	initial_flooring = /decl/flooring/marble
+
+/turf/simulated/floor/marble/dark
+	name = "dark marble floor"
+	icon_state = "darkmarble"
+	initial_flooring = /decl/flooring/marble/dark
+
 /turf/simulated/floor/vaurca
 	name = "alien floor"
 	icon = 'icons/turf/flooring/misc.dmi'

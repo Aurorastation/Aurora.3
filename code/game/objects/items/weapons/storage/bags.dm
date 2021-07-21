@@ -328,7 +328,7 @@
 	max_storage_space = 200
 	max_w_class = ITEMSIZE_NORMAL
 	w_class = ITEMSIZE_NORMAL
-	can_hold = list(/obj/item/book, /obj/item/spellbook)
+	can_hold = list(/obj/item/book)
 
 	// -----------------------------
 	//           Chemistry Bag

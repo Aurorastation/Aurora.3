@@ -200,19 +200,22 @@
 /obj/item/projectile/bullet/rifle
 	damage = 40
 	armor_penetration = 15
-	penetrating = TRUE
+	penetrating = FALSE
 
 /obj/item/projectile/bullet/rifle/a762
 	damage = 40
 	armor_penetration = 20
+	penetrating = TRUE
 
 /obj/item/projectile/bullet/rifle/a556
 	damage = 40
 	armor_penetration = 15
+	penetrating = FALSE
 
 /obj/item/projectile/bullet/rifle/a556/ap 
 	damage = 35
 	armor_penetration = 40
+	penetrating = TRUE
 
 /obj/item/projectile/bullet/rifle/a145
 	damage = 80
@@ -229,6 +232,7 @@
 	name = "vintage bullet"
 	damage = 50
 	weaken = 1
+	penetrating = TRUE
 
 /obj/item/projectile/bullet/rifle/slugger
 	name = "slugger round"

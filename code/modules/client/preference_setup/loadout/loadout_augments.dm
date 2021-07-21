@@ -35,7 +35,7 @@
 
 /datum/gear/augment/combitool/New()
 	..()
-	var/augs = list()
+	var/list/augs = list()
 	augs["retractable combitool, right hand"] = /obj/item/organ/internal/augment/tool/combitool
 	augs["retractable combitool, left hand"] = /obj/item/organ/internal/augment/tool/combitool/left
 	gear_tweaks += new /datum/gear_tweak/path(augs)
@@ -78,7 +78,7 @@
 
 /datum/gear/augment/taste_boosters/New()
 	..()
-	var/augs = list()
+	var/list/augs = list()
 	augs["taste booster"] = /obj/item/organ/internal/augment/taste_booster
 	augs["taste duller"] = /obj/item/organ/internal/augment/taste_booster/dull
 	gear_tweaks += new /datum/gear_tweak/path(augs)

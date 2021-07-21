@@ -490,6 +490,7 @@
 	t = replacetext(t, "\[/large\]", "</font>")
 	t = replacetext(t, "\[small\]", "<font size = \"1\">")
 	t = replacetext(t, "\[/small\]", "</font>")
+	t = replacetext(t, "\[station\]", current_map.station_name)
 
 	// A break for signature customization code to use this proc as well.
 	if (limited)
@@ -658,3 +659,10 @@
 	if(ending && !correct_punctuation[ending])
 		string += "."
 	return string
+
+/proc/num2loadingbar(percent as num, numSquares = 20, reverse = FALSE)
+	var/loadstring = ""
+	var/limit = reverse ? numSquares - percent*numSquares : percent*numSquares
+	for (var/i in 1 to numSquares)
+		loadstring += i <= limit ? "█" : "░"
+	return "\[[loadstring]\]"

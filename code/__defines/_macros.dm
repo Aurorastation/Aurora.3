@@ -1,5 +1,6 @@
 #define Clamp(x, low, high) 	max(low, min(high, x))
 #define CLAMP01(x) 		(Clamp(x, 0, 1))
+#define JOINTEXT(X) jointext(X, null)
 
 #define span(class, text) "<span class='[class]'>[text]</span>"
 #define SPAN_NOTICE(X) "<span class='notice'>[X]</span>"
@@ -27,6 +28,8 @@
 #define FONT_LARGE(X) "<font size='3'>[X]</font>"
 #define FONT_HUGE(X) "<font size='4'>[X]</font>"
 #define FONT_GIANT(X) "<font size='5'>[X]</font>"
+
+#define UNDERSCORE_OR_NULL(target) "[target ? "[target]_" : ""]"
 
 #define isAI(A) istype(A, /mob/living/silicon/ai)
 #define isDrone(A) istype(A, /mob/living/silicon/robot/drone)
@@ -64,6 +67,8 @@
 #define isorgan(A) istype(A, /obj/item/organ/external)
 
 #define ispAI(A) istype(A, /mob/living/silicon/pai)
+
+#define isbot(A) istype(A, /mob/living/bot)
 
 #define isrobot(A) istype(A, /mob/living/silicon/robot)
 

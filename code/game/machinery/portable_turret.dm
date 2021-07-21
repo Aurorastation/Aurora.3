@@ -1147,7 +1147,7 @@
 	sprite_set = "ballistic"
 	no_salvage = TRUE
 
-	eprojectile = /obj/item/projectile/bullet/rifle/a762
+	eprojectile = /obj/item/projectile/bullet/pistol/medium
 	eshot_sound	= 'sound/weapons/gunshot/gunshot_saw.ogg'
 
 	req_one_access = list(access_syndicate)

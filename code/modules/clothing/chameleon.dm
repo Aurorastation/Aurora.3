@@ -80,32 +80,15 @@
 	disguise(clothing_choices[picked])
 	update_clothing_icon()	//so our overlays update.
 
-/obj/item/clothing/under/chameleon/wizard/Initialize()
-	. = ..()
-	disguise(/obj/item/clothing/under/lightpurple)
-
-/obj/item/clothing/under/chameleon/wizard/change(picked in clothing_choices)
-	set name = "Change Jumpsuit Appearance"
-	set category = "Chameleon Items"
-	set src in usr
-
-	if(isliving(usr))
-		var/mob/living/user = usr
-		if(user.is_wizard())
-			..(picked)
-			return
-	to_chat(usr, SPAN_WARNING("You touch \the [src], but nothing happens."))
-
-/obj/item/clothing/under/chameleon/wizard/emp_act()
-	return
-
 //*****************
 //**Chameleon Hat**
 //*****************
 
 /obj/item/clothing/head/chameleon
 	name = "grey cap"
-	desc = "It looks like a plain hat, but upon closer inspection, there's an advanced holographic array installed inside. It seems to have a small dial inside."
+	desc = "It looks like a softcap in a tasteless color, but upon closer inspection there's an advanced holographic array installed inside. It seems to have a small dial inside."
+	icon = 'icons/obj/clothing/hats/soft_caps.dmi'
+	icon_state = "softcap"
 	origin_tech = list(TECH_ILLEGAL = 3)
 	body_parts_covered = 0
 	var/global/list/clothing_choices
@@ -133,28 +116,6 @@
 
 	disguise(clothing_choices[picked])
 	update_clothing_icon()	//so our overlays update.
-
-/obj/item/clothing/head/chameleon/wizard
-	wizard_garb = TRUE
-
-/obj/item/clothing/head/chameleon/wizard/Initialize()
-	. = ..()
-	disguise(/obj/item/clothing/head/wizard)
-
-/obj/item/clothing/head/chameleon/wizard/change(picked in clothing_choices)
-	set name = "Change Hat/Helmet Appearance"
-	set category = "Chameleon Items"
-	set src in usr
-
-	if(isliving(usr))
-		var/mob/living/user = usr
-		if(user.is_wizard())
-			..(picked)
-			return
-	to_chat(usr, SPAN_WARNING("You touch \the [src], but nothing happens."))
-
-/obj/item/clothing/head/chameleon/wizard/emp_act()
-	return
 
 //******************
 //**Chameleon Suit**
@@ -193,28 +154,6 @@
 	update_clothing_icon()	//so our overlays update.
 
 
-/obj/item/clothing/suit/chameleon/wizard
-	wizard_garb = TRUE
-
-/obj/item/clothing/suit/chameleon/wizard/Initialize()
-	. = ..()
-	disguise(/obj/item/clothing/suit/wizrobe)
-
-/obj/item/clothing/suit/chameleon/wizard/change(picked in clothing_choices)
-	set name = "Change Oversuit Appearance"
-	set category = "Chameleon Items"
-	set src in usr
-
-	if(isliving(usr))
-		var/mob/living/user = usr
-		if(user.is_wizard())
-			..(picked)
-			return
-	to_chat(usr, SPAN_WARNING("You touch \the [src], but nothing happens."))
-
-/obj/item/clothing/suit/chameleon/wizard/emp_act()
-	return
-
 //*******************
 //**Chameleon Shoes**
 //*******************
@@ -252,25 +191,6 @@
 	disguise(clothing_choices[picked])
 	update_clothing_icon()	//so our overlays update.
 
-
-/obj/item/clothing/shoes/chameleon/wizard/Initialize()
-	. = ..()
-	disguise(/obj/item/clothing/shoes/sandal)
-
-/obj/item/clothing/shoes/chameleon/wizard/change(picked in clothing_choices)
-	set name = "Change Footwear Appearance"
-	set category = "Chameleon Items"
-	set src in usr
-
-	if(isliving(usr))
-		var/mob/living/user = usr
-		if(user.is_wizard())
-			..(picked)
-			return
-	to_chat(usr, SPAN_WARNING("You touch \the [src], but nothing happens."))
-
-/obj/item/clothing/shoes/chameleon/wizard/emp_act()
-	return
 
 //**********************
 //**Chameleon Backpack**
@@ -314,25 +234,6 @@
 		var/mob/M = src.loc
 		M.update_inv_back()
 
-
-/obj/item/storage/backpack/chameleon/wizard/Initialize()
-	. = ..()
-	disguise(/obj/item/storage/backpack/wizard)
-
-/obj/item/storage/backpack/chameleon/wizard/change(picked in clothing_choices)
-	set name = "Change Backpack Appearance"
-	set category = "Chameleon Items"
-	set src in usr
-
-	if(isliving(usr))
-		var/mob/living/user = usr
-		if(user.is_wizard())
-			..(picked)
-			return
-	to_chat(usr, SPAN_WARNING("You touch \the [src], but nothing happens."))
-
-/obj/item/storage/backpack/chameleon/wizard/emp_act()
-	return
 
 //********************
 //**Chameleon Gloves**

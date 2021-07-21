@@ -41,7 +41,7 @@
 
 /obj/item/shield/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(user.incapacitated())
-		return 0
+		return FALSE
 
 	var/shield_dir = reverse_dir[user.dir]
 	if(on_back)
@@ -52,8 +52,8 @@
 	if(check_shield_arc(user, bad_arc, damage_source, attacker))
 		if(prob(get_block_chance(user, damage, damage_source, attacker)))
 			user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
-			return 1
-	return 0
+			return PROJECTILE_STOPPED
+	return FALSE
 
 /obj/item/shield/can_shield_back()
 	return TRUE
@@ -148,10 +148,10 @@
 
 /obj/item/shield/energy/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(!active)
-		return 0 //turn it on first!
+		return FALSE //turn it on first!
 
 	if(user.incapacitated())
-		return 0
+		return FALSE
 
 	if(.)
 		spark(user.loc, 5)
@@ -178,7 +178,7 @@
 				w_class = ITEMSIZE_TINY
 				playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
 				shield_power = initial(shield_power)
-				return 0
+				return FALSE
 
 			if(istype(damage_source, /obj/item/projectile/energy) || istype(damage_source, /obj/item/projectile/beam))
 				var/obj/item/projectile/P = damage_source
@@ -198,10 +198,10 @@
 					return PROJECTILE_CONTINUE // complete projectile permutation
 				else
 					user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
-					return 1
+					return PROJECTILE_STOPPED
 			else
 				user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
-				return 1
+				return PROJECTILE_STOPPED
 
 /obj/item/shield/energy/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
 	if(istype(damage_source, /obj/item/projectile))
@@ -304,9 +304,9 @@
 
 /obj/item/shield/riot/tact/handle_shield(mob/user)
 	if(!active)
-		return 0 //turn it on first!
-	. = ..()
+		return FALSE //turn it on first!
 
+	. = ..()
 	if(.)
 		if(.) playsound(user.loc, 'sound/weapons/genhit.ogg', 50, 1)
 

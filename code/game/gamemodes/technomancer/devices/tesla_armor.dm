@@ -21,7 +21,7 @@
 	var/normal_icon_state = "tesla_armor_0"
 	var/cooldown_to_charge = 15 SECONDS
 
-/obj/item/clothing/suit/armor/tesla/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+/obj/item/clothing/suit/armor/tesla/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	//First, some retaliation.
 	if(active)
 		if(istype(damage_source, /obj/item/projectile))
@@ -46,8 +46,8 @@
 			addtimer(CALLBACK(src, .proc/recharge, user), cooldown_to_charge)
 			visible_message("<span class='danger'>\The [user]'s [src.name] blocks [attack_text]!</span>")
 			update_icon()
-			return 1
-	return 0
+			return PROJECTILE_STOPPED
+	return FALSE
 
 /obj/item/clothing/suit/armor/tesla/proc/recharge(var/mob/user)
 	ready = TRUE

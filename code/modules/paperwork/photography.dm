@@ -29,7 +29,7 @@ var/global/photo_count = 0
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "photo"
 	item_state = "paper"
-	w_class = ITEMSIZE_SMALL
+	w_class = ITEMSIZE_TINY
 	var/picture_desc // Who and/or what's in the picture.
 	var/id
 	var/icon/img	//Big photo image
@@ -175,6 +175,8 @@ var/global/photo_count = 0
 		return
 	..()
 
+/obj/item/device/camera/AltClick(var/mob/user)
+	change_size()
 
 /obj/item/device/camera/proc/get_mobs(turf/the_turf as turf)
 	var/mob_detail
@@ -208,6 +210,11 @@ var/global/photo_count = 0
 	spawn(64)
 		icon_state = icon_on
 		on = 1
+
+/obj/item/device/camera/detective
+	name = "detectives camera"
+	desc = "A one use - polaroid camera."
+	pictures_left = 30
 
 //Proc for capturing check
 /mob/living/proc/can_capture_turf(turf/T)

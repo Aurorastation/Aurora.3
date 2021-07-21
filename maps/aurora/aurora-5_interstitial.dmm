@@ -2100,7 +2100,14 @@
 "eG" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/item/storage/box/cups,
+/obj/item/storage/box/drinkingglasses{
+	pixel_x = 1;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/food/drinks/pitcher{
+	pixel_x = -3;
+	pixel_y = 2
+	},
 /turf/simulated/floor/tiled/white,
 /area/security/break_room)
 "eH" = (
@@ -2463,7 +2470,7 @@
 /turf/simulated/floor/plating,
 /area/security/training_theoretical)
 "fF" = (
-/obj/structure/bed/chair/comfy/sofa/left{
+/obj/structure/bed/chair/comfy/sofa/left/comfy{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -2534,22 +2541,22 @@
 /turf/simulated/floor/plating,
 /area/security/training_theoretical)
 "gb" = (
-/obj/structure/bed/chair/comfy/sofa/corner{
+/obj/structure/bed/chair/comfy/sofa/corner/comfy{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/security/break_room)
 "gc" = (
-/obj/structure/bed/chair/comfy/sofa{
+/obj/structure/bed/chair/comfy/sofa/comfy{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/security/break_room)
 "gd" = (
-/obj/structure/bed/chair/comfy/sofa/left{
+/obj/machinery/light,
+/obj/structure/bed/chair/comfy/sofa/left/comfy{
 	dir = 1
 	},
-/obj/machinery/light,
 /turf/simulated/floor/wood,
 /area/security/break_room)
 "ge" = (
@@ -9175,7 +9182,7 @@
 /obj/structure/table/rack{
 	dir = 1
 	},
-/obj/item/clothing/suit/fire/firefighter,
+/obj/item/clothing/suit/fire,
 /obj/item/tank/oxygen,
 /obj/item/clothing/mask/gas,
 /obj/item/extinguisher,
