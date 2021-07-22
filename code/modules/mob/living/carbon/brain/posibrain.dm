@@ -55,6 +55,10 @@
 	to_chat(brainmob, "<b>Remember, the purpose of your existence is to serve the crew and the station. Above all else, do no harm.</b>")
 	visible_message(SPAN_NOTICE("\The [src] chimes quietly."))
 
+	var/area/A = get_area(src)
+	if(istype(A, /area/assembly/robotics))
+		global_announcer.autosay("A positronic brain has completed its boot process in: [A.name]", "Robotics Oversight", "Science")
+
 	return src
 
 /obj/item/device/mmi/digital/posibrain/examine(mob/user)
