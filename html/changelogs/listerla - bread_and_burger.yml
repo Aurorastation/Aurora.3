@@ -1,6 +1,0 @@
-author: listerla
-
-delete-after: True
-
-changes:
-  - imageadd: "Replaced bread, burger, and sausage sprites with sprites from tgstation."
