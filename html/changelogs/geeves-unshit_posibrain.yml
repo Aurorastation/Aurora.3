@@ -11,3 +11,4 @@ changes:
   - bugfix: "Posibrains now display the right icon state when searching or not."
   - bugfix: "Hardsuit AIs now only get notified that they can move their hardsuit host if AI control is enabled."
   - rscadd: "Spawning in as a posibrain now allows you to set your name."
+  - bugfix: "Hardsuit AIs now display the floating text over their host when speaking."
