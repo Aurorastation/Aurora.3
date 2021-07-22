@@ -185,8 +185,8 @@
 	empty_delay = 0.8 SECOND
 
 /obj/item/storage/backpack/wizard
-	name = "wizard federation sack"
-	desc = "Perfect for keeping your shining crystal balls inside of."
+	name = "magical sack"
+	desc = "Perfect for keeping your shining crystal balls inside of. May not contain actual magic."
 	icon_state = "wizardpack"
 	empty_delay = 0.8 SECOND
 
@@ -293,8 +293,8 @@
 	empty_delay = 0.8 SECOND
 
 /obj/item/storage/backpack/satchel_wizard
-	name = "wizard federation satchel"
-	desc = "This stylish satchel will put a spell on anyone with some fashion sense to spare."
+	name = "magic satchel"
+	desc = "This stylish satchel will put a spell on anyone with some fashion sense to spare. Contains %0 actual magic."
 	icon_state = "satchel-wizard"
 	empty_delay = 0.8 SECOND
 
@@ -424,8 +424,8 @@
 	empty_delay = 0.8 SECOND
 
 /obj/item/storage/backpack/duffel/wizard
-	name = "wizardly duffel bag"
-	desc = "A fancy blue wizard bag, duffel edition."
+	name = "magical duffel bag"
+	desc = "A fancy blue spell bag, duffel edition. Comes with zero spells because magic isn't real, nerd."
 	icon_state = "duffel-wizard"
 	slowdown = 0
 	empty_delay = 0.8 SECOND

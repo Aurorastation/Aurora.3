@@ -1121,7 +1121,6 @@
 		/mob/living/simple_animal/hostile/syndicate/ranged/space,
 		/mob/living/simple_animal/hostile/alien/queen/large,
 		/mob/living/simple_animal/hostile/faithless,
-		/mob/living/simple_animal/hostile/faithless/wizard,
 		/mob/living/simple_animal/hostile/retaliate,
 		/mob/living/simple_animal/hostile/retaliate/clown,
 		/mob/living/simple_animal/hostile/alien,

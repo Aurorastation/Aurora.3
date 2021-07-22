@@ -171,6 +171,8 @@
 	for(var/i=1, i<=2, i++)
 		if(MOVING(speed[i]))
 			. = min(last_movement[i] - world.time + 1/abs(speed[i]), .)
+	if(. == INFINITY)
+		. = 0
 	. = max(.,0)
 
 /obj/effect/overmap/visitable/ship/proc/handle_wraparound()

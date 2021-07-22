@@ -142,11 +142,16 @@ Class Procs:
 		component_parts = list()
 		for (var/type in component_types)
 			var/count = component_types[type]
-			if (count > 1)
-				for (var/i in 1 to count)
-					component_parts += new type(src)
+			if(ispath(type, /obj/item/stack))
+				if(isnull(count))
+					count = 1
+				component_parts += new type(src, count)
 			else
-				component_parts += new type(src)
+				if(count > 1)
+					for (var/i in 1 to count)
+						component_parts += new type(src)
+				else
+					component_parts += new type(src)
 
 		if(component_parts.len)
 			RefreshParts()

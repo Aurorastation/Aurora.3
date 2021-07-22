@@ -37038,6 +37038,10 @@
 	pixel_x = 1;
 	pixel_y = 4
 	},
+/obj/item/reagent_containers/food/drinks/pitcher{
+	pixel_x = -3;
+	pixel_y = 2
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
 "ydL" = (

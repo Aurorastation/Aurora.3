@@ -393,7 +393,7 @@
 
 /obj/item/staff
 	name = "wizards staff"
-	desc = "Apparently a staff used by the wizard."
+	desc = "A staff which only has the power to make you look like a nerd."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "staff"
 	force = 3.0

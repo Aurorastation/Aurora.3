@@ -37,6 +37,10 @@
 
 	proc/is_right_key(atom/used_atom) // returns current step num if used_atom is of the right type.
 		var/list/L = steps[steps.len]
+		if(isobj(used_atom))
+			var/return_value = check_tool_quality(used_atom, L["key"], steps.len)
+			if(return_value)
+				return return_value
 		if(istype(used_atom, L["key"]))
 			return steps.len
 		return 0
@@ -87,10 +91,21 @@
 
 	is_right_key(atom/used_atom) // returns index step
 		var/list/L = steps[index]
+		var/is_obj = FALSE
+		if(isobj(used_atom))
+			var/return_value = check_tool_quality(used_atom, L["key"], FORWARD)
+			if(return_value)
+				return return_value
+			is_obj = TRUE
 		if(istype(used_atom, L["key"]))
 			return FORWARD //to the first step -> forward
-		else if(L["backkey"] && istype(used_atom, L["backkey"]))
-			return BACKWARD //to the last step -> backwards
+		else if(L["backkey"])
+			if(is_obj)
+				var/return_value = check_tool_quality(used_atom, L["backkey"], BACKWARD)
+				if(return_value)
+					return return_value
+			if(istype(used_atom, L["backkey"]))
+				return BACKWARD //to the last step -> backwards
 		return 0
 
 	check_step(atom/used_atom,mob/user as mob)

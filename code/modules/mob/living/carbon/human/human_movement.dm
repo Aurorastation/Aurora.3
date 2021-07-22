@@ -36,24 +36,7 @@
 		if (hydration < (max_hydration * 0.1))
 			tally++
 
-	if(istype(buckled_to, /obj/structure/bed/chair/wheelchair))
-		for(var/organ_name in list(BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM))
-			var/obj/item/organ/external/E = get_organ(organ_name)
-			if(!E || E.is_stump())
-				tally += 4
-			else if(E.status & ORGAN_SPLINTED)
-				tally += 0.5
-			else if(E.status & ORGAN_BROKEN)
-				tally += 1.5
-	else
-		for(var/organ_name in list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG))
-			var/obj/item/organ/external/E = get_organ(organ_name)
-			if(!E || E.is_stump())
-				tally += 4
-			else if((E.status & ORGAN_BROKEN) || (E.tendon_status() & TENDON_CUT))
-				tally += 1.5
-			else if((E.status & ORGAN_SPLINTED) || (E.tendon_status() & TENDON_BRUISED))
-				tally += 0.5
+	tally += species.handle_movement_tally(src)
 
 	if (can_feel_pain())
 		if(shock_stage >= 10)

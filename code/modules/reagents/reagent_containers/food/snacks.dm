@@ -4744,7 +4744,7 @@
 	icon_state = "rikazu_veg"
 	bitesize = 2
 	reagents_to_add = list(/decl/reagent/nutriment = 8) 
-	reagent_data = list(/decl/reagent/nutriment = list("crispy dough" = 4, "cruncy vegetables" = 4))
+	reagent_data = list(/decl/reagent/nutriment = list("crispy dough" = 4, "crunchy vegetables" = 4))
 	desc_fluff = "Small pies, often hand-sized, usually made by folding dough overstuffing of fruit and cream cheese; commonly served hot. The simple preparation makes it a fast favorite, and the versatility of the ingredients has gained its favor with Tajara of all creeds. Different variations of Rikazu pop up all over Adhomai, some filled with meats, or vegetables, or even imported ingredients, like chocolate filling."
 	filling_color = "#BD8939"
 

@@ -18,18 +18,45 @@
 
 	var/flipped_up = FALSE
 	var/obj/machinery/computer/shuttle_control/linked_console
+	var/obj/machinery/computer/ship/helm/linked_helm
+
 	var/obj/pilot_overlay_holder/hud_overlay
+	var/obj/pilot_overlay_holder/ship_hud/ship_overlay
 
 /obj/item/clothing/head/helmet/pilot/Initialize()
 	. = ..()
 	hud_overlay = new(src)
-	set_hud_maptext("Shuttle Status: No Shuttle Linked.")
+	ship_overlay = new(src)
+	set_console(null)
 
 /obj/item/clothing/head/helmet/pilot/Destroy()
 	if(linked_console)
 		linked_console.linked_helmets -= src
 		linked_console = null
 	return ..()
+
+/obj/item/clothing/head/helmet/pilot/proc/set_console(var/obj/machinery/computer/C)
+	if(linked_console)
+		linked_console.linked_helmets -= src
+		linked_console = null
+	if(linked_helm)
+		linked_helm.linked_helmets -= src
+		linked_helm = null
+	
+	if(!isnull(C))
+		if(istype(C, /obj/machinery/computer/shuttle_control))
+			linked_console = C
+			linked_console.linked_helmets += src
+			hud_overlay.maptext_height = initial(hud_overlay.maptext_height)
+			hud_overlay.maptext_y = initial(hud_overlay.maptext_y)
+		else if(istype(C, /obj/machinery/computer/ship/helm))
+			linked_helm = C
+			linked_helm.linked_helmets += src
+			hud_overlay.maptext_height = 64
+			hud_overlay.maptext_y = -12
+			check_ship_overlay(loc, linked_helm.linked)
+	else
+		set_hud_maptext("Vessel Status: No Vessel Linked.")
 
 /obj/item/clothing/head/helmet/pilot/attack_self()
 	flip_visor()
@@ -68,7 +95,7 @@
 	check_hud_overlay(user, slot)
 
 /obj/item/clothing/head/helmet/pilot/proc/check_hud_overlay(var/mob/user, var/equip_slot)
-	if(!user.client)
+	if(!istype(user) || !user.client)
 		return
 	if(!equip_slot)
 		equip_slot = get_equip_slot()
@@ -76,6 +103,31 @@
 		user.client.screen |= hud_overlay
 	else
 		user.client.screen -= hud_overlay
+	check_ship_overlay(user, null, equip_slot)
+
+/obj/item/clothing/head/helmet/pilot/proc/check_ship_overlay(var/mob/user, var/obj/effect/overmap/visitable/V, var/equip_slot)
+	if(!istype(user) || !user.client)
+		return
+	if(!equip_slot)
+		equip_slot = get_equip_slot()
+
+	if(!V && linked_helm)
+		V = linked_helm.linked
+	if(!V)
+		return
+
+	if(V)
+		ship_overlay.appearance = V.appearance
+		ship_overlay.dir = V.dir
+		ship_overlay.mouse_opacity = 0
+	else
+		ship_overlay.icon = null
+		ship_overlay.icon_state = null
+
+	if(!flipped_up && (equip_slot == slot_head))
+		user.client.screen |= ship_overlay
+	else
+		user.client.screen -= ship_overlay
 
 /obj/item/clothing/head/helmet/pilot/proc/set_hud_maptext(var/text)
 	if(length(text) > 26)
@@ -97,3 +149,6 @@
 	icon_state = null
 	screen_loc = "CENTER:-80,NORTH"
 	maptext_width = 192
+
+/obj/pilot_overlay_holder/ship_hud
+	screen_loc = "CENTER:90,NORTH:-10"
