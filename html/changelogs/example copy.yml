@@ -1,0 +1,6 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - tweak: "All types of flask in the loadout can now start with any reagent."
