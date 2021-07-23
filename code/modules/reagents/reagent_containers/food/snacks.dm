@@ -5154,7 +5154,7 @@
 
 /obj/item/reagent_containers/food/snacks/koissteak
 	name = "k'ois steak"
-	desc = "Some well-done k'ois, grilled in perfection."
+	desc = "Some well-done k'ois, grilled to perfection."
 	icon_state = "kois_steak"
 	filling_color = "#dcd9cd"
 	reagents_to_add = list(/decl/reagent/kois = 20, /decl/reagent/toxin/phoron = 15)
