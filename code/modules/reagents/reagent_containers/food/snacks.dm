@@ -5164,7 +5164,7 @@
 	desc = "Deep fried k'ois shaped into a donut."
 	icon_state = "kois_donut"
 	filling_color = "#dcd9cd"
-	overlay_state = "box-donut_kois"
+	overlay_state = "box-kois_donut"
 	reagents_to_add = list(/decl/reagent/kois = 15, /decl/reagent/toxin/phoron = 10)
 
 /obj/item/reagent_containers/food/snacks/koismuffin
