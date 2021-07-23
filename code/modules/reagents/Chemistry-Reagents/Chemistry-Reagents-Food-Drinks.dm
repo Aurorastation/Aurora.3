@@ -62,6 +62,8 @@
 	kois_type = 0
 	fallback_specific_heat = 1
 
+	glass_icon_state = "glass_kois"
+
 /decl/reagent/kois/black
 	name = "Modified K'ois"
 	description = "A thick goopy substance, rich in K'ois nutrients. This sample appears to be modified."
@@ -4730,3 +4732,13 @@
 	glass_name = "glass of midynhr water"
 	glass_desc = "A soft drink made from honey and tree syrup."
 	glass_center_of_mass = list("x"=15, "y"=9)
+
+/decl/reagent/drink/toothpaste/caprician_coffee
+	name = "Caprician Coffee"
+	description = "A Vaurcesian take on liqueur coffee, quickly becoming a favorite of the Zo'ra hive."
+	color = "#C00000"
+	taste_description = "minty coffee"
+
+	glass_icon_state = "caprician_coffee"
+	glass_name = "glass of caprician coffee."
+	glass_desc = "A Vaurcesian take on liqueur coffee, quickly becoming a favorite of the Zo'ra hive."
