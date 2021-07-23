@@ -113,6 +113,7 @@
 	sprint_speed_factor = 1  // About as capable of speed as a human
 
 	max_hydration_factor = -1
+	max_nutrition_factor = -1
 
 	allowed_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_ERIDANI, CITIZENSHIP_ELYRA, CITIZENSHIP_GOLDEN)
 	default_citizenship = CITIZENSHIP_NONE
