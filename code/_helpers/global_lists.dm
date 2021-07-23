@@ -70,7 +70,7 @@ var/global/list/pdalist = list("Nothing", "Standard PDA", "Classic PDA", "Rugged
 var/global/list/headsetlist = list("Nothing", "Headset", "Bowman Headset", "Double Headset", "Wristbound Radio")
 
 // Primary Radio Slot choice
-var/global/list/primary_radio_slot_choice = list("Left Ear", "Right Ear")
+var/global/list/primary_radio_slot_choice = list("Left Ear", "Right Ear", "Wrist")
 
 // Visual nets
 var/list/datum/visualnet/visual_nets = list()
