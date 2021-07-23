@@ -59,7 +59,7 @@ var/global/list/chargen_disabilities_list = list()
 var/global/static/list/valid_player_genders = list(MALE, FEMALE, NEUTER, PLURAL)
 
 //Backpacks
-var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Satchel Alt", "Duffel Bag", "Messenger Bag")
+var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Leather satchel", "Duffel Bag", "Messenger Bag", "Black Rucksack", "Blue Rucksack", "Green Rucksack", "Navy Rucksack", "Tan Rucksack", "Khaki Satchel", "Black Satchel", "Navy Satchel", "Olive Satchel", "Auburn Satchel", "Black Pocketbook", "Brown Pocketbook", "Auburn Pocketbook")
 var/global/list/backbagstyles = list("Job-specific", "Grey")
 var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg, /datum/job/merchant)
 
@@ -68,6 +68,9 @@ var/global/list/pdalist = list("Nothing", "Standard PDA", "Classic PDA", "Rugged
 
 //Headset choice
 var/global/list/headsetlist = list("Nothing", "Headset", "Bowman Headset", "Double Headset", "Wristbound Radio")
+
+// Primary Radio Slot choice
+var/global/list/primary_radio_slot_choice = list("Left Ear", "Right Ear")
 
 // Visual nets
 var/list/datum/visualnet/visual_nets = list()

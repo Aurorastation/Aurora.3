@@ -19,9 +19,14 @@
 	//How much blood this step can get on surgeon. 1 - hands, 2 - full body.
 	var/blood_level = 0
 
+	var/requires_surgery_compatibility = TRUE
+
 	//returns how well tool is suited for this step
 /decl/surgery_step/proc/tool_quality(obj/item/tool)
 	for(var/T in allowed_tools)
+		var/return_value = check_tool_quality(tool, T, allowed_tools[T], requires_surgery_compatibility)
+		if(return_value)
+			return return_value
 		if(istype(tool,T))
 			return allowed_tools[T]
 	return FALSE

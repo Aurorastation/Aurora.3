@@ -201,6 +201,9 @@
 	if(engage_on_activate && !do_engage(null, user))
 		return FALSE
 
+	if(use_check_and_message(user))
+		return FALSE
+
 	active = TRUE
 
 	spawn(1)
@@ -215,6 +218,9 @@
 // Proc for toggling off active abilities.
 /obj/item/rig_module/proc/deactivate(mob/user)
 	if(!active)
+		return FALSE
+
+	if(use_check_and_message(user))
 		return FALSE
 
 	active = FALSE

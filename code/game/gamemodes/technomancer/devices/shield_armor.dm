@@ -27,10 +27,10 @@
 	..()
 	spark(src, 5, cardinal)
 
-/obj/item/clothing/suit/armor/shield/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+/obj/item/clothing/suit/armor/shield/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	//Since this is a pierce of armor that is passive, we do not need to check if the user is incapacitated.
 	if(!active)
-		return 0
+		return FALSE
 
 	var/modified_block_percentage = block_percentage
 
@@ -65,7 +65,7 @@
 
 	spark(src, 5, cardinal)
 	playsound(src, 'sound/weapons/blade.ogg', 50, 1)
-	return 0 // This shield does not block all damage, so returning 0 is needed to tell the game to apply the new damage.
+	return FALSE // This shield does not block all damage, so returning 0 is needed to tell the game to apply the new damage.
 
 /obj/item/clothing/suit/armor/shield/attack_self(mob/user)
 	active = !active

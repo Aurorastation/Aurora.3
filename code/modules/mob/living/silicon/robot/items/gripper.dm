@@ -272,7 +272,8 @@
 		/obj/item/reagent_containers/food/drinks/sillycup,
 		/obj/item/reagent_containers/food/drinks/medcup,
 		/obj/item/smallDelivery,
-		/obj/item/gift
+		/obj/item/gift,
+		/obj/item/reagent_containers/chem_disp_cartridge
 		)
 
 /obj/item/gripper/service //Used to handle food, drinks, and seeds.
@@ -292,7 +293,8 @@
 		/obj/item/smallDelivery,
 		/obj/item/gift,
 		/obj/item/stack/packageWrap,
-		/obj/item/stack/wrapping_paper
+		/obj/item/stack/wrapping_paper,
+		/obj/item/reagent_containers/chem_disp_cartridge //Drink cartridges
 		)
 
 /obj/item/gripper/no_use //Used when you want to hold and put items in other things, but not able to 'use' the item

@@ -131,6 +131,7 @@ var/list/active_radio_jammers = list()
 	if (W.isscrewdriver())
 		to_chat(user, "<span class='notice'>You disassemble the improvised signal jammer.</span>")
 		user.put_in_hands(assembly_holder)
+		assembly_holder.detached()
 		user.put_in_hands(cell)
 		qdel(src)
 

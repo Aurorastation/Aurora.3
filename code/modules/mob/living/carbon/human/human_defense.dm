@@ -165,46 +165,19 @@ emp_act
 	for(var/obj/item/shield in list(l_hand, r_hand, wear_suit, back))
 		if(!shield)
 			continue
-		if(!shield.can_shield_back())
-			continue
 		var/is_on_back = FALSE
 		if(back && back == shield)
+			if(!shield.can_shield_back())
+				continue
 			is_on_back = TRUE
 		. = shield.handle_shield(src, is_on_back, damage, damage_source, attacker, def_zone, attack_text)
 		if(.)
 			return
-	return 0
+	return FALSE
 
 /mob/living/carbon/human/emp_act(severity)
-	if(isipc(src))
-		var/obj/item/organ/internal/surge/s = src.internal_organs_by_name["surge"]
-		if(!isnull(s))
-			if(s.surge_left >= 1)
-				playsound(src.loc, 'sound/magic/LightningShock.ogg', 25, 1)
-				s.surge_left -= 1
-				if(s.surge_left)
-					visible_message("<span class='warning'>[src] was not affected by EMP pulse.</span>", "<span class='warning'>Warning: EMP detected, integrated surge prevention module activated. There are [s.surge_left] preventions left.</span>")
-				else
-					s.broken = TRUE
-					s.icon_state = "surge_ipc_broken"
-					visible_message("<span class='warning'>[src] was not affected by EMP pulse.</span>", "<span class='warning'>Warning: EMP detected, integrated surge prevention module activated. The surge prevention module is fried, replacement recommended.</span>")
-				return TRUE
-			else if(s.surge_left == 0.5)
-				to_chat(src, "<span class='danger'>Warning: EMP detected, integrated surge prevention module is damaged and was unable to fully protect from EMP. Half of the damage taken. Replacement recommended.</span>")
-				for(var/obj/O in src)
-					if(!O)
-						continue
-					O.emp_act(severity * 2) // EMP act takes reverse numbers
-				for(var/obj/item/organ/external/O  in organs)
-					O.emp_act(severity)
-					for(var/obj/item/organ/I  in O.internal_organs)
-						if(I.robotic == ROBOTIC_NONE)
-							continue
-						I.emp_act(severity * 2) // EMP act takes reverse numbers
-				return TRUE
-			else
-				to_chat(src, "<span class='danger'>Warning: EMP detected, integrated surge prevention module is fried and unable to protect from EMP. Replacement recommended.</span>")
-
+	if(species.handle_emp_act(src, severity))
+		return // blocks the EMP
 	for(var/obj/O in src)
 		O.emp_act(severity)
 	..()
@@ -213,7 +186,7 @@ emp_act
 	if(a_intent != I_HELP)
 		var/list/holding = list(get_active_hand() = 60, get_inactive_hand() = 40)
 		for(var/obj/item/grab/G in holding)
-			if(G.affecting && prob(holding[G]))
+			if(G.affecting && prob(holding[G]) && G.affecting != user)
 				visible_message(SPAN_WARNING("[src] repositions \the [G.affecting] to block \the [I]'s attack!"), SPAN_NOTICE("You reposition \the [G.affecting] to block \the [I]'s attack!"))
 				return G.affecting
 	return src
@@ -558,7 +531,7 @@ emp_act
 	if(src.w_uniform)
 		src.w_uniform.add_fingerprint(src)
 
-	var/obj/item/grab/G = new /obj/item/grab(user, src)
+	var/obj/item/grab/G = new /obj/item/grab(user, user, src)
 	if(buckled_to)
 		to_chat(user, "<span class='notice'>You cannot grab [src], [get_pronoun("he")] [get_pronoun("is")] buckled in!</span>")
 	if(!G)	//the grab will delete itself in New if affecting is anchored

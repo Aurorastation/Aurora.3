@@ -202,6 +202,11 @@
 	throw_range = 10
 	flags = CONDUCT
 
+/obj/item/stack/tile/floor/full/Initialize(mapload)
+	. = ..()
+	amount = max_amount
+	update_icon()
+
 /obj/item/stack/tile/floor_red
 	name = "red floor tile"
 	singular_name = "red floor tile"

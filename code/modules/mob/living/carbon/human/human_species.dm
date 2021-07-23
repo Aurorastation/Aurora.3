@@ -310,3 +310,6 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 
 /mob/living/carbon/human/adamantine_golem/Initialize(mapload)
 	. = ..(mapload, SPECIES_GOLEM_ADAMANTINE)
+
+/mob/living/carbon/human/technomancer_golem/Initialize(mapload)
+	. = ..(mapload, SPECIES_GOLEM_TECHOMANCER)

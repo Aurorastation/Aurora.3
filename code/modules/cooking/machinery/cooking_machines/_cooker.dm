@@ -138,7 +138,7 @@
 		update_cooking_power() // update!
 	for(var/cooking_obj in cooking_objs)
 		var/datum/cooking_item/CI = cooking_obj
-		if(isemptylist(CI.container?.reagents.reagent_data))
+		if((CI.container.flags && NOREACT) || isemptylist(CI.container?.reagents.reagent_volumes))
 			continue
 		CI.container.reagents.set_temperature(min(temperature, CI.container.reagents.get_temperature() + 10*SIGN(temperature - CI.container.reagents.get_temperature()))) // max of 5C per second
 	return ..()
