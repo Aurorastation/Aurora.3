@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Added wrist radios and headphone radios. The headphone radios gives the same muffled effect as earmuffs and wrist radios broadcasts everything heard to those next to the one carrying it as well."
