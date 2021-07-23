@@ -61,9 +61,14 @@
 			pname = "Fiber report #[report_num]"
 			info = "<b>Scanned item:</b><br>[initial(fibers.name)]<br><br>"
 			if(fibers.evidence)
-				info = "Molecular analysis on [fibers.name] has determined the presence of unique fiber strings.<br><br>"
+				info = "<b>Source locations:</b> "
+				// for(var/source in fibers.source)
+				// 	info += "<li>[source]"
+				info += "[english_list(fibers.source, "no sources were found", ", ", ", ", "")]."
+				info += "<HR>Molecular analysis on [fibers.name] has determined the presence of unique fiber strings.<ul>"
 				for(var/fiber in fibers.evidence)
-					info += "<span class='notice'>Most likely match for fibers: [fiber]</span><br><br>"
+					info += "<li><b>Most likely match for fibers:</b> [fiber]"
+				info += "</ul>"
 			else
 				info += "No fibers found."
 		else

@@ -10,6 +10,7 @@
 	if(supplied)
 		copy_evidence(supplied)
 		name = "[initial(name)] (\the [initial(supplied.name)])"
+		source += "\the [initial(supplied.name)]"
 
 /obj/item/sample/print/New(var/newloc, var/atom/supplied)
 	..(newloc, supplied)
@@ -25,6 +26,7 @@
 	if(!supplied.evidence || !supplied.evidence.len)
 		return 0
 	evidence |= supplied.evidence
+	source |= supplied.source
 	name = "[initial(name)] (combined)"
 	to_chat(user, "<span class='notice'>You transfer the contents of \the [initial(supplied.name)] into \the [src].</span>")
 	return 1
@@ -47,7 +49,30 @@
 		if(merge_evidence(O, user))
 			qdel(O)
 		return 1
+	else if (O.ispen())
+		var/tmp_label = sanitizeSafe(input(user, "Enter a label for [name]", "Label", label_text), MAX_NAME_LEN)
+		if(length(tmp_label) > 20)
+			to_chat(user, SPAN_NOTICE("The label can be at most 20 characters long."))
+		else
+			to_chat(user, SPAN_NOTICE("You set the label to \"[tmp_label]\"."))
+			label_text = tmp_label
+			update_name_label()
+		return
 	return ..()
+
+/obj/item/sample/proc/update_name_label()
+	if(label_text == "")
+		return
+	else
+		name = "[initial(name)] ([label_text])"
+		source = "[label_text]"
+
+/obj/item/sample/New(var/newloc, var/atom/supplied)
+	..(newloc)
+	if(supplied)
+		copy_evidence(supplied)
+		name = "[initial(name)] (\the [initial(supplied.name)])"
+		source += "\the [initial(supplied.name)]"
 
 /obj/item/sample/fibers
 	name = "fiber bag"
