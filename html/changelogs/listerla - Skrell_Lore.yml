@@ -1,7 +1,0 @@
-author: listerla
-
-delete-after: True
-
-changes:
-  - rscadd: "Added various Skrellian accents and religions."
-  - rscdel: "Removed Skrell access to Konyanger accent, Islam, Christianity, and Tribunalist religions, and Dominian citizenship."
