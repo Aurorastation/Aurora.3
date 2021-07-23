@@ -134,29 +134,29 @@
 
 /datum/gear/augment/corrective_lenses
 	display_name = "retractable corrective lenses"
-	description = "A set of corrective lenses that can be retracted."
+	description = "A set of corrective lenses that can be deployed & retracted."
 	path = /obj/item/organ/internal/augment/tool/correctivelens
 
 /datum/gear/augment/head_fluff
 	display_name = "Custom head augmentation"
-	description = "A fluff based augmentation that can be renamed/redescribed to appear as something else for RP purposes.."
+	description = "A fluff based augmentation that can be renamed/redescribed to appear as something else for RP purposes."
 	path = /obj/item/organ/internal/augment/head_fluff
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/augment/chest_fluff
 	display_name = "Custom chest augmentation"
-	description = "A fluff based augmentation that can be renamed/redescribed to appear as something else for RP purposes.."
+	description = "A fluff based augmentation that can be renamed/redescribed to appear as something else for RP purposes."
 	path = /obj/item/organ/internal/augment/head_fluff/chest_fluff
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/augment/rhand_fluff
 	display_name = "Custom right hand augmentation"
-	description = "A fluff based augmentation that can be renamed/redescribed to appear as something else for RP purposes.."
+	description = "A fluff based augmentation that can be renamed/redescribed to appear as something else for RP purposes."
 	path = /obj/item/organ/internal/augment/head_fluff/rhand_fluff
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/augment/lhand_fluff
 	display_name = "Custom left hand augmentation"
-	description = "A fluff based augmentation that can be renamed/redescribed to appear as something else for RP purposes.."
+	description = "A fluff based augmentation that can be renamed/redescribed to appear as something else for RP purposes."
 	path = /obj/item/organ/internal/augment/head_fluff/lhand_fluff
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
