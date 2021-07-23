@@ -5159,11 +5159,12 @@
 	filling_color = "#dcd9cd"
 	reagents_to_add = list(/decl/reagent/kois = 20, /decl/reagent/toxin/phoron = 15)
 
-/obj/item/reagent_containers/food/snacks/koisdonut
+/obj/item/reagent_containers/food/snacks/donut/kois
 	name = "k'ois donut"
 	desc = "Deep fried k'ois shaped into a donut."
 	icon_state = "kois_donut"
 	filling_color = "#dcd9cd"
+	overlay_state = "box-donut_kois"
 	reagents_to_add = list(/decl/reagent/kois = 15, /decl/reagent/toxin/phoron = 10)
 
 /obj/item/reagent_containers/food/snacks/koismuffin
@@ -5178,5 +5179,4 @@
 	desc = "K'ois inside k'ois. Peak Vaurcesian cuisine."
 	icon_state = "kois_burger"
 	filling_color = "#dcd9cd"
-	overlay_state = "box-donut_kois"
 	reagents_to_add = list(/decl/reagent/kois = 20, /decl/reagent/toxin/phoron = 20)

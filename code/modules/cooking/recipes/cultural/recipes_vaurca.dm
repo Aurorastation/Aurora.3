@@ -34,5 +34,5 @@
 /decl/recipe/koisdonut
 	appliance = FRYER
 	items = list(/obj/item/reagent_containers/food/snacks/friedkois)
-	result = /obj/item/reagent_containers/food/snacks/koisdonut
+	result = /obj/item/reagent_containers/food/snacks/donut/kois
 	result_quantity = 2
