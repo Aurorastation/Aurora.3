@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Hand-teles now operate differently. Ctrl-click it to set which station it links to, alt-click or use in-hand to deploy a portal."
