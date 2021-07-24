@@ -1,0 +1,6 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - tweak: "The Adhomain Wool Coat and Raakti Shariim Coat are now both able to be toggled open. Their on-mob sprites should now look more like coats now too."
