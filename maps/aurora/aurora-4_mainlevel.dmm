@@ -1419,6 +1419,9 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 4
 	},
+/obj/machinery/light_switch{
+	pixel_y = -26
+	},
 /turf/simulated/floor/tiled,
 /area/security/forensics_laboratory)
 "acZ" = (
@@ -10894,11 +10897,6 @@
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "aum" = (
-/obj/item/device/radio/intercom{
-	frequency = 1475;
-	name = "Station Intercom (Security)";
-	pixel_y = 22
-	},
 /obj/machinery/light{
 	dir = 1
 	},
@@ -10908,6 +10906,10 @@
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/device/radio/intercom{
+	name = "Station Intercom (General)";
+	pixel_y = 25
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "aun" = (
@@ -41234,7 +41236,7 @@
 /obj/machinery/door/airlock/glass_medical{
 	name = "Custodial Closet";
 	req_access = null;
-	req_one_access = list(26, 66)
+	req_one_access = list(26,66)
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -64539,9 +64541,6 @@
 /area/security/brig)
 "nbN" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
-/obj/machinery/light_switch{
-	pixel_y = -26
-	},
 /obj/machinery/light,
 /obj/structure/table/rack,
 /obj/item/storage/briefcase/crimekit,

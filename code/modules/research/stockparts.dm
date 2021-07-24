@@ -76,6 +76,7 @@
 	var/rating = STOCK_PART_BASIC
 	drop_sound = 'sound/items/drop/component.ogg'
 	pickup_sound = 'sound/items/pickup/component.ogg'
+	recyclable = TRUE
 
 /obj/item/stock_parts/Initialize()
 	. = ..()

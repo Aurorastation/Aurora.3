@@ -130,7 +130,7 @@
 	bodytype = BODYTYPE_IPC_INDUSTRIAL
 	mob_size = 12
 
-	unarmed_types = list(/datum/unarmed_attack/industrial)
+	unarmed_types = list(/datum/unarmed_attack/industrial, /datum/unarmed_attack/palm/industrial)
 
 	brute_mod = 0.8
 	burn_mod = 1.1
@@ -312,7 +312,7 @@
 
 	eyes = "heph_eyes"
 
-	unarmed_types = list(/datum/unarmed_attack/industrial/heavy)
+	unarmed_types = list(/datum/unarmed_attack/industrial/heavy, /datum/unarmed_attack/palm/industrial)
 
 	slowdown = 6
 	brute_mod = 0.7
@@ -366,7 +366,9 @@
 	preview_icon = 'icons/mob/human_races/ipc/ind_xion_preview.dmi'
 
 	unarmed_types = list(
-		/datum/unarmed_attack/industrial/xion)
+		/datum/unarmed_attack/industrial/xion,
+		/datum/unarmed_attack/palm/industrial
+	)
 
 	brute_mod = 0.9
 	grab_mod = 0.9
