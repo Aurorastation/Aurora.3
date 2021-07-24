@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "The supermatter grid SMES now starts with four capacitance coils and two transmission coils, as well as full charge, max input, and 1.3 MW output."
