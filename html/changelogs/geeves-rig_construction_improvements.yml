@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "The descriptions of hardsuit assemblies and their constructions have been overhauled."
+  - rscadd: "Examining a hardsuit assembly will now provide a description and tell you at which step its at, what to do to go forward, and what to do to go back."
+  - rscadd: "Holding shift and hovering over a hardsuit assembly when you are near it will provide a tooltip providing the step its at and how to continue."
