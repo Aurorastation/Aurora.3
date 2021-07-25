@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Chemical dispensers like the soft drink dispenser and the alcohol dispenser can now be rotated with alt-click."
