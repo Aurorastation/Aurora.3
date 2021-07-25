@@ -1,0 +1,7 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - maptweak: "The sublevel crusher camera was moved up one to allow full view of the crusher contents."
+  - maptweak: "Put the bar booth, brig shower and the lower hallway outside the diner's cameras on the proper networks."

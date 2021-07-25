@@ -23770,7 +23770,8 @@
 	},
 /obj/machinery/camera/network/security{
 	c_tag = "Security - Communal Bathroom";
-	dir = 4
+	dir = 4;
+	network = list("Prison")
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/security/prison)
@@ -53959,7 +53960,8 @@
 /obj/structure/table/wood,
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Bar - Booths";
-	dir = 1
+	dir = 1;
+	network = list("Service")
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
@@ -69434,7 +69436,7 @@
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Aft Corridor - Camera 2";
 	dir = 8;
-	network = list("Service")
+	network = list("Civilian Main")
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
