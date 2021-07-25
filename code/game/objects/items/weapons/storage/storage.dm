@@ -41,6 +41,8 @@
 	var/use_sound = /decl/sound_category/rustle_sound	//sound played when used. null for no sound.
 	var/list/starts_with // for pre-filled items
 	var/empty_delay = 0 SECOND // time it takes to empty bag. this is multiplies by number of objects stored
+	var/allow_same_size_storage = FALSE // if true, you can put storage items of the same size or larger into this
+	var/pocket_storage = FALSE // if true, you can open it while it's in your pockets by clicking it
 
 /obj/item/storage/Destroy()
 	close_all()
@@ -361,7 +363,7 @@
 			to_chat(usr, "<span class='notice'>[src] is too full, make some space.</span>")
 		return 0
 
-	if(W.w_class >= src.w_class && (istype(W, /obj/item/storage)))
+	if(!allow_same_size_storage && W.w_class >= src.w_class && (istype(W, /obj/item/storage)))
 		if(!stop_messages)
 			to_chat(usr, "<span class='notice'>[src] cannot hold [W] as it's a storage item of the same size.</span>")
 		return 0 //To prevent the stacking of same sized storage items.
@@ -545,7 +547,7 @@
 	return
 
 /obj/item/storage/attack_hand(mob/user)
-	if(ishuman(user))
+	if(!pocket_storage && ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.l_store == src && !H.get_active_hand())	//Prevents opening if it's in a pocket.
 			H.put_in_hands(src)

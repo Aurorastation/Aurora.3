@@ -1080,6 +1080,7 @@
 #include "code\game\objects\items\weapons\storage\lockbox.dm"
 #include "code\game\objects\items\weapons\storage\misc.dm"
 #include "code\game\objects\items\weapons\storage\nitrilebox.dm"
+#include "code\game\objects\items\weapons\storage\pouch.dm"
 #include "code\game\objects\items\weapons\storage\secure.dm"
 #include "code\game\objects\items\weapons\storage\storage.dm"
 #include "code\game\objects\items\weapons\storage\toolbox.dm"

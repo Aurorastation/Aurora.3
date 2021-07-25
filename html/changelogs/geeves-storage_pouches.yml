@@ -1,0 +1,8 @@
+author: Geeves, Sgtsammac
+
+delete-after: True
+
+changes:
+  - rscadd: "Added storage pouches, small storage items that can fit in pockets and webbing, that can hold up to seven small items."
+  - rscadd: "Added medical pouches to the Nanomed Plus vendors, capable of holding some small medical equipment."
+  - rscadd: "Added circuit pouches to the EngiVend, capable of holding various circuitboards, electronics, etc."

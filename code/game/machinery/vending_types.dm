@@ -512,7 +512,8 @@
 		/obj/item/reagent_containers/pill/perconol = 6,
 		/obj/item/reagent_containers/food/drinks/medcup = 4,
 		/obj/item/storage/pill_bottle = 4,
-		/obj/item/reagent_containers/spray/sterilizine = 2
+		/obj/item/reagent_containers/spray/sterilizine = 2,
+		/obj/item/storage/pouch/medical = 3
 	)
 	contraband = list(
 		/obj/item/reagent_containers/inhaler/space_drugs = 2,
@@ -954,7 +955,8 @@
 		/obj/item/module/power_control = 10,
 		/obj/item/airalarm_electronics = 10,
 		/obj/item/firealarm_electronics = 10,
-		/obj/item/cell/high = 10
+		/obj/item/cell/high = 10,
+		/obj/item/storage/pouch/circuit = 6
 	)
 	contraband = list(
 		/obj/item/cell/potato = 3
