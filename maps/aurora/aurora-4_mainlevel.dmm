@@ -20590,9 +20590,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/machinery/camera/network/security{
 	c_tag = "Security - Lobby Desk"
 	},
@@ -23736,6 +23733,7 @@
 /obj/structure/table/standard,
 /obj/item/folder/sec,
 /obj/item/paper_scanner,
+/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/security/brig/control_room)
 "aPg" = (
@@ -68851,6 +68849,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"uiJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/security/brig/control_room)
 "ujv" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -101457,7 +101467,7 @@ omB
 aEm
 aGk
 aIq
-aJJ
+uiJ
 ntc
 aNp
 aPf
