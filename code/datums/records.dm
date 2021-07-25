@@ -144,7 +144,7 @@
 	if(H)
 		name = H.real_name
 		real_rank = H.mind.assigned_role
-		rank = GetAssignment(H)
+		rank = GetAssignment(H, TRUE)
 		age = H.age
 		fingerprint = md5(H.dna.uni_identity)
 		sex = H.gender

@@ -113,7 +113,7 @@
 				conf_access = null
 
 /obj/item/airlock_electronics/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/airlock_electronics))
+	if(istype(W, /obj/item/airlock_electronics) &&(!isrobot(user)))
 		if(src.locked)
 			to_chat(user, SPAN_WARNING("\The [src] you're trying to set is locked! Swipe your ID to unlock."))
 			return

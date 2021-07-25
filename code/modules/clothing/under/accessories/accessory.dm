@@ -56,7 +56,7 @@
 	if(build_from_parts)
 		accessory_mob_overlay.cut_overlays()
 		accessory_mob_overlay.add_overlay(overlay_image(I, "[icon_state][WORN_UNDER]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
-	accessory_mob_overlay.appearance_flags = RESET_ALPHA
+	accessory_mob_overlay.appearance_flags = RESET_ALPHA|RESET_COLOR
 	return accessory_mob_overlay
 
 //when user attached an accessory to S
