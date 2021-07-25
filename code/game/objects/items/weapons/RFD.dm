@@ -193,13 +193,13 @@ RFD Construction-Class
 		return
 	if(disabled && !isrobot(user))
 		return FALSE
-	var/area/A = get_area(A)
-	if(A.centcomm_area || istype(A, /area/shuttle) || istype(A, /turf/space/transit))
+	var/area/Area = get_area(A)
+	if(Area.centcomm_area || istype(Area, /area/shuttle) || istype(Area, /turf/space/transit))
 		to_chat(user, SPAN_WARNING("\The [src] can't be used here!"))
 		return FALSE
 	if(is_type_in_list(A, valid_atoms))
 		return alter_atom(A, user, (mode == RFD_DECONSTRUCT))
-	return alter_atom(t, user, (mode == RFD_DECONSTRUCT))
+	return alter_atom(get_turf(A), user, (mode == RFD_DECONSTRUCT))
 
 /obj/item/rfd/construction/proc/alter_atom(var/atom/A, var/mob/user, var/deconstruct)
 	if(working)
