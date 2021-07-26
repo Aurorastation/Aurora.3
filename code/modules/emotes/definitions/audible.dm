@@ -64,7 +64,6 @@
 /decl/emote/audible/chitter
 	key = "chitter"
 	emote_message_3p = "USER chitters."
-	emote_sound = list('sound/misc/zapsplat/chitter1.ogg', 'sound/misc/zapsplat/chitter2.ogg', 'sound/misc/zapsplat/chitter3.ogg')
 
 /decl/emote/audible/shriek
 	key = "shriek"
@@ -232,11 +231,9 @@
 
 /decl/emote/audible/hiss/long
 	key = "hiss2"
-	emote_sound = 'sound/voice/LizardHiss.ogg'
 
 /decl/emote/audible/hiss/short
 	key = "hiss3"
-	emote_sound = 'sound/voice/LizardHissShort.ogg'
 
 /decl/emote/audible/lizard_bellow
 	key = "bellow"

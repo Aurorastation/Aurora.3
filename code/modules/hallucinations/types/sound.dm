@@ -26,8 +26,6 @@
 			'sound/effects/phasein.ogg',
 			/decl/sound_category/spark_sound,
 			'sound/effects/stealthoff.ogg',
-			'sound/misc/zapsplat/chitter1.ogg',
-			'sound/misc/zapsplat/chitter2.ogg',
 			'sound/effects/squelch1.ogg',
 			'sound/items/wrench.ogg',
 			'sound/items/welder.ogg',
