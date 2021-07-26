@@ -1,0 +1,1646 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/turf/unsimulated/chasm_mask,
+/area/mine/unexplored)
+"ab" = (
+/turf/simulated/wall/rusty,
+/area/mine/unexplored)
+"ac" = (
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"ad" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"ae" = (
+/obj/structure/table/standard,
+/obj/item/surgery/scalpel/laser3,
+/obj/item/storage/box/freezer/organcooler,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"af" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"ag" = (
+/obj/machinery/portable_atmospherics/canister/empty/oxygen,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"ah" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/anomaly,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"ai" = (
+/obj/machinery/optable,
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"aj" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/rack,
+/obj/item/clothing/head/helmet/space/anomaly,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"ak" = (
+/obj/machinery/suit_cycler/science,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"al" = (
+/obj/structure/table/standard,
+/obj/item/surgery/retractor,
+/obj/item/surgery/bonesetter,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"am" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/walllocker/emerglocker/north,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"an" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"ao" = (
+/obj/machinery/door/airlock/sac,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"ap" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"aq" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"ar" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"as" = (
+/obj/machinery/door/airlock/sac,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"at" = (
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"au" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate/freezer,
+/obj/item/organ/internal/kidneys,
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"av" = (
+/obj/structure/trash_pile,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"aw" = (
+/obj/structure/dispenser/oxygen,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"ax" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/curtain/medical,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"ay" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/floodlight{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"az" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/appliance/cooker/oven,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"aA" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/secure_closet/freezer/meat,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"aB" = (
+/obj/structure/table/standard,
+/obj/machinery/chemical_dispenser/coffee/full,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"aC" = (
+/obj/machinery/vending/cigarette,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"aD" = (
+/obj/structure/table/standard,
+/obj/item/material/ashtray/plastic,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/black,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"aE" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/stool/padded,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"aF" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/washing_machine,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"aG" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"aH" = (
+/obj/effect/decal/cleanable/cobweb2,
+/obj/structure/reagent_dispensers/water_cooler,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"aI" = (
+/obj/structure/closet/secure_closet/medical2,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"aJ" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"aK" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/barricade/steel,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"aL" = (
+/obj/structure/barricade/steel,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"aM" = (
+/obj/structure/table/rack,
+/obj/random/toolbox,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"aN" = (
+/obj/structure/bed/chair/plastic,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"aO" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/chair/plastic,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"aP" = (
+/obj/effect/decal/cleanable/cobweb,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 9
+	},
+/obj/random/junk,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"aQ" = (
+/obj/structure/trash_pile,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"aR" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/random/junk,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"aS" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"aT" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/ash,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"aU" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/trash_pile,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"aV" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/shieldgen,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"aW" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"aX" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/junk,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"aY" = (
+/obj/random/junk,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"aZ" = (
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"ba" = (
+/obj/machinery/shieldgen,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bb" = (
+/obj/machinery/vending/coffee,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bc" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/l3closet/janitor,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bd" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/mopbucket,
+/obj/item/mop/advanced,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"be" = (
+/obj/structure/mirror{
+	pixel_y = 32
+	},
+/obj/structure/sink{
+	pixel_y = 15
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bf" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/mirror{
+	pixel_y = 32
+	},
+/obj/structure/sink{
+	pixel_y = 15
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bg" = (
+/obj/structure/urinal{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bh" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/airlock/silver,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bi" = (
+/obj/machinery/door/airlock/silver,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bj" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/wall/rusty,
+/area/mine/unexplored)
+"bk" = (
+/obj/structure/trash_pile,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bl" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/trash_pile,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bm" = (
+/obj/structure/table/standard,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bn" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/walllocker/emerglocker/east,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bo" = (
+/obj/item/material/shard,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bp" = (
+/obj/machinery/telepad,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bq" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/body_bag,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"br" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/window/reinforced,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bs" = (
+/obj/structure/window/reinforced,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bt" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/modular_computer/console,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bu" = (
+/obj/structure/table/standard,
+/obj/item/paper_bin,
+/obj/item/pen/fountain/black,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bv" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/standard,
+/obj/item/device/camera,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bw" = (
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bx" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"by" = (
+/obj/structure/table/standard,
+/obj/random/action_figure,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bz" = (
+/obj/structure/table/standard,
+/obj/item/device/hand_labeler,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bA" = (
+/obj/structure/bed/roller,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bB" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/material/shard,
+/obj/machinery/artifact_scanpad,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bC" = (
+/obj/machinery/artifact_analyser,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bD" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning/dust,
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bE" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/chair/office/dark{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bF" = (
+/obj/machinery/chemical_dispenser,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bG" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/standard,
+/obj/item/robot_parts/robot_component/camera,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bH" = (
+/obj/structure/table/standard,
+/obj/random/belt,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bI" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/artifact,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bJ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/wood,
+/obj/item/gun/energy/pistol,
+/turf/simulated/floor/carpet,
+/area/mine/unexplored)
+"bK" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/carpet,
+/area/mine/unexplored)
+"bL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/wood,
+/obj/item/hand_tele,
+/turf/simulated/floor/carpet,
+/area/mine/unexplored)
+"bM" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/junk,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bN" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/chair/office/light{
+	dir = 1
+	},
+/turf/simulated/floor/carpet,
+/area/mine/unexplored)
+"bO" = (
+/turf/simulated/floor/carpet,
+/area/mine/unexplored)
+"bP" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bQ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small,
+/turf/simulated/floor/carpet,
+/area/mine/unexplored)
+"bR" = (
+/obj/random/junk,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bS" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bT" = (
+/obj/structure/toilet{
+	dir = 1
+	},
+/obj/structure/noose,
+/obj/effect/decal/remains/human,
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bU" = (
+/obj/structure/toilet{
+	dir = 1
+	},
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bV" = (
+/obj/structure/toilet{
+	dir = 1
+	},
+/obj/machinery/light/small,
+/mob/living/simple_animal/hostile/giant_spider/hunter,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+"bW" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/toilet{
+	dir = 1
+	},
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine/unexplored)
+
+(1,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(2,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ao
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(3,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+aP
+ap
+at
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(4,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+am
+ad
+bD
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(5,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+an
+aq
+av
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(6,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ao
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(7,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ag
+aJ
+ad
+aw
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(8,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ah
+ad
+af
+aS
+ab
+az
+bM
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(9,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+aM
+ac
+aR
+ay
+ab
+aA
+ac
+aD
+ab
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+"}
+(10,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+aj
+ad
+ac
+aT
+ab
+aB
+ad
+aE
+ab
+aa
+aa
+ab
+be
+aJ
+bh
+bT
+ab
+aa
+"}
+(11,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ae
+ac
+aI
+ab
+ak
+ac
+bn
+ac
+ab
+aC
+ac
+ad
+ab
+aa
+aa
+ab
+bf
+ad
+ab
+bj
+ab
+aa
+"}
+(12,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ai
+ac
+au
+ab
+ab
+ab
+ab
+ao
+ab
+ab
+ab
+as
+ab
+aa
+aa
+ab
+bg
+aZ
+bh
+bU
+ab
+aa
+"}
+(13,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+al
+ad
+ad
+ab
+aN
+bA
+ab
+ac
+aU
+ac
+aY
+ad
+ab
+ab
+ab
+ab
+ab
+as
+ab
+ab
+ab
+aa
+"}
+(14,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ax
+ax
+ab
+aO
+ad
+as
+ac
+ad
+ad
+ad
+bP
+ab
+ac
+ad
+bR
+ad
+ad
+aQ
+ab
+aa
+aa
+"}
+(15,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+bq
+ad
+aK
+ac
+ad
+ab
+ac
+ac
+ac
+ad
+ac
+as
+ac
+ad
+ad
+ad
+ac
+ad
+ab
+aa
+aa
+"}
+(16,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+aH
+ad
+aL
+ac
+bk
+ab
+ac
+aV
+aW
+aZ
+ba
+ab
+bb
+ac
+ad
+ad
+ac
+ac
+ab
+aa
+aa
+"}
+(17,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ao
+ab
+ab
+ab
+ab
+ab
+ab
+ao
+ab
+ab
+as
+ab
+ab
+ab
+aa
+"}
+(18,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ac
+ac
+br
+bt
+bx
+ac
+bl
+ac
+ac
+ab
+aa
+aa
+aa
+ab
+bc
+af
+ab
+be
+ac
+bi
+bV
+ab
+aa
+"}
+(19,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ar
+bp
+bs
+bu
+ad
+ad
+ac
+ad
+ac
+ab
+ab
+ab
+ab
+ab
+bd
+aG
+ab
+bf
+ac
+bj
+bj
+ab
+aa
+"}
+(20,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+bo
+ac
+br
+bv
+ad
+ac
+bB
+af
+ad
+ab
+ac
+ac
+aY
+ab
+aF
+aX
+ab
+aQ
+bS
+bi
+bW
+ab
+aa
+"}
+(21,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ac
+ac
+ac
+ad
+ad
+bC
+ad
+ad
+ab
+ac
+bJ
+bQ
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+"}
+(22,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ac
+ac
+ac
+ac
+ac
+ac
+ao
+ad
+bK
+bN
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(23,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+bw
+ac
+ad
+ac
+bE
+bG
+ab
+ac
+bL
+bO
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(24,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+by
+bz
+bm
+bF
+bH
+ab
+bI
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(25,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(26,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(27,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(28,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(29,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(30,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(31,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(32,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}

@@ -53,7 +53,7 @@
 
 
 /mob/living/simple_animal/hostile/vannatusk/proc/fire_spike(var/mob/living/target_mob)
-	visible_message(SPAN_DANGER("\The [src] spites a spike at [target_mob]!"))
+	visible_message(SPAN_DANGER("\The [src] fires a spike at [target_mob]!"))
 	playsound(get_turf(src), 'sound/weapons/bloodyslice.ogg', 50, 1)
 	var/obj/item/bone_dart/A = new /obj/item/bone_dart/vannatusk(get_turf(src))
 	A.throw_at(target_mob, 10, 20, src)
