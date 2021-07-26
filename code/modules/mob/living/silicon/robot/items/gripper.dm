@@ -207,7 +207,7 @@
 		/obj/item/paper,
 		/obj/item/paper_bundle,
 		/obj/item/canvas,
-		/obj/item/pen/crayon,
+		/obj/item/pen,
 		/obj/item/card/id,
 		/obj/item/book,
 		/obj/item/newspaper,
