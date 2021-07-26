@@ -5,4 +5,5 @@
 	icon_state = "vacmantle"
 	item_state = "vacmantle"
 	contained_sprite = TRUE
+	icon_override = null
 	body_parts_covered = UPPER_TORSO
