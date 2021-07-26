@@ -1652,6 +1652,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"LR" = (
+/obj/machinery/turbolift_controller{
+	controller_link_id = "lift_runtime";
+	pixel_x = -32
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "PS" = (
 /obj/effect/landmark{
 	name = "Revenant"
@@ -3905,7 +3912,7 @@ ae
 ae
 ae
 ae
-ae
+LR
 gF
 ae
 ae

@@ -1,3 +1,11 @@
+#define PAGE_CONTROL_MODE "controlmode"
+#define PAGE_ELEVATOR_STATES "elevatorstates"
+#define PAGE_CABIN_CONTROL "cabincontrol"
+#define PAGE_FLOOR_LOCKOUT "floorlockout"
+#define PAGE_SAFETY_SYSTEM "safetysystem"
+#define PAGE_ACCESS_CONTROL "accesscontrol"
+#define PAGE_ACCESS_EDIT "accessedit"
+
 /obj/machinery/turbolift_controller
 	name = "turbolift controller"
 	desc = "A controller used to control a turbolift"
@@ -15,6 +23,7 @@
 	var/datum/wires/turoblift/wires
 	var/datum/turbolift/lift
 
+	var/active_page = "controlmode"
 
 //TODO: UI
 //TODO:   Elevator-Status (unauthed)
@@ -52,7 +61,8 @@
 /obj/machinery/turbolift_controller/attack_hand(var/mob/user)
 	if(panel_open)
 		wires.Interact(user)
-	. = ..()
+		return
+	ui_interact(user)
 
 /obj/machinery/turbolift_controller/attackby(var/obj/item/O, var/mob/user)
 	if(default_deconstruction_screwdriver(user, O))
@@ -64,6 +74,36 @@
 	if(panel_open && (O.ismultitool() || O.iswirecutter()))
 		return attack_hand(user)
 	. = ..()
+
+/obj/machinery/turbolift_controller/ui_interact(mob/user)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	if(!ui)
+		ui = new(user, src, "machinery-turboliftcontroller-[active_page]", 440, 300, capitalize_first_letters(name))
+	ui.open()
+
+// TODO: replace dummy data
+/obj/machinery/turbolift_controller/vueui_data_change(list/data, mob/user, datum/vueui/ui)
+	data = list()
+
+	switch(active_page)
+		if(PAGE_ELEVATOR_STATES)
+			var/list/dummy_floor_data = list("Floor 3" = list("Open", "Cabin"), "Floor 2" = list("Closed", "ilock,elock"), "Floor 1" = list("Closed", "Called"))
+			data["floor_data"] = dummy_floor_data
+			data["hardware_status"] = "Functional"
+
+	return data
+
+/obj/machinery/turbolift_controller/Topic(href, href_list)
+	if(..())
+		return TRUE
+
+	if(href_list["page"])
+		active_page = href_list["page"]
+
+	var/datum/vueui/ui = href_list["vueui"]
+	ui.activeui = "machinery-turboliftcontroller-[active_page]"
+
+	SSvueui.check_uis_for_change(src)
 
 /obj/machinery/turbolift_controller/update_icon()
 	if(panel_open)
@@ -102,3 +142,11 @@
 
 /obj/machinery/turbolift_controller/proc/can_cabin_doorclose(var/mob/user, var/obj/structure/lift/panel/P)
 	return wires.hacking_doorcontrol == 0
+
+#undef PAGE_CONTROL_MODE
+#undef PAGE_ELEVATOR_STATES
+#undef PAGE_CABIN_CONTROL
+#undef PAGE_FLOOR_LOCKOUT
+#undef PAGE_SAFETY_SYSTEM
+#undef PAGE_ACCESS_CONTROL
+#undef PAGE_ACCESS_EDIT
