@@ -142,10 +142,7 @@ var/list/lunchables_alcohol_reagents_ = list(
 	return lunchables_alcohol_reagents_
 
 /proc/lunchables_all_drink_reagents()
-	. = list()
-	LAZYADD(., lunchables_drink_reagents())
-	LAZYADD(., lunchables_alcohol_reagents())
-	. = sortList(.)
+	return sortList(lunchables_drink_reagents() + lunchables_alcohol_reagents())
 
 /proc/init_lunchable_list(var/list/lunches)
 	. = list()
