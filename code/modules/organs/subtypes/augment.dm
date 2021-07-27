@@ -498,15 +498,11 @@
 	if(!owner)
 		return
 
-	if(prob(1))
-
+	if(prob(10))
 		switch(set_emotion)
-
-			if("Happiness")
-
+			if("happiness")
 				to_chat(owner, SPAN_NOTICE("You feel happy."))
-
-			if("Calmness")
+			if("calmness")
 				to_chat(owner, SPAN_NOTICE("You feel calm."))
 
 		if(is_broken())
