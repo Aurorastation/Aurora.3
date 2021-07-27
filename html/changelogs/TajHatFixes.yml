@@ -1,6 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - bugfix: "Certain tajara markings will no longer show ears through headwear."
