@@ -575,3 +575,10 @@
 	icon_state = "qipao"
 	item_state = "qipao"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+
+/obj/item/clothing/under/qipao2
+	name = "slim qipao"
+	desc = "A traditional Solarian women's garment, typically made of (synthetic) silk. This one is fairly slim."
+	icon_state = "qipao2"
+	item_state = "qipao2"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
