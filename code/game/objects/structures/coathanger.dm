@@ -4,8 +4,11 @@
 	icon = 'icons/obj/coatrack.dmi'
 	icon_state = "coatrack0"
 	var/obj/item/clothing/suit/coat
-	var/list/allowed = list(/obj/item/clothing/suit/storage/toggle/labcoat, /obj/item/clothing/suit/storage/toggle/det_trench,
-							/obj/item/clothing/suit/storage/toggle/forensics, /obj/item/clothing/suit/storage/toggle/trench)
+	var/obj/item/clothing/head/hat
+	var/list/allowed_coats = list(/obj/item/clothing/suit/storage/toggle/labcoat, /obj/item/clothing/suit/storage/toggle/det_trench,
+							/obj/item/clothing/suit/storage/toggle/forensics, /obj/item/clothing/suit/storage/toggle/trench,
+							/obj/item/clothing/suit/storage/det_jacket)
+	var/list/allowed_hats = list(/obj/item/clothing/head/det, /obj/item/clothing/head/beret/security, /obj/item/clothing/head/softcap/security)
 
 /obj/structure/coatrack/attack_hand(mob/user as mob)
 	if (!ishuman(user))
@@ -20,29 +23,51 @@
 		user.put_in_hands(coat)
 		coat = null
 		update_icon()
+	else if(hat)
+		user.visible_message("[user] takes [hat] off \the [src].", "You take [hat] off the \the [src]")
+		hat.forceMove(get_turf(user))
+		user.put_in_hands(hat)
+		hat = null
+		update_icon()
 
 /obj/structure/coatrack/attackby(obj/item/W as obj, mob/user as mob)
-	var/can_hang = 0
-	if(is_type_in_list(W, allowed))
-		can_hang = 1
-	if (can_hang && !coat)
+	var/can_hang_coat = 0
+	var/can_hang_hat = 0
+	if(is_type_in_list(W, allowed_coats))
+		can_hang_coat = 1
+	else if(is_type_in_list(W, allowed_hats))
+		can_hang_hat = 1
+	if (can_hang_coat && !coat)
 		user.visible_message("[user] hangs [W] on \the [src].", "You hang [W] on the \the [src]")
 		coat = W
 		user.drop_from_inventory(coat, src)
+		update_icon()
+	else if (can_hang_hat && !hat)
+		user.visible_message("[user] hangs [W] on \the [src].", "You hang [W] on the \the [src]")
+		hat = W
+		user.drop_from_inventory(hat, src)
 		update_icon()
 	else
 		to_chat(user, "<span class='notice'>You cannot hang [W] on [src]</span>")
 		return ..()
 
 /obj/structure/coatrack/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	var/can_hang = 0
-	if(is_type_in_list(mover, allowed))
-		can_hang = 1
-
-	if (can_hang && !coat)
+	var/can_hang_coat = 0
+	var/can_hang_hat = 0
+	if(is_type_in_list(mover, allowed_coats))
+		can_hang_coat = 1
+	else if(is_type_in_list(mover, allowed_hats))
+		can_hang_hat = 1
+	if (can_hang_coat && !coat)
 		src.visible_message("[mover] lands on \the [src].")
 		coat = mover
 		coat.forceMove(src)
+		update_icon()
+		return 0
+	if (can_hang_hat && !hat)
+		src.visible_message("[mover] lands on \the [src].")
+		hat = mover
+		hat.forceMove(src)
 		update_icon()
 		return 0
 	else
@@ -54,4 +79,10 @@
 		if(istype(coat, /obj/item/clothing/suit/storage/toggle))
 			var/obj/item/clothing/suit/storage/toggle/T = coat
 			T.icon_state = initial(T.icon_state)
+			T.opened = FALSE
 		add_overlay("coat_[coat.icon_state]")
+	if (hat)
+		if(istype(hat, /obj/item/clothing/head/softcap/security/idris) || istype(hat, /obj/item/clothing/head/softcap/security/corp))
+			add_overlay("hat_softcap_[hat.icon_state]")
+		else
+			add_overlay("hat_[hat.icon_state]")

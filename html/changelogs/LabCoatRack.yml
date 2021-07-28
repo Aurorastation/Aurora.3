@@ -1,0 +1,8 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "The coatrack can now hold most forensic coats along with the detective jacket."
+  - rscadd: "The coatrack can now hold fedoras and several security berets & caps including idris variants of those."
+  - rscadd: "Investigators are now given security labcoats that button all the way when closed."
