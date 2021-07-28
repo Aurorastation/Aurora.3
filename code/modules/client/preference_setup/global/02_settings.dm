@@ -97,7 +97,8 @@
 		"<b>Progress Bars:</b> <a href='?src=\ref[src];paratoggle=[PROGRESS_BARS]'><b>[(pref.toggles_secondary & PROGRESS_BARS) ? "Yes" : "No"]</b></a><br>",
 		"<b>Floating Messages:</b> <a href='?src=\ref[src];paratoggle=[FLOATING_MESSAGES]'><b>[(pref.toggles_secondary & FLOATING_MESSAGES) ? "Yes" : "No"]</b></a><br>",
 		"<b>Static Space:</b> <a href='?src=\ref[src];paratoggle=[PARALLAX_IS_STATIC]'><b>[(pref.toggles_secondary & PARALLAX_IS_STATIC) ? "Yes" : "No"]</b></a><br>",
-		"<b>Hotkey Mode Default:</b> <a href='?src=\ref[src];paratoggle=[HOTKEY_DEFAULT]'><b>[(pref.toggles_secondary & HOTKEY_DEFAULT) ? "On" : "Off"]</b></a><br>"
+		"<b>Hotkey Mode Default:</b> <a href='?src=\ref[src];paratoggle=[HOTKEY_DEFAULT]'><b>[(pref.toggles_secondary & HOTKEY_DEFAULT) ? "On" : "Off"]</b></a><br>",
+		"<b>Goonchat:</b> <a href='?src=\ref[src];paratoggle=[GOONCHAT_ON]'><b>[(pref.toggles_secondary & GOONCHAT_ON) ? "On" : "Off"]</b></a><br>"
 	)
 
 	. = dat.Join()
@@ -116,9 +117,24 @@
 	if(href_list["paratoggle"])
 		var/flag = text2num(href_list["paratoggle"])
 		pref.toggles_secondary ^= flag
+		toggle_flag(flag)
 		return TOPIC_REFRESH
 
 	return ..()
+
+/datum/category_item/player_setup_item/player_global/settings/proc/toggle_flag(var/flag)
+	var/mob/M = preference_mob()
+	var/client/C = M.client
+	switch(flag)
+		if(GOONCHAT_ON)
+			if(pref.toggles_secondary & GOONCHAT_ON)
+				C.chatOutput.loaded = FALSE
+				C.chatOutput.start()
+			else
+				C.chatOutput.ehjax_send(data = "setWhiteTheme")
+				winset(C, "output", "is-visible=true;is-disabled=false")
+				winset(C, "browseroutput", "is-visible=false")
+				to_chat(C, "<span class='danger'>If you had dark mode on with Goonchat prior to switching chats, your accent icons will probably not work. Restart your game.</span>")
 
 /datum/category_item/player_setup_item/player_global/settings/proc/validate_current_character()
 	if (!establish_db_connection(dbcon))

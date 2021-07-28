@@ -29,13 +29,6 @@
 	item_state = "shaper_robes"
 	species_restricted = list(BODYTYPE_VAURCA)
 
-/obj/item/clothing/suit/vaurca/mantle
-	name = "vaurcan mantle"
-	desc = "This mantle is commonly worn in dusty underground areas, its wide upper covering acting as a kind of dust umbrella."
-	icon_state = "vacmantle"
-	item_state = "vacmantle"
-	body_parts_covered = UPPER_TORSO
-
 /obj/item/clothing/suit/vaurca/breeder
 	name = "zo'ra representative clothes"
 	desc = "A large piece of clothing used by Zo'ra representatives."
