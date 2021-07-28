@@ -301,3 +301,15 @@
 	damage = 15
 	damage_type = BRUTE
 	check_armor = "energy"
+
+/obj/item/projectile/bonedart
+	name = "bone dart"
+	icon_state = "bonedart"
+	damage = 35
+	damage_type = BRUTE
+	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_BULLET_MEAT, BULLET_IMPACT_METAL = SOUNDS_BULLET_METAL)
+	nodamage = FALSE
+	check_armor = "melee"
+	embed = TRUE
+	sharp = TRUE
+	shrapnel_type = /obj/item/bone_dart/vannatusk

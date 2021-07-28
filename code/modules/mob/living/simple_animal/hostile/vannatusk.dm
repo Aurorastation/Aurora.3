@@ -1,7 +1,7 @@
 /mob/living/simple_animal/hostile/vannatusk
 	name = "vannatusk"
-	desc = "An interdimensional bluespace creature.."
-	icon = 'icons/mob/npc/animal.dmi'
+	desc = "An interdimensional creature."
+	icon = 'icons/mob/npc/vannatusk.dmi'
 	icon_state = "vannatusk"
 	icon_living = "vannatusk"
 	icon_dead = "vannatusk_dead"
@@ -15,15 +15,16 @@
 	response_help  = "pets"
 	response_disarm = "shoves"
 	response_harm   = "harmlessly punches"
-	maxHealth = 250
-	health = 250
+	maxHealth = 350
+	health = 350
 	harm_intent_damage = 5
-	melee_damage_lower = 20
-	melee_damage_upper = 20
+	melee_damage_lower = 30
+	melee_damage_upper = 30
 	resist_mod = 3
 	mob_size = 15
 	environment_smash = 2
 	attacktext = "mangled"
+	attack_emote = "charges toward"
 	attack_sound = 'sound/weapons/bloodyslice.ogg'
 
 	minbodytemp = 0
@@ -31,19 +32,20 @@
 	min_oxy = 0
 	max_co2 = 0
 	max_tox = 0
+
+	speed = 3
+
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/vannatusk
+
 	var/crystal_harvested = FALSE
 
 /mob/living/simple_animal/hostile/vannatusk/Initialize()
 	. = ..()
 	set_light(1.2, 3, LIGHT_COLOR_BLUE)
-/*
+
 /mob/living/simple_animal/hostile/vannatusk/death()
-	..(null, "blows apart!")
-	var/T = get_turf(src)
-	new /obj/effect/gibspawner/robot(T)
-	spark(T, 1, alldirs)
-	qdel(src)
-*/
+	..(null, "collapses!")
+	flick("vannatusk_death_animation", src)
 
 /mob/living/simple_animal/hostile/vannatusk/FoundTarget()
 	if(target_mob)
@@ -51,19 +53,18 @@
 		if(!Adjacent(target_mob))
 			fire_spike(target_mob)
 
-
 /mob/living/simple_animal/hostile/vannatusk/proc/fire_spike(var/mob/living/target_mob)
 	visible_message(SPAN_DANGER("\The [src] fires a spike at [target_mob]!"))
 	playsound(get_turf(src), 'sound/weapons/bloodyslice.ogg', 50, 1)
-	var/obj/item/bone_dart/A = new /obj/item/bone_dart/vannatusk(get_turf(src))
-	A.throw_at(target_mob, 10, 20, src)
+	var/obj/item/projectile/bonedart/A = new /obj/item/projectile/bonedart(get_turf(src))
+	var/def_zone = get_exposed_defense_zone(target_mob)
+	A.launch_projectile(target_mob, def_zone)
 
 /obj/item/bone_dart/vannatusk
 	name = "bone dart"
 	desc = "A sharp piece of bone shapped as small dart."
-	icon = 'icons/obj/changeling.dmi'
-	icon_state = "bone_dart"
-	item_state = "bolt"
+	icon = 'icons/mob/npc/vannatusk.dmi'
+	icon_state = "bonedart"
 
 /mob/living/simple_animal/hostile/vannatusk/attackby(obj/item/O, mob/user)
 	if (stat == DEAD && !crystal_harvested)
@@ -76,3 +77,7 @@
 
 	..()
 
+
+/mob/living/simple_animal/hostile/vannatusk/dead/Initialize()
+	. = ..()
+	death()

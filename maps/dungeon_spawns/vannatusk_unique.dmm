@@ -7,52 +7,58 @@
 /area/mine/unexplored)
 "ac" = (
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "ad" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "ae" = (
 /obj/structure/table/standard,
 /obj/item/surgery/scalpel/laser3,
 /obj/item/storage/box/freezer/organcooler,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "af" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "ag" = (
 /obj/machinery/portable_atmospherics/canister/empty/oxygen,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "ah" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/anomaly,
+/obj/item/gun/energy/vaurca/thermaldrill,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "ai" = (
 /obj/machinery/optable,
 /obj/effect/decal/cleanable/blood/splatter,
+/obj/effect/decal/fake_object{
+	density = 1;
+	desc = "The body of some unknown creature.";
+	icon = 'icons/mob/npc/vannatusk.dmi';
+	icon_state = "vannatusk_dead2";
+	name = "alien remains"
+	},
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "aj" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/rack,
-/obj/item/clothing/head/helmet/space/anomaly,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "ak" = (
 /obj/machinery/suit_cycler/science,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "al" = (
 /obj/structure/table/standard,
 /obj/item/surgery/retractor,
 /obj/item/surgery/bonesetter,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "am" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/walllocker/emerglocker/north,
@@ -60,159 +66,159 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "an" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "ao" = (
 /obj/machinery/door/airlock/sac,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "ap" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "aq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "ar" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "as" = (
 /obj/machinery/door/airlock/sac,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "at" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "au" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate/freezer,
 /obj/item/organ/internal/kidneys,
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "av" = (
 /obj/structure/trash_pile,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "aw" = (
 /obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "ax" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/curtain/medical,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "ay" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/floodlight{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "az" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/appliance/cooker/oven,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "aA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/secure_closet/freezer/meat,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "aB" = (
 /obj/structure/table/standard,
 /obj/machinery/chemical_dispenser/coffee/full,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "aC" = (
 /obj/machinery/vending/cigarette,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "aD" = (
 /obj/structure/table/standard,
 /obj/item/material/ashtray/plastic,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/black,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "aE" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/stool/padded,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "aF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/washing_machine,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "aG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "aH" = (
 /obj/effect/decal/cleanable/cobweb2,
 /obj/structure/reagent_dispensers/water_cooler,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "aI" = (
 /obj/structure/closet/secure_closet/medical2,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "aJ" = (
 /obj/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "aK" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/barricade/steel,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "aL" = (
 /obj/structure/barricade/steel,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "aM" = (
 /obj/structure/table/rack,
 /obj/random/toolbox,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "aN" = (
 /obj/structure/bed/chair/plastic,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "aO" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/chair/plastic,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "aP" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -220,76 +226,76 @@
 	},
 /obj/random/junk,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "aQ" = (
 /obj/structure/trash_pile,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "aR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "aS" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "aT" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/ash,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "aU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/trash_pile,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "aV" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/shieldgen,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "aW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "aX" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "aY" = (
 /obj/random/junk,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "aZ" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "ba" = (
 /obj/machinery/shieldgen,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bb" = (
 /obj/machinery/vending/coffee,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bc" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/l3closet/janitor,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bd" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/mopbucket,
 /obj/item/mop/advanced,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "be" = (
 /obj/structure/mirror{
 	pixel_y = 32
@@ -298,7 +304,7 @@
 	pixel_y = 15
 	},
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bf" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/mirror{
@@ -308,33 +314,33 @@
 	pixel_y = 15
 	},
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bg" = (
 /obj/structure/urinal{
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bh" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/silver,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bi" = (
 /obj/machinery/door/airlock/silver,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bj" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/wall/rusty,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bk" = (
 /obj/structure/trash_pile,
 /obj/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bl" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/trash_pile,
@@ -342,14 +348,14 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bm" = (
 /obj/structure/table/standard,
 /obj/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bn" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/walllocker/emerglocker/east,
@@ -357,129 +363,125 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
-"bo" = (
-/obj/item/material/shard,
-/turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bp" = (
 /obj/machinery/telepad,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/body_bag,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "br" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/window/reinforced,
+/obj/structure/window/phoronreinforced,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bs" = (
-/obj/structure/window/reinforced,
+/obj/structure/window/phoronreinforced,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bt" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/modular_computer/console,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bu" = (
 /obj/structure/table/standard,
 /obj/item/paper_bin,
 /obj/item/pen/fountain/black,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/standard,
 /obj/item/device/camera,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bw" = (
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bx" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "by" = (
 /obj/structure/table/standard,
 /obj/random/action_figure,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bz" = (
 /obj/structure/table/standard,
 /obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bA" = (
 /obj/structure/bed/roller,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bB" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/material/shard,
 /obj/machinery/artifact_scanpad,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bC" = (
 /obj/machinery/artifact_analyser,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning/dust,
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bE" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/chair/office/dark{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bF" = (
 /obj/machinery/chemical_dispenser,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/standard,
 /obj/item/robot_parts/robot_component/camera,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bH" = (
 /obj/structure/table/standard,
 /obj/random/belt,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bI" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/artifact,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bJ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood,
-/obj/item/gun/energy/pistol,
+/obj/machinery/photocopier/faxmachine,
 /turf/simulated/floor/carpet,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bK" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bL" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood,
 /obj/item/hand_tele,
 /turf/simulated/floor/carpet,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bM" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -488,57 +490,57 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/chair/office/light{
 	dir = 1
 	},
 /turf/simulated/floor/carpet,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bO" = (
 /turf/simulated/floor/carpet,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bP" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small,
 /turf/simulated/floor/carpet,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bR" = (
 /obj/random/junk,
 /obj/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bS" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bT" = (
 /obj/structure/toilet{
 	dir = 1
 	},
-/obj/structure/noose,
 /obj/effect/decal/remains/human,
 /obj/machinery/light/small,
+/obj/item/gun/energy/pistol,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bU" = (
 /obj/structure/toilet{
 	dir = 1
 	},
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bV" = (
 /obj/structure/toilet{
 	dir = 1
@@ -546,7 +548,7 @@
 /obj/machinery/light/small,
 /mob/living/simple_animal/hostile/giant_spider/hunter,
 /turf/simulated/floor/tiled/asteroid,
-/area/mine/unexplored)
+/area/dungeon/bluespace_outpost)
 "bW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/toilet{
@@ -554,6 +556,39 @@
 	},
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"ha" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/window/phoronreinforced,
+/obj/item/material/shard/shrapnel,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"qX" = (
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/hostile/vannatusk/dead,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"sX" = (
+/obj/item/material/shard/shrapnel,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"AH" = (
+/mob/living/simple_animal/hostile/vannatusk/dead,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"FD" = (
+/obj/machinery/power/apc/high/inactive{
+	cell_type = null;
+	dir = 1;
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"Iu" = (
+/turf/simulated/wall/rusty,
+/area/dungeon/bluespace_outpost)
+"Nw" = (
+/turf/simulated/mineral,
 /area/mine/unexplored)
 
 (1,1,1) = {"
@@ -570,14 +605,14 @@ aa
 aa
 aa
 aa
+Nw
+Nw
+Nw
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Nw
+Nw
+Nw
+Nw
 aa
 aa
 aa
@@ -603,15 +638,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-ab
-ab
+Nw
+Nw
+Iu
+Iu
 ao
-ab
-ab
-aa
-aa
+Iu
+Iu
+Nw
+Nw
 aa
 aa
 aa
@@ -637,15 +672,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-ab
+Nw
+Nw
+Iu
 aP
 ap
 at
-ab
-aa
-aa
+Iu
+Nw
+Nw
 aa
 aa
 aa
@@ -671,15 +706,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-ab
+Nw
+Nw
+Iu
 am
 ad
 bD
-ab
-aa
-aa
+Iu
+Nw
+Nw
 aa
 aa
 aa
@@ -704,16 +739,16 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-ab
+Nw
+Nw
+Nw
+Iu
 an
 aq
 av
-ab
-aa
-aa
+Iu
+Nw
+Nw
 aa
 aa
 aa
@@ -738,20 +773,20 @@ aa
 aa
 aa
 aa
-aa
-aa
-ab
-ab
-ab
+Nw
+Nw
+Iu
+Iu
+Iu
 ao
-ab
-ab
-aa
-aa
-aa
-aa
-aa
-aa
+Iu
+Iu
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
 aa
 aa
 aa
@@ -772,27 +807,27 @@ aa
 aa
 aa
 aa
-aa
-aa
-ab
+Nw
+Nw
+Iu
 ag
 aJ
 ad
 aw
-ab
-ab
-ab
-ab
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Iu
+Iu
+Iu
+Iu
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
 "}
 (8,1,1) = {"
 aa
@@ -803,30 +838,30 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-ab
+Nw
+Nw
+Nw
+Nw
+Nw
+Iu
 ah
 ad
 af
 aS
-ab
+Iu
 az
 bM
+Iu
 ab
-ab
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
 "}
 (9,1,1) = {"
 aa
@@ -836,31 +871,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-ab
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Iu
 aM
 ac
 aR
 ay
-ab
+Iu
 aA
 ac
 aD
-ab
-aa
-aa
-ab
-ab
-ab
-ab
-ab
-ab
-aa
+Iu
+Nw
+Nw
+Iu
+Iu
+Iu
+Iu
+Iu
+Iu
+Nw
 "}
 (10,1,1) = {"
 aa
@@ -870,31 +905,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-ab
-ab
-ab
-ab
-ab
+Nw
+Nw
+Iu
+Iu
+Iu
+Iu
+Iu
 aj
 ad
 ac
 aT
-ab
+Iu
 aB
 ad
 aE
-ab
-aa
-aa
-ab
+Iu
+Nw
+Nw
+Iu
 be
 aJ
 bh
 bT
-ab
-aa
+Iu
+Nw
 "}
 (11,1,1) = {"
 aa
@@ -904,31 +939,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-ab
+Nw
+Nw
+Iu
 ae
 ac
 aI
-ab
+Iu
 ak
 ac
 bn
 ac
-ab
+Iu
 aC
 ac
 ad
-ab
-aa
-aa
-ab
+Iu
+Nw
+Nw
+Iu
 bf
 ad
-ab
+Iu
 bj
-ab
-aa
+Iu
+Nw
 "}
 (12,1,1) = {"
 aa
@@ -938,31 +973,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-ab
+Nw
+Nw
+Iu
 ai
 ac
 au
-ab
-ab
-ab
-ab
+Iu
+Iu
+Iu
+Iu
 ao
-ab
-ab
-ab
+Iu
+Iu
+Iu
 as
-ab
-aa
-aa
-ab
+Iu
+Nw
+Nw
+Iu
 bg
 aZ
 bh
 bU
-ab
-aa
+Iu
+Nw
 "}
 (13,1,1) = {"
 aa
@@ -972,31 +1007,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-ab
+Nw
+Nw
+Iu
 al
 ad
 ad
-ab
+Iu
 aN
 bA
-ab
+Iu
 ac
 aU
 ac
 aY
 ad
-ab
-ab
-ab
-ab
-ab
+Iu
+Iu
+Iu
+Iu
+Iu
 as
+Iu
+Iu
 ab
-ab
-ab
-aa
+Nw
 "}
 (14,1,1) = {"
 aa
@@ -1006,31 +1041,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-ab
-ab
+Nw
+Nw
+Iu
+Iu
 ax
 ax
-ab
+Iu
 aO
 ad
 as
 ac
 ad
-ad
+qX
 ad
 bP
-ab
+Iu
 ac
 ad
 bR
 ad
 ad
 aQ
-ab
-aa
-aa
+Iu
+Nw
+Nw
 "}
 (15,1,1) = {"
 aa
@@ -1040,16 +1075,16 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-ab
+Nw
+Nw
+Nw
+Iu
 bq
 ad
 aK
 ac
 ad
-ab
+Iu
 ac
 ac
 ac
@@ -1062,9 +1097,9 @@ ad
 ad
 ac
 ad
-ab
-aa
-aa
+Iu
+Nw
+Nw
 "}
 (16,1,1) = {"
 aa
@@ -1074,31 +1109,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-ab
+Nw
+Nw
+Nw
+Iu
 aH
 ad
 aL
 ac
 bk
-ab
+Iu
 ac
 aV
 aW
 aZ
 ba
-ab
+Iu
 bb
 ac
 ad
 ad
 ac
 ac
-ab
-aa
-aa
+Iu
+Nw
+Nw
 "}
 (17,1,1) = {"
 aa
@@ -1107,32 +1142,32 @@ aa
 aa
 aa
 aa
-aa
-aa
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+Nw
+Nw
+Iu
+Iu
+Iu
+Iu
+Iu
+Iu
+Iu
+Iu
+Iu
 ao
-ab
-ab
-ab
-ab
-ab
-ab
+Iu
+Iu
+Iu
+Iu
+Iu
+Iu
 ao
-ab
-ab
+Iu
+Iu
 as
-ab
-ab
-ab
-aa
+Iu
+Iu
+Iu
+Nw
 "}
 (18,1,1) = {"
 aa
@@ -1141,9 +1176,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-ab
+Nw
+Nw
+Iu
 ac
 ac
 br
@@ -1153,20 +1188,20 @@ ac
 bl
 ac
 ac
-ab
+Iu
 aa
 aa
 aa
-ab
+Iu
 bc
 af
-ab
+Iu
 be
 ac
 bi
 bV
-ab
-aa
+Iu
+Nw
 "}
 (19,1,1) = {"
 aa
@@ -1175,9 +1210,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-ab
+Nw
+Nw
+Iu
 ar
 bp
 bs
@@ -1187,20 +1222,20 @@ ad
 ac
 ad
 ac
-ab
-ab
-ab
-ab
-ab
+Iu
+Iu
+Iu
+Iu
+Iu
 bd
 aG
-ab
+Iu
 bf
 ac
 bj
 bj
-ab
-aa
+Iu
+Nw
 "}
 (20,1,1) = {"
 aa
@@ -1209,32 +1244,32 @@ aa
 aa
 aa
 aa
-aa
-aa
-ab
-bo
+Nw
+Nw
+Iu
 ac
-br
+sX
+ha
 bv
 ad
 ac
 bB
 af
 ad
-ab
+Iu
 ac
 ac
 aY
-ab
+Iu
 aF
 aX
-ab
+Iu
 aQ
 bS
 bi
 bW
-ab
-aa
+Iu
+Nw
 "}
 (21,1,1) = {"
 aa
@@ -1243,32 +1278,32 @@ aa
 aa
 aa
 aa
-aa
-aa
-ab
-ab
+Nw
+Nw
+Iu
+Iu
 ac
 ac
-ac
+sX
 ad
 ad
 bC
 ad
 ad
-ab
+Iu
 ac
 bJ
 bQ
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-aa
+Iu
+Iu
+Iu
+Iu
+Iu
+Iu
+Iu
+Iu
+Iu
+Nw
 "}
 (22,1,1) = {"
 aa
@@ -1277,15 +1312,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-ab
-ab
-ab
-ac
-ac
-ac
+Nw
+Nw
+Nw
+Iu
+Iu
+Iu
+FD
+sX
+AH
 ac
 ac
 ac
@@ -1293,16 +1328,16 @@ ao
 ad
 bK
 bN
-ab
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Iu
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
 "}
 (23,1,1) = {"
 aa
@@ -1312,31 +1347,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-ab
+Nw
+Nw
+Nw
+Nw
+Iu
 bw
 ac
 ad
 ac
 bE
 bG
-ab
+Iu
 ac
 bL
 bO
-ab
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Iu
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
 "}
 (24,1,1) = {"
 aa
@@ -1346,25 +1381,25 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-ab
-ab
+Nw
+Nw
+Nw
+Nw
+Iu
+Iu
 by
 bz
 bm
 bF
 bH
-ab
+Iu
 bI
-ab
-ab
-ab
-aa
-aa
-aa
+Iu
+Iu
+Iu
+Nw
+Nw
+Nw
 aa
 aa
 aa
@@ -1383,22 +1418,22 @@ aa
 aa
 aa
 aa
-aa
-aa
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-aa
-aa
-aa
-aa
-aa
+Nw
+Nw
+Iu
+Iu
+Iu
+Iu
+Iu
+Iu
+Iu
+Iu
+Iu
+Nw
+Nw
+Nw
+Nw
+Nw
 aa
 aa
 aa
@@ -1417,19 +1452,19 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
 aa
 aa
 aa
@@ -1451,19 +1486,19 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
 aa
 aa
 aa
