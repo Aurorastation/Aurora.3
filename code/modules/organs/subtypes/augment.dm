@@ -624,7 +624,7 @@
 /obj/item/organ/internal/augment/head_fluff/process()
 	..()
 	if (is_broken() && !ORGAN_DEAD)
-		if (prob(10))
+		if (prob(5))
 			to_chat(owner, SPAN_WARNING("You sense your [name] isn't working right!"))
 
 /obj/item/organ/internal/augment/head_fluff/removed()
