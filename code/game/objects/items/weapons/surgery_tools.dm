@@ -307,15 +307,11 @@
 	)
 
 	can_hold = list(
-		/obj/item/surgery/bonesetter,
-		/obj/item/surgery/cautery,
 		/obj/item/surgery/circular_saw,
 		/obj/item/surgery/hemostat,
 		/obj/item/surgery/retractor,
 		/obj/item/surgery/scalpel,
 		/obj/item/surgery/surgicaldrill,
-		/obj/item/surgery/bonegel,
-		/obj/item/surgery/FixOVein,
 		/obj/item/autopsy_scanner,
 		/obj/item/device/mass_spectrometer,
 		/obj/item/reagent_containers/glass/beaker/vial,
