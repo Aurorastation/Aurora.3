@@ -101,7 +101,7 @@
 	to_chat(user, "<span class='notice'>You firmly press your fingertips onto the card.</span>")
 	var/fullprint = H.get_full_print()
 	evidence[fullprint] = fullprint
-	source = "\the [H]"
+	source += "[H.name]"
 	name = "[initial(name)] (\the [H])"
 	icon_state = "fingerprint1"
 
@@ -139,7 +139,7 @@
 		var/fullprint = H.get_full_print()
 		evidence[fullprint] = fullprint
 		copy_evidence(src)
-		source = "\the [H]"
+		source += "[H.name]"
 		name = "[initial(name)] (\the [H])"
 		icon_state = "fingerprint1"
 		return 1
