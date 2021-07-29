@@ -1,6 +1,7 @@
-author: TheGreyWolf
+author: TheGreyWolf & Desven
 
 delete-after: True
 
 changes:
   - sounddel: "Sounds from the unathi hiss, vaurca chitter and the flamethrower has been removed due to license issues."
+  - soundadd: "New sounds have been given to the vaurca chitter."
