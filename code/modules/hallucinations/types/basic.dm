@@ -184,7 +184,7 @@
 	else
 		to_chat(holder, SPAN_DANGER("You feel something [pick("moving","squirming","skittering", "writhing", "burrowing", "crawling")] inside of you!"))
 	if(prob(min(holder.hallucination/2, 80)))
-		sound_to(holder, pick('sound/effects/squelch1.ogg', 'sound/effects/lingextends.ogg'))
+		sound_to(holder, pick('sound/voice/chitter1.ogg', 'sound/voice/chitter2.ogg', 'sound/effects/squelch1.ogg', 'sound/effects/lingextends.ogg'))
 
 /datum/hallucination/insides/end()
 	if(prob(50))

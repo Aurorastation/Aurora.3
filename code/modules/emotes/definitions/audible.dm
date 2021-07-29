@@ -64,6 +64,7 @@
 /decl/emote/audible/chitter
 	key = "chitter"
 	emote_message_3p = "USER chitters."
+	emote_sound = list('sound/voice/chitter1.ogg', 'sound/voice/chitter2.ogg', 'sound/voice/chitter3.ogg')
 
 /decl/emote/audible/shriek
 	key = "shriek"
