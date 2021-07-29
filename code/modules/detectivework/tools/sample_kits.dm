@@ -4,6 +4,7 @@
 	w_class = ITEMSIZE_TINY
 	var/list/evidence = list()
 	var/list/source = list()
+	var/label_text = ""
 
 /obj/item/sample/New(var/newloc, var/atom/supplied)
 	..(newloc)
@@ -39,6 +40,7 @@
 			evidence[print] = stringmerge(evidence[print],supplied.evidence[print])
 		else
 			evidence[print] = supplied.evidence[print]
+	source |= supplied.source
 	name = "[initial(name)] (combined)"
 	to_chat(user, "<span class='notice'>You overlay \the [src] and \the [initial(supplied.name)], combining the print records.</span>")
 	return 1
@@ -99,6 +101,7 @@
 	to_chat(user, "<span class='notice'>You firmly press your fingertips onto the card.</span>")
 	var/fullprint = H.get_full_print()
 	evidence[fullprint] = fullprint
+	source = "\the [H]"
 	name = "[initial(name)] (\the [H])"
 	icon_state = "fingerprint1"
 
@@ -136,6 +139,7 @@
 		var/fullprint = H.get_full_print()
 		evidence[fullprint] = fullprint
 		copy_evidence(src)
+		source = "\the [H]"
 		name = "[initial(name)] (\the [H])"
 		icon_state = "fingerprint1"
 		return 1
