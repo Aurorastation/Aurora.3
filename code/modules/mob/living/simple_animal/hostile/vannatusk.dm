@@ -33,6 +33,8 @@
 	max_co2 = 0
 	max_tox = 0
 
+	blood_type = "#001126"
+
 	speed = 3
 
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/vannatusk
@@ -77,7 +79,20 @@
 
 	..()
 
-
 /mob/living/simple_animal/hostile/vannatusk/dead/Initialize()
 	. = ..()
 	death()
+
+/obj/machinery/vannatusk_spawner
+	name = "telepad"
+	desc = "A bluespace telepad used for creating bluespace portals."
+	icon = 'icons/obj/telescience.dmi'
+	icon_state = "pad-idle"
+	anchored = 1
+	use_power = 1
+
+/obj/machinery/vannatusk_spawner/power_change()
+	..()
+	spark(src, 3, alldirs)
+	new/mob/living/simple_animal/hostile/vannatusk (get_turf(src))
+	qdel(src)
