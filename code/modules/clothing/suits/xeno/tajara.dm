@@ -195,6 +195,7 @@
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "greenservice"
 	item_state = "greenservice"
+	contained_sprite = TRUE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	armor = list(
 		melee = ARMOR_MELEE_KNIVES,
