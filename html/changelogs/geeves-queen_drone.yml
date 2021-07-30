@@ -8,3 +8,4 @@ changes:
   - rscadd: "Speaking as a drone will now auto-capitalize and auto-punctuate your text, as well as having floating messages above you for those that can understand you."
   - tweak: "Maintenance drones now start with more material in their synthesizers."
   - rscadd: "Cable coils will now display the amount you can lay down based on your cell's charge as a robot."
+  - rscadd: "The drone control console can now be used to send drones to any station area on the current map, instead of a few choices."
