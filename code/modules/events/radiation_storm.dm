@@ -15,11 +15,7 @@
 
 /datum/event/radiation_storm/start()
 	make_maint_all_access()
-	for(var/area/A in all_areas)
-		if(A.flags & RAD_SHIELDED)
-			continue
-		A.radiation_active = TRUE
-		A.update_icon()
+	lights(TRUE)
 
 /datum/event/radiation_storm/tick()
 	if(activeFor == enterBelt)
@@ -35,6 +31,7 @@
 
 	else if(activeFor == leaveBelt)
 		command_announcement.Announce("The station has passed the radiation belt. Please report to medbay if you experience any unusual symptoms. Maintenance will lose all-access again shortly.", "Anomaly Alert")
+		lights()
 
 /datum/event/radiation_storm/proc/radiate()
 	for(var/mob/living/C in living_mob_list)
@@ -44,12 +41,18 @@
 /datum/event/radiation_storm/end(var/faked)
 	if(faked)
 		return
+	lights()
 	revoke_maint_all_access()
-	for(var/area/A in all_areas)
-		if(A.flags & RAD_SHIELDED)
-			continue
-		A.radiation_active = null
-		A.update_icon()
 
 /datum/event/radiation_storm/syndicate/radiate()
 	return
+
+/datum/event/radiation_storm/proc/lights(var/turnOn = FALSE)
+	for(var/area/A in all_areas)
+		if(A.flags & RAD_SHIELDED)
+			continue
+		if(turnOn)
+			A.radiation_active = TRUE
+		else
+			A.radiation_active = null
+		A.update_icon()
