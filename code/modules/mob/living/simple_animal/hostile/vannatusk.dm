@@ -25,7 +25,8 @@
 	environment_smash = 2
 	attacktext = "mangled"
 	attack_emote = "charges toward"
-	attack_sound = 'sound/weapons/bloodyslice.ogg'
+	attack_sound = 'sound/effects/creatures/vannatusk_attack.ogg'
+	emote_sounds = list('sound/effects/creatures/vannatusk_sound.ogg', 'sound/effects/creatures/vannatusk_sound_2.ogg')
 
 	minbodytemp = 0
 	maxbodytemp = 350

@@ -1,3 +1,6 @@
 weapons/flamethrower.ogg - Obtained from https://www.zapsplat.com
 effects/fleshburn1.ogg - Obtained from https://www.zapsplat.com
 effects/fleshburn2.ogg - Obtained from https://www.zapsplat.com
+effects/creatures/vannatusk_attack.ogg - Obtained from https://freesound.org/people/Sea%20Fury/sounds/48673/
+effects/creatures/vannatusk_sound.ogg  - Obtained from https://freesound.org/people/Sea%20Fury/sounds/48674/
+effects/creatures/vannatusk_sound_2.ogg - Obtained from https://freesound.org/people/Sea%20Fury/sounds/48971/
