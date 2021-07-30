@@ -66,6 +66,15 @@
 	emote_message_3p = "USER chitters."
 	emote_sound = list('sound/misc/zapsplat/chitter1.ogg', 'sound/misc/zapsplat/chitter2.ogg', 'sound/misc/zapsplat/chitter3.ogg')
 
+/decl/emote/audible/click
+	key = "click"
+	emote_message_3p = "USER clicks their mandibles together."
+	emote_sound = 'sound/voice/bugclick.ogg'
+
+/decl/emote/audible/clack
+	key = "clack"
+	emote_message_3p = "USER clacks their mandibles together."
+	emote_sound = 'sound/voice/bugclack.ogg'
 /decl/emote/audible/shriek
 	key = "shriek"
 	emote_message_3p = "USER shrieks!"

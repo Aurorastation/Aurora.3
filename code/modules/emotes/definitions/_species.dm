@@ -58,7 +58,9 @@
 		/decl/emote/audible/hiss,
 		/decl/emote/audible/chitter,
 		/decl/emote/audible/shriek,
-		/decl/emote/audible/screech
+		/decl/emote/audible/screech,
+		/decl/emote/audible/click,
+		/decl/emote/audible/clack
 	)
 	pain_emotes_with_pain_level = list(
 		list(/decl/emote/audible/screech, /decl/emote/audible/shriek) = 70,
