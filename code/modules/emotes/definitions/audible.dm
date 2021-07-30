@@ -68,12 +68,12 @@
 
 /decl/emote/audible/click
 	key = "click"
-	emote_message_3p = "USER clicks their mandibles together."
+	emote_message_3p = "USER clicks it's mandibles together."
 	emote_sound = 'sound/voice/bugclick.ogg'
 
 /decl/emote/audible/clack
 	key = "clack"
-	emote_message_3p = "USER clacks their mandibles together."
+	emote_message_3p = "USER clacks it's mandibles together."
 	emote_sound = 'sound/voice/bugclack.ogg'
 /decl/emote/audible/shriek
 	key = "shriek"
