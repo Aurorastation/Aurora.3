@@ -63,7 +63,7 @@
 		name = "[material.use_name] [material.sheet_singular_name]"
 		desc = "A [material.sheet_singular_name] of [material.use_name]."
 		gender = NEUTER
-	check_maptext(SMALL_FONTS(7, amount))
+	check_maptext(SMALL_FONTS(7, get_amount()))
 
 /obj/item/stack/material/use(var/used)
 	. = ..()

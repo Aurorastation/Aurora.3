@@ -69798,6 +69798,17 @@
 	},
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
+"vOs" = (
+/mob/living/silicon/robot/drone/construction/matriarch,
+/obj/machinery/door/window/brigdoor/southright{
+	dir = 1;
+	req_access = list(56)
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/engineering/drone_fabrication)
 "vPm" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
@@ -84732,7 +84743,7 @@ aiV
 ajF
 akq
 aiV
-aiV
+vOs
 anA
 aoC
 apR
