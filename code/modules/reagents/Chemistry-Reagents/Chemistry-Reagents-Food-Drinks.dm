@@ -57,12 +57,14 @@
 /decl/reagent/kois/clean
 	name = "Filtered K'ois"
 	description = "A strange, ketchup-like substance, filled with K'ois nutrients."
-	color = "#ece9dd"
+	color = "#dce658"
 	taste_description = "cabbage soup"
 	kois_type = 0
 	fallback_specific_heat = 1
 
 	glass_icon_state = "glass_kois"
+	glass_name = "glass of filtered k'ois"
+	glass_desc = "A strange, ketchup-like substance, filled with K'ois nutrients."
 
 /decl/reagent/kois/black
 	name = "Modified K'ois"
@@ -4740,5 +4742,5 @@
 	taste_description = "minty coffee"
 
 	glass_icon_state = "caprician_coffee"
-	glass_name = "glass of caprician coffee."
+	glass_name = "glass of caprician coffee"
 	glass_desc = "A Vaurcesian take on liqueur coffee, quickly becoming a favorite of the Zo'ra hive."
