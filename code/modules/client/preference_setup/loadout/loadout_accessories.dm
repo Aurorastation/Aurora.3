@@ -411,12 +411,6 @@
 	TCFLcard["veteran"] = /obj/item/clothing/accessory/badge/tcfl_papers/service/veteran
 	gear_tweaks += new /datum/gear_tweak/path(TCFLcard)
 
-/datum/gear/accessory/syntheticcard
-	display_name = "synthetic residency card"
-	description = "An identification card given to free IPC residents within the Republic of Biesel."
-	path = /obj/item/clothing/accessory/badge/passcard/synthetic
-	cost = 0
-
 /datum/gear/accessory/kneepads
 	display_name = "kneepads"
 	path = /obj/item/clothing/accessory/kneepads
