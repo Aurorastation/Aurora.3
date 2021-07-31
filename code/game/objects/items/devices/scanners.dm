@@ -370,49 +370,63 @@ BREATH ANALYZER
 	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
 
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
-	var/details = 0
-	var/recent_fail = 0
+	var/details = FALSE
 
-/obj/item/device/mass_spectrometer/New()
-	..()
-	var/datum/reagents/R = new/datum/reagents(5)
-	reagents = R
-	R.my_atom = src
+/obj/item/device/mass_spectrometer/Initialize()
+	. = ..()
+	create_reagents(5)
 
 /obj/item/device/mass_spectrometer/on_reagent_change()
+	clear_blood_overlay()
 	if(reagents.total_volume)
 		icon_state = initial(icon_state) + "_s"
+		var/image/I = image(icon, null, "[initial(icon_state)]-reagent")
+		I.color = reagents.get_color()
+		add_blood_overlay(I)
 	else
 		icon_state = initial(icon_state)
 
-/obj/item/device/mass_spectrometer/attack_self(mob/user as mob)
-	if (user.stat)
-		return
-	if (!user.IsAdvancedToolUser())
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
+/obj/item/device/mass_spectrometer/proc/clear_blood_overlay()
+	underlays = null
+
+/obj/item/device/mass_spectrometer/proc/add_blood_overlay(var/image/I)
+	underlays += I
+
+/obj/item/device/mass_spectrometer/attack_self(mob/user)
+	if(use_check_and_message(user))
 		return
 	if(reagents.total_volume)
-		if(LAZYLEN(reagents.reagent_volumes) > 1 || !REAGENT_DATA(reagents, /decl/reagent/blood))
-			reagents.clear_reagents()
-			to_chat(user, "<span class='warning'>The sample was contaminated! Please insert another sample</span>")
+		if(LAZYLEN(reagents.reagent_volumes) > 1)
+			to_chat(user, SPAN_WARNING("There isn't enough blood in the sample!"))
 			return
-		var/list/blood_traces = params2list(reagents.reagent_data[/decl/reagent/blood]["trace_chem"])
-		var/dat = "Trace Chemicals Found: "
+		if(!REAGENT_DATA(reagents, /decl/reagent/blood))
+			to_chat(user, SPAN_WARNING("The sample was contaminated with non-blood reagents!"))
+			return
+		var/list/blood_traces = reagents.reagent_data[/decl/reagent/blood]["trace_chem"]
+		var/list/output_text = list("Trace Chemicals Found:")
 		for(var/_C in blood_traces)
 			var/decl/reagent/C = decls_repository.get_decl(_C)
+			if(C.spectro_hidden && !details)
+				continue
 			if(details)
-				dat += "[C] ([blood_traces[_C]] units) "
+				output_text += "- [C] ([max(round(blood_traces[_C], 0.1), 0.1)] units)"
 			else
-				dat += "[C] "
-		to_chat(user, "[dat]")
-		reagents.clear_reagents()
-	return
+				output_text += "- [C]"
+		if(length(output_text) == 1)
+			output_text[1] = SPAN_NOTICE("No trace chemicals found.")
+		to_chat(user, jointext(output_text, "\n"))
 
 /obj/item/device/mass_spectrometer/adv
 	name = "advanced mass spectrometer"
 	icon_state = "adv_spectrometer"
-	details = 1
+	details = TRUE
 	origin_tech = list(TECH_MAGNET = 4, TECH_BIO = 2)
+
+/obj/item/device/mass_spectrometer/adv/clear_blood_overlay()
+	cut_overlays()
+
+/obj/item/device/mass_spectrometer/adv/add_blood_overlay(var/image/I)
+	add_overlay(I)
 
 /obj/item/device/reagent_scanner
 	name = "reagent scanner"
