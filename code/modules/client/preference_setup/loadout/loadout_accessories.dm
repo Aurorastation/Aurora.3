@@ -361,6 +361,7 @@
 /datum/gear/accessory/passcard
 	display_name = "human passcard selection"
 	path = /obj/item/clothing/accessory/badge/passcard
+	cost = 0
 
 /datum/gear/accessory/passcard/New()
 	..()
@@ -388,6 +389,7 @@
 /datum/gear/accessory/passport
 	display_name = "human passport selection"
 	path = /obj/item/clothing/accessory/badge/passport
+	cost = 0
 
 /datum/gear/accessory/passport/New()
 	..()

@@ -48,6 +48,11 @@
 	desc = "A metal coffee cup bearing the flag of the Democratic People's Republic of Adhomai."
 	icon_state = "coffeecup_dpra"
 
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/sedantis
+	name = "\improper Sedantis coffee cup"
+	desc = "A metal coffee cup bearing the flag of Sedantis."
+	icon_state = "coffeecup_sedantis"
+
 // Organisations
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nt
 	name = "\improper NT coffee cup"
