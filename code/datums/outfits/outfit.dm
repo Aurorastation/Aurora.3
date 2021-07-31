@@ -29,6 +29,8 @@
 
 #define OUTFIT_HEADSET 2
 #define OUTFIT_BOWMAN 3
+#define OUTFIT_DOUBLE 4
+#define OUTFIT_WRISTRAD 5
 
 /datum/outfit
 	var/name = "Naked"
@@ -98,6 +100,8 @@
 	var/allow_headset_choice = FALSE
 	var/headset = /obj/item/device/radio/headset
 	var/bowman = /obj/item/device/radio/headset/alt
+	var/double_headset = /obj/item/device/radio/headset/alt/double
+	var/wrist_radio = /obj/item/device/radio/headset/wrist
 
 	var/id_iff = IFF_DEFAULT // when spawning in, the ID will be set to this iff, preventing friendly fire
 
@@ -166,10 +170,17 @@
 				l_ear = null
 			if (OUTFIT_BOWMAN)
 				l_ear = bowman
+			if (OUTFIT_DOUBLE)
+				l_ear = double_headset
+			if (OUTFIT_WRISTRAD)
+				l_ear = null
+				wrist = wrist_radio
 			else
 				l_ear = headset //Department headset
 	if(l_ear)
 		equip_item(H, l_ear, slot_l_ear, TRUE)
+	else if (wrist)
+		equip_item(H, wrist, slot_wrists, TRUE)
 
 	return
 
