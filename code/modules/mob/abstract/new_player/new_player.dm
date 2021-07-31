@@ -146,7 +146,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 				if(!((client.prefs.job_engsec_high || client.prefs.job_engsec_high || client.prefs.job_engsec_high) == J.flag))
 					confirm_job = TRUE
 		if(confirm_job)
-			if(alert("Are you sure you want to join as \an \improper [J.title]", "Confirm Job", "Yes", "No") == "No")
+			if(alert("Are you sure you want to join as [J.title]", "Confirm Job", "Yes", "No") == "No")
 				return
 
 		AttemptLateSpawn(href_list["SelectedJob"],client.prefs.spawnpoint)
