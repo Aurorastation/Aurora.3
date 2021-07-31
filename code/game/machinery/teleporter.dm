@@ -37,7 +37,7 @@
 		station.locked_obj = null
 		return
 	if(prob(station.calibration)) //oh dear a problem, put em in deep space
-		do_teleport(M, locate(rand((2*TRANSITIONEDGE), world.maxx - (2*TRANSITIONEDGE)), rand((2*TRANSITIONEDGE), world.maxy - (2*TRANSITIONEDGE)), 3), 2)
+		do_teleport(M, locate(rand((2*TRANSITIONEDGE), world.maxx - (2*TRANSITIONEDGE)), rand((2*TRANSITIONEDGE), world.maxy - (2*TRANSITIONEDGE)), pick(GetConnectedZlevels(z))), 2)
 	else
 		do_teleport(M, teleport_obj) //dead-on precision
 	if(ishuman(M))

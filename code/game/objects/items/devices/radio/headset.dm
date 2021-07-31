@@ -17,6 +17,8 @@
 	var/ks2type = null
 	var/radio_sound = null
 
+	var/EarSound = TRUE
+
 	drop_sound = 'sound/items/drop/component.ogg'
 	pickup_sound = 'sound/items/pickup/component.ogg'
 
@@ -69,6 +71,8 @@
 		var/mob/living/carbon/human/H = src.loc
 		if(H.l_ear == src || H.r_ear == src)
 			return ..(freq, level)
+	if(!EarSound)
+		return ..(freq, level)
 	return -1
 
 /obj/item/device/radio/headset/attack_hand(mob/user)
@@ -185,6 +189,7 @@
 	slot_flags = SLOT_WRISTS
 	canhear_range = 1
 	var/normal_layer = TRUE
+	EarSound = FALSE
 
 /obj/item/device/radio/headset/wrist/verb/change_layer()
 	set category = "Object"
