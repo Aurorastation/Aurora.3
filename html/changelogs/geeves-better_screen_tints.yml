@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Improved the sprites for impaired vision, most commonly from wearing welding gear or unactivated hardsuits."
+  - rscadd: "Putting on or removing vision impairing equipment will now update it immediately, flipping welding mask/goggles will do the same. This also updates flash and welding protection."

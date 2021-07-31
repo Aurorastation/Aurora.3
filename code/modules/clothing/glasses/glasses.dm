@@ -519,6 +519,7 @@ BLIND     // can't see anything
 			to_chat(usr, "You push \the [src] up out of your face.")
 		update_clothing_icon()
 		usr.update_action_buttons()
+		usr.handle_vision()
 
 /obj/item/clothing/glasses/aug/welding
 	name = "glare dampeners"
