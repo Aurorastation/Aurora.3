@@ -69,6 +69,8 @@
 		var/mob/living/carbon/human/H = src.loc
 		if(H.l_ear == src || H.r_ear == src)
 			return ..(freq, level)
+	if(istype(src, /obj/item/device/radio/headset/wrist))
+		return ..(freq, level)
 	return -1
 
 /obj/item/device/radio/headset/attack_hand(mob/user)
