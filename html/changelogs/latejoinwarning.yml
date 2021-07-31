@@ -1,0 +1,6 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - tweak: "You will now recieve a confirmation box if you try to late join as a different role to your preferences."

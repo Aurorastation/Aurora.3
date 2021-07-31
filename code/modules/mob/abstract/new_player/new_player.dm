@@ -133,6 +133,22 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			to_chat(usr, "<span class='danger'>Your current species, [client.prefs.species], is not available for play on the station.</span>")
 			return 0
 
+		var/confirm_job = FALSE
+		var/datum/job/J = SSjobs.GetJob(href_list["SelectedJob"])
+		switch(J.department_flag)
+			if(CIVILIAN)
+				if(!((client.prefs.job_civilian_high || client.prefs.job_civilian_high || client.prefs.job_civilian_high) == J.flag))
+					confirm_job = TRUE
+			if(MEDSCI)
+				if(!((client.prefs.job_medsci_high || client.prefs.job_medsci_high || client.prefs.job_medsci_high) == J.flag))
+					confirm_job = TRUE
+			if(ENGSEC)
+				if(!((client.prefs.job_engsec_high || client.prefs.job_engsec_high || client.prefs.job_engsec_high) == J.flag))
+					confirm_job = TRUE
+		if(confirm_job)
+			if(alert("Are you sure you want to join as \an \improper [J.title]", "Confirm Job", "Yes", "No") == "No")
+				return
+
 		AttemptLateSpawn(href_list["SelectedJob"],client.prefs.spawnpoint)
 		return
 
