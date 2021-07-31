@@ -284,8 +284,8 @@
 
 /obj/item/clothing/accessory/badge/passcard/synthetic
 	name = "synthetic residence card"
-    desc = "A passcard issued to free IPCs within the Republic of Biesel, providing resident status and allowing the owning of property, among other things"
-    desc_fluff = "Working alongside IPC tags within the Republic of Biesel, the synthetic residence card has a small RFID chip embedded in it which allows governmental authorities to confirm whether or not an IPC \
+	desc = "A passcard issued to free IPCs within the Republic of Biesel, providing resident status and allowing the owning of property, among other things."
+	desc_fluff = "Working alongside IPC tags within the Republic of Biesel, the synthetic residence card has a small RFID chip embedded in it which allows governmental authorities to confirm whether or not an IPC \
     is free and taking residency within the system. They were recently introduced in order to provide streamlined documentation for IPCs that have attained freedom but are not citizens."
 	icon_state = "passcard_ceti_m"
 	item_state = "passcard_ceti_m"
