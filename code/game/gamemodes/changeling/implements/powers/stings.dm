@@ -84,7 +84,7 @@
 
 /datum/changeling_sting/hallucinate/do_sting(mob/living/target)
 	..()
-	addtimer(CALLBACK(target, /mob/living.proc/add_hallucinate, 200), rand(5 SECONDS, 15 SECONDS))
+	addtimer(CALLBACK(target, /mob/living.proc/add_hallucinate, 65), rand(5 SECONDS, 10 SECONDS))
 
 /mob/proc/changeling_silence_sting()
 	set category = "Changeling"

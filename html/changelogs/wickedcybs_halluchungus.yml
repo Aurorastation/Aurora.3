@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - balance: "The changeling hallucination sting will no longer cause people stung to hallucinate for more than ten minutes. It'll be close to four minutes now, lasting some seconds longer than that still."
