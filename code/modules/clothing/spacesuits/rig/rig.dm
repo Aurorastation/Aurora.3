@@ -904,7 +904,7 @@
 	if(!wearer || !wearer.loc || !ai_can_move_suit(user, check_user_module = 1))
 		return
 
-	if(!wearer.stat) // don't force move if our wearer is awake
+	if(!wearer.stat && !wearer.paralysis) // don't force move if our wearer is awake and capable of moving
 		return
 
 	//This is sota the goto stop mobs from moving var
