@@ -57,7 +57,7 @@
 			"char_id" = 1
 		),
 		"ss13_characters" = list(
-			"nt_relation",
+			"economic_status",
 			"citizenship",
 			"religion",
 			"accent",
