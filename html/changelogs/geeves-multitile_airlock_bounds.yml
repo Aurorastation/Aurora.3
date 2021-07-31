@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Constructing multi-tile airlocks now properly sets the collision bounds."
+  - rscadd: "You can now rotate airlock assemblies by alt-clicking on them."
