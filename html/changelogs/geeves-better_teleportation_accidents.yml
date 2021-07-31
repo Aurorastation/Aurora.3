@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Failed portals and teleportation attempts will now transmit you to a random level, instead of level 3 each time."

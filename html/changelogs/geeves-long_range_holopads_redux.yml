@@ -1,9 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added long range holopads, compatible with overmap. Long range holopads can only communicate with other long range holopads. They need to be on different vessels to work."
-  - rscadd: "Mapped long range holopads into the surface interview room, the bridge, the command conference room, the away shuttle, and the centre of the Centcomm intelligence area."
-  - tweak: "Holopads now have a Vueui menu that allows you to search through the list of available holopads."
-  - tweak: "Command authorization on holopads are now a holopad toggle, remember to toggle it off after making a forced call if you're command, lest there be shenanigans."
