@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "You can now transfer lights between light replacers by clicking on one with another. The one in your active hand will receive the lights."
-  - rscadd: "Advanced light replacers are now sized small, meaning they can fit in webbing and drop pouches."

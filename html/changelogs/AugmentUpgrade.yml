@@ -1,8 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscadd: "Corrective lenses have been added to the loadout under augments."
-  - rscadd: "A new series of fluff based augments have been added to the loadout. They have no mechanical effect but allows their name and description to be set. Currently they exist for the head, upper body, left hand and right hand limbs."
-  - tweak: "Augments deploying something now only deploys it to the slot it is attached to. They can also retract it by hitting the action button again."
