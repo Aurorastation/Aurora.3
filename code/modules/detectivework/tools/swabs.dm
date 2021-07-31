@@ -112,7 +112,10 @@
 	switch (choice)
 		if (EVIDENCE_TYPE_BLOOD)
 			if(!A.blood_DNA || !A.blood_DNA.len) return
-			dna = A.blood_DNA.Copy()
+			if(!islist(A.blood_DNA))
+				dna = A.blood_DNA.Copy()
+			else
+				dna = A.blood_DNA
 			sample_type = "blood"
 
 		if (EVIDENCE_TYPE_GSR)
@@ -130,7 +133,7 @@
 
 		else //additional evidence
 			if(additional_evidence["dna"].len)
-				dna = additional_evidence["dna"].Copy()
+				dna = additional_evidence["dna"]
 			if(additional_evidence["gsr"])
 				gsr = additional_evidence["gsr"]
 			sample_type = additional_evidence["sample_type"]
