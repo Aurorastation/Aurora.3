@@ -83,39 +83,7 @@
 	if (istype(buckled_to, /obj/structure/bed))
 		return
 
-	var/static/support_limbs = list(
-		BP_L_LEG = BP_R_LEG,
-		BP_L_FOOT = BP_R_FOOT
-	)
-	var/has_opposite_limb = FALSE
-
-	for(var/limb_tag in list(BP_L_LEG, BP_L_FOOT, BP_R_LEG, BP_R_FOOT))
-		var/obj/item/organ/external/E = organs_by_name[limb_tag]
-		if(!E || (E.status & (ORGAN_MUTATED|ORGAN_DEAD)) || E.is_stump()) //should just be !E.is_usable() here but dislocation screws that up.
-			has_opposite_limb = get_organ(support_limbs[limb_tag])
-			if(!has_opposite_limb)
-				stance_damage += 10 //No walking for you with no supporting limb, buddy.
-				break
-			else
-				stance_damage += 2
-		else if (E.is_malfunctioning())
-			//malfunctioning only happens intermittently so treat it as a missing limb when it procs
-			stance_damage += 2
-			if(prob(10))
-				visible_message(SPAN_WARNING("\The [src]'s [E.name] [pick("twitches", "shudders")] and sparks!"))
-				spark(src, 5)
-		else if (E.is_broken() || !E.is_usable())
-			stance_damage += 1
-		else if (E.is_dislocated())
-			stance_damage += 0.5
-
-	// Canes and crutches help you stand (if the latter is ever added)
-	// One cane mitigates a broken leg+foot, or a missing foot.
-	// No double caning allowed, sorry. Canes also don't work if you're missing a functioning pair of feet or legs.
-	if(has_opposite_limb)
-		var/obj/item/cane/C = get_type_in_hands(/obj/item/cane)
-		if(C?.can_support)
-			stance_damage -=2
+	stance_damage = species.handle_stance_damage(src)
 
 	//Standing is poor.
 	if(stance_damage >= 4 || (stance_damage >= 2 && prob(5)))

@@ -46,6 +46,7 @@
 
 /obj/item/mech_component/chassis/superheavy/prebuild()
 	. = ..()
+	QDEL_NULL(cell)
 	cell = new /obj/item/cell/super(src)
 	mech_armor = new /obj/item/robot_parts/robot_component/armor/mech/combat(src)
 

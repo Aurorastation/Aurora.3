@@ -139,3 +139,7 @@
 	display_name = "buddy tag"
 	path = /obj/item/clothing/accessory/buddytag
 	cost = 2
+
+/datum/gear/utility/buddy_tag/New()
+	..()
+	gear_tweaks += new /datum/gear_tweak/buddy_tag_config()
