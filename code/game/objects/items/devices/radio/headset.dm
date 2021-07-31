@@ -184,6 +184,18 @@
 	item_state = "wristset"
 	slot_flags = SLOT_WRISTS
 	canhear_range = 1
+	var/normal_layer = TRUE
+
+/obj/item/device/radio/headset/wrist/verb/change_layer()
+	set category = "Object"
+	set name = "Change Wrist Layer"
+	set src in usr
+
+	normal_layer = !normal_layer
+	to_chat(usr, SPAN_NOTICE("\The [src] will now layer [normal_layer ? "under" : "over"] your outerwear."))
+	if (ismob(src.loc))
+		var/mob/M = src.loc
+		M.update_inv_wrists()	
 
 /*
  * Civillian
