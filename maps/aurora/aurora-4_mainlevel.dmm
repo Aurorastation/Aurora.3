@@ -12347,6 +12347,7 @@
 	dir = 6
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "awR" = (
@@ -64459,6 +64460,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
+"mVD" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/meeting_room)
 "mVU" = (
 /obj/machinery/button/switch/windowtint{
 	id = "consular";
@@ -115084,7 +115089,7 @@ aPH
 aRu
 aSX
 aUD
-aSX
+mVD
 aXu
 aYG
 bad
