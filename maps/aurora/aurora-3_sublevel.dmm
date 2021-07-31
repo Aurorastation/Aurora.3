@@ -23731,6 +23731,10 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
+/obj/machinery/camera/network/supply{
+	c_tag = "Cargo - Disposals, Lower";
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/maintenance/disposal)
 "bcb" = (
@@ -23744,10 +23748,6 @@
 "bcd" = (
 /obj/item/modular_computer/telescreen/preset/trashcompactor{
 	pixel_x = -32
-	},
-/obj/machinery/camera/network/supply{
-	c_tag = "Cargo - Disposals, Lower";
-	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/disposal)
