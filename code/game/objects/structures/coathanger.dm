@@ -44,19 +44,13 @@
 		return ..()
 
 /obj/structure/coatrack/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	var/can_hang_coat = 0
-	var/can_hang_hat = 0
-	if(is_type_in_list(mover, allowed_coats))
-		can_hang_coat = 1
-	else if(is_type_in_list(mover, allowed_hats))
-		can_hang_hat = 1
-	if (can_hang_coat && !coat)
+	if (is_type_in_list(mover, allowed_coats) && !coat)
 		src.visible_message("[mover] lands on \the [src].")
 		coat = mover
 		coat.forceMove(src)
 		update_icon()
 		return 0
-	if (can_hang_hat && !hat)
+	if (is_type_in_list(mover, allowed_hats) && !hat)
 		src.visible_message("[mover] lands on \the [src].")
 		hat = mover
 		hat.forceMove(src)
