@@ -137,13 +137,13 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		var/datum/job/J = SSjobs.GetJob(href_list["SelectedJob"])
 		switch(J.department_flag)
 			if(CIVILIAN)
-				if(!((client.prefs.job_civilian_high || client.prefs.job_civilian_high || client.prefs.job_civilian_high) == J.flag))
+				if(!((client.prefs.job_civilian_high || client.prefs.job_civilian_med || client.prefs.job_civilian_low) == J.flag))
 					confirm_job = TRUE
 			if(MEDSCI)
-				if(!((client.prefs.job_medsci_high || client.prefs.job_medsci_high || client.prefs.job_medsci_high) == J.flag))
+				if(!((client.prefs.job_medsci_high || client.prefs.job_medsci_med || client.prefs.job_medsci_low) == J.flag))
 					confirm_job = TRUE
 			if(ENGSEC)
-				if(!((client.prefs.job_engsec_high || client.prefs.job_engsec_high || client.prefs.job_engsec_high) == J.flag))
+				if(!((client.prefs.job_engsec_high || client.prefs.job_engsec_med || client.prefs.job_engsec_low) == J.flag))
 					confirm_job = TRUE
 		if(confirm_job)
 			if(alert("Are you sure you want to join as [J.title]", "Confirm Job", "Yes", "No") == "No")
