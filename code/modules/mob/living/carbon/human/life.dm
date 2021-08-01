@@ -696,7 +696,7 @@
 	// TODO: stomach and bloodstream organ.
 	if(!isSynthetic())
 		handle_trace_chems()
-	if(!(species.flags & NO_BLOOD))
+	if(vessel && (/decl/reagent/blood in vessel.reagent_data))
 		// update the trace chems in our blood vessels
 		var/decl/reagent/blood/B = decls_repository.get_decl(/decl/reagent/blood)
 		B.handle_trace_chems(vessel)
@@ -735,7 +735,7 @@
 		if(hallucination && !(species.flags & (NO_POISON|IS_PLANT)))
 			handle_hallucinations()
 
-		if(get_shock() >= (species.total_health * 0.6))
+		if(get_shock() >= species.total_health)
 			if(!stat)
 				to_chat(src, "<span class='warning'>[species.halloss_message_self]</span>")
 				src.visible_message("<B>[src]</B> [species.halloss_message]")
@@ -746,7 +746,7 @@
 			if(sleeping)
 				stat = UNCONSCIOUS
 
-			adjustHalLoss(-5)
+			adjustHalLoss(-3)
 			if (species.tail)
 				animate_tail_reset()
 			if(prob(2) && is_asystole() && isSynthetic())

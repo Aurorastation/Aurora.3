@@ -19,7 +19,6 @@
 	origin_tech = list(TECH_COMBAT = 1, TECH_PHORON = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 500)
 
-	var/fire_sound = 'sound/weapons/flamethrower.ogg'
 	var/secured = FALSE // Whether we have an igniter secured (screwdrivered) to us or not
 	var/throw_amount = 100
 	var/lit = FALSE //on or off
@@ -236,7 +235,6 @@
 	if(!lit || operating)
 		return
 	operating = TRUE
-	playsound(src, fire_sound, 70, 1)
 	for(var/turf/T in turflist)
 		if(T.density || istype(T, /turf/space))
 			break

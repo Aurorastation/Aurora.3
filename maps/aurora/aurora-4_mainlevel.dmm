@@ -12349,6 +12349,7 @@
 	dir = 6
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "awR" = (
@@ -13579,10 +13580,10 @@
 	},
 /area/bridge)
 "ayG" = (
-/obj/machinery/hologram/holopad,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "ayH" = (
@@ -20590,9 +20591,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/machinery/camera/network/security{
 	c_tag = "Security - Lobby Desk"
 	},
@@ -23736,6 +23734,7 @@
 /obj/structure/table/standard,
 /obj/item/folder/sec,
 /obj/item/paper_scanner,
+/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/security/brig/control_room)
 "aPg" = (
@@ -23770,7 +23769,8 @@
 	},
 /obj/machinery/camera/network/security{
 	c_tag = "Security - Communal Bathroom";
-	dir = 4
+	dir = 4;
+	network = list("Prison")
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/security/prison)
@@ -25048,7 +25048,6 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "aRs" = (
-/obj/machinery/hologram/holopad,
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
 "aRt" = (
@@ -27034,6 +27033,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
+/obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/meeting_room)
 "aUE" = (
@@ -53959,7 +53959,8 @@
 /obj/structure/table/wood,
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Bar - Booths";
-	dir = 1
+	dir = 1;
+	network = list("Service")
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
@@ -64461,6 +64462,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
+"mVD" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/meeting_room)
 "mVU" = (
 /obj/machinery/button/switch/windowtint{
 	id = "consular";
@@ -68846,6 +68851,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"uiJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/security/brig/control_room)
 "ujv" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -69431,7 +69448,7 @@
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Aft Corridor - Camera 2";
 	dir = 8;
-	network = list("Service")
+	network = list("Civilian Main")
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
@@ -101452,7 +101469,7 @@ omB
 aEm
 aGk
 aIq
-aJJ
+uiJ
 ntc
 aNp
 aPf
@@ -115080,7 +115097,7 @@ aPH
 aRu
 aSX
 aUD
-aSX
+mVD
 aXu
 aYG
 bad

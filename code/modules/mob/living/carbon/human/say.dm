@@ -152,6 +152,8 @@
 		headsets["Left Ear"] = l_ear
 	if(istype(r_ear, /obj/item/device/radio))
 		headsets["Right Ear"] = r_ear
+	if(istype(wrists, /obj/item/device/radio))
+		headsets["Wrist"] = wrists
 
 	if(length(headsets))
 		if(client && (client.prefs.primary_radio_slot in headsets))
@@ -197,6 +199,19 @@
 				has_radio = 1
 			if(istype(l_hand, /obj/item/device/radio))
 				R = l_hand
+				has_radio = 1
+			if(has_radio)
+				used_radios += R
+				if(R.talk_into(src,message,null,verb,speaking))
+					successful_radio += R
+		if("wrist")
+			var/obj/item/device/radio/R
+			var/has_radio = 0
+			if(istype(wrists,/obj/item/device/radio))
+				R = wrists
+				has_radio = 1
+			if(istype(r_hand, /obj/item/device/radio))
+				R = wrists
 				has_radio = 1
 			if(has_radio)
 				used_radios += R
