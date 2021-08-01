@@ -46,7 +46,7 @@
 	holder.remove_reagent(type, amount) // Don't typecheck this, fix anywhere this is called with a null holder.
 	if(ishuman(holder.my_atom))
 		var/mob/living/carbon/human/H = holder.my_atom
-		if(!(H.species.flags & NO_BLOOD))
+		if(H.vessel && (/decl/reagent/blood in H.vessel.reagent_data))
 			if(H.vessel.reagent_data[/decl/reagent/blood]["trace_chem"][type])
 				H.vessel.reagent_data[/decl/reagent/blood]["trace_chem"][type] += amount
 			else
