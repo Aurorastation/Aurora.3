@@ -91,6 +91,9 @@
 
 		var/is_full = (fullness >= user.max_nutrition)
 
+		if (user.is_diona())
+			is_full = FALSE
+
 		if(user == target)
 			if(!user.can_eat(src))
 				return
