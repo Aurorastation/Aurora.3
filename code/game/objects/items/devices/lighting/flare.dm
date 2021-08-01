@@ -74,6 +74,9 @@
 	pickup_sound = 'sound/items/pickup/woodweapon.ogg'
 
 /obj/item/device/flashlight/flare/torch/attack_self(mob/user)
+	if (on)
+		turn_off()
+		user.visible_message("<b>[user]</b> extinguishes \the [src].", SPAN_NOTICE("You extinguish \the [src]."))
 	return
 
 /obj/item/device/flashlight/flare/torch/update_icon()
@@ -98,6 +101,24 @@
 		light(user)
 	else
 		..()
+
+/obj/item/device/flashlight/flare/torch/isFlameSource()
+	return on
+
+/obj/item/device/flashlight/flare/torch/process()
+	var/turf/pos = get_turf(src)
+	if(pos)
+		pos.hotspot_expose(produce_heat, 5)
+	fuel = max(fuel - 1, 0)
+	if(!fuel || !on)
+		turn_off()
+		STOP_PROCESSING(SSprocessing, src)
+		if(!fuel)
+			var/obj/item/torch/T = new(pos)
+			if(ismob(src.loc))
+				var/mob/H = src.loc
+				H.put_in_hands(T)
+			qdel(src)
 
 /obj/item/torch
 	name = "torch handle"

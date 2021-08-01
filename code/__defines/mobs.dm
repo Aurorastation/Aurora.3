@@ -23,6 +23,11 @@
 #define INCORPOREAL_NINJA   2 // Pass through matter with a cool effect
 #define INCORPOREAL_BSTECH  3 // Like ninja, but also go across Z-levels and move in space freely
 #define INCORPOREAL_SHADE   4 // Shady
+#define INCORPOREAL_MECH    5 // stripped down bstech
+
+#define MOB_GRAB_NONE 0
+#define MOB_GRAB_NORMAL 1
+#define MOB_GRAB_FIREMAN 2
 
 // Grab levels.
 #define GRAB_PASSIVE    1
@@ -161,6 +166,8 @@
 #define BP_AUG_EMOTION         "emotional manipulator"
 #define BP_AUG_ENCHANED_VISION "vision enhanced retinas"
 #define BP_AUG_SIGHTLIGHTS     "ocular installed sightlights"
+#define BP_AUG_CORRECTIVE_LENS "corrective lenses"
+#define BP_AUG_GLARE_DAMPENER "glare dampeners"
 
 //Organ defines
 #define PROCESS_ACCURACY 10

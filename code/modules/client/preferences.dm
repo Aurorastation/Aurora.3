@@ -45,6 +45,7 @@ datum/preferences
 	var/backbag_style = 1
 	var/pda_choice = OUTFIT_TAB_PDA
 	var/headset_choice = OUTFIT_HEADSET
+	var/primary_radio_slot = "Left Ear"
 	var/h_style = "Bald"				//Hair type
 	var/hair_colour = "#000000"			//Hair colour hex value, for SQL loading
 	var/r_hair = 0						//Hair color
@@ -491,7 +492,7 @@ datum/preferences
 
 	character.pda_choice = pda_choice
 
-	if(headset_choice > OUTFIT_BOWMAN || headset_choice < OUTFIT_NOTHING)
+	if(headset_choice > OUTFIT_WRISTRAD || headset_choice < OUTFIT_NOTHING)
 		headset_choice = OUTFIT_HEADSET
 
 	character.headset_choice = headset_choice
