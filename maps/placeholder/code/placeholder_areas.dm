@@ -126,3 +126,23 @@
 
 /area/maintenance/substation/hangar
 	name = "Hangar Substation"
+
+//Operations
+
+/area/operations
+	name = "Operations"
+	icon_state = "dark"
+	ambience = AMBIENCE_ENGINEERING
+	station_area = TRUE
+
+/area/operations/lower
+	name = "Lower Operations"
+	icon_state = "dark160"
+
+/area/operations/upper
+	name = "Upper Operations"
+	icon_state = "dark128"
+
+/area/operations/storage
+	name = "Operations Equipment Storage"
+	icon_state = "dark160"
