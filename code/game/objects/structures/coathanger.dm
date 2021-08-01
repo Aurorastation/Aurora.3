@@ -18,37 +18,29 @@
 	if (!user.can_use_hand())
 		return
 	if(coat)
-		user.visible_message("[user] takes [coat] off \the [src].", "You take [coat] off the \the [src]")
-		coat.forceMove(get_turf(user))
+		user.visible_message("[user] takes [coat] off \the [src].", SPAN_NOTICE("You take [coat] off the \the [src]."))
 		user.put_in_hands(coat)
 		coat = null
 		update_icon()
 	else if(hat)
-		user.visible_message("[user] takes [hat] off \the [src].", "You take [hat] off the \the [src]")
-		hat.forceMove(get_turf(user))
+		user.visible_message("[user] takes [hat] off \the [src].", SPAN_NOTICE("You take [hat] off the \the [src]."))
 		user.put_in_hands(hat)
 		hat = null
 		update_icon()
 
 /obj/structure/coatrack/attackby(obj/item/W as obj, mob/user as mob)
-	var/can_hang_coat = 0
-	var/can_hang_hat = 0
-	if(is_type_in_list(W, allowed_coats))
-		can_hang_coat = 1
-	else if(is_type_in_list(W, allowed_hats))
-		can_hang_hat = 1
-	if (can_hang_coat && !coat)
-		user.visible_message("[user] hangs [W] on \the [src].", "You hang [W] on the \the [src]")
+	if (is_type_in_list(W, allowed_coats) && !coat)
+		user.visible_message("[user] hangs [W] on \the [src].", SPAN_NOTICE("You hang [W] on the \the [src]."))
 		coat = W
 		user.drop_from_inventory(coat, src)
 		update_icon()
-	else if (can_hang_hat && !hat)
-		user.visible_message("[user] hangs [W] on \the [src].", "You hang [W] on the \the [src]")
+	else if (is_type_in_list(W, allowed_hats) && !hat)
+		user.visible_message("[user] hangs [W] on \the [src].", SPAN_NOTICE("You hang [W] on the \the [src]."))
 		hat = W
 		user.drop_from_inventory(hat, src)
 		update_icon()
 	else
-		to_chat(user, "<span class='notice'>You cannot hang [W] on [src]</span>")
+		to_chat(user, SPAN_NOTICE("You cannot hang [W] on [src]."))
 		return ..()
 
 /obj/structure/coatrack/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
