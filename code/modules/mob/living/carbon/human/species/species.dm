@@ -559,7 +559,7 @@
 	if (!H.exhaust_threshold)
 		return 1 // Handled.
 
-	cost += H.getOxyLoss() * 0.1 //The less oxygen we get, the more we strain. 
+	cost += H.getOxyLoss() * 0.1 //The less oxygen we get, the more we strain.
 	cost *= H.sprint_cost_factor
 	if(H.is_drowsy())
 		cost *= 1.25
@@ -701,6 +701,9 @@
 	return injection_mod
 
 /datum/species/proc/is_naturally_insulated()
+	return FALSE
+
+/datum/species/proc/bypass_food_fullness(var/mob/living/carbon/human/H) //proc used to see if the species can eat more than their nutrition value allows
 	return FALSE
 
 // the records var is so that untagged shells can appear human

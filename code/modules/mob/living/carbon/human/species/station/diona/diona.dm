@@ -176,3 +176,6 @@
 
 /datum/species/diona/is_naturally_insulated()
 	return TRUE
+
+/datum/species/diona/bypass_food_fullness(var/mob/living/carbon/human/H)
+	return TRUE
