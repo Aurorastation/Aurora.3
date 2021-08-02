@@ -354,7 +354,7 @@ var/list/ai_verbs_default = list(
 		<p>While observing through a camera, you can use most (networked) devices which you can see, such as computers, APCs, intercoms, doors, etc. \
 			To use something, simply click on it.</p>\
 		<h2>AI Shell</h2>\
-		<p>As an AI, you have access to an unique, inhabitable AI shell that spawn behind your core.\
+		<p>As an AI, you have access to an unique, inhabitable AI shell that spawns behind your core.\
 			 This construct can be used in a variety of ways, but its primary function is to be a <strong>role play tool</strong> to give you the ability to have an actual physical presence on the station.\
 			 The shell is an extension of you, which means <strong>your laws apply to it aswell.</strong>\
 		</p>\
