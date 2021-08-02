@@ -23733,6 +23733,10 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
+/obj/machinery/camera/network/supply{
+	c_tag = "Cargo - Disposals, Lower";
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/maintenance/disposal)
 "bcb" = (
@@ -23746,10 +23750,6 @@
 "bcd" = (
 /obj/item/modular_computer/telescreen/preset/trashcompactor{
 	pixel_x = -32
-	},
-/obj/machinery/camera/network/supply{
-	c_tag = "Cargo - Disposals, Lower";
-	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/disposal)
@@ -27670,9 +27670,6 @@
 	icon_state = "0-2"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/structure/ladder/up{
-	pixel_y = 16
-	},
 /turf/simulated/floor/airless,
 /area/security/penal_colony)
 "eBJ" = (
@@ -29180,7 +29177,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/highsecurity{
 	name = "Penal Mining Facility";
-	req_access = list(3)
+	req_access = list(58)
 	},
 /turf/simulated/floor/airless,
 /area/security/penal_colony)

@@ -401,6 +401,14 @@
 		'sound/weapons/punch4.ogg'
 	)
 
+/decl/sound_category/punch_bassy_sound
+	sounds = list(
+		'sound/weapons/punch1_bass.ogg',
+		'sound/weapons/punch2_bass.ogg',
+		'sound/weapons/punch3_bass.ogg',
+		'sound/weapons/punch4_bass.ogg'
+	)
+
 /decl/sound_category/punchmiss_sound
 	sounds = list(
 		'sound/weapons/punchmiss1.ogg',
@@ -412,12 +420,6 @@
 		'sound/weapons/genhit1.ogg',
 		'sound/weapons/genhit2.ogg',
 		'sound/weapons/genhit3.ogg'
-	)
-
-/decl/sound_category/flesh_burn_sound
-	sounds = list(
-		'sound/effects/fleshburn1.ogg',
-		'sound/effects/fleshburn2.ogg'
 	)
 
 /decl/sound_category/hiss_sound

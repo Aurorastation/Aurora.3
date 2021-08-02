@@ -157,3 +157,13 @@ datum/design/item/tool/advanced_light_replacer
 	req_tech = list(TECH_ENGINEERING = 2, TECH_MATERIAL = 2, TECH_BLUESPACE = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GLASS = 20000, MATERIAL_SILVER = 20000, MATERIAL_GOLD = 20000, MATERIAL_PHORON = 10000)
 	build_path = /obj/item/bluespace_neutralizer
+
+/datum/design/item/tool/inductive_charger
+	name = "Inductive Charger (Science)"
+	req_tech = list(TECH_ENGINEERING = 7)
+	materials = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 5000, MATERIAL_PHORON = 1500)
+	build_path = /obj/item/inductive_charger/handheld
+
+/datum/design/item/tool/inductive_charger/engineering
+	name = "Inductive Charger (Engineering)"
+	build_path = /obj/item/inductive_charger/handheld/engineering

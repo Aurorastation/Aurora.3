@@ -16,7 +16,7 @@
 
 /datum/gear/head/bandana/New()
 	..()
-	var/bandanas = list()
+	var/list/bandanas = list()
 	bandanas["bandana"] = /obj/item/clothing/head/bandana
 	bandanas["bandana, red"] = /obj/item/clothing/head/bandana/red
 	bandanas["bandana, captain"] = /obj/item/clothing/head/bandana/captain
@@ -31,7 +31,7 @@
 	bandanas["bandana, mining"] = /obj/item/clothing/head/bandana/miner
 	bandanas["bandana, janitor"] = /obj/item/clothing/head/bandana/janitor
 
-	gear_tweaks += new/datum/gear_tweak/path(bandanas)
+	gear_tweaks += new /datum/gear_tweak/path(bandanas)
 
 /datum/gear/head/bandana_color
 	display_name = "bandana (colorable)"
@@ -46,7 +46,7 @@
 
 /datum/gear/head/softcap/New()
 	..()
-	var/softcaps = list()
+	var/list/softcaps = list()
 	softcaps["softcap"] = /obj/item/clothing/head/softcap
 	softcaps["softcap, rainbow"] = /obj/item/clothing/head/softcap/rainbow
 	softcaps["softcap, red"] = /obj/item/clothing/head/softcap/red
@@ -62,7 +62,7 @@
 	softcaps["softcap, mining"] = /obj/item/clothing/head/softcap/miner
 	softcaps["softcap, janitor"] = /obj/item/clothing/head/softcap/janitor
 
-	gear_tweaks += new/datum/gear_tweak/path(softcaps)
+	gear_tweaks += new /datum/gear_tweak/path(softcaps)
 
 /datum/gear/head/softcap_color
 	display_name = "softcap (colorable)"
@@ -77,7 +77,7 @@
 
 /datum/gear/head/beret/New()
 	..()
-	var/berets = list()
+	var/list/berets = list()
 	berets["beret"] = /obj/item/clothing/head/beret
 	berets["beret, red"] = /obj/item/clothing/head/beret/red
 	berets["beret, captain"] = /obj/item/clothing/head/beret/captain
@@ -92,7 +92,7 @@
 	berets["beret, mining"] = /obj/item/clothing/head/beret/miner
 	berets["beret, janitor"] = /obj/item/clothing/head/beret/janitor
 
-	gear_tweaks += new/datum/gear_tweak/path(berets)
+	gear_tweaks += new /datum/gear_tweak/path(berets)
 
 /datum/gear/head/beret_color
 	display_name = "beret (colorable)"
@@ -107,12 +107,12 @@
 
 /datum/gear/head/warden/New()
 	..()
-	var/wardenhead = list()
+	var/list/wardenhead = list()
 	wardenhead["warden hat, standard"] = /obj/item/clothing/head/warden
 	wardenhead["warden hat, corporate"] = /obj/item/clothing/head/warden/corp
 	wardenhead["warden beret, standard"] = /obj/item/clothing/head/beret/security/warden
 	wardenhead["warden beret, corporate"] = /obj/item/clothing/head/beret/security/warden/corp
-	gear_tweaks += new/datum/gear_tweak/path(wardenhead)
+	gear_tweaks += new /datum/gear_tweak/path(wardenhead)
 
 /datum/gear/head/hos
 	display_name = "headwear, security (head of security)"
@@ -122,12 +122,12 @@
 
 /datum/gear/head/hos/New()
 	..()
-	var/hoshead = list()
+	var/list/hoshead = list()
 	hoshead["head of security hat, standard"] = /obj/item/clothing/head/hos
 	hoshead["head of security hat, corporate"] = /obj/item/clothing/head/hos/corp
 	hoshead["head of security beret, standard"] = /obj/item/clothing/head/beret/security/hos
 	hoshead["head of security beret, corporate"] = /obj/item/clothing/head/beret/security/hos/corp
-	gear_tweaks += new/datum/gear_tweak/path(hoshead)
+	gear_tweaks += new /datum/gear_tweak/path(hoshead)
 
 /datum/gear/head/hardhat
 	display_name = "hardhat selection"
@@ -136,12 +136,12 @@
 
 /datum/gear/head/hardhat/New()
 	..()
-	var/hardhat = list()
+	var/list/hardhat = list()
 	hardhat["hardhat, yellow"] = /obj/item/clothing/head/hardhat
 	hardhat["hardhat, blue"] = /obj/item/clothing/head/hardhat/dblue
 	hardhat["hardhat, orange"] = /obj/item/clothing/head/hardhat/orange
 	hardhat["hardhat, red"] = /obj/item/clothing/head/hardhat/red
-	gear_tweaks += new/datum/gear_tweak/path(hardhat)
+	gear_tweaks += new /datum/gear_tweak/path(hardhat)
 
 /datum/gear/head/hairflower
 	display_name = "hair flower pin (colorable)"
@@ -155,11 +155,11 @@
 
 /datum/gear/head/flowercrown/New()
 	..()
-	var/flowercrown = list()
+	var/list/flowercrown = list()
 	flowercrown["crown, sunflower"] = /obj/item/clothing/head/sunflower_crown
 	flowercrown["crown, harebell"] = /obj/item/clothing/head/lavender_crown
 	flowercrown["crown, poppy"] = /obj/item/clothing/head/poppy_crown
-	gear_tweaks += new/datum/gear_tweak/path(flowercrown)
+	gear_tweaks += new /datum/gear_tweak/path(flowercrown)
 
 /datum/gear/head/pin
 	display_name = "pin selection"
@@ -172,7 +172,7 @@
 	for(var/pin in typesof(/obj/item/clothing/head/pin))
 		var/obj/item/clothing/head/pin/pin_type = pin
 		pins[initial(pin_type.name)] = pin_type
-	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(pins))
+	gear_tweaks += new /datum/gear_tweak/path(sortAssoc(pins))
 
 /datum/gear/head/hats
 	display_name = "hat selection"
@@ -181,7 +181,7 @@
 
 /datum/gear/head/hats/New()
 	..()
-	var/hats = list()
+	var/list/hats = list()
 	hats["hat, boatsman"] = /obj/item/clothing/head/boaterhat
 	hats["hat, bowler"] = /obj/item/clothing/head/bowler
 	hats["hat, fez"] = /obj/item/clothing/head/fez
@@ -197,7 +197,7 @@
 	hats["hat, wide-brimmed cowboy"] = /obj/item/clothing/head/cowboy/wide
 	hats["hat, sombrero"] = /obj/item/clothing/head/sombrero
 	hats["hat, flatcap"] = /obj/item/clothing/head/flatcap
-	gear_tweaks += new/datum/gear_tweak/path(hats)
+	gear_tweaks += new /datum/gear_tweak/path(hats)
 
 /datum/gear/head/hijab
 	display_name = "hijab selection"
@@ -205,7 +205,7 @@
 
 /datum/gear/head/hijab/New()
 	..()
-	var/hijab = list()
+	var/list/hijab = list()
 	hijab["black hijab"] = /obj/item/clothing/head/hijab
 	hijab["grey hijab"] = /obj/item/clothing/head/hijab/grey
 	hijab["red hijab"] = /obj/item/clothing/head/hijab/red
@@ -214,7 +214,7 @@
 	hijab["blue hijab"] = /obj/item/clothing/head/hijab/blue
 	hijab["white hijab"] = /obj/item/clothing/head/hijab/white
 
-	gear_tweaks += new/datum/gear_tweak/path(hijab)
+	gear_tweaks += new /datum/gear_tweak/path(hijab)
 
 /datum/gear/head/hijab_colorable
 	display_name = "colorable hijab"
@@ -227,7 +227,7 @@
 
 /datum/gear/head/turban/New()
 	..()
-	var/turbans = list()
+	var/list/turbans = list()
 	turbans["black turban"] = /obj/item/clothing/head/turban
 	turbans["blue turban"] = /obj/item/clothing/head/turban/blue
 	turbans["green turban"] = /obj/item/clothing/head/turban/green
@@ -238,7 +238,7 @@
 	turbans["white turban"] = /obj/item/clothing/head/turban/white
 	turbans["yellow turban"] = /obj/item/clothing/head/turban/yellow
 
-	gear_tweaks += new/datum/gear_tweak/path(turbans)
+	gear_tweaks += new /datum/gear_tweak/path(turbans)
 
 /datum/gear/head/surgical
 	display_name = "surgical cap selection"
@@ -247,12 +247,12 @@
 
 /datum/gear/head/surgical/New()
 	..()
-	var/surgical = list()
+	var/list/surgical = list()
 	surgical["surgical cap, purple"] = /obj/item/clothing/head/surgery/purple
 	surgical["surgical cap, blue"] = /obj/item/clothing/head/surgery/blue
 	surgical["surgical cap, green"] = /obj/item/clothing/head/surgery/green
 	surgical["surgical cap, black"] = /obj/item/clothing/head/surgery/black
-	gear_tweaks += new/datum/gear_tweak/path(surgical)
+	gear_tweaks += new /datum/gear_tweak/path(surgical)
 
 /datum/gear/head/headbando
 	display_name = "basic headband"
@@ -285,10 +285,10 @@
 
 /datum/gear/head/tcfl/New()
 	..()
-	var/tcfl = list()
+	var/list/tcfl = list()
 	tcfl["tcfl beret, dress"] = /obj/item/clothing/head/beret/legion
 	tcfl["tcfl beret, field"] = /obj/item/clothing/head/beret/legion/field
-	gear_tweaks += new/datum/gear_tweak/path(tcfl)
+	gear_tweaks += new /datum/gear_tweak/path(tcfl)
 
 /datum/gear/head/padded_cap
 	display_name = "padded cap"
@@ -318,13 +318,13 @@
 
 /datum/gear/head/gadpathur/New()
 	..()
-	var/gadpathur = list()
+	var/list/gadpathur = list()
 	gadpathur["gadpathurian sidecap"] = /obj/item/clothing/head/gadpathur
 	gadpathur["gadpathurian beret"] = /obj/item/clothing/head/beret/gadpathur
 	gadpathur["gadpathurian engineer beret"] = /obj/item/clothing/head/beret/gadpathur/engineer
 	gadpathur["gadpathurian medical beret"] = /obj/item/clothing/head/beret/gadpathur/medical
 	gadpathur["gadpathurian turban"] = /obj/item/clothing/head/turban/gadpathur
-	gear_tweaks += new/datum/gear_tweak/path(gadpathur)
+	gear_tweaks += new /datum/gear_tweak/path(gadpathur)
 
 /datum/gear/head/dominia
 	display_name = "fisanduhian ushanka"

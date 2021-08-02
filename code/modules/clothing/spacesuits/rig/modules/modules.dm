@@ -155,9 +155,10 @@
 	if(.)
 		var/old_next_use = next_use
 		next_use = world.time + module_cooldown
-		if(next_use > old_next_use)
-			var/obj/screen/inventory/back/B = locate(/obj/screen/inventory/back) in user.hud_used.adding
-			B.set_color_for(COLOR_RED, module_cooldown)
+		if(next_use > old_next_use && holder.wearer)
+			var/obj/screen/inventory/back/B = locate(/obj/screen/inventory/back) in holder.wearer.hud_used.adding
+			if(B)
+				B.set_color_for(COLOR_RED, module_cooldown)
 
 //Proc for one-use abilities like teleport.
 /obj/item/rig_module/proc/engage(atom/target, mob/user)
@@ -201,7 +202,7 @@
 	if(engage_on_activate && !do_engage(null, user))
 		return FALSE
 
-	if(use_check_and_message(user))
+	if(use_check_and_message(user, USE_ALLOW_NON_ADJACENT))
 		return FALSE
 
 	active = TRUE
@@ -220,7 +221,7 @@
 	if(!active)
 		return FALSE
 
-	if(use_check_and_message(user))
+	if(use_check_and_message(user, USE_ALLOW_NON_ADJACENT))
 		return FALSE
 
 	active = FALSE
