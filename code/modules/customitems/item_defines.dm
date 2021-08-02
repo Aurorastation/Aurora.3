@@ -2109,8 +2109,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "rajjurl_uniform"
 	item_state = "rajjurl_uniform"
 	contained_sprite = TRUE
+	no_overheat = TRUE
 
-/obj/item/clothing/gloves/fluff/rajjurl_gloves //Tajaran Silken Gloves - Rajjurl Al-Thaalzir - abigbear
+/obj/item/clothing/gloves/white/tajara/fluff/rajjurl_gloves //Tajaran Silken Gloves - Rajjurl Al-Thaalzir - abigbear
 	name = "tajaran silken gloves"
 	desc = "A pair of silken gloves fitted to a Tajaran hand."
 	icon = 'icons/obj/custom_items/rajjurl_uniform.dmi'
