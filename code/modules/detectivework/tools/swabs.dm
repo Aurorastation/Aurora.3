@@ -115,7 +115,8 @@
 			if(!islist(A.blood_DNA))
 				dna = A.blood_DNA.Copy()
 			else
-				dna = A.blood_DNA
+				for(var/other_dna in A.blood_DNA)
+					dna += other_dna
 			sample_type = "blood"
 
 		if (EVIDENCE_TYPE_GSR)
@@ -133,7 +134,11 @@
 
 		else //additional evidence
 			if(additional_evidence["dna"].len)
-				dna = additional_evidence["dna"]
+				if(islist(additional_evidence["dna"]))
+					for(var/other_dna in additional_evidence["dna"]) // Solve the fact this gets stuck in an endless loop if there is only one string
+						dna += other_dna
+				else
+					dna = additional_evidence["dna"] 
 			if(additional_evidence["gsr"])
 				gsr = additional_evidence["gsr"]
 			sample_type = additional_evidence["sample_type"]
