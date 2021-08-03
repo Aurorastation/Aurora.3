@@ -47,11 +47,11 @@
 		for(var/exosystem_software in software.installed_software)
 			to_chat(user, SPAN_NOTICE(" - <b>[capitalize_first_letters(exosystem_software)]</b>"))
 	else
-		to_chat(user, SPAN_WARNING(" Control Module Missing or Non-functional."))
+		to_chat(user, SPAN_WARNING("  - Control Module Missing or Non-functional."))
 	if(radio)
-		to_chat(user, SPAN_NOTICE(" Radio Integrity: <b>[round(((radio.max_dam - radio.total_dam) / radio.max_dam)) * 100]%</b>"))
+		to_chat(user, SPAN_NOTICE("  - Radio Integrity: <b>[round(((radio.max_dam - radio.total_dam) / radio.max_dam) * 100, 0.1)]%</b>"))
 	else
-		to_chat(user, SPAN_WARNING(" Radio Missing or Non-functional."))
+		to_chat(user, SPAN_WARNING("  - Radio Missing or Non-functional."))
 
 /obj/item/mech_component/sensors/prebuild()
 	radio = new(src)

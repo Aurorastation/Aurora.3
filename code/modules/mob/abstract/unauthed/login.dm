@@ -11,8 +11,6 @@
 /mob/abstract/unauthed/LateLogin()
 	SHOULD_CALL_PARENT(FALSE)
 
-	client.chatOutput.start() //We have to unfortunately put this here too since the LateLogin chains are disconnected.
-
 	update_Login_details()
 	to_chat(src, "<span class='danger'><b>You need to authenticate before you can continue.</b></span>")
 	token = md5("[client.ckey][client.computer_id][world.time][rand()]")

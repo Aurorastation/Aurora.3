@@ -386,7 +386,7 @@
 	desc = "If you want to get cancer, might as well do it in style!"
 	product_slogans = "Space cigs taste good like a cigarette should.;I'd rather toolbox than switch.;Smoke!;Don't believe the reports - smoke today!"
 	product_ads = "Probably not bad for you!;Don't believe the scientists!;It's good for you!;Don't quit, buy more!;Smoke!;Nicotine heaven.;Best cigarettes since 2150.;Award-winning cigs."
-	vend_delay = 34
+	vend_delay = 24
 	icon_state = "cigs"
 	vend_id = "smokes"
 	products = list(
@@ -410,7 +410,14 @@
 		/obj/item/storage/box/fancy/cigpaper/fine = 4,
 		/obj/item/storage/box/fancy/matches = 10,
 		/obj/item/flame/lighter/random = 4,
-		/obj/item/spacecash/ewallet/lotto = 30
+		/obj/item/spacecash/ewallet/lotto = 30,
+		/obj/item/clothing/mask/smokable/ecig/util = 2,
+		/obj/item/clothing/mask/smokable/ecig/simple = 2,
+		/obj/item/reagent_containers/ecig_cartridge/med_nicotine = 10,
+		/obj/item/reagent_containers/ecig_cartridge/high_nicotine = 10,
+		/obj/item/reagent_containers/ecig_cartridge/orange = 10,
+		/obj/item/reagent_containers/ecig_cartridge/watermelon = 10,
+		/obj/item/reagent_containers/ecig_cartridge/grape = 10
 	)
 	contraband = list(
 		/obj/item/storage/box/fancy/cigarettes/blank = 5,
@@ -442,7 +449,14 @@
 		/obj/item/storage/cigfilters = 28,
 		/obj/item/storage/box/fancy/cigpaper = 35,
 		/obj/item/storage/box/fancy/cigpaper/fine = 42,
-		/obj/item/spacecash/ewallet/lotto = 200
+		/obj/item/spacecash/ewallet/lotto = 200,
+		/obj/item/clothing/mask/smokable/ecig/simple = 200,
+		/obj/item/clothing/mask/smokable/ecig/util = 300,
+		/obj/item/reagent_containers/ecig_cartridge/med_nicotine = 34,
+		/obj/item/reagent_containers/ecig_cartridge/high_nicotine = 38,
+		/obj/item/reagent_containers/ecig_cartridge/orange = 32,
+		/obj/item/reagent_containers/ecig_cartridge/watermelon = 30,
+		/obj/item/reagent_containers/ecig_cartridge/grape = 33
 	)
 	light_color = COLOR_BLUE_GRAY
 

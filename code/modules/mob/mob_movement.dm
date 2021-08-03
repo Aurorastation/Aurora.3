@@ -232,7 +232,7 @@
 		if(Process_Grab())
 			return
 
-	if(!mob.canmove)
+	if(!mob.canmove || mob.paralysis)
 		return
 
 	//if(istype(mob.loc, /turf/space) || (mob.flags & NOGRAV))
@@ -334,7 +334,10 @@
 		//We are now going to move
 		moving = 1
 		//Something with pulling things
-		if (mob_is_human && (istype(mob:l_hand, /obj/item/grab) || istype(mob:r_hand, /obj/item/grab)))
+		var/grab_level = mob.has_grab()
+		if(grab_level == MOB_GRAB_FIREMAN)
+			move_delay++
+		if (mob_is_human && grab_level == MOB_GRAB_NORMAL)
 			move_delay = max(move_delay, world.time + 7)
 			var/list/L = mob.ret_grab()
 			if(istype(L, /list))

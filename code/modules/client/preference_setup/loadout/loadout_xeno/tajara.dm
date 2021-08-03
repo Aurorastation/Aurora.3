@@ -44,7 +44,7 @@
 /datum/gear/suit/tajara_coat
 	display_name = "tajara coat selection"
 	description = "A selection of tajaran native coats."
-	path = /obj/item/clothing/suit/storage/tajaran
+	path = /obj/item/clothing/suit/storage/toggle/tajaran/wool
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	sort_category = "Xenowear - Tajara"
 
@@ -53,8 +53,8 @@
 	var/list/coat = list()
 	coat["tajaran naval coat"] = /obj/item/clothing/suit/storage/toggle/tajaran
 	coat["gruff cloak"] = /obj/item/clothing/suit/storage/hooded/tajaran
-	coat["adhomian wool coat"] = /obj/item/clothing/suit/storage/tajaran
-	coat["Raakti Shariim coat"] = /obj/item/clothing/suit/storage/tajaran/raakti_shariim
+	coat["adhomian wool coat"] = /obj/item/clothing/suit/storage/toggle/tajaran/wool
+	coat["Raakti Shariim coat"] = /obj/item/clothing/suit/storage/toggle/tajaran/raakti_shariim
 	gear_tweaks += new /datum/gear_tweak/path(coat)
 
 /datum/gear/suit/tajara_cloak
@@ -288,6 +288,7 @@
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	flags = GEAR_HAS_DESC_SELECTION
+	cost = 0
 
 /datum/gear/tajaran_passports/New()
 	..()

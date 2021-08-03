@@ -131,3 +131,32 @@
 	path = /obj/item/organ/internal/augment/zenghu_plate
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_SKRELL, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	faction = "Zeng-Hu Pharmaceuticals"
+
+/datum/gear/augment/corrective_lenses
+	display_name = "retractable corrective lenses"
+	description = "A set of corrective lenses that can be deployed & retracted."
+	path = /obj/item/organ/internal/augment/tool/correctivelens
+
+/datum/gear/augment/head_fluff
+	display_name = "Custom head augmentation"
+	description = "A fluff based augmentation that can be renamed/redescribed to appear as something else for RP purposes."
+	path = /obj/item/organ/internal/augment/head_fluff
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/augment/chest_fluff
+	display_name = "Custom chest augmentation"
+	description = "A fluff based augmentation that can be renamed/redescribed to appear as something else for RP purposes."
+	path = /obj/item/organ/internal/augment/head_fluff/chest_fluff
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/augment/rhand_fluff
+	display_name = "Custom right hand augmentation"
+	description = "A fluff based augmentation that can be renamed/redescribed to appear as something else for RP purposes."
+	path = /obj/item/organ/internal/augment/head_fluff/rhand_fluff
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/augment/lhand_fluff
+	display_name = "Custom left hand augmentation"
+	description = "A fluff based augmentation that can be renamed/redescribed to appear as something else for RP purposes."
+	path = /obj/item/organ/internal/augment/head_fluff/lhand_fluff
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
