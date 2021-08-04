@@ -50,7 +50,7 @@
 
 	is_wieldable = TRUE
 
-	desc_fluff = "The People's Republic of Adhomai is the first  Adhomian faction able to master the nuclear fission. Atomic weapons were used before in the tajaran civil war, \
+	desc_fluff = "The People's Republic of Adhomai is the first Adhomian faction able to master the nuclear fission. Atomic weapons were used before in the tajaran civil war, \
 	causing the annihilation of the military base of Quizosa. The nuclear launcher was created by republican scientists as way to deploy this destructive force while on the field."
 
 /obj/item/gun/projectile/nuke/update_icon()
