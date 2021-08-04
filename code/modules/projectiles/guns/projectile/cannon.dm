@@ -99,7 +99,7 @@
 
 /obj/item/gun/projectile/recoilless_rifle/special_check(mob/user)
 	if(!wielded)
-		to_chat(user, SPAN_WARNING ("You can't fire without stabilizing \the [src]!"))
+		to_chat(user, SPAN_WARNING("You can't fire without stabilizing \the [src]!"))
 		return 0
 	return ..()
 
