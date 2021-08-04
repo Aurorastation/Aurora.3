@@ -119,7 +119,7 @@
 	w_class = ITEMSIZE_LARGE
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 5)
 	load_method = SINGLE_CASING
-	fire_sound = 'sound/weapons/railgun.ogg'
+	fire_sound = 'sound/weapons/gunshot/cannon.ogg'
 	slot_flags = null
 	ammo_type = /obj/item/ammo_casing/peac
 
