@@ -40,7 +40,7 @@
 	//Armor
 	var/damage = P.damage
 	var/flags = P.damage_flags()
-	if(ismech(src))
+	if(is_anti_materiel_vulnerable())
 		damage = P.damage * P.anti_materiel_potential
 	var/damaged
 	if(!P.nodamage)
