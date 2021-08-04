@@ -232,7 +232,7 @@
 		if(Process_Grab())
 			return
 
-	if(!mob.canmove)
+	if(!mob.canmove || mob.paralysis)
 		return
 
 	//if(istype(mob.loc, /turf/space) || (mob.flags & NOGRAV))

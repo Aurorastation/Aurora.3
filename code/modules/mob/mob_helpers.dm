@@ -1244,3 +1244,6 @@ proc/is_blind(A)
 			. = max(MOB_GRAB_FIREMAN, .)
 		else
 			. = max(MOB_GRAB_NORMAL, .)
+
+/mob/proc/handle_vision()
+	return

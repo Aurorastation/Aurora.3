@@ -97,7 +97,8 @@
 		else
 			owner.emote(pick("shiver","twitch"))
 
-	owner.adjustOxyLoss(HUMAN_MAX_OXYLOSS * breath_fail_ratio)
+	if(damage || owner.chem_effects[CE_BREATHLOSS] || world.time > last_successful_breath + 2 MINUTES)
+		owner.adjustOxyLoss(HUMAN_MAX_OXYLOSS * breath_fail_ratio)
 	owner.oxygen_alert = max(owner.oxygen_alert, 2)
 
 /obj/item/organ/internal/lungs/proc/enable_rupture()

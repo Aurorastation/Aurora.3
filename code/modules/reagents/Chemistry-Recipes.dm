@@ -3512,3 +3512,10 @@
 	required_reagents = list(/decl/reagent/drink/earthenrootjuice = 1, /decl/reagent/sugar = 1, /decl/reagent/woodpulp = 1)
 	catalysts = list(/decl/reagent/enzyme = 5)
 	result_amount = 3
+
+/datum/chemical_reaction/drink/caprician_coffee
+	name = "Caprician Coffee"
+	id = "caprician_coffee"
+	result = /decl/reagent/drink/toothpaste/caprician_coffee
+	required_reagents = list(/decl/reagent/drink/toothpaste = 1, /decl/reagent/drink/coffee = 2)
+	result_amount = 3
