@@ -43,7 +43,7 @@
 	magazine_type = /obj/item/ammo_magazine/nuke
 	allowed_magazines = list(/obj/item/ammo_magazine/nuke)
 	fire_delay = 40
-	fire_sound = 'sound/weapons/click.ogg'
+	fire_sound = 'sound/weapons/mortar.ogg'
 	recoil = 4
 
 	auto_eject = TRUE
