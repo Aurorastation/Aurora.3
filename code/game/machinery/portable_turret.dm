@@ -22,6 +22,9 @@
 
 	req_one_access = list(access_security, access_heads)
 
+	light_range = 3
+	light_power = 2
+
 	var/raised = 0			//if the turret cover is "open" and the turret is raised
 	var/raising= 0			//if the turret is currently opening or closing its cover
 	var/health = 80			//the turret's health
@@ -171,6 +174,7 @@
 	if(stat & BROKEN)
 		icon_state = "turret_[sprite_set]_broken"
 		underlays += "cover_open_[cover_set]"
+		set_light(0)
 	else if(raised || raising)
 		if(powered() && enabled)
 			if(!lethal_icon)
@@ -184,6 +188,11 @@
 			underlays += "cover_open_[cover_set]"
 	else
 		icon_state = "cover_[cover_set]"
+
+	if(stat & NOPOWER)
+		set_light(0)
+	else
+		set_light(light_range, light_power)
 
 /obj/machinery/porta_turret/proc/isLocked(mob/user)
 	if(ailock && issilicon(user))
@@ -1147,7 +1156,7 @@
 	sprite_set = "ballistic"
 	no_salvage = TRUE
 
-	eprojectile = /obj/item/projectile/bullet/rifle/a762
+	eprojectile = /obj/item/projectile/bullet/pistol/medium
 	eshot_sound	= 'sound/weapons/gunshot/gunshot_saw.ogg'
 
 	req_one_access = list(access_syndicate)

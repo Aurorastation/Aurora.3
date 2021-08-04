@@ -37,8 +37,9 @@
 
 /proc/make_list_rank(rank)
 	for(var/prefix in acting_rank_prefixes)
-		if(findtext(rank, "[prefix] ", 1, 2+length(prefix)))
-			return copytext(rank, 2+length(prefix))
+		rank = replacetext(rank, "[prefix] ", "")
+	for(var/datum/faction/faction as anything in SSjobs.factions)
+		rank = replacetext(rank, " ([faction.title_suffix])", "")
 	return rank
 
 /obj/structure/showcase

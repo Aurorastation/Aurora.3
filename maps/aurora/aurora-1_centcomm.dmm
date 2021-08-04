@@ -13006,7 +13006,8 @@
 "ezv" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Telecommunications Monitoring";
-	req_access = list(107)
+	req_access = null;
+	req_one_access = list(106,108,109)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -13861,15 +13862,27 @@
 /area/centcom/holding)
 "fcm" = (
 /obj/structure/table/rack,
-/obj/item/material/knife/tacknife{
+/obj/item/material/knife/bayonet{
 	pixel_x = 3;
 	pixel_y = -2
 	},
-/obj/item/material/knife/tacknife{
+/obj/item/material/knife/bayonet{
 	pixel_x = 3;
 	pixel_y = -2
 	},
-/obj/item/material/knife/tacknife{
+/obj/item/material/knife/bayonet{
+	pixel_x = 3;
+	pixel_y = -2
+	},
+/obj/item/material/knife/bayonet{
+	pixel_x = 3;
+	pixel_y = -2
+	},
+/obj/item/material/knife/bayonet{
+	pixel_x = 3;
+	pixel_y = -2
+	},
+/obj/item/material/knife/bayonet{
 	pixel_x = 3;
 	pixel_y = -2
 	},
@@ -16939,8 +16952,15 @@
 /turf/simulated/floor/wood,
 /area/centcom/shared_dream)
 "gOV" = (
-/obj/structure/table/reinforced,
+/obj/item/clothing/accessory/storage/webbingharness/pouches/ert,
+/obj/item/clothing/accessory/storage/webbingharness/alt{
+	slots = 5
+	},
+/obj/item/clothing/accessory/storage/webbingharness{
+	slots = 5
+	},
 /obj/item/device/binoculars,
+/obj/structure/table/reinforced,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "gPb" = (
@@ -16988,6 +17008,16 @@
 /obj/item/clothing/accessory/holster/armpit/brown,
 /obj/item/clothing/gloves/black_leather,
 /obj/item/clothing/gloves/black_leather,
+/obj/item/clothing/accessory/storage/webbingharness/alt{
+	slots = 5
+	},
+/obj/item/clothing/accessory/storage/webbingharness/pouches/ert,
+/obj/item/clothing/accessory/storage/webbingharness{
+	slots = 5
+	},
+/obj/item/clothing/accessory/storage/black_vest,
+/obj/item/clothing/accessory/storage/brown_vest,
+/obj/item/clothing/accessory/storage/white_vest,
 /turf/unsimulated/floor,
 /area/antag/burglar)
 "gPO" = (
@@ -17945,7 +17975,7 @@
 	},
 /area/centcom/specops)
 "hum" = (
-/obj/machinery/hologram/holopad,
+/obj/machinery/hologram/holopad/long_range,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -22561,7 +22591,7 @@
 "kzj" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Custodial Closet";
-	req_access = list(101)
+	req_access = list(103)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -25319,6 +25349,12 @@
 	icon_state = "2,5"
 	},
 /area/shuttle/merchant)
+"mlA" = (
+/obj/machinery/hologram/holopad/long_range,
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/specops)
 "mmb" = (
 /turf/simulated/floor,
 /area/tdome/tdome2)
@@ -39018,7 +39054,8 @@
 	name = "VIP Shuttle Access";
 	pixel_x = -7;
 	pixel_y = -23;
-	req_access = list(101)
+	req_access = null;
+	req_one_access = list(108,109)
 	},
 /turf/unsimulated/floor,
 /area/centcom/holding)
@@ -42312,13 +42349,17 @@
 /area/centcom/legion/hangar5)
 "xuV" = (
 /obj/structure/table/rack,
-/obj/item/shield/energy/legion{
-	pixel_x = 3;
-	pixel_y = -2
-	},
 /obj/item/melee/energy/sword/knife{
 	pixel_x = -4;
 	pixel_y = 5
+	},
+/obj/item/material/knife/bayonet{
+	pixel_x = 3;
+	pixel_y = -2
+	},
+/obj/item/shield/energy/legion{
+	pixel_x = 3;
+	pixel_y = -2
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
@@ -64397,7 +64438,7 @@ ngi
 jTO
 nlQ
 nGs
-vjQ
+mlA
 ocD
 oik
 vjQ

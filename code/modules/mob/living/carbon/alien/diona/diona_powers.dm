@@ -52,6 +52,7 @@
 		to_chat(src, SPAN_NOTICE("You feel your being twine with that of \the [H] as you merge with its biomass."))
 		for(var/obj/O in src.contents)
 			drop_from_inventory(O)
+		hat = null
 		src.forceMove(H)
 	else
 		to_chat(src, SPAN_WARNING("Something went wrong while trying to merge into [H], cancelling."))
@@ -124,6 +125,7 @@
 			to_chat(src, SPAN_NOTICE("You feel your being entwine with that of \the [D] as it merges with your biomass."))
 			for(var/obj/O in D.contents)
 				D.drop_from_inventory(O)
+			D.hat = null
 			D.forceMove(src)
 			D.stat = CONSCIOUS
 			status_flags |= PASSEMOTES

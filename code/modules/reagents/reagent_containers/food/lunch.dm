@@ -69,7 +69,9 @@ var/list/lunchables_drinks_ = list(
 	/obj/item/reagent_containers/food/drinks/cans/sodawater,
 	/obj/item/reagent_containers/food/drinks/cans/adhomai_milk,
 	/obj/item/reagent_containers/food/drinks/cans/beetle_milk,
-	/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda
+	/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda,
+	/obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water,
+	/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz
 )
 
 var/list/lunchables_utensil_ = list(
@@ -105,7 +107,8 @@ var/list/lunchables_alcohol_reagents_ = list(
 	/decl/reagent/alcohol/neurotoxin,
 	/decl/reagent/alcohol/pwine,
 	/decl/reagent/alcohol/threemileisland,
-	/decl/reagent/alcohol/toxins_special
+	/decl/reagent/alcohol/toxins_special,
+	/decl/reagent/alcohol/nmshaan_liquor/darmadhirbrew
 )
 
 /proc/lunchables_lunches()

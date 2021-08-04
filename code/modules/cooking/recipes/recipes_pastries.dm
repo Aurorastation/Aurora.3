@@ -56,8 +56,6 @@
 		var/obj/item/paper/paper = locate() in container
 		if (!paper || !istype(paper))
 			return COOK_CHECK_FAIL
-		if (!paper.info)
-			return COOK_CHECK_FAIL
 	return .
 
 /decl/recipe/brownies

@@ -151,7 +151,7 @@
 		/obj/item/storage/box/donkpockets = 3,
 		/obj/item/storage/box/mousetraps = 3,
 		/obj/item/storage/wallet = 3,
-		/obj/item/clothing/gloves/fyellow = 2,
+		/obj/item/clothing/gloves/yellow/budget = 2,
 		/obj/item/clothing/gloves/latex = 2,
 		/obj/item/clothing/head/welding = 2,
 		/obj/item/clothing/mask/gas/alt = 2,

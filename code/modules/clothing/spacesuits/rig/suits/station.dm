@@ -290,7 +290,8 @@
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/device/healthscanner,
 		/obj/item/rig_module/vision/medhud,
-		/obj/item/rig_module/actuators
+		/obj/item/rig_module/actuators,
+		/obj/item/rig_module/cooling_unit
 		)
 
 /obj/item/rig/hazard

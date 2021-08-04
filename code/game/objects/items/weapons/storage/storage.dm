@@ -704,6 +704,9 @@
 		remove_from_storage(O, T)
 		O.tumble(2)
 
+// putting a sticker on something puts it in its contents, storage items use their contents to store their items
+/obj/item/storage/can_attach_sticker(var/mob/user, var/obj/item/sticker/S)
+	return FALSE
 
 //Returns the storage depth of an atom. This is the number of storage items the atom is contained in before reaching toplevel (the area).
 //Returns -1 if the atom was not found on container.

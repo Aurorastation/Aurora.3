@@ -528,7 +528,6 @@
 			damtype = BURN
 			w_class = ITEMSIZE_LARGE
 			welding = TRUE
-			hitsound = /decl/sound_category/flesh_burn_sound
 			attack_verb = list("scorched", "burned", "blasted", "blazed")
 			update_icon()
 			set_processing(TRUE)
@@ -817,6 +816,9 @@
 		playsound(loc, 'sound/items/change_drill.ogg', 50, 1)
 	update_tool()
 	return TRUE
+
+/obj/item/powerdrill/issurgerycompatible()
+	return FALSE // too unwieldy for most surgeries
 
 /obj/item/steelwool
 	name = "steel wool"

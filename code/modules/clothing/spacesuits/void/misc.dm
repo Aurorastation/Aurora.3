@@ -211,7 +211,7 @@
 
 //Einstein Engines espionage voidsuit
 /obj/item/clothing/head/helmet/space/void/einstein
-	name = "banshee combat suit helmet"
+	name = "banshee infiltration suit helmet"
 	desc = "A sleek, menacing voidsuit helmet with the branding of Taipei Engineering Industrial's private military contractors."
 	icon = 'icons/obj/clothing/voidsuit/megacorp.dmi'
 	icon_state = "bansheehelm"
@@ -236,7 +236,7 @@
 	refittable = FALSE
 
 /obj/item/clothing/suit/space/void/einstein
-	name = "banshee combat suit"
+	name = "banshee infiltration suit"
 	desc = "A tightly-fitting suit manufactured with shimmering, ablative plating. Looks almost weightless."
 	icon = 'icons/obj/clothing/voidsuit/megacorp.dmi'
 	icon_state = "banshee"

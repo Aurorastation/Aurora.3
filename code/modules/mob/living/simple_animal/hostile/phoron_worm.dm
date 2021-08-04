@@ -147,7 +147,6 @@
 	icon = 'icons/mob/npc/small_phoron_worm.dmi'
 	maxHealth = 80
 	health = 80
-	harm_intent_damage = 5
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	resist_mod = 1

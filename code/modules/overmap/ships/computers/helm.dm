@@ -12,9 +12,33 @@
 	var/speedlimit = 1/(20 SECONDS) //top speed for autopilot, 5
 	var/accellimit = 0.001 //manual limiter for acceleration
 
+	var/list/linked_helmets = list()
+
 /obj/machinery/computer/ship/helm/Initialize()
 	. = ..()
 	get_known_sectors()
+
+/obj/machinery/computer/ship/helm/Destroy()
+	for(var/obj/item/clothing/head/helmet/pilot/PH as anything in linked_helmets)
+		PH.linked_helm = null
+	return ..()
+
+/obj/machinery/computer/ship/helm/attackby(obj/item/I, user)
+	if(istype(I, /obj/item/clothing/head/helmet/pilot))
+		if(!linked)
+			to_chat(user, SPAN_WARNING("\The [src] isn't linked to any vessels!"))
+			return
+		var/obj/item/clothing/head/helmet/pilot/PH = I
+		if(I in linked_helmets)
+			to_chat(user, SPAN_NOTICE("You unlink \the [I] from \the [src]."))
+			PH.set_console(null)
+		else
+			to_chat(user, SPAN_NOTICE("You link \the [I] to \the [src]."))
+			PH.set_console(src)
+			PH.set_hud_maptext("| Ship Status | [linked.x]-[linked.y] |<br>Speed: [linked.get_speed()] | Acceleration: [get_acceleration()]<br>ETA to Next Grid: [get_eta()]")
+		check_processing()
+		return
+	return ..()
 
 /obj/machinery/computer/ship/helm/proc/get_known_sectors()
 	var/area/overmap/map = global.map_overmap
@@ -27,6 +51,12 @@
 			R.fields["x"] = S.x
 			R.fields["y"] = S.y
 			known_sectors[S.name] = R
+
+/obj/machinery/computer/ship/helm/proc/check_processing()
+	if(autopilot || length(linked_helmets))
+		START_PROCESSING(SSprocessing, src)
+		return
+	STOP_PROCESSING(SSprocessing, src)
 
 /obj/machinery/computer/ship/helm/process()
 	..()
@@ -53,7 +83,9 @@
 			// All other cases, move toward direction
 			else if (speed + acceleration <= speedlimit)
 				linked.accelerate(direction, accellimit)
-		return
+	for(var/obj/item/clothing/head/helmet/pilot/PH as anything in linked_helmets)
+		PH.set_hud_maptext("| Ship Status | [linked.x]-[linked.y] |<br>Speed: [round(linked.get_speed()*1000, 0.01)] | Acceleration: [get_acceleration()]<br>ETA to Next Grid: [get_eta()]")
+		PH.check_ship_overlay(PH.loc, linked)
 
 /obj/machinery/computer/ship/helm/relaymove(var/mob/user, direction)
 	if(viewing_overmap(user) && linked)
@@ -78,7 +110,7 @@
 		data["d_x"] = dx
 		data["d_y"] = dy
 		data["speedlimit"] = speedlimit ? speedlimit*1000 : "Halted"
-		data["accel"] = min(round(linked.get_acceleration()*1000, 0.01),accellimit*1000)
+		data["accel"] = get_acceleration()
 		data["heading"] = linked.get_heading() ? dir2angle(linked.get_heading()) : 0
 		data["autopilot"] = autopilot
 		data["manual_control"] = viewing_overmap(user)
@@ -92,10 +124,7 @@
 			speed = "<span class='average'>[speed]</span>"
 		data["speed"] = speed
 
-		if(linked.get_speed())
-			data["ETAnext"] = "[round(linked.ETA()/10)] seconds"
-		else
-			data["ETAnext"] = "N/A"
+		data["ETAnext"] = get_eta()
 
 		var/list/locations[0]
 		for (var/key in known_sectors)
@@ -115,6 +144,16 @@
 			ui.set_initial_data(data)
 			ui.open()
 			ui.set_auto_update(1)
+
+/obj/machinery/computer/ship/helm/proc/get_acceleration()
+	return min(round(linked.get_acceleration()*1000, 0.01),accellimit*1000)
+
+/obj/machinery/computer/ship/helm/proc/get_eta()
+	var/ETA = linked.ETA()
+	if(ETA && linked.get_speed())
+		return "[round(ETA/10)] seconds"
+	else
+		return "N/A"
 
 /obj/machinery/computer/ship/helm/Topic(href, href_list)
 	if(..())
@@ -189,19 +228,21 @@
 	if (href_list["move"])
 		var/ndir = text2num(href_list["move"])
 		linked.relaymove(usr, ndir, accellimit)
+		addtimer(CALLBACK(src, .proc/updateUsrDialog), linked.burn_delay + 1) // remove when turning into vueui
 
 	if (href_list["brake"])
 		linked.decelerate()
+		addtimer(CALLBACK(src, .proc/updateUsrDialog), linked.burn_delay + 1) // remove when turning into vueui
 
 	if (href_list["apilot"])
 		autopilot = !autopilot
+		check_processing()
 
 	if (href_list["manual"])
 		viewing_overmap(usr) ? unlook(usr) : look(usr)
 
 	add_fingerprint(usr)
 	updateUsrDialog()
-
 
 /obj/machinery/computer/ship/navigation
 	name = "navigation console"

@@ -6736,6 +6736,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -7636,6 +7637,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
+/mob/living/silicon/robot/shell,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -10740,7 +10742,7 @@
 /obj/structure/table/rack{
 	dir = 1
 	},
-/obj/item/clothing/suit/fire/firefighter,
+/obj/item/clothing/suit/fire,
 /obj/item/tank/oxygen,
 /obj/item/clothing/mask/gas,
 /obj/item/extinguisher,
@@ -23731,6 +23733,10 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
+/obj/machinery/camera/network/supply{
+	c_tag = "Cargo - Disposals, Lower";
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/maintenance/disposal)
 "bcb" = (
@@ -23744,10 +23750,6 @@
 "bcd" = (
 /obj/item/modular_computer/telescreen/preset/trashcompactor{
 	pixel_x = -32
-	},
-/obj/machinery/camera/network/supply{
-	c_tag = "Cargo - Disposals, Lower";
-	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/disposal)
@@ -27668,9 +27670,6 @@
 	icon_state = "0-2"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/structure/ladder/up{
-	pixel_y = 16
-	},
 /turf/simulated/floor/airless,
 /area/security/penal_colony)
 "eBJ" = (
@@ -29178,7 +29177,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/highsecurity{
 	name = "Penal Mining Facility";
-	req_access = list(3)
+	req_access = list(58)
 	},
 /turf/simulated/floor/airless,
 /area/security/penal_colony)
@@ -32665,6 +32664,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/structure/anomaly_container,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/anomaly_storage)
 "pmn" = (
@@ -33972,6 +33972,7 @@
 /area/medical/patient_wing_picnic)
 "rWw" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/anomaly_container,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/anomaly_storage)
 "rXB" = (
@@ -37035,6 +37036,10 @@
 /obj/item/storage/box/drinkingglasses{
 	pixel_x = 1;
 	pixel_y = 4
+	},
+/obj/item/reagent_containers/food/drinks/pitcher{
+	pixel_x = -3;
+	pixel_y = 2
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
