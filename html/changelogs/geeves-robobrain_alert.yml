@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Posibrains that get activated in the robotics lab now causes a broadcast on the science radio of doing so."
