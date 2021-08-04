@@ -40,6 +40,8 @@
 	//Armor
 	var/damage = P.damage
 	var/flags = P.damage_flags()
+	if(ismech(src))
+		damage = P.damage * P.anti_materiel_potential
 	var/damaged
 	if(!P.nodamage)
 		damaged = apply_damage(damage, P.damage_type, def_zone, damage_flags = P.damage_flags(), used_weapon = P, armor_pen = P.armor_penetration)

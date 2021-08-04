@@ -1,0 +1,7 @@
+author: Alberyk, Kyres1
+
+delete-after: True
+
+changes:
+  - rscadd: "Certain weapons, such as cannons and the anti-materiel rifle, will do extra damage to mechas and structures."
+  - rscadd: "Added two new anti-materiel weapons: the point entry anti-materiel cannon and the adhomian recoilless rifle."
