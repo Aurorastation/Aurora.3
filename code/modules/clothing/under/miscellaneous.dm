@@ -576,6 +576,13 @@
 	item_state = "qipao"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 
+/obj/item/clothing/under/qipao2
+	name = "slim qipao"
+	desc = "A traditional Solarian women's garment, typically made of (synthetic) silk. This one is fairly slim."
+	icon_state = "qipao2"
+	item_state = "qipao2"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	
 /obj/item/clothing/under/rank/elyran_fatigues
 	name = "elyran navy uniform"
 	desc = "An utility uniform worn by Elyran navy staff serving aboard ships and in the field."
@@ -592,3 +599,5 @@
 	desc = "An utility uniform worn by Elyran navy officers serving aboard ships and in the field."
 	icon_state = "elyran_commander"
 	item_state = "elyran_commander"
+
+

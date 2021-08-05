@@ -206,6 +206,8 @@
 		/obj/item/clipboard,
 		/obj/item/paper,
 		/obj/item/paper_bundle,
+		/obj/item/canvas,
+		/obj/item/pen,
 		/obj/item/card/id,
 		/obj/item/book,
 		/obj/item/newspaper,
@@ -264,6 +266,9 @@
 		/obj/item/organ,
 		/obj/item/reagent_containers/pill,
 		/obj/item/reagent_containers/spray,
+		/obj/item/personal_inhaler,
+		/obj/item/reagent_containers/inhaler,
+		/obj/item/reagent_containers/hypospray,
 		/obj/item/storage/pill_bottle,
 		/obj/item/device/hand_labeler,
 		/obj/item/paper,
@@ -272,7 +277,8 @@
 		/obj/item/reagent_containers/food/drinks/sillycup,
 		/obj/item/reagent_containers/food/drinks/medcup,
 		/obj/item/smallDelivery,
-		/obj/item/gift
+		/obj/item/gift,
+		/obj/item/reagent_containers/chem_disp_cartridge
 		)
 
 /obj/item/gripper/service //Used to handle food, drinks, and seeds.
@@ -292,7 +298,8 @@
 		/obj/item/smallDelivery,
 		/obj/item/gift,
 		/obj/item/stack/packageWrap,
-		/obj/item/stack/wrapping_paper
+		/obj/item/stack/wrapping_paper,
+		/obj/item/reagent_containers/chem_disp_cartridge //Drink cartridges
 		)
 
 /obj/item/gripper/no_use //Used when you want to hold and put items in other things, but not able to 'use' the item

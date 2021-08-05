@@ -10,6 +10,7 @@
 	density = 1
 	w_class = ITEMSIZE_HUGE
 	build_amt = 4
+	obj_flags = OBJ_FLAG_ROTATABLE
 	var/state = STATE_UNWIRED
 	var/base_icon_state = ""
 	var/base_name = "Airlock"
@@ -18,6 +19,7 @@
 	var/glass_type = "/glass"
 	var/glass = 0 // 0 = glass can be installed. -1 = glass can't be installed. 1 = glass is already installed. Text = mineral plating is installed instead.
 	var/created_name = null
+	var/width = 1
 
 /obj/structure/door_assembly/Initialize(mapload)
 	. = ..()
@@ -140,7 +142,7 @@
 	icon = 'icons/obj/doors/door_assembly2x1.dmi'
 	icon_state = null //only have icons for the glass version
 	dir = EAST
-	var/width = 1
+	width = 2
 
 /*Temporary until we get sprites.
 	glass_type = "/multi_tile/glass"
@@ -152,14 +154,9 @@
 
 /obj/structure/door_assembly/multi_tile/Initialize()
 	. = ..()
-	SetBounds()
 	update_state()
 
-/obj/structure/door_assembly/multi_tile/Move()
-	. = ..()
-	SetBounds()
-
-/obj/structure/door_assembly/multi_tile/proc/SetBounds()
+/obj/structure/door_assembly/proc/SetBounds() // dont update with move or init, makes dragging impossible. do it just before airlock spawns
 	if(width > 1)
 		if(dir in list(EAST, WEST))
 			bound_width = width * world.icon_size
@@ -361,7 +358,8 @@
 			else
 				path = text2path("/obj/machinery/door/airlock[airlock_type]")
 
-			new path(src.loc, src)
+			SetBounds()
+			new path(loc, dir, FALSE, src)
 			qdel(src)
 
 	else if(istype(W, /obj/item/material/twohanded/chainsaw))

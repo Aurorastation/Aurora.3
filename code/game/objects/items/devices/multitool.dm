@@ -66,6 +66,7 @@
 			buffer_object = buffer
 			if(buffer_object)
 				destroyed_event.register(buffer_object, src, /obj/item/device/multitool/proc/unregister_buffer)
+		update_icon()
 
 /obj/item/device/multitool/proc/unregister_buffer(var/atom/buffer_to_unregister)
 	// Only remove the buffered object, don't reset the name
@@ -73,6 +74,7 @@
 	if(buffer_to_unregister == buffer_object && buffer_object)
 		destroyed_event.unregister(buffer_object, src)
 		buffer_object = null
+		update_icon()
 
 /obj/item/device/multitool/resolve_attackby(atom/A, mob/user, var/click_parameters)
 	if(!isobj(A))

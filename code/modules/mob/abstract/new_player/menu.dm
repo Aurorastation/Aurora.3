@@ -99,52 +99,50 @@
 	hud = H
 	..()
 
+/obj/screen/new_player/selection/MouseEntered(location, control, params)
+	var/matrix/M = matrix()
+	M.Scale(1.1, 1)
+	animate(src, color = color_rotation(30), transform = M, time = 3, easing = CUBIC_EASING)
+	return ..()
+
+/obj/screen/new_player/selection/MouseExited(location,control,params)
+	animate(src, color = null, transform = null, time = 3, easing = CUBIC_EASING)
+	return ..()
+
 /obj/screen/new_player/selection/join_game
 	name = "Join Game"
 	icon_state = "unready"
-	screen_loc = "LEFT+1,CENTER"
+	screen_loc = "LEFT+0.1,CENTER-1"
 
 /obj/screen/new_player/selection/settings
 	name = "Setup"
 	icon_state = "setup"
-	screen_loc = "LEFT+1,CENTER-1"
+	screen_loc = "LEFT+0.1,CENTER-2"
 
 /obj/screen/new_player/selection/manifest
 	name = "Crew Manifest"
 	icon_state = "manifest"
-	screen_loc = "LEFT+1,CENTER-2"
+	screen_loc = "LEFT+0.1,CENTER-3"
 
 /obj/screen/new_player/selection/observe
 	name = "Observe"
 	icon_state = "observe"
-	screen_loc = "LEFT+1,CENTER-3"
+	screen_loc = "LEFT+0.1,CENTER-4"
 
 /obj/screen/new_player/selection/changelog
 	name = "Changelog"
 	icon_state = "changelog"
-	screen_loc = "LEFT+1,CENTER-4"
+	screen_loc = "LEFT+0.1,CENTER-5"
 
 /obj/screen/new_player/selection/polls
 	name = "Polls"
 	icon_state = "polls"
-	screen_loc = "LEFT+1,CENTER-5"
+	screen_loc = "LEFT+0.1,CENTER-6"
 
 /obj/screen/new_player/selection/lore_summary
 	name = "Current Lore Summary"
 	icon_state = "lore_summary"
-	screen_loc = "LEFT+1,CENTER-6"
-
-/obj/screen/new_player/selection/MouseEntered(location,control,params) //Yellow color for the font
-	color = "#ffb200"
-	var/matrix/M = matrix()
-	M.Scale(1.1, 1.1)
-	animate(src, transform = M, time = 1, easing = CUBIC_EASING)
-	return ..()
-
-/obj/screen/new_player/selection/MouseExited(location,control,params)
-	color = null
-	animate(src, transform = null, time = 1, easing = CUBIC_EASING)
-	return ..()
+	screen_loc = "LEFT+0.1,CENTER-7"
 
 /obj/screen/new_player/selection/join_game/Initialize()
 	. = ..()

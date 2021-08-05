@@ -20,7 +20,9 @@
 		/obj/item/cell,
 		/obj/item/modular_computer,
 		/obj/item/computer_hardware/battery_module,
-		/obj/item/device/flashlight/survival
+		/obj/item/device/flashlight/survival,
+		/obj/item/clothing/mask/smokable/ecig,
+		/obj/item/inductive_charger/handheld
 	)
 	var/icon_state_charged = "recharger100"
 	var/icon_state_charging = "recharger"
@@ -82,6 +84,7 @@
 		user.drop_from_inventory(G,src)
 		charging = G
 		update_icon()
+		return TRUE
 
 /obj/machinery/recharger/attack_hand(mob/user as mob)
 	if(istype(user,/mob/living/silicon))
