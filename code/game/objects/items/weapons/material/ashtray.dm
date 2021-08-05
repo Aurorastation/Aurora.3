@@ -1,6 +1,7 @@
 /obj/item/material/ashtray
 	name = "ashtray"
 	icon = 'icons/obj/ashtray.dmi'
+	icon_state = "ashtray"
 	randpixel = 5
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
@@ -8,15 +9,13 @@
 	var/max_butts = 10
 	w_class = ITEMSIZE_TINY
 
-/obj/item/material/ashtray/New(var/newloc, var/material_name)
-	..(newloc, material_name)
+/obj/item/material/ashtray/Initialize(newloc, material_key)
+	. = ..()
 	if(!material)
-		qdel(src)
-		return
+		return INITIALIZE_HINT_QDEL
 	max_butts = round(material.hardness/10) //This is arbitrary but whatever.
 	randpixel_xy()
 	update_icon()
-	return
 
 /obj/item/material/ashtray/shatter()
 	..()
@@ -111,11 +110,11 @@
 		update_icon()
 	return ..()
 
-/obj/item/material/ashtray/plastic/New(var/newloc)
-	..(newloc, MATERIAL_PLASTIC)
+/obj/item/material/ashtray/plastic/Initialize(newloc, material_key)
+	. = ..(newloc, MATERIAL_PLASTIC)
 
-/obj/item/material/ashtray/bronze/New(var/newloc)
-	..(newloc, MATERIAL_BRONZE)
+/obj/item/material/ashtray/bronze/Initialize(newloc, material_key)
+	. = ..(newloc, MATERIAL_BRONZE)
 
-/obj/item/material/ashtray/glass/New(var/newloc)
-	..(newloc, MATERIAL_GLASS)
+/obj/item/material/ashtray/glass/Initialize(newloc, material_key)
+	. = ..(newloc, MATERIAL_GLASS)

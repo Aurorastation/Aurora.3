@@ -93,7 +93,7 @@
 	if(ismob(loc))
 		var/mob/M = loc
 		M.update_inv_wear_suit()
-	get_mob_overlay(TRUE)
+	get_accessory_mob_overlay(TRUE)
 	get_inv_overlay(TRUE)
 
 /obj/item/clothing/accessory/dressshirt/verb/roll_up_shirt_sleeves()
@@ -242,7 +242,7 @@
 	to_chat(user, SPAN_NOTICE("You [open ? "open" : "close"] \the [src]."))
 	// the below forces the shirt to hard reset its image so it resets later its fucking weird ok
 	inv_overlay = null
-	mob_overlay = null
+	accessory_mob_overlay = null
 
 /obj/item/clothing/accessory/silversun/red
 	desc = "A stylish Solarian shirt of Silversun design. It bears a floral design. This one is crimson."

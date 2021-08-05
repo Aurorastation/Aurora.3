@@ -296,6 +296,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	attack_verb = list("burnt", "singed")
 	icon_on = "cigon"  //Note - these are in masks.dmi not in cigarette.dmi
 	icon_off = "cigoff"
+	has_blood_overlay = FALSE
 	type_butt = /obj/item/trash/cigbutt
 	chem_volume = 30
 	burn_rate = 0.006 //Lasts ~166 seconds)

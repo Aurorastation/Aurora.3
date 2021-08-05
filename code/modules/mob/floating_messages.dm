@@ -50,7 +50,7 @@ var/list/floating_chat_colors = list()
 			C.images += gibberish
 
 /proc/generate_floating_text(atom/movable/holder, message, style, size, duration, show_to)
-	var/atom/movable/attached_holder = recursive_loc_turf_check(holder)
+	var/atom/movable/attached_holder = recursive_loc_turf_check(holder, 5)
 	var/image/I = image(null, attached_holder)
 	I.layer = FLY_LAYER
 	I.alpha = 0

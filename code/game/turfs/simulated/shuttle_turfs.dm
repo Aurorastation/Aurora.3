@@ -191,6 +191,12 @@
 	smooth = null
 	canSmoothWith = null
 
+/turf/simulated/wall/shuttle/scc
+	icon = 'icons/turf/smooth/scc_shuttle.dmi'
+
+/turf/simulated/wall/shuttle/scc/cardinal
+	smooth = SMOOTH_MORE
+
 //--Unique Shuttles--//
 
 /turf/simulated/wall/shuttle/unique
@@ -440,6 +446,12 @@
 	icon = 'icons/turf/shuttles_unique/distress_shuttle.dmi'
 	icon_state = "6,2"
 
+//scc shuttle pieces
+
+/turf/simulated/wall/shuttle/unique/scc
+	name = "shuttle hull"
+	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi'
+	icon_state = "c1"
 
 //--Floors--//
 
