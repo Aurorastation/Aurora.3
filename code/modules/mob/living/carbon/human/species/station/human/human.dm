@@ -14,6 +14,7 @@
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
 		/datum/unarmed_attack/punch,
+		/datum/unarmed_attack/palm,
 		/datum/unarmed_attack/bite
 	)
 	blurb = "Humanity originated in the Sol system, and over the last four centuries has spread colonies across a wide swathe of space. \

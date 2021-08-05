@@ -66,6 +66,7 @@
 #define SPECIES_GOLEM_URANIUM		"Uranium Golem"
 #define SPECIES_GOLEM_MEAT			"Homunculus"
 #define SPECIES_GOLEM_ADAMANTINE	"Adamantine Golem"
+#define SPECIES_GOLEM_TECHOMANCER	"Technomancer Golem"
 
 
 #define BODYTYPE_HUMAN				"Human"

@@ -84,6 +84,7 @@
 				return
 			if(S.use(use_flooring.build_cost))
 				set_flooring(use_flooring)
+				update_icon(TRUE)
 				playsound(src, 'sound/items/Deconstruct.ogg', 80, 1)
 				return
 		// Repairs.

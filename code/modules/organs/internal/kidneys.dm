@@ -25,9 +25,9 @@
 	var/decl/reagent/drink/coffee = REAGENT_VOLUME(owner.reagents, /decl/reagent/drink/coffee)
 	if(coffee)
 		if(is_bruised())
-			owner.adjustToxLoss(0.1 * PROCESS_ACCURACY)
+			owner.adjustToxLoss(0.1)
 		else if(is_broken())
-			owner.adjustToxLoss(0.3 * PROCESS_ACCURACY)
+			owner.adjustToxLoss(0.3)
 
 	if(is_bruised())
 		if(prob(5) && REAGENT_VOLUME(reagents, /decl/reagent/potassium) < 5)

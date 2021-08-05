@@ -132,6 +132,7 @@ Class Procs:
 	var/clicksound //played sound on usage
 	var/clickvol = 40 //volume
 	var/obj/item/device/assembly/signaler/signaler // signaller attached to the machine
+	var/obj/effect/overmap/visitable/ship/linked // overmap sector the machine is linked to
 
 /obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE)
 	. = ..()
@@ -504,3 +505,25 @@ Class Procs:
 
 /obj/machinery/proc/do_signaler() // override this to customize effects
 	return
+
+
+// A late init operation called in SSshuttle for ship computers, used to attach the thing to the right ship.
+/obj/machinery/proc/attempt_hook_up(obj/effect/overmap/visitable/ship/sector)
+	if(!istype(sector))
+		return
+	if(sector.check_ownership(src))
+		linked = sector
+		return 1
+
+/obj/machinery/proc/sync_linked()
+	var/obj/effect/overmap/visitable/ship/sector = map_sectors["[z]"]
+	if(!sector)
+		return
+	return attempt_hook_up_recursive(sector)
+
+/obj/machinery/proc/attempt_hook_up_recursive(obj/effect/overmap/visitable/ship/sector)
+	if(attempt_hook_up(sector))
+		return sector
+	for(var/obj/effect/overmap/visitable/ship/candidate in sector)
+		if((. = .(candidate)))
+			return
