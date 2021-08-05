@@ -2298,6 +2298,7 @@
 #include "code\modules\mob\living\simple_animal\hostile\spider_queen.dm"
 #include "code\modules\mob\living\simple_animal\hostile\syndicate.dm"
 #include "code\modules\mob\living\simple_animal\hostile\tree.dm"
+#include "code\modules\mob\living\simple_animal\hostile\vannatusk.dm"
 #include "code\modules\mob\living\simple_animal\hostile\viscerator.dm"
 #include "code\modules\mob\living\simple_animal\hostile\commanded\_command_defines.dm"
 #include "code\modules\mob\living\simple_animal\hostile\commanded\bear_companion.dm"
