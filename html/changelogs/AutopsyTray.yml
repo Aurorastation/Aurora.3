@@ -1,0 +1,8 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Investigators are now given an autopsy tray containing most tools needed for autopsies."
+  - maptweak: "Medical & security autopsy now contains an autopsy tray, replacing the tools formerly located in those places."
+  - maptweak: "Medical autopsy now has a sink too."
