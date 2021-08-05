@@ -1,6 +1,6 @@
 /mob/living/simple_animal/hostile/vannatusk
 	name = "vannatusk"
-	desc = "An interdimensional creature."
+	desc = "A monstrous interdimensional invader. Its body is protected by a chitin carapace."
 	icon = 'icons/mob/npc/vannatusk.dmi'
 	icon_state = "vannatusk"
 	icon_living = "vannatusk"
@@ -65,20 +65,25 @@
 
 /obj/item/bone_dart/vannatusk
 	name = "bone dart"
-	desc = "A sharp piece of bone shapped as small dart."
+	desc = "A sharp piece of bone shaped into a small dart."
 	icon = 'icons/mob/npc/vannatusk.dmi'
 	icon_state = "bonedart"
 
 /mob/living/simple_animal/hostile/vannatusk/attackby(obj/item/O, mob/user)
-	if (stat == DEAD && !crystal_harvested)
-		if(istype(O, /obj/item/surgery/scalpel))
-			visible_message(SPAN_NOTICE("[user] recovers a bluespace crystal from [src]'s remains!"))
-			var/obj/item/bluespace_crystal/C = new(get_turf(src))
-			user.put_in_any_hand_if_possible(C)
-			crystal_harvested = TRUE
+	if(stat != DEAD)
+		return ..()
+	if(istype(O, /obj/item/surgery/scalpel))
+		if(crystal_harvested)
+			to_chat(user, SPAN_WARNING("\The [src]'s crystal has already been harvested!"))
 			return
 
-	..()
+		visible_message(SPAN_NOTICE("[user] recovers a bluespace crystal from [src]'s remains!"))
+		var/obj/item/bluespace_crystal/C = new(get_turf(src))
+		user.put_in_any_hand_if_possible(C)
+		crystal_harvested = TRUE
+		return
+
+	return..()
 
 /mob/living/simple_animal/hostile/vannatusk/dead/Initialize()
 	. = ..()
@@ -89,11 +94,11 @@
 	desc = "A bluespace telepad used for creating bluespace portals."
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "pad-idle"
-	anchored = 1
-	use_power = 1
+	anchored = TRUE
+	use_power = TRUE
 
 /obj/machinery/vannatusk_spawner/power_change()
 	..()
 	spark(src, 3, alldirs)
-	new/mob/living/simple_animal/hostile/vannatusk (get_turf(src))
+	new /mob/living/simple_animal/hostile/vannatusk(get_turf(src))
 	qdel(src)
