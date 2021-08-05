@@ -1748,6 +1748,7 @@
 #include "code\modules\ghostroles\spawner\atom\diona_nymph.dm"
 #include "code\modules\ghostroles\spawner\atom\golem.dm"
 #include "code\modules\ghostroles\spawner\atom\living_plant.dm"
+#include "code\modules\ghostroles\spawner\atom\matriarchmaintdrone.dm"
 #include "code\modules\ghostroles\spawner\atom\mining_drone.dm"
 #include "code\modules\ghostroles\spawner\atom\posibrain.dm"
 #include "code\modules\ghostroles\spawner\atom\shade.dm"
