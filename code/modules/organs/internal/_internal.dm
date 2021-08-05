@@ -126,5 +126,6 @@
 /obj/item/organ/internal/proc/handle_regeneration()
 	if(!damage || BP_IS_ROBOTIC(src) || !istype(owner) || owner.chem_effects[CE_TOXIN] || (toxin_type in owner.chem_effects) || owner.is_asystole())
 		return
-	if(damage < 0.1*max_damage)
-		heal_damage(0.1)
+	var/repair_modifier = owner.chem_effects[CE_ORGANREPAIR] || 0.1
+	if(damage < repair_modifier*max_damage)
+		heal_damage(repair_modifier)
