@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "The Aurora mining machines' input and output turfs are now set correctly."

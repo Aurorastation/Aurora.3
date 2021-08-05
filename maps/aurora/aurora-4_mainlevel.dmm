@@ -57058,13 +57058,14 @@
 	dir = 8;
 	id = "mining_internal"
 	},
-/obj/machinery/mineral/output,
 /obj/machinery/door/firedoor,
 /obj/structure/plasticflaps,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "ceY" = (
-/obj/machinery/mineral/stacking_machine,
+/obj/machinery/mineral/stacking_machine{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "ceZ" = (
@@ -57072,7 +57073,6 @@
 	dir = 8;
 	id = "mining_internal"
 	},
-/obj/machinery/mineral/input,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "cfa" = (
@@ -57212,23 +57212,6 @@
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"cfr" = (
-/obj/machinery/mineral/output,
-/obj/machinery/conveyor{
-	dir = 9;
-	id = "mining_internal";
-	reversed = 1
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
-"cfs" = (
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "mining_internal"
-	},
-/obj/machinery/mineral/output,
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
 "cft" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 4
@@ -57338,7 +57321,9 @@
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "cfH" = (
-/obj/machinery/mineral/processing_unit,
+/obj/machinery/mineral/processing_unit{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "cfL" = (
@@ -57445,7 +57430,6 @@
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "cfW" = (
-/obj/machinery/mineral/input,
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "mining_internal"
@@ -57558,7 +57542,6 @@
 	dir = 1;
 	id = "mining_internal"
 	},
-/obj/machinery/mineral/output,
 /obj/machinery/door/firedoor,
 /obj/structure/plasticflaps,
 /turf/simulated/floor/plating,
@@ -57750,7 +57733,9 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "cgA" = (
-/obj/machinery/mineral/unloading_machine,
+/obj/machinery/mineral/unloading_machine{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "cgB" = (
@@ -57865,7 +57850,6 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "cgO" = (
-/obj/machinery/mineral/input,
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
@@ -69430,8 +69414,7 @@
 "vnf" = (
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Aft Corridor - Camera 2";
-	dir = 8;
-	network = list("Civilian Main")
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
@@ -98210,7 +98193,7 @@ caB
 cep
 cez
 cfa
-cfr
+cfb
 cfH
 cfW
 cgj
@@ -98467,7 +98450,7 @@ caG
 ceq
 cez
 cfb
-cfs
+cfW
 cfH
 cfW
 cgj
