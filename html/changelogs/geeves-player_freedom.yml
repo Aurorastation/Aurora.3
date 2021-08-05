@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "The RFD-C can now be used on non-station levels, but still not in Centcomm areas."
