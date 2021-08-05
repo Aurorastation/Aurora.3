@@ -91,6 +91,11 @@
 
 		var/is_full = (fullness >= user.max_nutrition)
 
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
+			if (H.species && H.species.bypass_food_fullness())
+				is_full = FALSE
+
 		if(user == target)
 			if(!user.can_eat(src))
 				return

@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes:
+  - tweak: "Removed all dionae organs except the stomach."
+  - tweak: "Diona can never become full. They can eat as much they want"
