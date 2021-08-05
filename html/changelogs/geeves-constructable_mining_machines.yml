@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Mining machines can now be constructed and deconstructed. The direction you make the machine face on the frame affects where the input and output is, whilst the consoles will get put onto a wall depending on where the frame faces."
+  - rscadd: "Added a new mining machine category to the circuit imprinter."
