@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "RnD can now produce upgrades for the experimental welding tool, namely, an eyeshield and an overcapacitor. The eyeshield removes the need to wear protective welding gear, wile the overcapacitor increases working speed at the cost of fuel use."

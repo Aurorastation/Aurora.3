@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Rezadone now repairs internal organs, restores blood, and restarts the heart."
