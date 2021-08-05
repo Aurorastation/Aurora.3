@@ -7391,15 +7391,6 @@
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
-/obj/machinery/power/smes/buildable{
-	RCon_tag = "Supermatter - Grid";
-	charge = 1e+007;
-	cur_coils = 4;
-	input_attempt = 1;
-	input_level = 500000;
-	output_attempt = 1;
-	output_level = 500000
-	},
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
@@ -7409,6 +7400,9 @@
 	icon_state = "0-8"
 	},
 /obj/effect/landmark/engine_setup/smes,
+/obj/machinery/power/smes/buildable/main_engine{
+	RCon_tag = "Supermatter - Grid"
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/engine_smes)
 "aoE" = (
