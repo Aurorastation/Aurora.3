@@ -133,19 +133,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			to_chat(usr, "<span class='danger'>Your current species, [client.prefs.species], is not available for play on the station.</span>")
 			return 0
 
-		var/confirm_job = FALSE
 		var/datum/job/J = SSjobs.GetJob(href_list["SelectedJob"])
-		switch(J.department_flag)
-			if(CIVILIAN)
-				if(!((client.prefs.job_civilian_high || client.prefs.job_civilian_med || client.prefs.job_civilian_low) == J.flag))
-					confirm_job = TRUE
-			if(MEDSCI)
-				if(!((client.prefs.job_medsci_high || client.prefs.job_medsci_med || client.prefs.job_medsci_low) == J.flag))
-					confirm_job = TRUE
-			if(ENGSEC)
-				if(!((client.prefs.job_engsec_high || client.prefs.job_engsec_med || client.prefs.job_engsec_low) == J.flag))
-					confirm_job = TRUE
-		if(confirm_job)
+		if(!(J.title in get_preferred_jobs()))
 			if(alert("Are you sure you want to join as [J.title]", "Confirm Job", "Yes", "No") == "No")
 				return
 
@@ -441,3 +430,13 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 /mob/abstract/new_player/show_message(msg, type, alt, alt_type)
 	return
+
+/mob/abstract/new_player/proc/get_preferred_jobs()
+	var/list/jobs = list()
+	var/datum/preferences/P = client.prefs
+	for (var/datum/job/J in SSjobs.occupations)
+		var/list/L = P.get_jobs_by_dept(J.department_flag)
+		for(var/F in L)
+			if((J.flag & F) == J.flag)
+				LAZYADD(jobs, J.title)
+	return jobs
