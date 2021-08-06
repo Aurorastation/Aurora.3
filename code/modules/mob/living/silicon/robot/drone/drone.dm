@@ -144,7 +144,10 @@
 
 /mob/living/silicon/robot/drone/construction/matriarch/Initialize()
 	. = ..()
-	SSghostroles.add_spawn_atom("matriarchmaintdrone", src)
+	if(SSticker.current_state == GAME_STATE_PLAYING)
+		request_player()
+	else
+		LAZYADD(SSatoms.late_misc_firers, src)
 
 /mob/living/silicon/robot/drone/construction/matriarch/assign_player(mob/user)
 	. = ..()
@@ -152,11 +155,19 @@
 
 /mob/living/silicon/robot/drone/construction/matriarch/ghostize(can_reenter_corpse, should_set_timer)
 	. = ..()
-	SSghostroles.add_spawn_atom("matriarchmaintdrone", src)
+	if(src in mob_list) // needs to exist to reopen spawn atom
+		M.real_name = initial(M.name)
+		M.name = M.real_name
+		M.voice_name = M.real_name
+		M.updatename()
+		request_player()
 
 /mob/living/silicon/robot/drone/construction/matriarch/Destroy()
+	. = ..()
 	SSghostroles.remove_spawn_atom("matriarchmaintdrone", src)
-	return ..()
+
+/mob/living/silicon/robot/drone/construction/matriarch/request_player()
+	SSghostroles.add_spawn_atom("matriarchmaintdrone", src)
 
 /mob/living/silicon/robot/drone/construction/matriarch/updatename()
 	return
