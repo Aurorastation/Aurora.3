@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Cleared up the description of the Jaws of Life to indicate when it can be used."
