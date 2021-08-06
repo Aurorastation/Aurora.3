@@ -110,6 +110,9 @@
 	qdel(possessor)
 	return TRUE
 
+/mob/living/silicon/robot/drone/do_late_fire()
+	request_player()
+
 /mob/living/silicon/robot/drone/Destroy()
 	if(hat)
 		hat.forceMove(get_turf(src))
@@ -144,10 +147,7 @@
 
 /mob/living/silicon/robot/drone/construction/matriarch/Initialize()
 	. = ..()
-	if(SSticker.current_state == GAME_STATE_PLAYING)
-		request_player()
-	else
-		LAZYADD(SSatoms.late_misc_firers, src)
+	check_add_to_late_firers()
 
 /mob/living/silicon/robot/drone/construction/matriarch/assign_player(mob/user)
 	. = ..()
