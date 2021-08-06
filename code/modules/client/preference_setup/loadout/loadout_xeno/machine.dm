@@ -160,3 +160,10 @@
 	handies["gustatorial centre (right hand)"] = /obj/item/organ/internal/augment/gustatorial/hand
 	handies["gustatorial centre (left hand)"] = /obj/item/organ/internal/augment/gustatorial/hand/left
 	gear_tweaks += new /datum/gear_tweak/path(handies)
+
+/datum/gear/accessory/syntheticcard
+	display_name = "synthetic residence card"
+	description = "An identification card given to free IPC residents within the Republic of Biesel."
+	path = /obj/item/clothing/accessory/badge/passcard/synthetic
+	cost = 0
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)

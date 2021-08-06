@@ -75,7 +75,7 @@
 		if(has_failed) //oh dear a problem, put em in deep space
 			icon_state = "portal1" // only tell people the portal failed after a teleport has been done
 			desc = "A bluespace tear in space, reaching directly to another point within this region. Definitely unstable."
-			if(do_teleport(M, locate(rand(5, world.maxx - 5), rand(5, world.maxy -5), 3), 0))
+			if(do_teleport(M, locate(rand(5, world.maxx - 5), rand(5, world.maxy -5), pick(GetConnectedZlevels(z))), 0))
 				has_teleported = TRUE
 		else
 			if(do_teleport(M, target, precision))

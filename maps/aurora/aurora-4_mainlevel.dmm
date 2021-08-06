@@ -3269,13 +3269,7 @@
 /area/security/forensics_morgue)
 "agv" = (
 /obj/structure/table/standard,
-/obj/item/surgery/surgicaldrill{
-	pixel_x = 1;
-	pixel_y = -2
-	},
-/obj/item/surgery/hemostat,
-/obj/item/surgery/retractor,
-/obj/item/surgery/circular_saw,
+/obj/item/storage/box/fancy/tray/autopsy,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -4360,11 +4354,6 @@
 /area/security/main)
 "aiF" = (
 /obj/structure/table/standard,
-/obj/item/autopsy_scanner,
-/obj/item/surgery/scalpel{
-	desc = "Cut, cut, and once more cut. This one is extra shiny!";
-	name = "shiny scalpel"
-	},
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
@@ -7402,15 +7391,6 @@
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
-/obj/machinery/power/smes/buildable{
-	RCon_tag = "Supermatter - Grid";
-	charge = 1e+007;
-	cur_coils = 4;
-	input_attempt = 1;
-	input_level = 500000;
-	output_attempt = 1;
-	output_level = 500000
-	},
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
@@ -7420,6 +7400,9 @@
 	icon_state = "0-8"
 	},
 /obj/effect/landmark/engine_setup/smes,
+/obj/machinery/power/smes/buildable/main_engine{
+	RCon_tag = "Supermatter - Grid"
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/engine_smes)
 "aoE" = (
@@ -12349,6 +12332,7 @@
 	dir = 6
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "awR" = (
@@ -13579,10 +13563,10 @@
 	},
 /area/bridge)
 "ayG" = (
-/obj/machinery/hologram/holopad,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "ayH" = (
@@ -20590,9 +20574,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/machinery/camera/network/security{
 	c_tag = "Security - Lobby Desk"
 	},
@@ -23736,6 +23717,7 @@
 /obj/structure/table/standard,
 /obj/item/folder/sec,
 /obj/item/paper_scanner,
+/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/security/brig/control_room)
 "aPg" = (
@@ -23770,7 +23752,8 @@
 	},
 /obj/machinery/camera/network/security{
 	c_tag = "Security - Communal Bathroom";
-	dir = 4
+	dir = 4;
+	network = list("Prison")
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/security/prison)
@@ -25048,7 +25031,6 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "aRs" = (
-/obj/machinery/hologram/holopad,
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
 "aRt" = (
@@ -27034,6 +27016,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
+/obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/meeting_room)
 "aUE" = (
@@ -53959,7 +53942,8 @@
 /obj/structure/table/wood,
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Bar - Booths";
-	dir = 1
+	dir = 1;
+	network = list("Service")
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
@@ -57074,13 +57058,14 @@
 	dir = 8;
 	id = "mining_internal"
 	},
-/obj/machinery/mineral/output,
 /obj/machinery/door/firedoor,
 /obj/structure/plasticflaps,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "ceY" = (
-/obj/machinery/mineral/stacking_machine,
+/obj/machinery/mineral/stacking_machine{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "ceZ" = (
@@ -57088,7 +57073,6 @@
 	dir = 8;
 	id = "mining_internal"
 	},
-/obj/machinery/mineral/input,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "cfa" = (
@@ -57228,23 +57212,6 @@
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"cfr" = (
-/obj/machinery/mineral/output,
-/obj/machinery/conveyor{
-	dir = 9;
-	id = "mining_internal";
-	reversed = 1
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
-"cfs" = (
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "mining_internal"
-	},
-/obj/machinery/mineral/output,
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
 "cft" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 4
@@ -57354,7 +57321,9 @@
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "cfH" = (
-/obj/machinery/mineral/processing_unit,
+/obj/machinery/mineral/processing_unit{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "cfL" = (
@@ -57461,7 +57430,6 @@
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "cfW" = (
-/obj/machinery/mineral/input,
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "mining_internal"
@@ -57574,7 +57542,6 @@
 	dir = 1;
 	id = "mining_internal"
 	},
-/obj/machinery/mineral/output,
 /obj/machinery/door/firedoor,
 /obj/structure/plasticflaps,
 /turf/simulated/floor/plating,
@@ -57766,7 +57733,9 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "cgA" = (
-/obj/machinery/mineral/unloading_machine,
+/obj/machinery/mineral/unloading_machine{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "cgB" = (
@@ -57881,7 +57850,6 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "cgO" = (
-/obj/machinery/mineral/input,
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
@@ -64461,6 +64429,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
+"mVD" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/meeting_room)
 "mVU" = (
 /obj/machinery/button/switch/windowtint{
 	id = "consular";
@@ -68846,6 +68818,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"uiJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/security/brig/control_room)
 "ujv" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -69430,8 +69414,7 @@
 "vnf" = (
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Aft Corridor - Camera 2";
-	dir = 8;
-	network = list("Service")
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
@@ -69798,6 +69781,17 @@
 	},
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
+"vOs" = (
+/mob/living/silicon/robot/drone/construction/matriarch,
+/obj/machinery/door/window/brigdoor/southright{
+	dir = 1;
+	req_access = list(56)
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/engineering/drone_fabrication)
 "vPm" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
@@ -84732,7 +84726,7 @@ aiV
 ajF
 akq
 aiV
-aiV
+vOs
 anA
 aoC
 apR
@@ -98199,7 +98193,7 @@ caB
 cep
 cez
 cfa
-cfr
+cfb
 cfH
 cfW
 cgj
@@ -98456,7 +98450,7 @@ caG
 ceq
 cez
 cfb
-cfs
+cfW
 cfH
 cfW
 cgj
@@ -101452,7 +101446,7 @@ omB
 aEm
 aGk
 aIq
-aJJ
+uiJ
 ntc
 aNp
 aPf
@@ -115080,7 +115074,7 @@ aPH
 aRu
 aSX
 aUD
-aSX
+mVD
 aXu
 aYG
 bad

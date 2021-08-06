@@ -128,6 +128,9 @@ var/global/list/robot_modules = list(
 	for(var/datum/matter_synth/T in synths)
 		T.add_charge(T.recharge_rate * rate)
 
+	for(var/obj/item/stack/material/SM in modules)
+		SM.update_strings()
+
 /obj/item/robot_module/proc/rebuild()//Rebuilds the list so it's possible to add/remove items from the module
 	var/list/temp_list = modules
 	modules = list()
@@ -895,9 +898,9 @@ var/global/list/robot_modules = list(
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(25000)
 	var/datum/matter_synth/glass = new /datum/matter_synth/glass(25000)
-	var/datum/matter_synth/wood = new /datum/matter_synth/wood(4000)
-	var/datum/matter_synth/plastic = new /datum/matter_synth/plastic(2000)
-	var/datum/matter_synth/wire = new /datum/matter_synth/wire(15)
+	var/datum/matter_synth/wood = new /datum/matter_synth/wood(10000)
+	var/datum/matter_synth/plastic = new /datum/matter_synth/plastic(10000)
+	var/datum/matter_synth/wire = new /datum/matter_synth/wire(30)
 	synths += metal
 	synths += glass
 	synths += wood
@@ -950,11 +953,10 @@ var/global/list/robot_modules = list(
 /obj/item/robot_module/drone/construction
 	name = "construction drone module"
 	channels = list(CHANNEL_ENGINEERING = TRUE)
-	languages = list()
 
 /obj/item/robot_module/drone/construction/Initialize()
 	. = ..()
-	src.modules += new /obj/item/rfd/construction/borg(src)
+	modules += new /obj/item/rfd/construction/borg(src)
 
 /obj/item/robot_module/drone/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
 	var/obj/item/device/lightreplacer/LR = locate() in src.modules
