@@ -64,15 +64,7 @@
 	grab_mod = 0.6 // Viney Tentacles and shit to cling onto
 	resist_mod = 1.5 // Reasonably stronk, not moreso than an Unathi or robot.
 
-	has_organ = list(
-		"nutrient channel"   = /obj/item/organ/internal/diona/nutrients,
-		"neural strata"      = /obj/item/organ/internal/diona/strata,
-		"response node"      = /obj/item/organ/internal/diona/node,
-		"gas bladder"        = /obj/item/organ/internal/diona/bladder,
-		"polyp segment"      = /obj/item/organ/internal/diona/polyp,
-		"anchoring ligament" = /obj/item/organ/internal/diona/ligament,
-		BP_STOMACH           = /obj/item/organ/internal/stomach/diona
-	)
+	has_organ = list( BP_STOMACH = /obj/item/organ/internal/stomach/diona)
 
 	has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest/diona),
@@ -181,6 +173,9 @@
 
 /datum/species/diona/has_psi_potential()
 	return FALSE
-	
+
 /datum/species/diona/is_naturally_insulated()
+	return TRUE
+
+/datum/species/diona/bypass_food_fullness(var/mob/living/carbon/human/H)
 	return TRUE

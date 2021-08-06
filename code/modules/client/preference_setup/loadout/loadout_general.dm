@@ -45,7 +45,7 @@
 
 /datum/gear/flask/New()
 	..()
-	gear_tweaks += new /datum/gear_tweak/reagents(lunchables_alcohol_reagents())
+	gear_tweaks += new /datum/gear_tweak/reagents(lunchables_all_drink_reagents())
 
 /datum/gear/vacflask_cold
 	display_name = "cold vacuum-flask"
@@ -53,7 +53,7 @@
 
 /datum/gear/vacflask_cold/New()
 	..()
-	gear_tweaks += new /datum/gear_tweak/reagents(lunchables_drink_reagents())
+	gear_tweaks += new /datum/gear_tweak/reagents(lunchables_all_drink_reagents())
 
 /datum/gear/vacflask_cold/spawn_item(var/location, var/metadata)
 	. = ..()
@@ -67,7 +67,7 @@
 
 /datum/gear/vacflask_hot/New()
 	..()
-	gear_tweaks += new /datum/gear_tweak/reagents(lunchables_drink_reagents())
+	gear_tweaks += new /datum/gear_tweak/reagents(lunchables_all_drink_reagents())
 
 /datum/gear/vacflask_hot/spawn_item(var/location, var/metadata)
 	. = ..()
