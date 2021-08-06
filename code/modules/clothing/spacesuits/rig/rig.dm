@@ -700,7 +700,7 @@
 						playsound(src, 'sound/machines/rig/rig_retract.ogg', 20, FALSE)
 						use_obj.canremove = 1
 						holder.drop_from_inventory(use_obj,get_turf(src)) //TODO: TEST THIS CODE!
-						use_obj.dropped()
+						use_obj.dropped(wearer)
 						use_obj.canremove = 0
 						use_obj.forceMove(src)
 
@@ -904,7 +904,7 @@
 	if(!wearer || !wearer.loc || !ai_can_move_suit(user, check_user_module = 1))
 		return
 
-	if(!wearer.stat) // don't force move if our wearer is awake
+	if(!wearer.stat && !wearer.paralysis) // don't force move if our wearer is awake and capable of moving
 		return
 
 	//This is sota the goto stop mobs from moving var

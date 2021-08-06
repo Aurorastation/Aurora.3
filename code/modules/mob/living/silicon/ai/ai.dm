@@ -21,7 +21,7 @@ var/list/ai_verbs_default = list(
 	/mob/living/silicon/ai/proc/core,
 	/mob/living/silicon/ai/proc/pick_icon,
 	/mob/living/silicon/ai/proc/sensor_mode,
-	/mob/living/silicon/ai/proc/remote_control_mech,
+	/mob/living/silicon/ai/proc/remote_control_shell,
 	/mob/living/silicon/ai/proc/show_laws_verb,
 	/mob/living/silicon/ai/proc/toggle_acceleration,
 	/mob/living/silicon/ai/proc/toggle_camera_light,
@@ -353,6 +353,11 @@ var/list/ai_verbs_default = list(
 		<p>Familiarize yourself with the GUI buttons in world view. They are shortcuts to running commands for camera tracking, displaying alerts, moving up and down and such.</p>\
 		<p>While observing through a camera, you can use most (networked) devices which you can see, such as computers, APCs, intercoms, doors, etc. \
 			To use something, simply click on it.</p>\
+		<h2>AI Shell</h2>\
+		<p>As an AI, you have access to an unique, inhabitable AI shell that spawns behind your core.\
+			 This construct can be used in a variety of ways, but its primary function is to be a <strong>role play tool</strong> to give you the ability to have an actual physical presence on the station.\
+			 The shell is an extension of you, which means <strong>your laws apply to it aswell.</strong>\
+		</p>\
 		<h2>OOC Notes</h2>\
 		<p>Please remember that as an AI <strong>you can heavily skew the game in your (and thus usually the crew's) favour</strong>. \
 			You are extremely effective at identifying and stopping threats, which unfortunately also means that \
@@ -779,11 +784,11 @@ var/list/ai_verbs_default = list(
 	set desc = "Augment visual feed with internal sensor overlays"
 	toggle_sensor_mode()
 
-/mob/living/silicon/ai/proc/remote_control_mech()
-	set name = "Remote Control Mech"
+/mob/living/silicon/ai/proc/remote_control_shell()
+	set name = "Remote Control Shell"
 	set category = "AI Commands"
-	set desc = "Remotely control any active mechs on your AI mech network."
-	SSvirtualreality.mech_selection(src, REMOTE_AI_MECH)
+	set desc = "Remotely control any active shells on your AI shell network."
+	SSvirtualreality.bound_selection(src, REMOTE_AI_ROBOT)
 
 /mob/living/silicon/ai/proc/toggle_hologram_movement()
 	set name = "Toggle Hologram Movement"

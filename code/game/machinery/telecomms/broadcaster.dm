@@ -318,7 +318,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 		// --- Can understand the speech ---
 
-		if (!M || R.say_understands(M))
+		if (!M || R.say_understands(M, speaking))
 
 			// - Not human or wearing a voice mask -
 			if (!M || !ishuman(M) || vmask)

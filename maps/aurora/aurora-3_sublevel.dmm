@@ -933,10 +933,8 @@
 "acm" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/table/standard,
-/obj/item/surgery/scalpel,
-/obj/item/autopsy_scanner,
 /obj/machinery/firealarm/south,
-/obj/item/surgery/surgicaldrill,
+/obj/item/storage/box/fancy/tray/autopsy,
 /turf/simulated/floor/tiled/white,
 /area/medical/morgue)
 "acn" = (
@@ -6736,6 +6734,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -7636,6 +7635,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
+/mob/living/silicon/robot/shell,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -11845,9 +11845,10 @@
 	dir = 8;
 	pixel_x = 28
 	},
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
+/obj/structure/sink/kitchen{
+	dir = 8;
+	name = "Autopsy sink";
+	pixel_x = 20
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/morgue)
@@ -19725,7 +19726,6 @@
 "aOb" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/table/standard,
-/obj/item/device/mass_spectrometer,
 /obj/item/device/camera{
 	name = "Autopsy Camera";
 	pixel_x = -2;
@@ -23731,6 +23731,10 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
+/obj/machinery/camera/network/supply{
+	c_tag = "Cargo - Disposals, Lower";
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/maintenance/disposal)
 "bcb" = (
@@ -23744,10 +23748,6 @@
 "bcd" = (
 /obj/item/modular_computer/telescreen/preset/trashcompactor{
 	pixel_x = -32
-	},
-/obj/machinery/camera/network/supply{
-	c_tag = "Cargo - Disposals, Lower";
-	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/disposal)
@@ -36711,6 +36711,14 @@
 	temperature = 278
 	},
 /area/maintenance/medsublevel_port)
+"xyT" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/morgue)
 "xzL" = (
 /obj/effect/floor_decal/corner_wide/mauve{
 	dir = 1
@@ -75312,7 +75320,7 @@ aHe
 aKf
 aLh
 aMl
-aMk
+xyT
 acm
 aGi
 aUZ

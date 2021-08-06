@@ -17975,7 +17975,7 @@
 	},
 /area/centcom/specops)
 "hum" = (
-/obj/machinery/hologram/holopad/central,
+/obj/machinery/hologram/holopad/long_range,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -25350,7 +25350,7 @@
 	},
 /area/shuttle/merchant)
 "mlA" = (
-/obj/machinery/hologram/holopad/central,
+/obj/machinery/hologram/holopad/long_range,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
