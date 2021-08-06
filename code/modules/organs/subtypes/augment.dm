@@ -499,7 +499,7 @@
 	if(!owner)
 		return
 
-	if(world.time > (last_emotion + 7 MINUTES))
+	if(world.time > (last_emotion + 5 MINUTES))
 		switch(set_emotion)
 			if("happiness")
 				to_chat(owner, SPAN_NOTICE("You feel happy."))
