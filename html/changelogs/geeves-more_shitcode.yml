@@ -3,4 +3,4 @@ author: Geeves
 delete-after: True
 
 changes:
-  - bugfix: "You can now actually inhibit matriarch maintenance drones, if you have the command whitelist."
+  - bugfix: "You can now actually inhabit matriarch maintenance drones, if you have the command whitelist."
