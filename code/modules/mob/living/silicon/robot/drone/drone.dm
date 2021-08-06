@@ -156,10 +156,7 @@
 /mob/living/silicon/robot/drone/construction/matriarch/ghostize(can_reenter_corpse, should_set_timer)
 	. = ..()
 	if(src in mob_list) // needs to exist to reopen spawn atom
-		M.real_name = initial(M.name)
-		M.name = M.real_name
-		M.voice_name = M.real_name
-		M.updatename()
+		set_name(initial(name))
 		request_player()
 
 /mob/living/silicon/robot/drone/construction/matriarch/Destroy()

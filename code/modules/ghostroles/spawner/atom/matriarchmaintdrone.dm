@@ -18,8 +18,5 @@
 		drone_name = pick("Ripley", "Tano", "Data")
 	var/mob/living/silicon/robot/drone/construction/matriarch/M = ..()
 	if(M)
-		M.real_name = "[initial(M.name)] ([drone_name])"
-		M.name = M.real_name
-		M.voice_name = M.real_name
-		M.updatename()
+		M.set_name("[initial(M.name)] ([drone_name])")
 	return M
