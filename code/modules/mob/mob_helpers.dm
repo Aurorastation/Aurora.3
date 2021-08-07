@@ -1252,3 +1252,5 @@ proc/is_blind(A)
 	real_name = new_name
 	name = real_name
 	voice_name = real_name
+	if(mind)
+		mind.name = real_name
