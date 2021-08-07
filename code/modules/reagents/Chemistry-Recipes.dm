@@ -3524,7 +3524,7 @@
 	name = "Mojito"
 	id = "mojito"
 	result = /decl/reagent/alcohol/mojito
-	required_reagents = list(/decl/reagent/drink/mintsyrup = 1, /decl/reagent/drink/limejuice = 1, /decl/reagent/alcohol/rum =1)
+	required_reagents = list(/decl/reagent/drink/mintsyrup = 1, /decl/reagent/drink/limejuice = 1, /decl/reagent/alcohol/rum = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/drink/zavodskoi_mule
@@ -3538,5 +3538,12 @@
 	name = "Pina Colada"
 	id = "pina_colada"
 	result = /decl/reagent/alcohol/pina_colada
-	required_reagents = list(/decl/reagent/drink/pineapplejuice =1, /decl/reagent/alcohol/rum =2)
+	required_reagents = list(/decl/reagent/drink/pineapplejuice = 1, /decl/reagent/alcohol/rum = 2)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/gibbfloats
+	name = "Gibb Floats"
+	id = "gibbfloats"
+	result = /decl/reagent/drink/gibbfloats
+	required_reagents = list(/decl/reagent/drink/dr_gibb = 1, /decl/reagent/drink/ice = 1, /decl/reagent/drink/milk/cream = 1)
 	result_amount = 3

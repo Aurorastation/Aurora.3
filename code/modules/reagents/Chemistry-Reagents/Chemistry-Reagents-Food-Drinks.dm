@@ -1793,7 +1793,7 @@
 	taste_description = "cola"
 	carbonated = TRUE
 
-	glass_icon_state  = "glass_brown"
+	glass_icon_state  = "spacecola"
 	glass_name = "glass of Space Cola"
 	glass_desc = "A glass of refreshing Space Cola"
 	glass_center_of_mass = list("x"=17, "y"=6)
@@ -1801,7 +1801,7 @@
 /decl/reagent/drink/spacemountainwind
 	name = "Mountain Wind"
 	description = "Blows right through you like a space wind."
-	color = "#102000"
+	color = "#93230b"
 	adj_drowsy = -7
 	adj_sleepy = -1
 	taste_description = "sweet citrus soda"
@@ -1814,7 +1814,7 @@
 /decl/reagent/drink/dr_gibb
 	name = "Dr. Gibb"
 	description = "A delicious blend of 42 different flavours"
-	color = "#102000"
+	color = "#93230b"
 	adj_drowsy = -6
 	taste_description = "cherry soda"
 	carbonated = TRUE
@@ -3494,7 +3494,7 @@
 /decl/reagent/drink/dr_gibb_diet
 	name = "Diet Dr. Gibb"
 	description = "A delicious blend of 42 different flavours, one of which is water."
-	color = "#102000"
+	color = "#93230b"
 	taste_description = "watered down liquid sunshine"
 	carbonated = TRUE
 
@@ -4774,8 +4774,20 @@
 	color = "#FFF1B2"
 	taste_description = "pineapple, coconut, and a hint of the ocean"
 	
-	glass_icon_state= "pina_colada"
+	glass_icon_state = "pina_colada"
 	glass_name = "glass of pina colada"
 	glass_desc = "Prepared just like in Silversun."
+
+/decl/reagent/drink/gibbfloats
+	name = "Gibb Floats"
+	description - "A floating soda of icecream and Dr. Gibb."
+	color = "#93230b"
+	taste_description = "cherry soda and icecream"
+	carbonated = TRUE
+
+	glass_icon_state = "gibbfloats"
+	glass_name = "glass of gibb floats"
+	glass_desc = "A floating soda of icecream and Dr. Gibb."
+
 
 
