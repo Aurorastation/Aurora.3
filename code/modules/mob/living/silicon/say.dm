@@ -33,6 +33,9 @@
 			message_mode = null
 		return common_radio.talk_into(src, message, message_mode, verb, speaking)
 
+/mob/living/silicon/robot/drone/handle_message_mode()
+	return null
+
 /mob/living/silicon/ai/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
 	..()
 	if(message_mode == "department")
