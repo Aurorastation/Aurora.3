@@ -201,7 +201,4 @@
 
 /mob/living/silicon/robot/drone/mining/roundstart/Initialize()
 	. = ..()
-	if(SSticker.current_state == GAME_STATE_PLAYING)
-		request_player()
-	else
-		LAZYADD(SSatoms.late_misc_firers, src)
+	check_add_to_late_firers()

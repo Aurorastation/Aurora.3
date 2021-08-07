@@ -109,6 +109,9 @@
 	qdel(possessor)
 	return TRUE
 
+/mob/living/silicon/robot/drone/do_late_fire()
+	request_player()
+
 /mob/living/silicon/robot/drone/Destroy()
 	if(hat)
 		hat.forceMove(get_turf(src))
@@ -144,7 +147,7 @@
 
 /mob/living/silicon/robot/drone/construction/matriarch/Initialize()
 	. = ..()
-	SSghostroles.add_spawn_atom("matriarchmaintdrone", src)
+	check_add_to_late_firers()
 
 /mob/living/silicon/robot/drone/construction/matriarch/assign_player(mob/user)
 	. = ..()
@@ -152,11 +155,18 @@
 
 /mob/living/silicon/robot/drone/construction/matriarch/ghostize(can_reenter_corpse, should_set_timer)
 	. = ..()
-	SSghostroles.add_spawn_atom("matriarchmaintdrone", src)
+	if(stat == DEAD)
+		return
+	if(src in mob_list) // needs to exist to reopen spawn atom
+		set_name(initial(name))
+		request_player()
 
 /mob/living/silicon/robot/drone/construction/matriarch/Destroy()
+	. = ..()
 	SSghostroles.remove_spawn_atom("matriarchmaintdrone", src)
-	return ..()
+
+/mob/living/silicon/robot/drone/construction/matriarch/request_player()
+	SSghostroles.add_spawn_atom("matriarchmaintdrone", src)
 
 /mob/living/silicon/robot/drone/Initialize()
 	. = ..()
