@@ -5980,6 +5980,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
+"fqK" = (
+/obj/machinery/hologram/holopad/long_range,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/research)
 "fqN" = (
 /obj/structure/window/shuttle/unique/research{
 	icon_state = "7,14"
@@ -11414,7 +11419,7 @@
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "koW" = (
-/obj/machinery/hologram/holopad,
+/obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/carpet,
 /area/sconference_room)
 "kpb" = (
@@ -70523,7 +70528,7 @@ fzZ
 lzS
 mJp
 mJp
-mJp
+fqK
 xGF
 mJp
 vwu

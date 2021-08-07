@@ -71,6 +71,8 @@
 
 	player_age = client.player_age
 
+	client.chatOutput.start()
+
 	if(loc && !isturf(loc))
 		client.eye = loc
 		client.perspective = EYE_PERSPECTIVE
@@ -93,6 +95,3 @@
 
 	// Check code/modules/admin/verbs/antag-ooc.dm for definition
 	client.add_aooc_if_necessary()
-
-	if(client.prefs.toggles_secondary & GOONCHAT_ON)
-		client.chatOutput.start()

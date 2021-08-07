@@ -86,3 +86,11 @@
 	desc = "A slab of weird green meat."
 	icon_state = "plantmeat"
 	reagents_to_add = list(/decl/reagent/diona_powder = 10)
+
+/obj/item/reagent_containers/food/snacks/meat/vannatusk
+	desc = "A slab of weird blue meat."
+	icon = 'icons/mob/npc/vannatusk.dmi'
+	icon_state = "vannameat"
+	item_state = "vannameat"
+	contained_sprite = TRUE
+	reagents_to_add = list(/decl/reagent/nutriment/protein = 6, /decl/reagent/mindbreaker = 6)

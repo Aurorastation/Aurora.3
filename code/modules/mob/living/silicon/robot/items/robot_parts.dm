@@ -221,6 +221,33 @@
 			to_chat(user, SPAN_WARNING("You need to attach a flash to it first!"))
 		return
 
+	if(istype(W, /obj/item/device/mmi/shell))
+		var/obj/item/device/mmi/shell/M = W
+		if(check_completion())
+			var/mob/living/silicon/robot/O = new /mob/living/silicon/robot/shell(get_turf(src), TRUE)
+			if(!O)
+				return
+
+			user.drop_from_inventory(M, O)
+			O.mmi = M
+			O.invisibility = 0
+			O.custom_name = "Ai shell"
+
+			O.job = "AI Shell"
+			O.cell = chest.cell
+			O.cell.forceMove(O)
+			W.forceMove(O) 
+			
+			if(O.cell)
+				var/datum/robot_component/cell_component = O.components["power cell"]
+				cell_component.wrapped = O.cell
+				cell_component.installed = TRUE
+
+			qdel(src)
+		else
+			to_chat(user, SPAN_WARNING("\The [W] can only be inserted after everything else is installed."))
+		return
+
 	if(istype(W, /obj/item/device/mmi))
 		var/obj/item/device/mmi/M = W
 		if(check_completion())

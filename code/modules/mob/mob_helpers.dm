@@ -1170,11 +1170,8 @@ proc/is_blind(A)
 		var/datum/accent/a = SSrecords.accents[used_accent]
 		if(istype(a))
 			var/final_icon = a.tag_icon
-			if(client.prefs.toggles_secondary & GOONCHAT_ON)
-				var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/goonchat)
-				return S.icon_tag(final_icon)
-			else
-				return "<img src='\ref['./icons/accent_tags.dmi']' iconstate='[final_icon]'>"
+			var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/goonchat)
+			return S.icon_tag(final_icon)
 
 /mob/proc/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
 	for(var/mob/M in contents)
@@ -1247,3 +1244,13 @@ proc/is_blind(A)
 			. = max(MOB_GRAB_FIREMAN, .)
 		else
 			. = max(MOB_GRAB_NORMAL, .)
+
+/mob/proc/handle_vision()
+	return
+
+/mob/proc/set_name(var/new_name)
+	real_name = new_name
+	name = real_name
+	voice_name = real_name
+	if(mind)
+		mind.name = real_name

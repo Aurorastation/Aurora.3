@@ -1,6 +1,5 @@
 /obj/item/organ/internal/brain
 	name = "brain"
-	health = 400 //They need to live awhile longer than other organs. Is this even used by organ code anymore?
 	desc = "A piece of juicy meat found in a person's head."
 	organ_tag = BP_BRAIN
 	parent_organ = BP_HEAD

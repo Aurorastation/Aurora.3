@@ -521,7 +521,10 @@
 	H.set_fullscreen(H.stat == UNCONSCIOUS, "blackout", /obj/screen/fullscreen/blackout)
 
 	if(config.welder_vision)
-		H.set_fullscreen(H.equipment_tint_total, "welder", /obj/screen/fullscreen/impaired, H.equipment_tint_total)
+		if(H.equipment_tint_total)
+			H.overlay_fullscreen("welder", /obj/screen/fullscreen/impaired, H.equipment_tint_total, 0.5 SECONDS)
+		else
+			H.clear_fullscreen("welder")
 	var/how_nearsighted = get_how_nearsighted(H)
 	H.set_fullscreen(how_nearsighted, "nearsighted", /obj/screen/fullscreen/oxy, how_nearsighted)
 	H.set_fullscreen(H.eye_blurry, "blurry", /obj/screen/fullscreen/blurry)
@@ -556,7 +559,7 @@
 	if (!H.exhaust_threshold)
 		return 1 // Handled.
 
-	cost += H.getOxyLoss() * 0.1 //The less oxygen we get, the more we strain. 
+	cost += H.getOxyLoss() * 0.1 //The less oxygen we get, the more we strain.
 	cost *= H.sprint_cost_factor
 	if(H.is_drowsy())
 		cost *= 1.25
@@ -698,6 +701,9 @@
 	return injection_mod
 
 /datum/species/proc/is_naturally_insulated()
+	return FALSE
+
+/datum/species/proc/bypass_food_fullness(var/mob/living/carbon/human/H) //proc used to see if the species can eat more than their nutrition value allows
 	return FALSE
 
 // the records var is so that untagged shells can appear human
