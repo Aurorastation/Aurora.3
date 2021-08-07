@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Matriarch drones that die without exploding now don't open a ghost spawner slot."
-  - bugfix: "Dying as a drone will now not say died as drone in deadchat, instead just using the proper name."
