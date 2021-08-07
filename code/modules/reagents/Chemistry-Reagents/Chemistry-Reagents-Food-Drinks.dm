@@ -4747,9 +4747,9 @@
 
 /decl/reagent/alcohol/mojito
 	name = "Mojito"
-	descrption = "Originated from Sol, now popular all around the Spur."
+	description = "Originated from Sol, now popular all around the Spur."
 	strength = 30
-	color - "#b6ecaa"
+	color = "#b6ecaa"
 	taste_description = "refreshing mint"
 
 	glass_icon_state = "mojito"
@@ -4760,7 +4760,7 @@
 	name = "Zavodskoi Mule"
 	description = "It is said to be Lyudmila Zavodskoi's favorite."
 	strength = 40
-	color - "#EEF1AA"
+	color = "#EEF1AA"
 	taste_description = "refreshing spiciness"
 
 	glass_icon_state = "zavodskoi_mule"
@@ -4771,10 +4771,10 @@
 	name = "Pina Colada"
 	description = "Prepared just like in Silversun."
 	strength = 30
-	color - "#FFF1B2"
+	color = "#FFF1B2"
 	taste_description = "pineapple, coconut, and a hint of the ocean"
 	
-	glas_icon_state= "pina_colada"
+	glass_icon_state= "pina_colada"
 	glass_name = "glass of pina colada"
 	glass_desc = "Prepared just like in Silversun."
 
