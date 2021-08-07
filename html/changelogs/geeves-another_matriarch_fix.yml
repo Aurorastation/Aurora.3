@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Matriarch drones that die without exploding now don't open a ghost spawner slot."

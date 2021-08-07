@@ -155,6 +155,8 @@
 
 /mob/living/silicon/robot/drone/construction/matriarch/ghostize(can_reenter_corpse, should_set_timer)
 	. = ..()
+	if(stat == DEAD)
+		return
 	if(src in mob_list) // needs to exist to reopen spawn atom
 		set_name(initial(name))
 		request_player()
