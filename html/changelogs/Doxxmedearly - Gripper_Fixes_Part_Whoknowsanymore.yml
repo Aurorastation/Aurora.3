@@ -1,8 +1,0 @@
-author: Doxxmedearly
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed item duplication/icon updating issues related to borg gripper interactions with vending machines, pipe dispensers, and light fixtures."
-  - bugfix: "Borg players can once again click on the active gripper icon to activate the held item."
-  - bugfix: "Stacks dropped or placed by borg grippers will no longer display the stack amount next to the icon."
