@@ -793,3 +793,10 @@
 	. = list()
 	for (var/string in L)
 		. += capitalize(string)
+
+//Compares each item in a list for a bitflag
+/proc/bitflag_in_list(var/F, var/list/L)
+	for(var/BF in L)
+		if((F & BF) == F)
+			return TRUE
+	return FALSE

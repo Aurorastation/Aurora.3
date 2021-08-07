@@ -134,7 +134,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			return 0
 
 		var/datum/job/J = SSjobs.GetJob(href_list["SelectedJob"])
-		if(!(J.title in get_preferred_jobs()))
+		if(!check_preferred_job(J.department_flag, J.flag))
 			if(alert("Are you sure you want to join as [J.title]", "Confirm Job", "Yes", "No") == "No")
 				return
 
@@ -431,12 +431,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 /mob/abstract/new_player/show_message(msg, type, alt, alt_type)
 	return
 
-/mob/abstract/new_player/proc/get_preferred_jobs()
-	var/list/jobs = list()
-	var/datum/preferences/P = client.prefs
-	for (var/datum/job/J in SSjobs.occupations)
-		var/list/L = P.get_jobs_by_dept(J.department_flag)
-		for(var/F in L)
-			if((J.flag & F) == J.flag)
-				LAZYADD(jobs, J.title)
-	return jobs
+mob/abstract/new_player/proc/check_preferred_job(var/department_flag, var/job_flag)
+	var/list/jobs_by_dept = client.prefs.get_jobs_by_dept(department_flag)
+	if(bitflag_in_list(job_flag, jobs_by_dept))
+		return TRUE
+	return FALSE
