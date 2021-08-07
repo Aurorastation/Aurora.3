@@ -4780,7 +4780,7 @@
 
 /decl/reagent/drink/gibbfloats
 	name = "Gibb Floats"
-	description - "A floating soda of icecream and Dr. Gibb."
+	description = "A floating soda of icecream and Dr. Gibb."
 	color = "#93230b"
 	taste_description = "cherry soda and icecream"
 	carbonated = TRUE
