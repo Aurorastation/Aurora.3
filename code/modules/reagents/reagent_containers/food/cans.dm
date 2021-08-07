@@ -333,7 +333,7 @@
 
 /obj/item/reagent_containers/food/drinks/cans/koispunch
 	name = "\improper Phoron Punch!"
-	desc = "A radical looking can of <span class='warning'>Phoron Punch!</span> Phoron poisoning has never been more extreme! <span class='warning'>Phoron is toxic to humans. Consuming this product might lead to death.</span>."
+	desc = "A radical looking can of <span class='warning'>Phoron Punch!</span> Phoron poisoning has never been more extreme! <span class='warning'>WARNING: Phoron is toxic to humans. Consuming this product might lead to death.</span>."
 	icon_state = "phoron_punch"
 	center_of_mass = list("x"=16, "y"=8)
 	can_size_overrides = list("x" = 1)
