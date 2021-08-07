@@ -3521,21 +3521,21 @@
 	result_amount = 3
 
 /datum/chemical_reaction/drink/mojito
-    name = "Mojito"
+	name = "Mojito"
 	id = "mojito"
 	result = /decl/reagent/alcohol/mojito
 	required_reagents = list(/decl/reagent/drink/mintsyrup = 1, /decl/reagent/drink/limejuice = 1, /decl/reagent/alcohol/rum =1)
 	result_amount = 3
 
 /datum/chemical_reaction/drink/zavodskoi_mule
-    name = "Zavodskoi Mule"
+	name = "Zavodskoi Mule"
 	id = "zavodskoi_mule"
 	result = /decl/reagent/alcohol/zavodskoi_mule
 	required_reagents = list(decl/reagent/alcohol/vodka = 2, decl/reagent/drink/lemonjuice = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/drink/pina_colada
-    name = "Pina Colada"
+	name = "Pina Colada"
 	id = "pina_colada"
 	result = /decl/reagent/alcohol/pina_colada
 	required_reagents = list(/decl/reagent/drink/pineapplejuice =1, decl/reagent/alcohol/rum =2)

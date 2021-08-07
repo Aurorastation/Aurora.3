@@ -4746,17 +4746,17 @@
 	glass_desc = "A Vaurcesian take on liqueur coffee, quickly becoming a favorite of the Zo'ra hive."
 
 /decl/reagent/alcohol/mojito
-    name = "Mojito"
-    descrption = "Originated from Sol, now popular all around the Spur."
-    color - "#b6ecaa"
-    taste_description = "refreshing mint"
+	name = "Mojito"
+	descrption = "Originated from Sol, now popular all around the Spur."
+	color - "#b6ecaa"
+	taste_description = "refreshing mint"
 
-    glass_icon_state = "mojito"
-    glass_name = "glass of mojito"
-    glass_desc = "Originated from Sol, now popular all around the Spur."
+	glass_icon_state = "mojito"
+	glass_name = "glass of mojito"
+	glass_desc = "Originated from Sol, now popular all around the Spur."
 
 /decl/reagent/alcohol/zavdoskoi_mule
-    name = "Zavodskoi Mule"
+	name = "Zavodskoi Mule"
 	description = "It is said to be Lyudmila Zavodskoi's favorite."
 	color - "#EEF1AA"
 	taste_description = "refreshing spiciness"
@@ -4766,7 +4766,7 @@
 	glass_desc = "It is said to be Lyudmila Zavodskoi's favorite."
 
 /decl/reagent/alcohol/pina_colada
-    name = "Pina Colada"
+	name = "Pina Colada"
 	description = "Prepared just like in Silversun."
 	color - "#FFF1B2"
 	taste_description = "pineapple, coconut, and a hint of the ocean"
