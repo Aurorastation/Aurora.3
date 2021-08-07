@@ -315,7 +315,7 @@
 		/obj/item/reagent_containers/food/snacks/cheesiehonkers = 15,
 		/obj/item/reagent_containers/food/snacks/tastybread = 18,
 		/obj/item/storage/box/pineapple = 20,
-		/obj/reagent_containers/food/snacks/chocolatebar = 12,
+		/obj/item/reagent_containers/food/snacks/chocolatebar = 12,
 		/obj/item/storage/box/fancy/gum = 15,
 		/obj/item/clothing/mask/chewable/candy/lolli = 2,
 		/obj/item/storage/box/fancy/admints = 12,
