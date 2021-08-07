@@ -3530,7 +3530,7 @@
 /datum/chemical_reaction/drink/zavodskoi_mule
 	name = "Zavodskoi Mule"
 	id = "zavodskoi_mule"
-	result = /decl/reagent/alcohol/zavodskoi_mule
+	result = /decl/reagent/alcohol/zavdoskoi_mule
 	required_reagents = list(/decl/reagent/alcohol/vodka = 2, /decl/reagent/drink/lemonjuice = 1)
 	result_amount = 3
 
