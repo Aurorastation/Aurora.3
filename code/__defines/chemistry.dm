@@ -78,6 +78,7 @@
 #define CE_BRAIN_REGEN  "brainfix"		// Alkysine
 #define CE_OXYGENATED   "oxygenated"	// Dexalin
 #define CE_BLOODCLOT    "bloodclot"		// Coagzolug
+#define CE_ORGANREPAIR  "organrepair"	// Rezadone
 
 // Deal damage
 #define CE_BREATHLOSS   "breathloss"

@@ -480,6 +480,7 @@
 	action_button_icon = "emotional_manipulator"
 	cooldown = 10
 	var/set_emotion = "Disabled"
+	var/last_emotion = 0
 
 	var/list/possible_emotions = list(
 		"Disabled",
@@ -502,12 +503,13 @@
 	if(!owner)
 		return
 
-	if(prob(10))
+	if(world.time > (last_emotion + 5 MINUTES))
 		switch(set_emotion)
 			if("happiness")
 				to_chat(owner, SPAN_NOTICE("You feel happy."))
 			if("calmness")
 				to_chat(owner, SPAN_NOTICE("You feel calm."))
+		last_emotion = world.time
 
 		if(is_broken())
 			do_broken_act()
