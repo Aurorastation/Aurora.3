@@ -4,6 +4,6 @@ delete-after: True
 
 changes:
   - refactor: "Refactored drone speech, affecting maintenance drones, construction drones, mining drones and the matriarch drone. Everything should still work as expected."
-  - rscadd: "Matriarch drones can now speak EAL, but they cannot speak over the radio whatsoever."
+  - rscadd: "Matriarch drones can now speak EAL, but they cannot speak over the radio, unless overheard by another radio with an active microphone."
   - tweak: "Maintenance drones laws have been modified, they are now allowed to interact with both maintenance and mining drones by law, now."
   - rscdel: "Removed the no-interaction law from the matriarch drone, they are now able to interact with crew and synthetics."
