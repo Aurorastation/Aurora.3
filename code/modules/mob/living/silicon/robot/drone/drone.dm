@@ -42,7 +42,6 @@
 	var/module_type = /obj/item/robot_module/drone
 	cell_emp_mult = 1
 	integrated_light_power = 3
-	local_transmit = TRUE
 
 	// Interaction
 	universal_speak = FALSE
@@ -61,6 +60,8 @@
 					)
 	mob_bump_flag = SIMPLE_ANIMAL
 	holder_type = /obj/item/holder/drone
+
+	can_speak_basic = FALSE
 
 	// ID and Access
 	law_update = FALSE
@@ -81,6 +82,10 @@
 	var/hat_y_offset = -13
 
 	var/rebooting = FALSE
+
+/mob/living/silicon/robot/drone/Initialize()
+	. = ..()
+	set_default_language(all_languages[LANGUAGE_LOCAL_DRONE])
 
 /mob/living/silicon/robot/drone/can_be_possessed_by(var/mob/abstract/observer/possessor)
 	if(!istype(possessor) || !possessor.client || !possessor.ckey)
@@ -120,6 +125,11 @@
 		QDEL_NULL(hat_overlay)
 	return ..()
 
+/mob/living/silicon/robot/drone/get_default_language()
+	if(default_language)
+		return default_language
+	return all_languages[LANGUAGE_LOCAL_DRONE]
+
 /mob/living/silicon/robot/drone/construction
 	// Look and feel
 	icon_state = "constructiondrone"
@@ -143,6 +153,7 @@
 
 /mob/living/silicon/robot/drone/construction/matriarch
 	name = "matriarch drone"
+	module_type = /obj/item/robot_module/drone/construction/matriarch
 	law_type = /datum/ai_laws/matriarch_drone
 
 /mob/living/silicon/robot/drone/construction/matriarch/Initialize()

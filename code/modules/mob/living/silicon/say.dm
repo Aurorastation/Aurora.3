@@ -60,6 +60,13 @@
 		return speak_exclamation
 	return speak_statement
 
+/mob/living/silicon/robot/drone/say_quote(var/message, var/datum/language/speaking = null, var/singing = FALSE)
+	if(speaking)
+		var/ending = copytext(message, length(message))
+		var/pre_ending = copytext(message, length(message) - 1, length(message))
+		return speaking.get_spoken_verb(ending, pre_ending, singing)
+	return ..()
+
 #define IS_AI 1
 #define IS_ROBOT 2
 #define IS_PAI 3

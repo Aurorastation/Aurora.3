@@ -200,6 +200,10 @@ proc/get_radio_key_from_channel(var/channel)
 	else
 		speaking = get_default_language()
 
+	var/list/speech_mod = speaking.handle_message_mode(message_mode)
+	speaking = speech_mod[1]
+	message_mode = speech_mod[2]
+
 	var/is_singing = FALSE
 	if(length(message) >= 1 && copytext(message, 1, 2) == "%")
 		message = copytext(message, 2)
@@ -280,15 +284,16 @@ proc/get_radio_key_from_channel(var/channel)
 	var/turf/T = get_turf(src)
 
 	if(T)
-		//make sure the air can transmit speech - speaker's side
-		var/datum/gas_mixture/environment = T.return_air()
-		var/pressure = (environment)? environment.return_pressure() : 0
-		if(pressure < SOUND_MINIMUM_PRESSURE)
-			message_range = 1
+		if(!speaking || !(speaking.flags & PRESSUREPROOF))
+			//make sure the air can transmit speech - speaker's side
+			var/datum/gas_mixture/environment = T.return_air()
+			var/pressure = (environment)? environment.return_pressure() : 0
+			if(pressure < SOUND_MINIMUM_PRESSURE)
+				message_range = 1
 
-		if (pressure < ONE_ATMOSPHERE*0.4) //sound distortion pressure, to help clue people in that the air is thin, even if it isn't a vacuum yet
-			italics = 1
-			sound_vol *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
+			if (pressure < ONE_ATMOSPHERE*0.4) //sound distortion pressure, to help clue people in that the air is thin, even if it isn't a vacuum yet
+				italics = 1
+				sound_vol *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
 
 		get_mobs_and_objs_in_view_fast(T, message_range, listening, listening_obj, ghost_hearing)
 

@@ -11,7 +11,6 @@
 	var/speak_statement = "states"
 	var/speak_exclamation = "declares"
 	var/speak_query = "queries"
-	var/local_transmit //If set, can only speak to others of the same type within a short range.
 
 	// Description
 	var/pose //Yes, now AIs can pose too.
@@ -62,10 +61,12 @@
 	uv_intensity = 175 //Lights cast by robots have reduced effect on diona
 	mob_thinks = FALSE
 
+	var/can_speak_basic = TRUE
+
 /mob/living/silicon/Initialize()
 	silicon_mob_list |= src
 	. = ..()
-	add_language(LANGUAGE_TCB)
+	add_language(LANGUAGE_TCB, can_speak_basic)
 	init_id()
 
 	var/datum/language/L = locate(/datum/language/common) in languages

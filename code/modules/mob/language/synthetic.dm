@@ -69,3 +69,17 @@
 
 /mob/living/silicon/robot/drone/construction/matriarch/get_binary_font_size()
 	return "1.2em"
+
+/datum/language/local_drone
+	name = LANGUAGE_LOCAL_DRONE
+	desc = "A heavily encoded damage coordination transmission, only supplied to drones within sight."
+	speech_verb = list("transmits")
+	ask_verb = list("transmits")
+	exclaim_verb = list("transmits")
+	key = "do"
+	flags = RESTRICTED | KNOWONLYHEAR | PRESSUREPROOF
+
+/datum/language/local_drone/handle_message_mode(var/message_mode)
+	if(message_mode == "headset")
+		return list(all_languages[LANGUAGE_DRONE], null)
+	return list(src, null)
