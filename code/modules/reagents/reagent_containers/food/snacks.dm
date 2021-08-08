@@ -252,8 +252,10 @@
 
 			var/reagents_per_slice = reagents.total_volume/slices_num
 			for(var/i=1 to (slices_num-slices_lost))
-				var/obj/slice = new slice_path (src.loc)
+				var/obj/item/reagent_containers/food/slice = new slice_path (src.loc)
 				reagents.trans_to_obj(slice, reagents_per_slice)
+				slice.filling_color = filling_color
+				slice.update_icon()
 			qdel(src)
 			return
 

@@ -92,8 +92,25 @@
 	name = "cake"
 	desc = "A popular band."
 	icon_state = "cakecustom"
+	slices_num = 5
+	slice_path = /obj/item/reagent_containers/food/snacks/variable/cakeslice
 	size = 40
 	w_class = ITEMSIZE_NORMAL
+
+/obj/item/reagent_containers/food/snacks/variable/cakeslice
+	name = "cake slice"
+	desc = "A slice of cake"
+	icon_state = "cakeslicecustom"
+	trash = /obj/item/trash/plate
+	w_class = ITEMSIZE_SMALL
+	size = 8
+
+/obj/item/reagent_containers/food/snacks/variable/cakeslice/update_icon()
+	. = ..()
+	//Filling overlay
+	var/image/I = image(icon, "[icon_state]_filling")
+	I.color = filling_color
+	overlays += I
 
 /obj/item/reagent_containers/food/snacks/variable/pocket
 	name = "hot pocket"
