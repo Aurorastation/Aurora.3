@@ -524,7 +524,7 @@
 	t = replacetext(t, "\[/grid\]", "</td></tr></table>")
 	t = replacetext(t, "\[row\]", "</td><tr>")
 	t = replacetext(t, "\[cell\]", "<td>")
-	t = replacetext(t, "\[logo_scc\]", "<img src = scclogo.png")
+	t = replacetext(t, "\[logo_scc\]", "<img src = scclogo.png>")
 	t = replacetext(t, "\[logo_nt\]", "<img src = ntlogo.png>")
 	t = replacetext(t, "\[logo_nt_small\]", "<img src = ntlogo_small.png>")
 	t = replacetext(t, "\[logo_zh\]", "<img src = zhlogo.png>")
