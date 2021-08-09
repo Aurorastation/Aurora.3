@@ -959,7 +959,13 @@
         to_chat(user, SPAN_NOTICE("You make some modifications to [src] using your pen."))
         icon_state = "paperbag_[choice]"
         return
+<<<<<<< Updated upstream
 	else if(W.get_sharpness())
+=======
+<<<<<<< HEAD
+
+else if(W.get_sharpness())
+>>>>>>> Stashed changes
 		if(!contents.len)
 			if(inhand_icon_state == "paperbag_None")
 				user.show_message(span_notice("You cut eyeholes into [src]."), MSG_VISUAL)
@@ -971,7 +977,15 @@
 				new /obj/item/clothing/head/papersack/smiley(user.loc)
 				qdel(src)
 				return FALSE
+<<<<<<< Updated upstream
 	return ..()
+=======
+return ..()
+=======
+    else
+        ..()
+>>>>>>> parent of f7bd861... hatcode
+>>>>>>> Stashed changes
 
 
 
