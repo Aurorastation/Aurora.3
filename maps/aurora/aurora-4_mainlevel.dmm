@@ -50034,6 +50034,11 @@
 	pixel_x = 1;
 	pixel_y = 2
 	},
+/obj/item/storage/box/papersack,
+/obj/item/storage/box/papersack,
+/obj/item/storage/box/papersack,
+/obj/item/storage/box/papersack,
+/obj/item/storage/box/papersack,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bPa" = (
@@ -59861,6 +59866,12 @@
 "ekr" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/engineering_ladder)
+"elI" = (
+/obj/machinery/light{
+	icon_state = "tube1"
+	},
+/turf/simulated/wall,
+/area/crew_quarters/kitchen)
 "enl" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/decal/cleanable/dirt,
@@ -67974,6 +67985,10 @@
 	temperature = 278
 	},
 /area/security/forensics_morgue)
+"tgu" = (
+/obj/machinery/light_switch,
+/turf/simulated/wall,
+/area/chapel/main)
 "tgD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -98937,7 +98952,7 @@ bTk
 bTk
 bSi
 bUy
-bSi
+tgu
 bTk
 bTk
 iUR
@@ -102265,7 +102280,7 @@ bLD
 bMi
 fKb
 bNG
-bOt
+elI
 keq
 bOR
 xTH
