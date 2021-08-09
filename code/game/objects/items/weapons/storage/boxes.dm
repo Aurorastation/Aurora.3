@@ -933,6 +933,11 @@
 	chewable = TRUE
 	var/static/list/papersack_designs
 
+/obj/item/storage/box/papersack/update_icon()
+	. = ..()
+	if(!opened)
+		icon_state = "[initial(icon_state)][_closed]"
+
 /obj/item/storage/box/papersack/attackby(obj/item/O, mob/user)
     if(O.ispen())
         if(!papersack_designs)
