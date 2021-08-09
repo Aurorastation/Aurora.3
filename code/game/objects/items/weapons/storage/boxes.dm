@@ -959,6 +959,7 @@
         to_chat(user, SPAN_NOTICE("You make some modifications to [src] using your pen."))
         icon_state = "paperbag_[choice]"
         return
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 	else if(W.get_sharpness())
 =======
@@ -986,6 +987,10 @@ return ..()
         ..()
 >>>>>>> parent of f7bd861... hatcode
 >>>>>>> Stashed changes
+=======
+    else
+        ..()
+>>>>>>> parent of f7bd861... hatcode
 
 
 
