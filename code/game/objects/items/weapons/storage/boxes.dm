@@ -921,3 +921,15 @@
 /obj/item/storage/box/folders/blue
 	starts_with = list(/obj/item/folder/sec = 5)
 
+/obj/item/storage/box/papersack
+	name = "paper sack"
+	desc = "A neatly sack crafted out of paper."
+	icon_state = "paperbag_None"
+	foldable = NULL
+	max_w_class = ITEMSIZE_NORMAL
+	max_storage_space = 21
+	use_to_pickup = TRUE
+	chewable = TRUE 
+
+
+
