@@ -310,7 +310,7 @@
 		t = replacetext(t, "\[/table\]", "")
 		t = replacetext(t, "\[row\]", "")
 		t = replacetext(t, "\[cell\]", "")
-		t = replacetext(t, "\[logo_scc\]")
+		t = replacetext(t, "\[logo_scc\]", "")
 		t = replacetext(t, "\[logo_nt\]", "")
 		t = replacetext(t, "\[logo_nt_small\]", "")
 		t = replacetext(t, "\[logo_zh\]", "")
