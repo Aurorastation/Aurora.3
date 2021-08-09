@@ -936,8 +936,10 @@
 
 /obj/item/storage/box/papersack/update_icon()
 	. = ..()
-	if(opened)
+	if(contents.len == 0)
 		icon_state = "[initial(icon_state)]"
+	else if(contents.len <8)
+		icon_state = "[initial(icon_state)]-food"
 		
 /obj/item/storage/box/papersack/attackby(obj/item/O, mob/user)
     if(O.ispen())
