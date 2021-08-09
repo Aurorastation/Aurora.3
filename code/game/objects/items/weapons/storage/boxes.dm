@@ -932,6 +932,7 @@
 	max_storage_space = 8
 	use_to_pickup = TRUE
 	chewable = TRUE
+	var/opened = TRUE
 	var/static/list/papersack_designs
 
 /obj/item/storage/box/papersack/update_icon()
