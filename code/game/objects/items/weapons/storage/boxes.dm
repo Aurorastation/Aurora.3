@@ -928,7 +928,7 @@
 	use_sound = 'sound/bureaucracy/papercrumple.ogg'
 	foldable = null
 	max_w_class = ITEMSIZE_NORMAL
-	max_storage_space = 21
+	max_storage_space = 8
 	use_to_pickup = TRUE
 	chewable = TRUE
 	var/static/list/papersack_designs
