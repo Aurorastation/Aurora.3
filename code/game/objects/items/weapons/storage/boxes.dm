@@ -971,7 +971,7 @@
 				new /obj/item/clothing/head/papersack/smiley(user.loc)
 				qdel(src)
 				return FALSE
-	return ..()
+return ..()
 
 
 
