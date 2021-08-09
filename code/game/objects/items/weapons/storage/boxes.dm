@@ -937,7 +937,7 @@
 /obj/item/storage/box/papersack/update_icon()
 	. = ..()
 	if(opened)
-		icon_state = "[initial(icon_state)]"
+		icon_state = "[initial(icon_state)-open]"
 		
 /obj/item/storage/box/papersack/attackby(obj/item/O, mob/user)
     if(O.ispen())
