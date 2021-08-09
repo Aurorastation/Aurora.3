@@ -462,3 +462,9 @@
 	center_of_mass = list("x"=16, "y"=10)
 
 	reagents_to_add = list(/decl/reagent/drink/hrozamal_soda = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/diet_cola
+	name = "Diet Cola"
+	desc = "Space Cola! Now in diet!"
+	center_of_mass = list("x"=16, "y"=10)
+	reagents_to_add = list(/decl/reagent/drink/diet_cola = 30)

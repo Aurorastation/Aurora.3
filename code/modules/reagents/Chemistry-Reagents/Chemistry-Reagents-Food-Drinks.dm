@@ -4744,3 +4744,14 @@
 	glass_icon_state = "caprician_coffee"
 	glass_name = "glass of caprician coffee"
 	glass_desc = "A Vaurcesian take on liqueur coffee, quickly becoming a favorite of the Zo'ra hive."
+
+/decl/reagent/drink/diet_cola
+	name = "Diet Cola"
+	description = "Space Cola! Now in diet!"
+	color = "#100800"
+	taste_description = "cola and less calories"
+	carbonated = TRUE
+
+	glass_icon_state = "glass_brown"
+	glass_name = "glass of diet cola"
+	glass_desc = "Space Cola! Now in diet!"
