@@ -339,6 +339,7 @@
 	vend_id = "cola"
 	products = list(
 		/obj/item/reagent_containers/food/drinks/cans/cola = 10,
+		/obj/item/reagent_containers/food/drinks/cans/diet_cola = 10,
 		/obj/item/reagent_containers/food/drinks/cans/space_mountain_wind = 10,
 		/obj/item/reagent_containers/food/drinks/cans/dr_gibb = 10,
 		/obj/item/reagent_containers/food/drinks/cans/root_beer = 10,
@@ -363,6 +364,7 @@
 	)
 	prices = list(
 		/obj/item/reagent_containers/food/drinks/cans/cola = 15,
+		/obj/item/reagent_containers/food/drinks/cans/diet_cola = 15,
 		/obj/item/reagent_containers/food/drinks/cans/space_mountain_wind = 11,
 		/obj/item/reagent_containers/food/drinks/cans/dr_gibb = 16,
 		/obj/item/reagent_containers/food/drinks/cans/root_beer = 13,
