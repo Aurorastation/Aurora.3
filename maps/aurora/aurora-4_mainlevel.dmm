@@ -65371,6 +65371,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
+"oEL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/standard,
+/obj/item/pen/crayon/rainbow,
+/turf/simulated/floor/plating,
+/area/maintenance/vault)
 "oGq" = (
 /obj/effect/shuttle_landmark/burglar/caverns,
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -111958,7 +111964,7 @@ aab
 aab
 aab
 nHe
-saL
+oEL
 tzU
 nRq
 nAn
