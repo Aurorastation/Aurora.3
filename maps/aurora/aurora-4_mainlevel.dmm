@@ -46570,7 +46570,7 @@
 /area/hydroponics)
 "bGs" = (
 /obj/machinery/smartfridge/drying_rack,
-/turf/simulated/floor/tiled,
+/turf/simulated/wall,
 /area/hydroponics)
 "bGt" = (
 /obj/structure/table/standard,
