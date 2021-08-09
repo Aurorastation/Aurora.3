@@ -925,11 +925,45 @@
 	name = "paper sack"
 	desc = "A neatly sack crafted out of paper."
 	icon_state = "paperbag_None"
-	foldable = NULL
+	use_sound = 'sound/bureaucracy/papercrumple.ogg'
+	foldable = null
 	max_w_class = ITEMSIZE_NORMAL
 	max_storage_space = 21
 	use_to_pickup = TRUE
-	chewable = TRUE 
+	chewable = TRUE
+
+/obj/item/storage/box/papersack/attackby(obj/item/O, mob/user)
+    if(O.ispen())
+        if(!papersack_designs)
+            papersack_designs = sortList(list(
+            "None" = image(icon = src.icon, icon_state = "paperbag_None"),
+            "NanotrasenStandard" = image(icon = src.icon, icon_state = "paperbag_NanotrasenStandard"),
+            "SyndiSnacks" = image(icon = src.icon, icon_state = "paperbag_SyndiSnacks"),
+            "Heart" = image(icon = src.icon, icon_state = "paperbag_Heart"),
+            "SmileyFace" = image(icon = src.icon, icon_state = "paperbag_SmileyFace")
+            ))
+
+        var/choice = show_radial_menu(user, src, papersack_designs, radius = 42, tooltips = TRUE)
+        if(!choice)
+            return
+        switch(choice)
+            if("None")
+                desc = "A sack neatly crafted out of paper."
+            if("NanotrasenStandard")
+                desc = "A standard Nanotrasen paper lunch sack for loyal employees on the go."
+            if("SyndiSnacks")
+                desc = "The design on this paper sack is a remnant of the notorious 'SyndieSnacks' program."
+            if("Heart")
+                desc = "A paper sack with a heart etched onto the side."
+            if("SmileyFace")
+                desc = "A paper sack with a crude smile etched onto the side."
+            else
+                return
+        to_chat(user, SPAN_NOTICE("You make some modifications to [src] using your pen."))
+        icon_state = "paperbag_[choice]"
+        return
+    else
+        ..()
 
 
 
