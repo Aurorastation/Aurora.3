@@ -567,7 +567,7 @@
 	t = replacetext(t, "</font>", "\[/small\]")
 
 	if(include_images)
-		t = replacetext(t, "<img src = scclogo.png", "\[logo_scc\]")
+		t = replacetext(t, "<img src = scclogo.png>", "\[logo_scc\]")
 		t = replacetext(t, "<img src = ntlogo.png>", "\[logo_nt\]")
 		t = replacetext(t, "<img src = ntlogo_small.png>", "\[logo_nt_small\]")
 		t = replacetext(t, "<img src = zhlogo.png>", "\[logo_zh\]")
