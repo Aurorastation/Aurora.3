@@ -254,6 +254,7 @@
 	description = "A strong neurotoxin that puts the subject into a death-like state."
 	reagent_state = SOLID
 	color = "#669900"
+	spectro_hidden = TRUE
 	metabolism = REM
 	strength = 3
 	taste_description = "death"
@@ -607,6 +608,13 @@
 	strength = 0.008
 	nicotine = 0.1
 
+/decl/reagent/toxin/tobacco/liquid
+	name = "Nicotine Solution"
+	description = "A diluted nicotine solution."
+	reagent_state = LIQUID
+	nicotine = REM * 0.1
+	taste_mult = 2
+
 /mob/living/carbon/human/proc/berserk_start()
 	to_chat(src, SPAN_DANGER("An uncontrollable rage overtakes your thoughts!"))
 	add_client_color(/datum/client_color/berserk)
@@ -762,6 +770,7 @@
 	description = "A complicated to make and highly illegal drug that cause paralysis mostly focused on the limbs."
 	reagent_state = LIQUID
 	color = "#002067"
+	spectro_hidden = TRUE
 	metabolism = REM * 0.2
 	strength = 0
 	taste_description = "danger"

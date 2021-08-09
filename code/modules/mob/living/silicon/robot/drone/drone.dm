@@ -110,6 +110,9 @@
 	qdel(possessor)
 	return TRUE
 
+/mob/living/silicon/robot/drone/do_late_fire()
+	request_player()
+
 /mob/living/silicon/robot/drone/Destroy()
 	if(hat)
 		hat.forceMove(get_turf(src))
@@ -137,6 +140,36 @@
 	hat_y_offset = -12
 
 	var/my_home_z
+
+/mob/living/silicon/robot/drone/construction/matriarch
+	name = "matriarch drone"
+	law_type = /datum/ai_laws/matriarch_drone
+
+/mob/living/silicon/robot/drone/construction/matriarch/Initialize()
+	. = ..()
+	check_add_to_late_firers()
+
+/mob/living/silicon/robot/drone/construction/matriarch/assign_player(mob/user)
+	. = ..()
+	SSghostroles.remove_spawn_atom("matriarchmaintdrone", src)
+
+/mob/living/silicon/robot/drone/construction/matriarch/ghostize(can_reenter_corpse, should_set_timer)
+	. = ..()
+	if(stat == DEAD)
+		return
+	if(src in mob_list) // needs to exist to reopen spawn atom
+		set_name(initial(name))
+		request_player()
+
+/mob/living/silicon/robot/drone/construction/matriarch/Destroy()
+	. = ..()
+	SSghostroles.remove_spawn_atom("matriarchmaintdrone", src)
+
+/mob/living/silicon/robot/drone/construction/matriarch/request_player()
+	SSghostroles.add_spawn_atom("matriarchmaintdrone", src)
+
+/mob/living/silicon/robot/drone/construction/matriarch/updatename()
+	return
 
 /mob/living/silicon/robot/drone/Initialize()
 	. = ..()
@@ -170,6 +203,7 @@
 		laws = new law_type
 	if(!module)
 		module = new module_type(src, src)
+		recalculate_synth_capacities()
 
 	flavor_text = "It's a tiny little repair drone. The casing is stamped with an corporate logo and the subscript: '[current_map.company_name] Recursive Repair Systems: Fixing Tomorrow's Problem, Today!'"
 	playsound(get_turf(src), 'sound/machines/twobeep.ogg', 50, 0)

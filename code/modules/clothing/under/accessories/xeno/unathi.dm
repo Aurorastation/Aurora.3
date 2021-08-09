@@ -114,16 +114,17 @@
 	chain.appearance_flags = RESET_COLOR
 	add_overlay(chain)
 
-/obj/item/clothing/accessory/poncho/rockstone/worn_overlays(icon_file, slot)
-	. = ..()
-	if(slot == slot_wear_suit)
-		var/image/gem = image(icon_file, null, "rockstone_un_gem")
+/obj/item/clothing/accessory/poncho/rockstone/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+	var/image/I = ..()
+	if(slot == slot_wear_suit_str)
+		var/image/gem = image(mob_icon, null, "rockstone_un_gem")
 		gem.appearance_flags = RESET_COLOR
 		gem.color = additional_color
-		. += gem
-		var/image/chain = image(icon_file, null, "rockstone_un_chain")
+		I.add_overlay(gem)
+		var/image/chain = image(mob_icon, null, "rockstone_un_chain")
 		chain.appearance_flags = RESET_COLOR
-		. += chain
+		I.add_overlay(chain)
+	return I
 
 /obj/item/clothing/accessory/poncho/rockstone/get_mob_overlay(force)
 	var/image/base = ..()

@@ -30,7 +30,7 @@
 
 	var/powered = FALSE
 	if(get_cell())
-		powered = get_cell().drain_power(0, 0, calc_power_draw()) > 0
+		powered = drain_cell_power(calc_power_draw()) > 0
 
 	if(!powered)
 		//Shut down all systems
