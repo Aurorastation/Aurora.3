@@ -34,7 +34,6 @@
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	var/chewable = TRUE
-	var/opened = FALSE
 
 /obj/item/storage/box/Initialize()
 	. = ..()
