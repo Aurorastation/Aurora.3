@@ -34,6 +34,7 @@
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	var/chewable = TRUE
+	var/opened = FALSE
 
 /obj/item/storage/box/Initialize()
 	. = ..()
@@ -931,8 +932,6 @@
 	max_storage_space = 8
 	use_to_pickup = TRUE
 	chewable = TRUE
-	opened = TRUE
-	closable = TRUE
 	var/static/list/papersack_designs
 
 /obj/item/storage/box/papersack/update_icon()
