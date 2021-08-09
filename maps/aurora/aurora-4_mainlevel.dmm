@@ -67985,10 +67985,6 @@
 	temperature = 278
 	},
 /area/security/forensics_morgue)
-"tgu" = (
-/obj/machinery/light_switch,
-/turf/simulated/wall,
-/area/chapel/main)
 "tgD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -98952,7 +98948,7 @@ bTk
 bTk
 bSi
 bUy
-tgu
+bSi
 bTk
 bTk
 iUR
