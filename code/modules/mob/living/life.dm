@@ -126,7 +126,7 @@
 		return FALSE
 	return TRUE
 
-/mob/living/proc/handle_vision()
+/mob/living/handle_vision()
 	update_sight()
 
 	if(stat == DEAD)

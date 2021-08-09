@@ -16,25 +16,16 @@
 	desc = "Bluer than the standard model."
 	icon_state = "labcoat_cmo"
 	item_state = "labcoat_cmo"
-	armor = list(
-		bio = ARMOR_BIO_RESISTANT
-	)
 
 /obj/item/clothing/suit/storage/toggle/labcoat/cmoalt
 	name = "chief medical officer labcoat"
 	desc = "A labcoat with command blue highlights."
 	icon_state = "labcoat_cmoalt"
-	armor = list(
-		bio = ARMOR_BIO_RESISTANT
-	)
 
 /obj/item/clothing/suit/storage/toggle/labcoat/cmoalt2
 	name = "chief medical officer labcoat"
 	desc = "A labcoat with command gold highlights."
 	icon_state = "labcoat_cmoalt2"
-	armor = list(
-		bio = ARMOR_BIO_RESISTANT
-	)
 
 /obj/item/clothing/suit/storage/toggle/labcoat/genetics
 	name = "geneticist labcoat"
@@ -43,32 +34,32 @@
 
 /obj/item/clothing/suit/storage/toggle/labcoat/medical
 	name = "medical labcoat"
-	desc = "A suit that protects against minor chemical spills. Offers slightly more protection against biohazards than the standard model. Has a green stripe on the shoulder."
+	desc = "A suit that protects against minor chemical spills. Has a green stripe on the shoulder."
 	icon_state = "labcoat_med"
 
 /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist
 	name = "pharmacist labcoat"
-	desc = "A suit that protects against minor chemical spills. Offers slightly more protection against biohazards than the standard model. Has an orange stripe on the shoulder."
+	desc = "A suit that protects against minor chemical spills. Has an orange stripe on the shoulder."
 	icon_state = "labcoat_chem"
 
 /obj/item/clothing/suit/storage/toggle/labcoat/biochemist
 	name = "protective labcoat"
-	desc = "A suit that protects against minor chemical spills. Offers slightly more protection against biohazards than the standard model. Has a red stripe on the shoulder."
+	desc = "A suit that protects against minor chemical spills. Has a red stripe on the shoulder."
 	icon_state = "labcoat_vir"
 
 /obj/item/clothing/suit/storage/toggle/labcoat/psych
 	name = "psychiatrist labcoat"
-	desc = "A suit that protects against minor chemical spills. Offers slightly more protection against biohazards than the standard model. Has a teal stripe on the shoulder."
+	desc = "A suit that protects against minor chemical spills. Has a teal stripe on the shoulder."
 	icon_state = "labcoat_psych"
 
 /obj/item/clothing/suit/storage/toggle/labcoat/surgeon
 	name = "surgeon labcoat"
-	desc = "A suit that protects against minor chemical spills. Offers slightly more protection against biohazards than the standard model. Has a light blue stripe on the shoulder."
+	desc = "A suit that protects against minor chemical spills. Has a light blue stripe on the shoulder."
 	icon_state = "labcoat_surgeon"
 
 /obj/item/clothing/suit/storage/toggle/labcoat/trauma
 	name = "trauma physician labcoat"
-	desc = "A suit that protects against minor chemical spills. Offers slightly more protection against biohazards than the standard model. Has a black stripe on the shoulder."
+	desc = "A suit that protects against minor chemical spills. Has a black stripe on the shoulder."
 	icon_state = "labcoat_trauma"
 
 /obj/item/clothing/suit/storage/toggle/labcoat/science
@@ -88,7 +79,7 @@
 
 /obj/item/clothing/suit/storage/toggle/labcoat/zeng
 	name = "zeng-hu labcoat"
-	desc = "A suit that protects against minor chemical spills. Offers slightly more protection against biohazards than the standard model. Comes in Zeng-Hu colours."
+	desc = "A suit that protects against minor chemical spills. Comes in Zeng-Hu colours."
 	icon_state = "labcoat_zeng"
 
 /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
@@ -96,22 +87,21 @@
 
 /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi
 	name = "Zavodskoi Interstellar labcoat"
-	desc = "A suit that protects against minor chemical spills. Offers slightly more protection against biohazards than the standard model. Comes in Zavodskoi Interstellar colours."
+	desc = "A suit that protects against minor chemical spills. Comes in Zavodskoi Interstellar colours."
 	icon_state = "labcoat_necro"
 
 /obj/item/clothing/suit/storage/toggle/labcoat/heph
 	name = "hephaestus labcoat"
-	desc = "A suit that protects against minor chemical spills. Offers slightly more protection against biohazards than the standard model. Comes in Hephaestus colours."
+	desc = "A suit that protects against minor chemical spills. Comes in Hephaestus colours."
 	icon_state = "labcoat_heph"
-	armor = list(
-		bio = ARMOR_BIO_RESISTANT
-	)
 
 /obj/item/clothing/suit/storage/toggle/labcoat/iac
 	name = "iac labcoat"
-	desc = "A suit that protects against minor chemical spills. Offers slightly more protection against biohazards than the standard model. Comes in IAC colors."
+	desc = "A suit that protects against minor chemical spills. Comes in IAC colors."
 	icon_state = "labcoat_iac"
 	item_state = "labcoat_iac"
-	armor = list(
-		bio = ARMOR_BIO_RESISTANT
-	)
+
+/obj/item/clothing/suit/storage/toggle/labcoat/security
+	name = "security labcoat"
+	desc = "A suit that protects against minor chemical spills. Has a dark blue stripe on the shoulder."
+	icon_state = "labcoat_sec"

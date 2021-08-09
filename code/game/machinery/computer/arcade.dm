@@ -3,6 +3,7 @@
 	desc = "random arcade machine"
 	icon_state = "arcade2"
 	icon_screen = "battler"
+	icon_broken = "broken-arcade"
 	var/prize = /obj/random/arcade
 
 /obj/machinery/computer/arcade/Initialize()

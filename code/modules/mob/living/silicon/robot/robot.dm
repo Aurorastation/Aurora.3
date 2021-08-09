@@ -208,6 +208,8 @@
 		mult += storage.rating
 	for(var/datum/matter_synth/M in module.synths)
 		M.set_multiplier(mult)
+	for(var/obj/item/stack/material/SM in module.modules)
+		SM.update_strings()
 
 /mob/living/silicon/robot/proc/init()
 	ai_camera = new /obj/item/device/camera/siliconcam/robot_camera(src)

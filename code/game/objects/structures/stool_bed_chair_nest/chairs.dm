@@ -77,6 +77,19 @@
 	base_icon = "comfychair"
 	build_amt = 2
 
+/obj/structure/bed/chair/comfy/MouseDrop_T(mob/target, mob/user)
+	if(target == user && user.loc != loc && (reverse_dir[dir] & angle2dir(Get_Angle(src, user))))
+		user.visible_message("<b>[user]</b> starts climbing over the back of \the [src]...", SPAN_NOTICE("You start climbing over the back of \the [src]..."))
+		if(do_after(user, 2 SECONDS))
+			user.forceMove(loc)
+		return
+	return ..()
+
+/obj/structure/bed/chair/comfy/CanPass(atom/movable/mover, turf/target, height, air_group)
+	if(mover.density && isliving(mover) && (reverse_dir[dir] & angle2dir(Get_Angle(src, mover))))
+		return FALSE
+	return ..()
+
 /obj/structure/bed/chair/comfy/brown/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)
 
