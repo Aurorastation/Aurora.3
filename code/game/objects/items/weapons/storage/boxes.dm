@@ -931,22 +931,7 @@
 	max_storage_space = 21
 	use_to_pickup = TRUE
 	chewable = TRUE
-
-/obj/item/storage/box/papersack/Initialize(mapload)
-	. = ..()
-	papersack_designs = sortList(list(
-		"None" = image(icon = src.icon, icon_state = "paperbag_None"),
-		"NanotrasenStandard" = image(icon = src.icon, icon_state = "paperbag_NanotrasenStandard"),
-		"Heart" = image(icon = src.icon, icon_state = "paperbag_Heart"),
-		"SmileyFace" = image(icon = src.icon, icon_state = "paperbag_SmileyFace")
-		))
-
-/obj/item/storage/box/papersack/update_icon_state()
-	if(contents.len == 0)
-		icon_state = "[inhand_icon_state]"
-	else
-		icon_state = "[inhand_icon_state]_closed"
-	return ..()
+	var/static/list/papersack_designs
 
 /obj/item/storage/box/papersack/attackby(obj/item/O, mob/user)
     if(O.ispen())
