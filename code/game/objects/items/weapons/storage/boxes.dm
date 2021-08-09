@@ -959,14 +959,15 @@
         to_chat(user, SPAN_NOTICE("You make some modifications to [src] using your pen."))
         icon_state = "paperbag_[choice]"
         return
-	else if(W.get_sharpness())
+
+else if(W.get_sharpness())
 		if(!contents.len)
-			if(inhand_icon_state == "paperbag_None")
+		if(inhand_icon_state == "paperbag_None")
 				user.show_message(span_notice("You cut eyeholes into [src]."), MSG_VISUAL)
 				new /obj/item/clothing/head/papersack(user.loc)
 				qdel(src)
 				return FALSE
-			else if(inhand_icon_state == "paperbag_SmileyFace")
+		else if(inhand_icon_state == "paperbag_SmileyFace")
 				user.show_message(span_notice("You cut eyeholes into [src] and modify the design."), MSG_VISUAL)
 				new /obj/item/clothing/head/papersack/smiley(user.loc)
 				qdel(src)
