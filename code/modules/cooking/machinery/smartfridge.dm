@@ -212,6 +212,9 @@
 /obj/machinery/smartfridge/drying_rack
 	name = "\improper Drying Rack"
 	desc = "A machine for drying plants."
+	icon_state = "drying_rack"
+	icon_on = "drying_rack"
+	icon_off = "drying_rack-off"
 
 /obj/machinery/smartfridge/drying_rack/accept_check(var/obj/item/O as obj)
 	if(!istype(O, /obj/item/reagent_containers/food/snacks/))
