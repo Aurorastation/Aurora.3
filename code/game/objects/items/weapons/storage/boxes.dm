@@ -941,7 +941,6 @@
 			icon_state = "[choice]"
 		else
 			icon_state = "[choice]-food"
-	else 
 	if(contents.len ==0)
 		icon_state = "[intial(icon_state)]"
 	else
