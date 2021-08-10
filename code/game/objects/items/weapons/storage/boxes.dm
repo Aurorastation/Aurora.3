@@ -936,16 +936,10 @@
 
 /obj/item/storage/box/papersack/update_icon()
 	. = ..()
-	if(choice)
-		if(contents.len == 0)
-		icon_state = "[choice]"
-		else
-		icon_state = "[choice]-food"
-	if(contents.len ==0)
-		icon_state = "[intial(icon_state)]"
+	if(contents.len == 0)
+		icon_state = "[initial(icon_state)]"
 	else
 		icon_state = "[initial(icon_state)]-food"
-
 
 /obj/item/storage/box/papersack/attackby(obj/item/O, mob/user)
     if(O.ispen())
