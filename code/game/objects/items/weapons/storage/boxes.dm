@@ -938,9 +938,9 @@
 	. = ..()
 	if(choice)
 		if(contents.len == 0)
-			icon_state = "[choice]"
+		icon_state = "[choice]"
 		else
-			icon_state = "[choice]-food"
+		icon_state = "[choice]-food"
 	if(contents.len ==0)
 		icon_state = "[intial(icon_state)]"
 	else
