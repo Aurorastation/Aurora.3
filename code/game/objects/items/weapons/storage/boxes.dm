@@ -924,6 +924,11 @@
 /obj/item/storage/box/papersack
 	name = "paper sack"
 	desc = "A neatly sack crafted out of paper."
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand.dmi',
+		)
+	item_state = "papersack"
 	icon_state = "paperbag_None"
 	use_sound = 'sound/bureaucracy/papercrumple.ogg'
 	drop_sound = 'sound/items/drop/paper.ogg'
