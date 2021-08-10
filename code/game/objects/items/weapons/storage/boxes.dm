@@ -943,7 +943,7 @@
 
 /obj/item/storage/box/papersack/attackby(obj/item/O, mob/user)
 	if(contents.len == 0)
-		if(O.iswirecutters())
+		else if(O.iswirecutters())
 		new obj/item/clothing/head/papersack
 
 /obj/item/storage/box/papersack/attackby(obj/item/O, mob/user)
