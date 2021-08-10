@@ -971,8 +971,16 @@
         to_chat(user, SPAN_NOTICE("You make some modifications to [src] using your pen."))
         update_icon()
         return
+		
+    else if(O.isscrewdriver())
+        if(contents.len == 0)
+            if (do_after(user, 10/O.toolspeed, act_target = src))
+                if(choice == "SmileyFace")
+                    new /obj/item/clothing/head/papersack/smiley(src.loc)
+                else    
+                    new /obj/item/clothing/head/papersack(src.loc)
+                qdel(src)
+        else
+            to_chat(user, SPAN_WARNING("\The [src] needs to be empty before you can do that!"))
     else
         ..()
-
-
-
