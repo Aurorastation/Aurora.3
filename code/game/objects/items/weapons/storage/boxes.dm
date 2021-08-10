@@ -947,11 +947,12 @@
             papersack_designs = sortList(list(
             "None" = image(icon = src.icon, icon_state = "paperbag_None"),
             "NanotrasenStandard" = image(icon = src.icon, icon_state = "paperbag_NanotrasenStandard"),
+			"IdrisPremium" = image(icon_state = "paperbag_Idris")
             "Heart" = image(icon = src.icon, icon_state = "paperbag_Heart"),
             "SmileyFace" = image(icon = src.icon, icon_state = "paperbag_SmileyFace")
             ))
 
-        var/choice = show_radial_menu(user, src, papersack_designs, radius = 42, tooltips = TRUE)
+        choice = show_radial_menu(user, src, papersack_designs, radius = 42, tooltips = TRUE)
         if(!choice)
             return
         switch(choice)
@@ -959,6 +960,8 @@
                 desc = "A sack neatly crafted out of paper."
             if("NanotrasenStandard")
                 desc = "A standard Nanotrasen paper lunch sack for loyal employees on the go."
+			if("IdrisPremium")
+				desc = "A premium paper bag produced by Idris Incorporated."
             if("Heart")
                 desc = "A paper sack with a heart etched onto the side."
             if("SmileyFace")
@@ -966,7 +969,7 @@
             else
                 return
         to_chat(user, SPAN_NOTICE("You make some modifications to [src] using your pen."))
-        icon_state = "paperbag_[choice]"
+        update_icon()
         return
     else
         ..()
