@@ -976,9 +976,9 @@
  		if(contents.len == 0)
 		 	to_chat(user, SPAN_NOTICE("You begin poking holes in \the [src]."))
 			if (do_after(user, 10/O.toolspeed, act_target = src))
-				 if(choice == "SmileyFace")
+				if(choice == "SmileyFace")
 					new /obj/item/clothing/head/papersack/smiley(src.loc)
-				 else    
+				else    
 					new /obj/item/clothing/head/papersack(src.loc)
 				qdel(src)
         else
