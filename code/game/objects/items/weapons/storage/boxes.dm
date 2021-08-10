@@ -926,6 +926,8 @@
 	desc = "A neatly sack crafted out of paper."
 	icon_state = "paperbag_None"
 	use_sound = 'sound/bureaucracy/papercrumple.ogg'
+	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/storage/wrapper.ogg'
 	foldable = null
 	max_w_class = ITEMSIZE_NORMAL
 	max_storage_space = 8
@@ -948,7 +950,7 @@
 			papersack_designs = sortList(list(
 			"None" = image(icon = src.icon, icon_state = "paperbag_None"),
 			"NanotrasenStandard" = image(icon = src.icon, icon_state = "paperbag_NanotrasenStandard"),
-			"IdrisPremium" = image(icon_state = "paperbag_Idris"),
+			"Idris" = image(icon = src.icon, icon_state = "paperbag_Idris"),
 			"Heart" = image(icon = src.icon, icon_state = "paperbag_Heart"),
 			"SmileyFace" = image(icon = src.icon, icon_state = "paperbag_SmileyFace")
 			))
@@ -961,7 +963,7 @@
 				desc = "A sack neatly crafted out of paper."
 			if("NanotrasenStandard")
 				desc = "A standard Nanotrasen paper lunch sack for loyal employees on the go."
-			if("IdrisPremium")
+			if("Idris")
 				desc = "A premium paper bag produced by Idris Incorporated."
 			if("Heart")
 				desc = "A paper sack with a heart etched onto the side."
