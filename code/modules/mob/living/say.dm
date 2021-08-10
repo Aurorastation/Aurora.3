@@ -203,7 +203,8 @@ proc/get_radio_key_from_channel(var/channel)
 	var/is_singing = FALSE
 	if(length(message) >= 1 && copytext(message, 1, 2) == "%")
 		message = copytext(message, 2)
-		is_singing = TRUE
+		if(speaking?.sing_verb)
+			is_singing = TRUE
 
 	// This is broadcast to all mobs with the language,
 	// irrespective of distance or anything else.
@@ -245,7 +246,7 @@ proc/get_radio_key_from_channel(var/channel)
 				src.custom_emote(VISIBLE_MESSAGE, "[pick(speaking.signlang_verb)].")
 
 		if (speaking.flags & SIGNLANG)
-			return say_signlang(message, pick(speaking.signlang_verb), speaking)
+			return say_signlang(message, pick(speaking.signlang_verb), speaking, speaking.sign_adv_length)
 
 	var/list/obj/item/used_radios = new
 	var/list/successful_radio = new // passes a list because standard vars don't work when passed
@@ -304,11 +305,9 @@ proc/get_radio_key_from_channel(var/channel)
 	INVOKE_ASYNC(GLOBAL_PROC, /proc/animate_speechbubble, speech_bubble, hear_clients, 30)
 	do_animate_chat(message, speaking, italics, hear_clients, 30)
 
-	for(var/o in listening_obj)
-		var/obj/O = o
-		spawn(0)
-			if(O) //It's possible that it could be deleted in the meantime.
-				O.hear_talk(src, message, verb, speaking)
+	for(var/obj/O as anything in listening_obj)
+		if(O) //It's possible that it could be deleted in the meantime.
+			INVOKE_ASYNC(O, /obj/.proc/hear_talk, src, message, verb, speaking)
 
 	if(mind)
 		mind.last_words = message
@@ -333,11 +332,11 @@ proc/get_radio_key_from_channel(var/channel)
 	for(var/client/C in show_to)
 		C.images -= I
 
-/mob/living/proc/say_signlang(var/message, var/verb="gestures", var/datum/language/language)
+/mob/living/proc/say_signlang(var/message, var/verb="gestures", var/datum/language/language, var/list/sign_adv_length)
 	log_say("[key_name(src)] : ([get_lang_name(language)]) [message]",ckey=key_name(src))
 
 	for (var/mob/O in viewers(src, null))
-		O.hear_signlang(message, verb, language, src)
+		O.hear_signlang(message, verb, language, src, sign_adv_length)
 	return 1
 
 /obj/effect/speech_bubble

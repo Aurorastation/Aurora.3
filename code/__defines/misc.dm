@@ -91,6 +91,7 @@
 #define SPECIALROLE_HUD 8 // AntagHUD image.
 #define  STATUS_HUD_OOC 9 // STATUS_HUD without virus DB check for someone being ill.
 #define 	  LIFE_HUD 10 // STATUS_HUD that only reports dead or alive
+#define     TRIAGE_HUD 11 // a HUD that creates a bar above the user showing their medical status
 
 //	Shuttles.
 
@@ -232,6 +233,7 @@
 #define PROJECTILE_CONTINUE   -1 //if the projectile should continue flying after calling bullet_act()
 #define PROJECTILE_FORCE_MISS -2 //if the projectile should treat the attack as a miss (suppresses attack and admin logs) - only applies to mobs.
 #define PROJECTILE_DODGED     -3 //this is similar to the above, but the check and message is run on the mob, instead of on the projectile code. basically just has a unique message
+#define PROJECTILE_STOPPED    -4 //stops the projectile completely, as if a shield absorbed it
 
 //Camera capture modes
 #define CAPTURE_MODE_REGULAR 0 //Regular polaroid camera mode
@@ -440,6 +442,8 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 
 #define GET_ABOVE(A) (HAS_ABOVE(A:z) ? get_step(A, UP) : null)
 #define GET_BELOW(A) (HAS_BELOW(A:z) ? get_step(A, DOWN) : null)
+
+#define GET_Z(A) (get_step(A, 0)?.z || 0)
 
 #define NULL_OR_EQUAL(self,other) (!(self) || (self) == (other))
 

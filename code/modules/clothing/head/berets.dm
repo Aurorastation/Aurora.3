@@ -4,6 +4,7 @@
 	icon = 'icons/obj/clothing/hats/berets.dmi'
 	icon_state = "beret"
 	item_state = "beret"
+	item_flags = SHOWFLAVORTEXT
 	contained_sprite = TRUE
 	siemens_coefficient = 0.9
 

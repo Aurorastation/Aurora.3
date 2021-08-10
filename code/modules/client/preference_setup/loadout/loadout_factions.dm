@@ -39,6 +39,11 @@
 	path = /obj/item/clothing/accessory/badge/passcard/sol/silversun
 	faction = "Idris Incorporated"
 
+/datum/gear/faction/idris_rag
+	display_name = "idris advanced service cloth"
+	path = /obj/item/reagent_containers/glass/rag/advanced/idris
+	faction = "Idris Incorporated"
+
 /datum/gear/faction/zavodskoi_beret
 	display_name = "black zavodskoi beret"
 	path = /obj/item/clothing/head/beret/security/zavodskoi
@@ -105,10 +110,10 @@
 
 /datum/gear/faction/zenghu_labcoat/New()
 	..()
-	var/masks = list()
+	var/list/masks = list()
 	masks["zeng-hu labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
 	masks["zeng-hu labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
-	gear_tweaks += new/datum/gear_tweak/path(masks)
+	gear_tweaks += new /datum/gear_tweak/path(masks)
 
 /datum/gear/faction/zenghu_apron
 	display_name = "zeng-hu vinyl apron"

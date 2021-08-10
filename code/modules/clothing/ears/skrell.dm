@@ -246,3 +246,19 @@
 /obj/item/clothing/ears/skrell/goop/circles
 	icon_state = "skrell_circles"
 	item_state = "skrell_circles"
+
+/obj/item/clothing/ears/skrell/scrunchy
+	name = "skrell tentacle tie"
+	desc = "A self-powered hard-light 'scrunchy' used to comfortably tie back the tentacles."
+	icon = 'icons/clothing/head/skrellscrunchies.dmi'
+	icon_state = "skrellhairtie"
+	item_state = "scrunchy_seaweed"
+
+/obj/item/clothing/ears/skrell/scrunchy/equipped(mob/user, slot, assisted_equip)
+	if((slot in list(slot_head, slot_l_ear, slot_r_ear)) && ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(istype(hair_styles_list[H.h_style], /datum/sprite_accessory/hair/skr_tentacle_m))
+			var/datum/sprite_accessory/hair/skr_tentacle_m/hair_datum = hair_styles_list[H.h_style]
+			if(hair_datum.scrunchy_style)
+				item_state = "scrunchy_[hair_datum.scrunchy_style]"
+	return ..()

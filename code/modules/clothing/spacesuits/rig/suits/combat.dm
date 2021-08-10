@@ -1,7 +1,9 @@
 /obj/item/rig/combat
 	name = "combat hardsuit control module"
 	desc = "A sleek and dangerous hardsuit for active combat. This one is a Stellar Corporate Conglomerate design in color scheme and make."
+	icon = 'icons/clothing/rig/combat.dmi'
 	icon_state = "combat_rig"
+	icon_supported_species_tags = list("skr")
 	suit_type = "combat hardsuit"
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
@@ -21,7 +23,7 @@
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT
 
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)
 
 /obj/item/clothing/head/helmet/space/rig/combat
 	light_overlay = "helmet_light_dual_cyan"
@@ -41,6 +43,7 @@
 /obj/item/rig/military
 	name = "military hardsuit control module"
 	desc = "A powerful hardsuit designed for military operations. This is coated in Solarian military colors."
+	icon = 'icons/clothing/rig/military.dmi'
 	icon_state = "military_rig"
 	suit_type = "military hardsuit"
 	armor = list(
@@ -82,6 +85,18 @@
 		/obj/item/rig_module/actuators/combat
 		)
 
+/obj/item/rig/military/fsf
+	initial_modules = list(
+		/obj/item/rig_module/mounted,
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/power_sink,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/grenade_launcher/frag,
+		/obj/item/rig_module/grenade_launcher,
+		/obj/item/rig_module/vision/nvg
+		)
+
 /obj/item/rig/military/ninja
 	initial_modules = list(
 		/obj/item/rig_module/maneuvering_jets,
@@ -101,7 +116,9 @@
 /obj/item/rig/retro
 	name = "retrofitted military hardsuit control module"
 	desc = "An old repurposed construction exoskeleton redesigned for combat. Its colors and insignias match those of the Tau Ceti Foreign Legion."
+	icon = 'icons/clothing/rig/legion.dmi'
 	icon_state = "legion_rig"
+	icon_supported_species_tags = list("ipc", "skr", "taj", "una", "vau", "vaw")
 	suit_type = "retrofitted military hardsuit"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
@@ -153,6 +170,7 @@
 /obj/item/rig/gunslinger
 	name = "gunslinger hardsuit control module"
 	desc = "A favorite of Coalition rangers, the Gunslinger suit is a sturdy hardsuit meant to provide the user absolute situational awareness."
+	icon = 'icons/clothing/rig/gunslinger.dmi'
 	icon_state = "gunslinger"
 	suit_type = "gunslinger hardsuit"
 	armor = list(
@@ -201,6 +219,7 @@
 /obj/item/rig/strike
 	name = "strike hardsuit control module"
 	desc = "An expensive hardsuit utilized by Eridani security contractors to field heavy weapons and coordinate non-lethal takedowns directly. Usually seen spearheading police raids."
+	icon = 'icons/clothing/rig/strikesuit.dmi'
 	icon_state = "strikesuit"
 	suit_type = "strike hardsuit"
 	armor = list(
@@ -228,7 +247,24 @@
 	initial_modules = list(
 		/obj/item/rig_module/fabricator/energy_net,
 		/obj/item/rig_module/power_sink,
-		/obj/item/rig_module/mounted/taser
+		/obj/item/rig_module/mounted/egun,
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/ai_container,
+		/obj/item/rig_module/vision/nvg
+		)
+
+/obj/item/rig/strike/distress
+	req_access = list(access_distress)
+
+	initial_modules = list(
+		/obj/item/rig_module/fabricator/energy_net,
+		/obj/item/rig_module/power_sink,
+		/obj/item/rig_module/mounted/taser,
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/ai_container,
+		/obj/item/rig_module/vision/sechud
 		)
 
 /obj/item/rig/strike/ninja
@@ -251,6 +287,7 @@
 /obj/item/rig/elyran
 	name = "elyran battlesuit control module"
 	desc = "An advanced Elyran hardsuit specialized in scorched earth tactics."
+	icon = 'icons/clothing/rig/elyran_battlesuit.dmi'
 	icon_state = "elyran_rig"
 	suit_type = "elyran battlesuit"
 	armor = list(
@@ -301,6 +338,7 @@
 /obj/item/rig/bunker
 	name = "bunker suit control module"
 	desc = "A powerful niche-function hardsuit utilized by Ceres' Lance to apprehend synthetics. Unstoppable in the right circumstances, and nothing more than a burden anywhere else."
+	icon = 'icons/clothing/rig/bunker.dmi'
 	icon_state = "bunker"
 	suit_type = "bunker suit"
 	armor = list(
@@ -338,6 +376,7 @@
 /obj/item/rig/jinxiang
 	name = "jinxiang-pattern combat suit control module"
 	desc = "An off-shoot of the core Bunker Suit design, utilized by the Imperial Dominian military and painted accordingly. This is a powerful suit specializing in melee confrontations."
+	icon = 'icons/clothing/rig/jinxiang.dmi'
 	icon_state = "jinxiang"
 	suit_type = "jinxiang combat suit"
 	armor = list(

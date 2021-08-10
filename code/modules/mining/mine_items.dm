@@ -393,6 +393,20 @@
 	throwforce = 7.0
 	w_class = ITEMSIZE_SMALL
 
+/obj/item/shovel/gadpathur
+	name = "trench shovel"
+	desc = "A standard-issue Gadpathurian entrenching tool. Sharpened edges make this tool/weapon equally adept at breaking earth and collarbones."
+	icon_state = "gadpathur_shovel"
+	item_state = "gadpathur_shovel"
+	force = 10
+	w_class = ITEMSIZE_NORMAL
+	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1, TECH_COMBAT = 2)
+	attack_verb = list("bashed", "bludgeoned", "thrashed", "whacked", "slashed", "cut")
+	sharp = TRUE
+
+/obj/item/shovel/gadpathur/iscrowbar()
+	return TRUE
+
 // Flags.
 
 /obj/item/stack/flag

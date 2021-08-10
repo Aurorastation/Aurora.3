@@ -131,7 +131,9 @@
 			/obj/item/reagent_containers/chem_disp_cartridge/vermouth,
 			/obj/item/reagent_containers/chem_disp_cartridge/cognac,
 			/obj/item/reagent_containers/chem_disp_cartridge/ale,
-			/obj/item/reagent_containers/chem_disp_cartridge/mead
+			/obj/item/reagent_containers/chem_disp_cartridge/mead,
+			/obj/item/reagent_containers/chem_disp_cartridge/grenadine,
+			/obj/item/reagent_containers/chem_disp_cartridge/cream
 		)
 
 /obj/machinery/chemical_dispenser/coffeemaster

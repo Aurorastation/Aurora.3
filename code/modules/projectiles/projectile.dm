@@ -23,7 +23,7 @@
 	var/dispersion = 0.0
 
 	//used for shooting at blank range, you shouldn't be able to miss
-	var/can_miss = 0
+	var/point_blank = FALSE
 
 	//Effects
 	var/damage = 10
@@ -79,6 +79,7 @@
 	//Fired processing vars
 	var/fired = FALSE	//Have we been fired yet
 	var/paused = FALSE	//for suspending the projectile midair
+	var/reflected = FALSE
 	var/last_projectile_move = 0
 	var/last_process = 0
 	var/time_offset = 0
@@ -189,19 +190,26 @@
 			return TRUE
 		result = target_mob.bullet_act(src, def_zone)
 
-	if(result == PROJECTILE_FORCE_MISS && (can_miss == 0)) //if you're shooting at point blank you can't miss.
-		if(!silenced)
-			target_mob.visible_message("<span class='notice'>\The [src] misses [target_mob] narrowly!</span>")
-			playsound(target_mob, /decl/sound_category/bulletflyby_sound, 50, 1)
-		return FALSE
-
-	if(result == PROJECTILE_DODGED)
-		return FALSE
+	switch(result)
+		if(PROJECTILE_FORCE_MISS)
+			if(!point_blank)
+				if(!silenced)
+					target_mob.visible_message("<span class='notice'>\The [src] misses [target_mob] narrowly!</span>")
+					playsound(target_mob, /decl/sound_category/bulletflyby_sound, 50, 1)
+				return FALSE
+		if(PROJECTILE_DODGED)
+			return FALSE
+		if(PROJECTILE_STOPPED)
+			return TRUE
 
 	var/impacted_organ = parse_zone(def_zone)
-	if(istype(target_mob, /mob/living/simple_animal))
+	if(isanimal(target_mob))
 		var/mob/living/simple_animal/SA = target_mob
 		impacted_organ = pick(SA.organ_names)
+	else if(ishuman(target_mob))
+		var/mob/living/carbon/human/H = target_mob
+		var/obj/item/organ/external/E = H.organs_by_name[impacted_organ]
+		impacted_organ = E.name
 	//hit messages
 	if(silenced)
 		to_chat(target_mob, "<span class='danger'>You've been hit in the [impacted_organ] by \a [src]!</span>")
@@ -310,6 +318,8 @@
 /obj/item/projectile/proc/old_style_target(atom/target, atom/source)
 	if(!source)
 		source = get_turf(src)
+	starting = get_turf(source)
+	original = target
 	setAngle(get_projectile_angle(source, target))
 
 /obj/item/projectile/proc/fire(angle, atom/direct_target)
@@ -572,6 +582,9 @@
 	if(trajectory)
 		trajectory.set_angle(new_angle)
 	return TRUE
+
+/obj/item/projectile/proc/redirect(x, y, starting, source)
+	old_style_target(locate(x, y, z), starting? get_turf(starting) : get_turf(source))
 
 /obj/item/projectile/forceMove(atom/target)
 	. = ..()

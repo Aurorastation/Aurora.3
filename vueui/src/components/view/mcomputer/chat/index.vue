@@ -12,6 +12,7 @@
           <input type="text" v-model="ringtone" @keypress.enter="set_ringtone">
           <vui-button @click="set_ringtone">Set ringtone</vui-button>
         </template>
+        <vui-button :class="{'selected': s.message_mute == true}" :params="{mute_message: 1}">{{ s.message_mute == true ? "Unmute Messages" : "Mute Messages" }}</vui-button>
       </div>
       <div>
         <vui-button :class="{ on: active == null }" @click="active = null">Explore</vui-button>
@@ -25,7 +26,6 @@
 </template>
 
 <script>
-import { sendToTopic } from '@/utils'
 export default {
   data() {
     return {
@@ -41,7 +41,7 @@ export default {
   },
   methods: {
     set_ringtone() {
-      sendToTopic({ringtone: this.ringtone})
+      this.$toTopic({ringtone: this.ringtone})
       this.ringtone = null
     }
   }

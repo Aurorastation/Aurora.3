@@ -44,7 +44,6 @@
 </template>
 
 <script>
-import Utils from '@/utils'
 const board = "wbwbwbwbbwbwbwbwwbwbwbwbbwbwbwbwwbwbwbwbbwbwbwbwwbwbwbwbbwbwbwbw"
 const chunk = (arr, size) =>
   Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
@@ -138,7 +137,7 @@ export default {
     },
     removePiece() {
       const piece = this.getPiece(this.selected)
-      Utils.sendToTopic({ remove: { index: piece.index} })
+      this.$toTopic({ remove: { index: piece.index} })
       this.selected = null
     },
     spawn(type, faction) {
@@ -150,7 +149,7 @@ export default {
       this.selected = null
     },
     qspawn(type, faction, pos) {
-      Utils.sendToTopic({ add: { piece: {type, faction, pos}} })
+      this.$toTopic({ add: { piece: {type, faction, pos}} })
     },
     handlePieceClick(pos) {
       if(!this.isPiece(pos)) {
@@ -171,7 +170,7 @@ export default {
         const piece = this.getPiece(this.selected)
         if(this.isPiece(null, piece) && !this.isPiece(pos)) {
         // Move selected to this tile
-          Utils.sendToTopic({ change: { piece: {...piecePurify(piece), pos}, index: piece.index} })
+          this.$toTopic({ change: { piece: {...piecePurify(piece), pos}, index: piece.index} })
         }
         this.selected = null
       } else {

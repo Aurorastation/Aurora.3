@@ -5284,7 +5284,7 @@
 	},
 /obj/item/airbubble,
 /obj/item/airbubble,
-/obj/item/storage/briefcase/inflatable,
+/obj/item/storage/bag/inflatable,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/device/flashlight/flare,
 /obj/item/device/flashlight/flare,
@@ -5980,6 +5980,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
+"fqK" = (
+/obj/machinery/hologram/holopad/long_range,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/research)
 "fqN" = (
 /obj/structure/window/shuttle/unique/research{
 	icon_state = "7,14"
@@ -6715,14 +6720,15 @@
 	pixel_y = 5
 	},
 /obj/structure/table/standard,
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/item/paper_bin{
 	pixel_x = -3;
 	pixel_y = 7
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
+	},
 /turf/simulated/floor/wood,
 /area/sconference_room)
 "gec" = (
@@ -6952,9 +6958,11 @@
 /turf/simulated/floor/plating,
 /area/tcommsat/entrance)
 "gqn" = (
-/obj/machinery/light,
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-33"
+	},
+/obj/machinery/light{
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/wood,
 /area/sconference_room)
@@ -9041,7 +9049,9 @@
 /obj/machinery/chemical_dispenser/coffee/full{
 	spawn_cartridges = list(/obj/item/reagent_containers/chem_disp_cartridge/coffee,/obj/item/reagent_containers/chem_disp_cartridge/milk,/obj/item/reagent_containers/chem_disp_cartridge/cream,/obj/item/reagent_containers/chem_disp_cartridge/sugar)
 	},
-/obj/machinery/light,
+/obj/machinery/light{
+	icon_state = "tube1"
+	},
 /turf/simulated/floor/wood,
 /area/sconference_room)
 "icV" = (
@@ -9361,6 +9371,9 @@
 /obj/random/seed,
 /obj/random/seed,
 /obj/random/seed,
+/obj/item/wirecutters/clippers,
+/obj/item/wirecutters/clippers,
+/obj/item/wirecutters/clippers,
 /turf/simulated/floor/wood,
 /area/hydroponics/garden)
 "ioe" = (
@@ -11406,7 +11419,7 @@
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "koW" = (
-/obj/machinery/hologram/holopad,
+/obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/carpet,
 /area/sconference_room)
 "kpb" = (
@@ -11797,7 +11810,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
 "kEY" = (
-/obj/item/clothing/suit/fire/firefighter,
+/obj/item/clothing/suit/fire,
 /obj/item/tank/oxygen,
 /obj/item/clothing/mask/gas,
 /obj/item/extinguisher,
@@ -14273,6 +14286,10 @@
 /obj/item/storage/box/drinkingglasses,
 /obj/machinery/light_switch{
 	pixel_x = -26
+	},
+/obj/item/reagent_containers/food/drinks/pitcher{
+	pixel_x = -3;
+	pixel_y = 2
 	},
 /turf/simulated/floor/wood,
 /area/sconference_room)
@@ -17172,9 +17189,6 @@
 /obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Conference Room"
 	},
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -17185,6 +17199,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/wood,
 /area/sconference_room)
@@ -26100,7 +26118,9 @@
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-27"
 	},
-/obj/machinery/light,
+/obj/machinery/light{
+	icon_state = "tube1"
+	},
 /turf/simulated/floor/wood,
 /area/sconference_room)
 "wXr" = (
@@ -70508,7 +70528,7 @@ fzZ
 lzS
 mJp
 mJp
-mJp
+fqK
 xGF
 mJp
 vwu

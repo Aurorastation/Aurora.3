@@ -21,7 +21,7 @@
 			italics = 1
 			sound_vol *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
 
-	if((sleeping && !vr_mob) || stat == 1)
+	if(!vr_mob && (sleeping || stat == UNCONSCIOUS))
 		hear_sleep(message)
 		return
 
@@ -127,7 +127,7 @@
 	if(!client && !vr_mob)
 		return
 
-	if((sleeping && !vr_mob) || stat==1) //If unconscious or sleeping
+	if(!vr_mob && (sleeping || stat == UNCONSCIOUS))
 		hear_sleep(message)
 		return
 
@@ -244,12 +244,9 @@
 	return "<span class='say_quote'>\[[worldtime2text()]\]</span>"
 
 /mob/proc/on_hear_radio(part_a, speaker_name, track, part_b, formatted, accent_icon)
-	var/accent_tag
-	if(accent_icon)
-		accent_tag = "<img src=\"[accent_icon].png\">"
 	to_chat(src, "[part_a][speaker_name][part_b][formatted]")
 	if(vr_mob)
-		to_chat(vr_mob, "[part_a][accent_tag][speaker_name][part_b][formatted]")
+		to_chat(vr_mob, "[part_a][speaker_name][part_b][formatted]")
 
 /mob/abstract/observer/on_hear_radio(part_a, speaker_name, track, part_b, formatted)
 	to_chat(src, "[track][part_a][speaker_name][part_b][formatted]")
@@ -266,21 +263,23 @@
 	if(vr_mob)
 		to_chat(vr_mob, "[time][part_a][track][part_b][formatted]")
 
-/mob/proc/hear_signlang(var/message, var/verb = "gestures", var/datum/language/language, var/mob/speaker = null)
+/mob/proc/hear_signlang(var/message, var/verb = "gestures", var/datum/language/language, var/mob/speaker = null, var/list/sign_adv_length = null)
 	if(!client || !speaker)
 		return
 
 	if(say_understands(speaker, language))
 		message = "<B>[speaker]</B> [verb], \"[message]\""
 	else
+		if (length(sign_adv_length) <= 4)
+			sign_adv_length = list(" briefly", " a short message", " a message", " a lengthy message", " a very lengthy message")
 		var/adverb
 		var/length = length(message) * pick(0.8, 0.9, 1.0, 1.1, 1.2)	//Inserts a little fuzziness.
 		switch(length)
-			if(0 to 12) 	adverb = " briefly"
-			if(12 to 30)	adverb = " a short message"
-			if(30 to 48)	adverb = " a message"
-			if(48 to 90)	adverb = " a lengthy message"
-			else        	adverb = " a very lengthy message"
+			if(0 to 12) 	adverb = sign_adv_length[1]
+			if(12 to 30)	adverb = sign_adv_length[2]
+			if(30 to 48)	adverb = sign_adv_length[3]
+			if(48 to 90)	adverb = sign_adv_length[4]
+			else        	adverb = sign_adv_length[5]
 		message = "<B>[speaker]</B> [verb][adverb]."
 
 	if(src.status_flags & PASSEMOTES)

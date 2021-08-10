@@ -498,6 +498,11 @@ var/const/NO_EMAG_ACT = -50
 	access = list(access_distress, access_maint_tunnels, access_external_airlocks)
 	..()
 
+/obj/item/card/id/distress/fsf
+	name = "\improper Free Solarian Fleets ID"
+	icon_state = "centcom"
+	assignment = "Free Solarian Fleets Marine ID"
+
 /obj/item/card/id/distress/kataphract
 	name = "\improper Kataphract ID"
 	icon_state = "centcom"
@@ -510,6 +515,17 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/distress/legion/New()
 	access = list(access_legion, access_maint_tunnels, access_external_airlocks, access_security, access_engine, access_engine_equip, access_medical, access_research, access_atmospherics, access_medical_equip)
+	..()
+
+/obj/item/card/id/distress/ap_eridani
+	name = "\improper Eridani identification card"
+	desc = "A high-tech holobadge, identifying the owner as a contractor from one of the many PMCs from the Eridani Corporate Federation."
+	assignment = "EPMC Asset Protection"
+	icon_state = "erisec_card"
+	overlay_state = "erisec_card"
+
+/obj/item/card/id/distress/ap_eridani/New()
+	access = list(access_distress, access_maint_tunnels, access_external_airlocks, access_security, access_medical, access_medical_equip)
 	..()
 
 /obj/item/card/id/distress/iac

@@ -210,12 +210,6 @@ proc/getsensorlevel(A)
 /proc/hsl2rgb(h, s, l)
 	return //TODO: Implement
 
-/mob/living/proc/is_wizard(exclude_apprentice = FALSE)
-	if(exclude_apprentice)
-		return mind && (mind.assigned_role == "Space Wizard" || mind.assigned_role == "Raider Mage")
-	else
-		return mind && (mind.assigned_role == "Space Wizard" || mind.assigned_role == "Raider Mage" || mind.assigned_role == "Apprentice")
-
 /mob/proc/is_berserk()
 	return FALSE
 
@@ -1155,12 +1149,7 @@ proc/is_blind(A)
 	return
 
 /mob/living/carbon/human/needs_wheelchair()
-	var/stance_damage = 0
-	for(var/limb_tag in list(BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT))
-		var/obj/item/organ/external/E = organs_by_name[limb_tag]
-		if(!E || !E.is_usable())
-			stance_damage += 2
-	return stance_damage >= 4
+	return species.handle_stance_damage(src, TRUE) >= 4
 
 /mob/living/carbon/human/proc/equip_wheelchair()
 	var/obj/structure/bed/chair/wheelchair/W = new(get_turf(src))
@@ -1232,3 +1221,36 @@ proc/is_blind(A)
 
 /mob/get_cell()
 	return FALSE
+
+/mob/proc/get_radio()
+	return null
+
+/mob/proc/can_hear_radio(var/list/speaker_coverage = list())
+	var/turf/ear = get_turf(src)
+	if(ear && speaker_coverage[ear])
+		return TRUE
+
+/mob/proc/has_grab()
+	. = MOB_GRAB_NONE
+	if(istype(l_hand, /obj/item/grab))
+		var/obj/item/grab/l_grab = l_hand
+		if(l_grab.wielded)
+			. = max(MOB_GRAB_FIREMAN, .)
+		else
+			. = max(MOB_GRAB_NORMAL, .)
+	if(istype(r_hand, /obj/item/grab))
+		var/obj/item/grab/r_grab = r_hand
+		if(r_grab.wielded)
+			. = max(MOB_GRAB_FIREMAN, .)
+		else
+			. = max(MOB_GRAB_NORMAL, .)
+
+/mob/proc/handle_vision()
+	return
+
+/mob/proc/set_name(var/new_name)
+	real_name = new_name
+	name = real_name
+	voice_name = real_name
+	if(mind)
+		mind.name = real_name

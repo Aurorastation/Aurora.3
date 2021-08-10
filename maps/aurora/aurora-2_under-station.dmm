@@ -38,7 +38,7 @@
 /area/engineering/cooling)
 "eu" = (
 /obj/structure/table/standard,
-/obj/item/storage/briefcase/inflatable,
+/obj/item/storage/bag/inflatable,
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/cooling)
 "gY" = (

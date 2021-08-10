@@ -15,7 +15,7 @@
 /decl/reagent/inaprovaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(check_min_dose(M, 0.25))
 		M.add_chemical_effect(CE_STABLE)
-		M.add_chemical_effect(CE_PAINKILLER, 25)
+		M.add_chemical_effect(CE_PAINKILLER, 10)
 
 /decl/reagent/inaprovaline/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(2))
@@ -133,7 +133,7 @@
 		return
 
 	if(remove_generic)
-		M.drowsyness = max(0, M.drowsyness - 6 * removed)
+		M.drowsiness = max(0, M.drowsiness - 6 * removed)
 		M.hallucination -= (2 * removed)
 		if(check_min_dose(M, 0.5))
 			M.add_up_to_chemical_effect(CE_ANTITOXIN, 1)
@@ -161,7 +161,7 @@
 	overdose = REAGENTS_OVERDOSE
 	scannable = TRUE
 	taste_description = "bitterness"
-	metabolism = REM
+	metabolism = REM * 0.75
 	breathe_met = REM * 0.5
 	breathe_mul = 2
 	var/strength = 6
@@ -265,7 +265,12 @@
 
 /decl/reagent/perconol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(check_min_dose(M))
-		M.add_chemical_effect(CE_PAINKILLER, 50)
+		M.add_chemical_effect(CE_PAINKILLER, 35)
+		M.add_up_to_chemical_effect(CE_NOFEVER, 5) //Good enough to handle fevers for a few light infections or one bad one.
+
+/decl/reagent/perconol/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(check_min_dose(M))
+		M.add_chemical_effect(CE_PAINKILLER, 30)
 		M.add_up_to_chemical_effect(CE_NOFEVER, 5) //Good enough to handle fevers for a few light infections or one bad one.
 
 /decl/reagent/perconol/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
@@ -289,7 +294,7 @@
 
 /decl/reagent/mortaphenyl/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(check_min_dose(M))
-		M.add_chemical_effect(CE_PAINKILLER, 80)
+		M.add_chemical_effect(CE_PAINKILLER, 50)
 		if(!M.chem_effects[CE_CLEARSIGHT])
 			M.eye_blurry = max(M.eye_blurry, 5)
 		if(!M.chem_effects[CE_STRAIGHTWALK])
@@ -306,8 +311,11 @@
 		if(M.losebreath < 15)
 			M.losebreath++
 
-	if(REAGENT_VOLUME(M.reagents, /decl/reagent/oxycomorphine))
-		overdose = REAGENT_VOLUME(holder, type)/2 //Straight to overdose.
+	if(REAGENT_VOLUME(M.reagents, /decl/reagent/oxycomorphine)) //Straight to overdose.
+		M.hallucination = max(M.hallucination, 40)
+		M.add_chemical_effect(CE_EMETIC, M.chem_doses[type]/6)
+		if(M.losebreath < 15)
+			M.losebreath++
 
 /decl/reagent/mortaphenyl/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	..()
@@ -326,7 +334,7 @@
 	taste_description = "euphoric acid"
 
 /decl/reagent/mortaphenyl/aphrodite/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.add_chemical_effect(CE_PAINKILLER, 70)
+	M.add_chemical_effect(CE_PAINKILLER, 40)
 	if(!M.chem_effects[CE_CLEARSIGHT])
 		M.eye_blurry = max(M.eye_blurry, 3)
 	if(!M.chem_effects[CE_STRAIGHTWALK])
@@ -392,7 +400,7 @@
 	metabolism_min = REM * 0.0125
 
 /decl/reagent/synaptizine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.drowsyness = max(M.drowsyness - 5, 0)
+	M.drowsiness = max(M.drowsiness - 5, 0)
 	if(REAGENT_VOLUME(holder, type) < 10) // Will prevent synaptizine interrupting a seizure caused by its own overdose.
 		M.AdjustParalysis(-1)
 	M.AdjustStunned(-1)
@@ -407,7 +415,7 @@
 	if(.)
 		M.add_chemical_effect(CE_CLEARSIGHT)
 		M.add_chemical_effect(CE_STRAIGHTWALK)
-		M.add_chemical_effect(CE_PAINKILLER, 40)
+		M.add_chemical_effect(CE_PAINKILLER, 30)
 		M.add_chemical_effect(CE_HALLUCINATE, -1)
 		M.add_up_to_chemical_effect(CE_ADRENALINE, 1)
 
@@ -602,7 +610,7 @@
 
 	//These status effects will now take a little while for the dose to build up and remove them
 	M.dizziness = max(0, M.dizziness - DP)
-	M.drowsyness = max(0, M.drowsyness - DP)
+	M.drowsiness = max(0, M.drowsiness - DP)
 	M.stuttering = max(0, M.stuttering - DP)
 	M.confused = max(0, M.confused - DP)
 
@@ -723,6 +731,29 @@
 	M.dizziness = max(150, M.dizziness)
 	M.make_dizzy(5)
 
+/decl/reagent/steramycin
+	name = "Steramycin"
+	description = "A preventative antibiotic that will stop small infections from growing, but only if administered early. Has no effect on internal organs, wounds, or if the infection has grown beyond its early stages."
+	reagent_state = LIQUID
+	color = "#81b38b"
+	od_minimum_dose = 1
+	overdose = 15
+	scannable = TRUE
+	taste_description = "bleach"
+	fallback_specific_heat = 0.605
+
+/decl/reagent/steramycin/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(check_min_dose(M, 1))
+		for(var/obj/item/organ/external/E in M.organs)
+			if(E.germ_level >= INFECTION_LEVEL_ONE || !E.germ_level) //No effect if it's not infected or the infection has progressed.
+				continue
+			E.germ_level = max(E.germ_level - 4, 0)
+
+/decl/reagent/steramycin/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
+	M.dizziness = max(150, M.dizziness)
+	M.make_dizzy(5)
+	M.adjustToxLoss(1) //Antibodies start fighting your body
+
 /decl/reagent/asinodryl
 	name = "Asinodryl"
 	description = "Asinodryl is an anti-emetic medication which acts by preventing the two regions in the brain responsible for vomiting from controlling the act of emesis."
@@ -765,7 +796,7 @@
 	if(prob(7))
 		M.add_chemical_effect(CE_NEUROTOXIC, 3 * removed)
 	if(prob(50))
-		M.drowsyness = max(M.drowsyness, 3)
+		M.drowsiness = max(M.drowsiness, 3)
 
 /decl/reagent/cetahydramine
 	name = "Cetahydramine"
@@ -783,7 +814,7 @@
 /decl/reagent/cetahydramine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_NOITCH, M.chem_doses[type] * 2) // 5 units of cetahydramine will counter 10 units of dermaline/butazoline itching.
 	if(prob(M.chem_doses[type]/2))
-		M.drowsyness += 2
+		M.drowsiness += 2
 
 /decl/reagent/sterilizine
 	name = "Sterilizine"
@@ -900,10 +931,6 @@
 	messagedelay = MEDICATION_MESSAGE_DELAY * 0.75
 	goodmessage = list("You feel good.","You feel relaxed.","You feel alert and focused.")
 
-/decl/reagent/mental/nicotine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	. = ..()
-	M.add_chemical_effect(CE_PAINKILLER, 5)
-
 /decl/reagent/mental/nicotine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale, var/datum/reagents/holder)
 	. = ..()
 	M.adjustOxyLoss(10 * removed * scale)
@@ -1002,7 +1029,7 @@
 	M.eye_blurry = max(M.eye_blurry, 30)
 	if(REAGENT_VOLUME(M.reagents, /decl/reagent/oxycomorphine))
 		M.ear_deaf = 20
-		M.drowsyness = max(M.drowsyness, 10)
+		M.drowsiness = max(M.drowsiness, 10)
 		M.make_dizzy(15)
 		if(prob(3))
 			to_chat(M, SPAN_GOOD(pick("You lose all sense of connection to the real world.", "Everything is so tranquil.", "You feel dettached from reality.", "Your feel disconnected from your body.", "You are aware of nothing but your conscious thoughts.")))
@@ -1058,7 +1085,7 @@
 /decl/reagent/mental/vaam/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
 	M.add_chemical_effect(CE_PAINKILLER, 5)
-	M.drowsyness = 0
+	M.drowsiness = 0
 
 /decl/reagent/mental/vaam/overdose(var/mob/living/carbon/human/M, var/alien, var/removed, var/scale, var/datum/reagents/holder)
 	. = ..()
@@ -1235,11 +1262,19 @@
 	scannable = TRUE
 	taste_description = "sickness"
 
+/decl/reagent/rezadone/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	. = ..()
+	if(.)
+		M.add_chemical_effect(CE_ORGANREPAIR, 1)
+		M.add_chemical_effect(CE_BLOODRESTORE, 15)
+
 /decl/reagent/rezadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustCloneLoss(-20 * removed)
 	M.adjustOxyLoss(-2 * removed)
 	M.heal_organ_damage(20 * removed, 20 * removed)
 	M.adjustToxLoss(-1 * removed)
+	if(M.is_asystole() && prob(20))
+		M.resuscitate()
 	if(M.chem_doses[type] > 3)
 		M.status_flags &= ~DISFIGURED
 	if(M.chem_doses[type] > 10)
@@ -1279,8 +1314,8 @@
 		var/mob/living/carbon/human/H = M
 		for (var/A in H.organs)
 			var/obj/item/organ/external/E = A
-			if(E.status & ORGAN_TENDON_CUT)
-				E.status &= ~ORGAN_TENDON_CUT
+			if((E.tendon_status() & TENDON_CUT) && E.tendon.can_recover())
+				E.tendon.rejuvenate()
 				return 1
 
 			if(E.status & ORGAN_ARTERY_CUT)

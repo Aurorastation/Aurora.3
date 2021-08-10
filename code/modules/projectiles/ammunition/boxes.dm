@@ -207,6 +207,26 @@
 	origin_tech = list(TECH_COMBAT = 3)
 	ammo_type = /obj/item/ammo_casing/a556/ap
 
+/obj/item/ammo_magazine/a556/carbine
+	name = "carbine magazine (5.56mm)"
+	icon_state = "5.56c"
+	desc = "A 5.56 ammo magazine fit for a carbine, not an assault rifle."
+	matter = list(DEFAULT_WALL_MATERIAL = 1250)
+	max_ammo = 15
+
+/obj/item/ammo_magazine/a556/carbine/empty
+	max_ammo = 0
+
+/obj/item/ammo_magazine/a556/carbine/practice
+	name = "carbine magazine (5.56mm practice)"
+	ammo_type = /obj/item/ammo_casing/a556/practice
+
+/obj/item/ammo_magazine/a556/carbine/ap
+	name = "carbine magazine (5.56mm AP)"
+	icon_state = "5.56APc"
+	origin_tech = list(TECH_COMBAT = 3)
+	ammo_type = /obj/item/ammo_casing/a556/ap
+
 /obj/item/ammo_magazine/a50
 	name = "magazine (.50)"
 	icon_state = "50ae"

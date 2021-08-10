@@ -62,6 +62,7 @@
 	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_HAS_TENDON | ORGAN_CAN_GRASP
 	tendon_name = "palmaris longus tendon"
 	artery_name = "basilic vein"
+	arterial_bleed_severity = 0.75
 	amputation_point = "left shoulder"
 	augment_limit = 2
 
@@ -94,6 +95,7 @@
 	joint = "left knee"
 	tendon_name = "quadriceps tendon"
 	artery_name = "femoral artery"
+	arterial_bleed_severity = 0.75
 	amputation_point = "left hip"
 	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_HAS_TENDON
 	augment_limit = 2
@@ -125,6 +127,7 @@
 	parent_organ = BP_L_LEG
 	joint = "left ankle"
 	amputation_point = "left ankle"
+	arterial_bleed_severity = 0.5
 	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_CAN_STAND
 	maim_bonus = 1
 	augment_limit = 1
@@ -162,6 +165,7 @@
 	joint = "left wrist"
 	tendon_name = "carpal ligament"
 	amputation_point = "left wrist"
+	arterial_bleed_severity = 0.5
 	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_CAN_GRASP | ORGAN_HAS_TENDON
 	maim_bonus = 1
 	augment_limit = 1
@@ -173,10 +177,6 @@
 	return "[owner.get_pronoun("has")] [blood_type] running down their sleeves!"
 
 /obj/item/organ/external/hand/take_damage(brute, burn, damage_flags, used_weapon, list/forbidden_limbs, silent)
-	. = ..()
-	owner.update_hud_hands()
-
-/obj/item/organ/external/hand/sever_tendon()
 	. = ..()
 	owner.update_hud_hands()
 
@@ -235,7 +235,7 @@
 	..()
 
 /obj/item/organ/external/head/take_damage(brute, burn, damage_flags, used_weapon = null, list/forbidden_limbs = list(), var/silent)
-	..(brute, burn, damage_flags, used_weapon, forbidden_limbs, damage_flags, silent)
+	. = ..(brute, burn, damage_flags, used_weapon, forbidden_limbs, damage_flags, silent)
 	if (!disfigured)
 		if (brute_dam > 40)
 			if (prob(50))

@@ -9,6 +9,10 @@
 	flippable = 1
 	var/base_name = ""
 
+/obj/item/clothing/accessory/holster/Initialize()
+	. = ..()
+	base_name = name
+
 /obj/item/clothing/accessory/holster/proc/holster(var/obj/item/I, var/mob/living/user)
 	if(holstered && istype(user))
 		to_chat(user, "<span class='warning'>There is already \a [holstered] holstered here!</span>")
@@ -28,7 +32,6 @@
 	holstered.add_fingerprint(user)
 	w_class = max(w_class, holstered.w_class)
 	user.visible_message("<span class='notice'>[user] holsters \the [holstered].</span>", "<span class='notice'>You holster \the [holstered].</span>")
-	base_name = name
 	name = "occupied [base_name]"
 
 /obj/item/clothing/accessory/holster/proc/clear_holster()

@@ -27,8 +27,6 @@
 </template>
 
 <script>
-import Utils from "@/utils"
-
 export default {
   data() {
     return {
@@ -39,7 +37,7 @@ export default {
   },
   methods: {
     newFile() {
-      Utils.sendToTopic({
+      this.$toTopic({
         new: this.newname,
       })
       this.newname = ""

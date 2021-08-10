@@ -294,6 +294,8 @@ var/list/gear_datums = list()
 		description = initial(O.desc)
 	if(flags & GEAR_HAS_COLOR_SELECTION)
 		gear_tweaks += list(gear_tweak_free_color_choice)
+	if(flags & GEAR_HAS_ADDITIONAL_COLOR_SELECTION)
+		gear_tweaks += list(gear_tweak_additional_color)
 	if(flags & GEAR_HAS_NAME_SELECTION)
 		gear_tweaks += list(gear_tweak_free_name)
 	if(flags & GEAR_HAS_DESC_SELECTION)
@@ -309,19 +311,19 @@ var/list/gear_datums = list()
 	src.path = path
 	src.location = location
 
-/datum/gear/proc/spawn_item(var/location, var/metadata)
+/datum/gear/proc/spawn_item(var/location, var/metadata, var/mob/living/carbon/human/H)
 	var/datum/gear_data/gd = new(path, location)
 	for(var/datum/gear_tweak/gt in gear_tweaks)
 		if(metadata["[gt]"])
-			gt.tweak_gear_data(metadata["[gt]"], gd)
+			gt.tweak_gear_data(metadata["[gt]"], gd, H)
 		else
-			gt.tweak_gear_data(gt.get_default(), gd)
+			gt.tweak_gear_data(gt.get_default(), gd, H)
 	var/item = new gd.path(gd.location)
 	for(var/datum/gear_tweak/gt in gear_tweaks)
 		if(metadata["[gt]"])
-			gt.tweak_item(item, metadata["[gt]"])
+			gt.tweak_item(item, metadata["[gt]"], H)
 		else
-			gt.tweak_item(item, gt.get_default())
+			gt.tweak_item(item, gt.get_default(), H)
 	return item
 
 /datum/gear/proc/spawn_random(var/location)
@@ -332,3 +334,8 @@ var/list/gear_datums = list()
 	for(var/datum/gear_tweak/gt in gear_tweaks)
 		gt.tweak_item(item, gt.get_random())
 	return item
+
+/datum/gear/proc/check_species_whitelist(mob/living/carbon/human/H)
+	if(whitelisted && (!(H.species.name in whitelisted)))
+		return FALSE
+	return TRUE

@@ -3,6 +3,7 @@
 	desc = "A pair of Tajaran eyes accustomed to the low light conditions of Adhomai."
 	icon_state = "tajaran_eyes"
 	action_button_name = "Activate Low Light Vision"
+	default_action_type = /datum/action/item_action/organ/night_eyes
 	relative_size = 8
 	var/night_vision = FALSE
 	var/datum/client_color/vision_color = /datum/client_color/monochrome
@@ -20,13 +21,6 @@
 /obj/item/organ/internal/eyes/night/replaced()
 	. = ..()
 	disable_night_vision()
-
-/obj/item/organ/internal/eyes/night/refresh_action_button()
-	. = ..()
-	if(.)
-		action.button_icon_state = "night_eyes"
-		if(action.button)
-			action.button.update_icon()
 
 /obj/item/organ/internal/eyes/night/attack_self(var/mob/user)
 	. = ..()
@@ -50,7 +44,7 @@
 	owner.last_special = world.time + 20
 
 /obj/item/organ/internal/eyes/night/take_damage(var/amount, var/silent = 0)
-	..()
+	. = ..()
 	disable_night_vision()
 
 /obj/item/organ/internal/eyes/night/take_internal_damage(var/amount, var/silent = 0)
@@ -82,8 +76,8 @@
 	var/show_message = TRUE
 	for(var/obj/item/protection in list(owner.head, owner.wear_mask, owner.glasses))
 		if((protection && (protection.body_parts_covered & EYES)))
-			break
 			show_message = FALSE
+			break
 	if(show_message && eye_emote)
 		owner.visible_message("<b>[owner]</b>[eye_emote]")
 

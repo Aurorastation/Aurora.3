@@ -2,7 +2,7 @@
 	name = "Mend Wounds"
 	desc = "This spell heals internal wounds and broken bones."
 	feedback = "MW"
-	spell_flags = INCLUDEUSER | SELECTABLE | NEEDSCLOTHES
+	spell_flags = INCLUDEUSER | SELECTABLE
 	invocation = "Ges'undh'eit"
 	invocation_type = SpI_SHOUT
 
@@ -67,9 +67,9 @@
 			E.stage = 0
 			return 1
 
-		if(E.status & ORGAN_TENDON_CUT)
+		if((E.tendon_status() & TENDON_CUT) && E.tendon.can_recover())
 			to_chat(user, "<span class='notice'>You place your hands over [target]'s [E.name], joining the two ends of their [E.tendon_name] in the process.</span>")
-			E.status &= ~ORGAN_TENDON_CUT
+			E.tendon.rejuvenate()
 			return 1
 
 		for(var/obj/item/organ/I in E.internal_organs)

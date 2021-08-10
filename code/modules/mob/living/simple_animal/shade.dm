@@ -210,11 +210,8 @@
 
 /mob/living/simple_animal/shade/bluespace/say(var/message)
 	if(!possessive)
-		var/new_last_message_heard = sanitizeName(last_message_heard)
-		var/new_message = sanitizeName(message)
-
-		var/list/words_in_memory = dd_text2List(new_last_message_heard, " ")
-		var/list/words_in_message = dd_text2List(new_message, " ")
+		var/list/words_in_memory = dd_text2List(last_message_heard, " ")
+		var/list/words_in_message = dd_text2List(message, " ")
 		for(var/word1 in words_in_message)
 			var/valid = 0
 			for(var/word2 in words_in_memory)

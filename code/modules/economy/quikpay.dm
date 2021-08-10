@@ -96,13 +96,32 @@
 
 
 /obj/item/device/nanoquikpay/attackby(obj/O, mob/user)
+	if (istype(O, /obj/item/spacecash/ewallet))
+		var/obj/item/spacecash/ewallet/E = O
+		var/transaction_amount = sum
+		var/transaction_purpose = "[destinationact] Payment"
+		var/transaction_terminal = machine_id
+
+		if(transaction_amount <= E.worth)
+			playsound(src, 'sound/machines/chime.ogg', 50, 1)
+			src.visible_message("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes.")
+			
+			SSeconomy.charge_to_account(SSeconomy.get_department_account(destinationact)?.account_number, E.owner_name, transaction_purpose, transaction_terminal, transaction_amount)
+			E.worth -= transaction_amount
+			print_receipt()
+			sum = 0
+			receipt = ""
+			to_chat(src.loc, SPAN_NOTICE("Transaction completed, please return to the home screen."))
+		else if (transaction_amount > E.worth)
+			to_chat(user, "[icon2html(src, user)]<span class='warning'>\The [E] doesn't have that much money!</span>")
+		return
+	
 	var/obj/item/card/id/I = O.GetID()
 	if (!I) 
 		return
 	if (!istype(O))
 		return
 	
-
 	else
 
 		var/transaction_amount = sum

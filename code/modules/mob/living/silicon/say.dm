@@ -1,6 +1,3 @@
-/mob/living/silicon/say(message, sanitize = TRUE)
-	return ..(sanitize ? sanitize(message) : message)
-
 /mob/living/silicon/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
 	log_say("[key_name(src)] : [message]",ckey=key_name(src))
 

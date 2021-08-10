@@ -21,30 +21,10 @@
 	see &= enemies // Remove all entries that aren't in enemies
 	return see
 
-/mob/living/simple_animal/hostile/retaliate/proc/Retaliate(var/mob/M)
+/mob/living/simple_animal/hostile/retaliate/handle_attack_by(mob/M)
 	enemies |= M
 	targets |= M
 
 	for(var/mob/living/simple_animal/hostile/retaliate/H in view(world.view, get_turf(src)))
 		if(H.faction == faction)
 			H.enemies |= M
-
-/mob/living/simple_animal/hostile/retaliate/attack_hand(mob/living/carbon/human/M)
-	. = ..()
-	if(M.a_intent in list(I_DISARM, I_GRAB, I_HURT))
-		Retaliate(M)
-
-/mob/living/simple_animal/hostile/retaliate/attacked_with_item(obj/item/O, mob/user, var/proximity)
-	. = ..()
-	if(.)
-		Retaliate(user)
-
-/mob/living/simple_animal/hostile/retaliate/hitby(atom/movable/AM, speed)
-	. = ..()
-	if(ismob(AM.thrower))
-		Retaliate(AM.thrower)
-
-/mob/living/simple_animal/hostile/retaliate/bullet_act(obj/item/projectile/P, def_zone)
-	. = ..()
-	if(ismob(P.firer))
-		Retaliate(P.firer)

@@ -781,6 +781,16 @@
 	var/subtype = 0
 	// new pipe, set the icon_state as on map
 
+/obj/structure/disposalpipe/Initialize(mapload)
+	. = ..()
+	
+	if(mapload)
+		var/turf/T = loc
+		var/image/I = image(icon, T, icon_state, EFFECTS_ABOVE_LIGHTING_LAYER, dir, pixel_x, pixel_y)
+		I.plane = 0
+		I.alpha = 125
+		LAZYADD(T.blueprints, I)
+
 // pipe is deleted
 // ensure if holder is present, it is expelled
 /obj/structure/disposalpipe/Destroy()

@@ -39,6 +39,9 @@
 /decl/reagent/alcohol/butanol/xuizijuice
 	value = 0.2
 
+/decl/reagent/alcohol/nmshaan_liquor/darmadhirbrew
+	value = 25
+
 /decl/reagent/hydrazine
 	value = 0.017
 

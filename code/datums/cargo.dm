@@ -35,7 +35,7 @@
 
 /datum/cargo_item/proc/get_adjusted_price()
 	. = price
-	. *= supplier_datum.price_modifier
+	. *= supplier_datum.get_total_price_coefficient()
 	for(var/category in categories)
 		var/datum/cargo_category/cc = SScargo.get_category_by_name(category)
 		if(cc)
@@ -69,7 +69,13 @@
 	data["price_modifier"] = price_modifier
 	return data
 
+/datum/cargo_supplier/proc/get_total_price_coefficient()
+	var/final_coef = price_modifier
+	if(SSatlas.current_sector)
+		if(short_name in SSatlas.current_sector.cargo_price_coef)
+			final_coef = SSatlas.current_sector.cargo_price_coef[short_name] * price_modifier
 
+	return final_coef
 /*
 	A category displayed in the cargo order app
 */

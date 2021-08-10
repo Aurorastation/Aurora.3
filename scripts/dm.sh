@@ -46,7 +46,13 @@ if [[ $DM == "" ]]; then
     exit 3
 fi
 
-"$DM" $dmepath.mdme | grep --invert-match -E "^including.*\.dmm?\$" | tee build_log.txt
+touch $dmepath.rsc
+touch $dmepath.dyn.rsc
+chmod a+rwX $dmepath.rsc
+chmod a+rwX $dmepath.dyn.rsc
+chmod -R a+rwX .
+
+"$DM" -clean $dmepath.mdme | grep --invert-match -E "^including.*\.dmm?\$" | tee build_log.txt
 retval=$?
 
 if [[ $retval == 0 ]]; then
@@ -56,6 +62,5 @@ fi
 
 rm $dmepath.mdme
 
-chmod -R a+rwX .
 
 exit $retval

@@ -99,6 +99,16 @@
 	item_cost = 9
 	path = /obj/item/gun/projectile/plasma
 
+/datum/uplink_item/item/visible_weapons/laser_rifle
+	name = "Laser Rifle"
+	item_cost = 8
+	path = /obj/item/gun/energy/rifle/laser
+
+/datum/uplink_item/item/visible_weapons/energy_carbine
+	name = "Energy Carbine"
+	item_cost = 6
+	path = /obj/item/gun/energy/gun
+
 /datum/uplink_item/item/visible_weapons/icelance
 	name = "Icelance Rifle"
 	item_cost = 3

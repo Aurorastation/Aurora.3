@@ -207,6 +207,9 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		M = held_item
 	if(!M && off_hand?.ismultitool())
 		M = off_hand
+	if(M.tracking_apc)
+		to_chat(usr, SPAN_WARNING("\The [M]'s smart tracking is enabled! Disable it to regain I/O functionality."))
+		return TRUE
 
 	if(href_list["rename"])
 		rename_component(usr)

@@ -21,6 +21,19 @@
 							"/obj/item/stock_parts/console_screen" = 1,
 							"/obj/item/reagent_containers/glass/beaker/large" = 1)
 
+/obj/item/circuitboard/stasis_bed
+	name = T_BOARD("Lifeform Stasis Unit")
+	desc = "The circuitboard for a lifeform stasis unit."
+	build_path = /obj/machinery/stasis_bed
+	origin_tech = list(TECH_MAGNET = 4, TECH_ENGINEERING = 4, TECH_BIO = 4)
+	board_type = "machine"
+	req_components = list(
+		"/obj/item/stock_parts/micro_laser" = 1,
+		"/obj/item/stock_parts/capacitor" = 2,
+		"/obj/item/stock_parts/scanning_module" = 2,
+		"/obj/item/stock_parts/console_screen" = 1
+		)
+
 /obj/item/circuitboard/cryotube
 	name = T_BOARD("Cryo Cell")
 	desc = "The circuitboard for a cryo tube."
@@ -81,19 +94,6 @@
 	board_type = "machine"
 	req_components = list(
 							"/obj/item/stock_parts/manipulator" = 3)
-
-
-/obj/item/circuitboard/refiner
-	name = T_BOARD("ore processor")
-	desc = "The circuitboard for an ore processing machine."
-	build_path = /obj/machinery/mineral/processing_unit
-	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
-	board_type = "other" // change this to machine if you want it to be buildable
-	req_components = list(
-							"/obj/item/stock_parts/capacitor" = 2,
-							"/obj/item/stock_parts/scanning_module" = 1,
-							"/obj/item/stock_parts/matter_bin" = 1,
-							"/obj/item/stock_parts/micro_laser" = 2)
 
 /obj/item/circuitboard/oven
 	name = T_BOARD("oven")

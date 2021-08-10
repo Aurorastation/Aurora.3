@@ -39,8 +39,8 @@
 "cB" = (
 /obj/machinery/light{
 	brightness_range = 16;
-	must_start_working = 1;
-	dir = 8
+	dir = 8;
+	must_start_working = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -404,8 +404,8 @@
 "sK" = (
 /obj/machinery/light{
 	brightness_range = 16;
-	must_start_working = 1;
-	dir = 4
+	dir = 4;
+	must_start_working = 1
 	},
 /obj/structure/cable/cyan{
 	d1 = 1;
@@ -699,8 +699,8 @@
 "Dd" = (
 /obj/machinery/light{
 	brightness_range = 16;
-	must_start_working = 1;
-	dir = 1
+	dir = 1;
+	must_start_working = 1
 	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
@@ -726,8 +726,8 @@
 	},
 /obj/machinery/light/small{
 	brightness_range = 16;
-	must_start_working = 1;
-	dir = 4
+	dir = 4;
+	must_start_working = 1
 	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
@@ -740,8 +740,8 @@
 "DR" = (
 /obj/machinery/light/small{
 	brightness_range = 16;
-	must_start_working = 1;
-	dir = 4
+	dir = 4;
+	must_start_working = 1
 	},
 /obj/machinery/camera/network/command{
 	c_tag = "Telecomms Control Room";
@@ -790,8 +790,8 @@
 /obj/machinery/telecomms/server/presets/engineering,
 /obj/machinery/light{
 	brightness_range = 16;
-	must_start_working = 1;
-	dir = 1
+	dir = 1;
+	must_start_working = 1
 	},
 /turf/simulated/floor/bluegrid{
 	name = "cooled mainframe floor";
@@ -840,8 +840,8 @@
 "Jd" = (
 /obj/machinery/light{
 	brightness_range = 16;
-	must_start_working = 1;
-	dir = 8
+	dir = 8;
+	must_start_working = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -971,8 +971,8 @@
 /obj/machinery/telecomms/bus/preset_four,
 /obj/machinery/light{
 	brightness_range = 16;
-	must_start_working = 1;
-	dir = 1
+	dir = 1;
+	must_start_working = 1
 	},
 /turf/simulated/floor/bluegrid{
 	name = "cooled mainframe floor";
@@ -998,8 +998,8 @@
 "Pl" = (
 /obj/machinery/light{
 	brightness_range = 16;
-	must_start_working = 1;
-	dir = 4
+	dir = 4;
+	must_start_working = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -1009,8 +1009,8 @@
 "Pv" = (
 /obj/machinery/light{
 	brightness_range = 16;
-	must_start_working = 1;
-	dir = 8
+	dir = 8;
+	must_start_working = 1
 	},
 /obj/machinery/status_display{
 	layer = 4;
@@ -1137,6 +1137,12 @@
 	temperature = 278
 	},
 /area/turret_protected/ai_upload_foyer)
+"UT" = (
+/obj/effect/landmark{
+	name = "skrell_entry"
+	},
+/turf/simulated/floor/tiled,
+/area/construction/Storage)
 "Vd" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -1149,8 +1155,8 @@
 "VK" = (
 /obj/machinery/light{
 	brightness_range = 16;
-	must_start_working = 1;
-	dir = 8
+	dir = 8;
+	must_start_working = 1
 	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
@@ -1208,8 +1214,8 @@
 	},
 /obj/machinery/light{
 	brightness_range = 16;
-	must_start_working = 1;
-	dir = 4
+	dir = 4;
+	must_start_working = 1
 	},
 /obj/structure/closet/crate/secure/aimodules,
 /turf/simulated/floor/tiled{
@@ -3447,7 +3453,7 @@ hD
 Ex
 aO
 aO
-aO
+UT
 aO
 aO
 Ex

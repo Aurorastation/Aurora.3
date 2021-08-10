@@ -30,7 +30,7 @@ proc/admin_attack_log(var/mob/attacker, var/mob/victim, var/attacker_message, va
 		attacker.attack_log += text("\[[time_stamp()]\] <span class='warning'>[key_name(victim)] - [attacker_message]</span>")
 		jmp_link = " (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[attacker.x];Y=[attacker.y];Z=[attacker.z]'>JMP</a>)"
 
-	msg_admin_attack("[key_name_admin(attacker)] [admin_message] [key_name_admin(victim)] (INTENT: [attacker? uppertext(attacker.a_intent) : "N/A"])[jmp_link]",ckey=key_name(attacker),ckey_target=key_name(victim))
+	msg_admin_attack("[attacker ? key_name_admin(attacker) : ""] [admin_message] [victim ? key_name_admin(victim) : ""] (INTENT: [attacker? uppertext(attacker.a_intent) : "N/A"])[jmp_link]",ckey=key_name(attacker),ckey_target=key_name(victim))
 
 proc/admin_attacker_log_many_victims(var/mob/attacker, var/list/mob/victims, var/attacker_message, var/victim_message, var/admin_message)
 	if(!victims || !victims.len)

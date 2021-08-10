@@ -127,16 +127,30 @@
 			throw_things(user)
 	LAZYREMOVE(climbers, user)
 
-/obj/structure/table/MouseDrop_T(obj/O as obj, mob/user as mob)
+/obj/structure/table/MouseDrop_T(obj/O, mob/user, src_location, over_location, src_control, over_control, params)
+	if(ismob(O.loc)) //If placing an item
+		if(!isitem(O) || user.get_active_hand() != O)
+			return ..()
+		if(isrobot(user))
+			return
+		user.drop_item()
+		if(O.loc != src.loc)
+			step(O, get_dir(O, src))
 
-	if ((!( istype(O, /obj/item) ) || user.get_active_hand() != O))
-		return ..()
-	if(isrobot(user))
-		return
-	user.drop_item()
-	if (O.loc != src.loc)
-		step(O, get_dir(O, src))
-	return
+	else if(isturf(O.loc) && isitem(O)) //If pushing an item on the tabletop
+		var/obj/item/I = O
+		if(I.anchored)
+			return
+
+		if(!use_check_and_message(user))
+			if(O.w_class <= user.can_pull_size)
+				O.forceMove(loc)
+				auto_align(I, params, TRUE)
+			else
+				to_chat(user, SPAN_WARNING("\The [I] is too big for you to move!"))
+			return
+
+	return ..()
 
 /obj/structure/table/attackby(obj/item/W, mob/user, var/click_parameters)
 	if (!W)
@@ -221,7 +235,7 @@ closest to where the cursor has clicked on.
 Note: This proc can be overwritten to allow for different types of auto-alignment.
 */
 /obj/item/var/list/center_of_mass = list("x" = 16,"y" = 16)
-/obj/structure/table/proc/auto_align(obj/item/W, click_parameters)
+/obj/structure/table/proc/auto_align(obj/item/W, click_parameters, var/animate = FALSE)
 	if(!W.center_of_mass)
 		W.randpixel_xy()
 		W.layer = initial(W.layer) + ((32 - W.pixel_y) / 1000)
@@ -238,8 +252,16 @@ Note: This proc can be overwritten to allow for different types of auto-alignmen
 		var/cell_x = max(0, min(CELLS-1, round(mouse_x/CELLSIZE)))
 		var/cell_y = max(0, min(CELLS-1, round(mouse_y/CELLSIZE)))
 
-		W.pixel_x = (CELLSIZE * (0.5 + cell_x)) - W.center_of_mass["x"]
-		W.pixel_y = (CELLSIZE * (0.5 + cell_y)) - W.center_of_mass["y"]
+		var/target_x = (CELLSIZE * (cell_x + 0.5)) - W.center_of_mass["x"]
+		var/target_y = (CELLSIZE * (cell_y + 0.5)) - W.center_of_mass["y"]
+		if(animate)
+			var/dist_x = abs(W.pixel_x - target_x)
+			var/dist_y = abs(W.pixel_y - target_y)
+			var/dist = sqrt((dist_x*dist_x)+(dist_y*dist_y))
+			animate(W, pixel_x=target_x, pixel_y=target_y,time=dist*0.5)
+		else
+			W.pixel_x = target_x
+			W.pixel_y = target_y
 		W.layer = initial(W.layer) + ((32 - W.pixel_y) / 1000)
 
 #undef CELLS

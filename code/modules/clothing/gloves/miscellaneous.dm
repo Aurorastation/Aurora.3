@@ -375,14 +375,9 @@
 		var/mob/M = src.loc
 		M.update_inv_gloves()
 
-/obj/item/clothing/gloves/handwraps
-	name = "cloth handwraps"
-	desc = "A roll of treated cloth used for wrapping clawed hands. Its growing popularity among unathi can be attributed to the cheap nature of its production and the utility it may provide in a pinch."
-	icon = 'icons/obj/unathi_items.dmi'
-	icon_state = "handwrap"
-	item_state = "handwrap"
-	contained_sprite = TRUE
-	species_restricted = null
-	slot_flags = SLOT_GLOVES|SLOT_WRISTS
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
+/obj/item/clothing/gloves/black/forensic
+	name = "forensic gloves"
+	desc = "Specially made gloves for investigative personnel. The luminescent threads woven into the material stand out under scrutiny."
+	icon_state = "forensic"
+	item_state = "forensicgloves"
+	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)

@@ -174,11 +174,11 @@
 
 		var/obj/item/organ/internal/brain/B = owner.internal_organs_by_name[BP_BRAIN]
 
-		if(B && !B.lobotomized)
+		if(B && !B.prepared)
 			to_chat(owner, "<span class='danger'>As the K'ois consumes your mind, you feel your past self, your memories, your very being slip away... only slavery to the swarm remains...</span>")
 			to_chat(owner, "<b>You have been lobotomized by K'ois infection. All of your previous memories up until this point are gone, and all of your ambitions are nothing. You live for only one purpose; to serve the Lii'dra hive.</b>")
 
-			B.lobotomized = 1
+			B.prepared = 1
 
 
 		if(!removed_langs)
@@ -251,8 +251,8 @@
 				O.status &= ~ORGAN_ARTERY_CUT
 				owner.visible_message(SPAN_WARNING("The severed artery in \the [owner]'s [O] stitches itself back together..."), SPAN_NOTICE("The severed artery in your [O] stitches itself back together..."))
 				healed = TRUE
-			else if(O.status & ORGAN_TENDON_CUT)
-				O.status &= ~ORGAN_TENDON_CUT
+			else if((O.tendon_status() & TENDON_CUT) && O.tendon.can_recover())
+				O.tendon.rejuvenate()
 				owner.visible_message(SPAN_WARNING("The severed tendon in \the [owner]'s [O] stitches itself back together..."), SPAN_NOTICE("The severed tendon in your [O] stitches itself back together..."))
 				healed = TRUE
 			else if(O.status & ORGAN_BROKEN)

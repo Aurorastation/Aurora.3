@@ -348,6 +348,7 @@
 		for(var/datum/data/vending_product/R in product_records)
 			if(W.type == R.product_path)
 				stock(R, user)
+				user.remove_from_mob(W) //Catches gripper duplication
 				qdel(W)
 				return
 		..()
@@ -834,3 +835,8 @@
 	INVOKE_ASYNC(throw_item, /atom/movable.proc/throw_at, target, rand(3, 10), rand(1, 3), src)
 	src.visible_message("<span class='warning'>[src] launches [throw_item.name] at [target.name]!</span>")
 	return 1
+
+// screens go over the lighting layer, so googly eyes go under them
+/obj/machinery/vending/can_attach_sticker(var/mob/user, var/obj/item/sticker/S)
+	to_chat(user, SPAN_WARNING("\The [src]'s non-stick surface prevents you from attaching a sticker to it!"))
+	return FALSE

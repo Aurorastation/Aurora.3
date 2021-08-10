@@ -1,14 +1,17 @@
 /decl/emote/human
+
+/decl/emote/human/vomit
 	key = "vomit"
 
-/decl/emote/human/check_user(var/mob/living/carbon/human/user)
+/decl/emote/human/vomit/check_user(var/mob/living/carbon/human/user)
 	return (istype(user) && user.check_has_mouth() && !user.isSynthetic())
 
-/decl/emote/human/do_emote(var/mob/living/carbon/human/user)
+/decl/emote/human/vomit/do_emote(var/mob/living/carbon/human/user)
 	user.vomit(deliberate = TRUE)
 
 /decl/emote/human/deathgasp
 	key = "deathgasp"
+	emote_message_3p = "USER falls limp and stops moving..." //Fallback. Will be replaced with below proc but emotes won't show without a value in this variable
 
 /decl/emote/human/deathgasp/get_emote_message_3p(var/mob/living/carbon/human/user)
 	return "USER [user.species.death_message]"
