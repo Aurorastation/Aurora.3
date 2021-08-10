@@ -974,8 +974,8 @@
 
 	else if(O.isscrewdriver())
  		if(contents.len == 0)
+		 	to_chat(user, SPAN_NOTICE("You begin poking holes in \the [src]."))
 			if (do_after(user, 10/O.toolspeed, act_target = src))
-			to_chat(user, SPAN_NOTICE("You begin poking holes in \the [src]."))
 				 if(choice == "SmileyFace")
 					new /obj/item/clothing/head/papersack/smiley(src.loc)
 				 else    
