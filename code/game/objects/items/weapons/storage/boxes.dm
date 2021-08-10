@@ -982,6 +982,6 @@
                     new /obj/item/clothing/head/papersack(src.loc)
                 qdel(src)
         else
-            to_chat(user, SPAN_WARNING("\The [src] needs to be empty before you can do that!"))
-    else
+			to_chat(user, SPAN_WARNING("\The [src] needs to be empty before you can do that!"))
+	else
         ..()
