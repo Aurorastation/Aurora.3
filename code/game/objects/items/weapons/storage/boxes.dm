@@ -940,7 +940,14 @@
 		icon_state = "[initial(icon_state)]"
 	else if(contents.len <8)
 		icon_state = "[initial(icon_state)]-food"
-		
+
+/obj/item/storage/box/papersack/attackby(obj/item/0, mob/user)
+	if(contents.len == 0)
+		if(0.iswirecutters())
+		new obj/item/clothing/head/papersack
+		else if([initial(icon_state)] = "paperbag_SmileyFace")
+		new obj/item/clothing/head/papersack_smile
+
 /obj/item/storage/box/papersack/attackby(obj/item/O, mob/user)
     if(O.ispen())
         if(!papersack_designs)
