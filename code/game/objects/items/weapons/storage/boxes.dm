@@ -947,7 +947,7 @@
             papersack_designs = sortList(list(
             "None" = image(icon = src.icon, icon_state = "paperbag_None"),
             "NanotrasenStandard" = image(icon = src.icon, icon_state = "paperbag_NanotrasenStandard"),
-			"IdrisPremium" = image(icon_state = "paperbag_Idris")
+			"IdrisPremium" = image(icon_state = "paperbag_Idris"),
             "Heart" = image(icon = src.icon, icon_state = "paperbag_Heart"),
             "SmileyFace" = image(icon = src.icon, icon_state = "paperbag_SmileyFace")
             ))
