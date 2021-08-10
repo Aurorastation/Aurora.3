@@ -945,7 +945,7 @@
 	if(contents.len == 0)
 		if(O.iswirecutters())
 		new obj/item/clothing/head/papersack
-	else if([initial(icon_state)] = "paperbag_SmileyFace")
+	else if(icon_state = "paperbag_SmileyFace")
 		new obj/item/clothing/head/papersack_smile
 
 /obj/item/storage/box/papersack/attackby(obj/item/O, mob/user)
