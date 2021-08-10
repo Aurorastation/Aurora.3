@@ -942,11 +942,6 @@
 		icon_state = "[initial(icon_state)]-food"
 
 /obj/item/storage/box/papersack/attackby(obj/item/O, mob/user)
-	if(contents.len == 0)
-		else if(O.iswirecutters())
-		new obj/item/clothing/head/papersack
-
-/obj/item/storage/box/papersack/attackby(obj/item/O, mob/user)
     if(O.ispen())
         if(!papersack_designs)
             papersack_designs = sortList(list(
