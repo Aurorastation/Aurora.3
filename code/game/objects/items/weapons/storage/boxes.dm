@@ -938,7 +938,7 @@
 	. = ..()
 	if(contents.len == 0)
 		icon_state = "[initial(icon_state)]"
-	else
+	else if(contents.len <8)
 		icon_state = "[initial(icon_state)]-food"
 
 /obj/item/storage/box/papersack/attackby(obj/item/O, mob/user)
