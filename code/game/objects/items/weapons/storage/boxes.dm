@@ -933,6 +933,7 @@
 	chewable = TRUE
 	var/opened = TRUE
 	var/static/list/papersack_designs
+	var/choice = "None"
 
 /obj/item/storage/box/papersack/update_icon()
 	. = ..()
