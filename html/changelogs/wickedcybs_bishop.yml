@@ -3,5 +3,5 @@ author: WickedCybs
 delete-after: True
 
 changes:
-  - tweak: "Tweaks the bishop frame sprite to not clip through clothing."
-  - tweak: "Tweaks the bishop frame panel patterns to not clip through clothing."
+  - bugfix: "Changed the bishop frame sprite to not clip through clothing."
+  - bugfix: "Changed the bishop frame panel patterns to not clip through clothing."
