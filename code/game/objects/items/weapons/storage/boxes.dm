@@ -942,46 +942,46 @@
 		icon_state = "[initial(icon_state)]-food"
 
 /obj/item/storage/box/papersack/attackby(obj/item/O, mob/user)
-    if(O.ispen())
-        if(!papersack_designs)
-            papersack_designs = sortList(list(
-            "None" = image(icon = src.icon, icon_state = "paperbag_None"),
-            "NanotrasenStandard" = image(icon = src.icon, icon_state = "paperbag_NanotrasenStandard"),
+	if(O.ispen())
+		if(!papersack_designs)
+			papersack_designs = sortList(list(
+			"None" = image(icon = src.icon, icon_state = "paperbag_None"),
+			"NanotrasenStandard" = image(icon = src.icon, icon_state = "paperbag_NanotrasenStandard"),
 			"IdrisPremium" = image(icon_state = "paperbag_Idris"),
-            "Heart" = image(icon = src.icon, icon_state = "paperbag_Heart"),
-            "SmileyFace" = image(icon = src.icon, icon_state = "paperbag_SmileyFace")
-            ))
+			"Heart" = image(icon = src.icon, icon_state = "paperbag_Heart"),
+			"SmileyFace" = image(icon = src.icon, icon_state = "paperbag_SmileyFace")
+			))
 
-        choice = show_radial_menu(user, src, papersack_designs, radius = 42, tooltips = TRUE)
-        if(!choice)
-            return
-        switch(choice)
-            if("None")
-                desc = "A sack neatly crafted out of paper."
-            if("NanotrasenStandard")
-                desc = "A standard Nanotrasen paper lunch sack for loyal employees on the go."
+		choice = show_radial_menu(user, src, papersack_designs, radius = 42, tooltips = TRUE)
+		if(!choice)
+			return
+		switch(choice)
+			if("None")
+				desc = "A sack neatly crafted out of paper."
+			if("NanotrasenStandard")
+				desc = "A standard Nanotrasen paper lunch sack for loyal employees on the go."
 			if("IdrisPremium")
 				desc = "A premium paper bag produced by Idris Incorporated."
-            if("Heart")
-                desc = "A paper sack with a heart etched onto the side."
-            if("SmileyFace")
-                desc = "A paper sack with a crude smile etched onto the side."
-            else
-                return
-        to_chat(user, SPAN_NOTICE("You make some modifications to [src] using your pen."))
-        update_icon()
-        return
+			if("Heart")
+				desc = "A paper sack with a heart etched onto the side."
+			if("SmileyFace")
+				desc = "A paper sack with a crude smile etched onto the side."
+			else
+				return
+		to_chat(user, SPAN_NOTICE("You make some modifications to [src] using your pen."))
+		update_icon()
+		return
 
 	else if(O.isscrewdriver())
- 		if(contents.len == 0)
-		 	to_chat(user, SPAN_NOTICE("You begin poking holes in \the [src]."))
+		if(contents.len == 0)
+			to_chat(user, SPAN_NOTICE("You begin poking holes in \the [src]."))
 			if (do_after(user, 10/O.toolspeed, act_target = src))
 				if(choice == "SmileyFace")
 					new /obj/item/clothing/head/papersack/smiley(src.loc)
 				else    
 					new /obj/item/clothing/head/papersack(src.loc)
 				qdel(src)
-        else
+		else
 			to_chat(user, SPAN_WARNING("\The [src] needs to be empty before you can do that!"))
 	else
-        ..()
+		..()
