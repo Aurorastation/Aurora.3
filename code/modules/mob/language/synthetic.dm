@@ -77,7 +77,7 @@
 	ask_verb = list("transmits")
 	exclaim_verb = list("transmits")
 	key = "do"
-	flags = RESTRICTED | KNOWONLYHEAR | PRESSUREPROOF
+	flags = RESTRICTED | KNOWONLYHEAR | PRESSUREPROOF | PASSLISTENOBJ
 
 /datum/language/local_drone/handle_message_mode(var/message_mode)
 	if(message_mode == "headset")

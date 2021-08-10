@@ -310,9 +310,11 @@ proc/get_radio_key_from_channel(var/channel)
 	INVOKE_ASYNC(GLOBAL_PROC, /proc/animate_speechbubble, speech_bubble, hear_clients, 30)
 	do_animate_chat(message, speaking, italics, hear_clients, 30)
 
-	for(var/obj/O as anything in listening_obj)
-		if(O) //It's possible that it could be deleted in the meantime.
-			INVOKE_ASYNC(O, /obj/.proc/hear_talk, src, message, verb, speaking)
+	var/bypass_listen_obj = (speaking && (speaking.flags & PASSLISTENOBJ))
+	if(!bypass_listen_obj)
+		for(var/obj/O as anything in listening_obj)
+			if(O) //It's possible that it could be deleted in the meantime.
+				INVOKE_ASYNC(O, /obj/.proc/hear_talk, src, message, verb, speaking)
 
 	if(mind)
 		mind.last_words = message

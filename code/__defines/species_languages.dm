@@ -90,6 +90,7 @@
 #define TCOMSSIM      BITFLAG(9)  // Can be synthesized in tcoms
 #define KNOWONLYHEAR  BITFLAG(10) // Only people who know the language actually hears it
 #define PRESSUREPROOF BITFLAG(11) // Pressure doesn't affect hearing
+#define PASSLISTENOBJ BITFLAG(12) // Listening Objs can't hear this language
 
 // Autohiss
 #define AUTOHISS_OFF 0
