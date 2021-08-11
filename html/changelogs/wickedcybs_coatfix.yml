@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - bugfix: "Removed the extra buttons on the long blazer's open left facing sprite."
