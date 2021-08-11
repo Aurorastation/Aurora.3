@@ -9,7 +9,7 @@
 			//Or someone snoring.  So we make it where they won't hear it.
 		return
 
-	if((language.flags & KNOWONLYHEAR) && !say_understands(speaker, language))
+	if((language && (language.flags & KNOWONLYHEAR)) && !say_understands(speaker, language))
 		return
 
 	//make sure the air can transmit speech - hearer's side
