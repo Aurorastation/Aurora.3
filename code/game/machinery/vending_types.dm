@@ -864,7 +864,7 @@
 		/obj/item/storage/toolbox/lunchbox/syndicate = 2
 	)
 	premium = list(
-		/obj/item/storage/toolbox/lunchbox/nt/filled = 2
+		/obj/item/storage/toolbox/lunchbox/scc/filled = 2
 	)
 	restock_items = 1
 	random_itemcount = 0
