@@ -898,6 +898,17 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	var/confirm = alert(src, "You sure?", "Confirm", "Yes", "No")
 	if(confirm != "Yes") return
 
+	if(current_map.shuttle_call_restarts)
+		if(current_map.shuttle_call_restart_timer)
+			to_chat(usr, SPAN_WARNING("The shuttle round restart timer is already active!"))
+			return
+		feedback_add_details("admin_verb","CSHUT")
+		current_map.shuttle_call_restart_timer = addtimer(CALLBACK(GLOBAL_PROC, .proc/reboot_world), 10 MINUTES, TIMER_UNIQUE|TIMER_STOPPABLE)
+		log_game("[key_name(usr)] has admin-called the 'shuttle' round restart.")
+		message_admins("[key_name_admin(usr)] has admin-called the 'shuttle' round restart.", 1)
+		to_world(FONT_LARGE(SPAN_VOTE(current_map.shuttle_called_message)))
+		return
+
 	var/choice
 	if(SSticker.mode.auto_recall_shuttle)
 		choice = input("The shuttle will just return if you call it. Call anyway?") in list("Confirm", "Cancel")
@@ -926,7 +937,22 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 	if(alert(src, "You sure?", "Confirm", "Yes", "No") != "Yes") return
 
-	if(!ROUND_IS_STARTED || !emergency_shuttle.can_recall())
+	if(!ROUND_IS_STARTED)
+		return
+
+	if(current_map.shuttle_call_restarts)
+		if(!current_map.shuttle_call_restart_timer)
+			to_chat(usr, SPAN_WARNING("The restart timer for this map isn't active!"))
+			return
+		feedback_add_details("admin_verb","CCSHUT")
+		deltimer(current_map.shuttle_call_restart_timer)
+		current_map.shuttle_call_restart_timer = null
+		log_game("[key_name(usr)] has admin-stopped the 'shuttle' round restart.", key_name(usr))
+		message_admins("[key_name_admin(usr)] has admin-stopped the 'shuttle' round restart.", 1)
+		to_world(FONT_LARGE(SPAN_VOTE(current_map.shuttle_recall_message)))
+		return
+
+	if(!emergency_shuttle.can_recall())
 		return
 
 	emergency_shuttle.recall()

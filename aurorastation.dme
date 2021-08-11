@@ -3012,6 +3012,7 @@
 #include "maps\aurora\code\aurora_lifts.dm"
 #include "maps\aurora\code\aurora_shuttles.dm"
 #include "maps\aurora\code\aurora_unittest.dm"
+#include "maps\event\code\event.dm"
 #include "maps\exodus\code\exodus.dm"
 #include "maps\exodus\code\exodus_areas.dm"
 #include "maps\exodus\code\exodus_holodeck.dm"

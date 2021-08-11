@@ -23,4 +23,6 @@
 	mob_name = null
 
 /datum/ghostspawner/human/visitor/select_spawnlocation(var/use = TRUE)
+	if(current_map.force_spawnpoint)
+		return pick(force_spawnpoints["Anybody"])
 	return pick(latejoin)

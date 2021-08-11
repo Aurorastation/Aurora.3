@@ -11,7 +11,10 @@
 /obj/effect/landmark/New()
 	..()
 	tag = text("landmark*[]", name)
+	do_landmark_effect()
+	return 1
 
+/obj/effect/landmark/proc/do_landmark_effect()
 	switch(name)			//some of these are probably obsolete
 		if("monkey")
 			monkeystart += loc
@@ -89,7 +92,6 @@
 			return
 
 	landmarks_list += src
-	return 1
 
 /obj/effect/landmark/proc/delete()
 	delete_me = 1
@@ -253,3 +255,13 @@
 
 /obj/effect/landmark/distress_team_equipment
 	name = "distress equipment"
+
+/obj/effect/landmark/force_spawnpoint
+	name = "force spawnpoint"
+	var/job_tag = "Anyone"
+
+/obj/effect/landmark/force_spawnpoint/do_landmark_effect()
+	if(!force_spawnpoints[job_tag])
+		force_spawnpoints[job_tag] = list(loc)
+	else
+		force_spawnpoints[job_tag] += loc
