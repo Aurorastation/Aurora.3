@@ -200,9 +200,10 @@ proc/get_radio_key_from_channel(var/channel)
 	else
 		speaking = get_default_language()
 
-	var/list/speech_mod = speaking.handle_message_mode(message_mode)
-	speaking = speech_mod[1]
-	message_mode = speech_mod[2]
+	if(speaking)
+		var/list/speech_mod = speaking.handle_message_mode(message_mode)
+		speaking = speech_mod[1]
+		message_mode = speech_mod[2]
 
 	var/is_singing = FALSE
 	if(length(message) >= 1 && copytext(message, 1, 2) == "%")
