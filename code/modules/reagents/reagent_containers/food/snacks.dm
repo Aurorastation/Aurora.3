@@ -5163,6 +5163,7 @@
 	icon_state = "kois_steak"
 	filling_color = "#dcd9cd"
 	reagents_to_add = list(/decl/reagent/kois = 20, /decl/reagent/toxin/phoron = 15)
+	bitesize = 3
 
 /obj/item/reagent_containers/food/snacks/donut/kois
 	name = "k'ois donut"
@@ -5171,6 +5172,7 @@
 	filling_color = "#dcd9cd"
 	overlay_state = "box-kois_donut"
 	reagents_to_add = list(/decl/reagent/kois = 15, /decl/reagent/toxin/phoron = 10)
+	bitesize = 3
 
 /obj/item/reagent_containers/food/snacks/koismuffin
 	name = "k'ois muffin"
@@ -5178,6 +5180,7 @@
 	icon_state = "kois_muffin"
 	filling_color = "#dcd9cd"
 	reagents_to_add = list(/decl/reagent/kois = 10, /decl/reagent/toxin/phoron = 15)
+	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/koisburger
 	name = "k'ois burger"
@@ -5185,3 +5188,4 @@
 	icon_state = "kois_burger"
 	filling_color = "#dcd9cd"
 	reagents_to_add = list(/decl/reagent/kois = 20, /decl/reagent/toxin/phoron = 20)
+	bitesize = 2
