@@ -1,7 +1,0 @@
-author: WickedCybs
-
-delete-after: True
-
-changes:
-  - bugfix: "Changed the bishop frame sprite to not clip through clothing."
-  - bugfix: "Changed the bishop frame panel patterns to not clip through clothing."
