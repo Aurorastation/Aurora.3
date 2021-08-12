@@ -194,6 +194,8 @@
 	eyes_icons = 'icons/mob/human_face/eyes48x48.dmi'
 	eyes = "bulwark_eyes"
 
+	hud_type = /datum/hud_data/bulwark
+
 	slowdown = 6
 
 	unarmed_types = list(/datum/unarmed_attack/claws/vaurca_bulwark)
@@ -224,9 +226,72 @@ Bulwarks are much larger and have significantly thicker carapaces than most Vaur
 
 	sprint_speed_factor = 1.4
 
+	var/slot_l_hand_str_north_x = 6 // done
+	var/slot_l_hand_str_north_y = 0 // done
+	var/slot_l_hand_str_east_x = 9 // done
+	var/slot_l_hand_str_east_y = 2 // done
+	var/slot_l_hand_str_south_x = 12 // done
+	var/slot_l_hand_str_south_y = 0 // done
+	var/slot_l_hand_str_west_x = 4 // done
+	var/slot_l_hand_str_west_y = 0 // done
+
+	var/slot_r_hand_str_north_x = 12 // done
+	var/slot_r_hand_str_north_y = 0 // done
+	var/slot_r_hand_str_east_x = 12 // done
+	var/slot_r_hand_str_east_y = 0 // done
+	var/slot_r_hand_str_south_x = 6 // done
+	var/slot_r_hand_str_south_y = 0 // done
+	var/slot_r_hand_str_west_x = 7 // done
+	var/slot_r_hand_str_west_y = 2 // done
+
+	var/slot_l_ear_str_east_x = 0 // done
+	var/slot_l_ear_str_east_y = 0 // done
+	var/slot_l_ear_str_south_x = 9 // done
+	var/slot_l_ear_str_south_y = 0 // done
+	var/slot_l_ear_str_west_x = 0 // done
+	var/slot_l_ear_str_west_y = 0 // done
+
+	var/slot_r_ear_str_east_x = 16 // done
+	var/slot_r_ear_str_east_y = 0 // done
+	var/slot_r_ear_str_south_x = 9 // done
+	var/slot_r_ear_str_south_y = 0 // done
+	var/slot_r_ear_str_west_x = 0 // done
+	var/slot_r_ear_str_west_y = 0 // done
+
+	var/slot_wear_id_str_south_x = 8
+	var/slot_wear_id_str_south_y = 0
+
+	var/slot_shoes_str_north_x = 9 // done
+	var/slot_shoes_str_north_y = 0 // done
+	var/slot_shoes_str_east_x = 8 // done
+	var/slot_shoes_str_east_y = 0 // done
+	var/slot_shoes_str_south_x = 9 // done
+	var/slot_shoes_str_south_y = 0 // done
+	var/slot_shoes_str_west_x = 8 // done
+	var/slot_shoes_str_west_y = 0 // done
+
+	var/slot_belt_str_north_x = 0
+	var/slot_belt_str_north_y = 0
+	var/slot_belt_str_east_x = 0
+	var/slot_belt_str_east_y = 0
+	var/slot_belt_str_south_x = 0
+	var/slot_belt_str_south_y = 0
+	var/slot_belt_str_west_x = 0
+	var/slot_belt_str_west_y = 0
+
+
 /datum/species/bug/type_e/New()
 	..()
+	r()
+
+/datum/species/bug/type_e/proc/r()
 	equip_adjust = list(
-		slot_l_hand_str = list("[NORTH]" = list("x" = 6, "y" = 8),  "[EAST]" = list("x" = 15, "y" = 5), "[SOUTH]" = list("x" = 11, "y" = 0), "[WEST]" = list("x" = -9, "y" = 4)),
-		slot_r_hand_str = list("[NORTH]" = list("x" = 11, "y" = 8), "[EAST]" = list("x" = 25, "y" = 4), "[SOUTH]" = list("x" = 6, "y" = 0),  "[WEST]" = list("x" = 1, "y" = 5))
+		slot_l_hand_str  = list("[NORTH]" = list("x" = slot_l_hand_str_north_x, "y" = slot_l_hand_str_north_y),  "[EAST]" = list("x" = slot_l_hand_str_east_x, "y" = slot_l_hand_str_east_y), "[SOUTH]" = list("x" = slot_l_hand_str_south_x, "y" = slot_l_hand_str_south_y), "[WEST]" = list("x" = slot_l_hand_str_west_x, "y" = slot_l_hand_str_west_y)),
+		slot_r_hand_str  = list("[NORTH]" = list("x" = slot_r_hand_str_north_x, "y" = slot_r_hand_str_north_y),  "[EAST]" = list("x" = slot_r_hand_str_east_x, "y" = slot_r_hand_str_east_y), "[SOUTH]" = list("x" = slot_r_hand_str_south_x, "y" = slot_r_hand_str_south_y),  "[WEST]" = list("x" = slot_r_hand_str_west_x, "y" = slot_r_hand_str_west_y)),
+		slot_l_ear_str   = list(                                                                                 "[EAST]" = list("x" = slot_l_ear_str_east_x, "y" = slot_l_ear_str_east_y), "[SOUTH]" = list("x" = slot_l_ear_str_south_x, "y" = slot_l_ear_str_south_y), "[WEST]" = list("x" = slot_l_ear_str_west_x, "y" = slot_l_ear_str_west_y)),
+		slot_r_ear_str   = list(                                                                                 "[EAST]" = list("x" = slot_r_ear_str_east_x, "y" = slot_r_ear_str_east_y), "[SOUTH]" = list("x" = slot_r_ear_str_south_x, "y" = slot_r_ear_str_south_y),  "[WEST]" = list("x" = slot_r_ear_str_west_x, "y" = slot_r_ear_str_west_y)),
+		slot_belt_str    = list("[NORTH]" = list("x" = slot_belt_str_north_x, "y" = slot_belt_str_north_y),  "[EAST]" = list("x" = slot_belt_str_east_x, "y" = slot_belt_str_east_y), "[SOUTH]" = list("x" = slot_belt_str_south_x, "y" = slot_belt_str_south_y), "[WEST]" = list("x" = slot_belt_str_west_x, "y" = slot_belt_str_west_y)),
+		slot_wear_id_str = list(                                                                                                                                                          "[SOUTH]" = list("x" = slot_wear_id_str_south_x, "y" = slot_wear_id_str_south_y)                                                                                  ),
+		slot_shoes_str   = list("[NORTH]" = list("x" = slot_shoes_str_north_x, "y" = slot_shoes_str_north_y),  "[EAST]" = list("x" = slot_shoes_str_east_x, "y" = slot_shoes_str_east_y), "[SOUTH]" = list("x" = slot_shoes_str_south_x, "y" = slot_shoes_str_south_y), "[WEST]" = list("x" = slot_shoes_str_west_x, "y" = slot_shoes_str_west_y))
 	)
+	equip_overlays = null
