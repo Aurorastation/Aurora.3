@@ -35,9 +35,17 @@
 		/datum/job/visitor,
 		/datum/job/officer,
 		/datum/job/investigator,
+		/datum/job/warden,
+
 		/datum/job/bartender,
 		/datum/job/chef,
 		/datum/job/hydro,
+		/datum/job/qm,
+		/datum/job/cargo_tech,
+		/datum/job/mining,
+		/datum/job/janitor,
+		/datum/job/librarian,
+		/datum/job/chaplain,
 		/datum/job/representative
 	)
 
@@ -57,7 +65,23 @@
 		"Cook" = /datum/outfit/job/chef/idris,
 		"Gardener" = /datum/outfit/job/hydro/idris,
 		"Hydroponicist" = /datum/outfit/job/hydro/idris,
-		"Corporate Liaison" = /datum/outfit/job/representative/idris
+		"Corporate Liaison" = /datum/outfit/job/representative/idris,
+		"Quartermaster" = /datum/outfit/job/qm/idris,
+		"Warden" = /datum/outfit/job/wardem/idris,
+		"Cargo Technician" = /datum/outfit/job/cargo_tech/idris,
+		"Shaft Miner" = /datum/outfit/job/mining/idris,
+		"Drill Technician" = /datum/outfit/job/mining/idris,
+		"Janitor" = /datum/outfit/job/janitor/idris,
+		"Librarian" = /datum/outfit/job/librarian/idris,
+		"Curator " = /datum/outfit/job/librarian/idris,
+		"Tech Support" = /datum/outfit/job/librarian/idris,
+		"Chaplain" = /datum/outfit/job/chaplain/idris,
+		"Presbyter" = /datum/outfit/job/chaplain/idris,
+		"Rabbi" = /datum/outfit/job/chaplain/idris,
+		"Imam" = /datum/outfit/job/chaplain/idris,
+		"Priest" = /datum/outfit/job/chaplain/idris,
+		"Shaman" = /datum/outfit/job/chaplain/idris,
+		"Counselor" = /datum/outfit/job/chaplain/idris
 	)
 
 	job_species_blacklist = list(
@@ -99,6 +123,34 @@
 /datum/outfit/job/hydro/idris
 	name = "Gardener - Idris"
 	uniform = /obj/item/clothing/under/rank/idris/service
+	id = /obj/item/card/id/idris
+
+/datum/outfit/job/qm/idris
+	name = "Quartermaster - Idris"
+	id = /obj/item/card/id/idris
+
+/datum/outfit/job/wardem/idris
+	name = "Warden - Idris"
+	id = /obj/item/card/id/idris
+
+/datum/outfit/job/cargo_tech/idris
+	name = "Cargo Technician - Idris"
+	id = /obj/item/card/id/idris
+
+/datum/outfit/job/mining/idris
+	name = "Shaft Miner - Idris"
+	id = /obj/item/card/id/idris
+
+/datum/outfit/job/janitor/idris
+	name = "Janitor - Idris"
+	id = /obj/item/card/id/idris
+
+/datum/outfit/job/librarian/idris
+	name = "Librarian - Idris"
+	id = /obj/item/card/id/idris
+
+/datum/outfit/job/chaplain/idris
+	name = "Chaplain - Idris"
 	id = /obj/item/card/id/idris
 
 /datum/outfit/job/representative/idris
