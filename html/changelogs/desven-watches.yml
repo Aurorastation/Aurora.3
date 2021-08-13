@@ -1,0 +1,6 @@
+author: Desven & BunkyB
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds new watches to the loadout."
