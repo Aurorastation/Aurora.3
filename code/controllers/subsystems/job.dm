@@ -654,7 +654,7 @@
 
 	H.job = rank
 
-	if(current_map.force_spawnpoint && length(force_spawnpoints))
+	if(current_map.force_spawnpoint && LAZYLEN(force_spawnpoints))
 		if(force_spawnpoints[rank])
 			H.forceMove(pick(force_spawnpoints[rank]))
 		else

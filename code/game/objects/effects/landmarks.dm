@@ -261,7 +261,5 @@
 	var/job_tag = "Anyone"
 
 /obj/effect/landmark/force_spawnpoint/do_landmark_effect()
-	if(!force_spawnpoints[job_tag])
-		force_spawnpoints[job_tag] = list(loc)
-	else
-		force_spawnpoints[job_tag] += loc
+	LAZYINITLIST(force_spawnpoints)
+	LAZYADD(force_spawnpoints[job_tag], loc)
