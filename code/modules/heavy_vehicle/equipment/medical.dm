@@ -1,7 +1,7 @@
 /obj/item/mecha_equipment/sleeper
 	name = "\improper exosuit sleeper"
 	desc = "An exosuit-mounted sleeper designed to maintain patients stabilized on their way to medical facilities."
-	icon_state = "mech_sleeper"
+	icon_state = "passenger"
 	restricted_hardpoints = list(HARDPOINT_BACK)
 	restricted_software = list(MECH_SOFTWARE_MEDICAL)
 	equipment_delay = 30 //don't spam it on people pls
@@ -86,7 +86,7 @@
 /obj/item/mecha_equipment/crisis_drone
 	name = "crisis dronebay"
 	desc = "A small shoulder-mounted dronebay containing a rapid response drone capable of moderately stabilizing a patient near the exosuit."
-	icon_state = "med_droid"
+	icon_state = "drone_med"
 	origin_tech = list(TECH_PHORON = 2, TECH_MAGNET = 3, TECH_BIO = 3, TECH_DATA = 3)
 	active_power_use = 0
 	passive_power_use = 3000

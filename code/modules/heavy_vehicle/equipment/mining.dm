@@ -1,7 +1,7 @@
 /obj/item/mecha_equipment/drill_mover
 	name = "mounted drill loader"
 	desc = "A large back-mounted drill loader, capable of picking up and deploying large industrial drills."
-	icon_state = "mecha_drill_loader"
+	icon_state = "generic_back"
 	restricted_hardpoints = list(HARDPOINT_BACK)
 	restricted_software = list(MECH_SOFTWARE_UTILITY)
 	w_class = ITEMSIZE_HUGE

@@ -9,15 +9,11 @@
 	e_legs = /obj/item/mech_component/propulsion/heavy
 	e_color = COLOR_TITANIUM
 
-	h_l_hand = /obj/item/mecha_equipment/mounted_system/combat/laser
-	h_r_hand = /obj/item/mecha_equipment/mounted_system/combat/ion
-	h_back = /obj/item/mecha_equipment/shield
-
 /obj/item/mech_component/manipulators/heavy
 	name = "heavy arms"
 	exosuit_desc_string = "super-heavy reinforced manipulators"
 	icon_state = "heavy_arms"
-	desc = "Designed to function where any other piece of equipment would have long fallen apart, the Hephaestus Superheavy Lifter series can take a beating and excel at delivering it."
+	desc = "Designed to function where any other piece of equipment would have long fallen apart, the Hephaestus Superheavy Lifter series can take a beating and excel at delivering it. This has no hardpoints, in exchange for more armor and strength."
 	melee_damage = 50
 	action_delay = 15
 	max_damage = 200
@@ -50,13 +46,13 @@
 /obj/item/mech_component/chassis/heavy
 	name = "reinforced exosuit chassis"
 	hatch_descriptor = "hatch"
-	desc = "The HI-Koloss chassis is a veritable juggernaut, capable of protecting a pilot even in the most hostile of environments. It handles like a battlecruiser, however."
+	desc = "The HI-Koloss chassis is a veritable juggernaut, capable of protecting a pilot even in the most hostile of environments. It handles like a battlecruiser, however. This possesses a chest-mounted hardpoint for heavyweight modules, and a back utility hardpoint."
 	pilot_coverage = 100
 	exosuit_desc_string = "a heavily armored chassis"
 	icon_state = "heavy_body"
 	max_damage = 300
 	mech_health = 1000
-	has_hardpoints = list(HARDPOINT_BACK)
+	has_hardpoints = list(HARDPOINT_BACK, HARDPOINT_CHEST)
 	power_use = 5000
 
 /obj/item/mech_component/chassis/heavy/prebuild()

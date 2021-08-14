@@ -20,6 +20,7 @@
 	var/h_r_shoulder
 	var/h_l_hand
 	var/h_r_hand
+	var/h_chest
 
 /mob/living/heavy_vehicle/premade/Initialize()
 	icon = null

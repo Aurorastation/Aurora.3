@@ -1,6 +1,6 @@
 /obj/item/mecha_equipment/mounted_system/rfd
 	name = "mounted rfd"
-	icon_state = "mecha_rfd"
+	icon_state = "generic_tool"
 	holding_type = /obj/item/rfd/construction/mounted
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	restricted_software = list(MECH_SOFTWARE_ENGINEERING)
@@ -25,7 +25,7 @@
 	name = "mounted fire extinguisher"
 	max_water = 4000 //Good is gooder
 	icon = 'icons/mecha/mech_equipment.dmi'
-	icon_state = "mecha_exting"
+	icon_state = "extinguisher"
 	safety = FALSE
 
 /obj/item/extinguisher/mech/New()

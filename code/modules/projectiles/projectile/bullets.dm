@@ -212,7 +212,7 @@
 	armor_penetration = 15
 	penetrating = FALSE
 
-/obj/item/projectile/bullet/rifle/a556/ap 
+/obj/item/projectile/bullet/rifle/a556/ap
 	damage = 35
 	armor_penetration = 40
 	penetrating = TRUE
@@ -359,6 +359,51 @@
 /obj/item/projectile/bullet/gauss/highex/on_hit(var/atom/target, var/blocked = 0)
 	explosion(target, -1, 0, 2)
 	sleep(0)
+	var/obj/T = target
+	var/throwdir = get_dir(firer,target)
+	T.throw_at(get_edge_target_turf(target, throwdir),3,3)
+	return 1
+
+/obj/item/projectile/bullet/ac/ap
+	name = "heavy anti-armor autocannon round"
+	damage = 70
+	armor_penetration = 90
+	penetrating = 1
+
+/obj/item/projectile/bullet/ac/he
+	name = "heavy high-ex autocannon round"
+	damage = 50
+	armor_penetration = 30
+
+/obj/item/projectile/bullet/ac/he/on_impact(var/atom/A)
+	explosion(A, -1, 0, 4)
+	..()
+
+/obj/item/projectile/bullet/ac/he/on_hit(var/atom/target, var/blocked = 0)
+	explosion(target, -1, 0, 4)
+	sleep(0)
+	var/obj/T = target
+	var/throwdir = get_dir(firer,target)
+	T.throw_at(get_edge_target_turf(target, throwdir),3,3)
+	return 1
+
+/obj/item/projectile/bullet/ac/light/ap
+	name = "light anti-armor autocannon round"
+	damage = 55
+	armor_penetration = 70
+	penetrating = 1
+
+/obj/item/projectile/bullet/ac/light/he
+	name = "light high-ex autocannon round"
+	damage = 35
+	armor_penetration = 30
+
+/obj/item/projectile/bullet/ac/light/he/on_impact(var/atom/A)
+	explosion(A, -1, 0, 1)
+	..()
+
+/obj/item/projectile/bullet/ac/light/he/on_hit(var/atom/target, var/blocked = 0)
+	explosion(target, -1, 0, 1)
 	var/obj/T = target
 	var/throwdir = get_dir(firer,target)
 	T.throw_at(get_edge_target_turf(target, throwdir),3,3)

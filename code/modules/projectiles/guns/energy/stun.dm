@@ -17,6 +17,7 @@
 	self_recharge = 1
 	use_external_power = 1
 	can_turret = 0
+	projectile_type = /obj/item/projectile/beam/stun/mecha
 
 /obj/item/gun/energy/stunrevolver
 	name = "stun revolver"

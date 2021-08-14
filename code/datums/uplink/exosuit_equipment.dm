@@ -7,13 +7,7 @@
 	name = "Mounted Electrolaser Carbine"
 	desc = "A dual fire mode electrolaser system connected to the exosuit's targetting system."
 	item_cost = 2
-	path = /obj/item/mecha_equipment/mounted_system/combat/taser
-
-/datum/uplink_item/item/exosuit_equipment/mounted_gun/ion
-	name = "Mounted Ion Rifle"
-	desc = "An exosuit-mounted ion rifle. Handle with care."
-	item_cost = 7
-	path = /obj/item/mecha_equipment/mounted_system/combat/ion
+	path = /obj/item/mecha_equipment/mounted_system/combat/heavy/taser
 
 /datum/uplink_item/item/exosuit_equipment/mounted_gun/laser
 	name = "Mounted Laser Rifle"
@@ -21,17 +15,17 @@
 	item_cost = 3
 	path = /obj/item/mecha_equipment/mounted_system/combat/laser
 
-/datum/uplink_item/item/exosuit_equipment/mounted_gun/smg
+/datum/uplink_item/item/exosuit_equipment/mounted_gun/heavymg
 	name = "Mounted Machine Gun"
 	desc = "An exosuit-mounted automatic weapon. Handle with care."
 	item_cost = 3
-	path = /obj/item/mecha_equipment/mounted_system/combat/smg
+	path = /obj/item/mecha_equipment/mounted_system/combat/heavymg
 
 /datum/uplink_item/item/exosuit_equipment/mounted_launcher
 	name = "Mounted Missile Rack"
 	desc = "An SRM-8 missile rack loaded with explosive missiles."
 	item_cost = 10
-	path = /obj/item/mecha_equipment/mounted_system/combat/missile
+	path = /obj/item/mecha_equipment/mounted_system/combat/heavy/missile
 
 // UTILITY //
 

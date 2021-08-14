@@ -10,6 +10,7 @@ var/global/list/mecha_damage_overlay_cache = list()
 #define HARDPOINT_LEFT_SHOULDER "left shoulder"
 #define HARDPOINT_RIGHT_SHOULDER "right shoulder"
 #define HARDPOINT_HEAD "head"
+#define HARDPOINT_CHEST "chest"
 
 // No software required: taser. light, radio.
 #define MECH_SOFTWARE_UTILITY "utility equipment"                // Plasma torch, clamp, drill.

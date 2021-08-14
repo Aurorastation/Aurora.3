@@ -1,7 +1,7 @@
 /obj/item/mecha_equipment/clamp
 	name = "mounted clamp"
 	desc = "A large, heavy industrial cargo loading clamp."
-	icon_state = "mecha_clamp"
+	icon_state = "clamp"
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	restricted_software = list(MECH_SOFTWARE_UTILITY)
 	w_class = ITEMSIZE_HUGE
@@ -176,7 +176,7 @@
 /obj/item/mecha_equipment/mounted_system/plasmacutter
 	name = "mounted plasma cutter"
 	desc = "An industrial plasma cutter mounted onto the chassis of the mech. "
-	icon_state = "mecha_plasmacutter"
+	icon_state = "generic_tool"
 	holding_type = /obj/item/gun/energy/plasmacutter/mounted/mech
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	restricted_software = list(MECH_SOFTWARE_UTILITY)
@@ -189,7 +189,7 @@
 /obj/item/mecha_equipment/light
 	name = "floodlight"
 	desc = "An exosuit-mounted light."
-	icon_state = "mech_floodlight"
+	icon_state = "floodlight"
 	restricted_hardpoints = list(HARDPOINT_HEAD)
 	mech_layer = MECH_DECAL_LAYER
 
@@ -236,7 +236,7 @@
 /obj/item/mecha_equipment/catapult
 	name = "gravitational catapult"
 	desc = "An exosuit-mounted gravitational catapult."
-	icon_state = "mecha_teleport"
+	icon_state = "generic_advanced"
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	restricted_software = list(MECH_SOFTWARE_UTILITY)
 	var/mode = CATAPULT_SINGLE
@@ -291,7 +291,7 @@
 
 
 				log_and_message_admins("used [src]'s area throw on [target].", user, owner.loc)
-				
+
 				owner.use_cell_power(active_power_use * CELLRATE * 2) //bit more expensive to throw all
 
 /obj/item/material/drill_head
@@ -325,8 +325,10 @@
 /obj/item/mecha_equipment/drill
 	name = "drill"
 	desc = "This is the drill that'll pierce the heavens!"
-	icon_state = "mecha_drill"
-	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
+	desc_info = "This is a heavy chest mounted exosuit module."
+	restricted_hardpoints = HARDPOINT_CHEST
+	desc_info = "This is a heavy chest mounted exosuit module."
+	icon_state = "drill"
 	restricted_software = list(MECH_SOFTWARE_UTILITY)
 	equipment_delay = 10
 
@@ -442,9 +444,9 @@
 /obj/item/mecha_equipment/mounted_system/flarelauncher
 	name = "flare launcher"
 	desc = "The SGL-6 Special grenade launcher has been retooled to fire lit flares for emergency illumination."
-	icon_state = "mech_flaregun"
+	icon_state = "grenade_launcher"
 	holding_type = /obj/item/gun/launcher/mech/flarelauncher
-	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
+	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	restricted_software = list(MECH_SOFTWARE_UTILITY)
 
 /obj/item/gun/launcher/mech/flarelauncher
@@ -482,16 +484,16 @@
 /obj/item/mecha_equipment/sleeper/passenger_compartment
 	name = "\improper mounted passenger compartment"
 	desc = "An exosuit-mounted passenger compartment that can comfortably hold a single humanoid."
-	icon_state = "mecha_passenger_open"
+	icon_state = "passenger"
 	mech_layer = MECH_GEAR_LAYER
-	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
+	restricted_hardpoints = HARDPOINT_BACK
 	restricted_software = null
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
 	passive_power_use = 15
 
 /obj/item/mecha_equipment/sleeper/passenger_compartment/uninstalled()
 	. = ..()
-	icon_state = "mecha_passenger_open"
+	icon_state = "passenger"
 	update_icon()
 	owner.update_icon()
 
@@ -501,7 +503,7 @@
 	else
 		visible_message(SPAN_NOTICE("\The [src] ejects [sleeper.occupant.name]."))
 		sleeper.go_out()
-		icon_state = "mecha_passenger_open"
+		icon_state = "passenger"
 		update_icon()
 		owner.update_icon()
 	return
@@ -509,7 +511,7 @@
 /obj/item/mecha_equipment/sleeper/passenger_compartment/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
 	. = ..()
 	if(.)
-		icon_state = "mecha_passenger"
+		icon_state = "passenger"
 		update_icon()
 		owner.update_icon()
 
@@ -517,7 +519,7 @@
 	name = "mounted autolathe"
 	desc = "A large, heavy industrial autolathe. Most of the exterior and interior is stripped, relying primarily on the structure of the exosuit."
 	icon_state = "mecha_autolathe"
-	on_mech_icon_state = "mecha_autolathe"
+	on_mech_icon_state = "generic_back"
 	restricted_hardpoints = list(HARDPOINT_BACK)
 	restricted_software = list(MECH_SOFTWARE_UTILITY)
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
@@ -563,7 +565,7 @@
 
 /obj/item/mecha_equipment/autolathe/update_icon()
 	if(lathe.panel_open)
-		icon_state = "mecha_autolathe-open"
+		icon_state = "generic_back"
 	else
 		icon_state = initial(icon_state)
 
@@ -633,7 +635,7 @@
 /obj/item/mecha_equipment/quick_enter
 	name = "rapid-entry system"
 	desc = "A large back-mounted device with installed hydraulics, capable of quickly lifting the user into their piloting seat."
-	icon_state = "mecha_quickie"
+	icon_state = "generic_back"
 	restricted_hardpoints = list(HARDPOINT_BACK)
 	w_class = ITEMSIZE_HUGE
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 3)
@@ -656,7 +658,7 @@
 	name = "phazon bluespace transmission system"
 	desc = "A large back-mounted device that grants the exosuit it's mounted to the ability to semi-shift into bluespace, allowing it to pass through dense objects."
 	desc_info = "It needs an anomaly core to function. You can install some simply by using a core on it."
-	icon_state = "mecha_phazon"
+	icon_state = "generic_back"
 	restricted_hardpoints = list(HARDPOINT_BACK)
 	w_class = ITEMSIZE_HUGE
 	origin_tech = list(TECH_MATERIAL = 6, TECH_ENGINEERING = 6, TECH_BLUESPACE = 6)
@@ -720,7 +722,7 @@
 /obj/item/mecha_equipment/mounted_system/grenadecleaner
 	name = "cleaner grenade launcher"
 	desc = "The SGL-6CL grenade launcher is designed to launch primed cleaner grenades."
-	icon_state = "mech_gl"
+	icon_state = "grenade_launcher"
 	holding_type = /obj/item/gun/launcher/mech/mountedgl/cl
 	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 	restricted_software = list(MECH_SOFTWARE_UTILITY)

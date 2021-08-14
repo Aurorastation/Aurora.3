@@ -9,19 +9,16 @@
 	e_legs = /obj/item/mech_component/propulsion/combat
 	e_color = COLOR_DARK_GUNMETAL
 
-	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/combat/smg
-	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/combat/smg
-
 /obj/item/mech_component/manipulators/combat
 	name = "combat arms"
 	exosuit_desc_string = "flexible, advanced manipulators"
-	desc = "Extremely fast and responsive weapon mounts for combat mechas. These seem sturdy, but their short nature only permits access to shoulder-mounted weapons."
+	desc = "Extremely fast and responsive weapon mounts for combat mechas. These seem sturdy and permit access to medium-sized, shoulder mounted weapons."
 	icon_state = "combat_arms"
 	melee_damage = 30
 	action_delay = 5
 	max_damage = 130
 	power_use = 5000
-	has_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
+	has_hardpoints = HARDPOINT_LEFT_SHOULDER
 
 /obj/item/mech_component/propulsion/combat
 	name = "combat legs"
@@ -55,11 +52,12 @@
 	hatch_descriptor = "canopy"
 	pilot_coverage = 100
 	exosuit_desc_string = "an armored chassis"
-	desc = "A lightweight composite frame keeps the armor of this chassis respectable, but the interior spacious."
+	desc = "A lightweight composite frame keeps the armor of this chassis respectable, but the interior spacious. This possesses a chest-mounted hardpoint for heavyweight modules, but has no utility hardpoint on the back."
 	icon_state = "combat_body"
 	max_damage = 200
 	power_use = 2500
 	transparent_cabin =  TRUE
+	has_hardpoints = HARDPOINT_CHEST
 
 /obj/item/mech_component/chassis/combat/prebuild()
 	. = ..()

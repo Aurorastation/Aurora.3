@@ -43,6 +43,7 @@
 	max_damage = 750
 	mech_health = 3500
 	power_use = 15000
+	has_hardpoints = list(HARDPOINT_BACK, HARDPOINT_CHEST)
 
 /obj/item/mech_component/chassis/superheavy/prebuild()
 	. = ..()
@@ -59,6 +60,3 @@
 	e_arms = /obj/item/mech_component/manipulators/superheavy
 	e_legs = /obj/item/mech_component/propulsion/superheavy
 	e_color = COLOR_DARK_GUNMETAL
-
-	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/combat/pulse
-	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/combat/pulse

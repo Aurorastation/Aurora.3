@@ -18,24 +18,18 @@
 	name = "Mounted Taser"
 	materials = list(DEFAULT_WALL_MATERIAL = 10000)
 	req_tech = list(TECH_COMBAT = 1)
-	build_path = /obj/item/mecha_equipment/mounted_system/combat/taser
+	build_path = /obj/item/mecha_equipment/mounted_system/combat/heavy/taser
 
 /datum/design/item/mechfab/exosuit_equipment/uac
 	name = "Mounted Automatic Weapon"
 	req_tech = list(TECH_COMBAT = 4)
-	build_path = /obj/item/mecha_equipment/mounted_system/combat/smg
+	build_path = /obj/item/mecha_equipment/mounted_system/combat/heavymg
 
 /datum/design/item/mechfab/exosuit_equipment/plasma
 	name = "Mounted Plasma Cutter"
 	materials = list(DEFAULT_WALL_MATERIAL = 2000, MATERIAL_GLASS = 1000, MATERIAL_GOLD = 1000, MATERIAL_PHORON = 1000)
 	req_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 4, TECH_ENGINEERING = 3)
 	build_path = /obj/item/mecha_equipment/mounted_system/plasmacutter
-
-/datum/design/item/mechfab/exosuit_equipment/ion
-	name = "Mounted Ion Rifle"
-	materials = list(DEFAULT_WALL_MATERIAL = 10000)
-	req_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 4)
-	build_path = /obj/item/mecha_equipment/mounted_system/combat/ion
 
 /datum/design/item/mechfab/exosuit_equipment/laser
 	name = "Mounted Laser Gun"
@@ -66,16 +60,10 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 10000)
 	build_path = /obj/item/mecha_equipment/mounted_system/extinguisher
 
-/datum/design/item/mechfab/exosuit_equipment/xray
-	name = "Mounted X-Ray Gun"
-	req_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 4, TECH_MATERIAL = 5, TECH_ILLEGAL = 3)
-	build_path = /obj/item/mecha_equipment/mounted_system/combat/xray
-	materials = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GOLD = 6000, MATERIAL_PHORON = 6000)
-
 /datum/design/item/mechfab/exosuit_equipment/flashbang
 	name = "Mounted Flashbang Launcher"
 	req_tech = list(TECH_COMBAT = 3)
-	build_path = /obj/item/mecha_equipment/mounted_system/combat/grenadeflash
+	build_path = /obj/item/mecha_equipment/mounted_system/combat/gl/grenadeflash
 	materials = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GOLD = 6000, MATERIAL_PHORON = 6000)
 
 /datum/design/item/mechfab/exosuit_equipment/cleaner

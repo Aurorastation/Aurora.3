@@ -8,9 +8,6 @@
 	e_legs = /obj/item/mech_component/propulsion/ripley
 	e_color = COLOR_RIPLEY
 
-	h_l_hand = /obj/item/mecha_equipment/drill
-	h_r_hand = /obj/item/mecha_equipment/clamp
-
 /mob/living/heavy_vehicle/premade/miner/Initialize()
 	. = ..()
 	body.armor = new /obj/item/robot_parts/robot_component/armor(src)

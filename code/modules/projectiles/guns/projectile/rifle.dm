@@ -315,3 +315,43 @@
 	use_external_power = 1
 	recharge_time = 12
 	needspin = FALSE
+
+/obj/item/gun/energy/ac
+	name = "light autocannon"
+	desc = "A light autocannon, meant for exosuit usage. It has two settings ; high explosive and armor piercing."
+	icon = 'icons/mecha/mech_equipment.dmi'
+	icon_state = "ac_light"
+	fire_sound = 'sound/weapons/gaussrifle1.ogg'
+	fire_delay = 3
+	charge_meter = 0
+	max_shots = 15
+	charge_cost = 500
+	projectile_type = /obj/item/projectile/bullet/ac/light/ap
+	self_recharge = 1
+	use_external_power = 1
+	recharge_time = 6
+
+	firemodes = list(
+		list(mode_name="high explosive", projectile_type=/obj/item/projectile/bullet/ac/light/he, fire_sound='sound/weapons/gaussrifle1.ogg'),
+		list(mode_name="armor piercing", projectile_type=/obj/item/projectile/bullet/ac/light/ap, fire_sound='sound/weapons/gaussrifle1.ogg')
+		)
+
+/obj/item/gun/energy/ac/heavy
+	name = "heavy autocannon"
+	desc = "A gigantic autocannon, meant for exosuit usage. It has two settings ; high explosive and armor piercing."
+	icon = 'icons/mecha/mech_equipment.dmi'
+	icon_state = "ac_heavy"
+	fire_sound = 'sound/weapons/gaussrifle1.ogg'
+	fire_delay = 20
+	charge_meter = 0
+	max_shots = 3
+	charge_cost = 1500
+	projectile_type = /obj/item/projectile/bullet/ac/ap
+	self_recharge = 1
+	use_external_power = 1
+	recharge_time = 12
+
+	firemodes = list(
+		list(mode_name="high explosive anti-structure", projectile_type=/obj/item/projectile/bullet/ac/he, fire_sound='sound/weapons/gaussrifle1.ogg'),
+		list(mode_name="armor piercing hull shatterer", projectile_type=/obj/item/projectile/bullet/ac/ap, fire_sound='sound/weapons/gaussrifle1.ogg')
+		)

@@ -18,10 +18,11 @@
 	icon_state = "light_arms"
 	melee_damage = 15
 	action_delay = 15
-	max_damage = 100
+	max_damage = 45
 	power_use = 3000
-	desc = "As flexible as they are fragile, these Bishop Cybernetics manipulators can follow a pilot's movements in close to real time."
+	desc = "As flexible as they are fragile, these Bishop Cybernetics manipulators can follow a pilot's movements in close to real time. These possess hardpoints on both shoulders and arms, but are laughably fragile."
 	punch_sound = 'sound/mecha/mech_punch_fast.ogg'
+	has_hardpoints = list(HARDPOINT_RIGHT_HAND, HARDPOINT_LEFT_HAND, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 
 /obj/item/mech_component/propulsion/light
 	name = "light legs"
@@ -58,8 +59,8 @@
 	icon_state = "light_body"
 	max_damage = 150
 	power_use = 3000
-	desc = "The Veymed Odysseus series cockpits combine ultralight materials and clear aluminum laminates to provide an optimized cockpit experience."
-
+	desc = "The Veymed Odysseus series cockpits combine ultralight materials and clear aluminum laminates to provide an optimized cockpit experience. This has a rather sturdy module hardpoint on the back."
+	has_hardpoints = HARDPOINT_BACK
 
 /obj/item/mech_component/chassis/light/prebuild()
 	. = ..()
@@ -86,7 +87,6 @@
 	h_head = /obj/item/mecha_equipment/light
 	h_back = /obj/item/mecha_equipment/sleeper
 	h_l_shoulder = /obj/item/mecha_equipment/crisis_drone
-	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/flarelauncher
 	h_l_hand = /obj/item/mecha_equipment/mounted_system/medanalyzer
 	h_r_hand = /obj/item/mecha_equipment/clamp
 
@@ -100,7 +100,6 @@
 	h_head = /obj/item/mecha_equipment/light
 	h_back = /obj/item/mecha_equipment/sleeper
 	h_l_shoulder = /obj/item/mecha_equipment/crisis_drone
-	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/flarelauncher
 	h_l_hand = /obj/item/mecha_equipment/mounted_system/medanalyzer
 	h_r_hand = /obj/item/mecha_equipment/clamp
 
@@ -113,4 +112,3 @@
 	h_back = /obj/item/mecha_equipment/quick_enter
 	h_l_hand = /obj/item/mecha_equipment/clamp
 	h_r_hand = /obj/item/mecha_equipment/catapult
-	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/flarelauncher

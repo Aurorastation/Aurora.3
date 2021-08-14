@@ -21,3 +21,16 @@
 	move_delay = 2
 	turn_delay = 2
 	power_use = 1500
+
+/obj/item/mech_component/manipulators/wings
+	name = "wings"
+	exosuit_desc_string = "wings"
+	icon_state = "wings"
+	melee_damage = 15
+	action_delay = 15
+	max_damage = 30
+	power_use = 250
+	desc = "Fragile wings, they don't really hold much."
+	punch_sound = 'sound/mecha/mech_punch_fast.ogg'
+	has_hardpoints = null
+
