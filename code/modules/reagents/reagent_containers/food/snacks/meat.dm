@@ -94,3 +94,10 @@
 	item_state = "vannameat"
 	contained_sprite = TRUE
 	reagents_to_add = list(/decl/reagent/nutriment/protein = 6, /decl/reagent/mindbreaker = 6)
+
+
+/obj/item/reagent_containers/food/snacks/meat/bat
+	name = "bat wings"
+	desc = "Like chicken wings, but with even less meat!"
+	icon_state = "batmeat"
+	reagents_to_add = list(/decl/reagent/nutriment/protein = 1)
