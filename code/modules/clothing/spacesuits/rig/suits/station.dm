@@ -123,6 +123,8 @@
 	icon = 'icons/clothing/rig/himeo.dmi'
 	icon_state = "himeo_industrial"
 
+	helm_type = /obj/item/clothing/head/helmet/space/rig/industrial/himeo
+
 /obj/item/rig/eva
 	name = "EVA suit control module"
 	suit_type = "EVA hardsuit"
