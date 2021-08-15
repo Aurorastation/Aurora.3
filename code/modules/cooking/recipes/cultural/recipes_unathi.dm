@@ -109,9 +109,9 @@
 	fruit = list("chili" = 2)
 	reagents = list(/decl/reagent/water = 10)
 	items = list(
-	/obj/item/reagent_containers/food/snacks/fish/cosmozoan,
-	/obj/item/reagent_containers/food/snacks/cutlet,
-	/obj/item/reagent_containers/food/snacks/spreads/butter,
+		/obj/item/reagent_containers/food/snacks/fish/cosmozoan,
+		/obj/item/reagent_containers/food/snacks/cutlet,
+		/obj/item/reagent_containers/food/snacks/spreads/butter,
 	)
 	result = /obj/item/reagent_containers/food/snacks/jellystew
 
