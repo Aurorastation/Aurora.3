@@ -114,6 +114,12 @@
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig
 
+/obj/item/rig/industrial/himeo
+
+	desc = "A modified version of the ubiquitous industrial hardsuit, customized for Himean EVA operations."
+	icon = 'icons/clothing/rig/himeo.dmi'
+	icon_state = "himeo_industrial"
+
 /obj/item/rig/eva
 	name = "EVA suit control module"
 	suit_type = "EVA hardsuit"
