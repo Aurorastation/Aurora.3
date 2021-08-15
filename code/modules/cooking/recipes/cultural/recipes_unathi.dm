@@ -119,9 +119,9 @@
 /decl/recipe/stuffedfish
 	appliance = SKILLET | SAUCEPAN
 	items = list(
-	/obj/item/reagent_containers/food/snacks/fish/fishfillet,
-	/obj/item/reagent_containers/food/snacks/fish/roe,
-	/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+		/obj/item/reagent_containers/food/snacks/fish/roe,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
 	)
 	result = /obj/item/reagent_containers/food/snacks/stuffedfish
 
