@@ -5243,7 +5243,7 @@ obj/item/reagent_containers/food/snacks/sintapudding
 	name = "sinta pudding"
 	desc = "Reddish, and extremely smooth, chocolate pudding, rich in iron!"
 	icon_state = "sintapudding"
-	reagents_to_add = list(/decl/reagent/nutriment = 1, /decl/reagent/nutriment/protein/ = 1, /decl/reagent/blood = 6, /decl/reagent/nutriment/coco = 3)
+	reagents_to_add = list(/decl/reagent/nutriment = 1, /decl/reagent/nutriment/protein = 1, /decl/reagent/blood = 6, /decl/reagent/nutriment/coco = 3)
 	reagent_data = list(/decl/reagent/nutriment = list("iron" = 3))
 	bitesize = 6
 
