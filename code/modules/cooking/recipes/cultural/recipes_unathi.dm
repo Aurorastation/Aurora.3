@@ -98,9 +98,9 @@
 	appliance = SKILLET | SAUCEPAN
 	fruit = list("chili" = 2)
 	items = list(
-	/obj/item/reagent_containers/food/snacks/meat/bat,
-	/obj/item/reagent_containers/food/snacks/meat/bat,
-	/obj/item/reagent_containers/food/snacks/spreads/butter,
+		/obj/item/reagent_containers/food/snacks/meat/bat,
+		/obj/item/reagent_containers/food/snacks/meat/bat,
+		/obj/item/reagent_containers/food/snacks/spreads/butter,
 	)
 	result = /obj/item/reagent_containers/food/snacks/batwings
 
