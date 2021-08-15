@@ -4,6 +4,9 @@
 	light_color = "#ffcf2f"
 	brightness_on = 6
 
+/obj/item/clothing/head/helmet/space/rig/industrial/himeo
+	light_overlay = "helmet_light_himeo"
+
 /obj/item/clothing/head/helmet/space/rig/ce
 	camera = /obj/machinery/camera/network/engineering
 
