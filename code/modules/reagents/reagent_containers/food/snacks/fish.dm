@@ -28,7 +28,7 @@
 	desc = "A fleshy organ filled with fish eggs."
 	icon_state = "roesack"
 	fish_type = "fish"
-	reagents_to_add = list(/decl/reagent/nutriment/protein/seafood/ = 3)
+	reagents_to_add = list(/decl/reagent/nutriment/protein/seafood = 3)
 
 /obj/item/reagent_containers/food/snacks/fish/mollusc
 	name = "slimy meat"
