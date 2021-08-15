@@ -149,7 +149,7 @@
 	appliance = SAUCEPAN | POT
 	reagents = list(/decl/reagent/blood = 15, /decl/reagent/sugar = 10, /decl/reagent/nutriment/coco = 5)
 	items = list(
-	/obj/item/reagent_containers/food/snacks/spreads/butter
+		/obj/item/reagent_containers/food/snacks/spreads/butter
 	)
 	result = /obj/item/reagent_containers/food/snacks/sintapudding
 
