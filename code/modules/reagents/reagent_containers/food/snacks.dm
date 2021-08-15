@@ -5184,7 +5184,9 @@
 	desc = "K'ois inside k'ois. Peak Vaurcesian cuisine."
 	icon_state = "kois_burger"
 	filling_color = "#dcd9cd"
-	reagents_to_add = list(/decl/reagent/kois = 20, /decl/reagent/toxin/phoron = 20)obj/item/reagent_containers/food/snacks/batwings
+	reagents_to_add = list(/decl/reagent/kois = 20, /decl/reagent/toxin/phoron = 20)
+
+obj/item/reagent_containers/food/snacks/batwings
 	name = "spiced shrieker wings"
 	desc = "Wings of a small flying mammal, enriched with a dizzying amount of fat, and spiced with chilis."
 	icon_state = "batwings"
