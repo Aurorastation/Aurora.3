@@ -5223,7 +5223,7 @@ obj/item/reagent_containers/food/snacks/stuffedfish
 
 obj/item/reagent_containers/food/snacks/stuffedcarp
 	name = "stuffed fish fillet"
-	desc = "A fish fillet stuffed with small eggs and cheese"
+	desc = "A fish fillet stuffed with small eggs and cheese."
 	icon_state = "stuffedfish"
 	reagents_to_add = list(/decl/reagent/nutriment = 3, /decl/reagent/nutriment/protein/seafood = 7, /decl/reagent/nutriment/protein/cheese = 2, /decl/reagent/toxin/carpotoxin = 3)
 	reagent_data = list(/decl/reagent/nutriment = list("brine" = 3, "fish" = 3))
