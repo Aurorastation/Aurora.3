@@ -139,8 +139,8 @@
 	fruit = list("lime" = 1)
 	reagents = list(/decl/reagent/sodiumchloride = 1)
 	items = list(
-	/obj/item/reagent_containers/food/snacks/dwellermeat,
-	/obj/item/reagent_containers/food/snacks/egg,
+		/obj/item/reagent_containers/food/snacks/dwellermeat,
+		/obj/item/reagent_containers/food/snacks/egg,
 	)
 	result = /obj/item/reagent_containers/food/snacks/razirnoodles
 
