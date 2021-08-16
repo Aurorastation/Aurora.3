@@ -5188,7 +5188,7 @@
 	icon_state = "kois_burger"
 	filling_color = "#dcd9cd"
 	reagents_to_add = list(/decl/reagent/kois = 20, /decl/reagent/toxin/phoron = 20)
-  bitesize = 2
+	bitesize = 2
 
 obj/item/reagent_containers/food/snacks/batwings
 	name = "spiced shrieker wings"
