@@ -22,6 +22,7 @@
 	name = "Omni-Vendor"
 	desc = "The mother of all vendors, from which vending itself comes!"
 	icon_state = "engivend"
+	icon_vend = "engivend-vend"
 	deny_time = 6
 	vend_id = "admin"
 	req_access = list(access_janitor)
@@ -47,6 +48,7 @@
 	name = "Booze-O-Mat"
 	desc = "A technological marvel, supposedly able to mix just the mixture you'd like to drink the moment you ask for one."
 	icon_state = "boozeomat"        //////////////18 drink entities below, plus the glasses, in case someone wants to edit the number of bottles
+	icon_vend = "boozeomat-vend"
 	deny_time = 16
 	vend_id = "booze"
 	products = list(
@@ -178,6 +180,8 @@
 
 /obj/machinery/vending/assist
 	vend_id = "tools"
+	icon_state = "generic"
+	icon_vend = "generic-vend"
 	products = list(
 		/obj/item/device/assembly/prox_sensor = 5,
 		/obj/item/device/assembly/igniter = 3,
@@ -200,6 +204,8 @@
 /obj/machinery/vending/assist/synd
 	name = "Parts vendor"
 	desc = "Just a normal vending machine - nothing to see here."
+	icon_state = "generic"
+	icon_vend = "generic-vend"
 	contraband = null
 	random_itemcount = 0
 	products = list(
@@ -489,6 +495,7 @@
 	name = "NanoMed Plus"
 	desc = "Medical drug dispenser."
 	icon_state = "med"
+	icon_vend = "med-vend"
 	deny_time = 15
 	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?;Ping!"
 	req_access = list(access_medical_equip)
@@ -533,6 +540,8 @@
 	name = "Toximate 3000"
 	desc = "All the fine parts you need in one vending machine!"
 	vend_id = "bomba"
+	icon_state = "generic"
+	icon_vend = "generic-vend"
 	products = list(
 		/obj/item/clothing/under/rank/scientist = 6,
 		/obj/item/clothing/suit/bio_suit = 6,
@@ -615,6 +624,7 @@
 	desc = "A security equipment vendor."
 	product_ads = "Crack capitalist skulls!;Beat some heads in!;Don't forget - harm is good!;Your weapons are right here.;Handcuffs!;Freeze, scumbag!;Don't tase me bro!;Tase them, bro.;Why not have a donut?"
 	icon_state = "sec"
+	icon_vend = "sec-vend"
 	deny_time = 16
 	req_access = list(access_security)
 	vend_id = "security"
@@ -652,6 +662,7 @@
 	product_slogans = "Aren't you glad you don't have to fertilize the natural way?;Now with 50% less stink!;Plants are people too!"
 	product_ads = "We like plants!;Don't you want some?;The greenest thumbs ever.;We like big plants.;Soft soil..."
 	icon_state = "nutri"
+	icon_vend = "nutri-vend"
 	deny_time = 6
 	vend_id = "hydro"
 	products = list(
@@ -915,6 +926,7 @@
 	name = "YouTool"
 	desc = "Tools for tools."
 	icon_state = "tool"
+	icon_vend = "tool-vend"
 	deny_time = 6
 	vend_id = "tools"
 	//req_access = list(access_maint_tunnels) //Maintenance access
@@ -948,6 +960,7 @@
 	name = "Engi-Vend"
 	desc = "Spare tool vending. What? Did you expect some witty description?"
 	icon_state = "engivend"
+	icon_vend = "engivend-vend"
 	deny_time = 6
 	req_access = list(access_engine)
 	vend_id = "tools"
@@ -1030,6 +1043,7 @@
 	name = "Robco Tool Maker"
 	desc = "Everything you need for do-it-yourself station repair."
 	icon_state = "engi"
+	icon_vend = "engi-vend"
 	deny_time = 6
 	req_access = list(access_engine_equip)
 	vend_id = "tools"
@@ -1076,6 +1090,7 @@
 	name = "Robotech Deluxe"
 	desc = "All the tools you need to create your own robot army."
 	icon_state = "robotics"
+	icon_vend = "robotics-vend"
 	deny_time = 14
 	req_access = list(access_robotics)
 	vend_id = "robo-tools"
