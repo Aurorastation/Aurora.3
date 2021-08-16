@@ -123,6 +123,9 @@
 	icon = 'icons/clothing/rig/himeo.dmi'
 	icon_state = "himeo_industrial"
 
+	icon_supported_species_tags = list("ipc")
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_INDUSTRIAL)
+
 	helm_type = /obj/item/clothing/head/helmet/space/rig/industrial/himeo
 
 /obj/item/rig/eva
