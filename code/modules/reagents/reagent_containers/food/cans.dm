@@ -333,7 +333,7 @@
 
 /obj/item/reagent_containers/food/drinks/cans/koispunch
 	name = "\improper Phoron Punch!"
-	desc = "A radical looking can of " + SPAN_WARNING("Phoron Punch!") + " Phoron poisoning has never been more extreme! " + SPAN_DANGER("WARNING: Phoron is toxic to non-Vaurca. Consuming this product might lead to death.")
+	desc = "A radical looking can of <span class='warning'>Phoron Punch!</span> Phoron poisoning has never been more extreme!"
 	icon_state = "phoron_punch"
 	center_of_mass = list("x"=16, "y"=8)
 	can_size_overrides = list("x" = 1)
@@ -462,3 +462,10 @@
 	center_of_mass = list("x"=16, "y"=10)
 
 	reagents_to_add = list(/decl/reagent/drink/hrozamal_soda = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/diet_cola
+	name = "Diet Cola"
+	desc = "Space Cola! Now in diet!"
+	icon_state = "diet_cola"
+	center_of_mass = list("x"=16, "y"=10)
+	reagents_to_add = list(/decl/reagent/drink/diet_cola = 30)

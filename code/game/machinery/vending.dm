@@ -348,7 +348,6 @@
 		for(var/datum/data/vending_product/R in product_records)
 			if(W.type == R.product_path)
 				stock(R, user)
-				user.remove_from_mob(W) //Catches gripper duplication
 				qdel(W)
 				return
 		..()

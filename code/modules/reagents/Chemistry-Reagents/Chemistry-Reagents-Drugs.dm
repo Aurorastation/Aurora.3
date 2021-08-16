@@ -262,7 +262,6 @@
 	overdose = 10
 	strength = 1.5 // makes up for it with slight suffocation damage
 
-	glass_icon_state = "lean"
 	glass_name = "glass of purple drank"
 	glass_desc = "Bottoms up."
 

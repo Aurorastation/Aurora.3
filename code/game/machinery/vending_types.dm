@@ -281,8 +281,6 @@
 		/obj/item/reagent_containers/food/snacks/spacetwinkie = 6,
 		/obj/item/reagent_containers/food/snacks/cheesiehonkers = 6,
 		/obj/item/reagent_containers/food/snacks/tastybread = 6,
-		/obj/item/storage/box/pineapple = 4,
-		/obj/item/reagent_containers/food/snacks/chocolatebar = 6,
 		/obj/item/storage/box/fancy/cookiesnack = 6,
 		/obj/item/storage/box/fancy/gum = 4,
 		/obj/item/clothing/mask/chewable/candy/lolli = 8,
@@ -314,8 +312,6 @@
 		/obj/item/reagent_containers/food/snacks/spacetwinkie = 15,
 		/obj/item/reagent_containers/food/snacks/cheesiehonkers = 15,
 		/obj/item/reagent_containers/food/snacks/tastybread = 18,
-		/obj/item/storage/box/pineapple = 20,
-		/obj/item/reagent_containers/food/snacks/chocolatebar = 12,
 		/obj/item/storage/box/fancy/gum = 15,
 		/obj/item/clothing/mask/chewable/candy/lolli = 2,
 		/obj/item/storage/box/fancy/admints = 12,
@@ -343,6 +339,7 @@
 	vend_id = "cola"
 	products = list(
 		/obj/item/reagent_containers/food/drinks/cans/cola = 10,
+		/obj/item/reagent_containers/food/drinks/cans/diet_cola = 10,
 		/obj/item/reagent_containers/food/drinks/cans/space_mountain_wind = 10,
 		/obj/item/reagent_containers/food/drinks/cans/dr_gibb = 10,
 		/obj/item/reagent_containers/food/drinks/cans/root_beer = 10,
@@ -367,6 +364,7 @@
 	)
 	prices = list(
 		/obj/item/reagent_containers/food/drinks/cans/cola = 15,
+		/obj/item/reagent_containers/food/drinks/cans/diet_cola = 15,
 		/obj/item/reagent_containers/food/drinks/cans/space_mountain_wind = 11,
 		/obj/item/reagent_containers/food/drinks/cans/dr_gibb = 16,
 		/obj/item/reagent_containers/food/drinks/cans/root_beer = 13,

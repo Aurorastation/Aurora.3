@@ -142,9 +142,7 @@
 				/obj/item/reagent_containers/food/drinks/flask,
 				/obj/item/storage/box/fancy/cigarettes,
 				/obj/item/flame/lighter,
-				/obj/item/disk/nuclear,
-				/obj/item/crowbar,
-				/obj/item/airbubble
+				/obj/item/disk/nuclear
 				)
 	starts_with = list(
 					/obj/item/clothing/mask/breath = 1,

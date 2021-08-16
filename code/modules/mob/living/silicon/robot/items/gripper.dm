@@ -108,15 +108,14 @@
 	set desc = "Release an item from your magnetic gripper."
 	set category = "Robot Commands"
 
-	drop(get_turf(src), usr)
+	drop(get_turf(src))
 
-/obj/item/gripper/proc/drop(var/atom/target, mob/user, var/feedback = TRUE)
+/obj/item/gripper/proc/drop(var/atom/target, var/feedback = TRUE)
 	if(wrapped)
 		if(wrapped.loc == src)
 			if(force_holder)
 				wrapped.force = force_holder
 			wrapped.forceMove(target)
-			wrapped.dropped(user)
 			force_holder = null
 		if(feedback)
 			to_chat(loc, SPAN_NOTICE("You release \the [wrapped].")) // loc will always be the cyborg
@@ -146,9 +145,6 @@
 
 /obj/item/gripper/attackby(obj/item/O, mob/user)
 	if(wrapped)
-		if(O == wrapped)
-			attack_self(user) //Allows gripper to be clicked to use item. 
-			return
 		var/resolved = wrapped.attackby(O,user)
 		if(!resolved && wrapped && O)
 			O.afterattack(wrapped, user ,1)//We pass along things targeting the gripper, to objects inside the gripper. So that we can draw chemicals from held beakers for instance
