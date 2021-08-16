@@ -134,12 +134,12 @@
 	default_accent = ACCENT_TTS
 	allowed_accents = list(ACCENT_TTS, ACCENT_ZORA, ACCENT_KLAX, ACCENT_CTHUR)
 
-	alterable_internal_organs = list(BP_EYES)
+	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH)
 
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	H.gender = NEUTER
-	var/obj/item/clothing/mask/breath/M = new /obj/item/clothing/mask/breath(H)
+	var/obj/item/clothing/mask/breath/vaurca/filter/M = new /obj/item/clothing/mask/breath/vaurca/filter(H)
 	if(H.equip_to_slot_or_del(M, slot_wear_mask))
 		M.autodrobe_no_remove = 1
 
