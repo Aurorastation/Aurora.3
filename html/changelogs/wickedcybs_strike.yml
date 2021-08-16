@@ -1,6 +1,0 @@
-author: WickedCybs
-
-delete-after: True
-
-changes:
-  - bugfix: "Eridani ERT responders got ID cards with no additional access added, which wasn't intentional. They get standard distress access now and the Lead can actually use their hardsuit."
