@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - bugfix: "Trimmed minor bits of the Taj Colour Patches pattern. It displayed a little oddly."
