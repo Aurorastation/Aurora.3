@@ -314,3 +314,9 @@
 
 /mob/living/carbon/human/proc/is_listening()
 	return LAZYISIN(intent_listener, src)
+
+/mob/living/carbon/human/is_anti_materiel_vulnerable()
+	if(isSynthetic())
+		return TRUE
+	else
+		return FALSE

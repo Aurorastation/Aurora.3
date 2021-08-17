@@ -166,6 +166,8 @@
 #define BP_AUG_EMOTION         "emotional manipulator"
 #define BP_AUG_ENCHANED_VISION "vision enhanced retinas"
 #define BP_AUG_SIGHTLIGHTS     "ocular installed sightlights"
+#define BP_AUG_CORRECTIVE_LENS "corrective lenses"
+#define BP_AUG_GLARE_DAMPENER "glare dampeners"
 
 //Organ defines
 #define PROCESS_ACCURACY 10
@@ -234,14 +236,14 @@
 #define IPC_OWNERSHIP_COMPANY "Company Owned"
 #define IPC_OWNERSHIP_PRIVATE "Privately Owned"
 
-// NT's alignment towards the character
-#define COMPANY_LOYAL 			"Loyal"
-#define COMPANY_SUPPORTATIVE	"Supportive"
-#define COMPANY_NEUTRAL 		"Neutral"
-#define COMPANY_SKEPTICAL		"Skeptical"
-#define COMPANY_OPPOSED			"Opposed"
+// How wealthy/poor a character is
+#define ECONOMICALLY_WEALTHY	"Wealthy"
+#define ECONOMICALLY_WELLOFF	"Well-off"
+#define ECONOMICALLY_AVERAGE	"Average"
+#define ECONOMICALLY_UNDERPAID	"Underpaid"
+#define ECONOMICALLY_POOR		"Poor"
 
-#define COMPANY_ALIGNMENTS		list(COMPANY_LOYAL,COMPANY_SUPPORTATIVE,COMPANY_NEUTRAL,COMPANY_SKEPTICAL,COMPANY_OPPOSED)
+#define ECONOMIC_POSITIONS		list(ECONOMICALLY_WEALTHY, ECONOMICALLY_WELLOFF, ECONOMICALLY_AVERAGE, ECONOMICALLY_UNDERPAID, ECONOMICALLY_POOR)
 
 // Defines the argument used for get_mobs_and_objs_in_view_fast
 #define GHOSTS_ALL_HEAR 1
@@ -429,6 +431,8 @@
 #define REMOTE_BUNKER_ROBOT "bunkerrobots"
 #define REMOTE_PRISON_ROBOT "prisonrobots"
 #define REMOTE_WARDEN_ROBOT "wardenrobots"
+
+#define REMOTE_AI_ROBOT "airobots"
 
 // Robot Overlay Defines
 #define ROBOT_PANEL_EXPOSED  "exposed"

@@ -261,7 +261,7 @@
 	},
 /obj/structure/coatrack,
 /obj/item/clothing/accessory/tajaran,
-/obj/item/clothing/suit/storage/tajaran,
+/obj/item/clothing/suit/storage/toggle/tajaran/wool,
 /obj/item/clothing/accessory/poncho/tajarancloak/fancy,
 /turf/simulated/floor/wood,
 /area/derelict/ship)

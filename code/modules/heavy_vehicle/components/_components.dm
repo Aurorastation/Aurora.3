@@ -46,7 +46,7 @@
 
 /obj/item/mech_component/proc/return_diagnostics(var/mob/user)
 	to_chat(user, SPAN_NOTICE("[capitalize_first_letters(src.name)]:"))
-	to_chat(user, SPAN_NOTICE(" - Integrity: <b>[round(((max_damage - total_damage) / max_damage)) * 100]%</b>" ))
+	to_chat(user, SPAN_NOTICE(" - Integrity: <b>[round(((max_damage - total_damage) / max_damage) * 100, 0.1)]%</b>" ))
 
 /obj/item/mech_component/proc/prebuild()
 	return

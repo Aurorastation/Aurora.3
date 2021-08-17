@@ -45,7 +45,10 @@ do { \
 
 /obj/effect/mazegen/generator/Initialize(mapload)
 	. = ..()
-	LAZYADD(SSatoms.late_misc_firers, src)
+	check_add_to_late_firers()
+
+/obj/effect/mazegen/generator/do_late_fire()
+	run_generator()
 
 /obj/effect/mazegen/generator/Destroy()
 	LAZYREMOVE(SSatoms.late_misc_firers, src)

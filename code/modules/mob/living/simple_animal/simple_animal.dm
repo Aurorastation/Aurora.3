@@ -659,7 +659,7 @@
 
 /mob/living/simple_animal/updatehealth()
 	..()
-	if (health <= 0)
+	if (health <= 0 && (stat != DEAD))
 		death()
 
 /mob/living/simple_animal/death(gibbed, deathmessage = "dies!")
@@ -929,6 +929,12 @@
 
 /mob/living/simple_animal/set_respawn_time()
 	set_death_time(ANIMAL, world.time)
+
+/mob/living/simple_animal/is_anti_materiel_vulnerable()
+	if(isSynthetic())
+		return TRUE
+	else
+		return FALSE
 
 #undef BLOOD_NONE
 #undef BLOOD_LIGHT

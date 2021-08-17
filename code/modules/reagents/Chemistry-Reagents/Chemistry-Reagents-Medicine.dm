@@ -15,7 +15,7 @@
 /decl/reagent/inaprovaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(check_min_dose(M, 0.25))
 		M.add_chemical_effect(CE_STABLE)
-		M.add_chemical_effect(CE_PAINKILLER, 25)
+		M.add_chemical_effect(CE_PAINKILLER, 10)
 
 /decl/reagent/inaprovaline/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(2))
@@ -161,7 +161,7 @@
 	overdose = REAGENTS_OVERDOSE
 	scannable = TRUE
 	taste_description = "bitterness"
-	metabolism = REM
+	metabolism = REM * 0.75
 	breathe_met = REM * 0.5
 	breathe_mul = 2
 	var/strength = 6
@@ -265,7 +265,12 @@
 
 /decl/reagent/perconol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(check_min_dose(M))
-		M.add_chemical_effect(CE_PAINKILLER, 50)
+		M.add_chemical_effect(CE_PAINKILLER, 35)
+		M.add_up_to_chemical_effect(CE_NOFEVER, 5) //Good enough to handle fevers for a few light infections or one bad one.
+
+/decl/reagent/perconol/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(check_min_dose(M))
+		M.add_chemical_effect(CE_PAINKILLER, 30)
 		M.add_up_to_chemical_effect(CE_NOFEVER, 5) //Good enough to handle fevers for a few light infections or one bad one.
 
 /decl/reagent/perconol/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
@@ -289,7 +294,7 @@
 
 /decl/reagent/mortaphenyl/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(check_min_dose(M))
-		M.add_chemical_effect(CE_PAINKILLER, 80)
+		M.add_chemical_effect(CE_PAINKILLER, 50)
 		if(!M.chem_effects[CE_CLEARSIGHT])
 			M.eye_blurry = max(M.eye_blurry, 5)
 		if(!M.chem_effects[CE_STRAIGHTWALK])
@@ -306,8 +311,11 @@
 		if(M.losebreath < 15)
 			M.losebreath++
 
-	if(REAGENT_VOLUME(M.reagents, /decl/reagent/oxycomorphine))
-		overdose = REAGENT_VOLUME(holder, type)/2 //Straight to overdose.
+	if(REAGENT_VOLUME(M.reagents, /decl/reagent/oxycomorphine)) //Straight to overdose.
+		M.hallucination = max(M.hallucination, 40)
+		M.add_chemical_effect(CE_EMETIC, M.chem_doses[type]/6)
+		if(M.losebreath < 15)
+			M.losebreath++
 
 /decl/reagent/mortaphenyl/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	..()
@@ -326,7 +334,7 @@
 	taste_description = "euphoric acid"
 
 /decl/reagent/mortaphenyl/aphrodite/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.add_chemical_effect(CE_PAINKILLER, 70)
+	M.add_chemical_effect(CE_PAINKILLER, 40)
 	if(!M.chem_effects[CE_CLEARSIGHT])
 		M.eye_blurry = max(M.eye_blurry, 3)
 	if(!M.chem_effects[CE_STRAIGHTWALK])
@@ -407,7 +415,7 @@
 	if(.)
 		M.add_chemical_effect(CE_CLEARSIGHT)
 		M.add_chemical_effect(CE_STRAIGHTWALK)
-		M.add_chemical_effect(CE_PAINKILLER, 40)
+		M.add_chemical_effect(CE_PAINKILLER, 30)
 		M.add_chemical_effect(CE_HALLUCINATE, -1)
 		M.add_up_to_chemical_effect(CE_ADRENALINE, 1)
 
@@ -1271,11 +1279,19 @@
 	scannable = TRUE
 	taste_description = "sickness"
 
+/decl/reagent/rezadone/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	. = ..()
+	if(.)
+		M.add_chemical_effect(CE_ORGANREPAIR, 1)
+		M.add_chemical_effect(CE_BLOODRESTORE, 15)
+
 /decl/reagent/rezadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustCloneLoss(-20 * removed)
 	M.adjustOxyLoss(-2 * removed)
 	M.heal_organ_damage(20 * removed, 20 * removed)
 	M.adjustToxLoss(-1 * removed)
+	if(M.is_asystole() && prob(20))
+		M.resuscitate()
 	if(M.chem_doses[type] > 3)
 		M.status_flags &= ~DISFIGURED
 	if(M.chem_doses[type] > 10)

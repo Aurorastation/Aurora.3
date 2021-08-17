@@ -91,6 +91,11 @@
 
 		var/is_full = (fullness >= user.max_nutrition)
 
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
+			if (H.species && H.species.bypass_food_fullness())
+				is_full = FALSE
+
 		if(user == target)
 			if(!user.can_eat(src))
 				return
@@ -247,8 +252,10 @@
 
 			var/reagents_per_slice = reagents.total_volume/slices_num
 			for(var/i=1 to (slices_num-slices_lost))
-				var/obj/slice = new slice_path (src.loc)
+				var/obj/item/reagent_containers/food/slice = new slice_path (src.loc)
 				reagents.trans_to_obj(slice, reagents_per_slice)
+				slice.filling_color = filling_color
+				slice.update_icon()
 			qdel(src)
 			return
 
@@ -4723,7 +4730,7 @@
 	desc = "A small, crispy Adhomian pie meant for one person filled with fruits."
 	icon_state = "rikazu_fruit"
 	bitesize = 2
-	reagents_to_add = list(/decl/reagent/nutriment = 8) 
+	reagents_to_add = list(/decl/reagent/nutriment = 8)
 	reagent_data = list(/decl/reagent/nutriment = list("crispy dough" = 4, "sweet fruit" = 4))
 	desc_fluff = "Small pies, often hand-sized, usually made by folding dough overstuffing of fruit and cream cheese; commonly served hot. The simple preparation makes it a fast favorite, and the versatility of the ingredients has gained its favor with Tajara of all creeds. Different variations of Rikazu pop up all over Adhomai, some filled with meats, or vegetables, or even imported ingredients, like chocolate filling."
 	filling_color = "#BD8939"
@@ -4733,7 +4740,7 @@
 	desc = "A small, crispy Adhomian pie meant for one person filled with meat."
 	icon_state = "rikazu_meat"
 	bitesize = 2
-	reagents_to_add = list(/decl/reagent/nutriment = 4, /decl/reagent/nutriment/protein = 4) 
+	reagents_to_add = list(/decl/reagent/nutriment = 4, /decl/reagent/nutriment/protein = 4)
 	reagent_data = list(/decl/reagent/nutriment = list("crispy dough" = 4), /decl/reagent/nutriment/protein = list("savory meat" = 4))
 	desc_fluff = "Small pies, often hand-sized, usually made by folding dough overstuffing of fruit and cream cheese; commonly served hot. The simple preparation makes it a fast favorite, and the versatility of the ingredients has gained its favor with Tajara of all creeds. Different variations of Rikazu pop up all over Adhomai, some filled with meats, or vegetables, or even imported ingredients, like chocolate filling."
 	filling_color = "#BD8939"
@@ -4743,7 +4750,7 @@
 	desc = "A small, crispy Adhomian pie meant for one person filled with vegetables."
 	icon_state = "rikazu_veg"
 	bitesize = 2
-	reagents_to_add = list(/decl/reagent/nutriment = 8) 
+	reagents_to_add = list(/decl/reagent/nutriment = 8)
 	reagent_data = list(/decl/reagent/nutriment = list("crispy dough" = 4, "crunchy vegetables" = 4))
 	desc_fluff = "Small pies, often hand-sized, usually made by folding dough overstuffing of fruit and cream cheese; commonly served hot. The simple preparation makes it a fast favorite, and the versatility of the ingredients has gained its favor with Tajara of all creeds. Different variations of Rikazu pop up all over Adhomai, some filled with meats, or vegetables, or even imported ingredients, like chocolate filling."
 	filling_color = "#BD8939"
@@ -4753,7 +4760,7 @@
 	desc = "A small, crispy Adhomian pie meant for one person filled with chocolate."
 	icon_state = "rikazu_choc"
 	bitesize = 2
-	reagents_to_add = list(/decl/reagent/nutriment = 8) 
+	reagents_to_add = list(/decl/reagent/nutriment = 8)
 	reagent_data = list(/decl/reagent/nutriment = list("crispy dough" = 4, "smooth chocolate" = 4))
 	desc_fluff = "Small pies, often hand-sized, usually made by folding dough overstuffing of fruit and cream cheese; commonly served hot. The simple preparation makes it a fast favorite, and the versatility of the ingredients has gained its favor with Tajara of all creeds. Different variations of Rikazu pop up all over Adhomai, some filled with meats, or vegetables, or even imported ingredients, like chocolate filling."
 	filling_color = "#BD8939"
@@ -4801,7 +4808,7 @@
 /obj/item/reagent_containers/food/snacks/fatshouterslice/filled
 	reagents_to_add = list(/decl/reagent/nutriment/protein = 2, /decl/reagent/nutriment = 2, /decl/reagent/alcohol/messa_mead = 1)
 	reagent_data = list(/decl/reagent/nutriment/protein = list("juicy meat" = 2), /decl/reagent/nutriment = list("flaky dough" = 1, "savoury vegetables" = 1))
-	
+
 /obj/item/reagent_containers/food/snacks/sliceable/zkahnkowafull
 	name = "Zkah'nkowa"
 	desc = "A large smoked sausage."
@@ -5151,3 +5158,36 @@
 	reagent_data = list(/decl/reagent/nutriment = list("diona delicacy" = 5))
 	reagents_to_add = list(/decl/reagent/nutriment = 8, /decl/reagent/drink/carrotjuice = 2, /decl/reagent/drink/potatojuice = 2, /decl/reagent/radium = 2)
 	filling_color = "#BD8939"
+
+/obj/item/reagent_containers/food/snacks/koissteak
+	name = "k'ois steak"
+	desc = "Some well-done k'ois, grilled to perfection."
+	icon_state = "kois_steak"
+	filling_color = "#dcd9cd"
+	reagents_to_add = list(/decl/reagent/kois = 20, /decl/reagent/toxin/phoron = 15)
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/donut/kois
+	name = "k'ois donut"
+	desc = "Deep fried k'ois shaped into a donut."
+	icon_state = "kois_donut"
+	filling_color = "#dcd9cd"
+	overlay_state = "box-kois_donut"
+	reagents_to_add = list(/decl/reagent/kois = 15, /decl/reagent/toxin/phoron = 10)
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/koismuffin
+	name = "k'ois muffin"
+	desc = "Baked k'ois goop, molded into a little cake."
+	icon_state = "kois_muffin"
+	filling_color = "#dcd9cd"
+	reagents_to_add = list(/decl/reagent/kois = 10, /decl/reagent/toxin/phoron = 15)
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/koisburger
+	name = "k'ois burger"
+	desc = "K'ois inside k'ois. Peak Vaurcesian cuisine."
+	icon_state = "kois_burger"
+	filling_color = "#dcd9cd"
+	reagents_to_add = list(/decl/reagent/kois = 20, /decl/reagent/toxin/phoron = 20)
+	bitesize = 2

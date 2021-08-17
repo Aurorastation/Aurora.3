@@ -142,7 +142,7 @@
 		var/list/extra_mobs = list()
 		if(holder.wearer != user)
 			extra_mobs += holder.wearer
-		gun.toggle_firing_mode(user)
+		gun.toggle_firing_mode(user, extra_mobs)
 		return TRUE
 
 	gun.Fire(target, user)
