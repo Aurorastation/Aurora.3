@@ -1,0 +1,6 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - tweak: "Custom cakes are now sliceable."
