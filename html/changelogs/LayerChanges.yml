@@ -1,0 +1,7 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Wrist clothing and wrist radios now have a verb to change layer to be under suits and other outer wear."
+  - bugfix: "Glasses will now instantly change layer."
