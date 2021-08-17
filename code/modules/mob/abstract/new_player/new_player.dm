@@ -431,7 +431,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 /mob/abstract/new_player/show_message(msg, type, alt, alt_type)
 	return
 
-mob/abstract/new_player/proc/check_preferred_job(var/department_flag, var/job_flag)
+/mob/abstract/new_player/proc/check_preferred_job(var/department_flag, var/job_flag)
 	var/list/jobs_by_dept = client.prefs.get_jobs_by_dept(department_flag)
 	if(bitflag_in_list(job_flag, jobs_by_dept))
 		return TRUE
