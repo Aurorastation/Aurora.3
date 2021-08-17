@@ -1,0 +1,6 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - tweak: "Wiping cutlery with a rag now removes loaded food."
