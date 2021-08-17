@@ -944,9 +944,9 @@
 
 /obj/item/storage/box/papersack/update_icon()
 	. = ..()
-	if(contents.len == 0)
+	if(length(contents) == 0 )
 		icon_state = "paperbag_[choice]"
-	else if(contents.len <8)
+	else if(length(contents) <8 )
 		icon_state = "paperbag_[choice]-food"
 
 /obj/item/storage/box/papersack/attackby(obj/item/O, mob/user)
@@ -981,7 +981,7 @@
 		return
 
 	else if(O.isscrewdriver())
-		if(contents.len == 0)
+		if(length(contents) == 0 )
 			to_chat(user, SPAN_NOTICE("You begin poking holes in \the [src]."))
 			if (do_after(user, 10/O.toolspeed, act_target = src))
 				if(choice == "SmileyFace")
