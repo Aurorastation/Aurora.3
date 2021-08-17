@@ -930,6 +930,12 @@
 /mob/living/simple_animal/set_respawn_time()
 	set_death_time(ANIMAL, world.time)
 
+/mob/living/simple_animal/is_anti_materiel_vulnerable()
+	if(isSynthetic())
+		return TRUE
+	else
+		return FALSE
+
 #undef BLOOD_NONE
 #undef BLOOD_LIGHT
 #undef BLOOD_MEDIUM
