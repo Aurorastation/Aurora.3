@@ -72,9 +72,12 @@
 	return
 
 /obj/machinery/megavendor/vendor/attack_hand(mob/user)
+	..()
 	if(ishuman(user) && Adjacent(user))
 		var/mob/living/carbon/human/H = user
 		if(!H.megavend)
 			flick("telefast",src)
 			playsound(src,'sound/effects/sparks4.ogg',50,1)
 			megavend(H)
+		else
+			to_chat("\The [src]'s screen lights up a brief message: 'Equipment already claimed. Have a nice day!'")
