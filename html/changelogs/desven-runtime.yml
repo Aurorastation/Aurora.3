@@ -1,0 +1,6 @@
+author: Desven
+
+delete-after: True
+
+changes:
+  - rscadd: "Changes the cat item icon when holding it so it actually looks like Bones now."
