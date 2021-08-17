@@ -75,7 +75,7 @@
 /obj/item/material/kitchen/utensil/on_rag_wipe()
 	. = ..()
 	if(reagents.total_volume > 0)
-		reagents = null
+		reagents.clear_reagents()
 		is_liquid = FALSE
 		loaded = null
 		cut_overlays()
