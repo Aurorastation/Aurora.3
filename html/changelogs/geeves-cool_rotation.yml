@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Turrets and solar panels now rotate to face a specific angle instead of hard directions."
