@@ -985,9 +985,11 @@
 			to_chat(user, SPAN_NOTICE("You begin poking holes in \the [src]."))
 			if (do_after(user, 10/O.toolspeed, act_target = src))
 				if(choice == "SmileyFace")
-					new /obj/item/clothing/head/papersack/smiley(src.loc)
+					var/obj/item/clothing/head/papersack/smiley/S = new()
+					user.put_in_hands(S)
 				else    
-					new /obj/item/clothing/head/papersack(src.loc)
+					var/obj/item/clothing/head/papersack/PS = new()
+					user.put_in_hands(PS)
 				qdel(src)
 		else
 			to_chat(user, SPAN_WARNING("\The [src] needs to be empty before you can do that!"))
