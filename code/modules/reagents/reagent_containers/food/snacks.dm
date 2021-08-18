@@ -5191,3 +5191,33 @@
 	filling_color = "#dcd9cd"
 	reagents_to_add = list(/decl/reagent/kois = 20, /decl/reagent/toxin/phoron = 20)
 	bitesize = 2
+
+/obj/item/storage/box/fancy/vkrexitaffy
+	name = "V'krexi Snax"
+	desc = "A packet of V'krexi taffy. Made from free-range V'krexi!"
+	desc_fluff = "V'krexi, while edible, hold no nutritional value, either for humans or Vaurca. The V'krexi meat was mostly neglected until human food-processing techniques were introduced to the Zo'ra Hive."
+	icon = 'icons/obj/food.dmi'
+	icon_state = "vkrexitaffy"
+	icon_type = "vkrexi"
+	storage_type = "packaging"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/vkrexitaffy = 6)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/vkrexitaffy)
+	max_storage_space = 6
+
+	use_sound = 'sound/items/storage/wrapper.ogg'
+	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
+
+	trash = /obj/item/trash/vkrexitaffy
+	closable = FALSE
+	icon_overlays = FALSE
+
+/obj/item/reagent_containers/food/snacks/vkrexitaffy
+	name = "V'krexi taffy"
+	desc = "A delicious V'krexi chewy candy."
+	icon_state = "vkrexichewy"
+	slot_flags = SLOT_EARS
+	filling_color = "#dcd9cd"
+	reagents_to_add = list(/decl/reagent/mental/vkrexi = 5)
+	reagent_data = list(/decl/reagent/mental/vkrexi = list("bittersweetness" = 1, "regret" = 1, "insect meat" = 1))
+	bitesize = 1
