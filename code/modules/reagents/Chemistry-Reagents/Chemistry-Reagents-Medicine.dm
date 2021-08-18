@@ -1487,7 +1487,7 @@
 	scannable = TRUE
 	color = "#d6ec57"
 	metabolism = 0.4 * REM
-	taste_description = "bittersweetness"
+	taste_description = "bittersweetness, insect meat and regret"
 	metabolism_min = 0.5
 	breathe_mul = 0
 	goodmessage = list("You feel strange, in a good way.")

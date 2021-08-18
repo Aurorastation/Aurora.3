@@ -5219,5 +5219,4 @@
 	slot_flags = SLOT_EARS
 	filling_color = "#dcd9cd"
 	reagents_to_add = list(/decl/reagent/mental/vkrexi = 0.5)
-	reagent_data = list(/decl/reagent/mental/vkrexi = list("bittersweetness" = 1, "regret" = 2, "insect meat" = 1))
 	bitesize = 1
