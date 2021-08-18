@@ -1917,7 +1917,10 @@
 /mob/living/carbon/human/should_have_organ(var/organ_check)
 	return (species?.has_organ[organ_check])
 
-/mob/living/carbon/human/proc/resuscitate()
+/mob/living/proc/resuscitate()
+	return FALSE
+
+/mob/living/carbon/human/resuscitate()
 	if(!is_asystole() || !should_have_organ(BP_HEART))
 		return
 	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]

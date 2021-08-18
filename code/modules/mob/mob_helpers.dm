@@ -1247,3 +1247,10 @@ proc/is_blind(A)
 
 /mob/proc/handle_vision()
 	return
+
+/mob/proc/set_name(var/new_name)
+	real_name = new_name
+	name = real_name
+	voice_name = real_name
+	if(mind)
+		mind.name = real_name
