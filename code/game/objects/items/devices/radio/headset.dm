@@ -17,6 +17,8 @@
 	var/ks2type = null
 	var/radio_sound = null
 
+	var/EarSound = TRUE
+
 	drop_sound = 'sound/items/drop/component.ogg'
 	pickup_sound = 'sound/items/pickup/component.ogg'
 
@@ -69,6 +71,8 @@
 		var/mob/living/carbon/human/H = src.loc
 		if(H.l_ear == src || H.r_ear == src)
 			return ..(freq, level)
+	if(!EarSound)
+		return ..(freq, level)
 	return -1
 
 /obj/item/device/radio/headset/attack_hand(mob/user)
@@ -171,6 +175,33 @@
 	icon_state = "headset_alt"
 	item_state = "headset_alt"
 
+/obj/item/device/radio/headset/alt/double
+	name = "soundproof headset"
+	icon_state = "earset"
+	item_state = "earset"
+	item_flags = SOUNDPROTECTION
+	slot_flags = SLOT_EARS | SLOT_TWOEARS
+
+/obj/item/device/radio/headset/wrist
+	name = "wristbound radio"
+	icon_state = "wristset"
+	item_state = "wristset"
+	slot_flags = SLOT_WRISTS
+	canhear_range = 1
+	var/normal_layer = TRUE
+	EarSound = FALSE
+
+/obj/item/device/radio/headset/wrist/verb/change_layer()
+	set category = "Object"
+	set name = "Change Wrist Layer"
+	set src in usr
+
+	normal_layer = !normal_layer
+	to_chat(usr, SPAN_NOTICE("\The [src] will now layer [normal_layer ? "under" : "over"] your outerwear."))
+	if (ismob(src.loc))
+		var/mob/M = src.loc
+		M.update_inv_wrists()	
+
 /*
  * Civillian
  */
@@ -186,6 +217,18 @@
 	icon_state = "srv_headset_alt"
 	icon_state = "headset_alt"
 
+/obj/item/device/radio/headset/alt/double/service
+	name = "soundproof service headset"
+	icon_state = "earset_srv"
+	item_state = "earset_srv"
+	ks2type = /obj/item/device/encryptionkey/headset_service
+
+/obj/item/device/radio/headset/wrist/service
+	name = "wristbound service radio"
+	icon_state = "wristset_srv"
+	item_state = "wristset_srv"
+	ks2type = /obj/item/device/encryptionkey/headset_service
+
 /obj/item/device/radio/headset/heads/hop
 	name = "head of personnel's headset"
 	desc = "The headset of the guy who will one day be captain."
@@ -196,6 +239,18 @@
 	name = "head of personnel's bowman headset"
 	icon_state = "hop_headset_alt"
 	item_state = "headset_alt"
+
+/obj/item/device/radio/headset/alt/double/hop
+	name = "head of personnel's soundproof headset"
+	icon_state = "earset_HoP"
+	item_state = "earset_HoP"
+	ks2type = /obj/item/device/encryptionkey/heads/hop
+
+/obj/item/device/radio/headset/wrist/hop
+	name = "head of personnel's wristbound radio"
+	icon_state = "wristset_HoP"
+	item_state = "wristset_HoP"
+	ks2type = /obj/item/device/encryptionkey/heads/hop
 
 /*
  * Engineering
@@ -212,6 +267,18 @@
 	icon_state = "eng_headset_alt"
 	item_state = "headset_alt"
 
+/obj/item/device/radio/headset/alt/double/eng
+	name = "soundproof engineering headset"
+	icon_state = "earset_eng"
+	item_state = "earset_eng"
+	ks2type = /obj/item/device/encryptionkey/headset_eng
+
+/obj/item/device/radio/headset/wrist/eng
+	name = "wristbound engineering radio"
+	icon_state = "wristset_eng"
+	item_state = "wristset_eng"
+	ks2type = /obj/item/device/encryptionkey/headset_eng
+
 /obj/item/device/radio/headset/heads/ce
 	name = "chief engineer's headset"
 	desc = "The headset of the guy who is in charge of morons."
@@ -222,6 +289,19 @@
 	name = "chief engineer's bowman headset"
 	icon_state = "ce_headset_alt"
 	item_state = "headset_alt"
+
+/obj/item/device/radio/headset/alt/double/ce
+	name = "chief engineer's soundproof headset"
+	icon_state = "earset_CE"
+	item_state = "earset_CE"
+	ks2type = /obj/item/device/encryptionkey/heads/ce
+
+/obj/item/device/radio/headset/wrist/ce
+	name = "chief engineer's wristbound radio"
+	icon_state = "wristset_CE"
+	item_state = "wristset_CE"
+	ks2type = /obj/item/device/encryptionkey/heads/ce
+
 
 /*
  * Cargo
@@ -238,6 +318,19 @@
 	icon_state = "cargo_headset_alt"
 	item_state = "headset_alt"
 
+/obj/item/device/radio/headset/alt/double/cargo
+	name = "soundproof cargo headset"
+	icon_state = "earset_cargo"
+	item_state = "earset_cargo"
+	ks2type = /obj/item/device/encryptionkey/headset_cargo
+
+/obj/item/device/radio/headset/wrist/cargo
+	name = "wristbound cargo radio"
+	icon_state = "wristset_cargo"
+	item_state = "wristset_cargo"
+	ks2type = /obj/item/device/encryptionkey/headset_cargo
+
+
 /obj/item/device/radio/headset/headset_mining
 	name = "mining radio headset"
 	desc = "Headset used by dwarves. It has an inbuilt subspace antenna for better reception."
@@ -249,6 +342,17 @@
 	icon_state = "mine_headset_alt"
 	item_state = "headset_alt"
 
+/obj/item/device/radio/headset/alt/double/mining
+	name = "soundproof mining headset"
+	icon_state = "earset_Mine"
+	item_state = "earset_Mine"
+	ks2type = /obj/item/device/encryptionkey/headset_cargo
+
+/obj/item/device/radio/headset/wrist/cargo/mining
+	name = "wristbound mining radio"
+	icon_state = "wristset_mine"
+	item_state = "wristset_mine"
+
 /obj/item/device/radio/headset/qm
 	name = "quartermaster's headset"
 	desc = "A headset used by the head honcho of paper pushing."
@@ -259,6 +363,17 @@
 	name = "quartermaster bowman headset"
 	icon_state = "qm_headset_alt"
 	item_state = "headset_alt"
+
+/obj/item/device/radio/headset/alt/double/qm
+	name = "soundproof quartermaster headset"
+	icon_state = "earset_QM"
+	item_state = "earset_QM"
+	ks2type = /obj/item/device/encryptionkey/headset_cargo
+
+/obj/item/device/radio/headset/wrist/cargo/qm
+	name = "wristbound quartermaster radio"
+	icon_state = "wristset_QM"
+	item_state = "wristset_QM"
 
 /*
  * Medical
@@ -275,6 +390,18 @@
 	icon_state = "med_headset_alt"
 	item_state = "headset_alt"
 
+/obj/item/device/radio/headset/alt/double/med
+	name = "soundproof medical headset"
+	icon_state = "earset_med"
+	item_state = "earset_med"
+	ks2type = /obj/item/device/encryptionkey/headset_med
+
+/obj/item/device/radio/headset/wrist/med
+	name = "wristbound medical radio"
+	icon_state = "wristset_med"
+	item_state = "wristset_med"
+	ks2type = /obj/item/device/encryptionkey/headset_med
+
 /obj/item/device/radio/headset/heads/cmo
 	name = "chief medical officer's headset"
 	desc = "The headset of the highly trained medical chief."
@@ -285,6 +412,18 @@
 	name = "chief medical officer's bowman headset"
 	icon_state = "cmo_headset_alt"
 	item_state = "headset_alt"
+
+/obj/item/device/radio/headset/alt/double/cmo
+	name = "chief medical officer's soundproof headset"
+	icon_state = "earset_CMO"
+	item_state = "earset_CMO"
+	ks2type = /obj/item/device/encryptionkey/heads/cmo
+
+/obj/item/device/radio/headset/wrist/cmo
+	name = "chief medical officer's wristbound radio"
+	icon_state = "wristset_CMO"
+	item_state = "wristset_CMO"
+	ks2type = /obj/item/device/encryptionkey/heads/cmo
 
 /*
  * Science
@@ -299,6 +438,18 @@
 /obj/item/device/radio/headset/headset_sci/alt
 	name = "science bowman headset"
 	icon_state = "sci_headset_alt"
+
+/obj/item/device/radio/headset/alt/double/sci
+	name = "soundproof science headset"
+	icon_state = "earset_sci"
+	item_state = "earset_sci"
+	ks2type = /obj/item/device/encryptionkey/headset_sci
+
+/obj/item/device/radio/headset/wrist/sci
+	name = "wristbound science radio"
+	icon_state = "wristset_sci"
+	item_state = "wristset_sci"
+	ks2type = /obj/item/device/encryptionkey/headset_sci
 
 /obj/item/device/radio/headset/headset_rob
 	name = "robotics radio headset"
@@ -317,6 +468,18 @@
 	icon_state = "rd_headset_alt"
 	item_state = "headset_alt"
 
+/obj/item/device/radio/headset/alt/double/rd
+	name = "soundproof research director's headset"
+	icon_state = "earset_RD"
+	item_state = "earset_RD"
+	ks2type = /obj/item/device/encryptionkey/heads/rd
+
+/obj/item/device/radio/headset/wrist/rd
+	name = "research director's wristbound radio"
+	icon_state = "wristset_RD"
+	item_state = "wristset_RD"
+	ks2type = /obj/item/device/encryptionkey/heads/rd
+
 /*
  * Security
  */
@@ -332,6 +495,18 @@
 	icon_state = "sec_headset_alt"
 	item_state = "headset_alt"
 
+/obj/item/device/radio/headset/alt/double/sec
+	name = "soundproof security headset"
+	icon_state = "earset_Sec"
+	item_state = "earset_Sec"
+	ks2type = /obj/item/device/encryptionkey/headset_sec
+
+/obj/item/device/radio/headset/wrist/sec
+	name = "wristbound security radio"
+	icon_state = "wristset_sec"
+	item_state = "wristset_sec"
+	ks2type = /obj/item/device/encryptionkey/headset_sec
+
 /obj/item/device/radio/headset/headset_warden
 	name = "warden radio headset"
 	desc = "This is used by your all-powerful overseer."
@@ -342,6 +517,14 @@
 	name = "warden bowman headset"
 	icon_state = "sec_headset_alt"
 	item_state = "headset_alt"
+
+/obj/item/device/radio/headset/alt/double/sec/warden
+	name = "soundproof warden headset"
+	ks2type = /obj/item/device/encryptionkey/headset_warden
+
+/obj/item/device/radio/headset/wrist/sec/warden
+	name = "wristbound warden radio"
+	ks2type = /obj/item/device/encryptionkey/headset_warden
 
 /obj/item/device/radio/headset/headset_penal
 	name = "penal radio headset"
@@ -360,6 +543,18 @@
 	icon_state = "hos_headset_alt"
 	item_state = "headset_alt"
 
+/obj/item/device/radio/headset/alt/double/hos
+	name = "head of security's soundproof headset"
+	icon_state = "earset_HoS"
+	item_state = "earset_HoS"
+	ks2type = /obj/item/device/encryptionkey/heads/hos
+
+/obj/item/device/radio/headset/wrist/hos
+	name = "head of security's wristbound radio"
+	icon_state = "wristset_HoS"
+	item_state = "wristset_HoS"
+	ks2type = /obj/item/device/encryptionkey/heads/hos
+
 /*
  * Captain
  */
@@ -375,6 +570,18 @@
 	icon_state = "com_headset_alt"
 	item_state = "headset_alt"
 
+/obj/item/device/radio/headset/alt/double/command
+	name = "soundproof command headset"
+	icon_state = "earset_com"
+	item_state = "earset_com"
+	ks2type = /obj/item/device/encryptionkey/headset_com
+
+/obj/item/device/radio/headset/wrist/command
+	name = "wristbound command radio"
+	icon_state = "wristset_com"
+	item_state = "wristset_com"
+	ks2type = /obj/item/device/encryptionkey/headset_com
+
 /obj/item/device/radio/headset/heads/captain
 	name = "captain's headset"
 	desc = "The headset of the boss."
@@ -385,6 +592,18 @@
 	name = "captain's bowman headset"
 	icon_state = "cap_headset_alt"
 	item_state = "headset_alt"
+
+/obj/item/device/radio/headset/alt/double/captain
+	name = "captain's soundproof headset"
+	icon_state = "earset_cap"
+	item_state = "earset_cap"
+	ks2type = /obj/item/device/encryptionkey/heads/captain
+
+/obj/item/device/radio/headset/wrist/captain
+	name = "captain's wristbound radio"
+	icon_state = "wristset_cap"
+	item_state = "wristset_cap"
+	ks2type = /obj/item/device/encryptionkey/heads/captain
 
 /*
  * Misc

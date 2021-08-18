@@ -13,10 +13,7 @@
 		new /obj/item/storage/backpack/industrial(src)
 	else
 		new /obj/item/storage/backpack/satchel_eng(src)
-	if (prob(70))
-		new /obj/item/clothing/accessory/storage/brown_vest(src)
-	else
-		new /obj/item/clothing/accessory/storage/webbing(src)
+	new /obj/item/clothing/accessory/storage/brown_vest(src)
 	new /obj/item/blueprints(src)
 	new /obj/item/clothing/under/rank/chief_engineer(src)
 	new /obj/item/clothing/head/hardhat/white(src)
@@ -121,10 +118,7 @@
 		new /obj/item/storage/backpack/industrial(src)
 	else
 		new /obj/item/storage/backpack/satchel_eng(src)
-	if (prob(70))
-		new /obj/item/clothing/accessory/storage/brown_vest(src)
-	else
-		new /obj/item/clothing/accessory/storage/webbing(src)
+	new /obj/item/clothing/accessory/storage/brown_vest(src)
 	new /obj/item/storage/toolbox/mechanical(src)
 	new /obj/item/device/radio/headset/headset_eng(src)
 	new /obj/item/device/radio/headset/headset_eng/alt(src)
@@ -149,10 +143,7 @@
 		new /obj/item/storage/backpack/industrial(src)
 	else
 		new /obj/item/storage/backpack/satchel_eng(src)
-	if (prob(70))
-		new /obj/item/clothing/accessory/storage/brown_vest(src)
-	else
-		new /obj/item/clothing/accessory/storage/webbing(src)
+	new /obj/item/clothing/accessory/storage/brown_vest(src)
 	new /obj/item/clothing/suit/fire/atmos(src)
 	new /obj/item/clothing/head/hardhat/red/atmos(src)
 	new /obj/item/device/flashlight(src)

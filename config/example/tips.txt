@@ -91,9 +91,6 @@ As a Cultist, invest in taking over xenobio, an adamantine golem army can quickl
 As a Cultist, your team starts off very weak, but if necessary can quickly convert everything they have into raw power. Make sure you have the numbers and equipment to support going loud, or the cult will fall flat on its face.
 As a Cultist, the Blood Boil rune will deal massive amounts of brute damage to non-cultists and some damage to fellow cultists of Nar-Sie nearby.
 As a Cultist, you can create an army of manifested goons using a combination of the Manifest rune, which creates homunculi from ghosts, and the Blood Drain rune, which drains life from anyone standing on any blood drain rune.
-As a Wizard, the fireball spell performs very poorly at close range, as it can easily catch you in the blast. It is best used as a form of artillery down long hallways.
-As a Wizard, most spells become unusable if you are not wearing your wizard robe and hat.
-As a Wizard, remember to get spells for yourself, and not scrolls, unless you want to give an ability away to someone. Scroll costs double!
 As a Ghost, you can double click on people, bots, or the singularity to follow them.
 Occasionally the tip of the round might lie to you. Don't panic, this is normal.
 To defeat your enemy, shoot at them until they die.

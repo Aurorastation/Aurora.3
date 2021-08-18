@@ -89,12 +89,6 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 Pins Below.
 */
 
-//only used in wizard staffs/wands.
-/obj/item/device/firing_pin/magic
-	name = "magic crystal shard"
-	desc = "A small enchanted shard which allows magical weapons to fire."
-	icon_state = "firing_pin_wizwoz"
-
 // Test pin, works only near firing ranges.
 /obj/item/device/firing_pin/test_range
 	name = "test-range firing pin"

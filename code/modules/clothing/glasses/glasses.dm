@@ -51,6 +51,7 @@ BLIND     // can't see anything
 
 	normal_layer = !normal_layer
 	to_chat(usr, SPAN_NOTICE("\The [src] will now layer [normal_layer ? "under" : "over"] your hair."))
+	update_clothing_icon()
 
 /obj/item/clothing/glasses/protects_eyestab(var/obj/stab_item, var/stabbed = FALSE)
 	if(stabbed && (body_parts_covered & EYES) && !(item_flags & THICKMATERIAL) && shatter_material && prob(stab_item.force * 5))
@@ -408,6 +409,14 @@ BLIND     // can't see anything
 	icon_state = "circle_glasses"
 	item_state = "circle_glasses"
 
+/obj/item/clothing/glasses/aug/glasses
+	name = "corrective lenses"
+	desc = "Corrective lenses made for those who have trouble seeing."
+	icon_state = "glasses"
+	item_state = "glasses"
+	prescription = 7
+	body_parts_covered = 0
+
 /obj/item/clothing/glasses/sunglasses
 	name = "sunglasses"
 	desc = "Strangely ancient technology used to help provide rudimentary eye cover."
@@ -511,6 +520,23 @@ BLIND     // can't see anything
 			to_chat(usr, "You push \the [src] up out of your face.")
 		update_clothing_icon()
 		usr.update_action_buttons()
+		usr.handle_vision()
+
+/obj/item/clothing/glasses/aug/welding
+	name = "glare dampeners"
+	desc = "Protects the eyes from welders."
+	icon_state = "welding-g"
+	item_state = "welding-g"
+	item_flags = THICKMATERIAL
+	flash_protection = FLASH_PROTECTION_MAJOR
+	tint = TINT_HEAVY
+
+/obj/item/clothing/glasses/aug/throw_at()
+	usr.drop_from_inventory(src)
+
+/obj/item/clothing/glasses/aug/dropped()
+	loc = null
+	qdel(src)
 
 /obj/item/clothing/glasses/welding/superior
 	name = "superior welding goggles"

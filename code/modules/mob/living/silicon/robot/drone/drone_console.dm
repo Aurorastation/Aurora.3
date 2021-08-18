@@ -12,6 +12,8 @@
 	//Used to enable or disable drone fabrication.
 	var/obj/machinery/drone_fabricator/dronefab
 
+	var/static/list/call_area_names
+
 /obj/machinery/computer/drone_control/attack_ai(var/mob/user as mob)
 	if(!ai_can_interact(user))
 		return
@@ -60,8 +62,13 @@
 		usr.set_machine(src)
 
 	if(href_list["setarea"])
+		if(!call_area_names)
+			call_area_names = list()
+			for(var/area/A as anything in all_areas)
+				if(A.station_area)
+					call_area_names += A.name
 		//Probably should consider using another list, but this one will do.
-		var/t_area = input(usr, "Select the area to ping.", "Set Target Area") as null|anything in SSdisposals.tagger_locations
+		var/t_area = input(usr, "Select the area to ping.", "Set Target Area") as null|anything in call_area_names
 
 		if(!t_area)
 			return

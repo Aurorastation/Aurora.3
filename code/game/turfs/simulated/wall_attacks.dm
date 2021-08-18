@@ -370,7 +370,7 @@
 
 	if(istype(W,/obj/item/frame))
 		var/obj/item/frame/F = W
-		F.try_build(src)
+		F.try_build(src, user)
 		return
 
 	else if(!istype(W,/obj/item/rfd/construction) && !istype(W, /obj/item/reagent_containers))

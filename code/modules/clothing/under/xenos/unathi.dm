@@ -48,16 +48,17 @@
 	belt.appearance_flags = RESET_COLOR
 	add_overlay(belt)
 
-/obj/item/clothing/under/unathi/zazali/worn_overlays(icon_file, slot)
-	. = ..()
-	if(slot == slot_w_uniform)
-		var/image/top = image(icon_file, null, "zazali_un_top")
+/obj/item/clothing/under/unathi/zazali/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+	var/image/I = ..()
+	if(slot == slot_w_uniform_str)
+		var/image/top = image(mob_icon, null, "zazali_un_top")
 		top.appearance_flags = RESET_COLOR
 		top.color = additional_color
-		. += top
-		var/image/belt = image(icon_file, null, "zazali_un_belt")
+		I.add_overlay(top)
+		var/image/belt = image(mob_icon, null, "zazali_un_belt")
 		belt.appearance_flags = RESET_COLOR
-		. += belt
+		I.add_overlay(belt)
+	return I
 
 /obj/item/clothing/under/unathi/huytai
 	name = "huytai outfit"
@@ -93,13 +94,14 @@
 	belt.appearance_flags = RESET_COLOR
 	add_overlay(belt)
 
-/obj/item/clothing/under/unathi/himation/worn_overlays(icon_file, slot)
-	. = ..()
-	if(slot == slot_w_uniform)
-		var/image/skirt = image(icon_file, null, "himation_un_skirt")
+/obj/item/clothing/under/unathi/himation/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+	var/image/I = ..()
+	if(slot == slot_w_uniform_str)
+		var/image/skirt = image(mob_icon, null, "himation_un_skirt")
 		skirt.appearance_flags = RESET_COLOR
 		skirt.color = additional_color
-		. += skirt
-		var/image/belt = image(icon_file, null, "himation_un_belt")
+		I.add_overlay(skirt)
+		var/image/belt = image(mob_icon, null, "himation_un_belt")
 		belt.appearance_flags = RESET_COLOR
-		. += belt
+		I.add_overlay(belt)
+	return I

@@ -23,7 +23,7 @@
 	var/dispersion = 0.0
 
 	//used for shooting at blank range, you shouldn't be able to miss
-	var/can_miss = 0
+	var/point_blank = FALSE
 
 	//Effects
 	var/damage = 10
@@ -97,6 +97,7 @@
 	var/muzzle_type
 	var/impact_type
 	var/hit_effect
+	var/anti_materiel_potential = 1 //how much the damage of this bullet is increased against mechs
 
 /obj/item/projectile/CanPass()
 	return TRUE
@@ -148,7 +149,7 @@
 
 /obj/item/projectile/proc/get_structure_damage()
 	if(damage_type == BRUTE || damage_type == BURN)
-		return damage
+		return damage * anti_materiel_potential
 	return FALSE
 
 //return TRUE if the projectile should be allowed to pass through after all, FALSE if not.
@@ -190,19 +191,26 @@
 			return TRUE
 		result = target_mob.bullet_act(src, def_zone)
 
-	if(result == PROJECTILE_FORCE_MISS && (can_miss == 0)) //if you're shooting at point blank you can't miss.
-		if(!silenced)
-			target_mob.visible_message("<span class='notice'>\The [src] misses [target_mob] narrowly!</span>")
-			playsound(target_mob, /decl/sound_category/bulletflyby_sound, 50, 1)
-		return FALSE
-
-	if(result == PROJECTILE_DODGED)
-		return FALSE
+	switch(result)
+		if(PROJECTILE_FORCE_MISS)
+			if(!point_blank)
+				if(!silenced)
+					target_mob.visible_message("<span class='notice'>\The [src] misses [target_mob] narrowly!</span>")
+					playsound(target_mob, /decl/sound_category/bulletflyby_sound, 50, 1)
+				return FALSE
+		if(PROJECTILE_DODGED)
+			return FALSE
+		if(PROJECTILE_STOPPED)
+			return TRUE
 
 	var/impacted_organ = parse_zone(def_zone)
-	if(istype(target_mob, /mob/living/simple_animal))
+	if(isanimal(target_mob))
 		var/mob/living/simple_animal/SA = target_mob
 		impacted_organ = pick(SA.organ_names)
+	else if(ishuman(target_mob))
+		var/mob/living/carbon/human/H = target_mob
+		var/obj/item/organ/external/E = H.organs_by_name[impacted_organ]
+		impacted_organ = E.name
 	//hit messages
 	if(silenced)
 		to_chat(target_mob, "<span class='danger'>You've been hit in the [impacted_organ] by \a [src]!</span>")

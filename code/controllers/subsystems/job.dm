@@ -687,6 +687,8 @@
 		H.forceMove(pick(latejoin))
 		. = "is inbound from the [current_map.dock_name]"
 
+	H.mind.selected_faction = SSjobs.GetFaction(H)
+
 	Debug("LS/([H]): Completed, spawning at area [H.loc.loc].")
 
 /datum/controller/subsystem/jobs/proc/DespawnMob(mob/living/carbon/human/H)

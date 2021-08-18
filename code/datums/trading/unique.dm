@@ -196,8 +196,7 @@
 		/obj/item/circuitboard/telesci_pad     = TRADER_THIS_TYPE,
 		/obj/item/phylactery                          = TRADER_THIS_TYPE,
 		/obj/item/blueprints                          = TRADER_THIS_TYPE,
-		/obj/item/storage/backpack/holding     = TRADER_THIS_TYPE,
-		/obj/item/teleportation_scroll         = TRADER_THIS_TYPE
+		/obj/item/storage/backpack/holding     = TRADER_THIS_TYPE
 	)
 
 	possible_trading_items = list(

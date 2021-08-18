@@ -69,7 +69,9 @@ var/list/lunchables_drinks_ = list(
 	/obj/item/reagent_containers/food/drinks/cans/sodawater,
 	/obj/item/reagent_containers/food/drinks/cans/adhomai_milk,
 	/obj/item/reagent_containers/food/drinks/cans/beetle_milk,
-	/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda
+	/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda,
+	/obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water,
+	/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz
 )
 
 var/list/lunchables_utensil_ = list(
@@ -105,7 +107,8 @@ var/list/lunchables_alcohol_reagents_ = list(
 	/decl/reagent/alcohol/neurotoxin,
 	/decl/reagent/alcohol/pwine,
 	/decl/reagent/alcohol/threemileisland,
-	/decl/reagent/alcohol/toxins_special
+	/decl/reagent/alcohol/toxins_special,
+	/decl/reagent/alcohol/nmshaan_liquor/darmadhirbrew
 )
 
 /proc/lunchables_lunches()
@@ -137,6 +140,9 @@ var/list/lunchables_alcohol_reagents_ = list(
 	if(!(lunchables_alcohol_reagents_[lunchables_alcohol_reagents_[1]]))
 		lunchables_alcohol_reagents_ = init_lunchable_reagent_list(lunchables_alcohol_reagents_, /decl/reagent/alcohol)
 	return lunchables_alcohol_reagents_
+
+/proc/lunchables_all_drink_reagents()
+	return sortList(lunchables_drink_reagents() + lunchables_alcohol_reagents())
 
 /proc/init_lunchable_list(var/list/lunches)
 	. = list()
