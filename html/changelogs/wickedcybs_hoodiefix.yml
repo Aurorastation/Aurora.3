@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - bugfix: "Unzipping a hoodie and pulling the hood up would end up removing some pixels from the arms, exposing part of the body. That's been fixed"
