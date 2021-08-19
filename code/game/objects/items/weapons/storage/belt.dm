@@ -28,7 +28,7 @@
 			add_overlay(I.get_belt_overlay())
 	..()
 
-/obj/item/storage/belt/build_additional_parts(mob_icon, slot)
+/obj/item/storage/belt/build_additional_parts(H, mob_icon, slot)
 	var/image/I = ..()
 	if(!I)
 		I = image(null)

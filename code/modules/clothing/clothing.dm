@@ -489,6 +489,9 @@
 	var/brightness_on
 	var/on = 0
 
+/obj/item/clothing/head/get_image_key_mod()
+	return on
+
 /obj/item/clothing/head/attack_self(mob/user)
 	if(brightness_on)
 		if(!isturf(user.loc))
@@ -590,8 +593,21 @@
 		bloodsies.color = blood_color
 		bloodsies.appearance_flags = RESET_ALPHA
 		I.add_overlay(bloodsies)
+	return I
+
+/obj/item/clothing/head/build_shifted_additional_parts(mob/living/carbon/human/H, mob_icon, slot, var/icon/canvas, var/list/facing_list, use_dir)
+	canvas = ..()
+	if(on && slot == slot_head)
+		var/icon/lights_icon = new('icons/mob/light_overlays.dmi', icon_state = light_overlay, dir = use_dir)
+		canvas.Blend(lights_icon, ICON_OVERLAY, facing_list["x"]+1, facing_list["y"]+1)
+	return canvas
+
+/obj/item/clothing/head/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
+	var/image/I = ..()
+	if(!I)
+		I = image(null)
 	var/cache_key = "[light_overlay]_[H.cached_bodytype || (H.cached_bodytype = H.species.get_bodytype())]"
-	if(on && SSicon_cache.light_overlay_cache[cache_key])
+	if(on && SSicon_cache.light_overlay_cache[cache_key] && slot == slot_head)
 		I.add_overlay(SSicon_cache.light_overlay_cache[cache_key])
 	return I
 
