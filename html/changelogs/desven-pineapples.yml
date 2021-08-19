@@ -3,4 +3,4 @@ author: Desven
 delete-after: True
 
 changes:
-  - rscadd: "Added sounds and a description for the pineapple rings can."
+  - bugfix: "Fixes the pineapple rings having the same description and sounds than a regular box."
