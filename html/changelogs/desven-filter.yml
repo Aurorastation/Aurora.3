@@ -1,7 +1,0 @@
-author: Desven
-
-delete-after: True
-
-changes:
-  - rscadd: "Vaurca can now select mechanical organs."
-  - tweak: "Vaurca now spawn with a filter port."
