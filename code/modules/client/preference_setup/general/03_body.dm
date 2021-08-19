@@ -414,6 +414,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			pref.organ_data.Cut()
 			pref.rlimb_data.Cut()
 			pref.body_markings.Cut()
+			pref.g_style = hair_styles_list["None"]
 
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
