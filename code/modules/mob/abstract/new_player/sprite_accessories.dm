@@ -2671,7 +2671,7 @@ Follow by example and make good judgement based on length which list to include 
 			chatname = "bun"
 
 		msai_ears_wedge
-			name = "M'sai Wedgeh"
+			name = "M'sai Wedge"
 			icon_state = "msai_wedge"
 			length = 2
 			chatname = "styled mane"
