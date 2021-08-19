@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "When you join as a maintenance drone, construction drone, or mining drone, you will now be prompted to enter a tag, for example, 'MT' would appear as 'maintenance drone (MT-169)'."
