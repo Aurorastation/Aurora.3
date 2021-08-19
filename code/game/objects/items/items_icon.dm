@@ -18,9 +18,7 @@ var/list/mob_icon_icon_states = list()
 				var/icon/equip = new(mob_icon, icon_state = mob_state, dir = use_dir)
 				var/icon/canvas = new(H.species.icon_template ? H.species.icon_template : 'icons/mob/human.dmi',"blank")
 				canvas.Blend(equip, ICON_OVERLAY, facing_list["x"]+1, facing_list["y"]+1)
-				if(build_from_parts)
-					var/icon/parts_icon = new(mob_icon, icon_state = "[item_state][contained_sprite ? slot_str_to_contained_flag(slot) : ""]_[worn_overlay]", dir = use_dir)
-					canvas.Blend(parts_icon, ICON_OVERLAY, facing_list["x"]+1, facing_list["y"]+1)
+				canvas = build_shifted_additional_parts(mob_icon, slot, canvas, facing_list, use_dir)
 				final_I.Insert(canvas, dir = use_dir)
 			LAZYINITLIST(H.species.equip_overlays)
 			var/image/final_image = overlay_image(final_I, color = color, flags = RESET_COLOR|RESET_ALPHA)
@@ -29,6 +27,22 @@ var/list/mob_icon_icon_states = list()
 		I.appearance = H.species.equip_overlays[image_key]
 		return I
 	var/image/I = overlay_image(mob_icon, mob_state, color, RESET_COLOR|RESET_ALPHA)
+	var/image/additional_parts = build_additional_parts(mob_icon)
+	if(additional_parts)
+		I.add_overlay(additional_parts)
+	
+	return I
+
+/obj/item/proc/build_shifted_additional_parts(mob_icon, slot, var/icon/canvas, var/list/facing_list, use_dir)
+	if(!canvas)
+		return
 	if(build_from_parts)
-		I.add_overlay(overlay_image(mob_icon, "[item_state][contained_sprite ? slot_str_to_contained_flag(slot) : ""]_[worn_overlay]", null, RESET_COLOR|RESET_ALPHA))
+		var/icon/parts_icon = new(mob_icon, icon_state = "[item_state][contained_sprite ? slot_str_to_contained_flag(slot) : ""]_[worn_overlay]", dir = use_dir)
+		canvas.Blend(parts_icon, ICON_OVERLAY, facing_list["x"]+1, facing_list["y"]+1)
+	return canvas
+
+/obj/item/proc/build_additional_parts(mob_icon, slot)
+	var/image/I
+	if(build_from_parts)
+		I = overlay_image(mob_icon, "[item_state][contained_sprite ? slot_str_to_contained_flag(slot) : ""]_[worn_overlay]", null, RESET_COLOR|RESET_ALPHA)
 	return I
