@@ -2445,17 +2445,30 @@ Follow by example and make good judgement based on length which list to include 
 			length = 3
 			chatname = "styled mane"
 
-		taj_ears_shoulderpartedalt
-			name = "Tajara Shoulder Parted Alt"
-			icon_state = "hair_shoulderpartedalt"
+		taj_ears_shoulderpartedsmall
+			name = "Tajara Shoulder Parted Small"
+			icon_state = "hair_shoulderpartedsmall"
+			length = 3
+			chatname = "styled mane"
+
+		taj_ears_shoulderpartedlong
+			name = "Tajara Shoulder Parted Long"
+			icon_state = "hair_shoulderpartedlong"
 			length = 3
 			chatname = "styled mane"
 
 		taj_ears_shoulderlength
-			name = "Tajara Shoulderlength Alt"
+			name = "Tajara Shoulderlength"
 			icon_state = "hair_shoulderlength"
 			length = 2
 			chatname = "styled mane"
+
+		taj_ears_shoulderlengthalt
+			name = "Tajara Shoulderlength Alt"
+			icon_state = "hair_shoulderlengthalt"
+			length = 2
+			chatname = "styled mane"
+
 
 		taj_ears_sidepartedleft
 			name = "Tajara Sideparted Left"
@@ -2467,12 +2480,6 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Tajara Sideparted Right"
 			icon_state = "hair_sidepartedright"
 			length = 3
-			chatname = "styled mane"
-
-		taj_ears_shoulderlengthalt
-			name = "Tajara Shoulderlength Alt"
-			icon_state = "hair_shoulderlengthalt"
-			length = 2
 			chatname = "styled mane"
 
 		taj_ears_fringeup
@@ -2689,13 +2696,13 @@ Follow by example and make good judgement based on length which list to include 
 			chatname = "styled mane"
 
 		msai_ears_shoulderlength
-			name = "M'sai Shoulderlength "
+			name = "M'sai Shoulderlength"
 			icon_state = "msai_shoulderlength"
 			length = 2
 			chatname = "styled mane"
 
 		msai_ears_shoulderlengthalt
-			name = "M'sai Shoulderlength Alt "
+			name = "M'sai Shoulderlength Alt"
 			icon_state = "msai_shoulderlengthalt"
 			length = 2
 			chatname = "styled mane"
