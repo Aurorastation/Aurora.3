@@ -416,14 +416,16 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			pref.body_markings.Cut()
 
 			// Follows roughly the same way hair does above, but for gradient styles
-			var/list/valid_gradients = list()
+			var/global/list/valid_gradients = list()
 
-			for(var/gradient in hair_gradient_styles_list)
-				var/datum/sprite_accessory/S = hair_gradient_styles_list[gradient]
-				if(mob_species.type in S.species_allowed)
-					valid_gradients[gradient] = hair_gradient_styles_list[gradient]
+			if(!valid_gradients[mob_species.type])
+				valid_gradients[mob_species.type] = list()
+				for(var/gradient in hair_gradient_styles_list)
+					var/datum/sprite_accessory/S = hair_gradient_styles_list[gradient]
+					if(mob_species.type in S.species_allowed)
+						valid_gradients[mob_species.type] += gradient
 
-			if(!(pref.g_style in valid_gradients))
+			if(!(pref.g_style in valid_gradients[mob_species.type]))
 				pref.g_style = hair_gradient_styles_list["None"]
 
 			return TOPIC_REFRESH_UPDATE_PREVIEW
