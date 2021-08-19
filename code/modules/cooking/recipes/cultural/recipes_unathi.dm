@@ -93,14 +93,13 @@
 	fruit = list("cabbage" = 1)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/sushi_roll
 
-
 /decl/recipe/batwings
 	appliance = SKILLET | SAUCEPAN
 	fruit = list("chili" = 2)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meat/bat,
 		/obj/item/reagent_containers/food/snacks/meat/bat,
-		/obj/item/reagent_containers/food/snacks/spreads/butter,
+		/obj/item/reagent_containers/food/snacks/spreads/butter
 	)
 	result = /obj/item/reagent_containers/food/snacks/batwings
 
@@ -111,17 +110,16 @@
 	items = list(
 		/obj/item/reagent_containers/food/snacks/fish/cosmozoan,
 		/obj/item/reagent_containers/food/snacks/cutlet,
-		/obj/item/reagent_containers/food/snacks/spreads/butter,
+		/obj/item/reagent_containers/food/snacks/spreads/butter
 	)
 	result = /obj/item/reagent_containers/food/snacks/jellystew
-
 
 /decl/recipe/stuffedfish
 	appliance = SKILLET | SAUCEPAN
 	items = list(
 		/obj/item/reagent_containers/food/snacks/fish/fishfillet,
 		/obj/item/reagent_containers/food/snacks/fish/roe,
-		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/cheesewedge
 	)
 	result = /obj/item/reagent_containers/food/snacks/stuffedfish
 
@@ -130,7 +128,7 @@
 	items = list(
 		/obj/item/reagent_containers/food/snacks/fish/carpmeat,
 		/obj/item/reagent_containers/food/snacks/fish/roe,
-		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/cheesewedge
 	)
 	result = /obj/item/reagent_containers/food/snacks/stuffedcarp
 
@@ -140,10 +138,9 @@
 	reagents = list(/decl/reagent/sodiumchloride = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dwellermeat,
-		/obj/item/reagent_containers/food/snacks/egg,
+		/obj/item/reagent_containers/food/snacks/egg
 	)
 	result = /obj/item/reagent_containers/food/snacks/razirnoodles
-
 
 /decl/recipe/sintapudding
 	appliance = SAUCEPAN | POT
