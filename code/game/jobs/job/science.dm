@@ -155,6 +155,7 @@
 	minimal_player_age = 7
 
 	outfit = /datum/outfit/job/roboticist
+	blacklisted_species = null
 
 /datum/outfit/job/roboticist
 	name = "Roboticist"
