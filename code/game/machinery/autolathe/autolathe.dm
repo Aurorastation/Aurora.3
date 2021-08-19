@@ -268,9 +268,7 @@
 		busy = TRUE
 		update_use_power(2)
 
-		for(var/mob/living/carbon/human/H as anything in intent_listener)
-			if(src.z == H.z && get_dist(src, H) <= 7)
-				H.intent_listen(src)
+		audible_message(intent_message = MACHINE_SOUND)
 
 		//Check if we still have the materials.
 		for(var/material in build_item.resources)

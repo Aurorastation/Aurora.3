@@ -503,9 +503,7 @@
 		return
 	operating = TRUE
 
-	for(var/mob/living/carbon/human/H as anything in intent_listener)
-		if(src.z == H.z && get_dist(src, H) <= 7)
-			H.intent_listen(src)
+	audible_message(intent_message = MACHINE_SOUND)
 
 	do_animate("opening")
 	icon_state = "door_open"
@@ -543,9 +541,7 @@
 					break
 	operating = TRUE
 
-	for(var/mob/living/carbon/human/H as anything in intent_listener)
-		if(src.z == H.z && get_dist(src, H) <= 7)
-			H.intent_listen(src)
+	audible_message(intent_message = MACHINE_SOUND)
 
 	do_animate("closing")
 	sleep(3)

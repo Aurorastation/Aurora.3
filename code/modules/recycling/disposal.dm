@@ -521,9 +521,7 @@
 		flush = FALSE
 		return
 
-	for(var/mob/living/carbon/human/H as anything in intent_listener)
-		if(src.z == H.z && get_dist(src, H) <= 7)
-			H.intent_listen(src)
+	audible_message(intent_message = MACHINE_SOUND)
 
 	flushing = 1
 	flick("[icon_state]-flush", src)

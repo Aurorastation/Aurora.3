@@ -290,14 +290,12 @@
 	for(var/M in D.materials)
 		materials[M] = max(0, materials[M] - D.materials[M] * mat_efficiency)
 
-	for(var/mob/living/carbon/human/H as anything in intent_listener)
-		if(src.z == H.z && get_dist(src, H) <= 7)
-			H.intent_listen(src)
+	audible_message(intent_message = MACHINE_SOUND)
 
 	if(D.build_path)
 		var/loc_offset = get_step(src, dir)
 		var/obj/new_item = D.Fabricate(loc_offset, src)
-		visible_message("\The <b>[src]</b> pings, indicating that \the [new_item] is complete.", "You hear a ping.")
+		visible_message("\The <b>[src]</b> pings, indicating that \the [new_item] is complete.", "You hear a ping.", intent_message = PING_SOUND)
 		if(mat_efficiency != 1)
 			if(new_item.matter && new_item.matter.len > 0)
 				for(var/i in new_item.matter)

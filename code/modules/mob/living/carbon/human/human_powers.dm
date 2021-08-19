@@ -1249,11 +1249,10 @@ mob/living/carbon/human/proc/change_monitor()
 		return FALSE
 	return TRUE
 
-/mob/living/carbon/human/proc/intent_listen(var/source, var/type = 1)
+/mob/living/carbon/human/proc/intent_listen(var/source,var/message)
 	if (is_listening())
 		var/sound_dir = angle2text(Get_Angle(get_turf(src), get_turf(source)))
-		if (type == 1) // future proofing in case other type of sounds are added. All sounds should be kept general-ish.
-			to_chat(src, SPAN_WARNING("You hear the sound of machinery from \the [sound_dir]."))
+		to_chat(src, SPAN_WARNING(message + " from \the [sound_dir]."))
 
 /mob/living/carbon/human/proc/listening_close()
 	set category = "Abilities"

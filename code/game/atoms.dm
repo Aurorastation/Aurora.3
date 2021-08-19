@@ -565,7 +565,7 @@
 // message is the message output to anyone who can hear.
 // deaf_message (optional) is what deaf people will see.
 // hearing_distance (optional) is the range, how many tiles away the message can be heard.
-/atom/proc/audible_message(var/message, var/deaf_message, var/hearing_distance)
+/atom/proc/audible_message(var/message, var/deaf_message, var/hearing_distance, var/intent_message = null, var/intent_range = 7)
 
 	var/range = world.view
 	if(hearing_distance)
@@ -581,6 +581,12 @@
 	for(var/o in objs)
 		var/obj/O = o
 		O.show_message(message,2,deaf_message,1)
+
+	if(intent_message)
+		for(var/mob/living/carbon/human/H as anything in intent_listener)
+			if(!is_type_in_list(H, mobs))
+				if(src.z == H.z && get_dist(src, H) <= intent_range)
+					H.intent_listen(src, intent_message)
 
 /atom/proc/change_area(var/area/oldarea, var/area/newarea)
 	change_area_name(oldarea.name, newarea.name)

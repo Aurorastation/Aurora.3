@@ -200,9 +200,7 @@
 	for(var/C in D.chemicals)
 		reagents.remove_reagent(C, D.chemicals[C] * mat_efficiency)
 
-	for(var/mob/living/carbon/human/H as anything in intent_listener)
-		if(src.z == H.z && get_dist(src, H) <= 7)
-			H.intent_listen(src)
+	audible_message(intent_message = MACHINE_SOUND)
 
 	if(D.build_path)
 		var/obj/new_item = D.Fabricate(src, src)
