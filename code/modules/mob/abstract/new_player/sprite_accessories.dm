@@ -2475,6 +2475,12 @@ Follow by example and make good judgement based on length which list to include 
 			length = 2
 			chatname = "styled mane"
 
+		taj_ears_fringeup
+			name = "Tajara Fringe Up"
+			icon_state = "hair_fringeup"
+			length = 2
+			chatname = "styled mane"
+
 //msai hair, longer ears
 	msai_ears
 		icon = 'icons/mob/human_face/msai_hair.dmi'
@@ -2616,12 +2622,6 @@ Follow by example and make good judgement based on length which list to include 
 			length = 3
 			chatname = "sideponytail"
 
-		msai_ears_sideponyalt
-			name = "M'sai Side Ponytail Alt"
-			icon_state = "msai_sideponyalt"
-			length = 3
-			chatname = "sideponytail"
-
 		msai_ears_governmentman
 			name = "M'sai Government Man"
 			icon_state = "msai_gman"
@@ -2652,15 +2652,9 @@ Follow by example and make good judgement based on length which list to include 
 			length = 2
 			chatname = "bun"
 
-		msai_ears_shoulderlength
-			name = "M'sai Shoulderlength"
-			icon_state = "msai_shoulderlength"
-			length = 2
-			chatname = "styled mane"
-
-		msai_ears_shoulderlengthalt
-			name = "M'sai Shoulderlength Alt"
-			icon_state = "msai_shoulderlengthalt"
+		msai_ears_wedge
+			name = "M'sai Wedgeh"
+			icon_state = "msai_wedge"
 			length = 2
 			chatname = "styled mane"
 
@@ -2670,10 +2664,46 @@ Follow by example and make good judgement based on length which list to include 
 			length = 3
 			chatname = "styled mane"
 
-		msai_ears_tressesalt
-			name = "M'sai Tresses Alt"
-			icon_state = "msai_tressesalt"
+		msai_ears_shoulderparted
+			name = "M'sai Shoulderparted"
+			icon_state = "msai_shoulderparted"
 			length = 3
+			chatname = "styled mane"
+
+		msai_ears_shoulderpartedalt
+			name = "M'sai Shoulderparted Alt"
+			icon_state = "msai_shoulderpartedalt"
+			length = 3
+			chatname = "styled mane"
+
+		msai_ears_sidepartedleft
+			name = "M'sai Sideparted Left"
+			icon_state = "msai_sidepartedleft"
+			length = 3
+			chatname = "styled mane"
+
+		msai_ears_sidepartedright
+			name = "M'sai Sideparted Right"
+			icon_state = "msai_sidepartedright"
+			length = 3
+			chatname = "styled mane"
+
+		msai_ears_shoulderlength
+			name = "M'sai Shoulderlength "
+			icon_state = "msai_shoulderlength"
+			length = 2
+			chatname = "styled mane"
+
+		msai_ears_shoulderlengthalt
+			name = "M'sai Shoulderlength Alt "
+			icon_state = "msai_shoulderlengthalt"
+			length = 2
+			chatname = "styled mane"
+
+		msai_ears_fringeup
+			name = "M'sai Fringe Up"
+			icon_state = "msai_fringeup"
+			length = 2
 			chatname = "styled mane"
 
 //vaurca antennae
