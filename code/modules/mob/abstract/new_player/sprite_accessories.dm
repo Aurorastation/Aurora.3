@@ -2397,12 +2397,6 @@ Follow by example and make good judgement based on length which list to include 
 			length = 3
 			chatname = "sideponytail"
 
-		taj_ears_sideponyalt
-			name = "Tajara Side Ponytail Alt"
-			icon_state = "hair_sideponyalt"
-			length = 3
-			chatname = "sideponytail"
-
 		taj_ears_governmentman
 			name = "Tajara Government Man"
 			icon_state = "hair_gman"
@@ -2433,15 +2427,9 @@ Follow by example and make good judgement based on length which list to include 
 			length = 2
 			chatname = "bun"
 
-		taj_ears_shoulderlength
-			name = "Tajara Shoulderlength"
-			icon_state = "hair_shoulderlength"
-			length = 2
-			chatname = "styled mane"
-
-		taj_ears_shoulderlengthalt
-			name = "Tajara Shoulderlength Alt"
-			icon_state = "hair_shoulderlengthalt"
+		taj_ears_wedge
+			name = "Tajara Wedge"
+			icon_state = "hair_wedge"
 			length = 2
 			chatname = "styled mane"
 
@@ -2451,10 +2439,40 @@ Follow by example and make good judgement based on length which list to include 
 			length = 3
 			chatname = "styled mane"
 
-		taj_ears_tressesalt
-			name = "Tajara Tresses Alt"
-			icon_state = "hair_tressesalt"
+		taj_ears_shoulderparted
+			name = "Tajara Shoulder Parted"
+			icon_state = "hair_shoulderparted"
 			length = 3
+			chatname = "styled mane"
+
+		taj_ears_shoulderpartedalt
+			name = "Tajara Shoulder Parted Alt"
+			icon_state = "hair_shoulderpartedalt"
+			length = 3
+			chatname = "styled mane"
+
+		taj_ears_shoulderlength
+			name = "Tajara Shoulderlength Alt"
+			icon_state = "hair_shoulderlength"
+			length = 2
+			chatname = "styled mane"
+
+		taj_ears_sidepartedleft
+			name = "Tajara Sideparted Left"
+			icon_state = "hair_sidepartedleft"
+			length = 3
+			chatname = "styled mane"
+
+		taj_ears_sidepartedright
+			name = "Tajara Sideparted Right"
+			icon_state = "hair_sidepartedright"
+			length = 3
+			chatname = "styled mane"
+
+		taj_ears_shoulderlengthalt
+			name = "Tajara Shoulderlength Alt"
+			icon_state = "hair_shoulderlengthalt"
+			length = 2
 			chatname = "styled mane"
 
 //msai hair, longer ears
