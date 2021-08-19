@@ -226,72 +226,14 @@ Bulwarks are much larger and have significantly thicker carapaces than most Vaur
 
 	sprint_speed_factor = 1.4
 
-	var/slot_l_hand_str_north_x = 6 // done
-	var/slot_l_hand_str_north_y = 0 // done
-	var/slot_l_hand_str_east_x = 9 // done
-	var/slot_l_hand_str_east_y = 2 // done
-	var/slot_l_hand_str_south_x = 12 // done
-	var/slot_l_hand_str_south_y = 0 // done
-	var/slot_l_hand_str_west_x = 4 // done
-	var/slot_l_hand_str_west_y = 0 // done
-
-	var/slot_r_hand_str_north_x = 12 // done
-	var/slot_r_hand_str_north_y = 0 // done
-	var/slot_r_hand_str_east_x = 12 // done
-	var/slot_r_hand_str_east_y = 0 // done
-	var/slot_r_hand_str_south_x = 6 // done
-	var/slot_r_hand_str_south_y = 0 // done
-	var/slot_r_hand_str_west_x = 7 // done
-	var/slot_r_hand_str_west_y = 2 // done
-
-	var/slot_l_ear_str_east_x = 0 // done
-	var/slot_l_ear_str_east_y = 0 // done
-	var/slot_l_ear_str_south_x = 9 // done
-	var/slot_l_ear_str_south_y = 0 // done
-	var/slot_l_ear_str_west_x = 0 // done
-	var/slot_l_ear_str_west_y = 0 // done
-
-	var/slot_r_ear_str_east_x = 16 // done
-	var/slot_r_ear_str_east_y = 0 // done
-	var/slot_r_ear_str_south_x = 9 // done
-	var/slot_r_ear_str_south_y = 0 // done
-	var/slot_r_ear_str_west_x = 0 // done
-	var/slot_r_ear_str_west_y = 0 // done
-
-	var/slot_wear_id_str_south_x = 8
-	var/slot_wear_id_str_south_y = 0
-
-	var/slot_shoes_str_north_x = 9 // done
-	var/slot_shoes_str_north_y = 0 // done
-	var/slot_shoes_str_east_x = 8 // done
-	var/slot_shoes_str_east_y = 0 // done
-	var/slot_shoes_str_south_x = 9 // done
-	var/slot_shoes_str_south_y = 0 // done
-	var/slot_shoes_str_west_x = 8 // done
-	var/slot_shoes_str_west_y = 0 // done
-
-	var/slot_belt_str_north_x = 0
-	var/slot_belt_str_north_y = 0
-	var/slot_belt_str_east_x = 0
-	var/slot_belt_str_east_y = 0
-	var/slot_belt_str_south_x = 0
-	var/slot_belt_str_south_y = 0
-	var/slot_belt_str_west_x = 0
-	var/slot_belt_str_west_y = 0
-
-
 /datum/species/bug/type_e/New()
 	..()
-	r()
-
-/datum/species/bug/type_e/proc/r()
 	equip_adjust = list(
-		slot_l_hand_str  = list("[NORTH]" = list("x" = slot_l_hand_str_north_x, "y" = slot_l_hand_str_north_y),  "[EAST]" = list("x" = slot_l_hand_str_east_x, "y" = slot_l_hand_str_east_y), "[SOUTH]" = list("x" = slot_l_hand_str_south_x, "y" = slot_l_hand_str_south_y), "[WEST]" = list("x" = slot_l_hand_str_west_x, "y" = slot_l_hand_str_west_y)),
-		slot_r_hand_str  = list("[NORTH]" = list("x" = slot_r_hand_str_north_x, "y" = slot_r_hand_str_north_y),  "[EAST]" = list("x" = slot_r_hand_str_east_x, "y" = slot_r_hand_str_east_y), "[SOUTH]" = list("x" = slot_r_hand_str_south_x, "y" = slot_r_hand_str_south_y),  "[WEST]" = list("x" = slot_r_hand_str_west_x, "y" = slot_r_hand_str_west_y)),
-		slot_l_ear_str   = list(                                                                                 "[EAST]" = list("x" = slot_l_ear_str_east_x, "y" = slot_l_ear_str_east_y), "[SOUTH]" = list("x" = slot_l_ear_str_south_x, "y" = slot_l_ear_str_south_y), "[WEST]" = list("x" = slot_l_ear_str_west_x, "y" = slot_l_ear_str_west_y)),
-		slot_r_ear_str   = list(                                                                                 "[EAST]" = list("x" = slot_r_ear_str_east_x, "y" = slot_r_ear_str_east_y), "[SOUTH]" = list("x" = slot_r_ear_str_south_x, "y" = slot_r_ear_str_south_y),  "[WEST]" = list("x" = slot_r_ear_str_west_x, "y" = slot_r_ear_str_west_y)),
-		slot_belt_str    = list("[NORTH]" = list("x" = slot_belt_str_north_x, "y" = slot_belt_str_north_y),  "[EAST]" = list("x" = slot_belt_str_east_x, "y" = slot_belt_str_east_y), "[SOUTH]" = list("x" = slot_belt_str_south_x, "y" = slot_belt_str_south_y), "[WEST]" = list("x" = slot_belt_str_west_x, "y" = slot_belt_str_west_y)),
-		slot_wear_id_str = list(                                                                                                                                                          "[SOUTH]" = list("x" = slot_wear_id_str_south_x, "y" = slot_wear_id_str_south_y)                                                                                  ),
-		slot_shoes_str   = list("[NORTH]" = list("x" = slot_shoes_str_north_x, "y" = slot_shoes_str_north_y),  "[EAST]" = list("x" = slot_shoes_str_east_x, "y" = slot_shoes_str_east_y), "[SOUTH]" = list("x" = slot_shoes_str_south_x, "y" = slot_shoes_str_south_y), "[WEST]" = list("x" = slot_shoes_str_west_x, "y" = slot_shoes_str_west_y))
+		slot_l_hand_str  = list("[NORTH]" = list("x" = 6, "y" = 0),  "[EAST]" = list("x" = 9, "y" = 2),  "[SOUTH]" = list("x" = 12, "y" = 0), "[WEST]" = list("x" = 4, "y" = 0)),
+		slot_r_hand_str  = list("[NORTH]" = list("x" = 12, "y" = 0), "[EAST]" = list("x" = 12, "y" = 0), "[SOUTH]" = list("x" = 6, "y" = 0),  "[WEST]" = list("x" = 7, "y" = 2)),
+		slot_l_ear_str   = list(                                     "[EAST]" = list("x" = 0, "y" = 0),  "[SOUTH]" = list("x" = 9, "y" = 0),  "[WEST]" = list("x" = 0, "y" = 0)),
+		slot_r_ear_str   = list(                                     "[EAST]" = list("x" = 16, "y" = 0), "[SOUTH]" = list("x" = 9, "y" = 0),  "[WEST]" = list("x" = 0, "y" = 0)),
+		slot_belt_str    = list("[NORTH]" = list("x" = 9, "y" = 2),  "[EAST]" = list("x" = 10, "y" = 1), "[SOUTH]" = list("x" = 9, "y" = 2),  "[WEST]" = list("x" = 6, "y" = 1)),
+		slot_wear_id_str = list("[NORTH]" = list("x" = 0, "y" = 0),  "[EAST]" = list("x" = 12, "y" = 0), "[SOUTH]" = list("x" = 9, "y" = 0),  "[WEST]" = list("x" = 0, "y" = 0)),
+		slot_shoes_str   = list("[NORTH]" = list("x" = 9, "y" = 0),  "[EAST]" = list("x" = 8, "y" = 0),  "[SOUTH]" = list("x" = 9, "y" = 0),  "[WEST]" = list("x" = 8, "y" = 0))
 	)
-	equip_overlays = null
