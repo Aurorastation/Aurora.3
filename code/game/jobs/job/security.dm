@@ -36,6 +36,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	id = /obj/item/card/id/navy
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head
+	l_pocket = /obj/item/device/flash
 
 	headset = /obj/item/device/radio/headset/heads/hos
 	bowman = /obj/item/device/radio/headset/heads/hos/alt
@@ -47,7 +48,7 @@
 	tablet = /obj/item/modular_computer/handheld/preset/security/hos
 
 	backpack_contents = list(
-		/obj/item/storage/box/ids = 1
+		/obj/item/handcuffs = 1
 	)
 
 	implants = list(
@@ -112,7 +113,7 @@
 	messengerbag = /obj/item/storage/backpack/messenger/sec
 
 	backpack_contents = list(
-		/obj/item/storage/box/ids = 1
+		/obj/item/handcuffs = 1
 	)
 
 /datum/outfit/job/warden/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)

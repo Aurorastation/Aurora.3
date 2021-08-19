@@ -123,6 +123,7 @@
 	..()
 	//Supply
 	new /obj/item/storage/box/flashbangs(src)
+	new /obj/item/storage/box/ids(src)
 	//Appearance
 	if(prob(50))
 		new /obj/item/storage/backpack/security(src)
