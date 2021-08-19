@@ -2469,7 +2469,6 @@ Follow by example and make good judgement based on length which list to include 
 			length = 2
 			chatname = "styled mane"
 
-
 		taj_ears_sidepartedleft
 			name = "Tajara Sideparted Left"
 			icon_state = "hair_sidepartedleft"
@@ -2486,6 +2485,18 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Tajara Fringe Up"
 			icon_state = "hair_fringeup"
 			length = 2
+			chatname = "styled mane"
+
+		taj_ears_cascading
+			name = "Tajara Cascading"
+			icon_state = "hair_cascading"
+			length = 3
+			chatname = "styled mane"
+
+		taj_ears_cascadingalt
+			name = "Tajara Cascading Alt"
+			icon_state = "hair_cascadingalt"
+			length = 3
 			chatname = "styled mane"
 
 //msai hair, longer ears
@@ -2677,9 +2688,15 @@ Follow by example and make good judgement based on length which list to include 
 			length = 3
 			chatname = "styled mane"
 
-		msai_ears_shoulderpartedalt
-			name = "M'sai Shoulderparted Alt"
-			icon_state = "msai_shoulderpartedalt"
+		msai_ears_shoulderpartedsmall
+			name = "M'sai Shoulderparted Small"
+			icon_state = "msai_shoulderpartedsmall"
+			length = 3
+			chatname = "styled mane"
+
+		msai_ears_shoulderpartedlong
+			name = "M'sai Shoulderparted Long"
+			icon_state = "msai_shoulderpartedlong"
 			length = 3
 			chatname = "styled mane"
 
@@ -2711,6 +2728,18 @@ Follow by example and make good judgement based on length which list to include 
 			name = "M'sai Fringe Up"
 			icon_state = "msai_fringeup"
 			length = 2
+			chatname = "styled mane"
+
+		msai_ears_cascading
+			name = "M'sai Cascading"
+			icon_state = "msai_cascading"
+			length = 3
+			chatname = "styled mane"
+
+		msai_ears_cascadingalt
+			name = "M'sai Cascading Alt"
+			icon_state = "msai_cascadingalt"
+			length = 3
 			chatname = "styled mane"
 
 //vaurca antennae
