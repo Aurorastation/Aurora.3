@@ -338,6 +338,11 @@
 					return
 				R.pick_module()
 
+		if("Return-to-core")
+			if (istype(usr, /mob/living/silicon/robot/shell))
+				usr.body_return()
+				return
+
 		if("health")
 			if(isrobot(usr))
 				if(modifiers["shift"])

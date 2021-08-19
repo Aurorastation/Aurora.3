@@ -212,7 +212,7 @@
 	armor_penetration = 15
 	penetrating = FALSE
 
-/obj/item/projectile/bullet/rifle/a556/ap 
+/obj/item/projectile/bullet/rifle/a556/ap
 	damage = 35
 	armor_penetration = 40
 	penetrating = TRUE
@@ -227,6 +227,7 @@
 	maiming = 1
 	maim_rate = 3
 	maim_type = DROPLIMB_BLUNT
+	anti_materiel_potential = 2
 
 /obj/item/projectile/bullet/rifle/vintage
 	name = "vintage bullet"
@@ -243,6 +244,7 @@
 	maiming = TRUE
 	maim_rate = 3
 	maim_type = DROPLIMB_BLUNT
+	anti_materiel_potential = 2
 
 /obj/item/projectile/bullet/rifle/slugger/on_hit(var/atom/movable/target, var/blocked = 0)
 	if(!istype(target))
@@ -371,6 +373,7 @@
 	embed = 0
 	penetrating = 1
 	armor_penetration = 25
+	anti_materiel_potential = 2
 
 /obj/item/projectile/bullet/cannonball/explosive
 	damage = 50
@@ -385,6 +388,7 @@
 	name = "miniaturized nuclear warhead"
 	icon_state = "nuke"
 	damage = 25
+	anti_materiel_potential = 2
 
 /obj/item/projectile/bullet/nuke/on_impact(var/atom/A)
 	for(var/mob/living/carbon/human/mob in human_mob_list)
@@ -404,3 +408,22 @@
 
 /obj/item/projectile/bullet/shard/heavy
 	damage = 30
+
+/obj/item/projectile/bullet/recoilless_rifle
+	name = "anti-tank warhead"
+	icon_state = "missile"
+	damage = 30
+	anti_materiel_potential = 3
+	embed = FALSE
+	penetrating = FALSE
+	armor_penetration = 10
+
+/obj/item/projectile/bullet/recoilless_rifle/on_impact(var/atom/A)
+	explosion(A, -1, 1, 2)
+	..()
+
+/obj/item/projectile/bullet/recoilless_rifle/peac
+	name = "anti-tank missile"
+	icon_state = "peac"
+	damage = 45
+	penetrating = TRUE

@@ -34,8 +34,6 @@
 	eyes = "eyes_s"
 	show_ssd = "completely quiescent"
 
-	max_nutrition_factor = 0.8
-
 	heat_level_1 = 500
 	heat_level_2 = 1000
 	heat_level_3 = 2000
@@ -130,7 +128,7 @@
 	bodytype = BODYTYPE_IPC_INDUSTRIAL
 	mob_size = 12
 
-	unarmed_types = list(/datum/unarmed_attack/industrial)
+	unarmed_types = list(/datum/unarmed_attack/industrial, /datum/unarmed_attack/palm/industrial)
 
 	brute_mod = 0.8
 	burn_mod = 1.1
@@ -174,9 +172,6 @@
 	heat_level_3 = 3200
 
 	heat_discomfort_level = 700
-
-	max_nutrition_factor = 1.25
-	nutrition_loss_factor = 2
 
 	sprint_speed_factor = 1.4
 	sprint_temperature_factor = 0.9
@@ -312,7 +307,7 @@
 
 	eyes = "heph_eyes"
 
-	unarmed_types = list(/datum/unarmed_attack/industrial/heavy)
+	unarmed_types = list(/datum/unarmed_attack/industrial/heavy, /datum/unarmed_attack/palm/industrial)
 
 	slowdown = 6
 	brute_mod = 0.7
@@ -366,7 +361,9 @@
 	preview_icon = 'icons/mob/human_races/ipc/ind_xion_preview.dmi'
 
 	unarmed_types = list(
-		/datum/unarmed_attack/industrial/xion)
+		/datum/unarmed_attack/industrial/xion,
+		/datum/unarmed_attack/palm/industrial
+	)
 
 	brute_mod = 0.9
 	grab_mod = 0.9
@@ -484,7 +481,6 @@
 	eyes = "bishop_eyes"
 	eyes_icon_blend = ICON_MULTIPLY
 	sprint_charge_factor = 0.25
-	max_nutrition_factor = 1.75
 
 	brute_mod = 1.2
 	grab_mod = 1.1

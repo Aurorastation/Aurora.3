@@ -404,6 +404,8 @@
 		/obj/item/clothing/wrists/watch,
 		/obj/item/clothing/wrists/watch/silver,
 		/obj/item/clothing/wrists/watch/gold,
+		/obj/item/clothing/wrists/watch/holo,
+		/obj/item/clothing/wrists/watch/leather,
 		/obj/item/clothing/wrists/watch/spy
 	)
 
@@ -672,3 +674,19 @@
 	to_chat(H, "<b>Your service has not gone unrewarded, however. Studying under them, you have learned how to use a Manipulation Core \
 	of your own.  You also have a catalog, to purchase your own functions and equipment as you see fit.</b>")
 	to_chat(H, "<b>It would be wise to speak to your master, and learn what their plans are for today. Your clothing is holographic, you should change its look before leaving.</b>")
+
+/datum/outfit/admin/techomancer/golem
+	name = "Technomancer Golem"
+
+	head = null
+	l_ear = /obj/item/device/radio/headset/bluespace
+	uniform = null
+	suit = null
+	belt = null
+	back = /obj/item/technomancer_core/golem
+	shoes = null
+
+	r_pocket = /obj/item/disposable_teleporter/free
+	l_pocket = /obj/item/technomancer_catalog/golem
+
+	id = /obj/item/card/id/bluespace

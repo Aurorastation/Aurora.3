@@ -40,6 +40,8 @@
 	//Armor
 	var/damage = P.damage
 	var/flags = P.damage_flags()
+	if(is_anti_materiel_vulnerable())
+		damage = P.damage * P.anti_materiel_potential
 	var/damaged
 	if(!P.nodamage)
 		damaged = apply_damage(damage, P.damage_type, def_zone, damage_flags = P.damage_flags(), used_weapon = P, armor_pen = P.armor_penetration)
@@ -90,7 +92,7 @@
 		apply_effect(stun_amount, EYE_BLUR)
 
 	if(agony_amount)
-		apply_damage(agony_amount, PAIN, def_zone, used_weapon, damage_flags)
+		apply_damage(agony_amount, PAIN, def_zone, used_weapon)
 		apply_effect(agony_amount / 10, STUTTER)
 		apply_effect(agony_amount / 10, EYE_BLUR)
 

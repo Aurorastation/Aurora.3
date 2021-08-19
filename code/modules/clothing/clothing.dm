@@ -90,6 +90,18 @@
 				return 0
 	return 1
 
+// putting on to a slot
+/obj/item/clothing/equipped(mob/user, slot, assisted_equip)
+	. = ..()
+	if(tint)
+		user.handle_vision()
+
+// taking off
+/obj/item/clothing/dropped(mob/user)
+	. = ..()
+	if(tint)
+		user.handle_vision()
+
 /obj/item/clothing/proc/return_own_image()
 	var/image/our_image
 	if(icon_override)

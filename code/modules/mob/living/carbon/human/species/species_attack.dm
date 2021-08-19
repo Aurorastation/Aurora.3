@@ -1,6 +1,7 @@
 /datum/unarmed_attack/bite/sharp //eye teeth
 	attack_verb = list("bit", "chomped on")
 	attack_sound = 'sound/weapons/bite.ogg'
+	desc = "Biting down on the opponent with your sharp teeth. Only possible if you aren't wearing a muzzle. Don't try biting their head, it won't work!"
 	shredding = 0
 	sharp = TRUE
 	edge = TRUE
@@ -10,6 +11,7 @@
 /datum/unarmed_attack/diona
 	attack_verb = list("lashed", "bludgeoned")
 	attack_noun = list("tendril")
+	desc = "Whip your enemy with a tendril! I hope we can show this on television."
 	eye_attack_text = "a tendril"
 	eye_attack_text_victim = "a tendril"
 	attack_name = "tendrils"
@@ -17,6 +19,7 @@
 /datum/unarmed_attack/claws
 	attack_verb = list("scratched", "clawed", "slashed")
 	attack_noun = list("claws")
+	desc = "Use your in-built knives to turn your foes into mincemeat. Some call it unfair, some call it species superiority. Can't complain if they're dead*, though.<br/>*Citation Needed"
 	eye_attack_text = "claws"
 	eye_attack_text_victim = "sharp claws"
 	attack_sound = 'sound/weapons/slice.ogg'
@@ -57,7 +60,11 @@
 				if(3 to 4)	user.visible_message("<span class='danger'>[user] [pick(attack_verb)] [pick("", "", "the side of")] [target]'s [affecting.name]!</span>")
 				if(5)		user.visible_message("<span class='danger'>[user] tears [user.get_pronoun("his")] [pick(attack_noun)] [pick("deep into", "into", "across")] [target]'s [affecting.name]!</span>")
 
+/datum/unarmed_attack/claws/unathi
+	sparring_variant_type = /datum/unarmed_attack/pain_strike/heavy // unathi have heavier pain hits in this mode
+
 /datum/unarmed_attack/claws/shredding
+	desc = "Use your in-built knives to turn your foes into mincemeat. These claws are durable enough for you to shred some objects open, such as airlocks. Some call it unfair, some call it species superiority. Can't complain if they're dead*, though.<br/>*Citation Needed"
 	shredding = TRUE
 	attack_name = "durable claws"
 
@@ -107,10 +114,12 @@
 /datum/unarmed_attack/industrial
 	attack_verb = list("pulverized", "crushed", "pounded")
 	attack_noun = list("heavy fist")
+	desc = "Beat your opponent to death like you're a trash compactor and they're a piece of discarded Go-Go Gwok packaging! Murder has never been so efficient!"
 	damage = 7
 	attack_sound = 'sound/weapons/smash.ogg'
 	attack_name = "heavy fist"
 	shredding = TRUE
+	sparring_variant_type = /datum/unarmed_attack/pain_strike/heavy
 
 /datum/unarmed_attack/industrial/heavy
 	damage = 9
@@ -122,6 +131,7 @@
 /datum/unarmed_attack/terminator
 	attack_verb = list("pulverized", "crushed", "pounded")
 	attack_noun = list("power fist")
+	desc = "Hunt down your foes and shove your arm straight through their torso with your highly advanced power fist! You are built to kill, show the world!"
 	damage = 12
 	attack_sound = 'sound/weapons/beartrap_shut.ogg'
 	attack_name = "power fist"

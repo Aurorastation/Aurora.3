@@ -37,16 +37,8 @@
 	populate_code_phrases()
 
 	// this covers mapped in drone fabs
-	for(var/thing in SSatoms.late_misc_firers)
-		if(istype(thing, /obj/machinery/drone_fabricator))
-			var/obj/machinery/drone_fabricator/DF = thing
-			DF.enable_drone_spawn()
-		else if(istype(thing, /mob/living/silicon/robot/drone/mining))
-			var/mob/living/silicon/robot/drone/mining/MD = thing
-			MD.request_player()
-		else if(istype(thing, /obj/effect/mazegen/generator))
-			var/obj/effect/mazegen/generator/MG = thing
-			MG.run_generator()
+	for(var/atom/thing as anything in SSatoms.late_misc_firers)
+		thing.do_late_fire()
 		LAZYREMOVE(SSatoms.late_misc_firers, thing)
 
 	if (config.use_forumuser_api)

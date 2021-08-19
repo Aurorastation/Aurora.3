@@ -31,13 +31,18 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	uniform = /obj/item/clothing/under/rank/captain
 	shoes = /obj/item/clothing/shoes/brown
 	head = /obj/item/clothing/head/caphat
-	headset = /obj/item/device/radio/headset/heads/captain
-	bowman = /obj/item/device/radio/headset/heads/captain/alt
 	glasses = /obj/item/clothing/glasses/sunglasses
 	id = /obj/item/card/id/gold
+	
+	headset = /obj/item/device/radio/headset/heads/captain
+	bowman = /obj/item/device/radio/headset/heads/captain/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/captain
+	wrist_radio = /obj/item/device/radio/headset/wrist/captain
+	
 	tab_pda = /obj/item/modular_computer/handheld/pda/command/captain
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/command/captain
 	tablet = /obj/item/modular_computer/handheld/preset/command/captain
+	
 	backpack_contents = list(
 		/obj/item/storage/box/ids = 1
 	)
@@ -106,12 +111,17 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 	uniform = /obj/item/clothing/under/rank/head_of_personnel
 	shoes = /obj/item/clothing/shoes/brown
+	id = /obj/item/card/id/navy
+	
 	headset = /obj/item/device/radio/headset/heads/hop
 	bowman = /obj/item/device/radio/headset/heads/hop/alt
-	id = /obj/item/card/id/navy
+	double_headset = /obj/item/device/radio/headset/alt/double/hop
+	wrist_radio = /obj/item/device/radio/headset/wrist/hop
+	
 	tab_pda = /obj/item/modular_computer/handheld/pda/command/hop
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/command/hop
 	tablet = /obj/item/modular_computer/handheld/preset/command/hop
+	
 	backpack_contents = list(
 		/obj/item/storage/box/ids = 1
 	)

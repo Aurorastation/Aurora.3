@@ -134,7 +134,7 @@
 		frequency = new_frequency
 		radio_connection = SSradio.add_object(src, frequency, RADIO_AIRLOCK)
 
-/obj/machinery/door/airlock/Initialize()
+/obj/machinery/door/airlock/Initialize(mapload, d = 0, populate_components = TRUE, var/obj/structure/door_assembly/DA)
 	. = ..()
 	if(frequency)
 		set_frequency(frequency)
@@ -147,6 +147,10 @@
 
 	if(SSradio)
 		set_frequency(frequency)
+
+	if(DA)
+		bound_height = DA.bound_height
+		bound_width = DA.bound_width
 
 /obj/machinery/door/airlock/Destroy()
 	if(frequency && SSradio)
