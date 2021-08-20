@@ -211,31 +211,16 @@ datum/preferences
 	return mob_species.age_max
 
 /datum/preferences/proc/ZeroSkills(var/forced = 0)
-	for(var/V in SKILLS) for(var/datum/skill/S in SKILLS[V])
-		if(!skills.Find(S.ID) || forced)
-			skills[S.ID] = SKILL_NONE
+	for(var/skill_field in skill_list)
+		for(var/datum/skill/S as anything in skill_list[skill_field])
+			if(!skills[S.name] || forced)
+				skills[S.name] = SKILL_NONE
 
 /datum/preferences/proc/CalculateSkillPoints()
 	used_skillpoints = 0
-	for(var/V in SKILLS) for(var/datum/skill/S in SKILLS[V])
-		var/multiplier = 1
-		switch(skills[S.ID])
-			if(SKILL_NONE)
-				used_skillpoints += 0 * multiplier
-			if(SKILL_BASIC)
-				used_skillpoints += 1 * multiplier
-			if(SKILL_ADEPT)
-				// secondary skills cost less
-				if(S.secondary)
-					used_skillpoints += 1 * multiplier
-				else
-					used_skillpoints += 3 * multiplier
-			if(SKILL_EXPERT)
-				// secondary skills cost less
-				if(S.secondary)
-					used_skillpoints += 3 * multiplier
-				else
-					used_skillpoints += 6 * multiplier
+	for(var/skill_field in skill_list)
+		for(var/datum/skill/S as anything in skill_list[skill_field])
+			used_skillpoints += S.skill_point_cost(skills[S.name])
 
 /datum/preferences/proc/GetSkillClass(points)
 	return CalculateSkillClass(points, age)

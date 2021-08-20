@@ -45,7 +45,7 @@
 	)
 
 /datum/category_item/player_setup_item/skills/sanitize_character(var/sql_load = 0)
-	if (SKILLS == null)
+	if(!length(skill_list))
 		setup_skills()
 	if (!pref.skills)
 		pref.skills = list()
@@ -71,11 +71,11 @@
 		"<a href='?src=\ref[src];preconfigured=1'>Use preconfigured skillset</a><br>",
 		"<table>"
 	)
-	for(var/V in SKILLS)
-		dat += "<tr><th colspan = 5><b>[V]</b>"
+	for(var/skill_field in skill_list)
+		dat += "<tr><th colspan = 5><b>[skill_field]</b>"
 		dat += "</th></tr>"
-		for(var/datum/skill/S in SKILLS[V])
-			var/level = pref.skills[S.ID]
+		for(var/datum/skill/S as anything in skill_list[skill_field])
+			var/level = pref.skills[S.name]
 			dat += "<tr style='text-align:left;'>"
 			dat += "<th><a href='?src=\ref[src];skillinfo=\ref[S]'>[S.name]</a></th>"
 			dat += "<th><a href='?src=\ref[src];setskill=\ref[S];newvalue=[SKILL_NONE]'><font color=[(level == SKILL_NONE) ? "red" : ""]>\[Untrained\]</font></a></th>"
@@ -100,20 +100,22 @@
 	else if(href_list["setskill"])
 		var/datum/skill/S = locate(href_list["setskill"])
 		var/value = text2num(href_list["newvalue"])
-		pref.skills[S.ID] = value
+		pref.skills[S.name] = value
 		pref.CalculateSkillPoints()
 		return TOPIC_REFRESH
 
 	else if(href_list["preconfigured"])
 		var/selected = input(user, "Select a skillset", "Skillset") as null|anything in SKILL_PRE
-		if(!selected && !CanUseTopic(user)) return
+		if(!selected && !CanUseTopic(user))
+			return
 
 		pref.ZeroSkills(1)
-		for(var/V in SKILL_PRE[selected])
-			if(V == "field")
-				pref.skill_specialization = SKILL_PRE[selected]["field"]
+		var/list/skill_set = SKILL_PRE[selected]
+		for(var/skill_set_entry in skill_set)
+			if(skill_set_entry == "field")
+				pref.skill_specialization = skill_set[skill_set_entry]
 				continue
-			pref.skills[V] = SKILL_PRE[selected][V]
+			pref.skills[skill_set_entry] = skill_set[skill_set_entry]
 		pref.CalculateSkillPoints()
 
 		return TOPIC_REFRESH

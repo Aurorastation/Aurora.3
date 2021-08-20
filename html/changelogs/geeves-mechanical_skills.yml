@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - backend: "Retooled the useless skill system, allowing developers and contributors to easily add new skills, add skill minimum requirements, or add skill duration modifiers to actions taken."
+  - tweak: "Some old and unused skills have been removed."
+  - rscadd: "Added a new athletics skill. Your level in this skill determines how quickly you can vault a table."

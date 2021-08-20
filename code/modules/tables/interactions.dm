@@ -102,7 +102,7 @@
 	)
 	LAZYADD(climbers, user)
 
-	if(!do_after(user,25))
+	if(!do_after(user, 25 * user.get_skill_duration_multiplier(SKILL_ATHLETICS)))
 		LAZYREMOVE(climbers, user)
 		return
 

@@ -1,0 +1,71 @@
+#define SKILL_NONE 0
+#define SKILL_BASIC 1
+#define SKILL_ADEPT 2
+#define SKILL_EXPERT 3
+
+
+#define SKILL_FIELD_COMMAND "Command"
+#define SKILL_FIELD_SECURITY "Security"
+#define SKILL_FIELD_ENGINEERING "Engineering"
+#define SKILL_FIELD_SCIENCE "Science"
+#define SKILL_FIELD_MEDICAL "Medical"
+#define SKILL_FIELD_CIVILIAN "Civilian"
+
+
+#define SKILL_LEADERSHIP "Leadership"
+
+#define SKILL_ATHLETICS "Athletics"
+#define SKILL_CLOSE_COMBAT "Close Combat"
+#define SKILL_WEAPONS_EXPERTISE "Weapons Expertise"
+#define SKILL_FORENSICS "Forensics"
+
+#define SKILL_EVA "Extra-Vehicular Activity"
+#define SKILL_CONSTRUCTION "Construction"
+#define SKILL_ELECTRICAL "Electrical Engineering"
+#define SKILL_ATMOSPHERICS "Atmospherics"
+#define SKILL_ENGINES "Engines"
+#define SKILL_HEAVY_MACHINERY "Heavy Machinery Operation"
+
+#define SKILL_COMPLEX_DEVICES "Complex Devices"
+#define SKILL_COMPUTERS "Information Technology"
+#define SKILL_CHEMISTRY "Chemistry"
+
+#define SKILL_MEDICINE "Medicine"
+#define SKILL_ANATOMY "Anatomy"
+
+#define SKILL_BOTANY "Botany"
+#define SKILL_COOKING "Cooking"
+
+
+var/list/SKILL_SET_ENGINEER = list(
+	"field" = SKILL_FIELD_ENGINEERING,
+	SKILL_EVA = SKILL_BASIC,
+	SKILL_CONSTRUCTION = SKILL_ADEPT,
+	SKILL_ELECTRICAL = SKILL_BASIC,
+	SKILL_ENGINES = SKILL_ADEPT
+	)
+
+var/list/SKILL_SET_ROBOTICIST = list(
+	"field" = SKILL_FIELD_SCIENCE,
+	SKILL_COMPLEX_DEVICES = SKILL_ADEPT,
+	SKILL_ELECTRICAL = SKILL_BASIC,
+	SKILL_COMPUTERS = SKILL_ADEPT,
+	SKILL_ANATOMY = SKILL_BASIC
+	)
+
+var/list/SKILL_SET_SECURITY_OFFICER = list(
+	"field" = SKILL_FIELD_SECURITY,
+	SKILL_ATHLETICS = SKILL_BASIC,
+	SKILL_CLOSE_COMBAT = SKILL_BASIC,
+	SKILL_WEAPONS_EXPERTISE = SKILL_ADEPT,
+	SKILL_FORENSICS = SKILL_BASIC
+	)
+
+var/list/SKILL_SET_CHEMIST = list(
+	"field" = SKILL_FIELD_SCIENCE,
+	SKILL_COMPLEX_DEVICES = SKILL_BASIC,
+	SKILL_CHEMISTRY = SKILL_ADEPT,
+	SKILL_MEDICINE = SKILL_BASIC
+	)
+
+var/global/list/SKILL_PRE = list("Engineer" = SKILL_SET_ENGINEER, "Roboticist" = SKILL_SET_ROBOTICIST, "Security Officer" = SKILL_SET_SECURITY_OFFICER, "Chemist" = SKILL_SET_CHEMIST)
