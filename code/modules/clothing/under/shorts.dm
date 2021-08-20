@@ -95,7 +95,7 @@
 /obj/item/clothing/under/shorts/jeans/grey/female
 	name = "grey jeans short shorts"
 	icon_state = "grey_shorts_f"
-	icon_state = "grey_shorts_f"
+	item_state = "grey_shorts_f"
 
 /obj/item/clothing/under/shorts/khaki
 	name = "khaki shorts"
