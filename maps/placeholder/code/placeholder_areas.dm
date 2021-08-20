@@ -118,6 +118,9 @@
 /area/hangar/intrepid
 	name = "Intrepid Hangar"
 
+/area/hangar/intrepid/interstitial
+	name = "Intrepid Hangar Access"
+
 /area/hangar/cargo
 	name = "Cargo Hangar"
 
@@ -146,3 +149,42 @@
 /area/operations/storage
 	name = "Operations Equipment Storage"
 	icon_state = "dark160"
+
+//Wings
+
+/area/maintenance/substation/wing_starboard
+	name = "Starboard Wing Substation"
+
+/area/maintenance/substation/wing_port
+	name = "Port Wing Substation"
+
+/area/maintenance/hangar
+	name = "Hangar Maintenance"
+
+/area/maintenance/hangar/port
+	name = "Port Hangar Maintenance"
+
+/area/maintenance/hangar/starboard
+	name = "Starboard Hangar Maintenance"
+
+/area/maintenance/wing
+	name = "Wing Frame Maintenance"
+	icon_state = "fpmaint"
+
+/area/maintenance/wing/starboard
+	name = "Central Wing Frame Interior - Starboard"
+
+/area/maintenance/wing/starboard/far
+	name = "Central Wing Frame Interior - Far Starboard"
+
+/area/maintenance/wing/starboard/deck1
+	name = "Lower Wing Frame Interior - Starboard"
+
+/area/maintenance/wing/port
+	name = "Central Wing Frame Interior - Port"
+
+/area/maintenance/wing/port/far
+	name = "Central Wing Frame Interior - Far Port"
+
+/area/maintenance/wing/port/deck1
+	name = "Lower Wing Frame Interior - Port"
