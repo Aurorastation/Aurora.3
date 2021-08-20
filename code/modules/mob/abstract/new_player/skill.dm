@@ -34,7 +34,7 @@
 			else
 				return 6
 
-/datum/skill/management
+/datum/skill/leadership
 	name = SKILL_LEADERSHIP
 	desc = "Your ability to manage and commandeer other crew members."
 	field = SKILL_FIELD_COMMAND
