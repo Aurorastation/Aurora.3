@@ -1,6 +1,0 @@
-author: Desven
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixes the pineapple rings having the same description and sounds than a regular box."
