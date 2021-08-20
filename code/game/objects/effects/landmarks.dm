@@ -253,3 +253,19 @@
 
 /obj/effect/landmark/distress_team_equipment
 	name = "distress equipment"
+
+var/list/ruin_landmarks = list()
+
+/obj/effect/landmark/ruin
+	var/datum/map_template/ruin/ruin_template
+
+/obj/effect/landmark/ruin/New(loc, my_ruin_template)
+	name = "ruin_[ref(src)]" //todomatt: EXTREMELY FUCKING HACKY. THIS DOESNT WORK. FIX THIS.
+	..(loc)
+	ruin_template = my_ruin_template
+	ruin_landmarks |= src
+
+/obj/effect/landmark/ruin/Destroy()
+	ruin_landmarks -= src
+	ruin_template = null
+	. = ..()

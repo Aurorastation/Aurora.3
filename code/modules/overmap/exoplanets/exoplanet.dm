@@ -58,7 +58,7 @@
 			habitability_class = HABITABILITY_BAD
 
 /obj/effect/overmap/visitable/sector/exoplanet/New(nloc, max_x, max_y)
-	if(current_map.use_overmap)
+	if(!current_map.use_overmap)
 		return
 
 	maxx = max_x ? max_x : world.maxx
@@ -230,13 +230,6 @@
 		for(var/g in atmosphere.gas)
 			if(gas_data.flags[g] & XGM_GAS_CONTAMINANT)
 				S.set_trait(TRAIT_TOXINS_TOLERANCE, rand(10,15))
-	if(prob(50))
-		var/chem_type = SSchemistry.get_random_chem(TRUE, atmosphere ? atmosphere.temperature : T0C)
-		if(chem_type)
-			var/nutriment = S.chems[/datum/reagent/nutriment]
-			S.chems.Cut()
-			S.chems[/datum/reagent/nutriment] = nutriment
-			S.chems[chem_type] = list(rand(1,10),rand(10,20))
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/adapt_animal(var/mob/living/simple_animal/A)
 	if(species[A.type])
@@ -263,14 +256,6 @@
 		A.minbodytemp = atmosphere.temperature - 20
 		A.maxbodytemp = atmosphere.temperature + 30
 		A.bodytemperature = (A.maxbodytemp+A.minbodytemp)/2
-		if(A.min_gas)
-			A.min_gas = breathgas.Copy()
-		if(A.max_gas)
-			A.max_gas = list()
-			A.max_gas[badgas] = 5
-	else
-		A.min_gas = null
-		A.max_gas = null
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/get_random_species_name()
 	return pick("nol","shan","can","fel","xor")+pick("a","e","o","t","ar")+pick("ian","oid","ac","ese","inian","rd")
@@ -302,7 +287,7 @@
 			var/valid = 1
 			var/list/block_to_check = block(locate(T.x - 10, T.y - 10, T.z), locate(T.x + 10, T.y + 10, T.z))
 			for(var/turf/check in block_to_check)
-				if(!istype(get_area(check), /area/exoplanet) || check.turf_flags & TURF_FLAG_NORUINS)
+				if(!istype(get_area(check), /area/exoplanet) || check.flags & TURF_NORUINS)
 					valid = 0
 					break
 			if(attempts >= 10)
@@ -411,4 +396,3 @@
 	name = "\improper Planetary surface"
 	ambience = list('sound/effects/wind/wind_2_1.ogg','sound/effects/wind/wind_2_2.ogg','sound/effects/wind/wind_3_1.ogg','sound/effects/wind/wind_4_1.ogg','sound/effects/wind/wind_4_2.ogg','sound/effects/wind/wind_5_1.ogg')
 	always_unpowered = 1
-	area_flags = AREA_FLAG_EXTERNAL

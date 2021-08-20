@@ -32,6 +32,8 @@
 #define MATERIAL_SHUTTLE_SKRELL          "skrell"
 #define MATERIAL_RUST                    "rust"
 #define MATERIAL_CARDBOARD               "cardboard"
+#define MATERIAL_GRAPHITE                "graphite"
+
 
 // Leathers and related.
 #define MATERIAL_RESIN                   "resin"

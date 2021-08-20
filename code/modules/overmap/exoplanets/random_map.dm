@@ -11,7 +11,6 @@
 	//intended x*y size, used to adjust spawn probs
 	var/intended_x = 150
 	var/intended_y = 150
-	var/large_flora_prob = 30
 	var/flora_prob = 10
 	var/flora_diversity = 4
 	var/fauna_prob = 2
@@ -30,7 +29,6 @@
 	//automagically adjust probs for bigger maps to help with lag
 	var/size_mod = intended_x / tlx * intended_y / tly
 	flora_prob *= size_mod
-	large_flora_prob *= size_mod
 	fauna_prob *= size_mod
 	if(_plant_colors)
 		plantcolors = _plant_colors
@@ -76,8 +74,6 @@
 				spawn_grass(T)
 			if(prob(flora_prob))
 				spawn_flora(T)
-			else if(prob(large_flora_prob))
-				spawn_flora(T, 1)
 
 /datum/random_map/noise/exoplanet/proc/spawn_fauna(var/turf/T)
 	if(prob(megafauna_spawn_prob) && LAZYLEN(megafauna_types))
@@ -107,22 +103,6 @@
 		else if(carnivore_prob < 20)
 			S.set_trait(TRAIT_CARNIVOROUS,1)
 		small_flora_types += S
-	if(large_flora_prob)
-		var/tree_diversity = max(1,flora_diversity/2)
-		for(var/i = 1 to tree_diversity)
-			var/datum/seed/S = new()
-			S.randomize()
-			S.set_trait(TRAIT_PRODUCT_ICON,"alien[rand(1,5)]")
-			S.set_trait(TRAIT_PLANT_ICON,"tree")
-			S.set_trait(TRAIT_SPREAD,0)
-			S.set_trait(TRAIT_HARVEST_REPEAT,1)
-			S.set_trait(TRAIT_LARGE,1)
-			var/color = pick(plantcolors)
-			if(color == "RANDOM")
-				color = get_random_colour(0,75,190)
-			S.set_trait(TRAIT_LEAVES_COLOUR,color)
-			S.chems[/datum/reagent/woodpulp] = 1
-			big_flora_types += S
 
 /datum/random_map/noise/exoplanet/proc/get_grass_overlay()
 	var/grass_num = "[rand(1,6)]"
@@ -139,7 +119,7 @@
 	if(big)
 		if(LAZYLEN(big_flora_types))
 			new /obj/machinery/portable_atmospherics/hydroponics/soil/invisible(T, pick(big_flora_types), 1)
-		for(var/turf/neighbor in trange(1,T))
+		for(var/turf/neighbor in RANGE_TURFS(1,T))
 			spawn_grass(neighbor)
 	else
 		if(LAZYLEN(small_flora_types))
@@ -151,4 +131,5 @@
 		return
 	if(locate(/obj/effect/floor_decal) in T)
 		return
-	new /obj/effect/floor_decal(T, newappearance = get_grass_overlay())
+	var/obj/effect/floor_decal/FD = new /obj/effect/floor_decal(T)
+	FD.appearance = get_grass_overlay()

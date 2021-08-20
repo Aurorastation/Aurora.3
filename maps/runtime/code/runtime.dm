@@ -1,12 +1,12 @@
 /datum/map/runtime
-	name = "Runtime Station"
-	full_name = "Runtime Debugging Station"
+	name = "Runtime Ship"
+	full_name = "Runtime Debugging Ship"
 	path = "runtime"
 	lobby_icons = list('icons/misc/titlescreens/runtime/developers.dmi')
 	lobby_transitions = 10 SECONDS
 
 	station_levels = list(1, 2, 3)
-	admin_levels = list()
+	admin_levels = list(9)
 	contact_levels = list(1, 2, 3)
 	player_levels = list(1, 2, 3)
 	accessible_z_levels = list(1, 2, 3)
@@ -20,9 +20,14 @@
 	company_short = "BT"
 
 	use_overmap = TRUE
+	overmap_size = 35
 
 	station_networks = list(
 		NETWORK_CIVILIAN_MAIN,
 		NETWORK_COMMAND,
 		NETWORK_ENGINEERING,
 	)
+
+	num_exoplanets = 3
+
+	map_shuttles = list(/datum/shuttle/autodock/overmap/runtime)

@@ -3,22 +3,19 @@
 	icon = 'icons/turf/desert.dmi'
 	icon_state = "desert"
 	has_resources = 1
-	footstep_type = /decl/sound_category/asteroid_footstep
+	footstep_sound = /decl/sound_category/asteroid_footstep
 	var/diggable = 1
 	var/dirt_color = "#7c5e42"
-
-/turf/simulated/floor/exoplanet/can_engrave()
-	return FALSE
 
 /turf/simulated/floor/exoplanet/New()
 	if(current_map.use_overmap)
 		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
 		if(istype(E))
 			if(E.atmosphere)
-				initial_gas = E.atmosphere.gas.Copy()
+				//initial_gas = E.atmosphere.gas.Copy()
 				temperature = E.atmosphere.temperature
 			else
-				initial_gas = list()
+				//initial_gas = list() todomatt: inital gas FUCK
 				temperature = T0C
 			//Must be done here, as light data is not fully carried over by ChangeTurf (but overlays are).
 			set_light(E.lightlevel, 0.1, 2)
@@ -27,11 +24,11 @@
 	..()
 
 /turf/simulated/floor/exoplanet/attackby(obj/item/C, mob/user)
-	if(diggable && istype(C,/obj/item/weapon/shovel))
+	if(diggable && istype(C,/obj/item/shovel))
 		visible_message("<span class='notice'>\The [user] starts digging \the [src]</span>")
 		if(do_after(user, 50))
 			to_chat(user,"<span class='notice'>You dig a deep pit.</span>")
-			new /obj/structure/pit(src)
+			//new /obj/structure/pit(src) todomatt: pits
 			diggable = 0
 		else
 			to_chat(user,"<span class='notice'>You stop shoveling.</span>")
@@ -59,11 +56,10 @@
 	overlays.Cut()
 	if(LAZYLEN(decals))
 		overlays += decals
-	for(var/direction in GLOB.cardinal)
+	for(var/direction in cardinal)
 		var/turf/turf_to_check = get_step(src,direction)
 		if(!istype(turf_to_check, type))
 			var/image/rock_side = image(icon, "edge[pick(0,1,2)]", dir = turn(direction, 180))
-			rock_side.plating_decal_layerise()
 			switch(direction)
 				if(NORTH)
 					rock_side.pixel_y += world.icon_size
@@ -85,12 +81,11 @@
 	name = "shallow water"
 	icon = 'icons/misc/beach.dmi'
 	icon_state = "seashallow"
-	movement_delay = 2
-	footstep_type = /decl/sound_category/water_footstep
-	var/reagent_type = /datum/reagent/water
+	footstep_sound = /decl/sound_category/water_footstep
+	var/reagent_type = /decl/reagent/water
 
 /turf/simulated/floor/exoplanet/water/shallow/attackby(obj/item/O, var/mob/living/user)
-	var/obj/item/weapon/reagent_containers/RG = O
+	var/obj/item/reagent_containers/RG = O
 	if (reagent_type && istype(RG) && RG.is_open_container() && RG.reagents)
 		RG.reagents.add_reagent(reagent_type, min(RG.volume - RG.reagents.total_volume, RG.amount_per_transfer_from_this))
 		user.visible_message("<span class='notice'>[user] fills \the [RG] from \the [src].</span>","<span class='notice'>You fill \the [RG] from \the [src].</span>")
@@ -106,7 +101,7 @@
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "ice"
 
-/turf/simulated/floor/exoplanet/ice/on_update_icon()
+/turf/simulated/floor/exoplanet/ice/update_icon()
 	return
 
 //Snow
@@ -115,7 +110,7 @@
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "snow"
 	dirt_color = "#e3e7e8"
-	footstep_type = /decl/sound_category/snow_footstep
+	footstep_sound = /decl/sound_category/snow_footstep
 
 /turf/simulated/floor/exoplanet/snow/Initialize()
 	. = ..()
@@ -125,17 +120,17 @@
 	melt()
 
 /turf/simulated/floor/exoplanet/snow/melt()
-	SetName("permafrost")
+	name = "permafrost"
 	icon_state = "permafrost"
-	footstep_type = /decl/sound_category/asteroid_footstep
+	footstep_sound = /decl/sound_category/asteroid_footstep
 
 //Grass
 /turf/simulated/floor/exoplanet/grass
 	name = "grass"
-	icon = 'icons/turf/jungle.dmi'
+	//icon = 'icons/turf/jungle.dmi' todomatt: jungle icons
 	icon_state = "greygrass"
 	color = "#799c4b"
-	footstep_type = /decl/sound_category/grass_footstep
+	footstep_sound = /decl/sound_category/grass_footstep
 
 /turf/simulated/floor/exoplanet/grass/Initialize()
 	. = ..()
@@ -157,7 +152,7 @@
 	name = "sand"
 	desc = "It's coarse and gets everywhere."
 	dirt_color = "#ae9e66"
-	footstep_type = /decl/sound_category/sand_footstep
+	footstep_sound = /decl/sound_category/sand_footstep
 
 /turf/simulated/floor/exoplanet/desert/Initialize()
 	. = ..()
@@ -169,11 +164,6 @@
 	desc = "Stone-like artificial material."
 	icon = 'icons/turf/flooring/misc.dmi'
 	icon_state = "concrete"
-
-/turf/simulated/floor/exoplanet/concrete/update_icon()
-	overlays.Cut()
-	if(broken)
-		overlays |= get_damage_overlay("broken[(x + y) % 5]", BLEND_MULTIPLY)
 
 //Special world edge turf
 
@@ -213,7 +203,7 @@
 	O.name = "distant terrain"
 	O.desc = "You need to come over there to take a better look."
 
-/turf/simulated/planet_edge/Bumped(atom/movable/A)
+/turf/simulated/planet_edge/CollidedWith(atom/movable/A)
 	. = ..()
 	var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
 	if(!istype(E))
