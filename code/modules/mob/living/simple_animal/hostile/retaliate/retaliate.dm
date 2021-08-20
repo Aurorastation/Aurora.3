@@ -28,3 +28,25 @@
 	for(var/mob/living/simple_animal/hostile/retaliate/H in view(world.view, get_turf(src)))
 		if(H.faction == faction)
 			H.enemies |= M
+
+/mob/living/simple_animal/proc/name_species()
+	set name = "Name Alien Species"
+	set category = "Exploration"
+	set src in view()
+
+	if(!current_map.use_overmap)
+		return
+
+	if(use_check_and_message(usr))
+		return
+
+	for(var/obj/effect/overmap/visitable/sector/exoplanet/E)
+		if(src in E.animals)
+			var/newname = input("What do you want to name this species?", "Species naming", E.get_random_species_name()) as text|null
+			newname = sanitizeName(newname, allow_numbers = TRUE, force_first_letter_uppercase = FALSE)
+			if(newname && !use_check_and_message(usr))
+				if(E.rename_species(type, newname))
+					to_chat(usr,"<span class='notice'>This species will be known from now on as '[newname]'.</span>")
+				else
+					to_chat(usr,"<span class='warning'>This species has already been named!</span>")
+			return
