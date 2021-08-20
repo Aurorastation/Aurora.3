@@ -93,12 +93,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/aibunker)
-"an" = (
-/obj/structure/bed/bunk{
-	color = "#666666"
-	},
-/turf/simulated/floor/carpet,
-/area/janitor)
 "ao" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -584,10 +578,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
-"bB" = (
-/obj/machinery/door/airlock,
-/turf/simulated/floor/tiled,
-/area/janitor)
 "bC" = (
 /obj/structure/lattice,
 /obj/structure/window/reinforced{
@@ -1045,7 +1035,7 @@
 	dir = 4
 	},
 /turf/simulated/open,
-/area/maintenance/vault)
+/area/maintenance/wing/starboard)
 "cS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -1715,11 +1705,7 @@
 /turf/simulated/floor/bluegrid,
 /area/janitor)
 "ez" = (
-/obj/machinery/door/airlock/external{
-	icon_state = "door_locked";
-	locked = 1
-	},
-/turf/simulated/floor,
+/turf/simulated/floor/reinforced,
 /area/janitor)
 "eC" = (
 /obj/structure/window/reinforced,
@@ -2615,12 +2601,12 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "hU" = (
-/obj/machinery/door/airlock,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled,
+/obj/machinery/door/airlock/multi_tile/glass,
+/turf/simulated/floor/tiled/dark,
 /area/janitor)
 "hX" = (
 /obj/structure/cable/green{
@@ -4060,10 +4046,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
-"mT" = (
-/obj/structure/closet/secure_closet/personal,
-/turf/simulated/floor/carpet,
-/area/janitor)
 "mU" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -4822,6 +4804,12 @@
 /obj/effect/floor_decal/corner/beige/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
+"pB" = (
+/obj/machinery/newscaster{
+	pixel_x = 29
+	},
+/turf/simulated/floor/tiled/dark,
+/area/janitor)
 "pG" = (
 /obj/machinery/body_scanconsole{
 	dir = 4;
@@ -4872,6 +4860,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
+"pM" = (
+/obj/effect/floor_decal/industrial/loading,
+/turf/simulated/floor/tiled/dark,
+/area/janitor)
 "pN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -5181,7 +5173,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/janitor)
 "rd" = (
 /obj/structure/table/standard,
@@ -5844,7 +5836,7 @@
 	},
 /obj/machinery/door/airlock/hatch,
 /turf/simulated/floor,
-/area/maintenance/vault)
+/area/maintenance/wing/starboard)
 "ty" = (
 /obj/effect/floor_decal/corner/green/diagonal{
 	dir = 8
@@ -6799,6 +6791,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/locker)
+"xE" = (
+/turf/simulated/wall/shuttle/placeholder/cardinal,
+/area/maintenance/wing/starboard)
 "xF" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/corner_wide/red/full,
@@ -8238,9 +8233,6 @@
 	},
 /turf/simulated/floor,
 /area/crew_quarters/sleep/cryo)
-"CR" = (
-/turf/simulated/floor/carpet,
-/area/janitor)
 "CS" = (
 /obj/structure/window/shuttle/placeholder,
 /obj/structure/grille/diagonal{
@@ -9671,6 +9663,15 @@
 	},
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
+"IW" = (
+/obj/machinery/requests_console{
+	department = "Engineering";
+	departmentType = 1;
+	name = "Engineering RC";
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/janitor)
 "IY" = (
 /turf/simulated/wall/shuttle/placeholder/cardinal,
 /area/maintenance/vault)
@@ -12062,7 +12063,7 @@
 /area/lawoffice/consular)
 "Sj" = (
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/janitor)
 "Sk" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -12103,7 +12104,7 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/janitor)
 "St" = (
 /obj/machinery/light{
@@ -13378,6 +13379,10 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
 /area/template_noop)
+"XE" = (
+/obj/effect/map_effect/airlock/e_to_w/long/square,
+/turf/simulated/wall/shuttle/placeholder/cardinal,
+/area/crew_quarters/fitness)
 "XG" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -13771,12 +13776,16 @@
 	dir = 5
 	},
 /obj/structure/table/rack,
-/obj/machinery/requests_console{
-	pixel_y = 30
-	},
 /obj/item/storage/belt/medical,
 /obj/item/clothing/glasses/hud/health,
 /obj/item/clothing/accessory/stethoscope,
+/obj/machinery/requests_console{
+	announcementConsole = 1;
+	department = "Chief Medical Officer's Desk";
+	departmentType = 5;
+	name = "Chief Medical Officer RC";
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "Zf" = (
@@ -28648,8 +28657,8 @@ at
 at
 at
 at
-IY
-IY
+xE
+xE
 uA
 HA
 PE
@@ -28850,7 +28859,7 @@ at
 at
 at
 at
-IY
+xE
 cR
 wp
 By
@@ -29052,7 +29061,7 @@ LZ
 LZ
 LZ
 Ky
-IY
+xE
 tw
 wp
 wp
@@ -32874,10 +32883,10 @@ aa
 aa
 aa
 HN
-at
-at
-at
-Wd
+aK
+ez
+ez
+XE
 UK
 ye
 zf
@@ -33076,10 +33085,10 @@ aa
 aa
 aa
 HN
-at
-at
-at
-Wd
+aK
+fK
+fK
+ik
 UK
 SG
 pa
@@ -33278,9 +33287,9 @@ bw
 bw
 bw
 HN
-at
-at
-at
+aK
+fK
+fK
 ik
 UZ
 Ec
@@ -33481,8 +33490,8 @@ aa
 aa
 HN
 aK
-aK
-aK
+fK
+lZ
 ik
 ik
 YX
@@ -33682,11 +33691,11 @@ aa
 aa
 aa
 HN
-ez
-fK
-lZ
-fK
 aK
+fK
+fK
+fK
+fK
 fK
 fK
 fK
@@ -33884,11 +33893,11 @@ bw
 bw
 bw
 HN
-ez
-fK
-fK
-fK
 aK
+fK
+fK
+fK
+fK
 fK
 fK
 fK
@@ -34089,7 +34098,7 @@ HN
 aK
 ac
 ac
-ez
+ac
 ac
 ac
 ac
@@ -34493,7 +34502,7 @@ HN
 cs
 bM
 df
-df
+pM
 hb
 hb
 XG
@@ -35504,10 +35513,10 @@ cs
 df
 df
 df
-df
+pB
 fR
 sK
-df
+IW
 hv
 FH
 cB
@@ -37122,11 +37131,11 @@ ah
 ah
 ah
 ah
-ah
-ah
-ah
-ah
-ah
+df
+df
+df
+df
+df
 Ss
 Sj
 Sj
@@ -37324,20 +37333,20 @@ ah
 ah
 ah
 ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-aE
+df
+df
+df
+df
+df
+df
+df
+df
+df
+df
+df
+df
+df
+df
 Hb
 zW
 Dk
@@ -37526,19 +37535,19 @@ ah
 ah
 ah
 ah
-aE
-aE
-bB
-aE
-aE
-bB
-aE
-aE
-bB
-aE
-ah
-ah
-ah
+df
+df
+df
+df
+df
+df
+df
+df
+df
+df
+df
+df
+df
 aE
 xs
 Ht
@@ -37728,19 +37737,19 @@ ah
 ah
 ah
 ah
-aE
-mT
-CR
-aE
-mT
-CR
-aE
-mT
-CR
-aE
-ah
-ah
-ah
+df
+df
+df
+df
+df
+df
+df
+df
+df
+df
+df
+df
+df
 aE
 HU
 zZ
@@ -37930,19 +37939,19 @@ ah
 ah
 ah
 ah
-aE
-CR
-CR
-aE
-CR
-CR
-aE
-CR
-CR
-aE
-ah
-ah
-ah
+df
+df
+df
+df
+df
+df
+df
+df
+df
+df
+df
+df
+df
 aE
 nP
 nP
@@ -38132,19 +38141,19 @@ ah
 ah
 ah
 ah
-aE
-an
-CR
-aE
-an
-CR
-aE
-an
-CR
-aE
-ah
-ah
-ah
+df
+df
+df
+df
+df
+df
+df
+df
+df
+df
+df
+df
+df
 aE
 HU
 HU
