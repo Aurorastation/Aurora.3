@@ -38,8 +38,8 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - tweak: "Zeng-Hu Mobility Frames are now much slower. Their actual speed is now on par with an M'sai Tajara, both sprinting and moving normally."
-  - tweak: "Zeng-Hu Mobility Frames now take 1.3x as much brute instead of 1.5x, but also take 1.3x as much burn damage instead of 1x as much."
+  - tweak: "Zeng-Hu Mobility Frames are now slower when running. Their actual speed is now on par with an M'sai Tajara when moving normally."
   - balance: "All IPCs now use additional power when sprinting. This is about 10 units of charge."
   - balance: "Zeng-Hu Mobility Frames use twice as much power for sprinting."
   - balance: "Zeng-Hu Mobility Frames use twice as much power when moving normally."
+  - rscdel: "Zeng-Hu Mobility Frames may no longer be played in security roles."

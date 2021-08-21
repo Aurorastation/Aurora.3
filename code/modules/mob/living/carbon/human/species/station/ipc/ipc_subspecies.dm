@@ -429,11 +429,10 @@
 	preview_icon = 'icons/mob/human_races/ipc/ind_zenghu_preview.dmi'
 
 	eyes = "zenghu_eyes"
-	brute_mod = 1.3
-	burn_mod = 1.3
+	brute_mod = 1.5
 
 	slowdown = -0.8
-	sprint_speed_factor = 0.55
+	sprint_speed_factor = 1.5
 	sprint_cost_factor = 2
 	move_charge_factor = 2
 
