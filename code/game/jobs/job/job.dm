@@ -39,7 +39,7 @@
 
 /datum/job/proc/display_skill_requirements(var/mob/user)
 	var/datum/browser/job_skill_win = new(user, "jobskillmenu", title, 450, 500)
-	var/list/dat = list("<center><large>Skill Requirements<large><center>")
+	var/list/dat = list("<center><large>Skill Requirements</large></center>")
 	for(var/skill in minimal_skill_requirements)
 		dat += "[skill]: [skill_level_to_text(minimal_skill_requirements[skill])]"
 	job_skill_win.set_content(dat.Join())
