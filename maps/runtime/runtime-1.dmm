@@ -118,7 +118,7 @@
 "cn" = (/obj/machinery/light{brightness_range = 16; must_start_working = 1},/obj/effect/floor_decal/corner/blue/full{dir = 4},/obj/item/modular_computer/console/preset/command/account,/turf/simulated/floor/tiled,/area/bridge)
 "co" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/wall/r_wall,/area/bridge)
 "cp" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/light{brightness_range = 16; dir = 8; must_start_working = 1},/turf/simulated/floor/tiled,/area/hallway/primary/central_one)
-"cq" = (/obj/machinery/door/airlock/external{id_tag = "runtime_shuttle"},/turf/simulated/wall/r_wall,/area/shuttle/runtime)
+"cq" = (/obj/structure/bed/chair/shuttle{build_amt = 5; dir = 3},/obj/effect/overmap/visitable/ship/landable/runtime,/turf/simulated/floor/shuttle/black,/area/shuttle/runtime)
 "cr" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/wall/r_wall,/area/bridge)
 "cs" = (/obj/machinery/door/airlock/glass_command{name = "Bridge"},/turf/simulated/floor/tiled,/area/bridge)
 "ct" = (/obj/machinery/door/airlock/glass,/turf/simulated/floor/tiled,/area/hallway/secondary/entry)
@@ -193,14 +193,12 @@
 "dK" = (/obj/machinery/door/airlock/external{id_tag = "runtime_shuttle"},/turf/simulated/floor/plating,/area/shuttle/runtime)
 "dL" = (/obj/machinery/computer/shuttle_control/explore/runtime,/turf/simulated/floor/shuttle/black,/area/shuttle/runtime)
 "dM" = (/obj/machinery/computer/ship/helm,/turf/simulated/floor/shuttle/black,/area/shuttle/runtime)
-"dN" = (/obj/machinery/atmospherics/portables_connector{dir = 4},/obj/machinery/portable_atmospherics/canister/phoron,/turf/simulated/floor/shuttle/black,/area/shuttle/runtime)
+"dN" = (/obj/machinery/atmospherics/pipe/tank/phoron{dir = 4},/turf/simulated/floor/shuttle/black,/area/shuttle/runtime)
 "dO" = (/obj/machinery/atmospherics/pipe/manifold4w/hidden,/turf/simulated/floor/shuttle/black,/area/shuttle/runtime)
 "dP" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 5},/turf/simulated/wall/r_wall,/area/shuttle/runtime)
 "dQ" = (/turf/simulated/floor/shuttle/black,/area/shuttle/runtime)
 "dR" = (/obj/structure/fuel_port,/turf/simulated/wall/r_wall,/area/shuttle/runtime)
-"dS" = (/obj/structure/bed/chair/shuttle{build_amt = 5; dir = 3},/obj/effect/overmap/visitable/ship/landable/runtime,/turf/simulated/floor/shuttle/black,/area/shuttle/runtime)
 "dT" = (/obj/machinery/atmospherics/binary/pump/high_power/on{dir = 4},/turf/simulated/floor/shuttle/black,/area/shuttle/runtime)
-"dU" = (/obj/machinery/atmospherics/unary/engine{dir = 4},/turf/simulated/floor/plating,/area/shuttle/runtime)
 "dV" = (/obj/machinery/atmospherics/unary/engine{dir = 4},/turf/simulated/floor/plating,/area/shuttle/runtime)
 "eI" = (/obj/machinery/camera/network/civilian_main{c_tag = "Central Corridor 1"; dir = 1},/obj/item/device/radio/intercom{dir = 1; name = "Station Intercom (General)"; pixel_y = -21},/turf/simulated/floor/tiled,/area/hallway/primary/central_one)
 "gF" = (/obj/machinery/light{dir = 4},/turf/simulated/floor/plating,/area/maintenance/maintcentral)
@@ -283,10 +281,10 @@ aaaaaaaaaaaaaaaaabaaacaecKdidededededededededededjcPdcdcdcdcdcdcdcdcdcdcdcdcdccP
 aaaaaaaaaaaaaaaaabaaacaecKdidededqdqdqdqdqdqdededjcPdcdcdndododopMdodododpdcdcCtaeacUfUfUfUfUfacaaaaaaaa
 aaaaaaaaaaaaaaaaabaaacaecKdidededqdqdqdqdqdqdededjdrdcdcdsdtdtdtdtdtdtdtdbdcdcCtaeacUfUfUfUfUfacaaaaaaaa
 aaaaaaaaaaaaaaaaabaaacaecKdidededededededededededjdrdcdccZdudududududududbdcdcCtaeacUfUfUfUfUfacaaaaaaaa
-aaaaaaaaaaaaaaaaabaaacaecKdideaEaEcqaEdEdKdRdFdedjcPdcdcdkdldldldldldldldmdcdccPaeacWSUfUfUfUfacaaaaaaaa
+aaaaaaaaaaaaaaaaabaaacaecKdideaEaEdKaEdEdKdRdFdedjcPdcdcdkdldldldldldldldmdcdccPaeacWSUfUfUfUfacaaaaaaaa
 aaaaaaaaaaaaaaaaabaaacaecKdideaEdGdHdMdQdIdJdVdedjcPdcdcdcdcdcdcdcdcdcdcdcdcdccPgFacacacacacacacaaaaaaaa
-aaaaaaaaaaaaaaaaabaaacaecKdideaEdLdSdNdTdOdJdUdedjcPdcdcdndodododododododpdcdccPaeacaaabaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaabaaacaecKdddvaEaEaEaEaEdPdJdUdedfcPdgdccZdadadadadadadadbdcdhcPaeacaaabaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaabaaacaecKdideaEdLcqdNdTdOdJdVdedjcPdcdcdndodododododododpdcdccPaeacaaabaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaabaaacaecKdddvaEaEaEaEaEdPdJdVdedfcPdgdccZdadadadadadadadbdcdhcPaeacaaabaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaabaaacaecKdwdxdxdxdxdxdxdxdxdxdxdycPdcdccZdzdAdzdzdBdCdDdbdcdccPaeacaaabaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaabaaacaecKcKcKcKcKcKcKcKcKcKcKcKcKcPdccPcPcPcPcPcPcPcPcPcPcPcPcPaeacaaabaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaabaaacaeaeaeaeaeaeaeaeaeaeaeaeaeaeaedcaeaeaeaeaeaeaeaeaeaeaeaeaeaeacaaabaaaaaaaaaaaaaaaa

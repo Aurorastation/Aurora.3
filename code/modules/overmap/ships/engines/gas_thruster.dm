@@ -102,6 +102,7 @@
 		if(S.check_ownership(src))
 			S.engines |= controller
 			if(dir != S.fore_dir)
+				testing("Dir: [dir] fore dir: [S.fore_dir] of shuttle [S.name]")
 				stat |= BROKEN
 			break
 
