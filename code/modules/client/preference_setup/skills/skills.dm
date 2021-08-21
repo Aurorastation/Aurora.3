@@ -78,14 +78,14 @@
 			var/level = pref.skills[S.name]
 			dat += "<tr style='text-align:left;'>"
 			dat += "<th><a href='?src=\ref[src];skillinfo=\ref[S]'>[S.name]</a></th>"
-			dat += "<th><a href='?src=\ref[src];setskill=\ref[S];newvalue=[SKILL_NONE]'><font color=[(level == SKILL_NONE) ? "red" : ""]>\[Untrained\]</font></a></th>"
+			dat += "<th><a [(level == SKILL_NONE) ? "class='selectedButton'" : ""] href='?src=\ref[src];setskill=\ref[S];newvalue=[SKILL_NONE]'>Untrained</a></th>"
 			// secondary skills don't have an amateur level
 			if(S.secondary)
 				dat += "<th></th>"
 			else
-				dat += "<th><a href='?src=\ref[src];setskill=\ref[S];newvalue=[SKILL_BASIC]'><font color=[(level == SKILL_BASIC) ? "red" : ""]>\[Amateur\]</font></a></th>"
-			dat += "<th><a href='?src=\ref[src];setskill=\ref[S];newvalue=[SKILL_ADEPT]'><font color=[(level == SKILL_ADEPT) ? "red" : ""]>\[Trained\]</font></a></th>"
-			dat += "<th><a href='?src=\ref[src];setskill=\ref[S];newvalue=[SKILL_EXPERT]'><font color=[(level == SKILL_EXPERT) ? "red" : ""]>\[Professional\]</font></a></th>"
+				dat += "<th><a [(level == SKILL_BASIC) ? "class='selectedButton'" : ""] href='?src=\ref[src];setskill=\ref[S];newvalue=[SKILL_BASIC]'>Amateur</a></th>"
+			dat += "<th><a [(level == SKILL_ADEPT) ? "class='selectedButton'" : ""] href='?src=\ref[src];setskill=\ref[S];newvalue=[SKILL_ADEPT]'>Trained</a></th>"
+			dat += "<th><a [(level == SKILL_EXPERT) ? "class='selectedButton'" : ""] href='?src=\ref[src];setskill=\ref[S];newvalue=[SKILL_EXPERT]'>Professional</a></th>"
 			dat += "</tr>"
 	dat += "</table>"
 	. = dat.Join()

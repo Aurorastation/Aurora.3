@@ -50,7 +50,7 @@ a.white:hover
 	background: #40628a;
 }
 
-.linkOn, a.linkOn:link, a.linkOn:visited, a.linkOn:active, a.linkOn:hover
+.linkOn, a.linkOn:link, a.linkOn:visited, a.linkOn:active, a.linkOn:hover, a.selectedButton
 { 
 	color: #ffffff; 
 	background: #2f943c;
