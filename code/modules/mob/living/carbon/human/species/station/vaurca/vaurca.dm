@@ -162,5 +162,5 @@
 
 /datum/species/bug/can_hold_s_store(obj/item/I)
 	if(I.w_class <= ITEMSIZE_SMALL)
-		return FALSE
-	return TRUE
+		return TRUE
+	return FALSE
