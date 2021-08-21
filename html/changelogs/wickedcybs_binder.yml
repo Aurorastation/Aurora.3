@@ -1,7 +1,0 @@
-author: WickedCybs
-
-delete-after: True
-
-changes:
-  - bugfix: "The t-shirt accessory would cover part a small corner of the hand sprite. That little bit was removed"
-  - bugfix: "Sidesprites for both binder options had a pixel that went down the chest removed. It was an element that was at odds with the front and back portions."
