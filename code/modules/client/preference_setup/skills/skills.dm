@@ -45,10 +45,9 @@
 	)
 
 /datum/category_item/player_setup_item/skills/sanitize_character(var/sql_load = 0)
-	if(!length(skill_list))
-		setup_skills()
 	if (!pref.skills)
 		pref.skills = list()
+
 	if (sql_load)
 		pref.skills = params2list(pref.skills)
 
@@ -58,7 +57,12 @@
 			for (var/skill in pref.skills)
 				pref.skills[skill] = text2num(pref.skills[skill])
 
-		pref.CalculateSkillPoints()
+	for(var/skill in pref.skills)
+		if(!(skill in all_skills))
+			pref.skills -= skill
+
+	pref.CalculateSkillPoints()
+
 	if (!pref.skills.len)
 		pref.ZeroSkills()
 	if (pref.used_skillpoints < 0)
@@ -78,14 +82,14 @@
 			var/level = pref.skills[S.name]
 			dat += "<tr style='text-align:left;'>"
 			dat += "<th><a href='?src=\ref[src];skillinfo=\ref[S]'>[S.name]</a></th>"
-			dat += "<th><a [(level == SKILL_NONE) ? "class='selectedButton'" : ""] href='?src=\ref[src];setskill=\ref[S];newvalue=[SKILL_NONE]'>Untrained</a></th>"
+			dat += "<th><a [(level == SKILL_NONE) ? "class='selectedButton'" : ""] href='?src=\ref[src];setskill=\ref[S];newvalue=[SKILL_NONE]'>[SKILL_NONE_STR]</a></th>"
 			// secondary skills don't have an amateur level
 			if(S.secondary)
 				dat += "<th></th>"
 			else
-				dat += "<th><a [(level == SKILL_BASIC) ? "class='selectedButton'" : ""] href='?src=\ref[src];setskill=\ref[S];newvalue=[SKILL_BASIC]'>Amateur</a></th>"
-			dat += "<th><a [(level == SKILL_ADEPT) ? "class='selectedButton'" : ""] href='?src=\ref[src];setskill=\ref[S];newvalue=[SKILL_ADEPT]'>Trained</a></th>"
-			dat += "<th><a [(level == SKILL_EXPERT) ? "class='selectedButton'" : ""] href='?src=\ref[src];setskill=\ref[S];newvalue=[SKILL_EXPERT]'>Professional</a></th>"
+				dat += "<th><a [(level == SKILL_BASIC) ? "class='selectedButton'" : ""] href='?src=\ref[src];setskill=\ref[S];newvalue=[SKILL_BASIC]'>[SKILL_BASIC_STR]</a></th>"
+			dat += "<th><a [(level == SKILL_ADEPT) ? "class='selectedButton'" : ""] href='?src=\ref[src];setskill=\ref[S];newvalue=[SKILL_ADEPT]'>[SKILL_ADEPT_STR]</a></th>"
+			dat += "<th><a [(level == SKILL_EXPERT) ? "class='selectedButton'" : ""] href='?src=\ref[src];setskill=\ref[S];newvalue=[SKILL_EXPERT]'>[SKILL_EXPERT_STR]</a></th>"
 			dat += "</tr>"
 	dat += "</table>"
 	. = dat.Join()

@@ -193,6 +193,14 @@
 		if(C.job_species_blacklist[job.title] && (pref.species in C.job_species_blacklist[job.title]))
 			dat += "<del>[dispRank]</del></td><td><b> \[SPECIES RESTRICTED]</b></td></tr>"
 			continue
+		var/skill_unmet = FALSE
+		for(var/skill in job.minimal_skill_requirements)
+			if(!pref.skills[skill] || pref.skills[skill] < job.minimal_skill_requirements[skill])
+				skill_unmet = TRUE
+				break
+		if(skill_unmet)
+			dat += "<del>[dispRank]</del></td><td><b> <a href='?src=\ref[src];job_skill_info=\ref[job]'><font color='red'>\[SKILL REQUIRED]</font></a></b></td></tr>"
+			continue
 		if(job.alt_titles && (LAZYLEN(pref.GetValidTitles(job)) > 1))
 			dispRank = "<span width='60%' align='center'>&nbsp<a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></span>"
 		if((pref.job_civilian_low & ASSISTANT) && (rank != "Assistant"))
@@ -276,6 +284,11 @@
 		validate_and_set_faction(html_decode(href_list["faction_select"]))
 		show_faction_menu(user, html_decode(href_list["faction_select"]))
 		return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["job_skill_info"])
+		var/datum/job/J = locate(href_list["job_skill_info"])
+		J.display_skill_requirements(user)
+		return TOPIC_HANDLED
 
 	return ..()
 

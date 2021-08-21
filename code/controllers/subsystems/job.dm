@@ -32,6 +32,7 @@
 /datum/controller/subsystem/jobs/Initialize()
 	..()
 
+	setup_skills()
 	SetupOccupations()
 	LoadJobs("config/jobs.txt")
 	InitializeFactions()
@@ -137,6 +138,14 @@
 			continue
 		if(flag && !(flag in player.client.prefs.be_special_role))
 			Debug("FOC flag failed, Player: [player], Flag: [flag], ")
+			continue
+		var/skill_unmet = FALSE
+		for(var/skill in job.minimal_skill_requirements)
+			if(!player.client.prefs.skills[skill] || player.client.prefs.skills[skill] < job.minimal_skill_requirements[skill])
+				skill_unmet = TRUE
+				break
+		if(skill_unmet)
+			Debug("FOC skillcheck failed, Player: [player]")
 			continue
 		if(player.client.prefs.GetJobDepartment(job, level) & job.flag)
 			Debug("FOC pass, Player: [player], Level:[level]")
@@ -274,6 +283,14 @@
 
 				if(jobban_isbanned(player, job.title))
 					Debug("DO isbanned failed, Player: [player], Job:[job.title]")
+					continue
+
+				var/skill_unmet = FALSE
+				for(var/skill in job.minimal_skill_requirements)
+					if(!player.client.prefs.skills[skill] || player.client.prefs.skills[skill] < job.minimal_skill_requirements[skill])
+						skill_unmet = TRUE
+						break
+				if(skill_unmet)
 					continue
 
 				// If the player wants that job on this level, then try give it to him.

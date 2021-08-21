@@ -3,6 +3,10 @@
 #define SKILL_ADEPT 2
 #define SKILL_EXPERT 3
 
+#define SKILL_NONE_STR "Untrained"
+#define SKILL_BASIC_STR "Amateur"
+#define SKILL_ADEPT_STR "Trained"
+#define SKILL_EXPERT_STR "Professional"
 
 #define SKILL_FIELD_COMMAND "Command"
 #define SKILL_FIELD_SECURITY "Security"

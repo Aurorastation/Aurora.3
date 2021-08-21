@@ -207,16 +207,22 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if (jobban_isbanned(src,rank))
 		return FALSE
 
+	var/datum/preferences/P = client.prefs
+
 	if(job.blacklisted_species) // check for restricted species
-		var/datum/species/S = all_species[client.prefs.species]
+		var/datum/species/S = all_species[P.species]
 		if(S.name in job.blacklisted_species)
 			return FALSE
 
-	var/datum/faction/faction = SSjobs.name_factions[client.prefs.faction] || SSjobs.default_faction
+	var/datum/faction/faction = SSjobs.name_factions[P.faction] || SSjobs.default_faction
 	if (!(job.type in faction.allowed_role_types))
 		return FALSE
 
-	if(!(client.prefs.GetPlayerAltTitle(job) in client.prefs.GetValidTitles(job))) // does age/species check for us!
+	for(var/skill in job.minimal_skill_requirements)
+		if(!P.skills[skill] || P.skills[skill] < job.minimal_skill_requirements[skill])
+			return FALSE
+
+	if(!(P.GetPlayerAltTitle(job) in P.GetValidTitles(job))) // does age/species check for us!
 		return FALSE
 
 	return TRUE

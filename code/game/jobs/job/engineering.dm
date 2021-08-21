@@ -15,6 +15,9 @@
 
 	ideal_character_age = 50
 
+	minimal_skill_requirements = list(
+		SKILL_LEADERSHIP = SKILL_ADEPT
+	)
 
 	access = list(access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels,
 			            access_teleporter, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva,

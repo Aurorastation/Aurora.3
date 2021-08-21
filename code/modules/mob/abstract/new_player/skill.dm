@@ -142,9 +142,6 @@ var/global/list/skill_list = list()
 	if(!istype(M))
 		return
 
-	if(!length(skill_list))
-		setup_skills()
-
 	if(!length(M.skills))
 		to_chat(user, "There are no skills to display.")
 		return
@@ -197,3 +194,15 @@ var/global/list/skill_list = list()
 		var/datum/skill/S = all_skills[skill_name]
 		return S.skill_duration_multiplier(skills[skill_name])
 	return 2
+
+/proc/skill_level_to_text(var/skill_level)
+	switch(skill_level)
+		if(SKILL_NONE)
+			return SKILL_NONE_STR
+		if(SKILL_BASIC)
+			return SKILL_BASIC_STR
+		if(SKILL_ADEPT)
+			return SKILL_ADEPT_STR
+		if(SKILL_EXPERT)
+			return SKILL_EXPERT_STR
+	return SKILL_NONE_STR

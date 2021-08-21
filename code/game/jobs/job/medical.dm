@@ -13,6 +13,10 @@
 
 	minimum_character_age = 35
 
+	minimal_skill_requirements = list(
+		SKILL_LEADERSHIP = SKILL_ADEPT
+	)
+
 	access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
 			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_construction,
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_external_airlocks, access_research,

@@ -20,6 +20,10 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 	ideal_character_age = 70 // Old geezer captains ftw
 
+	minimal_skill_requirements = list(
+		SKILL_LEADERSHIP = SKILL_ADEPT
+	)
+
 	outfit = /datum/outfit/job/captain
 
 	blacklisted_species = list(SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_UNATHI, SPECIES_DIONA, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
@@ -89,6 +93,10 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	ideal_character_age = 50
 
 	minimum_character_age = 30
+
+	minimal_skill_requirements = list(
+		SKILL_LEADERSHIP = SKILL_ADEPT
+	)
 
 	outfit = /datum/outfit/job/hop
 

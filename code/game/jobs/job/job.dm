@@ -35,6 +35,16 @@
 	var/list/alt_outfits = null           // A list of special outfits for the alt titles list("alttitle" = /datum/outfit)
 	var/list/blacklisted_species = null   // A blacklist of species that can't be this job
 
+	var/list/minimal_skill_requirements
+
+/datum/job/proc/display_skill_requirements(var/mob/user)
+	var/datum/browser/job_skill_win = new(user, "jobskillmenu", title, 450, 500)
+	var/list/dat = list("<center><large>Skill Requirements<large><center>")
+	for(var/skill in minimal_skill_requirements)
+		dat += "[skill]: [skill_level_to_text(minimal_skill_requirements[skill])]"
+	job_skill_win.set_content(dat.Join())
+	job_skill_win.open()
+
 //Only override this proc
 /datum/job/proc/after_spawn(mob/living/carbon/human/H)
 
