@@ -38,11 +38,13 @@
 	var/list/minimal_skill_requirements
 
 /datum/job/proc/display_skill_requirements(var/mob/user)
-	var/datum/browser/job_skill_win = new(user, "jobskillmenu", title, 450, 500)
-	var/list/dat = list("<center><large>Skill Requirements</large></center>")
+	var/datum/browser/job_skill_win = new(user, "jobskillmenu", title, 250, 300)
+	var/dat = "<center>"
+	dat += "<b>Skill Requirements</b><br>"
 	for(var/skill in minimal_skill_requirements)
-		dat += "[skill]: [skill_level_to_text(minimal_skill_requirements[skill])]"
-	job_skill_win.set_content(dat.Join())
+		dat += "[skill]: [skill_level_to_text(minimal_skill_requirements[skill])]<br>"
+	dat += "</center>"
+	job_skill_win.set_content(dat)
 	job_skill_win.open()
 
 //Only override this proc
