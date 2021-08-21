@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes:
+  - rscadd: "Walking over mining ores with an ore bag in your hands or pockets will instantly collect the ore now."
