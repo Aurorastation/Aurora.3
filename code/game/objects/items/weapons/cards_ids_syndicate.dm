@@ -234,6 +234,7 @@
 					access = syndicate_access.Copy()
 					assignment = initial(assignment)
 					blood_type = initial(blood_type)
+					citizenship = initial(citizenship)
 					dna_hash = initial(dna_hash)
 					electronic_warfare = initial(electronic_warfare)
 					fingerprint_hash = initial(fingerprint_hash)
@@ -241,9 +242,8 @@
 					name = initial(name)
 					registered_name = initial(registered_name)
 					unset_registered_user()
-					sex = initial(sex)
-					citizenship = initial(citizenship)
 					religion = initial(religion)
+					sex = initial(sex)
 					to_chat(user, "<span class='notice'>All information has been deleted from \the [src].</span>")
 					. = 1
 
