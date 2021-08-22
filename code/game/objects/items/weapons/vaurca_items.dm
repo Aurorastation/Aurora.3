@@ -205,6 +205,33 @@
 	qdel(src)
 	return
 
+/obj/item/grenade/spawnergrenade/liidra
+	name = "Black K'ois delivery pod"
+	desc = "A device made for rapid spread of black k'ois."
+	spawner_type = /obj/machinery/portable_atmospherics/hydroponics/soil/invisible
+	deliveryamt = 7
+	contained_sprite = 1
+	icon = 'icons/obj/vaurca_items.dmi'
+	icon_state = "liibeacon"
+	force = 15
+	throwforce = 30
+	w_class = ITEMSIZE_LARGE
+
+/obj/item/grenade/spawnergrenade/liidra/prime()
+
+	if(spawner_type && deliveryamt)
+		var/turf/T = get_turf(src)
+		playsound(T, 'sound/effects/phasein.ogg', 100, 1)
+		for(var/mob/living/carbon/human/M in viewers(T, null))
+			if(M.eyecheck(TRUE) < FLASH_PROTECTION_MODERATE)
+				M.flash_eyes()
+
+		for(var/i=1, i<=deliveryamt, i++)
+			var/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/x = new spawner_type(T, new /datum/seed/koisspore/black())
+			x.tumble(4)
+	qdel(src)
+	return
+
 /obj/item/clothing/suit/space/void/vaurca
 	name = "voidsuit"
 	contained_sprite = 1
