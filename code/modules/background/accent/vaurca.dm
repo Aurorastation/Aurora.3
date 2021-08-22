@@ -31,5 +31,5 @@
     even more robotical than the rest of the modulators used by the other Hives. It is believed to be a modified technology reverse engineered from stolen \
     Zo'rane modulators. While, with its flaws, the Zo'ra accent might sound quirky to some, it is often said that this is to add more personality to each \
     individual. Since the Lii'dra do not think of themselves as such, these variations were deemed useless. The Connected individuals will often speak in plural, while the Disconnected \
-    are prone to use the first person when referring to themselves."
+    are prone to use the first person when referring to others."
     tag_icon = "liidra"
