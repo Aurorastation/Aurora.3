@@ -193,14 +193,13 @@
 				owner.emote("scream")
 			owner.adjustBrainLoss(1, 55)
 
-		else if(prob(10))
+		else if(prob(0.5))
 			to_chat(owner, "<span class='danger'>You feel something alien coming up your throat!</span>")
 
 			var/turf/T = get_turf(owner)
 
-			var/datum/reagents/R = new/datum/reagents(100)
-			R.add_reagent(/decl/reagent/kois/black,10)
-			R.add_reagent(/decl/reagent/toxin/phoron,5)
+			var/datum/reagents/R = new/datum/reagents(20)
+			R.add_reagent(/decl/reagent/kois/black,5)
 			var/datum/effect/effect/system/smoke_spread/chem/spores/S = new("blackkois")
 
 			S.attach(T)
@@ -209,8 +208,8 @@
 
 			if(owner.can_feel_pain())
 				owner.emote("scream")
-				owner.adjustHalLoss(15)
-				owner.drip(15)
+				owner.adjustHalLoss(5)
+				owner.drip(5)
 				owner.delayed_vomit()
 
 /obj/item/organ/internal/parasite/blackkois/removed(var/mob/living/carbon/human/target)
