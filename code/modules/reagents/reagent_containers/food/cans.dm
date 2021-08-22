@@ -476,4 +476,4 @@
 	desc_fluff = "The rehabilitating environment of Xanu has allowed for small-scale agriculture to bloom. Xanu Rush! Is the number one Coalition soda, despite its dull taste."
 	icon_state = "xanu_rush"
 	center_of_mass = list("x"=16, "y"=10)
-	reagents_to_add = list(/decl/reagent/drink/peach_soda)
+	reagents_to_add = list(/decl/reagent/drink/peach_soda = 30)
