@@ -4789,5 +4789,44 @@
 	glass_name = "glass of gibb floats"
 	glass_desc = "A floating soda of icecream and Dr. Gibb."
 
+/decl/reagent/drink/diet_cola
+	name = "Diet Cola"
+	description = "Space Cola! Now in diet!"
+	color = "#100800"
+	taste_description = "cola and less calories"
+	carbonated = TRUE
 
+	glass_icon_state = "spacecola"
+	glass_name = "glass of diet cola"
+	glass_desc = "Space Cola! Now in diet!" 
 
+/decl/reagent/milk/chocolate
+	name = "Chocolate milk"
+	description = "A mixture of perfectly healthy milk and delicious chocolate."
+	color = "#74533b"
+	taste_description = "chocolate milk"
+
+	glass_icon_state = "glass_chocolate"
+	glass_name = "glass of chocolate milk"
+	glass_desc = "A mixture of perfectly healthy milk and delicious chocolate."
+
+/decl/reagent/milk/strawberry
+	name = "Strawberry milk"
+	description = "A mixture of perfectly healthy milk and delicious strawberry."
+	color = "#fc5a8d"
+	taste_description = "strawberry milk"
+
+	glass_icon_state = "glass_strawberry"
+	glass_name = "glass of strawberry milk"
+	glass_desc = "A mixture of perfectly healthy milk and delicious strawberry."
+
+/decl/reagent/drink/peach_soda
+	name = "Xanu Rush!"
+	description = "Made from the NEW Xanu Prime peaches."
+	color = "#FFE5B4"
+	taste_description = "dull peaches"
+	carbonated = TRUE
+
+	glass_icon_state = "glass_red"
+	glass_name = "glass of Xanu Rush!"
+	glass_desc = "Made from the NEW Xanu Prime peaches."

@@ -567,3 +567,33 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	icon_state = "britcup"
 	volume = 30
 	center_of_mass = list("x"=15, "y"=13)
+
+/obj/item/reagent_containers/food/drinks/small_milk
+	name = "small milk carton"
+	desc = "It's milk. White and nutritious goodness!"
+	icon_state = "mini-milk"
+	item_state = "carton"
+	drop_sound = 'sound/items/drop/papercup.ogg'
+	pickup_sound = 'sound/items/pickup/papercup.ogg'
+	center_of_mass = list("x"=16, "y"=14)
+	reagents_to_add = list(/decl/reagent/milk = 20)
+
+/obj/item/reagent_containers/food/drinks/small_milk_choco
+	name = "small chocolate milk carton"
+	desc = "It's milk. This one is in delicious chocolate flavor."
+	icon_state = "mini-milk_choco"
+	item_state = "carton"
+	drop_sound = 'sound/items/drop/papercup.ogg'
+	pickup_sound = 'sound/items/pickup/papercup.ogg'
+	center_of_mass = list("x"=16, "y"=14)
+	reagents_to_add = list(/decl/reagent/milk/chocolate = 20)
+
+/obj/item/reagent_containers/food/drinks/small_milk_strawberry
+	name = "small strawberry milk carton"
+	desc = "It's milk. This one is in delicious strawberry flavor."
+	icon_state = "mini-milk_strawberry"
+	item_state = "carton"
+	drop_sound = 'sound/items/drop/papercup.ogg'
+	pickup_sound = 'sound/items/pickup/papercup.ogg'
+	center_of_mass = list("x"=16, "y"=14)
+	reagents_to_add = list(/decl/reagent/milk/strawberry = 20)
