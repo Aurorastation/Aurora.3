@@ -1,8 +1,0 @@
-author: WickedCybs
-
-delete-after: True
-
-changes:
-  - rscadd: "Added some new Taj hairstyles and variations. Mainly variations."
-  - rscadd: "A second preview that can be viewed in all different directions has been added to the tajara dmi. This is only really of interest to spriters."
-  - tweak: "A lot of the current taj alt hairs had their names changed to make it more clear what is similar in style. That means you might have to reselect them if you were using anything affected."
