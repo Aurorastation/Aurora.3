@@ -138,9 +138,9 @@
 
 	if(prob(10) && (owner.can_feel_pain()))
 		if(stage < 3)
-			to_chat(owner, "<span class='warning'>You feel a stinging pain in your abdomen!</span>")
-		else
 			to_chat(owner, "<span class='warning'>You feel a stinging pain in your head!</span>")
+		else
+			to_chat(owner, "A part of you tries to fight back, but the taste of the black k'ois puts you at ease.")
 		owner.visible_message("<b>[owner]</b> winces slightly.")
 		owner.adjustHalLoss(5)
 
@@ -158,6 +158,9 @@
 		if(prob(5))
 			to_chat(owner, "<span class='warning'>You feel something squirming inside of you!</span>")
 			owner.reagents.add_reagent(/decl/reagent/kois/black, 4)
+
+		else if(prob(5))
+			to_chat(owner, "In your struggle, a part of you wishes for the spread to continue.")
 
 		else if(prob(10))
 			to_chat(owner, "<span class='warning'>You feel disorientated!</span>")
