@@ -12,7 +12,7 @@
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
-	fore_dir = 4
+	fore_dir = WEST
 	vessel_size = SHIP_SIZE_SMALL
 
 /obj/machinery/computer/shuttle_control/explore/runtime

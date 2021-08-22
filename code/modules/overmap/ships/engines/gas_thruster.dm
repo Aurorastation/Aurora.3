@@ -97,14 +97,14 @@
 	controller = new(src)
 	update_nearby_tiles(need_rebuild=1)
 
-	for(var/ship in SSshuttle.ships)
-		var/obj/effect/overmap/visitable/ship/S = ship
-		if(S.check_ownership(src))
-			S.engines |= controller
-			if(dir != S.fore_dir)
-				testing("Dir: [dir] fore dir: [S.fore_dir] of shuttle [S.name]")
-				stat |= BROKEN
-			break
+	if(length(SSshuttle.shuttle_areas) && !length(SSshuttle.shuttles_to_initialize) && SSshuttle.init_state == SS_INITSTATE_DONE)
+		for(var/ship in SSshuttle.ships)
+			var/obj/effect/overmap/visitable/ship/S = ship
+			if(S.check_ownership(src))
+				S.engines |= controller
+				if(dir != S.fore_dir)
+					stat |= BROKEN
+				break
 
 /obj/machinery/atmospherics/unary/engine/Destroy()
 	QDEL_NULL(controller)

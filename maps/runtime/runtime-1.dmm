@@ -198,8 +198,9 @@
 "dP" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 5},/turf/simulated/wall/r_wall,/area/shuttle/runtime)
 "dQ" = (/turf/simulated/floor/shuttle/black,/area/shuttle/runtime)
 "dR" = (/obj/structure/fuel_port,/turf/simulated/wall/r_wall,/area/shuttle/runtime)
+"dS" = (/obj/machinery/atmospherics/unary/engine{dir = 8},/turf/simulated/floor/plating,/area/shuttle/runtime)
 "dT" = (/obj/machinery/atmospherics/binary/pump/high_power/on{dir = 4},/turf/simulated/floor/shuttle/black,/area/shuttle/runtime)
-"dV" = (/obj/machinery/atmospherics/unary/engine{dir = 4},/turf/simulated/floor/plating,/area/shuttle/runtime)
+"dU" = (/obj/machinery/atmospherics/unary/engine{dir = 8},/turf/simulated/floor/plating,/area/shuttle/runtime)
 "eI" = (/obj/machinery/camera/network/civilian_main{c_tag = "Central Corridor 1"; dir = 1},/obj/item/device/radio/intercom{dir = 1; name = "Station Intercom (General)"; pixel_y = -21},/turf/simulated/floor/tiled,/area/hallway/primary/central_one)
 "gF" = (/obj/machinery/light{dir = 4},/turf/simulated/floor/plating,/area/maintenance/maintcentral)
 "ie" = (/obj/effect/map_effect/wingrille_spawn/reinforced,/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating,/area/hallway/primary/central_one)
@@ -282,9 +283,9 @@ aaaaaaaaaaaaaaaaabaaacaecKdidededqdqdqdqdqdqdededjcPdcdcdndododopMdodododpdcdcCt
 aaaaaaaaaaaaaaaaabaaacaecKdidededqdqdqdqdqdqdededjdrdcdcdsdtdtdtdtdtdtdtdbdcdcCtaeacUfUfUfUfUfacaaaaaaaa
 aaaaaaaaaaaaaaaaabaaacaecKdidededededededededededjdrdcdccZdudududududududbdcdcCtaeacUfUfUfUfUfacaaaaaaaa
 aaaaaaaaaaaaaaaaabaaacaecKdideaEaEdKaEdEdKdRdFdedjcPdcdcdkdldldldldldldldmdcdccPaeacWSUfUfUfUfacaaaaaaaa
-aaaaaaaaaaaaaaaaabaaacaecKdideaEdGdHdMdQdIdJdVdedjcPdcdcdcdcdcdcdcdcdcdcdcdcdccPgFacacacacacacacaaaaaaaa
-aaaaaaaaaaaaaaaaabaaacaecKdideaEdLcqdNdTdOdJdVdedjcPdcdcdndodododododododpdcdccPaeacaaabaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaabaaacaecKdddvaEaEaEaEaEdPdJdVdedfcPdgdccZdadadadadadadadbdcdhcPaeacaaabaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaabaaacaecKdideaEdGdHdMdQdIdJdSdedjcPdcdcdcdcdcdcdcdcdcdcdcdcdccPgFacacacacacacacaaaaaaaa
+aaaaaaaaaaaaaaaaabaaacaecKdideaEdLcqdNdTdOdJdSdedjcPdcdcdndodododododododpdcdccPaeacaaabaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaabaaacaecKdddvaEaEaEaEaEdPdJdUdedfcPdgdccZdadadadadadadadbdcdhcPaeacaaabaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaabaaacaecKdwdxdxdxdxdxdxdxdxdxdxdycPdcdccZdzdAdzdzdBdCdDdbdcdccPaeacaaabaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaabaaacaecKcKcKcKcKcKcKcKcKcKcKcKcKcPdccPcPcPcPcPcPcPcPcPcPcPcPcPaeacaaabaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaabaaacaeaeaeaeaeaeaeaeaeaeaeaeaeaeaedcaeaeaeaeaeaeaeaeaeaeaeaeaeaeacaaabaaaaaaaaaaaaaaaa

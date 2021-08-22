@@ -68,8 +68,6 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 //Helper for init.
 /obj/effect/overmap/visitable/proc/check_ownership(obj/object)
 	if((object.z in map_z) && !(get_area(object) in SSshuttle.shuttle_areas))
-		var/area/A = get_area(object)
-		testing("Object z: [object.z], map_z: [map_z] area: [A.name], shuttle areas: [english_list(SSshuttle.shuttle_areas)]")
 		return 1
 
 //If shuttle_name is false, will add to generic waypoints; otherwise will add to restricted. Does not do checks.

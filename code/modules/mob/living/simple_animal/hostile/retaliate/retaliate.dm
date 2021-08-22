@@ -43,7 +43,7 @@
 	for(var/obj/effect/overmap/visitable/sector/exoplanet/E)
 		if(src in E.animals)
 			var/newname = input("What do you want to name this species?", "Species naming", E.get_random_species_name()) as text|null
-			newname = sanitizeName(newname, allow_numbers = TRUE, force_first_letter_uppercase = FALSE)
+			newname = sanitizeName(newname, allow_numbers = TRUE)
 			if(newname && !use_check_and_message(usr))
 				if(E.rename_species(type, newname))
 					to_chat(usr,"<span class='notice'>This species will be known from now on as '[newname]'.</span>")
