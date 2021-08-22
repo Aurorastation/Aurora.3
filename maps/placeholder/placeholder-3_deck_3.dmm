@@ -224,7 +224,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "aE" = (
-/turf/simulated/wall/placeholder_standard,
+/turf/simulated/wall,
 /area/janitor)
 "aG" = (
 /obj/effect/decal/fake_object{
@@ -255,7 +255,7 @@
 /turf/simulated/floor/bluegrid,
 /area/janitor)
 "aJ" = (
-/obj/structure/shuttle_part/placeholder{
+/obj/structure/shuttle_part/scc_space_ship{
 	icon = 'icons/obj/machines/placeholder_shield.dmi';
 	icon_state = "shield";
 	layer = 5;
@@ -268,7 +268,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "aK" = (
-/turf/simulated/wall/shuttle/placeholder/cardinal,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/janitor)
 "aL" = (
 /obj/machinery/door/window/westleft,
@@ -1812,7 +1812,7 @@
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
 "eN" = (
-/turf/simulated/wall/shuttle/placeholder/cardinal,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/crew_quarters/theatre)
 "eO" = (
 /obj/structure/cable/green{
@@ -1840,7 +1840,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/janitor)
 "eR" = (
-/turf/simulated/wall/shuttle/placeholder/cardinal,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/medical/smoking)
 "eV" = (
 /obj/structure/table/wood,
@@ -1853,7 +1853,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/vacantoffice)
 "eX" = (
-/turf/simulated/wall/placeholder_standard,
+/turf/simulated/wall,
 /area/medical/ward/isolation)
 "eY" = (
 /obj/structure/bed/chair/office/dark,
@@ -1948,7 +1948,7 @@
 /turf/simulated/floor,
 /area/maintenance/vault)
 "fq" = (
-/turf/simulated/wall/placeholder_standard,
+/turf/simulated/wall,
 /area/crew_quarters/cafeteria)
 "fr" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -2145,7 +2145,7 @@
 /turf/simulated/floor/tiled,
 /area/security/investigations_storage)
 "ga" = (
-/turf/simulated/wall/placeholder_standard,
+/turf/simulated/wall,
 /area/crew_quarters/toilet)
 "gc" = (
 /obj/structure/cable/green{
@@ -2182,7 +2182,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/janitor)
 "gi" = (
-/turf/simulated/wall/shuttle/placeholder/cardinal,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/tcommsat/chamber)
 "gj" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
@@ -2719,7 +2719,7 @@
 /turf/simulated/floor,
 /area/maintenance/substation/command)
 "ik" = (
-/turf/simulated/wall/shuttle/placeholder/cardinal,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/crew_quarters/fitness)
 "il" = (
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -3151,7 +3151,7 @@
 /area/crew_quarters/theatre)
 "jF" = (
 /obj/structure/sign/nosmoking_1,
-/turf/simulated/wall/placeholder_standard,
+/turf/simulated/wall,
 /area/maintenance/vault)
 "jG" = (
 /obj/machinery/door/airlock/medical,
@@ -3697,7 +3697,7 @@
 /turf/simulated/floor/wood,
 /area/hallway/primary/starboard)
 "lK" = (
-/turf/simulated/wall/placeholder_standard,
+/turf/simulated/wall,
 /area/hallway/primary/aft)
 "lL" = (
 /obj/structure/lattice,
@@ -3850,7 +3850,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/vacantoffice2)
 "md" = (
-/turf/simulated/wall/shuttle/placeholder/cardinal,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/crew_quarters/captain)
 "me" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -4124,7 +4124,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/starboard)
 "nf" = (
-/turf/simulated/wall/placeholder_standard,
+/turf/simulated/wall,
 /area/security/vacantoffice2)
 "ng" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -4277,7 +4277,7 @@
 /turf/simulated/floor,
 /area/crew_quarters/theatre)
 "nH" = (
-/turf/simulated/wall/placeholder_standard,
+/turf/simulated/wall,
 /area/crew_quarters/captain)
 "nI" = (
 /obj/structure/lattice,
@@ -4306,7 +4306,7 @@
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "nP" = (
-/turf/simulated/wall/placeholder_standard,
+/turf/simulated/wall,
 /area/maintenance/vault)
 "nS" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -4348,7 +4348,7 @@
 /turf/simulated/floor/wood,
 /area/hallway/primary/starboard)
 "nX" = (
-/turf/simulated/wall/shuttle/placeholder/cardinal,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/medical/equipment)
 "nY" = (
 /obj/item/storage/box/bodybags{
@@ -4696,7 +4696,7 @@
 	},
 /area/crew_quarters/fitness)
 "pf" = (
-/turf/simulated/wall/placeholder_standard,
+/turf/simulated/wall,
 /area/bridge/aibunker)
 "pg" = (
 /obj/machinery/optable{
@@ -5018,7 +5018,7 @@
 /area/crew_quarters/locker)
 "qs" = (
 /obj/effect/map_effect/airlock/e_to_w/long/square/wide,
-/turf/simulated/wall/shuttle/placeholder/cardinal,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/crew_quarters/theatre)
 "qu" = (
 /obj/structure/table/rack,
@@ -5274,7 +5274,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hop)
 "rs" = (
-/turf/simulated/wall/placeholder_standard,
+/turf/simulated/wall,
 /area/journalistoffice)
 "rt" = (
 /obj/machinery/light/small/emergency{
@@ -5566,7 +5566,7 @@
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
 "sA" = (
-/turf/simulated/wall/placeholder_standard,
+/turf/simulated/wall,
 /area/medical/equipment)
 "sB" = (
 /obj/structure/table/wood,
@@ -5883,7 +5883,7 @@
 	pixel_x = 1;
 	pixel_y = -4
 	},
-/turf/simulated/wall/placeholder_standard,
+/turf/simulated/wall,
 /area/medical/ward/isolation)
 "tH" = (
 /obj/structure/window/shuttle/placeholder,
@@ -6099,10 +6099,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/pool)
 "uA" = (
-/turf/simulated/wall/shuttle/placeholder/cardinal,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/crew_quarters/heads/cmo)
 "uB" = (
-/turf/simulated/wall/shuttle/placeholder/cardinal,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/security/vacantoffice2)
 "uC" = (
 /obj/machinery/power/breakerbox/activated{
@@ -6314,7 +6314,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "vx" = (
-/turf/simulated/wall/placeholder_standard,
+/turf/simulated/wall,
 /area/crew_quarters/heads/hop)
 "vA" = (
 /obj/structure/cable/green{
@@ -6355,7 +6355,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/vacantoffice)
 "vK" = (
-/turf/simulated/wall/shuttle/placeholder/cardinal,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/security/forensics_office)
 "vP" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
@@ -6463,7 +6463,7 @@
 /turf/simulated/wall/r_wall,
 /area/crew_quarters/heads/cmo)
 "wq" = (
-/turf/simulated/wall/placeholder_standard,
+/turf/simulated/wall,
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
 	})
@@ -6725,7 +6725,7 @@
 /turf/simulated/floor,
 /area/crew_quarters/sleep/cryo)
 "xs" = (
-/turf/simulated/wall/placeholder_standard,
+/turf/simulated/wall,
 /area/hallway/primary/starboard)
 "xt" = (
 /obj/structure/bed/chair{
@@ -6749,7 +6749,7 @@
 /turf/simulated/floor,
 /area/lawoffice/consular)
 "xx" = (
-/turf/simulated/wall/shuttle/placeholder/cardinal,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/bridge/meeting_room)
 "xy" = (
 /obj/structure/bed/chair{
@@ -6766,7 +6766,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/starboard)
 "xA" = (
-/turf/simulated/wall/placeholder_standard,
+/turf/simulated/wall,
 /area/security/vacantoffice)
 "xB" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -6792,7 +6792,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/locker)
 "xE" = (
-/turf/simulated/wall/shuttle/placeholder/cardinal,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/wing/starboard)
 "xF" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -7222,7 +7222,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/aft)
 "yX" = (
-/turf/simulated/wall/placeholder_standard,
+/turf/simulated/wall,
 /area/medical/washroom)
 "yZ" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -7633,7 +7633,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/vacantoffice)
 "AC" = (
-/turf/simulated/wall/placeholder_standard,
+/turf/simulated/wall,
 /area/hallway/medical/upper)
 "AG" = (
 /obj/structure/railing/mapped{
@@ -8071,7 +8071,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/aft)
 "Cf" = (
-/turf/simulated/wall/placeholder_standard,
+/turf/simulated/wall,
 /area/crew_quarters/sleep/cryo)
 "Ch" = (
 /obj/structure/table/reinforced/wood,
@@ -8170,7 +8170,7 @@
 	name = "Security - Investigations Office"
 	})
 "CK" = (
-/turf/simulated/wall/shuttle/placeholder/cardinal,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/bridge)
 "CL" = (
 /obj/effect/floor_decal/corner_wide/red{
@@ -8307,7 +8307,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "Dg" = (
-/turf/simulated/wall/placeholder_standard,
+/turf/simulated/wall,
 /area/bridge/meeting_room)
 "Dh" = (
 /obj/effect/floor_decal/corner_wide/blue{
@@ -8442,7 +8442,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "DK" = (
-/turf/simulated/wall/shuttle/placeholder/cardinal,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/medical/washroom)
 "DM" = (
 /obj/effect/floor_decal/corner/grey/diagonal{
@@ -8503,7 +8503,7 @@
 	},
 /area/crew_quarters/fitness)
 "Ed" = (
-/turf/simulated/wall/placeholder_standard,
+/turf/simulated/wall,
 /area/security/forensics_morgue)
 "Ef" = (
 /obj/structure/sink{
@@ -8581,7 +8581,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "En" = (
-/turf/simulated/wall/shuttle/placeholder/cardinal,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/turret_protected/ai)
 "Eo" = (
 /obj/structure/cable/cyan{
@@ -8772,7 +8772,7 @@
 /turf/simulated/floor/reinforced,
 /area/tcommsat/chamber)
 "Fj" = (
-/turf/simulated/wall/placeholder_standard,
+/turf/simulated/wall,
 /area/security/investigations_storage)
 "Fm" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
@@ -8782,7 +8782,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge/aibunker)
 "Fo" = (
-/turf/simulated/wall/placeholder_standard,
+/turf/simulated/wall,
 /area/security/investigations)
 "Fs" = (
 /obj/structure/bed/chair/office/bridge{
@@ -8794,7 +8794,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/meeting_room)
 "Fu" = (
-/turf/simulated/wall/shuttle/placeholder/cardinal,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/security/forensics_morgue)
 "Fw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -8928,7 +8928,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/starboard)
 "FT" = (
-/turf/simulated/wall/shuttle/placeholder/cardinal,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/crew_quarters/heads/hop)
 "FU" = (
 /obj/effect/floor_decal/corner_wide/blue{
@@ -9309,7 +9309,7 @@
 /turf/simulated/open,
 /area/hallway/primary/starboard)
 "Hz" = (
-/turf/simulated/wall/placeholder_standard,
+/turf/simulated/wall,
 /area/crew_quarters/theatre)
 "HA" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -9322,7 +9322,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "HB" = (
-/turf/simulated/wall/shuttle/placeholder/cardinal,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/tcommsat/entrance)
 "HC" = (
 /obj/structure/bed/chair/office/bridge,
@@ -9371,7 +9371,7 @@
 /area/crew_quarters/cafeteria)
 "HI" = (
 /obj/structure/sign/biohazard,
-/turf/simulated/wall/placeholder_standard,
+/turf/simulated/wall,
 /area/medical/ward/isolation)
 "HN" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -9673,7 +9673,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "IY" = (
-/turf/simulated/wall/shuttle/placeholder/cardinal,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/vault)
 "Jf" = (
 /obj/structure/closet/secure_closet/personal,
@@ -9817,7 +9817,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/toilet)
 "JH" = (
-/turf/simulated/wall/placeholder_standard,
+/turf/simulated/wall,
 /area/security/forensics_office)
 "JI" = (
 /obj/structure/cable/green{
@@ -9881,7 +9881,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge/meeting_room)
 "JQ" = (
-/turf/simulated/wall/placeholder_standard,
+/turf/simulated/wall,
 /area/bridge)
 "JS" = (
 /obj/structure/closet/wardrobe/grey,
@@ -10028,7 +10028,7 @@
 /turf/simulated/floor/tiled,
 /area/tcommsat/chamber)
 "Ky" = (
-/turf/simulated/wall/shuttle/placeholder/cardinal,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/crew_quarters/fitness/pool)
 "Kz" = (
 /obj/structure/grille,
@@ -11662,7 +11662,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/cafeteria)
 "QL" = (
-/turf/simulated/wall/shuttle/placeholder/cardinal,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/template_noop)
 "QM" = (
 /obj/structure/cable/cyan{
@@ -11821,7 +11821,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/medical/smoking)
 "Rr" = (
-/turf/simulated/wall/placeholder_standard,
+/turf/simulated/wall,
 /area/crew_quarters/locker)
 "Rs" = (
 /obj/structure/table/reinforced/wood,
@@ -12963,7 +12963,7 @@
 /turf/simulated/open,
 /area/turret_protected/ai)
 "VC" = (
-/turf/simulated/wall/placeholder_standard,
+/turf/simulated/wall,
 /area/lawoffice/representative)
 "VD" = (
 /obj/structure/cable{
@@ -13381,7 +13381,7 @@
 /area/template_noop)
 "XE" = (
 /obj/effect/map_effect/airlock/e_to_w/long/square,
-/turf/simulated/wall/shuttle/placeholder/cardinal,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/crew_quarters/fitness)
 "XG" = (
 /obj/structure/railing/mapped,
@@ -13501,7 +13501,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/heads/hop)
 "Yg" = (
-/turf/simulated/wall/placeholder_standard,
+/turf/simulated/wall,
 /area/lawoffice/consular)
 "Yh" = (
 /obj/structure/cable/green{
@@ -13749,7 +13749,7 @@
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
 "YX" = (
-/turf/simulated/wall/placeholder_standard,
+/turf/simulated/wall,
 /area/crew_quarters/fitness)
 "YY" = (
 /obj/structure/window/shuttle/placeholder,

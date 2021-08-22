@@ -492,9 +492,9 @@
 	health = 160
 	maxhealth = 160
 	smooth = 0
-	
-/obj/structure/window/shuttle/placeholder
-	name = "placeholder window"
+
+/obj/structure/window/shuttle/scc_space_ship
+	name = "window"
 	desc = "It looks extremely strong. Might take many good hits to crack it."
 	icon = 'icons/obj/smooth/placeholder_window.dmi'
 	icon_state = "placeholder_window"
@@ -503,7 +503,7 @@
 	smooth = SMOOTH_MORE|SMOOTH_DIAGONAL
 	canSmoothWith = list(
 		/obj/structure/window/shuttle/placeholder,
-		/turf/simulated/wall/shuttle/placeholder
+		/turf/simulated/wall/shuttle/scc_space_ship
 	)
 
 /obj/structure/window/shuttle/placeholder/cardinal
