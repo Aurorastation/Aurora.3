@@ -6,10 +6,13 @@
 	density = TRUE
 	build_amt = 5
 	var/obj/item/canvas/painting = null
+	var/easel_material = MATERIAL_WOOD
 
 /obj/structure/easel/Initialize(ml, _mat, _reinf_mat)
 	. = ..()
 	moved_event.register(src, src, /obj/structure/easel/proc/move_painting)
+	material = SSmaterials.get_material_by_name(easel_material)
+
 
 /obj/structure/easel/Destroy()
 	painting = null
