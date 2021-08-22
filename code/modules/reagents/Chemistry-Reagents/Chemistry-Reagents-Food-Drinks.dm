@@ -4800,7 +4800,7 @@
 	glass_name = "glass of diet cola"
 	glass_desc = "Space Cola! Now in diet!" 
 
-/decl/reagent/milk/chocolate
+/decl/reagent/drink/milk/chocolate
 	name = "Chocolate milk"
 	description = "A mixture of perfectly healthy milk and delicious chocolate."
 	color = "#74533b"
@@ -4810,7 +4810,7 @@
 	glass_name = "glass of chocolate milk"
 	glass_desc = "A mixture of perfectly healthy milk and delicious chocolate."
 
-/decl/reagent/milk/strawberry
+/decl/reagent/drink/milk/strawberry
 	name = "Strawberry milk"
 	description = "A mixture of perfectly healthy milk and delicious strawberry."
 	color = "#fc5a8d"

@@ -576,7 +576,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
-	reagents_to_add = list(/decl/reagent/milk = 20)
+	reagents_to_add = list(/decl/reagent/drink/milk = 20)
 
 /obj/item/reagent_containers/food/drinks/small_milk_choco
 	name = "small chocolate milk carton"
@@ -586,7 +586,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
-	reagents_to_add = list(/decl/reagent/milk/chocolate = 20)
+	reagents_to_add = list(/decl/reagent/drink/milk/chocolate = 20)
 
 /obj/item/reagent_containers/food/drinks/small_milk_strawberry
 	name = "small strawberry milk carton"
@@ -596,4 +596,4 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
-	reagents_to_add = list(/decl/reagent/milk/strawberry = 20)
+	reagents_to_add = list(/decl/reagent/drink/milk/strawberry = 20)
