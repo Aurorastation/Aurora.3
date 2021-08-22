@@ -69,13 +69,14 @@
 	if((usr.stat || usr.restrained()))
 		return
 
-	if(src.loc == usr)
+	if(loc_check(usr))
 
 		if(href_list["remove"])
 			var/obj/item/P = locate(href_list["remove"])
 			if(P && (P.loc == src) && istype(P))
 				P.forceMove(usr.loc)
 				usr.put_in_hands(P)
+				handle_post_remove()
 
 		else if(href_list["read"])
 			var/obj/item/paper/P = locate(href_list["read"])
@@ -111,6 +112,14 @@
 		update_icon()
 	return
 
+/obj/item/folder/proc/loc_check(var/atom/A)
+	if(loc == A)
+		return TRUE
+	return FALSE
+
+/obj/item/folder/proc/handle_post_remove()
+	return
+
 /obj/item/folder/blue/nka/Initialize()
 	. = ..()
 	for (var/I = 1 to 5)
@@ -120,3 +129,15 @@
 	. = ..()
 	for (var/I = 1 to 10)
 		new /obj/item/paper(src)
+
+/obj/item/folder/embedded
+	name = "index"
+
+/obj/item/folder/embedded/loc_check(var/atom/A)
+	if(loc.loc == A)
+		return TRUE
+	return FALSE
+
+/obj/item/folder/embedded/handle_post_remove()
+	if(!length(contents))
+		qdel(src)
