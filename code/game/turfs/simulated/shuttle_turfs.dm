@@ -117,27 +117,20 @@
 		underlay_appearance.appearance = T
 		underlays = U
 
-/turf/simulated/wall/shuttle/placeholder
-	icon = 'icons/turf/smooth/placeholder.dmi'
+/turf/simulated/wall/shuttle/scc_space_ship
+	name = "spaceship hull"
+	icon = 'icons/turf/smooth/scc_ship.dmi'
 	canSmoothWith = null
 
-/turf/simulated/wall/placeholder_standard
-	name = "placeholder wall"
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal
 	smooth = SMOOTH_MORE
 	canSmoothWith = list(
-		/turf/simulated/wall/placeholder_standard,
-		/turf/simulated/wall/shuttle/placeholder
+		/turf/simulated/wall/shuttle/scc_space_ship
 	)
 
-/turf/simulated/wall/shuttle/placeholder/cardinal
-	smooth = SMOOTH_MORE
-	canSmoothWith = list(
-		/turf/simulated/wall/shuttle/placeholder
-	)
-
-/obj/structure/shuttle_part/placeholder
+/obj/structure/shuttle_part/scc_space_ship
 	name = "spaceship alloy wall"
-	icon = 'icons/turf/smooth/placeholder.dmi'
+	icon = 'icons/turf/smooth/scc_ship.dmi'
 	icon_state = "map-shuttle"
 	outside_part = FALSE
 
