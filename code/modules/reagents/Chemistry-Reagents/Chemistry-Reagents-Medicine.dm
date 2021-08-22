@@ -1479,3 +1479,15 @@
 		to_chat(H, SPAN_WARNING(pick("You feel a clot shoot through your heart!", "Your veins feel like they're being shredded!")))
 		var/obj/item/organ/internal/heart/heart = H.internal_organs_by_name[BP_HEART]
 		heart.take_internal_damage(1, TRUE)
+
+/decl/reagent/mental/vkrexi
+	name = "V'krexi taffy"
+	description = "V'krexi meat, processed to become a chewy, sticky candy."
+	reagent_state = SOLID
+	scannable = TRUE
+	color = "#d6ec57"
+	metabolism = 0.4 * REM
+	taste_description = "bittersweetness, insect meat and regret"
+	metabolism_min = 0.5
+	breathe_mul = 0
+	goodmessage = list("You feel strange, in a good way.")
