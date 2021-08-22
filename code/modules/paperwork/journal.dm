@@ -84,7 +84,7 @@
 	if(!index_name)
 		qdel(E)
 		return null
-	if(index_name == "New Index")
+	if(index_name == "New Index" || LAZYISIN(indices, index_name))
 		index_name = "Index ([length(indices) + 1])"
 	E.name = index_name
 	LAZYSET(indices, E.name, E)
