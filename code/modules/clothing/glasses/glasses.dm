@@ -596,7 +596,7 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/sunglasses/sechud
 	name = "HUDsunglasses"
-	desc = "Sunglasses with a HUD."
+	desc = "Sunglasses in the colours of NanoTrasen security. They come with a blue-tinted HUD."
 	icon_state = "sunhud"
 
 /obj/item/clothing/glasses/sunglasses/sechud/Initialize()
@@ -606,6 +606,21 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/sunglasses/sechud/is_sec_hud()
 	return active
+
+/obj/item/clothing/glasses/sunglasses/sechud/zavod
+	name = "Zavodskoi HUDsunglasses"
+	desc = "Sunglasses in the colours of Zavodskoi Interstellar. They come with a red-tinted HUD."
+	icon_state = "sunhud_zavod"
+
+/obj/item/clothing/glasses/sunglasses/sechud/epmc
+	name = "Zavodskoi HUDsunglasses"
+	desc = "Sunglasses in the colours of the Eridani PMC organisation. They come with a blue-tinted HUD and a chrome finish."
+	icon_state = "sunhud_epmc"
+
+/obj/item/clothing/glasses/sunglasses/sechud/idris
+	name = "Idris HUDsunglasses"
+	desc = "Sunglasses in the colours of Idris Incorporated. They come with a teal-tinted HUD and a chrome finish."
+	icon_state = "sunhud_idris"
 
 /obj/item/clothing/glasses/sunglasses/sechud/tactical
 	name = "tactical HUD"
