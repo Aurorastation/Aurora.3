@@ -96,27 +96,28 @@ There are several things that need to be remembered:
 #define SHOES_LAYER       9
 #define GLOVES_LAYER      10
 #define BELT_LAYER        11
-#define SUIT_LAYER        12
-#define ID_LAYER_ALT      13
-#define TAIL_NORTH_LAYER  14
-#define GLASSES_LAYER     15
-#define BELT_LAYER_ALT    16
-#define SUIT_STORE_LAYER  17
-#define BACK_LAYER        18
-#define HAIR_LAYER        19
-#define GLASSES_LAYER_ALT 20
-#define L_EAR_LAYER       21
-#define R_EAR_LAYER       22
-#define FACEMASK_LAYER    23
-#define HEAD_LAYER        24
-#define COLLAR_LAYER      25
-#define HANDCUFF_LAYER    26
-#define LEGCUFF_LAYER     27
-#define L_HAND_LAYER      28
-#define R_HAND_LAYER      29
-#define WRISTS_LAYER      30
-#define FIRE_LAYER        31		//If you're on fire
-#define TOTAL_LAYERS      31
+#define WRISTS_LAYER_ALT  12
+#define SUIT_LAYER        13
+#define ID_LAYER_ALT      14
+#define TAIL_NORTH_LAYER  15
+#define GLASSES_LAYER     16
+#define BELT_LAYER_ALT    17
+#define SUIT_STORE_LAYER  18
+#define BACK_LAYER        19
+#define HAIR_LAYER        20
+#define GLASSES_LAYER_ALT 21
+#define L_EAR_LAYER       22
+#define R_EAR_LAYER       23
+#define FACEMASK_LAYER    24
+#define HEAD_LAYER        25
+#define COLLAR_LAYER      26
+#define HANDCUFF_LAYER    27
+#define LEGCUFF_LAYER     28
+#define L_HAND_LAYER      29
+#define R_HAND_LAYER      30
+#define WRISTS_LAYER      31
+#define FIRE_LAYER        32		//If you're on fire
+#define TOTAL_LAYERS      32
 //////////////////////////////////
 
 #define GET_BODY_TYPE (cached_bodytype || (cached_bodytype = species.get_bodytype()))
@@ -1165,7 +1166,22 @@ There are several things that need to be remembered:
 			else
 				mob_icon = INV_WRISTS_DEF_ICON
 
-		overlays_raw[WRISTS_LAYER] = wrists.get_mob_overlay(src, mob_icon, mob_state, slot_wrists_str)
+		var/image/wrists_overlay = wrists.get_mob_overlay(src, mob_icon, mob_state, slot_wrists_str)
+
+		var/normal_layer = TRUE
+		if(istype(wrists, /obj/item/clothing/wrists) || istype(wrists, /obj/item/device/radio/headset/wrist))
+			var/obj/item/clothing/wrists/W = wrists
+			normal_layer = W.normal_layer
+
+		if(normal_layer)
+			overlays_raw[WRISTS_LAYER] = wrists_overlay
+			overlays_raw[WRISTS_LAYER_ALT] = null
+		else
+			overlays_raw[WRISTS_LAYER] = null
+			overlays_raw[WRISTS_LAYER_ALT] = wrists_overlay
+	else
+		overlays_raw[WRISTS_LAYER] = null
+		overlays_raw[WRISTS_LAYER_ALT] = null
 
 	if(update_icons)
 		update_icon()
@@ -1419,6 +1435,7 @@ There are several things that need to be remembered:
 #undef SHOES_LAYER
 #undef GLOVES_LAYER
 #undef BELT_LAYER
+#undef WRISTS_LAYER_ALT
 #undef SUIT_LAYER
 #undef TAIL_NORTH_LAYER
 #undef TAIL_SOUTH_LAYER

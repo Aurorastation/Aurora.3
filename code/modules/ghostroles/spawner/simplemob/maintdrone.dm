@@ -47,6 +47,34 @@
 		return FALSE
 	fabricator = all_fabricators[choice]
 
-	if(user && fabricator && !((fabricator.stat & NOPOWER) || !fabricator.produce_drones || fabricator.drone_progress < 100))
-		return fabricator.create_drone(user.client)
-	return FALSE
+	if(!fabricator_check(fabricator, user))
+		return FALSE
+
+	var/drone_tag = sanitizeSafe(input(user, "Select a tag for your maintenance drone, for example, 'MT' would appear as 'maintenance drone (MT-[rand(100,999)])'. (Max length: 3 Characters)", "Name Tag Selection"), 4)
+	if(!drone_tag)
+		drone_tag = "MT"
+	drone_tag = uppertext(drone_tag)
+
+	if(!fabricator_check(fabricator, user))
+		return FALSE
+
+	return fabricator.create_drone(user.client, drone_tag)
+
+/datum/ghostspawner/simplemob/maintdrone/proc/fabricator_check(var/obj/machinery/drone_fabricator/fabricator, var/mob/user)
+	if(!fabricator)
+		to_chat(user, SPAN_WARNING("Something has gone wrong and the fabricator couldn't be found! Make a github issue about this."))
+		return FALSE
+
+	if(!fabricator.produce_drones)
+		to_chat(user, SPAN_WARNING("The fabricator's drone production has been disabled, try again."))
+		return FALSE
+
+	if(fabricator.stat & NOPOWER)
+		to_chat(user, SPAN_WARNING("The fabricator has lost power, try again."))
+		return FALSE
+
+	if(fabricator.drone_progress < 100)
+		to_chat(user, SPAN_WARNING("The fabricator isn't ready to produce another drone, try again."))
+		return FALSE
+
+	return TRUE

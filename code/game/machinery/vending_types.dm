@@ -281,8 +281,11 @@
 		/obj/item/reagent_containers/food/snacks/spacetwinkie = 6,
 		/obj/item/reagent_containers/food/snacks/cheesiehonkers = 6,
 		/obj/item/reagent_containers/food/snacks/tastybread = 6,
+		/obj/item/storage/box/pineapple = 4,
+		/obj/item/reagent_containers/food/snacks/chocolatebar = 6,
 		/obj/item/storage/box/fancy/cookiesnack = 6,
 		/obj/item/storage/box/fancy/gum = 4,
+		/obj/item/storage/box/fancy/vkrexitaffy = 5,
 		/obj/item/clothing/mask/chewable/candy/lolli = 8,
 		/obj/item/storage/box/fancy/admints = 4,
 		/obj/item/reagent_containers/food/snacks/skrellsnacks = 3,
@@ -312,10 +315,13 @@
 		/obj/item/reagent_containers/food/snacks/spacetwinkie = 15,
 		/obj/item/reagent_containers/food/snacks/cheesiehonkers = 15,
 		/obj/item/reagent_containers/food/snacks/tastybread = 18,
+		/obj/item/storage/box/pineapple = 20,
+		/obj/item/reagent_containers/food/snacks/chocolatebar = 12,
 		/obj/item/storage/box/fancy/gum = 15,
 		/obj/item/clothing/mask/chewable/candy/lolli = 2,
 		/obj/item/storage/box/fancy/admints = 12,
 		/obj/item/storage/box/fancy/cookiesnack = 20,
+		/obj/item/storage/box/fancy/vkrexitaffy = 12,
 		/obj/item/reagent_containers/food/snacks/skrellsnacks = 40,
 		/obj/item/reagent_containers/food/snacks/meatsnack = 22,
 		/obj/item/reagent_containers/food/snacks/maps = 23,
@@ -864,7 +870,7 @@
 		/obj/item/storage/toolbox/lunchbox/syndicate = 2
 	)
 	premium = list(
-		/obj/item/storage/toolbox/lunchbox/nt/filled = 2
+		/obj/item/storage/toolbox/lunchbox/scc/filled = 2
 	)
 	restock_items = 1
 	random_itemcount = 0

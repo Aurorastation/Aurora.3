@@ -229,3 +229,7 @@
 /obj/item/trash/seaweed
 	name = "empty moss pack"
 	icon_state = "seaweed"
+
+/obj/item/trash/vkrexitaffy
+	name = "V'krexi Snax"
+	icon_state = "vkrexitaffy"
