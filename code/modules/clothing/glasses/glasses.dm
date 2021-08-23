@@ -658,7 +658,7 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/sunglasses/sechud/aviator
 	name = "HUD aviators"
-	desc = "Modified aviator glasses that can be switched between HUD and flash protection modes. Comes with bonus prescription overlay."
+	desc = "NanoTrasen security aviator glasses that can be switched between HUD and flash protection modes. They come with a built-in prescription overlay."
 	flash_protection = FLASH_PROTECTION_NONE
 	icon_state = "aviator_sec"
 	off_state = "aviator_sec_off"
@@ -711,6 +711,24 @@ BLIND     // can't see anything
 	set src in usr
 
 	attack_self(usr)
+
+/obj/item/clothing/glasses/sunglasses/sechud/aviator/zavod
+	name = "Zavodskoi HUD aviators"
+	desc = "Zavodskoi security aviator glasses that can be switched between HUD and flash protection modes. They come with a built-in prescription overlay."
+	icon_state = "aviator_sec_zavod"
+	off_state = "aviator_sec_zavod_off"
+
+/obj/item/clothing/glasses/sunglasses/sechud/aviator/epmc
+	name = "EPMC HUD aviators"
+	desc = "Eridani PMC security aviator glasses that can be switched between HUD and flash protection modes. They come with a built-in prescription overlay."
+	icon_state = "aviator_sec_epmc"
+	off_state = "aviator_sec_epmc_off"
+
+/obj/item/clothing/glasses/sunglasses/sechud/aviator/idris
+	name = "Idris HUD aviators"
+	desc = "Idris security aviator glasses that can be switched between HUD and flash protection modes. They come with a built-in prescription overlay."
+	icon_state = "aviator_sec_idris"
+	off_state = "aviator_sec_idris_off"
 
 /obj/item/clothing/glasses/thermal
 	name = "optical thermal scanner"
