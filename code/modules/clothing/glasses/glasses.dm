@@ -607,6 +607,11 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/sunglasses/sechud/is_sec_hud()
 	return active
 
+/obj/item/clothing/glasses/sunglasses/sechud/big
+	name = "fat HUDsunglasses"
+	desc = "Fat sunglasses in the colours of NanoTrasen security. They come with a blue-tinted HUD."
+	icon_state = "bigsunglasses_hud"
+
 /obj/item/clothing/glasses/sunglasses/sechud/zavod
 	name = "Zavodskoi HUDsunglasses"
 	desc = "Sunglasses in the colours of Zavodskoi Interstellar. They come with a red-tinted HUD."
