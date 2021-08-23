@@ -400,7 +400,7 @@ Contains:
 	max_amount = 5
 	drop_sound = 'sound/items/drop/hat.ogg'
 	pickup_sound = 'sound/items/pickup/hat.ogg'
-	var/list/splintable_organs = list(BP_L_ARM,BP_R_ARM,BP_L_LEG,BP_R_LEG, BP_L_HAND, BP_R_HAND, BP_R_FOOT, BP_L_FOOT)
+	var/list/splintable_organs = list(BP_L_ARM,BP_R_ARM,BP_L_LEG,BP_R_LEG, BP_L_HAND, BP_R_HAND, BP_R_FOOT, BP_L_FOOT, BP_HEAD, BP_CHEST)
 
 /obj/item/stack/medical/splint/full/Initialize()
 	. = ..()
