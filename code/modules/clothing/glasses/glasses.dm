@@ -617,15 +617,30 @@ BLIND     // can't see anything
 	desc = "Sunglasses in the colours of Zavodskoi Interstellar. They come with a red-tinted HUD."
 	icon_state = "sunhud_zavod"
 
+/obj/item/clothing/glasses/sunglasses/sechud/big/zavod
+	name = "fat Zavodskoi HUDsunglasses"
+	desc = "Fat sunglasses in the colours of Zavodskoi Interstellar. They come with a red-tinted HUD."
+	icon_state = "bigsunglasses_hud_zavod"
+
 /obj/item/clothing/glasses/sunglasses/sechud/epmc
-	name = "Zavodskoi HUDsunglasses"
+	name = "EPMC HUDsunglasses"
 	desc = "Sunglasses in the colours of the Eridani PMC organisation. They come with a blue-tinted HUD and a chrome finish."
 	icon_state = "sunhud_epmc"
+
+/obj/item/clothing/glasses/sunglasses/sechud/big/epmc
+	name = "fat EPMC HUDsunglasses"
+	desc = "Fat sunglasses in the colours of the Eridani PMC organisation. They come with a blue-tinted HUD and a chrome finish."
+	icon_state = "bigsunglasses_hud_epmc"
 
 /obj/item/clothing/glasses/sunglasses/sechud/idris
 	name = "Idris HUDsunglasses"
 	desc = "Sunglasses in the colours of Idris Incorporated. They come with a teal-tinted HUD and a chrome finish."
 	icon_state = "sunhud_idris"
+
+/obj/item/clothing/glasses/sunglasses/sechud/big/idris
+	name = "fat Idris HUDsunglasses"
+	desc = "Fat sunglasses in the colours of Idris Incorporated. They come with a teal-tinted HUD and a chrome finish."
+	icon_state = "bigsunglasses_hud_idris"
 
 /obj/item/clothing/glasses/sunglasses/sechud/tactical
 	name = "tactical HUD"
