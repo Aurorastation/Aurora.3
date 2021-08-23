@@ -252,8 +252,10 @@
 
 			var/reagents_per_slice = reagents.total_volume/slices_num
 			for(var/i=1 to (slices_num-slices_lost))
-				var/obj/slice = new slice_path (src.loc)
+				var/obj/item/reagent_containers/food/slice = new slice_path (src.loc)
 				reagents.trans_to_obj(slice, reagents_per_slice)
+				slice.filling_color = filling_color
+				slice.update_icon()
 			qdel(src)
 			return
 
@@ -5163,6 +5165,7 @@
 	icon_state = "kois_steak"
 	filling_color = "#dcd9cd"
 	reagents_to_add = list(/decl/reagent/kois = 20, /decl/reagent/toxin/phoron = 15)
+	bitesize = 3
 
 /obj/item/reagent_containers/food/snacks/donut/kois
 	name = "k'ois donut"
@@ -5171,6 +5174,7 @@
 	filling_color = "#dcd9cd"
 	overlay_state = "box-kois_donut"
 	reagents_to_add = list(/decl/reagent/kois = 15, /decl/reagent/toxin/phoron = 10)
+	bitesize = 3
 
 /obj/item/reagent_containers/food/snacks/koismuffin
 	name = "k'ois muffin"
@@ -5178,6 +5182,7 @@
 	icon_state = "kois_muffin"
 	filling_color = "#dcd9cd"
 	reagents_to_add = list(/decl/reagent/kois = 10, /decl/reagent/toxin/phoron = 15)
+	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/koisburger
 	name = "k'ois burger"
@@ -5185,3 +5190,33 @@
 	icon_state = "kois_burger"
 	filling_color = "#dcd9cd"
 	reagents_to_add = list(/decl/reagent/kois = 20, /decl/reagent/toxin/phoron = 20)
+	bitesize = 2
+
+/obj/item/storage/box/fancy/vkrexitaffy
+	name = "V'krexi Snax"
+	desc = "A packet of V'krexi taffy. Made from free-range V'krexi!"
+	desc_fluff = "V'krexi, while edible, hold no nutritional value, either for humans or Vaurca. The V'krexi meat was mostly neglected until human food-processing techniques were introduced to the Zo'ra Hive."
+	icon = 'icons/obj/food.dmi'
+	icon_state = "vkrexitaffy"
+	icon_type = "vkrexi taffy"
+	storage_type = "packaging"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/vkrexitaffy = 6)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/vkrexitaffy)
+	max_storage_space = 6
+
+	use_sound = 'sound/items/storage/wrapper.ogg'
+	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
+
+	trash = /obj/item/trash/vkrexitaffy
+	closable = FALSE
+	icon_overlays = FALSE
+
+/obj/item/reagent_containers/food/snacks/vkrexitaffy
+	name = "V'krexi taffy"
+	desc = "A delicious V'krexi chewy candy."
+	icon_state = "vkrexichewy"
+	slot_flags = SLOT_EARS
+	filling_color = "#dcd9cd"
+	reagents_to_add = list(/decl/reagent/mental/vkrexi = 0.5)
+	bitesize = 1

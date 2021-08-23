@@ -399,10 +399,12 @@ var/global/list/robot_modules = list(
 	var/datum/matter_synth/plasteel = new /datum/matter_synth/plasteel(40000)
 	var/datum/matter_synth/glass = new /datum/matter_synth/glass(60000)
 	var/datum/matter_synth/wire = new /datum/matter_synth/wire(60)
+	var/datum/matter_synth/cloth = new /datum/matter_synth/cloth(50000)
 	synths += metal
 	synths += plasteel
 	synths += glass
 	synths += wire
+	synths += cloth
 
 	var/obj/item/stack/material/cyborg/steel/M = new /obj/item/stack/material/cyborg/steel(src)
 	M.synths = list(metal)
@@ -419,6 +421,10 @@ var/global/list/robot_modules = list(
 	var/obj/item/stack/material/cyborg/glass/reinforced/RG = new /obj/item/stack/material/cyborg/glass/reinforced(src)
 	RG.synths = list(metal, glass)
 	src.modules += RG
+
+	var/obj/item/stack/material/cyborg/cloth/CL = new /obj/item/stack/material/cyborg/cloth(src)
+	CL.synths = list(cloth)
+	src.modules += CL
 
 	var/obj/item/stack/tile/floor/cyborg/FT = new /obj/item/stack/tile/floor/cyborg(src) // to add floor over the metal rods lattice
 	FT.synths = list(metal)
@@ -459,12 +465,14 @@ var/global/list/robot_modules = list(
 	var/datum/matter_synth/wire = new /datum/matter_synth/wire(45)
 	var/datum/matter_synth/wood = new /datum/matter_synth/wood(20000)
 	var/datum/matter_synth/plastic = new /datum/matter_synth/plastic(15000)
+	var/datum/matter_synth/cloth = new /datum/matter_synth/cloth(50000)
 	synths += metal
 	synths += glass
 	synths += plasteel
 	synths += wire
 	synths += wood
 	synths += plastic
+	synths += cloth
 
 	var/obj/item/matter_decompiler/MD = new /obj/item/matter_decompiler(src)
 	MD.metal = metal
@@ -506,6 +514,10 @@ var/global/list/robot_modules = list(
 	var/obj/item/stack/material/cyborg/plastic/PS = new /obj/item/stack/material/cyborg/plastic(src)
 	PS.synths = list(plastic)
 	src.modules += PS
+
+	var/obj/item/stack/material/cyborg/cloth/CL = new /obj/item/stack/material/cyborg/cloth(src)
+	CL.synths = list(cloth)
+	src.modules += CL
 
 	var/obj/item/stack/tile/wood/cyborg/FWT = new /obj/item/stack/tile/wood/cyborg(src)
 	FWT.synths = list(wood)
@@ -905,11 +917,13 @@ var/global/list/robot_modules = list(
 	var/datum/matter_synth/wood = new /datum/matter_synth/wood(10000)
 	var/datum/matter_synth/plastic = new /datum/matter_synth/plastic(10000)
 	var/datum/matter_synth/wire = new /datum/matter_synth/wire(30)
+	var/datum/matter_synth/cloth = new /datum/matter_synth/cloth(30000)
 	synths += metal
 	synths += glass
 	synths += wood
 	synths += plastic
 	synths += wire
+	synths += cloth
 
 	var/obj/item/matter_decompiler/MD = new /obj/item/matter_decompiler(src)
 	MD.metal = metal
@@ -953,6 +967,10 @@ var/global/list/robot_modules = list(
 	var/obj/item/stack/material/cyborg/plastic/P = new (src)
 	P.synths = list(plastic)
 	src.modules += P
+
+	var/obj/item/stack/material/cyborg/cloth/CL = new /obj/item/stack/material/cyborg/cloth(src)
+	CL.synths = list(cloth)
+	src.modules += CL
 
 /obj/item/robot_module/drone/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
 	var/obj/item/device/lightreplacer/LR = locate() in src.modules
