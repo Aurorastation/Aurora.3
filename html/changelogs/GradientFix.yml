@@ -1,6 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - bugfix: "It is no longer possible to use a species permitted gradient style for other species in char setup."
