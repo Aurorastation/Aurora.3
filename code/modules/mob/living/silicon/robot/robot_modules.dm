@@ -954,6 +954,11 @@ var/global/list/robot_modules = list(
 	P.synths = list(plastic)
 	src.modules += P
 
+/obj/item/robot_module/drone/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
+	var/obj/item/device/lightreplacer/LR = locate() in src.modules
+	LR.Charge(R, amount)
+	return ..()
+
 /obj/item/robot_module/drone/handle_languages(var/mob/living/silicon/robot/R)
 	R.languages = list()
 	R.speech_synthesizer_langs = list()
@@ -972,16 +977,6 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/drone/construction/matriarch
 	name = "matriarch drone module"
-
-/obj/item/robot_module/drone/construction/matriarch/handle_languages(var/mob/living/silicon/robot/R)
-	..()
-	languages[LANGUAGE_EAL] = TRUE
-
-/obj/item/robot_module/drone/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
-	var/obj/item/device/lightreplacer/LR = locate() in src.modules
-	LR.Charge(R, amount)
-	..()
-	return
 
 /obj/item/robot_module/mining_drone
 	name = "mining drone module"
