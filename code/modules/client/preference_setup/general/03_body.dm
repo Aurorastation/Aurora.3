@@ -254,15 +254,15 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			if(ind > 1)
 				out += ", "
 			out += "\tMechanical [organ_name]"
-		else if(status == "assisted")
-			++ind
-			if(ind > 1)
-				out += ", "
 		else if(status == "nymph")
 			++ind
 			if(ind > 1)
 				out += ", "
 			out += "\tDiona Nymph [organ_name]"
+		else if(status == "assisted")
+			++ind
+			if(ind > 1)
+				out += ", "
 			switch(organ_name)
 				if(BP_HEART)
 					out += "\tPacemaker-assisted [organ_name]"
