@@ -46,7 +46,7 @@
 	desc = "An aluminium can with fresh pineapple slices."
 	use_sound = 'sound/items/pickup/soda.ogg'
 	drop_sound = 'sound/items/drop/soda.ogg'
-	pickup_sound = 'sound/items/pickup/wirecutter.ogg'
+	pickup_sound = 'sound/items/pickup/soda.ogg'
 	starts_with = list(/obj/item/reagent_containers/food/snacks/pineapple_ring = 6)
 	can_hold = list(/obj/item/reagent_containers/food/snacks/pineapple_ring)
 
