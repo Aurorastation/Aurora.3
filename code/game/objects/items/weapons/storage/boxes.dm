@@ -946,7 +946,7 @@
 	. = ..()
 	if(length(contents) == 0)
 		icon_state = "paperbag_[choice]"
-	else if(length(contents) <8 )
+	else if(length(contents) < 8)
 		icon_state = "paperbag_[choice]-food"
 
 /obj/item/storage/box/papersack/attackby(obj/item/O, mob/user)
