@@ -981,7 +981,7 @@
 		return
 
 	else if(O.isscrewdriver())
-		if(length(contents) == 0 )
+		if(length(contents) == 0)
 			to_chat(user, SPAN_NOTICE("You begin poking holes in \the [src]."))
 			if (do_after(user, 10/O.toolspeed, act_target = src))
 				if(choice == "SmileyFace")
