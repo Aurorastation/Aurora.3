@@ -944,7 +944,7 @@
 
 /obj/item/storage/box/papersack/update_icon()
 	. = ..()
-	if(length(contents) == 0 )
+	if(length(contents) == 0)
 		icon_state = "paperbag_[choice]"
 	else if(length(contents) <8 )
 		icon_state = "paperbag_[choice]-food"
