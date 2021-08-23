@@ -90,6 +90,7 @@
 			if(O)
 				O.status = 0
 				switch(status)
+
 					if ("amputated")
 						organs_by_name[O.limb_name] = null
 						organs -= O
@@ -97,6 +98,13 @@
 							for(var/obj/item/organ/external/child in O.children)
 								organs_by_name[child.limb_name] = null
 								organs -= child
+
+					if ("nymph")
+						if (organ_data[name])
+							var/decl/nymph_limb/D = decls_repository.get_decl(/decl/nymph_limb)
+							if(D)
+								D.nymphize(src, O.limb_name, TRUE)
+
 					if ("cyborg")
 						if (rlimb_data[name])
 							O.force_skintone = FALSE
