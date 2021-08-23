@@ -57,6 +57,7 @@
 	var/list/idris_sunglasses = list()
 	idris_sunglasses["HUDsunglasses, Idris"] = /obj/item/clothing/glasses/sunglasses/sechud/idris
 	idris_sunglasses["fat HUDsunglasses, Idris"] = /obj/item/clothing/glasses/sunglasses/sechud/big/idris
+	idris_sunglasses["aviator sunglasses, Idris"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator/idris
 	gear_tweaks += new /datum/gear_tweak/path(idris_sunglasses)
 
 /datum/gear/faction/zavodskoi_beret
@@ -100,6 +101,7 @@
 	var/list/zavod_sunglasses = list()
 	zavod_sunglasses["HUDsunglasses, Zavodskoi"] = /obj/item/clothing/glasses/sunglasses/sechud/zavod
 	zavod_sunglasses["fat HUDsunglasses, Zavodskoi"] = /obj/item/clothing/glasses/sunglasses/sechud/big/zavod
+	zavod_sunglasses["aviator sunglasses, Zavodskoi"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator/zavod
 	gear_tweaks += new /datum/gear_tweak/path(zavod_sunglasses)
 
 /datum/gear/faction/eridani_beret
@@ -127,6 +129,7 @@
 	var/list/epmc_sunglasses = list()
 	epmc_sunglasses["HUDsunglasses, EPMC"] = /obj/item/clothing/glasses/sunglasses/sechud/epmc
 	epmc_sunglasses["fat HUDsunglasses, EPMC"] = /obj/item/clothing/glasses/sunglasses/sechud/big/epmc
+	epmc_sunglasses["aviator sunglasses, EPMC"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator/epmc
 	gear_tweaks += new /datum/gear_tweak/path(epmc_sunglasses)
 
 /datum/gear/faction/zenghu_uniform_alt
