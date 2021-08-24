@@ -250,7 +250,6 @@
 #define ONLY_GHOSTS_IN_VIEW 0
 
 // Defines mob sizes, used by lockers and to determine what is considered a small sized mob, etc.
-#define MOB_LARGE
 #define MOB_LARGE  		16
 #define MOB_MEDIUM 		9
 #define MOB_SMALL 		6

@@ -147,7 +147,7 @@
 			butchering_products = list(/obj/item/reagent_containers/food/snacks/spreads/lard = 12)
 			icon_state = "schlorrgo_wide"
 			icon_living = "schlorrgo_wide"
-			icon_dead = "schlorrgo_fat_wide"
+			icon_dead = "schlorrgo_wide_dead"
 			melee_damage_lower = 15
 			melee_damage_upper = 15
 			attacktext = "crushed"
