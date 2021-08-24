@@ -209,7 +209,7 @@
 			msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")] twitching ever so slightly.</span>\n"
 
 	//splints
-	for(var/organ in list(BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_R_FOOT,BP_L_FOOT))
+	for(var/organ in list(BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_R_FOOT,BP_L_FOOT,BP_HEAD,BP_CHEST))
 		var/obj/item/organ/external/o = get_organ(organ)
 		if(o)
 			if(o.status & ORGAN_SPLINTED)
