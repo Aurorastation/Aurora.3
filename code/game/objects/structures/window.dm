@@ -566,3 +566,19 @@
 
 /obj/machinery/button/switch/windowtint/update_icon()
 	icon_state = "light[active]"
+
+
+/obj/structure/window/full
+	name = "window"
+	desc = "It looks rather strong. Might take a few good hits to shatter it."
+	icon = 'icons/obj/smooth/full_window.dmi'
+	icon_state = "full_window"
+	basestate = "window"
+	maxhealth = 40
+	reinf = TRUE
+	maximal_heat = T0C + 750
+	dir = 5
+	smooth = SMOOTH_TRUE
+	damage_per_fire_tick = 2.0
+	can_be_unanchored = TRUE
+	glasstype = /obj/item/stack/material/glass/reinforced
