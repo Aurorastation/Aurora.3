@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Airlock electronics now properly save their settings when you finish an airlock."
