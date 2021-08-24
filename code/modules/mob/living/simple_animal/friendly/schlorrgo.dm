@@ -42,7 +42,7 @@
 	var/starting_nutrition = 100
 	var/nutrition_threshold = 80
 
-	var/current_size = EGG_SCHLORRGO
+	var/current_size = BABY_SCHLORRGO
 
 /mob/living/simple_animal/schlorrgo/Initialize()
 	. = ..()
@@ -156,10 +156,11 @@
 			mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
 			mob_push_flags = ALLMOBS
 			a_intent = I_HURT
+			emote_sounds = list('sound/effects/creatures/schlorrgo_scream.ogg')
 
 		if(WIDE_SCHLORRGO)
 			name = "colossal schlorrgo"
-			desc = "A fat creature native to the world of Hro'zamal. This one is so big it can barely walk."
+			desc = "A fat creature native to the world of Hro'zamal. This one has been immobilized by its massive weight."
 			current_size = COLOSSAL_SCHLORRGO
 			max_nutrition = 1500
 			maxHealth = 450
@@ -181,6 +182,7 @@
 			mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
 			mob_push_flags = ALLMOBS
 			a_intent = I_HURT
+			emote_sounds = list('sound/effects/creatures/schlorrgo_scream.ogg')
 
 	update_icon()
 
@@ -195,3 +197,11 @@
 		return FALSE
 	else
 		return TRUE
+
+/mob/living/simple_animal/schlorrgo/baby
+	max_nutrition = 50
+
+	starting_nutrition = 50
+	nutrition_threshold = 30
+
+	current_size = EGG_SCHLORRGO
