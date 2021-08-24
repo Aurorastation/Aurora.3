@@ -1,8 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Inductive chargers now properly report when they don't find a cell to charge."
-  - rscadd: "Using an inductive charger on a power cell or an APC will now properly charge it."
-  - bugfix: "You can no longer line up multiple inductive chargers by spamclicking the target."
