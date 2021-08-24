@@ -308,3 +308,9 @@
 		if(protection.protects_eyestab(stab_item, stabbed))
 			return TRUE
 	return FALSE
+
+/mob/living/carbon/human/is_anti_materiel_vulnerable()
+	if(isSynthetic())
+		return TRUE
+	else
+		return FALSE

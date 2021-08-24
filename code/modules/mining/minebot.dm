@@ -1,4 +1,5 @@
 /mob/living/silicon/robot/drone/mining
+	name = "NT-MD-000"
 	icon_state = "miningdrone"
 	mod_type = "Mining"
 	law_type = /datum/ai_laws/mining_drone
@@ -59,10 +60,6 @@
 		else if(drill_upgrade)
 			output_text += " a jackhammer drill mounted to it."
 		to_chat(user, SPAN_NOTICE(output_text))
-
-/mob/living/silicon/robot/drone/mining/updatename()
-	real_name = "NT-I-[rand(100,999)]"
-	name = real_name
 
 /mob/living/silicon/robot/drone/mining/init()
 	ai_camera = new /obj/item/device/camera/siliconcam/drone_camera(src)
