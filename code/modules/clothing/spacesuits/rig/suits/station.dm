@@ -119,6 +119,7 @@
 
 /obj/item/rig/industrial/himeo
 
+	name = "modified industrial suit control module"
 	desc = "A modified version of the ubiquitous industrial hardsuit, customized for Himean EVA operations."
 	icon = 'icons/clothing/rig/himeo.dmi'
 	icon_state = "himeo_industrial"
