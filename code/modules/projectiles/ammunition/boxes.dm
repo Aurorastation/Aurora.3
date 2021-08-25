@@ -64,6 +64,18 @@
 	max_ammo = 9
 	multiple_sprites = 1
 
+/obj/item/ammo_magazine/c45m/stendo
+	name = "extended magazine (.45)"
+	desc = "A custom .45 pistol magazine fitted with an extended baseplate, increasing capacity to eleven rounds."
+	icon_state = "45e"
+	max_ammo = 11
+
+/obj/item/ammo_magazine/c45m/lebman
+	name = "extended magazine (.45)"
+	desc = "A custom .45 pistol magazine made by welding two together. Has double the capacity of a normal magazine at eighteen rounds."
+	icon_state = "45l"
+	max_ammo = 18
+
 /obj/item/ammo_magazine/c45m/empty
 	initial_ammo = 0
 
