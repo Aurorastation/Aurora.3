@@ -103,6 +103,7 @@
 			icon_state = "schlorrgo_baby"
 			icon_living = "schlorrgo_baby"
 			icon_dead = "schlorrgo_baby_dead"
+			holder = /obj/item/holder/schlorrgo/baby
 
 		if(BABY_SCHLORRGO)
 			name = "schlorrgo"
@@ -118,6 +119,7 @@
 			icon_state = "schlorrgo"
 			icon_living = "schlorrgo"
 			icon_dead = "schlorrgo_dead"
+			holder = /obj/item/holder/schlorrgo
 
 		if(NORMAL_SCHLORRGO)
 			name = "fat schlorrgo"
@@ -133,6 +135,7 @@
 			icon_state = "schlorrgo_fat"
 			icon_living = "schlorrgo_fat"
 			icon_dead = "schlorrgo_fat_dead"
+			holder = /obj/item/holder/schlorrgo/fat
 
 		if(FAT_SCHLORRGO)
 			name = "massive schlorrgo"
@@ -157,6 +160,7 @@
 			mob_push_flags = ALLMOBS
 			a_intent = I_HURT
 			emote_sounds = list('sound/effects/creatures/schlorrgo_scream.ogg')
+			holder = null
 
 		if(WIDE_SCHLORRGO)
 			name = "colossal schlorrgo"
@@ -183,6 +187,7 @@
 			mob_push_flags = ALLMOBS
 			a_intent = I_HURT
 			emote_sounds = list('sound/effects/creatures/schlorrgo_scream.ogg')
+			holder = null
 
 	update_icon()
 
