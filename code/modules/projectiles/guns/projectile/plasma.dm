@@ -49,7 +49,7 @@
 
 /obj/item/gun/projectile/plasma/bolter/pistol
 	name = "plasma pistol"
-	desc = "Another marvel of Elyran make."
+	desc = "An Elyran designed firearm used for diplomatic protection and high value escort which fires super heated bolts of plasma. Rare outside of it's birth country due to the maintenance and production costs."
 	icon = 'icons/obj/guns/plasma_pistol.dmi'
 	icon_state = "plasma"
 	item_state = "plasma"
