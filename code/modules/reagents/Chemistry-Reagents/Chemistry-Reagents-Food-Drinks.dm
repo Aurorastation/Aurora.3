@@ -3259,7 +3259,6 @@
 	glass_name = "glass of Sidewinder Fang"
 	glass_desc = "An eclectic cocktail of fruit juices and dark rum. Mess with the viper, and you get the fangs."
 
-
 /decl/reagent/alcohol/silencer
 	name = "Silencer"
 	description = "A drink from Mime Heaven."
