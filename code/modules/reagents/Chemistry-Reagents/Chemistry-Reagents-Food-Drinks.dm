@@ -3253,11 +3253,11 @@
 	description = "Mess with the viper, and you get the fangs."
 	color = "#EA8600"
 	strength = 30
-	taste_description = "bittersweet nostalgia"
+	taste_description = "fruity rum and bittersweet nostalgia"
 
 	glass_icon_state = "sidewinderglass"
 	glass_name = "glass of Sidewinder Fang"
-	glass_desc = "Mess with the viper, and you get the fangs."
+	glass_desc = "An eclectic cocktail of fruit juices and dark rum. Mess with the viper, and you get the fangs."
 
 
 /decl/reagent/alcohol/silencer
