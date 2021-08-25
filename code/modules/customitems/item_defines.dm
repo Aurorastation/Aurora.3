@@ -61,7 +61,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/accessory/badge/fluff/dylan_tags //Dog Tags - Dylan Sutton - sircatnip
+/obj/item/clothing/accessory/badge/fluff/dylan_tags //Dog Tags - Dylan Sutton - catnippy
 	name = "dog tags"
 	desc = "Some black dog tags, engraved on them is the following: \"Wright, Dylan L, O POS, Pacific Union Special Forces\"."
 	icon = 'icons/obj/custom_items/dylan_tags.dmi'
@@ -262,17 +262,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "leo_coat"
 	item_state = "leo_coat"
 	contained_sprite = TRUE
-
-
-/obj/item/nullrod/fluff/azaroz_staff //Null Staff - Kesaos Azaroz - paradoxspace
-	name = "null staff"
-	desc = "A long, heavy staff seemingly hand-crafted of obsidian and steel. Pure volcanic crystals lie at its end, giving it an appearance similar to a mace."
-	icon = 'icons/obj/custom_items/azaroz_staff.dmi'
-	icon_state = "azaroz_staff"
-	item_state = "azaroz_staff"
-	contained_sprite = TRUE
-	slot_flags = SLOT_BACK
-	w_class = ITEMSIZE_NORMAL
 
 
 /obj/item/toy/plushie/fluff/oz_plushie //Mr. Monkey - Oz Auman - theiguanaman2
@@ -631,14 +620,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/gloves/fluff/lunea_gloves/isFlameSource()
 	return lit
 
-/obj/item/clothing/suit/fluff/eri_robes //Senior Alchemist Robes - Eri Akhandi - snakebittenn
-	name = "senior alchemist robes"
-	desc = "A green set of robes, trimmed with what appears to be real gold. Looking at the necklace, you can see the alchemical symbol for the Philosopher's Stone, made of ruby."
-	icon = 'icons/obj/custom_items/eri_robes.dmi'
-	icon_state = "eri_robes"
-	item_state = "eri_robes"
-	contained_sprite = TRUE
-
 
 /obj/item/storage/fluff/sovno_carrier //Reinforced Cat Carrier - Anabelle Sovno - pratepresidenten
 	name = "cat carrier"
@@ -772,40 +753,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	flags_inv = HIDEEARS|HIDEFACE|BLOCKHAIR|BLOCKHEADHAIR
 	body_parts_covered = HEAD|FACE|EYES
-
-
-/obj/item/clothing/accessory/fluff/krin_shirt //Skull Shirt - Krin Volqux - snakebittenn
-	name = "skull shirt"
-	desc = "A shirt carrying the familiar skeletal logo of the Skrellian punk band \"GLORSH YOU ASSHOLE\" This appears to be for their 2461 \"Tri-Qyu Express\" tour."
-	icon = 'icons/obj/custom_items/krin_clothing.dmi'
-	icon_state = "krin_shirt"
-	item_state = "krin_shirt"
-	contained_sprite = TRUE
-
-/obj/item/clothing/suit/storage/fluff/krin_jacket //Polychromatic Jacket - Krin Volqux - snakebittenn
-	name = "polychromatic jacket"
-	desc = "What appears to be a modified canvas jacket, covered in small polychromatic patches and aftermarket spikes in holo colors, changing often. The keen eye can spot a \"Fourth Incident\" patch on the chest."
-	icon = 'icons/obj/custom_items/krin_clothing.dmi'
-	icon_state = "krin_jacket"
-	item_state = "krin_jacket"
-	contained_sprite = TRUE
-
-/obj/item/clothing/shoes/fluff/krin_shoes //Knee-high High-tops - Krin Volqux - snakebittenn
-	name = "knee-high high-tops"
-	desc = "These highest-tops stretch all the way up to the knees and then some. Drawn on the side in small Skrellian print is \"High tech, low life.\""
-	icon = 'icons/obj/custom_items/krin_clothing.dmi'
-	item_state = "krin_shoes"
-	icon_state = "krin_shoes"
-	contained_sprite = TRUE
-
-/obj/item/storage/backpack/fluff/krin_bag //Broken Pack - Krin Volqux - snakebittenn
-	name = "broken pack"
-	desc = "What appears to be a technologically-advanced backpack, the electronics are fried from a distant malfunction. It smells like a disposals track. \
-	A small \"Original Conglomerate\" patch has been applied to the strap, a popular moisturewave Idol group. It reads \"Not Dead Yet.\" next to a Neaera in a spacesuit."
-	icon = 'icons/obj/custom_items/krin_clothing.dmi'
-	item_state = "krin_bag"
-	icon_state = "krin_bag"
-	contained_sprite = TRUE
 
 
 /obj/item/clothing/under/fluff/mira_uniform //Mira's Cloth Undersuit - Mira Akhandi - ladyfowl
@@ -1460,27 +1407,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/ioraks_cape.dmi'
 	icon_state = "ioraks_armband2"
 	item_state = "ioraks_armband2"
-
-
-/obj/item/clothing/accessory/poncho/fluff/solozel_mantle //Maraziite Throw Over - Kasluul Solozel - snakebittenn
-	name = "maraziite throw over"
-	desc = "It's a grey poncho, exclusively donned by the members of the Maraziite Order. This one has a Izweski Hegemony flag boldly sewn onto the shoulder."
-	icon = 'icons/obj/custom_items/solozel_items.dmi'
-	icon_state = "solozel_mantle"
-	item_state = "solozel_mantle"
-	contained_sprite = TRUE
-	icon_override = FALSE
-
-/obj/item/clothing/mask/fluff/solozel_mask //Iron Mask - Kasluul Solozel - snakebittenn
-	name = "iron mask"
-	desc = "It's a painted mask of white cast iron, decorated with two massive Hegeranzi horns. This is a slightly older design, worn by the members of the Maraziite Order; used to strike fear into the hearts of heretics."
-	icon = 'icons/obj/custom_items/solozel_items.dmi'
-	icon_state = "solozel_mask"
-	item_state = "solozel_mask"
-	contained_sprite = TRUE
-	flags_inv = HIDEEARS|HIDEFACE
-	body_parts_covered = FACE
-	w_class = ITEMSIZE_NORMAL
 
 
 /obj/item/cane/fluff/suul_staff //Akhanzi Staff - Suul Akhandi - herpetophilia
@@ -2175,3 +2101,36 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if (user)
 		visible_message("<b>Platinum Chip</b> states eloquently, \"Welcome, Platinum Member and Esteemed Colleague. Please retrieve your funds at the nearest Trade Hub. Please ensure you keep \
 		this Platinum Membership Chip in you at all times, unless for emergency anonymous withdraws. Have a nice day, and stay with Lazarus Banking for all your private and personal purchases.\"")
+
+/obj/item/clothing/under/fluff/rajjurl_uniform //Tajaran Noble's Suit - Rajjurl Al-Thaalzir - abigbear
+	name = "tajaran noble's suit"
+	desc = "A dark, older suit refurbished with new additions and golden buttons, embroidery, and trim. Made with silken fabric, crimson epaulette, and matching sleeve cuffs this suit is a remnant of an older time on Adhomai made new again with recent restorations."
+	icon = 'icons/obj/custom_items/rajjurl_uniform.dmi'
+	icon_state = "rajjurl_uniform"
+	item_state = "rajjurl_uniform"
+	contained_sprite = TRUE
+	no_overheat = TRUE
+
+/obj/item/clothing/gloves/white/tajara/fluff/rajjurl_gloves //Tajaran Silken Gloves - Rajjurl Al-Thaalzir - abigbear
+	name = "tajaran silken gloves"
+	desc = "A pair of silken gloves fitted to a Tajaran hand."
+	icon = 'icons/obj/custom_items/rajjurl_uniform.dmi'
+	icon_state = "rajjurl_gloves"
+	item_state = "rajjurl_gloves"
+	contained_sprite = TRUE
+
+/obj/item/storage/backpack/fluff/pax_bag //Alqaana Backpack - Ka'Akaix'Pax C'thur - desven
+	name = "Alqaana backpack"
+	desc = "Known for her extravagant concerts, Alqaana is one of few idols that have draw inspiration from Solarian classical music over more contemporary skrellian genres. This is her, in bag form!"
+	icon = 'icons/obj/custom_items/pax_bag.dmi'
+	icon_state = "pax_bag"
+	item_state = "pax_bag"
+	contained_sprite = TRUE
+
+/obj/item/journal/fluff/kathira // Blue Leather-Bound Journal - Kathira El-Hashem - TheGreyWolf
+	name = "blue leather-bound journal"
+	desc = "A blue journal emblazoned with the New Kingdom of Adhomai's flag across the cover."
+	closed_desc = " The pages within are a mix of clearly indexed case files, and study notes alongside less clearly indexed pages that appears to be fragmented thoughts, not unlike a diary. The very first page of the journal reads “dedicated to Qirandri Mrorirhaldarr” and is signed “Mrradar Sanufar” underneath."
+	icon = 'icons/obj/custom_items/kathira_journal.dmi'
+	icon_state = "kath_journal"
+	item_state = "kath_journal"

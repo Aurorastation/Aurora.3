@@ -128,6 +128,9 @@ var/global/list/robot_modules = list(
 	for(var/datum/matter_synth/T in synths)
 		T.add_charge(T.recharge_rate * rate)
 
+	for(var/obj/item/stack/material/SM in modules)
+		SM.update_strings()
+
 /obj/item/robot_module/proc/rebuild()//Rebuilds the list so it's possible to add/remove items from the module
 	var/list/temp_list = modules
 	modules = list()
@@ -392,10 +395,12 @@ var/global/list/robot_modules = list(
 	var/datum/matter_synth/plasteel = new /datum/matter_synth/plasteel(40000)
 	var/datum/matter_synth/glass = new /datum/matter_synth/glass(60000)
 	var/datum/matter_synth/wire = new /datum/matter_synth/wire(60)
+	var/datum/matter_synth/cloth = new /datum/matter_synth/cloth(50000)
 	synths += metal
 	synths += plasteel
 	synths += glass
 	synths += wire
+	synths += cloth
 
 	var/obj/item/stack/material/cyborg/steel/M = new /obj/item/stack/material/cyborg/steel(src)
 	M.synths = list(metal)
@@ -412,6 +417,10 @@ var/global/list/robot_modules = list(
 	var/obj/item/stack/material/cyborg/glass/reinforced/RG = new /obj/item/stack/material/cyborg/glass/reinforced(src)
 	RG.synths = list(metal, glass)
 	src.modules += RG
+
+	var/obj/item/stack/material/cyborg/cloth/CL = new /obj/item/stack/material/cyborg/cloth(src)
+	CL.synths = list(cloth)
+	src.modules += CL
 
 	var/obj/item/stack/tile/floor/cyborg/FT = new /obj/item/stack/tile/floor/cyborg(src) // to add floor over the metal rods lattice
 	FT.synths = list(metal)
@@ -452,12 +461,14 @@ var/global/list/robot_modules = list(
 	var/datum/matter_synth/wire = new /datum/matter_synth/wire(45)
 	var/datum/matter_synth/wood = new /datum/matter_synth/wood(20000)
 	var/datum/matter_synth/plastic = new /datum/matter_synth/plastic(15000)
+	var/datum/matter_synth/cloth = new /datum/matter_synth/cloth(50000)
 	synths += metal
 	synths += glass
 	synths += plasteel
 	synths += wire
 	synths += wood
 	synths += plastic
+	synths += cloth
 
 	var/obj/item/matter_decompiler/MD = new /obj/item/matter_decompiler(src)
 	MD.metal = metal
@@ -499,6 +510,10 @@ var/global/list/robot_modules = list(
 	var/obj/item/stack/material/cyborg/plastic/PS = new /obj/item/stack/material/cyborg/plastic(src)
 	PS.synths = list(plastic)
 	src.modules += PS
+
+	var/obj/item/stack/material/cyborg/cloth/CL = new /obj/item/stack/material/cyborg/cloth(src)
+	CL.synths = list(cloth)
+	src.modules += CL
 
 	var/obj/item/stack/tile/wood/cyborg/FWT = new /obj/item/stack/tile/wood/cyborg(src)
 	FWT.synths = list(wood)
@@ -895,14 +910,16 @@ var/global/list/robot_modules = list(
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(25000)
 	var/datum/matter_synth/glass = new /datum/matter_synth/glass(25000)
-	var/datum/matter_synth/wood = new /datum/matter_synth/wood(4000)
-	var/datum/matter_synth/plastic = new /datum/matter_synth/plastic(2000)
-	var/datum/matter_synth/wire = new /datum/matter_synth/wire(15)
+	var/datum/matter_synth/wood = new /datum/matter_synth/wood(10000)
+	var/datum/matter_synth/plastic = new /datum/matter_synth/plastic(10000)
+	var/datum/matter_synth/wire = new /datum/matter_synth/wire(30)
+	var/datum/matter_synth/cloth = new /datum/matter_synth/cloth(30000)
 	synths += metal
 	synths += glass
 	synths += wood
 	synths += plastic
 	synths += wire
+	synths += cloth
 
 	var/obj/item/matter_decompiler/MD = new /obj/item/matter_decompiler(src)
 	MD.metal = metal
@@ -947,14 +964,17 @@ var/global/list/robot_modules = list(
 	P.synths = list(plastic)
 	src.modules += P
 
+	var/obj/item/stack/material/cyborg/cloth/CL = new /obj/item/stack/material/cyborg/cloth(src)
+	CL.synths = list(cloth)
+	src.modules += CL
+
 /obj/item/robot_module/drone/construction
 	name = "construction drone module"
 	channels = list(CHANNEL_ENGINEERING = TRUE)
-	languages = list()
 
 /obj/item/robot_module/drone/construction/Initialize()
 	. = ..()
-	src.modules += new /obj/item/rfd/construction/borg(src)
+	modules += new /obj/item/rfd/construction/borg(src)
 
 /obj/item/robot_module/drone/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
 	var/obj/item/device/lightreplacer/LR = locate() in src.modules

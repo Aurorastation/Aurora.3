@@ -98,7 +98,7 @@
 		"insult_bad"        = "Rrrracist!"
 	)
 
-	allowed_space_sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
+	allowed_space_sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA)
 
 	possible_trading_items = list(
 		/obj/item/gun/projectile/shotgun/pump/rifle           = TRADER_ALL,

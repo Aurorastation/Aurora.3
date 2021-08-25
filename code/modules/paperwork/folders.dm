@@ -7,6 +7,8 @@
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
 
+	var/can_write = FALSE
+
 /obj/item/folder/blue
 	desc = "A blue folder."
 	icon_state = "folder_blue"
@@ -52,7 +54,7 @@
 	var/dat = "<title>[name]</title>"
 
 	for(var/obj/item/paper/P in src)
-		dat += "<A href='?src=\ref[src];remove=\ref[P]'>Remove</A> <A href='?src=\ref[src];rename=\ref[P]'>Rename</A> - <A href='?src=\ref[src];read=\ref[P]'>[P.name]</A><BR>"
+		dat += "[can_write ? "<A href='?src=\ref[src];write=\ref[P]'>Write</A> " : ""]<A href='?src=\ref[src];remove=\ref[P]'>Remove</A> <A href='?src=\ref[src];rename=\ref[P]'>Rename</A> - <A href='?src=\ref[src];read=\ref[P]'>[P.name]</A><BR>"
 	for(var/obj/item/photo/Ph in src)
 		dat += "<A href='?src=\ref[src];remove=\ref[Ph]'>Remove</A> <A href='?src=\ref[src];rename=\ref[Ph]'>Rename</A> - <A href='?src=\ref[src];look=\ref[Ph]'>[Ph.name]</A><BR>"
 	for(var/obj/item/paper_bundle/Pb in src)
@@ -69,14 +71,19 @@
 	if((usr.stat || usr.restrained()))
 		return
 
-	if(src.loc == usr)
+	if(loc_check(usr))
 
 		if(href_list["remove"])
 			var/obj/item/P = locate(href_list["remove"])
 			if(P && (P.loc == src) && istype(P))
 				P.forceMove(usr.loc)
 				usr.put_in_hands(P)
-
+				handle_post_remove()
+		else if(href_list["write"])
+			var/obj/item/paper/P = locate(href_list["write"])
+			var/obj/item/I = usr.get_inactive_hand()
+			if(P && I && (P.loc == src) && istype(P) && I.ispen())
+				P.attackby(I, usr)
 		else if(href_list["read"])
 			var/obj/item/paper/P = locate(href_list["read"])
 			if(P && (P.loc == src) && istype(P))
@@ -111,6 +118,14 @@
 		update_icon()
 	return
 
+/obj/item/folder/proc/loc_check(var/atom/A)
+	if(loc == A)
+		return TRUE
+	return FALSE
+
+/obj/item/folder/proc/handle_post_remove()
+	return
+
 /obj/item/folder/blue/nka/Initialize()
 	. = ..()
 	for (var/I = 1 to 5)
@@ -120,3 +135,16 @@
 	. = ..()
 	for (var/I = 1 to 10)
 		new /obj/item/paper(src)
+
+/obj/item/folder/embedded
+	name = "index"
+	can_write = TRUE
+
+/obj/item/folder/embedded/loc_check(var/atom/A)
+	if(loc.loc == A)
+		return TRUE
+	return FALSE
+
+/obj/item/folder/embedded/handle_post_remove()
+	if(!length(contents))
+		qdel(src)

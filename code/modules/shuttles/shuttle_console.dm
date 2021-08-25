@@ -31,15 +31,10 @@
 		var/obj/item/clothing/head/helmet/pilot/PH = I
 		if(I in linked_helmets)
 			to_chat(user, SPAN_NOTICE("You unlink \the [I] from \the [src]."))
-			linked_helmets -= PH
-			PH.linked_console = null
-			PH.set_hud_maptext("Shuttle Status: No Shuttle Linked.")
+			PH.set_console(null)
 		else
 			to_chat(user, SPAN_NOTICE("You link \the [I] to \the [src]."))
-			if(PH.linked_console)
-				PH.linked_console.linked_helmets -= PH
-			linked_helmets += PH
-			PH.linked_console = src
+			PH.set_console(src)
 			PH.set_hud_maptext("Shuttle Status: [get_shuttle_status(SSshuttle.shuttles[shuttle_tag])]")
 		return
 	return ..()

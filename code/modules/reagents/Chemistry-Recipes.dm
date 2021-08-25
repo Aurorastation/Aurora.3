@@ -3512,3 +3512,38 @@
 	required_reagents = list(/decl/reagent/drink/earthenrootjuice = 1, /decl/reagent/sugar = 1, /decl/reagent/woodpulp = 1)
 	catalysts = list(/decl/reagent/enzyme = 5)
 	result_amount = 3
+
+/datum/chemical_reaction/drink/caprician_coffee
+	name = "Caprician Coffee"
+	id = "caprician_coffee"
+	result = /decl/reagent/drink/toothpaste/caprician_coffee
+	required_reagents = list(/decl/reagent/drink/toothpaste = 1, /decl/reagent/drink/coffee = 2)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/mojito
+	name = "Mojito"
+	id = "mojito"
+	result = /decl/reagent/alcohol/mojito
+	required_reagents = list(/decl/reagent/drink/mintsyrup = 1, /decl/reagent/drink/limejuice = 1, /decl/reagent/alcohol/rum = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/zavodskoi_mule
+	name = "Zavodskoi Mule"
+	id = "zavodskoi_mule"
+	result = /decl/reagent/alcohol/zavdoskoi_mule
+	required_reagents = list(/decl/reagent/alcohol/vodka = 2, /decl/reagent/drink/lemonjuice = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/pina_colada
+	name = "Pina Colada"
+	id = "pina_colada"
+	result = /decl/reagent/alcohol/pina_colada
+	required_reagents = list(/decl/reagent/drink/pineapplejuice = 1, /decl/reagent/alcohol/rum = 2)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/gibbfloats
+	name = "Gibb Floats"
+	id = "gibbfloats"
+	result = /decl/reagent/drink/gibbfloats
+	required_reagents = list(/decl/reagent/drink/dr_gibb = 1, /decl/reagent/drink/ice = 1, /decl/reagent/drink/milk/cream = 1)
+	result_amount = 3
