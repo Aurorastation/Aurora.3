@@ -464,6 +464,11 @@
 	ammo_type = /obj/item/ammo_casing/plasma_bolt
 	max_ammo = 30
 
+/obj/item/ammo_magazine/plasma/light/pistol
+	name = "tiny plasma cell"
+	ammo_type = /obj/item/ammo_casing/plasma_bolt
+	max_ammo = 15
+
 /obj/item/ammo_magazine/nuke
 	name = "nuclear launcher cartridge"
 	icon_state = "nukemag"
