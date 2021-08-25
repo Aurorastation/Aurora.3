@@ -1,9 +1,0 @@
-author: Desven
-
-delete-after: True
-
-changes:
-  - balance: "Greatly nerfed how the stage 4 of the black k'ois mycosis works. No more phoron flooding and puking spores everywhere."
-  - rscadd: "Added a Lii'dra accent, called Lii'draic."
-  - rscadd: "Added a voice changer version of the Vaurca filter port."
-  - rscadd: "Added a black k'ois grenade."
