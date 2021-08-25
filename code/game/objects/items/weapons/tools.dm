@@ -285,6 +285,9 @@
 	//400 = 1 unit per 40 seconds
 	change_icons = FALSE
 
+	var/obj/item/eyeshield/eyeshield
+	var/obj/item/overcapacitor/overcap
+
 //Welding tool functionality here
 /obj/item/weldingtool/Initialize()
 	. = ..()
@@ -600,6 +603,54 @@
 	STOP_PROCESSING(SSprocessing, src)	//Stop processing when destroyed regardless of conditions
 	return ..()
 
+/obj/item/weldingtool/experimental/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/eyeshield))
+		if(eyeshield)
+			to_chat(user, SPAN_WARNING("\The [src] already has an eye shield installed!"))
+			return
+		user.drop_from_inventory(I, src)
+		to_chat(user, SPAN_NOTICE("You install \the [I] into \the [src]."))
+		eyeshield = I
+		add_overlay("eyeshield_attached", TRUE)
+		return
+	if(istype(I, /obj/item/overcapacitor))
+		if(overcap)
+			to_chat(user, SPAN_WARNING("\The [src] already has an overcapacitor installed!"))
+			return
+		user.drop_from_inventory(I, src)
+		to_chat(user, SPAN_NOTICE("You install \the [I] into \the [src]."))
+		overcap = I
+		add_overlay("overcap_attached", TRUE)
+		toolspeed *= 2
+		return
+	if(I.isscrewdriver())
+		if(!eyeshield && !overcap)
+			to_chat(user, SPAN_WARNING("\The [src] doesn't have any accessories to remove!"))
+			return
+		var/list/accessories = list()
+		if(eyeshield)
+			var/image/radial_button = image(icon = src.icon, icon_state = "eyeshield")
+			accessories["Eye Shield"] = radial_button
+		if(overcap)
+			var/image/radial_button = image(icon = src.icon, icon_state = "overcap")
+			accessories["Overcapacitor"] = radial_button
+		var/obj/item/remove_accessory
+		switch(show_radial_menu(user, src, accessories, radius = 42, tooltips = TRUE))
+			if("Eye Shield")
+				remove_accessory = eyeshield
+				eyeshield = null
+			if("Overcapacitor")
+				remove_accessory = overcap
+				overcap = null
+				toolspeed *= 0.5
+		if(!remove_accessory)
+			return
+		user.put_in_hands(remove_accessory)
+		to_chat(user, SPAN_NOTICE("You remove \the [remove_accessory] into \the [src]."))
+		cut_overlay("[remove_accessory.icon_state]_attached", TRUE)
+		return
+	return ..()
+
 //Make sure the experimental tool only stops processing when its turned off AND full
 /obj/item/weldingtool/experimental/set_processing(var/state = 0)
 	if (state == 1)
@@ -623,6 +674,35 @@
 	else
 		set_processing(0)
 	last_gen = world.time
+
+/obj/item/weldingtool/experimental/eyecheck(mob/user)
+	if(eyeshield)
+		return
+	return ..()
+
+/obj/item/weldingtool/experimental/remove_fuel(amount, mob/M, colourChange)
+	. = ..(overcap ? amount * 3 : amount, M, colourChange)
+	if(!. && welding && overcap) // to ensure that the fuel gets used even if the amount is high
+		reagents.remove_reagent(/decl/reagent/fuel, get_fuel())
+
+/obj/item/eyeshield
+	name = "experimental eyeshield"
+	desc = "An advanced eyeshield capable of dampening the welding glare produced when working on modern super-materials, removing the need for user-worn welding gear."
+	desc_info = "This can be attached to an experimental welder to give it welding protection, removing the need for welding goggles or masks."
+	icon = 'icons/obj/contained_items/tools/welding_tools.dmi'
+	icon_state = "eyeshield"
+	item_state = "eyeshield"
+	contained_sprite = TRUE
+
+/obj/item/overcapacitor
+	name = "experimental overcapacitor"
+	desc = "An advanced capacitor that injects a current into the welding stream, doubling the speed of welding tasks without sacrificing quality. Excess current burns up welding fuel, reducing fuel efficiency, however."
+	desc_info = "This can be attached to an experimental welder to double the speed it works at, at the cost of tripling the fuel cost of using it."
+	icon = 'icons/obj/contained_items/tools/welding_tools.dmi'
+	icon_state = "overcap"
+	item_state = "overcap"
+	contained_sprite = TRUE
+
 
 /*
  * Crowbar

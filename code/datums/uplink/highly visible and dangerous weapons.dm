@@ -134,6 +134,16 @@
 	item_cost = 6
 	path = /obj/item/clothing/gloves/tesla
 
+/datum/uplink_item/item/visible_weapons/peac
+	name = "Point Entry Anti-materiel Cannon"
+	item_cost = 9
+	path = /obj/item/gun/projectile/peac
+
+/datum/uplink_item/item/visible_weapons/recoilless_rifle
+	name = "One Use Recoilless Rifle"
+	item_cost = 5
+	path = /obj/item/gun/projectile/recoilless_rifle
+
 /datum/uplink_item/item/visible_weapons/random_weapon
 	name = "Random Gun"
 	item_cost = 3

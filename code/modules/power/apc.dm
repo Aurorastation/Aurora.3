@@ -477,6 +477,9 @@
 		results += 2
 	return results
 
+/obj/machinery/power/apc/get_cell()
+	return cell
+
 //attack with an item - open/close cover, insert cell, or (un)lock interface
 
 /obj/machinery/power/apc/attackby(obj/item/W, mob/user)
