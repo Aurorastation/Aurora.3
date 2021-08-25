@@ -3248,6 +3248,18 @@
 	glass_desc = "A simple, yet superb mixture of Vodka and orange juice. Just the thing for the tired engineer."
 	glass_center_of_mass = list("x"=15, "y"=10)
 
+/decl/reagent/alcohol/sidewinderfang
+	name = "Sidewinder Fang"
+	description = "Mess with the viper, and you get the fangs."
+	color = "#EA8600"
+	strength = 30
+	taste_description = "bittersweet nostalgia"
+
+	glass_icon_state = "sidewinderglass"
+	glass-name = "glass of Sidewinder Fang"
+	glass_desc = "Mess with the viper, and you get the fangs."
+	
+
 /decl/reagent/alcohol/silencer
 	name = "Silencer"
 	description = "A drink from Mime Heaven."
