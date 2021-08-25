@@ -521,7 +521,7 @@
 		flush = FALSE
 		return
 
-	audible_message(intent_message = MACHINE_SOUND)
+	intent_message(MACHINE_SOUND)
 
 	flushing = 1
 	flick("[icon_state]-flush", src)

@@ -503,7 +503,7 @@
 		return
 	operating = TRUE
 
-	audible_message(intent_message = MACHINE_SOUND)
+	intent_message(MACHINE_SOUND)
 
 	do_animate("opening")
 	icon_state = "door_open"
@@ -541,7 +541,7 @@
 					break
 	operating = TRUE
 
-	audible_message(intent_message = MACHINE_SOUND)
+	intent_message(MACHINE_SOUND)
 
 	do_animate("closing")
 	sleep(3)

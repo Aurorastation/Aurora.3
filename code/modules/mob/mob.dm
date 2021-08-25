@@ -152,10 +152,7 @@
 		O.see_emote(src, message)
 
 	if(intent_message)
-		for(var/mob/living/carbon/human/H as anything in intent_listener)
-			if(!is_type_in_list(H, messagemobs))
-				if(src.z == H.z && get_dist(src, H) <= intent_range)
-					H.intent_listen(src, intent_message)
+		intent_message(intent_message, intent_range)
 
 // Designed for mobs contained inside things, where a normal visible message wont actually be visible
 // Useful for visible actions by pAIs, and held mobs

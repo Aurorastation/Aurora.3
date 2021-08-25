@@ -583,11 +583,13 @@
 		O.show_message(message,2,deaf_message,1)
 
 	if(intent_message)
-		for(var/mob/living/carbon/human/H as anything in intent_listener)
-			if(!is_type_in_list(H, mobs))
-				if(src.z == H.z && get_dist(src, H) <= intent_range)
-					H.intent_listen(src, intent_message)
+		intent_message(intent_message, intent_range)
 
+/atom/proc/intent_message(var/message, var/range = 7)
+	for(var/mob/living/carbon/human/H as anything in intent_listener)
+		if(src.z == H.z && get_dist(src, H) <= range)
+			H.intent_listen(src, message)
+	
 /atom/proc/change_area(var/area/oldarea, var/area/newarea)
 	change_area_name(oldarea.name, newarea.name)
 

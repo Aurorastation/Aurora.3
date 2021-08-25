@@ -290,7 +290,7 @@
 	for(var/M in D.materials)
 		materials[M] = max(0, materials[M] - D.materials[M] * mat_efficiency)
 
-	audible_message(intent_message = MACHINE_SOUND)
+	intent_message(MACHINE_SOUND)
 
 	if(D.build_path)
 		var/loc_offset = get_step(src, dir)
