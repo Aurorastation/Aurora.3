@@ -3256,9 +3256,9 @@
 	taste_description = "bittersweet nostalgia"
 
 	glass_icon_state = "sidewinderglass"
-	glass-name = "glass of Sidewinder Fang"
+	glass_name = "glass of Sidewinder Fang"
 	glass_desc = "Mess with the viper, and you get the fangs."
-	
+
 
 /decl/reagent/alcohol/silencer
 	name = "Silencer"
