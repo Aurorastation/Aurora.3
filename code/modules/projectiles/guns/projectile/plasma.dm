@@ -62,7 +62,7 @@
 	..()
 	if(ammo_magazine)
 		var/ratio = length(ammo_magazine.stored_ammo) / ammo_magazine.max_ammo
-		if(length(ammo_magazine.stored_ammo) == 0)
+		if(!length(ammo_magazine.stored_ammo))
 			ratio = 0
 		else
 			ratio = max((round(ratio, 0.25) * 100), 25)
