@@ -324,7 +324,9 @@
 	projectile_type = /obj/item/projectile/bullet/cannonball
 	matter = list(DEFAULT_WALL_MATERIAL = 800)
 	w_class = ITEMSIZE_NORMAL
+	slot_flags = null
 	max_stack = 1
+	reload_sound = 'sound/weapons/reload_shell.ogg'
 
 /obj/item/ammo_casing/cannon/explosive
 	name = "explosive cannonball"
@@ -341,6 +343,8 @@
 	name = "miniaturized nuclear warhead"
 	icon_state = "nuke"
 	caliber = "nuke"
+	w_class = ITEMSIZE_NORMAL
+	slot_flags = null
 	desc = "A miniaturized version of a nuclear bomb."
 	projectile_type = /obj/item/projectile/bullet/nuke
 	max_stack = 2
@@ -351,3 +355,25 @@
 	icon_state = "musketball"
 	caliber = "musket"
 	projectile_type = /obj/item/projectile/bullet/pistol/strong
+	reload_sound = 'sound/weapons/reload_shell.ogg'
+
+/obj/item/ammo_casing/recoilless_rifle
+	name = "anti-tank warhead"
+	icon_state = "missile"
+	caliber = "recoilless_rifle"
+	w_class = ITEMSIZE_NORMAL
+	slot_flags = null
+	projectile_type = /obj/item/projectile/bullet/recoilless_rifle
+	reload_sound = 'sound/weapons/reload_shell.ogg'
+	max_stack = 1
+
+/obj/item/ammo_casing/peac
+	name = "anti-materiel cannon cartridge"
+	icon_state = "peac"
+	spent_icon = "peac-spent"
+	caliber = "peac"
+	w_class = ITEMSIZE_NORMAL
+	slot_flags = null
+	projectile_type = /obj/item/projectile/bullet/recoilless_rifle/peac
+	reload_sound = 'sound/weapons/railgun_insert_emp.ogg'
+	max_stack = 1
