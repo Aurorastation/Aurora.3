@@ -285,6 +285,7 @@
 		/obj/item/reagent_containers/food/snacks/chocolatebar = 6,
 		/obj/item/storage/box/fancy/cookiesnack = 6,
 		/obj/item/storage/box/fancy/gum = 4,
+		/obj/item/storage/box/fancy/vkrexitaffy = 5,
 		/obj/item/clothing/mask/chewable/candy/lolli = 8,
 		/obj/item/storage/box/fancy/admints = 4,
 		/obj/item/reagent_containers/food/snacks/skrellsnacks = 3,
@@ -320,6 +321,7 @@
 		/obj/item/clothing/mask/chewable/candy/lolli = 2,
 		/obj/item/storage/box/fancy/admints = 12,
 		/obj/item/storage/box/fancy/cookiesnack = 20,
+		/obj/item/storage/box/fancy/vkrexitaffy = 12,
 		/obj/item/reagent_containers/food/snacks/skrellsnacks = 40,
 		/obj/item/reagent_containers/food/snacks/meatsnack = 22,
 		/obj/item/reagent_containers/food/snacks/maps = 23,
@@ -626,7 +628,8 @@
 		/obj/item/reagent_containers/spray/pepper = 5,
 		/obj/item/storage/box/evidence = 6,
 		/obj/item/device/holowarrant = 5,
-		/obj/item/device/flashlight/maglight = 5
+		/obj/item/device/flashlight/maglight = 5,
+		/obj/item/device/hailer = 5
 	)
 	premium = list(
 		/obj/item/storage/box/fancy/donut = 2
