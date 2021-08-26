@@ -5,12 +5,12 @@
 
 /obj/item/organ/external/leg/nymph/Initialize()
     . = ..()
-    var/decl/nymph_limb/N = new
+    var/decl/nymph_limb/N = decls_repository.get_decl(/decl/nymph_limb)
     N.setup_limb(src)
 
 /obj/item/organ/external/leg/nymph/process()
     ..()
-    var/decl/nymph_limb/N = new
+    var/decl/nymph_limb/N = decls_repository.get_decl(/decl/nymph_limb)
     N.handle_nymph(src)
 // Right Leg
 /obj/item/organ/external/leg/right/nymph
@@ -19,12 +19,12 @@
 
 /obj/item/organ/external/leg/right/nymph/Initialize()
     . = ..()
-    var/decl/nymph_limb/N = new
+    var/decl/nymph_limb/N = decls_repository.get_decl(/decl/nymph_limb)
     N.setup_limb(src)
 
 /obj/item/organ/external/leg/right/nymph/process()
     ..()
-    var/decl/nymph_limb/N = new
+    var/decl/nymph_limb/N = decls_repository.get_decl(/decl/nymph_limb)
     N.handle_nymph(src)
 // Left Arm
 /obj/item/organ/external/arm/nymph
@@ -33,12 +33,12 @@
 
 /obj/item/organ/external/arm/nymph/Initialize()
     . = ..()
-    var/decl/nymph_limb/N = new
+    var/decl/nymph_limb/N = decls_repository.get_decl(/decl/nymph_limb)
     N.setup_limb(src)
 
 /obj/item/organ/external/arm/nymph/process()
     ..()
-    var/decl/nymph_limb/N = new
+    var/decl/nymph_limb/N = decls_repository.get_decl(/decl/nymph_limb)
     N.handle_nymph(src)
 // Right Arm
 /obj/item/organ/external/arm/right/nymph
@@ -47,40 +47,40 @@
 
 /obj/item/organ/external/arm/right/nymph/Initialize()
     . = ..()
-    var/decl/nymph_limb/N = new
+    var/decl/nymph_limb/N = decls_repository.get_decl(/decl/nymph_limb)
     N.setup_limb(src)
 
 /obj/item/organ/external/arm/right/nymph/process()
     ..()
-    var/decl/nymph_limb/N = new
+    var/decl/nymph_limb/N = decls_repository.get_decl(/decl/nymph_limb)
     N.handle_nymph(src)
 // Left Hand
 /obj/item/organ/external/hand/nymph
 
 /obj/item/organ/external/hand/nymph/Initialize()
     . = ..()
-    var/decl/nymph_limb/N = new
+    var/decl/nymph_limb/N = decls_repository.get_decl(/decl/nymph_limb)
     N.setup_limb(src)
 // Right Hand
 /obj/item/organ/external/hand/right/nymph
 
 /obj/item/organ/external/hand/right/nymph/Initialize()
     . = ..()
-    var/decl/nymph_limb/N = new
+    var/decl/nymph_limb/N = decls_repository.get_decl(/decl/nymph_limb)
     N.setup_limb(src)
 // Left Foot
 /obj/item/organ/external/foot/nymph
 
 /obj/item/organ/external/foot/nymph/Initialize()
     . = ..()
-    var/decl/nymph_limb/N = new
+    var/decl/nymph_limb/N = decls_repository.get_decl(/decl/nymph_limb)
     N.setup_limb(src)
 // Right Foot
 /obj/item/organ/external/foot/right/nymph
 
 /obj/item/organ/external/foot/right/nymph/Initialize()
     . = ..()
-    var/decl/nymph_limb/N = new
+    var/decl/nymph_limb/N = decls_repository.get_decl(/decl/nymph_limb)
     N.setup_limb(src)
 
 /decl/nymph_limb
@@ -153,7 +153,7 @@
     set category = "Abilities"
     set name = "Detach Nymph"
 
-    var/decl/nymph_limb/N = new
+    var/decl/nymph_limb/N = decls_repository.get_decl(/decl/nymph_limb)
 
     // Find our existing nymphlimbs
     var/list/my_nymph_limbs = list()
@@ -188,7 +188,7 @@
 
 // Organ detach
 /obj/item/organ/external/proc/detach_nymph_limb()
-    var/decl/nymph_limb/N = new
+    var/decl/nymph_limb/N = decls_repository.get_decl(/decl/nymph_limb)
     var/mob/living/carbon/alien/diona/nymph = src:nymph
     var/nymph_owner = owner
 
@@ -211,7 +211,7 @@
     if(!can_attach)
         to_chat(src, span("warning", "You do not have the strength to attach to another host so soon."))
 
-    var/decl/nymph_limb/N = new
+    var/decl/nymph_limb/N = decls_repository.get_decl(/decl/nymph_limb)
     var/list/mob/living/carbon/human/mob_list = list()
 
     // Find a new host
