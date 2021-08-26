@@ -99,14 +99,15 @@
 	if(id)
 		P.id = id
 
-/obj/effect/map_effect/wingrille_spawn
+/obj/effect/map_effect/wingrille_spawn/full
 	name = "full window grille spawner"
 	icon_state = "full_window"
 	win_path = /obj/structure/window/full
 	grill_path = /obj/structure/grille
 	spawn_firedoor = TRUE
 
-/obj/effect/map_effect/wingrille_spawn/phoron
+/obj/effect/map_effect/wingrille_spawn/full/phoron
+	icon_state = "full_phoron_window"
 	win_path = /obj/structure/window/full/phoron
 
 /obj/effect/map_effect/wingrille_spawn/reinforced/polarized/full
