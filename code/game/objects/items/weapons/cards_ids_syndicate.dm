@@ -226,7 +226,7 @@
 				var/new_religion = sanitize(input(user,"What religion would you like to put on this card?","Agent Card Religion", religion) as null|text)
 				if(!isnull(new_religion) && CanUseTopic(user,state))
 					src.religion = new_religion
-					to_chat(user, "<span class='notice'>Religion changed to '[new_religion]'.</span>")
+					to_chat(user, SPAN_NOTICE("Religion changed to '[new_religion]'."))
 					. = 1
 			if("Factory Reset")
 				if(alert("This will factory reset the card, including access and owner. Continue?", "Factory Reset", "No", "Yes") == "Yes" && CanUseTopic(user, state))
