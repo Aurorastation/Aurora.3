@@ -570,5 +570,8 @@
 /obj/structure/window/reinforced/polarized/full
 	name = "electrochromic window"
 	desc = "Adjusts its tint with voltage. Might take a few good hits to shatter it."
+	icon = 'icons/obj/smooth/full_window.dmi'
+	icon_state = "window_glass"
+	basestate = "window_glass"
 	dir = 5
 	smooth = SMOOTH_TRUE

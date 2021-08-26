@@ -5,6 +5,7 @@
 	var/grill_path = /obj/structure/grille
 	var/spawn_firedoor = FALSE
 	var/activated
+	var/single_window = FALSE
 
 // stops ZAS expanding zones past us, the windows will block the zone anyway
 /obj/effect/map_effect/wingrille_spawn/CanPass()
@@ -37,23 +38,26 @@
 	if (!locate(grill_path) in get_turf(src))
 		var/obj/structure/grille/G = new grill_path(src.loc)
 		handle_grille_spawn(G)
-	var/list/neighbours = list()
-	for (var/dir in cardinal)
-		var/turf/T = get_step(src, dir)
-		var/obj/effect/map_effect/wingrille_spawn/other = locate(/obj/effect/map_effect/wingrille_spawn) in T
-		if(!other)
-			var/found_connection
-			if(locate(grill_path) in T)
-				for(var/obj/structure/window/W in T)
-					if(W.type == win_path && W.dir == get_dir(T,src))
-						found_connection = 1
-						qdel(W)
-			if(!found_connection)
-				var/obj/structure/window/new_win = new win_path(src.loc)
-				new_win.set_dir(dir)
-				handle_window_spawn(new_win)
-		else
-			neighbours |= other
+	if(!single_window)
+		var/list/neighbours = list()
+		for (var/dir in cardinal)
+			var/turf/T = get_step(src, dir)
+			var/obj/effect/map_effect/wingrille_spawn/other = locate(/obj/effect/map_effect/wingrille_spawn) in T
+			if(!other)
+				var/found_connection
+				if(locate(grill_path) in T)
+					for(var/obj/structure/window/W in T)
+						if(W.type == win_path && W.dir == get_dir(T,src))
+							found_connection = 1
+							qdel(W)
+				if(!found_connection)
+					var/obj/structure/window/new_win = new win_path(src.loc)
+					new_win.set_dir(dir)
+					handle_window_spawn(new_win)
+			else
+				neighbours |= other
+	else
+		new win_path(loc)
 	activated = 1
 
 /obj/effect/map_effect/wingrille_spawn/proc/handle_window_spawn(var/obj/structure/window/W)
@@ -105,12 +109,15 @@
 	win_path = /obj/structure/window/full
 	grill_path = /obj/structure/grille
 	spawn_firedoor = TRUE
+	single_window = TRUE
 
 /obj/effect/map_effect/wingrille_spawn/full/phoron
 	icon_state = "full_phoron_window"
 	win_path = /obj/structure/window/full/phoron
+	single_window = TRUE
 
 /obj/effect/map_effect/wingrille_spawn/reinforced/polarized/full
 	name = "full polarized window grille spawner"
 	icon_state = "full_window"
 	win_path = /obj/structure/window/reinforced/polarized/full
+	single_window = TRUE
