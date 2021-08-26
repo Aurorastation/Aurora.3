@@ -1,0 +1,4 @@
+author: Desven
+delete-after: True
+changes:
+  - rscadd: "Added a new drinks to the Robust Softdrinks vendor."
