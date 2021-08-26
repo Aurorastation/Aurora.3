@@ -59,7 +59,7 @@ var/list/lunchables_snacks_ = list(
 
 var/list/lunchables_drinks_ = list(
 	/obj/item/reagent_containers/food/drinks/cans/cola,
-	/obj/item/reagent_containers/food/drinks/cans/dietcola,
+	/obj/item/reagent_containers/food/drinks/cans/diet_cola,
 	/obj/item/reagent_containers/food/drinks/waterbottle,
 	/obj/item/reagent_containers/food/drinks/cans/space_mountain_wind,
 	/obj/item/reagent_containers/food/drinks/cans/dr_gibb,
