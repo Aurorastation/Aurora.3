@@ -3,3 +3,4 @@ delete-after: True
 changes:
   - rscadd: "Added a Sedantis lunchbox."
   - rscadd: "Added new k'ois options to the lunchbox."
+  - rcadd: "Added the new drinks to the lunchbox."

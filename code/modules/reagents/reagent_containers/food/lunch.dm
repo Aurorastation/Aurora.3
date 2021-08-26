@@ -59,6 +59,7 @@ var/list/lunchables_snacks_ = list(
 
 var/list/lunchables_drinks_ = list(
 	/obj/item/reagent_containers/food/drinks/cans/cola,
+	/obj/item/reagent_containers/food/drinks/cans/dietcola,
 	/obj/item/reagent_containers/food/drinks/waterbottle,
 	/obj/item/reagent_containers/food/drinks/cans/space_mountain_wind,
 	/obj/item/reagent_containers/food/drinks/cans/dr_gibb,
@@ -66,14 +67,19 @@ var/list/lunchables_drinks_ = list(
 	/obj/item/reagent_containers/food/drinks/cans/space_up,
 	/obj/item/reagent_containers/food/drinks/cans/lemon_lime,
 	/obj/item/reagent_containers/food/drinks/cans/iced_tea,
+	/obj/item/reagent_containers/food/drinks/cans/threetowns,
 	/obj/item/reagent_containers/food/drinks/cans/grape_juice,
+	/obj/item/reagent_containers/food/drinks/cans/peach_soda,
 	/obj/item/reagent_containers/food/drinks/cans/tonic,
 	/obj/item/reagent_containers/food/drinks/cans/sodawater,
 	/obj/item/reagent_containers/food/drinks/cans/adhomai_milk,
 	/obj/item/reagent_containers/food/drinks/cans/beetle_milk,
 	/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda,
 	/obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water,
-	/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz
+	/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz,
+	/obj/item/reagent_containers/food/drinks/small_milk,
+	/obj/item/reagent_containers/food/drinks/small_milk_choco,
+	/obj/item/reagent_containers/food/drinks/small_milk_strawberry
 )
 
 var/list/lunchables_utensil_ = list(
