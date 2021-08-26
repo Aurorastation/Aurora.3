@@ -220,7 +220,7 @@
 				var/new_citizenship = sanitize(input(user,"Which citizenship would you like to put on this card?","Agent Card Citizenship", citizenship) as null|text)
 				if(!isnull(new_citizenship) && CanUseTopic(user,state))
 					src.citizenship = new_citizenship
-					to_chat(user, "<span class='notice'>Citizenship changed to '[new_citizenship]'.</span>")
+					to_chat(user, SPAN_NOTICE("Citizenship changed to '[new_citizenship]'."))
 					. = 1
 			if("Religion")
 				var/new_religion = sanitize(input(user,"What religion would you like to put on this card?","Agent Card Religion", religion) as null|text)
