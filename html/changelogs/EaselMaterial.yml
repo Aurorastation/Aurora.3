@@ -1,0 +1,7 @@
+author: CodePanter
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+changes:
+  - bugfix: "Fixed a missing material definition for easels causing them to be dismantled into a steel plate."
