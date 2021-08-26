@@ -12,6 +12,9 @@
 	charge = 0
 	update_icon()
 
+/obj/item/cell/get_cell()
+	return src
+
 /obj/item/cell/drain_power(var/drain_check, var/surge, var/power = 0)
 
 	if(drain_check)

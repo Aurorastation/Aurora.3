@@ -7,6 +7,7 @@
 	var/sound_in = 'sound/weapons/holster/holsterin.ogg'
 	var/sound_out = 'sound/weapons/holster/holsterout.ogg'
 	flippable = 1
+	w_class = ITEMSIZE_NORMAL
 	var/base_name = ""
 
 /obj/item/clothing/accessory/holster/Initialize()
