@@ -251,7 +251,7 @@
 	item_state = "rosette"
 	flippable = FALSE
 
-/obj/item/clothing/accessory/tajara/council_badge
+/obj/item/clothing/accessory/tajaran/council_badge
 	name = "free tajaran council badge"
 	desc = "A medal badge used by the members of the Free Tajaran Council."
 	icon_state = "council_badge"
