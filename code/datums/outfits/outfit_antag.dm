@@ -60,7 +60,7 @@
 		/obj/item/storage/box/engineer = 1,
 		/obj/item/reagent_containers/pill/cyanide = 1,
 		/obj/item/gun/projectile/automatic/x9 = 1,
-		/obj/item/ammo_magazine/c45x = 1,
+		/obj/item/ammo_magazine/c45m/auto = 1,
 		/obj/item/crowbar/red = 1,
 		/obj/item/plastique = 1,
 		/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket = 1,
