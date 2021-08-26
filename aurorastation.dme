@@ -1105,6 +1105,7 @@
 #include "code\game\objects\structures\extinguisher.dm"
 #include "code\game\objects\structures\fireaxe_cabinet.dm"
 #include "code\game\objects\structures\flora.dm"
+#include "code\game\objects\structures\full_window_frame.dm"
 #include "code\game\objects\structures\girders.dm"
 #include "code\game\objects\structures\grille.dm"
 #include "code\game\objects\structures\inflatable.dm"

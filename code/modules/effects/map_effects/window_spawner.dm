@@ -98,3 +98,18 @@
 /obj/effect/map_effect/wingrille_spawn/reinforced/polarized/handle_window_spawn(var/obj/structure/window/reinforced/polarized/P)
 	if(id)
 		P.id = id
+
+/obj/effect/map_effect/wingrille_spawn
+	name = "full window grille spawner"
+	icon_state = "full_window"
+	win_path = /obj/structure/window/full
+	grill_path = /obj/structure/grille
+	spawn_firedoor = TRUE
+
+/obj/effect/map_effect/wingrille_spawn/phoron
+	win_path = /obj/structure/window/full/phoron
+
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized/full
+	name = "full polarized window grille spawner"
+	icon_state = "full_window"
+	win_path = /obj/structure/window/reinforced/polarized/full

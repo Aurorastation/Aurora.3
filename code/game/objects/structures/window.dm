@@ -45,6 +45,12 @@
 		else
 			to_chat(user, SPAN_NOTICE("There is a thick layer of silicate covering it."))
 
+/obj/structure/window/proc/update_nearby_icons()
+	queue_smooth_neighbors(src)
+
+/obj/structure/window/update_icon()
+	queue_smooth(src)
+
 /obj/structure/window/proc/take_damage(var/damage = 0,  var/sound_effect = 1)
 	var/initialhealth = health
 
@@ -342,33 +348,6 @@
 		return 1
 	return 0
 
-//This proc is used to update the icons of nearby windows. It should not be confused with update_nearby_tiles(), which is an atmos proc!
-/obj/structure/window/proc/update_nearby_icons()
-	update_icon()
-	for(var/obj/structure/window/W in orange(src, 1))
-		W.update_icon()
-
-//merges adjacent full-tile windows into one (blatant ripoff from game/smoothwall.dm)
-/obj/structure/window/update_icon()
-	//A little cludge here, since I don't know how it will work with slim windows. Most likely VERY wrong.
-	//this way it will only update full-tile ones
-	cut_overlays()
-	if(!is_fulltile())
-		icon_state = "[basestate]"
-		return
-	var/list/dirs = list()
-	if(anchored)
-		for(var/obj/structure/window/W in orange(src,1))
-			if(W.anchored && W.density && W.type == src.type && W.is_fulltile()) //Only counts anchored, not-destroyed fill-tile windows.
-				dirs += get_dir(src, W)
-
-	var/list/connections = dirs_to_corner_states(dirs)
-
-	icon_state = ""
-	for(var/i = 1 to 4)
-		var/image/I = image(icon, "[basestate][connections[i]]", dir = 1<<(i-1))
-		add_overlay(I)
-
 /obj/structure/window/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if(exposed_temperature > maximal_heat)
 		hit(damage_per_fire_tick, 0)
@@ -499,12 +478,6 @@
 /obj/structure/window/shuttle/crescent/take_damage()
 	return
 
-/obj/structure/window/shuttle/update_nearby_icons()
-	queue_smooth_neighbors(src)
-
-/obj/structure/window/update_icon()
-	queue_smooth(src)
-
 /obj/structure/window/reinforced/polarized
 	name = "electrochromic window"
 	desc = "Adjusts its tint with voltage. Might take a few good hits to shatter it."
@@ -567,13 +540,12 @@
 /obj/machinery/button/switch/windowtint/update_icon()
 	icon_state = "light[active]"
 
-
 /obj/structure/window/full
 	name = "window"
 	desc = "It looks rather strong. Might take a few good hits to shatter it."
 	icon = 'icons/obj/smooth/full_window.dmi'
-	icon_state = "full_window"
-	basestate = "window"
+	icon_state = "window_glass"
+	basestate = "window_glass"
 	maxhealth = 40
 	reinf = TRUE
 	maximal_heat = T0C + 750
@@ -582,3 +554,21 @@
 	damage_per_fire_tick = 2.0
 	can_be_unanchored = TRUE
 	glasstype = /obj/item/stack/material/glass/reinforced
+
+/obj/structure/window/full/phoron
+	name = "reinforced borosilicate window"
+	desc = "A borosilicate alloy window, with rods supporting it. It seems to be very strong."
+	icon = 'icons/obj/smooth/phoron_full_window.dmi'
+	icon_state = "window_glass"
+	basestate = "window_glass"
+	shardtype = /obj/item/material/shard/phoron
+	glasstype = /obj/item/stack/material/glass/phoronrglass
+	maximal_heat = T0C + 4000
+	damage_per_fire_tick = 1.0
+	maxhealth = 80.0
+
+/obj/structure/window/reinforced/polarized/full
+	name = "electrochromic window"
+	desc = "Adjusts its tint with voltage. Might take a few good hits to shatter it."
+	dir = 5
+	smooth = SMOOTH_TRUE
