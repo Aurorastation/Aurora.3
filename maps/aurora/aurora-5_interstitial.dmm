@@ -4016,7 +4016,8 @@
 "jK" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(5)
+	req_access = null;
+	req_one_access = list(5,12)
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -9973,7 +9974,7 @@
 "zL" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(5)
+	req_access = list(12)
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_interstitial)
@@ -12404,7 +12405,10 @@
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay_interstitial)
 "Gi" = (
-/obj/structure/bed/chair/office/bridge,
+/obj/structure/bed/chair/office/bridge{
+	desc = "It exudes authority... and looks about as comfortable as a brick. Very well-used. Smells like alcohol, coffee, and self-aggrandisation.";
+	name = "Captain's seat"
+	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
@@ -15100,7 +15104,9 @@
 	dir = 10
 	},
 /obj/structure/bed/chair/office/bridge{
-	dir = 1
+	desc = "It exudes authority... and looks about as comfortable as a brick.  Covered in a fine layer of corgi fur, and smells like stamp ink.";
+	dir = 1;
+	name = "Head of Personnel's seat"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/meeting_room)
@@ -15206,7 +15212,9 @@
 	dir = 10
 	},
 /obj/structure/bed/chair/office/bridge{
-	dir = 1
+	desc = "It exudes authority... and looks about as comfortable as a brick. Almost large enough for two people. But not quite.";
+	dir = 1;
+	name = "Representative's seat"
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -15220,7 +15228,9 @@
 	dir = 10
 	},
 /obj/structure/bed/chair/office/bridge{
-	dir = 1
+	desc = "It exudes authority... and looks about as comfortable as a brick. Sticky all over. Smells like gunpowder, sweat, salt, and abuse of authority.";
+	dir = 1;
+	name = "Head of Security's seat"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/meeting_room)
@@ -16595,7 +16605,8 @@
 "Sb" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(5)
+	req_access = null;
+	req_one_access = list(5,12)
 	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
@@ -16684,7 +16695,8 @@
 "Sk" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(5)
+	req_access = null;
+	req_one_access = list(5,12)
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -18267,7 +18279,9 @@
 	dir = 10
 	},
 /obj/structure/bed/chair/office/bridge{
-	dir = 1
+	desc = "It exudes authority... and looks about as comfortable as a brick. Covered in a fine layer of cat fur. Smells like nitrile glove sweat and coffee.";
+	dir = 1;
+	name = "Chief Medical Officer's seat"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/meeting_room)
@@ -18287,7 +18301,9 @@
 	dir = 10
 	},
 /obj/structure/bed/chair/office/bridge{
-	dir = 1
+	desc = "It exudes authority... and looks about as comfortable as a brick. The grease stains will never come out.";
+	dir = 1;
+	name = "Chief Engineer's seat"
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -18340,7 +18356,9 @@
 	dir = 10
 	},
 /obj/structure/bed/chair/office/bridge{
-	dir = 1
+	desc = "It exudes authority... and looks about as comfortable as a brick. Barely sat in. What's that bright green stain?";
+	dir = 1;
+	name = "Research Director's seat"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/meeting_room)
@@ -51880,7 +51898,7 @@ ab
 ab
 ab
 ab
-aa
+ab
 aa
 aa
 aa
@@ -52122,7 +52140,6 @@ ab
 ab
 ab
 ab
-hD
 ab
 ab
 ab
@@ -52137,7 +52154,8 @@ ab
 ab
 ab
 ab
-aa
+ab
+ab
 aa
 aa
 aa
@@ -52394,7 +52412,7 @@ ab
 ab
 ab
 ab
-aa
+ab
 aa
 aa
 aa
@@ -53669,7 +53687,7 @@ ab
 ab
 ab
 ab
-ab
+hD
 ab
 ab
 ab
@@ -55460,21 +55478,21 @@ aa
 aa
 aa
 aa
-aa
-aa
-ab
-ab
-aa
-aa
-aa
-aa
 ab
 ab
 ab
 ab
 ab
-aa
-aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 aa
 aa
 aa
@@ -55717,21 +55735,21 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 ab
 ab
 ab
-aa
-aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 aa
 aa
 aa
@@ -55974,20 +55992,20 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 ab
 ab
 ab
-aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 aa
 aa
 aa
@@ -56232,19 +56250,19 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 ab
 ab
 ab
-aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 aa
 aa
 aa
@@ -56490,14 +56508,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -56747,14 +56765,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
 ab
 ab
-aa
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -57007,8 +57025,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+ab
+ab
 ab
 ab
 ab

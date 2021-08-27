@@ -10235,7 +10235,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/wall/r_wall,
-/area/mine/unexplored)
+/area/bridge/aibunker)
 "asz" = (
 /obj/effect/floor_decal/industrial/warning/dust,
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -10565,13 +10565,17 @@
 /turf/simulated/floor/tiled,
 /area/bridge/aibunker)
 "atk" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 10
 	},
-/turf/simulated/wall,
-/area/mine/unexplored)
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled,
+/area/bridge/aibunker)
 "atl" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	req_access = list(19)
@@ -10830,6 +10834,11 @@
 /obj/machinery/meter{
 	name = "Air Reserve"
 	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled,
 /area/bridge/aibunker)
 "atN" = (
@@ -10841,6 +10850,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4
 	},
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/bridge/aibunker)
 "atO" = (
@@ -10851,13 +10865,21 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4
 	},
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/bridge/aibunker)
 "atP" = (
 /obj/machinery/firealarm/south,
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	dir = 9
+/obj/effect/floor_decal/industrial/warning/corner,
+/obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/aibunker)
@@ -10875,11 +10897,14 @@
 	},
 /obj/item/wrench,
 /turf/simulated/floor/tiled,
-/area/mine/unexplored)
+/area/bridge/aibunker)
 "atR" = (
 /obj/item/modular_computer/console/preset/command,
 /obj/machinery/case_button/shuttle{
 	pixel_y = -32
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/aibunker)
@@ -18716,9 +18741,11 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "aLB" = (
-/obj/structure/banner/scc,
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
 /turf/simulated/floor/reinforced,
-/area/mine/unexplored)
+/area/bridge/selfdestruct)
 "aLC" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
@@ -25965,9 +25992,14 @@
 	},
 /area/mine/unexplored)
 "boK" = (
-/obj/machinery/hologram/holopad,
-/turf/simulated/floor/greengrid,
-/area/mine/unexplored)
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/reinforced,
+/area/bridge/selfdestruct)
 "brp" = (
 /obj/machinery/atmospherics/binary/pump,
 /turf/simulated/floor/tiled/dark,
@@ -26200,6 +26232,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
+"bTG" = (
+/obj/structure/banner/scc,
+/turf/simulated/floor/reinforced,
+/area/bridge/selfdestruct)
 "bVc" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -26306,6 +26342,26 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
+"cdD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate/damaged,
+/turf/simulated/floor,
+/area/bridge/aibunker)
+"cep" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/cable/yellow,
+/obj/machinery/power/apc/critical{
+	pixel_y = -24
+	},
+/turf/simulated/floor/reinforced,
+/area/bridge/selfdestruct)
 "cev" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/substation/medical_sublevel)
@@ -26627,6 +26683,26 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
+"cSC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/highsecurity{
+	icon_state = "door_locked";
+	id_tag = "SAT1";
+	name = "SAT Exterior Access";
+	req_access = list(20)
+	},
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'LETHAL TURRETS'. Enter at your own risk!";
+	name = "LETHAL TURRETS";
+	pixel_x = -32
+	},
+/turf/simulated/floor/reinforced,
+/area/bridge/selfdestruct)
 "cTV" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -26661,6 +26737,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
+"cWb" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 28
+	},
+/turf/simulated/floor/reinforced,
+/area/bridge/selfdestruct)
 "cWg" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -27020,19 +27106,18 @@
 /turf/simulated/floor/tiled,
 /area/bridge/aibunker)
 "dwg" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor,
-/area/mine/unexplored)
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/highsecurity{
+	name = "SAT Access Tunnel";
+	req_access = list(19)
+	},
+/turf/simulated/floor/tiled,
+/area/bridge/aibunker)
 "dwK" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -27348,12 +27433,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
-"dVK" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/greengrid,
-/area/mine/unexplored)
 "dVR" = (
 /obj/machinery/pipedispenser,
 /turf/simulated/floor/plating,
@@ -27523,9 +27602,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medsublevel)
 "efL" = (
-/obj/machinery/nuclearbomb/station,
-/turf/simulated/floor/greengrid,
-/area/mine/unexplored)
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
+/turf/simulated/floor/reinforced,
+/area/bridge/selfdestruct)
 "ehn" = (
 /obj/machinery/power/apc/super/critical{
 	dir = 4;
@@ -27633,6 +27713,27 @@
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"etF" = (
+/obj/machinery/light/small/emergency,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/turretid/lethal{
+	ailock = 1;
+	check_synth = 1;
+	desc = "A firewall prevents AIs from interacting with this device.";
+	name = "SAT lethal turret control";
+	pixel_y = -28;
+	req_access = list(20)
+	},
+/obj/machinery/camera/motion{
+	c_tag = null;
+	dir = 8;
+	network = null;
+	tag = "icon-camera (WEST)"
+	},
+/turf/simulated/floor/greengrid,
+/area/bridge/selfdestruct)
 "euN" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -28176,12 +28277,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
-"fCg" = (
-/obj/machinery/light/small/emergency{
-	dir = 4
-	},
-/turf/simulated/floor/greengrid,
-/area/mine/unexplored)
 "fDM" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -28642,6 +28737,16 @@
 /obj/effect/floor_decal/corner/blue,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
+"gsx" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/light/colored/blue{
+	dir = 8
+	},
+/obj/machinery/porta_turret,
+/turf/simulated/floor/greengrid,
+/area/bridge/selfdestruct)
 "gsG" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -28691,6 +28796,16 @@
 /obj/item/modular_computer/console/preset/medical,
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_post1)
+"guX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/porta_turret,
+/turf/simulated/floor/greengrid,
+/area/bridge/selfdestruct)
 "gvE" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -28752,11 +28867,8 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/light/colored/blue{
-	dir = 8
-	},
 /turf/simulated/floor/greengrid,
-/area/mine/unexplored)
+/area/bridge/selfdestruct)
 "gBM" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/vending/cola,
@@ -28931,11 +29043,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
 "gYq" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/greengrid,
-/area/mine/unexplored)
+/turf/simulated/wall/r_wall,
+/area/bridge/selfdestruct)
 "gYx" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -29316,6 +29425,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medsublevel)
+"hLv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/greengrid,
+/area/bridge/selfdestruct)
 "hMo" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
@@ -29576,7 +29694,7 @@
 	dir = 5
 	},
 /turf/simulated/floor,
-/area/mine/unexplored)
+/area/bridge/aibunker)
 "igM" = (
 /obj/structure/table/steel,
 /obj/random/tool,
@@ -29617,10 +29735,17 @@
 /turf/simulated/wall/r_wall,
 /area/maintenance/medsublevel_port)
 "itO" = (
-/obj/machinery/power/port_gen/pacman,
-/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 5
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/lattice/catwalk/indoor/grate/damaged,
 /turf/simulated/floor,
-/area/mine/unexplored)
+/area/bridge/aibunker)
 "iwx" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -29633,6 +29758,10 @@
 	},
 /turf/simulated/floor/carpet,
 /area/engineering/break_room)
+"izt" = (
+/obj/machinery/nuclearbomb/station,
+/turf/simulated/floor/greengrid,
+/area/bridge/selfdestruct)
 "iAw" = (
 /obj/structure/table/rack,
 /obj/item/shovel{
@@ -30041,6 +30170,35 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
+"jmj" = (
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 28
+	},
+/obj/machinery/camera/motion{
+	c_tag = null;
+	dir = 8;
+	network = null;
+	tag = "icon-camera (WEST)"
+	},
+/turf/simulated/floor/greengrid,
+/area/bridge/selfdestruct)
+"jnR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 10
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/effect/decal/cleanable/cobweb2,
+/turf/simulated/floor,
+/area/bridge/aibunker)
 "jpZ" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -30368,7 +30526,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/mine/unexplored)
+/area/bridge/aibunker)
 "khp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -30410,7 +30568,7 @@
 	req_access = list(19)
 	},
 /turf/simulated/floor/tiled,
-/area/mine/unexplored)
+/area/bridge/aibunker)
 "krN" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -30682,6 +30840,18 @@
 	},
 /turf/simulated/floor/tiled/airless,
 /area/security/penal_colony)
+"kZS" = (
+/obj/item/device/radio/intercom{
+	dir = 4;
+	frequency = 1213;
+	name = "Intercom";
+	pixel_x = -24;
+	subspace_transmission = 1;
+	syndie = 1
+	},
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/reinforced,
+/area/bridge/selfdestruct)
 "lbh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -30727,7 +30897,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/mine/unexplored)
+/area/bridge/aibunker)
 "lfY" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -30853,6 +31023,12 @@
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
+"lnT" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/bridge/selfdestruct)
 "loy" = (
 /obj/structure/cable/green{
 	d2 = 8;
@@ -30864,6 +31040,14 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/engineering/bathroom)
+"lpM" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/reinforced,
+/area/bridge/selfdestruct)
 "lsl" = (
 /obj/structure/cable{
 	d2 = 8;
@@ -30912,10 +31096,20 @@
 /turf/simulated/wall/r_wall,
 /area/security/penal_colony)
 "lCm" = (
-/obj/machinery/atmospherics/pipe/tank/air,
-/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
 /turf/simulated/floor,
-/area/mine/unexplored)
+/area/bridge/aibunker)
 "lDM" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/corner/pink/full{
@@ -30935,15 +31129,37 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_post1)
 "lGR" = (
-/obj/structure/closet/crate{
-	name = "Emergency Fuel"
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 4
 	},
-/obj/item/stack/material/phoron,
-/obj/item/stack/material/phoron,
-/obj/item/stack/material/phoron,
-/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/effect/decal/cleanable/cobweb2{
+	icon_state = "spiderling";
+	name = "dead greimorian"
+	},
 /turf/simulated/floor,
-/area/mine/unexplored)
+/area/bridge/aibunker)
+"lJQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/highsecurity{
+	icon_state = "door_locked";
+	id_tag = "SAT2";
+	locked = 1;
+	name = "SAT Interior Access";
+	req_access = list(20)
+	},
+/turf/simulated/floor/reinforced,
+/area/bridge/selfdestruct)
 "lLx" = (
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_hallway)
@@ -31688,6 +31904,17 @@
 /obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
+"mUP" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/reinforced,
+/area/bridge/selfdestruct)
 "mWx" = (
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
@@ -31764,6 +31991,18 @@
 	},
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_library)
+"ncG" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/obj/machinery/camera/motion{
+	c_tag = null;
+	dir = 8;
+	network = null;
+	tag = "icon-camera (WEST)"
+	},
+/turf/simulated/floor/reinforced,
+/area/bridge/selfdestruct)
 "nep" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -31817,15 +32056,30 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_hazard)
-"ngg" = (
-/obj/structure/cable{
+"nfr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/obj/structure/cable/yellow{
 	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/blast/regular{
+	id = "SATblastdoors"
+	},
+/turf/simulated/floor/reinforced,
+/area/bridge/selfdestruct)
+"ngg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate/damaged,
 /turf/simulated/floor,
-/area/mine/unexplored)
+/area/bridge/aibunker)
 "ngj" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 6
@@ -32018,6 +32272,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
+"nuw" = (
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/greengrid,
+/area/bridge/selfdestruct)
 "nvZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -32045,7 +32305,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled,
-/area/mine/unexplored)
+/area/bridge/aibunker)
 "nxS" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
@@ -32301,10 +32561,11 @@
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
 "nNb" = (
-/obj/machinery/anti_bluespace,
-/obj/machinery/light/colored/blue,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
 /turf/simulated/floor/reinforced,
-/area/mine/unexplored)
+/area/bridge/selfdestruct)
 "nND" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
@@ -32548,6 +32809,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"osc" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/bridge/selfdestruct)
 "otg" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -32660,6 +32927,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"oDb" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
+/turf/simulated/floor/reinforced,
+/area/bridge/selfdestruct)
 "oFa" = (
 /obj/machinery/airlock_sensor{
 	id_tag = "research_sensor";
@@ -32801,6 +33077,25 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
+"oYH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'LETHAL TURRETS'. Enter at your own risk!";
+	name = "LETHAL TURRETS";
+	pixel_x = 32
+	},
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'LETHAL TURRETS'. Enter at your own risk!";
+	name = "LETHAL TURRETS";
+	pixel_x = -32
+	},
+/turf/simulated/floor/reinforced,
+/area/bridge/selfdestruct)
 "oZc" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -32865,7 +33160,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/old,
 /turf/simulated/floor,
-/area/mine/unexplored)
+/area/bridge/aibunker)
 "piW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -32888,8 +33183,18 @@
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
 "pkj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/highsecurity{
+	name = "SAT Foyer";
+	req_access = list(19)
+	},
 /turf/simulated/floor/reinforced,
-/area/mine/unexplored)
+/area/bridge/selfdestruct)
 "pkV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -32962,8 +33267,17 @@
 /turf/simulated/floor/carpet,
 /area/engineering/break_room)
 "puk" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/greengrid,
-/area/mine/unexplored)
+/area/bridge/selfdestruct)
 "pvc" = (
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -33093,6 +33407,13 @@
 	},
 /area/mine/unexplored)
 "pIj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate/old,
 /turf/simulated/floor,
 /area/bridge/aibunker)
 "pIl" = (
@@ -33238,8 +33559,14 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/reinforced,
-/area/mine/unexplored)
+/area/bridge/selfdestruct)
 "qah" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/light/small/emergency{
@@ -33532,6 +33859,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
+"qAq" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/reinforced,
+/area/bridge/selfdestruct)
 "qBr" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -33614,6 +33953,21 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
+"qIx" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/cobweb,
+/obj/item/device/radio/intercom{
+	dir = 4;
+	frequency = 1213;
+	name = "Intercom";
+	pixel_x = -24;
+	subspace_transmission = 1;
+	syndie = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/bridge/selfdestruct)
 "qLE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -33638,6 +33992,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/mine/unexplored)
+"qMD" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/bridge/selfdestruct)
 "qMQ" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -33667,8 +34028,27 @@
 /area/medical/patient_wing_gym)
 "qOo" = (
 /obj/machinery/light/small/emergency,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/button/remote/airlock{
+	id = "SAT1";
+	name = "SAT Exterior Bolt Control";
+	pixel_x = -26;
+	pixel_y = 6;
+	req_access = list(20);
+	specialfunctions = 4
+	},
+/obj/machinery/button/remote/blast_door{
+	desc = "A remote control-switch for the SAT blast doors.";
+	id = "SATblastdoors";
+	name = "SAT Blast Door Control";
+	pixel_x = -26;
+	pixel_y = -5;
+	req_access = list(20)
+	},
 /turf/simulated/floor/greengrid,
-/area/mine/unexplored)
+/area/bridge/selfdestruct)
 "qOI" = (
 /obj/item/landmine/emp{
 	anchored = 1;
@@ -34768,6 +35148,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/test_range)
+"tus" = (
+/obj/machinery/hologram/holopad,
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/greengrid,
+/area/bridge/selfdestruct)
 "twe" = (
 /obj/machinery/light/small/emergency{
 	dir = 8
@@ -34999,7 +35389,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled,
-/area/mine/unexplored)
+/area/bridge/aibunker)
 "tSk" = (
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 6
@@ -35061,7 +35451,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/mine/unexplored)
+/area/bridge/aibunker)
 "tVH" = (
 /obj/structure/closet/crate,
 /obj/item/stack/material/steel{
@@ -35628,6 +36018,22 @@
 /obj/structure/window/phoronreinforced,
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"uXo" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/button/remote/airlock{
+	id = "SAT2";
+	name = "SAT Interior Bolt Control";
+	pixel_x = -26;
+	req_access = list(20);
+	specialfunctions = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/bridge/selfdestruct)
 "uXC" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -35914,11 +36320,8 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/light/colored/blue{
-	dir = 4
-	},
 /turf/simulated/floor/greengrid,
-/area/mine/unexplored)
+/area/bridge/selfdestruct)
 "vyW" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -36045,6 +36448,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/isolation_c)
+"vMr" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/reinforced,
+/area/bridge/selfdestruct)
 "vMS" = (
 /obj/effect/landmark/start{
 	name = "Medical Intern"
@@ -36559,17 +36973,18 @@
 /turf/simulated/floor/reinforced,
 /area/engineering/gravity_gen)
 "wEz" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 4
 	},
-/obj/structure/closet/hydrant{
-	pixel_y = 32
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor,
-/area/mine/unexplored)
+/area/bridge/aibunker)
 "wGK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -36712,6 +37127,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_hazard)
+"wVo" = (
+/obj/machinery/anti_bluespace,
+/obj/machinery/light/colored/blue,
+/turf/simulated/floor/reinforced,
+/area/bridge/selfdestruct)
 "wVM" = (
 /obj/effect/floor_decal/corner/pink{
 	dir = 10
@@ -36761,11 +37181,8 @@
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
 "xet" = (
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/turf/simulated/floor/greengrid,
-/area/mine/unexplored)
+/turf/simulated/floor/reinforced,
+/area/bridge/selfdestruct)
 "xex" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/substation/research_sublevel)
@@ -36875,6 +37292,15 @@
 	},
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_library)
+"xoM" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/bridge/selfdestruct)
 "xqo" = (
 /obj/structure/window/phoronreinforced{
 	dir = 8
@@ -37171,6 +37597,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_hazard)
+"xKG" = (
+/obj/effect/decal/cleanable/cobweb2,
+/obj/effect/decal/cleanable/cobweb2{
+	icon_state = "spiderling";
+	name = "dead greimorian"
+	},
+/turf/simulated/floor/reinforced,
+/area/bridge/selfdestruct)
 "xLk" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
@@ -37257,6 +37691,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/test_range)
+"xTx" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/light/colored/blue{
+	dir = 4
+	},
+/obj/machinery/porta_turret,
+/turf/simulated/floor/greengrid,
+/area/bridge/selfdestruct)
 "xUc" = (
 /obj/machinery/door/firedoor,
 /obj/structure/table/reinforced,
@@ -37343,6 +37787,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
+"xZe" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/obj/machinery/door/blast/regular{
+	id = "SATblastdoors"
+	},
+/turf/simulated/floor/reinforced,
+/area/bridge/selfdestruct)
 "xZp" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
@@ -87955,12 +88411,12 @@ alY
 alY
 alY
 ale
-akG
-akG
-akG
-akG
-akG
-akG
+asR
+asR
+asR
+asR
+asR
+asR
 asR
 asR
 asR
@@ -88211,10 +88667,10 @@ aqO
 alY
 alY
 alY
-akG
-akG
-akG
-akG
+asR
+asR
+asR
+asR
 asR
 asR
 asR
@@ -88468,8 +88924,8 @@ alY
 alY
 alY
 akG
-akG
-akG
+asR
+asR
 atQ
 ifc
 jrD
@@ -88725,8 +89181,8 @@ alY
 alY
 alY
 akG
-akG
-akG
+asR
+asR
 tVx
 lem
 iDZ
@@ -89239,8 +89695,8 @@ alY
 alY
 alY
 arZ
-akG
-akG
+asR
+asR
 nwA
 tRU
 eDG
@@ -89496,9 +89952,9 @@ alY
 alY
 alY
 arZ
-akG
-akG
-akG
+asR
+asR
+asR
 kmJ
 asR
 asZ
@@ -89791,7 +90247,7 @@ akG
 akG
 akG
 akG
-aaa
+akG
 aaa
 aaa
 aaa
@@ -90047,8 +90503,8 @@ ale
 ale
 ale
 ale
+ale
 akG
-aaa
 aaa
 aaa
 aaa
@@ -90276,36 +90732,36 @@ vbC
 atc
 hAM
 wqA
-ato
-ato
+atk
+dwg
 pIj
-aac
+itO
+asR
+asR
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+gYq
+gYq
+gYq
+gYq
+gYq
+ale
+ale
+ale
+ale
 akG
-akG
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-akG
-akG
-akG
-akG
-akG
-ale
-ale
-ale
-ale
-akG
-aaa
 aaa
 aaa
 aaa
@@ -90536,33 +90992,33 @@ aty
 atR
 asR
 asR
-aac
+lCm
+asR
+asR
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+gYq
+gYq
+gYq
+gYq
+gYq
+gYq
+gYq
+ale
+ale
+ale
 akG
-akG
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-akG
-akG
-akG
-akG
-akG
-akG
-akG
-ale
-ale
-ale
-akG
-aaa
 aaa
 aaa
 aaa
@@ -90793,33 +91249,33 @@ asR
 asR
 asR
 asR
-aac
-akG
-akG
-akG
-akG
-akG
-akG
-akG
-akG
-akG
-akG
-akG
+lGR
+asR
+gYq
+gYq
+gYq
+gYq
 ale
 ale
-akG
-akG
-akG
-dVK
+gYq
+gYq
+gYq
+gYq
+gYq
+ale
+ale
+gYq
+gYq
+gYq
 gBf
-dVK
-akG
-akG
-akG
+gsx
+gBf
+gYq
+gYq
+gYq
 ale
 ale
 akG
-aaa
 aaa
 aaa
 aaa
@@ -91050,33 +91506,33 @@ asR
 asR
 asR
 asR
-aac
-akG
-akG
-akG
-akG
-akG
-akG
-akG
-akG
-akG
-akG
-akG
-akG
-akG
-akG
-akG
-akG
-pkj
-pkj
-pkj
-akG
-akG
-akG
-akG
+ngg
+asR
+gYq
+gYq
+gYq
+gYq
+gYq
+gYq
+gYq
+gYq
+gYq
+gYq
+gYq
+gYq
+gYq
+gYq
+gYq
+gYq
+vMr
+mUP
+cep
+gYq
+gYq
+gYq
+gYq
 ale
 akG
-aaa
 aaa
 aaa
 aaa
@@ -91305,35 +91761,35 @@ ale
 ale
 ale
 ale
-akG
-akG
-aac
-akG
-akG
-pkj
+asR
+asR
+wEz
+asR
+gYq
+qIx
 qOo
-akG
-akG
-akG
-pkj
+gYq
+gYq
+gYq
+gYq
 xet
-pkj
-akG
-akG
-akG
-akG
-akG
-pkj
-pkj
-pkj
-pkj
-pkj
+nuw
+xet
+gYq
+gYq
+gYq
+gYq
+gYq
+kZS
+lpM
+qMD
+lnT
 aLB
-akG
-akG
+bTG
+gYq
+gYq
 ale
 akG
-aaa
 aaa
 aaa
 aaa
@@ -91562,35 +92018,35 @@ ale
 ale
 ale
 ale
-akG
-akG
-aac
-aac
+asR
+asR
+jnR
+cdD
 pkj
-pkj
+qAq
 puk
-pkj
+cSC
 pZn
-pkj
-puk
-puk
-puk
-pkj
-pkj
-pZn
-pkj
-pkj
-pkj
+xZe
 boK
-pkj
+hLv
+guX
+hLv
+oYH
+nfr
+pZn
+uXo
+lJQ
+boK
+tus
 efL
-pkj
+izt
 nNb
-akG
-akG
+wVo
+gYq
+gYq
 ale
 akG
-aaa
 aaa
 aaa
 aaa
@@ -91816,38 +92272,38 @@ ale
 ale
 ale
 ale
-akG
 ale
 ale
-akG
-akG
-akG
-akG
-akG
-pkj
-qOo
-akG
-akG
-akG
-pkj
-fCg
-pkj
-akG
-akG
-akG
-akG
-akG
-pkj
-pkj
-pkj
-pkj
-pkj
-aLB
-akG
-akG
+ale
+asR
+asR
+asR
+asR
+gYq
+cWb
+etF
+gYq
+gYq
+gYq
+gYq
+xet
+jmj
+xet
+gYq
+gYq
+gYq
+gYq
+gYq
+xKG
+xet
+xoM
+osc
+ncG
+bTG
+gYq
+gYq
 ale
 akG
-aaa
 aaa
 aaa
 aaa
@@ -92070,41 +92526,41 @@ ale
 ale
 ale
 ale
-akG
-akG
-akG
-akG
 ale
 ale
 ale
-akG
-akG
-akG
-akG
-akG
-akG
-akG
-akG
-akG
-akG
-akG
-akG
-akG
-akG
-akG
-akG
-akG
-akG
-pkj
-pkj
-pkj
-akG
-akG
-akG
-akG
+ale
+ale
+ale
+ale
+asR
+asR
+asR
+gYq
+gYq
+gYq
+gYq
+gYq
+gYq
+gYq
+gYq
+gYq
+gYq
+gYq
+gYq
+gYq
+gYq
+gYq
+gYq
+oDb
+lnT
+lnT
+gYq
+gYq
+gYq
+gYq
 ale
 akG
-aaa
 aaa
 aaa
 aaa
@@ -92327,41 +92783,41 @@ ale
 ale
 ale
 ale
-akG
-akG
-akG
-akG
 ale
 ale
 ale
 ale
 ale
 ale
-akG
-akG
-akG
-akG
-akG
-akG
-akG
-akG
-akG
-akG
 ale
 ale
-akG
-akG
-akG
+ale
+ale
+gYq
+gYq
+gYq
+gYq
+ale
+ale
+gYq
+gYq
+gYq
+gYq
+gYq
+ale
+ale
+gYq
+gYq
 gYq
 vwr
+xTx
+vwr
 gYq
-akG
-akG
-akG
+gYq
+gYq
 ale
 ale
 akG
-aaa
 aaa
 aaa
 aaa
@@ -92584,41 +93040,41 @@ ale
 ale
 ale
 ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+gYq
+gYq
+gYq
+gYq
+gYq
+gYq
+gYq
+ale
+ale
+ale
 akG
-akG
-itO
-lGR
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-akG
-akG
-akG
-akG
-akG
-akG
-akG
-ale
-ale
-ale
-akG
-aaa
 aaa
 aaa
 aaa
@@ -92837,14 +93293,6 @@ ale
 ale
 ale
 ale
-atk
-atk
-atk
-atk
-asy
-asy
-wEz
-ngg
 ale
 ale
 ale
@@ -92861,21 +93309,29 @@ ale
 ale
 ale
 ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+gYq
+gYq
+gYq
+gYq
+gYq
 ale
 ale
 ale
 ale
 akG
-akG
-akG
-akG
-akG
-ale
-ale
-ale
-ale
-akG
-aaa
 aaa
 aaa
 aaa
@@ -93098,41 +93554,41 @@ ale
 ale
 ale
 ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
+ale
 akG
-akG
-lCm
-dwg
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-ale
-akG
-aaa
 aaa
 aaa
 aaa
@@ -93389,7 +93845,7 @@ akG
 akG
 akG
 akG
-aaa
+akG
 aaa
 aaa
 aaa
