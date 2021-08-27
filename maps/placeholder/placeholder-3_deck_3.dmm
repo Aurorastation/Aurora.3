@@ -46,7 +46,7 @@
 	},
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
-	name = "Bridge";
+	name = "Helm";
 	req_one_access = list(19,38,72)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -56,7 +56,7 @@
 	req_access = null;
 	req_one_access = list(12,66)
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark,
 /area/maintenance/vault)
 "ai" = (
 /obj/structure/railing/mapped,
@@ -157,6 +157,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
+"as" = (
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Lounge Entrance";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/crew_quarters/theatre)
 "at" = (
 /turf/simulated/floor/reinforced,
 /area/template_noop)
@@ -921,6 +928,10 @@
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Hallway 1";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/starboard)
 "cn" = (
@@ -963,8 +974,9 @@
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "cs" = (
-/obj/structure/window/shuttle/placeholder,
+/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/janitor)
 "ct" = (
@@ -2027,6 +2039,14 @@
 	},
 /turf/simulated/floor,
 /area/maintenance/vault)
+"eL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge - Helm 2";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/bridge)
 "eM" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -2673,6 +2693,10 @@
 /obj/item/pen,
 /obj/item/paper_bin,
 /obj/structure/table/steel,
+/obj/machinery/camera/network/engineering{
+	c_tag = "Engineering - Meeting Room";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "hn" = (
@@ -2864,7 +2888,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/starboard)
 "hR" = (
-/obj/structure/window/shuttle/placeholder,
+/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -2873,6 +2897,7 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/bridge/minibar)
 "hS" = (
@@ -3073,7 +3098,7 @@
 /turf/simulated/floor,
 /area/crew_quarters/theatre)
 "ip" = (
-/obj/structure/window/shuttle/placeholder,
+/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/structure/cable/green{
 	icon_state = "12-0"
@@ -3085,6 +3110,7 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/crew_quarters/captain)
 "iq" = (
@@ -3633,6 +3659,9 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Lounge 2"
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/theatre)
 "jW" = (
@@ -4134,7 +4163,7 @@
 /turf/simulated/floor/tiled,
 /area/security/investigations)
 "lC" = (
-/obj/structure/window/shuttle/placeholder,
+/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille/diagonal{
 	dir = 8
 	},
@@ -4146,6 +4175,8 @@
 	name = "MedBay Lockdown Shutters";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/reinforced,
 /area/crew_quarters/heads/cmo)
 "lD" = (
@@ -4866,7 +4897,7 @@
 /turf/simulated/floor,
 /area/crew_quarters/theatre)
 "nF" = (
-/obj/structure/window/shuttle/placeholder,
+/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -4876,6 +4907,7 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/crew_quarters/captain)
 "nI" = (
@@ -5207,8 +5239,8 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Bridge - Head of Personnel Processing";
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Head of Personnel Line";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5522,7 +5554,7 @@
 /turf/simulated/floor/tiled,
 /area/security/investigations_storage)
 "pI" = (
-/obj/structure/window/shuttle/placeholder,
+/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -5537,6 +5569,7 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/crew_quarters/captain)
 "pJ" = (
@@ -5708,12 +5741,12 @@
 	dir = 6
 	},
 /obj/machinery/camera/network/command{
-	c_tag = "Bridge - Command Deck Fore"
+	c_tag = "Bridge - Helm 1"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
 "qh" = (
-/obj/structure/window/shuttle/placeholder,
+/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -5728,6 +5761,7 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/crew_quarters/captain)
 "qi" = (
@@ -6420,7 +6454,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "su" = (
-/obj/structure/window/shuttle/placeholder,
+/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -6429,10 +6463,11 @@
 	name = "Security Blast Door";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/security/forensics_office)
 "sw" = (
-/obj/structure/window/shuttle/placeholder,
+/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -6442,6 +6477,7 @@
 	name = "MedBay Lockdown Shutters";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/medical/washroom)
 "sy" = (
@@ -6539,6 +6575,10 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
+"sP" = (
+/obj/machinery/door/firedoor,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/crew_quarters/captain)
 "sQ" = (
 /obj/machinery/shower{
 	pixel_y = 21
@@ -6547,8 +6587,9 @@
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/heads/hop)
 "sR" = (
-/obj/structure/window/shuttle/placeholder,
+/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/crew_quarters/theatre)
 "sV" = (
@@ -6817,10 +6858,11 @@
 /turf/simulated/wall,
 /area/medical/ward/isolation)
 "tH" = (
-/obj/structure/window/shuttle/placeholder,
+/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille/diagonal{
 	dir = 1
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "tI" = (
@@ -7029,7 +7071,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "uu" = (
-/obj/structure/window/shuttle/placeholder,
+/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -7038,6 +7080,7 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/bridge)
 "uw" = (
@@ -7114,7 +7157,7 @@
 /turf/simulated/floor,
 /area/maintenance/vault)
 "uP" = (
-/obj/structure/window/shuttle/placeholder,
+/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -7124,6 +7167,7 @@
 	name = "MedBay Lockdown Shutters";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/medical/equipment)
 "uR" = (
@@ -7175,6 +7219,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Hallway 3"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
@@ -7339,7 +7386,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "vI" = (
-/obj/structure/window/shuttle/placeholder,
+/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -7348,6 +7395,7 @@
 	name = "Security Blast Door";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/security/forensics_morgue)
 "vJ" = (
@@ -7723,10 +7771,11 @@
 /turf/simulated/floor,
 /area/crew_quarters/theatre)
 "xc" = (
-/obj/structure/window/shuttle/placeholder,
+/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille/diagonal{
 	dir = 8
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/bridge/minibar)
 "xd" = (
@@ -8156,6 +8205,15 @@
 /obj/structure/closet/athletic_mixed,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/locker)
+"yn" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass_command{
+	id_tag = "";
+	name = "Helm";
+	req_one_access = list(19,38,72)
+	},
+/turf/simulated/floor/tiled,
+/area/bridge)
 "yo" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -8509,6 +8567,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/pool)
+"zv" = (
+/obj/structure/table/wood,
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Lounge 1";
+	dir = 1
+	},
+/turf/simulated/floor/carpet,
+/area/crew_quarters/theatre)
 "zw" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
@@ -8873,6 +8939,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Investigator Entrance";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "AI" = (
@@ -8988,6 +9058,10 @@
 	},
 /obj/structure/cable/cyan{
 	icon_state = "1-8"
+	},
+/obj/machinery/camera/network/engineering{
+	c_tag = "Engineering - Shield Room";
+	dir = 1
 	},
 /turf/simulated/floor/bluegrid,
 /area/janitor)
@@ -9307,10 +9381,6 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/camera/network/command{
-	c_tag = "Bridge - Command Deck Port";
-	dir = 4
-	},
 /turf/simulated/floor/tiled,
 /area/bridge)
 "BS" = (
@@ -9330,12 +9400,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/starboard)
 "BY" = (
-/obj/machinery/camera/network/command{
-	c_tag = "Bridge - Command Deck Starboard";
-	dir = 8
+/obj/effect/floor_decal/corner_wide/red{
+	dir = 10
 	},
-/turf/simulated/floor/tiled,
-/area/bridge)
+/obj/effect/floor_decal/spline/plain,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Fitness Center";
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/crew_quarters/fitness)
 "BZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -9575,7 +9652,7 @@
 /turf/simulated/floor,
 /area/crew_quarters/sleep/cryo)
 "CS" = (
-/obj/structure/window/shuttle/placeholder,
+/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille/diagonal{
 	dir = 4
 	},
@@ -9586,6 +9663,7 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/reinforced,
 /area/crew_quarters/captain)
 "CT" = (
@@ -9738,6 +9816,10 @@
 	dir = 10
 	},
 /obj/structure/table/standard,
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Pool";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/pool)
 "Du" = (
@@ -9840,6 +9922,17 @@
 "DQ" = (
 /turf/simulated/open,
 /area/maintenance/vault)
+"DR" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Hallway 2";
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/hallway/primary/starboard)
 "DS" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 6
@@ -10066,7 +10159,7 @@
 /turf/simulated/floor/beach/water/pool,
 /area/crew_quarters/fitness/pool)
 "Ez" = (
-/obj/structure/window/shuttle/placeholder,
+/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -10076,6 +10169,7 @@
 	name = "MedBay Lockdown Shutters";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/medical/smoking)
 "EA" = (
@@ -10087,6 +10181,9 @@
 /area/crew_quarters/captain)
 "EB" = (
 /obj/structure/filingcabinet/chestdrawer,
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Vacant Office"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/vacantoffice)
 "EJ" = (
@@ -10605,7 +10702,7 @@
 /turf/simulated/floor/tiled/white,
 /area/bridge)
 "Gy" = (
-/obj/structure/window/shuttle/placeholder,
+/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -10615,6 +10712,7 @@
 	name = "MedBay Lockdown Shutters";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/cmo)
 "Gz" = (
@@ -11150,7 +11248,7 @@
 /turf/simulated/floor/beach/water/pool,
 /area/crew_quarters/fitness/pool)
 "Ir" = (
-/obj/structure/window/shuttle/placeholder,
+/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille/diagonal{
 	dir = 4
 	},
@@ -11162,6 +11260,7 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/reinforced,
 /area/crew_quarters/captain)
 "Is" = (
@@ -11265,6 +11364,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
+	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Cryostorage";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
@@ -11372,7 +11475,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "IX" = (
-/obj/structure/window/shuttle/placeholder,
+/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -11382,6 +11485,7 @@
 	name = "MedBay Lockdown Shutters";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/cmo)
 "IY" = (
@@ -11822,7 +11926,7 @@
 /area/crew_quarters/fitness/pool)
 "Kz" = (
 /obj/structure/grille,
-/obj/structure/window/shuttle/placeholder,
+/obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 8;
@@ -11831,6 +11935,7 @@
 	name = "MedBay Lockdown Shutters";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/medical/washroom)
 "KB" = (
@@ -11878,12 +11983,12 @@
 /obj/machinery/light_switch{
 	pixel_y = -30
 	},
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Consular Office";
-	dir = 1
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Consular Office";
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/lawoffice/consular)
@@ -12162,7 +12267,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge/aibunker)
 "LE" = (
-/obj/structure/window/shuttle/placeholder,
+/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -12172,6 +12277,7 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/bridge/minibar)
 "LF" = (
@@ -12301,8 +12407,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/starboard)
 "LZ" = (
-/obj/structure/window/shuttle/placeholder,
+/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness/pool)
 "Ma" = (
@@ -12402,8 +12509,8 @@
 /obj/machinery/light_switch{
 	pixel_y = 30
 	},
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Representative Office"
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Liaison"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/lawoffice/representative)
@@ -12561,7 +12668,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/map_effect/door_helper/unres,
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Bridge";
@@ -12808,6 +12914,9 @@
 "Nu" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
+	},
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge - Helm 3"
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -13374,7 +13483,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "Ps" = (
-/obj/structure/window/shuttle/placeholder,
+/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille/diagonal,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -13384,6 +13493,7 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/reinforced,
 /area/bridge/minibar)
 "Pt" = (
@@ -13529,7 +13639,7 @@
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/medical/exam)
 "PJ" = (
 /obj/structure/disposalpipe/segment{
 	dir = 8;
@@ -13776,6 +13886,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/lawoffice/representative)
+"Qs" = (
+/obj/structure/bed/chair/comfy/brown{
+	dir = 4
+	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Journalist Office";
+	dir = 1
+	},
+/turf/simulated/floor/carpet,
+/area/journalistoffice)
 "Qu" = (
 /obj/machinery/light{
 	dir = 1
@@ -14216,7 +14336,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/investigations)
 "RY" = (
-/obj/structure/window/shuttle/placeholder,
+/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -14225,6 +14345,7 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/crew_quarters/captain)
 "RZ" = (
@@ -14518,7 +14639,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
-	name = "Bridge";
+	name = "Helm";
 	req_one_access = list(19,38,72)
 	},
 /turf/simulated/floor/tiled,
@@ -14570,7 +14691,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep/cryo)
 "SX" = (
-/obj/structure/window/shuttle/placeholder,
+/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -14579,6 +14700,7 @@
 	name = "Security Blast Door";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/security/vacantoffice2)
 "SY" = (
@@ -15245,7 +15367,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "Vi" = (
-/obj/structure/window/shuttle/placeholder,
+/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -15254,6 +15376,7 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/hop)
 "Vk" = (
@@ -15565,8 +15688,9 @@
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
 "Wd" = (
-/obj/structure/window/shuttle/placeholder,
+/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness)
 "We" = (
@@ -15714,7 +15838,7 @@
 /turf/simulated/open,
 /area/hallway/primary/starboard)
 "WH" = (
-/obj/structure/window/shuttle/placeholder,
+/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -15726,6 +15850,7 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/crew_quarters/captain)
 "WI" = (
@@ -15736,7 +15861,8 @@
 /area/hallway/primary/aft)
 "WL" = (
 /obj/structure/grille,
-/obj/structure/window/shuttle/placeholder,
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/crew_quarters/theatre)
 "WM" = (
@@ -15989,7 +16115,7 @@
 /turf/simulated/wall/r_wall,
 /area/tcommsat/entrance)
 "XK" = (
-/obj/structure/window/shuttle/placeholder,
+/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -15999,6 +16125,7 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/bridge)
 "XN" = (
@@ -16329,14 +16456,23 @@
 /turf/simulated/open,
 /area/crew_quarters/theatre)
 "YO" = (
-/obj/machinery/camera{
-	dir = 1
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/corner/paleblue/full{
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
-/area/hallway/primary/starboard)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Hallway 4"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "YR" = (
 /obj/structure/bed/chair/plastic{
 	dir = 8
@@ -16396,7 +16532,7 @@
 /turf/simulated/wall,
 /area/crew_quarters/fitness)
 "YY" = (
-/obj/structure/window/shuttle/placeholder,
+/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -16406,6 +16542,7 @@
 	name = "MedBay Lockdown Shutters";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/medical/smoking)
 "Za" = (
@@ -16427,7 +16564,7 @@
 /area/bridge/aibunker)
 "Zc" = (
 /obj/structure/grille,
-/obj/structure/window/shuttle/placeholder/cardinal,
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 4;
@@ -16436,6 +16573,7 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/bridge)
 "Zd" = (
@@ -16478,7 +16616,7 @@
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai)
 "Zj" = (
-/obj/structure/window/shuttle/placeholder,
+/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -16487,6 +16625,7 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/bridge/meeting_room)
 "Zk" = (
@@ -16541,7 +16680,7 @@
 /area/medical/ward/isolation)
 "Zq" = (
 /obj/structure/grille,
-/obj/structure/window/shuttle/placeholder,
+/obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 8;
@@ -16550,6 +16689,7 @@
 	name = "MedBay Lockdown Shutters";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/medical/equipment)
 "Zs" = (
@@ -30421,7 +30561,7 @@ io
 Hz
 Op
 qC
-EN
+as
 Hz
 jU
 ZM
@@ -32045,7 +32185,7 @@ xA
 rG
 eV
 yC
-Xh
+zv
 sR
 at
 fh
@@ -34235,7 +34375,7 @@ MG
 ke
 JN
 Rr
-Lg
+YO
 Ko
 Ce
 UB
@@ -35095,7 +35235,7 @@ hr
 pX
 Sw
 uD
-md
+sP
 at
 fh
 Wm
@@ -35235,7 +35375,7 @@ zf
 zf
 xt
 SS
-CL
+BY
 Rr
 Di
 Eu
@@ -36445,7 +36585,7 @@ fK
 fK
 fK
 fK
-nP
+ah
 HU
 HU
 ga
@@ -37051,7 +37191,7 @@ fC
 fN
 gf
 df
-ah
+zt
 qo
 GZ
 fp
@@ -38118,13 +38258,13 @@ Ns
 uT
 mJ
 ZS
-mJ
+yn
 iA
 iA
-BY
+iA
 Sc
 yA
-Jv
+eL
 kC
 XK
 fh
@@ -40101,7 +40241,7 @@ NV
 MY
 MY
 MY
-MY
+DR
 MY
 NV
 MY
@@ -40113,7 +40253,7 @@ Od
 Tu
 Fz
 RJ
-YO
+BW
 vx
 Oa
 Mt
@@ -40719,7 +40859,7 @@ JX
 rs
 BI
 tZ
-tZ
+Qs
 vx
 GH
 ri
