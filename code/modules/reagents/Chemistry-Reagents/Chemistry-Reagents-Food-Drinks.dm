@@ -1793,7 +1793,7 @@
 	taste_description = "cola"
 	carbonated = TRUE
 
-	glass_icon_state  = "glass_brown"
+	glass_icon_state  = "spacecola"
 	glass_name = "glass of Space Cola"
 	glass_desc = "A glass of refreshing Space Cola"
 	glass_center_of_mass = list("x"=17, "y"=6)
@@ -1801,7 +1801,7 @@
 /decl/reagent/drink/spacemountainwind
 	name = "Mountain Wind"
 	description = "Blows right through you like a space wind."
-	color = "#102000"
+	color = "#93230b"
 	adj_drowsy = -7
 	adj_sleepy = -1
 	taste_description = "sweet citrus soda"
@@ -1814,7 +1814,7 @@
 /decl/reagent/drink/dr_gibb
 	name = "Dr. Gibb"
 	description = "A delicious blend of 42 different flavours"
-	color = "#102000"
+	color = "#93230b"
 	adj_drowsy = -6
 	taste_description = "cherry soda"
 	carbonated = TRUE
@@ -3494,7 +3494,7 @@
 /decl/reagent/drink/dr_gibb_diet
 	name = "Diet Dr. Gibb"
 	description = "A delicious blend of 42 different flavours, one of which is water."
-	color = "#102000"
+	color = "#93230b"
 	taste_description = "watered down liquid sunshine"
 	carbonated = TRUE
 
@@ -4744,3 +4744,89 @@
 	glass_icon_state = "caprician_coffee"
 	glass_name = "glass of caprician coffee"
 	glass_desc = "A Vaurcesian take on liqueur coffee, quickly becoming a favorite of the Zo'ra hive."
+
+/decl/reagent/alcohol/mojito
+	name = "Mojito"
+	description = "Originated from Sol, now popular all around the Spur."
+	strength = 30
+	color = "#b6ecaa"
+	taste_description = "refreshing mint"
+
+	glass_icon_state = "mojito"
+	glass_name = "glass of mojito"
+	glass_desc = "Originated from Sol, now popular all around the Spur."
+
+/decl/reagent/alcohol/zavdoskoi_mule
+	name = "Zavodskoi Mule"
+	description = "It is said to be Lyudmila Zavodskoi's favorite."
+	strength = 40
+	color = "#EEF1AA"
+	taste_description = "refreshing spiciness"
+
+	glass_icon_state = "zavodskoi_mule"
+	glass_name = "glass of zavodskoi mule"
+	glass_desc = "It is said to be Lyudmila Zavodskoi's favorite."
+
+/decl/reagent/alcohol/pina_colada
+	name = "Pina Colada"
+	description = "Prepared just like in Silversun."
+	strength = 30
+	color = "#FFF1B2"
+	taste_description = "pineapple, coconut, and a hint of the ocean"
+	
+	glass_icon_state = "pina_colada"
+	glass_name = "glass of pina colada"
+	glass_desc = "Prepared just like in Silversun."
+
+/decl/reagent/drink/gibbfloats
+	name = "Gibb Floats"
+	description = "A floating soda of icecream and Dr. Gibb."
+	color = "#93230b"
+	taste_description = "cherry soda and icecream"
+	carbonated = TRUE
+
+	glass_icon_state = "gibbfloats"
+	glass_name = "glass of gibb floats"
+	glass_desc = "A floating soda of icecream and Dr. Gibb."
+
+/decl/reagent/drink/diet_cola
+	name = "Diet Cola"
+	description = "Space Cola! Now in diet!"
+	color = "#100800"
+	taste_description = "cola and less calories"
+	carbonated = TRUE
+
+	glass_icon_state = "spacecola"
+	glass_name = "glass of diet cola"
+	glass_desc = "Space Cola! Now in diet!" 
+
+/decl/reagent/drink/milk/chocolate
+	name = "Chocolate milk"
+	description = "A mixture of perfectly healthy milk and delicious chocolate."
+	color = "#74533b"
+	taste_description = "chocolate milk"
+
+	glass_icon_state = "glass_chocolate"
+	glass_name = "glass of chocolate milk"
+	glass_desc = "A mixture of perfectly healthy milk and delicious chocolate."
+
+/decl/reagent/drink/milk/strawberry
+	name = "Strawberry milk"
+	description = "A mixture of perfectly healthy milk and delicious strawberry."
+	color = "#fc5a8d"
+	taste_description = "strawberry milk"
+
+	glass_icon_state = "glass_strawberry"
+	glass_name = "glass of strawberry milk"
+	glass_desc = "A mixture of perfectly healthy milk and delicious strawberry."
+
+/decl/reagent/drink/peach_soda
+	name = "Xanu Rush!"
+	description = "Made from the NEW Xanu Prime peaches."
+	color = "#FFE5B4"
+	taste_description = "dull peaches"
+	carbonated = TRUE
+
+	glass_icon_state = "glass_red"
+	glass_name = "glass of Xanu Rush!"
+	glass_desc = "Made from the NEW Xanu Prime peaches."

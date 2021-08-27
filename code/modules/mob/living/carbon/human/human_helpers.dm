@@ -314,3 +314,9 @@
 	if(E)
 		return E.name
 	return ..()
+
+/mob/living/carbon/human/is_anti_materiel_vulnerable()
+	if(isSynthetic())
+		return TRUE
+	else
+		return FALSE

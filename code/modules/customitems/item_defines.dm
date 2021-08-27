@@ -2126,3 +2126,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "pax_bag"
 	item_state = "pax_bag"
 	contained_sprite = TRUE
+
+/obj/item/journal/fluff/kathira // Blue Leather-Bound Journal - Kathira El-Hashem - TheGreyWolf
+	name = "blue leather-bound journal"
+	desc = "A blue journal emblazoned with the New Kingdom of Adhomai's flag across the cover."
+	closed_desc = " The pages within are a mix of clearly indexed case files, and study notes alongside less clearly indexed pages that appears to be fragmented thoughts, not unlike a diary. The very first page of the journal reads “dedicated to Qirandri Mrorirhaldarr” and is signed “Mrradar Sanufar” underneath."
+	icon = 'icons/obj/custom_items/kathira_journal.dmi'
+	icon_state = "kath_journal"
+	item_state = "kath_journal"

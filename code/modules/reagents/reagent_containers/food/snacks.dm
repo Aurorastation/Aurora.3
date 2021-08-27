@@ -252,8 +252,10 @@
 
 			var/reagents_per_slice = reagents.total_volume/slices_num
 			for(var/i=1 to (slices_num-slices_lost))
-				var/obj/slice = new slice_path (src.loc)
+				var/obj/item/reagent_containers/food/slice = new slice_path (src.loc)
 				reagents.trans_to_obj(slice, reagents_per_slice)
+				slice.filling_color = filling_color
+				slice.update_icon()
 			qdel(src)
 			return
 
@@ -5163,6 +5165,7 @@
 	icon_state = "kois_steak"
 	filling_color = "#dcd9cd"
 	reagents_to_add = list(/decl/reagent/kois = 20, /decl/reagent/toxin/phoron = 15)
+	bitesize = 3
 
 /obj/item/reagent_containers/food/snacks/donut/kois
 	name = "k'ois donut"
@@ -5171,6 +5174,7 @@
 	filling_color = "#dcd9cd"
 	overlay_state = "box-kois_donut"
 	reagents_to_add = list(/decl/reagent/kois = 15, /decl/reagent/toxin/phoron = 10)
+	bitesize = 3
 
 /obj/item/reagent_containers/food/snacks/koismuffin
 	name = "k'ois muffin"
@@ -5178,6 +5182,7 @@
 	icon_state = "kois_muffin"
 	filling_color = "#dcd9cd"
 	reagents_to_add = list(/decl/reagent/kois = 10, /decl/reagent/toxin/phoron = 15)
+	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/koisburger
 	name = "k'ois burger"
@@ -5185,3 +5190,94 @@
 	icon_state = "kois_burger"
 	filling_color = "#dcd9cd"
 	reagents_to_add = list(/decl/reagent/kois = 20, /decl/reagent/toxin/phoron = 20)
+	bitesize = 2
+
+/obj/item/storage/box/fancy/vkrexitaffy
+	name = "V'krexi Snax"
+	desc = "A packet of V'krexi taffy. Made from free-range V'krexi!"
+	desc_fluff = "V'krexi, while edible, hold no nutritional value, either for humans or Vaurca. The V'krexi meat was mostly neglected until human food-processing techniques were introduced to the Zo'ra Hive."
+	icon = 'icons/obj/food.dmi'
+	icon_state = "vkrexitaffy"
+	icon_type = "vkrexi taffy"
+	storage_type = "packaging"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/vkrexitaffy = 6)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/vkrexitaffy)
+	max_storage_space = 6
+
+	use_sound = 'sound/items/storage/wrapper.ogg'
+	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
+
+	trash = /obj/item/trash/vkrexitaffy
+	closable = FALSE
+	icon_overlays = FALSE
+
+/obj/item/reagent_containers/food/snacks/vkrexitaffy
+	name = "V'krexi taffy"
+	desc = "A delicious V'krexi chewy candy."
+	icon_state = "vkrexichewy"
+	slot_flags = SLOT_EARS
+	filling_color = "#dcd9cd"
+	reagents_to_add = list(/decl/reagent/mental/vkrexi = 0.5)
+	bitesize = 1
+
+/obj/item/reagent_containers/food/snacks/batwings
+	name = "spiced shrieker wings"
+	desc = "Wings of a small flying mammal, enriched with a dizzying amount of fat, and spiced with chilis."
+	icon_state = "batwings"
+	reagents_to_add = list(/decl/reagent/nutriment/protein = 3, /decl/reagent/nutriment/triglyceride = 2, /decl/reagent/capsaicin = 5)
+	bitesize = 4
+	trash = /obj/item/trash/plate
+
+/obj/item/reagent_containers/food/snacks/jellystew
+	name = "jelly stew"
+	desc = "A fatty, spicy, stew with crunchy chunks of meat floating amongst rich slimy globules. The texture is most definitely acquired."
+	icon_state = "jellystew"
+	reagents_to_add = list(/decl/reagent/nutriment = 3, /decl/reagent/nutriment/protein/seafood = 6, /decl/reagent/nutriment/protein = 3, /decl/reagent/nutriment/triglyceride = 3, /decl/reagent/capsaicin = 5)
+	reagent_data = list(/decl/reagent/nutriment = list("slippery slime" = 3))
+	bitesize = 7
+	trash = /obj/item/trash/snack_bowl
+
+/obj/item/reagent_containers/food/snacks/roefritters
+	name = "roe fritters"
+	desc = "Fried patties made from fish eggs."
+	icon_state = "fritters"
+	reagents_to_add = list(/decl/reagent/nutriment = 3, /decl/reagent/nutriment/coating/batter = 5, /decl/reagent/nutriment/protein/seafood = 6)
+	reagent_data = list(/decl/reagent/nutriment = list("brine" = 3, "fish" = 3))
+	bitesize = 6
+	trash = /obj/item/trash/plate
+
+/obj/item/reagent_containers/food/snacks/stuffedfish
+	name = "stuffed fish fillet"
+	desc = "A fish fillet stuffed with small eggs and cheese."
+	icon_state = "stuffedfish"
+	reagents_to_add = list(/decl/reagent/nutriment = 3, /decl/reagent/nutriment/protein/seafood = 7, /decl/reagent/nutriment/protein/cheese = 2)
+	reagent_data = list(/decl/reagent/nutriment = list("brine" = 3, "fish" = 3))
+	bitesize = 5
+	trash = /obj/item/trash/plate
+
+/obj/item/reagent_containers/food/snacks/stuffedcarp
+	name = "stuffed fish fillet"
+	desc = "A fish fillet stuffed with small eggs and cheese."
+	icon_state = "stuffedfish"
+	reagents_to_add = list(/decl/reagent/nutriment = 3, /decl/reagent/nutriment/protein/seafood = 7, /decl/reagent/nutriment/protein/cheese = 2, /decl/reagent/toxin/carpotoxin = 3)
+	reagent_data = list(/decl/reagent/nutriment = list("brine" = 3, "fish" = 3))
+	bitesize = 6
+	trash = /obj/item/trash/plate
+
+/obj/item/reagent_containers/food/snacks/razirnoodles
+	name = "razir noodles"
+	desc = "While this dish appears to be noodles at a glance, it is in fact thin strips of meat coated in an egg based sauce, topped with sliced limes. An authentic variant of this is commonly eaten in and around Razir."
+	icon_state = "razirnoodles"
+	reagents_to_add = list(/decl/reagent/nutriment = 3, /decl/reagent/nutriment/protein/seafood = 8, /decl/reagent/nutriment/protein/egg = 3, /decl/reagent/hyperzine = 5, /decl/reagent/acid/polyacid = 3)
+	reagent_data = list(/decl/reagent/nutriment = list("molten heat" = 3, "slippery noodles" = 3))
+	bitesize = 10
+	trash = /obj/item/trash/plate
+
+/obj/item/reagent_containers/food/snacks/sintapudding
+	name = "sinta pudding"
+	desc = "Reddish, and extremely smooth, chocolate pudding, rich in iron!"
+	icon_state = "sintapudding"
+	reagents_to_add = list(/decl/reagent/nutriment = 1, /decl/reagent/nutriment/protein = 1, /decl/reagent/blood = 6, /decl/reagent/nutriment/coco = 3)
+	reagent_data = list(/decl/reagent/nutriment = list("iron" = 3))
+	bitesize = 6

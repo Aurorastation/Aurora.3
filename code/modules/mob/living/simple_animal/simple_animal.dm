@@ -933,6 +933,12 @@
 /mob/living/simple_animal/get_organ_name_from_zone(var/def_zone)
 	return pick(organ_names)
 
+/mob/living/simple_animal/is_anti_materiel_vulnerable()
+	if(isSynthetic())
+		return TRUE
+	else
+		return FALSE
+
 #undef BLOOD_NONE
 #undef BLOOD_LIGHT
 #undef BLOOD_MEDIUM

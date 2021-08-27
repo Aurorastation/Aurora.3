@@ -87,9 +87,9 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	w_class = ITEMSIZE_NORMAL
 	armor = list(
-		melee = ARMOR_MELEE_KNIVES,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_SMALL,
+		melee = ARMOR_MELEE_KEVLAR,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_KEVLAR,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED
 	)

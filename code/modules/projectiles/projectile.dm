@@ -97,6 +97,7 @@
 	var/muzzle_type
 	var/impact_type
 	var/hit_effect
+	var/anti_materiel_potential = 1 //how much the damage of this bullet is increased against mechs
 
 	var/iff // identify friend or foe. will check mob's IDs to see if they match, if they do, won't hit
 
@@ -150,7 +151,7 @@
 
 /obj/item/projectile/proc/get_structure_damage()
 	if(damage_type == BRUTE || damage_type == BURN)
-		return damage
+		return damage * anti_materiel_potential
 	return FALSE
 
 //return TRUE if the projectile should be allowed to pass through after all, FALSE if not.

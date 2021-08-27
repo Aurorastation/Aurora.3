@@ -8,6 +8,7 @@
 	item_state = "inductive_charger"
 	flags = HELDMAPTEXT
 	contained_sprite = TRUE
+	var/is_in_use = FALSE
 	var/ready_to_use = TRUE
 	var/recharge_time = 300
 	var/transfer_rate = 5000
@@ -38,12 +39,16 @@
 	return
 
 /obj/item/inductive_charger/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
+	if(is_in_use)
+		to_chat(user, SPAN_WARNING("You're already using \the [src]!"))
+		return
+
 	if(!proximity_flag)
 		to_chat(user, SPAN_WARNING("You need to be adjacent to the target to charge it!"))
 		return
 
 	var/obj/item/cell/C = get_cell()
-	if(!C)
+	if(!istype(C))
 		to_chat(user, SPAN_WARNING("\The [src] doesn't have a cell connected to it!"))
 		return
 
@@ -51,25 +56,19 @@
 		to_chat(user, SPAN_WARNING("\The [src] is still gathering charge!"))
 		return
 
+	is_in_use = TRUE
 	user.visible_message("<b>[user]</b> begins waving \the [src] around \the [target]...", SPAN_NOTICE("You prepare to wirelessly charge \the [target]..."), range = 3)
 	if(!do_after(user, 50, TRUE, target))
+		is_in_use = FALSE
 		return
+	is_in_use = FALSE
 	if(C.charge < 1000)
 		to_chat(user, SPAN_WARNING("You have no spare charge in your internal cell to give!"))
 		return
 
-	if(isipc(target))
-		var/mob/living/carbon/human/IPC = target
-		if(IPC.nutrition == IPC.max_nutrition)
-			to_chat(user, SPAN_WARNING("\The [IPC] is already fully charged!"))
-			return
-		var/charge_amount = min(IPC.max_nutrition - IPC.nutrition, transfer_rate)
-		var/charge_value = C.use(charge_amount / efficiency_mod) * efficiency_mod
-		IPC.nutrition = min(IPC.max_nutrition, charge_value)
-		message_and_use(user, "<b>[user]</b> holds \the [src] over \the [IPC], topping up their battery.", SPAN_NOTICE("You wirelessly transmit [charge_value] units of power to \the [IPC], using [charge_value / efficiency_mod] units of internal cell power."))
-	else if(isobj(target))
+	if(isobj(target) || isliving(target))
 		var/obj/item/cell/obj_cell = target.get_cell()
-		if(!obj_cell)
+		if(!istype(obj_cell))
 			to_chat(user, SPAN_WARNING("\The [target] doesn't contain a cell!"))
 			return
 		if(obj_cell.fully_charged())
@@ -78,7 +77,7 @@
 		var/charge_amount = min(obj_cell.maxcharge - obj_cell.charge, transfer_rate)
 		var/charge_value = C.use(charge_amount / efficiency_mod) * efficiency_mod
 		obj_cell.give(charge_value)
-		message_and_use(user, "<b>[user]</b> holds \the [src] over \the [target], topping up its battery.", SPAN_NOTICE("You wirelessly transmit [charge_value] units of power to \the [target], using [charge_value / efficiency_mod] units of internal cell power."))
+		message_and_use(user, "<b>[user]</b> holds \the [src] over \the [target], topping up [target.get_pronoun("his")] battery.", SPAN_NOTICE("You wirelessly transmit [charge_value] units of power to \the [target], using [charge_value / efficiency_mod] units of internal cell power."))
 	else
 		to_chat(user, SPAN_WARNING("\The [src] cannot be used on \the [target]!"))
 

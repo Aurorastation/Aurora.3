@@ -20,8 +20,7 @@
 
 /mob/living/silicon/robot/drone
 	// Look and feel
-	name = "drone"
-	real_name = "drone"
+	name = "maintenance drone"
 	desc_info = "Drones are player-controlled synthetics which are lawed to maintain the station and not \
 	interact with anyone else, except for other drones.  They hold a wide array of tools to build, repair, maintain, and clean. \
 	They fuction similarly to other synthetics, in that they require recharging regularly, have laws, and are resilient to many hazards, \
@@ -122,6 +121,7 @@
 
 /mob/living/silicon/robot/drone/construction
 	// Look and feel
+	name = "construction drone"
 	icon_state = "constructiondrone"
 
 	// Components
@@ -168,9 +168,6 @@
 /mob/living/silicon/robot/drone/construction/matriarch/request_player()
 	SSghostroles.add_spawn_atom("matriarchmaintdrone", src)
 
-/mob/living/silicon/robot/drone/construction/matriarch/updatename()
-	return
-
 /mob/living/silicon/robot/drone/Initialize()
 	. = ..()
 
@@ -215,8 +212,7 @@
 	name = real_name
 
 /mob/living/silicon/robot/drone/updatename()
-	real_name = "maintenance drone ([rand(100,999)])"
-	name = real_name
+	return
 
 /mob/living/silicon/robot/drone/setup_icon_cache()
 	cached_eye_overlays = list(
@@ -515,10 +511,6 @@
 	to_chat(src, SPAN_NOTICE("You are assigned to a NanoTrasen construction project. The name is irrelevant. Your task is to complete construction and subsystem integration as soon as possible."))
 	to_chat(src, SPAN_NOTICE("Use <b>:d</b> to talk to other drones and <b>say</b> to speak silently to your nearby fellows."))
 	to_chat(src, SPAN_NOTICE("<b>You do not follow orders from anyone; not the AI, not humans, and not other synthetics.</b>."))
-
-/mob/living/silicon/robot/drone/construction/updatename()
-	real_name = "construction drone ([rand(100,999)])"
-	name = real_name
 
 /mob/living/silicon/robot/drone/construction/process_level_restrictions()
 	//Abort if they should not get blown
