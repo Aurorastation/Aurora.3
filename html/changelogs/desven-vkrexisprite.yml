@@ -2,3 +2,4 @@ author: Desven
 delete-after: True
 changes:
   - rscadd: "Added sprites for when holding V'krexi Snax."
+  - rscdel: "Removed the butanol can from the softdrinks vendor."
