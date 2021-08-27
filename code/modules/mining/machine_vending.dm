@@ -211,6 +211,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 					if(prize.amount != -1)
 						prize.amount--
 					new prize.equipment_path(get_turf(src))
+					intent_message(MACHINE_SOUND)
 
 	updateUsrDialog()
 	return

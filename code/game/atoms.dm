@@ -543,7 +543,7 @@
 // Use for objects performing visible actions
 // message is output to anyone who can see, e.g. "The [src] does something!"
 // blind_message (optional) is what blind people will hear e.g. "You hear something!"
-/atom/proc/visible_message(var/message, var/blind_message, var/range = world.view)
+/atom/proc/visible_message(var/message, var/blind_message, var/range = world.view, var/intent_message = null, var/intent_range = 7)
 	var/turf/T = get_turf(src)
 	var/list/mobs = list()
 	var/list/objs = list()
@@ -559,6 +559,9 @@
 			M.show_message(message,1,blind_message,2)
 		else if(blind_message)
 			M.show_message(blind_message, 2)
+
+	if(intent_message)
+		intent_message(intent_message, intent_range)
 
 // Show a message to all mobs and objects in earshot of this atom
 // Use for objects performing audible actions
@@ -586,9 +589,11 @@
 		intent_message(intent_message, intent_range)
 
 /atom/proc/intent_message(var/message, var/range = 7)
+	var/list/mobs = get_mobs_or_objects_in_view(range, src, include_objects = FALSE)
 	for(var/mob/living/carbon/human/H as anything in intent_listener)
-		if(src.z == H.z && get_dist(src, H) <= range)
-			H.intent_listen(src, message)
+		if(!is_type_in_list(H, mobs))
+			if(src.z == H.z && get_dist(src, H) <= range)
+				H.intent_listen(src, message)
 	
 /atom/proc/change_area(var/area/oldarea, var/area/newarea)
 	change_area_name(oldarea.name, newarea.name)

@@ -1543,6 +1543,7 @@
 	playsound(src, 'sound/machines/warning-buzzer.ogg', 50, 0, 0)
 	sleep(20)	//wait until correct animation frame
 	playsound(src, 'sound/machines/hiss.ogg', 50, 0, 0)
+	intent_message(THUNK_SOUND)
 
 	if(H)
 		for(var/atom/movable/AM in H)
