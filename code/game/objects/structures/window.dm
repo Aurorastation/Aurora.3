@@ -496,7 +496,7 @@
 /obj/structure/window/shuttle/scc_space_ship
 	name = "window"
 	desc = "It looks extremely strong. Might take many good hits to crack it."
-	icon = 'icons/obj/smooth/placeholder_window.dmi'
+	icon = 'icons/obj/smooth/scc_space_ship.dmi'
 	icon_state = "scc_space_ship"
 	health = 500
 	maxhealth = 500
