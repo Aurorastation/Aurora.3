@@ -59,15 +59,15 @@ var/list/lunchables_snacks_ = list(
 
 var/list/lunchables_drinks_ = list(
 	/obj/item/reagent_containers/food/drinks/cans/cola,
-	/obj/item/reagent_containers/food/drinks/cans/diet_cola,
 	/obj/item/reagent_containers/food/drinks/waterbottle,
 	/obj/item/reagent_containers/food/drinks/cans/space_mountain_wind,
 	/obj/item/reagent_containers/food/drinks/cans/dr_gibb,
+	/obj/item/reagent_containers/food/drinks/cans/diet_cola,
 	/obj/item/reagent_containers/food/drinks/cans/starkist,
 	/obj/item/reagent_containers/food/drinks/cans/space_up,
 	/obj/item/reagent_containers/food/drinks/cans/lemon_lime,
 	/obj/item/reagent_containers/food/drinks/cans/iced_tea,
-	/obj/item/reagent_containers/food/drinks/cans/threetowns,
+	/obj/item/reagent_containers/food/drinks/cans/diet_cola,
 	/obj/item/reagent_containers/food/drinks/cans/grape_juice,
 	/obj/item/reagent_containers/food/drinks/cans/peach_soda,
 	/obj/item/reagent_containers/food/drinks/cans/tonic,
