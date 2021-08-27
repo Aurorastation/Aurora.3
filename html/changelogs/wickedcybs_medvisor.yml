@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds a new type of medical eyewear. The medical visor. It's been added to medical lockers and the eyewear section of the loadout, under the medical HUDs."
