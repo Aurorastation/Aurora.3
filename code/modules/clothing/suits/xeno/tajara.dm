@@ -11,7 +11,7 @@
 	to produce Human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
 	and colorful dress wearing \"Flapper\" variety of clothing."
 
-/obj/item/clothing/suit/storage/tajaran
+/obj/item/clothing/suit/storage/toggle/tajaran/wool
 	name = "adhomian wool coat"
 	desc = "An adhomian coat, this one is a design commonly found among the Rhazar'Hrujmagh people."
 	icon = 'icons/obj/tajara_items.dmi'
@@ -24,10 +24,10 @@
 	to produce Human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
 	and colorful dress wearing \"Flapper\" variety of clothing."
 
-/obj/item/clothing/suit/storage/tajaran/raakti_shariim
+/obj/item/clothing/suit/storage/toggle/tajaran/raakti_shariim
 	name = "\improper Raakti Shariim coat"
 	desc = "A blue adhomian wool coat with lilac purple accents and pale-gold insignia, signifying a Constable of the NKA's Raakti Shariim."
-	icon = 'icons/obj/clothing/species/tajaran/raakti_shariim.dmi'
+	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "raakti_shariim_coat"
 	item_state = "raakti_shariim_coat"
 	desc_fluff = "The Raakti Shariim (Royal Peacekeepers in Ceti Basic) are the New Kingdom of Adhomai's policing and \
@@ -189,11 +189,13 @@
 		bomb = ARMOR_BOMB_MINOR
 	)
 
-/obj/item/clothing/suit/storage/tajaran/pra_jacket
+/obj/item/clothing/suit/storage/tajaran
 	name = "republican service jacket"
 	desc = "An olive military jacket worn by the forces of the Grand People's Army."
+	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "greenservice"
 	item_state = "greenservice"
+	contained_sprite = TRUE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	armor = list(
 		melee = ARMOR_MELEE_KNIVES,

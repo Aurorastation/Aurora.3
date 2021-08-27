@@ -316,6 +316,8 @@
 			outfit_catagories["Kataphracts"] = typesof(/datum/outfit/admin/ert/kataphract)
 			outfit_catagories["Eridani"] = typesof(/datum/outfit/admin/ert/ap_eridani)
 			outfit_catagories["IAC"] = typesof(/datum/outfit/admin/ert/iac)
+			outfit_catagories["Kosmostrelki"] = typesof(/datum/outfit/admin/ert/pra_cosmonaut)
+			outfit_catagories["Elyran Navy"] = typesof(/datum/outfit/admin/ert/elyran_trooper)
 		if("Admin")
 			outfit_catagories["Stellar Corporate Conglomerate"] = typesof(/datum/outfit/admin/scc)
 			outfit_catagories["NanoTrasen"] = typesof(/datum/outfit/admin/nt)

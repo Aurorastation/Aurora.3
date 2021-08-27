@@ -20,7 +20,7 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "pokes"
-	blood_type = "#5BDD04"
+	blood_type = "#51C404"
 	blood_overlay_icon = null
 	stop_automated_movement_when_pulled = 0
 	maxHealth = 1100

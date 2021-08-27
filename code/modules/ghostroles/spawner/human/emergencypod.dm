@@ -17,7 +17,7 @@
 	special_role = "Pod Survivor"
 	respawn_flag = null
 
-	mob_name = FALSE
+	mob_name = null
 
 /datum/ghostspawner/human/rescuepodsurv/New()
 	. = ..()
@@ -399,6 +399,8 @@
 		/obj/item/clothing/wrists/watch,
 		/obj/item/clothing/wrists/watch/silver,
 		/obj/item/clothing/wrists/watch/gold,
+		/obj/item/clothing/wrists/watch/holo,
+		/obj/item/clothing/wrists/watch/leather,
 		/obj/item/clothing/wrists/watch/spy
 	)
 

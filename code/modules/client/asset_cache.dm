@@ -418,6 +418,7 @@ var/list/asset_datums = list()
 		"barcode1.png" = 'html/images/barcode1.png',
 		"barcode2.png" = 'html/images/barcode2.png',
 		"barcode3.png" = 'html/images/barcode3.png',
+		"scclogo.png" = 'html/images/scclogo.png',
 		"ntlogo.png" = 'html/images/ntlogo.png',
 		"ntlogo_small.png" = 'html/images/ntlogo_small.png',
 		"zhlogo.png" = 'html/images/zhlogo.png',

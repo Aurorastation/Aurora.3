@@ -46,6 +46,11 @@
 	req_tech = list(TECH_DATA = 3)
 	build_path = /obj/item/circuitboard/rdserver
 
+/datum/design/circuit/machine/rdtechprocessor
+	name = "R&D Tech Processor"
+	req_tech = list(TECH_DATA = 3)
+	build_path = /obj/item/circuitboard/rdtechprocessor
+
 /datum/design/circuit/machine/mechfab
 	name = "Exosuit Fabricator"
 	req_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 3)
@@ -221,16 +226,6 @@
 	name = "Telepad"
 	req_tech = list(TECH_DATA = 4, TECH_BLUESPACE = 4, TECH_MATERIAL = 3, TECH_ENGINEERING = 3)
 	build_path = /obj/item/circuitboard/telesci_pad
-
-/datum/design/circuit/machine/miningdrill
-	name = "Mining Drill Head"
-	req_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
-	build_path = /obj/item/circuitboard/miningdrill
-
-/datum/design/circuit/machine/miningdrillbrace
-	name = "Mining Drill Brace"
-	req_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
-	build_path = /obj/item/circuitboard/miningdrillbrace
 
 /datum/design/circuit/machine/cargo_trolley
 	name = "Cargo Trolley"

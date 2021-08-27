@@ -1121,7 +1121,6 @@
 		/mob/living/simple_animal/hostile/syndicate/ranged/space,
 		/mob/living/simple_animal/hostile/alien/queen/large,
 		/mob/living/simple_animal/hostile/faithless,
-		/mob/living/simple_animal/hostile/faithless/wizard,
 		/mob/living/simple_animal/hostile/retaliate,
 		/mob/living/simple_animal/hostile/retaliate/clown,
 		/mob/living/simple_animal/hostile/alien,
@@ -3490,3 +3489,61 @@
 	result = /decl/reagent/alcohol/fisfirebomb
 	required_reagents = list(/decl/reagent/alcohol/ale = 1, /decl/reagent/alcohol/fiscream = 1)
 	result_amount = 2
+
+/datum/chemical_reaction/drink/veterans_choice
+	name = "Veteran's Choice"
+	id = "veterans_choice"
+	result = /decl/reagent/alcohol/veterans_choice
+	required_reagents = list(/decl/reagent/alcohol/messa_mead = 1, /decl/reagent/gunpowder = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/mutthir
+	name = "Mutthir"
+	id = "mutthir"
+	result = /decl/reagent/drink/milk/adhomai/mutthir
+	required_reagents = list(/decl/reagent/drink/milk/adhomai = 1, /decl/reagent/sugar = 1)
+	catalysts = list(/decl/reagent/enzyme = 5)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/treebark_firewater
+	name = "Tree-Bark Firewater"
+	id = "treebark_firewater"
+	result = /decl/reagent/alcohol/treebark_firewater
+	required_reagents = list(/decl/reagent/drink/earthenrootjuice = 1, /decl/reagent/sugar = 1, /decl/reagent/woodpulp = 1)
+	catalysts = list(/decl/reagent/enzyme = 5)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/caprician_coffee
+	name = "Caprician Coffee"
+	id = "caprician_coffee"
+	result = /decl/reagent/drink/toothpaste/caprician_coffee
+	required_reagents = list(/decl/reagent/drink/toothpaste = 1, /decl/reagent/drink/coffee = 2)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/mojito
+	name = "Mojito"
+	id = "mojito"
+	result = /decl/reagent/alcohol/mojito
+	required_reagents = list(/decl/reagent/drink/mintsyrup = 1, /decl/reagent/drink/limejuice = 1, /decl/reagent/alcohol/rum = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/zavodskoi_mule
+	name = "Zavodskoi Mule"
+	id = "zavodskoi_mule"
+	result = /decl/reagent/alcohol/zavdoskoi_mule
+	required_reagents = list(/decl/reagent/alcohol/vodka = 2, /decl/reagent/drink/lemonjuice = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/pina_colada
+	name = "Pina Colada"
+	id = "pina_colada"
+	result = /decl/reagent/alcohol/pina_colada
+	required_reagents = list(/decl/reagent/drink/pineapplejuice = 1, /decl/reagent/alcohol/rum = 2)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/gibbfloats
+	name = "Gibb Floats"
+	id = "gibbfloats"
+	result = /decl/reagent/drink/gibbfloats
+	required_reagents = list(/decl/reagent/drink/dr_gibb = 1, /decl/reagent/drink/ice = 1, /decl/reagent/drink/milk/cream = 1)
+	result_amount = 3

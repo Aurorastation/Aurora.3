@@ -17,6 +17,7 @@
  *		Plushies
  *		Toy cult sword
  *		Ring bell
+ *		Chess Pieces
  */
 
 
@@ -1156,3 +1157,70 @@
 		new /obj/effect/decal/cleanable/confetti(T)
 	else
 		to_chat(user, SPAN_NOTICE("The [src] is already spent!"))
+
+/obj/item/chess_piece
+	name = "white pawn"
+	desc = "A %NAME% chess piece, this one is worth %POINT% points."
+	icon = 'icons/obj/contained_items/misc/chess.dmi'
+	icon_state = "white_pawn"
+	w_class = ITEMSIZE_HUGE // hugh mungus
+	var/piece_worth = 1
+
+/obj/item/chess_piece/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
+	if(proximity_flag && isturf(target))
+		user.drop_from_inventory(src, target)
+		pixel_y = initial(pixel_y)
+		pixel_x = initial(pixel_x)
+
+/obj/item/chess_piece/Initialize()
+	. = ..()
+	desc = "A [name] chess piece, this one is worth [piece_worth] point\s."
+
+/obj/item/chess_piece/black
+	name = "black pawn"
+	icon_state = "black_pawn"
+
+/obj/item/chess_piece/rook
+	name = "white rook"
+	icon_state = "white_rook"
+	piece_worth = 5
+
+/obj/item/chess_piece/rook/black
+	name = "black rook"
+	icon_state = "black_rook"
+
+/obj/item/chess_piece/knight
+	name = "white knight"
+	icon_state = "white_knight"
+	piece_worth = 3
+
+/obj/item/chess_piece/knight/black
+	name = "black knight"
+	icon_state = "black_knight"
+
+/obj/item/chess_piece/bishop
+	name = "white bishop"
+	icon_state = "white_bishop"
+	piece_worth = 3
+
+/obj/item/chess_piece/bishop/black
+	name = "black bishop"
+	icon_state = "black_bishop"
+
+/obj/item/chess_piece/king
+	name = "white king"
+	icon_state = "white_king"
+	piece_worth = 10 // not really, but i coded myself into a corner here
+
+/obj/item/chess_piece/king/black
+	name = "black king"
+	icon_state = "black_king"
+
+/obj/item/chess_piece/queen
+	name = "white queen"
+	icon_state = "white_queen"
+	piece_worth = 9
+
+/obj/item/chess_piece/queen/black
+	name = "black queen"
+	icon_state = "black_queen"

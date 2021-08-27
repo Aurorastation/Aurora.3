@@ -19,7 +19,7 @@
 	robotic = ROBOTIC_MECHANICAL
 	icon = 'icons/mob/npc/slimes.dmi'
 	icon_state = "green slime extract"
-	can_lobotomize = 0
+	can_prepare = 0
 
 /obj/item/organ/internal/brain/golem
 	name = "chelm"
@@ -32,4 +32,4 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_books.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_books.dmi'
 		)
-	can_lobotomize = 0
+	can_prepare = 0

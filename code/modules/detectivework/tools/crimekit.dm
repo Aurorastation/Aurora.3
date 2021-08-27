@@ -20,3 +20,6 @@
 	new /obj/item/device/uv_light(src)
 	new /obj/item/forensics/sample_kit(src)
 	new /obj/item/forensics/sample_kit/powder(src)
+	new /obj/item/device/mass_spectrometer(src)
+	new /obj/item/device/reagent_scanner(src)
+	new /obj/item/storage/box/fancy/csi_markers(src)

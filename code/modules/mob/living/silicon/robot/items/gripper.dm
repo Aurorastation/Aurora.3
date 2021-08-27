@@ -108,14 +108,15 @@
 	set desc = "Release an item from your magnetic gripper."
 	set category = "Robot Commands"
 
-	drop(get_turf(src))
+	drop(get_turf(src), usr)
 
-/obj/item/gripper/proc/drop(var/atom/target, var/feedback = TRUE)
+/obj/item/gripper/proc/drop(var/atom/target, mob/user, var/feedback = TRUE)
 	if(wrapped)
 		if(wrapped.loc == src)
 			if(force_holder)
 				wrapped.force = force_holder
 			wrapped.forceMove(target)
+			wrapped.dropped(user)
 			force_holder = null
 		if(feedback)
 			to_chat(loc, SPAN_NOTICE("You release \the [wrapped].")) // loc will always be the cyborg
@@ -145,6 +146,9 @@
 
 /obj/item/gripper/attackby(obj/item/O, mob/user)
 	if(wrapped)
+		if(O == wrapped)
+			attack_self(user) //Allows gripper to be clicked to use item. 
+			return
 		var/resolved = wrapped.attackby(O,user)
 		if(!resolved && wrapped && O)
 			O.afterattack(wrapped, user ,1)//We pass along things targeting the gripper, to objects inside the gripper. So that we can draw chemicals from held beakers for instance
@@ -206,6 +210,8 @@
 		/obj/item/clipboard,
 		/obj/item/paper,
 		/obj/item/paper_bundle,
+		/obj/item/canvas,
+		/obj/item/pen,
 		/obj/item/card/id,
 		/obj/item/book,
 		/obj/item/newspaper,
@@ -264,6 +270,9 @@
 		/obj/item/organ,
 		/obj/item/reagent_containers/pill,
 		/obj/item/reagent_containers/spray,
+		/obj/item/personal_inhaler,
+		/obj/item/reagent_containers/inhaler,
+		/obj/item/reagent_containers/hypospray,
 		/obj/item/storage/pill_bottle,
 		/obj/item/device/hand_labeler,
 		/obj/item/paper,
@@ -272,7 +281,8 @@
 		/obj/item/reagent_containers/food/drinks/sillycup,
 		/obj/item/reagent_containers/food/drinks/medcup,
 		/obj/item/smallDelivery,
-		/obj/item/gift
+		/obj/item/gift,
+		/obj/item/reagent_containers/chem_disp_cartridge
 		)
 
 /obj/item/gripper/service //Used to handle food, drinks, and seeds.
@@ -292,7 +302,8 @@
 		/obj/item/smallDelivery,
 		/obj/item/gift,
 		/obj/item/stack/packageWrap,
-		/obj/item/stack/wrapping_paper
+		/obj/item/stack/wrapping_paper,
+		/obj/item/reagent_containers/chem_disp_cartridge //Drink cartridges
 		)
 
 /obj/item/gripper/no_use //Used when you want to hold and put items in other things, but not able to 'use' the item

@@ -30,10 +30,10 @@
 
 /obj/machinery/drone_fabricator/Initialize()
 	. = ..()
-	if(SSticker.current_state == GAME_STATE_PLAYING)
-		enable_drone_spawn()
-	else
-		LAZYADD(SSatoms.late_misc_firers, src)
+	check_add_to_late_firers()
+
+/obj/machinery/drone_fabricator/do_late_fire()
+	enable_drone_spawn()
 
 /obj/machinery/drone_fabricator/Destroy()
 	. = ..()
@@ -79,7 +79,7 @@
 	if(produce_drones && drone_progress >= 100 && istype(user,/mob/abstract) && config.allow_drone_spawn && count_drones() < config.max_maint_drones)
 		to_chat(user, SPAN_NOTICE("<B>A drone is prepared. use 'Ghost Spawner' from the Ghost tab to spawn as a maintenance drone.</B>"))
 
-/obj/machinery/drone_fabricator/proc/create_drone(var/client/player)
+/obj/machinery/drone_fabricator/proc/create_drone(var/client/player, var/drone_tag)
 	if(stat & NOPOWER)
 		return
 	if(!produce_drones || !config.allow_drone_spawn || count_drones() >= config.max_maint_drones)
@@ -95,7 +95,11 @@
 	if(player.mob?.mind)
 		player.mob.mind.reset()
 
+	if(!drone_tag)
+		drone_tag = "MT"
+
 	var/mob/living/silicon/robot/drone/new_drone = new drone_type(get_turf(src))
+	new_drone.set_name("[initial(new_drone.name)] ([drone_tag]-[rand(100,999)])")
 	new_drone.transfer_personality(player)
 	new_drone.master_fabricator = src
 

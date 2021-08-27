@@ -52,13 +52,15 @@
 
 /obj/item/clothing/accessory/badge/proc/set_name(var/new_name)
 	stored_name = new_name
-	name = "[name] ([stored_name])"
+	desc += "\nThe name [stored_name] is written on it."
 
 /obj/item/clothing/accessory/badge/attack_self(mob/user as mob)
 
 	if(!stored_name)
-		to_chat(user, "You inspect your [src.name]. Everything seems to be in order and you give it a quick cleaning with your hand.")
-		set_name(user.real_name)
+		var/imprintID = alert(user,"Do you wish to imprint your name on \the [src.name]?","Imprint id","Yes", "No")
+		if(imprintID == "Yes")
+			to_chat(user, "You inspect your [src.name]. Everything seems to be in order and you give it a quick cleaning with your hand.")
+			set_name(user.real_name)
 		return
 
 	if(isliving(user))
@@ -102,7 +104,7 @@
 	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "right" : "left"] side.")
 	update_clothing_icon()
 	src.inv_overlay = null
-	src.mob_overlay = null
+	src.accessory_mob_overlay = null
 
 //.Holobadges.
 /obj/item/clothing/accessory/badge/holo
@@ -223,11 +225,11 @@
 	icon_state = "marshalbadge"
 	badge_string = "Federal Marshal"
 
-/obj/item/clothing/accessory/badge/dia
-	name = "\improper DIA badge"
+/obj/item/clothing/accessory/badge/investigator
+	name = "\improper investigator badge"
 	desc = "This badge marks the holder as an investigative agent."
-	icon_state = "diabadge"
-	overlay_state = "diabadge"
+	icon_state = "invbadge"
+	overlay_state = "invbadge"
 	badge_string = "Corporate Investigator"
 
 /obj/item/clothing/accessory/badge/idbadge
@@ -279,6 +281,14 @@
 
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
+
+/obj/item/clothing/accessory/badge/passcard/synthetic
+	name = "synthetic residence card"
+	desc = "A passcard issued to free IPCs within the Republic of Biesel, providing resident status and allowing the owning of property, among other things."
+	desc_fluff = "Working alongside IPC tags within the Republic of Biesel, the synthetic residence card has a small RFID chip embedded in it which allows governmental authorities to confirm whether or not an IPC \
+    is free and taking residency within the system. They were recently introduced in order to provide streamlined documentation for IPCs that have attained freedom but are not citizens."
+	icon_state = "passcard_ceti_m"
+	item_state = "passcard_ceti_m"
 
 /obj/item/clothing/accessory/badge/passcard/sol
 	name = "\improper ASSN passcard"

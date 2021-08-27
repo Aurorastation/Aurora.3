@@ -36,3 +36,28 @@
 	cards = newcards
 	playsound(src.loc, 'sound/items/cardshuffle.ogg', 100, 1, -4)
 	user.visible_message("\The [user] shuffles [src].")
+
+
+/obj/item/deck/tarot/adhomai
+	name = "adhomian divination cards deck"
+	desc = "An adhomian deck of divination cards, used to read the one's fortune or play games."
+	icon_state = "deck_adhomai"
+
+/obj/item/deck/tarot/fluff/adhomai/generate_deck()
+	var/datum/playingcard/P
+	for(var/name in list("D'as'ral Massacre","Mystic","Suns' Sister","Queen","King","Father of the Parivara","S'rendal'Matir","Tank","Royal Grenadier","Kraszarrumalkarii","Hand of Fate","Great Revolution","Assassin","Assassination","Dymtris Line",
+	"Rrak'narrr","Steeple","Messa","Raskara","S'rendarr","Kazarrhaldiye","Adhomai"))
+		P = new()
+		P.name = "[name]"
+		P.card_icon = "adhomai_major"
+		P.back_icon = "card_back_adhomai"
+		cards += P
+	for(var/suit in list("wands","pentacles","cups","swords"))
+
+
+		for(var/number in list("ace","two","three","four","five","six","seven","eight","nine","ten","serf","soldier","queen","king"))
+			P = new()
+			P.name = "[number] of [suit]"
+			P.card_icon = "adhomai_[suit]"
+			P.back_icon = "card_back_adhomai"
+			cards += P

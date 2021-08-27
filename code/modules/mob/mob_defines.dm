@@ -117,7 +117,7 @@
 	var/bodytemperature = 310.055	//98.7 F
 	var/old_x = 0
 	var/old_y = 0
-	var/drowsyness = 0.0//Carbon
+	var/drowsiness = 0.0//Carbon
 	var/charges = 0.0
 	var/nutrition = BASE_MAX_NUTRITION * CREW_NUTRITION_SLIGHTLYHUNGRY  //carbon
 	var/nutrition_loss = HUNGER_FACTOR //How much hunger is lost per tick. This is modified by species

@@ -66,7 +66,7 @@
 		if(EYE_BLUR)
 			eye_blurry = max(eye_blurry, effect * BLOCKED_MULT(blocked))
 		if(DROWSY)
-			drowsyness = max(drowsyness, effect * BLOCKED_MULT(blocked))
+			drowsiness = max(drowsiness, effect * BLOCKED_MULT(blocked))
 		if(INCINERATE)
 			IgniteMob(effect * BLOCKED_MULT(blocked))
 	updatehealth()

@@ -17,10 +17,12 @@
 	if (!message)
 		return
 
+	message = formalize_text(message)
+
 	log_say("[key_name(speaker)] : ([name]) [message]",ckey=key_name(speaker))
 
-	var/message_start = "<i><span class='game say'>[name], <span class='name'>[speaker.name]</span>"
-	var/message_body = "<span class='message'>[speaker.say_quote(message)], \"[message]\"</span></span></i>"
+	var/message_start = "<span style='font-size: [speaker.get_binary_font_size()];'><i><span class='game say'>[name], <span class='name'>[speaker.real_name]</span>"
+	var/message_body = "<span class='message'>[speaker.say_quote(message)], \"[message]\"</span></span></i></span>"
 
 	for (var/mob/M in dead_mob_list)
 		if(!istype(M,/mob/abstract/new_player) && !istype(M,/mob/living/carbon/brain)) //No meta-evesdropping
@@ -31,7 +33,7 @@
 		if(drone_only && !istype(S,/mob/living/silicon/robot/drone))
 			continue
 		else if(istype(S , /mob/living/silicon/ai))
-			message_start = "<i><span class='game say'>[name], <a href='byond://?src=\ref[S];track2=\ref[S];track=\ref[speaker];trackname=[html_encode(speaker.name)]'><span class='name'>[speaker.name]</span></a></span></i>"
+			message_start = "<i><span class='game say'>[name], <a href='byond://?src=\ref[S];track2=\ref[S];track=\ref[speaker];trackname=[html_encode(speaker.name)]'><span class='name'>[speaker.real_name]</span></a></span></i>"
 		else if (!S.binarycheck())
 			continue
 
@@ -61,3 +63,9 @@
 	key = "d"
 	flags = RESTRICTED | HIVEMIND
 	drone_only = 1
+
+/mob/living/proc/get_binary_font_size()
+	return "1em"
+
+/mob/living/silicon/robot/drone/construction/matriarch/get_binary_font_size()
+	return "1.2em"

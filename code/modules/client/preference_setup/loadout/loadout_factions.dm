@@ -44,6 +44,22 @@
 	path = /obj/item/reagent_containers/glass/rag/advanced/idris
 	faction = "Idris Incorporated"
 
+/datum/gear/faction/idris_sunglasses
+	display_name = "idris security HUD selection"
+	description = "A selection of Idris security HUDs."
+	path = /obj/item/clothing/glasses/sunglasses/sechud/idris
+	slot = slot_glasses
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator")
+	faction = "Idris Incorporated"
+
+/datum/gear/faction/idris_sunglasses/New()
+	..()
+	var/list/idris_sunglasses = list()
+	idris_sunglasses["HUDsunglasses, Idris"] = /obj/item/clothing/glasses/sunglasses/sechud/idris
+	idris_sunglasses["fat HUDsunglasses, Idris"] = /obj/item/clothing/glasses/sunglasses/sechud/big/idris
+	idris_sunglasses["aviator sunglasses, Idris"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator/idris
+	gear_tweaks += new /datum/gear_tweak/path(idris_sunglasses)
+
 /datum/gear/faction/zavodskoi_beret
 	display_name = "black zavodskoi beret"
 	path = /obj/item/clothing/head/beret/security/zavodskoi
@@ -72,6 +88,22 @@
 	slot = slot_wear_suit
 	faction = "Zavodskoi Interstellar"
 
+/datum/gear/faction/zavod_sunglasses
+	display_name = "zavodskoi security HUD selection"
+	description = "A selection of Zavodskoi security HUDs."
+	path = /obj/item/clothing/glasses/sunglasses/sechud/zavod
+	slot = slot_glasses
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator")
+	faction = "Zavodskoi Interstellar"
+
+/datum/gear/faction/zavod_sunglasses/New()
+	..()
+	var/list/zavod_sunglasses = list()
+	zavod_sunglasses["HUDsunglasses, Zavodskoi"] = /obj/item/clothing/glasses/sunglasses/sechud/zavod
+	zavod_sunglasses["fat HUDsunglasses, Zavodskoi"] = /obj/item/clothing/glasses/sunglasses/sechud/big/zavod
+	zavod_sunglasses["aviator sunglasses, Zavodskoi"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator/zavod
+	gear_tweaks += new /datum/gear_tweak/path(zavod_sunglasses)
+
 /datum/gear/faction/eridani_beret
 	display_name = "eridani beret"
 	path = /obj/item/clothing/head/beret/security/eri
@@ -83,6 +115,22 @@
 	path = /obj/item/clothing/head/softcap/eri
 	slot = slot_head
 	faction = "Eridani Private Military Contractors"
+
+/datum/gear/faction/epmc_sunglasses
+	display_name = "EPMC security HUD selection"
+	description = "A selection of EPMC security HUDs."
+	path = /obj/item/clothing/glasses/sunglasses/sechud/epmc
+	slot = slot_glasses
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator")
+	faction = "Eridani Private Military Contractors"
+
+/datum/gear/faction/epmc_sunglasses/New()
+	..()
+	var/list/epmc_sunglasses = list()
+	epmc_sunglasses["HUDsunglasses, EPMC"] = /obj/item/clothing/glasses/sunglasses/sechud/epmc
+	epmc_sunglasses["fat HUDsunglasses, EPMC"] = /obj/item/clothing/glasses/sunglasses/sechud/big/epmc
+	epmc_sunglasses["aviator sunglasses, EPMC"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator/epmc
+	gear_tweaks += new /datum/gear_tweak/path(epmc_sunglasses)
 
 /datum/gear/faction/zenghu_uniform_alt
 	display_name = "zeng-hu white uniform"
@@ -110,10 +158,10 @@
 
 /datum/gear/faction/zenghu_labcoat/New()
 	..()
-	var/masks = list()
+	var/list/masks = list()
 	masks["zeng-hu labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
 	masks["zeng-hu labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
-	gear_tweaks += new/datum/gear_tweak/path(masks)
+	gear_tweaks += new /datum/gear_tweak/path(masks)
 
 /datum/gear/faction/zenghu_apron
 	display_name = "zeng-hu vinyl apron"

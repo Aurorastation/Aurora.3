@@ -9,8 +9,10 @@
 	can_hold = list(/obj/item/clothing/mask/smokable/cigarette, /obj/item/flame/lighter, /obj/item/trash/cigbutt, /obj/item/tajcard)
 
 /obj/item/storage/box/fancy/cigarettes/pra/update_icon()
+	. = ..()
 	var/card_count = instances_of_type_in_list(new /obj/item/tajcard, src.contents) //having cards in here doesn't count for icon
-	icon_state = "[initial(icon_state)][contents.len - card_count]"
+	if(opened)
+		icon_state = "[initial(icon_state)][contents.len - card_count]"
 
 /obj/item/storage/box/fancy/cigarettes/pra/fill()
 	..()

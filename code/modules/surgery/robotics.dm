@@ -25,13 +25,15 @@
 /decl/surgery_step/robotics/unscrew_hatch
 	name = "Unscrew Hatch"
 	allowed_tools = list(
-		/obj/item/screwdriver = 100,
+		SCREWDRIVER = 100,
 		/obj/item/coin = 50,
 		/obj/item/material/kitchen/utensil/knife = 50
 	)
 
 	min_duration = 90
 	max_duration = 110
+
+	requires_surgery_compatibility = FALSE
 
 /decl/surgery_step/robotics/unscrew_hatch/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -65,13 +67,15 @@
 /decl/surgery_step/robotics/screw_hatch
 	name = "Screw Hatch"
 	allowed_tools = list(
-		/obj/item/screwdriver = 100,
+		SCREWDRIVER = 100,
 		/obj/item/coin = 50,
 		/obj/item/material/kitchen/utensil/knife = 50
 	)
 
 	min_duration = 90
 	max_duration = 110
+
+	requires_surgery_compatibility = FALSE
 
 /decl/surgery_step/robotics/screw_hatch/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -106,7 +110,7 @@
 	name = "Open Hatch"
 	allowed_tools = list(
 		/obj/item/surgery/retractor = 100,
-		/obj/item/crowbar = 100,
+		CROWBAR = 100,
 		/obj/item/material/kitchen/utensil = 50
 	)
 
@@ -143,7 +147,7 @@
 	name = "Close Hatch"
 	allowed_tools = list(
 		/obj/item/surgery/retractor = 100,
-		/obj/item/crowbar = 100,
+		CROWBAR = 100,
 		/obj/item/material/kitchen/utensil = 50
 	)
 
@@ -321,11 +325,13 @@
 /decl/surgery_step/robotics/attach_organ_robotic
 	name = "Attach robotic organ"
 	allowed_tools = list(
-		/obj/item/screwdriver = 100
+		SCREWDRIVER = 100
 	)
 
 	min_duration = 100
 	max_duration = 120
+
+	requires_surgery_compatibility = FALSE
 
 /decl/surgery_step/robotics/attach_organ_robotic/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())

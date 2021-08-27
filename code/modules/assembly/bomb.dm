@@ -30,6 +30,7 @@
 		to_chat(user, SPAN_NOTICE("You disassemble \the [src]."))
 
 		bombassembly.forceMove(get_turf(user))
+		bombassembly.detached()
 		bombassembly.master = null
 		bombassembly = null
 

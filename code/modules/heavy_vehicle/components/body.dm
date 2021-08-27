@@ -69,13 +69,13 @@
 /obj/item/mech_component/chassis/return_diagnostics(mob/user)
 	..()
 	if(diagnostics)
-		to_chat(user, SPAN_NOTICE(" Diagnostics Unit Integrity: <b>[round(((diagnostics.max_dam - diagnostics.total_dam) / diagnostics.max_dam)) * 100]%</b>"))
+		to_chat(user, SPAN_NOTICE("  - Diagnostics Unit Integrity: <b>[round(((diagnostics.max_dam - diagnostics.total_dam) / diagnostics.max_dam) * 100, 0.1)]%</b>"))
 	else
-		to_chat(user, SPAN_WARNING(" Diagnostics Unit Missing or Non-functional."))
+		to_chat(user, SPAN_WARNING("  - Diagnostics Unit Missing or Non-functional."))
 	if(mech_armor)
-		to_chat(user, SPAN_NOTICE(" Armor Integrity: <b>[round(((mech_armor.max_dam - mech_armor.total_dam) / mech_armor.max_dam)) * 100]%</b>"))
+		to_chat(user, SPAN_NOTICE("  - Armor Integrity: <b>[round(((mech_armor.max_dam - mech_armor.total_dam) / mech_armor.max_dam) * 100, 0.1)]%</b>"))
 	else
-		to_chat(user, SPAN_WARNING(" Armor Missing or Non-functional."))
+		to_chat(user, SPAN_WARNING("  - Armor Missing or Non-functional."))
 
 /obj/item/mech_component/chassis/Initialize()
 	. = ..()
