@@ -65,6 +65,10 @@
 #define NETWORK_EXPEDITION "Expedition"
 #define NETWORK_CALYPSO "Calypso"
 #define NETWORK_POD "General Utility Pod"
+#define NETWORK_FIRST_DECK "First Deck"
+#define NETWORK_SECOND_DECK "Second Deck"
+#define NETWORK_THIRD_DECK "Third Deck"
+#define NETWORK_INTREPID "Intrepid"
 
 //temporary, for now
 #define NETWORK_DECK_ONE_AFT "Deck 1 Aft"
