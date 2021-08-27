@@ -188,3 +188,14 @@
 
 /area/maintenance/wing/port/deck1
 	name = "Lower Wing Frame Interior - Port"
+
+//Propulsion
+
+/area/engineering/atmos/propulsion
+	name = "Port Propulsion"
+	icon_state = "blue2"
+	sound_env = SMALL_ENCLOSED
+
+/area/engineering/atmos/propulsion/starboard
+	name = "Starboard Propulsion"
+	icon_state = "blue-red2"

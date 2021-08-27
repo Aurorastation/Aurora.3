@@ -70,13 +70,6 @@
 #define NETWORK_THIRD_DECK "Third Deck"
 #define NETWORK_INTREPID "Intrepid"
 
-//temporary, for now
-#define NETWORK_DECK_ONE_AFT "Deck 1 Aft"
-#define NETWORK_DECK_ONE_FORE "Deck 1 Fore"
-#define NETWORK_DECK_TWO_AFT "Deck 2 Aft"
-#define NETWORK_DECK_TWO_FORE "Deck 2 Fore"
-#define NETWORK_DECK_THREE_AFT "Deck 3 Aft"
-#define NETWORK_DECK_THREE_FORE "Deck 3 Fore"
 
 // Those networks can only be accessed by pre-existing terminals. AIs and new terminals can't use them.
 var/list/restricted_camera_networks = list(NETWORK_ERT,NETWORK_MERCENARY,"Secret")
