@@ -1334,6 +1334,11 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "hair_wheeler"
 		chatname = "short hair"
 
+	wheeler
+		name = "Fingerwave"
+		icon_state = "hair_fingercurl"
+		chatname = "fluffy hair"
+
 	bug_eyes
 		icon = 'icons/mob/human_face/dionae_hair.dmi'
 		name = "Bug Eyes"
