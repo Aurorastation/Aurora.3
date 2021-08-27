@@ -404,6 +404,8 @@
 		/obj/item/clothing/wrists/watch,
 		/obj/item/clothing/wrists/watch/silver,
 		/obj/item/clothing/wrists/watch/gold,
+		/obj/item/clothing/wrists/watch/holo,
+		/obj/item/clothing/wrists/watch/leather,
 		/obj/item/clothing/wrists/watch/spy
 	)
 

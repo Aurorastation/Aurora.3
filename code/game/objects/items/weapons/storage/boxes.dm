@@ -142,7 +142,9 @@
 				/obj/item/reagent_containers/food/drinks/flask,
 				/obj/item/storage/box/fancy/cigarettes,
 				/obj/item/flame/lighter,
-				/obj/item/disk/nuclear
+				/obj/item/disk/nuclear,
+				/obj/item/crowbar,
+				/obj/item/airbubble
 				)
 	starts_with = list(
 					/obj/item/clothing/mask/breath = 1,
@@ -711,7 +713,8 @@
 			/obj/item/reagent_containers/food/snacks/tuna,
 			/obj/item/storage/box/fancy/gum,
 			/obj/item/storage/box/fancy/cookiesnack,
-			/obj/item/storage/box/fancy/admints
+			/obj/item/storage/box/fancy/admints,
+			/obj/item/storage/box/fancy/vkrexitaffy
 	)
 	for (var/i = 0,i<7,i++)
 		var/type = pick(snacks)

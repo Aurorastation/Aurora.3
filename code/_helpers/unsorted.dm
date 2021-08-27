@@ -41,19 +41,18 @@
 	return 1
 
 
-/proc/Get_Angle(atom/movable/start,atom/movable/end)//For beams.
-	if(!start || !end) return 0
-	var/dy
-	var/dx
-	dy=(32*end.y+end.pixel_y)-(32*start.y+start.pixel_y)
-	dx=(32*end.x+end.pixel_x)-(32*start.x+start.pixel_x)
+/proc/Get_Angle(atom/movable/start, atom/movable/end) //For beams.
+	if(!start || !end)
+		return FALSE
+	var/dy = (32 * end.y + end.pixel_y) - (32 * start.y + start.pixel_y)
+	var/dx = (32 * end.x + end.pixel_x) - (32 * start.x + start.pixel_x)
 	if(!dy)
-		return (dx>=0)?90:270
-	.=arctan(dx/dy)
-	if(dy<0)
-		.+=180
-	else if(dx<0)
-		.+=360
+		return (dx >= 0) ? 90 : 270
+	. = arctan(dx / dy)
+	if(dy < 0)
+		. += 180
+	else if(dx < 0)
+		. += 360
 
 /proc/get_projectile_angle(atom/source, atom/target)
 	var/sx = source.x * world.icon_size

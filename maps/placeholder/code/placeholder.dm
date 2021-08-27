@@ -34,14 +34,22 @@
 
 	use_overmap = TRUE
 
-//These too are placeholders
 	station_networks = list(
-		NETWORK_DECK_ONE_AFT,
-		NETWORK_DECK_ONE_FORE,
-		NETWORK_DECK_TWO_AFT,
-		NETWORK_DECK_TWO_FORE,
-		NETWORK_DECK_THREE_AFT,
-		NETWORK_DECK_THREE_FORE
+		NETWORK_COMMAND,
+		NETWORK_ENGINE,
+		NETWORK_ENGINEERING,
+		NETWORK_MEDICAL,
+		NETWORK_MINE,
+		NETWORK_RESEARCH,
+		NETWORK_ROBOTS,
+		NETWORK_PRISON,
+		NETWORK_SECURITY,
+		NETWORK_SERVICE,
+		NETWORK_SUPPLY,
+		NETWORK_FIRST_DECK,
+		NETWORK_SECOND_DECK,
+		NETWORK_THIRD_DECK,
+		NETWORK_INTREPID
 	)
 
 	shuttle_docked_message = "The scheduled crew transfer shuttle to %dock% has docked with the station. It will depart in approximately %ETA% minutes."

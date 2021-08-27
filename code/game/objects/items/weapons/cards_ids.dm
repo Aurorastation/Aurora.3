@@ -525,9 +525,9 @@ var/const/NO_EMAG_ACT = -50
 	overlay_state = "erisec_card"
 
 /obj/item/card/id/distress/ap_eridani/New()
-	access = list(access_distress, access_maint_tunnels, access_external_airlocks, access_security, access_medical, access_medical_equip)
+	access = get_distress_access()
 	..()
-
+ 
 /obj/item/card/id/distress/iac
 	name = "\improper Interstellar Aid Corps ID"
 	assignment = "Interstellar Aid Corps Responder"

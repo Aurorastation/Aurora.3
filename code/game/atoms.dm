@@ -619,3 +619,20 @@
 			if(M.client)
 				M.client.eye = M.client.mob
 				M.client.perspective = MOB_PERSPECTIVE
+
+/atom/proc/check_add_to_late_firers()
+	if(SSticker.current_state == GAME_STATE_PLAYING)
+		do_late_fire()
+		return
+	LAZYADD(SSatoms.late_misc_firers, src)
+
+/atom/proc/do_late_fire()
+	return
+
+/atom/proc/set_angle(degrees)
+	var/matrix/M = matrix()
+	M.Turn(degrees)
+	// If we aint 0, make it NN transform
+	if(degrees)
+		appearance_flags |= PIXEL_SCALE
+	transform = M

@@ -73,14 +73,14 @@
 	var/next_on
 	var/blockage
 
-/obj/machinery/atmospherics/unary/engine/placeholder
-	name = "placeholder thruster"
-	icon = 'icons/atmos/placeholder_engine.dmi'
+/obj/machinery/atmospherics/unary/engine/scc_ship_engine
+	name = "ship thruster"
+	icon = 'icons/atmos/scc_ship_engine.dmi'
 	icon_state = "engine_0"
 	opacity = FALSE
 	pixel_x = -64
 
-/obj/machinery/atmospherics/unary/engine/placeholder/check_blockage()
+/obj/machinery/atmospherics/unary/engine/scc_ship_engine/check_blockage()
 	return 0
 
 /obj/machinery/atmospherics/unary/engine/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)

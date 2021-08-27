@@ -72,6 +72,15 @@
 		to_chat(user, SPAN_WARNING("You don't have anything on \the [src].")) 	//if we have help intent and no food scooped up DON'T STAB OURSELVES WITH THE FORK)
 		return
 
+/obj/item/material/kitchen/utensil/on_rag_wipe()
+	. = ..()
+	if(reagents.total_volume > 0)
+		reagents.clear_reagents()
+		is_liquid = FALSE
+		loaded = null
+		cut_overlays()
+	return
+
 /obj/item/material/kitchen/utensil/verb/bite_size()
 	set name = "Change bite size"
 	set category = "Object"
