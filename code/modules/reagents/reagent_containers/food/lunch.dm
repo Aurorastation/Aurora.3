@@ -62,7 +62,6 @@ var/list/lunchables_drinks_ = list(
 	/obj/item/reagent_containers/food/drinks/waterbottle,
 	/obj/item/reagent_containers/food/drinks/cans/space_mountain_wind,
 	/obj/item/reagent_containers/food/drinks/cans/dr_gibb,
-	/obj/item/reagent_containers/food/drinks/cans/diet_cola,
 	/obj/item/reagent_containers/food/drinks/cans/starkist,
 	/obj/item/reagent_containers/food/drinks/cans/space_up,
 	/obj/item/reagent_containers/food/drinks/cans/lemon_lime,
