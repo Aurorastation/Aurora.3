@@ -506,6 +506,7 @@
 		do_hair_pull(user)
 
 	playsound(get_turf(src), 'sound/machines/blender.ogg', 50, 1)
+	intent_message(MACHINE_SOUND)
 	inuse = TRUE
 
 	// Reset the machine.

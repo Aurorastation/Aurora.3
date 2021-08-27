@@ -44,7 +44,7 @@
 				visible_message("<span class='warning'>[P] hits \the [src]!</span>")
 				return 0
 			else
-				visible_message("<span class='warning'>[src] breaks down!</span>")
+				visible_message(SPAN_WARNING("[src] breaks down!"), intent_message = THUNK_SOUND)
 				break_to_parts()
 				return 1
 	return 1
