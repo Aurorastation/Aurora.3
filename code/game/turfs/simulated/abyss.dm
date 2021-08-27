@@ -21,7 +21,7 @@
 		if(locate(/obj/structure/lattice/catwalk, src))	//should be safe to walk upon
 			return TRUE
 		if(!L.CanAvoidGravity())
-			L.visible_message(SPAN_WARNING("\The [L] falls into \the [src]."), SPAN_WARNING("You plummet down into \the [src]!"))
+			L.visible_message(SPAN_DANGER("\The [L] falls into \the [src]."), SPAN_DANGER("You plummet down into \the [src]!"))
 			L.ghostize()
 			L.loc = null
 			qdel(L)
@@ -31,7 +31,7 @@
 
 	else if(istype(AM, /obj/item))
 		var/obj/item/I = AM
-		I.visible_message(SPAN_WARNING("\The [I] falls into \the [src]."))
+		I.visible_message(SPAN_DANGER("\The [I] falls into \the [src]."))
 		qdel(I)
 
 	else
