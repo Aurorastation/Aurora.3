@@ -433,6 +433,8 @@
 			return
 
 		var/obj/item/i = usr.get_active_hand() // Check to see if he still got that darn pen, also check if he's using a crayon or pen.
+		if(!i || !i.ispen())
+			i = usr.get_inactive_hand()
 		var/obj/item/clipboard/c
 		var/iscrayon = FALSE
 		var/isfountain = FALSE
@@ -463,8 +465,7 @@
 			else
 				isfountain = FALSE
 
-		// if paper is not in usr, then it must be near them, or in a clipboard or folder, which must be in or near usr
-		if(src.loc != usr && !src.Adjacent(usr) && !((istype(src.loc, /obj/item/clipboard) || istype(src.loc, /obj/item/folder)) && (src.loc.loc == usr || src.loc.Adjacent(usr)) ) )
+		if(!write_check(usr))
 			return
 
 		var/last_fields_value = fields
@@ -495,6 +496,19 @@
 		if(c)
 			c.update_icon()
 
+/obj/item/paper/proc/write_check(var/mob/user)
+	. = TRUE
+	// if paper is not in usr, then it must be near them, or in a clipboard or folder, which must be in or near usr
+	if(loc != user && !Adjacent(user))
+		. = FALSE
+	if(!. && istype(loc, /obj/item/clipboard))
+		var/obj/item/clipboard/C = loc
+		if(C.loc == user || C.Adjacent(user))
+			. = TRUE
+	if(!. && istype(loc, /obj/item/folder))
+		var/obj/item/folder/F = loc
+		if(F.loc_check(user) || F.Adjacent(user))
+			. = TRUE
 
 /obj/item/paper/attackby(var/obj/item/P, mob/user)
 	..()
