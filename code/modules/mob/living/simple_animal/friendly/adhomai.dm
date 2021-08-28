@@ -97,7 +97,7 @@
 
 	melee_damage_lower = 15
 	melee_damage_upper = 15
-	attacktext = "bitten"
+	attacktext = "gored"
 	attack_sound = 'sound/weapons/bite.ogg'
 
 	hostile_nameable = TRUE
