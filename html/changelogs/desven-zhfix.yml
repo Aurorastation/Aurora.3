@@ -1,4 +1,0 @@
-author: Desven
-delete-after: True
-changes:
-  - bugfix: "Fixes the advanced health scanner facing the wrong side when held."
