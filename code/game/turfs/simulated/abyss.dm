@@ -22,9 +22,10 @@
 			return TRUE
 		if(!L.CanAvoidGravity())
 			L.visible_message(SPAN_DANGER("\The [L] falls into \the [src]."), SPAN_DANGER("You plummet down into \the [src]!"))
-			L.ghostize()
-			L.loc = null
-			qdel(L)
+			L.death()
+			if(L)
+				L.loc = null
+				qdel(L)
 		else
 			return TRUE
 
