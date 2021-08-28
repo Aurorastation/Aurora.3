@@ -76,6 +76,18 @@ obj/item/organ/vaurca/neuralsocket/process()
 		to_chat(target, "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>")
 	..()
 
+/obj/item/organ/vaurca/mandibles
+	name = BP_VAURCA_MANDIBLE
+	organ_tag = BP_VAURCA_MANDIBLE
+	icon_state = "mandible"
+	parent_organ = BP_HEAD
+	sharp = 1
+	edge = 1
+	hitsound = 'sound/weapons/bladeslice.ogg'
+
+/obj/item/organ/vaurca/mandibles/warform
+	icon_state = "mandible_warform"
+
 /obj/item/organ/vaurca/preserve
 	name = BP_PHORON_RESERVE
 	organ_tag = BP_PHORON_RESERVE
