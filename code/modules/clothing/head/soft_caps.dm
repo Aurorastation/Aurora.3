@@ -132,3 +132,14 @@
 	name = "eridani cap"
 	desc = "A grey EPMC fatigue cap with the symbol of the Eridani Corporate Federation on its front. For amoral mercenaries that prefer style over protection."
 	icon_state = "eridani"
+
+/obj/item/clothing/head/softcap/zavod
+	name = "zavodskoi cap"
+	desc = "A black company-issue Zavokdskoi cap with the symbol of the corporation at its front."
+	icon_state = "zavodb"
+	item_state = "zavodb"
+
+/obj/item/clothing/head/softcap/zavod/alt
+	desc = "A tan company-issue Zavokdskoi cap with the symbol of the corporation at its front."
+	icon_state = "zavod"
+	item_state = "zavod"

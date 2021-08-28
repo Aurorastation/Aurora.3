@@ -345,6 +345,7 @@
 	vend_id = "cola"
 	products = list(
 		/obj/item/reagent_containers/food/drinks/cans/cola = 10,
+		/obj/item/reagent_containers/food/drinks/cans/diet_cola = 10,
 		/obj/item/reagent_containers/food/drinks/cans/space_mountain_wind = 10,
 		/obj/item/reagent_containers/food/drinks/cans/dr_gibb = 10,
 		/obj/item/reagent_containers/food/drinks/cans/root_beer = 10,
@@ -353,10 +354,15 @@
 		/obj/item/reagent_containers/food/drinks/cans/dyn = 10,
 		/obj/item/reagent_containers/food/drinks/cans/space_up = 10,
 		/obj/item/reagent_containers/food/drinks/cans/iced_tea = 10,
+		/obj/item/reagent_containers/food/drinks/cans/threetowns = 10,
 		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 10,
+		/obj/item/reagent_containers/food/drinks/cans/peach_soda = 10,
 		/obj/item/reagent_containers/food/drinks/cans/koispunch = 5,
 		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 10,
-		/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda = 10
+		/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda = 10,
+		/obj/item/reagent_containers/food/drinks/small_milk = 10,
+		/obj/item/reagent_containers/food/drinks/small_milk_choco = 10,
+		/obj/item/reagent_containers/food/drinks/small_milk_strawberry = 10
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/drinks/cans/thirteenloko = 5,
@@ -369,6 +375,7 @@
 	)
 	prices = list(
 		/obj/item/reagent_containers/food/drinks/cans/cola = 15,
+		/obj/item/reagent_containers/food/drinks/cans/diet_cola = 15,
 		/obj/item/reagent_containers/food/drinks/cans/space_mountain_wind = 11,
 		/obj/item/reagent_containers/food/drinks/cans/dr_gibb = 16,
 		/obj/item/reagent_containers/food/drinks/cans/root_beer = 13,
@@ -377,10 +384,15 @@
 		/obj/item/reagent_containers/food/drinks/cans/dyn = 18,
 		/obj/item/reagent_containers/food/drinks/cans/space_up = 15,
 		/obj/item/reagent_containers/food/drinks/cans/iced_tea = 13,
+		/obj/item/reagent_containers/food/drinks/cans/threetowns = 13,
 		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 16,
+		/obj/item/reagent_containers/food/drinks/cans/peach_soda = 16,
 		/obj/item/reagent_containers/food/drinks/cans/koispunch = 50,
 		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 5,
-		/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda = 35
+		/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda = 35,
+		/obj/item/reagent_containers/food/drinks/small_milk = 18,
+		/obj/item/reagent_containers/food/drinks/small_milk_choco = 18,
+		/obj/item/reagent_containers/food/drinks/small_milk_strawberry = 18
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	vending_sound = 'sound/machines/vending/vending_cans.ogg'
