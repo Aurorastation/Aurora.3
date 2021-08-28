@@ -1,7 +1,7 @@
 /obj/item/gun/projectile/colt
-	name = "vintage .45 pistol"
-	desc = "A rugged Zavodskoi-designed pistol. Uses .45 rounds."
-	desc_fluff = "The Zavodskoi Interstellar Colt was designed and marketed as an homage to classic Human firearms, and looks and acts much the same way - it was deliberately designed with some anachronistic features, but in spite of that artificial age of the design it performs well enough to see service all over Human space. Chambered in .45 caliber."
+	name = ".45 combat pistol"
+	desc = "A robust metal-framed .45-caliber handgun of a type descended from old-Earth designs, manufactured in many factories across \
+	human-inhabited space. Used by all manners of factions across the Spur."
 	magazine_type = /obj/item/ammo_magazine/c45m
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 	icon = 'icons/obj/guns/colt.dmi'
@@ -16,7 +16,7 @@
 
 /obj/item/gun/projectile/colt/update_icon()
 	..()
-	if(ammo_magazine && ammo_magazine.stored_ammo.len)
+	if(ammo_magazine?.stored_ammo.len)
 		icon_state = "colt"
 	else
 		icon_state = "colt-e"
@@ -41,6 +41,49 @@
 		name = input
 		to_chat(M, "You name the gun [input]. Say hello to your new friend.")
 		return 1
+
+/obj/item/gun/projectile/colt/super
+	name = "ornamental .45 combat pistol"
+	desc = "A robust metal-framed .45-caliber handgun of a type descended from old-Earth designs, manufactured in many factories across \
+	human-inhabited space. This example sports a short slide, wood-paneled grips, and few signs of use, likely belonging to someone of higher stature."
+	desc_fluff = "Whoever did this is a professional, no question. This thing could shoot a one-hole at 25 yards in a machine rest."
+	magazine_type = /obj/item/ammo_magazine/c45m/stendo
+	icon = 'icons/obj/guns/coltsuper.dmi'
+	icon_state = "coltsuper"
+	item_state = "coltsuper"
+
+/obj/item/gun/projectile/colt/super/update_icon()
+	..()
+	if(ammo_magazine?.stored_ammo.len)
+		icon_state = "coltsuper"
+	else
+		icon_state = "coltsuper-e"
+
+/obj/item/gun/projectile/automatic/lebman
+	name = "automatic .45 combat pistol"
+	desc = "A robust metal-framed .45-caliber handgun of a type descended from old-Earth designs, manufactured in many factories across \
+	human-inhabited space. This example has been modified to allow fully-automatic fire, and sports a prominent vertical grip and muzzle compensator to aid in control."
+	magazine_type = /obj/item/ammo_magazine/c45m/lebman
+	icon = 'icons/obj/guns/coltauto.dmi'
+	icon_state = "coltauto"
+	item_state = "coltauto"
+	w_class = ITEMSIZE_NORMAL
+	accuracy = 1
+	offhand_accuracy = 1
+	load_method = MAGAZINE
+	slot_flags = SLOT_BELT|SLOT_HOLSTER
+	max_shells = 18
+	caliber = ".45"
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+	ammo_type = /obj/item/ammo_casing/c45
+	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
+
+/obj/item/gun/projectile/automatic/lebman/update_icon()
+	..()
+	if(ammo_magazine?.stored_ammo.len)
+		icon_state = "coltauto"
+	else
+		icon_state = "coltauto-e"
 
 /obj/item/gun/projectile/sec
 	name = ".45 pistol"
