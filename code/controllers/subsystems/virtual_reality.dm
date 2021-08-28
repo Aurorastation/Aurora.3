@@ -103,6 +103,20 @@
 		to_chat(src, SPAN_DANGER("Interface error, you cannot exit the system at this time."))
 		to_chat(src, SPAN_WARNING("Ahelp to get back into your body, a bug has occurred."))
 
+/mob/living/carbon/human/virtual_reality/body_return()
+	set name = "Return to Body"
+	set category = "IC"
+
+	if(old_mob)
+		ckey_transfer(old_mob)
+		languages = list(all_languages[LANGUAGE_TCB])
+		to_chat(old_mob, SPAN_NOTICE("System exited safely, we hope you enjoyed your stay."))
+		old_mob = null
+		qdel(src)
+	else
+		to_chat(src, SPAN_DANGER("Interface error, you cannot exit the system at this time."))
+		to_chat(src, SPAN_WARNING("Ahelp to get back into your body, a bug has occurred."))
+
 /mob/living/proc/vr_mob_exit_languages()
 	languages = list(all_languages[LANGUAGE_TCB])
 
@@ -256,5 +270,5 @@
 		H.preEquipOutfit(/datum/outfit/admin/virtual_reality, FALSE)
 		H.equipOutfit(/datum/outfit/admin/virtual_reality, FALSE)
 
-		to_chat(target, SPAN_NOTICE("You are now in control of a virtual reality body. Dying will return you to your original body."))
 		mind_transfer(user, H)
+		to_chat(H, SPAN_NOTICE("You are now in control of a virtual reality body. Dying will return you to your original body."))
