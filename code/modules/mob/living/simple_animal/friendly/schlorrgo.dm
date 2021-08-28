@@ -39,6 +39,10 @@
 
 	max_nutrition = 100
 
+	stomach_size_mult = 10
+
+	metabolic_factor = 0.3
+
 	var/starting_nutrition = 100
 	var/nutrition_threshold = 80
 
@@ -103,7 +107,7 @@
 			icon_state = "schlorrgo_baby"
 			icon_living = "schlorrgo_baby"
 			icon_dead = "schlorrgo_baby_dead"
-			holder = /obj/item/holder/schlorrgo/baby
+			holder_type = /obj/item/holder/schlorrgo/baby
 
 		if(BABY_SCHLORRGO)
 			name = "schlorrgo"
@@ -119,7 +123,7 @@
 			icon_state = "schlorrgo"
 			icon_living = "schlorrgo"
 			icon_dead = "schlorrgo_dead"
-			holder = /obj/item/holder/schlorrgo
+			holder_type = /obj/item/holder/schlorrgo
 
 		if(NORMAL_SCHLORRGO)
 			name = "fat schlorrgo"
@@ -135,7 +139,7 @@
 			icon_state = "schlorrgo_fat"
 			icon_living = "schlorrgo_fat"
 			icon_dead = "schlorrgo_fat_dead"
-			holder = /obj/item/holder/schlorrgo/fat
+			holder_type = /obj/item/holder/schlorrgo/fat
 
 		if(FAT_SCHLORRGO)
 			name = "massive schlorrgo"
@@ -160,7 +164,7 @@
 			mob_push_flags = ALLMOBS
 			a_intent = I_HURT
 			emote_sounds = list('sound/effects/creatures/schlorrgo_scream.ogg')
-			holder = null
+			holder_type = null
 
 		if(WIDE_SCHLORRGO)
 			name = "colossal schlorrgo"
@@ -187,7 +191,7 @@
 			mob_push_flags = ALLMOBS
 			a_intent = I_HURT
 			emote_sounds = list('sound/effects/creatures/schlorrgo_scream.ogg')
-			holder = null
+			holder_type = null
 
 	update_icon()
 
