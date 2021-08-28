@@ -1,0 +1,9 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Suit coolers now use charge a half the usual rate, doubling their lifespan."
+  - rscadd: "You can now toggle a suit cooler on or near your person on-and-off by alt-clicking it."
+  - rscadd: "Suit coolers now have on-mob sprites that reflect the current charge."
+  - bugfix: "Suit coolers now have suit storage slot sprites too."
