@@ -160,6 +160,12 @@ BLIND     // can't see anything
 
 	attack_self(usr)
 
+/obj/item/clothing/glasses/hud/health/aviator/visor
+	name = "medical HUD visor"
+	desc = "Modified visor glasses with a toggled health HUD. Comes with bonus prescription overlay."
+	icon_state = "visor_medhud"
+	off_state = "visor_medhud_off"
+
 /obj/item/clothing/glasses/science
 	name = "science goggles"
 	desc = "Used to protect your eyes against harmful chemicals!"
@@ -448,6 +454,12 @@ BLIND     // can't see anything
 	icon_state = "bigsunglasses"
 	item_state = "sun"
 
+/obj/item/clothing/glasses/sunglasses/visor
+	name = "visor sunglasses"
+	desc = "A pair of visor sunglasses."
+	icon_state = "visor"
+	item_state = "visor"
+
 //For style with no powergaming connotations.
 
 /obj/item/clothing/glasses/fakesunglasses
@@ -479,6 +491,12 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/fakesunglasses/big
 	icon_state = "bigsunglasses"
 	item_state = "sun"
+
+/obj/item/clothing/glasses/fakesunglasses/visor
+	name = "stylish visor sunglasses"
+	desc = "A pair of designer visor sunglasses."
+	icon_state = "visor"
+	item_state = "visor"
 
 /obj/item/clothing/glasses/welding
 	name = "welding goggles"
@@ -729,6 +747,13 @@ BLIND     // can't see anything
 	desc = "Idris security aviator glasses that can be switched between HUD and flash protection modes. They come with a built-in prescription overlay."
 	icon_state = "aviator_sec_idris"
 	off_state = "aviator_sec_idris_off"
+
+obj/item/clothing/glasses/sunglasses/sechud/aviator/visor
+	name = "security HUD visor"
+	desc = "NanoTrasen security visor glasses that can be switched between HUD and flash protection modes. They come with a built-in prescription overlay."
+	icon_state = "visor_sec"
+	off_state = "visor_sec_off"
+	item_state_slots = list(slot_r_hand_str = "visor_sec", slot_l_hand_str = "visor_sec")
 
 /obj/item/clothing/glasses/thermal
 	name = "optical thermal scanner"
