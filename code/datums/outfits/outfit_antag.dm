@@ -428,6 +428,7 @@
 		/obj/item/gun/energy/retro,
 		/obj/item/gun/projectile/silenced,
 		/obj/item/gun/projectile/colt,
+		/obj/item/gun/projectile/colt/super,
 		/obj/item/gun/projectile/revolver/deckard,
 		/obj/item/gun/projectile/revolver/lemat
 		)

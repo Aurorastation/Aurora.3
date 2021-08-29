@@ -116,6 +116,7 @@
 	from whole colonial systems to travelling super ships to mining and farming outposts. Most communities here are, although not as developed as many galactic powers, very \
 	tightly-knit. Almost anything and anyone can be found in these wild, mostly uncharted lands. "
 	demonym = "frontiersman"
+	consular_outfit = /datum/outfit/job/representative/consular/coalition
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -126,6 +127,14 @@
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR
 		)
+	)
+
+/datum/outfit/job/representative/consular/coalition
+	name = "Coalition Consular Officer"
+
+	backpack_contents = list(
+		/obj/item/device/camera = 1,
+		/obj/item/gun/projectile/colt/super = 1
 	)
 
 /datum/citizenship/elyra
