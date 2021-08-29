@@ -144,6 +144,14 @@
 	is \"For Greatness We Strive\". It's official language is Tau Ceti Basic, though several old-earth languages cling to life in small enclaves, such as arabic, persian, and farsi. \
 	The Republic has mixed relations with NanoTrasen, due to their own possession of phoron."
 	demonym = "elyrian"
+	consular_outfit = /datum/outfit/job/representative/consular/elyra
+
+/datum/outfit/job/representative/consular/elyra
+	name = "Elyra Consular Officer"
+
+	backpack_contents = list(
+		/obj/item/gun/projectile/plasma/bolter/pistol = 1
+	)
 
 /datum/citizenship/dominia
 	name = CITIZENSHIP_DOMINIA
