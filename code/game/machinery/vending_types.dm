@@ -1025,7 +1025,7 @@
 		/obj/item/ammo_magazine/mc9mmt = 6,
 		/obj/item/ammo_magazine/mc9mmt/rubber = 4,
 		/obj/item/gun/projectile/automatic/x9 = 2,
-		/obj/item/ammo_magazine/c45x = 6,
+		/obj/item/ammo_magazine/c45m/auto = 6,
 		/obj/item/ammo_magazine/a556 = 12,
 		/obj/item/ammo_magazine/a556/ap = 4,
 		/obj/item/material/knife/tacknife = 4,

@@ -28,7 +28,7 @@
 	)
 
 	belt_contents = list(
-		/obj/item/ammo_magazine/c45x = 3,
+		/obj/item/ammo_magazine/c45m/auto = 3,
 		/obj/item/device/flash = 1,
 		/obj/item/handcuffs/ziptie = 1,
 		/obj/item/melee/baton/stunrod = 1,
@@ -71,7 +71,7 @@
 	backpack_contents = list()
 
 	belt_contents = list(
-		/obj/item/ammo_magazine/c45x = 3,
+		/obj/item/ammo_magazine/c45m/auto = 3,
 		/obj/item/device/flash = 1,
 		/obj/item/handcuffs/ziptie = 1,
 		/obj/item/melee/baton/stunrod = 1,
