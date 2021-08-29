@@ -132,10 +132,13 @@
 
 /obj/item/gun/projectile/automatic/x9
 	name = "automatic .45 pistol"
-	desc = "The x9 tactical pistol is a lightweight fast firing handgun. Uses .45 rounds."
+	desc = "A NanoTrasen-designed sidearm, modified for fully-automatic fire. Issued to select security and law enforcement groups. Uses .45 rounds."
+	desc_fluff = "The NT Mk58 is a ballistic sidearm developed and produced by Nanotrasen. Bulky and heavy, the Mk58 is nonetheless used by security \
+	forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. \
+	A trademark of Nanotrasen security forces. This one has been modified for fully-automatic fire from the factory and sports a collapsible shoulder stock for better control. It uses .45 rounds."
 	icon = 'icons/obj/guns/x9.dmi'
-	icon_state = "x9tactical"
-	item_state = "x9"
+	icon_state = "secgunauto"
+	item_state = "secgunauto"
 	w_class = ITEMSIZE_NORMAL
 	accuracy = 1
 	offhand_accuracy = 1
@@ -145,11 +148,18 @@
 	caliber = ".45"
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
 	ammo_type = /obj/item/ammo_casing/c45
-	magazine_type = /obj/item/ammo_magazine/c45x
-	allowed_magazines = list(/obj/item/ammo_magazine/c45x)
+	magazine_type = /obj/item/ammo_magazine/c45m/auto
+	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 	multi_aim = 1
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+
+/obj/item/gun/projectile/automatic/x9/update_icon()
+	..()
+	if(ammo_magazine?.stored_ammo.len)
+		icon_state = "secgunauto"
+	else
+		icon_state = "secgunauto-e"
 
 /obj/item/gun/projectile/tanto
 	desc = "A Zavodskoi Interstellar Tanto .40, designed to compete with the NT Mk58. Uses 10mm rounds."

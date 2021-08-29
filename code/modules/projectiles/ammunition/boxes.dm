@@ -92,6 +92,15 @@
 	name = "magazine (.45 flash)"
 	ammo_type = /obj/item/ammo_casing/c45/flash
 
+/obj/item/ammo_magazine/c45m/auto
+	name = "extended magazine (.45)"
+	icon_state = "45a"
+	desc = "A NanoTrasen-produced extended magazine for their Mk58 line of pistols. \
+	The overall construction has been strengthened to withstand the rigors of fully-automatic fire."
+	ammo_type = /obj/item/ammo_casing/c45
+	max_ammo = 16
+	multiple_sprites = 1
+
 /obj/item/ammo_magazine/mc10mm
 	name = "magazine (10mm)"
 	icon_state = "5.56"
@@ -485,6 +494,11 @@
 	caliber = "plasma bolt"
 	ammo_type = /obj/item/ammo_casing/plasma_bolt
 	max_ammo = 30
+
+/obj/item/ammo_magazine/plasma/light/pistol
+	name = "tiny plasma cell"
+	ammo_type = /obj/item/ammo_casing/plasma_bolt
+	max_ammo = 15
 
 /obj/item/ammo_magazine/nuke
 	name = "nuclear launcher cartridge"
