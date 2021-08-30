@@ -477,6 +477,15 @@
 	to_chat(src, SPAN_NOTICE("You [C.toggled ? "disable" : "enable"] [C.name]."))
 	C.toggled = !C.toggled
 
+/mob/living/silicon/robot/verb/rebuild_overlays()
+	set category = "Robot Commands"
+	set name = "Rebuild Overlays"
+	set desc = "An OOC tool that rebuilds your overlays, useful if your talk bubble gets stuck to you."
+
+	cut_overlays()
+	handle_panel_overlay()
+	set_intent(a_intent)
+
 /obj/item/robot_module/janitor/verb/toggle_mop()
 	set category = "Robot Commands"
 	set name = "Toggle Mop"
