@@ -1,0 +1,19 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Broken airlock electronics are now classified as trash, which means maintenance drones can decompile them."
+  - rscadd: "Various stack items now make use of maptext to show how many things are left in the stack."
+  - tweak: "Activating a synthetic jetpack now activates both the thrusters and stabilizers."
+  - rscadd: "Examining maintenance, mining, and matriarch drone flavor text will now give an expanded description of their duties and interactions."
+  - rscadd: "You can now shut down mining drones by swiping your ID on them."
+  - rscadd: "Construction and matriarch drones can now pull larger objects."
+  - rscdel: "You can no longer swipe your ID on matriarch drones."
+  - rscadd: "Drone grippers now have a blacklist rather than a whitelist of items it can hold, meaning they can interact with more objects."
+  - bugfix: "Drone cameras should now be named properly."
+  - rscadd: "Stationbounds and drones now get a Rebuild Overlays button in the Robot Commands tab that lets them cut and rebuild their overlays, helping with the stuck talking indicator problem."
+  - tweak: "Drone inventories have been reorganized to make more sense."
+  - rscadd: "Drones now spawn with an engineering taperoll and an inflatables dispenser."
+  - rscadd: "Construction and matriarch drones now spawn with a mining drill."
+  - rscadd: "Drones can now activate disposal bins while sitting inside them."
