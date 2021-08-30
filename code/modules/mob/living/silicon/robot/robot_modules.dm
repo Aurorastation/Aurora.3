@@ -968,6 +968,7 @@ var/global/list/robot_modules = list(
 	modules += WT
 
 	modules += new /obj/item/tank/jetpack/carbondioxide/synthetic(src)
+	modules += new /obj/item/inflatable_dispenser(src)
 	modules += new /obj/item/rfd/piping/borg(src) // putting this here so it's next to the RFD-C on construction drones
 
 /obj/item/robot_module/drone/construction
