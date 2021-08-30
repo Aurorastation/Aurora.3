@@ -29,6 +29,8 @@
 		/obj/item/gift
 		)
 
+	var/list/cant_hold
+
 	var/obj/item/wrapped
 
 	var/force_holder
@@ -55,18 +57,17 @@
 /obj/item/gripper/proc/grip_item(var/obj/item/I, var/mob/user, var/feedback = 1)
 	//This function returns 1 if we successfully took the item, or 0 if it was invalid. This information is useful to the caller
 	if(!wrapped)
-		for(var/typepath in can_hold)
-			if(istype(I,typepath))
-				if(feedback)
-					to_chat(user, SPAN_NOTICE("You collect \the [I]."))
-				if(isturf(I.loc) && I.Adjacent(user))
-					I.do_pickup_animation(user)
-				I.forceMove(src)
-				wrapped = I
-				wrapped.pixel_x = 0
-				wrapped.pixel_y = 0
-				update_icon()
-				return TRUE
+		if((can_hold && is_type_in_list(I, can_hold)) || (cant_hold && !is_type_in_list(I, cant_hold)))
+			if(feedback)
+				to_chat(user, SPAN_NOTICE("You collect \the [I]."))
+			if(isturf(I.loc) && I.Adjacent(user))
+				I.do_pickup_animation(user)
+			I.forceMove(src)
+			wrapped = I
+			wrapped.pixel_x = 0
+			wrapped.pixel_y = 0
+			update_icon()
+			return TRUE
 		if(feedback)
 			to_chat(user, SPAN_WARNING("Your gripper cannot hold \the [I]."))
 		return FALSE
@@ -320,3 +321,15 @@
 		/obj/item/stack/material,
 		/obj/item/stack/tile
 		)
+
+/obj/item/gripper/multi_purpose
+	name = "multi-purpose gripper"
+	desc = "An articulate gripper suited to carrying a wide variety of objects you could encounter on a space-faring vessel."
+	can_hold = null
+	cant_hold = list(
+		/obj/item/stack,
+		/obj/item/gun,
+		/obj/item/storage,
+		/obj/item/modular_computer,
+		/obj/item/card/id
+	)
