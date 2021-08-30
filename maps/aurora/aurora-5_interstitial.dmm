@@ -5883,6 +5883,7 @@
 /obj/effect/floor_decal/corner/pink{
 	dir = 10
 	},
+/obj/item/tabloid,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay_virology)
 "rI" = (
@@ -6179,6 +6180,7 @@
 /obj/item/ladder_mobile{
 	pixel_y = 6
 	},
+/obj/item/tabloid,
 /turf/simulated/floor/plating,
 /area/maintenance/elevator)
 "tm" = (
@@ -6785,6 +6787,7 @@
 /obj/structure/table/wood,
 /obj/item/material/ashtray/bronze,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/item/tabloid,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/stairs)
 "xH" = (

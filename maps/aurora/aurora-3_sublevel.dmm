@@ -20658,6 +20658,7 @@
 	},
 /obj/item/folder/purple,
 /obj/item/taperoll/science,
+/obj/item/tabloid,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/hallway)
 "aQx" = (
@@ -23415,6 +23416,7 @@
 /area/maintenance/scisublevel)
 "baX" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
+/obj/item/tabloid,
 /turf/simulated/floor/plating,
 /area/maintenance/scisublevel)
 "baY" = (
@@ -33274,6 +33276,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
+"qEh" = (
+/obj/structure/table/glass,
+/obj/item/tabloid,
+/turf/simulated/floor/tiled/dark,
+/area/engineering/break_room)
 "qFn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -48790,7 +48797,7 @@ lYK
 ahL
 jhN
 akj
-swb
+qEh
 eEH
 aUh
 acj

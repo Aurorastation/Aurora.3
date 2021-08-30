@@ -5777,6 +5777,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/rum{
 	pixel_y = 7
 	},
+/obj/item/tabloid,
 /turf/simulated/floor/carpet,
 /area/shuttle/skipjack)
 "aLq" = (
@@ -6678,6 +6679,7 @@
 	table_reinf = "glass"
 	},
 /obj/item/device/laser_pointer/red,
+/obj/item/tabloid,
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "aRt" = (
@@ -11712,6 +11714,13 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/specops)
+"dIT" = (
+/obj/structure/table/standard,
+/obj/item/tabloid,
+/turf/unsimulated/floor{
+	icon_state = "wood_light"
+	},
+/area/centcom/holding)
 "dJe" = (
 /obj/item/reagent_containers/food/drinks/cans/cola,
 /obj/item/reagent_containers/food/drinks/cans/cola,
@@ -11930,6 +11939,8 @@
 /obj/structure/table/wood{
 	table_reinf = "wood"
 	},
+/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/breath/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "carpetnoconnect"
 	},
@@ -12603,6 +12614,7 @@
 	pixel_y = 5
 	},
 /obj/structure/table/standard,
+/obj/item/tabloid,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -13030,6 +13042,7 @@
 	},
 /obj/structure/table/stone/marble,
 /obj/random/booze,
+/obj/item/clothing/mask/breath/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -13204,6 +13217,7 @@
 	name = "station blueprints";
 	pixel_y = -8
 	},
+/obj/item/tabloid,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -14362,6 +14376,7 @@
 	name = "reinforced glass table";
 	table_reinf = "glass"
 	},
+/obj/item/tabloid,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -16672,6 +16687,7 @@
 "gGS" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/orange/diagonal,
+/obj/item/tabloid,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
@@ -21821,6 +21837,10 @@
 	pixel_y = -5
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/breath/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
@@ -25758,6 +25778,7 @@
 	pixel_x = 6;
 	pixel_y = 4
 	},
+/obj/item/tabloid,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -26124,6 +26145,8 @@
 	pixel_y = 2
 	},
 /obj/structure/table/reinforced/steel,
+/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/breath/vaurca/filter,
 /turf/unsimulated/floor,
 /area/antag/burglar)
 "mLp" = (
@@ -27887,6 +27910,7 @@
 	pixel_y = 3
 	},
 /obj/structure/table/reinforced,
+/obj/item/tabloid,
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
@@ -31252,6 +31276,21 @@
 	},
 /turf/unsimulated/floor,
 /area/antag/mercenary)
+"pXo" = (
+/obj/structure/table/reinforced/wood,
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = -4;
+	pixel_y = 19
+	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = 2;
+	pixel_y = 19
+	},
+/obj/item/tabloid,
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/bar)
 "pXr" = (
 /obj/effect/floor_decal/corner/paleblue,
 /turf/unsimulated/floor,
@@ -42275,6 +42314,14 @@
 	icon_state = "new_white"
 	},
 /area/centcom/legion)
+"xtv" = (
+/obj/structure/table/steel,
+/obj/item/clothing/mask/breath/vaurca/filter,
+/turf/unsimulated/floor{
+	icon = 'icons/turf/flooring/circuit.dmi';
+	icon_state = "bcircuit"
+	},
+/area/antag/wizard)
 "xtA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/reinforced,
@@ -52155,7 +52202,7 @@ aai
 aai
 aai
 aaA
-aaK
+xtv
 aaK
 aaK
 aai
@@ -71366,7 +71413,7 @@ eBz
 eBz
 cov
 eCE
-eOT
+pXo
 vpg
 eCE
 eOT
@@ -72931,7 +72978,7 @@ bQP
 qza
 kvZ
 typ
-uOR
+dIT
 bQP
 qxN
 nfY

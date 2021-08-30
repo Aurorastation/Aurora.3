@@ -5155,6 +5155,16 @@
 /obj/structure/closet/secure_closet/quartermaster,
 /turf/simulated/floor/tiled,
 /area/quartermaster/qm)
+"eHf" = (
+/obj/structure/table/standard{
+	name = "plastic table frame"
+	},
+/obj/item/tabloid,
+/turf/simulated/floor/tiled/dark{
+	name = "heated dark floor";
+	temperature = 303.15
+	},
+/area/crew_quarters/fitness/pool)
 "eHi" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/random/junk,
@@ -6873,6 +6883,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/store)
+"glc" = (
+/obj/structure/window/basic{
+	dir = 4
+	},
+/obj/structure/table/standard{
+	name = "plastic table frame"
+	},
+/obj/item/tabloid,
+/turf/simulated/floor/carpet,
+/area/security/vacantoffice)
 "gny" = (
 /obj/structure/bed/chair,
 /obj/machinery/firealarm/north,
@@ -9981,6 +10001,7 @@
 /area/hydroponics/garden)
 "iUY" = (
 /obj/structure/table/standard,
+/obj/item/tabloid,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/locker)
 "iVd" = (
@@ -13175,6 +13196,11 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
+"lLz" = (
+/obj/structure/table/wood,
+/obj/item/tabloid,
+/turf/simulated/floor/carpet,
+/area/hallway/secondary/entry/departure_lounge)
 "lLT" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -16633,6 +16659,7 @@
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
+/obj/item/tabloid,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "oQJ" = (
@@ -52537,7 +52564,7 @@ skS
 tvY
 nqS
 pbO
-teP
+lLz
 cVr
 vaJ
 fqp
@@ -55877,7 +55904,7 @@ jEn
 lgR
 xHd
 imn
-lgR
+glc
 lgR
 nDz
 ylG
@@ -61815,7 +61842,7 @@ vIp
 vIp
 tgT
 pzO
-lyR
+eHf
 uHO
 fdu
 fdu
@@ -62843,7 +62870,7 @@ jvp
 jvp
 mVh
 dOd
-lyR
+eHf
 uHO
 fdu
 fdu
