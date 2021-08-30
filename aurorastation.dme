@@ -885,6 +885,7 @@
 #include "code\game\objects\items\holomenu.dm"
 #include "code\game\objects\items\items_icon.dm"
 #include "code\game\objects\items\knitting.dm"
+#include "code\game\objects\items\magazine.dm"
 #include "code\game\objects\items\paintkit.dm"
 #include "code\game\objects\items\shooting_range.dm"
 #include "code\game\objects\items\skrell.dm"
