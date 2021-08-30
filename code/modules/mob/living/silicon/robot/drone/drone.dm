@@ -21,7 +21,7 @@
 /mob/living/silicon/robot/drone
 	// Look and feel
 	name = "maintenance drone"
-	var/desc_flavor = "It's a tiny little repair drone. The casing is stamped with an corporate logo and the subscript: '[current_map.company_name] Recursive Repair Systems: Fixing Tomorrow's Problem, Today!'<br><br><b>OOC Info:</b><br><br>Drones are player-controlled synthetics which are lawed to maintain the station and not interact with anyone else, except for other drones.<br><br>They hold a wide array of tools to build, repair, maintain, and clean. They function similarly to other synthetics, in that they require recharging regularly, have laws, and are resilient to many hazards, such as fire, radiation, vacuum, and more.<br><br>Ghosts can join the round as a maintenance drone by accessing the 'Ghost Spawner' menu in the 'Ghost' tab. An inactive drone can be rebooted by swiping an ID card on it with engineering or robotics access, and an active drone can be shut down in the same manner.<br><br>An antagonist can use an Electromagnetic Sequencer to corrupt their laws and make them follow their orders."
+	var/desc_flavor = "It's a tiny little repair drone. The casing is stamped with an corporate logo and the subscript: '%MAPNAME% Recursive Repair Systems: Fixing Tomorrow's Problem, Today!'<br><br><b>OOC Info:</b><br><br>Drones are player-controlled synthetics which are lawed to maintain the station and not interact with anyone else, except for other drones.<br><br>They hold a wide array of tools to build, repair, maintain, and clean. They function similarly to other synthetics, in that they require recharging regularly, have laws, and are resilient to many hazards, such as fire, radiation, vacuum, and more.<br><br>Ghosts can join the round as a maintenance drone by accessing the 'Ghost Spawner' menu in the 'Ghost' tab. An inactive drone can be rebooted by swiping an ID card on it with engineering or robotics access, and an active drone can be shut down in the same manner.<br><br>An antagonist can use an Electromagnetic Sequencer to corrupt their laws and make them follow their orders."
 	icon = 'icons/mob/robots.dmi'
 	icon_state = "repairbot"
 	braintype = "Robot"
@@ -117,6 +117,7 @@
 /mob/living/silicon/robot/drone/construction
 	// Look and feel
 	name = "construction drone"
+	desc_flavor = "It's a bulky construction drone stamped with a NanoTrasen glyph."
 	icon_state = "constructiondrone"
 
 	// Components
@@ -136,9 +137,34 @@
 
 	var/my_home_z
 
+/mob/living/silicon/robot/drone/construction/Initialize()
+	. = ..()
+	var/turf/T = get_turf(src)
+	my_home_z = T.z
+
+/mob/living/silicon/robot/drone/construction/welcome_drone()
+	to_chat(src, SPAN_NOTICE("<b>You are a construction drone, an autonomous engineering and fabrication system.</b>."))
+	to_chat(src, SPAN_NOTICE("You are assigned to a NanoTrasen construction project. The name is irrelevant. Your task is to complete construction and subsystem integration as soon as possible."))
+	to_chat(src, SPAN_NOTICE("Use <b>:d</b> to talk to other drones and <b>say</b> to speak silently to your nearby fellows."))
+	to_chat(src, SPAN_NOTICE("<b>You do not follow orders from anyone; not the AI, not humans, and not other synthetics.</b>."))
+
+/mob/living/silicon/robot/drone/construction/process_level_restrictions()
+	//Abort if they should not get blown
+	if(lock_charge || scrambled_codes || emagged)
+		return FALSE
+	//Check if they are not on a station level -> else abort
+	var/turf/T = get_turf(src)
+	if (!T || AreConnectedZLevels(my_home_z, T.z))
+		return FALSE
+
+	if(!self_destructing)
+		to_chat(src, SPAN_DANGER("WARNING: Removal from [current_map.company_name] property detected. Anti-Theft mode activated."))
+		start_self_destruct(TRUE)
+	return TRUE
+
 /mob/living/silicon/robot/drone/construction/matriarch
 	name = "matriarch drone"
-	desc_flavor = "It's a small matriarch drone. The casing is stamped with an corporate logo and the subscript: '[current_map.company_name] Recursive Repair Systems: Heart Of The Swarm!'<br><br><b>OOC Info:</b><br><br>Matriarch drones are player-controlled synthetics which are lawed to maintain the station and not interact with anyone else, except for other drones. They are in command of all the smaller maintenance drones.<br><br>They hold a wide array of tools to build, repair, maintain, and clean. They function similarly to other synthetics, in that they require recharging regularly, have laws, and are resilient to many hazards, such as fire, radiation, vacuum, and more.<br><br>Ghosts can join the round as a matriarch drone by having a Command whitelist and accessing the 'Ghost Spawner' menu in the 'Ghost' tab. An inactive drone can be rebooted by swiping an ID card on it with mining or robotics access, and an active drone can be shut down in the same manner.<br><br>An antagonist can use an Electromagnetic Sequencer to corrupt their laws and make them follow their orders."
+	desc_flavor = "It's a small matriarch drone. The casing is stamped with an corporate logo and the subscript: '%MAPNAME% Recursive Repair Systems: Heart Of The Swarm!'<br><br><b>OOC Info:</b><br><br>Matriarch drones are player-controlled synthetics which are lawed to maintain the station and not interact with anyone else, except for other drones. They are in command of all the smaller maintenance drones.<br><br>They hold a wide array of tools to build, repair, maintain, and clean. They function similarly to other synthetics, in that they require recharging regularly, have laws, and are resilient to many hazards, such as fire, radiation, vacuum, and more.<br><br>Ghosts can join the round as a matriarch drone by having a Command whitelist and accessing the 'Ghost Spawner' menu in the 'Ghost' tab. An inactive drone can be rebooted by swiping an ID card on it with command or robotics access, and an active drone can be shut down in the same manner.<br><br>An antagonist can use an Electromagnetic Sequencer to corrupt their laws and make them follow their orders."
 	law_type = /datum/ai_laws/matriarch_drone
 	req_access = list(access_heads, access_robotics)
 
@@ -199,7 +225,7 @@
 		module = new module_type(src, src)
 		recalculate_synth_capacities()
 
-	flavor_text = desc_flavor
+	flavor_text = replacetext(desc_flavor, "%MAPNAME%", current_map.company_name)
 	playsound(get_turf(src), 'sound/machines/twobeep.ogg', 50, 0)
 
 //Redefining some robot procs...
@@ -496,32 +522,6 @@
 
 /mob/living/silicon/robot/drone/set_respawn_time()
 	set_death_time(MINISYNTH, world.time)
-
-/mob/living/silicon/robot/drone/construction/Initialize()
-	. = ..()
-	var/turf/T = get_turf(src)
-	my_home_z = T.z
-	flavor_text = "It's a bulky construction drone stamped with a NanoTrasen glyph."
-
-/mob/living/silicon/robot/drone/construction/welcome_drone()
-	to_chat(src, SPAN_NOTICE("<b>You are a construction drone, an autonomous engineering and fabrication system.</b>."))
-	to_chat(src, SPAN_NOTICE("You are assigned to a NanoTrasen construction project. The name is irrelevant. Your task is to complete construction and subsystem integration as soon as possible."))
-	to_chat(src, SPAN_NOTICE("Use <b>:d</b> to talk to other drones and <b>say</b> to speak silently to your nearby fellows."))
-	to_chat(src, SPAN_NOTICE("<b>You do not follow orders from anyone; not the AI, not humans, and not other synthetics.</b>."))
-
-/mob/living/silicon/robot/drone/construction/process_level_restrictions()
-	//Abort if they should not get blown
-	if(lock_charge || scrambled_codes || emagged)
-		return FALSE
-	//Check if they are not on a station level -> else abort
-	var/turf/T = get_turf(src)
-	if (!T || AreConnectedZLevels(my_home_z, T.z))
-		return FALSE
-
-	if(!self_destructing)
-		to_chat(src, SPAN_DANGER("WARNING: Removal from [current_map.company_name] property detected. Anti-Theft mode activated."))
-		start_self_destruct(TRUE)
-	return TRUE
 
 /proc/too_many_active_drones()
 	var/drones = 0
