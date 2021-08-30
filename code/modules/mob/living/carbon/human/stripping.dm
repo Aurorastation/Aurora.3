@@ -9,9 +9,9 @@
 	if(ishuman(user))
 		// If you're a human and don't have hands, you shouldn't be able to strip someone.
 		var/mob/living/carbon/human/H = user
-		var/obj/item/organ/external/r_hand = H.organs_by_name[BP_L_HAND]
-		var/obj/item/organ/external/l_hand = H.organs_by_name[BP_R_HAND]
-		if((l_hand && !l_hand.is_usable()) && (r_hand && !r_hand.is_usable()))
+		var/obj/item/organ/external/l_hand = H.get_organ(BP_L_HAND)
+		var/obj/item/organ/external/r_hand = H.get_organ(BP_R_HAND)
+		if(!(l_hand && l_hand.is_usable()) && !(r_hand && r_hand.is_usable()))
 			to_chat(user, SPAN_WARNING("You can't do that without working hands!"))
 			return FALSE
 
