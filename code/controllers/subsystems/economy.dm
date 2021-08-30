@@ -15,7 +15,7 @@ var/datum/controller/subsystem/economy/SSeconomy
 	NEW_SS_GLOBAL(SSeconomy)
 
 /datum/controller/subsystem/economy/Initialize(timeofday)
-	next_account_number = 999999//testing// rand(111111, 999999)
+	next_account_number = rand(111111, 999999)
 
 	for(var/loc_type in typesof(/datum/trade_destination) - /datum/trade_destination)
 		var/datum/trade_destination/D = new loc_type
@@ -50,7 +50,7 @@ var/datum/controller/subsystem/economy/SSeconomy
 	station_account.account_number = next_account_number
 	next_account_number += rand(1,500)
 	if(next_account_number > 999999) //If we're hitting 7 digits, reset to the minimum and increase from there.
-		next_account_number = 111111 + rand(1,500) 
+		next_account_number = 111111 + rand(1,500)
 	station_account.remote_access_pin = rand(1111, 111111)
 	station_account.money = 75000
 
