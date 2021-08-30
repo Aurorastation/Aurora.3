@@ -131,7 +131,7 @@
 	law_type = /datum/ai_laws/construction_drone
 
 	// Interaction
-	can_pull_size = 5
+	can_pull_size = ITEMSIZE_IMMENSE
 	can_pull_mobs = MOB_PULL_SAME
 	holder_type = /obj/item/holder/drone/heavy
 
