@@ -1,0 +1,5 @@
+author: Desven
+delete-after: True
+changes:
+  - rscadd: "Added tabloid magazines."
+  - rscadd: "Added Vaurca filter ports to antag lairs."
