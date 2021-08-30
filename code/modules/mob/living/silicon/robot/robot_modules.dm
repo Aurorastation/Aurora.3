@@ -128,8 +128,8 @@ var/global/list/robot_modules = list(
 	for(var/datum/matter_synth/T in synths)
 		T.add_charge(T.recharge_rate * rate)
 
-	for(var/obj/item/stack/material/SM in modules)
-		SM.update_strings()
+	for(var/obj/item/stack/SM in modules)
+		SM.update_icon()
 
 /obj/item/robot_module/proc/rebuild()//Rebuilds the list so it's possible to add/remove items from the module
 	var/list/temp_list = modules
@@ -904,7 +904,6 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/extinguisher(src)
 	modules += new /obj/item/device/pipe_painter(src)
 	modules += new /obj/item/device/floor_painter(src)
-	modules += new /obj/item/tank/jetpack/carbondioxide/synthetic(src)
 	modules += new /obj/item/gripper/multi_purpose(src)
 	modules += new /obj/item/gripper/no_use/loader(src)
 
@@ -936,25 +935,9 @@ var/global/list/robot_modules = list(
 	G.synths = list(glass)
 	modules += G
 
-	var/obj/item/stack/rods/cyborg/R = new /obj/item/stack/rods/cyborg(src)
-	R.synths = list(metal)
-	modules += R
-
-	var/obj/item/stack/cable_coil/cyborg/C = new /obj/item/stack/cable_coil/cyborg(src)
-	C.synths = list(wire)
-	modules += C
-
-	var/obj/item/stack/tile/floor/cyborg/S = new /obj/item/stack/tile/floor/cyborg(src)
-	S.synths = list(metal)
-	modules += S
-
 	var/obj/item/stack/material/cyborg/glass/reinforced/RG = new (src)
 	RG.synths = list(metal, glass)
 	modules += RG
-
-	var/obj/item/stack/tile/wood/cyborg/WT = new /obj/item/stack/tile/wood/cyborg(src)
-	WT.synths = list(wood)
-	modules += WT
 
 	var/obj/item/stack/material/cyborg/wood/W = new (src)
 	W.synths = list(wood)
@@ -968,6 +951,23 @@ var/global/list/robot_modules = list(
 	CL.synths = list(cloth)
 	modules += CL
 
+	var/obj/item/stack/rods/cyborg/R = new /obj/item/stack/rods/cyborg(src)
+	R.synths = list(metal)
+	modules += R
+
+	var/obj/item/stack/cable_coil/cyborg/C = new /obj/item/stack/cable_coil/cyborg(src)
+	C.synths = list(wire)
+	modules += C
+
+	var/obj/item/stack/tile/floor/cyborg/S = new /obj/item/stack/tile/floor/cyborg(src)
+	S.synths = list(metal)
+	modules += S
+
+	var/obj/item/stack/tile/wood/cyborg/WT = new /obj/item/stack/tile/wood/cyborg(src)
+	WT.synths = list(wood)
+	modules += WT
+
+	modules += new /obj/item/tank/jetpack/carbondioxide/synthetic(src)
 	modules += new /obj/item/rfd/piping/borg(src) // putting this here so it's next to the RFD-C on construction drones
 
 /obj/item/robot_module/drone/construction

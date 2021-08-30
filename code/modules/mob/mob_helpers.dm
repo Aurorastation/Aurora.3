@@ -1254,3 +1254,21 @@ proc/is_blind(A)
 	voice_name = real_name
 	if(mind)
 		mind.name = real_name
+
+/mob/living/silicon/robot/set_name(var/new_name, var/prefix)
+	..()
+	if(mmi)
+		mmi.brainmob.name = real_name
+		mmi.brainmob.real_name = real_name
+		mmi.name = "[initial(mmi.name)]: [real_name]"
+
+	// We also need to update our internal ID
+	if(id_card)
+		if(prefix)
+			id_card.assignment = prefix
+		id_card.registered_name = real_name
+		id_card.update_name()
+
+	//We also need to update name of internal camera.
+	if(camera)
+		camera.c_tag = real_name
