@@ -103,20 +103,6 @@
 		to_chat(src, SPAN_DANGER("Interface error, you cannot exit the system at this time."))
 		to_chat(src, SPAN_WARNING("Ahelp to get back into your body, a bug has occurred."))
 
-/mob/living/carbon/human/virtual_reality/body_return()
-	set name = "Return to Body"
-	set category = "IC"
-
-	if(old_mob)
-		ckey_transfer(old_mob)
-		languages = list(all_languages[LANGUAGE_TCB])
-		to_chat(old_mob, SPAN_NOTICE("System exited safely, we hope you enjoyed your stay."))
-		old_mob = null
-		qdel(src)
-	else
-		to_chat(src, SPAN_DANGER("Interface error, you cannot exit the system at this time."))
-		to_chat(src, SPAN_WARNING("Ahelp to get back into your body, a bug has occurred."))
-
 /mob/living/proc/vr_mob_exit_languages()
 	languages = list(all_languages[LANGUAGE_TCB])
 
@@ -256,19 +242,3 @@
 		return
 
 	mind_transfer(user, bound[choice])
-
-/datum/controller/subsystem/virtualreality/proc/create_virtual_reality_avar(var/mob/living/carbon/human/user)
-	if(virtual_reality_spawn.len)
-		var/mob/living/carbon/human/virtual_reality/H = new /mob/living/carbon/human/virtual_reality(pick(virtual_reality_spawn))
-		H.set_species(user.species.name, 1)
-
-		H.gender = user.gender
-		H.dna = user.dna.Clone()
-		H.real_name = user.real_name
-		H.UpdateAppearance()
-
-		H.preEquipOutfit(/datum/outfit/admin/virtual_reality, FALSE)
-		H.equipOutfit(/datum/outfit/admin/virtual_reality, FALSE)
-
-		mind_transfer(user, H)
-		to_chat(H, SPAN_NOTICE("You are now in control of a virtual reality body. Dying will return you to your original body."))
