@@ -6,4 +6,4 @@
 	..()
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		SSvirtualreality.create_virtual_reality_avar(H)
+		SSvirtualreality.create_virtual_reality_avatar(H)

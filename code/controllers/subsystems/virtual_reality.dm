@@ -257,7 +257,7 @@
 
 	mind_transfer(user, bound[choice])
 
-/datum/controller/subsystem/virtualreality/proc/create_virtual_reality_avar(var/mob/living/carbon/human/user)
+/datum/controller/subsystem/virtualreality/proc/create_virtual_reality_avatar(var/mob/living/carbon/human/user)
 	if(virtual_reality_spawn.len)
 		var/mob/living/carbon/human/virtual_reality/H = new /mob/living/carbon/human/virtual_reality(pick(virtual_reality_spawn))
 		H.set_species(user.species.name, 1)
