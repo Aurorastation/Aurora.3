@@ -329,6 +329,7 @@
 	cant_hold = list(
 		/obj/item/stack,
 		/obj/item/gun,
+		/obj/item/clothing,
 		/obj/item/storage,
 		/obj/item/modular_computer,
 		/obj/item/card/id
