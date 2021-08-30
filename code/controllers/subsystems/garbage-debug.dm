@@ -640,7 +640,6 @@
 	SearchVar(rod_recipes)
 	SearchVar(NO_EMAG_ACT)
 	SearchVar(last_chew)
-	SearchVar(hazard_overlays)
 	SearchVar(tape_roll_applications)
 	SearchVar(malftransformermade)
 	SearchVar(MIN_ACTIVE_TIME)
