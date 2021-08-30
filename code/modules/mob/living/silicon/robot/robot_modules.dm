@@ -892,21 +892,21 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/drone/Initialize(mapload, mob/living/silicon/robot/robot)
 	. = ..()
-	modules += new /obj/item/weldingtool(src)
+	modules += new /obj/item/weldingtool/robotic(src)
 	modules += new /obj/item/screwdriver/robotic(src)
 	modules += new /obj/item/wrench/robotic(src)
 	modules += new /obj/item/crowbar/robotic(src)
 	modules += new /obj/item/wirecutters/robotic(src)
 	modules += new /obj/item/device/multitool/robotic(src)
+	modules += new /obj/item/taperoll/engineering(src)
 	modules += new /obj/item/device/lightreplacer(src)
 	modules += new /obj/item/soap/drone(src)
-	modules += new /obj/item/gripper/multi_purpose(src)
-	modules += new /obj/item/gripper/no_use/loader(src)
 	modules += new /obj/item/extinguisher(src)
-	modules += new /obj/item/rfd/piping/borg(src)
 	modules += new /obj/item/device/pipe_painter(src)
 	modules += new /obj/item/device/floor_painter(src)
 	modules += new /obj/item/tank/jetpack/carbondioxide/synthetic(src)
+	modules += new /obj/item/gripper/multi_purpose(src)
+	modules += new /obj/item/gripper/no_use/loader(src)
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(25000)
 	var/datum/matter_synth/glass = new /datum/matter_synth/glass(25000)
@@ -968,6 +968,8 @@ var/global/list/robot_modules = list(
 	CL.synths = list(cloth)
 	modules += CL
 
+	modules += new /obj/item/rfd/piping/borg(src) // putting this here so it's next to the RFD-C on construction drones
+
 /obj/item/robot_module/drone/construction
 	name = "construction drone module"
 	channels = list(CHANNEL_ENGINEERING = TRUE)
@@ -975,6 +977,7 @@ var/global/list/robot_modules = list(
 /obj/item/robot_module/drone/construction/Initialize()
 	. = ..()
 	modules += new /obj/item/rfd/construction/borg(src)
+	modules += new /obj/item/pickaxe/drill(src)
 
 /obj/item/robot_module/drone/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
 	var/obj/item/device/lightreplacer/LR = locate() in modules
