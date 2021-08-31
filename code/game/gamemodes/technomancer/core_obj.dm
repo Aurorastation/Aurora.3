@@ -154,7 +154,7 @@
 		M.update_inv_back()
 
 /obj/item/technomancer_core/verb/change(picked in clothing_choices)
-	set name = "Change Backpack Appearance"
+	set name = "Change Core Appearance"
 	set category = "Chameleon Items"
 	set src in usr
 
@@ -388,3 +388,18 @@
 
 	canremove = !canremove
 	to_chat(usr, "<span class='notice'>You [canremove ? "de" : ""]activate the locking mechanism on \the [src].</span>")
+
+/obj/item/technomancer_core/proc/reset_appearance()
+	set name = "Reset Core Appearance"
+	set category = "Chameleon Items"
+	set desc = "Resets the appearance of your technomancer core."
+
+	name = "manipulation core"
+	desc = "A bewilderingly complex 'black box' that allows the wearer to accomplish amazing feats."
+	icon_state = "technomancer_core"
+	item_state = "technomancer_core"
+	update_icon()
+	if (ismob(src.loc))
+		var/mob/M = src.loc
+		M.update_inv_back()
+
