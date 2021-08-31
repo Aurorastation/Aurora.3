@@ -26,7 +26,6 @@
 
 	unarmed_types = list(/datum/unarmed_attack/claws/shredding)
 	darksight = 8
-	has_organ = list()
 	siemens_coefficient = 0
 	rarity_value = 10
 
@@ -65,6 +64,10 @@
 
 	vision_flags = DEFAULT_SIGHT | SEE_MOBS
 
+	has_organ = list(
+		BP_EYES = /obj/item/organ/internal/eyes/night/revenant
+	)
+
 	has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest),
 		BP_GROIN =  list("path" = /obj/item/organ/external/groin),
@@ -86,7 +89,6 @@
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/shatter_light,
-		/mob/living/carbon/human/proc/darkness_eyes,
 		/mob/living/carbon/human/proc/dissolve
 	)
 
@@ -139,3 +141,14 @@
 		H.visible_message(SPAN_CULT("The [P.name] gets absorbed by [H]!"), SPAN_CULT("You absorb the [P.name]!"))
 		return -1
 	return ..()
+
+/obj/item/organ/internal/eyes/night/revenant
+	name = "spectral eyes"
+	desc = "A pair of glowing eyes. The ocular nerves still slowly writhe."
+	icon_state = "revenant_eyes"
+	eye_emote = null
+	vision_color = null
+	default_action_type = /datum/action/item_action/organ/night_eyes/rev
+
+/obj/item/organ/internal/eyes/night/revenant/flash_act()
+	return
