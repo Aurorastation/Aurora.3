@@ -139,7 +139,13 @@
 		qdel(ward)
 
 //I'm literally just lifting this from the chameleon backpack code lol
-/obj/item/technomancer_core/emp_act(severity) //Because we don't have psych for all slots right now but still want a downside to EMP.  In this case your cover's blown.
+/obj/item/technomancer_core/fill()
+	..()
+	if(!clothing_choices)
+		var/blocked = list(src.type, /obj/item/storage/backpack/satchel/withwallet)
+		clothing_choices = generate_chameleon_choices(/obj/item/storage/backpack, blocked)
+
+/obj/item/technomancer_core/emp_act(severity)
 	name = "manipulation core"
 	desc = "A bewilderingly complex 'black box' that allows the wearer to accomplish amazing feats."
 	icon_state = "technomancer_core"
