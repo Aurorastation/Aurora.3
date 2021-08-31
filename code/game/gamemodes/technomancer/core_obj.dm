@@ -138,6 +138,32 @@
 		wards_in_use -= ward
 		qdel(ward)
 
+//I'm literally just lifting this from the chameleon backpack code lol
+/obj/item/technomancer_core/emp_act(severity) //Because we don't have psych for all slots right now but still want a downside to EMP.  In this case your cover's blown.
+	name = "manipulation core"
+	desc = "A bewilderingly complex 'black box' that allows the wearer to accomplish amazing feats."
+	icon_state = "technomancer_core"
+	item_state = "technomancer_core"
+	update_icon()
+	if (ismob(src.loc))
+		var/mob/M = src.loc
+		M.update_inv_back()
+
+/obj/item/technomancer_core/verb/change(picked in clothing_choices)
+	set name = "Change Backpack Appearance"
+	set category = "Chameleon Items"
+	set src in usr
+
+	if(!ispath(clothing_choices[picked]))
+		return
+
+	disguise(clothing_choices[picked])
+
+	//so our overlays update.
+	if (ismob(src.loc))
+		var/mob/M = src.loc
+		M.update_inv_back()
+
 // This is what is clicked on to place a spell in the user's hands.
 /obj/spellbutton
 	name = "generic spellbutton"
