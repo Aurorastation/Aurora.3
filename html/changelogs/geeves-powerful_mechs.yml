@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Mech mounted firearms have been buffed. They now deal more damage and pierce through more armor."
+  - rscadd: "Projectiles hitting mechs now state which component they hit rather than using the humanoid limb naming system."
+  - rscadd: "Implemented an IFF system, currently only mech mounted weapons can enable them by cntrl clicking the weapon in the hotbar. IFF weapons will never hit a friendly that has the same IFF ID as you."
