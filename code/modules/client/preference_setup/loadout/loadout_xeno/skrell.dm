@@ -148,7 +148,7 @@
 	path = /obj/item/clothing/head/helmet/security/skrell
 	whitelisted = list(SPECIES_SKRELL)
 	sort_category = "Xenowear - Skrell"
-	allowed_roles = list(/datum/job/hos, /datum/job/warden, /datum/job/officer, /datum/job/investigator)
+	allowed_roles = list(/datum/job/hos, /datum/job/warden, /datum/job/officer, /datum/job/investigator, /datum/job/hop, /datum/job/captain)
 
 /*
 	Skrellian Social Score
