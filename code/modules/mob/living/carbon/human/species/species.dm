@@ -775,3 +775,6 @@
 			stance_damage -=2
 
 	return stance_damage
+
+/datum/species/proc/can_hold_s_store(var/obj/item/I)
+	return FALSE
