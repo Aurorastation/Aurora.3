@@ -23,6 +23,7 @@
 	var/list/appearances = list(	// Assoc list containing possible icon_states that the wiz can change the core to.
 		"default"			= "technomancer_core",
 		)
+	var/global/list/clothing_choices
 
 	// Some spell-specific variables go here, since spells themselves are temporary.  Cores are more long term and more accessable than
 	// mind datums.  It may also allow creative players to try to pull off a 'soul jar' scenario.
@@ -39,6 +40,9 @@
 		verbs += /obj/item/technomancer_core/proc/toggle_lock
 	else
 		canremove = FALSE
+	if(!clothing_choices)
+		var/blocked = list(src.type, /obj/item/storage/backpack/satchel/withwallet)
+		clothing_choices = generate_chameleon_choices(/obj/item/storage/backpack, blocked)
 
 /obj/item/technomancer_core/Destroy()
 	dismiss_all_summons()
@@ -139,12 +143,6 @@
 		qdel(ward)
 
 //I'm literally just lifting this from the chameleon backpack code lol
-/obj/item/technomancer_core/fill()
-	..()
-	if(!clothing_choices)
-		var/blocked = list(src.type, /obj/item/storage/backpack/satchel/withwallet)
-		clothing_choices = generate_chameleon_choices(/obj/item/storage/backpack, blocked)
-
 /obj/item/technomancer_core/emp_act(severity)
 	name = "manipulation core"
 	desc = "A bewilderingly complex 'black box' that allows the wearer to accomplish amazing feats."
