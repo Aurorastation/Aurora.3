@@ -396,8 +396,7 @@ var/list/global/slot_flags_enumeration = list(
 	"[slot_w_uniform]" = SLOT_ICLOTHING,
 	"[slot_wear_id]" = SLOT_ID,
 	"[slot_tie]" = SLOT_TIE,
-	"[slot_wrists]" = SLOT_WRISTS,
-	"[slot_s_store]" = SLOT_S_STORE
+	"[slot_wrists]" = SLOT_WRISTS
 	)
 
 //the mob M is attempting to equip this item into the slot passed through as 'slot'. Return 1 if it can do this and 0 if it can't.
@@ -463,16 +462,13 @@ var/list/global/slot_flags_enumeration = list(
 			if( w_class > 2 && !(slot_flags & SLOT_POCKET) )
 				return 0
 		if(slot_s_store)
-			var/can_hold_s_store = (slot_flags & SLOT_S_STORE)
-			if(!can_hold_s_store && H.species.can_hold_s_store(src))
-				can_hold_s_store = TRUE
-			if(can_hold_s_store)
+			if(isvaurca(H) && src.w_class <= ITEMSIZE_SMALL)
 				return TRUE
 			if(!H.wear_suit && (slot_wear_suit in mob_equip))
 				if(!disable_warning)
 					to_chat(H, "<span class='warning'>You need a suit before you can attach this [name].</span>")
 				return 0
-			if(!H.wear_suit?.allowed)
+			if(!H.wear_suit.allowed)
 				if(!disable_warning)
 					to_chat(usr, "<span class='warning'>You somehow have a suit with no defined allowed items for suit storage, stop that.</span>")
 				return 0

@@ -236,7 +236,7 @@
 	max_ammo = 15
 
 /obj/item/ammo_magazine/a556/carbine/empty
-	initial_ammo = 0
+	max_ammo = 0
 
 /obj/item/ammo_magazine/a556/carbine/practice
 	name = "carbine magazine (5.56mm practice)"
@@ -247,16 +247,6 @@
 	icon_state = "5.56APc"
 	origin_tech = list(TECH_COMBAT = 3)
 	ammo_type = /obj/item/ammo_casing/a556/ap
-
-/obj/item/ammo_magazine/a556/makeshift
-	name = "makeshift magazine (5.56mm)"
-	icon_state = "5.56m"
-	origin_tech = list(TECH_COMBAT = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 600)
-	max_ammo = 7
-
-/obj/item/ammo_magazine/a556/makeshift/empty
-	initial_ammo = 0
 
 /obj/item/ammo_magazine/a50
 	name = "magazine (.50)"

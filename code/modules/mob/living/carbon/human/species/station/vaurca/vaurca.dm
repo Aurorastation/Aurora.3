@@ -159,8 +159,3 @@
 	
 /datum/species/bug/is_naturally_insulated()
 	return TRUE
-
-/datum/species/bug/can_hold_s_store(obj/item/I)
-	if(I.w_class <= ITEMSIZE_SMALL)
-		return TRUE
-	return FALSE
