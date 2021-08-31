@@ -178,7 +178,7 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Bedhead 3"
 		icon_state = "hair_bedhead3"
 		chatname = "wavy hair"
-	
+
 	bedhead4
 		name = "Bedhead 4"
 		icon_state = "hair_bedhead4"
@@ -1727,6 +1727,8 @@ Follow by example and make good judgement based on length which list to include 
 
 /datum/sprite_accessory/hair_gradients
 	icon = 'icons/mob/hair_gradients.dmi'
+	species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,
+		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 	none
 		name = "None"
@@ -1765,7 +1767,7 @@ Follow by example and make good judgement based on length which list to include 
 	taj_inner_ear_fur
 		name = "Inner Ear Fur"
 		icon_state = "taj_innerearfur"
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan, /datum/species/zombie/tajara)
 
 	taj_msai_inner_ear_fur
 		name = "M'sai Inner Ear Fur"
@@ -4146,7 +4148,7 @@ Follow by example and make good judgement based on length which list to include 
 			lopsided
 				name = "Lopsided"
 				icon_state = "lopsided"
-			
+
 			helmethead
 				name = "Helmethead"
 				icon_state = "helmethead"
