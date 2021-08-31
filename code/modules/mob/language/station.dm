@@ -298,6 +298,21 @@
 	else
 		return ..()
 
+//Placeholder stuff for now, a lot of it
+/datum/language/elyran
+	name = LANGUAGE_ELYRAN_STANDARD
+	short = "ELY"
+	desc = "Placeholder description but it's Arabic and Farsi/Dari melded together into a cool and good future language for Elyra"
+	colour = "elyran"
+	written_style = "elyranstandard"
+	key = "4"
+	flags = WHITELISTED | TCOMSSIM
+	syllables = list("af", "if", "ba", "ta", "tha", "id", "jem", "ha", "kha", "dal", "dhl", "ra", "zay",
+		"sen", "um", "shn", "sid", "ad", "ta", "za", "ayn", "gha", "zir", "yn", "fa", "qaf",
+		"iam", "mim", "al", "ja", "non", "ha", "waw", "ya", "hem", "zah", "hml", "ks", "ini",
+		"da", "ks", "iga", "ih", "la", "ulf", "xe", "ayw", "'", "-")
+	allow_accents = TRUE
+
 /datum/language/machine
 	name = LANGUAGE_EAL
 	short = "EAL"
