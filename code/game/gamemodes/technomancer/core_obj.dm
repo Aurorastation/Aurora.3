@@ -43,6 +43,7 @@
 	if(!clothing_choices)
 		var/blocked = list(src.type, /obj/item/storage/backpack/satchel/withwallet)
 		clothing_choices = generate_chameleon_choices(/obj/item/storage/backpack, blocked)
+	verbs += /obj/item/technomancer_core/proc/reset_appearance
 
 /obj/item/technomancer_core/Destroy()
 	dismiss_all_summons()
