@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Revenant night vision is now located in the top left, like other nightvision abilities."
-  - bugfix: "Revenant night vision now properly works."
