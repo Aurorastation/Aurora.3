@@ -394,13 +394,10 @@
 	set name = "Reset Core Appearance"
 	set category = "Chameleon Items"
 	set desc = "Resets the appearance of your technomancer core."
+	set src in usr
 
-	name = "manipulation core"
-	desc = "A bewilderingly complex 'black box' that allows the wearer to accomplish amazing feats."
-	icon_state = "technomancer_core"
-	item_state = "technomancer_core"
-	update_icon()
+	disguise(/obj/item/technomancer_core)
+
 	if (ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_back()
-
