@@ -90,7 +90,6 @@
 			to_chat(user, "<span class='danger'>\The [src] jams!</span>")
 			balloon_alert(user, SPAN_RED("JAM"))
 			jam_num = rand(2, 5) // gotta attackself two to five times to unjam
-			return FALSE
 	return TRUE
 
 /obj/item/gun/projectile/proc/process_chambered()
