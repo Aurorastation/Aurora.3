@@ -36,6 +36,8 @@
 		/obj/item/reagent_containers/glass/bottle/perconol = 1
 		)
 
+	id_iff = IFF_IAC
+
 /datum/outfit/admin/ert/iac/get_id_access()
 	return get_distress_access()
 

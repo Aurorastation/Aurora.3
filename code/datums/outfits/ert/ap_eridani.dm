@@ -37,6 +37,8 @@
 		/obj/item/grenade/flashbang = 1
 	)
 
+	id_iff = IFF_ERIDANI
+
 /datum/outfit/admin/ert/ap_eridani/get_id_access()
 	return get_distress_access()
 

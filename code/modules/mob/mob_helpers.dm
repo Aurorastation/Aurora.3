@@ -1255,6 +1255,9 @@ proc/is_blind(A)
 	if(mind)
 		mind.name = real_name
 
+/mob/proc/get_organ_name_from_zone(var/def_zone)
+	return parse_zone(def_zone)
+
 /mob/living/silicon/robot/set_name(var/new_name, var/prefix)
 	..()
 	if(mmi)
