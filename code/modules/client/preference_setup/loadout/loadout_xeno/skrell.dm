@@ -143,6 +143,13 @@
 		J.species_tag = tag
 	return J
 
+/datum/gear/head/skrell_helmet
+	display_name = "Skrellmet"
+	path = /obj/item/clothing/head/helmet/security/skrell
+	whitelisted = list(SPECIES_SKRELL)
+	sort_category = "Xenowear - Skrell"
+	allowed_roles = list(/datum/job/hos, /datum/job/warden, /datum/job/officer, /datum/job/investigator)
+
 /*
 	Skrellian Social Score
 */
