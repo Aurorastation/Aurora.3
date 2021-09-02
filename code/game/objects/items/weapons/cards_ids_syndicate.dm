@@ -65,6 +65,8 @@
 	entries[++entries.len] = list("name" = "Name", 				"value" = registered_name)
 	entries[++entries.len] = list("name" = "Photo", 			"value" = "Update")
 	entries[++entries.len] = list("name" = "Sex", 				"value" = sex)
+	entries[++entries.len] = list("name" = "Citizenship",		"value" = citizenship)
+	entries[++entries.len] = list("name" = "Religion",			"value" = religion)
 	entries[++entries.len] = list("name" = "Factory Reset",		"value" = "Use With Care")
 	data["electronic_warfare"] = electronic_warfare
 	data["entries"] = entries
@@ -215,12 +217,25 @@
 					src.sex = new_sex
 					to_chat(user, "<span class='notice'>Sex changed to '[new_sex]'.</span>")
 					. = 1
+			if("Citizenship")
+				var/new_citizenship = sanitize(input(user,"Which citizenship would you like to put on this card?","Agent Card Citizenship", citizenship) as null|text)
+				if(!isnull(new_citizenship) && CanUseTopic(user,state))
+					src.citizenship = new_citizenship
+					to_chat(user, SPAN_NOTICE("Citizenship changed to '[new_citizenship]'."))
+					. = 1
+			if("Religion")
+				var/new_religion = sanitize(input(user,"What religion would you like to put on this card?","Agent Card Religion", religion) as null|text)
+				if(!isnull(new_religion) && CanUseTopic(user,state))
+					src.religion = new_religion
+					to_chat(user, SPAN_NOTICE("Religion changed to '[new_religion]'."))
+					. = 1
 			if("Factory Reset")
 				if(alert("This will factory reset the card, including access and owner. Continue?", "Factory Reset", "No", "Yes") == "Yes" && CanUseTopic(user, state))
 					age = initial(age)
 					access = syndicate_access.Copy()
 					assignment = initial(assignment)
 					blood_type = initial(blood_type)
+					citizenship = initial(citizenship)
 					dna_hash = initial(dna_hash)
 					electronic_warfare = initial(electronic_warfare)
 					fingerprint_hash = initial(fingerprint_hash)
@@ -228,6 +243,7 @@
 					name = initial(name)
 					registered_name = initial(registered_name)
 					unset_registered_user()
+					religion = initial(religion)
 					sex = initial(sex)
 					to_chat(user, "<span class='notice'>All information has been deleted from \the [src].</span>")
 					. = 1
