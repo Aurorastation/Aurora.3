@@ -606,6 +606,13 @@ mob/living/carbon/human/proc/change_monitor()
 
 	visible_message("<span class='danger'>\The [src] shrieks!</span>")
 	playsound(src.loc, 'sound/species/revenant/grue_screech.ogg', 100, 1)
+	for (var/mob/living/carbon/human/T in hearers(4, src) - src)
+		if(T.protected_from_sound())
+			continue
+		if (T.is_hearing_sensitive() == HEARING_VERY_SENSITIVE)
+			earpain(2, TRUE, 1)
+		else if (T in range(src, 2))
+			earpain(1, TRUE, 1)
 
 	for(var/obj/machinery/light/L in range(7))
 		L.broken()
@@ -1250,9 +1257,10 @@ mob/living/carbon/human/proc/change_monitor()
 	return TRUE
 
 /mob/living/carbon/human/proc/intent_listen(var/source,var/message)
-	if (is_listening())
-		var/sound_dir = angle2text(Get_Angle(get_turf(src), get_turf(source)))
-		to_chat(src, SPAN_WARNING(message + " from \the [sound_dir]."))
+	if(air_sound(src))
+		if (is_listening() && (ear_deaf <= 0 || !ear_deaf))
+			var/sound_dir = angle2text(Get_Angle(get_turf(src), get_turf(source)))
+			to_chat(src, SPAN_WARNING(message + " from \the [sound_dir]."))
 
 /mob/living/carbon/human/proc/listening_close()
 	set category = "Abilities"

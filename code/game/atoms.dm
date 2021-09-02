@@ -589,11 +589,12 @@
 		intent_message(intent_message, intent_range)
 
 /atom/proc/intent_message(var/message, var/range = 7)
-	var/list/mobs = get_mobs_or_objects_in_view(range, src, include_objects = FALSE)
-	for(var/mob/living/carbon/human/H as anything in intent_listener)
-		if(!is_type_in_list(H, mobs))
-			if(src.z == H.z && get_dist(src, H) <= range)
-				H.intent_listen(src, message)
+	if(air_sound(src))
+		var/list/mobs = get_mobs_or_objects_in_view(range, src, include_objects = FALSE)
+		for(var/mob/living/carbon/human/H as anything in intent_listener)
+			if(!is_type_in_list(H, mobs))
+				if(src.z == H.z && get_dist(src, H) <= range)
+					H.intent_listen(src, message)
 	
 /atom/proc/change_area(var/area/oldarea, var/area/newarea)
 	change_area_name(oldarea.name, newarea.name)
