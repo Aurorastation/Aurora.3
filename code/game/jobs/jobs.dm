@@ -53,6 +53,7 @@ var/const/ASSISTANT			=(1<<15)
 var/const/SUPPLY_MANAGER	=(1<<16)
 var/const/SUPPLY_TECH		=(1<<17)
 var/const/PROSPECTOR		=(1<<18)
+var/const/MANUFACTURING_TECH =(1<<19)
 
 
 var/list/command_positions = list(
