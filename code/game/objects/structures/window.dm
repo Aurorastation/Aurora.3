@@ -586,3 +586,8 @@
 	dir = 5
 	smooth = SMOOTH_TRUE
 	layer = 2.99
+
+/obj/structure/window/reinforced/polarized/full/dismantle_window()
+	new /obj/item/stack/material/steel(get_turf(src),rand(2,4))
+	new /obj/structure/window_frame/anchored
+	qdel(src)
