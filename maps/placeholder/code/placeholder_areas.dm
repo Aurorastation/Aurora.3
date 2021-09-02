@@ -199,3 +199,7 @@
 /area/engineering/atmos/propulsion/starboard
 	name = "Starboard Propulsion"
 	icon_state = "blue-red2"
+
+//Bridge
+/area/crew_quarters/heads/hop/xo
+	name = "Command - Executive Officer's Office"

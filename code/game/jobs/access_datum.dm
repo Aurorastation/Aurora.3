@@ -423,6 +423,7 @@ var/const/access_consular = 72
 	id = access_consular
 	desc = "Consular"
 
+
 /******************
 * Central Command *
 ******************/

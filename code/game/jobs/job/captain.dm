@@ -33,16 +33,16 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	head = /obj/item/clothing/head/caphat
 	glasses = /obj/item/clothing/glasses/sunglasses
 	id = /obj/item/card/id/gold
-	
+
 	headset = /obj/item/device/radio/headset/heads/captain
 	bowman = /obj/item/device/radio/headset/heads/captain/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/captain
 	wrist_radio = /obj/item/device/radio/headset/wrist/captain
-	
+
 	tab_pda = /obj/item/modular_computer/handheld/pda/command/captain
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/command/captain
 	tablet = /obj/item/modular_computer/handheld/preset/command/captain
-	
+
 	backpack_contents = list(
 		/obj/item/storage/box/ids = 1
 	)
@@ -112,16 +112,119 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	uniform = /obj/item/clothing/under/rank/head_of_personnel
 	shoes = /obj/item/clothing/shoes/brown
 	id = /obj/item/card/id/navy
-	
+
 	headset = /obj/item/device/radio/headset/heads/hop
 	bowman = /obj/item/device/radio/headset/heads/hop/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/hop
 	wrist_radio = /obj/item/device/radio/headset/wrist/hop
-	
+
 	tab_pda = /obj/item/modular_computer/handheld/pda/command/hop
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/command/hop
 	tablet = /obj/item/modular_computer/handheld/preset/command/hop
-	
+
+	backpack_contents = list(
+		/obj/item/storage/box/ids = 1
+	)
+
+	messengerbag = /obj/item/storage/backpack/messenger/com
+
+/datum/job/xo
+	title = "Executive Officer"
+	flag = XO
+	departments = list(DEPARTMENT_CIVILIAN = JOBROLE_SUPERVISOR, DEPARTMENT_COMMAND)
+	department_flag = ENGSEC
+	faction = "Station"
+	total_positions = 1
+	spawn_positions = 1
+	intro_prefix = "the"
+	supervisors = "the captain"
+	selection_color = "#90524b"
+	minimal_player_age = 10
+	economic_modifier = 10
+	ideal_character_age = 50
+
+	minimum_character_age = 30
+
+	outfit = /datum/outfit/job/xo
+
+	access = list(access_sec_doors, access_medical, access_engine, access_change_ids, access_eva, access_heads,
+			            access_all_personal_lockers, access_maint_tunnels, access_bar, access_janitor, access_construction,
+			            access_crematorium, access_kitchen, access_hydroponics,access_chapel_office, access_library, access_research,
+			            access_mining, access_mining_station, access_janitor, access_hop, access_RC_announce, access_keycard_auth,
+			            access_gateway, access_weapons, access_journalist)
+	minimal_access = list(access_sec_doors, access_medical, access_engine, access_change_ids, access_eva, access_heads,
+			            access_all_personal_lockers, access_maint_tunnels, access_bar, access_janitor, access_construction,
+			            access_crematorium, access_kitchen, access_cargo, access_cargo_bot, access_mailsorting, access_qm, access_hydroponics,
+			            access_chapel_office, access_library, access_research, access_mining, access_mining_station, access_janitor,
+			            access_hop, access_RC_announce, access_keycard_auth, access_gateway, access_weapons, access_journalist)
+
+	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_DIONA, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+
+/datum/outfit/job/xo
+	name = "Executive Officer"
+	jobtype = /datum/job/xo
+
+	uniform = /obj/item/clothing/under/rank/head_of_personnel
+	shoes = /obj/item/clothing/shoes/brown
+	id = /obj/item/card/id/navy
+
+	headset = /obj/item/device/radio/headset/heads/hop
+	bowman = /obj/item/device/radio/headset/heads/hop/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/hop
+	wrist_radio = /obj/item/device/radio/headset/wrist/hop
+
+	tab_pda = /obj/item/modular_computer/handheld/pda/command/hop
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/command/hop
+	tablet = /obj/item/modular_computer/handheld/preset/command/hop
+
+	backpack_contents = list(
+		/obj/item/storage/box/ids = 1
+	)
+
+	messengerbag = /obj/item/storage/backpack/messenger/com
+
+/datum/job/bridge_crew
+	title = "Bridge Officer"
+	flag = BRIDGE_CREW
+	departments = list(DEPARTMENT_COMMAND)
+	department_flag = CIVILIAN
+	faction = "Station"
+	total_positions = 3
+	spawn_positions = 3
+	intro_prefix = "the"
+	supervisors = "the executive officer and the captain"
+	selection_color = "#90524b"
+	minimal_player_age = 10
+	economic_modifier = 10
+	ideal_character_age = 50
+
+	minimum_character_age = 30
+
+	outfit = /datum/outfit/job/hop
+
+	access = list(access_change_ids, access_eva, access_heads,access_maint_tunnels, access_bar, access_cargo, access_cargo_bot,
+						access_RC_announce, access_keycard_auth, access_gateway, access_weapons, access_journalist)
+	minimal_access = list(access_eva, access_heads, access_gateway, access_weapons)
+
+	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_DIONA, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+
+/datum/outfit/job/bridge_crew
+	name = "Bridge Officer"
+	jobtype = /datum/job/bridge_crew
+
+	uniform = /obj/item/clothing/under/rank/head_of_personnel
+	shoes = /obj/item/clothing/shoes/brown
+	id = /obj/item/card/id/navy
+
+	headset = /obj/item/device/radio/headset/heads/hop
+	bowman = /obj/item/device/radio/headset/heads/hop/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/hop
+	wrist_radio = /obj/item/device/radio/headset/wrist/hop
+
+	tab_pda = /obj/item/modular_computer/handheld/pda/command/hop
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/command/hop
+	tablet = /obj/item/modular_computer/handheld/preset/command/hop
+
 	backpack_contents = list(
 		/obj/item/storage/box/ids = 1
 	)

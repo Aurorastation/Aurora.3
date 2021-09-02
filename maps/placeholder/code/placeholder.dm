@@ -66,6 +66,12 @@
 		/datum/shuttle/autodock/ferry/lift/placeholder/morgue
 	)
 
+	allowed_jobs = list(/datum/job/captain, /datum/job/xo, /datum/job/chief_engineer, /datum/job/cmo, /datum/job/hos, /datum/job/ai, /datum/job/cyborg,
+					/datum/job/bartender, /datum/job/chef, /datum/job/hydro, /datum/job/janitor, /datum/job/journalist, /datum/job/librarian, /datum/job/chaplain,
+					/datum/job/doctor, /datum/job/surgeon, /datum/job/pharmacist, /datum/job/psychiatrist, /datum/job/med_tech, /datum/job/intern_med,
+					/datum/job/engineer, /datum/job/atmos, /datum/job/intern_eng, /datum/job/warden, /datum/job/investigator, /datum/job/officer, /datum/job/intern_sec,
+					/datum/job/assistant)
+
 //datum/map/aurora/generate_asteroid()
 //	// Create the chasms.
 //	new /datum/random_map/automata/cave_system/chasms(null,0,0,3,255,255)

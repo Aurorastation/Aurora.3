@@ -4308,7 +4308,7 @@
 	},
 /area/centcom/control)
 "ajg" = (
-/obj/machinery/hologram/holopad/central,
+/obj/machinery/hologram/holopad,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -6283,56 +6283,51 @@
 	},
 /area/centcom/bar)
 "anf" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "4,22";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
+/turf/simulated/floor/tiled/dark,
+/area/supply/dock)
 "ang" = (
-/obj/structure/window/shuttle/unique/transfer{
-	icon_state = "5,22";
-	outside_window = 1
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1380;
+	id_tag = "supply_shuttle";
+	pixel_x = 25;
+	req_one_access = list(13,31);
+	tag_door = "supply_shuttle_hatch"
 	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "QMLoad"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/supply/dock)
 "anh" = (
-/obj/structure/window/shuttle/unique/transfer{
-	icon_state = "6,22";
-	outside_window = 1
+/obj/machinery/light/small{
+	dir = 8
 	},
-/turf/simulated/floor/plating,
-/area/shuttle/escape)
+/turf/simulated/floor/tiled/dark,
+/area/supply/dock)
 "ani" = (
-/obj/structure/window/shuttle/unique/transfer{
-	icon_state = "7,22";
-	outside_window = 1
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/escape)
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark,
+/area/supply/dock)
 "anj" = (
-/obj/structure/window/shuttle/unique/transfer{
-	icon_state = "8,22";
-	outside_window = 1
+/obj/machinery/door/airlock/centcom{
+	name = "Cargo Shuttle Cockpit";
+	req_access = list(108,109)
 	},
-/turf/simulated/floor/plating,
-/area/shuttle/escape)
+/turf/simulated/floor/tiled/dark,
+/area/supply/dock)
 "ank" = (
-/obj/structure/window/shuttle/unique/transfer{
-	icon_state = "9,22";
-	outside_window = 1
+/obj/structure/table/steel,
+/obj/machinery/light/small{
+	dir = 8
 	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
+/turf/simulated/floor/shuttle/black,
+/area/supply/dock)
 "anl" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "10,22";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
+/obj/structure/bed/chair/office/bridge/pilot,
+/turf/simulated/floor/shuttle/black,
+/area/supply/dock)
 "anm" = (
 /turf/unsimulated/wall/fakepdoor{
 	dir = 1;
@@ -6557,83 +6552,12 @@
 	},
 /area/centcom/evac)
 "anO" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "2,21";
-	name = "transport shuttle"
+/obj/structure/table/steel,
+/obj/machinery/light/small{
+	dir = 4
 	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"anP" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "3,21";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"anQ" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "4,21";
-	name = "transport shuttle";
-	opacity = 1
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"anR" = (
-/obj/structure/window/shuttle/unique/transfer{
-	icon_state = "5,21"
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"anS" = (
-/obj/structure/window/shuttle/unique/transfer{
-	icon_state = "6,21"
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"anT" = (
-/obj/machinery/computer/shuttle_control/emergency,
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"anU" = (
-/obj/structure/window/shuttle/unique/transfer{
-	icon_state = "8,21"
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"anV" = (
-/obj/structure/window/shuttle/unique/transfer{
-	icon_state = "9,21"
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"anW" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "10,21";
-	name = "transport shuttle";
-	opacity = 1
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"anX" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "11,21";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"anY" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "12,21";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
+/turf/simulated/floor/shuttle/black,
+/area/supply/dock)
 "anZ" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled,
@@ -6959,125 +6883,6 @@
 	icon_state = "wood"
 	},
 /area/centcom/evac)
-"aoK" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "1,20";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aoL" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "2,20";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aoM" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "3,20";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aoN" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "4,20";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aoO" = (
-/obj/structure/window/shuttle/unique/transfer{
-	density = 0;
-	icon_state = "5,20"
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"aoP" = (
-/obj/structure/table/reinforced/steel,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/item/paper_bin{
-	pixel_y = 4
-	},
-/obj/item/pen/multi{
-	pixel_y = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"aoQ" = (
-/obj/structure/bed/chair/office/bridge{
-	dir = 1
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"aoR" = (
-/obj/structure/table/reinforced/steel,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/item/reagent_containers/food/drinks/waterbottle{
-	pixel_x = 5;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/food/drinks/waterbottle{
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/food/drinks/waterbottle{
-	pixel_x = -5;
-	pixel_y = 5
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"aoS" = (
-/obj/structure/window/shuttle/unique/transfer{
-	density = 0;
-	icon_state = "9,20"
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"aoT" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "10,20";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aoU" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "11,20";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aoV" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "12,20";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aoW" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "13,20";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
 "aoX" = (
 /obj/structure/reagent_dispensers/lube,
 /turf/simulated/floor/tiled,
@@ -7418,108 +7223,6 @@
 	icon_state = "wood"
 	},
 /area/centcom/evac)
-"apO" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "1,19";
-	name = "transport shuttle";
-	opacity = 1
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"apP" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "2,19";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"apQ" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "3,19";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"apR" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "4,19";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"apS" = (
-/obj/item/modular_computer/console/preset/medical,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1380;
-	id_tag = "escape_shuttle";
-	pixel_x = -25;
-	req_one_access = list(13);
-	tag_door = "escape_shuttle_hatch"
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"apT" = (
-/obj/structure/bed/chair/office/bridge{
-	dir = 8
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"apU" = (
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/escape)
-"apV" = (
-/obj/structure/bed/chair/office/bridge{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"apW" = (
-/obj/item/modular_computer/console/preset/security,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"apX" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "10,19";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"apY" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "11,19";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"apZ" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "12,19";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aqa" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "13,19";
-	name = "transport shuttle";
-	opacity = 1
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
 "aqb" = (
 /obj/structure/plasticflaps{
 	layer = 2.6;
@@ -7808,86 +7511,6 @@
 	icon_state = "wood"
 	},
 /area/centcom/evac)
-"aqF" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "1,18";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aqG" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "2,18";
-	name = "transport shuttle";
-	outside_part = 0
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"aqH" = (
-/obj/machinery/status_display{
-	pixel_y = 32
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"aqI" = (
-/obj/structure/bed/chair/office/bridge,
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"aqJ" = (
-/obj/item/modular_computer/console/preset/research,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	layer = 5;
-	name = "adjusted window"
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"aqK" = (
-/obj/item/modular_computer/console/preset/engineering/ce,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	layer = 5;
-	name = "adjusted window"
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"aqL" = (
-/obj/structure/table/reinforced/steel,
-/obj/machinery/recharger{
-	pixel_y = 3
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"aqM" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "12,18";
-	name = "transport shuttle";
-	outside_part = 0
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"aqN" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "13,18";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aqO" = (
-/obj/structure/shuttle_part/transfer{
-	density = 0;
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "14,18";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
 "aqP" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -8139,44 +7762,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/unsimulated/floor,
 /area/centcom/evac)
-"arq" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "escape_shuttle_hatch";
-	locked = 1;
-	name = "Shuttle Hatch";
-	req_access = list(13)
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"arr" = (
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"ars" = (
-/obj/machinery/light,
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/escape)
-"art" = (
-/obj/structure/closet/walllocker/emerglocker/south,
-/obj/machinery/light,
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/escape)
-"aru" = (
-/obj/structure/window/shuttle/unique/transfer{
-	icon_state = "13,17"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"arv" = (
-/obj/structure/shuttle_part/transfer{
-	density = 0;
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "14,17";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
 "arw" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -8541,64 +8126,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/evac)
-"asm" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "1,16";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"asn" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "2,16";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aso" = (
-/obj/machinery/door/airlock/command{
-	name = "Cockpit";
-	req_access = list(19)
-	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/escape)
-"asp" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "4,16";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"asq" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "11,16";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"asr" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "12,16";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"ass" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "13,16";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"ast" = (
-/obj/structure/shuttle_part/transfer{
-	density = 0;
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "14,16";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
 "asu" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -9003,68 +8530,6 @@
 	icon_state = "plating"
 	},
 /area/centcom/evac)
-"att" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "1,14";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"atu" = (
-/obj/structure/bed/chair/shuttle,
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"atv" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/bed/chair/shuttle{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"atw" = (
-/obj/machinery/status_display{
-	pixel_y = 32
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/escape)
-"atx" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/bed/chair/shuttle{
-	dir = 8
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"aty" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/escape)
-"atz" = (
-/obj/structure/shuttle_part/transfer{
-	density = 0;
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "14,15";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
 "atA" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -9641,56 +9106,6 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/grass/alt,
 /area/centcom/evac)
-"auC" = (
-/obj/structure/closet/walllocker/emerglocker/west,
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"auD" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/bed/chair/shuttle{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"auE" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/bed/chair/shuttle{
-	dir = 8
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"auF" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/bed/chair/shuttle{
-	dir = 8
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"auG" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "13,8";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"auH" = (
-/obj/structure/shuttle_part/transfer{
-	density = 0;
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "14,14";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
 "auI" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
@@ -10140,22 +9555,6 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/grass/alt,
 /area/centcom/evac)
-"avE" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "1,13";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"avF" = (
-/obj/structure/shuttle_part/transfer{
-	density = 0;
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "14,13";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
 "avG" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -10901,43 +10300,6 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/unsimulated/floor,
 /area/centcom/control)
-"awS" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "1,12";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"awT" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"awU" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/structure/bed/chair/shuttle{
-	dir = 8
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"awV" = (
-/obj/structure/shuttle_part/transfer{
-	density = 0;
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "14,12";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
 "awW" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -11385,47 +10747,6 @@
 "axN" = (
 /turf/unsimulated/floor,
 /area/centcom/evac)
-"axO" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 6
-	},
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1380;
-	id_tag = "centcom_dock";
-	layer = 3.5;
-	name = "docking port controller";
-	pixel_x = 25;
-	req_one_access = list(13);
-	tag_door = "centcom_dock_airlock"
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/unsimulated/floor,
-/area/centcom/evac)
-"axP" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "1,11";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"axQ" = (
-/obj/machinery/camera/network/crescent{
-	c_tag = "Shuttle West";
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"axR" = (
-/obj/structure/shuttle_part/transfer{
-	density = 0;
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "14,11";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
 "axS" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -11779,7 +11100,7 @@
 	},
 /area/centcom/specops)
 "ayz" = (
-/obj/machinery/hologram/holopad/central,
+/obj/machinery/hologram/holopad,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -11980,61 +11301,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/evac)
-"ayQ" = (
-/obj/effect/shuttle_landmark/emergency/start,
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/escape)
-"ayR" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	layer = 5;
-	name = "adjusted window"
-	},
-/obj/structure/bed/chair/shuttle{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"ayS" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	layer = 5;
-	name = "adjusted window"
-	},
-/obj/structure/bed/chair/shuttle{
-	dir = 8
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"ayT" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	layer = 5;
-	name = "adjusted window"
-	},
-/obj/structure/bed/chair/shuttle{
-	dir = 8
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"ayU" = (
-/obj/structure/shuttle_part/transfer{
-	density = 0;
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "14,10";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
 "ayV" = (
 /turf/simulated/wall,
 /area/template_noop)
@@ -12550,19 +11816,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/evac)
-"azX" = (
-/obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"azY" = (
-/obj/structure/shuttle_part/transfer{
-	density = 0;
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "14,9";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
 "azZ" = (
 /turf/unsimulated/wall/fakeairlock{
 	icon = 'icons/obj/doors/Doorext.dmi';
@@ -12881,34 +12134,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/evac)
-"aAD" = (
-/obj/structure/closet/walllocker/emerglocker/south{
-	pixel_y = -27
-	},
-/obj/machinery/light,
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"aAE" = (
-/obj/machinery/light,
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"aAF" = (
-/obj/structure/closet/walllocker/emerglocker/east,
-/obj/structure/table/reinforced/steel,
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"aAG" = (
-/obj/structure/shuttle_part/transfer{
-	density = 0;
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "14,8";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
 "aAH" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 6
@@ -13345,99 +12570,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/evac)
-"aBn" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "1,7";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aBo" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "2,7";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aBp" = (
-/obj/machinery/door/airlock/glass_security{
-	name = "Secure Holding";
-	req_access = list(1)
-	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/escape)
-"aBq" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "4,7";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aBr" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "5,7";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aBs" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "6,7";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aBt" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "7,7";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aBu" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "8,7";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aBv" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "10,7";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aBw" = (
-/obj/machinery/door/airlock/glass_medical{
-	name = "Medical Bay";
-	req_access = list(5)
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
-"aBx" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "12,7";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aBy" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "13,7";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aBz" = (
-/obj/structure/shuttle_part/transfer{
-	density = 0;
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "14,7";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
 "aBA" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light{
@@ -14043,127 +13175,6 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/unsimulated/floor,
 /area/centcom/control)
-"aCg" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "1,6";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aCh" = (
-/obj/structure/bed/chair/shuttle{
-	dir = 4
-	},
-/obj/machinery/recharger/wallcharger{
-	pixel_x = 3;
-	pixel_y = 26
-	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/escape)
-"aCi" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/bed/chair/shuttle{
-	dir = 8
-	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/escape)
-"aCj" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/escape)
-"aCk" = (
-/obj/structure/bed/chair/shuttle{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/paleblue/diagonal{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/escape)
-"aCl" = (
-/obj/machinery/status_display{
-	pixel_y = -3
-	},
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "7,6";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aCm" = (
-/obj/machinery/portable_atmospherics/canister/oxygen/prechilled,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/window/southleft,
-/obj/machinery/atmospherics/portables_connector,
-/turf/simulated/floor/plating,
-/area/shuttle/escape)
-"aCn" = (
-/obj/machinery/atmospherics/unary/cryo_cell,
-/turf/simulated/floor/shuttle/white,
-/area/shuttle/escape)
-"aCo" = (
-/turf/simulated/floor/shuttle/white,
-/area/shuttle/escape)
-"aCp" = (
-/obj/item/storage/firstaid/brute,
-/obj/item/storage/firstaid/fire,
-/obj/item/storage/firstaid/o2,
-/obj/item/storage/firstaid/toxin,
-/obj/item/bodybag/cryobag,
-/obj/item/bodybag/cryobag,
-/obj/item/bodybag/cryobag,
-/obj/item/bodybag/cryobag,
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/storage/firstaid/regular,
-/obj/structure/closet/medical_wall{
-	pixel_x = 31;
-	pixel_y = 32
-	},
-/obj/item/reagent_containers/blood/OMinus,
-/turf/simulated/floor/shuttle/white,
-/area/shuttle/escape)
-"aCq" = (
-/obj/structure/bed/chair/shuttle{
-	dir = 8
-	},
-/turf/simulated/floor/shuttle/white,
-/area/shuttle/escape)
-"aCr" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "13,6";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aCs" = (
-/obj/structure/shuttle_part/transfer{
-	density = 0;
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "14,6";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
 "aCt" = (
 /obj/machinery/light/small/emergency{
 	dir = 8
@@ -14421,75 +13432,6 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/grass/alt,
 /area/centcom/evac)
-"aCQ" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "1,5";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aCR" = (
-/obj/structure/bed/chair/shuttle{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/escape)
-"aCS" = (
-/obj/machinery/door/window/brigdoor/eastright{
-	name = "Shuttle Brig"
-	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/escape)
-"aCT" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/escape)
-"aCU" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "7,5";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aCV" = (
-/obj/machinery/sleeper{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
-	},
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/shuttle/white,
-/area/shuttle/escape)
-"aCW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
-	},
-/turf/simulated/floor/shuttle/white,
-/area/shuttle/escape)
-"aCX" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "13,5";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aCY" = (
-/obj/structure/shuttle_part/transfer{
-	density = 0;
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "14,5";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
 "aCZ" = (
 /obj/item/gun/projectile/automatic/rifle/w556{
 	pixel_y = 6
@@ -14786,97 +13728,6 @@
 	icon_state = "wood_light"
 	},
 /area/centcom/evac)
-"aDz" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "1,4";
-	name = "transport shuttle";
-	opacity = 1
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aDA" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "2,4";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aDB" = (
-/obj/structure/table/reinforced/steel,
-/obj/machinery/light,
-/obj/structure/window/reinforced,
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/escape)
-"aDC" = (
-/obj/structure/table/reinforced/steel,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/item/storage/firstaid/regular{
-	pixel_x = 6;
-	pixel_y = -4
-	},
-/obj/item/reagent_containers/food/drinks/waterbottle{
-	pixel_x = -16;
-	pixel_y = -1
-	},
-/obj/item/reagent_containers/food/drinks/waterbottle{
-	layer = 2.99;
-	pixel_x = -9;
-	pixel_y = -1
-	},
-/obj/item/storage/box/fancy/cookiesnack{
-	layer = 2.98;
-	pixel_x = -1;
-	pixel_y = 4
-	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/escape)
-"aDD" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "7,4";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aDE" = (
-/obj/structure/table/standard,
-/obj/item/reagent_containers/glass/beaker/cryoxadone{
-	pixel_x = 5;
-	pixel_y = 4
-	},
-/obj/item/reagent_containers/spray/cleaner{
-	pixel_x = -6;
-	pixel_y = 4
-	},
-/turf/simulated/floor/shuttle/white,
-/area/shuttle/escape)
-"aDF" = (
-/obj/machinery/iv_drip,
-/turf/simulated/floor/shuttle/white,
-/area/shuttle/escape)
-"aDG" = (
-/obj/structure/bed/roller,
-/turf/simulated/floor/shuttle/white,
-/area/shuttle/escape)
-"aDH" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "12,4";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aDI" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "13,4";
-	name = "transport shuttle";
-	opacity = 1
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
 "aDJ" = (
 /obj/item/gun/energy/gun/nuclear{
 	pixel_y = -15
@@ -15059,101 +13910,6 @@
 	icon_state = "plating"
 	},
 /area/centcom/holding)
-"aDY" = (
-/obj/structure/shuttle_part/transfer{
-	density = 0;
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "1,3";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aDZ" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "2,3";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aEa" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "3,3";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aEb" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "4,3";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aEc" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "5,3";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aEd" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "6,3";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aEe" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "7,3";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aEf" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "8,3";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aEg" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "9,3";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aEh" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "10,3";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aEi" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "11,3";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aEj" = (
-/turf/simulated/wall/shuttle/unique/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "12,3";
-	name = "transport shuttle"
-	},
-/area/shuttle/escape)
-"aEk" = (
-/obj/structure/shuttle_part/transfer{
-	density = 0;
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "13,3";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
 "aEl" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin,
@@ -15553,140 +14309,6 @@
 	},
 /turf/simulated/floor/grass/alt,
 /area/centcom/holding)
-"aEM" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "0,2";
-	name = "transport shuttle"
-	},
-/obj/structure/shuttle_part/transfer{
-	density = 0;
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "0,3";
-	name = "transport shuttle";
-	pixel_y = 32
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aEN" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "1,2";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aEO" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "2,2";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aEP" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "3,2";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aEQ" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "4,2";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aER" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "5,2";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aES" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "6,2";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aET" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "7,2";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aEU" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "8,2";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aEV" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "9,2";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aEW" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "10,2";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aEX" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "11,2";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aEY" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "12,2";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aEZ" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "13,2";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aFa" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "14,2";
-	name = "transport shuttle"
-	},
-/obj/structure/shuttle_part/transfer{
-	density = 0;
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "14,3";
-	name = "transport shuttle";
-	pixel_y = 32
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
 "aFb" = (
 /turf/unsimulated/wall/fakeairlock{
 	icon = 'icons/obj/doors/Doorext.dmi';
@@ -15851,125 +14473,6 @@
 	icon_state = "rampbottom"
 	},
 /area/centcom/holding)
-"aFr" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "0,1";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aFs" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "1,1";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aFt" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "2,1";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aFu" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "3,1";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aFv" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aFw" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "5,1";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aFx" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "6,1";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aFy" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "7,1";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aFz" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "8,1";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aFA" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "9,1";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aFB" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "10,1";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aFC" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "11,1";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aFD" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "12,1";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aFE" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "13,1";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aFF" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "14,1";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
 "aFG" = (
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
@@ -16188,102 +14691,6 @@
 	icon_state = "rampbottom"
 	},
 /area/centcom/holding)
-"aGf" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "0,0";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aGg" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "1,0";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aGh" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "2,0";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aGi" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "3,0";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aGj" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "4,0";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aGk" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "5,0";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aGl" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "9,0";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aGm" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "10,0";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aGn" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "11,0";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aGo" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "12,0";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aGp" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "13,0";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
-"aGq" = (
-/obj/structure/shuttle_part/transfer{
-	desc = "A large, bloated shuttle designed for automated passenger transport.";
-	icon_state = "14,0";
-	name = "transport shuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/escape)
 "aGr" = (
 /turf/simulated/wall/shuttle/unique/ert{
 	icon_state = "0,3"
@@ -16946,74 +15353,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/spawning)
-"aHZ" = (
-/obj/structure/shuttle_part/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "0,6";
-	name = "autoshuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/arrival)
-"aIa" = (
-/obj/structure/shuttle_part/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "1,6";
-	name = "autoshuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/arrival)
-"aIb" = (
-/turf/simulated/wall/shuttle/unique/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "2,6";
-	name = "autoshuttle"
-	},
-/area/shuttle/arrival)
-"aIc" = (
-/turf/simulated/wall/shuttle/unique/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "3,6";
-	name = "autoshuttle"
-	},
-/area/shuttle/arrival)
-"aId" = (
-/obj/machinery/status_display/arrivals_display,
-/turf/simulated/wall/shuttle/unique/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "4,6";
-	name = "autoshuttle"
-	},
-/area/shuttle/arrival)
-"aIe" = (
-/turf/simulated/wall/shuttle/unique/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "4,6";
-	name = "autoshuttle"
-	},
-/area/shuttle/arrival)
-"aIf" = (
-/obj/structure/window/shuttle/unique/arrivals{
-	icon_state = "6,0"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/arrival)
-"aIg" = (
-/obj/structure/shuttle_part/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "12,6";
-	name = "autoshuttle";
-	opacity = 1
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/arrival)
-"aIh" = (
-/obj/structure/shuttle_part/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "13,6";
-	name = "autoshuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/arrival)
 "aIi" = (
 /turf/unsimulated/wall/fakepdoor{
 	dir = 1;
@@ -17034,114 +15373,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/holding)
-"aIl" = (
-/obj/structure/shuttle_part/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "0,5";
-	name = "autoshuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/arrival)
-"aIm" = (
-/obj/structure/shuttle_part/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "1,5";
-	name = "autoshuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/arrival)
-"aIn" = (
-/turf/simulated/wall/shuttle/unique/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "2,5";
-	name = "autoshuttle"
-	},
-/area/shuttle/arrival)
-"aIo" = (
-/obj/structure/closet/emcloset{
-	anchored = 1;
-	pixel_y = 2
-	},
-/obj/structure/window/reinforced/crescent{
-	dir = 8
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 8
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/arrival)
-"aIp" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/structure/closet/crate/trashcart{
-	anchored = 1;
-	pixel_y = 3
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/arrival)
-"aIq" = (
-/obj/structure/window/reinforced/crescent{
-	dir = 4
-	},
-/obj/structure/closet/emcloset{
-	anchored = 1;
-	pixel_y = 2
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/arrival)
-"aIr" = (
-/obj/structure/window/reinforced/crescent{
-	dir = 8
-	},
-/obj/structure/closet/emcloset{
-	anchored = 1;
-	pixel_y = 2
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 8
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/arrival)
-"aIs" = (
-/obj/structure/closet/crate/trashcart{
-	anchored = 1;
-	pixel_y = 3
-	},
-/obj/machinery/requests_console{
-	department = "Arrival shuttle";
-	pixel_y = 31
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/arrival)
-"aIt" = (
-/obj/structure/closet/crate/trashcart{
-	anchored = 1;
-	pixel_y = 3
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/arrival)
-"aIu" = (
-/turf/simulated/wall/shuttle/unique/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "12,5";
-	name = "autoshuttle"
-	},
-/area/shuttle/arrival)
-"aIv" = (
-/obj/structure/shuttle_part/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "13,5";
-	name = "autoshuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/arrival)
 "aIw" = (
 /turf/unsimulated/wall/darkshuttlewall,
 /area/centcom/ferry)
@@ -17222,71 +15453,6 @@
 "aIH" = (
 /turf/simulated/wall/elevator,
 /area/centcom/spawning)
-"aII" = (
-/obj/structure/shuttle_part/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "0,4";
-	name = "autoshuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/arrival)
-"aIJ" = (
-/obj/structure/shuttle_part/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "1,4";
-	name = "autoshuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/arrival)
-"aIK" = (
-/turf/simulated/wall/shuttle/unique/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "2,4";
-	name = "autoshuttle"
-	},
-/area/shuttle/arrival)
-"aIL" = (
-/obj/structure/bed/chair/shuttle{
-	dir = 4
-	},
-/obj/structure/window/reinforced/crescent{
-	dir = 8
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 8
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/arrival)
-"aIM" = (
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/arrival)
-"aIN" = (
-/obj/structure/bed/chair/shuttle{
-	dir = 8
-	},
-/obj/structure/window/reinforced/crescent{
-	dir = 4
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/arrival)
-"aIO" = (
-/turf/simulated/wall/shuttle/unique/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "12,4";
-	name = "autoshuttle"
-	},
-/area/shuttle/arrival)
-"aIP" = (
-/obj/structure/shuttle_part/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "13,4";
-	name = "autoshuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/arrival)
 "aIQ" = (
 /turf/unsimulated/wall/fakeairlock{
 	icon = 'icons/obj/doors/Doorext.dmi';
@@ -17473,48 +15639,6 @@
 	icon_state = "dark2"
 	},
 /area/centcom/spawning)
-"aJl" = (
-/obj/structure/shuttle_part/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "0,3";
-	name = "autoshuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/arrival)
-"aJm" = (
-/obj/structure/shuttle_part/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "1,3";
-	name = "autoshuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/arrival)
-"aJn" = (
-/turf/simulated/wall/shuttle/unique/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "2,3";
-	name = "autoshuttle"
-	},
-/area/shuttle/arrival)
-"aJo" = (
-/obj/effect/shuttle_landmark/arrival/start,
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/arrival)
-"aJp" = (
-/turf/simulated/wall/shuttle/unique/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "12,3";
-	name = "autoshuttle"
-	},
-/area/shuttle/arrival)
-"aJq" = (
-/obj/structure/shuttle_part/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "13,3";
-	name = "autoshuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/arrival)
 "aJr" = (
 /obj/machinery/light/small/emergency,
 /turf/unsimulated/floor/plating,
@@ -17771,78 +15895,6 @@
 	icon_state = "dark2"
 	},
 /area/centcom/spawning)
-"aJV" = (
-/obj/structure/shuttle_part/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "0,2";
-	name = "autoshuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/arrival)
-"aJW" = (
-/obj/structure/shuttle_part/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "1,2";
-	name = "autoshuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/arrival)
-"aJX" = (
-/turf/simulated/wall/shuttle/unique/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "2,2";
-	name = "autoshuttle"
-	},
-/area/shuttle/arrival)
-"aJY" = (
-/obj/structure/bed/chair/shuttle{
-	dir = 4
-	},
-/obj/structure/window/reinforced/crescent{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	layer = 5;
-	name = "adjusted window"
-	},
-/obj/effect/floor_decal/spline/plain,
-/obj/effect/floor_decal/spline/plain{
-	dir = 8
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/arrival)
-"aJZ" = (
-/obj/structure/bed/chair/shuttle{
-	dir = 8
-	},
-/obj/structure/window/reinforced/crescent{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	layer = 5;
-	name = "adjusted window"
-	},
-/obj/effect/floor_decal/spline/plain,
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/arrival)
-"aKa" = (
-/turf/simulated/wall/shuttle/unique/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "12,2";
-	name = "autoshuttle"
-	},
-/area/shuttle/arrival)
-"aKb" = (
-/obj/structure/shuttle_part/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "13,2";
-	name = "autoshuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/arrival)
 "aKc" = (
 /obj/effect/decal/fake_object{
 	color = "#545c68";
@@ -18012,111 +16064,6 @@
 	icon_state = "dark2"
 	},
 /area/centcom/spawning)
-"aKt" = (
-/obj/structure/shuttle_part/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "0,1";
-	name = "autoshuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/arrival)
-"aKu" = (
-/obj/structure/shuttle_part/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "1,1";
-	name = "autoshuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/arrival)
-"aKv" = (
-/turf/simulated/wall/shuttle/unique/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "2,1";
-	name = "autoshuttle"
-	},
-/area/shuttle/arrival)
-"aKw" = (
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/pottedplant{
-	icon_state = "plant-28";
-	pixel_x = -3
-	},
-/turf/simulated/floor/grass/alt,
-/area/shuttle/arrival)
-"aKx" = (
-/obj/structure/railing/mapped{
-	dir = 8;
-	name = "adjusted railing";
-	pixel_x = -8
-	},
-/turf/simulated/floor/shuttle/tan,
-/area/shuttle/arrival)
-"aKy" = (
-/obj/machinery/light{
-	icon_state = "tube1"
-	},
-/turf/simulated/floor/shuttle/tan,
-/area/shuttle/arrival)
-"aKz" = (
-/turf/simulated/floor/shuttle/tan,
-/area/shuttle/arrival)
-"aKA" = (
-/obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
-	pixel_y = -30
-	},
-/turf/simulated/floor/shuttle/tan,
-/area/shuttle/arrival)
-"aKB" = (
-/obj/structure/railing/mapped{
-	dir = 4;
-	name = "adjusted railing";
-	pixel_x = 8
-	},
-/turf/simulated/floor/shuttle/tan,
-/area/shuttle/arrival)
-"aKC" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	checks_for_access = 1;
-	frequency = 1380;
-	id_tag = "arrival_shuttle";
-	pixel_y = -25;
-	req_one_access = list(101);
-	tag_door = "arrival_shuttle_hatch"
-	},
-/obj/structure/flora/ausbushes/sparsegrass{
-	layer = 2.97
-	},
-/obj/structure/flora/ausbushes/fullgrass{
-	layer = 2.97
-	},
-/obj/structure/flora/pottedplant{
-	icon_state = "plant-01";
-	pixel_x = 2;
-	pixel_y = 3
-	},
-/obj/item/trash/coffee{
-	pixel_x = 12;
-	pixel_y = -10
-	},
-/turf/simulated/floor/grass/alt,
-/area/shuttle/arrival)
-"aKD" = (
-/turf/simulated/wall/shuttle/unique/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "12,1";
-	name = "autoshuttle"
-	},
-/area/shuttle/arrival)
-"aKE" = (
-/obj/structure/shuttle_part/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "13,1";
-	name = "autoshuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/arrival)
 "aKF" = (
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
@@ -18339,64 +16286,6 @@
 	},
 /turf/unsimulated/wall/darkshuttlewall,
 /area/centcom/spawning)
-"aLd" = (
-/obj/structure/shuttle_part/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "0,0";
-	name = "autoshuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/arrival)
-"aLe" = (
-/obj/structure/shuttle_part/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "1,0";
-	name = "autoshuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/arrival)
-"aLf" = (
-/turf/simulated/wall/shuttle/unique/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "2,0";
-	name = "autoshuttle"
-	},
-/area/shuttle/arrival)
-"aLg" = (
-/turf/simulated/wall/shuttle/unique/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "3,0";
-	name = "autoshuttle"
-	},
-/area/shuttle/arrival)
-"aLh" = (
-/obj/machinery/door/airlock/hatch{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "arrival_shuttle_hatch";
-	locked = 1;
-	name = "Shuttle Hatch";
-	req_access = list(13)
-	},
-/turf/simulated/floor/shuttle/tan,
-/area/shuttle/arrival)
-"aLi" = (
-/obj/structure/shuttle_part/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "12,0";
-	name = "autoshuttle";
-	opacity = 1
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/arrival)
-"aLj" = (
-/obj/structure/shuttle_part/arrivals{
-	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
-	icon_state = "13,0";
-	name = "autoshuttle"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/arrival)
 "aLk" = (
 /turf/unsimulated/wall/fakepdoor{
 	dir = 1;
@@ -19874,54 +17763,6 @@
 /area/centcom/start{
 	name = "Romanovich Cloud, Tau Ceti"
 	})
-"aOB" = (
-/obj/structure/shuttle_part/cargo{
-	icon_state = "0,11"
-	},
-/turf/unsimulated/floor/plating,
-/area/supply/dock)
-"aOC" = (
-/obj/structure/shuttle_part/cargo{
-	icon_state = "1,11";
-	opacity = 1
-	},
-/turf/unsimulated/floor/plating,
-/area/supply/dock)
-"aOD" = (
-/obj/structure/shuttle_part/cargo{
-	icon_state = "2,11";
-	opacity = 1
-	},
-/turf/unsimulated/floor/plating,
-/area/supply/dock)
-"aOE" = (
-/obj/structure/shuttle_part/cargo{
-	icon_state = "3,11";
-	opacity = 1
-	},
-/turf/unsimulated/floor/plating,
-/area/supply/dock)
-"aOF" = (
-/obj/structure/shuttle_part/cargo{
-	icon_state = "4,11";
-	opacity = 1
-	},
-/turf/unsimulated/floor/plating,
-/area/supply/dock)
-"aOG" = (
-/obj/structure/shuttle_part/cargo{
-	icon_state = "5,11";
-	opacity = 1
-	},
-/turf/unsimulated/floor/plating,
-/area/supply/dock)
-"aOH" = (
-/obj/structure/shuttle_part/cargo{
-	icon_state = "6,11";
-	opacity = 1
-	},
-/turf/unsimulated/floor/plating,
-/area/supply/dock)
 "aOI" = (
 /turf/unsimulated/wall/darkshuttlewall,
 /area/tdome/tdome2)
@@ -20092,53 +17933,55 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/suppy)
-"aOV" = (
-/obj/structure/shuttle_part/cargo{
-	icon_state = "0,10";
-	opacity = 1
-	},
-/turf/unsimulated/floor/plating,
-/area/supply/dock)
-"aOW" = (
-/turf/simulated/wall/shuttle/unique/cargo{
-	icon_state = "1,10"
-	},
-/area/supply/dock)
 "aOX" = (
-/obj/structure/shuttle_part/cargo{
-	icon_state = "2,10";
-	opacity = 1;
-	outside_part = 0
+/obj/machinery/conveyor{
+	id = "cargo_1"
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "supply_shuttle_hatch";
+	locked = 1;
+	name = "Shuttle Hatch";
+	req_access = list(13)
+	},
+/turf/simulated/floor/tiled/dark,
 /area/supply/dock)
 "aOY" = (
-/obj/structure/shuttle_part/cargo{
-	icon_state = "3,10";
-	opacity = 1;
-	outside_part = 0
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "supply_shuttle_hatch";
+	locked = 1;
+	name = "Shuttle Hatch";
+	req_access = list(13)
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/tiled/dark,
 /area/supply/dock)
 "aOZ" = (
-/obj/structure/shuttle_part/cargo{
-	icon_state = "4,10";
-	opacity = 1;
-	outside_part = 0
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "supply_shuttle_hatch";
+	locked = 1;
+	name = "Shuttle Hatch";
+	req_access = list(13)
 	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/supply/dock)
-"aPa" = (
-/turf/simulated/wall/shuttle/unique/cargo{
-	icon_state = "5,10"
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "QMLoad"
 	},
+/turf/simulated/floor/tiled/dark,
 /area/supply/dock)
 "aPb" = (
-/obj/structure/shuttle_part/cargo{
-	icon_state = "6,10";
-	opacity = 1
+/obj/structure/shuttle_part{
+	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi';
+	icon_state = "se2"
 	},
-/turf/unsimulated/floor/plating,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
 /area/supply/dock)
 "aPc" = (
 /obj/machinery/light{
@@ -20263,32 +18106,13 @@
 /obj/structure/banner/unmovable,
 /turf/unsimulated/floor,
 /area/centcom/spawning)
-"aPt" = (
-/turf/simulated/wall/shuttle/unique/cargo{
-	icon_state = "0,9"
-	},
-/area/supply/dock)
-"aPu" = (
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/supply/dock)
 "aPv" = (
-/turf/simulated/floor/shuttle/dark_blue,
-/area/supply/dock)
-"aPw" = (
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/conveyor{
+	id = "cargo_1";
+	layer = 2.9
 	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/supply/dock)
-"aPx" = (
-/turf/simulated/wall/shuttle/unique/cargo{
-	icon_state = "6,9"
-	},
+/turf/simulated/floor/tiled/dark,
 /area/supply/dock)
 "aPy" = (
 /obj/machinery/door/blast/regular{
@@ -20456,33 +18280,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
-"aPP" = (
-/turf/simulated/wall/shuttle/unique/cargo{
-	icon_state = "0,8"
-	},
-/area/supply/dock)
-"aPQ" = (
-/obj/machinery/conveyor{
-	dir = 4;
-	id = "QMLoad2"
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/supply/dock)
-"aPR" = (
-/obj/machinery/conveyor{
-	dir = 4;
-	id = "QMLoad2"
-	},
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "supply_shuttle_hatch";
-	locked = 1;
-	name = "Shuttle Hatch";
-	req_access = list(13)
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/supply/dock)
 "aPS" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
 /turf/simulated/floor,
@@ -20650,22 +18447,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
-"aQn" = (
-/turf/simulated/wall/shuttle/unique/cargo{
-	icon_state = "0,7"
-	},
-/area/supply/dock)
-"aQo" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "supply_shuttle_hatch";
-	locked = 1;
-	name = "Shuttle Hatch";
-	req_access = list(13)
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/supply/dock)
 "aQp" = (
 /obj/structure/table/rack,
 /obj/item/clothing/under/color/red,
@@ -20873,29 +18654,15 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
-"aQI" = (
-/turf/simulated/wall/shuttle/unique/cargo{
-	icon_state = "0,6"
-	},
-/area/supply/dock)
 "aQJ" = (
 /obj/effect/shuttle_landmark/supply/start,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/tiled/dark,
 /area/supply/dock)
 "aQK" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1380;
-	id_tag = "supply_shuttle";
-	pixel_x = 25;
-	req_one_access = list(13,31);
-	tag_door = "supply_shuttle_hatch"
+/obj/machinery/light/small{
+	dir = 4
 	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/supply/dock)
-"aQL" = (
-/turf/simulated/wall/shuttle/unique/cargo{
-	icon_state = "6,6"
-	},
+/turf/simulated/floor/tiled/dark,
 /area/supply/dock)
 "aQM" = (
 /obj/effect/landmark{
@@ -20995,9 +18762,8 @@
 	name = "Romanovich Cloud, Tau Ceti"
 	})
 "aQY" = (
-/turf/simulated/wall/shuttle/unique/cargo{
-	icon_state = "0,5"
-	},
+/obj/structure/window/shuttle/scc,
+/turf/simulated/floor/plating,
 /area/supply/dock)
 "aQZ" = (
 /obj/machinery/atmospherics/pipe/vent,
@@ -21056,33 +18822,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
-"aRg" = (
-/turf/simulated/wall/shuttle/unique/cargo{
-	icon_state = "0,4"
-	},
-/area/supply/dock)
-"aRh" = (
-/obj/machinery/conveyor{
-	dir = 4;
-	id = "QMLoad"
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/supply/dock)
-"aRi" = (
-/obj/machinery/conveyor{
-	dir = 4;
-	id = "QMLoad"
-	},
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "supply_shuttle_hatch";
-	locked = 1;
-	name = "Shuttle Hatch";
-	req_access = list(13)
-	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/supply/dock)
 "aRj" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
@@ -21164,16 +18903,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
-"aRp" = (
-/turf/simulated/wall/shuttle/unique/cargo{
-	icon_state = "0,3"
-	},
-/area/supply/dock)
-"aRq" = (
-/turf/simulated/wall/shuttle/unique/cargo{
-	icon_state = "6,3"
-	},
-/area/supply/dock)
 "aRr" = (
 /turf/simulated/floor,
 /area/tdome/tdome2)
@@ -21184,40 +18913,24 @@
 "aRt" = (
 /turf/simulated/floor,
 /area/tdome/tdome1)
-"aRu" = (
-/turf/simulated/wall/shuttle/unique/cargo{
-	icon_state = "0,2"
-	},
-/area/supply/dock)
-"aRv" = (
-/turf/simulated/wall/shuttle/unique/cargo{
-	icon_state = "1,2"
-	},
-/area/supply/dock)
 "aRw" = (
-/turf/simulated/wall/shuttle/unique/cargo{
-	icon_state = "2,2"
+/obj/structure/window/shuttle/scc{
+	icon_state = "c4"
 	},
+/turf/simulated/floor/plating,
 /area/supply/dock)
 "aRx" = (
-/turf/simulated/wall/shuttle/unique/cargo{
-	icon_state = "3,2"
-	},
+/obj/structure/computerframe,
+/turf/simulated/floor/shuttle/black,
 /area/supply/dock)
 "aRy" = (
-/turf/simulated/wall/shuttle/unique/cargo{
-	icon_state = "4,2"
+/obj/structure/window/shuttle/scc{
+	icon_state = "c5"
 	},
+/turf/simulated/floor/plating,
 /area/supply/dock)
 "aRz" = (
-/turf/simulated/wall/shuttle/unique/cargo{
-	icon_state = "5,2"
-	},
-/area/supply/dock)
-"aRA" = (
-/turf/simulated/wall/shuttle/unique/cargo{
-	icon_state = "6,2"
-	},
+/turf/simulated/wall/shuttle/scc/cardinal,
 /area/supply/dock)
 "aRB" = (
 /obj/machinery/door/airlock/command{
@@ -21251,46 +18964,27 @@
 	icon_state = "floor"
 	},
 /area/tdome/tdome1)
-"aRF" = (
-/obj/structure/shuttle_part/cargo{
-	icon_state = "0,1"
-	},
-/turf/unsimulated/floor/plating,
-/area/supply/dock)
-"aRG" = (
-/obj/structure/shuttle_part/cargo{
-	icon_state = "1,1"
-	},
-/turf/unsimulated/floor/plating,
-/area/supply/dock)
 "aRH" = (
-/obj/structure/shuttle_part/cargo{
-	icon_state = "2,1"
+/obj/structure/window/shuttle/scc{
+	icon_state = "c1"
 	},
-/turf/unsimulated/floor/plating,
+/turf/simulated/floor/plating,
 /area/supply/dock)
 "aRI" = (
-/obj/structure/shuttle_part/cargo{
-	icon_state = "3,1"
+/obj/structure/window/shuttle/scc{
+	icon_state = "c2"
 	},
-/turf/unsimulated/floor/plating,
+/turf/simulated/floor/plating,
 /area/supply/dock)
 "aRJ" = (
-/obj/structure/shuttle_part/cargo,
-/turf/unsimulated/floor/plating,
-/area/supply/dock)
-"aRK" = (
-/obj/structure/shuttle_part/cargo{
-	icon_state = "5,1"
+/obj/structure/window/shuttle/scc{
+	icon_state = "c3"
 	},
-/turf/unsimulated/floor/plating,
+/turf/simulated/floor/plating,
 /area/supply/dock)
 "aRL" = (
-/obj/structure/shuttle_part/cargo{
-	icon_state = "6,1"
-	},
-/turf/unsimulated/floor/plating,
-/area/supply/dock)
+/turf/simulated/floor/plating,
+/area/centcom/suppy)
 "aRM" = (
 /obj/effect/floor_decal/corner/red/full,
 /turf/unsimulated/floor{
@@ -21389,48 +19083,6 @@
 	icon_state = "dark2"
 	},
 /area/centcom/holding)
-"aRZ" = (
-/obj/structure/shuttle_part/cargo{
-	icon_state = "0,0"
-	},
-/turf/unsimulated/floor/plating,
-/area/supply/dock)
-"aSa" = (
-/obj/structure/shuttle_part/cargo{
-	icon_state = "1,0"
-	},
-/turf/unsimulated/floor/plating,
-/area/supply/dock)
-"aSb" = (
-/obj/structure/shuttle_part/cargo{
-	icon_state = "2,0"
-	},
-/turf/unsimulated/floor/plating,
-/area/supply/dock)
-"aSc" = (
-/obj/structure/shuttle_part/cargo{
-	icon_state = "3,0"
-	},
-/turf/unsimulated/floor/plating,
-/area/supply/dock)
-"aSd" = (
-/obj/structure/shuttle_part/cargo{
-	icon_state = "4,0"
-	},
-/turf/unsimulated/floor/plating,
-/area/supply/dock)
-"aSe" = (
-/obj/structure/shuttle_part/cargo{
-	icon_state = "5,0"
-	},
-/turf/unsimulated/floor/plating,
-/area/supply/dock)
-"aSf" = (
-/obj/structure/shuttle_part/cargo{
-	icon_state = "6,0"
-	},
-/turf/unsimulated/floor/plating,
-/area/supply/dock)
 "aSg" = (
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/unsimulated/floor{
@@ -60354,18 +58006,18 @@ aMO
 aNm
 aNR
 aOi
-aOB
-aOV
-aPt
-aPP
-aQn
-aQI
+aOi
+aPb
+aRz
+aRz
 aQY
-aRg
-aRp
-aRu
-aRF
-aRZ
+aRz
+aQY
+aRz
+aRz
+aRL
+aRL
+aOi
 aOi
 aNR
 aaa
@@ -60611,18 +58263,18 @@ aMP
 aNn
 aNR
 aOi
-aOC
-aOW
-aPu
-aPv
-aPv
-aPv
-aPv
-aPv
-aPu
-aRv
-aRG
-aSa
+aOi
+aRz
+aRz
+anh
+ani
+anh
+ani
+aRz
+aRz
+aRz
+aOi
+aOi
 aOi
 aNR
 aaa
@@ -60868,18 +58520,18 @@ aMQ
 aNo
 aNR
 aOi
-aOD
+aOi
 aOX
 aPv
-aPv
-aPv
-aPv
-aPv
-aPv
-aPv
+anf
+ani
+anf
+ani
+aRz
+ank
 aRw
 aRH
-aSb
+aOi
 aOi
 aNR
 aaa
@@ -61125,18 +58777,18 @@ aMQ
 aNo
 aNR
 aOh
-aOE
+aOi
 aOY
-aPv
-aPv
-aPv
+anf
+anf
+anf
 aQJ
-aPv
-aPv
-aPv
+anf
+anj
+anl
 aRx
 aRI
-aSc
+aOi
 aSm
 aNR
 aaa
@@ -61382,18 +59034,18 @@ aMQ
 aNp
 aNR
 aOi
-aOF
+aOi
 aOZ
-aPv
-aPv
-aPv
-aPv
-aPv
-aPv
-aPv
+ang
+anf
+ani
+anf
+ani
+aRz
+anO
 aRy
 aRJ
-aSd
+aOi
 aOi
 aNR
 aaa
@@ -61639,18 +59291,18 @@ aMQ
 aNq
 aNR
 aOi
-aOG
-aPa
-aPw
-aPQ
-aPv
-aQK
-aPv
-aRh
-aPw
+aOi
 aRz
-aRK
-aSe
+aRz
+aQK
+ani
+aQK
+ani
+aRz
+aRz
+aRz
+aOi
+aOi
 aOi
 aNR
 aaa
@@ -61896,18 +59548,18 @@ aMR
 aNr
 aNR
 aOi
-aOH
+aOi
 aPb
-aPx
-aPR
-aQo
-aQL
-aQo
-aRi
-aRq
-aRA
+aRz
+aRz
+aQY
+aRz
+aQY
+aRz
+aRz
 aRL
-aSf
+aRL
+aOi
 aOi
 aNR
 aaa
@@ -74974,7 +72626,7 @@ amF
 auB
 avD
 awR
-axO
+aBm
 ayP
 azW
 aAC
@@ -75240,9 +72892,9 @@ ats
 amF
 amF
 amF
-aEM
-aFr
-aGf
+amD
+amD
+amD
 aGK
 aHl
 aHA
@@ -75479,37 +73131,37 @@ adV
 amE
 amD
 amD
-aoK
-apO
-aqF
-arq
-asm
-att
-att
-avE
-awS
-axP
-arq
-arq
-arq
-aBn
-aCg
-aCQ
-aDz
-aDY
-aEN
-aFs
-aGg
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
 aGL
 amF
 aHA
-aHZ
-aIl
-aII
-aJl
-aJV
-aKt
-aLd
+aHA
+aHA
+aHA
+aHA
+aHA
+aHA
+aHA
 aLS
 aHA
 aMJ
@@ -75735,38 +73387,38 @@ ajs
 adV
 amD
 amD
-anO
-aoL
-apP
-aqG
-arr
-asn
-atu
-auC
-arr
-awT
-axQ
-arr
-arr
-arr
-aBo
-aCh
-aCR
-aDA
-aDZ
-aEO
-aFt
-aGh
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
 aGM
 amF
 aHA
-aIa
-aIm
-aIJ
-aJm
-aJW
-aKu
-aLe
+aHA
+aHA
+aHA
+aHA
+aHA
+aHA
+aHA
 aLS
 aHA
 aKY
@@ -75992,38 +73644,38 @@ ajs
 adV
 amD
 amD
-anP
-aoM
-apQ
-aqH
-apU
-aso
-apU
-apU
-apU
-apU
-apU
-ayQ
-apU
-arr
-aBp
-apU
-apU
-aDB
-aEa
-aEP
-aFu
-aGi
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
 aGN
 amF
 aHA
-aIb
-aIn
-aIK
-aJn
-aJX
-aKv
-aLf
+aHA
+aHA
+aHA
+aHA
+aHA
+aHA
+aHA
 aLS
 aHA
 aKY
@@ -76248,39 +73900,39 @@ adV
 adV
 adV
 amD
-anf
-anQ
-aoN
-apR
-aqI
-ars
-asp
-atv
-auD
-auD
-auD
-auD
-ayR
-apU
-arr
-aBq
-aCi
-aCS
-aDC
-aEb
-aEQ
-aFv
-aGj
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
 amD
 amF
 aHA
-aIc
-aIo
-aIL
-aIL
-aJY
-aKw
-aLg
+aHA
+aHA
+aHA
+aHA
+aHA
+aHA
+aHA
 aKY
 aKY
 aKY
@@ -76505,39 +74157,39 @@ ajt
 ajt
 adV
 amD
-ang
-anR
-aoO
-apS
-aqJ
-apU
-asq
-atw
-apU
-apU
-apU
-apU
-apU
-apU
-aAD
-aBr
-aCj
-aCT
-aCT
-aEc
-aER
-aFw
-aGk
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
 amD
 amF
 aHA
-aId
-aIp
-aIM
-aIM
-aIM
-aKx
-aLh
+aHA
+aHA
+aHA
+aHA
+aHA
+aHA
+aHA
 aLT
 aMo
 aLT
@@ -76762,39 +74414,39 @@ ajP
 ajt
 adV
 amD
-anh
-anS
-aoP
-apT
-apT
-apU
-asq
-atx
-auE
-auE
-auE
-auE
-ayS
-apU
-arr
-aBs
-aCk
-aCk
-aCk
-aEd
-aES
-aFx
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
 amD
 amD
 amF
 aHA
-aIe
-aIq
-aIN
-aIN
-aJZ
-aKy
-aIe
+aHA
+aHA
+aHA
+aHA
+aHA
+aHA
+aHA
 aKY
 aKY
 aKY
@@ -77019,39 +74671,39 @@ akZ
 ajt
 adV
 amD
-ani
-anT
-aoQ
-apU
-apU
-ars
-asq
-atv
-auD
-auD
-auD
-auD
-ayR
-apU
-arr
-aBt
-aCl
-aCU
-aDD
-aEe
-aET
-aFy
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
 amD
 amD
 amF
 aHA
-aIf
-aIr
-aIL
-aIL
-aJY
-aKz
-aIf
+aHA
+aHA
+aHA
+aHA
+aHA
+aHA
+aHA
 aLS
 aHA
 aKY
@@ -77276,39 +74928,39 @@ ajP
 ajt
 adV
 amD
-anj
-anU
-aoR
-apV
-apV
-apU
-asq
-aty
-apU
-apU
-apU
-apU
-apU
-apU
-aAE
-aBu
-aCm
-aCV
-aDE
-aEf
-aEU
-aFz
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
 amD
 amD
 amF
 aHA
-aIe
-aIs
-aIM
-aJo
-aIM
-aKA
-aIe
+aHA
+aHA
+aHA
+aHA
+aHA
+aHA
+aHA
 aLS
 aMp
 aMJ
@@ -77533,39 +75185,39 @@ ajP
 ajt
 adV
 amD
-ank
-anV
-aoS
-apW
-aqK
-apU
-asq
-atx
-auE
-auE
-auE
-auE
-ayS
-apU
-arr
-aBv
-aCn
-aCW
-aDF
-aEg
-aEV
-aFA
-aGl
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
 amD
 amF
 aHA
-aIf
-aIq
-aIN
-aIN
-aJZ
-aKz
-aIf
+aHA
+aHA
+aHA
+aHA
+aHA
+aHA
+aHA
 aLS
 aHA
 aKY
@@ -77790,39 +75442,39 @@ ajt
 ajt
 adV
 amD
-anl
-anW
-aoT
-apX
-aqL
-art
-asq
-atv
-auD
-auD
-auD
-auD
-ayR
-apU
-arr
-aBw
-aCo
-aCo
-aDG
-aEh
-aEW
-aFB
-aGm
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
 amD
 amF
 aHA
-aIe
-aIr
-aIL
-aIL
-aJY
-aKy
-aIe
+aHA
+aHA
+aHA
+aHA
+aHA
+aHA
+aHA
 aKY
 aKY
 aKY
@@ -78048,38 +75700,38 @@ adV
 adV
 amD
 amD
-anX
-aoU
-apY
-aqI
-apU
-asq
-atw
-apU
-apU
-apU
-apU
-apU
-apU
-arr
-aBw
-aCp
-aCo
-aDG
-aEi
-aEX
-aFC
-aGn
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
 amD
 amF
 aHA
-aId
-aIt
-aIM
-aIM
-aIM
-aKB
-aLh
+aHA
+aHA
+aHA
+aHA
+aHA
+aHA
+aHA
 aLT
 aMo
 aLT
@@ -78305,38 +75957,38 @@ alB
 adV
 amD
 amD
-anY
-aoV
-apZ
-aqM
-arr
-asr
-atx
-auF
-auE
-awU
-auE
-ayT
-azX
-aAF
-aBx
-aCq
-aCq
-aDH
-aEj
-aEY
-aFD
-aGo
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
 aGN
 amF
 aHA
-aIe
-aIq
-aIN
-aIN
-aJZ
-aKC
-aIe
+aHA
+aHA
+aHA
+aHA
+aHA
+aHA
+aHA
 aKY
 aKY
 aKY
@@ -78563,37 +76215,37 @@ adV
 amD
 amD
 amD
-aoW
-aqa
-aqN
-aru
-ass
-aru
-auG
-aru
-auG
-aru
-auG
-aru
-auG
-aBy
-aCr
-aCX
-aDI
-aEk
-aEZ
-aFE
-aGp
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
 amD
 amF
 aHA
-aIg
-aIu
-aIO
-aJp
-aKa
-aKD
-aLi
+aHA
+aHA
+aHA
+aHA
+aHA
+aHA
+aHA
 aLS
 aHA
 aMJ
@@ -78822,35 +76474,35 @@ amD
 amD
 amD
 amD
-aqO
-arv
-ast
-atz
-auH
-avF
-awV
-axR
-ayU
-azY
-aAG
-aBz
-aCs
-aCY
 amD
 amD
-aFa
-aFF
-aGq
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
+amD
 amD
 amF
 aHA
-aIh
-aIv
-aIP
-aJq
-aKb
-aKE
-aLj
+aHA
+aHA
+aHA
+aHA
+aHA
+aHA
+aHA
 aLS
 aHA
 aKY

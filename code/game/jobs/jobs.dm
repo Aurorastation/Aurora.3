@@ -13,6 +13,8 @@ var/const/AI				=(1<<8)
 var/const/CYBORG			=(1<<9)
 var/const/INTERN_SEC		=(1<<10)
 var/const/INTERN_ENG		=(1<<11)
+var/const/XO				=(1<<12)
+var/const/BRIDGE_CREW		=(1<<12)
 
 var/const/MEDSCI			=(1<<1)
 
@@ -49,6 +51,10 @@ var/const/CONSULAR			=(1<<12)
 var/const/MERCHANT			=(1<<13)
 var/const/JOURNALIST		=(1<<14)
 var/const/ASSISTANT			=(1<<15)
+var/const/SUPPLY_MANAGER	=(1<<16)
+var/const/SUPPLY_TECH		=(1<<17)
+var/const/PROSPECTOR		=(1<<18)
+var/const/MANUFACTURING_TECH =(1<<19)
 
 
 var/list/command_positions = list(
@@ -57,13 +63,15 @@ var/list/command_positions = list(
 	"Head of Security",
 	"Chief Engineer",
 	"Research Director",
-	"Chief Medical Officer"
+	"Chief Medical Officer",
+	"Executive Officer",
+	"Supply Manager"
 )
 
 
 var/list/engineering_positions = list(
 	"Chief Engineer",
-	"Station Engineer",
+	"Engineer",
 	"Atmospheric Technician",
 	"Engineering Apprentice"
 )
@@ -92,7 +100,11 @@ var/list/science_positions = list(
 var/list/cargo_positions = list(
 	"Quartermaster",
 	"Cargo Technician",
-	"Shaft Miner"
+	"Shaft Miner",
+	"Supply Manager",
+	"Supply Technician",
+	"Prospector",
+	"Manufacturing Technician"
 )
 
 var/list/civilian_positions = list(
@@ -107,7 +119,8 @@ var/list/civilian_positions = list(
 	"Corporate Reporter",
 	"Chaplain",
 	"Assistant",
-	"Visitor"
+	"Visitor",
+	"Bridge Officer"
 )
 
 
