@@ -423,10 +423,6 @@ var/const/access_consular = 72
 	id = access_consular
 	desc = "Consular"
 
-var/const/access_pilot = 73
-/datum/access/pilot
-	id = access_pilot
-	desc = "Pilot"
 
 /******************
 * Central Command *

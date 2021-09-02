@@ -502,8 +502,7 @@
 	maxhealth = 500
 	smooth = SMOOTH_MORE|SMOOTH_DIAGONAL
 	canSmoothWith = list(
-		/obj/structure/window/shuttle/scc_space_ship,
-		/turf/simulated/wall/shuttle/scc_space_ship
+		/obj/structure/window/shuttle/scc_space_ship
 	)
 
 /obj/structure/window/shuttle/scc_space_ship/cardinal

@@ -141,6 +141,11 @@
 	icon_state = "hop_cypherkey"
 	channels = list(CHANNEL_SUPPLY = TRUE, CHANNEL_SERVICE = TRUE, CHANNEL_COMMAND = TRUE, CHANNEL_SECURITY = TRUE, CHANNEL_PENAL = TRUE)
 
+/obj/item/device/encryptionkey/heads/xo
+	name = "executive officer's encryption key"
+	icon_state = "hop_cypherkey"
+	channels = list(CHANNEL_SERVICE = TRUE, CHANNEL_COMMAND = TRUE, CHANNEL_SECURITY = TRUE, CHANNEL_PENAL = TRUE)
+
 /obj/item/device/encryptionkey/headset_cargo
 	name = "supply radio encryption key"
 	icon_state = "cargo_cypherkey"

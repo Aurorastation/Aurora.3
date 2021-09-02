@@ -84,7 +84,7 @@
 		if(slot_flags & SLOT_TWOEARS)
 			var/obj/item/clothing/ears/OE = (H.l_ear == src ? H.r_ear : H.l_ear)
 			qdel(OE)
-	
+
 	..()
 
 /obj/item/device/radio/headset/attackby(obj/item/W, mob/user)
@@ -200,7 +200,7 @@
 	to_chat(usr, SPAN_NOTICE("\The [src] will now layer [normal_layer ? "under" : "over"] your outerwear."))
 	if (ismob(src.loc))
 		var/mob/M = src.loc
-		M.update_inv_wrists()	
+		M.update_inv_wrists()
 
 /*
  * Civillian
@@ -251,6 +251,29 @@
 	icon_state = "wristset_HoP"
 	item_state = "wristset_HoP"
 	ks2type = /obj/item/device/encryptionkey/heads/hop
+
+/obj/item/device/radio/headset/heads/xo
+	name = "executive officer's headset"
+	desc = "The headset of the guy who will one day be captain."
+	icon_state = "hop_headset"
+	ks2type = /obj/item/device/encryptionkey/heads/hop
+
+/obj/item/device/radio/headset/heads/hop/xo
+	name = "executive officer's bowman headset"
+	icon_state = "hop_headset_alt"
+	item_state = "headset_alt"
+
+/obj/item/device/radio/headset/alt/double/xo
+	name = "executive officer's soundproof headset"
+	icon_state = "earset_HoP"
+	item_state = "earset_HoP"
+	ks2type = /obj/item/device/encryptionkey/heads/xo
+
+/obj/item/device/radio/headset/wrist/hop
+	name = "executive officer's wristbound radio"
+	icon_state = "wristset_HoP"
+	item_state = "wristset_HoP"
+	ks2type = /obj/item/device/encryptionkey/heads/xo
 
 /*
  * Engineering
