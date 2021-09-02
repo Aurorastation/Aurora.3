@@ -85,7 +85,7 @@
 /obj/item/clothing/accessory/dressshirt
 	name = "dress shirt"
 	desc = "A casual dress shirt."
-	icon_state = "dressshirt" 
+	icon_state = "dressshirt"
 	item_state = "dressshirt"
 	var/rolled = FALSE
 
