@@ -256,12 +256,7 @@
 			to_chat(user, SPAN_NOTICE("You're not sure how to dismantle \the [src] properly."))
 		else
 			visible_message(SPAN_NOTICE("[user] dismantles \the [src]."))
-			if(dir == SOUTHWEST)
-				var/obj/item/stack/material/mats = new glasstype(loc)
-				mats.amount = is_fulltile() ? 4 : 2
-			else
-				new glasstype(loc)
-			qdel(src)
+			dismantle_window()
 	else
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		if(W.damtype == BRUTE || W.damtype == BURN)
@@ -305,6 +300,14 @@
 	if(reinf) damage *= 0.5
 	take_damage(damage)
 	return
+
+/obj/structure/window/proc/dismantle_window()
+	if(dir == SOUTHWEST)
+		var/obj/item/stack/material/mats = new glasstype(loc)
+		mats.amount = is_fulltile() ? 4 : 2
+	else
+		new glasstype(loc)
+	qdel(src)
 
 /obj/structure/window/Initialize(mapload, start_dir = null, constructed=0)
 	. = ..()
@@ -541,7 +544,7 @@
 	icon_state = "light[active]"
 
 /obj/structure/window/full
-	name = "window"
+	name = "reinforced window"
 	desc = "It looks rather strong. Might take a few good hits to shatter it."
 	icon = 'icons/obj/smooth/full_window.dmi'
 	icon_state = "window_glass"
@@ -554,6 +557,12 @@
 	damage_per_fire_tick = 2.0
 	can_be_unanchored = TRUE
 	glasstype = /obj/item/stack/material/glass/reinforced
+	layer = 2.99
+
+/obj/structure/window/full/dismantle_window()
+	new /obj/item/stack/material/steel(get_turf(src),rand(2,4))
+	new /obj/structure/window_frame/anchored
+	qdel(src)
 
 /obj/structure/window/full/phoron
 	name = "reinforced borosilicate window"
@@ -566,12 +575,14 @@
 	maximal_heat = T0C + 4000
 	damage_per_fire_tick = 1.0
 	maxhealth = 80.0
+	layer = 2.99
 
 /obj/structure/window/reinforced/polarized/full
-	name = "electrochromic window"
+	name = "reinforced electrochromic window"
 	desc = "Adjusts its tint with voltage. Might take a few good hits to shatter it."
 	icon = 'icons/obj/smooth/full_window.dmi'
 	icon_state = "window_glass"
 	basestate = "window_glass"
 	dir = 5
 	smooth = SMOOTH_TRUE
+	layer = 2.99

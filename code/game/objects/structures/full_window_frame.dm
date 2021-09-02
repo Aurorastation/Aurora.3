@@ -6,11 +6,14 @@
 	build_amt = 4
 	anchored = FALSE
 
+/obj/structure/window_frame/anchored
+	anchored = TRUE
+
 /obj/structure/window_frame/attackby(obj/item/W, mob/user)
 	if((W.isscrewdriver()) && (istype(loc, /turf/simulated) || anchored))
-		playsound(loc, 'sound/items/screwdriver.ogg', 100, 1)
+		playsound(src, W.usesound, 80, 1)
 		anchored = !anchored
-		user.visible_message("<span class='notice'>[user] [anchored ? "fastens" : "unfastens"] the grille.</span>", \
+		user.visible_message("<span class='notice'>[user] [anchored ? "fastens" : "unfastens"] the \the [src].</span>", \
 								 "<span class='notice'>You have [anchored ? "fastened the grille to" : "unfastened the grill from"] the floor.</span>")
 		return
 
