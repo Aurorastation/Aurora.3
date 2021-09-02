@@ -1,4 +1,0 @@
-author: Desven
-delete-after: True
-changes:
-  - rscadd: "Added religion and nationality to the agent ID card."

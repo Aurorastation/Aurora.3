@@ -1,6 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - bugfix: "The wristbound radio & double headset now have proper descriptions alongside a blurb on how they are different when examined."
