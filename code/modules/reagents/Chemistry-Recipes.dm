@@ -1859,6 +1859,12 @@
 	required_reagents = list(/decl/reagent/alcohol/vodka = 2, /decl/reagent/drink/orangejuice = 1)
 	result_amount = 3
 
+/datum/chemical_reaction/drink/sidewinderfang
+	name = "Sidewinder Fang"
+	id = "sidewinderfang"
+	result = /decl/reagent/alcohol/sidewinderfang
+	required_reagents = list(/decl/reagent/alcohol/rum = 2, /decl/reagent/drink/sodawater = 2, /decl/reagent/drink/orangejuice = 1, /decl/reagent/drink/limejuice = 1)
+
 /datum/chemical_reaction/drink/bloody_mary
 	name = "Bloody Mary"
 	id = "bloodymary"

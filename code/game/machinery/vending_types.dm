@@ -22,6 +22,7 @@
 	name = "Omni-Vendor"
 	desc = "The mother of all vendors, from which vending itself comes!"
 	icon_state = "engivend"
+	icon_vend = "engivend-vend"
 	deny_time = 6
 	vend_id = "admin"
 	req_access = list(access_janitor)
@@ -47,6 +48,7 @@
 	name = "Booze-O-Mat"
 	desc = "A technological marvel, supposedly able to mix just the mixture you'd like to drink the moment you ask for one."
 	icon_state = "boozeomat"        //////////////18 drink entities below, plus the glasses, in case someone wants to edit the number of bottles
+	icon_vend = "boozeomat-vend"
 	deny_time = 16
 	vend_id = "booze"
 	products = list(
@@ -178,6 +180,8 @@
 
 /obj/machinery/vending/assist
 	vend_id = "tools"
+	icon_state = "generic"
+	icon_vend = "generic-vend"
 	products = list(
 		/obj/item/device/assembly/prox_sensor = 5,
 		/obj/item/device/assembly/igniter = 3,
@@ -200,6 +204,8 @@
 /obj/machinery/vending/assist/synd
 	name = "Parts vendor"
 	desc = "Just a normal vending machine - nothing to see here."
+	icon_state = "generic"
+	icon_vend = "generic-vend"
 	contraband = null
 	random_itemcount = 0
 	products = list(
@@ -271,6 +277,7 @@
 	product_slogans = "Try our new nougat bar!;Twice the calories for half the price!"
 	product_ads = "The healthiest!;Award-winning chocolate bars!;Mmm! So good!;Oh my god it's so juicy!;Have a snack.;Snacks are good for you!;Have some more Getmore!;Best quality snacks straight from mars.;We love chocolate!;Try our new jerky!"
 	icon_state = "snack"
+	icon_vend = "snack-vend"
 	vend_id = "snacks"
 	products = list(
 		/obj/item/reagent_containers/food/snacks/candy = 6,
@@ -340,11 +347,13 @@
 	name = "Robust Softdrinks"
 	desc = "A softdrink vendor provided by Robust Industries, LLC."
 	icon_state = "cola_machine"
+	icon_vend = "cola_machine-vend"
 	product_slogans = "Robust Softdrinks: More robust than a toolbox to the head!"
 	product_ads = "Refreshing!;Hope you're thirsty!;Over 1 million drinks sold!;Thirsty? Why not cola?;Please, have a drink!;Drink up!;The best drinks in space."
 	vend_id = "cola"
 	products = list(
 		/obj/item/reagent_containers/food/drinks/cans/cola = 10,
+		/obj/item/reagent_containers/food/drinks/cans/diet_cola = 10,
 		/obj/item/reagent_containers/food/drinks/cans/space_mountain_wind = 10,
 		/obj/item/reagent_containers/food/drinks/cans/dr_gibb = 10,
 		/obj/item/reagent_containers/food/drinks/cans/root_beer = 10,
@@ -353,10 +362,15 @@
 		/obj/item/reagent_containers/food/drinks/cans/dyn = 10,
 		/obj/item/reagent_containers/food/drinks/cans/space_up = 10,
 		/obj/item/reagent_containers/food/drinks/cans/iced_tea = 10,
+		/obj/item/reagent_containers/food/drinks/cans/threetowns = 10,
 		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 10,
+		/obj/item/reagent_containers/food/drinks/cans/peach_soda = 10,
 		/obj/item/reagent_containers/food/drinks/cans/koispunch = 5,
 		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 10,
-		/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda = 10
+		/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda = 10,
+		/obj/item/reagent_containers/food/drinks/small_milk = 10,
+		/obj/item/reagent_containers/food/drinks/small_milk_choco = 10,
+		/obj/item/reagent_containers/food/drinks/small_milk_strawberry = 10
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/drinks/cans/thirteenloko = 5,
@@ -369,6 +383,7 @@
 	)
 	prices = list(
 		/obj/item/reagent_containers/food/drinks/cans/cola = 15,
+		/obj/item/reagent_containers/food/drinks/cans/diet_cola = 15,
 		/obj/item/reagent_containers/food/drinks/cans/space_mountain_wind = 11,
 		/obj/item/reagent_containers/food/drinks/cans/dr_gibb = 16,
 		/obj/item/reagent_containers/food/drinks/cans/root_beer = 13,
@@ -377,10 +392,15 @@
 		/obj/item/reagent_containers/food/drinks/cans/dyn = 18,
 		/obj/item/reagent_containers/food/drinks/cans/space_up = 15,
 		/obj/item/reagent_containers/food/drinks/cans/iced_tea = 13,
+		/obj/item/reagent_containers/food/drinks/cans/threetowns = 13,
 		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 16,
+		/obj/item/reagent_containers/food/drinks/cans/peach_soda = 16,
 		/obj/item/reagent_containers/food/drinks/cans/koispunch = 50,
 		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 5,
-		/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda = 35
+		/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda = 35,
+		/obj/item/reagent_containers/food/drinks/small_milk = 18,
+		/obj/item/reagent_containers/food/drinks/small_milk_choco = 18,
+		/obj/item/reagent_containers/food/drinks/small_milk_strawberry = 18
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	vending_sound = 'sound/machines/vending/vending_cans.ogg'
@@ -394,6 +414,7 @@
 	product_ads = "Probably not bad for you!;Don't believe the scientists!;It's good for you!;Don't quit, buy more!;Smoke!;Nicotine heaven.;Best cigarettes since 2150.;Award-winning cigs."
 	vend_delay = 24
 	icon_state = "cigs"
+	icon_vend = "cigs-vend"
 	vend_id = "smokes"
 	products = list(
 		/obj/item/storage/box/fancy/cigarettes/rugged = 6,
@@ -492,6 +513,7 @@
 	name = "NanoMed Plus"
 	desc = "Medical drug dispenser."
 	icon_state = "med"
+	icon_vend = "med-vend"
 	deny_time = 15
 	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?;Ping!"
 	req_access = list(access_medical_equip)
@@ -536,6 +558,8 @@
 	name = "Toximate 3000"
 	desc = "All the fine parts you need in one vending machine!"
 	vend_id = "bomba"
+	icon_state = "generic"
+	icon_vend = "generic-vend"
 	products = list(
 		/obj/item/clothing/under/rank/scientist = 6,
 		/obj/item/clothing/suit/bio_suit = 6,
@@ -618,6 +642,7 @@
 	desc = "A security equipment vendor."
 	product_ads = "Crack capitalist skulls!;Beat some heads in!;Don't forget - harm is good!;Your weapons are right here.;Handcuffs!;Freeze, scumbag!;Don't tase me bro!;Tase them, bro.;Why not have a donut?"
 	icon_state = "sec"
+	icon_vend = "sec-vend"
 	deny_time = 16
 	req_access = list(access_security)
 	vend_id = "security"
@@ -656,6 +681,7 @@
 	product_slogans = "Aren't you glad you don't have to fertilize the natural way?;Now with 50% less stink!;Plants are people too!"
 	product_ads = "We like plants!;Don't you want some?;The greenest thumbs ever.;We like big plants.;Soft soil..."
 	icon_state = "nutri"
+	icon_vend = "nutri-vend"
 	deny_time = 6
 	vend_id = "hydro"
 	products = list(
@@ -841,6 +867,7 @@
 	desc = "A kitchen and restaurant equipment vendor."
 	product_ads = "Mm, food stuffs!;Food and food accessories.;Get your plates!;You like forks?;I like forks.;Woo, utensils.;You don't really need these..."
 	icon_state = "dinnerware"
+	icon_vend = "dinnerware-vend"
 	vend_id = "cutlery"
 	products = list(
 		/obj/item/material/kitchen/utensil/fork = 12,
@@ -895,6 +922,7 @@
 	name = "BODA"
 	desc = "An old sweet water vending machine, how did this end up here?"
 	icon_state = "sovietsoda"
+	icon_vend = "sovietsoda-vend"
 	vend_id = "cola"
 	product_ads = "For Tsar and Country.;Have you fulfilled your nutrition quota today?;Very nice!;We are simple people, for this is all we eat.;If there is a person, there is a problem. If there is no person, then there is no problem."
 	products = list(
@@ -917,6 +945,7 @@
 	name = "YouTool"
 	desc = "Tools for tools."
 	icon_state = "tool"
+	icon_vend = "tool-vend"
 	deny_time = 6
 	vend_id = "tools"
 	//req_access = list(access_maint_tunnels) //Maintenance access
@@ -950,6 +979,7 @@
 	name = "Engi-Vend"
 	desc = "Spare tool vending. What? Did you expect some witty description?"
 	icon_state = "engivend"
+	icon_vend = "engivend-vend"
 	deny_time = 6
 	req_access = list(access_engine)
 	vend_id = "tools"
@@ -1013,7 +1043,7 @@
 		/obj/item/ammo_magazine/mc9mmt = 6,
 		/obj/item/ammo_magazine/mc9mmt/rubber = 4,
 		/obj/item/gun/projectile/automatic/x9 = 2,
-		/obj/item/ammo_magazine/c45x = 6,
+		/obj/item/ammo_magazine/c45m/auto = 6,
 		/obj/item/ammo_magazine/a556 = 12,
 		/obj/item/ammo_magazine/a556/ap = 4,
 		/obj/item/material/knife/tacknife = 4,
@@ -1032,6 +1062,7 @@
 	name = "Robco Tool Maker"
 	desc = "Everything you need for do-it-yourself station repair."
 	icon_state = "engi"
+	icon_vend = "engi-vend"
 	deny_time = 6
 	req_access = list(access_engine_equip)
 	vend_id = "tools"
@@ -1078,6 +1109,7 @@
 	name = "Robotech Deluxe"
 	desc = "All the tools you need to create your own robot army."
 	icon_state = "robotics"
+	icon_vend = "robotics-vend"
 	deny_time = 14
 	req_access = list(access_robotics)
 	vend_id = "robo-tools"
@@ -1118,6 +1150,7 @@
 	name = "Zo'ra Soda"
 	desc = "An energy drink vendor provided by the Getmore Corporation in partnership with the brood of Ta'Akaix'Xakt'yagz'isk Zo'ra."
 	icon_state = "zoda"
+	icon_vend = "zoda-vend"
 	product_slogans = "Safe for human consumption!;Made by hard-working bound drones!;The most refreshing taste in the sector!;A product of two thousand years!"
 	product_ads = "Refreshing!;Hope you're thirsty!;Thirsty? Why not Zora?;Please, have some!;Drink up!;ZZZOOODDDAAA!"
 	vend_id = "zora"
@@ -1153,6 +1186,7 @@
 	name = "\improper Battlemonsters vendor"
 	desc = "A good place to dump all your rent money."
 	icon_state = "battlemonsters"
+	icon_vend = "battlemonsters-vend"
 	vend_id = "battlemonsters"
 	products = list(
 		/obj/item/book/manual/wiki/battlemonsters = 10,

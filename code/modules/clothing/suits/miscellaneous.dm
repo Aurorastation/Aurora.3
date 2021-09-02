@@ -364,6 +364,12 @@
 	icon_state = "trenchcoat_grey"
 	item_state = "trenchcoat_grey"
 
+/obj/item/clothing/suit/storage/toggle/trench/green
+	name = "green trenchcoat"
+	desc = "A sleek canvas trenchcoat"
+	icon_state = "trenchcoat_green"
+	item_state = "trenchcoat_green"
+
 /obj/item/clothing/suit/storage/toggle/trench/colorable
 	name = "trenchcoat"
 	desc = "A sleek canvas trenchcoat"
