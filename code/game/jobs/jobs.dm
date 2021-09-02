@@ -14,6 +14,7 @@ var/const/CYBORG			=(1<<9)
 var/const/INTERN_SEC		=(1<<10)
 var/const/INTERN_ENG		=(1<<11)
 var/const/XO				=(1<<12)
+var/const/BRIDGE_CREW		=(1<<12)
 
 var/const/MEDSCI			=(1<<1)
 
@@ -118,7 +119,8 @@ var/list/civilian_positions = list(
 	"Corporate Reporter",
 	"Chaplain",
 	"Assistant",
-	"Visitor"
+	"Visitor",
+	"Bridge Officer"
 )
 
 

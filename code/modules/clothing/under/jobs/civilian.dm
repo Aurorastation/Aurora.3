@@ -21,6 +21,7 @@
 	item_state = "lb_suit"
 	worn_state = "cargo"
 
+
 /obj/item/clothing/under/rank/cargo/alt
 	desc = "Shooooorts! They're comfy and easy to wear!"
 	icon_state = "cargo_alt"
@@ -124,7 +125,7 @@
 
 /obj/item/clothing/under/rank/miner
 	desc = "It's a snappy miner's jumpsuit, sans overalls and caked with dirt."
-	name = "shaft miner's jumpsuit"
+	name = "miner's jumpsuit"
 	icon_state = "miner"
 	item_state = "lb_suit"
 	worn_state = "miner"
@@ -226,3 +227,31 @@
 	armor = list(
 		bio = ARMOR_BIO_MINOR
 	)
+
+/obj/item/clothing/under/rank/supply_manager
+	name = "supply manager's jumpsuit"
+	desc = "A uniform worn by the Supply Manager. It has the SCC insignia on it."
+	icon_state = "qm"
+	item_state = "lb_suit"
+	worn_state = "qm"
+
+/obj/item/clothing/under/rank/supply_technician
+	name = "supply technician's jumpsuit"
+	desc = "A practical uniform used by hangar and supply technicians."
+	icon_state = "cargo"
+	item_state = "lb_suit"
+	worn_state = "cargo"
+
+/obj/item/clothing/under/rank/bridge_officer
+	name = "bridge officer's jumpsuit"
+	desc = "The uniform worn by SCC's bridge crew."
+	icon_state = "hop"
+	item_state = "b_suit"
+	worn_state = "hop"
+
+/obj/item/clothing/under/rank/bridge_officer
+	name = "executive officer's jumpsuit"
+	desc = "The uniform worn by SCC's executive officers."
+	icon_state = "hop"
+	item_state = "b_suit"
+	worn_state = "hop"
