@@ -13,7 +13,7 @@
 	if((W.isscrewdriver()) && (istype(loc, /turf/simulated) || anchored))
 		playsound(src, W.usesound, 80, 1)
 		anchored = !anchored
-		user.visible_message("<span class='notice'>[user] [anchored ? "fastens" : "unfastens"] the \the [src].</span>", \
+		user.visible_message("<span class='notice'>[user] [anchored ? "fastens" : "unfastens"] \the [src].</span>", \
 								 "<span class='notice'>You have [anchored ? "fastened the grille to" : "unfastened the grill from"] the floor.</span>")
 		return
 

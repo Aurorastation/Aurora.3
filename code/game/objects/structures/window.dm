@@ -19,6 +19,7 @@
 	var/shardtype = /obj/item/material/shard
 	var/glasstype = null // Set this in subtypes. Null is assumed strange or otherwise impossible to dismantle, such as for shuttle glass.
 	var/silicate = 0 // number of units of silicate
+	var/base_frame = null
 
 	atmos_canpass = CANPASS_PROC
 
@@ -108,6 +109,11 @@
 		new shardtype(loc) //todo pooling?
 		if(reinf)
 			new /obj/item/stack/rods(loc)
+
+	if(base_frame)
+		var/obj/F = new base_frame(loc)
+		F.anchored = anchored
+
 	qdel(src)
 	return
 
@@ -239,6 +245,7 @@
 			to_chat(user, (state == 1 ? SPAN_NOTICE("You have unfastened the window from the frame.") : SPAN_NOTICE("You have fastened the window to the frame.")))
 		else if(reinf && state == 0)
 			anchored = !anchored
+			update_icon()
 			update_nearby_icons()
 			playsound(loc, W.usesound, 75, 1)
 			to_chat(user, (anchored ? SPAN_NOTICE("You have fastened the frame to the floor.") : SPAN_NOTICE("You have unfastened the frame from the floor.")))
@@ -247,6 +254,8 @@
 			update_nearby_icons()
 			playsound(loc, W.usesound, 75, 1)
 			to_chat(user, (anchored ? SPAN_NOTICE("You have fastened the window to the floor.") : SPAN_NOTICE("You have unfastened the window.")))
+			update_icon()
+			update_nearby_icons()
 	else if(W.iscrowbar() && reinf && state <= 1)
 		state = 1 - state
 		playsound(loc, W.usesound, 75, 1)
@@ -558,10 +567,13 @@
 	can_be_unanchored = TRUE
 	glasstype = /obj/item/stack/material/glass/reinforced
 	layer = 2.99
+	base_frame = /obj/structure/window_frame
 
 /obj/structure/window/full/dismantle_window()
-	new /obj/item/stack/material/steel(get_turf(src),rand(2,4))
-	new /obj/structure/window_frame/anchored
+	var/obj/item/stack/material/mats = new glasstype(loc)
+		mats.amount = 4
+	var/obj/structure/window_frame/F = new/obj/structure/window_frame (get_turf(src))
+	F.anchored = anchored
 	qdel(src)
 
 /obj/structure/window/full/phoron
@@ -576,6 +588,7 @@
 	damage_per_fire_tick = 1.0
 	maxhealth = 80.0
 	layer = 2.99
+	base_frame = /obj/structure/window_frame
 
 /obj/structure/window/reinforced/polarized/full
 	name = "reinforced electrochromic window"
@@ -586,8 +599,11 @@
 	dir = 5
 	smooth = SMOOTH_TRUE
 	layer = 2.99
+	base_frame = /obj/structure/window_frame
 
 /obj/structure/window/reinforced/polarized/full/dismantle_window()
-	new /obj/item/stack/material/steel(get_turf(src),rand(2,4))
-	new /obj/structure/window_frame/anchored
+	var/obj/item/stack/material/mats = new glasstype(loc)
+		mats.amount = 4
+	var/obj/structure/window_frame/F = new/obj/structure/window_frame (get_turf(src))
+	F.anchored = anchored
 	qdel(src)
