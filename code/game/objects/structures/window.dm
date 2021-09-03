@@ -111,8 +111,11 @@
 			new /obj/item/stack/rods(loc)
 
 	if(base_frame)
-		var/obj/F = new base_frame(loc)
-		F.anchored = anchored
+		if(prob(50))
+			var/obj/F = new base_frame(loc)
+			F.anchored = anchored
+		else
+			new /obj/item/material/shard/shrapnel(loc)
 
 	qdel(src)
 	return
