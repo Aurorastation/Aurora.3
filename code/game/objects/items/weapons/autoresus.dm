@@ -11,7 +11,7 @@
 	slot_flags = SLOT_BACK
 	force = 5
 	throwforce = 6
-	w_class = ITEM_SIZE_LARGE
+	w_class = ITEMSIZE_LARGE
 	origin_tech = list(TECH_BIO = 4, TECH_POWER = 2)
 	action_button_name = "Remove/Replace Paddles"
 
@@ -35,7 +35,7 @@
 	QDEL_NULL(bcell)
 
 /obj/item/resuscitator/loaded //starts with regular power cell for R&D to replace later in the round.
-	bcell = /obj/item/cell/standard
+	bcell = /obj/item/cell
 
 /obj/item/resuscitator/on_update_icon()
 	var/list/new_overlays = list()
@@ -75,8 +75,6 @@
 
 /obj/item/resuscitator/MouseDrop()
 	if(ismob(src.loc))
-		if(!CanMouseDrop(src))
-			return
 		var/mob/M = src.loc
 		if(!M.unEquip(src))
 			return
@@ -84,7 +82,7 @@
 		M.put_in_any_hand_if_possible(src)
 
 
-/obj/item/resuscitator/attackby(obj/item/W, mob/user, params)
+/obj/item/resuscitator/attackby(obj/item/W, mob/user)
 	if(W == paddles)
 		reattach_paddles(user)
 	else if(istype(W, /obj/item/cell))
@@ -98,7 +96,7 @@
 			to_chat(user, "<span class='notice'>You install a cell in \the [src].</span>")
 			update_icon()
 
-	else if(isScrewdriver(W))
+	else if(W.isscrewdriver())
 		if(bcell)
 			bcell.update_icon()
 			bcell.dropInto(loc)
@@ -173,7 +171,7 @@
 	desc = "A belt-equipped resuscitator that can be rapidly deployed."
 	icon_state = "resuscompact"
 	item_state = "resuscompact"
-	w_class = ITEM_SIZE_NORMAL
+	w_class = ITEMSIZE_NORMAL
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_BIO = 5, TECH_POWER = 3)
 
@@ -206,7 +204,7 @@
 	gender = PLURAL
 	force = 2
 	throwforce = 6
-	w_class = ITEM_SIZE_LARGE
+	w_class = ITEMSIZE_LARGE
 
 	var/safety = 1 //if you can zap people with the paddles on harm mode
 	var/combat = 0 //If it can be used to revive people wearing thick clothing (e.g. spacesuits)
@@ -264,7 +262,7 @@
 
 //Checks for various conditions to see if the mob is revivable
 /obj/item/shockpaddles/proc/can_resus(mob/living/carbon/human/H) //This is checked before doing the resus operation
-	if((H.species.species_flags & SPECIES_FLAG_NO_SCAN) || H.isSynthetic())
+	if((H.isSynthetic())
 		return "buzzes, \"Unrecogized physiology. Operation aborted.\""
 
 	if(!check_contact(H))
@@ -273,13 +271,6 @@
 /obj/item/shockpaddles/proc/can_revive(mob/living/carbon/human/H) //This is checked right before attempting to revive
 	if(H.stat == DEAD)
 		return "buzzes, \"Resuscitation failed - Severe neurological decay makes recovery of patient impossible. Further attempts futile.\""
-
-/obj/item/shockpaddles/proc/check_contact(mob/living/carbon/human/H)
-	if(!combat)
-		for(var/obj/item/clothing/cloth in list(H.wear_suit, H.w_uniform))
-			if((cloth.body_parts_covered & UPPER_TORSO) && (cloth.item_flags & ITEM_FLAG_THICKMATERIAL))
-				return FALSE
-	return TRUE
 
 /obj/item/shockpaddles/proc/check_blood_level(mob/living/carbon/human/H)
 	if(!H.should_have_organ(BP_HEART))
