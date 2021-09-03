@@ -1,4 +1,0 @@
-author: Desven
-delete-after: True
-changes:
-  - bugfix: "Drinks now match their corresponding color when poured."
