@@ -23,7 +23,7 @@
 	var/loaded      //Descriptive string for currently loaded food object.
 	var/is_liquid = FALSE //whether you've got liquid on your utensil
 	var/scoop_food = 1
-	var/transfer_amt = 5
+	var/transfer_amt = 1
 	var/list/bite_sizes = list(1,2,3,4,5)
 
 /obj/item/material/kitchen/utensil/Initialize(newloc, material_key)

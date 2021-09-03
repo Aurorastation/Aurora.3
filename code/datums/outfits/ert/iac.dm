@@ -36,6 +36,8 @@
 		/obj/item/reagent_containers/glass/bottle/perconol = 1
 		)
 
+	id_iff = IFF_IAC
+
 /datum/outfit/admin/ert/iac/get_id_access()
 	return get_distress_access()
 
@@ -76,7 +78,7 @@
 	)
 
 	belt_contents = list(
-		/obj/item/ammo_magazine/c45x = 3,
+		/obj/item/ammo_magazine/c45m/auto = 3,
 		/obj/item/device/flash = 1,
 		/obj/item/handcuffs/ziptie = 2,
 		/obj/item/melee/baton/loaded = 1,

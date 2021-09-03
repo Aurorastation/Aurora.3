@@ -597,6 +597,9 @@
 	if(emagged)		// If emagged not even the dead get a rest
 		return L.stat ? TURRET_SECONDARY_TARGET : TURRET_PRIORITY_TARGET
 
+	if(target_borgs && isAI(L))		//don't shoot the AI if we're shooting silica!
+		return TURRET_NOT_TARGET
+
 	if(lethal && locate(/mob/living/silicon/ai) in get_turf(L))		//don't accidentally kill the AI!
 		return TURRET_NOT_TARGET
 

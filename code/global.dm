@@ -54,6 +54,7 @@ var/list/latejoin_cryo_command = list()
 var/list/latejoin_cyborg       = list()
 var/list/latejoin_merchant     = list()
 var/list/kickoffsloc           = list()
+var/list/virtual_reality_spawn = list()
 
 var/list/prisonwarp         = list() // Prisoners go to these
 var/list/holdingfacility    = list() // Captured people go here
