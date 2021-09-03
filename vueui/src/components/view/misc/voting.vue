@@ -25,7 +25,7 @@
         </li>
         <li>
           <vui-button :disabled="!isstaff && !allow_vote_restart" :params="{action: 'crew_transfer'}">Crew Transfer</vui-button>
-          <span v-if="(isstaff || allow_vote_restart) && is_code_red">(Disallowed, Code Red or above)</span>
+          <span v-if="(isstaff || allow_vote_restart) && is_code_delta">(Disallowed, Code Delta or above)</span>
           <vui-button :class="{on: allow_vote_restart}" v-if="isstaff" :params="{action: 'toggle_restart'}">Toggle Restart / Crew Transfer voting</vui-button>
         </li>
         <li>

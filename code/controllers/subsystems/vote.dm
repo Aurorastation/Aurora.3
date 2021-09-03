@@ -262,7 +262,7 @@ var/datum/controller/subsystem/vote/SSvote
 					AddChoice("Initiate Crew Transfer")
 					AddChoice("Continue The Round")
 				else
-					if (get_security_level() == "red" || get_security_level() == "delta")
+					if (get_security_level() == "delta")
 						to_chat(initiator_key, "The current alert status is too high to call for a crew transfer!")
 						return 0
 					if(SSticker.current_state <= 2)
@@ -400,7 +400,7 @@ var/datum/controller/subsystem/vote/SSvote
 		VUEUI_SET_CHECK(data["question"], question, ., data)
 	VUEUI_SET_CHECK(data["isstaff"], (user.client.holder && (user.client.holder.rights & (R_ADMIN|R_MOD))), ., data)
 	var/slevel = get_security_level()
-	VUEUI_SET_CHECK(data["is_code_red"], (slevel == "red" || slevel == "delta"), ., data)
+	VUEUI_SET_CHECK(data["is_code_delta"], (slevel == "delta"), ., data)
 
 
 
