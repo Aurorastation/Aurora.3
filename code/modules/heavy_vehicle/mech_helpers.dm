@@ -115,3 +115,9 @@
 			animate(get_filter("INCORPBLUR"), time = 1 SECOND, size = 1, flags = ANIMATION_PARALLEL)
 			animate(src, time = 1 SECOND, alpha = initial(alpha), flags = ANIMATION_PARALLEL)
 			remove_filter("INCORPBLUR")
+
+/mob/living/heavy_vehicle/get_organ_name_from_zone(var/def_zone)
+	var/obj/item/mech_component/MC = zoneToComponent(def_zone)
+	if(MC)
+		return MC.name
+	return ..()
