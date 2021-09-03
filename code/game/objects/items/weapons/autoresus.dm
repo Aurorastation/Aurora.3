@@ -262,7 +262,7 @@
 
 //Checks for various conditions to see if the mob is revivable
 /obj/item/shockpaddles/proc/can_resus(mob/living/carbon/human/H) //This is checked before doing the resus operation
-	if((H.isSynthetic())
+	if(H.isSynthetic())
 		return "buzzes, \"Unrecogized physiology. Operation aborted.\""
 
 	if(!check_contact(H))
