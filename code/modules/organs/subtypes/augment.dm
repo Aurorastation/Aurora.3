@@ -242,9 +242,10 @@
 
 	if(selected_hud == "Disabled")
 		selected_hud = SEC_HUDTYPE
-
+		to_chat(user, "You activate \the [src].")
 	else
 		selected_hud = "Disabled"
+		to_chat(user, "You deactivate \the [src].")
 
 /obj/item/organ/internal/augment/eye_sensors/process()
 	..()
@@ -259,10 +260,8 @@
 			if(allowed(owner))
 				active_hud = "security"
 				process_sec_hud(owner, 1)
-				to_chat(user, "You activate \the [src].")
 			else
 				active_hud = "disabled"
-				to_chat(user, "You deactivate \the [src].")
 		else
 			active_hud = "disabled"
 
@@ -288,9 +287,10 @@
 
 	if(selected_hud == "Disabled")
 		selected_hud = MED_HUDTYPE
-
+		to_chat(user, "You activate \the [src].")
 	else
 		selected_hud = "Disabled"
+		to_chat(user, "You deactivate \the [src].")
 
 /obj/item/organ/internal/augment/eye_sensors/medical/process()
 	..()
@@ -305,10 +305,8 @@
 			if(allowed(owner))
 				active_hud = "medical"
 				process_med_hud(owner, 1)
-				to_chat(user, "You activate \the [src].")
 			else
 				active_hud = "disabled"
-				to_chat(user, "You deactivate \the [src].")
 		else
 			active_hud = "disabled"
 
