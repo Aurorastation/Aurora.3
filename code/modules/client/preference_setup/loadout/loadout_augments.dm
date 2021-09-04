@@ -18,7 +18,7 @@
 /datum/gear/augment/eye_sensors/New()
 	..()
 	var/list/sensors = list()
-	sensors["eye sensors, security"] = /obj/item/organ/internal/augment/eye_sensors
+	sensors["eye sensors, security"] = /obj/item/organ/internal/augment/eye_sensors/security
 	sensors["eye sensors, medical"] = /obj/item/organ/internal/augment/eye_sensors/medical
 	gear_tweaks += new /datum/gear_tweak/path(sensors)
 
