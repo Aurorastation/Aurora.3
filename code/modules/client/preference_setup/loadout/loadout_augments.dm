@@ -9,11 +9,18 @@
 	flags = GEAR_NO_SELECTION
 
 /datum/gear/augment/eye_sensors
-	display_name = "integrated eye sensors"
+	display_name = "integrated eye sensors selection"
 	description = "An eye augment that allows the user to deploy medical or security sensors."
 	path = /obj/item/organ/internal/augment/eye_sensors
-	cost = 3
+	cost = 1
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_UNATHI, SPECIES_SKRELL, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+
+/datum/gear/augment/eye_sensors/New()
+	..()
+	var/list/sensors = list()
+	sensors["eye sensors, security"] = /obj/item/organ/internal/augment/eye_sensors
+	sensors["eye sensors, medical"] = /obj/item/organ/internal/augment/eye_sensors/medical
+	gear_tweaks += new /datum/gear_tweak/path(sensors)
 
 /datum/gear/augment/cyber_hair
 	display_name = "synthetic hair extensions"
