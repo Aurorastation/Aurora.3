@@ -237,8 +237,8 @@
 /obj/item/organ/internal/augment/eye_sensors/attack_self(var/mob/user)
 	. = ..()
 
-		if(!.)
-			return FALSE
+	if(!.)
+		return FALSE
 
 /obj/item/organ/internal/augment/eye_sensors/process()
 	..()
@@ -263,12 +263,12 @@
 /obj/item/organ/internal/augment/eye_sensors/security/attack_self(var/mob/user)
 	. = ..()
 
-		if(selected_hud == "disabled")
-			selected_hud = SEC_HUDTYPE
-			to_chat(user, "You activate \the [src].")
-		else
-			selected_hud = "disabled"
-			to_chat(user, "You deactivate \the [src].")
+	if(selected_hud == "disabled")
+		selected_hud = SEC_HUDTYPE
+		to_chat(user, "You activate \the [src].")
+	else
+		selected_hud = "disabled"
+		to_chat(user, "You deactivate \the [src].")
 
 /obj/item/organ/internal/augment/eye_sensors/security/process()
 	..()
