@@ -281,7 +281,7 @@
 	name = "integrated medical HUD sensors"
 	action_button_name = "Toggle Medical Sensors"
 
-/obj/item/organ/internal/augment/eye_sensors/medical/attack_self(var/mob/user, var call_only_parent = TRUE)
+/obj/item/organ/internal/augment/eye_sensors/medical/attack_self(var/mob/user, var/call_only_parent = TRUE)
 	. = ..()
 
 	if(!.)
