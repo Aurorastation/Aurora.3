@@ -47,7 +47,6 @@ var/datum/evacuation_controller/evacuation_controller
 /datum/evacuation_controller/proc/set_up()
 	set waitfor=0
 	set background=1
-	return
 
 /datum/evacuation_controller/proc/get_cooldown_message()
 	return "An evacuation cannot be called at this time. Please wait another [round((evac_cooldown_time-world.time)/600)] minute\s before trying again."
@@ -58,12 +57,11 @@ var/datum/evacuation_controller/evacuation_controller
 	evacuation_predicates += esp
 
 /datum/evacuation_controller/proc/call_evacuation(var/mob/user, var/_emergency_evac, var/forced, var/skip_announce, var/autotransfer)
-
 	if(state != EVAC_IDLE)
-		return 0
+		return FALSE
 
 	if(!can_evacuate(user, forced))
-		return 0
+		return FALSE
 
 	emergency_evacuation = _emergency_evac
 
@@ -100,12 +98,11 @@ var/datum/evacuation_controller/evacuation_controller
 		if(!skip_announce)
 			priority_announcement.Announce(replacetext(replacetext(current_map.shuttle_called_message, "%dock%", "[current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60)] minute\s"), new_sound = 'sound/AI/shuttlecalled.ogg')
 
-	return 1
+	return TRUE
 
 /datum/evacuation_controller/proc/cancel_evacuation()
-
 	if(!can_cancel())
-		return 0
+		return FALSE
 
 	evac_cooldown_time = world.time + (world.time - evac_called_at)
 	state = EVAC_COOLDOWN
@@ -126,7 +123,7 @@ var/datum/evacuation_controller/evacuation_controller
 	else
 		priority_announcement.Announce(current_map.shuttle_recall_message)
 
-	return 1
+	return TRUE
 
 /datum/evacuation_controller/proc/finish_preparing_evac()
 	state = EVAC_LAUNCHING
@@ -138,7 +135,6 @@ var/datum/evacuation_controller/evacuation_controller
 		priority_announcement.Announce(replacetext(replacetext(current_map.shuttle_docked_message, "%dock%", "[current_map.dock_name]"), "%ETA%", "[estimated_time] minute\s"), new_sound = sound('sound/AI/shuttledock.ogg'))
 
 /datum/evacuation_controller/proc/launch_evacuation()
-
 	if(waiting_to_leave())
 		return
 
@@ -149,13 +145,12 @@ var/datum/evacuation_controller/evacuation_controller
 	else
 		priority_announcement.Announce(replacetext(replacetext(current_map.shuttle_leaving_dock, "%dock%", "[current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
 
-	return 1
+	return TRUE
 
 /datum/evacuation_controller/proc/finish_evacuation()
 	state = EVAC_COMPLETE
 
 /datum/evacuation_controller/process()
-
 	if(state == EVAC_PREPPING && recall && world.time >= auto_recall_time)
 		cancel_evacuation()
 		return
