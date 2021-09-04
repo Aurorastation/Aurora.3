@@ -12,7 +12,7 @@
 	evac_launch_delay  = 3 MINUTES
 	evac_transit_delay = 2 MINUTES
 
-	transfer_prep_additional_delay     = 15 MINUTES
+	transfer_prep_additional_delay     = 5 MINUTES
 	autotransfer_prep_additional_delay = 5 MINUTES
 	emergency_prep_additional_delay    = 0 MINUTES
 

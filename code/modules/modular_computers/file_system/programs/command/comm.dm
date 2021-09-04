@@ -52,11 +52,6 @@
 /datum/nano_module/program/comm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = TRUE, var/datum/topic_state/state = default_state)
 	var/list/data = host.initial_data()
 
-	var/datum/evacuation_controller/shuttle/evac_control = evacuation_controller
-	if(!istype(evac_control))
-		to_chat(user, "<span class='danger'>This console should not in use on this map. Please report this to a developer.</span>")
-		return
-
 	if(program)
 		data["emagged"] = program.computer_emagged
 		data["net_comms"] = !!program.get_signal(NTNET_COMMUNICATION) //Double !! is needed to get 1 or 0 answer
@@ -215,16 +210,18 @@
 					log_say("[key_name(usr)] has sent a message to [current_map.boss_short]: [input]", ckey = key_name(usr))
 					centcomm_message_cooldown = TRUE
 					addtimer(CALLBACK(src, .proc/set_centcomm_message_cooldown, FALSE), 300) // thirty second cooldown
-		if("shuttle")
-			if(is_authenticated(user) && ntn_cont && can_call_shuttle())
-				if(href_list["target"] == "call")
-					var/confirm = alert("Are you sure you want to call the shuttle?", name, "No", "Yes")
-					if(confirm == "Yes" && can_still_topic())
-						call_shuttle_proc(usr)
-				if(href_list["target"] == "cancel" && !issilicon(usr))
-					var/confirm = alert("Are you sure you want to cancel the shuttle?", name, "No", "Yes")
-					if(confirm == "Yes" && can_still_topic())
-						cancel_call_proc(usr)
+		if("evac")
+			if(is_authenticated(user))
+				var/datum/evacuation_option/selected_evac_option = evacuation_controller.evacuation_options[href_list["target"]]
+				if (isnull(selected_evac_option) || !istype(selected_evac_option))
+					return
+				if (!selected_evac_option.silicon_allowed && issilicon(user))
+					return
+				if (selected_evac_option.needs_syscontrol && !ntn_cont)
+					return
+				var/confirm = alert("Are you sure you want to [selected_evac_option.option_desc]?", name, "No", "Yes")
+				if (confirm == "Yes" && can_still_topic())
+					evacuation_controller.handle_evac_option(selected_evac_option.option_target, user)
 		if("setstatus")
 			if(is_authenticated(user) && ntn_cont)
 				switch(href_list["target"])

@@ -95,10 +95,10 @@ var/datum/evacuation_controller/evacuation_controller
 			if(istype(A, /area/hallway))
 				A.readyalert()
 		if(!skip_announce)
-			priority_announcement.Announce(replacetext(replacetext(current_map.emergency_shuttle_called_message, "%dock_name%", "[current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60)] minute\s"), new_sound = 'sound/AI/emergencyshuttlecalled.ogg')
+			priority_announcement.Announce(replacetext(replacetext(current_map.emergency_shuttle_called_message, "%dock%", "[current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60)] minute\s"), new_sound = 'sound/AI/emergencyshuttlecalled.ogg')
 	else
 		if(!skip_announce)
-			priority_announcement.Announce(replacetext(replacetext(current_map.shuttle_called_message, "%dock_name%", "[current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60)] minute\s"), new_sound = 'sound/AI/shuttlecalled.ogg')
+			priority_announcement.Announce(replacetext(replacetext(current_map.shuttle_called_message, "%dock%", "[current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60)] minute\s"), new_sound = 'sound/AI/shuttlecalled.ogg')
 
 	return 1
 
@@ -133,9 +133,9 @@ var/datum/evacuation_controller/evacuation_controller
 
 	var/estimated_time = round(get_eta()/60,1)
 	if (emergency_evacuation)
-		evac_waiting.Announce(replacetext(current_map.emergency_shuttle_docked_message, "%ETD%", "[estimated_time] minute\s"), new_sound = sound('sound/AI/emergencyshuttledock.ogg', volume = 35))
+		evac_waiting.Announce(replacetext(current_map.emergency_shuttle_docked_message, "%ETA%", "[estimated_time] minute\s"), new_sound = sound('sound/AI/emergencyshuttledock.ogg', volume = 35))
 	else
-		priority_announcement.Announce(replacetext(replacetext(current_map.shuttle_docked_message, "%dock%", "[current_map.dock_name]"),  "%ETD%", "[estimated_time] minute\s"), new_sound = sound('sound/AI/shuttledock.ogg')
+		priority_announcement.Announce(replacetext(replacetext(current_map.shuttle_docked_message, "%dock%", "[current_map.dock_name]"), "%ETA%", "[estimated_time] minute\s"), new_sound = sound('sound/AI/shuttledock.ogg'))
 
 /datum/evacuation_controller/proc/launch_evacuation()
 
