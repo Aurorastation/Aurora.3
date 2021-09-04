@@ -86,22 +86,23 @@
 		if(STATUS_DISPLAY_BLANK)	//blank
 			return 1
 		if(STATUS_DISPLAY_TRANSFER_SHUTTLE_TIME)				//emergency shuttle timer
-			if(evacuation_controller.is_prepared())
-				message1 = "-ETD-"
-				if (evacuation_controller.waiting_to_leave())
-					message2 = "Launch"
-				else
+			if(evacuation_controller)
+				if(evacuation_controller.is_prepared())
+					message1 = "-ETD-"
+					if (evacuation_controller.waiting_to_leave())
+						message2 = "Launch"
+					else
+						message2 = get_shuttle_timer()
+						if(length(message2) > CHARS_PER_LINE)
+							message2 = "Error"
+					update_display(message1, message2)
+				else if(evacuation_controller.has_eta())
+					message1 = "-ETA-"
 					message2 = get_shuttle_timer()
 					if(length(message2) > CHARS_PER_LINE)
 						message2 = "Error"
-				update_display(message1, message2)
-			else if(evacuation_controller.has_eta())
-				message1 = "-ETA-"
-				message2 = get_shuttle_timer()
-				if(length(message2) > CHARS_PER_LINE)
-					message2 = "Error"
-				update_display(message1, message2)
-			return 1
+					update_display(message1, message2)
+				return 1
 		if(STATUS_DISPLAY_MESSAGE)	//custom messages
 			var/line1
 			var/line2

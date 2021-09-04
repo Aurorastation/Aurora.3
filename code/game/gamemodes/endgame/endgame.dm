@@ -69,10 +69,13 @@
 /datum/universal_state/proc/OnTouchMapEdge(var/atom/A)
 	return TRUE //return FALSE to cancel map edge handling
 
-/proc/SetUniversalState(var/newstate,var/on_exit=1, var/on_enter=1)
+/proc/SetUniversalState(var/newstate,var/on_exit=1, var/on_enter=1, list/arguments=null)
 	if(on_exit)
 		universe.OnExit()
-	universe = new newstate
+	if(arguments)
+		universe = new newstate(arglist(arguments))
+	else
+		universe = new newstate
 	if(on_enter)
 		universe.OnEnter()
 
