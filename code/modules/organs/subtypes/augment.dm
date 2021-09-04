@@ -277,7 +277,7 @@
 	name = "integrated medical HUD sensors"
 	action_button_name = "Toggle Medical Sensors"
 
-	var/static/list/hud_types = list(
+	hud_types = list(
 		"Disabled",
 		MED_HUDTYPE)
 
