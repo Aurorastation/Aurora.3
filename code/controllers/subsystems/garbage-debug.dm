@@ -351,7 +351,7 @@
 	SearchVar(SScargo)
 	SearchVar(SSeconomy)
 	SearchVar(SSeffects)
-	SearchVar(emergency_shuttle)
+	SearchVar(evacuation_controller)
 	SearchVar(SSevents)
 	SearchVar(SSexplosives)
 	SearchVar(SSgarbage)

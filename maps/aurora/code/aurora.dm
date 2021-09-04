@@ -59,13 +59,15 @@
 	)
 
 	shuttle_docked_message = "The scheduled crew transfer shuttle to %dock% has docked with the station. It will depart in approximately %ETA% minutes."
-	shuttle_leaving_dock = "The crew transfer shuttle has left the station. Estimate %ETA% minutes until the shuttle docks at %dock%."
+	shuttle_leaving_dock = "The crew transfer shuttle has left the station. Estimate %ETA% until the shuttle docks at %dock%."
 	shuttle_called_message = "A crew transfer to %dock% has been scheduled. The shuttle has been called. It will arrive in approximately %ETA% minutes."
 	shuttle_recall_message = "The scheduled crew transfer has been cancelled."
 	emergency_shuttle_docked_message = "The emergency shuttle has docked with the station. You have approximately %ETD% minutes to board the emergency shuttle."
 	emergency_shuttle_leaving_dock = "The emergency shuttle has left the station. Estimate %ETA% minutes until the shuttle docks at %dock%."
 	emergency_shuttle_recall_message = "The emergency shuttle has been recalled."
 	emergency_shuttle_called_message = "An emergency evacuation shuttle has been called. It will arrive in approximately %ETA% minutes."
+
+	evac_controller_type = /datum/evacuation_controller/shuttle
 
 	map_shuttles = list(
 		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod1,

@@ -82,8 +82,8 @@
 		return FALSE
 
 	to_chat(owner, SPAN_NOTICE("Hello [user], it is currently: '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'. Have a lovely day."))
-	if (emergency_shuttle.get_status_panel_eta())
-		to_chat(owner, SPAN_WARNING("Notice: You have one (1) scheduled flight, ETA: [emergency_shuttle.get_status_panel_eta()]."))
+	if (evacuation_controller.get_status_panel_eta())
+		to_chat(owner, SPAN_WARNING("Notice: You have one (1) scheduled flight, ETA: [evacuation_controller.get_status_panel_eta()]."))
 
 /obj/item/organ/internal/augment/tool
 	name = "retractable widget"
