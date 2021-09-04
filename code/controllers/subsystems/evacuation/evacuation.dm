@@ -135,7 +135,7 @@ var/datum/evacuation_controller/evacuation_controller
 	if (emergency_evacuation)
 		evac_waiting.Announce(replacetext(current_map.emergency_shuttle_docked_message, "%ETD%", "[estimated_time] minute\s"), new_sound = sound('sound/AI/emergencyshuttledock.ogg', volume = 35))
 	else
-		priority_announcement.Announce(replacetext(replacetext(current_map.shuttle_docked_message, "%dock_name%", "[current_map.dock_name]"),  "%ETD%", "[estimated_time] minute\s"), new_sound = sound('sound/AI/shuttledock.ogg')
+		priority_announcement.Announce(replacetext(replacetext(current_map.shuttle_docked_message, "%dock%", "[current_map.dock_name]"),  "%ETD%", "[estimated_time] minute\s"), new_sound = sound('sound/AI/shuttledock.ogg')
 
 /datum/evacuation_controller/proc/launch_evacuation()
 
@@ -145,9 +145,9 @@ var/datum/evacuation_controller/evacuation_controller
 	state = EVAC_IN_TRANSIT
 
 	if (emergency_evacuation)
-		priority_announcement.Announce(replacetext(replacetext(current_map.emergency_shuttle_leaving_dock, "%dock_name%", "[current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
+		priority_announcement.Announce(replacetext(replacetext(current_map.emergency_shuttle_leaving_dock, "%dock%", "[current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
 	else
-		priority_announcement.Announce(replacetext(replacetext(current_map.shuttle_leaving_dock, "%dock_name%", "[current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
+		priority_announcement.Announce(replacetext(replacetext(current_map.shuttle_leaving_dock, "%dock%", "[current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
 
 	return 1
 
