@@ -218,7 +218,7 @@
 	tesla_zap(owner, 7, 1500)
 
 /obj/item/organ/internal/augment/eye_sensors
-	name = "integrated security HUD sensors"
+	name = "integrated HUD sensors"
 	icon_state = "augment_eyes"
 	cooldown = 25
 	activable = TRUE
@@ -228,32 +228,50 @@
 	var/active_hud = "disabled"
 
 	var/static/list/hud_types = list(
-		"Disabled",
+		"disabled",
 		SEC_HUDTYPE,
 		MED_HUDTYPE)
 
-	var/selected_hud = "Disabled"
+	var/selected_hud = "disabled"
 
-/obj/item/organ/internal/augment/eye_sensors/attack_self(var/mob/user, var/call_only_parent = FALSE)
+/obj/item/organ/internal/augment/eye_sensors/attack_self(var/mob/user)
 	. = ..()
 
-	if(!call_only_parent)
-		
 		if(!.)
 			return FALSE
-
-		if(selected_hud == "Disabled")
-			selected_hud = SEC_HUDTYPE
-			to_chat(user, "You activate \the [src].")
-		else
-			selected_hud = "Disabled"
-			to_chat(user, "You deactivate \the [src].")
 
 /obj/item/organ/internal/augment/eye_sensors/process()
 	..()
 
 	if(!owner)
 		return
+
+/obj/item/organ/internal/augment/eye_sensors/emp_act(severity)
+	..()
+	var/obj/item/organ/internal/eyes/E = owner.get_eyes()
+	if(!E)
+		return
+	E.take_damage(5)
+
+/obj/item/organ/internal/augment/eye_sensors/proc/check_hud(var/hud)
+	return (hud == active_hud)
+
+/obj/item/organ/internal/augment/eye_sensors/security
+	name = "integrated security HUD sensors"
+	action_button_name = "Toggle Security Sensors"
+
+/obj/item/organ/internal/augment/eye_sensors/security/attack_self(var/mob/user)
+	. = ..()
+
+		if(selected_hud == "disabled")
+			selected_hud = SEC_HUDTYPE
+			to_chat(user, "You activate \the [src].")
+		else
+			selected_hud = "disabled"
+			to_chat(user, "You deactivate \the [src].")
+
+/obj/item/organ/internal/augment/eye_sensors/security/process()
+	..()
 
 	switch(selected_hud)
 
@@ -266,39 +284,22 @@
 				active_hud = "disabled"
 		else
 			active_hud = "disabled"
-
-/obj/item/organ/internal/augment/eye_sensors/emp_act(severity)
-	..()
-	var/obj/item/organ/internal/eyes/E = owner.get_eyes()
-	if(!E)
-		return
-	E.take_damage(5)
-
-/obj/item/organ/internal/augment/eye_sensors/proc/check_hud(var/hud)
-	return (hud == active_hud)
-
 /obj/item/organ/internal/augment/eye_sensors/medical
 	name = "integrated medical HUD sensors"
 	action_button_name = "Toggle Medical Sensors"
 
-/obj/item/organ/internal/augment/eye_sensors/medical/attack_self(var/mob/user, var/call_only_parent = TRUE)
+/obj/item/organ/internal/augment/eye_sensors/medical/attack_self(var/mob/user)
 	. = ..()
 
-	if(!.)
-		return FALSE
-
-	if(selected_hud == "Disabled")
+	if(selected_hud == "disabled")
 		selected_hud = MED_HUDTYPE
 		to_chat(user, "You activate \the [src].")
 	else
-		selected_hud = "Disabled"
+		selected_hud = "disabled"
 		to_chat(user, "You deactivate \the [src].")
 
 /obj/item/organ/internal/augment/eye_sensors/medical/process()
 	..()
-
-	if(!owner)
-		return
 
 	switch(selected_hud)
 
