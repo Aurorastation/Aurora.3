@@ -234,18 +234,20 @@
 
 	var/selected_hud = "Disabled"
 
-/obj/item/organ/internal/augment/eye_sensors/attack_self(var/mob/user)
+/obj/item/organ/internal/augment/eye_sensors/attack_self(var/mob/user, var/call_only_parent = FALSE)
 	. = ..()
 
-	if(!.)
-		return FALSE
+	if(!call_only_parent)
+		
+		if(!.)
+			return FALSE
 
-	if(selected_hud == "Disabled")
-		selected_hud = SEC_HUDTYPE
-		to_chat(user, "You activate \the [src].")
-	else
-		selected_hud = "Disabled"
-		to_chat(user, "You deactivate \the [src].")
+		if(selected_hud == "Disabled")
+			selected_hud = SEC_HUDTYPE
+			to_chat(user, "You activate \the [src].")
+		else
+			selected_hud = "Disabled"
+			to_chat(user, "You deactivate \the [src].")
 
 /obj/item/organ/internal/augment/eye_sensors/process()
 	..()
@@ -279,7 +281,7 @@
 	name = "integrated medical HUD sensors"
 	action_button_name = "Toggle Medical Sensors"
 
-/obj/item/organ/internal/augment/eye_sensors/medical/attack_self(var/mob/user)
+/obj/item/organ/internal/augment/eye_sensors/medical/attack_self(var/mob/user, var call_only_parent = TRUE)
 	. = ..()
 
 	if(!.)
