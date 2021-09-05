@@ -2144,7 +2144,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 	starts_with = list(
 		/obj/item/dice/fluff/suraya_dice = 3,
-		/obj/item/dice/fluff/suraya_dice_alt = 3
+		/obj/item/dice/fluff/suraya_dice/alt = 3
 	)
 
 /obj/item/dice/fluff/suraya_dice
