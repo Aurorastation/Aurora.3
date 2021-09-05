@@ -115,7 +115,7 @@ datum/gear/suit/colorvest
 
 /datum/gear/suit/medical_outerware/New()
 	..()
-	var/list/medical_outerware = list()
+	var/list/medical_outerwear = list()
 	medical_outerwear["medical chest-rig"] = /obj/item/clothing/suit/storage/medical_chest_rig
 	medical_outerwear["first responder vest"] = /obj/item/clothing/suit/storage/medical_chest_rig/first_responder
 	medical_outerwear["first responder jacket"] = /obj/item/clothing/suit/storage/toggle/fr_jacket
