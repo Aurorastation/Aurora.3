@@ -300,7 +300,6 @@ obj/item/clothing/suit/apron/overalls/blue
 	opened = TRUE
 
 /obj/item/clothing/suit/storage/toggle/fr_jacket/alt
-	name = "first responder jacket"
 	desc = "A dark green first responder jacket."
 	icon = 'icons/clothing/kit/first_responder.dmi'
 	contained_sprite = TRUE
@@ -316,8 +315,6 @@ obj/item/clothing/suit/apron/overalls/blue
 	item_state = "ems_jacket"
 
 /obj/item/clothing/suit/storage/toggle/fr_jacket/ems/alt // Green Symbol
-	name = "\improper EMS jacket"
-	desc = "A dark blue, martian-pattern, EMS jacket. It sports high-visibility reflective stripes and a star of life on the back."
 	icon_state = "ems_jacketalt"
 	item_state = "ems_jacketalt"
 
