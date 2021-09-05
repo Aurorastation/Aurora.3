@@ -108,20 +108,20 @@ datum/gear/suit/colorvest
 	cost = 1
 	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Roboticist", "Research Director", "Investigator")
 
-/datum/gear/suit/medical_outerware
-	display_name = "medical outerware (jackets, vests, rigs)"
+/datum/gear/suit/medical_outerwear
+	display_name = "medical outerwear (jackets, vests, rigs)"
 	path = /obj/item/clothing/suit/storage/toggle/fr_jacket
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
 
 /datum/gear/suit/medical_outerware/New()
 	..()
 	var/list/medical_outerware = list()
-	medical_outerware["medical chest-rig"] = /obj/item/clothing/suit/storage/medical_chest_rig
-	medical_outerware["first responder vest"] = /obj/item/clothing/suit/storage/medical_chest_rig/first_responder
-	medical_outerware["first responder jacket"] = /obj/item/clothing/suit/storage/toggle/fr_jacket
-	medical_outerware["EMS jacket"] = /obj/item/clothing/suit/storage/toggle/fr_jacket/ems
-	medical_outerware["EMS jacket, alt"] = /obj/item/clothing/suit/storage/toggle/fr_jacket/ems/alt
-	gear_tweaks += new /datum/gear_tweak/path(medical_outerware)
+	medical_outerwear["medical chest-rig"] = /obj/item/clothing/suit/storage/medical_chest_rig
+	medical_outerwear["first responder vest"] = /obj/item/clothing/suit/storage/medical_chest_rig/first_responder
+	medical_outerwear["first responder jacket"] = /obj/item/clothing/suit/storage/toggle/fr_jacket
+	medical_outerwear["EMS jacket"] = /obj/item/clothing/suit/storage/toggle/fr_jacket/ems
+	medical_outerwear["EMS jacket, alt"] = /obj/item/clothing/suit/storage/toggle/fr_jacket/ems/alt
+	gear_tweaks += new /datum/gear_tweak/path(medical_outerwear)
 
 /datum/gear/suit/iacvest
 	display_name = "IAC vest"
