@@ -299,6 +299,14 @@ obj/item/clothing/suit/apron/overalls/blue
 	body_parts_covered = UPPER_TORSO|ARMS
 	opened = TRUE
 
+/obj/item/clothing/suit/storage/toggle/fr_jacket/alt
+	name = "first responder jacket"
+	desc = "A dark green first responder jacket."
+	icon = 'icons/clothing/kit/first_responder.dmi'
+	contained_sprite = TRUE
+	icon_state = "firstresponderjacket"
+	item_state = "firstresponderjacket"
+
 /obj/item/clothing/suit/storage/toggle/fr_jacket/ems
 	name = "\improper EMS jacket"
 	desc = "A dark blue, martian-pattern, EMS jacket. It sports high-visibility reflective stripes and a star of life on the back."
@@ -339,11 +347,3 @@ obj/item/clothing/suit/apron/overalls/blue
 	icon_state = "suspenders"
 	blood_overlay_type = "armor" //it's the less thing that I can put here
 	body_parts_covered = 0
-
-/obj/item/clothing/suit/storage/toggle/first_responder_jacket
-	name = "first responder jacket"
-	desc = "A dark green first responder jacket."
-	icon = 'icons/clothing/kit/first_responder.dmi'
-	contained_sprite = TRUE
-	icon_state = "firstresponderjacket"
-	item_state = "firstresponderjacket"
