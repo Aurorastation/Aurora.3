@@ -39,4 +39,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - tweak: "Plasma Pistol can now be holstered."
-  - balance: "Plasma Bolts now do more damage and should no longer be less useful then traditonal projectiles."
+  - balance: "Plasma Bolts now do more damage and should no longer be less useful then traditional projectiles."
