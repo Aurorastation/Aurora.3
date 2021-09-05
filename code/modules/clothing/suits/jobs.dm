@@ -295,15 +295,23 @@ obj/item/clothing/suit/apron/overalls/blue
 	item_state = "fr_jacket"
 	blood_overlay_type = "armor"
 	allowed = list(/obj/item/stack/medical, /obj/item/reagent_containers/dropper, /obj/item/reagent_containers/hypospray, /obj/item/reagent_containers/syringe, \
-	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank/emergency_oxygen, /obj/item/device/breath_analyzer, /obj/item/reagent_containers/blood)
+	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank/emergency_oxygen, /obj/item/device/breath_analyzer, /obj/item/reagent_containers/blood, /obj/item/clothing/head/hardhat/first_responder)
 	body_parts_covered = UPPER_TORSO|ARMS
 	opened = TRUE
 
 /obj/item/clothing/suit/storage/toggle/fr_jacket/ems
 	name = "\improper EMS jacket"
 	desc = "A dark blue, martian-pattern, EMS jacket. It sports high-visibility reflective stripes and a star of life on the back."
+	icon = 'icons/clothing/suits/emtjacket.dmi'
+	contained_sprite = TRUE
 	icon_state = "ems_jacket"
 	item_state = "ems_jacket"
+
+/obj/item/clothing/suit/storage/toggle/fr_jacket/ems/alt // Green Symbol
+	name = "\improper EMS jacket"
+	desc = "A dark blue, martian-pattern, EMS jacket. It sports high-visibility reflective stripes and a star of life on the back."
+	icon_state = "ems_jacketalt"
+	item_state = "ems_jacketalt"
 
 /obj/item/clothing/suit/storage/medical_chest_rig
 	name = "medic chest-rig"
