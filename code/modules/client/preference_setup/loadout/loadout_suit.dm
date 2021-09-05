@@ -113,7 +113,7 @@ datum/gear/suit/colorvest
 	path = /obj/item/clothing/suit/storage/toggle/fr_jacket
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
 
-/datum/gear/suit/medical_outerware/New()
+/datum/gear/suit/medical_outerwear/New()
 	..()
 	var/list/medical_outerwear = list()
 	medical_outerwear["medical chest-rig"] = /obj/item/clothing/suit/storage/medical_chest_rig
