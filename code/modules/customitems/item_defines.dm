@@ -2163,9 +2163,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if(!weighted)
 		to_chat(user, SPAN_NOTICE("You jiggle the die rapidly in your hand, resetting the internal weighting."))
 	else
-		to_chat(user, SPAN_NOTICE("You carefully flick the die one way, then the other, locking its internal weighting in place."))
+		to_chat(user, SPAN_NOTICE("You carefully jiggle the die one way, then the other, locking its internal weighting in place."))
 
-	user.visible_message(SPAN_WARNING("\The [user] rolls \the [src] in a closed fist for a second..."))
+	user.visible_message(SPAN_WARNING("\The [user] jiggles \the [src] in a closed fist for a second..."))
 
 /obj/item/dice/fluff/suraya_dice/alt
 	name = "green adhomian die"
