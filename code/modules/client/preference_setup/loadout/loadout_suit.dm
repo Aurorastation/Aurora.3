@@ -120,8 +120,6 @@ datum/gear/suit/colorvest
 	medical_outerwear["first responder vest"] = /obj/item/clothing/suit/storage/medical_chest_rig/first_responder
 	medical_outerwear["first responder jacket"] = /obj/item/clothing/suit/storage/toggle/fr_jacket
 	medical_outerwear["first responder jacket, alt"] = /obj/item/clothing/suit/storage/toggle/fr_jacket/alt
-	medical_outerwear["EMS jacket"] = /obj/item/clothing/suit/storage/toggle/fr_jacket/ems
-	medical_outerwear["EMS jacket, alt"] = /obj/item/clothing/suit/storage/toggle/fr_jacket/ems/alt
 	gear_tweaks += new /datum/gear_tweak/path(medical_outerwear)
 
 /datum/gear/suit/iacvest

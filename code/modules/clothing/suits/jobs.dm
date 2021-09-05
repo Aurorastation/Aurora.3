@@ -314,10 +314,6 @@ obj/item/clothing/suit/apron/overalls/blue
 	icon_state = "ems_jacket"
 	item_state = "ems_jacket"
 
-/obj/item/clothing/suit/storage/toggle/fr_jacket/ems/alt // Green Symbol
-	icon_state = "ems_jacketalt"
-	item_state = "ems_jacketalt"
-
 /obj/item/clothing/suit/storage/medical_chest_rig
 	name = "medic chest-rig"
 	desc = "A white chest-rig with pouches worn by medical first responders, meant to carry their equipment."

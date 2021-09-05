@@ -3,7 +3,6 @@ author: WickedCybs
 delete-after: True
 
 changes:
-  - rscadd: "Added the unused EMS jacket. Gave it a few tweaks to get it looking on par with other jackets."
   - tweak: "The dark green first responder jacket can now hold medical equipment in its suit slot."
   - tweak: "Tweaked the side sprites of the open dark green first responder jacket as it was identical to how it looked when closed."
   - tweak: "Condenses a lot of the common first responder suit wear, like the chest rig and vest into its own selection to tidy up the loadout a bit. Look for the medical outerwear selection to reselect stuff or browse the more expanded options."
