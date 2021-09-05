@@ -2153,7 +2153,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/suraya_dice.dmi'
 	icon_state = "sur_b_d1"
 	base_icon = "sur_b_d"
-	weighted = TRUE
+	weighted = FALSE
 	favored_number = 1
 	weighted_value = 30
 
