@@ -309,8 +309,6 @@ obj/item/clothing/suit/apron/overalls/blue
 /obj/item/clothing/suit/storage/toggle/fr_jacket/ems
 	name = "\improper EMS jacket"
 	desc = "A dark blue, martian-pattern, EMS jacket. It sports high-visibility reflective stripes and a star of life on the back."
-	icon = 'icons/clothing/suits/emtjacket.dmi'
-	contained_sprite = TRUE
 	icon_state = "ems_jacket"
 	item_state = "ems_jacket"
 
