@@ -2134,3 +2134,31 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/kathira_journal.dmi'
 	icon_state = "kath_journal"
 	item_state = "kath_journal"
+
+/obj/item/storage/pill_bottle/dice/fluff/suraya_dicebag //Crevan Dice Bag - Suraya Al-Zahrani - Omicega 
+	name = "leather dice bag"
+	desc = "placeholder description."
+	icon = 'icons/obj/custom_items/suraya_dice.dmi'
+	icon_state = "sur_dbag"
+	item_state = "sur_dbag"
+
+	starts_with = list(
+		/obj/item/dice/fluff/suraya_dice = 3,
+		/obj/item/dice/fluff/suraya_dice_alt = 3
+	)
+
+/obj/item/dice/fluff/suraya_dice
+	name = "adhomian die"
+	desc = "placeholder description."
+	icon = 'icons/obj/custom_items/suraya_dice.dmi'
+	icon_state = "sur_b_d1"
+	base_icon = "sur_b_d"
+	weighted = TRUE
+	favored_number = 1
+	weighted_value = 25
+
+/obj/item/dice/fluff/suraya_dice/alt
+	icon_state = "sur_g_d1"
+	base_icon = "sur_g_d"
+	favored_number = 6
+	weighted_value = 25
