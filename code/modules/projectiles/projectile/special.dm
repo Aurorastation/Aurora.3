@@ -279,7 +279,7 @@
 	name = "plasma bolt"
 	damage = 20
 	armor_penetration = 10
-	incinerate = 10
+	incinerate = 8
 
 /obj/item/missile
 	icon = 'icons/obj/grenade.dmi'
