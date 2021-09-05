@@ -204,6 +204,13 @@
 	icon_state = "helm_sec"
 	item_state = "helm_sec"
 
+/obj/item/clothing/head/helmet/security/skrell
+	name = "skrellmet"
+	desc = "A helmet built for use by a Skrell. This one appears to be fairly standard and reliable."
+	icon_state = "helm_skrell"
+	item_state = "helm_skrell"
+	valid_accessory_slots = null
+
 /obj/item/clothing/head/helmet/security/heavy
 	name = "corporate heavy helmet"
 	desc = "A shiny and heavy helmet in corporate black! Goes well with the respective plate carrier."
