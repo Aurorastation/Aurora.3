@@ -120,6 +120,8 @@
 						icon_state = "plating"
 						burnt = null
 						broken = null
+					else
+						to_chat(user, "<span class='warning'>You need more welding fuel to complete this task.</span>")
 					return
 				else
 					if(welder.remove_fuel(0, user))
