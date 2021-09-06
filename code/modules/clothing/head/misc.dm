@@ -228,8 +228,9 @@
 
 /obj/item/clothing/head/fez
 	name = "fez"
-	icon_state = "fez"
 	desc = "You should wear a fez. Fezzes are cool."
+	icon_state = "fez"
+	item_flags = SHOWFLAVORTEXT
 
 //end bs12 hats
 
@@ -621,3 +622,15 @@
 	sprite_sheets = list(
 		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi'
 		)
+
+/obj/item/clothing/head/papersack
+	name = "paper sack hat"
+	desc = "A paper sack with crude holes cut out for eyes. Useful for hiding one's identity or ugliness."
+	icon_state = "papersack"
+	flags_inv = BLOCKHEADHAIR
+
+/obj/item/clothing/head/papersack/smiley
+	name = "paper sack hat"
+	desc = "A paper sack with crude holes cut out for eyes and a sketchy smile drawn on the front. Not creepy at all."
+	icon_state = "papersack_smile"
+	flags_inv = BLOCKHEADHAIR

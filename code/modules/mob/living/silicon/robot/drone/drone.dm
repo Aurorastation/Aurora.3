@@ -20,8 +20,7 @@
 
 /mob/living/silicon/robot/drone
 	// Look and feel
-	name = "drone"
-	real_name = "drone"
+	name = "maintenance drone"
 	desc_info = "Drones are player-controlled synthetics which are lawed to maintain the station and not \
 	interact with anyone else, except for other drones.  They hold a wide array of tools to build, repair, maintain, and clean. \
 	They fuction similarly to other synthetics, in that they require recharging regularly, have laws, and are resilient to many hazards, \
@@ -110,6 +109,9 @@
 	qdel(possessor)
 	return TRUE
 
+/mob/living/silicon/robot/drone/do_late_fire()
+	request_player()
+
 /mob/living/silicon/robot/drone/Destroy()
 	if(hat)
 		hat.forceMove(get_turf(src))
@@ -119,6 +121,7 @@
 
 /mob/living/silicon/robot/drone/construction
 	// Look and feel
+	name = "construction drone"
 	icon_state = "constructiondrone"
 
 	// Components
@@ -137,6 +140,33 @@
 	hat_y_offset = -12
 
 	var/my_home_z
+
+/mob/living/silicon/robot/drone/construction/matriarch
+	name = "matriarch drone"
+	law_type = /datum/ai_laws/matriarch_drone
+
+/mob/living/silicon/robot/drone/construction/matriarch/Initialize()
+	. = ..()
+	check_add_to_late_firers()
+
+/mob/living/silicon/robot/drone/construction/matriarch/assign_player(mob/user)
+	. = ..()
+	SSghostroles.remove_spawn_atom("matriarchmaintdrone", src)
+
+/mob/living/silicon/robot/drone/construction/matriarch/ghostize(can_reenter_corpse, should_set_timer)
+	. = ..()
+	if(stat == DEAD)
+		return
+	if(src in mob_list) // needs to exist to reopen spawn atom
+		set_name(initial(name))
+		request_player()
+
+/mob/living/silicon/robot/drone/construction/matriarch/Destroy()
+	. = ..()
+	SSghostroles.remove_spawn_atom("matriarchmaintdrone", src)
+
+/mob/living/silicon/robot/drone/construction/matriarch/request_player()
+	SSghostroles.add_spawn_atom("matriarchmaintdrone", src)
 
 /mob/living/silicon/robot/drone/Initialize()
 	. = ..()
@@ -170,6 +200,7 @@
 		laws = new law_type
 	if(!module)
 		module = new module_type(src, src)
+		recalculate_synth_capacities()
 
 	flavor_text = "It's a tiny little repair drone. The casing is stamped with an corporate logo and the subscript: '[current_map.company_name] Recursive Repair Systems: Fixing Tomorrow's Problem, Today!'"
 	playsound(get_turf(src), 'sound/machines/twobeep.ogg', 50, 0)
@@ -181,8 +212,7 @@
 	name = real_name
 
 /mob/living/silicon/robot/drone/updatename()
-	real_name = "maintenance drone ([rand(100,999)])"
-	name = real_name
+	return
 
 /mob/living/silicon/robot/drone/setup_icon_cache()
 	cached_eye_overlays = list(
@@ -481,10 +511,6 @@
 	to_chat(src, SPAN_NOTICE("You are assigned to a NanoTrasen construction project. The name is irrelevant. Your task is to complete construction and subsystem integration as soon as possible."))
 	to_chat(src, SPAN_NOTICE("Use <b>:d</b> to talk to other drones and <b>say</b> to speak silently to your nearby fellows."))
 	to_chat(src, SPAN_NOTICE("<b>You do not follow orders from anyone; not the AI, not humans, and not other synthetics.</b>."))
-
-/mob/living/silicon/robot/drone/construction/updatename()
-	real_name = "construction drone ([rand(100,999)])"
-	name = real_name
 
 /mob/living/silicon/robot/drone/construction/process_level_restrictions()
 	//Abort if they should not get blown

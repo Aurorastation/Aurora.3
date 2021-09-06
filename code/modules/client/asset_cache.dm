@@ -50,11 +50,7 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 	client.sending |= asset_name
 	var/job = ++client.last_asset_job
 
-	client << browse({"
-	<script>
-		window.location.href="?asset_cache_confirm_arrival=[job]"
-	</script>
-	"}, "window=asset_cache_browser")
+	client << browse("<script>window.location.href=\"?asset_cache_confirm_arrival=[job]\"</script>", "window=asset_cache_browser")
 
 	var/t = 0
 	var/timeout_time = (ASSET_CACHE_SEND_TIMEOUT * client.sending.len) + ASSET_CACHE_SEND_TIMEOUT
@@ -102,11 +98,7 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 	client.sending |= unreceived
 	var/job = ++client.last_asset_job
 
-	client << browse({"
-	<script>
-		window.location.href="?asset_cache_confirm_arrival=[job]"
-	</script>
-	"}, "window=asset_cache_browser")
+	client << browse("<script>window.location.href=\"?asset_cache_confirm_arrival=[job]\"</script>", "window=asset_cache_browser")
 
 	var/t = 0
 	var/timeout_time = ASSET_CACHE_SEND_TIMEOUT * client.sending.len
@@ -418,6 +410,7 @@ var/list/asset_datums = list()
 		"barcode1.png" = 'html/images/barcode1.png',
 		"barcode2.png" = 'html/images/barcode2.png',
 		"barcode3.png" = 'html/images/barcode3.png',
+		"scclogo.png" = 'html/images/scclogo.png',
 		"ntlogo.png" = 'html/images/ntlogo.png',
 		"ntlogo_small.png" = 'html/images/ntlogo_small.png',
 		"zhlogo.png" = 'html/images/zhlogo.png',
@@ -435,6 +428,7 @@ var/list/asset_datums = list()
 		"dpraflag.png" = 'html/images/dpraflag.png',
 		"nkaflag.png" = 'html/images/nkaflag.png',
 		"izweskiflag.png" = 'html/images/izweskiflag.png',
+		"goldenlogo.png" = 'html/images/goldenlogo.png',
 		"bluebird.woff" = 'html/fonts/OFL/Bluebird.woff',
 		"grandhotel.woff" = 'html/fonts/OFL/GrandHotel.woff',
 		"lashema.woff" = 'html/fonts/OFL/Lashema.woff',
@@ -520,6 +514,7 @@ var/list/asset_datums = list()
 			I = S.update_appearance(TRUE)
 			Insert(imgid, I, forced=I)
 		else
+			O.update_icon()
 			if(O.overlay_queued)
 				O.compile_overlays()
 			if(O.overlays.len)

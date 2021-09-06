@@ -299,3 +299,24 @@
 	if(aug && !aug.is_broken())
 		return TRUE
 	return FALSE
+
+/mob/living/carbon/human/eyes_protected(var/obj/stab_item, var/stabbed = FALSE) // if stabbed is set to true if we're being stabbed and not just checking
+	. = ..()
+	if(.)
+		return
+	for(var/obj/item/protection in list(head, wear_mask, glasses))
+		if(protection.protects_eyestab(stab_item, stabbed))
+			return TRUE
+	return FALSE
+
+/mob/living/carbon/human/get_organ_name_from_zone(var/def_zone)
+	var/obj/item/organ/external/E = organs_by_name[parse_zone(def_zone)]
+	if(E)
+		return E.name
+	return ..()
+
+/mob/living/carbon/human/is_anti_materiel_vulnerable()
+	if(isSynthetic())
+		return TRUE
+	else
+		return FALSE

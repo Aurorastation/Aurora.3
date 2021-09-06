@@ -274,5 +274,5 @@
 	if(default_parry_check(user, attacker, damage_source) && prob(20))
 		user.visible_message(SPAN_DANGER("\The [user] parries [attack_text] with \the [src]!"))
 		playsound(user.loc, "punchmiss", 50, 1)
-		return TRUE
+		return PROJECTILE_STOPPED
 	return FALSE

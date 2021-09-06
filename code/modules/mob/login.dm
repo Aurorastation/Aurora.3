@@ -93,3 +93,5 @@
 
 	// Check code/modules/admin/verbs/antag-ooc.dm for definition
 	client.add_aooc_if_necessary()
+
+	client.chatOutput.start()

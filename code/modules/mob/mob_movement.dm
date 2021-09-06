@@ -191,7 +191,7 @@
 		Move_object(direct)
 
 	if(mob.incorporeal_move && isobserver(mob))
-		Process_Incorpmove(direct)
+		Process_Incorpmove(direct, mob)
 		return
 
 	if(moving || world.time < move_delay)
@@ -219,8 +219,8 @@
 
 	if(isliving(mob))
 		var/mob/living/L = mob
-		if(L.incorporeal_move)//Move though walls
-			Process_Incorpmove(direct)
+		if(L.incorporeal_move && isturf(mob.loc))//Move though walls
+			Process_Incorpmove(direct, mob)
 			return
 		if(mob.client && ((mob.client.view != world.view) || (mob.client.pixel_x != 0) || (mob.client.pixel_y != 0)))		// If mob moves while zoomed in with device, unzoom them.
 			for(var/obj/item/item in mob)
@@ -232,7 +232,7 @@
 		if(Process_Grab())
 			return
 
-	if(!mob.canmove)
+	if(!mob.canmove || mob.paralysis)
 		return
 
 	//if(istype(mob.loc, /turf/space) || (mob.flags & NOGRAV))
@@ -334,7 +334,10 @@
 		//We are now going to move
 		moving = 1
 		//Something with pulling things
-		if (mob_is_human && (istype(mob:l_hand, /obj/item/grab) || istype(mob:r_hand, /obj/item/grab)))
+		var/grab_level = mob.has_grab()
+		if(grab_level == MOB_GRAB_FIREMAN)
+			move_delay++
+		if (mob_is_human && grab_level == MOB_GRAB_NORMAL)
 			move_delay = max(move_delay, world.time + 7)
 			var/list/L = mob.ret_grab()
 			if(istype(L, /list))
@@ -366,7 +369,7 @@
 							M.animate_movement = 2
 							return
 
-		else if(mob.confused && prob(25))
+		else if(mob.confused && prob(25) && mob.m_intent == M_RUN)
 			step(mob, pick(cardinal))
 		else
 			. = mob.SelfMove(n, direct)
@@ -395,44 +398,49 @@
 ///Process_Incorpmove
 ///Called by client/Move()
 ///Allows mobs to run though walls
-/client/proc/Process_Incorpmove(direct)
-	var/turf/mobloc = get_turf(mob)
-	switch(mob.incorporeal_move)
+/client/proc/Process_Incorpmove(direct, var/mob/use_mob)
+	if(!use_mob)
+		use_mob = mob
+	var/turf/mobloc = get_turf(use_mob)
+	switch(use_mob.incorporeal_move)
 		if(INCORPOREAL_GHOST)
-			var/turf/T = get_step(mob, direct)
-			if(mob.check_holy(T))
-				to_chat(mob, SPAN_WARNING("You cannot get past holy grounds while you are in this plane of existence!"))
+			var/turf/T = get_step(use_mob, direct)
+			if(use_mob.check_holy(T))
+				to_chat(src, SPAN_WARNING("You cannot get past holy grounds while you are in this plane of existence!"))
 				return
 			else
-				mob.forceMove(get_step(mob, direct))
-				mob.dir = direct
+				use_mob.forceMove(get_step(use_mob, direct))
+				use_mob.dir = direct
 		if(INCORPOREAL_NINJA, INCORPOREAL_BSTECH)
-			anim(mobloc, mob, 'icons/mob/mob.dmi', null, "shadow", null, mob.dir)
-			mob.forceMove(get_step(mob, direct))
-			mob.dir = direct
+			anim(mobloc, use_mob, 'icons/mob/mob.dmi', null, "shadow", null, use_mob.dir)
+			use_mob.forceMove(get_step(use_mob, direct))
+			use_mob.dir = direct
+		if(INCORPOREAL_MECH)
+			new /obj/effect/temp_visual/incorporeal_mech(mobloc, use_mob.dir, use_mob)
+			use_mob.forceMove(get_step(use_mob, direct))
 		if(INCORPOREAL_SHADE)
-			if(!mob.canmove || mob.anchored)
+			if(!use_mob.canmove || use_mob.anchored)
 				return
 			move_delay = 1 + world.time
-			var/turf/T = get_step(mob, direct)
+			var/turf/T = get_step(use_mob, direct)
 			for(var/obj/structure/window/W in T)
 				if(istype(W, /obj/structure/window/phoronbasic) || istype(W, /obj/structure/window/phoronreinforced))
 					if(W.is_full_window())
-						to_chat(mob, SPAN_WARNING("\The [W] obstructs your movement!"))
+						to_chat(src, SPAN_WARNING("\The [W] obstructs your movement!"))
 						return
 
 					if((direct & W.dir) && W.density)
-						to_chat(mob, SPAN_WARNING("\The [W] obstructs your movement!"))
+						to_chat(src, SPAN_WARNING("\The [W] obstructs your movement!"))
 						return
 			if(istype(T, /turf/simulated/wall/phoron) || istype(T, /turf/simulated/wall/ironphoron))
-				to_chat(mob, SPAN_WARNING("\The [T] obstructs your movement!"))
+				to_chat(src, SPAN_WARNING("\The [T] obstructs your movement!"))
 				return
 
 			for(var/mob/living/L in T)
 				if(L.is_diona() == DIONA_WORKER)
-					to_chat(mob, SPAN_DANGER("You struggle briefly as you are photovored into \the [L], trapped within a nymphomatic husk!"))
+					to_chat(src, SPAN_DANGER("You struggle briefly as you are photovored into \the [L], trapped within a nymphomatic husk!"))
 					var/mob/living/carbon/alien/diona/D = new /mob/living/carbon/alien/diona(L)
-					var/mob/living/simple_animal/shade/bluespace/BS = mob
+					var/mob/living/simple_animal/shade/bluespace/BS = use_mob
 					if (!(/mob/living/carbon/proc/echo_eject in L.verbs))
 						L.verbs.Add(/mob/living/carbon/proc/echo_eject)
 					BS.mind.transfer_to(D)
@@ -445,21 +453,21 @@
 					qdel(BS)
 					return
 
-			mob.forceMove(get_step(mob, direct))
-			mob.dir = direct
+			use_mob.forceMove(get_step(use_mob, direct))
+			use_mob.dir = direct
 
 	// Crossed is always a bit iffy
-	for(var/obj/S in mob.loc)
+	for(var/obj/S in use_mob.loc)
 		if(istype(S,/obj/effect/step_trigger) || istype(S,/obj/effect/beam))
-			S.Crossed(mob)
+			S.Crossed(use_mob)
 
-	var/area/A = get_area_master(mob)
+	var/area/A = get_area_master(use_mob)
 	if(A)
-		A.Entered(mob)
-	if(isturf(mob.loc))
-		var/turf/T = mob.loc
-		T.Entered(mob)
-	mob.Post_Incorpmove()
+		A.Entered(use_mob)
+	if(isturf(use_mob.loc))
+		var/turf/T = use_mob.loc
+		T.Entered(use_mob)
+	use_mob.Post_Incorpmove()
 	return 1
 
 /mob/proc/Post_Incorpmove()

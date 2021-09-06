@@ -50,6 +50,9 @@
 	damage = 35
 	armor_penetration = 10
 
+/obj/item/projectile/beam/midlaser/mech
+	armor_penetration = 35
+
 /obj/item/projectile/beam/heavylaser
 	name = "heavy laser"
 	icon_state = "heavylaser"
@@ -70,6 +73,10 @@
 	tracer_type = /obj/effect/projectile/tracer/xray
 	impact_type = /obj/effect/projectile/impact/xray
 
+/obj/item/projectile/beam/xray/mech
+	damage = 40
+	armor_penetration = 75
+
 /obj/item/projectile/beam/pulse
 	name = "pulse"
 	icon_state = "u_laser"
@@ -79,6 +86,10 @@
 	muzzle_type = /obj/effect/projectile/muzzle/pulse
 	tracer_type = /obj/effect/projectile/tracer/pulse
 	impact_type = /obj/effect/projectile/impact/pulse
+
+/obj/item/projectile/beam/pulse/mech
+	damage = 45
+	armor_penetration = 40
 
 /obj/item/projectile/beam/pulse/on_hit(var/atom/target, var/blocked = 0)
 	if(isturf(target))
@@ -427,7 +438,7 @@
 /obj/item/projectile/beam/tesla/on_impact(atom/target)
 	. = ..()
 	if(isliving(target))
-		tesla_zap(target, 3, 5000)
+		tesla_zap(target, 5, 5000)
 
 /obj/item/projectile/beam/tesla/master
 	damage = 15
@@ -461,3 +472,15 @@
 			if(H.bodytemperature <= H.species.cold_level_2)
 				new /obj/structure/closet/statue/ice(H.loc, H)
 				H.visible_message(SPAN_WARNING("\The [H] freezes!"))
+
+/obj/item/projectile/beam/stun/skrell
+	name = "particle stun beam"
+	icon_state = "beam_omni"
+	agony = 50
+
+	muzzle_type = /obj/effect/projectile/muzzle/disabler
+	tracer_type = /obj/effect/projectile/tracer/disabler
+	impact_type = /obj/effect/projectile/impact/disabler
+
+/obj/item/projectile/beam/pulse/skrell
+	name = "particle lethal beam"

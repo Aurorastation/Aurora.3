@@ -127,6 +127,9 @@
 /obj/item/projectile/bullet/pistol/medium
 	damage = 30
 
+/obj/item/projectile/bullet/pistol/medium/mech
+	armor_penetration = 35
+
 /obj/item/projectile/bullet/pistol/strong
 	damage = 45
 	armor_penetration = 20
@@ -200,19 +203,22 @@
 /obj/item/projectile/bullet/rifle
 	damage = 40
 	armor_penetration = 15
-	penetrating = TRUE
+	penetrating = FALSE
 
 /obj/item/projectile/bullet/rifle/a762
 	damage = 40
 	armor_penetration = 20
+	penetrating = TRUE
 
 /obj/item/projectile/bullet/rifle/a556
 	damage = 40
 	armor_penetration = 15
+	penetrating = FALSE
 
-/obj/item/projectile/bullet/rifle/a556/ap 
+/obj/item/projectile/bullet/rifle/a556/ap
 	damage = 35
 	armor_penetration = 40
+	penetrating = TRUE
 
 /obj/item/projectile/bullet/rifle/a145
 	damage = 80
@@ -224,11 +230,13 @@
 	maiming = 1
 	maim_rate = 3
 	maim_type = DROPLIMB_BLUNT
+	anti_materiel_potential = 2
 
 /obj/item/projectile/bullet/rifle/vintage
 	name = "vintage bullet"
 	damage = 50
 	weaken = 1
+	penetrating = TRUE
 
 /obj/item/projectile/bullet/rifle/slugger
 	name = "slugger round"
@@ -239,6 +247,7 @@
 	maiming = TRUE
 	maim_rate = 3
 	maim_type = DROPLIMB_BLUNT
+	anti_materiel_potential = 2
 
 /obj/item/projectile/bullet/rifle/slugger/on_hit(var/atom/movable/target, var/blocked = 0)
 	if(!istype(target))
@@ -280,7 +289,7 @@
 
 	if(isanimal(target))
 		target.visible_message("<b>[target]</b> twitches, foaming at the mouth.")
-		L.apply_damage(35, TOX) //temporary until simple_mob paralysis actually works.
+		L.apply_damage(35, TOX) //temporary until simple_animal paralysis actually works.
 	..()
 
 /* Miscellaneous */
@@ -346,6 +355,7 @@
 /obj/item/projectile/bullet/gauss/highex
 	name = "high-ex shell"
 	damage = 10
+	armor_penetration = 30
 
 /obj/item/projectile/bullet/gauss/highex/on_impact(var/atom/A)
 	explosion(A, -1, 0, 2)
@@ -366,6 +376,7 @@
 	embed = 0
 	penetrating = 1
 	armor_penetration = 25
+	anti_materiel_potential = 2
 
 /obj/item/projectile/bullet/cannonball/explosive
 	damage = 50
@@ -380,6 +391,7 @@
 	name = "miniaturized nuclear warhead"
 	icon_state = "nuke"
 	damage = 25
+	anti_materiel_potential = 2
 
 /obj/item/projectile/bullet/nuke/on_impact(var/atom/A)
 	for(var/mob/living/carbon/human/mob in human_mob_list)
@@ -399,3 +411,22 @@
 
 /obj/item/projectile/bullet/shard/heavy
 	damage = 30
+
+/obj/item/projectile/bullet/recoilless_rifle
+	name = "anti-tank warhead"
+	icon_state = "missile"
+	damage = 30
+	anti_materiel_potential = 3
+	embed = FALSE
+	penetrating = FALSE
+	armor_penetration = 10
+
+/obj/item/projectile/bullet/recoilless_rifle/on_impact(var/atom/A)
+	explosion(A, -1, 1, 2)
+	..()
+
+/obj/item/projectile/bullet/recoilless_rifle/peac
+	name = "anti-tank missile"
+	icon_state = "peac"
+	damage = 45
+	penetrating = TRUE

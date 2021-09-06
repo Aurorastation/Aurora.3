@@ -1,13 +1,13 @@
 #define SS_INIT_PERSISTENT_CONFIG 25
 #define SS_INIT_MISC_FIRST  24
 #define SS_INIT_SEEDS       23	// Plant controller setup.
-#define SS_INIT_ASSETS      22	// Assets subsystem setup.
 #define SS_INIT_MAPLOAD     21	// DMM parsing and load. Unless you know what you're doing, make sure this remains first.
 #define SS_INIT_JOBS        20
 #define SS_INIT_MAPFINALIZE 19	// Asteroid generation.
-#define SS_INIT_PARALLAX    17	// Parallax image cache generation. Must run before ghosts are able to join.
-#define SS_INIT_HOLOMAP     16
-#define SS_INIT_ATOMS       15	// World initialization. Will trigger lighting updates. Observers can join after this loads.
+#define SS_INIT_PARALLAX    18	// Parallax image cache generation. Must run before ghosts are able to join.
+#define SS_INIT_HOLOMAP     17
+#define SS_INIT_ATOMS       16	// World initialization. Will trigger lighting updates. Observers can join after this loads.
+#define SS_INIT_ASSETS      15	// Assets subsystem setup.
 #define SS_INIT_POWER       14	// Initial powernet build.
 #define SS_INIT_ECONOMY     13  // Cargo needs economy set up
 #define SS_INIT_CARGO       12	// Random warehouse generation. Runs after SSatoms because it assumes objects are initialized when it runs.

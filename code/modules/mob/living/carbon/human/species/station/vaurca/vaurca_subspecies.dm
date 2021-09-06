@@ -76,13 +76,20 @@
 	stamina_recovery = 3
 
 	spawn_flags = IS_RESTRICTED
-	flags = NO_SCAN | NO_SLIP | NO_ARTERIES
+	flags = NO_SCAN | NO_SLIP | NO_ARTERIES | PHORON_IMMUNE
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/bugbite
 		)
 
 	default_h_style = "Bald"
+
+/datum/species/bug/type_c/New()
+	..()
+	equip_adjust = list(
+		slot_l_hand_str = list("[NORTH]" = list("x" = 6, "y" = 8),  "[EAST]" = list("x" = 15, "y" = 5), "[SOUTH]" = list("x" = 16, "y" = 8), "[WEST]" = list("x" = -9, "y" = 4)),
+		slot_r_hand_str = list("[NORTH]" = list("x" = 11, "y" = 8), "[EAST]" = list("x" = 25, "y" = 4), "[SOUTH]" = list("x" = 2, "y" = 8),  "[WEST]" = list("x" = 1, "y" = 5))
+	)
 
 /datum/species/bug/type_c/handle_post_spawn(var/mob/living/carbon/human/H)
 	..()
@@ -137,7 +144,7 @@
 	warning_high_pressure = 3250 //Default 325
 
 	spawn_flags = IS_RESTRICTED
-	flags = NO_SCAN | NO_SLIP | NO_PAIN | NO_BREATHE | NO_ARTERIES
+	flags = NO_SCAN | NO_SLIP | NO_PAIN | NO_BREATHE | NO_ARTERIES | PHORON_IMMUNE
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/rebel_yell,

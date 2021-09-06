@@ -102,6 +102,12 @@
 	maptext_y = 2
 	var/ready_to_use = TRUE
 	var/recharge_time = 1 MINUTE
+	var/when_recharge = 0
+
+/obj/item/syndie/teleporter/examine(mob/user, distance)
+	. = ..()
+	if(!ready_to_use && burglars.is_antagonist(user.mind))
+		to_chat(user, SPAN_NOTICE("Charging: [num2loadingbar(world.time / when_recharge)]"))
 
 /obj/item/syndie/teleporter/set_initial_maptext()
 	held_maptext = SMALL_FONTS(7, "Ready")
@@ -136,6 +142,7 @@
 	addtimer(CALLBACK(src, .proc/recharge), recharge_time)
 	ready_to_use = FALSE
 	check_maptext(SMALL_FONTS(6, "Charge"))
+	when_recharge = world.time + recharge_time
 
 /obj/item/syndie/teleporter/proc/recharge()
 	ready_to_use = TRUE

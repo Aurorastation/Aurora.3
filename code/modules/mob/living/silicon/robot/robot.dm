@@ -151,7 +151,7 @@
 	setup_icon_cache()
 
 	if(mmi?.brainobj)
-		mmi.brainobj.lobotomized = TRUE
+		mmi.brainobj.prepared = TRUE
 		mmi.brainmob.name = src.name
 		mmi.brainmob.real_name = src.name
 		mmi.name = "[initial(mmi.name)]: [src.name]"
@@ -208,6 +208,8 @@
 		mult += storage.rating
 	for(var/datum/matter_synth/M in module.synths)
 		M.set_multiplier(mult)
+	for(var/obj/item/stack/material/SM in module.modules)
+		SM.update_strings()
 
 /mob/living/silicon/robot/proc/init()
 	ai_camera = new /obj/item/device/camera/siliconcam/robot_camera(src)
@@ -391,7 +393,7 @@
 			custom_name = newname
 
 		updatename()
-		if(module)
+		if(custom_sprite)
 			set_module_sprites(module.sprites) // custom synth icons
 		SSrecords.reset_manifest()
 
@@ -739,7 +741,7 @@
 				to_chat(user, SPAN_WARNING("\The [src] does not have a radio installed!"))
 				return
 		else if(W.GetID() || istype(W, /obj/item/card/robot))			// trying to unlock the interface with an ID card
-			if(emagged) //still allow them to open the cover
+			if(emagged && !is_traitor()) //still allow them to open the cover. is_traitor() dodges this text as being made traitor sets emagged to TRUE. 
 				to_chat(user, SPAN_NOTICE("You notice that \the [src]'s interface appears to be damaged."))
 			if(opened)
 				to_chat(user, SPAN_WARNING("You must close the cover to swipe an ID card."))

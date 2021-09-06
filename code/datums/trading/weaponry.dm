@@ -37,7 +37,7 @@
 		/obj/item/ammo_magazine/mc10mm/empty                 = TRADER_BLACKLIST,
 		/obj/item/storage/box/ammo10mm                = TRADER_THIS_TYPE,
 		/obj/item/ammo_magazine/c38                          = TRADER_ALL,
-		/obj/item/ammo_magazine/c45x                         = TRADER_THIS_TYPE,
+		/obj/item/ammo_magazine/c45m/auto                         = TRADER_THIS_TYPE,
 		/obj/item/storage/box/beanbags                = TRADER_THIS_TYPE,
 		/obj/item/storage/box/shotgunammo             = TRADER_THIS_TYPE,
 		/obj/item/storage/box/shotgunshells           = TRADER_THIS_TYPE,
@@ -97,6 +97,8 @@
 		"insult_good"       = "Good one, comrrrade!",
 		"insult_bad"        = "Rrrracist!"
 	)
+
+	allowed_space_sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA)
 
 	possible_trading_items = list(
 		/obj/item/gun/projectile/shotgun/pump/rifle           = TRADER_ALL,

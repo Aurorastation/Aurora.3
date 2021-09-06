@@ -15,8 +15,10 @@
 	nano_printer.stored_paper = 5
 	tesla_link = new /obj/item/computer_hardware/tesla_link/charging_cable(src)
 
-/obj/item/modular_computer/laptop/preset/install_default_programs()
-	..()
+// the laptop in the modular computer loadout
+/obj/item/modular_computer/laptop/preset/loadout/install_default_hardware()
+	. = ..()
+	card_slot = new /obj/item/computer_hardware/card_slot(src)
 
 // Engineering
 /obj/item/modular_computer/laptop/preset/engineering

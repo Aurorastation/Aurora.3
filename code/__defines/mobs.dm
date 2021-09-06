@@ -23,6 +23,11 @@
 #define INCORPOREAL_NINJA   2 // Pass through matter with a cool effect
 #define INCORPOREAL_BSTECH  3 // Like ninja, but also go across Z-levels and move in space freely
 #define INCORPOREAL_SHADE   4 // Shady
+#define INCORPOREAL_MECH    5 // stripped down bstech
+
+#define MOB_GRAB_NONE 0
+#define MOB_GRAB_NORMAL 1
+#define MOB_GRAB_FIREMAN 2
 
 // Grab levels.
 #define GRAB_PASSIVE    1
@@ -59,13 +64,10 @@
 #define PULSE_MAX_BPM 250 // Highest, readable BPM by machines and humans.
 
 // Blood pressure levels, simplified
-#define BP_HIGH_SYSTOLIC 		140
-#define BP_PRE_HIGH_SYSTOLIC 	125
-#define BP_IDEAL_SYSTOLIC		80
-
-#define BP_HIGH_DIASTOLIC 		100
-#define BP_PRE_HIGH_DIASTOLIC	85
-#define BP_IDEAL_DIASTOLIC 		60
+#define HIGH_BP_MOD 20
+#define PRE_HIGH_BP_MOD 5
+#define BP_SYS_IDEAL_MOD 40
+#define BP_DIS_IDEAL_MOD 20
 
 #define BLOOD_PRESSURE_HIGH     4
 #define BLOOD_PRESSURE_PRE_HIGH 3
@@ -164,6 +166,8 @@
 #define BP_AUG_EMOTION         "emotional manipulator"
 #define BP_AUG_ENCHANED_VISION "vision enhanced retinas"
 #define BP_AUG_SIGHTLIGHTS     "ocular installed sightlights"
+#define BP_AUG_CORRECTIVE_LENS "corrective lenses"
+#define BP_AUG_GLARE_DAMPENER "glare dampeners"
 
 //Organ defines
 #define PROCESS_ACCURACY 10
@@ -232,14 +236,14 @@
 #define IPC_OWNERSHIP_COMPANY "Company Owned"
 #define IPC_OWNERSHIP_PRIVATE "Privately Owned"
 
-// NT's alignment towards the character
-#define COMPANY_LOYAL 			"Loyal"
-#define COMPANY_SUPPORTATIVE	"Supportive"
-#define COMPANY_NEUTRAL 		"Neutral"
-#define COMPANY_SKEPTICAL		"Skeptical"
-#define COMPANY_OPPOSED			"Opposed"
+// How wealthy/poor a character is
+#define ECONOMICALLY_WEALTHY	"Wealthy"
+#define ECONOMICALLY_WELLOFF	"Well-off"
+#define ECONOMICALLY_AVERAGE	"Average"
+#define ECONOMICALLY_UNDERPAID	"Underpaid"
+#define ECONOMICALLY_POOR		"Poor"
 
-#define COMPANY_ALIGNMENTS		list(COMPANY_LOYAL,COMPANY_SUPPORTATIVE,COMPANY_NEUTRAL,COMPANY_SKEPTICAL,COMPANY_OPPOSED)
+#define ECONOMIC_POSITIONS		list(ECONOMICALLY_WEALTHY, ECONOMICALLY_WELLOFF, ECONOMICALLY_AVERAGE, ECONOMICALLY_UNDERPAID, ECONOMICALLY_POOR)
 
 // Defines the argument used for get_mobs_and_objs_in_view_fast
 #define GHOSTS_ALL_HEAR 1
@@ -390,6 +394,13 @@
 #define CURE_SURGERY "surgery"
 #define CURE_ADMIN "all"
 
+// triage tags
+#define TRIAGE_NONE "None"
+#define TRIAGE_GREEN "Green"
+#define TRIAGE_YELLOW "Yellow"
+#define TRIAGE_RED "Red"
+#define TRIAGE_BLACK "Black"
+
 // Surgery Stuff
 #define SURGERY_SUCCESS 2 // Proceed with surgery
 #define SURGERY_FAIL 1 // Autofail surgery
@@ -415,6 +426,8 @@
 #define REMOTE_BUNKER_ROBOT "bunkerrobots"
 #define REMOTE_PRISON_ROBOT "prisonrobots"
 #define REMOTE_WARDEN_ROBOT "wardenrobots"
+
+#define REMOTE_AI_ROBOT "airobots"
 
 // Robot Overlay Defines
 #define ROBOT_PANEL_EXPOSED  "exposed"

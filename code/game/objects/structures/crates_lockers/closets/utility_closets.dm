@@ -90,19 +90,19 @@
 	icon_opened = "fireclosetopen"
 
 /obj/structure/closet/firecloset/fill()
-	new /obj/item/clothing/suit/fire/firefighter(src)
+	new /obj/item/clothing/head/hardhat/firefighter(src)
+	new /obj/item/clothing/suit/fire(src)
 	new /obj/item/clothing/mask/gas(src)
 	new /obj/item/tank/oxygen/red(src)
 	new /obj/item/extinguisher(src)
-	new /obj/item/clothing/head/hardhat/red(src)
 
 /obj/structure/closet/firecloset/full/fill()
-	new /obj/item/clothing/suit/fire/firefighter(src)
+	new /obj/item/clothing/head/hardhat/firefighter(src)
+	new /obj/item/clothing/suit/fire(src)
 	new /obj/item/clothing/mask/gas(src)
 	new /obj/item/device/flashlight(src)
 	new /obj/item/tank/oxygen/red(src)
 	new /obj/item/extinguisher(src)
-	new /obj/item/clothing/head/hardhat/red(src)
 
 
 
@@ -163,12 +163,12 @@
 	icon_closed = "radsuitcloset"
 
 /obj/structure/closet/radiation/fill()
-	new /obj/item/clothing/suit/radiation(src)
-	new /obj/item/clothing/head/radiation(src)
-	new /obj/item/clothing/glasses/safety/goggles(src)
-	new /obj/item/clothing/suit/radiation(src)
-	new /obj/item/clothing/head/radiation(src)
-	new /obj/item/clothing/glasses/safety/goggles(src)
+	for(var/i = 1 to 2)
+		new /obj/item/clothing/head/radiation(src)
+		new /obj/item/clothing/suit/radiation(src)
+		new /obj/item/clothing/glasses/safety/goggles(src)
+	for(var/i = 1 to 2)
+		new /obj/item/reagent_containers/hypospray/autoinjector/hyronalin(src)
 
 /*
  * Bombsuit closet
@@ -216,12 +216,12 @@
 	wall_mounted = 1
 
 /obj/structure/closet/hydrant/fill()
-	new /obj/item/clothing/suit/fire/firefighter(src)
+	new /obj/item/clothing/head/hardhat/firefighter(src)
+	new /obj/item/clothing/suit/fire(src)
 	new /obj/item/clothing/mask/gas(src)
 	new /obj/item/device/flashlight(src)
 	new /obj/item/tank/oxygen/red(src)
 	new /obj/item/extinguisher(src)
-	new /obj/item/clothing/head/hardhat/red(src)
 
 	if (prob(25))
 		new /obj/item/ladder_mobile(src)

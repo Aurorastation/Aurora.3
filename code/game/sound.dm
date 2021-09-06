@@ -155,7 +155,7 @@
 		return PSYCHOTIC
 	else if (druggy)
 		return DRUGGED
-	else if (drowsyness)
+	else if (drowsiness)
 		return DIZZY
 	else if (confused)
 		return DIZZY
@@ -399,6 +399,14 @@
 		'sound/weapons/punch2.ogg',
 		'sound/weapons/punch3.ogg',
 		'sound/weapons/punch4.ogg'
+	)
+
+/decl/sound_category/punch_bassy_sound
+	sounds = list(
+		'sound/weapons/punch1_bass.ogg',
+		'sound/weapons/punch2_bass.ogg',
+		'sound/weapons/punch3_bass.ogg',
+		'sound/weapons/punch4_bass.ogg'
 	)
 
 /decl/sound_category/punchmiss_sound

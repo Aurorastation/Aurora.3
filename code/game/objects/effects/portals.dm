@@ -53,21 +53,36 @@
 	if(does_teleport)
 		teleport(user)
 
-/obj/effect/portal/proc/teleport(atom/movable/M)
+/obj/effect/portal/proc/teleport(atom/movable/movable)
 	if(!does_teleport) // just to be safe
 		return
-	if(istype(M, /obj/effect)) //sparks don't teleport
+	if(istype(movable, /obj/effect)) //sparks don't teleport
 		return
 	if(!target)
 		qdel(src)
 		return
-	if(istype(M, /atom/movable))
+	var/has_teleported = FALSE
+	var/list/things_to_teleport = list(movable)
+	if(ismob(movable))
+		var/mob/M = movable
+		if(M.pulling)
+			things_to_teleport += M.pulling
+		if(ishuman(movable))
+			var/mob/living/carbon/human/H = movable
+			for(var/obj/item/grab/G in list(H.l_hand, H.r_hand))
+				things_to_teleport += G.affecting
+	for(var/atom/movable/M in things_to_teleport)
 		if(has_failed) //oh dear a problem, put em in deep space
 			icon_state = "portal1" // only tell people the portal failed after a teleport has been done
 			desc = "A bluespace tear in space, reaching directly to another point within this region. Definitely unstable."
-			do_teleport(M, locate(rand(5, world.maxx - 5), rand(5, world.maxy -5), 3), 0)
+			if(do_teleport(M, locate(rand(5, world.maxx - 5), rand(5, world.maxy -5), pick(GetConnectedZlevels(z))), 0))
+				has_teleported = TRUE
 		else
-			do_teleport(M, target, precision)
+			if(do_teleport(M, target, precision))
+				has_teleported = TRUE
+	if(!has_teleported)
+		visible_message(SPAN_WARNING("\The [src] oscillates violently as \the [movable] comes into contact with it, and collapses! Seems like the rift was unstable..."))
+		qdel(src)
 
 /obj/effect/portal/Destroy()
 	if(istype(creator, /obj/item/hand_tele))

@@ -75,8 +75,6 @@
 	else
 		save_preferences()
 
-	update_preview_icon()
-
 	return 1
 
 /datum/preferences/proc/save_character()

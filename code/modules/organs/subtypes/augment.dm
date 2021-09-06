@@ -15,6 +15,7 @@
 	var/action_button_icon = "augment"
 	var/activable = FALSE
 	var/bypass_implant = FALSE
+	var/supports_limb = FALSE // if true, will make parent limb not count as broken, as long as it's not bruised (40%) and not broken (0%)
 
 /obj/item/organ/internal/augment/Initialize()
 	robotize()
@@ -90,7 +91,7 @@
 	cooldown = 10
 	activable = TRUE
 	var/obj/item/augment_type
-
+	var/aug_slot = slot_r_hand
 
 /obj/item/organ/internal/augment/tool/attack_self(var/mob/user)
 	. = ..()
@@ -98,20 +99,22 @@
 	if(!.)
 		return FALSE
 
-
 	if(!augment_type)
 		return FALSE
 
 	if (locate(augment_type) in owner)
-		to_chat(owner, SPAN_WARNING("\The [src] is already enabled!"))
+		var/obj/slot_item = locate(augment_type) in owner
+		owner.drop_from_inventory(slot_item)
+		qdel(slot_item)
+		owner.visible_message(SPAN_NOTICE("\The [slot_item] slides back into \the [owner]'s [owner.organs_by_name[parent_organ]]."), SPAN_NOTICE("You retract \the [slot_item]!"))
 		return
 
-	if(owner.get_active_hand())
-		to_chat(owner, SPAN_WARNING("You must empty your active hand before enabling your [src]!"))
+	if (owner.get_equipped_item(aug_slot))
+		to_chat(owner, SPAN_WARNING("Something is stopping you from enabling your [src]!"))
 		return
 
 	var/obj/item/M = new augment_type(owner)
-	owner.put_in_active_hand(M)
+	owner.equip_to_slot(M, aug_slot)
 	owner.visible_message(SPAN_NOTICE("\The [M] slides out of \the [owner]'s [owner.organs_by_name[parent_organ]]."), SPAN_NOTICE("You deploy \the [M]!"))
 
 /obj/item/organ/internal/augment/tool/combitool
@@ -125,6 +128,7 @@
 
 /obj/item/organ/internal/augment/tool/combitool/left
 	parent_organ = BP_L_HAND
+	aug_slot = slot_l_hand
 
 /obj/item/organ/internal/augment/tool/combitool/lighter
 	name = "integrated lighter"
@@ -136,6 +140,7 @@
 
 /obj/item/organ/internal/augment/tool/combitool/lighter/left
 	parent_organ = BP_L_HAND
+	aug_slot = slot_l_hand
 
 /obj/item/organ/internal/augment/health_scanner
 	name = "integrated health scanner"
@@ -475,6 +480,7 @@
 	action_button_icon = "emotional_manipulator"
 	cooldown = 10
 	var/set_emotion = "Disabled"
+	var/last_emotion = 0
 
 	var/list/possible_emotions = list(
 		"Disabled",
@@ -497,16 +503,13 @@
 	if(!owner)
 		return
 
-	if(prob(1))
-
+	if(world.time > (last_emotion + 5 MINUTES))
 		switch(set_emotion)
-
-			if("Happiness")
-
+			if("happiness")
 				to_chat(owner, SPAN_NOTICE("You feel happy."))
-
-			if("Calmness")
+			if("calmness")
 				to_chat(owner, SPAN_NOTICE("You feel calm."))
+		last_emotion = world.time
 
 		if(is_broken())
 			do_broken_act()
@@ -573,15 +576,15 @@
 		set_light(0)
 
 /obj/item/organ/internal/augment/sightlights/emp_act(severity)
-	..()
+	. = ..()
 	set_light(0)
 
 /obj/item/organ/internal/augment/sightlights/take_damage(var/amount, var/silent = 0)
-	..()
+	. = ..()
 	set_light(0)
 
 /obj/item/organ/internal/augment/sightlights/take_internal_damage(var/amount, var/silent = 0)
-	..()
+	. = ..()
 	set_light(0)
 
 /obj/item/organ/internal/augment/zenghu_plate
@@ -590,3 +593,56 @@
 	icon_state = "zenghu_plate"
 	on_mob_icon = 'icons/mob/human_races/augments_external.dmi'
 	parent_organ = BP_HEAD
+
+/obj/item/organ/internal/augment/head_fluff
+	name = "head augmentation"
+	desc = "An augment installed inside the head of someone."
+	parent_organ = BP_HEAD
+
+/obj/item/organ/internal/augment/head_fluff/chest_fluff
+	name = "chest augmentation"
+	desc = "An augment installed inside the chest of someone."
+	parent_organ = BP_CHEST
+
+/obj/item/organ/internal/augment/head_fluff/rhand_fluff
+	name = "right hand augmentation"
+	desc = "An augment installed inside the right hand of someone."
+	parent_organ = BP_R_HAND
+
+/obj/item/organ/internal/augment/head_fluff/lhand_fluff
+	name = "left hand augmentation"
+	desc = "An augment installed inside the left hand of someone."
+	parent_organ = BP_L_HAND
+
+/obj/item/organ/internal/augment/head_fluff/die()
+	..()
+	if (owner)
+		to_chat(owner, SPAN_DANGER("You sense your [name] stops functioning!"))
+
+/obj/item/organ/internal/augment/head_fluff/process()
+	..()
+	if (is_broken() && !ORGAN_DEAD)
+		if (prob(5))
+			to_chat(owner, SPAN_WARNING("You sense your [name] isn't working right!"))
+
+/obj/item/organ/internal/augment/head_fluff/removed()
+	if (owner)
+		to_chat(owner, SPAN_DANGER("You lose your connection with \the [name]!"))
+	..()
+
+/obj/item/organ/internal/augment/tool/correctivelens
+	name = "corrective lenses"
+	icon_state = "augment-tool"
+	action_button_name = "Deploy Corrective Lenses"
+	action_button_icon = "augment-tool"
+	parent_organ = BP_EYES
+	organ_tag = BP_AUG_CORRECTIVE_LENS
+	augment_type = /obj/item/clothing/glasses/aug/glasses
+	aug_slot = slot_glasses
+
+/obj/item/organ/internal/augment/tool/correctivelens/glare_dampener
+	name = "glare dapmeners"
+	icon_state = "augment-tool"
+	action_button_name = "Deploy Glare Dampeners"
+	organ_tag = BP_AUG_GLARE_DAMPENER
+	augment_type = /obj/item/clothing/glasses/aug/welding

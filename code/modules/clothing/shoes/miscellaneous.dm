@@ -38,6 +38,7 @@
 
 /obj/item/clothing/shoes/swat/ert
 	species_restricted = null
+	sprite_sheets = list("Tajara" = 'icons/mob/species/tajaran/shoes.dmi')
 
 /obj/item/clothing/shoes/combat //Basically SWAT shoes combined with galoshes.
 	name = "combat boots"
@@ -159,6 +160,7 @@ obj/item/clothing/shoes/sandal/clogs
 	silent = 1
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	move_trail = null
 
 /obj/item/clothing/shoes/cowboy
 	name = "cowboy boots"
@@ -189,7 +191,7 @@ obj/item/clothing/shoes/sandal/clogs
 /obj/item/clothing/shoes/heels/attack(mob/living/carbon/M, mob/living/carbon/user, var/target_zone)
 	if(!istype(M) || user.a_intent == "help")
 		return ..()
-	if(target_zone != BP_EYES && target_zone != BP_HEAD)
+	if((target_zone != BP_EYES && target_zone != BP_HEAD) || M.eyes_protected(src, FALSE))
 		return ..()
 	if((user.is_clumsy()) && prob(50))
 		M = user

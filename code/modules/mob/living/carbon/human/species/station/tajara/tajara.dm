@@ -14,6 +14,7 @@
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
 		/datum/unarmed_attack/claws,
+		/datum/unarmed_attack/palm,
 		/datum/unarmed_attack/bite/sharp
 	)
 	darksight = 8
@@ -42,6 +43,13 @@
 	stamina_recovery = 4
 	sprint_speed_factor = 0.65
 	sprint_cost_factor = 0.75
+	bp_base_systolic = 140 // Default 120
+	bp_base_disatolic = 90 // Default 80
+	low_pulse = 50 // Default 40
+	norm_pulse = 70 // Default 60
+	fast_pulse = 100 // Default 90
+	v_fast_pulse = 130// Default 120
+	max_pulse = 170// Default 160
 
 	blurb = "The Tajaran race is a species of feline-like bipeds hailing from the planet of Adhomai in the S'rendarr \
 	system. They have been brought up into the space age by the Humans and Skrell, who alledgedly influenced their \
@@ -85,7 +93,10 @@
 	allowed_religions = list(RELIGION_TWINSUNS, RELIGION_MATAKE, RELIGION_RASKARA, RELIGION_NONE, RELIGION_OTHER)
 
 	default_accent = ACCENT_REPUBICLANSIIK
-	allowed_accents = list(ACCENT_REPUBICLANSIIK, ACCENT_NAZIRASIIK, ACCENT_CREVAN, ACCENT_DASNRRASIIK, ACCENT_HIGHHARRSIIK, ACCENT_LOWHARRSIIK, ACCENT_AMOHDASIIK, ACCENT_NORTHRASNRR, ACCENT_OLDYASSA)
+	allowed_accents = list(ACCENT_REPUBICLANSIIK, ACCENT_NAZIRASIIK, ACCENT_CREVAN, ACCENT_DASNRRASIIK, ACCENT_HIGHHARRSIIK, ACCENT_LOWHARRSIIK, ACCENT_AMOHDASIIK, ACCENT_NORTHRASNRR, ACCENT_DINAKK, ACCENT_OLDYASSA)
+
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/tie_hair)
 
 	zombie_type = SPECIES_ZOMBIE_TAJARA
 

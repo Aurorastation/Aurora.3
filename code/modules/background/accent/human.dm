@@ -45,7 +45,7 @@
 
 /datum/accent/silversun_original
 	name = ACCENT_SILVERSUN_ORIGINAL
-	description = "The native accent of Silversun is a sing-song take on standard Sol Common that has, since massive investment into the planet by Idris Incorporated, come to be associated with the planet’s renowned tourism industry. \
+	description = "The native accent of Silversun is a sing-song take on standard Sol Common that has, since massive investment into the planet by Idris Incorporated, come to be associated with the planet's renowned tourism industry. \
 	Many native residents of Silversun are bitter that their accent - and planet - are seen as nothing more than an enormous vacation retreat by the greater Orion Spur. This accent is commonly used by Idris Incorporated shell positronic \
 	frames, much to the consternation of Silversun's Originals."
 	tag_icon = "silversun_original"
@@ -106,15 +106,18 @@
 
 /datum/accent/venus
 	name = ACCENT_VENUS
-	description = "Venusian Common (referred time as Cytherean Common on Venus itself) is often regarded as the \"most common\" form of Sol Common due to the prevalence of its entertainment \
-	industry. It sounds extremely similar to Earthbound Sol Common. Many high-end entertainment IPCs used throughout human space come pre-programmed with this accent, due to its \
-	association with the Venusian entertainment industry."
+	description = "Venusian Common (referred to as Cytherean Common on Venus itself) is often regarded as one of the most prevalent forms \
+	of Sol Common due to Venus' massive entertainment industry. On Venus itself this accent is associated with the entertainment industry \
+	and Cytherea, and many prospective actors will attempt to adopt it in order to better fit into the industry. Many high-end entertainment \
+	IPCs used throughout human space come pre-programmed with this accent, due to its association with the Venusian entertainment industry."
 	tag_icon = "venus"
 
 /datum/accent/venusjin
 	name = ACCENT_VENUSJIN
-	description = "Jintarian Common is looked down upon on Venus itself for its association with Venusian surfacers, and is often used by the planet's entertainment industry to mark a \
-	character as villainous or untrustworthy. As a result, it is often looked down upon throughout human space."
+	description = "While Cytherean Common has a reputation abroad as \"Venusian Common\" it is the accent of working-class Jintarians that is, \
+	to many on the planet, the true form of Venusian Common. On Venus itself this accent is associated with the working and middle-class \
+	population of the planet rather than the entertainment industry, and many Cythereans look down upon those with this accent as unrefined. \
+	Hendrik Strom, one of the Sol Alliance's most notable politicians, is well-known for having a strong Jintarian accent he makes no attempt to hide."
 	tag_icon = "venus_surfacer"
 
 /datum/accent/dominia_high

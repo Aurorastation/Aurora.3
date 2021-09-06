@@ -367,7 +367,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 /obj/item/reagent_containers/food/drinks/carton
 	name = "carton"
 	desc = "An abstract way to organize bottles that are really cartons. Finally!"
-	item_state = "carton"
+	icon_state = "carton"
 	volume = 100
 	center_of_mass = list("x"=16, "y"=6)
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
@@ -422,6 +422,22 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 
 	reagents_to_add = list(/decl/reagent/drink/applejuice = 100)
 
+/obj/item/reagent_containers/food/drinks/carton/fatshouters
+	name = "fatshouters milk carton"
+	desc = "Fatty fatshouters milk in a carton."
+
+	reagents_to_add = list(/decl/reagent/drink/milk/adhomai = 100)
+
+/obj/item/reagent_containers/food/drinks/carton/mutthir
+	name = "mutthir carton"
+	icon_state = "mutthir"
+	desc = "A beverage made with Fatshouters' yogurt mixed with Nm’shaan's sugar and sweet herbs."
+	desc_fluff = "A beverage made with Fatshouters' yogurt mixed with Nm’shaan's sugar and sweet herbs. Mutthir is usually consumed during meals by both nobles and commoners. \
+	The drink can also be smoked for flavor. Mutthir is believed to have originated from the worldwide appreciated Fatshouters' fermented milk. Rock Nomads living in the Nomadic Host \
+	were quick to adopt the drink to their diet."
+
+	reagents_to_add = list(/decl/reagent/drink/milk/adhomai/mutthir = 100)
+
 //////////////////////////drinkingglass and shaker//
 //Note by Darem: This code handles the mixing of drinks. New drinks go in three places: In Chemistry-Reagents.dm (for the drink
 //	itself), in Chemistry-Recipes.dm (for the reaction that changes the components into the drink), and here (for the drinking glass
@@ -453,6 +469,15 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	amount_per_transfer_from_this = 10
 	volume = 120
 	center_of_mass = list("x"=17, "y"=7)
+
+/obj/item/reagent_containers/food/drinks/pitcher
+	name = "pitcher"
+	desc = "Everyone's best friend in the morning."
+	icon_state = "pitcher"
+	unacidable = TRUE
+	amount_per_transfer_from_this = 10
+	volume = 120
+	possible_transfer_amounts = list(5,10,15,30,60,120)
 
 /obj/item/reagent_containers/food/drinks/flask
 	name = "captain's flask"
@@ -542,3 +567,33 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	icon_state = "britcup"
 	volume = 30
 	center_of_mass = list("x"=15, "y"=13)
+
+/obj/item/reagent_containers/food/drinks/small_milk
+	name = "small milk carton"
+	desc = "It's milk. White and nutritious goodness!"
+	icon_state = "mini-milk"
+	item_state = "carton"
+	drop_sound = 'sound/items/drop/papercup.ogg'
+	pickup_sound = 'sound/items/pickup/papercup.ogg'
+	center_of_mass = list("x"=16, "y"=14)
+	reagents_to_add = list(/decl/reagent/drink/milk = 20)
+
+/obj/item/reagent_containers/food/drinks/small_milk_choco
+	name = "small chocolate milk carton"
+	desc = "It's milk. This one is in delicious chocolate flavor."
+	icon_state = "mini-milk_choco"
+	item_state = "carton"
+	drop_sound = 'sound/items/drop/papercup.ogg'
+	pickup_sound = 'sound/items/pickup/papercup.ogg'
+	center_of_mass = list("x"=16, "y"=14)
+	reagents_to_add = list(/decl/reagent/drink/milk/chocolate = 20)
+
+/obj/item/reagent_containers/food/drinks/small_milk_strawberry
+	name = "small strawberry milk carton"
+	desc = "It's milk. This one is in delicious strawberry flavor."
+	icon_state = "mini-milk_strawberry"
+	item_state = "carton"
+	drop_sound = 'sound/items/drop/papercup.ogg'
+	pickup_sound = 'sound/items/pickup/papercup.ogg'
+	center_of_mass = list("x"=16, "y"=14)
+	reagents_to_add = list(/decl/reagent/drink/milk/strawberry = 20)

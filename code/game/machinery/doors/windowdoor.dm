@@ -98,6 +98,8 @@
 		return 1
 
 /obj/machinery/door/window/open(var/forced=FALSE)
+	set waitfor = FALSE
+
 	if(!can_open() && !forced)
 		return FALSE
 	operating = TRUE
@@ -113,6 +115,8 @@
 	return TRUE
 
 /obj/machinery/door/window/close(var/forced=FALSE)
+	set waitfor = FALSE
+
 	if (!can_close() && !forced)
 		return FALSE
 	operating = TRUE

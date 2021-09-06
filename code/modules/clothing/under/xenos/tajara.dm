@@ -8,6 +8,7 @@
 	desc_fluff = "Having direct and friendly contact with humanity, The People's Republic of Adhomai has been the most influenced by the spacer fashion. The most known \
 	being the \"assistant jumpsuits\" which directly inspired the design of factory overalls, the plight and low pay of the assistants being close to the hearts of Tajara Hadiist \
 	workers and their Republic."
+	no_overheat = TRUE
 
 /obj/item/clothing/under/tajaran/fancy
 	name = "fancy uniform"
@@ -79,7 +80,7 @@
 /obj/item/clothing/under/tajaran/raakti_shariim
 	name = "\improper Raakti Shariim uniform"
 	desc = "A blue and lilac adhomian uniform with pale-gold insignia, worn by members of the NKA's Raakti Shariim."
-	icon = 'icons/obj/clothing/species/tajaran/raakti_shariim.dmi'
+	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "raakti_shariim_uniform"
 	item_state = "raakti_shariim_uniform"
 	desc_fluff = "The Raakti Shariim (Royal Peacekeepers in Ceti Basic) are the New Kingdom of Adhomai's policing and \

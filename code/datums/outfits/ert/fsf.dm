@@ -28,6 +28,8 @@
 	accessory = /obj/item/clothing/accessory/holster/hip/brown
 	accessory_contents = list(/obj/item/gun/projectile/pistol/sol = 1)
 
+	id_iff = IFF_FSF
+
 /datum/outfit/admin/ert/fsf/get_id_access()
 	return get_distress_access_lesser()
 
@@ -36,6 +38,7 @@
 
 	belt = /obj/item/storage/belt/medical/first_responder/combat
 	back = /obj/item/storage/backpack/satchel_med
+	glasses = /obj/item/clothing/glasses/hud/health
 	suit_store = /obj/item/gun/projectile/shotgun/pump/combat/sol
 	gloves = /obj/item/clothing/gloves/latex
 
@@ -45,6 +48,7 @@
 		/obj/item/storage/box/shotgunshells = 1,
 		/obj/item/storage/firstaid/adv = 1,
 		/obj/item/handcuffs/ziptie = 1,
+		/obj/item/device/healthanalyzer = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 		/obj/item/stack/medical/advanced/ointment = 1,
 		/obj/item/melee/energy/sword/knife/sol = 1
@@ -56,6 +60,7 @@
 		/obj/item/reagent_containers/glass/bottle/antitoxin = 1,
 		/obj/item/reagent_containers/glass/bottle/dexalin_plus = 1,
 		/obj/item/reagent_containers/glass/bottle/bicaridine = 1,
+		/obj/item/reagent_containers/glass/bottle/thetamycin = 1,
 		/obj/item/reagent_containers/glass/bottle/dermaline = 1,
 		/obj/item/reagent_containers/glass/bottle/perconol = 1
 	)
@@ -63,7 +68,7 @@
 /datum/outfit/admin/ert/fsf/sapper
 	name = "Free Solarian Fleets Sapper"
 
-	back = /obj/item/storage/backpack/duffel
+	back = /obj/item/storage/backpack/industrial
 	belt = /obj/item/storage/belt/utility/very_full
 	gloves = /obj/item/clothing/gloves/yellow
 	back = /obj/item/storage/backpack/duffel/eng
@@ -107,9 +112,11 @@
 	name = "Free Solarian Fleets Synthetic Unit"
 
 	uniform = /obj/item/clothing/under/rank/fatigues
+	accessory = /obj/item/clothing/accessory/storage/webbingharness/pouches/ert
+	accessory_contents = list(/obj/item/gun/projectile/pistol/sol = 1, /obj/item/ammo_magazine/mc9mm = 2)
 	shoes = /obj/item/clothing/shoes/jackboots
 	belt = /obj/item/storage/belt/utility/very_full
-	head = null
+	head = /obj/item/clothing/head/helmet/pilot
 	suit = null
 	suit_store = null
 	l_pocket = null
@@ -119,5 +126,6 @@
 
 	backpack_contents = list(
 		/obj/item/melee/energy/sword/knife/sol = 1,
-		/obj/item/ammo_magazine/mc9mm = 2
+		/obj/item/grenade/smokebomb = 2,
+		/obj/item/device/binoculars = 1
 	)

@@ -12,36 +12,25 @@
 /obj/item/clothing/suit/fire
 	name = "firesuit"
 	desc = "A suit that protects against fire and heat."
+	icon = 'icons/clothing/kit/firefighter.dmi'
 	icon_state = "firesuit"
 	item_state = "firesuit"
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("ada", "gol")
+	contained_sprite = TRUE
 	w_class = ITEMSIZE_LARGE//bulky item
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.50
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	siemens_coefficient = 0.5
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank/emergency_oxygen,/obj/item/extinguisher)
-	slowdown = 1.0
+	slowdown = 0.8 // slightly better than voidsuits
 	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
 	max_pressure_protection = FIRESUIT_MAX_PRESSURE
+	min_pressure_protection = FIRESUIT_MIN_PRESSURE
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
-
-
-/obj/item/clothing/suit/fire/firefighter
-	icon_state = "firesuit"
-	item_state = "firesuit"
-
-
-/obj/item/clothing/suit/fire/heavy
-	name = "firesuit"
-	desc = "A suit that protects against extreme fire and heat."
-	//icon_state = "thermal"
-	siemens_coefficient = 0.35
-	item_state = "ro_suit"
-	w_class = ITEMSIZE_LARGE//bulky item
-	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE + 25000
-	slowdown = 1.5
 
 /obj/item/clothing/suit/fire/atmos
 	name = "atmospheric technician firesuit"
@@ -187,13 +176,19 @@
  * Radiation protection
  */
 /obj/item/clothing/head/radiation
-	name = "radiation Hood"
-	icon_state = "rad"
-	desc = "A hood with radiation protective properties. Label: Made with lead, do not eat insulation"
+	name = "radiation hood"
+	desc = "A hood with radiation protective properties. Label: Made with lead, do not eat insulation."
+	icon = 'icons/clothing/kit/radsuit.dmi'
+	item_icons = null
+	icon_state = "radhood"
+	item_state = "radhood"
+	contained_sprite = TRUE
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("skr", "una", "taj")
 	flags_inv = BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
 	armor = list(
-		bio = ARMOR_BIO_RESISTANT, 
+		bio = ARMOR_BIO_RESISTANT,
 		rad = ARMOR_RAD_SHIELDED
 	)
 	siemens_coefficient = 0.35
@@ -202,13 +197,18 @@
 /obj/item/clothing/suit/radiation
 	name = "radiation suit"
 	desc = "A suit that protects against radiation. Label: Made with lead, do not eat insulation."
-	icon_state = "rad"
-	item_state = "rad_suit"
+	icon = 'icons/clothing/kit/radsuit.dmi'
+	item_icons = null
+	icon_state = "radsuit"
+	item_state = "radsuit"
+	contained_sprite = TRUE
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("una")
 	w_class = ITEMSIZE_LARGE//bulky item
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.50
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|HANDS|FEET
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank/emergency_oxygen,/obj/item/clothing/head/radiation,/obj/item/clothing/mask/gas)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/inflatable,/obj/item/device/t_scanner,/obj/item/rfd/construction,/obj/item/material/twohanded/fireaxe,/obj/item/storage/backpack/cell,/obj/item/clothing/head/radiation,/obj/item/clothing/mask/gas,/obj/item/reagent_containers/hypospray/autoinjector)
 	slowdown = 1.5
 	armor = list(
 		bio = ARMOR_BIO_RESISTANT, 

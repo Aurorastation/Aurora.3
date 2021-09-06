@@ -93,6 +93,8 @@
 #define COLOR_SNOW             "#9CADAD"
 #define COLOR_LING_HIVEMIND    "#583012"
 
+#define COLOR_TOOLS            "#eac041"
+
 
 // Blood colors
 #define COLOR_HUMAN_BLOOD      "#A10808"

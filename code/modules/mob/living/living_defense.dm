@@ -40,6 +40,8 @@
 	//Armor
 	var/damage = P.damage
 	var/flags = P.damage_flags()
+	if(is_anti_materiel_vulnerable())
+		damage = P.damage * P.anti_materiel_potential
 	var/damaged
 	if(!P.nodamage)
 		damaged = apply_damage(damage, P.damage_type, def_zone, damage_flags = P.damage_flags(), used_weapon = P, armor_pen = P.armor_penetration)
@@ -90,12 +92,12 @@
 		apply_effect(stun_amount, EYE_BLUR)
 
 	if(agony_amount)
-		apply_damage(agony_amount, PAIN, def_zone, used_weapon, damage_flags)
+		apply_damage(agony_amount, PAIN, def_zone, used_weapon)
 		apply_effect(agony_amount / 10, STUTTER)
 		apply_effect(agony_amount / 10, EYE_BLUR)
 
 /mob/living/proc/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/tesla_shock = 0, var/ground_zero)
-	  return 0 //only carbon liveforms have this proc
+	return 0 //only carbon liveforms have this proc
 
 /mob/living/emp_act(severity)
 	var/list/L = src.get_contents()
@@ -119,8 +121,6 @@
 		var/turf/simulated/location = get_turf(src)
 		if(istype(location)) location.add_blood_floor(src)
 
-	return blocked
-
 //returns 0 if the effects failed to apply for some reason, 1 otherwise.
 /mob/living/proc/standard_weapon_hit_effects(obj/item/I, mob/living/user, var/effective_force, var/hit_zone)
 	if(!effective_force)
@@ -132,13 +132,8 @@
 
 	//Apply weapon damage
 	var/damage_flags = I.damage_flags()
-	if(prob(blocked)) //armor provides a chance to turn sharp/edge weapon attacks into blunt ones
-		damage_flags &= ~DAM_SHARP
-		damage_flags &= ~DAM_EDGE
 
-	apply_damage(effective_force, I.damtype, hit_zone, I, damage_flags, I.armor_penetration)
-
-	return TRUE
+	return apply_damage(effective_force, I.damtype, hit_zone, I, damage_flags, I.armor_penetration)
 
 //this proc handles being hit by a thrown atom
 /mob/living/hitby(atom/movable/AM, var/speed = THROWFORCE_SPEED_DIVISOR)//Standardization and logging -Sieve

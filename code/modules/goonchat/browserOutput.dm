@@ -109,10 +109,8 @@ var/savefile/iconCache = new("data/tmp/iconCache.sav") //Cache of icons for the 
 	loaded = TRUE
 	showChat()
 
-
 	for(var/message in messageQueue)
-		// whitespace has already been handled by the original to_chat
-		to_chat(owner, message, handle_whitespace=FALSE)
+		to_chat(owner, message, FALSE, FALSE)
 
 	messageQueue = null
 	sendClientData()

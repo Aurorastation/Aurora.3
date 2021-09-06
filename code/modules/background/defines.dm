@@ -40,6 +40,8 @@
 
 #define RELIGION_QEBLAK "Qeblak"
 #define RELIGION_WEISHII "Weishii"
+#define RELIGION_SUURKA "Suur'ka"
+#define RELIGION_KIRGUL "Kir'gul"
 
 #define RELIGION_TWINSUNS "S'rendarr and Messa"
 #define RELIGION_MATAKE "Ma'ta'ke"
@@ -93,6 +95,7 @@
 #define ACCENT_NOMADDELVAHHI "Nomadic Delvahhi"
 #define ACCENT_OLDYASSA "Old Ya'ssa"
 #define ACCENT_NORTHRASNRR "Northern Ras'nrr Siik'maas"
+#define ACCENT_DINAKK "Din'akk Mountains Siik'maas"
 
 #define ACCENT_HEGEMON_NOBLE "Noble Hegemonic"
 #define ACCENT_HEGEMON_PEASANT "Peasant Hegemonic"
@@ -101,6 +104,11 @@
 #define ACCENT_WASTELAND "Deep Wastelander"
 
 #define ACCENT_SKRELL "Standard Nral'Malic"
+#define ACCENT_HOMEWORLD "Qerrbalak"
+#define ACCENT_QERRMALIC "Qerr'Malic"
+#define ACCENT_ALIOSE "Aliose"
+#define ACCENT_AWEIJI "Aweiji"
+#define ACCENT_TRAVERSE "Traverse"
 
 #define ACCENT_ROOTSONG "Rootsong"
 #define ACCENT_VOIDSONG "Voidsong"
@@ -112,3 +120,4 @@
 #define ACCENT_ZORA "Zo'rane"
 #define ACCENT_KLAX "K'laxane"
 #define ACCENT_CTHUR "C'thuric"
+#define ACCENT_LIIDRA "Lii'draic"

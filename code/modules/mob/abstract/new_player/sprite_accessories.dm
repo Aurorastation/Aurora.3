@@ -178,7 +178,7 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Bedhead 3"
 		icon_state = "hair_bedhead3"
 		chatname = "wavy hair"
-	
+
 	bedhead4
 		name = "Bedhead 4"
 		icon_state = "hair_bedhead4"
@@ -479,6 +479,30 @@ Follow by example and make good judgement based on length which list to include 
 		length = 3
 		chatname = "long fringe"
 
+		emofringe_longbun
+		name = "Emo Fringe Long Bun"
+		icon_state = "hair_emofringe_longbun"
+		length = 3
+		chatname = "hair bun"
+
+	emorightfringe_long
+		name = "Emo Right Fringe Long"
+		icon_state = "hair_emofringe_long"
+		length = 3
+		chatname = "long fringe"
+
+	emofringe_long_alt
+		name = "Emo Fringe Long Alt"
+		icon_state = "hair_emofringe_longalt"
+		length = 3
+		chatname = "long fringe"
+
+	emorightfringe_long_alt
+		name = "Emo Right Fringe Long Alt"
+		icon_state = "hair_emorightfringe_longalt"
+		length = 3
+		chatname = "long fringe"
+
 	fade_high
 		name = "Fade, High"
 		icon_state = "hair_fade_high"
@@ -535,6 +559,12 @@ Follow by example and make good judgement based on length which list to include 
 	gentle
 		name = "Gentle"
 		icon_state = "hair_gentle"
+		length = 3
+		chatname = "long hair"
+
+	gentlealt
+		name = "Gentle Alt"
+		icon_state = "hair_gentlealt"
 		length = 3
 		chatname = "long hair"
 
@@ -1304,6 +1334,11 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "hair_wheeler"
 		chatname = "short hair"
 
+	fingerwave
+		name = "Fingerwave"
+		icon_state = "hair_fingercurl"
+		chatname = "fluffy hair"
+
 	bug_eyes
 		icon = 'icons/mob/human_face/dionae_hair.dmi'
 		name = "Bug Eyes"
@@ -1697,6 +1732,8 @@ Follow by example and make good judgement based on length which list to include 
 
 /datum/sprite_accessory/hair_gradients
 	icon = 'icons/mob/hair_gradients.dmi'
+	species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,
+		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 	none
 		name = "None"
@@ -1735,7 +1772,7 @@ Follow by example and make good judgement based on length which list to include 
 	taj_inner_ear_fur
 		name = "Inner Ear Fur"
 		icon_state = "taj_innerearfur"
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan, /datum/species/zombie/tajara)
 
 	taj_msai_inner_ear_fur
 		name = "M'sai Inner Ear Fur"
@@ -2170,6 +2207,7 @@ Follow by example and make good judgement based on length which list to include 
 		species_allowed = list(/datum/species/skrell,/datum/species/zombie/skrell)
 		length = 6
 		chatname = "Short Tentacles"
+		var/scrunchy_style = "seaweed" // seaweed fits the normal tentacles pretty well
 
 		skr_tentacle_f
 			name = "Skrell Average Tentacles"
@@ -2200,24 +2238,28 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "skrell_hoop"
 			length = 3
 			chatname = "Ponytail, Hoop"
+			scrunchy_style = "hoop"
 
 		skr_tentacle_flb
 			name = "Skrell Reef Ponytail"
 			icon_state = "skrell_reef"
 			length = 6
 			chatname = "Ponytail, Reef"
+			scrunchy_style = "reef"
 
 		skr_tentacle_ponytailm
 			name = "Skrell Driftwood Ponytail"
 			icon_state = "skrell_driftwood"
 			length = 6
 			chatname = "Ponytail, Driftwood"
+			scrunchy_style = "driftwood"
 
 		skr_tentacle_backwater
 			name = "Skrell Backwater"
 			icon_state = "skrell_backwater"
 			length = 6
 			chatname = "Backwater"
+			scrunchy_style = "backwater"
 
 
 //tajaran hair
@@ -2226,157 +2268,242 @@ Follow by example and make good judgement based on length which list to include 
 		icon = 'icons/mob/human_face/tajara_hair.dmi'
 		name = "Tajaran Ears"
 		icon_state = "ears_plain"
+		length = 1
 		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/zombie/tajara)
 
 		taj_ears_bangs
 			name = "Tajara Bangs"
 			icon_state = "hair_bangs"
+			length = 3
 			chatname = "bangs"
 
 		taj_ears_bangs_alt
 			name = "Tajara Bangs Alt"
 			icon_state = "hair_bangs_alt"
+			length = 3
 			chatname = "short bangs"
 
 		taj_ears_shortfringe
 			name = "Tajara Short Fringe"
 			icon_state = "hair_shortfringe"
+			length = 2
 			chatname = "short fringe"
 
 		taj_ears_bob
 			name = "Tajara Bob"
 			icon_state = "hair_bob"
+			length = 2
 			chatname = "groomed short mane"
 
 		taj_ears_braid
 			name = "Tajara Braid"
 			icon_state = "hair_braid"
+			length = 3
 			chatname = "braid"
 
 		taj_ears_clean
 			name = "Tajara Clean"
 			icon_state = "hair_clean"
+			length = 1
 			chatname = "short mane"
 
 		taj_ears_curls
 			name = "Tajara Curly"
 			icon_state = "hair_curly"
+			length = 3
 			chatname = "curly mane"
 
 		taj_ears_curlsalt
 			name = "Tajara Curly Alt"
 			icon_state = "hair_curlyalt"
+			length = 3
 			chatname = "curly mane"
 
 		taj_ears_fingercurl
 			name = "Tajara Finger Curls"
 			icon_state = "hair_fingerwave"
+			length = 2
 			chatname = "curls"
 
 		taj_ears_pompadour
 			name = "Tajara Greaser"
 			icon_state = "hair_greaser"
+			length = 2
 			chatname = "pompadour"
 
 		taj_ears_housewife
 			name = "Tajara Housewife"
 			icon_state = "hair_housewife"
+			length = 2
 			chatname = "long mane"
 
 		taj_ears_long
 			name = "Tajara Long"
 			icon_state = "hair_long"
+			length = 3
 			chatname = "long mane"
 
 		taj_ears_messy
 			name = "Tajara Messy"
 			icon_state = "hair_messy"
+			length = 1
 			chatname = "messy mane"
 
 		taj_ears_mohawk
 			name = "Tajara Mohawk"
 			icon_state = "hair_mohawk"
+			length = 1
 			chatname = "mohawk"
 
 		taj_ears_plait
 			name = "Tajara Plait"
 			icon_state = "hair_plait"
+			length = 1
 			chatname = "braid"
 
 		taj_ears_rattail
 			name = "Tajara Rat Tail"
 			icon_state = "hair_rattail"
+			length = 2
 			chatname = "thin ponytail"
 
 		taj_ears_shaggy
 			name = "Tajara Shaggy"
 			icon_state = "hair_shaggy"
+			length = 1
 			chatname = "messy mane"
 
 		taj_ears_straight
 			name = "Tajara Straight"
 			icon_state = "hair_straight"
+			length = 3
 			chatname = "short mane"
 
 		taj_ears_spiky
 			name = "Tajara Spiky"
 			icon_state = "hair_spiky"
+			length = 1
 			chatname = "spiky mane"
 
 		taj_ears_victory
 			name = "Tajara Victory Curls"
 			icon_state = "hair_victory"
+			length = 3
 			chatname = "curls"
 
 		taj_ears_mane
 			name = "Tajara Mane"
 			icon_state = "hair_mane"
+			length = 3
 			gender = MALE
 			chatname = "long mane"
 
 		taj_ears_sidepony
 			name = "Tajara Side Ponytail"
 			icon_state = "hair_sidepony"
-			chatname = "sideponytail"
-
-		taj_ears_sideponyalt
-			name = "Tajara Side Ponytail Alt"
-			icon_state = "hair_sideponyalt"
+			length = 3
 			chatname = "sideponytail"
 
 		taj_ears_governmentman
 			name = "Tajara Government Man"
 			icon_state = "hair_gman"
+			length = 1
 			chatname = "styled mane"
 
 		taj_ears_bun
 			name = "Tajara Bun"
 			icon_state = "hair_bun"
+			length = 2
 			chatname = "bun"
 
 		taj_ears_smallbun
 			name = "Tajara Bun (Small)"
 			icon_state = "hair_bunsmall"
+			length = 2
 			chatname = "bun"
 
 		taj_ears_lowbun
 			name = "Tajara Bun (Low)"
 			icon_state = "hair_lowbun"
+			length = 2
 			chatname = "bun"
 
 		taj_ears_smalllowbun
 			name = "Tajara Bun (Low, Small)"
 			icon_state = "hair_lowbunsmall"
+			length = 2
 			chatname = "bun"
+
+		taj_ears_wedge
+			name = "Tajara Wedge"
+			icon_state = "hair_wedge"
+			length = 2
+			chatname = "styled mane"
+
+		taj_ears_tresses
+			name = "Tajara Tresses"
+			icon_state = "hair_tresses"
+			length = 3
+			chatname = "styled mane"
+
+		taj_ears_shoulderparted
+			name = "Tajara Shoulder Parted"
+			icon_state = "hair_shoulderparted"
+			length = 3
+			chatname = "styled mane"
+
+		taj_ears_shoulderpartedsmall
+			name = "Tajara Shoulder Parted Small"
+			icon_state = "hair_shoulderpartedsmall"
+			length = 3
+			chatname = "styled mane"
+
+		taj_ears_shoulderpartedlong
+			name = "Tajara Shoulder Parted Long"
+			icon_state = "hair_shoulderpartedlong"
+			length = 3
+			chatname = "styled mane"
 
 		taj_ears_shoulderlength
 			name = "Tajara Shoulderlength"
 			icon_state = "hair_shoulderlength"
+			length = 2
 			chatname = "styled mane"
 
 		taj_ears_shoulderlengthalt
 			name = "Tajara Shoulderlength Alt"
 			icon_state = "hair_shoulderlengthalt"
+			length = 2
+			chatname = "styled mane"
+
+		taj_ears_sidepartedleft
+			name = "Tajara Sideparted Left"
+			icon_state = "hair_sidepartedleft"
+			length = 3
+			chatname = "styled mane"
+
+		taj_ears_sidepartedright
+			name = "Tajara Sideparted Right"
+			icon_state = "hair_sidepartedright"
+			length = 3
+			chatname = "styled mane"
+
+		taj_ears_fringeup
+			name = "Tajara Fringe Up"
+			icon_state = "hair_fringeup"
+			length = 2
+			chatname = "styled mane"
+
+		taj_ears_cascading
+			name = "Tajara Cascading"
+			icon_state = "hair_cascading"
+			length = 3
+			chatname = "styled mane"
+
+		taj_ears_cascadingalt
+			name = "Tajara Cascading Alt"
+			icon_state = "hair_cascadingalt"
+			length = 3
 			chatname = "styled mane"
 
 //msai hair, longer ears
@@ -2384,157 +2511,242 @@ Follow by example and make good judgement based on length which list to include 
 		icon = 'icons/mob/human_face/msai_hair.dmi'
 		name = "M'sai Ears"
 		icon_state = "msai_plain"
+		length = 1
 		species_allowed = list(/datum/species/tajaran/m_sai)
 
 		msai_ears_bangs
 			name = "M'sai Bangs"
 			icon_state = "msai_bangs"
+			length = 3
 			chatname = "bangs"
 
 		msai_ears_bangs_alt
 			name = "M'sai Bangs Alt"
 			icon_state = "msai_bangs_alt"
+			length = 3
 			chatname = "smallbangs"
 
 		msai_ears_shortfringe
 			name = "M'sai Short Fringe"
 			icon_state = "msai_shortfringe"
+			length = 2
 			chatname = "short fringe"
 
 		msai_ears_bob
 			name = "M'sai Bob"
 			icon_state = "msai_bob"
+			length = 2
 			chatname = "groomed short mane"
 
 		msai_ears_braid
 			name = "M'sai Braid"
 			icon_state = "msai_braid"
+			length = 3
 			chatname = "braid"
 
 		msai_ears_clean
 			name = "M'sai Clean"
 			icon_state = "msai_clean"
+			length = 1
 			chatname = "short mane"
 
 		msai_ears_curls
 			name = "M'sai Curly"
 			icon_state = "msai_curly"
+			length = 3
 			chatname = "curly mane"
 
 		msai_ears_curls
 			name = "M'sai Curly Alt"
 			icon_state = "msai_curlyalt"
+			length = 3
 			chatname = "curly mane"
 
 		msai_ears_fingercurl
 			name = "M'sai Finger Curls"
 			icon_state = "msai_fingerwave"
+			length = 2
 			chatname = "curls"
 
 		msai_ears_pompadour
 			name = "M'sai Greaser"
 			icon_state = "msai_greaser"
+			length = 2
 			chatname = "pompadour"
 
 		msai_ears_housewife
 			name = "M'sai Housewife"
 			icon_state = "msai_housewife"
+			length = 2
 			chatname = "long mane"
 
 		msai_ears_long
 			name = "M'sai Long"
 			icon_state = "msai_long"
+			length = 3
 			chatname = "long mane"
 
 		msai_ears_messy
 			name = "M'sai Messy"
 			icon_state = "msai_messy"
+			length = 1
 			chatname = "messy mane"
 
 		msai_ears_mohawk
 			name = "M'sai Mohawk"
 			icon_state = "msai_mohawk"
+			length = 1
 			chatname = "mohawk"
 
 		msai_ears_plait
 			name = "M'sai Plait"
 			icon_state = "msai_plait"
+			length = 1
 			chatname = "braid"
 
 		msai_ears_rattail
 			name = "M'sai Rat Tail"
 			icon_state = "msai_rattail"
+			length = 2
 			chatname = "thin ponytail"
 
 		msai_ears_shaggy
 			name = "M'sai Shaggy"
 			icon_state = "msai_shaggy"
+			length = 1
 			chatname = "messy mane"
 
 		msai_ears_straight
 			name = "M'sai Straight"
 			icon_state = "msai_straight"
+			length = 3
 			chatname = "short mane"
 
 		msai_ears_spiky
 			name = "M'sai Spiky"
 			icon_state = "msai_spiky"
+			length = 1
 			chatname = "spiky mane"
 
 		msai_ears_victory
 			name = "M'sai Victory Curls"
 			icon_state = "msai_victory"
+			length = 2
 			chatname = "curls"
 
 		msai_ears_mane
 			name = "M'sai Mane"
 			icon_state = "msai_mane"
+			length = 3
 			gender = MALE
 			chatname = "long mane"
 
 		msai_ears_sidepony
 			name = "M'sai Side Ponytail"
 			icon_state = "msai_sidepony"
-			chatname = "sideponytail"
-
-		msai_ears_sideponyalt
-			name = "M'sai Side Ponytail Alt"
-			icon_state = "msai_sideponyalt"
+			length = 3
 			chatname = "sideponytail"
 
 		msai_ears_governmentman
 			name = "M'sai Government Man"
 			icon_state = "msai_gman"
+			length = 2
 			chatname = "styled mane"
 
 		msai_ears_bun
 			name = "M'sai Bun"
 			icon_state = "msai_bun"
+			length = 2
 			chatname = "bun"
 
 		taj_ears_smallbun
 			name = "M'sai Bun (Small)"
 			icon_state = "msai_bunsmall"
+			length = 2
 			chatname = "bun"
 
 		msai_ears_lowbun
 			name = "M'sai Bun (Low)"
 			icon_state = "msai_lowbun"
+			length = 2
 			chatname = "bun"
 
 		msai_ears_lowsmallbun
 			name = "M'sai Bun (Low, Small)"
 			icon_state = "msai_lowbunsmall"
+			length = 2
 			chatname = "bun"
+
+		msai_ears_wedge
+			name = "M'sai Wedge"
+			icon_state = "msai_wedge"
+			length = 2
+			chatname = "styled mane"
+
+		msai_ears_tresses
+			name = "M'sai Tresses"
+			icon_state = "msai_tresses"
+			length = 3
+			chatname = "styled mane"
+
+		msai_ears_shoulderparted
+			name = "M'sai Shoulderparted"
+			icon_state = "msai_shoulderparted"
+			length = 3
+			chatname = "styled mane"
+
+		msai_ears_shoulderpartedsmall
+			name = "M'sai Shoulderparted Small"
+			icon_state = "msai_shoulderpartedsmall"
+			length = 3
+			chatname = "styled mane"
+
+		msai_ears_shoulderpartedlong
+			name = "M'sai Shoulderparted Long"
+			icon_state = "msai_shoulderpartedlong"
+			length = 3
+			chatname = "styled mane"
+
+		msai_ears_sidepartedleft
+			name = "M'sai Sideparted Left"
+			icon_state = "msai_sidepartedleft"
+			length = 3
+			chatname = "styled mane"
+
+		msai_ears_sidepartedright
+			name = "M'sai Sideparted Right"
+			icon_state = "msai_sidepartedright"
+			length = 3
+			chatname = "styled mane"
 
 		msai_ears_shoulderlength
 			name = "M'sai Shoulderlength"
 			icon_state = "msai_shoulderlength"
+			length = 2
 			chatname = "styled mane"
 
 		msai_ears_shoulderlengthalt
 			name = "M'sai Shoulderlength Alt"
 			icon_state = "msai_shoulderlengthalt"
+			length = 2
+			chatname = "styled mane"
+
+		msai_ears_fringeup
+			name = "M'sai Fringe Up"
+			icon_state = "msai_fringeup"
+			length = 2
+			chatname = "styled mane"
+
+		msai_ears_cascading
+			name = "M'sai Cascading"
+			icon_state = "msai_cascading"
+			length = 3
+			chatname = "styled mane"
+
+		msai_ears_cascadingalt
+			name = "M'sai Cascading Alt"
+			icon_state = "msai_cascadingalt"
+			length = 3
 			chatname = "styled mane"
 
 //vaurca antennae
@@ -3941,7 +4153,7 @@ Follow by example and make good judgement based on length which list to include 
 			lopsided
 				name = "Lopsided"
 				icon_state = "lopsided"
-			
+
 			helmethead
 				name = "Helmethead"
 				icon_state = "helmethead"

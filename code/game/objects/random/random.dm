@@ -128,7 +128,7 @@
 		/obj/item/stack/packageWrap = 1,
 		/obj/random/bomb_supply = 2,
 		/obj/item/extinguisher = 1,
-		/obj/item/clothing/gloves/fyellow = 1,
+		/obj/item/clothing/gloves/yellow/budget = 1,
 		/obj/item/stack/cable_coil = 3,
 		/obj/random/toolbox = 2,
 		/obj/item/storage/belt/utility = 2,
@@ -578,7 +578,6 @@
 		/obj/machinery/vending/security = 0.3,
 		/obj/machinery/vending/hydronutrients = 1,
 		/obj/machinery/vending/hydroseeds = 1,
-		/obj/machinery/vending/magivend = 0.5,	//The things it dispenses are just costumes to non-wizards
 		/obj/machinery/vending/dinnerware = 1,
 		/obj/machinery/vending/sovietsoda = 2,
 		/obj/machinery/vending/tool = 1,
@@ -781,7 +780,6 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "gift3"
 	problist = list(
-		/obj/item/assembly/shock_kit = 0.1,
 		/obj/item/bluespace_crystal/artificial = 0.1,
 		/obj/item/bodybag = 0.7,
 		/obj/item/clothing/accessory/storage/knifeharness = 0.3,
@@ -943,7 +941,8 @@
 		/obj/random/tool = 1,
 		/obj/random/toolbox = 1,
 		/obj/random_produce = 0.25,
-		/obj/random/watches = 1
+		/obj/random/watches = 1,
+		/obj/random/wizard_dressup = 0.25
 	)
 
 
@@ -995,7 +994,7 @@
 		/obj/item/clothing/gloves/boxing/green = 0.3,
 		/obj/item/clothing/gloves/captain = 0.1,
 		/obj/item/clothing/gloves/combat = 0.2,
-		/obj/item/clothing/gloves/fyellow = 1.2,
+		/obj/item/clothing/gloves/yellow/budget = 1.2,
 		/obj/item/clothing/gloves/latex = 0.5,
 		/obj/item/clothing/gloves/latex/nitrile = 0.4,
 		/obj/item/clothing/gloves/yellow = 0.9
@@ -1571,8 +1570,10 @@
 		/obj/item/gun/projectile/automatic/c20r = 1,
 		/obj/item/gun/projectile/automatic/mini_uzi = 1,
 		/obj/item/gun/projectile/automatic/tommygun = 1,
+		/obj/item/gun/projectile/automatic/lebman = 1,
 		/obj/item/gun/projectile/automatic/wt550/lethal = 0.5,
 		/obj/item/gun/projectile/colt = 0.5,
+		/obj/item/gun/projectile/colt/super = 1,
 		/obj/item/gun/projectile/pistol/sol = 1,
 		/obj/item/gun/projectile/pistol/adhomai = 1,
 		/obj/item/gun/projectile/revolver/detective = 0.5,
@@ -1597,6 +1598,7 @@
 		/obj/item/gun/energy/xray = 1,
 		/obj/item/gun/energy/lasercannon = 1,
 		/obj/item/gun/projectile/automatic/rifle/sts35 = 1,
+		/obj/item/gun/projectile/automatic/rifle/shorty = 1,
 		/obj/item/gun/projectile/automatic/rifle/carbine = 1,
 		/obj/item/gun/projectile/automatic/x9 = 1,
 		/obj/item/gun/projectile/deagle = 1,
@@ -1777,3 +1779,18 @@
 		/obj/item/seeds/soyaseed,
 		/obj/item/seeds/cabbageseed
 	)
+
+/obj/random/wizard_dressup
+	name = "random wizard clothes"
+	desc = "This is a random piece of fake wizard clothing."
+	icon = 'icons/obj/wizard.dmi'
+	icon_state = "staff"
+	has_postspawn = TRUE
+
+/obj/random/wizard_dressup/spawn_item()
+	var/obj/item/clothing/suit/wizrobe/W = pick(typesof(/obj/item/clothing/suit/wizrobe))
+	. = new W(loc)
+
+/obj/random/wizard_dressup/post_spawn(obj/thing)
+	var/obj/item/clothing/head/wizard/H = pick(typesof(/obj/item/clothing/head/wizard))
+	new H(loc)

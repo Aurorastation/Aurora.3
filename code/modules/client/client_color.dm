@@ -96,7 +96,7 @@
 	priority = 300
 
 /datum/client_color/vaurca
-	client_color = list(0, 0, 0.297, 0, 0, 0.739, 0, 0, 0.100)
+	client_color = list(0.793, 0.297, 0, 0.297, 0.539, 0, 0, 0, 0)
 	priority = 100
 
 /datum/client_color/deuteranopia

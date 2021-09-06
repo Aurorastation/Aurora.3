@@ -165,7 +165,8 @@
 			new /datum/stack_recipe("wooden bucket", /obj/item/reagent_containers/glass/bucket/wood, 2, time = 4, one_per_turf = 0, on_floor = 0),
 			new /datum/stack_recipe("shaft", /obj/item/material/shaft, 10, time = 25, one_per_turf = 0, on_floor = 0),
 			new /datum/stack_recipe("buckler donut", /obj/item/material/woodenshield, 20, time = 25, one_per_turf = 0, on_floor = 0),
-			new /datum/stack_recipe("torch handle", /obj/item/torch, 3, time = 5, one_per_turf = 0, on_floor = 0)
+			new /datum/stack_recipe("torch handle", /obj/item/torch, 3, time = 5, one_per_turf = 0, on_floor = 0),
+			new /datum/stack_recipe("easel", /obj/structure/easel, BUILD_AMT, time = 15, one_per_turf = 1, on_floor = 1)
 		))
 
 /material/stone/generate_recipes()
@@ -185,6 +186,7 @@
 			new /datum/stack_recipe("candle pack", /obj/item/storage/box/fancy/candle_box/empty),
 			new /datum/stack_recipe("crayon box", /obj/item/storage/box/fancy/crayons/empty),
 			new /datum/stack_recipe("pizza box", /obj/item/pizzabox),
+			new /datum/stack_recipe("papersack", /obj/item/storage/box/papersack),
 			new /datum/stack_recipe("cardborg suit", /obj/item/clothing/suit/cardborg, 3),
 			new /datum/stack_recipe("cardborg helmet", /obj/item/clothing/head/cardborg)
 		))
@@ -208,6 +210,13 @@
 			new /datum/stack_recipe("orange shower curtain", /obj/structure/curtain/open/shower/engineering, BUILD_AMT, time = 10),
 			new /datum/stack_recipe("red shower curtain", /obj/structure/curtain/open/shower/security, BUILD_AMT, time = 10),
 			new /datum/stack_recipe("privacy curtain", /obj/structure/curtain/open/privacy, BUILD_AMT, time = 10)
+		))
+	recipes += new /datum/stack_recipe_list("[display_name] canvases",
+		list(
+			new /datum/stack_recipe("canvas 11x11", /obj/item/canvas, 3),
+			new /datum/stack_recipe("canvas 19x19", /obj/item/canvas/nineteen_nineteen, 5),
+			new /datum/stack_recipe("canvas 23x19", /obj/item/canvas/twentythree_nineteen, 6),
+			new /datum/stack_recipe("canvas 23x23", /obj/item/canvas/twentythree_twentythree, 8)
 		))
 
 /material/hide/xeno/generate_recipes()
@@ -266,6 +275,14 @@
 	recipes += new /datum/stack_recipe_list("[display_name] construction",
 		list(
 			new /datum/stack_recipe("diamond floor tile", /obj/item/stack/tile/diamond, 1, 4, 20)
+		))
+
+/material/stone/marble/generate_recipes()
+	..()
+	recipes += new /datum/stack_recipe_list("[display_name] construction",
+		list(
+			new /datum/stack_recipe("light marble floor tile", /obj/item/stack/tile/marble, 1, 4, 20),
+			new /datum/stack_recipe("dark marble floor tile", /obj/item/stack/tile/marble/dark, 1, 4, 20)
 		))
 
 /material/leather/generate_recipes()

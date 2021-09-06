@@ -50,3 +50,17 @@
 
 /obj/item/seeds/barnacle
 	seed_type = "barnacle"
+
+/datum/seed/mollusc/clam/rasval
+	name = "rasval clam"
+	seed_name = "rasval clam"
+	display_name = "rasval clam bed"
+	product_type = /obj/item/mollusc/clam/rasval
+
+/datum/seed/mollusc/clam/rasval/New()
+	..()
+	set_trait(TRAIT_PRODUCT_COLOUR, "#9aaca6")
+	set_trait(TRAIT_PLANT_COLOUR,   "#9aaca6")
+
+/obj/item/seeds/clam/rasval
+	seed_type = "rasval clam"

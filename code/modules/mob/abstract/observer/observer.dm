@@ -394,14 +394,13 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	stop_following()
 	usr.forceMove(pick(L))
 
-/mob/abstract/observer/verb/follow(input in getmobs())
+/mob/abstract/observer/verb/follow()
 	set category = "Ghost"
 	set name = "Follow" // "Haunt"
 	set desc = "Follow and haunt a mob."
 
-	var/target = getmobs()[input]
-	if(!target) return
-	ManualFollow(target)
+	var/datum/vueui_module/ghost_menu/GM = new /datum/vueui_module/ghost_menu(usr)
+	GM.ui_interact(usr)
 
 // This is the ghost's follow verb with an argument
 /mob/abstract/observer/proc/ManualFollow(var/atom/movable/target)
@@ -967,3 +966,8 @@ mob/abstract/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)
 
 	if(SSpai.revokeCandidancy(src))
 		to_chat(src, "You have been removed from the pAI candidate pool.")
+
+/mob/abstract/observer/can_hear_radio(speaker_coverage = list())
+	if(client && (client.prefs.toggles & CHAT_GHOSTRADIO))
+		return TRUE
+	return ..()

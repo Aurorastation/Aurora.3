@@ -73,9 +73,6 @@
 
 /obj/item/tank/attackby(obj/item/W as obj, mob/user as mob)
 	..()
-	if (istype(src.loc, /obj/item/assembly))
-		icon = src.loc
-
 	if ((istype(W, /obj/item/device/analyzer)) && get_dist(user, src) <= 1)
 		var/obj/item/device/analyzer/A = W
 		A.analyze_gases(src, user)
