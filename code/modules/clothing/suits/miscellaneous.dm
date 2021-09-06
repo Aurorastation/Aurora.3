@@ -369,7 +369,7 @@
 	desc = "A sleek canvas trenchcoat"
 	icon_state = "trenchcoat_green"
 	item_state = "trenchcoat_green"
-
+ 
 /obj/item/clothing/suit/storage/toggle/trench/colorable
 	name = "trenchcoat"
 	desc = "A sleek canvas trenchcoat"
