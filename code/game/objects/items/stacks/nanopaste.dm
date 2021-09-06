@@ -21,6 +21,7 @@
 		icon_state = "[initial(icon_state)]-[amount]"
 	else
 		icon_state = "[initial(icon_state)]-empty"
+	check_maptext(SMALL_FONTS(7, amount))
 
 /obj/item/stack/nanopaste/attack(atom/M, mob/user, var/target_zone)
 	if(!ismob(M) || !istype(user))

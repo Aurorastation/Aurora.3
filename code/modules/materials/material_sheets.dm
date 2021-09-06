@@ -3,7 +3,6 @@
 	desc_info = "Use in your hand to bring up the recipe menu.  If you have enough sheets, click on something on the list to build it."
 	force = 5
 	throwforce = 5
-	flags = HELDMAPTEXT
 	w_class = ITEMSIZE_NORMAL
 	throw_speed = 3
 	throw_range = 3
@@ -17,7 +16,7 @@
 	var/use_material_sound = TRUE
 
 /obj/item/stack/material/Initialize(mapload, amount)
-	..()
+	. = ..()
 	randpixel_xy()
 
 	if(!default_type)
@@ -43,10 +42,6 @@
 		flags |= CONDUCT
 
 	matter = material.get_matter()
-	return INITIALIZE_HINT_LATELOAD
-
-/obj/item/stack/material/LateInitialize()
-	update_strings()
 
 /obj/item/stack/material/get_material()
 	return material
@@ -63,20 +58,21 @@
 		name = "[material.use_name] [material.sheet_singular_name]"
 		desc = "A [material.sheet_singular_name] of [material.use_name]."
 		gender = NEUTER
-	check_maptext(SMALL_FONTS(7, get_amount()))
 
-/obj/item/stack/material/use(var/used)
+/obj/item/stack/material/update_icon()
 	. = ..()
-	update_strings()
-	return
+	if(material)
+		update_strings()
 
 /obj/item/stack/material/transfer_to(obj/item/stack/S, var/tamount=null, var/type_verified)
 	var/obj/item/stack/material/M = S
 	if(!istype(M) || material.name != M.material.name)
 		return 0
 	var/transfer = ..(S,tamount,1)
-	if(src) update_strings()
-	if(M) M.update_strings()
+	if(src)
+		update_icon()
+	if(M)
+		M.update_icon()
 	return transfer
 
 /obj/item/stack/material/attack_self(var/mob/user)
