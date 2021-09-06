@@ -106,8 +106,6 @@
 					playsound(src, 'sound/items/Deconstruct.ogg', 80, 1)
 					if(T)
 						T.visible_message("<span class='danger'>The ceiling above has been pried off!</span>")
-			else
-				to_chat(user, "<span class='warning'>You need more welding fuel to complete this task.</span>")
 				return
 			return
 		else if(C.iswelder())
