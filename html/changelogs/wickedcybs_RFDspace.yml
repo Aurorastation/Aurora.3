@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+.
+changes:
+  - bugfix: "RFD's can now build flooring on open spaces."
