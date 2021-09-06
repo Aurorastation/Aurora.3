@@ -122,20 +122,19 @@ datum/gear/suit/colorvest
 	medical_outerwear["first responder jacket, alt"] = /obj/item/clothing/suit/storage/toggle/fr_jacket/alt
 	gear_tweaks += new /datum/gear_tweak/path(medical_outerwear)
 
-/datum/gear/suit/iacvest
-	display_name = "IAC vest"
-	description = "It's a lightweight vest. Made of a dark, navy mesh with highly-reflective white material, designed to be worn by the Interstellar Aid Corps."
+/datum/gear/suit/iac_outerwear
+	display_name = "IAC outerwear (jackets, vests, rigs)"
 	path = /obj/item/clothing/suit/storage/iacvest
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
 	flags = GEAR_HAS_DESC_SELECTION
 
-/datum/gear/suit/iaclabcoat
-	display_name = "IAC labcoat"
-	description = "It's a standard medical labcoat designed to be worn by the Interstellar Aid Corps."
-	path = /obj/item/clothing/suit/storage/toggle/labcoat/iac
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
-	flags = GEAR_HAS_DESC_SELECTION
-
+/datum/gear/suit/iac_outerwear/New()
+	..()
+	var/list/iac_outerwear = list()
+	iac_outerwear["IAC vest"] = /obj/item/clothing/suit/storage/iacvest
+	iac_outerwear["IAC labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/iac
+	gear_tweaks += new /datum/gear_tweak/path(iac_outerwear)
+	
 /datum/gear/suit/poncho
 	display_name = "poncho selection"
 	path = /obj/item/clothing/accessory/poncho
