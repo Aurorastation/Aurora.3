@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - rscadd: "RFD-C's are no longer the sole means of removing floor underplating. You can now weaken it with a welder and pry it off with a crowbar."
