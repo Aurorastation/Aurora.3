@@ -188,7 +188,7 @@
 	pants["black jeans shorts"] = /obj/item/clothing/under/shorts/jeans/black
 	pants["black jeans shorts shorts"] = /obj/item/clothing/under/shorts/jeans/black/female
 	pants["grey jeans shorts"] = /obj/item/clothing/under/shorts/jeans/grey
-	pants["grey jeans shorts shorts"] = /obj/item/clothing/under/shorts/jeans
+	pants["grey jeans shorts shorts"] = /obj/item/clothing/under/shorts/jeans/grey/female
 	pants["khaki shorts"] = /obj/item/clothing/under/shorts/khaki
 	pants["khaki shorts shorts"] = /obj/item/clothing/under/shorts/khaki/female
 	gear_tweaks += new /datum/gear_tweak/path(pants)

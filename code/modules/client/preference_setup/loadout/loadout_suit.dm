@@ -184,6 +184,7 @@ datum/gear/suit/colorvest
 	coat["trenchcoat, grey"] = /obj/item/clothing/suit/storage/toggle/trench/grey
 	coat["trenchcoat, dark brown"] = /obj/item/clothing/suit/storage/toggle/trench/alt
 	coat["trenchcoat, grey alternate"] = /obj/item/clothing/suit/storage/toggle/trench/grey_alt
+	coat["trenchcoat, green"] = /obj/item/clothing/suit/storage/toggle/trench/green
 	coat["brown trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/det_trench
 	coat["black trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/det_trench/black
 	gear_tweaks += new /datum/gear_tweak/path(coat)
@@ -317,9 +318,17 @@ datum/gear/suit/colorvest
 	allowed_roles = list("Consular Officer")
 
 /datum/gear/suit/fisanduhian_bomber
-	display_name = "fisanduhian bomber jacket"
+	display_name = "fisanduhian bomber jacket selection"
+	description = "A selection of Fisanduhian jackets."
 	path = /obj/item/clothing/suit/storage/toggle/dominia/bomber
 	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/suit/fisanduhian_bomber/New()
+	..()
+	var/list/coat = list()
+	coat["fisanduhian bomber jacket"] = /obj/item/clothing/suit/storage/toggle/dominia/bomber
+	coat["long fisanduhian bomber jacket"] = /obj/item/clothing/suit/storage/toggle/dominia/bomber/long
+	gear_tweaks += new /datum/gear_tweak/path(coat)
 
 /datum/gear/suit/tcfl
 	display_name = "Tau Ceti Foreign Legion jacket selection"

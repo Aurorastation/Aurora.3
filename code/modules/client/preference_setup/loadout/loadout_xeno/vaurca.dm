@@ -129,3 +129,22 @@
 	language_processors["K'laxan [LANGUAGE_UNATHI] language processor"] = /obj/item/organ/internal/augment/language/klax
 	language_processors["C'thur [LANGUAGE_SKRELLIAN] language processor"] = /obj/item/organ/internal/augment/language/cthur
 	gear_tweaks += new /datum/gear_tweak/path(language_processors)
+
+/datum/gear/vaurca_lunchbox
+	display_name = "vaurca lunchbox"
+	description = "A lunchbox selection containing various kois products."
+	cost = 2
+	path = /obj/item/storage/toolbox/lunchbox
+	sort_category = "Xenowear - Vaurca"
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+
+/datum/gear/vaurca_lunchbox/New()
+	..()
+	var/list/lunchboxes = list()
+	for(var/lunchbox_type in typesof(/obj/item/storage/toolbox/lunchbox))
+		var/obj/item/storage/toolbox/lunchbox/lunchbox = lunchbox_type
+		if(!initial(lunchbox.filled))
+			lunchboxes[initial(lunchbox.name)] = lunchbox_type
+	sortTim(lunchboxes, /proc/cmp_text_asc)
+	gear_tweaks += new /datum/gear_tweak/path(lunchboxes)
+	gear_tweaks += new /datum/gear_tweak/contents(lunchables_vaurca(), lunchables_vaurca_snack(), lunchables_drinks(), lunchables_utensil())
