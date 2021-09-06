@@ -25,6 +25,8 @@
 
 	var/syndie = FALSE
 
+	id_iff = IFF_DEATHSQUAD
+
 /datum/outfit/admin/deathsquad/leader
 	name = "Asset Protection Lead"
 

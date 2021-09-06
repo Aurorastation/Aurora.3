@@ -79,6 +79,9 @@
 		)
 	has_safety = FALSE
 
+/obj/item/gun/energy/mountedsmg/mech
+	projectile_type = /obj/item/projectile/bullet/pistol/medium/mech
+
 /obj/item/gun/energy/crossbow/cyborg
 	name = "mounted energy-crossbow"
 	desc = "A weapon favored by mercenary infiltration teams, this one is suited to be used by cyborgs."
