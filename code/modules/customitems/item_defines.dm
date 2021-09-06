@@ -2137,7 +2137,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/storage/pill_bottle/dice/fluff/suraya_dicebag //Crevan Dice Bag - Suraya Al-Zahrani - Omicega 
 	name = "velvet dice bag"
-	desc = "A deep purple dice bag fashioned from Adhomian velvet."
+	desc = "A deep purple dice bag fashioned from Adhomian velvet, with two little drawstrings to tighten the neck closed."
 	icon = 'icons/obj/custom_items/suraya_dice.dmi'
 	icon_state = "sur_dbag"
 	item_state = "sur_dbag"
