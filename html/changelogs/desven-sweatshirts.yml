@@ -1,0 +1,4 @@
+author: Desven
+delete-after: True
+changes:
+  - rscadd: "Added university sweatshirts to the loadout. You can rename them to be from any school."
