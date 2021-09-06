@@ -118,8 +118,8 @@ datum/gear/suit/colorvest
 	var/list/medical_outerwear = list()
 	medical_outerwear["medical chest-rig"] = /obj/item/clothing/suit/storage/medical_chest_rig
 	medical_outerwear["first responder vest"] = /obj/item/clothing/suit/storage/medical_chest_rig/first_responder
-	medical_outerwear["first responder jacket"] = /obj/item/clothing/suit/storage/toggle/fr_jacket
-	medical_outerwear["first responder jacket, alt"] = /obj/item/clothing/suit/storage/toggle/fr_jacket/alt
+	medical_outerwear["first responder jacket"] = /obj/item/clothing/suit/storage/toggle/fr_jacket/alt
+	medical_outerwear["first responder jacket, alt"] = /obj/item/clothing/suit/storage/toggle/fr_jacket // this variant is the old bright green one and doesn't go with the NT medic uniform
 	gear_tweaks += new /datum/gear_tweak/path(medical_outerwear)
 
 /datum/gear/suit/iac_outerwear
