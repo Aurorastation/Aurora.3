@@ -233,6 +233,21 @@
 	shirts["random colored silversun shirt"] = /obj/item/clothing/accessory/silversun/random
 	gear_tweaks += new /datum/gear_tweak/path(shirts)
 
+/datum/geat/accessory/university 
+	display_name = "university sweatshirt selection"
+	path = /obj/item/clothing/accessory/sweatshirt
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/university/New()
+	..()
+	var/list/university = list()
+	university["grey university sweatshirt"] = /obj/item/clothing/accessory/university
+	university["crimson university sweatshirt"] = /obj/item/clothing/accessory/university/red
+	university["mustard university sweatshirt"] = /obj/item/clothing/accessory/university/yellow
+	university["navy university sweatshirt"] = /obj/item/clothing/accessory/university/blue
+	university["black university sweatshirt"] = /obj/item/clothing/accessory/university/black
+	gear_tweaks += new /datum/gear_tweak/path(university)
+
 /datum/gear/accessory/scarf
 	display_name = "scarf selection"
 	path = /obj/item/clothing/accessory/scarf
