@@ -233,9 +233,10 @@
 	shirts["random colored silversun shirt"] = /obj/item/clothing/accessory/silversun/random
 	gear_tweaks += new /datum/gear_tweak/path(shirts)
 
-/datum/geat/accessory/university 
+/datum/gear/accessory/university 
 	display_name = "university sweatshirt selection"
-	path = /obj/item/clothing/accessory/sweatshirt
+	path = /obj/item/clothing/accessory/university
+	description = "A selection of university sweatshirts."
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/accessory/university/New()
