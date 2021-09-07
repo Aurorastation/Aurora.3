@@ -3826,7 +3826,7 @@ Follow by example and make good judgement based on length which list to include 
 		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	tat_harness
-		name = "Tattoo (Harnest, Chest)"
+		name = "Tattoo (Harness, Chest)"
 		icon_state = "tat_harness_body"
 		body_parts = list(BP_CHEST)
 		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
