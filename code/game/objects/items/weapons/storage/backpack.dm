@@ -646,7 +646,9 @@
 	to_chat(usr, "You [hooded ? "raise" : "lower"] \the [src] hood.")
 	icon_state = "[initial(icon_state)][hooded ? "_up" : ""]"
 	item_state = "icon_state"
-	update_icon()
+	var/mob/living/carbon/human/H = src.loc
+	H.update_icon()
+	H.update_inv_back()
 
 /obj/item/storage/backpack/cloak/sedantis
 	name = "Sedantis tunnel cloak"
