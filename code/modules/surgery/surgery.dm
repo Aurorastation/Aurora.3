@@ -91,7 +91,7 @@ proc/spread_germs_to_organ(var/obj/item/organ/external/E, var/mob/living/carbon/
 	if(!istype(M) || user.a_intent == I_HURT)
 		return FALSE
 
-	var/list/safety_check_exceptions = list(
+	var/static/list/safety_check_exceptions = list(
 		/obj/item/auto_cpr,
 		/obj/item/device/healthanalyzer,
 		/obj/item/reagent_containers/hypospray,
