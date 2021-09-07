@@ -90,6 +90,10 @@
 			dream_entries += loc
 			delete_me = 1
 			return
+		if("virtual_reality_spawn")
+			virtual_reality_spawn += loc
+			delete_me = 1
+			return
 
 	landmarks_list += src
 

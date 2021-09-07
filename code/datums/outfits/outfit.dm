@@ -103,6 +103,8 @@
 	var/double_headset = /obj/item/device/radio/headset/alt/double
 	var/wrist_radio = /obj/item/device/radio/headset/wrist
 
+	var/id_iff = IFF_DEFAULT // when spawning in, the ID will be set to this iff, preventing friendly fire
+
 	var/internals_slot = null //ID of slot containing a gas tank
 	var/list/backpack_contents = list() //In the list(path=count,otherpath=count) format
 	var/list/accessory_contents = list()

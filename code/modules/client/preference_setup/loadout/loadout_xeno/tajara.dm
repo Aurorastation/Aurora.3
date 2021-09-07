@@ -253,6 +253,7 @@
 
 /datum/gear/accessory/tajaran_card
 	display_name = "tajaran cards, badges and pins selection"
+	description = "A selection of Tajaran related cards, badges and pins."
 	path = /obj/item/clothing/accessory/badge/hadii_card
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
@@ -264,11 +265,12 @@
 	card["honorary party member card"] = /obj/item/clothing/accessory/badge/hadii_card
 	card["almariist pin"] = /obj/item/clothing/accessory/dpra_badge
 	card["royalist badge"] = /obj/item/clothing/accessory/nka_badge
-	card["free tajaran council badge"] = /obj/item/clothing/accessory/tajara/council_badge
+	card["free tajaran council badge"] = /obj/item/clothing/accessory/tajaran/council_badge
 	gear_tweaks += new /datum/gear_tweak/path(card)
 
 /datum/gear/accessory/tajaranbooks
 	display_name = "tajaran political books"
+	description = "Tajaran books on the Adhomian ideologies."
 	path = /obj/item/book/manual/pra_manifesto
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
@@ -284,6 +286,7 @@
 
 /datum/gear/tajaran_passports
 	display_name = "adhomian passports selection"
+	description = "A selection of Adhomian passports."
 	path = /obj/item/clothing/accessory/badge/pra_passport
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)

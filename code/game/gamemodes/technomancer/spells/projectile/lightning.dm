@@ -24,8 +24,8 @@
 /obj/item/projectile/beam/lightning
 	name = "lightning"
 	icon_state = "lightning"
-	damage = 40
-	armor_penetration = 10
+	damage = 25
+	armor_penetration = 25
 	damage_type = BURN
 
 	muzzle_type = /obj/effect/projectile/muzzle/tesla
@@ -33,6 +33,14 @@
 	impact_type = /obj/effect/projectile/impact/tesla
 
 	var/power = 6000
+
+/obj/item/projectile/beam/lightning/small
+	name = "shock"
+	damage = 15
+	armor_penetration = 15
+
+	power = 1000
+
 
 /obj/item/projectile/beam/lightning/attack_mob(var/mob/living/target_mob, var/distance, var/miss_modifier=0)
 	..()

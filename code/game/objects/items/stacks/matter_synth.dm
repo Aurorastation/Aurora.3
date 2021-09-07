@@ -55,6 +55,9 @@
 /datum/matter_synth/plastic
 	name = "Plastic Synthesizer"
 
+/datum/matter_synth/cloth
+	name = "Cloth Synthesizer"
+
 /datum/matter_synth/wire
 	name = "Wire Synthesizer"
 	max_energy = 50
