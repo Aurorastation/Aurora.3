@@ -27,7 +27,7 @@
 		base_state = icon_state
 
 /obj/machinery/door/window/proc/shatter(var/display_message = 1)
-	new /obj/item/circuitboard/broken(loc)
+	new /obj/item/trash/broken_electronics(loc)
 	new /obj/item/material/shard(loc)
 	var/obj/item/stack/cable_coil/CC = new /obj/item/stack/cable_coil(loc)
 	CC.amount = 2
@@ -180,7 +180,7 @@
 		user.visible_message("[user] dismantles the windoor.", "You start to dismantle the windoor.")
 		if (do_after(user,60/I.toolspeed))
 			to_chat(user, SPAN_NOTICE("You dismantled the windoor!"))
-			new /obj/item/circuitboard/broken(loc)
+			new /obj/item/trash/broken_electronics(loc)
 			var/obj/item/stack/cable_coil/CC = new /obj/item/stack/cable_coil(loc)
 			CC.amount = 2
 			var/obj/item/stack/material/glass/reinforced/rglass = new /obj/item/stack/material/glass/reinforced(loc)

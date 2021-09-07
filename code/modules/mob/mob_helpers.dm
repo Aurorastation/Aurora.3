@@ -227,14 +227,14 @@ var/list/global/base_miss_chance = list(
 	BP_HEAD = 70,
 	BP_CHEST = 10,
 	BP_GROIN = 20,
-	BP_L_LEG = 20,
-	BP_R_LEG = 20,
-	BP_L_ARM = 30,
-	BP_R_ARM = 30,
-	BP_L_HAND = 50,
-	BP_R_HAND = 50,
-	BP_L_FOOT = 50,
-	BP_R_FOOT = 50
+	BP_L_LEG = 40,
+	BP_R_LEG = 40,
+	BP_L_ARM = 40,
+	BP_R_ARM = 40,
+	BP_L_HAND = 60,
+	BP_R_HAND = 60,
+	BP_L_FOOT = 60,
+	BP_R_FOOT = 60
 )
 
 //Used to weight organs when an organ is hit randomly (i.e. not a directed, aimed attack).
@@ -1254,3 +1254,24 @@ proc/is_blind(A)
 	voice_name = real_name
 	if(mind)
 		mind.name = real_name
+
+/mob/proc/get_organ_name_from_zone(var/def_zone)
+	return parse_zone(def_zone)
+
+/mob/living/silicon/robot/set_name(var/new_name, var/prefix)
+	..()
+	if(mmi)
+		mmi.brainmob.name = real_name
+		mmi.brainmob.real_name = real_name
+		mmi.name = "[initial(mmi.name)]: [real_name]"
+
+	// We also need to update our internal ID
+	if(id_card)
+		if(prefix)
+			id_card.assignment = prefix
+		id_card.registered_name = real_name
+		id_card.update_name()
+
+	//We also need to update name of internal camera.
+	if(camera)
+		camera.c_tag = real_name

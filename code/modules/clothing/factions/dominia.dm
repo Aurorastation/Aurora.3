@@ -117,6 +117,13 @@
 	icon_state = "dominia_bomber"
 	item_state = "dominia_bomber"
 
+/obj/item/clothing/suit/storage/toggle/dominia/bomber/long
+	name = "long fisanduhian bomber jacket"
+	desc = "A long bomber jacket based off of styles created by Fisanduhian refugees. The double-breasted design works well for insulating \
+	heat, or concealing a small pistol."
+	icon_state = "dominia_bomber_long"
+	item_state = "dominia_bomber_long"
+
 /obj/item/clothing/under/dominia
 	name = "dominia suit"
 	desc = "This is a suit in the style of Dominia nobility. It's the latest fashion across Dominian space."
