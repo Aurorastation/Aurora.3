@@ -5900,6 +5900,7 @@
 /obj/item/clothing/suit/armor/carrier/riot,
 /obj/item/clothing/head/helmet/riot,
 /obj/item/shield/riot,
+/obj/item/clothing/accessory/holster/modular,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "alI" = (
@@ -6926,6 +6927,8 @@
 /obj/item/clothing/suit/armor/carrier/heavy/sec,
 /obj/item/clothing/head/helmet/security/heavy,
 /obj/item/clothing/head/helmet/security/heavy,
+/obj/item/clothing/accessory/holster/modular,
+/obj/item/clothing/accessory/holster/modular,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "anT" = (
@@ -6933,6 +6936,9 @@
 /obj/item/reagent_containers/spray/pepper,
 /obj/item/reagent_containers/spray/pepper,
 /obj/item/reagent_containers/spray/pepper,
+/obj/item/clothing/accessory/holster/modular,
+/obj/item/clothing/accessory/holster/modular,
+/obj/item/clothing/accessory/holster/modular,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "anU" = (
@@ -6968,6 +6974,7 @@
 	dir = 8
 	},
 /obj/item/shield/riot,
+/obj/item/clothing/accessory/holster/modular,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "anW" = (
@@ -13050,6 +13057,7 @@
 /obj/item/clothing/suit/armor/carrier/ablative,
 /obj/item/clothing/head/helmet/ablative,
 /obj/item/clothing/head/helmet/ablative,
+/obj/item/clothing/accessory/holster/modular,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "axS" = (
@@ -14014,6 +14022,7 @@
 /obj/item/clothing/suit/armor/carrier/ballistic,
 /obj/item/clothing/head/helmet/ballistic,
 /obj/item/clothing/head/helmet/ballistic,
+/obj/item/clothing/accessory/holster/modular,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "azw" = (
