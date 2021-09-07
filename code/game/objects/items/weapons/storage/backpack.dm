@@ -633,6 +633,20 @@
 	max_w_class = ITEMSIZE_NORMAL
 	max_storage_space = 28
 	sprite_sheets = list(BODYTYPE_VAURCA = 'icons/mob/species/vaurca/back.dmi')
+	var/hooded = FALSE
+
+/obj/item/storage/backpack/cloak/verb/toggle_cloak_hood()
+	set name = "Toggle Cloak Hood"
+	set desc = "Toggle your cloak hood."
+	set category = "Object"
+	set src in usr
+	if(use_check_and_message(usr))
+		return 0
+	hooded = !hooded 
+	to_chat(usr, "You [hooded ? "raise" : "lower"] \the [src] hood.")
+	icon_state = "[initial(icon_state)][hooded ? "_up" : ""]"
+	item_state = "icon_state"
+	update_icon()
 
 /obj/item/storage/backpack/cloak/sedantis
 	name = "Sedantis tunnel cloak"
