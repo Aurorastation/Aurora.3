@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes the eridani, rainbow, normal & colorable softcaps in the loadout."

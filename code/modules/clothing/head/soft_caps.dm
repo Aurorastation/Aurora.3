@@ -3,6 +3,7 @@
 	desc = "It's a softcap in a tasteless color."
 	icon = 'icons/obj/clothing/hats/soft_caps.dmi'
 	icon_state = "softcap"
+	item_state = "softcap"
 	item_flags = SHOWFLAVORTEXT
 	contained_sprite = TRUE
 	var/flipped = FALSE
@@ -30,6 +31,7 @@
 
 /obj/item/clothing/head/softcap/colorable
 	icon_state = "softcap_colorable"
+	item_state = "softcap_colorable"
 
 /obj/item/clothing/head/softcap/colorable/random/Initialize()
 	. = ..()
@@ -39,6 +41,7 @@
 	name = "rainbow cap"
 	desc = "It's a peaked cap in a bright rainbow of colors."
 	icon_state = "rainbowsoft"
+	item_state = "rainbowsoft"
 
 /obj/item/clothing/head/softcap/red // Antag red.
 	name = "red softcap"
@@ -132,6 +135,7 @@
 	name = "eridani cap"
 	desc = "A grey EPMC fatigue cap with the symbol of the Eridani Corporate Federation on its front. For amoral mercenaries that prefer style over protection."
 	icon_state = "eridani"
+	item_state = "eridani"
 
 /obj/item/clothing/head/softcap/zavod
 	name = "zavodskoi cap"
