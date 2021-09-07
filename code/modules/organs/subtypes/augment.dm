@@ -639,6 +639,7 @@
 	organ_tag = BP_AUG_CORRECTIVE_LENS
 	augment_type = /obj/item/clothing/glasses/aug/glasses
 	aug_slot = slot_glasses
+	canremove = FALSE
 
 /obj/item/organ/internal/augment/tool/correctivelens/glare_dampener
 	name = "glare dapmeners"
@@ -646,4 +647,3 @@
 	action_button_name = "Deploy Glare Dampeners"
 	organ_tag = BP_AUG_GLARE_DAMPENER
 	augment_type = /obj/item/clothing/glasses/aug/welding
-	canremove = FALSE
