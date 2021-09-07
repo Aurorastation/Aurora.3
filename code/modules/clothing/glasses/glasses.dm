@@ -416,6 +416,7 @@ BLIND     // can't see anything
 	item_state = "glasses"
 	prescription = 7
 	body_parts_covered = 0
+	canremove = FALSE
 
 /obj/item/clothing/glasses/sunglasses
 	name = "sunglasses"
@@ -532,6 +533,7 @@ BLIND     // can't see anything
 	item_flags = THICKMATERIAL
 	flash_protection = FLASH_PROTECTION_MAJOR
 	tint = TINT_HEAVY
+	canremove = FALSE
 
 /obj/item/clothing/glasses/aug/throw_at()
 	usr.drop_from_inventory(src)
