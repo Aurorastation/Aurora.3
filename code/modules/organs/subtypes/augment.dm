@@ -646,3 +646,4 @@
 	action_button_name = "Deploy Glare Dampeners"
 	organ_tag = BP_AUG_GLARE_DAMPENER
 	augment_type = /obj/item/clothing/glasses/aug/welding
+	canremove = FALSE

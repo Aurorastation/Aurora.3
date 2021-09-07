@@ -137,6 +137,13 @@
 	description = "A set of corrective lenses that can be deployed & retracted."
 	path = /obj/item/organ/internal/augment/tool/correctivelens
 
+/datum/gear/augment/glare_dampeners
+	display_name = "retractable glare dampeners"
+	description = "A subdermal implant installed just above the brow line that deploys a thin sheath of hyperpolycarbonate that protects from eye damage associated with arc flash."
+	path = /obj/item/organ/internal/augment/tool/correctivelens/glare_dampener
+	allowed_roles = list("Chief Engineer", "Station Engineer", "Atmospheric Technician", "Engineering Apprentice", "Roboticist")
+	cost = 2
+
 /datum/gear/augment/head_fluff
 	display_name = "Custom head augmentation"
 	description = "A fluff based augmentation that can be renamed/redescribed to appear as something else for RP purposes."

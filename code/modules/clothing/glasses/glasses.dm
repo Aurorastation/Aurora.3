@@ -524,9 +524,11 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/aug/welding
 	name = "glare dampeners"
-	desc = "Protects the eyes from welders."
-	icon_state = "welding-g"
-	item_state = "welding-g"
+	desc = "A subdermal implant installed just above the brow line that deploys a thin sheath of hyperpolycarbonate that protects from eye damage associated with arc flash."
+	icon = 'icons/clothing/eyes/welding_goggles.dmi'
+	icon_state = "welding-aug"
+	item_state = "welding-aug"
+	contained_sprite = TRUE
 	item_flags = THICKMATERIAL
 	flash_protection = FLASH_PROTECTION_MAJOR
 	tint = TINT_HEAVY

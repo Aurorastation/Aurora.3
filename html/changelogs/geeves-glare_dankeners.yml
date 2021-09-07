@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added glare dampeners to the loadout menu, available to Engineers and Roboticists."
