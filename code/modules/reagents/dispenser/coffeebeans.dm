@@ -1,7 +1,7 @@
 /obj/item/reagent_containers/chem_disp_cartridge/espresso
 	name = "A jar of Coffee Beans "
 	desc = "This goes into a coffee maker!"
-	label = "Spesscafe Dark Blend"
+	label = "Ganymede Dark Blend"
 	icon = 'icons/obj/drinks.dmi'
 	icon_state = "coffeejar"
 
