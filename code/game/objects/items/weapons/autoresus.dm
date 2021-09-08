@@ -198,8 +198,8 @@
 	name = "resuscitator paddles"
 	desc = "A pair of plastic-gripped paddles with flat metal surfaces that are used to deliver powerful electric shocks."
 	icon = 'icons/obj/resuscitator.dmi'
-	icon_state = "resuspaddles"
-	item_state = "resuspaddles"
+	icon_state = "resuspaddles0"
+	item_state = "resuspaddles0"
 	gender = PLURAL
 	force = 2
 	throwforce = 6
