@@ -37,7 +37,7 @@
 /obj/item/resuscitator/loaded //starts with regular power cell for R&D to replace later in the round.
 	bcell = /obj/item/cell
 
-/obj/item/resuscitator/on_update_icon()
+/obj/item/resuscitator/update_icon()
 	var/list/new_overlays = list()
 
 	if(paddles) //in case paddles got destroyed somehow.
@@ -229,18 +229,7 @@
 			make_announcement("beeps, \"Unit is re-energized.\"", "notice")
 			playsound(src, 'sound/machines/resus_ready.ogg', 50, 0)
 
-/obj/item/shockpaddles/update_twohanding()
-	var/mob/living/M = loc
-	if(istype(M) && is_held_twohanded(M))
-		wielded = 1
-		name = "resuscitator paddles (wielded)"
-	else
-		wielded = 0
-		name = "resuscitator paddles"
-	update_icon()
-	..()
-
-/obj/item/shockpaddles/on_update_icon()
+/obj/item/shockpaddles/update_icon()
 	icon_state = "resuspaddles[wielded]"
 	item_state = "resuspaddles[wielded]"
 	if(cooldown)
@@ -316,8 +305,6 @@
 
 // This proc is used so that we can return out of the revive process while ensuring that busy and update_icon() are handled
 /obj/item/shockpaddles/proc/do_revive(mob/living/carbon/human/H, mob/living/user)
-	if(H.ssd_check())
-		to_chat(find_dead_player(H.ckey, 1), "<span class='notice'>Someone is attempting to resuscitate you. Re-enter your body if you want to be revived!</span>")
 
 	//beginning to place the paddles on patient's chest to allow some time for people to move away to stop the process
 	user.visible_message("<span class='warning'>\The [user] begins to place [src] on [H]'s chest.</span>", "<span class='warning'>You begin to place [src] on [H]'s chest...</span>")
@@ -412,7 +399,7 @@
 
 	M.switch_from_dead_to_living_mob_list()
 	M.timeofdeath = 0
-	M.set_stat(UNCONSCIOUS) //Life() can bring them back to consciousness if it needs to.
+	M.stat = UNCONSCIOUS //Life() can bring them back to consciousness if it needs to.
 	M.regenerate_icons()
 	M.failed_last_breath = 0 //So mobs that died of oxyloss don't revive and have perpetual out of breath.
 	M.reload_fullscreen()
