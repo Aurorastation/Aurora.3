@@ -3,7 +3,7 @@
 	full_name = "NSS Placeholder"
 	path = "placeholder"
 	lobby_icons = list('icons/misc/titlescreens/placeholder/placeholder.dmi')
-	lobby_transitions = FALSE
+	lobby_transitions = 25 SECONDS
 
 	station_levels = list(1, 2, 3)
 	admin_levels = list(4)
