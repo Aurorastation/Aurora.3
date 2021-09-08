@@ -232,15 +232,11 @@
 	wielded = 1
 	name = "resuscitator paddles (wielded)"
 	update_icon()
-	if(src.wield_sound)
-		playsound(src.loc, wield_sound, 25, 1)
 
 /obj/item/shockpaddles/proc/unwield()
 	wielded = 0
 	name = "resuscitator paddles"
 	update_icon()
-	if(src.unwield_sound)
-		playsound(src.loc, unwield_sound, 25, 1)
 
 /obj/item/shockpaddles/attack_self(mob/user as mob)
 
