@@ -66,15 +66,12 @@
 	cur_coils = 0
 	input_attempt = TRUE
 	output_attempt = TRUE
-	output_level = 1300000 // calibrated to the NSS Aurora map
+	output_level = 650000 // calibrated to the NSS Aurora map
 
 /obj/machinery/power/smes/buildable/main_engine/Initialize()
 	. = ..()
 	component_parts += new /obj/item/smes_coil/super_capacity(src)
 	component_parts += new /obj/item/smes_coil/super_capacity(src)
-	component_parts += new /obj/item/smes_coil/super_capacity(src)
-	component_parts += new /obj/item/smes_coil/super_capacity(src)
-	component_parts += new /obj/item/smes_coil/super_io(src)
 	component_parts += new /obj/item/smes_coil/super_io(src)
 
 /obj/machinery/power/smes/buildable/main_engine/LateInitialize()
