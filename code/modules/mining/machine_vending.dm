@@ -118,7 +118,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 	interact(user)
 
 /obj/machinery/mineral/equipment_vendor/proc/get_user_id(var/mob/user)
-	if(!scanned_id && !isDrone(user))
+	if(!scanned_id && !isStandardDrone(user))
 		var/obj/item/card/id/ID = user.GetIdCard()
 		if(ID)
 			scanned_id = WEAKREF(ID)

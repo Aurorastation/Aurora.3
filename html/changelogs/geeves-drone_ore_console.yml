@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "All non-basic drones can now interact with ore processing consoles and mining equipment vendors."

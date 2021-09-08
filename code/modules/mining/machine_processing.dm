@@ -81,7 +81,7 @@
 	interact(user)
 
 /obj/machinery/mineral/processing_unit_console/proc/get_user_id(var/mob/user)
-	if(!scanned_id && !isDrone(user))
+	if(!scanned_id && !isStandardDrone(user))
 		var/obj/item/card/id/ID = user.GetIdCard()
 		if(ID)
 			scanned_id = WEAKREF(ID)

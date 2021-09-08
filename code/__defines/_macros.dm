@@ -33,6 +33,7 @@
 
 #define isAI(A) istype(A, /mob/living/silicon/ai)
 #define isDrone(A) istype(A, /mob/living/silicon/robot/drone)
+#define isStandardDrone(A) (A.type == /mob/living/silicon/robot/drone)
 
 #define isalien(A) istype(A, /mob/living/carbon/alien)
 
