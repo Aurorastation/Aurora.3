@@ -2153,7 +2153,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/suraya_dice.dmi'
 	icon_state = "sur_b_d1"
 	base_icon = "sur_b_d"
-	weighted = FALSE
 	favored_number = 1
 	weighted_value = 22
 
@@ -2165,7 +2164,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	else
 		to_chat(user, SPAN_NOTICE("You carefully jiggle the die one way, then the other, allowing its internal weighting to lock into place."))
 
-	user.visible_message(SPAN_WARNING("\The [user] jiggles \the [src] around in their hand for a second..."))
+	user.visible_message("<b>\The [user]</b> jiggles \the [src] around in their hand for a second.")
 
 /obj/item/dice/fluff/suraya_dice/alt
 	name = "green adhomian die"
