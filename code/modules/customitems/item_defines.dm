@@ -2155,7 +2155,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	base_icon = "sur_b_d"
 	weighted = FALSE
 	favored_number = 1
-	weighted_value = 30
+	weighted_value = 22
 
 /obj/item/dice/fluff/suraya_dice/AltClick(mob/user)
 	weighted = !weighted
