@@ -1,14 +1,17 @@
 /datum/species/skrell/axiori
 	name = SPECIES_SKRELL_AXIORI
-	blurb = "Axiori can be approximately translated to “aquatics” or “ocean-dwellers”, are were notably better adapted \
-	to survive with the depths of the Homeworld’s seas. Typically sporting much more pronounced webbings for \
-	faster swimming, as well as larger and more monocular eyes to better perceive their environment. \
-	The high-pressured environments in which they thrived and evolved have also resulted in a lower metabolic \
-	rate for the ethnicity, resulting in easier fat accrual."
+	preview_icon = 'icons/mob/human_races/skrell/skrell_axiori_preview.dmi'
+	blurb = "Axiori, which can be approximately translated to “aquatics” or “ocean-dwellers”, are notably better \
+	adapted to survive within the depths of the Homeworld’s seas. Typically sporting much more pronounced webbings \
+	for faster swimming, as well as larger and more monocular eyes to better perceive their environment. They also \
+	possess a small tail that acts as a rudder; making them capable of changing direction at high speeds when underwater. \
+	The high-pressure environments in which they thrived and evolved have also resulted in a lower metabolic rate for \
+	the ethnicity, resulting in easier fat accrual."
 
-	burn_mod = 1.2
-	hydration_loss_factor = 1.2
+	burn_mod = 1.1
+	brute_mod = 0.9
 	oxy_mod = 0.9
+	hydration_loss_factor = 1.1
 	tail = "axiori_tail"
 	eyes = "skrell_axiori_eyes_s"
 
