@@ -388,7 +388,7 @@
 	if(burn_damage > 15 && H.can_feel_pain())
 		H.emote("scream")
 	var/obj/item/organ/internal/heart/doki = LAZYACCESS(affecting.internal_organs, BP_HEART)
-	if(istype(doki) && doki.pulse && !doki.open && prob(10))
+	if(istype(doki) && doki.pulse && prob(10))
 		to_chat(doki, "<span class='danger'>Your [doki] has stopped!</span>")
 		doki.pulse = PULSE_NONE
 
@@ -528,7 +528,7 @@
 	H.apply_damage((rand(15,75)), IRRADIATE, damage_flags = DAM_DISPERSED) //just a little bit of radiation. It's the price you pay for being powered by magic I guess
 	return 1
 
-/obj/item/shockpaddles/standalone/Process(mob/living/carbon/human/H)
+/obj/item/shockpaddles/standalone/process(mob/living/carbon/human/H)
 	if(fail_counter > 0)
 		H.apply_damage((rand(15,75)), IRRADIATE, damage_flags = DAM_DISPERSED)
 		fail_counter--
