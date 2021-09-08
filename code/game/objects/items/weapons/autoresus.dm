@@ -178,7 +178,6 @@
 /obj/item/resuscitator/compact/loaded
 	bcell = /obj/item/cell/high
 
-
 /obj/item/resuscitator/compact/combat
 	name = "combat resuscitator"
 	desc = "A belt-equipped blood-red resuscitator that can be rapidly deployed. Does not have the restrictions or safeties of conventional resuscitators and can revive through space suits."
@@ -228,6 +227,62 @@
 
 			make_announcement("beeps, \"Unit is re-energized.\"", "notice")
 			playsound(src, 'sound/machines/resus_ready.ogg', 50, 0)
+
+/obj/item/shockpaddles/proc/wield()
+	wielded = 1
+	name = "resuscitator paddles (wielded)"
+	update_icon()
+	if(src.wield_sound)
+		playsound(src.loc, wield_sound, 25, 1)
+
+/obj/item/shockpaddles/proc/unwield()
+	wielded = 0
+	name = "resuscitator paddles"
+	update_icon()
+	if(src.unwield_sound)
+		playsound(src.loc, unwield_sound, 25, 1)
+
+/obj/item/shockpaddles/attack_self(mob/user as mob)
+
+	if(istype(user, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = user
+		if(issmall(H))
+			to_chat(user, "<span class='warning'>It's too heavy for you to wield fully.</span>")
+			return
+	else
+		return
+
+	if(!istype(user.get_active_hand(), src))
+		to_chat(user, "<span class='warning'>You need to be holding the [name] in your active hand.</span>")
+		return
+
+	if(wielded) //Trying to unwield it
+		unwield()
+		to_chat(user, "<span class='notice'>You are now carrying the [name] with one hand.</span>")
+
+		var/obj/item/material/twohanded/offhand/O = user.get_inactive_hand()
+		if(O && istype(O))
+			user.u_equip(O)
+			O.unwield()
+
+	else //Trying to wield it
+		if(user.get_inactive_hand())
+			to_chat(user, "<span class='warning'>You need your other hand to be empty.</span>")
+			return
+		wield()
+		to_chat(user, "<span class='notice'>You grip the [name] with both hands.</span>")
+
+		var/obj/item/material/twohanded/offhand/O = new /obj/item/material/twohanded/offhand(user) ////Let's reserve his other hand~
+		O.name = "[name] - offhand"
+		O.desc = "Your second grip on the [name]."
+		user.put_in_inactive_hand(O)
+
+	if(istype(user,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = user
+		H.update_inv_l_hand()
+		H.update_inv_r_hand()
+
+	return
 
 /obj/item/shockpaddles/update_icon()
 	icon_state = "resuspaddles[wielded]"
