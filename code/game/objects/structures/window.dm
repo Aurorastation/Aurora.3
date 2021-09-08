@@ -574,7 +574,7 @@
 
 /obj/structure/window/full/dismantle_window()
 	var/obj/item/stack/material/mats = new glasstype(loc)
-		mats.amount = 4
+	mats.amount = 4
 	var/obj/structure/window_frame/F = new/obj/structure/window_frame (get_turf(src))
 	F.anchored = anchored
 	qdel(src)
