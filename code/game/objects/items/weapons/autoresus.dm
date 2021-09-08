@@ -233,10 +233,10 @@
 	var/mob/living/M = loc
 	if(istype(M) && is_held_twohanded(M))
 		wielded = 1
-		SetName("[initial(name)] (wielded)")
+		name = "resuscitator paddles (wielded)"
 	else
 		wielded = 0
-		SetName(initial(name))
+		name = "resuscitator paddles"
 	update_icon()
 	..()
 
@@ -264,9 +264,6 @@
 /obj/item/shockpaddles/proc/can_resus(mob/living/carbon/human/H) //This is checked before doing the resus operation
 	if(H.isSynthetic())
 		return "buzzes, \"Unrecogized physiology. Operation aborted.\""
-
-	if(!check_contact(H))
-		return "buzzes, \"Patient's chest is obstructed. Operation aborted.\""
 
 /obj/item/shockpaddles/proc/can_revive(mob/living/carbon/human/H) //This is checked right before attempting to revive
 	if(H.stat == DEAD)
@@ -426,14 +423,14 @@
 	apply_brain_damage(M, deadtime)
 
 /obj/item/shockpaddles/proc/apply_brain_damage(mob/living/carbon/human/H, var/deadtime)
-	if(deadtime < resus_TIME_LOSS) return
+	if(deadtime < RESUS_TIME_LOSS) return
 
 	if(!H.should_have_organ(BP_BRAIN)) return //no brain
 
 	var/obj/item/organ/internal/brain/brain = H.internal_organs_by_name[BP_BRAIN]
 	if(!brain) return //no brain
 
-	var/brain_damage = Clamp((deadtime - resus_TIME_LOSS)/(resus_TIME_LIMIT - resus_TIME_LOSS)*brain.max_damage, H.getBrainLoss(), brain.max_damage)
+	var/brain_damage = Clamp((deadtime - RESUS_TIME_LOSS)/(RESUS_TIME_LIMIT - RESUS_TIME_LOSS)*brain.max_damage, H.getBrainLoss(), brain.max_damage)
 	H.setBrainLoss(brain_damage)
 
 /obj/item/shockpaddles/proc/make_announcement(var/message, var/msg_class)
@@ -491,30 +488,6 @@
 		var/mob/living/silicon/robot/R = src.loc
 		return (R.cell && R.cell.checked_use(charge_amt))
 
-/obj/item/shockpaddles/rig
-	name = "mounted resuscitator"
-	desc = "If you can see this something is very wrong, report this bug."
-	cooldowntime = (4 SECONDS)
-	chargetime = (1 SECOND)
-	chargecost = 150
-	safety = 0
-	wielded = 1
-
-/obj/item/shockpaddles/rig/check_charge(var/charge_amt)
-	if(istype(src.loc, /obj/item/rig_module/device/resus))
-		var/obj/item/rig_module/device/resus/module = src.loc
-		return (module.holder && module.holder.cell && module.holder.cell.check_charge(charge_amt))
-
-/obj/item/shockpaddles/rig/checked_use(var/charge_amt)
-	if(istype(src.loc, /obj/item/rig_module/device/resus))
-		var/obj/item/rig_module/device/resus/module = src.loc
-		return (module.holder && module.holder.cell && module.holder.cell.checked_use(charge_amt))
-
-/obj/item/shockpaddles/rig/set_cooldown(var/delay)
-	..()
-	if(istype(src.loc, /obj/item/rig_module/device/resus))
-		var/obj/item/rig_module/device/resus/module = src.loc
-		module.next_use = world.time + delay
 /*
 	Shockpaddles that are linked to a base unit
 */
@@ -559,21 +532,21 @@
 /obj/item/shockpaddles/standalone/Destroy()
 	. = ..()
 	if(fail_counter)
-		STOP_PROCESSING(SSobj, src)
+		STOP_PROCESSING(SSprocessing, src)
 
 /obj/item/shockpaddles/standalone/check_charge(var/charge_amt)
 	return 1
 
-/obj/item/shockpaddles/standalone/checked_use(var/charge_amt)
-	SSradiation.radiate(src, charge_amt/12) //just a little bit of radiation. It's the price you pay for being powered by magic I guess
+/obj/item/shockpaddles/standalone/checked_use(mob/living/carbon/human/H)
+	H.apply_damage((rand(15,75)), IRRADIATE, damage_flags = DAM_DISPERSED) //just a little bit of radiation. It's the price you pay for being powered by magic I guess
 	return 1
 
-/obj/item/shockpaddles/standalone/Process()
+/obj/item/shockpaddles/standalone/Process(mob/living/carbon/human/H)
 	if(fail_counter > 0)
-		SSradiation.radiate(src, (fail_counter * 2))
+		H.apply_damage((rand(15,75)), IRRADIATE, damage_flags = DAM_DISPERSED)
 		fail_counter--
 	else
-		STOP_PROCESSING(SSobj, src)
+		STOP_PROCESSING(SSprocessing, src)
 
 /obj/item/shockpaddles/standalone/emp_act(severity)
 	..()
@@ -588,7 +561,7 @@
 				to_chat(loc, "<span class='warning'>\The [src] feel pleasantly warm.</span>")
 
 	if(new_fail && !fail_counter)
-		START_PROCESSING(SSobj, src)
+		START_PROCESSING(SSprocessing, src)
 	fail_counter = new_fail
 
 /obj/item/shockpaddles/standalone/traitor
