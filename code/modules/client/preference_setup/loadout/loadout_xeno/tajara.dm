@@ -247,7 +247,7 @@
 	display_name = "tesla spine"
 	description = "A People's Republic of Adhomai made tesla spine issued to disabled veterans and civilians."
 	path = /obj/item/organ/internal/augment/tesla
-	cost = 4
+	cost = 2
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	sort_category = "Xenowear - Tajara"
 
