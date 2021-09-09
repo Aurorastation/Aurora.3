@@ -108,32 +108,33 @@ datum/gear/suit/colorvest
 	cost = 1
 	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Roboticist", "Research Director", "Investigator")
 
-/datum/gear/suit/medical_chest_rig
-	display_name = "medic chest-rig"
-	description = "A white chest-rig with pouches worn by medical first responders, meant to carry their equipment."
-	path = /obj/item/clothing/suit/storage/medical_chest_rig
+/datum/gear/suit/medical_outerwear
+	display_name = "medical outerwear (jackets, vests, rigs)"
+	path = /obj/item/clothing/suit/storage/toggle/fr_jacket
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
 
-/datum/gear/suit/first_responder_vest
-	display_name = "first responder vest"
-	description = "A dark green vest adorned with high-visibility stripes. Has pouches to carry equipment with."
-	path = /obj/item/clothing/suit/storage/medical_chest_rig/first_responder
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
+/datum/gear/suit/medical_outerwear/New()
+	..()
+	var/list/medical_outerwear = list()
+	medical_outerwear["medical chest-rig"] = /obj/item/clothing/suit/storage/medical_chest_rig
+	medical_outerwear["first responder vest"] = /obj/item/clothing/suit/storage/medical_chest_rig/first_responder
+	medical_outerwear["first responder jacket"] = /obj/item/clothing/suit/storage/toggle/fr_jacket/alt
+	medical_outerwear["first responder jacket, alt"] = /obj/item/clothing/suit/storage/toggle/fr_jacket // this variant is the old bright green one and doesn't go with the NT medic uniform
+	gear_tweaks += new /datum/gear_tweak/path(medical_outerwear)
 
-/datum/gear/suit/iacvest
-	display_name = "IAC vest"
-	description = "It's a lightweight vest. Made of a dark, navy mesh with highly-reflective white material, designed to be worn by the Interstellar Aid Corps."
+/datum/gear/suit/iac_outerwear
+	display_name = "IAC outerwear (jackets, vests, rigs)"
 	path = /obj/item/clothing/suit/storage/iacvest
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
 	flags = GEAR_HAS_DESC_SELECTION
 
-/datum/gear/suit/iaclabcoat
-	display_name = "IAC labcoat"
-	description = "It's a standard medical labcoat designed to be worn by the Interstellar Aid Corps."
-	path = /obj/item/clothing/suit/storage/toggle/labcoat/iac
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
-	flags = GEAR_HAS_DESC_SELECTION
-
+/datum/gear/suit/iac_outerwear/New()
+	..()
+	var/list/iac_outerwear = list()
+	iac_outerwear["IAC vest"] = /obj/item/clothing/suit/storage/iacvest
+	iac_outerwear["IAC labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/iac
+	gear_tweaks += new /datum/gear_tweak/path(iac_outerwear)
+	
 /datum/gear/suit/poncho
 	display_name = "poncho selection"
 	path = /obj/item/clothing/accessory/poncho
