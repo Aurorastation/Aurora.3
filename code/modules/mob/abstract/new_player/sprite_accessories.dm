@@ -2513,12 +2513,12 @@ Follow by example and make good judgement based on length which list to include 
 			chatname = "styled mane"
 
 		taj_ears_longswoop
-			name = "Tajara Swoop"
+			name = "Tajara Long Swoop"
 			icon_state = "hair_longswoop"
 			length = 3
 			chatname = "styled mane"
 
-		taj_ears_swoop
+		taj_ears_longswoop_alt
 			name = "Tajara Long Swoop Alt"
 			icon_state = "hair_longswoop_alt"
 			length = 3
