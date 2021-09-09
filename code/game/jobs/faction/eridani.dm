@@ -22,14 +22,7 @@
 	</ul></p>"}
 	title_suffix = "EPMC"
 
-	allowed_role_types = list(
-		/datum/job/visitor,
-		/datum/job/officer,
-		/datum/job/warden,
-		/datum/job/investigator,
-		/datum/job/med_tech,
-		/datum/job/representative
-	)
+	allowed_role_types = EPMC_ROLES
 
 	allowed_species_types = list(
 		/datum/species/human,

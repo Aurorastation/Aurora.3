@@ -31,15 +31,7 @@
 	</ul></p>"}
 	title_suffix = "Zavod"
 
-	allowed_role_types = list(
-		/datum/job/visitor,
-		/datum/job/officer,
-		/datum/job/warden,
-		/datum/job/scientist,
-		/datum/job/roboticist,
-		/datum/job/surgeon,
-		/datum/job/representative
-	)
+	allowed_role_types = ZAVOD_ROLES
 
 	allowed_species_types = list(
 		/datum/species/human,

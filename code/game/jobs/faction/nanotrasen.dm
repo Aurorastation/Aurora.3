@@ -5,6 +5,8 @@
 
 	is_default = TRUE
 
+	allowed_role_types = NT_ROLES
+
 	job_species_blacklist = list(
 		"Corporate Liaison" = list(
 			SPECIES_DIONA,
@@ -14,19 +16,6 @@
 			SPECIES_TAJARA_MSAI
 		)
 	)
-
-/datum/faction/nano_trasen/New()
-	..()
-
-	allowed_role_types = list()
-
-	for (var/datum/job/job in SSjobs.occupations)
-		allowed_role_types += job.type
-
-	// Really shitty hack until I get around to rewriting jobs a bit.
-	var/list/disallowed_roles = list(/datum/job/consular, /datum/job/merchant)
-	for(var/disallowed_role in disallowed_roles)
-		allowed_role_types -= disallowed_role
 
 /datum/faction/nano_trasen/get_corporate_objectives(var/mission_level)
 	var/objective
