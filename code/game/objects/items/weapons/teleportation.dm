@@ -156,6 +156,8 @@ Frequency:
 	var/obj/machinery/teleport/station/linked_station
 	var/list/active_teleporters
 
+	var/max_portals = 2
+
 /obj/item/hand_tele/examine(mob/user, distance)
 	. = ..()
 	if(linked_station)
@@ -168,7 +170,7 @@ Frequency:
 
 /obj/item/hand_tele/attack_self(mob/user)
 	var/turf/current_location = get_turf(user)//What turf is the user on?
-	if(!current_location || isNotStationLevel(current_location.z))
+	if(!current_location || isAdminLevel(current_location.z))
 		to_chat(user, SPAN_WARNING("\The [src] can't get a bearing on anything right now."))
 		return
 
@@ -177,13 +179,20 @@ Frequency:
 		to_chat(user, SPAN_DANGER("\The [src] can't seem to find a lock. Something in the area must be preventing the portal from opening..."))
 		return
 
-	if(LAZYLEN(active_teleporters) >= 3)
+	if(LAZYLEN(active_teleporters) >= max_portals)
 		user.show_message(SPAN_WARNING("\The [src] is recharging!"))
 		return
 
 	var/teleport_turf
-	if(linked_station && linked_station.locked_obj)
-		teleport_turf = get_turf(linked_station.locked_obj.resolve())
+	if(linked_station)
+		if(linked_station.stat & (NOPOWER|BROKEN))
+			to_chat(user, SPAN_WARNING("The station \the [src] is connected doesn't seem to be responding!"))
+			return
+		if(!AreConnectedZLevels(current_location.z, linked_station.z))
+			to_chat(user, SPAN_WARNING("The station \the [src] is connected to isn't close enough to lock onto now!"))
+			return
+		if(linked_station.locked_obj)
+			teleport_turf = get_turf(linked_station.locked_obj.resolve())
 	else
 		var/list/potential_turfs = list()
 		for(var/turf/T in orange(10))
@@ -204,7 +213,7 @@ Frequency:
 
 	var/obj/effect/portal/P = new /obj/effect/portal(get_turf(src), teleport_turf, src)
 	LAZYADD(active_teleporters, P)
-	if(LAZYLEN(active_teleporters) >= 3)
+	if(LAZYLEN(active_teleporters) >= max_portals)
 		check_maptext(SMALL_FONTS(6, "Charge"))
 	add_fingerprint(user)
 
@@ -216,12 +225,14 @@ Frequency:
 
 /obj/item/hand_tele/CtrlClick(mob/user)
 	if(user == loc)
+		var/turf/current_location = get_turf(src)
 		var/list/teleport_options = list()
 		for(var/obj/machinery/teleport/station/S in SSmachinery.all_machines)
-			if(S.engaged)
-				teleport_options["[S.id] (Active)"] = S
-			else
-				teleport_options["[S.id] (Inactive)"] = S
+			if(AreConnectedZLevels(current_location.z, S.z))
+				if(S.engaged)
+					teleport_options["[S.id] (Active)"] = S
+				else
+					teleport_options["[S.id] (Inactive)"] = S
 		teleport_options["None (Dangerous)"] = null
 		var/teleport_choice = input(user, "Please select a teleporter to lock in on.", "Hand Teleporter") as null|anything in teleport_options
 		if(!teleport_choice)
@@ -241,7 +252,7 @@ Frequency:
 
 /obj/item/hand_tele/proc/remove_portal(var/obj/effect/portal/P)
 	LAZYREMOVE(active_teleporters, P)
-	if(LAZYLEN(active_teleporters) < 3)
+	if(LAZYLEN(active_teleporters) < max_portals)
 		check_maptext(SMALL_FONTS(7, "Ready"))
 
 /obj/item/closet_teleporter
