@@ -87,7 +87,7 @@
 	seed_name = "green grape"
 	display_name = "green grapevines"
 	mutants = null
-	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/kelotane = list(3,5), /decl/reagent/drink/grapejuice = list(10,10))
+	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/kelotane = list(3,5), /decl/reagent/drink/whitegrapejuice = list(10,10))
 
 /datum/seed/grapes/green/setup_traits()
 	..()

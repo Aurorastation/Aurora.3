@@ -787,6 +787,15 @@
 	glass_name = "glass of grape juice"
 	glass_desc = "It's grrrrrape!"
 
+/decl/reagent/drink/whitegrapejuice
+	name = "White Grape Juice"
+	description = "It's tart grape!"
+	color = "#863333"
+	taste_description = "tarty grapes"
+	glass_icon_state = "glass_clear"
+	glass_name = "glass of white grape juice"
+	glass_desc = "It's tart grape!"
+
 /decl/reagent/drink/lemonjuice
 	name = "Lemon Juice"
 	description = "This juice is VERY sour."
@@ -4784,7 +4793,7 @@
 	strength = 30
 	color = "#FFF1B2"
 	taste_description = "pineapple, coconut, and a hint of the ocean"
-	
+
 	glass_icon_state = "pina_colada"
 	glass_name = "glass of pina colada"
 	glass_desc = "Prepared just like in Silversun."
@@ -4809,7 +4818,7 @@
 
 	glass_icon_state = "spacecola"
 	glass_name = "glass of diet cola"
-	glass_desc = "Space Cola! Now in diet!" 
+	glass_desc = "Space Cola! Now in diet!"
 
 /decl/reagent/drink/milk/chocolate
 	name = "Chocolate milk"
