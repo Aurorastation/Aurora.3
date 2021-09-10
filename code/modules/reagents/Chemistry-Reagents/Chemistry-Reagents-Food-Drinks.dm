@@ -4127,7 +4127,7 @@
 	color = "#e5d272"
 	strength = 10
 	taste_description = "delightful sweetness"
-	glass_icon_state = "wineglass"
+	glass_icon_state = "blushwineglass"
 	glass_name = "glass of blush wine"
 	glass_desc = "A very classy looking drink."
 	glass_center_of_mass = list("x"=15, "y"=7)
