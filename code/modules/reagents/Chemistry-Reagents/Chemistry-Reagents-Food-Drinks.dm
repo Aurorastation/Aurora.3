@@ -370,6 +370,57 @@
 	taste_description = "bitterness"
 	taste_mult = 1.3
 
+/decl/reagent/nutriment/coffeegrounds
+	name = "Coffee Grounds"
+	description = "Enjoy the great taste of coffee."
+	reagent_state = SOLID
+	nutriment_factor = 1
+	color = "#5c4a11"
+	taste_description = "earthy gritty coffee"
+	taste_mult = 0.4
+	condiment_name = "ground coffee"
+	condiment_icon_state = "coffee"
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
+/decl/reagent/nutriment/coffeegrounds/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	..()
+	if(adj_temp > 0)
+		holder.remove_reagent(/decl/reagent/frostoil, 10 * removed)
+	if(M.bodytemperature > 310)
+		M.bodytemperature = max(310, M.bodytemperature - (5 * TEMPERATURE_DAMAGE_COEFFICIENT))
+	if(alien != IS_DIONA)
+		M.dizziness = max(0, M.dizziness - 5)
+		M.drowsiness = max(0, M.drowsiness - 3)
+		M.sleeping = max(0, M.sleeping - 2)
+		M.intoxication = max(0, (M.intoxication - (removed*0.25)))
+		//copied from coffee
+
+/decl/reagent/nutriment/coffeegrounds/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
+	if(alien != IS_DIONA)
+		M.make_jittery(5)
+		//copied from coffee
+
+/decl/reagent/nutriment/teagrounds
+	name = "Tea Grounds"
+	description = "Enjoy the great taste of tea."
+	reagent_state = SOLID
+	nutriment_factor = 1
+	color = "#4fd24d"
+	taste_description = "potent gritty tea"
+	taste_mult = 0.4
+	condiment_name = "ground tea"
+	condiment_icon_state = "tea"
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
+/decl/reagent/nutriment/teagrounds/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(alien == IS_DIONA)
+		if(last_taste_time + 800 < world.time) // Not to spam message
+			to_chat(M, "<span class='danger'>Your body withers as you feel slight pain throughout.</span>")
+			last_taste_time = world.time
+		metabolism = REM * 0.33
+		M.adjustToxLoss(1.5 * removed)
+		//Copied from tea. though i feel it should be stronger as its not diluted with water
+
 /decl/reagent/nutriment/soysauce
 	name = "Soy Sauce"
 	description = "A salty sauce made from the soy plant."

@@ -1544,6 +1544,14 @@
 	required_reagents = list(/decl/reagent/drink/garlicjuice = 1, /decl/reagent/nutriment/triglyceride/oil/corn = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/mintsyrup
+	name = "Mint Syrup"
+	id = "mintsyrup"
+	result = /decl/reagent/drink/mintsyrup
+	required_reagents = list(/decl/reagent/nutriment/mint = 5)
+	catalysts = list(/decl/reagent/enzyme = 5)
+	result_amount = 5
+
 /datum/chemical_reaction/cheesewheel
 	name = "Cheesewheel"
 	id = "cheesewheel"
@@ -3369,6 +3377,20 @@
 
 //Coffee expansion
 //=======================
+/datum/chemical_reaction/drink/coffee
+	name = "Latte"
+	id = "latte"
+	result = /decl/reagent/drink/coffee
+	required_reagents = list(/decl/reagent/drink/coffee/espresso = 5, /decl/reagent/water = 5)
+	result_amount = 10
+
+/datum/chemical_reaction/drink/espresso
+	name = "Latte"
+	id = "latte"
+	result = /decl/reagent/drink/coffee/espresso
+	required_reagents = list(/decl/reagent/nutriment/coffeegrounds = 1, /decl/reagent/water = 5)
+	result_amount = 5
+
 /datum/chemical_reaction/caramelisation
 	name = "Caramelised Sugar"
 	result = /decl/reagent/nutriment/caramel
