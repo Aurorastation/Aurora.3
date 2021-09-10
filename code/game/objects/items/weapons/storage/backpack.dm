@@ -631,7 +631,6 @@
 	w_class = ITEMSIZE_HUGE
 	slot_flags = SLOT_BACK
 	max_w_class = ITEMSIZE_NORMAL
-	max_storage_space = 28
 	sprite_sheets = list(BODYTYPE_VAURCA = 'icons/mob/species/vaurca/back.dmi')
 	var/hooded = FALSE
 
