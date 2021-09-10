@@ -309,7 +309,7 @@
 	flags = WHITELISTED | TCOMSSIM
 	syllables = list("af", "if", "ba", "ta", "tha", "id", "jem", "ha", "kha", "dal", "dhl", "ra", "zay", "sen", "um", "shn", "sid", "ad", "ta", "za", "ayn", "gha", "zir", "yn", "fa", "qaf", "iam", "mim", "al", "ja", "non", "ha", "waw", "ya",
 		"hem", "zah", "hml", "ks", "ini", "da", "ks", "iga", "ih", "la", "ulf", "xe", "ayw", "sit", "ah", "aarah", "jalaa", "sirt", "kurt", "turkh", "ust", "irk", "kir", "mir", "ach", "oglu", "bolu", "shek", "she", "ghoz", "miya", "ejdan", 
-		"haaz", "quq", "taab", "shanha", "an", "saa", "seh", "-e", "-a", "-em" "'", "-")
+		"haaz", "quq", "taab", "shanha", "an", "saa", "seh", "-e", "-a", "-em", "'", "-")
 	allow_accents = TRUE
 
 /datum/language/machine
