@@ -384,10 +384,6 @@
 
 /decl/reagent/nutriment/coffeegrounds/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
-	if(adj_temp > 0)
-		holder.remove_reagent(/decl/reagent/frostoil, 10 * removed)
-	if(M.bodytemperature > 310)
-		M.bodytemperature = max(310, M.bodytemperature - (5 * TEMPERATURE_DAMAGE_COEFFICIENT))
 	if(alien != IS_DIONA)
 		M.dizziness = max(0, M.dizziness - 5)
 		M.drowsiness = max(0, M.drowsiness - 3)
@@ -411,6 +407,7 @@
 	condiment_name = "ground tea"
 	condiment_icon_state = "tea"
 	condiment_center_of_mass = list("x"=16, "y"=8)
+	var/last_taste_time = -100
 
 /decl/reagent/nutriment/teagrounds/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien == IS_DIONA)
