@@ -11133,6 +11133,14 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_virology)
+"Vm" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/light_switch{
+	step_x = -5;
+	step_y = 23
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
 "Vp" = (
 /obj/machinery/ringer{
 	department = "Cargo";
@@ -51570,7 +51578,7 @@ hZ
 hZ
 hZ
 hZ
-kt
+Vm
 kt
 ZY
 QM

@@ -23085,6 +23085,9 @@
 /obj/effect/floor_decal/corner_wide/paleblue/full{
 	dir = 8
 	},
+/obj/machinery/light_switch{
+	step_y = -26
+	},
 /turf/simulated/floor/tiled,
 /area/bridge)
 "aNX" = (
@@ -52722,6 +52725,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
+	},
+/obj/machinery/light_switch{
+	step_y = -26
 	},
 /turf/simulated/floor/wood,
 /area/chapel/main)
