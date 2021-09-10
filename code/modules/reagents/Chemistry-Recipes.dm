@@ -1747,6 +1747,28 @@
 	catalysts = list(/decl/reagent/enzyme = 5)
 	result_amount = 10
 
+/datum/chemical_reaction/whitewine
+	name = "White Wine"
+	id = "whitewine"
+	result = /decl/reagent/alcohol/whitewine
+	required_reagents = list(/decl/reagent/drink/whitegrapejuice = 5)
+	catalysts = list(/decl/reagent/enzyme = 5)
+	result_amount = 5
+
+/datum/chemical_reaction/blushwine
+	name = "Blush Wine"
+	id = "blushwine"
+	result = /decl/reagent/alcohol/blushwine
+	required_reagents = list(/decl/reagent/alcohol/whitewine = 1, /decl/reagent/alcohol/wine = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/melonwine
+	name = "Melon Wine"
+	id = "melonwine"
+	result = /decl/reagent/alcohol/melonwine
+	required_reagents = list(/decl/reagent/alcohol/wine = 1, /decl/reagent/alcohol/melonliquor = 1)
+	result_amount = 2
+
 /datum/chemical_reaction/pwine
 	name = "Poison Wine"
 	id = "pwine"
