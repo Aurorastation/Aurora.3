@@ -628,9 +628,6 @@
 	desc = "A Vaurca cloak with storage pockets."
 	icon_state = "cape"
 	item_state = "cape"
-	w_class = ITEMSIZE_HUGE
-	slot_flags = SLOT_BACK
-	max_w_class = ITEMSIZE_NORMAL
 	sprite_sheets = list(BODYTYPE_VAURCA = 'icons/mob/species/vaurca/back.dmi')
 	var/hooded = FALSE
 
