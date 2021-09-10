@@ -13995,6 +13995,10 @@
 	dir = 8;
 	pixel_x = 28
 	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "azv" = (
@@ -69799,7 +69803,6 @@
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
 "vOs" = (
-/mob/living/silicon/robot/drone/construction/matriarch,
 /obj/machinery/door/window/brigdoor/southright{
 	dir = 1;
 	req_access = list(56)
@@ -69807,6 +69810,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/mob/living/silicon/robot/drone/construction/matriarch,
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/drone_fabrication)
 "vPm" = (
