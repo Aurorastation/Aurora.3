@@ -9,7 +9,6 @@
 
 /datum/seed/mint/setup_traits()
 	..()
-	set_trait(TRAIT_HARVEST_REPEAT,1)
 	set_trait(TRAIT_MATURATION,3)
 	set_trait(TRAIT_PRODUCTION,3)
 	set_trait(TRAIT_YIELD,3)
@@ -32,7 +31,6 @@
 
 /datum/seed/tea/setup_traits()
 	..()
-	set_trait(TRAIT_HARVEST_REPEAT,1)
 	set_trait(TRAIT_MATURATION,3)
 	set_trait(TRAIT_PRODUCTION,3)
 	set_trait(TRAIT_YIELD,3)
