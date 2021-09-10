@@ -4121,6 +4121,28 @@
 	glass_desc = "A very classy looking drink."
 	glass_center_of_mass = list("x"=15, "y"=7)
 
+/decl/reagent/alcohol/blushwine
+	name = "Blush Wine"
+	description = "A premium alchoholic beverage made from distilled grape juice."
+	color = "#e5d272"
+	strength = 10
+	taste_description = "delightful sweetness"
+	glass_icon_state = "wineglass"
+	glass_name = "glass of blush wine"
+	glass_desc = "A very classy looking drink."
+	glass_center_of_mass = list("x"=15, "y"=7)
+
+/decl/reagent/alcohol/melonwine
+	name = "Melon Wine"
+	description = "A fruity alchoholic beverage made from wine and melon liquor."
+	color = "#11cf39" // rgb: 126, 64, 67
+	strength = 20
+	taste_description = "mouth watering fruity sweetness"
+	glass_icon_state = "melonwine"
+	glass_name = "glass of Melon-Wine"
+	glass_desc = "A very classy looking drink."
+	glass_center_of_mass = list("x"=15, "y"=7)
+
 /decl/reagent/alcohol/messa_mead
 	name = "Messa's Mead"
 	description = "A sweet alcoholic adhomian drink. Produced with Messa's tears and earthen-root."
