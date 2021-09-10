@@ -17,7 +17,7 @@
 	s["roundduration"] = get_round_duration_formatted()
 	s["gameid"] = game_id
 	s["game_state"] = SSticker ? 0 : SSticker.current_state
-	s["transferring"] = !!(emergency_shuttle?.online())
+	s["transferring"] = !!(evacuation_controller.is_evacuating())
 
 	s["players"] = clients.len
 	s["staff"] = staff.len
