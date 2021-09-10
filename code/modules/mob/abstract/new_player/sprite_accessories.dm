@@ -3712,19 +3712,19 @@ Follow by example and make good judgement based on length which list to include 
 		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/bug, /datum/species/bug/type_b)
 
 	scar_chest 
-		name = "Scar, Abdomen"
+		name = "Scar, Chest"
 		icon_state = "surgicalscar_chest"
 		body_parts = list(BP_CHEST)
 		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/bug, /datum/species/bug/type_b)
 
 	scar_chest_left
-		name = "Scar, Abdomen Left"
+		name = "Scar, Chest Left"
 		icon_state = "chestscar_l_chest"
 		body_parts = list(BP_CHEST)
 		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/bug, /datum/species/bug/type_b)
 
 	scar_chest_right
-		name = "Scar, Abdomen Right"
+		name = "Scar, Chest Right"
 		icon_state = "chestscar_r_chest"
 		body_parts = list(BP_CHEST)
 		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/bug, /datum/species/bug/type_b)
