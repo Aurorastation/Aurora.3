@@ -61607,17 +61607,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
-"hhO" = (
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
-	},
-/obj/machinery/atm{
-	step_x = 31;
-	step_y = -3
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/aft)
 "hib" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
@@ -69810,6 +69799,7 @@
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
 "vOs" = (
+/mob/living/silicon/robot/drone/construction/matriarch,
 /obj/machinery/door/window/brigdoor/southright{
 	dir = 1;
 	req_access = list(56)
@@ -69817,7 +69807,6 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/mob/living/silicon/robot/drone/construction/matriarch,
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/drone_fabrication)
 "vPm" = (
@@ -99735,7 +99724,7 @@ bLw
 dKk
 bTm
 bTU
-hhO
+bYx
 bdA
 bVv
 bLw
