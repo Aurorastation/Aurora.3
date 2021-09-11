@@ -3271,6 +3271,37 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Glorp"
 			icon_state = "glorp"
 
+	skrell_patch
+		icon = 'icons/mob/human_face/skrell_beards.dmi'
+		name = "Skrell Patch"
+		icon_state = "Skrell_Patch"
+		species_allowed = list(/datum/species/skrell, /datum/species/skrell/axiori)
+		gender = NEUTER
+
+		skrell_triton
+			name = "Skrell Triton"
+			icon_state = "Skrell_Triton"
+
+		skrell_cthulhu
+			name = "Skrell Big Triton"
+			icon_state = "Skrell_Cthulhu"
+
+		skrell_mono
+			name = "Skrell monobard"
+			icon_state = "Skrell_Monobeard"
+		
+		skrell_face_adorn
+			name = "Skrell Face Adorns"
+			icon_state = "Skrell_Face_Adorns"
+
+		skrell_fumanchu
+			name = "Skrell Handlebar"
+			icon_state = "Skrell_Handlebar"
+
+		skrell_fumanchu_alt
+			name = "Skrell Colonel"
+			icon_state = "Skrell_Colonel"
+
 /*
 ////////////////////////////
 /  =--------------------=  /
