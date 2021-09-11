@@ -88,8 +88,18 @@ proc/spread_germs_to_organ(var/obj/item/organ/external/E, var/mob/living/carbon/
 
 /proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool, var/autofail = FALSE)
 	// Check for the Hippocratic oath.
-	if(!istype(M) || user.a_intent != I_HELP)
+	if(!istype(M) || user.a_intent == I_HURT)
 		return FALSE
+
+	var/static/list/safety_check_exceptions = list(
+		/obj/item/auto_cpr,
+		/obj/item/device/healthanalyzer,
+		/obj/item/reagent_containers/hypospray,
+		/obj/item/modular_computer,
+		/obj/item/reagent_containers/syringe,
+		/obj/item/device/advanced_healthanalyzer,
+		/obj/item/device/robotanalyzer,
+		/obj/item/stack/medical)
 	// Check for multi-surgery drifting.
 	var/zone = user.zone_sel.selecting
 	if(zone in M.op_stage.in_progress)
@@ -114,11 +124,14 @@ proc/spread_germs_to_organ(var/obj/item/organ/external/E, var/mob/living/carbon/
 
 	// We didn't find a surgery, or decided not to perform one.
 	if(!istype(S))
+		if((locate(/obj/machinery/optable) in get_turf(M)))
+			if(is_type_in_list(tool, safety_check_exceptions))
+				return FALSE//These tools are safe to bypass hippocratic oath
 		to_chat(user, SPAN_WARNING("You aren't sure what you could do to \the [M] with \the [tool]."))
-		return FALSE
+		return TRUE
 
 	// Otherwise we can make a start on surgery!
-	else if(istype(M) && !QDELETED(M) && user.a_intent == I_HELP && user.get_active_hand() == tool)
+	else if(istype(M) && !QDELETED(M)  && user.get_active_hand() == tool)
 		// Double-check this in case it changed between initial check and now.
 		if(zone in M.op_stage.in_progress)
 			to_chat(user, SPAN_WARNING("You can't operate on this area while surgery is already in progress."))
@@ -138,7 +151,7 @@ proc/spread_germs_to_organ(var/obj/item/organ/external/E, var/mob/living/carbon/
 					var/mob/living/carbon/human/H = M
 					H.update_surgery()
 		return TRUE
-	return FALSE
+	return TRUE//Only allow bypass if hippocratic oath fails.
 
 /datum/surgery_status/
 	var/eyes	=	0
