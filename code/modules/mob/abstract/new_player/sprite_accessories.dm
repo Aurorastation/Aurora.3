@@ -3275,7 +3275,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon = 'icons/mob/human_face/skrell_beards.dmi'
 		name = "Skrell Patch"
 		icon_state = "Skrell_Patch"
-		species_allowed = list(/datum/species/skrell, /datum/species/skrell/axiori)
+		species_allowed = list(/datum/species/skrell)
 		gender = NEUTER
 
 		skrell_triton
