@@ -2767,6 +2767,24 @@ Follow by example and make good judgement based on length which list to include 
 			length = 3
 			chatname = "styled mane"
 
+		msai_ears_swoop
+			name = "M'sai Swoop"
+			icon_state = "msai_swoop"
+			length = 2
+			chatname = "styled mane"
+
+		msai_ears_swoop_long
+			name = "M'sai Swoop Long"
+			icon_state = "msai_longswoop"
+			length = 3
+			chatname = "styled mane"
+
+		msai_ears_swoop_long_alt
+			name = "M'sai Swoop Long Alt"
+			icon_state = "msai_longswoop_alt"
+			length = 3
+			chatname = "styled mane"
+
 //vaurca antennae
 	vaurca_classic
 		icon = 'icons/mob/human_face/vaurca_hair.dmi'
