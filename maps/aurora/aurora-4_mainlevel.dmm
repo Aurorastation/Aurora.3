@@ -18490,6 +18490,10 @@
 /obj/machinery/newscaster/security_unit{
 	pixel_x = -32
 	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
 /turf/simulated/floor/tiled,
 /area/security/warden)
 "aGr" = (
@@ -20648,7 +20652,6 @@
 /turf/simulated/floor/tiled,
 /area/security/warden)
 "aJO" = (
-/obj/machinery/light,
 /obj/machinery/camera/network/security{
 	c_tag = "Security - Warden's Office";
 	dir = 1
@@ -23086,7 +23089,7 @@
 	dir = 8
 	},
 /obj/machinery/light_switch{
-	step_y = -26
+	pixel_y = -24
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -52727,7 +52730,7 @@
 	dir = 9
 	},
 /obj/machinery/light_switch{
-	step_y = -26
+	pixel_y = -24
 	},
 /turf/simulated/floor/wood,
 /area/chapel/main)
