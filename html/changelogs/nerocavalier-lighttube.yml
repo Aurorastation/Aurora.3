@@ -38,4 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - maptweak: "Adds a light tube to the armory desk room."
+  - maptweak: "Adds more lights to several dark areas in the station. Please ping me in discord if you want to add more lights somewhere."
+  - maptweak: "Adds light switches to Bridge's entrance, Chapel's entrance, and by the stairs in interstitial Psychologist's area."

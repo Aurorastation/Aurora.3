@@ -11136,7 +11136,7 @@
 "Vm" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/light_switch{
-	pixel_x = -7;
+	pixel_x = -10;
 	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/white,
