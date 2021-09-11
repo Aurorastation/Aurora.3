@@ -2512,24 +2512,17 @@ Follow by example and make good judgement based on length which list to include 
 			length = 2
 			chatname = "styled mane"
 
-		taj_ears_longswoop
+		taj_ears_swoop_long
 			name = "Tajara Swoop Long"
 			icon_state = "hair_longswoop"
 			length = 3
 			chatname = "styled mane"
 
-		taj_ears_longswoop_alt
+		taj_ears_swoop_long_alt
 			name = "Tajara Swoop Long Alt"
 			icon_state = "hair_longswoop_alt"
 			length = 3
 			chatname = "styled mane"
-
-		taj_ears_longswoop_bun
-			name = "Tajara Swoop Long Bun"
-			icon_state = "hair_longswoop_bun"
-			length = 3
-			chatname = "bun"
-
 
 //msai hair, longer ears
 	msai_ears
