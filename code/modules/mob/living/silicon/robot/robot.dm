@@ -208,8 +208,8 @@
 		mult += storage.rating
 	for(var/datum/matter_synth/M in module.synths)
 		M.set_multiplier(mult)
-	for(var/obj/item/stack/material/SM in module.modules)
-		SM.update_strings()
+	for(var/obj/item/stack/SM in module.modules)
+		SM.update_icon()
 
 /mob/living/silicon/robot/proc/init()
 	ai_camera = new /obj/item/device/camera/siliconcam/robot_camera(src)
@@ -346,7 +346,6 @@
 	else
 		braintype = "Cyborg"
 
-
 	var/changed_name = ""
 	if(custom_name)
 		changed_name = custom_name
@@ -354,22 +353,7 @@
 	else
 		changed_name = "[mod_type] [braintype]-[rand(1, 999)]"
 
-	real_name = changed_name
-	name = real_name
-	if(mmi)
-		mmi.brainmob.name = src.name
-		mmi.brainmob.real_name = src.name
-		mmi.name = "[initial(mmi.name)]: [src.name]"
-
-	// We also need to update our internal ID
-	if(id_card)
-		id_card.assignment = prefix
-		id_card.registered_name = changed_name
-		id_card.update_name()
-
-	//We also need to update name of internal camera.
-	if(camera)
-		camera.c_tag = changed_name
+	set_name(changed_name, prefix)
 
 	if(!custom_sprite) //Check for custom sprite
 		set_custom_sprite()
@@ -492,6 +476,15 @@
 	var/datum/robot_component/C = components[toggle]
 	to_chat(src, SPAN_NOTICE("You [C.toggled ? "disable" : "enable"] [C.name]."))
 	C.toggled = !C.toggled
+
+/mob/living/silicon/robot/verb/rebuild_overlays()
+	set category = "Robot Commands"
+	set name = "Rebuild Overlays"
+	set desc = "An OOC tool that rebuilds your overlays, useful if your talk bubble gets stuck to you."
+
+	cut_overlays()
+	handle_panel_overlay()
+	set_intent(a_intent)
 
 /obj/item/robot_module/janitor/verb/toggle_mop()
 	set category = "Robot Commands"

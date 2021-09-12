@@ -293,7 +293,7 @@
 										"You have removed the electronics from [src].")
 
 					if (stat & BROKEN)
-						new /obj/item/circuitboard/broken(src.loc)
+						new /obj/item/trash/broken_electronics(src.loc)
 					else
 						new/obj/item/airalarm_electronics(src.loc)
 

@@ -80,10 +80,14 @@
 				usr.put_in_hands(P)
 				handle_post_remove()
 		else if(href_list["write"])
-			var/obj/item/paper/P = locate(href_list["write"])
-			var/obj/item/I = usr.get_inactive_hand()
-			if(P && I && (P.loc == src) && istype(P) && I.ispen())
-				P.attackby(I, usr)
+			var/obj/item/paper/paper = locate(href_list["write"])
+			if(!istype(paper) || paper.loc != src)
+				return
+			var/obj/item/pen = usr.get_inactive_hand()
+			if(!pen || !pen.ispen())
+				pen = usr.get_active_hand()
+			if(pen?.ispen())
+				paper.attackby(pen, usr)
 		else if(href_list["read"])
 			var/obj/item/paper/P = locate(href_list["read"])
 			if(P && (P.loc == src) && istype(P))
@@ -141,7 +145,7 @@
 	can_write = TRUE
 
 /obj/item/folder/embedded/loc_check(var/atom/A)
-	if(loc.loc == A)
+	if(loc.loc.Adjacent(A))
 		return TRUE
 	return FALSE
 

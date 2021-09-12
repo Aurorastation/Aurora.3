@@ -65,6 +65,7 @@
 		/decl/reagent/alcohol/screwdrivercocktail,
 		/decl/reagent/alcohol/cobaltvelvet,
 		/decl/reagent/alcohol/snowwhite,
+		/decl/reagent/alcohol/sidewinderfang,
 		/decl/reagent/alcohol/gibsonhooch,
 		/decl/reagent/alcohol/manly_dorf,
 		/decl/reagent/alcohol/thirteenloko,
