@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added glare dampeners to the augment loadout menu, available to Engineers and Roboticists."
-  - bugfix: "You can no longer remove corrective lenses by hand."
