@@ -11,7 +11,8 @@
 
 	var/list/permitted_types = list(
 		/obj/item/clothing/head/helmet/space/void,
-		/obj/item/clothing/suit/space/void
+		/obj/item/clothing/suit/space/void,
+		/obj/item/rig
 		)
 
 /obj/item/device/modkit/afterattack(obj/O, mob/user as mob, proximity)
@@ -57,6 +58,8 @@
 		parts &= ~MODKIT_HELMET
 	if (istype(I, /obj/item/clothing/suit))
 		parts &= ~MODKIT_SUIT
+	if (istype(I, /obj/item/rig))
+		parts &= ~MODKIT_FULL
 
 	if(!parts)
 		user.drop_from_inventory(src,O)
@@ -129,6 +132,8 @@
 			parts &= ~MODKIT_HELMET
 		if (istype(W, /obj/item/clothing/suit))
 			parts &= ~MODKIT_SUIT
+		if (istype(W, /obj/item/rig))
+			parts &= ~MODKIT_FULL
 
 		qdel(W)
 
