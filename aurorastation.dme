@@ -2842,6 +2842,7 @@
 #include "code\modules\shieldgen\shield_gen_external.dm"
 #include "code\modules\shieldgen\shieldwallgen.dm"
 #include "code\modules\shuttles\antagonist.dm"
+#include "code\modules\shuttles\city.dm"
 #include "code\modules\shuttles\departmental.dm"
 #include "code\modules\shuttles\escape_pods.dm"
 #include "code\modules\shuttles\landmarks.dm"

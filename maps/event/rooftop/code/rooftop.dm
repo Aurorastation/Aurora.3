@@ -1,9 +1,9 @@
-/datum/map/runtime
+/datum/map/event/rooftop
 	name = "Rooftop"
 	full_name = "Mendell City Rooftop"
-	path = "runtime"
-	lobby_icons = list('icons/misc/titlescreens/runtime/developers.dmi')
-	lobby_transitions = 10 SECONDS
+	path = "event/rooftop"
+	lobby_icons = list('icons/misc/titlescreens/mendell/mendell_city.dmi')
+	lobby_transitions = FALSE
 
 	station_levels = list(1)
 	admin_levels = list()
@@ -11,8 +11,8 @@
 	player_levels = list(1)
 	accessible_z_levels = list(1)
 
-	station_name = "The Grand Cosmopolitan"
-	station_short = "Cosmopolitan"
+	station_name = "The Montparnasse"
+	station_short = "Montparnasse"
 	dock_name = "conglomerate spaceport"
 	boss_name = "Idris Incorporated"
 	boss_short = "Idris"
@@ -20,3 +20,7 @@
 	company_short = "Idris"
 
 	use_overmap = FALSE
+
+	map_shuttles = list(
+		/datum/shuttle/autodock/ferry/city
+	)
