@@ -2506,6 +2506,24 @@ Follow by example and make good judgement based on length which list to include 
 			length = 3
 			chatname = "styled mane"
 
+		taj_ears_swoop
+			name = "Tajara Swoop"
+			icon_state = "hair_swoop"
+			length = 2
+			chatname = "styled mane"
+
+		taj_ears_swoop_long
+			name = "Tajara Swoop Long"
+			icon_state = "hair_longswoop"
+			length = 3
+			chatname = "styled mane"
+
+		taj_ears_swoop_long_alt
+			name = "Tajara Swoop Long Alt"
+			icon_state = "hair_longswoop_alt"
+			length = 3
+			chatname = "styled mane"
+
 //msai hair, longer ears
 	msai_ears
 		icon = 'icons/mob/human_face/msai_hair.dmi'
@@ -2746,6 +2764,24 @@ Follow by example and make good judgement based on length which list to include 
 		msai_ears_cascadingalt
 			name = "M'sai Cascading Alt"
 			icon_state = "msai_cascadingalt"
+			length = 3
+			chatname = "styled mane"
+
+		msai_ears_swoop
+			name = "M'sai Swoop"
+			icon_state = "msai_swoop"
+			length = 2
+			chatname = "styled mane"
+
+		msai_ears_swoop_long
+			name = "M'sai Swoop Long"
+			icon_state = "msai_longswoop"
+			length = 3
+			chatname = "styled mane"
+
+		msai_ears_swoop_long_alt
+			name = "M'sai Swoop Long Alt"
+			icon_state = "msai_longswoop_alt"
 			length = 3
 			chatname = "styled mane"
 
