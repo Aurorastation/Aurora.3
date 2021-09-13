@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - refactor: "Refactored drone speech, affecting maintenance drones, construction drones, mining drones and the matriarch drone. Everything should still work as expected."
+  - tweak: "Maintenance drones laws have been modified, they are now allowed to interact with both maintenance and mining drones by law, now."
