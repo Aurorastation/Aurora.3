@@ -211,6 +211,10 @@ RFD Construction-Class
 			build_cost =  1
 			build_type =  "floor"
 			build_atom =  /turf/simulated/floor/airless
+		else if(istype(T, /turf/simulated/open))
+			build_cost =  1
+			build_type =  "floor"
+			build_atom =  /turf/simulated/floor/airless
 		else if(istype(T, /turf/simulated/floor))
 			build_delay = 20
 			build_cost =  3

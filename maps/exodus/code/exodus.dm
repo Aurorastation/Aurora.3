@@ -42,6 +42,8 @@
 	emergency_shuttle_recall_message = "The emergency shuttle has been recalled."
 	emergency_shuttle_called_message = "An emergency evacuation shuttle has been called. It will arrive in approximately %ETA% minutes."
 
+	evac_controller_type = /datum/evacuation_controller/shuttle
+
 	station_levels = list(1)
 	admin_levels = list(2)
 	contact_levels = list(1, 5)

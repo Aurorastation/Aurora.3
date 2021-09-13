@@ -314,6 +314,11 @@
 	path = /obj/item/clothing/accessory/badge/namepin
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/accessory/ribbon
+	display_name = "ribbon (colourable)"
+	path = /obj/item/clothing/accessory/ribbon
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION 
+
 /datum/gear/accessory/sleeve_patch
 	display_name = "shoulder sleeve patch"
 	path = /obj/item/clothing/accessory/sleevepatch

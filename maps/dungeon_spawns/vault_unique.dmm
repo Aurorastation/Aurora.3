@@ -85,7 +85,7 @@
 	},
 /obj/item/gun/energy/toxgun,
 /obj/item/frame/apc,
-/obj/item/circuitboard/broken,
+/obj/item/trash/broken_electronics,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/turret_protected/corp_vault)
 "m" = (
