@@ -1194,7 +1194,7 @@ About the new airlock wires panel:
 	da.created_name = src.name
 	da.update_state()
 	if((stat & BROKEN))
-		new /obj/item/circuitboard/broken(src.loc)
+		new /obj/item/trash/broken_electronics(src.loc)
 		operating = FALSE
 	else
 		if (!electronics) create_electronics()

@@ -208,6 +208,8 @@
 	shirt["cropped dress shirt, rolled up"] = /obj/item/clothing/accessory/dressshirt/crop/rolled
 	shirt["dress shirt, alt"] = /obj/item/clothing/accessory/dressshirt/alt
 	shirt["dress shirt, alt rolled up"] = /obj/item/clothing/accessory/dressshirt/alt/rolled
+	shirt["dress shirt, V-Neck alt"] = /obj/item/clothing/accessory/dressshirt/alt/vneck
+	shirt["dress shirt, V-Neck alt rolled up"] = /obj/item/clothing/accessory/dressshirt/alt/vneck/rolled
 	shirt["long-sleeved shirt"] = /obj/item/clothing/accessory/longsleeve
 	shirt["long-sleeved shirt, black striped"] = /obj/item/clothing/accessory/longsleeve_s
 	shirt["long-sleeved shirt, blue striped"] = /obj/item/clothing/accessory/longsleeve_sb
@@ -295,6 +297,11 @@
 	display_name = "pin tag (colourable)"
 	path = /obj/item/clothing/accessory/badge/namepin
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/ribbon
+	display_name = "ribbon (colourable)"
+	path = /obj/item/clothing/accessory/ribbon
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION 
 
 /datum/gear/accessory/sleeve_patch
 	display_name = "shoulder sleeve patch"
