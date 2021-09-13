@@ -211,8 +211,12 @@ var/datum/gear_tweak/custom_name/gear_tweak_free_name = new()
 	if(!metadata)
 		return I.name
 	I.name = metadata
-	SEND_SIGNAL(I, COMSIG_BASENAME_RENAME, metadata)
 
+	// For reasons unknown, using SEND_SIGNAL instead of what is below makes rag renaming completely break.
+	var/datum/component/base_name/BN = I.GetComponent(/datum/component/base_name)
+	if(BN)
+		BN.rename(metadata)
+	
 /*
 Custom Description
 */
