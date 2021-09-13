@@ -1162,7 +1162,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		if(owner) owner.update_body()
 
 /obj/item/organ/external/proc/get_damage()	//returns total damage
-	return max(brute_dam + burn_dam - perma_injury, perma_injury)	//could use max_damage?
+	return max(brute_dam + burn_dam)	//could use max_damage?
 
 /obj/item/organ/external/proc/has_infected_wound()
 	for(var/datum/wound/W in wounds)
@@ -1459,7 +1459,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		amount -= (owner.chem_effects[CE_PAINKILLER]/3)
 		if(amount <= 0)
 			return
-	pain = max(0, min(pain + amount, species.total_health * 2))
+	pain = max(0, min(max_damage, pain+amount))
 	if(owner && ((amount > 15 && prob(20)) || (amount > 30 && prob(60))))
 		owner.emote("scream")
 	return pain-last_pain

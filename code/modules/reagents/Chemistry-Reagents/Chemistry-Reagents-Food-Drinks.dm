@@ -611,9 +611,12 @@
 /decl/reagent/capsaicin/condensed/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/eyes_covered = 0
 	var/mouth_covered = 0
+	var/partial_mouth_covered = 0
 	var/no_pain = 0
+	var/stun_probability = 50
 	var/obj/item/eye_protection = null
 	var/obj/item/face_protection = null
+	var/obj/item/partial_face_protection = null
 
 	var/list/protection
 	if(istype(M, /mob/living/carbon/human))
@@ -639,6 +642,9 @@
 			if((I.body_parts_covered & FACE) && !(I.item_flags & FLEXIBLEMATERIAL))
 				mouth_covered = 1
 				face_protection = I.name
+			else if(I.body_parts_covered & FACE)
+				partial_mouth_covered = 1
+				partial_face_protection = I.name
 
 	var/message = null
 	if(eyes_covered)
@@ -659,17 +665,23 @@
 		if(!message)
 			message = "<span class='warning'>Your [face_protection] protects you from the pepperspray!</span>"
 	else if(!no_pain)
+		if(partial_mouth_covered)
+			to_chat(M, "<span class='warning'>Your [partial_face_protection] partially protects you from the pepperspray!</span>")
+			stun_probability *= 0.5
 		message = "<span class='danger'>Your face and throat burn!</span>"
-		if(prob(25))
+		if(M.stunned > 0  && !M.lying)
+			M.Weaken(4)
+		to_chat(M, message)
+		if(prob(stun_probability))
 			M.visible_message("<b>[M]</b> [pick("coughs!","coughs hysterically!","splutters!")]")
-		M.apply_effect(30, PAIN)
+			M.Stun(3)
 
 /decl/reagent/capsaicin/condensed/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(!H.can_feel_pain())
 			return
-	M.apply_effect(10, PAIN)
+	M.apply_effect(agony_amount, PAIN)
 	if(prob(5))
 		M.visible_message("<span class='warning'>[M] [pick("dry heaves!","coughs!","splutters!")]</span>", "<span class='danger'>You feel like your insides are burning!</span>")
 	if(istype(M, /mob/living/carbon/slime))

@@ -834,7 +834,7 @@
 		return
 
 	if(stat != DEAD)
-		if((stat == UNCONSCIOUS && health < maxHealth / 2) || paralysis || InStasis())
+		if((stat == UNCONSCIOUS && health < maxHealth / 2) || InStasis())
 			//Critical damage passage overlay
 			var/severity = 0
 			switch(health - maxHealth/2)

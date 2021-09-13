@@ -50,7 +50,7 @@ mob/var/next_pain_time = 0
 /mob/living/carbon/human/proc/handle_pain()
 	if(!can_feel_pain())
 		return
-	if(stat >= DEAD)
+	if(stat)
 		return
 	if(!can_feel_pain())
 		return
@@ -60,7 +60,7 @@ mob/var/next_pain_time = 0
 	var/maxdam = 0
 	var/obj/item/organ/external/damaged_organ = null
 	for(var/obj/item/organ/external/E in organs)
-		if(E.status & (ORGAN_DEAD|ORGAN_ROBOT)) 
+		if(!E.can_feel_pain())
 			continue
 		var/dam = E.get_damage()
 		// make the choice of the organ depend on damage,
