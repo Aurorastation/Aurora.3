@@ -82,8 +82,10 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 /datum/controller/subsystem/fail2topic/proc/BanFromFirewall(ip)
 	if (!enabled)
 		return
-	var/static/regex/R = regex(@"(\.0\.)|(\.0$)|(\l+|/|;|&|\||-|%)") // Anything that interacts with a shell should be parsed. Prevents subnet banning and possible injection vulnerabilities
-	if(length(ip) > 15 || length(findtext(ip, R)))
+	var/static/regex/R = regex(@"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$") // Anything that interacts with a shell should be parsed. Prevents subnet banning and possible injection vulnerabilities
+	ip = replacetext(ip, R)
+	if(length(ip) > 15 || length(ip) < 8)
+		WARNING("BanFromFirewall was called with an invalid or unsafe IP")
 		return FALSE
 
 	active_bans[ip] = world.time

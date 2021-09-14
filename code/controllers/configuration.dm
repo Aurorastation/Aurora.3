@@ -1126,3 +1126,6 @@ var/list/gamemode_cache = list()
 			config.python_path = "/usr/bin/env python2"
 		else //probably windows, if not this should work anyway
 			config.python_path = "python"
+
+/datum/configuration/vv_edit_var(var_name, var_value)
+	return FALSE
