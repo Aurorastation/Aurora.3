@@ -914,7 +914,7 @@
 		)
 	name = "under"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	permeability_coefficient = 0.90
+	permeability_coefficient = 0.9
 	slot_flags = SLOT_ICLOTHING
 	armor = null
 	w_class = ITEMSIZE_NORMAL

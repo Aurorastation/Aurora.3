@@ -13,7 +13,7 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_RESISTANT
 	)
-	siemens_coefficient = 0.35
+	siemens_coefficient = 0.6
 
 /obj/item/clothing/suit/space/void/captain
 	name = "captain voidsuit"
@@ -36,4 +36,4 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_RESISTANT
 	)
-	siemens_coefficient = 0.35
+	siemens_coefficient = 0.6

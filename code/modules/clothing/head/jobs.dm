@@ -64,7 +64,7 @@
 		laser = ARMOR_LASER_SMALL,
 		energy = ARMOR_ENERGY_MINOR
 	)
-	siemens_coefficient = 0.75
+	siemens_coefficient = 0.9
 
 /obj/item/clothing/head/det/grey
 	icon_state = "grey_fedora"

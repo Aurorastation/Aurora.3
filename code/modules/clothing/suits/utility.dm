@@ -191,7 +191,7 @@
 		bio = ARMOR_BIO_RESISTANT,
 		rad = ARMOR_RAD_SHIELDED
 	)
-	siemens_coefficient = 0.35
+	siemens_coefficient = 0.75
 
 
 /obj/item/clothing/suit/radiation
@@ -214,7 +214,7 @@
 		bio = ARMOR_BIO_RESISTANT, 
 		rad = ARMOR_RAD_SHIELDED
 	)
-	siemens_coefficient = 0.35
+	siemens_coefficient = 0.75
 	flags_inv = HIDEJUMPSUIT|HIDETAIL
 
 

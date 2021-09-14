@@ -8,7 +8,7 @@
 	armor = list(
 		rad = ARMOR_RAD_MINOR
 	)
-	siemens_coefficient = 0.75
+	siemens_coefficient = 0.9
 
 /obj/item/clothing/under/rank/atmospheric_technician
 	name = "atmospheric technician's jumpsuit"
@@ -16,7 +16,6 @@
 	icon_state = "atmos"
 	item_state = "atmos_suit"
 	worn_state = "atmos"
-	siemens_coefficient = 0.75
 
 /obj/item/clothing/under/rank/engineer
 	name = "engineer's jumpsuit"
@@ -27,7 +26,6 @@
 	armor = list(
 		rad = ARMOR_RAD_MINOR
 	)
-	siemens_coefficient = 0.75
 
 /obj/item/clothing/under/rank/engineer/apprentice
 	name = "engineering apprentice's jumpsuit"
@@ -41,4 +39,3 @@
 	icon_state = "robotics"
 	item_state = "bl_suit"
 	worn_state = "robotics"
-	siemens_coefficient = 0.75

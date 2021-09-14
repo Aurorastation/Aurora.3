@@ -17,7 +17,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_SMALL
 		)
-	siemens_coefficient = 0.75
+	siemens_coefficient = 0.8
 
 /obj/item/clothing/under/rank/security/corp
 	icon_state = "officer_corporate"
@@ -35,7 +35,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_SMALL
 		)
-	siemens_coefficient = 0.75
+	siemens_coefficient = 0.8
 
 /obj/item/clothing/under/rank/warden
 	name = "warden's uniform"
@@ -45,7 +45,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_SMALL
 		)
-	siemens_coefficient = 0.75
+	siemens_coefficient = 0.8
 
 /obj/item/clothing/under/rank/warden/corp
 	icon_state = "warden_corporate"
@@ -76,7 +76,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_SMALL
 		)
-	siemens_coefficient = 0.75
+	siemens_coefficient = 0.8
 
 /obj/item/clothing/under/det/black
 	name = "hard-worn suit"
@@ -104,7 +104,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_SMALL
 		)
-	siemens_coefficient = 0.75
+	siemens_coefficient = 0.8
 
 /obj/item/clothing/under/rank/head_of_security/corp
 	icon_state = "hos_corporate"

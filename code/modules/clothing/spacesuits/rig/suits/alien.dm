@@ -13,7 +13,6 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_MINOR
 	)
-	siemens_coefficient = 0.1
 	emp_protection = -20
 	slowdown = 6
 	offline_slowdown = 10
@@ -125,7 +124,6 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_RESISTANT
 	)
-	siemens_coefficient = 0.1
 	vision_restriction = 0
 	slowdown = 2
 	offline_slowdown = 3

@@ -19,7 +19,7 @@
 	min_cold_protection_temperature = HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection = HEAD
 	max_heat_protection_temperature = HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
-	siemens_coefficient = 0.5
+	siemens_coefficient = 0.75
 	w_class = ITEMSIZE_NORMAL
 	var/obj/machinery/camera/camera
 	var/allow_hair_covering = TRUE //in case if you want to allow someone to switch the BLOCKHEADHAIR var from the helmet or not
@@ -100,7 +100,7 @@
 		melee = ARMOR_MELEE_VERY_HIGH,
 		bullet = ARMOR_BALLISTIC_MINOR
 		)
-	siemens_coefficient = 0.35
+	siemens_coefficient = 0.75
 	flags_inv = HIDEEARS
 	action_button_name = "Toggle Visor"
 
@@ -152,7 +152,7 @@
 		laser = ARMOR_LASER_SMALL,
 		bomb = ARMOR_BOMB_PADDED
 	)
-	siemens_coefficient = 0.35
+	siemens_coefficient = 0.75
 
 /obj/item/clothing/head/helmet/merc
 	name = "combat helmet"
@@ -169,7 +169,7 @@
 		energy = ARMOR_ENERGY_RESISTANT,
 		bomb = ARMOR_BOMB_PADDED
 	)
-	siemens_coefficient = 0.35
+	siemens_coefficient = 0.5
 
 /obj/item/clothing/head/helmet/merc/scc
 	name = "heavy SCC helmet"
@@ -192,7 +192,7 @@
 	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
 	cold_protection = HEAD
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
-	siemens_coefficient = 0.1
+	siemens_coefficient = 0.5
 
 /obj/item/clothing/head/helmet/swat/peacekeeper
 	name = "\improper ERT civil protection helmet"
@@ -256,7 +256,7 @@
 		energy = ARMOR_ENERGY_RESISTANT,
 		bomb = ARMOR_BOMB_PADDED
 	)
-	siemens_coefficient = 0.35
+	siemens_coefficient = 0.6
 
 
 /obj/item/clothing/head/helmet/augment
@@ -274,7 +274,6 @@
 	body_parts_covered = HEAD|EYES
 	cold_protection = HEAD
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
-	siemens_coefficient = 0.1
 
 /obj/item/clothing/head/helmet/iachelmet
 	name = "IAC helmet"
@@ -303,7 +302,7 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
 	)
-	siemens_coefficient = 0.35
+	siemens_coefficient = 0.75
 
 /obj/item/clothing/head/helmet/unathi/hegemony
 	name = "hegemony helmet"
@@ -334,7 +333,7 @@
 		bomb = ARMOR_BOMB_PADDED,
 		rad = ARMOR_RAD_RESISTANT
 	)
-	siemens_coefficient = 0.35
+	siemens_coefficient = 0.6
 
 /obj/item/clothing/head/helmet/tank
 	name = "padded cap"
@@ -345,7 +344,6 @@
 	armor = list(
 		melee = ARMOR_MELEE_KNIVES
 	)
-	siemens_coefficient = 0.75
 
 /obj/item/clothing/head/helmet/tank/olive
 	color = "#727c58"
@@ -372,7 +370,7 @@
 		energy = ARMOR_ENERGY_RESISTANT,
 		bomb = ARMOR_BIO_MINOR
 	)
-	siemens_coefficient = 0.35
+	siemens_coefficient = 0.5
 
 //Commander
 /obj/item/clothing/head/helmet/ert/command
@@ -410,7 +408,7 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
 	)
-	siemens_coefficient = 0.35
+	siemens_coefficient = 0.5
 	sprite_sheets = list(
 		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi',
 		"Unathi" = 'icons/mob/species/unathi/helmet.dmi',

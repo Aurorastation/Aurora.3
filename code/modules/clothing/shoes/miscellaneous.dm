@@ -32,7 +32,7 @@
 		bio = ARMOR_BIO_MINOR
 	)
 	item_flags = NOSLIP
-	siemens_coefficient = 0.5
+	siemens_coefficient = 0.6
 	can_hold_knife = TRUE
 	build_from_parts = TRUE
 
@@ -55,7 +55,7 @@
 		bio = ARMOR_BIO_MINOR
 	)
 	item_flags = NOSLIP
-	siemens_coefficient = 0.35
+	siemens_coefficient = 0.6
 	can_hold_knife = TRUE
 	build_from_parts = TRUE
 

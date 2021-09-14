@@ -12,7 +12,7 @@
 	)
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	species_restricted = list(BODYTYPE_SKRELL,BODYTYPE_HUMAN)
-	siemens_coefficient = 0.5
+	siemens_coefficient = 0.75
 	refittable = FALSE
 
 /obj/item/clothing/head/helmet/space/void/skrell/white
@@ -37,7 +37,7 @@
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	species_restricted = list(BODYTYPE_SKRELL,BODYTYPE_HUMAN)
-	siemens_coefficient = 0.5
+	siemens_coefficient = 0.75
 	refittable = FALSE
 
 /obj/item/clothing/suit/space/void/skrell/white

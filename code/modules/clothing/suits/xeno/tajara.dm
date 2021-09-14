@@ -204,4 +204,4 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_MINOR
 	)
-	siemens_coefficient = 0.50
+	siemens_coefficient = 0.5

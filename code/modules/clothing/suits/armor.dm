@@ -7,7 +7,7 @@
 	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection = UPPER_TORSO|LOWER_TORSO
 	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECTION_TEMPERATURE
-	siemens_coefficient = 0.5
+	siemens_coefficient = 0.6
 	var/obj/item/storage/internal/pockets
 	var/pocket_slots = 2
 	var/pocket_size = 2
@@ -127,7 +127,7 @@
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
-	siemens_coefficient = 0.35
+	siemens_coefficient = 0.5
 	pocket_slots = 4//fullbody, more slots
 
 /obj/item/clothing/suit/armor/swat/officer
@@ -266,7 +266,7 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED
 	)
-	siemens_coefficient = 0.35
+	siemens_coefficient = 0.5
 
 //Commander
 /obj/item/clothing/suit/armor/vest/ert/command
@@ -297,7 +297,7 @@
 	icon_state = "kvest"
 	item_state = "kvest"
 	allowed = list(/obj/item/gun,/obj/item/reagent_containers/spray/pepper,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/device/flashlight)
-	siemens_coefficient = 0.5
+	siemens_coefficient = 0.6
 	armor = list(
 		melee = ARMOR_MELEE_KNIVES,
 		bullet = ARMOR_BALLISTIC_PISTOL,
@@ -364,7 +364,7 @@
 	icon_state = "hazard_cadet"
 	item_state = "hazard_cadet"
 	allowed = list(/obj/item/gun,/obj/item/reagent_containers/spray/pepper,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/device/flashlight)
-	siemens_coefficient = 0.5
+	siemens_coefficient = 0.75
 	armor = list(
 		melee = ARMOR_MELEE_SMALL,
 		energy = ARMOR_ENERGY_MINOR,
@@ -425,7 +425,7 @@
 		energy = ARMOR_ENERGY_RESISTANT,
 		bomb = ARMOR_BOMB_PADDED
 	)
-	siemens_coefficient = 0.35
+	siemens_coefficient = 0.6
 	slowdown = 0
 
 /obj/item/clothing/suit/storage/vest/heavy/ert/commander
@@ -477,7 +477,7 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
 	)
-	siemens_coefficient = 0.35
+	siemens_coefficient = 0.6
 
 /obj/item/clothing/suit/armor/unathi/hegemony
 	name = "hegemony body armor"
@@ -502,7 +502,7 @@
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_VAURCA)
 	allowed = list(/obj/item/gun/projectile, /obj/item/gun/energy, /obj/item/gun/launcher, /obj/item/melee, /obj/item/reagent_containers/spray/pepper, /obj/item/ammo_magazine, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/handcuffs, /obj/item/device/flashlight)
-	siemens_coefficient = 0.35
+	siemens_coefficient = 0.6
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
 		bullet = ARMOR_BALLISTIC_PISTOL,
@@ -518,7 +518,7 @@
 	icon_state = "legion_armor"
 	item_state = "legion_armor"
 	body_parts_covered = UPPER_TORSO | LOWER_TORSO | LEGS | ARMS
-	siemens_coefficient = 0.35
+	siemens_coefficient = 0.6
 	allowed = list(
 		/obj/item/gun,
 		/obj/item/reagent_containers/spray/pepper,
@@ -590,7 +590,6 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	slowdown = 3
 	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
-	siemens_coefficient = 0.1
 	pocket_slots = 3
 
 /obj/item/clothing/suit/armor/tdome

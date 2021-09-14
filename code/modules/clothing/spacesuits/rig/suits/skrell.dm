@@ -17,7 +17,6 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_SHIELDED
 		)
-	siemens_coefficient = 0.1
 	emp_protection = 30
 	vision_restriction = 0
 	slowdown = 0

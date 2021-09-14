@@ -8,7 +8,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_MINOR
 		)
-	siemens_coefficient = 0.75
+	siemens_coefficient = 0.9
 
 /obj/item/clothing/under/syndicate/combat
 	name = "combat turtleneck"

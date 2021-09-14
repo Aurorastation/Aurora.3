@@ -249,7 +249,7 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
 	)
-	siemens_coefficient = 0.35
+	siemens_coefficient = 0.6
 
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military
 	name = "military jacket"

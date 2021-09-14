@@ -22,7 +22,7 @@
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 	min_pressure_protection = 0
 	max_pressure_protection = SPACE_SUIT_MAX_PRESSURE
-	siemens_coefficient = 0.5
+	siemens_coefficient = 0.9
 	species_restricted = list("exclude",BODYTYPE_DIONA,BODYTYPE_GOLEM)
 	flash_protection = FLASH_PROTECTION_MAJOR
 	allow_hair_covering = FALSE
@@ -55,7 +55,7 @@
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	min_pressure_protection = 0
 	max_pressure_protection = SPACE_SUIT_MAX_PRESSURE
-	siemens_coefficient = 0.5
+	siemens_coefficient = 0.9
 	species_restricted = list("exclude",BODYTYPE_DIONA,BODYTYPE_GOLEM)
 
 	var/list/supporting_limbs //If not-null, automatically splints breaks. Checked when removing the suit.

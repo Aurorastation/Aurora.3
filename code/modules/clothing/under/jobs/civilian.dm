@@ -137,7 +137,7 @@
 	armor = list(
 		rad = ARMOR_RAD_MINOR
 	)
-	siemens_coefficient = 0.75
+	siemens_coefficient = 0.9
 
 /obj/item/clothing/under/rank/hephaestus/tech
 	name = "Hephaestus Industries technician uniform"
@@ -195,7 +195,7 @@
 	armor = list(
 		rad = ARMOR_RAD_MINOR
 	)
-	siemens_coefficient = 0.75
+	siemens_coefficient = 0.9
 
 /obj/item/clothing/under/rank/zeng
 	name = "Zeng-Hu uniform"

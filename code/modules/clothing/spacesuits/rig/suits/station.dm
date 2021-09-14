@@ -228,7 +228,7 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_SHIELDED
 	)
-	siemens_coefficient = 0.50
+	siemens_coefficient = 0.5
 	offline_vision_restriction = TINT_HEAVY
 	emp_protection = 40
 
@@ -267,7 +267,7 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_SHIELDED
 	)
-	siemens_coefficient = 0.50
+	siemens_coefficient = 0.5
 	slowdown = 0
 	offline_slowdown = 2
 	offline_vision_restriction = TINT_HEAVY

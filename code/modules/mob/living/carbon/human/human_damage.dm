@@ -418,12 +418,9 @@ This function restores all organs.
 
 	//Handle other types of damage
 	if(!(damagetype in list(BRUTE, BURN, PAIN, CLONE)))
-		if(!stat && damagetype == PAIN)
-			if((damage > 25 && prob(20)) || (damage > 50 && prob(60)))
-				emote("scream")
 		return ..()
 
-	if(!organ)
+	if(!istype(organ))
 		return FALSE
 
 	handle_suit_punctures(damagetype, damage, def_zone)

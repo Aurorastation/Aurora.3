@@ -10,12 +10,12 @@
 	item_state = "energystun"
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT
-	accuracy = 1
+	accuracy = 2
 	max_shots = 10
-	can_turret = 1
+	can_turret = TRUE
 	secondary_projectile_type = /obj/item/projectile/beam
 	secondary_fire_sound = 'sound/weapons/laser1.ogg'
-	can_switch_modes = 1
+	can_switch_modes = TRUE
 	turret_is_lethal = 0
 
 	projectile_type = /obj/item/projectile/beam/stun
