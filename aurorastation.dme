@@ -672,7 +672,6 @@
 #include "code\game\jobs\faction\hephaestus.dm"
 #include "code\game\jobs\faction\idris.dm"
 #include "code\game\jobs\faction\nanotrasen.dm"
-#include "code\game\jobs\faction\SCC.dm"
 #include "code\game\jobs\faction\unaffiliated.dm"
 #include "code\game\jobs\faction\zavodskoi.dm"
 #include "code\game\jobs\faction\zeng_hu.dm"

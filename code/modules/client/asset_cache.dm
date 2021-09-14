@@ -364,8 +364,7 @@ var/list/asset_datums = list()
 		"faction_NT.png" = 'icons/misc/factions/NanoTrasenlogo.png',
 		"faction_Idris.png" = 'icons/misc/factions/Idrislogo.png',
 		"faction_Hepht.png" = 'icons/misc/factions/Hephaestuslogo.png',
-		"faction_unaffiliated.png" = 'icons/misc/factions/Unaffiliatedlogo.png',
-		"faction_scc.png" = 'icons/misc/factions/SCClogo.png'
+		"faction_unaffiliated.png" = 'icons/misc/factions/Unaffiliatedlogo.png'
 	)
 
 /datum/asset/simple/jquery
