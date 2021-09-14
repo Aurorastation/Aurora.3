@@ -189,7 +189,7 @@
 			return
 
 	if(I.iscrowbar() && user.a_intent == I_HELP)
-		if(!operable())
+		if(inoperable())
 			visible_message("\The [user] forces \the [src] [density ? "open" : "closed"].")
 			if(density)
 				open(1)
