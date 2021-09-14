@@ -189,6 +189,7 @@
 	force = 15
 	throwforce = 30
 	w_class = ITEMSIZE_LARGE
+	var/seed = /datum/seed/koisspore
 
 /obj/item/grenade/spawnergrenade/vaurca/prime()
 
@@ -200,10 +201,16 @@
 				M.flash_eyes()
 
 		for(var/i=1, i<=deliveryamt, i++)
-			var/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/x = new spawner_type(T, new /datum/seed/koisspore())
+			var/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/x = new spawner_type(T, new seed())
 			x.tumble(4)
 	qdel(src)
 	return
+
+/obj/item/grenade/spawnergrenade/vaurca/liidra
+	name = "Black K'ois delivery pod"
+	desc = "A device made for rapid spread of black k'ois."
+	icon_state = "liibeacon"
+	seed = /datum/seed/koisspore/black
 
 /obj/item/clothing/suit/space/void/vaurca
 	name = "voidsuit"

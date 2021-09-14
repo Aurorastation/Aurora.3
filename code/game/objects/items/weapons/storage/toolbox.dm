@@ -281,3 +281,12 @@
 
 /obj/item/storage/toolbox/lunchbox/swimstars_xana/filled
 	filled = TRUE
+
+/obj/item/storage/toolbox/lunchbox/sedantis
+	name = "Sedantis lunchbox"
+	desc = "A little lunchbox, displaying a proud Sedantis flag."
+	icon_state = "lunchbox_sedantis"
+	item_state = "lunchbox_sedantis"
+
+/obj/item/storage/toolbox/lunchbox/sedantis/filled
+	filled = TRUE

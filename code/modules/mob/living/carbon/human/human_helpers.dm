@@ -309,6 +309,12 @@
 			return TRUE
 	return FALSE
 
+/mob/living/carbon/human/get_organ_name_from_zone(var/def_zone)
+	var/obj/item/organ/external/E = organs_by_name[parse_zone(def_zone)]
+	if(E)
+		return E.name
+	return ..()
+
 /mob/living/carbon/human/is_anti_materiel_vulnerable()
 	if(isSynthetic())
 		return TRUE

@@ -246,13 +246,8 @@
 	jobtype = /datum/job/med_tech
 
 	uniform = /obj/item/clothing/under/rank/medical/first_responder
-	suit = /obj/item/clothing/suit/storage/toggle/first_responder_jacket
 	shoes = /obj/item/clothing/shoes/jackboots
 	id = /obj/item/card/id/white
-	head = /obj/item/clothing/head/hardhat/first_responder
-	l_hand = /obj/item/storage/firstaid/adv
-	r_hand = /obj/item/reagent_containers/hypospray
-	belt = /obj/item/storage/belt/medical/first_responder
 	
 	headset = /obj/item/device/radio/headset/headset_med
 	bowman = /obj/item/device/radio/headset/headset_med/alt
@@ -267,6 +262,10 @@
 	satchel = /obj/item/storage/backpack/satchel_med
 	dufflebag = /obj/item/storage/backpack/duffel/med
 	messengerbag = /obj/item/storage/backpack/messenger/med
+
+	backpack_contents = list(
+		/obj/item/storage/firstaid/adv = 1
+	)
 
 /datum/job/intern_med
 	title = "Medical Intern"

@@ -126,6 +126,12 @@
 	icon_state = "dressshirt_alt"
 	item_state = "dressshirt_alt"
 
+/obj/item/clothing/accessory/dressshirt/alt/vneck
+	name = "v-neck dress shirt"
+	desc = "A casual dress shirt."
+	icon_state = "dressshirtvneck_alt"
+	item_state = "dressshirtvneck_alt"
+
 /obj/item/clothing/accessory/dressshirt/crop
 	name = "cropped dress shirt"
 	desc = "A casual cropped dress shirt."
@@ -144,6 +150,12 @@
 	desc = "A casual dress shirt. This one has its sleeves rolled up."
 	icon_state = "dressshirt_alt_r"
 	item_state = "dressshirt_alt_r"
+
+/obj/item/clothing/accessory/dressshirt/alt/vneck/rolled
+	name = "v-neck dress shirt"
+	desc = "A casual dress shirt."
+	icon_state = "dressshirtvneck_alt_r"
+	item_state = "dressshirtvneck_alt_r"
 
 /obj/item/clothing/accessory/dressshirt/crop/rolled
 	name = "cropped dress shirt"
@@ -257,3 +269,29 @@
 	if(prob(50))
 		icon_state = "hawaii_red"
 	color = color_rotation(rand(-11,12)*15)
+
+/obj/item/clothing/accessory/university
+	name = "university sweatshirt"
+	desc = "A comfy university sweatshirt. This one is grey."
+	icon_state = "usweatshirt_grey"
+	item_state = "usweatshirt_grey"
+
+/obj/item/clothing/accessory/university/red
+	desc = "A comfy university sweatshirt. This one is crimson."
+	icon_state = "usweatshirt_red"
+	item_state = "usweatshirt_red"
+
+/obj/item/clothing/accessory/university/yellow
+	desc = "A comfy university sweatshirt. This one is mustard."
+	icon_state = "usweatshirt_yellow"
+	item_state = "usweatshirt_yellow"
+
+/obj/item/clothing/accessory/university/blue
+	desc = "A comfy university sweatshirt. This one is navy."
+	icon_state = "usweatshirt_blue"
+	item_state = "usweatshirt_blue"
+
+/obj/item/clothing/accessory/university/black
+	desc = "A comfy university sweatshirt. This one is black."
+	icon_state = "usweatshirt_black"
+	item_state = "usweatshirt_black"

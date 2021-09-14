@@ -325,7 +325,8 @@
 /obj/machinery/disposal/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
 		return
-	interact(user, 1)
+	var/inside_bin = (user.loc == src)
+	interact(user, !inside_bin)
 
 // human interact with machine
 /obj/machinery/disposal/attack_hand(mob/user as mob)
@@ -333,7 +334,7 @@
 	if(stat & BROKEN)
 		return
 
-	if(user && user.loc == src)
+	if(user.loc == src)
 		to_chat(usr, "<span class='warning'>You cannot reach the controls from inside.</span>")
 		return
 
@@ -389,7 +390,7 @@
 // handle machine interaction
 
 /obj/machinery/disposal/Topic(href, href_list)
-	if(usr.loc == src)
+	if(usr.loc == src && !issilicon(usr))
 		to_chat(usr, "<span class='warning'>You cannot reach the controls from inside.</span>")
 		return
 

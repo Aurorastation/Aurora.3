@@ -172,12 +172,6 @@
 	desc = "It's an orange backpack which was designed to hold beakers, pill bottles and bottles."
 	icon_state = "chempack"
 
-/obj/item/storage/backpack/cloak
-	name = "tunnel cloak"
-	desc = "It's a Vaurca cloak with storage pockets."
-	icon_state = "cape"
-	sprite_sheets = list(BODYTYPE_VAURCA = 'icons/mob/species/vaurca/back.dmi')
-
 /obj/item/storage/backpack/syndie
 	name = "syndicate rucksack"
 	desc = "The latest in carbon fiber and red satin combat rucksack technology. Comfortable and tough!"
@@ -626,3 +620,70 @@
 	icon_state = "purse"
 	item_state = "purse"
 	max_storage_space = 16
+
+//**Vaurca cloaks**//
+
+/obj/item/storage/backpack/cloak
+	name = "tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets."
+	icon_state = "cape"
+	item_state = "cape"
+	sprite_sheets = list(BODYTYPE_VAURCA = 'icons/mob/species/vaurca/back.dmi')
+	var/hooded = FALSE
+
+/obj/item/storage/backpack/cloak/verb/toggle_cloak_hood()
+	set name = "Toggle Cloak Hood"
+	set desc = "Toggle your cloak hood."
+	set category = "Object"
+	set src in usr
+	if(use_check_and_message(usr))
+		return 0
+	hooded = !hooded 
+	to_chat(usr, "You [hooded ? "raise" : "lower"] \the [src] hood.")
+	icon_state = "[initial(icon_state)][hooded ? "_up" : ""]"
+	item_state = "icon_state"
+	var/mob/living/carbon/human/H = src.loc
+	H.update_icon()
+	H.update_inv_back()
+
+/obj/item/storage/backpack/cloak/sedantis
+	name = "Sedantis tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets. This one has the Sedantis flag design."
+	icon_state = "sedcape"
+	item_state = "sedcape"
+
+/obj/item/storage/backpack/cloak/medical
+	name = "medical tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets. This one has the medical department design."
+	icon_state = "medcape"
+	item_state = "medcape"
+
+/obj/item/storage/backpack/cloak/engi 
+	name = "engineering tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets. This one has the engineering department design."
+	icon_state = "engicape"
+	item_state = "engicape"
+
+/obj/item/storage/backpack/cloak/atmos
+	name = "atmospherics tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets. This one has the atmospherics design."
+	icon_state = "atmoscape"
+	item_state = "atmoscape"
+
+/obj/item/storage/backpack/cloak/cargo
+	name = "cargo tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets. This one has the supply department design."
+	icon_state = "cargocape"
+	item_state = "cargocape"
+
+/obj/item/storage/backpack/cloak/sci
+	name = "science tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets. This one has the science department design."
+	icon_state = "scicape"
+	item_state = "scicape"
+
+/obj/item/storage/backpack/cloak/sec
+	name = "security tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets. This one has the security department design."
+	icon_state = "seccape"
+	item_state = "seccape"

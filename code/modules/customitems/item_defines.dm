@@ -2126,3 +2126,49 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "pax_bag"
 	item_state = "pax_bag"
 	contained_sprite = TRUE
+
+/obj/item/journal/fluff/kathira // Blue Leather-Bound Journal - Kathira El-Hashem - TheGreyWolf
+	name = "blue leather-bound journal"
+	desc = "A blue journal emblazoned with the New Kingdom of Adhomai's flag across the cover."
+	closed_desc = " The pages within are a mix of clearly indexed case files, and study notes alongside less clearly indexed pages that appears to be fragmented thoughts, not unlike a diary. The very first page of the journal reads “dedicated to Qirandri Mrorirhaldarr” and is signed “Mrradar Sanufar” underneath."
+	icon = 'icons/obj/custom_items/kathira_journal.dmi'
+	icon_state = "kath_journal"
+	item_state = "kath_journal"
+
+/obj/item/storage/pill_bottle/dice/fluff/suraya_dicebag //Crevan Dice Bag - Suraya Al-Zahrani - Omicega 
+	name = "velvet dice bag"
+	desc = "A deep purple dice bag fashioned from Adhomian velvet, with two little drawstrings to tighten the neck closed."
+	icon = 'icons/obj/custom_items/suraya_dice.dmi'
+	icon_state = "sur_dbag"
+	item_state = "sur_dbag"
+
+	starts_with = list(
+		/obj/item/dice/fluff/suraya_dice = 3,
+		/obj/item/dice/fluff/suraya_dice/alt = 3
+	)
+
+/obj/item/dice/fluff/suraya_dice
+	name = "blue adhomian die"
+	desc = "A blue-and-gold wooden die with six sides, beautifully carved and delicately painted. The single dot on the number one side is, on closer inspection, a miniature image of the god Rredouane."
+	icon = 'icons/obj/custom_items/suraya_dice.dmi'
+	icon_state = "sur_b_d1"
+	base_icon = "sur_b_d"
+	favored_number = 1
+	weighted_value = 22
+
+/obj/item/dice/fluff/suraya_dice/AltClick(mob/user)
+	weighted = !weighted
+
+	if(!weighted)
+		to_chat(user, SPAN_NOTICE("You jiggle the die rapidly in your hand, resetting the internal weighting."))
+	else
+		to_chat(user, SPAN_NOTICE("You carefully jiggle the die one way, then the other, allowing its internal weighting to lock into place."))
+
+	user.visible_message("<b>\The [user]</b> jiggles \the [src] around in their hand for a second.")
+
+/obj/item/dice/fluff/suraya_dice/alt
+	name = "green adhomian die"
+	desc = "A green-and-silver wooden die with six sides, beautifully carved and delicately painted. The single dot on the number one side is, on closer inspection, a miniature image of the god Rredouane."
+	icon_state = "sur_g_d1"
+	base_icon = "sur_g_d"
+	favored_number = 6
