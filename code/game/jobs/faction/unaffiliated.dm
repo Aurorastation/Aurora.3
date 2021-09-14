@@ -9,7 +9,12 @@
 	that Tau Ceti reports to have.
 	</p>"}
 
-	allowed_role_types = INDEP_ROLES
+	allowed_role_types = list(
+		/datum/job/visitor,
+		/datum/job/journalist,
+		/datum/job/merchant,
+		/datum/job/consular
+	)
 
 	title_suffix = "INDEP"
 

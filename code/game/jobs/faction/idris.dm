@@ -31,24 +31,15 @@
 	</ul></p>"}
 	title_suffix = "Idris"
 
-	allowed_role_types = IDRIS_ROLES
-	// allowed_role_types = list(
-	// 	/datum/job/visitor,
-	// 	/datum/job/officer,
-	// 	/datum/job/investigator,
-	// 	/datum/job/warden,
-
-	// 	/datum/job/bartender,
-	// 	/datum/job/chef,
-	// 	/datum/job/hydro,
-	// 	/datum/job/qm,
-	// 	/datum/job/cargo_tech,
-	// 	/datum/job/mining,
-	// 	/datum/job/janitor,
-	// 	/datum/job/librarian,
-	// 	/datum/job/chaplain,
-	// 	/datum/job/representative
-	// )
+	allowed_role_types = (
+		/datum/job/visitor,
+		/datum/job/officer,
+		/datum/job/investigator,
+		/datum/job/bartender,
+		/datum/job/chef,
+		/datum/job/hydro,
+		/datum/job/representative
+	)
 
 	allowed_species_types = list(
 		/datum/species/human,

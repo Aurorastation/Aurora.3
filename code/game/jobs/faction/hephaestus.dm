@@ -35,7 +35,15 @@
 	</ul></p>"}
 	title_suffix = "Hepht"
 
-	allowed_role_types = HEPH_ROLES
+	allowed_role_types = list(
+		/datum/job/visitor,
+		/datum/job/engineer,
+		/datum/job/atmos,
+		/datum/job/roboticist,
+		/datum/job/mining,
+		/datum/job/cargo_tech,
+		/datum/job/representative
+	)
 
 	allowed_species_types = list(
 		/datum/species/human,

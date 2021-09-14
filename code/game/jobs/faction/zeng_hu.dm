@@ -29,7 +29,17 @@
 	</ul></p>"}
 	title_suffix = "Zeng"
 
-	allowed_role_types = ZENG_ROLES
+	allowed_role_types = list(
+		/datum/job/visitor,
+		/datum/job/doctor,
+		/datum/job/surgeon,
+		/datum/job/pharmacist,
+		/datum/job/psychiatrist,
+		/datum/job/med_tech,
+		/datum/job/roboticist,
+		/datum/job/xenobiologist,
+		/datum/job/representative
+	)
 
 	allowed_species_types = list(
 		/datum/species/human,
