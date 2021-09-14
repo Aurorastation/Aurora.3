@@ -182,7 +182,7 @@
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
 	deform = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
 
-	icon_x_offset = -8
+	icon_x_offset = -9
 	healths_x = 22
 	healths_overlay_x = 9
 

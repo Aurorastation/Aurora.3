@@ -125,6 +125,7 @@
 
 	outfit = /datum/outfit/job/scientist/xenobiologist
 	alt_outfits = list("Xenobotanist"=/datum/outfit/job/scientist/xenobiologist/xenobotanist)
+	blacklisted_species = null
 
 /datum/outfit/job/scientist/xenobiologist
 	name = "Xenobiologist"
