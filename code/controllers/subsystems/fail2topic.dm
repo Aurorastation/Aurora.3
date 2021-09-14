@@ -83,7 +83,7 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 	if (!enabled)
 		return
 	var/static/regex/R = regex(@"(\.0\.)|(\.0$)|(\l+|/|;|&|\||-|%)") // Anything that interacts with a shell should be parsed. Prevents subnet banning and possible injection vulnerabilities
-	if(lentext(ip) > 15 || lentext(findtext(ip, R)))
+	if(length(ip) > 15 || length(findtext(ip, R)))
 		return FALSE
 
 	active_bans[ip] = world.time
