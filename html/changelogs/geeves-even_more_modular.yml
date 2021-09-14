@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Plate carriers now spawn with a removable set of pouches, the class of carrier changing how large the set of pouches are. All pouches are interchangeable with all carriers."
-  - rscadd: "Plate carriers can now put special plate carrier holsters in the pouch slot, if you'd rather have that. Three spare plate holsters have been mapped into the armory."
