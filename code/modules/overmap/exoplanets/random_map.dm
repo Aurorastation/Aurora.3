@@ -24,6 +24,7 @@
 	var/list/grass_cache
 
 /datum/random_map/noise/exoplanet/New(var/seed, var/tx, var/ty, var/tz, var/tlx, var/tly, var/do_not_apply, var/do_not_announce, var/never_be_priority = 0, var/used_area, var/list/_plant_colors)
+	log_debug("Generating Random Exoplanet Map with tx: [tx], ty: [ty], tz: [tz], tlx: [tlx], tly: [tly]")
 	target_turf_type = world.turf
 	water_level = rand(water_level_min,water_level_max)
 	//automagically adjust probs for bigger maps to help with lag
@@ -36,9 +37,6 @@
 	..()
 
 	current_map.base_turf_by_z[num2text(tz)] = land_type
-
-/datum/random_map/noise/exoplanet/proc/noise2value(var/value)
-	return min(9,max(0,round((value/cell_range)*10)))
 
 /datum/random_map/noise/exoplanet/proc/is_edge_turf(turf/T)
 	return T.x <= TRANSITIONEDGE || T.x >= (limit_x - TRANSITIONEDGE + 1) || T.y <= TRANSITIONEDGE || T.y >= (limit_y - TRANSITIONEDGE + 1)

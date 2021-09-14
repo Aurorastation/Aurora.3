@@ -32,7 +32,7 @@
 			continue
 		//Check if we have a spawnpoint on the current map
 		if(!G.select_spawnlocation(FALSE) && G.loc_type == GS_LOC_POS)
-			log_debug("ghostroles","Spawner [G.type] got removed from selection because of missing spawnpoint")
+			log_ss("ghostroles","Spawner [G.type] got removed from selection because of missing spawnpoint")
 			continue
 		spawners[G.short_name] = G
 

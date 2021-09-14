@@ -181,17 +181,18 @@
 	var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
 	if(!istype(E))
 		return
+
 	var/nx = x
 	if (x <= TRANSITIONEDGE)
-		nx = x + (E.maxx - 2*TRANSITIONEDGE) - 1
-	else if (x >= (E.maxx - TRANSITIONEDGE))
-		nx = x - (E.maxx  - 2*TRANSITIONEDGE) + 1
+		nx = x + (E.maxx - 2*TRANSITIONEDGE)
+	else if (x >= (E.maxx - TRANSITIONEDGE + 1))
+		nx = x - (E.maxx  - 2*TRANSITIONEDGE)
 
 	var/ny = y
 	if(y <= TRANSITIONEDGE)
-		ny = y + (E.maxy - 2*TRANSITIONEDGE) - 1
-	else if (y >= (E.maxy - TRANSITIONEDGE))
-		ny = y - (E.maxy - 2*TRANSITIONEDGE) + 1
+		ny = y + (E.maxy - 2*TRANSITIONEDGE)
+	else if (y >= (E.maxy - TRANSITIONEDGE + 1))
+		ny = y - (E.maxy - 2*TRANSITIONEDGE)
 
 	var/turf/NT = locate(nx, ny, z)
 	if(NT)
@@ -210,15 +211,16 @@
 		return
 	if(E.planetary_area && istype(loc, world.area))
 		ChangeArea(src, E.planetary_area)
+		//TODO: Check if that should be done at the forcemove instead
 	var/new_x = A.x
 	var/new_y = A.y
 	if(x <= TRANSITIONEDGE)
-		new_x = E.maxx - TRANSITIONEDGE - 1
-	else if (x >= (E.maxx - TRANSITIONEDGE))
+		new_x = E.maxx - TRANSITIONEDGE
+	else if (x >= (E.maxx - TRANSITIONEDGE + 1))
 		new_x = TRANSITIONEDGE + 1
 	else if (y <= TRANSITIONEDGE)
-		new_y = E.maxy - TRANSITIONEDGE - 1
-	else if (y >= (E.maxy - TRANSITIONEDGE))
+		new_y = E.maxy - TRANSITIONEDGE
+	else if (y >= (E.maxy - TRANSITIONEDGE + 1))
 		new_y = TRANSITIONEDGE + 1
 
 	var/turf/T = locate(new_x, new_y, A.z)

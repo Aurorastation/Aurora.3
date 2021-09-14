@@ -66,6 +66,7 @@
 	planetary_area = new planetary_area()
 
 	name = "[generate_planet_name()], \a [name]"
+	log_debug("Generated [name] with size [maxx], [maxy]")
 
 	world.maxz++
 	forceMove(locate(1,1,world.maxz))
@@ -84,14 +85,23 @@
 	..()
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/build_level()
+	log_debug("Generating Habitability")
 	generate_habitability()
+	log_debug("Generating Atmosphere")
 	generate_atmosphere()
+	log_debug("Generating Map")
 	generate_map()
+	log_debug("Generating Features")
 	generate_features()
+	log_debug("Generating Landing")
 	generate_landing(2)
+	log_debug("Updating Biome")
 	update_biome()
+	log_debug("Updating daycycle")
 	generate_daycycle()
+	log_debug("Starting Processing")
 	START_PROCESSING(SSprocessing, src)
+	log_debug("Build Level Done")
 
 //attempt at more consistent history generation for xenoarch finds.
 /obj/effect/overmap/visitable/sector/exoplanet/proc/get_engravings()
@@ -163,28 +173,43 @@
 	repopulate_types |= M.type
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_map()
+	log_debug("Generating map for [name]")
 	var/list/grasscolors = plant_colors.Copy()
 	grasscolors -= "RANDOM"
 	if(length(grasscolors))
 		grass_color = pick(grasscolors)
 
+	//TODO: Figure out why /turf/simulated/mineral exist before this step on the map
+
+	//Ghetto-Fix: Remove all mineral turfs on the z-level
+
 	for(var/datum/exoplanet_theme/T in themes)
 		T.before_map_generation(src)
 	for(var/zlevel in map_z)
-		var/list/edges
-		edges += block(locate(1, 1, zlevel), locate(TRANSITIONEDGE, maxy, zlevel))
-		edges |= block(locate(maxx-TRANSITIONEDGE, 1, zlevel),locate(maxx, maxy, zlevel))
-		edges |= block(locate(1, 1, zlevel), locate(maxx, TRANSITIONEDGE, zlevel))
-		edges |= block(locate(1, maxy-TRANSITIONEDGE, zlevel),locate(maxx, maxy, zlevel))
-		for(var/turf/T in edges)
-			T.ChangeTurf(/turf/simulated/planet_edge)
 		var/padding = TRANSITIONEDGE
+		log_debug("Running map_generators for: [name]")
 		for(var/map_type in map_generators)
 			if(ispath(map_type, /datum/random_map/noise/exoplanet))
-				var/datum/random_map/noise/exoplanet/RM = new map_type(null,padding,padding,zlevel,maxx-padding,maxy-padding,0,1,1,planetary_area, plant_colors)
+				log_debug("Generating 1 [map_type] 1 with parameters: null, [padding+1], [padding+1], [zlevel], [maxx-padding-padding-1], [maxy-padding-padding-1], 0,1,1, [planetary_area], [plant_colors]")
+				var/datum/random_map/noise/exoplanet/RM = new map_type(null,1,1,zlevel,maxx,maxy,0,1,1,planetary_area, plant_colors)
 				get_biostuff(RM)
 			else
+				log_debug("Generating 2 [map_type] 2 with parameters: null, [1], [1], [zlevel], [maxx], [maxy], 0,1,1, [planetary_area]")
 				new map_type(null,1,1,zlevel,maxx,maxy,0,1,1,planetary_area)
+
+		log_debug("Determining edges")
+		var/list/edges
+		log_debug("Edge 1: (1,1,[zlevel]) ([TRANSITIONEDGE],[maxy],[zlevel]")
+		edges += block(locate(1, 1, zlevel), locate(TRANSITIONEDGE, maxy, zlevel))
+		log_debug("Edge 2: ([maxx-TRANSITIONEDGE+1],1,[zlevel]) ([maxx],[maxy],[zlevel]")
+		edges |= block(locate(maxx-TRANSITIONEDGE+1, 1, zlevel),locate(maxx, maxy, zlevel))
+		log_debug("Edge 3: (1,1,[zlevel]) ([maxx],[TRANSITIONEDGE],[zlevel]")
+		edges |= block(locate(1, 1, zlevel), locate(maxx, TRANSITIONEDGE, zlevel))
+		log_debug("Edge 4: (1,[maxy-TRANSITIONEDGE+1],[zlevel]) ([maxx],[maxy],[zlevel]")
+		edges |= block(locate(1, maxy-TRANSITIONEDGE+1, zlevel),locate(maxx, maxy, zlevel))
+		log_debug("Changing Turfs for Edges")
+		for(var/turf/T in edges)
+			T.ChangeTurf(/turf/simulated/planet_edge)
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_features()
 	spawned_features = seedRuins(map_z, features_budget, possible_features, /area/exoplanet, maxx, maxy)
@@ -273,14 +298,28 @@
 			A.verbs -= /mob/living/simple_animal/proc/name_species
 	return TRUE
 
-//Tries to generate num landmarks, but avoids repeats.
+//This tries to generate "num" landing spots on the map.
+// A landing spot is a 20x20 zone where the shuttle can land where each tile has a area of /area/exoplanet and no ruins on top of it
+// It makes num*20 attempts to pick a landing spot, during which it attempts to find a area which meets the above criteria.
+// If it that does not work, it tries to clear the area
+//There is also a sanity check to ensure that the map isnt too small to handle the landing spot
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_landing(num = 1)
 	var/places = list()
-	var/attempts = 10*num
+	var/attempts = 20*num
 	var/new_type = landmark_type
+
+	//sanity-check map size
+	var/lm_min_x = TRANSITIONEDGE+10
+	var/lm_max_x = maxx-TRANSITIONEDGE-10
+	var/lm_min_y = TRANSITIONEDGE+10
+	var/lm_max_y = maxy-TRANSITIONEDGE-10
+	if (lm_max_x < lm_min_x || lm_max_y < lm_min_y)
+		log_and_message_admins("Map Size is too small to Support Away Mission Shuttle Landmark. [lm_min_x] [lm_max_x] [lm_min_y] [lm_max_y]")
+		return
+
 	while(num)
 		attempts--
-		var/turf/T = locate(rand(20, maxx-20), rand(20, maxy - 10),map_z[map_z.len])
+		var/turf/T = locate(rand(lm_min_x, lm_max_x), rand(lm_min_y, lm_max_y),map_z[map_z.len])
 		if(!T || (T in places)) // Two landmarks on one turf is forbidden as the landmark code doesn't work with it.
 			continue
 		if(attempts >= 0) // While we have the patience, try to find better spawn points. If out of patience, put them down wherever, so long as there are no repeats.
@@ -302,6 +341,7 @@
 		num--
 		places += T
 		new new_type(T)
+		log_debug("Generated Landing Size at Coordinates: [T.x], [T.y], [T.z] - [new_type]")
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_atmosphere()
 	atmosphere = new

@@ -121,5 +121,6 @@
 
 	for(var/i = 0, i < num_exoplanets, i++)
 		var/exoplanet_type = pick(subtypesof(/obj/effect/overmap/visitable/sector/exoplanet))
+		log_debug("Building new exoplanet with type: [exoplanet_type] and size: [planet_size[1]] [planet_size[2]]")
 		var/obj/effect/overmap/visitable/sector/exoplanet/new_planet = new exoplanet_type(null, planet_size[1], planet_size[2])
 		new_planet.build_level()

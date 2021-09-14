@@ -5,7 +5,7 @@
 	planetary_area = /area/exoplanet/snow
 	rock_colors = list(COLOR_DARK_BLUE_GRAY, COLOR_GUNMETAL, COLOR_GRAY80, COLOR_DARK_GRAY)
 	plant_colors = list("#d0fef5","#93e1d8","#93e1d8", "#b2abbf", "#3590f3", "#4b4e6d")
-	map_generators = list(/datum/random_map/noise/exoplanet/snow, /datum/random_map/noise/ore)
+	map_generators = list(/datum/random_map/noise/exoplanet/snow)
 	surface_color = "#e8faff"
 	water_color = "#b5dfeb"
 
