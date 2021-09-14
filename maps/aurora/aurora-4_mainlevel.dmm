@@ -50034,6 +50034,11 @@
 	pixel_x = 1;
 	pixel_y = 2
 	},
+/obj/item/storage/box/papersack,
+/obj/item/storage/box/papersack,
+/obj/item/storage/box/papersack,
+/obj/item/storage/box/papersack,
+/obj/item/storage/box/papersack,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bPa" = (
@@ -59861,6 +59866,12 @@
 "ekr" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/engineering_ladder)
+"elI" = (
+/obj/machinery/light{
+	icon_state = "tube1"
+	},
+/turf/simulated/wall,
+/area/crew_quarters/kitchen)
 "enl" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/decal/cleanable/dirt,
@@ -65371,6 +65382,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
+"oEL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/standard,
+/obj/item/pen/crayon/rainbow,
+/turf/simulated/floor/plating,
+/area/maintenance/vault)
 "oGq" = (
 /obj/effect/shuttle_landmark/burglar/caverns,
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -102265,7 +102282,7 @@ bLD
 bMi
 fKb
 bNG
-bOt
+elI
 keq
 bOR
 xTH
@@ -111958,7 +111975,7 @@ aab
 aab
 aab
 nHe
-saL
+oEL
 tzU
 nRq
 nAn

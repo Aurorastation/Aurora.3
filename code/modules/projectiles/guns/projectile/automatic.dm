@@ -145,6 +145,37 @@
 	..()
 	icon_state = (ammo_magazine)? "arifle" : "arifle-empty"
 
+/obj/item/gun/projectile/automatic/rifle/shorty
+	name = "short-barreled assault rifle"
+	desc = "A durable, rugged-looking automatic weapon that has been heavily modified. \
+	Key changes include significant shortening of the barrel and the addition of an improvised vertical foregrip, \
+	condensing heavy firepower into a relatively small and maneuverable package intended for close-in \
+	fighting aboard ships and space stations. Affectionately referred to as the \"Shorty\" in some circles. Uses 7.62mm rounds."
+	desc_fluff = "The STS35 is a durable, reliable, and cheap fully-automatic assault rifle with many licensed manufacturers across \
+	the galaxy. It comes in many different versions and calibres; this one uses 7.62mm rounds. This example has been heavily modified and is illegal in some jurisdictions. \
+	Much of the barrel has been lopped off to decrease overall length, while a pistol grip from another STS35 has been clamped on below what remains of the handguard \
+	to improve handling. The fire control group has been altered as well, sacrificing the burst-fire function in favor of a smoother trigger pull. Born from \
+	extensive experience fighting in claustrophobic environments aboard ships and stations, weapons like these are common among Coalition Rangers conducting high-risk boarding operations \
+	along the Frontier, who rely on its ability to rapidly gain fire superiority in the event of an ambush. While no formal name exists for it, \
+	and two no examples are quite alike, weapons of this type are commonly just referred to as the \"Shorty\"."
+	icon = 'icons/obj/guns/shorty.dmi'
+	icon_state = "shorty"
+	item_state = "shorty"
+	can_bayonet = TRUE
+	knife_x_offset = 23
+	knife_y_offset = 13
+	firemodes = list(
+		list(mode_name="semiauto",       burst=1, fire_delay=8),
+		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=1, one_hand_fa_penalty=22, burst_accuracy = list(0,-1,-1,-1,-2,-2,-2,-3), dispersion = list(5, 5, 10, 15, 20)),
+		)
+
+	fire_delay = 8
+	accuracy = 2
+
+/obj/item/gun/projectile/automatic/rifle/shorty/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "shorty" : "shorty-empty"
+
 /obj/item/gun/projectile/automatic/rifle/carbine
 	name = "ballistic carbine"
 	desc = "A durable, rugged looking semi-automatic weapon of a make popular on the frontier worlds. Uses 5.56mm rounds and does not accept large \

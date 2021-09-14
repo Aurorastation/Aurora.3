@@ -85,9 +85,11 @@
 	if(can_change_invisible())
 		owner.set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
 	if(status & ORGAN_ROBOT)
-		owner.add_client_color(vision_mechanical_color)
+		if(vision_mechanical_color)
+			owner.add_client_color(vision_mechanical_color)
 	else
-		owner.add_client_color(vision_color)
+		if(vision_color)
+			owner.add_client_color(vision_color)
 
 /obj/item/organ/internal/eyes/night/proc/disable_night_vision()
 	if(!owner)
@@ -98,9 +100,11 @@
 	if(can_change_invisible())
 		owner.set_see_invisible(SEE_INVISIBLE_LIVING)
 	if(status & ORGAN_ROBOT)
-		owner.remove_client_color(vision_mechanical_color)
+		if(vision_mechanical_color)
+			owner.remove_client_color(vision_mechanical_color)
 	else
-		owner.remove_client_color(vision_color)
+		if(vision_color)
+			owner.remove_client_color(vision_color)
 
 /obj/item/organ/internal/stomach/tajara
 	name = "reinforced stomach"

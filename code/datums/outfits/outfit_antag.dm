@@ -25,6 +25,8 @@
 		/obj/item/device/multitool = 1
 	)
 
+	id_iff = IFF_SYNDICATE
+
 	var/id_access = "Syndicate Operative"
 	var/uplink_uses = DEFAULT_TELECRYSTAL_AMOUNT
 
@@ -60,7 +62,7 @@
 		/obj/item/storage/box/engineer = 1,
 		/obj/item/reagent_containers/pill/cyanide = 1,
 		/obj/item/gun/projectile/automatic/x9 = 1,
-		/obj/item/ammo_magazine/c45x = 1,
+		/obj/item/ammo_magazine/c45m/auto = 1,
 		/obj/item/crowbar/red = 1,
 		/obj/item/plastique = 1,
 		/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket = 1,
@@ -155,6 +157,8 @@
 		/obj/item/reagent_containers/pill/cyanide = 1
 	)
 
+	id_iff = IFF_MERCENARY
+
 /datum/outfit/admin/syndicate/mercenary/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(visualsOnly)
@@ -176,6 +180,7 @@
 		/obj/item/device/multitool/hacktool = 1
 	)
 
+	id_iff = IFF_LONER
 	id_access = "Lone Operative"
 
 /datum/outfit/admin/syndicate/raider
@@ -318,7 +323,9 @@
 			/obj/item/clothing/glasses/thermal,
 			/obj/item/clothing/glasses/thermal/aviator
 			)
+
 	id = /obj/item/storage/wallet/random
+	id_iff = IFF_RAIDER
 
 	accessory = /obj/item/clothing/accessory/storage/webbing
 
@@ -404,6 +411,8 @@
 		/obj/item/clothing/wrists/watch,
 		/obj/item/clothing/wrists/watch/silver,
 		/obj/item/clothing/wrists/watch/gold,
+		/obj/item/clothing/wrists/watch/holo,
+		/obj/item/clothing/wrists/watch/leather,
 		/obj/item/clothing/wrists/watch/spy
 	)
 
@@ -416,6 +425,8 @@
 
 	backpack_contents = list()
 
+	id_iff = IFF_BURGLAR
+
 /datum/outfit/admin/syndicate/burglar/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(visualsOnly)
@@ -426,6 +437,7 @@
 		/obj/item/gun/energy/retro,
 		/obj/item/gun/projectile/silenced,
 		/obj/item/gun/projectile/colt,
+		/obj/item/gun/projectile/colt/super,
 		/obj/item/gun/projectile/revolver/deckard,
 		/obj/item/gun/projectile/revolver/lemat
 		)
@@ -485,6 +497,7 @@
 	l_pocket = /obj/item/pinpointer
 
 	id = /obj/item/card/id/highlander
+	id_iff = IFF_HIGHLANDER
 
 /datum/outfit/admin/highlander/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -513,6 +526,8 @@
 	backpack_contents = null
 
 	r_hand = /obj/item/melee/cultblade
+
+	id_iff = IFF_CULTIST
 
 /datum/outfit/admin/syndicate/cultist/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	return
@@ -543,6 +558,8 @@
 
 	accessory = /obj/item/clothing/accessory/storage/webbing
 	backpack_contents = list()
+
+	id_iff = IFF_BLUESPACE
 
 /datum/outfit/admin/syndicate/raider_techno/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	var/list/loadouts = list("Nature", "Techno", "Cobra", "Brawler", "Shimmer")
@@ -614,6 +631,7 @@
 	allow_backbag_choice = FALSE
 
 	l_ear = /obj/item/device/radio/headset/bluespace
+	id_iff = IFF_BLUESPACE
 
 /datum/outfit/admin/techomancer
 	name = "Technomancer"
@@ -631,6 +649,8 @@
 	l_pocket = /obj/item/technomancer_catalog
 
 	id = /obj/item/card/id/bluespace
+	id_iff = IFF_BLUESPACE
+
 	var/id_assignment = "Technomagus"
 
 /datum/outfit/admin/techomancer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)

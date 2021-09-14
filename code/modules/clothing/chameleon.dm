@@ -164,6 +164,7 @@
 	desc = "They're comfy black shoes, with clever cloaking technology built in. It seems to have a small dial on the back of each shoe."
 	silent = 1
 	origin_tech = list(TECH_ILLEGAL = 3)
+	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 	var/global/list/clothing_choices
 
 /obj/item/clothing/shoes/chameleon/Initialize()
@@ -245,6 +246,7 @@
 	item_state = "black"
 	desc = "It looks like a pair of gloves, but it seems to have a small dial inside."
 	origin_tech = list(TECH_ILLEGAL = 3)
+	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 	var/global/list/clothing_choices
 
 /obj/item/clothing/gloves/chameleon/Initialize()

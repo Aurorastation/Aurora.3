@@ -11679,7 +11679,7 @@
 	icon_off = "fridgeoff";
 	icon_opened = "fridgeopen";
 	icon_state = "fridge1";
-	name = "refridgerator"
+	name = "refrigerator"
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
