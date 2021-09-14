@@ -1,0 +1,4 @@
+author: Desven
+delete-after: True
+changes:
+  - bugfix: "Fixed a missing pixel in the atmos jumpsuit."
