@@ -428,9 +428,16 @@
 	bedpath = /obj/structure/bed/roller/hover
 
 /obj/item/roller/attack_self(mob/user)
-		var/obj/structure/bed/roller/R = new bedpath(user.loc)
-		R.add_fingerprint(user)
-		qdel(src)
+	..()
+	deploy_roller(user, user.loc)
+
+/obj/item/roller/afterattack(obj/target, mob/user, proximity)
+	if(!proximity)
+		return
+	if(isturf(target))
+		var/turf/T = target
+		if(!T.density)
+			deploy_roller(user, target)
 
 /obj/item/roller/attackby(obj/item/W as obj, mob/user as mob)
 
@@ -443,6 +450,11 @@
 			return
 
 	..()
+
+/obj/item/roller/proc/deploy_roller(mob/user, atom/location)
+	var/obj/structure/bed/roller/R = new bedpath(location)
+	R.add_fingerprint(user)
+	qdel(src)
 
 /obj/item/roller_holder
 	name = "roller bed rack"

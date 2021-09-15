@@ -475,6 +475,8 @@
 	return FALSE
 
 /mob/living/simple_animal/penguin/holodeck/baby
+	name = "baby penguin"
+	desc = "Can't fly and barely waddles, yet the prince of all chicks."
 	icon_state = "penguin_baby"
 	icon_living = "penguin_baby"
 	icon_dead = "penguin_baby_dead"

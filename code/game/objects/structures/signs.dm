@@ -870,6 +870,30 @@
 /obj/structure/sign/flag/gadpathur/right
 	icon_state = "gadpathur_r"
 
+/obj/item/flag/vysoka
+	name = "Free System of Vysoka flag"
+	desc = "The flag of the Free System of Vysoka."
+	desc_fluff = "The red, yellow and Coalition-blue flag of Vysoka, as drawn when one wishes to represent the planet as a whole. As Vysokan communities are rather traditional and tied to their respective Host, village or city-state, natives are more likely to \
+	identify with local symbols. This has not stopped the original flag from being flown in times of much-needed unity."
+	flag_path = "vysoka"
+
+/obj/structure/sign/flag/vysoka
+	name = "Free System of Vysoka flag"
+	desc = "The flag of the Free System of Vysoka."
+	desc_fluff = "The red, yellow and Coalition-blue flag of Vysoka, as drawn when one wishes to represent the planet as a whole. As Vysokan communities are rather traditional and tied to their respective Host, village or city-state, natives are more likely to \
+	identify with local symbols. This has not stopped the original flag from being flown in times of much-needed unity."
+	icon_state = "vysoka"
+
+/obj/item/flag/vysoka/l
+	name = "large Free System of Vysoka flag"
+	flag_size = 1
+
+/obj/structure/sign/flag/vysoka/left
+	icon_state = "vysoka_l"
+
+/obj/structure/sign/flag/vysoka/right
+	icon_state = "vysoka_r"
+
 /obj/item/flag/afterattack(var/atom/A, var/mob/user, var/adjacent, var/clickparams)
 	if (!adjacent)
 		return
