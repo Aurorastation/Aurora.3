@@ -211,6 +211,8 @@
 	grab_mod = 0.8
 	resist_mod = 4
 
+	spawn_flags = IS_RESTRICTED
+
 	mob_size = 12
 	taste_sensitivity = TASTE_DULL
 	blurb = {"Type E Vaurca, otherwise known as the Bulwarks, are a new bodyform derived from the worker caste in a collaboration by the C’thur and Jargon scientists. Originally only the C’thur had access to these behemoths, but after a short amount of time, the bodyform started appearing in the ranks of the Zo’ra and K’lax as well, causing an even more strained relationship between the hives.<br>
