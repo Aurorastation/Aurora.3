@@ -988,6 +988,3 @@
 
 /obj/item/hammer/ishammer()
 	return TRUE
-
-/obj/item/hammer/iscrowbar()
-	return TRUE
