@@ -213,6 +213,9 @@ obj/item/clothing/shoes/sandal/clogs
 			melee = ARMOR_MELEE_MINOR,
 			bio = ARMOR_BIO_MINOR
 			)
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi'
+	)
 	siemens_coefficient = 0.75
 	can_hold_knife = TRUE
 	build_from_parts = TRUE
