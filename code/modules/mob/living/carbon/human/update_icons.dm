@@ -1025,7 +1025,6 @@ There are several things that need to be remembered:
 		if(!mob_state && back.item_state_slots && back.item_state_slots[slot_back_str])
 			mob_state = back.item_state_slots[slot_back_str]
 
-		message_admins(mob_state)
 		overlays_raw[BACK_LAYER] = back.get_mob_overlay(src, mob_icon, mob_state, slot_back_str)
 	else
 		overlays_raw[BACK_LAYER] = null
