@@ -27,7 +27,7 @@
 
 /obj/item/clothing/accessory/proc/get_inv_overlay(var/mob/M, var/force = FALSE)
 	if(!accessory_mob_overlay)
-		get_accessory_mob_overlay()
+		get_accessory_mob_overlay(M, force)
 	var/I = accessory_mob_overlay.icon
 	if(!inv_overlay || force)
 		var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
@@ -52,6 +52,7 @@
 		I = icon
 	else if(istype(M) && (M.species.bodytype in sprite_sheets))
 		I = sprite_sheets[M.species.bodytype]
+		accessory_mob_overlay = null // reset the overlay
 	else
 		I = INV_ACCESSORIES_DEF_ICON
 	if(!accessory_mob_overlay || force)
