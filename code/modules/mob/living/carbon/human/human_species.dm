@@ -97,6 +97,11 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	. = ..(mapload, SPECIES_VAURCA_BULWARK)
 	gender = NEUTER
 
+/mob/living/carbon/human/type_e/equipped/Initialize(mapload)
+	. = ..(mapload, SPECIES_VAURCA_BULWARK)
+	species.before_equip(src)
+	species.after_equip(src)
+
 /mob/living/carbon/human/msai_tajara/Initialize(mapload)
 	h_style = "Tajaran Ears"
 	. = ..(mapload, SPECIES_TAJARA_MSAI)
