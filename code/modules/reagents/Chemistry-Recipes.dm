@@ -1544,14 +1544,6 @@
 	required_reagents = list(/decl/reagent/drink/garlicjuice = 1, /decl/reagent/nutriment/triglyceride/oil/corn = 1)
 	result_amount = 2
 
-/datum/chemical_reaction/mintsyrup
-	name = "Mint Syrup"
-	id = "mintsyrup"
-	result = /decl/reagent/drink/mintsyrup
-	required_reagents = list(/decl/reagent/nutriment/mint = 5)
-	catalysts = list(/decl/reagent/enzyme = 5)
-	result_amount = 5
-
 /datum/chemical_reaction/cheesewheel
 	name = "Cheesewheel"
 	id = "cheesewheel"
@@ -3441,6 +3433,13 @@
 	required_reagents = list(/decl/reagent/spacespice/pumpkinspice = 2, /decl/reagent/drink/syrup_simple = 3)
 	result_amount = 5
 	mix_message = "The solution takes on an orange hue and the aroma of pumpkin spice."
+
+/datum/chemical_reaction/mintsyrup
+	name = "Mint Syrup"
+	id = "mintsyrup"
+	result = /decl/reagent/drink/mintsyrup
+	required_reagents = list(/decl/reagent/nutriment/mint = 2, /decl/reagent/drink/syrup_simple = 3)
+	result_amount = 5
 
 /datum/chemical_reaction/drink/cuba_libre
 	name = "Cuba Libre"
