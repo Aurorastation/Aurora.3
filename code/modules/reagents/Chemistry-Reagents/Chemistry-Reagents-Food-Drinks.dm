@@ -4655,6 +4655,12 @@
 	glass_name = "glass of Hro'zamal Soda"
 	glass_desc = "A cabornated version of the herbal tea made with Hro'zamal Ras'Nifs powder."
 
+/decl/reagent/nutriment/vanilla
+	name = "Vanilla Extract"
+	description = "The extract from vanilla beans..."
+	color = "#e8efe5"
+	taste_description = "vanilla"
+
 /decl/reagent/nutriment/pumpkinpulp
 	name = "Pumpkin Pulp"
 	description = "The gooey insides of a slain pumpkin. This day is the greatest..."
@@ -4784,7 +4790,7 @@
 	strength = 30
 	color = "#FFF1B2"
 	taste_description = "pineapple, coconut, and a hint of the ocean"
-	
+
 	glass_icon_state = "pina_colada"
 	glass_name = "glass of pina colada"
 	glass_desc = "Prepared just like in Silversun."
@@ -4809,7 +4815,7 @@
 
 	glass_icon_state = "spacecola"
 	glass_name = "glass of diet cola"
-	glass_desc = "Space Cola! Now in diet!" 
+	glass_desc = "Space Cola! Now in diet!"
 
 /decl/reagent/drink/milk/chocolate
 	name = "Chocolate milk"
