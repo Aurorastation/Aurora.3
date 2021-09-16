@@ -15,12 +15,11 @@
 #define SLOT_BELT       BITFLAG(9)
 #define SLOT_BACK       BITFLAG(10)
 #define SLOT_POCKET     BITFLAG(11) // This is to allow items with a w_class of 3 or 4 to fit in pockets.
-#define SLOT_DENYPOCKET BITFLAG(12)  // This is to  deny items with a w_class of 2 or 1 from fitting in pockets.
-#define SLOT_TWOEARS    BITFLAG(13)
-#define SLOT_TIE        BITFLAG(14)
-#define SLOT_HOLSTER    BITFLAG(15)
-#define SLOT_WRISTS     BITFLAG(16)
-#define SLOT_S_STORE    BITFLAG(17)
+#define SLOT_TWOEARS    BITFLAG(12)
+#define SLOT_TIE        BITFLAG(13)
+#define SLOT_HOLSTER    BITFLAG(14)
+#define SLOT_WRISTS     BITFLAG(15)
+#define SLOT_S_STORE    BITFLAG(16)
 
 // Flags bitmasks.
 #define NOBLUDGEON         0x1   // When an item has this it produces no "X has been hit by Y with Z" message with the default handler.

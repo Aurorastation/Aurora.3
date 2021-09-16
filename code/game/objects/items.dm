@@ -458,8 +458,6 @@ var/list/global/slot_flags_enumeration = list(
 				if(!disable_warning)
 					to_chat(H, "<span class='warning'>You need a jumpsuit before you can attach this [name].</span>")
 				return 0
-			if(slot_flags & SLOT_DENYPOCKET)
-				return 0
 			if( w_class > 2 && !(slot_flags & SLOT_POCKET) )
 				return 0
 		if(slot_s_store)
@@ -472,11 +470,11 @@ var/list/global/slot_flags_enumeration = list(
 				if(!disable_warning)
 					to_chat(H, "<span class='warning'>You need a suit before you can attach this [name].</span>")
 				return 0
-			if(!H.wear_suit?.allowed)
+			if(H.wear_suit && !length(H.wear_suit.allowed))
 				if(!disable_warning)
 					to_chat(usr, "<span class='warning'>You somehow have a suit with no defined allowed items for suit storage, stop that.</span>")
 				return 0
-			if( !(istype(src, /obj/item/modular_computer) || src.ispen() || is_type_in_list(src, H.wear_suit.allowed)) )
+			if(!istype(src, /obj/item/modular_computer) && !ispen() && !is_type_in_list(src, H.wear_suit.allowed))
 				return 0
 		if(slot_handcuffed)
 			if(!istype(src, /obj/item/handcuffs))
