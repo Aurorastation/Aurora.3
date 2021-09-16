@@ -61,6 +61,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 		icon_state = "rods-[amount]"
 	else
 		icon_state = "rods"
+	check_maptext(SMALL_FONTS(7, amount))
 
 /obj/item/stack/rods/attackby(obj/item/W as obj, mob/user as mob)
 	..()

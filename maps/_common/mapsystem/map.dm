@@ -50,6 +50,8 @@
 	var/emergency_shuttle_recall_message
 	var/emergency_shuttle_called_message
 
+	var/evac_controller_type = /datum/evacuation_controller
+
 	var/list/station_networks = list() 		// Camera networks that will show up on the console.
 
 	var/list/holodeck_programs = list() // map of string ids to /datum/holodeck_program instances

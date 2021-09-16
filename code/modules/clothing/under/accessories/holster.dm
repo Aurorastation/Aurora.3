@@ -111,13 +111,13 @@
 
 	//can't we just use src here?
 	var/obj/item/clothing/accessory/holster/H = null
-	if (istype(src, /obj/item/clothing/accessory/holster))
+	if(istype(src, /obj/item/clothing/accessory/holster))
 		H = src
-	else if (istype(src, /obj/item/clothing/under))
-		var/obj/item/clothing/under/S = src
-		if (LAZYLEN(S.accessories))
+	if(!H && istype(src, /obj/item/clothing))
+		var/obj/item/clothing/S = src
+		if(LAZYLEN(S.accessories))
 			H = locate() in S.accessories
-	else if (istype(src, /obj/item/clothing/suit/armor/tactical))	// This armor is a snowflake and has an integrated holster.
+	if(!H && istype(src, /obj/item/clothing/suit/armor/tactical))	// This armor is a snowflake and has an integrated holster.
 		var/obj/item/clothing/suit/armor/tactical/tacticool = src
 		H = tacticool.holster
 

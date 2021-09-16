@@ -730,6 +730,7 @@
 	filling_color = "#FDFFD1"
 	volume = 10
 	reagents_to_add = list(/decl/reagent/nutriment/protein/egg = 3)
+	var/hatchling = /mob/living/simple_animal/chick
 
 /obj/item/reagent_containers/food/snacks/egg/afterattack(obj/O as obj, mob/user as mob, proximity)
 	if(!(proximity && O.is_open_container()))
@@ -761,6 +762,20 @@
 	else
 		..()
 
+/obj/item/reagent_containers/food/snacks/egg
+	var/amount_grown = 0
+
+/obj/item/reagent_containers/food/snacks/egg/process()
+	if(isturf(loc))
+		amount_grown += rand(1,2)
+		if(amount_grown >= 100)
+			visible_message("[src] hatches with a quiet cracking sound.")
+			new hatchling(get_turf(src))
+			STOP_PROCESSING(SSprocessing, src)
+			qdel(src)
+	else
+		STOP_PROCESSING(SSprocessing, src)
+
 /obj/item/reagent_containers/food/snacks/egg/blue
 	icon_state = "egg-blue"
 
@@ -784,6 +799,14 @@
 
 /obj/item/reagent_containers/food/snacks/egg/yellow
 	icon_state = "egg-yellow"
+
+/obj/item/reagent_containers/food/snacks/egg/schlorrgo
+	name = "alien egg"
+	desc = "A large mysterious egg."
+	icon_state = "schlorrgo_egg"
+	filling_color = "#e9ffd1"
+	volume = 20
+	hatchling = /mob/living/simple_animal/schlorrgo/baby
 
 /obj/item/reagent_containers/food/snacks/friedegg
 	name = "fried egg"
@@ -5198,6 +5221,7 @@
 	desc_fluff = "V'krexi, while edible, hold no nutritional value, either for humans or Vaurca. The V'krexi meat was mostly neglected until human food-processing techniques were introduced to the Zo'ra Hive."
 	icon = 'icons/obj/food.dmi'
 	icon_state = "vkrexitaffy"
+	item_state = "vkrexi"
 	icon_type = "vkrexi taffy"
 	storage_type = "packaging"
 	starts_with = list(/obj/item/reagent_containers/food/snacks/vkrexitaffy = 6)
