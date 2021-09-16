@@ -64,13 +64,6 @@
 		icon_state = "[initial(icon_state)][opened ? "_open" : ""]"
 		item_state = icon_state
 
-/obj/item/clothing/suit/armor/carrier/heavy/Initialize()
-	. = ..()
-	pockets = new/obj/item/storage/internal(src)
-	pockets.storage_slots = 4
-	pockets.max_w_class = ITEMSIZE_SMALL
-	pockets.max_storage_space = 8
-
 /obj/item/clothing/suit/storage/vest/hos/Initialize()
 	. = ..()
 	pockets = new/obj/item/storage/internal(src)
