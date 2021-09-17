@@ -300,6 +300,7 @@
 #include "code\datums\weakref.dm"
 #include "code\datums\components\_component.dm"
 #include "code\datums\components\armor\armor.dm"
+#include "code\datums\components\base_name\base_name.dm"
 #include "code\datums\components\multitool\_multitool.dm"
 #include "code\datums\components\multitool\multitool.dm"
 #include "code\datums\components\multitool\circuitboards\circuitboards.dm"
