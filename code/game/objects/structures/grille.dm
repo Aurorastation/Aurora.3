@@ -10,6 +10,7 @@
 	anchored = TRUE
 	flags = CONDUCT
 	explosion_resistance = 1
+	layer = 2.98
 	var/health = 10
 	var/destroyed = 0
 
