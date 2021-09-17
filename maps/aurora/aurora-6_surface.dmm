@@ -507,26 +507,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela/research_dock)
-"auJ" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 2;
-	icon_state = "pdoor0";
-	id = "bridge blast";
-	name = "Bridge Blast Doors";
-	opacity = 0
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela/research_dock)
 "auS" = (
 /obj/structure/trash_pile,
 /turf/simulated/floor/plating,
@@ -904,18 +884,6 @@
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/carpet,
 /area/security/vacantoffice)
-"aJC" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "aJO" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 8
@@ -1872,18 +1840,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
-"bIo" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "bIt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/external{
@@ -2677,24 +2633,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
-"cta" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/sign/securearea{
-	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
-	icon_state = "space";
-	layer = 4;
-	name = "EXTERNAL AIRLOCK"
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "ctm" = (
 /obj/machinery/newscaster{
 	pixel_y = -32
@@ -2778,10 +2716,6 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/grass/alt,
 /area/hallway/secondary/entry/fore)
-"cxm" = (
-/obj/structure/window/full,
-/turf/simulated/floor/plating,
-/area/turret_protected/tcomsat)
 "czc" = (
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomfoyer)
@@ -4119,18 +4053,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/turret_protected/tcomsat)
-"egb" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "egE" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -4828,14 +4750,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/civilian_east)
-"eQw" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "eRe" = (
 /obj/machinery/telecomms/hub/preset,
 /obj/structure/cable/blue{
@@ -5414,12 +5328,6 @@
 /obj/effect/floor_decal/corner/mauve,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/levela/research_dock)
-"fuf" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "fuh" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -6482,18 +6390,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
-"gBy" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "gBD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/cable{
@@ -6518,24 +6414,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/explored)
-"gCU" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/sign/securearea{
-	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
-	icon_state = "space";
-	layer = 4;
-	name = "EXTERNAL AIRLOCK"
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "gDF" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 4
@@ -7298,25 +7176,6 @@
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
-"hoK" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 2;
-	icon_state = "pdoor0";
-	id = "bridge blast";
-	name = "Bridge Blast Doors";
-	opacity = 0
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela/research_dock)
 "hpI" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -8037,17 +7896,8 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
+/obj/structure/window/full,
+/turf/simulated/floor/tiled,
 /area/bridge/levela/research_dock)
 "hYO" = (
 /obj/structure/reagent_dispensers/extinguisher,
@@ -9260,30 +9110,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bridge_elevator/surface)
-"jpH" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 2;
-	icon_state = "pdoor0";
-	id = "bridge blast";
-	name = "Bridge Blast Doors";
-	opacity = 0
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/blast/shutters/open{
-	dir = 4;
-	id = "bridge_surface_checkpoint";
-	name = "Checkpoint Shutters"
-	},
-/turf/simulated/floor/plating,
-/area/security/bridge_surface_checkpoint)
 "jqc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -9917,26 +9743,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
-"jXT" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 8;
-	icon_state = "pdoor0";
-	id = "bridge blast";
-	name = "Bridge Blast Doors";
-	opacity = 0
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "jYx" = (
 /obj/machinery/power/terminal{
 	dir = 1
@@ -10073,24 +9879,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
-"keV" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/sign/securearea{
-	desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'.";
-	name = "KEEP CLEAR: DOCKING AREA"
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "kfj" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -10353,21 +10141,6 @@
 	icon_state = "0,0"
 	},
 /area/shuttle/escape_pod/pod2)
-"ktD" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/bridge/levela/research_dock)
 "ktS" = (
 /obj/machinery/light{
 	dir = 4;
@@ -10853,18 +10626,6 @@
 	},
 /turf/unsimulated/floor/asteroid/ash,
 /area/shuttle/research)
-"kUp" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/bridge/levela/research_dock)
 "kUt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/carpet,
@@ -11130,17 +10891,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
-"lhL" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "lio" = (
 /obj/structure/table/rack,
 /obj/effect/decal/cleanable/dirt,
@@ -11389,33 +11139,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/turret_protected/tcomsat)
-"luj" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 2;
-	icon_state = "pdoor0";
-	id = "bridge blast";
-	name = "Bridge Blast Doors";
-	opacity = 0
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/blast/shutters/open{
-	dir = 4;
-	id = "bridge_surface_checkpoint";
-	name = "Checkpoint Shutters"
-	},
-/turf/simulated/floor/plating,
-/area/security/bridge_surface_checkpoint)
 "luv" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
@@ -11869,26 +11592,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
-"lMS" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 8;
-	icon_state = "pdoor0";
-	id = "bridge blast";
-	name = "Bridge Blast Doors";
-	opacity = 0
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "lOa" = (
 /obj/structure/sign/flag/scc{
 	pixel_y = 32
@@ -12637,15 +12340,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/dock)
-"mHu" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "mHv" = (
 /obj/item/cell,
 /turf/simulated/floor/tiled,
@@ -12692,18 +12386,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomfoyer)
-"mJd" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "mJp" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -13144,28 +12826,6 @@
 	},
 /turf/unsimulated/floor/asteroid/ash,
 /area/shuttle/escape_pod/pod1)
-"ngC" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "bridge blast";
-	name = "Bridge Blast Doors";
-	opacity = 0
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "nhk" = (
 /obj/structure/closet/secure_closet/personal,
 /turf/simulated/floor/tiled/dark,
@@ -13416,28 +13076,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/entrance)
-"nwC" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 8;
-	icon_state = "pdoor0";
-	id = "bridge blast";
-	name = "Bridge Blast Doors";
-	opacity = 0
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/blast/shutters/open{
-	dir = 2;
-	id = "bridge_surface_checkpoint";
-	name = "Checkpoint Shutters"
-	},
-/turf/simulated/floor/plating,
-/area/security/bridge_surface_checkpoint)
 "nwO" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -14649,15 +14287,8 @@
 /area/maintenance/telecoms_ladder)
 "oDP" = (
 /obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/structure/grille,
-/turf/simulated/floor/plating,
+/obj/structure/window/full,
+/turf/simulated/floor/tiled,
 /area/bridge/levela/research_dock)
 "oDZ" = (
 /obj/structure/cable/green{
@@ -14747,31 +14378,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/hallway/secondary/entry/departure_lounge)
-"oFP" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 8;
-	icon_state = "pdoor0";
-	id = "bridge blast";
-	name = "Bridge Blast Doors";
-	opacity = 0
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/blast/shutters/open{
-	dir = 2;
-	id = "bridge_surface_checkpoint";
-	name = "Checkpoint Shutters"
-	},
-/turf/simulated/floor/plating,
-/area/security/bridge_surface_checkpoint)
 "oGv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -14792,14 +14398,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "oHb" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/structure/window/full,
 /obj/machinery/door/firedoor,
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'.";
@@ -15765,21 +15364,16 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
 "pBR" = (
+/obj/structure/window/full,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 8;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/bridge/levela)
 "pCx" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -15883,31 +15477,6 @@
 	temperature = 303.15
 	},
 /area/crew_quarters/fitness/pool)
-"pFW" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 2;
-	icon_state = "pdoor0";
-	id = "bridge blast";
-	name = "Bridge Blast Doors";
-	opacity = 0
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/blast/shutters/open{
-	dir = 4;
-	id = "bridge_surface_checkpoint";
-	name = "Checkpoint Shutters"
-	},
-/turf/simulated/floor/plating,
-/area/security/bridge_surface_checkpoint)
 "pGM" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -15926,6 +15495,11 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
+"pHP" = (
+/obj/structure/window/full,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/bridge/levela)
 "pIc" = (
 /obj/machinery/computer/shuttle_control/multi/research,
 /turf/simulated/floor/shuttle/black,
@@ -16517,20 +16091,13 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/full,
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
 	id = "bridge_surface_checkpoint";
 	name = "Checkpoint Shutters"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/wood,
 /area/security/bridge_surface_checkpoint)
 "qnc" = (
 /turf/simulated/wall/shuttle/unique/escape_pod{
@@ -16699,20 +16266,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
-"qxT" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "qyh" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
 	frequency = 1380;
@@ -17327,17 +16880,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/qm)
-"rfr" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "rfK" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -17654,17 +17196,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
-"rtX" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "rut" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -18950,6 +18481,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
+"sGk" = (
+/obj/structure/window/full,
+/turf/simulated/floor/plating,
+/area/turret_protected/tcomsat)
 "sII" = (
 /obj/machinery/power/sensor{
 	long_range = 1;
@@ -19916,14 +19451,6 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
-"tBg" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "tBh" = (
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -19972,15 +19499,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/bridge_elevator/surface)
-"tCe" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "tCt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -21722,18 +21240,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/changing)
-"vne" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "vnh" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -21855,18 +21361,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
-"vrf" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "vsk" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -23559,17 +23053,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/bridge_elevator/surface)
 "wUn" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/full,
 /obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
 	icon_state = "space";
@@ -23786,15 +23271,6 @@
 	temperature = 278
 	},
 /area/tcommsat/chamber)
-"xih" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "xiX" = (
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "2,2"
@@ -24000,21 +23476,6 @@
 /obj/structure/grille,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
-"xsZ" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "xtk" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/light{
@@ -24546,17 +24007,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bridge_elevator/surface)
-"xTf" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "xTt" = (
 /obj/structure/ladder{
 	pixel_y = 16
@@ -24658,15 +24108,9 @@
 /turf/simulated/open,
 /area/maintenance/bridge_elevator/surface)
 "yaa" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
+/obj/structure/window/full,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
 /area/bridge/levela)
 "yap" = (
 /obj/structure/window/reinforced{
@@ -39513,7 +38957,7 @@ xql
 xql
 qtL
 xql
-cxm
+sGk
 xql
 gry
 gry
@@ -69803,9 +69247,9 @@ ayi
 ayi
 aRL
 hYF
-hoK
-hoK
-auJ
+hYF
+hYF
+hYF
 aRL
 aRL
 ijl
@@ -70058,7 +69502,7 @@ aRL
 wRC
 uHL
 aks
-ktD
+oDP
 obo
 hjt
 hjt
@@ -70572,7 +70016,7 @@ aRL
 nai
 muA
 kPc
-ktD
+oDP
 jRW
 doD
 ydi
@@ -71092,7 +70536,7 @@ tnR
 tbq
 eCC
 wKu
-kUp
+oDP
 xWf
 bYA
 oOx
@@ -71351,9 +70795,9 @@ tue
 gvi
 aRL
 hdM
-xsZ
+yaa
 uMf
-xsZ
+yaa
 drT
 smJ
 drT
@@ -72643,7 +72087,7 @@ wlU
 hjy
 dTB
 oSL
-nwC
+qmt
 fdu
 fdu
 fdu
@@ -72900,7 +72344,7 @@ bUD
 xjW
 bbn
 mYV
-oFP
+qmt
 fdu
 fdu
 fdu
@@ -73154,9 +72598,9 @@ nSl
 xwZ
 cZC
 drT
-luj
-jpH
-pFW
+qmt
+qmt
+qmt
 drT
 fdu
 fdu
@@ -73410,7 +72854,7 @@ mKq
 jdl
 tqw
 bUp
-lMS
+pBR
 fdu
 fdu
 fdu
@@ -74438,7 +73882,7 @@ mKq
 sjb
 jSi
 bsK
-jXT
+pBR
 fdu
 fdu
 fdu
@@ -74684,17 +74128,17 @@ fdu
 fdu
 fdu
 wUn
-lhL
-lhL
-vrf
+yaa
+pHP
+yaa
 hdM
 hdM
 hdM
 hdM
 hdM
-ngC
+pBR
 hst
-ngC
+pBR
 hdM
 fdu
 fdu
@@ -75454,13 +74898,13 @@ fdu
 fdu
 fdu
 fdu
-keV
-lhL
-lhL
-vrf
+oHb
+yaa
+yaa
+yaa
 hdM
 hdM
-aJC
+yaa
 rxg
 cnf
 eeX
@@ -75717,15 +75161,15 @@ fdu
 fdu
 fdu
 fdu
-mHu
+yaa
 fUA
-gCU
+wUn
 dcQ
 dcQ
 dcQ
-egb
+yaa
 ckH
-bIo
+yaa
 fdu
 fdu
 fdu
@@ -75974,16 +75418,16 @@ fdu
 fdu
 fdu
 fdu
-xih
+yaa
 rDM
-tBg
-mJd
+yaa
+yaa
 hdM
-qxT
-fuf
+yaa
+yaa
 oYx
-tBg
-vne
+yaa
+yaa
 fdu
 fdu
 fdu
@@ -76233,13 +75677,13 @@ fdu
 fdu
 oHb
 tSj
-gBy
+yaa
 fdu
 hdM
 fdu
-mHu
+yaa
 aot
-mHu
+yaa
 fdu
 fdu
 fdu
@@ -76494,9 +75938,9 @@ fdu
 fdu
 hdM
 fdu
-mHu
+yaa
 aot
-mHu
+yaa
 fdu
 fdu
 fdu
@@ -76751,9 +76195,9 @@ fdu
 fdu
 hdM
 fdu
-mHu
+yaa
 aot
-tCe
+yaa
 fdu
 fdu
 fdu
@@ -77008,11 +76452,11 @@ fdu
 fdu
 hdM
 fdu
-mHu
+yaa
 ckH
-rfr
-lhL
-mJd
+yaa
+yaa
+yaa
 fdu
 fdu
 cuB
@@ -77265,7 +76709,7 @@ fdu
 fdu
 yaa
 fdu
-mHu
+yaa
 pcf
 rKY
 lIr
@@ -77520,13 +76964,13 @@ fdu
 fdu
 fdu
 fdu
-eQw
+yaa
 fdu
-mHu
+yaa
 jAf
-rtX
-lhL
-mJd
+yaa
+yaa
+yaa
 fdu
 fdu
 fdu
@@ -77777,11 +77221,11 @@ fdu
 liL
 fdu
 fdu
-xTf
+yaa
 fdu
-mHu
+yaa
 akw
-mHu
+yaa
 fdu
 fdu
 fdu
@@ -78036,9 +77480,9 @@ fdu
 fdu
 hdM
 fdu
-mHu
+yaa
 akw
-mHu
+yaa
 fdu
 fdu
 fdu
@@ -78293,9 +77737,9 @@ fdu
 fdu
 nki
 fdu
-eQw
+yaa
 akw
-eQw
+yaa
 fdu
 fdu
 fdu
@@ -78550,7 +77994,7 @@ fdu
 fdu
 fdu
 fdu
-cta
+wUn
 jAf
 oHb
 fdu
