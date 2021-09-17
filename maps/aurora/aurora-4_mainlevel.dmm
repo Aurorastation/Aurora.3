@@ -36173,11 +36173,8 @@
 "bpW" = (
 /obj/structure/window/reinforced/polarized/full,
 /obj/machinery/door/firedoor,
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 5
-	},
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 10
+/obj/effect/floor_decal/corner_wide/paleblue/full{
+	dir = 6
 	},
 /obj/structure/cable/green,
 /turf/simulated/floor/tiled/white,
@@ -55152,6 +55149,11 @@
 /mob/living/simple_animal/rat/hooded,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"dnG" = (
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced/polarized/full,
+/turf/simulated/floor/wood,
+/area/bridge/meeting_room)
 "dob" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet{
@@ -66184,11 +66186,6 @@
 /obj/item/storage/box/syringes,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_laboratory)
-"xAa" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced/polarized/full,
-/turf/simulated/floor/wood,
-/area/bridge/meeting_room)
 "xAe" = (
 /obj/structure/table/reinforced/steel,
 /obj/random/toolbox,
@@ -110687,7 +110684,7 @@ aVM
 aRv
 aYH
 bae
-xAa
+dnG
 bcC
 beg
 bfA
@@ -110944,7 +110941,7 @@ aVN
 aXw
 aYI
 baf
-xAa
+dnG
 bcD
 beh
 bfB
@@ -111201,7 +111198,7 @@ aVO
 aRv
 aYJ
 bag
-xAa
+dnG
 bcE
 bei
 bfC
@@ -111457,7 +111454,7 @@ aXx
 aPH
 aXx
 aYK
-xAa
+dnG
 bbf
 bcF
 bej
