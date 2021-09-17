@@ -24,10 +24,6 @@
 	. = ..()
 
 	verbs |= /mob/living/proc/hide
-	remove_language(LANGUAGE_ROBOT)
-	remove_language(LANGUAGE_DRONE)
-	add_language(LANGUAGE_TCB, TRUE)
-	add_language(LANGUAGE_EAL, TRUE)
 
 	//They are unable to be upgraded, so let's give them a bit of a better battery.
 	cell.maxcharge = 10000

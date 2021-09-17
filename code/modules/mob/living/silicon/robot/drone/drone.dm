@@ -36,7 +36,6 @@
 	var/module_type = /obj/item/robot_module/drone
 	cell_emp_mult = 1
 	integrated_light_power = 3
-	local_transmit = TRUE
 
 	// Interaction
 	universal_speak = FALSE
@@ -55,6 +54,8 @@
 					)
 	mob_bump_flag = SIMPLE_ANIMAL
 	holder_type = /obj/item/holder/drone
+
+	can_speak_basic = FALSE
 
 	// ID and Access
 	law_update = FALSE
@@ -77,6 +78,10 @@
 	var/can_swipe = TRUE
 	var/rebooting = FALSE
 	var/standard_drone = TRUE
+
+/mob/living/silicon/robot/drone/Initialize()
+	. = ..()
+	set_default_language(all_languages[LANGUAGE_LOCAL_DRONE])
 
 /mob/living/silicon/robot/drone/can_be_possessed_by(var/mob/abstract/observer/possessor)
 	if(!istype(possessor) || !possessor.client || !possessor.ckey)
@@ -115,6 +120,11 @@
 		hat = null
 		QDEL_NULL(hat_overlay)
 	return ..()
+
+/mob/living/silicon/robot/drone/get_default_language()
+	if(default_language)
+		return default_language
+	return all_languages[LANGUAGE_LOCAL_DRONE]
 
 /mob/living/silicon/robot/drone/construction
 	// Look and feel
@@ -169,6 +179,7 @@
 /mob/living/silicon/robot/drone/construction/matriarch
 	name = "matriarch drone"
 	desc_flavor = "It's a small matriarch drone. The casing is stamped with an corporate logo and the subscript: '%MAPNAME% Recursive Repair Systems: Heart Of The Swarm!'<br><br><b>OOC Info:</b><br><br>Matriarch drones are player-controlled synthetics which are lawed to maintain the station and not interact with anyone else, except for other drones. They are in command of all the smaller maintenance drones.<br><br>They hold a wide array of tools to build, repair, maintain, and clean. They function similarly to other synthetics, in that they require recharging regularly, have laws, and are resilient to many hazards, such as fire, radiation, vacuum, and more.<br><br>Ghosts can join the round as a matriarch drone by having a Command whitelist and accessing the 'Ghost Spawner' menu in the 'Ghost' tab.<br><br>An antagonist can use an Electromagnetic Sequencer to corrupt their laws and make them follow their orders."
+	module_type = /obj/item/robot_module/drone/construction/matriarch
 	law_type = /datum/ai_laws/matriarch_drone
 	can_swipe = FALSE
 
