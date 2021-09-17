@@ -14181,22 +14181,12 @@
 /area/security/warden)
 "aBg" = (
 /obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/structure/window/full,
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/security/warden)
 "aBh" = (
 /obj/machinery/door/firedoor,
@@ -14954,16 +14944,7 @@
 /turf/simulated/floor/tiled,
 /area/security/warden)
 "aCC" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/structure/window/full,
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
 	d2 = 2;
@@ -16054,13 +16035,7 @@
 /turf/simulated/floor/tiled,
 /area/security/warden)
 "aEy" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/structure/window/full,
 /obj/structure/disposalpipe/junction/yjunction{
 	dir = 4
 	},
@@ -16078,7 +16053,7 @@
 	name = "Brig Lockdown Door";
 	opacity = 0
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/security/warden)
 "aEz" = (
 /obj/structure/window/reinforced{
@@ -17349,14 +17324,7 @@
 /turf/simulated/floor/tiled,
 /area/security/warden)
 "aGu" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/structure/window/full,
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
 	d2 = 8;
@@ -17376,7 +17344,7 @@
 	name = "Brig Lockdown Door";
 	opacity = 0
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/security/warden)
 "aGv" = (
 /obj/structure/window/reinforced{
@@ -19197,17 +19165,7 @@
 /turf/simulated/floor/tiled,
 /area/security/warden)
 "aJQ" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/structure/window/full,
 /obj/structure/disposalpipe/segment{
 	dir = 8;
 	icon_state = "pipe-c"
@@ -19222,7 +19180,7 @@
 	name = "Brig Lockdown Door";
 	opacity = 0
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/security/warden)
 "aJR" = (
 /obj/machinery/portable_atmospherics/powered/scrubber/huge{
