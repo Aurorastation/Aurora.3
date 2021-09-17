@@ -52,6 +52,7 @@
 			new /datum/stack_recipe("metal rod", /obj/item/stack/rods, 1, 2, 60),
 			new /datum/stack_recipe("table frame", /obj/structure/table, BUILD_AMT, time = 10, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("wall girders", /obj/structure/girder, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("window frame", /obj/structure/window_frame, BUILD_AMT, time = 10, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("computer frame", /obj/structure/computerframe, BUILD_AMT, time = 25, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("machine blueprint", /obj/machinery/constructable_frame/machine_frame, 2, time = 25, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("light fixture frame", /obj/item/frame/light, 2),
