@@ -1975,18 +1975,6 @@
 /obj/machinery/disposal,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
-"bNJ" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/stairs)
 "bNO" = (
 /obj/machinery/light_switch{
 	pixel_y = 24
@@ -4814,20 +4802,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/foresolar)
-"eSK" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/stairs)
 "eTH" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1337;
@@ -4876,13 +4850,7 @@
 /area/sconference_room)
 "eXj" = (
 /obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/structure/window/full,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/stairs)
 "eXJ" = (
@@ -51288,9 +51256,9 @@ qUk
 uJK
 uJK
 aca
-eSK
 eXj
-bNJ
+eXj
+eXj
 aca
 aca
 kqg
@@ -52830,8 +52798,8 @@ mqp
 mqp
 nDk
 aca
-eSK
-bNJ
+eXj
+eXj
 aca
 aca
 aca

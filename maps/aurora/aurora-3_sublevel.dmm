@@ -1009,21 +1009,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
-"acJ" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/engineering/storage_sublevel)
 "acK" = (
 /obj/structure/table/rack,
 /obj/item/clothing/gloves/yellow,
@@ -2615,21 +2600,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
-"agM" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor,
-/area/engineering/storage_sublevel)
 "agN" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/reinforced,
@@ -3748,17 +3718,7 @@
 /area/engineering/atmos)
 "aje" = (
 /obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/phoronreinforced{
-	dir = 8
-	},
-/obj/structure/window/phoronreinforced{
-	dir = 4
-	},
-/obj/structure/window/phoronreinforced,
-/obj/structure/window/phoronreinforced{
-	dir = 1
-	},
+/obj/structure/window/full/phoron,
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /turf/simulated/floor/plating,
@@ -25156,24 +25116,14 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "bGw" = (
-/obj/structure/grille,
+/obj/structure/window/full/phoron,
 /obj/machinery/door/firedoor,
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'HIGH VOLTAGE'";
 	icon_state = "shock";
 	name = "HIGH VOLTAGE"
 	},
-/obj/structure/window/phoronreinforced{
-	dir = 8
-	},
-/obj/structure/window/phoronreinforced{
-	dir = 4
-	},
-/obj/structure/window/phoronreinforced{
-	dir = 1
-	},
-/obj/structure/window/phoronreinforced,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/outpost/engineering/power)
 "bKt" = (
 /obj/effect/floor_decal/corner_wide/yellow/full{
@@ -27148,17 +27098,6 @@
 	temperature = 278
 	},
 /area/medical/morgue)
-"fKe" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/mine/unexplored)
 "fLn" = (
 /turf/simulated/floor/tiled/airless,
 /area/security/penal_colony/warden)
@@ -29188,21 +29127,6 @@
 	},
 /turf/simulated/floor/tiled/airless,
 /area/security/penal_colony)
-"kLm" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor,
-/area/engineering/storage_sublevel)
 "kLG" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -31950,21 +31874,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
-"qId" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/engineering/atmos)
 "qLE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -31977,18 +31886,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_gym)
-"qMB" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/mine/unexplored)
 "qMQ" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -33911,16 +33808,7 @@
 /area/maintenance/engsublevel)
 "veq" = (
 /obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/full,
 /turf/simulated/floor/plating,
 /area/mine/unexplored)
 "vgD" = (
@@ -34975,19 +34863,9 @@
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
 "xjV" = (
-/obj/structure/grille,
+/obj/structure/window/full,
 /obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor,
+/turf/simulated/floor/tiled,
 /area/engineering/storage_sublevel)
 "xon" = (
 /obj/structure/table/wood,
@@ -49275,9 +49153,9 @@ abJ
 udp
 owL
 owL
-acJ
+xjV
 afp
-kLm
+xjV
 owL
 owL
 owL
@@ -50565,7 +50443,7 @@ sTu
 acL
 oFA
 acL
-agM
+xjV
 ahj
 ahK
 ain
@@ -55708,13 +55586,13 @@ aaO
 akG
 akG
 veq
-fKe
-qMB
+veq
+veq
 aaO
 aaO
 aaO
 akZ
-qId
+wpw
 aaO
 agQ
 agQ
