@@ -48,7 +48,6 @@
 	allowed_species_types = list(
 		/datum/species/human,
 		/datum/species/skrell,
-		/datum/species/skrell/axiori,
 		/datum/species/machine,
 		/datum/species/unathi,
 		/datum/species/bug,
