@@ -4,16 +4,6 @@
 /obj/random/loot,
 /turf/template_noop,
 /area/template_noop)
-"ca" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
-/obj/machinery/door/blast/shutters/open{
-	id = "radiatorshutters";
-	name = "Radiator Shutters"
-	},
-/turf/simulated/floor/plating{
-	roof_type = null
-	},
-/area/engineering/cooling)
 "dJ" = (
 /obj/machinery/atmospherics/pipe/zpipe/up,
 /turf/simulated/floor/plating,
@@ -48,17 +38,6 @@
 /obj/structure/lattice,
 /turf/template_noop,
 /area/template_noop)
-"he" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
-/obj/machinery/door/blast/shutters/open{
-	dir = 4;
-	id = "radiatorshutters";
-	name = "Radiator Shutters"
-	},
-/turf/simulated/floor/plating{
-	roof_type = null
-	},
-/area/engineering/cooling)
 "hv" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 10
@@ -221,14 +200,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/cooling)
 "sg" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
+/obj/structure/window/full,
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
@@ -255,11 +227,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/cooling)
 "yz" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
+/obj/structure/window/full,
 /obj/machinery/atmospherics/pipe/simple/visible/green,
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
@@ -276,14 +244,7 @@
 /turf/template_noop,
 /area/engineering/cooling)
 "Ao" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/structure/window/full,
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
 	id = "radiatorshutters";
@@ -342,15 +303,13 @@
 /turf/template_noop,
 /area/template_noop)
 "HK" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/structure/window/full,
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
 	id = "radiatorshutters";
 	name = "Radiator Shutters"
 	},
-/turf/simulated/floor/plating{
-	roof_type = null
-	},
+/turf/simulated/floor/carpet/rubber,
 /area/engineering/cooling)
 "Js" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -14058,7 +14017,7 @@ CN
 CN
 mc
 CN
-ca
+HK
 LX
 jK
 UI
@@ -14315,7 +14274,7 @@ CN
 CN
 mc
 Ar
-ca
+HK
 ic
 RV
 Dq
@@ -14572,7 +14531,7 @@ CN
 CN
 mc
 CN
-ca
+HK
 WG
 tQ
 tQ
@@ -15088,8 +15047,8 @@ mc
 Ar
 UG
 UG
-he
-he
+HK
+HK
 UG
 UG
 Ar
