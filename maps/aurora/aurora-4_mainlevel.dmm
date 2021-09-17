@@ -49452,13 +49452,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
-"bNy" = (
-/obj/machinery/atm{
-	pixel_x = 32;
-	pixel_y = -3
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/aft)
 "bNz" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -70117,6 +70110,17 @@
 /obj/item/reagent_containers/food/condiment/flour,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
+"wiQ" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/obj/machinery/atm{
+	pixel_x = 32;
+	pixel_y = -3
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "wje" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -99774,7 +99778,7 @@ mEM
 bLw
 bPz
 vhg
-bNy
+bLw
 bLw
 bLw
 bLw
@@ -99787,7 +99791,7 @@ bLw
 dKk
 bTm
 bTU
-bYx
+wiQ
 bdA
 bVv
 bLw
