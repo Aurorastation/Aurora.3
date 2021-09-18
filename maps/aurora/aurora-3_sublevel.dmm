@@ -22343,20 +22343,6 @@
 /obj/machinery/crusher_base,
 /turf/simulated/floor/reinforced,
 /area/maintenance/disposal)
-"bad" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/disposal)
 "bae" = (
 /obj/random/junk,
 /turf/simulated/floor/reinforced{
@@ -22370,14 +22356,7 @@
 /area/maintenance/disposal)
 "bai" = (
 /obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/structure/window/reinforced/polarized/full,
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
 "baj" = (
@@ -64940,7 +64919,7 @@ aZV
 bbZ
 awq
 baa
-bad
+bai
 bai
 baj
 aZV
