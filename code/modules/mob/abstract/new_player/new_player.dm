@@ -279,6 +279,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		character.buckled_to.set_dir(character.dir)
 
 	SSticker.mode.handle_latejoin(character)
+	universe.OnPlayerLatejoin(character)
 	if(SSjobs.ShouldCreateRecords(character.mind))
 		if(character.mind.assigned_role != "Cyborg")
 			SSrecords.generate_record(character)

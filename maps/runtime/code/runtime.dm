@@ -11,7 +11,7 @@
 	player_levels = list(1, 2, 3)
 	accessible_z_levels = list(1, 2, 3)
 
-	station_name = "NSS Runtime"
+	station_name = "NSV Runtime"
 	station_short = "Runtime"
 	dock_name = "singulo"
 	boss_name = "#code_dungeon"
@@ -21,6 +21,13 @@
 
 	use_overmap = TRUE
 	overmap_size = 35
+
+	shuttle_docked_message = "Attention all hands: Jump preparation complete. The bluespace drive is now spooling up, secure all stations for departure. Time to jump: approximately %ETD%."
+	shuttle_leaving_dock = "Attention all hands: Jump initiated, exiting bluespace in %ETA%."
+	shuttle_called_message = "Attention all hands: Jump sequence initiated. Transit procedures are now in effect. Jump in %ETA%."
+	shuttle_recall_message = "Attention all hands: Jump sequence aborted, return to normal operating conditions."
+
+	evac_controller_type = /datum/evacuation_controller/starship
 
 	station_networks = list(
 		NETWORK_CIVILIAN_MAIN,
