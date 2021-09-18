@@ -25703,6 +25703,10 @@
 /obj/item/device/radio/intercom{
 	pixel_x = -28
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "conpipe-c"
+	},
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "aSo" = (
@@ -26543,7 +26547,8 @@
 /area/security/lobby)
 "aTN" = (
 /obj/structure/disposalpipe/segment{
-	dir = 4
+	dir = 8;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled,
 /area/security/lobby)
@@ -62260,6 +62265,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/supply)
+"iaV" = (
+/obj/structure/disposalpipe/junction/yjunction,
+/turf/simulated/floor/tiled,
+/area/security/lobby)
 "ibm" = (
 /obj/machinery/light_switch{
 	pixel_x = 11;
@@ -66742,6 +66751,12 @@
 /obj/random/junk,
 /turf/simulated/floor/tiled/old_white,
 /area/maintenance/medbay)
+"qPN" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/security/lobby)
 "qQD" = (
 /obj/structure/computerframe,
 /turf/simulated/floor/plating,
@@ -71125,6 +71140,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/lawoffice/consular)
+"xOZ" = (
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/obj/machinery/disposal/small/north,
+/turf/simulated/floor/tiled,
+/area/security/lobby)
 "xQD" = (
 /obj/structure/door_assembly/door_assembly_research{
 	anchored = 1
@@ -98965,8 +98987,8 @@ aLx
 aLx
 aOW
 aLx
-aLx
-aTN
+iaV
+xOZ
 aIi
 aWH
 aYn
@@ -99222,8 +99244,8 @@ aJA
 aJA
 aOX
 aJA
-aJA
 aTO
+qPN
 aVt
 aWI
 aYn
