@@ -26,7 +26,7 @@
 	water_level_max = 3
 	land_type = /turf/simulated/floor/exoplanet/snow
 	water_type = /turf/simulated/floor/exoplanet/ice
-	fauna_types = list(/mob/living/simple_animal/hostile/samak, /mob/living/simple_animal/hostile/diyaab, /mob/living/simple_animal/hostile/shantak)
+	fauna_types = list(/mob/living/simple_animal/hostile/retaliate/samak, /mob/living/simple_animal/hostile/retaliate/diyaab, /mob/living/simple_animal/hostile/retaliate/shantak)
 
 /area/exoplanet/snow
 	ambience = list('sound/effects/wind/tundra0.ogg','sound/effects/wind/tundra1.ogg','sound/effects/wind/tundra2.ogg','sound/effects/wind/spooky0.ogg','sound/effects/wind/spooky1.ogg')

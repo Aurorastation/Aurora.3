@@ -5,7 +5,7 @@
 	planetary_area = /area/exoplanet/desert
 	rock_colors = list(COLOR_BEIGE, COLOR_PALE_YELLOW, COLOR_GRAY80, COLOR_BROWN)
 	plant_colors = list("#efdd6f","#7b4a12","#e49135","#ba6222","#5c755e","#420d22")
-	map_generators = list(/datum/random_map/noise/exoplanet/desert, /datum/random_map/noise/ore/rich)
+	map_generators = list(/datum/random_map/noise/exoplanet/desert)
 	surface_color = "#d6cca4"
 	water_color = null
 
@@ -44,8 +44,7 @@
 
 	flora_prob = 5
 	flora_diversity = 4
-	fauna_types = list(/mob/living/simple_animal/thinbug, /mob/living/simple_animal/tindalos, /mob/living/simple_animal/hostile/voxslug, /mob/living/simple_animal/hostile/antlion)
-	megafauna_types = list(/mob/living/simple_animal/hostile/antlion/mega)
+	fauna_types = list(/mob/living/simple_animal/thinbug, /mob/living/simple_animal/tindalos, /mob/living/simple_animal/hostile/slug)
 
 /datum/random_map/noise/exoplanet/desert/get_additional_spawns(var/value, var/turf/T)
 	..()
@@ -76,13 +75,13 @@
 	icon_state = "intact[rand(0,2)]"
 	..()
 
-/obj/structure/quicksand/user_unbuckle_mob(mob/user)
-	if(buckled_mob && !user.stat && !user.restrained())
+/obj/structure/quicksand/user_unbuckle(mob/user)
+	if(buckled && !user.stat && !user.restrained())
 		if(busy)
-			to_chat(user, "<span class='wanoticerning'>[buckled_mob] is already getting out, be patient.</span>")
+			to_chat(user, "<span class='wanoticerning'>[buckled] is already getting out, be patient.</span>")
 			return
 		var/delay = 60
-		if(user == buckled_mob)
+		if(user == buckled)
 			delay *=2
 			user.visible_message(
 				"<span class='notice'>\The [user] tries to climb out of \the [src].</span>",
@@ -91,43 +90,43 @@
 				)
 		else
 			user.visible_message(
-				"<span class='notice'>\The [user] begins pulling \the [buckled_mob] out of \the [src].</span>",
-				"<span class='notice'>You begin to pull \the [buckled_mob] out of \the [src].</span>",
+				"<span class='notice'>\The [user] begins pulling \the [buckled] out of \the [src].</span>",
+				"<span class='notice'>You begin to pull \the [buckled] out of \the [src].</span>",
 				"<span class='notice'>You hear water sloushing.</span>"
 				)
 		busy = 1
 		if(do_after(user, delay, src))
 			busy = 0
-			if(user == buckled_mob)
+			if(user == buckled)
 				if(prob(80))
 					to_chat(user, "<span class='warning'>You slip and fail to get out!</span>")
 					return
-				user.visible_message("<span class='notice'>\The [buckled_mob] pulls himself out of \the [src].</span>")
+				user.visible_message("<span class='notice'>\The [buckled] pulls himself out of \the [src].</span>")
 			else
-				user.visible_message("<span class='notice'>\The [buckled_mob] has been freed from \the [src] by \the [user].</span>")
-			unbuckle_mob()
+				user.visible_message("<span class='notice'>\The [buckled] has been freed from \the [src] by \the [user].</span>")
+			unbuckle()
 		else
 			busy = 0
 			to_chat(user, "<span class='warning'>You slip and fail to get out!</span>")
 			return
 
-/obj/structure/quicksand/unbuckle_mob()
+/obj/structure/quicksand/unbuckle()
 	..()
 	update_icon()
 
-/obj/structure/quicksand/buckle_mob(var/mob/L)
+/obj/structure/quicksand/buckle(var/mob/L)
 	..()
 	update_icon()
 
-/obj/structure/quicksand/on_update_icon()
+/obj/structure/quicksand/update_icon()
 	if(!exposed)
 		return
 	icon_state = "open"
 	overlays.Cut()
-	if(buckled_mob)
-		overlays += buckled_mob
+	if(buckled)
+		overlays += buckled
 		var/image/I = image(icon,icon_state="overlay")
-		I.layer = ABOVE_HUMAN_LAYER
+		I.layer = ABOVE_MOB_LAYER
 		overlays += I
 
 /obj/structure/quicksand/proc/expose()
@@ -139,7 +138,7 @@
 	exposed = 1
 	update_icon()
 
-/obj/structure/quicksand/attackby(obj/item/weapon/W, mob/user)
+/obj/structure/quicksand/attackby(obj/item/W, mob/user)
 	if(!exposed && W.force)
 		expose()
 	else
@@ -148,9 +147,9 @@
 /obj/structure/quicksand/Crossed(var/atom/movable/AM)
 	if(isliving(AM))
 		var/mob/living/L = AM
-		if(L.throwing || L.can_overcome_gravity())
+		if(L.throwing)
 			return
-		buckle_mob(L)
+		buckle(L)
 		if(!exposed)
 			expose()
 		to_chat(L, SPAN_DANGER("You fall into \the [src]!"))

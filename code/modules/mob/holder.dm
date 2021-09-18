@@ -265,13 +265,6 @@ var/list/holder_mob_icon_cache = list()
 	var/list/generate_for_slots = list(slot_l_hand_str, slot_r_hand_str, slot_back_str)
 	slot_flags = SLOT_BACK
 
-
-/obj/item/holder/proc/sync(var/mob/living/M)
-	src.name = M.name
-	src.overlays = M.overlays
-	dir = M.dir
-	reagents = M.reagents
-
 /obj/item/holder/human/sync(var/mob/living/M)
 	cut_overlays()
 	// Generate appropriate on-mob icons.
@@ -353,6 +346,19 @@ var/list/holder_mob_icon_cache = list()
 		if(H.isMonkey())
 			H.change_animal_name(usr)
 			sync(contained)
+
+/obj/item/holder/proc/sync(var/mob/living/M)
+	dir = 2
+	overlays.Cut()
+	icon = M.icon
+	icon_state = M.icon_state
+	item_state = M.item_state
+	color = M.color
+	name = M.name
+	desc = M.desc
+	overlays |= M.overlays
+
+	update_held_icon()
 
 //#TODO-MERGE
 //Port the reduced-duplication holder method from baystation upstream:

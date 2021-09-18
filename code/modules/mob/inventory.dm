@@ -447,3 +447,10 @@ var/list/slot_equipment_priority = list( \
 		return FALSE
 
 	return O.pre_equip(src, visualsOnly)
+
+// Returns the first item which covers any given body part
+/mob/proc/get_covering_equipped_item(var/body_parts)
+	for(var/entry in get_equipped_items())
+		var/obj/item/I = entry
+		if(I.body_parts_covered & body_parts)
+			return I

@@ -34,7 +34,6 @@
 					   /mob/living/simple_animal/hostile/retaliate/jelly/alt,
 					   /mob/living/simple_animal/hostile/retaliate/beast/shantak/alt,
 					   /mob/living/simple_animal/hostile/leech)
-	megafauna_types = list(/obj/structure/leech_spawner)
 
 /area/exoplanet/shrouded
 	forced_ambience = list("sound/ambience/spookyspace1.ogg", "sound/ambience/spookyspace2.ogg")
