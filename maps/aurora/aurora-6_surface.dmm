@@ -6716,6 +6716,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/portsolar)
+"gVr" = (
+/obj/structure/window/full,
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics/garden)
 "gVS" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/shieldwallgen,
@@ -53543,7 +53551,7 @@ lEd
 lEd
 hyn
 yhW
-yhW
+gVr
 yhW
 qnH
 yhW
