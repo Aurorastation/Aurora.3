@@ -62941,10 +62941,6 @@
 "slV" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced/polarized/full,
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "rep_inner"
-	},
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
 "snu" = (
