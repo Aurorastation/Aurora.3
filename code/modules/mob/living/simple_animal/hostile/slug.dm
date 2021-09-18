@@ -1,7 +1,3 @@
-/*VOX SLUG
-Small, little HP, poisonous.
-*/
-
 /mob/living/simple_animal/hostile/slug
 	name = "slug"
 	desc = "A viscious little creature, it has a mouth of too many teeth and a penchant for blood."
@@ -46,7 +42,7 @@ Small, little HP, poisonous.
 		if(H.dir != reverse_dir[dir]) //Distracted? Time to die.
 			base_probability *= 2
 		if(prob(base_probability))
-			V.attach(H)
+			attach(H)
 
 /mob/living/simple_animal/hostile/slug/get_scooped(var/mob/living/carbon/grabber)
 	if(!(grabber.species.get_bodytype() in list(BODYTYPE_VAURCA_BREEDER, BODYTYPE_VAURCA_WARFORM, BODYTYPE_VAURCA)))
