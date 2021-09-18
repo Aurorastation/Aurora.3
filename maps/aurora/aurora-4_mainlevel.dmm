@@ -62266,7 +62266,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/supply)
 "iaV" = (
-/obj/structure/disposalpipe/junction/yjunction,
+/obj/structure/disposalpipe/junction{
+	dir = 8;
+	icon_state = "pipe-j2"
+	},
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "ibm" = (
