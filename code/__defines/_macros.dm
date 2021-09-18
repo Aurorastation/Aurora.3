@@ -31,6 +31,8 @@
 
 #define UNDERSCORE_OR_NULL(target) "[target ? "[target]_" : ""]"
 
+#define sequential_id(key) uniqueness_repository.Generate(/datum/uniqueness_generator/id_sequential, key)
+
 #define isAI(A) istype(A, /mob/living/silicon/ai)
 #define isDrone(A) istype(A, /mob/living/silicon/robot/drone)
 

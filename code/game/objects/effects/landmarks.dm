@@ -264,7 +264,7 @@ var/list/ruin_landmarks = list()
 	var/datum/map_template/ruin/ruin_template
 
 /obj/effect/landmark/ruin/New(loc, my_ruin_template)
-	name = "ruin_[ref(src)]" //todomatt: EXTREMELY FUCKING HACKY. THIS DOESNT WORK. FIX THIS.
+	name = "ruin_[sequential_id(/obj/effect/landmark/ruin)]"
 	..(loc)
 	ruin_template = my_ruin_template
 	ruin_landmarks |= src

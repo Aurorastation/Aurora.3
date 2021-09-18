@@ -295,7 +295,7 @@
 // This should only be used for EXTERNAL sources of instability, such as from someone or something glowing.
 /mob/living/proc/receive_radiated_instability(amount)
 	// Energy armor like from the AMI RIG can protect from this.
-	var/armor_ratio = get_blocked_ratio(BP_CHEST, BURN, damage = 40) //todomatt: look over this again
+	var/armor_ratio = get_blocked_ratio(BP_CHEST, BURN, damage = 40)
 	amount = amount * armor_ratio
 	if(amount && prob(10))
 		if(isSynthetic())

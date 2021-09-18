@@ -86,7 +86,7 @@
 	moving_status = SHUTTLE_WARMUP
 	callHook("shuttle_moved", list(start_location,destination))
 	if(sound_takeoff)
-		playsound(current_location, sound_takeoff, 50, 20, is_global = TRUE)
+		playsound(current_location, sound_takeoff, 25, 20, is_global = TRUE)
 	spawn(warmup_time*10)
 		if(moving_status == SHUTTLE_IDLE)
 			return FALSE	//someone cancelled the launch
@@ -110,7 +110,7 @@
 	moving_status = SHUTTLE_WARMUP
 	callHook("shuttle_moved", list(start_location, destination))
 	if(sound_takeoff)
-		playsound(current_location, sound_takeoff, 100, 20, is_global = TRUE)
+		playsound(current_location, sound_takeoff, 50, 20, is_global = TRUE)
 	spawn(warmup_time*10)
 		if(moving_status == SHUTTLE_IDLE)
 			return	//someone cancelled the launch
@@ -128,7 +128,7 @@
 			while (world.time < arrive_time)
 				if(!fwooshed && (arrive_time - world.time) < 100)
 					fwooshed = 1
-					playsound(destination, sound_landing, 100, 20, is_global = TRUE)
+					playsound(destination, sound_landing, 50, 20, is_global = TRUE)
 				sleep(5)
 			if(!attempt_move(destination))
 				attempt_move(start_location) //try to go back to where we started. If that fails, I guess we're stuck in the interim location

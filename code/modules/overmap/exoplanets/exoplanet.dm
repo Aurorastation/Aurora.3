@@ -33,7 +33,7 @@
 	var/repopulating = 0
 	var/repopulate_types = list() // animals which have died that may come back
 
-	var/list/possible_themes = list(/datum/exoplanet_theme/mountains,/datum/exoplanet_theme)
+	var/list/possible_themes = list(/datum/exoplanet_theme)
 	var/list/themes = list()
 
 	var/list/map_generators = list()
@@ -46,6 +46,8 @@
 	var/list/spawned_features
 
 	var/habitability_class
+
+	var/list/mobs_to_tolerate = list()
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_habitability()
 	var/roll = rand(1,100)
@@ -179,10 +181,6 @@
 	if(length(grasscolors))
 		grass_color = pick(grasscolors)
 
-	//TODO: Figure out why /turf/simulated/mineral exist before this step on the map
-
-	//Ghetto-Fix: Remove all mineral turfs on the z-level
-
 	for(var/datum/exoplanet_theme/T in themes)
 		T.before_map_generation(src)
 	for(var/zlevel in map_z)
@@ -226,6 +224,8 @@
 			death_event.register(A, src, /obj/effect/overmap/visitable/sector/exoplanet/proc/remove_animal)
 			destroyed_event.register(A, src, /obj/effect/overmap/visitable/sector/exoplanet/proc/remove_animal)
 	max_animal_count = animals.len
+	for(var/type in random_map.fauna_types)
+		mobs_to_tolerate[type] = TRUE
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/update_biome()
 	for(var/datum/seed/S in seeds)
@@ -264,6 +264,9 @@
 		A.name = "alien creature"
 		A.real_name = "alien creature"
 		A.verbs |= /mob/living/simple_animal/proc/name_species
+		if(istype(A, /mob/living/simple_animal/hostile))
+			var/mob/living/simple_animal/hostile/AH = A
+			AH.tolerated_types = mobs_to_tolerate.Copy()
 	if(atmosphere)
 		//Set up gases for living things
 		if(!LAZYLEN(breathgas))
