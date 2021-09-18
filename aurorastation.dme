@@ -363,6 +363,7 @@
 #include "code\datums\repositories\crew.dm"
 #include "code\datums\repositories\decls.dm"
 #include "code\datums\repositories\repository.dm"
+#include "code\datums\repositories\unique.dm"
 #include "code\datums\trading\_trading_defines.dm"
 #include "code\datums\trading\ai.dm"
 #include "code\datums\trading\food.dm"
