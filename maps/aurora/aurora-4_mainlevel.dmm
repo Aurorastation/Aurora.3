@@ -2627,10 +2627,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "aft" = (
+/obj/machinery/door/firedoor,
 /obj/structure/window/reinforced/polarized/full{
 	name = "tinted window"
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "afu" = (
@@ -2832,11 +2832,11 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "afN" = (
-/obj/structure/window/reinforced/polarized/full,
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
 	},
+/obj/structure/window/reinforced/polarized/full,
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "afO" = (
@@ -12639,8 +12639,8 @@
 /area/rnd/telesci)
 "ayr" = (
 /obj/machinery/door/firedoor,
-/obj/structure/window/reinforced/polarized/full,
 /obj/structure/cable/green,
+/obj/structure/window/reinforced/polarized/full,
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
 "ays" = (
@@ -23310,11 +23310,11 @@
 /area/bridge)
 "aRC" = (
 /obj/machinery/door/firedoor,
-/obj/structure/window/reinforced/polarized/full,
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
 	},
+/obj/structure/window/reinforced/polarized/full,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "aRD" = (
@@ -24187,8 +24187,8 @@
 /area/bridge)
 "aTe" = (
 /obj/machinery/door/firedoor,
-/obj/structure/window/reinforced/polarized/full,
 /obj/structure/cable/green,
+/obj/structure/window/reinforced/polarized/full,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "aTf" = (
@@ -29588,9 +29588,6 @@
 /area/medical/pharmacy)
 "bdv" = (
 /obj/machinery/door/firedoor,
-/obj/structure/window/reinforced/polarized/full{
-	name = "privacy windows"
-	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -29599,6 +29596,9 @@
 	id = "LCKDshutters";
 	name = "MedBay Lockdown Shutters";
 	opacity = 0
+	},
+/obj/structure/window/reinforced/polarized/full{
+	name = "privacy window"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/exam_room2)
@@ -31246,12 +31246,12 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/exam_room)
 "bgv" = (
-/obj/structure/window/reinforced/polarized/full{
-	name = "privacy window"
-	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/sign/examroom,
+/obj/structure/window/reinforced/polarized/full{
+	name = "privacy window"
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/exam_room2)
 "bgw" = (
@@ -31283,7 +31283,6 @@
 /area/hallway/primary/starboard)
 "bgz" = (
 /obj/machinery/door/firedoor,
-/obj/structure/window/reinforced/polarized/full,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 8;
@@ -31292,6 +31291,7 @@
 	name = "MedBay Lockdown Shutters";
 	opacity = 0
 	},
+/obj/structure/window/reinforced/polarized/full,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/medbreak)
 "bgA" = (
@@ -43844,10 +43844,10 @@
 /area/medical/surgeryobs)
 "bIA" = (
 /obj/machinery/door/firedoor,
-/obj/structure/window/reinforced/polarized/full,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
 	},
+/obj/structure/window/reinforced/polarized/full,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
 "bIB" = (
@@ -47877,8 +47877,8 @@
 /turf/simulated/floor/wood,
 /area/chapel/office)
 "bTP" = (
-/obj/structure/window/reinforced/polarized/full,
 /obj/machinery/door/firedoor,
+/obj/structure/window/reinforced/polarized/full,
 /turf/simulated/floor/wood,
 /area/chapel/office)
 "bTQ" = (
@@ -54474,8 +54474,8 @@
 /turf/simulated/wall/r_wall,
 /area/engineering/storage_eva)
 "cpS" = (
-/obj/structure/window/reinforced/polarized/full,
 /obj/machinery/door/firedoor,
+/obj/structure/window/reinforced/polarized/full,
 /turf/simulated/floor/lino/grey,
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
@@ -57557,6 +57557,15 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/old,
 /area/maintenance/library)
+"hLs" = (
+/obj/machinery/door/firedoor,
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/structure/window/reinforced/polarized/full,
+/turf/simulated/floor/wood,
+/area/lawoffice/consular)
 "hLy" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -63636,8 +63645,8 @@
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/locker/locker_toilet)
 "tCH" = (
-/obj/structure/window/reinforced/polarized/full,
 /obj/machinery/door/firedoor,
+/obj/structure/window/reinforced/polarized/full,
 /turf/simulated/floor/tiled/dark,
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
@@ -66268,8 +66277,8 @@
 /area/security/forensics_morgue)
 "xOM" = (
 /obj/machinery/door/firedoor,
-/obj/structure/window/reinforced/polarized/full,
 /obj/structure/cable/green,
+/obj/structure/window/reinforced/polarized/full,
 /turf/simulated/floor/wood,
 /area/lawoffice/consular)
 "xQD" = (
@@ -102081,7 +102090,7 @@ aLP
 aZF
 baO
 bcd
-bkm
+bdv
 aJZ
 aYl
 bdI
@@ -102338,12 +102347,12 @@ aLP
 aZJ
 baP
 bce
-bkm
+bdv
 bhP
 bcO
 bdJ
 bfj
-bkm
+bdv
 blp
 bmO
 bmO
@@ -102595,16 +102604,16 @@ aLP
 aZF
 baQ
 bcf
-bkm
+bdv
 bgt
 bgt
 bdK
 bgo
 bfh
-bkm
-bkm
-bkm
-bkm
+bdv
+bdv
+bdv
+bdv
 afO
 brT
 bmK
@@ -102862,7 +102871,7 @@ bhO
 bhS
 bjd
 aHH
-bkm
+bdv
 bmO
 btk
 bul
@@ -103112,14 +103121,14 @@ eFN
 bdL
 bfk
 bgx
-bkm
+bdv
 bgr
 aPo
 aPo
 bhT
 bje
 bju
-bkm
+bdv
 brU
 btl
 aVi
@@ -103376,7 +103385,7 @@ aPn
 bhU
 bjf
 bjK
-bkm
+bdv
 bmO
 bmK
 bun
@@ -103626,14 +103635,14 @@ eFN
 bdN
 bfk
 bgy
-bkm
+bdv
 bgu
 bhq
 bhQ
 bjc
 bjg
 bjL
-bkm
+bdv
 bmO
 bmK
 buo
@@ -104377,9 +104386,9 @@ awG
 qSC
 qSC
 sJg
-sJg
+hLs
 aEO
-sJg
+hLs
 qSC
 cCf
 aLQ
