@@ -129,7 +129,7 @@
 	seed_name = "blueberry"
 	display_name = "blueberry bush"
 	mutants = list("berries","poisonberries","glowberries")
-	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/drink/berryjuice = list(10,10))
+	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/drink/blueberryjuice = list(10,10))
 
 /datum/seed/berry/blue/setup_traits()
 	..()
@@ -149,7 +149,7 @@
 	seed_name = "glowberry"
 	display_name = "glowberry bush"
 	mutants = null
-	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/uranium = list(3,5))
+	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/uranium = list(3,5), /decl/reagent/drink/glowberryjuice = list(10,10))
 
 /datum/seed/berry/glow/setup_traits()
 	..()
@@ -188,7 +188,7 @@
 	seed_name = "death berry"
 	display_name = "death berry bush"
 	mutants = null
-	chems = list(/decl/reagent/nutriment = list(1), /decl/reagent/toxin = list(3,3), /decl/reagent/lexorin = list(1,5))
+	chems = list(/decl/reagent/nutriment = list(1), /decl/reagent/toxin = list(3,3), /decl/reagent/lexorin = list(1,5), /decl/reagent/drink/deathberryjuice = list(10,10))
 
 /datum/seed/berry/poison/death/setup_traits()
 	..()
@@ -199,6 +199,86 @@
 
 /obj/item/seeds/deathberryseed
 	seed_type = "deathberries"
+
+/datum/seed/berry/raspberry
+	name = "raspberries"
+	seed_name = "raspberry"
+	display_name = "raspberry bush"
+	mutants = list("berries","poisonberries","glowberries")
+	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/drink/raspberryjuice = list(10,10))
+
+/datum/seed/berry/raspberry/setup_traits()
+	..()
+	set_trait(TRAIT_MATURATION,5)
+	set_trait(TRAIT_PRODUCTION,5)
+	set_trait(TRAIT_YIELD,2)
+	set_trait(TRAIT_POTENCY,10)
+	set_trait(TRAIT_PRODUCT_COLOUR,"#ff0000")
+	set_trait(TRAIT_WATER_CONSUMPTION, 5)
+	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.2)
+
+/obj/item/seeds/raspberryseed
+	seed_type = "raspberries"
+
+/datum/seed/berry/raspberry/blue
+	name = "blue raspberries"
+	seed_name = "blue raspberry"
+	display_name = "blue raspberry bush"
+	mutants = list("berries","poisonberries","glowberries")
+	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/drink/blueraspberryjuice = list(10,10))
+
+/datum/seed/berry/raspberry/blue/setup_traits()
+	..()
+	set_trait(TRAIT_MATURATION,5)
+	set_trait(TRAIT_PRODUCTION,5)
+	set_trait(TRAIT_YIELD,2)
+	set_trait(TRAIT_POTENCY,10)
+	set_trait(TRAIT_PRODUCT_COLOUR,"#030145")
+	set_trait(TRAIT_WATER_CONSUMPTION, 5)
+	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.2)
+
+/obj/item/seeds/blueraspberryseed
+	seed_type = "blue raspberries"
+
+/datum/seed/berry/raspberry/black
+	name = "blackberries"
+	seed_name = "blackberry"
+	display_name = "blackberry bush"
+	mutants = list("berries","poisonberries","glowberries")
+	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/drink/blackberryjuice = list(10,10))
+
+/datum/seed/berry/raspberry/black/setup_traits()
+	..()
+	set_trait(TRAIT_MATURATION,5)
+	set_trait(TRAIT_PRODUCTION,5)
+	set_trait(TRAIT_YIELD,2)
+	set_trait(TRAIT_POTENCY,10)
+	set_trait(TRAIT_PRODUCT_COLOUR,"#1a063f")
+	set_trait(TRAIT_WATER_CONSUMPTION, 5)
+	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.2)
+
+/obj/item/seeds/blackraspberryseed
+	seed_type = "blackberries"
+
+/datum/seed/berry/strawberry
+	name = "strawberries"
+	seed_name = "strawberry"
+	display_name = "strawberry bush"
+	mutants = list("berries","poisonberries","glowberries")
+	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/drink/strawberryjuice = list(10,10))
+
+/datum/seed/berry/strawberry/setup_traits()
+	..()
+	set_trait(TRAIT_MATURATION,5)
+	set_trait(TRAIT_PRODUCTION,5)
+	set_trait(TRAIT_YIELD,2)
+	set_trait(TRAIT_POTENCY,10)
+	set_trait(TRAIT_PRODUCT_COLOUR,"#bb0202")
+	set_trait(TRAIT_WATER_CONSUMPTION, 5)
+	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.2)
+
+/obj/item/seeds/strawberryseed
+	seed_type = "strawberries"
 //////////////
 //  Apples  //
 //////////////
