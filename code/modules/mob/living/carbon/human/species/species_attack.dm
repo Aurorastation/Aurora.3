@@ -245,5 +245,5 @@
 	attack_name = "clawed fists"
 
 	damage = 7.5
-	attack_door = TRUE
+	attack_door = 20
 	crowbar_door = TRUE

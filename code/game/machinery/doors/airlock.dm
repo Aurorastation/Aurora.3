@@ -960,7 +960,7 @@ About the new airlock wires panel:
 				user.visible_message(SPAN_DANGER("\The [user] forcefully strikes \the [src] with their [H.default_attack.attack_name]!"))
 				user.do_attack_animation(src, null)
 				playsound(loc, hitsound, 60, 1)
-				take_damage(H.default_attack.damage * 3)
+				take_damage(H.default_attack.attack_door)
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				return
 	if(src.p_open)
