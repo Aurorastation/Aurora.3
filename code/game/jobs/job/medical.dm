@@ -70,6 +70,7 @@
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_genetics, access_eva)
 	outfit = /datum/outfit/job/doctor
+	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
 
 /datum/job/surgeon
 	title = "Surgeon"
@@ -89,6 +90,7 @@
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_genetics, access_eva)
 	outfit = /datum/outfit/job/doctor/surgeon
+	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
 
 /datum/outfit/job/doctor
 	name = "Physician"
@@ -154,6 +156,7 @@
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics)
 	minimal_access = list(access_medical, access_medical_equip, access_pharmacy, access_virology)
 	outfit = /datum/outfit/job/pharmacist
+	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
 
 /datum/outfit/job/pharmacist
 	name = "Pharmacist"
@@ -197,6 +200,7 @@
 	alt_titles = list("Psychologist")
 	outfit = /datum/outfit/job/psychiatrist
 	alt_outfits = list("Psychologist" = /datum/outfit/job/psychiatrist/psycho)
+	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
 
 /datum/outfit/job/psychiatrist
 	name = "Psychiatrist"
@@ -238,7 +242,7 @@
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_eva, access_maint_tunnels, access_engine, access_research, access_sec_doors, access_external_airlocks, access_psychiatrist, access_first_responder)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_eva, access_maint_tunnels, access_engine, access_research, access_sec_doors, access_external_airlocks, access_first_responder)
 	outfit = /datum/outfit/job/med_tech
-	blacklisted_species = list(SPECIES_DIONA, SPECIES_IPC_G2)
+	blacklisted_species = list(SPECIES_DIONA, SPECIES_IPC_G2, SPECIES_VAURCA_BULWARK)
 
 /datum/outfit/job/med_tech
 	name = "First Responder"
@@ -281,6 +285,7 @@
 	minimal_access = list(access_medical, access_surgery, access_medical_equip)
 	minimum_character_age = 18
 	outfit = /datum/outfit/job/intern_med
+	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
 
 /datum/outfit/job/intern_med
 	name = "Medical Intern"

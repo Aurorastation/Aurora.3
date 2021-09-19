@@ -80,7 +80,6 @@
 	access = list(access_eva, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_external_airlocks, access_construction, access_atmospherics)
 	minimal_access = list(access_eva, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_external_airlocks, access_construction)
 	outfit = /datum/outfit/job/engineer
-	blacklisted_species = null
 
 /datum/outfit/job/engineer
 	name = "Engineer"
@@ -133,7 +132,6 @@
 	access = list(access_eva, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_external_airlocks, access_construction, access_atmospherics, access_external_airlocks)
 	minimal_access = list(access_eva, access_engine, access_atmospherics, access_maint_tunnels, access_emergency_storage, access_construction, access_external_airlocks)
 	outfit = /datum/outfit/job/atmos
-	blacklisted_species = null
 
 /datum/outfit/job/atmos
 	name = "Atmospheric Technician"
@@ -182,7 +180,6 @@
 	access = list(access_maint_tunnels, access_construction, access_engine_equip, access_engine)
 	minimal_access = list(access_maint_tunnels, access_construction, access_engine_equip, access_engine)
 	outfit = /datum/outfit/job/intern_eng
-	blacklisted_species = null
 
 	minimum_character_age = 18
 

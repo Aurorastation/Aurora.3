@@ -75,6 +75,7 @@
 	minimal_player_age = 14
 	outfit = /datum/outfit/job/scientist
 	alt_outfits = list("Xenoarcheologist"=/datum/outfit/job/scientist/xenoarcheologist)
+	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
 
 /datum/outfit/job/scientist
 	name = "Scientist"
@@ -125,7 +126,6 @@
 
 	outfit = /datum/outfit/job/scientist/xenobiologist
 	alt_outfits = list("Xenobotanist"=/datum/outfit/job/scientist/xenobiologist/xenobotanist)
-	blacklisted_species = null
 
 /datum/outfit/job/scientist/xenobiologist
 	name = "Xenobiologist"
@@ -156,7 +156,6 @@
 	minimal_player_age = 7
 
 	outfit = /datum/outfit/job/roboticist
-	blacklisted_species = null
 
 /datum/outfit/job/roboticist
 	name = "Roboticist"
@@ -205,6 +204,7 @@
 	access = list(access_research, access_tox)
 	minimal_access = list(access_research, access_tox)
 	outfit = /datum/outfit/job/intern_sci
+	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
 
 /datum/outfit/job/intern_sci
 	name = "Lab Assistant"
