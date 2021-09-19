@@ -120,11 +120,11 @@
 /area/maintenance/security_starboard)
 "aas" = (
 /obj/effect/map_effect/airlock/s_to_n,
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "aau" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "aav" = (
@@ -494,18 +494,7 @@
 /turf/simulated/floor/tiled,
 /area/security/forensics_laboratory)
 "abg" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/security/forensics_laboratory)
 "abh" = (
@@ -623,17 +612,6 @@
 /turf/simulated/floor/airless,
 /area/mine/unexplored)
 "abu" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -641,6 +619,7 @@
 	name = "Security Blast Door";
 	opacity = 0
 	},
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "abw" = (
@@ -798,24 +777,10 @@
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_laboratory)
 "abS" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	layer = 5;
-	name = "adjusted reinforced window"
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/security/forensics_laboratory)
 "abT" = (
@@ -1078,21 +1043,6 @@
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
-"acv" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/security/forensics_laboratory)
 "acw" = (
 /obj/machinery/status_display{
 	pixel_x = 32
@@ -1179,25 +1129,6 @@
 /obj/structure/girder,
 /turf/simulated/floor/airless,
 /area/mine/unexplored)
-"acF" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "Security Lockdown";
-	name = "Security Blast Door";
-	opacity = 0
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
 "acG" = (
 /obj/structure/sign/nosmoking_2{
 	pixel_x = -32
@@ -1424,24 +1355,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/forensics_laboratory)
-"acZ" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/security/forensics_laboratory)
 "ada" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1573,18 +1486,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/carpet/rubber,
 /area/assembly/robotics/workshop)
-"adm" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/vault)
 "adn" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -2136,20 +2037,6 @@
 /area/rnd/research)
 "aen" = (
 /obj/item/material/shard,
-/turf/simulated/floor/plating,
-/area/maintenance/vault)
-"aeo" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "aep" = (
@@ -2785,22 +2672,11 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "afw" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/door/firedoor,
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor,
 /area/security/main)
 "afx" = (
@@ -2968,25 +2844,9 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "afN" = (
-/obj/structure/grille,
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "Interro"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "Interro"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "Interro"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "Interro"
 	},
 /turf/simulated/floor/plating,
 /area/security/brig)
@@ -3179,19 +3039,8 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "agm" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /obj/structure/cable/green,
-/obj/machinery/door/firedoor,
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor,
 /area/security/main)
 "agn" = (
@@ -3408,36 +3257,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "agL" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/maintenance/engineering)
-"agM" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/maintenance/engineering)
-"agN" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "agO" = (
@@ -4934,22 +4754,11 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "ajV" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/door/firedoor,
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor,
 /area/security/main)
 "ajW" = (
@@ -4991,22 +4800,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/main)
 "ajY" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/door/firedoor,
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor,
 /area/security/main)
 "ajZ" = (
@@ -5451,18 +5249,7 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "akN" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor,
 /area/security/security_office)
 "akO" = (
@@ -6136,18 +5923,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/security/nuke_storage)
-"ami" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
 "amj" = (
 /obj/effect/floor_decal/corner_wide/mauve/full{
 	dir = 1
@@ -7881,20 +7656,6 @@
 /obj/item/stack/wrapping_paper,
 /turf/simulated/floor/tiled,
 /area/security/security_office)
-"apt" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor,
-/area/security/security_office)
 "apu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -8517,18 +8278,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/security/security_office)
-"aqD" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor,
 /area/security/security_office)
 "aqE" = (
 /obj/effect/floor_decal/corner/blue{
@@ -9184,17 +8933,7 @@
 /turf/simulated/floor/tiled,
 /area/security/brig/processing)
 "arK" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/security/brig/processing)
 "arL" = (
@@ -9244,25 +8983,7 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "arP" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/security/security_office)
-"arQ" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/security/security_office)
 "arR" = (
@@ -9293,18 +9014,7 @@
 /turf/simulated/floor/tiled,
 /area/security/training)
 "arT" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/security/training)
 "arU" = (
@@ -9325,40 +9035,6 @@
 	req_access = list(63)
 	},
 /turf/simulated/floor/tiled,
-/area/security/training)
-"arV" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/effect/floor_decal/spline/plain,
-/turf/simulated/floor/plating,
-/area/security/training)
-"arW" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
-/area/security/training)
-"arX" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
 /area/security/training)
 "arY" = (
 /obj/structure/disposalpipe/segment,
@@ -9885,18 +9561,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig/processing)
-"asT" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
-/area/security/brig/processing)
 "asU" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
@@ -9907,21 +9571,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/brig/processing)
-"asW" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
 /area/security/brig/processing)
 "asX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -10368,15 +10017,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/security/nuke_storage)
-"atu" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
 "atv" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -11066,21 +10706,11 @@
 /turf/simulated/floor/tiled,
 /area/security/brig/processing)
 "auE" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
 	},
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/security/brig/processing)
 "auF" = (
@@ -11960,22 +11590,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig/processing)
-"awj" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/plating,
-/area/security/brig/processing)
 "awk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
@@ -12047,21 +11661,11 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "awr" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
 	},
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/security/prison)
 "aws" = (
@@ -12084,19 +11688,6 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "awu" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/cable/green,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 4;
@@ -12105,6 +11696,8 @@
 	name = "Brig Lockdown Door";
 	opacity = 0
 	},
+/obj/structure/cable/green,
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/security/prison)
 "awv" = (
@@ -12150,19 +11743,6 @@
 "awx" = (
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/tiled/ramp/bottom,
-/area/security/brig)
-"awy" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
 /area/security/brig)
 "awz" = (
 /obj/structure/cable/green{
@@ -13229,14 +12809,6 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "aye" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
@@ -13246,6 +12818,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/cable/green,
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/security/prison)
 "ayf" = (
@@ -13340,16 +12913,6 @@
 /area/security/brig)
 "aym" = (
 /turf/simulated/floor/reinforced,
-/area/security/brig)
-"ayn" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
 /area/security/brig)
 "ayo" = (
 /obj/structure/closet/secure_closet/scientist,
@@ -14146,16 +13709,8 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "azG" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/structure/cable/green,
-/obj/structure/window/reinforced,
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/security/prison)
 "azH" = (
@@ -14210,17 +13765,6 @@
 "azO" = (
 /obj/machinery/computer/area_atmos,
 /turf/simulated/floor/reinforced,
-/area/security/brig)
-"azP" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
 /area/security/brig)
 "azQ" = (
 /obj/machinery/light{
@@ -15088,18 +14632,6 @@
 /turf/simulated/floor/tiled,
 /area/security/warden)
 "aBg" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
@@ -15150,25 +14682,6 @@
 	req_access = list(2)
 	},
 /turf/simulated/floor/tiled,
-/area/security/prison)
-"aBk" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
 /area/security/prison)
 "aBl" = (
 /obj/machinery/door/blast/regular{
@@ -15837,18 +15350,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "aCp" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 4
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
 	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/structure/grille,
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/security/armory)
 "aCq" = (
@@ -15863,6 +15369,11 @@
 /obj/machinery/door/airlock/glass_security{
 	name = "Armory";
 	req_access = list(3)
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
@@ -15887,22 +15398,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "aCt" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
 	},
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/security/brig/processing)
 "aCu" = (
@@ -15929,25 +15429,6 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled,
-/area/security/brig/processing)
-"aCv" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/plating,
 /area/security/brig/processing)
 "aCw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -16035,22 +15516,11 @@
 /turf/simulated/floor/tiled,
 /area/security/warden)
 "aCC" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 4;
@@ -16059,6 +15529,7 @@
 	name = "Brig Lockdown Door";
 	opacity = 0
 	},
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/security/warden)
 "aCD" = (
@@ -16160,22 +15631,11 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aCL" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/door/firedoor,
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/security/prison)
 "aCM" = (
@@ -16192,18 +15652,6 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aCO" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -16215,6 +15663,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/security/prison)
 "aCP" = (
@@ -17209,13 +16658,6 @@
 /turf/simulated/floor/tiled,
 /area/security/warden)
 "aEy" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/structure/disposalpipe/junction/yjunction{
 	dir = 4
 	},
@@ -17224,7 +16666,6 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 4;
@@ -17233,6 +16674,7 @@
 	name = "Brig Lockdown Door";
 	opacity = 0
 	},
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/security/warden)
 "aEz" = (
@@ -18541,14 +17983,6 @@
 /turf/simulated/floor/tiled,
 /area/security/warden)
 "aGu" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
 	d2 = 8;
@@ -18559,7 +17993,6 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 4;
@@ -18568,6 +18001,7 @@
 	name = "Brig Lockdown Door";
 	opacity = 0
 	},
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/security/warden)
 "aGv" = (
@@ -19471,35 +18905,16 @@
 /turf/simulated/wall/r_wall,
 /area/crew_quarters/heads/hos)
 "aIb" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "HoS Windows"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "HoS Windows"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "HoS Windows"
-	},
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
+	},
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized/full{
+	id = HoS Windows
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/hos)
 "aIc" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "HoS Windows"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "HoS Windows"
-	},
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
@@ -19508,29 +18923,8 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/turf/simulated/floor/plating,
-/area/crew_quarters/heads/hos)
-"aId" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "HoS Windows"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "HoS Windows"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "HoS Windows"
-	},
-/obj/structure/cable/green{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized/full{
+	id = HoS Windows
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/hos)
@@ -19563,19 +18957,6 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/heads/hos)
 "aIf" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "HoS Windows"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "HoS Windows"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "HoS Windows"
-	},
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
@@ -19584,45 +18965,18 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/turf/simulated/floor/plating,
-/area/crew_quarters/heads/hos)
-"aIg" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "HoS Windows"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "HoS Windows"
-	},
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/structure/cable/green{
-	d2 = 4;
-	icon_state = "0-4"
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized/full{
+	id = HoS Windows
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/hos)
 "aIh" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "HoS Windows"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "HoS Windows"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "HoS Windows"
-	},
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
+	},
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized/full{
+	id = HoS Windows
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/hos)
@@ -19651,27 +19005,8 @@
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "aIk" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "Security Lockdown";
-	name = "Security Blast Door";
-	opacity = 0
-	},
-/obj/machinery/door/firedoor,
 /obj/structure/cable/green,
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/security/lobby)
 "aIl" = (
@@ -19702,22 +19037,11 @@
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "aIm" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
 	},
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/security/brig/control_room)
 "aIn" = (
@@ -19748,15 +19072,6 @@
 /turf/simulated/floor/tiled,
 /area/security/brig/control_room)
 "aIp" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
@@ -19765,39 +19080,15 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/turf/simulated/floor/plating,
-/area/security/brig/control_room)
-"aIq" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/cable/green{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
-	},
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/security/brig/control_room)
 "aIr" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
 	},
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/security/brig/control_room)
 "aIs" = (
@@ -20518,18 +19809,6 @@
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "aJE" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
@@ -20541,6 +19820,7 @@
 	name = "Security Blast Door";
 	opacity = 0
 	},
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/security/brig/control_room)
 "aJF" = (
@@ -20690,23 +19970,11 @@
 /turf/simulated/floor/tiled,
 /area/security/warden)
 "aJQ" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 8;
 	icon_state = "pipe-c"
 	},
 /obj/structure/cable/green,
-/obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 4;
@@ -21703,18 +20971,6 @@
 /turf/simulated/floor/tiled,
 /area/rnd/rdoffice)
 "aLM" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -21726,6 +20982,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/security/brig)
 "aLN" = (
@@ -23663,22 +22920,11 @@
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "aPa" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
 	},
+/obj/structure/sign/nosmoking_2,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -23686,7 +22932,7 @@
 	name = "Security Blast Door";
 	opacity = 0
 	},
-/obj/structure/sign/nosmoking_2,
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/security/brig/control_room)
 "aPb" = (
@@ -25749,17 +24995,6 @@
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "aSs" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 2;
@@ -25768,7 +25003,7 @@
 	name = "Privacy Shutters";
 	opacity = 0
 	},
-/obj/machinery/door/firedoor,
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/security/lobby)
 "aSt" = (
@@ -26655,18 +25890,6 @@
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "aTW" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
@@ -26678,6 +25901,7 @@
 	name = "Security Blast Door";
 	opacity = 0
 	},
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/security/prison)
 "aTX" = (
@@ -58534,23 +57758,9 @@
 /turf/simulated/wall/r_wall,
 /area/engineering/storage_eva)
 "cpS" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "FT Op"
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
+	id = FT Op
 	},
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "FT Op"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "FT Op"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "FT Op"
-	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
@@ -59824,17 +59034,6 @@
 /turf/simulated/floor/grass/alt,
 /area/hydroponics)
 "eJt" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -59842,6 +59041,7 @@
 	name = "Security Blast Door";
 	opacity = 0
 	},
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/security/forensics_laboratory)
 "eJy" = (
@@ -60666,16 +59866,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/storage/tech)
-"fZm" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/security/brig)
 "fZq" = (
 /obj/structure/closet,
 /obj/random/junk,
@@ -62215,25 +61405,6 @@
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
 	})
-"iIv" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "Security Lockdown";
-	name = "Security Blast Door";
-	opacity = 0
-	},
-/turf/simulated/floor/plating,
-/area/security/forensics_laboratory)
 "iKN" = (
 /obj/machinery/door/firedoor,
 /obj/structure/plasticflaps,
@@ -62686,18 +61857,6 @@
 /obj/item/clothing/mask/gas/alt,
 /turf/simulated/floor/tiled/old,
 /area/maintenance/cargo)
-"kaW" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/vault)
 "kbF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/alarm{
@@ -63029,20 +62188,6 @@
 /obj/structure/cable/yellow,
 /turf/simulated/floor/carpet/rubber,
 /area/maintenance/workshop)
-"kKt" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/vault)
 "kMO" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -63150,24 +62295,6 @@
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
-"kYT" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "FT Op"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "FT Op"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "FT Op"
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
 "kZT" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance,
@@ -65636,20 +64763,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
-"prr" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "FT Op"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "FT Op"
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
 "prS" = (
 /obj/structure/table/wood,
 /obj/random/loot,
@@ -68046,24 +67159,6 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/locker/locker_toilet)
-"tCH" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "FT Op"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "FT Op"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "FT Op"
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
 "tCT" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -68469,18 +67564,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
-"ubP" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/vault)
 "ubY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -69274,17 +68357,6 @@
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/tiled,
 /area/security/nuke_storage)
-"vuW" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/security/brig)
 "vvS" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/carpet,
@@ -70206,18 +69278,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
-"wZD" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/maintenance/vault)
 "xaB" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 1
@@ -70736,18 +69796,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/lab)
-"xJq" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
 "xKm" = (
 /obj/machinery/r_n_d/circuit_imprinter{
 	dir = 1;
@@ -70908,16 +69956,7 @@
 /turf/simulated/open,
 /area/maintenance/security_starboard)
 "ydb" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/grille,
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/security/brig)
 "ydw" = (
@@ -71035,15 +70074,7 @@
 /turf/simulated/floor/tiled/old_white,
 /area/maintenance/medbay)
 "ylS" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "ymb" = (
@@ -96844,9 +95875,9 @@ aaa
 aab
 aab
 aab
-agM
+agL
 ahw
-agM
+agL
 aab
 ajR
 ajR
@@ -96865,7 +95896,7 @@ aAU
 aCq
 aEf
 aGc
-aId
+aIc
 aJt
 aLr
 aNg
@@ -97101,9 +96132,9 @@ aaa
 aab
 aab
 aab
-agN
+agL
 ahu
-agN
+agL
 aab
 ajR
 ajR
@@ -97636,7 +96667,7 @@ amO
 aCr
 aEe
 aGe
-aIg
+aIf
 aJw
 aLu
 aNj
@@ -98902,7 +97933,7 @@ aaa
 aaa
 afo
 ahu
-agM
+agL
 aab
 ajR
 ajR
@@ -99142,13 +98173,13 @@ aad
 aad
 aad
 abu
-acF
+abu
 aad
 abu
-acF
+abu
 aad
 abu
-acF
+abu
 aad
 aad
 aad
@@ -99159,7 +98190,7 @@ aad
 aad
 afo
 ahw
-agN
+agL
 aab
 aab
 aaa
@@ -99432,7 +98463,7 @@ awi
 axV
 azy
 aAY
-aCv
+auE
 aEm
 aGj
 aIl
@@ -99656,10 +98687,10 @@ abV
 aaJ
 srX
 eJt
-iIv
+eJt
 srX
 eJt
-iIv
+eJt
 afe
 afe
 afe
@@ -99685,10 +98716,10 @@ omB
 omB
 omB
 auE
-awj
+auE
 axW
 auE
-awj
+auE
 omB
 aEn
 aGk
@@ -100454,12 +99485,12 @@ aad
 aad
 omB
 arK
-asT
+arK
 auH
 omB
 axZ
 arK
-asT
+arK
 omB
 aEq
 aGm
@@ -101225,16 +100256,16 @@ ahC
 ahC
 aaV
 aaV
-asW
+arK
 auK
 omB
 ayc
 arK
-asT
+arK
 omB
 aEm
 aGk
-aIq
+aIp
 uiJ
 ntc
 aNp
@@ -102488,9 +101519,9 @@ abg
 abD
 abS
 acl
-acv
+abg
 acP
-acZ
+abS
 srX
 adP
 aez
@@ -103259,9 +102290,9 @@ aaV
 abG
 aaV
 ydb
-fZm
-fZm
-vuW
+ydb
+ydb
+ydb
 aaV
 adS
 aeC
@@ -103537,7 +102568,7 @@ amU
 aoa
 apo
 aqx
-arQ
+arP
 atf
 alL
 awt
@@ -104057,7 +103088,7 @@ auS
 awu
 ayh
 azJ
-aBk
+awr
 aCF
 aEB
 aGw
@@ -104571,7 +103602,7 @@ auS
 awu
 ayj
 azL
-aBk
+awr
 aCG
 aCK
 aGy
@@ -105077,15 +104108,15 @@ nHe
 nHe
 ana
 ana
-apt
-aqD
+akN
+akN
 ana
 atl
 auS
 awu
 ayh
 azJ
-aBk
+awr
 aCI
 aCK
 aGA
@@ -105318,7 +104349,7 @@ jkj
 nfX
 kUL
 kzx
-tCH
+cpS
 abE
 fXr
 cqu
@@ -105575,7 +104606,7 @@ vdx
 vTy
 fap
 yiH
-prr
+cpS
 abE
 aeJ
 klC
@@ -105599,7 +104630,7 @@ auS
 awu
 ayk
 azM
-aBk
+awr
 aCK
 azK
 aEC
@@ -105832,7 +104863,7 @@ uXN
 gNS
 kUL
 kzx
-kYT
+cpS
 aeb
 aeJ
 klC
@@ -106364,7 +105395,7 @@ anf
 aoi
 apv
 aqI
-arV
+arT
 adP
 auP
 awx
@@ -106621,12 +105652,12 @@ ang
 vmm
 apw
 aqJ
-arW
+arT
 adP
 auP
-awy
-ayn
-azP
+ydb
+ydb
+ydb
 aws
 aCO
 aEG
@@ -106878,7 +105909,7 @@ anh
 aje
 apx
 aqK
-arX
+arT
 atp
 auW
 awz
@@ -107109,7 +106140,7 @@ aab
 aab
 aab
 aab
-ami
+aau
 aaJ
 aad
 abp
@@ -107366,7 +106397,7 @@ aab
 aab
 aab
 aab
-atu
+aau
 aaJ
 aad
 aad
@@ -107623,7 +106654,7 @@ aab
 aab
 aab
 aab
-xJq
+aau
 abo
 aaT
 aaT
@@ -109940,7 +108971,7 @@ aab
 aab
 aab
 aab
-ubP
+ylS
 gOO
 gYT
 acV
@@ -110454,7 +109485,7 @@ aaa
 aab
 aab
 aab
-kaW
+ylS
 ulG
 sCx
 tzU
@@ -110711,7 +109742,7 @@ aaa
 aab
 aab
 aab
-wZD
+ylS
 qGK
 gIw
 acV
@@ -111227,11 +110258,11 @@ aab
 aaa
 nHe
 nHe
-kKt
-adm
+ylS
+ylS
 nHe
-aeo
-adm
+ylS
+ylS
 nHe
 gVl
 agd
