@@ -3308,6 +3308,61 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Glorp"
 			icon_state = "glorp"
 
+	anglerfish
+		icon = 'icons/mob/human_face/skrell_beards.dmi'
+		name = "Anglerfish"
+		icon_state = "Anglerfish"
+		species_allowed = list(/datum/species/skrell)
+		gender = NEUTER
+
+		triton
+			name = "Triton"
+			icon_state = "Triton"
+
+		big_triton
+			name = "Big Triton"
+			icon_state = "Big_Triton"
+
+		ahab
+			name = "Ahab"
+			icon_state = "Ahab"
+
+		monotail
+			name = "Monotail"
+			icon_state = "Monotail"
+
+		long_monotail
+			name = "Long Monotail"
+			icon_state = "Long_Monotail"
+
+		face_adorns
+			name = "Face Adorns"
+			icon_state = "Face_Adorns"
+
+		sea_captain
+			name = "Sea Captain"
+			icon_state = "Sea_Captain"
+
+		fisherman
+			name = "Fisherman"
+			icon_state = "Fisherman"
+
+		sailor
+			name = "Sailor"
+			icon_state = "Sailor"
+
+		overgrown
+			name = "Overgrown"
+			icon_state = "Overgrown"
+
+		marauder_left
+			name = "Marauder (Left)"
+			icon_state = "Marauder_Left"
+
+		marauder_right
+			name = "Marauder (Right)"
+			icon_state = "Marauder_Right"
+
 /*
 ////////////////////////////
 /  =--------------------=  /
