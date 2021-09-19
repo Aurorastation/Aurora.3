@@ -572,6 +572,16 @@
 	layer = 2.99
 	base_frame = /obj/structure/window_frame
 
+/obj/structure/window/full/tinted
+	name = "tinted window"
+	desc = "It looks rather strong and opaque. Might take a few good hits to shatter it."
+	opacity = 1
+
+/obj/structure/window/full/tinted/frosted
+	name = "frosted window"
+	desc = "It looks rather strong and frosted over. Looks like it might take a few less hits then a normal reinforced window."
+	maxhealth = 30
+
 /obj/structure/window/full/dismantle_window()
 	var/obj/item/stack/material/mats = new glasstype(loc)
 	mats.amount = 4

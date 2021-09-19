@@ -117,8 +117,21 @@
 	win_path = /obj/structure/window/full/phoron
 	single_window = TRUE
 
+/obj/effect/map_effect/wingrille_spawn/tinted
+	name = "full frosted window grille spawner"
+	icon_state = "full_window"
+	win_path = /obj/structure/window/full/tinted/frosted
+	grill_path = /obj/structure/grille
+
+/obj/effect/map_effect/wingrille_spawn/tinted
+	name = "full tinted window grille spawner"
+	icon_state = "full_window"
+	win_path = /obj/structure/window/full/tinted
+	grill_path = /obj/structure/grille
+
 /obj/effect/map_effect/wingrille_spawn/reinforced/polarized/full
 	name = "full polarized window grille spawner"
 	icon_state = "full_window"
 	win_path = /obj/structure/window/reinforced/polarized/full
+	spawn_firedoor = TRUE
 	single_window = TRUE
