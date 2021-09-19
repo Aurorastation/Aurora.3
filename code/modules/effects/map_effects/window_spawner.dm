@@ -57,7 +57,8 @@
 			else
 				neighbours |= other
 	else
-		new win_path(loc)
+		var/obj/structure/window/new_win = new win_path(loc)
+		handle_window_spawn(new_win)
 	activated = 1
 
 /obj/effect/map_effect/wingrille_spawn/proc/handle_window_spawn(var/obj/structure/window/W)

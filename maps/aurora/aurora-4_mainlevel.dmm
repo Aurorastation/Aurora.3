@@ -2848,6 +2848,9 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
+	id = Interro
+	},
 /turf/simulated/floor/plating,
 /area/security/brig)
 "afO" = (
@@ -12949,19 +12952,9 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/telesci)
 "ayr" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
 /obj/structure/cable/green,
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "rep_inner"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "rep_inner"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "rep_inner"
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized/full{
+	id = rep_inner
 	},
 /turf/simulated/floor/plating,
 /area/lawoffice/representative)
@@ -14636,6 +14629,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/security/warden)
 "aBh" = (
@@ -14744,23 +14738,12 @@
 /turf/simulated/floor/carpet,
 /area/lawoffice)
 "aBq" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "consular"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "consular"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "consular"
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized/full{
+	id = consular
 	},
 /turf/simulated/floor/plating,
 /area/lawoffice/consular)
@@ -18186,30 +18169,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
-"aGL" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/cable/green{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "consular"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "consular"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "consular"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "consular"
-	},
-/turf/simulated/floor/plating,
-/area/lawoffice/consular)
 "aGM" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -19983,6 +19942,7 @@
 	name = "Brig Lockdown Door";
 	opacity = 0
 	},
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/security/warden)
 "aJR" = (
@@ -23127,38 +23087,6 @@
 "aPu" = (
 /turf/simulated/wall,
 /area/journalistoffice)
-"aPv" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "journalist"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "journalist"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "journalist"
-	},
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/journalistoffice)
-"aPw" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "journalist"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "journalist"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "journalist"
-	},
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/journalistoffice)
 "aPx" = (
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
@@ -23176,35 +23104,9 @@
 /turf/simulated/floor/tiled,
 /area/journalistoffice)
 "aPy" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "journalist"
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized/full{
+	id = journalist
 	},
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "journalist"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "journalist"
-	},
-/obj/structure/grille,
-/turf/simulated/floor,
-/area/journalistoffice)
-"aPz" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "journalist"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "journalist"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "journalist"
-	},
-/obj/structure/grille,
 /turf/simulated/floor,
 /area/journalistoffice)
 "aPA" = (
@@ -24077,23 +23979,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/exam_room2)
-"aQZ" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "journalist"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "journalist"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "journalist"
-	},
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/journalistoffice)
 "aRa" = (
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/wood,
@@ -25132,19 +25017,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
-"aSE" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "journalist"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "journalist"
-	},
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/journalistoffice)
 "aSF" = (
 /obj/machinery/light{
 	dir = 8;
@@ -25212,16 +25084,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aSO" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/hallway/primary/starboard)
 "aSP" = (
@@ -26168,16 +26031,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
-"aUv" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/hallway/primary/starboard)
 "aUw" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
@@ -26856,18 +26709,8 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aVx" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "journalist"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "journalist"
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced/polarized{
-	id = "journalist"
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized/full{
+	id = journalist
 	},
 /turf/simulated/floor/plating,
 /area/journalistoffice)
@@ -26936,17 +26779,6 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/hallway/primary/starboard)
-"aVF" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
 /area/hallway/primary/starboard)
 "aVG" = (
 /obj/structure/table/reinforced,
@@ -29834,17 +29666,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "baS" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
+/obj/effect/map_effect/wingrille_spawn/full,
 /obj/structure/sign/greencross,
 /turf/simulated/floor/plating,
 /area/hallway/primary/starboard)
@@ -30289,8 +30111,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bbM" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 8;
@@ -30304,15 +30124,7 @@
 	id = "CHE2shutters";
 	name = "Pharmacy Window Shutters"
 	},
-/obj/structure/window/phoronreinforced{
-	dir = 8
-	},
-/obj/structure/window/phoronreinforced{
-	dir = 4
-	},
-/obj/structure/window/phoronreinforced{
-	dir = 1
-	},
+/obj/effect/map_effect/wingrille_spawn/full/phoron,
 /turf/simulated/floor/plating,
 /area/medical/pharmacy)
 "bbN" = (
@@ -30525,18 +30337,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/starboard)
-"bch" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
 /area/hallway/primary/starboard)
 "bci" = (
 /obj/machinery/door/firedoor,
@@ -31085,31 +30885,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"bdq" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 8;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
-	},
-/obj/structure/grille,
-/obj/machinery/door/blast/shutters{
-	dir = 8;
-	id = "CHE2shutters";
-	name = "Pharmacy Window Shutters"
-	},
-/obj/structure/window/phoronreinforced{
-	dir = 8
-	},
-/obj/structure/window/phoronreinforced{
-	dir = 4
-	},
-/obj/structure/window/phoronreinforced,
-/turf/simulated/floor/plating,
-/area/medical/pharmacy)
 "bdr" = (
 /obj/machinery/chemical_dispenser/full,
 /obj/effect/floor_decal/corner/orange{
@@ -33532,33 +33307,6 @@
 /obj/turbolift_map_holder/aurora/civilian,
 /turf/simulated/floor/plating,
 /area/turbolift/main_station)
-"bhw" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 8;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
-	},
-/obj/structure/grille,
-/obj/machinery/door/blast/shutters{
-	dir = 8;
-	id = "CHE2shutters";
-	name = "Pharmacy Window Shutters"
-	},
-/obj/structure/window/phoronreinforced{
-	dir = 8
-	},
-/obj/structure/window/phoronreinforced{
-	dir = 4
-	},
-/obj/structure/window/phoronreinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/medical/pharmacy)
 "bhx" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -35073,23 +34821,12 @@
 /turf/simulated/wall/r_wall,
 /area/medical/reception)
 "bkc" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
 /obj/machinery/door/blast/shutters{
 	dir = 2;
 	id = "CHE2shutters";
 	name = "Pharmacy Window Shutters"
 	},
-/obj/structure/window/phoronreinforced{
-	dir = 4
-	},
-/obj/structure/window/phoronreinforced{
-	dir = 8
-	},
-/obj/structure/window/phoronreinforced{
-	dir = 1
-	},
-/obj/structure/window/phoronreinforced,
+/obj/effect/map_effect/wingrille_spawn/full/phoron,
 /obj/structure/sign/pharmacy,
 /turf/simulated/floor/plating,
 /area/medical/pharmacy)
@@ -36335,7 +36072,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bmx" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 8;
@@ -36344,16 +36080,7 @@
 	name = "MedBay Lockdown Shutters";
 	opacity = 0
 	},
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/medical/reception)
 "bmy" = (
@@ -37082,26 +36809,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"bnW" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 8;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
-/area/medical/reception)
 "bnX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -38916,7 +38623,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "brF" = (
-/obj/machinery/door/firedoor,
+/obj/structure/sign/greencross,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 8;
@@ -38925,15 +38632,7 @@
 	name = "MedBay Lockdown Shutters";
 	opacity = 0
 	},
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/sign/greencross,
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/medical/reception)
 "brG" = (
@@ -40644,30 +40343,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"bvg" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 8;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/structure/sign/greencross,
-/turf/simulated/floor/plating,
-/area/medical/reception)
 "bvh" = (
 /obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/corner_wide/lime{
@@ -57757,6 +57432,14 @@
 "coP" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/storage_eva)
+"cpm" = (
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 6
+	},
+/obj/effect/floor_decal/sign/gtr,
+/obj/effect/map_effect/wingrille_spawn/full/phoron,
+/turf/simulated/floor/tiled/white,
+/area/medical/medbay)
 "cpS" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
 	id = FT Op
@@ -59304,23 +58987,12 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "fdD" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
 /obj/machinery/door/blast/shutters{
 	dir = 2;
 	id = "CHE2shutters";
 	name = "Pharmacy Window Shutters"
 	},
-/obj/structure/window/phoronreinforced{
-	dir = 4
-	},
-/obj/structure/window/phoronreinforced{
-	dir = 8
-	},
-/obj/structure/window/phoronreinforced{
-	dir = 1
-	},
-/obj/structure/window/phoronreinforced,
+/obj/effect/map_effect/wingrille_spawn/full/phoron,
 /turf/simulated/floor/plating,
 /area/medical/reception)
 "fdP" = (
@@ -66403,23 +66075,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice)
-"slV" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/cable/green,
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "rep_inner"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "rep_inner"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "rep_inner"
-	},
-/turf/simulated/floor/plating,
-/area/lawoffice/representative)
 "snu" = (
 /obj/structure/closet/secure_closet/personal,
 /turf/simulated/floor/tiled/white,
@@ -66574,26 +66229,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/library)
-"sJg" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/cable/green{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "consular"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "consular"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "consular"
-	},
-/turf/simulated/floor/plating,
-/area/lawoffice/consular)
 "sJu" = (
 /obj/machinery/alarm{
 	dir = 4;
@@ -67232,23 +66867,6 @@
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
-"tGq" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/cable/green,
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "consular"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "consular"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "consular"
-	},
-/turf/simulated/floor/plating,
-/area/lawoffice/consular)
 "tHD" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2;
@@ -68729,18 +68347,7 @@
 /turf/simulated/floor/marble/dark,
 /area/maintenance/cargo)
 "vXD" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/lawoffice)
 "vYh" = (
@@ -69862,19 +69469,9 @@
 	},
 /area/security/forensics_morgue)
 "xOM" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
 /obj/structure/cable/green,
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "consular"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "consular"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "consular"
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized/full{
+	id = consular
 	},
 /turf/simulated/floor/plating,
 /area/lawoffice/consular)
@@ -100279,21 +99876,21 @@ aYk
 aZA
 baL
 bbM
-bdq
+bbM
 baL
 baL
-bhw
-bdq
+bbM
+bbM
 bkb
 bkU
 bmx
-bnW
+bmx
 bkU
 bmx
 brF
 bsS
 btX
-bvg
+brF
 bwd
 bzZ
 byS
@@ -103374,7 +102971,7 @@ bmK
 beY
 bpz
 bqG
-brK
+cpm
 bqG
 bqG
 bqG
@@ -106960,7 +106557,7 @@ aPt
 aYt
 aZM
 baS
-bch
+aSO
 bdM
 bfl
 bfl
@@ -107466,9 +107063,9 @@ hIh
 tPQ
 gBi
 aPu
-aQZ
-aSE
-aSE
+aVx
+aVx
+aVx
 aVx
 aPu
 aPu
@@ -107712,7 +107309,7 @@ usi
 awE
 hza
 awF
-slV
+ayr
 ulg
 rJs
 slM
@@ -107972,9 +107569,9 @@ awG
 qSC
 qSC
 aBq
-sJg
+aBq
 aEO
-aGL
+aBq
 qSC
 cCf
 aLQ
@@ -108236,7 +107833,7 @@ xOM
 awK
 aLQ
 awK
-aPv
+aVx
 aRb
 aSG
 aUp
@@ -108489,11 +108086,11 @@ wJm
 aCX
 sDV
 qNw
-tGq
+xOM
 awK
 rGO
 awK
-aPw
+aVx
 aRc
 aSH
 aUq
@@ -109260,11 +108857,11 @@ pnC
 aGN
 aok
 ayt
-tGq
+xOM
 awK
 aLT
 awK
-aPz
+aPy
 aCb
 aSJ
 aUr
@@ -111323,8 +110920,8 @@ rJh
 kmW
 aRl
 aSO
-aUv
-aVF
+aSO
+aSO
 aXm
 aPC
 aYC
