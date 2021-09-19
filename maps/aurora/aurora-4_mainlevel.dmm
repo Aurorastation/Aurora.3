@@ -57318,35 +57318,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "cfE" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
-"cfF" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
-"cfG" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "cfH" = (
@@ -57392,29 +57364,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
-"cfQ" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
-"cfR" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
 "cfS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -57446,17 +57395,6 @@
 	},
 /obj/machinery/mineral/equipment_vendor,
 /turf/simulated/floor/tiled,
-/area/outpost/mining_main/refinery)
-"cfV" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "cfW" = (
 /obj/machinery/conveyor{
@@ -57507,15 +57445,7 @@
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/eva)
 "cgc" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/eva)
 "cgd" = (
@@ -57554,18 +57484,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"cgi" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
 "cgj" = (
 /obj/machinery/conveyor{
 	dir = 1;
@@ -57575,21 +57493,6 @@
 /obj/structure/plasticflaps,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
-"cgl" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/eva)
 "cgm" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -57612,21 +57515,6 @@
 /obj/structure/closet/walllocker/emerglocker/north,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
-/area/outpost/mining_main/eva)
-"cgo" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
 /area/outpost/mining_main/eva)
 "cgp" = (
 /obj/effect/floor_decal/corner/brown/full{
@@ -57902,20 +57790,6 @@
 /obj/structure/ore_box,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"cgR" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
 "cgS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -58029,17 +57903,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"che" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
 "chf" = (
 /obj/effect/floor_decal/corner/brown/full,
 /obj/structure/table/rack{
@@ -58088,20 +57951,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/outpost/mining_main/eva)
-"chj" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
 /area/outpost/mining_main/eva)
 "chk" = (
 /obj/effect/floor_decal/corner/brown{
@@ -58201,18 +58050,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"chw" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
 "chx" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner{
 	dir = 4
@@ -58234,20 +58071,6 @@
 "chA" = (
 /obj/machinery/mech_recharger,
 /turf/simulated/floor/tiled/asteroid/airless,
-/area/outpost/mining_main/eva)
-"chB" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
 /area/outpost/mining_main/eva)
 "chC" = (
 /obj/effect/floor_decal/corner/brown{
@@ -58325,41 +58148,6 @@
 /obj/machinery/photocopier,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"chJ" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
-"chK" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
-"chL" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/eva)
 "chM" = (
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/corner/brown{
@@ -58414,20 +58202,6 @@
 /obj/machinery/cell_charger,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"chS" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
 "chT" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner,
 /turf/simulated/floor/airless{
@@ -58465,18 +58239,6 @@
 /obj/machinery/cell_charger,
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/asteroid/airless,
-/area/outpost/mining_main/eva)
-"chY" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
 /area/outpost/mining_main/eva)
 "chZ" = (
 /obj/machinery/suit_cycler/mining,
@@ -58565,63 +58327,6 @@
 	maxcharge = 15000
 	},
 /turf/simulated/floor/tiled,
-/area/outpost/mining_main/refinery)
-"cii" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
-"cij" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/eva)
-"cik" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/eva)
-"cil" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/eva)
-"cim" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "cin" = (
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -93912,10 +93617,10 @@ cfh
 ceN
 cfx
 cey
-cgl
+cgc
 mWu
 mWu
-cgl
+cgc
 cey
 chA
 ceN
@@ -94940,10 +94645,10 @@ cey
 cey
 cey
 cey
-cgo
+cgc
 cgE
 keE
-cgo
+cgc
 cey
 chX
 chW
@@ -95202,9 +94907,9 @@ cgF
 cgV
 chf
 cey
-chB
-chL
-chY
+cgc
+cgc
+cgc
 cey
 cfv
 aab
@@ -95462,7 +95167,7 @@ cho
 chC
 chM
 chZ
-cij
+cgc
 cfv
 aab
 aab
@@ -95719,7 +95424,7 @@ chp
 cfk
 cfk
 cia
-cik
+cgc
 cfv
 aab
 aab
@@ -95976,7 +95681,7 @@ chq
 chD
 chD
 cib
-cik
+cgc
 cfv
 aab
 aab
@@ -96233,7 +95938,7 @@ chr
 chE
 chN
 cic
-cil
+cgc
 cfv
 aab
 aab
@@ -96480,15 +96185,15 @@ cez
 cez
 cez
 cez
-cfQ
+cfE
 cgc
 cgu
 cey
 cha
-chj
+cgc
 cgc
 cey
-chj
+cgc
 cgc
 cey
 cfv
@@ -96737,7 +96442,7 @@ cez
 ceU
 cfo
 cfC
-cfR
+cfE
 cgd
 cgv
 cgK
@@ -96747,7 +96452,7 @@ chs
 chF
 chO
 cid
-chJ
+cfE
 cfv
 aab
 aab
@@ -97004,7 +96709,7 @@ cgL
 chG
 chP
 cie
-cim
+cfE
 cfv
 aab
 aab
@@ -97518,7 +97223,7 @@ cgg
 cgg
 chQ
 cig
-chJ
+cfE
 cfv
 aab
 aab
@@ -97764,7 +97469,7 @@ ceo
 cez
 ceY
 ceY
-cfF
+cfE
 cfU
 cgh
 cgz
@@ -97775,7 +97480,7 @@ cht
 chI
 chR
 cih
-chK
+cfE
 cfv
 aab
 aab
@@ -98021,17 +97726,17 @@ ceo
 cez
 ceZ
 ceZ
-cfG
-cfV
-cgi
+cfE
+cfE
+cfE
 cez
 cgN
 cgz
 cgz
 chu
 cez
-chS
-cii
+cfE
+cfE
 cez
 cfv
 aab
@@ -98286,7 +97991,7 @@ cgO
 chc
 chc
 chc
-chJ
+cfE
 chT
 cft
 cft
@@ -98543,7 +98248,7 @@ cgO
 chc
 chc
 chc
-cfF
+cfE
 cfv
 aab
 aab
@@ -98800,7 +98505,7 @@ cgP
 chd
 chk
 cgd
-cfF
+cfE
 cfv
 aab
 aab
@@ -99057,7 +98762,7 @@ cgQ
 cgQ
 cgQ
 cgQ
-chK
+cfE
 cfv
 aab
 aab
@@ -99310,10 +99015,10 @@ cez
 cez
 cez
 cez
-cgR
-che
-che
-chw
+cfE
+cfE
+cfE
+cfE
 cez
 cfv
 aab
