@@ -95,7 +95,6 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 
 /mob/living/carbon/human/type_e/Initialize(mapload)
 	. = ..(mapload, SPECIES_VAURCA_BULWARK)
-	gender = NEUTER
 
 /mob/living/carbon/human/type_e/equipped/Initialize(mapload)
 	. = ..(mapload, SPECIES_VAURCA_BULWARK)
