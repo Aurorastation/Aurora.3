@@ -36380,17 +36380,7 @@
 /turf/simulated/wall,
 /area/medical/main_storage)
 "bnh" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "bni" = (
@@ -37262,17 +37252,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
-"boL" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/maintenance/medbay)
 "boM" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -38456,18 +38435,6 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
-"bri" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/maintenance/medbay)
 "brj" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -39819,18 +39786,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "btT" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/hallway/primary/central_one)
 "btU" = (
@@ -40320,20 +40276,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"bvd" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/hallway/primary/central_one)
 "bve" = (
 /turf/simulated/floor/holofloor/reinforced,
 /area/holodeck/alphadeck)
@@ -40647,18 +40589,6 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
-"bwb" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
 /area/hallway/primary/central_one)
 "bwc" = (
 /obj/machinery/camera/network/civilian_main{
@@ -42694,17 +42624,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/lab)
-"bzU" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/hallway/primary/central_one)
 "bzV" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_research{
@@ -44941,21 +44860,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_one)
-"bFp" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/hallway/primary/central_one)
 "bFq" = (
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Central Corridor - Camera 2";
@@ -46522,35 +46426,7 @@
 /turf/simulated/floor/tiled,
 /area/library)
 "bIW" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/library)
-"bIX" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/library)
-"bIY" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/library)
 "bIZ" = (
@@ -46567,35 +46443,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bJa" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/hydroponics)
-"bJb" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/hydroponics)
-"bJc" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/hydroponics)
 "bJd" = (
@@ -46826,17 +46674,6 @@
 "bJN" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/wood,
-/area/library)
-"bJO" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
 /area/library)
 "bJP" = (
 /obj/machinery/door/airlock/glass,
@@ -47399,18 +47236,6 @@
 	req_access = list(37)
 	},
 /turf/simulated/floor/wood,
-/area/library)
-"bLt" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
 /area/library)
 "bLu" = (
 /obj/machinery/light{
@@ -48331,20 +48156,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/library)
-"bNv" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/library)
 "bNw" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -48704,29 +48515,6 @@
 /obj/structure/bed/chair/office/dark,
 /turf/simulated/floor/carpet,
 /area/library)
-"bOo" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/library)
-"bOp" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/hydroponics)
 "bOt" = (
 /turf/simulated/wall,
 /area/crew_quarters/kitchen)
@@ -49441,18 +49229,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/wood,
-/area/library)
-"bQr" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
 /area/library)
 "bQs" = (
 /obj/machinery/light{
@@ -52229,22 +52005,12 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "bXv" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	dir = 4;
 	id = "cargo_cockblock";
 	name = "Cargo"
 	},
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/quartermaster/lobby)
 "bXw" = (
@@ -52350,22 +52116,6 @@
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
-/area/quartermaster/lobby)
-"bXM" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/shutters{
-	dir = 4;
-	id = "cargo_cockblock";
-	name = "Cargo"
-	},
-/turf/simulated/floor/plating,
 /area/quartermaster/lobby)
 "bXN" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -52725,23 +52475,6 @@
 /obj/machinery/photocopier,
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
-"bYI" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/shutters{
-	dir = 4;
-	id = "cargo_cockblock";
-	name = "Cargo"
-	},
-/turf/simulated/floor/plating,
-/area/quartermaster/lobby)
 "bYK" = (
 /obj/structure/bed/chair{
 	dir = 8
@@ -52953,18 +52686,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "bZm" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/quartermaster/lobby)
 "bZn" = (
@@ -53681,27 +53403,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/break_room)
 "caD" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/quartermaster/break_room)
-"caE" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/quartermaster/break_room)
 "caF" = (
@@ -54143,20 +53845,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/quartermaster/break_room)
-"cby" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/quartermaster/break_room)
 "cbz" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -54340,17 +54028,6 @@
 "cca" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/carpet,
-/area/quartermaster/break_room)
-"ccb" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
 /area/quartermaster/break_room)
 "ccc" = (
 /obj/structure/disposalpipe/segment,
@@ -54584,17 +54261,7 @@
 /turf/simulated/floor/plating,
 /area/quartermaster/mail_room)
 "ccF" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/quartermaster/mail_room)
 "ccG" = (
@@ -54874,16 +54541,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/mail_room)
-"cdc" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/quartermaster/mail_room)
 "cdd" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/light/small/emergency{
@@ -54992,18 +54649,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/break_room)
-"cdt" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/quartermaster/break_room)
 "cdu" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/table/standard,
@@ -55021,17 +54666,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/quartermaster/mail_room)
-"cdw" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
 /area/quartermaster/mail_room)
 "cdx" = (
 /obj/structure/sign/drop,
@@ -61191,15 +60825,7 @@
 /turf/simulated/wall,
 /area/hallway/primary/aft)
 "iWs" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "iXN" = (
@@ -66703,18 +66329,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
-"txe" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/research_port)
 "txW" = (
 /obj/machinery/door/airlock/highsecurity{
 	id_tag = "bunker1";
@@ -68715,7 +68329,7 @@
 /turf/simulated/floor/tiled/old_white,
 /area/maintenance/medbay)
 "wxx" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
 "wzc" = (
@@ -90160,7 +89774,7 @@ bbs
 bbs
 wmQ
 bcY
-bBv
+iWs
 xLG
 eJy
 nJZ
@@ -90417,7 +90031,7 @@ hOu
 hOu
 hOu
 dhL
-txe
+iWs
 wAi
 dXS
 xeb
@@ -96076,15 +95690,15 @@ bWg
 bWg
 bXf
 bXv
-bXM
-bXM
-bXM
-bYI
+bXv
+bXv
+bXv
+bXv
 bWg
 bZl
 bZL
 cak
-caE
+caD
 cbc
 cbx
 vWF
@@ -96600,11 +96214,11 @@ bZN
 cal
 caB
 caB
-cby
-ccb
-ccb
-ccb
-cdt
+caD
+caD
+caD
+caD
+caD
 caB
 caB
 cep
@@ -96806,21 +96420,21 @@ aVs
 bry
 bsQ
 baI
-bvd
-bwb
+btT
+btT
 baI
-bvd
-bzU
-bzU
-bwb
+btT
+btT
+btT
+btT
 baI
-bvd
-bwb
+btT
+btT
 baI
 bGn
 bHj
 aZs
-bIX
+bIW
 bJN
 bKL
 bLs
@@ -97077,7 +96691,7 @@ btT
 aZs
 bHk
 bIf
-bIX
+bIW
 bJN
 bJN
 yiF
@@ -97334,18 +96948,18 @@ baI
 bGo
 bHj
 aZs
-bIY
-bJO
-bJO
-bLt
+bIW
+bIW
+bIW
+bIW
 bIV
 bMI
-bNv
-bOo
-bOo
-bOo
-bOo
-bQr
+bIW
+bIW
+bIW
+bIW
+bIW
+bIW
 bIT
 bIT
 bRM
@@ -98363,11 +97977,11 @@ bGp
 bHo
 aZs
 bJa
-bJR
-bJR
-bJR
-bJR
-bNz
+bJa
+bJa
+bJa
+bJa
+bJa
 bGr
 bGr
 bOP
@@ -98402,8 +98016,8 @@ caG
 cbE
 caG
 ccF
-cdc
-cdw
+ccF
+ccF
 caG
 cbE
 caG
@@ -98615,11 +98229,11 @@ bve
 bve
 bve
 bve
-bFp
+btT
 aZs
 bHj
 aZs
-bJb
+bJa
 bJS
 vIq
 vIq
@@ -98862,28 +98476,28 @@ baI
 bry
 bsQ
 baI
-bvd
-bwb
+btT
+btT
 baI
-bvd
-bzU
-bzU
-bwb
+btT
+btT
+btT
+btT
 baI
-bvd
-bwb
+btT
+btT
 baI
 bGq
 bHq
 aZs
-bJb
+bJa
 vIq
 bKO
 rNi
 rNi
 bML
 sNw
-bOp
+bJa
 uuz
 bPB
 ljr
@@ -99133,14 +98747,14 @@ bFq
 bbG
 bHq
 bIe
-bJb
+bJa
 bJU
 bKP
 bLy
 bMg
 bMM
 vIq
-bJb
+bJa
 bOS
 hsj
 bOT
@@ -99390,14 +99004,14 @@ bFr
 bFr
 bHr
 aZs
-bJb
+bJa
 vIq
 eEQ
 bJe
 bJe
 bMM
 sNw
-bJc
+bJa
 bOT
 bOT
 bOT
@@ -99647,7 +99261,7 @@ aZs
 bka
 bHs
 bIh
-bJc
+bJa
 vIq
 eEQ
 bLz
@@ -111989,7 +111603,7 @@ jpf
 blN
 blN
 blN
-dwP
+bnh
 blN
 blN
 blN
@@ -112991,9 +112605,9 @@ bgL
 bam
 blN
 bnh
-boL
-boL
-bri
+bnh
+bnh
+bnh
 blN
 blN
 blN
@@ -113261,20 +112875,20 @@ blN
 blN
 blN
 blN
-xjD
-kvH
-kMO
+bnh
+bnh
+bnh
 blN
 blN
 blN
 blN
 blN
 blN
-dwP
+bnh
 blN
 blN
 blN
-dwP
+bnh
 blN
 blN
 blN
