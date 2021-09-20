@@ -652,7 +652,8 @@
 		/obj/item/storage/box/evidence = 6,
 		/obj/item/device/holowarrant = 5,
 		/obj/item/device/flashlight/maglight = 5,
-		/obj/item/device/hailer = 5
+		/obj/item/device/hailer = 5,
+		/obj/item/reagent_containers/food/snacks/donut/normal = 6
 	)
 	premium = list(
 		/obj/item/storage/box/fancy/donut = 2
