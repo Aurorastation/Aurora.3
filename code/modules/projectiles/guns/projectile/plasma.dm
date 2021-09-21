@@ -55,7 +55,7 @@
 	item_state = "plasma"
 	magazine_type = /obj/item/ammo_magazine/plasma/light/pistol
 	allowed_magazines = list(/obj/item/ammo_magazine/plasma/light/pistol)
-	slot_flags = SLOT_BELT
+	slot_flags = SLOT_BELT | SLOT_HOLSTER
 	accuracy = 1
 
 /obj/item/gun/projectile/plasma/bolter/pistol/update_icon()

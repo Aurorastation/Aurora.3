@@ -38,6 +38,7 @@
 	glasses["sunglasses, aviator"] = /obj/item/clothing/glasses/fakesunglasses/aviator
 	glasses["sunglasses, prescription"] = /obj/item/clothing/glasses/fakesunglasses/prescription
 	glasses["sunglasses, fat"] = /obj/item/clothing/glasses/fakesunglasses/big
+	glasses["sunglasses, visor"] = /obj/item/clothing/glasses/fakesunglasses/visor
 	gear_tweaks += new /datum/gear_tweak/path(glasses)
 
 /datum/gear/eyes/sunglasses
@@ -53,6 +54,7 @@
 	glasses["flash-proof sunglasses, aviator"] = /obj/item/clothing/glasses/sunglasses/aviator
 	glasses["flash-proof sunglasses, prescription"] = /obj/item/clothing/glasses/sunglasses/prescription
 	glasses["flash-proof sunglasses, fat"] = /obj/item/clothing/glasses/sunglasses/big
+	glasses["flash-proof sunglasses, visor"] = /obj/item/clothing/glasses/sunglasses/visor
 	gear_tweaks += new /datum/gear_tweak/path(glasses)
 
 /datum/gear/eyes/goggles
@@ -82,6 +84,7 @@
 	medhud["HUD, medical"] = /obj/item/clothing/glasses/hud/health
 	medhud["HUDpatch, medical"] = /obj/item/clothing/glasses/eyepatch/hud/medical
 	medhud["prescription HUD, medical"] = /obj/item/clothing/glasses/hud/health/prescription
+	medhud["visor sunglasses, medical"] = /obj/item/clothing/glasses/hud/health/aviator/visor
 	gear_tweaks += new /datum/gear_tweak/path(medhud)
 
 /datum/gear/eyes/sechuds
@@ -99,6 +102,7 @@
 	sechud["HUD, security"] = /obj/item/clothing/glasses/hud/security
 	sechud["HUDpatch, security"] = /obj/item/clothing/glasses/eyepatch/hud/security
 	sechud["prescription HUD, security"] = /obj/item/clothing/glasses/hud/security/prescription
+	sechud["visor sunglasses, security"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator/visor
 	gear_tweaks += new /datum/gear_tweak/path(sechud)
 
 /datum/gear/eyes/hudpatch
