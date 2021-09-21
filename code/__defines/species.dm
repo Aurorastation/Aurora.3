@@ -1,8 +1,12 @@
 #define SPECIES_HUMAN				"Human"
 #define SPECIES_HUMAN_OFFWORLD		"Off-Worlder Human"
+
 #define SPECIES_SKRELL				"Skrell"
+
 #define SPECIES_UNATHI				"Unathi"
+
 #define SPECIES_DIONA				"Diona"
+#define SPECIES_DIONA_HEBE			"Hebe Diona"
 
 #define SPECIES_TAJARA				"Tajara"
 #define SPECIES_TAJARA_ZHAN			"Zhan-Khazan Tajara"

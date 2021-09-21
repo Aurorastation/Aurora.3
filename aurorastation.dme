@@ -2154,6 +2154,7 @@
 #include "code\modules\mob\living\carbon\human\species\station\monkey.dm"
 #include "code\modules\mob\living\carbon\human\species\station\slime.dm"
 #include "code\modules\mob\living\carbon\human\species\station\diona\diona.dm"
+#include "code\modules\mob\living\carbon\human\species\station\diona\diona_subspecies.dm"
 #include "code\modules\mob\living\carbon\human\species\station\human\human.dm"
 #include "code\modules\mob\living\carbon\human\species\station\human\human_subspecies.dm"
 #include "code\modules\mob\living\carbon\human\species\station\ipc\ipc.dm"

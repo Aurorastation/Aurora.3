@@ -8,7 +8,7 @@
 		src.forceMove(L.loc)
 		qdel(L)
 
-	return SPECIES_DIONA
+	return SPECIES_DIONA_HEBE
 
 /mob/living/carbon/alien/diona/proc/grow()
 	set name = "Exponential Growth"
