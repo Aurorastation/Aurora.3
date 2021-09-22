@@ -27800,7 +27800,9 @@
 /turf/simulated/floor/reinforced/airless,
 /area/security/penal_colony)
 "eNt" = (
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/maintenance/disposal)
 "eSg" = (
@@ -32685,6 +32687,12 @@
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled,
 /area/engineering/backup_SMES)
+"pqY" = (
+/obj/item/stool/padded{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/maintenance/medsublevel_port)
 "prR" = (
 /obj/structure/disposalpipe/up,
 /turf/simulated/floor/airless,
@@ -34707,6 +34715,12 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/maintenance/medsublevel_port)
+"tQU" = (
+/obj/item/stool/padded{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/maintenance/medsublevel_port)
 "tRP" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/pipe/manifold/visible/green,
@@ -34823,6 +34837,12 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/outpost/engineering/hallway)
+"udf" = (
+/obj/item/stool/padded{
+	dir = 1
+	},
+/turf/simulated/floor/beach/sand/alt,
+/area/medical/patient_wing_picnic)
 "udp" = (
 /obj/structure/sign/securearea,
 /turf/simulated/wall,
@@ -35492,7 +35512,9 @@
 /turf/simulated/floor/wood,
 /area/medical/patient_a)
 "vll" = (
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 4
+	},
 /obj/effect/decal/cleanable/mucus,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
@@ -36434,6 +36456,12 @@
 "xex" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/substation/research_sublevel)
+"xeN" = (
+/obj/item/stool/padded{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/maintenance/medsublevel_port)
 "xfX" = (
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
@@ -71459,7 +71487,7 @@ aPt
 vVs
 auL
 axG
-aGW
+tQU
 uui
 gWq
 lMm
@@ -72231,13 +72259,13 @@ aEc
 icC
 qaD
 uui
-aGW
+pqY
 uui
 aBl
 xUD
 aGW
 uui
-aGW
+xeN
 aON
 gWq
 gWq
@@ -77636,7 +77664,7 @@ aMq
 fdV
 hHy
 hHy
-fdV
+udf
 aNq
 cyD
 aLm
@@ -77893,7 +77921,7 @@ xUC
 fdV
 hHy
 hHy
-fdV
+udf
 aNq
 aQX
 aLm
@@ -78150,7 +78178,7 @@ aMs
 fdV
 hHy
 hHy
-fdV
+udf
 aNq
 msp
 aLm
