@@ -65,6 +65,7 @@
 /obj/machinery/megavendor/vendor
 	name = "\improper NanoTrasen AutoDrobe Vendor"
 	desc = "A NanoTrasen AutoDrobe machine to help through the trouble of getting dressed for work in the spur of a moment!"
+	icon_state = "clothing"
 	shut_up = TRUE
 	density = 1
 
@@ -76,7 +77,6 @@
 	if(ishuman(user) && Adjacent(user))
 		var/mob/living/carbon/human/H = user
 		if(!H.megavend)
-			flick("telefast",src)
 			playsound(src,'sound/effects/sparks4.ogg',50,1)
 			megavend(H)
 		else

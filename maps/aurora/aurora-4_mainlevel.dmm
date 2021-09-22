@@ -31547,8 +31547,8 @@
 /turf/simulated/floor/plating,
 /area/bridge)
 "bcG" = (
-/obj/structure/closet/secure_closet/personal/cabinet,
 /obj/machinery/firealarm/west,
+/obj/machinery/megavendor/vendor,
 /turf/simulated/floor/carpet/blue,
 /area/crew_quarters/heads/cryo)
 "bcH" = (
@@ -71091,6 +71091,10 @@
 /obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
+"xUe" = (
+/obj/machinery/megavendor/vendor,
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/sleep/main)
 "xVv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -103283,7 +103287,7 @@ pju
 bDF
 bEG
 bFy
-snu
+xUe
 bBP
 bIo
 bJi
