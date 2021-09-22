@@ -178,7 +178,7 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Bedhead 3"
 		icon_state = "hair_bedhead3"
 		chatname = "wavy hair"
-	
+
 	bedhead4
 		name = "Bedhead 4"
 		icon_state = "hair_bedhead4"
@@ -1334,6 +1334,11 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "hair_wheeler"
 		chatname = "short hair"
 
+	fingerwave
+		name = "Fingerwave"
+		icon_state = "hair_fingercurl"
+		chatname = "fluffy hair"
+
 	bug_eyes
 		icon = 'icons/mob/human_face/dionae_hair.dmi'
 		name = "Bug Eyes"
@@ -1727,6 +1732,9 @@ Follow by example and make good judgement based on length which list to include 
 
 /datum/sprite_accessory/hair_gradients
 	icon = 'icons/mob/hair_gradients.dmi'
+	species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,
+		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,
+		/datum/species/skrell, /datum/species/zombie/skrell, /datum/species/bug, /datum/species/bug/type_b)
 
 	none
 		name = "None"
@@ -1765,7 +1773,7 @@ Follow by example and make good judgement based on length which list to include 
 	taj_inner_ear_fur
 		name = "Inner Ear Fur"
 		icon_state = "taj_innerearfur"
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan, /datum/species/zombie/tajara)
 
 	taj_msai_inner_ear_fur
 		name = "M'sai Inner Ear Fur"
@@ -2397,12 +2405,6 @@ Follow by example and make good judgement based on length which list to include 
 			length = 3
 			chatname = "sideponytail"
 
-		taj_ears_sideponyalt
-			name = "Tajara Side Ponytail Alt"
-			icon_state = "hair_sideponyalt"
-			length = 3
-			chatname = "sideponytail"
-
 		taj_ears_governmentman
 			name = "Tajara Government Man"
 			icon_state = "hair_gman"
@@ -2433,6 +2435,36 @@ Follow by example and make good judgement based on length which list to include 
 			length = 2
 			chatname = "bun"
 
+		taj_ears_wedge
+			name = "Tajara Wedge"
+			icon_state = "hair_wedge"
+			length = 2
+			chatname = "styled mane"
+
+		taj_ears_tresses
+			name = "Tajara Tresses"
+			icon_state = "hair_tresses"
+			length = 3
+			chatname = "styled mane"
+
+		taj_ears_shoulderparted
+			name = "Tajara Shoulder Parted"
+			icon_state = "hair_shoulderparted"
+			length = 3
+			chatname = "styled mane"
+
+		taj_ears_shoulderpartedsmall
+			name = "Tajara Shoulder Parted Small"
+			icon_state = "hair_shoulderpartedsmall"
+			length = 3
+			chatname = "styled mane"
+
+		taj_ears_shoulderpartedlong
+			name = "Tajara Shoulder Parted Long"
+			icon_state = "hair_shoulderpartedlong"
+			length = 3
+			chatname = "styled mane"
+
 		taj_ears_shoulderlength
 			name = "Tajara Shoulderlength"
 			icon_state = "hair_shoulderlength"
@@ -2445,15 +2477,51 @@ Follow by example and make good judgement based on length which list to include 
 			length = 2
 			chatname = "styled mane"
 
-		taj_ears_tresses
-			name = "Tajara Tresses"
-			icon_state = "hair_tresses"
+		taj_ears_sidepartedleft
+			name = "Tajara Sideparted Left"
+			icon_state = "hair_sidepartedleft"
 			length = 3
 			chatname = "styled mane"
 
-		taj_ears_tressesalt
-			name = "Tajara Tresses Alt"
-			icon_state = "hair_tressesalt"
+		taj_ears_sidepartedright
+			name = "Tajara Sideparted Right"
+			icon_state = "hair_sidepartedright"
+			length = 3
+			chatname = "styled mane"
+
+		taj_ears_fringeup
+			name = "Tajara Fringe Up"
+			icon_state = "hair_fringeup"
+			length = 2
+			chatname = "styled mane"
+
+		taj_ears_cascading
+			name = "Tajara Cascading"
+			icon_state = "hair_cascading"
+			length = 3
+			chatname = "styled mane"
+
+		taj_ears_cascadingalt
+			name = "Tajara Cascading Alt"
+			icon_state = "hair_cascadingalt"
+			length = 3
+			chatname = "styled mane"
+
+		taj_ears_swoop
+			name = "Tajara Swoop"
+			icon_state = "hair_swoop"
+			length = 2
+			chatname = "styled mane"
+
+		taj_ears_swoop_long
+			name = "Tajara Swoop Long"
+			icon_state = "hair_longswoop"
+			length = 3
+			chatname = "styled mane"
+
+		taj_ears_swoop_long_alt
+			name = "Tajara Swoop Long Alt"
+			icon_state = "hair_longswoop_alt"
 			length = 3
 			chatname = "styled mane"
 
@@ -2598,12 +2666,6 @@ Follow by example and make good judgement based on length which list to include 
 			length = 3
 			chatname = "sideponytail"
 
-		msai_ears_sideponyalt
-			name = "M'sai Side Ponytail Alt"
-			icon_state = "msai_sideponyalt"
-			length = 3
-			chatname = "sideponytail"
-
 		msai_ears_governmentman
 			name = "M'sai Government Man"
 			icon_state = "msai_gman"
@@ -2634,6 +2696,48 @@ Follow by example and make good judgement based on length which list to include 
 			length = 2
 			chatname = "bun"
 
+		msai_ears_wedge
+			name = "M'sai Wedge"
+			icon_state = "msai_wedge"
+			length = 2
+			chatname = "styled mane"
+
+		msai_ears_tresses
+			name = "M'sai Tresses"
+			icon_state = "msai_tresses"
+			length = 3
+			chatname = "styled mane"
+
+		msai_ears_shoulderparted
+			name = "M'sai Shoulderparted"
+			icon_state = "msai_shoulderparted"
+			length = 3
+			chatname = "styled mane"
+
+		msai_ears_shoulderpartedsmall
+			name = "M'sai Shoulderparted Small"
+			icon_state = "msai_shoulderpartedsmall"
+			length = 3
+			chatname = "styled mane"
+
+		msai_ears_shoulderpartedlong
+			name = "M'sai Shoulderparted Long"
+			icon_state = "msai_shoulderpartedlong"
+			length = 3
+			chatname = "styled mane"
+
+		msai_ears_sidepartedleft
+			name = "M'sai Sideparted Left"
+			icon_state = "msai_sidepartedleft"
+			length = 3
+			chatname = "styled mane"
+
+		msai_ears_sidepartedright
+			name = "M'sai Sideparted Right"
+			icon_state = "msai_sidepartedright"
+			length = 3
+			chatname = "styled mane"
+
 		msai_ears_shoulderlength
 			name = "M'sai Shoulderlength"
 			icon_state = "msai_shoulderlength"
@@ -2646,15 +2750,39 @@ Follow by example and make good judgement based on length which list to include 
 			length = 2
 			chatname = "styled mane"
 
-		msai_ears_tresses
-			name = "M'sai Tresses"
-			icon_state = "msai_tresses"
+		msai_ears_fringeup
+			name = "M'sai Fringe Up"
+			icon_state = "msai_fringeup"
+			length = 2
+			chatname = "styled mane"
+
+		msai_ears_cascading
+			name = "M'sai Cascading"
+			icon_state = "msai_cascading"
 			length = 3
 			chatname = "styled mane"
 
-		msai_ears_tressesalt
-			name = "M'sai Tresses Alt"
-			icon_state = "msai_tressesalt"
+		msai_ears_cascadingalt
+			name = "M'sai Cascading Alt"
+			icon_state = "msai_cascadingalt"
+			length = 3
+			chatname = "styled mane"
+
+		msai_ears_swoop
+			name = "M'sai Swoop"
+			icon_state = "msai_swoop"
+			length = 2
+			chatname = "styled mane"
+
+		msai_ears_swoop_long
+			name = "M'sai Swoop Long"
+			icon_state = "msai_longswoop"
+			length = 3
+			chatname = "styled mane"
+
+		msai_ears_swoop_long_alt
+			name = "M'sai Swoop Long Alt"
+			icon_state = "msai_longswoop_alt"
 			length = 3
 			chatname = "styled mane"
 
@@ -3180,6 +3308,61 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Glorp"
 			icon_state = "glorp"
 
+	anglerfish
+		icon = 'icons/mob/human_face/skrell_beards.dmi'
+		name = "Anglerfish"
+		icon_state = "Anglerfish"
+		species_allowed = list(/datum/species/skrell)
+		gender = NEUTER
+
+		triton
+			name = "Triton"
+			icon_state = "Triton"
+
+		big_triton
+			name = "Big Triton"
+			icon_state = "Big_Triton"
+
+		ahab
+			name = "Ahab"
+			icon_state = "Ahab"
+
+		monotail
+			name = "Monotail"
+			icon_state = "Monotail"
+
+		long_monotail
+			name = "Long Monotail"
+			icon_state = "Long_Monotail"
+
+		face_adorns
+			name = "Face Adorns"
+			icon_state = "Face_Adorns"
+
+		sea_captain
+			name = "Sea Captain"
+			icon_state = "Sea_Captain"
+
+		fisherman
+			name = "Fisherman"
+			icon_state = "Fisherman"
+
+		sailor
+			name = "Sailor"
+			icon_state = "Sailor"
+
+		overgrown
+			name = "Overgrown"
+			icon_state = "Overgrown"
+
+		marauder_left
+			name = "Marauder (Left)"
+			icon_state = "Marauder_Left"
+
+		marauder_right
+			name = "Marauder (Right)"
+			icon_state = "Marauder_Right"
+
 /*
 ////////////////////////////
 /  =--------------------=  /
@@ -3619,6 +3802,24 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list(BP_HEAD)
 		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/bug, /datum/species/bug/type_b)
 
+	scar_chest 
+		name = "Scar, Chest"
+		icon_state = "surgicalscar_chest"
+		body_parts = list(BP_CHEST)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/bug, /datum/species/bug/type_b)
+
+	scar_chest_left
+		name = "Scar, Chest Left"
+		icon_state = "chestscar_l_chest"
+		body_parts = list(BP_CHEST)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/bug, /datum/species/bug/type_b)
+
+	scar_chest_right
+		name = "Scar, Chest Right"
+		icon_state = "chestscar_r_chest"
+		body_parts = list(BP_CHEST)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/bug, /datum/species/bug/type_b)
+
 	scratch_abdomen_left
 		name = "Scratch, Abdomen Left"
 		icon_state = "scratch_abdomen_l"
@@ -3691,6 +3892,18 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts= list(BP_R_LEG)
 		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
+	tat_circle_back
+		name = "Tattoo (Circle, Back)"
+		icon_state = "tat_circle_back"
+		body_parts = list(BP_CHEST)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+
+	tat_circle_big_back
+		name = "Tattoo (Big Circle, Back)"
+		icon_state = "tat_bigcircle_back"
+		body_parts = list(BP_CHEST)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+
 	tat_forrest_left
 		name = "Tattoo (Forrest, Left Eye)"
 		icon_state = "tat_forrest_l"
@@ -3702,6 +3915,12 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "tat_forrest_r"
 		body_parts = list(BP_HEAD)
 		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+
+	tat_harness
+		name = "Tattoo (Harness, Chest)"
+		icon_state = "tat_harness_body"
+		body_parts = list(BP_CHEST)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	tat_hive
 		name = "Tattoo (Hive, Back)"
@@ -3797,6 +4016,12 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Tattoo (Silverburgh, Right Leg)"
 		icon_state = "tat_silverburgh"
 		body_parts = list(BP_R_LEG)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+
+	tat_spine_back
+		name = "Tattoo (Spine, Back)"
+		icon_state = "tat_spine_back"
+		body_parts = list(BP_CHEST)
 		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	tat_tamoko
@@ -4062,7 +4287,7 @@ Follow by example and make good judgement based on length which list to include 
 			lopsided
 				name = "Lopsided"
 				icon_state = "lopsided"
-			
+
 			helmethead
 				name = "Helmethead"
 				icon_state = "helmethead"

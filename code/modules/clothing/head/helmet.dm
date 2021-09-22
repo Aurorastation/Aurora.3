@@ -8,9 +8,9 @@
 		)
 	item_flags = THICKMATERIAL
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
+		melee = ARMOR_MELEE_KEVLAR,
 		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
+		laser = ARMOR_LASER_KEVLAR,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED
 	)

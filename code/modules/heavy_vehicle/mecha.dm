@@ -319,3 +319,6 @@
 		hardpoints_locked = TRUE
 	force_locked = TRUE
 	update_icon()
+
+/mob/living/heavy_vehicle/is_anti_materiel_vulnerable()
+	return TRUE

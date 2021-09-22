@@ -4,7 +4,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 /obj/item/reagent_containers/glass
 	name = " "
-	var/base_name = " "
 	desc = " "
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = null
@@ -23,7 +22,7 @@
 
 /obj/item/reagent_containers/glass/Initialize()
 	. = ..()
-	base_name = name
+	AddComponent(/datum/component/base_name, name)
 
 /obj/item/reagent_containers/glass/examine(var/mob/user)
 	if(!..(user, 2))
@@ -82,7 +81,8 @@
 		return
 	. = ..() // in the case of nitroglycerin, explode BEFORE it shatters
 
-/obj/item/reagent_containers/glass/proc/update_name_label()
+/obj/item/reagent_containers/glass/proc/update_name_label(var/base_name = initial(name))
+	SEND_SIGNAL(src, COMSIG_BASENAME_SETNAME, args)
 	if(label_text == "")
 		name = base_name
 	else

@@ -120,3 +120,4 @@
 #define ACCENT_ZORA "Zo'rane"
 #define ACCENT_KLAX "K'laxane"
 #define ACCENT_CTHUR "C'thuric"
+#define ACCENT_LIIDRA "Lii'draic"

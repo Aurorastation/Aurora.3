@@ -177,6 +177,8 @@
 
 /obj/item/device/radio/headset/alt/double
 	name = "soundproof headset"
+	desc = "A sound isolating version of the common radio headset."
+	desc_info = "This radio doubles as a pair of earmuffs by providing sound protection."
 	icon_state = "earset"
 	item_state = "earset"
 	item_flags = SOUNDPROTECTION
@@ -184,11 +186,25 @@
 
 /obj/item/device/radio/headset/wrist
 	name = "wristbound radio"
+	desc = "A radio designed to fit on the wrist. Often known for broadcasting loudly enough that those closeby might overhear it."
+	desc_info = "This radio can be heard by people standing next to the one wearing it."
 	icon_state = "wristset"
 	item_state = "wristset"
 	slot_flags = SLOT_WRISTS
 	canhear_range = 1
+	var/normal_layer = TRUE
 	EarSound = FALSE
+
+/obj/item/device/radio/headset/wrist/verb/change_layer()
+	set category = "Object"
+	set name = "Change Wrist Layer"
+	set src in usr
+
+	normal_layer = !normal_layer
+	to_chat(usr, SPAN_NOTICE("\The [src] will now layer [normal_layer ? "under" : "over"] your outerwear."))
+	if (ismob(src.loc))
+		var/mob/M = src.loc
+		M.update_inv_wrists()	
 
 /*
  * Civillian

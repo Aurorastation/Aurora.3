@@ -648,6 +648,14 @@
 	slot_flags = SLOT_TIE
 	w_class = ITEMSIZE_TINY
 
+/obj/item/clothing/accessory/ribbon
+	name = "ribbon"
+	desc = "A small ribbon to commemorate or support a cause."
+	icon_state = "ribbon"
+	item_state = "ribbon"
+	slot_flags = SLOT_TIE
+	w_class = ITEMSIZE_TINY
+
 /obj/item/clothing/accessory/sleevepatch
 	name = "sleeve patch"
 	desc = "An embroidered patch which can be attached to the shoulder sleeve of clothing."

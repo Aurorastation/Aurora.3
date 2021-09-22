@@ -524,6 +524,7 @@
 	t = replacetext(t, "\[/grid\]", "</td></tr></table>")
 	t = replacetext(t, "\[row\]", "</td><tr>")
 	t = replacetext(t, "\[cell\]", "<td>")
+	t = replacetext(t, "\[logo_scc\]", "<img src = scclogo.png>")
 	t = replacetext(t, "\[logo_nt\]", "<img src = ntlogo.png>")
 	t = replacetext(t, "\[logo_nt_small\]", "<img src = ntlogo_small.png>")
 	t = replacetext(t, "\[logo_zh\]", "<img src = zhlogo.png>")
@@ -541,6 +542,7 @@
 	t = replacetext(t, "\[flag_dpra\]", "<img src = dpraflag.png>")
 	t = replacetext(t, "\[flag_nka\]", "<img src = nkaflag.png>")
 	t = replacetext(t, "\[flag_izweski\]", "<img src = izweskiflag.png>")
+	t = replacetext(t, "\[logo_golden\]", "<img src = goldenlogo.png>")
 	t = replacetext(t, "\[barcode\]", "<img src = barcode[rand(0, 3)].png>")
 	t = replacetext(t, "\[time\]", "[worldtime2text()]")
 	t = replacetext(t, "\[date\]", "[worlddate2text()]")
@@ -566,6 +568,7 @@
 	t = replacetext(t, "</font>", "\[/small\]")
 
 	if(include_images)
+		t = replacetext(t, "<img src = scclogo.png>", "\[logo_scc\]")
 		t = replacetext(t, "<img src = ntlogo.png>", "\[logo_nt\]")
 		t = replacetext(t, "<img src = ntlogo_small.png>", "\[logo_nt_small\]")
 		t = replacetext(t, "<img src = zhlogo.png>", "\[logo_zh\]")
@@ -583,6 +586,7 @@
 		t = replacetext(t, "<img src = dpraflag.png>", "\[flag_dpra\]")
 		t = replacetext(t, "<img src = nkaflag.png>", "\[flag_nka\]")
 		t = replacetext(t, "<img src = izweskiflag.png>", "\[flag_izweski\]")
+		t = replacetext(t, "<img src = goldenlogo.png>", "\[logo_golden\]")
 
 	return t
 

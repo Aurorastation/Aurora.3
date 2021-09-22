@@ -9356,26 +9356,6 @@
 /obj/structure/sign/electricshock,
 /turf/simulated/wall,
 /area/solar/fore)
-"inr" = (
-/obj/structure/closet/crate/hydroponics,
-/obj/item/material/minihoe,
-/obj/item/material/minihoe,
-/obj/item/material/minihoe,
-/obj/item/material/hatchet,
-/obj/item/material/hatchet,
-/obj/item/material/hatchet,
-/obj/item/reagent_containers/glass/bucket,
-/obj/item/reagent_containers/glass/bucket,
-/obj/item/reagent_containers/glass/bucket,
-/obj/structure/disposalpipe/segment,
-/obj/random/seed,
-/obj/random/seed,
-/obj/random/seed,
-/obj/item/wirecutters/clippers,
-/obj/item/wirecutters/clippers,
-/obj/item/wirecutters/clippers,
-/turf/simulated/floor/wood,
-/area/hydroponics/garden)
 "ioe" = (
 /obj/item/device/radio/intercom{
 	name = "Station Intercom (General)";
@@ -11306,6 +11286,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/storage/tools)
+"klH" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass{
+	name = "Garden"
+	},
+/turf/simulated/floor/plating,
+/area/hydroponics/garden)
 "klU" = (
 /obj/machinery/status_display{
 	pixel_x = 32
@@ -11473,21 +11460,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/quartermaster/loading)
-"krN" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/hydroponics/garden)
 "ksy" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Telecoms West Wing";
@@ -19554,6 +19526,21 @@
 	},
 /turf/simulated/floor/grass/alt,
 /area/hydroponics/garden)
+"rqJ" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
+/area/hydroponics/garden)
 "rqW" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -20197,6 +20184,25 @@
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor/plating,
 /area/storage/tools)
+"rRj" = (
+/obj/structure/closet/crate/hydroponics,
+/obj/item/material/minihoe,
+/obj/item/material/minihoe,
+/obj/item/material/minihoe,
+/obj/item/material/hatchet,
+/obj/item/material/hatchet,
+/obj/item/material/hatchet,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket,
+/obj/random/seed,
+/obj/random/seed,
+/obj/random/seed,
+/obj/item/wirecutters/clippers,
+/obj/item/wirecutters/clippers,
+/obj/item/wirecutters/clippers,
+/turf/simulated/floor/grass/alt,
+/area/hydroponics/garden)
 "rRm" = (
 /obj/structure/shuttle_part/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
@@ -20345,12 +20351,16 @@
 /turf/simulated/mineral/surface,
 /area/mine/unexplored)
 "rZH" = (
-/obj/machinery/door/airlock/glass{
-	name = "Garden"
-	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
 	},
 /turf/simulated/floor/wood,
 /area/hydroponics/garden)
@@ -24459,21 +24469,6 @@
 	temperature = 278
 	},
 /area/tcommsat/chamber)
-"vCA" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/hydroponics/garden)
 "vCD" = (
 /obj/structure/cable/yellow{
 	d2 = 8;
@@ -54865,7 +54860,7 @@ kvz
 ras
 qnH
 aJP
-inr
+nIy
 nIy
 mqz
 nIy
@@ -55638,7 +55633,7 @@ hyn
 rqf
 uDd
 jxp
-uDd
+rRj
 gzB
 wKb
 hQl
@@ -56663,13 +56658,13 @@ lEd
 lEd
 lEd
 hyn
-vCA
+iTu
 rZH
-krN
+cpi
 qnH
-mIG
-rIU
-rIU
+rqJ
+klH
+iTu
 bcb
 dUm
 aVE
