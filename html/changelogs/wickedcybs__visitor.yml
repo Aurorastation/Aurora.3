@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - tweak: "The unmarked visitor role can now select from a wider variety of station species and IPCs."
