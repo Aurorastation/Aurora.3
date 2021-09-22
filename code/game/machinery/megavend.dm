@@ -12,6 +12,7 @@
 	var/last_reply = 0
 	var/last_slogan = 0 //When did we last pitch?
 	var/slogan_delay = 6000 //How long until we can pitch again?
+	var/change_message = "You feel a pleasant breeze as the autolocker whisks away all of your clothes, packing them neatly in a box."
 
 	// Stuff relating vocalizations
 	var/list/slogan_list = list("Don't deploy just yet! Grab your gear!","Forgetting something?","Don't hop on in your skivvies, mate!","It's not Casual Friday, y'know?","Heaven's above, put some clothes on!")
@@ -47,10 +48,9 @@
 			continue
 		H.drop_from_inventory(W,gearbox)
 
-	to_chat(H,SPAN_NOTICE("You feel a pleasant breeze as the autolocker issues your equipment and you quickly get changed."))
+	to_chat(H,SPAN_NOTICE(change_message))
 
 	SSjobs.EquipRank(H, H.job, 1, 1) //Equip 'em
-	// H.megavend = 1 - REMOVE THIS WHEN TESTING IS DONE
 
 	//Give them the box
 	if(istype(H.back,/obj/item/storage/backpack))
@@ -68,6 +68,7 @@
 	icon_state = "clothing"
 	shut_up = TRUE
 	density = 1
+	change_message = "You feel a pleasant breeze as the autolocker issues your equipment and you quickly get changed."
 
 /obj/machinery/megavendor/vendor/Crossed(O)
 	return
