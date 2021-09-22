@@ -78,7 +78,7 @@
 	minimum_character_age = 25
 
 	access = list(access_eva, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_external_airlocks, access_construction, access_atmospherics)
-	minimal_access = list(access_eva, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_external_airlocks, access_construction)
+	minimal_access = list(access_eva, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_external_airlocks, access_construction, access_atmospherics)
 	outfit = /datum/outfit/job/engineer
 
 /datum/outfit/job/engineer
@@ -130,7 +130,7 @@
 	minimum_character_age = 25
 
 	access = list(access_eva, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_external_airlocks, access_construction, access_atmospherics, access_external_airlocks)
-	minimal_access = list(access_eva, access_engine, access_atmospherics, access_maint_tunnels, access_emergency_storage, access_construction, access_external_airlocks)
+	minimal_access = list(access_eva, access_engine, access_engine_equip, access_tech_storage, access_atmospherics, access_maint_tunnels, access_emergency_storage, access_construction, access_external_airlocks)
 	outfit = /datum/outfit/job/atmos
 
 /datum/outfit/job/atmos
@@ -177,8 +177,8 @@
 	intro_prefix = "an"
 	supervisors = "the Chief Engineer"
 	selection_color = "#c67519"
-	access = list(access_maint_tunnels, access_construction, access_engine_equip, access_engine)
-	minimal_access = list(access_maint_tunnels, access_construction, access_engine_equip, access_engine)
+	access = list(access_maint_tunnels, access_construction, access_engine_equip, access_engine, access_atmospherics)
+	minimal_access = list(access_maint_tunnels, access_construction, access_engine_equip, access_engine, access_atmospherics)
 	outfit = /datum/outfit/job/intern_eng
 
 	minimum_character_age = 18
