@@ -17,6 +17,7 @@
 	var/base_icon = "stool"
 	var/material/material
 	var/material/padding_material
+	obj_flags = OBJ_FLAG_ROTATABLE
 
 /obj/item/stool/padded
 	icon_state = "stool_padded_preview" //set for the map
