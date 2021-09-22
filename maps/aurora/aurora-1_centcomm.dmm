@@ -123,7 +123,6 @@
 	pixel_x = -3;
 	pixel_y = 2
 	},
-/obj/item/clothing/mask/breath/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
@@ -1109,9 +1108,7 @@
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
 "acQ" = (
-/obj/structure/holostool{
-	dir = 1
-	},
+/obj/structure/holostool,
 /obj/effect/floor_decal/chapel{
 	dir = 8
 	},
@@ -1119,9 +1116,7 @@
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
 "acR" = (
-/obj/structure/holostool{
-	dir = 1
-	},
+/obj/structure/holostool,
 /obj/effect/floor_decal/chapel{
 	dir = 4
 	},
@@ -1143,9 +1138,7 @@
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_chapel)
 "acT" = (
-/obj/structure/holostool{
-	dir = 1
-	},
+/obj/structure/holostool,
 /obj/effect/floor_decal/chapel{
 	dir = 1
 	},
@@ -1294,9 +1287,7 @@
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
 "adm" = (
-/obj/structure/holostool{
-	dir = 1
-	},
+/obj/structure/holostool,
 /obj/effect/floor_decal/chapel{
 	dir = 4
 	},
@@ -1315,9 +1306,7 @@
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_chapel)
 "ado" = (
-/obj/structure/holostool{
-	dir = 1
-	},
+/obj/structure/holostool,
 /obj/effect/floor_decal/chapel{
 	dir = 1
 	},
@@ -1334,24 +1323,18 @@
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
 "adq" = (
-/obj/structure/holostool{
-	dir = 1
-	},
+/obj/structure/holostool,
 /obj/effect/floor_decal/carpet{
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_theatre)
 "adr" = (
-/obj/structure/holostool{
-	dir = 1
-	},
+/obj/structure/holostool,
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_theatre)
 "ads" = (
-/obj/structure/holostool{
-	dir = 1
-	},
+/obj/structure/holostool,
 /obj/effect/floor_decal/carpet{
 	dir = 4
 	},
@@ -1582,16 +1565,12 @@
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_theatre)
 "aeh" = (
-/obj/structure/holostool{
-	dir = 1
-	},
+/obj/structure/holostool,
 /obj/effect/floor_decal/carpet,
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_theatre)
 "aei" = (
-/obj/structure/holostool{
-	dir = 1
-	},
+/obj/structure/holostool,
 /obj/effect/floor_decal/carpet{
 	dir = 4
 	},
@@ -1864,9 +1843,7 @@
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_boxingcourt)
 "afl" = (
-/obj/structure/holostool{
-	dir = 8
-	},
+/obj/structure/holostool,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_boxingcourt)
 "afr" = (
@@ -4417,18 +4394,14 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/holding)
 "aDf" = (
-/obj/structure/holostool{
-	dir = 4
-	},
+/obj/structure/holostool,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_battlemonsters)
 "aDg" = (
 /obj/structure/window/reinforced/holowindow{
 	dir = 4
 	},
-/obj/structure/holostool{
-	dir = 4
-	},
+/obj/structure/holostool,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_battlemonsters)
 "aDh" = (
@@ -4517,9 +4490,7 @@
 /obj/structure/window/reinforced/holowindow{
 	dir = 8
 	},
-/obj/structure/holostool{
-	dir = 8
-	},
+/obj/structure/holostool,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_battlemonsters)
 "aDK" = (
@@ -5650,9 +5621,7 @@
 /area/shuttle/skipjack)
 "aKt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/item/stool/padded{
-	dir = 8
-	},
+/obj/item/stool/padded,
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
 "aKx" = (
@@ -8745,9 +8714,7 @@
 	},
 /area/centcom/holding)
 "bKL" = (
-/obj/item/stool/padded{
-	dir = 4
-	},
+/obj/item/stool/padded,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/skipjack)
 "bLj" = (
@@ -11252,9 +11219,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "dpM" = (
-/obj/item/stool/bar/padded{
-	dir = 1
-	},
+/obj/item/stool/bar/padded,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -11965,10 +11930,6 @@
 /obj/structure/table/wood{
 	table_reinf = "wood"
 	},
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "carpetnoconnect"
 	},
@@ -12032,12 +11993,6 @@
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor,
 /area/tdome)
-"dSw" = (
-/obj/structure/holostool{
-	dir = 8
-	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_battlemonsters)
 "dSG" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "3,1"
@@ -15136,7 +15091,6 @@
 	dir = 1
 	},
 /obj/item/stool/padded{
-	dir = 1;
 	pixel_y = 10
 	},
 /turf/unsimulated/floor{
@@ -15533,9 +15487,7 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "fYr" = (
-/obj/item/stool/bar/padded{
-	dir = 1
-	},
+/obj/item/stool/bar/padded,
 /obj/effect/landmark{
 	name = "raiderstart"
 	},
@@ -15892,16 +15844,6 @@
 /obj/effect/decal/cleanable/blood/oil,
 /turf/unsimulated/floor,
 /area/centcom/legion)
-"gkQ" = (
-/obj/structure/holostool{
-	dir = 1
-	},
-/obj/effect/floor_decal/chapel,
-/obj/effect/floor_decal/chapel{
-	dir = 8
-	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_chapel)
 "gkV" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/pill_bottle/kelotane{
@@ -16385,7 +16327,6 @@
 /area/shuttle/skipjack)
 "gwf" = (
 /obj/item/stool/padded{
-	dir = 1;
 	pixel_y = 10
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -18713,9 +18654,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/item/stool/bar/padded{
-	dir = 1
-	},
+/obj/item/stool/bar/padded,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -21629,9 +21568,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/item/stool/bar/padded{
-	dir = 8
-	},
+/obj/item/stool/bar/padded,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -23999,12 +23936,6 @@
 	icon_state = "13,7"
 	},
 /area/shuttle/mercenary)
-"ltT" = (
-/obj/item/stool/padded{
-	dir = 4
-	},
-/turf/unsimulated/floor,
-/area/centcom/legion)
 "luW" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/glass/beaker/cryoxadone{
@@ -24169,12 +24100,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
-"lzH" = (
-/obj/structure/holostool{
-	dir = 8
-	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_dininghall)
 "lAw" = (
 /obj/structure/table/rack,
 /obj/item/storage/belt/security/tactical{
@@ -25226,8 +25151,6 @@
 /obj/structure/table/wood{
 	table_reinf = "wood"
 	},
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -26209,19 +26132,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/legion)
-"mLC" = (
-/obj/item/stool/padded{
-	dir = 1
-	},
-/obj/effect/ghostspawpoint{
-	identifier = "ERTSpawn";
-	name = "igs - ERT"
-	},
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/centcom/distress_prep)
 "mLI" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
@@ -30561,9 +30471,7 @@
 /turf/template_noop,
 /area/template_noop)
 "pCe" = (
-/obj/item/stool/bar/padded{
-	dir = 8
-	},
+/obj/item/stool/bar/padded,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
@@ -31119,9 +31027,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant)
 "pOS" = (
-/obj/structure/holostool{
-	dir = 4
-	},
+/obj/structure/holostool,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_dininghall)
 "pPA" = (
@@ -34005,12 +33911,6 @@
 /obj/item/storage/briefcase/aluminium,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
-"rWa" = (
-/obj/item/stool/padded{
-	dir = 8
-	},
-/turf/unsimulated/floor,
-/area/centcom/legion)
 "rWs" = (
 /obj/machinery/computer/pod{
 	id = "thunderdome";
@@ -34029,10 +33929,6 @@
 /obj/structure/table/standard,
 /obj/item/paper_bin,
 /obj/item/pen,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
 	},
@@ -34347,12 +34243,6 @@
 	name = "military corvette"
 	},
 /area/shuttle/administration)
-"skU" = (
-/obj/structure/holostool{
-	dir = 1
-	},
-/turf/simulated/floor/holofloor/beach/sand,
-/area/holodeck/source_picnicarea)
 "slj" = (
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/grey{
@@ -37169,7 +37059,6 @@
 /area/centcom/specops)
 "ujT" = (
 /obj/structure/table/standard,
-/obj/item/clothing/mask/breath/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
@@ -37215,10 +37104,6 @@
 	pixel_y = 6
 	},
 /obj/effect/floor_decal/industrial/warning,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
@@ -39252,12 +39137,6 @@
 	icon_state = "1,5"
 	},
 /area/shuttle/syndicate_elite)
-"vHE" = (
-/obj/item/stool/padded{
-	dir = 1
-	},
-/turf/unsimulated/floor,
-/area/centcom/legion)
 "vIS" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1337;
@@ -42056,7 +41935,6 @@
 /area/centcom/legion/hangar5)
 "xhC" = (
 /obj/item/stool/padded{
-	dir = 1;
 	pixel_y = 10
 	},
 /obj/machinery/light{
@@ -42910,9 +42788,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/escape)
 "xFV" = (
-/obj/item/stool/padded{
-	dir = 8
-	},
+/obj/item/stool/padded,
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
@@ -74669,7 +74545,7 @@ gOp
 qxn
 cJm
 mwJ
-mLC
+cJm
 qxn
 cZw
 xSv
@@ -74926,7 +74802,7 @@ mHT
 oqo
 cJm
 fkH
-mLC
+cJm
 qxn
 cZw
 xSv
@@ -75183,7 +75059,7 @@ mHT
 tZF
 cJm
 bfa
-mLC
+cJm
 pOz
 cZw
 xSv
@@ -79277,9 +79153,9 @@ okP
 bWj
 ukS
 wba
-ltT
-ltT
-ltT
+wgo
+wgo
+wgo
 jcG
 aaM
 aaM
@@ -79791,8 +79667,8 @@ rPS
 bWj
 uql
 wba
-rWa
-rWa
+wgo
+wgo
 xFV
 bWj
 aaM
@@ -80305,9 +80181,9 @@ jEg
 tfe
 utl
 wba
-ltT
-ltT
-ltT
+wgo
+wgo
+wgo
 jcG
 aaM
 aaM
@@ -80819,9 +80695,9 @@ bWj
 bWj
 uOM
 wdJ
-rWa
-rWa
-rWa
+wgo
+wgo
+wgo
 jcG
 aaM
 aaM
@@ -81334,7 +81210,7 @@ bWj
 uRY
 wgo
 wIL
-vHE
+wgo
 qDS
 jcG
 aaM
@@ -81591,7 +81467,7 @@ bWj
 uSA
 wgo
 wKo
-vHE
+wgo
 xEw
 jcG
 aaM
@@ -81848,7 +81724,7 @@ bWj
 uSG
 wha
 wKL
-vHE
+wgo
 xGF
 bWj
 aaM
@@ -91927,14 +91803,14 @@ aef
 aez
 aeO
 sZi
-lzH
-lzH
-lzH
-lzH
-lzH
-lzH
-lzH
-lzH
+pOS
+pOS
+pOS
+pOS
+pOS
+pOS
+pOS
+pOS
 sZi
 aeO
 aaM
@@ -93719,9 +93595,9 @@ abs
 abZ
 acs
 acT
-gkQ
+acU
 ado
-gkQ
+acU
 ado
 adp
 aaO
@@ -93977,9 +93853,9 @@ abY
 act
 acU
 ado
-gkQ
+acU
 ado
-gkQ
+acU
 acV
 aaO
 aBS
@@ -94241,12 +94117,12 @@ adp
 aaO
 aMa
 aBS
-dSw
-dSw
-dSw
-dSw
-dSw
-dSw
+aDf
+aDf
+aDf
+aDf
+aDf
+aDf
 aBS
 aMa
 aeO
@@ -97318,7 +97194,7 @@ acd
 acu
 acW
 acW
-skU
+acu
 adM
 mKw
 mKw
@@ -97575,7 +97451,7 @@ ace
 acu
 acW
 acW
-skU
+acu
 adN
 abO
 abz
@@ -97832,7 +97708,7 @@ acf
 acu
 acW
 acW
-skU
+acu
 adO
 mKw
 mKw

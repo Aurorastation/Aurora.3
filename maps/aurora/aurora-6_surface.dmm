@@ -6330,15 +6330,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
-"fGD" = (
-/obj/item/stool/padded{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark{
-	name = "heated dark floor";
-	temperature = 303.15
-	},
-/area/crew_quarters/fitness/pool)
 "fHH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -7634,9 +7625,7 @@
 /turf/simulated/wall,
 /area/crew_quarters/fitness/pool)
 "gTo" = (
-/obj/item/stool/padded{
-	dir = 4
-	},
+/obj/item/stool/padded,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/locker)
 "gTW" = (
@@ -12224,12 +12213,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/solar/port)
-"kYG" = (
-/obj/item/stool/padded{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/locker)
 "kYN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -15644,9 +15627,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/levela/research_dock)
 "obr" = (
-/obj/item/stool/padded{
-	dir = 4
-	},
+/obj/item/stool/padded,
 /obj/effect/floor_decal/corner/white/diagonal{
 	dir = 4
 	},
@@ -23406,9 +23387,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/foresolar)
 "uBx" = (
-/obj/item/stool/padded{
-	dir = 4
-	},
+/obj/item/stool/padded,
 /turf/simulated/floor/tiled/dark{
 	name = "heated dark floor";
 	temperature = 303.15
@@ -53086,9 +53065,9 @@ eCP
 jhh
 jhh
 sCu
-kYG
-kYG
-kYG
+gTo
+gTo
+gTo
 xKr
 fQU
 jhh
@@ -62078,7 +62057,7 @@ fdu
 fdu
 fdu
 uNK
-fGD
+uBx
 mYu
 pDk
 pgW
@@ -62088,7 +62067,7 @@ pgW
 pgW
 gMR
 pzO
-fGD
+uBx
 uNK
 fdu
 fdu
@@ -63106,7 +63085,7 @@ fdu
 fdu
 fdu
 ggb
-fGD
+uBx
 xbe
 wxJ
 uuh
@@ -63116,7 +63095,7 @@ knH
 tgQ
 uuh
 fwd
-fGD
+uBx
 ggb
 fdu
 fdu
