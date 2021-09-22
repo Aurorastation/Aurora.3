@@ -48,7 +48,7 @@
 			continue
 		H.drop_from_inventory(W,gearbox)
 
-	to_chat(H,SPAN_NOTICE(change_message))
+	to_chat(H, SPAN_NOTICE(change_message))
 
 	SSjobs.EquipRank(H, H.job, 1, 1) //Equip 'em
 
@@ -68,7 +68,7 @@
 	icon_state = "clothing"
 	shut_up = TRUE
 	density = 1
-	change_message = "You feel a pleasant breeze as the autolocker issues your equipment and you quickly get changed."
+	change_message = "The autolocker issues your equipment and you quickly get changed."
 
 /obj/machinery/megavendor/vendor/Crossed(O)
 	return
@@ -81,4 +81,4 @@
 			playsound(src,'sound/effects/sparks4.ogg',50,1)
 			megavend(H)
 		else
-			to_chat("\The [src]'s screen lights up a brief message: 'Equipment already claimed. Have a nice day!'")
+			to_chat(user, "\The [src]'s screen lights up a brief message: 'Equipment already claimed. Have a nice day!'")
