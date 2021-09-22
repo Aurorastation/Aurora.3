@@ -3,7 +3,7 @@
 ************/
 /datum/uplink_item/item/grenades
 	category = /datum/uplink_category/grenades
-	
+
 /datum/uplink_item/item/grenades/manhack
 	name = "Viscerator Delivery Grenade"
 	item_cost = 2
@@ -33,10 +33,10 @@
 	item_cost = 2
 	path = /obj/item/storage/box/emps
 	desc = "A box of five grenades that cause a risky EMP explosion, capable of toggling headsets off, permanently destroying IPC units and draining a stationbound completely."
-	
+
 /datum/uplink_item/item/grenades/frag
 	name = "5xFrag Grenades"
-	item_cost = 6
+	item_cost = 5
 	path = /obj/item/storage/box/frags
 
 /datum/uplink_item/item/grenades/cardox
