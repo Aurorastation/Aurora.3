@@ -99,7 +99,10 @@ proc/spread_germs_to_organ(var/obj/item/organ/external/E, var/mob/living/carbon/
 		/obj/item/device/advanced_healthanalyzer,
 		/obj/item/device/robotanalyzer,
 		/obj/item/stack/medical,
-		/obj/item/stack/nanopaste
+		/obj/item/stack/nanopaste,
+		/obj/item/device/breath_analyzer,
+		/obj/item/personal_inhaler,
+		/obj/item/clothing/accessory/stethoscope
 		)
 	// Check for multi-surgery drifting.
 	var/zone = user.zone_sel.selecting
