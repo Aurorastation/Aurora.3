@@ -12,7 +12,7 @@
 	. = ..()
 	if(force || !istype(H) || slot != slot_wear_suit)
 		return
-	if(H.species.get_bodytype() in list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_SKRELL,SPECIES_SKRELL_AXIORI, SPECIES_UNATHI)) //gtfo stinky bugs
+	if(H.species.get_bodytype() in list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL, BODYTYPE_UNATHI)) //gtfo stinky bugs
 		return
 	else
 		return FALSE
