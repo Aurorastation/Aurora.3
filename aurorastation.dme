@@ -1873,6 +1873,7 @@
 #include "code\modules\hydroponics\seed_datums\flowers.dm"
 #include "code\modules\hydroponics\seed_datums\fruits.dm"
 #include "code\modules\hydroponics\seed_datums\grains.dm"
+#include "code\modules\hydroponics\seed_datums\herbs.dm"
 #include "code\modules\hydroponics\seed_datums\jargon.dm"
 #include "code\modules\hydroponics\seed_datums\misc.dm"
 #include "code\modules\hydroponics\seed_datums\mushrooms.dm"
