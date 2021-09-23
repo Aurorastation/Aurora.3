@@ -1,4 +1,4 @@
 author: Desven
 delete-after: True
 changes:
-  - bugfix: "Fixed the sterilizine hand sprite not matching the new sprite."
+  - bugfix: "Fixed the sterilizine hand sprites not matching the new sprite."
