@@ -87,7 +87,7 @@
 	seed_name = "green grape"
 	display_name = "green grapevines"
 	mutants = null
-	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/kelotane = list(3,5), /decl/reagent/drink/grapejuice = list(10,10))
+	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/kelotane = list(3,5), /decl/reagent/drink/whitegrapejuice = list(10,10))
 
 /datum/seed/grapes/green/setup_traits()
 	..()
@@ -455,3 +455,27 @@
 
 /obj/item/seeds/pumpkinseed
 	seed_type = "pumpkin"
+
+
+//coffee beans are considered a fruit and seed, commonly considered a "cherry" of the plant
+/datum/seed/coffee
+	name = "coffee"
+	seed_name = "coffee beans"
+	display_name = "coffee bush"
+	chems = list(/decl/reagent/nutriment/coffeegrounds = list(2,10))
+	kitchen_tag = "coffee"
+
+/datum/seed/coffee/setup_traits()
+	..()
+	set_trait(TRAIT_HARVEST_REPEAT,1)
+	set_trait(TRAIT_MATURATION,3)
+	set_trait(TRAIT_PRODUCTION,3)
+	set_trait(TRAIT_YIELD,4)
+	set_trait(TRAIT_POTENCY,2)
+	set_trait(TRAIT_PRODUCT_ICON,"bean2")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#be9109")
+	set_trait(TRAIT_PLANT_ICON,"bush2")
+	set_trait(TRAIT_IDEAL_LIGHT, 6)
+
+/obj/item/seeds/coffeeseed
+	seed_type = "coffee"
