@@ -83,8 +83,8 @@
 	if(!T)
 		if(length(latejoin))
 			T = pick(latejoin)			//Safety in case we cannot find the body's position
-		else if(length(force_spawnpoints))
-			T = pick(force_spawnpoints)
+		else if(length(force_spawnpoints["Anyone"]))
+			T = pick(force_spawnpoints["Anyone"])
 		else
 			T = locate(1, 1, 1)
 	forceMove(T)
