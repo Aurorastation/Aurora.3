@@ -203,3 +203,21 @@
 //Bridge
 /area/crew_quarters/heads/hop/xo
 	name = "Command - Executive Officer's Office"
+
+/area/crew_armory
+	name = "Crew Armory"
+	icon_state = "crew_armory"
+	no_light_control = TRUE
+	station_area = TRUE
+	holomap_color = HOLOMAP_AREACOLOR_COMMAND
+
+//Crew quarters
+
+/area/crew_quarters/lounge
+	name = "Crew Lounge"
+	icon_state = "lounge"
+
+/area/crew_quarters/lounge/secondary
+	name = "Secondary Crew Lounge"
+	icon_state = "lounge2"
+
