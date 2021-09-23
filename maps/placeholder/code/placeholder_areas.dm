@@ -90,6 +90,10 @@
 /area/hallway/medical/upper
 	name = "Medical - Upper Atrium"
 
+/area/hallway/crew_area
+	name = "Crew Quarters Hallway"
+	icon_state = "crew_area"
+
 //Research
 
 /area/rnd/conference
