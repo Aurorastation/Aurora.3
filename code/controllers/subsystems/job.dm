@@ -206,7 +206,7 @@
 			continue
 		var/mob/abstract/new_player/candidate = pick(candidates)
 		if(length(candidates) > 1 && SSpersist_config.previous_job_rolls[candidate.ckey] == job.title)
-			Debug("Player Played Role Previously, skipping for Head, Player: [player], Job:[job.title]")
+			Debug("Player Played Role Previously, skipping for Head, Player: [candidate], Job:[job.title]")
 			candidates -= candidate
 			candidate = pick(candidates)
 		AssignRole(candidate, command_position)
