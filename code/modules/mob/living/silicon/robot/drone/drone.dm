@@ -77,6 +77,7 @@
 
 	var/can_swipe = TRUE
 	var/rebooting = FALSE
+	var/standard_drone = TRUE
 
 /mob/living/silicon/robot/drone/Initialize()
 	. = ..()
@@ -145,6 +146,8 @@
 	// Hats!!
 	hat_x_offset = 1
 	hat_y_offset = -12
+
+	standard_drone = FALSE
 
 	var/my_home_z
 
@@ -350,6 +353,7 @@
 	hacked = FALSE
 	law_update = FALSE
 	connected_ai = null
+	standard_drone = FALSE
 	clear_supplied_laws()
 	clear_inherent_laws()
 	laws = new /datum/ai_laws/syndicate_override

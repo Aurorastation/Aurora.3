@@ -1747,6 +1747,28 @@
 	catalysts = list(/decl/reagent/enzyme = 5)
 	result_amount = 10
 
+/datum/chemical_reaction/whitewine
+	name = "White Wine"
+	id = "whitewine"
+	result = /decl/reagent/alcohol/whitewine
+	required_reagents = list(/decl/reagent/drink/whitegrapejuice = 5)
+	catalysts = list(/decl/reagent/enzyme = 5)
+	result_amount = 5
+
+/datum/chemical_reaction/blushwine
+	name = "Blush Wine"
+	id = "blushwine"
+	result = /decl/reagent/alcohol/blushwine
+	required_reagents = list(/decl/reagent/alcohol/whitewine = 1, /decl/reagent/alcohol/wine = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/melonwine
+	name = "Melon Wine"
+	id = "melonwine"
+	result = /decl/reagent/alcohol/melonwine
+	required_reagents = list(/decl/reagent/alcohol/wine = 1, /decl/reagent/alcohol/melonliquor = 1)
+	result_amount = 2
+
 /datum/chemical_reaction/pwine
 	name = "Poison Wine"
 	id = "pwine"
@@ -3347,6 +3369,20 @@
 
 //Coffee expansion
 //=======================
+/datum/chemical_reaction/drink/coffee
+	name = "Latte"
+	id = "latte"
+	result = /decl/reagent/drink/coffee
+	required_reagents = list(/decl/reagent/drink/coffee/espresso = 5, /decl/reagent/water = 5)
+	result_amount = 10
+
+/datum/chemical_reaction/drink/espresso
+	name = "Latte"
+	id = "latte"
+	result = /decl/reagent/drink/coffee/espresso
+	required_reagents = list(/decl/reagent/nutriment/coffeegrounds = 1, /decl/reagent/water = 5)
+	result_amount = 5
+
 /datum/chemical_reaction/caramelisation
 	name = "Caramelised Sugar"
 	result = /decl/reagent/nutriment/caramel
@@ -3397,6 +3433,13 @@
 	required_reagents = list(/decl/reagent/spacespice/pumpkinspice = 2, /decl/reagent/drink/syrup_simple = 3)
 	result_amount = 5
 	mix_message = "The solution takes on an orange hue and the aroma of pumpkin spice."
+
+/datum/chemical_reaction/mintsyrup
+	name = "Mint Syrup"
+	id = "mintsyrup"
+	result = /decl/reagent/drink/mintsyrup
+	required_reagents = list(/decl/reagent/nutriment/mint = 2, /decl/reagent/drink/syrup_simple = 3)
+	result_amount = 5
 
 /datum/chemical_reaction/drink/cuba_libre
 	name = "Cuba Libre"

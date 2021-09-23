@@ -8,11 +8,17 @@
 	var/sound_out = 'sound/weapons/holster/holsterout.ogg'
 	flippable = 1
 	w_class = ITEMSIZE_NORMAL
-	var/base_name = ""
 
 /obj/item/clothing/accessory/holster/Initialize()
 	. = ..()
-	base_name = name
+	AddComponent(/datum/component/base_name, name)
+
+/obj/item/clothing/accessory/holster/proc/update_name(var/base_name = initial(name))
+	SEND_SIGNAL(src, COMSIG_BASENAME_SETNAME, args)
+	if(holstered)
+		name = "occupied [base_name]"
+	else
+		name = "[base_name]"
 
 /obj/item/clothing/accessory/holster/proc/holster(var/obj/item/I, var/mob/living/user)
 	if(holstered && istype(user))
@@ -33,11 +39,11 @@
 	holstered.add_fingerprint(user)
 	w_class = max(w_class, holstered.w_class)
 	user.visible_message("<span class='notice'>[user] holsters \the [holstered].</span>", "<span class='notice'>You holster \the [holstered].</span>")
-	name = "occupied [base_name]"
+	update_name()
 
 /obj/item/clothing/accessory/holster/proc/clear_holster()
 	holstered = null
-	name = base_name
+	update_name()
 
 /obj/item/clothing/accessory/holster/proc/unholster(mob/user as mob)
 	if(!holstered)
