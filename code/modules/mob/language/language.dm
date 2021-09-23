@@ -175,6 +175,9 @@
 			chosen_verb = speech_verb
 	return pick(chosen_verb)
 
+/datum/language/proc/handle_message_mode(var/message_mode)
+	return list(src, message_mode)
+
 // Language handling.
 /mob/proc/add_language(var/language)
 	var/datum/language/new_language

@@ -41,12 +41,32 @@
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/cape
-	display_name = "tunnel cloak"
+	display_name = "tunnel cloak (recolourable)"
 	path = /obj/item/storage/backpack/cloak
 	cost = 1
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/cape_selection
+	display_name = "tunnel cloak selection"
+	path = /obj/item/storage/backpack/cloak 
+	cost = 1
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+	sort_category = "Xenowear - Vaurca"
+	flags = GEAR_HAS_DESC_SELECTION 
+
+/datum/gear/cape_selection/New()
+	..()
+	var/list/capes = list()
+	capes["tunnel cloak, Sedantis"] = /obj/item/storage/backpack/cloak/sedantis
+	capes["tunnel cloak, medical"] = /obj/item/storage/backpack/cloak/medical
+	capes["tunnel cloak, engineering"] = /obj/item/storage/backpack/cloak/engi
+	capes["tunnel cloak, atmospherics"] = /obj/item/storage/backpack/cloak/atmos
+	capes["tunnel cloak, cargo"] = /obj/item/storage/backpack/cloak/cargo
+	capes["tunnel cloak, science"] = /obj/item/storage/backpack/cloak/sci
+	capes["tunnel cloak, security"] = /obj/item/storage/backpack/cloak/sec
+	gear_tweaks += new /datum/gear_tweak/path(capes)
 
 /datum/gear/vaurca_robe
 	display_name = "hive cloak"

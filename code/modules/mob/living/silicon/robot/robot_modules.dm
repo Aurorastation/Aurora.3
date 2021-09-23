@@ -59,6 +59,7 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/inductive_charger(src)
 
 	add_camera_networks(R)
+	handle_languages(R)
 	add_languages(R)
 	add_subsystems(R)
 	apply_status_flags(R)
@@ -70,6 +71,9 @@ var/global/list/robot_modules = list(
 	R.icon_selected = FALSE
 	R.choose_icon()
 	R.setup_icon_cache()
+
+/obj/item/robot_module/proc/handle_languages(var/mob/living/silicon/robot/R)
+	return
 
 /obj/item/robot_module/proc/Reset(var/mob/living/silicon/robot/R)
 	remove_camera_networks(R)
@@ -971,6 +975,19 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/inflatable_dispenser(src)
 	modules += new /obj/item/rfd/piping/borg(src) // putting this here so it's next to the RFD-C on construction drones
 
+/obj/item/robot_module/drone/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
+	var/obj/item/device/lightreplacer/LR = locate() in src.modules
+	LR.Charge(R, amount)
+	return ..()
+
+/obj/item/robot_module/drone/handle_languages(var/mob/living/silicon/robot/R)
+	R.languages = list()
+	R.speech_synthesizer_langs = list()
+	for(var/language in languages)
+		languages[language] = FALSE
+	languages[LANGUAGE_DRONE] = TRUE
+	languages[LANGUAGE_LOCAL_DRONE] = TRUE
+
 /obj/item/robot_module/drone/construction
 	name = "construction drone module"
 	channels = list(CHANNEL_ENGINEERING = TRUE)
@@ -980,11 +997,8 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/rfd/construction/borg(src)
 	modules += new /obj/item/pickaxe/drill(src)
 
-/obj/item/robot_module/drone/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
-	var/obj/item/device/lightreplacer/LR = locate() in modules
-	LR.Charge(R, amount)
-	..()
-	return
+/obj/item/robot_module/drone/construction/matriarch
+	name = "matriarch drone module"
 
 /obj/item/robot_module/mining_drone
 	name = "mining drone module"
@@ -994,6 +1008,14 @@ var/global/list/robot_modules = list(
 /obj/item/robot_module/mining_drone/Initialize(mapload, mob/living/silicon/robot/R)
 	. = ..()
 	set_up_default(R)
+
+/obj/item/robot_module/mining_drone/handle_languages(var/mob/living/silicon/robot/R)
+	R.languages = list()
+	R.speech_synthesizer_langs = list()
+	for(var/language in languages)
+		languages[language] = FALSE
+	languages[LANGUAGE_DRONE] = TRUE
+	languages[LANGUAGE_LOCAL_DRONE] = TRUE
 
 /obj/item/robot_module/mining_drone/proc/set_up_default(var/mob/living/silicon/robot/R, var/has_drill = TRUE)
 	modules += new /obj/item/device/flash(src)

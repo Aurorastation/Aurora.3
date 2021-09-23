@@ -11,8 +11,8 @@ datum/track/New(var/title_name, var/audio)
 /obj/machinery/media/jukebox/
 	name = "space jukebox"
 	icon = 'icons/obj/jukebox.dmi'
-	icon_state = "jukebox2-nopower"
-	var/state_base = "jukebox2"
+	icon_state = "jukebox-nopower"
+	var/state_base = "jukebox"
 	anchored = 0
 	density = 1
 	power_channel = EQUIP

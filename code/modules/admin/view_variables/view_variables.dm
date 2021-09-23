@@ -21,6 +21,10 @@
 	if(!D)
 		return
 
+	var/static/list/blacklist = list(/datum/configuration)
+	if(blacklist[D.type])
+		return
+
 	var/icon/sprite
 	if(istype(D, /atom))
 		var/atom/A = D
