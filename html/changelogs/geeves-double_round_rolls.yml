@@ -3,4 +3,4 @@ author: Geeves
 delete-after: True
 
 changes:
-  - rscadd: "Players who have played a role the previous round will now be the last in line for candidates chosen for the same role in the current round."
+  - rscadd: "Players who have played a role the previous round will now be the last in line for candidates chosen for the same role in the current round. You only count as having played a role if you join it before one hour has elapsed."
