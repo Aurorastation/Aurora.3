@@ -36,8 +36,8 @@
 	if(closed_desc)
 		desc = open ? initial(desc) + closed_desc : initial(desc)
 
-/obj/item/journal/CtrlClick(mob/user)
-	if(loc == user)
+/obj/item/journal/AltClick(mob/user)
+	if(Adjacent(user))
 		open = !open
 		to_chat(user, SPAN_NOTICE("You [open ? "open" : "close"] \the [src]."))
 		update_icon()
@@ -74,9 +74,16 @@
 		if(!E)
 			return
 		user.drop_from_inventory(I, E)
-		to_chat(user, SPAN_NOTICE("You put \the [I] into \the [E]."))
+		to_chat(user, SPAN_NOTICE("You put \the [I] into \the [E] index in \the [src]."))
 		update_icon()
 		return
+	if(I.ispen())
+		if(!open)
+			to_chat(user, SPAN_NOTICE("You open \the [src] with \the [I]."))
+			open = !open
+			update_icon()
+			return
+		attack_self(user)
 
 /obj/item/journal/proc/generate_index(var/mob/user)
 	var/obj/item/folder/embedded/E = new /obj/item/folder/embedded(src)
