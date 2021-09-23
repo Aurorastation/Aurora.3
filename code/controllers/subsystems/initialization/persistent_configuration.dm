@@ -10,11 +10,13 @@
 // in this config! This config is viewable by VV.
 
 	// Keep this variable up to date for the parsers to work.
-	var/list/_variables_to_save = list("last_gamemode", "rounds_since_hard_restart", "forced_awaymission")
+	var/list/_variables_to_save = list("last_gamemode", "rounds_since_hard_restart", "forced_awaymission", "previous_job_rolls")
 
 	var/last_gamemode = "extended"
 	var/rounds_since_hard_restart = 0
 	var/forced_awaymission = FALSE
+	var/list/previous_job_rolls = list()
+	var/list/current_job_rolls = list()
 
 /datum/controller/subsystem/persistent_configuration/Initialize(timeofday)
 	SSpersist_config = src
@@ -42,6 +44,8 @@
 	populate_variables(decoded)
 
 /datum/controller/subsystem/persistent_configuration/proc/save_to_file(filename)
+	previous_job_rolls = current_job_rolls.Copy() // we don't want ancient job rolls to carry over too
+
 	var/list/to_save = list()
 	for (var/key in _variables_to_save)
 		to_save[key] = vars[key]
@@ -59,6 +63,7 @@
 
 	IF_FOUND_CONV(decoded, rounds_since_hard_restart, text2num)
 	IF_FOUND_USE(decoded, forced_awaymission)
+	IF_FOUND_USE(decoded, previous_job_rolls)
 
 #undef IF_FOUND_USE
 #undef IF_FOUND_CONV

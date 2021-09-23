@@ -113,6 +113,7 @@
 			position_limit = job.get_spawn_positions()
 		if((job.current_positions < position_limit) || position_limit == -1)
 			Debug("Player: [player] is now Rank: [rank], JCP:[job.current_positions], JPL:[position_limit]")
+			SSpersist_config.current_job_rolls[player.ckey] = rank
 			player.mind.assigned_role = rank
 			player.mind.role_alt_title = GetPlayerAltTitle(player, rank)
 			unassigned -= player
@@ -168,6 +169,9 @@
 				// Log-out during round-start? What a bad boy, no head position for you!
 				if(!V.client)
 					continue
+				if(length(candidates) > 1 && SSpersist_config.previous_job_rolls[V.ckey] == job.title)
+					Debug("Player Played Role Previously, skipping for Head, Player: [V], Job:[job.title]")
+					continue
 
 				var/age = V.client.prefs.age
 
@@ -198,8 +202,13 @@
 		var/datum/job/job = GetJob(command_position)
 		if(!job)	continue
 		var/list/candidates = FindOccupationCandidates(job, level)
-		if(!candidates.len)	continue
+		if(!candidates.len)
+			continue
 		var/mob/abstract/new_player/candidate = pick(candidates)
+		if(length(candidates) > 1 && SSpersist_config.previous_job_rolls[candidate.ckey] == job.title)
+			Debug("Player Played Role Previously, skipping for Head, Player: [player], Job:[job.title]")
+			candidates -= candidate
+			candidate = pick(candidates)
 		AssignRole(candidate, command_position)
 
 
@@ -264,6 +273,7 @@
 		//Check the head jobs first each level
 		CheckHeadPositions(level)
 
+		var/list/recheck_roles = list()
 		// Loop through all unassigned players
 		for(var/mob/abstract/new_player/player in unassigned)
 
@@ -276,15 +286,18 @@
 					Debug("DO isbanned failed, Player: [player], Job:[job.title]")
 					continue
 
-				// If the player wants that job on this level, then try give it to him.
-				if(player.client.prefs.GetJobDepartment(job, level) & job.flag)
+				if(SSpersist_config.previous_job_rolls[player.ckey] == job.title)
+					Debug("Player Played Role Previously, adding to post-check list, Player: [player], Job:[job.title]")
+					LAZYINITLIST(recheck_roles[job])
+					recheck_roles[job] += player
+					continue
 
-					// If the job isn't filled
-					if((job.current_positions < job.get_spawn_positions()) || job.get_spawn_positions() == -1)
-						Debug("DO pass, Player: [player], Level:[level], Job:[job.title]")
-						AssignRole(player, job.title)
-						unassigned -= player
-						break
+				if(check_and_assign_role(player, job, level))
+					break
+
+		for(var/datum/job/job as anything in recheck_roles)
+			for(var/mob/abstract/new_player/player as anything in recheck_roles[job])
+				check_and_assign_role(player, job, level)
 
 	Debug("DO, Standard Check end")
 
@@ -302,6 +315,17 @@
 			player.ready = 0
 			unassigned -= player
 	return TRUE
+
+/datum/controller/subsystem/jobs/proc/check_and_assign_role(var/mob/abstract/new_player/player, var/datum/job/job, var/level)
+	// If the player wants that job on this level, then try give it to him.
+	if(player.client.prefs.GetJobDepartment(job, level) & job.flag)
+		// If the job isn't filled
+		if((job.current_positions < job.get_spawn_positions()) || job.get_spawn_positions() == -1)
+			Debug("DO pass, Player: [player], Level:[level], Job:[job.title]")
+			AssignRole(player, job.title)
+			unassigned -= player
+			return TRUE
+	return FALSE
 
 /datum/controller/subsystem/jobs/proc/EquipRank(mob/living/carbon/human/H, rank, joined_late = FALSE, megavend = FALSE)
 	if(!H)
