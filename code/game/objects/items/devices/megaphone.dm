@@ -113,3 +113,9 @@
 	desc = "Something that should not exist."
 	icon_state = "megaphone_clown"
 	item_state = "megaphone_clown"
+
+/obj/item/device/megaphone/stagemicrophone
+	name = "dazzling stage microphone"
+	desc = "A glamorous looking stage microphone, complete with running lights and holographic effects around it."
+	icon_state = "stagemicrophone"
+	item_state = "stagemicrophone"

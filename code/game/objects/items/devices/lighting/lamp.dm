@@ -63,3 +63,9 @@
 
 /obj/item/device/flashlight/lamp/lava/yellow
 	light_color = COLOR_YELLOW
+
+/obj/item/device/flashlight/lamp/stage
+	light_color = COLOR_ORANGE
+	anchored = 1
+	icon_state = "stage"
+	item_state = "stage"
