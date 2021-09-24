@@ -363,7 +363,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the captain"
-	selection_color = "#7B431C"
+	selection_color = "#967032"
 	economic_modifier = 5
 
 	minimum_character_age = 30
@@ -406,7 +406,7 @@
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "the supply manager"
-	selection_color = "#967032"
+	selection_color = "#7B431C"
 
 	minimum_character_age = 18
 
@@ -441,7 +441,7 @@
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "the supply manager"
-	selection_color = "#967032"
+	selection_color = "#7B431C"
 	economic_modifier = 5
 
 	minimum_character_age = 18
@@ -487,7 +487,7 @@
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "operations manager"
-	selection_color = "#967032"
+	selection_color = "#7B431C"
 	economic_modifier = 5
 
 	minimum_character_age = 25

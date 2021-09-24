@@ -7,7 +7,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "company officials"
-	selection_color = "#90524b"
+	selection_color = "#6186cf"
 	economic_modifier = 7
 	latejoin_at_spawnpoints = TRUE
 
