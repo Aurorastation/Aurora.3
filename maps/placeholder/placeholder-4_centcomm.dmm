@@ -128,7 +128,7 @@
 	req_access = list(112)
 	},
 /obj/machinery/door/blast/regular/open{
-	dir = 2;
+	dir = 4;
 	id = "distress_blast_aft";
 	name = "Blast Door"
 	},
@@ -36481,15 +36481,11 @@
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "bAD" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/unsimulated/floor/plating,
-/area/centcom/distress_prep)
-"bAE" = (
 /obj/structure/closet/crate/freezer/rations,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor/plating,
 /area/centcom/distress_prep)
-"bAF" = (
+"bAE" = (
 /obj/structure/closet/crate/internals{
 	name = "emergency equipment"
 	},
@@ -36951,6 +36947,9 @@
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
+"bBJ" = (
+/turf/simulated/wall/shuttle/dark/cardinal,
+/area/shuttle/distress)
 "bBK" = (
 /obj/machinery/button/remote/blast_door{
 	dir = 4;
@@ -36960,9 +36959,6 @@
 	req_access = list(112)
 	},
 /turf/simulated/floor/shuttle/black,
-/area/shuttle/distress)
-"bBM" = (
-/turf/simulated/wall/shuttle/dark/cardinal,
 /area/shuttle/distress)
 "bBQ" = (
 /obj/structure/table/rack,
@@ -37233,6 +37229,22 @@
 	},
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 25
+	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1337;
+	id_tag = "distress_shuttle_aft";
+	name = "Aft docking controller";
+	pixel_x = -6;
+	pixel_y = 28;
+	tag_door = "distress_shuttle_hatch_aft"
+	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1337;
+	id_tag = "distress_shuttle_fore";
+	name = "Port docking controller";
+	pixel_x = 6;
+	pixel_y = 28;
+	tag_door = "distress_shuttle_hatch_fore"
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/distress)
@@ -37729,6 +37741,11 @@
 	locked = 1;
 	name = "Port Shuttle Hatch";
 	req_access = list(112)
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	id = "distress_blast_fore";
+	name = "Blast Door"
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/distress)
@@ -69718,7 +69735,7 @@ bmY
 bko
 bko
 bko
-bAF
+bAH
 bAH
 bAH
 bAH
@@ -69976,14 +69993,14 @@ bko
 bko
 bko
 bAG
-bAH
-bBM
+bBJ
+bEl
 bEl
 bEl
 bEh
 bEh
 bEl
-bEl
+bBJ
 aaD
 bAH
 bko
@@ -70234,7 +70251,7 @@ bzK
 bmY
 bAH
 bEl
-bEl
+bBJ
 aay
 aaz
 bCv
@@ -71004,14 +71021,14 @@ bmY
 bko
 bko
 bAG
-bAH
-bBM
+bBJ
 bEl
 bEl
 bEl
 bEl
 bEl
 bEl
+bBJ
 aaF
 bAH
 bko

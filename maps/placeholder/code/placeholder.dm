@@ -69,7 +69,12 @@
 		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod3,
 		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod4,
 		/datum/shuttle/autodock/ferry/supply/aurora,
-		/datum/shuttle/autodock/ferry/merchant_aurora
+		/datum/shuttle/autodock/ferry/specops/ert_aurora,
+		/datum/shuttle/autodock/multi/antag/skipjack_aurora,
+		/datum/shuttle/autodock/multi/antag/burglar_aurora,
+		/datum/shuttle/autodock/multi/antag/merc_aurora,
+		/datum/shuttle/autodock/multi/legion,
+		/datum/shuttle/autodock/multi/distress
 	)
 
 	evac_controller_type = /datum/evacuation_controller/starship
