@@ -190,6 +190,12 @@
 /turf/simulated/wall/shuttle/scc/cardinal
 	smooth = SMOOTH_MORE
 
+/turf/simulated/wall/shuttle/space_ship
+	icon = 'icons/turf/smooth/generic_shuttle.dmi'
+
+/turf/simulated/wall/shuttle/space_ship/cardinal
+	smooth = SMOOTH_MORE
+
 //--Unique Shuttles--//
 
 /turf/simulated/wall/shuttle/unique

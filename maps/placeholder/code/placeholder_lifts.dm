@@ -1,12 +1,12 @@
-/obj/turbolift_map_holder/placeholder
+/obj/turbolift_map_holder/scc_ship
 	depth = 2
 	lift_size_x = 4
 	lift_size_y = 4
 	clear_objects = 0
 
 //Primary Lift
-/obj/turbolift_map_holder/placeholder/primary
-	name = "Placeholder lift placeholder - Primary"
+/obj/turbolift_map_holder/scc_ship/primary
+	name = "NCV Aurora Lift - Primary"
 	dir = SOUTH
 
 	depth = 3
@@ -43,8 +43,8 @@
 	lift_floor_name = "Upper Deck"
 
 //Research Lift
-/obj/turbolift_map_holder/placeholder/research
-	name = "Placeholder lift placeholder - Research"
+/obj/turbolift_map_holder/scc_ship/research
+	name = "NCV Aurora Lift - Research"
 	icon = 'icons/obj/turbolift_preview_2x2.dmi'
 	dir = SOUTH
 
@@ -74,10 +74,10 @@
 	lift_floor_name = "Main Deck"
 
 //Cargo Lift
-/datum/shuttle/autodock/ferry/lift/placeholder/cargo
+/datum/shuttle/autodock/ferry/lift/scc_ship/cargo
 	name = "Cargo Lift"
 	location = 1
-	shuttle_area = /area/turbolift/placeholder/cargo_lift
+	shuttle_area = /area/turbolift/scc_ship/cargo_lift
 	waypoint_station = "nav_cargo_lift_bottom"
 	waypoint_offsite = "nav_cargo_lift_top"
 
@@ -94,16 +94,16 @@
 	base_area = /area/quartermaster/loading
 	base_turf = /turf/simulated/floor/plating
 
-/area/turbolift/placeholder/cargo_lift
+/area/turbolift/scc_ship/cargo_lift
 	name = "Cargo Lift"
 	sound_env = STANDARD_STATION
 	ambience = AMBIENCE_HANGAR
 
 //Morgue Lift
-/datum/shuttle/autodock/ferry/lift/placeholder/morgue
+/datum/shuttle/autodock/ferry/lift/scc_ship/morgue
 	name = "Morgue Lift"
 	location = 1
-	shuttle_area = /area/turbolift/placeholder/morgue_lift
+	shuttle_area = /area/turbolift/scc_ship/morgue_lift
 	waypoint_station = "nav_morgue_lift_bottom"
 	waypoint_offsite = "nav_morgue_lift_top"
 
@@ -120,7 +120,33 @@
 	base_area = /area/medical/morgue/lower
 	base_turf = /turf/simulated/floor/plating
 
-/area/turbolift/placeholder/morgue_lift
+/area/turbolift/scc_ship/morgue_lift
 	name = "Morgue Lift"
+	sound_env = TUNNEL_ENCLOSED
+	ambience = AMBIENCE_GHOSTLY
+
+//Robotics Lift
+/datum/shuttle/autodock/ferry/lift/scc_ship/robotics
+	name = "Robotics Lift"
+	location = 1
+	shuttle_area = /area/turbolift/scc_ship/robotics_lift
+	waypoint_station = "nav_robotics_lift_bottom"
+	waypoint_offsite = "nav_robotics_lift_top"
+
+/obj/effect/shuttle_landmark/lift/robotics_top
+	name = "Robotics Top"
+	landmark_tag = "nav_robotics_lift_top"
+	base_area = /area/hallway/medical
+	base_turf = /turf/simulated/open
+
+/obj/effect/shuttle_landmark/lift/robotics_bottom
+	name = "Robotics Bottom"
+	landmark_tag = "nav_robotics_lift_bottom"
+	flags = SLANDMARK_FLAG_AUTOSET
+	base_area = /area/medical/morgue/lower
+	base_turf = /turf/simulated/floor/plating
+
+/area/turbolift/scc_ship/robotics_lift
+	name = "Robotics Lift"
 	sound_env = TUNNEL_ENCLOSED
 	ambience = AMBIENCE_GHOSTLY

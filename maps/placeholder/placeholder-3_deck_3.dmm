@@ -1888,6 +1888,10 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/maintenance/vault)
+"dV" = (
+/obj/effect/shuttle_landmark/merc_ship/third_deck,
+/turf/template_noop,
+/area/template_noop)
 "dX" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
@@ -2323,13 +2327,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/bridge/minibar)
-"fe" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8
-	},
-/obj/effect/shuttle_landmark/merc_ship/dock,
-/turf/simulated/floor/reinforced,
-/area/template_noop)
 "ff" = (
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 9
@@ -3829,6 +3826,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/locker)
+"je" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/effect/shuttle_landmark/merc_ship/dock,
+/turf/simulated/floor/reinforced,
+/area/template_noop)
 "jf" = (
 /obj/machinery/light,
 /obj/machinery/status_display{
@@ -20046,10 +20050,6 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/starboard)
-"Ys" = (
-/obj/effect/shuttle_landmark/merc_ship/third_deck,
-/turf/template_noop,
-/area/template_noop)
 "Yt" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -28172,7 +28172,7 @@ at
 at
 at
 at
-fe
+je
 Mo
 Wm
 Wm
@@ -29939,7 +29939,7 @@ Wm
 Wm
 Wm
 Wm
-Ys
+dV
 Wm
 Wm
 Wm

@@ -59,11 +59,12 @@
 	emergency_shuttle_docked_message = "The emergency evacuation has started. You have approximately %ETD% minutes to board the emergency pods."
 	emergency_shuttle_leaving_dock = "The emergency evacuatioon has been completed."
 	emergency_shuttle_recall_message = "The emergency evacuation has been canceled."
-	emergency_shuttle_called_message = "An emergency evacuation has been called. It will start in approximately %ETA% minutes."
+	emergency_shuttle_called_message = "An emergency evacuation has been called. It will start in approximately %ETA%."
 
 	map_shuttles = list(
-		/datum/shuttle/autodock/ferry/lift/placeholder/cargo,
-		/datum/shuttle/autodock/ferry/lift/placeholder/morgue,
+		/datum/shuttle/autodock/ferry/lift/scc_ship/cargo,
+		/datum/shuttle/autodock/ferry/lift/scc_ship/morgue,
+		/datum/shuttle/autodock/ferry/lift/scc_ship/robotics,
 		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod1,
 		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod2,
 		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod3,
