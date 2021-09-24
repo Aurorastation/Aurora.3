@@ -1379,14 +1379,6 @@
 /obj/item/bedsheet/nanotrasen,
 /turf/simulated/floor/wood,
 /area/lawoffice/consular)
-"dd" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4;
-	frequency = 1337;
-	id_tag = "nuke_shuttle_dock_pump"
-	},
-/turf/simulated/floor/plating,
-/area/hallway/crew_area)
 "df" = (
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -2281,15 +2273,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
-"eT" = (
-/obj/machinery/airlock_sensor{
-	frequency = 1337;
-	id_tag = "nuke_shuttle_dock_sensor";
-	master_tag = "nuke_shuttle_dock_airlock";
-	pixel_y = -25
-	},
-/turf/simulated/floor/plating,
-/area/hallway/crew_area)
 "eV" = (
 /obj/structure/table/wood,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -2805,20 +2788,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/meeting_room)
-"gC" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1337;
-	icon_state = "door_locked";
-	id_tag = "nuke_shuttle_dock_inner";
-	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list(13)
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/hallway/crew_area)
 "gD" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
@@ -2910,26 +2879,6 @@
 /obj/machinery/space_heater,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
-/area/hallway/crew_area)
-"gQ" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1337;
-	icon_state = "door_locked";
-	id_tag = "nuke_shuttle_dock_outer";
-	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list(13)
-	},
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1337;
-	master_tag = "nuke_shuttle_dock_airlock";
-	name = "exterior access button";
-	pixel_x = -5;
-	pixel_y = 26;
-	req_one_access = list(13)
-	},
-/turf/simulated/floor/plating,
 /area/hallway/crew_area)
 "gR" = (
 /obj/structure/bed/chair/office/dark,
@@ -4337,24 +4286,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
-"kq" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	frequency = 1337;
-	id_tag = "nuke_shuttle_dock_airlock";
-	pixel_y = 30;
-	req_one_access = list(13);
-	tag_airpump = "nuke_shuttle_dock_pump";
-	tag_chamber_sensor = "nuke_shuttle_dock_sensor";
-	tag_exterior_door = "nuke_shuttle_dock_outer";
-	tag_interior_door = "nuke_shuttle_dock_inner"
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4;
-	frequency = 1337;
-	id_tag = "nuke_shuttle_dock_pump"
-	},
-/turf/simulated/floor/plating,
-/area/hallway/crew_area)
 "kr" = (
 /obj/structure/bed/chair/plastic{
 	dir = 8
@@ -6176,6 +6107,12 @@
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/simulated/floor/grass/alt,
 /area/bridge/minibar)
+"oU" = (
+/obj/effect/shuttle_landmark/merc/dock{
+	base_turf = /turf/simulated/floor/reinforced/airless
+	},
+/turf/simulated/floor/reinforced,
+/area/template_noop)
 "oV" = (
 /obj/machinery/light{
 	dir = 1
@@ -6449,6 +6386,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
+"pC" = (
+/obj/machinery/airlock_sensor{
+	frequency = 1337;
+	id_tag = "nuke_shuttle_dock_sensor";
+	master_tag = "nuke_shuttle_dock_airlock";
+	pixel_y = -25
+	},
+/turf/simulated/floor/plating,
+/area/hallway/crew_area)
 "pD" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -6918,6 +6864,26 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
+"qI" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1337;
+	icon_state = "door_locked";
+	id_tag = "nuke_shuttle_dock_outer";
+	locked = 1;
+	name = "Docking Port Airlock";
+	req_access = list(13)
+	},
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1337;
+	master_tag = "nuke_shuttle_dock_airlock";
+	name = "exterior access button";
+	pixel_x = -5;
+	pixel_y = 26;
+	req_one_access = list(13)
+	},
+/turf/simulated/floor/plating,
+/area/hallway/crew_area)
 "qJ" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -6976,30 +6942,6 @@
 /obj/effect/floor_decal/corner/beige/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
-"qT" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "specops_dock_airlock_outer";
-	locked = 1;
-	name = "Port Docking Hatch";
-	req_access = list(13)
-	},
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1380;
-	master_tag = "ert_shuttle_dock_airlock";
-	name = "exterior access button";
-	pixel_y = -26;
-	req_one_access = list(13)
-	},
-/obj/structure/sign/securearea{
-	desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'.";
-	name = "KEEP CLEAR: DOCKING AREA";
-	pixel_y = 32
-	},
-/turf/simulated/floor,
-/area/template_noop)
 "qU" = (
 /turf/simulated/floor/tiled,
 /area/security/investigations_storage)
@@ -8089,6 +8031,24 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
+"tC" = (
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	frequency = 1337;
+	id_tag = "nuke_shuttle_dock_airlock";
+	pixel_y = 30;
+	req_one_access = list(13);
+	tag_airpump = "nuke_shuttle_dock_pump";
+	tag_chamber_sensor = "nuke_shuttle_dock_sensor";
+	tag_exterior_door = "nuke_shuttle_dock_outer";
+	tag_interior_door = "nuke_shuttle_dock_inner"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4;
+	frequency = 1337;
+	id_tag = "nuke_shuttle_dock_pump"
+	},
+/turf/simulated/floor/plating,
+/area/hallway/crew_area)
 "tD" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access = null;
@@ -8735,6 +8695,20 @@
 /obj/structure/closet,
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
+"vu" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1337;
+	icon_state = "door_locked";
+	id_tag = "nuke_shuttle_dock_inner";
+	locked = 1;
+	name = "Docking Port Airlock";
+	req_access = list(13)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/hallway/crew_area)
 "vw" = (
 /obj/machinery/power/apc{
 	dir = 8;
@@ -8900,10 +8874,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/pool)
-"vU" = (
-/obj/effect/shuttle_landmark/ert/dock,
-/turf/simulated/floor/reinforced,
-/area/template_noop)
 "vW" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -11412,6 +11382,30 @@
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
 	})
+"Cr" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "specops_dock_airlock_outer";
+	locked = 1;
+	name = "Port Docking Hatch";
+	req_access = list(13)
+	},
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1380;
+	master_tag = "ert_shuttle_dock_airlock";
+	name = "exterior access button";
+	pixel_y = -26;
+	req_one_access = list(13)
+	},
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'.";
+	name = "KEEP CLEAR: DOCKING AREA";
+	pixel_y = 32
+	},
+/turf/simulated/floor,
+/area/template_noop)
 "Cs" = (
 /obj/structure/window/reinforced,
 /obj/machinery/computer/ship/helm,
@@ -12872,6 +12866,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
+"Gu" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4;
+	frequency = 1337;
+	id_tag = "nuke_shuttle_dock_pump"
+	},
+/turf/simulated/floor/plating,
+/area/hallway/crew_area)
 "Gv" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -13706,6 +13708,17 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
+/area/hallway/crew_area)
+"Iz" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1337;
+	icon_state = "door_locked";
+	id_tag = "nuke_shuttle_dock_outer";
+	locked = 1;
+	name = "Docking Port Airlock";
+	req_access = list(13)
+	},
+/turf/simulated/floor/plating,
 /area/hallway/crew_area)
 "IB" = (
 /obj/structure/table/reinforced/wood,
@@ -14700,12 +14713,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
-"KV" = (
-/obj/effect/shuttle_landmark/merc/dock{
-	base_turf = /turf/simulated/floor/reinforced/airless
-	},
-/turf/simulated/floor/reinforced,
-/area/template_noop)
 "KW" = (
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -15008,12 +15015,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
-"LB" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/hallway/crew_area)
 "LC" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -17259,17 +17260,6 @@
 /obj/effect/floor_decal/corner/beige/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
-"QT" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1337;
-	icon_state = "door_locked";
-	id_tag = "nuke_shuttle_dock_outer";
-	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list(13)
-	},
-/turf/simulated/floor/plating,
-/area/hallway/crew_area)
 "QW" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -19267,6 +19257,10 @@
 "Wa" = (
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
+"Wb" = (
+/obj/effect/shuttle_landmark/ert/dock,
+/turf/simulated/floor/reinforced,
+/area/template_noop)
 "Wc" = (
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -20047,6 +20041,12 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/starboard)
+"Yt" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/hallway/crew_area)
 "Yu" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/window/reinforced,
@@ -28162,7 +28162,7 @@ at
 at
 at
 at
-KV
+oU
 VM
 Mo
 Wm
@@ -29778,8 +29778,8 @@ at
 at
 at
 GQ
-gQ
-QT
+qI
+Iz
 GQ
 at
 at
@@ -29980,8 +29980,8 @@ at
 at
 at
 GQ
-LB
-eT
+Yt
+pC
 GQ
 at
 at
@@ -30182,8 +30182,8 @@ at
 at
 at
 GQ
-kq
-dd
+tC
+Gu
 GQ
 at
 at
@@ -30384,8 +30384,8 @@ at
 at
 at
 eb
-gC
-gC
+vu
+vu
 eb
 at
 at
@@ -49565,7 +49565,7 @@ at
 at
 at
 fx
-qT
+Cr
 fx
 at
 at
@@ -50777,7 +50777,7 @@ at
 at
 at
 at
-vU
+Wb
 at
 at
 at

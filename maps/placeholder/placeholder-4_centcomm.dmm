@@ -26178,11 +26178,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/syndicate_elite)
-"bgj" = (
-/obj/effect/shuttle_landmark/merc_elite/start,
-/obj/effect/floor_decal/corner/red/diagonal,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/syndicate_elite)
 "bgk" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1337;
@@ -36947,9 +36942,6 @@
 	},
 /turf/space/dynamic,
 /area/shuttle/skipjack)
-"bBJ" = (
-/turf/simulated/wall/shuttle/dark/cardinal,
-/area/shuttle/distress)
 "bBK" = (
 /obj/machinery/button/remote/blast_door{
 	dir = 4;
@@ -36959,6 +36951,9 @@
 	req_access = list(112)
 	},
 /turf/simulated/floor/shuttle/black,
+/area/shuttle/distress)
+"bBL" = (
+/turf/simulated/wall/shuttle/dark/cardinal,
 /area/shuttle/distress)
 "bBQ" = (
 /obj/structure/table/rack,
@@ -54030,7 +54025,7 @@ bcA
 bdA
 bez
 bfu
-bgj
+bfu
 bfu
 bfu
 bfu
@@ -69993,14 +69988,14 @@ bko
 bko
 bko
 bAG
-bBJ
+bEl
 bEl
 bEl
 bEl
 bEh
 bEh
 bEl
-bBJ
+bBL
 aaD
 bAH
 bko
@@ -70250,8 +70245,8 @@ bwj
 bzK
 bmY
 bAH
-bEl
-bBJ
+bBL
+bBL
 aay
 aaz
 bCv
@@ -70764,8 +70759,8 @@ bwk
 bvs
 bmY
 bAH
-bEl
-bEl
+bBL
+bBL
 bCw
 bEk
 bDF
@@ -71021,14 +71016,14 @@ bmY
 bko
 bko
 bAG
-bBJ
 bEl
 bEl
 bEl
 bEl
 bEl
 bEl
-bBJ
+bEl
+bBL
 aaF
 bAH
 bko
