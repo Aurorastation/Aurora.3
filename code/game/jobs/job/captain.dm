@@ -129,9 +129,9 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 /datum/job/bridge_crew
 	title = "Bridge Crew"
-	flag = CIVILIAN
+	flag = BRIDGE_CREW
 	departments = SIMPLEDEPT(DEPARTMENT_COMMAND)
-	department_flag = ENGSEC
+	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 3
