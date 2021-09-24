@@ -76,7 +76,7 @@
 	desc = "A portable computer beloning to the executive officer. The fan is filled with dog hair."
 	_app_preset_type = /datum/modular_computer_app_presets/command/hop
 
-/obj/item/modular_computer/laptop/preset/command/hop/install_default_hardware()
+/obj/item/modular_computer/laptop/preset/command/xo/install_default_hardware()
 	..()
 	card_slot = new /obj/item/computer_hardware/card_slot(src)
 

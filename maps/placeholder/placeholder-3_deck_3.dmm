@@ -516,7 +516,7 @@
 /turf/simulated/floor,
 /area/hallway/primary/starboard)
 "bg" = (
-/obj/structure/closet/secure_closet/hop2,
+/obj/structure/closet/secure_closet/xo,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop/xo)
 "bh" = (
@@ -4407,9 +4407,7 @@
 /area/bridge/aibunker)
 "kR" = (
 /obj/structure/bed/padded,
-/obj/item/bedsheet/hop{
-	name = "executive officer's bedsheet"
-	},
+/obj/item/bedsheet/xo,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop/xo)
 "kT" = (
@@ -4553,10 +4551,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
-"lm" = (
-/obj/structure/closet/secure_closet/hop,
-/turf/simulated/floor/wood,
-/area/crew_quarters/heads/hop/xo)
 "lo" = (
 /obj/effect/floor_decal/corner/paleblue,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -7633,7 +7627,7 @@
 "sY" = (
 /obj/structure/table/wood,
 /obj/item/folder/blue,
-/obj/item/stamp/hop,
+/obj/item/stamp/xo,
 /obj/item/stamp/denied,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop/xo)
@@ -9108,7 +9102,7 @@
 	dir = 1
 	},
 /obj/structure/table/wood,
-/obj/item/hand_tele,
+/obj/item/storage/secure/briefcase,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "xi" = (
@@ -14718,7 +14712,6 @@
 	pixel_y = 25
 	},
 /obj/structure/table/wood,
-/obj/item/storage/secure/briefcase,
 /obj/item/storage/photo_album,
 /obj/item/device/camera,
 /obj/item/reagent_containers/food/drinks/flask{
@@ -17940,9 +17933,7 @@
 "TL" = (
 /obj/structure/table/wood,
 /obj/structure/window/reinforced,
-/obj/item/modular_computer/laptop/preset/command/hop{
-	name = "executive officer''s laptop"
-	},
+/obj/item/modular_computer/laptop/preset/command/xo,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop/xo)
 "TM" = (
@@ -44114,7 +44105,7 @@ vn
 mS
 yr
 XY
-lm
+Dd
 bg
 Vi
 at

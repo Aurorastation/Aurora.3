@@ -65,7 +65,7 @@
 	icon_broken = "hopsecurebroken"
 	icon_off = "hopsecureoff"
 
-/obj/structure/closet/secure_closet/hop/fill()
+/obj/structure/closet/secure_closet/xo/fill()
 	..()
 	//Supply
 	new /obj/item/storage/box/ids(src)
@@ -86,7 +86,7 @@
 	new /obj/item/gun/projectile/sec/flash(src)
 	new /obj/item/device/flash(src)
 
-/obj/structure/closet/secure_closet/xo
+/obj/structure/closet/secure_closet/xo2
 	name = "executive officer's attire"
 	req_access = list(access_hop)
 	icon_state = "hopsecure1"
@@ -96,7 +96,7 @@
 	icon_broken = "hopsecurebroken"
 	icon_off = "hopsecureoff"
 
-/obj/structure/closet/secure_closet/hop2/fill()
+/obj/structure/closet/secure_closet/xo2/fill()
 	..()
 	new /obj/item/clothing/under/rank/xo(src)
 	new /obj/item/clothing/under/lawyer/black(src)
@@ -442,7 +442,7 @@
 	icon_broken = "hopsecurebroken"
 	icon_off = "hopsecureoff"
 
-/obj/structure/closet/bridge_crew/hop/fill()
+/obj/structure/closet/bridge_crew/fill()
 	..()
 	new /obj/item/clothing/under/rank/bridge_crew(src)
 	new /obj/item/clothing/glasses/sunglasses(src)
@@ -461,7 +461,7 @@
 	icon_broken = "hopsecurebroken"
 	icon_off = "hopsecureoff"
 
-/obj/structure/closet/bridge_crew/pilot/fill()
+/obj/structure/closet/secure_closet/pilot/fill()
 	..()
 	new /obj/item/clothing/under/rank/bridge_crew(src)
 	new /obj/item/clothing/glasses/sunglasses(src)
