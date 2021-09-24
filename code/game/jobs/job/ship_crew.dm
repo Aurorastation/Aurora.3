@@ -8,7 +8,7 @@
 	spawn_positions = -1
 	intro_prefix = "an"
 	supervisors = "absolutely everyone"
-	selection_color = "#90524b"
+	selection_color = "#949494"
 	economic_modifier = 1
 	access = list()			//See /datum/job/assistant/get_access()
 	minimal_access = list()	//See /datum/job/assistant/get_access()
@@ -28,7 +28,7 @@
 	shoes = /obj/item/clothing/shoes/black
 
 /datum/job/visitor
-	title = "Visitor"
+	title = "Crew Member"
 	flag = VISITOR
 	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
 	department_flag = CIVILIAN
@@ -36,11 +36,12 @@
 	total_positions = -1
 	spawn_positions = -1
 	supervisors = "any authority figure"
-	selection_color = "#90524b"
+	selection_color = "#949494"
 	economic_modifier = 1
 	access = list()
 	minimal_access = list()
 	outfit = /datum/outfit/job/visitor
+	alt_titles = list("Passenger")
 
 /datum/outfit/job/visitor
 	name = "Visitor"

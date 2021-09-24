@@ -83,7 +83,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	spawn_positions = 1
 	intro_prefix = "the"
 	supervisors = "the captain"
-	selection_color = "#90524b"
+	selection_color = "#1e59c9"
 	minimal_player_age = 10
 	economic_modifier = 10
 	ideal_character_age = 50
@@ -137,7 +137,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	spawn_positions = 3
 	intro_prefix = "the"
 	supervisors = "the executive officer and the captain"
-	selection_color = "#90524b"
+	selection_color = "#2b5bb5"
 	minimal_player_age = 10
 	economic_modifier = 10
 	ideal_character_age = 50

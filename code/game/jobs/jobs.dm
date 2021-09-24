@@ -112,7 +112,7 @@ var/list/civilian_positions = list(
 	"Corporate Reporter",
 	"Chaplain",
 	"Assistant",
-	"Visitor"
+	"Crew Member"
 )
 
 
