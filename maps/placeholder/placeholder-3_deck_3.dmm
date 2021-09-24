@@ -3827,11 +3827,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/locker)
 "je" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8
-	},
-/obj/effect/shuttle_landmark/merc_ship/dock,
-/turf/simulated/floor/reinforced,
+/obj/effect/shuttle_landmark/burglar_ship/third_deck,
+/turf/template_noop,
 /area/template_noop)
 "jf" = (
 /obj/machinery/light,
@@ -17307,6 +17304,10 @@
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/lounge)
+"Re" = (
+/obj/effect/shuttle_landmark/merc_ship/dock,
+/turf/simulated/floor/reinforced,
+/area/template_noop)
 "Rf" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -23511,7 +23512,7 @@ Wm
 Wm
 Wm
 Wm
-Wm
+je
 Wm
 Wm
 Wm
@@ -28171,8 +28172,8 @@ at
 at
 at
 at
-at
-je
+Re
+VM
 Mo
 Wm
 Wm

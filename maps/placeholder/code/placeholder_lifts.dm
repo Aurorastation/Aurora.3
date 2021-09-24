@@ -143,7 +143,7 @@
 	name = "Robotics Bottom"
 	landmark_tag = "nav_robotics_lift_bottom"
 	flags = SLANDMARK_FLAG_AUTOSET
-	base_area = /area/medical/morgue/lower
+	base_area = /area/hangar/auxiliary
 	base_turf = /turf/simulated/floor/plating
 
 /area/turbolift/scc_ship/robotics_lift

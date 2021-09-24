@@ -23696,25 +23696,29 @@
 /turf/unsimulated/floor/plating,
 /area/antag/burglar)
 "bbZ" = (
-/obj/structure/window/shuttle/unique/burglar{
-	icon_state = "0,1";
-	outside_window = 1
-	},
-/turf/unsimulated/floor/plating,
+/obj/structure/bed/chair/office/bridge/pilot,
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/burglar)
 "bca" = (
-/obj/structure/window/shuttle/unique/burglar{
-	icon_state = "0,2"
+/obj/structure/closet/secure_closet{
+	req_access = list(150)
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1337;
+	id_tag = "burglar_shuttle";
+	name = "airlock controller";
+	pixel_x = 23;
+	pixel_y = -8;
+	tag_door = "burglar_shuttle_hatch"
+	},
+/obj/item/storage/secure/briefcase,
+/obj/item/storage/briefcase/aluminium,
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/burglar)
 "bcb" = (
-/obj/structure/window/shuttle/unique/burglar{
-	icon_state = "0,3";
-	outside_window = 1
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/burglar)
+/obj/structure/shuttle/engine/propulsion/burst/right,
+/turf/simulated/floor/plating,
+/area/shuttle/mercenary)
 "bcc" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -24034,34 +24038,6 @@
 	name = "staircase"
 	},
 /area/antag/mercenary)
-"bcF" = (
-/obj/structure/shuttle_part/burglar,
-/turf/unsimulated/floor/plating,
-/area/shuttle/burglar)
-"bcG" = (
-/obj/structure/window/shuttle/unique/burglar{
-	icon_state = "2,1"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/burglar)
-"bcH" = (
-/obj/machinery/computer/shuttle_control/multi/burglar{
-	name = "shuttle control console"
-	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/burglar)
-"bcI" = (
-/obj/structure/window/shuttle/unique/burglar{
-	icon_state = "2,3"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/burglar)
-"bcJ" = (
-/obj/structure/shuttle_part/burglar{
-	icon_state = "2,4"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/burglar)
 "bcK" = (
 /obj/structure/window/reinforced/crescent{
 	dir = 8
@@ -24794,33 +24770,16 @@
 	name = "staircase"
 	},
 /area/antag/mercenary)
-"bdF" = (
-/obj/structure/shuttle_part/burglar{
-	icon_state = "3,0"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/burglar)
-"bdG" = (
-/obj/structure/window/shuttle/unique/burglar{
-	icon_state = "3,1"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/burglar)
 "bdH" = (
-/obj/structure/bed/chair/office/bridge/pilot,
+/obj/machinery/computer/shuttle_control/multi/burglar{
+	name = "shuttle control console"
+	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/burglar)
 "bdI" = (
-/obj/structure/window/shuttle/unique/burglar{
-	icon_state = "3,3"
-	},
+/obj/structure/window/shuttle,
+/obj/structure/grille,
 /turf/simulated/floor/plating,
-/area/shuttle/burglar)
-"bdJ" = (
-/obj/structure/shuttle_part/burglar{
-	icon_state = "3,4"
-	},
-/turf/unsimulated/floor/plating,
 /area/shuttle/burglar)
 "bdK" = (
 /obj/structure/window/reinforced/crescent{
@@ -25111,41 +25070,6 @@
 	icon_state = "floor"
 	},
 /area/centcom/legion/hangar5)
-"bek" = (
-/obj/structure/window/shuttle/unique/mercenary{
-	icon_state = "6,25";
-	outside_window = 1
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bel" = (
-/obj/structure/window/shuttle/unique/mercenary{
-	icon_state = "7,25";
-	outside_window = 1
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bem" = (
-/obj/structure/window/shuttle/unique/mercenary{
-	icon_state = "8,25";
-	outside_window = 1
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"ben" = (
-/obj/structure/window/shuttle/unique/mercenary{
-	icon_state = "9,25";
-	outside_window = 1
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"beo" = (
-/obj/structure/window/shuttle/unique/mercenary{
-	icon_state = "10,25";
-	outside_window = 1
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
 "bep" = (
 /obj/structure/closet/secure_closet/freezer/kitchen{
 	req_access = null
@@ -25262,46 +25186,11 @@
 	},
 /turf/unsimulated/floor,
 /area/antag/mercenary)
-"beE" = (
-/turf/simulated/wall/shuttle/unique/burglar{
-	icon_state = "4,0"
-	},
-/area/shuttle/burglar)
-"beF" = (
-/obj/machinery/recharger/wallcharger{
-	layer = 3.3;
-	pixel_x = -1;
-	pixel_y = 25
-	},
-/obj/machinery/vending/wallmed1{
-	layer = 3.3;
-	name = "Emergency NanoMed";
-	pixel_x = -28;
-	req_access = null
-	},
-/obj/structure/bed/chair/shuttle{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/burglar)
 "beG" = (
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/burglar)
 "beH" = (
-/obj/structure/extinguisher_cabinet{
-	layer = 3.3;
-	pixel_x = 27;
-	pixel_y = 1
-	},
-/obj/structure/bed/chair/shuttle{
-	dir = 8
-	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/burglar)
-"beI" = (
-/turf/simulated/wall/shuttle/unique/burglar{
-	icon_state = "4,4"
-	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/shuttle/burglar)
 "beJ" = (
 /obj/structure/window/reinforced/crescent{
@@ -25556,48 +25445,6 @@
 	dir = 6
 	},
 /area/centcom/legion/hangar5)
-"bfe" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "5,24"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bff" = (
-/obj/structure/window/shuttle/unique/mercenary{
-	icon_state = "6,24"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/mercenary)
-"bfg" = (
-/obj/structure/window/shuttle/unique/mercenary{
-	icon_state = "7,24"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/mercenary)
-"bfh" = (
-/obj/structure/window/shuttle/unique/mercenary{
-	icon_state = "8,24"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/mercenary)
-"bfi" = (
-/obj/structure/window/shuttle/unique/mercenary{
-	icon_state = "9,24"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/mercenary)
-"bfj" = (
-/obj/structure/window/shuttle/unique/mercenary{
-	icon_state = "10,24"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/mercenary)
-"bfk" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "11,24"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
 "bfl" = (
 /obj/structure/bed/chair/comfy/black,
 /turf/unsimulated/floor{
@@ -25708,72 +25555,33 @@
 	},
 /turf/unsimulated/floor,
 /area/antag/mercenary)
-"bfA" = (
-/obj/structure/shuttle_part/burglar{
-	icon_state = "5,0";
-	opacity = 1
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/burglar)
 "bfB" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/paper_bin{
-	pixel_x = -5;
-	pixel_y = 3
+/obj/machinery/recharger/wallcharger{
+	layer = 3.3;
+	pixel_x = -1;
+	pixel_y = 25
 	},
-/obj/item/pen{
-	pixel_x = -6;
-	pixel_y = 5
+/obj/machinery/vending/wallmed1{
+	layer = 3.3;
+	name = "Emergency NanoMed";
+	pixel_x = -28;
+	req_access = null
 	},
-/obj/item/pen{
-	pixel_x = -6;
-	pixel_y = 5
+/obj/structure/bed/chair/shuttle{
+	dir = 4
 	},
-/obj/item/card/emag,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/burglar)
 "bfC" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/reagent_containers/food/drinks/waterbottle{
-	pixel_x = 8;
-	pixel_y = 4
+/obj/structure/extinguisher_cabinet{
+	layer = 3.3;
+	pixel_x = 27;
+	pixel_y = 1
 	},
-/obj/item/reagent_containers/food/snacks/liquidfood{
-	pixel_x = -5;
-	pixel_y = 6
-	},
-/obj/item/reagent_containers/food/drinks/waterbottle{
-	pixel_x = 8;
-	pixel_y = 4
-	},
-/obj/item/reagent_containers/food/drinks/waterbottle{
-	pixel_x = 8;
-	pixel_y = 4
-	},
-/obj/item/reagent_containers/food/drinks/waterbottle{
-	pixel_x = 8;
-	pixel_y = 4
-	},
-/obj/item/reagent_containers/food/snacks/liquidfood{
-	pixel_x = -5;
-	pixel_y = 6
-	},
-/obj/item/reagent_containers/food/snacks/liquidfood{
-	pixel_x = -5;
-	pixel_y = 6
-	},
-/obj/item/reagent_containers/food/snacks/liquidfood{
-	pixel_x = -5;
-	pixel_y = 6
+/obj/structure/bed/chair/shuttle{
+	dir = 8
 	},
 /turf/simulated/floor/shuttle/black,
-/area/shuttle/burglar)
-"bfD" = (
-/obj/structure/shuttle_part/burglar{
-	icon_state = "5,4";
-	opacity = 1
-	},
-/turf/unsimulated/floor/plating,
 /area/shuttle/burglar)
 "bfE" = (
 /obj/structure/table/stone/marble,
@@ -26055,18 +25863,6 @@
 	icon_state = "floor"
 	},
 /area/centcom/legion/hangar5)
-"bfV" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "5,23"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bfW" = (
-/obj/structure/window/shuttle/unique/mercenary{
-	icon_state = "6,23"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/mercenary)
 "bfX" = (
 /obj/machinery/computer/security/nuclear,
 /turf/simulated/floor/shuttle/black,
@@ -26086,18 +25882,6 @@
 /obj/item/device/binoculars,
 /obj/structure/table/reinforced,
 /turf/simulated/floor/shuttle/black,
-/area/shuttle/mercenary)
-"bga" = (
-/obj/structure/window/shuttle/unique/mercenary{
-	icon_state = "10,23"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/mercenary)
-"bgb" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "11,23"
-	},
-/turf/space/dynamic,
 /area/shuttle/mercenary)
 "bgc" = (
 /obj/structure/table/standard,
@@ -26222,46 +26006,58 @@
 	},
 /turf/unsimulated/floor,
 /area/antag/mercenary)
-"bgo" = (
-/obj/structure/shuttle_part/burglar{
-	icon_state = "7,0";
-	opacity = 1
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/burglar)
 "bgp" = (
-/obj/structure/closet/walllocker/emerglocker/north{
-	pixel_x = -26;
-	pixel_y = -3
+/obj/structure/table/reinforced/steel,
+/obj/item/paper_bin{
+	pixel_x = -5;
+	pixel_y = 3
 	},
-/obj/structure/closet/crate/secure/gear{
-	name = "secure crate";
-	req_access = list(150)
+/obj/item/pen{
+	pixel_x = -6;
+	pixel_y = 5
 	},
+/obj/item/pen{
+	pixel_x = -6;
+	pixel_y = 5
+	},
+/obj/item/card/emag,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/burglar)
 "bgq" = (
-/obj/structure/closet/secure_closet{
-	req_access = list(150)
+/obj/structure/table/reinforced/steel,
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_x = 8;
+	pixel_y = 4
 	},
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1337;
-	id_tag = "burglar_shuttle";
-	name = "airlock controller";
-	pixel_x = 23;
-	pixel_y = -8;
-	tag_door = "burglar_shuttle_hatch"
+/obj/item/reagent_containers/food/snacks/liquidfood{
+	pixel_x = -5;
+	pixel_y = 6
 	},
-/obj/item/storage/secure/briefcase,
-/obj/item/storage/briefcase/aluminium,
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_x = 8;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_x = 8;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_x = 8;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/food/snacks/liquidfood{
+	pixel_x = -5;
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/food/snacks/liquidfood{
+	pixel_x = -5;
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/food/snacks/liquidfood{
+	pixel_x = -5;
+	pixel_y = 6
+	},
 /turf/simulated/floor/shuttle/black,
-/area/shuttle/burglar)
-"bgr" = (
-/obj/structure/shuttle_part/burglar{
-	icon_state = "7,4";
-	opacity = 1
-	},
-/turf/unsimulated/floor/plating,
 /area/shuttle/burglar)
 "bgs" = (
 /obj/structure/railing/mapped,
@@ -26488,24 +26284,6 @@
 	icon_state = "wood"
 	},
 /area/centcom/legion/hangar5)
-"bgL" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "4,22"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bgM" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "5,22"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bgN" = (
-/obj/structure/window/shuttle/unique/mercenary{
-	icon_state = "6,22"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/mercenary)
 "bgO" = (
 /obj/machinery/light{
 	dir = 8;
@@ -26523,24 +26301,6 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/shuttle/black,
-/area/shuttle/mercenary)
-"bgR" = (
-/obj/structure/window/shuttle/unique/mercenary{
-	icon_state = "10,22"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/mercenary)
-"bgS" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "11,22"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bgT" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "12,22"
-	},
-/turf/space/dynamic,
 /area/shuttle/mercenary)
 "bgU" = (
 /obj/effect/floor_decal/industrial/warning/full,
@@ -26600,51 +26360,13 @@
 	},
 /turf/unsimulated/floor,
 /area/antag/mercenary)
-"bhc" = (
-/turf/simulated/wall/shuttle/unique/burglar{
-	icon_state = "8,0"
-	},
-/area/shuttle/burglar)
 "bhd" = (
-/obj/structure/closet/crate/medical,
-/obj/item/reagent_containers/inhaler/pneumalin,
-/obj/item/reagent_containers/inhaler/pneumalin,
-/obj/item/reagent_containers/hypospray/autoinjector/survival,
-/obj/item/reagent_containers/hypospray/autoinjector/survival,
-/obj/item/storage/firstaid/toxin,
-/obj/item/storage/firstaid/fire,
-/obj/item/storage/firstaid/o2,
-/obj/item/storage/firstaid/adv,
-/obj/item/roller,
-/obj/item/roller,
-/obj/item/airbubble,
-/obj/item/storage/firstaid/regular,
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/burglar)
-"bhe" = (
-/obj/machinery/light/small/emergency,
-/obj/effect/shuttle_landmark/burglar_ship/start,
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/burglar)
-"bhf" = (
-/obj/machinery/door/blast/regular/open{
-	dir = 2;
-	id = "burglar_blast";
-	name = "blast door"
+/obj/structure/closet/walllocker/emerglocker/north{
+	pixel_x = -26;
+	pixel_y = -3
 	},
-/obj/machinery/door/airlock/hatch{
-	frequency = 1337;
-	icon_state = "door_locked";
-	id_tag = "burglar_shuttle_hatch";
-	locked = 1;
-	req_access = list(150)
-	},
-/obj/machinery/button/remote/blast_door{
-	dir = 1;
-	id = "burglar_blast";
-	layer = 3;
-	name = "blast door";
-	pixel_y = -21;
+/obj/structure/closet/crate/secure/gear{
+	name = "secure crate";
 	req_access = list(150)
 	},
 /turf/simulated/floor/shuttle/black,
@@ -26915,25 +26637,6 @@
 	icon_state = "wood"
 	},
 /area/centcom/legion/hangar5)
-"bhy" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "4,21"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bhz" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "5,21"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bhA" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "6,21";
-	outside_part = 0
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/mercenary)
 "bhB" = (
 /obj/structure/bed/chair/shuttle{
 	dir = 4
@@ -26948,25 +26651,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/black,
-/area/shuttle/mercenary)
-"bhE" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "10,21";
-	outside_part = 0
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/mercenary)
-"bhF" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "11,21"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bhG" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "12,21"
-	},
-/turf/space/dynamic,
 /area/shuttle/mercenary)
 "bhH" = (
 /turf/unsimulated/wall/fakeairlock{
@@ -27030,30 +26714,49 @@
 	},
 /turf/unsimulated/floor,
 /area/antag/mercenary)
-"bhP" = (
-/turf/simulated/wall/shuttle/unique/burglar{
-	icon_state = "10,0"
-	},
-/area/shuttle/burglar)
 "bhQ" = (
-/turf/simulated/wall/shuttle/unique/burglar{
-	icon_state = "10,1"
-	},
+/obj/structure/closet/crate/medical,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/hypospray/autoinjector/survival,
+/obj/item/reagent_containers/hypospray/autoinjector/survival,
+/obj/item/storage/firstaid/toxin,
+/obj/item/storage/firstaid/fire,
+/obj/item/storage/firstaid/o2,
+/obj/item/storage/firstaid/adv,
+/obj/item/roller,
+/obj/item/roller,
+/obj/item/airbubble,
+/obj/item/storage/firstaid/regular,
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/burglar)
 "bhR" = (
-/turf/simulated/wall/shuttle/unique/burglar{
-	icon_state = "10,2"
-	},
-/area/shuttle/burglar)
-"bhS" = (
-/turf/simulated/wall/shuttle/unique/burglar{
-	icon_state = "10,3"
-	},
+/obj/machinery/light/small/emergency,
+/obj/effect/shuttle_landmark/burglar_ship/start,
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/burglar)
 "bhT" = (
-/turf/simulated/wall/shuttle/unique/burglar{
-	icon_state = "10,4"
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	id = "burglar_blast";
+	name = "blast door"
 	},
+/obj/machinery/door/airlock/hatch{
+	frequency = 1337;
+	icon_state = "door_locked";
+	id_tag = "burglar_shuttle_hatch";
+	locked = 1;
+	req_access = list(150)
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	id = "burglar_blast";
+	layer = 3;
+	name = "blast door";
+	pixel_y = -21;
+	req_access = list(150)
+	},
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/burglar)
 "bhU" = (
 /obj/structure/window/reinforced/crescent{
@@ -27435,23 +27138,6 @@
 	icon_state = "wood"
 	},
 /area/centcom/legion/hangar5)
-"bip" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "4,20"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"biq" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "5,20"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bir" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "6,20"
-	},
-/area/shuttle/mercenary)
 "bis" = (
 /obj/structure/bed/chair/shuttle{
 	dir = 4
@@ -27474,23 +27160,6 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/shuttle/black,
-/area/shuttle/mercenary)
-"biu" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "10,20"
-	},
-/area/shuttle/mercenary)
-"biv" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "11,20"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"biw" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "12,20"
-	},
-/turf/space/dynamic,
 /area/shuttle/mercenary)
 "bix" = (
 /turf/unsimulated/floor,
@@ -27581,36 +27250,6 @@
 	},
 /turf/unsimulated/floor,
 /area/antag/mercenary)
-"biK" = (
-/obj/structure/shuttle_part/burglar{
-	icon_state = "11,0"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/burglar)
-"biL" = (
-/obj/structure/shuttle_part/burglar{
-	icon_state = "11,1"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/burglar)
-"biM" = (
-/obj/structure/shuttle_part/burglar{
-	icon_state = "11,2"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/burglar)
-"biN" = (
-/obj/structure/shuttle_part/burglar{
-	icon_state = "11,3"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/burglar)
-"biO" = (
-/obj/structure/shuttle_part/burglar{
-	icon_state = "11,4"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/burglar)
 "biP" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
@@ -27649,32 +27288,6 @@
 	dir = 10
 	},
 /area/centcom/legion/hangar5)
-"biT" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "3,19"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"biU" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "4,19"
-	},
-/area/shuttle/mercenary)
-"biV" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "5,19"
-	},
-/area/shuttle/mercenary)
-"biW" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "6,19"
-	},
-/area/shuttle/mercenary)
-"biX" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "7,19"
-	},
-/area/shuttle/mercenary)
 "biY" = (
 /obj/effect/floor_decal/spline/plain,
 /obj/machinery/door/window/northleft{
@@ -27682,32 +27295,6 @@
 	req_access = list(150)
 	},
 /turf/simulated/floor/tiled/ramp/bottom,
-/area/shuttle/mercenary)
-"biZ" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "9,19"
-	},
-/area/shuttle/mercenary)
-"bja" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "10,19"
-	},
-/area/shuttle/mercenary)
-"bjb" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "11,19"
-	},
-/area/shuttle/mercenary)
-"bjc" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "12,19"
-	},
-/area/shuttle/mercenary)
-"bjd" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "13,19"
-	},
-/turf/space/dynamic,
 /area/shuttle/mercenary)
 "bje" = (
 /obj/item/device/flashlight/lamp{
@@ -27832,37 +27419,25 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
 /turf/unsimulated/floor/plating,
 /area/antag/burglar)
-"bjr" = (
-/obj/structure/shuttle_part/burglar{
-	icon_state = "12,0"
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/burglar)
 "bjs" = (
-/obj/structure/shuttle_part/burglar{
-	icon_state = "12,1"
-	},
+/obj/structure/shuttle/engine/propulsion/burst/left,
 /turf/unsimulated/floor/plating,
 /area/shuttle/burglar)
 "bjt" = (
-/obj/structure/shuttle_part/burglar{
-	icon_state = "12,2"
-	},
+/obj/structure/shuttle/engine/propulsion/burst,
 /turf/unsimulated/floor/plating,
 /area/shuttle/burglar)
 "bju" = (
-/obj/structure/shuttle_part/burglar{
-	icon_state = "12,3"
-	},
+/obj/structure/shuttle/engine/propulsion/burst/right,
 /turf/unsimulated/floor/plating,
 /area/shuttle/burglar)
 "bjv" = (
-/obj/structure/shuttle_part/burglar{
-	icon_state = "12,4"
-	},
-/turf/unsimulated/floor/plating,
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/burglar)
 "bjw" = (
 /obj/machinery/light/small/emergency,
@@ -27983,17 +27558,6 @@
 	},
 /turf/unsimulated/wall/fakeairlock,
 /area/antag/raider)
-"bjD" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "3,18"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bjE" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "4,18"
-	},
-/area/shuttle/mercenary)
 "bjF" = (
 /obj/structure/table/reinforced,
 /obj/item/paper_bin,
@@ -28082,17 +27646,6 @@
 	pixel_y = -9
 	},
 /turf/simulated/floor/shuttle/black,
-/area/shuttle/mercenary)
-"bjM" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "12,18"
-	},
-/area/shuttle/mercenary)
-"bjN" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "13,18"
-	},
-/turf/space/dynamic,
 /area/shuttle/mercenary)
 "bjO" = (
 /obj/structure/bed/chair/office/dark{
@@ -28301,13 +27854,6 @@
 "bko" = (
 /turf/unsimulated/wall/riveted,
 /area/centcom/distress_prep)
-"bkp" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "4,17";
-	opacity = 1
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
 "bkq" = (
 /obj/structure/table/reinforced,
 /obj/item/device/camera_film,
@@ -28319,13 +27865,6 @@
 /obj/item/airbubble/syndie,
 /obj/item/airbubble/syndie,
 /turf/simulated/floor/shuttle/black,
-/area/shuttle/mercenary)
-"bks" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "12,17";
-	opacity = 1
-	},
-/turf/space/dynamic,
 /area/shuttle/mercenary)
 "bkt" = (
 /obj/machinery/papershredder,
@@ -28521,19 +28060,6 @@
 	icon_state = "rampbottom"
 	},
 /area/centcom/distress_prep)
-"bkT" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "3,16"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bkU" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "4,16";
-	opacity = 1
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
 "bkV" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
@@ -28569,19 +28095,6 @@
 	name = "suit closet"
 	},
 /turf/simulated/floor/shuttle/black,
-/area/shuttle/mercenary)
-"bkZ" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "12,16";
-	opacity = 1
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bla" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "13,16"
-	},
-/turf/space/dynamic,
 /area/shuttle/mercenary)
 "blb" = (
 /obj/machinery/light{
@@ -28790,17 +28303,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/distress_prep)
-"blC" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "3,15"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"blD" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "4,15"
-	},
-/area/shuttle/mercenary)
 "blE" = (
 /obj/item/storage/bag/inflatable,
 /obj/item/storage/bag/inflatable,
@@ -28814,17 +28316,6 @@
 /obj/item/clothing/mask/gas/alt,
 /obj/item/clothing/mask/gas/alt,
 /turf/simulated/floor/shuttle/black,
-/area/shuttle/mercenary)
-"blF" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "12,15"
-	},
-/area/shuttle/mercenary)
-"blG" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "13,15"
-	},
-/turf/space/dynamic,
 /area/shuttle/mercenary)
 "blH" = (
 /obj/machinery/door/airlock/silver{
@@ -29082,23 +28573,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/distress_prep)
-"bmj" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "2,14"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bmk" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "3,14"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bml" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "4,14"
-	},
-/area/shuttle/mercenary)
 "bmm" = (
 /obj/structure/table/reinforced,
 /obj/machinery/light{
@@ -29119,23 +28593,6 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/shuttle/black,
-/area/shuttle/mercenary)
-"bmo" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "12,14"
-	},
-/area/shuttle/mercenary)
-"bmp" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "13,14"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bmq" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "14,14"
-	},
-/turf/space/dynamic,
 /area/shuttle/mercenary)
 "bmr" = (
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -29492,29 +28949,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/distress_prep)
-"bnd" = (
-/obj/structure/shuttle_part/mercenary{
-	density = 0;
-	icon_state = "1,13"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bne" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "2,13"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bnf" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "3,13"
-	},
-/area/shuttle/mercenary)
-"bng" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "4,13"
-	},
-/area/shuttle/mercenary)
 "bnh" = (
 /obj/item/stack/medical/ointment,
 /obj/item/stack/medical/ointment,
@@ -29538,29 +28972,6 @@
 	pixel_y = -1
 	},
 /turf/simulated/floor/shuttle/black,
-/area/shuttle/mercenary)
-"bnk" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "12,13"
-	},
-/area/shuttle/mercenary)
-"bnl" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "13,13"
-	},
-/area/shuttle/mercenary)
-"bnm" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "14,13"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bnn" = (
-/obj/structure/shuttle_part/mercenary{
-	density = 0;
-	icon_state = "15,13"
-	},
-/turf/space/dynamic,
 /area/shuttle/mercenary)
 "bno" = (
 /obj/effect/floor_decal/spline/plain,
@@ -29769,34 +29180,6 @@
 	icon_state = "freezerfloor"
 	},
 /area/centcom/distress_prep)
-"bnJ" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "0,12"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bnK" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "1,12";
-	opacity = 1
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bnL" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "2,12"
-	},
-/area/shuttle/mercenary)
-"bnM" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "3,12"
-	},
-/area/shuttle/mercenary)
-"bnN" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "4,12"
-	},
-/area/shuttle/mercenary)
 "bnO" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Workshop";
@@ -29804,57 +29187,12 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
-"bnP" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "6,12"
-	},
-/area/shuttle/mercenary)
-"bnQ" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "7,12"
-	},
-/area/shuttle/mercenary)
 "bnR" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Crew Cabin";
 	req_access = list(150)
 	},
 /turf/simulated/floor/shuttle/black,
-/area/shuttle/mercenary)
-"bnS" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "9,12"
-	},
-/area/shuttle/mercenary)
-"bnT" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "12,7"
-	},
-/area/shuttle/mercenary)
-"bnU" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "11,12"
-	},
-/area/shuttle/mercenary)
-"bnV" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "12,12"
-	},
-/area/shuttle/mercenary)
-"bnW" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "13,12"
-	},
-/area/shuttle/mercenary)
-"bnX" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "14,12"
-	},
-/area/shuttle/mercenary)
-"bnY" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "15,12"
-	},
 /area/shuttle/mercenary)
 "bnZ" = (
 /obj/structure/lattice,
@@ -30442,17 +29780,6 @@
 	icon_state = "freezerfloor"
 	},
 /area/centcom/distress_prep)
-"boI" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "0,11"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"boJ" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "1,11"
-	},
-/area/shuttle/mercenary)
 "boK" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/suit_cycler/syndicate{
@@ -30485,11 +29812,6 @@
 	req_access = list(150)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/mercenary)
-"boO" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "6,9"
-	},
 /area/shuttle/mercenary)
 "boP" = (
 /obj/machinery/light{
@@ -30845,17 +30167,6 @@
 	icon_state = "freezerfloor"
 	},
 /area/centcom/distress_prep)
-"bpz" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "0,10"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bpA" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "1,8"
-	},
-/area/shuttle/mercenary)
 "bpB" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/item/plastique,
@@ -31260,12 +30571,6 @@
 	icon_state = "wood"
 	},
 /area/centcom/distress_prep)
-"bqn" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "0,9"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
 "bqo" = (
 /obj/structure/table/rack,
 /obj/item/pickaxe/diamonddrill{
@@ -31318,38 +30623,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
-"bqt" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "addon5"
-	},
-/area/shuttle/mercenary)
-"bqu" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "11,7"
-	},
-/area/shuttle/mercenary)
 "bqv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "13,7"
-	},
-/area/shuttle/mercenary)
-"bqw" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "14,7"
-	},
-/area/shuttle/mercenary)
-"bqx" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "15,9"
-	},
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/mercenary)
 "bqy" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "16,9"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
+/obj/structure/lattice,
+/turf/space,
+/area/template_noop)
 "bqz" = (
 /obj/structure/lattice,
 /obj/structure/window/reinforced/crescent{
@@ -31725,12 +31006,6 @@
 	icon_state = "wood"
 	},
 /area/centcom/distress_prep)
-"brh" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "0,8"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
 "bri" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
@@ -31763,11 +31038,6 @@
 	},
 /obj/item/clothing/glasses/meson,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/mercenary)
-"brl" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "addon6"
-	},
 /area/shuttle/mercenary)
 "brm" = (
 /obj/effect/floor_decal/corner/lime/diagonal{
@@ -31831,17 +31101,6 @@
 	pixel_x = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/mercenary)
-"brq" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "15,8"
-	},
-/area/shuttle/mercenary)
-"brr" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "16,8"
-	},
-/turf/space/dynamic,
 /area/shuttle/mercenary)
 "brs" = (
 /obj/structure/table/rack,
@@ -32252,12 +31511,6 @@
 	icon_state = "wood"
 	},
 /area/centcom/distress_prep)
-"bsb" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "0,7"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
 "bsc" = (
 /obj/structure/table/standard,
 /obj/item/aicard{
@@ -32348,17 +31601,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/mercenary)
-"bsj" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "15,4"
-	},
-/area/shuttle/mercenary)
-"bsk" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "16,7"
-	},
-/turf/space/dynamic,
 /area/shuttle/mercenary)
 "bsl" = (
 /obj/structure/table/rack,
@@ -32609,12 +31851,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/distress_prep)
-"bsG" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "0,6"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
 "bsH" = (
 /obj/structure/table/standard,
 /obj/item/storage/belt/utility/full,
@@ -32698,9 +31934,7 @@
 /area/shuttle/mercenary)
 "bsN" = (
 /obj/structure/sign/greencross,
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "addon8"
-	},
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/mercenary)
 "bsO" = (
 /obj/effect/floor_decal/corner/lime/diagonal{
@@ -32745,12 +31979,6 @@
 	},
 /obj/item/storage/backpack/messenger/med,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/mercenary)
-"bsR" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "16,6"
-	},
-/turf/space/dynamic,
 /area/shuttle/mercenary)
 "bsS" = (
 /obj/structure/closet{
@@ -33103,22 +32331,6 @@
 	icon_state = "wood"
 	},
 /area/centcom/distress_prep)
-"btw" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "0,5"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"btx" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "1,7"
-	},
-/area/shuttle/mercenary)
-"bty" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "2,7"
-	},
-/area/shuttle/mercenary)
 "btz" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Strongroom";
@@ -33127,27 +32339,12 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/reinforced,
 /area/shuttle/mercenary)
-"btA" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "3,7"
-	},
-/area/shuttle/mercenary)
-"btB" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "addon4"
-	},
-/area/shuttle/mercenary)
 "btC" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Maintenance";
 	req_access = list(150)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/mercenary)
-"btD" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "addon9"
-	},
 /area/shuttle/mercenary)
 "btE" = (
 /obj/effect/floor_decal/corner/lime/diagonal{
@@ -33189,12 +32386,6 @@
 	syndie = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/mercenary)
-"btI" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "16,5"
-	},
-/turf/space/dynamic,
 /area/shuttle/mercenary)
 "btJ" = (
 /obj/machinery/acting/changer,
@@ -33295,17 +32486,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/distress_prep)
-"btT" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "0,4"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"btU" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "1,6"
-	},
-/area/shuttle/mercenary)
 "btV" = (
 /obj/effect/landmark{
 	name = "Nuclear-Bomb"
@@ -33484,12 +32664,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
-"buh" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "16,4"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
 "bui" = (
 /obj/structure/closet{
 	icon_closed = "blue";
@@ -33566,48 +32740,6 @@
 	icon_state = "panelscorched"
 	},
 /area/antag/raider)
-"bup" = (
-/obj/structure/shuttle_part/raider{
-	density = 0;
-	icon_state = "17,17"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"buq" = (
-/obj/structure/shuttle_part/raider{
-	density = 0;
-	icon_state = "19,17"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bur" = (
-/obj/structure/shuttle_part/raider{
-	density = 0;
-	icon_state = "9,17"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bus" = (
-/obj/structure/shuttle_part/raider{
-	density = 0;
-	icon_state = "10,17"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"but" = (
-/obj/structure/shuttle_part/raider{
-	density = 0;
-	icon_state = "11,17"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"buu" = (
-/obj/structure/shuttle_part/raider{
-	density = 0;
-	icon_state = "12,17"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
 "buv" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Dock"
@@ -33618,17 +32750,6 @@
 /obj/structure/lattice,
 /turf/space/dynamic,
 /area/centcom/distress_prep)
-"bux" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "0,3"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"buy" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "1,3"
-	},
-/area/shuttle/mercenary)
 "buz" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/drop,
@@ -33649,11 +32770,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
-/area/shuttle/mercenary)
-"buD" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "6,5"
-	},
 /area/shuttle/mercenary)
 "buE" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -33682,11 +32798,6 @@
 	intercept = 1
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/mercenary)
-"buH" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "10,5"
-	},
 /area/shuttle/mercenary)
 "buI" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal{
@@ -33728,17 +32839,6 @@
 /obj/structure/table/standard,
 /obj/item/storage/box/fancy/tray,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/mercenary)
-"buM" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "15,3"
-	},
-/area/shuttle/mercenary)
-"buN" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "16,3"
-	},
-/turf/space/dynamic,
 /area/shuttle/mercenary)
 "buO" = (
 /obj/structure/closet{
@@ -34043,103 +33143,6 @@
 	},
 /turf/unsimulated/floor,
 /area/antag/ninja)
-"bva" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "16,16"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bvb" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "2,16";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bvc" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "3,16";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bvd" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "4,16";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bve" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "20,16"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bvf" = (
-/obj/structure/shuttle_part/raider{
-	density = 0;
-	icon_state = "8,16"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bvg" = (
-/obj/structure/window/shuttle/unique/raider{
-	icon_state = "9,16";
-	name = "skipjack cockpit";
-	outside_window = 1
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bvh" = (
-/obj/structure/window/shuttle/unique/raider{
-	icon_state = "10,16";
-	name = "skipjack cockpit"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/skipjack)
-"bvi" = (
-/obj/structure/window/shuttle/unique/raider{
-	icon_state = "11,16";
-	name = "skipjack cockpit"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/skipjack)
-"bvj" = (
-/obj/structure/window/shuttle/unique/raider{
-	icon_state = "12,16";
-	name = "skipjack cockpit";
-	outside_window = 1
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bvk" = (
-/obj/structure/shuttle_part/raider{
-	density = 0;
-	icon_state = "13,16"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bvl" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "16,16"
-	},
-/obj/structure/shuttle_part/raider{
-	density = 0;
-	icon_state = "17,17";
-	outside_part = 0;
-	pixel_x = 32;
-	pixel_y = 32
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bvm" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "17,16";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
 "bvn" = (
 /obj/machinery/door/airlock/hatch{
 	frequency = 1332;
@@ -34170,26 +33173,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
-"bvo" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "19,16";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bvp" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "20,16"
-	},
-/obj/structure/shuttle_part/raider{
-	density = 0;
-	icon_state = "19,17";
-	outside_part = 0;
-	pixel_x = -32;
-	pixel_y = 32
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
 "bvq" = (
 /turf/unsimulated/wall/fakepdoor{
 	dir = 8;
@@ -34213,93 +33196,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/distress_prep)
-"bvt" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "0,2"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bvu" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "1,2"
-	},
-/area/shuttle/mercenary)
-"bvv" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "2,2"
-	},
-/area/shuttle/mercenary)
-"bvw" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "3,2"
-	},
-/area/shuttle/mercenary)
-"bvx" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "4,2"
-	},
-/area/shuttle/mercenary)
-"bvy" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "5,2"
-	},
-/area/shuttle/mercenary)
-"bvz" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "6,2"
-	},
-/area/shuttle/mercenary)
-"bvA" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "7,2"
-	},
-/area/shuttle/mercenary)
-"bvB" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "8,2"
-	},
-/area/shuttle/mercenary)
-"bvC" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "9,2"
-	},
-/area/shuttle/mercenary)
-"bvD" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "10,2"
-	},
-/area/shuttle/mercenary)
-"bvE" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "11,2"
-	},
-/area/shuttle/mercenary)
-"bvF" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "12,2"
-	},
-/area/shuttle/mercenary)
-"bvG" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "13,2"
-	},
-/area/shuttle/mercenary)
-"bvH" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "14,2"
-	},
-/area/shuttle/mercenary)
-"bvI" = (
-/turf/simulated/wall/shuttle/unique/mercenary{
-	icon_state = "15,2"
-	},
-/area/shuttle/mercenary)
-"bvJ" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "16,2"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
 "bvK" = (
 /obj/structure/lattice,
 /turf/space/dynamic,
@@ -34321,19 +33217,6 @@
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/unsimulated/floor/plating,
 /area/antag/ninja)
-"bvN" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "0,15"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bvO" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "1,15";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
 "bvP" = (
 /obj/structure/table/steel,
 /obj/item/clothing/head/pirate,
@@ -34351,33 +33234,6 @@
 /obj/structure/curtain/open/bed,
 /turf/simulated/floor/carpet/art,
 /area/shuttle/skipjack)
-"bvS" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "5,15";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bvT" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "6,15"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bvU" = (
-/obj/structure/shuttle_part/raider{
-	density = 0;
-	icon_state = "8,15"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bvV" = (
-/obj/structure/window/shuttle/unique/raider{
-	icon_state = "9,15";
-	name = "skipjack cockpit"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/skipjack)
 "bvW" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -34394,34 +33250,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/shuttle/skipjack)
-"bvY" = (
-/obj/structure/window/shuttle/unique/raider{
-	icon_species_tag = 5;
-	icon_state = "12,15";
-	name = "skipjack cockpit"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/skipjack)
-"bvZ" = (
-/obj/structure/shuttle_part/raider{
-	density = 0;
-	icon_state = "13,15"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bwa" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "15,15"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bwb" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "16,15";
-	name = "Skipjack"
-	},
 /area/shuttle/skipjack)
 "bwc" = (
 /obj/machinery/airlock_sensor{
@@ -34450,19 +33278,6 @@
 "bwe" = (
 /obj/effect/decal/cleanable/mucus,
 /turf/simulated/floor/plating,
-/area/shuttle/skipjack)
-"bwf" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "20,15";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bwg" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "21,15"
-	},
-/turf/space/dynamic,
 /area/shuttle/skipjack)
 "bwh" = (
 /obj/structure/flora/pottedplant/random{
@@ -34498,105 +33313,9 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/distress_prep)
-"bwl" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "0,1"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bwm" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "1,1"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bwn" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "2,1"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bwo" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "3,1"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bwp" = (
-/obj/structure/shuttle_part/mercenary,
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bwq" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "5,1"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bwr" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "6,1"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bws" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "7,1"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bwt" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "8,1"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bwu" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "9,1"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bwv" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "10,1"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bww" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "11,1"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bwx" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "12,1"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
 "bwy" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "13,1"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bwz" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "14,1"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bwA" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "15,1"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bwB" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "16,1"
-	},
-/turf/space/dynamic,
+/obj/structure/shuttle/engine/heater,
+/turf/simulated/floor/plating,
 /area/shuttle/mercenary)
 "bwC" = (
 /obj/structure/table/rack,
@@ -34772,19 +33491,6 @@
 	icon_state = "black"
 	},
 /area/antag/ninja)
-"bwP" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "0,14"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bwQ" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "1,14";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
 "bwR" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -34795,32 +33501,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/art,
-/area/shuttle/skipjack)
-"bwT" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "5,14";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bwU" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "6,14"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bwV" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "8,14"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bwW" = (
-/obj/structure/window/shuttle/unique/raider{
-	icon_state = "9,14";
-	name = "skipjack cockpit"
-	},
-/turf/simulated/floor/plating,
 /area/shuttle/skipjack)
 "bwX" = (
 /obj/effect/floor_decal/corner/red{
@@ -34843,31 +33523,9 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/skipjack)
 "bwZ" = (
-/obj/structure/window/shuttle/unique/raider{
-	icon_species_tag = 5;
-	icon_state = "12,14";
-	name = "skipjack cockpit"
-	},
+/obj/structure/window/shuttle,
+/obj/structure/grille,
 /turf/simulated/floor/plating,
-/area/shuttle/skipjack)
-"bxa" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "13,14"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bxb" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "15,14"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bxc" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "16,14";
-	name = "Skipjack"
-	},
 /area/shuttle/skipjack)
 "bxd" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -34904,19 +33562,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
-"bxg" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "20,14";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bxh" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "21,14"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
 "bxi" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -34948,71 +33593,16 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/distress_prep)
-"bxm" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "1,0"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
 "bxn" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "2,0"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bxo" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "3,0"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bxp" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "4,0"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bxq" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "5,0"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bxr" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "6,0"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bxs" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "7,0"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bxt" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "8,0"
-	},
-/turf/space/dynamic,
-/area/shuttle/mercenary)
-"bxu" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "9,0"
-	},
-/turf/space/dynamic,
+/obj/structure/shuttle/engine/propulsion/burst/left,
+/turf/simulated/floor/plating,
 /area/shuttle/mercenary)
 "bxv" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "10,0"
-	},
-/turf/space/dynamic,
+/obj/structure/shuttle/engine/propulsion,
+/turf/simulated/floor/plating,
 /area/shuttle/mercenary)
 "bxw" = (
-/obj/structure/shuttle_part/mercenary{
-	icon_state = "15,0"
-	},
-/turf/space/dynamic,
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/mercenary)
 "bxx" = (
 /obj/machinery/door/blast/odin/open{
@@ -35114,19 +33704,6 @@
 	icon_state = "black"
 	},
 /area/antag/ninja)
-"bxE" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "0,13"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bxF" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "1,13";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
 "bxG" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -35153,33 +33730,6 @@
 /obj/structure/reagent_dispensers/lube,
 /turf/simulated/floor/wood,
 /area/shuttle/skipjack)
-"bxJ" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "5,13";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bxK" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "6,13"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bxL" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "8,13";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bxM" = (
-/obj/structure/window/shuttle/unique/raider{
-	icon_state = "9,13";
-	name = "skipjack cockpit"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/skipjack)
 "bxN" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -35196,41 +33746,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/shuttle/skipjack)
-"bxP" = (
-/obj/structure/window/shuttle/unique/raider{
-	icon_species_tag = 5;
-	icon_state = "12,13";
-	name = "skipjack cockpit"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/skipjack)
-"bxQ" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "13,13";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bxR" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "15,13"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bxS" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "16,13";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bxT" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "17,13";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
 "bxU" = (
 /obj/machinery/door/airlock/hatch{
 	frequency = 1332;
@@ -35241,26 +33756,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
-/area/shuttle/skipjack)
-"bxV" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "19,13";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bxW" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "20,13";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bxX" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "21,13"
-	},
-/turf/space/dynamic,
 /area/shuttle/skipjack)
 "bxY" = (
 /turf/unsimulated/wall/fakepdoor{
@@ -35315,26 +33810,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/antag/ninja)
-"byf" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "0,12"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"byg" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "1,12";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"byh" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "2,12";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
 "byi" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Captain's Quarters";
@@ -35342,39 +33817,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
-/area/shuttle/skipjack)
-"byj" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "4,12";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"byk" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "5,12";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"byl" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "6,12"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bym" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "7,12"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"byn" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "8,12";
-	name = "Skipjack"
-	},
 /area/shuttle/skipjack)
 "byo" = (
 /obj/structure/bed/chair/office/bridge/generic{
@@ -35438,32 +33880,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/skipjack)
-"bys" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "13,12";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"byt" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "14,12"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"byu" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "15,12"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"byv" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "16,12";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
 "byw" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/portable_atmospherics/canister/oxygen,
@@ -35491,19 +33907,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/skipjack)
-"byz" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "20,12";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"byA" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "21,12"
-	},
-/turf/space/dynamic,
 /area/shuttle/skipjack)
 "byB" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -35617,19 +34020,6 @@
 	icon_state = "black"
 	},
 /area/antag/ninja)
-"byL" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "0,11"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"byM" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "1,11";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
 "byN" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/random,
@@ -35651,32 +34041,6 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/random,
 /turf/simulated/floor/carpet,
-/area/shuttle/skipjack)
-"byQ" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "5,11";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"byR" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "6,11"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"byS" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "7,11"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"byT" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "8,11";
-	name = "Skipjack"
-	},
 /area/shuttle/skipjack)
 "byU" = (
 /obj/structure/bed/chair/office/bridge/generic{
@@ -35702,32 +34066,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/shuttle/skipjack)
-"byW" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "13,11";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"byX" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "14,11"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"byY" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "15,11"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"byZ" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "16,11";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
 "bza" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -35744,19 +34082,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
-/area/shuttle/skipjack)
-"bzd" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "20,11";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bze" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "21,11"
-	},
-/turf/space/dynamic,
 /area/shuttle/skipjack)
 "bzf" = (
 /obj/structure/table/rack,
@@ -35936,19 +34261,6 @@
 	icon_state = "black"
 	},
 /area/antag/ninja)
-"bzs" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "0,10"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bzt" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "1,10";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
 "bzu" = (
 /obj/effect/decal/cleanable/blood/oil,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -35960,89 +34272,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/shuttle/skipjack)
-"bzv" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "5,10";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bzw" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "6,10";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bzx" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "7,10";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bzy" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "8,10";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bzz" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "9,10";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bzA" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "10,10";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
 "bzB" = (
 /obj/machinery/door/airlock/hatch{
 	req_access = list(150)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/shuttle/skipjack)
-"bzC" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "12,10";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bzD" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "13,10";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bzE" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "14,10";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bzF" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "15,10";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bzG" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "16,10";
-	name = "Skipjack"
-	},
 /area/shuttle/skipjack)
 "bzH" = (
 /obj/effect/floor_decal/industrial/warning/cee,
@@ -36054,19 +34289,6 @@
 	unlocked = 1
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/skipjack)
-"bzI" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "20,10";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bzJ" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "21,10"
-	},
-/turf/space/dynamic,
 /area/shuttle/skipjack)
 "bzK" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -36122,19 +34344,6 @@
 	icon_state = "black"
 	},
 /area/antag/ninja)
-"bzP" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "0,9"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bzQ" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "1,9";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
 "bzR" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -36152,36 +34361,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
-/area/shuttle/skipjack)
-"bzT" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "5,9";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bzU" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "6,9";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bzV" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "7,9";
-	outside_part = 0
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/effect/floor_decal/corner/red/full{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
 /area/shuttle/skipjack)
 "bzW" = (
 /obj/effect/floor_decal/corner/red{
@@ -36286,36 +34465,6 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled,
 /area/shuttle/skipjack)
-"bAc" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "14,9";
-	outside_part = 0
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 6
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/shuttle/skipjack)
-"bAd" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "15,9";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bAe" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "16,9";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
 "bAf" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/window/reinforced,
@@ -36338,19 +34487,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
-/area/shuttle/skipjack)
-"bAi" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "20,9";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bAj" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "21,9"
-	},
-/turf/space/dynamic,
 /area/shuttle/skipjack)
 "bAk" = (
 /obj/machinery/door/airlock/external{
@@ -36390,19 +34526,6 @@
 	icon_state = "new_reinforced"
 	},
 /area/antag/ninja)
-"bAp" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "0,8"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bAq" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "1,8";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
 "bAr" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -36485,19 +34608,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/shuttle/skipjack)
-"bAB" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "20,8";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bAC" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "21,8"
-	},
-/turf/space/dynamic,
 /area/shuttle/skipjack)
 "bAD" = (
 /obj/structure/closet/crate/freezer/rations,
@@ -36589,67 +34699,6 @@
 	icon_state = "new_reinforced"
 	},
 /area/antag/ninja)
-"bAO" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "0,7"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bAP" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "1,7";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bAQ" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "2,7";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bAR" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "3,7";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bAS" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "4,7";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bAT" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "5,7";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bAU" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "6,7";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bAV" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "7,7";
-	outside_part = 0
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/shuttle/skipjack)
 "bAW" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -36659,7 +34708,6 @@
 	},
 /obj/effect/decal/cleanable/blood,
 /obj/item/reagent_containers/glass/bucket/wood{
-	pixel_x = -19;
 	pixel_y = 6
 	},
 /turf/simulated/floor/tiled,
@@ -36680,13 +34728,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
-"bAZ" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "11,7";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
 "bBa" = (
 /obj/machinery/door/window/northleft{
 	name = "infirmary?";
@@ -36697,27 +34738,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
-/area/shuttle/skipjack)
-"bBb" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "13,7";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bBc" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "14,7";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bBd" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "15,7";
-	name = "Skipjack"
-	},
 /area/shuttle/skipjack)
 "bBe" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -36755,19 +34775,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
-"bBi" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "20,7";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bBj" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "21,7"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
 "bBk" = (
 /obj/item/device/suit_cooling_unit,
 /obj/item/device/suit_cooling_unit,
@@ -36788,19 +34795,6 @@
 	icon_state = "new_reinforced"
 	},
 /area/antag/ninja)
-"bBm" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "0,6"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bBn" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "1,6";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
 "bBo" = (
 /obj/structure/bed/chair/office/bridge/generic{
 	desc = "Looks suspiciously comfortable.";
@@ -36845,13 +34839,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/skipjack)
-"bBu" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "11,6";
-	name = "Skipjack"
-	},
 /area/shuttle/skipjack)
 "bBv" = (
 /obj/structure/sink{
@@ -36909,13 +34896,6 @@
 /obj/item/reagent_containers/glass/bottle/thetamycin,
 /turf/simulated/floor/tiled/freezer,
 /area/shuttle/skipjack)
-"bBx" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "14,6";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
 "bBy" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -36953,19 +34933,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
-"bBD" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "20,6";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bBE" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "21,6"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
 "bBK" = (
 /obj/machinery/button/remote/blast_door{
 	dir = 4;
@@ -36977,7 +34944,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/distress)
 "bBL" = (
-/turf/simulated/wall/shuttle/dark/cardinal,
+/turf/simulated/wall/shuttle/space_ship/cardinal,
 /area/shuttle/distress)
 "bBQ" = (
 /obj/structure/table/rack,
@@ -37046,19 +35013,6 @@
 	icon_state = "new_reinforced"
 	},
 /area/antag/ninja)
-"bBV" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "0,5"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bBW" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "1,5";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
 "bBX" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -37099,13 +35053,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/skipjack)
-"bCc" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "7,5";
-	name = "Skipjack"
-	},
 /area/shuttle/skipjack)
 "bCd" = (
 /obj/item/material/harpoon,
@@ -37150,13 +35097,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
-"bCg" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "11,5";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
 "bCh" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/fancy/tray,
@@ -37176,13 +35116,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/freezer,
-/area/shuttle/skipjack)
-"bCj" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "14,5";
-	name = "Skipjack"
-	},
 /area/shuttle/skipjack)
 "bCk" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -37226,19 +35159,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
-"bCp" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "20,5";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bCq" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "21,5"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
 "bCv" = (
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/distress)
@@ -37279,19 +35199,6 @@
 	icon_state = "new_reinforced"
 	},
 /area/antag/ninja)
-"bCD" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "0,4"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bCE" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "1,4";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
 "bCF" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -37324,30 +35231,8 @@
 /area/shuttle/skipjack)
 "bCJ" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/crate/freezer/rations,
-/obj/item/storage/box/drinkingglasses,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/skipjack)
-"bCK" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "7,4";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bCL" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "8,4";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bCM" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "9,4";
-	name = "Skipjack"
-	},
 /area/shuttle/skipjack)
 "bCN" = (
 /obj/effect/decal/cleanable/dirt,
@@ -37358,34 +35243,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
-"bCO" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "11,4";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bCP" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "12,4";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bCQ" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "13,4";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bCR" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "14,4";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
 "bCS" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -37395,10 +35252,10 @@
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
 "bCT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
 "bCU" = (
@@ -37411,42 +35268,7 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
-"bCW" = (
-/obj/machinery/floodlight,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/shuttle/skipjack)
-"bCX" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "20,4";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bCY" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "21,4"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bDd" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "0,3"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bDe" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "1,3";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
 "bDf" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "2,3";
-	outside_part = 0
-	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/skipjack)
 "bDg" = (
@@ -37467,31 +35289,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/skipjack)
 "bDj" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "6,3";
-	outside_part = 0
-	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate/freezer/rations,
+/obj/item/storage/box/drinkingglasses,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/skipjack)
-"bDk" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "7,3";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bDl" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "8,3"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bDm" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "9,3";
-	name = "Skipjack"
-	},
 /area/shuttle/skipjack)
 "bDn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -37515,36 +35316,12 @@
 /obj/item/pickaxe/jackhammer,
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
-"bDp" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "12,3";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bDq" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "13,3"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bDr" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "14,3";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bDs" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "15,3";
-	outside_part = 0
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/skipjack)
 "bDt" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
 "bDu" = (
@@ -37566,24 +35343,8 @@
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
 "bDw" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "19,3";
-	outside_part = 0
-	},
+/obj/machinery/floodlight,
 /turf/simulated/floor/plating,
-/area/shuttle/skipjack)
-"bDx" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "20,3";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bDy" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "21,3"
-	},
-/turf/space/dynamic,
 /area/shuttle/skipjack)
 "bDE" = (
 /obj/effect/shuttle_landmark/distress/start,
@@ -37598,74 +35359,6 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/distress)
-"bDI" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "0,2"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bDJ" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "1,2";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bDK" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "2,2";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bDL" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "3,2";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bDM" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "4,2";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bDN" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "5,2";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bDO" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "6,2";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bDP" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "7,2";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bDQ" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "8,2"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bDR" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "9,2";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
 "bDS" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -37683,74 +35376,6 @@
 	layer = 3.5
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/skipjack)
-"bDU" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "12,2";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bDV" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "13,2"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bDW" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "14,2";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bDX" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "15,2";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bDY" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "16,2";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bDZ" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "17,2";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bEa" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "18,2";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bEb" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "19,2";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bEc" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "20,2";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bEd" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "21,2"
-	},
-/turf/space/dynamic,
 /area/shuttle/skipjack)
 "bEh" = (
 /obj/machinery/door/airlock/hatch{
@@ -37775,240 +35400,22 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/distress)
 "bEl" = (
-/turf/simulated/wall/shuttle/dark,
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/distress)
-"bEo" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "0,1"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bEp" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "1,1"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bEq" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "2,1"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bEr" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "3,1"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bEs" = (
-/obj/structure/shuttle_part/raider,
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bEt" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "5,1"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bEu" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "6,1"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bEv" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "7,1"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bEw" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "8,1"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bEx" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "9,1"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bEy" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "10,1";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bEz" = (
-/turf/simulated/wall/shuttle/unique/raider{
-	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
-	icon_state = "11,1";
-	name = "Skipjack"
-	},
-/area/shuttle/skipjack)
-"bEA" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "12,1"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bEB" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "13,1"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bEC" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "14,1"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bED" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "15,1"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bEE" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "16,1"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bEF" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "17,1"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
 "bEG" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "18,1"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bEH" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "19,1"
-	},
-/turf/space/dynamic,
+/obj/structure/shuttle/engine/propulsion/burst,
+/turf/unsimulated/floor/plating,
 /area/shuttle/skipjack)
 "bEI" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "20,1"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bEJ" = (
-/obj/structure/shuttle_part/raider{
-	density = 0;
-	icon_state = "21,1"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bEK" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "1,0"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bEL" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "2,0"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bEM" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "3,0"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bEN" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "4,0"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bEO" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "5,0"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bEP" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "6,0"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bEQ" = (
-/obj/structure/shuttle_part/raider{
-	density = 0;
-	icon_state = "7,0"
-	},
-/turf/space/dynamic,
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/skipjack)
 "bER" = (
-/obj/structure/shuttle_part/raider{
-	density = 0;
-	icon_state = "10,0"
-	},
-/turf/space/dynamic,
+/obj/structure/shuttle/engine/propulsion/burst/left,
+/turf/unsimulated/floor/plating,
 /area/shuttle/skipjack)
 "bES" = (
-/obj/structure/shuttle_part/raider{
-	density = 0;
-	icon_state = "11,0"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bET" = (
-/obj/structure/shuttle_part/raider{
-	density = 0;
-	icon_state = "14,0"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bEU" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "15,0"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bEV" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "16,0"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bEW" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "17,0"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bEX" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "18,0"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bEY" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "19,0"
-	},
-/turf/space/dynamic,
-/area/shuttle/skipjack)
-"bEZ" = (
-/obj/structure/shuttle_part/raider{
-	icon_state = "20,0"
-	},
-/turf/space/dynamic,
+/obj/structure/shuttle/engine/propulsion/burst/right,
+/turf/unsimulated/floor/plating,
 /area/shuttle/skipjack)
 "bFa" = (
 /obj/effect/step_trigger/thrower/shuttle/south,
@@ -44551,18 +41958,18 @@ aaa
 aaa
 aaa
 aaa
-bnJ
-boI
-bpz
-bqn
-brh
-bsb
-bsG
-btw
-btT
-bux
-bvt
-bwl
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -44807,20 +42214,20 @@ aaa
 aaa
 aaa
 aaa
-bnd
-bnK
-boJ
-bpA
-bpA
-bpA
-bpA
-bpA
-btx
-btU
-buy
-bvu
-bwm
-bxm
+aaa
+bxw
+bxw
+bxw
+bxw
+bxw
+bxw
+bxw
+bxw
+bxw
+bxw
+bxw
+bxw
+bxw
 aaa
 aaa
 aaa
@@ -45063,20 +42470,20 @@ aaa
 aaa
 aaa
 aaa
-bmj
-bne
-bnL
+aaa
+aaa
+bxw
 boK
 bpB
 bqo
 bri
 bsc
 bsH
-bty
+bxw
 btV
 buz
-bvv
-bwn
+bxw
+bxw
 bxn
 aaa
 aaa
@@ -45315,26 +42722,26 @@ aaa
 aaa
 aaa
 aaa
-biT
-bjD
 aaa
-bkT
-blC
-bmk
-bnf
-bnM
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+bxw
 boL
 bpC
 bqp
 bpC
 bsd
 bsI
-bty
+bxw
 btW
 buA
-bvw
-bwo
-bxo
+bxw
+bwy
+bxv
 aaa
 aaa
 aaa
@@ -45569,17 +42976,17 @@ aaa
 aaa
 aaa
 aaa
-bgL
-bhy
-bip
-biU
-bjE
-bkp
-bkU
-blD
-bml
-bng
-bnN
+aaa
+aaa
+aaa
+bxw
+bxw
+bxw
+bxw
+bxw
+bxw
+bxw
+bxw
 boM
 bpC
 bpC
@@ -45589,9 +42996,9 @@ bpC
 btz
 btX
 buB
-bvx
-bwp
-bxp
+bxw
+bwy
+bxv
 aaa
 aaa
 aaa
@@ -45824,12 +43231,12 @@ aaa
 aaa
 aaa
 aaa
-bfe
-bfV
-bgM
-bhz
-biq
-biV
+aaa
+aaa
+aaa
+aaa
+aaa
+bxw
 bjF
 bkq
 bkV
@@ -45843,12 +43250,12 @@ bpC
 brj
 bpC
 bsJ
-btA
+bxw
 btY
 buC
-bvy
-bwq
-bxq
+bxw
+bwy
+bxv
 aaa
 aaa
 aaa
@@ -46080,32 +43487,32 @@ aaa
 aaa
 aaa
 aaa
-bek
-bff
-bfW
-bgN
-bhA
-bir
-biW
+aaa
+bxw
+bxw
+bxw
+bxw
+bxw
+bxw
 bjG
 bhC
 bkW
 bkW
 bhC
 bhC
-bnP
-boO
+bxw
+bxw
 bpD
 bqq
 brk
 bse
 bsK
-btA
+bxw
 btz
-buD
-bvz
-bwr
-bxr
+bxw
+bxw
+bwy
+bxv
 aaa
 aaa
 aaa
@@ -46337,32 +43744,32 @@ aaa
 aaa
 aaa
 aaa
-bel
-bfg
+aaa
+bxw
 bfX
 bgO
 bhB
 bis
-biX
+bxw
 bjH
 bhC
 bhC
 bhC
 bhC
 bhC
-bnQ
+bxw
 boP
 boR
 bqr
 bqr
 bqr
 bsL
-btB
+bxw
 btZ
 buE
-bvA
-bws
-bxs
+bxw
+bwy
+bxv
 aaa
 aaa
 aaa
@@ -46594,8 +44001,8 @@ aaa
 aaa
 aaa
 aaa
-bem
-bfh
+aaa
+bxw
 bfY
 bgP
 bhC
@@ -46617,9 +44024,9 @@ boR
 btC
 bua
 buF
-bvB
-bwt
-bxt
+bxw
+bwy
+bxv
 aaa
 aaa
 aaa
@@ -46851,32 +44258,32 @@ aaa
 aaa
 aaa
 aaa
-ben
-bfi
+aaa
+bxw
 bfZ
 bgQ
 bhD
 bit
-biZ
+bxw
 bjJ
 bhC
 bhC
 bhC
 bhC
 bhC
-bnS
+bxw
 boR
 boR
 bqs
 bqs
 boR
 bsM
-bnS
+bxw
 bub
 buG
-bvC
-bwu
-bxu
+bxw
+bwy
+bxv
 aaa
 aaa
 aaa
@@ -47108,31 +44515,31 @@ aaa
 aaa
 aaa
 aaa
-beo
-bfj
-bga
-bgR
-bhE
-biu
-bja
+aaa
+bxw
+bxw
+bxw
+bxw
+bxw
+bxw
 bjK
 bhC
 bkX
 bkX
 bhC
 bni
-bnT
+bxw
 boS
 boS
-bqt
-brl
+bxw
+bxw
 bsf
 bsN
-btD
+bxw
 buc
-buH
-bvD
-bwv
+bxw
+bxw
+bwy
 bxv
 aaa
 aaa
@@ -47366,30 +44773,30 @@ aaa
 aaa
 aaa
 aaa
-bfk
-bgb
-bgS
-bhF
-biv
-bjb
+aaa
+aaa
+aaa
+aaa
+aaa
+bxw
 bjL
 bkr
 bkY
 bkY
 bmn
 bnj
-bnU
+bxw
 boT
 bpE
-bqu
+bxw
 brm
 bsg
 bsO
 btE
 bud
 buI
-bvE
-bww
+bxw
+bwy
 bxv
 aaa
 aaa
@@ -47625,28 +45032,28 @@ aaa
 aaa
 aaa
 aaa
-bgT
-bhG
-biw
-bjc
-bjM
-bks
-bkZ
-blF
-bmo
-bnk
-bnV
+aaa
+aaa
+aaa
+bxw
+bxw
+bxw
+bxw
+bxw
+bxw
+bxw
+bxw
 boU
 boU
-bnT
+bxw
 brn
 bsg
 bsg
 btF
 bue
 buJ
-bvF
-bwx
+bxw
+bwy
 bxv
 aaa
 aaa
@@ -47885,14 +45292,14 @@ aaa
 aaa
 aaa
 aaa
-bjd
-bjN
 aaa
-bla
-blG
-bmp
-bnl
-bnW
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+bxw
 boV
 bpF
 bqv
@@ -47902,7 +45309,7 @@ bsP
 btG
 buf
 buK
-bvG
+bxw
 bwy
 bxv
 aaa
@@ -48147,21 +45554,21 @@ ayX
 ayX
 ayX
 ayX
-bmq
-bnm
-bnX
+aaa
+aaa
+bxw
 boW
 bpG
-bqw
+bxw
 brp
 bsi
 bsQ
 btH
 bug
 buL
-bvH
-bwz
-bxv
+bxw
+bxw
+bcb
 aaa
 aaa
 aaa
@@ -48405,19 +45812,19 @@ bhI
 baX
 baX
 ayX
-bnn
-bnY
+aaa
+bxw
 boX
 bpH
-bqx
-brq
-bsj
-bsj
-bsj
-bsj
-buM
-bvI
-bwA
+bxw
+bxw
+bxw
+bxw
+bxw
+bxw
+bxw
+bxw
+bxw
 bxw
 aaa
 aaa
@@ -48667,14 +46074,14 @@ bnZ
 boY
 bpI
 bqy
-brr
-bsk
-bsR
-btI
-buh
-buN
-bvJ
-bwB
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -56871,16 +54278,16 @@ aaa
 aaa
 aaa
 bbv
+bcc
 bbY
-bcF
-bdF
-beE
-bfA
-bgo
-bhc
-bhP
-biK
-bjr
+bbY
+bjv
+bjv
+bjv
+bjv
+bjv
+bjv
+bjv
 bbY
 baX
 blq
@@ -57128,15 +54535,15 @@ aaa
 aaa
 aaa
 bbv
-bbZ
-bcG
-bdG
-beF
+bcc
+bdI
+bdI
+beH
 bfB
 bgp
 bhd
 bhQ
-biL
+bjv
 bjs
 bbY
 baX
@@ -57385,15 +54792,15 @@ aaa
 aaa
 aaa
 bbv
-bca
-bcH
+bcc
+bdI
 bdH
+bbZ
 beG
 beG
 beG
-bhe
 bhR
-biM
+bjv
 bjt
 bbY
 baX
@@ -57642,15 +55049,15 @@ aaa
 aaa
 aaa
 bbv
-bcb
-bcI
+bcc
+bdI
 bdI
 beH
 bfC
 bgq
+bca
 beG
-bhS
-biN
+bjv
 bju
 bbY
 baX
@@ -57899,15 +55306,15 @@ aaa
 aaa
 aaa
 bbv
+bcc
 bbY
-bcJ
-bdJ
-beI
-bfD
-bgr
-bhf
+bbY
+bjv
+bjv
+bjv
+bjv
 bhT
-biO
+bjv
 bjv
 bbY
 baX
@@ -58439,21 +55846,21 @@ btf
 btf
 btf
 bmB
-bvN
-bwP
-bxE
-byf
-byL
-bzs
-bzP
-bAp
-bAO
-bBm
-bBV
-bCD
-bDd
-bDI
-bEo
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aak
 aae
@@ -58695,23 +56102,23 @@ bnE
 btg
 btN
 buo
-bva
-bvO
-bwQ
-bxF
-byg
-byM
-bzt
-bzQ
-bAq
-bAP
-bBn
-bBW
-bCE
-bDe
-bDJ
-bEp
-bEK
+bEI
+bEI
+bEI
+bEI
+bEI
+bEI
+bEI
+bEI
+bEI
+bEI
+bEI
+bEI
+bEI
+bEI
+bEI
+bEI
+aaa
 aak
 aae
 aaa
@@ -58951,24 +56358,24 @@ brC
 bnE
 bth
 btO
-bup
-bvb
+aaa
+bEI
 bvP
 bwR
 bxG
-byh
+bEI
 byN
 byN
 bzR
 bAr
-bAQ
+bEI
 bBo
 bBX
 bCF
 bDf
-bDK
-bEq
-bEL
+bEI
+bER
+aaa
 aak
 aae
 aaa
@@ -59208,8 +56615,8 @@ brD
 blU
 bti
 bti
-blS
-bvc
+aaa
+bEI
 bvQ
 bwS
 bxH
@@ -59218,14 +56625,14 @@ byO
 bzu
 bzS
 bAs
-bAR
+bEI
 bBp
 bBY
 bCG
 bDg
-bDL
-bEr
-bEM
+bEI
+bEG
+aaa
 aak
 aae
 aaa
@@ -59465,24 +56872,24 @@ bjB
 bjB
 bmB
 aaa
-buq
-bvd
+aaa
+bEI
 bvR
 bvQ
 bxI
-byj
+bEI
 byP
 byN
 byN
 bxH
-bAS
+bEI
 bBq
 bBZ
 bCH
 bDh
-bDM
-bEs
-bEN
+bEI
+bEG
+aaa
 aak
 aae
 aaa
@@ -59723,23 +57130,23 @@ blU
 bmB
 aaa
 aaa
-bve
-bvS
-bwT
-bxJ
-byk
-byQ
-bzv
-bzT
+bEI
+bEI
+bEI
+bEI
+bEI
+bEI
+bEI
+bEI
 bAt
-bAT
+bEI
 bBr
 bCa
 bCI
 bDi
-bDN
-bEt
-bEO
+bEI
+bEG
+aaa
 aak
 aae
 aaa
@@ -59981,22 +57388,22 @@ bmB
 aaa
 aaa
 aaa
-bvT
-bwU
-bxK
-byl
-byR
-bzw
-bzU
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+bEI
 bAu
-bAU
+bEI
 bBs
 bCb
 bCJ
 bDj
-bDO
-bEu
-bEP
+bEI
+bES
+aaa
 aak
 aae
 aaa
@@ -60241,19 +57648,19 @@ aaa
 aaa
 aaa
 aaa
-bym
-byS
-bzx
-bzV
+aaa
+aaa
+bEI
+bEI
 bza
-bAV
+bEI
 bBt
-bCc
-bCK
-bDk
-bDP
-bEv
-bEQ
+bEI
+bEI
+bEI
+bEI
+bEI
+aaa
 aak
 aae
 aaa
@@ -60494,22 +57901,22 @@ bsA
 bjB
 bjB
 aaa
-bvf
-bvU
-bwV
-bxL
-byn
-byT
-bzy
+aaa
+aaa
+bEI
+bEI
+bEI
+bEI
+bEI
 bzW
 bza
 bAW
 bza
 bCd
-bCL
-bDl
-bDQ
-bEw
+bEI
+aaa
+aaa
+aaa
 aaa
 aak
 aae
@@ -60750,24 +58157,24 @@ brH
 brH
 btj
 blU
-bur
-bvg
-bvV
-bwW
-bxM
+aaa
+bwZ
+bwZ
+bwZ
+bEI
 byo
 byU
-bzz
+bEI
 bzX
 bzc
 bAX
 bzc
 bCe
-bCM
-bDm
-bDR
-bEx
-aaa
+bEI
+bEI
+bEI
+bEI
+bEI
 aak
 aae
 aaa
@@ -61007,14 +58414,14 @@ brI
 bsB
 btk
 blU
-bus
-bvh
+aaa
+bwZ
 bvW
 bwX
 bxN
 byp
 bxO
-bzA
+bEI
 bzY
 bAv
 bAY
@@ -61023,7 +58430,7 @@ bCf
 bCN
 bDn
 bDS
-bEy
+bEI
 bER
 aak
 aae
@@ -61264,8 +58671,8 @@ brJ
 brJ
 btl
 blU
-but
-bvi
+aaa
+bwZ
 bvX
 bwY
 bxO
@@ -61274,13 +58681,13 @@ bxO
 bzB
 bzZ
 bAw
-bAZ
-bBu
-bCg
-bCO
+bEI
+bEI
+bEI
+bEI
 bDo
 bDT
-bEz
+bEI
 bES
 aak
 aae
@@ -61521,24 +58928,24 @@ bpn
 bsC
 bjB
 bjB
-buu
-bvj
-bvY
+aaa
 bwZ
-bxP
+bwZ
+bwZ
+bEI
 byr
 byV
-bzC
+bEI
 bAa
 bAw
 bBa
 bBv
 bCh
-bCP
-bDp
-bDU
-bEA
-aaa
+bEI
+bEI
+bEI
+bEI
+bEI
 aak
 aae
 aaa
@@ -61779,22 +59186,22 @@ bjB
 bjB
 aaa
 aaa
-bvk
-bvZ
-bxa
-bxQ
-bys
-byW
-bzD
+aaa
+aaa
+bEI
+bEI
+bEI
+bEI
+bEI
 bAb
 bAx
-bBb
+bEI
 bBw
 bCi
-bCQ
-bDq
-bDV
-bEB
+bEI
+aaa
+aaa
+aaa
 aaa
 aak
 aae
@@ -62040,19 +59447,19 @@ aaa
 aaa
 aaa
 aaa
-byt
-byX
-bzE
-bAc
+aaa
+aaa
+bEI
+bEI
 bAw
-bBc
-bBx
-bCj
-bCR
-bDr
-bDW
-bEC
-bET
+bEI
+bEI
+bEI
+bEI
+bEI
+bEI
+bEI
+aaa
 aak
 aae
 aaa
@@ -62294,22 +59701,22 @@ bmB
 aaa
 aaa
 aaa
-bwa
-bxb
-bxR
-byu
-byY
-bzF
-bAd
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+bEI
 bAy
-bBd
+bEI
 bBy
 bCk
 bCS
-bDs
-bDX
-bED
-bEU
+bCS
+bEI
+bER
+aaa
 aak
 aae
 aaa
@@ -62550,23 +59957,23 @@ bjB
 bmB
 aaa
 aaa
-bvl
-bwb
-bxc
-bxS
-byv
-byZ
-bzG
-bAe
+bEI
+bEI
+bEI
+bEI
+bEI
+bEI
+bEI
+bEI
 bAz
 bBe
 bBz
 bCl
 bCT
 bDt
-bDY
-bEE
-bEV
+bEI
+bEG
+aaa
 aak
 aae
 aaa
@@ -62807,10 +60214,10 @@ bsz
 btm
 btm
 btf
-bvm
+bEI
 bwc
 bxd
-bxT
+bEI
 byw
 bza
 bzc
@@ -62821,9 +60228,9 @@ bBA
 bCm
 bCU
 bDu
-bDZ
-bEF
-bEW
+bEI
+bEG
+aaa
 aak
 aae
 aaa
@@ -63078,9 +60485,9 @@ bBB
 bCn
 bCV
 bDv
-bEa
+bEI
 bEG
-bEX
+aaa
 aak
 aae
 aaa
@@ -63321,10 +60728,10 @@ bsE
 bto
 bto
 bsE
-bvo
+bEI
 bwe
 bxf
-bxV
+bEI
 byy
 bzc
 bzc
@@ -63333,11 +60740,11 @@ bza
 bBh
 bBC
 bCo
-bCW
+bza
 bDw
-bEb
-bEH
-bEY
+bEI
+bES
+aaa
 aak
 aae
 aaa
@@ -63578,23 +60985,23 @@ blU
 btp
 btP
 bti
-bvp
-bwf
-bxg
-bxW
-byz
-bzd
-bzI
-bAi
-bAB
-bBi
-bBD
-bCp
-bCX
-bDx
-bEc
 bEI
-bEZ
+bEI
+bEI
+bEI
+bEI
+bEI
+bEI
+bEI
+bEI
+bEI
+bEI
+bEI
+bEI
+bEI
+bEI
+bEI
+aaa
 aak
 aae
 aaa
@@ -63836,21 +61243,21 @@ aaa
 aaa
 aaa
 aaa
-bwg
-bxh
-bxX
-byA
-bze
-bzJ
-bAj
-bAC
-bBj
-bBE
-bCq
-bCY
-bDy
-bEd
-bEJ
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aak
 aae
@@ -70019,7 +67426,7 @@ bEl
 bEh
 bEh
 bEl
-bBL
+bEl
 aaD
 bAH
 bko
@@ -71047,7 +68454,7 @@ bEl
 bEl
 bEl
 bEl
-bBL
+bEl
 aaF
 bAH
 bko
