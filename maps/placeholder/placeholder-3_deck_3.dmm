@@ -2323,6 +2323,13 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/bridge/minibar)
+"fe" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/effect/shuttle_landmark/merc_ship/dock,
+/turf/simulated/floor/reinforced,
+/area/template_noop)
 "ff" = (
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 9
@@ -10713,13 +10720,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
-"AF" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8
-	},
-/obj/effect/shuttle_landmark/merc_ship/dock,
-/turf/simulated/floor/reinforced,
-/area/template_noop)
 "AG" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -12278,10 +12278,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood,
 /area/crew_quarters/fitness)
-"EU" = (
-/obj/effect/shuttle_landmark/merc_ship/third_deck,
-/turf/template_noop,
-/area/template_noop)
 "EV" = (
 /obj/machinery/light,
 /obj/machinery/hologram/holopad,
@@ -20050,6 +20046,10 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/starboard)
+"Ys" = (
+/obj/effect/shuttle_landmark/merc_ship/third_deck,
+/turf/template_noop,
+/area/template_noop)
 "Yt" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -28172,7 +28172,7 @@ at
 at
 at
 at
-AF
+fe
 Mo
 Wm
 Wm
@@ -29939,7 +29939,7 @@ Wm
 Wm
 Wm
 Wm
-EU
+Ys
 Wm
 Wm
 Wm
