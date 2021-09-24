@@ -55,8 +55,8 @@
 	new /obj/item/clothing/head/helmet/formalcaptain(src)
 	new /obj/item/clothing/under/captainformal(src)
 
-/obj/structure/closet/secure_closet/hop
-	name = "head of personnel's locker"
+/obj/structure/closet/secure_closet/xo
+	name = "executive officer's locker"
 	req_access = list(access_hop)
 	icon_state = "hopsecure1"
 	icon_closed = "hopsecure"
@@ -78,16 +78,16 @@
 	new /obj/item/clothing/head/helmet(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
 	//Tools
-	new /obj/item/device/radio/headset/heads/hop(src)
-	new /obj/item/device/radio/headset/heads/hop/alt(src)
+	new /obj/item/device/radio/headset/heads/xo(src)
+	new /obj/item/device/radio/headset/heads/xo/alt(src)
 	new /obj/item/device/megaphone/command(src)
 	new /obj/item/storage/box/goldstar(src)
 	new /obj/item/gun/energy/disruptorpistol(src)
 	new /obj/item/gun/projectile/sec/flash(src)
 	new /obj/item/device/flash(src)
 
-/obj/structure/closet/secure_closet/hop2
-	name = "head of personnel's attire"
+/obj/structure/closet/secure_closet/xo
+	name = "executive officer's attire"
 	req_access = list(access_hop)
 	icon_state = "hopsecure1"
 	icon_closed = "hopsecure"
@@ -98,16 +98,13 @@
 
 /obj/structure/closet/secure_closet/hop2/fill()
 	..()
-	new /obj/item/clothing/under/rank/head_of_personnel(src)
-	new /obj/item/clothing/under/dress/dress_hop(src)
+	new /obj/item/clothing/under/rank/xo(src)
 	new /obj/item/clothing/under/lawyer/black(src)
 	new /obj/item/clothing/under/lawyer/red(src)
-	new /obj/item/clothing/under/rank/head_of_personnel_whimsy(src)
 	new /obj/item/clothing/shoes/brown(src)
 	new /obj/item/clothing/shoes/black(src)
 	new /obj/item/clothing/shoes/laceup/brown(src)
 	new /obj/item/clothing/shoes/white(src)
-	new /obj/item/clothing/head/caphat/hop(src)
 
 /obj/structure/closet/secure_closet/hos
 	name = "head of security's locker"
@@ -325,27 +322,6 @@
 	new /obj/item/clothing/accessory/storage/black_vest(src)
 	new /obj/item/clothing/accessory/holster/hip(src)
 	new /obj/item/storage/belt/security(src)
-
-/obj/structure/closet/secure_closet/security/cargo/fill()
-	..()
-	new /obj/item/clothing/accessory/armband/cargo(src)
-	new /obj/item/device/encryptionkey/headset_cargo(src)
-
-/obj/structure/closet/secure_closet/security/engine/fill()
-	..()
-	new /obj/item/clothing/accessory/armband/engine(src)
-	new /obj/item/device/encryptionkey/headset_eng(src)
-
-/obj/structure/closet/secure_closet/security/science/fill()
-	..()
-	new /obj/item/clothing/accessory/armband/science(src)
-	new /obj/item/device/encryptionkey/headset_sci(src)
-
-/obj/structure/closet/secure_closet/security/med/fill()
-	..()
-	new /obj/item/clothing/accessory/armband/medgreen(src)
-	new /obj/item/device/encryptionkey/headset_med(src)
-
 
 /obj/structure/closet/secure_closet/investigator
 	name = "investigator's locker"

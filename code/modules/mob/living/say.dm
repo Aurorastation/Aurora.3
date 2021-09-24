@@ -17,7 +17,7 @@ var/list/department_radio_keys = list(
 	  ":b" = "Burglar",		".b" = "Burglar",
 	  ":j" = "Bluespace",	".j" = "Bluespace",
 	  ":q" = "Ninja",		".q" = "Ninja",
-	  ":u" = "Supply",		".u" = "Supply",
+	  ":u" = "Operations",	".u" = "Operations",
 	  ":v" = "Service",		".v" = "Service",
 	  ":p" = "AI Private",	".p" = "AI Private",
 	  ":z" = "Entertainment",".z" = "Entertainment",
@@ -39,7 +39,7 @@ var/list/department_radio_keys = list(
 	  ":B" = "Burglar",		".B" = "Burglar",
 	  ":J" = "Bluespace",	".J" = "Bluespace",
 	  ":Q" = "Ninja",		".Q" = "Ninja",
-	  ":U" = "Supply",		".U" = "Supply",
+	  ":U" = "Operations",	".U" = "Operations",
 	  ":V" = "Service",		".V" = "Service",
 	  ":P" = "AI Private",	".P" = "AI Private",
 	  ":Z" = "Entertainment",".Z" = "Entertainment",
@@ -57,7 +57,7 @@ var/list/department_radio_keys = list(
 	  ":û" = "Security",	".û" = "Security",
 	  ":ö" = "whisper",		".ö" = "whisper",
 	  ":å" = "Mercenary",	".å" = "Mercenary",
-	  ":é" = "Supply",		".é" = "Supply"
+	  ":é" = "Operations",	".é" = "Operations"
 )
 
 

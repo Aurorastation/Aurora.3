@@ -38,12 +38,12 @@
 	shoes = /obj/item/clothing/shoes/brown
 	id = /obj/item/card/id/navy
 	l_hand = /obj/item/clipboard
-	
+
 	headset = /obj/item/device/radio/headset/heads/rd
 	bowman = /obj/item/device/radio/headset/heads/rd/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/rd
 	wrist_radio = /obj/item/device/radio/headset/wrist/rd
-	
+
 	tab_pda = /obj/item/modular_computer/handheld/pda/research/rd
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research/rd
 	tablet = /obj/item/modular_computer/handheld/preset/research/rd
@@ -84,12 +84,12 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
 	shoes = /obj/item/clothing/shoes/science
 	id = /obj/item/card/id/white
-	
+
 	headset = /obj/item/device/radio/headset/headset_sci
 	bowman = /obj/item/device/radio/headset/headset_sci/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/sci
 	wrist_radio = /obj/item/device/radio/headset/wrist/sci
-	
+
 	tab_pda = /obj/item/modular_computer/handheld/pda/research
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research
 	tablet = /obj/item/modular_computer/handheld/preset/research
@@ -134,61 +134,6 @@
 /datum/outfit/job/scientist/xenobiologist/xenobotanist
 	name = "Xenobotanist"
 	uniform = /obj/item/clothing/under/rank/scientist/botany
-
-/datum/job/roboticist
-	title = "Roboticist"
-	flag = ROBOTICIST
-	departments = SIMPLEDEPT(DEPARTMENT_SCIENCE)
-	department_flag = MEDSCI
-	faction = "Station"
-	total_positions = 2
-	spawn_positions = 2
-	supervisors = "research director"
-	selection_color = "#a44799"
-	economic_modifier = 5
-
-	minimum_character_age = 25
-
-	access = list(access_robotics, access_tox, access_tox_storage, access_tech_storage, access_morgue, access_research) //As a job that handles so many corpses, it makes sense for them to have morgue access.
-	minimal_access = list(access_robotics, access_tech_storage, access_morgue, access_research) //As a job that handles so many corpses, it makes sense for them to have morgue access.
-
-	minimal_player_age = 7
-
-	outfit = /datum/outfit/job/roboticist
-
-/datum/outfit/job/roboticist
-	name = "Roboticist"
-	jobtype = /datum/job/roboticist
-
-	uniform = /obj/item/clothing/under/rank/roboticist
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat
-	shoes = /obj/item/clothing/shoes/black
-	id = /obj/item/card/id/white
-	belt = /obj/item/storage/belt/utility
-	
-	headset = /obj/item/device/radio/headset/headset_sci
-	bowman = /obj/item/device/radio/headset/headset_sci/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/sci
-	wrist_radio = /obj/item/device/radio/headset/wrist/sci
-	
-	tab_pda = /obj/item/modular_computer/handheld/pda/research/robotics
-	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/advanced/research/robotics
-	tablet = /obj/item/modular_computer/handheld/preset/research/robotics
-
-	backpack = /obj/item/storage/backpack/toxins
-	satchel = /obj/item/storage/backpack/satchel_tox
-	dufflebag = /obj/item/storage/backpack/duffel/tox
-	messengerbag = /obj/item/storage/backpack/messenger/tox
-
-	belt_contents = list(
-		/obj/item/screwdriver = 1,
-		/obj/item/wrench = 1,
-		/obj/item/weldingtool = 1,
-		/obj/item/crowbar = 1,
-		/obj/item/wirecutters = 1,
-		/obj/item/stack/cable_coil/random = 1,
-		/obj/item/powerdrill = 1
-	)
 
 /datum/job/intern_sci
 	title = "Lab Assistant"

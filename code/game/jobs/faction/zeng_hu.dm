@@ -36,7 +36,7 @@
 		/datum/job/pharmacist,
 		/datum/job/psychiatrist,
 		/datum/job/med_tech,
-		/datum/job/roboticist,
+		/datum/job/manufacturing_tech,
 		/datum/job/xenobiologist,
 		/datum/job/representative
 	)
@@ -60,9 +60,6 @@
 		"Psychologist" = /datum/outfit/job/psychiatrist/zeng_hu,
 		"Paramedic" = /datum/outfit/job/med_tech/paramed/zeng_hu,
 		"First Responder" = /datum/outfit/job/med_tech/paramed/zeng_hu,
-		"Roboticist" = /datum/outfit/job/roboticist/zeng_hu,
-		"Biomechanical Engineer" = /datum/outfit/job/roboticist/zeng_hu,
-		"Mechatronic Engineer" = /datum/outfit/job/roboticist/zeng_hu,
 		"Xenobiologist" = /datum/outfit/job/scientist/xenobiologist/zeng_hu,
 		"Xenobotanist" = /datum/outfit/job/scientist/xenobiologist/zeng_hu,
 		"Corporate Liaison" = /datum/outfit/job/representative/zeng_hu
@@ -81,11 +78,6 @@
 
 /datum/outfit/job/doctor/zeng_hu
 	name = "Physician - Zeng-Hu"
-	uniform = /obj/item/clothing/under/rank/zeng
-	id = /obj/item/card/id/zeng_hu
-
-/datum/outfit/job/roboticist/zeng_hu
-	name = "Roboticist - Zeng-Hu"
 	uniform = /obj/item/clothing/under/rank/zeng
 	id = /obj/item/card/id/zeng_hu
 

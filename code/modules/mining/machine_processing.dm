@@ -138,7 +138,7 @@
 	dat += "</table><hr>"
 	dat += "Currently displaying [show_all_ores ? "all ore types" : "only available ore types"]. <A href='?src=\ref[src];toggle_ores=1'>\[[show_all_ores ? "show less" : "show more"]\]</a></br>"
 	dat += "The ore processor is currently <A href='?src=\ref[src];toggle_power=1'>[(machine.active ? "<font color='green'>processing</font>" : "<font color='red'>disabled</font>")]</a>."
-	
+
 	var/datum/browser/processor_win = new(user, "processor_console", capitalize_first_letters(name))
 	processor_win.set_content(dat)
 	processor_win.open()
@@ -272,7 +272,7 @@
 
 	dat += "Additional Notes: <span class=\"paper_field\"></span><br><br>"
 
-	dat += "Quartermaster's / Head of Personnel's / Captain's Stamp: </small>"
+	dat += "Operations Manager's / Captain's Stamp: </small>"
 
 	P.set_content(form_title, dat)
 
