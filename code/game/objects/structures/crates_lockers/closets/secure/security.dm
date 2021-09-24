@@ -431,3 +431,42 @@
 				icon_state = icon_closed
 		else
 			icon_state = icon_opened
+
+/obj/structure/closet/secure_closet/bridge_crew
+	name = "bridge crew's locker"
+	req_access = list(access_heads)
+	icon_state = "hopsecure1"
+	icon_closed = "hopsecure"
+	icon_locked = "hopsecure1"
+	icon_opened = "hopsecureopen"
+	icon_broken = "hopsecurebroken"
+	icon_off = "hopsecureoff"
+
+/obj/structure/closet/bridge_crew/hop/fill()
+	..()
+	new /obj/item/clothing/under/rank/bridge_crew(src)
+	new /obj/item/clothing/glasses/sunglasses(src)
+	new /obj/item/clothing/accessory/holster/waist(src)
+	new /obj/item/gun/energy/disruptorpistol/miniature(src)
+	new /obj/item/device/radio/headset/headset_com(src)
+	new /obj/item/device/radio/headset/headset_com/alt(src)
+
+/obj/structure/closet/secure_closet/pilot
+	name = "pilot's locker"
+	req_access = list(access_heads)
+	icon_state = "hopsecure1"
+	icon_closed = "hopsecure"
+	icon_locked = "hopsecure1"
+	icon_opened = "hopsecureopen"
+	icon_broken = "hopsecurebroken"
+	icon_off = "hopsecureoff"
+
+/obj/structure/closet/bridge_crew/pilot/fill()
+	..()
+	new /obj/item/clothing/under/rank/bridge_crew(src)
+	new /obj/item/clothing/glasses/sunglasses(src)
+	new /obj/item/device/radio/headset/headset_com(src)
+	new /obj/item/device/radio/headset/headset_com/alt(src)
+	new /obj/item/clothing/head/helmet/pilot(src)
+	new /obj/item/device/radio/off(src)
+	new /obj/item/device/gps(src)
