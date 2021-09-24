@@ -52,19 +52,21 @@
 		NETWORK_INTREPID
 	)
 
-	shuttle_docked_message = "The scheduled crew transfer shuttle to %dock% has docked with the station. It will depart in approximately %ETA% minutes."
-	shuttle_leaving_dock = "The crew transfer shuttle has left the station. Estimate %ETA% minutes until the shuttle docks at %dock%."
-	shuttle_called_message = "A crew transfer to %dock% has been scheduled. The shuttle has been called. It will arrive in approximately %ETA% minutes."
-	shuttle_recall_message = "The scheduled crew transfer has been cancelled."
-	emergency_shuttle_docked_message = "The emergency shuttle has docked with the station. You have approximately %ETD% minutes to board the emergency shuttle."
-	emergency_shuttle_leaving_dock = "The emergency shuttle has left the station. Estimate %ETA% minutes until the shuttle docks at %dock%."
-	emergency_shuttle_recall_message = "The emergency shuttle has been recalled."
-	emergency_shuttle_called_message = "An emergency evacuation shuttle has been called. It will arrive in approximately %ETA% minutes."
+	shuttle_docked_message = "Attention all hands: Jump preparation complete. The bluespace drive is now spooling up, secure all stations for departure. Time to jump: approximately %ETD%."
+	shuttle_leaving_dock = "Attention all hands: Jump initiated, exiting bluespace in %ETA%."
+	shuttle_called_message = "Attention all hands: Jump sequence initiated. Transit procedures are now in effect. Jump in %ETA%."
+	shuttle_recall_message = "Attention all hands: Jump sequence aborted, return to normal operating conditions."
+	emergency_shuttle_docked_message = "The emergency evacuation has started. You have approximately %ETD% minutes to board the emergency pods."
+	emergency_shuttle_leaving_dock = "The emergency evacuatioon has been completed."
+	emergency_shuttle_recall_message = "The emergency evacuation has been canceled."
+	emergency_shuttle_called_message = "An emergency evacuation has been called. It will start in approximately %ETA% minutes."
 
 	map_shuttles = list(
 		/datum/shuttle/autodock/ferry/lift/placeholder/cargo,
 		/datum/shuttle/autodock/ferry/lift/placeholder/morgue
 	)
+
+	evac_controller_type = /datum/evacuation_controller/starship
 
 //datum/map/aurora/generate_asteroid()
 //	// Create the chasms.
