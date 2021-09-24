@@ -75,7 +75,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 /datum/job/xo
 	title = "Executive Officer"
-	flag = XO
+//	flag = XO
 	departments = list(DEPARTMENT_CIVILIAN = JOBROLE_SUPERVISOR, DEPARTMENT_COMMAND)
 	department_flag = CIVILIAN
 	faction = "Station"
@@ -131,7 +131,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	title = "Bridge Crew"
 	flag = BRIDGE_CREW
 	departments = SIMPLEDEPT(DEPARTMENT_COMMAND)
-	department_flag = CIVILIAN
+	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 3

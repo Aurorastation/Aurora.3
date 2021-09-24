@@ -13,6 +13,7 @@ var/const/AI				=(1<<8)
 var/const/CYBORG			=(1<<9)
 var/const/INTERN_SEC		=(1<<10)
 var/const/INTERN_ENG		=(1<<11)
+var/const/BRIDGE_CREW		=(1<<12)
 
 var/const/MEDSCI			=(1<<1)
 
@@ -34,24 +35,23 @@ var/const/INTERN_SCI		=(1<<12)
 var/const/CIVILIAN			=(1<<2)
 
 var/const/XO				=(1<<0)
-var/const/BRIDGE_CREW		=(1<<1)
-var/const/BARTENDER			=(1<<2)
-var/const/BOTANIST			=(1<<3)
-var/const/CHEF				=(1<<4)
-var/const/JANITOR			=(1<<5)
-var/const/LIBRARIAN			=(1<<6)
-var/const/QUARTERMASTER		=(1<<7)
-var/const/CARGOTECH			=(1<<8)
-var/const/MINER				=(1<<9)
-var/const/LAWYER			=(1<<10)
-var/const/CHAPLAIN			=(1<<11)
-var/const/VISITOR			=(1<<12)
-var/const/CONSULAR			=(1<<13)
-var/const/MERCHANT			=(1<<14)
-var/const/JOURNALIST		=(1<<15)
-var/const/ASSISTANT			=(1<<16)
+var/const/BARTENDER			=(1<<1)
+var/const/BOTANIST			=(1<<2)
+var/const/CHEF				=(1<<3)
+var/const/JANITOR			=(1<<4)
+var/const/LIBRARIAN			=(1<<5)
+var/const/QUARTERMASTER		=(1<<6)
+var/const/CARGOTECH			=(1<<7)
+var/const/MINER				=(1<<8)
+var/const/LAWYER			=(1<<9)
+var/const/CHAPLAIN			=(1<<10)
+var/const/VISITOR			=(1<<11)
+var/const/CONSULAR			=(1<<12)
+var/const/MERCHANT			=(1<<13)
+var/const/JOURNALIST		=(1<<14)
+var/const/ASSISTANT			=(1<<15)
+var/const/MANUFACTURING_TECH =(1<<16)
 var/const/SERVICE_MANAGER	=(1<<17)
-var/const/MANUFACTURING_TECH =(1<<18)
 
 
 var/list/command_positions = list(
@@ -61,7 +61,7 @@ var/list/command_positions = list(
 	"Chief Engineer",
 	"Research Director",
 	"Chief Medical Officer",
-	"Supply Manager",
+	"Operation Manager",
 	"Bridge Crew"
 )
 
