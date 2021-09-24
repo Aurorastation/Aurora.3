@@ -10,10 +10,9 @@
 	shuttle_area = /area/shuttle/burglar
 	destination_tags = list(
 		"nav_burglar_start",
-		"nav_burglar_surface",
-		"nav_burglar_under",
-		"nav_burglar_caverns",
-		"nav_burglar_blue"
+		"nav_burglar_hangar",
+		"nav_burglar_second_deck",
+		"nav_burglar_third_deck"
 		)
 
 	announcer = "Automated Radar System"
@@ -60,11 +59,9 @@
 	shuttle_area = /area/shuttle/skipjack
 	destination_tags = list(
 		"nav_skipjack_start",
-		"nav_skipjack_surface",
-		"nav_skipjack_under",
-		"nav_skipjack_caverns",
-		"nav_skipjack_interstitial",
-		"nav_skipjack_toxins"
+		"nav_skipjack_third_deck",
+		"nav_skipjack_second_deck",
+		"nav_skipjack_first_deck"
 		)
 
 	landmark_transition = "nav_skipjack_interim"
@@ -112,9 +109,9 @@
 	destination_tags = list(
 		"nav_merc_dock",
 		"nav_merc_start",
-		"nav_merc_surface",
-		"nav_merc_under",
-		"nav_merc_caverns"
+		"nav_third_deck",
+		"nav_second_deck",
+		"nav_first_deck"
 		)
 
 	landmark_transition = "nav_merc_interim"

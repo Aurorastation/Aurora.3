@@ -63,7 +63,7 @@
 /turf/template_noop,
 /area/template_noop)
 "aal" = (
-/obj/effect/shuttle_landmark/burglar/interim,
+/obj/effect/shuttle_landmark/burglar_ship/interim,
 /turf/space/transit/south,
 /area/template_noop)
 "aam" = (
@@ -26623,7 +26623,7 @@
 /area/shuttle/burglar)
 "bhe" = (
 /obj/machinery/light/small/emergency,
-/obj/effect/shuttle_landmark/burglar/start,
+/obj/effect/shuttle_landmark/burglar_ship/start,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/burglar)
 "bhf" = (
@@ -30148,6 +30148,30 @@
 /obj/item/clothing/head/helmet/merc{
 	pixel_x = 6
 	},
+/obj/item/clothing/head/helmet/merc{
+	pixel_x = 6
+	},
+/obj/item/clothing/head/helmet/merc{
+	pixel_x = 6
+	},
+/obj/item/clothing/suit/armor/carrier/heavy{
+	pixel_x = -6;
+	pixel_y = 1
+	},
+/obj/item/clothing/suit/armor/carrier/heavy{
+	pixel_x = -6;
+	pixel_y = 1
+	},
+/obj/item/storage/belt/military{
+	layer = 2.99;
+	pixel_x = 16;
+	pixel_y = 5
+	},
+/obj/item/storage/belt/military{
+	layer = 2.99;
+	pixel_x = 16;
+	pixel_y = 5
+	},
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
@@ -30481,7 +30505,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
 "boQ" = (
-/obj/effect/shuttle_landmark/merc/start,
+/obj/effect/shuttle_landmark/merc_ship/base,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
 "boR" = (
@@ -35162,7 +35186,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/shuttle_landmark/skipjack/start,
+/obj/effect/shuttle_landmark/skipjack_ship/start,
 /turf/simulated/floor/tiled,
 /area/shuttle/skipjack)
 "bxO" = (
@@ -40335,7 +40359,7 @@
 /turf/space/transit/south,
 /area/template_noop)
 "bLV" = (
-/obj/effect/shuttle_landmark/skipjack/interim,
+/obj/effect/shuttle_landmark/skipjack_ship/interim,
 /turf/space/transit/south,
 /area/template_noop)
 "bLW" = (
@@ -40728,7 +40752,7 @@
 	},
 /area/centcom/shared_dream)
 "bMT" = (
-/obj/effect/shuttle_landmark/merc/interim,
+/obj/effect/shuttle_landmark/merc_ship/interim,
 /turf/space/transit/south,
 /area/template_noop)
 "bMU" = (

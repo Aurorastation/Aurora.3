@@ -6108,10 +6108,8 @@
 /turf/simulated/floor/grass/alt,
 /area/bridge/minibar)
 "oU" = (
-/obj/effect/shuttle_landmark/merc/dock{
-	base_turf = /turf/simulated/floor/reinforced/airless
-	},
-/turf/simulated/floor/reinforced,
+/obj/effect/shuttle_landmark/skipjack_ship/third_deck,
+/turf/template_noop,
 /area/template_noop)
 "oV" = (
 /obj/machinery/light{
@@ -10715,6 +10713,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
+"AF" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/effect/shuttle_landmark/merc_ship/dock,
+/turf/simulated/floor/reinforced,
+/area/template_noop)
 "AG" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -12273,6 +12278,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood,
 /area/crew_quarters/fitness)
+"EU" = (
+/obj/effect/shuttle_landmark/merc_ship/third_deck,
+/turf/template_noop,
+/area/template_noop)
 "EV" = (
 /obj/machinery/light,
 /obj/machinery/hologram/holopad,
@@ -28162,8 +28171,8 @@ at
 at
 at
 at
-oU
-VM
+at
+AF
 Mo
 Wm
 Wm
@@ -29930,7 +29939,7 @@ Wm
 Wm
 Wm
 Wm
-Wm
+EU
 Wm
 Wm
 Wm
@@ -54363,7 +54372,7 @@ Wm
 Wm
 Wm
 Wm
-Wm
+oU
 Wm
 Wm
 Wm
