@@ -25190,7 +25190,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/burglar)
 "beH" = (
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship/cardinal,
 /area/shuttle/burglar)
 "beJ" = (
 /obj/structure/window/reinforced/crescent{
