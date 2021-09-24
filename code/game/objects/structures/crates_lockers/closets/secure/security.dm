@@ -442,7 +442,7 @@
 	icon_broken = "hopsecurebroken"
 	icon_off = "hopsecureoff"
 
-/obj/structure/closet/bridge_crew/fill()
+/obj/structure/closet/secure_closet/bridge_crew/fill()
 	..()
 	new /obj/item/clothing/under/rank/bridge_crew(src)
 	new /obj/item/clothing/glasses/sunglasses(src)

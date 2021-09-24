@@ -516,7 +516,7 @@
 /turf/simulated/floor,
 /area/hallway/primary/starboard)
 "bg" = (
-/obj/structure/closet/secure_closet/xo,
+/obj/structure/closet/secure_closet/xo2,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop/xo)
 "bh" = (
@@ -857,6 +857,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/cafeteria)
+"bW" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/effect/landmark/start{
+	name = "Investigator"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/vacantoffice2)
 "bX" = (
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -1258,6 +1267,9 @@
 /obj/structure/bed/chair/office/bridge/generic{
 	dir = 4
 	},
+/obj/effect/landmark/start{
+	name = "Consular Officer"
+	},
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
 "cL" = (
@@ -1529,10 +1541,10 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/exam)
 "dw" = (
-/obj/structure/table/standard,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
+/obj/structure/closet/secure_closet/bridge_crew,
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
 "dx" = (
@@ -1851,6 +1863,9 @@
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 1
 	},
+/obj/effect/landmark/start{
+	name = "Physician"
+	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "dT" = (
@@ -1971,6 +1986,9 @@
 	req_access = null;
 	specialfunctions = 4
 	},
+/obj/effect/landmark/start{
+	name = "Corporate Liaison"
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/lawoffice/representative)
 "ek" = (
@@ -1987,6 +2005,9 @@
 	},
 /obj/machinery/alarm{
 	pixel_y = 28
+	},
+/obj/effect/landmark/start{
+	name = "Crew Member"
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/lounge)
@@ -2013,6 +2034,18 @@
 	},
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai)
+"er" = (
+/obj/structure/bed/chair/office/bridge{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/effect/landmark/start{
+	name = "Bridge Crew"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/bridge/meeting_room)
 "es" = (
 /obj/structure/lattice/catwalk,
 /turf/simulated/open,
@@ -2134,6 +2167,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/effect/landmark/start{
+	name = "Crew Member"
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/lounge/secondary)
 "eH" = (
@@ -2155,6 +2191,9 @@
 "eJ" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 4
+	},
+/obj/effect/landmark/start{
+	name = "Engineering Apprentice"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
@@ -2251,6 +2290,9 @@
 /obj/structure/bed/chair/office/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/effect/landmark/start{
+	name = "Chief Engineer"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/break_room)
@@ -2632,6 +2674,9 @@
 /obj/structure/bed/chair/office/dark{
 	dir = 1
 	},
+/obj/effect/landmark/start{
+	name = "Engineer"
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/break_room)
 "gi" = (
@@ -2780,8 +2825,19 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/firealarm/west,
 /obj/effect/floor_decal/corner/blue/full,
+/obj/item/device/flashlight,
+/obj/item/device/flashlight,
+/obj/item/device/flashlight,
+/obj/machinery/recharger/wallcharger{
+	pixel_x = -26
+	},
+/obj/item/device/radio/off,
+/obj/item/device/radio/off,
+/obj/item/device/radio/off,
+/obj/item/crowbar/red,
+/obj/item/crowbar/red,
+/obj/item/crowbar/red,
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
 "gL" = (
@@ -2824,6 +2880,9 @@
 /area/hallway/crew_area)
 "gR" = (
 /obj/structure/bed/chair/office/dark,
+/obj/effect/landmark/start{
+	name = "Engineering Apprentice"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
 "gS" = (
@@ -3142,6 +3201,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/captain)
+"hF" = (
+/obj/structure/bed/chair/office/bridge{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/effect/landmark/start{
+	name = "Executive Officer"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/bridge/meeting_room)
 "hG" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
@@ -3619,6 +3690,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
+/obj/effect/landmark/start{
+	name = "Investigator"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/vacantoffice2)
 "iL" = (
@@ -3758,6 +3832,9 @@
 	},
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 6
+	},
+/obj/effect/landmark/start{
+	name = "Physician"
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
@@ -4210,6 +4287,9 @@
 	},
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 6
+	},
+/obj/effect/landmark/start{
+	name = "Pharmacist"
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
@@ -5215,13 +5295,13 @@
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_morgue)
 "na" = (
-/obj/structure/table/standard,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
+/obj/structure/closet/secure_closet/bridge_crew,
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
 "nb" = (
@@ -5446,6 +5526,18 @@
 /mob/living/simple_animal/corgi/fox/Chauncey,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
+"nA" = (
+/obj/structure/bed/chair/plastic{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 6
+	},
+/obj/effect/landmark/start{
+	name = "Medical Intern"
+	},
+/turf/simulated/floor/tiled/white,
+/area/hallway/medical/upper)
 "nB" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -6741,6 +6833,15 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/ward/isolation)
+"qK" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 8
+	},
+/obj/effect/landmark/start{
+	name = "Engineer"
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/engineering/break_room)
 "qM" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 9
@@ -7002,6 +7103,9 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 6
 	},
+/obj/effect/landmark/start{
+	name = "Pharmacist"
+	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "ro" = (
@@ -7141,6 +7245,9 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/effect/landmark/start{
+	name = "Crew Member"
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/lounge)
 "rI" = (
@@ -7220,6 +7327,9 @@
 "rS" = (
 /obj/structure/bed/chair/comfy/brown{
 	dir = 1
+	},
+/obj/effect/landmark/start{
+	name = "Crew Member"
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/lounge/secondary)
@@ -7337,10 +7447,10 @@
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai)
 "sg" = (
-/obj/structure/closet/cabinet,
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
 "sh" = (
@@ -7704,6 +7814,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
+/obj/effect/landmark/start{
+	name = "Security Officer"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/vacantoffice2)
 "tk" = (
@@ -7766,6 +7879,9 @@
 	},
 /obj/structure/window/reinforced{
 	dir = 4
+	},
+/obj/effect/landmark/start{
+	name = "Crew Member"
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/lounge)
@@ -8047,6 +8163,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/crew_area)
+"uf" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/bridge)
 "ug" = (
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -8116,10 +8238,10 @@
 /turf/simulated/open,
 /area/hallway/medical/upper)
 "up" = (
-/obj/structure/table/standard,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
 	},
+/obj/structure/closet/secure_closet/bridge_crew,
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
 "uq" = (
@@ -8590,6 +8712,15 @@
 "vK" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/security/forensics_office)
+"vL" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/effect/landmark/start{
+	name = "Warden"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/vacantoffice2)
 "vO" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 4
@@ -8997,6 +9128,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hop/xo)
+"wT" = (
+/obj/structure/closet/secure_closet/xo,
+/turf/simulated/floor/wood,
+/area/crew_quarters/heads/hop/xo)
 "wV" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/carpet,
@@ -9208,6 +9343,9 @@
 	},
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/blue/full,
+/obj/effect/landmark/start{
+	name = "Security Officer"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/vacantoffice2)
 "xz" = (
@@ -9427,6 +9565,9 @@
 	},
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 6
+	},
+/obj/effect/landmark/start{
+	name = "Surgeon"
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
@@ -9959,6 +10100,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/landmark/start{
+	name = "Crew Member"
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/lounge/secondary)
 "zm" = (
@@ -10421,6 +10565,9 @@
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
+	},
+/obj/effect/landmark/start{
+	name = "Security Officer"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/vacantoffice2)
@@ -11695,6 +11842,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
+/obj/effect/landmark/start{
+	name = "Security Officer"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/vacantoffice2)
 "Ea" = (
@@ -12016,6 +12166,9 @@
 "EW" = (
 /obj/structure/bed/chair/comfy/brown{
 	dir = 4
+	},
+/obj/effect/landmark/start{
+	name = "Crew Member"
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/lounge/secondary)
@@ -12445,6 +12598,9 @@
 	layer = 4;
 	pixel_y = 32
 	},
+/obj/effect/landmark/start{
+	name = "Head of Security"
+	},
 /turf/simulated/floor/wood,
 /area/security/vacantoffice2)
 "FY" = (
@@ -12680,6 +12836,9 @@
 "GG" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 8
+	},
+/obj/effect/landmark/start{
+	name = "Atmospheric Technician"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/break_room)
@@ -13678,9 +13837,15 @@
 /turf/simulated/floor/wood,
 /area/hallway/primary/starboard)
 "Jl" = (
-/obj/structure/table/standard,
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
+	},
+/obj/structure/table/standard,
+/obj/item/folder/blue,
+/obj/item/folder/blue,
+/obj/item/folder/blue,
+/obj/machinery/recharger/wallcharger{
+	pixel_x = -26
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
@@ -14548,6 +14713,15 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
+"Lp" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/effect/landmark/start{
+	name = "Security Officer"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/vacantoffice2)
 "Lq" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -14829,6 +15003,9 @@
 	},
 /obj/structure/window/reinforced{
 	dir = 8
+	},
+/obj/effect/landmark/start{
+	name = "Crew Member"
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/lounge)
@@ -15674,6 +15851,9 @@
 	dir = 10
 	},
 /obj/machinery/firealarm/south,
+/obj/effect/landmark/start{
+	name = "Security Cadet"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/vacantoffice2)
 "NY" = (
@@ -15791,6 +15971,9 @@
 /obj/structure/bed/chair/office/dark{
 	dir = 4
 	},
+/obj/effect/landmark/start{
+	name = "Engineer"
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/break_room)
 "Om" = (
@@ -15850,6 +16033,9 @@
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 1
 	},
+/obj/effect/landmark/start{
+	name = "Medical Intern"
+	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "Ot" = (
@@ -15905,6 +16091,11 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
+/obj/item/paper_bin{
+	pixel_x = -3;
+	pixel_y = 7
+	},
+/obj/item/pen,
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
 "OF" = (
@@ -16526,6 +16717,9 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
+/obj/effect/landmark/start{
+	name = "Security Cadet"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/vacantoffice2)
 "Qc" = (
@@ -16694,7 +16888,6 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/structure/closet/cabinet,
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
@@ -16768,6 +16961,9 @@
 /area/tcommsat/chamber)
 "QG" = (
 /obj/structure/bed/chair/comfy/brown,
+/obj/effect/landmark/start{
+	name = "Crew Member"
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/lounge/secondary)
 "QH" = (
@@ -19846,6 +20042,9 @@
 	},
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 6
+	},
+/obj/effect/landmark/start{
+	name = "Surgeon"
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
@@ -35607,7 +35806,7 @@ VY
 My
 Ow
 Or
-ji
+nA
 rn
 kr
 YR
@@ -41640,7 +41839,7 @@ lK
 eQ
 GG
 GG
-GG
+qK
 Ai
 BM
 hn
@@ -42704,7 +42903,7 @@ eM
 vW
 fu
 US
-sg
+uf
 zm
 jR
 On
@@ -43303,10 +43502,10 @@ Dg
 ZB
 wu
 cf
-cf
-cf
-cf
-cf
+hF
+er
+er
+er
 fn
 TK
 Sa
@@ -44105,7 +44304,7 @@ vn
 mS
 yr
 XY
-Dd
+wT
 bg
 Vi
 at
@@ -47534,8 +47733,8 @@ eH
 RE
 hG
 pR
-Kh
-Kh
+vL
+Lp
 Ay
 Ed
 of
@@ -47939,7 +48138,7 @@ ly
 WA
 Ni
 Kh
-Kh
+bW
 NW
 Fu
 Fu

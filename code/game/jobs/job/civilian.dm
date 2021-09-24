@@ -479,7 +479,7 @@
 
 
 /datum/job/manufacturing_tech
-	title = "Manufacturing Tech"
+	title = "Manufacturing Technician"
 	flag = MANUFACTURING_TECH
 	departments = SIMPLEDEPT(DEPARTMENT_CARGO)
 	department_flag = CIVILIAN

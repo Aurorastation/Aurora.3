@@ -264,7 +264,7 @@
 	worn_state = "hop"
 
 /obj/item/clothing/under/rank/manufacturing_tech
-	name = "manufacturing tech's jumpsuit"
+	name = "manufacturing technician's jumpsuit"
 	desc = "A practical uniform designed for industrial work."
 	icon_state = "hop"
 	item_state = "b_suit"
