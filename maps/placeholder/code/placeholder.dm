@@ -63,25 +63,17 @@
 
 	map_shuttles = list(
 		/datum/shuttle/autodock/ferry/lift/placeholder/cargo,
-		/datum/shuttle/autodock/ferry/lift/placeholder/morgue
+		/datum/shuttle/autodock/ferry/lift/placeholder/morgue,
+		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod1,
+		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod2,
+		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod3,
+		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod4,
+		/datum/shuttle/autodock/ferry/supply/aurora,
+		/datum/shuttle/autodock/ferry/merchant_aurora
 	)
 
 	evac_controller_type = /datum/evacuation_controller/starship
 
-//datum/map/aurora/generate_asteroid()
-//	// Create the chasms.
-//	new /datum/random_map/automata/cave_system/chasms(null,0,0,3,255,255)
-//	new /datum/random_map/automata/cave_system(null,0,0,3,255,255)
-//	new /datum/random_map/automata/cave_system/chasms(null,0,0,4,255,255)
-//	new /datum/random_map/automata/cave_system(null,0,0,4,255,255)
-//	new /datum/random_map/automata/cave_system/chasms(null,0,0,5,255,255)
-//	new /datum/random_map/automata/cave_system/high_yield(null,0,0,5,255,255)
-//	new /datum/random_map/automata/cave_system/chasms/surface(null,0,0,6,255,255)
-
-//	// Create the deep mining ore distribution map.
-//	new /datum/random_map/noise/ore(null, 0, 0, 5, 64, 64)
-//	new /datum/random_map/noise/ore(null, 0, 0, 4, 64, 64)
-//	new /datum/random_map/noise/ore(null, 0, 0, 3, 64, 64)
 
 /datum/map/placeholder/finalize_load()
 	// generate an empty space Z
