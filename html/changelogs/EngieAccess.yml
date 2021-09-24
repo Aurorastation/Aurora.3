@@ -3,4 +3,4 @@ author: TheGreyWolf
 delete-after: True
 
 changes:
-  - rscadd: "Atmos technicians now got engine access and station engineers & engineering apprentices now got atmos access."
+  - rscadd: "Atmos technicians now have access to the engine."
