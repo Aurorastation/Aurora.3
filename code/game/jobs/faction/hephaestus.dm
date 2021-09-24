@@ -35,15 +35,6 @@
 	</ul></p>"}
 	title_suffix = "Hepht"
 
-	allowed_role_types = list(
-		/datum/job/visitor,
-		/datum/job/engineer,
-		/datum/job/atmos,
-		/datum/job/manufacturing_tech,
-		/datum/job/mining,
-		/datum/job/hangar_tech,
-		/datum/job/representative
-	)
 
 	allowed_species_types = list(
 		/datum/species/human,
@@ -55,14 +46,6 @@
 		/datum/species/diona
 	)
 
-	titles_to_loadout = list(
-		"Station Engineer" = /datum/outfit/job/engineer/hephaestus,
-		"Manufacturing Technician"= /datum/outfit/job/manufacturing_tech/hephaestus,
-		"Atmospheric Technician" = /datum/outfit/job/atmos/hephaestus,
-		"Shaft Miner" = /datum/outfit/job/mining/hephaestus,
-		"Hangar Technician" = /datum/outfit/job/hangar_tech/hephaestus,
-		"Corporate Liaison" = /datum/outfit/job/representative/hephaestus
-	)
 
 	job_species_blacklist = list(
 		"Corporate Liaison" = list(

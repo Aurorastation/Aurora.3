@@ -29,40 +29,12 @@
 	</ul></p>"}
 	title_suffix = "Zeng"
 
-	allowed_role_types = list(
-		/datum/job/visitor,
-		/datum/job/doctor,
-		/datum/job/surgeon,
-		/datum/job/pharmacist,
-		/datum/job/psychiatrist,
-		/datum/job/med_tech,
-		/datum/job/manufacturing_tech,
-		/datum/job/xenobiologist,
-		/datum/job/representative
-	)
-
 	allowed_species_types = list(
 		/datum/species/human,
 		/datum/species/skrell,
 		/datum/species/machine,
 		/datum/species/bug,
 		/datum/species/diona
-	)
-
-	titles_to_loadout = list(
-		"Physician" = /datum/outfit/job/doctor/zeng_hu,
-		"Surgeon" = /datum/outfit/job/doctor/zeng_hu,
-		"Trauma Physician" = /datum/outfit/job/doctor/zeng_hu,
-		"Nurse" = /datum/outfit/job/doctor/zeng_hu,
-		"Pharmacist" = /datum/outfit/job/pharmacist/zeng_hu,
-		"Chemist" = /datum/outfit/job/pharmacist/zeng_hu,
-		"Psychiatrist" = /datum/outfit/job/psychiatrist/zeng_hu,
-		"Psychologist" = /datum/outfit/job/psychiatrist/zeng_hu,
-		"Paramedic" = /datum/outfit/job/med_tech/paramed/zeng_hu,
-		"First Responder" = /datum/outfit/job/med_tech/paramed/zeng_hu,
-		"Xenobiologist" = /datum/outfit/job/scientist/xenobiologist/zeng_hu,
-		"Xenobotanist" = /datum/outfit/job/scientist/xenobiologist/zeng_hu,
-		"Corporate Liaison" = /datum/outfit/job/representative/zeng_hu
 	)
 
 	job_species_blacklist = list(

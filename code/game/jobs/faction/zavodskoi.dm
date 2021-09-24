@@ -30,17 +30,6 @@
 	The reputation would last, but your career certainly wouldn't.</li>
 	</ul></p>"}
 	title_suffix = "Zavod"
-
-	allowed_role_types = list(
-		/datum/job/visitor,
-		/datum/job/officer,
-		/datum/job/warden,
-		/datum/job/scientist,
-		/datum/job/manufacturing_tech,
-		/datum/job/surgeon,
-		/datum/job/representative
-	)
-
 	allowed_species_types = list(
 		/datum/species/human,
 		/datum/species/skrell,
@@ -63,17 +52,6 @@
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN
 		)
-	)
-
-	titles_to_loadout = list(
-		"Security Officer" = /datum/outfit/job/officer/zavodskoi,
-		"Surgeon" = /datum/outfit/job/doctor/zavodskoi,
-		"Warden" = /datum/outfit/job/warden/zavodskoi,
-		"Scientist" = /datum/outfit/job/scientist/zavodskoi,
-		"Phoron Researcher" = /datum/outfit/job/scientist/zavodskoi,
-		"Xenoarcheologist" = /datum/outfit/job/scientist/zavodskoi,
-		"Anomalist" = /datum/outfit/job/scientist/zavodskoi,
-		"Corporate Liaison" = /datum/outfit/job/representative/zavodskoi
 	)
 
 /datum/outfit/job/officer/zavodskoi
