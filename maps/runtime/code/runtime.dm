@@ -2,6 +2,9 @@
 	name = "Runtime Ship"
 	full_name = "Runtime Debugging Ship"
 	path = "runtime"
+
+	force_spawnpoint = TRUE
+
 	lobby_icons = list('icons/misc/titlescreens/runtime/developers.dmi')
 	lobby_transitions = 10 SECONDS
 
