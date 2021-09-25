@@ -3424,6 +3424,14 @@
 	required_temperature_max = T0C + 100 // Sugar caramelises after 82C, water boils at 100C.
 	mix_message = "The sugar dissolves into the solution."
 
+/datum/chemical_reaction/vanillasyrup
+	name = "Vanilla Syrup"
+	id = "vanillasyrup"
+	result = /decl/reagent/drink/syrup_vanilla
+	required_reagents = list(/decl/reagent/nutriment/vanilla = 2, /decl/reagent/drink/syrup_simple = 3)
+	result_amount = 5
+	mix_message = "The solution takes on a pale yellow hue and the aroma of vanilla."
+
 /datum/chemical_reaction/caramelsyrup
 	name = "Caramel Syrup"
 	id = "caramelsyrup"

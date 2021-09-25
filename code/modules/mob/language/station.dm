@@ -74,7 +74,7 @@
 	speech_verb = list("mrowls")
 	ask_verb = list("mrowls")
 	exclaim_verb = list("yowls")
-	sing_verb = list("mrowmbles")
+	sing_verb = list("mrowls")
 	colour = "tajaran"
 	written_style = "siikmaas"
 	key = "j"
@@ -117,7 +117,7 @@
 	exclaim_verb = list("yowls")
 	signlang_verb = list("moves their tail", "flicks their ears", "swivels their ears", "flicks their tail", "shifts their ears and tail")
 	sign_adv_length = list("", " briefly", " a few times", " several times in quick succession", " for a while")
-	sing_verb = list("mrowmbles")
+	sing_verb = list("mrowls")
 	colour = "tajaran_signlang"
 	key = "w"
 	flags = WHITELISTED | NONVERBAL
@@ -134,7 +134,7 @@
 	speech_verb = list("mrowls")
 	ask_verb = list("mrowls")
 	exclaim_verb = list("yowls")
-	sing_verb = list("mrowmbles")
+	sing_verb = list("mrowls")
 	colour = "yassa"
 	written_style = "yassa"
 	key = "r"
@@ -153,7 +153,7 @@
 	speech_verb = list("mrowls")
 	ask_verb = list("mrowls")
 	exclaim_verb = list("yowls")
-	sing_verb = list("mrowmbles")
+	sing_verb = list("mrowls")
 	colour = "delvahhi"
 	written_style = "delvahhi"
 	key = "n"

@@ -4734,6 +4734,12 @@
 	glass_name = "glass of Hro'zamal Soda"
 	glass_desc = "A cabornated version of the herbal tea made with Hro'zamal Ras'Nifs powder."
 
+/decl/reagent/nutriment/vanilla
+	name = "Vanilla Extract"
+	description = "The extract from vanilla beans..."
+	color = "#e8efe5"
+	taste_description = "vanilla"
+
 /decl/reagent/nutriment/pumpkinpulp
 	name = "Pumpkin Pulp"
 	description = "The gooey insides of a slain pumpkin. This day is the greatest..."
