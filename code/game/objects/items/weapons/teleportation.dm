@@ -183,7 +183,7 @@ Frequency:
 		user.show_message(SPAN_WARNING("\The [src] is recharging!"))
 		return
 
-	var/teleport_turf
+	var/turf/teleport_turf
 	if(linked_station)
 		if(linked_station.stat & (NOPOWER|BROKEN))
 			to_chat(user, SPAN_WARNING("The station \the [src] is connected doesn't seem to be responding!"))
@@ -209,6 +209,9 @@ Frequency:
 
 	if(!teleport_turf)
 		to_chat(user, SPAN_WARNING("\The [src] was unable to get a lock onto anything!"))
+		return
+	if(isAdminLevel(teleport_turf.z))
+		to_chat(user, SPAN_WARNING("The signal to the beacon seems to be scrambled!"))
 		return
 
 	var/obj/effect/portal/P = new /obj/effect/portal(get_turf(src), teleport_turf, src)

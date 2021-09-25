@@ -147,7 +147,7 @@
 		var/turf/BT = get_turf(R)
 		if(!BT)
 			continue
-		if(!AreConnectedZLevels(z, BT.z))
+		if(isAdminLevel(BT.z) || !AreConnectedZLevels(z, BT.z))
 			continue
 		var/tmpname = BT.loc.name
 		if(area_index[tmpname])
@@ -173,7 +173,7 @@
 			var/turf/IT = get_turf(M)
 			if(!IT)
 				continue
-			if(!AreConnectedZLevels(z, IT.z))
+			if(isAdminLevel(IT.z) || !AreConnectedZLevels(z, IT.z))
 				continue
 			var/tmpname = M.real_name
 			if(area_index[tmpname])
