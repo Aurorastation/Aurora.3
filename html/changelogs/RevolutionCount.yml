@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - tweak: "Revolution now only requires 15 players to be readied to start."
