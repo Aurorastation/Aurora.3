@@ -4234,6 +4234,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
+"kh" = (
+/obj/effect/shuttle_landmark/merc_ship/dock,
+/turf/simulated/floor/reinforced,
+/area/template_noop)
 "ki" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 1
@@ -17304,10 +17308,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/lounge)
-"Re" = (
-/obj/effect/shuttle_landmark/merc_ship/dock,
-/turf/simulated/floor/reinforced,
-/area/template_noop)
 "Rf" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -28172,7 +28172,7 @@ at
 at
 at
 at
-Re
+kh
 VM
 Mo
 Wm
