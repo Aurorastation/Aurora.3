@@ -17155,42 +17155,42 @@
 /obj/machinery/button/remote/blast_door{
 	id = "Cell 1";
 	name = "Cell 1 Door";
-	pixel_x = -38;
+	pixel_w = -38;
 	pixel_y = 10;
 	req_access = list(3)
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "Cell 2";
 	name = "Cell 2 Door";
-	pixel_x = -38;
+	pixel_w = -38;
 	pixel_y = 1;
 	req_access = list(3)
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "Cell 3";
 	name = "Cell 3 Door";
-	pixel_x = -38;
+	pixel_w = -38;
 	pixel_y = -8;
 	req_access = list(3)
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "Cell 4";
 	name = "Cell 4 Door";
-	pixel_x = -28;
+	pixel_w = -28;
 	pixel_y = 10;
 	req_access = list(3)
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "Cell 5";
 	name = "Cell 5 Door";
-	pixel_x = -28;
+	pixel_w = -28;
 	pixel_y = 1;
 	req_access = list(3)
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "Brig Lockdown";
 	name = "Brig Lockdown";
-	pixel_x = -28;
+	pixel_w = -28;
 	pixel_y = -8;
 	req_access = list(3)
 	},
