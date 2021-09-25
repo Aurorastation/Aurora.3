@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - tweak: "The verb for when a mob sings in a Taj language is no longer 'mrowmbles'. It's just 'mrowls' now."
