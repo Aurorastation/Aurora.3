@@ -1357,14 +1357,8 @@
 	},
 /turf/simulated/floor/tiled,
 /area/storage/primary)
-"dt" = (
-/obj/effect/landmark/start,
-/turf/simulated/floor/tiled,
-/area/storage/primary)
 "du" = (
-/obj/effect/landmark{
-	name = "JoinLate"
-	},
+/obj/effect/landmark/force_spawnpoint,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "dv" = (
@@ -1649,6 +1643,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"Gr" = (
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Chief Engineer";
+	name = "force spawnpoint (CE)"
+	},
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "HB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -3388,7 +3389,7 @@ da
 dl
 dc
 do
-dt
+du
 du
 dl
 dc
@@ -3442,7 +3443,7 @@ da
 dl
 dc
 do
-dt
+du
 du
 dl
 dc
@@ -3496,7 +3497,7 @@ da
 dl
 dc
 do
-dt
+du
 du
 dl
 dc
@@ -3546,11 +3547,11 @@ bB
 bB
 cS
 da
-da
+Gr
 dl
 dc
 pM
-dt
+du
 du
 dl
 dc
@@ -3604,7 +3605,7 @@ da
 dl
 dc
 do
-dt
+du
 du
 dl
 dc
@@ -3658,7 +3659,7 @@ da
 dl
 dc
 do
-dt
+du
 du
 dl
 dc
@@ -3712,7 +3713,7 @@ da
 dl
 dc
 do
-dt
+du
 du
 dl
 dc
