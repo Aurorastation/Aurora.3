@@ -1,0 +1,6 @@
+author: Desven
+delete-after: True
+changes:
+  - rscadd: "Added hand sprites for Zo'ra soda, coffee cups and drinking glasses."
+  - rscadd: "Added hand sprites for the roller bed."
+  - bugfix: "Fixed the V'krexi Snax hand sprite not properly showing."
