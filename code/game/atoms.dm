@@ -592,7 +592,7 @@
 	if(air_sound(src))
 		var/list/mobs = get_mobs_or_objects_in_view(range, src, include_objects = FALSE)
 		for(var/mob/living/carbon/human/H as anything in intent_listener)
-			if(!is_type_in_list(H, mobs))
+			if(!(H in mobs))
 				if(src.z == H.z && get_dist(src, H) <= range)
 					H.intent_listen(src, message)
 	

@@ -87,7 +87,7 @@ var/global/list/syndicate_access = list(access_maint_tunnels, access_syndicate, 
 var/global/list/cloaking_devices = list()
 
 //Hearing sensitive listening in closely
-var/global/list/intent_listener
+var/global/list/intent_listener = list()
 
 //////////////////////////
 /////Initial Building/////

@@ -1282,9 +1282,9 @@ mob/living/carbon/human/proc/change_monitor()
 /mob/living/carbon/human/proc/start_listening()
 	if (!is_listening())
 		visible_message("<b>[src]</b> begins to listen intently.")
-		LAZYADD(intent_listener, src)
+		intent_listener |= src
 
 /mob/living/carbon/human/proc/stop_listening()
 	if (is_listening())
 		visible_message("<b>[src]</b> stops listening intently.")
-		LAZYREMOVE(intent_listener, src)
+		intent_listener -= src
