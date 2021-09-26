@@ -5221,6 +5221,11 @@
 	desc_fluff = "V'krexi, while edible, hold no nutritional value, either for humans or Vaurca. The V'krexi meat was mostly neglected until human food-processing techniques were introduced to the Zo'ra Hive."
 	icon = 'icons/obj/food.dmi'
 	icon_state = "vkrexitaffy"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_food.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_food.dmi',
+		)
+	item_state = "vkrexi"
 	icon_type = "vkrexi taffy"
 	storage_type = "packaging"
 	starts_with = list(/obj/item/reagent_containers/food/snacks/vkrexitaffy = 6)

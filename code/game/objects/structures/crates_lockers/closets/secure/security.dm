@@ -140,6 +140,8 @@
 	new /obj/item/clothing/accessory/badge/hos(src)
 	new /obj/item/clothing/gloves/black_leather(src)
 	new /obj/item/clothing/suit/storage/toggle/armor/hos(src)
+	new /obj/item/clothing/mask/gas/alt(src)
+	new /obj/item/clothing/mask/gas/half(src)
 	//Tools
 	new /obj/item/device/radio/headset/heads/hos(src)
 	new /obj/item/device/radio/headset/heads/hos/alt(src)
@@ -371,7 +373,7 @@
 	//Tools
 	new /obj/item/device/radio/headset/headset_sec(src)
 	new /obj/item/device/radio/headset/headset_sec/alt(src)
-	new /obj/item/clothing/suit/armor/carrier/generic(src)
+	new /obj/item/clothing/suit/armor/carrier/officer(src)
 	new /obj/item/gun/energy/disruptorpistol/miniature/security(src)
 	new /obj/item/taperoll/police(src)
 	new /obj/item/device/flash(src)

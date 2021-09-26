@@ -11133,6 +11133,14 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_virology)
+"Vm" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/light_switch{
+	pixel_x = -10;
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
 "Vp" = (
 /obj/machinery/ringer{
 	department = "Cargo";
@@ -11679,7 +11687,7 @@
 	icon_off = "fridgeoff";
 	icon_opened = "fridgeopen";
 	icon_state = "fridge1";
-	name = "refridgerator"
+	name = "refrigerator"
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -51570,7 +51578,7 @@ hZ
 hZ
 hZ
 hZ
-kt
+Vm
 kt
 ZY
 QM

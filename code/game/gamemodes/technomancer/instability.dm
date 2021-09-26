@@ -95,6 +95,36 @@
 		overlays.Remove(instability_flash)
 		qdel(instability_flash)
 
+/proc/safe_blink(atom/movable/AM, var/range = 3)
+	if(AM.anchored || !AM.loc)
+		return
+	var/list/targets = list()
+
+	for(var/turf/simulated/T in range(AM, range))
+		if(T.density || istype(T, /turf/simulated/mineral)) //Don't blink to vacuum or a wall
+			continue
+		for(var/atom/movable/stuff in T.contents)
+			if(stuff.density)
+				continue
+		targets.Add(T)
+
+	if(!targets.len)
+		return
+	var/turf/simulated/destination = null
+
+	destination = pick(targets)
+
+	if(destination)
+		if(ismob(AM))
+			var/mob/living/L = AM
+			if(L.buckled_to)
+				L.buckled_to.unbuckle()
+		spark(AM, 5, 2)
+		AM.forceMove(destination)
+		AM.visible_message("<span class='notice'>\The [AM] vanishes!</span>")
+		to_chat(AM, "<span class='notice'>You suddenly appear somewhere else!</span>")
+	return
+
 /mob/living/silicon/instability_effects()
 	if(instability)
 		var/rng = 0
