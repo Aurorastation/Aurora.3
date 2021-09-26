@@ -157,7 +157,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 						var/extendeddist = closedist
 						if(ishuman(M))
 							var/mob/living/carbon/human/H = M
-							var/hearing_sensitivity = H.is_hearing_sensitive()
+							var/hearing_sensitivity = H.get_hearing_sensitivity()
 							if (hearing_sensitivity)
 								if(H.is_listening())
 									if (hearing_sensitivity == HEARING_VERY_SENSITIVE)

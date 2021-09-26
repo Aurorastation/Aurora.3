@@ -347,7 +347,7 @@
 		if(!vampire_can_affect_target(T, 0))
 			continue
 		to_chat(T, SPAN_DANGER("<font size='3'><b>You hear an ear piercing shriek and feel your senses go dull!</b></font>"))
-		if (T.is_hearing_sensitive())
+		if (T.get_hearing_sensitivity())
 			if (T.is_listening())
 				T.Weaken(10)
 				T.Stun(10)

@@ -30,7 +30,7 @@
 		name = real_name
 		if(mind)
 			mind.name = real_name
-		if(is_hearing_sensitive())
+		if(get_hearing_sensitivity())
 			verbs += /mob/living/carbon/human/proc/listening_close
 
 	// Randomize nutrition and hydration. Defines are in __defines/mobs.dm
@@ -2075,7 +2075,7 @@
 
 /mob/living/carbon/human/adjustEarDamage(var/damage, var/deaf, var/ringing = FALSE)
 	if (damage > 0)
-		var/hearing_sensitivity = is_hearing_sensitive()
+		var/hearing_sensitivity = get_hearing_sensitivity()
 		if (hearing_sensitivity)
 			if (is_listening()) // if the person is listening in, the effect is way worse
 				if (hearing_sensitivity == HEARING_VERY_SENSITIVE)
@@ -2096,7 +2096,7 @@
 /mob/living/carbon/human/proc/earpain(var/intensity, var/sensitive_only = FALSE, var/listening_pain = 0) 
 	if (ear_deaf)
 		return
-	if (sensitive_only && !is_hearing_sensitive())
+	if (sensitive_only && !get_hearing_sensitivity())
 		return
 	if (listening_pain && is_listening())
 		intensity += listening_pain
