@@ -252,6 +252,7 @@ var/global/list/frozen_crew = list()
 	on_store_message = "has departed for the living quarters."
 	on_store_name = "Living Quarters Oversight"
 	on_enter_occupant_message = "The elevator door closes slowly, ready to bring you down to the living quarters."
+	disallow_occupant_types = list(/mob/living/silicon/robot)
 
 /obj/machinery/cryopod/Destroy()
 	if(occupant)
