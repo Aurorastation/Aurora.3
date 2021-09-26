@@ -15849,6 +15849,10 @@
 	},
 /obj/structure/window/reinforced,
 /obj/structure/grille,
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/plating,
 /area/security/armory)
 "aCq" = (
@@ -15863,6 +15867,11 @@
 /obj/machinery/door/airlock/glass_security{
 	name = "Armory";
 	req_access = list(3)
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
@@ -17146,42 +17155,42 @@
 /obj/machinery/button/remote/blast_door{
 	id = "Cell 1";
 	name = "Cell 1 Door";
-	pixel_x = -38;
+	pixel_w = -38;
 	pixel_y = 10;
 	req_access = list(3)
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "Cell 2";
 	name = "Cell 2 Door";
-	pixel_x = -38;
+	pixel_w = -38;
 	pixel_y = 1;
 	req_access = list(3)
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "Cell 3";
 	name = "Cell 3 Door";
-	pixel_x = -38;
+	pixel_w = -38;
 	pixel_y = -8;
 	req_access = list(3)
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "Cell 4";
 	name = "Cell 4 Door";
-	pixel_x = -28;
+	pixel_w = -28;
 	pixel_y = 10;
 	req_access = list(3)
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "Cell 5";
 	name = "Cell 5 Door";
-	pixel_x = -28;
+	pixel_w = -28;
 	pixel_y = 1;
 	req_access = list(3)
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "Brig Lockdown";
 	name = "Brig Lockdown";
-	pixel_x = -28;
+	pixel_w = -28;
 	pixel_y = -8;
 	req_access = list(3)
 	},
@@ -25703,6 +25712,10 @@
 /obj/item/device/radio/intercom{
 	pixel_x = -28
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "conpipe-c"
+	},
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "aSo" = (
@@ -26543,7 +26556,8 @@
 /area/security/lobby)
 "aTN" = (
 /obj/structure/disposalpipe/segment{
-	dir = 4
+	dir = 8;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled,
 /area/security/lobby)
@@ -41970,6 +41984,7 @@
 	},
 /obj/item/reagent_containers/spray/cleaner{
 	desc = "Someone has crossed out the Space from Space Cleaner and written in Surgery. 'Do not remove under punishment of death!!!' is scrawled on the back.";
+	icon_state = "sterilesprayblue";
 	name = "Surgery Cleaner"
 	},
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -47520,6 +47535,7 @@
 	},
 /obj/item/reagent_containers/spray/cleaner{
 	desc = "Someone has crossed out the Space from Space Cleaner and written in Surgery. 'Do not remove under punishment of death!!!' is scrawled on the back.";
+	icon_state = "sterilesprayblue";
 	name = "Surgery Cleaner"
 	},
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -62260,6 +62276,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/supply)
+"iaV" = (
+/obj/structure/disposalpipe/junction{
+	dir = 8;
+	icon_state = "pipe-j2"
+	},
+/turf/simulated/floor/tiled,
+/area/security/lobby)
 "ibm" = (
 /obj/machinery/light_switch{
 	pixel_x = 11;
@@ -66742,6 +66765,12 @@
 /obj/random/junk,
 /turf/simulated/floor/tiled/old_white,
 /area/maintenance/medbay)
+"qPN" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/security/lobby)
 "qQD" = (
 /obj/structure/computerframe,
 /turf/simulated/floor/plating,
@@ -71125,6 +71154,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/lawoffice/consular)
+"xOZ" = (
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/obj/machinery/disposal/small/north,
+/turf/simulated/floor/tiled,
+/area/security/lobby)
 "xQD" = (
 /obj/structure/door_assembly/door_assembly_research{
 	anchored = 1
@@ -98965,8 +99001,8 @@ aLx
 aLx
 aOW
 aLx
-aLx
-aTN
+iaV
+xOZ
 aIi
 aWH
 aYn
@@ -99222,8 +99258,8 @@ aJA
 aJA
 aOX
 aJA
-aJA
 aTO
+qPN
 aVt
 aWI
 aYn

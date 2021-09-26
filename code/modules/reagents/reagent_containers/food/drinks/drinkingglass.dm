@@ -4,6 +4,11 @@
 	name = "glass"
 	desc = "Your standard drinking glass."
 	icon_state = "glass_empty"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_food.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_food.dmi',
+		)
+	item_state = "glass_empty"
 	amount_per_transfer_from_this = 5
 	volume = 30
 	unacidable = TRUE //glass
@@ -23,6 +28,7 @@
 		center_of_mass = R.glass_center_of_mass || list("x"=16, "y"=10)
 	else
 		icon_state = "glass_empty"
+		item_state = "glass_empty"
 		name = "glass"
 		desc = "Your standard drinking glass."
 		center_of_mass = list("x"=16, "y"=10)
