@@ -374,6 +374,13 @@
 	if(print_flavor_text()) msg += "[print_flavor_text()]\n"
 
 	msg += "*---------*</span>"
+
+	var/datum/vampire/vampire = vampire_power(0, 0)
+	if(vampire)
+		if(vampire.status & VAMP_DRAINING)
+			var/obj/item/grab/G = get_active_hand()
+			msg += SPAN_ALERT("\n[get_pronoun("He")] is biting [G.affecting]'[G.affecting.get_pronoun("end")] neck!")
+
 	if (pose)
 		if( findtext(pose,".",length(pose)) == 0 && findtext(pose,"!",length(pose)) == 0 && findtext(pose,"?",length(pose)) == 0 )
 			pose = addtext(pose,".") //Makes sure all emotes end with a period.
