@@ -39,6 +39,5 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - tweak: "Damage for frag grenade pellets are 15 with 35 AP. This will let them affect people in sec pcarriers."
-  - tweak: "Reduces TC cost for frag grenade box to 5 TC from 6 TC."
 
 
