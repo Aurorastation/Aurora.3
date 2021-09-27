@@ -1108,7 +1108,9 @@
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
 "acQ" = (
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 1
+	},
 /obj/effect/floor_decal/chapel{
 	dir = 8
 	},
@@ -1116,7 +1118,9 @@
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
 "acR" = (
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 1
+	},
 /obj/effect/floor_decal/chapel{
 	dir = 4
 	},
@@ -1138,14 +1142,18 @@
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_chapel)
 "acT" = (
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 1
+	},
 /obj/effect/floor_decal/chapel{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
 "acU" = (
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 1
+	},
 /obj/effect/floor_decal/chapel,
 /obj/effect/floor_decal/chapel{
 	dir = 8
@@ -1287,7 +1295,9 @@
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
 "adm" = (
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 1
+	},
 /obj/effect/floor_decal/chapel{
 	dir = 4
 	},
@@ -1306,7 +1316,9 @@
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_chapel)
 "ado" = (
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 1
+	},
 /obj/effect/floor_decal/chapel{
 	dir = 1
 	},
@@ -1323,18 +1335,24 @@
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
 "adq" = (
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 1
+	},
 /obj/effect/floor_decal/carpet{
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_theatre)
 "adr" = (
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 1
+	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_theatre)
 "ads" = (
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 1
+	},
 /obj/effect/floor_decal/carpet{
 	dir = 4
 	},
@@ -1554,7 +1572,9 @@
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_gym)
 "aeg" = (
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 1
+	},
 /obj/effect/floor_decal/carpet,
 /obj/effect/floor_decal/carpet{
 	dir = 8
@@ -1565,12 +1585,16 @@
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_theatre)
 "aeh" = (
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 1
+	},
 /obj/effect/floor_decal/carpet,
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_theatre)
 "aei" = (
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 1
+	},
 /obj/effect/floor_decal/carpet{
 	dir = 4
 	},
@@ -1843,7 +1867,9 @@
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_boxingcourt)
 "afl" = (
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 8
+	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_boxingcourt)
 "afr" = (
@@ -2003,7 +2029,9 @@
 /turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_snowfield)
 "afU" = (
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 1
+	},
 /obj/effect/floor_decal/carpet{
 	dir = 1
 	},
@@ -2016,14 +2044,18 @@
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_meetinghall)
 "afV" = (
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 1
+	},
 /obj/effect/floor_decal/carpet{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_meetinghall)
 "afW" = (
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 1
+	},
 /obj/effect/floor_decal/carpet{
 	dir = 1
 	},
@@ -2108,18 +2140,24 @@
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_boxingcourt)
 "agj" = (
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 1
+	},
 /obj/effect/floor_decal/carpet{
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_meetinghall)
 "agk" = (
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 1
+	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_meetinghall)
 "agl" = (
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 1
+	},
 /obj/effect/floor_decal/carpet{
 	dir = 4
 	},
@@ -2273,7 +2311,9 @@
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_boxingcourt)
 "agK" = (
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 1
+	},
 /obj/effect/floor_decal/carpet,
 /obj/effect/floor_decal/carpet{
 	dir = 8
@@ -2284,12 +2324,16 @@
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_meetinghall)
 "agL" = (
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 1
+	},
 /obj/effect/floor_decal/carpet,
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_meetinghall)
 "agM" = (
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 1
+	},
 /obj/effect/floor_decal/carpet{
 	dir = 4
 	},
@@ -4394,14 +4438,18 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/holding)
 "aDf" = (
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 4
+	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_battlemonsters)
 "aDg" = (
 /obj/structure/window/reinforced/holowindow{
 	dir = 4
 	},
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 4
+	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_battlemonsters)
 "aDh" = (
@@ -4490,7 +4538,9 @@
 /obj/structure/window/reinforced/holowindow{
 	dir = 8
 	},
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 8
+	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_battlemonsters)
 "aDK" = (
@@ -5621,7 +5671,9 @@
 /area/shuttle/skipjack)
 "aKt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
 "aKx" = (
@@ -8714,7 +8766,9 @@
 	},
 /area/centcom/holding)
 "bKL" = (
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/skipjack)
 "bLj" = (
@@ -11219,7 +11273,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "dpM" = (
-/obj/item/stool/bar/padded,
+/obj/item/stool/bar/padded{
+	dir = 1
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -14063,6 +14119,12 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/transport1)
+"fhE" = (
+/obj/item/stool/padded{
+	dir = 1
+	},
+/turf/unsimulated/floor,
+/area/centcom/legion)
 "fid" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -15091,6 +15153,7 @@
 	dir = 1
 	},
 /obj/item/stool/padded{
+	dir = 1;
 	pixel_y = 10
 	},
 /turf/unsimulated/floor{
@@ -15487,7 +15550,9 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "fYr" = (
-/obj/item/stool/bar/padded,
+/obj/item/stool/bar/padded{
+	dir = 1
+	},
 /obj/effect/landmark{
 	name = "raiderstart"
 	},
@@ -16327,6 +16392,7 @@
 /area/shuttle/skipjack)
 "gwf" = (
 /obj/item/stool/padded{
+	dir = 1;
 	pixel_y = 10
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -18564,6 +18630,12 @@
 	icon_state = "dark2"
 	},
 /area/centcom/holding)
+"hSC" = (
+/obj/structure/holostool{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_dininghall)
 "hTi" = (
 /obj/structure/shuttle/engine/heater,
 /obj/structure/window/phoronreinforced{
@@ -18654,7 +18726,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/item/stool/bar/padded,
+/obj/item/stool/bar/padded{
+	dir = 1
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -21568,7 +21642,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/item/stool/bar/padded,
+/obj/item/stool/bar/padded{
+	dir = 8
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -22047,6 +22123,12 @@
 	icon_state = "rub_carpet"
 	},
 /area/centcom/control)
+"kfs" = (
+/obj/structure/holostool{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_battlemonsters)
 "kfD" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/storage/belt/utility/very_full{
@@ -23191,6 +23273,12 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/ferry)
+"kUr" = (
+/obj/item/stool/padded{
+	dir = 4
+	},
+/turf/unsimulated/floor,
+/area/centcom/legion)
 "kUG" = (
 /obj/structure/window/reinforced/polarized{
 	dir = 1;
@@ -24630,6 +24718,12 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/distress_prep)
+"lPq" = (
+/obj/structure/holostool{
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/beach/sand,
+/area/holodeck/source_picnicarea)
 "lPX" = (
 /obj/structure/shuttle_part/burglar{
 	icon_state = "3,4"
@@ -28250,7 +28344,9 @@
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "nWh" = (
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 1
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -30471,7 +30567,9 @@
 /turf/template_noop,
 /area/template_noop)
 "pCe" = (
-/obj/item/stool/bar/padded,
+/obj/item/stool/bar/padded{
+	dir = 8
+	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
@@ -31027,7 +31125,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant)
 "pOS" = (
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 4
+	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_dininghall)
 "pPA" = (
@@ -41935,6 +42035,7 @@
 /area/centcom/legion/hangar5)
 "xhC" = (
 /obj/item/stool/padded{
+	dir = 1;
 	pixel_y = 10
 	},
 /obj/machinery/light{
@@ -42156,6 +42257,12 @@
 /obj/machinery/meter,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
+"xno" = (
+/obj/item/stool/padded{
+	dir = 8
+	},
+/turf/unsimulated/floor,
+/area/centcom/legion)
 "xnZ" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/item/reagent_containers/hypospray,
@@ -42788,7 +42895,9 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/escape)
 "xFV" = (
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 8
+	},
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
@@ -79153,9 +79262,9 @@ okP
 bWj
 ukS
 wba
-wgo
-wgo
-wgo
+kUr
+kUr
+kUr
 jcG
 aaM
 aaM
@@ -79667,8 +79776,8 @@ rPS
 bWj
 uql
 wba
-wgo
-wgo
+xno
+xno
 xFV
 bWj
 aaM
@@ -80181,9 +80290,9 @@ jEg
 tfe
 utl
 wba
-wgo
-wgo
-wgo
+kUr
+kUr
+kUr
 jcG
 aaM
 aaM
@@ -80695,9 +80804,9 @@ bWj
 bWj
 uOM
 wdJ
-wgo
-wgo
-wgo
+xno
+xno
+xno
 jcG
 aaM
 aaM
@@ -81210,7 +81319,7 @@ bWj
 uRY
 wgo
 wIL
-wgo
+fhE
 qDS
 jcG
 aaM
@@ -81467,7 +81576,7 @@ bWj
 uSA
 wgo
 wKo
-wgo
+fhE
 xEw
 jcG
 aaM
@@ -81724,7 +81833,7 @@ bWj
 uSG
 wha
 wKL
-wgo
+fhE
 xGF
 bWj
 aaM
@@ -91803,14 +91912,14 @@ aef
 aez
 aeO
 sZi
-pOS
-pOS
-pOS
-pOS
-pOS
-pOS
-pOS
-pOS
+hSC
+hSC
+hSC
+hSC
+hSC
+hSC
+hSC
+hSC
 sZi
 aeO
 aaM
@@ -94117,12 +94226,12 @@ adp
 aaO
 aMa
 aBS
-aDf
-aDf
-aDf
-aDf
-aDf
-aDf
+kfs
+kfs
+kfs
+kfs
+kfs
+kfs
 aBS
 aMa
 aeO
@@ -97194,7 +97303,7 @@ acd
 acu
 acW
 acW
-acu
+lPq
 adM
 mKw
 mKw
@@ -97451,7 +97560,7 @@ ace
 acu
 acW
 acW
-acu
+lPq
 adN
 abO
 abz
@@ -97708,7 +97817,7 @@ acf
 acu
 acW
 acW
-acu
+lPq
 adO
 mKw
 mKw

@@ -949,7 +949,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/security/forensics_laboratory)
 "acl" = (
@@ -4044,7 +4046,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "ahQ" = (
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 4
+	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
@@ -6069,7 +6073,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/strongroom)
 "amc" = (
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -18601,7 +18607,9 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aGx" = (
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aGy" = (
@@ -18620,7 +18628,9 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aGA" = (
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 8
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
@@ -19350,7 +19360,9 @@
 /turf/simulated/floor/carpet/rubber,
 /area/server)
 "aHN" = (
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 8
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/landmark/start{
@@ -19894,7 +19906,9 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aIA" = (
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
 	},
@@ -20314,7 +20328,9 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aJj" = (
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 4
+	},
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -20340,7 +20356,9 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
 "aJl" = (
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 8
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/yellow{
@@ -20740,7 +20758,9 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aJT" = (
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -20767,7 +20787,9 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aJW" = (
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 8
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -21317,7 +21339,9 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aLa" = (
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 1
+	},
 /obj/effect/landmark/start{
 	name = "Engineering Apprentice"
 	},
@@ -21327,7 +21351,9 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aLb" = (
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 1
+	},
 /obj/effect/landmark/start{
 	name = "Station Engineer"
 	},
@@ -21337,7 +21363,9 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aLc" = (
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 1
+	},
 /obj/effect/landmark/start{
 	name = "Atmospheric Technician"
 	},
@@ -24808,7 +24836,9 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aQX" = (
@@ -31715,7 +31745,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "bcZ" = (
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 1
+	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/alarm{
 	dir = 8;
@@ -37514,7 +37546,9 @@
 /turf/simulated/floor/tiled,
 /area/bridge/minibar)
 "bnm" = (
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 4
+	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -38483,7 +38517,9 @@
 /turf/simulated/floor/tiled,
 /area/bridge/minibar)
 "boS" = (
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -39062,7 +39098,9 @@
 /turf/simulated/floor/plating,
 /area/bridge)
 "bqd" = (
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 4
+	},
 /turf/simulated/floor/lino/grey,
 /area/bridge/minibar)
 "bqe" = (
@@ -52007,7 +52045,9 @@
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/locker/locker_toilet)
 "bUk" = (
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 1
+	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
@@ -52544,7 +52584,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/item/stool/bar/padded,
+/obj/item/stool/bar/padded{
+	dir = 1
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bVA" = (
@@ -53996,7 +54038,9 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bZc" = (
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
 "bZf" = (
@@ -59425,6 +59469,12 @@
 /obj/structure/table/reinforced/wood,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
+"dmw" = (
+/obj/item/stool/padded{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/security/prison)
 "dnl" = (
 /mob/living/simple_animal/rat/hooded,
 /turf/simulated/floor/plating,
@@ -59888,6 +59938,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"efa" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/item/stool/padded{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/hallway/primary/aft)
 "eiB" = (
 /obj/machinery/door/blast/shutters{
 	dir = 2;
@@ -60112,7 +60169,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "eGj" = (
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 1
+	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
@@ -61975,7 +62034,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "hFB" = (
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 1
+	},
 /obj/effect/decal/cleanable/dirt,
 /obj/random/loot,
 /turf/simulated/floor/wood,
@@ -62186,6 +62247,12 @@
 "hTO" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/bridge_elevator)
+"hUc" = (
+/obj/item/stool/padded{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/vault)
 "hUy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -63431,7 +63498,9 @@
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics_cyborgification)
 "kVD" = (
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 1
+	},
 /obj/structure/cable/green{
 	icon_state = "6-8"
 	},
@@ -64168,6 +64237,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
+"mtw" = (
+/obj/item/stool/padded{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/red/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/hallway/primary/aft)
 "mvJ" = (
 /obj/structure/closet/secure_closet/engineering_welding,
 /obj/item/clothing/glasses/welding,
@@ -64875,7 +64951,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/library)
 "nCJ" = (
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 1
+	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/maintenance/vault)
@@ -66400,7 +66478,9 @@
 /turf/simulated/floor/tiled/old,
 /area/maintenance/vault)
 "qoC" = (
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 1
+	},
 /obj/structure/cable/green{
 	icon_state = "4-10"
 	},
@@ -69685,7 +69765,9 @@
 /turf/simulated/wall,
 /area/security/training)
 "vGn" = (
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 1
+	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -70322,6 +70404,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
+"wuk" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/item/stool/padded{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_laboratory)
 "wvm" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -70685,7 +70774,9 @@
 /turf/simulated/floor/tiled/old,
 /area/maintenance/research_port)
 "xhU" = (
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 1
+	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -71217,6 +71308,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"xXX" = (
+/obj/item/stool/padded{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/vault)
 "yaL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -100077,10 +100174,10 @@ bOP
 bOT
 bOT
 bOT
-bPA
-bQV
-bQV
-bPA
+efa
+mtw
+mtw
+efa
 bSM
 bSM
 bSM
@@ -100503,7 +100600,7 @@ srX
 rMJ
 xBx
 xBx
-lrT
+wuk
 abw
 afe
 nmV
@@ -105420,7 +105517,7 @@ aBk
 aCI
 aCK
 aGA
-aGx
+dmw
 aJW
 azK
 azK
@@ -108486,7 +108583,7 @@ vdA
 nHe
 nHe
 aiK
-gYT
+xXX
 lFg
 ydw
 isH
@@ -109256,7 +109353,7 @@ nOy
 kAK
 nHe
 xGz
-gYT
+hUc
 ahQ
 amc
 xOq
@@ -109773,7 +109870,7 @@ ahR
 adC
 dnl
 eqc
-gYT
+xXX
 psI
 nHe
 fnE
@@ -110030,7 +110127,7 @@ cip
 tzU
 pRZ
 sbm
-gYT
+xXX
 lAa
 adH
 fnE
@@ -110275,7 +110372,7 @@ ubP
 gOO
 gYT
 acV
-gYT
+xXX
 tzU
 gYT
 acV
@@ -110287,7 +110384,7 @@ haE
 hKl
 acR
 mmr
-gYT
+xXX
 tzU
 xMi
 tXm
@@ -110532,7 +110629,7 @@ nHe
 lQC
 gYT
 acV
-gYT
+xXX
 ael
 gYT
 acV
@@ -111046,7 +111143,7 @@ wZD
 qGK
 gIw
 acV
-gYT
+xXX
 aen
 gYT
 afn
@@ -111303,7 +111400,7 @@ nHe
 ciw
 gIw
 acV
-gYT
+xXX
 dDC
 mxN
 acV
