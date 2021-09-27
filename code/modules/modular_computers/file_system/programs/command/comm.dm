@@ -366,6 +366,15 @@ Command action procs
 /proc/cancel_call_proc(var/mob/user)
 	if(!(ROUND_IS_STARTED) || !evacuation_controller)
 		return FALSE
+
+	if(current_map.shuttle_call_restarts && current_map.shuttle_call_restart_timer)
+		deltimer(current_map.shuttle_call_restart_timer)
+		current_map.shuttle_call_restart_timer = null
+		log_game("[key_name(user)] has stopped the 'shuttle' round restart.", key_name(user))
+		message_admins("[key_name_admin(user)] has stopped the 'shuttle' round restart.", 1)
+		to_world(FONT_LARGE(SPAN_VOTE(current_map.shuttle_recall_message)))
+		return
+
 	if(SSticker.mode.name == "Meteor")
 		return FALSE
 
@@ -411,10 +420,14 @@ Command action procs
 	return TRUE
 
 /proc/init_shift_change(var/mob/user, var/force = FALSE)
-	if ((!(ROUND_IS_STARTED) || !evacuation_controller))
+	if(!(ROUND_IS_STARTED) || !evacuation_controller)
 		return
 
-	if (!evacuation_controller)
+	if(current_map.shuttle_call_restarts)
+		current_map.shuttle_call_restart_timer = addtimer(CALLBACK(GLOBAL_PROC, .proc/reboot_world), 10 MINUTES, TIMER_UNIQUE|TIMER_STOPPABLE)
+		log_game("[user? key_name(user) : "Autotransfer"] has called the 'shuttle' round restart.")
+		message_admins("[user? key_name_admin(user) : "Autotransfer"] has called the 'shuttle' round restart.", 1)
+		to_world(FONT_LARGE(SPAN_VOTE(current_map.shuttle_called_message)))
 		return
 
 	. = evacuation_controller.call_evacuation(null, _emergency_evac = FALSE, autotransfer = TRUE)

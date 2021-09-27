@@ -50,6 +50,10 @@
 	damage = 35
 	armor_penetration = 10
 
+/obj/item/projectile/beam/midlaser/ice
+	damage = 25
+	armor_penetration = 10
+
 /obj/item/projectile/beam/midlaser/mech
 	armor_penetration = 35
 
