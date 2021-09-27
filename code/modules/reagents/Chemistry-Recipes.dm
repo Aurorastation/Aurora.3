@@ -1694,6 +1694,20 @@
 	required_reagents = list(/decl/reagent/drink/milk = 1, /decl/reagent/alcohol/beer = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/drink/tea
+	name = "Tea"
+	id = "tea"
+	result = /decl/reagent/drink/tea
+	required_reagents = list(/decl/reagent/nutriment/teagrounds = 1, /decl/reagent/water = 5)
+	result_amount = 5
+
+/datum/chemical_reaction/drink/greentea
+	name = "Green Tea"
+	id = "greentea"
+	result = /decl/reagent/drink/tea/greentea
+	required_reagents = list(/decl/reagent/drink/tea = 5, /decl/reagent/nutriment/mint = 2)
+	result_amount = 5
+
 /datum/chemical_reaction/drink/icetea
 	name = "Iced Tea"
 	id = "icetea"
