@@ -3,5 +3,3 @@ delete-after: True
 changes:
   - rscadd: "Updated the stools sprites. You can now rotate them with alt-click."
   - maptweak: "Stools are now properly faced in the map."
-  - maptweak: "Cleared up most of the bar clutter. The candles and cigars are now in the locker."
-  - rscadd: "Added filter ports to antag spawn areas."
