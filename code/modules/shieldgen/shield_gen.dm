@@ -29,6 +29,8 @@
 	var/time_since_fail = 100
 	var/energy_conversion_rate = 0.0002	//how many renwicks per watt?
 	use_power = 0	//doesn't use APC power
+	var/multiz = FALSE
+	var/multi_unlcoked = FALSE
 
 /obj/machinery/shield_gen/Initialize()
 	for(var/obj/machinery/shield_capacitor/possible_cap in range(1, src))
@@ -108,6 +110,8 @@
 		t += "[owned_capacitor ? "<font color=green>Charge capacitor connected.</font>" : "<font color=red>Unable to locate charge capacitor!</font>"]<br>"
 		t += "This generator is: [active ? "<font color=green>Online</font>" : "<font color=red>Offline</font>" ] <a href='?src=\ref[src];toggle=1'>[active ? "\[Deactivate\]" : "\[Activate\]"]</a><br>"
 		t += "Field Status: [time_since_fail > 2 ? "<font color=green>Stable</font>" : "<font color=red>Unstable</font>"]<br>"
+		if(multi_unlcoked)
+			t += "Multi-level shields are: [multiz ? "<font color=green>Online</font>" : "<font color=red>Offline</font>" ] <a href='?src=\ref[src];ztoggle=1'>[multiz ? "\[Deactivate\]" : "\[Activate\]"]</a><br>"
 		t += "Coverage Radius (restart required): \
 		<a href='?src=\ref[src];change_radius=-50'>---</a> \
 		<a href='?src=\ref[src];change_radius=-5'>--</a> \
@@ -188,6 +192,8 @@
 			to_chat(usr, "<span class='warning'>The [src] needs to be firmly secured to the floor first.</span>")
 			return
 		toggle()
+	else if( href_list["ztoggle"] )
+		multiz = !multiz
 	else if( href_list["change_radius"] )
 		field_radius = between(0, field_radius + text2num(href_list["change_radius"]), max_field_radius)
 	else if( href_list["strengthen_rate"] )
