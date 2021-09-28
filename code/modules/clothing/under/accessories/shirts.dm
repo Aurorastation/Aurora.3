@@ -132,6 +132,12 @@
 	icon_state = "dressshirtvneck_alt"
 	item_state = "dressshirtvneck_alt"
 
+/obj/item/clothing/accessory/dressshirt/deepv
+	name = "deep v-neck dress shirt"
+	desc = "A casual dress shirt with a deep neckline."
+	icon_state = "dressshirt_deepv"
+	item_state = "dressshirt_deepv"
+
 /obj/item/clothing/accessory/dressshirt/crop
 	name = "cropped dress shirt"
 	desc = "A casual cropped dress shirt."
@@ -153,9 +159,15 @@
 
 /obj/item/clothing/accessory/dressshirt/alt/vneck/rolled
 	name = "v-neck dress shirt"
-	desc = "A casual dress shirt."
+	desc = "A casual dress shirt. This one has its sleeves rolled up."
 	icon_state = "dressshirtvneck_alt_r"
 	item_state = "dressshirtvneck_alt_r"
+
+/obj/item/clothing/accessory/dressshirt/deepv/rolled
+	name = "deep v-neck dress shirt"
+	desc = "A casual dress shirt with a deep neckline. This one has its sleeves rolled up."
+	icon_state = "dressshirt_deepv_r"
+	item_state = "dressshirt_deepv_r"
 
 /obj/item/clothing/accessory/dressshirt/crop/rolled
 	name = "cropped dress shirt"

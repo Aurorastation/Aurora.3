@@ -101,6 +101,10 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	species.before_equip(src)
 	species.after_equip(src)
 
+/mob/living/carbon/human/axiori_skrell/Initialize(mapload)
+	h_style = "Skrell Average Tentacles"
+	. = ..(mapload, SPECIES_SKRELL_AXIORI)
+
 /mob/living/carbon/human/msai_tajara/Initialize(mapload)
 	h_style = "Tajaran Ears"
 	. = ..(mapload, SPECIES_TAJARA_MSAI)
