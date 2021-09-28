@@ -30,17 +30,6 @@
 	The reputation would last, but your career certainly wouldn't.</li>
 	</ul></p>"}
 	title_suffix = "Zavod"
-
-	allowed_role_types = list(
-		/datum/job/visitor,
-		/datum/job/officer,
-		/datum/job/warden,
-		/datum/job/scientist,
-		/datum/job/roboticist,
-		/datum/job/surgeon,
-		/datum/job/representative
-	)
-
 	allowed_species_types = list(
 		/datum/species/human,
 		/datum/species/skrell,
@@ -65,20 +54,6 @@
 		)
 	)
 
-	titles_to_loadout = list(
-		"Security Officer" = /datum/outfit/job/officer/zavodskoi,
-		"Surgeon" = /datum/outfit/job/doctor/zavodskoi,
-		"Warden" = /datum/outfit/job/warden/zavodskoi,
-		"Scientist" = /datum/outfit/job/scientist/zavodskoi,
-		"Phoron Researcher" = /datum/outfit/job/scientist/zavodskoi,
-		"Xenoarcheologist" = /datum/outfit/job/scientist/zavodskoi,
-		"Anomalist" = /datum/outfit/job/scientist/zavodskoi,
-		"Roboticist" = /datum/outfit/job/roboticist/zavodskoi,
-		"Biomechanical Engineer" = /datum/outfit/job/roboticist/zavodskoi,
-		"Mechatronic Engineer" = /datum/outfit/job/roboticist/zavodskoi,
-		"Corporate Liaison" = /datum/outfit/job/representative/zavodskoi
-	)
-
 /datum/outfit/job/officer/zavodskoi
 	name = "Security Officer - Zavodskoi Interstellar"
 	uniform = /obj/item/clothing/under/rank/security/zavodskoi
@@ -91,11 +66,6 @@
 
 /datum/outfit/job/scientist/zavodskoi
 	name = "Scientist - Zavodskoi Interstellar"
-	uniform = /obj/item/clothing/under/rank/zavodskoi/research
-	id = /obj/item/card/id/zavodskoi
-
-/datum/outfit/job/roboticist/zavodskoi
-	name = "Roboticist - Zavodskoi Interstellar"
 	uniform = /obj/item/clothing/under/rank/zavodskoi/research
 	id = /obj/item/card/id/zavodskoi
 

@@ -31,33 +31,12 @@
 	</ul></p>"}
 	title_suffix = "Idris"
 
-	allowed_role_types = list(
-		/datum/job/visitor,
-		/datum/job/officer,
-		/datum/job/investigator,
-		/datum/job/bartender,
-		/datum/job/chef,
-		/datum/job/hydro,
-		/datum/job/representative
-	)
-
 	allowed_species_types = list(
 		/datum/species/human,
 		/datum/species/skrell,
 		/datum/species/machine,
 		/datum/species/tajaran,
 		/datum/species/diona
-	)
-
-	titles_to_loadout = list(
-		"Security Officer" = /datum/outfit/job/officer/idris,
-		"Investigator" = /datum/outfit/job/forensics/idris,
-		"Bartender" = /datum/outfit/job/bartender/idris,
-		"Chef" = /datum/outfit/job/chef/idris,
-		"Cook" = /datum/outfit/job/chef/idris,
-		"Gardener" = /datum/outfit/job/hydro/idris,
-		"Hydroponicist" = /datum/outfit/job/hydro/idris,
-		"Corporate Liaison" = /datum/outfit/job/representative/idris
 	)
 
 	job_species_blacklist = list(

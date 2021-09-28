@@ -71,7 +71,7 @@
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/command/cmo
 	_app_preset_type = /datum/modular_computer_app_presets/medical/cmo
 
-/obj/item/modular_computer/handheld/wristbound/preset/advanced/command/hop
+/obj/item/modular_computer/handheld/wristbound/preset/advanced/command/xo
 	_app_preset_type = /datum/modular_computer_app_presets/command/hop
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/command/hos
@@ -223,7 +223,7 @@
 /obj/item/modular_computer/handheld/wristbound/preset/pda/command/cciaa
 	_app_preset_type = /datum/modular_computer_app_presets/command
 
-/obj/item/modular_computer/handheld/wristbound/preset/pda/command/hop
+/obj/item/modular_computer/handheld/wristbound/preset/pda/command/xo
 	_app_preset_type = /datum/modular_computer_app_presets/command/hop
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/command/captain

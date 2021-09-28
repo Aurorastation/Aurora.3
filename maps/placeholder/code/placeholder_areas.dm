@@ -208,6 +208,18 @@
 /area/crew_quarters/heads/hop/xo
 	name = "Command - Executive Officer's Office"
 
+/area/bridge/bridge_crew
+	name = "Bridge Crew Preparation"
+	icon_state = "bridge_crew"
+
+/area/bridge/third_deck_stairs
+	name = "Bridge Stairs"
+	icon_state = "bridge_stairs"
+
+/area/bridge/helm
+	name = "Bridge Helm"
+	icon_state = "bridge_helm"
+
 /area/crew_armory
 	name = "Crew Armory"
 	icon_state = "crew_armory"

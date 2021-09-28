@@ -35,7 +35,7 @@
 	armbands["Stellar Corporate Conglomerate armband"] = /obj/item/clothing/accessory/armband/scc
 	armbands["red armband"] = /obj/item/clothing/accessory/armband
 	armbands["security armband"] = /obj/item/clothing/accessory/armband/sec
-	armbands["cargo armband"] = /obj/item/clothing/accessory/armband/cargo
+	armbands["cargo armband"] = /obj/item/clothing/accessory/armband/operations
 	armbands["first responder armband"] = /obj/item/clothing/accessory/armband/medgreen
 	armbands["medical armband"] = /obj/item/clothing/accessory/armband/med
 	armbands["engineering armband"] = /obj/item/clothing/accessory/armband/engine
@@ -53,7 +53,7 @@
 /datum/gear/accessory/holster
 	display_name = "holster selection"
 	path = /obj/item/clothing/accessory/holster/armpit
-	allowed_roles = list("Captain", "Head of Personnel", "Security Officer", "Warden", "Head of Security","Investigator", "Security Cadet", "Corporate Liaison", "Consular Officer")
+	allowed_roles = list("Captain", "Executive Officer", "Bridge Crew", "Security Officer", "Warden", "Head of Security","Investigator", "Security Cadet", "Corporate Liaison", "Consular Officer")
 
 /datum/gear/accessory/holster/New()
 	..()
@@ -235,7 +235,7 @@
 	shirts["random colored silversun shirt"] = /obj/item/clothing/accessory/silversun/random
 	gear_tweaks += new /datum/gear_tweak/path(shirts)
 
-/datum/gear/accessory/university 
+/datum/gear/accessory/university
 	display_name = "university sweatshirt selection"
 	path = /obj/item/clothing/accessory/university
 	description = "A selection of university sweatshirts."
@@ -319,7 +319,7 @@
 /datum/gear/accessory/ribbon
 	display_name = "ribbon (colourable)"
 	path = /obj/item/clothing/accessory/ribbon
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION 
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/sleeve_patch
 	display_name = "shoulder sleeve patch"

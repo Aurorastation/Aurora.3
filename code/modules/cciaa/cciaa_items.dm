@@ -330,7 +330,7 @@
 
 /obj/item/device/encryptionkey/ccia
 	name = "\improper CCIA radio encryption key"
-	channels = list("Response Team" = 1, "Science" = 0, "Command" = 1, "Medical" = 0, "Engineering" = 0, "Security" = 0, "Supply" = 0, "Service" = 0)
+	channels = list("Response Team" = 1, "Science" = 0, "Command" = 1, "Medical" = 0, "Engineering" = 0, "Security" = 0, "Operations" = 0, "Service" = 0)
 
 /obj/item/clothing/suit/storage/toggle/internalaffairs/cciaa
 	name = "central command internal affairs jacket"

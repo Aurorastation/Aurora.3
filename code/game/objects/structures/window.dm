@@ -457,6 +457,7 @@
 	dir = 5
 	smooth = SMOOTH_TRUE
 	can_be_unanchored = TRUE
+	layer = 2.99
 
 /obj/structure/window/shuttle/legion
 	name = "cockpit window"

@@ -1343,7 +1343,7 @@ var/list/total_extraction_beacons = list()
 
 /obj/structure/punching_bag
 	name = "punching bag"
-	desc = "A punching bag. Better this than the Quartermaster."
+	desc = "A punching bag. Better this than the Operations Manager."
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "punchingbag"
 	anchored = TRUE

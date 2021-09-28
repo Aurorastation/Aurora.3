@@ -228,30 +228,44 @@
 		bio = ARMOR_BIO_MINOR
 	)
 
-/obj/item/clothing/under/rank/supply_manager
-	name = "supply manager's jumpsuit"
-	desc = "A uniform worn by the Supply Manager. It has the SCC insignia on it."
+/obj/item/clothing/under/rank/operations_manager
+	name = "operations manager's jumpsuit"
+	desc = "A uniform worn by the operations manager. It has the SCC insignia on it."
 	icon_state = "qm"
 	item_state = "lb_suit"
 	worn_state = "qm"
 
-/obj/item/clothing/under/rank/supply_technician
-	name = "supply technician's jumpsuit"
-	desc = "A practical uniform used by hangar and supply technicians."
+/obj/item/clothing/under/rank/hangar_technician
+	name = "hangar technician's jumpsuit"
+	desc = "A practical uniform used by hangar technicians."
 	icon_state = "cargo"
 	item_state = "lb_suit"
 	worn_state = "cargo"
 
-/obj/item/clothing/under/rank/bridge_officer
-	name = "bridge officer's jumpsuit"
-	desc = "The uniform worn by SCC's bridge crew."
+/obj/item/clothing/under/rank/bridge_crew
+	name = "bridge crew's jumpsuit"
+	desc = "The uniform worn by the SCC's bridge crew."
 	icon_state = "hop"
 	item_state = "b_suit"
 	worn_state = "hop"
 
-/obj/item/clothing/under/rank/bridge_officer
+/obj/item/clothing/under/rank/xo
 	name = "executive officer's jumpsuit"
-	desc = "The uniform worn by SCC's executive officers."
+	desc = "The uniform worn by the SCC's executive officers."
+	icon_state = "hop"
+	item_state = "b_suit"
+	worn_state = "hop"
+
+/obj/item/clothing/under/rank/service_manager
+	name = "service manager's jumpsuit"
+	desc = "The uniform worn by the managers of the ship service crew."
+	icon_state = "hop"
+	item_state = "b_suit"
+	worn_state = "hop"
+
+/obj/item/clothing/under/rank/manufacturing_tech
+	name = "manufacturing technician's jumpsuit"
+	desc = "A practical uniform designed for industrial work."
 	icon_state = "hop"
 	item_state = "b_suit"
 	worn_state = "hop"

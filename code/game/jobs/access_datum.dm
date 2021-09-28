@@ -258,7 +258,7 @@
 /var/const/access_qm = 41
 /datum/access/qm
 	id = access_qm
-	desc = "Quartermaster"
+	desc = "Operations Manager"
 	region = ACCESS_REGION_SUPPLY
 
 /var/const/access_network = 42
@@ -332,7 +332,7 @@
 /var/const/access_hop = 57
 /datum/access/hop
 	id = access_hop
-	desc = "Head of Personnel"
+	desc = "Executive Officer"
 	region = ACCESS_REGION_COMMAND
 
 /var/const/access_hos = 58

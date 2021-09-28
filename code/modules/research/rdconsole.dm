@@ -863,7 +863,6 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	id = 1
 	req_access = list(access_robotics)
 	allow_analyzer = FALSE
-	allow_lathe = FALSE
 
 /obj/machinery/computer/rdconsole/core
 	name = "core R&D console"

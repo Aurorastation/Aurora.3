@@ -15,6 +15,8 @@
 	public_account = FALSE
 	initial_funds_override = 2500
 
+	selection_color = "#c9ad12"
+
 	access = list(access_merchant)
 	minimal_access = list(access_merchant)
 

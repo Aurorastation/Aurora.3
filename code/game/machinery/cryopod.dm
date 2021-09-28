@@ -45,6 +45,14 @@ var/global/list/frozen_crew = list()
 	storage_name = "Robotic Storage Control"
 	allow_items = FALSE
 
+/obj/machinery/computer/cryopod/living_quarters
+	name = "living quarters oversight console"
+	desc = "An interface between the main ship and the living quarters where the crew lives."
+	circuit = /obj/item/circuitboard/living_quarters_cryo
+
+	storage_name = "Living Quarters Oversight Control"
+	allow_items = TRUE
+
 /obj/machinery/computer/cryopod/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
@@ -163,6 +171,11 @@ var/global/list/frozen_crew = list()
 	build_path = /obj/machinery/computer/cryopod/robot
 	origin_tech = list(TECH_DATA = 3)
 
+/obj/item/circuitboard/living_quarters_cryo
+	name = "Circuit board (Living Quarters Console)"
+	build_path = /obj/machinery/computer/cryopod/living_quarters
+	origin_tech = list(TECH_DATA = 3)
+
 //Decorative structures to go alongside cryopods.
 /obj/structure/cryofeed
 	name = "cryogenic feed"
@@ -227,6 +240,19 @@ var/global/list/frozen_crew = list()
 	on_enter_occupant_message = "The storage unit broadcasts a sleep signal to you. Your systems start to shut down, and you enter low-power mode."
 	allow_occupant_types = list(/mob/living/silicon/robot)
 	disallow_occupant_types = list(/mob/living/silicon/robot/drone)
+
+/obj/machinery/cryopod/living_quarters
+	name = "living quarters lift"
+	desc = "A lift heading to the ship's living quarters."
+	icon = 'icons/obj/robot_storage.dmi'
+	icon = 'icons/obj/doors/Doorint.dmi'
+	icon_state = "door_open"
+	base_icon_state = "door_open"
+	occupied_icon_state = "door_closed"
+	on_store_message = "has departed for the living quarters."
+	on_store_name = "Living Quarters Oversight"
+	on_enter_occupant_message = "The elevator door closes slowly, ready to bring you down to the living quarters."
+	disallow_occupant_types = list(/mob/living/silicon/robot)
 
 /obj/machinery/cryopod/Destroy()
 	if(occupant)

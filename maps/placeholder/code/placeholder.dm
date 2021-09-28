@@ -52,40 +52,34 @@
 		NETWORK_INTREPID
 	)
 
-	shuttle_docked_message = "The scheduled crew transfer shuttle to %dock% has docked with the station. It will depart in approximately %ETA% minutes."
-	shuttle_leaving_dock = "The crew transfer shuttle has left the station. Estimate %ETA% minutes until the shuttle docks at %dock%."
-	shuttle_called_message = "A crew transfer to %dock% has been scheduled. The shuttle has been called. It will arrive in approximately %ETA% minutes."
-	shuttle_recall_message = "The scheduled crew transfer has been cancelled."
-	emergency_shuttle_docked_message = "The emergency shuttle has docked with the station. You have approximately %ETD% minutes to board the emergency shuttle."
-	emergency_shuttle_leaving_dock = "The emergency shuttle has left the station. Estimate %ETA% minutes until the shuttle docks at %dock%."
-	emergency_shuttle_recall_message = "The emergency shuttle has been recalled."
-	emergency_shuttle_called_message = "An emergency evacuation shuttle has been called. It will arrive in approximately %ETA% minutes."
+	shuttle_docked_message = "Attention all hands: Jump preparation complete. The bluespace drive is now spooling up, secure all stations for departure. Time to jump: approximately %ETD%."
+	shuttle_leaving_dock = "Attention all hands: Jump initiated, exiting bluespace in %ETA%."
+	shuttle_called_message = "Attention all hands: Jump sequence initiated. Transit procedures are now in effect. Jump in %ETA%."
+	shuttle_recall_message = "Attention all hands: Jump sequence aborted, return to normal operating conditions."
+	emergency_shuttle_docked_message = "The emergency evacuation has started. You have approximately %ETD% minutes to board the emergency pods."
+	emergency_shuttle_leaving_dock = "The emergency evacuatioon has been completed."
+	emergency_shuttle_recall_message = "The emergency evacuation has been canceled."
+	emergency_shuttle_called_message = "An emergency evacuation has been called. It will start in approximately %ETA%."
 
 	map_shuttles = list(
-		/datum/shuttle/autodock/ferry/lift/placeholder/cargo,
-		/datum/shuttle/autodock/ferry/lift/placeholder/morgue
+		/datum/shuttle/autodock/ferry/lift/scc_ship/cargo,
+		/datum/shuttle/autodock/ferry/lift/scc_ship/morgue,
+		/datum/shuttle/autodock/ferry/lift/scc_ship/robotics,
+		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod1,
+		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod2,
+		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod3,
+		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod4,
+		/datum/shuttle/autodock/ferry/supply/aurora,
+		/datum/shuttle/autodock/ferry/specops/ert_aurora,
+		/datum/shuttle/autodock/multi/antag/skipjack_ship,
+		/datum/shuttle/autodock/multi/antag/burglar_ship,
+		/datum/shuttle/autodock/multi/antag/merc_ship,
+		/datum/shuttle/autodock/multi/legion,
+		/datum/shuttle/autodock/multi/distress
 	)
 
-	allowed_jobs = list(/datum/job/captain, /datum/job/xo, /datum/job/chief_engineer, /datum/job/cmo, /datum/job/hos, /datum/job/ai, /datum/job/cyborg,
-					/datum/job/bartender, /datum/job/chef, /datum/job/hydro, /datum/job/janitor, /datum/job/journalist, /datum/job/librarian, /datum/job/chaplain,
-					/datum/job/doctor, /datum/job/surgeon, /datum/job/pharmacist, /datum/job/psychiatrist, /datum/job/med_tech, /datum/job/intern_med,
-					/datum/job/engineer, /datum/job/atmos, /datum/job/intern_eng, /datum/job/warden, /datum/job/investigator, /datum/job/officer, /datum/job/intern_sec,
-					/datum/job/assistant)
+	evac_controller_type = /datum/evacuation_controller/starship
 
-//datum/map/aurora/generate_asteroid()
-//	// Create the chasms.
-//	new /datum/random_map/automata/cave_system/chasms(null,0,0,3,255,255)
-//	new /datum/random_map/automata/cave_system(null,0,0,3,255,255)
-//	new /datum/random_map/automata/cave_system/chasms(null,0,0,4,255,255)
-//	new /datum/random_map/automata/cave_system(null,0,0,4,255,255)
-//	new /datum/random_map/automata/cave_system/chasms(null,0,0,5,255,255)
-//	new /datum/random_map/automata/cave_system/high_yield(null,0,0,5,255,255)
-//	new /datum/random_map/automata/cave_system/chasms/surface(null,0,0,6,255,255)
-
-//	// Create the deep mining ore distribution map.
-//	new /datum/random_map/noise/ore(null, 0, 0, 5, 64, 64)
-//	new /datum/random_map/noise/ore(null, 0, 0, 4, 64, 64)
-//	new /datum/random_map/noise/ore(null, 0, 0, 3, 64, 64)
 
 /datum/map/placeholder/finalize_load()
 	// generate an empty space Z

@@ -35,15 +35,6 @@
 	</ul></p>"}
 	title_suffix = "Hepht"
 
-	allowed_role_types = list(
-		/datum/job/visitor,
-		/datum/job/engineer,
-		/datum/job/atmos,
-		/datum/job/roboticist,
-		/datum/job/mining,
-		/datum/job/cargo_tech,
-		/datum/job/representative
-	)
 
 	allowed_species_types = list(
 		/datum/species/human,
@@ -55,18 +46,6 @@
 		/datum/species/diona
 	)
 
-	titles_to_loadout = list(
-		"Station Engineer" = /datum/outfit/job/engineer/hephaestus,
-		"Maintenance Technician" = /datum/outfit/job/engineer/hephaestus,
-		"Engine Technician" = /datum/outfit/job/engineer/hephaestus,
-		"Electrician" = /datum/outfit/job/engineer/hephaestus,
-		"Atmospheric Technician" = /datum/outfit/job/atmos/hephaestus,
-		"Roboticist" = /datum/outfit/job/roboticist/hephaestus,
-		"Shaft Miner" = /datum/outfit/job/mining/hephaestus,
-		"Drill Technician" = /datum/outfit/job/mining/drill/hephaestus,
-		"Cargo Technician" = /datum/outfit/job/cargo_tech/hephaestus,
-		"Corporate Liaison" = /datum/outfit/job/representative/hephaestus
-	)
 
 	job_species_blacklist = list(
 		"Corporate Liaison" = list(
@@ -85,8 +64,8 @@
 	uniform = /obj/item/clothing/under/rank/hephaestus
 	id = /obj/item/card/id/hephaestus
 
-/datum/outfit/job/roboticist/hephaestus
-	name = "Roboticist - Hephaestus"
+/datum/outfit/job/manufacturing_tech/hephaestus
+	name = "Manufacturing Technician - Hephaestus"
 	uniform = /obj/item/clothing/under/rank/hephaestus/research
 	id = /obj/item/card/id/hephaestus
 
@@ -95,13 +74,8 @@
 	uniform = /obj/item/clothing/under/rank/hephaestus/tech
 	id = /obj/item/card/id/hephaestus
 
-/datum/outfit/job/mining/drill/hephaestus
-	name = "Drill Technician - Hephaestus"
-	uniform = /obj/item/clothing/under/rank/hephaestus/tech
-	id = /obj/item/card/id/hephaestus
-
-/datum/outfit/job/cargo_tech/hephaestus
-	name = "Cargo Technician - Hephaestus"
+/datum/outfit/job/hangar_tech/hephaestus
+	name = "Hangar Technician - Hephaestus"
 	uniform = /obj/item/clothing/under/rank/hephaestus/tech
 	id = /obj/item/card/id/hephaestus
 

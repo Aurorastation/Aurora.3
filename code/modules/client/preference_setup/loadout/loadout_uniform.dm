@@ -96,7 +96,7 @@
 /datum/gear/uniform/scrubs
 	display_name = "scrubs selection"
 	path = /obj/item/clothing/under/rank/medical/black
-	allowed_roles = list("Scientist","Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Roboticist", "Research Director", "Investigator")
+	allowed_roles = list("Scientist","Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Research Director", "Investigator")
 
 /datum/gear/uniform/scrubs/New()
 	..()
@@ -137,11 +137,6 @@
 	display_name = "uniform, captain dress"
 	path = /obj/item/clothing/under/dress/dress_cap
 	allowed_roles = list("Captain")
-
-/datum/gear/uniform/uniform_hop
-	display_name = "uniform, HoP dress"
-	path = /obj/item/clothing/under/dress/dress_hop
-	allowed_roles = list("Head of Personnel")
 
 /datum/gear/uniform/pants
 	display_name = "pants selection"
@@ -335,12 +330,6 @@
 	display_name = "scientist, alt"
 	path = /obj/item/clothing/under/rank/scientist/science_alt
 	allowed_roles = list("Scientist", "Xenobiologist")
-
-/datum/gear/uniform/cargo_alt
-	display_name = "cargo technician, shorts"
-	description = "For those that value leg-room."
-	path = /obj/item/clothing/under/rank/cargo/alt
-	allowed_roles = list("Cargo Technician")
 
 /datum/gear/uniform/pyjama
 	display_name = "pyjamas"
