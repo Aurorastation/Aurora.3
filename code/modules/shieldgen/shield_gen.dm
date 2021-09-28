@@ -31,6 +31,8 @@
 	use_power = 0	//doesn't use APC power
 	var/multiz = FALSE
 	var/multi_unlocked = FALSE
+	var/power_take
+	var/shield_power
 
 /obj/machinery/shield_gen/Initialize()
 	for(var/obj/machinery/shield_capacitor/possible_cap in range(1, src))
@@ -181,27 +183,30 @@
 	else
 		average_field_strength = 0
 
-/obj/machinery/shield_gen/Topic(href, href_list[])
-	..()
-	if( href_list["close"] )
-		usr << browse(null, "window=shield_generator")
-		usr.unset_machine()
-		return
-	else if( href_list["toggle"] )
-		if (!active && !anchored)
-			to_chat(usr, "<span class='warning'>The [src] needs to be firmly secured to the floor first.</span>")
-			return
-		toggle()
-	else if( href_list["ztoggle"] )
-		multiz = !multiz
-	else if( href_list["change_radius"] )
-		field_radius = between(0, field_radius + text2num(href_list["change_radius"]), max_field_radius)
-	else if( href_list["strengthen_rate"] )
-		strengthen_rate = between(0,  strengthen_rate + text2num(href_list["strengthen_rate"]), max_strengthen_rate)
-	else if( href_list["target_field_strength"] )
-		target_field_strength = between(1, target_field_strength + text2num(href_list["target_field_strength"]), max_field_strength)
+	power_take = round(field.len * max(average_field_strength * dissipation_rate, min_dissipation) / energy_conversion_rate)
+	shield_power = round(field.len * min(strengthen_rate, target_field_strength - average_field_strength) / energy_conversion_rate)
 
-	updateDialog()
+// /obj/machinery/shield_gen/Topic(href, href_list[])
+// 	..()
+// 	if( href_list["close"] )
+// 		usr << browse(null, "window=shield_generator")
+// 		usr.unset_machine()
+// 		return
+// 	else if( href_list["toggle"] )
+// 		if (!active && !anchored)
+// 			to_chat(usr, "<span class='warning'>The [src] needs to be firmly secured to the floor first.</span>")
+// 			return
+// 		toggle()
+// 	else if( href_list["ztoggle"] )
+// 		multiz = !multiz
+// 	else if( href_list["change_radius"] )
+// 		field_radius = between(0, field_radius + text2num(href_list["change_radius"]), max_field_radius)
+// 	else if( href_list["strengthen_rate"] )
+// 		strengthen_rate = between(0,  strengthen_rate + text2num(href_list["strengthen_rate"]), max_strengthen_rate)
+// 	else if( href_list["target_field_strength"] )
+// 		target_field_strength = between(1, target_field_strength + text2num(href_list["target_field_strength"]), max_field_strength)
+
+// 	updateDialog()
 
 /obj/machinery/shield_gen/ex_act(var/severity)
 
@@ -271,33 +276,71 @@
 		if (T)
 			. += T
 
-/obj/machinery/shield_gen/vueui_data_change(list/data, mob/user, datum/vueui/ui)
-	data = ..() || list()
+/obj/machinery/shield_gen/attack_hand(var/mob/user)
+	ui_interact(user)
 
-	VUEUI_SET_CHECK_IFNOTSET(data["items"], items, ., data) // List of items that is on the menu
-	VUEUI_SET_CHECK_IFNOTSET(data["price"], items, ., data) // the price of said items
-	VUEUI_SET_CHECK_IFNOTSET(data["buying"], buying, ., data) // And the list with items the customer is buying
-	VUEUI_SET_CHECK_IFNOTSET(data["sum"], sum, ., data)
+/obj/machinery/shield_gen/ui_interact(mob/user)
+	var/datum/vueui/ui = SSvueui.get_open_ui(usr, src)
+	if (!ui)
+		ui = new(usr, src, "machinery-orderterminal-ordering", 450, 450, "Idris Ordering Terminal")
+	ui.open()
+
+/obj/machinery/shield_gen/vueui_data_change(list/data, mob/user, datum/vueui/ui)
+	if(!data)
+		. = data = list()
+
+	// VUEUI_SET_CHECK_IFNOTSET(data["items"], items, ., data) // List of items that is on the menu
+	// VUEUI_SET_CHECK_IFNOTSET(data["price"], items, ., data) // the price of said items
+	// VUEUI_SET_CHECK_IFNOTSET(data["buying"], buying, ., data) // And the list with items the customer is buying
+	// VUEUI_SET_CHECK_IFNOTSET(data["sum"], sum, ., data)
 	VUEUI_SET_CHECK_IFNOTSET(data["tmp_name"], "", ., data)
 	VUEUI_SET_CHECK_IFNOTSET(data["strengthen_rate"], 0, ., data)
 	VUEUI_SET_CHECK(data["strengthen_rate"], max(0, data["strengthen_rate"]), ., data)
 	if(data["strengthen_rate"] < 0)
 		data["strengthen_rate"] = 0
 		. = data
-	VUEUI_SET_CHECK(data["editmode"], editmode, ., data)
-	VUEUI_SET_CHECK(data["destinationact"], destinationact, ., data)
+	// VUEUI_SET_CHECK(data["editmode"], editmode, ., data)
+	// VUEUI_SET_CHECK(data["destinationact"], destinationact, ., data)
 
 	// this is the data which will be sent to the ui
 	data["name"] = name
-	data["canLabel"] = can_label
-	data["portConnected"] = !!connected_port
-	data["tankPressure"] = round(air_contents.return_pressure() || 0)
+	// data["canLabel"] = can_label
+	// data["portConnected"] = !!connected_port
+	// data["tankPressure"] = round(air_contents.return_pressure() || 0)
 	data["coverageRadius"] = round(1 || 0)
 	data["mincoverageRadius"] = 1
 	data["maxcoverageRadius"] = 100
-	data["valveOpen"] = valve_open
+	// data["valveOpen"] = valve_open
 
-	data["hasHoldingTank"] = !!holding
-	if (holding)
-		data["holdingTank"] = list("name" = holding.name, "tankPressure" = round(holding.air_contents.return_pressure()))
+	// data["hasHoldingTank"] = !!holding
+	// if (holding)
+	// 	data["holdingTank"] = list("name" = holding.name, "tankPressure" = round(holding.air_contents.return_pressure()))
 	return data
+
+/obj/machinery/orderterminal/Topic(href, href_list)
+	var/datum/vueui/ui = href_list["vueui"]
+	if(!istype(ui))
+		return
+
+	..()
+	if( href_list["close"] )
+		usr << browse(null, "window=shield_generator")
+		usr.unset_machine()
+		return
+	else if( href_list["toggle"] )
+		if (!active && !anchored)
+			to_chat(usr, "<span class='warning'>The [src] needs to be firmly secured to the floor first.</span>")
+			return
+		toggle()
+	else if( href_list["ztoggle"] )
+		multiz = !multiz
+	else if( href_list["change_radius"] )
+		field_radius = between(0, field_radius + text2num(href_list["change_radius"]), max_field_radius)
+	else if( href_list["strengthen_rate"] )
+		strengthen_rate = between(0,  strengthen_rate + text2num(href_list["strengthen_rate"]), max_strengthen_rate)
+	else if( href_list["target_field_strength"] )
+		target_field_strength = between(1, target_field_strength + text2num(href_list["target_field_strength"]), max_field_strength)
+
+
+	. = TRUE
+	SSvueui.check_uis_for_change(src)
