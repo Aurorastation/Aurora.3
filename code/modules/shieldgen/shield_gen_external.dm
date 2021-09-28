@@ -3,7 +3,7 @@
 
 /obj/machinery/shield_gen/external
 	name = "hull shield generator"
-	multi_unlcoked = TRUE
+	multi_unlocked = TRUE
 
 //NOT MULTIZ COMPATIBLE
 //Search for space turfs within range that are adjacent to a simulated turf.
