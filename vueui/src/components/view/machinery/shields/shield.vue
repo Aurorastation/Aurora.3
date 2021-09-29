@@ -14,7 +14,7 @@
       </vui-group-item>
 
       <vui-group-item label="Field Status:">
-        <span :class="time_since_fail > 2 ? good || 'green' : average || 'red'">{{time_since_fail > 2 ? "Stable" : "unstable"}}</span>
+        <span :class="time_since_fail > 2 ? good || 'green' : average || 'red'">{{time_since_fail > 2 ? "Stable" : "Unstable"}}</span>
       </vui-group-item>
 
       <vui-group-item label="Overall Field Strength:">
