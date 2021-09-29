@@ -48,11 +48,11 @@
 	var/I
 	if(icon_override)
 		I = icon_override
-	else if(contained_sprite)
-		I = icon
 	else if(istype(M) && (M.species.bodytype in sprite_sheets))
 		I = sprite_sheets[M.species.bodytype]
 		accessory_mob_overlay = null // reset the overlay
+	else if(contained_sprite)
+		I = icon
 	else
 		I = INV_ACCESSORIES_DEF_ICON
 	if(!accessory_mob_overlay || force)
