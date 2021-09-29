@@ -17975,7 +17975,7 @@
 	},
 /area/centcom/specops)
 "hum" = (
-/obj/machinery/hologram/holopad/central,
+/obj/machinery/hologram/holopad/long_range,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -25350,7 +25350,7 @@
 	},
 /area/shuttle/merchant)
 "mlA" = (
-/obj/machinery/hologram/holopad/central,
+/obj/machinery/hologram/holopad/long_range,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -41672,32 +41672,32 @@
 	pixel_x = -1;
 	pixel_y = 2
 	},
-/obj/item/ammo_magazine/c45x{
+/obj/item/ammo_magazine/c45m/auto{
 	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = -2
 	},
-/obj/item/ammo_magazine/c45x{
+/obj/item/ammo_magazine/c45m/auto{
 	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = -2
 	},
-/obj/item/ammo_magazine/c45x{
+/obj/item/ammo_magazine/c45m/auto{
 	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = -2
 	},
-/obj/item/ammo_magazine/c45x{
+/obj/item/ammo_magazine/c45m/auto{
 	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = -2
 	},
-/obj/item/ammo_magazine/c45x{
+/obj/item/ammo_magazine/c45m/auto{
 	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = -2
 	},
-/obj/item/ammo_magazine/c45x{
+/obj/item/ammo_magazine/c45m/auto{
 	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = -2

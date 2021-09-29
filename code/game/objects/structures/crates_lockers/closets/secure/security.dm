@@ -123,6 +123,7 @@
 	..()
 	//Supply
 	new /obj/item/storage/box/flashbangs(src)
+	new /obj/item/storage/box/ids(src)
 	//Appearance
 	if(prob(50))
 		new /obj/item/storage/backpack/security(src)
@@ -139,6 +140,8 @@
 	new /obj/item/clothing/accessory/badge/hos(src)
 	new /obj/item/clothing/gloves/black_leather(src)
 	new /obj/item/clothing/suit/storage/toggle/armor/hos(src)
+	new /obj/item/clothing/mask/gas/alt(src)
+	new /obj/item/clothing/mask/gas/half(src)
 	//Tools
 	new /obj/item/device/radio/headset/heads/hos(src)
 	new /obj/item/device/radio/headset/heads/hos/alt(src)
@@ -225,6 +228,8 @@
 	new	/obj/item/clothing/suit/storage/security/warden(src)
 	new /obj/item/clothing/accessory/badge/warden(src)
 	new /obj/item/clothing/gloves/black_leather(src)
+	new /obj/item/clothing/mask/gas/alt(src)
+	new /obj/item/clothing/mask/gas/half(src)
 	//Tools
 	new /obj/item/device/radio/headset/headset_warden(src)
 	new /obj/item/device/radio/headset/headset_warden/alt(src)
@@ -234,6 +239,8 @@
 	new /obj/item/reagent_containers/spray/pepper(src)
 	new /obj/item/melee/baton/loaded(src)
 	new /obj/item/gun/energy/disruptorpistol(src)
+	new /obj/item/handcuffs(src)
+	new /obj/item/device/holowarrant(src)
 	//Belts
 	new /obj/item/clothing/accessory/storage/black_vest(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
@@ -355,7 +362,7 @@
 	new /obj/item/storage/backpack/satchel/leather(src)
 	new /obj/item/clothing/suit/storage/det_jacket(src)
 	new /obj/item/clothing/under/det(src)
-	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
+	new /obj/item/clothing/suit/storage/toggle/labcoat/security(src)
 	new /obj/item/clothing/under/det/black(src)
 	new /obj/item/clothing/under/det/classic(src)
 	new /obj/item/clothing/accessory/badge/investigator(src)
@@ -366,7 +373,7 @@
 	//Tools
 	new /obj/item/device/radio/headset/headset_sec(src)
 	new /obj/item/device/radio/headset/headset_sec/alt(src)
-	new /obj/item/clothing/suit/armor/carrier/generic(src)
+	new /obj/item/clothing/suit/armor/carrier/officer(src)
 	new /obj/item/gun/energy/disruptorpistol/miniature/security(src)
 	new /obj/item/taperoll/police(src)
 	new /obj/item/device/flash(src)

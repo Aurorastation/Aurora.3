@@ -481,7 +481,7 @@
 			if (!attempt_grab(M))
 				return
 
-			var/obj/item/grab/G = new /obj/item/grab(M, src)
+			var/obj/item/grab/G = new /obj/item/grab(M, M, src)
 
 			M.put_in_active_hand(G)
 
@@ -659,7 +659,7 @@
 
 /mob/living/simple_animal/updatehealth()
 	..()
-	if (health <= 0)
+	if (health <= 0 && (stat != DEAD))
 		death()
 
 /mob/living/simple_animal/death(gibbed, deathmessage = "dies!")
@@ -929,6 +929,15 @@
 
 /mob/living/simple_animal/set_respawn_time()
 	set_death_time(ANIMAL, world.time)
+
+/mob/living/simple_animal/get_organ_name_from_zone(var/def_zone)
+	return pick(organ_names)
+
+/mob/living/simple_animal/is_anti_materiel_vulnerable()
+	if(isSynthetic())
+		return TRUE
+	else
+		return FALSE
 
 #undef BLOOD_NONE
 #undef BLOOD_LIGHT

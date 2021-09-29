@@ -3,6 +3,11 @@
 	desc = "A plain white coffee cup."
 	icon = 'icons/obj/drink_glasses/coffecup.dmi'
 	icon_state = "coffeecup"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_food.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_food.dmi',
+		)
+	item_state = "coffeecup"
 	volume = 30
 	var/fillsource = "coffeecup"
 
@@ -47,6 +52,11 @@
 	name = "\improper DPRA coffee cup"
 	desc = "A metal coffee cup bearing the flag of the Democratic People's Republic of Adhomai."
 	icon_state = "coffeecup_dpra"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/sedantis
+	name = "\improper Sedantis coffee cup"
+	desc = "A metal coffee cup bearing the flag of Sedantis."
+	icon_state = "coffeecup_sedantis"
 
 // Organisations
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nt

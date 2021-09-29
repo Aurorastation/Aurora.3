@@ -188,7 +188,7 @@
 	pants["black jeans shorts"] = /obj/item/clothing/under/shorts/jeans/black
 	pants["black jeans shorts shorts"] = /obj/item/clothing/under/shorts/jeans/black/female
 	pants["grey jeans shorts"] = /obj/item/clothing/under/shorts/jeans/grey
-	pants["grey jeans shorts shorts"] = /obj/item/clothing/under/shorts/jeans
+	pants["grey jeans shorts shorts"] = /obj/item/clothing/under/shorts/jeans/grey/female
 	pants["khaki shorts"] = /obj/item/clothing/under/shorts/khaki
 	pants["khaki shorts shorts"] = /obj/item/clothing/under/shorts/khaki/female
 	gear_tweaks += new /datum/gear_tweak/path(pants)
@@ -374,3 +374,10 @@
 	display_name = "qipao"
 	path = /obj/item/clothing/under/qipao
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/uniform/miscellaneous/qipao/New()
+	..()
+	var/list/qipao = list()
+	qipao["qipao"] = /obj/item/clothing/under/qipao
+	qipao["slim qipao"] = /obj/item/clothing/under/qipao2
+	gear_tweaks += new /datum/gear_tweak/path(qipao)

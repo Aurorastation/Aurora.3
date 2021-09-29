@@ -45,7 +45,7 @@
 
 /datum/gear/flask/New()
 	..()
-	gear_tweaks += new /datum/gear_tweak/reagents(lunchables_alcohol_reagents())
+	gear_tweaks += new /datum/gear_tweak/reagents(lunchables_all_drink_reagents())
 
 /datum/gear/vacflask_cold
 	display_name = "cold vacuum-flask"
@@ -53,7 +53,7 @@
 
 /datum/gear/vacflask_cold/New()
 	..()
-	gear_tweaks += new /datum/gear_tweak/reagents(lunchables_drink_reagents())
+	gear_tweaks += new /datum/gear_tweak/reagents(lunchables_all_drink_reagents())
 
 /datum/gear/vacflask_cold/spawn_item(var/location, var/metadata)
 	. = ..()
@@ -67,7 +67,7 @@
 
 /datum/gear/vacflask_hot/New()
 	..()
-	gear_tweaks += new /datum/gear_tweak/reagents(lunchables_drink_reagents())
+	gear_tweaks += new /datum/gear_tweak/reagents(lunchables_all_drink_reagents())
 
 /datum/gear/vacflask_hot/spawn_item(var/location, var/metadata)
 	. = ..()
@@ -107,6 +107,7 @@
 	coffeecups["NKA coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nka
 	coffeecups["PRA coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra
 	coffeecups["DPRA coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/dpra
+	coffeecups["sedantis coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/sedantis
 	coffeecups["NT coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nt
 	coffeecups["TCFL coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcfl
 	coffeecups["#1 coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/one
@@ -126,7 +127,7 @@
 	coffeecups["tall metal coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tall/metal
 	coffeecups["tall rainbow coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tall/rainbow
 	gear_tweaks += new /datum/gear_tweak/path(coffeecups)
-	gear_tweaks += new /datum/gear_tweak/reagents(lunchables_drink_reagents())	
+	gear_tweaks += new /datum/gear_tweak/reagents(lunchables_drink_reagents())
 
 /datum/gear/coffeecup/spawn_item(var/location, var/metadata)
 	. = ..()
@@ -164,6 +165,7 @@
 	banners["banner, Coalition of Colonies"] = /obj/item/flag/coalition
 	banners["banner, Confederate States of Fisanduh"] = /obj/item/flag/fisanduh
 	banners["banner, Gadpathur"] = /obj/item/flag/gadpathur
+	banners["banner, Vysoka"] = /obj/item/flag/vysoka
 	gear_tweaks += new /datum/gear_tweak/path(banners)
 
 /datum/gear/standard
@@ -211,6 +213,7 @@
 	flags["flag, Coalition of Colonies"] = /obj/item/flag/coalition/l
 	flags["flag, Confederate States of Fisanduh"] = /obj/item/flag/fisanduh/l
 	flags["flag, Gadpathur"] = /obj/item/flag/gadpathur/l
+	flags["flag, Vysoka"] = /obj/item/flag/vysoka/l
 	gear_tweaks += new /datum/gear_tweak/path(flags)
 
 /datum/gear/towel

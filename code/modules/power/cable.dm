@@ -483,7 +483,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	throw_range = 5
 	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 20)
 	recyclable = TRUE
-	flags = CONDUCT
+	flags = HELDMAPTEXT|CONDUCT
 	slot_flags = SLOT_BELT
 	attack_verb = list("whipped", "lashed", "disciplined", "flogged")
 	stacktype = /obj/item/stack/cable_coil
@@ -630,6 +630,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	update_held_icon()
 	cut_overlays()
 	add_overlay(overlay_image(icon, "[icon_state]_end", flags=RESET_COLOR))
+	check_maptext(SMALL_FONTS(7, get_amount()))
 
 /obj/item/stack/cable_coil/attackby(var/obj/item/W, var/mob/user)
 	if(W.ismultitool())
@@ -661,7 +662,10 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 /obj/item/stack/cable_coil/examine(mob/user)
 	..()
-	to_chat(user, "There [src.amount == 1 ? "is" : "are"] <b>[src.amount]</b> [src.singular_name]\s of cable in the coil.")
+	if(!uses_charge)
+		to_chat(user, "There [src.amount == 1 ? "is" : "are"] <b>[src.amount]</b> [src.singular_name]\s of cable in the coil.")
+	else
+		to_chat(user, "You have enough charge to produce <b>[get_amount()]</b>.")
 
 /obj/item/stack/cable_coil/verb/make_restraint()
 	set name = "Make Cable Restraints"

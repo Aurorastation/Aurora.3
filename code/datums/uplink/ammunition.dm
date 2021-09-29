@@ -51,3 +51,8 @@
 	name = "7.62mm clip"
 	path = /obj/item/ammo_magazine/boltaction
 	desc = "Contains five rounds of 7.62mm bullets."
+
+/datum/uplink_item/item/ammo/peac
+	name = "Anti-materiel Cannon Cartridge"
+	path = /obj/item/ammo_casing/peac
+	desc = "Contains one anti-materiel cannon cartridge."

@@ -12,7 +12,7 @@
 	var/list/hud_list[11]
 	var/embedded_flag	  //To check if we've need to roll for damage on movement while an item is imbedded in us.
 	var/obj/item/rig/wearing_rig // This is very not good, but it's much much better than calling get_rig() every update_canmove() call.
-	mob_size = 9//Based on average weight of a human
+	mob_size = 9 //Based on average weight of a human
 
 /mob/living/carbon/human/Initialize(mapload, var/new_species = null)
 	if(!dna)
@@ -185,8 +185,8 @@
 	if(statpanel("Status"))
 		stat("Intent:", "[a_intent]")
 		stat("Move Mode:", "[m_intent]")
-		if(emergency_shuttle)
-			var/eta_status = emergency_shuttle.get_status_panel_eta()
+		if(evacuation_controller)
+			var/eta_status = evacuation_controller.get_status_panel_eta()
 			if(eta_status)
 				stat(null, eta_status)
 		if(is_diona() && DS)
@@ -1917,7 +1917,10 @@
 /mob/living/carbon/human/should_have_organ(var/organ_check)
 	return (species?.has_organ[organ_check])
 
-/mob/living/carbon/human/proc/resuscitate()
+/mob/living/proc/resuscitate()
+	return FALSE
+
+/mob/living/carbon/human/resuscitate()
 	if(!is_asystole() || !should_have_organ(BP_HEART))
 		return
 	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]

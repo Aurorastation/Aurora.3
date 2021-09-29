@@ -22,6 +22,7 @@ var/global/datum/robolimb/basic_robolimb
 	var/list/species_can_use = list(
 		SPECIES_HUMAN,
 		SPECIES_SKRELL,
+		SPECIES_SKRELL_AXIORI,
 		SPECIES_TAJARA,
 		SPECIES_TAJARA_ZHAN,
 		SPECIES_TAJARA_MSAI,

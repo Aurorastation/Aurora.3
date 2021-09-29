@@ -423,7 +423,7 @@
 				break
 
 	Debug("ER/([H]): Completed.")
-
+	H.megavend = 1
 	return H
 
 /mob/living/carbon/human
@@ -500,7 +500,7 @@
 			Debug("EP/([H]): Abort, H is AI.")
 			return EquipRank(H, rank, 1)
 
-	if(!current_map.command_spawn_enabled || spawning_at != "Arrivals Shuttle")
+	if(!current_map.command_spawn_enabled || spawning_at != "Arrivals Shuttle" && spawning_at != "Cryogenic Storage")
 		return EquipRank(H, rank, 1)
 
 	H.centcomm_despawn_timer = addtimer(CALLBACK(H, /mob/living/.proc/centcomm_timeout), 10 MINUTES, TIMER_STOPPABLE)
@@ -509,7 +509,7 @@
 
 	H.job = rank
 
-	if(spawning_at != "Arrivals Shuttle" || job.latejoin_at_spawnpoints)
+	if(spawning_at != "Arrivals Shuttle" && spawning_at != "Cryogenic Storage" || job.latejoin_at_spawnpoints)
 		return EquipRank(H, rank, 1)
 
 	var/list/spawn_in_storage = list()
@@ -654,38 +654,46 @@
 
 	H.job = rank
 
-	if(job.latejoin_at_spawnpoints)
-		for (var/thing in landmarks_list)
-			var/obj/effect/landmark/L = thing
-			if(istype(L))
-				if(L.name == "LateJoin[rank]")
-					H.forceMove(L.loc)
-					return
+	if(current_map.force_spawnpoint && LAZYLEN(force_spawnpoints))
+		if(force_spawnpoints[rank])
+			H.forceMove(pick(force_spawnpoints[rank]))
+		else
+			H.forceMove(pick(force_spawnpoints["Anyone"]))
+	else
+		if(job.latejoin_at_spawnpoints)
+			for (var/thing in landmarks_list)
+				var/obj/effect/landmark/L = thing
+				if(istype(L))
+					if(L.name == "LateJoin[rank]")
+						H.forceMove(L.loc)
+						return
 
-	var/datum/spawnpoint/spawnpos
+		var/datum/spawnpoint/spawnpos
 
-	if(H.client.prefs.spawnpoint)
-		spawnpos = SSatlas.spawn_locations[H.client.prefs.spawnpoint]
+		if(H.client.prefs.spawnpoint)
+			spawnpos = SSatlas.spawn_locations[H.client.prefs.spawnpoint]
 
-	if(spawnpos && istype(spawnpos))
-		if(spawnpos.check_job_spawning(rank))
-			if(istype(spawnpos, /datum/spawnpoint/cryo) && (rank in command_positions))
-				var/datum/spawnpoint/cryo/C = spawnpos
-				if(length(C.command_turfs))
-					H.forceMove(pick(C.command_turfs))
+		if(spawnpos && istype(spawnpos))
+			if(spawnpos.check_job_spawning(rank))
+				if(istype(spawnpos, /datum/spawnpoint/cryo) && (rank in command_positions))
+					var/datum/spawnpoint/cryo/C = spawnpos
+					if(length(C.command_turfs))
+						H.forceMove(pick(C.command_turfs))
+					else
+						H.forceMove(pick(spawnpos.turfs))
 				else
 					H.forceMove(pick(spawnpos.turfs))
+				. = spawnpos.msg
+				spawnpos.after_join(H)
 			else
-				H.forceMove(pick(spawnpos.turfs))
-			. = spawnpos.msg
-			spawnpos.after_join(H)
+				to_chat(H, "Your chosen spawnpoint ([spawnpos.display_name]) is unavailable for your chosen job. Spawning you at the Arrivals shuttle instead.")
+				H.forceMove(pick(latejoin))
+				. = "is inbound from the [current_map.dock_name]"
 		else
-			to_chat(H, "Your chosen spawnpoint ([spawnpos.display_name]) is unavailable for your chosen job. Spawning you at the Arrivals shuttle instead.")
 			H.forceMove(pick(latejoin))
 			. = "is inbound from the [current_map.dock_name]"
-	else
-		H.forceMove(pick(latejoin))
-		. = "is inbound from the [current_map.dock_name]"
+
+	H.mind.selected_faction = SSjobs.GetFaction(H)
 
 	Debug("LS/([H]): Completed, spawning at area [H.loc.loc].")
 

@@ -18,6 +18,7 @@
 	var/light_power_on = 1
 	var/overlay_layer
 	var/is_holographic = TRUE
+	var/icon_broken = "broken"
 
 /obj/machinery/computer/Initialize()
 	. = ..()
@@ -69,9 +70,9 @@
 	if(stat & BROKEN)
 		icon_state = "[initial(icon_state)]-broken"
 		if (overlay_layer != layer)
-			add_overlay(image(icon, "broken", overlay_layer))
+			add_overlay(image(icon, icon_broken, overlay_layer))
 		else
-			add_overlay("broken")
+			add_overlay(icon_broken)
 	else if (icon_screen)
 		if (is_holographic)
 			holographic_overlay(src, src.icon, icon_screen)

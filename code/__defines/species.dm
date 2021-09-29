@@ -1,8 +1,10 @@
 #define SPECIES_HUMAN				"Human"
 #define SPECIES_HUMAN_OFFWORLD		"Off-Worlder Human"
-#define SPECIES_SKRELL				"Skrell"
 #define SPECIES_UNATHI				"Unathi"
 #define SPECIES_DIONA				"Diona"
+
+#define SPECIES_SKRELL				"Skrell"
+#define SPECIES_SKRELL_AXIORI		"Axiori"
 
 #define SPECIES_TAJARA				"Tajara"
 #define SPECIES_TAJARA_ZHAN			"Zhan-Khazan Tajara"
@@ -66,6 +68,7 @@
 #define SPECIES_GOLEM_URANIUM		"Uranium Golem"
 #define SPECIES_GOLEM_MEAT			"Homunculus"
 #define SPECIES_GOLEM_ADAMANTINE	"Adamantine Golem"
+#define SPECIES_GOLEM_TECHOMANCER	"Technomancer Golem"
 
 
 #define BODYTYPE_HUMAN				"Human"

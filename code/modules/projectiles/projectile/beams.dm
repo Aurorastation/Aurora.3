@@ -50,6 +50,13 @@
 	damage = 35
 	armor_penetration = 10
 
+/obj/item/projectile/beam/midlaser/ice
+	damage = 25
+	armor_penetration = 10
+
+/obj/item/projectile/beam/midlaser/mech
+	armor_penetration = 35
+
 /obj/item/projectile/beam/heavylaser
 	name = "heavy laser"
 	icon_state = "heavylaser"
@@ -70,6 +77,10 @@
 	tracer_type = /obj/effect/projectile/tracer/xray
 	impact_type = /obj/effect/projectile/impact/xray
 
+/obj/item/projectile/beam/xray/mech
+	damage = 40
+	armor_penetration = 75
+
 /obj/item/projectile/beam/pulse
 	name = "pulse"
 	icon_state = "u_laser"
@@ -79,6 +90,10 @@
 	muzzle_type = /obj/effect/projectile/muzzle/pulse
 	tracer_type = /obj/effect/projectile/tracer/pulse
 	impact_type = /obj/effect/projectile/impact/pulse
+
+/obj/item/projectile/beam/pulse/mech
+	damage = 45
+	armor_penetration = 40
 
 /obj/item/projectile/beam/pulse/on_hit(var/atom/target, var/blocked = 0)
 	if(isturf(target))

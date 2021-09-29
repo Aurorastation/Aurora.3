@@ -4,6 +4,7 @@ var/global/list/sparring_attack_cache = list()
 /datum/unarmed_attack
 	var/attack_verb = list("attack")	// Empty hand hurt intent verb.
 	var/attack_noun = list("fist")
+	var/desc = "A simple unarmed attack."
 	var/damage = 0						// Extra empty hand attack damage.
 	var/attack_sound = /decl/sound_category/punch_sound
 	var/miss_sound = /decl/sound_category/punchmiss_sound
@@ -12,7 +13,7 @@ var/global/list/sparring_attack_cache = list()
 	var/edge = FALSE
 
 	var/damage_type = BRUTE
-	var/sparring_variant_type = /datum/unarmed_attack/light_strike
+	var/sparring_variant_type = /datum/unarmed_attack/pain_strike
 
 	var/eye_attack_text
 	var/eye_attack_text_victim
@@ -130,6 +131,7 @@ var/global/list/sparring_attack_cache = list()
 /datum/unarmed_attack/bite
 	attack_verb = list("bit")
 	attack_sound = 'sound/weapons/bite.ogg'
+	desc = "Biting down on the opponent with your teeth. Only possible if you aren't wearing a muzzle. Don't try biting their head, it won't work!"
 	shredding = 0
 	damage = 0
 	sharp = 0
@@ -148,6 +150,7 @@ var/global/list/sparring_attack_cache = list()
 /datum/unarmed_attack/punch
 	attack_verb = list("punched")
 	attack_noun = list("fist")
+	desc = "A classic, beating the nonsense out of your enemies with your arm clubs. The damage is variable, but it's versatile and you will never* lose them.<br>*Almost Never"
 	eye_attack_text = "fingers"
 	eye_attack_text_victim = "digits"
 	damage = 0
@@ -199,10 +202,27 @@ var/global/list/sparring_attack_cache = list()
 	else
 		user.visible_message("<span class='danger'>[user] [pick("punched", "threw a punch against", "struck", "slammed their [pick(attack_noun)] into")] [target]'s [organ]!</span>") //why do we have a separate set of verbs for lying targets?
 
+/datum/unarmed_attack/palm // attacking with a fist generally gives higher DPS, this is for style points
+	attack_verb = list("smacked")	// Empty hand hurt intent verb.
+	attack_noun = list("palm")
+	desc = "Striking your opponent with your palm. Certainly a method to do damage to flesh beneath the skin without risking your knuckles. This method of attack showcases some more restraint, the damage output is more stable, too."
+	damage = 2
+	attack_name = "palm"
+
+/datum/unarmed_attack/palm/unathi // only one more damage, pretty much just for show
+	attack_sound = /decl/sound_category/punch_bassy_sound
+	desc = "Striking your opponent with your palm. A method of dishing out damage without risking your claws or shredding your opponent to ribbons. This method of attack showcases some more restraint, the damage output is more stable, too."
+	damage = 3
+
+/datum/unarmed_attack/palm/industrial
+	desc = "Striking your opponent with your palm. Certainly a method to do damage to flesh beneath the skin without risking your knuckles. This method of attack showcases some more restraint, but you're still going to lay on the hurt."
+	damage = 5
+
 /datum/unarmed_attack/kick
 	attack_verb = list("kicked", "kicked", "kicked", "kneed")
 	attack_noun = list("kick", "kick", "kick", "knee strike")
 	attack_sound = /decl/sound_category/swing_hit_sound
+	desc = "A high risk, pretty low reward move. It could be useful if your shoes has a knife sticking out the front, or if you're a trained martial arts master. Make sure to target the lower parts of the body, or else you won't be able to reach!"
 	damage = 0
 	attack_name = "kick"
 
@@ -248,6 +268,7 @@ var/global/list/sparring_attack_cache = list()
 	attack_verb = null
 	attack_noun = list("stomp")
 	attack_sound = /decl/sound_category/swing_hit_sound
+	desc = "An incredible tactic for turning a downed opponent into tenderized meat! Stomping is a safe and sound method of dispatching downed enemies, but it only works if they're already lying down."
 	damage = 0
 	attack_name = "stomp"
 
@@ -290,13 +311,22 @@ var/global/list/sparring_attack_cache = list()
 		if(1 to 4)	user.visible_message("<span class='danger'>[pick("[user] stomped on", "[user] slammed [user.get_pronoun("his")] [shoes ? copytext(shoes.name, 1, -1) : "foot"] down onto")] [target]'s [organ]!</span>")
 		if(5)		user.visible_message("<span class='danger'>[pick("[user] landed a powerful stomp on", "[user] stomped down hard on", "[user] slammed [user.get_pronoun("his")] [shoes ? copytext(shoes.name, 1, -1) : "foot"] down hard onto")] [target]'s [organ]!</span>") //Devastated lol. No. We want to say that the stomp was powerful or forceful, not that it /wrought devastation/
 
-/datum/unarmed_attack/light_strike
+/datum/unarmed_attack/pain_strike
 	damage_type = PAIN
 	attack_noun = list("tap","light strike")
 	attack_verb = list("tapped", "lightly struck")
+	desc = "Sparring: A light strike to your opponent. So light, it won't even leave a mark! They WILL feel this, but will suffer no dangerous side effect, unless you punch them into cardiac arrest!"
 	damage = 2
 	shredding = 0
 	damage = 0
 	sharp = 0
 	edge = FALSE
 	attack_name = "light hit"
+
+/datum/unarmed_attack/pain_strike/heavy
+	attack_noun = list("smack", "heavy strike")
+	attack_verb = list("smacked", "strongly struck")
+	desc = "Sparring: A heavy strike to your opponent. With poise and precision, no evidence will be left behind! They WILL ABSOLUTELY feel this, but will suffer no dangerous side effect, unless you punch them into cardiac arrest! Show off your might!"
+	damage = 4
+	attack_name = "heavy hit"
+	attack_sound = /decl/sound_category/punch_bassy_sound

@@ -30,9 +30,9 @@
 /obj/item/mech_component/propulsion/return_diagnostics(mob/user)
 	..()
 	if(motivator)
-		to_chat(user, SPAN_NOTICE(" Actuator Integrity: <b>[round(((motivator.max_dam - motivator.total_dam) / motivator.max_dam)) * 100]%</b>"))
+		to_chat(user, SPAN_NOTICE("  - Actuator Integrity: <b>[round(((motivator.max_dam - motivator.total_dam) / motivator.max_dam) * 100, 0.1)]%</b>"))
 	else
-		to_chat(user, SPAN_WARNING(" Actuator Missing or Non-functional."))
+		to_chat(user, SPAN_WARNING("  - Actuator Missing or Non-functional."))
 
 /obj/item/mech_component/propulsion/ready_to_install()
 	return motivator

@@ -64,7 +64,8 @@
 	update_name()
 	update_icon()
 
-/obj/item/reagent_containers/glass/rag/proc/update_name()
+/obj/item/reagent_containers/glass/rag/proc/update_name(var/base_name = initial(name))
+	SEND_SIGNAL(src, COMSIG_BASENAME_SETNAME, args)
 	if(on_fire)
 		name = "burning [base_name]"
 	else if(reagents.total_volume)
@@ -107,7 +108,7 @@
 
 /obj/item/reagent_containers/glass/rag/proc/wipe_down(atom/A, mob/user)
 	if(!reagents.total_volume)
-		to_chat(user, SPAN_WARNING("\The [base_name] is dry!"))
+		to_chat(user, SPAN_WARNING("\The [name] is dry!"))
 	else
 		if (!(last_clean && world.time < last_clean + 120) )
 			user.visible_message("<b>[user]</b> starts to wipe [A] with [src].")

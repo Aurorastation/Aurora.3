@@ -11,7 +11,7 @@
 	landmark_name = "CCIAAgent"
 	req_perms = R_CCIAA
 
-	possible_species = list(SPECIES_HUMAN, SPECIES_SKRELL)
+	possible_species = list(SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	respawn_flag = null
@@ -155,7 +155,7 @@
 
 	//Vars related to human mobs
 	outfit = /datum/outfit/admin/tcfl
-	possible_species = list(SPECIES_HUMAN,SPECIES_TAJARA_MSAI,SPECIES_SKRELL, SPECIES_UNATHI,SPECIES_IPC)
+	possible_species = list(SPECIES_HUMAN,SPECIES_TAJARA_MSAI,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI,SPECIES_IPC)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Tau Ceti Foreign Legion Legate"

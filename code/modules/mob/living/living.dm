@@ -484,6 +484,7 @@ default behaviour is:
 	SetWeakened(0)
 
 	// shut down ongoing problems
+	stamina = max_stamina
 	total_radiation = 0
 	nutrition = 400
 	hydration = 400
@@ -1021,4 +1022,7 @@ default behaviour is:
 	set_death_time(CREW, world.time)
 //Used by simple animals and monkey species for renaming. M is the one doing the renaming
 /mob/living/proc/can_name(var/mob/living/M)
+	return FALSE
+
+/mob/living/proc/is_anti_materiel_vulnerable()
 	return FALSE

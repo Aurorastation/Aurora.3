@@ -61,6 +61,7 @@
 	softcaps["softcap, cargo"] = /obj/item/clothing/head/softcap/cargo
 	softcaps["softcap, mining"] = /obj/item/clothing/head/softcap/miner
 	softcaps["softcap, janitor"] = /obj/item/clothing/head/softcap/janitor
+	softcaps["softcap, tcfl"] = /obj/item/clothing/head/softcap/tcfl
 
 	gear_tweaks += new /datum/gear_tweak/path(softcaps)
 
@@ -130,17 +131,17 @@
 	gear_tweaks += new /datum/gear_tweak/path(hoshead)
 
 /datum/gear/head/hardhat
-	display_name = "hardhat selection"
+	display_name = "hard hat selection"
 	path = /obj/item/clothing/head/hardhat
-	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
+	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Quartermaster", "Cargo Technician", "Shaft Miner")
 
 /datum/gear/head/hardhat/New()
 	..()
 	var/list/hardhat = list()
-	hardhat["hardhat, yellow"] = /obj/item/clothing/head/hardhat
-	hardhat["hardhat, blue"] = /obj/item/clothing/head/hardhat/dblue
-	hardhat["hardhat, orange"] = /obj/item/clothing/head/hardhat/orange
-	hardhat["hardhat, red"] = /obj/item/clothing/head/hardhat/red
+	hardhat["hard hat, yellow"] = /obj/item/clothing/head/hardhat
+	hardhat["hard hat, blue"] = /obj/item/clothing/head/hardhat/dblue
+	hardhat["hard hat, orange"] = /obj/item/clothing/head/hardhat/orange
+	hardhat["hard hat, red"] = /obj/item/clothing/head/hardhat/red
 	gear_tweaks += new /datum/gear_tweak/path(hardhat)
 
 /datum/gear/head/hairflower
