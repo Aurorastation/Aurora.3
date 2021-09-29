@@ -5,6 +5,8 @@
 	lobby_icons = list('icons/misc/titlescreens/mendell/mendell_city.dmi')
 	lobby_transitions = FALSE
 
+	allowed_jobs = list(/datum/job/visitor)
+
 	station_levels = list(1)
 	admin_levels = list()
 	contact_levels = list(1)
