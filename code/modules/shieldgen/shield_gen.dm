@@ -31,8 +31,6 @@
 	use_power = 0	//doesn't use APC power
 	var/multiz = FALSE
 	var/multi_unlocked = FALSE
-	var/power_take
-	var/shield_power
 
 /obj/machinery/shield_gen/Initialize()
 	for(var/obj/machinery/shield_capacitor/possible_cap in range(1, src))
@@ -77,7 +75,7 @@
 				for(var/obj/machinery/shield_capacitor/cap in range(1, src))
 					if(cap.owned_gen)
 						continue
-					if(get_dir(cap, src) == cap.dir && src.anchored)
+					if(get_dir(cap, src) == cap.dir && cap.anchored)
 						owned_capacitor = cap
 						owned_capacitor.owned_gen = src
 						updateDialog()
@@ -100,47 +98,25 @@
 	interact(user)
 
 /obj/machinery/shield_gen/interact(mob/user)
-	if ( (get_dist(src, user) > 1 ) || (stat & (BROKEN)) )
-		if (!istype(user, /mob/living/silicon))
-			user.unset_machine()
-			user << browse(null, "window=shield_generator")
-			return
-	var/t = "<B>Shield Generator Control Console</B><BR><br>"
 	if(locked)
-		t += "<i>Swipe your ID card to begin.</i>"
+		to_chat(user, "The device is locked. Swipe your id to unlock it.")
+		return
+	if(anchored)
+		for(var/obj/machinery/shield_capacitor/cap in range(1, src))
+			if(cap.owned_gen)
+				continue
+			if(get_dir(cap, src) == cap.dir && cap.anchored)
+				owned_capacitor = cap
+				owned_capacitor.owned_gen = src
+				updateDialog()
+				break
 	else
-		t += "[owned_capacitor ? "<font color=green>Charge capacitor connected.</font>" : "<font color=red>Unable to locate charge capacitor!</font>"]<br>"
-		t += "This generator is: [active ? "<font color=green>Online</font>" : "<font color=red>Offline</font>" ] <a href='?src=\ref[src];toggle=1'>[active ? "\[Deactivate\]" : "\[Activate\]"]</a><br>"
-		t += "Field Status: [time_since_fail > 2 ? "<font color=green>Stable</font>" : "<font color=red>Unstable</font>"]<br>"
-		if(multi_unlocked)
-			t += "Multi-level shields are: [multiz ? "<font color=green>Online</font>" : "<font color=red>Offline</font>" ] <a href='?src=\ref[src];ztoggle=1'>[multiz ? "\[Deactivate\]" : "\[Activate\]"]</a><br>"
-		t += "Coverage Radius (restart required): \
-		<a href='?src=\ref[src];change_radius=-50'>---</a> \
-		<a href='?src=\ref[src];change_radius=-5'>--</a> \
-		<a href='?src=\ref[src];change_radius=-1'>-</a> \
-		[field_radius] m \
-		<a href='?src=\ref[src];change_radius=1'>+</a> \
-		<a href='?src=\ref[src];change_radius=5'>++</a> \
-		<a href='?src=\ref[src];change_radius=50'>+++</a><br>"
-		t += "Overall Field Strength: [round(average_field_strength, 0.01)] Renwick ([target_field_strength ? round(100 * average_field_strength / target_field_strength, 0.1) : "NA"]%)<br>"
-		t += "Upkeep Power: [round(field.len * max(average_field_strength * dissipation_rate, min_dissipation) / energy_conversion_rate)] W<br>"
-		t += "Charge Rate: <a href='?src=\ref[src];strengthen_rate=-0.1'>--</a> \
-		[strengthen_rate] Renwick/s \
-		<a href='?src=\ref[src];strengthen_rate=0.1'>++</a><br>"
-		t += "Shield Generation Power: [round(field.len * min(strengthen_rate, target_field_strength - average_field_strength) / energy_conversion_rate)] W<br>"
-		t += "Maximum Field Strength: \
-		<a href='?src=\ref[src];target_field_strength=-10'>\[min\]</a> \
-		<a href='?src=\ref[src];target_field_strength=-5'>--</a> \
-		<a href='?src=\ref[src];target_field_strength=-1'>-</a> \
-		[target_field_strength] Renwick \
-		<a href='?src=\ref[src];target_field_strength=1'>+</a> \
-		<a href='?src=\ref[src];target_field_strength=5'>++</a> \
-		<a href='?src=\ref[src];target_field_strength=10'>\[max\]</a><br>"
-	t += "<hr>"
-	t += "<A href='?src=\ref[src]'>Refresh</A> "
-	t += "<A href='?src=\ref[src];close=1'>Close</A><BR>"
-	user << browse(t, "window=shield_generator;size=500x400")
-	user.set_machine(src)
+		if(owned_capacitor && owned_capacitor.owned_gen == src)
+			owned_capacitor.owned_gen = null
+		owned_capacitor = null
+	return src.ui_interact(user)
+
+
 
 /obj/machinery/shield_gen/machinery_process()
 	if (!anchored && active)
@@ -183,33 +159,7 @@
 	else
 		average_field_strength = 0
 
-	power_take = round(field.len * max(average_field_strength * dissipation_rate, min_dissipation) / energy_conversion_rate)
-	shield_power = round(field.len * min(strengthen_rate, target_field_strength - average_field_strength) / energy_conversion_rate)
-
-// /obj/machinery/shield_gen/Topic(href, href_list[])
-// 	..()
-// 	if( href_list["close"] )
-// 		usr << browse(null, "window=shield_generator")
-// 		usr.unset_machine()
-// 		return
-// 	else if( href_list["toggle"] )
-// 		if (!active && !anchored)
-// 			to_chat(usr, "<span class='warning'>The [src] needs to be firmly secured to the floor first.</span>")
-// 			return
-// 		toggle()
-// 	else if( href_list["ztoggle"] )
-// 		multiz = !multiz
-// 	else if( href_list["change_radius"] )
-// 		field_radius = between(0, field_radius + text2num(href_list["change_radius"]), max_field_radius)
-// 	else if( href_list["strengthen_rate"] )
-// 		strengthen_rate = between(0,  strengthen_rate + text2num(href_list["strengthen_rate"]), max_strengthen_rate)
-// 	else if( href_list["target_field_strength"] )
-// 		target_field_strength = between(1, target_field_strength + text2num(href_list["target_field_strength"]), max_field_strength)
-
-// 	updateDialog()
-
 /obj/machinery/shield_gen/ex_act(var/severity)
-
 	if(active)
 		toggle()
 	return ..()
@@ -276,71 +226,65 @@
 		if (T)
 			. += T
 
-/obj/machinery/shield_gen/attack_hand(var/mob/user)
-	ui_interact(user)
-
 /obj/machinery/shield_gen/ui_interact(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(usr, src)
+	// update the ui if it exists, returns null if no ui is passed/found
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new(usr, src, "machinery-orderterminal-ordering", 450, 450, "Idris Ordering Terminal")
-	ui.open()
+		// the ui does not exist, so we'll create a new() one
+		ui = new(user, src, "machinery-shields-shield", 480, 400, "Shield Generator", state = interactive_state)
+		// open the new ui window
+		ui.open()
+		// auto update every Master Controller tick
+		ui.auto_update_content = TRUE
 
 /obj/machinery/shield_gen/vueui_data_change(list/data, mob/user, datum/vueui/ui)
-	if(!data)
-		. = data = list()
-
-	// VUEUI_SET_CHECK_IFNOTSET(data["items"], items, ., data) // List of items that is on the menu
-	// VUEUI_SET_CHECK_IFNOTSET(data["price"], items, ., data) // the price of said items
-	// VUEUI_SET_CHECK_IFNOTSET(data["buying"], buying, ., data) // And the list with items the customer is buying
-	// VUEUI_SET_CHECK_IFNOTSET(data["sum"], sum, ., data)
-	VUEUI_SET_CHECK_IFNOTSET(data["tmp_name"], "", ., data)
-	VUEUI_SET_CHECK_IFNOTSET(data["strengthen_rate"], 0, ., data)
-	VUEUI_SET_CHECK(data["strengthen_rate"], max(0, data["strengthen_rate"]), ., data)
-	if(data["strengthen_rate"] < 0)
-		data["strengthen_rate"] = 0
-		. = data
-	// VUEUI_SET_CHECK(data["editmode"], editmode, ., data)
-	// VUEUI_SET_CHECK(data["destinationact"], destinationact, ., data)
+	data = ..() || list()
 
 	// this is the data which will be sent to the ui
-	data["name"] = name
-	// data["canLabel"] = can_label
-	// data["portConnected"] = !!connected_port
-	// data["tankPressure"] = round(air_contents.return_pressure() || 0)
-	data["coverageRadius"] = round(1 || 0)
-	data["mincoverageRadius"] = 1
-	data["maxcoverageRadius"] = 100
-	// data["valveOpen"] = valve_open
+	data["owned_capacitor"] = owned_capacitor
+	data["active"] = active
+	data["time_since_fail"] = time_since_fail
+	data["multi_unlocked"] = multi_unlocked
+	data["multiz"] = multiz
+	data["field_radius"] = field_radius
+	data["min_field_radius"] = 1
+	data["max_field_radius"] = max_field_radius
+	data["average_field"] = round(average_field_strength, 0.01)
+	data["progress_field"] = (target_field_strength ? round(100 * average_field_strength / target_field_strength, 0.1) : "NA")
+	data["power_take"] = round(field.len * max(average_field_strength * dissipation_rate, min_dissipation) / energy_conversion_rate)
+	data["shield_power"] = round(field.len * min(strengthen_rate, target_field_strength - average_field_strength) / energy_conversion_rate)
+	data["strengthen_rate"] = (strengthen_rate * 10)
+	data["max_strengthen_rate"] = (max_strengthen_rate * 10)
+	data["target_field_strength"] = target_field_strength
 
-	// data["hasHoldingTank"] = !!holding
-	// if (holding)
-	// 	data["holdingTank"] = list("name" = holding.name, "tankPressure" = round(holding.air_contents.return_pressure()))
 	return data
 
-/obj/machinery/orderterminal/Topic(href, href_list)
-	var/datum/vueui/ui = href_list["vueui"]
-	if(!istype(ui))
+/obj/machinery/shield_gen/Topic(href, href_list)
+
+	//Do not use "if(..()) return" here, canisters will stop working in unpowered areas like space or on the derelict. // yeah but without SOME sort of Topic check any dick can mess with them via exploits as he pleases -walter0o
+	//First comment might be outdated.
+	if (!istype(src.loc, /turf))
+		return 0
+
+	if(!usr.canmove || usr.stat || usr.restrained() || !in_range(loc, usr)) // exploit protection -walter0o
+		var/datum/vueui/ui = href_list["vueui"]
+		ui?.close()
 		return
 
-	..()
-	if( href_list["close"] )
-		usr << browse(null, "window=shield_generator")
-		usr.unset_machine()
-		return
-	else if( href_list["toggle"] )
-		if (!active && !anchored)
-			to_chat(usr, "<span class='warning'>The [src] needs to be firmly secured to the floor first.</span>")
-			return
+	if(href_list["toggle"])
 		toggle()
-	else if( href_list["ztoggle"] )
+
+	if(href_list["multiz"])
 		multiz = !multiz
-	else if( href_list["change_radius"] )
-		field_radius = between(0, field_radius + text2num(href_list["change_radius"]), max_field_radius)
-	else if( href_list["strengthen_rate"] )
-		strengthen_rate = between(0,  strengthen_rate + text2num(href_list["strengthen_rate"]), max_strengthen_rate)
-	else if( href_list["target_field_strength"] )
-		target_field_strength = between(1, target_field_strength + text2num(href_list["target_field_strength"]), max_field_strength)
 
+	if (href_list["size_set"])
+		field_radius = between(1, text2num(href_list["size_set"]), max_field_radius)
 
-	. = TRUE
-	SSvueui.check_uis_for_change(src)
+	if (href_list["charge_set"])
+		strengthen_rate = (between(1, text2num(href_list["charge_set"]), (max_strengthen_rate * 10)) / 10)
+
+	if (href_list["field_set"])
+		target_field_strength = between(1, text2num(href_list["field_set"]), 10)
+
+	src.add_fingerprint(usr)
+	return 1

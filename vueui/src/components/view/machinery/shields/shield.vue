@@ -1,73 +1,71 @@
 <template>
   <div>
-    <div v-if="multi_unlocked == 1">
-      <vui-button :params="{ active: 1 }" width="3em">Toggle</vui-button>
-    </div>
+    <vui-group>
+      <vui-group-item label="Capacitator status:">
+        <span :class="owned_capacitor ? good : average">{{owned_capacitor ? "Charge capacitor connected" : "Unable to locate charge capacitor"}}</span>
+      </vui-group-item>
 
-    <div style="clear: both;">
-      <div v-if="time_since_fail >= 2">
-        Field Status: Stable
-      </div>
-      <div v-if="time_since_fail < 2">
-        Field Status: Unstable
-      </div>
-    </div>
-    
-    <div v-if="multi_unlocked == 1">
-      <vui-button :params="{ ztoggle: 1 }" width="3em">Toggle</vui-button>
-    </div>
+      <vui-group-item label="This generator is:">
+        <span :class="active ? good : average">{{active ? "Online" : "Offline"}}</span> <vui-button class="float-right" icon="" :params="{toggle : 1}">Toggle</vui-button>
+      </vui-group-item>
 
-    <vui-group-item label="Coverage Radius (restart required):">
-        <vui-progress style="width: 100%;" :value="coverageRadius" :min="mincoverageRadius" :max="maxcoverageRadius"/>
+      <vui-group-item label="Field Status:">
+        <span :class="time_since_fail > 2 ? good : average">{{time_since_fail > 2 ? "Stable" : "unstable"}}</span>
+      </vui-group-item>
+
+      <vui-group-item v-if="multi_unlocked" label="Multi-level Shields:">
+        <span :class="multiz ? good : average">{{multiz ? "Online" : "Offline"}}</span> <vui-button class="float-right" icon="" :params="{multiz : 1}">Toggle</vui-button>
+      </vui-group-item>
+
+      <vui-group-item label="Coverage Radius (restart required):">
         <div style="clear: both; padding-top: 4px;">
-          <vui-input-numeric width="5em" v-model="coverageRadius" :button-count="4" :min="minRcoverageRadius" :max="maxcoverageRadius" @input="$toTopic({pressure_set : coverageRadius})">{{coverageRadius}} </vui-input-numeric>
+          <vui-input-numeric width="5em" v-model="field_radius" :button-count="2" :min="min_field_radius" :max="max_field_radius" @input="$toTopic({size_set : field_radius})">{{field_radius}} M&nbsp;</vui-input-numeric>
         </div>
-    </vui-group-item>
+      </vui-group-item>
 
-    Upkeep Power: {{ power_take }} W
+      <vui-group-item label="Overall Field Strength:">
+        <span :class="average">{{ average_field }} Renwick ({{ progress_field }}%)</span>
+      </vui-group-item>
 
-    <vui-group-item label="Charge Rate">
-        <vui-progress style="width: 100%;" :value="coverageRadius" :min="mincoverageRadius" :max="maxcoverageRadius"/>
+      <vui-group-item label="Upkeep Power:">
+        <span :class="average">{{ power_take }} W</span>
+      </vui-group-item>
+
+      <vui-group-item label="Shield Generation Power:">
+        <span :class="average">{{ shield_power }} W</span>
+      </vui-group-item>
+
+      <vui-group-item label="Charge Rate:">
         <div style="clear: both; padding-top: 4px;">
-          <vui-input-numeric width="5em" v-model="coverageRadius" :button-count="4" :min="minRcoverageRadius" :max="maxcoverageRadius" @input="$toTopic({pressure_set : coverageRadius})">{{coverageRadius}} </vui-input-numeric>
+          <vui-input-numeric width="5em" v-model="strengthen_rate" :button-count="1" :min="1" :max="max_strengthen_rate" @input="$toTopic({charge_set : strengthen_rate})">{{strengthen_rate}} Renwick&nbsp;</vui-input-numeric>
         </div>
-    </vui-group-item>
-    <vui-input-numeric v-model="strengthen_rate" width="3em" :button-count="1" :min="0.1" :max="max_strengthen_rate"/>
+      </vui-group-item>
 
-    Shield Generation Power: {{ shield_power }} W
-
-    <vui-group-item label="Maximum Field Strength:">
-        <vui-progress style="width: 100%;" :value="target_field_strength" :min="1" :max="max_field_strength"/>
+      <vui-group-item label="Maximum Field strength:">
         <div style="clear: both; padding-top: 4px;">
-          <vui-input-numeric width="5em" v-model="target_field_strength" :button-count="3" :min="1" :max="max_field_strength" @input="$toTopic({pressure_set : coverageRadius})">{{coverageRadius}} </vui-input-numeric>
+          <vui-input-numeric width="5em" v-model="target_field_strength" :button-count="2" :min="1" :max="10" @input="$toTopic({field_set : target_field_strength})">{{target_field_strength}} &nbsp;</vui-input-numeric>
         </div>
-    </vui-group-item>
-
-
-    <div v-for="(price, name) in items" :key="name" style="clear: both;">
-      {{ name }}: {{ price }} Credits
-      <div style="float: right;">
-        <vui-button :params="{ buy: {name: name, price: price, amount: 1 } }" width="2em">Buy</vui-button>
-        <vui-button v-if="editmode == 1" :params="{ remove: name }" width="3em">Delete</vui-button>
-      </div>
-    </div>
-
-    
-    <vui-button :params="{ locking: 1 }" width="3em">Toggle Lock</vui-button>
-    <vui-button :params="{ confirm: buying }">Confirm Selection</vui-button>
-    <vui-button :params="{ clear: 1 }">Clear selection</vui-button>
-
-    <h4> Selected Products:</h4>
-    <div v-for="(price, name) in buying" :key="name" style="clear: both;">
-      <span v-if="buying[name] && buying[name] >= 0">
-        {{buying[name] }}x  {{ name }}: at {{ price * items[name] }} Credits
-        <div style="float: right;">
-          <vui-button :params="{ removal: {name: name, price: price, amount: 1 }}" width="2em">Remove</vui-button>
-        </div>
-      </span>
-    </div>
+      </vui-group-item>
+    </vui-group>
   </div>
 </template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <script>
 export default {

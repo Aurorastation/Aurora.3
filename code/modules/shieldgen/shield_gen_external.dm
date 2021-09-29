@@ -71,7 +71,7 @@
 	if(above)
 		connected += above
 		var/connected_levels = getzabove(above)
-		for(var/turf/z in connected_levels)
+		for(var/turf/z as anything in connected_levels)
 			connected += z
 	
 	return connected
@@ -83,7 +83,7 @@
 	if(below)
 		connected += below
 		var/connected_levels = getzbelow(below)
-		for(var/turf/z in connected_levels)
+		for(var/turf/z as anything in connected_levels)
 			connected += z
 	
 	return connected
