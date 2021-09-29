@@ -1,0 +1,8 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Cryo latejoins have been changed to need to get their equipment from an AutoDrobe Vendor, much like when boarding the shuttle."
+  - maptweak: "AutoDrobe Vendors can be found within command cryo, main level cryo & surface cryo."
+  - bugfix: "Visitors who ready up at roundstart no longer get some of their equipment dupicated upon boarding the shuttle."
