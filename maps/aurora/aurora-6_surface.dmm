@@ -14844,13 +14844,13 @@
 /turf/simulated/floor/lino/grey,
 /area/hallway/secondary/entry/departure_lounge)
 "nqU" = (
-/obj/machinery/shield_capacitor{
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable/cyan{
 	d2 = 2;
 	icon_state = "0-2"
+	},
+/obj/machinery/shield_capacitor/multiz{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/storage/shields)
@@ -23314,13 +23314,13 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
 "uAC" = (
-/obj/machinery/shield_capacitor{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable/cyan{
 	d2 = 2;
 	icon_state = "0-2"
+	},
+/obj/machinery/shield_capacitor/multiz{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/storage/shields)
@@ -23508,7 +23508,7 @@
 /obj/machinery/power/smes/buildable{
 	RCon_tag = "Surface - Shield Substation";
 	charge = 1e+007;
-	cur_coils = 4;
+	cur_coils = 5;
 	input_attempt = 1;
 	input_level = 500000;
 	output_attempt = 1;

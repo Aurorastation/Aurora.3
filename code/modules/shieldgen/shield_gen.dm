@@ -99,9 +99,18 @@
 
 /obj/machinery/shield_gen/interact(mob/user)
 	if(locked)
-		to_chat(user, "The device is locked. Swipe your id to unlock it.")
+		to_chat(user, SPAN_WARNING("The device is locked. Swipe your id to unlock it."))
 		return
-	if(anchored)
+	if(!anchored)
+		to_chat(user, SPAN_WARNING("The device needs to be bolted to the ground first."))
+		return
+	else
+		if(owned_capacitor)
+			if(!(owned_capacitor in range(1, src) && get_dir(owned_capacitor, src) == owned_capacitor.dir && owned_capacitor.anchored))
+				if(owned_capacitor.owned_gen == src)
+					owned_capacitor.owned_gen = null
+				owned_capacitor = null
+	if(!owned_capacitor)
 		for(var/obj/machinery/shield_capacitor/cap in range(1, src))
 			if(cap.owned_gen)
 				continue
@@ -110,10 +119,6 @@
 				owned_capacitor.owned_gen = src
 				updateDialog()
 				break
-	else
-		if(owned_capacitor && owned_capacitor.owned_gen == src)
-			owned_capacitor.owned_gen = null
-		owned_capacitor = null
 	return src.ui_interact(user)
 
 

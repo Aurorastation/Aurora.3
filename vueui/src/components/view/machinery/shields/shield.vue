@@ -2,25 +2,19 @@
   <div>
     <vui-group>
       <vui-group-item label="Capacitator status:">
-        <span :class="owned_capacitor ? good : average">{{owned_capacitor ? "Charge capacitor connected" : "Unable to locate charge capacitor"}}</span>
+        <span :class="owned_capacitor ? good : average || 'red'">{{owned_capacitor ? "Charge capacitor connected" : "Unable to locate charge capacitor"}}</span>
       </vui-group-item>
 
       <vui-group-item label="This generator is:">
-        <span :class="active ? good : average">{{active ? "Online" : "Offline"}}</span> <vui-button class="float-right" icon="" :params="{toggle : 1}">Toggle</vui-button>
-      </vui-group-item>
-
-      <vui-group-item label="Field Status:">
-        <span :class="time_since_fail > 2 ? good : average">{{time_since_fail > 2 ? "Stable" : "unstable"}}</span>
+        <span :class="active ? good || 'green' : average || 'red'">{{active ? "Online" : "Offline"}}</span> <vui-button class="float-right" icon="" :params="{toggle : 1}">Toggle</vui-button>
       </vui-group-item>
 
       <vui-group-item v-if="multi_unlocked" label="Multi-level Shields:">
-        <span :class="multiz ? good : average">{{multiz ? "Online" : "Offline"}}</span> <vui-button class="float-right" icon="" :params="{multiz : 1}">Toggle</vui-button>
+        <span :class="multiz ? good || 'green' : average || 'red'">{{multiz ? "Online" : "Offline"}}</span> <vui-button class="float-right" icon="" :params="{multiz : 1}">Toggle</vui-button>
       </vui-group-item>
 
-      <vui-group-item label="Coverage Radius (restart required):">
-        <div style="clear: both; padding-top: 4px;">
-          <vui-input-numeric width="5em" v-model="field_radius" :button-count="2" :min="min_field_radius" :max="max_field_radius" @input="$toTopic({size_set : field_radius})">{{field_radius}} M&nbsp;</vui-input-numeric>
-        </div>
+      <vui-group-item label="Field Status:">
+        <span :class="time_since_fail > 2 ? good || 'green' : average || 'red'">{{time_since_fail > 2 ? "Stable" : "unstable"}}</span>
       </vui-group-item>
 
       <vui-group-item label="Overall Field Strength:">
@@ -33,6 +27,12 @@
 
       <vui-group-item label="Shield Generation Power:">
         <span :class="average">{{ shield_power }} W</span>
+      </vui-group-item>
+
+      <vui-group-item label="Coverage Radius (restart required):">
+        <div style="clear: both; padding-top: 4px;">
+          <vui-input-numeric width="5em" v-model="field_radius" :button-count="2" :min="min_field_radius" :max="max_field_radius" @input="$toTopic({size_set : field_radius})">{{field_radius}} M&nbsp;</vui-input-numeric>
+        </div>
       </vui-group-item>
 
       <vui-group-item label="Charge Rate:">

@@ -8,6 +8,7 @@
 //NOT MULTIZ COMPATIBLE
 //Search for space turfs within range that are adjacent to a simulated turf.
 /obj/machinery/shield_gen/external/get_shielded_turfs()
+	set background = 1
 	var/list/out = list()
 
 	var/turf/gen_turf = get_turf(src)
@@ -33,19 +34,16 @@
 					break
 
 	if(multiz)
-		log_and_message_admins("mutliz is active")
 		var/connected_levels = list()
 		var/turf/above = getzabove(src)
 		var/turf/below = getzbelow(src)
 		if(above)
 			for(var/turf/z in above)
 				connected_levels += z
-				log_and_message_admins("adding [z]")
 		if(below)
 			for(var/turf/z in below)
 				connected_levels += z
 		for(var/turf/z in connected_levels)
-			log_and_message_admins("mutliz is checking [z]")
 			for (var/tt in RANGE_TURFS(field_radius, z))
 				T = tt
 				// Ignore station areas.
@@ -60,8 +58,6 @@
 						if (the_station_areas[U.loc])
 							out += T
 							break
-	else
-		log_and_message_admins("mutliz is broken")
 	return out
 
 /obj/machinery/shield_gen/external/proc/getzabove(var/turf/location)

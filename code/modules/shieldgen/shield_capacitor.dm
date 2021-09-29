@@ -148,3 +148,6 @@
 		icon_state = "broke"
 	else
 		..()
+
+/obj/machinery/shield_capacitor/multiz
+	max_charge_rate = 1250000	//1400 kW
