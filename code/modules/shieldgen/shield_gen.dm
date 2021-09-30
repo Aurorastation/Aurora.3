@@ -232,20 +232,15 @@
 			. += T
 
 /obj/machinery/shield_gen/ui_interact(mob/user)
-	// update the ui if it exists, returns null if no ui is passed/found
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		// the ui does not exist, so we'll create a new() one
 		ui = new(user, src, "machinery-shields-shield", 480, 400, "Shield Generator", state = interactive_state)
-		// open the new ui window
 		ui.open()
-		// auto update every Master Controller tick
 		ui.auto_update_content = TRUE
 
 /obj/machinery/shield_gen/vueui_data_change(list/data, mob/user, datum/vueui/ui)
 	data = ..() || list()
 
-	// this is the data which will be sent to the ui
 	data["owned_capacitor"] = owned_capacitor
 	data["active"] = active
 	data["time_since_fail"] = time_since_fail
@@ -265,16 +260,8 @@
 	return data
 
 /obj/machinery/shield_gen/Topic(href, href_list)
-
-	//Do not use "if(..()) return" here, canisters will stop working in unpowered areas like space or on the derelict. // yeah but without SOME sort of Topic check any dick can mess with them via exploits as he pleases -walter0o
-	//First comment might be outdated.
 	if (!istype(src.loc, /turf))
 		return 0
-
-	if(!usr.canmove || usr.stat || usr.restrained() || !in_range(loc, usr)) // exploit protection -walter0o
-		var/datum/vueui/ui = href_list["vueui"]
-		ui?.close()
-		return
 
 	if(href_list["toggle"])
 		toggle()
