@@ -19,6 +19,7 @@
 	max_damage = 200
 	power_use = 7500
 	punch_sound = 'sound/mecha/mech_punch_slow.ogg'
+	has_hardpoints = null
 
 /obj/item/mech_component/propulsion/heavy
 	name = "heavy legs"

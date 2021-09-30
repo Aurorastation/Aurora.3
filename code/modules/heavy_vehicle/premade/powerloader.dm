@@ -23,7 +23,7 @@
 	melee_damage = 40
 	desc = "The Xion Manufacturing Group Digital Interaction Manifolds allow you poke untold dangers from the relative safety of your cockpit. This model possesses a singular articulating hand hardpoint, for mostly utility use."
 	punch_sound = 'sound/mecha/mech_punch_slow.ogg'
-	has_hardpoints = HARDPOINT_RIGHT_HAND
+	has_hardpoints = list(HARDPOINT_RIGHT_HAND)
 
 /obj/item/mech_component/propulsion/ripley
 	name = "exosuit legs"
@@ -123,7 +123,7 @@
 	e_legs = /obj/item/mech_component/propulsion/ripley
 	e_color = COLOR_TCFL
 
-	h_chest = /obj/item/mecha_equipment/mounted_system/combat/gauss
+	h_chest = /obj/item/mecha_equipment/mounted_system/combat/heavy/gauss
 	h_r_hand = /obj/item/mecha_equipment/mounted_system/flarelauncher
 
 /mob/living/heavy_vehicle/premade/combatripley/Initialize()

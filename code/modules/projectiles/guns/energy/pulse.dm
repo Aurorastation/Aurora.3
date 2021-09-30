@@ -33,9 +33,9 @@
 	can_turret = 0
 
 	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun/mecha, fire_sound='sound/weapons/Taser.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/heavylaser, fire_sound='sound/weapons/laser1.ogg'),
-		list(mode_name="DESTROY", projectile_type=/obj/item/projectile/beam/pulse/heavy, fire_sound='sound/weapons/pulse.ogg', fire_delay=25)
+		list(mode_name="excessive stun", projectile_type=/obj/item/projectile/beam/stun/mecha, fire_sound='sound/weapons/Taser.ogg'),
+		list(mode_name="very lethal", projectile_type=/obj/item/projectile/beam/heavylaser, fire_sound='sound/weapons/laser1.ogg'),
+		list(mode_name="WARNING! OVERCHARGE!", projectile_type=/obj/item/projectile/beam/pulse/heavy, fire_sound='sound/weapons/pulse.ogg', fire_delay=25)
 		)
 
 /obj/item/gun/energy/pulse/pistol

@@ -392,6 +392,19 @@
 	T.throw_at(get_edge_target_turf(target, throwdir),3,3)
 	return 1
 
+/obj/item/projectile/bullet/ac/shotgun/slug
+	name = "autocannon canister slug"
+	damage = 60
+	armor_penetration = 40
+	penetrating = 1
+
+/obj/item/projectile/bullet/pellet/shotgun/mecha
+	name = "heavy ballistic spike cluster"
+	damage = 17
+	pellets = 9
+	range_step = 1
+	spread_step = 10
+
 /obj/item/projectile/bullet/ac/light/ap
 	name = "light anti-armor autocannon round"
 	damage = 55

@@ -71,6 +71,8 @@
 	if(h_head)
 		install_system(new h_head(src), HARDPOINT_HEAD)
 	if(body)
+		if(h_chest && (HARDPOINT_CHEST in body.has_hardpoints))
+			install_system(new h_chest(src), HARDPOINT_CHEST)
 		if(h_back && (HARDPOINT_BACK in body.has_hardpoints))
 			install_system(new h_back(src), HARDPOINT_BACK)
 		if(h_l_shoulder && (HARDPOINT_LEFT_SHOULDER in body.has_hardpoints))

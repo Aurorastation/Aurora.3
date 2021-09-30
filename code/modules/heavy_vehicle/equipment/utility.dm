@@ -189,7 +189,7 @@
 /obj/item/mecha_equipment/light
 	name = "floodlight"
 	desc = "An exosuit-mounted light."
-	icon_state = "floodlight"
+	icon_state = "mech_floodlight"
 	restricted_hardpoints = list(HARDPOINT_HEAD)
 	mech_layer = MECH_DECAL_LAYER
 

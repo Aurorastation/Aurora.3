@@ -321,7 +321,7 @@
 	desc = "A light autocannon, meant for exosuit usage. It has two settings ; high explosive and armor piercing."
 	icon = 'icons/mecha/mech_equipment.dmi'
 	icon_state = "ac_light"
-	fire_sound = 'sound/weapons/gaussrifle1.ogg'
+	fire_sound = 'sound/weapons/gunshot/cannon.ogg'
 	fire_delay = 3
 	charge_meter = 0
 	max_shots = 15
@@ -332,8 +332,8 @@
 	recharge_time = 6
 
 	firemodes = list(
-		list(mode_name="high explosive", projectile_type=/obj/item/projectile/bullet/ac/light/he, fire_sound='sound/weapons/gaussrifle1.ogg'),
-		list(mode_name="armor piercing", projectile_type=/obj/item/projectile/bullet/ac/light/ap, fire_sound='sound/weapons/gaussrifle1.ogg')
+		list(mode_name="high explosive", projectile_type=/obj/item/projectile/bullet/ac/light/he, fire_sound='sound/weapons/gunshot/cannon.ogg'),
+		list(mode_name="armor piercing", projectile_type=/obj/item/projectile/bullet/ac/light/ap, fire_sound='sound/weapons/gunshot/cannon.ogg')
 		)
 
 /obj/item/gun/energy/ac/heavy
@@ -341,7 +341,7 @@
 	desc = "A gigantic autocannon, meant for exosuit usage. It has two settings ; high explosive and armor piercing."
 	icon = 'icons/mecha/mech_equipment.dmi'
 	icon_state = "ac_heavy"
-	fire_sound = 'sound/weapons/gaussrifle1.ogg'
+	fire_sound = 'sound/weapons/gunshot/cannon.ogg'
 	fire_delay = 20
 	charge_meter = 0
 	max_shots = 3
@@ -352,6 +352,26 @@
 	recharge_time = 12
 
 	firemodes = list(
-		list(mode_name="high explosive anti-structure", projectile_type=/obj/item/projectile/bullet/ac/he, fire_sound='sound/weapons/gaussrifle1.ogg'),
-		list(mode_name="armor piercing hull shatterer", projectile_type=/obj/item/projectile/bullet/ac/ap, fire_sound='sound/weapons/gaussrifle1.ogg')
+		list(mode_name="high explosive anti-structure", projectile_type=/obj/item/projectile/bullet/ac/he, fire_sound='sound/weapons/gunshot/cannon.ogg'),
+		list(mode_name="armor piercing hull shatterer", projectile_type=/obj/item/projectile/bullet/ac/ap, fire_sound='sound/weapons/gunshot/cannon.ogg')
+		)
+
+/obj/item/gun/energy/ac/shotgun
+	name = "heavy canister autocannon"
+	desc = "A gigantic autocannon, this particular model hurls projectile canisters at great speeds towards a target. It is capable of firing slugs or cluster shot munitions."
+	icon = 'icons/mecha/mech_equipment.dmi'
+	icon_state = "ac_heavy"
+	fire_sound = 'sound/weapons/gunshot/cannon.ogg'
+	fire_delay = 30
+	charge_meter = 0
+	max_shots = 7
+	charge_cost = 1200
+	projectile_type = /obj/item/projectile/bullet/pellet/shotgun/mecha
+	self_recharge = 1
+	use_external_power = 1
+	recharge_time = 12
+
+	firemodes = list(
+		list(mode_name="canister slug", projectile_type=/obj/item/projectile/bullet/ac/shotgun/slug, fire_sound='sound/weapons/gunshot/cannon.ogg'),
+		list(mode_name="ballistic scatter spikes", projectile_type=/obj/item/projectile/bullet/pellet/shotgun/mecha, fire_sound='sound/weapons/gunshot/cannon.ogg')
 		)

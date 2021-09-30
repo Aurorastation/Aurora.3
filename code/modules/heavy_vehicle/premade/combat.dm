@@ -9,6 +9,9 @@
 	e_legs = /obj/item/mech_component/propulsion/combat
 	e_color = COLOR_DARK_GUNMETAL
 
+	h_chest = /obj/item/mecha_equipment/mounted_system/combat/heavy/shotgun
+	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/combat/laser
+
 /obj/item/mech_component/manipulators/combat
 	name = "combat arms"
 	exosuit_desc_string = "flexible, advanced manipulators"
@@ -18,7 +21,7 @@
 	action_delay = 5
 	max_damage = 130
 	power_use = 5000
-	has_hardpoints = HARDPOINT_LEFT_SHOULDER
+	has_hardpoints = list(HARDPOINT_LEFT_SHOULDER)
 
 /obj/item/mech_component/propulsion/combat
 	name = "combat legs"
@@ -57,7 +60,7 @@
 	max_damage = 200
 	power_use = 2500
 	transparent_cabin =  TRUE
-	has_hardpoints = HARDPOINT_CHEST
+	has_hardpoints = list(HARDPOINT_CHEST)
 
 /obj/item/mech_component/chassis/combat/prebuild()
 	. = ..()

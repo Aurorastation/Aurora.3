@@ -61,3 +61,7 @@
 	e_arms = /obj/item/mech_component/manipulators/superheavy
 	e_legs = /obj/item/mech_component/propulsion/superheavy
 	e_color = COLOR_DARK_GUNMETAL
+
+	h_chest = /obj/item/mecha_equipment/mounted_system/combat/heavy/heavyac
+	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/combat/lightac
+	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/combat/lightac

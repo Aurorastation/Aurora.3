@@ -60,7 +60,7 @@
 	max_damage = 150
 	power_use = 3000
 	desc = "The Veymed Odysseus series cockpits combine ultralight materials and clear aluminum laminates to provide an optimized cockpit experience. This has a rather sturdy module hardpoint on the back."
-	has_hardpoints = HARDPOINT_BACK
+	has_hardpoints = list(HARDPOINT_BACK)
 
 /obj/item/mech_component/chassis/light/prebuild()
 	. = ..()
