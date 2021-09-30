@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Phyiscal & mental status in medical records can now be editted by medical staff."
