@@ -255,3 +255,18 @@
 	key = "warble"
 	emote_message_3p = "USER warbles!"
 	emote_sound = 'sound/voice/warble.ogg'
+
+/decl/emote/audible/croon
+	key = "croon"
+	emote_message_3p = "USER croons..."
+	emote_sound = list('sound/voice/croon1.ogg', 'sound/voice/croon2.ogg')
+
+/decl/emote/audible/lowarble
+	key = "lwarble"
+	emote_message_3p = "USER lets out a low, throaty warble!"
+	emote_sound = 'sound/voice/lowarble.ogg'
+	
+/decl/emote/audible/croak
+	key = "croak"
+	emote_message_3p = "USER croaks!"
+	emote_sound = 'sound/voice/croak.ogg'
