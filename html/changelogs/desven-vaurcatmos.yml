@@ -1,0 +1,5 @@
+author: Desven
+delete-after: True
+changes:
+  - rscadd: "Added sprites for the Vaurca atmos suit."
+  - bugfix: "Vaurca atmos suit is no longer invisible."
