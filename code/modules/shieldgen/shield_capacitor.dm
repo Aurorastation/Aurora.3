@@ -150,4 +150,4 @@
 		..()
 
 /obj/machinery/shield_capacitor/multiz
-	max_charge_rate = 1250000	//1400 kW
+	max_charge_rate = 1250000	//1250 kW
