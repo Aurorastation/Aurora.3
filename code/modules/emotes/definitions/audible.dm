@@ -264,7 +264,7 @@
 /decl/emote/audible/lowarble
 	key = "lwarble"
 	emote_message_3p = "USER lets out a low, throaty warble!"
-	emote_sound = 'sound/voice/lowarble.ogg'
+	emote_sound = 'sound/voice/low warble.ogg'
 	
 /decl/emote/audible/croak
 	key = "croak"
