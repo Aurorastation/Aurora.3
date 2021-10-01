@@ -1,0 +1,4 @@
+author: Desven
+delete-after: True
+changes:
+  - rscadd: "Added Vaurca filters to antag spawn lairs."
