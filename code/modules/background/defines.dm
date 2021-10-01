@@ -83,6 +83,7 @@
 #define ACCENT_GADPATHUR "Gadpathurian"
 #define ACCENT_PLUTO "Plutonian"
 #define ACCENT_ASSUNZIONE "Assunzionii"
+#define ACCENT_VISEGRAD "Visegradi"
 
 #define ACCENT_REPUBICLANSIIK "Republican Siik'maas"
 #define ACCENT_NAZIRASIIK "Nazira Siik'maas"
