@@ -3618,3 +3618,31 @@
 	result = /decl/reagent/drink/gibbfloats
 	required_reagents = list(/decl/reagent/drink/dr_gibb = 1, /decl/reagent/drink/ice = 1, /decl/reagent/drink/milk/cream = 1)
 	result_amount = 3
+
+/datum/chemical_reaction/drink/pulque_dyn
+	name = "dyn pulque"
+	id = "pulque_dyn"
+	result = /decl/reagent/alcohol/pulque/dyn
+	required_reagents = list(/decl/reagent/alcohol/pulque = 1, /decl/reagent/drink/dynjuice = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/pulque_banana
+	name = "banana pulque"
+	id = "pulque_banana"
+	result = /decl/reagent/alcohol/pulque/banana
+	required_reagents = list(/decl/reagent/alcohol/pulque = 1, /decl/reagent/drink/banana = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/pulque_berry
+	name = "berry pulque"
+	id = "pulque_berry"
+	result = /decl/reagent/alcohol/pulque/berry
+	required_reagents = list(/decl/reagent/alcohol/pulque = 1, /decl/reagent/drink/berryjuice = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/pulque_coffee
+	name = "coffee pulque"
+	id = "pulque_coffee"
+	result = /decl/reagent/alcohol/pulque/coffee
+	required_reagents = list(/decl/reagent/alcohol/pulque = 1, /decl/reagent/drink/coffee = 1)
+	result_amount = 2
