@@ -361,13 +361,6 @@
 	center_of_mass = list("x"=16, "y"=4)
 	reagents_to_add = list(/decl/reagent/alcohol/wine = 100)
 
-/obj/item/reagent_containers/food/drinks/bottle/whitewine
-	name = "Pineneedle Brand white wine"
-	desc = "A mediocre white wine more intended for use in making spritzers than it is for drinking by itself. Produced on Visegrad by Idris."
-	icon_state = "whitewinebottle"
-	center_of_mass = list("x"=16, "y"=4)
-	reagents_to_add = list(/decl/reagent/alcohol/whitewine = 100)
-
 /obj/item/reagent_containers/food/drinks/bottle/absinthe
 	name = "Jailbreaker Verte"
 	desc = "One sip of this and you just know you're gonna have a good time. Particularly artistic Cythereans drink this Silverport product to get inspired."
@@ -702,8 +695,8 @@
 	reagents_to_add = list(/decl/reagent/alcohol/boukha = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/whitewine
-	name = "Doublebeard Bearded White Wine"
-	desc = "A faint aura of unease and asspainery surrounds the bottle."
+	name = "Pineneedle Brand white wine"
+	desc = "A mediocre quality white wine, intended more making spritzers than for drinking by itself. Produced on Visegrad by Idris."
 	icon_state = "whitewinebottle"
 	center_of_mass = list("x"=16, "y"=4)
 	reagents_to_add = list(/decl/reagent/alcohol/whitewine = 100)
