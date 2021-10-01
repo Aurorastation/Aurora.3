@@ -93,6 +93,13 @@
 	reagents = list(/decl/reagent/water = 10)
 	result = /obj/item/reagent_containers/food/snacks/soup/beet
 
+/decl/recipe/pozole
+	appliance = SAUCEPAN | POT
+	fruit = list("dyn" = 1, "cabbage" = 1, "tomato" = 1)
+	reagents = list(/decl/reagent/water = 10)
+	items = list(/obj/item/reagent_containers/food/snacks/meat)
+	result = /obj/item/reagent_containers/food/snacks/soup/pozole
+
 // Stews
 /decl/recipe/stew
 	appliance = POT
