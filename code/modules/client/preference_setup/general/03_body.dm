@@ -605,6 +605,11 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 	else if(href_list["limbs"])
 		var/list/acceptable_organ_input = list("Left Leg","Right Leg","Left Arm","Right Arm","Left Foot","Right Foot","Left Hand","Right Hand")
+		if(mob_species.flags & IS_IPC)
+			acceptable_organ_input += "Lower Body"
+			acceptable_organ_input += "Upper Body"
+			acceptable_organ_input += BP_HEAD
+
 		var/limb_name = input(user, "Which limb do you want to change?") as null|anything in acceptable_organ_input
 		if(!limb_name && !CanUseTopic(user)) return TOPIC_NOACTION
 
