@@ -2160,6 +2160,7 @@
 #include "code\modules\mob\living\carbon\human\species\station\ipc\ipc.dm"
 #include "code\modules\mob\living\carbon\human\species\station\ipc\ipc_subspecies.dm"
 #include "code\modules\mob\living\carbon\human\species\station\skrell\skrell.dm"
+#include "code\modules\mob\living\carbon\human\species\station\skrell\skrell_subspecies.dm"
 #include "code\modules\mob\living\carbon\human\species\station\tajara\tajara.dm"
 #include "code\modules\mob\living\carbon\human\species\station\tajara\tajaran_subspecies.dm"
 #include "code\modules\mob\living\carbon\human\species\station\unathi\unathi.dm"
