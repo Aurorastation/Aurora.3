@@ -1173,6 +1173,8 @@
 /obj/item/clothing/under/clothing_class()
 	return "uniform"
 
+/obj/item/clothing/under/AltClick(var/mob/user)
+	set_sensors(user)
 
 //Rings
 

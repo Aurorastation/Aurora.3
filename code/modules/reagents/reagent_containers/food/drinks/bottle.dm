@@ -658,6 +658,13 @@
 	reagents_to_add = list(/decl/reagent/alcohol/nmshaan_liquor/darmadhirbrew = 100)
 	drink_flags = NO_EMPTY_ICON
 
+/obj/item/reagent_containers/food/drinks/bottle/pulque
+	name = "Pulque"
+	desc = "A glass bottle of Mictlanian pulque. The label states that it is a handmade recipe."
+	icon_state = "pulquebottle"
+	center_of_mass = list("x" = 16, "y" = 5)
+	reagents_to_add = list(/decl/reagent/alcohol/pulque = 100)
+
 // Butanol-based alcoholic drinks
 //=====================================
 //These are mainly for unathi, and have very little (but still some) effect on other species
