@@ -186,3 +186,10 @@
 	most notable for its elegant-sounding and evenly-paced method of speaking compared to rougher-sounding Coalition and frontier dialects. Liturgical Assunzionii is a small subset of this dialect, and is generally only spoken during \
 	Luceian services and can be distinguished by its use of archaic language."
 	tag_icon = "assunzione"
+
+/datum/accent/visegrad
+	name = ACCENT_VISEGRAD
+	description = "The Visegradi accent is unique for that of a Solarian world, being a Tradeband accent with strong influences from the various languages of the Warsaw Pact on Earth. Decidedly harsh and characterized by unusual \
+	and eclectic pronunciation, it can be fairly difficult to parse for those unfamiliar with it. This is only somewhat stymied by the fact that Visegradi people tend to speak very loudly, an adaptation necessitated by the need to \
+	make oneself heard during the planet's torrential downpours."
+	tag_icon = "visegrad"
