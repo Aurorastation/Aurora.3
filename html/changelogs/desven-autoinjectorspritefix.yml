@@ -1,4 +1,0 @@
-author: Desven
-delete-after: True
-changes:
-  - bugfix: "Fixes autoinjectors hand sprites being the other way around."
