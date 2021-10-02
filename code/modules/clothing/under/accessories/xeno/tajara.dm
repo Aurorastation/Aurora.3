@@ -263,3 +263,12 @@
 
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
+
+/obj/item/clothing/accessory/tajaran/charm
+	name = "wooden charm"
+	desc = "description."
+	icon_state = "tbd"
+	item_state = "tbd"
+	flippable = FALSE
+	desc_fluff = "Talismans and charms are common among religious and superstitious tajara, with many believing them to be able to bring good fortune or ward off raskara and other evils. \
+	Hand-carved tajani charms are held in special regards, often being thought of as being particularly fortunate."
