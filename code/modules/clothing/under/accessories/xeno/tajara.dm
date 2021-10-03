@@ -266,9 +266,52 @@
 
 /obj/item/clothing/accessory/tajaran/charm
 	name = "wooden charm"
-	desc = "description."
-	icon_state = "tbd"
-	item_state = "tbd"
-	flippable = FALSE
+	desc = "A hand carved wooden charm of tajaran origin."
+	icon_state = "wooden_talisman"
+	item_state = "wooden_talisman"
 	desc_fluff = "Talismans and charms are common among religious and superstitious tajara, with many believing them to be able to bring good fortune or ward off raskara and other evils. \
 	Hand-carved tajani charms are held in special regards, often being thought of as being particularly fortunate."
+	w_class = ITEMSIZE_TINY
+	slot_flags = SLOT_MASK | SLOT_WRISTS | SLOT_EARS | SLOT_TIE
+
+/obj/item/clothing/accessory/tajaran/charm/stone
+	name = "stone charm"
+	desc = "A strong stone charm of tajaran origin."
+	icon_state = "stone_talisman"
+	item_state = "stone_talisman"
+
+/obj/item/clothing/accessory/tajaran/charm/steel
+	name = "steel charm"
+	desc = "A warding metallic of tajaran origin."
+	icon_state = "steel_talisman"
+	item_state = "steel_talisman"
+	flags = CONDUCT
+
+/obj/item/clothing/accessory/tajaran/charm/steel/silver
+	name = "silver charm"
+	desc = "An expensive silver charm of tajaran origin."
+	icon_state = "silver_talisman"
+	item_state = "silver_talisman"
+
+/obj/item/clothing/accessory/tajaran/charm/bone
+	name = "bone charm"
+	desc = "A charm of tajaran origin carved from animal bones."
+	icon_state = "bone_talisman"
+	item_state = "bone_talisman"
+
+/obj/item/clothing/accessory/tajaran/charm/steel/silver/seashell
+	name = "silver seashell charm"
+	desc = "A necklace made of soft rope with a silver charm attached in the shape of a seashell."
+	desc_fluff = "Followers of Ma'ta'ke who reverers the amohdan goddess Minharzka can sometimes be found wearing silvery seashell charms. \
+	Her tears having filled the oceans and risen to become the rain in the sky and it is thought that her mood is what controls the treacherous adhomian seas. \
+	Minharzka's name is often invoked and offerings left at her altars for those hoping for safe travels, impressive cargo hauls or for the weather to change \
+	and her fanatics are well known across tajaran history as being fearless and dangerous sailors and warriors of the sea."
+
+/obj/item/clothing/accessory/tajaran/charm/tajani
+	name = "wooden tajani charm"
+	desc = "A hand carved charm of one of the mythical tajani."
+	desc_fluff = "Tajani, also known as 'short people' in basic, are good-willed tiny elder Tajara who serve as guardians of nature and homes. \
+	Hand carved charms of them is considered a symbol of luck and as such many superstitious tajara keeps one around."
+
+/obj/item/clothing/accessory/tajaran/charm/get_mask_examine_text(mob/user)
+	return "around [user.get_pronoun("his")] neck"
