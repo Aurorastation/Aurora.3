@@ -344,7 +344,7 @@
 	path = /obj/item/clothing/accessory/tajaran/charm
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	sort_category = "Xenowear - Tajara"
-	flags = GEAR_HAS_DESC_SELECTION || GEAR_HAS_NAME_SELECTION
+	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_NAME_SELECTION
 
 /datum/gear/accessory/tajara_charm/New()
 	..()

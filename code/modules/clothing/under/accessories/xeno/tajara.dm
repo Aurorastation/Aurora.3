@@ -249,7 +249,11 @@
 	desc = "A simple rosette accessory depicting the Tajaran god S'rendarr."
 	icon_state = "rosette"
 	item_state = "rosette"
-	flippable = FALSE
+	slot_flags = SLOT_MASK | SLOT_TIE
+	w_class = ITEMSIZE_TINY
+
+/obj/item/clothing/accessory/tajaran/srendarr/get_mask_examine_text(mob/user)
+	return "around [user.get_pronoun("his")] neck"
 
 /obj/item/clothing/accessory/tajaran/council_badge
 	name = "free tajaran council badge"
@@ -272,7 +276,29 @@
 	desc_fluff = "Talismans and charms are common among religious and superstitious tajara, with many believing them to be able to bring good fortune or ward off raskara and other evils. \
 	Hand-carved tajani charms are held in special regards, often being thought of as being particularly fortunate."
 	w_class = ITEMSIZE_TINY
+	flags = NOBLUDGEON
 	slot_flags = SLOT_MASK | SLOT_WRISTS | SLOT_EARS | SLOT_TIE
+
+/obj/item/clothing/accessory/tajaran/charm/get_mask_examine_text(mob/user)
+	return "around [user.get_pronoun("his")] neck"
+
+/obj/item/clothing/accessory/tajaran/charm/attack(mob/M as mob, mob/living/user as mob, target_zone = BP_CHEST)
+	if(user.a_intent != I_HURT && M != user)
+		if(target_zone == BP_HEAD | M.lying)
+			user.visible_message("<b>\the [user]</b> holds \the [src] above <b>\the [M]</b>")
+		else if(target_zone == BP_CHEST)
+			user.visible_message("<b>\the [user]</b> holds \the [src] out in front of <b>\the [M]</b>")
+		else
+			user.visible_message("<b>\the [user]</b> holds \the [src] up near <b>\the [M]</b>")
+	else
+		return ..()
+
+/obj/item/clothing/accessory/tajaran/charm/afterattack(mob/M, var/mob/living/user)
+	if (M in range(1, user))
+		return
+	if(!ishuman(M))
+		return
+	user.visible_message("<b>\the [user]</b> points \the [src] at <b>\the [M]</b>")
 
 /obj/item/clothing/accessory/tajaran/charm/stone
 	name = "stone charm"
@@ -285,7 +311,7 @@
 	desc = "A warding metallic of tajaran origin."
 	icon_state = "steel_talisman"
 	item_state = "steel_talisman"
-	flags = CONDUCT
+	flags = CONDUCT | NOBLUDGEON
 
 /obj/item/clothing/accessory/tajaran/charm/steel/silver
 	name = "silver charm"
@@ -312,6 +338,3 @@
 	desc = "A hand carved charm of one of the mythical tajani."
 	desc_fluff = "Tajani, also known as 'short people' in basic, are good-willed tiny elder Tajara who serve as guardians of nature and homes. \
 	Hand carved charms of them is considered a symbol of luck and as such many superstitious tajara keeps one around."
-
-/obj/item/clothing/accessory/tajaran/charm/get_mask_examine_text(mob/user)
-	return "around [user.get_pronoun("his")] neck"
