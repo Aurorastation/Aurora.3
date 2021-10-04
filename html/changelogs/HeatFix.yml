@@ -1,0 +1,6 @@
+author: ChangeMe
+
+delete-after: True
+
+changes:
+  - bugfix: "Tajaran cloaks, dresses & religious clothes no longer give overheating messages.."
