@@ -1,0 +1,6 @@
+author: ChangeMe
+
+delete-after: True
+
+changes:
+  - tweak: "Nicotine overdoses no longer weaken and paralyze people."
