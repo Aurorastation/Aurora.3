@@ -498,10 +498,36 @@
 
 /obj/item/storage/backpack/typec
 	icon = 'icons/mob/species/breeder/inventory.dmi'
-	name = "type c wings"
+	name = "type c zo'ra wings"
 	desc = "The wings of a CB Caste Vaurca. They are far too small at this stage to permit sustained periods of flight in most situations."
 	icon_state = "wings"
 	item_state = "wings"
+	w_class = ITEMSIZE_HUGE
+	slot_flags = SLOT_BACK
+	max_storage_space = 12
+	canremove = 0
+	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
+	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/back.dmi')
+
+/obj/item/storage/backpack/typec_klax
+	icon = 'icons/mob/species/breeder/inventory.dmi'
+	name = "type c k'lax wings"
+	desc = "The wings of a CB Caste Vaurca. They are far too small at this stage to permit sustained periods of flight in most situations."
+	icon_state = "wings_klax"
+	item_state = "wings_klax"
+	w_class = ITEMSIZE_HUGE
+	slot_flags = SLOT_BACK
+	max_storage_space = 12
+	canremove = 0
+	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
+	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/back.dmi')
+
+/obj/item/storage/backpack/typec_cthur
+	icon = 'icons/mob/species/breeder/inventory.dmi'
+	name = "type c c'thur wings"
+	desc = "The wings of a CB Caste Vaurca. They are far too small at this stage to permit sustained periods of flight in most situations."
+	icon_state = "wings_cthur"
+	item_state = "wings_cthur"
 	w_class = ITEMSIZE_HUGE
 	slot_flags = SLOT_BACK
 	max_storage_space = 12

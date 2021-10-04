@@ -80,6 +80,8 @@
 		switch(A:get_species())
 			if (SPECIES_SKRELL)
 				return 1
+			if (SPECIES_SKRELL_AXIORI)
+				return 1
 			if (SPECIES_ZOMBIE_SKRELL)
 				return 1
 	return 0
