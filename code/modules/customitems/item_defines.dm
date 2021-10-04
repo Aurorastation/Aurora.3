@@ -2179,5 +2179,5 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/ulza_skull.dmi'
 	icon_state = "ulza_skull"
 	item_state = "ulza_skull"
-	canremove = 0
+	canremove = FALSE
 	contained_sprite = TRUE
