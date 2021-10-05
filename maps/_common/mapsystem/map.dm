@@ -91,6 +91,10 @@
 	var/ship_meteor_contact_message = "Ship debris colliding now, all hands brace for impact."
 	var/ship_meteor_end_message = "The last of the ship debris has hit or passed by the station, it is now safe to commence repairs."
 
+	var/dust_detected_message = "A belt of space dust is approaching the station."
+	var/dust_contact_message = "The station is now passing through a belt of space dust."
+	var/dust_end_message = "The station has now passed through the belt of space dust."
+
 /datum/map/New()
 	if(!map_levels)
 		map_levels = station_levels.Copy()
