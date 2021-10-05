@@ -95,6 +95,16 @@
 	var/dust_contact_message = "The station is now passing through a belt of space dust."
 	var/dust_end_message = "The station has now passed through the belt of space dust."
 
+	var/radiation_detected_message = "High levels of radiation detected near the station. Please evacuate into one of the shielded maintenance tunnels."
+	var/radiation_contact_message = "The station has entered the radiation belt. Please remain in a sheltered area until we have passed the radiation belt."
+	var/radiation_end_message = "The station has passed the radiation belt. Please report to medbay if you experience any unusual symptoms. Maintenance will lose all-access again shortly."
+
+	var/list/rogue_drone_detected_messages = list("A combat drone wing operating out of the NDV Icarus has failed to return from a sweep of this sector, if any are sighted approach with caution.",
+													"Contact has been lost with a combat drone wing operating out of the NDV Icarus. If any are sighted in the area, approach with caution.",
+													"Unidentified hackers have targetted a combat drone wing deployed from the NDV Icarus. If any are sighted in the area, approach with caution.")
+	var/rogue_drone_end_message = "Icarus drone control reports the malfunctioning wing has been recovered safely."
+	var/rogue_drone_destroyed_message = "Icarus drone control registers disappointment at the loss of the drones, but the survivors have been recovered."
+
 /datum/map/New()
 	if(!map_levels)
 		map_levels = station_levels.Copy()
