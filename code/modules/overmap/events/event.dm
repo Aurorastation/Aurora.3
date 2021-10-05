@@ -81,6 +81,7 @@
 		LAZYADD(ship_events[ship], E)
 
 /decl/overmap_event_handler/proc/stop_hazard(var/obj/effect/overmap/visitable/ship/ship, var/obj/effect/overmap/event/hazard)
+	LAZYINITLIST(ship_events)
 	for(var/event_type in hazard.events)
 		var/datum/event/E = is_event_active(ship,event_type,hazard.difficulty)
 		if(E)
