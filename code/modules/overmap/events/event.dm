@@ -81,13 +81,11 @@
 		LAZYADD(ship_events[ship], E)
 
 /decl/overmap_event_handler/proc/stop_hazard(var/obj/effect/overmap/visitable/ship/ship, var/obj/effect/overmap/event/hazard)
-	LAZYINITLIST(ship_events)
 	for(var/event_type in hazard.events)
 		var/datum/event/E = is_event_active(ship,event_type,hazard.difficulty)
 		if(E)
 			E.kill()
 			LAZYREMOVE(ship_events[ship], E)
-	UNSETEMPTY(ship_events)
 
 /decl/overmap_event_handler/proc/is_event_active(var/ship, var/event_type, var/severity)
 	if(!ship_events[ship])	return
@@ -119,8 +117,6 @@
 	if(!istype(T))
 		return
 
-	LAZYINITLIST(ship_events)
-
 	var/list/active_hazards = list()
 	for(var/obj/effect/overmap/event/E in T)
 		if(is_event_included(active_hazards, E, TRUE))
@@ -146,8 +142,6 @@
 
 		for(var/obj/effect/overmap/event/E in active_hazards)
 			start_hazard(ship,E)
-
-	UNSETEMPTY(ship_events)
 
 /decl/overmap_event_handler/proc/is_event_in_turf(var/datum/event/E, var/turf/T)
 	for(var/obj/effect/overmap/event/hazard in hazard_by_turf[T])
