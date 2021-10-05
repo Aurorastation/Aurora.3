@@ -28,7 +28,7 @@
 	if(faked)
 		return
 	spawn(100)//We give 10 seconds before announcing, for the last wave of meteors to hit the station
-		command_announcement.Announce(current_map.meteor_contact_message, "Meteor Alert")
+		command_announcement.Announce(current_map.meteor_end_message, "Meteor Alert")
 
 /datum/event/meteor_wave/tick()
 
@@ -134,7 +134,7 @@
 	if(faked)
 		return
 	spawn(100)//We give 10 seconds before announcing, for the last wave of meteors to hit the station
-		command_announcement.Announce(current_map.dust_contact_message, "Dust Belt Alert")
+		command_announcement.Announce(current_map.dust_end_message, "Dust Belt Alert")
 
 /datum/event/meteor_wave/dust/get_meteors()
 	return meteors_dust
