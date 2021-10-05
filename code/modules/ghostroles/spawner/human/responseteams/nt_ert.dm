@@ -6,7 +6,7 @@
 	max_count = 2
 	outfit = /datum/outfit/admin/ert/nanotrasen
 	mob_name_prefix = "Tpr. "
-	possible_species = list(SPECIES_HUMAN, SPECIES_SKRELL)
+	possible_species = list(SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	spawnpoints = list("NTERTSpawn")
 
 /datum/ghostspawner/human/ert/nanotrasen/specialist
