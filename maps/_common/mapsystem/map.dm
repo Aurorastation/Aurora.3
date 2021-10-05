@@ -84,7 +84,7 @@
 	//event messages
 
 	var/meteors_detected_message = "A meteor storm has been detected on collision course with the station. Estimated three minutes until impact, please activate station shields, and seek shelter in the central ring."
-	var/meteor_contact_message = "Contact with meteor wave imminent, all hands brace for impact.",
+	var/meteor_contact_message = "Contact with meteor wave imminent, all hands brace for impact."
 	var/meteor_end_message = "The station has cleared the meteor shower, please return to your stations."
 
 	var/ship_detected_end_message = "The NDV Icarus reports that it has downed an unknown vessel that was approaching your station. Prepare for debris impact - please evacuate the surface level if needed."
