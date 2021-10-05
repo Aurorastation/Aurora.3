@@ -95,6 +95,7 @@
 
 /mob/living/carbon/human/Destroy()
 	human_mob_list -= src
+	intent_listener -= src
 	for(var/organ in organs)
 		qdel(organ)
 	organs = null
