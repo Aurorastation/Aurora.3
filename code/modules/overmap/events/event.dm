@@ -87,6 +87,7 @@
 		if(E)
 			E.kill()
 			LAZYREMOVE(ship_events[ship], E)
+	UNSETEMPTY(affecting_turfs)
 
 /decl/overmap_event_handler/proc/is_event_active(var/ship, var/event_type, var/severity)
 	if(!ship_events[ship])	return
@@ -145,6 +146,8 @@
 
 		for(var/obj/effect/overmap/event/E in active_hazards)
 			start_hazard(ship,E)
+
+	UNSETEMPTY(affecting_turfs)
 
 /decl/overmap_event_handler/proc/is_event_in_turf(var/datum/event/E, var/turf/T)
 	for(var/obj/effect/overmap/event/hazard in hazard_by_turf[T])
