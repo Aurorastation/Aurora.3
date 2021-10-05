@@ -64,6 +64,8 @@
 			return T
 
 /decl/overmap_event_handler/proc/start_hazard(var/obj/effect/overmap/visitable/ship/ship, var/obj/effect/overmap/event/hazard)//make these accept both hazards or events
+	LAZYINITLIST(ship_events)
+
 	if(!(ship in ship_events))
 		ship_events += ship
 
@@ -114,6 +116,8 @@
 /decl/overmap_event_handler/proc/update_hazards(var/turf/T)//catch all updater
 	if(!istype(T))
 		return
+
+	LAZYINITLIST(ship_events)
 
 	var/list/active_hazards = list()
 	for(var/obj/effect/overmap/event/E in T)
