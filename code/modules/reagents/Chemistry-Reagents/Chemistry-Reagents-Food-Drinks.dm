@@ -4812,6 +4812,12 @@
 	glass_name = "glass of Hro'zamal Soda"
 	glass_desc = "A cabornated version of the herbal tea made with Hro'zamal Ras'Nifs powder."
 
+/decl/reagent/nutriment/vanilla
+	name = "Vanilla Extract"
+	description = "The extract from vanilla beans..."
+	color = "#e8efe5"
+	taste_description = "vanilla"
+
 /decl/reagent/nutriment/pumpkinpulp
 	name = "Pumpkin Pulp"
 	description = "The gooey insides of a slain pumpkin. This day is the greatest..."
@@ -4998,3 +5004,54 @@
 	glass_icon_state = "glass_red"
 	glass_name = "glass of Xanu Rush!"
 	glass_desc = "Made from the NEW Xanu Prime peaches."
+
+/decl/reagent/alcohol/pulque
+	name = "pulque"
+	description = "A traditional Mictlanian drink made from fermented sap of maguey."
+	strength = 15
+	color = "f1f1f1"
+	taste_description = "yeast"
+
+	glass_icon_state = "pulque"
+	glass_name = "pulque"
+	glass_desc = "A traditional Mictlanian drink made from fermented sap of maguey."
+
+/decl/reagent/alcohol/pulque/dyn
+	name = "dyn pulque"
+	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is dyn flavored."
+	color = "a8ffff"
+	taste_description = "yeasty menthol"
+
+	glass_icon_state = "pulque_dyn"
+	glass_name = "dyn pulque"
+	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is dyn flavored."
+
+/decl/reagent/alcohol/pulque/banana
+	name = "banana pulque"
+	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is banana flavored."
+	color = "ffe777"
+	taste_description = "yeasty banana"
+
+	glass_icon_state = "pulque_banana"
+	glass_name = "banana pulque"
+	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is banana flavored."
+
+/decl/reagent/alcohol/pulque/berry
+	name = "berry pulque"
+	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is berry flavored."
+	color = "cc0066"
+	taste_description = "yeasty berries"
+
+	glass_icon_state = "pulque_berry"
+	glass_name = "berry pulque"
+	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is berry flavored."
+
+/decl/reagent/alcohol/pulque/coffee
+	name = "coffee pulque"
+	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is coffee flavored."
+	color = "722b13"
+	taste_description = "yeasty coffee"
+
+	glass_icon_state = "pulque_coffee"
+	glass_name = "coffee pulque"
+	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is coffee flavored."

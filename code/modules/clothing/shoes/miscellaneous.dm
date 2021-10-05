@@ -142,6 +142,11 @@ obj/item/clothing/shoes/sandal/clogs
 /obj/item/clothing/shoes/laceup/brown/all_species
 	species_restricted = null
 
+/obj/item/clothing/shoes/laceup/colourable
+	name = "oxford shoes"
+	icon_state = "oxford_colour"
+	item_state = "oxford_colour"
+
 /obj/item/clothing/shoes/swimmingfins
 	desc = "Help you swim good."
 	name = "swimming fins"
