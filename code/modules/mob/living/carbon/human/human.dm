@@ -91,6 +91,9 @@
 	pixel_x = species.icon_x_offset
 	pixel_y = species.icon_y_offset
 
+	if(length(species.unarmed_attacks))
+		set_default_attack(species.unarmed_attacks[1])
+
 /mob/living/carbon/human/Destroy()
 	human_mob_list -= src
 	for(var/organ in organs)

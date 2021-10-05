@@ -45,7 +45,9 @@
 		/datum/species/human,
 		/datum/species/skrell,
 		/datum/species/machine,
-		/datum/species/bug,
+		/datum/species/bug = TRUE,
+		/datum/species/bug/type_b = TRUE,
+		/datum/species/bug/type_e = TRUE,
 		/datum/species/diona
 	)
 

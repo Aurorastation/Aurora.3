@@ -70,6 +70,7 @@
 	and colorful dress wearing \"Flapper\" variety of clothing."
 	icon_override = null
 	contained_sprite = TRUE
+	no_overheat = TRUE
 
 /obj/item/clothing/accessory/poncho/tajarancloak/fancy
 	name = "fancy cloak"
