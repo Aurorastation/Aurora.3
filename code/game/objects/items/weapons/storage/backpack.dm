@@ -18,6 +18,9 @@
 		slot_l_hand_str = "backpack",
 		slot_r_hand_str = "backpack"
 		)
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/back.dmi'
+	)
 	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BACK
 	max_w_class = ITEMSIZE_NORMAL
