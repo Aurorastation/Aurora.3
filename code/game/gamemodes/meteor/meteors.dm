@@ -41,8 +41,8 @@
 			endy = rand(TRANSITIONEDGE,world.maxy-TRANSITIONEDGE)
 			endx = world.maxx-TRANSITIONEDGE
 
-	pickedstart = locate(startx, starty, 6)
-	pickedgoal = locate(endx, endy, 6)
+	pickedstart = locate(startx, starty, pick(current_map.meteor_levels))
+	pickedgoal = locate(endx, endy, pick(current_map.meteor_levels))
 	max_i--
 	if(max_i<=0) return
 

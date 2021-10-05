@@ -2507,6 +2507,7 @@
 #include "code\modules\overmap\README.dm"
 #include "code\modules\overmap\sectors.dm"
 #include "code\modules\overmap\spacetravel.dm"
+#include "code\modules\overmap\events\event.dm"
 #include "code\modules\overmap\ships\landable.dm"
 #include "code\modules\overmap\ships\ship.dm"
 #include "code\modules\overmap\ships\computers\engine_control.dm"

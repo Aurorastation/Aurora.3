@@ -11,6 +11,7 @@
 	var/list/sealed_levels = list()  // Z-levels that don't allow random transit at edge
 	var/list/restricted_levels = list()  // Z-levels that dont allow ghosts to randomly move around
 	var/list/empty_levels = null     // Empty Z-levels that may be used for various things (currently used by bluespace jump)
+	var/list/meteor_levels = list() //What z-levels the meteors can hit
 
 	var/list/map_levels              // Z-levels available to various consoles, such as the crew monitor. Defaults to station_levels if unset.
 
@@ -79,6 +80,16 @@
 	var/overmap_event_areas = 0 //How many event "clouds" will be generated
 	var/list/map_shuttles = list() // A list of all our shuttles.
 	var/default_sector = SECTOR_ROMANOVICH //What is the default space sector for this map
+
+	//event messages
+
+	var/meteors_detected_message = "A heavy meteor storm has been detected on collision course with the station. Estimated three minutes until impact, please activate station shields, and seek shelter in the central ring."
+	var/meteor_contact_message = "The station has survived the meteor storm, it is now safe to commence repairs."
+	var/meteor_end_message = "The station has cleared the meteor shower, please return to your stations."
+
+	var/ship_detected_end_message = "The NDV Icarus reports that it has downed an unknown vessel that was approaching your station. Prepare for debris impact - please evacuate the surface level if needed."
+	var/ship_meteor_contact_message = "Ship debris colliding now, all hands brace for impact."
+	var/ship_meteor_end_message = "The last of the ship debris has hit or passed by the station, it is now safe to commence repairs."
 
 /datum/map/New()
 	if(!map_levels)
