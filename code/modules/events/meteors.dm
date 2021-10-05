@@ -25,7 +25,7 @@
 	command_announcement.Announce(current_map.meteors_detected_message, "Meteor Alert", new_sound = 'sound/AI/meteors.ogg')
 
 /datum/event/meteor_wave/start()
-	command_announcement.Announce("Contact with meteor wave imminent, all hands brace for impact.", "Meteor Alert")
+	command_announcement.Announce(current_map.meteor_contact_message, "Meteor Alert")
 
 /datum/event/meteor_wave/tick()
 	if(activeFor >= next_wave)

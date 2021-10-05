@@ -1,8 +1,8 @@
 /var/decl/overmap_event_handler/overmap_event_handler = new()
 
 /decl/overmap_event_handler
-	var/list/hazard_by_turf
-	var/list/ship_events
+	hazard_by_turf = list()
+	ship_events = list()
 
 /decl/overmap_event_handler/New()
 	..()
