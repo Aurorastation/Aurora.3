@@ -1,8 +1,8 @@
 /var/decl/overmap_event_handler/overmap_event_handler = new()
 
 /decl/overmap_event_handler
-	var/list/hazard_by_turf = list()
-	var/list/ship_events = list()
+	var/list/hazard_by_turf
+	var/list/ship_events
 
 /decl/overmap_event_handler/New()
 	..()
@@ -213,7 +213,7 @@
 
 /obj/effect/overmap/event/dust
 	name = "dust cloud"
-	events = list(/datum/event/dust)
+	events = list(/datum/event/meteor_wave/dust/overmap)
 	event_icon_states = list("dust1", "dust2", "dust3", "dust4")
 	color = "#6c6c6c"
 
@@ -227,7 +227,7 @@
 
 /obj/effect/overmap/event/carp
 	name = "carp shoal"
-	events = list(/datum/event/carp_migration)
+	events = list(/datum/event/carp_migration/overmap)
 	opacity = 0
 	difficulty = EVENT_LEVEL_MODERATE
 	event_icon_states = list("carp1", "carp2")

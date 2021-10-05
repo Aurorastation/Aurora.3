@@ -120,3 +120,11 @@
 			var/mob/living/simple_animal/cosmozoan/cozmo = new(spawn_locations[i])
 			spawned_carp += WEAKREF(cozmo)
 		i++
+
+/datum/event/carp_migration/overmap
+	list/despawn_turfs = list(/turf/space)
+
+/datum/event/carp_migration/overmap/setup()
+	announceWhen = 1
+	endWhen = rand(600, 1200)
+	despawn_turfs = typecacheof(despawn_turfs)
