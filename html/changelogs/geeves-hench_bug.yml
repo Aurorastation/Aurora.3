@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - tweak: "Tweaks how on-mob sprites are generated, they should still function as expected."
