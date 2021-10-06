@@ -340,7 +340,7 @@
 
 /datum/gear/accessory/tajara_charm
 	display_name = "charms and talismans"
-	description = "Charms and talismans often thought of to bring good luck, or of religious signifiance."
+	description = "Charms and talismans often thought of to bring good luck, or of religious significance."
 	path = /obj/item/clothing/accessory/tajaran/charm
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	sort_category = "Xenowear - Tajara"

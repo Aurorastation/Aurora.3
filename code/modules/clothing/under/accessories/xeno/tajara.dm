@@ -285,20 +285,20 @@
 /obj/item/clothing/accessory/tajaran/charm/attack(mob/M as mob, mob/living/user as mob, target_zone = BP_CHEST)
 	if(user.a_intent != I_HURT && M != user)
 		if(target_zone == BP_HEAD | M.lying)
-			user.visible_message("<b>\the [user]</b> holds \the [src] above <b>\the [M]</b>")
+			user.visible_message("<b>\The [user]</b> holds \the [src] above <b>\the [M]</b>")
 		else if(target_zone == BP_CHEST)
-			user.visible_message("<b>\the [user]</b> holds \the [src] out in front of <b>\the [M]</b>")
+			user.visible_message("<b>\The [user]</b> holds \the [src] out in front of <b>\the [M]</b>")
 		else
-			user.visible_message("<b>\the [user]</b> holds \the [src] up near <b>\the [M]</b>")
+			user.visible_message("<b>\The [user]</b> holds \the [src] up near <b>\the [M]</b>")
 	else
 		return ..()
 
-/obj/item/clothing/accessory/tajaran/charm/afterattack(mob/M, var/mob/living/user)
-	if (M in range(1, user))
+/obj/item/clothing/accessory/tajaran/charm/afterattack(mob/M, var/mob/living/user, proximity_flag)
+	if(proximity_flag)
 		return
 	if(!ishuman(M))
 		return
-	user.visible_message("<b>\the [user]</b> points \the [src] at <b>\the [M]</b>")
+	user.visible_message("<b>\The [user]</b> points \the [src] at <b>\the [M]</b>")
 
 /obj/item/clothing/accessory/tajaran/charm/stone
 	name = "stone charm"
