@@ -1,8 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - bugfix: "Odin arrival message will no longer appear when spawning at cryo."
-  - bugfix: "Spawning at cryo will no longer show a message saying you have 10 min to get to Aurora."
-  - bugfix: "When using the autodrobe while playing a role getting a suit, such as the chef, it will now be put into the bag if the suit slot is occupied."
