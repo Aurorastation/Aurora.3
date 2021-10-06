@@ -130,7 +130,7 @@
 /obj/item/stock_parts/matter_bin
 	name = "matter bin"
 	parent_stock_name = "matter bin"
-	desc = "A container for hold compressed matter awaiting re-construction."
+	desc = "A container for holding compressed matter awaiting re-construction."
 	icon_state = "matter_bin"
 	origin_tech = list(TECH_MATERIAL = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 80)
@@ -173,7 +173,7 @@
 
 /obj/item/stock_parts/matter_bin/adv
 	name = "advanced matter bin"
-	desc = "A container for hold compressed matter awaiting re-construction."
+	desc = "A container for holding compressed matter awaiting re-construction."
 	icon_state = "advanced_matter_bin"
 	origin_tech = list(TECH_MATERIAL = 3)
 	rating = STOCK_PART_ADVANCED
@@ -215,7 +215,7 @@
 
 /obj/item/stock_parts/matter_bin/super
 	name = "super matter bin"
-	desc = "A container for hold compressed matter awaiting re-construction."
+	desc = "A container for holding compressed matter awaiting re-construction."
 	icon_state = "super_matter_bin"
 	origin_tech = list(TECH_MATERIAL = 5)
 	rating = STOCK_PART_SUPER
