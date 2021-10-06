@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Accessories no longer show up like they are worn when the item they are attached to is being carried in hand."
