@@ -1,8 +1,8 @@
 /var/decl/overmap_event_handler/overmap_event_handler = new()
 
 /decl/overmap_event_handler
-	var/list/hazard_by_turf
-	var/list/ship_events
+	var/list/datum/hazard_by_turf/hazard_by_turf
+	var/list/datum/ship_events/ship_events
 
 /decl/overmap_event_handler/New()
 	..()
@@ -64,8 +64,6 @@
 			return T
 
 /decl/overmap_event_handler/proc/start_hazard(var/obj/effect/overmap/visitable/ship/ship, var/obj/effect/overmap/event/hazard)//make these accept both hazards or events
-	LAZYINITLIST(ship_events)
-
 	if(!(ship in ship_events))
 		ship_events += ship
 
