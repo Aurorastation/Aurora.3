@@ -99,7 +99,7 @@
 
 /obj/machinery/shield_gen/interact(mob/user)
 	if(locked)
-		to_chat(user, SPAN_WARNING("The device is locked. Swipe your id to unlock it."))
+		to_chat(user, SPAN_WARNING("The device is locked. Swipe your ID to unlock it."))
 		return
 	if(!anchored)
 		to_chat(user, SPAN_WARNING("The device needs to be bolted to the ground first."))
@@ -260,7 +260,7 @@
 	return data
 
 /obj/machinery/shield_gen/Topic(href, href_list)
-	if (!istype(src.loc, /turf))
+	if (!isturf(loc))
 		return 0
 
 	if(href_list["toggle"])
