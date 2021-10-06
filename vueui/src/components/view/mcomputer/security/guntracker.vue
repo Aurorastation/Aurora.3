@@ -11,10 +11,10 @@
         <td>{{ gun.registered_info }}</td>
         <td>{{ gun.gun_name }}</td>
         <td>
-          <vui-button :class="{'button' : 1, 'selected' : gun.lockstatus == 2}" :params="{ pin: gun.ref, action: 'setdisable' }">Disabled</vui-button>
-          <vui-button :class="{'button' : 1, 'selected' : gun.lockstatus == 1}" :params="{ pin: gun.ref, action: 'setauto' }">Automatic</vui-button>
-          <vui-button :class="{'button' : 1, 'selected' : gun.lockstatus == 3}" :params="{ pin: gun.ref, action: 'setstun' }">Stun Only</vui-button>
-          <vui-button :class="{'button' : 1, 'selected' : gun.lockstatus == 4}" :params="{ pin: gun.ref, action: 'setlethal' }">Unrestricted</vui-button>
+          <vui-button :class="{'button' : 1, 'selected' : gun.lock_status == 1}" :params="{ pin: gun.ref, action: 'setdisable' }">Disabled</vui-button>
+          <vui-button :class="{'button' : 1, 'selected' : gun.lock_status == 2}" :params="{ pin: gun.ref, action: 'setauto' }">Automatic</vui-button>
+          <vui-button :class="{'button' : 1, 'selected' : gun.lock_status == 3}" :params="{ pin: gun.ref, action: 'setstun' }">Stun Only</vui-button>
+          <vui-button :class="{'button' : 1, 'selected' : gun.lock_status == 4}" :params="{ pin: gun.ref, action: 'setlethal' }">Unrestricted</vui-button>
         </td>
       </tr>
     </table>

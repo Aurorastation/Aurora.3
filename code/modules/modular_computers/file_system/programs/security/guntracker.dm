@@ -52,7 +52,7 @@
 				"gun_name" = capitalize_first_letters(P.gun.name),
 				"registered_info" = P.registered_user ? P.registered_user : "Unregistered",
 				"ref" = "\ref[P]",
-				"lockstatus" = P.lockstatus
+				"lock_status" = P.lock_status
 				)
 			wireless_firing_pins_data[++wireless_firing_pins_data.len] = guntracker_info
 

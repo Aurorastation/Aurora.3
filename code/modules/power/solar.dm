@@ -97,7 +97,7 @@
 		add_overlay("solar_panel-b")
 	else
 		add_overlay("solar_panel")
-		src.set_dir(angle2dir(adir))
+		set_angle(adir)
 	return
 
 //calculates the fraction of the sunlight that the panel receives
@@ -337,7 +337,7 @@
 				cdir = targetdir //...the current direction is the targetted one (and rotates panels to it)
 		if(2) // auto-tracking
 			if(connected_tracker)
-				connected_tracker.set_angle(sun.angle)
+				connected_tracker.modify_angle(sun.angle)
 
 	set_panels(cdir)
 	updateDialog()
@@ -472,7 +472,7 @@
 		track = text2num(href_list["track"])
 		if(track == 2)
 			if(connected_tracker)
-				connected_tracker.set_angle(sun.angle)
+				connected_tracker.modify_angle(sun.angle)
 				set_panels(cdir)
 		else if (track == 1) //begin manual tracking
 			src.targetdir = src.cdir
@@ -482,7 +482,7 @@
 	if(href_list["search_connected"])
 		src.search_for_connected()
 		if(connected_tracker && track == 2)
-			connected_tracker.set_angle(sun.angle)
+			connected_tracker.modify_angle(sun.angle)
 		src.set_panels(cdir)
 
 	interact(usr)
@@ -534,7 +534,7 @@
 /obj/machinery/power/solar_control/autostart/proc/do_solars()
 	search_for_connected()
 	if(connected_tracker && track == 2)
-		connected_tracker.set_angle(sun.angle)
+		connected_tracker.modify_angle(sun.angle)
 	set_panels(cdir)
 
 //

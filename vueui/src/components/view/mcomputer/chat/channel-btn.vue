@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import { sendToTopic } from '@/utils'
 export default {
   data() {
     return {
@@ -21,17 +20,17 @@ export default {
       if(this.ch.password) {
         this.password = ''
       } else {
-        sendToTopic({join: {target: this.re}})
+        this.$toTopic({join: {target: this.re}})
       }
     },
     join_with() {
-      sendToTopic({join: {target: this.re, password: this.password}})
+      this.$toTopic({join: {target: this.re, password: this.password}})
     }
   },
   props: {
     ch: {
       type: Object,
-      default: {},
+      default: () => ({}),
     },
     re: {
       type: String,

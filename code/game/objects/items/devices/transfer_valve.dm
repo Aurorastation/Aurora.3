@@ -5,7 +5,7 @@
 	icon_state = "valve_1"
 	var/obj/item/tank/tank_one
 	var/obj/item/tank/tank_two
-	var/obj/item/device/attached_device
+	var/obj/item/device/assembly/attached_device
 	var/mob/attacher = null
 	var/valve_open = 0
 	var/toggle = 1
@@ -98,15 +98,16 @@
 	if (src.loc != usr)
 		return 0
 	if(tank_one && href_list["tankone"])
-		remove_tank(tank_one)
+		remove_tank(tank_one, usr)
 	else if(tank_two && href_list["tanktwo"])
-		remove_tank(tank_two)
+		remove_tank(tank_two, usr)
 	else if(href_list["open"])
 		toggle_valve()
 	else if(attached_device)
 		if(href_list["rem_device"])
 			attached_device.forceMove(get_turf(src))
-			attached_device:holder = null
+			usr.put_in_hands(attached_device)
+			attached_device.holder = null
 			attached_device = null
 			update_icon()
 		if(href_list["device"])
@@ -139,7 +140,7 @@
 	if(attached_device)
 		add_overlay("device")
 
-/obj/item/device/transfer_valve/proc/remove_tank(obj/item/tank/T)
+/obj/item/device/transfer_valve/proc/remove_tank(obj/item/tank/T, mob/user)
 	if(tank_one == T)
 		split_gases()
 		tank_one = null
@@ -150,6 +151,8 @@
 		return
 
 	T.forceMove(get_turf(src))
+	if(user)
+		user.put_in_hands(T)
 	update_icon()
 
 /obj/item/device/transfer_valve/proc/merge_gases()

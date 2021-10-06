@@ -4,7 +4,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 /obj/item/reagent_containers/glass
 	name = " "
-	var/base_name = " "
 	desc = " "
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = null
@@ -23,7 +22,7 @@
 
 /obj/item/reagent_containers/glass/Initialize()
 	. = ..()
-	base_name = name
+	AddComponent(/datum/component/base_name, name)
 
 /obj/item/reagent_containers/glass/examine(var/mob/user)
 	if(!..(user, 2))
@@ -43,10 +42,13 @@
 /obj/item/reagent_containers/glass/get_additional_forensics_swab_info()
 	var/list/additional_evidence = ..()
 	var/list/Bdata = REAGENT_DATA(reagents, /decl/reagent/blood/)
+	var/list/blood_Data = list(
+		Bdata["blood_DNA"] = Bdata["blood_type"]
+	)
 	if(Bdata)
 		additional_evidence["type"] = EVIDENCE_TYPE_BLOOD
 		additional_evidence["sample_type"] = "blood"
-		additional_evidence["dna"] += Bdata["blood_DNA"]
+		additional_evidence["dna"] += blood_Data
 		additional_evidence["sample_message"] = "You dip the swab inside [src] to sample its contents."
 
 	return additional_evidence
@@ -79,7 +81,8 @@
 		return
 	. = ..() // in the case of nitroglycerin, explode BEFORE it shatters
 
-/obj/item/reagent_containers/glass/proc/update_name_label()
+/obj/item/reagent_containers/glass/proc/update_name_label(var/base_name = initial(name))
+	SEND_SIGNAL(src, COMSIG_BASENAME_SETNAME, args)
 	if(label_text == "")
 		name = base_name
 	else
@@ -211,8 +214,8 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 200)
 	w_class = ITEMSIZE_NORMAL
 	amount_per_transfer_from_this = 120
-	possible_transfer_amounts = list(10,20,30,60,120)
-	volume = 120
+	possible_transfer_amounts = list(5,10,15,25,30,50,60,100,120,250,300)
+	volume = 300
 	flags = OPENCONTAINER
 	unacidable = 0
 	drop_sound = 'sound/items/drop/helm.ogg'

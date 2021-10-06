@@ -8,7 +8,7 @@
 	throw_range = 7
 	w_class = ITEMSIZE_NORMAL
 	sharp = 0
-	edge = 0
+	edge = FALSE
 	icon = 'icons/obj/weapons.dmi'
 
 	var/use_material_name = TRUE // Does the finished item put the material name in front of it?
@@ -21,8 +21,8 @@
 	var/material/material
 	var/drops_debris = 1
 
-/obj/item/material/New(var/newloc, var/material_key)
-	..(newloc)
+/obj/item/material/Initialize(var/newloc, var/material_key)
+	. = ..()
 	if(!material_key)
 		material_key = default_material
 	set_material(material_key)

@@ -121,7 +121,7 @@
 	name = "adhomian carpet"
 	singular_name = "carpet"
 	desc = "A piece of fancy adhomian carpet. It is the same size as a normal floor tile!"
-	icon_state = "tile_carpet_rubber"
+	icon_state = "carpet_art"
 	force = 1.0
 	throwforce = 1.0
 	throw_speed = 5
@@ -193,14 +193,19 @@
 /obj/item/stack/tile/floor
 	name = "floor tile"
 	singular_name = "floor tile"
-	desc = "Those could work as a pretty decent throwing weapon" //why?
+	desc = "Used to cover up your horrible art."
 	icon_state = "tile"
-	force = 6.0
+	force = 6
 	matter = list(DEFAULT_WALL_MATERIAL = TILE_MATERIAL_AMOUNT)
-	throwforce = 15.0
+	throwforce = 6
 	throw_speed = 5
-	throw_range = 20
+	throw_range = 10
 	flags = CONDUCT
+
+/obj/item/stack/tile/floor/full/Initialize(mapload)
+	. = ..()
+	amount = max_amount
+	update_icon()
 
 /obj/item/stack/tile/floor_red
 	name = "red floor tile"
@@ -267,6 +272,17 @@
 	singular_name = "diamond floor tile"
 	icon_state = "tile_diamond"
 	matter = list(MATERIAL_DIAMOND = TILE_MATERIAL_AMOUNT)
+
+/obj/item/stack/tile/marble
+	name = "light marble floor tile"
+	singular_name = "light marble floor tile"
+	icon_state = "tile_lightmarble"
+	matter = list(MATERIAL_MARBLE = TILE_MATERIAL_AMOUNT)
+
+/obj/item/stack/tile/marble/dark
+	name = "dark marble floor tile"
+	singular_name = "dark marble floor tile"
+	icon_state = "tile_darkmarble"
 
 /*
  * Cyborg modules

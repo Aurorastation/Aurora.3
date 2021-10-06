@@ -102,10 +102,9 @@
 	for (var/obj/item/I in CI.container)
 		if (I.reagents && I.reagents.total_volume)
 			for (var/_R in I.reagents.reagent_volumes)
-				var/decl/reagent/R = decls_repository.get_decl(_R)
-				if (istype(R, /decl/reagent/nutriment/triglyceride/oil))
+				if (ispath(_R, /decl/reagent/nutriment/triglyceride/oil))
 					total_oil += I.reagents.reagent_volumes[_R]
-					if (R.type != our_oil.type)
+					if (_R != our_oil.type)
 						total_removed += I.reagents.reagent_volumes[_R]
 						I.reagents.remove_reagent(_R, I.reagents.reagent_volumes[_R])
 					else
@@ -206,8 +205,7 @@
 	//So for now, restrict to oil only
 		var/amount = 0
 		for (var/_R in I.reagents.reagent_volumes)
-			var/decl/reagent/R = decls_repository.get_decl(_R)
-			if (istype(R, /decl/reagent/nutriment/triglyceride/oil))
+			if (ispath(_R, /decl/reagent/nutriment/triglyceride/oil))
 				var/delta = REAGENTS_FREE_SPACE(oil)
 				delta = min(delta, I.reagents.reagent_volumes[_R])
 				oil.add_reagent(_R, delta)

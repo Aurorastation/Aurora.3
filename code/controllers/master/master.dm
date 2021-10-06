@@ -169,7 +169,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	initializing = FALSE
 	initialization_time_taken = time
 
-	var/msg = "Initializations complete within [time] second[time == 1 ? "" : "s"]!"
+	var/msg = "Initializations complete within [time] second\s!"
 	log_mc(msg)
 	admin_notice(SPAN_DANGER(msg), R_DEBUG)
 	world.log <<  msg

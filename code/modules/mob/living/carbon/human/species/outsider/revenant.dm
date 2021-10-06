@@ -26,7 +26,6 @@
 
 	unarmed_types = list(/datum/unarmed_attack/claws/shredding)
 	darksight = 8
-	has_organ = list()
 	siemens_coefficient = 0
 	rarity_value = 10
 
@@ -55,6 +54,7 @@
 	blood_color = "#0084b8"
 	flesh_color = "#0071db"
 
+	respawn_type = ANIMAL
 	remains_type = /obj/effect/decal/cleanable/ash
 	death_message = "dissolves into ash..."
 	death_message_range = 7
@@ -63,6 +63,10 @@
 	spawn_flags = IS_RESTRICTED
 
 	vision_flags = DEFAULT_SIGHT | SEE_MOBS
+
+	has_organ = list(
+		BP_EYES = /obj/item/organ/internal/eyes/night/revenant
+	)
 
 	has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest),
@@ -85,7 +89,6 @@
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/shatter_light,
-		/mob/living/carbon/human/proc/darkness_eyes,
 		/mob/living/carbon/human/proc/dissolve
 	)
 
@@ -100,6 +103,7 @@
 	if(player_is_antag(H.mind))
 		var/datum/ghostspawner/revenant/R = SSghostroles.get_spawner(MODE_REVENANT)
 		R.count = max(R.count - 1, 0)
+	revenants.kill_count++
 	INVOKE_ASYNC(src, .proc/spawn_gore, get_turf(H))
 	H.set_death_time(ANIMAL, world.time)
 	for(var/obj/item/I in H)
@@ -107,6 +111,8 @@
 	qdel(H)
 
 /datum/species/revenant/proc/spawn_gore(var/turf/T)
+	var/portal_type = pick(/obj/effect/portal/spawner/silver, /obj/effect/portal/spawner/gold, /obj/effect/portal/spawner/phoron)
+	new portal_type(T)
 	var/obj/effect/decal/cleanable/blood/gibs/G = new /obj/effect/decal/cleanable/blood/gibs(T)
 	G.basecolor = blood_color
 	G.fleshcolor = flesh_color
@@ -117,6 +123,10 @@
 	H.name = H.real_name
 	..()
 	H.gender = NEUTER
+	H.universal_understand = TRUE
+	H.add_language(LANGUAGE_REVENANT_RIFTSPEAK)
+	var/datum/martial_art/revenant/R = new /datum/martial_art/revenant()
+	R.teach(H)
 
 /datum/species/revenant/get_random_name()
 	return "Revenant"
@@ -127,7 +137,18 @@
 	return FALSE
 
 /datum/species/revenant/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
-	if((istype(P, /obj/item/projectile/energy) || istype(P, /obj/item/projectile/beam)) && prob(30))
+	if((istype(P, /obj/item/projectile/energy) || istype(P, /obj/item/projectile/beam)) && prob(20))
 		H.visible_message(SPAN_CULT("The [P.name] gets absorbed by [H]!"), SPAN_CULT("You absorb the [P.name]!"))
 		return -1
 	return ..()
+
+/obj/item/organ/internal/eyes/night/revenant
+	name = "spectral eyes"
+	desc = "A pair of glowing eyes. The ocular nerves still slowly writhe."
+	icon_state = "revenant_eyes"
+	eye_emote = null
+	vision_color = null
+	default_action_type = /datum/action/item_action/organ/night_eyes/rev
+
+/obj/item/organ/internal/eyes/night/revenant/flash_act()
+	return

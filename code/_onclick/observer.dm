@@ -48,11 +48,11 @@
 // And here are some good things for free:
 // Now you can click through portals, wormholes, gateways, and teleporters while observing. -Sayu
 
-/obj/machinery/teleport/hub/attack_ghost(mob/user as mob)
-	var/atom/l = loc
-	var/obj/machinery/computer/teleporter/com = locate(/obj/machinery/computer/teleporter, locate(l.x - 2, l.y, l.z))
-	if(com.locked)
-		user.forceMove(get_turf(com.locked))
+/obj/machinery/teleport/pad/attack_ghost(mob/user as mob)
+	if(station?.locked_obj)
+		var/obj/teleport_obj = station.locked_obj.resolve()
+		if(teleport_obj)
+			user.forceMove(get_turf(teleport_obj))
 
 /obj/effect/portal/attack_ghost(mob/user as mob)
 	if(target)

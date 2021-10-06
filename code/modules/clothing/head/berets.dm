@@ -4,6 +4,7 @@
 	icon = 'icons/obj/clothing/hats/berets.dmi'
 	icon_state = "beret"
 	item_state = "beret"
+	item_flags = SHOWFLAVORTEXT
 	contained_sprite = TRUE
 	siemens_coefficient = 0.9
 
@@ -124,10 +125,16 @@
 	item_state = "corp"
 
 /obj/item/clothing/head/beret/security/idris
-	name = "idris security beret"
-	desc = "A beret with the Idris Incorporated insignia emblazoned on it."
+	name = "idris beret"
+	desc = "A beret with the Idris Incorporated insignia emblazoned on it in a gold finish."
 	icon_state = "idris"
 	item_state = "idris"
+
+/obj/item/clothing/head/beret/security/idris/alt
+	name = "idris beret"
+	desc = "A beret with the Idris Incorporated insignia emblazoned on it in a cyan finish."
+	icon_state = "idrisalt"
+	item_state = "idrisalt"
 
 /obj/item/clothing/head/beret/security/zavodskoi
 	name = "zavodskoi interstellar security beret"

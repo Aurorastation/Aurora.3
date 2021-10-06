@@ -63,7 +63,7 @@
 				break
 
 
-		if(!buckled)
+		if(!buckled_to)
 			if (turns_since_move > 5 || (flee_target || rattarget))
 				walk_to(src,0)
 				turns_since_move = 0
@@ -90,7 +90,7 @@
 
 /mob/living/simple_animal/cat/proc/attack_mice()
 	if((src.loc) && isturf(src.loc))
-		if(!stat && !resting && !buckled)
+		if(!stat && !resting && !buckled_to)
 			for(var/mob/living/simple_animal/rat/M in oview(src,1))
 				if(M.stat != DEAD)
 					M.splat()
@@ -283,6 +283,7 @@
 /mob/living/simple_animal/cat/fluff/Runtime
 	name = "Runtime"
 	desc = "Her fur has the look and feel of velvet, and her tail quivers occasionally."
+	named = TRUE
 	gender = FEMALE
 	icon_state = "cat"
 	item_state = "cat"
@@ -317,6 +318,7 @@
 /mob/living/simple_animal/cat/fluff/bones
 	name = "Bones"
 	desc = "He's a laid back, black cat. Meow."
+	named = TRUE
 	gender = MALE
 	icon_state = "cat3"
 	item_state = "cat3"
@@ -334,6 +336,7 @@
 /mob/living/simple_animal/cat/penny
 	name = "Penny"
 	desc = "An important cat, straight from Central Command."
+	named = TRUE
 	icon_state = "penny"
 	item_state = "penny"
 	icon_living = "penny"

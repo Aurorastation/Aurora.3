@@ -11,6 +11,11 @@
 	anchored = TRUE //curtains start secured in place
 	build_amt = 2
 	var/manipulating = FALSE //prevents queuing up multiple deconstructs and returning a bunch of cloth
+	var/curtain_material = MATERIAL_CLOTH
+
+/obj/structure/curtain/Initialize()
+	. = ..()
+	material = SSmaterials.get_material_by_name(curtain_material)
 
 /obj/structure/curtain/open
 	icon_state = "open"
@@ -76,12 +81,14 @@
 	color = "#B8F5E3"
 	anchored = FALSE
 	alpha = 200
+	curtain_material = MATERIAL_PLASTIC
 
 /obj/structure/curtain/open/medical
 	name = "plastic curtain"
 	color = "#B8F5E3"
 	anchored = FALSE
 	alpha = 200
+	curtain_material = MATERIAL_PLASTIC
 
 /obj/structure/curtain/open/bed
 	name = "bed curtain"

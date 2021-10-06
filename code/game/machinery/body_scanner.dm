@@ -29,6 +29,7 @@
 		SPECIES_HUMAN,
 		SPECIES_HUMAN_OFFWORLD,
 		SPECIES_SKRELL,
+		SPECIES_SKRELL_AXIORI,
 		SPECIES_UNATHI,
 		SPECIES_TAJARA,
 		SPECIES_TAJARA_MSAI,
@@ -129,11 +130,11 @@
 
 	if (do_mob(user, G.affecting, 30, needhand = 0))
 		var/bucklestatus = M.bucklecheck(user)
-		if (!bucklestatus)//incase the patient got buckled during the delay
+		if (!bucklestatus)//incase the patient got buckled_to during the delay
 			return
 		if (bucklestatus == 2)
-			var/obj/structure/LB = M.buckled
-			LB.user_unbuckle_mob(user)
+			var/obj/structure/LB = M.buckled_to
+			LB.user_unbuckle(user)
 		if (M.client)
 			M.client.perspective = EYE_PERSPECTIVE
 			M.client.eye = src
@@ -174,8 +175,8 @@
 
 	if (do_mob(user, L, 30, needhand = 0))
 		if (bucklestatus == 2)
-			var/obj/structure/LB = L.buckled
-			LB.user_unbuckle_mob(user)
+			var/obj/structure/LB = L.buckled_to
+			LB.user_unbuckle(user)
 		if (M.client)
 			M.client.perspective = EYE_PERSPECTIVE
 			M.client.eye = src
@@ -374,6 +375,7 @@
 			"bicardAmt" = null,
 			"dexAmt" = null,
 			"dermAmt" = null,
+			"thetaAmt" = null,
 			"otherAmt" = null,
 			"bodyparts" = list(),
 			"organs" = list(),
@@ -443,7 +445,8 @@
 		VUEUI_SET_CHECK(data["bicardAmt"], REAGENT_VOLUME(R, /decl/reagent/bicaridine), ., data)
 		VUEUI_SET_CHECK(data["dexAmt"], REAGENT_VOLUME(R, /decl/reagent/dexalin), ., data)
 		VUEUI_SET_CHECK(data["dermAmt"], REAGENT_VOLUME(R, /decl/reagent/dermaline), ., data)
-		VUEUI_SET_CHECK(data["otherAmt"], R.total_volume - (data["soporAmt"] + data["dexAmt"] + data["bicardAmt"] + data["norepiAmt"] + data["dermAmt"]), ., data)
+		VUEUI_SET_CHECK(data["thetaAmt"], REAGENT_VOLUME(R, /decl/reagent/thetamycin), ., data)
+		VUEUI_SET_CHECK(data["otherAmt"], R.total_volume - (data["soporAmt"] + data["dexAmt"] + data["bicardAmt"] + data["norepiAmt"] + data["dermAmt"] + data["thetaAmt"]), ., data)
 		has_internal_injuries = FALSE
 		has_external_injuries = FALSE
 		VUEUI_SET_CHECK_LIST(data["bodyparts"], get_external_wound_data(occupant), ., data)
@@ -501,8 +504,8 @@
 			wounds += "Appears to be composed of inorganic material."
 		if (O.status & ORGAN_ARTERY_CUT)
 			wounds += "Severed [O.artery_name]."
-		if (O.status & ORGAN_TENDON_CUT)
-			wounds += "Severed [O.tendon_name]."
+		if (O.tendon_status() & TENDON_CUT)
+			wounds += "Severed [O.tendon.name]."
 		if (O.status & ORGAN_SPLINTED)
 			wounds += "Splinted."
 		if (O.status & ORGAN_BLEEDING)
@@ -650,6 +653,7 @@
 		"stoxin_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/soporific),
 		"bicaridine_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/bicaridine),
 		"dermaline_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/dermaline),
+		"thetamycin_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/thetamycin),
 		"blood_amount" = REAGENT_VOLUME(H.vessel, /decl/reagent/blood),
 		"disabilities" = H.sdisabilities,
 		"lung_ruptured" = H.is_lung_ruptured(),
@@ -681,9 +685,10 @@
 
 	dat += text("Inaprovaline: [] units<BR>", occ["inaprovaline_amount"])
 	dat += text("Soporific: [] units<BR>", occ["stoxin_amount"])
-	dat += text("[]\tDermaline: [] units</FONT><BR>", ("<font color='[occ["dermaline_amount"] < 30  ? "black" : "red"]'>"), occ["dermaline_amount"])
-	dat += text("[]\tBicaridine: [] units</font><BR>", ("<font color='[occ["bicaridine_amount"] < 30  ? "black" : "red"]'>"), occ["bicaridine_amount"])
-	dat += text("[]\tDexalin: [] units</font><BR>", ("<font color='[occ["dexalin_amount"] < 30  ? "black" : "red"]'>"), occ["dexalin_amount"])
+	dat += text("[]\tDermaline: [] units</FONT><BR>", ("<font color='[occ["dermaline_amount"] < 20  ? "black" : "red"]'>"), occ["dermaline_amount"])
+	dat += text("[]\tBicaridine: [] units</font><BR>", ("<font color='[occ["bicaridine_amount"] < 20  ? "black" : "red"]'>"), occ["bicaridine_amount"])
+	dat += text("[]\tDexalin: [] units</font><BR>", ("<font color='[occ["dexalin_amount"] < 20  ? "black" : "red"]'>"), occ["dexalin_amount"])
+	dat += text("[]\tThetamycin: [] units</font><BR>", ("<font color='[occ["thetamycin_amount"] < 20 ? "black" : "red"]'>"), occ["thetamycin_amount"])
 
 	dat += "<HR><table border='1'>"
 	dat += "<tr>"
@@ -710,7 +715,7 @@
 
 		if(e.status & ORGAN_ARTERY_CUT)
 			internal_bleeding = "Arterial bleeding."
-		if(e.status & ORGAN_TENDON_CUT)
+		if(e.tendon_status() & TENDON_CUT)
 			severed_tendon = "Severed tendon."
 		if(istype(e, /obj/item/organ/external/chest) && occ["lung_ruptured"])
 			lung_ruptured = "Lung ruptured."
@@ -727,9 +732,9 @@
 		if(e.open)
 			open = "Open."
 
-		var/infection = "[get_infection_level(e.germ_level)] infection"
-		if (infection == "")
-			infection = "None"
+		var/infection = get_infection_level(e.germ_level)
+		if (infection != "")
+			infected = "[infection] infection"
 		if(e.rejecting)
 			infected += " (being rejected)"
 
@@ -760,8 +765,8 @@
 			mech = "Mechanical:"
 
 		var/infection = get_infection_level(i.germ_level)
-		if (infection == "")
-			infection = "None"
+		if(infection == "")
+			infection = "No Infection"
 		else
 			infection = "[infection] infection"
 		if(i.rejecting)

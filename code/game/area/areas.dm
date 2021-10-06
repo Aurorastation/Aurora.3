@@ -11,6 +11,7 @@
 	var/atmosalm = 0
 	var/poweralm = 1
 	var/party = null
+	var/radiation_active = null
 	level = null
 	name = "Unknown"
 	icon = 'icons/turf/areas.dmi'
@@ -218,10 +219,15 @@
 #define DO_PARTY(COLOR) animate(color = COLOR, time = 0.5 SECONDS, easing = QUAD_EASING)
 
 /area/update_icon()
-	if ((fire || eject || party) && (!requires_power||power_environ) && !istype(src, /area/space)) //If it doesn't require power, can still activate this proc.
-		if(fire && !eject && !party)		// FIRE
-			color = "#ff9292"
+	if ((fire || eject || party || radiation_active) && (!requires_power||power_environ) && !istype(src, /area/space)) //If it doesn't require power, can still activate this proc.
+		if(radiation_active)
+			color = "#30e63f"
 			animate(src)	// stop any current animations.
+			animate(src, color = "#2ea138", time = 1 SECOND, loop = -1, easing = SINE_EASING)
+			animate(color ="#30e63f", time = 1 SECOND, easing = SINE_EASING)
+		else if(fire && !eject && !party)		// FIRE
+			color = "#ff9292"
+			animate(src)
 			animate(src, color = "#ffa5b2", time = 1 SECOND, loop = -1, easing = SINE_EASING)
 			animate(color = "#ff9292", time = 1 SECOND, easing = SINE_EASING)
 		else if(!fire && eject && !party)		// EJECT

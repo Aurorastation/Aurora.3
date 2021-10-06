@@ -43,12 +43,19 @@
 	individual ships, most of which have their own unique variations upon the standard Scarab accent."
 	tag_icon = "scarabs"
 
-/datum/accent/silversun
-	name = ACCENT_SILVERSUN
-	description = "The native accent of Silversun is a sing-songy take on standard Sol Common that has, since massive investment into the planet by Idris Incorporated, come to be \
-	associated with the planet's renowned tourism industry. Many native residents of Silversun are bitter that their accent - and planet - are seen as nothing more than an enormous \
-	vacation retreat by the greater Orion Spur."
-	tag_icon = "silversun"
+/datum/accent/silversun_original
+	name = ACCENT_SILVERSUN_ORIGINAL
+	description = "The native accent of Silversun is a sing-song take on standard Sol Common that has, since massive investment into the planet by Idris Incorporated, come to be associated with the planet's renowned tourism industry. \
+	Many native residents of Silversun are bitter that their accent - and planet - are seen as nothing more than an enormous vacation retreat by the greater Orion Spur. This accent is commonly used by Idris Incorporated shell positronic \
+	frames, much to the consternation of Silversun's Originals."
+	tag_icon = "silversun_original"
+
+/datum/accent/silversun_expatriate
+	name = ACCENT_SILVERSUN_EXPATRIATE
+	description = "The accent of Silversun's wealthy Idris Incorporated-aligned minority population is rooted in Tradeband dialects from Eridani and Luna rather than the Sol Common dialect of the Originals, making it audibly distinctive \
+	compared to the 'native' accent of the planet. This accent is most commonly associated with Idris Incorporated employees from Silversun, which tend to be overwhelmingly from the Expatriate population. Many Idris Incorporated positronics \
+	are programmed with this accent, and it is often regarded as the unofficial accent of the megacorporation."
+	tag_icon = "silversun_expatriate"
 
 /datum/accent/phong
 	name = ACCENT_PHONG
@@ -99,24 +106,33 @@
 
 /datum/accent/venus
 	name = ACCENT_VENUS
-	description = "Venusian Common (referred time as Cytherean Common on Venus itself) is often regarded as the \"most common\" form of Sol Common due to the prevalence of its entertainment \
-	industry. It sounds extremely similar to Earthbound Sol Common. Many high-end entertainment IPCs used throughout human space come pre-programmed with this accent, due to its \
-	association with the Venusian entertainment industry."
+	description = "Venusian Common (referred to as Cytherean Common on Venus itself) is often regarded as one of the most prevalent forms \
+	of Sol Common due to Venus' massive entertainment industry. On Venus itself this accent is associated with the entertainment industry \
+	and Cytherea, and many prospective actors will attempt to adopt it in order to better fit into the industry. Many high-end entertainment \
+	IPCs used throughout human space come pre-programmed with this accent, due to its association with the Venusian entertainment industry."
 	tag_icon = "venus"
 
 /datum/accent/venusjin
 	name = ACCENT_VENUSJIN
-	description = "Jintarian Common is looked down upon on Venus itself for its association with Venusian surfacers, and is often used by the planet's entertainment industry to mark a \
-	character as villainous or untrustworthy. As a result, it is often looked down upon throughout human space."
+	description = "While Cytherean Common has a reputation abroad as \"Venusian Common\" it is the accent of working-class Jintarians that is, \
+	to many on the planet, the true form of Venusian Common. On Venus itself this accent is associated with the working and middle-class \
+	population of the planet rather than the entertainment industry, and many Cythereans look down upon those with this accent as unrefined. \
+	Hendrik Strom, one of the Sol Alliance's most notable politicians, is well-known for having a strong Jintarian accent he makes no attempt to hide."
 	tag_icon = "venus_surfacer"
 
-/datum/accent/dominia
-	name = ACCENT_DOMINIA
-	description = "The most common Dominian accent is Vulgar Morozi, a variation of Sol Common found upon Moroz itself. Dominion-spoken Sol Common and Tau Ceti Basic are both heavily \
-	influenced by Tradeband, the common language of both human and unathi nobility in the Empire. Vulgar Morozi has regional variations on the colonies of the Dominian Empire, and in \
-	the rebellious Morozian region of Fisanduh. The Fisanduhian accent is considered to be a distinctive higher-pitched variation of Vulgar Morozi that is often suppressed by insurgents \
-	to better blend in with the greater Imperial population."
-	tag_icon = "dominia"
+/datum/accent/dominia_high
+	name = ACCENT_DOMINIA_HIGH
+	description = "The less common Dominian accent is High Morozi, a variation of Tradeband found upon Moroz itself. While Vulgar Morozi is typically associated with the common citizenry of the Empire, \
+	High Morozi is associated with the Imperial nobility. While most typically associated with nobles it is often taught to wealthy commoners in order to more easily brush shoulders with nobility. \
+	This accent is one of the most readily-recognised markers of Dominian nobility abroad."
+	tag_icon = "dominia_high"
+
+/datum/accent/dominia_vulgar
+	name = ACCENT_DOMINIA_VULGAR
+	description = "The most common Dominian accent is Vulgar Morozi, a variation of Sol Common found upon Moroz itself. Though heavily influenced by Tradeband Vulgar Morozi is considered to be a \
+	dialect of Sol Common rather than a distinct Tradeband dialect. Vulgar Morozi has regional variations on the colonies of the Dominian Empire, and in the rebellious Morozian region of Fisanduh. \
+	The Fisanduhian accent is considered to be a distinctive higher-pitched variation of Vulgar Morozi that is often suppressed by insurgents to better blend in with the greater Imperial population."
+	tag_icon = "dominia_vulgar"
 
 /datum/accent/jupiter
 	name = ACCENT_JUPITER
@@ -157,3 +173,16 @@
 	isolation of the planet during its period of reunification. Due to the government's tight control over Gadpathur, and push for unity in the face of the Sol Alliance, Gadpathurians have \
 	been described as sounding relatively similar no matter which area of the planet they hail from."
 	tag_icon = "gadpathur"
+
+/datum/accent/pluto
+	name = ACCENT_PLUTO
+	description = "The Plutonian accent is one of many Sol Common accents found throughout the Sol System itself, though it is almost undoubtedly the furthest one out from the Sun itself. Rooted in a combination \
+	of Central Asian and Eastern European dialects, the Plutonian accent is notable for its slow, methodical method of speech. Very few positronics can be found with this accent, due to Pluto's unusual relationship with corporations."
+	tag_icon = "pluto"
+
+/datum/accent/assunzione
+	name = ACCENT_ASSUNZIONE
+	description = "The Assunzionii accent is one of the most unusual found in the Coalition of Colonies, due to the planet's colonial roots in the Mediterranean. Heavily influenced by Romance languages the Assunzionii dialect is \
+	most notable for its elegant-sounding and evenly-paced method of speaking compared to rougher-sounding Coalition and frontier dialects. Liturgical Assunzionii is a small subset of this dialect, and is generally only spoken during \
+	Luceian services and can be distinguished by its use of archaic language."
+	tag_icon = "assunzione"

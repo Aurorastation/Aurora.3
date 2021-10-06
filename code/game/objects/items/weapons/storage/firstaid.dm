@@ -241,7 +241,7 @@ obj/item/storage/pill_bottle/butazoline
 	starts_with = list(/obj/item/reagent_containers/pill/perconol = 7)
 
 /obj/item/storage/pill_bottle/minaphobin
-	name = "bottle of 5u Minaphobin pills"
+	name = "bottle of 2u Minaphobin pills"
 	desc = "Contains pills used to treat anxiety disorders and depression."
 	starts_with = list(/obj/item/reagent_containers/pill/minaphobin = 7)
 
@@ -249,3 +249,41 @@ obj/item/storage/pill_bottle/butazoline
 	name = "bottle of 15u RMT pills"
 	desc = "Contains pills used to remedy the effects of prolonged zero-gravity adaptations. Do not exceed 30u dosage."
 	starts_with = list(/obj/item/reagent_containers/pill/rmt = 10) // 10x 15u RMT pills will last 4 hours.
+
+/obj/item/storage/pill_bottle/corophenidate
+	name = "bottle of 2u Corophenidate pills"
+	desc = "Contains pills used to improve the ability to concentrate."
+	starts_with = list(/obj/item/reagent_containers/pill/corophenidate = 3)
+
+/obj/item/storage/pill_bottle/emoxanyl
+	name = "bottle of 2u Emoxanyl pills"
+	desc = "Contains pills used to treat anxiety disorders, depression and epilepsy."
+	starts_with = list(/obj/item/reagent_containers/pill/emoxanyl = 3)
+
+/obj/item/storage/pill_bottle/minaphobin/small
+	starts_with = list(/obj/item/reagent_containers/pill/minaphobin = 3)
+
+/obj/item/storage/pill_bottle/nerospectan
+	name = "bottle of 2u Nerospectan pills"
+	desc = "Contains pills used to treat a large variety of disorders including tourette, depression, anxiety and psychoses."
+	starts_with = list(/obj/item/reagent_containers/pill/nerospectan = 3)
+
+/obj/item/storage/pill_bottle/neurapan
+	name = "bottle of 2u Neurapan pills"
+	desc = "Contains pills used to treat large variety of disorders including tourette, depression, anxiety and psychoses."
+	starts_with = list(/obj/item/reagent_containers/pill/neurapan= 3)
+
+/obj/item/storage/pill_bottle/neurostabin
+	name = "bottle of 2u Neurostabin pills"
+	desc = "Contains pills used to treat psychoses and muscle weakness."
+	starts_with = list(/obj/item/reagent_containers/pill/neurostabin = 3)
+
+/obj/item/storage/pill_bottle/orastabin
+	name = "bottle of 2u Orastabin pills"
+	desc = "Contains pills used to treat anxiety disorders and speech impediments."
+	starts_with = list(/obj/item/reagent_containers/pill/orastabin = 3)
+
+/obj/item/storage/pill_bottle/parvosil
+	name = "bottle of 2u Parvosil pills"
+	desc = "Contains pills used to treat anxiety disorders such as phobias and social anxiety."
+	starts_with = list(/obj/item/reagent_containers/pill/parvosil = 3)

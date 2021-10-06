@@ -214,16 +214,16 @@
 			playsound(telepad.loc, 'sound/weapons/emitter2.ogg', 25, 1, extrarange = 3, falloff = 5)
 
 			var/total_lifespawn = 25 * crystals.len
-			var/total_failchance = crystals.len
 
 			var/obj/effect/portal/origin = new /obj/effect/portal(dest, null, null, total_lifespawn, 0)
 			var/obj/effect/portal/destination = new /obj/effect/portal(source,  null, null, total_lifespawn, 0)
 
+
 			origin.target = destination
 			destination.target = origin
+			origin.has_failed = FALSE
+			destination.has_failed = FALSE
 
-			origin.failchance = total_failchance
-			destination.failchance = total_failchance
 
 			if (dd_hassuffix(log_msg, ", "))
 				log_msg = dd_limittext(log_msg, length(log_msg) - 2)

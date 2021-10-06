@@ -150,17 +150,16 @@ var/datum/controller/subsystem/explosives/SSexplosives
 						continue
 
 					var/dist = get_dist(M_turf, epicenter)
+					var/explosion_dir = get_dir(M_turf, epicenter)
 					if (reception == 2 && (M.ear_deaf <= 0 || !M.ear_deaf))//Dont play sounds to deaf people
 						// If inside the blast radius + world.view - 2
 						if(dist <= closedist)
+							to_chat(M, FONT_LARGE(SPAN_WARNING("You hear the sound of a nearby explosion coming from \the [dir2text(explosion_dir)].")))
 							M.playsound_simple(epicenter, get_sfx(/decl/sound_category/explosion_sound), min(100, volume), use_random_freq = TRUE, falloff = 5)
-							//You hear a far explosion if you're outside the blast radius. Small bombs shouldn't be heard all over the station.
-
-						else
-							volume = M.playsound_simple(epicenter, 'sound/effects/explosionfar.ogg', volume, use_random_freq = TRUE, falloff = 1000, use_pressure = FALSE)
-							//Playsound local will return the final volume the sound is actually played at
-							//It will return 0 if the sound volume falls to 0 due to falloff or pressure
-							//Also return zero if sound playing failed for some other reason
+						else //You hear a far explosion if you're outside the blast radius. Small bombs shouldn't be heard all over the station.
+							volume = M.playsound_simple(epicenter, 'sound/effects/explosionfar.ogg', volume, use_random_freq = TRUE, falloff = 1000, use_pressure = TRUE)
+							if(volume)
+								to_chat(M, FONT_LARGE(SPAN_NOTICE("You hear the sound of a distant explosion coming from \the [dir2text(explosion_dir)].")))
 
 					//Deaf people will feel vibrations though
 					if (volume > 0)//Only shake camera if someone was close enough to hear it

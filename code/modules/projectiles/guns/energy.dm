@@ -23,6 +23,7 @@
 	var/projectile_type = /obj/item/projectile/beam/practice //also passed to turrets
 	var/modifystate
 	var/charge_meter = 1	//if set, the icon state will be chosen based on the current charge
+	var/list/required_firemode_auth //This list matches with firemode index, used to determine which firemodes get unlocked with what level of authorization.
 
 	//self-recharging
 	var/self_recharge = 0	//if set, the weapon will recharge itself
@@ -170,3 +171,21 @@
 	if(!power_supply)
 		return 0
 	return round(power_supply.charge / charge_cost)
+
+/obj/item/gun/energy/get_print_info()
+	. = ""
+	. += "Max Shots: [initial(max_shots)]<br>"
+	. += "Recharge Type: [initial(self_recharge) ? "self recharging" : "not self recharging"]<br>"
+	if(initial(self_recharge))
+		. += "Recharge Time: [initial(recharge_time)]<br>"
+	. += "<br><b>Primary Projectile</b><br>"
+	var/obj/item/projectile/P = new projectile_type
+	. += P.get_print_info()
+
+	if(secondary_projectile_type)
+		. += "<br><b>Secondary Projectile</b><br>"
+		var/obj/item/projectile/P_second = new secondary_projectile_type
+		. += P_second.get_print_info()
+	. += "<br>"
+
+	. += ..(FALSE)

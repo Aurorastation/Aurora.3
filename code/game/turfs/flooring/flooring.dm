@@ -270,7 +270,7 @@
 	desc = "A mass of small intertwined aliens forming a floor... Creepy."
 	icon = 'icons/turf/floors.dmi'
 	icon_base = "diona"
-	flags = TURF_ACID_IMMUNE | TURF_REMOVE_SHOVEL
+	flags = TURF_ACID_IMMUNE | TURF_REMOVE_SHOVEL | TURF_REMOVE_WELDER
 	footstep_sound = /decl/sound_category/grass_footstep
 
 //material turfs
@@ -314,6 +314,19 @@
 	icon_base = "diamond"
 	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK
 	build_type = /obj/item/stack/tile/diamond
+
+/decl/flooring/marble
+	name = "light marble floor"
+	desc = "A robust floor made from marble."
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_base = "lightmarble"
+	flags = TURF_REMOVE_CROWBAR
+	build_type = /obj/item/stack/tile/marble
+
+/decl/flooring/marble/dark
+	name = "dark marble floor"
+	icon_base = "darkmarble"
+	build_type = /obj/item/stack/tile/marble/dark
 
 //Shuttle turfs
 

@@ -172,7 +172,7 @@
 		qdel(src)
 	else
 		to_chat(user, SPAN_NOTICE("You hit the metal foam but bounce off it."))
-		animate_shake()
+		shake_animation()
 
 /obj/structure/foamedmetal/attackby(var/obj/item/I, var/mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -193,7 +193,7 @@
 		if(S.get_amount() < 4)
 			to_chat(user, SPAN_NOTICE("There isn't enough material here to construct a wall."))
 			return
-		
+
 		var/material/M = SSmaterials.get_material_by_name(S.default_type)
 		if(!istype(M))
 			return
@@ -230,7 +230,7 @@
 		qdel(src)
 	else
 		to_chat(user, SPAN_NOTICE("You hit the metal foam to no effect."))
-		animate_shake()
+		shake_animation()
 
 /obj/structure/foamedmetal/CanPass(atom/movable/mover, turf/target, height=1.5, air_group = 0)
 	if(air_group)

@@ -71,7 +71,7 @@ BREATH ANALYZER
 		if (((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
 			user.visible_message("<b>[user]</b> runs the scanner over the floor.", "<span class='notice'>You run the scanner over the floor.</span>", "<span class='notice'>You hear metal repeatedly clunking against the floor.</span>")
 			to_chat(user, "<span class='notice'><b>Scan results for the floor:</b></span>")
-			to_chat(user, "Overall Status: Healthy</span>")
+			to_chat(user, "Overall Status: <span class='good'>Healthy</span>")
 			return
 
 		if(!usr.IsAdvancedToolUser())
@@ -248,7 +248,7 @@ BREATH ANALYZER
 			if(!found_bleed && (e.status & ORGAN_ARTERY_CUT))
 				dat += "<span class='scan_warning'>Arterial bleeding detected. Advanced scanner required for location.</span>"
 				found_bleed = TRUE
-			if(!found_tendon && (e.status & ORGAN_TENDON_CUT))
+			if(!found_tendon && (e.tendon_status() & TENDON_CUT))
 				dat += "<span class='scan_warning'>Tendon or ligament damage detected. Advanced scanner required for location.</span>"
 				found_tendon = TRUE
 		if(found_disloc && found_bleed && found_tendon)
@@ -322,8 +322,10 @@ BREATH ANALYZER
 /obj/item/device/analyzer
 	name = "analyzer"
 	desc = "A hand-held environmental scanner which reports current gas levels."
-	icon_state = "atmos"
+	icon = 'icons/obj/contained_items/tools/air_analyzer.dmi'
+	icon_state = "analyzer"
 	item_state = "analyzer"
+	contained_sprite = TRUE
 	w_class = ITEMSIZE_SMALL
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
@@ -368,54 +370,68 @@ BREATH ANALYZER
 	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
 
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
-	var/details = 0
-	var/recent_fail = 0
+	var/details = FALSE
 
-/obj/item/device/mass_spectrometer/New()
-	..()
-	var/datum/reagents/R = new/datum/reagents(5)
-	reagents = R
-	R.my_atom = src
+/obj/item/device/mass_spectrometer/Initialize()
+	. = ..()
+	create_reagents(5)
 
 /obj/item/device/mass_spectrometer/on_reagent_change()
+	clear_blood_overlay()
 	if(reagents.total_volume)
 		icon_state = initial(icon_state) + "_s"
+		var/image/I = image(icon, null, "[initial(icon_state)]-reagent")
+		I.color = reagents.get_color()
+		add_blood_overlay(I)
 	else
 		icon_state = initial(icon_state)
 
-/obj/item/device/mass_spectrometer/attack_self(mob/user as mob)
-	if (user.stat)
-		return
-	if (!user.IsAdvancedToolUser())
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
+/obj/item/device/mass_spectrometer/proc/clear_blood_overlay()
+	underlays = null
+
+/obj/item/device/mass_spectrometer/proc/add_blood_overlay(var/image/I)
+	underlays += I
+
+/obj/item/device/mass_spectrometer/attack_self(mob/user)
+	if(use_check_and_message(user))
 		return
 	if(reagents.total_volume)
-		if(LAZYLEN(reagents.reagent_volumes) > 1 || !REAGENT_DATA(reagents, /decl/reagent/blood))
-			reagents.clear_reagents()
-			to_chat(user, "<span class='warning'>The sample was contaminated! Please insert another sample</span>")
+		if(LAZYLEN(reagents.reagent_volumes) > 1)
+			to_chat(user, SPAN_WARNING("There isn't enough blood in the sample!"))
 			return
-		var/list/blood_traces = params2list(reagents.reagent_data[/decl/reagent/blood]["trace_chem"])
-		var/dat = "Trace Chemicals Found: "
+		if(!REAGENT_DATA(reagents, /decl/reagent/blood))
+			to_chat(user, SPAN_WARNING("The sample was contaminated with non-blood reagents!"))
+			return
+		var/list/blood_traces = reagents.reagent_data[/decl/reagent/blood]["trace_chem"]
+		var/list/output_text = list("Trace Chemicals Found:")
 		for(var/_C in blood_traces)
 			var/decl/reagent/C = decls_repository.get_decl(_C)
+			if(C.spectro_hidden && !details)
+				continue
 			if(details)
-				dat += "[C] ([blood_traces[_C]] units) "
+				output_text += "- [C] ([max(round(blood_traces[_C], 0.1), 0.1)] units)"
 			else
-				dat += "[C] "
-		to_chat(user, "[dat]")
-		reagents.clear_reagents()
-	return
+				output_text += "- [C]"
+		if(length(output_text) == 1)
+			output_text[1] = SPAN_NOTICE("No trace chemicals found.")
+		to_chat(user, jointext(output_text, "\n"))
 
 /obj/item/device/mass_spectrometer/adv
 	name = "advanced mass spectrometer"
 	icon_state = "adv_spectrometer"
-	details = 1
+	details = TRUE
 	origin_tech = list(TECH_MAGNET = 4, TECH_BIO = 2)
+
+/obj/item/device/mass_spectrometer/adv/clear_blood_overlay()
+	cut_overlays()
+
+/obj/item/device/mass_spectrometer/adv/add_blood_overlay(var/image/I)
+	add_overlay(I)
 
 /obj/item/device/reagent_scanner
 	name = "reagent scanner"
 	desc = "A hand-held reagent scanner which identifies chemical agents."
-	icon_state = "spectrometer"
+	icon_state = "reagent_scanner"
 	item_state = "analyzer"
 	w_class = ITEMSIZE_SMALL
 	flags = CONDUCT
@@ -429,31 +445,27 @@ BREATH ANALYZER
 	var/details = 0
 	var/recent_fail = 0
 
-/obj/item/device/reagent_scanner/afterattack(obj/O, mob/user as mob, proximity)
+/obj/item/device/reagent_scanner/afterattack(obj/O, mob/user, proximity)
 	if(!proximity)
 		return
-	if (user.stat)
-		return
-	if (!user.IsAdvancedToolUser())
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
+	if(use_check_and_message(user))
 		return
 	if(!istype(O))
 		return
 	if(isemptylist(O.reagents?.reagent_volumes))
-		to_chat(user, "<span class='notice'>No active chemical agents found in [O].</span>")
+		to_chat(user, SPAN_WARNING("No active chemical agents found in [O]."))
 		return
 
 	var/dat = ""
 	var/one_percent = O.reagents.total_volume / 100
 	for (var/_R in O.reagents.reagent_volumes)
 		var/decl/reagent/R = decls_repository.get_decl(_R)
-		dat += "\n \t <span class='notice'>[R][details ? ": [O.reagents.reagent_volumes[_R] / one_percent]%" : ""]"
-	to_chat(user, "<span class='notice'>Chemicals found: [dat]</span>")
-	return
+		dat += "\n \t [R][details ? ": [O.reagents.reagent_volumes[_R] / one_percent]%" : ""]"
+	to_chat(user, SPAN_NOTICE("Chemicals found: [dat]"))
 
 /obj/item/device/reagent_scanner/adv
 	name = "advanced reagent scanner"
-	icon_state = "adv_spectrometer"
+	icon_state = "adv_reagent_scanner"
 	details = 1
 	origin_tech = list(TECH_MAGNET = 4, TECH_BIO = 2)
 
@@ -504,6 +516,7 @@ BREATH ANALYZER
 	name = "price scanner"
 	desc = "Using an up-to-date database of various costs and prices, this device estimates the market price of an item up to 0.001% accuracy."
 	icon_state = "price_scanner"
+	flags = NOBLUDGEON
 	slot_flags = SLOT_BELT
 	w_class = ITEMSIZE_SMALL
 	throwforce = 0
@@ -541,7 +554,8 @@ BREATH ANALYZER
 
 	if ( ((user.is_clumsy()) || (DUMB in user.mutations)) && prob(20))
 		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
-		eyestab(H,user)
+		if(!H.eyes_protected(src, FALSE))
+			eyestab(H,user)
 		to_chat(user,"<span class='danger'>Alert: No breathing detected.</span>")
 		return
 
@@ -625,7 +639,7 @@ BREATH ANALYZER
 	name = "zeng-hu body analyzer"
 	desc = "An expensive and varied-use health analyzer that prints full-body scans after a short scanning delay."
 	icon_state = "zh-analyzer"
-	item_state = "healthanalyzer"
+	item_state = "zh-analyzer"
 	slot_flags = SLOT_BELT
 	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 3)
@@ -647,6 +661,7 @@ BREATH ANALYZER
 /obj/item/device/advanced_healthanalyzer/attack(mob/living/M, mob/living/user)
 	if(!internal_bodyscanner)
 		return
+	user.visible_message("<b>[user]</b> starts scanning \the [M] with \the [src].", SPAN_NOTICE("You start scanning \the [M] with \the [src]."))
 	if(do_after(user, 7 SECONDS, TRUE))
 		print_scan(M, user)
 		add_fingerprint(user)
@@ -686,6 +701,7 @@ BREATH ANALYZER
 		"stoxin_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/soporific),
 		"bicaridine_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/bicaridine),
 		"dermaline_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/dermaline),
+		"thetamycin_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/thetamycin),
 		"blood_amount" = REAGENT_VOLUME(H.vessel, /decl/reagent/blood),
 		"disabilities" = H.sdisabilities,
 		"lung_ruptured" = H.is_lung_ruptured(),

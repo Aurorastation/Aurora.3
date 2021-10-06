@@ -64,8 +64,8 @@
 	force = force_unwielded
 	throwforce = round(force*thrown_force_divisor)
 
-/obj/item/material/twohanded/New()
-	..()
+/obj/item/material/twohanded/Initialize(newloc, material_key)
+	. = ..()
 	update_icon()
 
 /obj/item/material/twohanded/mob_can_equip(M, slot, disable_warning = FALSE)
@@ -89,8 +89,8 @@
 	if(wielded && default_parry_check(user, attacker, damage_source) && prob(parry_chance))
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
 		playsound(user.loc, /decl/sound_category/punchmiss_sound, 50, 1)
-		return 1
-	return 0
+		return PROJECTILE_STOPPED
+	return FALSE
 
 /obj/item/material/twohanded/update_icon()
 	icon_state = "[base_icon][wielded]"
@@ -194,7 +194,7 @@
 	unwielded_force_divisor = 0.25
 	force_divisor = 0.7 // 10/42 with hardness 60 (steel) and 0.25 unwielded divisor
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BACK
 	force_wielded = 30
@@ -236,7 +236,7 @@
 	force_divisor = 0.35 // 21 damage for steel (hardness 60)
 	unwielded_force_divisor = 0.2 // 12 damage for steel (hardness 60)
 	thrown_force_divisor = 1.2 // 24 damage for steel (weight 20)
-	edge = 1
+	edge = TRUE
 	sharp = 0
 	mob_throw_hit_sound =  'sound/weapons/pierce.ogg'
 	attack_verb = list("attacked", "poked", "jabbed", "torn", "gored")
@@ -305,14 +305,14 @@
 			src.shatter()
 
 //predefined materials for spears
-/obj/item/material/twohanded/spear/steel/New(var/newloc)
-	..(newloc, MATERIAL_STEEL)
+/obj/item/material/twohanded/spear/steel/Initialize(newloc, material_key)
+	. = ..(newloc, MATERIAL_STEEL)
 
-/obj/item/material/twohanded/spear/plasteel/New(var/newloc)
-	..(newloc, MATERIAL_PLASTEEL)
+/obj/item/material/twohanded/spear/plasteel/Initialize(newloc, material_key)
+	. = ..(newloc, MATERIAL_PLASTEEL)
 
-/obj/item/material/twohanded/spear/diamond/New(var/newloc)
-	..(newloc, MATERIAL_DIAMOND)
+/obj/item/material/twohanded/spear/diamond/Initialize(newloc, material_key)
+	. = ..(newloc, MATERIAL_DIAMOND)
 
 /obj/structure/headspear
 	name = "head on a spear"
@@ -530,7 +530,7 @@
 	force = 5
 	unwielded_force_divisor = 0.2
 	force_divisor = 0.3
-	edge = 1
+	edge = TRUE
 	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BACK
 	attack_verb = list("attacked", "poked", "jabbed", "gored", "stabbed")
@@ -624,7 +624,7 @@
 	force_wielded = 30
 	unwielded_force_divisor = 1
 	thrown_force_divisor = 0.75
-	edge = 1
+	edge = TRUE
 	sharp = 1
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
 	default_material = "steel"

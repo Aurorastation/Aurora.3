@@ -12,6 +12,7 @@
 	cost = 1
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Vaurca"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/mask/filterport
 	display_name = "filter port"
@@ -40,12 +41,32 @@
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/cape
-	display_name = "tunnel cloak"
+	display_name = "tunnel cloak (recolourable)"
 	path = /obj/item/storage/backpack/cloak
 	cost = 1
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/cape_selection
+	display_name = "tunnel cloak selection"
+	path = /obj/item/storage/backpack/cloak 
+	cost = 1
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+	sort_category = "Xenowear - Vaurca"
+	flags = GEAR_HAS_DESC_SELECTION 
+
+/datum/gear/cape_selection/New()
+	..()
+	var/list/capes = list()
+	capes["tunnel cloak, Sedantis"] = /obj/item/storage/backpack/cloak/sedantis
+	capes["tunnel cloak, medical"] = /obj/item/storage/backpack/cloak/medical
+	capes["tunnel cloak, engineering"] = /obj/item/storage/backpack/cloak/engi
+	capes["tunnel cloak, atmospherics"] = /obj/item/storage/backpack/cloak/atmos
+	capes["tunnel cloak, cargo"] = /obj/item/storage/backpack/cloak/cargo
+	capes["tunnel cloak, science"] = /obj/item/storage/backpack/cloak/sci
+	capes["tunnel cloak, security"] = /obj/item/storage/backpack/cloak/sec
+	gear_tweaks += new /datum/gear_tweak/path(capes)
 
 /datum/gear/vaurca_robe
 	display_name = "hive cloak"
@@ -57,12 +78,12 @@
 
 /datum/gear/vaurca_robe/New()
 	..()
-	var/cloaks = list()
+	var/list/cloaks = list()
 	cloaks["hive cloak, red and golden"] = /obj/item/clothing/suit/vaurca
 	cloaks["hive cloak, red and silver"] = /obj/item/clothing/suit/vaurca/silver
 	cloaks["hive cloak, brown and silver"] = /obj/item/clothing/suit/vaurca/brown
 	cloaks["hive cloak, blue and golden"] = /obj/item/clothing/suit/vaurca/blue
-	gear_tweaks += new/datum/gear_tweak/path(cloaks)
+	gear_tweaks += new /datum/gear_tweak/path(cloaks)
 
 /datum/gear/uniform/vaurca
 	display_name = "vaurca clothes"
@@ -97,17 +118,17 @@
 
 /datum/gear/suit/vaurca_shroud/New()
 	..()
-	var/shrouds = list()
+	var/list/shrouds = list()
 	shrouds["vaurcan shroud, blue"] = /obj/item/clothing/head/shroud
 	shrouds["vaurcan shroud, red"] = /obj/item/clothing/head/shroud/red
 	shrouds["vaurcan shroud, green"] = /obj/item/clothing/head/shroud/green
 	shrouds["vaurcan shroud, purple"] = /obj/item/clothing/head/shroud/purple
 	shrouds["vaurcan shroud, brown"] = /obj/item/clothing/head/shroud/brown
-	gear_tweaks += new/datum/gear_tweak/path(shrouds)
+	gear_tweaks += new /datum/gear_tweak/path(shrouds)
 
-/datum/gear/suit/vaurca_mantle
+/datum/gear/accessory/vaurca_mantle
 	display_name = "vaurcan mantle"
-	path = /obj/item/clothing/suit/vaurca/mantle
+	path = /obj/item/clothing/accessory/poncho/vaurca
 	cost = 1
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Vaurca"
@@ -124,7 +145,26 @@
 
 /datum/gear/augment/language_processor/New()
 	..()
-	var/language_processors = list()
+	var/list/language_processors = list()
 	language_processors["K'laxan [LANGUAGE_UNATHI] language processor"] = /obj/item/organ/internal/augment/language/klax
 	language_processors["C'thur [LANGUAGE_SKRELLIAN] language processor"] = /obj/item/organ/internal/augment/language/cthur
 	gear_tweaks += new /datum/gear_tweak/path(language_processors)
+
+/datum/gear/vaurca_lunchbox
+	display_name = "vaurca lunchbox"
+	description = "A lunchbox selection containing various kois products."
+	cost = 2
+	path = /obj/item/storage/toolbox/lunchbox
+	sort_category = "Xenowear - Vaurca"
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+
+/datum/gear/vaurca_lunchbox/New()
+	..()
+	var/list/lunchboxes = list()
+	for(var/lunchbox_type in typesof(/obj/item/storage/toolbox/lunchbox))
+		var/obj/item/storage/toolbox/lunchbox/lunchbox = lunchbox_type
+		if(!initial(lunchbox.filled))
+			lunchboxes[initial(lunchbox.name)] = lunchbox_type
+	sortTim(lunchboxes, /proc/cmp_text_asc)
+	gear_tweaks += new /datum/gear_tweak/path(lunchboxes)
+	gear_tweaks += new /datum/gear_tweak/contents(lunchables_vaurca(), lunchables_vaurca_snack(), lunchables_drinks(), lunchables_utensil())

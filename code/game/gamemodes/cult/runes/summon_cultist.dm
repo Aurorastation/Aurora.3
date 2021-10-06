@@ -20,7 +20,7 @@
 			return fizzle(user, A)
 		if(cultist == user) //just to be sure.
 			return
-		if(cultist.buckled || cultist.handcuffed || (!isturf(cultist.loc) && !istype(cultist.loc, /obj/structure/closet)))
+		if(cultist.buckled_to || cultist.handcuffed || (!isturf(cultist.loc) && !istype(cultist.loc, /obj/structure/closet)))
 			for(var/mob/C in users)
 				to_chat(C, SPAN_WARNING("You cannot summon \the [cultist], for [cultist.get_pronoun("his")] shackles of blood are strong."))
 			return fizzle(user, A)

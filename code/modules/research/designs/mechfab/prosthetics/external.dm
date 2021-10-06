@@ -1,16 +1,18 @@
 /datum/design/item/mechfab/prosthetic
 	category = "Prosthetic (External)"
+	var/use_direct_buildpath = FALSE
 
 //if the fabricator is a mech fab we need to construct the proper typepath for the manufacturer
 /datum/design/item/mechfab/prosthetic/Fabricate(var/newloc, var/fabricator)
 	if(istype(fabricator, /obj/machinery/mecha_part_fabricator))
-		var/obj/machinery/mecha_part_fabricator/mechfab = fabricator
-		for(var/model_path in subtypesof(build_path))
-			var/obj/item/organ/external/E = new model_path
-			if(E.robotize_type == mechfab.manufacturer)
+		if(!use_direct_buildpath)
+			var/obj/machinery/mecha_part_fabricator/mechfab = fabricator
+			for(var/model_path in subtypesof(build_path))
+				var/obj/item/organ/external/E = new model_path
+				if(E.robotize_type == mechfab.manufacturer)
+					qdel(E)
+					return new model_path(newloc)
 				qdel(E)
-				return new model_path(newloc)
-			qdel(E)
 		return new build_path(newloc) // We didn't find our manufacturer in the list, so return an unbranded one
 	return ..()
 
@@ -61,3 +63,9 @@
 	build_path = /obj/item/organ/external/foot/right/ipc
 	time = 20
 	materials = list(DEFAULT_WALL_MATERIAL = 8000)
+
+/datum/design/item/mechfab/prosthetic/groin_cap
+	name = "Prosthetic Groin Cap"
+	build_path = /obj/item/organ/external/groin/ipc/unbranded/cap
+	use_direct_buildpath = TRUE
+	materials = list(DEFAULT_WALL_MATERIAL = 25000)

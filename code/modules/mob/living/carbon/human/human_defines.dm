@@ -67,6 +67,7 @@
 	var/obj/item/r_store = null
 	var/obj/item/l_store = null
 	var/obj/item/s_store = null
+	var/obj/item/wrists = null
 
 	var/used_skillpoints = 0
 	var/skill_specialization = null
@@ -123,3 +124,5 @@
 
 	var/datum/martial_art/primary_martial_art = null
 	var/list/datum/martial_art/known_martial_arts = null
+
+	var/triage_tag = TRIAGE_NONE

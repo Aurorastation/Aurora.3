@@ -8,31 +8,16 @@
 	build_amt = 1
 
 	buckle_dir = 0
-	buckle_lying = 0 //force people to sit up in chairs when buckled
+	buckle_lying = 0 //force people to sit up in chairs when buckled_to
 	obj_flags = OBJ_FLAG_ROTATABLE_ANCHORED
 	var/propelled = 0 // Check for fire-extinguisher-driven chairs
 
-/obj/structure/bed/chair/attackby(obj/item/W as obj, mob/user as mob)
-	..()
-	if(!padding_material && istype(W, /obj/item/assembly/shock_kit))
-		var/obj/item/assembly/shock_kit/SK = W
-		if(!SK.status)
-			to_chat(user, "<span class='notice'>\The [SK] is not ready to be attached!</span>")
-			return
-		var/obj/structure/bed/chair/e_chair/E = new (src.loc, material.name)
-		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
-		E.set_dir(dir)
-		E.part = SK
-		user.drop_from_inventory(SK,E)
-		SK.master = E
-		qdel(src)
-
 /obj/structure/bed/chair/do_simple_ranged_interaction(var/mob/user)
-	if(!buckled_mob && user)
+	if(!buckled && user)
 		rotate(user)
 	return TRUE
 
-/obj/structure/bed/chair/post_buckle_mob()
+/obj/structure/bed/chair/post_buckle()
 	update_icon()
 	return ..()
 
@@ -60,7 +45,7 @@
 			stool_cache[padding_cache_key] = I
 		add_overlay(stool_cache[padding_cache_key])
 
-	if(buckled_mob)
+	if(buckled)
 		cache_key = "[base_icon]-[material.name]-armrest"
 		if(!stool_cache[cache_key])
 			var/image/I = image(icon, "[base_icon]_armrest")
@@ -81,8 +66,8 @@
 
 /obj/structure/bed/chair/set_dir()
 	. = ..()
-	if(buckled_mob)
-		buckled_mob.set_dir(dir)
+	if(buckled)
+		buckled.set_dir(dir)
 
 // Leaving this in for the sake of compilation.
 /obj/structure/bed/chair/comfy
@@ -91,6 +76,19 @@
 	icon_state = "comfychair_preview"
 	base_icon = "comfychair"
 	build_amt = 2
+
+/obj/structure/bed/chair/comfy/MouseDrop_T(mob/target, mob/user)
+	if(target == user && user.loc != loc && (reverse_dir[dir] & angle2dir(Get_Angle(src, user))))
+		user.visible_message("<b>[user]</b> starts climbing over the back of \the [src]...", SPAN_NOTICE("You start climbing over the back of \the [src]..."))
+		if(do_after(user, 2 SECONDS))
+			user.forceMove(loc)
+		return
+	return ..()
+
+/obj/structure/bed/chair/comfy/CanPass(atom/movable/mover, turf/target, height, air_group)
+	if(mover.density && isliving(mover) && (reverse_dir[dir] & angle2dir(Get_Angle(src, mover))))
+		return FALSE
+	return ..()
 
 /obj/structure/bed/chair/comfy/brown/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)
@@ -119,6 +117,60 @@
 /obj/structure/bed/chair/comfy/lime/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_LIME)
 
+/obj/structure/bed/chair/comfy/sofa
+	name = "sofa"
+	desc = "A sofa, how nice!"
+	icon_state = "sofamiddle_preview"
+	base_icon = "sofamiddle"
+
+/obj/structure/bed/chair/comfy/sofa/leather/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)
+
+obj/structure/bed/chair/comfy/sofa/comfy/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CARPET)
+
+obj/structure/bed/chair/comfy/sofa/cloth/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH)
+
+/obj/structure/bed/chair/comfy/sofa/left
+	icon_state = "sofaend_left_preview"
+	base_icon = "sofaend_left"
+
+/obj/structure/bed/chair/comfy/sofa/left/leather/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)
+
+obj/structure/bed/chair/comfy/sofa/left/comfy/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CARPET)
+
+obj/structure/bed/chair/comfy/sofa/left/cloth/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH)
+
+/obj/structure/bed/chair/comfy/sofa/right
+	icon_state = "sofaend_right_preview"
+	base_icon = "sofaend_right"
+
+/obj/structure/bed/chair/comfy/sofa/right/leather/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)
+
+obj/structure/bed/chair/comfy/sofa/right/comfy/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CARPET)
+
+obj/structure/bed/chair/comfy/sofa/right/cloth/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH)
+
+/obj/structure/bed/chair/comfy/sofa/corner
+	icon_state = "sofacorner_preview"
+	base_icon = "sofacorner"
+
+/obj/structure/bed/chair/comfy/sofa/corner/leather/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)
+
+obj/structure/bed/chair/comfy/sofa/corner/comfy/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CARPET)
+
+obj/structure/bed/chair/comfy/sofa/corner/cloth/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH)
+
 /obj/structure/bed/chair/office
 	name = "office chair"
 	material_alteration = MATERIAL_ALTERATION_NAME || MATERIAL_ALTERATION_DESC
@@ -135,43 +187,41 @@
 	. = ..()
 	if(makes_rolling_sound)
 		playsound(src, 'sound/effects/roll.ogg', 100, 1)
-	if(buckled_mob)
-		var/mob/living/occupant = buckled_mob
-		occupant.buckled = null
+	if(buckled)
+		var/mob/living/occupant = buckled
+		occupant.buckled_to = null
 		occupant.Move(src.loc)
-		occupant.buckled = src
+		occupant.buckled_to = src
 		if (occupant && (src.loc != occupant.loc))
 			if (propelled)
 				for (var/mob/O in src.loc)
 					if (O != occupant)
 						Collide(O)
 			else
-				unbuckle_mob()
+				unbuckle()
 
 /obj/structure/bed/chair/office/Collide(atom/A)
 	. = ..()
-	if(!buckled_mob)
+	if(!buckled)
 		return
 
 	if(propelled)
-		var/mob/living/occupant = unbuckle_mob()
+		var/mob/living/occupant = unbuckle()
 
 		var/def_zone = ran_zone()
-		var/blocked = occupant.run_armor_check(def_zone, "melee")
 		occupant.throw_at(A, 3, propelled)
-		occupant.apply_effect(6, STUN, blocked)
-		occupant.apply_effect(6, WEAKEN, blocked)
-		occupant.apply_effect(6, STUTTER, blocked)
-		occupant.apply_damage(10, BRUTE, def_zone, blocked)
+		occupant.apply_effect(6, STUN)
+		occupant.apply_effect(6, WEAKEN)
+		occupant.apply_effect(6, STUTTER)
+		occupant.apply_damage(10, BRUTE, def_zone)
 		playsound(src.loc, "punch", 50, 1, -1)
-		if(istype(A, /mob/living))
+		if(isliving(A))
 			var/mob/living/victim = A
 			def_zone = ran_zone()
-			blocked = victim.run_armor_check(def_zone, "melee")
-			victim.apply_effect(6, STUN, blocked)
-			victim.apply_effect(6, WEAKEN, blocked)
-			victim.apply_effect(6, STUTTER, blocked)
-			victim.apply_damage(10, BRUTE, def_zone, blocked)
+			victim.apply_effect(6, STUN)
+			victim.apply_effect(6, WEAKEN)
+			victim.apply_effect(6, STUTTER)
+			victim.apply_damage(10, BRUTE, def_zone)
 		occupant.visible_message("<span class='danger'>[occupant] crashed into \the [A]!</span>")
 
 /obj/structure/bed/chair/office/light
@@ -258,8 +308,8 @@
 	can_dismantle = FALSE
 	anchored = TRUE
 
-/obj/structure/bed/chair/shuttle/post_buckle_mob()
-	if(buckled_mob)
+/obj/structure/bed/chair/shuttle/post_buckle()
+	if(buckled)
 		base_icon = "shuttlechair-b"
 	else
 		base_icon = "shuttlechair"
@@ -267,7 +317,7 @@
 
 /obj/structure/bed/chair/shuttle/update_icon()
 	..()
-	if(!buckled_mob)
+	if(!buckled)
 		var/image/I = image(icon, "[base_icon]_special")
 		I.layer = ABOVE_MOB_LAYER
 		if(material_alteration & MATERIAL_ALTERATION_COLOR)
@@ -283,14 +333,14 @@
 /obj/structure/bed/chair/pool/update_icon()
 	return
 
-/obj/structure/bed/chair/pool/buckle_mob(mob/living/M)
+/obj/structure/bed/chair/pool/buckle(mob/living/M)
 	if(!iscarbon(M))
 		return FALSE
 	return ..()
 
-/obj/structure/bed/chair/pool/post_buckle_mob(mob/living/M)
+/obj/structure/bed/chair/pool/post_buckle(mob/living/M)
 	. = ..()
-	if(M == buckled_mob)
+	if(M == buckled)
 		M.pixel_y = -6
 	else
 		M.pixel_y = initial(M.pixel_y)

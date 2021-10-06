@@ -166,3 +166,11 @@
 		/obj/item/reagent_containers/food/snacks/xenomeat
 	)
 	result = /obj/item/reagent_containers/food/snacks/wingfangchu
+
+/decl/recipe/roefritters
+	appliance = FRYER
+	reagents = list(/decl/reagent/nutriment/coating/batter = 10)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/fish/roe
+	)
+	result = /obj/item/reagent_containers/food/snacks/roefritters

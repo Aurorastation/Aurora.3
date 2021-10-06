@@ -148,8 +148,8 @@
 				playsound(loc, W.usesound, 50, 1)
 				wrenched = 1
 				anchored = 1
-	else if(istype(W, /obj/item/hand_labeler))
-		var/obj/item/hand_labeler/HL = W
+	else if(istype(W, /obj/item/device/hand_labeler))
+		var/obj/item/device/hand_labeler/HL = W
 		if (HL.mode == 1)
 			return
 		else

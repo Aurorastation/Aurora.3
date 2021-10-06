@@ -9,8 +9,8 @@
 	e_legs = /obj/item/mech_component/propulsion/heavy
 	e_color = COLOR_TITANIUM
 
-	h_l_hand = /obj/item/mecha_equipment/mounted_system/taser/laser
-	h_r_hand = /obj/item/mecha_equipment/mounted_system/taser/ion
+	h_l_hand = /obj/item/mecha_equipment/mounted_system/combat/laser
+	h_r_hand = /obj/item/mecha_equipment/mounted_system/combat/ion
 	h_back = /obj/item/mecha_equipment/shield
 
 /obj/item/mech_component/manipulators/heavy
@@ -45,7 +45,7 @@
 /obj/item/mech_component/sensors/heavy/prebuild()
 	..()
 	software = new(src)
-	software.installed_software = list(MECH_SOFTWARE_WEAPONS, MECH_SOFTWARE_ADVWEAPONS)
+	software.installed_software = list(MECH_SOFTWARE_WEAPONS, MECH_SOFTWARE_UTILITY)
 
 /obj/item/mech_component/chassis/heavy
 	name = "reinforced exosuit chassis"

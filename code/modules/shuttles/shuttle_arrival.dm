@@ -19,7 +19,7 @@
 				var/list/mobstoyellat = list()
 				for(var/area/subarea in shuttle_area)
 					mobs_in_area(subarea)
-				if (!mobstoyellat || !mobstoyellat.len)
+				if (!mobstoyellat || !length(mobstoyellat))
 					return FALSE
 				for(var/mob/living/A in mobstoyellat)
 					to_chat(A, "<span class='danger'>You feel as if you shouldn't be on the shuttle.</span>") // give them an angry text
@@ -33,6 +33,8 @@
 					else if(!ishuman(A) && SSarrivals.failreturnnumber >= 4 && !A.client) // remove non-player mobs to keep things rolling
 						qdel(A)
 					else if(issilicon(A.loc) && isMMI(A))
+						mobstoyellat -= A
+					else if(A.stat == DEAD)
 						mobstoyellat -= A
 				if (mobstoyellat)
 					global_announcer.autosay("Current life-forms on shuttle: [english_list(mobstoyellat)].", "Arrivals Shuttle Oversight") // tell on them

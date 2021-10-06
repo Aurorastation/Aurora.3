@@ -9,7 +9,7 @@ var/datum/antagonist/vampire/vamp = null
 	restricted_jobs = list("AI", "Cyborg", "Chaplain", "Head of Security", "Captain", "Chief Engineer", "Research Director", "Chief Medical Officer", "Head of Personnel")
 	intensity = 1
 
-	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician")
+	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Investigator")
 	restricted_species = list(
 		SPECIES_IPC,
 		SPECIES_IPC_SHELL,

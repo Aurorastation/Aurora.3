@@ -8,6 +8,11 @@
 	item_state = ""
 	w_class = ITEMSIZE_SMALL
 	var/obj/item/stored_item = null
+	var/label_text = ""
+
+/obj/item/evidencebag/Initialize()
+	. = ..()
+	AddComponent(/datum/component/base_name, name)
 
 /obj/item/evidencebag/MouseDrop(var/obj/item/I as obj)
 	if (!ishuman(usr))
@@ -53,11 +58,12 @@
 		to_chat(user, "<span class='notice'>[src] already has something inside it.</span>")
 		return
 
-	user.visible_message("[user] puts [I] into [src]", "You put [I] inside [src].",\
+	user.visible_message("<b>[user]</b> puts \the [I] into \the [src].", SPAN_NOTICE("You put \the [I] inside \the [src]."),\
 	"You hear a rustle as someone puts something into a plastic bag.")
+	store_item(I)
 
+/obj/item/evidencebag/proc/store_item(obj/item/I)
 	icon_state = "evidence"
-
 	var/mutable_appearance/MA = new(I)
 	MA.pixel_x = 0
 	MA.pixel_y = 0
@@ -68,13 +74,12 @@
 	I.forceMove(src)
 	stored_item = I
 	w_class = I.w_class
-	return
 
 
 /obj/item/evidencebag/attack_self(mob/user as mob)
 	if(contents.len)
 		var/obj/item/I = contents[1]
-		user.visible_message("[user] takes [I] out of [src]", "You take [I] out of [src].",\
+		user.visible_message("<b>[user]</b> takes \the [I] out of \the [src].", SPAN_NOTICE("You take \the [I] out of \the [src]."),\
 		"You hear someone rustle around in a plastic bag, and remove something.")
 		cut_overlays()	//remove the overlays
 
@@ -92,3 +97,22 @@
 /obj/item/evidencebag/examine(mob/user)
 	..(user)
 	if (stored_item) user.examinate(stored_item)
+
+/obj/item/evidencebag/attackby(obj/item/W as obj, mob/user as mob)
+	if(W.ispen() || istype(W, /obj/item/device/flashlight/pen))
+		var/tmp_label = sanitizeSafe(input(user, "Enter a label for [name]", "Label", label_text), MAX_NAME_LEN)
+		if(length(tmp_label) > 15)
+			to_chat(user, "<span class='notice'>The label can be at most 15 characters long.</span>")
+		else
+			to_chat(user, "<span class='notice'>You set the label to \"[tmp_label]\".</span>")
+			label_text = tmp_label
+			update_name_label()
+		return
+	. = ..() 
+
+/obj/item/evidencebag/proc/update_name_label(var/base_name = initial(name))
+	SEND_SIGNAL(src, COMSIG_BASENAME_SETNAME, args)
+	if(label_text == "")
+		name = base_name
+	else
+		name = "[base_name] ([label_text])"

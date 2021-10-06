@@ -18,7 +18,7 @@ var/datum/antagonist/cultist/cult
 	role_text_plural = "Cultists"
 	bantype = "cultist"
 	restricted_jobs = list("Chaplain","AI", "Cyborg", "Head of Security", "Captain", "Chief Engineer", "Research Director", "Chief Medical Officer", "Head of Personnel")
-	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician")
+	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Investigator")
 	feedback_tag = "cult_objective"
 	antag_indicator = "cult"
 	welcome_text = "You have a talisman in your possession; one that will help you start the cult on this station. Use it well and remember - there are others."
@@ -128,3 +128,10 @@ var/datum/antagonist/cultist/cult
 		to_chat(usr, SPAN_CULT("You get the sense that [target] would be an unworthy offering."))
 	else
 		to_chat(usr, SPAN_CULT("You get the sense that your master would be pleased to welcome [target] into the cult."))
+
+/datum/antagonist/cultist/is_obvious_antag(datum/mind/player)
+	if(istype(player.current, /mob/living/simple_animal/construct))
+		return TRUE
+	else if(istype(player.current, /mob/living/simple_animal/shade))
+		return TRUE
+	return FALSE

@@ -2,11 +2,23 @@
 	name = "shoulder holster"
 	desc = "A handgun holster."
 	icon_state = "holster"
-	slot = "utility"
+	slot = ACCESSORY_SLOT_UTILITY
 	var/obj/item/holstered = null
 	var/sound_in = 'sound/weapons/holster/holsterin.ogg'
 	var/sound_out = 'sound/weapons/holster/holsterout.ogg'
 	flippable = 1
+	w_class = ITEMSIZE_NORMAL
+
+/obj/item/clothing/accessory/holster/Initialize()
+	. = ..()
+	AddComponent(/datum/component/base_name, name)
+
+/obj/item/clothing/accessory/holster/proc/update_name(var/base_name = initial(name))
+	SEND_SIGNAL(src, COMSIG_BASENAME_SETNAME, args)
+	if(holstered)
+		name = "occupied [base_name]"
+	else
+		name = "[base_name]"
 
 /obj/item/clothing/accessory/holster/proc/holster(var/obj/item/I, var/mob/living/user)
 	if(holstered && istype(user))
@@ -27,11 +39,11 @@
 	holstered.add_fingerprint(user)
 	w_class = max(w_class, holstered.w_class)
 	user.visible_message("<span class='notice'>[user] holsters \the [holstered].</span>", "<span class='notice'>You holster \the [holstered].</span>")
-	name = "occupied [initial(name)]"
+	update_name()
 
 /obj/item/clothing/accessory/holster/proc/clear_holster()
 	holstered = null
-	name = initial(name)
+	update_name()
 
 /obj/item/clothing/accessory/holster/proc/unholster(mob/user as mob)
 	if(!holstered)
@@ -39,6 +51,8 @@
 
 	if(istype(user.get_active_hand(),/obj) && istype(user.get_inactive_hand(),/obj))
 		to_chat(user, "<span class='warning'>You need an empty hand to draw \the [holstered]!</span>")
+	else if (use_check(user))
+		to_chat(user, "<span class='warning'>You can't draw \the [holstered] in your current state!</span>")
 	else
 		var/sound_vol = 25
 		if(user.a_intent == I_HURT)
@@ -103,13 +117,13 @@
 
 	//can't we just use src here?
 	var/obj/item/clothing/accessory/holster/H = null
-	if (istype(src, /obj/item/clothing/accessory/holster))
+	if(istype(src, /obj/item/clothing/accessory/holster))
 		H = src
-	else if (istype(src, /obj/item/clothing/under))
-		var/obj/item/clothing/under/S = src
-		if (LAZYLEN(S.accessories))
+	if(!H && istype(src, /obj/item/clothing))
+		var/obj/item/clothing/S = src
+		if(LAZYLEN(S.accessories))
 			H = locate() in S.accessories
-	else if (istype(src, /obj/item/clothing/suit/armor/tactical))	// This armor is a snowflake and has an integrated holster.
+	if(!H && istype(src, /obj/item/clothing/suit/armor/tactical))	// This armor is a snowflake and has an integrated holster.
 		var/obj/item/clothing/suit/armor/tactical/tacticool = src
 		H = tacticool.holster
 

@@ -115,8 +115,8 @@
 		dismantle()
 		qdel(src)
 
-		var/blocked = target.run_armor_check(hit_zone, "melee")
-		target.Weaken(10 * BLOCKED_MULT(blocked))
+		var/blocked = target.get_blocked_ratio(hit_zone, BRUTE)
+		target.Weaken(10 * (1 - blocked))
 		target.apply_damage(20, BRUTE, hit_zone, blocked, src)
 		return
 

@@ -3,7 +3,7 @@
 	desc = "A comfortable chair with full audio-visual transposition centres. This one gives you access to robots attached to the remote network."
 	remote_network = REMOTE_GENERIC_ROBOT
 
-/obj/structure/bed/chair/remote/robot/user_buckle_mob(mob/user)
+/obj/structure/bed/chair/remote/robot/user_buckle(mob/user)
 	..()
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user

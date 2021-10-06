@@ -22,9 +22,9 @@
 			return
 		
 		var/cultist_free = TRUE
-		if(cultist.buckled)
+		if(cultist.buckled_to)
 			cultist_free = FALSE
-			cultist.buckled = null
+			cultist.buckled_to = null
 		if(cultist.handcuffed)
 			cultist_free = FALSE
 			cultist.drop_from_inventory(cultist.handcuffed)

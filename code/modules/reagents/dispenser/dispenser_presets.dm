@@ -72,6 +72,7 @@
 	ui_title = "Soda Dispenser"
 	accept_drinking = 1
 	density = 0//It's a half-height machine that sits on a table, this allows small things to walk under that table
+	pass_flags = PASSTABLE // put it back on the table
 
 /obj/machinery/chemical_dispenser/bar_soft/full
 	spawn_cartridges = list(
@@ -108,6 +109,7 @@
 	ui_title = "Booze Dispenser"
 	accept_drinking = 1
 	density = 0//It's a half-height machine that sits on a table, this allows small things to walk under that table
+	pass_flags = PASSTABLE // put it back on the table
 
 /obj/machinery/chemical_dispenser/bar_alc/full
 	spawn_cartridges = list(
@@ -129,7 +131,9 @@
 			/obj/item/reagent_containers/chem_disp_cartridge/vermouth,
 			/obj/item/reagent_containers/chem_disp_cartridge/cognac,
 			/obj/item/reagent_containers/chem_disp_cartridge/ale,
-			/obj/item/reagent_containers/chem_disp_cartridge/mead
+			/obj/item/reagent_containers/chem_disp_cartridge/mead,
+			/obj/item/reagent_containers/chem_disp_cartridge/grenadine,
+			/obj/item/reagent_containers/chem_disp_cartridge/cream
 		)
 
 /obj/machinery/chemical_dispenser/coffeemaster
@@ -140,6 +144,7 @@
 	ui_title = "Coffee Master 3000"
 	accept_drinking = 1
 	density = 0
+	pass_flags = PASSTABLE // put it back on the table
 
 /obj/machinery/chemical_dispenser/coffeemaster/full
 	spawn_cartridges = list(
@@ -164,6 +169,7 @@
 	ui_title = "Morning Glory Coffee Mate"
 	icon_state_active = null
 	accept_drinking = 1
+	pass_flags = PASSTABLE // put it back on the table
 
 /obj/machinery/chemical_dispenser/coffee/full
 	spawn_cartridges = list(

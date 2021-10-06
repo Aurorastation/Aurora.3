@@ -1,31 +1,25 @@
 /datum/admins/proc/check_antagonists()
 	if (SSticker.current_state >= GAME_STATE_PLAYING)
-		var/dat = "<html><head><title>Round Status</title></head><body><h1><B>Round Status</B></h1>"
-		dat += "Current Game Mode: <B>[SSticker.mode.name]</B><BR>"
-		dat += "Round Duration: [get_round_duration_formatted()]"
-		dat += "<B>Emergency shuttle</B><BR>"
-		if (!emergency_shuttle.online())
-			dat += "<a href='?src=\ref[src];call_shuttle=1'>Call Shuttle</a><br>"
+		var/dat = ""
+		dat += "Current Game Mode: <b>[SSticker.mode.name]</b><br>"
+		dat += "Round Duration: [get_round_duration_formatted()]<br>"
+		dat += "<b>Evacuation</b><br>"
+		if (evacuation_controller.is_idle())
+			dat += "<vui-button :params=\"{ call_shuttle: 1 }\">Call Evacuation</vui-button><br>"
 		else
-			if (emergency_shuttle.wait_for_launch)
-				var/timeleft = emergency_shuttle.estimate_launch_time()
-				dat += "ETL: <a href='?src=\ref[src];edit_shuttle_time=1'>[(timeleft / 60) % 60]:[add_zero(num2text(timeleft % 60), 2)]</a><BR>"
-
-			else if (emergency_shuttle.shuttle.has_arrive_time())
-				var/timeleft = emergency_shuttle.estimate_arrival_time()
-				dat += "ETA: <a href='?src=\ref[src];edit_shuttle_time=1'>[(timeleft / 60) % 60]:[add_zero(num2text(timeleft % 60), 2)]</a><BR>"
+			var/timeleft = evacuation_controller.get_eta()
+			if (evacuation_controller.waiting_to_leave())
+				dat += "ETA: [(timeleft / 60) % 60]:[add_zero(num2text(timeleft % 60), 2)]<BR>"
 				dat += "<a href='?src=\ref[src];call_shuttle=2'>Send Back</a><br>"
 
-			if (emergency_shuttle.shuttle.moving_status == SHUTTLE_WARMUP)
-				dat += "Launching now..."
-
-		dat += "<a href='?src=\ref[src];delay_round_end=1'>[SSticker.delay_end ? "End Round Normally" : "Delay Round End"]</a><br>"
+		dat += "<vui-button :params=\"{ delay_round_end: 1 }\">[SSticker.delay_end ? "End Round Normally" : "Delay Round End"]</vui-button><br>"
 		dat += "<hr>"
 		for(var/antag_type in all_antag_types)
 			var/datum/antagonist/A = all_antag_types[antag_type]
 			dat += A.get_check_antag_output(src)
-		dat += "</body></html>"
-		usr << browse(dat, "window=roundstatus;size=400x500")
+	
+		var/datum/vueui/ui = new(usr, src, "?<div>[dat]</div>", 400, 500, "Round Status", list(), interactive_state)
+		ui.open()
 	else
 		alert("The game hasn't started yet!")
 

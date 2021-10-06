@@ -96,20 +96,19 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	return
 
 /obj/machinery/computer/rdconsole/proc/SyncTechs()
-	if(src)
-		for(var/obj/machinery/r_n_d/server/S in SSmachinery.all_machines)
-			var/server_processed = 0
-			if((id in S.id_with_upload) || istype(S, /obj/machinery/r_n_d/server/centcom))
-				for(var/tech_id in files.known_tech)
-					var/datum/tech/T = files.known_tech[tech_id]
-					S.files.AddTech2Known(T)
-				S.files.RefreshResearch()
-				server_processed = 1
-			files.known_tech = S.files.known_tech.Copy()
-			if(!istype(S, /obj/machinery/r_n_d/server/centcom) && server_processed)
-				S.produce_heat()
-		screen = 1.6
-		updateUsrDialog()
+	for(var/obj/machinery/r_n_d/server/S in SSmachinery.all_machines)
+		var/server_processed = 0
+		if((id in S.id_with_upload) || istype(S, /obj/machinery/r_n_d/server/centcom))
+			for(var/tech_id in files.known_tech)
+				var/datum/tech/T = files.known_tech[tech_id]
+				S.files.AddTech2Known(T)
+			S.files.RefreshResearch()
+			server_processed = 1
+		files.known_tech = S.files.known_tech.Copy()
+		if(!istype(S, /obj/machinery/r_n_d/server/centcom) && server_processed)
+			S.produce_heat()
+	screen = 1.6
+	updateUsrDialog()
 
 /obj/machinery/computer/rdconsole/proc/griefProtection() //Have it automatically push research to the centcomm server so wild griffins can't fuck up R&D's work
 	for(var/obj/machinery/r_n_d/server/centcom/C in SSmachinery.all_machines)
@@ -316,7 +315,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		updateUsrDialog()
 
 	else if(href_list["imprinter_category"])
-		var/choice = input("Which category do you wish to display?") as null|anything in designs_protolathe_categories+"All"
+		var/choice = input("Which category do you wish to display?") as null|anything in designs_imprinter_categories+"All"
 		if(!choice)
 			return
 		imprinter_category = choice
@@ -861,7 +860,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 /obj/machinery/computer/rdconsole/robotics
 	name = "robotics R&D console"
-	id = 2
+	id = 1
 	req_access = list(access_robotics)
 	allow_analyzer = FALSE
 	allow_lathe = FALSE

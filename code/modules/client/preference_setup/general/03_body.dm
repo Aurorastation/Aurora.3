@@ -415,6 +415,19 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			pref.rlimb_data.Cut()
 			pref.body_markings.Cut()
 
+			// Follows roughly the same way hair does above, but for gradient styles
+			var/global/list/valid_gradients = list()
+
+			if(!valid_gradients[mob_species.type])
+				valid_gradients[mob_species.type] = list()
+				for(var/gradient in hair_gradient_styles_list)
+					var/datum/sprite_accessory/S = hair_gradient_styles_list[gradient]
+					if(mob_species.type in S.species_allowed)
+						valid_gradients[mob_species.type] += gradient
+
+			if(!(pref.g_style in valid_gradients[mob_species.type]))
+				pref.g_style = hair_gradient_styles_list["None"]
+
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["hair_color"])
@@ -444,6 +457,10 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		var/list/valid_hairstyles = list()
 		for(var/hairstyle in hair_styles_list)
 			var/datum/sprite_accessory/S = hair_styles_list[hairstyle]
+			if(pref.gender == MALE && S.gender == FEMALE)
+				continue
+			if(pref.gender == FEMALE && S.gender == MALE)
+				continue
 			if(!(mob_species.type in S.species_allowed))
 				continue
 
@@ -555,7 +572,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			pref.body_markings[new_marking] = "#000000" //New markings start black
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
-	
+
 	else if(href_list["marking_up"])
 		var/M = href_list["marking_up"]
 		var/start = pref.body_markings.Find(M)

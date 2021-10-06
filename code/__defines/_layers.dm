@@ -11,6 +11,7 @@
 #define CABLE_LAYER 2.44
 #define ABOVE_CABLE_LAYER (CABLE_LAYER + 0.1)
 #define DOOR_OPEN_LAYER 2.7		//Under all objects if opened. 2.7 due to tables being at 2.6
+#define ABOVE_OBJ_LAYER 3.01
 #define UNDERDOOR 3.09		//Just barely under a closed door.
 #define DOOR_CLOSED_LAYER 3.1	//Above most items if closed
 #define BELOW_MOB_LAYER 3.7
@@ -18,6 +19,7 @@
 #define ABOVE_ALL_MOB_LAYER 4.5
 #define LIGHTING_LAYER 11
 #define EFFECTS_ABOVE_LIGHTING_LAYER 12 // For overlays you want to be above light.
+#define UNDER_HUD_LAYER 19
 #define HUD_LAYER 20			//Above lighting, but below obfuscation. For in-game HUD effects (whereas SCREEN_LAYER is for abstract/OOC things like inventory slots)
 #define OBFUSCATION_LAYER 21	//Where images covering the view for eyes are put
 #define SCREEN_LAYER 22			//Mob HUD/effects layer
@@ -37,5 +39,10 @@
 #define MECH_DECAL_LAYER            4.07
 #define MECH_GEAR_LAYER             4.08
 #define MECH_ABOVE_LAYER            4.09
+
+// Blob Layers
+#define BLOB_SHIELD_LAYER           4.11
+#define BLOB_NODE_LAYER             4.12
+#define BLOB_CORE_LAYER	            4.13
 
 #define CLICKCATCHER_PLANE -100

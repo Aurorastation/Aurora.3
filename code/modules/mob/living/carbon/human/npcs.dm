@@ -12,7 +12,9 @@
 /mob/living/carbon/human/monkey/punpun/LateInitialize()
 	name = "Pun Pun"
 	real_name = name
-	w_uniform = new /obj/item/clothing/under/punpun(src)
+	named = TRUE
+
+	equip_to_slot(new /obj/item/clothing/under/punpun(src), slot_w_uniform)
 
 /obj/item/clothing/under/nupnup
 	name = "christmas uniform"

@@ -31,7 +31,7 @@
 /obj/item/mech_component/sensors/superheavy/prebuild()
 	..()
 	software = new(src)
-	software.installed_software = list(MECH_SOFTWARE_WEAPONS, MECH_SOFTWARE_ADVWEAPONS)
+	software.installed_software = list(MECH_SOFTWARE_WEAPONS, MECH_SOFTWARE_UTILITY)
 
 /obj/item/mech_component/chassis/superheavy
 	name = "heavy-duty military chassis"
@@ -46,6 +46,7 @@
 
 /obj/item/mech_component/chassis/superheavy/prebuild()
 	. = ..()
+	QDEL_NULL(cell)
 	cell = new /obj/item/cell/super(src)
 	mech_armor = new /obj/item/robot_parts/robot_component/armor/mech/combat(src)
 
@@ -60,5 +61,5 @@
 	e_legs = /obj/item/mech_component/propulsion/superheavy
 	e_color = COLOR_DARK_GUNMETAL
 
-	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/pulse
-	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/pulse
+	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/combat/pulse
+	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/combat/pulse

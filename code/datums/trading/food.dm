@@ -7,7 +7,6 @@
 
 	possible_wanted_items = list(
 		/obj/item/material/kitchen/utensil            = TRADER_SUBTYPES_ONLY, // Customers keep stealing their cutlery
-		/obj/item/material/kitchen/utensil/fork/fluff = TRADER_BLACKLIST_ALL, // No custom items
 		/obj/item/material/kitchen/utensil/knife/boot = TRADER_BLACKLIST // No boot knifes
 		)
 
@@ -48,7 +47,6 @@
 
 	possible_wanted_items = list(
 		/obj/item/material/kitchen/utensil            = TRADER_SUBTYPES_ONLY, // Customers keep stealing their cutlery
-		/obj/item/material/kitchen/utensil/fork/fluff = TRADER_BLACKLIST_ALL, // No custom items
 		/obj/item/material/kitchen/utensil/knife/boot = TRADER_BLACKLIST // No boot knifes
 		)
 
@@ -165,7 +163,6 @@
 	)
 	possible_wanted_items = list(
 		/obj/item/material/kitchen/utensil            = TRADER_SUBTYPES_ONLY, // Customers keep stealing their cutlery
-		/obj/item/material/kitchen/utensil/fork/fluff = TRADER_BLACKLIST_ALL, // No custom items
 		/obj/item/material/kitchen/utensil/knife/boot = TRADER_BLACKLIST // No boot knifes
 		)
 

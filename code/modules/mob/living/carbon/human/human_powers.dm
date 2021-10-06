@@ -59,7 +59,7 @@ mob/living/carbon/human/proc/change_monitor()
 	if(last_special > world.time)
 		return
 
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		to_chat(src, "You cannot tackle someone in your current state.")
 		return
 
@@ -78,7 +78,7 @@ mob/living/carbon/human/proc/change_monitor()
 	if(last_special > world.time)
 		return
 
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		to_chat(src, "You cannot tackle in your current state.")
 		return
 
@@ -115,7 +115,7 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src, "<span class='warning'>You're already leaping!</span>")
 		return FALSE
 
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		to_chat(src, "<span class='warning'>You cannot leap in your current state.</span>")
 		return FALSE
 
@@ -569,7 +569,7 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src, "<span class='danger'>Your spine still aches!</span>")
 		return
 
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		to_chat(src, "You cannot launch a quill in your current state.")
 		return
 
@@ -689,7 +689,7 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src, "<span class='danger'>You are too tired to charge!</span>")
 		return
 
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		to_chat(src, "<span class='danger'>You cannot charge in your current state!</span>")
 		return
 
@@ -739,7 +739,7 @@ mob/living/carbon/human/proc/change_monitor()
 		msg_admin_attack("[key_name(src)] crashed into [brokesomething] objects at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>)" )
 
 	if (!done && target.Enter(src, null))
-		if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+		if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 			return 0
 
 		step(src, dir)
@@ -755,7 +755,7 @@ mob/living/carbon/human/proc/change_monitor()
 /mob/living/carbon/human/proc/crash_into(var/atom/A)
 	var/aname = A.name
 	var/oldtype = A.type
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		return 0
 
 	if (istype(A, /mob/living))
@@ -826,7 +826,7 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src,"<span class='notice'>You are too tired to spray napalm!</span>")
 		return
 
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		to_chat(src,"<span class='notice'>You cannot spray napalm in your current state.</span>")
 		return
 
@@ -1018,11 +1018,11 @@ mob/living/carbon/human/proc/change_monitor()
 
 		last_special = world.time + 20
 
-		src.drop_from_inventory(O)
+		drop_from_inventory(O)
 		O.replaced(src)
-		src.update_body()
-		src.updatehealth()
-		src.UpdateDamageIcon()
+		update_body()
+		updatehealth()
+		UpdateDamageIcon()
 
 		update_body()
 		updatehealth()
@@ -1209,3 +1209,34 @@ mob/living/carbon/human/proc/change_monitor()
 
 	primary_martial_art = selected_martial_art
 	to_chat(src, SPAN_NOTICE("You will now use [primary_martial_art.name] when fighting barehanded."))
+
+//Used to rename monkey mobs since they are humans with a monkey species applied
+/mob/living/carbon/human/proc/change_animal_name()
+	set name = "Name Animal"
+	set desc = "Name a monkeylike animal."
+	set category = "IC"
+	set src in view(1)
+
+	var/mob/living/M = usr
+	if(!M || usr == src)
+		return
+
+	if(can_name(M))
+		var/input = sanitizeSafe(input("What do you want to name \the [src]?","Choose a name") as text|null, MAX_NAME_LEN)
+		if(!input)
+			return
+		if(stat != DEAD && in_range(M,src))
+			to_chat(M, SPAN_NOTICE("You rename \the [src] to [input]."))
+			name = "\proper [input]"
+			real_name = input
+			named = TRUE
+
+//Used only to check for renaming of monkey mobs
+/mob/living/carbon/human/can_name(var/mob/living/M)
+	if(named)
+		to_chat(M, SPAN_NOTICE("\The [src] already has a name!"))
+		return FALSE
+	if(stat == DEAD)
+		to_chat(M, SPAN_WARNING("You can't name a corpse."))
+		return FALSE
+	return TRUE

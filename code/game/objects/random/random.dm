@@ -128,7 +128,7 @@
 		/obj/item/stack/packageWrap = 1,
 		/obj/random/bomb_supply = 2,
 		/obj/item/extinguisher = 1,
-		/obj/item/clothing/gloves/fyellow = 1,
+		/obj/item/clothing/gloves/yellow/budget = 1,
 		/obj/item/stack/cable_coil = 3,
 		/obj/random/toolbox = 2,
 		/obj/item/storage/belt/utility = 2,
@@ -409,6 +409,7 @@
 		/obj/item/storage/belt/utility = 1,
 		/obj/item/storage/belt/medical = 0.4,
 		/obj/item/storage/belt/medical/first_responder = 0.4,
+		/obj/item/storage/belt/medical/first_responder/combat = 0.1,
 		/obj/item/storage/belt/security/tactical = 0.1,
 		/obj/item/storage/belt/military = 0.1,
 		/obj/item/storage/belt/janitor = 0.4
@@ -422,7 +423,6 @@
 		/obj/item/storage/backpack = 3,
 		/obj/item/storage/backpack/holding = 0.5,
 		/obj/item/storage/backpack/cultpack = 2,
-		/obj/item/storage/backpack/clown = 2,
 		/obj/item/storage/backpack/medic = 3,
 		/obj/item/storage/backpack/security = 3,
 		/obj/item/storage/backpack/captain = 2,
@@ -578,7 +578,6 @@
 		/obj/machinery/vending/security = 0.3,
 		/obj/machinery/vending/hydronutrients = 1,
 		/obj/machinery/vending/hydroseeds = 1,
-		/obj/machinery/vending/magivend = 0.5,	//The things it dispenses are just costumes to non-wizards
 		/obj/machinery/vending/dinnerware = 1,
 		/obj/machinery/vending/sovietsoda = 2,
 		/obj/machinery/vending/tool = 1,
@@ -743,7 +742,8 @@
 		/obj/item/gun/energy/rifle/laser/xray,
 		/obj/item/gun/energy/net,
 		/obj/item/gun/energy/laser/shotgun,
-		/obj/item/gun/energy/decloner
+		/obj/item/gun/energy/decloner,
+		/obj/item/gun/energy/freeze
 	)
 
 /obj/random/colored_jumpsuit
@@ -780,7 +780,6 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "gift3"
 	problist = list(
-		/obj/item/assembly/shock_kit = 0.1,
 		/obj/item/bluespace_crystal/artificial = 0.1,
 		/obj/item/bodybag = 0.7,
 		/obj/item/clothing/accessory/storage/knifeharness = 0.3,
@@ -804,7 +803,6 @@
 		/obj/item/clothing/mask/balaclava = 0.75,
 		/obj/item/clothing/mask/fakemoustache = 0.4,
 		/obj/item/clothing/mask/gas = 1.25,
-		/obj/item/clothing/mask/gas/clown_hat = 0.1,
 		/obj/item/clothing/mask/gas/cyborg = 0.7,
 		/obj/item/clothing/mask/gas/mime = 0.1,
 		/obj/item/clothing/mask/gas/old = 0.75,
@@ -819,7 +817,6 @@
 		/obj/item/clothing/mask/smokable/cigarette/cigar/cohiba = 0.7,
 		/obj/item/clothing/mask/smokable/pipe/cobpipe = 0.5,
 		/obj/item/clothing/shoes/carp = 0.5,
-		/obj/item/clothing/shoes/clown_shoes = 0.1,
 		/obj/item/clothing/shoes/combat = 0.2,
 		/obj/item/clothing/shoes/cyborg = 0.4,
 		/obj/item/clothing/shoes/galoshes = 0.6,
@@ -837,7 +834,6 @@
 		/obj/item/clothing/under/mime = 0.1,
 		/obj/item/clothing/under/overalls = 1,
 		/obj/item/clothing/under/rainbow = 0.9,
-		/obj/item/clothing/under/rank/clown = 0.1,
 		/obj/item/clothing/under/syndicate/tacticool = 0.4,
 		/obj/item/clothing/under/syndicate/tracksuit = 0.2,
 		/obj/item/device/firing_pin = 0.3,
@@ -945,7 +941,8 @@
 		/obj/random/tool = 1,
 		/obj/random/toolbox = 1,
 		/obj/random_produce = 0.25,
-		/obj/random/watches = 1
+		/obj/random/watches = 1,
+		/obj/random/wizard_dressup = 0.25
 	)
 
 
@@ -959,11 +956,11 @@
 		/obj/item/clothing/gloves/chameleon = 1,
 		/obj/item/clothing/gloves/black = 10,
 
-		/obj/item/clothing/head/softcap/chameleon = 0.5,
+		/obj/item/clothing/head/chameleon = 0.5,
 		/obj/item/clothing/head/softcap = 5,
 
 		/obj/item/clothing/mask/chameleon = 1,
-		/obj/item/clothing/mask/gas/ = 10,
+		/obj/item/clothing/mask/gas = 10,
 
 		/obj/item/clothing/shoes/chameleon = 0.5,
 		/obj/item/clothing/shoes/black = 5,
@@ -978,7 +975,7 @@
 		/obj/item/gun/bang/deagle = 0.1,
 
 		/obj/item/storage/backpack/chameleon = 1,
-		/obj/item/storage/backpack/ = 10,
+		/obj/item/storage/backpack = 10,
 
 		/obj/item/clothing/glasses/chameleon = 1
 
@@ -997,7 +994,7 @@
 		/obj/item/clothing/gloves/boxing/green = 0.3,
 		/obj/item/clothing/gloves/captain = 0.1,
 		/obj/item/clothing/gloves/combat = 0.2,
-		/obj/item/clothing/gloves/fyellow = 1.2,
+		/obj/item/clothing/gloves/yellow/budget = 1.2,
 		/obj/item/clothing/gloves/latex = 0.5,
 		/obj/item/clothing/gloves/latex/nitrile = 0.4,
 		/obj/item/clothing/gloves/yellow = 0.9
@@ -1009,10 +1006,10 @@
 	icon = 'icons/obj/clothing/gloves.dmi'
 	icon_state = "watch"
 	problist = list(
-		/obj/item/clothing/gloves/watch = 1,
-		/obj/item/clothing/gloves/watch/silver = 0.7,
-		/obj/item/clothing/gloves/watch/gold = 0.5,
-		/obj/item/clothing/gloves/watch/spy = 0.3,
+		/obj/item/clothing/wrists/watch = 1,
+		/obj/item/clothing/wrists/watch/silver = 0.7,
+		/obj/item/clothing/wrists/watch/gold = 0.5,
+		/obj/item/clothing/wrists/watch/spy = 0.3,
 	)
 
 /obj/random/hoodie
@@ -1095,6 +1092,21 @@
 	problist = list(
 		/obj/item/bluespace_crystal = 5,
 		/obj/item/stack/telecrystal{amount = 10} = 5,
+		/obj/item/clothing/suit/armor/reactive = 0.5,
+		/obj/item/clothing/glasses/thermal = 0.5,
+		/obj/item/gun/projectile/automatic/rifle/shotgun = 0.5,
+		/obj/random/sword = 0.5,
+		/obj/item/gun/energy/lawgiver = 0.5,
+		/obj/item/melee/energy/axe = 0.5,
+		/obj/item/gun/projectile/automatic/terminator = 0.5,
+		/obj/item/rig/military = 0.5,
+		/obj/item/rig/unathi/fancy = 0.5,
+		/obj/item/rig/vaurca/minimal = 0.5,
+		/obj/item/anomaly_core = 0.5
+	)
+
+/obj/random/highvalue/no_crystal
+	problist = list(
 		/obj/item/clothing/suit/armor/reactive = 0.5,
 		/obj/item/clothing/glasses/thermal = 0.5,
 		/obj/item/gun/projectile/automatic/rifle/shotgun = 0.5,
@@ -1238,7 +1250,6 @@
 		/obj/item/grenade/fake					= 1,
 		/obj/item/bikehorn						= 11,
 		/obj/item/clothing/mask/fakemoustache			= 11,
-		/obj/item/clothing/mask/gas/clown_hat			= 11,
 		/obj/item/clothing/mask/gas/mime				= 11,
 		/obj/item/clothing/shoes/carp					= 9,
 		/obj/item/gun/energy/wand/toy			= 5,
@@ -1559,8 +1570,10 @@
 		/obj/item/gun/projectile/automatic/c20r = 1,
 		/obj/item/gun/projectile/automatic/mini_uzi = 1,
 		/obj/item/gun/projectile/automatic/tommygun = 1,
+		/obj/item/gun/projectile/automatic/lebman = 1,
 		/obj/item/gun/projectile/automatic/wt550/lethal = 0.5,
 		/obj/item/gun/projectile/colt = 0.5,
+		/obj/item/gun/projectile/colt/super = 1,
 		/obj/item/gun/projectile/pistol/sol = 1,
 		/obj/item/gun/projectile/pistol/adhomai = 1,
 		/obj/item/gun/projectile/revolver/detective = 0.5,
@@ -1585,6 +1598,8 @@
 		/obj/item/gun/energy/xray = 1,
 		/obj/item/gun/energy/lasercannon = 1,
 		/obj/item/gun/projectile/automatic/rifle/sts35 = 1,
+		/obj/item/gun/projectile/automatic/rifle/shorty = 1,
+		/obj/item/gun/projectile/automatic/rifle/carbine = 1,
 		/obj/item/gun/projectile/automatic/x9 = 1,
 		/obj/item/gun/projectile/deagle = 1,
 		/obj/item/gun/projectile/deagle/adhomai = 1,
@@ -1597,7 +1612,8 @@
 		/obj/item/gun/projectile/shotgun/pump/combat/sol = 1,
 		/obj/item/gun/projectile/automatic/rifle/adhomian = 1,
 		/obj/item/gun/projectile/musket = 0.5,
-		/obj/item/gun/launcher/grenade = 1
+		/obj/item/gun/launcher/grenade = 1,
+		/obj/item/gun/energy/freeze = 0.5
 		)
 
 	var/list/Epic = list(
@@ -1731,3 +1747,50 @@
 		/obj/item/pizzabox/meat,
 		/obj/item/pizzabox/pineapple
 	)
+
+/obj/random/seed
+	name = "random seed"
+	desc = "This is a random normal seed."
+	icon = 'icons/obj/seeds.dmi'
+	icon_state = "random"
+	spawnlist = list(
+		/obj/item/seeds/limeseed,
+		/obj/item/seeds/lemonseed,
+		/obj/item/seeds/orangeseed,
+		/obj/item/seeds/grapeseed,
+		/obj/item/seeds/berryseed,
+		/obj/item/seeds/appleseed,
+		/obj/item/seeds/bananaseed,
+		/obj/item/seeds/watermelonseed,
+		/obj/item/seeds/pumpkinseed,
+		/obj/item/seeds/wheatseed,
+		/obj/item/seeds/cornseed,
+		/obj/item/seeds/riceseed,
+		/obj/item/seeds/sugarcaneseed,
+		/obj/item/seeds/carrotseed,
+		/obj/item/seeds/garlicseed,
+		/obj/item/seeds/onionseed,
+		/obj/item/seeds/potatoseed,
+		/obj/item/seeds/whitebeetseed,
+		/obj/item/seeds/tomatoseed,
+		/obj/item/seeds/chiliseed,
+		/obj/item/seeds/eggplantseed,
+		/obj/item/seeds/peanutseed,
+		/obj/item/seeds/soyaseed,
+		/obj/item/seeds/cabbageseed
+	)
+
+/obj/random/wizard_dressup
+	name = "random wizard clothes"
+	desc = "This is a random piece of fake wizard clothing."
+	icon = 'icons/obj/wizard.dmi'
+	icon_state = "staff"
+	has_postspawn = TRUE
+
+/obj/random/wizard_dressup/spawn_item()
+	var/obj/item/clothing/suit/wizrobe/W = pick(typesof(/obj/item/clothing/suit/wizrobe))
+	. = new W(loc)
+
+/obj/random/wizard_dressup/post_spawn(obj/thing)
+	var/obj/item/clothing/head/wizard/H = pick(typesof(/obj/item/clothing/head/wizard))
+	new H(loc)

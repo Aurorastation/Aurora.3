@@ -103,7 +103,7 @@
 	update_icon()
 	if(bloodsamp)
 		var/obj/item/paper/P = new()
-		var/pname = "[src] report #[++report_num]: [bloodsamp.name]"
+		var/pname = "[src] report #[++report_num]"
 		var/info
 		P.stamped = list(/obj/item/stamp)
 		P.overlays = list("paper_stamped")

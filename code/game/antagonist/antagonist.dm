@@ -56,7 +56,7 @@
 	var/db_log_id = null                    // ID of the db entry used to track that antagonist
 
 	// Used for setting appearance.
-	var/list/valid_species =       list(SPECIES_UNATHI,SPECIES_TAJARA,SPECIES_SKRELL,SPECIES_HUMAN)
+	var/list/valid_species =       list(SPECIES_UNATHI,SPECIES_TAJARA,SPECIES_SKRELL,SPECIES_SKRELL_AXIORI,SPECIES_HUMAN)
 
 	// Runtime vars.
 	var/datum/mind/leader                   // Current leader, if any.
@@ -73,6 +73,7 @@
 	// ID card stuff.
 	var/default_access = list()
 	var/id_type = /obj/item/card/id
+	var/id_card // a reference to the id_card we spawned with
 
 
 /datum/antagonist/New()

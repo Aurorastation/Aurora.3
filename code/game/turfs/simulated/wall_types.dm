@@ -71,3 +71,7 @@
 
 /turf/simulated/wall/wood/Initialize(mapload)
 	. = ..(mapload, MATERIAL_WOOD)
+
+/turf/simulated/wall/rusty/Initialize(mapload)
+	. = ..(mapload, MATERIAL_RUST)
+	desc = "Rust stains this ancient wall."

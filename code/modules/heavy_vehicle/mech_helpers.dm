@@ -18,7 +18,7 @@
 		next_mecha_move = world.time + 15
 		return
 
-	next_mecha_move = world.time + legs.move_delay
+	next_mecha_move = world.time + (incorporeal_move ? legs.move_delay / 2 : legs.move_delay)
 
 	if(maintenance_protocols)
 		if(user)
@@ -32,6 +32,9 @@
 		return
 
 	return TRUE
+
+/mob/living/heavy_vehicle/get_standard_pixel_x()
+	return offset_x
 
 /mob/living/heavy_vehicle/proc/toggle_maintenance_protocols()
 	var/obj/screen/mecha/toggle/maint/M = locate() in hud_elements
@@ -72,3 +75,49 @@
 	text = trim_left(text)
 	text = trim_right(text)
 	return text
+
+/mob/living/heavy_vehicle/proc/use_cell_power(var/power_to_use)
+	var/power_used = get_cell()?.use(power_to_use)
+	if(power_used <= 0)
+		for(var/hardpoint in hardpoints)
+			var/obj/item/mecha_equipment/ME = hardpoints[hardpoint]
+			if(ME)
+				ME.deactivate()
+	return power_used
+
+/mob/living/heavy_vehicle/proc/drain_cell_power(var/power_to_drain)
+	var/power_used = get_cell()?.drain_power(0, 0, power_to_drain)
+	if(power_used <= 0)
+		for(var/hardpoint in hardpoints)
+			var/obj/item/mecha_equipment/ME = hardpoints[hardpoint]
+			if(ME)
+				ME.deactivate()
+	return power_used
+
+/mob/living/heavy_vehicle/proc/checked_use_cell(var/power_to_drain)
+	var/can_use = get_cell()?.checked_use(0, 0, power_to_drain)
+	if(!get_cell()?.charge)
+		for(var/hardpoint in hardpoints)
+			var/obj/item/mecha_equipment/ME = hardpoints[hardpoint]
+			if(ME)
+				ME.deactivate()
+	return can_use
+
+/mob/living/heavy_vehicle/proc/set_mech_incorporeal(var/incorporeal_state)
+	var/old_corporeal_state = incorporeal_move
+	incorporeal_move = incorporeal_state
+	if(old_corporeal_state != incorporeal_move)
+		if(incorporeal_move)
+			add_filter("INCORPBLUR", 1, list("type" = "blur"))
+			animate(src, time = 1 SECOND, alpha = 150, flags = ANIMATION_PARALLEL)
+			animate(get_filter("INCORPBLUR"), time = 1 SECOND, size = 1.5, flags = ANIMATION_PARALLEL)
+		else
+			animate(get_filter("INCORPBLUR"), time = 1 SECOND, size = 1, flags = ANIMATION_PARALLEL)
+			animate(src, time = 1 SECOND, alpha = initial(alpha), flags = ANIMATION_PARALLEL)
+			remove_filter("INCORPBLUR")
+
+/mob/living/heavy_vehicle/get_organ_name_from_zone(var/def_zone)
+	var/obj/item/mech_component/MC = zoneToComponent(def_zone)
+	if(MC)
+		return MC.name
+	return ..()

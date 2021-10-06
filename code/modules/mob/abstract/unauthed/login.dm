@@ -23,12 +23,12 @@
 		uihtml += "<a href='?src=\ref[src];authaction=forums'>Login via forums</a>"
 	if(!config.guests_allowed && config.webint_url && config.external_auth)
 		src.OpenForumAuthWindow()
-	show_browser(src, uihtml, "window=auth;size=300x300;border=0;can_close=0;can_resize=0;can_minimize=0;titlebar=1")
+	show_browser(src, uihtml, "window=externalauth;size=300x300;border=0;can_close=1;can_resize=0;can_minimize=0;titlebar=1")
 	timeout_timer = addtimer(CALLBACK(src, .proc/timeout), 900, TIMER_STOPPABLE)
 
 /mob/abstract/unauthed/proc/timeout()
 	if (client)
-		to_chat(client, "Your login time has expired. Please relog and try again.")
+		to_chat_immediate(client, "Your login time has expired. Please relog and try again.")
 	qdel(client)
 	qdel(src)
 
@@ -38,16 +38,16 @@
 	deltimer(timeout_timer)
 	var/client/c = client // so we don't lose the client in the current mob.
 
-	show_browser(src, null, "window=auth;")
+	show_browser(src, null, "window=externalauth")
 	c.verbs += typesof(/client/verb) // Let's return regular client verbs
 	c.authed = TRUE // We declare client as authed now
 	c.prefs = null //Null them so we can load them from the db again for the correct ckey
 	// Check for bans
 	var/list/ban_data = world.IsBanned(ckey(newkey), c.address, c.computer_id, 1, TRUE)
 	if(ban_data)
-		to_chat(c, "You are banned for this server.")
-		to_chat(c, "Reason: [ban_data["reason"]]")
-		to_chat(c, "Description: [ban_data["desc"]]")
+		to_chat_immediate(c, "You are banned for this server.")
+		to_chat_immediate(c, "Reason: [ban_data["reason"]]")
+		to_chat_immediate(c, "Description: [ban_data["desc"]]")
 		del(c)
 		return
 

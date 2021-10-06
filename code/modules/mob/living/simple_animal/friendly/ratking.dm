@@ -47,6 +47,9 @@
 
 	..()
 
+/mob/living/simple_animal/rat/king/can_name(var/mob/living/M)
+	return FALSE
+
 /mob/living/simple_animal/rat/king/Move()
 	..()
 

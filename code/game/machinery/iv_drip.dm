@@ -107,7 +107,7 @@
 	// Take blood
 	else
 		var/amount = REAGENTS_FREE_SPACE(beaker.reagents)
-		amount = min(amount, 4)
+		amount = min(amount, transfer_amount)
 		// If the beaker is full, ping
 		if(amount == 0)
 			if(prob(5))

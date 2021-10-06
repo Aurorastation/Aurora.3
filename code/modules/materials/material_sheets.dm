@@ -15,7 +15,7 @@
 	var/apply_colour //temp pending icon rewrite
 	var/use_material_sound = TRUE
 
-/obj/item/stack/material/Initialize()
+/obj/item/stack/material/Initialize(mapload, amount)
 	. = ..()
 	randpixel_xy()
 
@@ -23,8 +23,7 @@
 		default_type = DEFAULT_WALL_MATERIAL
 	material = SSmaterials.get_material_by_name(default_type)
 	if(!material)
-		qdel(src)
-		return
+		return INITIALIZE_HINT_QDEL
 
 	recipes = material.get_recipes()
 	stacktype = material.stack_type
@@ -43,7 +42,6 @@
 		flags |= CONDUCT
 
 	matter = material.get_matter()
-	update_strings()
 
 /obj/item/stack/material/get_material()
 	return material
@@ -61,18 +59,20 @@
 		desc = "A [material.sheet_singular_name] of [material.use_name]."
 		gender = NEUTER
 
-/obj/item/stack/material/use(var/used)
+/obj/item/stack/material/update_icon()
 	. = ..()
-	update_strings()
-	return
+	if(material)
+		update_strings()
 
 /obj/item/stack/material/transfer_to(obj/item/stack/S, var/tamount=null, var/type_verified)
 	var/obj/item/stack/material/M = S
 	if(!istype(M) || material.name != M.material.name)
 		return 0
 	var/transfer = ..(S,tamount,1)
-	if(src) update_strings()
-	if(M) M.update_strings()
+	if(src)
+		update_icon()
+	if(M)
+		M.update_icon()
 	return transfer
 
 /obj/item/stack/material/attack_self(var/mob/user)
@@ -247,6 +247,21 @@
 	default_type = DEFAULT_WALL_MATERIAL
 	icon_has_variants = TRUE
 
+/obj/item/stack/material/steel/attackby(obj/item/W, mob/user)
+	. = ..()
+	if(is_sharp(W))
+		if(amount < 5)
+			to_chat(user, SPAN_WARNING("You need at least five sheets of steel to do this!"))
+			return
+		user.visible_message("<b>[user]</b> starts carving some steel wool out of \the [src].", SPAN_NOTICE("You start carving some steel wool out of \the [src]."))
+		if(do_after(user, 10 SECONDS))
+			if(amount < 5)
+				return
+			to_chat(user, SPAN_NOTICE("You carve some steel wool out of \the [src]."))
+			var/obj/item/steelwool/SW = new /obj/item/steelwool(get_turf(src))
+			user.put_in_hands(SW)
+			use(5)
+
 /obj/item/stack/material/steel/full/Initialize()
 	. = ..()
 	amount = max_amount
@@ -329,7 +344,7 @@
 
 /obj/item/stack/material/leather
 	name = "leather"
-	desc = "The by-product of mob grinding."
+	desc = "Created by only the finest of biogenerators!"
 	icon_state = "sheet-leather"
 	default_type = MATERIAL_LEATHER
 	icon_has_variants = TRUE
@@ -338,6 +353,11 @@
 	. = ..()
 	amount = max_amount
 	update_icon()
+
+/obj/item/stack/material/leather/fine
+	name = "fine leather"
+	desc = "Handcrafted by an artisan, this leather is a wonderful status symbol for the wealthy few... Despite it not being any tougher than its biogenerated counterpart."
+	default_type = MATERIAL_LEATHER_FINE
 
 /obj/item/stack/material/glass
 	name = "glass"

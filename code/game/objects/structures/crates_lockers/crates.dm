@@ -76,7 +76,7 @@
 			continue
 		if(istype(O, /obj/structure/bed)) //This is only necessary because of rollerbeds and swivel chairs.
 			var/obj/structure/bed/B = O
-			if(B.buckled_mob)
+			if(B.buckled)
 				continue
 		O.forceMove(src)
 		itemcount++
@@ -113,8 +113,8 @@
 			playsound(loc, 'sound/items/wirecutter.ogg', 100, 1)
 			rigged = 0
 			return
-	else if(istype(W, /obj/item/hand_labeler))
-		var/obj/item/hand_labeler/HL = W
+	else if(istype(W, /obj/item/device/hand_labeler))
+		var/obj/item/device/hand_labeler/HL = W
 		if (HL.mode == 1)
 			return
 		else
@@ -327,8 +327,8 @@
 		return ..()
 	if(istype(W, /obj/item/melee/energy/blade))
 		emag_act(INFINITY, user)
-	if(istype(W, /obj/item/hand_labeler))
-		var/obj/item/hand_labeler/HL = W
+	if(istype(W, /obj/item/device/hand_labeler))
+		var/obj/item/device/hand_labeler/HL = W
 		if (HL.mode == 1)
 			return
 		else if(!opened)

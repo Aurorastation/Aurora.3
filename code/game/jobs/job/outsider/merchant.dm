@@ -9,8 +9,11 @@
 	minimal_player_age = 10
 	economic_modifier = 5
 	ideal_character_age = 30
-	create_record = 0
-	account_allowed = 0
+
+	create_record = FALSE
+	account_allowed = TRUE
+	public_account = FALSE
+	initial_funds_override = 2500
 
 	access = list(access_merchant)
 	minimal_access = list(access_merchant)
@@ -18,6 +21,7 @@
 	latejoin_at_spawnpoints = TRUE
 
 	outfit = /datum/outfit/job/merchant
+	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
 
 /datum/job/merchant/announce(mob/living/carbon/human/H)
 	to_chat(H,"You are a merchant heading to the [station_name()] to make profit, your main objective is to sell and trade with the crew.")

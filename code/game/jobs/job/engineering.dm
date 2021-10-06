@@ -27,7 +27,7 @@
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/chief_engineer
 
-	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
 
 /datum/outfit/job/chief_engineer
 	name = "Chief Engineer"
@@ -35,28 +35,24 @@
 
 	uniform = /obj/item/clothing/under/rank/chief_engineer
 	head = /obj/item/clothing/head/hardhat/white
-	belt = /obj/item/storage/belt/utility
+	belt = /obj/item/storage/belt/utility/ce
+	id = /obj/item/card/id/navy
+	shoes = /obj/item/clothing/shoes/workboots
+	r_pocket = /obj/item/device/t_scanner
+	
+	headset = /obj/item/device/radio/headset/heads/ce
+	bowman = /obj/item/device/radio/headset/heads/ce/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/ce
+	wrist_radio = /obj/item/device/radio/headset/wrist/ce
+
 	tab_pda = /obj/item/modular_computer/handheld/pda/engineering/ce
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/engineering/ce
 	tablet = /obj/item/modular_computer/handheld/preset/engineering/ce
-	id = /obj/item/card/id/navy
-	shoes = /obj/item/clothing/shoes/workboots
-	headset = /obj/item/device/radio/headset/heads/ce
-	bowman = /obj/item/device/radio/headset/heads/ce/alt
-	r_pocket = /obj/item/device/t_scanner
-
+	
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel_eng
 	dufflebag = /obj/item/storage/backpack/duffel/eng
 	messengerbag = /obj/item/storage/backpack/messenger/engi
-
-	belt_contents = list(
-		/obj/item/weldingtool/largetank = 1, // industrial welding tool
-		/obj/item/crowbar = 1,
-		/obj/item/wirecutters = 1,
-		/obj/item/stack/cable_coil/random = 1,
-		/obj/item/powerdrill = 1
-	)
 
 /datum/outfit/job/chief_engineer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -92,15 +88,19 @@
 	uniform = /obj/item/clothing/under/rank/engineer
 	head = /obj/item/clothing/head/hardhat
 	belt = /obj/item/storage/belt/utility
+	id = /obj/item/card/id/silver
+	shoes = /obj/item/clothing/shoes/workboots
+	r_pocket = /obj/item/device/t_scanner
+	
+	headset = /obj/item/device/radio/headset/headset_eng
+	bowman = /obj/item/device/radio/headset/headset_eng/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/eng
+	wrist_radio = /obj/item/device/radio/headset/wrist/eng
+
 	tab_pda = /obj/item/modular_computer/handheld/pda/engineering
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/engineering
 	tablet = /obj/item/modular_computer/handheld/preset/engineering
-	id = /obj/item/card/id/silver
-	shoes = /obj/item/clothing/shoes/workboots
-	headset = /obj/item/device/radio/headset/headset_eng
-	bowman = /obj/item/device/radio/headset/headset_eng/alt
-	r_pocket = /obj/item/device/t_scanner
-
+	
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel_eng
 	dufflebag = /obj/item/storage/backpack/duffel/eng
@@ -141,8 +141,11 @@
 	belt = /obj/item/storage/belt/utility
 	id = /obj/item/card/id/silver
 	shoes = /obj/item/clothing/shoes/workboots
+	
 	headset = /obj/item/device/radio/headset/headset_eng
 	bowman = /obj/item/device/radio/headset/headset_eng/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/eng
+	wrist_radio = /obj/item/device/radio/headset/wrist/eng
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel_eng
@@ -188,9 +191,7 @@
 	shoes = /obj/item/clothing/shoes/orange
 	head = /obj/item/clothing/head/beret/engineering
 	belt = /obj/item/storage/belt/utility
-	headset = /obj/item/device/radio/headset/headset_eng
-	bowman = /obj/item/device/radio/headset/headset_eng/alt
-
+	
 	belt_contents = list(
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,
@@ -198,6 +199,11 @@
 		/obj/item/stack/cable_coil/random = 1,
 		/obj/item/powerdrill = 1
 	)
+
+	headset = /obj/item/device/radio/headset/headset_eng
+	bowman = /obj/item/device/radio/headset/headset_eng/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/eng
+	wrist_radio = /obj/item/device/radio/headset/wrist/eng
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel_eng

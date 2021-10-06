@@ -409,6 +409,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 
 /obj/item/device/special_uplink/ninja
 	name = "infiltrator uplink"
+	starting_telecrystals = 15
 
 /obj/item/device/special_uplink/burglar
 	name = "sponsored uplink"

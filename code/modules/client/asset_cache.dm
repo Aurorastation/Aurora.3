@@ -50,11 +50,7 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 	client.sending |= asset_name
 	var/job = ++client.last_asset_job
 
-	client << browse({"
-	<script>
-		window.location.href="?asset_cache_confirm_arrival=[job]"
-	</script>
-	"}, "window=asset_cache_browser")
+	client << browse("<script>window.location.href=\"?asset_cache_confirm_arrival=[job]\"</script>", "window=asset_cache_browser")
 
 	var/t = 0
 	var/timeout_time = (ASSET_CACHE_SEND_TIMEOUT * client.sending.len) + ASSET_CACHE_SEND_TIMEOUT
@@ -102,11 +98,7 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 	client.sending |= unreceived
 	var/job = ++client.last_asset_job
 
-	client << browse({"
-	<script>
-		window.location.href="?asset_cache_confirm_arrival=[job]"
-	</script>
-	"}, "window=asset_cache_browser")
+	client << browse("<script>window.location.href=\"?asset_cache_confirm_arrival=[job]\"</script>", "window=asset_cache_browser")
 
 	var/t = 0
 	var/timeout_time = ASSET_CACHE_SEND_TIMEOUT * client.sending.len
@@ -150,7 +142,6 @@ var/list/asset_datums = list()
 
 /datum/asset
 	var/_abstract = /datum/asset
-	var/delayed = FALSE
 
 /datum/asset/New()
 	asset_datums[type] = src
@@ -383,7 +374,7 @@ var/list/asset_datums = list()
 	)
 
 /datum/asset/simple/goonchat
-	verify = FALSE
+	verify = TRUE
 	assets = list(
 		"json2.min.js"             = 'code/modules/goonchat/browserassets/js/json2.min.js',
 		"browserOutput.js"         = 'code/modules/goonchat/browserassets/js/browserOutput.js',
@@ -419,6 +410,7 @@ var/list/asset_datums = list()
 		"barcode1.png" = 'html/images/barcode1.png',
 		"barcode2.png" = 'html/images/barcode2.png',
 		"barcode3.png" = 'html/images/barcode3.png',
+		"scclogo.png" = 'html/images/scclogo.png',
 		"ntlogo.png" = 'html/images/ntlogo.png',
 		"ntlogo_small.png" = 'html/images/ntlogo_small.png',
 		"zhlogo.png" = 'html/images/zhlogo.png',
@@ -435,7 +427,27 @@ var/list/asset_datums = list()
 		"praflag.png" = 'html/images/praflag.png',
 		"dpraflag.png" = 'html/images/dpraflag.png',
 		"nkaflag.png" = 'html/images/nkaflag.png',
-		"izweskiflag.png" = 'html/images/izweskiflag.png'
+		"izweskiflag.png" = 'html/images/izweskiflag.png',
+		"goldenlogo.png" = 'html/images/goldenlogo.png',
+		"bluebird.woff" = 'html/fonts/OFL/Bluebird.woff',
+		"grandhotel.woff" = 'html/fonts/OFL/GrandHotel.woff',
+		"lashema.woff" = 'html/fonts/OFL/Lashema.woff',
+		"sourcecodepro.woff" = 'html/fonts/OFL/SourceCodePro.woff',
+		"sovjetbox.woff" = 'html/fonts/OFL/SovjetBox.woff',
+		"torsha.woff" = 'html/fonts/OFL/Torsha.woff',
+		"web3of9ascii.woff" = 'html/fonts/OFL/Web3Of9ASCII.woff',
+		"zeshit.woff" = 'html/fonts/OFL/zeshit.woff',
+		"bilboinc.woff" = 'html/fonts/OFL/BilboINC.woff',
+		"fproject.woff" = 'html/fonts/OFL/FProject.woff',
+		"gelasio.woff" = 'html/fonts/OFL/Gelasio.woff',
+		"mo5v56.woff" = 'html/fonts/OFL/Mo5V56.woff',
+		"runasans.woff" = 'html/fonts/OFL/RunaSans.woff',
+		"classica.woff" = 'html/fonts/OFL/Classica.woff',
+		"stormning.woff" = 'html/fonts/OFL/Stormning.woff',
+		"copt-b.woff" = 'html/fonts/OFL/Copt-B.woff',
+		"ducados.woff" = 'html/fonts/OFL/Ducados.woff',
+		"kawkabmono.woff" = 'html/fonts/OFL/KawkabMono.woff',
+		"kaushanscript.woff" = 'html/fonts/OFL/KaushanScript.woff'
 	)
 
 /datum/asset/simple/changelog
@@ -463,7 +475,6 @@ var/list/asset_datums = list()
 
 /datum/asset/spritesheet/vending
 	name = "vending"
-	delayed = TRUE
 
 /datum/asset/spritesheet/vending/register()
 	var/list/vending_products = list()
@@ -498,9 +509,12 @@ var/list/asset_datums = list()
 		if(istype(O, /obj/item/seeds))
 			// thanks seeds for being overlays defined at runtime
 			var/obj/item/seeds/S = O
+			if(!S.seed && S.seed_type && !isnull(SSplants.seeds) && SSplants.seeds[S.seed_type])
+				S.seed = SSplants.seeds[S.seed_type]
 			I = S.update_appearance(TRUE)
 			Insert(imgid, I, forced=I)
 		else
+			O.update_icon()
 			if(O.overlay_queued)
 				O.compile_overlays()
 			if(O.overlays.len)

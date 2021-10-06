@@ -74,7 +74,7 @@
 /mob/proc/changeling_hallucinate_sting()
 	set category = "Changeling"
 	set name = "Hallucination Sting (15)"
-	set desc = "Causes target to begin hallucinating after five to fifteen seconds."
+	set desc = "Causes target to begin hallucinating after a few seconds."
 
 	changeling_sting(15, /mob/proc/changeling_hallucinate_sting, /datum/changeling_sting/hallucinate, TRUE)
 
@@ -84,7 +84,8 @@
 
 /datum/changeling_sting/hallucinate/do_sting(mob/living/target)
 	..()
-	addtimer(CALLBACK(target, /mob/living.proc/add_hallucinate, 200), rand(5 SECONDS, 15 SECONDS))
+	if(target.reagents)
+		addtimer(target.reagents.add_reagent(/decl/reagent/mindbreaker, 3), rand(5 SECONDS, 15 SECONDS))
 
 /mob/proc/changeling_silence_sting()
 	set category = "Changeling"

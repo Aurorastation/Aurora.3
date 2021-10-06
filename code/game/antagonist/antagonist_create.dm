@@ -47,15 +47,17 @@
 
 	switch(freq)
 		if(NINJ_FREQ)
-			R = new/obj/item/device/radio/headset/ninja(player)
+			R = new /obj/item/device/radio/headset/ninja(player)
+		if(BLSP_FREQ)
+			R = new /obj/item/device/radio/headset/bluespace(player)
 		if(BURG_FREQ)
 			R = new /obj/item/device/radio/headset/burglar(player)
 		if(SYND_FREQ)
-			R = new/obj/item/device/radio/headset/syndicate(player)
+			R = new /obj/item/device/radio/headset/syndicate(player)
 		if(RAID_FREQ)
-			R = new/obj/item/device/radio/headset/raider(player)
+			R = new /obj/item/device/radio/headset/raider(player)
 		else
-			R = new/obj/item/device/radio/headset(player)
+			R = new /obj/item/device/radio/headset(player)
 			R.set_frequency(freq)
 
 	R.set_frequency(freq)

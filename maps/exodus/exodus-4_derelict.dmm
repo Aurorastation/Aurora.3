@@ -556,7 +556,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/constructionsite/teleporter)
 "bw" = (
-/obj/machinery/computer/teleporter,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
@@ -570,7 +569,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/constructionsite/teleporter)
 "by" = (
-/obj/machinery/teleport/hub,
+/obj/machinery/teleport/pad,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},

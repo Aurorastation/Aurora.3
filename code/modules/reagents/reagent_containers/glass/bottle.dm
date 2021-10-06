@@ -187,6 +187,12 @@
 	icon_state = "bottle-1"
 	reagents_to_add = list(/decl/reagent/bicaridine = 60)
 
+/obj/item/reagent_containers/glass/bottle/butazoline
+	name = "butazoline bottle"
+	desc = "A small bottle. Contains butazoline - treats damaged tissues."
+	icon_state = "bottle-1"
+	reagents_to_add = list(/decl/reagent/butazoline = 60)
+
 /obj/item/reagent_containers/glass/bottle/dermaline
 	name = "dermaline bottle"
 	desc = "A small bottle. Contains dermaline - treats burnt tissues."

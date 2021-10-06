@@ -313,7 +313,7 @@
 			weapon_lock_time = 120
 
 /mob/living/silicon/robot/update_canmove()
-	if(paralysis || stunned || weakened || buckled || lock_charge || !is_component_functioning("actuator"))
+	if(paralysis || stunned || weakened || buckled_to || lock_charge || !is_component_functioning("actuator"))
 		canmove = FALSE
 	else
 		canmove = TRUE

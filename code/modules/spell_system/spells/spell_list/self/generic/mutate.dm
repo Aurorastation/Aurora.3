@@ -4,7 +4,7 @@
 	feedback = "MU"
 	school = "transmutation"
 	charge_max = 400
-	spell_flags = Z2NOCAST | NEEDSCLOTHES | INCLUDEUSER
+	spell_flags = Z2NOCAST | INCLUDEUSER
 	invocation = "BIRUZ BENNAR"
 	invocation_type = SpI_SHOUT
 	message = "<span class='notice'>You feel strong! You feel a pressure building behind your eyes!</span>"

@@ -15,6 +15,7 @@ var/list/department_radio_keys = list(
 	  ":t" = "Mercenary",	".t" = "Mercenary",
 	  ":x" = "Raider",		".x" = "Raider",
 	  ":b" = "Burglar",		".b" = "Burglar",
+	  ":j" = "Bluespace",	".j" = "Bluespace",
 	  ":q" = "Ninja",		".q" = "Ninja",
 	  ":u" = "Supply",		".u" = "Supply",
 	  ":v" = "Service",		".v" = "Service",
@@ -36,6 +37,7 @@ var/list/department_radio_keys = list(
 	  ":T" = "Mercenary",	".T" = "Mercenary",
 	  ":X" = "Raider",		".X" = "Raider",
 	  ":B" = "Burglar",		".B" = "Burglar",
+	  ":J" = "Bluespace",	".J" = "Bluespace",
 	  ":Q" = "Ninja",		".Q" = "Ninja",
 	  ":U" = "Supply",		".U" = "Supply",
 	  ":V" = "Service",		".V" = "Service",
@@ -159,6 +161,13 @@ proc/get_radio_key_from_channel(var/channel)
 		return "asks"
 	return verb
 
+/mob/living/proc/get_font_size_modifier()
+	if(ismech(loc))
+		var/mob/living/heavy_vehicle/HV = loc
+		if(HV.loudening)
+			return FONT_SIZE_LARGE
+	return null
+
 /mob/living/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR)
 	if(stat)
 		if(stat == DEAD)
@@ -184,12 +193,23 @@ proc/get_radio_key_from_channel(var/channel)
 	message = formalize_text(message)
 
 	//parse the language code and consume it
-	if(!speaking)
+	if(!speaking || speaking.always_parse_language)
 		speaking = parse_language(message)
 	if(speaking)
 		message = copytext(message,2+length(speaking.key))
 	else
 		speaking = get_default_language()
+
+	if(speaking)
+		var/list/speech_mod = speaking.handle_message_mode(message_mode)
+		speaking = speech_mod[1]
+		message_mode = speech_mod[2]
+
+	var/is_singing = FALSE
+	if(length(message) >= 1 && copytext(message, 1, 2) == "%")
+		message = copytext(message, 2)
+		if(speaking?.sing_verb)
+			is_singing = TRUE
 
 	// This is broadcast to all mobs with the language,
 	// irrespective of distance or anything else.
@@ -200,7 +220,7 @@ proc/get_radio_key_from_channel(var/channel)
 		speaking.broadcast(src,trim(message))
 		return 1
 
-	verb = say_quote(message, speaking)
+	verb = say_quote(message, speaking, is_singing)
 
 	if(is_muzzled())
 		to_chat(src, "<span class='danger'>You're muzzled and cannot speak!</span>")
@@ -220,6 +240,9 @@ proc/get_radio_key_from_channel(var/channel)
 		return 0
 
 	message = process_chat_markup(message, list("~", "_"))
+	if(is_singing)
+		var/randomnote = pick("\u2669", "\u266A", "\u266B")
+		message = "[randomnote] <span class='singing'>[message]</span> [randomnote]"
 
 	//handle nonverbal and sign languages here
 	if (speaking)
@@ -228,7 +251,7 @@ proc/get_radio_key_from_channel(var/channel)
 				src.custom_emote(VISIBLE_MESSAGE, "[pick(speaking.signlang_verb)].")
 
 		if (speaking.flags & SIGNLANG)
-			return say_signlang(message, pick(speaking.signlang_verb), speaking)
+			return say_signlang(message, pick(speaking.signlang_verb), speaking, speaking.sign_adv_length)
 
 	var/list/obj/item/used_radios = new
 	var/list/successful_radio = new // passes a list because standard vars don't work when passed
@@ -262,23 +285,23 @@ proc/get_radio_key_from_channel(var/channel)
 	var/turf/T = get_turf(src)
 
 	if(T)
-		//make sure the air can transmit speech - speaker's side
-		var/datum/gas_mixture/environment = T.return_air()
-		var/pressure = (environment)? environment.return_pressure() : 0
-		if(pressure < SOUND_MINIMUM_PRESSURE)
-			message_range = 1
+		if(!speaking || !(speaking.flags & PRESSUREPROOF))
+			//make sure the air can transmit speech - speaker's side
+			var/datum/gas_mixture/environment = T.return_air()
+			var/pressure = (environment)? environment.return_pressure() : 0
+			if(pressure < SOUND_MINIMUM_PRESSURE)
+				message_range = 1
 
-		if (pressure < ONE_ATMOSPHERE*0.4) //sound distortion pressure, to help clue people in that the air is thin, even if it isn't a vacuum yet
-			italics = 1
-			sound_vol *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
+			if (pressure < ONE_ATMOSPHERE*0.4) //sound distortion pressure, to help clue people in that the air is thin, even if it isn't a vacuum yet
+				italics = 1
+				sound_vol *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
 
 		get_mobs_and_objs_in_view_fast(T, message_range, listening, listening_obj, ghost_hearing)
-
 
 	var/list/hear_clients = list()
 	for(var/m in listening)
 		var/mob/M = m
-		var/heard_say = M.hear_say(message, verb, speaking, alt_name, italics, src, speech_sound, sound_vol)
+		var/heard_say = M.hear_say(message, verb, speaking, alt_name, italics, src, speech_sound, sound_vol, get_font_size_modifier())
 		if(heard_say && M.client)
 			hear_clients += M.client
 
@@ -288,11 +311,11 @@ proc/get_radio_key_from_channel(var/channel)
 	INVOKE_ASYNC(GLOBAL_PROC, /proc/animate_speechbubble, speech_bubble, hear_clients, 30)
 	do_animate_chat(message, speaking, italics, hear_clients, 30)
 
-	for(var/o in listening_obj)
-		var/obj/O = o
-		spawn(0)
+	var/bypass_listen_obj = (speaking && (speaking.flags & PASSLISTENOBJ))
+	if(!bypass_listen_obj)
+		for(var/obj/O as anything in listening_obj)
 			if(O) //It's possible that it could be deleted in the meantime.
-				O.hear_talk(src, message, verb, speaking)
+				INVOKE_ASYNC(O, /obj/.proc/hear_talk, src, message, verb, speaking)
 
 	if(mind)
 		mind.last_words = message
@@ -317,11 +340,11 @@ proc/get_radio_key_from_channel(var/channel)
 	for(var/client/C in show_to)
 		C.images -= I
 
-/mob/living/proc/say_signlang(var/message, var/verb="gestures", var/datum/language/language)
+/mob/living/proc/say_signlang(var/message, var/verb="gestures", var/datum/language/language, var/list/sign_adv_length)
 	log_say("[key_name(src)] : ([get_lang_name(language)]) [message]",ckey=key_name(src))
 
 	for (var/mob/O in viewers(src, null))
-		O.hear_signlang(message, verb, language, src)
+		O.hear_signlang(message, verb, language, src, sign_adv_length)
 	return 1
 
 /obj/effect/speech_bubble

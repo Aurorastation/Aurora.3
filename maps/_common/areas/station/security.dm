@@ -97,9 +97,9 @@
 	ambience = AMBIENCE_GHOSTLY
 	no_light_control = 0
 
-/area/security/detectives_office
-	name = "Security - Detective's Office"
-	icon_state = "detective"
+/area/security/break_room
+	name = "Security - Break Room"
+	icon_state = "security"
 	sound_env = SMALL_SOFTFLOOR
 	no_light_control = 0
 

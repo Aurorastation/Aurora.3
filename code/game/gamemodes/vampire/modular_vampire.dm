@@ -77,13 +77,6 @@ var/list/datum/power/vampire/vampirepowers = list()
 	blood_cost = 250
 	verbpath = /mob/living/carbon/human/proc/vampire_veilwalk
 
-/datum/power/vampire/dominate
-	name = "Dominate"
-	desc = "Influence those weak of mind to follow your instructions."
-	helptext = "You and your target must remain stationary for a short period of time for this to work. You can then issue a command to your victim that they must follow in the short term."
-	blood_cost = 300
-	verbpath = /mob/living/carbon/human/proc/vampire_dominate
-
 /datum/power/vampire/enthrall
 	name = "Enthrall"
 	desc = "Invoke a bloodbond between yourself and a mortal soul. They will then become your slave, required to execute your every command. They will be dependant on your blood."

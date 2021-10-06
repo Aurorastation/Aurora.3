@@ -17,7 +17,7 @@
 	You expect to be heard and obeyed, as your coworkers really should be taking advice from you in the absence of
 	a chief medical officer. Your bedside manner is impeccable and far outclasses standard NanoTrasen training and
 	procedure. You are the product of the most rigorous employee hiring and training process for medical staff in the
-	Orion Spur, and are expected to act like it. Failure is you will not tolerate.</li>
+	Orion Spur, and are expected to act like it. Failure is something you will not tolerate.</li>
 	<li><b>Biomechanical Engineer</b>: Our ability to combine medical research with robotics
 	is the best and you know this. We do, after all, own Bishop Cybernetics - the
 	best premium augmentation subsidiary in the known galaxy. Unlike your medical cousins
@@ -45,7 +45,9 @@
 		/datum/species/human,
 		/datum/species/skrell,
 		/datum/species/machine,
-		/datum/species/bug,
+		/datum/species/bug = TRUE,
+		/datum/species/bug/type_b = TRUE,
+		/datum/species/bug/type_e = TRUE,
 		/datum/species/diona
 	)
 

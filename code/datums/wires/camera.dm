@@ -1,7 +1,6 @@
 // Wires for cameras.
 
 /datum/wires/camera
-	random = 1
 	holder_type = /obj/machinery/camera
 	wire_count = 6
 

@@ -35,13 +35,14 @@
 	var/boss_short    = "Cap'"
 	var/company_name  = "BadMan"
 	var/company_short = "BM"
-	var/system_name   = "Uncharted System"
 
 	var/command_spawn_enabled = FALSE
 	var/command_spawn_message = "Someone didn't fill this in."
 
 	var/list/spawn_types
 
+	var/shuttle_call_restarts = FALSE // if true, calling crew transfer or evac just restarts the round in ten minute
+	var/shuttle_call_restart_timer
 	var/shuttle_docked_message
 	var/shuttle_leaving_dock
 	var/shuttle_called_message
@@ -50,6 +51,8 @@
 	var/emergency_shuttle_leaving_dock
 	var/emergency_shuttle_recall_message
 	var/emergency_shuttle_called_message
+
+	var/evac_controller_type = /datum/evacuation_controller
 
 	var/list/station_networks = list() 		// Camera networks that will show up on the console.
 
@@ -61,6 +64,7 @@
 		// as defined in holodeck_programs
 	var/list/holodeck_restricted_programs = list() // as above... but EVIL!
 
+	var/force_spawnpoint = FALSE
 	var/allowed_spawns = list("Arrivals Shuttle","Gateway", "Cryogenic Storage", "Cyborg Storage")
 	var/default_spawn = "Arrivals Shuttle"
 
@@ -74,6 +78,7 @@
 	var/overmap_z = 0		//If 0 will generate overmap zlevel on init. Otherwise will populate the zlevel provided.
 	var/overmap_event_areas = 0 //How many event "clouds" will be generated
 	var/list/map_shuttles = list() // A list of all our shuttles.
+	var/default_sector = SECTOR_ROMANOVICH //What is the default space sector for this map
 
 /datum/map/New()
 	if(!map_levels)

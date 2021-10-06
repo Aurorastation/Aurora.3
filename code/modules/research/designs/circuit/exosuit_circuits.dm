@@ -32,8 +32,3 @@
 	name = "Basic Weapon Control"
 	req_tech = list(TECH_DATA = 4)
 	build_path = /obj/item/circuitboard/exosystem/weapons
-
-/datum/design/circuit/exosuit/advweapons
-	name = "Advanced Weapon Control"
-	req_tech = list(TECH_DATA = 4)
-	build_path = /obj/item/circuitboard/exosystem/advweapons

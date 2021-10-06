@@ -3,17 +3,13 @@
 	desc = "It's a softcap in a tasteless color."
 	icon = 'icons/obj/clothing/hats/soft_caps.dmi'
 	icon_state = "softcap"
+	item_state = "softcap"
+	item_flags = SHOWFLAVORTEXT
 	contained_sprite = TRUE
 	var/flipped = FALSE
 	siemens_coefficient = 0.9
 
 /obj/item/clothing/head/softcap/dropped()
-	icon_state = initial(icon_state)
-	item_state = icon_state
-	flipped = FALSE
-	..()
-
-/obj/item/clothing/head/softcap/on_slotmove()
 	icon_state = initial(icon_state)
 	item_state = icon_state
 	flipped = FALSE
@@ -35,6 +31,7 @@
 
 /obj/item/clothing/head/softcap/colorable
 	icon_state = "softcap_colorable"
+	item_state = "softcap_colorable"
 
 /obj/item/clothing/head/softcap/colorable/random/Initialize()
 	. = ..()
@@ -44,12 +41,19 @@
 	name = "rainbow cap"
 	desc = "It's a peaked cap in a bright rainbow of colors."
 	icon_state = "rainbowsoft"
+	item_state = "rainbowsoft"
 
 /obj/item/clothing/head/softcap/red // Antag red.
 	name = "red softcap"
 	desc = "It's a softcap in a menacing crimson red."
 	icon_state = "softcap_red"
 	item_state = "softcap_red"
+
+/obj/item/clothing/head/softcap/tcfl
+	name = "tcfl cap"
+	desc = "A rugged softcap in TCFL colours, go Biesel!"
+	icon_state = "tcfl"
+	item_state = "tcfl"
 
 // Departmental softcaps. By Wowzewow (Wezzy).
 
@@ -137,3 +141,15 @@
 	name = "eridani cap"
 	desc = "A grey EPMC fatigue cap with the symbol of the Eridani Corporate Federation on its front. For amoral mercenaries that prefer style over protection."
 	icon_state = "eridani"
+	item_state = "eridani"
+
+/obj/item/clothing/head/softcap/zavod
+	name = "zavodskoi cap"
+	desc = "A black company-issue Zavokdskoi cap with the symbol of the corporation at its front."
+	icon_state = "zavodb"
+	item_state = "zavodb"
+
+/obj/item/clothing/head/softcap/zavod/alt
+	desc = "A tan company-issue Zavokdskoi cap with the symbol of the corporation at its front."
+	icon_state = "zavod"
+	item_state = "zavod"

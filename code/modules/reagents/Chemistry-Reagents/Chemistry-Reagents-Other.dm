@@ -121,7 +121,7 @@
 	M.SetParalysis(0)
 	M.silent = 0
 	M.dizziness = 0
-	M.drowsyness = 0
+	M.drowsiness = 0
 	M.stuttering = 0
 	M.confused = 0
 	M.sleeping = 0
@@ -699,9 +699,6 @@
 	if(!istype(H))
 		return
 
-	var/obj/item/organ/internal/brain/B = H.internal_organs_by_name[BP_BRAIN]
-	if(!H.has_trauma_type(/datum/brain_trauma/special/love))
-		B.gain_trauma(/datum/brain_trauma/special/love,FALSE)
 
 /decl/reagent/bottle_lightning
 	name = "Bottled Lightning"

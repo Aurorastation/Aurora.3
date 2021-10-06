@@ -82,6 +82,13 @@
 		tf.Translate(-3,0) //Could do this with pixel_x but let's just update the appearance once.
 	transform = tf
 
+/obj/item/screwdriver/get_belt_overlay()
+	var/mutable_appearance/body = mutable_appearance('icons/obj/clothing/belt_overlays.dmi', "screwdriver")
+	var/mutable_appearance/head = mutable_appearance('icons/obj/clothing/belt_overlays.dmi', "screwdriver_head")
+	body.color = color
+	head.add_overlay(body)
+	return head
+
 /obj/item/screwdriver/pickup(mob/user)
 	..()
 	update_icon()
@@ -97,7 +104,7 @@
 /obj/item/screwdriver/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(!istype(M) || user.a_intent == "help")
 		return ..()
-	if(target_zone != BP_EYES && target_zone != BP_HEAD)
+	if((target_zone != BP_EYES && target_zone != BP_HEAD) || M.eyes_protected(src, FALSE))
 		return ..()
 	if((user.is_clumsy()) && prob(50))
 		M = user
@@ -137,10 +144,12 @@
 	build_from_parts = TRUE
 	worn_overlay = "head"
 
+	var/list/color_options = list(COLOR_BLUE, COLOR_RED, COLOR_PURPLE, COLOR_BROWN, COLOR_GREEN, COLOR_CYAN, COLOR_YELLOW)
+
 /obj/item/wirecutters/Initialize()
 	. = ..()
 	if(build_from_parts)
-		color = pick(COLOR_BLUE, COLOR_RED, COLOR_PURPLE, COLOR_BROWN, COLOR_GREEN, COLOR_CYAN, COLOR_YELLOW)
+		color = pick(color_options)
 		add_overlay(overlay_image(icon, "[initial(icon_state)]_[worn_overlay]", flags=RESET_COLOR))
 
 /obj/item/wirecutters/update_icon()
@@ -149,6 +158,13 @@
 		tf.Turn(-90) //Vertical for storing compactly
 		tf.Translate(-1,0) //Could do this with pixel_x but let's just update the appearance once.
 	transform = tf
+
+/obj/item/wirecutters/get_belt_overlay()
+	var/mutable_appearance/body = mutable_appearance('icons/obj/clothing/belt_overlays.dmi', "wirecutters")
+	var/mutable_appearance/head = mutable_appearance('icons/obj/clothing/belt_overlays.dmi', "wirecutters_head")
+	body.color = color
+	head.add_overlay(body)
+	return head
 
 /obj/item/wirecutters/pickup(mob/user)
 	..()
@@ -168,8 +184,8 @@
 		SPAN_NOTICE("You cut \the [C]'s restraints with \the [src]!"),\
 		SPAN_NOTICE("You hear cable being cut."))
 		C.handcuffed = null
-		if(C.buckled?.buckle_require_restraints)
-			C.buckled.unbuckle_mob()
+		if(C.buckled_to?.buckle_require_restraints)
+			C.buckled_to.unbuckle()
 		C.update_inv_handcuffed()
 		return
 	else
@@ -177,6 +193,9 @@
 
 /obj/item/wirecutters/iswirecutter()
 	return TRUE
+
+/obj/item/wirecutters/toolbelt
+	color_options = list(COLOR_TOOLS)
 
 /obj/item/wirecutters/bomb
 	name = "bomb defusal wirecutters"
@@ -191,20 +210,17 @@
 /obj/item/weldingtool
 	name = "welding tool"
 	desc = "A welding tool with a built-in fuel tank, designed for welding and cutting metal."
-	icon = 'icons/obj/tools.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_tools.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_tools.dmi',
-		)
-	icon_state = "welder_off"
-	item_state = "welder_off"
+	icon = 'icons/obj/contained_items/tools/welding_tools.dmi'
+	icon_state = "welder"
+	item_state = "welder"
+	contained_sprite = TRUE
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	drop_sound = 'sound/items/drop/weldingtool.ogg'
 	pickup_sound = 'sound/items/pickup/weldingtool.ogg'
 	usesound = 'sound/items/welder.ogg'
-	var/base_iconstate = "welder"//These are given an _on/_off suffix before being used
-	var/base_itemstate = "welder"
+
+	attack_verb = list("hit", "bludgeoned", "whacked")
 
 	//Amount of OUCH when it's thrown
 	force = 3
@@ -224,14 +240,16 @@
 	var/status = 1 		//Whether the welder is secured or unsecured (able to attach rods to it to make a flamethrower)
 	var/max_fuel = 20 	//The max amount of fuel the welder can hold
 
+	var/change_icons = TRUE
+
 /obj/item/weldingtool/iswelder()
 	return TRUE
 
 /obj/item/weldingtool/largetank
 	name = "industrial welding tool"
 	desc = "A welding tool with an extended-capacity built-in fuel tank, standard issue for engineers."
-	base_iconstate = "ind_welder"
-	base_itemstate = "ind_welder"
+	icon_state = "indwelder"
+	item_state = "welder"
 	max_fuel = 40
 	matter = list(DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 60)
 	origin_tech = list(TECH_ENGINEERING = 2)
@@ -239,26 +257,36 @@
 /obj/item/weldingtool/hugetank
 	name = "advanced welding tool"
 	desc = "A rare and powerful welding tool with a super-extended fuel tank."
-	base_iconstate = "adv_welder"
-	base_itemstate = "adv_welder"
+	icon_state = "advwelder"
+	item_state = "advwelder"
 	max_fuel = 80
 	matter = list(DEFAULT_WALL_MATERIAL = 200, MATERIAL_GLASS = 120)
 	origin_tech = list(TECH_ENGINEERING = 3)
+
+/obj/item/weldingtool/emergency
+	name = "emergency welding tool"
+	desc = "A miniaturized version of a standard welding tool, this one was made to be used during emergencies."
+	icon_state = "miniwelder"
+	item_state = "miniwelder"
+	max_fuel = 10
 
 //The Experimental Welding Tool!
 /obj/item/weldingtool/experimental
 	name = "experimental welding tool"
 	desc = "A scientifically-enhanced welding tool that uses fuel-producing microbes to gradually replenish its fuel supply."
-	base_iconstate = "exp_welder"
-	base_itemstate = "exp_welder"
+	icon_state = "expwelder"
+	item_state = "expwelder"
 	max_fuel = 40
 	matter = list(DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 120)
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_BIO = 4)
 
-
 	var/last_gen = 0
 	var/fuelgen_delay = 400 //The time, in deciseconds, required to regenerate one unit of fuel
 	//400 = 1 unit per 40 seconds
+	change_icons = FALSE
+
+	var/obj/item/eyeshield/eyeshield
+	var/obj/item/overcapacitor/overcap
 
 //Welding tool functionality here
 /obj/item/weldingtool/Initialize()
@@ -270,17 +298,27 @@
 	R.add_reagent(/decl/reagent/fuel, max_fuel)
 	update_icon()
 
-/obj/item/weldingtool/update_icon()
-	..()
-	var/add = welding ? "_on" : "_off"
-	icon_state = base_iconstate + add //These are given an _on/_off suffix before being used
-	item_state = base_itemstate + add
+/obj/item/weldingtool/proc/update_torch()
+	if(welding)
+		add_overlay("[initial(icon_state)]-on")
+		item_state = "[initial(item_state)]1"
+	else
+		item_state = "[initial(item_state)]"
+
 	if(welding == 2)
 		set_light(0.7, 2, l_color = LIGHT_COLOR_CYAN)
 	else if (welding == 1)
 		set_light(0.6, 1.5, l_color = LIGHT_COLOR_LAVA)
 	else
 		set_light(0)
+
+/obj/item/weldingtool/update_icon()
+	cut_overlays()
+	if(change_icons)
+		var/ratio = get_fuel() / max_fuel
+		ratio = CEILING(ratio*4, 1) * 25
+		add_overlay("[initial(icon_state)][ratio]")
+	update_torch()
 	var/mob/M = loc
 	if(istype(M))
 		M.update_inv_l_hand()
@@ -315,9 +353,7 @@
 		R.use(1)
 		add_fingerprint(user)
 		user.drop_from_inventory(src)
-		var/obj/item/flamethrower/F = new /obj/item/flamethrower
-		F.weldtool = src
-		forceMove(F)
+		var/obj/item/flamethrower/F = new /obj/item/flamethrower(get_turf(src), src)
 		user.put_in_hands(F)
 		return
 
@@ -399,6 +435,9 @@
 		playsound(src.loc, 'sound/effects/refill.ogg', 50, 1, -6)
 		return
 	else if(istype(O, /obj/structure/reagent_dispensers/fueltank) && O.Adjacent(user) && welding)
+		if(use_check(user, USE_DISALLOW_SPECIALS))
+			to_chat(user, SPAN_WARNING("A strange force prevents you from doing this.")) //there is no way to justify this icly
+			return
 		var/obj/structure/reagent_dispensers/fueltank/tank = O
 		if(tank.armed)
 			to_chat(user, "<span class='warning'>You are already heating \the [O]!</span>")
@@ -462,6 +501,10 @@
 			to_chat(M, SPAN_NOTICE("You need more welding fuel to complete this task."))
 		return 0
 
+/obj/item/weldingtool/use_resource(mob/user, var/use_amount)
+	if(get_fuel() >= use_amount)
+		reagents.remove_reagent(/decl/reagent/fuel, use_amount)
+
 //Returns whether or not the welding tool is currently on.
 /obj/item/weldingtool/proc/isOn()
 	return src.welding
@@ -488,6 +531,7 @@
 			damtype = BURN
 			w_class = ITEMSIZE_LARGE
 			welding = TRUE
+			attack_verb = list("scorched", "burned", "blasted", "blazed")
 			update_icon()
 			set_processing(TRUE)
 		else
@@ -505,6 +549,8 @@
 		damtype = BRUTE
 		w_class = initial(w_class)
 		welding = FALSE
+		hitsound = /decl/sound_category/swing_hit_sound
+		attack_verb = list("hit", "bludgeoned", "whacked")
 		set_processing(FALSE)
 		update_icon()
 
@@ -557,6 +603,54 @@
 	STOP_PROCESSING(SSprocessing, src)	//Stop processing when destroyed regardless of conditions
 	return ..()
 
+/obj/item/weldingtool/experimental/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/eyeshield))
+		if(eyeshield)
+			to_chat(user, SPAN_WARNING("\The [src] already has an eye shield installed!"))
+			return
+		user.drop_from_inventory(I, src)
+		to_chat(user, SPAN_NOTICE("You install \the [I] into \the [src]."))
+		eyeshield = I
+		add_overlay("eyeshield_attached", TRUE)
+		return
+	if(istype(I, /obj/item/overcapacitor))
+		if(overcap)
+			to_chat(user, SPAN_WARNING("\The [src] already has an overcapacitor installed!"))
+			return
+		user.drop_from_inventory(I, src)
+		to_chat(user, SPAN_NOTICE("You install \the [I] into \the [src]."))
+		overcap = I
+		add_overlay("overcap_attached", TRUE)
+		toolspeed *= 2
+		return
+	if(I.isscrewdriver())
+		if(!eyeshield && !overcap)
+			to_chat(user, SPAN_WARNING("\The [src] doesn't have any accessories to remove!"))
+			return
+		var/list/accessories = list()
+		if(eyeshield)
+			var/image/radial_button = image(icon = src.icon, icon_state = "eyeshield")
+			accessories["Eye Shield"] = radial_button
+		if(overcap)
+			var/image/radial_button = image(icon = src.icon, icon_state = "overcap")
+			accessories["Overcapacitor"] = radial_button
+		var/obj/item/remove_accessory
+		switch(show_radial_menu(user, src, accessories, radius = 42, tooltips = TRUE))
+			if("Eye Shield")
+				remove_accessory = eyeshield
+				eyeshield = null
+			if("Overcapacitor")
+				remove_accessory = overcap
+				overcap = null
+				toolspeed *= 0.5
+		if(!remove_accessory)
+			return
+		user.put_in_hands(remove_accessory)
+		to_chat(user, SPAN_NOTICE("You remove \the [remove_accessory] into \the [src]."))
+		cut_overlay("[remove_accessory.icon_state]_attached", TRUE)
+		return
+	return ..()
+
 //Make sure the experimental tool only stops processing when its turned off AND full
 /obj/item/weldingtool/experimental/set_processing(var/state = 0)
 	if (state == 1)
@@ -580,6 +674,35 @@
 	else
 		set_processing(0)
 	last_gen = world.time
+
+/obj/item/weldingtool/experimental/eyecheck(mob/user)
+	if(eyeshield)
+		return
+	return ..()
+
+/obj/item/weldingtool/experimental/remove_fuel(amount, mob/M, colourChange)
+	. = ..(overcap ? amount * 3 : amount, M, colourChange)
+	if(!. && welding && overcap) // to ensure that the fuel gets used even if the amount is high
+		reagents.remove_reagent(/decl/reagent/fuel, get_fuel())
+
+/obj/item/eyeshield
+	name = "experimental eyeshield"
+	desc = "An advanced eyeshield capable of dampening the welding glare produced when working on modern super-materials, removing the need for user-worn welding gear."
+	desc_info = "This can be attached to an experimental welder to give it welding protection, removing the need for welding goggles or masks."
+	icon = 'icons/obj/contained_items/tools/welding_tools.dmi'
+	icon_state = "eyeshield"
+	item_state = "eyeshield"
+	contained_sprite = TRUE
+
+/obj/item/overcapacitor
+	name = "experimental overcapacitor"
+	desc = "An advanced capacitor that injects a current into the welding stream, doubling the speed of welding tasks without sacrificing quality. Excess current burns up welding fuel, reducing fuel efficiency, however."
+	desc_info = "This can be attached to an experimental welder to double the speed it works at, at the cost of tripling the fuel cost of using it."
+	icon = 'icons/obj/contained_items/tools/welding_tools.dmi'
+	icon_state = "overcap"
+	item_state = "overcap"
+	contained_sprite = TRUE
+
 
 /*
  * Crowbar
@@ -705,13 +828,11 @@
 /obj/item/powerdrill
 	name = "impact wrench"
 	desc = "The screwdriver's big brother."
-	icon = 'icons/obj/tools.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_tools.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_tools.dmi',
-		)
-	icon_state = "powerdrillyellow"
-	item_state = "powerdrillyellow"
+	icon = 'icons/obj/contained_items/tools/impact_wrench.dmi'
+	icon_state = "impact_wrench-screw"
+	item_state = "impact_wrench"
+	contained_sprite = TRUE
+	flags = HELDMAPTEXT
 	force = 8
 	attack_verb = list("gored", "drilled", "screwed", "punctured")
 	w_class = ITEMSIZE_SMALL
@@ -723,12 +844,12 @@
 		"wrenchbit"
 		)
 
-
 /obj/item/powerdrill/Initialize()
 	. = ..()
-	var/drillcolor = pick("red", "blue", "yellow", "green")
-	icon_state = "powerdrill[drillcolor]"
-	item_state = "powerdrill[drillcolor]"
+	update_tool()
+
+/obj/item/powerdrill/set_initial_maptext()
+	held_maptext = SMALL_FONTS(7, "S")
 
 /obj/item/powerdrill/examine(var/mob/user)
 	. = ..()
@@ -737,25 +858,32 @@
 		for(var/tool in tools)
 			to_chat(user, "- [tool][tools[current_tool] == tool ? " (selected)" : ""]")
 
+/obj/item/powerdrill/MouseEntered(location, control, params)
+	. = ..()
+	var/list/modifiers = params2list(params)
+	if(modifiers["shift"] && get_dist(usr, src) <= 2)
+		params = replacetext(params, "shift=1;", "") // tooltip doesn't appear unless this is stripped
+		openToolTip(usr, src, params, "Impact Drill:", "[capitalize(tools[current_tool])]")
+
+/obj/item/powerdrill/MouseExited(location, control, params)
+	. = ..()
+	closeToolTip(usr)
+
 /obj/item/powerdrill/iswrench()
-	usesound = 'sound/items/air_wrench.ogg'
 	return tools[current_tool] == "wrenchbit"
 
 /obj/item/powerdrill/isscrewdriver()
-	usesound = 'sound/items/drill_use.ogg'
 	return tools[current_tool] == "screwdriverbit"
-
-/obj/item/powerdrill/iscrowbar()
-	usesound = 'sound/items/drill_use.ogg'
-	return tools[current_tool] == "crowbarbit"
 
 /obj/item/powerdrill/proc/update_tool()
 	if(isscrewdriver())
-		cut_overlays()
-		add_overlay("screwdriverbit")
-	if(iswrench())
-		cut_overlays()
-		add_overlay("wrenchbit")
+		usesound = 'sound/items/drill_use.ogg'
+		icon_state = "impact_wrench-screw"
+		check_maptext(SMALL_FONTS(7, "S"))
+	else if(iswrench())
+		usesound = 'sound/items/air_wrench.ogg'
+		icon_state = "impact_wrench-wrench"
+		check_maptext(SMALL_FONTS(7, "W"))
 
 /obj/item/powerdrill/attack_self(var/mob/user)
 	if(++current_tool > tools.len)
@@ -768,6 +896,9 @@
 		playsound(loc, 'sound/items/change_drill.ogg', 50, 1)
 	update_tool()
 	return TRUE
+
+/obj/item/powerdrill/issurgerycompatible()
+	return FALSE // too unwieldy for most surgeries
 
 /obj/item/steelwool
 	name = "steel wool"

@@ -24,8 +24,12 @@
 		/obj/item/smes_coil,
 		/obj/item/device/assembly,//Primarily for making improved cameras, but opens many possibilities
 		/obj/item/computer_hardware,
-		/obj/item/pipe
+		/obj/item/pipe,
+		/obj/item/smallDelivery,
+		/obj/item/gift
 		)
+
+	var/list/cant_hold
 
 	var/obj/item/wrapped
 
@@ -53,18 +57,17 @@
 /obj/item/gripper/proc/grip_item(var/obj/item/I, var/mob/user, var/feedback = 1)
 	//This function returns 1 if we successfully took the item, or 0 if it was invalid. This information is useful to the caller
 	if(!wrapped)
-		for(var/typepath in can_hold)
-			if(istype(I,typepath))
-				if(feedback)
-					to_chat(user, SPAN_NOTICE("You collect \the [I]."))
-				if(isturf(I.loc) && I.Adjacent(user))
-					I.do_pickup_animation(user)
-				I.forceMove(src)
-				wrapped = I
-				wrapped.pixel_x = 0
-				wrapped.pixel_y = 0
-				update_icon()
-				return TRUE
+		if((can_hold && is_type_in_list(I, can_hold)) || (cant_hold && !is_type_in_list(I, cant_hold)))
+			if(feedback)
+				to_chat(user, SPAN_NOTICE("You collect \the [I]."))
+			if(isturf(I.loc) && I.Adjacent(user))
+				I.do_pickup_animation(user)
+			I.forceMove(src)
+			wrapped = I
+			wrapped.pixel_x = 0
+			wrapped.pixel_y = 0
+			update_icon()
+			return TRUE
 		if(feedback)
 			to_chat(user, SPAN_WARNING("Your gripper cannot hold \the [I]."))
 		return FALSE
@@ -74,6 +77,7 @@
 
 /obj/item/gripper/update_icon()
 	underlays.Cut()
+	grippersafety(src)
 	if(wrapped && wrapped.icon)
 		var/mutable_appearance/MA = new(wrapped)
 		MA.layer = FLOAT_LAYER
@@ -105,17 +109,18 @@
 	set desc = "Release an item from your magnetic gripper."
 	set category = "Robot Commands"
 
-	drop(get_turf(src))
+	drop(get_turf(src), usr)
 
-/obj/item/gripper/proc/drop(var/atom/target)
+/obj/item/gripper/proc/drop(var/atom/target, mob/user, var/feedback = TRUE)
 	if(wrapped)
 		if(wrapped.loc == src)
 			if(force_holder)
 				wrapped.force = force_holder
-			wrapped.do_putdown_animation(target, loc)
 			wrapped.forceMove(target)
+			wrapped.dropped(user)
 			force_holder = null
-		to_chat(loc, SPAN_NOTICE("You release \the [wrapped].")) // loc will always be the cyborg
+		if(feedback)
+			to_chat(loc, SPAN_NOTICE("You release \the [wrapped].")) // loc will always be the cyborg
 	wrapped = null
 	update_icon()
 	return TRUE
@@ -142,6 +147,9 @@
 
 /obj/item/gripper/attackby(obj/item/O, mob/user)
 	if(wrapped)
+		if(O == wrapped)
+			attack_self(user) //Allows gripper to be clicked to use item. 
+			return
 		var/resolved = wrapped.attackby(O,user)
 		if(!resolved && wrapped && O)
 			O.afterattack(wrapped, user ,1)//We pass along things targeting the gripper, to objects inside the gripper. So that we can draw chemicals from held beakers for instance
@@ -190,7 +198,9 @@
 		/obj/item/stock_parts,
 		/obj/item/custom_ka_upgrade,
 		/obj/item/warp_core,
-		/obj/item/extraction_pack
+		/obj/item/extraction_pack,
+		/obj/item/smallDelivery,
+		/obj/item/gift
 	)
 
 /obj/item/gripper/paperwork
@@ -201,11 +211,17 @@
 		/obj/item/clipboard,
 		/obj/item/paper,
 		/obj/item/paper_bundle,
+		/obj/item/canvas,
+		/obj/item/pen,
 		/obj/item/card/id,
 		/obj/item/book,
 		/obj/item/newspaper,
 		/obj/item/stamp,
-		/obj/item/ducttape
+		/obj/item/ducttape,
+		/obj/item/smallDelivery,
+		/obj/item/gift,
+		/obj/item/stack/packageWrap,
+		/obj/item/stack/wrapping_paper
 		)
 
 /obj/item/gripper/research //A general usage gripper, used for toxins/robotics/xenobio/etc
@@ -239,7 +255,9 @@
 		/obj/item/slimesteroid2,
 		/obj/item/slimepotion,
 		/obj/item/slimepotion2,
-		/obj/item/remote_mecha
+		/obj/item/remote_mecha,
+		/obj/item/smallDelivery,
+		/obj/item/gift
 		)
 
 /obj/item/gripper/chemistry //A gripper designed for chemistry, to allow borgs to work efficiently in the lab
@@ -253,13 +271,19 @@
 		/obj/item/organ,
 		/obj/item/reagent_containers/pill,
 		/obj/item/reagent_containers/spray,
+		/obj/item/personal_inhaler,
+		/obj/item/reagent_containers/inhaler,
+		/obj/item/reagent_containers/hypospray,
 		/obj/item/storage/pill_bottle,
-		/obj/item/hand_labeler,
+		/obj/item/device/hand_labeler,
 		/obj/item/paper,
 		/obj/item/stack/material/phoron,
 		/obj/item/reagent_containers/blood,
 		/obj/item/reagent_containers/food/drinks/sillycup,
-		/obj/item/reagent_containers/food/drinks/medcup
+		/obj/item/reagent_containers/food/drinks/medcup,
+		/obj/item/smallDelivery,
+		/obj/item/gift,
+		/obj/item/reagent_containers/chem_disp_cartridge
 		)
 
 /obj/item/gripper/service //Used to handle food, drinks, and seeds.
@@ -275,7 +299,12 @@
 		/obj/item/trash,
 		/obj/item/reagent_containers/cooking_container,
 		/obj/item/material/kitchen,
-		/obj/item/reagent_containers/food/snacks
+		/obj/item/reagent_containers/food/snacks,
+		/obj/item/smallDelivery,
+		/obj/item/gift,
+		/obj/item/stack/packageWrap,
+		/obj/item/stack/wrapping_paper,
+		/obj/item/reagent_containers/chem_disp_cartridge //Drink cartridges
 		)
 
 /obj/item/gripper/no_use //Used when you want to hold and put items in other things, but not able to 'use' the item
@@ -292,3 +321,16 @@
 		/obj/item/stack/material,
 		/obj/item/stack/tile
 		)
+
+/obj/item/gripper/multi_purpose
+	name = "multi-purpose gripper"
+	desc = "An articulate gripper suited to carrying a wide variety of objects you could encounter on a space-faring vessel."
+	can_hold = null
+	cant_hold = list(
+		/obj/item/stack,
+		/obj/item/gun,
+		/obj/item/clothing,
+		/obj/item/storage,
+		/obj/item/modular_computer,
+		/obj/item/card/id
+	)

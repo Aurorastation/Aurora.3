@@ -126,11 +126,13 @@
 			if(T) //If we have a spawnpoint, return it
 				return T
 	if(!isnull(landmark_name))
-		var/obj/effect/landmark/L
+		var/list/possible_landmarks = list()
 		for(var/obj/effect/landmark/landmark in landmarks_list)
 			if(landmark.name == landmark_name)
-				L = landmark
-				return get_turf(L)
+				possible_landmarks += landmark
+		if(length(possible_landmarks))
+			var/obj/effect/landmark/L = pick(possible_landmarks)
+			return get_turf(L)
 
 	log_debug("Ghostspawner: Spawner [short_name] has neither spawnpoints nor landmarks or a matching spawnpoint/landmark could not be found")
 
@@ -170,6 +172,7 @@
 		disable()
 	if(welcome_message)
 		to_chat(user, SPAN_NOTICE(welcome_message))
+	universe.OnPlayerLatejoin(user)
 	return TRUE
 
 //Proc to check if a specific user can edit this spawner (open/close/...)

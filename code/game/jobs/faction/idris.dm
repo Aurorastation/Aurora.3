@@ -34,8 +34,7 @@
 	allowed_role_types = list(
 		/datum/job/visitor,
 		/datum/job/officer,
-		/datum/job/detective,
-		/datum/job/forensics,
+		/datum/job/investigator,
 		/datum/job/bartender,
 		/datum/job/chef,
 		/datum/job/hydro,
@@ -52,12 +51,10 @@
 
 	titles_to_loadout = list(
 		"Security Officer" = /datum/outfit/job/officer/idris,
-		"Forensic Technician" = /datum/outfit/job/forensics/idris,
-		"Crime Scene Investigator" = /datum/outfit/job/forensics/idris,
+		"Investigator" = /datum/outfit/job/forensics/idris,
 		"Bartender" = /datum/outfit/job/bartender/idris,
 		"Chef" = /datum/outfit/job/chef/idris,
 		"Cook" = /datum/outfit/job/chef/idris,
-		"Detective" = /datum/outfit/job/detective/idris,
 		"Gardener" = /datum/outfit/job/hydro/idris,
 		"Hydroponicist" = /datum/outfit/job/hydro/idris,
 		"Corporate Liaison" = /datum/outfit/job/representative/idris

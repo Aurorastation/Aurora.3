@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Utils from '../../../utils.js'
+import Utils from "@/utils"
 export default {
   data() {
     return {
@@ -81,7 +81,7 @@ export default {
         this.$emit("save", this.gdata.state.editingvalue)
         return
       }
-      Utils.sendToTopic({
+      this.$toTopic({
         editrecord: {
           value: this.gdata.state.editingvalue,
           key: this.path.split(".")

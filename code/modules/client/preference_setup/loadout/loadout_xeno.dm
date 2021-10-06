@@ -2,7 +2,7 @@
 	display_name = "gear harness"
 	path = /obj/item/clothing/under/gearharness
 	sort_category = "Xenowear"
-	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_DIONA, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP)
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_DIONA, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP)
 
 /datum/gear/shoes/footwraps
 	display_name = "cloth footwraps"
@@ -25,13 +25,13 @@
 
 /datum/gear/shoes/caligae/New()
 	..()
-	var/caligae = list()
+	var/list/caligae = list()
 	caligae["no sock"] = /obj/item/clothing/shoes/caligae
 	caligae["black sock"] = /obj/item/clothing/shoes/caligae/black
 	caligae["grey sock"] = /obj/item/clothing/shoes/caligae/grey
 	caligae["white sock"] = /obj/item/clothing/shoes/caligae/white
 	caligae["leather"] = /obj/item/clothing/shoes/caligae/armor
-	gear_tweaks += new/datum/gear_tweak/path(caligae)
+	gear_tweaks += new /datum/gear_tweak/path(caligae)
 
 /datum/gear/shoes/toeless
 	display_name = "toeless boot selection"
@@ -41,11 +41,12 @@
 
 /datum/gear/shoes/toeless/New()
 	..()
-	var/shoes = list()
+	var/list/shoes = list()
 	shoes["brown toeless workboots"] = /obj/item/clothing/shoes/workboots/toeless
 	shoes["grey toeless workboots"] = /obj/item/clothing/shoes/workboots/toeless/grey
 	shoes["dark toeless workboots"] = /obj/item/clothing/shoes/workboots/toeless/dark
 	shoes["toeless black boots, short"] = /obj/item/clothing/shoes/jackboots/toeless
 	shoes["toeless black boots, knee"] = /obj/item/clothing/shoes/jackboots/toeless/knee
 	shoes["toeless black boots, thigh"] = /obj/item/clothing/shoes/jackboots/toeless/thigh
-	gear_tweaks += new/datum/gear_tweak/path(shoes)
+	shoes["toeless winterboots"] = /obj/item/clothing/shoes/winter/toeless
+	gear_tweaks += new /datum/gear_tweak/path(shoes)

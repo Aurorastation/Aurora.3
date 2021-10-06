@@ -94,9 +94,9 @@
 					qdel(src)
 				else if(istype(P, /obj/item/gun/energy/plasmacutter))
 					var/obj/item/gun/energy/plasmacutter/PC = P
-					if(!PC.power_supply)
-						to_chat(user, SPAN_WARNING("\The [src] doesn't have a power supply installed!"))
+					if(PC.check_power_and_message(user))
 						return
+					PC.use_resource(1)
 					playsound(get_turf(src), PC.fire_sound, 75, TRUE)
 					to_chat(user, SPAN_NOTICE("You dismantle the blueprint."))
 					new /obj/item/stack/material/steel(get_turf(src), 2)

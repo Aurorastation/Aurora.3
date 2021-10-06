@@ -31,10 +31,12 @@
 	display_name = "Cryogenic Storage"
 	msg = "has completed cryogenic revival"
 	disallow_job = list("Cyborg", "Merchant")
+	var/list/command_turfs = list()
 
 /datum/spawnpoint/cryo/New()
 	..()
 	turfs = latejoin_cryo
+	command_turfs = latejoin_cryo_command
 
 /datum/spawnpoint/cryo/after_join(mob/victim)
 	if(!istype(victim))
@@ -44,7 +46,7 @@
 		if(!C.occupant)
 			C.set_occupant(victim, 1)
 			victim.Sleeping(3)
-			to_chat(victim, SPAN_NOTICE("You are slowly waking up from the cryostasis aboard [current_map.full_name]. It might take a few seconds."))
+			to_chat(victim, SPAN_NOTICE("You are slowly waking up from the cryostasis aboard [current_map.full_name]. It might take a few seconds.\nYour workplace attire is waiting for you at the nearest autodrobe vendor."))
 			return
 
 /datum/spawnpoint/cyborg

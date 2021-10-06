@@ -26,7 +26,7 @@
 
 	qdel(src)
 
-/obj/effect/floor_decal/Initialize(mapload, var/newdir, var/newcolour, bypass = FALSE)
+/obj/effect/floor_decal/Initialize(mapload, var/newdir, var/newcolour, bypass = FALSE, var/set_icon_state)
 	if (bypass && !mapload)
 		return ..(mapload)
 
@@ -38,6 +38,9 @@
 
 	if (supplied_dir)
 		set_dir(supplied_dir)
+
+	if(set_icon_state)
+		icon_state = set_icon_state
 
 	..()
 	return INITIALIZE_HINT_LATELOAD
@@ -619,3 +622,31 @@
 
 /obj/effect/floor_decal/sign/srg
 	icon_state = "white_srg"
+
+// the big SCC logo
+/obj/effect/floor_decal/scc_full
+	icon = 'icons/turf/flooring/scc_decal_preview.dmi'
+	icon_state = "scc_decal_preview"
+
+	var/list/decals = list(
+		"0,0", "1,0", "2,0", "3,0", "4,0",
+		"0,1", "1,1", "2,1", "3,1", "4,1",
+		"0,2", "1,2", "2,2", "3,2","4,2",
+		"0,3", "2,3", "4,3"
+	)
+
+/obj/effect/floor_decal/scc_full/Initialize()
+	..()
+	for(var/coordinate in decals)
+		var/list/split_coordinate = splittext(coordinate, ",")
+		var/turf/decal_turf = loc
+		for(var/i = 1 to text2num(split_coordinate[1]))
+			decal_turf = get_step(decal_turf, EAST)
+		for(var/i = 1 to text2num(split_coordinate[2]))
+			decal_turf = get_step(decal_turf, NORTH)
+		new /obj/effect/floor_decal/scc(decal_turf, null, null, FALSE, coordinate)
+	return INITIALIZE_HINT_QDEL
+
+/obj/effect/floor_decal/scc
+	icon = 'icons/turf/flooring/scc_decals.dmi'
+	icon_state = "0,0"

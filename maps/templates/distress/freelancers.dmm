@@ -1,0 +1,121 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"b" = (
+/turf/unsimulated/floor{
+	dir = 5;
+	icon_state = "vault"
+	},
+/area/centcom/distress_prep)
+"d" = (
+/obj/structure/table/rack,
+/obj/random/weapon_and_ammo{
+	chosen_rarity = Common
+	},
+/turf/unsimulated/floor{
+	dir = 5;
+	icon_state = "vault"
+	},
+/area/centcom/distress_prep)
+"r" = (
+/obj/structure/table/rack,
+/obj/random/weapon_and_ammo{
+	chosen_rarity = Rare
+	},
+/turf/unsimulated/floor{
+	dir = 5;
+	icon_state = "vault"
+	},
+/area/centcom/distress_prep)
+"E" = (
+/obj/structure/table/rack,
+/obj/item/clothing/accessory/holster/thigh,
+/obj/item/clothing/accessory/holster/thigh,
+/obj/item/clothing/accessory/holster/thigh,
+/obj/item/clothing/accessory/holster/thigh,
+/obj/item/clothing/accessory/holster/thigh,
+/obj/item/clothing/accessory/storage/webbingharness{
+	slots = 5
+	},
+/obj/item/clothing/accessory/storage/webbingharness{
+	slots = 5
+	},
+/obj/item/clothing/accessory/storage/webbingharness/pouches/ert,
+/obj/item/clothing/accessory/storage/black_vest,
+/obj/item/clothing/accessory/storage/black_vest,
+/obj/item/clothing/accessory/storage/black_vest,
+/obj/item/clothing/accessory/storage/black_vest,
+/turf/unsimulated/floor{
+	dir = 5;
+	icon_state = "vault"
+	},
+/area/centcom/distress_prep)
+"Y" = (
+/obj/structure/table/wood,
+/obj/item/coin/gold{
+	pixel_x = -3;
+	pixel_y = 6
+	},
+/obj/item/coin/gold{
+	pixel_x = -3;
+	pixel_y = 6
+	},
+/obj/item/storage/box/fancy/cigarettes/cigar{
+	pixel_x = -6;
+	pixel_y = -1
+	},
+/obj/item/storage/box/fancy/cigarettes/cigar{
+	pixel_x = -1;
+	pixel_y = -1
+	},
+/obj/item/flame/lighter/zippo/gold{
+	pixel_x = 7;
+	pixel_y = 4
+	},
+/obj/item/flame/lighter/zippo/gold{
+	pixel_x = 7;
+	pixel_y = 4
+	},
+/obj/item/flame/lighter/zippo/royal{
+	pixel_x = 7
+	},
+/obj/item/flame/lighter/zippo/black{
+	pixel_x = 7;
+	pixel_y = -7
+	},
+/obj/item/flame/lighter/zippo/black{
+	pixel_x = 7;
+	pixel_y = -7
+	},
+/obj/item/lipstick/random{
+	pixel_x = -7;
+	pixel_y = 6
+	},
+/obj/random/spacecash{
+	pixel_x = -2;
+	pixel_y = -9
+	},
+/turf/unsimulated/floor{
+	dir = 5;
+	icon_state = "vault"
+	},
+/area/centcom/distress_prep)
+
+(1,1,1) = {"
+b
+E
+d
+"}
+(2,1,1) = {"
+b
+b
+r
+"}
+(3,1,1) = {"
+b
+b
+r
+"}
+(4,1,1) = {"
+b
+b
+Y
+"}

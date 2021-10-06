@@ -39,7 +39,9 @@
 		else
 			endWhen = next_wave + wave_delay
 
-/datum/event/meteor_wave/end()
+/datum/event/meteor_wave/end(var/faked)
+	if(faked)
+		return
 	spawn(100)//We give 10 seconds before announcing, for the last wave of meteors to hit the station
 		command_announcement.Announce("The station has survived the meteor storm, it is now safe to commence repairs.", "Meteor Alert")
 
@@ -61,7 +63,9 @@
 	command_announcement.Announce("Meteors have reached the station. Please stay away from outer areas until the shower has passed.", "Meteor Alert")
 
 
-/datum/event/meteor_wave/shower/end()
+/datum/event/meteor_wave/shower/end(var/faked)
+	if(faked)
+		return
 	spawn(100)
 		command_announcement.Announce("The station has cleared the meteor shower, please return to your stations.", "Meteor Alert")
 
@@ -83,6 +87,8 @@
 /datum/event/meteor_wave/downed_ship/start()
 	command_announcement.Announce("Ship debris colliding now, all hands brace for impact.", "Ship Debris Alert")
 
-/datum/event/meteor_wave/downed_ship/end()
+/datum/event/meteor_wave/downed_ship/end(var/faked)
+	if(faked)
+		return
 	spawn(100)//We give 10 seconds before announcing, for the last wave of meteors to hit the station
 		command_announcement.Announce("The last of the ship debris has hit or passed by the station, it is now safe to commence repairs.", "Ship Debris Alert")

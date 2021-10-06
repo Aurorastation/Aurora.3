@@ -93,7 +93,6 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/storage/bag/plants                  = TRADER_THIS_TYPE,
 		/obj/item/storage/bag/ore                     = TRADER_THIS_TYPE,
 		/obj/item/storage/toolbox                     = TRADER_ALL,
-		/obj/item/storage/toolbox/fluff               = TRADER_BLACKLIST_ALL, // Custom items
 		/obj/item/storage/wallet                      = TRADER_THIS_TYPE,
 		/obj/item/storage/wallet/fluff                = TRADER_BLACKLIST_ALL, // Custom items
 		/obj/item/storage/photo_album                 = TRADER_THIS_TYPE,

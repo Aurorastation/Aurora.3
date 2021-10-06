@@ -172,7 +172,7 @@ it should be avoided in favour of manual removal where possible
 	//This list can be overridden if you want a custom slot whitelist
 	var/list/valid_equipment_slots = list(slot_back, slot_wear_mask, slot_handcuffed, slot_belt, \
 	slot_wear_id, slot_l_ear, slot_glasses, slot_gloves, slot_head, slot_shoes, slot_wear_suit, \
-	slot_w_uniform,slot_legcuffed, slot_r_ear, slot_legs, slot_tie)
+	slot_w_uniform,slot_legcuffed, slot_r_ear, slot_legs, slot_tie, slot_wrists)
 
 
 

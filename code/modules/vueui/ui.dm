@@ -10,6 +10,7 @@ main ui datum.
 	var/mob/user
 	// object that contains this ui
 	var/datum/object
+	var/datum/state_object // if this is specified, checking for state will use this instead of just object
 	// browser window width
 	var/width = 100
 	// browser window height
@@ -46,11 +47,12 @@ main ui datum.
   *
   * @return nothing
   */
-/datum/vueui/New(var/nuser, var/nobject, var/nactiveui = 0, var/nwidth = 0, var/nheight = 0, var/ntitle, var/list/ndata, var/datum/topic_state/state = default_state)
+/datum/vueui/New(var/nuser, var/nobject, var/nactiveui = 0, var/nwidth = 0, var/nheight = 0, var/ntitle, var/list/ndata, var/datum/topic_state/state = default_state, var/datum/set_state_object)
 	user = nuser
 	object = nobject
 	data = ndata
 	src.state = state
+	state_object = set_state_object
 	LAZYINITLIST(assets)
 
 	if (nactiveui)
@@ -361,7 +363,8 @@ main ui datum.
   * @return 1 if push should happen, 0 if shouldn't happen.
   */
 /datum/vueui/proc/update_status(var/autopush = TRUE, var/checkforchange = FALSE)
-	. = set_status(object.CanUseTopic(user, state), autopush, checkforchange)
+	var/datum/check_object = state_object ? state_object : object
+	return set_status(check_object.CanUseTopic(user, state), autopush, checkforchange)
 
 /**
   * Process this ui

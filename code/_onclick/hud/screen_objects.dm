@@ -28,10 +28,10 @@
 	maptext_height = 480
 	maptext_width = 480
 
-
 /obj/screen/inventory
 	var/slot_id	//The identifier for the slot. It has nothing to do with ID cards.
 	var/list/object_overlays = list() // Required for inventory/screen overlays.
+	var/color_changed = FALSE
 
 /obj/screen/inventory/MouseEntered()
 	..()
@@ -58,6 +58,18 @@
 			item_overlay.color = "#00ff00"
 		object_overlays += item_overlay
 		add_overlay(object_overlays)
+
+/obj/screen/inventory/proc/set_color_for(var/set_color, var/set_time)
+	if(color_changed)
+		return
+	var/old_color = color
+	color = set_color
+	color_changed = TRUE
+	addtimer(CALLBACK(src, .proc/set_color_to, old_color), set_time)
+
+/obj/screen/inventory/proc/set_color_to(var/set_color)
+	color = set_color
+	color_changed = FALSE
 
 /obj/screen/close
 	name = "close"
@@ -326,6 +338,11 @@
 					return
 				R.pick_module()
 
+		if("Return-to-core")
+			if (istype(usr, /mob/living/silicon/robot/shell))
+				usr.body_return()
+				return
+
 		if("health")
 			if(isrobot(usr))
 				if(modifiers["shift"])
@@ -379,11 +396,11 @@
 	if(use_check_and_message(usr, USE_ALLOW_NON_ADJACENT|USE_ALLOW_NON_ADV_TOOL_USR)) //You're always adjacent to your inventory in practice.
 		return TRUE
 	switch(name)
-		if(BP_R_HAND)
+		if("right hand")
 			if(iscarbon(usr))
 				var/mob/living/carbon/C = usr
 				C.activate_hand("r")
-		if(BP_L_HAND)
+		if("left hand")
 			if(iscarbon(usr))
 				var/mob/living/carbon/C = usr
 				C.activate_hand("l")
@@ -414,7 +431,7 @@
 	else
 		if (!user.stamina_bar)
 			user.stamina_bar = new(user, user.max_stamina, src)
-
+		user.stamina_bar.goal = user.max_stamina
 		user.stamina_bar.update(user.stamina)
 
 	if (user.m_intent == M_RUN)
@@ -486,3 +503,6 @@
 			add_overlay(disabled_hand_overlay)
 		if(H.handcuffed)
 			add_overlay(handcuff_overlay)
+
+/obj/screen/inventory/back
+	name = "back"

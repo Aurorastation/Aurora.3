@@ -87,12 +87,7 @@
 			healths.icon_state = "health7"
 
 	timeofdeath = world.time
-	if (isanimal(src))
-		set_death_time(ANIMAL, world.time)
-	else if (ispAI(src) || isDrone(src))
-		set_death_time(MINISYNTH, world.time)
-	else if (isliving(src))
-		set_death_time(CREW, world.time)//Crew is the fallback
+	set_respawn_time()
 	if(mind)
 		mind.store_memory("Time of death: [worldtime2text()]", 0)
 	living_mob_list -= src
@@ -104,6 +99,9 @@
 		SSticker.mode.check_win()
 
 	return 1
+
+/mob/proc/set_respawn_time()
+	return
 
 /mob/proc/exit_vr()
 	// If we have a remotely controlled mob, we come back to our body to die properly

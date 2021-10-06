@@ -15,8 +15,10 @@
 	nano_printer.stored_paper = 5
 	tesla_link = new /obj/item/computer_hardware/tesla_link/charging_cable(src)
 
-/obj/item/modular_computer/laptop/preset/install_default_programs()
-	..()
+// the laptop in the modular computer loadout
+/obj/item/modular_computer/laptop/preset/loadout/install_default_hardware()
+	. = ..()
+	card_slot = new /obj/item/computer_hardware/card_slot(src)
 
 // Engineering
 /obj/item/modular_computer/laptop/preset/engineering
@@ -63,6 +65,11 @@
 	name = "command laptop"
 	_app_preset_type = /datum/modular_computer_app_presets/command
 	enrolled = 1
+
+/obj/item/modular_computer/laptop/preset/command/teleporter
+	name = "teleporter control laptop"
+	desc = "A portable computer that has a special teleporter control program loaded."
+	_app_preset_type = /datum/modular_computer_app_presets/command/teleporter
 
 /obj/item/modular_computer/laptop/preset/command/hop
 	name = "head of personnel's laptop"

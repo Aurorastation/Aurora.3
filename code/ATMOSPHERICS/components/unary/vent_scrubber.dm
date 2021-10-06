@@ -21,7 +21,7 @@
 
 	var/hibernate = 0 //Do we even process?
 	var/scrubbing = 1 //0 = siphoning, 1 = scrubbing
-	var/list/scrubbing_gas = list(GAS_CO2)
+	var/list/scrubbing_gas
 
 	var/panic = 0 //is this scrubber panicked?
 
@@ -37,7 +37,15 @@
 	use_power = 1
 	icon_state = "map_scrubber_on"
 
-/obj/machinery/atmospherics/unary/vent_scrubber/Initialize()
+/obj/machinery/atmospherics/unary/vent_scrubber/Initialize(mapload)
+	if(mapload)
+		var/turf/T = loc
+		var/image/I = image(icon, T, icon_state, EFFECTS_ABOVE_LIGHTING_LAYER, dir, pixel_x, pixel_y)
+		I.plane = 0
+		I.color = color
+		I.alpha = 125
+		LAZYADD(T.blueprints, I)
+
 	. = ..()
 	air_contents.volume = ATMOS_DEFAULT_VOLUME_FILTER
 
@@ -51,6 +59,24 @@
 	radio_filter_out = frequency==initial(frequency)?(RADIO_TO_AIRALARM):null
 	if (frequency)
 		set_frequency(frequency)
+
+	if (!scrubbing_gas)
+		reset_scrubbing()
+
+/obj/machinery/atmospherics/unary/vent_scrubber/proc/reset_scrubbing()
+	if (initial(scrubbing_gas))
+		scrubbing_gas = initial(scrubbing_gas)
+	else
+		scrubbing_gas = list()
+		for (var/g in gas_data.gases)
+			if (g != GAS_OXYGEN && g != GAS_NITROGEN)
+				add_to_scrubbing(g)
+
+/obj/machinery/atmospherics/unary/vent_scrubber/proc/add_to_scrubbing(new_gas)
+	scrubbing_gas |= new_gas
+
+/obj/machinery/atmospherics/unary/vent_scrubber/proc/remove_from_scrubbing(old_gas)
+	scrubbing_gas -= old_gas
 
 /obj/machinery/atmospherics/unary/vent_scrubber/atmos_init()
 	..()
@@ -243,7 +269,7 @@
 		toggle += GAS_N2O
 	else if(signal.data["toggle_n2o_scrub"])
 		toggle += GAS_N2O
-	
+
 	if(!isnull(signal.data["h2_scrub"]) && text2num(signal.data["h2_scrub"]) != (GAS_HYDROGEN in scrubbing_gas))
 		toggle += GAS_HYDROGEN
 	else if(signal.data["toggle_h2_scrub"])

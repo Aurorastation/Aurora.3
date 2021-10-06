@@ -91,7 +91,6 @@
 </template>
 
 <script>
-import Utils from '../../../../utils'
 export default {
   data() {
     return {
@@ -113,7 +112,7 @@ export default {
   },
   methods: {
     create_account() {
-      Utils.sendToTopic({create_account: {name: this.new_name, funds: this.new_funds}})
+      this.$toTopic({create_account: {name: this.new_name, funds: this.new_funds}})
       this.new_name = null
       this.new_funds = 0
     }

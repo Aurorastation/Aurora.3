@@ -135,7 +135,8 @@
 /obj/item/gun/projectile/automatic/rifle/sts35
 	name = "assault rifle"
 	desc = "A durable, rugged looking automatic weapon of a make popular on the frontier worlds. Uses 7.62mm rounds. It is unmarked."
-	desc_fluff = "The STS35 is a durable, reliable and cheap to buy fully automatic assault rifle with many licensed manufacturers across the galaxy. It comes in different versions and calibres, this one uses 7.62 rounds. The manufacturer markings have been filed off."
+	desc_fluff = "The STS35 is a durable, reliable and cheap to buy fully automatic assault rifle with many licensed manufacturers across \
+	the galaxy. It comes in different versions and calibres, this one uses 7.62 rounds. The manufacturer markings have been filed off."
 	can_bayonet = TRUE
 	knife_x_offset = 23
 	knife_y_offset = 13
@@ -143,6 +144,61 @@
 /obj/item/gun/projectile/automatic/rifle/sts35/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "arifle" : "arifle-empty"
+
+/obj/item/gun/projectile/automatic/rifle/shorty
+	name = "short-barreled assault rifle"
+	desc = "A durable, rugged-looking automatic weapon that has been heavily modified. \
+	Key changes include significant shortening of the barrel and the addition of an improvised vertical foregrip, \
+	condensing heavy firepower into a relatively small and maneuverable package intended for close-in \
+	fighting aboard ships and space stations. Affectionately referred to as the \"Shorty\" in some circles. Uses 7.62mm rounds."
+	desc_fluff = "The STS35 is a durable, reliable, and cheap fully-automatic assault rifle with many licensed manufacturers across \
+	the galaxy. It comes in many different versions and calibres; this one uses 7.62mm rounds. This example has been heavily modified and is illegal in some jurisdictions. \
+	Much of the barrel has been lopped off to decrease overall length, while a pistol grip from another STS35 has been clamped on below what remains of the handguard \
+	to improve handling. The fire control group has been altered as well, sacrificing the burst-fire function in favor of a smoother trigger pull. Born from \
+	extensive experience fighting in claustrophobic environments aboard ships and stations, weapons like these are common among Coalition Rangers conducting high-risk boarding operations \
+	along the Frontier, who rely on its ability to rapidly gain fire superiority in the event of an ambush. While no formal name exists for it, \
+	and two no examples are quite alike, weapons of this type are commonly just referred to as the \"Shorty\"."
+	icon = 'icons/obj/guns/shorty.dmi'
+	icon_state = "shorty"
+	item_state = "shorty"
+	can_bayonet = TRUE
+	knife_x_offset = 23
+	knife_y_offset = 13
+	firemodes = list(
+		list(mode_name="semiauto",       burst=1, fire_delay=8),
+		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=1, one_hand_fa_penalty=22, burst_accuracy = list(0,-1,-1,-1,-2,-2,-2,-3), dispersion = list(5, 5, 10, 15, 20)),
+		)
+
+	fire_delay = 8
+	accuracy = 2
+
+/obj/item/gun/projectile/automatic/rifle/shorty/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "shorty" : "shorty-empty"
+
+/obj/item/gun/projectile/automatic/rifle/carbine
+	name = "ballistic carbine"
+	desc = "A durable, rugged looking semi-automatic weapon of a make popular on the frontier worlds. Uses 5.56mm rounds and does not accept large \
+	capacity magazines. It is unmarked."
+	desc_fluff = "The ST24 is often considered the little brother of its larger and fully automatic counterpart, the STS35. It is a \
+	reliable and cheap to buy carbine with many licensed manufacturers across the galaxy. It comes in different versions and calibres, \
+	some even boasting select fire functionality. This one uses 5.56 rounds and is semi-automatic. The manufacturer markings have been filed off."
+	icon = 'icons/obj/guns/bcarbine.dmi'
+	icon_state = "bcarbine"
+	item_state = "bcarbine"
+	caliber = "a556"
+	can_bayonet = TRUE
+	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 1, TECH_ILLEGAL = 3)
+	magazine_type = /obj/item/ammo_magazine/a556/carbine
+	allowed_magazines = list(/obj/item/ammo_magazine/a556/carbine)
+	knife_x_offset = 23
+	knife_y_offset = 13
+
+	firemodes = list(mode_name="semiauto", burst=1, fire_delay=12)
+
+/obj/item/gun/projectile/automatic/rifle/carbine/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "bcarbine" : "bcarbine-empty"
 
 /obj/item/gun/projectile/automatic/rifle/sol
 	name = "battle rifle"
@@ -181,7 +237,7 @@
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a556
-	allowed_magazines = list(/obj/item/ammo_magazine/a556)
+	allowed_magazines = list(/obj/item/ammo_magazine/a556, /obj/item/ammo_magazine/a556/carbine)
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
@@ -279,11 +335,14 @@
 		playsound(user, 'sound/weapons/sawclose.ogg', 60, 1)
 	update_icon()
 
-/obj/item/gun/projectile/automatic/rifle/l6_saw/attack_self(mob/user as mob)
+/obj/item/gun/projectile/automatic/rifle/l6_saw/unique_action(mob/user)
+	toggle_cover(user)
+
+/obj/item/gun/projectile/automatic/rifle/l6_saw/toggle_firing_mode(mob/user)
 	if(cover_open)
-		toggle_cover(user) //close the cover
-	else
-		return ..() //once closed, behave like normal
+		to_chat(user, SPAN_WARNING("The cover must be closed!"))
+		return
+	..()
 
 /obj/item/gun/projectile/automatic/rifle/l6_saw/attack_hand(mob/user as mob)
 	if(!cover_open && user.get_inactive_hand() == src)

@@ -69,7 +69,12 @@
 
 /datum/accent/northrasnrr
 	name = ACCENT_NORTHRASNRR
-	description = "While similar to the Republican Siik'maas, Northern Ras'nrr Siik’maas is relatively free from the Hadiist additions. It is known for its \
+	description = "While similar to the Republican Siik'maas, Northern Ras'nrr Siik'maas is relatively free from the Hadiist additions. It is known for its \
 	short, sharp vowel sounds and clear pronunciation. Most speakers are found in the DPRA controlled area of the region, but some do exist within the PRA borders."
 	tag_icon = "tajara_northrasnrr"
 
+/datum/accent/dinakk
+	name = ACCENT_DINAKK
+	description = "Found in the isolated valleys of the Din'akk Mountains, little has changed in this accent since the first contact. It still clings to words and grammatical \
+	structures that have long since fallen out of use by other Siik'maas speakers. It is described as strong and abrupt by other Tajara."
+	tag_icon = "tajara_dinaak"

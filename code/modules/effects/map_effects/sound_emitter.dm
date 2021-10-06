@@ -74,10 +74,6 @@
 
 
 // I'm not sorry.
-/obj/effect/map_effect/interval/sound_emitter/clownsteps
-	sounds_to_play = list(/decl/sound_category/clown_sound)
-	interval_lower_bound = 5
-	interval_upper_bound = 1 SECOND
 
 /obj/effect/map_effect/interval/sound_emitter/bikehorns
 	sounds_to_play = list('sound/items/bikehorn.ogg')

@@ -1,10 +1,19 @@
 /obj/item/rig/terminator
 	name = "\improper Military Frame exoskeleton"
 	desc = "A robust synth exoskeleton outfitted with state of the art infiltration tools. Creepy."
+	icon = 'icons/clothing/rig/terminator.dmi'
 	icon_state = "terminator_rig"
 	suit_type = "synthetic exoskeleton"
-	armor = list(melee = 80, bullet = 75, laser = 60, energy = 15, bomb = 80, bio = 100, rad = 30)
-	siemens_coefficient = 0.0 // Ok this is the only exception. Got it? Good.
+	armor = list(
+		melee = ARMOR_MELEE_VERY_HIGH,
+		bullet = ARMOR_BALLISTIC_RIFLE,
+		laser = ARMOR_LASER_RIFLE,
+		energy = ARMOR_MELEE_MINOR,
+		bomb = ARMOR_BOMB_SHIELDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_RESISTANT
+	)
+	siemens_coefficient = 0 // Ok this is the only exception. Got it? Good.
 	offline_slowdown = 3
 	offline_vision_restriction = TINT_HEAVY
 	has_sealed_state = TRUE

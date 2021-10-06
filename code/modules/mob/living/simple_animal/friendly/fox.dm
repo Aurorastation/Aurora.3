@@ -31,3 +31,4 @@
 	name = "Chauncey"
 	real_name = "Chauncey"
 	desc = "Chauncey, the Captain's trustworthy fox. I wonder what it says?"
+	named = TRUE

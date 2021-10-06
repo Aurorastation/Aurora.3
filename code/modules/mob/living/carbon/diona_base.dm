@@ -18,20 +18,20 @@ var/list/diona_banned_languages = list(
 	/datum/language/cultcommon,
 	/datum/language/corticalborer,
 	/datum/language/binary,
-	/datum/language/binary/drone)
+	/datum/language/binary/drone,
+	/datum/language/bug,
+	/datum/language/ling,
+	/datum/language/revenant,
+	/datum/language/machine)
 
 #define DIONA_LIGHT_COEFICIENT 0.25
 /mob/living/carbon/proc/diona_handle_light(var/datum/dionastats/DS) //Carbon is the highest common denominator between gestalts and nymphs. They will share light code
-	//if light_organ is non null, then we're working with a gestalt. otherwise nymph
-
-
 	var/light_amount = DS.last_lightlevel //If we're not re-fetching the light level then we'll use a recent cached version
 
 	if (life_tick % 2 == 0) //Only fetch the lightlevel every other proc to save performance
 		if (DS.last_location != loc || life_tick % 4 == 0) //Fetch it even less often if we haven't moved since last check
 			light_amount = get_lightlevel_diona(DS)
 			DS.last_lightlevel = light_amount
-
 
 	DS.stored_energy += light_amount
 
@@ -50,13 +50,6 @@ var/list/diona_banned_languages = list(
 	DS.last_location = loc
 	if(light_amount)
 		adjustNutritionLoss(-light_amount) // regenerate our nutrition from light.
-	move_delay_mod = min(initial(move_delay_mod) - light_amount * 1, 0)
-	sprint_speed_factor = initial(sprint_speed_factor)
-	sprint_cost_factor = Clamp(initial(sprint_cost_factor) - light_amount * DIONA_LIGHT_COEFICIENT, 0, initial(sprint_cost_factor))
-	if (total_radiation)
-		move_delay_mod = max(move_delay_mod * total_radiation * 3, -4.5)
-		sprint_speed_factor = 0.65
-		sprint_cost_factor = 0
 
 /mob/living/carbon/alien/diona/death()
 	if(client && gestalt && switch_to_gestalt())
@@ -87,19 +80,12 @@ var/list/diona_banned_languages = list(
 	if (!pressure)
 		return 0
 
-	if (DS.nutrient_organ)
-		if (DS.nutrient_organ.is_broken())
-			return 0
-
 	if (consume_nutrition_from_air && (nutrition / max_nutrition > 0.25))
 		to_chat(src, SPAN_NOTICE("You feel like you have replanished enough of nutrition to stay alive. Consuming more makes you feel gross."))
 		consume_nutrition_from_air = !consume_nutrition_from_air
 		return
 
 	var/plus= (min(pressure,diona_max_pressure)  / diona_max_pressure)* diona_nutrition_factor
-	if (DS.nutrient_organ)
-		if(DS.nutrient_organ.is_bruised())
-			plus *= 0.5
 	plus = min(plus, max_nutrition - nutrition)
 
 	adjustNutritionLoss(-plus)
@@ -361,7 +347,6 @@ var/list/diona_banned_languages = list(
 			to_chat(src, "<span class='danger'>You feel a shifting sensation inside you as your nymphs move apart to make space, forming a new [O.name].</span>")
 			regenerate_icons()
 			DS.LMS = max(2, DS.LMS) //Prevents a message about darkness in light areas
-			update_dionastats() //Re-find the organs in case they were lost or regained
 			updatehealth()
 			return
 
@@ -422,7 +407,6 @@ var/list/diona_banned_languages = list(
 	DS.LMS = min(2, DS.LMS) //Prevents a message about darkness in light areas
 	DS.regening_organ = FALSE
 
-	update_dionastats() //Re-find the organs in case they were lost or regained
 	updatehealth()
 	DS.regen_limb_progress = 0
 	playsound(src, 'sound/species/diona/gestalt_grow.ogg', 30, 1)
@@ -486,13 +470,7 @@ var/list/diona_banned_languages = list(
 	if (is_ventcrawling)
 		return -1.5 //no light inside pipes
 
-
-	if (DS.light_organ)
-		if (DS.light_organ.is_broken())
-			light_factor *= 0.55
-		else if (DS.light_organ.is_bruised())
-			light_factor *= 0.8
-	else if (DS.dionatype == 2)
+	if (DS.dionatype == 2)
 		light_factor = 1
 
 	if (T)
@@ -533,6 +511,7 @@ var/list/diona_banned_languages = list(
 	languages.Cut()
 
 	add_language(species.default_language) //They always have rootsong
+	accent = host.accent //Get the accent of the main gestalt
 
 	for (var/datum/language/L in host.languages)
 		var/chance = 40
@@ -557,7 +536,7 @@ var/list/diona_banned_languages = list(
 	if(!gestalt)
 		to_chat(src, SPAN_WARNING("You have no Gestalt!"))
 	else if(gestalt.stat == DEAD)
-		to_chat(src, SPAN_DANGER("Your Gestlat is not responding! Something could have happened to it!"))
+		to_chat(src, SPAN_DANGER("Your Gestalt is not responding! Something might have happened to it!"))
 	else
 		gestalt.key = key
 		return TRUE
@@ -568,8 +547,10 @@ var/list/diona_banned_languages = list(
 	set desc = "Allows you to merge back to your parent Gestalt."
 	set category = "Abilities"
 
-	for(var/mob/living/carbon/human/H in view(src, 7))
+	for(var/mob/living/carbon/human/H in range(1))
 		if(!H.is_diona())
+			continue
+		if(!Adjacent(H))
 			continue
 		var/mob/living/carbon/human/diona/C = H
 		if(C == gestalt)
@@ -617,8 +598,6 @@ var/list/diona_banned_languages = list(
 	var/list/sampled_DNA = list()
 	var/list/language_progress = list()
 
-	var/obj/item/organ/internal/diona/node/light_organ = null //The organ this gestalt uses to receive light. This is left null for nymphs
-	var/obj/item/organ/internal/diona/nutrients/nutrient_organ = null //Organ
 	var/LMS = 1 //Lightmessage state. Switching between states gives the user a message
 	var/dionatype //1 = nymph, 2 = worker gestalt
 	var/datum/weakref/nym
@@ -627,36 +606,26 @@ var/list/diona_banned_languages = list(
 	var/regen_limb_progress
 	var/pause_regen = FALSE
 
-/datum/dionastats/proc/do_blood_suck(var/mob/living/carbon/user, var/mob/living/carbon/D)
-	user.visible_message(SPAN_DANGER("[user] is trying to bite [D.name]."), SPAN_DANGER("You start biting \the [D], you both must stay still!"))
-	user.face_atom(get_turf(D))
-	if(do_mob(user, D, 40, needhand = FALSE))
-		//Attempt to find the blood vessel, but don't create a fake one if its not there.
-		//If the target doesn't have a vessel its probably due to someone not implementing it properly, like xenos
-		//We'll still allow it
-		var/newDNA
-		var/datum/reagents/vessel
-
-		var/total_blood = REAGENT_VOLUME(vessel, /decl/reagent/blood)
-		var/remove_amount = total_blood * 0.05
-		if(ishuman(D))
-			var/mob/living/carbon/human/H = D
-			remove_amount = H.species.blood_volume * 0.05
+/datum/dionastats/proc/do_blood_suck(var/mob/living/carbon/user, var/mob/living/carbon/human/H)
+	user.visible_message(SPAN_DANGER("[user] is trying to bite [H.name]."), SPAN_DANGER("You start biting \the [H], you both must stay still!"))
+	user.face_atom(get_turf(H))
+	if(do_mob(user, H, 40, needhand = FALSE))
+		var/remove_amount = H.species.blood_volume * 0.05
 		if(remove_amount > 0)
-			vessel.remove_reagent(/decl/reagent/blood, remove_amount, TRUE)
+			H.vessel.remove_reagent(/decl/reagent/blood, remove_amount, TRUE)
 			user.adjustNutritionLoss(-remove_amount * 0.5)
-		var/list/data = REAGENT_DATA(vessel, /decl/reagent/blood)
-		newDNA = data["blood_DNA"]
+		var/list/data = REAGENT_DATA(H.vessel, /decl/reagent/blood)
+		var/newDNA = data["blood_DNA"]
 
 		if(!newDNA) //Fallback. Adminspawned mobs, and possibly some others, have null dna.
-			newDNA = md5("\ref[D]")
+			newDNA = md5("\ref[H]")
 
-		D.adjustBruteLoss(4)
-		user.visible_message(SPAN_NOTICE("[user] sucks some blood from \the [D].") , SPAN_NOTICE("You extract a delicious mouthful of blood from \the [D]!"))
-		to_chat(D, SPAN_NOTICE("You feel some liquid being injected at the bite site."))
-		D.reagents.add_reagent(/decl/reagent/mortaphenyl/aphrodite, 5)
-		if(D.client)
-			INVOKE_ASYNC(src, .proc/memory_transfer, user, D)
+		H.adjustBruteLoss(4)
+		user.visible_message(SPAN_NOTICE("[user] sucks some blood from \the [H].") , SPAN_NOTICE("You extract a delicious mouthful of blood from \the [H]!"))
+		to_chat(H, SPAN_NOTICE("You feel some liquid being injected at the bite site."))
+		H.reagents.add_reagent(/decl/reagent/mortaphenyl/aphrodite, 5)
+		if(H.client)
+			INVOKE_ASYNC(src, .proc/memory_transfer, user, H)
 		if(newDNA in sampled_DNA)
 			to_chat(user, SPAN_DANGER("You have already sampled the DNA of this creature before, you can learn nothing new. Move onto something else."))
 			return
@@ -670,7 +639,7 @@ var/list/diona_banned_languages = list(
 			//2 = We learned something!
 
 			//Now we sample their languages!
-			for(var/datum/language/L in D.languages)
+			for(var/datum/language/L in H.languages)
 				learned = max(learned, 1)
 				if (!(L in user.languages) && !(L in diona_banned_languages))
 					//We don't know this language, and we can learn it!
@@ -687,7 +656,7 @@ var/list/diona_banned_languages = list(
 
 			update_languages(user)
 	else
-		to_chat(user, SPAN_WARNING("Something went wrong while trying to sample [D], both you and the target must remain still."))
+		to_chat(user, SPAN_WARNING("Something went wrong while trying to sample [H], both you and the target must remain still."))
 
 /datum/dionastats/proc/memory_transfer(var/mob/user, var/mob/donor)
 	var/memory_drain = input(donor, "[user] just drained some of your blood, including some of your memory. What was on your mind?", "Diona Memory Transfer") as null|text
@@ -703,11 +672,6 @@ var/list/diona_banned_languages = list(
 			user.add_language(i)
 			to_chat(user, SPAN_NOTICE("<font size=3>You have mastered the [i] language!</font>"))
 			language_progress.Remove(i)
-
-/datum/dionastats/Destroy()
-	light_organ = null //Nulling out these references to prevent GC errors
-	nutrient_organ = null
-	return ..()
 
 #undef TEMP_REGEN_STOP
 #undef TEMP_REGEN_NORMAL

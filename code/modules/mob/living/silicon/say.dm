@@ -1,6 +1,3 @@
-/mob/living/silicon/say(message, sanitize = TRUE)
-	return ..(sanitize ? sanitize(message) : message)
-
 /mob/living/silicon/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
 	log_say("[key_name(src)] : [message]",ckey=key_name(src))
 
@@ -36,6 +33,9 @@
 			message_mode = null
 		return common_radio.talk_into(src, message, message_mode, verb, speaking)
 
+/mob/living/silicon/robot/drone/handle_message_mode()
+	return null
+
 /mob/living/silicon/ai/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
 	..()
 	if(message_mode == "department")
@@ -62,6 +62,13 @@
 	else if(ending == "!")
 		return speak_exclamation
 	return speak_statement
+
+/mob/living/silicon/robot/drone/say_quote(var/message, var/datum/language/speaking = null, var/singing = FALSE)
+	if(speaking)
+		var/ending = copytext(message, length(message))
+		var/pre_ending = copytext(message, length(message) - 1, length(message))
+		return speaking.get_spoken_verb(ending, pre_ending, singing)
+	return ..()
 
 #define IS_AI 1
 #define IS_ROBOT 2

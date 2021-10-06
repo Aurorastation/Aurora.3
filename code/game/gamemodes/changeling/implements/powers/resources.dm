@@ -10,6 +10,12 @@
 	changeling.chem_storage += 50
 	return TRUE
 
+//removes the need to breathe, removes effects of very low pressure
+/mob/proc/changeling_spaceadaption()
+	var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+	changeling.space_adapted = TRUE
+	return TRUE
+
 // HIVE MIND UPLOAD/DOWNLOAD DNA
 
 var/list/datum/absorbed_dna/hivemind_bank = list()

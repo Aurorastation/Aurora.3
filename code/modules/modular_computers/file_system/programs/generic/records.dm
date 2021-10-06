@@ -11,6 +11,7 @@
 	requires_ntnet = TRUE
 	requires_ntnet_feature = NTNET_SYSTEMCONTROL
 	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
+	requires_access_to_download = PROGRAM_ACCESS_LIST_ONE
 	usage_flags = PROGRAM_ALL_REGULAR | PROGRAM_STATIONBOUND
 
 	var/records_type = RECORD_GENERAL | RECORD_MEDICAL | RECORD_SECURITY | RECORD_VIRUS | RECORD_WARRANT | RECORD_LOCKED
@@ -38,7 +39,7 @@
 	record_prefix = "Medical "
 
 	required_access_run = list(access_medical_equip, access_forensics_lockers, access_detective, access_robotics, access_hop)
-	required_access_download = access_heads
+	required_access_download = list(access_heads, access_medical_equip, access_forensics_lockers)
 	available_on_ntnet = TRUE
 
 	records_type = RECORD_MEDICAL | RECORD_VIRUS
@@ -54,7 +55,7 @@
 	record_prefix = "Security "
 
 	required_access_run = list(access_security, access_forensics_lockers, access_lawyer, access_hop)
-	required_access_download = access_heads
+	required_access_download = list(access_heads, access_security)
 	available_on_ntnet = TRUE
 
 	records_type = RECORD_SECURITY
@@ -70,6 +71,7 @@
 	record_prefix = "Employment "
 
 	required_access_run = list(access_heads, access_lawyer, access_consular)
+	requires_access_to_download = PROGRAM_ACCESS_ONE
 	required_access_download = access_heads
 	available_on_ntnet = TRUE
 
@@ -141,6 +143,7 @@
 			VUEUI_SET_CHECK(data["allrecords"][R.id]["sex"], R.sex, ., data)
 			VUEUI_SET_CHECK(data["allrecords"][R.id]["age"], R.age, ., data)
 			VUEUI_SET_CHECK(data["allrecords"][R.id]["fingerprint"], R.fingerprint, ., data)
+			VUEUI_SET_CHECK(data["allrecords"][R.id]["has_notes"], (R.notes != "No notes found."), ., data)
 			if(R.medical)
 				VUEUI_SET_CHECK(data["allrecords"][R.id]["blood"], R.medical.blood_type, ., data)
 				VUEUI_SET_CHECK(data["allrecords"][R.id]["dna"], R.medical.blood_dna, ., data)

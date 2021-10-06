@@ -4,6 +4,10 @@
 	var/anchored = 0
 	var/movable_flags
 
+	var/icon_scale_x = 1 // Used to scale icons up or down horizonally in update_transform().
+	var/icon_scale_y = 1 // Used to scale icons up or down vertically in update_transform().
+	var/icon_rotation = 0 // Used to rotate icons in update_transform()
+
 	// var/elevation = 2    - not used anywhere
 	var/move_speed = 10
 	var/l_move_time = 1
@@ -92,7 +96,7 @@
 					continue
 				throw_impact(A, speed)
 			if(isobj(A))
-				if(A.density && !A.throwpass)	// **TODO: Better behaviour for windows which are dense, but shouldn't always stop movement
+				if(A.density && !A.throwpass && !A.CanPass(src, target))
 					src.throw_impact(A,speed)
 
 // Prevents robots dropping their modules
@@ -184,7 +188,8 @@
 				src.SpinAnimation(speed = 4, loops = 1)
 
 	//done throwing, either because it hit something or it finished moving
-	if(isobj(src)) src.throw_impact(get_turf(src),speed)
+	if(isturf(loc) && isobj(src))
+		throw_impact(loc, speed)
 	src.throwing = 0
 	src.thrower = null
 	src.throw_source = null
@@ -227,6 +232,9 @@
 
 	if(anchored)
 		return
+	
+	if(!universe.OnTouchMapEdge(src))
+		return
 
 	if(current_map.use_overmap)
 		overmap_spacetravel(get_turf(src), src)
@@ -266,6 +274,34 @@
 //by default, transition randomly to another zlevel
 /atom/movable/proc/get_transit_zlevel()
 	return current_map.get_transit_zlevel()
+
+// Returns the current scaling of the sprite.
+// Note this DOES NOT measure the height or width of the icon, but returns what number is being multiplied with to scale the icons, if any.
+/atom/movable/proc/get_icon_scale_x()
+	return icon_scale_x
+
+/atom/movable/proc/get_icon_scale_y()
+	return icon_scale_y
+
+/atom/movable/proc/update_transform()
+	var/matrix/M = matrix()
+	M.Scale(icon_scale_x, icon_scale_y)
+	M.Turn(icon_rotation)
+	src.transform = M
+
+// Use this to set the object's scale.
+/atom/movable/proc/adjust_scale(new_scale_x, new_scale_y)
+	if(isnull(new_scale_y))
+		new_scale_y = new_scale_x
+	if(new_scale_x != 0)
+		icon_scale_x = new_scale_x
+	if(new_scale_y != 0)
+		icon_scale_y = new_scale_y
+	update_transform()
+
+/atom/movable/proc/adjust_rotation(new_rotation)
+	icon_rotation = new_rotation
+	update_transform()
 
 // Parallax stuff.
 
@@ -367,48 +403,6 @@
 	sleep(1)
 	animate(I, alpha = 0, transform = matrix(), time = 1)
 
-/atom/movable/proc/do_putdown_animation(atom/target, mob/user)
-	spawn()
-		if(QDELETED(src))
-			return
-		if(QDELETED(target))
-			return
-		if(QDELETED(user))
-			return
-		var/old_invisibility = invisibility // I don't know, it may be used. Basically turns the actual object invisible while the animation plays.
-		invisibility = 100
-		var/turf/old_turf = get_turf(user)
-		if(QDELETED(old_turf))
-			return
-		var/image/I = image(icon = src, loc = old_turf, layer = layer + 0.1)
-		I.transform = matrix() * 0
-		I.appearance_flags = (RESET_COLOR|RESET_TRANSFORM|NO_CLIENT_COLOR|RESET_ALPHA|PIXEL_SCALE)
-		I.pixel_x = 0
-		I.pixel_y = 0
-		if (istype(target,/mob))
-			I.dir = target.dir
-
-		var/list/viewing = list()
-		for (var/mob/M in viewers(target))
-			if (M.client)
-				viewing |= M.client
-		flick_overlay(I, viewing, 4)
-
-		var/to_x = (target.x - old_turf.x) * 32 + pixel_x
-		var/to_y = (target.y - old_turf.y) * 32 + pixel_y
-		var/old_x = pixel_x
-		var/old_y = pixel_y
-		pixel_x = 0
-		pixel_y = 0
-
-		animate(I, pixel_x = to_x, pixel_y = to_y, time = 3, transform = matrix(), easing = CUBIC_EASING)
-		sleep(3)
-		if(QDELETED(src))
-			return
-		invisibility = old_invisibility
-		pixel_x = old_x
-		pixel_y = old_y
-
 /atom/movable/proc/simple_move_animation(atom/target)
 	set waitfor = FALSE
 
@@ -435,3 +429,6 @@
 
 /atom/movable/proc/get_floating_chat_x_offset()
 	return 0
+
+/atom/movable/proc/can_attach_sticker(var/mob/user, var/obj/item/sticker/S)
+	return TRUE

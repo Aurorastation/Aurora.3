@@ -15,6 +15,16 @@
 	var/passive_power_use = 0
 	var/active_power_use = 1 KILOWATTS
 	var/require_adjacent = TRUE
+	var/active = FALSE //For gear that has an active state (ie, floodlights)
+
+/obj/item/mecha_equipment/examine(mob/user, distance)
+	. = ..()
+	if(length(restricted_hardpoints))
+		var/hardpoints = english_list(restricted_hardpoints, and_text = ", ")
+		to_chat(user, SPAN_NOTICE("<b>Exosuit Mounts:</b> [hardpoints]"))
+	if(length(restricted_software))
+		var/software = english_list(restricted_software, and_text = ", ")
+		to_chat(user, SPAN_NOTICE("<b>Exosuit Software Requirement:</b> [software]"))
 
 /obj/item/mecha_equipment/attack() //Generally it's not desired to be able to attack with items
 	return 0
@@ -50,12 +60,18 @@
 	else
 		return 0
 
+/obj/item/mecha_equipment/proc/deactivate()
+	active = FALSE
+	return
+
 /obj/item/mecha_equipment/proc/installed(var/mob/living/heavy_vehicle/_owner)
 	owner = _owner
 	//generally attached. Nothing should be able to grab it
 	canremove = FALSE
 
 /obj/item/mecha_equipment/proc/uninstalled()
+	if(active)
+		deactivate()
 	owner = null
 	canremove = TRUE
 

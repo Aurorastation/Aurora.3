@@ -51,6 +51,9 @@ Buildable meters
 ///// Mirrored T-valve ~ because I couldn't be bothered re-sorting all of the defines
 #define PIPE_MTVALVEM				43
 
+#define PIPE_PASSIVE_GATE_SCRUBBER  44
+#define PIPE_PASSIVE_GATE_SUPPLY    45
+
 /obj/item/pipe
 	name = "pipe"
 	desc = "A pipe"
@@ -131,6 +134,10 @@ Buildable meters
 			src.pipe_type = PIPE_GAS_MIXER
 		else if(istype(make_from, /obj/machinery/atmospherics/unary/vent_scrubber))
 			src.pipe_type = PIPE_SCRUBBER
+		else if(istype(make_from, /obj/machinery/atmospherics/binary/passive_gate/scrubbers))
+			src.pipe_type = PIPE_PASSIVE_GATE_SCRUBBER
+		else if(istype(make_from, /obj/machinery/atmospherics/binary/passive_gate/supply))
+			src.pipe_type = PIPE_PASSIVE_GATE_SUPPLY
 		else if(istype(make_from, /obj/machinery/atmospherics/binary/passive_gate))
 			src.pipe_type = PIPE_PASSIVE_GATE
 		else if(istype(make_from, /obj/machinery/atmospherics/unary/heat_exchanger))
@@ -254,7 +261,9 @@ Buildable meters
 		"scrubbers pipe down",
 		"supply pipe cap",
 		"scrubbers pipe cap",
-		"t-valve m"
+		"t-valve m",
+		"scrubbers pressure regulator",
+		"supply pressure regulator"
 	)
 	name = nlist[pipe_type+1] + " fitting"
 	var/list/islist = list(
@@ -304,7 +313,9 @@ Buildable meters
 		"cap",
 		"cap",
 		"cap",
-		"mtvalvem"
+		"mtvalvem",
+		"passivegate-scrubbers",
+		"passivegate-supply"
 	)
 	icon_state = islist[pipe_type + 1]
 
@@ -360,6 +371,8 @@ Buildable meters
 			PIPE_PUMP ,
 			PIPE_VOLUME_PUMP ,
 			PIPE_PASSIVE_GATE ,
+			PIPE_PASSIVE_GATE_SCRUBBER ,
+			PIPE_PASSIVE_GATE_SUPPLY ,
 			PIPE_MVALVE,
 			PIPE_SUPPLY_STRAIGHT,
 			PIPE_SCRUBBERS_STRAIGHT,
@@ -1033,6 +1046,40 @@ Buildable meters
 				P.node2.atmos_init()
 				P.node2.build_network()
 
+		if(PIPE_PASSIVE_GATE_SCRUBBER)
+			var/obj/machinery/atmospherics/binary/passive_gate/scrubbers/P = new(src.loc)
+			P.set_dir(dir)
+			P.initialize_directions = pipe_dir
+			if (pipename)
+				P.name = pipename
+			var/turf/T = P.loc
+			P.level = !T.is_plating() ? 2 : 1
+			P.atmos_init()
+			P.build_network()
+			if (P.node1)
+				P.node1.atmos_init()
+				P.node1.build_network()
+			if (P.node2)
+				P.node2.atmos_init()
+				P.node2.build_network()
+
+		if(PIPE_PASSIVE_GATE_SUPPLY)
+			var/obj/machinery/atmospherics/binary/passive_gate/supply/P = new(src.loc)
+			P.set_dir(dir)
+			P.initialize_directions = pipe_dir
+			if (pipename)
+				P.name = pipename
+			var/turf/T = P.loc
+			P.level = !T.is_plating() ? 2 : 1
+			P.atmos_init()
+			P.build_network()
+			if (P.node1)
+				P.node1.atmos_init()
+				P.node1.build_network()
+			if (P.node2)
+				P.node2.atmos_init()
+				P.node2.build_network()
+
 		if(PIPE_VOLUME_PUMP)		//volume pump
 			var/obj/machinery/atmospherics/binary/pump/high_power/P = new(src.loc)
 			P.set_dir(dir)
@@ -1238,4 +1285,6 @@ Buildable meters
 #undef PIPE_SUPPLY_MANIFOLD
 #undef PIPE_SCRUBBERS_MANIFOLD
 #undef PIPE_UNIVERSAL
+#undef PIPE_PASSIVE_GATE_SCRUBBER
+#undef PIPE_PASSIVE_GATE_SUPPLY
 //#undef PIPE_MANIFOLD4W

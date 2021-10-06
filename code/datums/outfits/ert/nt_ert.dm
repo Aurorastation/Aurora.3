@@ -34,15 +34,18 @@
 /datum/outfit/admin/ert/nanotrasen/specialist/medical
 	name = "Nanotrasen ERT Medical Specialist"
 
-	belt = /obj/item/storage/belt/medical
+	belt = /obj/item/storage/belt/medical/first_responder/combat
 	back = /obj/item/rig/ert/medical
 	r_hand = /obj/item/storage/firstaid/combat
 
 	belt_contents = list(
-		/obj/item/reagent_containers/hypospray = 1,
-		/obj/item/stack/medical/advanced/bruise_pack = 1,
-		/obj/item/stack/medical/advanced/ointment = 1,
-		/obj/item/reagent_containers/glass/bottle/thetamycin = 1
+		/obj/item/reagent_containers/hypospray/combat/empty = 1,
+		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
+		/obj/item/reagent_containers/glass/bottle/antitoxin = 1,
+		/obj/item/reagent_containers/glass/bottle/dexalin_plus = 1,
+		/obj/item/reagent_containers/glass/bottle/butazoline = 1,
+		/obj/item/reagent_containers/glass/bottle/dermaline = 1,
+		/obj/item/reagent_containers/glass/bottle/perconol = 1	
 	)
 
 /datum/outfit/admin/ert/nanotrasen/leader

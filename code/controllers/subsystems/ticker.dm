@@ -179,10 +179,10 @@ var/datum/controller/subsystem/ticker/SSticker
 		game_finished = TRUE
 		mode_finished = TRUE
 	else if(config.continous_rounds)
-		game_finished = (emergency_shuttle.returned() || mode.station_was_nuked)
+		game_finished = (evacuation_controller.round_over() || mode.station_was_nuked)
 		mode_finished = (!post_game && mode.check_finished())
 	else
-		game_finished = (mode.check_finished() || (emergency_shuttle.returned() && emergency_shuttle.evac == 1)) || universe_has_ended
+		game_finished = (mode.check_finished() || (evacuation_controller.round_over() && evacuation_controller.emergency_evacuation)) || universe_has_ended
 		mode_finished = game_finished
 
 	if(!mode.explosion_in_progress && game_finished && (mode_finished || post_game))
@@ -254,7 +254,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		if(Player.mind && !isnewplayer(Player))
 			if(Player.stat != DEAD)
 				var/turf/playerTurf = get_turf(Player)
-				if(emergency_shuttle.departed && emergency_shuttle.evac)
+				if(evacuation_controller.round_over() && evacuation_controller.emergency_evacuation)
 					if(isNotAdminLevel(playerTurf.z))
 						to_chat(Player, "<span class='notice'><b>You managed to survive, but were marooned on [station_name()] as [Player.real_name]...</b></span>")
 					else
@@ -305,7 +305,7 @@ var/datum/controller/subsystem/ticker/SSticker
 				robo.laws.show_laws(world)
 
 	if(dronecount)
-		to_world("<b>There [dronecount>1 ? "were" : "was"] [dronecount] industrious maintenance [dronecount>1 ? "drones" : "drone"] at the end of this round.</b>")
+		to_world("<b>There [dronecount>1 ? "were" : "was"] [dronecount] industrious maintenance drone\s at the end of this round.</b>")
 
 	mode.declare_completion()//To declare normal completion.
 
@@ -535,12 +535,12 @@ var/datum/controller/subsystem/ticker/SSticker
 	//Incredibly hackish. It creates a bed within the gameticker (lol) to stop mobs running around
 	if(station_missed)
 		for(var/mob/living/M in living_mob_list)
-			M.buckled = temp_buckle				//buckles the mob so it can't do anything
+			M.buckled_to = temp_buckle				//buckles the mob so it can't do anything
 			if(M.client)
 				M.client.screen += cinematic	//show every client the cinematic
 	else	//nuke kills everyone on z-level 1 to prevent "hurr-durr I survived"
 		for(var/mob/living/M in living_mob_list)
-			M.buckled = temp_buckle
+			M.buckled_to = temp_buckle
 			if(M.client)
 				M.client.screen += cinematic
 

@@ -120,11 +120,13 @@
 
 	if(istype(pages[page], /obj/item/paper))
 		var/obj/item/paper/P = W
-		if(!(istype(usr, /mob/living/carbon/human) || istype(usr, /mob/abstract/observer) || istype(usr, /mob/living/silicon)))
-			dat+= "<HTML><HEAD><TITLE>[P.name]</TITLE></HEAD><BODY>[stars(P.info)][P.stamps]</BODY></HTML>"
-		else
-			dat+= "<HTML><HEAD><TITLE>[P.name]</TITLE></HEAD><BODY>[P.info][P.stamps]</BODY></HTML>"
-		user << browse(dat, "window=[name]")
+		dat += P.get_content(user, P.can_read(user))
+
+		var/datum/browser/paper_win = new(user, name, null, 450, 500, null, TRUE)
+		paper_win.set_content(dat)
+		paper_win.add_stylesheet("paper_languages", 'html/browser/paper_languages.css')
+		paper_win.open()
+
 	else if(istype(pages[page], /obj/item/photo))
 		var/obj/item/photo/P = W
 		send_rsc(user, P.img, "tmp_photo.png")
@@ -136,31 +138,41 @@
 	update_icon()
 	return
 
+/obj/item/paper_bundle/proc/gripper_check(var/mob/user)
+	var/obj/item/gripper/paperwork/PW = user.get_active_hand()
+	if(istype(PW))
+		if(loc == PW || (istype(loc, /obj/item/folder) && (loc.loc == PW)))
+			return TRUE
+	return FALSE
+
+/obj/item/paper_bundle/proc/hand_check(var/mob/user)
+	if(loc == user)
+		return TRUE
+	var/obj/item/folder/F = loc
+	if(istype(F) && F.loc_check(user))
+		return TRUE
+
 /obj/item/paper_bundle/Topic(href, href_list)
 	..()
-	var/obj/item/in_hand = null
-	if((src in usr.contents) || (istype(src.loc, /obj/item/folder) && (src.loc in usr.contents)))
-		in_hand = usr.get_active_hand()
-	else if(isrobot(usr) && istype(usr.get_active_hand(), /obj/item/gripper/paperwork))
-		var/obj/item/gripper/paperwork/PW = usr.get_active_hand()
-		if(!(src in PW.contents) && !(istype(src.loc, /obj/item/folder) || !(src.loc in PW.contents)))
-			return // paper bundle isn't in the gripper
+
+	var/in_hand = FALSE
+	if(isrobot(usr))
+		in_hand = gripper_check(usr)
 	else
-		to_chat(usr, "<span class='notice'>You need to hold it in hands!</span>")
+		in_hand = hand_check(usr)
+
+	if(!in_hand)
+		to_chat(usr, SPAN_WARNING("You need to hold it in hands!"))
 		return
 
 	usr.set_machine(src)
 
 	if(href_list["next_page"])
-		if(in_hand && (istype(in_hand, /obj/item/paper) || istype(in_hand, /obj/item/photo)))
-			insert_sheet_at(usr, page+1, in_hand)
-		else if(page != pages.len)
+		if(page != length(pages))
 			page++
 			playsound(src.loc, /decl/sound_category/page_sound, 50, 1)
 	if(href_list["prev_page"])
-		if(in_hand && (istype(in_hand, /obj/item/paper) || istype(in_hand, /obj/item/photo)))
-			insert_sheet_at(usr, page, in_hand)
-		else if(page > 1)
+		if(page > 1)
 			page--
 			playsound(src.loc, /decl/sound_category/page_sound, 50, 1)
 	if(href_list["remove"])
@@ -172,7 +184,14 @@
 
 		if(pages.len <= 1)
 			var/obj/item/paper/P = src[1]
-			usr.put_in_hands(P)
+			if(istype(loc, /obj/item/gripper)) //Hacky but without it there's a ghost icon with grippers and it all spills on the floor.
+				var/obj/item/gripper/G = loc
+				G.drop(get_turf(src), FALSE)
+				G.grip_item(P, usr, FALSE)
+			else
+				usr.put_in_hands(P)
+			usr.unset_machine(src)
+			usr << browse(null, "window=[name]")
 			qdel(src)
 			return
 
@@ -181,23 +200,30 @@
 
 		update_icon()
 
-	if (istype(src.loc, /mob) ||istype(src.loc.loc, /mob))
-		src.attack_self(usr)
-		updateUsrDialog()
+	var/atom/surface_atom = recursive_loc_turf_check(src, 3, usr)
+	if(surface_atom == usr || surface_atom.Adjacent(usr))
+		attack_self(usr)
 
 /obj/item/paper_bundle/verb/rename()
 	set name = "Rename bundle"
 	set category = "Object"
 	set src in usr
 
+	if(use_check_and_message(usr, USE_ALLOW_NON_ADJACENT))
+		return
+
 	var/n_name = sanitizeSafe(input(usr, "What would you like to label the bundle?", "Bundle Labelling", null)  as text, MAX_NAME_LEN)
-	if((loc == usr || loc.loc && loc.loc == usr) && usr.stat == 0)
+	
+	if(use_check_and_message(usr, USE_ALLOW_NON_ADJACENT))
+		return
+
+	var/mob/M = recursive_loc_turf_check(src, 3, usr)
+	if(M == usr)
 		if(n_name)
 			name = "[initial(name)] ([n_name])"
 		else
 			name = initial(name)
-	add_fingerprint(usr)
-	return
+		add_fingerprint(usr)
 
 
 /obj/item/paper_bundle/verb/remove_all()

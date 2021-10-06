@@ -22,6 +22,7 @@
 	var/list/msg_raider = list()
 	var/list/msg_burglar = list()
 	var/list/msg_ninja = list()
+	var/list/msg_bluespace = list()
 	var/list/msg_cargo = list()
 	var/list/msg_service = list()
 
@@ -53,7 +54,7 @@
 			if(!isobserver(C.mob) && !C.holder)
 				if(C.is_afk(inactivity_threshold))
 					log_access("AFK: [key_name(C)]")
-					to_chat(C, SPAN_WARNING("You have been inactive for more than [config.kick_inactive] minute\s and have been disconnected."))
+					to_chat_immediate(C, SPAN_WARNING("You have been inactive for more than [config.kick_inactive] minute\s and have been disconnected."))
 					qdel(C)
 					kicked_clients++
 
@@ -64,8 +65,7 @@
 		for(var/mob/M in player_list)
 			if(M.client)
 				playercount += 1
-		establish_db_connection(dbcon)
-		if(!dbcon.IsConnected())
+		if(!establish_db_connection(dbcon))
 			log_game("SQL ERROR during population polling. Failed to connect.")
 		else
 			var/sqltime = time2text(world.realtime, "YYYY-MM-DD hh:mm:ss")
@@ -162,8 +162,7 @@
 		return
 
 	round_end_data_gathering() //round_end time logging and some other data processing
-	establish_db_connection(dbcon)
-	if(!dbcon.IsConnected())
+	if(!establish_db_connection(dbcon))
 		return
 
 	for(var/datum/feedback_variable/FV in feedback)
@@ -249,8 +248,7 @@
 	var/area/placeofdeath = get_area(H)
 	var/podname = placeofdeath ? "[placeofdeath]" : "Unknown area"
 
-	establish_db_connection(dbcon)
-	if(!dbcon.IsConnected())
+	if(!establish_db_connection(dbcon))
 		log_game("SQL ERROR during death reporting. Failed to connect.")
 	else
 		var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_death (name, ckey, char_id, job, special, pod, tod, laname, lackey, gender, bruteloss, fireloss, brainloss, oxyloss, coord) VALUES \

@@ -90,7 +90,7 @@
 	return ..()
 
 /datum/beam/proc/Draw()
-	var/Angle = round(Get_Angle(origin.x ? origin : get_turf(origin), target.x ? target : get_turf(target)))
+	var/Angle = round(Get_Angle(origin.z ? origin : get_turf(origin), target.z ? target : get_turf(target)))
 	var/matrix/rot_matrix = matrix()
 	rot_matrix.Turn(Angle)
 
@@ -183,6 +183,13 @@
 		var/obj/effect/ebeam/B = beam
 		B.color = COLOR_GRAY40
 
+// this simplified datum will work with timed beams that are held
+/datum/beam/held/get_x_translation_vector()
+	return (world.icon_size * target_oldloc.x) - (world.icon_size * origin_oldloc.x)
+
+/datum/beam/held/get_y_translation_vector()
+	return (world.icon_size * target_oldloc.y) - (world.icon_size * origin_oldloc.y)
+
 /obj/effect/ebeam
 	mouse_opacity = 0
 	anchored = 1
@@ -197,10 +204,10 @@
 	owner = null
 	return ..()
 
-/atom/proc/Beam(atom/BeamTarget,icon_state="b_beam",icon='icons/effects/beam.dmi',time=50, maxdistance=10,beam_type=/obj/effect/ebeam,beam_sleep_time = 3)
+/atom/proc/Beam(atom/BeamTarget,icon_state="b_beam",icon='icons/effects/beam.dmi',time=50, maxdistance=10,beam_type=/obj/effect/ebeam,beam_sleep_time = 3, beam_datum_type=/datum/beam)
 	if(time >= INFINITY)
 		crash_with("Tried to create beam with infinite time!")
 		return null
-	var/datum/beam/newbeam = new(src,BeamTarget,icon,icon_state,time,maxdistance,beam_type,beam_sleep_time)
+	var/datum/beam/newbeam = new beam_datum_type(src,BeamTarget,icon,icon_state,time,maxdistance,beam_type,beam_sleep_time)
 	INVOKE_ASYNC(newbeam, /datum/beam/.proc/Start)
 	return newbeam

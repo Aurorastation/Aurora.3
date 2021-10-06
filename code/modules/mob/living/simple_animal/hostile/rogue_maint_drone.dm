@@ -3,7 +3,7 @@
 	desc = "A small robot. It looks angry."
 	icon = 'icons/mob/robots.dmi'
 	icon_state = "repairbot"
-	blood_type = "#000000"
+	blood_type = COLOR_OIL
 	speak = list("Removing organic waste.", "Pest control in progress.", "Engaging self-preservation protocols.", "Moving to eject unauthorized personnel.")
 	speak_emote = list("blares", "buzzes", "beeps")
 	speak_chance = 1

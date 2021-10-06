@@ -415,7 +415,6 @@
 /obj/item/clothing/glasses/sunglasses/bst
 	name = "bluespace technician's glasses"
 	desc = "A pair of modified sunglasses. The word 'BST' is stamped on the side."
-//	var/list/obj/item/clothing/glasses/hud/health/hud = null
 	vision_flags = (SEE_TURFS|SEE_OBJS|SEE_MOBS)
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 	canremove = 0
@@ -443,12 +442,6 @@
 
 	to_chat(usr, "<span class='notice'>\The [src]'s vision mode is now <b>[mode]</b>.</span>")
 
-/*	New()
-		..()
-		src.hud += new/obj/item/clothing/glasses/hud/security(src)
-		src.hud += new/obj/item/clothing/glasses/hud/health(src)
-		return
-*/
 /obj/item/clothing/glasses/sunglasses/bst/attack_hand()
 	if(!usr)
 		return

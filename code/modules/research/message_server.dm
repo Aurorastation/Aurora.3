@@ -102,7 +102,7 @@ var/global/list/obj/machinery/message_server/message_servers = list()
 	for (var/token in spamfilter)
 		if (findtextEx(message,token))
 			message = "<font color=\"red\">[message]</font>"	//Rejected messages will be indicated by red color.
-			result = token										//Token caused rejection (if there are multiple, last will be chosen>.
+			result = token										//Token caused rejection (if there are multiple, last will be chosen)
 	pda_msgs += new/datum/data_pda_msg(recipient,sender,message)
 	return result
 
@@ -127,11 +127,17 @@ var/global/list/obj/machinery/message_server/message_servers = list()
 						playsound(Console.loc, 'sound/machines/twobeep.ogg', 50, 1)
 						Console.audible_message(text("[icon2html(Console, viewers(get_turf(Console)))] *The Requests Console beeps: 'PRIORITY Alert in [sender]'"),,5)
 					Console.message_log += "<B><span class='warning'>High Priority message from <A href='?src=\ref[Console];write=[sender]'>[sender]</A></span></B><BR>[authmsg]"
+					for(var/obj/item/modular_computer/pda in Console.alert_pdas)
+						var/pda_message = "A high priority message has arrived!"
+						pda.get_notification(pda_message, 1, "[Console.department] Requests Console")
 				else
 					if(!Console.silent)
 						playsound(Console.loc, 'sound/machines/twobeep.ogg', 50, 1)
 						Console.audible_message(text("[icon2html(Console, viewers(get_turf(Console)))] *The Requests Console beeps: 'Message from [sender]'"),,4)
 					Console.message_log += "<B>Message from <A href='?src=\ref[Console];write=[sender]'>[sender]</A></B><BR>[authmsg]"
+					for(var/obj/item/modular_computer/pda in Console.alert_pdas)
+						var/pda_message = "A message has arrived!"
+						pda.get_notification(pda_message, 1, "[Console.department] Requests Console")
 			Console.set_light(2)
 
 

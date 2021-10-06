@@ -6,14 +6,12 @@
 	var/last_message
 	var/is_looping = FALSE
 
-/datum/artifact_effect/cellcharge/DoEffectTouch(var/mob/user)
-	if(user)
-		if(istype(user, /mob/living/silicon/robot))
-			var/mob/living/silicon/robot/R = user
-			for (var/obj/item/cell/D in R.contents)
-				D.charge += rand() * 100 + 50
-				to_chat(R, "<span class='notice'>SYSTEM ALERT: Large energy boost detected!</span>")
-			return 1
+/datum/artifact_effect/cellcharge/DoEffectTouch(var/mob/living/user)
+	var/obj/item/cell/C = user.get_cell()
+	if(C)
+		C.charge = min(C.maxcharge, C.charge + (rand(50, 150)))
+		to_chat(user, SPAN_NOTICE("Diagnostics Alert: Large energy boost detected!"))
+		return TRUE
 
 #define SLEEP_AND_STOP \
 if (TICK_CHECK) { \
@@ -30,12 +28,12 @@ if (TICK_CHECK) { \
 
 	if(holder)
 		if (is_looping)
-			return 1
+			return TRUE
 		is_looping = TRUE
 
 		var/turf/T = get_turf(holder)
 
-		for (var/P in range(src.effectrange, T))
+		for (var/atom/P in range(effectrange, T))
 			SLEEP_AND_STOP
 
 			if (istype(P, /obj/machinery/power/apc))
@@ -45,17 +43,18 @@ if (TICK_CHECK) { \
 			else if (istype(P, /obj/machinery/power/smes))
 				var/obj/machinery/power/smes/smes = P
 				smes.charge += 25
-			else if (isrobot(P))
-				var/mob/living/silicon/robot/M = P
+			else if(isliving(P))
+				var/mob/living/M = P
 				if (get_dist(T, M) <= effectrange)
-					if (M.cell)
-						M.cell.charge += 25
+					var/obj/item/cell/D = M.get_cell()
+					if(D)
+						D.charge = min(D.maxcharge, D.charge + 25)
 						if(world.time - last_message > 200)
-							to_chat(M, "<span class='notice'>SYSTEM ALERT: Energy boost detected!</span>")
+							to_chat(M, SPAN_NOTICE("Diagnostics Alert: Large energy boost detected!"))
 							last_message = world.time
 
 		is_looping = FALSE
-		return 1
+		return TRUE
 
 #undef SLEEP_AND_STOP
 
@@ -65,12 +64,13 @@ if (TICK_CHECK) { \
 		for (var/obj/machinery/power/apc/C in range(200, T))
 			for (var/obj/item/cell/B in C.contents)
 				B.charge += rand() * 100
-		for (var/obj/machinery/power/smes/S in range (src.effectrange,src))
+		for (var/obj/machinery/power/smes/S in range (effectrange,src))
 			S.charge += 250
-		for (var/mob/living/silicon/robot/M in range(100, T))
-			for (var/obj/item/cell/D in M.contents)
-				D.charge += rand() * 100
+		for(var/mob/living/M in range(100, T))
+			var/obj/item/cell/D = M.get_cell()
+			if(D)
+				D.charge = min(D.maxcharge, D.charge + rand(0, 100))
 				if(world.time - last_message > 200)
-					to_chat(M, "<span class='notice'>SYSTEM ALERT: Energy boost detected!</span>")
+					to_chat(M, SPAN_NOTICE("Diagnostics Alert: Energy boost detected!"))
 					last_message = world.time
 		return 1
