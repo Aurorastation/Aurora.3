@@ -1,7 +1,0 @@
-author: TheGreyWolf, DronzTheWolf
-
-delete-after: True
-
-changes:
-  - rscadd: "Added a new set of options to the tajaran loadout: Charms & talismans. The holy sun rosette is also included here."
-  - rscadd: "The null rod can now be made into an obsidian charm."
