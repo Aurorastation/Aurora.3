@@ -1,0 +1,7 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Cigarettes will now properly be in the face slot when they go out, or in the hand if carried there."
+  - bugfix: "Cigarettes will now be dropped on the ground when intentionally put out."
