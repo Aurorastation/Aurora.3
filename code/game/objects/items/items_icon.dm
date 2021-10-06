@@ -4,7 +4,10 @@ var/list/mob_icon_icon_states = list()
 	// If we don't actually need to offset this, don't bother with any of the generation/caching.
 	if(!mob_icon_icon_states[mob_icon])
 		mob_icon_icon_states[mob_icon] = icon_states(mob_icon)
-	if(LAZYLEN(H.species.equip_adjust) && H.species.equip_adjust[slot] && length(H.species.equip_adjust[slot]) && (mob_state in mob_icon_icon_states[mob_icon]) && !(H.species.bodytype in sprite_sheets))
+	var/needs_shift = !(H.species.bodytype in sprite_sheets)
+	if(!needs_shift && length(item_icons))
+		needs_shift = (slot in item_icons)
+	if(LAZYLEN(H.species.equip_adjust) && H.species.equip_adjust[slot] && length(H.species.equip_adjust[slot]) && (mob_state in mob_icon_icon_states[mob_icon]) && needs_shift)
 		// Check the cache for previously made icons.
 		var/image_key_mod = get_image_key_mod()
 		var/image_key = "[mob_icon]-[mob_state]-[color]-[slot][!isnull(image_key_mod) ? "-[image_key_mod]" : ""]"
