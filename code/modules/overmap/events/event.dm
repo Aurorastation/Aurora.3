@@ -2,7 +2,7 @@
 
 /decl/overmap_event_handler
 	var/list/hazard_by_turf
-	var/list/datum/events/ship_events
+	var/list/datum/event/ship_events
 
 /decl/overmap_event_handler/New()
 	..()
@@ -86,8 +86,10 @@
 			LAZYREMOVE(ship_events[ship], E)
 
 /decl/overmap_event_handler/proc/is_event_active(var/ship, var/event_type, var/severity)
-	if(!ship_events[ship])	return
-	for(var/datum/event/E in ship_events[ship])
+	if(!ship_events[ship])
+		return
+	var/list/active_ship_events = ship_events[ship]
+	for(var/datum/event/E as anything in active_ship_events)
 		if(E.type == event_type && E.severity == severity)
 			return E
 
@@ -132,7 +134,8 @@
 		exited_event.register(T, src, /decl/overmap_event_handler/proc/on_turf_exited)
 
 	for(var/obj/effect/overmap/visitable/ship/ship in T)
-		for(var/datum/event/E in ship_events[ship])
+		var/list/active_ship_events = ship_events[ship]
+		for(var/datum/event/E as anything in active_ship_events)
 			if(is_event_in_turf(E,T))
 				continue
 			E.kill()
