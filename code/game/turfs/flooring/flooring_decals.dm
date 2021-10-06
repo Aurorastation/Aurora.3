@@ -365,8 +365,11 @@
 	icon_state = "wide_corner_diagonal"
 
 /obj/effect/floor_decal/corner_wide/grey/full
-	icon_state = "wide_corner_full"
+    icon_state = "wide_corner_full"
 
+/obj/effect/floor_decal/corner_full
+	name = "full corner"
+	icon_state = "full_corner"
 
 /obj/effect/floor_decal/spline/plain
 	name = "spline - plain"
