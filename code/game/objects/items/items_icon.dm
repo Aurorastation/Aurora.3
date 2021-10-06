@@ -6,7 +6,7 @@ var/list/mob_icon_icon_states = list()
 		mob_icon_icon_states[mob_icon] = icon_states(mob_icon)
 	var/needs_shift = !(H.species.bodytype in sprite_sheets)
 	if(!needs_shift && length(item_icons))
-		needs_shift = slot in item_icons
+		needs_shift = (slot in item_icons)
 	if(LAZYLEN(H.species.equip_adjust) && H.species.equip_adjust[slot] && length(H.species.equip_adjust[slot]) && (mob_state in mob_icon_icon_states[mob_icon]) && needs_shift)
 		// Check the cache for previously made icons.
 		var/image_key_mod = get_image_key_mod()
