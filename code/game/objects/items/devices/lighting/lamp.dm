@@ -65,7 +65,8 @@
 	light_color = COLOR_YELLOW
 
 /obj/item/device/flashlight/lamp/stage
+	name = "stage lamp"
+	desc = "A portable, beautiful and flashy stage light!"
 	light_color = COLOR_ORANGE
-	anchored = 1
 	icon_state = "stage"
 	item_state = "stage"
