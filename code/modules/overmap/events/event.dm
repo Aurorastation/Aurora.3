@@ -2,7 +2,7 @@
 
 /decl/overmap_event_handler
 	var/list/hazard_by_turf
-	var/list/datum/event/ship_events
+	var/list/datum/events/ship_events
 
 /decl/overmap_event_handler/New()
 	..()
