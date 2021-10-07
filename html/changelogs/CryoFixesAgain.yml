@@ -1,0 +1,8 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Belts will now properly stay on when using the autodrobe."
+  - bugfix: "Accessories will now correctly transfer to the uniform when using the autodrobe."
+  - tweak: "The text guiding one to use the autodrobe when spawning at cryo now stands out more."

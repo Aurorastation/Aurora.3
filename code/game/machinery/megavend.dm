@@ -37,8 +37,14 @@
 		return
 
 	var/obj/item/storage/box/gearbox = new(null, TRUE)
+	var/list/AC
+	var/obj/BE
+	LAZYINITLIST(AC)
 	gearbox.name = "personal possessions box"
 	gearbox.desc = "All of the personal effects of [H.real_name], packaged neatly by the AutoDrobe."
+
+	if(H.belt)
+		BE = H.belt
 	for(var/obj/item/W in H.contents) //Strip 'em
 		if(istype(W,/obj/item/organ))
 			continue
@@ -46,6 +52,12 @@
 			continue
 		if(!W.canremove)
 			continue
+
+		if(isclothing(W))
+			var/obj/item/clothing/U = W
+			for(var/obj/item/clothing/accessory/A in U.accessories)
+				U.remove_accessory(H, A)
+				LAZYADD(AC, A)
 		H.drop_from_inventory(W,gearbox)
 
 	to_chat(H, SPAN_NOTICE(change_message))
@@ -60,6 +72,12 @@
 	else		
 		H.put_in_any_hand_if_possible(gearbox)
 
+	for(var/obj/item/clothing/accessory/A as anything in AC)
+		H.remove_from_mob(A)
+		H.equip_to_slot(A, slot_tie, FALSE)
+		LAZYREMOVE(AC, A)
+	if(BE)
+		H.equip_to_slot_if_possible(BE, slot_belt, disable_warning = TRUE)
 	return
 
 /obj/machinery/megavendor/vendor
