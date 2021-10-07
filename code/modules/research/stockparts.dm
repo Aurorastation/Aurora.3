@@ -157,7 +157,6 @@
 
 /obj/item/stock_parts/manipulator/nano
 	name = "nano-manipulator"
-	desc = "A tiny little manipulator used in the construction of certain devices."
 	icon_state = "nano_mani"
 	origin_tech = list(TECH_MATERIAL = 3, TECH_DATA = 2)
 	rating = STOCK_PART_ADVANCED
@@ -165,7 +164,6 @@
 
 /obj/item/stock_parts/micro_laser/high
 	name = "high-power micro-laser"
-	desc = "A tiny laser used in certain devices."
 	icon_state = "high_micro_laser"
 	origin_tech = list(TECH_MAGNET = 3)
 	rating = STOCK_PART_ADVANCED
@@ -173,7 +171,6 @@
 
 /obj/item/stock_parts/matter_bin/adv
 	name = "advanced matter bin"
-	desc = "A container for holding compressed matter awaiting re-construction."
 	icon_state = "advanced_matter_bin"
 	origin_tech = list(TECH_MATERIAL = 3)
 	rating = STOCK_PART_ADVANCED
@@ -199,7 +196,6 @@
 
 /obj/item/stock_parts/manipulator/pico
 	name = "pico-manipulator"
-	desc = "A tiny little manipulator used in the construction of certain devices."
 	icon_state = "pico_mani"
 	origin_tech = list(TECH_MATERIAL = 5, TECH_DATA = 2)
 	rating = STOCK_PART_SUPER
@@ -208,14 +204,12 @@
 /obj/item/stock_parts/micro_laser/ultra
 	name = "ultra-high-power micro-laser"
 	icon_state = "ultra_high_micro_laser"
-	desc = "A tiny laser used in certain devices."
 	origin_tech = list(TECH_MAGNET = 5)
 	rating = STOCK_PART_SUPER
 	matter = list(DEFAULT_WALL_MATERIAL = 10, MATERIAL_GLASS = 20)
 
 /obj/item/stock_parts/matter_bin/super
 	name = "super matter bin"
-	desc = "A container for holding compressed matter awaiting re-construction."
 	icon_state = "super_matter_bin"
 	origin_tech = list(TECH_MATERIAL = 5)
 	rating = STOCK_PART_SUPER
