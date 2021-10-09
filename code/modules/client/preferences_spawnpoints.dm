@@ -46,7 +46,8 @@
 		if(!C.occupant)
 			C.set_occupant(victim, 1)
 			victim.Sleeping(3)
-			to_chat(victim, SPAN_NOTICE("You are slowly waking up from the cryostasis aboard [current_map.full_name]. It might take a few seconds.\nYour workplace attire is waiting for you at the nearest autodrobe vendor."))
+			to_chat(victim, SPAN_NOTICE("You are slowly waking up from the cryostasis aboard [current_map.full_name]. It might take a few seconds."))
+			to_chat(victim, FONT_LARGE("<b>Your workplace attire is waiting for you at the nearest autodrobe vendor.</b>"))
 			return
 
 /datum/spawnpoint/cyborg

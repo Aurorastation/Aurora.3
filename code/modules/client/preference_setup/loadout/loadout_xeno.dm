@@ -2,7 +2,8 @@
 	display_name = "gear harness"
 	path = /obj/item/clothing/under/gearharness
 	sort_category = "Xenowear"
-	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_DIONA, SPECIES_IPC, SPECIES_IPC_HEAVY)
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_DIONA, SPECIES_IPC, SPECIES_IPC_HEAVY)
+
 
 /datum/gear/shoes/footwraps
 	display_name = "cloth footwraps"

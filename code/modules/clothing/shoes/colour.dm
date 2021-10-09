@@ -94,6 +94,12 @@
 	desc = "A pair of overly colorful shoes."
 	icon_state = "rain_bow"
 
+/obj/item/clothing/shoes/sneakers
+	name = "sneakers"
+	desc = "A pair of shoes well suited for running around in."
+	icon_state = "sneakers"
+	item_state = "sneakers"
+
 /obj/item/clothing/shoes/medical
 	name = "doctor shoes"
 	desc = "A pair of green and white shoes intended for safety around patients."

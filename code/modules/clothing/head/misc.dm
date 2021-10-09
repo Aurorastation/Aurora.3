@@ -530,6 +530,26 @@
 	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
 	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/head.dmi')
 
+/obj/item/clothing/head/klax_breeder
+	name = "k'lax represenatitve shroud"
+	desc = "Large shroud used by K'lax representatives."
+	icon = 'icons/mob/species/breeder/inventory.dmi'
+	item_state = "shroud_klax"
+	icon_state = "shroud_klax"
+	contained_sprite = FALSE
+	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
+	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/head.dmi')
+
+/obj/item/clothing/head/cthur_breeder
+	name = "c'thur representative shroud"
+	desc = "Large shroud used by C'thur representatives."
+	icon = 'icons/mob/species/breeder/inventory.dmi'
+	item_state = "shroud_cthur"
+	icon_state = "shroud_cthur"
+	contained_sprite = FALSE
+	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
+	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/head.dmi')
+
 /obj/item/clothing/head/navy
 	name = "sol navy utility cover"
 	desc = "A military cover issued to Sol Alliance navy members as part of their field uniform."
