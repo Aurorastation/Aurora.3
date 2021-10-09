@@ -303,7 +303,7 @@
 		var/obj/item/W = usr.get_inactive_hand()
 		if(W && istype(W, /obj/item/stack) && W.get_material_name() == src.get_material_name())
 			if(stat & BROKEN)
-				to_chat(user, "<span class='notice'>It looks like \the [src] is pretty busted. It's going to need more than just patching up now.</span>")
+				to_chat(user, SPAN_NOTICE("It looks like \the [src] is pretty busted. It's going to need more than just patching up now."))
 				return
 			if(health >= maxhealth)
 				to_chat(user, "<span class='notice'>Nothing to fix!</span>")
