@@ -306,7 +306,7 @@
 				to_chat(user, SPAN_NOTICE("It looks like \the [src] is pretty busted. It's going to need more than just patching up now."))
 				return
 			if(health >= maxhealth)
-				to_chat(user, SPAN_NOTICE"Nothing to fix!"))
+				to_chat(user, SPAN_NOTICE("Nothing to fix!"))
 				return
 			if(!density)
 				to_chat(user, SPAN_WARNING("\The [src] must be closed before you can repair it."))

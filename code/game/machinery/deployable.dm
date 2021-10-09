@@ -105,6 +105,7 @@ for reference:
 		if(I && istype(I, /obj/item/stack))
 			var/obj/item/stack/D = I
 			if(D.get_material_name() != material.name)
+				to_chat(user, SPAN_WARNING("You need one sheet of [material.display_name] to repair \the [src]."))
 				return ..()
 			if(health < maxhealth)
 				if(D.get_amount() < 1)
