@@ -1,0 +1,4 @@
+author: Desven
+delete-after: True
+changes:
+  - rscadd: "Resprited the shield generators and capacitors."
