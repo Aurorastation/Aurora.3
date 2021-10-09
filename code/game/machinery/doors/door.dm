@@ -329,7 +329,7 @@
 					transfer = repairing.amount
 
 			if (transfer)
-				to_chat(user, "<span class='notice'>You fit [transfer] [stack.singular_name]\s to damaged and broken parts on \the [src].</span>")
+				to_chat(user, SPAN_NOTICE("You fit [transfer] [stack.singular_name]\s to damaged and broken parts on \the [src]."))
 
 			return
 
