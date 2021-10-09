@@ -9,55 +9,64 @@
 	w_class = ITEMSIZE_NORMAL
 	restricted_accessory_slots = list(ACCESSORY_SLOT_ARMOR_PLATE, ACCESSORY_SLOT_ARM_GUARDS, ACCESSORY_SLOT_LEG_GUARDS, ACCESSORY_SLOT_ARMOR_POCKETS)
 	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_PLATE, ACCESSORY_SLOT_ARM_GUARDS, ACCESSORY_SLOT_LEG_GUARDS, ACCESSORY_SLOT_ARMOR_POCKETS, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_CAPE)
+	pockets = null
 
 /obj/item/clothing/suit/armor/carrier/officer
 	starting_accessories = list(
-		/obj/item/clothing/accessory/armor_plate
+		/obj/item/clothing/accessory/armor_plate,
+		/obj/item/clothing/accessory/storage/modular_pouch
 	)
 
 /obj/item/clothing/suit/armor/carrier/hos
 	starting_accessories = list(
-		/obj/item/clothing/accessory/armor_plate/hos
+		/obj/item/clothing/accessory/armor_plate/hos,
+		/obj/item/clothing/accessory/storage/modular_pouch/large
 	)
 
 /obj/item/clothing/suit/armor/carrier/generic
 	starting_accessories = list(
-		/obj/item/clothing/accessory/armor_plate/generic
+		/obj/item/clothing/accessory/armor_plate/generic,
+		/obj/item/clothing/accessory/storage/modular_pouch
 	)
 
 /obj/item/clothing/suit/armor/carrier/riot
 	starting_accessories = list(
 		/obj/item/clothing/accessory/armor_plate/riot,
 		/obj/item/clothing/accessory/leg_guard/riot,
-		/obj/item/clothing/accessory/arm_guard/riot
+		/obj/item/clothing/accessory/arm_guard/riot,
+		/obj/item/clothing/accessory/storage/modular_pouch
 	)
 
 /obj/item/clothing/suit/armor/carrier/ballistic
 	starting_accessories = list(
 		/obj/item/clothing/accessory/armor_plate/ballistic,
 		/obj/item/clothing/accessory/leg_guard/ballistic,
-		/obj/item/clothing/accessory/arm_guard/ballistic
+		/obj/item/clothing/accessory/arm_guard/ballistic,
+		/obj/item/clothing/accessory/storage/modular_pouch/large
 	)
 
 /obj/item/clothing/suit/armor/carrier/ablative
 	starting_accessories = list(
 		/obj/item/clothing/accessory/armor_plate/ablative,
 		/obj/item/clothing/accessory/leg_guard/ablative,
-		/obj/item/clothing/accessory/arm_guard/ablative
+		/obj/item/clothing/accessory/arm_guard/ablative,
+		/obj/item/clothing/accessory/storage/modular_pouch/large
 	)
 
 /obj/item/clothing/suit/armor/carrier/military
 	starting_accessories = list(
 		/obj/item/clothing/accessory/armor_plate/military,
 		/obj/item/clothing/accessory/leg_guard/military,
-		/obj/item/clothing/accessory/arm_guard/military
+		/obj/item/clothing/accessory/arm_guard/military,
+		/obj/item/clothing/accessory/storage/modular_pouch/large
 	)
 
 /obj/item/clothing/suit/armor/carrier/heavy
 	starting_accessories = list(
 		/obj/item/clothing/accessory/armor_plate/heavy,
 		/obj/item/clothing/accessory/leg_guard/heavy,
-		/obj/item/clothing/accessory/arm_guard/heavy
+		/obj/item/clothing/accessory/arm_guard/heavy,
+		/obj/item/clothing/accessory/storage/modular_pouch/large
 	)
 
 /obj/item/clothing/suit/armor/carrier/heavy/scc
@@ -65,6 +74,7 @@
 		/obj/item/clothing/accessory/armor_plate/heavy/scc,
 		/obj/item/clothing/accessory/leg_guard/heavy/scc,
 		/obj/item/clothing/accessory/arm_guard/heavy/scc,
+		/obj/item/clothing/accessory/storage/modular_pouch/large,
 		/obj/item/clothing/accessory/sleevepatch/scc
 	)
 
@@ -72,7 +82,8 @@
 	starting_accessories = list(
 		/obj/item/clothing/accessory/armor_plate/heavy/sec,
 		/obj/item/clothing/accessory/leg_guard/heavy/sec,
-		/obj/item/clothing/accessory/arm_guard/heavy/sec
+		/obj/item/clothing/accessory/arm_guard/heavy/sec,
+		/obj/item/clothing/accessory/storage/modular_pouch/large
 	)
 
 /obj/item/clothing/accessory/armor_plate
@@ -87,9 +98,9 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	w_class = ITEMSIZE_NORMAL
 	armor = list(
-		melee = ARMOR_MELEE_KNIVES,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_SMALL,
+		melee = ARMOR_MELEE_KEVLAR,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_KEVLAR,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED
 	)
@@ -183,6 +194,31 @@
 	item_state = "plate_blue"
 	slowdown = 0 // the SCC is hacking
 
+/obj/item/clothing/accessory/storage/modular_pouch
+	name = "plate carrier pouches"
+	desc = "A comfortable set of pouches that can be attached to a plate carrier, allowing the wearer to store some small items."
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon_state = "modular_pouch"
+	item_state = "modular_pouch"
+	contained_sprite = TRUE
+	slot = ACCESSORY_SLOT_ARMOR_POCKETS
+	slots = 2
+
+/obj/item/clothing/accessory/storage/modular_pouch/large
+	name = "large plate carrier pouches"
+	desc = "A comfortable set of pouches that can be attached to a plate carrier, allowing the wearer to store some small items. This one uses advanced sewing techniques for additional storage capacity."
+	slots = 3
+
+/obj/item/clothing/accessory/holster/modular
+	name = "plate carrier holster"
+	desc = "A special holster with rigging able to attach to modern modular plate carriers."
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon_state = "modular_holster"
+	item_state = "modular_holster"
+	contained_sprite = TRUE
+	slot = ACCESSORY_SLOT_ARMOR_POCKETS
+	flippable = FALSE
+
 /obj/item/clothing/accessory/armor_plate/heavy/sec
 	name = "heavy corporate armor plate"
 	desc = "A heavy and stylish armor plate with blue highlights. That prevents teamkills, right?"
@@ -203,6 +239,13 @@
 	contained_sprite = TRUE
 	icon_state = "helm_sec"
 	item_state = "helm_sec"
+
+/obj/item/clothing/head/helmet/security/skrell
+	name = "skrellmet"
+	desc = "A helmet built for use by a Skrell. This one appears to be fairly standard and reliable."
+	icon_state = "helm_skrell"
+	item_state = "helm_skrell"
+	valid_accessory_slots = null
 
 /obj/item/clothing/head/helmet/security/heavy
 	name = "corporate heavy helmet"

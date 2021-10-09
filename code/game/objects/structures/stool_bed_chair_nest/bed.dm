@@ -220,6 +220,7 @@
 	name = "roller bed"
 	icon = 'icons/obj/rollerbed.dmi'
 	icon_state = "standard_down"
+	item_state = "rollerbed"
 	anchored = FALSE
 	var/base_state = "standard"
 	var/item_bedpath = /obj/item/roller
@@ -414,7 +415,12 @@
 	name = "roller bed"
 	desc = "A collapsed roller bed that can be carried around."
 	icon = 'icons/obj/rollerbed.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi'
+		)
 	icon_state = "standard_folded"
+	item_state = "rollerbed"
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
 	center_of_mass = list("x" = 17,"y" = 7)
@@ -428,9 +434,16 @@
 	bedpath = /obj/structure/bed/roller/hover
 
 /obj/item/roller/attack_self(mob/user)
-		var/obj/structure/bed/roller/R = new bedpath(user.loc)
-		R.add_fingerprint(user)
-		qdel(src)
+	..()
+	deploy_roller(user, user.loc)
+
+/obj/item/roller/afterattack(obj/target, mob/user, proximity)
+	if(!proximity)
+		return
+	if(isturf(target))
+		var/turf/T = target
+		if(!T.density)
+			deploy_roller(user, target)
 
 /obj/item/roller/attackby(obj/item/W as obj, mob/user as mob)
 
@@ -443,6 +456,11 @@
 			return
 
 	..()
+
+/obj/item/roller/proc/deploy_roller(mob/user, atom/location)
+	var/obj/structure/bed/roller/R = new bedpath(location)
+	R.add_fingerprint(user)
+	qdel(src)
 
 /obj/item/roller_holder
 	name = "roller bed rack"

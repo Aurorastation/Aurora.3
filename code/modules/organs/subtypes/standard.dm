@@ -53,7 +53,7 @@
 	limb_name = BP_L_ARM
 	name = "left arm"
 	icon_name = "l_arm"
-	max_damage = 50
+	max_damage = 75
 	min_broken_damage = 30
 	w_class = ITEMSIZE_NORMAL
 	body_part = ARM_LEFT
@@ -86,7 +86,7 @@
 	limb_name = BP_L_LEG
 	name = "left leg"
 	icon_name = "l_leg"
-	max_damage = 50
+	max_damage = 75
 	min_broken_damage = 30
 	w_class = ITEMSIZE_NORMAL
 	body_part = LEG_LEFT
@@ -119,7 +119,7 @@
 	limb_name = BP_L_FOOT
 	name = "left foot"
 	icon_name = "l_foot"
-	max_damage = 35
+	max_damage = 55
 	min_broken_damage = 15
 	w_class = ITEMSIZE_SMALL
 	body_part = FOOT_LEFT
@@ -129,7 +129,6 @@
 	amputation_point = "left ankle"
 	arterial_bleed_severity = 0.5
 	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_CAN_STAND
-	maim_bonus = 1
 	augment_limit = 1
 
 /obj/item/organ/external/foot/body_part_class()
@@ -157,7 +156,7 @@
 	limb_name = BP_L_HAND
 	name = "left hand"
 	icon_name = "l_hand"
-	max_damage = 35
+	max_damage = 55
 	min_broken_damage = 15
 	w_class = ITEMSIZE_SMALL
 	body_part = HAND_LEFT
@@ -167,7 +166,6 @@
 	amputation_point = "left wrist"
 	arterial_bleed_severity = 0.5
 	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_CAN_GRASP | ORGAN_HAS_TENDON
-	maim_bonus = 1
 	augment_limit = 1
 
 /obj/item/organ/external/hand/body_part_class()
@@ -202,7 +200,7 @@
 	limb_name = BP_HEAD
 	icon_name = "head"
 	name = BP_HEAD
-	max_damage = 75
+	max_damage = 125
 	min_broken_damage = 35
 	w_class = ITEMSIZE_NORMAL
 	body_part = HEAD | FACE

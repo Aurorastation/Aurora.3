@@ -77,7 +77,7 @@
 	and hunting. It is a common practice for armies to confiscate villages productions, something that can cause resentment among farmers when their lands are occupied by the liberation \
 	army, to feed their soldiers."
 
-/obj/item/storage/field_ration/dpraa/create_ration()
+/obj/item/storage/field_ration/dpra/create_ration()
 	new /obj/item/reagent_containers/food/snacks/explorer_ration(src)
 	new /obj/item/reagent_containers/food/snacks/tajaran_bread(src)
 	new /obj/item/reagent_containers/food/drinks/cans/adhomai_milk(src)

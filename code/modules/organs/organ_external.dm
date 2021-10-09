@@ -86,7 +86,7 @@
 	var/body_hair
 	var/painted = 0
 
-	var/maim_bonus = 0.75 //For special projectile gibbing calculation, dubbed "maiming"
+	var/maim_bonus = 0 //For special projectile gibbing calculation, dubbed "maiming"
 
 	var/list/genetic_markings         // Markings (body_markings) to apply to the icon
 	var/list/temporary_markings	// Same as above, but not preserved when cloning
@@ -403,12 +403,13 @@
 
 				if(isitem(used_weapon))
 					var/obj/item/W = used_weapon
+					var/dam_flags = W.damage_flags()
 					if(isprojectile(W))
 						var/obj/item/projectile/P = W
-						if(P.damage_flags & DAM_BULLET)
+						if(dam_flags & DAM_BULLET)
 							blunt_eligible = TRUE
 						maim_bonus += P.maim_rate
-					else if(W.w_class >= w_class && edge)
+					if(W.w_class >= w_class && (dam_flags & DAM_EDGE))
 						edge_eligible = TRUE
 
 				if(!blunt_eligible && edge_eligible && brute >= max_damage / (DROPLIMB_THRESHOLD_EDGE + maim_bonus))

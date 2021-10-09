@@ -70,6 +70,7 @@
 	and colorful dress wearing \"Flapper\" variety of clothing."
 	icon_override = null
 	contained_sprite = TRUE
+	no_overheat = TRUE
 
 /obj/item/clothing/accessory/poncho/tajarancloak/fancy
 	name = "fancy cloak"
@@ -249,9 +250,13 @@
 	desc = "A simple rosette accessory depicting the Tajaran god S'rendarr."
 	icon_state = "rosette"
 	item_state = "rosette"
-	flippable = FALSE
+	slot_flags = SLOT_MASK | SLOT_TIE
+	w_class = ITEMSIZE_TINY
 
-/obj/item/clothing/accessory/tajara/council_badge
+/obj/item/clothing/accessory/tajaran/srendarr/get_mask_examine_text(mob/user)
+	return "around [user.get_pronoun("his")] neck"
+
+/obj/item/clothing/accessory/tajaran/council_badge
 	name = "free tajaran council badge"
 	desc = "A medal badge used by the members of the Free Tajaran Council."
 	icon_state = "council_badge"
@@ -263,3 +268,74 @@
 
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
+
+/obj/item/clothing/accessory/tajaran/charm
+	name = "wooden charm"
+	desc = "A hand carved wooden charm of tajaran origin."
+	icon_state = "wooden_talisman"
+	item_state = "wooden_talisman"
+	desc_fluff = "Talismans and charms are common among religious and superstitious tajara, with many believing them to be able to bring good fortune or ward off raskara and other evils. \
+	Hand-carved tajani charms are held in special regards, often being thought of as being particularly fortunate."
+	w_class = ITEMSIZE_TINY
+	flags = NOBLUDGEON
+	slot_flags = SLOT_MASK | SLOT_WRISTS | SLOT_EARS | SLOT_TIE
+
+/obj/item/clothing/accessory/tajaran/charm/get_mask_examine_text(mob/user)
+	return "around [user.get_pronoun("his")] neck"
+
+/obj/item/clothing/accessory/tajaran/charm/attack(mob/M as mob, mob/living/user as mob, target_zone = BP_CHEST)
+	if(user.a_intent != I_HURT && M != user)
+		if(target_zone == BP_HEAD | M.lying)
+			user.visible_message("<b>\The [user]</b> holds \the [src] above <b>\the [M]</b>")
+		else if(target_zone == BP_CHEST)
+			user.visible_message("<b>\The [user]</b> holds \the [src] out in front of <b>\the [M]</b>")
+		else
+			user.visible_message("<b>\The [user]</b> holds \the [src] up near <b>\the [M]</b>")
+	else
+		return ..()
+
+/obj/item/clothing/accessory/tajaran/charm/afterattack(mob/M, var/mob/living/user, proximity_flag)
+	if(proximity_flag)
+		return
+	if(!ishuman(M))
+		return
+	user.visible_message("<b>\The [user]</b> points \the [src] at <b>\the [M]</b>")
+
+/obj/item/clothing/accessory/tajaran/charm/stone
+	name = "stone charm"
+	desc = "A strong stone charm of tajaran origin."
+	icon_state = "stone_talisman"
+	item_state = "stone_talisman"
+
+/obj/item/clothing/accessory/tajaran/charm/steel
+	name = "steel charm"
+	desc = "A warding metallic of tajaran origin."
+	icon_state = "steel_talisman"
+	item_state = "steel_talisman"
+	flags = CONDUCT | NOBLUDGEON
+
+/obj/item/clothing/accessory/tajaran/charm/steel/silver
+	name = "silver charm"
+	desc = "An expensive silver charm of tajaran origin."
+	icon_state = "silver_talisman"
+	item_state = "silver_talisman"
+
+/obj/item/clothing/accessory/tajaran/charm/bone
+	name = "bone charm"
+	desc = "A charm of tajaran origin carved from animal bones."
+	icon_state = "bone_talisman"
+	item_state = "bone_talisman"
+
+/obj/item/clothing/accessory/tajaran/charm/steel/silver/seashell
+	name = "silver seashell charm"
+	desc = "A necklace made of soft rope with a silver charm attached in the shape of a seashell."
+	desc_fluff = "Followers of Ma'ta'ke who reverers the amohdan goddess Minharzka can sometimes be found wearing silvery seashell charms. \
+	Her tears having filled the oceans and risen to become the rain in the sky and it is thought that her mood is what controls the treacherous adhomian seas. \
+	Minharzka's name is often invoked and offerings left at her altars for those hoping for safe travels, impressive cargo hauls or for the weather to change \
+	and her fanatics are well known across tajaran history as being fearless and dangerous sailors and warriors of the sea."
+
+/obj/item/clothing/accessory/tajaran/charm/tajani
+	name = "wooden tajani charm"
+	desc = "A hand carved charm of one of the mythical tajani."
+	desc_fluff = "Tajani, also known as 'short people' in basic, are good-willed tiny elder Tajara who serve as guardians of nature and homes. \
+	Hand carved charms of them is considered a symbol of luck and as such many superstitious tajara keeps one around."

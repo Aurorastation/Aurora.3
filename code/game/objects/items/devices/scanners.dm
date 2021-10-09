@@ -639,7 +639,7 @@ BREATH ANALYZER
 	name = "zeng-hu body analyzer"
 	desc = "An expensive and varied-use health analyzer that prints full-body scans after a short scanning delay."
 	icon_state = "zh-analyzer"
-	item_state = "healthanalyzer"
+	item_state = "zh-analyzer"
 	slot_flags = SLOT_BELT
 	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 3)

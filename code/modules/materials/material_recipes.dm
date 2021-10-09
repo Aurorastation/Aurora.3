@@ -52,6 +52,7 @@
 			new /datum/stack_recipe("metal rod", /obj/item/stack/rods, 1, 2, 60),
 			new /datum/stack_recipe("table frame", /obj/structure/table, BUILD_AMT, time = 10, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("wall girders", /obj/structure/girder, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("window frame", /obj/structure/window_frame, BUILD_AMT, time = 10, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("computer frame", /obj/structure/computerframe, BUILD_AMT, time = 25, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("machine blueprint", /obj/machinery/constructable_frame/machine_frame, 2, time = 25, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("light fixture frame", /obj/item/frame/light, 2),
@@ -186,6 +187,7 @@
 			new /datum/stack_recipe("candle pack", /obj/item/storage/box/fancy/candle_box/empty),
 			new /datum/stack_recipe("crayon box", /obj/item/storage/box/fancy/crayons/empty),
 			new /datum/stack_recipe("pizza box", /obj/item/pizzabox),
+			new /datum/stack_recipe("papersack", /obj/item/storage/box/papersack),
 			new /datum/stack_recipe("cardborg suit", /obj/item/clothing/suit/cardborg, 3),
 			new /datum/stack_recipe("cardborg helmet", /obj/item/clothing/head/cardborg)
 		))
