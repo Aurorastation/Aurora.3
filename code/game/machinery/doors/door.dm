@@ -309,7 +309,7 @@
 				to_chat(user, "<span class='notice'>Nothing to fix!</span>")
 				return
 			if(!density)
-				to_chat(user, "<span class='warning'>\The [src] must be closed before you can repair it.</span>")
+				to_chat(user, SPAN_WARNING("\The [src] must be closed before you can repair it."))
 				return
 
 			//figure out how much metal we need
