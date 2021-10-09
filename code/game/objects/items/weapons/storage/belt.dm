@@ -28,8 +28,10 @@
 			add_overlay(I.get_belt_overlay())
 	..()
 
-/obj/item/storage/belt/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+/obj/item/storage/belt/build_additional_parts(H, mob_icon, slot)
 	var/image/I = ..()
+	if(!I)
+		I = image(null)
 	for(var/obj/item/i in contents)
 		var/c_state
 		var/c_icon

@@ -14,6 +14,7 @@
 	speed = -1
 	hat_x_offset = 1
 	hat_y_offset = -12
+	standard_drone = FALSE
 	var/seeking_player = FALSE
 	var/health_upgrade
 	var/ranged_upgrade

@@ -41,6 +41,8 @@
 
 	var/list/spawn_types
 
+	var/shuttle_call_restarts = FALSE // if true, calling crew transfer or evac just restarts the round in ten minute
+	var/shuttle_call_restart_timer
 	var/shuttle_docked_message
 	var/shuttle_leaving_dock
 	var/shuttle_called_message
@@ -62,6 +64,7 @@
 		// as defined in holodeck_programs
 	var/list/holodeck_restricted_programs = list() // as above... but EVIL!
 
+	var/force_spawnpoint = FALSE
 	var/allowed_spawns = list("Arrivals Shuttle","Gateway", "Cryogenic Storage", "Cyborg Storage")
 	var/default_spawn = "Arrivals Shuttle"
 
