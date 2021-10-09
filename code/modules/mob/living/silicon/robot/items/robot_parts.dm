@@ -8,7 +8,7 @@
 	var/list/part = null // Order of args is important for installing robolimbs.
 	var/sabotaged = 0 //Emagging limbs can have repercussions when installed as prosthetics.
 	var/model_info
-	var/linked_frame = SPECIES_IPC_UNBRANDED
+	var/linked_frame = SPECIES_IPC
 	dir = SOUTH
 
 /obj/item/robot_parts/set_dir()
@@ -425,15 +425,15 @@
 /obj/item/robot_parts/chest/bishop
 	name = "Bishop cybernetics torso"
 	model_info = TRUE
-	linked_frame = SPECIES_IPC_BISHOP
+	linked_frame = SPECIES_IPC
 
 /obj/item/robot_parts/chest/hephaestus
 	name = "Hephaestus industries torso"
-	linked_frame = SPECIES_IPC_G2
+	linked_frame = SPECIES_IPC_HEAVY
 
 /obj/item/robot_parts/chest/zenghu
 	name = "Zeng-Hu pharmaceuticals torso"
-	linked_frame = SPECIES_IPC_ZENGHU
+	linked_frame = SPECIES_IPC
 
 /obj/item/robot_parts/chest/synthskin
 	name = "Human synthskin torso"
@@ -441,7 +441,7 @@
 
 /obj/item/robot_parts/chest/xion
 	name = "Xion manufacturing group torso"
-	linked_frame = SPECIES_IPC_XION
+	linked_frame = SPECIES_IPC_HEAVY
 
 /obj/item/robot_parts/chest/ipc
 	name = "Hephaestus integrated torso"
@@ -449,4 +449,4 @@
 
 /obj/item/robot_parts/chest/industrial
 	name = "Hephaestus industrial torso"
-	linked_frame = SPECIES_IPC_G1
+	linked_frame = SPECIES_IPC_HEAVY

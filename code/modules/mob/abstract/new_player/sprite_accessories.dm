@@ -4352,7 +4352,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_blend_mode = ICON_MULTIPLY
 		is_painted = TRUE
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_HEAD)
-		species_allowed = list(/datum/species/machine/bishop)
+		species_allowed = list(/datum/species/machine)
 
 		bishop_mask
 			name = "Bishop - Face Mask"
@@ -4443,7 +4443,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_blend_mode = ICON_MULTIPLY
 		is_painted = TRUE
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM,BP_GROIN,BP_CHEST,BP_HEAD)
-		species_allowed = list(/datum/species/machine/zenghu)
+		species_allowed = list(/datum/species/machine)
 
 		zeng_head
 			name = "Zeng-Hu - Head Panel Colors"

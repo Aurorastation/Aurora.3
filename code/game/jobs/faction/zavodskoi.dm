@@ -52,11 +52,7 @@
 	job_species_blacklist = list(
 		"Corporate Liaison" = list(
 			SPECIES_IPC,
-			SPECIES_IPC_G1,
-			SPECIES_IPC_G2,
-			SPECIES_IPC_XION,
-			SPECIES_IPC_ZENGHU,
-			SPECIES_IPC_BISHOP,
+			SPECIES_IPC_HEAVY,
 			SPECIES_IPC_SHELL,
 			SPECIES_UNATHI,
 			SPECIES_TAJARA,

@@ -12,10 +12,8 @@ var/datum/antagonist/thrall/thralls = null
 		SPECIES_IPC,
 		SPECIES_IPC_SHELL,
 		SPECIES_IPC_G1,
-		SPECIES_IPC_G2,
 		SPECIES_IPC_XION,
-		SPECIES_IPC_ZENGHU,
-		SPECIES_IPC_BISHOP
+		SPECIES_IPC_HEAVY
 	)
 	flags = ANTAG_NO_ROUNDSTART_SPAWN
 	welcome_text = "You are a vampire or psionic operant's thrall: a pawn to be commanded by them at will."

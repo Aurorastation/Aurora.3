@@ -117,12 +117,10 @@
 
 	//Set species_restricted list
 	switch(target_species)
-		if(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)	//humanoid bodytypes
+		if(BODYTYPE_HUMAN, BODYTYPE_SKRELL)	//humanoid bodytypes
 			species_restricted = list(
 				BODYTYPE_HUMAN,
-				BODYTYPE_SKRELL,
-				BODYTYPE_IPC_ZENGHU,
-				BODYTYPE_IPC_BISHOP
+				BODYTYPE_SKRELL
 			) //skrell/humans like to share with IPCs
 		else
 			species_restricted = list(target_species)

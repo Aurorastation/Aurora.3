@@ -31,11 +31,11 @@ var/global/datum/robolimb/basic_robolimb
 		SPECIES_VAURCA_WARRIOR,
 		SPECIES_IPC,
 		SPECIES_IPC_SHELL,
-		SPECIES_IPC_BISHOP,
+		SPECIES_IPC_HEAVY,
 		SPECIES_HUMAN_OFFWORLD
 	)
 	var/paintable = 0 //tired of istype exceptions. bullshit to find, and by god do i know it after this project.
-	var/linked_frame = SPECIES_IPC_UNBRANDED //which machine species this limb will create
+	var/linked_frame = SPECIES_IPC //which machine species this limb will create
 	var/brute_mod = 0.9 //how resistant is this mode to brute damage
 	var/burn_mod = 1.1 //how resistant is this mode to burn damage
 	var/fabricator_available = FALSE //if you can print this limb in the robotics fabricator
@@ -47,29 +47,81 @@ var/global/datum/robolimb/basic_robolimb
 	company = PROSTHETIC_BC
 	desc = "This limb is coated in a brilliant silver illuminated from the inside with blue status lights."
 	icon = 'icons/mob/human_races/ipc/r_ind_bishop.dmi'
-	linked_frame = SPECIES_IPC_BISHOP
+	linked_frame = SPECIES_IPC
 	fabricator_available = TRUE
+	species_can_use = list(
+		SPECIES_HUMAN,
+		SPECIES_SKRELL,
+		SPECIES_SKRELL_AXIORI,
+		SPECIES_TAJARA,
+		SPECIES_TAJARA_ZHAN,
+		SPECIES_TAJARA_MSAI,
+		SPECIES_UNATHI,
+		SPECIES_VAURCA_WORKER,
+		SPECIES_VAURCA_WARRIOR,
+		SPECIES_IPC,
+		SPECIES_HUMAN_OFFWORLD
+	)
 
 /datum/robolimb/hesphaistos
 	company = PROSTHETIC_HI
 	desc = "This limb is covered in thick plating coated with a militaristic olive drab."
 	icon = 'icons/mob/human_races/ipc/r_ind_hephaestus.dmi'
-	linked_frame = SPECIES_IPC_G2
+	linked_frame = SPECIES_IPC_HEAVY
 	fabricator_available = TRUE
+	species_can_use = list(
+		SPECIES_HUMAN,
+		SPECIES_SKRELL,
+		SPECIES_SKRELL_AXIORI,
+		SPECIES_TAJARA,
+		SPECIES_TAJARA_ZHAN,
+		SPECIES_TAJARA_MSAI,
+		SPECIES_UNATHI,
+		SPECIES_VAURCA_WORKER,
+		SPECIES_VAURCA_WARRIOR,
+		SPECIES_IPC_HEAVY,
+		SPECIES_HUMAN_OFFWORLD
+	)
 
 /datum/robolimb/zenghu
 	company = PROSTHETIC_ZH
 	desc = "This limb has sleek white plating over a graphene-based nanofiber weave."
 	icon = 'icons/mob/human_races/ipc/r_ind_zenghu.dmi'
-	linked_frame = SPECIES_IPC_ZENGHU
+	linked_frame = SPECIES_IPC
 	fabricator_available = TRUE
+	species_can_use = list(
+		SPECIES_HUMAN,
+		SPECIES_SKRELL,
+		SPECIES_SKRELL_AXIORI,
+		SPECIES_TAJARA,
+		SPECIES_TAJARA_ZHAN,
+		SPECIES_TAJARA_MSAI,
+		SPECIES_UNATHI,
+		SPECIES_VAURCA_WORKER,
+		SPECIES_VAURCA_WARRIOR,
+		SPECIES_IPC,
+		SPECIES_HUMAN_OFFWORLD
+	)
 
 /datum/robolimb/xion
 	company = PROSTHETIC_XMG
 	desc = "This limb has a minimalist black and grey casing with exposed orange wiring channels."
 	icon = 'icons/mob/human_races/ipc/r_ind_xion.dmi'
-	linked_frame = SPECIES_IPC_XION
+	linked_frame = SPECIES_IPC_HEAVY
 	fabricator_available = TRUE
+	species_can_use = list(
+		SPECIES_HUMAN,
+		SPECIES_SKRELL,
+		SPECIES_SKRELL_AXIORI,
+		SPECIES_TAJARA,
+		SPECIES_TAJARA_ZHAN,
+		SPECIES_TAJARA_MSAI,
+		SPECIES_UNATHI,
+		SPECIES_VAURCA_WORKER,
+		SPECIES_VAURCA_WARRIOR,
+		SPECIES_IPC_HEAVY,
+		SPECIES_HUMAN_OFFWORLD
+	)
 
 /datum/robolimb/ipc
 	company = PROSTHETIC_IPC
@@ -79,14 +131,40 @@ var/global/datum/robolimb/basic_robolimb
 	paintable = 1
 	linked_frame = SPECIES_IPC
 	fabricator_available = TRUE
+	species_can_use = list(
+		SPECIES_HUMAN,
+		SPECIES_SKRELL,
+		SPECIES_SKRELL_AXIORI,
+		SPECIES_TAJARA,
+		SPECIES_TAJARA_ZHAN,
+		SPECIES_TAJARA_MSAI,
+		SPECIES_UNATHI,
+		SPECIES_VAURCA_WORKER,
+		SPECIES_VAURCA_WARRIOR,
+		SPECIES_IPC,
+		SPECIES_HUMAN_OFFWORLD
+	)
 
 /datum/robolimb/industrial
 	company = PROSTHETIC_IND
 	desc = "This limb is more robust than the standard Hephaestus Integrated Limb, and is better suited for industrial machinery."
 	icon = 'icons/mob/human_races/ipc/r_industrial.dmi'
 	unavailable_at_chargen = 1
-	linked_frame = SPECIES_IPC_G1
+	linked_frame = SPECIES_IPC_HEAVY
 	fabricator_available = TRUE
+	species_can_use = list(
+		SPECIES_HUMAN,
+		SPECIES_SKRELL,
+		SPECIES_SKRELL_AXIORI,
+		SPECIES_TAJARA,
+		SPECIES_TAJARA_ZHAN,
+		SPECIES_TAJARA_MSAI,
+		SPECIES_UNATHI,
+		SPECIES_VAURCA_WORKER,
+		SPECIES_VAURCA_WARRIOR,
+		SPECIES_IPC_HEAVY,
+		SPECIES_HUMAN_OFFWORLD
+	)
 
 /datum/robolimb/terminator
 	company = PROSTHETIC_HK
@@ -98,7 +176,7 @@ var/global/datum/robolimb/basic_robolimb
 	company = PROSTHETIC_SYNTHSKIN
 	desc = "This limb is designed to mimic the Human form. It does so with moderate success."
 	icon = 'icons/mob/human_races/human/r_human.dmi'
-	species_can_use = list(SPECIES_HUMAN)
+	species_can_use = list(SPECIES_HUMAN, SPECIES_IPC_SHELL)
 	linked_frame = SPECIES_IPC_SHELL
 	fabricator_available = TRUE
 	paintable = TRUE

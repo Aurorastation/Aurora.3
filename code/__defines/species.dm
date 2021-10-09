@@ -17,12 +17,10 @@
 
 #define SPECIES_IPC					"Baseline Frame"
 #define SPECIES_IPC_SHELL			"Shell Frame"
-#define SPECIES_IPC_G1				"Hephaestus G1 Industrial Frame"
-#define SPECIES_IPC_G2				"Hephaestus G2 Industrial Frame"
-#define SPECIES_IPC_XION			"Xion Industrial Frame"
-#define SPECIES_IPC_ZENGHU			"Zeng-Hu Mobility Frame"
-#define SPECIES_IPC_BISHOP			"Bishop Accessory Frame"
+#define SPECIES_IPC_HEAVY			"Heavy frame"
 
+#define SPECIES_IPC_G1				"Hephaestus G1 Industrial Frame"
+#define SPECIES_IPC_XION			"Xion Industrial Frame"
 #define SPECIES_IPC_SHELL_ROGUE		"Rogue Shell"
 #define SPECIES_IPC_XION_REMOTE		"Remote Xion Industrial Frame"
 #define SPECIES_IPC_UNBRANDED		"Unbranded Frame"
@@ -83,8 +81,6 @@
 
 #define BODYTYPE_IPC				"Machine"
 #define BODYTYPE_IPC_INDUSTRIAL		"Heavy Machine"
-#define BODYTYPE_IPC_ZENGHU			"Zeng-Hu Mobility Frame"
-#define BODYTYPE_IPC_BISHOP			"Bishop Accessory Frame"
 
 #define BODYTYPE_GOLEM				"Golem"
 #define BODYTYPE_MONKEY				"Monkey"

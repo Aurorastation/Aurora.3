@@ -130,6 +130,8 @@
 
 	unarmed_types = list(/datum/unarmed_attack/industrial, /datum/unarmed_attack/palm/industrial)
 
+	spawn_flags = IS_RESTRICTED
+
 	brute_mod = 0.8
 	burn_mod = 1.1
 
@@ -298,7 +300,7 @@
 // -- Branded units --
 
 /datum/species/machine/industrial/hephaestus
-	name = SPECIES_IPC_G2
+	name = SPECIES_IPC_HEAVY
 	short_name = "hif"
 	bodytype = BODYTYPE_IPC_INDUSTRIAL
 
@@ -320,6 +322,8 @@
 	heat_level_3 = 4000
 
 	heat_discomfort_level = 900
+
+	spawn_flags = IS_WHITELISTED
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/self_diagnostics,
@@ -406,8 +410,6 @@
 	name = SPECIES_IPC_XION_REMOTE
 	short_name = "rem_xmf"
 
-	spawn_flags = IS_RESTRICTED
-
 	has_organ = list(
 		BP_BRAIN   = /obj/item/organ/internal/mmi_holder/circuit,
 		BP_CELL    = /obj/item/organ/internal/cell,
@@ -416,109 +418,6 @@
 	)
 
 /datum/species/machine/industrial/xion/get_light_color(mob/living/carbon/human/H)
-	if (istype(H))
-		return rgb(H.r_eyes, H.g_eyes, H.b_eyes)
-
-/datum/species/machine/zenghu
-	name = SPECIES_IPC_ZENGHU
-	short_name = "zhf"
-	bodytype = BODYTYPE_IPC_ZENGHU
-
-	icobase = 'icons/mob/human_races/ipc/r_ind_zenghu.dmi'
-	deform = 'icons/mob/human_races/ipc/r_ind_zenghu.dmi'
-	preview_icon = 'icons/mob/human_races/ipc/ind_zenghu_preview.dmi'
-
-	eyes = "zenghu_eyes"
-	brute_mod = 1.5
-
-	slowdown = -0.8
-	sprint_speed_factor = 0.6
-	sprint_cost_factor = 2
-	move_charge_factor = 2
-
-	grab_mod = 1.1 // Smooth, fast
-	resist_mod = 4 // Not super strong, but still rather strong
-
-	allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_ELYRA, ACCENT_KONYAN, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_LUNA,
-							ACCENT_HIMEO, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_PHONG, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_TTS, ACCENT_EUROPA, ACCENT_EARTH, ACCENT_ASSUNZIONE)
-
-	appearance_flags = HAS_EYE_COLOR | HAS_UNDERWEAR | HAS_SOCKS
-
-	examine_color = "#ff00ff"
-
-	blurb = "Being a corporation focused primarily on medical sciences and treatments, Zeng-Hu Pharmaceuticals had little interest in the market of synthetics in the beginning (especially considering a good portion of Zeng-Hu employees are Skrellian). However, after seeing the advances in almost all fields of the galactic market after the advent of synthetics, Zeng-Hu set aside some funds for their own robotics department, focused mainly on medical service and even science related operations. Having taken some inspiration from biological life, the chassis has an interesting leg design: digitigrade legs provide the chassis with enhanced speed. A downside to this development was the reduction of metals on the chassis. Most plates covering the sensitive interior electronics are polymer casts to reduce the weight of the unit, resulting in a not-so-durable android."
-
-	has_limbs = list(
-		BP_CHEST  = list("path" = /obj/item/organ/external/chest/ipc/industrial/zenghu),
-		BP_GROIN  = list("path" = /obj/item/organ/external/groin/ipc/industrial/zenghu),
-		BP_HEAD   = list("path" = /obj/item/organ/external/head/ipc/industrial/zenghu),
-		BP_L_ARM  = list("path" = /obj/item/organ/external/arm/ipc/industrial/zenghu),
-		BP_R_ARM  = list("path" = /obj/item/organ/external/arm/right/ipc/industrial/zenghu),
-		BP_L_LEG  = list("path" = /obj/item/organ/external/leg/ipc/industrial/zenghu),
-		BP_R_LEG  = list("path" = /obj/item/organ/external/leg/right/ipc/industrial/zenghu),
-		BP_L_HAND = list("path" = /obj/item/organ/external/hand/ipc/industrial/zenghu),
-		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/ipc/industrial/zenghu),
-		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/ipc/industrial/zenghu),
-		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/ipc/industrial/zenghu)
-	)
-
-	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics,
-		/mob/living/carbon/human/proc/check_tag
-		)
-
-
-/datum/species/machine/zenghu/get_light_color(mob/living/carbon/human/H)
-	if (istype(H))
-		return rgb(H.r_eyes, H.g_eyes, H.b_eyes)
-
-/datum/species/machine/bishop
-	name = SPECIES_IPC_BISHOP
-	short_name = "bcf"
-	bodytype = BODYTYPE_IPC_BISHOP
-
-	icobase = 'icons/mob/human_races/ipc/r_ind_bishop.dmi'
-	deform = 'icons/mob/human_races/ipc/r_ind_bishop.dmi'
-	preview_icon = 'icons/mob/human_races/ipc/ind_bishop_preview.dmi'
-
-	eyes = "bishop_eyes"
-	eyes_icon_blend = ICON_MULTIPLY
-
-	brute_mod = 1.2
-	grab_mod = 1.1
-	resist_mod = 4
-	num_alternate_languages = 3
-
-	appearance_flags = HAS_EYE_COLOR | HAS_UNDERWEAR | HAS_SOCKS
-
-	examine_color = "#00afea"
-
-	blurb = "Bishop Cybernetics frames are among the sleeker, flashier frames widely produced for IPCs. This brand-new, high end design has a focus on pioneering energy efficiency without sacrifice, fitting to Bishop's company vision. Cutting-edge technology in power management means this frame can operate longer while running more demanding processing algorithms than most. This extreme push to minimize power draw means this frame can be equipped with all sorts of extra equipment: a hologram for a face, flashing status displays and embedded lights solely meant for show. The one thing holding this frame back from perfection is the same common criticism leveled against almost all Bishop products: the shiny chrome and glass meant to put all of this tech on display means it's exposed and fragile. It's because of Bishop's unrelenting pursuit of vanity in their designs that these frames often suffer from issues with reliability and struggle to safely perform the same work as cheaper, more rugged frames."
-
-	has_limbs = list(
-		BP_CHEST  = list("path" = /obj/item/organ/external/chest/ipc/industrial/bishop),
-		BP_GROIN  = list("path" = /obj/item/organ/external/groin/ipc/industrial/bishop),
-		BP_HEAD   = list("path" = /obj/item/organ/external/head/ipc/industrial/bishop),
-		BP_L_ARM  = list("path" = /obj/item/organ/external/arm/ipc/industrial/bishop),
-		BP_R_ARM  = list("path" = /obj/item/organ/external/arm/right/ipc/industrial/bishop),
-		BP_L_LEG  = list("path" = /obj/item/organ/external/leg/ipc/industrial/bishop),
-		BP_R_LEG  = list("path" = /obj/item/organ/external/leg/right/ipc/industrial/bishop),
-		BP_L_HAND = list("path" = /obj/item/organ/external/hand/ipc/industrial/bishop),
-		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/ipc/industrial/bishop),
-		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/ipc/industrial/bishop),
-		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/ipc/industrial/bishop)
-	)
-
-	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics,
-		/mob/living/carbon/human/proc/check_tag
-		)
-
-
-	allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_ELYRA, ACCENT_KONYAN, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_LUNA,
-							ACCENT_HIMEO, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_PHONG, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_TTS, ACCENT_EUROPA, ACCENT_EARTH, ACCENT_ASSUNZIONE)
-
-/datum/species/machine/bishop/get_light_color(mob/living/carbon/human/H)
 	if (istype(H))
 		return rgb(H.r_eyes, H.g_eyes, H.b_eyes)
 

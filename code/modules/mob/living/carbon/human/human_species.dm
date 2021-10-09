@@ -112,7 +112,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	. = ..(mapload, SPECIES_IPC_SHELL)
 
 /mob/living/carbon/human/industrial_hephaestus/Initialize(mapload)
-	. = ..(mapload, SPECIES_IPC_G2)
+	. = ..(mapload, SPECIES_IPC_HEAVY)
 
 /mob/living/carbon/human/industrial_xion/Initialize(mapload)
 	. = ..(mapload, SPECIES_IPC_XION)
@@ -193,12 +193,6 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 
 	remote_network = REMOTE_WARDEN_ROBOT
 	SSvirtualreality.add_robot(src, remote_network)
-
-/mob/living/carbon/human/industrial_zenghu/Initialize(mapload)
-	. = ..(mapload, SPECIES_IPC_ZENGHU)
-
-/mob/living/carbon/human/industrial_bishop/Initialize(mapload)
-	. = ..(mapload, SPECIES_IPC_BISHOP)
 
 /mob/living/carbon/human/unbranded_frame/Initialize(mapload)
 	. = ..(mapload, SPECIES_IPC_UNBRANDED)
