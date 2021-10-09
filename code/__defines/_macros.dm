@@ -91,6 +91,8 @@
 
 #define isprojectile(A) istype(A, /obj/item/projectile)
 
+#define isclothing(A) istype(A, /obj/item/clothing)
+
 /// General I/O helpers
 #define to_target(target, payload)                          target << (payload)
 #define from_target(target, receiver)                       target >> (receiver)
