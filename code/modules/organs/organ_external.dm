@@ -598,7 +598,7 @@ This function completely restores a damaged organ to perfect condition.
 			perma_injury = 0
 
 		if(status & ORGAN_NYMPH)
-			var/decl/nymph_limb/N = decls_repository.get_decl(/decl/nymph_limb)
+			var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
 			N.handle_nymph(src)
 
 		if(surge_damage && (status & ORGAN_ASSISTED))

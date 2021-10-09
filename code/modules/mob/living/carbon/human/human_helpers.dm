@@ -101,7 +101,7 @@
 
 					if ("nymph")
 						if (organ_data[name])
-							var/decl/nymph_limb/D = decls_repository.get_decl(/decl/nymph_limb)
+							var/datum/component/nymph_limb/D = GetComponent(/datum/component/nymph_limb)
 							if(D)
 								D.nymphize(src, O.limb_name, TRUE)
 

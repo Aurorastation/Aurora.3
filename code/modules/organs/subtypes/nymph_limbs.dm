@@ -1,45 +1,51 @@
 // Left Leg
 /obj/item/organ/external/leg/nymph
-    var/mob/living/carbon/alien/diona/nymph
-    var/nymph_child = /obj/item/organ/external/foot/nymph
+	var/mob/living/carbon/alien/diona/nymph
+	var/nymph_child = /obj/item/organ/external/foot/nymph
 
 /obj/item/organ/external/leg/nymph/Initialize()
     . = ..()
-    var/decl/nymph_limb/N = decls_repository.get_decl(/decl/nymph_limb)
+    AddComponent(/datum/component/nymph_limb)
+    var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
     N.setup_limb(src)
 
 /obj/item/organ/external/leg/nymph/process()
     ..()
-    var/decl/nymph_limb/N = decls_repository.get_decl(/decl/nymph_limb)
+    var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
     N.handle_nymph(src)
+
 // Right Leg
 /obj/item/organ/external/leg/right/nymph
-    var/mob/living/carbon/alien/diona/nymph
-    var/nymph_child = /obj/item/organ/external/foot/right/nymph
+	var/mob/living/carbon/alien/diona/nymph
+	var/nymph_child = /obj/item/organ/external/foot/right/nymph
 
 /obj/item/organ/external/leg/right/nymph/Initialize()
-    . = ..()
-    var/decl/nymph_limb/N = decls_repository.get_decl(/decl/nymph_limb)
-    N.setup_limb(src)
+	. = ..()
+	AddComponent(/datum/component/nymph_limb)
+	var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
+	N.setup_limb(src)
 
 /obj/item/organ/external/leg/right/nymph/process()
-    ..()
-    var/decl/nymph_limb/N = decls_repository.get_decl(/decl/nymph_limb)
-    N.handle_nymph(src)
+	..()
+	var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
+	N.handle_nymph(src)
+
 // Left Arm
 /obj/item/organ/external/arm/nymph
-    var/mob/living/carbon/alien/diona/nymph
-    var/nymph_child = /obj/item/organ/external/hand/nymph
+	var/mob/living/carbon/alien/diona/nymph
+	var/nymph_child = /obj/item/organ/external/hand/nymph
 
 /obj/item/organ/external/arm/nymph/Initialize()
     . = ..()
-    var/decl/nymph_limb/N = decls_repository.get_decl(/decl/nymph_limb)
+    AddComponent(/datum/component/nymph_limb)
+    var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
     N.setup_limb(src)
 
 /obj/item/organ/external/arm/nymph/process()
     ..()
-    var/decl/nymph_limb/N = decls_repository.get_decl(/decl/nymph_limb)
+    var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
     N.handle_nymph(src)
+
 // Right Arm
 /obj/item/organ/external/arm/right/nymph
     var/mob/living/carbon/alien/diona/nymph
@@ -47,43 +53,52 @@
 
 /obj/item/organ/external/arm/right/nymph/Initialize()
     . = ..()
-    var/decl/nymph_limb/N = decls_repository.get_decl(/decl/nymph_limb)
+    AddComponent(/datum/component/nymph_limb)
+    var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
     N.setup_limb(src)
 
 /obj/item/organ/external/arm/right/nymph/process()
     ..()
-    var/decl/nymph_limb/N = decls_repository.get_decl(/decl/nymph_limb)
+    var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
     N.handle_nymph(src)
+
 // Left Hand
 /obj/item/organ/external/hand/nymph
 
 /obj/item/organ/external/hand/nymph/Initialize()
     . = ..()
-    var/decl/nymph_limb/N = decls_repository.get_decl(/decl/nymph_limb)
+    AddComponent(/datum/component/nymph_limb)
+    var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
     N.setup_limb(src)
+
 // Right Hand
 /obj/item/organ/external/hand/right/nymph
 
 /obj/item/organ/external/hand/right/nymph/Initialize()
     . = ..()
-    var/decl/nymph_limb/N = decls_repository.get_decl(/decl/nymph_limb)
+    AddComponent(/datum/component/nymph_limb)
+    var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
     N.setup_limb(src)
+
 // Left Foot
 /obj/item/organ/external/foot/nymph
 
 /obj/item/organ/external/foot/nymph/Initialize()
     . = ..()
-    var/decl/nymph_limb/N = decls_repository.get_decl(/decl/nymph_limb)
+    AddComponent(/datum/component/nymph_limb)
+    var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
     N.setup_limb(src)
+
 // Right Foot
 /obj/item/organ/external/foot/right/nymph
 
 /obj/item/organ/external/foot/right/nymph/Initialize()
     . = ..()
-    var/decl/nymph_limb/N = decls_repository.get_decl(/decl/nymph_limb)
+    AddComponent(/datum/component/nymph_limb)
+    var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
     N.setup_limb(src)
 
-/decl/nymph_limb
+/datum/component/nymph_limb
     var/list/valid_species = list(SPECIES_UNATHI, SPECIES_SKRELL)
     var/list/valid_organs_to_replace = list(BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG)
     // Main limb where the Nymph mob lives
@@ -111,7 +126,7 @@
         BP_R_FOOT = /obj/item/organ/external/foot/right/nymph
     )
 
-/decl/nymph_limb/proc/setup_limb(var/obj/item/organ/external/E)
+/datum/component/nymph_limb/proc/setup_limb(var/obj/item/organ/external/E)
     if(is_type_in_list(E, nymph_limb_types))
         E:nymph = new /mob/living/carbon/alien/diona
     else if(!is_type_in_list(E, nymph_extremity_types))
@@ -127,7 +142,7 @@
     E.limb_flags &= ~(ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_HAS_TENDON)
 
 // Called by process()
-/decl/nymph_limb/proc/handle_nymph(var/obj/item/organ/external/E)
+/datum/component/nymph_limb/proc/handle_nymph(var/obj/item/organ/external/E)
 	var/mob/living/carbon/alien/diona/limb_nymph = E:nymph
 	if(!istype(limb_nymph))
 		return FALSE
@@ -153,7 +168,7 @@
     set category = "Abilities"
     set name = "Detach Nymph"
 
-    var/decl/nymph_limb/N = decls_repository.get_decl(/decl/nymph_limb)
+    var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
 
     // Find our existing nymphlimbs
     var/list/my_nymph_limbs = list()
@@ -188,7 +203,7 @@
 
 // Organ detach
 /obj/item/organ/external/proc/detach_nymph_limb()
-    var/decl/nymph_limb/N = decls_repository.get_decl(/decl/nymph_limb)
+    var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
     var/mob/living/carbon/alien/diona/nymph = src:nymph
     var/nymph_owner = owner
 
@@ -211,7 +226,8 @@
     if(!can_attach)
         to_chat(src, span("warning", "You do not have the strength to attach to another host so soon."))
 
-    var/decl/nymph_limb/N = decls_repository.get_decl(/decl/nymph_limb)
+
+    var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
     var/list/mob/living/carbon/human/mob_list = list()
 
     // Find a new host
@@ -262,7 +278,7 @@
 
     N.nymph_in(new_nymph_limb, src)
 
-/decl/nymph_limb/proc/nymph_in(var/obj/item/organ/external/E, var/mob/living/carbon/alien/diona/nymph)
+/datum/component/nymph_limb/proc/nymph_in(var/obj/item/organ/external/E, var/mob/living/carbon/alien/diona/nymph)
     var/mob/living/carbon/alien/diona/limb_nymph = E:nymph
     if(limb_nymph)
         if(!limb_nymph.client)
@@ -275,7 +291,7 @@
     limb_nymph = nymph
     limb_nymph.forceMove(E)
 
-/decl/nymph_limb/proc/nymph_out(var/obj/item/organ/external/E, var/mob/living/carbon/alien/diona/nymph, var/forced = FALSE)
+/datum/component/nymph_limb/proc/nymph_out(var/obj/item/organ/external/E, var/mob/living/carbon/alien/diona/nymph, var/forced = FALSE)
     if(nymph.client)
         nymph.client.eye = nymph
     nymph.forceMove(get_turf(E))
@@ -283,18 +299,18 @@
 
     if(forced)
         nymph.can_attach = FALSE
-        addtimer(CALLBACK(nymph, /decl/nymph_limb/.proc/can_attach, nymph), 5 MINUTES, TIMER_UNIQUE)
+        addtimer(CALLBACK(nymph, /datum/component/nymph_limb/.proc/can_attach, nymph), 5 MINUTES, TIMER_UNIQUE)
 
     E.removed(E.owner)
     qdel(E)
 
-/decl/nymph_limb/proc/can_attach(var/mob/living/carbon/alien/diona/nymph)
+/datum/component/nymph_limb/proc/can_attach(var/mob/living/carbon/alien/diona/nymph)
     if(nymph)
         nymph.can_attach = TRUE
         to_chat(nymph, span("notice", "Your body has regained enough strength to attach to a new host, if you can find one."))
 
 // For limbs created by character setup
-/decl/nymph_limb/proc/nymphize(var/mob/living/carbon/human/H, var/organ_name, var/forced = FALSE)
+/datum/component/nymph_limb/proc/nymphize(var/mob/living/carbon/human/H, var/organ_name, var/forced = FALSE)
     if(!H.should_have_limb(organ_name))
         return
     if(H.organs_by_name[organ_name])
