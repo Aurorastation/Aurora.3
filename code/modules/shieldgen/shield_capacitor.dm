@@ -6,7 +6,7 @@
 	name = "shield capacitor"
 	desc = "Machine that charges a shield generator."
 	icon = 'icons/obj/machines/shielding.dmi'
-	icon_state = "capacitor0"
+	icon_state = "capacitor"
 	obj_flags = OBJ_FLAG_ROTATABLE
 	var/active = 0
 	density = 1
@@ -151,12 +151,3 @@
 
 /obj/machinery/shield_capacitor/multiz
 	max_charge_rate = 1250000	//1250 kW
-
-/obj/machinery/shield_capacitor/update_icon()
-	if(stat & BROKEN)
-		icon_state = "broke"
-	else
-		if (src.active)
-			icon_state = "capacitor1"
-		else
-			icon_state = "capacitor0"
