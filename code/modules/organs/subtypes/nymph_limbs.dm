@@ -1,6 +1,5 @@
 // Left Leg
 /obj/item/organ/external/leg/nymph
-	var/mob/living/carbon/alien/diona/nymph
 	var/nymph_child = /obj/item/organ/external/foot/nymph
 
 /obj/item/organ/external/leg/nymph/Initialize()
@@ -16,7 +15,6 @@
 
 // Right Leg
 /obj/item/organ/external/leg/right/nymph
-	var/mob/living/carbon/alien/diona/nymph
 	var/nymph_child = /obj/item/organ/external/foot/right/nymph
 
 /obj/item/organ/external/leg/right/nymph/Initialize()
@@ -32,7 +30,6 @@
 
 // Left Arm
 /obj/item/organ/external/arm/nymph
-	var/mob/living/carbon/alien/diona/nymph
 	var/nymph_child = /obj/item/organ/external/hand/nymph
 
 /obj/item/organ/external/arm/nymph/Initialize()
@@ -48,7 +45,6 @@
 
 // Right Arm
 /obj/item/organ/external/arm/right/nymph
-    var/mob/living/carbon/alien/diona/nymph
     var/nymph_child = /obj/item/organ/external/hand/right/nymph
 
 /obj/item/organ/external/arm/right/nymph/Initialize()
@@ -128,7 +124,7 @@
 
 /datum/component/nymph_limb/proc/setup_limb(var/obj/item/organ/external/E)
     if(is_type_in_list(E, nymph_limb_types))
-        E:nymph = new /mob/living/carbon/alien/diona
+        E.nymph = new /mob/living/carbon/alien/diona
     else if(!is_type_in_list(E, nymph_extremity_types))
         return
 
@@ -143,7 +139,7 @@
 
 // Called by process()
 /datum/component/nymph_limb/proc/handle_nymph(var/obj/item/organ/external/E)
-	var/mob/living/carbon/alien/diona/limb_nymph = E:nymph
+	var/mob/living/carbon/alien/diona/limb_nymph = E.nymph
 	if(!istype(limb_nymph))
 		return FALSE
 	if(!E || !is_type_in_list(E, nymph_limb_types))
@@ -279,7 +275,7 @@
     N.nymph_in(new_nymph_limb, src)
 
 /datum/component/nymph_limb/proc/nymph_in(var/obj/item/organ/external/E, var/mob/living/carbon/alien/diona/nymph)
-    var/mob/living/carbon/alien/diona/limb_nymph = E:nymph
+    var/mob/living/carbon/alien/diona/limb_nymph = E.nymph
     if(limb_nymph)
         if(!limb_nymph.client)
             QDEL_NULL(limb_nymph)
@@ -295,7 +291,7 @@
     if(nymph.client)
         nymph.client.eye = nymph
     nymph.forceMove(get_turf(E))
-    E:nymph = null
+    E.nymph = null
 
     if(forced)
         nymph.can_attach = FALSE

@@ -101,7 +101,8 @@
 
 					if ("nymph")
 						if (organ_data[name])
-							var/datum/component/nymph_limb/D = GetComponent(/datum/component/nymph_limb)
+							O.AddComponent(/datum/component/nymph_limb)
+							var/datum/component/nymph_limb/D = O.GetComponent(/datum/component/nymph_limb)
 							if(D)
 								D.nymphize(src, O.limb_name, TRUE)
 

@@ -102,6 +102,8 @@
 	var/obj/item/organ/infect_target_internal //make internal organs become infected one at a time instead of all at once
 	var/obj/item/organ/infect_target_external //make child and parent organs become infected one at a time instead of all at once
 
+	var/mob/living/carbon/alien/diona/nymph //used by dionae limbs
+
 /obj/item/organ/external/proc/invalidate_marking_cache()
 	cached_markings = null
 
