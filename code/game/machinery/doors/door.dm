@@ -321,7 +321,7 @@
 			if (repairing)
 				transfer = stack.transfer_to(repairing, amount_needed - repairing.amount)
 				if (!transfer)
-					to_chat(user, "<span class='warning'>You must weld or remove \the [repairing] from \the [src] before you can add anything else.</span>")
+					to_chat(user, SPAN_WARNING("You must weld or remove \the [repairing] from \the [src] before you can add anything else."))
 			else
 				repairing = stack.split(amount_needed)
 				if (repairing)
