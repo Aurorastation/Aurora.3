@@ -675,6 +675,9 @@
 		if(H.client.prefs.spawnpoint)
 			spawnpos = SSatlas.spawn_locations[H.client.prefs.spawnpoint]
 
+		if(rank == "Cyborg")
+			spawnpos = new/datum/spawnpoint/cyborg
+
 		if(spawnpos && istype(spawnpos))
 			if(spawnpos.check_job_spawning(rank))
 				if(istype(spawnpos, /datum/spawnpoint/cryo) && (rank in command_positions))

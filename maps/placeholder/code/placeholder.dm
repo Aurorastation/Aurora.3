@@ -80,7 +80,7 @@
 
 	evac_controller_type = /datum/evacuation_controller/starship
 
-	spawn_types = list(/datum/spawnpoint/living_quarters_lift, /datum/spawnpoint/cryo, /datum/spawnpoint/cyborg)
+	spawn_types = list(/datum/spawnpoint/living_quarters_lift, /datum/spawnpoint/cryo)
 
 /datum/map/placeholder/finalize_load()
 	// generate an empty space Z
