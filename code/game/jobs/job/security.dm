@@ -26,11 +26,7 @@
 	minimal_player_age = 14
 	outfit = /datum/outfit/job/hos
 
-<<<<<<< HEAD
-	blacklisted_species = list(SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA_ZHAN, SPECIES_DIONA, SPECIES_IPC_HEAVY, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
-=======
-	blacklisted_species = list(SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA_ZHAN, SPECIES_DIONA, SPECIES_IPC_G2, SPECIES_IPC_ZENGHU, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
->>>>>>> Source/master
+	blacklisted_species = list(SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA_ZHAN, SPECIES_DIONA, SPECIES_IPC_HEAVY, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
 
 /datum/outfit/job/hos
 	name = "Head of Security"
@@ -92,10 +88,8 @@
 	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_external_airlocks, access_weapons)
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/warden
-<<<<<<< HEAD
-=======
-	blacklisted_species = list(SPECIES_IPC_ZENGHU, SPECIES_VAURCA_BULWARK)
->>>>>>> Source/master
+
+	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
 
 /datum/outfit/job/warden
 	name = "Warden"
@@ -151,10 +145,8 @@
 	minimal_access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_weapons)
 	minimal_player_age = 3
 	outfit = /datum/outfit/job/forensics
-<<<<<<< HEAD
-=======
-	blacklisted_species = list(SPECIES_IPC_ZENGHU, SPECIES_VAURCA_BULWARK)
->>>>>>> Source/master
+
+	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
 
 /datum/outfit/job/forensics
 	name = "Investigator"
@@ -208,10 +200,8 @@
 	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_external_airlocks, access_weapons)
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/officer
-<<<<<<< HEAD
-=======
-	blacklisted_species = list(SPECIES_IPC_ZENGHU, SPECIES_VAURCA_BULWARK)
->>>>>>> Source/master
+
+	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
 
 /datum/outfit/job/officer
 	name = "Security Officer"
@@ -262,10 +252,8 @@
 	minimal_access = list(access_security, access_sec_doors)
 	outfit = /datum/outfit/job/intern_sec
 	minimum_character_age = 18
-<<<<<<< HEAD
-=======
-	blacklisted_species = list(SPECIES_IPC_ZENGHU, SPECIES_VAURCA_BULWARK)
->>>>>>> Source/master
+
+	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
 
 /datum/outfit/job/intern_sec
 	name = "Security Cadet"
