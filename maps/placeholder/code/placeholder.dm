@@ -80,6 +80,7 @@
 
 	evac_controller_type = /datum/evacuation_controller/starship
 
+	allowed_spawns = list("Living Quarters Lift","Cryogenic Storage", "Cyborg Storage")
 
 /datum/map/placeholder/finalize_load()
 	// generate an empty space Z

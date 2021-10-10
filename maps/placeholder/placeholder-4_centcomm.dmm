@@ -1328,7 +1328,9 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/obj/machinery/computer/station_alert,
+/obj/machinery/computer/station_alert{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "adH" = (
@@ -1344,7 +1346,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "adJ" = (
-/obj/machinery/computer/security,
+/obj/machinery/computer/security{
+	dir = 8
+	},
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
@@ -1718,7 +1722,9 @@
 	},
 /area/centcom/control)
 "aeh" = (
-/obj/item/modular_computer/console/preset/security,
+/obj/item/modular_computer/console/preset/security{
+	dir = 4
+	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -1909,7 +1915,9 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/control)
 "aeB" = (
-/obj/item/modular_computer/console/preset/command,
+/obj/item/modular_computer/console/preset/command{
+	dir = 4
+	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -3936,7 +3944,9 @@
 	},
 /area/centcom/control)
 "aiH" = (
-/obj/item/modular_computer/console/preset/medical,
+/obj/item/modular_computer/console/preset/medical{
+	dir = 8
+	},
 /turf/unsimulated/floor{
 	icon = 'icons/turf/flooring/carpet.dmi';
 	icon_state = "rub_carpet"
@@ -4417,7 +4427,9 @@
 	},
 /area/centcom/specops)
 "ajI" = (
-/obj/machinery/computer/robotics,
+/obj/machinery/computer/robotics{
+	dir = 4
+	},
 /turf/unsimulated/floor{
 	icon = 'icons/turf/flooring/carpet.dmi';
 	icon_state = "rub_carpet"
@@ -4971,14 +4983,18 @@
 	},
 /area/centcom/control)
 "akS" = (
-/obj/item/modular_computer/console/preset/security,
+/obj/item/modular_computer/console/preset/security{
+	dir = 1
+	},
 /turf/unsimulated/floor{
 	icon = 'icons/turf/flooring/carpet.dmi';
 	icon_state = "rub_carpet"
 	},
 /area/centcom/control)
 "akT" = (
-/obj/machinery/computer/security,
+/obj/machinery/computer/security{
+	dir = 1
+	},
 /turf/unsimulated/floor{
 	icon = 'icons/turf/flooring/carpet.dmi';
 	icon_state = "rub_carpet"
@@ -7766,10 +7782,6 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/centcom/specops)
-"arS" = (
-/obj/structure/computerframe,
-/turf/simulated/floor/shuttle/black,
-/area/centcom/specops)
 "arT" = (
 /obj/structure/bed/chair/office/bridge/pilot{
 	dir = 1
@@ -8294,6 +8306,7 @@
 "atm" = (
 /obj/machinery/computer/rdservercontrol{
 	badmin = 1;
+	dir = 1;
 	name = "Master R&amp;D Server Controller"
 	},
 /turf/unsimulated/floor{
@@ -9253,16 +9266,6 @@
 	icon_state = "dark2"
 	},
 /area/centcom/holding)
-"avo" = (
-/obj/effect/floor_decal/corner/lime/diagonal,
-/obj/effect/ghostspawpoint{
-	identifier = "OdinDoctor";
-	name = "igs - OdinDoctor"
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark2"
-	},
-/area/centcom/holding)
 "avp" = (
 /obj/machinery/body_scanconsole{
 	dir = 4
@@ -9573,7 +9576,9 @@
 /turf/simulated/floor/carpet/blue,
 /area/shuttle/merchant)
 "avY" = (
-/obj/machinery/computer/shuttle_control/merchant,
+/obj/machinery/computer/shuttle_control/merchant{
+	dir = 8
+	},
 /obj/machinery/button/remote/blast_door{
 	dir = 8;
 	id = "merchant_airlock";
@@ -9909,16 +9914,6 @@
 	icon_state = "dark2"
 	},
 /area/centcom/control)
-"aww" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/effect/ghostspawpoint{
-	identifier = "OdinDoctor";
-	name = "igs - OdinDoctor"
-	},
-/turf/unsimulated/floor{
-	icon_state = "new_white"
-	},
-/area/centcom/holding)
 "awx" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/iv_drip,
@@ -10499,18 +10494,6 @@
 	icon_state = "dark2"
 	},
 /area/centcom/holding)
-"axG" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 10
-	},
-/obj/effect/ghostspawpoint{
-	identifier = "OdinDoctor";
-	name = "igs - OdinDoctor"
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark2"
-	},
-/area/centcom/holding)
 "axH" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 1;
@@ -11048,10 +11031,6 @@
 	req_one_access = list(33,104)
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
-/obj/effect/ghostspawpoint{
-	identifier = "OdinPharm";
-	name = "igs - OdinPharmacist"
-	},
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
@@ -11113,7 +11092,9 @@
 	},
 /area/centcom/holding)
 "ayL" = (
-/obj/item/modular_computer/console/preset/security,
+/obj/item/modular_computer/console/preset/security{
+	dir = 8
+	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -13662,7 +13643,9 @@
 	},
 /area/centcom/specops)
 "aDP" = (
-/obj/item/modular_computer/console/preset/security,
+/obj/item/modular_computer/console/preset/security{
+	dir = 4
+	},
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1"
@@ -14994,7 +14977,9 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/specops)
 "aHs" = (
-/obj/item/modular_computer/console/preset/command,
+/obj/item/modular_computer/console/preset/command{
+	dir = 8
+	},
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
@@ -15687,15 +15672,6 @@
 "aJN" = (
 /obj/structure/sink{
 	pixel_y = 26
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark2"
-	},
-/area/centcom/holding)
-"aJO" = (
-/obj/effect/ghostspawpoint{
-	identifier = "OdinJanitor";
-	name = "igs - OdinJanitor"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -16696,6 +16672,7 @@
 /area/shuttle/transport1)
 "aMr" = (
 /obj/machinery/computer/shuttle_control{
+	dir = 4;
 	req_access = null;
 	req_one_access = list(38,72);
 	shuttle_tag = "Agent Shuttle"
@@ -17921,7 +17898,9 @@
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aPn" = (
-/obj/item/modular_computer/console/preset/command,
+/obj/item/modular_computer/console/preset/command{
+	dir = 4
+	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -17940,7 +17919,9 @@
 	},
 /area/centcom/spawning)
 "aPq" = (
-/obj/item/modular_computer/console/preset/security,
+/obj/item/modular_computer/console/preset/security{
+	dir = 8
+	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -19140,6 +19121,7 @@
 /area/tdome/tdomeadmin)
 "aSG" = (
 /obj/machinery/computer/pod{
+	dir = 1;
 	id = "thunderdomeaxe";
 	name = "Thunderdome Axe Supply"
 	},
@@ -19150,6 +19132,7 @@
 /area/tdome/tdomeadmin)
 "aSH" = (
 /obj/machinery/computer/pod{
+	dir = 1;
 	id = "thunderdomegen";
 	name = "Thunderdome General Supply"
 	},
@@ -19160,6 +19143,7 @@
 /area/tdome/tdomeadmin)
 "aSI" = (
 /obj/machinery/computer/pod{
+	dir = 1;
 	id = "thunderdomehea";
 	name = "Thunderdome Heavy Supply"
 	},
@@ -19170,6 +19154,7 @@
 /area/tdome/tdomeadmin)
 "aSJ" = (
 /obj/machinery/computer/pod{
+	dir = 1;
 	id = "thunderdome";
 	name = "Thunderdome Blast Door Control"
 	},
@@ -22410,7 +22395,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/legion)
 "aZf" = (
-/obj/machinery/computer/shuttle_control/multi/legion,
+/obj/machinery/computer/shuttle_control/multi/legion{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/legion)
 "aZg" = (
@@ -55751,7 +55738,7 @@ aoo
 apu
 aqn
 aqZ
-arS
+aqn
 atb
 alR
 abl
@@ -62180,9 +62167,9 @@ arZ
 atj
 aug
 avh
-aww
+awy
 axD
-aww
+awy
 azE
 aug
 aAY
@@ -64235,9 +64222,9 @@ ari
 asd
 adV
 auj
-avo
+avn
 awB
-axG
+axF
 avn
 azL
 aug
@@ -64256,7 +64243,7 @@ aAV
 aBR
 aIC
 aJf
-aJO
+ayK
 aKq
 aug
 aHU

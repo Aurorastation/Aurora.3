@@ -58,3 +58,12 @@
 /datum/spawnpoint/cyborg/New()
 	..()
 	turfs = latejoin_cyborg
+
+/datum/spawnpoint/living_quarters_lift
+	display_name = "Arrivals Shuttle"
+	msg = "is inbound from the living quarters"
+	disallow_job = list("Cyborg", "Merchant")
+
+/datum/spawnpoint/living_quarters_lift/New()
+	..()
+	turfs = latejoin_living_quarters_lift
