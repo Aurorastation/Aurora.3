@@ -23,6 +23,14 @@
 	accent to be more properly Eridanian."
 	tag_icon = "eridani"
 
+/datum/accent/eridani_reinstated
+	name = ACCENT_ERIDANIREINSTATED
+	description = "The clipped and clinical tones of proper \"corporate\" speech in Eridani are difficult to perfect even for those born into positions of privilege. \
+	For those unfortunate individuals born outside Eridani's shining skyscrapers and silver spires, the distinctly uncorporate flow of \"dreg\" speech can make attaining \
+	the standard Eridanian accent almost impossible to fully achieve. The curious middle-ground accent of the so-called \"reinstated\ in Eridani society allows an individual \
+	to go much further than its more criminally-aligned counterpart, but still falls short of most suits' expectations."
+	tag_icon = "eridani_reinstated"
+
 /datum/accent/eridani_dreg
 	name = ACCENT_ERIDANIDREG
 	description = "The Eridanian \"dreg\" accent is almost universally looked upon as the accent of petty criminals and ne'er-do-wells throughout the Orion Spur. \
