@@ -21,8 +21,8 @@
 	generate with NanoTrasen the better. Just think of that bonus.</li>
 	<li><b>Idris Reclamation Unit X3265FH</b>: As a shell belonging to Idris you
 	are not free. You are programmed to defer to NT security and the Head of
-	Security. Your customer service skills are excellent however your notorious
-	"strong arm" skills can be utilised the security team if authorised. Your
+	Security. Your customer service skills are excellent, however your notorious
+	"strong arm" skills can also be utilised by the security team if authorised. Your
 	default state is good customer service. That being said your programming prioritises
 	the protection and safety of other Idris employees so long as this will not
 	breach NT regulations. You are programmed to never strong arm an Idris employee.

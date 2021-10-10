@@ -337,3 +337,25 @@
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/tajara_charm
+	display_name = "charms and talismans"
+	description = "Charms and talismans often thought of to bring good luck, or of religious significance."
+	path = /obj/item/clothing/accessory/tajaran/charm
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_NAME_SELECTION
+
+/datum/gear/accessory/tajara_charm/New()
+	..()
+	var/list/charm = list()
+	charm["wooden charm"] = /obj/item/clothing/accessory/tajaran/charm
+	charm["stone charm"] = /obj/item/clothing/accessory/tajaran/charm/stone
+	charm["steel charm"] = /obj/item/clothing/accessory/tajaran/charm/steel
+	charm["silver charm"] = /obj/item/clothing/accessory/tajaran/charm/steel/silver
+	charm["bone charm"] = /obj/item/clothing/accessory/tajaran/charm/bone
+	charm["silver seashell charm"] = /obj/item/clothing/accessory/tajaran/charm/steel/silver/seashell
+	charm["tajani charm"] = /obj/item/clothing/accessory/tajaran/charm/tajani
+	charm["holy sun rosette"] = /obj/item/clothing/accessory/tajaran/srendarr
+	gear_tweaks += new /datum/gear_tweak/path(charm)
+	

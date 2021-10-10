@@ -6,13 +6,13 @@
 	item_state = "icelance"
 	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/laser1.ogg'
-	max_shots = 3
+	max_shots = 5
 	accuracy = -1
 	accuracy_wielded = 2
 	fire_delay = 10
 	fire_delay_wielded = 8
 	origin_tech = list(TECH_COMBAT = 1, TECH_MAGNET = 1)
-	projectile_type = /obj/item/projectile/beam
+	projectile_type = /obj/item/projectile/beam/midlaser/ice
 	secondary_projectile_type = null
 	secondary_fire_sound = null
 	charge_failure_message = "'s charging socket was removed to make room for a crank."

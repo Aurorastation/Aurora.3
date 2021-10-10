@@ -15,6 +15,7 @@
 	access = list(access_lawyer, access_maint_tunnels)
 	minimal_access = list(access_lawyer)
 	outfit = /datum/outfit/job/representative
+	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
 
 /datum/outfit/job/representative
 	name = "NanoTrasen Corporate Liaison"
@@ -95,6 +96,7 @@
 	access = list(access_consular, access_maint_tunnels)
 	minimal_access = list(access_consular)
 	outfit = /datum/outfit/job/representative/consular
+	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
 
 /datum/job/consular/get_outfit(mob/living/carbon/human/H, alt_title = null)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]

@@ -90,11 +90,11 @@
 	var/rolled = FALSE
 
 /obj/item/clothing/accessory/dressshirt/update_clothing_icon()
+	var/mob/M = loc
 	if(ismob(loc))
-		var/mob/M = loc
 		M.update_inv_wear_suit()
-	get_accessory_mob_overlay(TRUE)
-	get_inv_overlay(TRUE)
+	get_accessory_mob_overlay(M, TRUE)
+	get_inv_overlay(M, TRUE)
 
 /obj/item/clothing/accessory/dressshirt/verb/roll_up_shirt_sleeves()
 	set name = "Roll Up Shirt Sleeves"

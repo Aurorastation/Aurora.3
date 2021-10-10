@@ -27,7 +27,8 @@
 		/datum/species/skrell,
 		/datum/species/tajaran,
 		/datum/species/unathi,
-		/datum/species/bug,
+		/datum/species/bug = TRUE,
+		/datum/species/bug/type_b = TRUE,
 		/datum/species/machine
 	)
 
