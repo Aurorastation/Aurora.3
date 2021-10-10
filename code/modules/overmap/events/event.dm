@@ -169,9 +169,8 @@
 	icon = 'icons/obj/overmap.dmi'
 	icon_state = "event"
 	opacity = 1
-	color = "#880000"
 	var/list/events
-	var/list/event_icon_states
+	var/list/event_icon_states = list("event")
 	var/difficulty = EVENT_LEVEL_MODERATE
 	var/list/victims //basically cached events on which Z level
 
@@ -204,21 +203,18 @@
 	events = list(/datum/event/meteor_wave/overmap)
 	event_icon_states = list("meteor1", "meteor2", "meteor3", "meteor4")
 	difficulty = EVENT_LEVEL_MAJOR
-	color = "#a08444"
 
 /obj/effect/overmap/event/electric
 	name = "electrical storm"
 	events = list(/datum/event/electrical_storm)
 	opacity = 0
-	event_icon_states = list("electrical1", "electrical2", "electrical3", "electrical4")
+	event_icon_states = list("electrical1", "electrical2")
 	difficulty = EVENT_LEVEL_MAJOR
-	color = "#e8e85c"
 
 /obj/effect/overmap/event/dust
 	name = "dust cloud"
 	events = list(/datum/event/meteor_wave/dust/overmap)
 	event_icon_states = list("dust1", "dust2", "dust3", "dust4")
-	color = "#6c6c6c"
 
 /obj/effect/overmap/event/ion
 	name = "ion cloud"
@@ -226,27 +222,22 @@
 	opacity = 0
 	event_icon_states = list("ion1", "ion2", "ion3", "ion4")
 	difficulty = EVENT_LEVEL_MAJOR
-	color = "#7cb4d4"
 
 /obj/effect/overmap/event/carp
 	name = "carp shoal"
 	events = list(/datum/event/carp_migration/overmap)
 	opacity = 0
 	difficulty = EVENT_LEVEL_MODERATE
-	event_icon_states = list("carp1", "carp2")
-	color = "#783ca4"
+	event_icon_states = list("carp")
 
 /obj/effect/overmap/event/carp/major
 	name = "carp school"
 	difficulty = EVENT_LEVEL_MAJOR
-	event_icon_states = list("carp3", "carp4")
 
 /obj/effect/overmap/event/gravity
 	name = "dark matter influx"
 	events = list(/datum/event/gravity)
-	event_icon_states = list("grav1", "grav2", "grav3", "grav4")
 	opacity = 0
-	color = "#321945"
 
 //These now are basically only used to spawn hazards. Will be useful when we need to spawn group of moving hazards
 /datum/overmap_event
