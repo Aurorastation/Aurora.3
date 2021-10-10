@@ -73,7 +73,7 @@
 	)
 
 	flags = IS_IPC
-	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR | HAS_UNDERWEAR | HAS_SOCKS
+	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR | HAS_UNDERWEAR | HAS_SOCKS | HAS_EYE_COLOR
 	spawn_flags = CAN_JOIN | IS_WHITELISTED | NO_AGE_MINIMUM
 
 	blood_type = "oil"
@@ -216,7 +216,15 @@
 /datum/species/machine/get_light_color(mob/living/carbon/human/H)
 	if (!istype(H))
 		return null
+	
+	// if (BP_HEAD == list("path" = /obj/item/organ/external/head/ipc))
+	// 	eyes = "blank_eyes"
+	// else if (BP_HEAD == list("path" = /obj/item/organ/external/head/ipc/industrial/zenghu))
+	// 	eyes = "zenghu_eyes"
+	// else if (BP_HEAD == list("path" = /obj/item/organ/external/head/ipc/industrial/bishop))
+	// 	eyes = "bishop_eyes"
 
+	log_and_message_admins("head is [BP_HEAD]")
 	// I hate this, but I can't think of a better way that doesn't involve
 	// rewriting hair.
 	switch (H.f_style)
@@ -323,6 +331,7 @@
 			return LIGHT_COLOR_ORANGE
 
 		if ("idris IPC screen")
+			eyes = "blank_eyes"
 			return LIGHT_COLOR_CYAN
 
 		if ("zavodskoi IPC screen")
@@ -347,6 +356,7 @@
 			return LIGHT_COLOR_YELLOW
 
 		if ("eridani IPC screen")
+			eyes = "bishop_eyes"
 			return "#FFFFFF"
 
 		if ("burzsia IPC screen")
@@ -354,6 +364,9 @@
 
 		if ("trinary perfection IPC screen")
 			return LIGHT_COLOR_RED
+
+		if ("Shaved")
+			return rgb(H.r_eyes, H.g_eyes, H.b_eyes)
 
 /datum/species/machine/before_equip(var/mob/living/carbon/human/H)
 	. = ..()

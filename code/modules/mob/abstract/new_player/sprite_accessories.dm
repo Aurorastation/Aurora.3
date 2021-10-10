@@ -1797,7 +1797,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "bald"
 		gender = NEUTER
 		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi,
-		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell,/datum/species/diona)
+		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell,/datum/species/diona, /datum/species/machine)
 
 	threeOclock
 		name = "3 O'clock Shadow"
@@ -4389,7 +4389,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_blend_mode = ICON_MULTIPLY
 		is_painted = TRUE
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM,BP_GROIN,BP_CHEST,BP_HEAD)
-		species_allowed = list(/datum/species/machine/industrial)
+		species_allowed = list(/datum/species/machine/industrial, /datum/species/machine/industrial/hephaestus)
 
 		g1_head
 			name = "G1 - Head Panel Colors"
@@ -4470,7 +4470,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_blend_mode = ICON_MULTIPLY
 		is_painted = TRUE
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM,BP_GROIN,BP_CHEST,BP_HEAD)
-		species_allowed = list(/datum/species/machine/industrial/xion)
+		species_allowed = list(/datum/species/machine/industrial/xion, /datum/species/machine/industrial/hephaestus)
 
 		xion_head
 			name = "Xion - Head Panel Colors"

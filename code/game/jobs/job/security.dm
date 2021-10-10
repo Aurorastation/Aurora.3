@@ -88,7 +88,6 @@
 	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_external_airlocks, access_weapons)
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/warden
-
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
 
 /datum/outfit/job/warden
@@ -145,7 +144,6 @@
 	minimal_access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_weapons)
 	minimal_player_age = 3
 	outfit = /datum/outfit/job/forensics
-
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
 
 /datum/outfit/job/forensics
@@ -200,7 +198,6 @@
 	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_external_airlocks, access_weapons)
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/officer
-
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
 
 /datum/outfit/job/officer
@@ -252,7 +249,6 @@
 	minimal_access = list(access_security, access_sec_doors)
 	outfit = /datum/outfit/job/intern_sec
 	minimum_character_age = 18
-
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
 
 /datum/outfit/job/intern_sec
