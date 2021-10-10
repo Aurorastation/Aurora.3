@@ -9,7 +9,7 @@ var/global/list/minor_air_alarms = list()
 	desc = "Used to access the station's atmospheric sensors."
 	circuit = /obj/item/circuitboard/atmos_alert
 
-	icon_screen = "alert:0"
+	icon_screen = "engi"
 	light_color = LIGHT_COLOR_CYAN
 
 /obj/machinery/computer/atmos_alert/Initialize()
@@ -48,11 +48,11 @@ var/global/list/minor_air_alarms = list()
 	if(!(stat & (NOPOWER|BROKEN)))
 		var/list/alarms = atmosphere_alarm.major_alarms()
 		if(alarms.len)
-			icon_screen = "alert:2"
+			icon_screen = "engi_alarm_on"
 		else
 			alarms = atmosphere_alarm.minor_alarms()
 			if(alarms.len)
-				icon_screen = "alert:1"
+				icon_screen = "engi_alarm_off"
 			else
 				icon_screen = initial(icon_screen)
 	..()

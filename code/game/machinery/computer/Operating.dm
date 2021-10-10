@@ -6,8 +6,8 @@
 	density = TRUE
 	anchored = TRUE
 
-	light_color = LIGHT_COLOR_CYAN
-	icon_screen = "crew"
+	light_color = LIGHT_COLOR_GREEN
+	icon_screen = "med"
 	circuit = /obj/item/circuitboard/operating
 	var/mob/living/carbon/human/victim = null
 	var/obj/machinery/optable/table = null

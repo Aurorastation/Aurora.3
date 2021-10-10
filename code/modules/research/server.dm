@@ -200,7 +200,7 @@
 	name = "R&D server controller"
 	desc = "A console use to operate a RnD server, such as locking it, wiping it, or downloading its stored research."
 
-	icon_screen = "rdcomp"
+	icon_screen = "sci"
 	light_color = "#a97faa"
 	circuit = /obj/item/circuitboard/rdservercontrol
 	var/screen = 0

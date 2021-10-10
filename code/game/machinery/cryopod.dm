@@ -244,11 +244,10 @@ var/global/list/frozen_crew = list()
 /obj/machinery/cryopod/living_quarters
 	name = "living quarters lift"
 	desc = "A lift heading to the ship's living quarters."
-	icon = 'icons/obj/robot_storage.dmi'
-	icon = 'icons/obj/doors/Doorint.dmi'
-	icon_state = "door_open"
-	base_icon_state = "door_open"
-	occupied_icon_state = "door_closed"
+	icon = 'icons/obj/crew_quarters_lift.dmi'
+	icon_state = "lift_open"
+	base_icon_state = "lift_open"
+	occupied_icon_state = "lift_occupied"
 	on_store_message = "has departed for the living quarters."
 	on_store_name = "Living Quarters Oversight"
 	on_enter_occupant_message = "The elevator door closes slowly, ready to bring you down to the living quarters."
