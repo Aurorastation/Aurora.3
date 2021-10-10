@@ -1,0 +1,7 @@
+author: Forester40
+
+delete-after: True
+
+changes:
+  - spellcheck: "Fixes various typos in holo-warrants, the blurbs for Idris and Zavodskoi, the message you get after using a himeo voidsuit modkit, and the descriptions for TCFL uniforms, NT overalls, matter bins and default voidsuit modkits."
+  - backend: "Deletes the lines of code for the descriptions of the upgraded versions of micro manipulators, matter bins and micro lasers, since they were identical to the descriptions of the base parts which the upgraded parts already inherit the descriptions of."

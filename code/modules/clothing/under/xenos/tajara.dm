@@ -23,7 +23,7 @@
 
 /obj/item/clothing/under/tajaran/nt
 	name = "NanoTrasen overalls"
-	desc = "Overalls meant for NanoTrasen employees of xeno descend, modified to prevent overheating."
+	desc = "Overalls meant for NanoTrasen employees of xeno descent, modified to prevent overheating."
 	icon_state = "ntoveralls"
 	item_state = "ntoveralls"
 
