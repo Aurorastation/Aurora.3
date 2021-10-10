@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added a fullscreen mode. Head to the Preferences tab and hit Toggle Fullscreen Preference to enable it."
