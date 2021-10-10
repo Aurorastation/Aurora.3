@@ -27,7 +27,7 @@
 	name = ACCENT_ERIDANIREINSTATED
 	description = "The clipped and clinical tones of proper \"corporate\" speech in Eridani are difficult to perfect even for those born into positions of privilege. \
 	For those unfortunate individuals born outside Eridani's shining skyscrapers and silver spires, the distinctly uncorporate flow of \"dreg\" speech can make attaining \
-	the standard Eridanian accent almost impossible to fully achieve. The curious middle-ground accent of the so-called \"reinstated\ in Eridani society allows an individual \
+	the standard Eridanian accent almost impossible to fully achieve. The curious middle-ground accent of the so-called \"reinstated\" in Eridani society allows an individual \
 	to go much further than its more criminally-aligned counterpart, but still falls short of most suits' expectations."
 	tag_icon = "eridani_reinstated"
 
