@@ -483,8 +483,8 @@ var/global/list/frozen_crew = list()
 			to_chat(user, SPAN_NOTICE("You stop [L == user ? "climbing into" : "putting [L] into"] \the [name]."))
 			return
 
-		to_chat(L, SPAN_NOTICE("You feel cool air surround you. You go numb as your senses turn inward."))
-		to_chat(L, SPAN_DANGER("Press Ghost in the OOC tab to cryo, your character will shortly be removed from the round and the slot you occupy will be freed."))
+		to_chat(L, SPAN_NOTICE("[on_enter_occupant_message]"))
+		to_chat(L, SPAN_DANGER("Press Ghost in the OOC tab to leave, your character will shortly be removed from the round and the slot you occupy will be freed."))
 		set_occupant(L)
 		update_icon()
 
@@ -555,7 +555,7 @@ var/global/list/frozen_crew = list()
 		update_icon()
 
 		to_chat(usr, SPAN_NOTICE("[on_enter_occupant_message]"))
-		to_chat(usr, SPAN_DANGER("Press Ghost in the OOC tab to cryo, your character will shortly be removed from the round and the slot you occupy will be freed."))
+		to_chat(usr, SPAN_DANGER("Press Ghost in the OOC tab to leave, your character will shortly be removed from the round and the slot you occupy will be freed."))
 
 		if(isipc(usr))
 			var/choice = alert(usr, "Would you like to save your tag data?", "Tag Persistence", "Yes", "No")

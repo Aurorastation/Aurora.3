@@ -500,7 +500,7 @@
 			Debug("EP/([H]): Abort, H is AI.")
 			return EquipRank(H, rank, 1)
 
-	if(!current_map.command_spawn_enabled || spawning_at != "Arrivals Shuttle" && spawning_at != "Cryogenic Storage")
+	if(!current_map.command_spawn_enabled || spawning_at != "Arrivals Shuttle" && spawning_at != "Cryogenic Storage"  && spawning_at != "Living Quarters Lift")
 		return EquipRank(H, rank, 1)
 
 	H.centcomm_despawn_timer = addtimer(CALLBACK(H, /mob/living/.proc/centcomm_timeout), 10 MINUTES, TIMER_STOPPABLE)
@@ -509,7 +509,7 @@
 
 	H.job = rank
 
-	if(spawning_at != "Arrivals Shuttle" && spawning_at != "Cryogenic Storage" || job.latejoin_at_spawnpoints)
+	if(spawning_at != "Arrivals Shuttle" && spawning_at != "Cryogenic Storage" && spawning_at != "Living Quarters Lift" || job.latejoin_at_spawnpoints)
 		return EquipRank(H, rank, 1)
 
 	var/list/spawn_in_storage = list()
