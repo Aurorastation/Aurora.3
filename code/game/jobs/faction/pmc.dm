@@ -1,4 +1,4 @@
-/datum/faction/eridani_pmc
+/datum/faction/pmc
 	name = "Eridani Private Military Contractors"
 	description = {"<p>Essentially the security branch of the Eridani Federation
 	Military, the EPMC is renowned for its brutal yet efficient and above all
@@ -20,7 +20,9 @@
 	to work. Remember, your fine quota still applies, you don't want to miss out on
 	your bonus because you didn't hit target. After all, it is a substantial bonus.</li>
 	</ul></p>"}
-	title_suffix = "EPMC"
+	title_suffix = "PMC"
+
+	allowed_role_types = NT_ROLES
 
 	allowed_species_types = list(
 		/datum/species/human,
@@ -44,30 +46,3 @@
 		)
 	)
 
-/datum/outfit/job/officer/eridani
-	name = "Security Officer - Eridani"
-	uniform = /obj/item/clothing/under/rank/security/eridani
-	id = /obj/item/card/id/eridani
-
-/datum/outfit/job/warden/eridani
-	name = "Warden - Eridani"
-	uniform = /obj/item/clothing/under/rank/security/eridani
-	id = /obj/item/card/id/eridani
-
-/datum/outfit/job/forensics/eridani
-	name = "Forensic Technician - Eridani"
-	uniform = /obj/item/clothing/under/rank/security/eridani
-	id = /obj/item/card/id/eridani
-
-/datum/outfit/job/med_tech/paramed/eridani
-	name = "Paramedic - Eridani"
-	uniform = /obj/item/clothing/under/rank/eridani_medic
-	id = /obj/item/card/id/eridani
-
-/datum/outfit/job/representative/eridani
-	name = "Eridani Corporate Liaison"
-	uniform = /obj/item/clothing/under/rank/security/eridani/alt
-	head = null
-	suit = null
-	implants = null
-	id = /obj/item/card/id/eridani

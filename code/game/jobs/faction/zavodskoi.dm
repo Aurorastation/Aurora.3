@@ -29,7 +29,11 @@
 	the shareholders if you were found beating a drunk like some kind of NanoTrasen officer.
 	The reputation would last, but your career certainly wouldn't.</li>
 	</ul></p>"}
+
 	title_suffix = "Zavod"
+
+	allowed_role_types = ZAVOD_ROLES
+
 	allowed_species_types = list(
 		/datum/species/human,
 		/datum/species/skrell,
@@ -54,36 +58,3 @@
 		)
 	)
 
-/datum/outfit/job/officer/zavodskoi
-	name = "Security Officer - Zavodskoi Interstellar"
-	uniform = /obj/item/clothing/under/rank/security/zavodskoi
-	id = /obj/item/card/id/zavodskoi/sec
-
-/datum/outfit/job/warden/zavodskoi
-	name = "Warden - Zavodskoi Interstellar"
-	uniform = /obj/item/clothing/under/rank/security/zavodskoi
-	id = /obj/item/card/id/zavodskoi/sec
-
-/datum/outfit/job/scientist/zavodskoi
-	name = "Scientist - Zavodskoi Interstellar"
-	uniform = /obj/item/clothing/under/rank/zavodskoi/research
-	id = /obj/item/card/id/zavodskoi
-
-/datum/outfit/job/doctor/zavodskoi
-	name = "Physician - Zavodskoi Interstellar"
-	uniform = /obj/item/clothing/under/rank/zavodskoi/research
-	id = /obj/item/card/id/zavodskoi
-
-/datum/outfit/job/representative/zavodskoi
-	name = "Zavodskoi Interstellar Corporate Liaison"
-	uniform = /obj/item/clothing/under/rank/zavodskoi
-	head = null
-	suit = null
-	implants = null
-	id = /obj/item/card/id/zavodskoi
-
-	backpack_contents = list(
-		/obj/item/device/camera = 1,
-		/obj/item/gun/projectile/pistol = 1,
-		/obj/item/stamp/zavodskoi = 1
-	)

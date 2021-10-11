@@ -27,7 +27,10 @@
 	Zeng-Hu expects the best from you, Doctor. Do not fail us or our shareholders in Eridani, or
 	you will find your career failing in short order.</li>
 	</ul></p>"}
+
 	title_suffix = "Zeng"
+
+	allowed_role_types = HEPH_ROLES
 
 	allowed_species_types = list(
 		/datum/species/human,
@@ -50,46 +53,3 @@
 		)
 	)
 
-/datum/outfit/job/doctor/zeng_hu
-	name = "Physician - Zeng-Hu"
-	uniform = /obj/item/clothing/under/rank/zeng
-	id = /obj/item/card/id/zeng_hu
-
-/datum/outfit/job/pharmacist/zeng_hu
-	name = "Pharmacist - Zeng-Hu"
-	uniform = /obj/item/clothing/under/rank/zeng
-	id = /obj/item/card/id/zeng_hu
-
-/datum/outfit/job/psychiatrist/zeng_hu
-	name = "Psychiatrist - Zeng-Hu"
-	uniform = /obj/item/clothing/under/rank/zeng
-	id = /obj/item/card/id/zeng_hu
-
-/datum/outfit/job/psychiatrist/zeng_hu
-	name = "Psychiatrist - Zeng-Hu"
-	uniform = /obj/item/clothing/under/rank/zeng
-	id = /obj/item/card/id/zeng_hu
-
-/datum/outfit/job/med_tech/paramed/zeng_hu
-	name = "Paramedic - Zeng-Hu"
-	uniform = /obj/item/clothing/under/rank/zeng
-	id = /obj/item/card/id/zeng_hu
-
-/datum/outfit/job/scientist/xenobiologist/zeng_hu
-	name = "Xenobiologist - Zeng-Hu"
-	uniform = /obj/item/clothing/under/rank/zeng
-	id = /obj/item/card/id/zeng_hu
-
-/datum/outfit/job/representative/zeng_hu
-	name = "Zeng-Hu Corporate Liaison"
-	uniform = /obj/item/clothing/under/rank/zeng/civilian
-	head = null
-	suit = null
-	implants = null
-	id = /obj/item/card/id/zeng_hu
-
-	backpack_contents = list(
-		/obj/item/device/camera = 1,
-		/obj/item/gun/energy/pistol = 1,
-		/obj/item/stamp/zeng_hu = 1
-	)

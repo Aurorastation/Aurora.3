@@ -29,7 +29,10 @@
 	You may be on lease to NT but remember you still belong to a much more sophisticated
 	and superior company - Idris.</li>
 	</ul></p>"}
+
 	title_suffix = "Idris"
+
+	allowed_role_types = IDRIS_ROLES
 
 	allowed_species_types = list(
 		/datum/species/human,

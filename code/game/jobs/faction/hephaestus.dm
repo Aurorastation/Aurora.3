@@ -33,8 +33,10 @@
 	equipment to last, and your products are no exception - even if they're being produced
 	on contract.</li>
 	</ul></p>"}
+
 	title_suffix = "Hepht"
 
+	allowed_role_types = HEPH_ROLES
 
 	allowed_species_types = list(
 		/datum/species/human,
