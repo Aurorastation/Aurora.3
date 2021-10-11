@@ -213,18 +213,21 @@
 			var/DBQuery/update_query = dbcon.NewQuery("UPDATE ss13_ipc_tracking SET tag_status = :status: WHERE player_ckey = :ckey: AND character_name = :character_name:")
 			update_query.Execute(query_details)
 
+/datum/species/machine/get_eyes(mob/living/carbon/human/H)
+	var/obj/item/organ/external/head/head = H.get_organ(BP_HEAD)
+	switch(head.name)
+		if("Zeng-Hu Pharmaceuticals head")
+			return "zenghu_eyes"
+		if("Bishop Cybernetics head")
+			return "bishop_eyes"
+		if("Unbranded head")
+			return "eyes_s"
+	return eyes
+
 /datum/species/machine/get_light_color(mob/living/carbon/human/H)
 	if (!istype(H))
 		return null
-	
-	// if (BP_HEAD == list("path" = /obj/item/organ/external/head/ipc))
-	// 	eyes = "blank_eyes"
-	// else if (BP_HEAD == list("path" = /obj/item/organ/external/head/ipc/industrial/zenghu))
-	// 	eyes = "zenghu_eyes"
-	// else if (BP_HEAD == list("path" = /obj/item/organ/external/head/ipc/industrial/bishop))
-	// 	eyes = "bishop_eyes"
 
-	log_and_message_admins("head is [BP_HEAD]")
 	// I hate this, but I can't think of a better way that doesn't involve
 	// rewriting hair.
 	switch (H.f_style)
@@ -331,7 +334,6 @@
 			return LIGHT_COLOR_ORANGE
 
 		if ("idris IPC screen")
-			eyes = "blank_eyes"
 			return LIGHT_COLOR_CYAN
 
 		if ("zavodskoi IPC screen")
@@ -356,7 +358,6 @@
 			return LIGHT_COLOR_YELLOW
 
 		if ("eridani IPC screen")
-			eyes = "bishop_eyes"
 			return "#FFFFFF"
 
 		if ("burzsia IPC screen")

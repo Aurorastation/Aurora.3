@@ -90,6 +90,13 @@
 /datum/species/machine/shell/handle_death(var/mob/living/carbon/human/H)
 	return
 
+/datum/species/machine/shell/get_eyes(mob/living/carbon/human/H)
+	var/obj/item/organ/external/head/head = H.get_organ(BP_HEAD)
+	switch(head.name)
+		if("Unbranded head")
+			return "eyes_s"
+	return eyes
+
 /datum/species/machine/shell/rogue
 	name = SPECIES_IPC_SHELL_ROGUE
 	short_name = "roguejak"
@@ -355,6 +362,15 @@
 /datum/species/machine/industrial/hephaestus/get_light_color(mob/living/carbon/human/H)
 	if (istype(H))
 		return rgb(H.r_eyes, H.g_eyes, H.b_eyes)
+
+/datum/species/machine/industrial/hephaestus/get_eyes(mob/living/carbon/human/H)
+	var/obj/item/organ/external/head/head = H.get_organ(BP_HEAD)
+	switch(head.name)
+		if("Xion Manufacturing Group head")
+			return "xion_eyes"
+		if("Unbranded head")
+			return "eyes_s"
+	return eyes
 
 /datum/species/machine/industrial/xion
 	name = SPECIES_IPC_XION

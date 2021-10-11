@@ -271,7 +271,7 @@
 	var/list/alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH, BP_APPENDIX) //what internal organs can be changed in character setup
 
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
-	return
+	return eyes
 
 /datum/species/New()
 	if(hud_type)

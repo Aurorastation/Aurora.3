@@ -69,11 +69,11 @@
 			if (eyes.eye_colour)
 				eyecolor = rgb(eyes.eye_colour[1], eyes.eye_colour[2], eyes.eye_colour[3])
 
-			var/cache_key = "[species.eyes]_[eyecolor || "nocolor"]"
+			var/cache_key = "[species.get_eyes(owner)]_[eyecolor || "nocolor"]"
 
 			var/icon/eyes_icon = SSicon_cache.human_eye_cache[cache_key]
 			if (!eyes_icon)
-				eyes_icon = new/icon(species.eyes_icons, species.eyes)
+				eyes_icon = new/icon(species.eyes_icons, species.get_eyes(owner))
 				if(eyecolor)
 					eyes_icon.Blend(eyecolor, species.eyes_icon_blend)
 				else
@@ -108,7 +108,7 @@
 		return
 	var/datum/vampire/vampire = H.mind.antag_datums[MODE_VAMPIRE]
 	if(vampire && (vampire.status & VAMP_FRENZIED))
-		var/image/return_image = image(H.species.eyes_icons, H, "[H.species.eyes]_frenzy", EFFECTS_ABOVE_LIGHTING_LAYER)
+		var/image/return_image = image(H.species.eyes_icons, H, "[H.species.get_eyes(H)]_frenzy", EFFECTS_ABOVE_LIGHTING_LAYER)
 		return_image.appearance_flags = KEEP_APART
 		LAZYADD(additional_images, return_image)
 		return list(return_image)
