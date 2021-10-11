@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - tweak: "The rampant vending machine event now has the announcement say which type of vending machine was initially infected. Quick response will nip outbreaks in the bud before they spread everywhere."
