@@ -37,8 +37,7 @@
 /area/maintenance/engineering_ladder)
 "ah" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = null;
-	req_one_access = list(12,66)
+	req_one_access = list(12)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/engineering_ladder)
@@ -397,11 +396,10 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/maintenance{
-	req_access = null;
-	req_one_access = list(12,66)
-	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/maintenance{
+	req_one_access = list(12)
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aW" = (
@@ -504,8 +502,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/maintenance{
-	req_access = null;
-	req_one_access = list(12,66)
+	req_one_access = list(12)
 	},
 /turf/simulated/floor,
 /area/hallway/primary/starboard)
@@ -2013,7 +2010,7 @@
 	pixel_y = 28
 	},
 /obj/effect/landmark/start{
-	name = "Crew Member"
+	name = "Passenger"
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/lounge)
@@ -2174,7 +2171,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/start{
-	name = "Crew Member"
+	name = "Off-Duty Crew Member"
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/lounge/secondary)
@@ -2740,8 +2737,7 @@
 /area/bridge)
 "gu" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = null;
-	req_one_access = list(12,66)
+	req_one_access = list(12)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3260,11 +3256,10 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/fitness/pool)
 "hL" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = null;
-	req_one_access = list(12,66)
-	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/maintenance{
+	req_one_access = list(12)
+	},
 /turf/simulated/floor,
 /area/hallway/primary/starboard)
 "hM" = (
@@ -4495,6 +4490,9 @@
 /obj/structure/bed/chair/comfy/brown{
 	dir = 8
 	},
+/obj/effect/landmark/start{
+	name = "Passenger"
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/lounge)
 "kN" = (
@@ -5472,8 +5470,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_access = null;
-	req_one_access = list(12,66)
+	req_one_access = list(12)
 	},
 /turf/simulated/floor,
 /area/crew_quarters/sleep/cryo)
@@ -6799,8 +6796,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/maintenance{
-	req_access = null;
-	req_one_access = list(12,66)
+	req_one_access = list(12)
 	},
 /turf/simulated/floor,
 /area/hallway/primary/starboard)
@@ -7364,7 +7360,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/start{
-	name = "Crew Member"
+	name = "Passenger"
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/lounge)
@@ -7452,7 +7448,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/start{
-	name = "Crew Member"
+	name = "Off-Duty Crew Member"
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/lounge/secondary)
@@ -8017,7 +8013,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/start{
-	name = "Crew Member"
+	name = "Passenger"
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/lounge)
@@ -8128,11 +8124,10 @@
 /turf/simulated/floor/plating,
 /area/hallway/crew_area)
 "tD" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = null;
-	req_one_access = list(12,66)
-	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/maintenance{
+	req_one_access = list(12)
+	},
 /turf/simulated/floor/tiled,
 /area/maintenance/security_starboard)
 "tE" = (
@@ -8270,6 +8265,9 @@
 /area/hallway/medical/upper)
 "tT" = (
 /obj/structure/bed/chair/comfy/brown,
+/obj/effect/landmark/start{
+	name = "Passenger"
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/lounge)
 "tW" = (
@@ -10267,7 +10265,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/start{
-	name = "Crew Member"
+	name = "Off-Duty Crew Member"
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/lounge/secondary)
@@ -11053,6 +11051,9 @@
 /obj/machinery/newscaster{
 	pixel_x = 32
 	},
+/obj/effect/landmark/start{
+	name = "Passenger"
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/lounge)
 "Bn" = (
@@ -11585,8 +11586,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "CF" = (
-/obj/machinery/door/airlock/maintenance,
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/maintenance{
+	req_one_access = list(12)
+	},
 /turf/simulated/floor,
 /area/crew_quarters/fitness)
 "CH" = (
@@ -12092,8 +12095,7 @@
 "Ee" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance{
-	req_access = null;
-	req_one_access = list(12,66)
+	req_one_access = list(12)
 	},
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
@@ -12366,7 +12368,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/start{
-	name = "Crew Member"
+	name = "Off-Duty Crew Member"
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/lounge/secondary)
@@ -12571,6 +12573,9 @@
 	dir = 4
 	},
 /obj/machinery/firealarm/west,
+/obj/effect/landmark/start{
+	name = "Passenger"
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/lounge)
 "Fz" = (
@@ -12641,8 +12646,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/door/airlock/maintenance,
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/maintenance{
+	req_one_access = list(12)
+	},
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "FF" = (
@@ -14289,11 +14296,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "JG" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = null;
-	req_one_access = list(12,66)
-	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/maintenance{
+	req_one_access = list(12)
+	},
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
 "JH" = (
@@ -15279,7 +15285,7 @@
 	dir = 8
 	},
 /obj/effect/landmark/start{
-	name = "Crew Member"
+	name = "Passenger"
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/lounge)
@@ -17247,7 +17253,7 @@
 "QG" = (
 /obj/structure/bed/chair/comfy/brown,
 /obj/effect/landmark/start{
-	name = "Crew Member"
+	name = "Off-Duty Crew Member"
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/lounge/secondary)
@@ -17399,6 +17405,9 @@
 "Rc" = (
 /obj/structure/bed/chair/comfy/brown{
 	dir = 4
+	},
+/obj/effect/landmark/start{
+	name = "Passenger"
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/lounge)
@@ -20235,8 +20244,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance{
-	req_access = null;
-	req_one_access = list(12,66)
+	req_one_access = list(12)
 	},
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
