@@ -368,6 +368,8 @@
 	switch(head.name)
 		if("Xion Manufacturing Group head")
 			return "xion_eyes"
+		if("Hephaestus Industrial Limb head")
+			return "eyes_industry"
 		if("Unbranded head")
 			return "eyes_s"
 	return eyes

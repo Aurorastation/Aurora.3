@@ -149,7 +149,6 @@ var/global/datum/robolimb/basic_robolimb
 	company = PROSTHETIC_IND
 	desc = "This limb is more robust than the standard Hephaestus Integrated Limb, and is better suited for industrial machinery."
 	icon = 'icons/mob/human_races/ipc/r_industrial.dmi'
-	unavailable_at_chargen = 1
 	linked_frame = SPECIES_IPC_HEAVY
 	fabricator_available = TRUE
 	species_can_use = list(
