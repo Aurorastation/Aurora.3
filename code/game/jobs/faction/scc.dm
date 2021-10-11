@@ -4,8 +4,8 @@
 	over the Orion Spur. The Chainlink was founded to secure privately owned assets within Tau Ceti owned by the various megacorporations during the Second Solarian Incursion. After the invasion,
 	the SCC has found itself willing and eager to supersede any and all higher authority placed before it, with no signs of stopping any time soon. The Conglomerate has basically bound the
 	largest shareholders and chief executive officers of the corporations to the whim and will of the Trasen family, who hold an unsteady authority over the colorful cast. Cooperation has been
-	deemed essential at this point in time. The corporations remain in a shaky peace, to contrast the cutthroat, espionage-ridden past. Of course, this doesn’t stop the greed or the lust for
-	power and glory - they’re just corporations, after all. The SCC's largest threat is Einstein Engines - this growing giant is older than all others on the galactic stage, and
+	deemed essential at this point in time. The corporations remain in a shaky peace, to contrast the cutthroat, espionage-ridden past. Of course, this doesn't stop the greed or the lust for
+	power and glory - they're just corporations, after all. The SCC's largest threat is Einstein Engines - this growing giant is older than all others on the galactic stage, and
 	recently resurfaced in power due to the growing prominence of warp travel.
 	</p>
 	<p>Stellar Corporate Conglomerate employees can be in the following departments:

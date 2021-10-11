@@ -1,9 +1,9 @@
 /datum/faction/nano_trasen
 	name = "NanoTrasen"
 	description = {"Considered the largest megacorporation within the Orion Spur, many will find themselves doing the biddings of NanoTrasen -- be it direct or indirect. Initially a biotechnical
-	research company, it rapidly grew in size after the discovery of Phoron. The corporation’s monopoly on the resource catapulted it into the limelight, where it has remained for the last
-	forty-odd years. Its acceleration into the spotlight has prompted many prying eyes to uncover evidence of rather questionable actions, with rumours perpetuating that they’ve instigated
-	wars on both Adhomai and Moghes in an attempt to exploit the species for a profit.  NanoTrasen’s power has since begun to waver as their ability to supply Phoron dwindled -- resulting in
+	research company, it rapidly grew in size after the discovery of Phoron. The corporation's monopoly on the resource catapulted it into the limelight, where it has remained for the last
+	forty-odd years. Its acceleration into the spotlight has prompted many prying eyes to uncover evidence of rather questionable actions, with rumours perpetuating that they've instigated
+	wars on both Adhomai and Moghes in an attempt to exploit the species for a profit.  NanoTrasen's power has since begun to waver as their ability to supply Phoron dwindled -- resulting in
 	their profit margins diminishing considerably. Whilst the corporation has attempted its best to hide its waning influence, the facade has begun to crumble with scrutinizing individuals
 	being able to see its vulnerability.  Despite the effects of the Phoron Scarcity on the megacorporation, NanoTrasen has managed to secure itself as a crucial member of the newly-founded
 	Stellar Corporate Conglomerate (SCC) with Miranda Trasen serving as the Acting Director of Operations -- which has managed to bolster the company and secure themselves as the dominant

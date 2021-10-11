@@ -623,7 +623,7 @@
 	desc = "A soft drink made from honey and tree syrup. The label claims it is good as the tap version."
 	icon_state = "midynhrwater"
 	center_of_mass = list("x" = 16,"y" = 5)
-	desc_fluff = "A soft drink based on Yve’kha's honey and tree syrups. The drink has a creamy consistency and is served cold from the tap of traditional soda fountains. Native to \
+	desc_fluff = "A soft drink based on Yve'kha's honey and tree syrups. The drink has a creamy consistency and is served cold from the tap of traditional soda fountains. Native to \
 	Das'nrra, the beverage is now widespread in the Al'mariist territories. Bottled versions exist, but they are considered to be inferior to what is served in bars and restaurants."
 	reagents_to_add = list(/decl/reagent/drink/midynhr_water = 30)
 

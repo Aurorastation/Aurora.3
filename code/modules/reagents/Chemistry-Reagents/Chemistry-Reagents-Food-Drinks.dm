@@ -1069,12 +1069,12 @@
 
 /decl/reagent/drink/milk/adhomai/mutthir
 	name = "Mutthir"
-	description = "A beverage made with Fatshouters' yogurt mixed with Nm’shaan's sugar and sweet herbs."
+	description = "A beverage made with Fatshouters' yogurt mixed with Nm'shaan's sugar and sweet herbs."
 	taste_description = "sweet fatty yogurt"
 
 	glass_icon_state = "mutthir_glass"
 	glass_name = "glass of mutthir"
-	glass_desc = "A beverage made with Fatshouters' yogurt mixed with Nm’shaan's sugar and sweet herbs."
+	glass_desc = "A beverage made with Fatshouters' yogurt mixed with Nm'shaan's sugar and sweet herbs."
 
 /decl/reagent/drink/milk/beetle
 	name = "Hakhma Milk"
