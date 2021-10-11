@@ -13,7 +13,8 @@
 	<li><b>Security</b>
 	<li><b>Research</b>
 	<li><b>Engineering</b>
-	</ul></p>"}"}
+	</ul></p>
+	"}
 
 	title_suffix = "Zavod"
 
