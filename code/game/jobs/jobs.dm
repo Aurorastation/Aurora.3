@@ -52,6 +52,7 @@ var/const/JOURNALIST		=(1<<14)
 var/const/ASSISTANT			=(1<<15)
 var/const/MANUFACTURING_TECH =(1<<16)
 var/const/SERVICE_MANAGER	=(1<<17)
+var/const/PASSENGER			=(1<<18)
 
 
 var/list/command_positions = list(
@@ -112,7 +113,8 @@ var/list/civilian_positions = list(
 	"Corporate Reporter",
 	"Chaplain",
 	"Assistant",
-	"Crew Member"
+	"Off-Duty Crew Member",
+	"Passenger"
 )
 
 

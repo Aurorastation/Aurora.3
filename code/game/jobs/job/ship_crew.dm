@@ -29,7 +29,7 @@
 	shoes = /obj/item/clothing/shoes/black
 
 /datum/job/visitor
-	title = "Crew Member"
+	title = "Off-Duty Crew Member"
 	flag = VISITOR
 	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
 	department_flag = CIVILIAN
@@ -42,7 +42,6 @@
 	access = list()
 	minimal_access = list()
 	outfit = /datum/outfit/job/visitor
-	alt_titles = list("Passenger")
 	blacklisted_species = null
 
 /datum/outfit/job/visitor
@@ -51,3 +50,19 @@
 
 	uniform = /obj/item/clothing/under/color/black
 	shoes = /obj/item/clothing/shoes/black
+
+/datum/job/passenger
+	title = "passenger"
+	flag = PASSENGER
+	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
+	department_flag = CIVILIAN
+	faction = "Station"
+	total_positions = -1
+	spawn_positions = -1
+	supervisors = "any authority figure"
+	selection_color = "#949494"
+	economic_modifier = 1
+	access = list()
+	minimal_access = list()
+	outfit = /datum/outfit/job/visitor
+	blacklisted_species = null
