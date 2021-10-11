@@ -10,7 +10,8 @@
 	</p>
 	<p>Stellar Corporate Conglomerate employees can be in the following departments:
 	<ul>
-	<li><b>Command</b>:"}
+	<li><b>Command</b>
+	</ul></p>"}"}
 
 	title_suffix = "SCC"
 

@@ -1,5 +1,5 @@
 /datum/faction/pmc
-	name = "Eridani Private Military Contractors"
+	name = "Private Military Contracting Group"
 	description = {"<p>Essentially the security branch of the Eridani Federation
 	Military, the EPMC is renowned for its brutal yet efficient and above all
 	legal security functions across the known galaxy. Staying as close as possible
@@ -9,17 +9,12 @@
 	However, when the need to suppress civil disorder appears hell hath no fury like
 	that of an Eridian security contractor with a stun baton.
 	</p>
-	<p>Some character examples are:
+	<p>Private Military Contracting Group employees can be in the following departments:
 	<ul>
-	<li><b>Eridanian Private Military Contractor</b>: You are the law, civil disorder
-	damages the bottom line. Everyone knew what they signed up for when they chose
-	to be employed with NanoTrasen thus rule breakers are violating the NAP which
-	you cannot abide. That being said you're here to make a profit and stuffing
-	someone in a cell is a waste of human resources - think of the money lost in
-	time! Abhorrent! The best thing to do is fine perpetrators and set them back
-	to work. Remember, your fine quota still applies, you don't want to miss out on
-	your bonus because you didn't hit target. After all, it is a substantial bonus.</li>
-	</ul></p>"}
+	<li><b>Security</b>
+	<li><b>Medical</b>
+	</ul></p>
+	"}
 	title_suffix = "PMC"
 
 	allowed_role_types = NT_ROLES

@@ -9,25 +9,10 @@
 	claim payment from negligent loan takers. In recent years, they have begun
 	diversifying into more service-based industries.
 	</p>
-	<p>Some character examples are:
+	<p>Idris Incorporated employees can be in the following departments:
 	<ul>
-	<li><b>Artisan Mixologist</b>: Impeccable customer service is at the heart of Idris;
-	some of the best Chefs and Mixologists in the galaxy are employed by the
-	corporation and the gleaming marble interiors of their branch offices are
-	always spotless. This naturally comes at a price and tips are expected,
-	always. No tips? A grave insult indeed to someone of your calibre! Whilst
-	you're working with NanoTrasen it is expected that you seek to boost our clients credit
-	portfolio- we'll give credit to anyone after all. The more loans you can
-	generate with NanoTrasen the better. Just think of that bonus.</li>
-	<li><b>Idris Reclamation Unit X3265FH</b>: As a shell belonging to Idris you
-	are not free. You are programmed to defer to NT security and the Head of
-	Security. Your customer service skills are excellent, however your notorious
-	"strong arm" skills can also be utilised by the security team if authorised. Your
-	default state is good customer service. That being said your programming prioritises
-	the protection and safety of other Idris employees so long as this will not
-	breach NT regulations. You are programmed to never strong arm an Idris employee.
-	You may be on lease to NT but remember you still belong to a much more sophisticated
-	and superior company - Idris.</li>
+	<li><b>Service</b>
+	<li><b>Security</b>
 	</ul></p>"}
 
 	title_suffix = "Idris"
