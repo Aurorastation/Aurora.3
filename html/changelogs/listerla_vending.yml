@@ -1,0 +1,7 @@
+author: listerla
+
+delete-after: True
+
+changes:
+  - imageadd: "Coffee machine's former art on the screen has been returned."
+  - bugfix: "Fixed Zo'ra soda animation frames, which were previously all set to 1."
