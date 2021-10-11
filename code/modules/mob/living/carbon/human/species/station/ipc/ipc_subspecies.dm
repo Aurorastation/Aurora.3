@@ -176,6 +176,9 @@
 	flags = IS_IPC | ACCEPTS_COOLER
 	appearance_flags = HAS_EYE_COLOR | HAS_UNDERWEAR | HAS_SOCKS
 
+	warning_low_pressure = 50
+	hazard_low_pressure = -1
+	
 	heat_level_1 = 800
 	heat_level_2 = 1600
 	heat_level_3 = 3200
