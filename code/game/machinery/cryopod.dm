@@ -417,7 +417,7 @@ var/global/list/frozen_crew = list()
 
 			update_icon()
 			to_chat(M, SPAN_NOTICE("[on_enter_occupant_message]"))
-			to_chat(M, SPAN_DANGER("Press Ghost in the OOC tab to cryo, your character will shortly be removed from the round and the slot you occupy will be freed."))
+			to_chat(M, SPAN_DANGER("Press Ghost in the OOC tab to leave, your character will shortly be removed from the round and the slot you occupy will be freed."))
 			set_occupant(M)
 
 			if(isipc(M))
