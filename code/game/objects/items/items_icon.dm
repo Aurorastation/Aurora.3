@@ -31,10 +31,10 @@ var/list/mob_icon_icon_states = list()
 		I.appearance = H.species.equip_overlays[image_key]
 		return I
 	var/image/I = overlay_image(mob_icon, mob_state, color, RESET_COLOR|RESET_ALPHA)
-	var/image/additional_parts = build_additional_parts(H, mob_icon)
+	var/image/additional_parts = build_additional_parts(H, mob_icon, slot)
 	if(additional_parts)
 		I.add_overlay(additional_parts)
-	
+
 	return I
 
 /obj/item/proc/get_image_key_mod()
