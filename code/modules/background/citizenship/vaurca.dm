@@ -25,7 +25,10 @@
 			SPECIES_TAJARA,
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
-			SPECIES_UNATHI
+			SPECIES_UNATHI,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK
 		)
 	)
 
@@ -55,35 +58,12 @@
 	uniform = /obj/item/clothing/under/gearharness
 
 	glasses = null
-	l_hand =  null
+	head = /obj/item/clothing/head/vaurca_breeder
+	shoes = /obj/item/clothing/shoes/vaurca/breeder
+	back = /obj/item/storage/backpack/typec
+	mask = /obj/item/clothing/mask/breath/vaurca/filter
+	suit = /obj/item/clothing/suit/vaurca/breeder
 
-	backpack_contents = list()
-
-
-/datum/outfit/job/representative/consular/zora/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	if(H && !visualsOnly)
-		if(isvaurca(H))
-			var/r = H.r_skin
-			var/g = H.g_skin
-			var/b = H.b_skin
-
-			H.set_species(SPECIES_VAURCA_BREEDER)
-
-			H.unEquip(H.back)
-			H.unEquip(H.shoes)
-			qdel(H.wear_mask)
-
-			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec(H), slot_back)
-			H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(H), slot_wear_mask)
-			var/obj/item/organ/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
-			H.internal = preserve
-			H.internals.icon_state = "internal1"
-			H.equip_to_slot_or_del(new /obj/item/clothing/head/vaurca_breeder(H), slot_head)
-			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/vaurca/breeder(H), slot_shoes)
-			H.equip_to_slot_or_del(new /obj/item/clothing/suit/vaurca/breeder(H), slot_wear_suit)
-			H.equip_to_slot_or_del(new /obj/item/storage/box/tcfl_pamphlet(H), slot_in_backpack)
-
-			H.change_skin_color(r, g, b)
-			H.update_dna()
-		addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
-	return TRUE
+	backpack_contents = list(
+		/obj/item/storage/box/tcfl_pamphlet = 1
+	)

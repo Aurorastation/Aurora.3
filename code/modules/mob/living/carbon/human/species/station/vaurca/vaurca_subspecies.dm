@@ -75,7 +75,6 @@
 	sprint_cost_factor = 0.80
 	stamina_recovery = 3
 
-	spawn_flags = IS_RESTRICTED
 	flags = NO_SCAN | NO_SLIP | NO_ARTERIES | PHORON_IMMUNE
 
 	inherent_verbs = list(
