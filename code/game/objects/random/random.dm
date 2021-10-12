@@ -65,6 +65,7 @@
 		/obj/item/weldingtool,
 		/obj/item/crowbar,
 		/obj/item/wrench,
+		/obj/item/hammer,
 		/obj/item/device/flashlight
 	)
 
