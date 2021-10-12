@@ -176,6 +176,49 @@
 		result = first ^ second
 	return result
 
+/*
+ * Returns a list with the results from both lists
+ * If norepeat = TRUE, it won't include repeat instances.
+ * If unpack = TRUE, it unpacks each list
+ */
+/proc/mergelists(var/list/first, var/list/second, var/norepeat = TRUE, var/unpack = FALSE)
+	if(!islist(first) || !islist(second))
+		return
+	var/list/result = new
+	if(unpack)
+		first = unpacklist(first)
+		second = unpacklist(second)
+	for(var/A in first)
+		result += A
+	if(norepeat)
+		for(var/A in second)
+			if(!(A in result))
+				result += A
+	else
+		for(var/A in second)
+			result += A
+	return result
+
+/*
+ * Returns a list with the unpacked results from the list.
+ * If repeatunpack = TRUE, it unpacks each found list within it
+ */
+/proc/unpacklist(var/list/packed, repeatunpack = TRUE)
+	if(!islist(packed))
+		return
+	var/list/result = new
+	for(var/A in packed)
+		if(islist(A))
+			for(var/B in A)
+				if(repeatunpack && islist(B))
+					var/list/unpacked = unpacklist(B)
+					for(var/C in unpacked)
+						result += unpacklist(C)
+				else
+					result += B
+		else
+			result += A
+	return result
 
 //Picks a random element by weight from a list. The list must be correctly constructed in this format:
 //mylist[myelement1] = myweight1
