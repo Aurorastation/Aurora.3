@@ -213,7 +213,7 @@
 				if(repeatunpack && islist(B))
 					var/list/unpacked = unpacklist(B)
 					for(var/C in unpacked)
-						result += unpacklist(C)
+						result += C
 				else
 					result += B
 		else
