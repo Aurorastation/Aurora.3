@@ -1,6 +1,0 @@
-author: Alberyk, Dongwaiver
-
-delete-after: True
-
-changes:
-  - rscadd: "Added hammers a tool option. They can be used to repair tables, airlocks, and barricades."
