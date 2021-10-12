@@ -249,7 +249,6 @@
 		slot_l_hand_str = "chickensuit",
 		slot_r_hand_str = "chickensuit"
 		)
-		)
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/head.dmi'
 	)
