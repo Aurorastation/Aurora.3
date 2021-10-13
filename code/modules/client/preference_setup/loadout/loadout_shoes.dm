@@ -136,6 +136,7 @@
 	..()
 	var/list/recolourable_shoes = list()
 	recolourable_shoes["sneakers"] = /obj/item/clothing/shoes/sneakers
+	recolourable_shoes["sneakers (white tip)"] = /obj/item/clothing/shoes/sneakers/whitetip
 	recolourable_shoes["oxfords"] = /obj/item/clothing/shoes/laceup/colourable
 	gear_tweaks += new /datum/gear_tweak/path(recolourable_shoes)
 
