@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Windoors can be clicked on with an empty hand again to make them stay open."
