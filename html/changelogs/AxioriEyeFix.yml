@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "The Axiori eye body marking is now properly restricted to only non-axiori skrell and has the correct sprite."
