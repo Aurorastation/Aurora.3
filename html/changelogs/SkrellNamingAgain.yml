@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - tweak: "Skrell and Axiori will now show up when examined as 'Xiialt Skrell' and 'Axiori Skrell' respectively."
