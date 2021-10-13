@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - bugfix: "Antag implants will no longer potentially require the use of an emote antags aren't allowed to do. That would be 'twitch_s'. It's been replaced with 'twitch' instead."
