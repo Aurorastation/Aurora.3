@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed various Bulwark bugs. They can no longer wear armor, their talk bubbles are no longer on their faces, their floating messages are centred, they are now properly bald, they now successfully pass isvaurca checks, their shoes no longer have a white dot, their vaurca clothes and hive cloak (one of them) have icons."
+  - bugfix: "Rad immune species no longer get radstorm radiation side-effects."

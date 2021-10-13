@@ -90,16 +90,18 @@
 	if(istype(A, /mob/living/carbon/human))
 		switch(A:get_species())
 			if(SPECIES_VAURCA_WORKER)
-				return 1
+				return TRUE
 			if(SPECIES_VAURCA_WARRIOR)
-				return 1
+				return TRUE
 			if(SPECIES_VAURCA_BREEDER)
-				return 1
+				return TRUE
+			if(SPECIES_VAURCA_BULWARK)
+				return TRUE
 			if(SPECIES_VAURCA_WARFORM)
-				return 1
+				return TRUE
 			if(SPECIES_MONKEY_VAURCA)
-				return 1
-	return 0
+				return TRUE
+	return FALSE
 
 /proc/isipc(A)
 	. = 0
@@ -1277,3 +1279,6 @@ proc/is_blind(A)
 	//We also need to update name of internal camera.
 	if(camera)
 		camera.c_tag = real_name
+
+/mob/proc/get_talk_bubble()
+	return 'icons/mob/talk.dmi'
