@@ -208,9 +208,7 @@
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-
-		if(H.species.can_shred(H))
-
+		if(H.species.can_shred(H) || H.default_attack?.crowbar_door)
 			if(src.density)
 				visible_message("<span class='danger'>\The [H] forces \the [src] open!</span>")
 				open(1)
@@ -293,7 +291,7 @@
 										"You have removed the electronics from [src].")
 
 					if (stat & BROKEN)
-						new /obj/item/circuitboard/broken(src.loc)
+						new /obj/item/trash/broken_electronics(src.loc)
 					else
 						new/obj/item/airalarm_electronics(src.loc)
 

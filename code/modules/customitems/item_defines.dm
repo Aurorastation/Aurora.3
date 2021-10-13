@@ -2134,3 +2134,50 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/kathira_journal.dmi'
 	icon_state = "kath_journal"
 	item_state = "kath_journal"
+
+/obj/item/storage/pill_bottle/dice/fluff/suraya_dicebag //Crevan Dice Bag - Suraya Al-Zahrani - Omicega 
+	name = "velvet dice bag"
+	desc = "A deep purple dice bag fashioned from Adhomian velvet, with two little drawstrings to tighten the neck closed."
+	icon = 'icons/obj/custom_items/suraya_dice.dmi'
+	icon_state = "sur_dbag"
+	item_state = "sur_dbag"
+
+	starts_with = list(
+		/obj/item/dice/fluff/suraya_dice = 3,
+		/obj/item/dice/fluff/suraya_dice/alt = 3
+	)
+
+/obj/item/dice/fluff/suraya_dice
+	name = "blue adhomian die"
+	desc = "A blue-and-gold wooden die with six sides, beautifully carved and delicately painted. The single dot on the number one side is, on closer inspection, a miniature image of the god Rredouane."
+	icon = 'icons/obj/custom_items/suraya_dice.dmi'
+	icon_state = "sur_b_d1"
+	base_icon = "sur_b_d"
+	favored_number = 1
+	weighted_value = 22
+
+/obj/item/dice/fluff/suraya_dice/AltClick(mob/user)
+	weighted = !weighted
+
+	if(!weighted)
+		to_chat(user, SPAN_NOTICE("You jiggle the die rapidly in your hand, resetting the internal weighting."))
+	else
+		to_chat(user, SPAN_NOTICE("You carefully jiggle the die one way, then the other, allowing its internal weighting to lock into place."))
+
+	user.visible_message("<b>\The [user]</b> jiggles \the [src] around in their hand for a second.")
+
+/obj/item/dice/fluff/suraya_dice/alt
+	name = "green adhomian die"
+	desc = "A green-and-silver wooden die with six sides, beautifully carved and delicately painted. The single dot on the number one side is, on closer inspection, a miniature image of the god Rredouane."
+	icon_state = "sur_g_d1"
+	base_icon = "sur_g_d"
+	favored_number = 6
+
+/obj/item/clothing/head/fluff/ulzka_skull // The skull of Ulzka Dorviza - The Continuity of Ulzka Dorviza - boggle08
+	name = "skull of Ulzka Dorviza"
+	desc = "This is the polished skull of a long dead Unathi. Great horns adorn either side of it, however, one of them is cracked off. In the rare instance it isn't lodged firmly in the gestalt it belongs to, it is bagged and tied up into the cowl that houses it."
+	icon = 'icons/obj/custom_items/ulzka_skull.dmi'
+	icon_state = "ulzka_skull"
+	item_state = "ulzka_skull"
+	canremove = FALSE
+	contained_sprite = TRUE

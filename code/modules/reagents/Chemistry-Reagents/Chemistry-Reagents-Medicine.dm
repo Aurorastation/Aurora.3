@@ -225,9 +225,10 @@
 	M.add_chemical_effect(CE_CRYO, 1)
 	if(M.bodytemperature < 170)
 		M.add_chemical_effect(CE_PULSE, -2)
-		M.adjustCloneLoss(-10 * removed)
+		M.adjustCloneLoss(-100 * removed)
 		M.adjustOxyLoss(-10 * removed)
 		M.heal_organ_damage(10 * removed, 10 * removed)
+		M.adjustToxLoss(-10 * removed)
 
 /decl/reagent/clonexadone
 	name = "Clonexadone"
@@ -242,9 +243,10 @@
 	M.add_chemical_effect(CE_CRYO, 1)
 	if(M.bodytemperature < 170)
 		M.add_chemical_effect(CE_PULSE, -2)
-		M.adjustCloneLoss(-30 * removed)
+		M.adjustCloneLoss(-100 * removed)
 		M.adjustOxyLoss(-30 * removed)
 		M.heal_organ_damage(30 * removed, 30 * removed)
+		M.adjustToxLoss(-30 * removed)
 
 /* Painkillers */
 
@@ -934,7 +936,6 @@
 /decl/reagent/mental/nicotine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale, var/datum/reagents/holder)
 	. = ..()
 	M.adjustOxyLoss(10 * removed * scale)
-	M.Weaken(10 * removed * scale)
 	M.add_chemical_effect(CE_PULSE, 0.5)
 
 /decl/reagent/mental/corophenidate

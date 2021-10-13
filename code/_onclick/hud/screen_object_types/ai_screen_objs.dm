@@ -110,7 +110,7 @@
 		AI.ai_announcement()
 
 /obj/screen/ai/call_shuttle
-	name = "Call Emergency Shuttle"
+	name = "Call Evacuation"
 	icon_state = "call_shuttle"
 	screen_loc = ui_ai_shuttle
 

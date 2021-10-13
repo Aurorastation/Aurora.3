@@ -52,8 +52,8 @@
 
 	if(wired && screwed)
 		to_chat(usr, "You check your watch, spotting a digital collection of numbers reading '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'.")
-		if (emergency_shuttle.get_status_panel_eta())
-			to_chat(usr, SPAN_WARNING("The shuttle's status is reported as: [emergency_shuttle.get_status_panel_eta()]."))
+		if (evacuation_controller.get_status_panel_eta())
+			to_chat(usr, SPAN_WARNING("The shuttle's status is reported as: [evacuation_controller.get_status_panel_eta()]."))
 	else if(wired && !screwed)
 		to_chat(usr, "You check your watch, realising it's still open.")
 	else
