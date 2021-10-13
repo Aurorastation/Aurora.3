@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "The robotics lab door leading to the garage can now be opened by anyone from within the lab. It still has access requirement from the garage/hallway side."
