@@ -2185,6 +2185,5 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/organ/internal/augment/synthetic_cords/fluff/marc //Old Synthetic Vocal Coords - Marc Hardy - Dekser
 	name = "old synthetic vocal cords"
 	desc = "A set of Old Age Synthetic Vocal Coords. They look barely functional."
-	icon_state = "augment-tool"
 	organ_tag = BP_AUG_OLD_CORDS
 	var/accent = ACCENT_TTS
