@@ -149,9 +149,6 @@
 		return
 	else if(operable())
 		return attackby(user, user)
-		if (operating)
-			return
-		
 
 /obj/machinery/door/window/emag_act(var/remaining_charges, var/mob/user)
 	if (density && operable())
