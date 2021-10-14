@@ -8,6 +8,8 @@
 	heat_protection = UPPER_TORSO|LOWER_TORSO
 	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.5
+
+	species_restricted = list("exclude", BODYTYPE_VAURCA_BREEDER, BODYTYPE_VAURCA_WARFORM, BODYTYPE_VAURCA_BULWARK)
 	var/obj/item/storage/internal/pockets = /obj/item/storage/internal
 	var/pocket_slots = 2
 	var/pocket_size = 2

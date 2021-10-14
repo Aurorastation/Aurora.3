@@ -14,7 +14,8 @@
 	body_parts_covered = 0
 	species_restricted = null
 	sprite_sheets = list(
-		BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/suit.dmi'
+		BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/suit.dmi',
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/uniform.dmi'
 		)
 
 /obj/item/clothing/under/pj/blue
@@ -500,7 +501,7 @@
 
 /obj/item/clothing/under/legion
 	name = "Tau Ceti Foreign Legion uniform"
-	desc = "A blue field uniform used by the force of the Tau Ceti Foreign Legion forces."
+	desc = "A blue field uniform worn by Tau Ceti Foreign Legion forces."
 	icon_state = "taucetilegion"
 	item_state = "bl_suit"
 	worn_state = "taucetilegion"
@@ -582,7 +583,7 @@
 	icon_state = "qipao2"
 	item_state = "qipao2"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-	
+
 /obj/item/clothing/under/rank/elyran_fatigues
 	name = "elyran navy uniform"
 	desc = "An utility uniform worn by Elyran navy staff serving aboard ships and in the field."

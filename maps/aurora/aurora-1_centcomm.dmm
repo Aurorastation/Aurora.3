@@ -123,6 +123,7 @@
 	pixel_x = -3;
 	pixel_y = 2
 	},
+/obj/item/clothing/mask/breath/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
@@ -9449,6 +9450,7 @@
 /obj/item/clothing/under/legion,
 /obj/item/clothing/under/legion,
 /obj/item/clothing/under/legion,
+/obj/item/clothing/mask/breath/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "cafeteria"
 	},
@@ -12681,6 +12683,7 @@
 /obj/item/storage/box/practiceshells,
 /obj/item/storage/box/trackingslugs,
 /obj/effect/decal/warning_stripes,
+/obj/item/clothing/mask/breath/vaurca/filter,
 /turf/unsimulated/floor,
 /area/antag/loner)
 "enU" = (
@@ -13951,6 +13954,10 @@
 "fdr" = (
 /obj/structure/table/wood,
 /obj/random/coin,
+/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/breath/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -22232,6 +22239,8 @@
 /obj/structure/table/wood{
 	table_reinf = "wood"
 	},
+/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/breath/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -33664,6 +33673,10 @@
 "rPi" = (
 /obj/structure/table/standard,
 /obj/item/modular_computer/handheld/pda/syndicate,
+/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/breath/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
 	},
@@ -37059,6 +37072,7 @@
 /area/centcom/specops)
 "ujT" = (
 /obj/structure/table/standard,
+/obj/item/clothing/mask/breath/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
@@ -37104,6 +37118,12 @@
 	pixel_y = 6
 	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/breath/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},

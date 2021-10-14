@@ -1694,6 +1694,20 @@
 	required_reagents = list(/decl/reagent/drink/milk = 1, /decl/reagent/alcohol/beer = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/drink/tea
+	name = "Tea"
+	id = "tea"
+	result = /decl/reagent/drink/tea
+	required_reagents = list(/decl/reagent/nutriment/teagrounds = 1, /decl/reagent/water = 5)
+	result_amount = 5
+
+/datum/chemical_reaction/drink/greentea
+	name = "Green Tea"
+	id = "greentea"
+	result = /decl/reagent/drink/tea/greentea
+	required_reagents = list(/decl/reagent/drink/tea = 5, /decl/reagent/nutriment/mint = 2)
+	result_amount = 5
+
 /datum/chemical_reaction/drink/icetea
 	name = "Iced Tea"
 	id = "icetea"
@@ -3410,6 +3424,14 @@
 	required_temperature_max = T0C + 100 // Sugar caramelises after 82C, water boils at 100C.
 	mix_message = "The sugar dissolves into the solution."
 
+/datum/chemical_reaction/vanillasyrup
+	name = "Vanilla Syrup"
+	id = "vanillasyrup"
+	result = /decl/reagent/drink/syrup_vanilla
+	required_reagents = list(/decl/reagent/nutriment/vanilla = 2, /decl/reagent/drink/syrup_simple = 3)
+	result_amount = 5
+	mix_message = "The solution takes on a pale yellow hue and the aroma of vanilla."
+
 /datum/chemical_reaction/caramelsyrup
 	name = "Caramel Syrup"
 	id = "caramelsyrup"
@@ -3596,3 +3618,31 @@
 	result = /decl/reagent/drink/gibbfloats
 	required_reagents = list(/decl/reagent/drink/dr_gibb = 1, /decl/reagent/drink/ice = 1, /decl/reagent/drink/milk/cream = 1)
 	result_amount = 3
+
+/datum/chemical_reaction/drink/pulque_dyn
+	name = "dyn pulque"
+	id = "pulque_dyn"
+	result = /decl/reagent/alcohol/pulque/dyn
+	required_reagents = list(/decl/reagent/alcohol/pulque = 1, /decl/reagent/drink/dynjuice = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/pulque_banana
+	name = "banana pulque"
+	id = "pulque_banana"
+	result = /decl/reagent/alcohol/pulque/banana
+	required_reagents = list(/decl/reagent/alcohol/pulque = 1, /decl/reagent/drink/banana = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/pulque_berry
+	name = "berry pulque"
+	id = "pulque_berry"
+	result = /decl/reagent/alcohol/pulque/berry
+	required_reagents = list(/decl/reagent/alcohol/pulque = 1, /decl/reagent/drink/berryjuice = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/pulque_coffee
+	name = "coffee pulque"
+	id = "pulque_coffee"
+	result = /decl/reagent/alcohol/pulque/coffee
+	required_reagents = list(/decl/reagent/alcohol/pulque = 1, /decl/reagent/drink/coffee = 1)
+	result_amount = 2
