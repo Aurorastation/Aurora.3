@@ -150,7 +150,7 @@
 				listening_clients += M.client
 
 	var/speech_bubble_test = say_test(message)
-	var/image/speech_bubble = image('icons/mob/talk.dmi',src,"h[speech_bubble_test]")
+	var/image/speech_bubble = image(get_talk_bubble(),src,"h[speech_bubble_test]")
 	INVOKE_ASYNC(GLOBAL_PROC, /proc/flick_overlay, speech_bubble, listening_clients, 30)
 
 	if (watching.len)

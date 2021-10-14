@@ -126,7 +126,7 @@
 		I.add_overlay(chain)
 	return I
 
-/obj/item/clothing/accessory/poncho/rockstone/get_mob_overlay(force)
+/obj/item/clothing/accessory/poncho/rockstone/get_accessory_mob_overlay(mob/living/carbon/human/H, force)
 	var/image/base = ..()
 	var/image/gem = image(icon, null, "rockstone_un_gem")
 	gem.appearance_flags = RESET_COLOR

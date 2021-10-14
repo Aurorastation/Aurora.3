@@ -3,8 +3,8 @@
 #define SPECIES_UNATHI				"Unathi"
 #define SPECIES_DIONA				"Diona"
 
-#define SPECIES_SKRELL				"Skrell"
-#define SPECIES_SKRELL_AXIORI		"Axiori"
+#define SPECIES_SKRELL				"Xiialt Skrell"
+#define SPECIES_SKRELL_AXIORI		"Axiori Skrell"
 
 #define SPECIES_TAJARA				"Tajara"
 #define SPECIES_TAJARA_ZHAN			"Zhan-Khazan Tajara"

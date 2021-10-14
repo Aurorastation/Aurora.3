@@ -4184,7 +4184,7 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Axiori Eyes"
 		icon_state = "skr_axiori_eyes"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/skrell, /datum/species/skrell/axiori, /datum/species/zombie/skrell)
+		species_allowed = list(/datum/species/skrell, /datum/species/zombie/skrell)
 		do_colouration = FALSE
 
 	skr_arms
