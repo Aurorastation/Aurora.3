@@ -1,0 +1,6 @@
+author: TheGreyWolf & Ryver
+
+delete-after: True
+
+changes:
+  - bugfix: "The axiori tail outline is now consistent with the body."
