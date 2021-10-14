@@ -20,8 +20,6 @@ steps:
     image: python:3.6-slim-buster
     commands:
       - pip install --user -r ./tools/requirements.txt
-      - pip install --user PyYaml -q # Why is that shit not in the requirements
-      - pip install --user beautifulsoup4 -q # Same here
       - chmod +x ./scripts/code_check.sh && ./scripts/code_check.sh $PWD
       - awk -f tools/indentation.awk **/*.dm
       - python3 tools/TagMatcher/tag-matcher.py ../..
@@ -177,6 +175,6 @@ steps:
 
 ---
 kind: signature
-hmac: 94a7efc91e95836b0456049170edfd6e68055cf481ef925347ffe6206eb8305a
+hmac: dff04fdff79e6ed2acdbe84a55f4c13f57655f345f56be03bf6d9c433cb65422
 
 ...
