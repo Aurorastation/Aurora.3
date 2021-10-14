@@ -181,10 +181,14 @@
 	icon_template = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
 	deform = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
+	talk_bubble_icon = 'icons/mob/talk_bulwark.dmi'
+
+	bald = TRUE
 
 	icon_x_offset = -9
 	healths_x = 22
 	healths_overlay_x = 9
+	floating_chat_x_offset = 6
 
 	damage_overlays = 'icons/mob/human_races/masks/dam_mask_bulwark.dmi'
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_bulwark.dmi'
