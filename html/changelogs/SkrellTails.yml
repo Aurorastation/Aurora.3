@@ -3,4 +3,4 @@ author: TheGreyWolf
 delete-after: True
 
 changes:
-  - bugfix: "Skrell headtail items can now be worn again."
+  - bugfix: "Skrell headtail equipment can now be worn again."
