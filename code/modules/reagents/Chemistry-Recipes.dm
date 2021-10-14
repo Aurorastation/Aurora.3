@@ -1694,6 +1694,20 @@
 	required_reagents = list(/decl/reagent/drink/milk = 1, /decl/reagent/alcohol/beer = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/drink/tea
+	name = "Tea"
+	id = "tea"
+	result = /decl/reagent/drink/tea
+	required_reagents = list(/decl/reagent/nutriment/teagrounds = 1, /decl/reagent/water = 5)
+	result_amount = 5
+
+/datum/chemical_reaction/drink/greentea
+	name = "Green Tea"
+	id = "greentea"
+	result = /decl/reagent/drink/tea/greentea
+	required_reagents = list(/decl/reagent/drink/tea = 5, /decl/reagent/nutriment/mint = 2)
+	result_amount = 5
+
 /datum/chemical_reaction/drink/icetea
 	name = "Iced Tea"
 	id = "icetea"
@@ -1746,6 +1760,28 @@
 	required_reagents = list(/decl/reagent/drink/grapejuice = 10)
 	catalysts = list(/decl/reagent/enzyme = 5)
 	result_amount = 10
+
+/datum/chemical_reaction/whitewine
+	name = "White Wine"
+	id = "whitewine"
+	result = /decl/reagent/alcohol/whitewine
+	required_reagents = list(/decl/reagent/drink/whitegrapejuice = 5)
+	catalysts = list(/decl/reagent/enzyme = 5)
+	result_amount = 5
+
+/datum/chemical_reaction/blushwine
+	name = "Blush Wine"
+	id = "blushwine"
+	result = /decl/reagent/alcohol/blushwine
+	required_reagents = list(/decl/reagent/alcohol/whitewine = 1, /decl/reagent/alcohol/wine = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/melonwine
+	name = "Melon Wine"
+	id = "melonwine"
+	result = /decl/reagent/alcohol/melonwine
+	required_reagents = list(/decl/reagent/alcohol/wine = 1, /decl/reagent/alcohol/melonliquor = 1)
+	result_amount = 2
 
 /datum/chemical_reaction/pwine
 	name = "Poison Wine"
@@ -1851,6 +1887,12 @@
 	result = /decl/reagent/alcohol/screwdrivercocktail
 	required_reagents = list(/decl/reagent/alcohol/vodka = 2, /decl/reagent/drink/orangejuice = 1)
 	result_amount = 3
+
+/datum/chemical_reaction/drink/sidewinderfang
+	name = "Sidewinder Fang"
+	id = "sidewinderfang"
+	result = /decl/reagent/alcohol/sidewinderfang
+	required_reagents = list(/decl/reagent/alcohol/rum = 2, /decl/reagent/drink/sodawater = 2, /decl/reagent/drink/orangejuice = 1, /decl/reagent/drink/limejuice = 1)
 
 /datum/chemical_reaction/drink/bloody_mary
 	name = "Bloody Mary"
@@ -3341,6 +3383,20 @@
 
 //Coffee expansion
 //=======================
+/datum/chemical_reaction/drink/coffee
+	name = "Latte"
+	id = "latte"
+	result = /decl/reagent/drink/coffee
+	required_reagents = list(/decl/reagent/drink/coffee/espresso = 5, /decl/reagent/water = 5)
+	result_amount = 10
+
+/datum/chemical_reaction/drink/espresso
+	name = "Latte"
+	id = "latte"
+	result = /decl/reagent/drink/coffee/espresso
+	required_reagents = list(/decl/reagent/nutriment/coffeegrounds = 1, /decl/reagent/water = 5)
+	result_amount = 5
+
 /datum/chemical_reaction/caramelisation
 	name = "Caramelised Sugar"
 	result = /decl/reagent/nutriment/caramel
@@ -3368,6 +3424,14 @@
 	required_temperature_max = T0C + 100 // Sugar caramelises after 82C, water boils at 100C.
 	mix_message = "The sugar dissolves into the solution."
 
+/datum/chemical_reaction/vanillasyrup
+	name = "Vanilla Syrup"
+	id = "vanillasyrup"
+	result = /decl/reagent/drink/syrup_vanilla
+	required_reagents = list(/decl/reagent/nutriment/vanilla = 2, /decl/reagent/drink/syrup_simple = 3)
+	result_amount = 5
+	mix_message = "The solution takes on a pale yellow hue and the aroma of vanilla."
+
 /datum/chemical_reaction/caramelsyrup
 	name = "Caramel Syrup"
 	id = "caramelsyrup"
@@ -3391,6 +3455,13 @@
 	required_reagents = list(/decl/reagent/spacespice/pumpkinspice = 2, /decl/reagent/drink/syrup_simple = 3)
 	result_amount = 5
 	mix_message = "The solution takes on an orange hue and the aroma of pumpkin spice."
+
+/datum/chemical_reaction/mintsyrup
+	name = "Mint Syrup"
+	id = "mintsyrup"
+	result = /decl/reagent/drink/mintsyrup
+	required_reagents = list(/decl/reagent/nutriment/mint = 2, /decl/reagent/drink/syrup_simple = 3)
+	result_amount = 5
 
 /datum/chemical_reaction/drink/cuba_libre
 	name = "Cuba Libre"
@@ -3547,3 +3618,31 @@
 	result = /decl/reagent/drink/gibbfloats
 	required_reagents = list(/decl/reagent/drink/dr_gibb = 1, /decl/reagent/drink/ice = 1, /decl/reagent/drink/milk/cream = 1)
 	result_amount = 3
+
+/datum/chemical_reaction/drink/pulque_dyn
+	name = "dyn pulque"
+	id = "pulque_dyn"
+	result = /decl/reagent/alcohol/pulque/dyn
+	required_reagents = list(/decl/reagent/alcohol/pulque = 1, /decl/reagent/drink/dynjuice = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/pulque_banana
+	name = "banana pulque"
+	id = "pulque_banana"
+	result = /decl/reagent/alcohol/pulque/banana
+	required_reagents = list(/decl/reagent/alcohol/pulque = 1, /decl/reagent/drink/banana = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/pulque_berry
+	name = "berry pulque"
+	id = "pulque_berry"
+	result = /decl/reagent/alcohol/pulque/berry
+	required_reagents = list(/decl/reagent/alcohol/pulque = 1, /decl/reagent/drink/berryjuice = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/pulque_coffee
+	name = "coffee pulque"
+	id = "pulque_coffee"
+	result = /decl/reagent/alcohol/pulque/coffee
+	required_reagents = list(/decl/reagent/alcohol/pulque = 1, /decl/reagent/drink/coffee = 1)
+	result_amount = 2

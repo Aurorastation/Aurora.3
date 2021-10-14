@@ -85,8 +85,6 @@
 		return
 	if(istype(T, /turf/simulated/wall))
 		var/turf/simulated/wall/SW = T
-		if(SW.reinf_material && SW.reinf_material.hardness > 60)
-			return TRUE
 		SW.take_damage(80)
 		return
 	var/obj/structure/girder/G = locate() in T

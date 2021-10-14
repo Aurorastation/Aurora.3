@@ -172,6 +172,7 @@
 		disable()
 	if(welcome_message)
 		to_chat(user, SPAN_NOTICE(welcome_message))
+	universe.OnPlayerLatejoin(user)
 	return TRUE
 
 //Proc to check if a specific user can edit this spawner (open/close/...)

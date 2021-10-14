@@ -111,6 +111,7 @@
 		)
 	stamina = -1	// Machines use power and generate heat, stamina is not a thing
 	sprint_speed_factor = 1  // About as capable of speed as a human
+	sprint_cost_factor = 1.5
 
 	max_hydration_factor = -1
 	max_nutrition_factor = -1
@@ -127,15 +128,21 @@
 
 	// Special snowflake machine vars.
 	var/sprint_temperature_factor = 1.15
-	var/sprint_charge_factor = 0.65
+	var/move_charge_factor = 1
 
 /datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	. = ..()
 	check_tag(H, H.client)
+	var/obj/item/organ/internal/cell/C = H.internal_organs_by_name[BP_CELL]
+	if(C)
+		C.move_charge_factor = move_charge_factor
 
 /datum/species/machine/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost, var/pre_move)
 	if(!pre_move && H.stat == CONSCIOUS)
 		H.bodytemperature += cost * sprint_temperature_factor
+	var/obj/item/organ/internal/cell/C = H.internal_organs_by_name[BP_CELL]
+	if(C)
+		C.use(cost * sprint_cost_factor)
 	return TRUE
 
 /datum/species/machine/handle_emp_act(mob/living/carbon/human/H, var/severity)

@@ -78,7 +78,7 @@
 	name = "voidsuit kit"
 	icon = 'icons/obj/device.dmi'
 	icon_state = "modkit"
-	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits a Himean voidsuit."
+	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for a Himean voidsuit."
 	desc_info = "In order to convert a voidsuit simply click on voidsuit or helmet with this item\
 	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit\
 	or else it will be deleted."
@@ -124,7 +124,7 @@
 		var/obj/item/P = new voidsuit_product(get_turf(W))
 
 		if(!reconverting)
-			to_chat(user, SPAN_NOTICE("Your permit for a [P] has been processed. Enjoy!"))
+			to_chat(user, SPAN_NOTICE("Your permit for [P] has been processed. Enjoy!"))
 		else
 			to_chat(user, SPAN_NOTICE("Your voidsuit part has been reconverted into [P]."))
 

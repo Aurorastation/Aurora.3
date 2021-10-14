@@ -91,6 +91,9 @@
 	pixel_x = species.icon_x_offset
 	pixel_y = species.icon_y_offset
 
+	if(length(species.unarmed_attacks))
+		set_default_attack(species.unarmed_attacks[1])
+
 /mob/living/carbon/human/Destroy()
 	human_mob_list -= src
 	for(var/organ in organs)
@@ -185,8 +188,8 @@
 	if(statpanel("Status"))
 		stat("Intent:", "[a_intent]")
 		stat("Move Mode:", "[m_intent]")
-		if(emergency_shuttle)
-			var/eta_status = emergency_shuttle.get_status_panel_eta()
+		if(evacuation_controller)
+			var/eta_status = evacuation_controller.get_status_panel_eta()
 			if(eta_status)
 				stat(null, eta_status)
 		if(is_diona() && DS)
@@ -1870,7 +1873,7 @@
 	// For a blood pressure, e.g. 120/80
 	var/systolic_alert // this is the top number '120' -- highest pressure when heart beats
 	var/diastolic_alert // this is the bottom number '80' -- lowest pressure when heart relaxes
-	
+
 	var/blood_pressure_systolic = bp_list[1]
 	if (blood_pressure_systolic)
 		if (blood_pressure_systolic >= (species.bp_base_systolic - BP_SYS_IDEAL_MOD) && blood_pressure_systolic <= (species.bp_base_systolic + HIGH_BP_MOD))
@@ -1977,6 +1980,9 @@
 				damage = rand(20, 60)
 				src.adjustToxLoss(-damage)
 			to_chat(src, SPAN_NOTICE("You can feel flow of energy which makes you regenerate."))
+
+		if(species.radiation_mod <= 0)
+			return
 
 		apply_damage((rand(15,30)), IRRADIATE, damage_flags = DAM_DISPERSED)
 		if(prob(4))

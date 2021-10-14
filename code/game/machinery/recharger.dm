@@ -32,7 +32,7 @@
 
 /obj/machinery/recharger/examine(mob/user)
 	. = ..(user, 3)
-	to_chat(user, "There is [charging ? "[charging]" : "nothing"] in [src].")
+	to_chat(user, "There is [charging ? "\a [charging]" : "nothing"] in [src].")
 	if (charging && .)
 		var/obj/item/cell/C = charging.get_cell()
 		if (istype(C) && user.client && (!user.progressbars || !user.progressbars[src]))

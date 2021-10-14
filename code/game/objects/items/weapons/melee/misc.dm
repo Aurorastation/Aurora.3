@@ -76,6 +76,9 @@
 	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_MATERIAL = 3, TECH_ILLEGAL = 2)
 
+/obj/item/melee/hammer/ishammer()
+	return TRUE
+
 /obj/item/melee/hammer/powered
 	name = "powered hammer"
 	desc = "A heavily modified plasteel hammer, it seems to be powered by a robust hydraulic system."

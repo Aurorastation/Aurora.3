@@ -80,7 +80,13 @@
 
 		mind = body.mind	//we don't transfer the mind but we keep a reference to it.
 
-	if(!T)	T = pick(latejoin)			//Safety in case we cannot find the body's position
+	if(!T)
+		if(length(latejoin))
+			T = pick(latejoin)			//Safety in case we cannot find the body's position
+		else if(length(force_spawnpoints["Anyone"]))
+			T = pick(force_spawnpoints["Anyone"])
+		else
+			T = locate(1, 1, 1)
 	forceMove(T)
 
 	if(!name)							//To prevent nameless ghosts
@@ -266,8 +272,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /mob/abstract/observer/Stat()
 	..()
 	if(statpanel("Status"))
-		if(emergency_shuttle)
-			var/eta_status = emergency_shuttle.get_status_panel_eta()
+		if(evacuation_controller)
+			var/eta_status = evacuation_controller.get_status_panel_eta()
 			if(eta_status)
 				stat(null, eta_status)
 
