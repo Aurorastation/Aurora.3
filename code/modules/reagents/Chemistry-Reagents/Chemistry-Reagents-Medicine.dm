@@ -936,7 +936,6 @@
 /decl/reagent/mental/nicotine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale, var/datum/reagents/holder)
 	. = ..()
 	M.adjustOxyLoss(10 * removed * scale)
-	M.Weaken(10 * removed * scale)
 	M.add_chemical_effect(CE_PULSE, 0.5)
 
 /decl/reagent/mental/corophenidate

@@ -423,7 +423,7 @@
 				break
 
 	Debug("ER/([H]): Completed.")
-
+	H.megavend = 1
 	return H
 
 /mob/living/carbon/human
@@ -500,7 +500,7 @@
 			Debug("EP/([H]): Abort, H is AI.")
 			return EquipRank(H, rank, 1)
 
-	if(!current_map.command_spawn_enabled || spawning_at != "Arrivals Shuttle")
+	if(!current_map.command_spawn_enabled || spawning_at != "Arrivals Shuttle" && spawning_at != "Cryogenic Storage")
 		return EquipRank(H, rank, 1)
 
 	H.centcomm_despawn_timer = addtimer(CALLBACK(H, /mob/living/.proc/centcomm_timeout), 10 MINUTES, TIMER_STOPPABLE)
@@ -509,11 +509,12 @@
 
 	H.job = rank
 
-	if(spawning_at != "Arrivals Shuttle" || job.latejoin_at_spawnpoints)
+	if(spawning_at != "Arrivals Shuttle" && spawning_at != "Cryogenic Storage" || job.latejoin_at_spawnpoints)
 		return EquipRank(H, rank, 1)
 
 	var/list/spawn_in_storage = list()
-	to_chat(H,"<span class='notice'>You have ten minutes to reach the station before you will be forced there.</span>")
+	if(spawning_at == "Arrivals Shuttle")
+		to_chat(H,SPAN_NOTICE("You have ten minutes to reach the station before you will be forced there."))
 
 	if(H.needs_wheelchair())
 		H.equip_wheelchair()
@@ -560,7 +561,8 @@
 	BITSET(H.hud_updateflag, IMPLOYAL_HUD)
 	BITSET(H.hud_updateflag, SPECIALROLE_HUD)
 
-	to_chat(H, "<b>[current_map.command_spawn_message]</b>")
+	if(spawning_at == "Arrivals Shuttle")
+		to_chat(H, "<b>[current_map.command_spawn_message]</b>")
 
 	Debug("EP/([H]): Completed.")
 
@@ -977,9 +979,16 @@
 	if(!uniform) // silicons don't have uniforms or gear
 		return
 	var/datum/outfit/U = new uniform
+	var/spawned_uniform = FALSE
+	var/spawned_suit = FALSE
 	for(var/item in prefs.gear)
 		var/datum/gear/L = gear_datums[item]
 		if(L.slot == slot_w_uniform)
-			H.equip_or_collect(new U.uniform(H), H.back)
-			break
+			if(U.uniform && !spawned_uniform)
+				H.equip_or_collect(new U.uniform(H), H.back)
+				spawned_uniform = TRUE
+		if(L.slot == slot_wear_suit)
+			if(U.suit && !spawned_suit)
+				H.equip_or_collect(new U.suit(H), H.back)
+				spawned_suit = TRUE
 #undef Debug

@@ -9375,8 +9375,9 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
 "ipR" = (
-/obj/structure/closet/wardrobe/pjs,
 /obj/machinery/firealarm/north,
+/obj/structure/closet/emcloset,
+/obj/item/storage/toolbox/emergency,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
 "iqa" = (
@@ -14844,13 +14845,13 @@
 /turf/simulated/floor/lino/grey,
 /area/hallway/secondary/entry/departure_lounge)
 "nqU" = (
-/obj/machinery/shield_capacitor{
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable/cyan{
 	d2 = 2;
 	icon_state = "0-2"
+	},
+/obj/machinery/shield_capacitor/multiz{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/storage/shields)
@@ -20415,14 +20416,13 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/item/storage/toolbox/emergency,
-/obj/structure/closet/emcloset,
 /obj/item/device/radio/intercom{
 	dir = 4;
 	name = "Station Intercom (General)";
 	pixel_x = 27
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/megavendor/vendor,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
 "seu" = (
@@ -23314,13 +23314,13 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
 "uAC" = (
-/obj/machinery/shield_capacitor{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable/cyan{
 	d2 = 2;
 	icon_state = "0-2"
+	},
+/obj/machinery/shield_capacitor/multiz{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/storage/shields)
@@ -23508,7 +23508,7 @@
 /obj/machinery/power/smes/buildable{
 	RCon_tag = "Surface - Shield Substation";
 	charge = 1e+007;
-	cur_coils = 4;
+	cur_coils = 5;
 	input_attempt = 1;
 	input_level = 500000;
 	output_attempt = 1;
