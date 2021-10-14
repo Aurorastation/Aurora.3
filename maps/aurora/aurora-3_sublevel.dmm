@@ -30810,6 +30810,12 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing)
+"lRh" = (
+/obj/item/stool/padded{
+	dir = 1
+	},
+/turf/simulated/floor/beach/sand/alt,
+/area/medical/patient_wing_picnic)
 "lRQ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -32120,6 +32126,12 @@
 /obj/structure/girder/displaced,
 /turf/simulated/floor/plating,
 /area/maintenance/medsublevel_port)
+"nRl" = (
+/obj/item/stool/padded{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/maintenance/medsublevel_port)
 "nRA" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/pipe/simple/visible/green{
@@ -32550,6 +32562,12 @@
 	},
 /turf/simulated/floor/tiled/airless,
 /area/security/penal_colony)
+"oXm" = (
+/obj/item/stool/padded{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/maintenance/medsublevel_port)
 "oXU" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -32697,6 +32715,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_hazard)
+"psw" = (
+/obj/item/stool/padded{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/maintenance/medsublevel_port)
 "ptY" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -35495,7 +35519,9 @@
 /turf/simulated/floor/wood,
 /area/medical/patient_a)
 "vll" = (
-/obj/item/stool/padded,
+/obj/item/stool/padded{
+	dir = 4
+	},
 /obj/effect/decal/cleanable/mucus,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
@@ -71462,7 +71488,7 @@ aPt
 vVs
 auL
 axG
-aGW
+oXm
 uui
 gWq
 lMm
@@ -72234,13 +72260,13 @@ aEc
 icC
 qaD
 uui
-aGW
+psw
 uui
 aBl
 xUD
 aGW
 uui
-aGW
+nRl
 aON
 gWq
 gWq
@@ -77639,7 +77665,7 @@ aMq
 fdV
 hHy
 hHy
-fdV
+lRh
 aNq
 cyD
 aLm
@@ -77896,7 +77922,7 @@ xUC
 fdV
 hHy
 hHy
-fdV
+lRh
 aNq
 aQX
 aLm
@@ -78153,7 +78179,7 @@ aMs
 fdV
 hHy
 hHy
-fdV
+lRh
 aNq
 msp
 aLm
