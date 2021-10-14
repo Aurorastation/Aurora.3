@@ -2172,3 +2172,12 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "sur_g_d1"
 	base_icon = "sur_g_d"
 	favored_number = 6
+
+/obj/item/clothing/head/fluff/ulzka_skull // The skull of Ulzka Dorviza - The Continuity of Ulzka Dorviza - boggle08
+	name = "skull of Ulzka Dorviza"
+	desc = "This is the polished skull of a long dead Unathi. Great horns adorn either side of it, however, one of them is cracked off. In the rare instance it isn't lodged firmly in the gestalt it belongs to, it is bagged and tied up into the cowl that houses it."
+	icon = 'icons/obj/custom_items/ulzka_skull.dmi'
+	icon_state = "ulzka_skull"
+	item_state = "ulzka_skull"
+	canremove = FALSE
+	contained_sprite = TRUE

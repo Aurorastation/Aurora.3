@@ -9,7 +9,7 @@ clone:
 environment:
   MACRO_COUNT: 0
   GENDER_COUNT: 6
-  TO_WORLD_COUNT: 209
+  TO_WORLD_COUNT: 211
 
 trigger:
   branch:
@@ -20,8 +20,6 @@ steps:
     image: python:3.6-slim-buster
     commands:
       - pip install --user -r ./tools/requirements.txt
-      - pip install --user PyYaml -q # Why is that shit not in the requirements
-      - pip install --user beautifulsoup4 -q # Same here
       - chmod +x ./scripts/code_check.sh && ./scripts/code_check.sh $PWD
       - awk -f tools/indentation.awk **/*.dm
       - python3 tools/TagMatcher/tag-matcher.py ../..
@@ -177,6 +175,6 @@ steps:
 
 ---
 kind: signature
-hmac: 0a2d0d528d5efd62788a1697369f95b8867d94552961390124d42e3005552b61
+hmac: dff04fdff79e6ed2acdbe84a55f4c13f57655f345f56be03bf6d9c433cb65422
 
 ...

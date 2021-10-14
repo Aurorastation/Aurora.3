@@ -905,9 +905,13 @@
 
 /obj/item/clothing/suit/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
-	for(var/obj/item/clothing/accessory/A in accessories)
-		var/image/accessory_image = A.get_accessory_mob_overlay(H)
-		I.add_overlay(accessory_image)
+	if(slot == slot_l_hand_str || slot == slot_r_hand_str)
+		for(var/obj/item/clothing/accessory/A in accessories)
+			A.accessory_mob_overlay.cut_overlays()
+	else
+		for(var/obj/item/clothing/accessory/A in accessories)
+			var/image/accessory_image = A.get_accessory_mob_overlay(H)
+			I.add_overlay(accessory_image)
 
 	if(blood_DNA)
 		var/image/bloodsies = image(icon = H.species.blood_mask, icon_state = "[blood_overlay_type]blood")
@@ -985,9 +989,13 @@
 
 /obj/item/clothing/under/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
-	for(var/obj/item/clothing/accessory/A in accessories)
-		var/image/accessory_image = A.get_accessory_mob_overlay(H)
-		I.add_overlay(accessory_image)
+	if(slot == slot_l_hand_str | slot == slot_r_hand_str)
+		for(var/obj/item/clothing/accessory/A in accessories)
+			A.accessory_mob_overlay.cut_overlays()
+	else
+		for(var/obj/item/clothing/accessory/A in accessories)
+			var/image/accessory_image = A.get_accessory_mob_overlay(H)
+			I.add_overlay(accessory_image)
 
 	if(blood_DNA)
 		var/image/bloodsies = image(icon = H.species.blood_mask, icon_state = "uniformblood")
