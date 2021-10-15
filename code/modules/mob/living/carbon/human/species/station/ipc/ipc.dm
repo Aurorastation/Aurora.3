@@ -139,7 +139,7 @@
 		H.bodytemperature += cost * sprint_temperature_factor
 	var/obj/item/organ/internal/cell/C = H.internal_organs_by_name[BP_CELL]
 	if(C)
-		C.use(cost * sprint_cost_factor)
+		C.use(cost * get_sprint_cost_factor(H))
 	return TRUE
 
 /datum/species/machine/handle_emp_act(mob/living/carbon/human/H, var/severity)

@@ -564,7 +564,7 @@
 // pre_move is set to TRUE when the mob checks whether it's even possible to move, so resources aren't drained until after the move completes
 // once the mob moves and its loc actually changes, the pre_move is set to FALSE and all the proper resources are drained
 /datum/species/proc/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost, var/pre_move)
-	if (!H.exhaust_threshold)
+	if (!get_exhaust_threshold(H))
 		return 1 // Handled.
 
 	cost += H.getOxyLoss() * 0.1 //The less oxygen we get, the more we strain.

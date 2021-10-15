@@ -360,7 +360,7 @@
 		else
 			loc_temp = environment.temperature
 
-		if(adjusted_pressure < species.warning_high_pressure && adjusted_pressure > species.warning_low_pressure && abs(loc_temp - bodytemperature) < 20 && bodytemperature < species.heat_level_1 && bodytemperature > species.cold_level_1)
+		if(adjusted_pressure < species.get_warning_high_pressure(src) && adjusted_pressure > species.get_warning_low_pressure(src) && abs(loc_temp - bodytemperature) < 20 && bodytemperature < species.heat_level_1 && bodytemperature > species.cold_level_1)
 			pressure_alert = 0
 			return // Temperatures are within normal ranges, fuck all this processing. ~Ccomp
 
@@ -417,15 +417,15 @@
 	if(status_flags & GODMODE)
 		return 1	//godmode
 
-	if(adjusted_pressure >= species.hazard_high_pressure)
-		var/pressure_damage = min( ( (adjusted_pressure / species.hazard_high_pressure) -1 )*PRESSURE_DAMAGE_COEFFICIENT , MAX_HIGH_PRESSURE_DAMAGE)
+	if(adjusted_pressure >= species.get_hazard_high_pressure(src))
+		var/pressure_damage = min( ( (adjusted_pressure / species.get_hazard_high_pressure(src)) -1 )*PRESSURE_DAMAGE_COEFFICIENT , MAX_HIGH_PRESSURE_DAMAGE)
 		take_overall_damage(brute=pressure_damage, used_weapon = "High Pressure")
 		pressure_alert = 2
-	else if(adjusted_pressure >= species.warning_high_pressure)
+	else if(adjusted_pressure >= species.get_warning_high_pressure(src))
 		pressure_alert = 1
-	else if(adjusted_pressure >= species.warning_low_pressure)
+	else if(adjusted_pressure >= species.get_warning_low_pressure(src))
 		pressure_alert = 0
-	else if(adjusted_pressure >= species.hazard_low_pressure)
+	else if(adjusted_pressure >= species.get_hazard_low_pressure(src))
 		pressure_alert = -1
 	else
 		if(!pressure_resistant())
@@ -626,10 +626,10 @@
 				if(prob(2))
 					to_chat(src, SPAN_WARNING(pick("The itch is becoming progressively worse.", "You need to scratch that itch!", "The itch isn't going!")))
 
-		sprint_speed_factor = species.sprint_speed_factor
 		max_stamina = species.stamina
-		stamina_recovery = species.stamina_recovery
-		sprint_cost_factor = species.sprint_cost_factor
+		sprint_speed_factor = species.get_sprint_speed_factor(src, TRUE)
+		stamina_recovery = species.get_stamina_recovery(src, TRUE)
+		sprint_cost_factor = species.get_sprint_cost_factor(src, TRUE)
 		move_delay_mod = 0
 
 		if(CE_ADRENALINE in chem_effects)
@@ -1366,10 +1366,10 @@
 	if (species.stamina == -1) //If species stamina is -1, it has special mechanics which will be handled elsewhere
 		return //so quit this function
 
-	if (!exhaust_threshold) // Also quit if there's no exhaust threshold specified, because division by 0 is amazing.
+	if (!species.get_exhaust_threshold(src)) // Also quit if there's no exhaust threshold specified, because division by 0 is amazing.
 		return
 
-	if (failed_last_breath || (getOxyLoss() + get_shock()) > exhaust_threshold)//Can't catch our breath if we're suffocating
+	if (failed_last_breath || (getOxyLoss() + get_shock()) > species.get_exhaust_threshold(src))//Can't catch our breath if we're suffocating
 		flash_pain(getOxyLoss()/2)
 		return
 
@@ -1440,11 +1440,11 @@
 			bodytemperature = min(bodytemperature + fever, normal_temp)
 		else if(bodytemperature <= normal_temp + 10) //If we're hotter than max due to like, being on fire, don't keep increasing.
 			bodytemperature = normal_temp + min(fever, 10) //We use normal_temp here to maintain a steady temperature, otherwise even a small infection steadily increases bodytemp to max. This way it's easier to diagnose the intensity of an infection based on how bad the fever is.
-	//Apply side effects for having a fever. Separate from body temp changes. 
+	//Apply side effects for having a fever. Separate from body temp changes.
 	if(fever >= 2)
 		do_fever_effects(fever)
 
-		
+
 //Getting the total germ level for all infected organs, affects fever
 /mob/living/carbon/human/proc/get_infection_germ_level()
 	var/germs

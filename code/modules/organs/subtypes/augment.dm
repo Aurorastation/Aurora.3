@@ -8,7 +8,7 @@
 	is_augment = TRUE
 	species_restricted = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,
 							SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI,
-							SPECIES_UNATHI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, 
+							SPECIES_UNATHI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC,
 							SPECIES_IPC_HEAVY, SPECIES_IPC_SHELL)
 	var/cooldown = 150
 	var/action_button_icon = "augment"
@@ -677,3 +677,28 @@
 	action_button_name = "Deploy Glare Dampeners"
 	organ_tag = BP_AUG_GLARE_DAMPENER
 	augment_type = /obj/item/clothing/glasses/aug/welding
+
+
+/obj/item/organ/internal/augment/species_modifier
+	name = "species-modifying chest augment"
+	removable = FALSE
+	var/list/modifying_values
+
+/obj/item/organ/internal/augment/species_modifier/replaced(mob/living/carbon/human/target, obj/item/organ/external/affected)
+	. = ..()
+	if(!.)
+		return
+
+	for(var/value in modifying_values)
+		LAZYSET(target.species_mod_modifiers, value, modifying_values[value])
+
+/obj/item/organ/internal/augment/species_modifier/removed(mob/living/carbon/human/target, mob/living/user)
+	. = ..()
+	if(!.)
+		return
+
+	for(var/value in modifying_values)
+		LAZYREMOVE(target.species_mod_modifiers, value)
+
+/obj/item/organ/internal/augment/species_modifier/movement
+	modifying_values = list(SPECIES_SLOWDOWN = -5)

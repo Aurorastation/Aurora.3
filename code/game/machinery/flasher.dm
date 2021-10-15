@@ -88,7 +88,7 @@
 			var/mob/living/carbon/human/H = O
 			if(!H.eyecheck(TRUE) <= 0)
 				continue
-			flash_time *= H.species.flash_mod
+			flash_time *= H.species.get_flash_mod(src)
 			var/obj/item/organ/internal/eyes/E = H.get_eyes()
 			if(!E)
 				return

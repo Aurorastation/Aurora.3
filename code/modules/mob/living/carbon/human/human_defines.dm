@@ -73,6 +73,8 @@
 	var/skill_specialization = null
 	var/list/skills = list()
 
+	var/list/species_mod_modifiers
+
 	var/icon/stand_icon = null
 	var/icon/lying_icon = null
 

@@ -516,7 +516,7 @@
 		suspension.take_damage(10)
 
 	var/z_velocity = 5*(levels_fallen**2)
-	var/damage = (((40 * species.fall_mod) + z_velocity) + rand(-20,20)) * combat_roll * damage_mod * aug_mod
+	var/damage = (((40 * species.get_fall_mod(src)) + z_velocity) + rand(-20,20)) * combat_roll * damage_mod * aug_mod
 	var/limb_damage = rand(0,damage/2)
 
 	if(prob(30) && combat_roll >= 1) //landed on their legs

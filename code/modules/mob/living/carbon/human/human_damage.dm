@@ -165,7 +165,7 @@
 		if(heal)
 			breathe_organ.remove_oxygen_deprivation(abs(amount))
 		else
-			breathe_organ.add_oxygen_deprivation(abs(amount*species.oxy_mod))
+			breathe_organ.add_oxygen_deprivation(abs(amount*species.get_oxy_mod(src)))
 	BITSET(hud_updateflag, HEALTH_HUD)
 
 /mob/living/carbon/human/getToxLoss()
@@ -178,8 +178,8 @@
 	return amount
 
 /mob/living/carbon/human/adjustToxLoss(var/amount)
-	if(species && species.toxins_mod && amount > 0)
-		amount *= species.toxins_mod
+	if(species && species.get_toxins_mod(src) && amount > 0)
+		amount *= species.get_toxins_mod(src)
 	if(species.flags & NO_POISON)
 		return 0
 
@@ -187,8 +187,8 @@
 	amount = abs(amount)
 
 	if (!heal)
-		if(species?.toxins_mod)
-			amount *= species.toxins_mod
+		if(species?.get_toxins_mod(src))
+			amount *= species.get_toxins_mod(src)
 		if (CE_ANTITOXIN in chem_effects)
 			amount *= 1 - (chem_effects[CE_ANTITOXIN] * 0.25)
 
@@ -443,13 +443,13 @@ This function restores all organs.
 		if(BRUTE)
 			damageoverlaytemp = 20
 			if(damage > 0)
-				damage *= species.brute_mod
+				damage *= species.get_brute_mod(src)
 			organ.take_damage(damage, 0, damage_flags, used_weapon)
 			UpdateDamageIcon()
 		if(BURN)
 			damageoverlaytemp = 20
 			if(damage > 0)
-				damage *= species.burn_mod
+				damage *= species.get_burn_mod(src)
 			organ.take_damage(0, damage, damage_flags, used_weapon)
 			UpdateDamageIcon()
 		if(PAIN)
@@ -464,7 +464,7 @@ This function restores all organs.
 
 /mob/living/carbon/human/apply_radiation(var/rads)
 	if(species && rads > 0)
-		rads = rads * species.radiation_mod
+		rads = rads * species.get_radiation_mod(src)
 	..(rads)
 
 /mob/living/carbon/human/proc/get_shock()

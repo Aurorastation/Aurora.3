@@ -1441,16 +1441,12 @@
 	if (src.is_diona())
 		setup_gestalt(1)
 
-	burn_mod = species.burn_mod
-	brute_mod = species.brute_mod
-
 	max_stamina = species.stamina
 	stamina = max_stamina
-	sprint_speed_factor = species.sprint_speed_factor
-	sprint_cost_factor = species.sprint_cost_factor
-	stamina_recovery = species.stamina_recovery
-
-	exhaust_threshold = species.exhaust_threshold
+	sprint_speed_factor = species.get_sprint_speed_factor(src, TRUE)
+	sprint_cost_factor = species.get_sprint_cost_factor(src, TRUE)
+	stamina_recovery = species.get_stamina_recovery(src, TRUE)
+	exhaust_threshold = species.get_exhaust_threshold(src, TRUE)
 	max_nutrition = BASE_MAX_NUTRITION * species.max_nutrition_factor
 	max_hydration = BASE_MAX_HYDRATION * species.max_hydration_factor
 
@@ -1792,7 +1788,7 @@
 	return
 
 /mob/living/carbon/human/get_metabolism(metabolism)
-	return ..() * (species ? species.metabolism_mod : 1)
+	return ..() * (species ? species.get_metabolism_mod(src) : 1)
 
 /mob/living/carbon/human/is_clumsy()
 	if(CLUMSY in mutations)
