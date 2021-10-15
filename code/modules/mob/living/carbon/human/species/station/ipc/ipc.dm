@@ -130,13 +130,10 @@
 /datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	. = ..()
 	check_tag(H, H.client)
-	var/obj/item/organ/internal/cell/C = H.internal_organs_by_name[BP_CELL]
-	if(C)
-		C.move_charge_factor = move_charge_factor
 
 /datum/species/machine/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost, var/pre_move)
 	if(!pre_move && H.stat == CONSCIOUS)
-		H.bodytemperature += cost * sprint_temperature_factor
+		H.bodytemperature += cost * get_sprint_temperature_factor(H)
 	var/obj/item/organ/internal/cell/C = H.internal_organs_by_name[BP_CELL]
 	if(C)
 		C.use(cost * get_sprint_cost_factor(H))

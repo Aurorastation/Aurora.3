@@ -35,6 +35,10 @@
 	return bleed_mod + LAZYACCESS(H.species_mod_modifiers, SPECIES_BLEED_MOD)
 
 
+/datum/species/proc/get_passive_temp_gain(var/mob/living/carbon/human/H)
+	return passive_temp_gain + LAZYACCESS(H.species_mod_modifiers, SPECIES_PASSIVE_TEMP_GAIN)
+
+
 /datum/species/proc/get_hazard_high_pressure(var/mob/living/carbon/human/H)
 	return hazard_high_pressure + LAZYACCESS(H.species_mod_modifiers, SPECIES_HAZARD_HIGH_PRESSURE)
 
@@ -68,7 +72,20 @@
 		return sprint_cost_factor + LAZYACCESS(H.species_mod_modifiers, SPECIES_SPRINT_COST_FACTOR)
 	return H.sprint_cost_factor + LAZYACCESS(H.species_mod_modifiers, SPECIES_SPRINT_COST_FACTOR)
 
+/datum/species/proc/get_sprint_temperature_factor(var/mob/living/carbon/human/H, var/baseline)
+	return 0
+
+/datum/species/machine/get_sprint_temperature_factor(var/mob/living/carbon/human/H)
+	return sprint_temperature_factor + LAZYACCESS(H.species_mod_modifiers, SPECIES_SPRINT_TEMPERATURE_FACTOR)
+
 /datum/species/proc/get_exhaust_threshold(var/mob/living/carbon/human/H, var/baseline)
 	if(baseline)
 		return exhaust_threshold + LAZYACCESS(H.species_mod_modifiers, SPECIES_EXHAUST_THRESHOLD)
 	return H.exhaust_threshold + LAZYACCESS(H.species_mod_modifiers, SPECIES_EXHAUST_THRESHOLD)
+
+
+/datum/species/proc/get_move_charge_factor(var/mob/living/carbon/human/H, var/baseline)
+	return 0
+
+/datum/species/machine/get_move_charge_factor(var/mob/living/carbon/human/H)
+	return move_charge_factor + LAZYACCESS(H.species_mod_modifiers, SPECIES_MOVE_CHARGE_FACTOR)
