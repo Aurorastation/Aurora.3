@@ -166,4 +166,25 @@
 	description = "An identification card given to free IPC residents within the Republic of Biesel."
 	path = /obj/item/clothing/accessory/badge/passcard/synthetic
 	cost = 0
-	whitelisted = list(SPECIES_IPC, SPECIES_IPC_HEAVY, SPECIES_IPC_SHELL)
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_HEAVY, SPECIES_IPC_SHELL)	
+
+/datum/gear/augment/machine/core
+	display_name = "Core selection"
+	description = "A set of core modules determining how a frame acts like"
+	path = /obj/item/organ/internal/augment/species_modifier/ipc
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_SHELL, SPECIES_IPC_HEAVY)
+	flags = GEAR_NO_SELECTION
+	augment = TRUE
+	sort_category = "Xenowear - IPC"
+
+/datum/gear/augment/machine/core/New()
+	..()
+	var/list/cores = list()
+	cores["baseline core module"] = /obj/item/organ/internal/augment/species_modifier/ipc
+	cores["baselime zeng-hu core module"] = /obj/item/organ/internal/augment/species_modifier/ipc/zeng
+	cores["baseline bishop core module"] = /obj/item/organ/internal/augment/species_modifier/ipc/bishop
+	cores["heavy G1 core module"] = /obj/item/organ/internal/augment/species_modifier/ipc/hephg1
+	cores["heavy G2 core module"] = /obj/item/organ/internal/augment/species_modifier/ipc/hephg1/hephg2
+	cores["heavy xion core module"] = /obj/item/organ/internal/augment/species_modifier/ipc/hephg1/xion
+	cores["shell core module"] = /obj/item/organ/internal/augment/species_modifier/ipc/shell
+	gear_tweaks += new /datum/gear_tweak/path(cores)

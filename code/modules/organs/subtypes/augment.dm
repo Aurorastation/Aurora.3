@@ -683,6 +683,7 @@
 	name = "species-modifying chest augment"
 	removable = FALSE
 	var/list/modifying_values
+	desc_info = "This augment modifies various species stats. If you see this thing outside a non-exploded body, a bug has likely occured. Please contact a developer."
 
 /obj/item/organ/internal/augment/species_modifier/replaced(mob/living/carbon/human/target, obj/item/organ/external/affected)
 	. = ..()
@@ -702,3 +703,38 @@
 
 /obj/item/organ/internal/augment/species_modifier/movement
 	modifying_values = list(SPECIES_SLOWDOWN = -5)
+
+/obj/item/organ/internal/augment/species_modifier/ipc
+	name = "baseline core module"
+	modifying_values = list(SPECIES_BRUTE_MOD = 1, SPECIES_BURN_MOD = 1.2, SPECIES_GRAB_MOD = 1.1,
+	SPECIES_RESIST_MOD = 2, SPECIES_SLOWDOWN = 0, SPECIES_SPRINT_SPEED_FACTOR = 1, SPECIES_SPRINT_COST_FACTOR = 1.5)
+
+/obj/item/organ/internal/augment/species_modifier/ipc/shell
+	name = "shell core module"
+	modifying_values = list(SPECIES_BRUTE_MOD = 1, SPECIES_BURN_MOD = 1.2, SPECIES_GRAB_MOD = 1,
+	SPECIES_RESIST_MOD = 2, SPECIES_SLOWDOWN = 0, SPECIES_SPRINT_SPEED_FACTOR = 1, SPECIES_SPRINT_COST_FACTOR = 1.5)
+
+/obj/item/organ/internal/augment/species_modifier/ipc/zeng
+	name = "zeng-hu core module"
+	modifying_values = list(SPECIES_BRUTE_MOD = 1, SPECIES_BURN_MOD = 1.5, SPECIES_GRAB_MOD = 1.1,
+	SPECIES_RESIST_MOD = 4, SPECIES_SLOWDOWN = -0.8, SPECIES_SPRINT_SPEED_FACTOR = 0.6, SPECIES_SPRINT_COST_FACTOR = 2)
+
+/obj/item/organ/internal/augment/species_modifier/ipc/bishop
+	name = "bishop core module"
+	modifying_values = list(SPECIES_BRUTE_MOD = 1, SPECIES_BURN_MOD = 1.2, SPECIES_GRAB_MOD = 1.1,
+	SPECIES_RESIST_MOD = 4, SPECIES_SLOWDOWN = 0, SPECIES_SPRINT_SPEED_FACTOR = 1, SPECIES_SPRINT_COST_FACTOR = 1.5)
+
+/obj/item/organ/internal/augment/species_modifier/ipc/hephg1
+	name = "G1 core module"
+	modifying_values = list(SPECIES_BRUTE_MOD = 0.8, SPECIES_BURN_MOD = 1.1, SPECIES_GRAB_MOD = 0.8,
+	SPECIES_RESIST_MOD = 10, SPECIES_SLOWDOWN = 4, SPECIES_SPRINT_SPEED_FACTOR = 1.4, SPECIES_SPRINT_COST_FACTOR = 1.5)
+
+/obj/item/organ/internal/augment/species_modifier/ipc/hephg1/hephg2
+	name = "G2 core module"
+	modifying_values = list(SPECIES_BRUTE_MOD = 0.7, SPECIES_BURN_MOD = 1.1, SPECIES_GRAB_MOD = 0.7,
+	SPECIES_RESIST_MOD = 12, SPECIES_SLOWDOWN = 6, SPECIES_SPRINT_SPEED_FACTOR = 1.4, SPECIES_SPRINT_COST_FACTOR = 1.5)
+
+/obj/item/organ/internal/augment/species_modifier/ipc/hephg1/xion
+	name = "xion core module"
+	modifying_values = list(SPECIES_BRUTE_MOD = 0.9, SPECIES_BURN_MOD = 1.1, SPECIES_GRAB_MOD = 0.9,
+	SPECIES_RESIST_MOD = 8, SPECIES_SLOWDOWN = 3, SPECIES_SPRINT_SPEED_FACTOR = 1.4, SPECIES_SPRINT_COST_FACTOR = 1.5)
