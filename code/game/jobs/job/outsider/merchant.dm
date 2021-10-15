@@ -21,7 +21,7 @@
 	latejoin_at_spawnpoints = TRUE
 
 	outfit = /datum/outfit/job/merchant
-	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
+	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /datum/job/merchant/announce(mob/living/carbon/human/H)
 	to_chat(H,"You are a merchant heading to the [station_name()] to make profit, your main objective is to sell and trade with the crew.")

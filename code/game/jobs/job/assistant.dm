@@ -13,7 +13,7 @@
 	access = list()			//See /datum/job/assistant/get_access()
 	minimal_access = list()	//See /datum/job/assistant/get_access()
 	outfit = /datum/outfit/job/assistant
-	blacklisted_species = null
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/job/assistant/get_access(selected_title)
 	if(config.assistant_maint && selected_title == "Assistant")
@@ -50,3 +50,23 @@
 
 	uniform = /obj/item/clothing/under/color/black
 	shoes = /obj/item/clothing/shoes/black
+
+/datum/outfit/job/visitor/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	if(H && !visualsOnly)
+		if(isvaurca(H, TRUE))
+
+			H.unEquip(H.back)
+			H.unEquip(H.shoes)
+			qdel(H.wear_mask)
+
+			var/obj/item/organ/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
+			H.internal = preserve
+			H.internals.icon_state = "internal1"
+
+			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec(H), slot_back)
+			H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(H), slot_wear_mask)
+			H.equip_to_slot_or_del(new /obj/item/clothing/head/vaurca_breeder(H), slot_head)
+			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/vaurca/breeder(H), slot_shoes)
+			H.equip_to_slot_or_del(new /obj/item/clothing/suit/vaurca/breeder(H), slot_wear_suit)
+		
+	..()

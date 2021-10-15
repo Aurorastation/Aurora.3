@@ -60,10 +60,19 @@
 	glasses = null
 	head = /obj/item/clothing/head/vaurca_breeder
 	shoes = /obj/item/clothing/shoes/vaurca/breeder
-	back = /obj/item/storage/backpack/typec
+	back = null
 	mask = /obj/item/clothing/mask/breath/vaurca/filter
 	suit = /obj/item/clothing/suit/vaurca/breeder
 
-	backpack_contents = list(
-		/obj/item/storage/box/tcfl_pamphlet = 1
-	)
+	backpack_contents = list()
+
+
+/datum/outfit/job/representative/consular/zora/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	if(H && !visualsOnly)
+		if(isvaurca(H))
+
+			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec(H), slot_back)
+			H.equip_to_slot_or_del(new /obj/item/storage/box/tcfl_pamphlet(H), slot_in_backpack)
+
+		addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
+	return TRUE
