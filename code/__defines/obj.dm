@@ -26,6 +26,9 @@
 /obj/proc/iscoil()
 	return FALSE
 
+/obj/proc/ishammer()
+	return FALSE
+
 /obj/proc/ispen()
 	return FALSE
 
