@@ -649,7 +649,7 @@
 		..()
 		return
 
-	if(type != /obj/item/clothing/head/helmet) //Eh, but we don't want people making secbots out of space helmets.
+	if(type != /obj/item/clothing/head/helmet/security) //Eh, but we don't want people making secbots out of space helmets.
 		return
 
 	if(S.secured)

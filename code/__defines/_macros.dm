@@ -16,6 +16,7 @@
 #define SPAN_BOLD(X) ("<span class='bold'>" + X + "</span>")
 #define SPAN_SUBTLE(X) ("<span class='subtle'>" + X + "</span>")
 #define SPAN_SOGHUN(X) ("<span class='soghun'>" + X + "</span>")
+#define SPAN_VOTE(X) ("<span class='vote'>" + X + "</span>")
 
 #define FONT_SIZE_SMALL 1
 #define FONT_SIZE_NORMAL 2
@@ -89,6 +90,8 @@
 #define isclient(A) istype(A, /client)
 
 #define isprojectile(A) istype(A, /obj/item/projectile)
+
+#define isclothing(A) istype(A, /obj/item/clothing)
 
 /// General I/O helpers
 #define to_target(target, payload)                          target << (payload)
