@@ -55,10 +55,8 @@
 	if(H && !visualsOnly)
 		if(isvaurca(H, TRUE))
 
-			H.unEquip(H.back)
 			H.unEquip(H.shoes)
 			qdel(H.wear_mask)
-
 			var/obj/item/organ/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 			H.internal = preserve
 			H.internals.icon_state = "internal1"

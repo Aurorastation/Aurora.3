@@ -60,12 +60,8 @@
 	glasses = null
 	head = /obj/item/clothing/head/vaurca_breeder
 	shoes = /obj/item/clothing/shoes/vaurca/breeder
-	back = null
 	mask = /obj/item/clothing/mask/breath/vaurca/filter
 	suit = /obj/item/clothing/suit/vaurca/breeder
-
-	backpack_contents = list()
-
 
 /datum/outfit/job/representative/consular/zora/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H && !visualsOnly)
