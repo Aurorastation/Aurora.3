@@ -204,9 +204,9 @@
 
 
 /obj/item/reagent_containers/food/drinks/bottle/gin
-	name = "Alderamin gin"
-	desc = "A bottle of average quality gin, produced on NanoTrasen Space Station Cepheus."
-	desc_fluff = DRINK_FLUFF_GETMORE
+	name = "Borovicka gin"
+	desc = "A bottle of good quality gin. Previously a mainstay in bars throughout the spur, it has become scarcer since \
+			the Solarian collapse, only remaining in stock thanks to Idris ownership of the Visegradi facilities that produce it."
 	icon_state = "ginbottle"
 	center_of_mass = list("x"=16, "y"=4)
 	reagents_to_add = list(/decl/reagent/alcohol/gin = 100)
@@ -695,8 +695,8 @@
 	reagents_to_add = list(/decl/reagent/alcohol/boukha = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/whitewine
-	name = "Doublebeard Bearded White Wine"
-	desc = "A faint aura of unease and asspainery surrounds the bottle."
+	name = "Pineneedle Brand white wine"
+	desc = "A mediocre quality white wine, intended more making spritzers than for drinking by itself. Produced on Visegrad by Idris."
 	icon_state = "whitewinebottle"
 	center_of_mass = list("x"=16, "y"=4)
 	reagents_to_add = list(/decl/reagent/alcohol/whitewine = 100)
