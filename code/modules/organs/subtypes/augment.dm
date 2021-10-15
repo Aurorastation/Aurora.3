@@ -694,12 +694,10 @@
 		LAZYSET(target.species_mod_modifiers, value, modifying_values[value])
 
 /obj/item/organ/internal/augment/species_modifier/removed(mob/living/carbon/human/target, mob/living/user)
-	. = ..()
-	if(!.)
-		return
-
-	for(var/value in modifying_values)
-		LAZYREMOVE(target.species_mod_modifiers, value)
+	if(istype(target))
+		for(var/value in modifying_values)
+			LAZYREMOVE(target.species_mod_modifiers, value)
+	return ..()
 
 /obj/item/organ/internal/augment/species_modifier/movement
 	modifying_values = list(SPECIES_SLOWDOWN = -5)
