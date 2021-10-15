@@ -158,7 +158,10 @@
 			else
 				back = backpack //Department backpack
 	if(back)
-		equip_item(H, back, slot_back)
+		if(isvaurca(H, TRUE))
+			equip_item(H, back, slot_r_hand)
+		else
+			equip_item(H, back, slot_back)
 
 	if(istype(H.back,/obj/item/storage/backpack))
 		var/obj/item/storage/backpack/B = H.back

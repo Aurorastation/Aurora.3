@@ -78,6 +78,8 @@
 	sprint_cost_factor = 0.80
 	stamina_recovery = 3
 
+	allowed_citizenships = list(CITIZENSHIP_ZORA, CITIZENSHIP_KLAX, CITIZENSHIP_CTHUR, CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_ERIDANI, CITIZENSHIP_JARGON)
+
 	flags = NO_SCAN | NO_SLIP | NO_ARTERIES | PHORON_IMMUNE
 
 	inherent_verbs = list(
