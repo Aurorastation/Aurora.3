@@ -1,0 +1,5 @@
+author: Desven
+delete-after: True
+changes:
+  - rscadd: "Added more clothes for the Bulwark."
+  - bugfix: "Fixed some sprite errors with flannels and labcoats for the Bulwark."
