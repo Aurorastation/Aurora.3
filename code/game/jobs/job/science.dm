@@ -206,7 +206,7 @@
 	access = list(access_research, access_tox)
 	minimal_access = list(access_research, access_tox)
 	outfit = /datum/outfit/job/intern_sci
-	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/intern_sci
 	name = "Lab Assistant"
