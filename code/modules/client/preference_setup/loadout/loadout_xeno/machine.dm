@@ -169,7 +169,7 @@
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_HEAVY, SPECIES_IPC_SHELL)	
 
 /datum/gear/augment/machine/core
-	display_name = "Core selection"
+	display_name = "core selection"
 	description = "A set of core modules determining how a frame acts like"
 	path = /obj/item/organ/internal/augment/species_modifier/ipc
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_SHELL, SPECIES_IPC_HEAVY)
