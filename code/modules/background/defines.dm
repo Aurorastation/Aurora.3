@@ -59,6 +59,7 @@
 #define ACCENT_COC "Frontiersfolk"
 #define ACCENT_ELYRA "Elyran"
 #define ACCENT_ERIDANI "Eridanian"
+#define ACCENT_ERIDANIREINSTATED "Reinstated Dreg"
 #define ACCENT_ERIDANIDREG "Eridanian Dreg"
 #define ACCENT_SOL "Solarian"
 #define ACCENT_SCARAB "Scarab Fleets"
