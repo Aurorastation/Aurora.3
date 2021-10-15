@@ -62,3 +62,6 @@
 
 /obj/item/device/augment_implanter/advanced_suspension
 	new_augment =	/obj/item/organ/internal/augment/suspension/advanced
+
+/obj/item/device/augment_implanter/speed // for debug purposes only
+	new_augment = /obj/item/organ/internal/augment/species_modifier/movement

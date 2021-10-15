@@ -271,7 +271,7 @@
 	if(ishuman(affecting))
 		var/mob/living/carbon/human/H = affecting
 		if(H.species)
-			grab_coeff = H.species.grab_mod
+			grab_coeff = H.species.get_grab_mod(H)
 
 	if(world.time < (last_action + (UPGRADE_COOLDOWN * grab_coeff)))
 		return

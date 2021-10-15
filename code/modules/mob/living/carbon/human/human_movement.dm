@@ -1,8 +1,8 @@
 /mob/living/carbon/human/movement_delay()
 
 	var/tally = 0
-	if(species.slowdown)
-		tally = species.slowdown
+	if(species.get_slowdown(src))
+		tally = species.get_slowdown(src)
 
 	tally += get_pulling_movement_delay()
 
@@ -171,6 +171,6 @@
 
 	if(ishuman(pulling))
 		var/mob/living/carbon/human/H = pulling
-		if(H.species.slowdown > species.slowdown)
-			. += H.species.slowdown - species.slowdown
+		if(H.species.slowdown > species.get_slowdown(src))
+			. += H.species.slowdown - species.get_slowdown(src)
 		. += H.ClothesSlowdown()

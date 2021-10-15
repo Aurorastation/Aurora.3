@@ -24,7 +24,7 @@
 
 /mob/living/silicon/robot/Move()
 	. = ..()
-	
+
 	if(client)
 		var/turf/B = GetAbove(get_turf(src))
 		if(up_hint)
@@ -39,6 +39,6 @@
 
 	if(ishuman(pulling))
 		var/mob/living/carbon/human/H = pulling
-		if(H.species.slowdown > speed)
-			. += H.species.slowdown - speed
+		if(H.species.get_slowdown(src) > speed)
+			. += H.species.get_slowdown(src) - speed
 		. += H.ClothesSlowdown()

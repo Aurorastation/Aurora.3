@@ -14,6 +14,7 @@
 	var/rejecting   // Is this organ already being rejected?
 	var/is_augment = FALSE
 	var/death_time
+	var/removable = TRUE
 
 	//Organ damage stats.
 	var/damage = 0 // amount of damage to the organ
@@ -403,7 +404,7 @@
 
 /obj/item/organ/proc/removed(var/mob/living/carbon/human/target,var/mob/living/user)
 	if(!istype(owner))
-		return
+		return FALSE
 
 	action_button_name = null
 
@@ -434,6 +435,8 @@
 
 	owner.update_action_buttons()
 	owner = null
+
+	return TRUE
 
 /obj/item/organ/proc/replaced(var/mob/living/carbon/human/target, var/obj/item/organ/external/affected)
 	owner = target
