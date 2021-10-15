@@ -665,6 +665,13 @@
 	required_reagents = list(/decl/reagent/carbon = 1, /decl/reagent/tungsten = 1, /decl/reagent/water = 1)
 	result_amount = 3
 
+/datum/chemical_reaction/inacusiate
+	name = "Inacusiate"
+	id = "inacusiate"
+	result = /decl/reagent/inacusiate
+	required_reagents = list(/decl/reagent/dylovene = 1, /decl/reagent/carbon = 1, /decl/reagent/sulfur = 1)
+	result_amount = 2
+
 //Mental Medication
 
 /datum/chemical_reaction/corophenidate

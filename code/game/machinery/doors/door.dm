@@ -505,6 +505,8 @@
 		return
 	operating = TRUE
 
+	intent_message(MACHINE_SOUND)
+
 	do_animate("opening")
 	icon_state = "door_open"
 	set_opacity(0)
@@ -540,6 +542,8 @@
 					addtimer(CALLBACK(src, .proc/autoclose), 60, TIMER_UNIQUE)
 					break
 	operating = TRUE
+
+	intent_message(MACHINE_SOUND)
 
 	do_animate("closing")
 	sleep(3)
