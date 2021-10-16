@@ -1,0 +1,4 @@
+author: Desven
+delete-after: True
+changes:
+  - bugfix: "Fixes some leather satchels and the pocketbook not appearing on the Bulwark."
