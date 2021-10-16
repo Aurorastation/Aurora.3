@@ -533,12 +533,6 @@
 	icon_state = "passport_dominia"
 	item_state = "passport_dominia"
 
-/obj/item/clothing/accessory/badge/passport/starlight
-	name = "starlight zone residency card"
-	desc = "A residency card given to Skrell who reside within the Starlight Zone in District Eight."
-	icon_state = "resident_starlight"
-	item_state = "resident_starlight"
-
 /obj/item/clothing/accessory/badge/passport/jargon
 	name = "jargon federation passport"
 	desc = "A passport issued to citizens of the Jargon Federation. Shiny, and compact, it's perfect to use on the go."
