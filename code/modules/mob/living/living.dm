@@ -20,17 +20,11 @@ var/mob/living/next_point_time = 0
 	if(next_point_time >= world.time)
 		return FALSE
 
-	next_point_time = world.time + 25
+	next_point_time = world.time + 2.5 SECONDS
 	face_atom(A)
-	if(isturf(A))
-		if(pointing_effect)
-			QDEL_NULL(pointing_effect)
-		pointing_effect = new /obj/effect/decal/point(A)
-		pointing_effect.invisibility = invisibility
-		addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, pointing_effect), 2 SECONDS)
-	else
-		A.add_filter("pointglow", 1, list(type = "drop_shadow", x = 0, y = -1, offset = 1, size = 1, color = "#F00"))
-		addtimer(CALLBACK(A, /atom/movable.proc/remove_filter, "pointglow"), 2 SECONDS)
+	if(pointing_effect)
+		QDEL_NULL(pointing_effect)
+	pointing_effect = new /obj/effect/decal/point(A, src)
 	visible_message("<b>\The [src]</b> points to \the [A].")
 	return TRUE
 

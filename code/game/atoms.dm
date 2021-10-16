@@ -595,7 +595,7 @@
 			if(!(H in mobs))
 				if(src.z == H.z && get_dist(src, H) <= range)
 					H.intent_listen(src, message)
-	
+
 /atom/proc/change_area(var/area/oldarea, var/area/newarea)
 	change_area_name(oldarea.name, newarea.name)
 
@@ -650,3 +650,9 @@
 	if(degrees)
 		appearance_flags |= PIXEL_SCALE
 	transform = M
+
+/atom/proc/get_pixel_x() // the pseudo pixel_x used when animating overlays, do not use for complex calcs
+	return pixel_x
+
+/atom/proc/get_pixel_y() // the pseudo pixel_x used when animating overlays, do not use for complex calcs
+	return pixel_y

@@ -620,3 +620,19 @@
 	explosion(T, 0, 0, 2, 2)
 	sleep(1)
 	qdel(src)
+
+/obj/machinery/light/get_pixel_x()
+	switch(dir)
+		if(EAST)
+			return pixel_x + 15
+		if(WEST)
+			return pixel_x - 14
+	return pixel_x
+
+/obj/machinery/light/get_pixel_y()
+	switch(dir)
+		if(NORTH)
+			return pixel_y + 15
+		if(SOUTH)
+			return pixel_y - 14
+	return pixel_y

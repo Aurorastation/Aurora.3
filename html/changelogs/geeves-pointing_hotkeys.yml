@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Pointing at an object rather than a turf will no longer give it a red outline, instead, a red arrow will spawn on your mob and glide towards the object."
+  - tweak: "Tweaked the hotkey for pointing from Ctrl + MMB to Shift + MMB."

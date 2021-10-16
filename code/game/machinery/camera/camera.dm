@@ -450,3 +450,27 @@
 	wires.MendAll()
 	update_icon()
 	update_coverage()
+
+/obj/machinery/camera/get_pixel_x()
+	switch(dir)
+		if(NORTH)
+			return pixel_x + 11
+		if(EAST)
+			return pixel_x - 13
+		if(SOUTH)
+			return pixel_x - 10
+		if(WEST)
+			return pixel_x + 15
+	return pixel_x
+
+/obj/machinery/camera/get_pixel_y()
+	switch(dir)
+		if(NORTH)
+			return pixel_y - 11
+		if(EAST)
+			return pixel_y - 11
+		if(SOUTH)
+			return pixel_y + 14
+		if(WEST)
+			return pixel_y + 12
+	return pixel_y

@@ -90,7 +90,7 @@
 	if(modifiers["shift"] && modifiers["ctrl"])
 		CtrlShiftClickOn(A)
 		return TRUE
-	if(modifiers["ctrl"] && modifiers["middle"])
+	if(modifiers["shift"] && modifiers["middle"])
 		pointed(A)
 		return TRUE
 	if(modifiers["middle"])
