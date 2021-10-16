@@ -61,6 +61,15 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/flatbread
 
+/decl/recipe/moroz_flatbread
+	appliance = OVEN
+	fruit = list ("tomato" = 1)
+	reagents = list(/decl/reagent/sodiumchloride = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/sliceable/flatdough
+	)
+	result = /obj/item/reagent_containers/food/snacks/moroz_flatbread
+
 /decl/recipe/meatbread
 	appliance = OVEN
 	items = list(
