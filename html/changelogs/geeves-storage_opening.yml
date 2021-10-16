@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Middle Mouse Clicking a storage item on your person or adjacent to you will now open it."
