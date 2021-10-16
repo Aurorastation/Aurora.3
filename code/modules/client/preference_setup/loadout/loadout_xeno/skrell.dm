@@ -121,8 +121,16 @@
 	path = /obj/item/clothing/accessory/badge/passport/jargon
 	sort_category = "Xenowear - Skrell"
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_DIONA)
+	flags = GEAR_NO_SELECTION
 	cost = 0
-	flags = 0
+
+/datum/gear/accessory/skrell_residency
+	display_name = "starlight residency card"
+	path = /obj/item/clothing/accessory/badge/passport/starlight
+	sort_category = "Xenowear - Skrell"
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	flags = GEAR_NO_SELECTION
+	cost = 0
 
 /datum/gear/accessory/skrell_passport/New()
 	. = ..()
