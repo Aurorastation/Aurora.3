@@ -102,6 +102,14 @@
 	if(tint)
 		user.handle_vision()
 
+/obj/item/clothing/handle_middle_mouse_click(mob/user)
+	if(Adjacent(user))
+		var/obj/item/clothing/accessory/storage/S = locate() in accessories
+		if(S?.hold)
+			S.hold.open(user)
+			return TRUE
+	return FALSE
+
 /obj/item/clothing/proc/return_own_image()
 	var/image/our_image
 	if(icon_override)
