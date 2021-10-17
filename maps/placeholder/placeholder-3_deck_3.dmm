@@ -171,11 +171,17 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
 	},
+/obj/machinery/shield_gen,
 /turf/simulated/floor/tiled/dark,
 /area/storage/shields)
 "av" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
+	},
+/obj/machinery/shield_capacitor/multiz,
+/obj/structure/cable/cyan{
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/shields)
@@ -278,15 +284,13 @@
 /turf/simulated/floor/bluegrid,
 /area/storage/shields)
 "aJ" = (
-/obj/structure/shuttle_part/scc_space_ship{
-	icon = 'icons/obj/machines/placeholder_shield.dmi';
-	icon_state = "shield";
-	layer = 5;
-	name = "shield generator";
-	pixel_x = -32
+/obj/structure/cable/cyan{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
 	},
 /obj/structure/cable/cyan{
-	icon_state = "0-2"
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/shields)
@@ -332,6 +336,12 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
+/obj/machinery/shield_capacitor/multiz{
+	dir = 1
+	},
+/obj/structure/cable/cyan{
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/shields)
 "aP" = (
@@ -358,6 +368,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
 	},
+/obj/machinery/shield_gen,
 /turf/simulated/floor/tiled/dark,
 /area/storage/shields)
 "aR" = (
@@ -386,7 +397,6 @@
 /obj/structure/cable/cyan{
 	icon_state = "4-8"
 	},
-/obj/machinery/power/sensor,
 /turf/simulated/floor/tiled/dark,
 /area/storage/shields)
 "aV" = (
@@ -10958,7 +10968,12 @@
 	},
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Shield Room";
-	dir = 1
+	dir = 8
+	},
+/obj/machinery/power/sensor{
+	long_range = 1;
+	name = "Powernet Sensor - Shields Subgrid";
+	name_tag = "Shields Subgrid"
 	},
 /turf/simulated/floor/bluegrid,
 /area/storage/shields)
@@ -15931,7 +15946,7 @@
 /area/bridge)
 "Nt" = (
 /obj/machinery/power/smes/buildable{
-	RCon_tag = "Surface - Shield Substation";
+	RCon_tag = "Shield Substation";
 	charge = 1e+007;
 	cur_coils = 4;
 	input_attempt = 1;
