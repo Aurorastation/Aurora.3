@@ -1,0 +1,4 @@
+author: Desven & Stryker
+delete-after: True
+changes:
+  - rscadd: "Added two new accents: Valkyrian and Mictlanian."
