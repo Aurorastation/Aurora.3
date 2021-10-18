@@ -99,6 +99,13 @@
 	item_state = "nitrile"
 	species_restricted = list(BODYTYPE_TAJARA)
 
+/obj/item/clothing/gloves/latex/nitrile/vaurca 
+	name = "vaurca nitrile gloves"
+	desc = "Sterile nitrile gloves. Designed for Vaurca use."
+	icon_state = "nitrile"
+	item_state = "nitrile"
+	species_restricted = list(BODYTYPE_VAURCA)
+
 /obj/item/clothing/gloves/latex/unathi
 	name = "unathi latex gloves"
 	desc = "Sterile latex gloves. Designed for Unathi use."
@@ -108,6 +115,11 @@
 	name = "tajaran latex gloves"
 	desc = "Sterile latex gloves. Designed for Tajara use."
 	species_restricted = list(BODYTYPE_TAJARA)
+
+/obj/item/clothing/gloves/latex/vaurca
+	name = "vaurca latex gloves"
+	desc = "Sterile latex gloves. Designed for Vaurca use."
+	species_restricted = list(BODYTYPE_VAURCA)
 
 /obj/item/clothing/gloves/botanic_leather
 	desc = "These leather work gloves protect against thorns, barbs, prickles, spikes and other harmful objects of floral origin."
@@ -126,6 +138,10 @@
 /obj/item/clothing/gloves/botanic_leather/tajara
 	name = "tajaran leather gloves"
 	species_restricted = list(BODYTYPE_TAJARA)
+
+/obj/item/clothing/gloves/botanic_leather/vaurca 
+	name = "vaurca leather gloves"
+	species_restricted = list(BODYTYPE_VAURCA)
 
 	/*
 	Forcegloves.  They amplify force from melee hits as well as muck up disarm and stuff a little.
@@ -189,7 +205,7 @@
 	force = 5
 	punch_force = 10
 	clipped = 1
-	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
+	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)
 	drop_sound = 'sound/items/drop/toolbox.ogg'
 	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 	gender = NEUTER
@@ -249,7 +265,7 @@
 	siemens_coefficient = 1
 	fingerprint_chance = 50
 	clipped = 1
-	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
+	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)
 	drop_sound = 'sound/items/drop/toolbox.ogg'
 	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 	gender = NEUTER
@@ -325,7 +341,7 @@
 	siemens_coefficient = 1
 	fingerprint_chance = 50
 	clipped = TRUE
-	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
+	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)
 	drop_sound = 'sound/items/drop/toolbox.ogg'
 	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 	gender = NEUTER
@@ -380,4 +396,4 @@
 	desc = "Specially made gloves for investigative personnel. The luminescent threads woven into the material stand out under scrutiny."
 	icon_state = "forensic"
 	item_state = "forensicgloves"
-	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
+	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)

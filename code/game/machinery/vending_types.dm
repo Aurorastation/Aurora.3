@@ -75,6 +75,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/champagne = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/vodka = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/vodka/mushroom = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/pulque = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/fireball = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/whiskey = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/victorygin = 2,
@@ -965,7 +966,8 @@
 		/obj/item/device/analyzer = 5,
 		/obj/item/device/t_scanner = 5,
 		/obj/item/screwdriver = 5,
-		/obj/item/tape_roll = 3
+		/obj/item/tape_roll = 3,
+		/obj/item/hammer = 3
 	)
 	contraband = list(
 		/obj/item/weldingtool/hugetank = 2,
