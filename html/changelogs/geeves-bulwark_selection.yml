@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added the Vaurca Bulwark to the Vaurca subspecies selection."
