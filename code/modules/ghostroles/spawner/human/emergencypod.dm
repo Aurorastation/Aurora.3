@@ -10,7 +10,7 @@
 
 	//Vars related to human mobs
 	outfit = /datum/outfit/admin/random/visitor
-	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_TAJARA,SPECIES_UNATHI)
+	possible_species = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN,SPECIES_UNATHI,SPECIES_VAURCA_WARRIOR,SPECIES_VAURCA_WORKER)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Pod Survivor"
@@ -25,7 +25,7 @@
 	if(t == "star")
 		welcome_message = "You are a stranded star!<br>You were relaxing comfortably in your cryo pod as tragedy struck - the pilot of your luxury yacht fell asleep under some mysterious circumstances. You were unceremoniously stuffed into an escape pod, and left to wander in space. What a despicable, low-quality plot to get rid of you. Should've chosen murder instead - you certainly know you'll convince someone nice to lend you a shuttle."
 		outfit = /datum/outfit/admin/pod/star
-		possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL)
+		possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	else if(t == "priest")
 		welcome_message = "You are a stranded Trinary Perfection priest!<br>You were traveling around space on your small shuttle, preaching peacefully of the future divinity of the synthetics, and the grand purpose of mankind as the ones to help them achieve that goal. Unfortunately, Dominians don't seem to be as peaceful in disagreeing with your views - and had to evacuate your shot-down ship. Have your prayers to the Divines helped you now?"
 		outfit = /datum/outfit/admin/pod/priest
@@ -48,7 +48,7 @@
 	else if(t == "tcfl")
 		welcome_message = "You are a stranded member of the Tau Ceti Foreign Legion!<br>Perhaps there was a training accident or maybe something went wrong during a routine operation in the Romanovich Cloud. The Prefect will never let you hear the end of this..."
 		outfit = /datum/outfit/admin/pod/tcfl
-		possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_DIONA) // TCFL accepts everyone. G1 and G2 have been excluded because they can't wear the hardsuit, which has the suit cooler.
+		possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_DIONA) // TCFL accepts everyone. G1 and G2 have been excluded because they can't wear the hardsuit, which has the suit cooler.
 	else if(t == "fsf")
 		welcome_message = "You are a stranded Petty Officer of the Free Solarian Fleets!<br>Your skiff out of the FSFV Sforza was on a routine patrol when an accident or an attack forced you to abandon ship. Thankfully, you seem to be in friendly territory..."
 		outfit = /datum/outfit/admin/pod/fsf
@@ -56,16 +56,16 @@
 	else if(t == "scc")
 		welcome_message = "You are a stranded Stellar Corporate Conglomerate low-level functionary!<br>A routine inspection of SCC assets in the Romanovich cloud turned into disaster when your shuttle's reactor suddenly and mysteriously failed. You narrowly escaped with your life. Worst of all? You lost your paperwork."
 		outfit = /datum/outfit/admin/pod/scc
-		possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL)
+		possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	else if(t == "fib")
 		welcome_message = "You are a stranded Federal Investigation Bureau Agent!<br>What was supposed to be a standard investigation turned into a nightmare when the vessel you were supposed to board opened fire! You just managed to reach an escape pod before your own ship was turned into smoldering rubble. You really need some coffee."
 		outfit = /datum/outfit/admin/pod/fib
-		possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL)
+		possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 
 	else
 		welcome_message = "You are a stranded drugs smuggler!<br>You shouldn't have had the fucking Tajara pilot your ship. <i>Of course</i> we crashed into a rock. Good thing you've got some of the stuff with you while evacuating - maybe you'll crash somewhere you could sell it for a ticket back?"
 		outfit = /datum/outfit/admin/pod/smuggler
-		possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI)
+		possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_UNATHI)
 
 /datum/ghostspawner/human/rescuepodsurv/select_spawnlocation(var/use=TRUE)
 	//Randomly select a Turf on the asteroid.

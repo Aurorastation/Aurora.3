@@ -270,6 +270,8 @@
 				dat += "<A href='?src=\ref[src];add=[_G];amount=1'>(1)</A> "
 				dat += "<A href='?src=\ref[src];add=[_G];amount=5'>(5)</A> "
 				dat += "<A href='?src=\ref[src];add=[_G];amount=10'>(10)</A> "
+				dat += "<A href='?src=\ref[src];add=[_G];amount=30'>(30)</A> "
+				dat += "<A href='?src=\ref[src];add=[_G];amount=60'>(60)</A> "
 				dat += "<A href='?src=\ref[src];add=[_G];amount=[REAGENT_VOLUME(R, _G)]'>(All)</A> "
 				dat += "<A href='?src=\ref[src];addcustom=[_G]'>(Custom)</A><BR>"
 
@@ -282,6 +284,8 @@
 				dat += "<A href='?src=\ref[src];remove=[_N];amount=1'>(1)</A> "
 				dat += "<A href='?src=\ref[src];remove=[_N];amount=5'>(5)</A> "
 				dat += "<A href='?src=\ref[src];remove=[_N];amount=10'>(10)</A> "
+				dat += "<A href='?src=\ref[src];remove=[_N];amount=30'>(30)</A> "
+				dat += "<A href='?src=\ref[src];remove=[_N];amount=60'>(60)</A> "
 				dat += "<A href='?src=\ref[src];remove=[_N];amount=[REAGENT_VOLUME(reagents, _N)]'>(All)</A> "
 				dat += "<A href='?src=\ref[src];removecustom=[_N]'>(Custom)</A><BR>"
 		else
@@ -506,6 +510,7 @@
 		do_hair_pull(user)
 
 	playsound(get_turf(src), 'sound/machines/blender.ogg', 50, 1)
+	intent_message(MACHINE_SOUND)
 	inuse = TRUE
 
 	// Reset the machine.

@@ -208,8 +208,10 @@
 	shirt["cropped dress shirt, rolled up"] = /obj/item/clothing/accessory/dressshirt/crop/rolled
 	shirt["dress shirt, alt"] = /obj/item/clothing/accessory/dressshirt/alt
 	shirt["dress shirt, alt rolled up"] = /obj/item/clothing/accessory/dressshirt/alt/rolled
-	shirt["dress shirt, V-Neck alt"] = /obj/item/clothing/accessory/dressshirt/alt/vneck
-	shirt["dress shirt, V-Neck alt rolled up"] = /obj/item/clothing/accessory/dressshirt/alt/vneck/rolled
+	shirt["dress shirt, v-neck alt"] = /obj/item/clothing/accessory/dressshirt/alt/vneck
+	shirt["dress shirt, v-neck alt rolled up"] = /obj/item/clothing/accessory/dressshirt/alt/vneck/rolled
+	shirt["dress shirt, deep v-neck"] = /obj/item/clothing/accessory/dressshirt/deepv
+	shirt["dress shirt, deep v-neck rolled up"] = /obj/item/clothing/accessory/dressshirt/deepv/rolled
 	shirt["long-sleeved shirt"] = /obj/item/clothing/accessory/longsleeve
 	shirt["long-sleeved shirt, black striped"] = /obj/item/clothing/accessory/longsleeve_s
 	shirt["long-sleeved shirt, blue striped"] = /obj/item/clothing/accessory/longsleeve_sb
@@ -407,6 +409,7 @@
 	passcard["passcard, assunzione"] = /obj/item/clothing/accessory/badge/passcard/assu
 	passcard["passcard, techno-conglomerate"] = /obj/item/clothing/accessory/badge/passcard/techno
 	passcard["passcard, konyang"] = /obj/item/clothing/accessory/badge/passcard/konyang
+	passcard["passcard, visegrad"] = /obj/item/clothing/accessory/badge/passcard/sol/visegrad
 	gear_tweaks += new /datum/gear_tweak/path(passcard)
 
 /datum/gear/accessory/passport

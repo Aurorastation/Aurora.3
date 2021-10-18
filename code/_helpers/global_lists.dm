@@ -15,6 +15,7 @@ var/global/list/topic_commands = list()				//List of all API commands available
 var/global/list/topic_commands_names = list()				//List of all API commands available
 
 var/global/list/landmarks_list = list()				//list of all landmarks created
+var/global/list/force_spawnpoints					//assoc list of force spawnpoints for event maps
 var/global/list/side_effects = list()				//list of all medical sideeffects types by thier names |BS12
 var/global/list/mechas_list = list()				//list of all mechs. Used by hostile mobs target tracking.
 var/global/list/joblist = list()					//list of all jobstypes, minus borg and AI
@@ -85,6 +86,9 @@ var/global/list/syndicate_access = list(access_maint_tunnels, access_syndicate, 
 
 //Cloaking devices
 var/global/list/cloaking_devices = list()
+
+//Hearing sensitive listening in closely
+var/global/list/intent_listener = list()
 
 //////////////////////////
 /////Initial Building/////

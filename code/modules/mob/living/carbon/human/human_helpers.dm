@@ -309,6 +309,14 @@
 			return TRUE
 	return FALSE
 
+/mob/living/carbon/human/proc/get_hearing_sensitivity()
+	return species.hearing_sensitivity
+
+/mob/living/carbon/human/proc/is_listening()
+	if(src in intent_listener)
+		return TRUE
+	return FALSE
+
 /mob/living/carbon/human/get_organ_name_from_zone(var/def_zone)
 	var/obj/item/organ/external/E = organs_by_name[parse_zone(def_zone)]
 	if(E)
@@ -320,3 +328,15 @@
 		return TRUE
 	else
 		return FALSE
+
+/mob/living/carbon/human/get_talk_bubble()
+	if(!species || !species.talk_bubble_icon)
+		return ..()
+	return species.talk_bubble_icon
+
+/mob/living/carbon/human/get_floating_chat_x_offset()
+	if(!species)
+		return ..()
+	if(!isnull(species.floating_chat_x_offset))
+		return species.floating_chat_x_offset
+	return species.icon_x_offset

@@ -21550,6 +21550,7 @@
 /obj/item/clothing/gloves/latex/nitrile/tajara,
 /obj/item/clothing/gloves/latex/unathi,
 /obj/item/clothing/gloves/latex/tajara,
+/obj/item/clothing/gloves/latex/vaurca,
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
 "aSL" = (
@@ -21563,6 +21564,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
+/obj/item/clothing/gloves/latex/vaurca,
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
 "aSM" = (
@@ -34921,6 +34923,7 @@
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - Secondary Storage"
 	},
+/obj/item/clothing/gloves/latex/vaurca,
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
 "umt" = (

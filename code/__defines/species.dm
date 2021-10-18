@@ -1,12 +1,13 @@
 #define SPECIES_HUMAN				"Human"
 #define SPECIES_HUMAN_OFFWORLD		"Off-Worlder Human"
 
-#define SPECIES_SKRELL				"Skrell"
-
 #define SPECIES_UNATHI				"Unathi"
 
 #define SPECIES_DIONA				"Diona"
 #define SPECIES_DIONA_HEBE			"Hebe Diona"
+
+#define SPECIES_SKRELL				"Xiialt Skrell"
+#define SPECIES_SKRELL_AXIORI		"Axiori Skrell"
 
 #define SPECIES_TAJARA				"Tajara"
 #define SPECIES_TAJARA_ZHAN			"Zhan-Khazan Tajara"
@@ -16,6 +17,7 @@
 #define SPECIES_VAURCA_WARRIOR		"Vaurca Warrior"
 #define SPECIES_VAURCA_BREEDER		"Vaurca Breeder"
 #define SPECIES_VAURCA_WARFORM		"Vaurca Warform"
+#define SPECIES_VAURCA_BULWARK		"Vaurca Bulwark"
 
 #define SPECIES_IPC					"Baseline Frame"
 #define SPECIES_IPC_SHELL			"Shell Frame"
@@ -81,6 +83,7 @@
 
 #define BODYTYPE_VAURCA				"Vaurca"
 #define BODYTYPE_VAURCA_BREEDER		"Vaurca Breeder"
+#define BODYTYPE_VAURCA_BULWARK		"Vaurca Bulwark"
 #define BODYTYPE_VAURCA_WARFORM		"Vaurca Warform"
 
 #define BODYTYPE_IPC				"Machine"

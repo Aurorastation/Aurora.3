@@ -249,6 +249,9 @@
 		slot_l_hand_str = "chickensuit",
 		slot_r_hand_str = "chickensuit"
 		)
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/head.dmi'
+	)
 	flags_inv = BLOCKHAIR
 	siemens_coefficient = 0.7
 	body_parts_covered = HEAD|FACE|EYES
@@ -337,6 +340,9 @@
 	name = "sombrero"
 	desc = "You can practically taste the fiesta."
 	icon_state = "sombrero"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/head.dmi'
+	)
 
 /obj/item/clothing/head/turban
 	name = "turban"
@@ -526,6 +532,26 @@
 	icon = 'icons/mob/species/breeder/inventory.dmi'
 	item_state = "shroud"
 	icon_state = "shroud"
+	contained_sprite = FALSE
+	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
+	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/head.dmi')
+
+/obj/item/clothing/head/klax_breeder
+	name = "k'lax represenatitve shroud"
+	desc = "Large shroud used by K'lax representatives."
+	icon = 'icons/mob/species/breeder/inventory.dmi'
+	item_state = "shroud_klax"
+	icon_state = "shroud_klax"
+	contained_sprite = FALSE
+	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
+	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/head.dmi')
+
+/obj/item/clothing/head/cthur_breeder
+	name = "c'thur representative shroud"
+	desc = "Large shroud used by C'thur representatives."
+	icon = 'icons/mob/species/breeder/inventory.dmi'
+	item_state = "shroud_cthur"
+	icon_state = "shroud_cthur"
 	contained_sprite = FALSE
 	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
 	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/head.dmi')

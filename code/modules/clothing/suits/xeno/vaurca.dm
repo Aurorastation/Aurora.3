@@ -38,3 +38,23 @@
 	contained_sprite = FALSE
 	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
 	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/suit.dmi')
+
+/obj/item/clothing/suit/vaurca/breeder_klax
+	name = "k'lax representative clothes"
+	desc = "A large piece of clothing used by K'lax representatives."
+	icon = 'icons/mob/species/breeder/inventory.dmi'
+	item_state = "representative_clothes_klax"
+	icon_state = "representative_clothes_klax"
+	contained_sprite = FALSE
+	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
+	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/suit.dmi')
+
+/obj/item/clothing/suit/vaurca/breeder_cthur
+	name = "c'thur representative clothes"
+	desc = "A large piece of clothing used by C'thur representatives."
+	icon = 'icons/mob/species/breeder/inventory.dmi'
+	item_state = "representative_clothes_cthur"
+	icon_state = "representative_clothes_cthur"
+	contained_sprite = FALSE
+	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
+	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/suit.dmi')

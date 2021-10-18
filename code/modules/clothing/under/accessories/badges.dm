@@ -356,6 +356,14 @@
 	icon_state = "passcard_moon"
 	item_state = "passcard_moon"
 
+/obj/item/clothing/accessory/badge/passcard/sol/visegrad
+	name = "visegradi passcard"
+	desc = "A passcard issued to Solarian citizens from the outer ring planet Visegrad."
+	desc_fluff = "The Visegradi passcard is an unusual thing, as many Solarian outer ring planets did not issue passcards at all, especially high-quality holographic ones. Predominantly seen in the hands of the \
+	urban population who could justify paying the government fee to acquire one, their manufacture is still undertaken by the Southern Solarian Military District that now controls Visegrad."
+	icon_state = "passcard_visegrad"
+	item_state = "passcard_visegrad"
+
 /obj/item/clothing/accessory/badge/passcard/eridani
 	name = "eridani passcard"
 	desc = "A holographic passcard issued to residents of the Free Economic Zone of Epsilon Eridani."

@@ -36,6 +36,7 @@
 	if(..()) return 1
 	user.visible_message("<b>[user]</b> hits \the [src] button.")
 	activate(user)
+	intent_message(BUTTON_FLICK, 5)
 
 /obj/machinery/button/proc/activate(mob/living/user)
 	if(operating || !istype(wifi_sender))
@@ -67,6 +68,7 @@
 
 /obj/machinery/button/switch/attack_hand()
 	playsound(src, /decl/sound_category/switch_sound, 30)
+	intent_message(BUTTON_FLICK, 5)
 
 //alternate button with the same functionality, except has a door control sprite instead
 /obj/machinery/button/alternate
