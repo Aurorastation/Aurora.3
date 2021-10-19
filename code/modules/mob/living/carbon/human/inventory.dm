@@ -131,9 +131,21 @@ This saves us from having to call add_fingerprint() any time something is put in
 		update_inv_head()
 	else if (W == l_ear)
 		l_ear = null
+		if(istype(W, /obj/item))
+			var/obj/item/I = W
+			if(I.flags_inv & (HIDEMASK|BLOCKHAIR|BLOCKHEADHAIR))
+				update_hair(0)	//rebuild hair
+				update_inv_r_ear(0)
+				update_inv_wear_mask(0)
 		update_inv_l_ear()
 	else if (W == r_ear)
 		r_ear = null
+		if(istype(W, /obj/item))
+			var/obj/item/I = W
+			if(I.flags_inv & (HIDEMASK|BLOCKHAIR|BLOCKHEADHAIR))
+				update_hair(0)	//rebuild hair
+				update_inv_l_ear(0)
+				update_inv_wear_mask(0)
 		update_inv_r_ear()
 	else if (W == shoes)
 		shoes = null
@@ -247,6 +259,10 @@ This saves us from having to call add_fingerprint() any time something is put in
 			update_inv_wear_id(redraw_mob)
 		if(slot_l_ear)
 			src.l_ear = W
+			if(l_ear.flags_inv & (BLOCKHAIR|BLOCKHEADHAIR|HIDEMASK))
+				update_hair(redraw_mob)	//rebuild hair
+				update_inv_r_ear(0)
+				update_inv_wear_mask(0)
 			if(l_ear.slot_flags & SLOT_TWOEARS)
 				var/obj/item/clothing/ears/offear/O = new /obj/item/clothing/ears/offear(src)
 				O.copy_ear(W)
@@ -256,6 +272,10 @@ This saves us from having to call add_fingerprint() any time something is put in
 			update_inv_l_ear(redraw_mob)
 		if(slot_r_ear)
 			src.r_ear = W
+			if(r_ear.flags_inv & (BLOCKHAIR|BLOCKHEADHAIR|HIDEMASK))
+				update_hair(redraw_mob)	//rebuild hair
+				update_inv_l_ear(0)
+				update_inv_wear_mask(0)
 			if(r_ear.slot_flags & SLOT_TWOEARS)
 				var/obj/item/clothing/ears/offear/O = new /obj/item/clothing/ears/offear(src)
 				O.copy_ear(W)

@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Hijabs will now hide hair when worn on the ears & show as being worn on the head when worn there."
