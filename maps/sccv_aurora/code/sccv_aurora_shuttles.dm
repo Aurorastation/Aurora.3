@@ -167,6 +167,7 @@
 /obj/effect/shuttle_landmark/intrepid/hangar
 	name = "Intrepid Hangar"
 	landmark_tag = "nav_hangar_intrepid"
+	base_turf = /turf/simulated/floor/plating
 
 /obj/effect/shuttle_landmark/intrepid/transit
 	name = "In transit"
@@ -186,6 +187,7 @@
 /obj/effect/shuttle_landmark/mining/hangar
 	name = "Mining Shuttle Hangar"
 	landmark_tag = "nav_hangar_mining"
+	base_turf = /turf/simulated/floor/plating
 
 /obj/effect/shuttle_landmark/mining/transit
 	name = "In transit"

@@ -6,6 +6,9 @@
 	burn_delay = 2 SECONDS
 	base = TRUE
 
+/obj/machinery/computer/shuttle_control/explore/intrepid
+	name = "Intrepid control console"
+	shuttle_tag = "Intrepid"
 
 /obj/effect/overmap/visitable/ship/landable/intrepid
 	name = "Intrepid"
@@ -26,3 +29,7 @@
 	vessel_mass = 3000 //very inefficient pod
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
+
+/obj/machinery/computer/shuttle_control/explore/mining_shuttle
+	name = "mining shuttle control console"
+	shuttle_tag = "Mining Shuttle"
