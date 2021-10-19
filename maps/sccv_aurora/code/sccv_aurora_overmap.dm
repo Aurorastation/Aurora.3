@@ -6,6 +6,17 @@
 	burn_delay = 2 SECONDS
 	base = TRUE
 
+	initial_restricted_waypoints = list(
+		"Intrepid" = list("nav_hangar_mining"), 	//can't have random shuttles popping inside the ship
+		"Mining Shuttle" = list("nav_hangar_intrepid")
+	)
+
+	initial_generic_waypoints = list(
+	"nav_hangar_mining",
+	"nav_hangar_intrepid"
+	)
+
+
 /obj/machinery/computer/shuttle_control/explore/intrepid
 	name = "Intrepid control console"
 	shuttle_tag = "Intrepid"
@@ -22,7 +33,7 @@
 
 /obj/effect/overmap/visitable/ship/landable/mining_shuttle
 	name = "Mining Shuttle"
-	desc = "An mining shuttle used by SCC general purpose ships to gather resources in asteroid fields."
+	desc = "A mining shuttle used by SCC general purpose ships to gather resources in asteroid fields."
 	shuttle = "Mining Shuttle"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
