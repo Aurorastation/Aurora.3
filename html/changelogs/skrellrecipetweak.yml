@@ -1,0 +1,6 @@
+author: LocoTokyoFunBus
+
+delete-after: True
+
+changes:
+  - tweak: "Changes the recipes for Qilvo and Xuq'qil to use mollusc meat, instead of squid meat and crab legs."
