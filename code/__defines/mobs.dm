@@ -168,7 +168,7 @@
 #define BP_AUG_SIGHTLIGHTS     "ocular installed sightlights"
 #define BP_AUG_CORRECTIVE_LENS "corrective lenses"
 #define BP_AUG_GLARE_DAMPENER "glare dampeners"
-#define BP_AUG_OLD_CORDS       "old synthetic vocal coords"
+#define BP_AUG_OLD_CORDS       "old synthetic vocal cords"
 
 //Organ defines
 #define PROCESS_ACCURACY 10
