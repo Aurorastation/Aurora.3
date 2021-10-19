@@ -14560,7 +14560,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "Kf" = (
-/obj/effect/overmap/visitable/ship/placeholder,
+/obj/effect/overmap/visitable/ship/sccv_aurora,
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
