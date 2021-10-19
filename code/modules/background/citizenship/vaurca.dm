@@ -211,8 +211,6 @@
 /datum/outfit/job/representative/consular/cthur/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H && !visualsOnly)
 		if(isvaurca(H))
-
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec_cthur(H), slot_back)
-
 		addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
 	return TRUE
