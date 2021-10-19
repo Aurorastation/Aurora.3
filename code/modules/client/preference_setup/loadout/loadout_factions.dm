@@ -60,6 +60,20 @@
 	idris_sunglasses["aviator sunglasses, Idris"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator/idris
 	gear_tweaks += new /datum/gear_tweak/path(idris_sunglasses)
 
+/datum/gear/faction/idris_labcoat
+	display_name = "idris labcoat selection"
+	description = "A selection of Idris labcoats."
+	path = /obj/item/clothing/suit/storage/toggle/labcoat/idris
+	slot = slot_wear_suit
+	faction = "Idris Incorporated"
+
+/datum/gear/faction/idris_labcoat/New()
+	..()
+	var/list/idris_labcoats = list()
+	idris_labcoats["labcoat, Idris"] = /obj/item/clothing/suit/storage/toggle/labcoat/idris
+	idris_labcoats["labcoat, Idris alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/idris/alt
+	gear_tweaks += new /datum/gear_tweak/path(idris_labcoats)
+
 /datum/gear/faction/zavodskoi_beret
 	display_name = "black zavodskoi beret"
 	path = /obj/item/clothing/head/beret/security/zavodskoi
