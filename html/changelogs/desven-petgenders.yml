@@ -1,5 +1,0 @@
-author: Desven
-delete-after: True
-changes:
-  - bugfix: "Pun Pun appears properly male when examined."
-  - tweak: "Station pets have their genders defined in code."
