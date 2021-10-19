@@ -65,7 +65,7 @@
 			to_chat(user, SPAN_WARNING("There is nobody on \the [src]. It would be pointless to turn the suppressor on."))
 
 		suppressing = !suppressing
-		user.visible_message(SPAN_NOTICE("\The [user] switches [suppressing ? "on" : "off"] \the [src]'s neural suppressor."))
+		user.visible_message(SPAN_NOTICE("\The [user] switches [suppressing ? "on" : "off"] \the [src]'s neural suppressor."), intent_message = BUTTON_FLICK)
 		playsound(loc, /decl/sound_category/switch_sound, 50, 1)
 
 /obj/machinery/optable/CanPass(atom/movable/mover, turf/target, height = 0, air_group = 0)

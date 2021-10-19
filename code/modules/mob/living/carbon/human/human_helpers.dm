@@ -309,6 +309,14 @@
 			return TRUE
 	return FALSE
 
+/mob/living/carbon/human/proc/get_hearing_sensitivity()
+	return species.hearing_sensitivity
+
+/mob/living/carbon/human/proc/is_listening()
+	if(src in intent_listener)
+		return TRUE
+	return FALSE
+
 /mob/living/carbon/human/get_organ_name_from_zone(var/def_zone)
 	var/obj/item/organ/external/E = organs_by_name[parse_zone(def_zone)]
 	if(E)
