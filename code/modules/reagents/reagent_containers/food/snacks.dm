@@ -3879,7 +3879,7 @@
 
 /obj/item/reagent_containers/food/snacks/xuqqil
 	name = "xuq'qil"
-	desc = "A large mushroom cap stuffed with cheese and crab meat."
+	desc = "A large mushroom cap stuffed with cheese and gnazillae. Originally from the Traverse, the recipe has been adapted for the enjoyment of Skrell with an appreciation for the flavors of human cuisine"
 	icon_state = "xuqqil"
 	filling_color = "#833D67"
 	center_of_mass = list("x"=16, "y"=13)
