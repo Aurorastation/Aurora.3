@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "The 'encoded incident form' given when sentencing people and the 'operation of the criminal sentencing computers' papers now properly displays their contents."
