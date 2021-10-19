@@ -1,0 +1,7 @@
+author: TheGreyWolf, RyverStyx & 50%Noob
+
+delete-after: True
+
+changes:
+  - rscadd: "Added new things to skrell: A beard 'pilot', a new hair gradient 'spots' and multiple hairstyles 'reserved', 'tucked', 'long tuux', 'short tuux', 'slicked', 'behind, left/right/both/both short/both long'."
+  - rscdel: "Removed the driftwood & seaweed hairstyle from skrell."
