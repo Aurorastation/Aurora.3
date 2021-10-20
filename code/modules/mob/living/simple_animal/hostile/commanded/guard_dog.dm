@@ -81,6 +81,7 @@
 	short_name = "Columbo"
 	desc = "A dog trained to listen and obey its owner commands. This one looks about three days from retirement."
 	named = TRUE
+	gender = MALE
 
 	melee_damage_lower = 5
 	melee_damage_upper = 10

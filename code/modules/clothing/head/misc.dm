@@ -297,6 +297,9 @@
 	contained_sprite = 1
 	slot_flags = SLOT_EARS  | SLOT_HEAD
 
+/obj/item/clothing/head/hijab/get_ear_examine_text(var/mob/user, var/ear_text = "left")
+	return "on [user.get_pronoun("his")] head"
+
 /obj/item/clothing/head/hijab/grey
 	name = "grey hijab"
 	icon_state = "hijab_grey"

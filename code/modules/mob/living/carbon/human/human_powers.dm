@@ -1184,8 +1184,8 @@ mob/living/carbon/human/proc/change_monitor()
 			var/composition = "Non-existant"
 			switch(round((mixture.gas[mix] / total_moles) * 100))
 				if(0)
-					composition = "Non-existent"
-				if(0 to 5)
+					continue
+				if(0.1 to 5)
 					composition = "Trace-amounts"
 				if(5 to 15)
 					composition = "Low-volume"
