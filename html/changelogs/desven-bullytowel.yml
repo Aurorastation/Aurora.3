@@ -1,0 +1,4 @@
+author: Desven
+delete-after: True
+changes:
+  - bugfix: "Fixed the sprite of the towel when worn by the Vaurca Bulwark."
