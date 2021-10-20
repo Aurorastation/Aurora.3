@@ -1,0 +1,5 @@
+author: Desven
+delete-after: True
+changes:
+  - bugfix: "Humans can no longer carry the Vaurca Bulwark."
+  - rscadd: "Like Unathi and Ta, Bulwarks break cuffs."
