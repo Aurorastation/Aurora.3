@@ -2,23 +2,23 @@
 
 #define OUTFIT_BACKPACK 2
 #define OUTFIT_SATCHEL 3
-#define OUTFIT_CLASSICSATCHEL 4
-#define OUTFIT_SATCHEL_ALT 5
-#define OUTFIT_DUFFELBAG 6
-#define OUTFIT_MESSENGERBAG 7
-#define OUTFIT_RUCKSACK 8
-#define OUTFIT_BLUERUCKSACK 9
-#define OUTFIT_GREENRUCKSACK 10
-#define OUTFIT_NAVYRUCKSACK 11
-#define OUTFIT_TANRUCKSACK 12
-#define OUTFIT_KHAKISATCHEL 13
-#define OUTFIT_BLACKSATCHEL 14
-#define OUTFIT_NAVYSATCHEL 15
-#define OUTFIT_OLIVESATCHEL 16
-#define OUTFIT_AUBURNSATCHEL 17
-#define OUTFIT_POCKETBOOK 18
-#define OUTFIT_BROWNPOCKETBOOK 19
-#define OUTFIT_AUBURNPOCKETBOOK 20
+#define OUTFIT_SATCHEL_ALT 4
+#define OUTFIT_DUFFELBAG 5
+#define OUTFIT_MESSENGERBAG 6
+#define OUTFIT_RUCKSACK 7
+#define OUTFIT_BLUERUCKSACK 8
+#define OUTFIT_GREENRUCKSACK 9
+#define OUTFIT_NAVYRUCKSACK 10
+#define OUTFIT_TANRUCKSACK 11
+#define OUTFIT_KHAKISATCHEL 12
+#define OUTFIT_BLACKSATCHEL 13
+#define OUTFIT_NAVYSATCHEL 14
+#define OUTFIT_OLIVESATCHEL 15
+#define OUTFIT_AUBURNSATCHEL 16
+#define OUTFIT_POCKETBOOK 17
+#define OUTFIT_BROWNPOCKETBOOK 18
+#define OUTFIT_AUBURNPOCKETBOOK 19
+#define OUTFIT_CLASSICSATCHEL 20
 
 #define OUTFIT_TAB_PDA 2
 #define OUTFIT_PDA_OLD 3
@@ -76,7 +76,6 @@
 	var/allow_backbag_choice = FALSE
 	var/backpack = /obj/item/storage/backpack
 	var/satchel = /obj/item/storage/backpack/satchel_norm
-	var/classicsatchel = /obj/item/storage/backpack/satchel
 	var/satchel_alt = /obj/item/storage/backpack/satchel/leather
 	var/dufflebag = /obj/item/storage/backpack/duffel
 	var/messengerbag = /obj/item/storage/backpack/messenger
@@ -93,6 +92,7 @@
 	var/pocketbook = /obj/item/storage/backpack/satchel/pocketbook
 	var/brownpocketbook = /obj/item/storage/backpack/satchel/pocketbook/brown
 	var/auburnpocketbook = /obj/item/storage/backpack/satchel/pocketbook/reddish
+	var/classicsatchel = /obj/item/storage/backpack/satchel
 
 	var/allow_pda_choice = FALSE
 	var/tab_pda = /obj/item/modular_computer/handheld/pda/civilian
@@ -125,8 +125,6 @@
 				back = use_job_specific ? backpack : /obj/item/storage/backpack
 			if (OUTFIT_SATCHEL)
 				back = use_job_specific ? satchel : /obj/item/storage/backpack/satchel_norm
-			if (OUTFIT_CLASSICSATCHEL)
-				back = use_job_specific ? classicsatchel : /obj/item/storage/backpack/satchel
 			if (OUTFIT_SATCHEL_ALT)
 				back = use_job_specific ? satchel_alt : /obj/item/storage/backpack/satchel/leather
 			if (OUTFIT_DUFFELBAG)
@@ -159,6 +157,8 @@
 				back = use_job_specific ? brownpocketbook : /obj/item/storage/backpack/satchel/pocketbook/brown
 			if (OUTFIT_AUBURNPOCKETBOOK)
 				back = use_job_specific ? auburnpocketbook : /obj/item/storage/backpack/satchel/pocketbook/reddish
+			if (OUTFIT_CLASSICSATCHEL)
+				back = use_job_specific ? classicsatchel : /obj/item/storage/backpack/satchel
 			else
 				back = backpack //Department backpack
 	if(back)
