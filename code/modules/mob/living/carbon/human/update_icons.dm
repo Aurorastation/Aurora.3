@@ -454,11 +454,11 @@ There are several things that need to be remembered:
 		return
 
 	//masks and helmets can obscure our hair.
-	if( (head && (head.flags_inv & BLOCKHAIR)) || (wear_mask && (wear_mask.flags_inv & BLOCKHAIR)))
+	if( (head && (head.flags_inv & BLOCKHAIR)) || (wear_mask && (wear_mask.flags_inv & BLOCKHAIR)) || (l_ear && (l_ear.flags_inv & BLOCKHAIR)) || (r_ear && (r_ear.flags_inv & BLOCKHAIR)))
 		if(update_icons)   update_icon()
 		return
 
-	var/has_visible_hair = h_style && !(head && (head.flags_inv & BLOCKHEADHAIR))
+	var/has_visible_hair = h_style && !(head && (head.flags_inv & BLOCKHEADHAIR)) && !(l_ear && (l_ear.flags_inv & BLOCKHEADHAIR)) && !(r_ear && (r_ear.flags_inv & BLOCKHEADHAIR))
 
 	var/icon/hair_icon = generate_hair_icon(has_visible_hair)
 

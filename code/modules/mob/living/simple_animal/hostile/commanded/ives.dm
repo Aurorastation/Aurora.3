@@ -2,6 +2,7 @@
 	name = "Ives"
 	desc = "A mysterious docile hivebot, this type seems to be of a kind rarely seen in the Orion Spur. Look at its little tail!"
 	named = TRUE
+	gender = FEMALE
 
 	icon = 'icons/mob/npc/pets.dmi'
 	icon_state = "ives"

@@ -659,8 +659,10 @@
 	drink_flags = NO_EMPTY_ICON
 
 /obj/item/reagent_containers/food/drinks/bottle/pulque
-	name = "Pulque"
-	desc = "A glass bottle of Mictlanian pulque. The label states that it is a handmade recipe."
+	name = "Don Augusto's pulque"
+	desc = "A glass bottle of Mictlanian pulque. The label states that it is still produced by hand."
+	desc_fluff = "Don Augusto's pulqlueria is a famous saloon in Lago de Abundancia, known for its quality pulque. After Idris invested in the city, the family-owned business became part of the \
+	megacorporation. Nowadays, it is bottled and sold all around the galaxy."
 	icon_state = "pulquebottle"
 	center_of_mass = list("x" = 16, "y" = 5)
 	reagents_to_add = list(/decl/reagent/alcohol/pulque = 100)

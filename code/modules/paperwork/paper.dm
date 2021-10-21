@@ -653,10 +653,11 @@
 	var/sentence = 1 // Is this form contain a sentence of guilty?
 
 /obj/item/paper/incident/New()
-	info = {"\[center\]\[logo_nt\]\[/center\]
+	var/T = parsepencode({"\[center\]\[logo_nt\]\[/center\]
 \[center\]\[b\]\[i\]Encoded NanoTrasen Security Incident Report\[/b\]\[/i\]\[hr\]
 \[small\]FOR USE BY SECURITY ONLY\[/small\]\[br\]
-\[barcode\]\[/center\]"}
+\[barcode\]\[/center\]"})
+	info = T
 
 	..()
 
@@ -665,7 +666,7 @@
 	icon_state = "pamphlet"
 
 /obj/item/paper/sentencing/New()
-	info = {"\[center\]\[logo_nt\]\[/center\]
+	var/T = parsepencode({"\[center\]\[logo_nt\]\[/center\]
 \[center\]\[b\]\[i\]Operation of Criminal Sentencing Computers\[/b\]\[/i\]\[hr\]
 \[small\]In compliance with new NanoTrasen criminal regulations, the \[b\][station_name()]\[/b\] has been equipped with state of the art sentencing computers. The operation of these terminals is quite simple:\[br\]
 \[br\]
@@ -675,7 +676,8 @@ After all the charges have been applied, the processing officer is invited to ad
 Simply press the option "Render Guilty", and the sentence is complete! The convict's records will be automatically updated to reflect their crimes. You should now insert the printed receipt into the cell timer, and begin processing.\[br\]
 \[hr\]
 Please note: Cell timers will \[b\]NOT\[/b\] function without a valid incident form receipt inserted into them.
-\[small\]FOR USE BY SECURITY ONLY\[/small\]\[br\]"}
+\[small\]FOR USE BY SECURITY ONLY\[/small\]\[br\]"})
+	info = T
 
 	..()
 
