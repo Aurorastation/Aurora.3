@@ -1,9 +1,9 @@
 /obj/item/gun/projectile/heavysniper
 	name = "anti-materiel rifle"
-	desc = "A portable anti-armor rifle fitted with a scope, the PTR-7 is capable of punching through windows and non-reinforced walls with ease. Fires armor piercing 14.5mm shells."
-	desc_info = "This is a ballistic weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
-	then click where you want to fire.  The gun's chamber can be opened or closed by using it in your hand.  To reload, open the chamber, add a new bullet \
-	then close it.  To use the scope, use the appropriate verb in the object tab."
+	desc = "The PTR-7 is man-portable anti-armor rifle fitted with a high-powered scope, capable of penetrating through most windows, airlocks, and non-reinforced walls with ease. Fires armor piercing 14.5mm shells."
+	desc_info = "A single-shot, bolt-action anachronism in an age of energy weapons, the PTR-7 was originally developed to combat exosuits, either by disabling critical systems \
+	or killing the pilot. Firing a high-velocity 14.5mm cartridge designed to defeat heavy armor, the PTR-7 boasts penetrative power unmatched by most in its class, though recent advancements \
+	in composites have rendered the weapon less effective at its intended purpose. Nonetheless, it still sees use among some groups as a general-purpose anti-materiel rifle."
 	icon = 'icons/obj/guns/heavysniper.dmi'
 	icon_state = "heavysniper"
 	item_state = "heavysniper"
