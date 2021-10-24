@@ -2312,7 +2312,6 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/bridge/minibar)
 "ff" = (
@@ -8993,10 +8992,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
-"vY" = (
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled,
-/area/bridge/minibar)
 "vZ" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
@@ -10878,10 +10873,6 @@
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
 "AP" = (
-/obj/structure/disposalpipe/trunk{
-	dir = 1
-	},
-/obj/machinery/disposal/small/east,
 /turf/simulated/floor/tiled,
 /area/bridge/minibar)
 "AQ" = (
@@ -17021,6 +17012,11 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge - Break Room";
+	dir = 4;
+	network = list("Command","Bunker")
+	},
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
 "PU" = (
@@ -17096,13 +17092,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/vacantoffice2)
 "Qc" = (
-/obj/machinery/camera/network/command{
-	c_tag = "Bridge - Break Room";
-	network = list("Command","Bunker")
-	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
+/obj/structure/disposalpipe/trunk,
+/obj/machinery/disposal/small/south,
 /turf/simulated/floor/tiled,
 /area/bridge/minibar)
 "Qd" = (
@@ -17670,7 +17664,7 @@
 /area/hallway/medical/upper)
 "RC" = (
 /obj/structure/disposalpipe/segment{
-	dir = 2;
+	dir = 8;
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled,
@@ -43752,7 +43746,7 @@ za
 za
 Qc
 RC
-vY
+AP
 fd
 AP
 xc
