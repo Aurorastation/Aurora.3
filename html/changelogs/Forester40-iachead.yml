@@ -1,0 +1,8 @@
+
+author: Forester40
+
+delete-after: True
+
+changes:
+  - rscadd: "You can now select between an IAC beret and an IAC cap in the loadout, instead of just an IAC cap."
+  - spellcheck: "The IAC cap is no longer mislabeled as a beret in the loadout."
