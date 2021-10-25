@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Bulwarks now have on-mob specific cuff sprites."
+  - bugfix: "Bulwarks and Breeders can now be properly scanned in a body scanner."
+  - bugfix: "Bulwark wrist items now get properly offset."
