@@ -4940,6 +4940,8 @@
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /obj/random/powercell,
+/obj/item/stack/cable_coil/random,
+/obj/item/stack/cable_coil/random,
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
 "ewm" = (
@@ -8547,6 +8549,14 @@
 	},
 /turf/simulated/floor/wood,
 /area/hydroponics/garden)
+"hHk" = (
+/obj/structure/table/rack,
+/obj/item/stack/nanopaste,
+/obj/item/stack/nanopaste,
+/obj/item/stack/nanopaste,
+/obj/item/stack/nanopaste,
+/turf/simulated/floor/tiled,
+/area/tcommsat/computer)
 "hIb" = (
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
@@ -11404,6 +11414,10 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/item/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/filter,
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "koW" = (
@@ -14576,6 +14590,9 @@
 /obj/item/circuitboard/telecomms/bus,
 /obj/item/circuitboard/telecomms/bus,
 /obj/item/circuitboard/telecomms/broadcaster,
+/obj/item/circuitboard/telecomms/relay,
+/obj/item/circuitboard/telecomms/relay,
+/obj/item/circuitboard/telecomms/hub,
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "ncU" = (
@@ -20644,6 +20661,8 @@
 "slQ" = (
 /obj/structure/table/standard,
 /obj/item/stock_parts/micro_laser,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/manipulator,
 /obj/item/stock_parts/manipulator,
 /obj/item/stock_parts/manipulator,
 /obj/item/stock_parts/manipulator,
@@ -42289,7 +42308,7 @@ wXr
 wXr
 kym
 pGM
-vOy
+hHk
 hmU
 cXk
 gry

@@ -1056,7 +1056,7 @@ proc/is_blind(A)
 #undef SAFE_PERP
 
 /mob/proc/get_multitool(var/obj/P)
-	if(P.ismultitool())
+	if(P && P.ismultitool())
 		return P
 
 /mob/abstract/observer/get_multitool()
