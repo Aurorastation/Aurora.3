@@ -102,7 +102,7 @@ var/datum/controller/subsystem/radio/SSradio
 /datum/controller/subsystem/radio
 	name = "Radio"
 	flags = SS_NO_FIRE | SS_NO_INIT
-	
+
 	var/list/datum/radio_frequency/frequencies = list()
 
 /datum/controller/subsystem/radio/New()
@@ -155,40 +155,47 @@ var/datum/controller/subsystem/radio/SSradio
 	return null
 
 /proc/frequency_span_class(var/frequency)
-	. = "radio"
 	var/fstr = "[frequency]"
+
+	// department radio formatting
+	switch (frequency)
+		if (PUB_FREQ)
+			return "radio"
+		if (COMM_FREQ)	// command
+			return "comradio"
+		if (AI_FREQ)	// AI Private
+			return "airadio"
+		if (SEC_FREQ,SEC_I_FREQ)
+			return "secradio"
+		if (PEN_FREQ)
+			return "penradio"
+		if (ENG_FREQ)
+			return "engradio"
+		if (SCI_FREQ)
+			return "sciradio"
+		if (MED_FREQ,MED_I_FREQ)
+			return "medradio"
+		if (SUP_FREQ)	// cargo
+			return "supradio"
+		if (SRV_FREQ)	// service
+			return "srvradio"
+		if (ENT_FREQ) //entertainment
+			return "entradio"
+		if (BLSP_FREQ)
+			return "bluespaceradio"
+
+	if(DEPT_FREQS_ASSOC[fstr])
+		return "deptradio"
+
 	// Antags!
 	if (ANTAG_FREQS_ASSOC[fstr])
 		return "syndradio"
-
 	// centcomm channels (deathsquid and ert)
 	if(CENT_FREQS_ASSOC[fstr])
 		return "centradio"
 
-	// department radio formatting
-	switch (frequency)
-		if (COMM_FREQ)	// command
-			. = "comradio"
-		if (AI_FREQ)	// AI Private
-			. = "airadio"
-		if (SEC_FREQ,SEC_I_FREQ)
-			. = "secradio"
-		if (PEN_FREQ)
-			. = "penradio"
-		if (ENG_FREQ)
-			. = "engradio"
-		if (SCI_FREQ)
-			. = "sciradio"
-		if (MED_FREQ,MED_I_FREQ)
-			. = "medradio"
-		if (SUP_FREQ)	// cargo
-			. = "supradio"
-		if (SRV_FREQ)	// service
-			. = "srvradio"
-		if (ENT_FREQ) //entertainment
-			. = "entradio"
-		if (BLSP_FREQ)
-			. = "bluespaceradio"
-		else
-			if(DEPT_FREQS_ASSOC[fstr])
-				. = "deptradio"
+	for(var/channel in custom_radio_channels)
+		if(custom_radio_channels[channel][1] == frequency)
+			return custom_radio_channel_color[custom_radio_channels[channel][2]]
+
+	return "radio"

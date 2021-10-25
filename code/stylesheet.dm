@@ -61,6 +61,13 @@ em						{font-style: normal;font-weight: bold;}
 .supradio				{color: #5F4519;}
 .srvradio				{color: #6eaa2c;}
 
+/* Custom Radio Channels */
+.peachradio				{color: #ca705c;}
+.moonlightradio			{color: #318288;}
+.silverradio			{color: #777777;}
+.pearadio				{color: #579475;}
+.rubyradio				{color: #864240;}
+
 /* Miscellaneous */
 .name					{font-weight: bold;}
 .say					{}

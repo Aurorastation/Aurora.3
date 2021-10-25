@@ -28,6 +28,11 @@
 				if(radiochannels[channel] == display_freq)
 					freq_text = channel
 					break
+			if(!freq_text)
+				for(var/channel in custom_radio_channels)
+					if(custom_radio_channels[channel][1] == display_freq)
+						freq_text = channel
+						break
 
 	// --- If the frequency has not been assigned a name, just use the frequency as the name ---
 	if(!freq_text)

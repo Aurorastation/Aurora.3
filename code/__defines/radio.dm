@@ -52,6 +52,17 @@ var/list/radiochannels = list(
 	"Security (I)"	= SEC_I_FREQ
 )
 
+/// Lazy Assoc List of customized radio channels, list("channel_name" = list(freq_num, "spancolor"))
+var/list/custom_radio_channels = null
+
+var/list/custom_radio_channel_color = list(
+	"Peach" = "peachradio",
+	"Moonlight" = "moonlightradio",
+	"Silver" = "silverradio",
+	"Pea" = "pearadio",
+	"Ruby" = "rubyradio"
+)
+
 // The assoc variants are separate lists because they need the keys to be strings, but some code expects numbers.
 
 // central command channels, i.e deathsquid & response teams

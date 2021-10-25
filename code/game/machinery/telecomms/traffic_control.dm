@@ -93,6 +93,7 @@
 
 				else
 					dat += "<br>No servers detected. Scan for servers: <a href='?src=\ref[src];operation=scan'>\[Scan\]</a>"
+				dat += "<hr><a href='?src=\ref[src];operation=custom_channels'>\[Adjust Custom Channels\]</a>"
 
 
 		  // --- Viewing Server ---
@@ -109,6 +110,15 @@
 				else
 					dat += "<a href='?src=\ref[src];operation=togglerun'>NEVER</a>"
 
+			if(2)
+				dat += "<br><br>"
+				dat += "<center><a href='?src=\ref[src];operation=mainmenu'>\[Main Menu\]</a>     <a href='?src=\ref[src];operation=refresh'>\[Refresh\]</a></center>"
+				if(length(custom_radio_channels))
+					dat += "<br>Detected Custom Channels:<ul>"
+					for(var/channel in custom_radio_channels)
+						dat += "<li>[channel]: <a href='?src=\ref[src];operation=channel_freq;channel=[channel]'>[custom_radio_channels[channel][1]]</a> | <a href='?src=\ref[src];operation=channel_span;channel=[channel]'>[custom_radio_channels[channel][2]]</a>  <a href='?src=\ref[src];operation=remove_channel;channel=[channel]'>\[X\]</a></li>"
+					dat += "</ul>"
+				dat += "<a href='?src=\ref[src];operation=add_channel'>\[Add Channel\]</a>"
 
 		user << browse(dat, "window=traffic_control;size=575x400")
 		onclose(user, "server_control")
@@ -188,6 +198,31 @@
 				if("togglerun")
 					SelectedServer.autoruncode = !(SelectedServer.autoruncode)
 
+				if("custom_channels")
+					screen = 2
+
+				if("channel_freq")
+					set_channel_freq(usr, href_list["channel"])
+
+				if("channel_span")
+					set_channel_span(usr, href_list["channel"])
+
+				if("remove_channel")
+					LAZYREMOVE(custom_radio_channels, href_list["channel"])
+
+				if("add_channel")
+					var/new_channel = sanitize(input(usr, "Enter the desired channel name. (Max 8 letters)", "Channel Name") as null|text, 9)
+					if(!new_channel)
+						return
+					var/new_freq = set_channel_freq(usr)
+					if(!new_freq)
+						return
+					var/new_span = set_channel_span(usr)
+					if(!new_span)
+						return
+					LAZYINITLIST(custom_radio_channels)
+					custom_radio_channels[new_channel] = list(new_freq, new_span)
+
 		if(href_list["network"])
 
 			var/newnet = sanitize(input(usr, "Which network do you want to view?", "Comm Monitor", network) as null|text)
@@ -243,3 +278,36 @@
 		to_chat(user, "<span class='notice'>You you disable the security protocols</span>")
 		src.updateUsrDialog()
 		return 1
+
+/obj/machinery/computer/telecomms/traffic/proc/set_channel_freq(var/mob/user, var/channel)
+	var/new_freq = input(usr, "Which frequency do you want to change [channel ? channel : "the channel"] to? (Ex. 1457, 1485)", "Channel Frequency") as null|num
+	if(!new_freq)
+		return FALSE
+	if(new_freq < PUBLIC_LOW_FREQ)
+		to_chat(user, SPAN_WARNING("That frequency is too low!"))
+		return FALSE
+	if(new_freq > PUBLIC_HIGH_FREQ)
+		to_chat(user, SPAN_WARNING("That frequency is too high!"))
+		return FALSE
+	if(new_freq == PUB_FREQ)
+		to_chat(user, SPAN_WARNING("That frequency is the public common frequency!"))
+		return FALSE
+	if(channel)
+		if(LAZYISIN(custom_radio_channels, channel))
+			custom_radio_channels[channel][1] = new_freq
+			return TRUE
+		return FALSE
+	else
+		return new_freq
+
+/obj/machinery/computer/telecomms/traffic/proc/set_channel_span(var/mob/user, var/channel)
+	var/new_span = input(user, "Which color do you want to change [channel ? channel : "the channel"] to?", "Channel Color") as null|anything in custom_radio_channel_color
+	if(!new_span)
+		return FALSE
+	if(channel)
+		if(LAZYISIN(custom_radio_channels, channel))
+			custom_radio_channels[channel][2] = new_span
+			return TRUE
+		return FALSE
+	else
+		return new_span
