@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Hitting equip with an empty hand will now pull an eligible weapon out of your suit slot, if it doesn't find one, then it will pull from the back slot."
