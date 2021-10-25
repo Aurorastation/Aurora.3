@@ -85,14 +85,14 @@
 	reagent_tag = IS_UNATHI
 	base_color = "#066000"
 
-	heat_discomfort_level = 295
+	heat_discomfort_level = 304 // 30°C
 	heat_discomfort_strings = list(
 		"You feel soothingly warm.",
 		"You feel the heat sink into your bones.",
 		"You feel warm enough to take a nap."
 		)
 
-	cold_discomfort_level = 292
+	cold_discomfort_level = 294  // 20°C
 	cold_discomfort_strings = list(
 		"You feel chilly.",
 		"You feel sluggish and cold.",
