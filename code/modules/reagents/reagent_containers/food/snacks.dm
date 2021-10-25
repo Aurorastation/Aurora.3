@@ -3896,7 +3896,7 @@
 
 /obj/item/reagent_containers/food/snacks/xuqqil
 	name = "xuq'qil"
-	desc = "A large mushroom cap stuffed with cheese and crab meat."
+	desc = "A large mushroom cap stuffed with cheese and gnazillae. Originally from the Traverse, the recipe has been adapted for the enjoyment of Skrell with an appreciation for the flavors of human cuisine"
 	icon_state = "xuqqil"
 	filling_color = "#833D67"
 	center_of_mass = list("x"=16, "y"=13)
@@ -5333,7 +5333,7 @@
 	reagents_to_add = list(/decl/reagent/nutriment = 1, /decl/reagent/nutriment/protein = 1, /decl/reagent/blood = 6, /decl/reagent/nutriment/coco = 3)
 	reagent_data = list(/decl/reagent/nutriment = list("iron" = 3))
 	bitesize = 6
-
+  
 /obj/item/reagent_containers/food/snacks/phoroncandy
 	name = "phoron rock candy"
 	desc = "Rock candy popular in Flagsdale. Actually contains phoron."
