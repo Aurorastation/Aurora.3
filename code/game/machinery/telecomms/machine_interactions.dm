@@ -160,7 +160,6 @@
 			else
 				dat += "<br>MULTITOOL BUFFER: <a href='?src=\ref[src];buffer=1'>\[Add Machine\]</a>"
 
-	dat += "</font>"
 	temp = ""
 
 	var/datum/browser/tcomms_win = new(user, "tcommachine", "[name] Access", 520, 500)
