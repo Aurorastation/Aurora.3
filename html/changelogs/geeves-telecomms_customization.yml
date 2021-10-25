@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Custom radio channels within the public radio spectrum can now be created at the Telecommunications Traffic Control computer."
