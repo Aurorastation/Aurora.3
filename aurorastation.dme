@@ -1486,6 +1486,7 @@
 #include "code\modules\clothing\clothing_accessories.dm"
 #include "code\modules\clothing\ears\antennae.dm"
 #include "code\modules\clothing\ears\bandanna.dm"
+#include "code\modules\clothing\ears\bulwark.dm"
 #include "code\modules\clothing\ears\earmuffs.dm"
 #include "code\modules\clothing\ears\earrings.dm"
 #include "code\modules\clothing\ears\skrell.dm"
