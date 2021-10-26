@@ -36,7 +36,7 @@
 /datum/gear/head/shaper
 	display_name = "shaper helmet"
 	path = /obj/item/clothing/head/shaper
-	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -44,7 +44,7 @@
 	display_name = "tunnel cloak (recolourable)"
 	path = /obj/item/storage/backpack/cloak
 	cost = 1
-	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -52,7 +52,7 @@
 	display_name = "tunnel cloak selection"
 	path = /obj/item/storage/backpack/cloak
 	cost = 1
-	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -96,7 +96,7 @@
 	display_name = "shaper robes"
 	path = /obj/item/clothing/suit/vaurca/shaper
 	slot = slot_wear_suit
-	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
 	sort_category = "Xenowear - Vaurca"
 	cost = 1
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
@@ -168,3 +168,12 @@
 	sortTim(lunchboxes, /proc/cmp_text_asc)
 	gear_tweaks += new /datum/gear_tweak/path(lunchboxes)
 	gear_tweaks += new /datum/gear_tweak/contents(lunchables_vaurca(), lunchables_vaurca_snack(), lunchables_drinks(), lunchables_utensil())
+
+/datum/gear/ears/vaurca/rings 
+	display_name = "bulwark horn rings"
+	description = "Rings worn by Bulwarks to decorate their horns."
+	cost = 1
+	path = /obj/item/clothing/ears/bulwark/rings
+	sort_category = "Xenowear - Vaurca"
+	whitelisted = list(SPECIES_VAURCA_BULWARK)
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
