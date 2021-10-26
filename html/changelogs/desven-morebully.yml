@@ -1,0 +1,9 @@
+author: Desven
+changes:
+  - rscadd: "Added work overalls for Bulwark Vaurca."
+  - rscadd: "Added Shaper sprites and cloak tunnels for the Bulwark Vaurca."
+  - rscadd: "Added the veterancy plate for the Bulwark Vaurca."
+  - rscadd: "Added a new type of item, the horn adorns, for Bulwark Vaurca. Currently you can choose recolourable rings from the loadout."
+  - bugfix: "Fixed toeless workboots not working for Bulwark Vaurca."
+  - bugfix: "Fixed augments and Jargon passport not working for Bulwark Vaurca."
+  - bugfix: "Fixed blinders not properly working for the Bulwark Vaurca."
