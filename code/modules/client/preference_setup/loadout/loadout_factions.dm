@@ -155,6 +155,21 @@
 	epmc_sunglasses["aviator sunglasses, EPMC"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator/epmc
 	gear_tweaks += new /datum/gear_tweak/path(epmc_sunglasses)
 
+/datum/gear/faction/epmc_labcoat
+	display_name = "EPMC labcoat selection"
+	description = "A selection of EPMC labcoats."
+	path = /obj/item/clothing/suit/storage/toggle/labcoat/epmc
+	slot = slot_wear_suit
+	faction = "Eridani Private Military Contractors"
+
+/datum/gear/faction/epmc_labcoat/New()
+	..()
+	var/list/epmc_labcoats = list()
+	epmc_labcoats["security labcoat, EPMC"] = /obj/item/clothing/suit/storage/toggle/labcoat/epmc
+	epmc_labcoats["security labcoat alt, EPMC"] = /obj/item/clothing/suit/storage/toggle/labcoat/epmc/alt
+	epmc_labcoats["medical labcoat, EPMC"] = /obj/item/clothing/suit/storage/toggle/labcoat/epmc/med
+	gear_tweaks += new /datum/gear_tweak/path(epmc_labcoats)
+
 /datum/gear/faction/zenghu_uniform_alt
 	display_name = "zeng-hu white uniform"
 	path = /obj/item/clothing/under/rank/zeng/alt

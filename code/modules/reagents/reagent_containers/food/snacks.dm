@@ -1743,6 +1743,13 @@
 	reagent_data = list(/decl/reagent/nutriment = list("peppermint" = 2, "salad" = 4, "hot stew" = 2))
 	reagents_to_add = list(/decl/reagent/nutriment = 8, /decl/reagent/water = 5, /decl/reagent/drink/dynjuice =2)
 
+/obj/item/reagent_containers/food/snacks/soup/brudet 
+	name = "morozian brudet"
+	desc = "The most popular dish from the Dominian Empire, this stew is a staple of Imperial cuisine."
+	icon_state = "brudet"
+	reagent_data = list(/decl/reagent/nutriment = list("hot stew" = 3, "spices" = 1, "vegetables" = 1, "fish" = 2))
+	reagents_to_add = list(/decl/reagent/nutriment = 8, /decl/reagent/water = 5)
+
 /obj/item/reagent_containers/food/snacks/hotchili
 	name = "hot chili"
 	desc = "A five alarm Texan Chili!"
@@ -3673,6 +3680,16 @@
 	reagent_data = list(/decl/reagent/nutriment = list("bread" = 3))
 	filling_color = "#B89F61"
 
+/obj/item/reagent_containers/food/snacks/moroz_flatbread
+	name = "morozian flatbread"
+	desc = "One of the fundamental dishes of the Dominian Empire, also known as Imperial flatbread."
+	icon_state = "moroz_flatbread"
+	bitesize = 2
+	center_of_mass = list("x"=16, "y"=16)
+	reagents_to_add = list(/decl/reagent/nutriment = 10)
+	reagent_data = list(/decl/reagent/nutriment = list("bread" = 3))
+	filling_color = "#B89F61"
+
 // potato + knife = raw sticks
 /obj/item/reagent_containers/food/snacks/grown/potato/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/material/kitchen/utensil/knife))
@@ -3879,7 +3896,7 @@
 
 /obj/item/reagent_containers/food/snacks/xuqqil
 	name = "xuq'qil"
-	desc = "A large mushroom cap stuffed with cheese and crab meat."
+	desc = "A large mushroom cap stuffed with cheese and gnazillae. Originally from the Traverse, the recipe has been adapted for the enjoyment of Skrell with an appreciation for the flavors of human cuisine"
 	icon_state = "xuqqil"
 	filling_color = "#833D67"
 	center_of_mass = list("x"=16, "y"=13)
@@ -5316,3 +5333,12 @@
 	reagents_to_add = list(/decl/reagent/nutriment = 1, /decl/reagent/nutriment/protein = 1, /decl/reagent/blood = 6, /decl/reagent/nutriment/coco = 3)
 	reagent_data = list(/decl/reagent/nutriment = list("iron" = 3))
 	bitesize = 6
+  
+/obj/item/reagent_containers/food/snacks/phoroncandy
+	name = "phoron rock candy"
+	desc = "Rock candy popular in Flagsdale. Actually contains phoron."
+	icon_state = "rock_candy"
+	filling_color = "#ff22d9"
+	reagents_to_add = list(/decl/reagent/toxin/phoron = 25)
+	bitesize = 5
+	trash = /obj/item/trash/phoroncandy

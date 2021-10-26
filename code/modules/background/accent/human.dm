@@ -201,3 +201,15 @@
 	and eclectic pronunciation, it can be fairly difficult to parse for those unfamiliar with it. This is only somewhat stymied by the fact that Visegradi people tend to speak very loudly, an adaptation necessitated by the need to \
 	make oneself heard during the planet's torrential downpours."
 	tag_icon = "visegrad"
+
+/datum/accent/valkyrie
+	name = ACCENT_VALKYRIE
+	description = "The Valkyrian accent is a difficult accent to replicate, mostly due to the cultural melting pot in which it exists. Influences from across the Orion Spur have impacted the development of the accent, with \
+	traces of Sol Common, Tau Ceti Basic, Elyran Common and even Vulgar Morozi."
+	tag_icon = "valkyrie"
+
+/datum/accent/mictlan
+	name = ACCENT_MICTLAN
+	description = "The Mictlanian accent is a variation on Tradeband that is usually recognized as being folksy and warm. This welcoming, soft voice is one of the reasons the planet of Mictlan has seen a boom in tourism. While \
+	some youth may try to sound rebellious and conceal the softness of their voice, this musicality is still prevalent and universally recognizable."
+	tag_icon = "mictlan"
