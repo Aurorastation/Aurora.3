@@ -128,7 +128,7 @@
     else if(!is_type_in_list(E, nymph_extremity_types))
         return
 
-    E.status &= (ORGAN_PLANT | ORGAN_NYMPH)
+    E.status |= (ORGAN_PLANT | ORGAN_NYMPH)
     E.species = all_species["Nymph Limb"]
     E.fingerprints = null
     if(!E.dna)
