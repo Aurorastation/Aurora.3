@@ -59,6 +59,7 @@
 #define ACCENT_COC "Frontiersfolk"
 #define ACCENT_ELYRA "Elyran"
 #define ACCENT_ERIDANI "Eridanian"
+#define ACCENT_ERIDANIREINSTATED "Reinstated Dreg"
 #define ACCENT_ERIDANIDREG "Eridanian Dreg"
 #define ACCENT_SOL "Solarian"
 #define ACCENT_SCARAB "Scarab Fleets"
@@ -83,6 +84,9 @@
 #define ACCENT_GADPATHUR "Gadpathurian"
 #define ACCENT_PLUTO "Plutonian"
 #define ACCENT_ASSUNZIONE "Assunzionii"
+#define ACCENT_VISEGRAD "Visegradi"
+#define ACCENT_VALKYRIE "Valkyrian"
+#define ACCENT_MICTLAN "Mictlanian"
 
 #define ACCENT_REPUBICLANSIIK "Republican Siik'maas"
 #define ACCENT_NAZIRASIIK "Nazira Siik'maas"

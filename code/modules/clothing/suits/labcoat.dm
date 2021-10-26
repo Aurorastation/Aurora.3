@@ -95,6 +95,20 @@
 	desc = "A suit that protects against minor chemical spills. Comes in Hephaestus colours."
 	icon_state = "labcoat_heph"
 
+/obj/item/clothing/suit/storage/toggle/labcoat/epmc
+	name = "epmc security labcoat"
+	desc = "A suit that protects against minor chemical spills. Comes in EPMC colours."
+	icon_state = "labcoat_erisec"
+
+/obj/item/clothing/suit/storage/toggle/labcoat/epmc/alt
+	desc = "A suit that protects against minor chemical spills. Darker than the standard issue."
+	icon_state = "labcoat_erisec_alt"
+
+/obj/item/clothing/suit/storage/toggle/labcoat/epmc/med
+	name = "epmc medical labcoat"
+	desc = "A suit that protects against minor chemical spills. Comes in EPMC colours."
+	icon_state = "labcoat_erimed"
+
 /obj/item/clothing/suit/storage/toggle/labcoat/iac
 	name = "iac labcoat"
 	desc = "A suit that protects against minor chemical spills. Comes in IAC colors."

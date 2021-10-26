@@ -1734,7 +1734,7 @@ Follow by example and make good judgement based on length which list to include 
 	icon = 'icons/mob/hair_gradients.dmi'
 	species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,
 		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,
-		/datum/species/skrell, /datum/species/zombie/skrell, /datum/species/bug, /datum/species/bug/type_b)
+		/datum/species/skrell, /datum/species/skrell/axiori, /datum/species/zombie/skrell, /datum/species/bug, /datum/species/bug/type_b)
 
 	none
 		name = "None"
@@ -1779,6 +1779,11 @@ Follow by example and make good judgement based on length which list to include 
 		name = "M'sai Inner Ear Fur"
 		icon_state = "taj_msai_innerearfur"
 		species_allowed = list(/datum/species/tajaran/m_sai)
+
+	skrell_spots
+		name = "Skrell Spots"
+		icon_state = "skrell_gradient_spots"
+		species_allowed = list(/datum/species/skrell, /datum/species/skrell/axiori)
 
 /*
 ///////////////////////////////////
@@ -2228,12 +2233,6 @@ Follow by example and make good judgement based on length which list to include 
 			length = 6
 			chatname = "Very Long Tentacles"
 
-		skr_tentacle_ponytail
-			name = "Skrell Seaweed Ponytail"
-			icon_state = "skrell_seaweed"
-			length = 3
-			chatname = "Ponytail, Seaweed"
-
 		skr_tentacle_doubletail
 			name = "Skrell Hoop Ponytail"
 			icon_state = "skrell_hoop"
@@ -2248,13 +2247,6 @@ Follow by example and make good judgement based on length which list to include 
 			chatname = "Ponytail, Reef"
 			scrunchy_style = "reef"
 
-		skr_tentacle_ponytailm
-			name = "Skrell Driftwood Ponytail"
-			icon_state = "skrell_driftwood"
-			length = 6
-			chatname = "Ponytail, Driftwood"
-			scrunchy_style = "driftwood"
-
 		skr_tentacle_backwater
 			name = "Skrell Backwater"
 			icon_state = "skrell_backwater"
@@ -2262,6 +2254,65 @@ Follow by example and make good judgement based on length which list to include 
 			chatname = "Backwater"
 			scrunchy_style = "backwater"
 
+		skr_tentacle_reserved
+			name = "Skrell Reserved"
+			icon_state = "skrell_reserved"
+			length = 6
+			chatname = "Reserved"
+
+		skr_tentacle_tucked
+			name = "Skrell Tucked"
+			icon_state = "skrell_tucked"
+			length = 3
+			chatname = "Tucked"
+
+		skr_tentacle_tuux_l
+			name = "Skrell Tuux, Long"
+			icon_state = "skrell_long_tuux"
+			length = 5
+			chatname = "Long Tuux"
+
+		skr_tentacle_tuux_s
+			name = "Skrell Tuux, Short"
+			icon_state = "skrell_short_tuux"
+			length = 3
+			chatname = "Short Tuux"
+
+		skr_tentacle_slicked
+			name = "Skrell Slicked"
+			icon_state = "skrell_slicked"
+			length = 3
+			chatname = "Slicked"
+
+		skr_tentacle_behind_r
+			name = "Skrell Behind, Right"
+			icon_state = "skrell_right_behind"
+			length = 6
+			chatname = "Right Behind"
+
+		skr_tentacle_behind_l
+			name = "Skrell Behind, Left"
+			icon_state = "skrell_left_behind"
+			length = 6
+			chatname = "Left Behind"
+
+		skr_tentacle_behind_b
+			name = "Skrell Behind, Both"
+			icon_state = "skrell_both_behind"
+			length = 6
+			chatname = "Average Both Behind"
+
+		skr_tentacle_behind_b_s
+			name = "Skrell Behind, Both short"
+			icon_state = "skrell_both_behind_short"
+			length = 6
+			chatname = "Short Both Behind"
+
+		skr_tentacle_behind_b_l
+			name = "Skrell Behind, both long"
+			icon_state = "skrell_both_behind_long"
+			length = 6
+			chatname = "Long Both Behind"
 
 //tajaran hair
 
@@ -3312,7 +3363,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon = 'icons/mob/human_face/skrell_beards.dmi'
 		name = "Anglerfish"
 		icon_state = "Anglerfish"
-		species_allowed = list(/datum/species/skrell)
+		species_allowed = list(/datum/species/skrell, /datum/species/skrell/axiori)
 		gender = NEUTER
 
 		triton
@@ -3362,6 +3413,10 @@ Follow by example and make good judgement based on length which list to include 
 		marauder_right
 			name = "Marauder (Right)"
 			icon_state = "Marauder_Right"
+
+		Pilot
+			name = "Pilot"
+			icon_state = "Pilot"
 
 /*
 ////////////////////////////
@@ -4184,7 +4239,7 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Axiori Eyes"
 		icon_state = "skr_axiori_eyes"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/skrell, /datum/species/skrell/axiori, /datum/species/zombie/skrell)
+		species_allowed = list(/datum/species/skrell, /datum/species/zombie/skrell)
 		do_colouration = FALSE
 
 	skr_arms
