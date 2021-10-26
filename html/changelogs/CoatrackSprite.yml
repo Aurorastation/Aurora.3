@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "EPMC labcoats and tajaran cloaks now have coatrack sprites."
