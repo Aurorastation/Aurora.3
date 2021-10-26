@@ -610,13 +610,13 @@
 		if(iswall(T))
 			dir_mods["[N_WEST]"] = "-wall"
 			west_wall = TRUE
-	if((adjacencies & N_NORTH) && (adjacencies & N_WEST))
+	if(((adjacencies & N_NORTH) && (adjacencies & N_WEST)) && (north_wall || west_wall))
 		dir_mods["[N_NORTH][N_WEST]"] = "-n[north_wall ? "wall" : "win"]-w[west_wall ? "wall" : "win"]"
-	if((adjacencies & N_NORTH) && (adjacencies & N_EAST))
+	if(((adjacencies & N_NORTH) && (adjacencies & N_EAST)) && (north_wall || east_wall))
 		dir_mods["[N_NORTH][N_EAST]"] = "-n[north_wall ? "wall" : "win"]-e[east_wall ? "wall" : "win"]"
-	if((adjacencies & N_SOUTH) && (adjacencies & N_WEST))
+	if(((adjacencies & N_SOUTH) && (adjacencies & N_WEST)) && (south_wall || west_wall))
 		dir_mods["[N_SOUTH][N_WEST]"] = "-s[south_wall ? "wall" : "win"]-w[west_wall ? "wall" : "win"]"
-	if((adjacencies & N_SOUTH) && (adjacencies & N_EAST))
+	if((adjacencies & N_SOUTH) && (adjacencies & N_EAST) && (south_wall || east_wall))
 		dir_mods["[N_SOUTH][N_EAST]"] = "-s[south_wall ? "wall" : "win"]-e[east_wall ? "wall" : "win"]"
 	return ..(adjacencies, dir_mods)
 
