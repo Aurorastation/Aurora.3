@@ -188,7 +188,7 @@
 			qdel(src)
 			return
 
-	if(!ishuman(I))
+	if(!isliving(I))
 		if(I.iscrowbar() && user.a_intent == I_HELP)
 			if(inoperable())
 				visible_message("\The [user] forces \the [src] [density ? "open" : "closed"].")
