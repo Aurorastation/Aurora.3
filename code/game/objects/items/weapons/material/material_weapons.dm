@@ -36,6 +36,9 @@
 			if(!isnull(matter[material_type]))
 				matter[material_type] *= force_divisor // May require a new var instead.
 
+/obj/item/material/should_equip()
+	return TRUE
+
 /obj/item/material/get_material()
 	return material
 

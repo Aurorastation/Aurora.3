@@ -5,6 +5,9 @@
 		slot_r_hand_str = 'icons/mob/items/weapons/righthand_melee.dmi'
 		)
 
+/obj/item/melee/should_equip()
+	return TRUE
+
 /obj/item/melee/chainofcommand
 	name = "chain of command"
 	desc = "A tool used by great men to placate the frothing masses."

@@ -4,6 +4,9 @@
 	gender = PLURAL
 	icon = 'icons/obj/handcuffs.dmi'
 	icon_state = "handcuff"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/cuff.dmi'
+	)
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	throwforce = 5

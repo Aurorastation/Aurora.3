@@ -11,7 +11,16 @@ This saves us from having to call add_fingerprint() any time something is put in
 		var/mob/living/carbon/human/H = src
 		var/obj/item/I = H.get_active_hand()
 		if(!I)
-			to_chat(H, "<span class='notice'>You are not holding anything to equip.</span>")
+			if(istype(s_store) && s_store.should_equip())
+				var/obj/item/S = s_store
+				H.remove_from_mob(S)
+				H.put_in_active_hand(S)
+				return
+			if(istype(back) && back.should_equip())
+				var/obj/item/B = back
+				H.remove_from_mob(B)
+				H.put_in_active_hand(B)
+				return
 			return
 		if(H.equip_to_appropriate_slot(I))
 			if(hand)

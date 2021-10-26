@@ -16,7 +16,7 @@
 	minimal_access = list(access_bar)
 	alt_titles = list("Barista")
 	outfit = /datum/outfit/job/bartender
-	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/bartender
 	name = "Bartender"
@@ -52,7 +52,7 @@
 	minimal_access = list(access_kitchen)
 	alt_titles = list("Cook")
 	outfit = /datum/outfit/job/chef
-	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/chef
 	name = "Chef"
