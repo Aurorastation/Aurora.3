@@ -47,8 +47,7 @@
 							"Sell [rand(3,6)] copies of the Tau Ceti Foreign Legion pamphlets, 10 credits each")
 		else
 			rep_objectives = pick("Question Non-Vaurcan employees about Vaurcan employees, looking for areas of improvement",
-							"Protect and promote the public image of the Zo'ra hive to all Nanotrasen employees",
-							"Question Non-Vaurcan employees about Vaurcan employees, looking for areas of improvement")
+							"Protect and promote the public image of the Zo'ra hive to all Nanotrasen employees")
 
 	return rep_objectives
 
@@ -120,8 +119,7 @@
 							"Promote [rand(3,6)] amount of K'laxan products, be it energy drinks or merchandise")
 		else
 			rep_objectives = pick("Question Non-Vaurcan employees about Vaurcan employees, looking for areas of improvement",
-							"Protect and promote the public image of the K'lax hive to all Nanotrasen employees",
-							"Question Non-Vaurcan employees about Vaurcan employees, looking for areas of improvement")
+							"Protect and promote the public image of the K'lax hive to all Nanotrasen employees")
 
 	return rep_objectives
 
@@ -192,8 +190,7 @@
 							"Promote [rand(3,6)] amount of C'thuric products, be it energy drinks or merchandise")
 		else
 			rep_objectives = pick("Question Non-Vaurcan employees about Vaurcan employees, looking for areas of improvement",
-							"Protect and promote the public image of the C'thur hive to all Nanotrasen employees",
-							"Question Non-Vaurcan employees about Vaurcan employees, looking for areas of improvement")
+							"Protect and promote the public image of the C'thur hive to all Nanotrasen employees")
 
 	return rep_objectives
 
