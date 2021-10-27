@@ -240,10 +240,16 @@
 	emote_message_3p = "USER hisses softly."
 
 /decl/emote/audible/hiss/long
-	key = "hiss2"
+    key = "hiss2"
+    emote_message_3p_target = "USER hisses softly at TARGET."
+    emote_message_3p = "USER hisses softly."
+    emote_sound = 'sound/voice/Lizardhiss2.ogg'
 
 /decl/emote/audible/hiss/short
-	key = "hiss3"
+    key = "hiss3"
+    emote_message_3p_target = "USER rattles their throat at TARGET."
+    emote_message_3p = "USER rattles their throat softly."
+    emote_sound = 'sound/voice/Lizardrattle.ogg'
 
 /decl/emote/audible/lizard_bellow
 	key = "bellow"
