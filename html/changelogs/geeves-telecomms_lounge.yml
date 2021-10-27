@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Readded the telecomms lounge, it can be found north of the telecomms control area."
