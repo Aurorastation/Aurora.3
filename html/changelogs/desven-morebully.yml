@@ -1,4 +1,5 @@
 author: Desven
+delete-after: True
 changes:
   - rscadd: "Added work overalls for Bulwark Vaurca."
   - rscadd: "Added Shaper sprites and cloak tunnels for the Bulwark Vaurca."
