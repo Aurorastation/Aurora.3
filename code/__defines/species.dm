@@ -1,7 +1,10 @@
 #define SPECIES_HUMAN				"Human"
 #define SPECIES_HUMAN_OFFWORLD		"Off-Worlder Human"
+
 #define SPECIES_UNATHI				"Unathi"
+
 #define SPECIES_DIONA				"Diona"
+#define SPECIES_DIONA_COEUS			"Coeus Diona"
 
 #define SPECIES_SKRELL				"Xiialt Skrell"
 #define SPECIES_SKRELL_AXIORI		"Axiori Skrell"

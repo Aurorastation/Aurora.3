@@ -5,7 +5,7 @@
 	category_name = "Diona"
 	bodytype = BODYTYPE_DIONA
 	total_health = 240
-	age_min = 1
+	age_min = 30
 	age_max = 1000
 	default_genders = list(NEUTER)
 	selectable_pronouns = list(NEUTER, PLURAL)
