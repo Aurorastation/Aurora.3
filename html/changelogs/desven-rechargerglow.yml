@@ -1,3 +1,4 @@
 author: Desven
+delete-after: True
 changes:
   - rscadd: "Updated sprites for the recharger, the corkboard and the plastic flaps."
