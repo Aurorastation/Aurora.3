@@ -61,6 +61,9 @@
 	break_cuffs = TRUE
 	mob_size = 30
 
+	age_max = 1000
+	economic_modifier = 3
+
 	speech_sounds = list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
 	speech_chance = 100
 
@@ -75,7 +78,8 @@
 	sprint_cost_factor = 0.80
 	stamina_recovery = 3
 
-	spawn_flags = IS_RESTRICTED
+	allowed_citizenships = list(CITIZENSHIP_ZORA, CITIZENSHIP_KLAX, CITIZENSHIP_CTHUR, CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_ERIDANI, CITIZENSHIP_JARGON)
+
 	flags = NO_SCAN | NO_SLIP | NO_ARTERIES | PHORON_IMMUNE
 
 	inherent_verbs = list(
