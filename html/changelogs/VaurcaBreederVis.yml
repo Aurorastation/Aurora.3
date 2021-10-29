@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Vaurca breeders are now selectable for those with vaurca whitelist. They can be K'lax, C'thur and Zo'ra consulars only."
