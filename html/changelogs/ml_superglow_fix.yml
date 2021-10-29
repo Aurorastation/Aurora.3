@@ -1,0 +1,6 @@
+author: martinlyra
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed the flashing glow when pointing at a supermatter"
