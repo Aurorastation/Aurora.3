@@ -5,6 +5,7 @@ changes:
   - rscadd: "Added Shaper sprites and cloak tunnels for the Bulwark Vaurca."
   - rscadd: "Added the veterancy plate for the Bulwark Vaurca."
   - rscadd: "Added a new type of item, the horn adorns, for Bulwark Vaurca. Currently you can choose recolourable rings from the loadout."
+  - rscadd: "Both Diona subspecies can choose Skrell shoulder capes and projector from the loadout."
   - bugfix: "Fixed toeless workboots not working for Bulwark Vaurca."
   - bugfix: "Fixed augments not working for Bulwark Vaurca."
   - bugfix: "Fixed the Jargon passport not being selectable for Bulwark Vaurca and Diona Coeus."
