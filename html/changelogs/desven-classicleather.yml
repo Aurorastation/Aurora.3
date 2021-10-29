@@ -1,6 +1,0 @@
-author: Desven
-delete-after: True
-changes:
-  - rscadd: "Readded the normal leather satchel to the loadout. You can select it as Classic leather satchel."
-  - rscadd: "Added the default wallet to the loadout."
-  - spellcheck : "Fixed the word purse being uppercase in the loadout selection."
