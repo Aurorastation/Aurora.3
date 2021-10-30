@@ -71,6 +71,12 @@
 
 	jam_chance = -10
 
+/obj/item/gun/projectile/shotgun/pump/rifle/pipegun/Initialize()
+	. = ..()
+	var/list/adjective = list("improvised", "makeshift", "jury-rigged")
+	var/list/noun = list("assblaster", "warmonger", "validator", "jam-o-matic", "tear generator")
+	name = "[pick(adjective)] [pick(noun)]"
+
 /obj/item/gun/projectile/shotgun/pump/rifle/pipegun/handle_pump_loading()
 	if(ammo_magazine && length(ammo_magazine.stored_ammo))
 		var/obj/item/ammo_casing/AC = ammo_magazine.stored_ammo[1] //load next casing.
