@@ -4588,6 +4588,17 @@
 		metabolism = REM * 0.33
 		M.adjustToxLoss(1.5 * removed)
 
+/decl/reagent/alcohol/butanol/pulque
+	name = "Xuizi pulque"
+	description = "A variation of Mictlanian pulque that is safe to consume for Unathi."
+	color = "#80f580"
+	strength = 5
+	taste_description = "sweet yeast"
+
+	glass_icon_state = "pulque_butanol"
+	glass_name = "cup of xuizi pulque"
+	glass_desc = "A variation of Mictlanian pulque that is safe to consume for Unathi."
+
 //ZZZZOOOODDDDAAAAA
 
 /decl/reagent/drink/zorasoda
@@ -4836,10 +4847,21 @@
 	description = "A Vaurcesian take on liqueur coffee, quickly becoming a favorite of the Zo'ra hive."
 	color = "#C00000"
 	taste_description = "minty coffee"
+	strength = 15
 
 	glass_icon_state = "caprician_coffee"
 	glass_name = "glass of caprician coffee"
 	glass_desc = "A Vaurcesian take on liqueur coffee, quickly becoming a favorite of the Zo'ra hive."
+
+/decl/reagent/drink/toothpaste/ichor
+	name = "Xsain Ichor"
+	description = "A slushy beverage popular in Tret, often used as an example of K'laxan pride."
+	color = "#584721"
+	taste_description = "minty cactus water"
+
+	glass_icon_state = "ichor"
+	glass_name = "glass of xsain ichor"
+	glass_desc = "A slushy beverage popular in Tret, often used as an example of K'laxan pride."
 
 /decl/reagent/alcohol/mojito
 	name = "Mojito"

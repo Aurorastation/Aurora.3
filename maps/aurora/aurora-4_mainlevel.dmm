@@ -37799,6 +37799,9 @@
 	name = "Robotics Lab";
 	req_access = list(29)
 	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bnP" = (

@@ -966,7 +966,8 @@
 		/obj/item/device/analyzer = 5,
 		/obj/item/device/t_scanner = 5,
 		/obj/item/screwdriver = 5,
-		/obj/item/tape_roll = 3
+		/obj/item/tape_roll = 3,
+		/obj/item/hammer = 3
 	)
 	contraband = list(
 		/obj/item/weldingtool/hugetank = 2,

@@ -2,7 +2,7 @@
 	display_name = "headtail chain selection"
 	path = /obj/item/clothing/ears/skrell/chain
 	sort_category = "Xenowear - Skrell"
-	whitelisted = list(SPECIES_SKRELL)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 
 /datum/gear/ears/skrell/chains/New()
 	..()
@@ -16,7 +16,7 @@
 	display_name = "headtail band selection"
 	path = /obj/item/clothing/ears/skrell/band
 	sort_category = "Xenowear - Skrell"
-	whitelisted = list(SPECIES_SKRELL)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 
 /datum/gear/ears/skrell/bands/New()
 	..()
@@ -30,7 +30,7 @@
 	display_name = "short headtail cloth"
 	path = /obj/item/clothing/ears/skrell/cloth_short/black
 	sort_category = "Xenowear - Skrell"
-	whitelisted = list(SPECIES_SKRELL)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 
 /datum/gear/ears/skrell/cloth/short/New()
 	..()
@@ -44,7 +44,7 @@
 	display_name = "average headtail cloth"
 	path = /obj/item/clothing/ears/skrell/cloth_average/black
 	sort_category = "Xenowear - Skrell"
-	whitelisted = list(SPECIES_SKRELL)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 
 /datum/gear/ears/skrell/cloth/average/New()
 	..()
@@ -57,7 +57,7 @@
 /datum/gear/accessory/capes
 	display_name = "shoulder capes"
 	path = /obj/item/clothing/accessory/poncho/shouldercape
-	whitelisted = list(SPECIES_SKRELL)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
 
 /datum/gear/accessory/capes/New()
@@ -72,26 +72,26 @@
 /datum/gear/uniform/skrell
 	display_name = "qeblak ceremonial garment"
 	path = /obj/item/clothing/under/skrell/qeblak
-	whitelisted = list(SPECIES_SKRELL)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/stellascope
 	display_name = "stellascope"
 	path = /obj/item/stellascope
-	whitelisted = list(SPECIES_SKRELL)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
 
 /datum/gear/skrell_projector
 	display_name = "nralakk projector"
 	path = /obj/item/skrell_projector
-	whitelisted = list(SPECIES_SKRELL)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
 
 /datum/gear/ears/skrell/goop
 	display_name = "glowing algae"
 	path = /obj/item/clothing/ears/skrell/goop
-	whitelisted = list(SPECIES_SKRELL)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -106,13 +106,13 @@
 /datum/gear/mask/skrell
 	display_name = "skrell gill cover"
 	path = /obj/item/clothing/mask/breath/skrell
-	whitelisted = list(SPECIES_SKRELL)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
 
 /datum/gear/ears/skrell/scrunchy
 	display_name = "tentacle tie"
 	path = /obj/item/clothing/ears/skrell/scrunchy
-	whitelisted = list(SPECIES_SKRELL)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -120,9 +120,17 @@
 	display_name = "jargon federation passport"
 	path = /obj/item/clothing/accessory/badge/passport/jargon
 	sort_category = "Xenowear - Skrell"
-	whitelisted = list(SPECIES_SKRELL, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_DIONA)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_DIONA)
+	flags = GEAR_NO_SELECTION
 	cost = 0
-	flags = 0
+
+/datum/gear/accessory/skrell_residency
+	display_name = "starlight residency card"
+	path = /obj/item/clothing/accessory/badge/starlight
+	sort_category = "Xenowear - Skrell"
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	flags = GEAR_NO_SELECTION
+	cost = 0
 
 /datum/gear/accessory/skrell_passport/New()
 	. = ..()
@@ -130,14 +138,14 @@
 
 // the whitelisted list ensures only people with skrell, vaurca, or diona whitelists can reach this check
 /datum/gear/accessory/skrell_passport/check_species_whitelist(mob/living/carbon/human/H)
-	var/static/list/species_list = list(SPECIES_SKRELL, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BREEDER, SPECIES_DIONA)
+	var/static/list/species_list = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BREEDER, SPECIES_DIONA)
 	if(H.species.name in species_list)
 		return TRUE
 	return FALSE
 
 /datum/gear/accessory/skrell_passport/spawn_item(location, metadata, mob/living/carbon/human/H)
 	var/obj/item/clothing/accessory/badge/passport/jargon/J = ..()
-	var/static/list/species_name_to_tag = list(SPECIES_SKRELL = "_s", SPECIES_VAURCA_WARRIOR = "_v", SPECIES_VAURCA_WORKER = "_v", SPECIES_VAURCA_BREEDER = "_v", SPECIES_DIONA = "_d")
+	var/static/list/species_name_to_tag = list(SPECIES_SKRELL = "_s", SPECIES_SKRELL_AXIORI = "_s", SPECIES_VAURCA_WARRIOR = "_v", SPECIES_VAURCA_WORKER = "_v", SPECIES_VAURCA_BREEDER = "_v", SPECIES_DIONA = "_d")
 	var/tag = species_name_to_tag[H.species.name]
 	if(tag)
 		J.species_tag = tag
@@ -146,7 +154,7 @@
 /datum/gear/head/skrell_helmet
 	display_name = "Skrellmet"
 	path = /obj/item/clothing/head/helmet/security/skrell
-	whitelisted = list(SPECIES_SKRELL)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
 	allowed_roles = list("Head of Security", "Warden", "Security Officer", "Investigator", "Executive Officer", "Captain")
 

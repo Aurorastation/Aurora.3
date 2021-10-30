@@ -13,7 +13,7 @@
 	access = list()			//See /datum/job/assistant/get_access()
 	minimal_access = list()	//See /datum/job/assistant/get_access()
 	outfit = /datum/outfit/job/assistant
-	blacklisted_species = null
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/job/assistant/get_access(selected_title)
 	if(config.assistant_maint && selected_title == "Assistant")
@@ -42,7 +42,7 @@
 	access = list()
 	minimal_access = list()
 	outfit = /datum/outfit/job/visitor
-	blacklisted_species = null
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/visitor
 	name = "Visitor"

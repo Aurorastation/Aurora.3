@@ -320,6 +320,12 @@
 			if("security")
 				if(!(edit_type & RECORD_SECURITY))
 					return FALSE
+			if("physical_status")
+				if(!((edit_type & RECORD_MEDICAL) || (edit_type & RECORD_GENERAL)))
+					return FALSE
+			if("mental_status")
+				if(!((edit_type & RECORD_MEDICAL) || (edit_type & RECORD_GENERAL)))
+					return FALSE
 			if("medical")
 				if(!(edit_type & RECORD_MEDICAL))
 					return FALSE

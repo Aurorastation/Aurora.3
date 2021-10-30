@@ -153,6 +153,9 @@
 /obj/item/gun/energy/mousegun/xenofauna
 	name = "xenofauna gun"
 	desc = "The NT \"Xenovermino\" Zap-Blast is a highly sophisticated and probably safe beamgun designed to deal with hostile xenofauna."
+	icon = 'icons/obj/guns/xenogun.dmi'
+	icon_state = "xenogun"
+	item_state = "xenogun"
 	projectile_type = /obj/item/projectile/beam/mousegun/xenofauna
 	max_shots = 12
 
