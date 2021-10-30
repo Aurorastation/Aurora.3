@@ -1,0 +1,9 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Pipeguns now take a makeshift 5.56mm magazine, crafted with steel sheets under the Steel Weaponry tab. It holds 7 rounds."
+  - rscadd: "Pipeguns can now be held on the suit storage slot regardless of what's in your suit slot."
+  - tweak: "Pipeguns can now fire three guaranteed shots before the chance of jamming sets in, per clean."
+  - bugfix: "Cleaned up some funkiness with the jam mechanics, should feel nicer now."
