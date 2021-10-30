@@ -481,9 +481,9 @@
 	messengerbag = /obj/item/storage/backpack/messenger/engi
 
 
-/datum/job/manufacturing_tech
-	title = "Manufacturing Technician"
-	flag = MANUFACTURING_TECH
+/datum/job/machinist
+	title = "Machinist"
+	flag = MACHINIST
 	departments = SIMPLEDEPT(DEPARTMENT_CARGO)
 	department_flag = CIVILIAN
 	faction = "Station"
@@ -500,13 +500,13 @@
 
 	minimal_player_age = 7
 
-	outfit = /datum/outfit/job/manufacturing_tech
+	outfit = /datum/outfit/job/machinist
 
-/datum/outfit/job/manufacturing_tech
-	name = "Manufacturing Tech"
-	jobtype = /datum/job/manufacturing_tech
+/datum/outfit/job/machinist
+	name = "Machinist"
+	jobtype = /datum/job/machinist
 
-	uniform = /obj/item/clothing/under/rank/manufacturing_tech
+	uniform = /obj/item/clothing/under/rank/machinist
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 	shoes = /obj/item/clothing/shoes/black
 	id = /obj/item/card/id/silver

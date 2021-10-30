@@ -1123,7 +1123,7 @@
 	vend_id = "robo-tools"
 	products = list(
 		/obj/item/clothing/suit/storage/toggle/labcoat = 4,
-		/obj/item/clothing/under/rank/manufacturing_tech = 4,
+		/obj/item/clothing/under/rank/machinist = 4,
 		/obj/item/stack/cable_coil = 4,
 		/obj/item/device/flash/synthetic = 4,
 		/obj/item/cell/high = 12,

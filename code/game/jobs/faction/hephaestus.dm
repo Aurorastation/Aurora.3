@@ -50,8 +50,8 @@
 	uniform = /obj/item/clothing/under/rank/hephaestus
 	id = /obj/item/card/id/hephaestus
 
-/datum/outfit/job/manufacturing_tech/hephaestus
-	name = "Manufacturing Technician - Hephaestus"
+/datum/outfit/job/machinist/hephaestus
+	name = "Machinist - Hephaestus"
 	uniform = /obj/item/clothing/under/rank/hephaestus/research
 	id = /obj/item/card/id/hephaestus
 

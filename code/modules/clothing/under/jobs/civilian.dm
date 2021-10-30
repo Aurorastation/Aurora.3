@@ -263,8 +263,8 @@
 	item_state = "b_suit"
 	worn_state = "hop"
 
-/obj/item/clothing/under/rank/manufacturing_tech
-	name = "manufacturing technician's jumpsuit"
+/obj/item/clothing/under/rank/machinist
+	name = "Machinist's jumpsuit"
 	desc = "A practical uniform designed for industrial work."
 	icon_state = "hop"
 	item_state = "b_suit"
