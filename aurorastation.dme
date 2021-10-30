@@ -672,6 +672,7 @@
 #include "code\game\jobs\faction\hephaestus.dm"
 #include "code\game\jobs\faction\idris.dm"
 #include "code\game\jobs\faction\nanotrasen.dm"
+#include "code\game\jobs\faction\orion_express.dm"
 #include "code\game\jobs\faction\pmc.dm"
 #include "code\game\jobs\faction\scc.dm"
 #include "code\game\jobs\faction\unaffiliated.dm"

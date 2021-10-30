@@ -1,5 +1,5 @@
-/datum/faction/hephaestus_industries
-	name = "Hephaestus Industries"
+/datum/faction/orin_express
+	name = "Orion Express"
 	description = {"<p>
 	Hephaestus Industries, a sprawling and diverse mega-corporation
 	focused on engineering and manufacturing on a massive scale, found their start
@@ -10,15 +10,14 @@
 	worked their way to become the dominant manufacturing mega-corporation in the
 	Sol Alliance, pioneering interstellar logistics and construction on an awe-inspiring scale.
 	</p>
-	<p>Hephaestus Industries employees can be in the following departments:
+	<p>Orion Express employees can be in the following departments:
 	<ul>
-	<li><b>Engineering</b>
 	<li><b>Operations</b>
 	</ul></p>"}
 
-	title_suffix = "Hepht"
+	title_suffix = "Orion"
 
-	allowed_role_types = HEPH_ROLES
+	allowed_role_types = ORION_ROLES
 
 	allowed_species_types = list(
 		/datum/species/human,

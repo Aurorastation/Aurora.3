@@ -1,6 +1,7 @@
 /datum/faction/nano_trasen
 	name = "NanoTrasen"
-	description = {"Considered the largest megacorporation within the Orion Spur, many will find themselves doing the biddings of NanoTrasen -- be it direct or indirect. Initially a biotechnical
+	description = {"<p>
+	Considered the largest megacorporation within the Orion Spur, many will find themselves doing the biddings of NanoTrasen -- be it direct or indirect. Initially a biotechnical
 	research company, it rapidly grew in size after the discovery of Phoron. The corporation's monopoly on the resource catapulted it into the limelight, where it has remained for the last
 	forty-odd years. Its acceleration into the spotlight has prompted many prying eyes to uncover evidence of rather questionable actions, with rumours perpetuating that they've instigated
 	wars on both Adhomai and Moghes in an attempt to exploit the species for a profit.  NanoTrasen's power has since begun to waver as their ability to supply Phoron dwindled -- resulting in

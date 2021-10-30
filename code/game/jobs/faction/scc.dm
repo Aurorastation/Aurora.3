@@ -1,6 +1,7 @@
 /datum/faction/scc
 	name = "Stellar Corporate Conglomerate"
-	description = {"Formed at the height of corporate power in the galaxy, the SCC - or more officially, the Stellar Corporate Conglomerate is a group exercising undisputed economic dominance
+	description = {"<p>
+	Formed at the height of corporate power in the galaxy, the SCC - or more officially, the Stellar Corporate Conglomerate is a group exercising undisputed economic dominance
 	over the Orion Spur. The Chainlink was founded to secure privately owned assets within Tau Ceti owned by the various megacorporations during the Second Solarian Incursion. After the invasion,
 	the SCC has found itself willing and eager to supersede any and all higher authority placed before it, with no signs of stopping any time soon. The Conglomerate has basically bound the
 	largest shareholders and chief executive officers of the corporations to the whim and will of the Trasen family, who hold an unsteady authority over the colorful cast. Cooperation has been

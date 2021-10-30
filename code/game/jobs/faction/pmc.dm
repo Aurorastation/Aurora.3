@@ -1,13 +1,11 @@
 /datum/faction/pmc
 	name = "Private Military Contracting Group"
-	description = {"<p>Essentially the security branch of the Eridani Federation
-	Military, the EPMC is renowned for its brutal yet efficient and above all
-	legal security functions across the known galaxy. Staying as close as possible
-	to the famed Eridanian "Non Aggression Protocol" in which no one within should
-	conspire to damage, take part in damaging or incite others to damage corporate
-	interests. EPMCs tend to lean heavily towards giving fines to regulation breakers.
-	However, when the need to suppress civil disorder appears hell hath no fury like
-	that of an Eridian security contractor with a stun baton.
+	description = {"<p>
+	A coalition of security and medical contractors in service of the Stellar Corporate Conglomerate. The Private Military Contracting Group is one of the elements born from
+	the necessity of protecting an ever-growing corporate empire. Gathering mercenaries from all across the spur, the PMCG deploys a diverse force to anywhere they are needed; from mere
+	office buildings to outposts in the Corporate Reconstruction Zone. As the megacorporations expand, these contractors follow to secure their holdings.
+	Unlike the other members of the Corporate Conglomerate, the Private Military Contracting Group has few employees of its own. Only some liaisons and bureaucrats work behind the scenes to
+	hire and manage the contractors. The rest of its members are in fact part of several organizations contracted to supply the PMCG.
 	</p>
 	<p>Private Military Contracting Group employees can be in the following departments:
 	<ul>

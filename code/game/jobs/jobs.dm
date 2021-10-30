@@ -62,8 +62,7 @@ var/list/command_positions = list(
 	"Chief Engineer",
 	"Research Director",
 	"Chief Medical Officer",
-	"Operation Manager",
-	"Bridge Crew"
+	"Operation Manager"
 )
 
 
@@ -113,6 +112,7 @@ var/list/civilian_positions = list(
 	"Corporate Reporter",
 	"Chaplain",
 	"Assistant",
+	"Bridge Crew",
 	"Off-Duty Crew Member",
 	"Passenger"
 )

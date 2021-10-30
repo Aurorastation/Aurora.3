@@ -66,3 +66,4 @@
 	minimal_access = list()
 	outfit = /datum/outfit/job/visitor
 	blacklisted_species = null
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)

@@ -22,7 +22,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 	outfit = /datum/outfit/job/captain
 
-	blacklisted_species = list(SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_UNATHI, SPECIES_DIONA, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
+	blacklisted_species = list(SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_UNATHI, SPECIES_DIONA, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/captain
 	name = "Captain"
@@ -75,7 +75,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 /datum/job/xo
 	title = "Executive Officer"
-//	flag = XO
+	flag = XO
 	departments = list(DEPARTMENT_CIVILIAN = JOBROLE_SUPERVISOR, DEPARTMENT_COMMAND)
 	department_flag = CIVILIAN
 	faction = "Station"
@@ -102,7 +102,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 			            access_crematorium, access_kitchen, access_hydroponics, access_chapel_office, access_library, access_research,
 			            access_janitor,   access_hop, access_RC_announce, access_keycard_auth, access_gateway, access_weapons, access_journalist)
 
-	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_DIONA, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
+	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_DIONA, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/xo
 	name = "Executive Officer"
@@ -130,8 +130,8 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 /datum/job/bridge_crew
 	title = "Bridge Crew"
 	flag = BRIDGE_CREW
-	departments = SIMPLEDEPT(DEPARTMENT_COMMAND)
-	department_flag = ENGSEC
+	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
+	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 3
@@ -150,7 +150,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 						access_RC_announce, access_keycard_auth, access_gateway, access_weapons, access_journalist)
 	minimal_access = list(access_eva, access_heads, access_gateway, access_weapons)
 
-	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_DIONA, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_DIONA, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/bridge_crew
 	name = "Bridge Crew"
