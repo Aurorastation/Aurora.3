@@ -192,6 +192,8 @@
 	law_type = /datum/ai_laws/matriarch_drone
 	can_swipe = FALSE
 
+	var/matrix_tag = STATION_TAG
+
 /mob/living/silicon/robot/drone/construction/matriarch/Initialize()
 	. = ..()
 	check_add_to_late_firers()
@@ -202,6 +204,7 @@
 /mob/living/silicon/robot/drone/construction/matriarch/assign_player(mob/user)
 	. = ..()
 	SSghostroles.remove_spawn_atom("matriarchmaintdrone", src)
+	assign_drone_to_matrix(src, matrix_tag)
 	master_matrix.message_drones(FONT_LARGE(SPAN_NOTICE("Energy surges through your circuits. The matriarch has come online.")))
 
 /mob/living/silicon/robot/drone/construction/matriarch/ghostize(can_reenter_corpse, should_set_timer)
@@ -212,6 +215,7 @@
 		if(master_matrix)
 			master_matrix.remove_drone(WEAKREF(src), FALSE)
 			master_matrix.message_drones(FONT_LARGE(SPAN_NOTICE("Your circuits dull. The matriarch has gone offline.")))
+			master_matrix = null
 		set_name(initial(name))
 		designation = null
 		request_player()

@@ -34,6 +34,7 @@
 
 #define isAI(A) istype(A, /mob/living/silicon/ai)
 #define isDrone(A) istype(A, /mob/living/silicon/robot/drone)
+#define isMatriarchDrone(A) istype(A, /mob/living/silicon/robot/drone/construction/matriarch)
 
 #define isalien(A) istype(A, /mob/living/carbon/alien)
 

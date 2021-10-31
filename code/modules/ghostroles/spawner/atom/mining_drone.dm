@@ -22,4 +22,5 @@
 		var/designation = "[drone_tag]-[rand(100,999)]"
 		M.set_name("NT-[designation]")
 		M.designation = designation
+		assign_drone_to_matrix(M, STATION_TAG)
 	return M
