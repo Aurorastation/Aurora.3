@@ -12,6 +12,9 @@
 /datum/language/binary/proc/can_hear(var/mob/speaker, var/mob/hearer)
 	return TRUE
 
+/datum/language/binary/proc/get_speaker_name(var/mob/speaker)
+	return speaker.real_name
+
 /datum/language/binary/broadcast(var/mob/living/speaker,var/message,var/speaker_mask)
 
 	if(!speaker.binarycheck())
@@ -24,7 +27,7 @@
 
 	log_say("[key_name(speaker)] : ([name]) [message]",ckey=key_name(speaker))
 
-	var/message_start = "<span style='font-size: [speaker.get_binary_font_size()];'><i><span class='game say'>[name], <span class='name'>[speaker.real_name]</span>"
+	var/message_start = "<span style='font-size: [speaker.get_binary_font_size()];'><i><span class='game say'>[name], <span class='name'>[get_speaker_name(speaker)]</span>"
 	var/message_body = "<span class='message'>[speaker.say_quote(message)], \"[message]\"</span></span></i></span>"
 
 	for (var/mob/M as anything in dead_mob_list)
@@ -36,7 +39,7 @@
 		if(drone_only && !istype(S,/mob/living/silicon/robot/drone))
 			continue
 		else if(istype(S , /mob/living/silicon/ai))
-			message_start = "<i><span class='game say'>[name], <a href='byond://?src=\ref[S];track2=\ref[S];track=\ref[speaker];trackname=[html_encode(speaker.name)]'><span class='name'>[speaker.real_name]</span></a></span></i>"
+			message_start = "<i><span class='game say'>[name], <a href='byond://?src=\ref[S];track2=\ref[S];track=\ref[speaker];trackname=[html_encode(speaker.name)]'><span class='name'>[get_speaker_name(speaker)]</span></a></span></i>"
 		else if (!S.binarycheck() || !can_hear(speaker, S))
 			continue
 
@@ -57,7 +60,12 @@
 	colour = "say_quote"
 	key = "d"
 	flags = RESTRICTED | HIVEMIND
-	drone_only = 1
+	drone_only = TRUE
+
+/datum/language/binary/drone/get_speaker_name(mob/living/silicon/robot/drone/speaker)
+	if(isMatriarchDrone(speaker))
+		return "Matriarch [speaker.designation]"
+	return ..()
 
 /datum/language/binary/drone/can_hear(mob/living/silicon/robot/drone/speaker, mob/living/silicon/robot/drone/hearer)
 	if(speaker.master_matrix != hearer.master_matrix)
