@@ -3435,6 +3435,177 @@ Follow by example and make good judgement based on length which list to include 
 	var/is_genetic = TRUE	// If TRUE, the marking is considered genetic and is embedded into DNA.
 	var/is_painted = FALSE	// If TRUE, the marking can be put on prosthetics/robolimbs.
 
+	bandage_head
+		name = "Bandage, head 1"
+		icon_state = "bandage1"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+		is_genetic = FALSE
+
+		head_2
+			name = "Bandage, head 2"
+			icon_state= "bandage2"
+
+		head_3
+			name = "Bandage, head 3"
+			icon_state= "bandage3"
+
+	bandage_chest
+		name = "Bandage, chest 1"
+		icon_state = "bandage1"
+		body_parts = list(BP_CHEST)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+		is_genetic = FALSE
+
+		chest_2
+			name= "Bandage, chest 2"
+			icon_state = "bandage2"
+
+		chest_3
+			name= "Bandage, chest 3"
+			icon_state = "bandage3"
+
+	bandage_groin
+		name = "Bandage, groin 1"
+		icon_state = "bandage1"
+		body_parts = list(BP_GROIN)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+		is_genetic = FALSE
+
+		groin_2
+			name= "Bandage, groin 2"
+			icon_state = "bandage2"
+
+		groin_3
+			name= "Bandage, groin 3"
+			icon_state = "bandage3"
+
+	bandage_l_arm
+		name = "Bandage, left arm 1"
+		icon_state = "bandage1"
+		body_parts = list(BP_L_ARM)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+		is_genetic = FALSE
+
+		l_arm_2
+			name= "Bandage, left arm 2"
+			icon_state = "bandage2"
+
+		l_arm_3
+			name= "Bandage, left arm 3"
+			icon_state = "bandage3"
+
+	bandage_l_hand
+		name = "Bandage, left hand 1"
+		icon_state = "bandage1"
+		body_parts = list(BP_L_HAND)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+		is_genetic = FALSE
+
+		l_hand_2
+			name= "Bandage, left hand 2"
+			icon_state = "bandage2"
+
+		l_hand_3
+			name= "Bandage, left hand 3"
+			icon_state = "bandage3"
+
+	bandage_r_arm
+		name = "Bandage, right arm 1"
+		icon_state = "bandage1"
+		body_parts = list(BP_R_ARM)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+		is_genetic = FALSE
+
+		r_arm_2
+			name= "Bandage, right arm 2"
+			icon_state = "bandage2"
+
+		r_arm_3
+			name= "Bandage, right arm 3"
+			icon_state = "bandage3"
+
+	bandage_r_hand
+		name = "Bandage, right hand 1"
+		icon_state = "bandage1"
+		body_parts = list(BP_R_HAND)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+		is_genetic = FALSE
+
+		r_hand_2
+			name= "Bandage, right hand 2"
+			icon_state = "bandage2"
+
+		r_hand_3
+			name= "Bandage, right hand 3"
+			icon_state = "bandage3"
+
+	bandage_l_leg
+		name = "Bandage, left leg 1"
+		icon_state = "bandage1"
+		body_parts = list(BP_L_LEG)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+		is_genetic = FALSE
+
+		l_leg_2
+			name= "Bandage, left leg 2"
+			icon_state = "bandage2"
+
+		l_leg_3
+			name= "Bandage, left leg 3"
+			icon_state = "bandage3"
+
+	bandage_l_foot
+		name = "Bandage, left foot 1"
+		icon_state = "bandage1"
+		body_parts = list(BP_L_FOOT)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+		is_genetic = FALSE
+
+		l_foot_2
+			name= "Bandage, left foot 2"
+			icon_state = "bandage2"
+
+		l_foot_3
+			name= "Bandage, left foot 3"
+			icon_state = "bandage3"
+
+	bandage_r_leg
+		name = "Bandage, right leg 1"
+		icon_state = "bandage1"
+		body_parts = list(BP_R_LEG)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+		is_genetic = FALSE
+
+		r_leg_2
+			name= "Bandage, right leg 2"
+			icon_state = "bandage2"
+
+		r_leg_3
+			name= "Bandage, right leg 3"
+			icon_state = "bandage3"
+
+	bandage_r_foot
+		name = "Bandage, right foot 1"
+		icon_state = "bandage1"
+		body_parts = list(BP_R_FOOT)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+		is_genetic = FALSE
+
+		r_foot_2
+			name= "Bandage, right foot 2"
+			icon_state = "bandage2"
+
+		r_foot_3
+			name= "Bandage, right foot 3"
+			icon_state = "bandage3"
+
+	heterochromia
+		name = "Heterochromia (Right eye)"
+		icon_state = "heterochromia"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+
 	aug_scalpports
 		name = "Augment (Scalp Ports)"
 		icon_state = "aug_scalpports"
