@@ -99,8 +99,11 @@
 	if(!drone_tag)
 		drone_tag = "MT"
 
+	var/designation = "[drone_tag]-[rand(100,999)]"
+
 	var/mob/living/silicon/robot/drone/new_drone = new drone_type(get_turf(src))
-	new_drone.set_name("[initial(new_drone.name)] ([drone_tag]-[rand(100,999)])")
+	new_drone.set_name("[initial(new_drone.name)] ([designation])")
+	new_drone.designation = designation
 	new_drone.transfer_personality(player)
 	new_drone.master_fabricator = src
 

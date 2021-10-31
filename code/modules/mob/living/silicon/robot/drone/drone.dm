@@ -21,6 +21,7 @@
 /mob/living/silicon/robot/drone
 	// Look and feel
 	name = "maintenance drone"
+	var/designation
 	var/desc_flavor = "It's a tiny little repair drone. The casing is stamped with an corporate logo and the subscript: '%MAPNAME% Recursive Repair Systems: Fixing Tomorrow's Problem, Today!'<br><br><b>OOC Info:</b><br><br>Drones are player-controlled synthetics which are lawed to maintain the station and not interact with anyone else, except for other drones.<br><br>They hold a wide array of tools to build, repair, maintain, and clean. They function similarly to other synthetics, in that they require recharging regularly, have laws, and are resilient to many hazards, such as fire, radiation, vacuum, and more.<br><br>Ghosts can join the round as a maintenance drone by accessing the 'Ghost Spawner' menu in the 'Ghost' tab. An inactive drone can be rebooted by swiping an ID card on it with engineering or robotics access, and an active drone can be shut down in the same manner.<br><br>An antagonist can use an Electromagnetic Sequencer to corrupt their laws and make them follow their orders."
 	icon = 'icons/mob/robots.dmi'
 	icon_state = "repairbot"
@@ -63,6 +64,7 @@
 	var/hacked = FALSE
 
 	// Laws
+	var/datum/drone_matrix/master_matrix
 	var/obj/machinery/drone_fabricator/master_fabricator
 	var/law_type = /datum/ai_laws/drone
 
@@ -82,6 +84,11 @@
 /mob/living/silicon/robot/drone/Initialize()
 	. = ..()
 	set_default_language(all_languages[LANGUAGE_LOCAL_DRONE])
+
+/mob/living/silicon/robot/drone/death(gibbed)
+	if(master_matrix)
+		master_matrix.remove_drone(WEAKREF(src))
+	return ..()
 
 /mob/living/silicon/robot/drone/can_be_possessed_by(var/mob/abstract/observer/possessor)
 	if(!istype(possessor) || !possessor.client || !possessor.ckey)
@@ -119,6 +126,8 @@
 		hat.forceMove(get_turf(src))
 		hat = null
 		QDEL_NULL(hat_overlay)
+	master_matrix = null
+	master_fabricator = null
 	return ..()
 
 /mob/living/silicon/robot/drone/get_default_language()
@@ -164,7 +173,7 @@
 
 /mob/living/silicon/robot/drone/construction/process_level_restrictions()
 	//Abort if they should not get blown
-	if(lock_charge || scrambled_codes || emagged)
+	if(lock_charge || scrambled_codes || emagged || (master_matrix && !master_matrix.process_self_destruct))
 		return FALSE
 	//Check if they are not on a station level -> else abort
 	var/turf/T = get_turf(src)
@@ -193,13 +202,18 @@
 /mob/living/silicon/robot/drone/construction/matriarch/assign_player(mob/user)
 	. = ..()
 	SSghostroles.remove_spawn_atom("matriarchmaintdrone", src)
+	master_matrix.message_drones(FONT_LARGE(SPAN_NOTICE("Energy surges through your circuits. The matriarch has come online.")))
 
 /mob/living/silicon/robot/drone/construction/matriarch/ghostize(can_reenter_corpse, should_set_timer)
 	. = ..()
 	if(stat == DEAD)
 		return
 	if(src in mob_list) // needs to exist to reopen spawn atom
+		if(master_matrix)
+			master_matrix.remove_drone(WEAKREF(src), FALSE)
+			master_matrix.message_drones(FONT_LARGE(SPAN_NOTICE("Your circuits dull. The matriarch has gone offline.")))
 		set_name(initial(name))
+		designation = null
 		request_player()
 
 /mob/living/silicon/robot/drone/construction/matriarch/Destroy()
@@ -392,7 +406,7 @@
 //DRONE LIFE/DEATH
 /mob/living/silicon/robot/drone/process_level_restrictions()
 	//Abort if they should not get blown
-	if(lock_charge || scrambled_codes || emagged)
+	if(lock_charge || scrambled_codes || emagged || (master_matrix && !master_matrix.process_self_destruct))
 		return FALSE
 	var/turf/T = get_turf(src)
 	var/area/A = get_area(T)
@@ -521,7 +535,7 @@
 
 /mob/living/silicon/robot/drone/self_destruct()
 	gib()
-	
+
 /mob/living/silicon/robot/drone/examine(mob/user)
 	..()
 	var/msg

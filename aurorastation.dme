@@ -2238,6 +2238,7 @@
 #include "code\modules\mob\living\silicon\robot\drone\drone_damage.dm"
 #include "code\modules\mob\living\silicon\robot\drone\drone_items.dm"
 #include "code\modules\mob\living\silicon\robot\drone\drone_manufacturer.dm"
+#include "code\modules\mob\living\silicon\robot\drone\matrix_hive.dm"
 #include "code\modules\mob\living\silicon\robot\items\_helpers.dm"
 #include "code\modules\mob\living\silicon\robot\items\auto_harvester.dm"
 #include "code\modules\mob\living\silicon\robot\items\electric_arm.dm"

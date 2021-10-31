@@ -19,5 +19,7 @@
 	drone_tag = uppertext(drone_tag)
 	var/mob/living/silicon/robot/drone/mining/M = ..()
 	if(M)
-		M.set_name("NT-[drone_tag]-[rand(100,999)]")
+		var/designation = "[drone_tag]-[rand(100,999)]"
+		M.set_name("NT-[designation]")
+		M.designation = designation
 	return M
