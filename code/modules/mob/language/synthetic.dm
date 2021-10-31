@@ -27,11 +27,11 @@
 	var/message_start = "<span style='font-size: [speaker.get_binary_font_size()];'><i><span class='game say'>[name], <span class='name'>[speaker.real_name]</span>"
 	var/message_body = "<span class='message'>[speaker.say_quote(message)], \"[message]\"</span></span></i></span>"
 
-	for (var/mob/M in dead_mob_list)
+	for (var/mob/M as anything in dead_mob_list)
 		if(!istype(M,/mob/abstract/new_player) && !istype(M,/mob/living/carbon/brain)) //No meta-evesdropping
 			M.show_message("[ghost_follow_link(speaker, M)] [message_start] [message_body]", 2)
 
-	for (var/mob/living/S in living_mob_list)
+	for (var/mob/living/S as anything in living_mob_list)
 
 		if(drone_only && !istype(S,/mob/living/silicon/robot/drone))
 			continue
@@ -41,14 +41,6 @@
 			continue
 
 		S.show_message("[message_start] [message_body]", 2)
-
-	var/list/listening = hearers(1, src)
-	listening -= src
-
-	for (var/mob/living/M in listening)
-		if(istype(M, /mob/living/silicon) || M.binarycheck())
-			continue
-		M.show_message("<i><span class='game say'><span class='name'>synthesised voice</span> <span class='message'>beeps, \"beep beep beep\"</span></span></i>",2)
 
 	//robot binary xmitter component power usage
 	if (isrobot(speaker))
