@@ -18,7 +18,7 @@
 	display_name = "filter port"
 	path = /obj/item/clothing/mask/breath/vaurca/filter
 	cost = 1
-	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
 	sort_category = "Xenowear - Vaurca"
 
 /datum/gear/mask/vaurca_expression
@@ -140,7 +140,7 @@
 	path = /obj/item/organ/internal/augment/language/klax
 	cost = 2
 	sort_category = "Xenowear - Vaurca"
-	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
 	flags = GEAR_NO_SELECTION
 
 /datum/gear/augment/language_processor/New()
@@ -156,7 +156,7 @@
 	cost = 2
 	path = /obj/item/storage/toolbox/lunchbox
 	sort_category = "Xenowear - Vaurca"
-	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
 
 /datum/gear/vaurca_lunchbox/New()
 	..()
