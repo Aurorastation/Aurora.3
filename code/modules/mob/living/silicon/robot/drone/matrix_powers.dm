@@ -12,7 +12,12 @@
 	var/dat = ""
 	var/mob/living/silicon/robot/drone/construction/matriarch/matriarch = DM.get_matriarch()
 	if(matriarch)
-		dat += "<b>Matriarch:</b> [matriarch.designation]<hr>"
+		var/drone_stat = ""
+		if(matriarch.stat == UNCONSCIOUS)
+			drone_state = " (Disabled)"
+		else if(matriarch.stat == DEAD)
+			drone_state = " (Destroyed)"
+		dat += "<b>Matriarch:</b> [matriarch.designation][drone_stat]<hr>"
 	else
 		dat += "<b>Matriarch:</b> None<hr>"
 
@@ -24,9 +29,9 @@
 		for(var/mob/living/silicon/robot/drone/D as anything in drone_list)
 			var/drone_stat = ""
 			if(D.stat == UNCONSCIOUS)
-				drone_state = " Disabled"
+				drone_state = " (Disabled)"
 			else if(D.stat == DEAD)
-				drone_state = " Destroyed"
+				drone_state = " (Destroyed)"
 			dat += " - [D.designation][drone_state]<br>"
 
 	dat += "<h2>Directives</h2>"
