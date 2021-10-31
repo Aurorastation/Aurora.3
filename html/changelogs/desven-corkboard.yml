@@ -1,0 +1,4 @@
+author: Desven
+delete-after: True
+changes:
+  - maptweak: "Made corkboards of certain areas face to correct direction."
