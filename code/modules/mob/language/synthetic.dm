@@ -9,6 +9,9 @@
 	flags = RESTRICTED | HIVEMIND
 	var/drone_only
 
+/datum/language/binary/proc/can_hear(var/mob/speaker, var/mob/hearer)
+	return TRUE
+
 /datum/language/binary/broadcast(var/mob/living/speaker,var/message,var/speaker_mask)
 
 	if(!speaker.binarycheck())
@@ -34,7 +37,7 @@
 			continue
 		else if(istype(S , /mob/living/silicon/ai))
 			message_start = "<i><span class='game say'>[name], <a href='byond://?src=\ref[S];track2=\ref[S];track=\ref[speaker];trackname=[html_encode(speaker.name)]'><span class='name'>[speaker.real_name]</span></a></span></i>"
-		else if (!S.binarycheck())
+		else if (!S.binarycheck() || !can_hear(speaker, S))
 			continue
 
 		S.show_message("[message_start] [message_body]", 2)
@@ -63,6 +66,11 @@
 	key = "d"
 	flags = RESTRICTED | HIVEMIND
 	drone_only = 1
+
+/datum/language/binary/drone/can_hear(mob/living/silicon/robot/drone/speaker, mob/living/silicon/robot/drone/hearer)
+	if(speaker.master_matrix != hearer.master_matrix)
+		return FALSE
+	return TRUE
 
 /mob/living/proc/get_binary_font_size()
 	return "1em"
