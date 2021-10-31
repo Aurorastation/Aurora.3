@@ -38,6 +38,9 @@
 	cell_emp_mult = 1
 	integrated_light_power = 3
 
+	var/upgrade_cooldown = 0
+	var/list/matrix_upgrades
+
 	// Interaction
 	universal_speak = FALSE
 	universal_understand = TRUE

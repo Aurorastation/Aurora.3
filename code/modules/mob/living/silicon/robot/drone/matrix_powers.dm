@@ -34,12 +34,30 @@
 				drone_stat = " (Destroyed)"
 			dat += " - [D.designation][drone_stat]<br>"
 
+	dat += "<h2>Upgrades</h2>"
+	if(!length(DM.bought_upgrades))
+		dat += " - None<br>"
+	else
+		for(var/upgrade in DM.bought_upgrades)
+			dat += " - [upgrade]<br>"
+
 	dat += "<h2>Directives</h2>"
 	dat += "<b>Area Restriction:</b> [DM.process_level_restrictions ? "Enabled" : "Disabled"]<br>"
 
-	var/datum/browser/matrix_win = new(src, "matrixinfo", "Matrix Information", 450, 500)
+	var/datum/browser/matrix_win = new(src, "matrixinfo", "Matrix Information", 250, 350)
 	matrix_win.set_content(dat)
 	matrix_win.open()
+
+/mob/living/silicon/robot/drone/verb/view_own_matrix_upgrades()
+	set name = "View Own Matrix Upgrades"
+	set desc = "View the matrix upgrades applied to your own chassis."
+	set category = "Matrix"
+
+	if(!LAZYLEN(matrix_upgrades))
+		to_chat(src, SPAN_WARNING("You have no matrix upgrades."))
+		return
+
+	to_chat(src, SPAN_NOTICE("Matrix upgrades active on chassis: [english_list(matrix_upgrades)]"))
 
 /mob/living/silicon/robot/drone/construction/matriarch/verb/toggle_matrix_level_restrictions()
 	set name = "Toggle Matrix Level Restrictions"
@@ -52,3 +70,28 @@
 
 	master_matrix.process_level_restrictions = !master_matrix.process_level_restrictions
 	master_matrix.message_drones(MATRIX_NOTICE("Matrix Update: Drones within this matrix will [master_matrix.process_level_restrictions ? "now" : "no longer"] self destruct when leaving standard operational areas."))
+
+/mob/living/silicon/robot/drone/construction/matriarch/verb/select_matrix_upgrades()
+	set name = "Select Matrix Upgrades"
+	set desc = "Select the upgrades to apply to the drones within your matrix."
+	set category = "Matrix"
+
+	if(!master_matrix)
+		to_chat(src, SPAN_WARNING("You do not belong to a matrix!"))
+		return
+
+	var/datum/drone_matrix/DM = master_matrix
+	if(!DM.upgrades_remaining)
+		to_chat(src, SPAN_WARNING("The matrix cannot support more upgrades!"))
+		return
+
+	var/list/selectable_upgrades = ALL_MATRIX_UPGRADES - DM.bought_upgrades
+	if(!length(selectable_upgrades))
+		to_chat(src, SPAN_WARNING("There are no more matrix upgrades to select!"))
+		return
+
+	var/selected_upgrade = input(src, "Select an upgrade for your matrix drones. ([DM.upgrades_remaining] Upgrades Remaining)", "Matrix Upgrades") as null|anything in selectable_upgrades
+	if(!selected_upgrade)
+		return
+
+	DM.buy_upgrade(selected_upgrade)

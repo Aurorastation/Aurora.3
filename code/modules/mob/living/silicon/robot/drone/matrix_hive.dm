@@ -7,6 +7,9 @@ var/global/list/drone_matrices = list()
 
 	var/process_level_restrictions = TRUE
 
+	var/upgrades_remaining = 2
+	var/list/bought_upgrades
+
 /datum/drone_matrix/New(var/matrix_id)
 	..()
 	id = matrix_id
@@ -58,6 +61,30 @@ var/global/list/drone_matrices = list()
 		message_drones(MATRIX_DANGER("A cold wave washes over your circuits. The matriarch is dead!"))
 	else
 		message_drones(SPAN_DANGER("Your circuits spark. Drone [D.designation] has died."))
+
+/datum/drone_matrix/proc/buy_upgrade(var/upgrade_type)
+	LAZYADD(bought_upgrades, upgrade_type)
+	upgrades_remaining--
+	message_drones(MATRIX_NOTICE("A new matrix upgrade is available: [upgrade_type]"))
+
+/datum/drone_matrix/proc/apply_upgrades(mob/living/silicon/robot/drone/D)
+	var/list/applied_upgrades = list()
+	for(var/upgrade in bought_upgrades)
+		if(!LAZYISIN(D.matrix_upgrades, upgrade))
+			applied_upgrades += upgrade
+			set_upgrade(D, upgrade)
+	if(length(applied_upgrades))
+		to_chat(D, SPAN_NOTICE("Matrix upgrades applied to chassis: [english_list(applied_upgrades)]"))
+
+/datum/drone_matrix/proc/set_upgrade(mob/living/silicon/robot/drone/D, var/upgrade_type)
+	switch(upgrade_type)
+		if(MTX_UPG_SPEED)
+			D.speed = initial(D.speed) - 1
+		if(MTX_UPG_CELL)
+			D.cell.maxcharge = D.cell.maxcharge * 1.5
+		if(MTX_UPG_HEALTH)
+			D.maxHealth += 15
+	LAZYADD(D.matrix_upgrades, upgrade_type)
 
 /proc/assign_drone_to_matrix(mob/living/silicon/robot/drone/D, var/matrix_tag)
 	var/datum/drone_matrix/DM = drone_matrices[matrix_tag]
