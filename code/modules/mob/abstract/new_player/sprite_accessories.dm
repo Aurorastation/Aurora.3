@@ -3604,7 +3604,7 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Heterochromia (Right eye)"
 		icon_state = "heterochromia"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	aug_scalpports
 		name = "Augment (Scalp Ports)"
