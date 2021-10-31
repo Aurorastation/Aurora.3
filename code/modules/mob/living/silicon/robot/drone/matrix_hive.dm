@@ -47,18 +47,17 @@ var/global/list/drone_matrices = list()
 		return
 	drones += WEAKREF(D)
 
-/datum/drone_matrix/proc/remove_drone(var/datum/weakref/drone_ref, var/death = TRUE)
+/datum/drone_matrix/proc/remove_drone(var/datum/weakref/drone_ref)
 	if(drone_ref == matriarch)
 		matriarch = null
-		if(death)
-			message_drones(MATRIX_DANGER("A cold wave washes over your circuits. The matriarch is dead!"))
 		return
 	drones -= drone_ref
-	if(death)
-		var/mob/living/silicon/robot/drone/D = drone_ref.resolve()
-		if(D)
-			message_drones(SPAN_DANGER("Your circuits spark. Drone [D.designation] has died."))
 
+/datum/drone_matrix/proc/handle_death(mob/living/silicon/robot/drone/D)
+	if(isMatriarchDrone(D))
+		message_drones(MATRIX_DANGER("A cold wave washes over your circuits. The matriarch is dead!"))
+	else
+		message_drones(SPAN_DANGER("Your circuits spark. Drone [D.designation] has died."))
 
 /proc/assign_drone_to_matrix(mob/living/silicon/robot/drone/D, var/matrix_tag)
 	var/datum/drone_matrix/DM = drone_matrices[matrix_tag]

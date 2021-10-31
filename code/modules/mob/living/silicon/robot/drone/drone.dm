@@ -91,6 +91,11 @@
 		master_matrix = null
 	return ..()
 
+/mob/living/silicon/robot/drone/death(gibbed)
+	if(master_matrix)
+		master_matrix.handle_death(src)
+	return ..()
+
 /mob/living/silicon/robot/drone/can_be_possessed_by(var/mob/abstract/observer/possessor)
 	if(!istype(possessor) || !possessor.client || !possessor.ckey)
 		return FALSE
@@ -214,7 +219,7 @@
 		return
 	if(src in mob_list) // needs to exist to reopen spawn atom
 		if(master_matrix)
-			master_matrix.remove_drone(WEAKREF(src), FALSE)
+			master_matrix.remove_drone(WEAKREF(src))
 			master_matrix.message_drones(MATRIX_NOTICE("Your circuits dull. The matriarch has gone offline."))
 			master_matrix = null
 		set_name(initial(name))

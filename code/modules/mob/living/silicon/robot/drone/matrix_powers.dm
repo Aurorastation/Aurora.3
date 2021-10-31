@@ -14,9 +14,9 @@
 	if(matriarch)
 		var/drone_stat = ""
 		if(matriarch.stat == UNCONSCIOUS)
-			drone_state = " (Disabled)"
+			drone_stat = " (Disabled)"
 		else if(matriarch.stat == DEAD)
-			drone_state = " (Destroyed)"
+			drone_stat = " (Destroyed)"
 		dat += "<b>Matriarch:</b> [matriarch.designation][drone_stat]<hr>"
 	else
 		dat += "<b>Matriarch:</b> None<hr>"
@@ -29,13 +29,13 @@
 		for(var/mob/living/silicon/robot/drone/D as anything in drone_list)
 			var/drone_stat = ""
 			if(D.stat == UNCONSCIOUS)
-				drone_state = " (Disabled)"
+				drone_stat = " (Disabled)"
 			else if(D.stat == DEAD)
-				drone_state = " (Destroyed)"
-			dat += " - [D.designation][drone_state]<br>"
+				drone_stat = " (Destroyed)"
+			dat += " - [D.designation][drone_stat]<br>"
 
 	dat += "<h2>Directives</h2>"
-	dat += "<b>Area Restriction:</b> [DM.process_level_restrictions ? "Enabled" : "Disabled"]"
+	dat += "<b>Area Restriction:</b> [DM.process_level_restrictions ? "Enabled" : "Disabled"]<br>"
 
 	var/datum/browser/matrix_win = new(src, "matrixinfo", "Matrix Information", 450, 500)
 	matrix_win.set_content(dat)
