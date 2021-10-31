@@ -22,7 +22,12 @@
 		dat += " - None<br>"
 	else
 		for(var/mob/living/silicon/robot/drone/D as anything in drone_list)
-			dat += " - [D.designation]<br>"
+			var/drone_stat = ""
+			if(D.stat == UNCONSCIOUS)
+				drone_state = " Disabled"
+			else if(D.stat == DEAD)
+				drone_state = " Destroyed"
+			dat += " - [D.designation][drone_state]<br>"
 
 	dat += "<h2>Directives</h2>"
 	dat += "<b>Area Restriction:</b> [DM.process_level_restrictions ? "Enabled" : "Disabled"]"
