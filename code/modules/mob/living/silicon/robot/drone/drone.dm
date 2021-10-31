@@ -85,9 +85,10 @@
 	. = ..()
 	set_default_language(all_languages[LANGUAGE_LOCAL_DRONE])
 
-/mob/living/silicon/robot/drone/death(gibbed)
+/mob/living/silicon/robot/drone/Destroy()
 	if(master_matrix)
 		master_matrix.remove_drone(WEAKREF(src))
+		master_matrix = null
 	return ..()
 
 /mob/living/silicon/robot/drone/can_be_possessed_by(var/mob/abstract/observer/possessor)
@@ -173,7 +174,7 @@
 
 /mob/living/silicon/robot/drone/construction/process_level_restrictions()
 	//Abort if they should not get blown
-	if(lock_charge || scrambled_codes || emagged || (master_matrix && !master_matrix.process_self_destruct))
+	if(lock_charge || scrambled_codes || emagged || (master_matrix && !master_matrix.process_level_restrictions))
 		return FALSE
 	//Check if they are not on a station level -> else abort
 	var/turf/T = get_turf(src)
@@ -205,7 +206,7 @@
 	. = ..()
 	SSghostroles.remove_spawn_atom("matriarchmaintdrone", src)
 	assign_drone_to_matrix(src, matrix_tag)
-	master_matrix.message_drones(FONT_LARGE(SPAN_NOTICE("Energy surges through your circuits. The matriarch has come online.")))
+	master_matrix.message_drones(MATRIX_NOTICE("Energy surges through your circuits. The matriarch has come online."))
 
 /mob/living/silicon/robot/drone/construction/matriarch/ghostize(can_reenter_corpse, should_set_timer)
 	. = ..()
@@ -214,7 +215,7 @@
 	if(src in mob_list) // needs to exist to reopen spawn atom
 		if(master_matrix)
 			master_matrix.remove_drone(WEAKREF(src), FALSE)
-			master_matrix.message_drones(FONT_LARGE(SPAN_NOTICE("Your circuits dull. The matriarch has gone offline.")))
+			master_matrix.message_drones(MATRIX_NOTICE("Your circuits dull. The matriarch has gone offline."))
 			master_matrix = null
 		set_name(initial(name))
 		designation = null
@@ -410,7 +411,7 @@
 //DRONE LIFE/DEATH
 /mob/living/silicon/robot/drone/process_level_restrictions()
 	//Abort if they should not get blown
-	if(lock_charge || scrambled_codes || emagged || (master_matrix && !master_matrix.process_self_destruct))
+	if(lock_charge || scrambled_codes || emagged || (master_matrix && !master_matrix.process_level_restrictions))
 		return FALSE
 	var/turf/T = get_turf(src)
 	var/area/A = get_area(T)

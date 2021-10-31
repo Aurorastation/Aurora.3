@@ -30,6 +30,9 @@
 #define FONT_HUGE(X) ("<font size='4'>" + X + "</font>")
 #define FONT_GIANT(X) ("<font size='5'>" + X + "</font>")
 
+#define MATRIX_DANGER(X) (FONT_LARGE(SPAN_DANGER(X)))
+#define MATRIX_NOTICE(X) (FONT_LARGE(SPAN_NOTICE(X)))
+
 #define UNDERSCORE_OR_NULL(target) "[target ? "[target]_" : ""]"
 
 #define isAI(A) istype(A, /mob/living/silicon/ai)
