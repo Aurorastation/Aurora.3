@@ -1,0 +1,6 @@
+author: Albery, Aticus, Mikomyazaki
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a diona nymph limbs to the limbs option in the character creation setup. Skrell and unathi can pick them."
