@@ -1,5 +1,0 @@
-author: Desven
-delete-after: True
-changes:
-  - tweak: "Changed how Vaurca autohiss works. It is now v and vh for basic, and zz for full."
-  - tweak: "Full Vaurca autohiss will also change vs and ce and ci to ze and zi."
