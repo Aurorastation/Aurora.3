@@ -1,6 +1,0 @@
-author: martinlyra
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed improper offset for light on firefighter helmets"

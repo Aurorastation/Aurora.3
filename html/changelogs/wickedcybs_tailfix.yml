@@ -1,6 +1,0 @@
-author: WickedCybs
-
-delete-after: True
-
-changes:
-  - bugfix: "Female Tajara won't have a gap where their tail should be on the front sprite now."
