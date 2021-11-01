@@ -29,7 +29,7 @@
 
 /obj/item/reagent_containers/cooking_container/proc/get_content_info()
 	var/string = "It contains:</br><ul><li>"
-	string += jointext(contents, "</li></br><li>") + "</li></ul>"
+	string += jointext(contents, "</li><li>") + "</li></ul>"
 	return string
 
 /obj/item/reagent_containers/cooking_container/proc/get_reagent_info()
@@ -257,6 +257,11 @@
 	flags = OPENCONTAINER // Will still react
 	volume = 15 // for things like jelly sandwiches etc
 	max_space = 25
+
+/obj/item/reagent_containers/cooking_container/plate/examine(mob/user)
+	. = ..()
+	if(length(contents) || reagents?.total_volume)
+		to_chat(user, SPAN_NOTICE("To attempt cooking; click and hold, then drag this onto your character"))
 
 /obj/item/reagent_containers/cooking_container/plate/MouseDrop(var/obj/over_obj)
 	if(over_obj != usr || use_check(usr))
