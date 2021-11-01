@@ -274,6 +274,7 @@ datum/gear/head/iac
 	description = "A selection of hats worn by Interstellar Aid Corps volunteers."
 	path = /obj/item/clothing/head/softcap/iac
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/head/iac/New()
 	..()
