@@ -1,0 +1,7 @@
+
+author: Forester40
+
+delete-after: True
+
+changes:
+  - tweak: "The *grumble and *mumble emotes now use a full stop instead of an exclamation mark."
