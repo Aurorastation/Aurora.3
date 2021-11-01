@@ -1,6 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixes some species specific (primarily taj & bulwark) issues with the following sprites: Tunnel cloak, vaurca blinders and toeless jackboots & toeless workboots."
