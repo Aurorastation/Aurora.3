@@ -271,7 +271,7 @@
 	var/decl/recipe/recipe = select_recipe(src, appliance = appliancetype)
 	if(!recipe)
 		return
-	var/list/results = recipe.make_food(src)
+	var/list/obj/results = recipe.make_food(src)
 	var/obj/temp = new /obj(src) //To prevent infinite loops, all results will be moved into a temporary location so they're not considered as inputs for other recipes
 	for (var/result in results)
 		var/atom/movable/AM = result
