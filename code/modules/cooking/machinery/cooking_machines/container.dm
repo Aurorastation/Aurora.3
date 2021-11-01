@@ -285,7 +285,7 @@
 		var/obj/item/reagent_containers/food/snacks/R = r
 		R.forceMove(src) //Move everything from the buffer back to the container
 
-	if (length(results))
+	if (length(results) && usr)
 		var/name = results[1].name
 		var/quantity = length(results)
 		if (quantity > 1)
