@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Dragging yourself onto a matriarch drone to possess it will now remove it from the ghost spawner list."
-  - bugfix: "Aghosting from a matriarch drone no longer reopens the slot."
