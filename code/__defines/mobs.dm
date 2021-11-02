@@ -443,3 +443,5 @@
 #define ROBOT_PANEL_EXPOSED  "exposed"
 #define ROBOT_PANEL_CELL     "cell"
 #define ROBOT_PANEL_NO_CELL  "no cell"
+
+#define BLOOD_REGEN_RATE 0.1

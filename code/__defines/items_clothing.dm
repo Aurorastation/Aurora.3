@@ -3,23 +3,23 @@
 #define CANDLE_LUM 3 // For how bright candles are.
 
 // Item inventory slot bitmasks.
-#define SLOT_OCLOTHING  (1<<0)
-#define SLOT_ICLOTHING  (1<<1)
-#define SLOT_GLOVES     (1<<2)
-#define SLOT_EYES       (1<<3)
-#define SLOT_EARS       (1<<4)
-#define SLOT_MASK       (1<<5)
-#define SLOT_HEAD       (1<<6)
-#define SLOT_FEET       (1<<7)
-#define SLOT_ID         (1<<8)
-#define SLOT_BELT       (1<<9)
-#define SLOT_BACK       (1<<10)
-#define SLOT_POCKET     (1<<11) // This is to allow items with a w_class of 3 or 4 to fit in pockets.
-#define SLOT_DENYPOCKET (1<<12)  // This is to  deny items with a w_class of 2 or 1 from fitting in pockets.
-#define SLOT_TWOEARS    (1<<13)
-#define SLOT_TIE        (1<<14)
-#define SLOT_HOLSTER	(1<<15)
-#define SLOT_WRISTS		(1<<16)
+#define SLOT_OCLOTHING  BITFLAG(0)
+#define SLOT_ICLOTHING  BITFLAG(1)
+#define SLOT_GLOVES     BITFLAG(2)
+#define SLOT_EYES       BITFLAG(3)
+#define SLOT_EARS       BITFLAG(4)
+#define SLOT_MASK       BITFLAG(5)
+#define SLOT_HEAD       BITFLAG(6)
+#define SLOT_FEET       BITFLAG(7)
+#define SLOT_ID         BITFLAG(8)
+#define SLOT_BELT       BITFLAG(9)
+#define SLOT_BACK       BITFLAG(10)
+#define SLOT_POCKET     BITFLAG(11) // This is to allow items with a w_class of 3 or 4 to fit in pockets.
+#define SLOT_TWOEARS    BITFLAG(12)
+#define SLOT_TIE        BITFLAG(13)
+#define SLOT_HOLSTER    BITFLAG(14)
+#define SLOT_WRISTS     BITFLAG(15)
+#define SLOT_S_STORE    BITFLAG(16)
 
 // Flags bitmasks.
 #define NOBLUDGEON         0x1   // When an item has this it produces no "X has been hit by Y with Z" message with the default handler.

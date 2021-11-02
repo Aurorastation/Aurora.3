@@ -277,6 +277,7 @@
 	var/bodyfall_sound = /decl/sound_category/bodyfall_sound //default, can be used for species specific falling sounds
 
 	var/list/alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH, BP_APPENDIX) //what internal organs can be changed in character setup
+	var/list/possible_external_organs_modifications = list("Normal","Amputated","Prosthesis")
 
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
@@ -788,3 +789,6 @@
 			stance_damage -=2
 
 	return stance_damage
+
+/datum/species/proc/can_hold_s_store(var/obj/item/I)
+	return FALSE

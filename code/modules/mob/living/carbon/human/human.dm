@@ -1922,6 +1922,9 @@
 /mob/living/carbon/human/should_have_organ(var/organ_check)
 	return (species?.has_organ[organ_check])
 
+/mob/living/carbon/human/should_have_limb(var/limb_check)
+	return (species?.has_limbs[limb_check])
+
 /mob/living/proc/resuscitate()
 	return FALSE
 

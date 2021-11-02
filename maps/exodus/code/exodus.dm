@@ -49,6 +49,7 @@
 	contact_levels = list(1, 5)
 	player_levels = list(1, 3, 4, 5, 6)
 	accessible_z_levels = list("1" = 5, "3" = 10, "4" = 15, "5" = 10, "6" = 60)
+	meteor_levels = list(1)
 
 	map_shuttles = list(
 		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod1,
