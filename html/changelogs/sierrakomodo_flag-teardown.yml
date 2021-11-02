@@ -39,3 +39,6 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - refactor: "Moved flag code to a separate flags.dm file."
+  - spellcheck: "Torn flags are now called flags instead of posters."
+  - tweak: "Clicking on a flag now only shows the tear-down prompt if you're on harm intent, and already torn flags cannot be torn again."
+  - bugfix: "Flags no longer lose finger prints when transferring between item and structure states."

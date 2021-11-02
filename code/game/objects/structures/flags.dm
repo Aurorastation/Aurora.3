@@ -1,3 +1,30 @@
+/obj/structure/sign/flag
+	name = "blank banner"
+	desc = "A blank blue flag"
+	icon_state = "flag"
+	/// Is the flag ripped/torn or not. Used for icon state and checks for allowing retrieval of the flag item.
+	var/torn = FALSE
+	/// Holder for the flag item that is dropped when the flag is pulled down without tearing it.
+	var/obj/item/flag/item_holder
+
+
+/obj/item/flag
+	name = "boxed flag"
+	desc = "A flag neatly folded into a wooden container."
+	icon = 'icons/obj/decals.dmi'
+	icon_state = "flag_boxed"
+	/// Icon state for the deployed flag.
+	var/flag_path
+	/// Whether or not the flag is a large (2 tiles wide) flag.
+	var/flag_size = 0
+
+/obj/structure/sign/flag/left
+	icon_state = "flag_l"
+
+/obj/structure/sign/flag/right
+	icon_state = "flag_r"
+
+
 /obj/item/flag/afterattack(var/atom/A, var/mob/user, var/adjacent, var/clickparams)
 	if (!adjacent)
 		return
@@ -52,21 +79,33 @@
 	P.desc = desc
 	P.desc_info = desc_info
 	P.desc_fluff = desc_fluff
-	qdel(src)
+	transfer_fingerprints_to(P)
+	P.item_holder = src
+	forceMove(P)
 
 
 /obj/structure/sign/flag/attack_hand(mob/user as mob)
-	if(alert("Do you want to rip \the [src] from its place?","You think...","Yes","No") == "Yes")
-
+	if (user.a_intent == I_HURT && !torn && alert("Do you want to rip \the [src] from its place?","You think...","Yes","No") == "Yes")
 		if(!do_after(user, 2 SECONDS, act_target = src))
 			return 0
 
-		visible_message(SPAN_WARNING("\The [user] rips \the [src] in a single, decisive motion!" ))
-		playsound(src.loc, 'sound/items/poster_ripped.ogg', 100, 1)
+		user.visible_message(
+			SPAN_WARNING("\The [user] rips \the [src] in a single, decisive motion!" ),
+			SPAN_WARNING("You rip \the [src] in a single, decisive motion!")
+		)
+		playsound(loc, 'sound/items/poster_ripped.ogg', 100, 1)
 		icon_state = "poster_ripped"
-		name = "ripped poster"
+		name = "ripped flag"
 		desc = "You can't make out anything from the flag's original print. It's ruined."
+		torn = TRUE
+		QDEL_NULL(item_holder)
+		update_icon()
 		add_fingerprint(user)
+
+
+/obj/structure/sign/flag/Destroy()
+	QDEL_NULL(item_holder)
+	. = ..()
 
 
 /obj/structure/sign/flag/attackby(obj/item/W, mob/user)
@@ -84,17 +123,6 @@
 
 		qdel(src)
 
-
-/obj/structure/sign/flag/blank
-	name = "blank banner"
-	desc = "A blank blue flag."
-	icon_state = "flag"
-
-/obj/structure/sign/flag/blank/left
-	icon_state = "flag_l"
-
-/obj/structure/sign/flag/blank/right
-	icon_state = "flag_r"
 
 /obj/structure/sign/flag/sol
 	name = "Sol Alliance flag"
@@ -423,14 +451,6 @@
 
 /obj/structure/sign/flag/zenghu/right
 	icon_state = "zenghu_r"
-
-/obj/item/flag
-	name = "boxed flag"
-	desc = "A flag neatly folded into a wooden container."
-	icon = 'icons/obj/decals.dmi'
-	icon_state = "flag_boxed"
-	var/flag_path
-	var/flag_size = 0
 
 /obj/structure/sign/flag/zavodskoi
 	name = "Zavodskoi Interstellar flag"
