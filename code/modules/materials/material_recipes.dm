@@ -115,6 +115,7 @@
 
 	recipes += new /datum/stack_recipe_list("[display_name] weaponry",
 		list(
+			new /datum/stack_recipe("makeshift magazine (5.56mm)", /obj/item/ammo_magazine/a556/makeshift/empty, 5, time = 20),
 			new /datum/stack_recipe("grenade casing", /obj/item/grenade/chem_grenade),
 			new /datum/stack_recipe("firearm receiver", /obj/item/receivergun, 15, time = 25, one_per_turf = 0, on_floor = 0),
 			new /datum/stack_recipe("shield fittings", /obj/item/material/shieldbits, 10, time = 25),

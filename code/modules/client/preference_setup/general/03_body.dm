@@ -254,6 +254,11 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			if(ind > 1)
 				out += ", "
 			out += "\tMechanical [organ_name]"
+		else if(status == "nymph")
+			++ind
+			if(ind > 1)
+				out += ", "
+			out += "\tDiona Nymph [organ_name]"
 		else if(status == "assisted")
 			++ind
 			if(ind > 1)
@@ -650,7 +655,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				to_chat(user, "<span class='notice'>Cancelled.</span>")
 				return TOPIC_NOACTION
 
-		var/list/available_states = list("Normal","Amputated","Prosthesis")
+		var/list/available_states = mob_species.possible_external_organs_modifications
 		if(carries_organs)
 			available_states = list("Normal","Prosthesis")
 		var/new_state = input(user, "What state do you wish the limb to be in?") as null|anything in available_states
@@ -664,6 +669,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				if(third_limb)
 					pref.organ_data -= third_limb
 					pref.rlimb_data -= third_limb
+
 			if("Amputated")
 				pref.organ_data[limb] = "amputated"
 				pref.rlimb_data[limb] = null
@@ -691,6 +697,14 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					pref.organ_data[second_limb] = "cyborg"
 				if(third_limb && pref.organ_data[third_limb] == "amputated")
 					pref.organ_data[third_limb] = null
+
+			if("Diona Nymph")
+				pref.organ_data[limb] = "nymph"
+				pref.rlimb_data[limb] = null
+				if(second_limb)
+					pref.organ_data[second_limb] = "nymph"
+					pref.rlimb_data[second_limb] = null
+
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["organs"])

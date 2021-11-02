@@ -603,6 +603,9 @@ BLIND     // can't see anything
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "blinders"
 	item_state = "blinders"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/eyes.dmi', BODYTYPE_VAURCA_WARFORM = 'icons/mob/species/warriorform/eyes.dmi'
+	)
 	contained_sprite = TRUE
 	shatter_material = FALSE
 	drop_sound = 'sound/items/drop/gloves.ogg'

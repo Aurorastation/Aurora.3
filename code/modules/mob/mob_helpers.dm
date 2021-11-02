@@ -86,20 +86,30 @@
 				return 1
 	return 0
 
-/proc/isvaurca(A)
+/proc/isvaurca(A, var/isbreeder = FALSE)
 	if(istype(A, /mob/living/carbon/human))
 		switch(A:get_species())
 			if(SPECIES_VAURCA_WORKER)
+				if(isbreeder)
+					return FALSE
 				return TRUE
 			if(SPECIES_VAURCA_WARRIOR)
+				if(isbreeder)
+					return FALSE
 				return TRUE
 			if(SPECIES_VAURCA_BREEDER)
 				return TRUE
 			if(SPECIES_VAURCA_BULWARK)
+				if(isbreeder)
+					return FALSE
 				return TRUE
 			if(SPECIES_VAURCA_WARFORM)
+				if(isbreeder)
+					return FALSE
 				return TRUE
 			if(SPECIES_MONKEY_VAURCA)
+				if(isbreeder)
+					return FALSE
 				return TRUE
 	return FALSE
 
