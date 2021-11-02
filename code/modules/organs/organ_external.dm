@@ -102,6 +102,8 @@
 	var/obj/item/organ/infect_target_internal //make internal organs become infected one at a time instead of all at once
 	var/obj/item/organ/infect_target_external //make child and parent organs become infected one at a time instead of all at once
 
+	var/mob/living/carbon/alien/diona/nymph //used by dionae limbs
+
 /obj/item/organ/external/proc/invalidate_marking_cache()
 	cached_markings = null
 
@@ -596,6 +598,10 @@ This function completely restores a damaged organ to perfect condition.
 
 		if(!(status & ORGAN_BROKEN))
 			perma_injury = 0
+
+		if(status & ORGAN_NYMPH)
+			var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
+			N.handle_nymph(src)
 
 		if(surge_damage && (status & ORGAN_ASSISTED))
 			tick_surge_damage() //Yes, this being here is intentional since this proc does not call ..() unless the owner is null.

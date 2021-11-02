@@ -459,7 +459,7 @@
 	escapee.next_move = world.time + 100
 	escapee.last_special = world.time + 100
 	to_chat(escapee, "<span class='warning'>You lean on the back of \the [src] and start pushing the door open. (this will take about [breakout_time] minutes)</span>")
-	visible_message("<span class='danger'>\The [src] begins to shake violently!</span>")
+	visible_message(SPAN_DANGER("\The [src] begins to shake violently!"), SPAN_DANGER("You hear the sound of metal trashing around nearby."), intent_message = THUNK_SOUND)
 
 	var/time = 6 * breakout_time * 2
 
@@ -471,6 +471,7 @@
 	for(var/i in 1 to time) //minutes * 6 * 5seconds * 2
 		playsound(loc, 'sound/effects/grillehit.ogg', 100, 1)
 		shake_animation()
+		intent_message(THUNK_SOUND)
 
 		if (bar)
 			bar.update(i)

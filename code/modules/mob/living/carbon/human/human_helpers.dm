@@ -90,6 +90,7 @@
 			if(O)
 				O.status = 0
 				switch(status)
+
 					if ("amputated")
 						organs_by_name[O.limb_name] = null
 						organs -= O
@@ -97,6 +98,14 @@
 							for(var/obj/item/organ/external/child in O.children)
 								organs_by_name[child.limb_name] = null
 								organs -= child
+
+					if ("nymph")
+						if (organ_data[name])
+							O.AddComponent(/datum/component/nymph_limb)
+							var/datum/component/nymph_limb/D = O.GetComponent(/datum/component/nymph_limb)
+							if(D)
+								D.nymphize(src, O.limb_name, TRUE)
+
 					if ("cyborg")
 						if (rlimb_data[name])
 							O.force_skintone = FALSE
@@ -307,6 +316,14 @@
 	for(var/obj/item/protection in list(head, wear_mask, glasses))
 		if(protection.protects_eyestab(stab_item, stabbed))
 			return TRUE
+	return FALSE
+
+/mob/living/carbon/human/proc/get_hearing_sensitivity()
+	return species.hearing_sensitivity
+
+/mob/living/carbon/human/proc/is_listening()
+	if(src in intent_listener)
+		return TRUE
 	return FALSE
 
 /mob/living/carbon/human/get_organ_name_from_zone(var/def_zone)

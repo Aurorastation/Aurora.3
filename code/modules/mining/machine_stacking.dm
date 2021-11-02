@@ -196,3 +196,4 @@
 		if(stack_storage[sheet] >= stack_amt)
 			new sheet(output, stack_amt)
 			stack_storage[sheet] -= stack_amt
+			intent_message(MACHINE_SOUND)
