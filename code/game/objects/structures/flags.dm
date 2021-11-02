@@ -124,6 +124,32 @@
 		qdel(src)
 
 
+/obj/structure/sign/flag/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
+	if (over != usr)
+		return
+	var/mob/user = over
+	if (!istype(user))
+		return
+	if (alert(user, "Do you wish to take down and[torn ? " dispose of" : " fold up"] \the [src]?", "Take Down Flag", "Yes", "No") != "Yes")
+		return
+	if (torn)
+		user.visible_message(
+			SPAN_WARNING("\The [user] tears down the remains of \the [src]."),
+			SPAN_WARNING("You tear down the remains of \the [src].")
+		)
+	else
+		user.visible_message(
+			SPAN_WARNING("\The [user] folds up \the [src]."),
+			SPAN_WARNING("You fold up \the [src].")
+		)
+		item_holder.forceMove(get_turf(user))
+		user.put_in_hands(item_holder)
+		transfer_fingerprints_to(item_holder)
+		item_holder.add_fingerprint(user)
+		item_holder = null
+	qdel(src)
+
+
 /obj/structure/sign/flag/sol
 	name = "Sol Alliance flag"
 	desc = "The bright blue flag of the Alliance of Sovereign Solarian Nations."
