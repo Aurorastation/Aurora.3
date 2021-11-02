@@ -290,10 +290,10 @@
 		var/obj/item/reagent_containers/food/snacks/R = r
 		R.forceMove(src) //Move everything from the buffer back to the container
 
-	if (length(results) && usr)
+	var/l = length(results)
+	if (l && usr)
 		var/name = results[1].name
-		var/quantity = length(results)
-		if (quantity > 1)
+		if (l > 1)
 			to_chat(usr, SPAN_NOTICE("You made some [pluralize_word(name, TRUE)]!"))
 		else
 			to_chat(usr, SPAN_NOTICE("You made [name]!"))
