@@ -85,8 +85,8 @@
 						var/newpath = text2path(circuitboard)
 						var/obj/item/circuitboard/C = new newpath
 						for(var/component in C.req_components)
-							for(var/i = 1, i <= C.req_components[I], i++)
-								newpath = text2path(I)
+							for(var/i = 1, i <= C.req_components[component], i++)
+								newpath = text2path(component)
 								var/obj/item/s = new newpath
 								s.forceMove(user.loc)
 								if(s.iscoil())
