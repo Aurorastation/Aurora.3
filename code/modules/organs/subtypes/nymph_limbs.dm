@@ -164,12 +164,17 @@
     set category = "Abilities"
     set name = "Detach Nymph"
 
-    var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
+    var/list/nymph_limb_types = list(
+        /obj/item/organ/external/arm/nymph,
+        /obj/item/organ/external/arm/right/nymph,
+        /obj/item/organ/external/leg/nymph,
+        /obj/item/organ/external/leg/right/nymph
+    )
 
     // Find our existing nymphlimbs
     var/list/my_nymph_limbs = list()
     for(var/obj/item/organ/external/O in organs)
-        if(is_type_in_list(O, N.nymph_limb_types))
+        if(is_type_in_list(O, nymph_limb_types))
             my_nymph_limbs += O
     if(!my_nymph_limbs.len)
         return FALSE
@@ -333,6 +338,8 @@
 	deform = 'icons/mob/human_races/limbs_nymph.dmi'
 
 	has_organ = list()
+
+	spawn_flags = IS_RESTRICTED
 
 	has_limbs = list(
         BP_L_ARM = list( "path" = /obj/item/organ/external/arm/nymph),
