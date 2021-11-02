@@ -31,7 +31,6 @@ var/global/list/drone_matrices = list()
 		if(D)
 			. += D
 
-
 /datum/drone_matrix/proc/message_drones(var/msg)
 	var/mob/living/silicon/robot/drone/D = null
 	if(matriarch)
