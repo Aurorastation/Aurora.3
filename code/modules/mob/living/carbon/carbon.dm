@@ -499,3 +499,6 @@
 
 /mob/living/carbon/proc/is_drowsy()
 	return (drowsiness >= 5)
+
+/mob/living/carbon/proc/should_have_limb(var/organ_check)
+	return FALSE

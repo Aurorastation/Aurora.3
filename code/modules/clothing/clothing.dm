@@ -102,6 +102,14 @@
 	if(tint)
 		user.handle_vision()
 
+/obj/item/clothing/handle_middle_mouse_click(mob/user)
+	if(Adjacent(user))
+		var/obj/item/clothing/accessory/storage/S = locate() in accessories
+		if(S?.hold)
+			S.hold.open(user)
+			return TRUE
+	return FALSE
+
 /obj/item/clothing/proc/return_own_image()
 	var/image/our_image
 	if(icon_override)
@@ -816,10 +824,8 @@
 
 /obj/item/clothing/shoes/update_icon()
 	cut_overlays()
-	worn_overlay = null
 	if(holding)
-		worn_overlay = "knife"
-		add_overlay(overlay_image(icon, "[initial(icon_state)]_[worn_overlay]", flags=RESET_COLOR))
+		add_overlay(overlay_image(icon, "[initial(icon_state)]_knife", flags=RESET_COLOR))
 	if(ismob(usr))
 		var/mob/M = usr
 		M.update_inv_shoes()

@@ -1037,6 +1037,7 @@
 
 	if (href_list["emergency_lights"])
 		emergency_lights = !emergency_lights
+		intent_message(BUTTON_FLICK, 5)
 		for (var/obj/machinery/light/L in area)
 			if (!initial(L.no_emergency))
 				L.no_emergency = emergency_lights	//If there was an override set on creation, keep that override
@@ -1046,17 +1047,20 @@
 
 	if (href_list["lock"])
 		coverlocked = !coverlocked
+		intent_message(BUTTON_FLICK, 5)
 
 	else if (href_list["breaker"])
 		toggle_breaker()
 
 	else if( href_list["reboot"] )
 		failure_timer = 0
+		intent_message(BUTTON_FLICK, 5)
 		update_icon()
 		update()
 
 	else if (href_list["cmode"])
 		chargemode = !chargemode
+		intent_message(BUTTON_FLICK, 5)
 		if(!chargemode)
 			charging = CHARGING_OFF
 			update_icon()
@@ -1071,6 +1075,7 @@
 				lighting = setsubsystem(val)
 			if("Environment")
 				environ = setsubsystem(val)
+		intent_message(BUTTON_FLICK, 5)
 		update_icon()
 		update()
 
@@ -1094,6 +1099,7 @@
 	operating = !operating
 	update()
 	update_icon()
+	intent_message(BUTTON_FLICK)
 
 /obj/machinery/power/apc/proc/ion_act()
 	if(prob(3))
@@ -1387,6 +1393,7 @@
 			night_mode = 0
 		else
 			night_mode = !night_mode
+	intent_message(BUTTON_FLICK, 5)
 
 /obj/machinery/power/apc/proc/setsubsystem(val)
 	if(cell && cell.charge > 0)

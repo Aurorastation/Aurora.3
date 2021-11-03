@@ -375,6 +375,9 @@
 
 	msg += "*---------*</span>"
 
+	if(src in intent_listener)
+		msg += SPAN_NOTICE("\n[get_pronoun("He")] looks like [get_pronoun("he")] [get_pronoun("is")] listening intently to [get_pronoun("his")] surroundings.")
+	
 	var/datum/vampire/V = get_antag_datum(MODE_VAMPIRE)
 	if(V && (V.status & VAMP_DRAINING))
 		var/obj/item/grab/G = get_active_hand()
