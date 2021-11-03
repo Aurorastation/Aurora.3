@@ -2976,6 +2976,12 @@ Follow by example and make good judgement based on length which list to include 
 			chatname = "antennae"
 			length = 5
 		
+		bulwark_rhino
+			name = "Rhinoceros Antenna"
+			icon_state = "bully_rhino"
+			chatname = "antenna"
+			length = 5
+		
 		bulwark_ladybug
 			name = "Ladybug Antennae"
 			icon_state = "bully_ladybug"
