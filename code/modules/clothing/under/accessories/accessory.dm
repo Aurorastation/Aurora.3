@@ -32,7 +32,9 @@
 	if(!inv_overlay || force)
 		var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
 		if(icon_override)
-			if("[tmp_icon_state]_tie" in icon_states(icon_override))
+			if(contained_sprite)
+				tmp_icon_state = "[tmp_icon_state]_w"
+			else if("[tmp_icon_state]_tie" in icon_states(icon_override))
 				tmp_icon_state = "[tmp_icon_state]_tie"
 		else if(contained_sprite)
 			tmp_icon_state = "[tmp_icon_state]_w"
@@ -58,7 +60,9 @@
 	if(!accessory_mob_overlay || force)
 		var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
 		if(icon_override)
-			if("[tmp_icon_state]_mob" in icon_states(I))
+			if(contained_sprite)
+				tmp_icon_state = "[src.item_state][WORN_UNDER]"
+			else if("[tmp_icon_state]_mob" in icon_states(I))
 				tmp_icon_state = "[tmp_icon_state]_mob"
 		else if(contained_sprite)
 			tmp_icon_state = "[src.item_state][WORN_UNDER]"
