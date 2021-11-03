@@ -4,4 +4,5 @@ changes:
   - bugfix: "Fixed some existing Bulwark clothing sprites not showing properly."
   - tweak: "Tweaked most Bulwark clothing sprites."
   - rscadd: "Added Vaurca Bulwark hairstyles."
+  - rscadd: "Added gradients for Vaurca Bulwark."
   - rscdel: "Vaurca Bulwark can no longer be bald."
