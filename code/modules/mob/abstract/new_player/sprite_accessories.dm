@@ -2952,6 +2952,12 @@ Follow by example and make good judgement based on length which list to include 
 			chatname = "antennae"
 			length = 2
 
+		bulwark_original
+			name = "Original Antennae"
+			icon_state = "bully_original"
+			chatname = "antennae"
+			length = 2
+
 		bulwark_islero
 			name = "Islero Antennae"
 			icon_state = "bully_islero"
@@ -2962,13 +2968,19 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Tall Antennae"
 			icon_state = "bully_tall"
 			chatname = "antennae"
-			length = 3
+			length = 4
 
 		bulwark_stag
 			name = "Stag Antennae"
 			icon_state = "bully_stag"
 			chatname = "antennae"
-			length = 3
+			length = 5
+		
+		bulwark_ladybug
+			name = "Ladybug Antennae"
+			icon_state = "bully_ladybug"
+			chatname = "antennae"
+			length = 6
 
 /datum/sprite_accessory/facial_hair
 	taj_goatee
