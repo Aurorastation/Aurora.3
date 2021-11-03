@@ -2944,12 +2944,6 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "bully_knight"
 			chatname = "antennae"
 			length = 2
-		
-		bulwark_formic
-			name = "Formic Antennae"
-			icon_state = "bully_formic"
-			chatname = "antennae"
-			length = 2
 
 		bulwark_pointy
 			name = "Pointy Antennae"
