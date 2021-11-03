@@ -1,0 +1,8 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Radios worn in other slots than the left ear will now properly show as being talked into if others are nearby."
+  - bugfix: "The message for the wrist radio being layered over/under the outerwear is no longer reversed."
+  - bugfix: "When telecomms are damaged, the spoken message will no longer be delayed when speaking into the radio, only the radio message."

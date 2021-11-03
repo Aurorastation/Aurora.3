@@ -201,7 +201,7 @@
 	set src in usr
 
 	normal_layer = !normal_layer
-	to_chat(usr, SPAN_NOTICE("\The [src] will now layer [normal_layer ? "under" : "over"] your outerwear."))
+	to_chat(usr, SPAN_NOTICE("\The [src] will now layer [normal_layer ? "over" : "under"] your outerwear."))
 	if (ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_wrists()	
