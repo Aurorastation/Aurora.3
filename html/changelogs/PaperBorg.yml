@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Added paperwork tools to the janitorial, engineering, construction and rescue borg modules."
