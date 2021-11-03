@@ -546,6 +546,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/rifler_holster.dmi'
 	icon_override = 'icons/obj/custom_items/rifler_holster.dmi'
 	icon_state = "rifler_holster"
+	contained_sprite = TRUE
 
 
 /obj/item/storage/backpack/satchel/fluff/xerius_bag //Tote Bag - Shiur'izzi Xerius - witchebells
@@ -566,7 +567,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "make_poncho"
 	item_state = "make_poncho"
 	contained_sprite = TRUE
-	icon_override = FALSE
 
 
 /obj/item/clothing/under/fluff/aegis_uniform //Hephaestus Experimental Projector - Sovereign Aegis - itanimulli
@@ -621,7 +621,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/klavdiya_amulet.dmi'
 	icon_override = 'icons/obj/custom_items/klavdiya_amulet.dmi'
 	icon_state = "klavdiya_amulet"
-
+	contained_sprite = TRUE
 
 /obj/item/clothing/gloves/fluff/lunea_gloves //Spark Gloves - Lunea Discata - tishinastalker
 	name = "spark gloves"
@@ -961,7 +961,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "djar_cape"
 	item_state = "djar_cape"
 	contained_sprite = TRUE
-	icon_override = FALSE
 
 
 /obj/item/clothing/suit/chaplain_hoodie/fluff/hidemichi_robes //Zen Monk Robes - Yoshihama Hidemichi - dobhranthedruid
@@ -1030,7 +1029,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "resolve_poncho"
 	item_state = "resolve_poncho"
 	contained_sprite = TRUE
-	icon_override = FALSE
 
 
 /obj/item/fluff/tokash_spear //Ancestral Spear - Suvek Tokash - evandorf
@@ -1186,7 +1184,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "ioraks_cape"
 	item_state = "ioraks_cape"
 	contained_sprite = TRUE
-	icon_override = FALSE
 
 
 /obj/item/clothing/suit/storage/fluff/strauss_jacket //Custom Firesuit - Lena Strauss - oddbomber3768
@@ -1590,7 +1587,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "ozuha_cape"
 	item_state = "ozuha_cape"
 	contained_sprite = TRUE
-	icon_override = FALSE
 
 
 /obj/item/clothing/suit/storage/fluff/ulmari_coat //Aut'akh Medical Coat - Ulmari Jukal'za - soultheif96
@@ -1829,7 +1825,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "amos_vest"
 	item_state = "amos_vest"
 	contained_sprite = TRUE
-	icon_override = FALSE
 
 
 /obj/item/clothing/head/fluff/rhasdrimara_veil //Noble Adhomai Veil - Rhasdrimara Rhanmrero'Arhanja - chanterelle
