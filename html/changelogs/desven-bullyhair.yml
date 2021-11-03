@@ -1,0 +1,7 @@
+author: Desven
+delete-after: True
+changes:
+  - bugfix: "Fixed some existing Bulwark clothing sprites not showing properly."
+  - tweak: "Tweaked most Bulwark clothing sprites."
+  - rscadd: "Added Vaurca Bulwark hairstyles."
+  - rscdel: "Vaurca Bulwark can no longer be bald."
