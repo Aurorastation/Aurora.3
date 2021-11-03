@@ -194,7 +194,7 @@
 	deform = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
 	talk_bubble_icon = 'icons/mob/talk_bulwark.dmi'
 
-	bald = TRUE
+	default_h_style = "Classic Antennae"
 
 	icon_x_offset = -9
 	healths_x = 22

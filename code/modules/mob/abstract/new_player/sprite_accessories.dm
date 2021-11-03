@@ -2918,6 +2918,63 @@ Follow by example and make good judgement based on length which list to include 
 			chatname = "antennae"
 			length = 2
 
+//Bulwark antennae
+	bulwark_classic 
+		icon = 'icons/mob/human_face/bulwark_hair.dmi'
+		name = "Classic Antennae"
+		icon_state = "bully_classic"
+		species_allowed = list(/datum/species/bug/type_e)
+		gender = NEUTER
+		chatname = "antennae"
+
+		bulwark_damaged_left
+			name = "Injured Antenna, Left"
+			icon_state = "bully_inj_left"
+			chatname = "antenna"
+			length = 1
+		
+		bulwark_damaged_right 
+			name = "Injured Antenna, Right"
+			icon_state = "bully_inj_right"
+			chatname = "antenna"
+			length = 1
+
+		bulwark_knight 
+			name = "Knight Antennae"
+			icon_state = "bully_knight"
+			chatname = "antennae"
+			length = 2
+		
+		bulwark_formic
+			name = "Formic Antennae"
+			icon_state = "bully_formic"
+			chatname = "antennae"
+			length = 2
+
+		bulwark_pointy
+			name = "Pointy Antennae"
+			icon_state = "bully_pointy"
+			chatname = "antennae"
+			length = 2
+
+		bulwark_islero
+			name = "Islero Antennae"
+			icon_state = "bully_islero"
+			chatname = "antennae"
+			length = 3
+
+		bulwark_tall
+			name = "Tall Antennae"
+			icon_state = "bully_tall"
+			chatname = "antennae"
+			length = 3
+
+		bulwark_stag
+			name = "Stag Antennae"
+			icon_state = "bully_stag"
+			chatname = "antennae"
+			length = 3
+
 /datum/sprite_accessory/facial_hair
 	taj_goatee
 		icon = 'icons/mob/human_face/tajara_facial_hair.dmi'
