@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed some bulwark items not grabbing the correct icon file."
