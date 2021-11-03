@@ -123,3 +123,9 @@ var/global/datum/robolimb/basic_robolimb
 		return FALSE
 	else
 		return TRUE
+
+/datum/robolimb/vaurca
+	company = PROSTHETIC_VAURCA
+	desc = "This limb design is from old Sedantis, still manufactured by the Hives when providing maintenace to most of the basic Vaurcesian bioforms."
+	icon = 'icons/mob/human_races/vaurca/r_vaurcalimbs.dmi'
+	species_can_use = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
