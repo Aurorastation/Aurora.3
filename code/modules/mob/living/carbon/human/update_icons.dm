@@ -404,7 +404,7 @@ There are several things that need to be remembered:
 
 	var/icon/face_standing = SSicon_cache.human_hair_cache[cache_key]
 	if (!face_standing)	// Not cached, generate it from scratch.
-		face_standing = new /icon('icons/mob/human_face/hair.dmi',"bald")
+		face_standing = new /icon(species.canvas_icon, "blank")
 		// Beard.
 		if(f_style)
 			var/datum/sprite_accessory/facial_hair_style = facial_hair_styles_list[f_style]

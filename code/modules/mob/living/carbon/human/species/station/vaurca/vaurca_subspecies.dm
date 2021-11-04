@@ -77,6 +77,7 @@
 	damage_overlays = 'icons/mob/human_races/masks/dam_breeder.dmi'
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_breeder.dmi'
 	blood_mask = 'icons/mob/human_races/masks/blood_breeder.dmi'
+	canvas_icon = 'icons/mob/base_48.dmi'
 
 
 	stamina = 175
@@ -192,6 +193,7 @@
 	icon_template = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
 	deform = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
+	canvas_icon = 'icons/mob/base_48.dmi'
 	talk_bubble_icon = 'icons/mob/talk_bulwark.dmi'
 
 	default_h_style = "Classic Antennae"

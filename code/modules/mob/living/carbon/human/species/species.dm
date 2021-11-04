@@ -19,6 +19,7 @@
 	var/list/selectable_pronouns = list(MALE, FEMALE, PLURAL)
 
 	// Icon/appearance vars.
+	var/canvas_icon = 'icons/mob/base_32.dmi'                  // Used to blend parts and icons onto this, to avoid clipping issues.
 	var/icobase = 'icons/mob/human_races/human/r_human.dmi'    // Normal icon set.
 	var/deform = 'icons/mob/human_races/human/r_def_human.dmi' // Mutated icon set.
 	var/preview_icon = 'icons/mob/human_races/human/human_preview.dmi'
