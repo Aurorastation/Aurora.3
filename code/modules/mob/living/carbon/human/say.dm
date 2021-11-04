@@ -175,7 +175,7 @@
 		if("headset")
 			var/obj/item/device/radio/R = get_radio()
 			if(R)
-				used_radios += l_ear
+				used_radios += R
 				if(R.talk_into(src, message, null, verb, speaking))
 					successful_radio += R
 		if("right ear")

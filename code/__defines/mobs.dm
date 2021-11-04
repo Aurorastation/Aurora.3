@@ -393,6 +393,7 @@
 #define PROSTHETIC_DIONA "Unknown Model"
 #define PROSTHETIC_AUTAKH "Aut'akh Manufactured"
 #define PROSTHETIC_TESLA "Tesla Powered Prosthetics"
+#define PROSTHETIC_VAURCA "Vaurca Robotic Limb"
 
 //Brain Damage defines
 #define BRAIN_DAMAGE_MILD 10

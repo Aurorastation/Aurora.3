@@ -653,7 +653,12 @@ There are several things that need to be remembered:
 		var/mob_state = gloves.item_state || gloves.icon_state
 
 		if(gloves.contained_sprite)
-			mob_icon = (gloves.icon_override || gloves.icon)
+			if(gloves.icon_override)
+				mob_icon = gloves.icon_override
+			else if(gloves.sprite_sheets && gloves.sprite_sheets[GET_BODY_TYPE])
+				mob_icon = gloves.sprite_sheets[GET_BODY_TYPE]
+			else
+				mob_icon = gloves.icon
 			gloves.auto_adapt_species(src)
 			mob_state = "[UNDERSCORE_OR_NULL(gloves.icon_species_tag)][gloves.item_state][WORN_GLOVES]"
 		else if(gloves.icon_override)
@@ -683,7 +688,12 @@ There are several things that need to be remembered:
 		var/mob_icon
 		var/mob_state = glasses.icon_state
 		if(glasses.contained_sprite)
-			mob_icon = (glasses.icon_override || glasses.icon)
+			if(glasses.icon_override)
+				mob_icon = glasses.icon_override
+			else if(glasses.sprite_sheets && glasses.sprite_sheets[GET_BODY_TYPE])
+				mob_icon = glasses.sprite_sheets[GET_BODY_TYPE]
+			else
+				mob_icon = glasses.icon
 			glasses.auto_adapt_species(src)
 			mob_state = "[UNDERSCORE_OR_NULL(glasses.icon_species_tag)][glasses.item_state][WORN_EYES]"
 		else if(glasses.icon_override)
@@ -723,7 +733,12 @@ There are several things that need to be remembered:
 			var/mob_state = l_ear.icon_state
 
 			if(l_ear.contained_sprite)
-				mob_icon = (l_ear.icon_override || l_ear.icon)
+				if(l_ear.icon_override)
+					mob_icon = l_ear.icon_override
+				else if(l_ear.sprite_sheets && l_ear.sprite_sheets[GET_BODY_TYPE])
+					mob_icon = l_ear.sprite_sheets[GET_BODY_TYPE]
+				else
+					mob_icon = l_ear.icon
 				l_ear.auto_adapt_species(src)
 				mob_state = "[UNDERSCORE_OR_NULL(l_ear.icon_species_tag)][l_ear.item_state][WORN_LEAR]"
 			else if(l_ear.icon_override)
@@ -750,7 +765,12 @@ There are several things that need to be remembered:
 			var/mob_state = r_ear.icon_state
 
 			if(r_ear.contained_sprite)
-				mob_icon = (r_ear.icon_override || r_ear.icon)
+				if(r_ear.icon_override)
+					mob_icon = r_ear.icon_override
+				else if(r_ear.sprite_sheets && r_ear.sprite_sheets[GET_BODY_TYPE])
+					mob_icon = r_ear.sprite_sheets[GET_BODY_TYPE]
+				else
+					mob_icon = r_ear.icon
 				r_ear.auto_adapt_species(src)
 				mob_state = "[UNDERSCORE_OR_NULL(r_ear.icon_species_tag)][r_ear.item_state][WORN_REAR]"
 			else if(r_ear.icon_override)
@@ -834,7 +854,12 @@ There are several things that need to be remembered:
 		var/mob_icon = 'icons/mob/belt_mirror.dmi'
 		var/mob_state = (s_store.item_state || s_store.icon_state)
 		if(s_store.contained_sprite)
-			mob_icon = (s_store.icon_override || s_store.icon)
+			if(s_store.icon_override)
+				mob_icon = s_store.icon_override
+			else if(s_store.sprite_sheets && s_store.sprite_sheets[GET_BODY_TYPE])
+				mob_icon = s_store.sprite_sheets[GET_BODY_TYPE]
+			else
+				mob_icon = s_store.icon
 			s_store.auto_adapt_species(src)
 			mob_state = "[UNDERSCORE_OR_NULL(s_store.icon_species_tag)][s_store.item_state][WORN_SSTORE]"
 		overlays_raw[SUIT_STORE_LAYER] = s_store.get_mob_overlay(src, mob_icon, mob_state, slot_s_store_str)
@@ -1120,7 +1145,12 @@ There are several things that need to be remembered:
 		var/mob_state = l_hand.item_state || l_hand.icon_state
 
 		if(l_hand.contained_sprite)
-			mob_icon = l_hand.icon_override || l_hand.icon
+			if(l_hand.icon_override)
+				mob_icon = l_hand.icon_override
+			else if(l_hand.sprite_sheets && l_hand.sprite_sheets[GET_BODY_TYPE])
+				mob_icon = l_hand.sprite_sheets[GET_BODY_TYPE]
+			else
+				mob_icon = l_hand.icon
 			l_hand.auto_adapt_species(src)
 			mob_state = "[UNDERSCORE_OR_NULL(l_hand.icon_species_tag)][l_hand.item_state][WORN_LHAND]"
 		else
@@ -1151,7 +1181,12 @@ There are several things that need to be remembered:
 		var/mob_state = r_hand.item_state || r_hand.icon_state
 
 		if(r_hand.contained_sprite)
-			mob_icon = r_hand.icon_override || r_hand.icon
+			if(r_hand.icon_override)
+				mob_icon = r_hand.icon_override
+			else if(r_hand.sprite_sheets && r_hand.sprite_sheets[GET_BODY_TYPE])
+				mob_icon = r_hand.sprite_sheets[GET_BODY_TYPE]
+			else
+				mob_icon = r_hand.icon
 			r_hand.auto_adapt_species(src)
 			mob_state = "[UNDERSCORE_OR_NULL(r_hand.icon_species_tag)][r_hand.item_state][WORN_RHAND]"
 		else
@@ -1182,7 +1217,12 @@ There are several things that need to be remembered:
 		var/mob_icon
 		var/mob_state = wrists.item_state || wrists.icon_state
 		if(wrists.contained_sprite)
-			mob_icon = wrists.icon
+			if(wrists.icon_override)
+				mob_icon = wrists.icon_override
+			else if(wrists.sprite_sheets && wrists.sprite_sheets[GET_BODY_TYPE])
+				mob_icon = wrists.sprite_sheets[GET_BODY_TYPE]
+			else
+				mob_icon = wrists.icon
 			wrists.auto_adapt_species(src)
 			mob_state = "[UNDERSCORE_OR_NULL(wrists.icon_species_tag)][wrists.item_state][WORN_WRISTS]"
 		else
