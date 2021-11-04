@@ -1,7 +1,8 @@
-author: Desven & Xev
+author: Desven, Xev, martinlyra
 delete-after: True
 changes:
   - bugfix: "Fixed some existing Bulwark clothing sprites not showing properly."
+  - bugfix: "Fixed canvas sizes for 48x48 mobs."
   - tweak: "Tweaked most Bulwark clothing sprites."
   - rscadd: "Added Vaurca Bulwark hairstyles."
   - rscadd: "Added gradients for Vaurca Bulwark."
