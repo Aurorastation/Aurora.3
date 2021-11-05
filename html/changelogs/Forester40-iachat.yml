@@ -1,8 +1,0 @@
-
-author: Forester40
-
-delete-after: True
-
-changes:
-  - rscadd: "IAC berets have been added to the loadout selection. You can choose between them and IAC caps in the Hats and Headgear section of the loadout."
-  - spellcheck: "The IAC cap is no longer mislabelled as a beret in the loadout." 
