@@ -28378,6 +28378,7 @@
 	},
 /obj/structure/noticeboard{
 	desc = "A board for uncovering hidden conspiracies.";
+	dir = 1;
 	name = "corkboard";
 	pixel_y = -32
 	},
@@ -37799,6 +37800,9 @@
 	name = "Robotics Lab";
 	req_access = list(29)
 	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bnP" = (
@@ -41394,6 +41398,7 @@
 /area/crew_quarters/bar)
 "buX" = (
 /obj/structure/noticeboard{
+	dir = 1;
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/white,
@@ -54348,6 +54353,7 @@
 /area/quartermaster/lobby)
 "bZQ" = (
 /obj/structure/noticeboard{
+	dir = 4;
 	pixel_x = -32
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -56287,6 +56293,7 @@
 	},
 /obj/machinery/light,
 /obj/structure/noticeboard{
+	dir = 1;
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
@@ -65707,6 +65714,7 @@
 /area/maintenance/bar)
 "pfO" = (
 /obj/structure/noticeboard{
+	dir = 8;
 	layer = 3.3;
 	pixel_x = 32;
 	pixel_y = 2
@@ -66270,6 +66278,7 @@
 	},
 /obj/item/storage/box/sharps,
 /obj/structure/noticeboard{
+	dir = 8;
 	layer = 3.3;
 	pixel_x = 32;
 	pixel_y = 2

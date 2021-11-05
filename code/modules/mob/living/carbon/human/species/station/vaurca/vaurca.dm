@@ -127,9 +127,9 @@
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 
-	allowed_citizenships = list(CITIZENSHIP_ZORA, CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_ERIDANI, CITIZENSHIP_JARGON)
+	allowed_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_ERIDANI, CITIZENSHIP_JARGON)
 	allowed_religions = list(RELIGION_HIVEPANTHEON, RELIGION_PREIMMINENNCE, RELIGION_PILOTDREAM, RELIGION_NONE, RELIGION_OTHER)
-	default_citizenship = CITIZENSHIP_ZORA
+	default_citizenship = CITIZENSHIP_NONE
 
 	default_accent = ACCENT_TTS
 	allowed_accents = list(ACCENT_TTS, ACCENT_ZORA, ACCENT_KLAX, ACCENT_CTHUR)
@@ -159,3 +159,8 @@
 	
 /datum/species/bug/is_naturally_insulated()
 	return TRUE
+
+/datum/species/bug/can_hold_s_store(obj/item/I)
+	if(I.w_class <= ITEMSIZE_SMALL)
+		return TRUE
+	return FALSE

@@ -9,6 +9,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "old bandana"
 	desc = "An old orange-ish-yellow bandana. It has a few stains from engine grease, and the color has been dulled."
 	icon = 'icons/obj/custom_items/motaki_bandana.dmi'
+	icon_override = 'icons/obj/custom_items/motaki_bandana.dmi'
 	icon_state = "motaki_bandana"
 	item_state = "motaki_bandana"
 	contained_sprite = TRUE
@@ -18,6 +19,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "fancy jacket"
 	desc = "A well tailored unathi styled armored jacket, fitted for one too."
 	icon = 'icons/obj/custom_items/zubari_jacket.dmi'
+	icon_override = 'icons/obj/custom_items/zubari_jacket.dmi'
 	icon_state = "zubari_jacket"
 	item_state = "zubari_jacket"
 	contained_sprite = TRUE
@@ -46,6 +48,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "paludamentum"
 	desc = "A cloak-like piece of silky, red fabric. Fashioned at one point where the shoulder would be with a golden pin."
 	icon = 'icons/obj/custom_items/centurion_cloak.dmi'
+	icon_override = 'icons/obj/custom_items/centurion_cloak.dmi'
 	icon_state = "centurion_cloak"
 	item_state = "centurion_cloak"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
@@ -56,6 +59,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "purple bandanna"
 	desc = "A worn and faded purple bandanna with a knotted, dragon-like design on it."
 	icon = 'icons/obj/custom_items/kir_bandanna.dmi'
+	icon_override = 'icons/obj/custom_items/kir_bandanna.dmi'
 	icon_state = "kir_bandanna"
 	item_state = "kir_bandanna"
 	contained_sprite = TRUE
@@ -65,6 +69,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "dog tags"
 	desc = "Some black dog tags, engraved on them is the following: \"Wright, Dylan L, O POS, Pacific Union Special Forces\"."
 	icon = 'icons/obj/custom_items/dylan_tags.dmi'
+	icon_override = 'icons/obj/custom_items/dylan_tags.dmi'
 	icon_state = "dylan_tags"
 	item_state = "dylan_tags"
 	stored_name = "Wright, Dylan L"
@@ -108,6 +113,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "worn badge"
 	desc = "A simple gold badge denoting the wearer as Head of Security. It is worn and dulled with age, but the name, \"Caleb Greene\", is still clearly legible."
 	icon = 'icons/obj/custom_items/caleb_badge.dmi'
+	icon_override = 'icons/obj/custom_items/caleb_badge.dmi'
 	item_state = "caleb_badge"
 	icon_state = "caleb_badge"
 	stored_name = "Caleb Greene"
@@ -127,6 +133,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "retired uniform"
 	desc = "A silken blouse paired with dark-colored slacks. It has the words \"Chief Investigator\" embroidered into the shoulder bar."
 	icon = 'icons/obj/custom_items/ana_clothing.dmi'
+	icon_override = 'icons/obj/custom_items/ana_clothing.dmi'
 	icon_state = "ana_uniform"
 	item_state = "ana_uniform"
 	contained_sprite = TRUE
@@ -135,6 +142,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "CSI jacket"
 	desc = "A black jacket with the words \"CSI\" printed in the back in bright, white letters."
 	icon = 'icons/obj/custom_items/ana_clothing.dmi'
+	icon_override = 'icons/obj/custom_items/ana_clothing.dmi'
 	icon_state = "ana_jacket"
 	item_state = "ana_jacket"
 	contained_sprite = TRUE
@@ -153,6 +161,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	The beret looks old and is worn in some places around the edges. It appears to have a flap inside, \
 	secured by a piece of elastic that loops around a button."
 	icon = 'icons/obj/custom_items/ikrad_beret.dmi'
+	icon_override = 'icons/obj/custom_items/ikrad_beret.dmi'
 	icon_state = "ikrad_beret"
 	item_state = "ikrad_beret"
 	contained_sprite = TRUE
@@ -189,6 +198,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	Although written in Siik'Maas it seems to be laid out like a letter, addressed to an \"Ikta Yam'hir\" and written in quite \
 	an untidy scrawl. The letter is torn in some places and the is writing faded."
 	icon = 'icons/obj/custom_items/ikrad_beret.dmi'
+	icon_override = 'icons/obj/custom_items/ikrad_beret.dmi'
 	icon_state = "ikrad_letter"
 	w_class = ITEMSIZE_SMALL
 
@@ -197,6 +207,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A leather jacket, appears to have a shield on back with the words \"Contra omnes stabimus\", as well as a unit name \"Sandworms of Thadeus\", \
 	stitched along a banner at the bottom of the shield."
 	icon = 'icons/obj/custom_items/ryan_jacket.dmi'
+	icon_override = 'icons/obj/custom_items/ryan_jacket.dmi'
 	icon_state = "ryan_jacket"
 	item_state = "ryan_jacket"
 	contained_sprite = TRUE
@@ -208,6 +219,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	found beyond the terraformed areas of said planet. Two scorched holes can be found on the lower back, and three non-scorched holes \
 	appear in the upper torso on the back, with two lining up with two in the front."
 	icon = 'icons/obj/custom_items/yuri_duster.dmi'
+	icon_override = 'icons/obj/custom_items/yuri_duster.dmi'
 	icon_state = "yuri_duster"
 	item_state = "yuri_duster"
 	contained_sprite = TRUE
@@ -217,6 +229,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "siik'maas-tau ceti basic dictionary"
 	desc = "A hefty dictionary with a simple design on the cover, it seems to be for translations. There's a label on the back denoting that it belongs to a \"Zhilin Vadim\"."
 	icon = 'icons/obj/custom_items/zhilin_book.dmi'
+	icon_override = 'icons/obj/custom_items/zhilin_book.dmi'
 	icon_state = "zhilin_book"
 	w_class = ITEMSIZE_NORMAL
 
@@ -231,6 +244,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "old tajaran nobleman suit"
 	desc = "A fancy looking suit, made of white line, adorned with golden details and buttons bearing long forgotten meanings. A blue sash decorates this piece of clothing."
 	icon = 'icons/obj/custom_items/faysal_uniform.dmi'
+	icon_override = 'icons/obj/custom_items/faysal_uniform.dmi'
 	icon_state = "faysal_uniform"
 	item_state = "faysal_uniform"
 	contained_sprite = TRUE
@@ -240,6 +254,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "prosthetic vaurca eyelids"
 	desc = "A small contraption of micro-actuators with a button on the side."
 	icon = 'icons/obj/custom_items/ghoz_eyes.dmi'
+	icon_override = 'icons/obj/custom_items/ghoz_eyes.dmi'
 	icon_state = "ghoz_eyes"
 	item_state = "ghoz_eyes"
 	contained_sprite = TRUE
@@ -251,6 +266,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "tagged brown hat"
 	desc = "A worn mid 20th century brown hat. If you look closely at the back, you can see a an embedded tag from the \"Museum of Terran Culture and Technology\"."
 	icon = 'icons/obj/custom_items/leo_coat.dmi'
+	icon_override = 'icons/obj/custom_items/leo_coat.dmi'
 	icon_state = "leo_hat"
 	item_state = "leo_hat"
 	contained_sprite = TRUE
@@ -259,6 +275,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "tagged brown coat"
 	desc = "A worn mid 20th century brown trenchcoat. If you look closely at bottom of the back, you can see an embedded tag from the \"Museum of Terran Culture and Technology\"."
 	icon = 'icons/obj/custom_items/leo_coat.dmi'
+	icon_override = 'icons/obj/custom_items/leo_coat.dmi'
 	icon_state = "leo_coat"
 	item_state = "leo_coat"
 	contained_sprite = TRUE
@@ -268,6 +285,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "\improper Mr.Monkey"
 	desc = "A calming toy monkey."
 	icon = 'icons/obj/custom_items/oz_plushie.dmi'
+	icon_override = 'icons/obj/custom_items/oz_plushie.dmi'
 	icon_state = "oz_plushie"
 
 
@@ -275,6 +293,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "ceramic teapot"
 	desc = "A blue ceramic teapot, gilded with the abbreviation for NanoTrasen."
 	icon = 'icons/obj/custom_items/brianne_teapot.dmi'
+	icon_override = 'icons/obj/custom_items/brianne_teapot.dmi'
 	icon_state = "brianne_teapot"
 
 
@@ -282,6 +301,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "tan engineering beret"
 	desc = "An engineering beret that appears to have been dyed tan, with an orange patch sewn into the middle of it."
 	icon = 'icons/obj/custom_items/make_items.dmi'
+	icon_override = 'icons/obj/custom_items/make_items.dmi'
 	icon_state = "make_beret"
 	item_state = "make_beret"
 	contained_sprite = TRUE
@@ -291,6 +311,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "vaporizer pen"
 	desc = "A simple vaporizer pen, the electronic version of the cigarette."
 	icon = 'icons/obj/custom_items/corvo_cigarette.dmi'
+	icon_override = 'icons/obj/custom_items/corvo_cigarette.dmi'
 	icon_state = "corvo_cigarette"
 	item_state = "corvo_cigarette"
 	body_parts_covered = 0
@@ -328,6 +349,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "maraziite throw over"
 	desc = "A grey poncho, exclusively warn by members of the Maraziite Order. This one has the flag of the Izweski Hegemony stitched on."
 	icon = 'icons/obj/custom_items/sonorous_clothing.dmi'
+	icon_override = 'icons/obj/custom_items/sonorous_clothing.dmi'
 	icon_state = "sonorous_mantle"
 	item_state = "sonorous_mantle"
 	contained_sprite = TRUE
@@ -336,6 +358,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "iron mask"
 	desc = "A mask made of iron worn by members of the Maraziite Order. This one looks like it's modeled after a fish."
 	icon = 'icons/obj/custom_items/sonorous_clothing.dmi'
+	icon_override = 'icons/obj/custom_items/sonorous_clothing.dmi'
 	icon_state = "sonorous_mask"
 	item_state = "sonorous_mask"
 	contained_sprite = TRUE
@@ -348,6 +371,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "cheery blazer"
 	desc = "A cheery but professional outfit, mauve corduroys, blue blazer and a tie."
 	icon = 'icons/obj/custom_items/ellie_uniform.dmi'
+	icon_override = 'icons/obj/custom_items/ellie_uniform.dmi'
 	icon_state = "ellie_uniform"
 	item_state = "ellie_uniform"
 	contained_sprite = TRUE
@@ -357,6 +381,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "tajaran religious necklace"
 	desc = "A necklace with black string, it appears to have carved wooden figures of the Tajaran god Mata'ke and all of his pantheon strung through it."
 	icon = 'icons/obj/custom_items/zhilin_necklace.dmi'
+	icon_override = 'icons/obj/custom_items/zhilin_necklace.dmi'
 	icon_state = "zhilin_necklace"
 	item_state = "zhilin_necklace"
 	contained_sprite = TRUE
@@ -368,6 +393,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A dark funnel neck designer military-style dress coat, specially fitted on commission, clearly designed for a woman's figure. \
 	A skillfully stitched 'NT' pattern is laden above a chest pocket, the phrase \"15 years of loyal service to the Corp\" below the insignia, followed by the personal signature of \"Vira Bolivar Taryk\"."
 	icon = 'icons/obj/custom_items/vira_coat.dmi'
+	icon_override = 'icons/obj/custom_items/vira_coat.dmi'
 	icon_state = "vira_coat"
 	item_state = "vira_coat"
 	contained_sprite = TRUE
@@ -377,6 +403,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "gentleman's coat"
 	desc = "A blue gentleman's coat. It is very stylish, and appears to be very warm."
 	icon = 'icons/obj/custom_items/azala_items.dmi'
+	icon_override = 'icons/obj/custom_items/azala_items.dmi'
 	icon_state = "azala_coat"
 	item_state = "azala_coat"
 	contained_sprite = TRUE
@@ -385,6 +412,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "gentleman's cap"
 	desc = "A blue gentleman's cap. It is very stylish, and appears to be warped from being worn crooked."
 	icon = 'icons/obj/custom_items/azala_items.dmi'
+	icon_override = 'icons/obj/custom_items/azala_items.dmi'
 	icon_state = "azala_hat"
 	item_state = "azala_hat"
 	contained_sprite = TRUE
@@ -393,6 +421,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "modified roboticist jumpsuit"
 	desc = "A variation of the roboticists jumpsuit, this one is in blue colors."
 	icon = 'icons/obj/custom_items/azala_items.dmi'
+	icon_override = 'icons/obj/custom_items/azala_items.dmi'
 	icon_state = "azala_jumpsuit"
 	item_state = "azala_jumpsuit"
 	contained_sprite = TRUE
@@ -402,6 +431,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "striped scarf"
 	desc = "A soft scarf striped in black and blue."
 	icon = 'icons/obj/custom_items/leo_scarf.dmi'
+	icon_override = 'icons/obj/custom_items/leo_scarf.dmi'
 	icon_state = "leo_scarf"
 	item_state = "leo_scarf"
 	contained_sprite = TRUE
@@ -411,6 +441,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "exotic purple robe"
 	desc = "An extravagant display of wealth, hand-tailored with Unathi craftmanship. There are intricate designs of hammers, cactus flowers, and coins etched into the cloth."
 	icon = 'icons/obj/custom_items/zilosnish_items.dmi'
+	icon_override = 'icons/obj/custom_items/zilosnish_items.dmi'
 	icon_state = "zilosnish_uniform"
 	item_state = "zilosnish_uniform"
 	contained_sprite = TRUE
@@ -419,6 +450,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "exotic mantle"
 	desc = "A red hide with a gold and jade insignia pin to keep it on a wearers shoulders. The hide is thick, like rhino skin."
 	icon = 'icons/obj/custom_items/zilosnish_items.dmi'
+	icon_override = 'icons/obj/custom_items/zilosnish_items.dmi'
 	icon_state = "zilosnish_mantle"
 	item_state = "zilosnish_mantle"
 	contained_sprite = TRUE
@@ -427,6 +459,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "golden pen"
 	desc = "A pen plated in gold. It has black ink."
 	icon = 'icons/obj/custom_items/zilosnish_items.dmi'
+	icon_override = 'icons/obj/custom_items/zilosnish_items.dmi'
 	icon_state = "zilosnish_pen"
 
 
@@ -435,6 +468,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A comfortable headband made from a long, soft cloth that's tied into a knot in the back. It is a bright shade of red, slipped through a decorative brass plate. \
 	Upon the metal is an engraving of the People's Republic of Adhomai's insignia, as if straight from their flag."
 	icon = 'icons/obj/custom_items/qorja_headband.dmi'
+	icon_override = 'icons/obj/custom_items/qorja_headband.dmi'
 	icon_state = "qorja_headband"
 	item_state = "qorja_headband"
 	contained_sprite = TRUE
@@ -444,6 +478,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "engraved wristwatch"
 	desc = "A fine gold watch. On the inside is an engraving that reads \"Happy birthday dad, thinking of you always\"."
 	icon = 'icons/obj/custom_items/rex_watch.dmi'
+	icon_override = 'icons/obj/custom_items/rex_watch.dmi'
 	icon_state = "rex_watch"
 
 
@@ -451,6 +486,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "customized camera"
 	desc = "A early 2450's Sunny camera with an adjustable lens, this one has a sticker with the name \"Hadley\" on the back."
 	icon = 'icons/obj/custom_items/hadley_camera.dmi'
+	icon_override = 'icons/obj/custom_items/hadley_camera.dmi'
 	icon_state = "hadley_camera"
 	icon_on = "hadley_camera"
 	icon_off = "hadley_camera_off"
@@ -460,6 +496,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "pineapple wallet"
 	desc = "A rather small, cheaply made felt wallet with a zipper near the top. It looks like a pineapple."
 	icon = 'icons/obj/custom_items/muhawir_items.dmi'
+	icon_override = 'icons/obj/custom_items/muhawir_items.dmi'
 	icon_state = "muhawir_wallet"
 
 /obj/item/storage/wallet/fluff/muhawir_wallet/update_icon()
@@ -470,6 +507,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "inventor's notebook"
 	desc = "A dark-green notebook, with crumpled Post-Its sticking out and binding tearing at the edges. It reeks of DromedaryCo cigarettes. The words \"SUKH SYSTEMS\" are scribbled on the cover with a black sharpie."
 	icon = 'icons/obj/custom_items/sukhoi_folder.dmi'
+	icon_override = 'icons/obj/custom_items/sukhoi_folder.dmi'
 	icon_state = "sukhoi_folder"
 
 
@@ -477,6 +515,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "armored detective jacket"
 	desc = "A white suit jacket, has a badge hanging out of a breast pocket. Touching it gives a feeling of working on a case for months."
 	icon = 'icons/obj/custom_items/nelson_jacket.dmi'
+	icon_override = 'icons/obj/custom_items/nelson_jacket.dmi'
 	icon_state = "nelson_jacket"
 	item_state = "nelson_jacket"
 	contained_sprite = TRUE
@@ -487,6 +526,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A scarlet military beret worn by the Sol Alliance Military Police dog handling unit. The symbol on the cap is that of a grey wolf's head on white. It quivers menacingly. \
 	Upon flipping it you see a name tag with the word \"CHUNLEY\" written in on it with a very sloppy hand write."
 	icon = 'icons/obj/custom_items/chunley_beret.dmi'
+	icon_override = 'icons/obj/custom_items/chunley_beret.dmi'
 	icon_state = "chunley_beret"
 	item_state = "chunley_beret"
 	contained_sprite = TRUE
@@ -496,6 +536,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "cutting metal"
 	desc = "Looks like a piece of sheet metal, sharpened on one end."
 	icon = 'icons/obj/custom_items/yotin_knife.dmi'
+	icon_override = 'icons/obj/custom_items/yotin_knife.dmi'
 	icon_state = "yotin_knife"
 
 
@@ -503,13 +544,16 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "tan leather thigh holster"
 	desc = "A version of the security thigh holster done up in tan leather - this one appears to have the word \"Rifler\" engraved down the side. It appears to be rather well made and hard wearing; more of a worker's holster than a show piece."
 	icon = 'icons/obj/custom_items/rifler_holster.dmi'
+	icon_override = 'icons/obj/custom_items/rifler_holster.dmi'
 	icon_state = "rifler_holster"
+	contained_sprite = TRUE
 
 
 /obj/item/storage/backpack/satchel/fluff/xerius_bag //Tote Bag - Shiur'izzi Xerius - witchebells
 	name = "tote bag"
 	desc = "A sackcloth bag with an image of Moghes printed onto it. Floating above the planet are the words \"Save Moghes!\"."
 	icon = 'icons/obj/custom_items/xerius_bag.dmi'
+	icon_override = 'icons/obj/custom_items/xerius_bag.dmi'
 	icon_state = "xerius_bag"
 	item_state = "xerius_bag"
 	contained_sprite = TRUE
@@ -519,16 +563,17 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "raincoat poncho"
 	desc = "A tough brown hooded poncho that looks to be good at protecting someone from the rain."
 	icon = 'icons/obj/custom_items/make_items.dmi'
+	icon_override = 'icons/obj/custom_items/make_items.dmi'
 	icon_state = "make_poncho"
 	item_state = "make_poncho"
 	contained_sprite = TRUE
-	icon_override = FALSE
 
 
 /obj/item/clothing/under/fluff/aegis_uniform //Hephaestus Experimental Projector - Sovereign Aegis - itanimulli
 	name = "Hephaestus experimental projector"
 	desc = "An odd device connected to a security uniform, apparently still in the prototype stage."
 	icon = 'icons/obj/custom_items/aegis_uniform.dmi'
+	icon_override = 'icons/obj/custom_items/aegis_uniform.dmi'
 	icon_state = "aegis_uniform"
 	item_state = "aegis_uniform"
 	contained_sprite = TRUE
@@ -539,6 +584,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "NanoTrasen exchange visa"
 	desc = "A work visa authorizing the holder, Daliyah Veridan, to work within the Republic of Biesel. An Eridani and NanoTrasen logo are embossed on the back."
 	icon = 'icons/obj/custom_items/daliyah_visa.dmi'
+	icon_override = 'icons/obj/custom_items/daliyah_visa.dmi'
 	icon_state = "daliyah_visa"
 	w_class = ITEMSIZE_SMALL
 
@@ -548,6 +594,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "An odd mask seeming to mimic the face of a Human with some artistic liberties taken. Small lights keep it dimly illuminated from within with holographic projectors emulating two bright blue eyes.  \
 	Its rigid frame is composed of what looks like polished titanium."
 	icon = 'icons/obj/custom_items/ird_face.dmi'
+	icon_override = 'icons/obj/custom_items/ird_face.dmi'
 	icon_state = "ird_mask"
 	item_state = "ird_mask"
 	contained_sprite = TRUE
@@ -564,6 +611,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/flame/lighter/zippo/fluff/nikit_zippo //Vasili Mine Zippo - Nikit Vasili - simontheminer
 	desc = "An old looking zippo lighter with Vasili Mine Logo engraved on it. \"Good Luck Nikit\" is crudely scratched on under the logo in small writing."
 	icon = 'icons/obj/custom_items/nikit_zippo.dmi'
+	icon_override = 'icons/obj/custom_items/nikit_zippo.dmi'
 	icon_state = "nikit_zippo"
 
 
@@ -571,14 +619,16 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "moon shaped amulet"
 	desc = "A metalic necklace that bears a silver moon shapped pendant."
 	icon = 'icons/obj/custom_items/klavdiya_amulet.dmi'
+	icon_override = 'icons/obj/custom_items/klavdiya_amulet.dmi'
 	icon_state = "klavdiya_amulet"
-
+	contained_sprite = TRUE
 
 /obj/item/clothing/gloves/fluff/lunea_gloves //Spark Gloves - Lunea Discata - tishinastalker
 	name = "spark gloves"
 	desc = "Custom made flame retardant gloves designed after Cpt. Stallion from hit 2451 anime series Truesteel Arcanist: Fellowship. \
 	A lighter assembly is built along the index finger with a tiny plate of steel, and there is a small flint built into the thumb."
 	icon = 'icons/obj/custom_items/lunea_gloves.dmi'
+	icon_override = 'icons/obj/custom_items/lunea_gloves.dmi'
 	icon_state = "lunea_gloves"
 	item_state = "lunea_gloves"
 	contained_sprite = TRUE
@@ -625,6 +675,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "cat carrier"
 	desc = "It appears to be a reinforced cat carrier. Decals of hearts and kittens are plastered all over its sides."
 	icon = 'icons/obj/custom_items/sovno_carrier.dmi'
+	icon_override = 'icons/obj/custom_items/sovno_carrier.dmi'
 	icon_state = "sovno_carrier"
 	item_state = "sovno_carrier"
 	contained_sprite = TRUE
@@ -699,6 +750,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "embroidered coat"
 	desc = " Martian long coat, made to fend off dust storms and other unpleasantries. This one has a few patches sewn into it depicting: A Solarian flag, a Batallion number, and a large sun."
 	icon = 'icons/obj/custom_items/talon_coat.dmi'
+	icon_override = 'icons/obj/custom_items/talon_coat.dmi'
 	icon_state = "talon_coat"
 	item_state = "talon_coat"
 	contained_sprite = TRUE
@@ -708,6 +760,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "security tunnel cloak"
 	desc = "A blue, tailor-made tunnel cloak with paltry storage options. The fabric is smoother and less abrasive than regular tunnel cloaks, though it looks difficult to wear."
 	icon = 'icons/obj/custom_items/ryn_clothing.dmi'
+	icon_override = 'icons/obj/custom_items/ryn_clothing.dmi'
 	icon_state = "ryn_cloak"
 	item_state = "ryn_cloak"
 	contained_sprite = TRUE
@@ -716,6 +769,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "security tunnel hood"
 	desc = "A silky smooth blue hood, though its more of a headwrap. You're having a hard time wrapping your head around how to wear this."
 	icon = 'icons/obj/custom_items/ryn_clothing.dmi'
+	icon_override = 'icons/obj/custom_items/ryn_clothing.dmi'
 	icon_state = "ryn_hood"
 	item_state = "ryn_hood"
 	contained_sprite = TRUE
@@ -733,12 +787,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "ghostly board"
 	desc = "An adhomian ghostly board, used in divination rituals. This one is blue and has the symbol of a moon on it."
 	icon = 'icons/obj/custom_items/klavdiya_amulet.dmi'
+	icon_override = 'icons/obj/custom_items/klavdiya_amulet.dmi'
 	icon_state = "klavdiya_board" //thanks to kyres1 for the sprites
 
 
 /obj/item/clothing/glasses/threedglasses/fluff/grunnus_glasses //3D glasses - Paul Grunnus - moom241
 	desc = "A pair of old, beat up looking glasses, with red and blue lenses. Pretty archaic, but some might call it fashionable."
 	icon = 'icons/obj/custom_items/grunnus_glasses.dmi'
+	icon_override = 'icons/obj/custom_items/grunnus_glasses.dmi'
 	icon_state = "grunnus_glasses"
 	item_state = "grunnus_glasses"
 	contained_sprite = TRUE
@@ -748,6 +804,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "reflective mask"
 	desc = "This odd mask and hood combination covers the wearer, and seems to be made of a one-way dome mirror and some old cloth or rope."
 	icon = 'icons/obj/custom_items/aavs_mask.dmi'
+	icon_override = 'icons/obj/custom_items/aavs_mask.dmi'
 	icon_state = "aavs_mask"
 	item_state = "aavs_mask"
 	contained_sprite = TRUE
@@ -759,6 +816,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "dark clothes"
 	desc = "A set of dark under clothing, loosely fitting. The initials /M.A./ are stitched into the collar."
 	icon = 'icons/obj/custom_items/mira_clothing.dmi'
+	icon_override = 'icons/obj/custom_items/mira_clothing.dmi'
 	icon_state = "mira_uniform"
 	item_state = "mira_uniform"
 	contained_sprite = TRUE
@@ -814,6 +872,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "junior alchemist robes"
 	desc = "A  robe with a light silky gold colored belt around the waist. Placed upon the print is two red jewels pinned to it neatly."
 	icon = 'icons/obj/custom_items/mira_clothing.dmi'
+	icon_override = 'icons/obj/custom_items/mira_clothing.dmi'
 	icon_state = "mira_robes"
 	item_state = "mira_robes"
 	contained_sprite = TRUE
@@ -822,6 +881,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "dark boots"
 	desc = "A pair of black boots with tall laces."
 	icon = 'icons/obj/custom_items/mira_clothing.dmi'
+	icon_override = 'icons/obj/custom_items/mira_clothing.dmi'
 	icon_state = "mira_boots"
 	item_state = "mira_boots"
 	contained_sprite = TRUE
@@ -830,6 +890,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "suspended skirt"
 	desc = "A plaid skirt with suspenders, sewed into the side is the initials \"M.A.\"."
 	icon = 'icons/obj/custom_items/mira_clothing.dmi'
+	icon_override = 'icons/obj/custom_items/mira_clothing.dmi'
 	icon_state = "mira_skirt"
 	item_state = "mira_skirt"
 	contained_sprite = TRUE
@@ -838,6 +899,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "alchemist flask"
 	desc = "A large bottle used to mix chemicals inside."
 	icon = 'icons/obj/custom_items/mira_clothing.dmi'
+	icon_override = 'icons/obj/custom_items/mira_clothing.dmi'
 	icon_state = "mira_beaker"
 
 /obj/item/storage/backpack/fluff/mira_bag //Burlap Alchemist Bag - Mira Akhandi - ladyfowl
@@ -850,6 +912,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "cut-off vest"
 	desc = "A short grey puffer vest."
 	icon = 'icons/obj/custom_items/mira_clothing.dmi'
+	icon_override = 'icons/obj/custom_items/mira_clothing.dmi'
 	icon_state = "mira_vest"
 	item_state = "mira_vest"
 	contained_sprite = TRUE
@@ -858,6 +921,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "energy cane"
 	desc = "This silver-handled cane has letters carved into the sides."
 	icon = 'icons/obj/custom_items/qrqil_cane.dmi'
+	icon_override = 'icons/obj/custom_items/qrqil_cane.dmi'
 	icon_state = "qrqil_cane"
 	item_state = "qrqil_cane"
 	contained_sprite = TRUE
@@ -893,16 +957,17 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "zandiziite cape"
 	desc = "A dominian cape, with a clasp bearing the symbol of a champion Zandiziite wrestler. It looks well worn, of the finest material."
 	icon = 'icons/obj/custom_items/djar_cape.dmi'
+	icon_override = 'icons/obj/custom_items/djar_cape.dmi'
 	icon_state = "djar_cape"
 	item_state = "djar_cape"
 	contained_sprite = TRUE
-	icon_override = FALSE
 
 
 /obj/item/clothing/suit/chaplain_hoodie/fluff/hidemichi_robes //Zen Monk Robes - Yoshihama Hidemichi - dobhranthedruid
 	name = "zen monk robes"
 	desc = "A traditional Soto Zen buddhist robes for meditation and services"
 	icon = 'icons/obj/custom_items/hidemichi_items.dmi'
+	icon_override = 'icons/obj/custom_items/hidemichi_items.dmi'
 	icon_state = "hidemichi_robes"
 	item_state = "hidemichi_robes"
 	contained_sprite = TRUE
@@ -911,6 +976,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "takuhatsugasa"
 	desc = "A dome shaped rice hat, this one is dyed a darker color."
 	icon = 'icons/obj/custom_items/hidemichi_items.dmi'
+	icon_override = 'icons/obj/custom_items/hidemichi_items.dmi'
 	icon_state = "hidemichi_hat"
 	item_state = "hidemichi_hat"
 	contained_sprite = TRUE
@@ -920,6 +986,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "foreign legion holo-tags"
 	desc = "A set of holo-tags, on them is the printed name, address, and Serial Code as well as what appears to be a bar code underneath."
 	icon = 'icons/obj/custom_items/kelt_tags.dmi'
+	icon_override = 'icons/obj/custom_items/kelt_tags.dmi'
 	icon_state = "kelt_tags"
 	item_state = "kelt_tags"
 	stored_name = "Kelt"
@@ -932,6 +999,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "antennae"
 	desc = "Collapsible spherical antennae designed to interface with an IPC. On it, in permanent marker, are the words: \"Cody Brickstend was here\" is immaculate, tiny handwriting."
 	icon = 'icons/obj/custom_items/resolve_items.dmi'
+	icon_override = 'icons/obj/custom_items/resolve_items.dmi'
 	icon_state = "resolve_antennae"
 	item_state = "resolve_antennae"
 	contained_sprite = TRUE
@@ -940,6 +1008,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "treads"
 	desc = "Clip-on rubber treads, for that extra grip. Designed for an IPC."
 	icon = 'icons/obj/custom_items/resolve_items.dmi'
+	icon_override = 'icons/obj/custom_items/resolve_items.dmi'
 	icon_state = "resolve_shoes"
 	item_state = "resolve_shoes"
 	contained_sprite = TRUE
@@ -948,6 +1017,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "haphaestus experimental projector"
 	desc = "A flashing device seemingly attached to an officer's corporate security uniform. On the side of the casing are the words: \"Brickstend\", \"Dernestess\", \"Jastovski\", and \"Finch.\""
 	icon = 'icons/obj/custom_items/resolve_items.dmi'
+	icon_override = 'icons/obj/custom_items/resolve_items.dmi'
 	icon_state = "resolve_uniform"
 	item_state = "resolve_uniform"
 	contained_sprite = TRUE
@@ -955,16 +1025,17 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/accessory/poncho/fluff/resolve_poncho //Poncho - Decisive Resolve - itanimulli
 	desc = "A decorative synthleather covering. Probably isn't the best for rain. On the shoulder's edge is a small, paper tag, that reads: \"Cassidy Finch was here\" in sloppy handwriting."
 	icon = 'icons/obj/custom_items/resolve_items.dmi'
+	icon_override = 'icons/obj/custom_items/resolve_items.dmi'
 	icon_state = "resolve_poncho"
 	item_state = "resolve_poncho"
 	contained_sprite = TRUE
-	icon_override = FALSE
 
 
 /obj/item/fluff/tokash_spear //Ancestral Spear - Suvek Tokash - evandorf
 	name = "display stand"
 	desc = "A small plasteel display stand which uses magnetic fields to levitate an object."
 	icon = 'icons/obj/custom_items/tokash_spear.dmi'
+	icon_override = 'icons/obj/custom_items/tokash_spear.dmi'
 	icon_state = "stand-spear"
 	w_class = ITEMSIZE_NORMAL
 	var/has_spear = TRUE
@@ -1001,6 +1072,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "ancestral spearhead"
 	desc = "An aged and worn spearhead. It seems to be made of bronze or composite metal."
 	icon = 'icons/obj/custom_items/tokash_spear.dmi'
+	icon_override = 'icons/obj/custom_items/tokash_spear.dmi'
 	icon_state = "spearhead"
 	w_class = ITEMSIZE_SMALL
 
@@ -1009,6 +1081,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "reishi queen winter coat"
 	desc = "A worn purple winter-coat. On the back, \"Reishi Queen\" is stitched on top of a skull patch. It reeks of reishi."
 	icon = 'icons/obj/custom_items/naomi_coat.dmi'
+	icon_override = 'icons/obj/custom_items/naomi_coat.dmi'
 	icon_state = "naomi_coat"
 	item_state = "naomi_coat"
 	contained_sprite = TRUE
@@ -1018,6 +1091,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "battered metal bucket"
 	desc = "A battered rusty metal bucket. It has seen a lot of use and little maintenance."
 	icon = 'icons/obj/custom_items/khasan_bucket.dmi'
+	icon_override = 'icons/obj/custom_items/khasan_bucket.dmi'
 	icon_state = "khasan_bucket"
 	item_state = "khasan_bucket"
 	contained_sprite = TRUE
@@ -1028,6 +1102,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/head/helmet/bucket/fluff/khasan_bucket
 	name = "battered metal bucket helmet"
 	icon = 'icons/obj/custom_items/khasan_bucket.dmi'
+	icon_override = 'icons/obj/custom_items/khasan_bucket.dmi'
 	icon_state = "khasan_helmet"
 	item_state = "khasan_helmet"
 	contained_sprite = TRUE
@@ -1038,6 +1113,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A cheap, collapsible musical instrument which utilizes holographic projections to generate a rough noise. It's shaped like a small harp, and seems to be  \
 	able to be tuned to mimic several old stringed Solarian instruments with some distorted audio. It's still got its price tag sticker on it."
 	icon = 'icons/obj/custom_items/akinyi_symphette.dmi'
+	icon_override = 'icons/obj/custom_items/akinyi_symphette.dmi'
 	icon_state = "akinyi_symphette"
 	item_state = "akinyi_symphette"
 	w_class = ITEMSIZE_NORMAL
@@ -1064,6 +1140,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "bronze teapot"
 	desc = "A round-bottomed, well-used teapot. It looks as though it's been carefully maintained."
 	icon = 'icons/obj/custom_items/thea_tea.dmi'
+	icon_override = 'icons/obj/custom_items/thea_tea.dmi'
 	icon_state = "thea_teapot"
 	center_of_mass = list("x"=16, "y"=13)
 
@@ -1071,6 +1148,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "bronze teacup"
 	desc = "A shallow, bronze teacup. Looks heavy."
 	icon = 'icons/obj/custom_items/thea_tea.dmi'
+	icon_override = 'icons/obj/custom_items/thea_tea.dmi'
 	icon_state = "thea_teacup"
 	volume = 20
 	center_of_mass = list("x"=16, "y"=12)
@@ -1078,6 +1156,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/storage/box/fluff/thea_teabox //Tea Box - Thea Reeves - shestrying
 	desc = "A black, wooden box, the edges softened with transport and use."
 	icon = 'icons/obj/custom_items/thea_tea.dmi'
+	icon_override = 'icons/obj/custom_items/thea_tea.dmi'
 	icon_state = "thea_teabox"
 	foldable = null
 	can_hold = list(/obj/item/reagent_containers/food/drinks/teapot/fluff/thea_teapot, /obj/item/reagent_containers/food/drinks/fluff/thea_teacup)
@@ -1092,6 +1171,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "leather journal"
 	desc = "An old, worn out journal made out of leather. It has a lot of lose pages stuck in it, it surely has seen better days. The front just says \"Fraseq\"."
 	icon = 'icons/obj/custom_items/fraseq_journal.dmi'
+	icon_override = 'icons/obj/custom_items/fraseq_journal.dmi'
 	icon_state = "fraseq_journal"
 	w_class = ITEMSIZE_NORMAL
 
@@ -1100,10 +1180,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "iorakian cape"
 	desc = "A tough leather cape, with neat colours of the Ioraks clan threaded through the seams."
 	icon = 'icons/obj/custom_items/ioraks_cape.dmi'
+	icon_override = 'icons/obj/custom_items/ioraks_cape.dmi'
 	icon_state = "ioraks_cape"
 	item_state = "ioraks_cape"
 	contained_sprite = TRUE
-	icon_override = FALSE
 
 
 /obj/item/clothing/suit/storage/fluff/strauss_jacket //Custom Firesuit - Lena Strauss - oddbomber3768
@@ -1111,6 +1191,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "An old industrial firesuit belonging to a defunct and forgotten company. The wearer has sawn off both of the arms, added two buttons on the front and replaced the back name \
 	tag with one reading \"FIREAXE\". Doesn't look really fire resistant anymore"
 	icon = 'icons/obj/custom_items/strauss_jacket.dmi'
+	icon_override = 'icons/obj/custom_items/strauss_jacket.dmi'
 	icon_state = "strauss_jacket"
 	item_state = "strauss_jacket"
 	contained_sprite = TRUE
@@ -1122,6 +1203,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A well-worn labcoat that marks its wearer as an employee of Terraneus Diagnostics, a subsidiary corporation of Einstein Engines. Text on the labcoat's breast pocket marks \
 	the employee as a roboticist employed at Factory 09, Hoboken, United Americas."
 	icon = 'icons/obj/custom_items/likho_labcoat.dmi'
+	icon_override = 'icons/obj/custom_items/likho_labcoat.dmi'
 	icon_state = "likho_labcoat"
 	item_state = "likho_labcoat"
 	contained_sprite = TRUE
@@ -1131,6 +1213,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "winter paramedic jacket"
 	desc = "A custom made first responder coat. Inside is a warm fabric with the name \"Ra'Mit Ma'zaira\" sewn in by the collar."
 	icon = 'icons/obj/custom_items/ramit_jacket.dmi'
+	icon_override = 'icons/obj/custom_items/ramit_jacket.dmi'
 	icon_state = "ramit_jacket"
 	item_state = "ramit_jacket"
 	contained_sprite = TRUE
@@ -1140,6 +1223,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "starvoid blindfold"
 	desc = "An ethereal purple blindfold, woven from an incredibly soft yet durable silk. The faintest of light shines through, shading your darkened vision in a haze of purple."
 	icon = 'icons/obj/custom_items/nai_items.dmi'
+	icon_override = 'icons/obj/custom_items/nai_items.dmi'
 	icon_state = "nai_fold"
 	item_state = "nai_fold"
 	contained_sprite = TRUE
@@ -1158,6 +1242,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "starvoid gloves"
 	desc = "An ethereal purple set of fingerless evening gloves, secured at the middle finger by a lace, with the palms exposed. The fabric is soft silk of some kind."
 	icon = 'icons/obj/custom_items/nai_items.dmi'
+	icon_override = 'icons/obj/custom_items/nai_items.dmi'
 	icon_state = "nai_gloves"
 	item_state = "nai_gloves"
 	contained_sprite = TRUE
@@ -1167,6 +1252,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "bedroll"
 	desc = "A portable bedroll, made of cloth and padding."
 	icon = 'icons/obj/custom_items/muhawir_items.dmi'
+	icon_override = 'icons/obj/custom_items/muhawir_items.dmi'
 	icon_state = "bedroll-rolled"
 	w_class = ITEMSIZE_NORMAL
 	attack_verb = list("battered","whacked")
@@ -1196,6 +1282,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "toolbag"
 	desc = "A roll of poles and ropes. Anybody knowledgeable would know they are designed for erecting a tent."
 	icon = 'icons/obj/custom_items/muhawir_items.dmi'
+	icon_override = 'icons/obj/custom_items/muhawir_items.dmi'
 	icon_state = "tent-tools"
 	w_class = ITEMSIZE_NORMAL
 	attack_verb = list("battered","whacked")
@@ -1204,6 +1291,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "tentroll"
 	desc = "A portable tent. All wrapped up with straps and buckles."
 	icon = 'icons/obj/custom_items/muhawir_items.dmi'
+	icon_override = 'icons/obj/custom_items/muhawir_items.dmi'
 	icon_state = "tent-rolled"
 	w_class = ITEMSIZE_NORMAL
 	attack_verb = list("battered","whacked")
@@ -1278,6 +1366,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "stellar hood"
 	desc = "A more encompassing version of the Starveil, made from a resilient xeno-silk, intended to protect not just the eyes but also the soul of the wearer."
 	icon = 'icons/obj/custom_items/djikstra_items.dmi'
+	icon_override = 'icons/obj/custom_items/djikstra_items.dmi'
 	icon_state = "djikstra_hood"
 	item_state = "djikstra_hood"
 	contained_sprite = TRUE
@@ -1288,6 +1377,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "stellar robe"
 	desc = "A finely made robe of resilient xeno-silk, shimmering like starlight."
 	icon = 'icons/obj/custom_items/djikstra_items.dmi'
+	icon_override = 'icons/obj/custom_items/djikstra_items.dmi'
 	icon_state = "djikstra_robe"
 	item_state = "djikstra_robe"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
@@ -1297,6 +1387,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "symbolic khanjbiya"
 	desc = "A xeno-silk belt carrying an ornate, but entirely symbolic, curved dagger. The blade is fused to the sheath, preventing it from being drawn."
 	icon = 'icons/obj/custom_items/djikstra_items.dmi'
+	icon_override = 'icons/obj/custom_items/djikstra_items.dmi'
 	icon_state = "djikstra_blade"
 	item_state = "djikstra_blade"
 	contained_sprite = TRUE
@@ -1306,6 +1397,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "fuzzy pink blanket"
 	desc = "A rather large, pink, fluffy blanket. It feels quite heavy, and smells slightly of saltwater."
 	icon = 'icons/obj/custom_items/naali_blanket.dmi'
+	icon_override = 'icons/obj/custom_items/naali_blanket.dmi'
 	icon_state = "naali_blanket"
 	item_state = "naali_blanket"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
@@ -1315,6 +1407,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "zavodskoi instellar specialist helmet"
 	desc = "A modified EPMC specialist helmet, with a built-in visor and HUD to access electronics and receive tactical information. It doesn't appear to serve many purposes in Biesel"
 	icon = 'icons/obj/custom_items/oscar_helmet.dmi'
+	icon_override = 'icons/obj/custom_items/oscar_helmet.dmi'
 	icon_state = "oscar_helmet"
 	item_state = "oscar_helmet"
 	contained_sprite = TRUE
@@ -1343,6 +1436,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "bouquet of chrysanthemums"
 	desc = "A bouquet of white artificial chrysanthemum flowers wrapped in a sheet of newsprint."
 	icon = 'icons/obj/custom_items/sentiment_bouquet.dmi'
+	icon_override = 'icons/obj/custom_items/sentiment_bouquet.dmi'
 	icon_state = "sentiment_bouquet"
 	item_state = "sentiment_bouquet"
 	can_hold = list(/obj/item/clothing/accessory/fluff/sentiment_flower)
@@ -1368,6 +1462,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "artificial chrysanthemum"
 	desc = "An artificial white chrysanthemum flower."
 	icon = 'icons/obj/custom_items/sentiment_bouquet.dmi'
+	icon_override = 'icons/obj/custom_items/sentiment_bouquet.dmi'
 	icon_state = "sentiment_flower"
 	item_state = "sentiment_flower"
 	contained_sprite = TRUE
@@ -1379,6 +1474,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	visible, including a darkened visor and refitted straps to keep the mask in place. On the inner side there is an ingraving of the Ioraks clan emblem, an open splayed hand with \
 	its palm facing the observer."
 	icon = 'icons/obj/custom_items/ioraks_cape.dmi'
+	icon_override = 'icons/obj/custom_items/ioraks_cape.dmi'
 	icon_state = "ioraks_mask"
 	item_state = "ioraks_mask"
 	contained_sprite = TRUE
@@ -1387,6 +1483,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "delegation armbands box"
 	desc = "A box full of team coloured armbands. It has a small picture of an Unathi's face misprinted on it."
 	icon = 'icons/obj/custom_items/ioraks_cape.dmi'
+	icon_override = 'icons/obj/custom_items/ioraks_cape.dmi'
 	icon_state = "ioraks_armbands"
 	item_state = "ioraks_armbands"
 	can_hold = list(/obj/item/clothing/accessory/armband/fluff/ioraks_armband)
@@ -1397,6 +1494,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "azszau armband"
 	desc = " A quite comfortable armband denoting its wearer as a member of the Azszau team. In fine print on the in-line of the fabric, it has \"The Skilled Hands\" worked into it."
 	icon = 'icons/obj/custom_items/ioraks_cape.dmi'
+	icon_override = 'icons/obj/custom_items/ioraks_cape.dmi'
 	icon_state = "ioraks_armband"
 	item_state = "ioraks_armband"
 	contained_sprite = TRUE
@@ -1405,6 +1503,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "kutzis armband"
 	desc = "A quite comfortable armband denoting its wearer as a member of the Kutzis team. In fine print on the in-line of the fabric, it has \"The Bright Minds\" worked into it."
 	icon = 'icons/obj/custom_items/ioraks_cape.dmi'
+	icon_override = 'icons/obj/custom_items/ioraks_cape.dmi'
 	icon_state = "ioraks_armband2"
 	item_state = "ioraks_armband2"
 
@@ -1413,6 +1512,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "akhanzi staff"
 	desc = "A staff usually carried by shamans of the Akhanzi Order. It is made out of dark, polished wood and is curved at the end."
 	icon = 'icons/obj/custom_items/suul_staff.dmi'
+	icon_override = 'icons/obj/custom_items/suul_staff.dmi'
 	icon_state = "suul_staff"
 	item_state = "suul_staff"
 	slot_flags = SLOT_BACK
@@ -1433,6 +1533,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "star sweater"
 	desc = "An army green sweater. It looks well cared for and contains a star on the front, near the neck. To those familiar with it, the star is the same symbol as one of the nation alliances' logos in Earth's history."
 	icon = 'icons/obj/custom_items/cress_items.dmi'
+	icon_override = 'icons/obj/custom_items/cress_items.dmi'
 	icon_state = "cress_sweater"
 	item_state = "cress_sweater"
 	contained_sprite = TRUE
@@ -1442,6 +1543,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "An old, slightly faded folder containing various alphabetically organized lyrics of several songs, including musical sheets for guitars. The name on the folder reads \"Hyo\". \
 			The lyrics inside have two copies each: one in Sol Common and one in Tau Ceti Basic. It generally looks to be hard rock or metal, with overall somber lyrics."
 	icon = 'icons/obj/custom_items/cress_items.dmi'
+	icon_override = 'icons/obj/custom_items/cress_items.dmi'
 	icon_state = "cress_book"
 	w_class = ITEMSIZE_SMALL
 	var/list/lyrics = list("Falling Down: A song about holding on to the last glimmer of hope. It's generally pretty motivational. The most recent song of the three.",
@@ -1457,12 +1559,13 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/modular_computer/laptop/fluff/harrow_laptop //Developer's Laptop - Danny Harrow - brainos
 	name = "developer's laptop"
-	anchored = FALSE
-	screen_on = FALSE
-	icon_state = "laptop-closed"
 	desc = "A portable computer, this one is covered edge-to-edge in stickers. Some stand out; such ones from a 2458 Game Jam, 2459 Game Jam and various title logos from obscure holovid series. Printed on the bottom panel \
 	is \"Hello, world!\" in a bright, monospace font."
 	icon = 'icons/obj/custom_items/harrow_laptop.dmi'
+	icon_override = 'icons/obj/custom_items/harrow_laptop.dmi'
+	anchored = FALSE
+	screen_on = FALSE
+	icon_state = "laptop-closed"
 
 /obj/item/modular_computer/laptop/fluff/harrow_laptop/install_default_hardware()
 	..()
@@ -1480,16 +1583,17 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "victory cape"
 	desc = "A finely crafted cape that combines Ozuha clan colors and Izweski nation colors, with inscriptions on the decorative brass paldrons reading something in Sinta'Unathi."
 	icon = 'icons/obj/custom_items/ozuha_cape.dmi'
+	icon_override = 'icons/obj/custom_items/ozuha_cape.dmi'
 	icon_state = "ozuha_cape"
 	item_state = "ozuha_cape"
 	contained_sprite = TRUE
-	icon_override = FALSE
 
 
 /obj/item/clothing/suit/storage/fluff/ulmari_coat //Aut'akh Medical Coat - Ulmari Jukal'za - soultheif96
 	name = "aut'akh medical coat"
 	desc = "A custom-made tailored coat for use in a laboratory/medical setting."
 	icon = 'icons/obj/custom_items/ulmari_coat.dmi'
+	icon_override = 'icons/obj/custom_items/ulmari_coat.dmi'
 	icon_state = "ulmari_coat"
 	item_state = "ulmari_coat"
 	contained_sprite = TRUE
@@ -1499,6 +1603,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "biochemist holocoat"
 	desc = "An Eridani Corporate Federation holocoat modelled after a standard biochemist labcoat. It is extremely well cared for."
 	icon = 'icons/obj/custom_items/mekesatis_holocoat.dmi'
+	icon_override = 'icons/obj/custom_items/mekesatis_holocoat.dmi'
 	icon_state = "mekesatis_labcoat"
 	item_state = "mekesatis_labcoat"
 	contained_sprite = TRUE
@@ -1564,6 +1669,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "resonance microphone"
 	desc = "A rather costly voice amplifier disguised as a microphone. A button on the side permits the user to dial their vocal volume with ease."
 	icon = 'icons/obj/custom_items/akinyi_symphette.dmi'
+	icon_override = 'icons/obj/custom_items/akinyi_symphette.dmi'
 	icon_state = "akinyi_mic"
 	item_state = "akinyi_mic"
 	w_class = ITEMSIZE_SMALL
@@ -1575,6 +1681,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "telescopic mic stand"
 	desc = "A fold-able telescopic microphone with a built in battery to keep your fancy science fiction microphone charged on the go."
 	icon = 'icons/obj/custom_items/akinyi_symphette.dmi'
+	icon_override = 'icons/obj/custom_items/akinyi_symphette.dmi'
 	icon_state = "akinyi_stand-collapsed"
 	item_state = "akinyi_stand-collapsed"
 	w_class = ITEMSIZE_SMALL
@@ -1640,6 +1747,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "instrument case"
 	desc = "A chunky white leather case, with lots of space inside for holding your delicate musical instruments."
 	icon = 'icons/obj/custom_items/akinyi_symphette.dmi'
+	icon_override = 'icons/obj/custom_items/akinyi_symphette.dmi'
 	icon_state = "akinyi_case"
 	item_state = "akinyi_case"
 	w_class = ITEMSIZE_LARGE
@@ -1661,6 +1769,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "brown hat"
 	desc = "A worn mid 20th century brown hat. It seems to have aged very well."
 	icon = 'icons/obj/custom_items/bell_coat.dmi'
+	icon_override = 'icons/obj/custom_items/bell_coat.dmi'
 	icon_state = "bell_hat"
 	item_state = "bell_hat"
 	contained_sprite = TRUE
@@ -1669,6 +1778,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "pinned brown coat"
 	desc = "A worn mid 20th century brown trenchcoat. If you look closely at the breast, you can see an ID flap stitched into the leather - \"Avery Bell, Silhouette Co\"."
 	icon = 'icons/obj/custom_items/bell_coat.dmi'
+	icon_override = 'icons/obj/custom_items/bell_coat.dmi'
 	icon_state = "bell_coat"
 	item_state = "bell_coat"
 	contained_sprite = TRUE
@@ -1679,6 +1789,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "detective's credentials"
 	desc = "A laminated card, verifying the denoted as a private investigator licensed in Biesel. A photo of a tan-skinned human male dressed in a brown coat and hat is imprinted."
 	icon = 'icons/obj/custom_items/bell_coat.dmi'
+	icon_override = 'icons/obj/custom_items/bell_coat.dmi'
 	icon_state = "bell_badge"
 	item_state = "bell_badge"
 	contained_sprite = TRUE
@@ -1710,16 +1821,17 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "ourean vest"
 	desc = "A  thin vest made of separate colors, this one is brown and turquoise, with something written in Sinta'Unathi on the right breast. While this is a traditional cut vest, it's made of modern machine-woven fabrics as is commonly done on Ouerea, and sized to fit a human."
 	icon = 'icons/obj/custom_items/amos_vest.dmi'
+	icon_override = 'icons/obj/custom_items/amos_vest.dmi'
 	icon_state = "amos_vest"
 	item_state = "amos_vest"
 	contained_sprite = TRUE
-	icon_override = FALSE
 
 
 /obj/item/clothing/head/fluff/rhasdrimara_veil //Noble Adhomai Veil - Rhasdrimara Rhanmrero'Arhanja - chanterelle
 	name = "noble adhomai veil"
 	desc = "An antique veil of black lace worn by noble Tajaran women during times of mourning."
 	icon = 'icons/obj/custom_items/rhasdrimara_veil.dmi'
+	icon_override = 'icons/obj/custom_items/rhasdrimara_veil.dmi'
 	icon_state = "rhasdrimara_veil"
 	item_state = "rhasdrimara_veil"
 	contained_sprite = TRUE
@@ -1729,6 +1841,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "reflective first responder jacket"
 	desc = "A jacket in an eye-blinding yellow, with flourescent green, light-reflective striping along the cuffs and bottom edge. A bright red cross rests on the front, over the heart."
 	icon = 'icons/obj/custom_items/akila_jacket.dmi'
+	icon_override = 'icons/obj/custom_items/akila_jacket.dmi'
 	icon_state = "akila_jacket"
 	item_state = "akila_jacket"
 	contained_sprite = TRUE
@@ -1749,6 +1862,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/flag/fluff/nikita_flag //Red Coalition Banner - Nikita Yutani - sycmos
 	name = "Red Coalition flag"
 	icon = 'icons/obj/custom_items/nikita_flag.dmi'
+	icon_override = 'icons/obj/custom_items/nikita_flag.dmi'
 	icon_state = "nikita_flag"
 	desc = "A high-quality copy of an original Red Coalition banner. This variant on the standard was flown by the Zelazny arcology during the Martian World War, Zelazny's origins as a \
 	mining colony represented in the center by the alchemical symbol for iron."
@@ -1769,6 +1883,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "HEV-3 helmet"
 	desc = "A Hephaestus Environmental Voidsuit variant tailored to Tajara, complete with temperature-circulation auxiliaries, spacious helmet interior to minimize friction, and complete anti-microbial filtration systems."
 	icon = 'icons/obj/custom_items/rajka_suit.dmi'
+	icon_override = 'icons/obj/custom_items/rajka_suit.dmi'
 	icon_state = "rajka_helm"
 	item_state = "rajka_helm"
 	contained_sprite = TRUE
@@ -1778,6 +1893,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "HEV-3 voidsuit"
 	desc = "A Hephaestus Environmental Voidsuit variant tailored to Tajara, complete with temperature-circulation auxiliaries, heat exchange coils, anti-friction and anti-microbial fabric, and moderate grade external reinforcement for all your industrial EVA activities."
 	icon = 'icons/obj/custom_items/rajka_suit.dmi'
+	icon_override = 'icons/obj/custom_items/rajka_suit.dmi'
 	icon_state = "rajka_suit"
 	item_state = "rajka_suit"
 	contained_sprite = TRUE
@@ -1788,6 +1904,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "holoconsole"
 	desc = "A game console capable of displaying a three-dimensional, holographic image of the player's game of choice. It's pink!"
 	icon = 'icons/obj/custom_items/qoi_console.dmi'
+	icon_override = 'icons/obj/custom_items/qoi_console.dmi'
 	icon_state = "console"
 
 	var/on = FALSE
@@ -1891,6 +2008,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "left holoconsole controller"
 	desc = "A controller for the Holoconsole, capable of folding in half and re-attaching to the machine. It's pink!"
 	icon = 'icons/obj/custom_items/qoi_console.dmi'
+	icon_override = 'icons/obj/custom_items/qoi_console.dmi'
 	icon_state = "controller"
 
 	var/datum/weakref/parent_console
@@ -1913,6 +2031,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "holoconsole case"
 	desc = "A case for the Holoconsole. This one is made of fabric, with various iron-on patches attached to it. It's pink!"
 	icon = 'icons/obj/custom_items/qoi_console.dmi'
+	icon_override = 'icons/obj/custom_items/qoi_console.dmi'
 	icon_state = "case"
 
 	var/spinned = FALSE
@@ -1965,6 +2084,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "house godard cape"
 	desc = "This is a cape in the style of Dominian nobility. This one is in the colours of House Godard."
 	icon = 'icons/obj/custom_items/godard_cape.dmi'
+	icon_override = 'icons/obj/custom_items/godard_cape.dmi'
 	icon_state = "godard_cape"
 	item_state = "godard_cape"
 	contained_sprite = TRUE
@@ -1973,6 +2093,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "leg support augment"
 	desc = "A leg augment to aid in the mobility of an otherwise disabled leg."
 	icon = 'icons/obj/custom_items/kathira_legbrace.dmi'
+	icon_override = 'icons/obj/custom_items/kathira_legbrace.dmi'
 	on_mob_icon = 'icons/obj/custom_items/kathira_legbrace.dmi'
 	icon_state = "kathira_legbrace"
 	item_state = "kathira_legbrace_onmob"
@@ -2000,6 +2121,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	than a dozen deployments. The Imperial 16th is a regiment deployed by Dominia during battles that cannot be lost, their men ensuring victories through the use of unusual and highly \
 	dangerous tactics, resulting in extremely high losses during almost all of its engagements."
 	icon = 'icons/obj/custom_items/sezrak_zippo.dmi'
+	icon_override = 'icons/obj/custom_items/sezrak_zippo.dmi'
 	icon_state = "sezrak_zippo"
 	item_state = "sezrak_zippo"
 	contained_sprite = TRUE
@@ -2010,6 +2132,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = " A pair of worn black goggles with red tinted lenses, both the Kevlar strap and polycarbonate lenses have some scuffs and scratches but they still hold up nicely. \
 	There appears to be a Zavodskoi Interstellar insignia on the strap."
 	icon = 'icons/obj/custom_items/andersen_goggles.dmi'
+	icon_override = 'icons/obj/custom_items/andersen_goggles.dmi'
 	icon_state = "andersen_goggles"
 	item_state = "andersen_goggles"
 	contained_sprite = TRUE
@@ -2019,6 +2142,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "hephaestus auto-darkening welding glasses"
 	desc = "A pair of Hephaestus produced safety glasses with the prototype incorporation of liquid crystal lenses that polarize intense light present in arc-welding."
 	icon = 'icons/obj/custom_items/mahir_glasses.dmi'
+	icon_override = 'icons/obj/custom_items/mahir_glasses.dmi'
 	icon_state = "mahir_glasses"
 	item_state = "mahir_glasses"
 	contained_sprite = TRUE
@@ -2029,6 +2153,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "An aluminum block runs the width of the dark blue plastic board, biting down on it with crocodile teeth and barely holding it together. Stuffed within the ledger, a cabbage \
 	of paperwork narrates numerous cases, most of them closed. Turning it on its back reveals the embossed letters: NT."
 	icon = 'icons/obj/custom_items/kennard_ledger.dmi'
+	icon_override = 'icons/obj/custom_items/kennard_ledger.dmi'
 	contained_sprite = TRUE
 
 
@@ -2037,6 +2162,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = " A worn, black cloak with golden adornments decorating the edges of the fabric. The insignia of the Nayrragh'Rakhan family is embedded into the custom pin holding the cloak \
 	together, and each shoulder is decorated by the representation of a yellow or blue sun - the symbols of S'rendarr and Messa. The fabric is faded, having clearly been tested by time."
 	icon = 'icons/obj/custom_items/valetzrhonaja_cloak.dmi'
+	icon_override = 'icons/obj/custom_items/valetzrhonaja_cloak.dmi'
 	icon_state = "valetzrhonaja_cloak"
 	item_state = "valetzrhonaja_cloak"
 	contained_sprite = TRUE
@@ -2056,6 +2182,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/flag/fluff/bian_flag //Coalition Fisanduh Unity Flag - Bian Quy Le - persephoneq
 	name = "coalition fisanduh unity flag"
 	icon = 'icons/obj/custom_items/bian_flag.dmi'
+	icon_override = 'icons/obj/custom_items/bian_flag.dmi'
 	icon_state = "bian_flag"
 	desc = "A well-loved flag often seen hung by those advocating for Fisanduh's legitimization and acceptance into the Coalition of Colonies."
 	flag_path = "fisanduh_coalition"
@@ -2067,6 +2194,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "An advanced golden holographic overlay chip installed into prosthetic eyes. Manufactured by Zeng-Hu for Idris Businessmen in the Eridani Corporate sector, \
 	this specific chip is engraved with a signature, and small note. \"For the man who sees my true value. With Love, Renae.\""
 	icon = 'icons/obj/custom_items/goldman_eye.dmi'
+	icon_override = 'icons/obj/custom_items/goldman_eye.dmi'
 	on_mob_icon = 'icons/obj/custom_items/goldman_eye.dmi'
 	icon_state = "goldman_eye"
 	item_state = "goldman_eye_onmob"
@@ -2093,6 +2221,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A Platinum Membership Chip with Lazarus Banking, a subsidiary of Idris Banking that focuses completely on private and anonymous banking. Membership with Lazarus is exclusive, \
 	and Membership Chips are the only way to authenticate. The chip is usually implanted near the heart in an EMP proof slot for security purposes. There is a small button on the chip."
 	icon = 'icons/obj/custom_items/goldman_eye.dmi'
+	icon_override = 'icons/obj/custom_items/goldman_eye.dmi'
 	icon_state = "goldman_chip"
 	parent_organ = BP_CHEST
 
@@ -2106,6 +2235,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "tajaran noble's suit"
 	desc = "A dark, older suit refurbished with new additions and golden buttons, embroidery, and trim. Made with silken fabric, crimson epaulette, and matching sleeve cuffs this suit is a remnant of an older time on Adhomai made new again with recent restorations."
 	icon = 'icons/obj/custom_items/rajjurl_uniform.dmi'
+	icon_override = 'icons/obj/custom_items/rajjurl_uniform.dmi'
 	icon_state = "rajjurl_uniform"
 	item_state = "rajjurl_uniform"
 	contained_sprite = TRUE
@@ -2115,6 +2245,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "tajaran silken gloves"
 	desc = "A pair of silken gloves fitted to a Tajaran hand."
 	icon = 'icons/obj/custom_items/rajjurl_uniform.dmi'
+	icon_override = 'icons/obj/custom_items/rajjurl_uniform.dmi'
 	icon_state = "rajjurl_gloves"
 	item_state = "rajjurl_gloves"
 	contained_sprite = TRUE
@@ -2123,6 +2254,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "Alqaana backpack"
 	desc = "Known for her extravagant concerts, Alqaana is one of few idols that have draw inspiration from Solarian classical music over more contemporary skrellian genres. This is her, in bag form!"
 	icon = 'icons/obj/custom_items/pax_bag.dmi'
+	icon_override = 'icons/obj/custom_items/pax_bag.dmi'
 	icon_state = "pax_bag"
 	item_state = "pax_bag"
 	contained_sprite = TRUE
@@ -2132,13 +2264,15 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A blue journal emblazoned with the New Kingdom of Adhomai's flag across the cover."
 	closed_desc = " The pages within are a mix of clearly indexed case files, and study notes alongside less clearly indexed pages that appears to be fragmented thoughts, not unlike a diary. The very first page of the journal reads “dedicated to Qirandri Mrorirhaldarr” and is signed “Mrradar Sanufar” underneath."
 	icon = 'icons/obj/custom_items/kathira_journal.dmi'
+	icon_override = 'icons/obj/custom_items/kathira_journal.dmi'
 	icon_state = "kath_journal"
 	item_state = "kath_journal"
 
-/obj/item/storage/pill_bottle/dice/fluff/suraya_dicebag //Crevan Dice Bag - Suraya Al-Zahrani - Omicega 
+/obj/item/storage/pill_bottle/dice/fluff/suraya_dicebag //Crevan Dice Bag - Suraya Al-Zahrani - Omicega
 	name = "velvet dice bag"
 	desc = "A deep purple dice bag fashioned from Adhomian velvet, with two little drawstrings to tighten the neck closed."
 	icon = 'icons/obj/custom_items/suraya_dice.dmi'
+	icon_override = 'icons/obj/custom_items/suraya_dice.dmi'
 	icon_state = "sur_dbag"
 	item_state = "sur_dbag"
 
@@ -2151,6 +2285,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "blue adhomian die"
 	desc = "A blue-and-gold wooden die with six sides, beautifully carved and delicately painted. The single dot on the number one side is, on closer inspection, a miniature image of the god Rredouane."
 	icon = 'icons/obj/custom_items/suraya_dice.dmi'
+	icon_override = 'icons/obj/custom_items/suraya_dice.dmi'
 	icon_state = "sur_b_d1"
 	base_icon = "sur_b_d"
 	favored_number = 1
@@ -2177,6 +2312,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "skull of Ulzka Dorviza"
 	desc = "This is the polished skull of a long dead Unathi. Great horns adorn either side of it, however, one of them is cracked off. In the rare instance it isn't lodged firmly in the gestalt it belongs to, it is bagged and tied up into the cowl that houses it."
 	icon = 'icons/obj/custom_items/ulzka_skull.dmi'
+	icon_override = 'icons/obj/custom_items/ulzka_skull.dmi'
 	icon_state = "ulzka_skull"
 	item_state = "ulzka_skull"
 	canremove = FALSE

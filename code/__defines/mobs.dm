@@ -364,6 +364,16 @@
 #define HEARING_DAMAGE_LIMIT 100
 #define HEARING_DAMAGE_SLOW_HEAL 25
 
+// Used by hearing sensitivity
+#define HEARING_NORMAL 0
+#define HEARING_SENSITIVE 1
+#define HEARING_VERY_SENSITIVE 2
+
+#define MACHINE_SOUND "You hear the sound of machinery"
+#define BUTTON_FLICK "You hear a click"
+#define THUNK_SOUND "You hear a THUNK"
+#define PING_SOUND "You hear a ping"
+
 //Used by emotes
 #define VISIBLE_MESSAGE 1
 #define AUDIBLE_MESSAGE 2
@@ -383,6 +393,7 @@
 #define PROSTHETIC_DIONA "Unknown Model"
 #define PROSTHETIC_AUTAKH "Aut'akh Manufactured"
 #define PROSTHETIC_TESLA "Tesla Powered Prosthetics"
+#define PROSTHETIC_VAURCA "Vaurca Robotic Limb"
 
 //Brain Damage defines
 #define BRAIN_DAMAGE_MILD 10
@@ -433,3 +444,5 @@
 #define ROBOT_PANEL_EXPOSED  "exposed"
 #define ROBOT_PANEL_CELL     "cell"
 #define ROBOT_PANEL_NO_CELL  "no cell"
+
+#define BLOOD_REGEN_RATE 0.1

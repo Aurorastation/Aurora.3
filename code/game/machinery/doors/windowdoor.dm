@@ -188,6 +188,18 @@
 			qdel(src)
 			return
 
+	if(!isliving(I))
+		if(I.iscrowbar() && user.a_intent == I_HELP)
+			if(inoperable())
+				visible_message("\The [user] forces \the [src] [density ? "open" : "closed"].")
+				if(density)
+					open(1)
+				else
+					close(1)
+			else
+				to_chat(user, SPAN_NOTICE("The windoor's motors resist your efforts to force it."))
+			return
+
 	//If it's a weapon, smash windoor. Unless it's an id card, agent card, ect.. then ignore it (Cards really shouldnt damage a door anyway)
 	if(src.density && istype(I, /obj/item) && !istype(I, /obj/item/card))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

@@ -214,3 +214,13 @@
 	else
 		to_chat(user, SPAN_NOTICE("\The [src] isn't locked down, your e-mag has no effect!"))
 		return FALSE
+
+/obj/item/clothing/accessory/badge/starlight
+	name = "starlight zone residency card"
+	desc = "A residency card given to Skrell who reside within the Starlight Zone in District Eight."
+	icon = 'icons/clothing/accessories/passcards.dmi'
+	icon_state = "resident_starlight"
+	item_state = "resident_starlight"
+	flippable = FALSE
+	v_flippable = FALSE
+	badge_string = null
