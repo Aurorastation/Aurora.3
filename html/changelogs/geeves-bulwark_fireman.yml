@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Dragging two people at once with a grab will no longer awkwardly move them in the direction you're going."
+  - rscadd: "Bulwarks can now comfortably hold grabs on two people at once, as well as fireman carrying both."

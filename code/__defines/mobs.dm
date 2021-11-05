@@ -25,7 +25,6 @@
 #define INCORPOREAL_SHADE   4 // Shady
 #define INCORPOREAL_MECH    5 // stripped down bstech
 
-#define MOB_GRAB_NONE 0
 #define MOB_GRAB_NORMAL 1
 #define MOB_GRAB_FIREMAN 2
 
