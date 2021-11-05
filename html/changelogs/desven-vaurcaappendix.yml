@@ -1,0 +1,6 @@
+author: Desven, Xev
+delete-after: True
+changes:
+  - rscadd: "Added descriptions for some Vaurca organs."
+  - rscadd: "Added a unique sprite for the Vaurca stomach."
+  - rscadd: "Added a Vaurca appendix and the option to remove it in the character creation."
