@@ -122,7 +122,7 @@
 								else
 									contents.Add(0)
 
-					if(!(istype(tankcheck[i], /obj/item/organ/vaurca/preserve)) & !(istype(tankcheck[i], /obj/item/tank)))
+					if(!istype(tankcheck[i], /obj/item/organ/vaurca/preserve) && !istype(tankcheck[i], /obj/item/tank))
 						//no tank so we set contents to 0
 						contents.Add(0)
 

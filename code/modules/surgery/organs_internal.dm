@@ -52,7 +52,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
 	for(var/obj/item/organ/internal/I in affected.internal_organs)
-		if(I && I.damage > 0 && !BP_IS_ROBOTIC(I) && (!I.status & ORGAN_DEAD || I.can_recover()))
+		if(I && I.damage > 0 && !BP_IS_ROBOTIC(I) && (!(I.status & ORGAN_DEAD) || I.can_recover()))
 			user.visible_message("[user] starts treating damage to [target]'s [I.name] with [tool_name].", \
 			"You start treating damage to [target]'s [I.name] with [tool_name]." )
 	target.custom_pain("The pain in your [affected.name] is living hell!",100, affecting = affected)

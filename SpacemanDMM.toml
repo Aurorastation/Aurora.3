@@ -1,2 +1,5 @@
 [debugger]
 engine = "auxtools"
+
+[langserver]
+dreamchecker = true

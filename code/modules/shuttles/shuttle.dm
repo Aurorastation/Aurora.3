@@ -87,19 +87,21 @@
 	callHook("shuttle_moved", list(start_location,destination))
 	if(sound_takeoff)
 		playsound(current_location, sound_takeoff, 50, 20, is_global = TRUE)
-	spawn(warmup_time*10)
-		if(moving_status == SHUTTLE_IDLE)
-			return FALSE	//someone cancelled the launch
+	addtimer(CALLBACK(src, .proc/do_short_jump, destination), warmup_time SECONDS)
 
-		if(!fuel_check()) //fuel error (probably out of fuel) occured, so cancel the launch
-			var/datum/shuttle/autodock/S = src
-			if(istype(S))
-				S.cancel_launch(null)
-			return
+/datum/shuttle/proc/do_short_jump(var/obj/effect/shuttle_landmark/destination)
+	if(moving_status == SHUTTLE_IDLE)
+		return FALSE	//someone cancelled the launch
 
-		moving_status = SHUTTLE_INTRANSIT //shouldn't matter but just to be safe
-		attempt_move(destination)
-		moving_status = SHUTTLE_IDLE
+	if(!fuel_check()) //fuel error (probably out of fuel) occured, so cancel the launch
+		var/datum/shuttle/autodock/S = src
+		if(istype(S))
+			S.cancel_launch(null)
+		return
+
+	moving_status = SHUTTLE_INTRANSIT //shouldn't matter but just to be safe
+	attempt_move(destination)
+	moving_status = SHUTTLE_IDLE
 
 /datum/shuttle/proc/long_jump(var/obj/effect/shuttle_landmark/destination, var/obj/effect/shuttle_landmark/interim, var/travel_time)
 	if(moving_status != SHUTTLE_IDLE)

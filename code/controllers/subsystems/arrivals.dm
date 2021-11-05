@@ -21,7 +21,7 @@
 		// Timing.
 		if (world.time >= launch_time)	//time to launch the shuttle
 			stop_launch_countdown()
-			shuttle.try_jump()
+			addtimer(CALLBACK(shuttle, /datum/shuttle/autodock/ferry/arrival.proc/try_jump), shuttle.warmup_time SECONDS)
 			for(var/thing in current_mobs)
 				var/mob/living/carbon/human/M = locate(thing)
 				if (istype(M) && M.centcomm_despawn_timer)
