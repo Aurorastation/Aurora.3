@@ -9,7 +9,7 @@
     slot_flags = SLOT_HEAD | SLOT_EARS
     species_restricted = list(BODYTYPE_VAURCA_BULWARK)
 
-/obj/item/clothing/ears/bandanna/get_ear_examine_text(var/mob/user, var/ear_text = "left")
+/obj/item/clothing/ears/bulwark/get_ear_examine_text(var/mob/user, var/ear_text = "left")
     return "around [user.get_pronoun("his")] horns"
 
 /obj/item/clothing/ears/bulwark/rings
