@@ -216,9 +216,13 @@
 	assign_drone_to_matrix(src, matrix_tag)
 	master_matrix.message_drones(MATRIX_NOTICE("Energy surges through your circuits. The matriarch has come online."))
 
+/mob/living/silicon/robot/drone/construction/matriarch/do_possession(mob/abstract/observer/possessor)
+	. = ..()
+	SSghostroles.remove_spawn_atom("matriarchmaintdrone", src)
+
 /mob/living/silicon/robot/drone/construction/matriarch/ghostize(can_reenter_corpse, should_set_timer)
 	. = ..()
-	if(stat == DEAD)
+	if(can_reenter_corpse || stat == DEAD)
 		return
 	if(src in mob_list) // needs to exist to reopen spawn atom
 		if(master_matrix)

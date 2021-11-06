@@ -119,3 +119,11 @@
 	name = "security labcoat"
 	desc = "A suit that protects against minor chemical spills. Has a dark blue stripe on the shoulder."
 	icon_state = "labcoat_sec"
+
+/obj/item/clothing/suit/storage/toggle/labcoat/idris
+	name = "idris labcoat"
+	desc = "A suit that protects against minor chemical spills. Comes in Idris colours."
+	icon_state = "labcoat_idris"
+
+/obj/item/clothing/suit/storage/toggle/labcoat/idris/alt
+	icon_state = "labcoat_idris_alt"
