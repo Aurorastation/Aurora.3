@@ -2317,3 +2317,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "ulzka_skull"
 	canremove = FALSE
 	contained_sprite = TRUE
+
+/obj/item/organ/internal/augment/synthetic_cords/voice/fluff/marc //Old Synthetic Vocal Cords - Marc Hardy - Dekser
+    name = "old synthetic vocal cords"
+    desc = "A set of Old Age Synthetic Vocal Cords. They look barely functional."
