@@ -1,0 +1,6 @@
+author: dekser
+
+delete-after: True
+
+changes:
+  - rscadd: "Added unique sprites for Unathi organs."
