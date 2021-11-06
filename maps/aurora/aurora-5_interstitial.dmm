@@ -4077,7 +4077,7 @@
 	},
 /obj/machinery/firealarm/west,
 /obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Psychaitry Patient Room";
+	c_tag = "Medical - Psychiatry Patient Room";
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/green{
