@@ -4,9 +4,7 @@
       <h2>Vote: {{question}}</h2>
       Time Left: {{reman}} s<hr>
 
-      <template v-if="extra_information">
-        <p><b>{{extra_information}}</b></p>
-      </template>
+      <p v-if="extra_information"><b>{{extra_information}}</b></p>
 
       <table>
         <tr>
