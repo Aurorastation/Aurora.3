@@ -99,6 +99,16 @@
 		"Your scales bristle against the cold."
 		)
 
+	has_organ = list(
+        BP_BRAIN =    /obj/item/organ/internal/brain/unathi,
+        BP_HEART =    /obj/item/organ/internal/heart/unathi,
+        BP_LIVER =    /obj/item/organ/internal/liver/unathi,
+        BP_LUNGS =    /obj/item/organ/internal/lungs/unathi,
+        BP_KIDNEYS =    /obj/item/organ/internal/kidneys/unathi,
+        BP_STOMACH =    /obj/item/organ/internal/stomach/unathi,
+        BP_EYES =    /obj/item/organ/internal/eyes/unathi,
+    )
+
 	pain_emotes_with_pain_level = list(
 			list(/decl/emote/audible/wheeze, /decl/emote/audible/roar, /decl/emote/audible/bellow) = 80,
 			list(/decl/emote/audible/grunt, /decl/emote/audible/groan, /decl/emote/audible/wheeze, /decl/emote/audible/hiss) = 50,
