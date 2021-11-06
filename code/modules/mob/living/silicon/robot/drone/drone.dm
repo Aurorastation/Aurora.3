@@ -182,7 +182,7 @@
 
 /mob/living/silicon/robot/drone/construction/process_level_restrictions()
 	//Abort if they should not get blown
-	if(lock_charge || scrambled_codes || emagged || (master_matrix && !master_matrix.process_level_restrictions))
+	if(lock_charge || scrambled_codes || emagged)
 		return FALSE
 	//Check if they are not on a station level -> else abort
 	var/turf/T = get_turf(src)
@@ -419,7 +419,7 @@
 //DRONE LIFE/DEATH
 /mob/living/silicon/robot/drone/process_level_restrictions()
 	//Abort if they should not get blown
-	if(lock_charge || scrambled_codes || emagged || (master_matrix && !master_matrix.process_level_restrictions))
+	if(lock_charge || scrambled_codes || emagged)
 		return FALSE
 	var/turf/T = get_turf(src)
 	var/area/A = get_area(T)

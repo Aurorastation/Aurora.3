@@ -5,8 +5,6 @@ var/global/list/drone_matrices = list()
 	var/datum/weakref/matriarch
 	var/list/datum/weakref/drones = list()
 
-	var/process_level_restrictions = TRUE
-
 	var/upgrades_remaining = 2
 	var/list/bought_upgrades
 

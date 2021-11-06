@@ -41,9 +41,6 @@
 		for(var/upgrade in DM.bought_upgrades)
 			dat += " - [upgrade]<br>"
 
-	dat += "<h2>Directives</h2>"
-	dat += "<b>Area Restriction:</b> [DM.process_level_restrictions ? "Enabled" : "Disabled"]<br>"
-
 	var/datum/browser/matrix_win = new(src, "matrixinfo", "Matrix Information", 250, 350)
 	matrix_win.set_content(dat)
 	matrix_win.open()
@@ -58,18 +55,6 @@
 		return
 
 	to_chat(src, SPAN_NOTICE("Matrix upgrades active on chassis: [english_list(matrix_upgrades)]"))
-
-/mob/living/silicon/robot/drone/construction/matriarch/verb/toggle_matrix_level_restrictions()
-	set name = "Toggle Matrix Level Restrictions"
-	set desc = "Set whether the drones in your matrix should self destruct when they leave station areas."
-	set category = "Matrix"
-
-	if(!master_matrix)
-		to_chat(src, SPAN_WARNING("You do not belong to a matrix!"))
-		return
-
-	master_matrix.process_level_restrictions = !master_matrix.process_level_restrictions
-	master_matrix.message_drones(MATRIX_NOTICE("Matrix Update: Drones within this matrix will [master_matrix.process_level_restrictions ? "now" : "no longer"] self destruct when leaving standard operational areas."))
 
 /mob/living/silicon/robot/drone/construction/matriarch/verb/select_matrix_upgrades()
 	set name = "Select Matrix Upgrades"
