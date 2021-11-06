@@ -12,6 +12,9 @@
 /obj/item/clothing/ears/bulwark/get_ear_examine_text(var/mob/user, var/ear_text = "left")
     return "around [user.get_pronoun("his")] horns"
 
+/obj/item/clothing/ears/bulwark/get_head_examine_text(var/mob/user)
+    return "around [user.get_pronoun("his")] horns"
+
 /obj/item/clothing/ears/bulwark/rings
     name = "bulwark horn rings"
     desc = "Rings worn by Bulwarks to decorate their horns."
