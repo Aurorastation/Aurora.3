@@ -2349,6 +2349,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 		var/obj/item/clothing/S = src
 		if(LAZYLEN(S.accessories))
 			K = locate() in S.accessories
+	if(!K)
+		return
 
 	usr.visible_message(SPAN_NOTICE("[usr] swiftly pulls \the [K] inside out, changing its appearance."))
 	K.icon_state = "[K.changed ? initial(K.icon_state) : K.style]"
