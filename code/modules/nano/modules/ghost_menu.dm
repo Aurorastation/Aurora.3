@@ -21,7 +21,7 @@
 	if(!data)
 		data = list()
 
-	var/list/menu_info = list()
+	var/list/ghosts = list()
 
 	var/list/names = list()
 	var/list/namecounts = list()
@@ -57,12 +57,9 @@
 					category = M.mind.special_role
 			if(!category)
 				category = "Alive"
-		if(menu_info[category])
-			menu_info[category] += list(list("name" = name, "ref" = ref(M))) // this is how to add a list to a list without them merging
-		else
-			menu_info[category] = list(list("name" = name, "ref" = ref(M)))
+		ghosts += list(list("name" = name, "ref" = ref(M), "category" = category))
 
-	data["menuinfo"] = sort_categories(menu_info)
+	data["ghosts"] = ghosts
 	return data
 
 /datum/vueui_module/ghost_menu/proc/sort_categories(var/list/menu_info)
@@ -78,5 +75,5 @@
 	for(var/ordered_category in ordered_categories)
 		if(menu_info[ordered_category])
 			sorted_menu_info[ordered_category] = menu_info[ordered_category]
-	
+
 	return sorted_menu_info
