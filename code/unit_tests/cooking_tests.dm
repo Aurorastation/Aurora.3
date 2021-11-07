@@ -29,10 +29,13 @@
 			continue
 
 		var/list/tags = list(ktag)
+
+		// Fuck you asfaghewqWAFAWE
+		// See /decl/recipe/proc/check_fruit(...) in recipe.dm for why
 		if(S.get_trait(TRAIT_FLESH_COLOUR))
-			// Fuck you asfaghewqWAFAWE
 			tags += "[ktag] slice"
 			tags += "dried [ktag] slice"
+		tags += "dried [ktag]"
 
 		for(var/tag in tags)
 			if(!(tag in tags_available))
