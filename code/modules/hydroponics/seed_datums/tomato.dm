@@ -65,6 +65,7 @@
 	display_name = "blue tomato plant"
 	mutants = list("bluespacetomato")
 	chems = list(/decl/reagent/nutriment = list(1,20), /decl/reagent/lube = list(1,5))
+	kitchen_tag = "bluespacetomato"
 
 /datum/seed/tomato/blue/setup_traits()
 	..()
