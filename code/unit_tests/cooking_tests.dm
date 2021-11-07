@@ -17,6 +17,7 @@
 	var/list/not_found = list()
 
 	var/n_found = 0
+	var/n_affected = 0
 
 	var/ktag
 	for(var/datum/seed/S in SSplants.seeds)
@@ -37,6 +38,7 @@
 	for(var/tag in tags_required)
 		if(!(tag in tags_available))
 			not_found += tag
+			n_affected += length(tags_required[tag])
 		else
 			tags_in_use[tag] = TRUE
 
@@ -49,24 +51,25 @@
 		else
 			n_found += 1
 
-	var/n_unused = length(available_tags) - n_found
+	var/n_available = length(tags_available)
+	var/n_unused = n_available - n_found
 	if(length(not_found))
 		for (var/tag in not_found)
 			var/lstr = english_list(tags_required[tag])
 			log_unit_test(
-				"[ascii_red]--------------- Undefined '[tag]', required by [ltr]![ascii_reset]"
+				"[ascii_red]--------------- Undefined '[tag]', required by [lstr]![ascii_reset]"
 			)
 
-		var/msg = "[length(not_found)] of [length(recipes)] could not find [len(not_found)] tags!"
+		var/msg = "[n_affected] of [length(recipes)] could not find [length(not_found)] tags!"
 		if(n_unused)
-			msg += " With [length(available_tags) - n_found] unsued tags found."
+			msg += " With [n_unused] unsued tags found."
 		else
 			msg += " With no unused tags."
 		fail(msg)
 	else
 		var/msg = "All [length(recipes)] recipes could find all [n_found] needed tags!"
 		if(n_unused)
-			msg += " With [length(available_tags) - n_found] unsued tags found."
+			msg += " With [n_unused] unsued tags found."
 		else
 			msg += " With no unused tags."
 		pass(msg)
