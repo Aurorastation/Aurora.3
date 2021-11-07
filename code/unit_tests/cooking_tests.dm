@@ -2,7 +2,6 @@
  *  Unit Tests for recipes used in cooking.
  */
 
-
 /*
  * As long strings are used in the '/decl/recipe's, this test is absolutely necessary
  */
@@ -20,7 +19,8 @@
 	var/n_affected = 0
 
 	var/ktag
-	for(var/datum/seed/S in SSplants.seeds)
+	for(var/seed_name in SSplants.seeds)
+		var/datum/seed/S = SSplants.seeds[seed_name]
 		ktag = S.kitchen_tag
 		if(!(ktag in tags_available))
 			tags_available[ktag] = list()
