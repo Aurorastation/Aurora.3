@@ -2319,5 +2319,54 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 /obj/item/organ/internal/augment/synthetic_cords/voice/fluff/marc //Old Synthetic Vocal Cords - Marc Hardy - Dekser
-    name = "old synthetic vocal cords"
-    desc = "A set of Old Age Synthetic Vocal Cords. They look barely functional."
+	name = "old synthetic vocal cords"
+	desc = "A set of Old Age Synthetic Vocal Cords. They look barely functional."
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira
+	name = "handsewn Idris cloak"
+	desc = "A carefully handsewn cloak proudly emblazoned with the symbol of Idris Banking in silver treading and the words ‘Astronomical Figures. Unlimited Power.’ Embroidered beneath it.\nOn close examination, the inside of the cloak appears to be colored differently."
+	icon = 'icons/obj/custom_items/kathira_cloak.dmi'
+	icon_override = 'icons/obj/custom_items/kathira_cloak.dmi'
+	icon_state = "idris_cloak"
+	item_state = "idris_cloak"
+	var/style = "nka_cloak"
+	var/name2 = "handmade royalist cloak"
+	var/desc2 = "A blue cloak with the symbol of the New Kingdom of Adhomai proudly displayed on the back.\nUpon closer examination it appears to be a patchwork of older textile and newer fabrics, with the inside of the cloak appearing to be colored differently"
+	var/changed = FALSE
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira/verb/change_cloak()
+	set name = "Change Cloak"
+	set category = "Object"
+	set src in usr
+
+	if(use_check_and_message(usr))
+		return
+
+	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira/K = null
+	if(istype(src, /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira))
+	if(!K && isclothing(src))
+		var/obj/item/clothing/S = src
+		if(LAZYLEN(S.accessories))
+			K = locate() in S.accessories
+
+	usr.visible_message(SPAN_NOTICE("[usr] swiftly pulls \the [K] inside out, changing its appearance."))
+	K.icon_state = "[K.changed ? initial(K.icon_state) : K.style]"
+	K.item_state = K.icon_state
+	K.name = "[K.changed ? initial(K.name) : K.name2]"
+	K.desc = "[K.changed ? initial(K.desc) : K.desc2]"
+	K.accessory_mob_overlay = null
+
+	K.changed = !K.changed
+	K.update_icon()
+	usr.update_icon()
+	usr.update_inv_w_uniform()
+	usr.update_inv_wear_suit()
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira/on_attached(obj/item/clothing/S, mob/user as mob)
+	..()
+	has_suit.verbs += /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira/verb/change_cloak
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira/on_removed(mob/user as mob)
+	if(has_suit)
+		has_suit.verbs -= /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira/verb/change_cloak
+	..()
