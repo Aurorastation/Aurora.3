@@ -2322,7 +2322,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "old synthetic vocal cords"
 	desc = "A set of Old Age Synthetic Vocal Cords. They look barely functional."
 
-/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira // Handsewn Idris Cloak - Kathira El-Hashem - TheGreyWolf
 	name = "handsewn Idris cloak"
 	desc = "A carefully handsewn cloak proudly emblazoned with the symbol of Idris Banking in silver treading and the words ‘Astronomical Figures. Unlimited Power.’ Embroidered beneath it.\nOn close examination, the inside of the cloak appears to be colored differently."
 	icon = 'icons/obj/custom_items/kathira_cloak.dmi'
