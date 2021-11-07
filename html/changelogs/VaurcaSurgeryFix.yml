@@ -1,7 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - bugfix: "Vaurca head & chest no longer needs to be sawed through in surgery."
-  - bugfix: "Vaurca are no longer permanently blind when flashed. It can be fixed through surgery or by applying oculine."
