@@ -2344,6 +2344,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = null
 	if(istype(src, /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak))
+		K = src
 	if(!K && isclothing(src))
 		var/obj/item/clothing/S = src
 		if(LAZYLEN(S.accessories))
