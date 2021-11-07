@@ -2322,7 +2322,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "old synthetic vocal cords"
 	desc = "A set of Old Age Synthetic Vocal Cords. They look barely functional."
 
-/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira // Handsewn Idris Cloak - Kathira El-Hashem - TheGreyWolf
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak // Handsewn Idris Cloak - Kathira El-Hashem - TheGreyWolf
 	name = "handsewn Idris cloak"
 	desc = "A carefully handsewn cloak proudly emblazoned with the symbol of Idris Banking in silver treading and the words ‘Astronomical Figures. Unlimited Power.’ Embroidered beneath it.\nOn close examination, the inside of the cloak appears to be colored differently."
 	icon = 'icons/obj/custom_items/kathira_cloak.dmi'
@@ -2334,7 +2334,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	var/desc2 = "A blue cloak with the symbol of the New Kingdom of Adhomai proudly displayed on the back.\nUpon closer examination it appears to be a patchwork of older textile and newer fabrics, with the inside of the cloak appearing to be colored differently"
 	var/changed = FALSE
 
-/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira/verb/change_cloak()
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_cloak()
 	set name = "Change Cloak"
 	set category = "Object"
 	set src in usr
@@ -2342,8 +2342,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if(use_check_and_message(usr))
 		return
 
-	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira/K = null
-	if(istype(src, /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira))
+	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = null
+	if(istype(src, /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak))
 	if(!K && isclothing(src))
 		var/obj/item/clothing/S = src
 		if(LAZYLEN(S.accessories))
@@ -2362,11 +2362,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 	usr.update_inv_w_uniform()
 	usr.update_inv_wear_suit()
 
-/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira/on_attached(obj/item/clothing/S, mob/user as mob)
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/on_attached(obj/item/clothing/S, mob/user as mob)
 	..()
-	has_suit.verbs += /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira/verb/change_cloak
+	has_suit.verbs += /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_cloak
 
-/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira/on_removed(mob/user as mob)
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/on_removed(mob/user as mob)
 	if(has_suit)
-		has_suit.verbs -= /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira/verb/change_cloak
+		has_suit.verbs -= /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_cloak
 	..()
