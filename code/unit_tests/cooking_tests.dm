@@ -8,6 +8,9 @@
 /datum/unit_test/cooking_recipes_fruits
 	name = "COOKING: Check recipe fruit tags"
 
+	// In case you want to see all the unused tags. Disabled by default because holy shit so many.
+	var/print_all_unused_tags = FALSE
+
 /datum/unit_test/cooking_recipes_fruits/start_test()
 	var/list/tags_available = list()
 	var/list/tags_in_use = list()
@@ -22,10 +25,20 @@
 	for(var/seed_name in SSplants.seeds)
 		var/datum/seed/S = SSplants.seeds[seed_name]
 		ktag = S.kitchen_tag
-		if(!(ktag in tags_available))
-			tags_available[ktag] = list()
-			tags_in_use[ktag] = FALSE
-		tags_available[ktag] += S.type
+		if(!ktag || !length(ktag))
+			continue
+
+		var/list/tags = list(ktag)
+		if(S.get_trait(TRAIT_FLESH_COLOUR))
+			// Fuck you asfaghewqWAFAWE
+			tags += "[ktag] slice"
+			tags += "dried [ktag] slice"
+
+		for(var/tag in tags)
+			if(!(tag in tags_available))
+				tags_available[tag] = list()
+				tags_in_use[tag] = FALSE
+			tags_available[tag] += S.type
 
 	var/list/recipes = decls_repository.get_decls_of_subtype(/decl/recipe)
 	for(var/rtype in recipes)
@@ -45,10 +58,11 @@
 
 	for(var/tag in tags_in_use)
 		if(!tags_in_use[tag]) // is unused
-			var/lstr = english_list(tags_available[tag])
-			log_unit_test(
-				"[ascii_yellow]--------------- Unused '[tag]', defined by [lstr].[ascii_reset]"
-			)
+			if(print_all_unused_tags)
+				var/lstr = english_list(tags_available[tag])
+				log_unit_test(
+					"[ascii_yellow]--------------- Unused '[tag]', defined by [lstr].[ascii_reset]"
+				)
 		else
 			n_found += 1
 
