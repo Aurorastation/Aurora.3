@@ -488,6 +488,9 @@
 		if(E && istype(E))
 			if(E.damage > 0)
 				E.damage = max(E.damage - 5 * removed, 0)
+		if(isvaurca(H))
+			if(E.damage < E.min_broken_damage && H.sdisabilities & BLIND)
+				H.sdisabilities -= BLIND
 
 /decl/reagent/oculine/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()

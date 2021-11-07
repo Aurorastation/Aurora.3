@@ -340,6 +340,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 
 /obj/item/organ/external/chest/vaurca
 	limb_flags = 0
+	encased = null
 
 /obj/item/organ/external/groin/vaurca
 	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_MAIM
@@ -370,3 +371,4 @@ obj/item/organ/vaurca/neuralsocket/process()
 
 /obj/item/organ/external/head/vaurca
 	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_MAIM
+	encased = null
