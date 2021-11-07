@@ -27,8 +27,9 @@
 			tags_in_use[ktag] = FALSE
 		tags_available[ktag] += S.type
 
-	var/list/decl/recipe/recipes = decls_repository.get_decls_of_subtype(/decl/recipe)
-	for(var/decl/recipe/R in recipes)
+	var/list/recipes = decls_repository.get_decls_of_subtype(/decl/recipe)
+	for(var/rtype in recipes)
+		var/decl/recipe/R = decls_repository.get_decl(rtype)
 		if(R.fruit && length(R.fruit))
 			for(var/tag in R.fruit)
 				if(!(tag in tags_required))
