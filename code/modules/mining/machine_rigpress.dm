@@ -1,6 +1,9 @@
 /obj/machinery/mineral/rigpress
 	name = "hardsuit module press"
 	desc = "This machine converts certain items permanently into hardsuit modules."
+	desc_info = "The following devices can be made:\nJetpack = maneuvering jets\nOre detector = ore scanner module \
+	\nDrill = Hardsuit drill mount\nPlasma cutter = hardsuit plasma cutter\nDiamond pickaxe = hardsuit diamond drill mount \
+	\nThermal drill = hardsuit thermal drill"
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "coinpress0"
 	density = TRUE

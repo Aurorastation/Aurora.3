@@ -1,0 +1,6 @@
+author: TheGreywolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds an extended description to the hoist, idris ordering terminal and hardsuit module press to help explain how to use them."
