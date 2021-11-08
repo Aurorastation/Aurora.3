@@ -1734,14 +1734,14 @@ Follow by example and make good judgement based on length which list to include 
 	icon = 'icons/mob/hair_gradients.dmi'
 	species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,
 		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,
-		/datum/species/skrell, /datum/species/skrell/axiori, /datum/species/zombie/skrell, /datum/species/bug, /datum/species/bug/type_b, /datum/species/bug/type_e)
+		/datum/species/skrell, /datum/species/skrell/axiori, /datum/species/zombie/skrell, /datum/species/bug, /datum/species/bug/type_b)
 
 	none
 		name = "None"
 		icon_state = "none"
 		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi,
 		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell, /datum/species/bug,
-		/datum/species/bug/type_b, /datum/species/bug/type_e)
+		/datum/species/bug/type_b)
 
 	fade_up
 		name = "Fade (Up)"
@@ -1785,6 +1785,12 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Skrell Spots"
 		icon_state = "skrell_gradient_spots"
 		species_allowed = list(/datum/species/skrell, /datum/species/skrell/axiori)
+
+	bulwark_default
+		name = "Bulwark Horn"
+		icon = "icons/mob/base_48.dmi"
+		icon_state = "blank"
+		species_allowed = list(/datum/species/bug/type_e)
 
 /*
 ///////////////////////////////////
@@ -2920,7 +2926,7 @@ Follow by example and make good judgement based on length which list to include 
 			length = 2
 
 //Bulwark antennae
-	bulwark_classic 
+	bulwark_classic
 		icon = 'icons/mob/human_face/bulwark_hair.dmi'
 		name = "Classic Antennae"
 		icon_state = "bully_classic"
@@ -2933,14 +2939,14 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "bully_inj_left"
 			chatname = "antenna"
 			length = 1
-		
-		bulwark_damaged_right 
+
+		bulwark_damaged_right
 			name = "Injured Antenna, Right"
 			icon_state = "bully_inj_right"
 			chatname = "antenna"
 			length = 1
 
-		bulwark_knight 
+		bulwark_knight
 			name = "Knight Antennae"
 			icon_state = "bully_knight"
 			chatname = "antennae"
@@ -2975,13 +2981,13 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "bully_stag"
 			chatname = "antennae"
 			length = 5
-		
+
 		bulwark_rhino
 			name = "Rhinoceros Antenna"
 			icon_state = "bully_rhino"
 			chatname = "antenna"
 			length = 5
-		
+
 		bulwark_ladybug
 			name = "Ladybug Antennae"
 			icon_state = "bully_ladybug"
