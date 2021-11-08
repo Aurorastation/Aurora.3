@@ -106,7 +106,7 @@
         BP_LUNGS =    /obj/item/organ/internal/lungs/unathi,
         BP_KIDNEYS =    /obj/item/organ/internal/kidneys/unathi,
         BP_STOMACH =    /obj/item/organ/internal/stomach/unathi,
-        BP_EYES =    /obj/item/organ/internal/eyes/unathi,
+        BP_EYES =    /obj/item/organ/internal/eyes/unathi
     )
 
 	pain_emotes_with_pain_level = list(
