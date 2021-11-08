@@ -1,0 +1,7 @@
+author: Desven, martinlyra
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed gradient issue affecting Vaurca Bulwarks"
+  - bugfix: "Fixed missing antennae styles for Vaurca Bulwarks"
