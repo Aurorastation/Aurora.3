@@ -1734,14 +1734,14 @@ Follow by example and make good judgement based on length which list to include 
 	icon = 'icons/mob/hair_gradients.dmi'
 	species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,
 		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,
-		/datum/species/skrell, /datum/species/skrell/axiori, /datum/species/zombie/skrell, /datum/species/bug, /datum/species/bug/type_b, /datum/species/bug/type_e)
+		/datum/species/skrell, /datum/species/skrell/axiori, /datum/species/zombie/skrell, /datum/species/bug, /datum/species/bug/type_b)
 
 	none
 		name = "None"
 		icon_state = "none"
 		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi,
 		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell, /datum/species/bug,
-		/datum/species/bug/type_b, /datum/species/bug/type_e)
+		/datum/species/bug/type_b)
 
 	fade_up
 		name = "Fade (Up)"
@@ -2922,26 +2922,26 @@ Follow by example and make good judgement based on length which list to include 
 //Bulwark antennae
 	bulwark_classic 
 		icon = 'icons/mob/human_face/bulwark_hair.dmi'
-		name = "Classic Antennae"
+		name = "Bulwark Classic Antennae"
 		icon_state = "bully_classic"
 		species_allowed = list(/datum/species/bug/type_e)
 		gender = NEUTER
 		chatname = "antennae"
 
 		bulwark_damaged_left
-			name = "Injured Antenna, Left"
+			name = "Bulwark Injured Antenna, Left"
 			icon_state = "bully_inj_left"
 			chatname = "antenna"
 			length = 1
 		
 		bulwark_damaged_right 
-			name = "Injured Antenna, Right"
+			name = "Bulwark Injured Antenna, Right"
 			icon_state = "bully_inj_right"
 			chatname = "antenna"
 			length = 1
 
 		bulwark_knight 
-			name = "Knight Antennae"
+			name = "Bulwark Knight Antennae"
 			icon_state = "bully_knight"
 			chatname = "antennae"
 			length = 2
