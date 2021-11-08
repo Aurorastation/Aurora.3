@@ -1,8 +1,0 @@
-author: martinlyra
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed the recipe for dyn pozole"
-  - bugfix: "Fixed the recipe for bluespace tomato soup"
-  - backend: "Cooking recipes and fruits' kitchen tags are now unit-tested to prevent similar bugs with dyn pozole and bluespace tomato soup from happening again."
