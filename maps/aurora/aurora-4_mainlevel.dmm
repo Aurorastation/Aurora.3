@@ -34180,6 +34180,7 @@
 	},
 /obj/item/circuitboard/arcade/battle,
 /obj/item/circuitboard/arcade/orion_trail,
+/obj/item/circuitboard/research_shuttle,
 /turf/simulated/floor/plating,
 /area/storage/tech)
 "bhj" = (

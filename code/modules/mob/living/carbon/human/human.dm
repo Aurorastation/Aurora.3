@@ -2012,6 +2012,10 @@
 		if(rig.speech && rig.speech.voice_holder && rig.speech.voice_holder.active && rig.speech.voice_holder.current_accent)
 			used_accent = rig.speech.voice_holder.current_accent
 
+	var/obj/item/organ/internal/augment/synthetic_cords/voice/aug = internal_organs_by_name[BP_AUG_ACC_CORDS] //checks for augments, thanks grey
+	if(aug)
+		used_accent = aug.accent
+	
 	for(var/obj/item/gear in list(wear_mask,wear_suit,head)) //checks for voice changers masks now
 		if(gear)
 			var/obj/item/voice_changer/changer = locate() in gear

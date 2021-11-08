@@ -80,7 +80,7 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 	priority_announcement.Announce(txt,"SUPERMATTER CASCADE DETECTED")
 
 	for(var/obj/machinery/computer/shuttle_control/C in SSmachinery.processing_machines)
-		if(istype(C, /obj/machinery/computer/shuttle_control/research) || istype(C, /obj/machinery/computer/shuttle_control/mining))
+		if(istype(C, /obj/machinery/computer/shuttle_control/multi/research) || istype(C, /obj/machinery/computer/shuttle_control/mining))
 			C.req_access = list()
 			C.req_one_access = list()
 
