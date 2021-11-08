@@ -2928,26 +2928,26 @@ Follow by example and make good judgement based on length which list to include 
 //Bulwark antennae
 	bulwark_classic
 		icon = 'icons/mob/human_face/bulwark_hair.dmi'
-		name = "Classic Antennae"
+		name = "Bulwark Classic Antennae"
 		icon_state = "bully_classic"
 		species_allowed = list(/datum/species/bug/type_e)
 		gender = NEUTER
 		chatname = "antennae"
 
 		bulwark_damaged_left
-			name = "Injured Antenna, Left"
+			name = "Bulwark Injured Antenna, Left"
 			icon_state = "bully_inj_left"
 			chatname = "antenna"
 			length = 1
-
-		bulwark_damaged_right
-			name = "Injured Antenna, Right"
+		
+		bulwark_damaged_right 
+			name = "Bulwark Injured Antenna, Right"
 			icon_state = "bully_inj_right"
 			chatname = "antenna"
 			length = 1
 
-		bulwark_knight
-			name = "Knight Antennae"
+		bulwark_knight 
+			name = "Bulwark Knight Antennae"
 			icon_state = "bully_knight"
 			chatname = "antennae"
 			length = 2

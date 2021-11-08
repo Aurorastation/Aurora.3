@@ -196,7 +196,7 @@
 	canvas_icon = 'icons/mob/base_48.dmi'
 	talk_bubble_icon = 'icons/mob/talk_bulwark.dmi'
 
-	default_h_style = "Classic Antennae"
+	default_h_style = "Bulwark Classic Antennae"
 
 	icon_x_offset = -9
 	healths_x = 22
