@@ -1,6 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - bugfix: "Ghosts can no longer interact with the shield generator unless they're staff."
