@@ -112,8 +112,7 @@
 	if(!M)
 		M = user.get_multitool()
 	var/dat
-	if(temp)
-		dat += "<br>[temp]<br><br>"
+	dat += "<br>[temp]<br><br>"
 	dat += "Power Status: <a href='?src=\ref[src];input=toggle'>[src.toggled ? "On" : "Off"]</a>"
 	if(on && toggled)
 		if(id != "" && id)
