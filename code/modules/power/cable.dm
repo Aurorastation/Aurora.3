@@ -1116,6 +1116,10 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			to_chat(user, SPAN_DANGER("They don't have a head."))
 			return
 
+	if(M.mob_size >= 20)
+		to_chat(user, SPAN_DANGER("They are too large for the noose to hold."))
+		return
+
 	if(M.loc != src.loc) return FALSE //Can only noose someone if they're on the same tile as noose
 
 	add_fingerprint(user)
@@ -1193,7 +1197,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		var/mob/living/B = buckled
 		if (ishuman(B))
 			var/mob/living/carbon/human/H = B
-			if (H.species && (H.species.flags & NO_BREATHE))
+			if (H.species && (H.species.flags & NO_BREATHE) || isvaurca(H))
 				return
 		B.adjustOxyLoss(5)
 		B.adjustBrainLoss(1)
