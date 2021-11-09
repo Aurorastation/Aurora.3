@@ -25,7 +25,7 @@
 	for(var/press_type in press_types)
 		var/obj/item/base = press_type
 		var/obj/item/product = press_types[press_type]
-		desc_info += "\n[initial(base.name)] = [initial(product.name)]"
+		desc_info += "\n[initial(base.name)] -> [initial(product.name)]"
 
 /obj/machinery/mineral/rigpress/update_icon()
 	if(pressing)
