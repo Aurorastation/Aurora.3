@@ -1809,7 +1809,8 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "bald"
 		gender = NEUTER
 		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi,
-		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell,/datum/species/diona, /datum/species/diona/coeu)
+		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell,/datum/species/diona, 
+		/datum/species/diona/coeu, /datum/species/bug/type_b)
 
 	threeOclock
 		name = "3 O'clock Shadow"
@@ -3503,41 +3504,41 @@ Follow by example and make good judgement based on length which list to include 
 		gender = NEUTER
 
 		clacky
-		name = "Clacky Mandibles"
-		icon_state = "vaurca_clacky"
+			name = "Clacky Mandibles"
+			icon_state = "vaurca_clacky"
 
 		bulldog
-		name = "Bulldog Mandibles"
-		icon_state = "vaurca_bulldog"
+			name = "Bulldog Mandibles"
+			icon_state = "vaurca_bulldog"
 
 		mantis 
-		name = "Mantis Mandibles"
-		icon_state = "vaurca_mantis"
+			name = "Mantis Mandibles"
+			icon_state = "vaurca_mantis"
 
 		stag 
-		name = "Stag Mandibles"
-		icon_state = "vaurca_stag"
+			name = "Stag Mandibles"
+			icon_state = "vaurca_stag"
 
 		ectatomma
-		name = "Ectatomma Mandibles"
-		icon_state = "vaurca_ectatomma"
+			name = "Ectatomma Mandibles"
+			icon_state = "vaurca_ectatomma"
 
 		horridus 
-		name = "Horridus Mandibles"
-		icon_state = "vaurca_horridus"
+			name = "Horridus Mandibles"
+			icon_state = "vaurca_horridus"
 
 		tusks 
-		name = "Tusk Mandibles"
-		icon_state = "vaurca_tusks"
+			name = "Tusk Mandibles"
+			icon_state = "vaurca_tusks"
 
 		acanthognathus
-		name = "Acanthognathus Mandibles"
-		icon_state = "vaurca_acanthognathus"
+			name = "Acanthognathus Mandibles"
+			icon_state = "vaurca_acanthognathus"
 
 		myrmoteras 
-		name = "Myrmoteras Mandibles"
-		icon_state = "vaurca_myrmoteras"
-		
+			name = "Myrmoteras Mandibles"
+			icon_state = "vaurca_myrmoteras"
+
 /*
 ////////////////////////////
 /  =--------------------=  /
