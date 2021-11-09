@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Mapped some additional items into the telecomms east area, notably: relay and hub circuitboards, additional stock parts for them, some cable coil, as well as four tubes of nanopaste to repair the machines."
+  - tweak: "Nanopaste has been tweaked to repair half of a telecomms machines health per use. With 24 machines, a fully damaged telecomms will take 5 tubes of nanopaste to repair the array."
