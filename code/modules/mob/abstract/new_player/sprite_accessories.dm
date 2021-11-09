@@ -3494,6 +3494,50 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Pilot"
 			icon_state = "Pilot"
 
+//Vaurca mandibles
+	clicky
+		icon = 'icons/mob/human_face/vaurca_facial_hair.dmi'
+		name = "Clicky Mandibles"
+		icon_state = "vaurca_clicky"
+		species_allowed = list(/datum/species/bug/type_b)
+		gender = NEUTER
+
+		clacky
+		name = "Clacky Mandibles"
+		icon_state = "vaurca_clacky"
+
+		bulldog
+		name = "Bulldog Mandibles"
+		icon_state = "vaurca_bulldog"
+
+		mantis 
+		name = "Mantis Mandibles"
+		icon_state = "vaurca_mantis"
+
+		stag 
+		name = "Stag Mandibles"
+		icon_state = "vaurca_stag"
+
+		ectatomma
+		name = "Ectatomma Mandibles"
+		icon_state = "vaurca_ectatomma"
+
+		horridus 
+		name = "Horridus Mandibles"
+		icon_state = "vaurca_horridus"
+
+		tusks 
+		name = "Tusk Mandibles"
+		icon_state = "vaurca_tusks"
+
+		acanthognathus
+		name = "Acanthognathus Mandibles"
+		icon_state = "vaurca_acanthognathus"
+
+		myrmoteras 
+		name = "Myrmoteras Mandibles"
+		icon_state = "vaurca_myrmoteras"
+		
 /*
 ////////////////////////////
 /  =--------------------=  /
