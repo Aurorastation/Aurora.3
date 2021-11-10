@@ -1,0 +1,4 @@
+author: Desven
+delete-after: True
+changes:
+  - rscadd: "Examining headtail stuff now says they're on the headtails."
