@@ -221,6 +221,20 @@ var/list/ai_verbs_default = list(
 		setup_icon()
 	eyeobj.possess(src)
 
+	//Link the existing borgs to the AI
+	for (var/mob/living/silicon/robot/R in silicon_mob_list)
+		//If its not slaved we dont link it
+		if(!R.is_slaved())
+			continue
+		//Check if the AI Sync wire is cut
+		if(R.wires.AISyncCut())
+			continue
+		//If law update isnt cut, we enable law update
+		if(!R.Wires.LawUpdateCut())
+			R.law_update = TRUE
+		R.connect_to_ai(src)
+
+
 /mob/living/silicon/ai/getFireLoss()
 	return fireloss
 
