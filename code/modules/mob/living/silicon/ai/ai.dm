@@ -230,7 +230,7 @@ var/list/ai_verbs_default = list(
 		if(R.wires.AISyncCut())
 			continue
 		//If law update isnt cut, we enable law update
-		if(!R.Wires.LawUpdateCut())
+		if(!R.wires.LawUpdateCut())
 			R.law_update = TRUE
 		R.connect_to_ai(src)
 

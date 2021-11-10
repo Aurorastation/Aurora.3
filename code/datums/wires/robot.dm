@@ -79,7 +79,7 @@ var/const/BORG_WIRE_CAMERA = 16
 	return wires_status & BORG_WIRE_LOCKED_DOWN
 
 /datum/wires/robot/proc/LawUpdateCut()
-	return wire_status & BORG_WIRE_LAWCHECK
+	return wires_status & BORG_WIRE_LAWCHECK
 
 /datum/wires/robot/proc/AISyncCut()
-	return wire_status & BORG_WIRE_AI_CONTROL
+	return wires_status & BORG_WIRE_AI_CONTROL
