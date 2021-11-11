@@ -16,6 +16,8 @@
 	bleed_mod = 0.5
 	grab_mod = 1.1
 	resist_mod = 0.75
+	mob_size = 8
+	carry_weight = 13
 
 	warning_low_pressure = 30
 	hazard_low_pressure = 10

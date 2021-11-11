@@ -17,6 +17,7 @@
 	brute_mod = 1.1 // Less Brute Damage
 	ethanol_resistance = 1 // Default value
 	climb_coeff = 1.1
+	carry_weight = 15
 
 	resist_mod = 2 // ZHAN POWERRRRRR
 

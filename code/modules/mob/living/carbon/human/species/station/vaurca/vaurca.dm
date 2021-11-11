@@ -53,6 +53,7 @@
 	poison_type = GAS_NITROGEN //a species that breathes plasma shouldn't be poisoned by it.
 	breathing_sound = null //They don't work that way I guess? I'm a coder not a purple man.
 	mob_size = 13 //their half an inch thick exoskeleton and impressive height, plus all of their mechanical organs.
+	carry_weight = 16
 	natural_climbing = TRUE
 	climb_coeff = 0.75
 

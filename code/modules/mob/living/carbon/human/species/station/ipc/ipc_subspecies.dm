@@ -9,6 +9,8 @@
 
 	burn_mod = 1.2
 	grab_mod = 1
+	mob_size = 14
+	carry_weight = 15
 
 	blurb = "IPCs with humanlike properties. Their focus is on service, civilian, and medical, but there are no \
 	job restrictions. Created in the late days of 2450, the Shell is a controversial IPC model equipped with a synthskin weave applied over its metal chassis \
@@ -126,7 +128,8 @@
 	name_plural = "Industrials"
 	bald = 1
 	bodytype = BODYTYPE_IPC_INDUSTRIAL
-	mob_size = 12
+	mob_size = 16
+	carry_weight = 17
 
 	unarmed_types = list(/datum/unarmed_attack/industrial, /datum/unarmed_attack/palm/industrial)
 
@@ -221,7 +224,8 @@
 	flash_mod = 0
 	siemens_coefficient = 0
 	break_cuffs = TRUE
-	mob_size = 20
+	mob_size = 18
+	carry_weight = 20
 
 	show_ssd = "laying inert, its activation glyph dark"
 
@@ -314,6 +318,8 @@
 	brute_mod = 0.7
 	grab_mod = 0.7 // Bulkier and bigger than the G1
 	resist_mod = 12 // Overall stronger than G1
+	mob_size = 18
+	carry_weight = 21
 
 	heat_level_1 = 1000
 	heat_level_2 = 2000
@@ -369,6 +375,8 @@
 	brute_mod = 0.9
 	grab_mod = 0.9
 	resist_mod = 8
+	mob_size = 17
+	carry_weight = 20
 
 	heat_level_1 = 700
 	heat_level_2 = 1400
@@ -430,6 +438,8 @@
 
 	eyes = "zenghu_eyes"
 	brute_mod = 1.5
+	mob_size = 13
+	carry_weight = 15
 
 	slowdown = -0.8
 	sprint_speed_factor = 0.6
@@ -487,6 +497,8 @@
 	brute_mod = 1.2
 	grab_mod = 1.1
 	resist_mod = 4
+	mob_size = 14
+	carry_weight = 15
 	num_alternate_languages = 3
 
 	appearance_flags = HAS_EYE_COLOR | HAS_UNDERWEAR | HAS_SOCKS
@@ -535,6 +547,8 @@
 
 	bald = 1
 	grab_mod = 1.1 //pity points - geeves
+	mob_size = 14
+	carry_weight = 15
 
 	appearance_flags = HAS_EYE_COLOR
 	spawn_flags = IS_RESTRICTED

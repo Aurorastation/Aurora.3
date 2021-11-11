@@ -53,7 +53,8 @@
 
 	rarity_value = 3
 	break_cuffs = TRUE
-	mob_size = 10
+	mob_size = 11
+	carry_weight = 16
 	climb_coeff = 1.35
 
 	blurb = "A heavily reptillian species, Unathi (or 'Sinta as they call themselves) hail from the Uuosa-Eso \

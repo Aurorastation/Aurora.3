@@ -38,6 +38,7 @@
 	ethanol_resistance = -1	//Can't get drunk
 	taste_sensitivity = TASTE_NUMB
 	mob_size = 12	//Worker gestalts are 150kg
+	carry_weight = 17
 	remains_type = /obj/effect/decal/cleanable/ash //no bones, so, they just turn into dust
 	gluttonous = GLUT_ITEM_ANYTHING|GLUT_SMALLER
 	stomach_capacity = 10 //Big boys.

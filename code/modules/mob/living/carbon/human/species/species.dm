@@ -51,6 +51,7 @@
 	var/race_key = 0       	                             // Used for mob icon cache string.
 	var/icon/icon_template                               // Used for mob icon generation for non-32x32 species.
 	var/mob_size	= MOB_MEDIUM
+	var/carry_weight = 14								//How much a mob can carry, right now only used for fireman carrying.
 	var/show_ssd = "fast asleep"
 	var/short_sighted
 	var/bald = 0

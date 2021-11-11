@@ -40,6 +40,8 @@
 
 	brute_mod = 1.0
 	burn_mod = 1.2
+	mob_size = 14
+	carry_weight = 16
 
 	grab_mod = 1.1 // Smooth, no real edges to grab onto
 	resist_mod = 2 // Robotic strength
