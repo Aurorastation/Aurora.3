@@ -1,0 +1,27 @@
+
+#   bugfix
+#   wip (For works in progress)
+#   tweak
+#   soundadd
+#   sounddel
+#   rscadd (general adding of nice things)
+#   rscdel (general deleting of nice things)
+#   imageadd
+#   imagedel
+#   maptweak
+#   spellcheck (typo fixes)
+#   experiment
+#   balance
+#   admin
+#   backend
+#   security
+#   refactor
+#################################
+
+author: dekser
+
+delete-after: True
+
+changes:
+  - rscadd: "Added species specific carry_weight, basically a G2 can fireman carry another G2 but a Human can't even carry a G1."
+  - tweak: "Changed mob_size of a lot of species to balance the new carry_weight system."
