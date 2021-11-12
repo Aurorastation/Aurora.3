@@ -1,4 +1,4 @@
-/mob/living/carbon/slime/say(var/message)
+/mob/living/carbon/slime/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
 
 	var/verb = say_quote(message)
 

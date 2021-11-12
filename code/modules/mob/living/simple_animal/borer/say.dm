@@ -1,4 +1,4 @@
-/mob/living/simple_animal/borer/say(var/message)
+/mob/living/simple_animal/borer/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
 	message = capitalize(message)
 
 	if(!message)
