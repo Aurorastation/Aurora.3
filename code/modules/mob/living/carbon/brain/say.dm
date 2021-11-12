@@ -6,10 +6,9 @@
 	if(!(container && istype(container, /obj/item/device/mmi)))
 		return //No MMI, can't speak, bucko./N
 	else
-		var/datum/language/speaking = parse_language(message)
+		speaking = parse_language(message)
 		if(speaking)
 			message = copytext(message, 2+length(speaking.key))
-		var/verb = "says"
 		var/ending = copytext(message, length(message))
 		var/pre_ending = copytext(message, length(message) - 1, length(message))
 		if (speaking)
