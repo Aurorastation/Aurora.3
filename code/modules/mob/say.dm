@@ -1,17 +1,12 @@
 /mob/proc/say()
 	return
 
-/mob/verb/whisper()
-	set name = "Whisper"
-	set category = "IC"
-	return
-
 /mob/verb/say_verb(message as text)
 	set name = "Say"
 	set category = "IC"
 
 	if(say_disabled)	//This is here to try to identify lag problems
-		to_chat(usr, "<span class='warning'>Speech is currently admin-disabled.</span>")
+		to_chat(usr, SPAN_WARNING("Speech is currently admin-disabled."))
 		return
 
 	message = sanitize(message)
@@ -101,10 +96,12 @@
    for it but just ignore it.
 */
 
-/mob/proc/say_quote(var/message, var/datum/language/speaking = null, var/singing = FALSE)
+/mob/proc/say_quote(var/message, var/datum/language/speaking = null, var/singing = FALSE, var/whisper = FALSE)
 	. = "says"
 	if(singing)
 		return "sings"
+	if(whisper)
+		return "whispers"
 	var/ending = copytext(message, length(message))
 	var/pre_ending = copytext(message, length(message) - 1, length(message))
 	if(ending == "!")

@@ -316,6 +316,9 @@
 
 /mob/living/simple_animal/spiderbot/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
 	switch(message_mode)
+		if("whisper")
+			whisper(message, speaking)
+			return TRUE
 		if("headset")
 			radio.talk_into(src, message, null, verb, speaking)
 			used_radios += radio

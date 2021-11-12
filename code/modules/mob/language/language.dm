@@ -156,10 +156,12 @@
 /datum/language/proc/check_special_condition(var/mob/other)
 	return 1
 
-/datum/language/proc/get_spoken_verb(var/msg_end, var/pre_end, var/singing = FALSE)
+/datum/language/proc/get_spoken_verb(var/msg_end, var/pre_end, var/singing = FALSE, var/whisper = FALSE)
 	var/chosen_verb = speech_verb
 	if(singing)
 		return pick(sing_verb)
+	if(whisper)
+		return pick(whisper_verb)
 	switch(msg_end)
 		if("!")
 			if(pre_end == "!" || pre_end == "?")

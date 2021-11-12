@@ -109,12 +109,12 @@
    for it but just ignore it.
 */
 
-/mob/living/carbon/human/say_quote(var/message, var/datum/language/speaking = null, var/singing = FALSE)
+/mob/living/carbon/human/say_quote(var/message, var/datum/language/speaking = null, var/singing = FALSE, var/whisper = FALSE)
 	var/ending = copytext(message, length(message))
 	var/pre_ending = copytext(message, length(message) - 1, length(message))
 
 	if(speaking)
-		. = speaking.get_spoken_verb(ending, pre_ending, singing)
+		. = speaking.get_spoken_verb(ending, pre_ending, singing, whisper)
 	else
 		. = ..()
 
@@ -163,7 +163,7 @@
 
 /mob/living/carbon/human/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio)
 	if(paralysis || InStasis())
-		whisper_say(message, speaking, alt_name)
+		whisper(message, speaking)
 		return TRUE
 	switch(message_mode)
 		if("intercom")
@@ -218,8 +218,8 @@
 				if(R.talk_into(src,message,null,verb,speaking))
 					successful_radio += R
 		if("whisper")
-			whisper_say(message, speaking, alt_name)
-			return 1
+			whisper(message, speaking)
+			return TRUE
 		else if(message_mode)
 			var/obj/item/device/radio/R = get_radio()
 			if(R)
