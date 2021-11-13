@@ -113,7 +113,7 @@
 			position_limit = job.get_spawn_positions()
 		if((job.current_positions < position_limit) || position_limit == -1)
 			Debug("Player: [player] is now Rank: [rank], JCP:[job.current_positions], JPL:[position_limit]")
-			if(world.time < 1 HOUR) // so latejoiners get a chance next round as well.
+			if(config.double_round_roll_limit != -1 && world.time < config.double_round_roll_limit) // so latejoiners get a chance next round as well.
 				SSpersist_config.current_job_rolls[player.ckey] = rank
 			player.mind.assigned_role = rank
 			player.mind.role_alt_title = GetPlayerAltTitle(player, rank)
