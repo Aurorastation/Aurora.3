@@ -1,0 +1,7 @@
+author: RyverStyx
+
+delete-after: True
+
+changes:
+  - tweak: "Fixing the Jargon blurb to be lore compliant."
+  - rscadd: "Allowing Dionae to be Jargon Consulars." 
