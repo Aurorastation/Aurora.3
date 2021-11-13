@@ -1,0 +1,4 @@
+author: TheGreyWolf
+delete-after: True
+changes:
+  - rscadd: "Vaurca no longer suffocate when hanged. Bulwarks and Ta can no longer be hanged."
