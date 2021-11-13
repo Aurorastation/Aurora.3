@@ -4940,6 +4940,8 @@
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /obj/random/powercell,
+/obj/item/stack/cable_coil/random,
+/obj/item/stack/cable_coil/random,
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
 "ewm" = (
@@ -8547,6 +8549,14 @@
 	},
 /turf/simulated/floor/wood,
 /area/hydroponics/garden)
+"hHk" = (
+/obj/structure/table/rack,
+/obj/item/stack/nanopaste,
+/obj/item/stack/nanopaste,
+/obj/item/stack/nanopaste,
+/obj/item/stack/nanopaste,
+/turf/simulated/floor/tiled,
+/area/tcommsat/computer)
 "hIb" = (
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
@@ -9375,8 +9385,9 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
 "ipR" = (
-/obj/structure/closet/wardrobe/pjs,
 /obj/machinery/firealarm/north,
+/obj/structure/closet/emcloset,
+/obj/item/storage/toolbox/emergency,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
 "iqa" = (
@@ -11403,6 +11414,10 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/item/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/filter,
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "koW" = (
@@ -14575,6 +14590,9 @@
 /obj/item/circuitboard/telecomms/bus,
 /obj/item/circuitboard/telecomms/bus,
 /obj/item/circuitboard/telecomms/broadcaster,
+/obj/item/circuitboard/telecomms/relay,
+/obj/item/circuitboard/telecomms/relay,
+/obj/item/circuitboard/telecomms/hub,
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "ncU" = (
@@ -14844,13 +14862,13 @@
 /turf/simulated/floor/lino/grey,
 /area/hallway/secondary/entry/departure_lounge)
 "nqU" = (
-/obj/machinery/shield_capacitor{
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable/cyan{
 	d2 = 2;
 	icon_state = "0-2"
+	},
+/obj/machinery/shield_capacitor/multiz{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/storage/shields)
@@ -20415,14 +20433,13 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/item/storage/toolbox/emergency,
-/obj/structure/closet/emcloset,
 /obj/item/device/radio/intercom{
 	dir = 4;
 	name = "Station Intercom (General)";
 	pixel_x = 27
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/megavendor/vendor,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
 "seu" = (
@@ -20644,6 +20661,8 @@
 "slQ" = (
 /obj/structure/table/standard,
 /obj/item/stock_parts/micro_laser,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/manipulator,
 /obj/item/stock_parts/manipulator,
 /obj/item/stock_parts/manipulator,
 /obj/item/stock_parts/manipulator,
@@ -23314,13 +23333,13 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
 "uAC" = (
-/obj/machinery/shield_capacitor{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable/cyan{
 	d2 = 2;
 	icon_state = "0-2"
+	},
+/obj/machinery/shield_capacitor/multiz{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/storage/shields)
@@ -23508,7 +23527,7 @@
 /obj/machinery/power/smes/buildable{
 	RCon_tag = "Surface - Shield Substation";
 	charge = 1e+007;
-	cur_coils = 4;
+	cur_coils = 5;
 	input_attempt = 1;
 	input_level = 500000;
 	output_attempt = 1;
@@ -42289,7 +42308,7 @@ wXr
 wXr
 kym
 pGM
-vOy
+hHk
 hmU
 cXk
 gry

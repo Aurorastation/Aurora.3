@@ -17155,42 +17155,42 @@
 /obj/machinery/button/remote/blast_door{
 	id = "Cell 1";
 	name = "Cell 1 Door";
-	pixel_x = -38;
+	pixel_w = -38;
 	pixel_y = 10;
 	req_access = list(3)
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "Cell 2";
 	name = "Cell 2 Door";
-	pixel_x = -38;
+	pixel_w = -38;
 	pixel_y = 1;
 	req_access = list(3)
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "Cell 3";
 	name = "Cell 3 Door";
-	pixel_x = -38;
+	pixel_w = -38;
 	pixel_y = -8;
 	req_access = list(3)
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "Cell 4";
 	name = "Cell 4 Door";
-	pixel_x = -28;
+	pixel_w = -28;
 	pixel_y = 10;
 	req_access = list(3)
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "Cell 5";
 	name = "Cell 5 Door";
-	pixel_x = -28;
+	pixel_w = -28;
 	pixel_y = 1;
 	req_access = list(3)
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "Brig Lockdown";
 	name = "Brig Lockdown";
-	pixel_x = -28;
+	pixel_w = -28;
 	pixel_y = -8;
 	req_access = list(3)
 	},
@@ -28378,6 +28378,7 @@
 	},
 /obj/structure/noticeboard{
 	desc = "A board for uncovering hidden conspiracies.";
+	dir = 1;
 	name = "corkboard";
 	pixel_y = -32
 	},
@@ -31584,8 +31585,8 @@
 /turf/simulated/floor/plating,
 /area/bridge)
 "bcG" = (
-/obj/structure/closet/secure_closet/personal/cabinet,
 /obj/machinery/firealarm/west,
+/obj/machinery/megavendor/vendor,
 /turf/simulated/floor/carpet/blue,
 /area/crew_quarters/heads/cryo)
 "bcH" = (
@@ -34179,6 +34180,7 @@
 	},
 /obj/item/circuitboard/arcade/battle,
 /obj/item/circuitboard/arcade/orion_trail,
+/obj/item/circuitboard/research_shuttle,
 /turf/simulated/floor/plating,
 /area/storage/tech)
 "bhj" = (
@@ -37799,6 +37801,9 @@
 	name = "Robotics Lab";
 	req_access = list(29)
 	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bnP" = (
@@ -41394,6 +41399,7 @@
 /area/crew_quarters/bar)
 "buX" = (
 /obj/structure/noticeboard{
+	dir = 1;
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/white,
@@ -47130,6 +47136,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
+/obj/item/clothing/gloves/botanic_leather/vaurca,
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "bHy" = (
@@ -47390,6 +47397,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/item/clothing/gloves/botanic_leather/vaurca,
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "bIm" = (
@@ -47441,17 +47449,6 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/old_dark,
 /area/maintenance/bar)
-"bIt" = (
-/obj/machinery/door/blast/shutters{
-	dir = 2;
-	id = "barshutters01";
-	name = "Bar Shutters"
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/table/reinforced,
-/obj/item/storage/box/fancy/cigarettes/cigar,
-/turf/simulated/floor/lino/grey,
-/area/crew_quarters/bar)
 "bIv" = (
 /obj/structure/bed,
 /obj/item/bedsheet/medical,
@@ -48889,9 +48886,6 @@
 	dir = 2;
 	id = "barshutters01";
 	name = "Bar Shutters"
-	},
-/obj/item/reagent_containers/food/drinks/teapot{
-	pixel_y = 7
 	},
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
@@ -51418,14 +51412,10 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/table/reinforced,
-/obj/item/storage/box/fancy/candle_box,
-/obj/item/storage/box/fancy/candle_box,
-/obj/item/storage/box/fancy/candle_box,
 /obj/item/material/ashtray/bronze,
 /turf/simulated/floor/lino/grey,
 /area/crew_quarters/bar)
 "bSR" = (
-/obj/item/toy/figure/bartender,
 /obj/machinery/door/blast/shutters{
 	dir = 2;
 	id = "barshutters01";
@@ -51612,6 +51602,10 @@
 /obj/item/reagent_containers/toothpaste,
 /obj/item/device/nanoquikpay,
 /obj/item/storage/box/fancy/matches,
+/obj/item/storage/box/fancy/candle_box,
+/obj/item/storage/box/fancy/candle_box,
+/obj/item/storage/box/fancy/candle_box,
+/obj/item/storage/box/fancy/cigarettes/cigar,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bTq" = (
@@ -51657,6 +51651,7 @@
 /obj/machinery/light_switch{
 	pixel_y = 24
 	},
+/obj/item/toy/figure/bartender,
 /turf/simulated/floor/lino/grey,
 /area/crew_quarters/bar)
 "bTw" = (
@@ -52208,6 +52203,7 @@
 	dir = 1
 	},
 /obj/item/wrench,
+/obj/item/reagent_containers/food/drinks/teapot,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bUE" = (
@@ -54358,6 +54354,7 @@
 /area/quartermaster/lobby)
 "bZQ" = (
 /obj/structure/noticeboard{
+	dir = 4;
 	pixel_x = -32
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -56297,6 +56294,7 @@
 	},
 /obj/machinery/light,
 /obj/structure/noticeboard{
+	dir = 1;
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
@@ -65717,6 +65715,7 @@
 /area/maintenance/bar)
 "pfO" = (
 /obj/structure/noticeboard{
+	dir = 8;
 	layer = 3.3;
 	pixel_x = 32;
 	pixel_y = 2
@@ -66280,6 +66279,7 @@
 	},
 /obj/item/storage/box/sharps,
 /obj/structure/noticeboard{
+	dir = 8;
 	layer = 3.3;
 	pixel_x = 32;
 	pixel_y = 2
@@ -71211,6 +71211,10 @@
 /obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
+"xUe" = (
+/obj/machinery/megavendor/vendor,
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/sleep/main)
 "xVv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -102912,7 +102916,7 @@ bhy
 bTu
 bTZ
 bTu
-bIt
+bSR
 bVz
 bWa
 cxA
@@ -103403,7 +103407,7 @@ pju
 bDF
 bEG
 bFy
-snu
+xUe
 bBP
 bIo
 bJi

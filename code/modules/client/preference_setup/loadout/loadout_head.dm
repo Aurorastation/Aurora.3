@@ -269,11 +269,19 @@
 	display_name = "non la hat"
 	path = /obj/item/clothing/head/nonla
 
-/datum/gear/head/iacberet
-	display_name = "IAC Beret"
+/datum/gear/head/iac
+	display_name = "IAC headgear selection"
+	description = "A selection of hats worn by Interstellar Aid Corps volunteers."
 	path = /obj/item/clothing/head/softcap/iac
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
 	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/head/iac/New()
+	..()
+	var/list/iac = list()
+	iac["IAC cap"] = /obj/item/clothing/head/softcap/iac
+	iac["IAC beret"] = /obj/item/clothing/head/beret/iac
+	gear_tweaks += new /datum/gear_tweak/path(iac)
 
 /datum/gear/head/circuitry
 	display_name = "headwear, circuitry (empty)"

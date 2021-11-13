@@ -121,7 +121,7 @@
 		//Blood regeneration if there is some space
 		if(blood_volume < species.blood_volume && blood_volume)
 			if(REAGENT_DATA(owner.vessel, /decl/reagent/blood)) // Make sure there's blood at all
-				owner.vessel.add_reagent(/decl/reagent/blood, 0.1 + LAZYACCESS(owner.chem_effects, CE_BLOODRESTORE), temperature = species?.body_temperature)
+				owner.vessel.add_reagent(/decl/reagent/blood, BLOOD_REGEN_RATE + LAZYACCESS(owner.chem_effects, CE_BLOODRESTORE), temperature = species?.body_temperature)
 				if(blood_volume <= BLOOD_VOLUME_SAFE) //We lose nutrition and hydration very slowly if our blood is too low
 					owner.adjustNutritionLoss(2)
 					owner.adjustHydrationLoss(1)

@@ -44,7 +44,7 @@
 				visible_message("<span class='warning'>[P] hits \the [src]!</span>")
 				return 0
 			else
-				visible_message("<span class='warning'>[src] breaks down!</span>")
+				visible_message(SPAN_WARNING("[src] breaks down!"))
 				break_to_parts()
 				return 1
 	return 1
@@ -214,6 +214,23 @@
 	if(can_plate && !material)
 		to_chat(user, "<span class='warning'>There's nothing to put \the [W] on! Try adding plating to \the [src] first.</span>")
 		return
+
+
+	if(W.ishammer() && user.a_intent != I_HURT)
+		var/obj/item/I = usr.get_inactive_hand()
+		if(I && istype(I, /obj/item/stack))
+			var/obj/item/stack/D = I
+			if(D.get_material_name() != material.name)
+				return ..()
+			if(health < maxhealth)
+				if(D.get_amount() < 1)
+					to_chat(user, SPAN_WARNING("You need one sheet of [material.display_name] to repair \the [src]."))
+					return
+				user.visible_message("<b>[user]</b> begins to repair \the [src].", SPAN_NOTICE("You begin to repair \the [src]."))
+				if(do_after(user, 2 SECONDS) && health < maxhealth)
+					if(D.use(1))
+						health = maxhealth
+						visible_message("<b>[user]</b> repairs \the [src].", SPAN_NOTICE("You repair \the [src]."))
 
 	// Placing stuff on tables
 	if(user.unEquip(W, 0, loc)) //Loc is intentional here so we don't forceMove() items into oblivion

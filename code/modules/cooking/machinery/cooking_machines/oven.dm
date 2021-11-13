@@ -95,7 +95,7 @@
 //If a combine target is set the oven will do it instead of checking recipes
 /obj/machinery/appliance/cooker/oven/finish_cooking(var/datum/cooking_item/CI)
 	if(CI.combine_target)
-		visible_message("<b>[src]</b> pings!")
+		visible_message("<b>[src]</b> pings!", intent_message = PING_SOUND)
 		combination_cook(CI)
 		return
 	..()
