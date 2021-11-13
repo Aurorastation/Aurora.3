@@ -1,4 +1,0 @@
-author: TheGreyWolf
-delete-after: True
-changes:
-  - tweak: "Injecting dexalin and dexalin plus into vaurca is now always dangerous instead of only when overdosing them."
