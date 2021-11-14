@@ -309,6 +309,11 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/extinguisher/mini(src) // For navigating space and/or low grav, and just being useful.
 	modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
+	modules += new /obj/item/pen/robopen(src)
+	modules += new /obj/item/form_printer(src)
+	modules += new /obj/item/gripper/paperwork(src)
+	modules += new /obj/item/device/hand_labeler(src)
+	modules += new /obj/item/tape_roll(src)
 	emag = new /obj/item/reagent_containers/hypospray/cmo(src)
 	emag.reagents.add_reagent(/decl/reagent/wulumunusha, 30)
 	emag.name = "Wulumunusha Hypospray"
@@ -392,6 +397,11 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/extinguisher(src) // For navigating space and/or low grav, and just being useful.
 	modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
+	modules += new /obj/item/pen/robopen(src)
+	modules += new /obj/item/form_printer(src)
+	modules += new /obj/item/gripper/paperwork(src)
+	modules += new /obj/item/device/hand_labeler(src)
+	modules += new /obj/item/tape_roll(src)
 	emag = new /obj/item/gun/energy/plasmacutter/mounted(src)
 	malf_AI_module += new /obj/item/rfd/transformer(src)
 
@@ -456,6 +466,11 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/extinguisher(src) // For navigating space and/or low grav, and just being useful.
 	modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
+	modules += new /obj/item/pen/robopen(src)
+	modules += new /obj/item/form_printer(src)
+	modules += new /obj/item/gripper/paperwork(src)
+	modules += new /obj/item/device/hand_labeler(src)
+	modules += new /obj/item/tape_roll(src)
 	emag = new /obj/item/melee/baton/robot/arm(src)
 	malf_AI_module += new /obj/item/rfd/transformer(src)
 
@@ -570,6 +585,11 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/extinguisher/mini(src) // For navigating space and/or low grav, and just being useful.
 	modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
+	modules += new /obj/item/pen/robopen(src)
+	modules += new /obj/item/form_printer(src)
+	modules += new /obj/item/gripper/paperwork(src)
+	modules += new /obj/item/device/hand_labeler(src)
+	modules += new /obj/item/tape_roll(src)
 	emag = new /obj/item/reagent_containers/spray(src)
 	emag.reagents.add_reagent(/decl/reagent/lube, 250)
 	emag.name = "Lube spray"
