@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Toggling whether headgear blocks hair has been moved from helmets to root level headgear, meaning any headwear can be made to toggle hair or not. Additionally, loadout headgear can now be set to block hair or not, so you don't have to do it each round."
