@@ -511,6 +511,9 @@
 	if(allow_hair_covering)
 		flags_inv ^= BLOCKHEADHAIR
 		to_chat(usr, SPAN_NOTICE("[src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair."))
+		if(ishuman(usr))
+			var/mob/living/carbon/human/H = usr
+			H.update_hair()
 
 /obj/item/clothing/head/get_image_key_mod()
 	return on
