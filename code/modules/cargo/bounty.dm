@@ -210,9 +210,8 @@
 	var/datum/bounty/r_subtype = pick(subtypesof(/datum/bounty/reagent))
 	try_add_bounty(new r_subtype)
 
-	//uncomment the below two lines when phoron scarcity arc is done
-	//var/datum/bounty/B = pick(bounties_list)
-	//B.mark_high_priority()
+	var/datum/bounty/B = pick(bounties_list)
+	B.mark_high_priority()
 
 	// Generate these last so they can't be high priority.
 	try_add_bounty(new /datum/bounty/more_bounties)
