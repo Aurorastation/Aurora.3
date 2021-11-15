@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscdel: "Removed the phoron canister and phoron sheet bounties that were put in place for the scarcity arc."
