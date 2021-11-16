@@ -52,7 +52,6 @@
 	body_temperature = T0C + 24
 
 	rarity_value = 3
-	break_cuffs = TRUE
 	mob_size = 10
 	climb_coeff = 1.35
 
