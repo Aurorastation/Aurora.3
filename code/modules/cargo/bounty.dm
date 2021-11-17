@@ -16,7 +16,7 @@
 
 /datum/bounty/New()
 	if(reward_low > 0 && reward_high > reward_low)
-		reward = round(rand(reward_low, reward_high), 100)	
+		reward = round(rand(reward_low, reward_high), 100)
 	description = replacetext(description, "%DOCKNAME",current_map.dock_name)
 	description = replacetext(description, "%DOCKSHORT",current_map.dock_short)
 	description = replacetext(description, "%BOSSNAME",current_map.boss_name)
@@ -210,13 +210,13 @@
 	var/datum/bounty/r_subtype = pick(subtypesof(/datum/bounty/reagent))
 	try_add_bounty(new r_subtype)
 
-	//phoron arc bounties. remove when arc is done.
-	var/datum/bounty/item/phoron_bounty = pick(/datum/bounty/item/phoron_sheet, /datum/bounty/item/phoron_canister)
-	try_add_bounty(new phoron_bounty)
-
-	//uncomment the below two lines when phoron scarcity arc is done
-	//var/datum/bounty/B = pick(bounties_list)
-	//B.mark_high_priority()
+	if(prob(60))
+		//phoron arc bounties. remove when arc is done.
+		var/datum/bounty/item/phoron_bounty = pick(/datum/bounty/item/phoron_sheet, /datum/bounty/item/solar_array)
+		try_add_bounty(new phoron_bounty)
+	else
+		var/datum/bounty/B = pick(bounties_list)
+		B.mark_high_priority()
 
 	// Generate these last so they can't be high priority.
 	try_add_bounty(new /datum/bounty/more_bounties)

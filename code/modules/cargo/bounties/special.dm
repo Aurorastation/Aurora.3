@@ -19,7 +19,7 @@
 		for(var/i = 0; i < reward; ++i)
 			SScargo.try_add_bounty(SScargo.random_bounty())
 
-//during phoron scarcity lore arc. remove when lore permits. 
+//during phoron scarcity lore arc. remove when lore permits.
 
 /datum/bounty/item/phoron_sheet
 	name = "Phoron Sheets"
@@ -50,8 +50,8 @@
 	required_count = 3
 	random_count = 1 // 2 to 4
 	wanted_types = list(/obj/machinery/portable_atmospherics/canister)
-	high_priority = TRUE	
-	var/moles_required = 2000 //Roundstart total_moles for a FULL tank is about 1871 per tank. However during the arc this bounty is relevant, tanks are half full. 
+	high_priority = TRUE
+	var/moles_required = 2000 //Roundstart total_moles for a FULL tank is about 1871 per tank. However during the arc this bounty is relevant, tanks are half full.
 
 /datum/bounty/item/phoron_canister/applies_to(var/obj/machinery/portable_atmospherics/canister/O)
 	if(!..())
@@ -64,3 +64,13 @@
 		return FALSE
 
 	return O.air_contents.gas["phoron"] >= moles_required
+
+/datum/bounty/item/solar_array
+	name = "Assembled Solar Panels"
+	description = "Owing to the phoron shortage continuing for over a year, longer than projected, we have decided to use solar arrays to power various facilities across our region of influence."
+	reward_low = 8000
+	reward_high = 10000
+	required_count = 6
+	random_count = 2 // 4 to 8
+	wanted_types = list(/obj/machinery/power/solar)
+	high_priority = TRUE

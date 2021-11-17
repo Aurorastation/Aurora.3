@@ -1407,6 +1407,7 @@
 #include "code\modules\cargo\exports\large_objects.dm"
 #include "code\modules\cargo\exports\materials.dm"
 #include "code\modules\cargo\exports\parts.dm"
+#include "code\modules\cargo\exports\phoron.dm"
 #include "code\modules\cargo\exports\seeds.dm"
 #include "code\modules\cargo\exports\sheets.dm"
 #include "code\modules\cargo\exports\tools.dm"
