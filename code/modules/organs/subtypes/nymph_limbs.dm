@@ -303,7 +303,7 @@
 	AddComponent(/datum/component/nymph_limb)
 	var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
 
-	if!(target.species?.name in N.valid_species)
+	if(!(target.species?.name in N.valid_species))
 		to_chat(target, SPAN_WARNING("\The [src] refuses to attach to your limb."))
 		return
 
