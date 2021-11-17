@@ -316,7 +316,7 @@
 			var/amount_needed = (maxhealth - health) / DOOR_REPAIR_AMOUNT
 			amount_needed = (round(amount_needed) == amount_needed)? amount_needed : round(amount_needed) + 1 //Why does BYOND not have a ceiling proc?
 
-			var/obj/item/stack/stack = I
+			var/obj/item/stack/stack = W
 			var/transfer
 			if (repairing)
 				transfer = stack.transfer_to(repairing, amount_needed - repairing.amount)
