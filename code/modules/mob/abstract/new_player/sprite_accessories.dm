@@ -2571,6 +2571,18 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "hair_swoop"
 			length = 2
 			chatname = "styled mane"
+			
+		taj_ears_swoop_alt
+			name = "Tajara Swoop Alt"
+			icon_state = "hair_swoop_alt"
+			length = 2
+			chatname = "styled mane"
+
+		taj_ears_swoop_bangs
+			name = "Tajara Swoop Bangs"
+			icon_state = "hair_swoop_bangs"
+			length = 2
+			chatname = "styled mane"
 
 		taj_ears_swoop_long
 			name = "Tajara Swoop Long"
