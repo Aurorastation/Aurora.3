@@ -1,6 +1,0 @@
-author: martinlyra
-delete-after: True
-changes:
-  - rscadd: "Successful cooking now informs the cook what has been synthesized"
-  - rscadd: "Examining plates / bowls now hint the player how to use them for cooking"
-  - backend: "Added `pluralize_word` for naive pluralization of nouns"

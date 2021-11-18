@@ -1,5 +1,0 @@
-author: Desven
-delete-after: True
-changes:
-  - bugfix: "Fixed some body marks not properly showing."
-  - bugfix: "Fixed those marks not being selectable for Axiori Skrell."
