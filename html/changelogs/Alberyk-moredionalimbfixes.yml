@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes:
-  - bugfix: "You can detach nymph hands and feet."
-  - bugfix: "You can now attach dionae nymph as limb by right clicking the nymph."
