@@ -24,10 +24,10 @@
 /datum/bounty/item/phoron_sheet
 	name = "Phoron Sheets"
 	description = "Always prioritize this bounty. Failure to meet this quota may result in adverse impact upon your status in the NanoTrasen Corporation."
-	reward_low = 7000
-	reward_high = 9000
-	required_count = 75
-	random_count = 15
+	reward_low = 2600
+	reward_high = 3750
+	required_count = 40
+	random_count = 10
 	wanted_types = list(/obj/item/stack/material/phoron)
 	high_priority = TRUE
 
