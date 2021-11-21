@@ -1,0 +1,7 @@
+author: Geeve
+
+delete-after: True
+
+changes:
+  - tweak: "Thermal drill shots now do 2 damage each, up from 1."
+  - bugfix: "Thermal drills on autofire can no longer be fired one-handed."
