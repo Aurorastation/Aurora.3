@@ -1,7 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscadd: "Bodybags can now be placed adjacent to the user."
-  - bugfix: "Rollerbeds now display a message when bodybags are buckled to them."
