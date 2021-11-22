@@ -60,14 +60,14 @@ var/global/datum/global_init/init = new ()
 #define RECOMMENDED_VERSION 510
 /world/New()
 	//logs
-	diary_date_string = time2text(world.realtime, "YYYY/MM/DD")
-	href_logfile = file("data/logs/[diary_date_string] hrefs.htm")
-	diary = "data/logs/[diary_date_string]_[game_id].log"
+	diary_date_string = time2text(world.realtime, "YYYY-MM-DD")
+	href_logfile = file("data/logs/[diary_date_string]_[game_id]/hrefs.htm")
+	diary = "data/logs/[diary_date_string]_[game_id]/game.log"
 	log_startup()
 	changelog_hash = md5('html/changelog.html')					//used for telling if the changelog has changed recently
 
 	if(config.log_runtime)
-		diary_runtime = file("data/logs/_runtime/[diary_date_string]-runtime.log")
+		diary_runtime = file("data/logs/[diary_date_string]_[game_id]/runtime.log")
 
 	if(byond_version < RECOMMENDED_VERSION)
 		world.log << "Your server's byond version does not meet the recommended requirements for this server. Please update BYOND to [RECOMMENDED_VERSION]."

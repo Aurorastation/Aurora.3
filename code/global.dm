@@ -21,8 +21,8 @@ var/global/datum/universal_state/universe = new
 var/global/list/global_map = null
 
 var/diary               = null
-var/diary_runtime  = null
-var/diary_date_string = null
+var/diary_runtime       = null
+var/diary_date_string   = null
 var/href_logfile        = null
 var/game_version        = "Aurorastation"
 var/changelog_hash      = ""
