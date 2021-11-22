@@ -192,7 +192,8 @@ Delayed insert mode was removed in mysql 7 and only works with MyISAM type table
 
 	var/error = ErrorMsg()
 	if (error)
-		log_debug("SQL Error: '[error]' during query: [sql_query]", SEVERITY_ERROR)
+		log_debug("SQL Error: '[error]'", SEVERITY_ERROR)
+		log_debug(" - During Query: [sql_query]")
 		// This is hacky and should probably be changed
 		if (error == "MySQL server has gone away")
 			log_game("MySQL connection drop detected, attempting to reconnect.")
