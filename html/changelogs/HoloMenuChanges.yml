@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "The holomenu given to chefs and bartenders can now be read from any distance when examined."
