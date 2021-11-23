@@ -2845,6 +2845,18 @@ Follow by example and make good judgement based on length which list to include 
 			length = 2
 			chatname = "styled mane"
 
+		msai_ears_swoop_alt
+			name = "M'sai Swoop Alt"
+			icon_state = "msai_swoop_alt"
+			length = 2
+			chatname = "styled mane"
+
+		msai_ears_swoop_bangs
+			name = "M'sai Swoop Bangs"
+			icon_state = "msai_swoop_bangs"
+			length = 2
+			chatname = "styled mane"
+
 		msai_ears_swoop_long
 			name = "M'sai Swoop Long"
 			icon_state = "msai_longswoop"
