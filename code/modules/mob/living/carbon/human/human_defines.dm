@@ -1,4 +1,7 @@
 /mob/living/carbon/human
+	// Tail Style
+	var/tail_style = null
+
 	//Hair colour and style
 	var/r_hair = 0
 	var/g_hair = 0

@@ -1268,9 +1268,9 @@ There are several things that need to be remembered:
 
 	var/tail_layer = GET_TAIL_LAYER
 
-	if(species.tail && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
+	if(tail_style && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
 		var/icon/tail_s = get_tail_icon()
-		overlays_raw[tail_layer] = image(tail_s, icon_state = "[species.tail]_s")
+		overlays_raw[tail_layer] = image(tail_s, icon_state = "[tail_style]_s")
 		animate_tail_reset(0)
 
 	if(update_icons)
@@ -1288,7 +1288,7 @@ There are several things that need to be remembered:
 		tail_icon.Blend(rgb(r_skin, g_skin, b_skin), ICON_ADD)
 		// The following will not work with animated tails.
 		if(species.tail_hair)
-			var/icon/hair_icon = icon('icons/effects/species.dmi', "[species.tail]_[species.tail_hair]")
+			var/icon/hair_icon = icon('icons/effects/species.dmi', "[tail_style]_[species.tail_hair]")
 			hair_icon.Blend(rgb(r_hair, g_hair, b_hair), ICON_ADD)
 			tail_icon.Blend(hair_icon, ICON_OVERLAY)
 		SSicon_cache.tail_icon_cache[icon_key] = tail_icon
@@ -1296,7 +1296,7 @@ There are several things that need to be remembered:
 	return tail_icon
 
 /mob/living/carbon/human/proc/set_tail_state(var/mob_state)
-	if (!species.tail)
+	if(!tail_style)
 		return
 
 	var/tail_layer = GET_TAIL_LAYER
@@ -1304,7 +1304,7 @@ There are several things that need to be remembered:
 	var/image/tail_overlay = overlays_raw[tail_layer]
 
 	if(tail_overlay && species.tail_animation)
-		if (tail_overlay.icon_state != mob_state)
+		if(tail_overlay.icon_state != mob_state)
 			tail_overlay.icon_state = mob_state
 			update_icon()
 		return tail_overlay
@@ -1313,7 +1313,7 @@ There are several things that need to be remembered:
 //Not really once, since BYOND can't do that.
 //Update this if the ability to flick() images or make looping animation start at the first frame is ever added.
 /mob/living/carbon/human/proc/animate_tail_once()
-	var/mob_state = "[species.tail]_once"
+	var/mob_state = "[tail_style]_once"
 
 	var/tail_layer = GET_TAIL_LAYER
 
@@ -1328,23 +1328,23 @@ There are several things that need to be remembered:
 /mob/living/carbon/human/proc/end_animate_tail_once(image/tail_overlay)
 	//check that the animation hasn't changed in the meantime
 	var/tail_layer = GET_TAIL_LAYER
-	if(overlays_raw[tail_layer] == tail_overlay && tail_overlay.icon_state == "[species.tail]_once")
+	if(overlays_raw[tail_layer] == tail_overlay && tail_overlay.icon_state == "[tail_style]_once")
 		animate_tail_stop()
 
 /mob/living/carbon/human/proc/animate_tail_start()
-	set_tail_state("[species.tail]_slow[rand(0,9)]")
+	set_tail_state("[tail_style]_slow")
 
 /mob/living/carbon/human/proc/animate_tail_fast()
-	set_tail_state("[species.tail]_loop[rand(0,9)]")
+	set_tail_state("[tail_style]_loop")
 
 /mob/living/carbon/human/proc/animate_tail_reset()
 	if(stat != DEAD && !lying)
-		set_tail_state("[species.tail]_idle[rand(0,9)]")
+		set_tail_state("[tail_style]_idle")
 	else
-		set_tail_state("[species.tail]_static")
+		set_tail_state("[tail_style]_static")
 
 /mob/living/carbon/human/proc/animate_tail_stop(var/update_icons=1)
-	set_tail_state("[species.tail]_static")
+	set_tail_state("[tail_style]_static")
 
 //Adds a collar overlay above the helmet layer if the suit has one
 //	Suit needs an identically named sprite in icons/mob/collar.dmi
