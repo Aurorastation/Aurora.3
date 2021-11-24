@@ -4,4 +4,4 @@ delete-after: True
 
 changes:
   - bugfix: "Red Nightshade berserk state now works again."
-  - bugfix: "Red Nightshade is no longer a 5 second kill timer. It now induces heart damage instead."
+  - bugfix: "Red Nightshade is no longer incredible lethal. It now induces heart damage instead."
