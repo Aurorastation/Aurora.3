@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a new shorter tail type for Tajara."
+  - rscdd: "Added a colorable tail cloth accessory for the standard Tajara tail."
