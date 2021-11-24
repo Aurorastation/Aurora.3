@@ -10,7 +10,7 @@
 	bandages_icon = 'icons/mob/bandage.dmi'
 	tail = "Tail"
 	tail_animation = 'icons/mob/species/tajaran/tail.dmi'
-	selectable_tails = list("Tail", "Short", "Stub")
+	selectable_tails = list("Tail", "Hakh'jar Tail")
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,

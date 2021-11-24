@@ -810,7 +810,7 @@ mob/living/carbon/human/proc/change_monitor()
 			earpain(3, TRUE, 1)
 		else if (T in range(src, 2))
 			earpain(2, TRUE, 2)
-	
+
 	for (var/mob/living/carbon/human/T in hearers(2, src) - src)
 		if(T.protected_from_sound())
 			continue
@@ -1288,3 +1288,18 @@ mob/living/carbon/human/proc/change_monitor()
 	if (is_listening())
 		visible_message("<b>[src]</b> stops listening intently.")
 		intent_listener -= src
+
+/mob/living/carbon/human/proc/open_tail_storage()
+	set name = "Tail Accessories"
+	set desc = "Opens the tail accessory slot."
+	set category = "Abilities"
+
+	var/obj/item/organ/external/groin/G = organs_by_name[BP_GROIN]
+	if(!G)
+		to_chat(usr, SPAN_WARNING("You have no tail!"))
+		return
+	if(!G.tail_storage)
+		to_chat(usr, SPAN_WARNING("Something went wrong with your tail storage, it's missing! (Report this on Github)"))
+		return
+
+	G.tail_storage.open(usr)

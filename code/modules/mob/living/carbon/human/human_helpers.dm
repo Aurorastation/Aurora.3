@@ -349,3 +349,21 @@
 	if(!isnull(species.floating_chat_x_offset))
 		return species.floating_chat_x_offset
 	return species.icon_x_offset
+
+/mob/living/carbon/human/proc/set_tail_style(var/new_style)
+	tail_style = new_style
+	if(tail_style)
+		verbs |= /mob/living/carbon/human/proc/open_tail_storage
+	else
+		verbs -= /mob/living/carbon/human/proc/open_tail_storage
+
+/mob/living/carbon/human/proc/get_tail_accessory()
+	var/obj/item/organ/external/groin/G = organs_by_name[BP_GROIN]
+	if(!G)
+		return
+	if(!G.tail_storage)
+		return
+
+	if(length(G.tail_storage.contents))
+		return G.tail_storage.contents[1]
+	return null

@@ -748,7 +748,7 @@
 
 			adjustHalLoss(-3)
 			if (species.tail)
-				animate_tail_reset()
+				animate_tail_reset(get_tail_accessory())
 			if(prob(2) && is_asystole() && isSynthetic())
 				visible_message("<b>[src]</b> [pick("emits low pitched whirr","beeps urgently")].")
 
@@ -1440,11 +1440,11 @@
 			bodytemperature = min(bodytemperature + fever, normal_temp)
 		else if(bodytemperature <= normal_temp + 10) //If we're hotter than max due to like, being on fire, don't keep increasing.
 			bodytemperature = normal_temp + min(fever, 10) //We use normal_temp here to maintain a steady temperature, otherwise even a small infection steadily increases bodytemp to max. This way it's easier to diagnose the intensity of an infection based on how bad the fever is.
-	//Apply side effects for having a fever. Separate from body temp changes. 
+	//Apply side effects for having a fever. Separate from body temp changes.
 	if(fever >= 2)
 		do_fever_effects(fever)
 
-		
+
 //Getting the total germ level for all infected organs, affects fever
 /mob/living/carbon/human/proc/get_infection_germ_level()
 	var/germs

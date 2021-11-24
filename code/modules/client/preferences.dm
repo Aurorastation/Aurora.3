@@ -437,7 +437,7 @@ datum/preferences
 	character.g_eyes = g_eyes
 	character.b_eyes = b_eyes
 
-	character.tail_style = tail_style
+	character.set_tail_style(tail_style)
 
 	character.h_style = h_style
 	character.r_hair = r_hair
