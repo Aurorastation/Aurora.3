@@ -748,7 +748,7 @@
 
 			adjustHalLoss(-3)
 			if (species.tail)
-				animate_tail_reset(get_tail_accessory())
+				animate_tail_reset()
 			if(prob(2) && is_asystole() && isSynthetic())
 				visible_message("<b>[src]</b> [pick("emits low pitched whirr","beeps urgently")].")
 
