@@ -26,3 +26,4 @@
 
 	compatible_species_type = list(/datum/species/tajaran)
 	compatible_tail_type = list("Tail")
+	compatible_animated_tail = list("Tail")
