@@ -184,10 +184,11 @@ proc/get_radio_key_from_channel(var/channel)
 	//parse the language code and consume it
 	if(!speaking || speaking.always_parse_language)
 		speaking = parse_language(message)
-	if(!had_speaking && speaking)
-		message = copytext(message,2+length(speaking.key))
-	else
-		speaking = get_default_language()
+	if(!had_speaking)
+		if(speaking)
+			message = copytext(message,2+length(speaking.key))
+		else
+			speaking = get_default_language()
 
 	if(speaking)
 		var/list/speech_mod = speaking.handle_message_mode(message_mode)
