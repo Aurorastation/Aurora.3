@@ -103,6 +103,7 @@
 	var/obj/item/organ/infect_target_external //make child and parent organs become infected one at a time instead of all at once
 
 	var/mob/living/carbon/alien/diona/nymph //used by dionae limbs
+	var/nymph_child
 
 /obj/item/organ/external/proc/invalidate_marking_cache()
 	cached_markings = null
@@ -123,6 +124,10 @@
 	infect_target_external = null
 
 	applied_pressure = null
+
+	QDEL_NULL(nymph)
+
+	QDEL_NULL(tendon)
 
 	return ..()
 
