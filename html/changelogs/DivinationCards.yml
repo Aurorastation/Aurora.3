@@ -1,0 +1,6 @@
+author: ChangeMe
+
+delete-after: True
+
+changes:
+  - bugfix: "The adhomian divination cards deck now contains the correct set of cards."
