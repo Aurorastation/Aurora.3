@@ -34,7 +34,7 @@
 		if(!istype(M,/mob/abstract/new_player) && !istype(M,/mob/living/carbon/brain)) //No meta-evesdropping
 			M.show_message("[ghost_follow_link(speaker, M)] [message_start] [message_body]", 2)
 
-	for (var/mob/living/S as anything in living_mob_list)
+	for(var/mob/living/S in living_mob_list)
 
 		if(drone_only && !istype(S,/mob/living/silicon/robot/drone))
 			continue
