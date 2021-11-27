@@ -1,6 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixes the misplaced harm intent lights on the service version of the 'venus drone' sprite."
