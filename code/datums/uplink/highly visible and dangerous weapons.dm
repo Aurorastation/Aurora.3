@@ -148,3 +148,8 @@
 	name = "Random Gun"
 	item_cost = 3
 	path = /obj/item/storage/box/syndie_kit/random_weapon
+
+/datum/uplink_item/item/visible_weapons/ionrifle
+	name = "Ion rifle"
+	item_cost = 5
+	path = /obj/item/gun/energy/rifle/ionrifle
