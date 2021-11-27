@@ -79,12 +79,6 @@
 	structures that have long since fallen out of use by other Siik'maas speakers. It is described as strong and abrupt by other Tajara."
 	tag_icon = "tajara_dinaak"
 
-/datum/accent/dinakk
-	name = ACCENT_DINAKK
-	description = "Found in the isolated valleys of the Din'akk Mountains, little has changed in this accent since the first contact. It still clings to words and grammatical \
-	structures that have long since fallen out of use by other Siik'maas speakers. It is described as strong and abrupt by other Tajara."
-	tag_icon = "tajara_dinaak"
-
 /datum/accent/harrnrri
 	name = ACCENT_HARRNRRI
 	description = "The dialect of the people of the Harr'nrr peninsula. This accent shares some similarity with Republican Siik'mas thanks to a shared origin and the later PRA rule of Harr'nrr, \
