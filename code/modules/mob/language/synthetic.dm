@@ -35,10 +35,9 @@
 			M.show_message("[ghost_follow_link(speaker, M)] [message_start] [message_body]", 2)
 
 	for(var/mob/living/S in living_mob_list)
-
-		if(drone_only && !istype(S,/mob/living/silicon/robot/drone))
+		if(drone_only && !isDrone(S))
 			continue
-		else if(istype(S , /mob/living/silicon/ai))
+		else if(isAI(S))
 			message_start = "<i><span class='game say'>[name], <a href='byond://?src=\ref[S];track2=\ref[S];track=\ref[speaker];trackname=[html_encode(speaker.name)]'><span class='name'>[get_speaker_name(speaker)]</span></a></span></i>"
 		else if (!S.binarycheck() || !can_hear(speaker, S))
 			continue
