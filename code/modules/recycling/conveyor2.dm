@@ -83,23 +83,20 @@
 
 	var/list/affecting = loc.contents.Copy() - src
 	if (affecting.len)
-		addtimer(CALLBACK(src, .proc/post_process, affecting), 1)	// slight delay to prevent infinite propagation due to map order
+		var/items_moved = 0
+		for (var/thing in affecting)
+			var/atom/movable/AM = thing
+			if (AM.anchored || !AM.simulated)
+				continue
 
-/obj/machinery/conveyor/proc/post_process(list/affecting)
-	var/items_moved = 0
-	for (var/thing in affecting)
-		var/atom/movable/AM = thing
-		if (AM.anchored || !AM.simulated)
-			continue
+			if (AM.loc != loc)	// prevents the object from being affected if it's not currently here.
+				continue
 
-		if (AM.loc != loc)	// prevents the object from being affected if it's not currently here.
-			continue
+			if (items_moved >= 10 || TICK_CHECK)
+				break
 
-		if (items_moved >= 10 || TICK_CHECK)
-			break
-
-		AM.conveyor_act(movedir)
-		items_moved++
+			AM.conveyor_act(movedir)
+			items_moved++
 
 /atom/movable/proc/conveyor_act(move_dir)
 	set waitfor = FALSE
