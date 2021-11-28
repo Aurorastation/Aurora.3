@@ -39,11 +39,11 @@
 			return
 		var/mob/living/carbon/human/H = target
 		var/obj/item/reagent_containers/food/drinks/drinkingglass/glass = H.get_type_in_hands(/obj/item/reagent_containers/food/drinks/drinkingglass)
-		if(!glass)
-			to_chat(user, SPAN_WARNING("[H] needs to be holding a glass to perform a toast."))
-			return
-		else if(!use_check(H))
+		if(!use_check(H))
 			to_chat(user, SPAN_WARNING("[H] is in no condition to perform a toast!"))
+			return
+		else if(!glass)
+			to_chat(user, SPAN_WARNING("[H] needs to be holding a glass to perform a toast."))
 			return
 		else
 			user.visible_message("<b>[user]</b> holds \the [src] out for a toast with [H].")
