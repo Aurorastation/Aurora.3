@@ -14,6 +14,13 @@
 	path = /obj/item/clothing/accessory/wcoat_rec
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/accessory/waistcoat/New()
+	..()
+	var/list/waistcoats = list()
+	waistcoats["waistcoat"] = /obj/item/clothing/accessory/wcoat_rec
+	waistcoats["waistcoat, alt"] = /obj/item/clothing/accessory/silversun/wcoat
+	gear_tweaks += new /datum/gear_tweak/path(waistcoats)
+
 /datum/gear/accessory/chaps
 	display_name = "chaps selection"
 	path = /obj/item/clothing/accessory/chaps
