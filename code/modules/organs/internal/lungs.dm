@@ -1,5 +1,4 @@
 #define HUMAN_MAX_OXYLOSS 1 //Defines how much oxyloss humans can get per tick. A tile with no air at all (such as space) applies this value, otherwise it's a percentage of it.
-#define HUMAN_CRIT_MAX_OXYLOSS ( 2.0 / 6) //The amount of damage you'll get when in critical condition. We want this to be a 5 minute deal = 300s. There are 50HP to get through, so (1/6)*last_tick_duration per second. Breaths however only happen every 4 ticks. last_tick_duration = ~2.0 on average
 
 /obj/item/organ/internal/lungs
 	name = "lungs"
@@ -67,7 +66,7 @@
 				"<span class='danger'>You can't breathe!</span>",
 				"You hear someone gasp for air!",
 			)
-			owner.losebreath += round(damage/2)
+			owner.losebreath = max(round(damage / 2), owner.losebreath)
 
 	if(rescued)
 		if(is_bruised())
@@ -98,7 +97,8 @@
 		else
 			owner.emote(pick("shiver","twitch"))
 
-	owner.adjustOxyLoss(HUMAN_MAX_OXYLOSS * breath_fail_ratio)
+	if(damage || owner.chem_effects[CE_BREATHLOSS] || world.time > last_successful_breath + 2 MINUTES)
+		owner.adjustOxyLoss(HUMAN_MAX_OXYLOSS * breath_fail_ratio)
 	owner.oxygen_alert = max(owner.oxygen_alert, 2)
 
 /obj/item/organ/internal/lungs/proc/enable_rupture()
@@ -266,11 +266,6 @@
 		owner.failed_last_breath = 1
 	else
 		owner.failed_last_breath = 0
-		if(owner.disabilities & ASTHMA)
-			owner.adjustOxyLoss(rand(-5,0))
-		else
-			owner.adjustOxyLoss(-5)
-
 
 	// Hot air hurts :(
 	handle_temperature_effects(breath)
@@ -284,6 +279,10 @@
 	else
 		last_successful_breath = world.time
 		owner.oxygen_alert = 0
+		if(owner.disabilities & ASTHMA)
+			owner.adjustOxyLoss(rand(-5,0) * inhale_efficiency)
+		else
+			owner.adjustOxyLoss(-5 * inhale_efficiency)
 		if(!BP_IS_ROBOTIC(src) && species.breathing_sound && is_below_sound_pressure(get_turf(owner)))
 			if(breathing || owner.shock_stage >= 10)
 				sound_to(owner, sound(species.breathing_sound,0,0,0,5))
@@ -377,4 +376,3 @@
 	rescued = FALSE
 
 #undef HUMAN_MAX_OXYLOSS
-#undef HUMAN_CRIT_MAX_OXYLOSS

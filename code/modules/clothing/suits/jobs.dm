@@ -10,6 +10,7 @@
 	item_state = "blueapron"
 	blood_overlay_type = "armor"
 	body_parts_covered = 0
+	no_overheat = TRUE
 	allowed = list (/obj/item/reagent_containers/spray/plantbgone,/obj/item/device/analyzer/plant_analyzer,/obj/item/seeds,/obj/item/reagent_containers/glass/fertilizer,/obj/item/material/minihoe)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
@@ -40,6 +41,13 @@ obj/item/clothing/suit/apron/overalls/blue
 	item_state = "surgeon"
 	allowed = list(/obj/item/stack/medical, /obj/item/reagent_containers/dropper, /obj/item/reagent_containers/hypospray, /obj/item/reagent_containers/syringe, \
 	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank/emergency_oxygen, /obj/item/device/breath_analyzer, /obj/item/reagent_containers/blood)
+
+/obj/item/clothing/suit/apron/surgery/zeng
+	name = "zeng-hu vinyl apron"
+	desc = "A key design element in the labwear was utility and compatibility with the Zeng-Hu positronic chassis workers that are ubiquitous throughout the corporation. As a result \
+	they are breathable yet non-porous, allowing for ample airflow while retaining the cleanroom standards expected of a medical and scientific uniform."
+	icon_state = "zeng_apron"
+	item_state = "zeng_apron"
 
 //Chaplain
 /obj/item/clothing/suit/chaplain_hoodie
@@ -79,51 +87,52 @@ obj/item/clothing/suit/apron/overalls/blue
 	item_state = "apronchef"
 	blood_overlay_type = "armor"
 	body_parts_covered = 0
+	no_overheat = TRUE
 
 //Security
 
-/obj/item/clothing/suit/security/officer
+/obj/item/clothing/suit/storage/security/officer
 	name = "security officer's jacket"
 	desc = "This jacket is for those special occasions when a security officer actually feels safe."
 	icon_state = "officerjacket"
 	item_state = "officerjacket"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
-/obj/item/clothing/suit/security/officer/blue
+/obj/item/clothing/suit/storage/security/officer/blue
 	icon_state = "officerbluejacket"
 	item_state = "officerbluejacket"
 
-/obj/item/clothing/suit/security/officer/dnavy
+/obj/item/clothing/suit/storage/security/officer/dnavy
 	icon_state = "officerdnavyjacket"
 	item_state = "officerdnavyjacket"
 
-/obj/item/clothing/suit/security/warden
+/obj/item/clothing/suit/storage/security/warden
 	name = "warden's jacket"
 	desc = "Perfectly suited for the warden that wants to leave an impression of style on those who visit the brig."
 	icon_state = "wardenjacket"
 	item_state = "wardenjacket"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
-/obj/item/clothing/suit/security/warden/blue
+/obj/item/clothing/suit/storage/security/warden/blue
 	icon_state = "wardenbluejacket"
 	item_state = "wardenbluejacket"
 
-/obj/item/clothing/suit/security/warden/dnavy
+/obj/item/clothing/suit/storage/security/warden/dnavy
 	icon_state = "wardendnavyjacket"
 	item_state = "wardendnavyjacket"
 
-/obj/item/clothing/suit/security/hos
+/obj/item/clothing/suit/storage/security/hos
 	name = "head of security's jacket"
 	desc = "This piece of clothing was specifically designed for asserting superior authority."
 	icon_state = "hosjacket"
 	item_state = "hosjacket"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
-/obj/item/clothing/suit/security/hos/blue
+/obj/item/clothing/suit/storage/security/hos/blue
 	icon_state = "hosbluejacket"
 	item_state = "hosbluejacket"
 
-/obj/item/clothing/suit/security/hos/dnavy
+/obj/item/clothing/suit/storage/security/hos/dnavy
 	icon_state = "hosdnavyjacket"
 	item_state = "hosdnavyjacket"
 
@@ -136,7 +145,7 @@ obj/item/clothing/suit/apron/overalls/blue
 	item_state = "det_jacket"
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|ARMS
-	allowed = list(/obj/item/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/box/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder)
+	allowed = list(/obj/item/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/box/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder,/obj/item/clothing/accessory/badge/investigator)
 
 /obj/item/clothing/suit/storage/toggle/det_trench
 	name = "brown trenchcoat"
@@ -145,7 +154,8 @@ obj/item/clothing/suit/apron/overalls/blue
 	item_state = "detective"
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|ARMS
-	allowed = list(/obj/item/tank/emergency_oxygen,/obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/box/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder)
+	allowed = list(/obj/item/tank/emergency_oxygen,/obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/box/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder,/obj/item/clothing/accessory/badge/investigator)
+
 /obj/item/clothing/suit/storage/toggle/det_trench/black
 	name = "black trenchcoat"
 	icon_state = "detective2"
@@ -157,6 +167,7 @@ obj/item/clothing/suit/apron/overalls/blue
 	icon_state = "forensics"
 	item_state = "forensics"
 	body_parts_covered = UPPER_TORSO|ARMS
+	allowed = list(/obj/item/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/box/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder,/obj/item/clothing/accessory/badge/investigator)
 
 /obj/item/clothing/suit/storage/toggle/forensics/blue
 	icon_state = "forensicsblue"
@@ -175,7 +186,7 @@ obj/item/clothing/suit/apron/overalls/blue
 	blood_overlay_type = "armor"
 	allowed = list (/obj/item/device/analyzer, /obj/item/device/flashlight, /obj/item/device/multitool, /obj/item/device/pipe_painter, /obj/item/device/radio, /obj/item/device/t_scanner, \
 	/obj/item/crowbar, /obj/item/screwdriver, /obj/item/weldingtool, /obj/item/wirecutters, /obj/item/wrench, /obj/item/tank/emergency_oxygen, \
-	/obj/item/clothing/mask/gas, /obj/item/taperoll/engineering)
+	/obj/item/clothing/mask/gas, /obj/item/taperoll/engineering, /obj/item/storage/bag/inflatable)
 	body_parts_covered = UPPER_TORSO
 	var/opened
 
@@ -215,6 +226,12 @@ obj/item/clothing/suit/apron/overalls/blue
 	desc = "A high-visibility vest used in work zones. This one is green."
 	icon_state = "hazard_g"
 	item_state = "hazard_g"
+
+/obj/item/clothing/suit/storage/hazardvest/ce
+	name = "chief engineer's hazard vest"
+	desc = "A high-visibility vest used in work zones. This one is a green-blue color with a gold stripe."
+	icon_state = "hazard_ce"
+	item_state = "hazard_ce"
 
 //Lawyer
 /obj/item/clothing/suit/storage/toggle/lawyer/bluejacket
@@ -262,6 +279,14 @@ obj/item/clothing/suit/apron/overalls/blue
 	item_state = "blazer"
 	opened = TRUE
 
+/obj/item/clothing/suit/storage/toggle/suitjacket/blazer/long
+	name = "long blazer"
+	desc = "A charming long jacket."
+	desc_fluff = "For when you want to play ball sports like an aristocrat."
+	icon_state = "longblazer"
+	item_state = "longblazer"
+	opened = TRUE
+
 //Medical
 /obj/item/clothing/suit/storage/toggle/fr_jacket
 	name = "first responder jacket"
@@ -270,9 +295,16 @@ obj/item/clothing/suit/apron/overalls/blue
 	item_state = "fr_jacket"
 	blood_overlay_type = "armor"
 	allowed = list(/obj/item/stack/medical, /obj/item/reagent_containers/dropper, /obj/item/reagent_containers/hypospray, /obj/item/reagent_containers/syringe, \
-	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank/emergency_oxygen, /obj/item/device/breath_analyzer, /obj/item/reagent_containers/blood)
+	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank/emergency_oxygen, /obj/item/device/breath_analyzer, /obj/item/reagent_containers/blood, /obj/item/clothing/head/hardhat/first_responder)
 	body_parts_covered = UPPER_TORSO|ARMS
 	opened = TRUE
+
+/obj/item/clothing/suit/storage/toggle/fr_jacket/alt
+	desc = "A dark green first responder jacket."
+	icon = 'icons/clothing/kit/first_responder.dmi'
+	contained_sprite = TRUE
+	icon_state = "firstresponderjacket"
+	item_state = "firstresponderjacket"
 
 /obj/item/clothing/suit/storage/toggle/fr_jacket/ems
 	name = "\improper EMS jacket"
@@ -287,7 +319,7 @@ obj/item/clothing/suit/apron/overalls/blue
 	item_state = "paramed_armor"
 	blood_overlay_type = "armor"
 	allowed = list(/obj/item/stack/medical, /obj/item/reagent_containers/dropper, /obj/item/reagent_containers/hypospray, /obj/item/reagent_containers/syringe, \
-	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank/emergency_oxygen, /obj/item/device/breath_analyzer, /obj/item/reagent_containers/blood)
+	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank/emergency_oxygen, /obj/item/device/breath_analyzer, /obj/item/reagent_containers/blood, /obj/item/clothing/head/hardhat/first_responder)
 	body_parts_covered = UPPER_TORSO
 
 /obj/item/clothing/suit/storage/medical_chest_rig/first_responder
@@ -306,11 +338,3 @@ obj/item/clothing/suit/apron/overalls/blue
 	icon_state = "suspenders"
 	blood_overlay_type = "armor" //it's the less thing that I can put here
 	body_parts_covered = 0
-
-/obj/item/clothing/suit/storage/toggle/first_responder_jacket
-	name = "first responder jacket"
-	desc = "A dark green first responder jacket."
-	icon = 'icons/clothing/kit/first_responder.dmi'
-	contained_sprite = TRUE
-	icon_state = "firstresponderjacket"
-	item_state = "firstresponderjacket"

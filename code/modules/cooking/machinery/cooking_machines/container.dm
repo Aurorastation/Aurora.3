@@ -29,7 +29,7 @@
 
 /obj/item/reagent_containers/cooking_container/proc/get_content_info()
 	var/string = "It contains:</br><ul><li>"
-	string += jointext(contents, "</li></br><li>") + "</li></ul>"
+	string += jointext(contents, "</li><li>") + "</li></ul>"
 	return string
 
 /obj/item/reagent_containers/cooking_container/proc/get_reagent_info()
@@ -239,7 +239,8 @@
 	icon_state = "grill_grate"
 	appliancetype = GRILL
 	insertable = list(
-		/obj/item/reagent_containers/food/snacks/meat
+		/obj/item/reagent_containers/food/snacks/meat,
+		/obj/item/reagent_containers/food/snacks/xenomeat
 	)
 
 /obj/item/reagent_containers/cooking_container/grill_grate/can_fit()
@@ -257,6 +258,11 @@
 	volume = 15 // for things like jelly sandwiches etc
 	max_space = 25
 
+/obj/item/reagent_containers/cooking_container/plate/examine(mob/user)
+	. = ..()
+	if(length(contents) || reagents?.total_volume)
+		to_chat(user, SPAN_NOTICE("To attempt cooking; click and hold, then drag this onto your character"))
+
 /obj/item/reagent_containers/cooking_container/plate/MouseDrop(var/obj/over_obj)
 	if(over_obj != usr || use_check(usr))
 		return ..()
@@ -265,7 +271,7 @@
 	var/decl/recipe/recipe = select_recipe(src, appliance = appliancetype)
 	if(!recipe)
 		return
-	var/list/results = recipe.make_food(src)
+	var/list/obj/results = recipe.make_food(src)
 	var/obj/temp = new /obj(src) //To prevent infinite loops, all results will be moved into a temporary location so they're not considered as inputs for other recipes
 	for (var/result in results)
 		var/atom/movable/AM = result
@@ -283,6 +289,14 @@
 	for (var/r in results)
 		var/obj/item/reagent_containers/food/snacks/R = r
 		R.forceMove(src) //Move everything from the buffer back to the container
+
+	var/l = length(results)
+	if (l && usr)
+		var/name = results[1].name
+		if (l > 1)
+			to_chat(usr, SPAN_NOTICE("You made some [pluralize_word(name, TRUE)]!"))
+		else
+			to_chat(usr, SPAN_NOTICE("You made [name]!"))
 
 	QDEL_NULL(temp) //delete buffer object
 	return ..()

@@ -42,7 +42,7 @@
 	var/can_repair = FALSE
 
 	var/health_prefix = ""
-	appearance_flags = NO_CLIENT_COLOR
+	appearance_flags = NO_CLIENT_COLOR|KEEP_TOGETHER
 
 
 /mob/living/simple_animal/construct/cultify()
@@ -60,11 +60,21 @@
 	update_icon()
 	add_glow()
 
+/mob/living/simple_animal/construct/LateLogin()
+	. = ..()
+	if(!iscultist(src))
+		cult.add_antagonist_mind(mind)
+
 /mob/living/simple_animal/construct/death()
 	new /obj/item/ectoplasm(get_turf(src))
 	..(null, "collapses in a shattered heap.")
 	ghostize()
 	qdel(src)
+
+/mob/living/simple_animal/construct/ghostize()
+	. = ..()
+	if(!QDELETED(src) && stat != DEAD)
+		SSghostroles.add_spawn_atom("construct", src)
 
 /mob/living/simple_animal/construct/can_name(var/mob/living/M)
 	if(iscultist(M))

@@ -124,7 +124,7 @@
 			user.visible_message("<b>[user]</b> aims \the [src] between [P] ribs!", SPAN_NOTICE("You aim \the [src] between [SM] ribs!"))
 			if(!do_mob(user, target, 1.5 SECONDS))
 				return
-			var/blocked = H.getarmor_organ(H.organs_by_name[BP_CHEST], "melee")
+			var/blocked = H.get_blocked_ratio(BP_CHEST, BRUTE, DAM_SHARP, damage = 5)
 			if(blocked > 20)
 				user.visible_message("<b>[user]</b> jabs \the [src] into [H], but their armor blocks it!", SPAN_WARNING("You jab \the [src] into [H], but their armor blocks it!"))
 				return
@@ -219,17 +219,18 @@
 					return
 
 			if(ismob(target) && target != user)
+				var/inject_time = time
 				if(isliving(target))
 					var/mob/living/L = target
-					var/injtime = L.can_inject(user, TRUE, user.zone_sel.selecting)
-					if(!injtime)
+					var/inject_mod = L.can_inject(user, TRUE, user.zone_sel.selecting)
+					if(!inject_mod)
 						return
-					time *= injtime
+					inject_time *= inject_mod
 
 				user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 				user.do_attack_animation(target)
 
-				if(!do_mob(user, target, time))
+				if(!do_mob(user, target, inject_time))
 					return
 
 				user.visible_message(SPAN_WARNING("[user] injects [target] with the syringe!"))
@@ -306,9 +307,9 @@
 		if((user != target) && H.check_shields(7, src, user, "\the [src]"))
 			return
 
-		if (target != user && H.getarmor(target_zone, "melee") > 5 && prob(50))
-			for(var/mob/O in viewers(world.view, user))
-				O.show_message(text(SPAN_DANGER("[user] tries to stab [target] in \the [hit_area] with [src.name], but the attack is deflected by armor!")), 1)
+		var/armor = H.get_blocked_ratio(target_zone, BRUTE, damage_flags = DAM_SHARP, damage = 5)*100
+		if (target != user && armor > 50 && prob(50))
+			user.visible_message(SPAN_DANGER("[user] tries to stab \the [target] in the [hit_area] with \the [src], but the attack is deflected by [target.get_pronoun("his")] armor!"), SPAN_WARNING("You try to stab \the [target] in the [hit_area] with \the [src], but the attack is deflected by [target.get_pronoun("his")] armor!"))
 			user.remove_from_mob(src)
 			qdel(src)
 

@@ -90,6 +90,7 @@
 			if(O)
 				O.status = 0
 				switch(status)
+
 					if ("amputated")
 						organs_by_name[O.limb_name] = null
 						organs -= O
@@ -97,8 +98,20 @@
 							for(var/obj/item/organ/external/child in O.children)
 								organs_by_name[child.limb_name] = null
 								organs -= child
+
+					if ("nymph")
+						if (organ_data[name])
+							O.AddComponent(/datum/component/nymph_limb)
+							var/datum/component/nymph_limb/D = O.GetComponent(/datum/component/nymph_limb)
+							if(D)
+								D.nymphize(src, O.limb_name, TRUE)
+
 					if ("cyborg")
 						if (rlimb_data[name])
+							O.force_skintone = FALSE
+							for(var/thing in O.children)
+								var/obj/item/organ/external/child = thing
+								child.force_skintone = FALSE
 							O.robotize(rlimb_data[name])
 						else
 							O.robotize()
@@ -156,7 +169,7 @@
 
 	return O
 
-/mob/living/carbon/human/proc/awaken_psi_basic(var/source)
+/mob/living/carbon/human/proc/awaken_psi_basic(var/source, var/allow_latency = TRUE)
 	var/static/list/psi_operancy_messages = list(
 		"There's something in your skull!",
 		"Something is eating your thoughts!",
@@ -172,11 +185,9 @@
 	var/list/faculties = list(PSI_COERCION, PSI_REDACTION, PSI_ENERGISTICS, PSI_PSYCHOKINESIS)
 	for(var/i = 1 to new_latencies)
 		custom_pain(SPAN_DANGER("<font size = 3>[pick(psi_operancy_messages)]</font>"), 25)
-		set_psi_rank(pick_n_take(faculties), 1)
+		set_psi_rank(pick_n_take(faculties), allow_latency ? PSI_RANK_LATENT : PSI_RANK_OPERANT) // if set to latent, it spikes anywhere from OPERANT to PARAMOUNT
 		sleep(30)
-		psi.update()
-	sleep(45)
-	psi.check_latency_trigger(100, source, TRUE)
+	addtimer(CALLBACK(psi, /datum/psi_complexus/.proc/check_latency_trigger, 100, source, TRUE), 4.5 SECONDS)
 
 /mob/living/carbon/human/get_resist_power()
 	return species.resist_mod
@@ -190,6 +201,8 @@
 
 /mob/living/carbon/human/proc/has_hearing_aid()
 	if(istype(l_ear, /obj/item/device/hearing_aid) || istype(r_ear, /obj/item/device/hearing_aid))
+		return TRUE
+	if(has_functioning_augment(BP_AUG_COCHLEAR))
 		return TRUE
 	return FALSE
 
@@ -273,3 +286,66 @@
 		set_death_time(species.respawn_type, world.time)
 	else
 		set_death_time(CREW, world.time)
+
+/mob/living/carbon/human/get_contained_external_atoms()
+	. = ..() - organs
+
+/mob/living/carbon/human/proc/pressure_resistant()
+	if(COLD_RESISTANCE in mutations)
+		return TRUE
+	var/datum/changeling/changeling = get_antag_datum(MODE_CHANGELING)
+	if(changeling?.space_adapted)
+		return TRUE
+	return FALSE
+
+/mob/living/carbon/human/get_cell()
+	var/obj/item/organ/internal/cell/C = internal_organs_by_name[BP_CELL]
+	if(C)
+		return C.cell
+
+/mob/living/carbon/human/proc/has_functioning_augment(var/aug_tag)
+	var/obj/item/organ/internal/augment/aug = internal_organs_by_name[aug_tag]
+	if(aug && !aug.is_broken())
+		return TRUE
+	return FALSE
+
+/mob/living/carbon/human/eyes_protected(var/obj/stab_item, var/stabbed = FALSE) // if stabbed is set to true if we're being stabbed and not just checking
+	. = ..()
+	if(.)
+		return
+	for(var/obj/item/protection in list(head, wear_mask, glasses))
+		if(protection.protects_eyestab(stab_item, stabbed))
+			return TRUE
+	return FALSE
+
+/mob/living/carbon/human/proc/get_hearing_sensitivity()
+	return species.hearing_sensitivity
+
+/mob/living/carbon/human/proc/is_listening()
+	if(src in intent_listener)
+		return TRUE
+	return FALSE
+
+/mob/living/carbon/human/get_organ_name_from_zone(var/def_zone)
+	var/obj/item/organ/external/E = organs_by_name[parse_zone(def_zone)]
+	if(E)
+		return E.name
+	return ..()
+
+/mob/living/carbon/human/is_anti_materiel_vulnerable()
+	if(isSynthetic())
+		return TRUE
+	else
+		return FALSE
+
+/mob/living/carbon/human/get_talk_bubble()
+	if(!species || !species.talk_bubble_icon)
+		return ..()
+	return species.talk_bubble_icon
+
+/mob/living/carbon/human/get_floating_chat_x_offset()
+	if(!species)
+		return ..()
+	if(!isnull(species.floating_chat_x_offset))
+		return species.floating_chat_x_offset
+	return species.icon_x_offset

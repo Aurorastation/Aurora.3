@@ -59,7 +59,7 @@ mob/living/carbon/human/proc/change_monitor()
 	if(last_special > world.time)
 		return
 
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		to_chat(src, "You cannot tackle someone in your current state.")
 		return
 
@@ -78,7 +78,7 @@ mob/living/carbon/human/proc/change_monitor()
 	if(last_special > world.time)
 		return
 
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		to_chat(src, "You cannot tackle in your current state.")
 		return
 
@@ -115,7 +115,7 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src, "<span class='warning'>You're already leaping!</span>")
 		return FALSE
 
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		to_chat(src, "<span class='warning'>You cannot leap in your current state.</span>")
 		return FALSE
 
@@ -569,7 +569,7 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src, "<span class='danger'>Your spine still aches!</span>")
 		return
 
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		to_chat(src, "You cannot launch a quill in your current state.")
 		return
 
@@ -606,6 +606,13 @@ mob/living/carbon/human/proc/change_monitor()
 
 	visible_message("<span class='danger'>\The [src] shrieks!</span>")
 	playsound(src.loc, 'sound/species/revenant/grue_screech.ogg', 100, 1)
+	for (var/mob/living/carbon/human/T in hearers(4, src) - src)
+		if(T.protected_from_sound())
+			continue
+		if (T.get_hearing_sensitivity() == HEARING_VERY_SENSITIVE)
+			earpain(2, TRUE, 1)
+		else if (T in range(src, 2))
+			earpain(1, TRUE, 1)
 
 	for(var/obj/machinery/light/L in range(7))
 		L.broken()
@@ -689,7 +696,7 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src, "<span class='danger'>You are too tired to charge!</span>")
 		return
 
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		to_chat(src, "<span class='danger'>You cannot charge in your current state!</span>")
 		return
 
@@ -739,7 +746,7 @@ mob/living/carbon/human/proc/change_monitor()
 		msg_admin_attack("[key_name(src)] crashed into [brokesomething] objects at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>)" )
 
 	if (!done && target.Enter(src, null))
-		if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+		if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 			return 0
 
 		step(src, dir)
@@ -755,7 +762,7 @@ mob/living/carbon/human/proc/change_monitor()
 /mob/living/carbon/human/proc/crash_into(var/atom/A)
 	var/aname = A.name
 	var/oldtype = A.type
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		return 0
 
 	if (istype(A, /mob/living))
@@ -779,30 +786,38 @@ mob/living/carbon/human/proc/change_monitor()
 	set desc = "Emit a powerful screech which stuns hearers in a two-tile radius."
 
 	if(last_special > world.time)
-		to_chat(src, "<span class='danger'>You are too tired to screech!</span>")
+		to_chat(src, SPAN_DANGER("You are too tired to screech!"))
 		return
 
 	if(stat || paralysis || stunned || weakened)
-		to_chat(src, "<span class='danger'>You cannot screech in your current state!</span>")
+		to_chat(src, SPAN_DANGER("You cannot screech in your current state!"))
 		return
 
 	last_special = world.time + 100
 
-	visible_message("<span class='danger'>[src.name] lets out an ear piercing shriek!</span>",
-			"<span class='danger'>You let out an ear-shattering shriek!</span>",
-			"<span class='danger'>You hear a painfully loud shriek!</span>")
+	visible_message(SPAN_DANGER("[src.name] lets out an ear piercing shriek!"),
+			SPAN_DANGER("You let out an ear-shattering shriek!"),
+			SPAN_DANGER("You hear a painfully loud shriek!"))
 
 	playsound(loc, 'sound/voice/shriek1.ogg', 100, 1)
 
 	var/list/victims = list()
 
+	for (var/mob/living/carbon/human/T in hearers(4, src) - src)
+		if(T.protected_from_sound())
+			continue
+		if (T.get_hearing_sensitivity() == HEARING_VERY_SENSITIVE)
+			earpain(3, TRUE, 1)
+		else if (T in range(src, 2))
+			earpain(2, TRUE, 2)
+	
 	for (var/mob/living/carbon/human/T in hearers(2, src) - src)
 		if(T.protected_from_sound())
 			continue
 
-		to_chat(T, "<span class='danger'>You hear an ear piercing shriek and feel your senses go dull!</span>")
+		to_chat(T, SPAN_DANGER("You hear an ear piercing shriek and feel your senses go dull!"))
 		T.Weaken(5)
-		T.ear_deaf = 20
+		T.adjustEarDamage(10, 20)
 		T.stuttering = 20
 		T.Stun(5)
 
@@ -826,7 +841,7 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src,"<span class='notice'>You are too tired to spray napalm!</span>")
 		return
 
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		to_chat(src,"<span class='notice'>You cannot spray napalm in your current state.</span>")
 		return
 
@@ -1018,11 +1033,11 @@ mob/living/carbon/human/proc/change_monitor()
 
 		last_special = world.time + 20
 
-		src.drop_from_inventory(O)
+		drop_from_inventory(O)
 		O.replaced(src)
-		src.update_body()
-		src.updatehealth()
-		src.UpdateDamageIcon()
+		update_body()
+		updatehealth()
+		UpdateDamageIcon()
 
 		update_body()
 		updatehealth()
@@ -1169,8 +1184,8 @@ mob/living/carbon/human/proc/change_monitor()
 			var/composition = "Non-existant"
 			switch(round((mixture.gas[mix] / total_moles) * 100))
 				if(0)
-					composition = "Non-existent"
-				if(0 to 5)
+					continue
+				if(0.1 to 5)
 					composition = "Trace-amounts"
 				if(5 to 15)
 					composition = "Low-volume"
@@ -1240,3 +1255,36 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(M, SPAN_WARNING("You can't name a corpse."))
 		return FALSE
 	return TRUE
+
+/mob/living/carbon/human/proc/intent_listen(var/source,var/message)
+	if(air_sound(src))
+		if (is_listening() && (ear_deaf <= 0 || !ear_deaf))
+			var/sound_dir = angle2text(Get_Angle(get_turf(src), get_turf(source)))
+			to_chat(src, SPAN_WARNING(message + " from \the [sound_dir]."))
+
+/mob/living/carbon/human/proc/listening_close()
+	set category = "Abilities"
+	set name = "Listen closely"
+
+	if (last_special > world.time)
+		return
+
+	if (stat || paralysis || stunned || weakened)
+		return
+
+	if (!is_listening())
+		start_listening()
+	else
+		stop_listening()
+
+	last_special = world.time + 20
+
+/mob/living/carbon/human/proc/start_listening()
+	if (!is_listening())
+		visible_message("<b>[src]</b> begins to listen intently.")
+		intent_listener |= src
+
+/mob/living/carbon/human/proc/stop_listening()
+	if (is_listening())
+		visible_message("<b>[src]</b> stops listening intently.")
+		intent_listener -= src

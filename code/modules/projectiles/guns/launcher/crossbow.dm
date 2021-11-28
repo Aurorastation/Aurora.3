@@ -85,7 +85,7 @@
 	update_icon()
 	..()
 
-/obj/item/gun/launcher/crossbow/attack_self(mob/living/user)
+/obj/item/gun/launcher/crossbow/unique_action(mob/living/user)
 	if(tension)
 		if(bolt)
 			user.visible_message("<b>[user]</b> relaxes the tension on \the [src]'s string and removes \the [bolt].", SPAN_NOTICE("You relax the tension on \the [src]'s string and remove \the [bolt]."))
@@ -319,7 +319,7 @@
 		playsound(loc, 'sound/items/rfd_empty.ogg', 50, FALSE)
 		flick("[icon_state]-empty", src)
 
-/obj/item/gun/launcher/crossbow/RFD/attack_self(mob/living/user as mob)
+/obj/item/gun/launcher/crossbow/RFD/unique_action(mob/living/user as mob)
 	if(tension)
 		user.visible_message("<b>[user]</b> relaxes the tension on \the [src]'s string.", SPAN_NOTICE("You relax the tension on \the [src]'s string."))
 		playsound(loc, 'sound/weapons/holster/tactiholsterout.ogg', 50, FALSE)

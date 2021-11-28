@@ -275,8 +275,8 @@
 
 		spark(user.loc, 5)
 		playsound(user.loc, 'sound/weapons/blade.ogg', 50, 1)
-		return 1
-	return 0
+		return PROJECTILE_STOPPED
+	return FALSE
 
 /obj/item/holo/esword/New()
 	if(!item_color)
@@ -478,6 +478,8 @@
 	return FALSE
 
 /mob/living/simple_animal/penguin/holodeck/baby
+	name = "baby penguin"
+	desc = "Can't fly and barely waddles, yet the prince of all chicks."
 	icon_state = "penguin_baby"
 	icon_living = "penguin_baby"
 	icon_dead = "penguin_baby_dead"

@@ -230,7 +230,7 @@ datum/objective/hijack
 	check_completion()
 		if(!owner.current || owner.current.stat)
 			return 0
-		if(!emergency_shuttle.returned())
+		if(!evacuation_controller.round_over())
 			return 0
 		if(issilicon(owner.current))
 			return 0
@@ -252,7 +252,7 @@ datum/objective/block
 	check_completion()
 		if(!istype(owner.current, /mob/living/silicon))
 			return 0
-		if(!emergency_shuttle.returned())
+		if(!evacuation_controller.round_over())
 			return 0
 		if(!owner.current)
 			return 0
@@ -270,7 +270,7 @@ datum/objective/silence
 	explanation_text = "Do not allow anyone to escape the station.  Only allow the shuttle to be called when everyone is dead and your story is the only one left."
 
 	check_completion()
-		if(!emergency_shuttle.returned())
+		if(!evacuation_controller.round_over())
 			return 0
 
 		for(var/mob/living/player in player_list)
@@ -295,7 +295,7 @@ datum/objective/escape
 			return 0
 		if(isbrain(owner.current))
 			return 0
-		if(!emergency_shuttle.returned())
+		if(!evacuation_controller.round_over())
 			return 0
 		if(!owner.current || owner.current.stat ==2)
 			return 0
@@ -435,7 +435,7 @@ datum/objective/steal
 		"a head of personnel's jumpsuit" = /obj/item/clothing/under/rank/head_of_personnel,
 		"the hypospray" = /obj/item/reagent_containers/hypospray,
 		"the captain's pinpointer" = /obj/item/pinpointer,
-		"an ablative armor vest" = /obj/item/clothing/suit/armor/laserproof
+		"an ablative armor vest" = /obj/item/clothing/suit/armor/carrier/ablative
 	)
 
 	var/global/possible_items_special[] = list(

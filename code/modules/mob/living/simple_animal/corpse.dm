@@ -116,36 +116,16 @@
 	corpseidjob = "Operative"
 	corpseidaccess = "Syndicate"
 
-
-
-/obj/effect/landmark/mobcorpse/clown
-	name = "Clown"
-	corpseuniform = /obj/item/clothing/under/rank/clown
-	corpseshoes = /obj/item/clothing/shoes/clown_shoes
-	corpseradio = /obj/item/device/radio/headset
-	corpsemask = /obj/item/clothing/mask/gas/clown_hat
-	corpsepocket1 = /obj/item/bikehorn
-	corpseback = /obj/item/storage/backpack/clown
-	corpseid = 1
-	corpseidjob = "Clown"
-	corpseidaccess = "Clown"
-
-
-
 /obj/effect/landmark/mobcorpse/pirate
 	name = "Pirate"
 	corpseshoes = /obj/item/clothing/shoes/jackboots
 	corpseglasses = /obj/item/clothing/glasses/eyepatch
 	corpsehelmet = /obj/item/clothing/head/bandana/pirate
 
-
-
 /obj/effect/landmark/mobcorpse/pirate/ranged
 	name = "Pirate Gunner"
 	corpsesuit = /obj/item/clothing/suit/pirate
 	corpsehelmet = /obj/item/clothing/head/pirate
-
-
 
 /obj/effect/landmark/mobcorpse/russian
 	name = "Russian"

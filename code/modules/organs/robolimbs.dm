@@ -22,6 +22,7 @@ var/global/datum/robolimb/basic_robolimb
 	var/list/species_can_use = list(
 		SPECIES_HUMAN,
 		SPECIES_SKRELL,
+		SPECIES_SKRELL_AXIORI,
 		SPECIES_TAJARA,
 		SPECIES_TAJARA_ZHAN,
 		SPECIES_TAJARA_MSAI,
@@ -29,6 +30,8 @@ var/global/datum/robolimb/basic_robolimb
 		SPECIES_VAURCA_WORKER,
 		SPECIES_VAURCA_WARRIOR,
 		SPECIES_IPC,
+		SPECIES_IPC_SHELL,
+		SPECIES_IPC_BISHOP,
 		SPECIES_HUMAN_OFFWORLD
 	)
 	var/paintable = 0 //tired of istype exceptions. bullshit to find, and by god do i know it after this project.
@@ -98,6 +101,7 @@ var/global/datum/robolimb/basic_robolimb
 	species_can_use = list(SPECIES_HUMAN)
 	linked_frame = SPECIES_IPC_SHELL
 	fabricator_available = TRUE
+	paintable = TRUE
 	lifelike = TRUE
 
 /datum/robolimb/autakh
@@ -119,3 +123,9 @@ var/global/datum/robolimb/basic_robolimb
 		return FALSE
 	else
 		return TRUE
+
+/datum/robolimb/vaurca
+	company = PROSTHETIC_VAURCA
+	desc = "This limb design is from old Sedantis, still manufactured by the Hives when providing maintenace to most of the basic Vaurcesian bioforms."
+	icon = 'icons/mob/human_races/vaurca/r_vaurcalimbs.dmi'
+	species_can_use = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)

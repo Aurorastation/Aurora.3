@@ -30,7 +30,7 @@
 	. = ..()
 	update_icon()
 	add_language(LANGUAGE_TCB)
-	set_default_language(LANGUAGE_TCB)
+	set_default_language(all_languages[LANGUAGE_TCB])
 
 	botcard = new /obj/item/card/id(src)
 	botcard.access = botcard_access.Copy()
@@ -163,8 +163,6 @@
 
 /mob/living/bot/say(var/message)
 	var/verb = "beeps"
-
-	message = sanitize(message)
 
 	..(message, null, verb)
 

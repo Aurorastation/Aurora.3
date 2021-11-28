@@ -9,8 +9,16 @@
 
 /datum/design/item/tool/experimental_welder
 	req_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 4)
-	materials = list(DEFAULT_WALL_MATERIAL = 500)
+	materials = list(DEFAULT_WALL_MATERIAL = 500, MATERIAL_GLASS = 500)
 	build_path = /obj/item/weldingtool/experimental
+
+/datum/design/item/tool/experimental_welder/eyeshield
+	req_tech = list(TECH_ENGINEERING = 6, TECH_MATERIAL = 5)
+	build_path = /obj/item/eyeshield
+
+/datum/design/item/tool/experimental_welder/overcap
+	req_tech = list(TECH_ENGINEERING = 6, TECH_MATERIAL = 5)
+	build_path = /obj/item/overcapacitor
 
 datum/design/item/tool/advanced_light_replacer
 	desc = "A specialised light replacer which stores more lights, refills faster from boxes, and sucks up broken bulbs."
@@ -42,6 +50,13 @@ datum/design/item/tool/advanced_light_replacer
 	build_type = PROTOLATHE | MECHFAB
 	materials = list(DEFAULT_WALL_MATERIAL = 1200, MATERIAL_GLASS = 500)
 	build_path = /obj/item/device/mmi/radio_enabled
+
+/datum/design/item/tool/mmi_shell
+	name = "AI Shell Control Module"
+	req_tech = list(TECH_DATA = 6, TECH_ENGINEERING = 6)
+	build_type = PROTOLATHE | MECHFAB
+	materials = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 500)
+	build_path = /obj/item/device/mmi/shell
 
 /datum/design/item/tool/beacon
 	req_tech = list(TECH_BLUESPACE = 1)
@@ -150,3 +165,13 @@ datum/design/item/tool/advanced_light_replacer
 	req_tech = list(TECH_ENGINEERING = 2, TECH_MATERIAL = 2, TECH_BLUESPACE = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GLASS = 20000, MATERIAL_SILVER = 20000, MATERIAL_GOLD = 20000, MATERIAL_PHORON = 10000)
 	build_path = /obj/item/bluespace_neutralizer
+
+/datum/design/item/tool/inductive_charger
+	name = "Inductive Charger (Science)"
+	req_tech = list(TECH_ENGINEERING = 7)
+	materials = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 5000, MATERIAL_PHORON = 1500)
+	build_path = /obj/item/inductive_charger/handheld
+
+/datum/design/item/tool/inductive_charger/engineering
+	name = "Inductive Charger (Engineering)"
+	build_path = /obj/item/inductive_charger/handheld/engineering

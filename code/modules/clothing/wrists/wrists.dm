@@ -7,11 +7,15 @@
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_wrists.dmi',
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_wrists.dmi'
 		)
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/wrist.dmi'
+	)
 	slot_flags = SLOT_WRISTS
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 	siemens_coefficient = 1.0
 	var/flipped = 0
+	var/normal_layer = TRUE
 
 /obj/item/clothing/wrists/update_clothing_icon()
 	if (ismob(src.loc))
@@ -19,7 +23,7 @@
 		M.update_inv_wrists()
 
 /obj/item/clothing/wrists/Initialize()
-	..()
+	. = ..()
 	update_flip_verb()
 
 /obj/item/clothing/wrists/proc/update_flip_verb()
@@ -43,6 +47,15 @@
 		playsound(src, equip_sound, EQUIP_SOUND_VOLUME)
 	else
 		playsound(src, drop_sound, DROP_SOUND_VOLUME)
+	update_clothing_icon()
+
+/obj/item/clothing/wrists/proc/change_layer()
+	set category = "Object"
+	set name = "Change Wrist Layer"
+	set src in usr
+
+	normal_layer = !normal_layer
+	to_chat(usr, SPAN_NOTICE("\The [src] will now layer [normal_layer ? "under" : "over"] your outerwear."))
 	update_clothing_icon()
 
 /obj/item/clothing/wrists/bracelet

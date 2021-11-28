@@ -2,6 +2,7 @@
 	name = LANGUAGE_CHANGELING
 	desc = "Although they are normally wary and suspicious of each other, changelings can commune over a distance."
 	speech_verb = list("says")
+	sing_verb = list("choruses")
 	colour = "changeling"
 	key = "g"
 	flags = RESTRICTED | HIVEMIND
@@ -50,6 +51,7 @@
 	speech_verb = list("intones")
 	ask_verb = list("intones")
 	exclaim_verb = list("chants")
+	sing_verb = list("chants")
 	colour = "cult"
 	key = "f"
 	flags = RESTRICTED
@@ -75,6 +77,7 @@
 	speech_verb = list("intones")
 	ask_verb = list("intones")
 	exclaim_verb = list("chants")
+	sing_verb = list("chants")
 	colour = "cult"
 	key = "y"
 	flags = RESTRICTED | HIVEMIND
@@ -85,8 +88,9 @@
 	speech_verb = list("buzzes")
 	ask_verb = list("buzzes")
 	exclaim_verb = list("buzzes")
+	sing_verb = list("buzzes")
 	colour = "bad"
-	key = "#"
+	key = "hd"
 	flags = RESTRICTED | HIVEMIND
 	syllables = list("beep","beep","beep","beep","beep","boop","boop","boop","bop","bop","dee","dee","doo","doo","hiss","hss","buzz","buzz","bzz","ksssh","keey","wurr","wahh","tzzz")
 	space_chance = 10
@@ -100,6 +104,7 @@
 	speech_verb = list("gargles")
 	ask_verb = list("gags")
 	exclaim_verb = list("retches")
+	sing_verb = list("trills")
 	colour = "revenant"
 	key = "c"
 	syllables = list("grhhg", "ghrohg", "grgugh", "grrhh", "hghh", "rghghh", "gghhh", "ggrh", "aghrh")

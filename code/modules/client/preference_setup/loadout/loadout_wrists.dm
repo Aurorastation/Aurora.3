@@ -22,10 +22,12 @@
 
 /datum/gear/wrists/watch/New()
 	..()
-	var/watchtype = list()
+	var/list/watchtype = list()
 	watchtype["watch"] = /obj/item/clothing/wrists/watch
 	watchtype["silver watch"] = /obj/item/clothing/wrists/watch/silver
 	watchtype["gold watch"] = /obj/item/clothing/wrists/watch/gold
+	watchtype["holo watch"] = /obj/item/clothing/wrists/watch/holo
+	watchtype["leather watch"] = /obj/item/clothing/wrists/watch/leather
 	watchtype["spy watch"] = /obj/item/clothing/wrists/watch/spy
 	watchtype["pocketwatch"] = /obj/item/pocketwatch
-	gear_tweaks += new/datum/gear_tweak/path(watchtype)
+	gear_tweaks += new /datum/gear_tweak/path(watchtype)

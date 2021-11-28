@@ -21,7 +21,7 @@
 /obj/item/modular_computer/handheld/wristbound/attack_hand(mob/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.gloves == src || H.wear_id == src)
+		if(H.wrists == src || H.wear_id == src)
 			return attack_self(user)
 	..()
 
@@ -48,8 +48,8 @@
 		switch(over_object.name)
 			if("right hand")
 				usr.u_equip(src)
-				usr.put_in_r_hand(src)
+				usr.equip_to_slot_if_possible(src, slot_r_hand)
 			if("left hand")
 				usr.u_equip(src)
-				usr.put_in_l_hand(src)
+				usr.equip_to_slot_if_possible(src, slot_l_hand)
 		add_fingerprint(usr)

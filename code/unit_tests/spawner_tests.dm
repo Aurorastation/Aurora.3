@@ -13,6 +13,7 @@ datum/unit_test/template/start_test()
 	var/list/ignore_spawners = list(
 		/datum/ghostspawner/human,
 		/datum/ghostspawner/human/admin,
+		/datum/ghostspawner/human/admin/corporate,
 		/datum/ghostspawner/simplemob,
 		/datum/ghostspawner/human/ert
 		)

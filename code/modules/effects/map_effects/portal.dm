@@ -15,7 +15,7 @@ Portals do have some specific requirements when mapping them in;
 	  E.g. both being on the left most side on a horizontal row.
 Portals also have some limitations to be aware of when mapping. Some of these are not an issue if you're trying to make an 'obvious' portal;
 	- The objects seen through portals are purely visual, which has many implications,
-	  such as simple_mob AIs being blind to mobs on the other side of portals.
+	  such as simple_animal AIs being blind to mobs on the other side of portals.
 	- Objects on the other side of a portal can be interacted with if the interaction has no range limitation,
 	  or the distance between the two portal sides happens to be less than the interaction max range. Examine will probably work,
 	  while picking up an item that appears to be next to you will fail.

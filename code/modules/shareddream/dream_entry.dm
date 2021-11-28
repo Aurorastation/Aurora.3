@@ -11,6 +11,7 @@ var/list/dream_entries = list()
 			bg = new /mob/living/brain_ghost(src) // Generate a new brainghost.
 			if(isnull(bg)) // Prevents you from getting kicked if the brain ghost didn't spawn - geeves
 				return
+			vr_mob = bg
 			bg.ckey = ckey
 			bg.client = client
 			ckey = "@[bg.ckey]"
@@ -29,7 +30,7 @@ var/list/dream_entries = list()
 			log_and_message_admins("has left the shared dream",bg)
 			var/mob/living/brain_ghost/old_bg = bg
 			bg = null
-
+			vr_mob = null
 			var/return_text = "You are ripped from the Srom as your body awakens."
 			var/mob/return_mob = src
 

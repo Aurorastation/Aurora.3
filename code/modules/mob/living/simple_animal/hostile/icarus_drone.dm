@@ -19,7 +19,7 @@
 	stop_automated_movement_when_pulled = FALSE
 	health = 300
 	maxHealth = 300
-	blood_type = "#000000"
+	blood_type = COLOR_OIL
 	speed = 8
 	projectiletype = /obj/item/projectile/beam/drone
 	projectilesound = 'sound/weapons/laser3.ogg'
@@ -60,6 +60,9 @@
 
 /mob/living/simple_animal/hostile/icarus_drone/Initialize()
 	. = ..()
+
+	set_light(1.2, 3, LIGHT_COLOR_BLUE)
+	
 	if(prob(5))
 		projectiletype = /obj/item/projectile/beam/pulse/drone
 		projectilesound = 'sound/weapons/pulse2.ogg'

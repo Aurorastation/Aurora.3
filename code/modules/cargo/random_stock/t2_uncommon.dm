@@ -14,11 +14,11 @@ STOCK_ITEM_UNCOMMON(plasteel, 3)
 STOCK_ITEM_UNCOMMON(silver, 2)
 	new /obj/item/stack/material/silver(L, rand(5,30))
 
-STOCK_ITEM_UNCOMMON(phoronsheets, 1)
-	new /obj/item/stack/material/phoron(L, rand(5,30))
+STOCK_ITEM_UNCOMMON(phoronsheets, 0.5)
+	new /obj/item/stack/material/phoron(L, rand(5,20))
 
-STOCK_ITEM_UNCOMMON(phoronglass, 1)
-	new /obj/item/stack/material/glass/phoronglass(L, rand(10,30))
+STOCK_ITEM_UNCOMMON(phoronglass, 0.5)
+	new /obj/item/stack/material/glass/phoronglass(L, rand(10,20))
 
 STOCK_ITEM_UNCOMMON(sandstone, 2)
 	new /obj/item/stack/material/sandstone(L, 50)
@@ -93,13 +93,11 @@ STOCK_ITEM_UNCOMMON(chempack, 5)
 	for (var/i in 1 to rand(2, 4))
 		var/obj/item/reagent_containers/chem_disp_cartridge/C = new /obj/item/reagent_containers/chem_disp_cartridge(L)
 		var/rname = pick(chems)
-		var/decl/reagent/R = decls_repository.get_decl(rname)
-
 		//If we get a drink, reroll it once.
 		//Should result in a higher chance of getting medicines and chemicals
-		if (istype(R, /decl/reagent/drink) || istype(R, /decl/reagent/alcohol))
+		if (ispath(rname, /decl/reagent/drink) || ispath(rname, /decl/reagent/alcohol))
 			rname = pick(chems)
-			R = decls_repository.get_decl(rname)
+		var/decl/reagent/R = decls_repository.get_decl(rname)
 		C.reagents.add_reagent(rname, C.volume)
 		C.setLabel(R.name)
 
@@ -145,9 +143,6 @@ STOCK_ITEM_UNCOMMON(advwelder, 2)
 		new /obj/item/weldingtool/experimental(L)
 	else
 		new /obj/item/weldingtool/hugetank(L)
-
-STOCK_ITEM_UNCOMMON(sord, 1)
-	new /obj/item/sord(L)
 
 STOCK_ITEM_UNCOMMON(policebaton, 1.5)
 	new /obj/item/melee/classic_baton(L)
@@ -400,6 +395,12 @@ STOCK_ITEM_UNCOMMON(alt_glasses, 1)
 
 STOCK_ITEM_UNCOMMON(gumballs, 3)
 	new /obj/item/glass_jar/gumball(L)
+
+STOCK_ITEM_UNCOMMON(googly, 0.75)
+	new /obj/item/storage/box/googly(L)
+
+STOCK_ITEM_UNCOMMON(wizarddressup, 1)
+	new /obj/random/wizard_dressup(L)
 
 STOCK_ITEM_UNCOMMON(nothing, 0)
 	// no-op

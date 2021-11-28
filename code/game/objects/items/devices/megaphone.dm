@@ -3,12 +3,10 @@
 	desc = "Pretend to be a director for a brief moment before someone tackles you to make you shut up."
 	desc_fluff = "Annoy your colleagues! Scare interns! Impress no one!"
 	desc_info = "A device used to project your voice. Loudly."
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/device/lefthand_megaphone.dmi',
-		slot_r_hand_str = 'icons/mob/items/device/righthand_megaphone.dmi',
-		)
+	icon = 'icons/obj/contained_items/tools/megaphone.dmi'
 	icon_state = "megaphone"
 	item_state = "megaphone"
+	contained_sprite = TRUE
 	w_class = ITEMSIZE_SMALL
 	flags = CONDUCT
 
@@ -43,14 +41,19 @@
 				return
 		if(emagged)
 			if(insults)
-				user.visible_message("<B>[user]</B> broadcasts, <FONT size=3>\"[pick(insultmsg)]\"</FONT>")
+				user.audible_message("<B>[user]</B> broadcasts, <FONT size=3>\"[pick(insultmsg)]\"</FONT>", "<B>[user]</B> speaks into \the [src].", 7)
 				insults--
 			else
 				to_chat(user, SPAN_WARNING("*BZZZZzzzzzt*"))
 		else
-			user.visible_message("<B>[user]</B> broadcasts, <FONT size=3>\"[message]\"</FONT>")
+			user.audible_message("<B>[user]</B> broadcasts, <FONT size=3>\"[message]\"</FONT>", "<B>[user]</B> speaks into \the [src].", 7)
 		if(activation_sound)
 			playsound(loc, activation_sound, 100, 0, 1)
+		for (var/mob/living/carbon/human/C in range(user, 2) - user)
+			if (C in range(user, 1))
+				C.earpain(3, TRUE, 2)
+			else
+				C.earpain(2, TRUE, 2)
 		spamcheck = world.time + 50
 		return
 
@@ -115,3 +118,9 @@
 	desc = "Something that should not exist."
 	icon_state = "megaphone_clown"
 	item_state = "megaphone_clown"
+
+/obj/item/device/megaphone/stagemicrophone
+	name = "dazzling stage microphone"
+	desc = "A glamorous looking stage microphone, complete with running lights and holographic effects around it."
+	icon_state = "stagemicrophone"
+	item_state = "stagemicrophone"

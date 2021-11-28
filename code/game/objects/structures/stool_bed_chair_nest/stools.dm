@@ -176,6 +176,10 @@
 				to_chat(user, SPAN_NOTICE("You pick up \the [src]."))
 				user.put_in_hands(src)
 	return
+		var/blocked = target.get_blocked_ratio(hit_zone, BRUTE)
+		target.Weaken(10 * (1 - blocked))
+		target.apply_damage(20, BRUTE, hit_zone, blocked, src)
+		return
 
 /obj/item/material/stool/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
 	if(prob(300 / force)) // Weaker materials are more likely to shatter on people randomly.

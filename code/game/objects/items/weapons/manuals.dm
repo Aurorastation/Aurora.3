@@ -1472,32 +1472,21 @@
 					</style>
 				</head>
 				<body>
-				<h1><center>Manifesto of the Parizahra Zhahrazjujz'tajara Akzatauzjauna'azahrazakahuz Hadii</center></h1>
-
-				<b><center></b><br>\
+				<h1><center>The Hadiist Manifesto</center></h1>
 				<br>\
-				Written: Late 2432;<br> \
-				First Published: 2433<br> \
-				Translated by Comrade Aurauz'hurl Aizhunua</center><br>\
-				A Rrak'narr is haunting the Njarir'Akhran. The Rrak'narr of Hadiism. Where have not the Njarir'Akhran blasted Hadiism? Where not have the nobility ruthlessly uprooted its supporters \
-				like they were tearing up weeds from their gardens? Despite their dismissal, the fact that the Njarir'Akhran are so desperate to exterminate them brings the Tajara to two inevitable facts:<br>\
-				<br>\
-				1) Revolutionary ideology is already cemented amongst Tajara.<br>\
-				2) It is time for supporters of Hadiism to throw off their cloaks and set aside their daggers and pick up the rifle to meet the nobility in the open field.<br>\
-				<br>\
-				To that end, Comrade Al'mari Hadii has coalesced the many supporters and thinkers of the Revolution to bring to life this manifesto of the Tajara people, the Hadiist nation, and the Revolution.<br>\
-				This is a Revolution that will make the Old Order buckle before the strength of the Tajara people until it collapses into ruin. Remember, dear comrade, all of the contents of this manifesto are to justify one simple fact.<br>\
-				This one fact has been unsuccessfully suppressed by the Njarir'Akhran, only to live on in the burning spirit of every Tajara. The simple fact that no Tajara is born inherently better than another.<br>\
+				Ethnic, cultural, and religious differences have been used by the nobility to stop the Tajara people from uniting against the oppression. These barriers have finally been broken during the Revolution. \
+				As history shows them, the establishment of a united Adhomai under a Hadiist state is necessary to secure the future of the Tajara. They must abandon their past sectarianism and work as one. \
+				Hadiism will shape all aspects of their lives for the better. The Tajara will be powerful and free as long they are guided by the Party. Together the Tajara are undefeatable.<br>\
 				</body>
 			</html>
 			"}
 
 /obj/item/book/manual/dpra_manifesto
-	name = "in defense of al'marii's legacy"
+	name = "in defense of al'mari's legacy"
 	desc = "A political manifesto containing the foundations of the Al'mariist ideology."
 	icon_state = "dpra-manifesto"
 	item_state = "book2"
-	title = "In Defense of Al'marii's Legacy"
+	title = "In Defense of Al'mari's Legacy"
 	author = "Supreme Commander Nated"
 	w_class = ITEMSIZE_SMALL
 	dat = {"<html>
@@ -1512,11 +1501,11 @@
 					</style>
 				</head>
 				<body>
-				<h1><center>In Defense of Al'marii's Legacy</center></h1>
+				<h1><center>In Defense of Al'mari's Legacy</center></h1>
 				<br>\
-				People of Adhomai, they must rally in defense of the legacy of Al'marii. The Hadiist usurper plans to enslave the Tajara people to alien overlords, the Tajara must stand up against his tyranny. \
-				Take up arms in the defense of the freeodm and destiny of their people. The power belongs to the People, not in the hands of the Party. The Hadiists are nothing but puppets of the alien oppressor. \
-				The war to decide the fate of the Tajaran culture and homeworld has begun, join them in this struggle. Death to the Hadiist usurper. Long live the legacy of Al'marii!<br>\
+				People of Adhomai, they must rally in defense of the legacy of Al'mari. The Hadiist usurper plans to enslave the Tajara people to alien overlords, the Tajara must stand up against his tyranny. \
+				Take up arms in the defense of the freedom and destiny of their people. The power belongs to the People, not in the hands of the Party. The Hadiists are nothing but puppets of the alien oppressor. \
+				The war to decide the fate of the Tajaran culture and homeworld has begun; they must join them in this struggle. Death to the Hadiist usurper. Long live the legacy of Al'mari!<br>\
 				</body>
 			</html>
 			"}

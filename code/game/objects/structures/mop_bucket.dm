@@ -7,7 +7,7 @@
 	w_class = ITEMSIZE_NORMAL
 	flags = OPENCONTAINER
 	var/amount_per_transfer_from_this = 5	//shit I dunno, adding this so syringes stop runtime erroring. --NeoFite
-	var/bucketsize = 360 //about 3x the size relative to a regular bucket.
+	var/bucketsize = 600 //about 2x the size relative to a regular bucket.
 
 /obj/structure/mopbucket/Initialize()
 	. = ..()

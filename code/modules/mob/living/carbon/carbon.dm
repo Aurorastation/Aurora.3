@@ -167,7 +167,7 @@
 /mob/living/carbon/swap_hand()
 	var/obj/item/item_in_hand = src.get_active_hand()
 	if(item_in_hand) //this segment checks if the item in your hand is twohanded.
-		if(istype(item_in_hand,/obj/item/material/twohanded) || istype(item_in_hand,/obj/item/gun) || istype(item_in_hand,/obj/item/pickaxe))
+		if(istype(item_in_hand,/obj/item/material/twohanded) || istype(item_in_hand,/obj/item/gun) || istype(item_in_hand,/obj/item/pickaxe) || istype(item_in_hand, /obj/item/grab))
 			if(item_in_hand:wielded == 1)
 				to_chat(usr, SPAN_WARNING("Your other hand is too busy holding the [item_in_hand.name]"))
 				return
@@ -355,7 +355,7 @@
 /mob/living/carbon/can_use_hands()
 	if(handcuffed)
 		return 0
-	if(buckled && ! istype(buckled, /obj/structure/bed/stool/chair)) // buckling does not restrict hands
+	if(buckled_to && ! istype(buckled_to, /obj/structure/bed/stool/chair)) // buckling does not restrict hands
 		return 0
 	return 1
 
@@ -370,8 +370,8 @@
 	else if (W == handcuffed)
 		handcuffed = null
 		update_inv_handcuffed()
-		if(buckled && buckled.buckle_require_restraints)
-			buckled.unbuckle_mob()
+		if(buckled_to && buckled_to.buckle_require_restraints)
+			buckled_to.unbuckle()
 
 	else if (W == legcuffed)
 		legcuffed = null
@@ -403,7 +403,7 @@
 	return
 
 /mob/living/carbon/slip(var/slipped_on,stun_duration=8)
-	if(buckled)
+	if(buckled_to)
 		return 0
 	stop_pulling()
 	to_chat(src, SPAN_WARNING("You slipped on [slipped_on]!"))
@@ -493,3 +493,12 @@
 /mob/living/carbon/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
 	if(eyecheck() < intensity || override_blindness_check)
 		return ..()
+
+/mob/living/carbon/get_contained_external_atoms()
+	. = contents - internal_organs
+
+/mob/living/carbon/proc/is_drowsy()
+	return (drowsiness >= 5)
+
+/mob/living/carbon/proc/should_have_limb(var/organ_check)
+	return FALSE

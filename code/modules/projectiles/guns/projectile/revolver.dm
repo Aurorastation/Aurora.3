@@ -72,7 +72,7 @@
 
 	var/mob/M = usr
 	if(!M.mind)	return 0
-	if(!M.mind.assigned_role == "Detective")
+	if(!M.mind.assigned_role == "Investigator")
 		to_chat(M, "<span class='notice'>You don't feel cool enough to name this gun, chump.</span>")
 		return 0
 
@@ -177,16 +177,8 @@
 	for(var/i in 1 to secondary_max_shells)
 		secondary_loaded += new secondary_ammo_type(src)
 
-/obj/item/gun/projectile/revolver/lemat/verb/swap_firingmode()
-	set name = "Swap Firing Mode"
-	set category = "Object"
-	set desc = "Click to swap from one method of firing to another."
-
-	var/mob/living/carbon/human/M = usr
-	if(!M.mind)
-		return 0
-
-	to_chat(M, "<span class='notice'>You change the firing mode on \the [src].</span>")
+/obj/item/gun/projectile/revolver/lemat/unique_action(mob/living/user)
+	to_chat(user, "<span class='notice'>You change the firing mode on \the [src].</span>")
 	if(!flipped_firing)
 		if(max_shells && secondary_max_shells)
 			max_shells = secondary_max_shells
@@ -282,5 +274,5 @@
 	if(default_parry_check(user, attacker, damage_source) && prob(20))
 		user.visible_message(SPAN_DANGER("\The [user] parries [attack_text] with \the [src]!"))
 		playsound(user.loc, "punchmiss", 50, 1)
-		return TRUE
+		return PROJECTILE_STOPPED
 	return FALSE

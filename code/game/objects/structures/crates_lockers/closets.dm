@@ -106,17 +106,15 @@
 			return 0
 	return 1
 
-/obj/structure/closet/proc/dump_contents()
+/obj/structure/closet/dump_contents()
 	//Cham Projector Exception
-	for(var/obj/effect/dummy/chameleon/AD in src)
+	for(var/obj/effect/dummy/chameleon/AD in contents)
 		AD.forceMove(loc)
 
-	for(var/obj/I in src)
-		if(linked_teleporter && I == linked_teleporter)
-			continue
+	for(var/obj/I in contents - linked_teleporter)
 		I.forceMove(loc)
 
-	for(var/mob/M in src)
+	for(var/mob/M in contents)
 		M.forceMove(loc)
 		if(M.client)
 			M.client.eye = M.client.mob
@@ -157,9 +155,12 @@
 	if(linked_teleporter)
 		if(linked_teleporter.last_use + 600 > world.time)
 			return
+		var/did_teleport = FALSE
 		for(var/mob/M in contents)
-			linked_teleporter.do_teleport(M)
-		linked_teleporter.last_use = world.time
+			if(linked_teleporter.do_teleport(M))
+				did_teleport = TRUE
+		if(did_teleport)
+			linked_teleporter.last_use = world.time
 
 	playsound(get_turf(src), close_sound, 25, 0, -3)
 	density = initial(density)
@@ -189,7 +190,7 @@
 /obj/structure/closet/proc/store_mobs(var/stored_units)
 	var/added_units = 0
 	for(var/mob/living/M in loc)
-		if(M.buckled || M.pinned.len)
+		if(M.buckled_to || M.pinned.len)
 			continue
 		if(M.mob_size >= maximum_mob_size)
 			continue
@@ -458,7 +459,7 @@
 	escapee.next_move = world.time + 100
 	escapee.last_special = world.time + 100
 	to_chat(escapee, "<span class='warning'>You lean on the back of \the [src] and start pushing the door open. (this will take about [breakout_time] minutes)</span>")
-	visible_message("<span class='danger'>\The [src] begins to shake violently!</span>")
+	visible_message(SPAN_DANGER("\The [src] begins to shake violently!"), SPAN_DANGER("You hear the sound of metal trashing around nearby."), intent_message = THUNK_SOUND)
 
 	var/time = 6 * breakout_time * 2
 
@@ -470,6 +471,7 @@
 	for(var/i in 1 to time) //minutes * 6 * 5seconds * 2
 		playsound(loc, 'sound/effects/grillehit.ogg', 100, 1)
 		shake_animation()
+		intent_message(THUNK_SOUND)
 
 		if (bar)
 			bar.update(i)

@@ -80,7 +80,13 @@
 
 		mind = body.mind	//we don't transfer the mind but we keep a reference to it.
 
-	if(!T)	T = pick(latejoin)			//Safety in case we cannot find the body's position
+	if(!T)
+		if(length(latejoin))
+			T = pick(latejoin)			//Safety in case we cannot find the body's position
+		else if(length(force_spawnpoints["Anyone"]))
+			T = pick(force_spawnpoints["Anyone"])
+		else
+			T = locate(1, 1, 1)
 	forceMove(T)
 
 	if(!name)							//To prevent nameless ghosts
@@ -266,8 +272,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /mob/abstract/observer/Stat()
 	..()
 	if(statpanel("Status"))
-		if(emergency_shuttle)
-			var/eta_status = emergency_shuttle.get_status_panel_eta()
+		if(evacuation_controller)
+			var/eta_status = evacuation_controller.get_status_panel_eta()
 			if(eta_status)
 				stat(null, eta_status)
 
@@ -310,6 +316,20 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	else
 		medHUD = 1
 		to_chat(src, "<span class='notice'><B>Medical HUD Enabled</B></span>")
+
+/mob/abstract/observer/verb/scan_target()
+	set category = "Ghost"
+	set name = "Medical Scan Target"
+	set desc = "Analyse the health of whatever you are following."
+
+	if(!following)
+		to_chat(src, SPAN_WARNING("You aren't following anything!"))
+		return
+
+	if(ishuman(following))
+		health_scan_mob(following, usr, TRUE, TRUE)
+	else 
+		to_chat(src, SPAN_WARNING("This isn't a scannable target."))
 
 /mob/abstract/observer/verb/toggle_antagHUD()
 	set category = "Ghost"
@@ -380,14 +400,13 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	stop_following()
 	usr.forceMove(pick(L))
 
-/mob/abstract/observer/verb/follow(input in getmobs())
+/mob/abstract/observer/verb/follow()
 	set category = "Ghost"
 	set name = "Follow" // "Haunt"
 	set desc = "Follow and haunt a mob."
 
-	var/target = getmobs()[input]
-	if(!target) return
-	ManualFollow(target)
+	var/datum/vueui_module/ghost_menu/GM = new /datum/vueui_module/ghost_menu(usr)
+	GM.ui_interact(usr)
 
 // This is the ghost's follow verb with an argument
 /mob/abstract/observer/proc/ManualFollow(var/atom/movable/target)
@@ -953,3 +972,8 @@ mob/abstract/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)
 
 	if(SSpai.revokeCandidancy(src))
 		to_chat(src, "You have been removed from the pAI candidate pool.")
+
+/mob/abstract/observer/can_hear_radio(speaker_coverage = list())
+	if(client && (client.prefs.toggles & CHAT_GHOSTRADIO))
+		return TRUE
+	return ..()

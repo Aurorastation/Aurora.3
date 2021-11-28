@@ -88,7 +88,9 @@
 		if(prob(jam_chance))
 			playsound(src.loc, 'sound/items/trayhit2.ogg', 50, TRUE)
 			to_chat(user, "<span class='danger'>\The [src] jams!</span>")
+			balloon_alert(user, SPAN_RED("JAM"))
 			jam_num = rand(2, 5) // gotta attackself two to five times to unjam
+			return FALSE
 	return TRUE
 
 /obj/item/gun/projectile/proc/process_chambered()
@@ -214,14 +216,17 @@
 	..()
 	load_ammo(A, user)
 
-/obj/item/gun/projectile/attack_self(mob/user)
+/obj/item/gun/projectile/toggle_firing_mode(mob/user)
 	if(jam_num)
 		playsound(src.loc, 'sound/weapons/click.ogg', 50, TRUE)
 		jam_num--
 		if(!jam_num)
 			visible_message(SPAN_DANGER("\The [user] unjams \the [src]!"))
+			balloon_alert(user, SPAN_GREEN("CLEAR"))
 			playsound(src.loc, 'sound/weapons/unjam.ogg', 100, TRUE)
 			unjam_cooldown = world.time
+		else
+			balloon_alert(user, SPAN_YELLOW("CLICK"))
 	else if(unjam_cooldown + 2 SECONDS > world.time)
 		return
 	else if(firemodes.len > 1)

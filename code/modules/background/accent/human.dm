@@ -23,6 +23,14 @@
 	accent to be more properly Eridanian."
 	tag_icon = "eridani"
 
+/datum/accent/eridani_reinstated
+	name = ACCENT_ERIDANIREINSTATED
+	description = "The clipped and clinical tones of proper \"corporate\" speech in Eridani are difficult to perfect even for those born into positions of privilege. \
+	For those unfortunate individuals born outside Eridani's shining skyscrapers and silver spires, the distinctly uncorporate flow of \"dreg\" speech can make attaining \
+	the standard Eridanian accent almost impossible to fully achieve. The curious middle-ground accent of the so-called \"reinstated\" in Eridani society allows an individual \
+	to go much further than its more criminally-aligned counterpart, but still falls short of most suits' expectations."
+	tag_icon = "eridani_reinstated"
+
 /datum/accent/eridani_dreg
 	name = ACCENT_ERIDANIDREG
 	description = "The Eridanian \"dreg\" accent is almost universally looked upon as the accent of petty criminals and ne'er-do-wells throughout the Orion Spur. \
@@ -43,12 +51,19 @@
 	individual ships, most of which have their own unique variations upon the standard Scarab accent."
 	tag_icon = "scarabs"
 
-/datum/accent/silversun
-	name = ACCENT_SILVERSUN
-	description = "The native accent of Silversun is a sing-songy take on standard Sol Common that has, since massive investment into the planet by Idris Incorporated, come to be \
-	associated with the planet's renowned tourism industry. Many native residents of Silversun are bitter that their accent - and planet - are seen as nothing more than an enormous \
-	vacation retreat by the greater Orion Spur."
-	tag_icon = "silversun"
+/datum/accent/silversun_original
+	name = ACCENT_SILVERSUN_ORIGINAL
+	description = "The native accent of Silversun is a sing-song take on standard Sol Common that has, since massive investment into the planet by Idris Incorporated, come to be associated with the planet's renowned tourism industry. \
+	Many native residents of Silversun are bitter that their accent - and planet - are seen as nothing more than an enormous vacation retreat by the greater Orion Spur. This accent is commonly used by Idris Incorporated shell positronic \
+	frames, much to the consternation of Silversun's Originals."
+	tag_icon = "silversun_original"
+
+/datum/accent/silversun_expatriate
+	name = ACCENT_SILVERSUN_EXPATRIATE
+	description = "The accent of Silversun's wealthy Idris Incorporated-aligned minority population is rooted in Tradeband dialects from Eridani and Luna rather than the Sol Common dialect of the Originals, making it audibly distinctive \
+	compared to the 'native' accent of the planet. This accent is most commonly associated with Idris Incorporated employees from Silversun, which tend to be overwhelmingly from the Expatriate population. Many Idris Incorporated positronics \
+	are programmed with this accent, and it is often regarded as the unofficial accent of the megacorporation."
+	tag_icon = "silversun_expatriate"
 
 /datum/accent/phong
 	name = ACCENT_PHONG
@@ -99,15 +114,18 @@
 
 /datum/accent/venus
 	name = ACCENT_VENUS
-	description = "Venusian Common (referred time as Cytherean Common on Venus itself) is often regarded as the \"most common\" form of Sol Common due to the prevalence of its entertainment \
-	industry. It sounds extremely similar to Earthbound Sol Common. Many high-end entertainment IPCs used throughout human space come pre-programmed with this accent, due to its \
-	association with the Venusian entertainment industry."
+	description = "Venusian Common (referred to as Cytherean Common on Venus itself) is often regarded as one of the most prevalent forms \
+	of Sol Common due to Venus' massive entertainment industry. On Venus itself this accent is associated with the entertainment industry \
+	and Cytherea, and many prospective actors will attempt to adopt it in order to better fit into the industry. Many high-end entertainment \
+	IPCs used throughout human space come pre-programmed with this accent, due to its association with the Venusian entertainment industry."
 	tag_icon = "venus"
 
 /datum/accent/venusjin
 	name = ACCENT_VENUSJIN
-	description = "Jintarian Common is looked down upon on Venus itself for its association with Venusian surfacers, and is often used by the planet's entertainment industry to mark a \
-	character as villainous or untrustworthy. As a result, it is often looked down upon throughout human space."
+	description = "While Cytherean Common has a reputation abroad as \"Venusian Common\" it is the accent of working-class Jintarians that is, \
+	to many on the planet, the true form of Venusian Common. On Venus itself this accent is associated with the working and middle-class \
+	population of the planet rather than the entertainment industry, and many Cythereans look down upon those with this accent as unrefined. \
+	Hendrik Strom, one of the Sol Alliance's most notable politicians, is well-known for having a strong Jintarian accent he makes no attempt to hide."
 	tag_icon = "venus_surfacer"
 
 /datum/accent/dominia_high
@@ -163,3 +181,35 @@
 	isolation of the planet during its period of reunification. Due to the government's tight control over Gadpathur, and push for unity in the face of the Sol Alliance, Gadpathurians have \
 	been described as sounding relatively similar no matter which area of the planet they hail from."
 	tag_icon = "gadpathur"
+
+/datum/accent/pluto
+	name = ACCENT_PLUTO
+	description = "The Plutonian accent is one of many Sol Common accents found throughout the Sol System itself, though it is almost undoubtedly the furthest one out from the Sun itself. Rooted in a combination \
+	of Central Asian and Eastern European dialects, the Plutonian accent is notable for its slow, methodical method of speech. Very few positronics can be found with this accent, due to Pluto's unusual relationship with corporations."
+	tag_icon = "pluto"
+
+/datum/accent/assunzione
+	name = ACCENT_ASSUNZIONE
+	description = "The Assunzionii accent is one of the most unusual found in the Coalition of Colonies, due to the planet's colonial roots in the Mediterranean. Heavily influenced by Romance languages the Assunzionii dialect is \
+	most notable for its elegant-sounding and evenly-paced method of speaking compared to rougher-sounding Coalition and frontier dialects. Liturgical Assunzionii is a small subset of this dialect, and is generally only spoken during \
+	Luceian services and can be distinguished by its use of archaic language."
+	tag_icon = "assunzione"
+
+/datum/accent/visegrad
+	name = ACCENT_VISEGRAD
+	description = "The Visegradi accent is unique for that of a Solarian world, being a Tradeband accent with strong influences from the various languages of the Warsaw Pact on Earth. Decidedly harsh and characterized by unusual \
+	and eclectic pronunciation, it can be fairly difficult to parse for those unfamiliar with it. This is only somewhat stymied by the fact that Visegradi people tend to speak very loudly, an adaptation necessitated by the need to \
+	make oneself heard during the planet's torrential downpours."
+	tag_icon = "visegrad"
+
+/datum/accent/valkyrie
+	name = ACCENT_VALKYRIE
+	description = "The Valkyrian accent is a difficult accent to replicate, mostly due to the cultural melting pot in which it exists. Influences from across the Orion Spur have impacted the development of the accent, with \
+	traces of Sol Common, Tau Ceti Basic, Elyran Common and even Vulgar Morozi."
+	tag_icon = "valkyrie"
+
+/datum/accent/mictlan
+	name = ACCENT_MICTLAN
+	description = "The Mictlanian accent is a variation on Tradeband that is usually recognized as being folksy and warm. This welcoming, soft voice is one of the reasons the planet of Mictlan has seen a boom in tourism. While \
+	some youth may try to sound rebellious and conceal the softness of their voice, this musicality is still prevalent and universally recognizable."
+	tag_icon = "mictlan"

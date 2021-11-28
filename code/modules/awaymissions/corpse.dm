@@ -172,18 +172,6 @@
 	species = SPECIES_SKELETON
 	corpseid = 0
 
-/obj/effect/landmark/corpse/clown
-	name = "Clown"
-	corpseuniform = /obj/item/clothing/under/rank/clown
-	corpseshoes = /obj/item/clothing/shoes/clown_shoes
-	corpseradio = /obj/item/device/radio/headset
-	corpsemask = /obj/item/clothing/mask/gas/clown_hat
-	corpsepocket1 = /obj/item/bikehorn
-	corpseback = /obj/item/storage/backpack/clown
-	corpseid = 1
-	corpseidjob = "Clown"
-	corpseidaccess = "Clown"
-
 /obj/effect/landmark/corpse/scientist
 	name = "Scientist"
 	corpseradio = /obj/item/device/radio/headset/headset_sci
@@ -217,7 +205,7 @@
 	name = "Bridge Officer"
 	corpseradio = /obj/item/device/radio/headset/heads/hop
 	corpseuniform = /obj/item/clothing/under/rank/centcom_officer
-	corpsesuit = /obj/item/clothing/suit/armor/bulletproof
+	corpsesuit = /obj/item/clothing/suit/armor/carrier/ballistic
 	corpseshoes = /obj/item/clothing/shoes/black
 	corpseglasses = /obj/item/clothing/glasses/sunglasses
 	corpseid = 1
@@ -227,7 +215,7 @@
 /obj/effect/landmark/corpse/commander
 	name = "Commander"
 	corpseuniform = /obj/item/clothing/under/rank/centcom_captain
-	corpsesuit = /obj/item/clothing/suit/armor/bulletproof
+	corpsesuit = /obj/item/clothing/suit/armor/carrier/ballistic
 	corpseradio = /obj/item/device/radio/headset/heads/captain
 	corpseglasses = /obj/item/clothing/glasses/eyepatch
 	corpsemask = /obj/item/clothing/mask/smokable/cigarette/cigar/cohiba

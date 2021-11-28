@@ -59,21 +59,22 @@
 	return
 
 
-/obj/item/grenade/proc/activate(mob/user as mob)
+/obj/item/grenade/proc/activate(var/atom/user)
 	if(active)
 		return
 
-	if(user)
-		msg_admin_attack("[user.name] ([user.ckey]) primed \a [fake ? ("fake ") : ("")][src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user))
+	if(user) //Prevents runtimes with grenade launchers, which create their own admin message
+		if(ismob(user))
+			var/mob/M = user
+			admin_attack_log(M, attacker_message = "primed \a [fake ? (" fake") : ("")][src]!", admin_message = "primed \a [fake ? ("fake ") : ("")][src]!")
+		else
+			message_admins("[user.name] primed \a [fake ? ("fake ") : ("")][src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
 
 	icon_state = initial(icon_state) + "_active"
-	active = 1
+	active = TRUE
 	playsound(loc, activation_sound, 75, 1, -3)
 
-	spawn(det_time)
-		prime()
-		return
-
+	addtimer(CALLBACK(src, .proc/prime), det_time)
 
 /obj/item/grenade/proc/prime()
 	var/turf/T = get_turf(src)
@@ -84,3 +85,6 @@
 	walk(src, null, null)
 	..()
 	return
+
+/obj/item/grenade/vendor_action(var/obj/machinery/vending/V)
+	activate(V)

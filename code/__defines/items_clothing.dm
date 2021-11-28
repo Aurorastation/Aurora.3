@@ -3,23 +3,23 @@
 #define CANDLE_LUM 3 // For how bright candles are.
 
 // Item inventory slot bitmasks.
-#define SLOT_OCLOTHING  (1<<0)
-#define SLOT_ICLOTHING  (1<<1)
-#define SLOT_GLOVES     (1<<2)
-#define SLOT_EYES       (1<<3)
-#define SLOT_EARS       (1<<4)
-#define SLOT_MASK       (1<<5)
-#define SLOT_HEAD       (1<<6)
-#define SLOT_FEET       (1<<7)
-#define SLOT_ID         (1<<8)
-#define SLOT_BELT       (1<<9)
-#define SLOT_BACK       (1<<10)
-#define SLOT_POCKET     (1<<11) // This is to allow items with a w_class of 3 or 4 to fit in pockets.
-#define SLOT_DENYPOCKET (1<<12)  // This is to  deny items with a w_class of 2 or 1 from fitting in pockets.
-#define SLOT_TWOEARS    (1<<13)
-#define SLOT_TIE        (1<<14)
-#define SLOT_HOLSTER	(1<<15)
-#define SLOT_WRISTS		(1<<16)
+#define SLOT_OCLOTHING  BITFLAG(0)
+#define SLOT_ICLOTHING  BITFLAG(1)
+#define SLOT_GLOVES     BITFLAG(2)
+#define SLOT_EYES       BITFLAG(3)
+#define SLOT_EARS       BITFLAG(4)
+#define SLOT_MASK       BITFLAG(5)
+#define SLOT_HEAD       BITFLAG(6)
+#define SLOT_FEET       BITFLAG(7)
+#define SLOT_ID         BITFLAG(8)
+#define SLOT_BELT       BITFLAG(9)
+#define SLOT_BACK       BITFLAG(10)
+#define SLOT_POCKET     BITFLAG(11) // This is to allow items with a w_class of 3 or 4 to fit in pockets.
+#define SLOT_TWOEARS    BITFLAG(12)
+#define SLOT_TIE        BITFLAG(13)
+#define SLOT_HOLSTER    BITFLAG(14)
+#define SLOT_WRISTS     BITFLAG(15)
+#define SLOT_S_STORE    BITFLAG(16)
 
 // Flags bitmasks.
 #define NOBLUDGEON         0x1   // When an item has this it produces no "X has been hit by Y with Z" message with the default handler.
@@ -30,16 +30,18 @@
 #define PHORONGUARD        0x20  // Does not get contaminated by phoron.
 #define NOREACT            0x40  // Reagents don't react inside this container.
 #define PROXMOVE           0x80  // Does this object require proximity checking in Enter()?
+#define HELDMAPTEXT        0x100 // Uses the special held maptext system, which sets a specific maptext if the item is in possession of a mob.
 
 //Flags for items (equipment)
-#define THICKMATERIAL          0x1  // Prevents syringes, parapens and hyposprays if equiped to slot_suit or slot_head.
-#define STOPPRESSUREDAMAGE     0x2  // Counts towards pressure protection. Note that like temperature protection, body_parts_covered is considered here as well.
-#define AIRTIGHT               0x4  // Functions with internals.
-#define NOSLIP                 0x8  // Prevents from slipping on wet floors, in space, etc.
-#define BLOCK_GAS_SMOKE_EFFECT 0x10 // Blocks the effect that chemical clouds would have on a mob -- glasses, mask and helmets ONLY! (NOTE: flag shared with ONESIZEFITSALL)
-#define FLEXIBLEMATERIAL       0x20 // At the moment, masks with this flag will not prevent eating even if they are covering your face.
-#define SOUNDPROTECTION        0x40 // whether wearing this item will protect you from loud noises such as flashbangs | this only works for ear slots or the head slot
-#define LIGHTSTEP              0x80 // When applied to footwear, this makes it so that they don't trigger things like landmines and mouse traps
+#define THICKMATERIAL          BITFLAG(0)  // Prevents syringes, parapens and hyposprays if equiped to slot_suit or slot_head.
+#define AIRTIGHT               BITFLAG(1)  // Functions with internals.
+#define NOSLIP                 BITFLAG(2)  // Prevents from slipping on wet floors, in space, etc.
+#define BLOCK_GAS_SMOKE_EFFECT BITFLAG(3)  // Blocks the effect that chemical clouds would have on a mob -- glasses, mask and helmets ONLY! (NOTE: flag shared with ONESIZEFITSALL)
+#define FLEXIBLEMATERIAL       BITFLAG(4)  // At the moment, masks with this flag will not prevent eating even if they are covering your face.
+#define SOUNDPROTECTION        BITFLAG(5)  // whether wearing this item will protect you from loud noises such as flashbangs | this only works for ear slots or the head slot
+#define LIGHTSTEP              BITFLAG(6)  // When applied to footwear, this makes it so that they don't trigger things like landmines and mouse traps
+#define INJECTIONPORT          BITFLAG(7)  // Allows syringes and hyposprays to inject, even if the material is thick
+#define SHOWFLAVORTEXT         BITFLAG(8)  // won't block flavourtext when worn on equipment slot
 
 // Flags for pass_flags.
 #define PASSTABLE		0x1
@@ -99,14 +101,19 @@
 #define slot_back_str		"slot_back"
 #define slot_l_hand_str		"slot_l_hand"
 #define slot_r_hand_str		"slot_r_hand"
+#define slot_wear_id_str	"slot_wear_id"
 #define slot_w_uniform_str	"slot_w_uniform"
+#define slot_s_store_str	"slot_s_store"
 #define slot_head_str		"slot_head"
+#define slot_glasses_str 	"slot_glasses"
+#define slot_wear_mask_str	"slot_mask"
 #define slot_belt_str		"slot_belt"
 #define slot_wear_suit_str	"slot_suit"
 #define slot_l_ear_str		"slot_l_ear"
 #define slot_r_ear_str		"slot_r_ear"
 #define slot_shoes_str 		"slot_shoes"
 #define slot_wrists_str 	"slot_wrists"
+#define slot_gloves_str 	"slot_gloves"
 
 //itemstate suffixes. Used for containedsprite worn items
 #define WORN_LHAND	"_lh"
@@ -168,6 +175,15 @@
 #define WARNING_HIGH_PRESSURE 325 // This determines when the orange pressure icon is displayed (it is 0.7 * HAZARD_HIGH_PRESSURE)
 #define WARNING_LOW_PRESSURE  50  // This is when the gray low pressure icon is displayed. (it is 2.5 * HAZARD_LOW_PRESSURE)
 #define  HAZARD_LOW_PRESSURE  20  // This is when the black ultra-low pressure icon is displayed. (This one is set as a constant)
+
+#define FIRESUIT_MAX_PRESSURE       20 * ONE_ATMOSPHERE  // Firesuits and atmos voidsuits
+#define RIG_MAX_PRESSURE            10 * ONE_ATMOSPHERE  // Rigs
+#define LIGHT_RIG_MAX_PRESSURE       5 * ONE_ATMOSPHERE  // Rigs
+#define ENG_VOIDSUIT_MAX_PRESSURE   10 * ONE_ATMOSPHERE
+#define VOIDSUIT_MAX_PRESSURE        5 * ONE_ATMOSPHERE
+#define SPACE_SUIT_MAX_PRESSURE      2 * ONE_ATMOSPHERE
+
+#define FIRESUIT_MIN_PRESSURE        0.5 * ONE_ATMOSPHERE
 
 #define TEMPERATURE_DAMAGE_COEFFICIENT  1.5 // This is used in handle_temperature_damage() for humans, and in reagents that affect body temperature. Temperature damage is multiplied by this amount.
 #define BODYTEMP_AUTORECOVERY_DIVISOR   12  // This is the divisor which handles how much of the temperature difference between the current body temperature and 310.15K (optimal temperature) humans auto-regenerate each tick. The higher the number, the slower the recovery. This is applied each tick, so long as the mob is alive.

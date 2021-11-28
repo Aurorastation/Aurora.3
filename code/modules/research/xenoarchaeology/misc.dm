@@ -60,7 +60,7 @@
 //---- Lockers and closets
 
 /obj/structure/closet/secure_closet/xenoarchaeologist
-	name = "Xenoarchaeologist Locker"
+	name = "xenoarchaeologist locker"
 	req_access = list(access_tox_storage)
 	icon_state = "secureres1"
 	icon_closed = "secureres"
@@ -69,42 +69,38 @@
 	icon_broken = "secureresbroken"
 	icon_off = "secureresoff"
 
-	New()
-		..()
-		sleep(2)
-		new /obj/item/clothing/under/rank/scientist(src)
-		new /obj/item/clothing/suit/storage/toggle/labcoat(src)
-		new /obj/item/clothing/shoes/science(src)
-		new /obj/item/clothing/glasses/science(src)
-		new /obj/item/device/radio/headset/headset_sci(src)
-		new /obj/item/storage/belt/archaeology(src)
-		new /obj/item/storage/box/excavation(src)
-		return
+/obj/structure/closet/secure_closet/xenoarchaeologist/fill()
+	new /obj/item/clothing/under/rank/scientist(src)
+	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
+	new /obj/item/clothing/shoes/science(src)
+	new /obj/item/clothing/glasses/science(src)
+	new /obj/item/device/radio/headset/headset_sci(src)
+	new /obj/item/storage/belt/archaeology(src)
+	new /obj/item/storage/box/excavation(src)
+	new /obj/item/taperoll/science(src)
 
 /obj/structure/closet/excavation
-	name = "Excavation tools"
+	name = "excavation tools"
 	icon_state = "toolcloset"
 	icon_closed = "toolcloset"
 	icon_opened = "toolclosetopen"
 
-	New()
-		..()
-		sleep(2)
-		new /obj/item/storage/belt/archaeology(src)
-		new /obj/item/storage/box/excavation(src)
-		new /obj/item/device/flashlight/lantern(src)
-		new /obj/item/device/ano_scanner(src)
-		new /obj/item/device/depth_scanner(src)
-		new /obj/item/device/core_sampler(src)
-		new /obj/item/device/gps(src)
-		new /obj/item/device/beacon_locator(src)
-		new /obj/item/device/radio/beacon(src)
-		new /obj/item/pickaxe(src)
-		new /obj/item/device/measuring_tape(src)
-		new /obj/item/pickaxe/hand(src)
-		new /obj/item/storage/bag/fossils(src)
-		new /obj/item/device/hand_labeler(src)
-		return
+/obj/structure/closet/excavation/fill()
+	new /obj/item/storage/belt/archaeology(src)
+	new /obj/item/storage/box/excavation(src)
+	new /obj/item/device/flashlight/lantern(src)
+	new /obj/item/device/ano_scanner(src)
+	new /obj/item/device/depth_scanner(src)
+	new /obj/item/device/core_sampler(src)
+	new /obj/item/device/gps(src)
+	new /obj/item/device/beacon_locator(src)
+	new /obj/item/device/radio/beacon(src)
+	new /obj/item/pickaxe(src)
+	new /obj/item/device/measuring_tape(src)
+	new /obj/item/pickaxe/hand(src)
+	new /obj/item/storage/bag/fossils(src)
+	new /obj/item/device/hand_labeler(src)
+	new /obj/item/ore_detector(src)
 
 //---- Isolation room air alarms
 

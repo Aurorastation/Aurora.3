@@ -23,6 +23,13 @@
 	name = "fish fillet"
 	desc = "A fillet of fish."
 
+/obj/item/reagent_containers/food/snacks/fish/roe
+	name = "roe sack"
+	desc = "A fleshy organ filled with fish eggs."
+	icon_state = "roesack"
+	fish_type = "fish"
+	reagents_to_add = list(/decl/reagent/nutriment/protein/seafood = 3)
+
 /obj/item/reagent_containers/food/snacks/fish/mollusc
 	name = "slimy meat"
 	desc = "Some slimy meat from clams or molluscs."
@@ -34,6 +41,13 @@
 
 /obj/item/reagent_containers/food/snacks/fish/mollusc/barnacle
 	fish_type = "barnacle"
+
+/obj/item/reagent_containers/food/snacks/fish/cosmozoan
+	name = "slimy fillet"
+	desc = "A piece of slimy meat that could only come from a space jellyfish, a cosmozoan."
+	icon_state = "cozmofillet"
+	fish_type = "cosmozoan"
+	reagents_to_add = list(/decl/reagent/nutriment/protein/seafood/cosmozoan = 3)
 
 // Molluscs!
 /obj/item/trash/mollusc_shell
@@ -101,3 +115,14 @@
 		crack_shell(user)
 		return
 	return ..()
+
+/obj/item/mollusc/clam/rasval
+	name = "ras'val clam"
+	desc = "An adhomian clam, native to the sea of Ras'val."
+	icon_state = "ras'val_clams"
+	meat_type = /obj/item/reagent_containers/food/snacks/clam
+	shell_type = /obj/item/trash/mollusc_shell/clam/rasval
+
+/obj/item/trash/mollusc_shell/clam/rasval
+	name = "ras'val clam shell"
+	icon_state = "ras'val_clams_shell"

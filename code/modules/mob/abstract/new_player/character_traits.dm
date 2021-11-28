@@ -26,35 +26,28 @@
 	desc = "You have difficulty perceiving green."
 
 /datum/character_disabilities/deuteranomaly/apply_self(var/mob/living/carbon/human/H)
-	H.add_client_color(/datum/client_color/deuteranopia)
+	H.add_client_color(/datum/client_color/deuteranopia, TRUE)
 
 /datum/character_disabilities/protanopia
 	name = "Protanopia"
 	desc = "You have difficulty perceiving red."
 
 /datum/character_disabilities/protanopia/apply_self(var/mob/living/carbon/human/H)
-	H.add_client_color(/datum/client_color/protanopia)
+	H.add_client_color(/datum/client_color/protanopia, TRUE)
 
 /datum/character_disabilities/tritanopia
 	name = "Tritanopia"
 	desc = "You have difficulty perceiving green and yellow."
 
 /datum/character_disabilities/tritanopia/apply_self(var/mob/living/carbon/human/H)
-	H.add_client_color(/datum/client_color/tritanopia)
+	H.add_client_color(/datum/client_color/tritanopia, TRUE)
 
 /datum/character_disabilities/total_colorblind
 	name = "Total Colorblindness"
 	desc = "You cannot see color, only black, white, and shades of gray."
 
 /datum/character_disabilities/total_colorblind/apply_self(var/mob/living/carbon/human/H)
-	H.add_client_color(/datum/client_color/monochrome)
-
-/datum/character_disabilities/mute
-	name = "Muteness"
-	desc = "You are unable to form coherent speech."
-
-/datum/character_disabilities/mute/apply_self(var/mob/living/carbon/human/H)
-	H.sdisabilities |= MUTE
+	H.add_client_color(/datum/client_color/monochrome, TRUE)
 
 /datum/character_disabilities/deaf
 	name = "Deafness"

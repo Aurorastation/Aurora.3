@@ -2,11 +2,14 @@
 	name = "Ives"
 	desc = "A mysterious docile hivebot, this type seems to be of a kind rarely seen in the Orion Spur. Look at its little tail!"
 	named = TRUE
+	gender = FEMALE
 
 	icon = 'icons/mob/npc/pets.dmi'
 	icon_state = "ives"
 	icon_living = "ives"
 	icon_dead = "ives_dead"
+
+	blood_overlay_icon = null
 
 	health = 70
 	maxHealth = 70

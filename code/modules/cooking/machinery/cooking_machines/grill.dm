@@ -21,6 +21,13 @@
 
 	cooking_coeff = 0.3 // cook it nice and slow
 
+	component_types = list(
+		/obj/item/circuitboard/grill,
+		/obj/item/stock_parts/capacitor = 2,
+		/obj/item/stock_parts/micro_laser,
+		/obj/item/stack/cable_coil = 5
+	)
+
 	starts_with = list(
 		/obj/item/reagent_containers/cooking_container/grill_grate
 	)
@@ -59,8 +66,10 @@
 		var/obj/item/reagent_containers/cooking_container/grill_grate/G = CI.container
 		if(G)
 			add_overlay(image('icons/obj/cooking_machines.dmi', "grill"))
-			var/contents_len = length(G.contents)
-			if(!contents_len)
-				return
-			for(var/i = 1 to contents_len)
-				add_overlay(image('icons/obj/cooking_machines.dmi', "meat[i]"))
+			var/counter = 1
+			for(var/thing in G.contents)
+				if(istype(thing, /obj/item/reagent_containers/food/snacks/meat))
+					add_overlay(image('icons/obj/cooking_machines.dmi', "meat[counter]"))
+				else if(istype(thing, /obj/item/reagent_containers/food/snacks/xenomeat))
+					add_overlay(image('icons/obj/cooking_machines.dmi', "xenomeat[counter]"))
+				counter++

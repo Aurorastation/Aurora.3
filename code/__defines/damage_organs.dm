@@ -12,10 +12,13 @@
 #define PIERCE    "pierce"
 #define LASER     "laser"
 
-#define DAM_EDGE    1
-#define DAM_SHARP   2
-#define DAM_LASER   4
-#define DAM_BULLET  8
+#define DAM_EDGE      1
+#define DAM_SHARP     2
+#define DAM_LASER     4
+#define DAM_BULLET    8
+#define DAM_EXPLODE   16
+#define DAM_DISPERSED 32 // Makes apply_damage calls without specified zone distribute damage rather than randomly choose organ (for humans)
+#define DAM_BIO       64
 
 #define STUN      "stun"
 #define WEAKEN    "weaken"
@@ -43,11 +46,11 @@
 #define ORGAN_ADV_ROBOT  (1<<9)
 #define ORGAN_PLANT      (1<<10)
 #define ORGAN_ARTERY_CUT (1<<11)
-#define ORGAN_TENDON_CUT (1<<12)
-#define ORGAN_LIFELIKE   (1<<13)   // Robotic, made to appear organic.
+#define ORGAN_LIFELIKE   (1<<12)   // Robotic, made to appear organic.
+#define ORGAN_NYMPH   (1<<13)
 
 // the largest bitflag, in the WORLD
-#define ORGAN_DAMAGE_STATES ORGAN_CUT_AWAY|ORGAN_BLEEDING|ORGAN_BROKEN|ORGAN_DESTROYED|ORGAN_SPLINTED|ORGAN_DEAD|ORGAN_MUTATED|ORGAN_ARTERY_CUT|ORGAN_TENDON_CUT
+#define ORGAN_DAMAGE_STATES ORGAN_CUT_AWAY|ORGAN_BLEEDING|ORGAN_BROKEN|ORGAN_DESTROYED|ORGAN_SPLINTED|ORGAN_DEAD|ORGAN_MUTATED|ORGAN_ARTERY_CUT
 
 // Limb behaviour defines.
 #define ORGAN_CAN_AMPUTATE (1<<0) //Can this organ be amputated?
@@ -56,6 +59,9 @@
 #define ORGAN_CAN_STAND    (1<<3) //Can this organ allow you to stand?
 #define ORGAN_CAN_MAIM     (1<<4) //Can this organ be maimed?
 #define ORGAN_HAS_TENDON   (1<<5) //Does this organ have tendons?
+
+#define TENDON_BRUISED (1<<0)
+#define TENDON_CUT     (1<<1)
 
 #define DROPLIMB_EDGE 0
 #define DROPLIMB_BLUNT 1

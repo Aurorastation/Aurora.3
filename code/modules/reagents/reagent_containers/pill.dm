@@ -134,16 +134,52 @@
 	reagents_to_add = list(/decl/reagent/mortaphenyl = 10)
 
 /obj/item/reagent_containers/pill/corophenidate
-	name = "5u Corophenidate Pill"
+	name = "2u Corophenidate Pill"
 	desc = "Improves the ability to concentrate."
 	icon_state = "pill8"
-	reagents_to_add = list(/decl/reagent/mental/corophenidate = 5)
+	reagents_to_add = list(/decl/reagent/mental/corophenidate = 2)
+
+/obj/item/reagent_containers/pill/emoxanyl
+	name = "2u Emoxanyl Pill"
+	desc = "Used to treat anxiety disorders, depression and epilepsy."
+	icon_state = "pill8"
+	reagents_to_add = list(/decl/reagent/mental/emoxanyl = 2)
 
 /obj/item/reagent_containers/pill/minaphobin
-	name = "5u Minaphobin Pill"
+	name = "2u Minaphobin Pill"
 	desc = "Used to treat anxiety disorders and depression."
 	icon_state = "pill8"
-	reagents_to_add = list(/decl/reagent/mental/minaphobin = 5)
+	reagents_to_add = list(/decl/reagent/mental/minaphobin = 2)
+
+/obj/item/reagent_containers/pill/nerospectan
+	name = "2u Nerospectan Pill"
+	desc = "Used to treat a large variety of disorders including tourettes, depression, anxiety and psychosis."
+	icon_state = "pill8"
+	reagents_to_add = list(/decl/reagent/mental/nerospectan = 2)
+
+/obj/item/reagent_containers/pill/neurapan
+	name = "2u Neurapan Pill"
+	desc = "Used to treat a large variety of disorders including tourettes, depression, anxiety and psychosis."
+	icon_state = "pill8"
+	reagents_to_add = list(/decl/reagent/mental/neurapan = 2)
+
+/obj/item/reagent_containers/pill/neurostabin
+	name = "2u Neurostabin Pill"
+	desc = "Used to treat psychosis and muscle weakness."
+	icon_state = "pill8"
+	reagents_to_add = list(/decl/reagent/mental/neurostabin = 2)
+
+/obj/item/reagent_containers/pill/orastabin
+	name = "2u Orastabin Pill"
+	desc = "Used to treat anxiety disorders and speech impediments."
+	icon_state = "pill8"
+	reagents_to_add = list(/decl/reagent/mental/orastabin = 2)
+
+/obj/item/reagent_containers/pill/parvosil
+	name = "2u Parvosil Pill"
+	desc = "Used to treat anxiety disorders such as phobias and social anxiety."
+	icon_state = "pill8"
+	reagents_to_add = list(/decl/reagent/mental/parvosil = 2)
 
 /obj/item/reagent_containers/pill/inaprovaline
 	name = "10u Inaprovaline Pill"

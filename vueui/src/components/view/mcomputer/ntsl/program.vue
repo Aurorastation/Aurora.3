@@ -7,8 +7,6 @@
 </template>
 
 <script>
-import Utils from "@/utils"
-
 const co = {
   props: ['fg', 'bg'],
   computed: {
@@ -26,7 +24,7 @@ const to = {
   props: ['to'],
   methods: {
     invoke() {
-      Utils.sendToTopic({
+      this.$toTopic({
         terminal_topic: this.to
       })
     }

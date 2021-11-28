@@ -169,6 +169,7 @@ var/global/list/frozen_crew = list()
 	desc = "A bewildering tangle of machinery and pipes."
 	icon = 'icons/obj/sleeper.dmi'
 	icon_state = "cryo_rear"
+	density = TRUE
 	anchored = TRUE
 	dir = WEST
 

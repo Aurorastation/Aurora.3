@@ -260,7 +260,7 @@
 	burn += burn_amt
 	total_dam = brute + burn
 	if(total_dam >= max_dam)
-		var/obj/item/circuitboard/broken/broken_device = new(get_turf(src))
+		var/obj/item/trash/broken_electronics/broken_device = new(get_turf(src))
 		if(icon_state_broken != "broken")
 			broken_device.icon = src.icon
 			broken_device.icon_state = icon_state_broken
@@ -282,32 +282,37 @@
 
 /obj/item/robot_parts/robot_component/binary_communication_device
 	name = "binary communication device"
+	desc = "A module used for binary communications over encrypted frequencies, commonly used by synthetic robots."
 	icon_state = "binradio"
 	icon_state_broken = "binradio_broken"
 
 /obj/item/robot_parts/robot_component/actuator
 	name = "actuator"
+	desc = "A modular, hydraulic actuator used by exosuits and robots alike for movement and manipulation."
 	icon_state = "motor"
 	icon_state_broken = "motor_broken"
 
 /obj/item/robot_parts/robot_component/armor
 	name = "armor plating"
+	desc = "A pair of flexible, adaptable armor plates, used to protect the internals of robots."
 	icon_state = "armor"
 	icon_state_broken = "armor_broken"
 
 /obj/item/robot_parts/robot_component/surge
 	name = "surge preventor"
-	desc = "Cyborg component designed to save internal electronics from damage of EMP pulse."
+	desc = "A high-tech device designed to safeguard the internal battery from electromagnetic pulses."
 	icon_state = "surge"
 	icon_state_broken = "surge_broken"
 
 /obj/item/robot_parts/robot_component/camera
 	name = "camera"
+	desc = "A modified camera module used as a visual receptor for robots and exosuits, also serving as a relay for wireless video feed."
 	icon_state = "camera"
 	icon_state_broken = "camera_broken"
 
 /obj/item/robot_parts/robot_component/diagnosis_unit
 	name = "diagnostics unit"
+	desc = "An internal computer and sensors used by robots and exosuits to accurately diagnose any system discrepancies on their components."
 	icon_state = "analyser"
 	icon_state_broken = "analyser_broken"
 
@@ -319,5 +324,6 @@
 
 /obj/item/robot_parts/robot_component/radio
 	name = "radio"
+	desc = "A modular, multi-frequency radio used by robots and exosuits to enable communication systems. Comes with built-in subspace receivers."
 	icon_state = "radio"
 	icon_state_broken = "radio_broken"

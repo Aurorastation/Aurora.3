@@ -94,3 +94,8 @@
 		var/atom/our_holder = recursive_loc_turf_check(src, 5)
 		if(isturf(our_holder.loc)) // are we folded in on the ground
 			return TRUE
+
+/mob/living/simple_animal/borer/can_examine()
+	. = ..()
+	if(!. && iscarbon(loc) && isturf(loc.loc)) // we're inside someone, let us examine still
+		return TRUE

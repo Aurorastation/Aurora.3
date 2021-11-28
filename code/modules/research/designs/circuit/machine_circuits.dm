@@ -46,6 +46,11 @@
 	req_tech = list(TECH_DATA = 3)
 	build_path = /obj/item/circuitboard/rdserver
 
+/datum/design/circuit/machine/rdtechprocessor
+	name = "R&D Tech Processor"
+	req_tech = list(TECH_DATA = 3)
+	build_path = /obj/item/circuitboard/rdtechprocessor
+
 /datum/design/circuit/machine/mechfab
 	name = "Exosuit Fabricator"
 	req_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 3)
@@ -75,6 +80,11 @@
 	name = "Sleeper"
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/sleeper
+
+/datum/design/circuit/machine/stasis_bed
+	name = "Lifeform Stasis Unit"
+	req_tech = list(TECH_MAGNET = 4, TECH_ENGINEERING = 4, TECH_BIO = 4)
+	build_path = /obj/item/circuitboard/stasis_bed
 
 /datum/design/circuit/machine/bodyscannerm
 	name = "Body Scanner"
@@ -135,6 +145,11 @@
 	name = "Cereal Maker"
 	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/cerealmaker
+
+/datum/design/circuit/machine/grill
+	name = "Grill"
+	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/circuitboard/grill
 
 /datum/design/circuit/machine/candymaker
 	name = "Candy Machine"
@@ -211,16 +226,6 @@
 	name = "Telepad"
 	req_tech = list(TECH_DATA = 4, TECH_BLUESPACE = 4, TECH_MATERIAL = 3, TECH_ENGINEERING = 3)
 	build_path = /obj/item/circuitboard/telesci_pad
-
-/datum/design/circuit/machine/miningdrill
-	name = "Mining Drill Head"
-	req_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
-	build_path = /obj/item/circuitboard/miningdrill
-
-/datum/design/circuit/machine/miningdrillbrace
-	name = "Mining Drill Brace"
-	req_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
-	build_path = /obj/item/circuitboard/miningdrillbrace
 
 /datum/design/circuit/machine/cargo_trolley
 	name = "Cargo Trolley"

@@ -15,6 +15,8 @@
 #define CITIZENSHIP_NKA "New Kingdom of Adhomai"
 
 #define CITIZENSHIP_ZORA "Zo'ra Hive"
+#define CITIZENSHIP_KLAX "K'lax Hive"
+#define CITIZENSHIP_CTHUR "C'thur Hive"
 
 #define CITIZENSHIP_NONE "None"
 #define CITIZENSHIP_GOLDEN "Golden Deep"
@@ -31,6 +33,7 @@
 #define RELIGION_TRINARY "Trinary Perfection"
 #define RELIGION_SCARAB "Scarab Folk Beliefs"
 #define RELIGION_TAOISM "Taoism"
+#define RELIGION_LUCEISM "Luceism"
 
 #define RELIGION_THAKH "Th'akh"
 #define RELIGION_SKAKH "Sk'akh"
@@ -39,6 +42,8 @@
 
 #define RELIGION_QEBLAK "Qeblak"
 #define RELIGION_WEISHII "Weishii"
+#define RELIGION_SUURKA "Suur'ka"
+#define RELIGION_KIRGUL "Kir'gul"
 
 #define RELIGION_TWINSUNS "S'rendarr and Messa"
 #define RELIGION_MATAKE "Ma'ta'ke"
@@ -56,10 +61,12 @@
 #define ACCENT_COC "Frontiersfolk"
 #define ACCENT_ELYRA "Elyran"
 #define ACCENT_ERIDANI "Eridanian"
+#define ACCENT_ERIDANIREINSTATED "Reinstated Dreg"
 #define ACCENT_ERIDANIDREG "Eridanian Dreg"
 #define ACCENT_SOL "Solarian"
 #define ACCENT_SCARAB "Scarab Fleets"
-#define ACCENT_SILVERSUN "Silversun"
+#define ACCENT_SILVERSUN_ORIGINAL "Silversun Original"
+#define ACCENT_SILVERSUN_EXPATRIATE "Silversun Expatriate"
 #define ACCENT_PHONG "New Hai Phongese"
 #define ACCENT_MARTIAN "Martian"
 #define ACCENT_KONYAN "Konyanger"
@@ -77,6 +84,11 @@
 #define ACCENT_NCF "Non-Coalition Frontier"
 #define ACCENT_FISANDUH "Fisanduhian"
 #define ACCENT_GADPATHUR "Gadpathurian"
+#define ACCENT_PLUTO "Plutonian"
+#define ACCENT_ASSUNZIONE "Assunzionii"
+#define ACCENT_VISEGRAD "Visegradi"
+#define ACCENT_VALKYRIE "Valkyrian"
+#define ACCENT_MICTLAN "Mictlanian"
 
 #define ACCENT_REPUBICLANSIIK "Republican Siik'maas"
 #define ACCENT_NAZIRASIIK "Nazira Siik'maas"
@@ -89,6 +101,7 @@
 #define ACCENT_NOMADDELVAHHI "Nomadic Delvahhi"
 #define ACCENT_OLDYASSA "Old Ya'ssa"
 #define ACCENT_NORTHRASNRR "Northern Ras'nrr Siik'maas"
+#define ACCENT_DINAKK "Din'akk Mountains Siik'maas"
 
 #define ACCENT_HEGEMON_NOBLE "Noble Hegemonic"
 #define ACCENT_HEGEMON_PEASANT "Peasant Hegemonic"
@@ -97,6 +110,11 @@
 #define ACCENT_WASTELAND "Deep Wastelander"
 
 #define ACCENT_SKRELL "Standard Nral'Malic"
+#define ACCENT_HOMEWORLD "Qerrbalak"
+#define ACCENT_QERRMALIC "Qerr'Malic"
+#define ACCENT_ALIOSE "Aliose"
+#define ACCENT_AWEIJI "Aweiji"
+#define ACCENT_TRAVERSE "Traverse"
 
 #define ACCENT_ROOTSONG "Rootsong"
 #define ACCENT_VOIDSONG "Voidsong"
@@ -108,3 +126,4 @@
 #define ACCENT_ZORA "Zo'rane"
 #define ACCENT_KLAX "K'laxane"
 #define ACCENT_CTHUR "C'thuric"
+#define ACCENT_LIIDRA "Lii'draic"

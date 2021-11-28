@@ -23,6 +23,7 @@
 	var/projectile_type = /obj/item/projectile/beam/practice //also passed to turrets
 	var/modifystate
 	var/charge_meter = 1	//if set, the icon state will be chosen based on the current charge
+	var/list/required_firemode_auth //This list matches with firemode index, used to determine which firemodes get unlocked with what level of authorization.
 
 	//self-recharging
 	var/self_recharge = 0	//if set, the weapon will recharge itself

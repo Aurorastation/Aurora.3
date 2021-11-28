@@ -178,20 +178,17 @@ LINEN BINS
 
 /obj/item/bedsheet/attackby(obj/item/I, mob/user)
 	if(I.isscrewdriver())
-		user.visible_message(SPAN_NOTICE("\The [user] begins poking eyeholes in \the [src] with \the [I]."),
-						SPAN_NOTICE("You begin poking eyeholes in \the [src] with \the [I]."))
+		user.visible_message(SPAN_NOTICE("\The [user] begins poking eyeholes in \the [src] with \the [I]."), SPAN_NOTICE("You begin poking eyeholes in \the [src] with \the [I]."))
 		if(do_after(user, 50/I.toolspeed))
 			to_chat(user, SPAN_NOTICE("You poke eyeholes in \the [src]!"))
 			new /obj/item/bedsheet/costume(get_turf(src))
 			qdel(src)
 		return
 	else if(is_sharp(I))
-		user.visible_message(SPAN_NOTICE("\The [user] begins cutting up [src] with [I]."),
-							SPAN_NOTICE("You begin cutting up [src] with [I]."))
-		if(do_after(user, 50/I.toolspeed))
-			to_chat(user, SPAN_NOTICE("You cut [src] into pieces!"))
-			for(var/i in 1 to rand(2,5))
-				new /obj/item/reagent_containers/glass/rag(get_turf(src))
+		user.visible_message(SPAN_NOTICE("\The [user] begins cutting up \the [src] with \the [I]."), SPAN_NOTICE("You begin cutting up \the [src] with \the [I]."))
+		if(do_after(user, 50 / I.toolspeed))
+			to_chat(user, SPAN_NOTICE("You cut \the [src] into pieces!"))
+			new /obj/item/stack/material/cloth(get_turf(src), rand(2, 5))
 			qdel(src)
 		return
 	..()

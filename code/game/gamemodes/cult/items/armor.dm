@@ -17,7 +17,14 @@
 	name = "eldritch voidsuit helmet"
 	desc = "A bulky armored voidsuit helmet, bristling with menacing spikes. It looks space proof."
 	icon_state = "cult_helmet"
-	armor = list(melee = 60, bullet = 50, laser = 30, energy = 15, bomb = 30, bio = 30, rad = 30)
+	armor = list(
+		melee = ARMOR_MELEE_VERY_HIGH,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_MAJOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_RESISTANT
+		)
 	siemens_coefficient = 0
 	light_overlay = "helmet_light_dual_red"
 	light_color = COLOR_RED_LIGHT
@@ -33,7 +40,14 @@
 	w_class = ITEMSIZE_NORMAL
 	allowed = list(/obj/item/book/tome, /obj/item/melee/cultblade, /obj/item/gun/energy/rifle/cult, /obj/item/tank, /obj/item/device/suit_cooling_unit)
 	slowdown = 1
-	armor = list(melee = 60, bullet = 50, laser = 30, energy = 15, bomb = 30, bio = 30, rad = 30)
+	armor = list(
+		melee = ARMOR_MELEE_VERY_HIGH,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_MAJOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_RESISTANT
+		)
 	siemens_coefficient = 0
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|HANDS
 	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDEJUMPSUIT|HIDETAIL|HIDESHOES

@@ -21,8 +21,8 @@
 	generate with NanoTrasen the better. Just think of that bonus.</li>
 	<li><b>Idris Reclamation Unit X3265FH</b>: As a shell belonging to Idris you
 	are not free. You are programmed to defer to NT security and the Head of
-	Security. Your customer service skills are excellent however your notorious
-	"strong arm" skills can be utilised the security team if authorised. Your
+	Security. Your customer service skills are excellent, however your notorious
+	"strong arm" skills can also be utilised by the security team if authorised. Your
 	default state is good customer service. That being said your programming prioritises
 	the protection and safety of other Idris employees so long as this will not
 	breach NT regulations. You are programmed to never strong arm an Idris employee.
@@ -34,8 +34,7 @@
 	allowed_role_types = list(
 		/datum/job/visitor,
 		/datum/job/officer,
-		/datum/job/detective,
-		/datum/job/forensics,
+		/datum/job/investigator,
 		/datum/job/bartender,
 		/datum/job/chef,
 		/datum/job/hydro,
@@ -52,12 +51,10 @@
 
 	titles_to_loadout = list(
 		"Security Officer" = /datum/outfit/job/officer/idris,
-		"Forensic Technician" = /datum/outfit/job/forensics/idris,
-		"Crime Scene Investigator" = /datum/outfit/job/forensics/idris,
+		"Investigator" = /datum/outfit/job/forensics/idris,
 		"Bartender" = /datum/outfit/job/bartender/idris,
 		"Chef" = /datum/outfit/job/chef/idris,
 		"Cook" = /datum/outfit/job/chef/idris,
-		"Detective" = /datum/outfit/job/detective/idris,
 		"Gardener" = /datum/outfit/job/hydro/idris,
 		"Hydroponicist" = /datum/outfit/job/hydro/idris,
 		"Corporate Liaison" = /datum/outfit/job/representative/idris
@@ -70,7 +67,9 @@
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_WORKER,
-			SPECIES_VAURCA_WARRIOR
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER
 		)
 	)
 

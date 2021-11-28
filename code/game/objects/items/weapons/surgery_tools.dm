@@ -88,7 +88,7 @@
 	flags = CONDUCT
 	force = 10.0
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS
 	throwforce = 5.0
@@ -148,7 +148,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GLASS = 10000)
 	attack_verb = list("attacked", "slashed", "sawed", "cut")
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
@@ -241,7 +241,11 @@
 		/obj/item/surgery/surgicaldrill = "tray_drill",
 		/obj/item/surgery/bonegel = "tray_bone-gel",
 		/obj/item/surgery/FixOVein = "tray_fixovein",
-		/obj/item/stack/medical/advanced/bruise_pack = "tray_bruise_pack"
+		/obj/item/stack/medical/advanced/bruise_pack = "tray_bruise_pack",
+		/obj/item/autopsy_scanner = "tray_autopsy_scanner",
+		/obj/item/device/mass_spectrometer = "tray_mass_spectrometer",
+		/obj/item/reagent_containers/glass/beaker/vial = "tray_vial",
+		/obj/item/reagent_containers/syringe = "tray_syringe"
 	)
 	for (var/obj/item/W in contents)
 		if (types_and_overlays[W.type])
@@ -289,3 +293,27 @@
 /obj/item/storage/box/fancy/tray/throw_impact(atom/hit_atom)
 	..()
 	spill(3, src.loc)
+
+/obj/item/storage/box/fancy/tray/autopsy
+	name = "autopsy tray"
+	starts_with = list(
+		/obj/item/surgery/circular_saw = 1,
+		/obj/item/surgery/hemostat = 1,
+		/obj/item/surgery/retractor = 1,
+		/obj/item/surgery/scalpel = 1,
+		/obj/item/surgery/surgicaldrill = 1,
+		/obj/item/autopsy_scanner = 1,
+		/obj/item/device/mass_spectrometer = 1
+	)
+
+	can_hold = list(
+		/obj/item/surgery/circular_saw,
+		/obj/item/surgery/hemostat,
+		/obj/item/surgery/retractor,
+		/obj/item/surgery/scalpel,
+		/obj/item/surgery/surgicaldrill,
+		/obj/item/autopsy_scanner,
+		/obj/item/device/mass_spectrometer,
+		/obj/item/reagent_containers/glass/beaker/vial,
+		/obj/item/reagent_containers/syringe
+	)

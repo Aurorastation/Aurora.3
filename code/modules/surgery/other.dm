@@ -52,7 +52,7 @@
 
 /decl/surgery_step/internal/fix_dead_tissue		//Debridement
 	name = "Debride damaged tissue"
-	priority = 3
+	priority = 4
 	allowed_tools = list(
 		/obj/item/surgery/scalpel = 100,
 		/obj/item/material/knife = 75,
@@ -77,7 +77,7 @@
 			break
 	if(!organ)
 		return
-	if(organ.damage >= organ.max_damage)
+	if(organ.damage > organ.max_damage)
 		to_chat(user, SPAN_WARNING("\The [organ] is too damaged. Repair it first."))
 		return 0
 
@@ -105,6 +105,7 @@
 	user.visible_message(SPAN_NOTICE("[user] has cut away necrotic tissue from [target]'s [organ_to_fix.name] with \the [tool]."), \
 		SPAN_NOTICE("You have cut away necrotic tissue in [target]'s [organ_to_fix.name] with \the [tool]."))
 	organ_to_fix.status &= ~ORGAN_DEAD
+	organ_to_fix.heal_damage(10) //so that they don't insta-die again
 
 /decl/surgery_step/internal/fix_dead_tissue/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -114,7 +115,7 @@
 
 /decl/surgery_step/treat_necrosis
 	name = "Treat necrosis"
-	priority = 2
+	priority = 4
 	allowed_tools = list(
 		/obj/item/reagent_containers/dropper = 100,
 		/obj/item/reagent_containers/glass/bottle = 75,
@@ -126,8 +127,8 @@
 	can_infect = FALSE
 	blood_level = 0
 
-	min_duration = 50
-	max_duration = 60
+	min_duration = 100
+	max_duration = 110
 
 /decl/surgery_step/treat_necrosis/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -200,7 +201,7 @@
 		return FALSE
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	return affected && (affected.status & ORGAN_TENDON_CUT) && affected.open >= ORGAN_OPEN_RETRACTED
+	return affected && (affected.tendon_status() & TENDON_CUT) && affected.open >= ORGAN_OPEN_RETRACTED
 
 /decl/surgery_step/fix_tendon/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -213,7 +214,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_NOTICE("[user] has reattached the [affected.tendon_name] in [target]'s [affected.name] with \the [tool]."), \
 		SPAN_NOTICE("You have reattached the [affected.tendon_name] in [target]'s [affected.name] with \the [tool]."))
-	affected.status &= ~ORGAN_TENDON_CUT
+	affected.tendon.heal()
 	affected.update_damages()
 
 /decl/surgery_step/fix_tendon/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -295,7 +296,9 @@
 			to_chat(user, SPAN_WARNING("The blades aren't spinning, you can't cut anything!"))
 			return FALSE
 
-	return (affected.limb_flags & ORGAN_CAN_AMPUTATE)
+	if(affected.limb_flags & ORGAN_CAN_AMPUTATE)
+		var/confirmation = alert("You are about to amputate [target]'s [affected.name]! Are you sure you want to do that?", "Amputation confirmation", "Yes", "No")
+		return confirmation == "Yes"
 
 /decl/surgery_step/amputate/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)

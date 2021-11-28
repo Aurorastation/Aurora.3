@@ -60,7 +60,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 	//Form intregration
 	var/SQLquery
-	var/paperstock = 10
+	var/paperstock = 20
 	var/lid = 0
 	//End Form Integration
 	var/datum/announcement/announcement = new
@@ -240,20 +240,19 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 	if( href_list["department"] && message )
 		var/log_msg = message
-		var/pass = 0
+		var/pass = FALSE
 		screen = RCS_SENTFAIL
-		for (var/obj/machinery/message_server/MS in SSmachinery.processing_machines)
-			if(!MS.active) continue
-			MS.send_rc_message(ckey(href_list["department"]),department,log_msg,msgStamped,msgVerified,priority)
-			pass = 1
-		for (var/obj/item/modular_computer/P in alert_pdas)
-			P.get_notification(log_msg, 1, "[href_list["department"]] ([src])")
-			pass = 1
+		for(var/obj/machinery/message_server/MS in SSmachinery.processing_machines)
+			if(!MS.active)
+				continue
+			MS.send_rc_message(ckey(href_list["department"]), department, log_msg, msgStamped, msgVerified, priority)
+			pass = TRUE
 		if(pass)
 			screen = RCS_SENTPASS
 			message_log += "<B>Message sent to [recipient]</B><BR>[message]"
 		else
-			audible_message(text("[icon2html(src, viewers(get_turf(src)))] *The Requests Console beeps: 'NOTICE: No server detected!'"),,4)
+			var/msg = "NOTICE: No server detected!"
+			audible_message("<b>The Requests Console</b> beeps, [SPAN_WARNING(msg)]")
 
 	//Handle screen switching
 	if(href_list["setScreen"])
@@ -307,9 +306,8 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	// Print a form.
 	if(href_list["print"])
 		var/printid = sanitizeSQL(href_list["print"])
-		establish_db_connection(dbcon)
 
-		if(!dbcon.IsConnected())
+		if(!establish_db_connection(dbcon))
 			alert("Connection to the database lost. Aborting.")
 		if(!printid)
 			alert("Invalid query. Try again.")
@@ -334,8 +332,8 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	// Get extra information about the form.
 	if(href_list["whatis"])
 		var/whatisid = sanitizeSQL(href_list["whatis"])
-		establish_db_connection(dbcon)
-		if(!dbcon.IsConnected())
+
+		if(!establish_db_connection(dbcon))
 			alert("Connection to the database lost. Aborting.")
 		if(!whatisid)
 			alert("Invalid query. Try again.")
@@ -387,78 +385,71 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			msgStamped = text("<span class='notice'><b>Stamped with the [T.name]</b></span>")
 			updateUsrDialog()
 	else if (istype(O, /obj/item/paper_bundle))
-		if(lid)	//More of that restocking business
-			var/obj/item/paper_bundle/C = O
+		var/obj/item/paper_bundle/C = O
+		if(lid)
+			if(alert(user, "Do you want to restock \the [src] with \the [O]?", "Paper Restocking", "Yes", "No") == "No")
+				to_chat(user, SPAN_NOTICE("You decide against restocking \the [src], noting that the lid is still open."))
+				return
 			paperstock += C.amount
 			user.drop_from_inventory(C,get_turf(src))
 			qdel(C)
-			for (var/mob/U in hearers(4, src.loc))
-				U.show_message(text("[icon2html(src, viewers(get_turf(src)))] *The Requests Console beeps: 'Paper added.'"))
-		else
-			to_chat(user, "<span class='notice'>I should open the lid to add more paper, or try faxing one paper at a time.</span>")
+			audible_message("<b>The Requests Console</b> beeps, \"Paper added.\"")
+		else if(screen == RCS_MAINMENU)	//Faxing them papers
+			fax_send(O, user)
 	else if (istype(O, /obj/item/paper))
-		if(lid)					//Stocking them papers
+		if(lid)
+			if(alert(user, "Do you want to restock \the [src] with \the [O]?", "Paper Restocking", "Yes", "No") == "No")
+				to_chat(user, SPAN_NOTICE("You decide against restocking \the [src], noting that the lid is still open."))
+				return
 			var/obj/item/paper/C = O
 			user.drop_from_inventory(C,get_turf(src))
 			qdel(C)
 			paperstock++
-			for (var/mob/U in hearers(4, src.loc))
-				U.show_message(text("[icon2html(src, viewers(get_turf(src)))] *The Requests Console beeps: 'Paper added.'"))
-		else if(screen == 0)	//Faxing them papers
-			var/pass = 0
-			var/sendto = input("Select department.", "Send Fax", null, null) in allConsoles
-			for (var/obj/machinery/message_server/MS in SSmachinery.processing_machines)
-				if(!MS.active) continue
-				pass = 1
-			if(pass)
-				var/sent = 0
-				for(var/cc in allConsoles)
-					var/obj/machinery/requests_console/Console = cc
-					if(Console == sendto)
-						if(Console.paperstock == 0)
-							alert("Error! Receiving console out of paper! Aborting!")
-							return
-						if(!sent)
-							sent = 1
-						var/obj/item/paper/C = O
-						var/obj/item/paper/P = new /obj/item/paper()
-						var/info = "<font color = #101010>"
-						var/copied = html_decode(C.info)
-						copied = replacetext(copied, "<font face=\"[P.deffont]\" color=", "<font face=\"[P.deffont]\" nocolor=")	//state of the art techniques in action
-						copied = replacetext(copied, "<font face=\"[P.crayonfont]\" color=", "<font face=\"[P.crayonfont]\" nocolor=")	//This basically just breaks the existing color tag, which we need to do because the innermost tag takes priority.
-						info += copied
-						info += "</font>"
-						var/pname = C.name
-						P.color = "#fff9e8"
-						P.fields = C.fields
-						P.stamps = C.stamps
-						P.stamped = C.stamped
-						P.ico = C.ico
-						P.offset_x = C.offset_x
-						P.offset_y = C.offset_y
-						var/list/temp_overlays = C.overlays
-						var/image/img
-						for (var/j = 1, j <= temp_overlays.len, j++)
-							if (findtext(C.ico[j], "cap") || findtext(C.ico[j], "cent"))
-								img = image('icons/obj/bureaucracy.dmi', "paper_stamp-circle")
-							else if (findtext(C.ico[j], "deny"))
-								img = image('icons/obj/bureaucracy.dmi', "paper_stamp-x")
-							else
-								img = image('icons/obj/bureaucracy.dmi', "paper_stamp-dots")
-							img.pixel_x = C.offset_x[j]
-							img.pixel_y = C.offset_y[j]
-							P.add_overlay(img)
-						P.set_content_unsafe(pname, info)
-						Console.print(P, 0, 'sound/machines/twobeep.ogg')
-						for (var/mob/player in hearers(4, Console.loc))
-							player.show_message(text("[icon2html(Console, viewers(get_turf(Console)))] *The Requests Console beeps: 'Fax received'"))
-						Console.paperstock--
-				if(sent == 1)
-					user.show_message(text("[icon2html(src, viewers(get_turf(src)))] *The Requests Console beeps: 'Message Sent.'"))
-			else
-				user.show_message(text("[icon2html(src, viewers(get_turf(src)))] *The Requests Console beeps: 'NOTICE: No server detected!'"))
+			audible_message("<b>The Requests Console</b> beeps, \"Paper added.\"")
+		else if(screen == RCS_MAINMENU)	//Faxing them papers
+			fax_send(O, user)
 
-	return
+/obj/machinery/requests_console/proc/can_send()
+	for(var/obj/machinery/message_server/MS in SSmachinery.processing_machines)
+		if(!MS.active)
+			continue
+		return TRUE
+	return FALSE
+
+/obj/machinery/requests_console/proc/fax_send(var/obj/item/O, var/mob/user)
+	var/sendto = input("Select department.", "Send Fax", null, null) as null|anything in allConsoles
+	if(!sendto)
+		return
+	if(!can_send())
+		var/msg = "NOTICE: No server detected!"
+		audible_message("<b>The Requests Console</b> beeps, [SPAN_WARNING(msg)]")
+		return
+	for(var/cc in allConsoles)
+		var/obj/machinery/requests_console/Console = cc
+		if(Console == sendto)
+			var/paperstock_usage = 1
+			var/is_paper_bundle = istype(O, /obj/item/paper_bundle)
+			if(is_paper_bundle)
+				var/obj/item/paper_bundle/OPB = O
+				paperstock_usage = OPB.amount
+			if(Console.paperstock < paperstock_usage)
+				audible_message("<b>The Requests Console</b> beeps, \"Error! Receiving console out of paper! Aborting!\"")
+				return
+			playsound(Console.loc, 'sound/machines/twobeep.ogg')
+			playsound(Console.loc, 'sound/items/polaroid1.ogg')
+			if(!is_paper_bundle)
+				var/obj/item/paper/P = copy(Console, O, FALSE, FALSE, 0, 15)
+				P.forceMove(Console.loc)
+			else
+				var/obj/item/paper_bundle/PB = bundlecopy(Console, O, FALSE, 15, FALSE)
+				PB.forceMove(Console.loc)
+			Console.audible_message("<b>The Requests Console</b> beeps, \"Fax received.\"")
+			for(var/obj/item/modular_computer/pda in Console.alert_pdas)
+				var/message = "A fax has arrived!"
+				pda.get_notification(message, 1, "[Console.department] Requests Console")
+			Console.paperstock -= paperstock_usage
+			audible_message("<b>The Requests Console</b> beeps, \"Fax sent.\"")
+			return
 
 /obj/machinery/requests_console/proc/reset_message(var/mainmenu = 0)
 	message = ""

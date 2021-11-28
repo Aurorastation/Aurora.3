@@ -55,6 +55,7 @@
 	playsound(src, /decl/sound_category/rustle_sound, EQUIP_SOUND_VOLUME, TRUE)
 	icon_state = "[initial(icon_state)][opened ? "_open" : ""]"
 	item_state = icon_state
+	update_icon()
 	update_clothing_icon()
 
 /obj/item/clothing/suit/storage/toggle/Initialize()
@@ -62,13 +63,6 @@
 	if(opened) // for stuff that's supposed to spawn opened, like labcoats.
 		icon_state = "[initial(icon_state)][opened ? "_open" : ""]"
 		item_state = icon_state
-
-/obj/item/clothing/suit/storage/vest/merc/Initialize()
-	. = ..()
-	pockets = new/obj/item/storage/internal(src)
-	pockets.storage_slots = 4
-	pockets.max_w_class = ITEMSIZE_SMALL
-	pockets.max_storage_space = 8
 
 /obj/item/clothing/suit/storage/vest/hos/Initialize()
 	. = ..()

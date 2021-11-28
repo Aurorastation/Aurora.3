@@ -10,8 +10,7 @@
 </template>
 
 <script>
-import Utils from '../../utils.js';
-import ByWin from '../../byWin'
+import ByWin from '@/byWin'
 export default {
   data () {
     return this.$root.$data;
@@ -26,7 +25,7 @@ export default {
   methods: {
     closeUI($event) {
       $event.stopPropagation();
-      Utils.sendToTopicRaw({'src': this.uiref, 'vueuiclose': 1});
+      this.$toTopicRaw({'src': this.uiref, 'vueuiclose': 1});
       ByWin.setVisibility(0);
     },
     startDragging($event) {

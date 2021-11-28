@@ -2813,9 +2813,9 @@
 /area/antag/mercenary)
 "anu" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/storage/vest/merc,
-/obj/item/clothing/suit/storage/vest/merc,
-/obj/item/clothing/suit/storage/vest/merc,
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/suit/armor/carrier/heavy,
 /obj/item/clothing/head/helmet/merc,
 /obj/item/clothing/head/helmet/merc,
 /obj/item/clothing/head/helmet/merc,
@@ -5313,19 +5313,19 @@
 /obj/item/stack/material/glass/reinforced{
 	amount = 50
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_x = 3;
 	pixel_y = 3
 	},
@@ -9525,13 +9525,6 @@
 /area/antag/wizard)
 "aKe" = (
 /obj/structure/bookcase,
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/antag/wizard)
-"aKf" = (
-/obj/machinery/vending/magivend,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -14459,10 +14452,10 @@
 /area/centcom/control)
 "aVR" = (
 /obj/structure/table/reinforced,
-/obj/item/mecha_equipment/mounted_system/taser/ion,
-/obj/item/mecha_equipment/mounted_system/taser,
-/obj/item/mecha_equipment/mounted_system/taser/laser,
-/obj/item/mecha_equipment/mounted_system/taser/smg,
+/obj/item/mecha_equipment/mounted_system/combat/ion,
+/obj/item/mecha_equipment/mounted_system/combat/taser,
+/obj/item/mecha_equipment/mounted_system/combat/laser,
+/obj/item/mecha_equipment/mounted_system/combat/smg,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -14881,7 +14874,7 @@
 "aWM" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Teleporter Bay";
-	req_access = list(107)
+	req_access = list(106)
 	},
 /turf/unsimulated/floor{
 	icon_state = "delivery"
@@ -15248,8 +15241,6 @@
 /area/centcom/control)
 "aXR" = (
 /obj/structure/table/rack,
-/obj/item/rig/ert/janitor,
-/obj/item/rig/ert/janitor,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -17040,7 +17031,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/armor/carrier/ballistic,
 /obj/item/clothing/under/rank/centcom_officer,
 /obj/item/clothing/shoes/white,
 /obj/item/clothing/gloves/white,
@@ -19719,7 +19710,7 @@
 	req_access = list(103)
 	},
 /obj/structure/window/reinforced,
-/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/armor/carrier/ballistic,
 /obj/item/clothing/under/rank/centcom_officer,
 /obj/item/clothing/shoes/white,
 /obj/item/clothing/gloves/white,
@@ -20756,19 +20747,19 @@
 /obj/item/stack/material/glass/reinforced{
 	amount = 50
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/storage/briefcase/inflatable{
+/obj/item/storage/bag/inflatable{
 	pixel_x = 3;
 	pixel_y = 3
 	},
@@ -27535,7 +27526,7 @@ aJJ
 aJG
 aJV
 aJX
-aKf
+aJG
 aKi
 aJV
 aJG

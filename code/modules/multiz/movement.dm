@@ -73,10 +73,10 @@
 			to_chat(src, SPAN_WARNING("\The [A] blocks you."))
 			return FALSE
 
-	if(buckled && istype(buckled, /obj/vehicle))
-		var/obj/vehicle/car = buckled
+	if(buckled_to && istype(buckled_to, /obj/vehicle))
+		var/obj/vehicle/car = buckled_to
 		if(car.flying)
-			buckled.Move(destination)
+			buckled_to.Move(destination)
 			return TRUE
 	// Actually move.
 	Move(destination)
@@ -91,7 +91,7 @@
 	if(.)
 		for(var/obj/item/grab/G in list(l_hand, r_hand))
 			if(G.state >= GRAB_NECK) //strong grip
-				if(G.affecting && !(G.affecting.buckled))
+				if(G.affecting && !(G.affecting.buckled_to))
 					G.affecting.Move(get_turf(src))
 					visible_message(SPAN_WARNING("[src] pulls [G.affecting] [direction & UP ? "upwards" : "downwards"]!"))
 
@@ -158,7 +158,7 @@
 	if(!destination)
 		return
 
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		return
 
 	if(destination.density)
@@ -258,8 +258,8 @@
 		if (thrust && !lying && thrust.allow_thrust(0.01, src))
 			return TRUE
 
-	if(buckled && istype(buckled, /obj/vehicle))
-		var/obj/vehicle/car = buckled
+	if(buckled_to && istype(buckled_to, /obj/vehicle))
+		var/obj/vehicle/car = buckled_to
 		if(car.flying)
 			return TRUE
 

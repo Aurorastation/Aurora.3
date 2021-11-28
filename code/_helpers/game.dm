@@ -116,9 +116,9 @@
 			turfs += T
 	return turfs
 
-// Will recursively loop through an atom's locs until it finds the atom loc above a turf
-/proc/recursive_loc_turf_check(var/atom/O, var/recursion_limit = 3)
-	if(recursion_limit <= 0 || isturf(O.loc))
+// Will recursively loop through an atom's locs until it finds the atom loc above a turf or its target_atom
+/proc/recursive_loc_turf_check(var/atom/O, var/recursion_limit = 3, var/atom/target_atom)
+	if(recursion_limit <= 0 || isturf(O.loc) || O == target_atom)
 		return O
 	else
 		O = O.loc
@@ -205,17 +205,15 @@
 				for(var/turf/T in hear(R.canhear_range,speaker))
 					speaker_coverage[T] = T
 
+	var/list/listeners = player_list.Copy()
+	for(var/mob/M as anything in player_list)
+		if(M.old_mob)
+			listeners += M.old_mob
 
 	// Try to find all the players who can hear the message
-	for(var/i = 1; i <= player_list.len; i++)
-		var/mob/M = player_list[i]
-		if(M)
-			var/turf/ear = get_turf(M)
-			if(ear)
-				// Ghostship is magic: Ghosts can hear radio chatter from anywhere
-				if(speaker_coverage[ear] || (istype(M, /mob/abstract/observer) && (M.client) && (M.client.prefs.toggles & CHAT_GHOSTRADIO)))
-					. += M
-	return .
+	for(var/mob/M as anything in listeners)
+		if(M.can_hear_radio(speaker_coverage))
+			. += M
 
 /proc/get_mobs_and_objs_in_view_fast(turf/T, range, list/mobs, list/objs, checkghosts = GHOSTS_ALL_HEAR)
 	var/list/hear = list()
@@ -527,6 +525,10 @@ datum/projectile_data
 	else
 		return (cult.current_antagonists.len > spookiness_threshold)
 
+/// Removes an image from a client's `.images`. Useful as a callback.
+/proc/remove_image_from_client(image/image, client/remove_from)
+	remove_from?.images -= image
+
 /proc/remove_images_from_clients(image/I, list/show_to)
 	for(var/client/C in show_to)
 		C.images -= I
@@ -543,3 +545,13 @@ datum/projectile_data
 		if(M.client)
 			viewing += M.client
 	flick_overlay(I, viewing, duration)
+
+// makes peoples byond icon flash on the taskbar
+/proc/window_flash(client/C)
+	if(ismob(C))
+		var/mob/M = C
+		if(M.client)
+			C = M.client
+	if(!C)
+		return
+	winset(C, "mainwindow", "flash=5")

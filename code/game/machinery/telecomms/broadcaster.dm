@@ -318,7 +318,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 		// --- Can understand the speech ---
 
-		if (!M || R.say_understands(M))
+		if (!M || R.say_understands(M, speaking))
 
 			// - Not human or wearing a voice mask -
 			if (!M || !ishuman(M) || vmask)
@@ -552,9 +552,6 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 		var/part_b_extra = ""
 		if(data == 3) // intercepted radio message
 			part_b_extra = " <i>(Intercepted)</i>"
-
-		// Create a radio headset for the sole purpose of using its icon
-		var/static/obj/item/device/radio/headset/radio = new
 
 		var/part_b = "</span><b> \[[freq_text]\][part_b_extra]</b> <span class='message'>" // Tweaked for security headsets -- TLE
 		var/part_blackbox_b = "</span><b> \[[freq_text]\]</b> <span class='message'>" // Tweaked for security headsets -- TLE

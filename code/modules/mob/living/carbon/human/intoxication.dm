@@ -14,7 +14,7 @@
 		slurring = 0
 		confused = 0
 		eye_blurry = 0
-		drowsyness = 0
+		drowsiness = 0
 		paralysis = 0
 		sleeping = 0
 		//Many of these parameters normally tick down in life code, but some parts of that code don't run in godmode, so this prevents a BST being stuck with blurred vision
@@ -22,7 +22,6 @@
 	var/bac = get_blood_alcohol()
 
 	if(bac > INTOX_BUZZED*SR && bac < INTOX_MUSCLEIMP*SR)
-		move_delay_mod += -0.75
 		sprint_cost_factor += -0.1
 		if(prob(5))
 			to_chat(src,"<span class='notice'>You feel buzzed.</span>")
@@ -56,7 +55,7 @@
 
 	if(bac > INTOX_BALANCE*SR)
 		slurring = max(slurring, 100)
-		if (life_tick % 4 == 1 && !lying && !buckled && prob(10))
+		if (life_tick % 4 == 1 && !lying && !buckled_to && prob(10))
 			src.visible_message("<span class='warning'>[src] loses balance and falls to the ground!</span>","<span class='warning'>You lose balance and fall to the ground!</span>")
 			Paralyse(3 SECONDS)
 			if(bac > INTOX_CONSCIOUS*SR)

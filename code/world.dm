@@ -57,11 +57,6 @@ var/global/datum/global_init/init = new ()
 	maxx = WORLD_MIN_SIZE	// So that we don't get map-window-popin at boot. DMMS will expand this.
 	maxy = WORLD_MIN_SIZE
 
-/world/proc/enable_debugger()
-    var/dll = world.GetConfig("env", "EXTOOLS_DLL")
-    if (dll)
-        call(dll, "debug_initialize")()
-
 #define RECOMMENDED_VERSION 510
 /world/New()
 	//logs
@@ -86,8 +81,6 @@ var/global/datum/global_init/init = new ()
 		config.server_name += " #[(world.port % 1000) / 100]"
 
 	callHook("startup")
-
-	enable_debugger()
 
 	. = ..()
 
@@ -199,6 +192,8 @@ var/list/world_api_rate_limit = list()
 		response["data"] = command.data
 		return json_encode(response)
 
+/proc/reboot_world()
+	world.Reboot()
 
 /world/Reboot(reason, hard_reset = FALSE)
 	if (!hard_reset && world.TgsAvailable())
@@ -220,8 +215,11 @@ var/list/world_api_rate_limit = list()
 	SSpersist_config.save_to_file("data/persistent_config.json")
 	Master.Shutdown()
 
-	to_chat_immediate(world, "<br><span class='danger'>The server is restarting.</span><br>You should automatically reconnect in a minute or so...<br><hr><br>")
-	sleep(1) // this gives clients time to receive the message
+	var/datum/chatOutput/co
+	for(var/client/C in clients)
+		co = C.chatOutput
+		if(co)
+			co.ehjax_send(data = "roundrestart")
 
 	if(config.server)	//if you set a server location in config.txt, it sends you there instead of trying to reconnect to the same world address. -- NeoFite
 		for(var/client/C in clients)
@@ -430,7 +428,7 @@ var/list/world_api_rate_limit = list()
 /proc/establish_db_connection(var/DBConnection/con)
 	if (!config.sql_enabled)
 		return FALSE
-	
+
 	if (!con)
 		error("No DBConnection object passed to establish_db_connection() proc.")
 		return FALSE

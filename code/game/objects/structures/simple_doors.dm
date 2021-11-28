@@ -211,7 +211,7 @@
 	if(!material.radioactivity)
 		return
 	for(var/mob/living/L in range(1,src))
-		L.apply_effect(round(material.radioactivity/3),IRRADIATE,0)
+		L.apply_damage(round(material.radioactivity/3),IRRADIATE, damage_flags = DAM_DISPERSED)
 
 /obj/structure/simple_door/iron/New(var/newloc,var/material_name, var/complexity)
 	..(newloc, MATERIAL_IRON, complexity)

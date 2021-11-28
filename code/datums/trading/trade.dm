@@ -12,7 +12,8 @@
 	var/list/possible_trading_items                             //List of all possible trading items. Structure is (type = mode)
 	var/list/trading_items = list()                             //What items they are currently trading away.
 	var/list/blacklisted_trade_items = list(/mob/living/carbon/human)
-	                                                            //Things they will automatically refuse
+	var/list/allowed_space_sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL,
+										SECTOR_GAKAL, SECTOR_UUEOAESA)	//which sector this merchant can show up                                                            //Things they will automatically refuse
 
 	var/list/speech = list()                                    //The list of all their replies and messages. Structure is (id = talk)
 	/*SPEECH IDS:
@@ -259,3 +260,9 @@
 
 /datum/trader/proc/bribe_to_stay_longer(var/amt)
 	return get_response("bribe_refusal", "How about... no?")
+
+/datum/trader/proc/system_allowed()
+	if(SSatlas.current_sector.name in allowed_space_sectors)
+		return TRUE
+	else
+		return FALSE

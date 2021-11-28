@@ -78,7 +78,7 @@
 	verbs += /mob/living/proc/ventcrawl
 
 	add_language(LANGUAGE_TCB)
-	set_default_language(LANGUAGE_TCB)
+	set_default_language(all_languages[LANGUAGE_TCB])
 
 	src.colour = colour
 	number = rand(1, 1000)
@@ -338,7 +338,7 @@
 		if(I_GRAB)
 			if(M == src || anchored)
 				return
-			var/obj/item/grab/G = new /obj/item/grab(M, src)
+			var/obj/item/grab/G = new /obj/item/grab(M, M, src)
 
 			M.put_in_active_hand(G)
 

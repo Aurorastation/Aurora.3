@@ -122,12 +122,11 @@
 		var/obj/item/stack/cable_coil/C = W
 		if(buildstate == 3)
 			if(C.use(10))
-				to_chat(user, "<span class='notice'>You tie the lengths of cable to the shotgun, making a sling.</span>")
-				var/obj/item/gun/projectile/shotgun/improvised/G = new(get_turf(src))
-				G.fail_chance = rand(1,100)
+				to_chat(user, "<span class='notice'>You tie the lengths of cable to the pipegun, making a sling.</span>")
+				new /obj/item/gun/projectile/shotgun/pump/rifle/pipegun(get_turf(src))
 				qdel(src)
 			else
-				to_chat(user, "<span class='notice'>You need at least ten lengths of cable if you want to make a sling!.</span>")
+				to_chat(user, "<span class='notice'>You need at least ten lengths of cable if you want to make a sling!</span>")
 			return
 
 		..()

@@ -129,6 +129,11 @@
 	user.machine = ui_host()
 	user.reset_view(current_camera)
 	check_eye(user)
+
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		H.handle_vision()
+
 	return TRUE
 
 /datum/nano_module/camera_monitor/proc/set_current(var/obj/machinery/camera/C)

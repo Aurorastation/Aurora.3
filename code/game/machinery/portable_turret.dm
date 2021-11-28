@@ -22,6 +22,9 @@
 
 	req_one_access = list(access_security, access_heads)
 
+	light_range = 3
+	light_power = 2
+
 	var/raised = 0			//if the turret cover is "open" and the turret is raised
 	var/raising= 0			//if the turret is currently opening or closing its cover
 	var/health = 80			//the turret's health
@@ -47,7 +50,8 @@
 	var/check_weapons = 0	//checks if it can shoot people that have a weapon they aren't authorized to have
 	var/check_access = 1	//if this is active, the turret shoots everything that does not meet the access requirements
 	var/check_wildlife = 1	//checks if it can shoot at simple animals or anything that passes issmall
-	var/check_synth	 = 0 	//if active, will shoot at anything not an AI or cyborg
+	var/check_synth	 = 0	//if active, will shoot at anything not an AI or cyborg
+	var/target_borgs = FALSE//if active, will shoot at borgs
 	var/ailock = 0 			// AI cannot use this
 
 	var/immobile = FALSE	// If TRUE, the turret cannot be detached from the ground with a wrench.
@@ -74,6 +78,8 @@
 	var/resetting = FALSE
 	var/fast_processing = FALSE
 
+	var/old_angle = 0
+
 /obj/machinery/porta_turret/examine(mob/user)
 	..()
 	var/msg = ""
@@ -93,6 +99,7 @@
 	enabled = FALSE
 	ailock = TRUE
 	check_synth	 = FALSE
+	target_borgs = FALSE
 	check_access = TRUE
 	check_arrest = TRUE
 	check_records = TRUE
@@ -169,6 +176,7 @@
 	if(stat & BROKEN)
 		icon_state = "turret_[sprite_set]_broken"
 		underlays += "cover_open_[cover_set]"
+		set_light(0)
 	else if(raised || raising)
 		if(powered() && enabled)
 			if(!lethal_icon)
@@ -182,6 +190,11 @@
 			underlays += "cover_open_[cover_set]"
 	else
 		icon_state = "cover_[cover_set]"
+
+	if(stat & NOPOWER)
+		set_light(0)
+	else
+		set_light(light_range, light_power)
 
 /obj/machinery/porta_turret/proc/isLocked(mob/user)
 	if(ailock && issilicon(user))
@@ -216,6 +229,7 @@
 
 	var/usedSettings = list(
 		"check_synth" = "Neutralize All Non-Synthetics",
+		"target_borgs" = "Neutralize All Cyborg-likes",
 		"check_wildlife" = "Neutralize All Wildlife",
 		"check_weapons" = "Check Weapon Authorization",
 		"check_records" = "Check Security Records",
@@ -274,6 +288,8 @@
 			lethal_icon = value
 		else if(href_list["command"] == "check_synth")
 			check_synth = value
+		else if(href_list["command"] == "target_borgs")
+			target_borgs = value
 		else if(href_list["command"] == "check_weapons")
 			check_weapons = value
 		else if(href_list["command"] == "check_records")
@@ -562,7 +578,7 @@
 	if(L.invisibility >= INVISIBILITY_LEVEL_ONE) // Cannot see him. see_invisible is a mob-var
 		return TURRET_NOT_TARGET
 
-	if(!emagged && issilicon(L))	// Don't target silica
+	if(!emagged && !target_borgs && issilicon(L))	// Don't target silica
 		return TURRET_NOT_TARGET
 
 	if(L.stat && !emagged)		//if the perp is dead/dying, no need to bother really
@@ -580,6 +596,9 @@
 
 	if(emagged)		// If emagged not even the dead get a rest
 		return L.stat ? TURRET_SECONDARY_TARGET : TURRET_PRIORITY_TARGET
+
+	if(target_borgs && isAI(L))		//don't shoot the AI if we're shooting silica!
+		return TURRET_NOT_TARGET
 
 	if(lethal && locate(/mob/living/silicon/ai) in get_turf(L))		//don't accidentally kill the AI!
 		return TURRET_NOT_TARGET
@@ -675,6 +694,7 @@
 	qdel(flick_holder)
 
 	set_raised_raising(0, 0)
+	set_angle(0)
 	update_icon()
 
 /obj/machinery/porta_turret/proc/set_raised_raising(var/raised, var/raising)
@@ -688,10 +708,11 @@
 	if(target)
 		last_target = target
 		popUp()				//pop the turret up if it's not already up.
-		var/d = get_dir(src, target)	//even if you can't shoot, follow the target
-		if(d != dir)
-			set_dir(d)
+		var/new_angle = Get_Angle(src, target)
+		if(new_angle > old_angle + 30 || new_angle < old_angle - 30)
 			playsound(loc, 'sound/machines/turrets/turret_rotate.ogg', 100, 1)
+		set_angle(new_angle)
+		old_angle = new_angle
 		shootAt(target)
 		return 1
 	return
@@ -740,6 +761,7 @@
 	var/enabled
 	var/lethal
 	var/check_synth
+	var/target_borgs
 	var/check_access
 	var/check_records
 	var/check_arrest
@@ -764,6 +786,7 @@
 		src.lethal_icon = TC.lethal
 
 	check_synth = TC.check_synth
+	target_borgs = TC.target_borgs
 	check_access = TC.check_access
 	check_records = TC.check_records
 	check_arrest = TC.check_arrest
@@ -1140,7 +1163,7 @@
 	sprite_set = "ballistic"
 	no_salvage = TRUE
 
-	eprojectile = /obj/item/projectile/bullet/rifle/a762
+	eprojectile = /obj/item/projectile/bullet/pistol/medium
 	eshot_sound	= 'sound/weapons/gunshot/gunshot_saw.ogg'
 
 	req_one_access = list(access_syndicate)

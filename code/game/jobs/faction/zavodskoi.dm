@@ -19,7 +19,7 @@
 	professional through-and-through, and consider yourself a (literal) cut above whatever washouts
 	NanoTrasen can hire as surgeons. Just remember, you need to prove that you're better than Zeng-Hu.
 	We need these medical contracts, lest we have to cut back the medical division just like the genetics one.</li>
-	<li><b>Personal Security Professional</b>:Excellent customer service and client
+	<li><b>Personal Security Professional</b>: Excellent customer service and client
 	care is why Zavodskoi's private security personnel win security contracts and
 	you know this. A cut above the rest, you are clear, calm, concise and polite when
 	working. As a security force you were voted the most professional private security

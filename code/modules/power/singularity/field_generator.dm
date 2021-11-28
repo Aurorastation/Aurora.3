@@ -14,7 +14,7 @@ field_generator power level display
 
 #define field_generator_max_power 250000
 /obj/machinery/field_generator
-	name = "Field Generator"
+	name = "field generator"
 	desc = "A large thermal battery that projects a high amount of energy when powered."
 	icon = 'icons/obj/machines/field_generator.dmi'
 	icon_state = "Field_Gen"
@@ -51,6 +51,13 @@ field_generator power level display
 	level = between(0, level, num_power_levels)
 	if(level)
 		add_overlay("+p[level]")
+	if(anchored)
+		add_overlay("+bolts")
+		if(state == 2)
+			add_overlay("+welding")
+			var/image/lights_image = image(icon, null, "+lights")
+			lights_image.layer = EFFECTS_ABOVE_LIGHTING_LAYER
+			add_overlay(lights_image)
 
 /obj/machinery/field_generator/machinery_process()
 	if(Varedit_start == 1)
@@ -102,6 +109,7 @@ field_generator power level display
 					"You secure the external reinforcing bolts to the floor.", \
 					"You hear ratchet")
 				src.anchored = 1
+				update_icon()
 			if(1)
 				state = 0
 				playsound(src.loc, W.usesound, 75, 1)
@@ -109,6 +117,7 @@ field_generator power level display
 					"You undo the external reinforcing bolts.", \
 					"You hear ratchet")
 				src.anchored = 0
+				update_icon()
 			if(2)
 				to_chat(user, "<span class='warning'>The [src.name] needs to be unwelded from the floor.</span>")
 				return
@@ -128,6 +137,7 @@ field_generator power level display
 						if(!src || !WT.isOn()) return
 						state = 2
 						to_chat(user, "You weld the field generator to the floor.")
+						update_icon()
 				else
 					return
 			if(2)
@@ -140,6 +150,7 @@ field_generator power level display
 						if(!src || !WT.isOn()) return
 						state = 1
 						to_chat(user, "You cut the [src] free from the floor.")
+						update_icon()
 				else
 					return
 	else

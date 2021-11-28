@@ -32,7 +32,9 @@ Protectiveness | Armor %
 	icon_state = "material_armor"
 	item_state = "material_armor"
 	contained_sprite = 1
-	armor = list(melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_MINOR
+	)
 	pocket_slots = 1
 
 /obj/item/clothing/suit/armor/material/makeshift/plasteel
@@ -96,7 +98,9 @@ Protectiveness | Armor %
 		)
 	icon_state = "bucket"
 	item_state = "bucket"
-	armor = list(melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_MINOR
+	)
 	contained_sprite = 1
 
 /obj/item/clothing/head/helmet/bucket/wood

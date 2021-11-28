@@ -3,8 +3,8 @@ var/datum/antagonist/traitor/traitors
 // Inherits most of its vars from the base datum.
 /datum/antagonist/traitor
 	id = MODE_TRAITOR
-	restricted_jobs = list("Head of Security", "Captain", "AI", "Chief Engineer", "Research Director", "Chief Medical Officer", "Head of Personnel")
-	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician")
+	restricted_jobs = list("Head of Security", "Captain", "Chief Engineer", "Research Director", "Chief Medical Officer", "Head of Personnel")
+	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Investigator")
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
 	required_age = 10
 
@@ -101,9 +101,9 @@ var/datum/antagonist/traitor/traitors
 	traitor_mob.faction = "syndicate"
 	spawn_uplink(traitor_mob)
 	// Tell them about people they might want to contact.
-	var/mob/living/carbon/human/M = get_nt_opposed()
+	var/mob/living/carbon/human/M = get_poor()
 	if(M && M != traitor_mob)
-		to_chat(traitor_mob, "We have received credible reports that [M.real_name] might be willing to help our cause. If you need assistance, consider contacting them.")
+		to_chat(traitor_mob, "We have received credible reports that [M.real_name] might be susceptible to bribes. If you need assistance, consider contacting them.")
 		traitor_mob.mind.store_memory("<b>Potential Collaborator</b>: [M.real_name]")
 
 	//Begin code phrase.

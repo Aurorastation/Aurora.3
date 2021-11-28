@@ -27,6 +27,9 @@
 	var/default_material = null // Set this to something else if you want material attributes on init.
 	var/material_armor_modifer = 1 // Adjust if you want seperate types of armor made from the same material to have different protectiveness (e.g. makeshift vs real armor)
 	var/refittable = TRUE // If false doesn't let the clothing be refit in suit cyclers
+	var/no_overheat = FALSE  // Checks to see if the clothing is ignored for the purpose of overheating messages.
+
+	var/move_trail = /obj/effect/decal/cleanable/blood/tracks/footprints
 
 
 /obj/item/clothing/Initialize(var/mapload, var/material_key)
@@ -39,6 +42,7 @@
 		for(var/T in starting_accessories)
 			var/obj/item/clothing/accessory/tie = new T(src)
 			src.attach_accessory(null, tie)
+	update_icon()
 
 /obj/item/clothing/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -58,13 +62,13 @@
 	return 0
 
 //BS12: Species-restricted clothing check.
-/obj/item/clothing/mob_can_equip(M as mob, slot, disable_warning = FALSE)
+/obj/item/clothing/mob_can_equip(M as mob, slot, disable_warning = FALSE, bypass_blocked_check = FALSE)
 
 	//if we can't equip the item anyway, don't bother with species_restricted (cuts down on spam)
 	if (!..())
 		return 0
 
-	if(species_restricted && istype(M,/mob/living/carbon/human))
+	if(species_restricted && ishuman(M) && !(slot in list(slot_l_hand, slot_r_hand)))
 		var/exclusive = null
 		var/wearable = null
 		var/mob/living/carbon/human/H = M
@@ -81,9 +85,30 @@
 					wearable = 1
 
 			if(!wearable && !(slot in list(slot_l_store, slot_r_store, slot_s_store)))
-				to_chat(H, SPAN_DANGER("Your species cannot wear [src]."))
+				if(!disable_warning)
+					to_chat(H, SPAN_DANGER("Your species cannot wear [src]."))
 				return 0
 	return 1
+
+// putting on to a slot
+/obj/item/clothing/equipped(mob/user, slot, assisted_equip)
+	. = ..()
+	if(tint)
+		user.handle_vision()
+
+// taking off
+/obj/item/clothing/dropped(mob/user)
+	. = ..()
+	if(tint)
+		user.handle_vision()
+
+/obj/item/clothing/handle_middle_mouse_click(mob/user)
+	if(Adjacent(user))
+		var/obj/item/clothing/accessory/storage/S = locate() in accessories
+		if(S?.hold)
+			S.hold.open(user)
+			return TRUE
+	return FALSE
 
 /obj/item/clothing/proc/return_own_image()
 	var/image/our_image
@@ -251,11 +276,17 @@
 		for(var/number in list(melee_armor, bullet_armor, laser_armor, energy_armor, bomb_armor))
 			number = between(0, number, 100)
 
-		armor["melee"] = melee_armor
-		armor["bullet"] = bullet_armor
-		armor["laser"] = laser_armor
-		armor["energy"] = energy_armor
-		armor["bomb"] = bomb_armor
+		var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
+		if(istype(armor_component))
+			armor_component.RemoveComponent()
+		var/list/armor_list = list(
+			melee = melee_armor,
+			bullet = bullet_armor,
+			laser = laser_armor,
+			energy = energy_armor,
+			bomb = bomb_armor
+		)
+		AddComponent(/datum/component/armor, armor_list)
 
 		if(!isnull(material.conductivity))
 			siemens_coefficient = between(0, material.conductivity / 10, 10)
@@ -346,7 +377,7 @@
 	body_parts_covered = HANDS
 	slot_flags = SLOT_GLOVES
 	attack_verb = list("challenged")
-	species_restricted = list("exclude",BODYTYPE_UNATHI,BODYTYPE_TAJARA,BODYTYPE_VAURCA, BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
+	species_restricted = list("exclude",BODYTYPE_UNATHI,BODYTYPE_TAJARA,BODYTYPE_VAURCA, BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
@@ -354,6 +385,14 @@
 	if (ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_gloves()
+
+/obj/item/clothing/gloves/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(blood_DNA)
+		var/image/bloodsies = image(H.species.blood_mask, "bloodyhands")
+		bloodsies.color = blood_color
+		I.add_overlay(bloodsies)
+	return I
 
 /obj/item/clothing/gloves/emp_act(severity)
 	if(cell)
@@ -432,6 +471,9 @@
 	if (.)
 		INVOKE_ASYNC(src, .proc/update_wearer)
 
+/obj/item/clothing/gloves/clothing_class()
+	return "gloves"
+
 ///////////////////////////////////////////////////////////////////////
 //Head
 /obj/item/clothing/head
@@ -450,10 +492,31 @@
 	drop_sound = 'sound/items/drop/hat.ogg'
 	pickup_sound = 'sound/items/pickup/hat.ogg'
 
+	var/allow_hair_covering = TRUE //in case if you want to allow someone to switch the BLOCKHEADHAIR var from the helmet or not
+
 	var/light_overlay = "helmet_light"
 	var/light_applied
 	var/brightness_on
 	var/on = 0
+
+/obj/item/clothing/head/Initialize(mapload, material_key)
+	. = ..()
+	if(allow_hair_covering)
+		verbs += /obj/item/clothing/head/proc/toggle_block_hair
+
+/obj/item/clothing/head/proc/toggle_block_hair()
+	set name = "Toggle Hair Coverage"
+	set category = "Object"
+
+	if(allow_hair_covering)
+		flags_inv ^= BLOCKHEADHAIR
+		to_chat(usr, SPAN_NOTICE("[src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair."))
+		if(ishuman(usr))
+			var/mob/living/carbon/human/H = usr
+			H.update_hair()
+
+/obj/item/clothing/head/get_image_key_mod()
+	return on
 
 /obj/item/clothing/head/attack_self(mob/user)
 	if(brightness_on)
@@ -527,7 +590,6 @@
 	return our_image
 
 /obj/item/clothing/head/update_icon(var/mob/user)
-
 	cut_overlays()
 	var/mob/living/carbon/human/H
 	if(istype(user,/mob/living/carbon/human))
@@ -545,13 +607,43 @@
 			var/use_icon = 'icons/mob/light_overlays.dmi'
 			SSicon_cache.light_overlay_cache[cache_key] = image("icon" = use_icon, "icon_state" = "[light_overlay]")
 
+	..()
+
 	if(H)
 		H.update_inv_head()
+
+/obj/item/clothing/head/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(blood_DNA)
+		var/image/bloodsies = image(H.species.blood_mask, icon_state = "helmetblood")
+		bloodsies.color = blood_color
+		bloodsies.appearance_flags = RESET_ALPHA
+		I.add_overlay(bloodsies)
+	return I
+
+/obj/item/clothing/head/build_shifted_additional_parts(mob/living/carbon/human/H, mob_icon, slot, var/icon/canvas, var/list/facing_list, use_dir)
+	canvas = ..()
+	if(on && slot == slot_head_str)
+		var/icon/lights_icon = new('icons/mob/light_overlays.dmi', icon_state = light_overlay, dir = use_dir)
+		canvas.Blend(lights_icon, ICON_OVERLAY, facing_list["x"]+1, facing_list["y"]+1)
+	return canvas
+
+/obj/item/clothing/head/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
+	var/image/I = ..()
+	if(!I)
+		I = image(null)
+	var/cache_key = "[light_overlay]_[H.cached_bodytype || (H.cached_bodytype = H.species.get_bodytype())]"
+	if(on && SSicon_cache.light_overlay_cache[cache_key] && slot == slot_head_str)
+		I.add_overlay(SSicon_cache.light_overlay_cache[cache_key])
+	return I
 
 /obj/item/clothing/head/update_clothing_icon()
 	if (ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_head()
+
+/obj/item/clothing/head/clothing_class()
+	return "helmet"
 
 ///////////////////////////////////////////////////////////////////////
 //Mask
@@ -571,7 +663,7 @@
 		BODYTYPE_UNATHI = 'icons/mob/species/unathi/mask.dmi'
 		)
 
-	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)
 
 	var/voicechange = 0
 	var/list/say_messages
@@ -583,6 +675,8 @@
 	var/adjustable = FALSE
 	var/hanging = 0
 
+	var/has_blood_overlay = TRUE
+
 /obj/item/clothing/mask/Initialize()
 	. = ..()
 	if(adjustable)
@@ -593,6 +687,15 @@
 	if (ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_wear_mask()
+
+/obj/item/clothing/mask/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(blood_DNA && has_blood_overlay)
+		var/image/bloodsies = image(H.species.blood_mask, "maskblood")
+		bloodsies.color = blood_color
+		bloodsies.appearance_flags = RESET_ALPHA
+		I.add_overlay(bloodsies)
+	return I
 
 /obj/item/clothing/mask/proc/filter_air(datum/gas_mixture/air)
 	return
@@ -739,14 +842,24 @@
 
 /obj/item/clothing/shoes/update_icon()
 	cut_overlays()
-	worn_overlay = null
 	if(holding)
-		worn_overlay = "knife"
-		add_overlay(overlay_image(icon, "[initial(icon_state)]_[worn_overlay]", flags=RESET_COLOR))
+		add_overlay(overlay_image(icon, "[initial(icon_state)]_knife", flags=RESET_COLOR))
 	if(ismob(usr))
 		var/mob/M = usr
 		M.update_inv_shoes()
 	return ..()
+
+/obj/item/clothing/shoes/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(blood_DNA)
+		for(var/limb_tag in list(BP_L_FOOT, BP_R_FOOT))
+			var/obj/item/organ/external/E = H.get_organ(limb_tag)
+			if(E && !E.is_stump())
+				var/image/bloodsies = image(H.species.blood_mask, "shoeblood_[E.limb_name]")
+				bloodsies.color = blood_color
+				bloodsies.appearance_flags = RESET_ALPHA
+				I.add_overlay(bloodsies)
+	return I
 
 /obj/item/clothing/shoes/proc/handle_movement(var/turf/walking, var/running)
 	return
@@ -772,6 +885,9 @@
 					to_chat(M, SPAN_WARNING("You trip from running in \the [src]!"))
 			return
 
+/obj/item/clothing/shoes/clothing_class()
+	return "shoes"
+
 ///////////////////////////////////////////////////////////////////////
 //Suit
 /obj/item/clothing/suit
@@ -780,6 +896,9 @@
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_suit.dmi',
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_suit.dmi'
 		)
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/suit.dmi'
+	)
 	name = "suit"
 	var/fire_resist = T0C+100
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
@@ -791,7 +910,7 @@
 	w_class = ITEMSIZE_NORMAL
 	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 
-	valid_accessory_slots = list("armband","decor", "over")
+	valid_accessory_slots = list(ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_CAPE)
 
 /obj/item/clothing/suit/return_own_image()
 	var/image/our_image
@@ -808,10 +927,29 @@
 	our_image.color = color
 	return our_image
 
+/obj/item/clothing/suit/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(slot == slot_l_hand_str || slot == slot_r_hand_str)
+		for(var/obj/item/clothing/accessory/A in accessories)
+			A.accessory_mob_overlay.cut_overlays()
+	else
+		for(var/obj/item/clothing/accessory/A in accessories)
+			var/image/accessory_image = A.get_accessory_mob_overlay(H)
+			I.add_overlay(accessory_image)
+
+	if(blood_DNA)
+		var/image/bloodsies = image(icon = H.species.blood_mask, icon_state = "[blood_overlay_type]blood")
+		bloodsies.color = blood_color
+		I.add_overlay(bloodsies)
+	return I
+
 /obj/item/clothing/suit/update_clothing_icon()
 	if (ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_wear_suit()
+
+/obj/item/clothing/suit/clothing_class()
+	return "suit"
 
 ///////////////////////////////////////////////////////////////////////
 //Under clothing
@@ -821,6 +959,9 @@
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_uniforms.dmi',
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_uniforms.dmi'
 		)
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/uniform.dmi'
+	)
 	name = "under"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	permeability_coefficient = 0.90
@@ -843,8 +984,8 @@
 	//convenience var for defining the icon state for the overlay used when the clothing is worn.
 	//Also used by rolling/unrolling.
 	var/worn_state = null
-	valid_accessory_slots = list("utility","armband","decor", "over")
-	restricted_accessory_slots = list("utility")
+	valid_accessory_slots = list(ACCESSORY_SLOT_UTILITY, ACCESSORY_SLOT_UTILITY_MINOR, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_CAPE)
+	restricted_accessory_slots = list(ACCESSORY_SLOT_UTILITY, ACCESSORY_SLOT_UTILITY_MINOR)
 
 
 /obj/item/clothing/under/attack_hand(var/mob/user)
@@ -870,13 +1011,31 @@
 		if (SSicon_cache.uniform_states["[worn_state]_d_s"])
 			rolled_down = 0
 
+/obj/item/clothing/under/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(slot == slot_l_hand_str | slot == slot_r_hand_str)
+		for(var/obj/item/clothing/accessory/A in accessories)
+			A.accessory_mob_overlay.cut_overlays()
+	else
+		for(var/obj/item/clothing/accessory/A in accessories)
+			var/image/accessory_image = A.get_accessory_mob_overlay(H)
+			I.add_overlay(accessory_image)
+
+	if(blood_DNA)
+		var/image/bloodsies = image(icon = H.species.blood_mask, icon_state = "uniformblood")
+		bloodsies.color = blood_color
+		I.add_overlay(bloodsies)
+	return I
+
 /obj/item/clothing/under/proc/update_rolldown_status()
 	var/mob/living/carbon/human/H
 	if(istype(src.loc, /mob/living/carbon/human))
 		H = src.loc
 
 	var/icon/under_icon
-	if(icon_override)
+	if(contained_sprite)
+		under_icon = icon
+	else if(icon_override)
 		under_icon = icon_override
 	else if(H && sprite_sheets && sprite_sheets[H.species.get_bodytype()])
 		under_icon = sprite_sheets[H.species.get_bodytype()]
@@ -886,7 +1045,7 @@
 		under_icon = INV_W_UNIFORM_DEF_ICON
 
 	// The _s is because the icon update procs append it.
-	if(("[worn_state]_d_s") in icon_states(under_icon))
+	if(("[worn_state]_d[contained_sprite ? "_un" : "_s"]") in icon_states(under_icon))
 		if(rolled_down != 1)
 			rolled_down = 0
 	else
@@ -899,7 +1058,9 @@
 		H = src.loc
 
 	var/icon/under_icon
-	if(icon_override)
+	if(contained_sprite)
+		under_icon = icon
+	else if(icon_override)
 		under_icon = icon_override
 	else if(H && sprite_sheets && sprite_sheets[H.species.get_bodytype(H)])
 		under_icon = sprite_sheets[H.species.get_bodytype(H)]
@@ -909,7 +1070,7 @@
 		under_icon = INV_W_UNIFORM_DEF_ICON
 
 	// The _s is because the icon update procs append it.
-	if(("[worn_state]_r_s") in icon_states(under_icon))
+	if(("[worn_state]_r[contained_sprite ? "_un" : "_s"]") in icon_states(under_icon))
 		if(rolled_sleeves != 1)
 			rolled_sleeves = 0
 	else
@@ -1063,6 +1224,11 @@
 	sensor_mode = pick(0,1,2,3)
 	. = ..()
 
+/obj/item/clothing/under/clothing_class()
+	return "uniform"
+
+/obj/item/clothing/under/AltClick(var/mob/user)
+	set_sensors(user)
 
 //Rings
 
@@ -1075,3 +1241,6 @@
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
 	var/undergloves = TRUE
+
+/obj/item/clothing/proc/clothing_class()
+	return "clothing"

@@ -203,10 +203,13 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	var/obj/held_item = usr.get_active_hand()
 	var/obj/off_hand = usr.get_inactive_hand()
 	var/obj/item/device/multitool/M
-	if(held_item.ismultitool())
+	if(held_item?.ismultitool())
 		M = held_item
 	if(!M && off_hand?.ismultitool())
 		M = off_hand
+	if(M?.tracking_apc)
+		to_chat(usr, SPAN_WARNING("\The [M]'s smart tracking is enabled! Disable it to regain I/O functionality."))
+		return TRUE
 
 	if(href_list["rename"])
 		rename_component(usr)

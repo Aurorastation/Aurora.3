@@ -7,13 +7,13 @@
 	origin_tech = list(TECH_MAGNET = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 500)
 
-	wires = WIRE_PULSE
 	secured = FALSE
 	obj_flags = OBJ_FLAG_ROTATABLE
 
 	var/on = FALSE
 	var/visible = FALSE
 	var/obj/effect/beam/i_beam/first = null
+	var/turf/beam_origin //If we're not on this turf anymore, we've moved. Catches holder.master movements when we're attached to bombs and stuff.
 
 /obj/item/device/assembly/infra/activate()
 	if(!..())
@@ -53,12 +53,19 @@
 		holder.update_icon()
 
 /obj/item/device/assembly/infra/rotate(var/mob/user, var/anchored_ignore = FALSE)
+	if(..())
+		var/direction_text = dir2text(dir)
+		to_chat(user, SPAN_NOTICE("You rotate \the [src] to face [direction_text]."))
+		QDEL_NULL(first)
+
+/obj/item/device/assembly/infra/examine(mob/user)
 	. = ..()
 	var/direction_text = dir2text(dir)
-	to_chat(user, SPAN_NOTICE("You rotate \the [src] to face [direction_text]."))
-	QDEL_NULL(first)
+	to_chat(user, SPAN_NOTICE("It is facing [direction_text]."))
+
 
 /obj/item/device/assembly/infra/process()
+
 	if(!on || !secured)
 		QDEL_NULL(first)
 		return ..()
@@ -66,8 +73,16 @@
 	if(first && !isturf(first.loc))
 		QDEL_NULL(first)
 
-	if(!first && (isturf(loc) || (holder && isturf(holder.loc))))
-		var/obj/effect/beam/i_beam/I = new /obj/effect/beam/i_beam(holder ? holder.loc : loc, src)
+	//We have no infrared beam, so create one.
+	if(!first)
+		//We cannot create beams while being held or in a bag. So we have to compare locs to turfs.
+		//We need to check if whatever we're attached to, if anything, is on a turf. Since we can be attached to an assembly and that assembly can be attached, we have to check a couple locs.
+		//First check if we're part of an assembly(holder) and if that assembly is attached (holder.master). If we are, THOSE are the locs we care about.
+		var/true_location = holder ? holder.master ? holder.master.loc : holder.loc : loc 
+		if(!isturf(true_location)) //Wherever we are, we're not on a turf, nor is our assembly, nor is our bomb/whatever the assembly is attached to. We cannot make a beam.
+			return
+		beam_origin = true_location
+		var/obj/effect/beam/i_beam/I = new /obj/effect/beam/i_beam(true_location, src)
 		I.density = TRUE
 		step(I, I.dir)
 		if(I)
@@ -79,6 +94,10 @@
 		return
 
 	if(first)
+		if(beam_origin != get_turf(src)) //If the assembly we're attached to has moved, delete the beam.
+			QDEL_NULL(first)
+			beam_origin = null
+			return
 		first.process()
 
 
@@ -115,7 +134,7 @@
 
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
-		ui = new(user, src, "devices-assembly-infrared", 320, 220, capitalize_first_letters(name))
+		ui = new(user, src, "devices-assembly-infrared", 320, 220, capitalize_first_letters(name), state = deep_inventory_state)
 	ui.open()
 
 /obj/item/device/assembly/infra/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)

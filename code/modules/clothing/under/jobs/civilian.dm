@@ -41,13 +41,6 @@
 	item_state = "w_suit"
 	worn_state = "chef"
 
-/obj/item/clothing/under/rank/clown
-	name = "clown suit"
-	desc = "<i>'HONK!'</i>"
-	icon_state = "clown"
-	item_state = "clown"
-	worn_state = "clown"
-
 /obj/item/clothing/under/rank/head_of_personnel
 	desc = "It's a jumpsuit worn by someone who works in the position of \"Head of Personnel\"."
 	name = "head of personnel's jumpsuit"
@@ -83,7 +76,9 @@
 	icon_state = "janitor"
 	worn_state = "janitor"
 	item_state = "janitor"
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
+	armor = list(
+		bio = ARMOR_BIO_MINOR
+	)
 
 /obj/item/clothing/under/lawyer
 	desc = "Slick threads."
@@ -139,7 +134,9 @@
 	desc = "A uniform worn by Hephaestus Industries engineers."
 	icon_state = "heph_engineer"
 	worn_state = "heph_engineer"
-	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 10)
+	armor = list(
+		rad = ARMOR_RAD_MINOR
+	)
 	siemens_coefficient = 0.75
 
 /obj/item/clothing/under/rank/hephaestus/tech
@@ -154,8 +151,9 @@
 	icon_state = "heph_research"
 	worn_state = "heph_research"
 	permeability_coefficient = 0.50
-	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 10, bio = 0, rad = 10)
-
+	armor = list(
+		rad = ARMOR_RAD_MINOR
+	)
 /obj/item/clothing/under/rank/zavodskoi
 	name = "Zavodskoi Interstellar uniform"
 	desc = "A uniform worn by Zavodskoi Interstellar employees and contractors."
@@ -168,8 +166,9 @@
 	icon_state = "necro_research"
 	worn_state = "necro_research"
 	permeability_coefficient = 0.50
-	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 10, bio = 0, rad = 0)
-
+	armor = list(
+		bomb = ARMOR_BOMB_MINOR
+	)
 /obj/item/clothing/under/rank/zavodskoi/research/alt
 	icon_state = "necro_research_alt"
 	worn_state = "necro_research_alt"
@@ -193,7 +192,9 @@
 	desc = "A uniform worn by Einstein Engines Incorporated employees and contractors."
 	icon_state = "einstein"
 	worn_state = "einstein"
-	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 10)
+	armor = list(
+		rad = ARMOR_RAD_MINOR
+	)
 	siemens_coefficient = 0.75
 
 /obj/item/clothing/under/rank/zeng
@@ -202,7 +203,9 @@
 	icon_state = "zeng_research"
 	worn_state = "zeng_research"
 	permeability_coefficient = 0.50
-	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 10, bio = 10, rad = 0)
+	armor = list(
+		bio = ARMOR_BIO_MINOR
+	)
 
 /obj/item/clothing/under/rank/zeng/alt
 	icon_state = "zeng_research_alt"
@@ -220,4 +223,6 @@
 	icon_state = "eridani_medic"
 	worn_state = "eridani_medic"
 	permeability_coefficient = 0.50
-	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 10, rad = 0)
+	armor = list(
+		bio = ARMOR_BIO_MINOR
+	)

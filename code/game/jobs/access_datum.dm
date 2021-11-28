@@ -426,57 +426,62 @@ var/const/access_consular = 72
 /******************
 * Central Command *
 ******************/
-/var/const/access_cent_general = 101//General facilities.
+//General facilities. - Everyone on central has that --> Use this for doors that every central role should have access to, but not the aurora people
+/var/const/access_cent_general = 101
 /datum/access/cent_general
 	id = access_cent_general
 	desc = "Code Grey"
 	access_type = ACCESS_TYPE_CENTCOM
 
-/var/const/access_cent_thunder = 102//Thunderdome.
+//Thunderdome.
+/var/const/access_cent_thunder = 102
 /datum/access/cent_thunder
 	id = access_cent_thunder
 	desc = "Code Yellow"
 	access_type = ACCESS_TYPE_CENTCOM
 
-/var/const/access_cent_specops = 103//Special Ops.
+//Centcom Security - This access is used by the ERT / Odin Security and CCIA
+// Separation between Odin Sec/CCIA and ERT is achieved via the ERT Commander Access (access_cent_creed)
+/var/const/access_cent_specops = 103
 /datum/access/cent_specops
 	id = access_cent_specops
 	desc = "Code Black"
 	access_type = ACCESS_TYPE_CENTCOM
 
-/var/const/access_cent_medical = 104//Medical/Research
+//Medical/Research - Thats the access for the medical section. Used for the odin doctors/chemists
+/var/const/access_cent_medical = 104
 /datum/access/cent_medical
 	id = access_cent_medical
 	desc = "Code White"
 	access_type = ACCESS_TYPE_CENTCOM
 
-/var/const/access_cent_living = 105//Living quarters.
+//Living quarters. - Thats the accesse used by the odin bartenders/chefs
+/var/const/access_cent_living = 105
 /datum/access/cent_living
 	id = access_cent_living
 	desc = "Code Green"
 	access_type = ACCESS_TYPE_CENTCOM
 
-/var/const/access_cent_storage = 106//Generic storage areas.
+//Generic storage areas. - Thats used for the Maint Tunnels on Centcom
+/var/const/access_cent_storage = 106
 /datum/access/cent_storage
 	id = access_cent_storage
 	desc = "Code Orange"
 	access_type = ACCESS_TYPE_CENTCOM
 
-/var/const/access_cent_teleporter = 107//Teleporter.
-/datum/access/cent_teleporter
-	id = access_cent_teleporter
-	desc = "Code Blue"
-	access_type = ACCESS_TYPE_CENTCOM
+//107 is unused
 
-/var/const/access_cent_creed = 108//Creed's office.
+//Creed's office. - ERT/TCFL Commander
+/var/const/access_cent_creed = 108
 /datum/access/cent_creed
 	id = access_cent_creed
 	desc = "Code Silver"
 	access_type = ACCESS_TYPE_CENTCOM
 
-/var/const/access_cent_captain = 109//Captain's office/ID comp/AI.
-/datum/access/cent_captain
-	id = access_cent_captain
+//CCIA Access on Centcom
+/var/const/access_cent_ccia = 109
+/datum/access/cent_ccia
+	id = access_cent_ccia
 	desc = "Code Gold"
 	access_type = ACCESS_TYPE_CENTCOM
 

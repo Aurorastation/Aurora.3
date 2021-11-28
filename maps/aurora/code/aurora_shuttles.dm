@@ -50,7 +50,6 @@ AURORA_ESCAPE_POD(3)
 /datum/shuttle/autodock/ferry/emergency/aurora
 	name = "Escape Shuttle"
 	location = 1
-	move_time = 20
 	warmup_time = 10
 	shuttle_area = /area/shuttle/escape
 	dock_target = "escape_shuttle"

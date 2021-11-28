@@ -110,7 +110,7 @@
 // self_message (optional) is what the src mob sees  e.g. "You do something!"
 // blind_message (optional) is what blind people will hear e.g. "You hear something!"
 
-/mob/visible_message(var/message, var/self_message, var/blind_message, var/range = world.view, var/show_observers = TRUE)
+/mob/visible_message(var/message, var/self_message, var/blind_message, var/range = world.view, var/show_observers = TRUE, var/intent_message = null, var/intent_range = 7)
 	var/list/messageturfs = list() //List of turfs we broadcast to.
 	var/list/messagemobs = list() //List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
 	var/list/messageobjs = list() //list of objs nearby who can see it
@@ -150,6 +150,9 @@
 	for(var/o in messageobjs)
 		var/obj/O = o
 		O.see_emote(src, message)
+
+	if(intent_message)
+		intent_message(intent_message, intent_range)
 
 // Designed for mobs contained inside things, where a normal visible message wont actually be visible
 // Useful for visible actions by pAIs, and held mobs
@@ -224,7 +227,7 @@
 	. = 0
 	if(istype(pulling, /obj/structure))
 		var/obj/structure/P = pulling
-		if(P.buckled_mob || locate(/mob) in P.contents)
+		if(P.buckled || locate(/mob) in P.contents)
 			. += P.slowdown
 
 /mob/proc/Life()
@@ -233,10 +236,10 @@
 #define UNBUCKLED 0
 #define PARTIALLY_BUCKLED 1
 #define FULLY_BUCKLED 2
-/mob/proc/buckled()
+/mob/proc/buckled_to()
 	// Preliminary work for a future buckle rewrite,
 	// where one might be fully restrained (like an elecrical chair), or merely secured (shuttle chair, keeping you safe but not otherwise restrained from acting)
-	if(!buckled)
+	if(!buckled_to)
 		return UNBUCKLED
 	return restrained() ? FULLY_BUCKLED : PARTIALLY_BUCKLED
 
@@ -261,7 +264,7 @@
 		return 1
 
 	if((incapacitation_flags & (INCAPACITATION_BUCKLED_PARTIALLY|INCAPACITATION_BUCKLED_FULLY)))
-		var/buckling = buckled()
+		var/buckling = buckled_to()
 		if(buckling >= PARTIALLY_BUCKLED && (incapacitation_flags & INCAPACITATION_BUCKLED_PARTIALLY))
 			return 1
 		if(buckling == FULLY_BUCKLED && (incapacitation_flags & INCAPACITATION_BUCKLED_FULLY))
@@ -736,7 +739,10 @@
 		return
 
 	if (AM.anchored)
-		to_chat(src, "<span class='warning'>It won't budge!</span>")
+		if(!AM.buckled_to)
+			to_chat(src, "<span class='warning'>It won't budge!</span>")
+		else
+			start_pulling(AM.buckled_to) //Pull the thing they're buckled to instead.
 		return
 
 	var/mob/M = null
@@ -840,6 +846,7 @@
 		if(statpanel("Status") && SSticker.current_state != GAME_STATE_PREGAME)
 			stat("Game ID", game_id)
 			stat("Map", current_map.full_name)
+			stat("Current Space Sector", SSatlas.current_sector.name)
 			stat("Station Time", worldtime2text())
 			stat("Round Duration", get_round_duration_formatted())
 			stat("Last Transfer Vote", SSvote.last_transfer_vote ? time2text(SSvote.last_transfer_vote, "hh:mm") : "Never")
@@ -870,10 +877,13 @@
 					stat("Failsafe Controller:", "ERROR")
 				if (Master)
 					stat(null, "- Subsystems -")
+					var/amt = 0
 					for(var/datum/controller/subsystem/SS in Master.subsystems)
 						if (!Master.initializing && SS.flags & SS_NO_DISPLAY)
 							continue
-
+						if(amt >= 70)
+							break
+						amt++
 						SS.stat_entry()
 
 		if(listed_turf && client)
@@ -906,28 +916,33 @@
 
 //Updates canmove, lying and icons. Could perhaps do with a rename but I can't think of anything to describe it.
 /mob/proc/update_canmove()
-
-	if(!resting && cannot_stand() && can_stand_overridden())
+	if(in_neck_grab())
+		lying = FALSE
+		for(var/obj/item/grab/G in grabbed_by)
+			if(G.force_down)
+				lying = TRUE
+				break
+	else if(!resting && cannot_stand() && can_stand_overridden())
 		lying = 0
 		canmove = 1
 	else
-		if(istype(buckled, /obj/vehicle))
-			var/obj/vehicle/V = buckled
+		if(istype(buckled_to, /obj/vehicle))
+			var/obj/vehicle/V = buckled_to
 			if(is_physically_disabled())
 				lying = 1
 				canmove = 0
 				pixel_y = V.mob_offset_y - 5
 			else
-				if(buckled.buckle_lying != -1) lying = buckled.buckle_lying
+				if(buckled_to.buckle_lying != -1) lying = buckled_to.buckle_lying
 				canmove = 1
 				pixel_y = V.mob_offset_y
-		else if(buckled)
+		else if(buckled_to)
 			anchored = 1
 			canmove = 0
-			if(istype(buckled))
-				if(buckled.buckle_lying != -1)
-					lying = buckled.buckle_lying
-				if(buckled.buckle_movable)
+			if(isobj(buckled_to))
+				if(buckled_to.buckle_lying != -1)
+					lying = buckled_to.buckle_lying
+				if(buckled_to.buckle_movable)
 					anchored = 0
 					canmove = 1
 		else if(captured)
@@ -946,6 +961,10 @@
 		density = initial(density)
 
 	for(var/obj/item/grab/G in grabbed_by)
+		if(G.wielded)
+			canmove = FALSE
+			lying = TRUE
+			break
 		if(G.state >= GRAB_AGGRESSIVE)
 			canmove = 0
 			break
@@ -966,8 +985,8 @@
 	if(!canface() || (client && client.moving) || (client && world.time < client.move_delay))
 		return 0
 	set_dir(ndir)
-	if(buckled && buckled.buckle_movable)
-		buckled.set_dir(ndir)
+	if(buckled_to && buckled_to.buckle_movable)
+		buckled_to.set_dir(ndir)
 	if (client)//Fixing a ton of runtime errors that came from checking client vars on an NPC
 		client.move_delay += movement_delay()
 	return 1
@@ -1079,6 +1098,7 @@
 
 /mob/proc/get_pressure_weakness()
 	return 1
+
 /mob/living/proc/flash_strong_pain()
 	return
 
@@ -1285,7 +1305,7 @@
 
 /mob/set_dir(ndir)
 	if(facing_dir)
-		if(!canface() || lying || buckled || restrained())
+		if(!canface() || lying || buckled_to || restrained())
 			facing_dir = null
 		else if(dir != facing_dir)
 			return ..(facing_dir)
@@ -1328,6 +1348,18 @@
 	set hidden = 1
 	set_face_dir(client.client_dir(WEST))
 
+/mob/living/verb/unique_action()
+	set hidden = 1
+	var/obj/item/gun/dakka = get_active_hand()
+	if(istype(dakka))
+		dakka.unique_action(src)
+
+/mob/living/verb/toggle_firing_mode()
+	set hidden = 1
+	var/obj/item/gun/dakka = get_active_hand()
+	if(istype(dakka))
+		dakka.toggle_firing_mode(src)
+
 /mob/proc/adjustEarDamage()
 	return
 
@@ -1353,6 +1385,10 @@
 		src.throw_icon.icon_state = "act_throw_on"
 
 /mob/proc/is_invisible_to(var/mob/viewer)
+	if(isAI(viewer))
+		for(var/image/I as anything in SSai_obfuscation.obfuscation_images)
+			if(I.loc == src)
+				return TRUE
 	return (!alpha || !mouse_opacity || viewer.see_invisible < invisibility)
 
 //Admin helpers

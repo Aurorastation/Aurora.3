@@ -127,10 +127,33 @@
 	desc = "A faithful box that will remain with you, no matter where you go, and probably save you."
 	icon_state = "e_box"
 	autodrobe_no_remove = 1
-	starts_with = list(/obj/item/clothing/mask/breath = 1,
-					   /obj/item/tank/emergency_oxygen = 1,
-					   /obj/item/device/flashlight/flare/glowstick/red = 1
-						)
+	max_storage_space = 14
+	can_hold = list(
+				/obj/item/clothing/mask,
+				/obj/item/tank/emergency_oxygen,
+				/obj/item/device/flashlight/flare/glowstick,
+				/obj/item/stack/medical,
+				/obj/item/reagent_containers/hypospray/autoinjector,
+				/obj/item/reagent_containers/inhaler,
+				/obj/item/device/oxycandle,
+				/obj/item/extinguisher/mini,
+				/obj/item/device/radio,
+				/obj/item/device/flashlight,
+				/obj/item/reagent_containers/food/drinks/flask,
+				/obj/item/storage/box/fancy/cigarettes,
+				/obj/item/flame/lighter,
+				/obj/item/disk/nuclear,
+				/obj/item/crowbar,
+				/obj/item/airbubble
+				)
+	starts_with = list(
+					/obj/item/clothing/mask/breath = 1,
+					/obj/item/tank/emergency_oxygen = 1,
+					/obj/item/device/oxycandle = 1,
+					/obj/item/device/flashlight/flare/glowstick/red = 1,
+					/obj/item/stack/medical/bruise_pack = 1,
+					/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1
+					)
 
 /obj/item/storage/box/survival/fill()
 	..()
@@ -690,7 +713,8 @@
 			/obj/item/reagent_containers/food/snacks/tuna,
 			/obj/item/storage/box/fancy/gum,
 			/obj/item/storage/box/fancy/cookiesnack,
-			/obj/item/storage/box/fancy/admints
+			/obj/item/storage/box/fancy/admints,
+			/obj/item/storage/box/fancy/vkrexitaffy
 	)
 	for (var/i = 0,i<7,i++)
 		var/type = pick(snacks)
@@ -881,3 +905,96 @@
 	var/obj/item/closet_teleporter/CT_2 = new /obj/item/closet_teleporter(src)
 	CT_1.linked_teleporter = CT_2
 	CT_2.linked_teleporter = CT_1
+
+/obj/item/storage/box/googly
+	name = "googly eye box"
+	desc = "A box containing googly eyes."
+	starts_with = list(/obj/item/sticker/googly_eye = 8)
+
+/obj/item/storage/box/goldstar
+	name = "gold star box"
+	desc = "A box containing gold star stickers."
+	starts_with = list(/obj/item/sticker/goldstar = 8)
+
+/obj/item/storage/box/folders
+	name = "box of folders"
+	desc = "A box full of folders."
+	starts_with = list(/obj/item/folder = 5)
+
+/obj/item/storage/box/folders/blue
+	starts_with = list(/obj/item/folder/sec = 5)
+
+/obj/item/storage/box/papersack
+	name = "paper sack"
+	desc = "A neatly sack crafted out of paper."
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand.dmi',
+		)
+	item_state = "papersack"
+	icon_state = "paperbag_None"
+	use_sound = 'sound/bureaucracy/papercrumple.ogg'
+	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/storage/wrapper.ogg'
+	foldable = null
+	max_w_class = ITEMSIZE_NORMAL
+	max_storage_space = 8
+	use_to_pickup = TRUE
+	chewable = TRUE
+	var/opened = TRUE
+	var/static/list/papersack_designs
+	var/choice = "None"
+
+/obj/item/storage/box/papersack/update_icon()
+	. = ..()
+	if(length(contents) == 0)
+		icon_state = "paperbag_[choice]"
+	else if(length(contents) < 8)
+		icon_state = "paperbag_[choice]-food"
+
+/obj/item/storage/box/papersack/attackby(obj/item/O, mob/user)
+	if(O.ispen())
+		if(!papersack_designs)
+			papersack_designs = sortList(list(
+			"None" = image(icon = src.icon, icon_state = "paperbag_None"),
+			"NanotrasenStandard" = image(icon = src.icon, icon_state = "paperbag_NanotrasenStandard"),
+			"Idris" = image(icon = src.icon, icon_state = "paperbag_Idris"),
+			"Heart" = image(icon = src.icon, icon_state = "paperbag_Heart"),
+			"SmileyFace" = image(icon = src.icon, icon_state = "paperbag_SmileyFace")
+			))
+
+		choice = show_radial_menu(user, src, papersack_designs, radius = 42, tooltips = TRUE)
+		if(!choice)
+			return
+		switch(choice)
+			if("None")
+				desc = "A sack neatly crafted out of paper."
+			if("NanotrasenStandard")
+				desc = "A standard Nanotrasen paper lunch sack for loyal employees on the go."
+			if("Idris")
+				desc = "A premium paper bag produced by Idris Incorporated."
+			if("Heart")
+				desc = "A paper sack with a heart etched onto the side."
+			if("SmileyFace")
+				desc = "A paper sack with a crude smile etched onto the side."
+			else
+				return
+		to_chat(user, SPAN_NOTICE("You make some modifications to [src] using your pen."))
+		update_icon()
+		return
+
+	else if(O.isscrewdriver())
+		if(length(contents) == 0)
+			to_chat(user, SPAN_NOTICE("You begin poking holes in \the [src]."))
+			if (do_after(user, 10/O.toolspeed, act_target = src))
+				if(choice == "SmileyFace")
+					var/obj/item/clothing/head/papersack/smiley/S = new()
+					user.put_in_hands(S)
+				else    
+					var/obj/item/clothing/head/papersack/PS = new()
+					user.put_in_hands(PS)
+				qdel(src)
+		else
+			to_chat(user, SPAN_WARNING("\The [src] needs to be empty before you can do that!"))
+	else
+		..()

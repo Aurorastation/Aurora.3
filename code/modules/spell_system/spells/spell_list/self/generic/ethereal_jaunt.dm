@@ -4,7 +4,7 @@
 	feedback = "EJ"
 	school = "transmutation"
 	charge_max = 300
-	spell_flags = Z2NOCAST | NEEDSCLOTHES | INCLUDEUSER
+	spell_flags = Z2NOCAST | INCLUDEUSER
 	invocation = "none"
 	invocation_type = SpI_NONE
 	range = -1
@@ -18,8 +18,8 @@
 /spell/targeted/ethereal_jaunt/cast(list/targets) //magnets, so mostly hardcoded
 	for(var/mob/living/target in targets)
 		target.transforming = 1 //protects the mob from being transformed (replaced) midjaunt and getting stuck in bluespace
-		if(target.buckled)
-			target.buckled.unbuckle_mob()
+		if(target.buckled_to)
+			target.buckled_to.unbuckle()
 		spawn(0)
 			var/mobloc = get_turf(target.loc)
 			var/obj/effect/dummy/spell_jaunt/holder = new /obj/effect/dummy/spell_jaunt( mobloc )
@@ -31,8 +31,8 @@
 			animation.layer = 5
 			animation.master = holder
 			target.ExtinguishMob()
-			if(target.buckled)
-				target.buckled = null
+			if(target.buckled_to)
+				target.buckled_to = null
 			jaunt_disappear(animation, target)
 			target.forceMove(holder)
 			target.transforming=0 //mob is safely inside holder now, no need for protection.

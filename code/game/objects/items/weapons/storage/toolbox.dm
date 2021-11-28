@@ -33,10 +33,10 @@
 	name = "emergency toolbox"
 	icon_state = "red"
 	item_state = "toolbox_red"
-	starts_with = list(\
-		/obj/item/crowbar/red = 1,\
-		/obj/item/extinguisher/mini = 1,\
-		/obj/item/device/radio = 1\
+	starts_with = list(
+		/obj/item/crowbar/red = 1,
+		/obj/item/extinguisher/mini = 1,
+		/obj/item/device/radio = 1
 	)
 
 /obj/item/storage/toolbox/emergency/fill()
@@ -45,6 +45,9 @@
 		new /obj/item/device/flashlight(src)
 	else
 		new /obj/item/device/flashlight/flare/glowstick/red(src)
+	if(prob(30))
+		new /obj/item/weldingtool/emergency(src)
+		new /obj/item/clothing/glasses/welding/emergency(src)
 
 /obj/item/storage/toolbox/mechanical
 	name = "mechanical toolbox"
@@ -205,6 +208,15 @@
 /obj/item/storage/toolbox/lunchbox/nt/filled
 	filled = TRUE
 
+/obj/item/storage/toolbox/lunchbox/idris
+	name = "Idris Incorporated lunchbox"
+	icon_state = "lunchbox_idris"
+	item_state = "lunchbox_idris"
+	desc = "A little lunchbox. This one features a durable holographic screen on the side that showcases the Idris logo."
+
+/obj/item/storage/toolbox/lunchbox/idris/filled
+	filled = TRUE
+
 /obj/item/storage/toolbox/lunchbox/nymph
 	name = "\improper diona nymph lunchbox"
 	icon_state = "lunchbox_dionanymph"
@@ -231,4 +243,50 @@
 	it, a famous Adhomian cartoon character. Approved by the People's Republic of Adhomai."
 
 /obj/item/storage/toolbox/lunchbox/schlorrgo/filled
+	filled = TRUE
+
+/obj/item/storage/toolbox/lunchbox/scc
+	name = "Stellar Corporate Conglomerate lunchbox"
+	desc = "A little lunchbox. This one is branded with the Stellar Corporate Conglomerate logo."
+	desc_fluff = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
+	icon_state = "lunchbox_scc"
+	item_state = "lunchbox_scc"
+
+/obj/item/storage/toolbox/lunchbox/scc/filled
+	filled = TRUE
+
+/obj/item/storage/toolbox/lunchbox/swimstars_axic
+	name = "Swimstars Axic lunchbox"
+	desc = "Created, and marketed, after the hit show, Swimstars!"
+	icon_state = "swimstars_axic"
+	item_state = "swimstars_axic"
+
+/obj/item/storage/toolbox/lunchbox/swimstars_axic/filled
+	filled = TRUE
+
+/obj/item/storage/toolbox/lunchbox/swimstars_qill
+	name = "Swimstars Qill lunchbox"
+	desc = "Created, and marketed, after the hit show, Swimstars!"
+	icon_state = "swimstars_qill"
+	item_state = "swimstars_qill"
+
+/obj/item/storage/toolbox/lunchbox/swimstars_qill/filled
+	filled = TRUE
+
+/obj/item/storage/toolbox/lunchbox/swimstars_xana
+	name = "Swimstars Xana lunchbox"
+	desc = "Created, and marketed, after the hit show, Swimstars!"
+	icon_state = "swimstars_xana"
+	item_state = "swimstars_xana"
+
+/obj/item/storage/toolbox/lunchbox/swimstars_xana/filled
+	filled = TRUE
+
+/obj/item/storage/toolbox/lunchbox/sedantis
+	name = "Sedantis lunchbox"
+	desc = "A little lunchbox, displaying a proud Sedantis flag."
+	icon_state = "lunchbox_sedantis"
+	item_state = "lunchbox_sedantis"
+
+/obj/item/storage/toolbox/lunchbox/sedantis/filled
 	filled = TRUE

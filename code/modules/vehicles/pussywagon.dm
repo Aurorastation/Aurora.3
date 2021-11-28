@@ -18,13 +18,11 @@
 	icon_state = "keys"
 	w_class = ITEMSIZE_TINY
 
-/obj/vehicle/train/cargo/engine/pussywagon/Initialize()
-	. = ..()
+/obj/vehicle/train/cargo/engine/pussywagon/setup_engine()
 	cell = new /obj/item/cell/high(src)
 	key = null
-	verbs -= /obj/vehicle/train/cargo/engine/verb/remove_key
 	update_icon()
-	turn_off()	//so engine verbs are correctly set
+	turn_off()
 
 /obj/vehicle/train/cargo/engine/pussywagon/vueui_data_change(list/data, mob/user, datum/vueui/ui)
 	data = ..()
@@ -52,12 +50,12 @@
 		return
 
 	if(href_list["toggle_hoover"])
-		toggle_hoover()
+		toggle_hoover(usr)
 	if(href_list["empty_hoover"])
 		var/obj/vehicle/train/cargo/trolley/pussywagon/PT = tow
 		PT.empty_hoover(usr)
 	if(href_list["toggle_mops"])
-		toggle_mop()
+		toggle_mop(usr)
 	SSvueui.check_uis_for_change(src)
 
 /obj/vehicle/train/cargo/engine/pussywagon/attackby(obj/item/W as obj, mob/user as mob)
@@ -66,7 +64,6 @@
 			user.drop_from_inventory(W, src)
 			key = W
 			to_chat(user, SPAN_NOTICE("You slide the key into the ignition."))
-			verbs += /obj/vehicle/train/cargo/engine/verb/remove_key
 		else
 			to_chat(user, SPAN_WARNING("\The [src] already has a key inserted."))
 		return
@@ -80,9 +77,6 @@
 		..()
 		update_stats()
 
-		verbs += /obj/vehicle/train/cargo/engine/pussywagon/verb/toggle_mop
-		verbs += /obj/vehicle/train/cargo/engine/pussywagon/verb/toggle_hoover
-
 /obj/vehicle/train/cargo/engine/pussywagon/turn_off()
 	..()
 
@@ -91,31 +85,17 @@
 			var/obj/vehicle/train/cargo/trolley/pussywagon/PW = tow
 			PW.engine_off()
 
-	verbs -= /obj/vehicle/train/cargo/engine/pussywagon/verb/toggle_mop
-	verbs -= /obj/vehicle/train/cargo/engine/pussywagon/verb/toggle_hoover
-
-/obj/vehicle/train/cargo/engine/pussywagon/verb/toggle_mop()
-	set name = "Toggle Mop-o-matic"
-	set category = "Vehicle"
-	set src in view(0)
-
-	if(usr.incapacitated())
-		return
-
+/obj/vehicle/train/cargo/engine/pussywagon/proc/toggle_mop(var/mob/user)
 	if(on && tow)
 		if(istype(tow,/obj/vehicle/train/cargo/trolley/pussywagon))
 			var/obj/vehicle/train/cargo/trolley/pussywagon/PW = tow
 			if(!PW.bucket)
-				to_chat(usr, SPAN_WARNING("You must insert a reagent container first!"))
+				to_chat(user, SPAN_WARNING("You must insert a reagent container first!"))
 				return
 			PW.mop_toggle()
 
-/obj/vehicle/train/cargo/engine/pussywagon/verb/toggle_hoover()
-	set name = "Toggle Space Hoover"
-	set category = "Vehicle"
-	set src in view(0)
-
-	if(usr.incapacitated())
+/obj/vehicle/train/cargo/engine/pussywagon/proc/toggle_hoover(var/mob/user)
+	if(use_check_and_message(user))
 		return
 
 	if(on && tow)
@@ -161,6 +141,7 @@
 /obj/vehicle/train/cargo/trolley/pussywagon
 	name = "janicart deluxe trolley"
 	desc = "The trolley of the janicart deluxe, equipped with dual rotary mop and a NT-X1 Vacuum Cleaner."
+	desc_info = "You can unlatch this from the control console of the janicart."
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "jantrolley"
 

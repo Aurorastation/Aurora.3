@@ -48,15 +48,15 @@
 	if(istype(tool, /obj/item/stack/medical/advanced/bruise_pack))
 		tool_name = "regenerative membrane"
 	else if(istype(tool, /obj/item/stack/medical/bruise_pack))
-		tool_name = "the bandaid"
+		tool_name = "some bandaids"
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
 	for(var/obj/item/organ/internal/I in affected.internal_organs)
-		if(I && I.damage > 0 && !BP_IS_ROBOTIC(I))
+		if(I && I.damage > 0 && !BP_IS_ROBOTIC(I) && (!I.status & ORGAN_DEAD || I.can_recover()))
 			user.visible_message("[user] starts treating damage to [target]'s [I.name] with [tool_name].", \
 			"You start treating damage to [target]'s [I.name] with [tool_name]." )
+	target.custom_pain("The pain in your [affected.name] is living hell!",100, affecting = affected)
 
-	target.custom_pain("The pain in your [affected.name] is living hell!", 75)
 	..()
 
 /decl/surgery_step/internal/fix_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -72,12 +72,17 @@
 
 	for(var/obj/item/organ/internal/I in affected.internal_organs)
 		if(I && I.damage > 0 && !BP_IS_ROBOTIC(I))
-			user.visible_message("<b>[user]</b> finishes applying [tool_name] to [target]'s [I.name].", \
-				SPAN_NOTICE("You treat damage to [target]'s [I.name] with [tool_name].") )
+			if(I.status & ORGAN_DEAD && I.can_recover())
+				user.visible_message("<span class='notice'>\The [user] treats damage to [target]'s [I.name] with [tool_name], though it needs to be recovered further.</span>", \
+				"<span class='notice'>You treat damage to [target]'s [I.name] with [tool_name], though it needs to be recovered further.</span>" )
+			else
+				user.visible_message("<span class='notice'>[user] treats damage to [target]'s [I.name] with [tool_name].</span>", \
+				"<span class='notice'>You treat damage to [target]'s [I.name] with [tool_name].</span>")
 			I.surgical_fix(user)
-			var/obj/item/organ/internal/brain/sponge = target.internal_organs_by_name[BP_BRAIN]
-			if(sponge && istype(I, sponge))
-				target.cure_all_traumas(cure_type = CURE_SURGERY)
+			user.visible_message("\The [user] finishes treating damage within \the [target]'s [affected.name] with [tool_name].", \
+			"You finish treating damage within \the [target]'s [affected.name] with [tool_name].")
+			if(I.status & ORGAN_DEAD)
+				to_chat(user, SPAN_DANGER("This organ is still dead! You must remove the dead tissue with a scalpel!"))
 
 /decl/surgery_step/internal/fix_organ/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!ishuman(target))
@@ -105,7 +110,7 @@
 	allowed_tools = list(
 	/obj/item/stack/nanopaste = 100,
 	/obj/item/surgery/bonegel = 30,
-	/obj/item/screwdriver = 70
+	SCREWDRIVER = 70
 	)
 
 	min_duration = 70
@@ -148,9 +153,6 @@
 				user.visible_message("<b>[user]</b> repairs [target]'s [I.name] with [tool].", \
 					SPAN_NOTICE("You repair [target]'s [I.name] with [tool].") )
 				I.damage = 0
-				var/obj/item/organ/internal/brain/sponge = target.internal_organs_by_name[BP_BRAIN]
-				if(sponge && istype(I, sponge))
-					target.cure_all_traumas()
 				if(istype(tool, /obj/item/stack/nanopaste))
 					var/obj/item/stack/nanopaste/nanopaste = tool
 					nanopaste.use(1)
@@ -240,7 +242,7 @@
 	name = "Remove organ"
 	allowed_tools = list(
 	/obj/item/surgery/hemostat = 100,	\
-	/obj/item/wirecutters = 75,	\
+	WIRECUTTER = 75,	\
 	/obj/item/material/kitchen/utensil/fork = 20
 	)
 
@@ -454,8 +456,8 @@
 		SPAN_WARNING("Your hand slips, damaging the flesh in [target]'s [affected.name] with \the [tool]!"))
 	target.apply_damage(20, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
-/decl/surgery_step/internal/lobotomize
-	name = "Lobotomy"
+/decl/surgery_step/internal/prepare
+	name = "Prepare Brain"
 	allowed_tools = list(
 	/obj/item/surgery/scalpel/manager = 95,
 	/obj/item/surgery/surgicaldrill = 75,
@@ -465,7 +467,7 @@
 	min_duration = 100
 	max_duration = 120
 
-/decl/surgery_step/internal/lobotomize/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/decl/surgery_step/internal/prepare/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
 		return FALSE
 
@@ -474,26 +476,26 @@
 	if(!istype(sponge) || !(sponge in affected.internal_organs))
 		return FALSE
 
-	if(!sponge.can_lobotomize || sponge.lobotomized)
+	if(!sponge.can_prepare || sponge.prepared)
 		return FALSE
 
 	target.op_stage.current_organ = sponge
 	return TRUE
 
-/decl/surgery_step/internal/lobotomize/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/decl/surgery_step/internal/prepare/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/internal/brain/B = target.op_stage.current_organ
-	user.visible_message("[user] begins to modify [target]'s [B] to remove their memory recall with \the [tool].", \
-		"You start to modify [target]'s [B] to remove their memory recall with \the [tool].")
+	user.visible_message("[user] begins to modify [target]'s [B] to prepare it for Man-Machine-Interface compatibility with \the [tool].", \
+		"You start to modify [target]'s [B] to prepare it for Man-Machine-Interface compatibility with \the [tool].")
 	target.custom_pain("Someone's scraping away at your [B]!", 75)
 	..()
 
-/decl/surgery_step/internal/lobotomize/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/decl/surgery_step/internal/prepare/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/internal/brain/B = target.op_stage.current_organ
-	user.visible_message(SPAN_NOTICE("[user] has modified [target]'s [B] to remove their memory recall with \the [tool].") , \
-		SPAN_NOTICE("You have removed [target]'s memory recall with \the [tool]."))
-	B.lobotomize(user)
+	user.visible_message(SPAN_NOTICE("[user] has modified [target]'s [B] to prepare it for Man-Machine-Interface compatibility with \the [tool].") , \
+		SPAN_NOTICE("You prepare \the [target]'s brain for Man-Machine-Interface compatibility with \the [tool]."))
+	B.prepared = TRUE
 
-/decl/surgery_step/internal/lobotomize/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/decl/surgery_step/internal/prepare/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, damaging the flesh in [target]'s [affected.name] with \the [tool]!"), \
 		SPAN_WARNING("Your hand slips, damaging the flesh in [target]'s [affected.name] with \the [tool]!"))

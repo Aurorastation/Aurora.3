@@ -9,7 +9,7 @@
 
 
 	New()
-		src.activation_emote = pick("blink", "blink_r", "eyebrow", "chuckle", "twitch_s", "frown", "nod", "blush", "giggle", "grin", "groan", "shrug", "smile", "pale", "sniff", "whimper", "wink")
+		src.activation_emote = pick("blink", "blink_r", "eyebrow", "chuckle", "twitch", "frown", "nod", "blush", "giggle", "grin", "groan", "shrug", "smile", "pale", "sniff", "whimper", "wink")
 		src.uses = rand(1, 5)
 		..()
 		return
@@ -23,8 +23,8 @@
 			if (source.handcuffed)
 				var/obj/item/W = source.handcuffed
 				source.handcuffed = null
-				if(source.buckled && source.buckled.buckle_require_restraints)
-					source.buckled.unbuckle_mob()
+				if(source.buckled_to && source.buckled_to.buckle_require_restraints)
+					source.buckled_to.unbuckle()
 				source.update_inv_handcuffed()
 				if (source.client)
 					source.client.screen -= W

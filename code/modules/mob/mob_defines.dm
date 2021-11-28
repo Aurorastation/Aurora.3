@@ -7,7 +7,7 @@
 	var/datum/mind/mind
 
 	var/stat = 0 //Whether a mob is alive or dead. TODO: Move this to living - Nodrak
-	var/can_buckle = TRUE
+	can_be_buckled = TRUE
 
 	var/obj/screen/cells = null
 	var/obj/screen/flash = null
@@ -35,10 +35,15 @@
 	var/obj/screen/gun/move/gun_move_icon = null
 	var/obj/screen/gun/run/gun_run_icon = null
 	var/obj/screen/gun/mode/gun_setting_icon = null
+	var/obj/screen/gun/unique_action_icon = null
+	var/obj/screen/gun/toggle_firing_mode = null
+	var/obj/screen/energy/energy_display = null
+	var/obj/screen/instability/instability_display = null
 	var/obj/screen/up_hint = null
 
 	//spells hud icons - this interacts with add_spell and remove_spell
 	var/list/obj/screen/movable/spell_master/spell_masters = null
+	var/obj/screen/movable/ability_master/ability_master = null
 
 	/*A bunch of this stuff really needs to go under their own defines instead of being globally attached to mob.
 	A variable should only be globally attached to turfs/objects/whatever, when it is in fact needed as such.
@@ -112,7 +117,7 @@
 	var/bodytemperature = 310.055	//98.7 F
 	var/old_x = 0
 	var/old_y = 0
-	var/drowsyness = 0.0//Carbon
+	var/drowsiness = 0.0//Carbon
 	var/charges = 0.0
 	var/nutrition = BASE_MAX_NUTRITION * CREW_NUTRITION_SLIGHTLYHUNGRY  //carbon
 	var/nutrition_loss = HUNGER_FACTOR //How much hunger is lost per tick. This is modified by species
@@ -136,7 +141,6 @@
 	var/a_intent = I_HELP//Living
 	var/m_intent = M_WALK //Living
 	var/lastKnownIP = null
-	var/obj/buckled = null//Living
 	var/obj/item/l_hand = null//Living
 	var/obj/item/r_hand = null//Living
 	var/obj/item/back = null//Human/Monkey
@@ -176,7 +180,7 @@
 	var/accent
 
 	var/faction = "neutral" //Used for checking whether hostile simple animals will attack you, possibly more stuff later
-	var/captured = 0 //Functionally, should give the same effect as being buckled into a chair when true.
+	var/captured = 0 //Functionally, should give the same effect as being buckled_to into a chair when true.
 
 //Generic list for proc holders. Only way I can see to enable certain verbs/procs. Should be modified if needed.
 	//var/proc_holder_list[] = list()//Right now unused.

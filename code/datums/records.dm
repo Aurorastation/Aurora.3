@@ -144,11 +144,11 @@
 	if(H)
 		name = H.real_name
 		real_rank = H.mind.assigned_role
-		rank = GetAssignment(H)
+		rank = GetAssignment(H, TRUE)
 		age = H.age
 		fingerprint = md5(H.dna.uni_identity)
 		sex = H.gender
-		species = H.get_species()
+		species = H.get_species(FALSE, TRUE)
 		citizenship = H.citizenship
 		employer = H.employer_faction
 		religion = SSrecords.get_religion_record_name(H.religion)

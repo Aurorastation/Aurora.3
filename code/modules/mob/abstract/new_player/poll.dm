@@ -4,8 +4,7 @@
 	var/optiontext
 
 /mob/abstract/new_player/proc/handle_player_polling()
-	establish_db_connection(dbcon)
-	if(dbcon.IsConnected())
+	if(establish_db_connection(dbcon))
 		var/isadmin = 0
 		if(src.client && src.client.holder)
 			isadmin = 1
@@ -32,8 +31,7 @@
 
 /mob/abstract/new_player/proc/show_poll_link(var/pollid = -1)
 	if(pollid == -1) return
-	establish_db_connection(dbcon)
-	if(dbcon.IsConnected())
+	if(establish_db_connection(dbcon))
 		var/DBQuery/select_query = dbcon.NewQuery("SELECT link FROM ss13_poll_question WHERE id = :pollid:")
 		select_query.Execute(list("pollid"=pollid))
 
@@ -48,9 +46,8 @@
 
 /mob/abstract/new_player/proc/poll_player(var/pollid = -1)
 	if(pollid == -1) return
-	establish_db_connection(dbcon)
-	if(dbcon.IsConnected())
 
+	if(establish_db_connection(dbcon))
 		var/DBQuery/select_query = dbcon.NewQuery("SELECT starttime, endtime, question, polltype, multiplechoiceoptions, link FROM ss13_poll_question WHERE id = :pollid:")
 		select_query.Execute(list("pollid"=pollid))
 
@@ -329,8 +326,7 @@
 
 	if(!isnum(pollid) || !isnum(optionid))
 		return
-	establish_db_connection(dbcon)
-	if(dbcon.IsConnected())
+	if(establish_db_connection(dbcon))
 
 		var/DBQuery/select_query = dbcon.NewQuery("SELECT starttime, endtime, question, polltype, multiplechoiceoptions FROM ss13_poll_question WHERE id = [pollid] AND Now() BETWEEN starttime AND endtime")
 		select_query.Execute()
@@ -399,8 +395,7 @@
 
 	if(!isnum(pollid) || !istext(replytext))
 		return
-	establish_db_connection(dbcon)
-	if(dbcon.IsConnected())
+	if(establish_db_connection(dbcon))
 
 		var/DBQuery/select_query = dbcon.NewQuery("SELECT starttime, endtime, question, polltype FROM ss13_poll_question WHERE id = [pollid] AND Now() BETWEEN starttime AND endtime")
 		select_query.Execute()
@@ -457,8 +452,7 @@
 
 	if(!isnum(pollid) || !isnum(optionid))
 		return
-	establish_db_connection(dbcon)
-	if(dbcon.IsConnected())
+	if(establish_db_connection(dbcon))
 
 		var/DBQuery/select_query = dbcon.NewQuery("SELECT starttime, endtime, question, polltype FROM ss13_poll_question WHERE id = [pollid] AND Now() BETWEEN starttime AND endtime")
 		select_query.Execute()

@@ -19,6 +19,7 @@
 	name = form.real_name
 	loc = pick(dream_entries)
 	body = form
+	old_mob = body
 
 	if(client)
 		client.screen |= body.healths

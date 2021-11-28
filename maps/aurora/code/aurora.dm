@@ -7,7 +7,7 @@
 				   it is under the joint administration of the Republic of Biesel and the trans-stellar corporate conglomerate NanoTrasen."
 	path = "aurora"
 
-	lobby_icons = list('icons/misc/titlescreens/aurora/humans.dmi', 'icons/misc/titlescreens/aurora/synthetics.dmi', 'icons/misc/titlescreens/aurora/king_of_the_world.dmi', 'icons/misc/titlescreens/aurora/tajara.dmi')
+	lobby_icons = list('icons/misc/titlescreens/aurora/nss_aurora.dmi', 'icons/misc/titlescreens/aurora/synthetics.dmi', 'icons/misc/titlescreens/aurora/tajara.dmi', 'icons/misc/titlescreens/aurora/Vaurca.dmi')
 	lobby_transitions = 10 SECONDS
 
 	station_levels = list(2, 3, 4, 5, 6, 7)
@@ -16,10 +16,11 @@
 	player_levels = list(2, 3, 4, 5, 6, 7, 8)
 	restricted_levels = list()
 	accessible_z_levels = list("2" = 60, "6" = 20, "7" = 20)
+	meteor_levels = list(6)
 	base_turf_by_z = list(
 		"1" = /turf/space,
 		"2" = /turf/space,
-		"3" = /turf/space,
+		"3" = /turf/unsimulated/floor/asteroid/ash/rocky,
 		"4" = /turf/unsimulated/floor/asteroid/ash/rocky,
 		"5" = /turf/unsimulated/floor/asteroid/ash/rocky,
 		"6" = /turf/unsimulated/floor/asteroid/ash,
@@ -35,7 +36,6 @@
 	boss_short = "CentCom"
 	company_name = "NanoTrasen"
 	company_short = "NT"
-	system_name = "Tau Ceti"
 
 	command_spawn_enabled = TRUE
 	command_spawn_message = "Welcome to the Odin! Simply proceed down and to the right to board the shuttle to your workplace!"
@@ -59,14 +59,16 @@
 		NETWORK_SUPPLY
 	)
 
-	shuttle_docked_message = "The scheduled crew transfer shuttle to %dock% has docked with the station. It will depart in approximately %ETA% minutes."
-	shuttle_leaving_dock = "The crew transfer shuttle has left the station. Estimate %ETA% minutes until the shuttle docks at %dock%."
-	shuttle_called_message = "A crew transfer to %dock% has been scheduled. The shuttle has been called. It will arrive in approximately %ETA% minutes."
+	shuttle_docked_message = "The scheduled crew transfer shuttle to %dock% has docked with the station. It will depart in approximately %ETA%."
+	shuttle_leaving_dock = "The crew transfer shuttle has left the station. Estimate %ETA% until the shuttle docks at %dock%."
+	shuttle_called_message = "A crew transfer to %dock% has been scheduled. The shuttle has been called. It will arrive in approximately %ETA%."
 	shuttle_recall_message = "The scheduled crew transfer has been cancelled."
 	emergency_shuttle_docked_message = "The emergency shuttle has docked with the station. You have approximately %ETD% minutes to board the emergency shuttle."
 	emergency_shuttle_leaving_dock = "The emergency shuttle has left the station. Estimate %ETA% minutes until the shuttle docks at %dock%."
 	emergency_shuttle_recall_message = "The emergency shuttle has been recalled."
-	emergency_shuttle_called_message = "An emergency evacuation shuttle has been called. It will arrive in approximately %ETA% minutes."
+	emergency_shuttle_called_message = "An emergency evacuation shuttle has been called. It will arrive in approximately %ETA%."
+
+	evac_controller_type = /datum/evacuation_controller/shuttle
 
 	map_shuttles = list(
 		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod1,

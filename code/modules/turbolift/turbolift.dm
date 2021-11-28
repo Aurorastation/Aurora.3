@@ -91,12 +91,24 @@
 	if(!istype(origin) || !istype(destination) || (origin == destination))
 		return 0
 
-	if (!moving_upwards || next_floor == floors[floors.len])	// If moving down or moving to the top floor, squish.
+	var/list/move_candidates = list()
+	if(!moving_upwards)
 		for(var/turf/T in destination)
 			for(var/atom/movable/AM in T)
 				AM.crush_act()
+	else
+		for(var/turf/simulated/wall/W in origin)
+			var/turf/T = GET_ABOVE(W)
+			for(var/atom/movable/AM in T)
+				if(next_floor == floors[floors.len])
+					AM.crush_act()
+				else
+					move_candidates += AM
 
 	origin.move_contents_to(destination)
+	for(var/thing in move_candidates)
+		var/atom/movable/AM = thing
+		AM.forceMove(GET_ABOVE(AM))
 
 	current_floor = next_floor
 	control_panel_interior.visible_message("The elevator [moving_upwards ? "rises" : "descends"] smoothly.")

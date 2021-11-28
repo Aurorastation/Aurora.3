@@ -119,11 +119,9 @@
 		RestrainedClickOn(A)
 		return 1
 
-	if(in_throw_mode)
-		if(isturf(A) || isturf(A.loc))
-			throw_item(A)
-			return 1
+	if(in_throw_mode && (isturf(A) || isturf(A.loc)) && throw_item(A))
 		throw_mode_off()
+		return TRUE
 
 	var/obj/item/W = get_active_hand()
 
@@ -222,9 +220,10 @@
 	animals lunging, etc.
 */
 /mob/proc/RangedAttack(var/atom/A, var/params)
-	if(!mutations.len) return
-	if((LASER_EYES in mutations) && a_intent == I_HURT)
+	if(length(mutations) && (LASER_EYES in mutations) && a_intent == I_HURT)
 		LaserEyes(A, params) // moved into a proc below
+		return
+	A.attack_ranged(src, params)
 
 /*
 	Restrained ClickOn
@@ -237,11 +236,11 @@
 
 /*
 	Middle click
-	Only used for swapping hands
 */
 /mob/proc/MiddleClickOn(var/atom/A)
+	if(A.handle_middle_mouse_click(src))
+		return
 	swap_hand()
-	return
 
 // In case of use break glass
 /*

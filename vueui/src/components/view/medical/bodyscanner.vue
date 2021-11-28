@@ -56,6 +56,7 @@
             <vui-group-item label="Bicaridine:" v-if="Math.round(bicardAmt)"> {{ Math.round(bicardAmt) }} unit(s)</vui-group-item>
             <vui-group-item label="Dermaline:" v-if="Math.round(dermAmt)"> {{ Math.round(dermAmt) }} unit(s)</vui-group-item>
             <vui-group-item label="Dexalin:" v-if="Math.round(dexAmt)"> {{ Math.round(dexAmt) }} unit(s)</vui-group-item>
+            <vui-group-item label="Thetamycin:" v-if="Math.round(thetaAmt)"> {{ Math.round(thetaAmt) }} unit(s)</vui-group-item>
             <vui-group-item label="Other:" v-if="Math.round(otherAmt)"> {{ Math.round(otherAmt) }} unit(s)</vui-group-item>
           </vui-group>
         </div>

@@ -37,6 +37,7 @@ datum/preferences
 	var/can_edit_name = TRUE				//Whether or not a character's name can be edited. Used with SQL saving.
 	var/can_edit_ipc_tag = TRUE
 	var/gender = MALE					//gender of character (well duh)
+	var/pronouns = NEUTER				//what the character will appear as to others when examined
 	var/age = 30						//age of character
 	var/spawnpoint = "Arrivals Shuttle" //where this character will spawn (0-2).
 	var/b_type = "A+"					//blood type (not-chooseable)
@@ -44,6 +45,7 @@ datum/preferences
 	var/backbag_style = 1
 	var/pda_choice = OUTFIT_TAB_PDA
 	var/headset_choice = OUTFIT_HEADSET
+	var/primary_radio_slot = "Left Ear"
 	var/h_style = "Bald"				//Hair type
 	var/hair_colour = "#000000"			//Hair colour hex value, for SQL loading
 	var/r_hair = 0						//Hair color
@@ -140,7 +142,7 @@ datum/preferences
 	var/list/ccia_actions = list()
 	var/list/disabilities = list()
 
-	var/nanotrasen_relation = "Neutral"
+	var/economic_status = ECONOMICALLY_AVERAGE
 
 	var/uplinklocation = "PDA"
 
@@ -149,8 +151,9 @@ datum/preferences
 
 	// SPAAAACE
 	var/parallax_speed = 2
-	var/toggles_secondary = PARALLAX_SPACE | PARALLAX_DUST | PROGRESS_BARS | FLOATING_MESSAGES
+	var/toggles_secondary = PARALLAX_SPACE | PARALLAX_DUST | PROGRESS_BARS | FLOATING_MESSAGES | HOTKEY_DEFAULT
 	var/clientfps = 0
+	var/floating_chat_color
 
 	var/list/pai = list()	// A list for holding pAI related data.
 
@@ -378,7 +381,7 @@ datum/preferences
 	else if(href_list["delete"])
 		if (!config.sql_saves)
 			return 0
-		if (alert(usr, "This will permanently delete the character you have loaded. Are you sure?", "Delete Character", "No", "Yes") == "Yes")
+		if (alert(usr, "You will be unable to re-create a character with the same name! Are you sure you want to delete the loaded character?", "Delete Character", "No", "Yes") == "Yes")
 			delete_character_sql(usr.client)
 	else
 		return 0
@@ -403,6 +406,7 @@ datum/preferences
 	character.set_species(species)
 	if(character.dna)
 		character.dna.real_name = character.real_name
+	character.set_floating_chat_color(floating_chat_color)
 
 	character.flavor_texts["general"] = flavor_texts["general"]
 	character.flavor_texts[BP_HEAD] = flavor_texts[BP_HEAD]
@@ -424,6 +428,7 @@ datum/preferences
 	character.exploit_record = exploit_record
 
 	character.gender = gender
+	character.pronouns = pronouns
 	character.age = age
 	character.b_type = b_type
 
@@ -477,7 +482,7 @@ datum/preferences
 		else
 			all_underwear -= underwear_category_name
 
-	if(backbag > OUTFIT_MESSENGERBAG || backbag < OUTFIT_NOTHING)
+	if(backbag > OUTFIT_CLASSICSATCHEL || backbag < OUTFIT_NOTHING)
 		backbag = OUTFIT_NOTHING //Same as above
 	character.backbag = backbag
 	character.backbag_style = backbag_style
@@ -487,7 +492,7 @@ datum/preferences
 
 	character.pda_choice = pda_choice
 
-	if(headset_choice > OUTFIT_BOWMAN || headset_choice < OUTFIT_NOTHING)
+	if(headset_choice > OUTFIT_WRISTRAD || headset_choice < OUTFIT_NOTHING)
 		headset_choice = OUTFIT_HEADSET
 
 	character.headset_choice = headset_choice
@@ -506,8 +511,7 @@ datum/preferences
 	for(var/ckey in preferences_datums)
 		var/datum/preferences/D = preferences_datums[ckey]
 		if(D == src)
-			establish_db_connection(dbcon)
-			if(!dbcon.IsConnected())
+			if(!establish_db_connection(dbcon))
 				return open_load_dialog_file(user)
 
 			var/DBQuery/query = dbcon.NewQuery("SELECT id, name FROM ss13_characters WHERE ckey = :ckey: AND deleted_at IS NULL ORDER BY id ASC")
@@ -642,7 +646,7 @@ datum/preferences
 		job_engsec_med = 0
 		job_engsec_low = 0
 
-		alternate_option = 0
+		alternate_option = 1
 		metadata = ""
 
 		organ_data = list()
@@ -656,7 +660,7 @@ datum/preferences
 		ccia_actions = list()
 		disabilities = list()
 
-		nanotrasen_relation = "Neutral"
+		economic_status = ECONOMICALLY_AVERAGE
 
 // Deletes a character from the database
 /datum/preferences/proc/delete_character_sql(var/client/C)
@@ -671,7 +675,7 @@ datum/preferences
 		to_chat(C, "<span class='notice'>Unable to establish database connection.</span>")
 		return
 
-	var/DBQuery/query = dbcon.NewQuery("UPDATE ss13_characters SET deleted_at = NOW() WHERE id = :char_id:")
+	var/DBQuery/query = dbcon.NewQuery("UPDATE ss13_characters SET deleted_at = NOW(), deleted_by = \"player\" WHERE id = :char_id:")
 	query.Execute(list("char_id" = current_character))
 
 	// Create a new character.

@@ -26,6 +26,8 @@
 		if(do_after(user, 30, act_target = src))	//SHIT IS STEALTHY EYYYYY
 			sawing_in_progress = FALSE
 			saw_off(user, A)
+		else
+			sawing_in_progress = FALSE
 	else
 		..()
 
@@ -38,7 +40,7 @@
 	name = "pump shotgun"
 	desc = "An ubiquitous unbranded shotgun. Useful for sweeping alleys."
 	desc_info = "This is a ballistic weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
-	then click where you want to fire.  After firing, you will need to pump the gun, by clicking on the gun in your hand.  To reload, load more shotgun \
+	then click where you want to fire.  After firing, you will need to pump the gun, by using the unique-action verb.  To reload, load more shotgun \
 	shells into the gun."
 	icon = 'icons/obj/guns/shotgun.dmi'
 	icon_state = "shotgun"
@@ -64,7 +66,10 @@
 		return chambered.BB
 	return null
 
-/obj/item/gun/projectile/shotgun/pump/attack_self(mob/living/user)
+/obj/item/gun/projectile/shotgun/pump/unique_action(mob/living/user)
+	if(jam_num)
+		to_chat(user, SPAN_WARNING("\The [src] is jammed!"))
+		return
 	if(world.time >= recentpump + 10)
 		pump(user)
 		recentpump = world.time
@@ -82,13 +87,16 @@
 		playsound(src.loc, chambered.drop_sound, DROP_SOUND_VOLUME, FALSE, required_asfx_toggles = ASFX_DROPSOUND)
 		chambered = null
 
+	handle_pump_loading()
+
+	update_maptext()
+	update_icon()
+
+/obj/item/gun/projectile/shotgun/pump/proc/handle_pump_loading()
 	if(length(loaded))
 		var/obj/item/ammo_casing/AC = loaded[1] //load next casing.
 		loaded -= AC //Remove casing from loaded list.
 		chambered = AC
-
-	update_maptext()
-	update_icon()
 
 /obj/item/gun/projectile/shotgun/pump/combat
 	name = "combat shotgun"
@@ -142,7 +150,7 @@
 	can_sawoff = TRUE
 	sawnoff_workmsg = "shorten the barrel"
 
-/obj/item/gun/projectile/shotgun/doublebarrel/attack_self(mob/user)
+/obj/item/gun/projectile/shotgun/doublebarrel/unique_action(mob/user)
 	unload_ammo(user, TRUE)
 
 /obj/item/gun/projectile/shotgun/doublebarrel/AltClick(mob/user)
@@ -225,7 +233,7 @@
 	to_chat(user, "You [folded ? "fold" : "unfold"] \the [src].")
 	update_icon()
 
-/obj/item/gun/projectile/shotgun/foldable/attack_self(mob/living/user)
+/obj/item/gun/projectile/shotgun/foldable/unique_action(mob/living/user)
 	toggle_folded(user)
 
 /obj/item/gun/projectile/shotgun/foldable/special_check(mob/user)

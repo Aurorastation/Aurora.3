@@ -119,8 +119,7 @@
 					to_chat(user, SPAN_NOTICE("[GM.name] needs to be on the urinal."))
 					return
 				user.visible_message(SPAN_DANGER("[user] slams [GM.name] into the [src]!"), SPAN_NOTICE("You slam [GM.name] into the [src]!"))
-				var/blocked = GM.run_armor_check("melee")
-				GM.apply_damage(8, def_zone = BP_HEAD, blocked = blocked, used_weapon = "blunt force")
+				GM.apply_damage(8, def_zone = BP_HEAD, used_weapon = "blunt force")
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN * 1.5)
 			else
 				to_chat(user, SPAN_NOTICE("You need a tighter grip."))
@@ -460,8 +459,6 @@
 
 	// Filling/emptying open reagent containers
 	var/obj/item/reagent_containers/RG = O
-	if (istype(RG, /obj/item/reagent_containers/glass/rag))
-		return
 
 	if (istype(RG) && RG.is_open_container())
 		var/atype = alert(usr, "Do you want to fill or empty \the [RG] at \the [src]?", "Fill or Empty", "Fill", "Empty", "Cancel")
@@ -535,7 +532,7 @@
 	// Short of a rewrite, this is necessary to stop monkeycubes being washed.
 	else if(istype(O, /obj/item/reagent_containers/food/snacks/monkeycube))
 		return
-	else if(istype(O, /obj/item/mop) || istype(O, /obj/item/reagent_containers/glass/rag))
+	else if(istype(O, /obj/item/mop))
 		O.reagents.add_reagent(/decl/reagent/water, 5)
 		to_chat(user, SPAN_NOTICE("You wet \the [O] in \the [src]."))
 		playsound(loc, 'sound/effects/slosh.ogg', 25, 1)

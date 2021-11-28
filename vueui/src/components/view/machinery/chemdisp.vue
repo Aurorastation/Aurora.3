@@ -4,7 +4,7 @@
       <vui-button v-for="n in [5, 10, 20, 30, 40]" icon="cog" :params="{ amount : n }" :class="{selected : (state.amount == n)}" :key="amount-button-n">{{n}}</vui-button>
       <br><br>
       <div style="text-align:center">
-        <vui-input-numeric width="2.5em" v-model="state.amount" @input="s({amount : state.amount})" :button-count="2" :min="1" :max="state.beakerMaxVolume || 120"/>
+        <vui-input-numeric width="2.5em" v-model="state.amount" @input="$toTopic({amount : state.amount})" :button-count="2" :min="1" :max="state.beakerMaxVolume || 120"/>
       </div>
     </div>
     <div style="clear:both;">&nbsp;</div>
@@ -30,7 +30,6 @@
 </template>
 
 <script>
-import Utils from "../../../utils.js";
 export default {
 	data() {
 		return this.$root.$data;
@@ -42,9 +41,6 @@ export default {
 			} else {
 				return `${num} units`
 			}
-    },
-    s(parameters) {
-      Utils.sendToTopic(parameters);
     }
 	}
 }

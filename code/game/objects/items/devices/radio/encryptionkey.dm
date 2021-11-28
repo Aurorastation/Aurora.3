@@ -108,7 +108,7 @@
 /obj/item/device/encryptionkey/heads/captain
 	name = "captain's encryption key"
 	icon_state = "cap_cypherkey"
-	channels = list(CHANNEL_COMMAND = TRUE, CHANNEL_SECURITY = TRUE, CHANNEL_PENAL = TRUE, CHANNEL_ENGINEERING = FALSE, CHANNEL_SCIENCE = FALSE, CHANNEL_MEDICAL = FALSE, CHANNEL_SUPPLY = FALSE, CHANNEL_SERVICE = FALSE)
+	channels = list(CHANNEL_COMMAND = TRUE, CHANNEL_SECURITY = TRUE, CHANNEL_PENAL = TRUE, CHANNEL_ENGINEERING = TRUE, CHANNEL_SCIENCE = TRUE, CHANNEL_MEDICAL = TRUE, CHANNEL_SUPPLY = TRUE, CHANNEL_SERVICE = TRUE)
 
 /obj/item/device/encryptionkey/heads/ai_integrated
 	name = "ai integrated encryption key"
@@ -139,7 +139,7 @@
 /obj/item/device/encryptionkey/heads/hop
 	name = "head of personnel's encryption key"
 	icon_state = "hop_cypherkey"
-	channels = list(CHANNEL_SUPPLY = TRUE, CHANNEL_SERVICE = TRUE, CHANNEL_COMMAND = TRUE, CHANNEL_SECURITY = FALSE, CHANNEL_PENAL = FALSE)
+	channels = list(CHANNEL_SUPPLY = TRUE, CHANNEL_SERVICE = TRUE, CHANNEL_COMMAND = TRUE, CHANNEL_SECURITY = TRUE, CHANNEL_PENAL = TRUE)
 
 /obj/item/device/encryptionkey/headset_cargo
 	name = "supply radio encryption key"
@@ -182,6 +182,13 @@
 	name = "spare science radio encryption key"
 	additional_channels = list(CHANNEL_SCIENCE = TRUE)
 
+/obj/item/device/encryptionkey/cargo_spare
+	name = "spare supply radio encryption key"
+	additional_channels = list(CHANNEL_SUPPLY = TRUE)
+
+/obj/item/device/encryptionkey/service_spare
+	name = "spare service radio encryption key"
+	additional_channels = list(CHANNEL_SERVICE = TRUE)
 
 // Encryption Key Pouch
 /obj/item/storage/box/fancy/keypouch
@@ -213,3 +220,9 @@
 
 /obj/item/storage/box/fancy/keypouch/sci
 	starts_with = list(/obj/item/device/encryptionkey/sci_spare = 3)
+
+/obj/item/storage/box/fancy/keypouch/cargo
+	starts_with = list(/obj/item/device/encryptionkey/cargo_spare = 3)
+
+/obj/item/storage/box/fancy/keypouch/service
+	starts_with = list(/obj/item/device/encryptionkey/service_spare = 3)

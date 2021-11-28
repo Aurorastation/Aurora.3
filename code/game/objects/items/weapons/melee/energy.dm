@@ -4,7 +4,7 @@
 	var/active_throwforce
 	var/active_w_class
 	sharp = 0
-	edge = 0
+	edge = FALSE
 	armor_penetration = 10
 	flags = NOBLOODY
 	can_embed = 0//No embedding pls
@@ -24,7 +24,7 @@
 	force = active_force
 	throwforce = active_throwforce
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	w_class = active_w_class
 	playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
 
@@ -65,17 +65,15 @@
 /obj/item/melee/energy/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(active && default_parry_check(user, attacker, damage_source) && prob(50))
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
-
 		spark(src, 5)
 		playsound(user.loc, 'sound/weapons/blade.ogg', 50, 1)
-		return 1
+		return PROJECTILE_STOPPED
 	else
-
 		if(!active)
-			return 0 //turn it on first!
+			return FALSE //turn it on first!
 
 		if(user.incapacitated())
-			return 0
+			return FALSE
 
 		//block as long as they are not directly behind us
 		var/bad_arc = reverse_direction(user.dir) //arc of directions from which we cannot block
@@ -90,7 +88,7 @@
 					visible_message("<span class='danger'>\The [user]'s [src.name] overloads!</span>")
 					deactivate()
 					shield_power = initial(shield_power)
-					return 0
+					return FALSE
 
 				if(istype(damage_source, /obj/item/projectile/energy) || istype(damage_source, /obj/item/projectile/beam))
 					var/obj/item/projectile/P = damage_source
@@ -112,7 +110,7 @@
 						return PROJECTILE_CONTINUE // complete projectile permutation
 					else
 						user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
-						return 1
+						return PROJECTILE_STOPPED
 
 				else if(istype(damage_source, /obj/item/projectile/bullet) && can_block_bullets)
 					var/reflectchance = (base_reflectchance) - round(damage/3)
@@ -120,7 +118,7 @@
 						reflectchance /= 2
 					if(prob(reflectchance))
 						user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
-						return 1
+						return PROJECTILE_STOPPED
 
 /obj/item/melee/energy/get_print_info()
 	. = ..()
@@ -147,7 +145,7 @@
 	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 4, TECH_MATERIAL = 7, TECH_ILLEGAL = 4)
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	slot_flags = SLOT_BACK
 	base_reflectchance = 0
 	base_block_chance = 0 //cannot be used to block guns
@@ -196,7 +194,7 @@
 	origin_tech = list(TECH_MAGNET = 3, TECH_COMBAT = 4)
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	base_reflectchance = 0
 	base_block_chance = 0 //cannot be used to block guns
 	shield_power = 0
@@ -235,7 +233,7 @@
 	flags = NOBLOODY
 	origin_tech = list(TECH_MAGNET = 3, TECH_ILLEGAL = 4)
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	var/blade_color
 	shield_power = 75
 
@@ -316,6 +314,20 @@
 	..()
 	icon_state = "edagger1"
 
+/obj/item/melee/energy/sword/knife/sol
+	name = "solarian energy dagger"
+	desc = "A relatively inexpensive energy blade, this is the standard-issue combat knife given to the Solarian military."
+	icon_state = "sol_edagger0"
+	base_reflectchance = 10
+	base_block_chance = 10
+	active_force = 20
+	force = 10
+	origin_tech = list(TECH_MAGNET = 3)
+
+/obj/item/melee/energy/sword/knife/sol/activate(mob/living/user)
+	..()
+	icon_state = "sol_edagger1"
+
 /*
 *Power Sword
 */
@@ -363,7 +375,7 @@
 	active_force = 40 //Normal attacks deal very high damage - about the same as wielded fire axe
 	armor_penetration = 100
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	anchored = 1    // Never spawned outside of inventory, should be fine.
 	throwforce = 1  //Throwing or dropping the item deletes it.
 	throw_speed = 1

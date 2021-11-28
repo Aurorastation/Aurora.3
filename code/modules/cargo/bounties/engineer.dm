@@ -152,3 +152,11 @@
 	required_count = 2
 	random_count = 1
 	wanted_types = list(/obj/machinery/power/port_gen/pacman)
+
+/datum/bounty/item/engineer/crossbow
+	name = "Powered Crossbow"
+	description = "Mictlanian Democratic Forces require weaponry to assist the TCFL in quelling the unrest following peaceful takeover, please ship us some powered crossbows."
+	reward_low = 5000
+	reward_high = 7500
+	required_count = 2
+	wanted_types = list(/obj/item/gun/launcher/crossbow)

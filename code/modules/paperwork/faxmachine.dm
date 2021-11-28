@@ -220,11 +220,11 @@ var/list/admin_departments
 	// give the sprite some time to flick
 	spawn(20)
 		if (istype(incoming, /obj/item/paper))
-			copy(incoming, 1, 0, 0)
+			copy(src, incoming, 1, 0, 0)
 		else if (istype(incoming, /obj/item/photo))
-			photocopy(incoming)
+			photocopy(src, incoming)
 		else if (istype(incoming, /obj/item/paper_bundle))
-			bundlecopy(incoming)
+			bundlecopy(src, incoming)
 		do_pda_alerts()
 		use_power(active_power_usage)
 
@@ -254,11 +254,11 @@ var/list/admin_departments
 
 	var/obj/item/rcvdcopy
 	if (istype(copyitem, /obj/item/paper))
-		rcvdcopy = copy(copyitem, 0)
+		rcvdcopy = copy(src, copyitem, 0)
 	else if (istype(copyitem, /obj/item/photo))
-		rcvdcopy = photocopy(copyitem)
+		rcvdcopy = photocopy(src, copyitem)
 	else if (istype(copyitem, /obj/item/paper_bundle))
-		rcvdcopy = bundlecopy(copyitem, 0)
+		rcvdcopy = bundlecopy(src, copyitem, 0)
 	else
 		visible_message("[src] beeps, \"Error transmitting message.\"")
 		return
@@ -306,9 +306,6 @@ var/list/admin_departments
 	discord_bot.send_to_cciaa(discord_msg)
 
 /obj/machinery/photocopier/faxmachine/proc/do_pda_alerts()
-	if (!alert_pdas || !alert_pdas.len)
-		return
-
-	for (var/obj/item/modular_computer/pda in alert_pdas)
+	for(var/obj/item/modular_computer/pda in alert_pdas)
 		var/message = "New message has arrived!"
 		pda.get_notification(message, 1, "[department] [name]")
