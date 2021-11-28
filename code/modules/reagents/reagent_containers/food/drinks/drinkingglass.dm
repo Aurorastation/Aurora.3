@@ -47,14 +47,14 @@
 			return
 		else
 			user.visible_message("<b>[user]</b> holds \the [src] out for a toast with [H].")
-			if(alert(target,"[user] wants to do a toast with you. Will you accept it?",,"Yes","No") == "No")
-				target.visible_message("<b>[target]</b> pushes [user]'s hand away.")
+			if(alert(H,"[user] wants to do a toast with you. Will you accept it?",,"Yes","No") == "No")
+				H.visible_message("<b>[H]</b> pushes [user]'s hand away.")
 				return
-			if(!user.Adjacent(target))
+			if(!user.Adjacent(H))
 				to_chat(user, SPAN_WARNING("You need to remain next to [H]!"))
-				to_chat(target, SPAN_WARNING("You need to remain next to [user]!"))
+				to_chat(H, SPAN_WARNING("You need to remain next to [user]!"))
 				return
-			user.visible_message("<b>[user]</b> clinks \the [src] with [target]'s [glass.name].")
+			user.visible_message("<b>[user]</b> clinks \the [src] with [H]'s [glass.name].")
 			playsound(user.loc, pick('sound/items/glass_clink_1.ogg', 'sound/items/glass_clink_2.ogg', 'sound/items/glass_clink_3.ogg'), 50, 0, vary = FALSE)
 			return
 	..()
