@@ -33,6 +33,28 @@
 		desc = "Your standard drinking glass."
 		center_of_mass = list("x"=16, "y"=10)
 
+/obj/item/reagent_containers/food/drinks/drinkingglass/afterattack(var/atom/target, var/mob/user, var/proximity, var/params)
+	if(ishuman(target) && user.a_intent == I_HELP && (user.zone_sel.selecting == BP_L_HAND || user.zone_sel.selecting == BP_R_HAND))
+		if(!user.Adjacent(target))
+			return
+		var/mob/living/carbon/human/H = target
+		var/obj/item/reagent_containers/food/drinks/drinkingglass/glass = H.get_type_in_hands(/obj/item/reagent_containers/food/drinks/drinkingglass)
+		if(glass)
+			if(!use_check(H))
+				to_chat(user, SPAN_WARNING("[H] is in no condition to handle items!"))
+				return
+			user.visible_message("<b>[user]</b> holds \the [src] out for a toast with [H].")
+			if(alert(target,"[user] wants to do a toast with you. Will you accept it?",,"Yes","No") == "No")
+				target.visible_message("<b>[target]</b> pushes [user]'s hand away.")
+				return
+			if(!user.Adjacent(target))
+				to_chat(user, SPAN_WARNING("You need to remain next to [H]!"))
+				to_chat(target, SPAN_WARNING("You need to remain next to [user]!"))
+				return
+			user.visible_message("<b>[user]</b> clinks \the [src] with [target]'s [glass.name].")
+			return
+	..()
+
 // for /obj/machinery/vending/sovietsoda
 /obj/item/reagent_containers/food/drinks/drinkingglass/soda
 	reagents_to_add = list(/decl/reagent/drink/sodawater = 50)
