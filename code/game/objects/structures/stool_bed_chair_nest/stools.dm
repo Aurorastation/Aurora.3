@@ -13,7 +13,7 @@
 /obj/structure/bed/stool/MouseDrop(over_object, src_location, over_location)
 	. = ..()
 	if(over_object == usr && Adjacent(usr))
-		if(!held_item || use_check_and_message(usr) || buckled_mob || !can_dismantle)
+		if(!held_item || use_check_and_message(usr) || buckled || !can_dismantle)
 			return
 		usr.visible_message(SPAN_NOTICE("[usr] grabs \the [src.name]."), SPAN_NOTICE("You grab \the [src.name]."))
 		var/obj/item/material/stool/S = new held_item(src.loc, material.name, padding_material ? padding_material.name : null) // Handles all the material code so you don't have to.

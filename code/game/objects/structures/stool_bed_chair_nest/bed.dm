@@ -410,7 +410,7 @@
 	icon_state = "hover_down"
 	base_state = "hover"
 	makes_rolling_sound = FALSE
-	item_bedpath = /obj/item/roller/hover
+	held_item = /obj/item/roller/hover
 	patient_shift = 6
 	bag_strap = null
 
@@ -463,7 +463,7 @@
 	..()
 
 /obj/item/roller/proc/deploy_roller(mob/user, atom/location)
-	var/obj/structure/bed/roller/R = new bedpath(location)
+	var/obj/structure/bed/roller/R = new origin_type(location)
 	R.add_fingerprint(user)
 	qdel(src)
 

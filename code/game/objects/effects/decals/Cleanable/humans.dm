@@ -107,7 +107,7 @@
 		if (blood_DNA)
 			perp.feet_blood_DNA |= blood_DNA.Copy()
 	else if (perp.buckled_to && istype(perp.buckled_to, /obj/structure/bed/stool/chair/wheelchair))
-		var/obj/structure/bed/chair/wheelchair/W = perp.buckled_to
+		var/obj/structure/bed/stool/chair/wheelchair/W = perp.buckled_to
 		W.bloodiness = 4
 
 	perp.update_inv_shoes(1)
