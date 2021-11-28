@@ -162,7 +162,7 @@
 	deploy(user)
 
 /obj/item/material/stool/MouseDrop(mob/user)
-	if((user && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
+	if((user && (!use_check(user))) && (user.contents.Find(src)) || in_range(src, user))
 		if(!istype(user, /mob/living/carbon/slime) && !istype(user, /mob/living/simple_animal))
 			if( !user.get_active_hand() )		//if active hand is empty
 				var/mob/living/carbon/human/H = user
@@ -172,18 +172,13 @@
 				if(temp && !temp.is_usable())
 					to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
 					return
-
 				to_chat(user, SPAN_NOTICE("You pick up \the [src]."))
 				user.put_in_hands(src)
 	return
-		var/blocked = target.get_blocked_ratio(hit_zone, BRUTE)
-		target.Weaken(10 * (1 - blocked))
-		target.apply_damage(20, BRUTE, hit_zone, blocked, src)
-		return
 
 /obj/item/material/stool/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
 	if(prob(300 / force)) // Weaker materials are more likely to shatter on people randomly.
-		var/blocked = target.run_armor_check(hit_zone, "melee")
+		var/blocked = target.get_blocked_ratio(hit_zone, BRUTE)
 		target.Weaken(force * BLOCKED_MULT(blocked))
 		target.apply_damage(force * 2, BRUTE, hit_zone, blocked, src)
 		user.visible_message(SPAN_DANGER("[user] [material.destruction_desc] \the [src] to pieces against \the [target]'s [hit_zone]!"), SPAN_DANGER("\The [src] [material.destruction_desc] to pieces against \the [target]'s [hit_zone]!"))
