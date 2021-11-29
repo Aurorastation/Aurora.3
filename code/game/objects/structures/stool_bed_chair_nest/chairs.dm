@@ -20,12 +20,12 @@
 	else
 		. = ..()
 
-/obj/structure/bed/chair/do_simple_ranged_interaction(var/mob/user)
+/obj/structure/bed/stool/chair/do_simple_ranged_interaction(var/mob/user)
 	if(!buckled && user)
 		rotate(user)
 	return TRUE
 
-/obj/structure/bed/chair/post_buckle()
+/obj/structure/bed/stool/chair/post_buckle()
 	update_icon()
 	return ..()
 
@@ -85,7 +85,7 @@
 		return
 	return ..()
 
-/obj/structure/bed/chair/CanPass(atom/movable/mover, turf/target, height, air_group)
+/obj/structure/bed/stool/chair/CanPass(atom/movable/mover, turf/target, height, air_group)
 	if(mover.density && isliving(mover) && (reverse_dir[dir] & angle2dir(Get_Angle(src, mover))))
 		return FALSE
 	return ..()
@@ -123,53 +123,126 @@
 	icon_state = "sofamiddle_preview"
 	base_icon = "sofamiddle"
 
-/obj/structure/bed/stool/chair/sofa/leather/New(var/newloc)
+/obj/structure/bed/stool/chair/sofa/brown/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)
 
-/obj/structure/bed/stool/chair/sofa/carpet/New(var/newloc)
+/obj/structure/bed/stool/chair/sofa/red/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CARPET)
 
-/obj/structure/bed/stool/chair/sofa/cloth/New(var/newloc)
+/obj/structure/bed/stool/chair/sofa/teal/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_TEAL)
+
+/obj/structure/bed/stool/chair/sofa/black/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_BLACK)
+
+/obj/structure/bed/stool/chair/sofa/green/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_GREEN)
+
+/obj/structure/bed/stool/chair/sofa/purp/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_PURPLE)
+
+/obj/structure/bed/stool/chair/sofa/blue/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_BLUE)
+
+/obj/structure/bed/stool/chair/sofa/beige/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH)
+
+/obj/structure/bed/stool/chair/sofa/lime/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_LIME)
 
 /obj/structure/bed/stool/chair/sofa/left
 	icon_state = "sofaend_left_preview"
 	base_icon = "sofaend_left"
 
-/obj/structure/bed/stool/chair/sofa/left/leather/New(var/newloc)
+/obj/structure/bed/stool/chair/sofa/left/brown/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)
 
-/obj/structure/bed/stool/chair/sofa/left/carpet/New(var/newloc)
+/obj/structure/bed/stool/chair/sofa/left/red/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CARPET)
 
-/obj/structure/bed/stool/chair/sofa/left/cloth/New(var/newloc)
+/obj/structure/bed/stool/chair/sofa/left/teal/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_TEAL)
+
+/obj/structure/bed/stool/chair/sofa/left/black/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_BLACK)
+
+/obj/structure/bed/stool/chair/sofa/left/green/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_GREEN)
+
+/obj/structure/bed/stool/chair/sofa/left/purp/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_PURPLE)
+
+/obj/structure/bed/stool/chair/sofa/left/blue/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_BLUE)
+
+/obj/structure/bed/stool/chair/sofa/left/beige/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH)
+
+/obj/structure/bed/stool/chair/sofa/left/lime/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_LIME)
 
 /obj/structure/bed/stool/chair/sofa/right
 	icon_state = "sofaend_right_preview"
 	base_icon = "sofaend_right"
 
-/obj/structure/bed/stool/chair/sofa/right/leather/New(var/newloc)
+/obj/structure/bed/stool/chair/sofa/right/brown/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)
 
-/obj/structure/bed/stool/chair/sofa/right/carpet/New(var/newloc)
+/obj/structure/bed/stool/chair/sofa/right/red/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CARPET)
 
-/obj/structure/bed/stool/chair/sofa/right/cloth/New(var/newloc)
+/obj/structure/bed/stool/chair/sofa/right/teal/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_TEAL)
+
+/obj/structure/bed/stool/chair/sofa/right/black/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_BLACK)
+
+/obj/structure/bed/stool/chair/sofa/right/green/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_GREEN)
+
+/obj/structure/bed/stool/chair/sofa/right/purp/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_PURPLE)
+
+/obj/structure/bed/stool/chair/sofa/right/blue/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_BLUE)
+
+/obj/structure/bed/stool/chair/sofa/right/beige/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH)
+
+/obj/structure/bed/stool/chair/sofa/right/lime/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_LIME)
 
 /obj/structure/bed/stool/chair/sofa/corner
 	icon_state = "sofacorner_preview"
 	base_icon = "sofacorner"
 
-/obj/structure/bed/stool/chair/sofa/corner/leather/New(var/newloc)
+/obj/structure/bed/stool/chair/sofa/corner/brown/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)
 
-/obj/structure/bed/stool/chair/sofa/corner/carpet/New(var/newloc)
+/obj/structure/bed/stool/chair/sofa/corner/red/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CARPET)
 
-/obj/structure/bed/stool/chair/sofa/corner/cloth/New(var/newloc)
+/obj/structure/bed/stool/chair/sofa/corner/teal/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_TEAL)
+
+/obj/structure/bed/stool/chair/sofa/corner/black/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_BLACK)
+
+/obj/structure/bed/stool/chair/sofa/corner/green/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_GREEN)
+
+/obj/structure/bed/stool/chair/sofa/corner/purp/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_PURPLE)
+
+/obj/structure/bed/stool/chair/sofa/corner/blue/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_BLUE)
+
+/obj/structure/bed/stool/chair/sofa/corner/beige/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH)
+
+/obj/structure/bed/stool/chair/sofa/corner/lime/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_LIME)
+
 
 /obj/structure/bed/stool/chair/office
 	name = "office chair"
