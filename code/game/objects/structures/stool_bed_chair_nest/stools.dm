@@ -4,11 +4,14 @@
 	icon_state = "stool_preview"
 	base_icon = "stool"
 	anchored = FALSE
-	can_buckle = FALSE
 	buckle_dir = 0
 	buckle_lying = FALSE //force people to sit up in chairs when buckled
 	build_amt = 2
 	held_item = /obj/item/material/stool // if null it can't be picked up. Automatically applies materials.
+
+/obj/structure/bed/stool/Initialize()
+	. = ..()
+	can_buckle = FALSE // Some idiot decided can_buckle should be a list...
 
 /obj/structure/bed/stool/MouseDrop(over_object, src_location, over_location)
 	. = ..()
@@ -28,7 +31,8 @@
 			S.blood_DNA |= blood_DNA // Transfer blood, if any.
 			S.add_blood()
 		S.dir = dir
-		S.origin_type = src.type
+		if(padding_material)
+			S.origin_type = src.type  // Just prevents infinite padding fuckery
 		S.add_fingerprint(usr)
 		usr.put_in_hands(S)
 		qdel(src)
@@ -127,7 +131,7 @@
 	..(newloc, MATERIAL_SHUTTLE_SKRELL)
 	set_light(1,1,LIGHT_COLOR_CYAN)
 
-/obj/item/material/stool
+/obj/item/material/stool // Not intended to be spawned in. You will be sad. Thankfully will self-correct.
 	icon = 'icons/obj/furniture.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_chairs.dmi',
@@ -232,10 +236,7 @@
 		add_overlay(padding_overlay)
 	else
 		build_from_parts = FALSE
-	var/mob/M = loc
-	if(istype(M)) // Update inhands.
-		M.update_inv_l_hand()
-		M.update_inv_r_hand()
+	update_held_icon()
 
 /obj/item/material/stool/shatter()
 	if(padding_material)
@@ -262,8 +263,10 @@
 	icon_state = "bar_stool_toppled_preview"
 	item_state = "bar_stool"
 	base_icon = "bar_stool"
+	origin_type = /obj/structure/bed/stool/bar
 
 /obj/item/material/stool/hover
 	icon_state = "hover_stool_toppled"
 	item_state = "hover_stool"
 	base_icon = "hover_stool"
+	origin_type = /obj/structure/bed/stool/hover

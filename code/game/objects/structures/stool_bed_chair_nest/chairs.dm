@@ -3,15 +3,16 @@
 	desc = "You sit in this. Either by will or force."
 	icon_state = "chair_preview"
 	base_icon = "chair"
-	color = "#666666"
-
 	build_amt = 1
-
 	buckle_dir = 0
 	buckle_lying = 0 //force people to sit up in chairs when buckled_to
 	obj_flags = OBJ_FLAG_ROTATABLE_ANCHORED
-	can_buckle = TRUE
 	var/propelled = 0 // Check for fire-extinguisher-driven chairs
+	held_item = /obj/item/material/stool/chair/
+
+/obj/structure/bed/stool/chair/Initialize()
+	. = ..()
+	LAZYADD(can_buckle, /mob/living)
 
 /obj/structure/bed/chair/do_simple_ranged_interaction(var/mob/user)
 	if(!buckled && user)
@@ -70,15 +71,7 @@
 	if(buckled)
 		buckled.set_dir(dir)
 
-// Leaving this in for the sake of compilation.
-/obj/structure/bed/stool/chair/comfy
-	desc = "It's a chair. It looks comfy."
-	icon_state = "comfychair_preview"
-	base_icon = "comfychair"
-	build_amt = 2
-	held_item = null
-
-/obj/structure/bed/stool/chair/comfy/MouseDrop_T(mob/target, mob/user)
+/obj/structure/bed/stool/chair/MouseDrop_T(mob/target, mob/user)
 	if(target == user && user.loc != loc && (reverse_dir[dir] & angle2dir(Get_Angle(src, user))))
 		user.visible_message("<b>[user]</b> starts climbing over the back of \the [src]...", SPAN_NOTICE("You start climbing over the back of \the [src]..."))
 		if(do_after(user, 2 SECONDS))
@@ -86,93 +79,93 @@
 		return
 	return ..()
 
-/obj/structure/bed/chair/comfy/CanPass(atom/movable/mover, turf/target, height, air_group)
+/obj/structure/bed/chair/CanPass(atom/movable/mover, turf/target, height, air_group)
 	if(mover.density && isliving(mover) && (reverse_dir[dir] & angle2dir(Get_Angle(src, mover))))
 		return FALSE
 	return ..()
 
-/obj/structure/bed/chair/comfy/brown/New(var/newloc)
+/obj/structure/bed/stool/chair/padded/brown/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)
 
-/obj/structure/bed/stool/chair/comfy/red/New(var/newloc)
+/obj/structure/bed/stool/chair/padded/red/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CARPET)
 
-/obj/structure/bed/stool/chair/comfy/teal/New(var/newloc)
+/obj/structure/bed/stool/chair/padded/teal/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_TEAL)
 
-/obj/structure/bed/stool/chair/comfy/black/New(var/newloc)
+/obj/structure/bed/stool/chair/padded/black/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_BLACK)
 
-/obj/structure/bed/stool/chair/comfy/green/New(var/newloc)
+/obj/structure/bed/stool/chair/padded/green/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_GREEN)
 
-/obj/structure/bed/stool/chair/comfy/purp/New(var/newloc)
+/obj/structure/bed/stool/chair/padded/purp/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_PURPLE)
 
-/obj/structure/bed/stool/chair/comfy/blue/New(var/newloc)
+/obj/structure/bed/stool/chair/padded/blue/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_BLUE)
 
-/obj/structure/bed/stool/chair/comfy/beige/New(var/newloc)
+/obj/structure/bed/stool/chair/padded/beige/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_BEIGE)
 
-/obj/structure/bed/stool/chair/comfy/lime/New(var/newloc)
+/obj/structure/bed/stool/chair/padded/lime/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_LIME)
 
-/obj/structure/bed/chair/comfy/sofa
+/obj/structure/bed/stool/chair/sofa
 	name = "sofa"
 	desc = "A sofa, how nice!"
 	icon_state = "sofamiddle_preview"
 	base_icon = "sofamiddle"
 
-/obj/structure/bed/chair/comfy/sofa/leather/New(var/newloc)
+/obj/structure/bed/stool/chair/sofa/leather/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)
 
-obj/structure/bed/chair/comfy/sofa/comfy/New(var/newloc)
+/obj/structure/bed/stool/chair/sofa/carpet/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CARPET)
 
-obj/structure/bed/chair/comfy/sofa/cloth/New(var/newloc)
+/obj/structure/bed/stool/chair/sofa/cloth/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH)
 
-/obj/structure/bed/chair/comfy/sofa/left
+/obj/structure/bed/stool/chair/sofa/left
 	icon_state = "sofaend_left_preview"
 	base_icon = "sofaend_left"
 
-/obj/structure/bed/chair/comfy/sofa/left/leather/New(var/newloc)
+/obj/structure/bed/stool/chair/sofa/left/leather/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)
 
-obj/structure/bed/chair/comfy/sofa/left/comfy/New(var/newloc)
+/obj/structure/bed/stool/chair/sofa/left/carpet/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CARPET)
 
-obj/structure/bed/chair/comfy/sofa/left/cloth/New(var/newloc)
+/obj/structure/bed/stool/chair/sofa/left/cloth/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH)
 
-/obj/structure/bed/chair/comfy/sofa/right
+/obj/structure/bed/stool/chair/sofa/right
 	icon_state = "sofaend_right_preview"
 	base_icon = "sofaend_right"
 
-/obj/structure/bed/chair/comfy/sofa/right/leather/New(var/newloc)
+/obj/structure/bed/stool/chair/sofa/right/leather/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)
 
-obj/structure/bed/chair/comfy/sofa/right/comfy/New(var/newloc)
+/obj/structure/bed/stool/chair/sofa/right/carpet/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CARPET)
 
-obj/structure/bed/chair/comfy/sofa/right/cloth/New(var/newloc)
+/obj/structure/bed/stool/chair/sofa/right/cloth/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH)
 
-/obj/structure/bed/chair/comfy/sofa/corner
+/obj/structure/bed/stool/chair/sofa/corner
 	icon_state = "sofacorner_preview"
 	base_icon = "sofacorner"
 
-/obj/structure/bed/chair/comfy/sofa/corner/leather/New(var/newloc)
+/obj/structure/bed/stool/chair/sofa/corner/leather/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)
 
-obj/structure/bed/chair/comfy/sofa/corner/comfy/New(var/newloc)
+/obj/structure/bed/stool/chair/sofa/corner/carpet/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CARPET)
 
-obj/structure/bed/chair/comfy/sofa/corner/cloth/New(var/newloc)
+/obj/structure/bed/stool/chair/sofa/corner/cloth/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH)
 
-/obj/structure/bed/chair/office
+/obj/structure/bed/stool/chair/office
 	name = "office chair"
 	material_alteration = MATERIAL_ALTERATION_DESC
 	makes_rolling_sound = TRUE
@@ -375,9 +368,6 @@ obj/structure/bed/chair/comfy/sofa/corner/cloth/New(var/newloc)
 		)
 	w_class = ITEMSIZE_HUGE
 	force_divisor = 0.5
-	use_material_name = FALSE
-	applies_material_colour = FALSE
-	material = DEFAULT_WALL_MATERIAL
 	origin_type = /obj/structure/bed/stool/chair
 
 // Because wood chairs are snowflake sprites.
@@ -386,7 +376,6 @@ obj/structure/bed/chair/comfy/sofa/corner/cloth/New(var/newloc)
 	item_state = "woodenchair"
 	base_icon = "wooden_chair"
 	origin_type = /obj/structure/bed/stool/chair/wood
-	applies_material_colour = FALSE
 
 /obj/item/material/stool/chair/wood/wings
 	icon_state = "wooden_chair_wings_toppled"
@@ -394,7 +383,7 @@ obj/structure/bed/chair/comfy/sofa/corner/cloth/New(var/newloc)
 	base_icon= "wooden_chair_wings"
 	origin_type = /obj/structure/bed/stool/chair/wood/wings
 
-/obj/item/material/stool/chair/folding
+/obj/item/material/stool/chair/folding // Todo : "borrow" CM code for stacking and general tomfoolery.
 	icon_state = "folding_chair_toppled"
 	item_state = "folding_chair"
 	base_icon = "folding_chair"

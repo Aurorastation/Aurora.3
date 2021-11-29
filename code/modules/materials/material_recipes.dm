@@ -72,11 +72,11 @@
 			new /datum/stack_recipe("shooting target", /obj/item/target, 5, time = 10, one_per_turf = 0, on_floor = 1),
 			new /datum/stack_recipe("dark office chair", /obj/structure/bed/stool/chair/office/dark, BUILD_AMT, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("light office chair", /obj/structure/bed/stool/chair/office/light, BUILD_AMT, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("plain comfy chair", /obj/structure/bed/chair/comfy, BUILD_AMT, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("sofa (middle)", /obj/structure/bed/chair/comfy/sofa, BUILD_AMT, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("sofa (left)", /obj/structure/bed/chair/comfy/sofa/left, BUILD_AMT, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("sofa (right)", /obj/structure/bed/chair/comfy/sofa/right, BUILD_AMT, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("sofa (corner)", /obj/structure/bed/chair/comfy/sofa/corner, BUILD_AMT, one_per_turf = 1, on_floor = 1)
+			new /datum/stack_recipe("plain padded chair", /obj/structure/bed/stool/chair/padded, BUILD_AMT, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("sofa (middle)", /obj/structure/bed/stool/chair/sofa, BUILD_AMT, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("sofa (left)", /obj/structure/bed/stool/chair/sofa/left, BUILD_AMT, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("sofa (right)", /obj/structure/bed/stool/chair/sofa/right, BUILD_AMT, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("sofa (corner)", /obj/structure/bed/stool/chair/sofa/corner, BUILD_AMT, one_per_turf = 1, on_floor = 1)
 		))
 
 	recipes += new /datum/stack_recipe_list("airlock assemblies",
