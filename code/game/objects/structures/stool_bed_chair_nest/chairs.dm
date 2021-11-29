@@ -14,6 +14,12 @@
 	. = ..()
 	LAZYADD(can_buckle, /mob/living)
 
+/obj/structure/bed/stool/chair/MouseDrop(over_object, src_location, over_location)
+	if(padding_material) // No picking up padded chairs. For reasons.
+		return
+	else
+		. = ..()
+
 /obj/structure/bed/chair/do_simple_ranged_interaction(var/mob/user)
 	if(!buckled && user)
 		rotate(user)

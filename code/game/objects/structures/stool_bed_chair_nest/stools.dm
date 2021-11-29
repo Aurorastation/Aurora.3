@@ -31,8 +31,6 @@
 			S.blood_DNA |= blood_DNA // Transfer blood, if any.
 			S.add_blood()
 		S.dir = dir
-		if(padding_material)
-			S.origin_type = src.type  // Just prevents infinite padding fuckery
 		S.add_fingerprint(usr)
 		usr.put_in_hands(S)
 		qdel(src)
@@ -216,6 +214,9 @@
 	// playsound(src, deploy_sound ? deploy_sound : drop_sound, DROP_SOUND_VOLUME)
 	user.drop_from_inventory(src)
 	var/obj/structure/bed/stool/S = new origin_type(get_turf(loc))
+	if(src.padding_material)
+		S.padding_material = src.padding_material
+		S.update_icon()
 	TransferComponents(S)
 	S.dir = user.dir // Plant it where the user's facing
 	if(blood_DNA)
