@@ -13499,15 +13499,15 @@
 	},
 /area/centcom/bar)
 "ePj" = (
-/obj/structure/bed/stool/chair{
-	dir = 1
-	},
 /obj/structure/disposalpipe/segment,
 /obj/effect/landmark{
 	name = "tdomeadmin"
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/effect/decal/fake_object/light_source/invisible,
+/obj/structure/bed/stool/chair/folding{
+	dir = 1
+	},
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
@@ -14055,7 +14055,7 @@
 	},
 /area/antag/ninja)
 "fgI" = (
-/obj/structure/bed/stool/chair,
+/obj/structure/bed/stool/chair/folding,
 /obj/effect/landmark{
 	name = "tdomeobserve"
 	},
@@ -18336,13 +18336,13 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/control)
 "hJZ" = (
-/obj/structure/bed/stool/chair,
 /obj/structure/disposalpipe/segment,
 /obj/effect/landmark{
 	name = "tdomeobserve"
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/decal/fake_object/light_source/invisible,
+/obj/structure/bed/stool/chair/folding,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
@@ -25313,14 +25313,14 @@
 /turf/simulated/floor/plating,
 /area/shuttle/merchant)
 "mks" = (
-/obj/structure/bed/stool/chair{
-	dir = 1
-	},
 /obj/effect/landmark{
 	name = "tdomeadmin"
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/effect/decal/fake_object/light_source/invisible,
+/obj/structure/bed/stool/chair/folding{
+	dir = 1
+	},
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
@@ -27690,9 +27690,9 @@
 	},
 /area/shuttle/administration)
 "nFM" = (
-/obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/effect/decal/fake_object/light_source/invisible,
+/obj/structure/bed/stool/chair/folding,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
@@ -28612,13 +28612,13 @@
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "ohC" = (
-/obj/structure/bed/stool/chair{
-	dir = 1
-	},
 /obj/effect/landmark{
 	name = "tdomeadmin"
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
+/obj/structure/bed/stool/chair/folding{
+	dir = 1
+	},
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
@@ -39814,12 +39814,12 @@
 	},
 /area/antag/mercenary)
 "vZo" = (
-/obj/structure/bed/stool/chair,
 /obj/effect/landmark{
 	name = "tdomeobserve"
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/decal/fake_object/light_source/invisible,
+/obj/structure/bed/stool/chair/folding,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
@@ -43300,8 +43300,8 @@
 	},
 /area/shuttle/distress)
 "xXf" = (
-/obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner/orange/diagonal,
+/obj/structure/bed/stool/chair/folding,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
