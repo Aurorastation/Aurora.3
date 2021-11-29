@@ -5622,7 +5622,7 @@
 /area/shuttle/skipjack)
 "aKt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
 "aKx" = (
@@ -7999,7 +7999,7 @@
 	},
 /area/centcom/holding)
 "bmV" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
@@ -8715,7 +8715,7 @@
 	},
 /area/centcom/holding)
 "bKL" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/skipjack)
 "bLj" = (
@@ -10063,7 +10063,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
 "cJm" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/ghostspawpoint{
 	identifier = "ERTSpawn";
 	name = "igs - ERT"
@@ -11221,7 +11221,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "dpM" = (
-/obj/item/stool/bar/padded,
+/obj/structure/bed/stool/bar/padded/red,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -11311,7 +11311,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/burglar)
 "dus" = (
-/obj/item/stool/hover,
+/obj/structure/bed/stool/hover,
 /turf/simulated/floor/ice,
 /area/centcom/shared_dream)
 "dvj" = (
@@ -14714,7 +14714,7 @@
 /turf/simulated/floor/wood,
 /area/merchant_station)
 "fDN" = (
-/obj/item/stool/bar/padded,
+/obj/structure/bed/stool/bar/padded/red,
 /obj/effect/landmark{
 	name = "lonerspawn"
 	},
@@ -15097,7 +15097,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/item/stool/padded{
+/obj/structure/bed/stool/padded/red{
 	pixel_y = 10
 	},
 /turf/unsimulated/floor{
@@ -15494,7 +15494,7 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "fYr" = (
-/obj/item/stool/bar/padded,
+/obj/structure/bed/stool/bar/padded/red,
 /obj/effect/landmark{
 	name = "raiderstart"
 	},
@@ -16333,7 +16333,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/skipjack)
 "gwf" = (
-/obj/item/stool/padded{
+/obj/structure/bed/stool/padded/red{
 	pixel_y = 10
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -16929,7 +16929,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/control)
 "gNQ" = (
-/obj/item/stool,
+/obj/structure/bed/stool,
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
@@ -18661,7 +18661,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/item/stool/bar/padded,
+/obj/structure/bed/stool/bar/padded/red,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -19925,7 +19925,7 @@
 	},
 /area/centcom/checkpoint/fore)
 "iJc" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/wood,
 /area/merchant_station/warehouse)
 "iJr" = (
@@ -21575,7 +21575,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/item/stool/bar/padded,
+/obj/structure/bed/stool/bar/padded/red,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -25336,7 +25336,7 @@
 /turf/unsimulated/floor,
 /area/centcom/ferry)
 "mkO" = (
-/obj/item/stool{
+/obj/structure/bed/stool{
 	pixel_y = 10
 	},
 /turf/unsimulated/floor{
@@ -28259,7 +28259,7 @@
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "nWh" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -28810,7 +28810,7 @@
 	},
 /area/centcom/holding)
 "ooP" = (
-/obj/item/stool,
+/obj/structure/bed/stool,
 /turf/unsimulated/floor/plating,
 /area/centcom/specops)
 "opB" = (
@@ -28886,7 +28886,7 @@
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "otw" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/ghostspawpoint{
 	identifier = "NTERTSpawn";
 	name = "igs - NTERT"
@@ -29050,7 +29050,7 @@
 /turf/unsimulated/floor,
 /area/centcom/ferry)
 "oAu" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/ghostspawpoint{
 	identifier = "NTERTSpawn";
 	name = "igs - NTERT"
@@ -29253,7 +29253,7 @@
 	},
 /area/centcom/distress_prep)
 "oII" = (
-/obj/item/stool/padded{
+/obj/structure/bed/stool/padded/red{
 	pixel_y = 10
 	},
 /obj/effect/ghostspawpoint{
@@ -30480,7 +30480,7 @@
 /turf/template_noop,
 /area/template_noop)
 "pCe" = (
-/obj/item/stool/bar/padded,
+/obj/structure/bed/stool/bar/padded/red,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
@@ -30558,7 +30558,7 @@
 	},
 /area/shuttle/legion)
 "pDO" = (
-/obj/item/stool,
+/obj/structure/bed/stool,
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "pEo" = (
@@ -34377,7 +34377,7 @@
 	},
 /area/antag/mercenary)
 "snR" = (
-/obj/item/stool/wood,
+/obj/structure/bed/stool/wood,
 /turf/simulated/floor/beach/sand{
 	icon_state = "desert"
 	},
@@ -36246,7 +36246,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/unsimulated/floor,
 /area/centcom/bar)
 "tFz" = (
@@ -40022,7 +40022,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/escape)
 "wgo" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/unsimulated/floor,
 /area/centcom/legion)
 "wgM" = (
@@ -40100,7 +40100,7 @@
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "wha" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
@@ -41954,7 +41954,7 @@
 	},
 /area/centcom/legion/hangar5)
 "xhC" = (
-/obj/item/stool/padded{
+/obj/structure/bed/stool/padded/red{
 	pixel_y = 10
 	},
 /obj/machinery/light{
@@ -42808,7 +42808,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/escape)
 "xFV" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/machinery/light{
 	icon_state = "tube1"
 	},

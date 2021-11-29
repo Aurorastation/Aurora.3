@@ -1333,7 +1333,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "acA" = (
-/obj/item/stool{
+/obj/structure/bed/stool{
 	pixel_y = 8
 	},
 /obj/machinery/alarm{
@@ -2832,7 +2832,7 @@
 /turf/simulated/wall/shuttle,
 /area/shuttle/escape_pod/pod3)
 "aft" = (
-/obj/item/stool{
+/obj/structure/bed/stool{
 	pixel_y = 8
 	},
 /obj/machinery/alarm{
@@ -2944,7 +2944,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
@@ -2960,7 +2960,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
@@ -7186,7 +7186,7 @@
 /turf/simulated/floor/plating,
 /area/security/forensics_office)
 "anp" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/lino,
 /area/security/forensics_office)
 "anq" = (
@@ -7848,7 +7848,7 @@
 /turf/simulated/floor/plating,
 /area/security/brig)
 "aow" = (
-/obj/item/stool,
+/obj/structure/bed/stool,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/camera/network/security{
@@ -9444,7 +9444,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/evahallway)
 "art" = (
-/obj/item/stool,
+/obj/structure/bed/stool,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/camera/network/security{
@@ -11234,7 +11234,7 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "avl" = (
-/obj/item/stool,
+/obj/structure/bed/stool,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "avm" = (
@@ -11403,7 +11403,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness)
 "avG" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness)
 "avH" = (
@@ -12518,7 +12518,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep)
 "axT" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep)
 "axU" = (
@@ -12543,7 +12543,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep)
 "axY" = (
@@ -13037,7 +13037,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep)
 "ayO" = (
@@ -13084,7 +13084,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep)
 "ayR" = (
@@ -13646,7 +13646,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep)
 "azV" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/corner/grey,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep)
@@ -16353,7 +16353,7 @@
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "aFr" = (
-/obj/item/stool{
+/obj/structure/bed/stool{
 	pixel_y = 8
 	},
 /obj/effect/landmark/start{
@@ -17052,7 +17052,7 @@
 /turf/simulated/floor/tiled,
 /area/gateway)
 "aGI" = (
-/obj/item/stool,
+/obj/structure/bed/stool,
 /turf/simulated/floor/tiled,
 /area/gateway)
 "aGJ" = (
@@ -17923,7 +17923,7 @@
 /obj/effect/landmark/start{
 	name = "Assistant"
 	},
-/obj/item/stool{
+/obj/structure/bed/stool{
 	pixel_y = 8
 	},
 /turf/simulated/floor/tiled,
@@ -22929,14 +22929,14 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "aSh" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/item/modular_computer/telescreen/preset/generic{
 	pixel_x = -32
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "aSi" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "aSj" = (
@@ -23987,7 +23987,7 @@
 /obj/effect/landmark/start{
 	name = "Gardener"
 	},
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 8
 	},
@@ -24852,7 +24852,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/corner/lime{
 	dir = 9
 	},
@@ -25191,7 +25191,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
 "aWK" = (
-/obj/item/stool{
+/obj/structure/bed/stool{
 	pixel_y = 8
 	},
 /turf/simulated/floor/tiled,
@@ -25231,7 +25231,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
 "aWO" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
 "aWP" = (
@@ -25622,7 +25622,7 @@
 /obj/effect/landmark/start{
 	name = "Gardener"
 	},
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/corner/lime{
 	dir = 9
 	},
@@ -25681,7 +25681,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/chapel{
 	dir = 1
 	},
@@ -25691,7 +25691,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/chapel/main)
 "aXQ" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/chapel{
 	dir = 4
 	},
@@ -25699,7 +25699,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/chapel/main)
 "aXR" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/chapel{
 	dir = 1
 	},
@@ -25714,7 +25714,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/chapel{
 	dir = 4
 	},
@@ -26632,7 +26632,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/chapel{
 	dir = 4
 	},
@@ -26642,7 +26642,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/chapel/main)
 "aZx" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/chapel{
 	dir = 8
 	},
@@ -26650,7 +26650,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/chapel/main)
 "aZy" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/chapel,
 /obj/effect/floor_decal/chapel{
 	dir = 8
@@ -26658,7 +26658,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/chapel/main)
 "aZz" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/chapel{
 	dir = 1
 	},
@@ -27679,7 +27679,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/chapel{
 	dir = 8
 	},
@@ -27687,14 +27687,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/chapel/main)
 "bbt" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/chapel{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/chapel/main)
 "bbu" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/chapel{
 	dir = 1
 	},
@@ -29491,7 +29491,7 @@
 /turf/simulated/floor/plating,
 /area/quartermaster/office)
 "beY" = (
-/obj/item/stool,
+/obj/structure/bed/stool,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
@@ -33807,7 +33807,7 @@
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medbay Lobby Port"
 	},
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
@@ -33817,7 +33817,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
@@ -33840,7 +33840,7 @@
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medbay Lobby Starboard"
 	},
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
@@ -33850,7 +33850,7 @@
 /obj/machinery/alarm{
 	pixel_y = 22
 	},
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
@@ -33921,7 +33921,7 @@
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medbay Examination Room"
 	},
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/corner/white/diagonal{
 	dir = 4
 	},
@@ -34723,7 +34723,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "boX" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
 	},
@@ -34911,7 +34911,7 @@
 /area/assembly/robotics)
 "bpw" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/corner/pink{
 	dir = 5
 	},
@@ -34962,7 +34962,7 @@
 /obj/effect/landmark/start{
 	name = "Scientist"
 	},
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
 	},
@@ -35081,7 +35081,7 @@
 	pixel_y = -6
 	},
 /obj/item/trash/cigbutt,
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
 "bpR" = (
@@ -37067,7 +37067,7 @@
 /turf/simulated/floor/airless,
 /area/maintenance/disposal)
 "btq" = (
-/obj/item/stool,
+/obj/structure/bed/stool,
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
 "btr" = (
@@ -37798,7 +37798,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "buI" = (
@@ -42121,7 +42121,7 @@
 /turf/simulated/floor/tiled,
 /area/teleporter)
 "bCk" = (
-/obj/item/stool,
+/obj/structure/bed/stool,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -47932,7 +47932,7 @@
 /obj/effect/landmark/start{
 	name = "First Responder"
 	},
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled/white,
 /area/medical/sleeper)
 "bMP" = (
@@ -47949,7 +47949,7 @@
 	c_tag = "Medbay First Responder Storage";
 	dir = 1
 	},
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled/white,
 /area/medical/sleeper)
 "bMQ" = (
@@ -49247,7 +49247,7 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "bPD" = (
-/obj/item/stool,
+/obj/structure/bed/stool,
 /obj/effect/landmark/start{
 	name = "Janitor"
 	},
@@ -53364,7 +53364,7 @@
 	pixel_y = 30;
 	req_access = list(47)
 	},
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled/white,
 /area/rnd/misc_lab)
 "bXo" = (
@@ -53854,7 +53854,7 @@
 /area/medical/patient_wing)
 "bYs" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
 "bYt" = (
@@ -53886,7 +53886,7 @@
 /area/crew_quarters/medbreak)
 "bYv" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/landmark/start{
 	name = "Physician"
 	},
@@ -54353,7 +54353,7 @@
 /area/maintenance/research_starboard)
 "bZg" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -57032,7 +57032,7 @@
 /turf/simulated/floor/tiled,
 /area/medical/surgeryprep)
 "cen" = (
-/obj/item/stool,
+/obj/structure/bed/stool,
 /obj/machinery/alarm{
 	dir = 4;
 	pixel_x = -22
@@ -58514,7 +58514,7 @@
 /area/rnd/xenobiology/xenoflora)
 "chm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
 	},
@@ -70626,7 +70626,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
 "cEe" = (
@@ -71006,7 +71006,7 @@
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
 "cER" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
 "cES" = (

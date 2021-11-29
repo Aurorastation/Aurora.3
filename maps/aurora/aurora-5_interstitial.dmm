@@ -2470,7 +2470,7 @@
 /turf/simulated/floor/plating,
 /area/security/training_theoretical)
 "fF" = (
-/obj/structure/bed/stool/chair/padded/sofa/left/comfy{
+/obj/structure/bed/stool/chair/sofa/left/red{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -2541,20 +2541,20 @@
 /turf/simulated/floor/plating,
 /area/security/training_theoretical)
 "gb" = (
-/obj/structure/bed/stool/chair/padded/sofa/corner{
+/obj/structure/bed/stool/chair/sofa/corner{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/security/break_room)
 "gc" = (
-/obj/structure/bed/stool/chair/padded/sofa/red{
+/obj/structure/bed/stool/chair/sofa/red{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/security/break_room)
 "gd" = (
 /obj/machinery/light,
-/obj/structure/bed/stool/chair/padded/sofa/left/comfy{
+/obj/structure/bed/stool/chair/sofa/left/red{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
