@@ -164,7 +164,7 @@
 /area/dungeon/bluespace_outpost)
 "aE" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/bed/stool/padded,
+/obj/item/stool/padded,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "aF" = (

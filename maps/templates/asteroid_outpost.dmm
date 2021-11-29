@@ -163,6 +163,11 @@
 	icon_state = "floor6"
 	},
 /area/derelict/ship)
+"aI" = (
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
+	},
+/area/derelict/ship)
 "aJ" = (
 /obj/item/material/shard,
 /turf/simulated/floor/shuttle{
@@ -177,6 +182,11 @@
 /obj/structure/alien/weeds,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
+	},
+/area/derelict/ship)
+"aM" = (
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
 	},
 /area/derelict/ship)
 "aN" = (
@@ -200,6 +210,11 @@
 /mob/living/simple_animal/hostile/carp/shark,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
+	},
+/area/derelict/ship)
+"aQ" = (
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
 	},
 /area/derelict/ship)
 "aR" = (
@@ -453,7 +468,7 @@
 /turf/simulated/floor,
 /area/derelict/ship)
 "bL" = (
-/obj/structure/bed/stool/padded/red,
+/obj/item/stool/padded,
 /turf/simulated/floor/lino,
 /area/derelict/ship)
 "bM" = (
@@ -3003,7 +3018,7 @@ ad
 ad
 aA
 aH
-aH
+aM
 aH
 aA
 ad
@@ -3056,7 +3071,7 @@ ad
 aA
 aH
 aN
-aH
+aQ
 aA
 ad
 ad
@@ -3158,7 +3173,7 @@ aa
 aa
 aa
 ab
-aH
+aI
 aH
 aR
 aA
