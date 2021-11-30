@@ -41,18 +41,18 @@
 	if(!ai_can_interact(user))
 		return
 	if(update_locked)
-		to_chat(user, SPAN_BAD("System locked. Please try again later.")
+		to_chat(user, SPAN_BAD("System locked. Please try again later."))
 		return
 
 	if(busy)
-		to_chat(user, SPAN_BAD("System is busy. Please wait until current operation is finished before changing power settings.")
+		to_chat(user, SPAN_BAD("System is busy. Please wait until current operation is finished before changing power settings."))
 		return
 
 	busy = 1
-	to_chat(user, SPAN_GOOD("Updating power settings...")
+	to_chat(user, SPAN_GOOD("Updating power settings..."))
 	if(do_after(user, 50))
 		set_state(!on)
-		to_chat(user, SPAN_GOOD("Update Completed. New setting:[on ? "on": "off"]")
+		to_chat(user, SPAN_GOOD("Update Completed. New setting:[on ? "on": "off"]"))
 		update_locked = 1
 		addtimer(CALLBACK(src, .proc/reset_locked), 600)
 	busy = 0
@@ -63,21 +63,21 @@
 
 /obj/machinery/power/breakerbox/attack_hand(mob/user)
 	if(update_locked)
-		to_chat(user, SPAN_BAD("System locked. Please try again later.")
+		to_chat(user, SPAN_BAD("System locked. Please try again later."))
 		return
 
 	if(busy)
-		to_chat(user, SPAN_BAD("System is busy. Please wait until current operation is finished before changing power settings.")
+		to_chat(user, SPAN_BAD("System is busy. Please wait until current operation is finished before changing power settings."))
 		return
 
 	busy = 1
 	for(var/mob/O in viewers(user))
-		O.show_message(text("<span class='warning'>[user] started reprogramming [src]!"), 1)
+		O.show_message(SPAN_WARNING("[user] started reprogramming [src]!"), 1)
 
 	if(do_after(user, 50))
 		set_state(!on)
 		user.visible_message(SPAN_NOTICE("[user.name] [on ? "enabled" : "disabled"] the breaker box!"), \
-							 SPAN_NOTICE("You [on ? "enabled" : "disabled"] the breaker box!")
+							 SPAN_NOTICE("You [on ? "enabled" : "disabled"] the breaker box!"))
 		update_locked = 1
 		addtimer(CALLBACK(src, .proc/reset_locked), 600)
 	busy = 0
