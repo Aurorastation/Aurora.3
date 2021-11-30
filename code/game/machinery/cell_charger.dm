@@ -19,7 +19,6 @@
 /obj/machinery/cell_charger/update_icon()
 	if(charging && !(stat & (BROKEN|NOPOWER)) )
 
-
 		var/newlevel = 	round(charging.percent() * 4.0 / 99)
 
 		if(chargelevel != newlevel)
