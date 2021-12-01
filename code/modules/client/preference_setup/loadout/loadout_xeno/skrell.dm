@@ -69,6 +69,12 @@
 	capes["galaxy cape"] = /obj/item/clothing/accessory/poncho/shouldercape/galaxy
 	gear_tweaks += new /datum/gear_tweak/path(capes)
 
+/datum/gear/accessory/qeblak
+	display_name = "qeblak mantle"
+	path = /obj/item/clothing/accessory/poncho/shouldercape/qeblak
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Skrell"
+
 /datum/gear/uniform/skrell
 	display_name = "qeblak ceremonial garment"
 	path = /obj/item/clothing/under/skrell/qeblak
