@@ -1,0 +1,9 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Replaced the high priority phoron canister bounty with the ability to export a phoron canister with more than 2000 moles for 2000 credits."
+  - rscadd: "Added a phoron scarcity bounty, assembled solar panels. Solar panels must be build by wrenching the assemblies, then adding glass to them."
+  - tweak: "Phoron scarcity bounties now only have a 60% chance of occuring a round. Otherwise, a random bounty will be made high priority."
+  - rscadd: "Printed bounty sheets now gets the fluff description too."
