@@ -2322,6 +2322,13 @@ Follow by example and make good judgement based on length which list to include 
 			length = 6
 			chatname = "Long Both Behind"
 
+		skr_tentacle_reef
+			name = "Skrell Reef Ponytail, short"
+			icon_state = "skrell_reef_short"
+			length = 4
+			chatname = "Ponytail, Reef"
+			scrunchy_style = "reef"
+
 //tajaran hair
 
 	taj_ears
