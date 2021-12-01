@@ -127,7 +127,7 @@
 
 /datum/gear/utility/pills
 	display_name = "pill bottle selection"
-	description = "A selection of prescription pill. NOTICE: most of these are considered contraband if possessed without the relevant prescription noted in the medical records."
+	description = "A selection of prescription pills. NOTICE: most of these are considered contraband if possessed without the relevant prescription noted in the medical records."
 	path = /obj/item/reagent_containers/pill
 
 /datum/gear/utility/pills/New()
