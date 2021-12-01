@@ -5346,11 +5346,14 @@
 /area/shuttle/skipjack)
 "aIu" = (
 /obj/machinery/telecomms/server/presets/service,
+/obj/effect/floor_decal/corner/pink{
+	dir = 10
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/template_noop)
+/area/centcom/control)
 "aIE" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "0,8"
@@ -6816,6 +6819,22 @@
 	icon_state = "wood"
 	},
 /area/centcom/bar)
+"aUl" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/yellow,
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/centcom/control)
 "aUm" = (
 /turf/simulated/floor/bluegrid,
 /area/tdome)
@@ -8836,11 +8855,14 @@
 /area/centcom/legion/hangar5)
 "bMM" = (
 /obj/machinery/telecomms/server/presets/common,
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/template_noop)
+/area/centcom/control)
 "bMQ" = (
 /turf/simulated/wall/shuttle/unique/mercenary{
 	icon_state = "2,7"
@@ -11415,12 +11437,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/administration)
-"dwV" = (
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
-/area/template_noop)
 "dxz" = (
 /obj/structure/shuttle_part/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -12836,11 +12852,14 @@
 /area/shuttle/administration)
 "erB" = (
 /obj/machinery/telecomms/server/presets/unused,
+/obj/effect/floor_decal/corner/white{
+	dir = 10
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/template_noop)
+/area/centcom/control)
 "erT" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "16,1"
@@ -13637,15 +13656,6 @@
 	},
 /turf/simulated/floor,
 /area/tdome/tdome1)
-"eQx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 10
-	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
-/area/centcom/control)
 "eRh" = (
 /obj/structure/shuttle_part/burglar{
 	icon_state = "7,0";
@@ -14190,11 +14200,16 @@
 /obj/structure/sign/nosmoking_2{
 	pixel_x = -32
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	nitrogen = 100;
-	oxygen = 0;
-	temperature = 80
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/pink,
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
 	},
 /area/centcom/control)
 "fid" = (
@@ -15008,6 +15023,9 @@
 /area/centcom/control)
 "fHJ" = (
 /obj/machinery/telecomms/server/presets/command,
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -15943,6 +15961,13 @@
 	},
 /turf/unsimulated/wall/darkshuttlewall,
 /area/centcom/checkpoint/fore)
+"gjd" = (
+/obj/machinery/telecomms/broadcaster/preset_right,
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/centcom/control)
 "gji" = (
 /obj/item/gun/projectile/automatic/wt550/lethal{
 	pixel_y = -1
@@ -16473,6 +16498,19 @@
 /obj/item/storage/box/drinkingglasses,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/skipjack)
+"gvZ" = (
+/obj/machinery/telecomms/bus/preset_three,
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/centcom/control)
 "gwf" = (
 /obj/item/stool/padded{
 	pixel_y = 10
@@ -16525,14 +16563,19 @@
 /turf/simulated/floor/plating,
 /area/merchant_station/warehouse)
 "gxH" = (
+/obj/effect/floor_decal/corner/pink{
+	dir = 5
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/grey{
 	dir = 8
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	nitrogen = 100;
-	oxygen = 0;
-	temperature = 80
+/obj/effect/floor_decal/corner/yellow,
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
 	},
 /area/centcom/control)
 "gxW" = (
@@ -16631,6 +16674,18 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/holding)
+"gAn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/centcom/control)
 "gAA" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 8
@@ -18896,7 +18951,13 @@
 /turf/space/dynamic,
 /area/shuttle/mercenary)
 "hYI" = (
-/obj/machinery/telecomms/bus/preset_two,
+/obj/machinery/telecomms/processor/preset_four,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -19358,6 +19419,9 @@
 /area/antag/burglar)
 "imd" = (
 /obj/machinery/telecomms/server/presets/security,
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -19608,7 +19672,13 @@
 /turf/simulated/floor/shuttle/black,
 /area/centcom/specops)
 "isK" = (
-/obj/machinery/telecomms/bus/preset_one,
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/purple{
+	dir = 9
+	},
+/obj/machinery/telecomms/processor/preset_one,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -21016,11 +21086,14 @@
 /area/centcom/control)
 "joL" = (
 /obj/machinery/telecomms/server/presets/supply,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/template_noop)
+/area/centcom/control)
 "joQ" = (
 /obj/structure/shuttle_part/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -21132,10 +21205,7 @@
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "jtE" = (
-/obj/machinery/telecomms/bus/preset_three,
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 5
-	},
+/obj/machinery/telecomms/receiver/preset_right,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -21727,7 +21797,13 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "jNq" = (
-/obj/machinery/telecomms/relay/preset/station,
+/obj/machinery/telecomms/bus/preset_four,
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -22731,6 +22807,24 @@
 	},
 /turf/unsimulated/floor,
 /area/antag/ninja)
+"kvy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/lime{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/centcom/control)
 "kvZ" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/unsimulated/floor,
@@ -23511,7 +23605,6 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "kWj" = (
-/obj/machinery/telecomms/receiver/preset_right,
 /obj/machinery/light,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
@@ -24306,7 +24399,13 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/administration)
 "lyj" = (
-/obj/machinery/telecomms/processor/preset_one,
+/obj/machinery/telecomms/processor/preset_three,
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -25426,6 +25525,24 @@
 	icon_state = "steel_dirty"
 	},
 /area/antag/raider)
+"meX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/purple{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/lime{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/centcom/control)
 "mfx" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/odin{
@@ -25686,6 +25803,9 @@
 /area/shuttle/legion)
 "moP" = (
 /obj/machinery/telecomms/server/presets/science,
+/obj/effect/floor_decal/corner/purple{
+	dir = 5
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -26713,11 +26833,18 @@
 /obj/structure/sign/nosmoking_2{
 	pixel_x = -32
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	nitrogen = 100;
-	oxygen = 0;
-	temperature = 80
+/obj/effect/floor_decal/corner/purple{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/purple{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/lime{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
 	},
 /area/centcom/control)
 "mUx" = (
@@ -28489,11 +28616,12 @@
 /turf/space/dynamic,
 /area/shuttle/merchant)
 "nTD" = (
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	nitrogen = 100;
-	oxygen = 0;
-	temperature = 80
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 8
+	},
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
 	},
 /area/centcom/control)
 "nUb" = (
@@ -32526,15 +32654,15 @@
 	},
 /area/shuttle/legion)
 "qKZ" = (
-/obj/machinery/telecomms/broadcaster/preset_right,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/bluespacerelay,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/template_noop)
+/area/centcom/control)
 "qLd" = (
 /obj/machinery/porta_turret/crescent,
 /obj/effect/floor_decal/industrial/warning/full,
@@ -33021,9 +33149,6 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/specops)
-"rec" = (
-/turf/unsimulated/wall/darkshuttlewall,
-/area/template_noop)
 "reg" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -33305,8 +33430,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/legion)
-"rnY" = (
-/obj/machinery/telecomms/bus/preset_four,
+"rmV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 4
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -34704,6 +34840,19 @@
 /turf/unsimulated/floor{
 	icon = 'icons/turf/flooring/carpet.dmi';
 	icon_state = "rub_carpet"
+	},
+/area/centcom/control)
+"soJ" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/pink{
+	dir = 6
+	},
+/obj/machinery/telecomms/bus/preset_two,
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
 	},
 /area/centcom/control)
 "sph" = (
@@ -36454,13 +36603,6 @@
 	icon_state = "wood"
 	},
 /area/centcom/control)
-"tBG" = (
-/obj/machinery/telecomms/processor/preset_three,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
-/area/centcom/control)
 "tBL" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 1
@@ -36889,6 +37031,9 @@
 /area/centcom/holding)
 "tOd" = (
 /obj/machinery/telecomms/server/presets/medical,
+/obj/effect/floor_decal/corner/lime{
+	dir = 5
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -37579,6 +37724,12 @@
 	},
 /area/tdome/tdomeobserve)
 "unU" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/pink{
+	dir = 6
+	},
 /obj/machinery/telecomms/processor/preset_two,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
@@ -38296,11 +38447,14 @@
 /area/antag/raider)
 "uOd" = (
 /obj/machinery/telecomms/server/presets/engineering,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/template_noop)
+/area/centcom/control)
 "uOx" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
@@ -38883,6 +39037,13 @@
 	icon_state = "panelscorched"
 	},
 /area/antag/raider)
+"vfb" = (
+/obj/machinery/ntnet_relay,
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/centcom/control)
 "vfE" = (
 /turf/simulated/wall/shuttle/unique/mercenary{
 	icon_state = "7,12"
@@ -41359,6 +41520,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/escape)
+"wEX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/white{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/pink,
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/centcom/control)
 "wFc" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/suit_cycler/syndicate{
@@ -43080,7 +43257,13 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "xDG" = (
-/obj/machinery/bluespacerelay,
+/obj/machinery/telecomms/bus/preset_one,
+/obj/effect/floor_decal/corner/purple{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -64529,7 +64712,7 @@ aaM
 aaM
 aaM
 aaM
-rec
+bYs
 joL
 fhm
 unU
@@ -64786,12 +64969,12 @@ aaM
 aaM
 aaM
 aaM
-rec
+bYs
 aIu
 gxH
 hYI
 lyj
-gxH
+kvy
 tOd
 bYs
 aaM
@@ -65043,12 +65226,12 @@ aaM
 aaM
 aaM
 aaM
-rec
+bYs
 erB
-gxH
-gkf
+wEX
+soJ
 xDG
-gxH
+meX
 fHJ
 bYs
 aaM
@@ -65300,12 +65483,12 @@ aaM
 aaM
 aaM
 aaM
-rec
+bYs
 bMM
-gxH
+aUl
 jNq
-xDG
-gxH
+gvZ
+rmV
 imd
 bYs
 aaM
@@ -65557,13 +65740,13 @@ aaM
 aaM
 aaM
 aaM
-rec
+bYs
 uOd
-gxH
-rnY
-tBG
-gxH
+gAn
+gkf
 uqK
+nTD
+vfb
 bYs
 aaM
 bYs
@@ -65814,12 +65997,12 @@ aaM
 aaM
 aaM
 aaM
-rec
+bYs
 qKZ
 nTD
-lRY
+gjd
 jtE
-gxH
+nTD
 kWj
 bYs
 bYs
@@ -66071,10 +66254,10 @@ aaM
 aaM
 aaM
 aaM
-rec
-dwV
-eQx
+bYs
+lRY
 hYf
+eLS
 eLS
 ukX
 dLE
