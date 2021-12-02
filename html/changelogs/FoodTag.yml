@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscdel: "Food and fruits will no longer show a piece of paper indicating their original name when renamed."
