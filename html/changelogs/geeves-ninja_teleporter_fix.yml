@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Teleporters from antag bases and admin areas can now reach the station, but the station cannot reach back to those areas."
