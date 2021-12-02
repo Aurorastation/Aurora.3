@@ -16,7 +16,7 @@
 			overlay_type = "glass"
 		else
 			overlay_type = "paper"
-		var/mutable_appearance/card_overlay = mutable_appearance(icon, "holder-[overlay_type]")
+		var/mutable_appearance/card_overlay = mutable_appearance(icon, "holder-overlay_[overlay_type]")
 		card_overlay.appearance_flags = RESET_COLOR
 		add_overlay(card_overlay)
 
