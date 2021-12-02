@@ -13,7 +13,6 @@
 		/decl/reagent/capsaicin/condensed = 2,
 		/decl/reagent/mindbreaker = 0.5,
 		/decl/reagent/lube = 4,
-		/decl/reagent/paint = 3,
 		/decl/reagent/drink/banana = 3,
 		/decl/reagent/space_drugs = 3,
 		/decl/reagent/water/holywater = 1,
@@ -44,16 +43,6 @@
 		/decl/reagent/psilocybin = 0.5,
 		/decl/reagent/toxin/spectrocybin = 0.1
 	)
-	var/list/paint_reagents = list(
-		/decl/reagent/crayon_dust/red,
-		/decl/reagent/crayon_dust/orange,
-		/decl/reagent/crayon_dust/yellow,
-		/decl/reagent/crayon_dust/green,
-		/decl/reagent/crayon_dust/blue,
-		/decl/reagent/crayon_dust/purple
-	)
-
-
 
 /datum/event/vent_clog/setup()
 	endWhen = rand(25, 100)
@@ -76,10 +65,6 @@
 			var/datum/reagents/R = new/datum/reagents(reagent_amount)
 			R.my_atom = vent
 			R.add_reagent(chem, reagent_amount)
-			if(chem == /decl/reagent/paint) // so it's not just paint
-				var/chem2 = pick(paint_reagents)
-				R.maximum_volume += 1
-				R.add_reagent(chem2, 1)
 
 			var/datum/effect/effect/system/smoke_spread/chem/smoke = new
 			smoke.show_log = 0 // This displays a log on creation
@@ -88,7 +73,6 @@
 			playsound(vent.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
 			smoke.start()
 			qdel(R)
-
 
 /datum/event/vent_clog/announce()
 	command_announcement.Announce("The scrubbers network is experiencing a backpressure surge. Some ejection of contents may occur.", "Atmospherics alert", new_sound = 'sound/AI/scrubbers.ogg')
