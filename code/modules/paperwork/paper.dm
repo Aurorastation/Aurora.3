@@ -90,7 +90,7 @@
 
 /obj/item/paper/examine(mob/user)
 	. = ..()
-	if (old_name && icon_state == "paper_plane" || icon_state == "paper_swan")
+	if (old_name && (icon_state == "paper_plane" || icon_state == "paper_swan"))
 		to_chat(user, SPAN_NOTICE("You're going to have to unfold it before you can read it."))
 		return
 	if(name != initial(name))
@@ -99,7 +99,6 @@
 		show_content(usr)
 	else
 		to_chat(user, SPAN_NOTICE("You have to go closer if you want to read it."))
-
 
 /obj/item/paper/proc/show_content(mob/user, forceshow)
 	var/datum/browser/paper_win = new(user, name, null, 450, 500, null, TRUE)
@@ -180,20 +179,11 @@
 		name = "origami swan"
 		return
 
-	if (user.a_intent == I_HELP && old_name && icon_state == "paper_plane")
+	if (user.a_intent == I_HELP && old_name && (icon_state == "paper_plane" || icon_state == "paper_swan"))
 		user.visible_message(SPAN_NOTICE("\The [user] unfolds \the [src]."), SPAN_NOTICE("You unfold \the [src]."), "You hear paper rustling.")
 		playsound(src, 'sound/bureaucracy/paperfold.ogg', 50, 1)
 		icon_state = initial(icon_state)
 		throw_range = initial(throw_range)
-		name = old_name
-		old_name = null
-		update_icon()
-		return
-
-	if (user.a_intent == I_HELP && old_name && icon_state == "paper_swan")
-		user.visible_message(SPAN_NOTICE("\The [user] unfolds \the [src]."), SPAN_NOTICE("You unfold \the [src]."), "You hear paper rustling.")
-		playsound(src, 'sound/bureaucracy/paperfold.ogg', 50, 1)
-		icon_state = initial(icon_state)
 		name = old_name
 		old_name = null
 		update_icon()
