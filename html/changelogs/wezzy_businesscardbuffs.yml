@@ -39,4 +39,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - rscadd: "Adds new show-off function to business cards."
-  - imageadd: "Updates sprites for origami swans and business card related stuff."
+  - imageadd: "Updates sprites for origami swans, purses and business card related stuff."
