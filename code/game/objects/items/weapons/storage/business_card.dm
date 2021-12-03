@@ -12,7 +12,8 @@
 	cut_overlays()
 	var/overlay_type
 	if(length(contents))
-		if(contents.type == /obj/item/paper/business_card/glass) // Could be better, I guess. But it works well enough.
+		var/obj/O = contents[1]
+		if(istype(O, /obj/item/paper/business_card/glass)) // Could be better, I guess. But it works well enough.
 			overlay_type = "glass"
 		else
 			overlay_type = "paper"
