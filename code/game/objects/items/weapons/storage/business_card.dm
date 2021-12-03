@@ -30,7 +30,6 @@
 /obj/item/storage/business_card_holder/plastic
 	icon_state = "holder_plastic"
 
-/obj/item/paper/business_card/attack_self(mob/living/user)
 
 /obj/item/paper/business_card
 	name = "business card"
