@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes:
-  - rscdel: "Briefcases with captain gear no longer shows up in the warehouse loot."

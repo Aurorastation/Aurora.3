@@ -74,7 +74,7 @@
 	},
 /area/derelict)
 "m" = (
-/obj/structure/bed/chair/office/bridge{
+/obj/structure/bed/stool/chair/office/bridge{
 	icon_state = "bridge";
 	dir = 4
 	},

@@ -2281,7 +2281,7 @@
 /turf/simulated/floor/tiled,
 /area/security/break_room)
 "fc" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /turf/simulated/floor/tiled,
 /area/security/break_room)
 "fd" = (
@@ -2343,7 +2343,7 @@
 /turf/simulated/floor/tiled,
 /area/security/break_room)
 "fl" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2366,7 +2366,7 @@
 /turf/simulated/floor/tiled,
 /area/security/break_room)
 "fn" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -2443,7 +2443,7 @@
 /turf/simulated/floor/wood,
 /area/security/training_theoretical)
 "fB" = (
-/obj/structure/bed/chair/comfy/brown,
+/obj/structure/bed/stool/chair/padded/brown,
 /obj/effect/landmark/start{
 	name = "Head of Security"
 	},
@@ -2470,7 +2470,7 @@
 /turf/simulated/floor/plating,
 /area/security/training_theoretical)
 "fF" = (
-/obj/structure/bed/chair/comfy/sofa/left/comfy{
+/obj/structure/bed/stool/chair/sofa/left/red{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -2541,20 +2541,20 @@
 /turf/simulated/floor/plating,
 /area/security/training_theoretical)
 "gb" = (
-/obj/structure/bed/chair/comfy/sofa/corner/comfy{
+/obj/structure/bed/stool/chair/sofa/corner{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/security/break_room)
 "gc" = (
-/obj/structure/bed/chair/comfy/sofa/comfy{
+/obj/structure/bed/stool/chair/sofa/red{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/security/break_room)
 "gd" = (
 /obj/machinery/light,
-/obj/structure/bed/chair/comfy/sofa/left/comfy{
+/obj/structure/bed/stool/chair/sofa/left/red{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
@@ -2744,7 +2744,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /obj/machinery/alarm{
@@ -2757,7 +2757,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/training_theoretical)
 "gZ" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /obj/effect/landmark/start{
@@ -2774,7 +2774,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /obj/item/device/radio/intercom{
@@ -3062,7 +3062,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /obj/effect/landmark/start{
@@ -3071,7 +3071,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/training_theoretical)
 "hH" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /obj/machinery/firealarm/south,
@@ -3094,7 +3094,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /obj/machinery/light_switch{
@@ -4167,7 +4167,7 @@
 /area/medical/psych)
 "kK" = (
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 4
 	},
 /obj/machinery/light{
@@ -4199,7 +4199,7 @@
 /area/medical/psych)
 "kP" = (
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -4388,7 +4388,7 @@
 /turf/simulated/floor/tiled,
 /area/medical/psych)
 "lf" = (
-/obj/structure/bed/chair/wheelchair,
+/obj/structure/bed/stool/chair/wheelchair,
 /turf/simulated/floor/tiled,
 /area/medical/psych)
 "lg" = (
@@ -4474,7 +4474,7 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 9
 	},
-/obj/structure/bed/chair/plastic,
+/obj/structure/bed/stool/chair/plastic,
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "lq" = (
@@ -4563,7 +4563,7 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 9
 	},
-/obj/structure/bed/chair/plastic{
+/obj/structure/bed/stool/chair/plastic{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
@@ -4597,7 +4597,7 @@
 /turf/simulated/floor/carpet,
 /area/medical/psych)
 "lB" = (
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 1
 	},
 /obj/machinery/button/switch/windowtint{
@@ -4752,7 +4752,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "lO" = (
-/obj/structure/bed/chair/comfy/brown{
+/obj/structure/bed/stool/chair/padded/brown{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -4917,7 +4917,7 @@
 /turf/simulated/floor/tiled,
 /area/security/training)
 "ml" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /obj/machinery/requests_console{
@@ -4956,7 +4956,7 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 6
 	},
-/obj/structure/bed/chair/plastic{
+/obj/structure/bed/stool/chair/plastic{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -5363,7 +5363,7 @@
 	pixel_y = -29
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/stool/chair/padded/black{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -5449,7 +5449,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/pink{
@@ -6444,7 +6444,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_interstitial)
 "vc" = (
-/obj/structure/bed/chair/unmovable{
+/obj/structure/bed/stool/chair/unmovable{
 	dir = 1
 	},
 /obj/item/handcuffs,
@@ -7128,11 +7128,11 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/bed/chair/office/light,
+/obj/structure/bed/stool/chair/office/light,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay_virology)
 "Ab" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /obj/effect/landmark/start{
@@ -7577,7 +7577,7 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_construction_site/office)
 "CX" = (
-/obj/structure/bed/chair/office/dark,
+/obj/structure/bed/stool/chair/office/dark,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
@@ -7959,7 +7959,7 @@
 /turf/simulated/floor/plating,
 /area/security/training_theoretical)
 "Ff" = (
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -8039,7 +8039,7 @@
 	pixel_y = 29
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/stool/chair/padded/black{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -8254,7 +8254,7 @@
 /turf/simulated/floor/airless,
 /area/maintenance/interstitial_construction_site/zone_2)
 "GP" = (
-/obj/structure/bed/chair/office/dark,
+/obj/structure/bed/stool/chair/office/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
@@ -8926,7 +8926,7 @@
 /obj/effect/floor_decal/corner/pink/full{
 	dir = 4
 	},
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -10107,7 +10107,7 @@
 /obj/effect/floor_decal/corner/pink/full{
 	dir = 1
 	},
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/cobweb2,
@@ -10557,7 +10557,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
 "RX" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /turf/simulated/floor/plating,
 /area/maintenance/elevator)
 "Sb" = (
@@ -10696,7 +10696,7 @@
 /area/maintenance/interstitial_construction_site)
 "SF" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/bed/chair/wheelchair{
+/obj/structure/bed/stool/chair/wheelchair{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -10809,7 +10809,7 @@
 /obj/effect/floor_decal/corner/pink{
 	dir = 6
 	},
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
@@ -10971,7 +10971,7 @@
 	dir = 10
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
@@ -11169,7 +11169,7 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_y = -32
 	},
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/pink/full,
@@ -11288,7 +11288,7 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
 "Wm" = (
-/obj/structure/bed/chair/wheelchair{
+/obj/structure/bed/stool/chair/wheelchair{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
