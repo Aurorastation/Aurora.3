@@ -22,7 +22,7 @@
 		add_overlay(card_overlay)
 
 /obj/item/storage/business_card_holder/wood
-	icon_state = "holder_plastic"
+	icon_state = "holder_wood"
 
 /obj/item/storage/business_card_holder/leather
 	icon_state = "holder_plastic"
