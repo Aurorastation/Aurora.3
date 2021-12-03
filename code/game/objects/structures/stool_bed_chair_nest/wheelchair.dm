@@ -4,6 +4,7 @@
 	icon_state = "wheelchair"
 	anchored = 0
 	buckle_movable = 1
+	held_item = /obj/item/wheelchair
 
 	var/driving = 0
 	var/mob/living/pulling = null
@@ -205,7 +206,6 @@
 	R.add_fingerprint(user)
 	R.name = src.name
 	R.desc = src.desc
-	R.color = src.color
 	qdel(src)
 
 /obj/structure/bed/stool/chair/wheelchair/MouseDrop(over_object, src_location, over_location)
@@ -221,5 +221,4 @@
 	R.name = src.name
 	R.desc = src.desc
 	R.color = src.color
-	usr.put_in_hands(R)
 	qdel(src)
