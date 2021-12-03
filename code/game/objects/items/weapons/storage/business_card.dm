@@ -25,7 +25,7 @@
 	icon_state = "holder_wood"
 
 /obj/item/storage/business_card_holder/leather
-	icon_state = "holder_plastic"
+	icon_state = "holder_leather"
 
 /obj/item/storage/business_card_holder/plastic
 	icon_state = "holder_plastic"
