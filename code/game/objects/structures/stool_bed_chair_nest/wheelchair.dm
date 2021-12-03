@@ -207,6 +207,7 @@
 	R.add_fingerprint(user)
 	R.name = src.name
 	R.desc = src.desc
+	R.color = src.color
 	qdel(src)
 
 /obj/structure/bed/stool/chair/wheelchair/MouseDrop(over_object, src_location, over_location)
@@ -222,4 +223,5 @@
 	R.name = src.name
 	R.desc = src.desc
 	R.color = src.color
+	usr.put_in_hands(R)
 	qdel(src)
