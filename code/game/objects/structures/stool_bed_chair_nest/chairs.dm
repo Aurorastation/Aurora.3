@@ -3,6 +3,7 @@
 	desc = "You sit in this. Either by will or force."
 	icon_state = "chair_preview"
 	base_icon = "chair"
+	anchored = TRUE
 	build_amt = 1
 	buckle_dir = 0
 	buckle_lying = 0 //force people to sit up in chairs when buckled_to
@@ -13,12 +14,6 @@
 /obj/structure/bed/stool/chair/Initialize()
 	. = ..()
 	LAZYADD(can_buckle, /mob/living)
-
-/obj/structure/bed/stool/chair/MouseDrop(over_object, src_location, over_location)
-	if(padding_material) // No picking up padded chairs. For reasons.
-		return
-	else
-		. = ..()
 
 /obj/structure/bed/stool/chair/do_simple_ranged_interaction(var/mob/user)
 	if(!buckled && user)
@@ -86,8 +81,9 @@
 	return ..()
 
 /obj/structure/bed/stool/chair/CanPass(atom/movable/mover, turf/target, height, air_group)
-	if(mover.density && isliving(mover) && (reverse_dir[dir] & angle2dir(Get_Angle(src, mover))))
-		return FALSE
+	if(anchored)
+		if(mover.density && isliving(mover) && (reverse_dir[dir] & angle2dir(Get_Angle(src, mover))))
+			return FALSE
 	return ..()
 
 /obj/structure/bed/stool/chair/padded/brown/New(var/newloc)
@@ -244,44 +240,58 @@
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_LIME)
 
 
-/obj/structure/bed/stool/chair/office
+/obj/structure/bed/stool/chair/office // For the love of god, don't use this.
 	name = "office chair"
 	material_alteration = MATERIAL_ALTERATION_DESC
 	makes_rolling_sound = TRUE
-	anchored = 0
-	buckle_movable = 1
+	anchored = FALSE
+	buckle_movable = TRUE
 	build_amt = 5
 	held_item = null
 
-/obj/structure/bed/stool/chair/office/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/stack) || W.iswirecutter())
-		return
-	..()
+	can_pad = FALSE
+
+	var/driving = FALSE // Shit for wheelchairs. Doesn't really get used here, but it's for code cleanliness.
+	var/mob/living/pulling = null
 
 /obj/structure/bed/stool/chair/office/Move()
 	. = ..()
 	if(makes_rolling_sound)
-		playsound(src, 'sound/effects/roll.ogg', 100, 1)
+		playsound(src, 'sound/effects/roll.ogg', 50, 1)
 	if(buckled)
 		var/mob/living/occupant = buckled
-		occupant.buckled_to = null
-		occupant.Move(src.loc)
-		occupant.buckled_to = src
-		if (occupant && (src.loc != occupant.loc))
-			if (propelled)
-				for (var/mob/O in src.loc)
-					if (O != occupant)
-						Collide(O)
-			else
-				unbuckle()
+		if(!driving)
+			occupant.buckled_to = null
+			occupant.Move(src.loc)
+			occupant.buckled_to = src
+			if (occupant && (src.loc != occupant.loc))
+				if (propelled)
+					for (var/mob/O in src.loc)
+						if (O != occupant)
+							Collide(O)
+				else
+					unbuckle()
+			if (pulling && (get_dist(src, pulling) > 1))
+				pulling.pulledby = null
+				to_chat(pulling, SPAN_WARNING("You lost your grip!"))
+				pulling = null
+		else
+			if (occupant && (src.loc != occupant.loc))
+				src.forceMove(occupant.loc) // Failsafe to make sure the wheelchair stays beneath the occupant after driving
+
 
 /obj/structure/bed/stool/chair/office/Collide(atom/A)
 	. = ..()
 	if(!buckled)
 		return
 
-	if(propelled)
+	if(propelled || (pulling && (pulling.a_intent == I_HURT)))
 		var/mob/living/occupant = unbuckle()
+
+		if (pulling && (pulling.a_intent == I_HURT))
+			occupant.throw_at(A, 3, 3, pulling)
+		else if (propelled)
+			occupant.throw_at(A, 3, propelled)
 
 		var/def_zone = ran_zone()
 		occupant.throw_at(A, 3, propelled)
@@ -297,7 +307,14 @@
 			victim.apply_effect(6, WEAKEN)
 			victim.apply_effect(6, STUTTER)
 			victim.apply_damage(10, BRUTE, def_zone)
-		occupant.visible_message("<span class='danger'>[occupant] crashed into \the [A]!</span>")
+
+		if(pulling)
+			occupant.visible_message(SPAN_DANGER("[pulling] has thrusted \the [name] into \the [A], throwing \the [occupant] out of it!"))
+			pulling.attack_log += "\[[time_stamp()]\]<span class='warning'> Crashed [occupant.name]'s ([occupant.ckey]) [name] into \a [A]"
+			occupant.attack_log += "\[[time_stamp()]\]<font color='orange'> Thrusted into \a [A] by [pulling.name] ([pulling.ckey]) with \the [name]</font>"
+			msg_admin_attack("[pulling.name] ([pulling.ckey]) has thrusted [occupant.name]'s ([occupant.ckey]) [name] into \a [A] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[pulling.x];Y=[pulling.y];Z=[pulling.z]'>JMP</a>)",ckey=key_name(pulling),ckey_target=key_name(occupant))
+		else
+			occupant.visible_message(SPAN_DANGER("[occupant] crashed into \the [A]!"))
 
 /obj/structure/bed/stool/chair/office/light
 	icon_state = "officechair_white_preview"
@@ -312,7 +329,7 @@
 	desc = "It exudes authority... and looks about as comfortable as a brick."
 	icon_state = "bridge_preview"
 	base_icon = "bridge"
-	anchored = 1
+	anchored = TRUE
 
 /obj/structure/bed/stool/chair/office/bridge/legion
 	name = "legion pilot seat"
@@ -337,6 +354,7 @@
 	base_icon = "hover_chair"
 	makes_rolling_sound = FALSE
 	can_dismantle = FALSE
+	can_pad = TRUE
 	held_item = null
 
 /obj/structure/bed/stool/chair/office/hover/New(var/newloc)
@@ -361,11 +379,7 @@
 	material_alteration = MATERIAL_ALTERATION_NAME || MATERIAL_ALTERATION_DESC
 	build_amt = 3
 	held_item = /obj/item/material/stool/chair/wood
-
-/obj/structure/bed/stool/chair/wood/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/stack) || W.iswirecutter())
-		return
-	..()
+	can_pad = FALSE
 
 /obj/structure/bed/stool/chair/wood/New(var/newloc)
 	..(newloc, MATERIAL_WOOD)
@@ -438,7 +452,7 @@
 	desc = "Bar brawl essential. Now all that's missing is a ragtime piano."
 	desc_info = "Click it while in hand to right it."
 	icon = 'icons/obj/furniture.dmi'
-	icon_state = "chair_toppled"
+	icon_state = "chair_item"
 	item_state = "chair"
 	base_icon = "chair"
 	item_icons = list(
@@ -451,19 +465,19 @@
 
 // Because wood chairs are snowflake sprites.
 /obj/item/material/stool/chair/wood
-	icon_state = "wooden_chair_toppled"
+	icon_state = "wooden_chair_item"
 	item_state = "woodenchair"
 	base_icon = "wooden_chair"
 	origin_type = /obj/structure/bed/stool/chair/wood
 
 /obj/item/material/stool/chair/wood/wings
-	icon_state = "wooden_chair_wings_toppled"
+	icon_state = "wooden_chair_wings_item"
 	item_state = "woodenchair"
-	base_icon= "wooden_chair_wings"
+	base_icon = "wooden_chair_wings"
 	origin_type = /obj/structure/bed/stool/chair/wood/wings
 
 /obj/item/material/stool/chair/folding // Todo : "borrow" CM code for stacking and general tomfoolery.
-	icon_state = "folding_chair_toppled"
+	icon_state = "folding_chair_item"
 	item_state = "folding_chair"
 	base_icon = "folding_chair"
 	origin_type = /obj/structure/bed/stool/chair/folding

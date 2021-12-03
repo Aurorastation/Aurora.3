@@ -26,9 +26,11 @@
 	var/buckling_sound = 'sound/effects/buckle.ogg'
 
 	var/can_dismantle = TRUE
+	var/can_pad = TRUE
+
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	var/makes_rolling_sound = FALSE
-	var/held_item = null
+	var/held_item = null // Set to null if you don't want people to pick this up. 
 	slowdown = 5
 
 /obj/structure/bed/Initialize()
@@ -118,14 +120,16 @@
 /obj/structure/bed/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.iswrench())
 		if(can_dismantle)
-			playsound(src.loc, W.usesound, 50, 1)
-			dismantle()
+			dismantle(W, user)
 	else if(istype(W,/obj/item/stack))
+		if(!can_pad)
+			return
 		if(padding_material)
 			to_chat(user, "\The [src] is already padded.")
 			return
 		var/obj/item/stack/C = W
 		if(C.get_amount() < 1) // How??
+			to_chat(user, SPAN_WARNING("You don't have enough [C]!"))
 			qdel(C)
 			return
 		var/padding_type //This is awful but it needs to be like this until tiles are given a material var.
@@ -147,6 +151,8 @@
 		return
 
 	else if (W.iswirecutter())
+		if(!can_pad)
+			return
 		if(!padding_material)
 			to_chat(user, "\The [src] has no padding to remove.")
 			return
@@ -163,9 +169,9 @@
 			spawn(0)
 				if(buckle(affecting))
 					affecting.visible_message(\
-						"<span class='danger'>[affecting.name] is buckled to [src] by [user.name]!</span>",\
-						"<span class='danger'>You are buckled to [src] by [user.name]!</span>",\
-						"<span class='notice'>You hear metal clanking.</span>")
+						SPAN_DANGER("[affecting.name] is buckled to [src] by [user.name]!"),\
+						SPAN_DANGER("You are buckled to [src] by [user.name]!"),\
+						SPAN_NOTICE("You hear metal clanking."))
 			qdel(W)
 
 	else if(istype(W, /obj/item/gripper) && buckled)
@@ -191,10 +197,14 @@
 	padding_material = SSmaterials.get_material_by_name(padding_type)
 	update_icon()
 
-/obj/structure/bed/dismantle()
-	if(padding_material)
-		padding_material.place_sheet(get_turf(src))
-	..()
+/obj/structure/bed/dismantle(obj/item/W, mob/user)
+	playsound(src.loc, W.usesound, 50, 1)
+	user.visible_message("<b>[user]</b> begins dismantling \the [src].", SPAN_NOTICE("You begin dismantling \the [src]."))
+	if(!do_after(user, 20 / W.toolspeed))
+		user.visible_message("\The [user] dismantles \the [src].", SPAN_NOTICE("You dismantle \the [src]."))
+		if(padding_material)
+			padding_material.place_sheet(get_turf(src))
+		..()
 
 /obj/structure/bed/psych
 	name = "psychiatrist's couch"

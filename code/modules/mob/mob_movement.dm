@@ -280,7 +280,7 @@
 
 			//TODO: Fuck wheelchairs.
 			//Toss away all this snowflake code here, and rewrite wheelchairs as a vehicle.
-			else if(istype(mob.buckled_to, /obj/structure/bed/stool/chair/wheelchair))
+			else if(istype(mob.buckled_to, /obj/structure/bed/stool/chair/office/wheelchair))
 				var/min_move_delay = 0
 				if(ishuman(mob.buckled_to))
 					var/mob/living/carbon/human/driver = mob.buckled_to
@@ -325,7 +325,7 @@
 
 		//Wheelchair pushing goes here for now.
 		//TODO: Fuck wheelchairs.
-		if(istype(mob.pulledby, /obj/structure/bed/stool/chair/wheelchair) || istype(mob.pulledby, /obj/structure/janitorialcart))
+		if(istype(mob.pulledby, /obj/structure/bed/stool/chair/office/wheelchair) || istype(mob.pulledby, /obj/structure/janitorialcart))
 			move_delay += 1
 			return mob.pulledby.relaymove(mob, direct)
 

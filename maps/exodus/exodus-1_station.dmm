@@ -33900,7 +33900,7 @@
 	name = "north bump";
 	pixel_y = 24
 	},
-/obj/structure/bed/stool/chair/wheelchair,
+/obj/structure/bed/stool/chair/office/wheelchair,
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"

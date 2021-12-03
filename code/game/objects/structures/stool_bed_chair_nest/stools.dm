@@ -8,6 +8,7 @@
 	buckle_lying = FALSE //force people to sit up in chairs when buckled
 	build_amt = 2
 	held_item = /obj/item/material/stool // if null it can't be picked up. Automatically applies materials.
+	var/withdraw_verb = "grab"  //Self explanatory. Replace if necessary.
 
 /obj/structure/bed/stool/Initialize()
 	. = ..()
@@ -16,9 +17,9 @@
 /obj/structure/bed/stool/MouseDrop(over_object, src_location, over_location)
 	. = ..()
 	if(over_object == usr && Adjacent(usr))
-		if(!held_item || use_check_and_message(usr) || buckled || !can_dismantle)
+		if(!held_item || use_check_and_message(usr) || buckled || !can_dismantle || (anchored && padding_material))
 			return
-		usr.visible_message(SPAN_NOTICE("[usr] grabs \the [src.name]."), SPAN_NOTICE("You grab \the [src.name]."))
+		usr.visible_message(SPAN_NOTICE("[usr] [withdraw_verb]s \the [src.name]."), SPAN_NOTICE("You [withdraw_verb] \the [src.name]."))
 		var/obj/item/material/stool/S = new held_item(src.loc, material.name, padding_material ? padding_material.name : null) // Handles all the material code so you don't have to.
 		TransferComponents(S)
 		if(material_alteration & MATERIAL_ALTERATION_COLOR) // For snowflakes like wood chairs.
@@ -135,7 +136,7 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_chairs.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_chairs.dmi',
 		)
-	icon_state = "stool_toppled_preview"
+	icon_state = "stool_item_preview"
 	item_state = "stool"
 	var/base_icon = "stool"
 	desc_info = "Use in-hand or alt-click to right this."
@@ -150,6 +151,7 @@
 	applies_material_colour = FALSE
 	var/material/padding_material
 	var/obj/structure/bed/stool/origin_type = /obj/structure/bed/stool
+	var/deploy_verb = "right"
 
 /obj/item/material/stool/New(var/newloc, var/new_material, var/new_padding_material)
 	..(newloc, new_material)	// new_material handled in material_weapons.dm
@@ -210,7 +212,7 @@
 			to_chat(user, SPAN_DANGER("There is already something here."))
 			return
 
-	user.visible_message(SPAN_NOTICE("[user] rights \the [src.name]."), SPAN_NOTICE("You right \the [name]."))
+	user.visible_message(SPAN_NOTICE("[user] [deploy_verb]s \the [src.name]."), SPAN_NOTICE("You [deploy_verb] \the [name]."))
 	// playsound(src, deploy_sound ? deploy_sound : drop_sound, DROP_SOUND_VOLUME)
 	user.drop_from_inventory(src)
 	var/obj/structure/bed/stool/S = new origin_type(get_turf(loc))
@@ -224,10 +226,10 @@
 	qdel(src)
 
 /obj/item/material/stool/update_icon()
-	icon_state = "[base_icon]_toppled"
+	icon_state = "[base_icon]_item"
 	cut_overlays()
 	if(padding_material)	// Handles padding overlay and inhand overlays.
-		var/image/padding_overlay = image(icon, "[base_icon]_toppled_padding")
+		var/image/padding_overlay = image(icon, "[base_icon]_item_padding")
 		padding_overlay.appearance_flags = RESET_COLOR
 		build_from_parts = TRUE
 		worn_overlay = "padding"
@@ -261,13 +263,13 @@
 				return
 
 /obj/item/material/stool/bar
-	icon_state = "bar_stool_toppled_preview"
+	icon_state = "bar_stool_item_preview"
 	item_state = "bar_stool"
 	base_icon = "bar_stool"
 	origin_type = /obj/structure/bed/stool/bar
 
 /obj/item/material/stool/hover
-	icon_state = "hover_stool_toppled"
+	icon_state = "hover_stool_item"
 	item_state = "hover_stool"
 	base_icon = "hover_stool"
 	origin_type = /obj/structure/bed/stool/hover
