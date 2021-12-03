@@ -200,6 +200,7 @@
 	icon_state = "wheelchair_folded"
 	item_state = "wheelchair"
 	w_class = ITEMSIZE_HUGE // Can't be put in backpacks. Oh well.
+	origin_type = /obj/structure/bed/stool/chair/wheelchair
 
 /obj/item/wheelchair/attack_self(mob/user)
 	var/obj/structure/bed/stool/chair/wheelchair/R = new /obj/structure/bed/stool/chair/wheelchair(user.loc)
