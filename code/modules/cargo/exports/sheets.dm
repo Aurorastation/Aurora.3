@@ -47,24 +47,24 @@
 // For base materials, see materials.dm
 
 /datum/export/stack/plasteel
-	cost = 155 // 2000u of plasma + 2000u of metal.
+	cost = 0.6
 	message = "of plasteel"
 	export_types = list(/obj/item/stack/material/plasteel)
 
-// 1 glass + 0.5 metal, cost is rounded up.
+// 1 glass + 0.5 metal
 /datum/export/stack/rglass
-	cost = 8
+	cost = 0.6
 	message = "of reinforced glass"
 	export_types = list(/obj/item/stack/material/glass/reinforced)
 
 
 /datum/export/stack/wood
-	cost = 30
+	cost = 0.4
 	unit_name = "wood plank"
 	export_types = list(/obj/item/stack/material/wood)
 
 /datum/export/stack/cardboard
-	cost = 2
+	cost = 0.4
 	message = "of cardboard"
 	export_types = list(/obj/item/stack/material/cardboard)
 
