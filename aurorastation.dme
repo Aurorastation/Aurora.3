@@ -3041,6 +3041,8 @@
 #include "maps\aurora\code\aurora_shuttles.dm"
 #include "maps\aurora\code\aurora_unittest.dm"
 #include "maps\event\code\event.dm"
+#include "maps\event\odin_departure\code\odin_departure_areas.dm"
+#include "maps\event\odin_departure\code\odin_depature.dm"
 #include "maps\event\rooftop\code\rooftop.dm"
 #include "maps\event\rooftop\code\rooftop_areas.dm"
 #include "maps\event\rooftop\code\rooftop_shuttles.dm"
