@@ -69,6 +69,9 @@
 /obj/structure/bed/stool/padded/lime/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_LIME)
 
+/obj/structure/bed/stool/wood/New(var/newloc)
+	..(newloc, MATERIAL_WOOD)
+
 /obj/structure/bed/stool/bar
 	name = "bar stool"
 	desc = "It has some unsavory stains on it..."
@@ -85,9 +88,6 @@
 
 /obj/structure/bed/stool/bar/padded/brown/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)
-
-/obj/structure/bed/stool/bar/padded/red/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CARPET)
 
 /obj/structure/bed/stool/bar/padded/red/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CARPET)

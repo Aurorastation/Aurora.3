@@ -2222,7 +2222,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/foresolar)
 "bIY" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/lounge)
 "bJN" = (
@@ -12186,7 +12186,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
 "kFc" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
