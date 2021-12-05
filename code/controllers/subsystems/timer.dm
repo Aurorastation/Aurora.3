@@ -458,15 +458,26 @@ var/datum/controller/subsystem/timer/SStimer
 		CRASH("addtimer called without a callback")
 
 	if (wait < 0)
-		crash_with("addtimer called with a negative wait. Converting to 0")
+		CRASH("addtimer called with a negative wait. Converting to 0")
 
 	if (callback.object != GLOBAL_PROC && QDELETED(callback.object) && !QDESTROYING(callback.object))
-		crash_with("addtimer called with a callback assigned to a qdeleted object. In the future such timers will not be supported and may refuse to run or run with a 0 wait")
+		CRASH("addtimer called with a callback assigned to a qdeleted object. In the future such timers will not be supported and may refuse to run or run with a 0 wait")
 
 	wait = max(wait, 0)
 
 	if(wait >= INFINITY)
 		CRASH("Attempted to create timer with INFINITY delay")
+
+	var/static/created_in_tick = 0
+	var/static/last_created_count = 0
+
+	if (last_created_count != world.time)
+		created_in_tick = 1
+		last_created_count = world.time
+	else
+		last_created_count++
+		if (last_created_count == 100)
+			CRASH(">= 100 timers created in a single tick.")
 
 	var/hash
 
