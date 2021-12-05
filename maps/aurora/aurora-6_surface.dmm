@@ -6320,7 +6320,7 @@
 /turf/simulated/wall/r_wall,
 /area/tcommsat/lounge)
 "fxD" = (
-/obj/structure/bed/chair/comfy/sofa/leather,
+/obj/structure/bed/stool/chair/sofa/brown,
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1"
@@ -19001,7 +19001,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/structure/bed/chair/comfy/sofa/left/leather,
+/obj/structure/bed/stool/chair/sofa/left/brown,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
@@ -20318,7 +20318,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "rvJ" = (
-/obj/structure/bed/chair/comfy/sofa/leather,
+/obj/structure/bed/stool/chair/sofa/brown,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
@@ -20912,7 +20912,7 @@
 /turf/simulated/floor/tiled/old,
 /area/store)
 "rTT" = (
-/obj/structure/bed/chair/comfy/sofa/right/leather,
+/obj/structure/bed/stool/chair/sofa/right/brown,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
