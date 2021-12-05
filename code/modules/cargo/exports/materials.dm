@@ -49,13 +49,13 @@
 	message = "platinum sheets"
 
 /datum/export/material/metal
-	cost = 0.4
+	cost = 1
 	material_id = "metal"
 	message = "metal sheets"
 
 
 /datum/export/material/glass
-	cost = 0.4
+	cost = 1
 	material_id = "glass"
 	message = "glass sheets"
 
