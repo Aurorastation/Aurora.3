@@ -1,7 +1,0 @@
-author: TheGreyWolf & RyverStyx
-
-delete-after: True
-
-changes:
-  - rscadd: "Added the qeblak mantle to the skrell loadout. It is selectable by skrell & diona."
-  - bugfix: "Fixed the various skrell capes not showing up when worn in the suit slot."
