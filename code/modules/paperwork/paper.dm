@@ -31,6 +31,8 @@
 	var/rigged = 0
 	var/last_honk = 0
 	var/old_name		// The name of the paper before it was folded into a plane.
+	var/can_fold = TRUE		// If it can be folded into a plane or swan
+	var/paper_like = TRUE		// Is it made of paper and/or burnable material?
 
 	var/const/deffont = "Verdana"
 	var/const/signfont = "Times New Roman"
@@ -96,7 +98,7 @@
 	if(name != initial(name))
 		to_chat(user,"It's titled '[name]'.")
 	if(in_range(user, src) || isobserver(user) || in_slide_projector(user))
-		show_content(usr)
+		show_content(user)
 	else
 		to_chat(user, SPAN_NOTICE("You have to go closer if you want to read it."))
 
@@ -142,7 +144,7 @@
 		add_fingerprint(usr)
 
 /obj/item/paper/attack_self(mob/living/user as mob)
-	if(user.a_intent == I_HURT)
+	if(user.a_intent == I_HURT && paper_like)
 		if(icon_state == "scrap")
 			user.show_message(SPAN_WARNING("\The [src] is already crumpled."))
 			return
@@ -154,7 +156,7 @@
 		throw_range = 4 //you can now make epic paper ball hoops into the disposals (kinda dumb that you could only throw crumpled paper 1 tile) -wezzy
 		return
 
-	if (user.a_intent == I_GRAB && icon_state != "scrap" && !istype(src, /obj/item/paper/carbon))
+	if (user.a_intent == I_GRAB && icon_state != "scrap" && can_fold)
 		if (icon_state == "paper_plane")
 			user.show_message(SPAN_ALERT("The paper is already folded into a plane."))
 			return
@@ -167,7 +169,7 @@
 		name = "paper plane"
 		return
 
-	if (user.a_intent == I_DISARM && icon_state != "scrap" && !istype(src, /obj/item/paper/carbon))
+	if (user.a_intent == I_DISARM && icon_state != "scrap" && can_fold)
 		if (icon_state == "paper_swan")
 			user.show_message(SPAN_ALERT("The paper is already folded into a swan."))
 			return
@@ -201,11 +203,11 @@
 
 /obj/item/paper/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(target_zone == BP_EYES)
-		user.visible_message(SPAN_NOTICE("You show the paper to [M]."), \
-			SPAN_NOTICE("[user] holds up a paper and shows it to [M]."))
+		user.visible_message(SPAN_NOTICE("You show \the [src] to [M]."), \
+			SPAN_NOTICE("[user] holds up \the [src] and shows it to [M]."))
 		M.examinate(src)
 
-	else if(target_zone == BP_MOUTH) // lipstick wiping
+	else if(target_zone == BP_MOUTH && paper_like) // lipstick wiping
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			if(H == user)
@@ -341,7 +343,7 @@
 
 /obj/item/paper/proc/burnpaper(obj/item/P, mob/user)
 	var/class = "warning"
-	if(!use_check_and_message(user))
+	if(!use_check_and_message(user) && paper_like)
 		if(istype(P, /obj/item/flame/lighter/zippo))
 			class = "rose"
 
@@ -511,7 +513,7 @@
 /obj/item/paper/attackby(var/obj/item/P, mob/user)
 	..()
 
-	if(istype(P, /obj/item/tape_roll))
+	if(istype(P, /obj/item/tape_roll) && !istype(src, /obj/item/paper/business_card))
 		var/obj/item/tape_roll/tape = P
 		tape.stick(src, user)
 		return
