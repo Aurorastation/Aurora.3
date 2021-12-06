@@ -18,7 +18,10 @@
 		else
 			overlay_type = "paper"
 		var/mutable_appearance/card_overlay = mutable_appearance(icon, "holder-overlay_[overlay_type]")
-		card_overlay.appearance_flags = RESET_COLOR
+		if(O.color)
+			card_overlay.color = O.color
+		else
+			card_overlay.appearance_flags = RESET_COLOR
 		add_overlay(card_overlay)
 
 /obj/item/storage/business_card_holder/wood
@@ -43,7 +46,7 @@
 		last_flash = world.time
 		card_flash(user) // Shamelessly copypasta'd from id_flash from cards_ids.dm
 
-/obj/item/paper/business_card/proc/card_flash(var/mob/user, var/quality = pick("the tasteful thickness of it", "that subtle off-white coloring", "the carefully curated font", "that watermark", "that bold, contemporary serif."), var/complement = pick("Oh my god.", "Impressive.", "Very nice.", "Nice.", "Jesus.", "Cool.", "How'd they get so tasteful?"))
+/obj/item/paper/business_card/proc/card_flash(var/mob/user, var/quality = pick("the tasteful thickness of it", "that subtle off-white coloring", "the carefully curated font", "that watermark", "that bold, contemporary serif"), var/complement = pick("Oh my god.", "Impressive.", "Very nice.", "Nice.", "Jesus.", "Cool.", "How'd they get so tasteful?"))
 	var/list/card_viewers = viewers(3, user) // or some other distance - this distance could be defined as a var on the ID
 	var/message = "<b>[user]</b> flashes [user.get_pronoun("his")] [icon2html(src, card_viewers)] [src.name]."
 	var/blind_message = "You flash your [icon2html(src, card_viewers)] [src.name]."
@@ -73,21 +76,22 @@
 	icon_state = "business_card-glass"
 	drop_sound = 'sound/items/drop/glass_small.ogg'
 	pickup_sound = 'sound/items/pickup/glass_small.ogg'
+	build_from_parts = TRUE
 	paper_like = FALSE
 
 /obj/item/paper/business_card/glass/card_flash(var/mob/user)
-	var/quality = pick("the tasteful transparency of it", "that subtle light refraction", "the carefully curated font", "that watermark", "that bold, contemporary serif.")
+	var/quality = pick("the tasteful transparency of it", "that subtle light refraction", "the carefully curated font", "that watermark", "that bold, contemporary serif")
 	var/complement = pick("Oh my god.", "Impressive.", "Very nice.", "Nice.", "Jesus.", "Cool.", "How'd they get so tasteful?")
 	return ..(user, quality, complement)
 
 /obj/item/paper/business_card/glass/b
-	icon_state = "business_card-glass-d"
+	worn_overlay = "business_card-glass-b"
 
 /obj/item/paper/business_card/glass/g
-	icon_state = "business_card-glass-g"
+	worn_overlay = "business_card-glass-g"
 
 /obj/item/paper/business_card/glass/s
-	icon_state = "business_card-glass-s"
+	worn_overlay = "business_card-glass-s"
 
 /obj/item/paper/business_card/glass/w
-	icon_state = "business_card-glass-w"
+	worn_overlay = "business_card-glass-w"
