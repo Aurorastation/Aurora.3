@@ -174,7 +174,7 @@
 	if(href_list["next_page"])
 		if(page != length(pages))
 			var/obj/P = pages[page]
-			 page++
+			page++
 			var/obj/A = pages[page]
 			playsound(src.loc, /decl/sound_category/page_sound, 50, 1)
 			if(A.type != P.type)
