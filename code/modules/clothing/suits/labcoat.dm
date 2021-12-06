@@ -1,7 +1,7 @@
 /obj/item/clothing/suit/storage/toggle/labcoat
 	name = "labcoat"
 	desc = "A suit that protects against minor chemical spills."
-	icon = 'icons/obj/clothing/suit/labcoat.dmi'
+	icon = 'icons/mob/clothing/suit/labcoat.dmi'
 	contained_sprite = TRUE
 	icon_state = "labcoat"
 	item_state = "labcoat" // used for inhands and onmobs. ESPECIALLY FOR CONTAINED SPRITES
