@@ -122,7 +122,11 @@
 		var/obj/item/paper/P = W
 		dat += P.get_content(user, P.can_read(user))
 
-		var/datum/browser/paper_win = new(user, name, null, 450, 500, null, TRUE)
+		var/datum/browser/paper_win
+		if(istype(pages[page], /obj/item/paper/business_card))
+			paper_win = new(user, name, null, 525, 300, null, TRUE)
+		else
+			paper_win = new(user, name, null, 450, 500, null, TRUE)
 		paper_win.set_content(dat)
 		paper_win.add_stylesheet("paper_languages", 'html/browser/paper_languages.css')
 		paper_win.open()
@@ -171,10 +175,14 @@
 		if(page != length(pages))
 			page++
 			playsound(src.loc, /decl/sound_category/page_sound, 50, 1)
+			if(pages[page].type != pages[page - 1].type)
+				usr << browse(null, "window=[name]")
 	if(href_list["prev_page"])
 		if(page > 1)
 			page--
 			playsound(src.loc, /decl/sound_category/page_sound, 50, 1)
+			if(pages[page].type != pages[page + 1].type)
+				usr << browse(null, "window=[name]")
 	if(href_list["remove"])
 		var/obj/item/W = pages[page]
 		usr.put_in_hands(W)

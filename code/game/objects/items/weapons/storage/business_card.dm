@@ -36,6 +36,7 @@
 	desc = "A small slip of paper, capable of elevating your status on the social hierachy between you and your co-workers, provided you picked the right font."
 	icon_state = "business_card"
 	var/last_flash = 0 //spam limiter
+	can_fold = FALSE
 
 /obj/item/paper/business_card/attack_self(mob/living/user)
 	if(last_flash <= world.time - 20)
@@ -54,6 +55,12 @@
 		blind_message += " [blind_add_text]"
 	user.visible_message(message, blind_message)
 
+/obj/item/paper/business_card/show_content(mob/user, forceshow)
+	var/datum/browser/paper_win = new(user, name, null, 525, 300, null, TRUE)
+	paper_win.set_content(get_content(user, can_read(user, forceshow)))
+	paper_win.add_stylesheet("paper_languages", 'html/browser/paper_languages.css')
+	paper_win.open()
+
 /obj/item/paper/business_card/alt
 	icon_state = "business_card-alt"
 
@@ -64,6 +71,9 @@
 	name = "glass business card"
 	desc = "A fancy variant of the classic business card. This one immediately indicates that you're serious about your business, but the contents of the card will seal the deal."
 	icon_state = "business_card-glass"
+	drop_sound = 'sound/items/drop/glass_small.ogg'
+	pickup_sound = 'sound/items/pickup/glass_small.ogg'
+	paper_like = FALSE
 
 /obj/item/paper/business_card/glass/card_flash(var/mob/user)
 	var/quality = pick("the tasteful transparency of it", "that subtle light refraction", "the carefully curated font", "that watermark", "that bold, contemporary serif.")
