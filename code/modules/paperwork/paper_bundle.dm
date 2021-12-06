@@ -172,21 +172,21 @@
 	usr.set_machine(src)
 
 	if(href_list["next_page"])
-        if(page != length(pages))
-            var/obj/P = pages[page]
-            page++
-            var/obj/A = pages[page]
-            playsound(src.loc, /decl/sound_category/page_sound, 50, 1)
-            if(A.type != P.type)
-                usr << browse(null, "window=[name]")
-    if(href_list["prev_page"])
-        if(page > 1)
-            var/obj/P = pages[page]
-            page--
-            var/obj/A = pages[page]
-            playsound(src.loc, /decl/sound_category/page_sound, 50, 1)
-            if(A.type != P.type)
-                usr << browse(null, "window=[name]")
+		if(page != length(pages))
+			var/obj/P = pages[page]
+			 page++
+			var/obj/A = pages[page]
+			playsound(src.loc, /decl/sound_category/page_sound, 50, 1)
+			if(A.type != P.type)
+				usr << browse(null, "window=[name]")
+	if(href_list["prev_page"])
+		if(page > 1)
+			var/obj/P = pages[page]
+			page--
+			var/obj/A = pages[page]
+			playsound(src.loc, /decl/sound_category/page_sound, 50, 1)
+			if(A.type != P.type)
+				usr << browse(null, "window=[name]")
 	if(href_list["remove"])
 		var/obj/item/W = pages[page]
 		usr.put_in_hands(W)
