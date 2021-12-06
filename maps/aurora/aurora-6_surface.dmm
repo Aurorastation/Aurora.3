@@ -12198,6 +12198,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/lounge)
 "kFM" = (
@@ -13162,6 +13163,10 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/quartermaster/loading)
+"lxc" = (
+/obj/structure/bed/stool/padded/red,
+/turf/simulated/wall/r_wall,
+/area/tcommsat/lounge)
 "lxI" = (
 /obj/structure/cable/yellow{
 	d1 = 2;
@@ -14267,6 +14272,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/telecoms_ladder)
+"mtI" = (
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/bed/stool/padded/red,
+/turf/simulated/floor/tiled,
+/area/tcommsat/lounge)
 "muj" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -41340,7 +41354,7 @@ ifb
 wKH
 nGc
 kyf
-fwV
+lxc
 cBe
 bPl
 bPW
@@ -42371,7 +42385,7 @@ kyf
 fwV
 rvJ
 jUc
-rLe
+mtI
 wwx
 bPW
 gcH
