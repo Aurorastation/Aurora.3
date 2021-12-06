@@ -4,6 +4,7 @@
 	icon_state = "wheelchair"
 	anchored = 0
 	buckle_movable = 1
+	held_item = /obj/item/wheelchair
 
 	var/driving = 0
 	var/mob/living/pulling = null
@@ -199,7 +200,7 @@
 	icon_state = "wheelchair_folded"
 	item_state = "wheelchair"
 	w_class = ITEMSIZE_HUGE // Can't be put in backpacks. Oh well.
-
+	
 /obj/item/wheelchair/attack_self(mob/user)
 	var/obj/structure/bed/stool/chair/wheelchair/R = new /obj/structure/bed/stool/chair/wheelchair(user.loc)
 	R.add_fingerprint(user)
