@@ -2,6 +2,7 @@
 	name = "labcoat"
 	desc = "A suit that protects against minor chemical spills."
 	icon = 'icons/obj/clothing/suit/labcoat.dmi'
+	contained_sprite = TRUE
 	icon_state = "labcoat"
 	item_state = "labcoat" // used for inhands and onmobs. ESPECIALLY FOR CONTAINED SPRITES
 	blood_overlay_type = "coat"
