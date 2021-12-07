@@ -908,7 +908,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 
 /datum/species/golem/technomancer/handle_movement_tally(var/mob/living/carbon/human/H)
 	var/tally = 0
-	if(istype(H.buckled_to, /obj/structure/bed/stool/chair/wheelchair))
+	if(istype(H.buckled_to, /obj/structure/bed/stool/chair/office/wheelchair))
 		for(var/organ_name in list(BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM))
 			var/obj/item/organ/external/E = H.get_organ(organ_name)
 			if(!E || E.is_stump())

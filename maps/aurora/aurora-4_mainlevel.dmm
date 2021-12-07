@@ -41309,7 +41309,7 @@
 /area/maintenance/medbay)
 "buG" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/bed/stool/chair/wheelchair{
+/obj/structure/bed/stool/chair/office/wheelchair{
 	dir = 4
 	},
 /obj/machinery/light/small/emergency{
@@ -60044,7 +60044,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/bed/stool/chair/wheelchair,
+/obj/structure/bed/stool/chair/office/wheelchair,
 /obj/item/extinguisher,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
@@ -62168,7 +62168,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/bed/stool/chair/wheelchair,
+/obj/structure/bed/stool/chair/office/wheelchair,
 /obj/item/extinguisher,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
