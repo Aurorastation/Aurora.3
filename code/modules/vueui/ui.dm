@@ -141,13 +141,14 @@ main ui datum.
 	</head>
 	<body class="[get_theme_class()]">
 		<div id="header">
+			<header-wutils></header-wutils>
 			<header-[header]></header-[header]>
-			<header-handles></header-handles>
 		</div>
-		<div id="app">
+		<div class="app-content">
+			<div id="app">
 			Javascript file has failed to load. <a href="?src=\ref[src]&vueuiforceresource=1">Click here to force load resources</a>
-		</div>
-		<div id="dapp">
+			</div>
+			<div id="dapp"></div>
 		</div>
 		<noscript>
 			<div id='uiNoScript'>

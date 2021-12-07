@@ -1,8 +1,22 @@
 <template>
-  <div @click="senddata()" class="button" :disabled="$root.$data.status < 2 || this.disabled">
-    <div v-if="icon" class="uiIcon16" :class="[`ic-${this.icon}`, {'mr-1': !this.iconOnly}, getRotateClass, getFlipClass]"/>
-    <span><slot/></span>
-  </div>
+  <a
+    @click="senddata()"
+    class="btn"
+    :class="'btn-' + type + (isDisabled ? ' disabled' : '')"
+    :disabled="isDisabled"
+  >
+    <div
+      v-if="icon"
+      class="fa"
+      :class="[
+        `ic-${this.icon}`,
+        { 'mr-1': !this.iconOnly },
+        getRotateClass,
+        getFlipClass,
+      ]"
+    />
+    <span><slot /></span>
+  </a>
 </template>
 
 <script>
@@ -12,58 +26,62 @@ export default {
   props: {
     icon: {
       type: String,
-      default: ""
+      default: "",
     },
     rotate: {
       type: Number,
-      default: 0
+      default: 0,
     },
     flip: {
       type: String,
-      default: ""
+      default: "",
     },
     params: {
       type: Object,
-      default: null
+      default: null,
     },
     unsafeParams: {
       type: Object,
-      default: null
+      default: null,
     },
     pushState: {
       type: Boolean,
-      default: false
+      default: false,
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     iconOnly: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
+    type: {
+      type: String,
+      default: "primary",
+    },
   },
   methods: {
     senddata() {
-      if(this.$root.$data.status < 2 || this.disabled) {
+      if (this.$root.$data.status < 2 || this.disabled) {
         return
       }
-      this.$emit('click')
-      if(this.unsafeParams) {
+      this.$emit("click")
+      if (this.unsafeParams) {
         Utils.sendToTopicRaw(this.unsafeParams)
       }
-      if(!this.params) {
+      if (!this.params) {
         if (this.pushState) {
           Store.pushState()
         }
         return
       }
       Utils.sendToTopic(this.params, this.pushState)
-    }
+    },
   },
   computed: {
     getRotateClass() {
-      switch(this.rotate % 360) {
+      switch (this.rotate % 360) {
         case 90:
           return "ic-rotate-90"
         case 180:
@@ -75,9 +93,12 @@ export default {
       }
     },
     getFlipClass() {
-      if(!this.flip) return
+      if (!this.flip) return
       return `ic-flip-${this.flip}`
-    }
-  }
+    },
+    isDisabled() {
+      return this.$root.$data.status < 2 || this.disabled
+    },
+  },
 }
 </script>

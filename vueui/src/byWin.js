@@ -1,56 +1,61 @@
-import Utils from './utils'
-import Vector from './vector'
+import Utils from "./utils"
+import Vector from "./vector"
 
 const state = {
-  windowKey: '',
+  windowKey: "",
   dragging: false,
   resizing: false,
   screenOffset: [0, 0],
   dragPointOffset: null,
   resizeMatrix: null,
   initialSize: null,
-  size: null
+  size: null,
 }
 
-
-
 export function isBYOND() {
-  return window.location.hostname === '127.0.0.1' && location.pathname.indexOf('/tmp') === 0 && location.search !== '?ext';
+  return (
+    window.location.hostname === "127.0.0.1" &&
+    location.pathname.indexOf("/tmp") === 0 &&
+    location.search !== "?ext"
+  )
 }
 
 export function winget(id, propName, callback) {
-  if(!isBYOND()) return
+  if (!isBYOND()) return
   var isArray = propName instanceof Array
-  var isSpecific = propName && propName !== '*' && !isArray
+  var isSpecific = propName && propName !== "*" && !isArray
   var _callback = callback
   if (isSpecific) {
-    _callback = (props) => {
+    _callback = props => {
       return callback(props[propName])
     }
   }
-  Utils.sendRawWithCallback('byond://winget', {
-    id: id,
-    property: isArray && propName.join(',') || propName || '*',
-  }, _callback)
+  Utils.sendRawWithCallback(
+    "byond://winget",
+    {
+      id: id,
+      property: (isArray && propName.join(",")) || propName || "*",
+    },
+    _callback
+  )
 }
 
 export function winset(id, propName, propValue) {
-  if(!isBYOND()) return
-  if (typeof id === 'object' && id !== null) {
-    return Utils.sendRaw('winset', id)
+  if (!isBYOND()) return
+  if (typeof id === "object" && id !== null) {
+    return Utils.sendRaw("winset", id)
   }
-  let props = {};
-  if (typeof propName === 'string') {
+  let props = {}
+  if (typeof propName === "string") {
     props[propName] = propValue
-  }
-  else {
+  } else {
     Object.assign(props, propName)
   }
-  props.id = id;
-  return Utils.sendRaw('byond://winset', props)
+  props.id = id
+  return Utils.sendRaw("byond://winset", props)
 }
 
-export const setWindowKey = (key) => state.windowKey = key
+export const setWindowKey = key => (state.windowKey = key)
 
 export const getWindowPosition = () => [window.screenLeft, window.screenTop]
 
@@ -59,26 +64,26 @@ export const getWindowSize = () => [window.innerWidth, window.innerHeight]
 export function setWindowPosition(pos = [0, 0]) {
   const byondPos = Vector.add(pos, state.screenOffset)
   winset(state.windowKey, {
-    pos: byondPos[0] + ',' + byondPos[1],
+    pos: byondPos[0] + "," + byondPos[1],
   })
 }
 
 export function setWindowSize(size = [300, 300]) {
   winset(state.windowKey, {
-    size: size[0] + 'x' + size[1],
+    size: size[0] + "x" + size[1],
   })
 }
 
 export const getScreenPosition = () => Vector.scale(state.screenOffset, -1)
 
-export const getScreenSize = () => [window.screen.availWidth, window.screen.availHeight]
+export const getScreenSize = () => [
+  window.screen.availWidth,
+  window.screen.availHeight,
+]
 
 export function setupDrag() {
-  winget(state.windowKey, 'pos', (pos) => {
-    state.screenOffset = [
-      pos.x - window.screenLeft,
-      pos.y - window.screenTop
-    ]
+  winget(state.windowKey, "pos", pos => {
+    state.screenOffset = [pos.x - window.screenLeft, pos.y - window.screenTop]
   })
 }
 
@@ -92,13 +97,13 @@ export function dragStartHandler(event) {
   event.target?.setCapture()
   event.target?.focus()
   dragMoveHandler(event)
-  event.target.addEventListener('mousemove', dragMoveHandler)
+  event.target.addEventListener("mousemove", dragMoveHandler)
 }
 
 export function dragEndHandler(event) {
-  event.target.removeEventListener('mousemove', dragMoveHandler)
+  event.target.removeEventListener("mousemove", dragMoveHandler)
   event.target.releaseCapture()
-  document.getElementById('content').focus();
+  document.getElementById("content").focus()
   state.dragging = false
 }
 
@@ -107,7 +112,9 @@ export function dragMoveHandler(event) {
     return
   }
   event.preventDefault()
-  setWindowPosition(Vector.add([event.screenX, event.screenY], state.dragPointOffset))
+  setWindowPosition(
+    Vector.add([event.screenX, event.screenY], state.dragPointOffset)
+  )
 }
 
 export function resizeStartHandler(x, y, event) {
@@ -117,30 +124,27 @@ export function resizeStartHandler(x, y, event) {
     window.screenLeft - event.screenX,
     window.screenTop - event.screenY,
   ]
-  state.initialSize = [
-    window.innerWidth,
-    window.innerHeight,
-  ]
+  state.initialSize = [window.innerWidth, window.innerHeight]
   // Focus click target
   //event.target?.focus()
-  document.addEventListener('mousemove', resizeMoveHandler)
-  document.addEventListener('mouseup', resizeEndHandler)
+  document.addEventListener("mousemove", resizeMoveHandler)
+  document.addEventListener("mouseup", resizeEndHandler)
   resizeMoveHandler(event)
 }
 
 export function resizeEndHandler(event) {
   resizeMoveHandler(event)
-  document.removeEventListener('mousemove', resizeMoveHandler)
-  document.removeEventListener('mouseup', resizeEndHandler)
-  document.getElementById('content').focus();
+  document.removeEventListener("mousemove", resizeMoveHandler)
+  document.removeEventListener("mouseup", resizeEndHandler)
+  // document.getElementById('content').focus();
   state.resizing = false
 }
 
 export function resizeMoveHandler(event) {
   if (!state.resizing) {
-    return;
+    return
   }
-  event.preventDefault();
+  event.preventDefault()
   let mul = Vector.multiply(
     state.resizeMatrix,
     Vector.add(
@@ -150,19 +154,16 @@ export function resizeMoveHandler(event) {
       [1, 1]
     )
   )
-  state.size = Vector.add(
-    state.initialSize,
-    mul,
-  )
+  state.size = Vector.add(state.initialSize, mul)
   // Sane window size values
-  state.size[0] = Math.max(state.size[0], 100);
-  state.size[1] = Math.max(state.size[1], 50);
+  state.size[0] = Math.max(state.size[0], 100)
+  state.size[1] = Math.max(state.size[1], 50)
   setWindowSize(state.size)
 }
 
 export function setVisibility(visible = 1) {
   winset(state.windowKey, {
-    'is-visible': visible,
+    "is-visible": visible,
   })
 }
 
