@@ -3,7 +3,7 @@
     <template v-if="mode">
       <h2>Vote: {{ question }}</h2>
       Time Left: {{ reman }} s
-      <hr />
+      <hr >
       <table>
         <tr>
           <th>Choices</th>
@@ -15,7 +15,7 @@
             <vui-button
               :class="{ on: choice == voted }"
               :params="{ action: 'vote', vote: choice }"
-              >{{ options.name }}</vui-button
+            >{{ options.name }}</vui-button
             >
           </td>
           <td>{{ options.votes }}</td>
@@ -23,60 +23,60 @@
         </tr>
       </table>
 
-      <hr />
+      <hr >
       <template v-if="isstaff">
         <vui-button :params="{ action: 'cancel' }">Cancel</vui-button>
       </template>
     </template>
     <template v-else>
       <h2>Start a vote:</h2>
-      <hr />
+      <hr >
       <div>
         <vui-button
           :disabled="!isstaff && !allow_vote_restart"
           :params="{ action: 'restart' }"
-          >Restart</vui-button
+        >Restart</vui-button
         >
       </div>
       <div>
         <vui-button
           :disabled="!isstaff && !allow_vote_restart"
           :params="{ action: 'crew_transfer' }"
-          >Crew Transfer</vui-button
+        >Crew Transfer</vui-button
         >
         <span v-if="(isstaff || allow_vote_restart) && is_code_red"
-          >(Disallowed, Code Red or above)</span
+        >(Disallowed, Code Red or above)</span
         >
         <vui-button
           :class="{ on: allow_vote_restart }"
           v-if="isstaff"
           :params="{ action: 'toggle_restart' }"
-          >Toggle Restart / Crew Transfer voting</vui-button
+        >Toggle Restart / Crew Transfer voting</vui-button
         >
       </div>
       <div>
         <vui-button
           :disabled="!isstaff && !allow_vote_mode"
           :params="{ action: 'gamemode' }"
-          >GameMode</vui-button
+        >GameMode</vui-button
         >
         <vui-button
           :class="{ on: allow_vote_mode }"
           v-if="isstaff"
           :params="{ action: 'toggle_gamemode' }"
-          >Toggle GameMode voting</vui-button
+        >Toggle GameMode voting</vui-button
         >
       </div>
       <div>
         <vui-button
           :disabled="!allow_extra_antags"
           :params="{ action: 'add_antagonist' }"
-          >Add Antagonist Type</vui-button
+        >Add Antagonist Type</vui-button
         >
       </div>
       <div>
         <vui-button :disabled="!isstaff" :params="{ action: 'custom' }"
-          >Custom</vui-button
+        >Custom</vui-button
         >
       </div>
     </template>

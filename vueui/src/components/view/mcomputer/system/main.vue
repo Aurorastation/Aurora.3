@@ -19,7 +19,7 @@
       <vui-button
         :class="{ on: p.service.enabled }"
         :params="{ PC_toggleservice: p.filename }"
-        >{{ p.desc }}</vui-button
+      >{{ p.desc }}</vui-button
       >
       <vui-button
         class="danger"

@@ -3,9 +3,9 @@
     <p class="csserror">
       Javascript loaded, stylesheets has failed to load.
       <a href="javascript:void(0)"
-        ><vui-button :params="{ vueuiforceresource: 1 }"
-          >Click here to load.</vui-button
-        ></a
+      ><vui-button :params="{ vueuiforceresource: 1 }"
+      >Click here to load.</vui-button
+      ></a
       >
     </p>
     <component v-if="componentName" :is="componentName" /><component

@@ -6,24 +6,24 @@
         class="valign"
         v-if="state._PC.batteryicon && state._PC.showbatteryicon"
         :src="state._PC.batteryicon"
-      />
+      >
       <b
         class="valign"
         v-if="state._PC.batterypercent && state._PC.showbatteryicon"
-        >{{ state._PC.batterypercent }}</b
+      >{{ state._PC.batterypercent }}</b
       >
       <img
         img
         class="valign"
         v-if="state._PC.ntneticon"
         :src="state._PC.ntneticon"
-      />
+      >
       <img
         img
         class="valign"
         v-if="state._PC.apclinkicon"
         :src="state._PC.apclinkicon"
-      />
+      >
       <div style="float: right;">
         <vui-button
           :params="{ PC_togglelight: 1 }"
