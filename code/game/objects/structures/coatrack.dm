@@ -5,6 +5,7 @@
 	icon_state = "coatrack"
 	var/obj/item/clothing/coat
 	var/obj/item/clothing/head/hat
+	var/list/custom_sprites = list(/obj/item/clothing/head/beret/security, /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak) // Custom manual sprite override.
 
 /obj/structure/coatrack/attack_hand(mob/user as mob)
 	if(!ishuman(user))
@@ -29,11 +30,13 @@
 		user.visible_message("[user] hangs [W] on \the [src].", SPAN_NOTICE("You hang [W] on the \the [src]."))
 		coat = W
 		user.drop_from_inventory(coat, src)
+		playsound(src, W.drop_sound, DROP_SOUND_VOLUME)
 		update_icon()
 	else if(!hat && istype(W, /obj/item/clothing/head) && !istype(W, /obj/item/clothing/head/helmet))
 		user.visible_message("[user] hangs [W] on \the [src].", SPAN_NOTICE("You hang [W] on the \the [src]."))
 		hat = W
 		user.drop_from_inventory(hat, src)
+		playsound(src, W.drop_sound, DROP_SOUND_VOLUME)
 		update_icon()
 	else if(istype(W, /obj/item/clothing))
 		to_chat(user, SPAN_WARNING("You can't hang that up."))
@@ -59,6 +62,9 @@
 /obj/structure/coatrack/update_icon()
 	cut_overlays()
 	if(coat)
+		if(is_type_in_list(coat, custom_sprites))
+			add_overlay(coat.icon_state)
+			return
 		if(istype(coat, /obj/item/clothing/suit/storage/toggle)) // Using onmob sprites, because they're more consistent than object sprites.
 			var/obj/item/clothing/suit/storage/toggle/T = coat
 			if(!T.opened)
@@ -69,6 +75,9 @@
 			var/obj/item/clothing/accessory/poncho/T = coat
 			handle_coat_image(T)
 	if(hat)
+		if(is_type_in_list(hat, custom_sprites))
+			add_overlay(hat.icon_state)
+			return
 		if(istype(hat, /obj/item/clothing/head))
 			var/obj/item/clothing/head/H = hat
 			var/matrix/M = matrix()
