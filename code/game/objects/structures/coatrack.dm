@@ -3,11 +3,9 @@
 	desc = "Rack that holds coats."
 	icon = 'icons/obj/coatrack.dmi'
 	icon_state = "coatrack0"
+	var/icon/coat_outline = icon('icons/obj/coatrack.dmi', "outline")
 	var/obj/item/clothing/suit/coat
 	var/obj/item/clothing/head/hat
-	var/list/allowed_coats = list(/obj/item/clothing/suit/storage/toggle/labcoat, /obj/item/clothing/suit/storage/toggle/det_trench,
-							/obj/item/clothing/suit/storage/toggle/forensics, /obj/item/clothing/suit/storage/toggle/trench,
-							/obj/item/clothing/suit/storage/det_jacket, /obj/item/clothing/accessory/poncho/tajarancloak)
 	var/list/allowed_hats = list(/obj/item/clothing/head/det, /obj/item/clothing/head/beret/security, /obj/item/clothing/head/softcap/security)
 
 /obj/structure/coatrack/attack_hand(mob/user as mob)
@@ -29,7 +27,7 @@
 		update_icon()
 
 /obj/structure/coatrack/attackby(obj/item/W as obj, mob/user as mob)
-	if (is_type_in_list(W, allowed_coats) && !coat)
+	if (!coat)
 		user.visible_message("[user] hangs [W] on \the [src].", SPAN_NOTICE("You hang [W] on the \the [src]."))
 		coat = W
 		user.drop_from_inventory(coat, src)
@@ -44,13 +42,13 @@
 		return ..()
 
 /obj/structure/coatrack/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if (is_type_in_list(mover, allowed_coats) && !coat)
+	if(!coat && istype(coat, /obj/item/clothing/suit/storage/toggle))
 		src.visible_message("[mover] lands on \the [src].")
 		coat = mover
 		coat.forceMove(src)
 		update_icon()
 		return 0
-	if (is_type_in_list(mover, allowed_hats) && !hat)
+	if(is_type_in_list(mover, allowed_hats) && !hat)
 		src.visible_message("[mover] lands on \the [src].")
 		hat = mover
 		hat.forceMove(src)
@@ -61,14 +59,26 @@
 
 /obj/structure/coatrack/update_icon()
 	cut_overlays()
-	if (coat)
+	if(coat)
 		if(istype(coat, /obj/item/clothing/suit/storage/toggle))
-			var/obj/item/clothing/suit/storage/toggle/T = coat
+			var/obj/item/clothing/suit/storage/toggle/T = coat 
 			T.icon_state = initial(T.icon_state)
-			T.opened = FALSE
-		add_overlay("coat_[coat.icon_state]")
-	if (hat)
-		if(istype(hat, /obj/item/clothing/head/softcap/security/idris) || istype(hat, /obj/item/clothing/head/softcap/security/corp))
-			add_overlay("hat_softcap_[hat.icon_state]")
-		else
-			add_overlay("hat_[hat.icon_state]")
+			T.opened = FALSE // Makes coats close when hung up.
+			var/icon/I = new(T.icon, T.icon_state) // DEPENDENT ON COAT OBJECT SPRITE. IF IT'S NOT SHOWING UP ON THE COATRACK PROPERLY, EDIT THAT. DON'T TOUCH THIS SHIT.
+			I.Blend(coat_outline, ICON_OVERLAY)
+			I.SwapColor(rgb(255, 0, 220, 255), rgb(0, 0, 0, 0))
+			add_overlay(I)		
+	if(hat)
+		if(istype(hat,/obj/item/clothing/head/))
+			var/obj/item/clothing/head/H = hat
+			var/matrix/tf = matrix()
+			if(H.contained_sprite) // Unfortunately regular hat icons are too huge, so we'll have to use the onmob ones.
+				var/hat_icon_state = "[H.icon_state]_he" // Unfortunate, but needed to bypass contained sprite phoney baloney.
+				tf = new(H.icon, hat_icon_state)
+			else
+				tf = new(INV_HEAD_DEF_ICON, H.icon_state)
+			tf.Turn(-90)
+			tf.direction = EAST
+			tf.Translate(-7, 7)
+			transform = tf
+			add_overlay(tf)
