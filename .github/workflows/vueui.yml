@@ -41,4 +41,9 @@ jobs:
           name: Report
           path: |
             tools/vueui-report/report.htm
+      - name: Upload Dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: VueUi build
+          path: |
             vueui/dist/
