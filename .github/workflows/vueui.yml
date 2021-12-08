@@ -35,3 +35,10 @@ jobs:
       - name: Run VueUI reporter
         working-directory: tools/vueui-report
         run: npm run run
+      - name: Upload report
+        uses: actions/upload-artifact@v2
+        with:
+          name: Report
+          path: |
+            tools/vueui-report/report.htm
+            vueui/dist/
