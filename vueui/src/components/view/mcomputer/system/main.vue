@@ -17,7 +17,7 @@
     <h2 v-if="services.length">Services</h2>
     <div v-for="p in services" :key="p.filename">
       <vui-button
-        :class="{ on: p.service.enabled }"
+        :class="{ active: p.service.enabled }"
         :params="{ PC_toggleservice: p.filename }"
       >{{ p.desc }}</vui-button
       >

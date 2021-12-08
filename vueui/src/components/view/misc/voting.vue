@@ -13,7 +13,7 @@
         <tr v-for="(options, choice) in uichoices" :key="choice">
           <td style="text-align:left;">
             <vui-button
-              :class="{ on: choice == voted }"
+              :class="{ active: choice == voted }"
               :params="{ action: 'vote', vote: choice }"
             >{{ options.name }}</vui-button
             >
@@ -25,7 +25,9 @@
 
       <hr >
       <template v-if="isstaff">
-        <vui-button :params="{ action: 'cancel' }">Cancel</vui-button>
+        <vui-button type="danger" :params="{ action: 'cancel' }"
+        >Cancel</vui-button
+        >
       </template>
     </template>
     <template v-else>
@@ -48,7 +50,7 @@
         >(Disallowed, Code Red or above)</span
         >
         <vui-button
-          :class="{ on: allow_vote_restart }"
+          :class="{ active: allow_vote_restart }"
           v-if="isstaff"
           :params="{ action: 'toggle_restart' }"
         >Toggle Restart / Crew Transfer voting</vui-button
@@ -61,7 +63,7 @@
         >GameMode</vui-button
         >
         <vui-button
-          :class="{ on: allow_vote_mode }"
+          :class="{ active: allow_vote_mode }"
           v-if="isstaff"
           :params="{ action: 'toggle_gamemode' }"
         >Toggle GameMode voting</vui-button

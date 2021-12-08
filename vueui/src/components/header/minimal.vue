@@ -5,16 +5,16 @@
     @mousedown.left="startDragging($event)"
     @mouseup.left="stopDragging($event)"
   >
+    <div
+      class="closeBtn"
+      unselectable="on"
+      @click="closeUI($event)"
+      @mousedown.left="prevent($event)"
+    >
+      ×
+    </div>
     <div class="titleBar">
       <div class="titleText" unselectable="on">{{ title }}</div>
-      <div
-        class="closeBtn"
-        unselectable="on"
-        @click="closeUI($event)"
-        @mousedown.left="prevent($event)"
-      >
-        ×
-      </div>
     </div>
     <slot />
   </div>
