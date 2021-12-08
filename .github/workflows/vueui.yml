@@ -1,0 +1,33 @@
+name: VueUi
+on:
+  # So that PRs touching the same files as the push are updated
+  push:
+  # So that the `dirtyLabel` is removed if conflicts are resolve
+  # We recommend `pull_request_target` so that github secrets are available.
+  # In `pull_request` we wouldn't be able to change labels of fork PRs
+  pull_request_target:
+    types: [synchronize]
+runs-on: ubuntu-latest
+jobs:
+  build-test:
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: Install node
+        uses: actions/setup-node@master
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: |
+            'vueui/node_modules'
+            'tools/vueui-report/node_modules'
+          key: node_modules-${{ hashFiles('tools/vueui-report/package-lock.json', 'vueui/package-lock.json')}}
+      - name: Install VueUI
+        working-directory: vueui
+        run: npm ci
+      - name: Lint VueUI
+        working-directory: vueui
+        run: npm run lint
+      - name: Build VueUI
+        working-directory: vueui
+        run: npm run build
