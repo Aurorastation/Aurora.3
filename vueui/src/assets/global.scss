@@ -1,3 +1,4 @@
+@use 'sass:color';
 @import "colors.scss";
 @import "theme.scss";
 @import "~bootstrap/scss/bootstrap";
@@ -9,19 +10,77 @@
 
 .ui-header {
   background-color: $ui-header-bg;
+  .titleBar {
+    padding: 0.4rem;
+    font-size: 1.6rem;
+    font-weight: $font-weight-bold;
+    .titleText {
+    }
+  }
+
+  .closeBtn {
+    cursor: pointer;
+    text-align: center;
+    float: right;
+    width: 4rem;
+    height: 2.5rem;
+    font-size: 2rem;
+    line-height: 2rem;
+
+    transition: color 250ms, background-color 250ms;
+    &:hover {
+      color: rgba(255, 255, 255, 1);
+      background-color: #cc0000;
+      transition: color 0ms, background-color 0ms;
+    }
+  }
+  .endSpacer {
+    clear: both;
+  }
 }
 
-body.vueui {
-  display: flex;
-  flex-direction: column;
+body {
+  $scrollbar-color-multiplier: 1 !default;
+  scrollbar-base-color: color.scale(
+    $body-bg,
+    $lightness: -25% * $scrollbar-color-multiplier
+  );
+  scrollbar-face-color: color.scale(
+    $body-bg,
+    $lightness: 10% * $scrollbar-color-multiplier
+  );
+  scrollbar-3dlight-color: color.scale(
+    $body-bg,
+    $lightness: 0% * $scrollbar-color-multiplier
+  );
+  scrollbar-highlight-color: color.scale(
+    $body-bg,
+    $lightness: 0% * $scrollbar-color-multiplier
+  );
+  scrollbar-track-color: color.scale(
+    $body-bg,
+    $lightness: -25% * $scrollbar-color-multiplier
+  );
+  scrollbar-arrow-color: color.scale(
+    $body-bg,
+    $lightness: 50% * $scrollbar-color-multiplier
+  );
+  scrollbar-shadow-color: color.scale(
+    $body-bg,
+    $lightness: 10% * $scrollbar-color-multiplier
+  );
+  &.vueui {
+    display: flex;
+    flex-direction: column;
 
-  height: 100vh;
-  overflow: hidden;
-
-  .app-content {
-    overflow: scroll;
-    padding: 4px;
     height: 100vh;
+    overflow: hidden;
+
+    .app-content {
+      overflow: auto;
+      padding: 0.4rem;
+      height: 100vh;
+    }
   }
 }
 

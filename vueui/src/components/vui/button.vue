@@ -20,7 +20,6 @@
 </template>
 
 <script>
-import Store from "@/store"
 import Utils from "@/utils"
 export default {
   props: {
@@ -44,15 +43,7 @@ export default {
       type: Object,
       default: null,
     },
-    pushState: {
-      type: Boolean,
-      default: false,
-    },
     disabled: {
-      type: Boolean,
-      default: false,
-    },
-    iconOnly: {
       type: Boolean,
       default: false,
     },
@@ -71,12 +62,9 @@ export default {
         Utils.sendToTopicRaw(this.unsafeParams)
       }
       if (!this.params) {
-        if (this.pushState) {
-          Store.pushState()
-        }
         return
       }
-      Utils.sendToTopic(this.params, this.pushState)
+      Utils.sendToTopic(this.params)
     },
   },
   computed: {
