@@ -2,7 +2,7 @@
   "name": "vueui-report",
   "version": "1.0.0",
   "description": "Tools for building VueUI BYOND UI framework reports.",
-  "main": "index.mjs",
+  "main": "index.js",
   "author": "Karolis K.",
   "scripts": {
     "build": "echo 'No building is needed.'",
