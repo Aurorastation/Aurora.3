@@ -17,7 +17,7 @@ jobs:
           key: node_modules-${{ hashFiles('tools/vueui-report/package-lock.json', 'vueui/package-lock.json')}}
       - name: Install VueUI
         working-directory: vueui
-        run: npm ci
+        run: npm install
       - name: Lint VueUI
         working-directory: vueui
         run: |
@@ -28,7 +28,7 @@ jobs:
         run: npm run build
       - name: Install VueUI reporter
         working-directory: tools/vueui-report
-        run: npm ci
+        run: npm install
       - name: Build VueUI reporter
         working-directory: tools/vueui-report
         run: npm run build
