@@ -4,6 +4,10 @@
   "description": "Tools for building VueUI BYOND UI framework reports.",
   "main": "index.mjs",
   "author": "Karolis K.",
+  "scripts": {
+    "build": "echo 'No building is needed.'",
+    "run": "node ."
+  },
   "dependencies": {
     "ansi-to-html": "^0.6.14",
     "express": "^4.17.1",

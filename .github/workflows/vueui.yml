@@ -1,12 +1,5 @@
 name: VueUi
-on:
-  # So that PRs touching the same files as the push are updated
-  push:
-  # So that the `dirtyLabel` is removed if conflicts are resolve
-  # We recommend `pull_request_target` so that github secrets are available.
-  # In `pull_request` we wouldn't be able to change labels of fork PRs
-  pull_request_target:
-    types: [synchronize]
+on: [push, pull_request]
 jobs:
   build-test:
     runs-on: ubuntu-latest
@@ -27,7 +20,18 @@ jobs:
         run: npm ci
       - name: Lint VueUI
         working-directory: vueui
-        run: npm run lint
+        run: |
+          (npm run lint | tee lint.log)
+          grep "No lint errors found!" lint.log
       - name: Build VueUI
         working-directory: vueui
         run: npm run build
+      - name: Install VueUI reporter
+        working-directory: tools/vueui-report
+        run: npm ci
+      - name: Build VueUI reporter
+        working-directory: tools/vueui-report
+        run: npm run build
+      - name: Run VueUI reporter
+        working-directory: tools/vueui-report
+        run: npm run run
