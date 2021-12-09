@@ -8,7 +8,7 @@
 /datum/topic_state/admin_state
 	var/rigths_to_check = R_ADMIN
 
-/datum/topic_state/admin_state/new(var/new_rigths = null)
+/datum/topic_state/admin_state/New(var/new_rigths = null)
 	if(new_rigths)
 		rigths_to_check = new_rigths
 
