@@ -234,7 +234,7 @@
 /obj/machinery/shield_gen/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new(user, src, "machinery-shields-shield", 480, 400, "Shield Generator", state = interactive_state)
+		ui = new(user, src, "machinery-shields-shield", 480, 400, "Shield Generator")
 		ui.open()
 		ui.auto_update_content = TRUE
 
@@ -260,11 +260,6 @@
 	return data
 
 /obj/machinery/shield_gen/Topic(href, href_list)
-	if(isobserver(usr) && !check_rights(R_ADMIN, FALSE, usr))
-		return 
-
-	if (!isturf(loc))
-		return 0
 
 	if(href_list["toggle"])
 		toggle()

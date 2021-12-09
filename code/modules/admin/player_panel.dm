@@ -18,7 +18,7 @@
 			var/datum/antagonist/A = all_antag_types[antag_type]
 			dat += A.get_check_antag_output(src)
 	
-		var/datum/vueui/ui = new(usr, src, "?<div>[dat]</div>", 400, 500, "Round Status", list(), interactive_state)
+		var/datum/vueui/ui = new(usr, src, "?<div>[dat]</div>", 400, 500, "Round Status", list(), staff_state)
 		ui.open()
 	else
 		alert("The game hasn't started yet!")
@@ -26,11 +26,9 @@
 /datum/vueui_module/player_panel
 
 /datum/vueui_module/player_panel/ui_interact(mob/user)
-	if (!usr.client.holder)
-		return
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
-		ui = new(user, src, "admin-player-panel", 800, 600, "Modern player panel", state = interactive_state)
+		ui = new(user, src, "admin-player-panel", 800, 600, "Modern player panel", staff_state)
 		ui.header = "minimal"
 		ui.auto_update_content = TRUE
 
@@ -39,8 +37,6 @@
 /datum/vueui_module/player_panel/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	if(!data)
 		. = data = list()
-	if(!user.client.holder)
-		return
 	var/isMod = check_rights(R_MOD|R_ADMIN, 0, user)
 	VUEUI_SET_CHECK(data["holder_ref"], "\ref[user.client.holder]", ., data)
 	VUEUI_SET_CHECK(data["ismod"], isMod, ., data)
