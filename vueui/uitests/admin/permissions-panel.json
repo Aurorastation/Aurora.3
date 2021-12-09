@@ -1,0 +1,24 @@
+{
+  "size": [800, 600],
+  "data": {
+    "assets": [],
+    "state": {
+      "admins": [
+        {
+          "ckey": "karolis2011",
+          "rank": "Head Admin/Dev",
+          "rights": " +BUILDMODE +ADMIN +BAN +FUN +SERVER +DEBUG +POSSESS +PERMISSIONS +STEALTH +REJUVINATE +VAREDIT +SOUND +SPAWN +MODERATOR +DEVELOPER +CCIAA"
+        }
+      ],
+      "forumuserui_enabled": 0
+    },
+    "active": "admin-permissions-panel",
+    "uiref": "[0x21001a93]",
+    "status": 2,
+    "debug": 1,
+    "debug_view": true,
+    "wtime": 22875.1,
+    "roundstart_hour": 75174,
+    "title": "Permissions panel"
+  }
+}
