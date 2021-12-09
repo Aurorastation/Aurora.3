@@ -1,0 +1,31 @@
+{
+  "size": [800, 600],
+  "data": {
+    "assets": [],
+    "state": {
+      "holder_ref": "[0x21000804]",
+      "ismod": 1,
+      "players": {
+        "[0x3000001]": {
+          "ref": "[0x3000001]",
+          "name": "Karolis2011",
+          "real_name": "New Player",
+          "assigment": "NA",
+          "key": "Karolis2011",
+          "ip": "127.0.0.1",
+          "connected": 1,
+          "antag": 0,
+          "age": "NA"
+        }
+      }
+    },
+    "active": "admin-player-panel",
+    "uiref": "[0x21001a48]",
+    "status": 2,
+    "debug": 1,
+    "debug_view": true,
+    "wtime": 1577.14,
+    "roundstart_hour": 306451,
+    "title": "Modern player panel"
+  }
+}

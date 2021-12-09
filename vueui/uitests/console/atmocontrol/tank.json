@@ -1,0 +1,36 @@
+{
+  "size": [460, 470],
+  "data": {
+    "assets": [],
+    "state": {
+      "sensors": {
+        "ph_sensor": {
+          "name": "Tank",
+          "pressure": "2348.1",
+          "temperature": 293.2
+        }
+      },
+      "control": "tank",
+      "maxrate": 700,
+      "maxpressure": 5066.25,
+      "output": {
+        "power": 1,
+        "pressure": 2000,
+        "setpressure": 4559.63
+      },
+      "input": {
+        "power": 1,
+        "rate": 50,
+        "setrate": 200
+      }
+    },
+    "active": "console-atmocontrol-main",
+    "uiref": "[0x210056f5]",
+    "status": 2,
+    "debug": 1,
+    "debug_view": true,
+    "wtime": 16188.3,
+    "roundstart_hour": 313070,
+    "title": "Phoron Supply Control"
+  }
+}

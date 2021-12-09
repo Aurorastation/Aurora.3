@@ -1,0 +1,47 @@
+{
+  "size": [460, 470],
+  "data": {
+    "assets": [],
+    "state": {
+      "sensors": {
+        "n2_sensor": {
+          "name": "Nitrogen",
+          "pressure": "85931.3",
+          "temperature": 293.2
+        },
+        "o2_sensor": {
+          "name": "Oxygen",
+          "pressure": "38407.1",
+          "temperature": 293.2
+        },
+        "co2_sensor": {
+          "name": "Carbon Dioxide",
+          "pressure": "24255.4",
+          "temperature": 293.2
+        },
+        "ph_sensor": {
+          "name": "Phoron",
+          "pressure": "2348.1",
+          "temperature": 293.2
+        },
+        "air_sensor": {
+          "name": "Air Tank",
+          "pressure": "2124.4",
+          "temperature": 293.2,
+          "oxygen": 21,
+          "nitrogen": 79,
+          "phoron": 0
+        }
+      },
+      "control": null
+    },
+    "active": "console-atmocontrol-main",
+    "uiref": "[0x2100d5b4]",
+    "status": 2,
+    "debug": 1,
+    "debug_view": true,
+    "wtime": 5785.75,
+    "roundstart_hour": 313070,
+    "title": "Tank Monitor"
+  }
+}

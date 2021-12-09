@@ -1,0 +1,44 @@
+{
+  "size": [
+    460,
+    470
+  ],
+  "data": {
+    "assets": [],
+    "state": {
+      "sensors": {
+        "engine_sensor": {
+          "name": "Engine Core",
+          "pressure": "80.1",
+          "temperature": 293.2,
+          "oxygen": 0.1,
+          "nitrogen": 99.9,
+          "carbon_dioxide": 0,
+          "phoron": 0,
+          "hydrogen": 0
+        }
+      },
+      "control": "supermatter",
+      "maxrate": 700,
+      "maxpressure": 1013.25,
+      "output": {
+        "power": 1,
+        "pressure": 100,
+        "setpressure": 100
+      },
+      "input": {
+        "power": 1,
+        "rate": 700,
+        "setrate": 700
+      }
+    },
+    "active": "console-atmocontrol-main",
+    "uiref": "[0x2100c6ab]",
+    "status": 2,
+    "debug": 1,
+    "debug_view": true,
+    "wtime": 11893.4,
+    "roundstart_hour": 313070,
+    "title": "Engine Cooling Control"
+  }
+}
