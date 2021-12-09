@@ -192,6 +192,7 @@
 	. = ..()
 	data = . || data || list()
 
+	VUEUI_SET_CHECK_IFNOTSET(data["allow_printing"], FALSE, ., data)
 	VUEUI_SET_CHECK_LIST(data["manifest"], SSrecords.get_manifest_list(), ., data)
 
 /datum/controller/subsystem/records/proc/open_manifest_vueui(mob/user)

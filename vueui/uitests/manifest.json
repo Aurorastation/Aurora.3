@@ -151,7 +151,8 @@
         ],
         "Equipment": [],
         "Miscellaneous": []
-      }
+      },
+      "allow_printing": 0
     },
     "assets": [],
     "active": "manifest",
