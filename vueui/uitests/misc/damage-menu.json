@@ -1,0 +1,39 @@
+{
+  "size": [600, 600],
+  "data": {
+    "assets": [],
+    "state": {
+      "limbs": {
+        "Chest": 1,
+        "Groin": 1,
+        "Head": 1,
+        "Left Arm": 1,
+        "Right Arm": 1,
+        "Left Leg": 1,
+        "Right Leg": 1,
+        "Left Hand": 1,
+        "Right Hand": 1,
+        "Left Foot": 1,
+        "Right Foot": 1
+      },
+      "organs": {
+        "Heart": 1,
+        "Lungs": 1,
+        "Liver": 1,
+        "Kidneys": 1,
+        "Stomach": 1,
+        "Brain": 1,
+        "Appendix": 1,
+        "Eyes": 1
+      }
+    },
+    "active": "admin-damage-menu",
+    "uiref": "[0x2100202c]",
+    "status": 2,
+    "debug": 1,
+    "debug_view": true,
+    "wtime": 14437.8,
+    "roundstart_hour": 75174,
+    "title": "Damage Menu | Montague Arona | karolis2011"
+  }
+}
