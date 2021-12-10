@@ -1,0 +1,6 @@
+author: TheGreyWOlf
+
+delete-after: True
+
+changes:
+  - bugfix: "Skrell psi ping can now detect simplemobs."
