@@ -73,7 +73,7 @@ NTSL2 deamon management subsystem, responsible for handling events from deamon a
 		request.begin_async()
 		var/task_id = "[current_task_id++]"
 		rustg_time_reset("ntsl2++[task_id]")
-		var/task = list(request = request, program = program, command = command, callback = callback)
+		var/task = list(id = task_id, request = request, program = program, command = command, callback = callback)
 		if(request.is_complete()) // Try checking maybe request already completed.is_complete
 			log_debug("NTSL2++: Task '[command]' fast-completed, hadling it's result NOW.")
 			var/datum/http_response/res = request.into_response()
@@ -89,7 +89,7 @@ NTSL2 deamon management subsystem, responsible for handling events from deamon a
 
 /datum/controller/subsystem/processing/ntsl2/proc/handle_task_completion(var/response, var/list/task)
 	var/command = task["command"]
-	var/taskDuration = rustg_time_milliseconds("ntsl2++[task_id]")
+	var/taskDuration = rustg_time_milliseconds("ntsl2++[task["id"]]")
 	log_debug("NTSL2++: Task '[command]' took [taskDuration] ms")
 	var/datum/ntsl2_program/program = task["program"]
 	switch(command)
