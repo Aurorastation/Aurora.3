@@ -963,9 +963,10 @@
 			"SmileyFace" = image(icon = src.icon, icon_state = "paperbag_SmileyFace")
 			))
 
-		choice = show_radial_menu(user, src, papersack_designs, radius = 42, tooltips = TRUE)
-		if(!choice)
+		var/selected = show_radial_menu(user, src, papersack_designs, radius = 42, tooltips = TRUE)
+		if(!selected)
 			return
+		choice = selected
 		switch(choice)
 			if("None")
 				desc = "A sack neatly crafted out of paper."

@@ -145,12 +145,6 @@
 /obj/item/reagent_containers/food/snacks/examine(mob/user)
 	if(!..(user, 1))
 		return
-	if(name != initial(name))
-		if(istype(src, /obj/item/reagent_containers/food/snacks/grown))
-			var/obj/item/reagent_containers/food/snacks/grown/G = src
-			to_chat(user, SPAN_NOTICE("You know the item as [G.seed.seed_name], but a little piece of propped-up paper indicates it's \a [name]."))
-		else
-			to_chat(user, SPAN_NOTICE("You know the item as [initial(name)], but a little piece of propped-up paper indicates it's \a [name]."))
 	if (coating)
 		var/decl/reagent/coating_reagent = decls_repository.get_decl(coating)
 		to_chat(user, SPAN_NOTICE("It's coated in [coating_reagent.name]!"))
