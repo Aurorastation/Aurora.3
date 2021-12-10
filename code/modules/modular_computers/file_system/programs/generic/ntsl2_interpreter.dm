@@ -23,8 +23,6 @@
 
 /datum/computer_file/program/ntsl2_interpreter/run_program(mob/user)
 	. = ..()
-	if(.)
-		running = SSntsl2.new_program_computer(CALLBACK(src, .proc/buffer_callback_handler))
 
 /datum/computer_file/program/ntsl2_interpreter/Topic(href, href_list)
 	if(..())
@@ -40,7 +38,7 @@
 		var/datum/computer_file/script/F = HDD.find_file_by_name(href_list["execute_file"])
 		if(istype(F))
 			var/code = F.code
-			
+			running = SSntsl2.new_program_computer(CALLBACK(src, .proc/buffer_callback_handler))
 			if(istype(running))
 				running.execute(code, usr)
 				is_running = TRUE
@@ -50,7 +48,7 @@
 		if(istype(running))
 			running.kill()
 			// Prepare for next execution
-			running = SSntsl2.new_program_computer(CALLBACK(src, .proc/buffer_callback_handler))
+			running = null
 			is_running = FALSE
 
 	if(href_list["edit_file"])
@@ -82,6 +80,7 @@
 			opened.code = href_list["code"]
 			opened.calculate_size()
 
+			running = SSntsl2.new_program_computer(CALLBACK(src, .proc/buffer_callback_handler))
 			if(istype(running))
 				running.execute(opened.code, usr)
 				is_running = TRUE
@@ -90,7 +89,7 @@
 		if(istype(running))
 			running.handle_topic(href_list["terminal_topic"])
 		. = TRUE
-	
+
 	if(.)
 		SSvueui.check_uis_for_change(src)
 		return FALSE
@@ -115,7 +114,7 @@
 		. = data
 
 	var/obj/item/computer_hardware/hard_drive/hdd = computer?.hard_drive
-	
+
 	if(is_running && istype(running))
 		data["mode"] = "program"
 		data["terminal"] = running.buffer
@@ -126,7 +125,7 @@
 	else
 		VUEUI_SET_CHECK(data["mode"], "list", ., data)
 
-	
+
 	data["files"] = list()
 	for(var/datum/computer_file/script/F in hdd?.stored_files)
 		if(F.filetype == "NTS" && !F.password)
@@ -136,7 +135,7 @@
 				"size" = F.size,
 				"undeletable" = F.undeletable
 			))
-	
+
 
 /datum/computer_file/program/ntsl2_interpreter/proc/buffer_callback_handler()
 	SSvueui.check_uis_for_change(src)
