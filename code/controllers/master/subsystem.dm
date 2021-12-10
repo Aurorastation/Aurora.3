@@ -160,11 +160,9 @@
 // Do not override - Wrapper for Initialize() so initialization status can be shown for subsystems that do not return parent.
 /datum/controller/subsystem/proc/StartInitialize(timeofday)
 	init_state = SS_INITSTATE_STARTED
-	init_start = timeofday
+	rustg_time_reset("ssinit")
 	. = Initialize(timeofday)
-	init_finish = REALTIMEOFDAY
-	if (!init_time)
-		init_time = (init_finish - init_start) / 10
+	init_time = rustg_time_milliseconds("ssinit") / 1000
 	init_state = SS_INITSTATE_DONE
 
 //used to initialize the subsystem AFTER the map has loaded
