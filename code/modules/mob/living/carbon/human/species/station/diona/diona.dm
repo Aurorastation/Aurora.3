@@ -172,6 +172,7 @@
 		SB.handle_item_insertion(new /obj/item/device/flashlight/survival(get_turf(H)), TRUE)
 
 /datum/species/diona/has_psi_potential()
+	log_and_message_admins("test 1")
 	return FALSE
 
 /datum/species/diona/is_naturally_insulated()
