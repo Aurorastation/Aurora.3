@@ -34,7 +34,7 @@ NTSL2 deamon management subsystem, responsible for handling events from deamon a
 			if(RUSTG_HTTP_METHOD_POST)
 				if(arguments)
 					body = json_encode(arguments)
-			
+
 		return http_create_request(method, url, body)
 	return FALSE
 
@@ -71,8 +71,17 @@ NTSL2 deamon management subsystem, responsible for handling events from deamon a
 	var/datum/http_request/request = build_request(command, arguments, method)
 	if(istype(request))
 		request.begin_async()
-		var/task = list(request = request, program = program, command = command, callback = callback)
 		var/task_id = "[current_task_id++]"
+		rustg_time_reset("ntsl2++[task_id]")
+		var/task = list(request = request, program = program, command = command, callback = callback)
+		if(request.is_complete()) // Try checking maybe request already completed.is_complete
+			log_debug("NTSL2++: Task '[command]' fast-completed, hadling it's result NOW.")
+			var/datum/http_response/res = request.into_response()
+			var/result = handle_response(res, command)
+			handle_task_completion(result, task)
+		else
+			var/taskDuration = rustg_time_microseconds("ntsl2++[task_id]")
+			log_debug("NTSL2++: Task '[command]' didn't fast-complete in [taskDuration] us")
 		tasks[task_id] = task
 		return task_id
 	return FALSE
@@ -80,6 +89,8 @@ NTSL2 deamon management subsystem, responsible for handling events from deamon a
 
 /datum/controller/subsystem/processing/ntsl2/proc/handle_task_completion(var/response, var/list/task)
 	var/command = task["command"]
+	var/taskDuration = rustg_time_milliseconds("ntsl2++[task_id]")
+	log_debug("NTSL2++: Task '[command]' took [taskDuration] ms")
 	var/datum/ntsl2_program/program = task["program"]
 	switch(command)
 		if("new_program")
@@ -92,7 +103,6 @@ NTSL2 deamon management subsystem, responsible for handling events from deamon a
 					callback.InvokeAsync()
 			return
 		if("execute")
-			log_debug("NTSL2++ Daemon could not be connected to. Functionality will not be enabled.")
 			// Not sure what to do with successful / unsuccessful execution
 			return
 		if("computer/get_buffer")
@@ -107,7 +117,7 @@ NTSL2 deamon management subsystem, responsible for handling events from deamon a
 	if(istype(cb))
 		cb.InvokeAsync(response)
 
-		
+
 
 /datum/controller/subsystem/processing/ntsl2/proc/is_complete(var/task_id)
 	if(!task_id)
@@ -115,7 +125,7 @@ NTSL2 deamon management subsystem, responsible for handling events from deamon a
 	if(tasks[task_id])
 		return FALSE
 	return TRUE
-	
+
 
 /datum/controller/subsystem/processing/ntsl2/proc/attempt_connect()
 	var/res = sync_send("clear")
