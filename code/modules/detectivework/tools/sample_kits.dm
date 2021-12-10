@@ -51,11 +51,15 @@
 /obj/item/sample/fibers
 	name = "fiber bag"
 	desc = "Used to hold fiber evidence for the detective."
+	desc_info = "Holds various fibe evidence. Place it in a slide and the slide into a microscope to check them."
 	icon_state = "fiberbag"
 
 /obj/item/sample/print
 	name = "fingerprint card"
 	desc = "Records a set of fingerprints."
+	desc_info = "A sample card for fingerprints. Risks putting your own prints on it if touched without gloves.\
+	\nPlace the card in a microscope to examine the contents. \
+	\nUse in hand to put your prints on it.\nTarget hands and click another creature to take their prints."
 	icon = 'icons/obj/card.dmi'
 	icon_state = "fingerprint0"
 	item_state = "paper"
@@ -124,6 +128,7 @@
 /obj/item/forensics/sample_kit
 	name = "fiber collection kit"
 	desc = "A magnifying glass and tweezers. Used to lift suit fibers."
+	desc_info = "Click drag it on to an object to collect evidence. Alternatively click on non-help intent."
 	icon_state = "m_glass"
 	w_class = ITEMSIZE_SMALL
 	flags = NOBLUDGEON

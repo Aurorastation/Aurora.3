@@ -1,0 +1,8 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Forensic slides now deposit to the inactive hand if it is free."
+  - rscadd: "The forensic fiber & fingerprint kits will now only activate things if clicked on with help intent. Otherwise it will only collect fibers/prints."
+  - rscadd: "Several bits of forensic equipment now have additional text to explain how ot use them, when examined."
