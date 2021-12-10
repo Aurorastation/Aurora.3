@@ -11,6 +11,7 @@
 #define SEVERITY_NOTICE   5 //Notice: normal but significant condition
 #define SEVERITY_INFO     6 //Informational: informational messages
 #define SEVERITY_DEBUG    7 //Debug: debug-level messages
+#define WRITE_LOG(log, text) rustg_log_write(log, text, "true")
 
 /var/global/log_end = world.system_type == UNIX ? ascii2text(13) : ""
 
@@ -30,7 +31,7 @@
 	world.log <<  "## ERROR: [msg][log_end]"
 
 /proc/shutdown_logging()
-	dll_call(RUST_G, "log_close_all")
+	rustg_log_close_all()
 
 #define WARNING(MSG) warning("[MSG] in [__FILE__] at line [__LINE__] src: [src] usr: [usr].")
 //print a warning message to world.log
