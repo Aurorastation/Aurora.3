@@ -2,8 +2,9 @@
 	This state checks that the user is an admin, end of story
 */
 /var/global/datum/topic_state/admin_state/admin_state = new()
+/var/global/datum/topic_state/admin_state/moderator_state = new(R_MOD)
+
 /var/global/datum/topic_state/staff_state/staff_state = new()
-/var/global/datum/topic_state/staff_state/moderator_state = new(R_MOD)
 
 /datum/topic_state/admin_state
 	var/rigths_to_check = R_ADMIN
