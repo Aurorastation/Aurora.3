@@ -497,7 +497,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 /obj/machinery/telecomms/server/Initialize()
 	. = ..()
-	Program = SSntsl2.new_program_tcomm(src)
+	// Program = SSntsl2.new_program_tcomm(src)
 	server_radio = new()
 
 /obj/machinery/telecomms/server/receive_information(datum/signal/signal, obj/machinery/telecomms/machine_from)
@@ -574,12 +574,10 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 				log.name = "data packet ([md5(identifier)])"
 
 				if(istype(Program))
-					Program.process_message(signal, CALLBACK(src, .proc/program_receive_information, signal))
+					Program.process_message(signal)
+					Program.retrieve_messages()
 
 			finish_receive_information(signal)
-
-/obj/machinery/telecomms/server/proc/program_receive_information(datum/signal/signal)
-	Program.retrieve_messages(CALLBACK(src, .proc/finish_receive_information, signal))
 
 /obj/machinery/telecomms/server/proc/finish_receive_information(datum/signal/signal)
 	var/can_send = relay_information(signal, "/obj/machinery/telecomms/hub")

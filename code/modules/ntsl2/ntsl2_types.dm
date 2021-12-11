@@ -99,7 +99,7 @@
 
 /datum/ntsl2_program/tcomm/proc/retrieve_messages()
 	set waitfor = FALSE
-	var/response = SSntsl2.send("tcom/get")
+	var/response = SSntsl2.send("tcom/get", list(id = id))
 	if(response)
 		var/list/signals = json_decode(response)
 		for(var/sl in signals)
