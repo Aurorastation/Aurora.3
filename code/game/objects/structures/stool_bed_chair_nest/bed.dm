@@ -223,7 +223,7 @@
 	. = ..()
 	if(makes_rolling_sound)
 		playsound(src, 'sound/effects/roll.ogg', 50, 1)
-	if(buckled)
+	if(buckled && !istype(src, /obj/structure/bed/roller))
 		var/mob/living/occupant = buckled
 		if(!driving)
 			occupant.buckled_to = null
@@ -458,8 +458,6 @@
 
 /obj/structure/bed/roller/Move()
 	..()
-	if(makes_rolling_sound)
-		playsound(src, 'sound/effects/roll.ogg', 100, 1)
 	if(buckled)
 		if(buckled.buckled_to == src)
 			buckled.forceMove(src.loc)
