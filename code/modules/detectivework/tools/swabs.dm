@@ -8,9 +8,10 @@
 	desc = "A sterilized cotton swab and vial used to take forensic samples."
 	desc_info = "Swab kits can be used to gather blood with DNA attached to it by clicking the blood. \
 	If it fails to collect a sample, it means that particular bit of blood has no associated DNA. \
-	\nThey can also collect DNA samples directly from people by targetting their mouth to take a saliva sample.\
-	\nGunshot Residue (GSR) can be collected from someones hands by targetting them, or from their gloves \
-	by taking the gloves and clicking on them. \n\nGSR samples are put in a slide and examined in a microscope.\
+	\nThey can also collect DNA samples directly from people by targetting their mouth to take a saliva sample. \
+	\nGunshot Residue (GSR) can be collected from someones hands by targetting them. If they are wearing gloves, \
+	the residue will be taken from the gloves instead. \
+	\n\nGSR samples are put in a slide and examined in a microscope. \
 	\nBlood and DNA samples are checked in the DNA analyzer"
 	icon_state = "swab"
 	var/gsr = 0
@@ -33,10 +34,6 @@
 	var/mob/living/carbon/human/H = M
 	var/sample_type
 
-	if(H.wear_mask)
-		to_chat(user, SPAN_WARNING("\The [H] is wearing a mask."))
-		return
-
 	if(!H.dna || !H.dna.unique_enzymes)
 		to_chat(user, SPAN_WARNING("They don't seem to have DNA!"))
 		return
@@ -51,6 +48,9 @@
 			return
 		if(!H.check_has_mouth())
 			to_chat(user, SPAN_WARNING("They don't have a mouth."))
+			return
+		if(H.wear_mask)
+			to_chat(user, SPAN_WARNING("\The [H] is wearing a mask."))
 			return
 		user.visible_message("[user] swabs \the [H]'s mouth for a saliva sample.")
 		dna = list(H.dna.unique_enzymes)
@@ -68,9 +68,20 @@
 		if(!has_hand)
 			to_chat(user, SPAN_WARNING("They don't have any hands."))
 			return
-		user.visible_message("[user] swabs [H]'s palm for a sample.")
+		if(H.gloves)
+			var/obj/item/clothing/B = H.gloves
+			if(!B.gunshot_residue)
+				to_chat(user, SPAN_WARNING("There is no residue on [H]'s [B]."))
+				return
+			user.visible_message("[user] swabs [H]'s [B] for a sample.")
+			gsr = B.gunshot_residue
+		else
+			if(!H.gunshot_residue)
+				to_chat(user, SPAN_WARNING("There is no residue on [H]'s palms."))
+				return
+			user.visible_message("[user] swabs [H]'s palm for a sample.")
+			gsr = H.gunshot_residue
 		sample_type = "GSR"
-		gsr = H.gunshot_residue
 	else
 		return
 
@@ -81,7 +92,7 @@
 
 /obj/item/forensics/swab/afterattack(var/atom/A, var/mob/user, var/proximity)
 
-	if(!proximity || istype(A, /obj/item/forensics/slide) || istype(A, /obj/machinery/dnaforensics))
+	if(!proximity || istype(A, /obj/item/forensics/slide) || istype(A, /obj/machinery/dnaforensics) || ismob(A) || istype(A, /obj/structure/filingcabinet))
 		return
 
 	if(is_used())
