@@ -17,7 +17,7 @@
 		for(var/antag_type in all_antag_types)
 			var/datum/antagonist/A = all_antag_types[antag_type]
 			dat += A.get_check_antag_output(src)
-	
+
 		var/datum/vueui/ui = new(usr, src, "?<div>[dat]</div>", 400, 500, "Round Status", list(), staff_state)
 		ui.open()
 	else
@@ -28,7 +28,7 @@
 /datum/vueui_module/player_panel/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
-		ui = new(user, src, "admin-player-panel", 800, 600, "Modern player panel", staff_state)
+		ui = new(user, src, "admin-player-panel", 800, 600, "Modern player panel", state = staff_state)
 		ui.header = "minimal"
 		ui.auto_update_content = TRUE
 
@@ -43,7 +43,7 @@
 
 
 	var/list/mobs = sortmobs()
-	
+
 	LAZYINITLIST(data["players"])
 	if(LAZYLEN(data["players"]) != mobs.len)
 		data["players"] = list()
