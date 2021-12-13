@@ -25,19 +25,18 @@ NTSL2 deamon management subsystem, responsible for handling events from deamon a
 /*
  * Builds request object meant to do certain action. Returns FALSE (0) when there was an issue.
  */
-/datum/controller/subsystem/processing/ntsl2/proc/build_request(var/command, var/list/arguments, var/method = RUSTG_HTTP_METHOD_GET)
+/datum/controller/subsystem/processing/ntsl2/proc/build_request(var/command, var/list/arguments, var/method = RUSTG_HTTP_METHOD_GET, var/body = null)
 	if(config.ntsl_hostname && config.ntsl_port) // Requires config to be set.
 		var/url = "http://[config.ntsl_hostname]:[config.ntsl_port]/[command]"
-		var/body = ""
+		var/request_body = ""
+		if(arguments)
+			url += "?" + list2params(arguments)
 		switch(method)
-			if(RUSTG_HTTP_METHOD_GET)
-				if(arguments)
-					url += "?" + list2params(arguments)
 			if(RUSTG_HTTP_METHOD_POST)
-				if(arguments)
-					body = json_encode(arguments)
+				if(body)
+					request_body = json_encode(body)
 
-		return http_create_request(method, url, body)
+		return http_create_request(method, url, request_body, list("Content-Type" = "application/json"))
 	return FALSE
 
 /*
@@ -58,12 +57,12 @@ NTSL2 deamon management subsystem, responsible for handling events from deamon a
 /*
  * Synchronous command to NTSL2 daemon. Uses sleep.
  */
-/datum/controller/subsystem/processing/ntsl2/proc/send(var/command, var/list/arguments, var/method = RUSTG_HTTP_METHOD_GET, var/internal = FALSE)
+/datum/controller/subsystem/processing/ntsl2/proc/send(var/command, var/list/arguments, var/method = RUSTG_HTTP_METHOD_GET, var/body = null, var/internal = FALSE)
 	if(!internal)
 		UNTIL(init_state == SS_INITSTATE_DONE)
 		if(!connected)
 			return FALSE
-	var/datum/http_request/request = build_request(command, arguments, method)
+	var/datum/http_request/request = build_request(command, arguments, method, body)
 	if(istype(request))
 		var/task_id = world.time
 		request.begin_async()

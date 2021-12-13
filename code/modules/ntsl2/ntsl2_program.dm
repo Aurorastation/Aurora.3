@@ -18,8 +18,8 @@ Datum representing program state on deamon and exposing apropriate procs to DM.
 	SSntsl2.handle_termination(src)
 	qdel(src)
 
-/datum/ntsl2_program/proc/execute(var/script, var/mob/user)
+/datum/ntsl2_program/proc/execute(var/script, var/scriptName = "unknown.nts", var/mob/user)
 	set waitfor = FALSE
 	UNTIL(is_ready())
 	log_ntsl("[user.name]/[user.key] uploaded script to [src] : [script]", SEVERITY_NOTICE, user.ckey)
-	SSntsl2.send("execute", list(id = id, code = script))
+	SSntsl2.send("execute", list(id = id, scriptName = scriptName), RUSTG_HTTP_METHOD_POST, script)

@@ -42,9 +42,10 @@
 		var/data = input("", "Enter Data")
 		if(!data)
 			data = ""
-		SSntsl2.send("computer/topic", list(id = id, topic = copytext(topic, 2), data = data))
+		SSntsl2.send("computer/topic", list(id = id, topic = copytext(topic, 2)), RUSTG_HTTP_METHOD_POST, data)
 	else
-		SSntsl2.send("computer/topic", list(id = id, topic = topic))
+		SSntsl2.send("computer/topic", list(id = id, topic = topic), RUSTG_HTTP_METHOD_POST)
+	update_buffer()
 
 /datum/ntsl2_program/computer/proc/update_buffer()
 	set waitfor = FALSE

@@ -40,7 +40,7 @@
 			var/code = F.code
 			running = SSntsl2.new_program_computer(CALLBACK(src, .proc/buffer_callback_handler))
 			if(istype(running))
-				running.execute(code, usr)
+				running.execute(code, F.filename, usr)
 				is_running = TRUE
 
 	if(href_list["stop"])
@@ -82,7 +82,7 @@
 
 			running = SSntsl2.new_program_computer(CALLBACK(src, .proc/buffer_callback_handler))
 			if(istype(running))
-				running.execute(opened.code, usr)
+				running.execute(opened.code, opened.filename, usr)
 				is_running = TRUE
 
 	if(href_list["terminal_topic"])
