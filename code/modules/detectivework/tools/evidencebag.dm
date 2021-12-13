@@ -3,7 +3,7 @@
 /obj/item/evidencebag
 	name = "evidence bag"
 	desc = "An empty evidence bag."
-	desc_info = "To use: Click drag it onto an object. Click it in-hand to remove an object from it."
+	desc_info = "Click drag this onto an object to put it inside. Click it in-hand to remove an object from it."
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "evidenceobj"
 	item_state = ""
