@@ -75,9 +75,10 @@
 	else
 		to_chat(user, SPAN_NOTICE("<b>You dip your mentality into the surface layer of \the [target]'s mind, seeking an answer: <i>[question]</i></b>"))
 		to_chat(target, SPAN_NOTICE("<b>Your mind is compelled to answer: <i>[question]</i></b>"))
-	var/answer =  sanitize(input(target, question, "Read Mind") as null|text)
+	var/answer =  sanitize(input(target, "[question]\nYou have 25 seconds to type a response", "Read Mind") as null|text)
 	if(!answer || world.time > started_mindread + 25 SECONDS || user.stat != CONSCIOUS)
 		to_chat(user, SPAN_NOTICE("<b>You receive nothing useful from \the [target].</b>"))
+		to_chat(target, SPAN_NOTICE("Your mind blanks out momentarily."))
 	else
 		to_chat(user, SPAN_NOTICE("<b>You skim thoughts from the surface of \the [target]'s mind: <i>[answer]</i></b>"))
 	msg_admin_attack("[key_name(user)] read mind of [key_name(target)] with question \"[question]\" and [answer?"got answer \"[answer]\".":"got no answer."]")
