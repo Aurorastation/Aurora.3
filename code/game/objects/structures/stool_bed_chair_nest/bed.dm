@@ -100,8 +100,6 @@
 
 /obj/structure/bed/proc/set_colour(new_colour)
 	if(padding_material)
-		if(istype(padding_material, /material/cloth)) // If material is cloth subtype and gets painted, turn it into regular ol' cloth. Yes. I hate it too.
-			padding_material = SSmaterials.get_material_by_name(MATERIAL_CLOTH)
 		var/last_colour = painted_colour
 		painted_colour = new_colour
 		return painted_colour != last_colour
