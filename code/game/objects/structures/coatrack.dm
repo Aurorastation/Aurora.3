@@ -5,7 +5,7 @@
 	icon_state = "coatrack"
 	var/obj/item/clothing/coat
 	var/obj/item/clothing/head/hat
-	var/list/custom_sprites = list(/obj/item/clothing/head/beret/security, /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak) // Custom manual sprite override.
+	var/list/custom_sprites = list(/obj/item/clothing/head/beret/security, /obj/item/clothing/accessory/poncho/tajarancloak) // Custom manual sprite override.
 
 /obj/structure/coatrack/attack_hand(mob/user as mob)
 	if(!ishuman(user))
