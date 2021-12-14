@@ -1,0 +1,67 @@
+name: BYOND tests
+
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+    branches:
+    - master
+
+jobs:
+  lint:
+    if: "!contains(github.event.head_commit.message, '[ci skip]')"
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install
+        run: |
+          pip install --user -r ./tools/requirements.txt
+          chmod +x ./scripts/code_check.sh && ./scripts/code_check.sh $PWD
+          bash tools/ci/install_spaceman_dmm.sh dreamchecker
+      - name: Code checks
+        run: |
+          awk -f tools/indentation.awk **/*.dm
+          python3 tools/TagMatcher/tag-matcher.py ../..
+          python3 tools/GenerateChangelog/ss13_genchangelog.py html/changelog.html html/changelogs --dry-run
+          python3 tools/mapmerge2/travis_mapcheck.py
+          echo "6a5ae087fe5bfa66e52e508655e57120 *html/changelogs/example.yml" | md5sum -c -
+      - name: Run dreamchecker
+        run: ~/dreamchecker | tee ~/output-annotations.txt
+      - name: Annotate Lints
+        uses: yogstation13/DreamAnnotate@v1
+        if: always()
+        with:
+          outputFile: output-annotations.txt
+
+  unit-test-linux:
+    if: "!contains(github.event.head_commit.message, '[ci skip]')"
+    strategy:
+      matrix:
+        map: [runtime, aurora, exodus]
+    runs-on: ubuntu-20.04
+
+    services:
+      db:
+        image: mariadb:10.3
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: game
+          MYSQL_USER: build
+          MYSQL_PASSWORD: build
+        ports:
+          - 3306
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install BYOND
+        run: bash tools/ci/install_byond.sh
+      - name: Run tests
+        run: |
+          cp config/example/* config/ && cp config/ut/config-db.txt config/config.txt && cp config/ut/dbconfig.txt config/dbconfig.txt
+          scripts/dm.sh -DUNIT_TEST -M${{ matrix.map }} aurorastation.dme
+          grep "0 warnings" build_log.txt
+          DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
+          grep "All Unit Tests Passed" log.txt
+          (! grep "runtime error:" log.txt)
+          echo "Unit Tests Completed"
+
