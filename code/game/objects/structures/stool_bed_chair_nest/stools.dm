@@ -28,12 +28,15 @@
 			S.name = name // Get the name and desc of the stool, rather. We already went through all the trouble in New in bed.dm
 		if(material_alteration & MATERIAL_ALTERATION_DESC)
 			S.desc = desc
+		if(painted_colour)
+			S.painted_colour = painted_colour
 		if(blood_DNA)
 			S.blood_DNA |= blood_DNA // Transfer blood, if any.
 			S.add_blood()
 		S.dir = dir
 		S.add_fingerprint(usr)
 		usr.put_in_hands(S)
+		S.update_icon()
 		qdel(src)
 
 /obj/structure/bed/stool/wood/New(var/newloc)
@@ -45,29 +48,38 @@
 /obj/structure/bed/stool/padded/brown/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)
 
+/obj/structure/bed/stool/padded/black/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_DARK_GRAY)
+
+/obj/structure/bed/stool/padded/beige/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_BEIGE)
+
 /obj/structure/bed/stool/padded/red/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CARPET)
 
-/obj/structure/bed/stool/padded/teal/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_TEAL)
+/obj/structure/bed/stool/padded/orange/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_ORANGE)
 
-/obj/structure/bed/stool/padded/black/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_BLACK)
+/obj/structure/bed/stool/padded/yellow/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_YELLOW)
 
 /obj/structure/bed/stool/padded/green/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_GREEN)
-
-/obj/structure/bed/stool/padded/purp/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_PURPLE)
-
-/obj/structure/bed/stool/padded/blue/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_BLUE)
-
-/obj/structure/bed/stool/padded/beige/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_BEIGE)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_GREEN)
 
 /obj/structure/bed/stool/padded/lime/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_LIME)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_LIME)
+
+/obj/structure/bed/stool/padded/blue/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_BLUE)
+
+/obj/structure/bed/stool/padded/teal/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_TEAL)
+
+/obj/structure/bed/stool/padded/purple/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_PURPLE)
+
+/obj/structure/bed/stool/padded/violet/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_VIOLET)
 
 /obj/structure/bed/stool/wood/New(var/newloc)
 	..(newloc, MATERIAL_WOOD)
@@ -86,32 +98,45 @@
 /obj/structure/bed/stool/bar/padded
 	icon_state = "bar_stool_padded_preview"
 
+// ROYGBIV colors for convenience. Mappers can use custom hex codes or defines if they want special colors.
+
+
 /obj/structure/bed/stool/bar/padded/brown/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)
+
+/obj/structure/bed/stool/bar/padded/black/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_DARK_GRAY)
+
+/obj/structure/bed/stool/bar/padded/beige/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_BEIGE)
 
 /obj/structure/bed/stool/bar/padded/red/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CARPET)
 
-/obj/structure/bed/stool/bar/padded/teal/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_TEAL)
+/obj/structure/bed/stool/bar/padded/orange/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_ORANGE)
 
-/obj/structure/bed/stool/bar/padded/black/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_BLACK)
+/obj/structure/bed/stool/bar/padded/yellow/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_YELLOW)
 
 /obj/structure/bed/stool/bar/padded/green/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_GREEN)
-
-/obj/structure/bed/stool/bar/padded/purp/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_PURPLE)
-
-/obj/structure/bed/stool/bar/padded/blue/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_BLUE)
-
-/obj/structure/bed/stool/bar/padded/beige/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_BEIGE)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_GREEN)
 
 /obj/structure/bed/stool/bar/padded/lime/New(var/newloc)
-	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH_LIME)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_LIME)
+
+/obj/structure/bed/stool/bar/padded/blue/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_BLUE)
+
+/obj/structure/bed/stool/bar/padded/teal/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_TEAL)
+
+/obj/structure/bed/stool/bar/padded/purple/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_PURPLE)
+
+/obj/structure/bed/stool/bar/padded/violet/New(var/newloc)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_VIOLET)
+
 
 /obj/structure/bed/stool/bar/wood/New(var/newloc)
 	..(newloc, MATERIAL_WOOD)
@@ -152,6 +177,7 @@
 	var/material/padding_material
 	var/obj/structure/bed/stool/origin_type = /obj/structure/bed/stool
 	var/deploy_verb = "right"
+	var/painted_colour
 
 /obj/item/material/stool/New(var/newloc, var/new_material, var/new_padding_material)
 	..(newloc, new_material)	// new_material handled in material_weapons.dm
@@ -218,6 +244,8 @@
 	var/obj/structure/bed/stool/S = new origin_type(get_turf(loc))
 	if(src.padding_material)
 		S.padding_material = src.padding_material
+		if(src.painted_colour)
+			S.painted_colour = src.painted_colour
 		S.update_icon()
 	TransferComponents(S)
 	S.dir = user.dir // Plant it where the user's facing
@@ -233,7 +261,10 @@
 		padding_overlay.appearance_flags = RESET_COLOR
 		build_from_parts = TRUE
 		worn_overlay = "padding"
-		if(padding_material.icon_colour)
+		if(painted_colour)
+			padding_overlay.color = painted_colour
+			worn_overlay_color = painted_colour
+		else if(padding_material.icon_colour)
 			padding_overlay.color = padding_material.icon_colour
 			worn_overlay_color = padding_material.icon_colour
 		add_overlay(padding_overlay)

@@ -25,6 +25,8 @@
 	var/material_alteration = MATERIAL_ALTERATION_ALL
 	var/buckling_sound = 'sound/effects/buckle.ogg'
 
+	var/painted_colour // Used for paint gun and preset colours. I know this name sucks.
+
 	var/can_dismantle = TRUE
 	var/can_pad = TRUE
 
@@ -37,7 +39,7 @@
 	. = ..()
 	LAZYADD(can_buckle, /mob/living)
 
-/obj/structure/bed/New(newloc, new_material = MATERIAL_STEEL, new_padding_material)
+/obj/structure/bed/New(newloc, new_material = MATERIAL_STEEL, new_padding_material, new_painted_colour)
 	..(newloc)
 	if(can_buckle)
 		desc_info = "Click and drag yourself (or anyone) to this to buckle in. Click on this with an empty hand to undo the buckles.<br>\
@@ -51,6 +53,8 @@
 		return
 	if(new_padding_material)
 		padding_material = SSmaterials.get_material_by_name(new_padding_material)
+	if(new_painted_colour)
+		painted_colour = new_painted_colour
 	update_icon()
 
 /obj/structure/bed/buckle(mob/living/M)
@@ -76,10 +80,13 @@
 	// Padding overlay.
 	if(padding_material)
 		var/padding_cache_key = "[base_icon]-[padding_material.name]-padding"
-		if(!furniture_cache[padding_cache_key])
+		if(!furniture_cache[padding_cache_key] || painted_colour) //avoid having to regenerate the image everytime unless painted.
 			var/image/I =  image(icon, "[base_icon]_padding")
 			if(material_alteration & MATERIAL_ALTERATION_COLOR)
-				I.color = padding_material.icon_colour
+				if(painted_colour)
+					I.color = painted_colour
+				else
+					I.color = padding_material.icon_colour
 			furniture_cache[padding_cache_key] = I
 		add_overlay(furniture_cache[padding_cache_key])
 
@@ -89,8 +96,15 @@
 
 	if(material_alteration & MATERIAL_ALTERATION_DESC)
 		desc = initial(desc)
-		desc += padding_material ? " It's made of [material.use_name] and covered with [padding_material.use_name]." : " It's made of [material.use_name]."
+		desc += padding_material ? " It's made of [material.use_name] and covered with [padding_material.use_name][painted_colour ? ", colored in <font color='[painted_colour]'>[painted_colour]</font>" : ""]." : " It's made of [material.use_name]." //Yeah plain hex codes suck but at least it's a little funny and less of a headache for players.
 
+/obj/structure/bed/proc/set_colour(new_colour)
+	if(padding_material)
+		if(istype(padding_material, /material/cloth)) // If material is cloth subtype and gets painted, turn it into regular ol' cloth. Yes. I hate it too.
+			padding_material = SSmaterials.get_material_by_name(MATERIAL_CLOTH)
+		var/last_colour = painted_colour
+		painted_colour = new_colour
+		return painted_colour != last_colour
 
 /obj/structure/bed/forceMove(atom/dest)
 	. = ..()
@@ -158,6 +172,7 @@
 			return
 		to_chat(user, "You remove the padding from \the [src].")
 		playsound(src, 'sound/items/wirecutter.ogg', 100, 1)
+		painted_colour = null
 		remove_padding()
 
 	else if (W.isscrewdriver())
@@ -192,6 +207,9 @@
 		user.drop_from_inventory(W, get_turf(src))
 		W.pixel_x = 10 //make sure they reach the pillow
 		W.pixel_y = -6
+
+	else if(istype(W, /obj/item/device/floor_painter))
+		return
 
 	else if(!istype(W, /obj/item/bedsheet))
 		..()
