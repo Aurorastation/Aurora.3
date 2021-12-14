@@ -64,21 +64,19 @@
 	if(coat)
 		if(is_type_in_list(coat, custom_sprites))
 			add_overlay(coat.icon_state)
-			return
-		if(istype(coat, /obj/item/clothing/suit/storage/toggle)) // Using onmob sprites, because they're more consistent than object sprites.
+		else if(istype(coat, /obj/item/clothing/suit/storage/toggle)) // Using onmob sprites, because they're more consistent than object sprites.
 			var/obj/item/clothing/suit/storage/toggle/T = coat
 			if(!T.opened)
 				T.opened = TRUE // Makes coats open when hung up. Cause you know, you can't really hang up a closed coat. Well you can, but...code reasons.
 				T.icon_state = "[T.icon_state]_open"
 			handle_coat_image(T)
-		if(istype(coat, /obj/item/clothing/accessory/poncho)) // Pain.
+		else if(istype(coat, /obj/item/clothing/accessory/poncho)) // Pain.
 			var/obj/item/clothing/accessory/poncho/T = coat
 			handle_coat_image(T)
 	if(hat)
 		if(is_type_in_list(hat, custom_sprites))
 			add_overlay(hat.icon_state)
-			return
-		if(istype(hat, /obj/item/clothing/head))
+		else if(istype(hat, /obj/item/clothing/head))
 			var/obj/item/clothing/head/H = hat
 			var/matrix/M = matrix()
 			var/image/hat_image
