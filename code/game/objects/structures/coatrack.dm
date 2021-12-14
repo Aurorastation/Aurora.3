@@ -50,7 +50,7 @@
 		coat.forceMove(src)
 		update_icon()
 		return 0
-	if(!hat && istype(mover, /obj/item/clothing/head))
+	else if(!hat && istype(mover, /obj/item/clothing/head))
 		src.visible_message("[mover] lands on \the [src].")
 		hat = mover
 		hat.forceMove(src)
