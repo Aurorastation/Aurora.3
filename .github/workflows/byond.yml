@@ -27,7 +27,7 @@ jobs:
           python3 tools/mapmerge2/travis_mapcheck.py
           echo "6a5ae087fe5bfa66e52e508655e57120 *html/changelogs/example.yml" | md5sum -c -
       - name: Run dreamchecker
-        run: ~/dreamchecker | tee ~/output-annotations.txt
+        run: ~/dreamchecker > ${GITHUB_WORKSPACE}/output-annotations.txt 2>&1
       - name: Annotate Lints
         uses: yogstation13/DreamAnnotate@v1
         if: always()
@@ -40,7 +40,7 @@ jobs:
       matrix:
         map: [runtime, aurora, exodus]
     runs-on: ubuntu-20.04
-
+    needs: lint
     services:
       db:
         image: mariadb:10.3
@@ -54,13 +54,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install BYOND
-        run: bash tools/ci/install_byond.sh
+        run: |
+          bash tools/ci/install_byond.sh
+          source $HOME/BYOND/byond/bin/byondsetup
       - name: Run tests
         run: |
           cp config/example/* config/ && cp config/ut/config-db.txt config/config.txt && cp config/ut/dbconfig.txt config/dbconfig.txt
           scripts/dm.sh -DUNIT_TEST -M${{ matrix.map }} aurorastation.dme
           grep "0 warnings" build_log.txt
-          DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
+          $HOME/BYOND/bin/DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
           grep "All Unit Tests Passed" log.txt
           (! grep "runtime error:" log.txt)
           echo "Unit Tests Completed"
