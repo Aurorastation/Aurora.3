@@ -28,9 +28,9 @@ else
     then
         export DM='/usr/share/byond/bin/DreamMaker'
         return 0
-    elif [[ -a '$HOME/BYOND/bin/DreamMaker' ]]
+    elif [[ -a '$HOME/BYOND/byond/bin/DreamMaker' ]]
     then
-        export DM='$HOME/BYOND/bin/DreamMaker'
+        export DM='$HOME/BYOND/byond/bin/DreamMaker'
         return 0
     fi
 fi
