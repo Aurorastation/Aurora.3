@@ -57,6 +57,8 @@ jobs:
         run: |
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
+          curl -L "https://github.com/Aurorastation/rust-g/releases/download/${RUST_G_VERSION}/librust_g.so" -o $HOME/BYOND/byond/bin/librust_g.so
+          chmod +x $HOME/BYOND/byond/bin/librust_g.so
       - name: Run tests
         run: |
           export LD_LIBRARY_PATH=./:$PWD:$HOME/BYOND/byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
