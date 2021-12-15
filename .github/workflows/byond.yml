@@ -41,16 +41,6 @@ jobs:
         map: [runtime, aurora, exodus]
     runs-on: ubuntu-20.04
     needs: lint
-    services:
-      mariadb:
-        image: mariadb:10.3
-        env:
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: game
-          MYSQL_USER: build
-          MYSQL_PASSWORD: build
-        ports:
-          - 3306
     steps:
       - uses: actions/checkout@v2
       - name: Install BYOND
@@ -61,7 +51,7 @@ jobs:
           chmod +x ./librust_g.so
       - name: Migrate database
         run: |
-          sleep 3
+          sudo systemctl start mysql
           for f in SQL/migrate/*.sql; do mysql -uroot -proot game < $f && echo "Migrated $f"; done
           mysql -uroot -proot game -e "SHOW TABLES;"
       - name: Build
