@@ -2111,17 +2111,18 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if(owner.lying || owner.buckled_to || length(owner.grabbed_by))
 		return
 
-	var/obj/item/organ/external/E = owner.organs_by_name[parent_organ]
+	if(is_bruised())
+		if(is_broken())
+			collapse(40, 3, 110)
+		else
+			collapse()
 
-	if(is_bruised() && prob(20) && !is_broken())
-		owner.Weaken(2)
+/obj/item/organ/internal/augment/fluff/kath_legbrace/proc/collapse(var/prob_chance = 20, var/weaken_strength = 2, var/pain_strength = 40)
+	if(prob(prob_chance))
+		var/obj/item/organ/external/E = owner.organs_by_name[parent_organ]
+		owner.Weaken(weaken_strength)
 		last_drop = world.time
-		owner.custom_pain("Something inside your [E.name] hurts too much to stand!", 40, TRUE, E, TRUE)
-		owner.visible_message("<b>[owner]</b> collapses!")
-	else if(is_broken() && prob(40))
-		owner.Weaken(3)
-		last_drop = world.time
-		owner.custom_pain("Something inside your [E.name] hurts too much to stand!", 110, TRUE, E, TRUE)
+		owner.custom_pain("Something inside your [E.name] hurts too much to stand!", pain_strength, TRUE, E, TRUE)
 		owner.visible_message("<b>[owner]</b> collapses!")
 
 /obj/item/flame/lighter/zippo/fluff/sezrak_zippo //Imperial 16th Zippo - Sezrak Han'san - captaingecko
