@@ -26,13 +26,13 @@ jobs:
           python3 tools/GenerateChangelog/ss13_genchangelog.py html/changelog.html html/changelogs --dry-run
           python3 tools/mapmerge2/travis_mapcheck.py
           echo "6a5ae087fe5bfa66e52e508655e57120 *html/changelogs/example.yml" | md5sum -c -
-      # - name: Run dreamchecker
-      #   run: ~/dreamchecker > ${GITHUB_WORKSPACE}/output-annotations.txt 2>&1
-      # - name: Annotate Lints
-      #   uses: yogstation13/DreamAnnotate@v1
-      #   if: always()
-      #   with:
-      #     outputFile: output-annotations.txt
+      - name: Run dreamchecker
+        run: ~/dreamchecker > ${GITHUB_WORKSPACE}/output-annotations.txt 2>&1
+      - name: Annotate Lints
+        uses: yogstation13/DreamAnnotate@v1
+        if: always()
+        with:
+          outputFile: output-annotations.txt
 
   unit-test-linux:
     if: "!contains(github.event.head_commit.message, '[ci skip]')"
@@ -59,6 +59,7 @@ jobs:
           source $HOME/BYOND/byond/bin/byondsetup
       - name: Run tests
         run: |
+          export LD_LIBRARY_PATH=./:$PWD:$HOME/BYOND/byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
           cp config/example/* config/ && cp config/ut/config-db.txt config/config.txt && cp config/ut/dbconfig.txt config/dbconfig.txt
           scripts/dm.sh -DUNIT_TEST -M${{ matrix.map }} aurorastation.dme
           grep "0 warnings" build_log.txt
