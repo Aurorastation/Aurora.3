@@ -55,6 +55,7 @@
 	new /obj/item/clothing/under/rank/chef(src)
 	new /obj/item/clothing/head/chefhat(src)
 	new /obj/item/clothing/head/surgery/hairnet(src)
+	new /obj/item/clothing/head/surgery/hairnet(src)
 
 /*
  * Janitor
