@@ -2100,6 +2100,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	parent_organ = BP_R_LEG
 	supports_limb = TRUE
 	min_broken_damage = 15
+	min_bruised_damage = 5
 	var/last_drop = 0
 
 /obj/item/organ/internal/augment/fluff/kath_legbrace/process()
@@ -2107,13 +2108,21 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 	if(last_drop + 6 SECONDS > world.time)
 		return
-	if(is_bruised() && prob(20))
+	if(owner.lying || owner.buckled_to || length(owner.grabbed_by))
+		return
+
+	var/obj/item/organ/external/E = owner.organs_by_name[parent_organ]
+
+	if(is_bruised() && prob(20) && !is_broken())
 		owner.Weaken(2)
 		last_drop = world.time
+		owner.custom_pain("Something inside your [E.name] hurts too much to stand!", 40, TRUE, E, TRUE)
+		owner.visible_message("<b>[owner]</b> collapses!")
 	else if(is_broken() && prob(40))
 		owner.Weaken(3)
 		last_drop = world.time
-
+		owner.custom_pain("Something inside your [E.name] hurts too much to stand!", 110, TRUE, E, TRUE)
+		owner.visible_message("<b>[owner]</b> collapses!")
 
 /obj/item/flame/lighter/zippo/fluff/sezrak_zippo //Imperial 16th Zippo - Sezrak Han'san - captaingecko
 	name = "imperial 16th zippo"
