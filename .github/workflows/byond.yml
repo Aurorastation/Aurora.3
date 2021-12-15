@@ -52,6 +52,7 @@ jobs:
       - name: Migrate database
         run: |
           sudo systemctl start mysql
+          mysql -uroot -proot -e 'CREATE DATABASE game;'
           for f in SQL/migrate/*.sql; do mysql -uroot -proot game < $f && echo "Migrated $f"; done
           mysql -uroot -proot game -e "SHOW TABLES;"
       - name: Build
