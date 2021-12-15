@@ -3,4 +3,4 @@ author: TheGreyWolf
 delete-after: True
 
 changes:
-  - bugfix: "Fixes a set of reversed checks regarding when sensitive hearing would give halloss."
+  - bugfix: "Fixed a set of reversed checks regarding when sensitive hearing would give halloss."
