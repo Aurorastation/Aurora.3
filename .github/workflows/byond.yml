@@ -57,14 +57,14 @@ jobs:
           mysql -uroot -proot game -e "SHOW TABLES;"
       - name: Build
         run: |
-          export LD_LIBRARY_PATH=./:$HOME/BYOND/byond/bin:$PWD:/usr/local/lib:$LD_LIBRARY_PATH
+          export LD_LIBRARY_PATH=$HOME/BYOND/byond/bin:./:$PWD:/usr/local/lib:$LD_LIBRARY_PATH
           cp config/example/* config/ && cp config/ut/config-db.txt config/config.txt && cp config/ut/dbconfig.txt config/dbconfig.txt
           scripts/dm.sh -DUNIT_TEST -M${{ matrix.map }} aurorastation.dme
           grep "0 warnings" build_log.txt
       - name: Run tests
         run: |
-          export LD_LIBRARY_PATH=./:$HOME/BYOND/byond/bin:$PWD:/usr/local/lib:$LD_LIBRARY_PATH
-          LD_DEBUG=all $HOME/BYOND/byond/bin/DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
+          export LD_LIBRARY_PATH=$HOME/BYOND/byond/bin:./:$PWD:/usr/local/lib:$LD_LIBRARY_PATH
+          $HOME/BYOND/byond/bin/DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
           grep "All Unit Tests Passed" log.txt
           (! grep "runtime error:" log.txt)
 
