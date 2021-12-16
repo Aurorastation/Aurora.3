@@ -70,7 +70,7 @@
 		sql_report_death(src)
 		SSticker.mode.check_win()
 
-	if(wearing_rig)
+	if(wearing_rig?.ai_override_enabled)
 		wearing_rig.notify_ai("<span class='danger'>Warning: user death event. Mobility control passed to integrated intelligence system.</span>")
 
 	. = ..(gibbed, species.death_message, species.death_message_range)

@@ -28,7 +28,7 @@
 	)
 
 	belt_contents = list(
-		/obj/item/ammo_magazine/c45x = 3,
+		/obj/item/ammo_magazine/c45m/auto = 3,
 		/obj/item/device/flash = 1,
 		/obj/item/handcuffs/ziptie = 1,
 		/obj/item/melee/baton/stunrod = 1,
@@ -36,6 +36,11 @@
 		/obj/item/shield/riot/tact = 1,
 		/obj/item/grenade/flashbang = 1
 	)
+
+	id_iff = IFF_ERIDANI
+
+/datum/outfit/admin/ert/ap_eridani/get_id_access()
+	return get_distress_access()
 
 /datum/outfit/admin/ert/ap_eridani/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -68,7 +73,7 @@
 	backpack_contents = list()
 
 	belt_contents = list(
-		/obj/item/ammo_magazine/c45x = 3,
+		/obj/item/ammo_magazine/c45m/auto = 3,
 		/obj/item/device/flash = 1,
 		/obj/item/handcuffs/ziptie = 1,
 		/obj/item/melee/baton/stunrod = 1,

@@ -46,10 +46,11 @@
 	holder.remove_reagent(type, amount) // Don't typecheck this, fix anywhere this is called with a null holder.
 	if(ishuman(holder.my_atom))
 		var/mob/living/carbon/human/H = holder.my_atom
-		if(H.vessel.reagent_data[/decl/reagent/blood]["trace_chem"][type])
-			H.vessel.reagent_data[/decl/reagent/blood]["trace_chem"][type] += amount
-		else
-			H.vessel.reagent_data[/decl/reagent/blood]["trace_chem"][type] = amount
+		if(H.vessel && (/decl/reagent/blood in H.vessel.reagent_data))
+			if(H.vessel.reagent_data[/decl/reagent/blood]["trace_chem"][type])
+				H.vessel.reagent_data[/decl/reagent/blood]["trace_chem"][type] += amount
+			else
+				H.vessel.reagent_data[/decl/reagent/blood]["trace_chem"][type] = amount
 
 // This doesn't apply to skin contact - this is for, e.g. extinguishers and sprays. The difference is that reagent is not directly on the mob's skin - it might just be on their clothing.
 /decl/reagent/proc/touch_mob(var/mob/living/M, var/amount, var/datum/reagents/holder)
@@ -93,7 +94,7 @@
 	if(is_overdosing(M, location, holder))
 		overdose(M, alien, removed, LAZYACCESS(M.chem_doses, type)/get_overdose(M, location, holder), holder) //Actual overdose threshold now = overdose + od_minimum_dose. ie. Synaptizine; 5u OD threshold + 1 unit min. metab'd dose = 6u actual OD threshold.
 
-	if(LAZYACCESS(M.chem_doses, type) == 0)
+	if(LAZYACCESS(M.chem_doses, type) <= 0)
 		initial_effect(M,alien, holder)
 
 	LAZYSET(M.chem_doses, type, LAZYACCESS(M.chem_doses, type) + removed)

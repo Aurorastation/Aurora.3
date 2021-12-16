@@ -73,20 +73,24 @@
 
 // Synth Languages
 #define LANGUAGE_ROBOT "Robot Talk"
-#define LANGUAGE_DRONE "Drone Talk"
+#define LANGUAGE_LOCAL_DRONE "Drone Transmission"
+#define LANGUAGE_DRONE "Matrix Weave"
 #define LANGUAGE_EAL "Encoded Audio Language"
 
 // Language flags.
-#define WHITELISTED  1   // Language is available if the speaker is whitelisted.
-#define RESTRICTED   2   // Language can only be acquired by spawning or an admin.
-#define NONVERBAL    4   // Language has a significant non-verbal component. Speech is garbled without line-of-sight.
-#define SIGNLANG     8   // Language is completely non-verbal. Speech is displayed through emotes for those who can understand.
-#define HIVEMIND     16  // Broadcast to all mobs with this language.
-#define NONGLOBAL    32  // Do not add to general languages list.
-#define INNATE       64  // All mobs can be assumed to speak and understand this language. (audible emotes)
-#define NO_TALK_MSG  128 // Do not show the "\The [speaker] talks into \the [radio]" message
-#define NO_STUTTER   256 // No stuttering, slurring, or other speech problems
-#define TCOMSSIM     512 // Can be synthesized in tcoms
+#define WHITELISTED   BITFLAG(0)  // Language is available if the speaker is whitelisted.
+#define RESTRICTED    BITFLAG(1)  // Language can only be acquired by spawning or an admin.
+#define NONVERBAL     BITFLAG(2)  // Language has a significant non-verbal component. Speech is garbled without line-of-sight.
+#define SIGNLANG      BITFLAG(3)  // Language is completely non-verbal. Speech is displayed through emotes for those who can understand.
+#define HIVEMIND      BITFLAG(4)  // Broadcast to all mobs with this language.
+#define NONGLOBAL     BITFLAG(5)  // Do not add to general languages list.
+#define INNATE        BITFLAG(6)  // All mobs can be assumed to speak and understand this language. (audible emotes)
+#define NO_TALK_MSG   BITFLAG(7)  // Do not show the "\The [speaker] talks into \the [radio]" message
+#define NO_STUTTER    BITFLAG(8)  // No stuttering, slurring, or other speech problems
+#define TCOMSSIM      BITFLAG(9)  // Can be synthesized in tcoms
+#define KNOWONLYHEAR  BITFLAG(10) // Only people who know the language actually hears it
+#define PRESSUREPROOF BITFLAG(11) // Pressure doesn't affect hearing
+#define PASSLISTENOBJ BITFLAG(12) // Listening Objs can't hear this language
 
 // Autohiss
 #define AUTOHISS_OFF 0

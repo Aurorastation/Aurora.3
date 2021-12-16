@@ -15,6 +15,7 @@ var/global/list/topic_commands = list()				//List of all API commands available
 var/global/list/topic_commands_names = list()				//List of all API commands available
 
 var/global/list/landmarks_list = list()				//list of all landmarks created
+var/global/list/force_spawnpoints					//assoc list of force spawnpoints for event maps
 var/global/list/side_effects = list()				//list of all medical sideeffects types by thier names |BS12
 var/global/list/mechas_list = list()				//list of all mechs. Used by hostile mobs target tracking.
 var/global/list/joblist = list()					//list of all jobstypes, minus borg and AI
@@ -59,7 +60,7 @@ var/global/list/chargen_disabilities_list = list()
 var/global/static/list/valid_player_genders = list(MALE, FEMALE, NEUTER, PLURAL)
 
 //Backpacks
-var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Leather satchel", "Duffel Bag", "Messenger Bag", "Black Rucksack", "Blue Rucksack", "Green Rucksack", "Navy Rucksack", "Tan Rucksack", "Khaki Satchel", "Black Satchel", "Navy Satchel", "Olive Satchel", "Auburn Satchel", "Black Pocketbook", "Brown Pocketbook", "Auburn Pocketbook")
+var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Leather satchel", "Duffel Bag", "Messenger Bag", "Black Rucksack", "Blue Rucksack", "Green Rucksack", "Navy Rucksack", "Tan Rucksack", "Khaki Satchel", "Black Satchel", "Navy Satchel", "Olive Satchel", "Auburn Satchel", "Black Pocketbook", "Brown Pocketbook", "Auburn Pocketbook", "Classic leather satchel")
 var/global/list/backbagstyles = list("Job-specific", "Grey")
 var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg, /datum/job/merchant)
 
@@ -67,10 +68,10 @@ var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg, /datum/job/
 var/global/list/pdalist = list("Nothing", "Standard PDA", "Classic PDA", "Rugged PDA", "Slate PDA", "Smart PDA", "Tablet", "Wristbound")
 
 //Headset choice
-var/global/list/headsetlist = list("Nothing", "Headset", "Bowman Headset")
+var/global/list/headsetlist = list("Nothing", "Headset", "Bowman Headset", "Double Headset", "Wristbound Radio")
 
 // Primary Radio Slot choice
-var/global/list/primary_radio_slot_choice = list("Left Ear", "Right Ear")
+var/global/list/primary_radio_slot_choice = list("Left Ear", "Right Ear", "Wrist")
 
 // Visual nets
 var/list/datum/visualnet/visual_nets = list()
@@ -85,6 +86,9 @@ var/global/list/syndicate_access = list(access_maint_tunnels, access_syndicate, 
 
 //Cloaking devices
 var/global/list/cloaking_devices = list()
+
+//Hearing sensitive listening in closely
+var/global/list/intent_listener = list()
 
 //////////////////////////
 /////Initial Building/////

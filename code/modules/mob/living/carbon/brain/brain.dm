@@ -23,6 +23,9 @@
 	container = null
 	return ..()
 
+/mob/living/carbon/brain/IsAdvancedToolUser() // to be able to use weapons when piloting a hardsuit
+	return TRUE
+
 /mob/living/carbon/brain/update_canmove()
 	if(istype(loc, /obj/item/device/mmi))
 		canmove = 1

@@ -64,6 +64,18 @@
 	max_ammo = 9
 	multiple_sprites = 1
 
+/obj/item/ammo_magazine/c45m/stendo
+	name = "extended magazine (.45)"
+	desc = "A custom .45 pistol magazine fitted with an extended baseplate, increasing capacity to eleven rounds."
+	icon_state = "45e"
+	max_ammo = 11
+
+/obj/item/ammo_magazine/c45m/lebman
+	name = "extended magazine (.45)"
+	desc = "A custom .45 pistol magazine made by welding two together. Has double the capacity of a normal magazine at eighteen rounds."
+	icon_state = "45l"
+	max_ammo = 18
+
 /obj/item/ammo_magazine/c45m/empty
 	initial_ammo = 0
 
@@ -79,6 +91,15 @@
 /obj/item/ammo_magazine/c45m/flash
 	name = "magazine (.45 flash)"
 	ammo_type = /obj/item/ammo_casing/c45/flash
+
+/obj/item/ammo_magazine/c45m/auto
+	name = "extended magazine (.45)"
+	icon_state = "45a"
+	desc = "A NanoTrasen-produced extended magazine for their Mk58 line of pistols. \
+	The overall construction has been strengthened to withstand the rigors of fully-automatic fire."
+	ammo_type = /obj/item/ammo_casing/c45
+	max_ammo = 16
+	multiple_sprites = 1
 
 /obj/item/ammo_magazine/mc10mm
 	name = "magazine (10mm)"
@@ -215,7 +236,7 @@
 	max_ammo = 15
 
 /obj/item/ammo_magazine/a556/carbine/empty
-	max_ammo = 0
+	initial_ammo = 0
 
 /obj/item/ammo_magazine/a556/carbine/practice
 	name = "carbine magazine (5.56mm practice)"
@@ -226,6 +247,16 @@
 	icon_state = "5.56APc"
 	origin_tech = list(TECH_COMBAT = 3)
 	ammo_type = /obj/item/ammo_casing/a556/ap
+
+/obj/item/ammo_magazine/a556/makeshift
+	name = "makeshift magazine (5.56mm)"
+	icon_state = "5.56m"
+	origin_tech = list(TECH_COMBAT = 1)
+	matter = list(DEFAULT_WALL_MATERIAL = 600)
+	max_ammo = 7
+
+/obj/item/ammo_magazine/a556/makeshift/empty
+	initial_ammo = 0
 
 /obj/item/ammo_magazine/a50
 	name = "magazine (.50)"
@@ -463,6 +494,11 @@
 	caliber = "plasma bolt"
 	ammo_type = /obj/item/ammo_casing/plasma_bolt
 	max_ammo = 30
+
+/obj/item/ammo_magazine/plasma/light/pistol
+	name = "tiny plasma cell"
+	ammo_type = /obj/item/ammo_casing/plasma_bolt
+	max_ammo = 15
 
 /obj/item/ammo_magazine/nuke
 	name = "nuclear launcher cartridge"

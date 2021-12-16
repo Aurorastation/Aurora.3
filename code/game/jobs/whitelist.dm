@@ -48,6 +48,9 @@ var/list/whitelist_jobconfig = list()
 		return TRUE //If the whitelist_jobconfig isnt loaded, there are no whitelists
 
 /proc/check_whitelist(mob/M, var/whitelist_id = 1)
+	if(!config.usewhitelist)
+		return TRUE
+
 	if (config.sql_whitelists)
 		if (M.client && M.client.whitelist_status)
 			return (M.client.whitelist_status & whitelist_id)

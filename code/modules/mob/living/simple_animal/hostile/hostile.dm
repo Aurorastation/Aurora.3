@@ -353,7 +353,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 
 
 /mob/living/simple_animal/hostile/proc/check_horde()
-	if(emergency_shuttle.shuttle.location)
+	if(evacuation_controller.is_prepared())
 		if(!enroute && !target_mob)	//The shuttle docked, all monsters rush for the escape hallway
 			if(!shuttletarget && escape_list.len) //Make sure we didn't already assign it a target, and that there are targets to pick
 				shuttletarget = pick(escape_list) //Pick a shuttle target

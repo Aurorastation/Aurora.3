@@ -42,7 +42,7 @@ var/list/nuke_disks = list()
 		if(!is_type_in_list(disk_area, centcom_areas))
 			disk_rescued = 0
 			break
-	var/crew_evacuated = (emergency_shuttle.returned())
+	var/crew_evacuated = (evacuation_controller.round_over())
 
 	if(!disk_rescued &&  station_was_nuked && !syndies_didnt_escape)
 		feedback_set_details("round_end_result","win - syndicate nuke")

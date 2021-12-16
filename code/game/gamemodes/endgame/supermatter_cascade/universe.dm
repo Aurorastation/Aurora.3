@@ -45,9 +45,8 @@ var/global/universe_has_ended = 0
 	for(var/mob/M in player_list)
 		M.flash_eyes()
 
-	if(emergency_shuttle.can_recall())
-		priority_announcement.Announce("The emergency shuttle has returned due to bluespace distortion.")
-		emergency_shuttle.recall()
+	if(evacuation_controller.cancel_evacuation())
+		priority_announcement.Announce("The evacuation has been aborted due to bluespace distortion.")
 
 	AreaSet()
 	MiscSet()
@@ -81,7 +80,7 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 	priority_announcement.Announce(txt,"SUPERMATTER CASCADE DETECTED")
 
 	for(var/obj/machinery/computer/shuttle_control/C in SSmachinery.processing_machines)
-		if(istype(C, /obj/machinery/computer/shuttle_control/research) || istype(C, /obj/machinery/computer/shuttle_control/mining))
+		if(istype(C, /obj/machinery/computer/shuttle_control/multi/research) || istype(C, /obj/machinery/computer/shuttle_control/mining))
 			C.req_access = list()
 			C.req_one_access = list()
 

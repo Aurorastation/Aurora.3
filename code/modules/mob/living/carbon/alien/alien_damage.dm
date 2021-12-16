@@ -17,8 +17,7 @@
 
 			f_loss += 60
 
-			ear_damage += 30
-			ear_deaf += 120
+			adjustEarDamage(30, 120, 0)
 
 		if(3.0)
 			b_loss += 30

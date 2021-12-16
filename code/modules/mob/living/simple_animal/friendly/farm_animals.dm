@@ -285,20 +285,6 @@
 		if(chicken_count < MAX_CHICKENS && prob(10))
 			START_PROCESSING(SSprocessing, E)
 
-/obj/item/reagent_containers/food/snacks/egg
-	var/amount_grown = 0
-
-/obj/item/reagent_containers/food/snacks/egg/process()
-	if(isturf(loc))
-		amount_grown += rand(1,2)
-		if(amount_grown >= 100)
-			visible_message("[src] hatches with a quiet cracking sound.")
-			new /mob/living/simple_animal/chick(get_turf(src))
-			STOP_PROCESSING(SSprocessing, src)
-			qdel(src)
-	else
-		STOP_PROCESSING(SSprocessing, src)
-
 // Penguins
 
 /mob/living/simple_animal/penguin

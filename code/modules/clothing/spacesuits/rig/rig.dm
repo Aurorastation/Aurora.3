@@ -700,7 +700,7 @@
 						playsound(src, 'sound/machines/rig/rig_retract.ogg', 20, FALSE)
 						use_obj.canremove = 1
 						holder.drop_from_inventory(use_obj,get_turf(src)) //TODO: TEST THIS CODE!
-						use_obj.dropped()
+						use_obj.dropped(wearer)
 						use_obj.canremove = 0
 						use_obj.forceMove(src)
 
@@ -904,7 +904,7 @@
 	if(!wearer || !wearer.loc || !ai_can_move_suit(user, check_user_module = 1))
 		return
 
-	if(!wearer.stat) // don't force move if our wearer is awake
+	if(!wearer.stat && !wearer.paralysis) // don't force move if our wearer is awake and capable of moving
 		return
 
 	//This is sota the goto stop mobs from moving var
@@ -966,9 +966,9 @@
 	if(wearer.pulledby || wearer.buckled_to) // Wheelchair driving!
 		if(istype(wearer.loc, /turf/space))
 			return // No wheelchair driving in space
-		if(istype(wearer.pulledby, /obj/structure/bed/chair/wheelchair))
+		if(istype(wearer.pulledby, /obj/structure/bed/stool/chair/office/wheelchair))
 			return wearer.pulledby.relaymove(wearer, direction)
-		else if(istype(wearer.buckled_to, /obj/structure/bed/chair/wheelchair))
+		else if(istype(wearer.buckled_to, /obj/structure/bed/stool/chair/office/wheelchair))
 			if(ishuman(wearer.buckled_to))
 				var/obj/item/organ/external/l_hand = wearer.get_organ(BP_L_HAND)
 				var/obj/item/organ/external/r_hand = wearer.get_organ(BP_R_HAND)

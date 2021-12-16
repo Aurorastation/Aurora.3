@@ -7,6 +7,14 @@
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 	restricted_software = list(MECH_SOFTWARE_WEAPONS)
 
+/obj/item/mecha_equipment/mounted_system/combat/CtrlClick(mob/user)
+	if(owner && istype(holding, /obj/item/gun))
+		var/obj/item/gun/G = holding
+		G.iff_capable = !G.iff_capable
+		to_chat(user, SPAN_NOTICE("You [G.iff_capable ? "en" : "dis"]able \the [src]'s IFF systems!"))
+	else
+		return ..()
+
 /obj/item/mecha_equipment/mounted_system/combat/taser
 	name = "mounted electrolaser carbine"
 	desc = "A dual fire mode electrolaser system connected to the exosuit's targetting system."
@@ -30,7 +38,7 @@
 	name = "mounted machinegun"
 	desc = "An exosuit-mounted automatic weapon. Handle with care."
 	icon_state = "mecha_ballistic"
-	holding_type = /obj/item/gun/energy/mountedsmg
+	holding_type = /obj/item/gun/energy/mountedsmg/mech
 
 /obj/item/mecha_equipment/mounted_system/combat/pulse
 	name = "heavy pulse cannon"
@@ -72,16 +80,19 @@
 	use_external_power = TRUE
 	self_recharge = TRUE
 	has_safety = FALSE
+	projectile_type = /obj/item/projectile/beam/midlaser/mech
 
 /obj/item/gun/energy/pulse/mounted/mech
 	use_external_power = TRUE
 	self_recharge = TRUE
 	has_safety = FALSE
+	projectile_type = /obj/item/projectile/beam/pulse/mech
 
 /obj/item/gun/energy/xray/mounted/mech
 	use_external_power = TRUE
 	self_recharge = TRUE
 	has_safety = FALSE
+	projectile_type = /obj/item/projectile/beam/xray/mech
 
 /*Launchers*/
 

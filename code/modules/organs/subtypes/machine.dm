@@ -68,6 +68,7 @@
 	relative_size = 80
 	var/open = FALSE
 	var/obj/item/cell/cell = /obj/item/cell/super
+	var/move_charge_factor = 1
 	//at 0.8 completely depleted after 60ish minutes of constant walking or 130 minutes of standing still
 	var/servo_cost = 0.8
 
@@ -102,6 +103,7 @@
 	var/cost = get_power_drain()
 	if(world.time - owner.l_move_time < 15)
 		cost *= 2
+	cost *= move_charge_factor
 	use(cost)
 
 /obj/item/organ/internal/cell/proc/get_power_drain()
