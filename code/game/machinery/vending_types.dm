@@ -1226,3 +1226,20 @@
 	)
 	restock_items = 0
 	light_color = COLOR_BABY_BLUE
+
+
+
+// The magivend machines are used for admin-events where large amounts of food are required.
+// They override the build_inventory proc of the vending machines to
+/obj/machinery/vending/magivend_food
+	name = "\improper Magivend food vendor"
+	desc = "A high tech machine that can produce all sorts of food stuff"
+	icon_state = "bluespacefridge_food"
+	icon_vend = "bluespacefridge_food-vend"
+	vend_id = "magivendfood"
+
+/obj/machinery/vending/magivend_food/build_inventory()
+	for(var/path in subtypesof(/decl/recipe))
+		var/decl/recipe/R = new path
+		var/datum/data/vending_product/product = new /datum/data/vending_product(R.result, R.display_name , 100, 0, null, CAT_NORMAL)
+		src.product_records.Add(product)

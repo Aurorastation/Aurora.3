@@ -17,7 +17,7 @@
 	var/accept_drinking = 0
 	var/amount = 30
 	var/list/forbidden_containers = list(/obj/item/reagent_containers/glass/bucket) //For containers we don't want people to shove into the chem machine. Like big-ass buckets.
-	var/list/drink_accepted = list(/obj/item/reagent_containers/food/drinks, /obj/item/reagent_containers/food/condiment) //Allow these cans/glasses/condiment bottles but forbid ACTUAL food. 
+	var/list/drink_accepted = list(/obj/item/reagent_containers/food/drinks, /obj/item/reagent_containers/food/condiment) //Allow these cans/glasses/condiment bottles but forbid ACTUAL food.
 
 	use_power = 1
 	idle_power_usage = 100

@@ -175,3 +175,19 @@
 	spawn_cartridges = list(
 			/obj/item/reagent_containers/chem_disp_cartridge/espresso{temperature_override = 369.15}
 		)
+
+
+//Magic drink dispenser that contains all the drinks ready for vending
+/obj/machinery/chemical_dispenser/magivend_drinks
+	name = "Magivend drinks machine"
+	icon_state = "bluespacedrinksmachine"
+	icon_state_active = "bluespacedrinksmachinevend"
+
+/obj/machinery/chemical_dispenser/magivend_drinks/Initialize()
+	for(var/path in subtypesof(/datum/chemical_reaction/drink))
+		var/datum/chemical_reaction/drink/D = new path
+		var/obj/item/reagent_containers/chem_disp_cartridge/C = new /obj/item/reagent_containers/chem_disp_cartridge
+		C.reagents.add_reagent(D.result, 1000, temperature = 0)
+		C.label = D.name
+		add_cartridge(C)
+	. = ..()

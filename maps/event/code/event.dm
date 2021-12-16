@@ -6,12 +6,13 @@
 
 	force_spawnpoint = TRUE
 
-	lobby_icons = list('icons/misc/titlescreens/aurora/nss_aurora.dmi', 'icons/misc/titlescreens/aurora/synthetics.dmi', 'icons/misc/titlescreens/aurora/tajara.dmi')
-	lobby_transitions = 10 SECONDS
+	lobby_icon = 'icons/misc/titlescreens/event/valkyrie.dmi'
+	lobby_transitions = FALSE
 
 	station_levels = list(1)
 	contact_levels = list(1)
 	player_levels = list(1)
+	restricted_levels = list(2)
 	base_turf_by_z = list(
 		"1" = /turf/simulated/floor/grass
 	)

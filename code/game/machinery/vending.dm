@@ -537,7 +537,7 @@
 
 	VUEUI_SET_CHECK_IFNOTSET(data["ui_size"], ui_size, ., data)
 
-	if(currently_vending || !vend_ready)
+	if(currently_vending)
 		data["mode"] = 1
 		data["sel_key"] = sel_key
 		data["sel_name"] = capitalize_first_letters(strip_improper(currently_vending.product_name))
