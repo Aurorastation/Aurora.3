@@ -203,7 +203,7 @@ proc/blood_incompatible(donor,receiver,donor_species,receiver_species)
 	var/data = list()
 	data["donor"] = WEAKREF(src)
 	if(dna)
-		data["blood_DNA"] += dna.unique_enzymes
+		data["blood_DNA"] = dna.unique_enzymes
 		data["blood_type"] = dna.b_type
 	else
 		data["blood_DNA"] = md5(ref(src))

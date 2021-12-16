@@ -51,10 +51,11 @@
 			report_gsr_num++
 			pname = "GSR report #[report_gsr_num]"
 			info = "<b><font size=\"4\">GSR anaylsis report #[report_gsr_num]</font></b><HR>"
-			info += "<b>Scanned item:</b> [swab.name]<br><br>"
-
-			if(swab.gsr)
-				info += "Residue from a [swab.gsr] bullet detected."
+			if(length(swab.gsr))
+				info += "Residue analysis of \the [swab.name] has determined the presence of the following residues.<ul>"
+				for(var/gsr in swab.gsr)
+					info += "<li>Residue from a [gsr] bullet detected."
+				info += "</ul>"
 			else
 				info += "No gunpowder residue found."
 
@@ -62,12 +63,9 @@
 			var/obj/item/sample/fibers/fibers = slide.has_sample
 			report_fiber_num++
 			pname = "Fiber report #[report_fiber_num]"
-			// info = "<b>Scanned item:</b><br>[initial(fibers.name)]<br><br>"
 			if(fibers.evidence)
 				info = "<b><font size=\"4\">Fiber anaylsis report #[report_fiber_num]</font></b><HR>"
 				info += "<b>Source locations:</b> "
-				// for(var/source in fibers.source)
-				// 	info += "<li>[source]"
 				info += "[english_list(fibers.source, "no sources were found", ", ", ", ", "")].<br><br>"
 				info += "Molecular analysis on [fibers.name] has determined the presence of unique fiber strings.<ul>"
 				for(var/fiber in fibers.evidence)
@@ -81,7 +79,6 @@
 	else if(istype(sample, /obj/item/sample/print))
 		report_print_num++
 		pname = "Fingerprint report #[report_print_num]"
-		// info = "<b>Fingerprint analysis report #[report_print_num]</b>: [sample.name]<br>"
 		var/obj/item/sample/print/card = sample
 		info = "<b><font size=\"4\">Fingerprint anaylsis report #[report_print_num]</font></b><HR>"
 		info += "<b>Source locations:</b> "

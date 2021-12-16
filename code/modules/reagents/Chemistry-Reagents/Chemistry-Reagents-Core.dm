@@ -38,26 +38,6 @@
 			var/list/my_chems = data["trace_chem"]
 			for(var/chem in other_chems)
 				my_chems[chem] = my_chems[chem] + other_chems[chem]
-	if(LAZYACCESS(newdata, "blood_DNA"))
-		if(newdata["blood_DNA"] != data["blood_DNA"])
-			var/list/other_dna 
-			var/list/my_dna
-			if(islist(newdata["blood_DNA"]))
-				other_dna = newdata["blood_DNA"]
-			else
-				other_dna = list((newdata["blood_DNA"]))
-			if(islist(data["blood_DNA"]))
-				my_dna = data["blood_DNA"]
-			else
-				my_dna = list((data["blood_DNA"]))
-
-			for(var/dna in other_dna)
-				log_and_message_admins("Other dna: " + dna)
-			for(var/dna in my_dna)
-				log_and_message_admins("My dna: " + dna)
-			my_dna += difflist(other_dna, my_dna)
-			data["blood_DNA"] = my_dna
-
 	var/datum/weakref/W = LAZYACCESS(data, "donor")
 	var/mob/living/carbon/self = W?.resolve()
 	if(!(MODE_VAMPIRE in self?.mind?.antag_datums) && blood_incompatible(LAZYACCESS(newdata, "blood_type"), LAZYACCESS(data, "blood_type"), LAZYACCESS(newdata, "species"), LAZYACCESS(data, "species")))

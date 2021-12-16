@@ -11,7 +11,11 @@
 	if(supplied)
 		copy_evidence(supplied)
 		name = "[initial(name)] (\the [initial(supplied.name)])"
-		source += "\the [initial(supplied.name)]"
+		log_and_message_admins(supplied.name)
+		if(istype(supplied, /obj/machinery/door) && supplied.name != initial(supplied.name))
+			source += "\the [initial(supplied.name)]: [supplied.name]"
+		else
+			source += "\the [initial(supplied.name)]"
 
 /obj/item/sample/print/New(var/newloc, var/atom/supplied)
 	..(newloc, supplied)
@@ -67,14 +71,17 @@
 		return
 	else
 		name = "[initial(name)] ([label_text])"
-		source = "[label_text]"
 
 /obj/item/sample/New(var/newloc, var/atom/supplied)
 	..(newloc)
 	if(supplied)
 		copy_evidence(supplied)
 		name = "[initial(name)] (\the [initial(supplied.name)])"
-		source += "\the [initial(supplied.name)]"
+		log_and_message_admins(supplied.name)
+		if(istype(supplied, /obj/machinery/door) && supplied.name != initial(supplied.name))
+			source += "\the [initial(supplied.name)]: [supplied.name]"
+		else
+			source += "\the [initial(supplied.name)]"
 
 /obj/item/sample/fibers
 	name = "fiber bag"

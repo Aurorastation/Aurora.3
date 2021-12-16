@@ -7,7 +7,7 @@
 	name = "swab kit"
 	desc = "A sterilized cotton swab and vial used to take forensic samples."
 	icon_state = "swab"
-	var/gsr = 0
+	var/list/gsr
 	var/list/dna
 	var/used
 	drop_sound = 'sound/items/drop/glass.ogg'
@@ -112,11 +112,7 @@
 	switch (choice)
 		if (EVIDENCE_TYPE_BLOOD)
 			if(!A.blood_DNA || !A.blood_DNA.len) return
-			if(!islist(A.blood_DNA))
-				dna = A.blood_DNA.Copy()
-			else
-				for(var/other_dna in A.blood_DNA)
-					dna += other_dna
+			dna = A.blood_DNA.Copy()
 			sample_type = "blood"
 
 		if (EVIDENCE_TYPE_GSR)
@@ -134,11 +130,7 @@
 
 		else //additional evidence
 			if(additional_evidence["dna"].len)
-				if(islist(additional_evidence["dna"]))
-					for(var/other_dna in additional_evidence["dna"]) // Solve the fact this gets stuck in an endless loop if there is only one string
-						dna += other_dna
-				else
-					dna = additional_evidence["dna"] 
+				dna = additional_evidence["dna"].Copy()
 			if(additional_evidence["gsr"])
 				gsr = additional_evidence["gsr"]
 			sample_type = additional_evidence["sample_type"]
