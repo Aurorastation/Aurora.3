@@ -49,7 +49,7 @@ jobs:
           source $HOME/BYOND/byond/bin/byondsetup
           curl -L "https://github.com/Aurorastation/rust-g/releases/download/${RUST_G_VERSION}/librust_g.so" -o $HOME/BYOND/byond/bin/librust_g.so
           chmod +x $HOME/BYOND/byond/bin/librust_g.so
-          ln -s $HOME/BYOND/byond/bin/librust_g.so /usr/local/lib/librust_g.so
+          sudo ln -s $HOME/BYOND/byond/bin/librust_g.so /usr/local/lib/librust_g.so
       - name: Migrate database
         run: |
           sudo systemctl start mysql
