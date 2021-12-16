@@ -64,7 +64,7 @@ jobs:
       - name: Run tests
         run: |
           export LD_LIBRARY_PATH=./:$HOME/BYOND/byond/bin:$PWD:/usr/local/lib:$LD_LIBRARY_PATH
-          $HOME/BYOND/byond/bin/DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
+          LD_DEBUG=all $HOME/BYOND/byond/bin/DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
           grep "All Unit Tests Passed" log.txt
           (! grep "runtime error:" log.txt)
 
