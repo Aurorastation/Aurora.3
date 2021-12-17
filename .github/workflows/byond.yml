@@ -49,6 +49,7 @@ jobs:
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
           echo "Getting rust_g from https://github.com/Aurorastation/rust-g/releases/download/${RUST_G_VERSION}/librust_g.so"
+          rm ./librust_g.so
           curl -L "https://github.com/Aurorastation/rust-g/releases/download/${RUST_G_VERSION}/librust_g.so" -o ./librust_g.so
           chmod +x ./librust_g.so
       - name: Migrate database
