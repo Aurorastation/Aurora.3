@@ -67,6 +67,7 @@ jobs:
           ldd ./librust_g.so
       - name: Install Flyway
         run: |
+          source .versions.sh
           bash scripts/install-flyway.sh
       - name: Migrate database
         env:
