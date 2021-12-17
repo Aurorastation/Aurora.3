@@ -41,6 +41,16 @@ jobs:
         map: [runtime, aurora, exodus]
     runs-on: ubuntu-20.04
     needs: lint
+    services:
+      mariadb:
+        image: mariadb:latest
+        ports:
+          - 3306
+        env:
+          MYSQL_USER: build
+          MYSQL_PASSWORD: build
+          MYSQL_DATABASE: game
+          MYSQL_ROOT_PASSWORD: root
     steps:
       - uses: actions/checkout@v2
       - name: Install BYOND
@@ -51,12 +61,6 @@ jobs:
           echo "Getting rust_g from https://github.com/Aurorastation/rust-g/releases/download/${RUST_G_VERSION}/librust_g.so"
           wget "https://github.com/Aurorastation/rust-g/releases/download/${RUST_G_VERSION}/librust_g.so" -O ./librust_g.so
           chmod +x ./librust_g.so
-      - name: Set up MariaDB
-        uses: getong/mariadb-action@v1.1
-        with:
-          mysql database: game
-          mysql user: build
-          mysql password: build
       - name: Migrate database
         run: |
           for f in SQL/migrate/*.sql; do mysql -uroot -proot game < $f && echo "Migrated $f"; done
