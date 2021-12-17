@@ -66,6 +66,7 @@
 	var/list/holodeck_restricted_programs = list() // as above... but EVIL!
 
 	var/force_spawnpoint = FALSE
+	var/force_spawnpoint_message = NONE
 	var/allowed_spawns = list("Arrivals Shuttle","Gateway", "Cryogenic Storage", "Cyborg Storage")
 	var/default_spawn = "Arrivals Shuttle"
 

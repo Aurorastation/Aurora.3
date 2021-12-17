@@ -2404,10 +2404,6 @@
 /obj/effect/shuttle_landmark/distress/interim,
 /turf/space/transit/west,
 /area/template_noop)
-"ahA" = (
-/obj/effect/shuttle_landmark/ccia/start,
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/transport1)
 "ahC" = (
 /obj/effect/step_trigger/thrower/shuttle/south,
 /obj/effect/step_trigger/thrower/shuttle/south,
@@ -3974,6 +3970,9 @@
 	dir = 8
 	},
 /obj/structure/bed/stool/chair,
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Visitor"
+	},
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "awh" = (
@@ -4153,8 +4152,7 @@
 /obj/machinery/door/airlock/glass_centcom{
 	icon = 'icons/obj/doors/Doorglass.dmi';
 	name = "To: Lower Shuttle Terminal";
-	req_access = null;
-	req_one_access = list(108,109)
+	req_one_access = null
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
@@ -4357,10 +4355,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/specops)
-"aCQ" = (
-/obj/effect/shuttle_landmark/supply/start,
-/turf/simulated/floor/shuttle/dark_blue,
-/area/supply/dock)
 "aCR" = (
 /turf/unsimulated/wall/fakepdoor{
 	dir = 1;
@@ -4594,6 +4588,7 @@
 	name = "Shuttle Hatch";
 	req_access = list(13)
 	},
+/obj/effect/shuttle_landmark/ccia/start,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/transport1)
 "aEn" = (
@@ -5915,9 +5910,6 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Visitor"
-	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aMz" = (
@@ -5934,18 +5926,6 @@
 	name = "autoshuttle"
 	},
 /area/shuttle/arrival)
-"aMH" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
-/turf/unsimulated/floor,
-/area/centcom/spawning)
 "aMJ" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -5957,9 +5937,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aMN" = (
@@ -5970,24 +5947,12 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/administration)
-"aMT" = (
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Visitor"
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/turf/unsimulated/floor,
-/area/centcom/spawning)
 "aMV" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 4
-	},
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Visitor"
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
@@ -6086,9 +6051,6 @@
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Visitor"
-	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aNt" = (
@@ -6097,9 +6059,6 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 4
-	},
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Visitor"
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
@@ -6118,9 +6077,6 @@
 	},
 /obj/structure/bed/stool/chair/unmovable{
 	dir = 8
-	},
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Visitor"
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
@@ -6182,9 +6138,6 @@
 	pixel_x = -32
 	},
 /obj/effect/floor_decal/industrial/loading/yellow,
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Visitor"
-	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aNK" = (
@@ -6192,9 +6145,6 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/loading/yellow,
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Visitor"
-	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aNM" = (
@@ -6254,9 +6204,6 @@
 "aNX" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
-	},
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Visitor"
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
@@ -7020,10 +6967,6 @@
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape)
-"aVP" = (
-/obj/effect/shuttle_landmark/emergency/start,
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/escape)
 "aVT" = (
 /turf/simulated/wall/shuttle/unique/transfer{
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
@@ -7420,6 +7363,9 @@
 /area/holodeck/source_battlemonsters)
 "aXz" = (
 /obj/structure/bed/stool/chair/padded/beige,
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Visitor"
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -9136,12 +9082,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/unsimulated/floor/plating,
 /area/centcom/bar)
-"bZa" = (
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Visitor"
-	},
-/turf/unsimulated/floor,
-/area/centcom/spawning)
 "bZd" = (
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/wood,
@@ -9903,6 +9843,9 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
+	},
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Visitor"
 	},
 /turf/unsimulated/floor{
 	icon_state = "carpetnoconnect"
@@ -10745,6 +10688,12 @@
 	name = "military corvette"
 	},
 /area/shuttle/administration)
+"cYN" = (
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Visitor"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/bar)
 "cYR" = (
 /obj/structure/shuttle_part/arrivals{
 	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
@@ -11819,6 +11768,9 @@
 	dir = 8
 	},
 /obj/structure/bed/stool/chair/padded/beige,
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Visitor"
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -11958,6 +11910,9 @@
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
+	},
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Visitor"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
@@ -13234,6 +13189,13 @@
 "eDH" = (
 /turf/simulated/floor/reinforced,
 /area/shuttle/mercenary)
+"eDY" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/loading/yellow,
+/turf/unsimulated/floor,
+/area/centcom/holding)
 "eEC" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
@@ -13449,6 +13411,12 @@
 	name = "military corvette"
 	},
 /area/shuttle/administration)
+"eJY" = (
+/obj/structure/sign/directions/dock{
+	dir = 4
+	},
+/turf/unsimulated/wall/darkshuttlewall,
+/area/centcom/holding)
 "eKl" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/decal/cleanable/dirt,
@@ -15252,6 +15220,9 @@
 /obj/structure/bed/stool/padded/red{
 	pixel_y = 10
 	},
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Visitor"
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -16518,6 +16489,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Visitor"
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -16671,6 +16645,9 @@
 /obj/machinery/computer/cryopod{
 	pixel_x = -28;
 	pixel_y = 19
+	},
+/obj/effect/landmark{
+	name = "JoinLateCryo"
 	},
 /turf/unsimulated/floor,
 /area/centcom/holding)
@@ -17997,21 +17974,6 @@
 "hmr" = (
 /turf/simulated/floor/tiled,
 /area/merchant_station/warehouse)
-"hmF" = (
-/obj/structure/table/stone/marble,
-/obj/item/reagent_containers/food/snacks/blt{
-	layer = 2.99;
-	pixel_x = 4;
-	pixel_y = 14
-	},
-/obj/item/reagent_containers/food/snacks/blt{
-	pixel_x = 3;
-	pixel_y = 7
-	},
-/turf/unsimulated/floor{
-	icon_state = "lino_grey"
-	},
-/area/centcom/bar)
 "hmN" = (
 /obj/structure/table/reinforced/wood,
 /obj/item/storage/box/drinkingglasses,
@@ -18877,6 +18839,9 @@
 	dir = 1
 	},
 /obj/structure/bed/stool/bar/padded/red,
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Visitor"
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -19614,6 +19579,9 @@
 	},
 /obj/structure/bed/stool/chair{
 	dir = 4
+	},
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Visitor"
 	},
 /turf/unsimulated/floor,
 /area/centcom/holding)
@@ -21377,11 +21345,8 @@
 	},
 /obj/machinery/door/blast/odin{
 	_wifi_id = "odin_arrivals_lockdown";
-	density = 0;
-	icon_state = "pdoor0";
 	id = "CentComArrivalsCommand";
-	name = "Security Doors";
-	opacity = 0
+	name = "Security Doors"
 	},
 /turf/unsimulated/floor,
 /area/centcom/evac)
@@ -21866,6 +21831,9 @@
 	dir = 8
 	},
 /obj/structure/bed/stool/bar/padded/red,
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Visitor"
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -22782,9 +22750,6 @@
 /area/template_noop)
 "ktJ" = (
 /obj/effect/floor_decal/corner/red/full,
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Visitor"
-	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "kuA" = (
@@ -23162,6 +23127,9 @@
 	name = "elevator Button";
 	pixel_y = -21
 	},
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Visitor"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/bar)
 "kIX" = (
@@ -23332,6 +23300,13 @@
 	icon_state = "tiles"
 	},
 /area/antag/raider)
+"kOv" = (
+/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/structure/sign/directions/dock,
+/turf/unsimulated/floor{
+	icon_state = "plating"
+	},
+/area/centcom/holding)
 "kOC" = (
 /obj/effect/decal/cleanable/cobweb2,
 /obj/machinery/door/blast/odin{
@@ -23739,11 +23714,8 @@
 "laL" = (
 /obj/machinery/door/blast/odin{
 	_wifi_id = "odin_arrivals_lockdown";
-	density = 0;
-	icon_state = "pdoor0";
 	id = "CentComArrivalsAftInt";
-	name = "Security Doors";
-	opacity = 0
+	name = "Security Doors"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/unsimulated/floor,
@@ -23865,9 +23837,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
-	},
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Visitor"
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
@@ -24411,6 +24380,13 @@
 	temperature = 278
 	},
 /area/centcom/control)
+"lyk" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/loading/yellow,
+/turf/unsimulated/floor,
+/area/centcom/bar)
 "lzh" = (
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialt,
@@ -24529,6 +24505,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/escape)
+"lDG" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 8
+	},
+/turf/unsimulated/floor,
+/area/centcom/bar)
 "lDJ" = (
 /obj/structure/sign/directions/security{
 	dir = 4
@@ -25364,6 +25346,12 @@
 /area/centcom/start{
 	name = "Romanovich Cloud, Tau Ceti"
 	})
+"mbh" = (
+/obj/structure/sign/directions/dock{
+	dir = 8
+	},
+/turf/unsimulated/wall/darkshuttlewall,
+/area/centcom/bar)
 "mbj" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
@@ -26867,6 +26855,9 @@
 /obj/structure/bed/stool/chair/padded/beige{
 	dir = 1
 	},
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Visitor"
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -27490,6 +27481,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Visitor"
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
 	},
@@ -27847,6 +27841,17 @@
 	icon_state = "14,1"
 	},
 /area/shuttle/legion)
+"nAz" = (
+/obj/structure/bed/stool/chair/padded/beige{
+	dir = 4
+	},
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Visitor"
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/bar)
 "nAD" = (
 /obj/structure/shuttle_part/tcfl{
 	icon_state = "16,1"
@@ -28156,6 +28161,9 @@
 	dir = 8;
 	name = "adjusted light fixture";
 	pixel_y = -16
+	},
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Visitor"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/bar)
@@ -29294,8 +29302,7 @@
 /obj/machinery/door/airlock/glass_centcom{
 	icon = 'icons/obj/doors/Doorglass.dmi';
 	name = "To: Lower Shuttle Terminal";
-	req_access = null;
-	req_one_access = list(108,109)
+	req_one_access = null
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
@@ -30572,31 +30579,6 @@
 	icon_state = "dark2"
 	},
 /area/centcom/control)
-"psh" = (
-/obj/structure/table/stone/marble,
-/obj/item/reagent_containers/food/snacks/sushi_serve{
-	layer = 3.5;
-	pixel_x = -6;
-	pixel_y = 4
-	},
-/obj/item/reagent_containers/food/snacks/sushi_serve{
-	layer = 3.6;
-	pixel_x = 3;
-	pixel_y = 2
-	},
-/obj/item/reagent_containers/food/snacks/breakfast_wrap{
-	layer = 2.99;
-	pixel_x = 29;
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/food/snacks/breakfast_wrap{
-	pixel_x = 29;
-	pixel_y = 3
-	},
-/turf/unsimulated/floor{
-	icon_state = "lino_grey"
-	},
-/area/centcom/bar)
 "psm" = (
 /turf/simulated/wall/shuttle/unique/tcfl{
 	icon_state = "1,0"
@@ -30774,13 +30756,6 @@
 	icon_state = "5,2"
 	},
 /area/shuttle/merchant)
-"pyg" = (
-/obj/effect/floor_decal/industrial/loading/yellow,
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Visitor"
-	},
-/turf/unsimulated/floor,
-/area/centcom/spawning)
 "pyn" = (
 /turf/simulated/wall/shuttle/unique/merchant{
 	icon_state = "6,2"
@@ -30889,6 +30864,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Visitor"
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -30962,6 +30940,10 @@
 	icon_state = "7,0"
 	},
 /area/shuttle/legion)
+"pDM" = (
+/obj/structure/sign/directions/dock,
+/turf/unsimulated/wall/darkshuttlewall,
+/area/centcom/bar)
 "pDO" = (
 /obj/structure/bed/stool,
 /turf/unsimulated/floor,
@@ -31626,6 +31608,9 @@
 /obj/structure/bed/stool/chair/padded/blue{
 	dir = 8
 	},
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Visitor"
+	},
 /turf/simulated/floor/shuttle/tan,
 /area/centcom/bar)
 "pWh" = (
@@ -31852,7 +31837,6 @@
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "qhb" = (
-/obj/effect/shuttle_landmark/ert/start,
 /obj/machinery/computer/shuttle_control/specops,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/specops)
@@ -32086,11 +32070,8 @@
 "qqp" = (
 /obj/machinery/door/blast/odin{
 	_wifi_id = "odin_arrivals_lockdown";
-	density = 0;
-	icon_state = "pdoor0";
 	id = "CentComArrivalsForeInt";
-	name = "Security Doors";
-	opacity = 0
+	name = "Security Doors"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/unsimulated/floor,
@@ -32956,6 +32937,18 @@
 	icon_state = "wood"
 	},
 /area/centcom/distress_prep)
+"qWu" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "escape_shuttle_hatch";
+	locked = 1;
+	name = "Shuttle Hatch";
+	req_access = list(13)
+	},
+/obj/effect/shuttle_landmark/emergency/start,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/shuttle/escape)
 "qWx" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -33637,6 +33630,9 @@
 	pixel_x = 1;
 	pixel_y = 2
 	},
+/obj/structure/sign/directions/dock{
+	pixel_y = -5
+	},
 /turf/unsimulated/floor/plating,
 /area/centcom/bar)
 "rwc" = (
@@ -33682,6 +33678,12 @@
 	icon_state = "12,0"
 	},
 /area/shuttle/legion)
+"rxW" = (
+/obj/effect/floor_decal/industrial/loading/yellow,
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/bar)
 "ryr" = (
 /obj/structure/sign/directions/mndl{
 	pixel_y = -4
@@ -33937,6 +33939,9 @@
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
 	},
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Visitor"
+	},
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "rHx" = (
@@ -34178,31 +34183,6 @@
 	icon_state = "new_white"
 	},
 /area/centcom/legion)
-"rRr" = (
-/obj/structure/table/stone/marble,
-/obj/item/reagent_containers/food/snacks/taco{
-	layer = 2.98;
-	pixel_x = -4;
-	pixel_y = 7
-	},
-/obj/item/reagent_containers/food/snacks/taco{
-	layer = 2.99;
-	pixel_x = -4;
-	pixel_y = 2
-	},
-/obj/item/reagent_containers/food/snacks/nt_muffin{
-	layer = 2.99;
-	pixel_x = 13;
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/food/snacks/nt_muffin{
-	pixel_x = 11;
-	pixel_y = 1
-	},
-/turf/unsimulated/floor{
-	icon_state = "lino_grey"
-	},
-/area/centcom/bar)
 "rRP" = (
 /obj/machinery/photocopier,
 /obj/structure/sign/poster{
@@ -34267,6 +34247,9 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
+	},
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Visitor"
 	},
 /turf/unsimulated/floor{
 	icon_state = "carpetnoconnect"
@@ -34675,6 +34658,9 @@
 	},
 /obj/structure/bed/stool/chair/padded/blue{
 	dir = 4
+	},
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Visitor"
 	},
 /turf/simulated/floor/shuttle/tan,
 /area/centcom/bar)
@@ -36356,6 +36342,9 @@
 	name = "adjusted light fixture";
 	pixel_y = -16
 	},
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Visitor"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/bar)
 "ttS" = (
@@ -36371,9 +36360,6 @@
 "tud" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10
-	},
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Visitor"
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
@@ -36699,6 +36685,9 @@
 	dir = 10
 	},
 /obj/structure/bed/stool/padded/red,
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Visitor"
+	},
 /turf/unsimulated/floor,
 /area/centcom/bar)
 "tFz" = (
@@ -37244,15 +37233,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/distress)
-"tXh" = (
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Visitor"
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 10
-	},
-/turf/unsimulated/floor,
-/area/centcom/spawning)
 "tXm" = (
 /obj/structure/shuttle_part/arrivals{
 	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
@@ -37295,6 +37275,18 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
+"tYS" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "supply_shuttle_hatch";
+	locked = 1;
+	name = "Shuttle Hatch";
+	req_access = list(13)
+	},
+/obj/effect/shuttle_landmark/supply/start,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/supply/dock)
 "tZx" = (
 /turf/unsimulated/wall/fakepdoor{
 	dir = 4
@@ -37991,6 +37983,18 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
+"uwB" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "specops_shuttle_port_hatch";
+	locked = 1;
+	name = "Docking Port Airlock";
+	req_access = list(13)
+	},
+/obj/effect/shuttle_landmark/ert/start,
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/specops)
 "uwJ" = (
 /turf/simulated/wall/shuttle/unique/mercenary{
 	icon_state = "12,13"
@@ -38100,9 +38104,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Visitor"
-	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "uEw" = (
@@ -38130,6 +38131,9 @@
 	},
 /obj/structure/bed/stool/chair/padded/blue{
 	dir = 4
+	},
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Visitor"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
@@ -38357,9 +38361,6 @@
 "uMb" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
-	},
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Visitor"
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
@@ -38996,6 +38997,9 @@
 /obj/structure/bed/stool/chair/padded/beige{
 	dir = 8
 	},
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Visitor"
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -39105,9 +39109,6 @@
 /obj/machinery/camera/network/crescent{
 	c_tag = "Crescent Arrivals North";
 	dir = 8
-	},
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Visitor"
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
@@ -39262,6 +39263,9 @@
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1"
+	},
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Visitor"
 	},
 /turf/unsimulated/floor,
 /area/centcom/holding)
@@ -39421,6 +39425,9 @@
 "vxh" = (
 /obj/structure/bed/stool/chair/padded/blue{
 	dir = 8
+	},
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Visitor"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
@@ -39839,6 +39846,9 @@
 /obj/structure/bed/stool/chair/padded/blue{
 	dir = 4
 	},
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Visitor"
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
 	},
@@ -40219,6 +40229,9 @@
 /obj/structure/bed/stool/chair/padded/blue{
 	dir = 8
 	},
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Visitor"
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
 	},
@@ -40453,6 +40466,9 @@
 "wds" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal{
 	dir = 8
+	},
+/obj/effect/landmark{
+	name = "JoinLateCryo"
 	},
 /turf/unsimulated/floor,
 /area/centcom/holding)
@@ -41388,6 +41404,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Visitor"
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
 	},
@@ -41443,12 +41462,7 @@
 	},
 /area/centcom/holding)
 "wCm" = (
-/obj/machinery/door/airlock/glass_centcom{
-	icon = 'icons/obj/doors/Doorglass.dmi';
-	name = "To: Upper Shuttle Terminal";
-	req_access = null;
-	req_one_access = list(108,109)
-	},
+/obj/effect/floor_decal/industrial/loading/yellow,
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "wCv" = (
@@ -42497,6 +42511,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Visitor"
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -42633,15 +42650,6 @@
 /area/centcom/holding)
 "xkI" = (
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/food/snacks/salad/tossedsalad{
-	layer = 2.99;
-	pixel_x = 18;
-	pixel_y = 10
-	},
-/obj/item/reagent_containers/food/snacks/salad/tossedsalad{
-	pixel_x = 16;
-	pixel_y = 3
-	},
 /obj/item/material/kitchen/utensil/fork/plastic{
 	pixel_x = -16;
 	pixel_y = 4
@@ -43506,6 +43514,17 @@
 	icon_state = "2,2"
 	},
 /area/shuttle/syndicate_elite)
+"xLk" = (
+/obj/effect/floor_decal/corner/grey/diagonal{
+	dir = 4
+	},
+/obj/machinery/door/airlock/glass_centcom{
+	icon = 'icons/obj/doors/Doorglass.dmi';
+	name = "To: Upper Shuttle Terminal";
+	req_one_access = null
+	},
+/turf/unsimulated/floor,
+/area/centcom/spawning)
 "xLr" = (
 /obj/structure/bed/stool/chair{
 	dir = 8
@@ -44014,6 +44033,9 @@
 	name = "adjusted window"
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Visitor"
+	},
 /turf/unsimulated/floor{
 	icon_state = "carpetnoconnect"
 	},
@@ -61696,7 +61718,7 @@ vnG
 atC
 atC
 atC
-aCQ
+atC
 atC
 atC
 atC
@@ -61943,7 +61965,7 @@ laF
 aEf
 aEl
 aEx
-ahA
+aEy
 aFb
 esA
 pau
@@ -62466,7 +62488,7 @@ lYF
 fdh
 pUx
 kxc
-tMm
+tYS
 atW
 tMm
 hcn
@@ -63472,7 +63494,7 @@ oNa
 oNa
 oNa
 aBX
-aCf
+uwB
 aCu
 aCv
 qhb
@@ -68101,7 +68123,7 @@ tjd
 rAP
 kYq
 nUK
-bQP
+eJY
 mAD
 bLK
 lOO
@@ -69386,7 +69408,7 @@ bQP
 bQP
 bKw
 bQP
-bQP
+eJY
 edR
 wCA
 lOO
@@ -70933,7 +70955,7 @@ mAD
 bLK
 lOO
 wCm
-tRw
+xLk
 tRw
 tRw
 vMZ
@@ -71190,7 +71212,7 @@ edR
 bLK
 lOO
 wCm
-tRw
+xLk
 tRw
 tRw
 tRw
@@ -71412,7 +71434,7 @@ aqu
 aqu
 aqu
 aqu
-apU
+lyk
 tKY
 vpg
 vpg
@@ -71441,7 +71463,7 @@ iTm
 iTm
 iTm
 iTm
-typ
+eDY
 ayG
 mAD
 wCA
@@ -71674,13 +71696,13 @@ rvN
 iCW
 wnl
 aUh
-mVZ
-mVZ
+nAz
+nAz
 vpg
-mVZ
-mVZ
+nAz
+nAz
 vpg
-vpg
+rxW
 tRt
 axR
 mCC
@@ -71698,7 +71720,7 @@ min
 min
 min
 rvE
-typ
+eDY
 bLK
 mAD
 bLK
@@ -71923,7 +71945,7 @@ eBz
 ayK
 aqu
 lQy
-eBz
+pDM
 eBz
 eBz
 eBz
@@ -71937,7 +71959,7 @@ vpg
 eCE
 eOT
 vpg
-vpg
+rxW
 tRt
 ahq
 nMu
@@ -71956,7 +71978,7 @@ gdz
 gdz
 gdz
 qci
-aCm
+kOv
 oPz
 lMn
 nZy
@@ -72186,7 +72208,7 @@ aDB
 eHe
 bpk
 jcv
-rRr
+kgi
 vzV
 vdh
 vdh
@@ -72207,7 +72229,7 @@ aEP
 aEP
 dob
 psL
-bQP
+iuQ
 jWI
 lfH
 aCm
@@ -72443,7 +72465,7 @@ lMz
 lMz
 lMz
 jcv
-psh
+kgi
 fOf
 vpg
 vpg
@@ -72452,7 +72474,7 @@ vpg
 vpg
 vpg
 igD
-eBz
+pDM
 dHY
 nMu
 wBW
@@ -72713,11 +72735,11 @@ eBz
 fwF
 tNJ
 wTQ
-bQP
+iuQ
 bQP
 liD
 bQP
-bQP
+iuQ
 tPb
 xTK
 cRB
@@ -72957,7 +72979,7 @@ lMz
 lMz
 lMz
 jcv
-hmF
+kgi
 xhC
 vpg
 dKe
@@ -73254,7 +73276,7 @@ aMV
 uMb
 aNJ
 uMb
-aMT
+uMb
 ktJ
 dtU
 qfW
@@ -73465,7 +73487,7 @@ vUv
 ahe
 aqu
 apU
-eBz
+mbh
 clb
 lMz
 bkg
@@ -73507,12 +73529,12 @@ tBQ
 ksI
 ksI
 uEt
-bZa
-bZa
-pyg
-bZa
-bZa
-tXh
+aMW
+aMW
+wCm
+aMW
+aMW
+tud
 sdz
 tRw
 tRw
@@ -73764,11 +73786,11 @@ tBQ
 ksI
 ksI
 lfg
-bZa
-bZa
+aMW
+aMW
 aNK
-bZa
-bZa
+aMW
+aMW
 tud
 iXl
 tRw
@@ -74020,12 +74042,12 @@ ciV
 ciV
 ciV
 pMG
-aMH
-bZa
+lfg
+aMW
 tud
 gZV
 aNX
-bZa
+aMW
 tud
 nfY
 nfY
@@ -74278,7 +74300,7 @@ nfY
 nfY
 nfY
 aMJ
-bZa
+aMW
 aNs
 nfY
 aNY
@@ -74534,8 +74556,8 @@ ciV
 ciV
 ciV
 pMG
-aMH
-bZa
+lfg
+aMW
 tud
 nfY
 eRq
@@ -74750,7 +74772,7 @@ tAC
 iXX
 ifi
 xps
-eBz
+mbh
 gsY
 gfu
 bDu
@@ -74792,7 +74814,7 @@ tBQ
 ksI
 ksI
 lfg
-bZa
+aMW
 tud
 ker
 jvF
@@ -75049,7 +75071,7 @@ tBQ
 ksI
 ksI
 lfg
-bZa
+aMW
 aNt
 nfY
 eRq
@@ -75262,7 +75284,7 @@ cFZ
 sjG
 sjG
 sKg
-aqu
+lDG
 wNC
 eBz
 awS
@@ -76056,7 +76078,7 @@ gmv
 nHm
 sXN
 aEW
-aEW
+qWu
 aEW
 pdo
 jdB
@@ -76569,7 +76591,7 @@ aWu
 aWu
 aWu
 aWu
-aVP
+aWu
 aWu
 aDs
 txn
@@ -76806,7 +76828,7 @@ uEJ
 mKe
 aqu
 wNC
-eBz
+mbh
 eBz
 eBz
 eBz
@@ -77322,9 +77344,9 @@ aqu
 puj
 sVJ
 sVJ
-sRi
+cYN
 nIu
-sRi
+cYN
 kBr
 eBz
 wne
@@ -77579,8 +77601,8 @@ aqu
 puj
 sVJ
 sVJ
-sRi
-sRi
+cYN
+cYN
 kIO
 kBr
 eBz
@@ -77836,9 +77858,9 @@ aqu
 puj
 sVJ
 sVJ
-sRi
-sRi
-sRi
+cYN
+cYN
+cYN
 kBr
 eBz
 wne
@@ -78093,9 +78115,9 @@ aqu
 puj
 sVJ
 sVJ
-sRi
+cYN
 ttl
-sRi
+cYN
 kBr
 eBz
 wne

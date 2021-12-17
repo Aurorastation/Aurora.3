@@ -661,6 +661,8 @@
 			H.forceMove(pick(force_spawnpoints[rank]))
 		else
 			H.forceMove(pick(force_spawnpoints["Anyone"]))
+		if(current_map.force_spawnpoint_message)
+			to_chat(H, current_map.force_spawnpoint_message)
 	else
 		if(job.latejoin_at_spawnpoints)
 			for (var/thing in landmarks_list)

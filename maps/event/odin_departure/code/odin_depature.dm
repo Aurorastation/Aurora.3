@@ -28,3 +28,6 @@
 	map_shuttles = list(
 		/datum/shuttle/autodock/ferry/arrival/aurora
 	)
+
+	force_spawnpoint = TRUE
+	force_spawnpoint_message = "<span class='danger'>Follow the yellow dock signs to the arrivals dock</span>"
