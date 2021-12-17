@@ -65,12 +65,14 @@ jobs:
           wget "https://github.com/Aurorastation/rust-g/releases/download/${RUST_G_VERSION}/librust_g.so" -O ./librust_g.so
           chmod +x ./librust_g.so
           ldd ./librust_g.so
+      - name: Install Flyway
+        run: |
+          bash scripts/install-flyway.sh
       - name: Migrate database
         env:
           PORT: ${{ job.services.mariadb.ports[3306] }}
         run: |
-          for f in SQL/migrate/*.sql; do mysql -h"127.0.0.1" -P"$PORT" -uroot -proot game < $f && echo "Migrated $f"; done
-          mysql -h"127.0.0.1" -P"$PORT" -uroot -proot game -e "SHOW TABLES;"
+          $HOME/flyway-$FLYWAY_BUILD/flyway migrate -user=root -password=root -url="jdbc:mariadb://localhost:$PORT/game"
       - name: Build
         run: |
           export LD_LIBRARY_PATH=./:$PWD:$HOME/BYOND/byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
