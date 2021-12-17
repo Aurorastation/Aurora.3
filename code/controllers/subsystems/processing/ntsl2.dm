@@ -64,9 +64,9 @@ NTSL2 deamon management subsystem, responsible for handling events from deamon a
 			return FALSE
 	var/datum/http_request/request = build_request(command, arguments, method, body)
 	if(istype(request))
-		var/task_id = world.time
 		request.begin_async()
 #ifdef NTSL_TIME_TRACK
+		var/task_id = world.time
 		if(command in NTSL_TIME_TRACK)
 			rustg_time_reset("ntsl2++[task_id]")
 #endif
