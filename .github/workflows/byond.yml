@@ -62,7 +62,7 @@ jobs:
           echo "Getting rust_g from https://github.com/Aurorastation/rust-g/releases/download/${RUST_G_VERSION}/librust_g.so"
           wget "https://github.com/Aurorastation/rust-g/releases/download/${RUST_G_VERSION}/librust_g.so" -O $HOME/.byond/bin/librust_g.so
           chmod +x $HOME/.byond/bin/librust_g.so
-          ln -s $HOME/.byond/bin/librust_g.so /usr/local/lib/librust_g.so
+          sudo ln -s $HOME/.byond/bin/librust_g.so /usr/local/lib/librust_g.so
       - name: Migrate database
         env:
           PORT: ${{ job.services.mariadb.ports[3306] }}
