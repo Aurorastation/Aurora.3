@@ -11,10 +11,10 @@ PORT 3306
 DATABASE game
 
 # Username/Login used to access the database
-LOGIN root
+LOGIN build
 
 # Password used to access the database
-PASSWORD root
+PASSWORD build
 
 # The following information is for feedback tracking via the blackbox server
 
