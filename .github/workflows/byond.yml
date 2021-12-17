@@ -58,9 +58,10 @@ jobs:
           source .versions.sh
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
+          mkdir -p $HOME/.byond/bin
           echo "Getting rust_g from https://github.com/Aurorastation/rust-g/releases/download/${RUST_G_VERSION}/librust_g.so"
-          wget "https://github.com/Aurorastation/rust-g/releases/download/${RUST_G_VERSION}/librust_g.so" -O $HOME/BYOND/byond/bin/librust_g.so
-          chmod +x $HOME/BYOND/byond/bin/librust_g.so
+          wget "https://github.com/Aurorastation/rust-g/releases/download/${RUST_G_VERSION}/librust_g.so" -O $HOME/.byond/bin/librust_g.so
+          chmod +x $HOME/.byond/bin/librust_g.so
       - name: Migrate database
         env:
           PORT: ${{ job.services.mariadb.ports[3306] }}
@@ -69,18 +70,16 @@ jobs:
           mysql -h"127.0.0.1" -P"$PORT" -uroot -proot game -e "SHOW TABLES;"
       - name: Build
         run: |
-          export LD_LIBRARY_PATH=./:$PWD:$HOME/BYOND/byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
+          export LD_LIBRARY_PATH=./:$PWD:$HOME/.byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
           scripts/dm.sh -DUNIT_TEST -M${{ matrix.map }} aurorastation.dme
           grep "0 warnings" build_log.txt
       - name: Run tests
         env:
           PORT: ${{ job.services.mariadb.ports[3306] }}
         run: |
-          nm -D $HOME/BYOND/byond/bin/librust_g.so
-          export LD_LIBRARY_PATH=./:$PWD:$HOME/BYOND/byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
+          export LD_LIBRARY_PATH=./:$PWD:$HOME/.byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
           cp config/example/* config/ && cp config/ut/config-db.txt config/config.txt && cp config/ut/dbconfig.txt config/dbconfig.txt
           echo "PORT $PORT" >> config/dbconfig.txt
-          cat config/dbconfig.txt
           $HOME/BYOND/byond/bin/DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
           grep "All Unit Tests Passed" log.txt
           (! grep "runtime error:" log.txt)
