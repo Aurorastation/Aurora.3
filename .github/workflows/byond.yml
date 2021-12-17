@@ -77,6 +77,7 @@ jobs:
         env:
           PORT: ${{ job.services.mariadb.ports[3306] }}
         run: |
+          nm -D ./librust_g.so
           export LD_LIBRARY_PATH=./:$PWD:$HOME/BYOND/byond/bin:$HOME/.byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
           cp config/example/* config/ && cp config/ut/config-db.txt config/config.txt && cp config/ut/dbconfig.txt config/dbconfig.txt
           echo "PORT $PORT" >> config/dbconfig.txt
