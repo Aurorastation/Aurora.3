@@ -63,8 +63,8 @@ jobs:
           chmod +x ./librust_g.so
       - name: Migrate database
         run: |
-          for f in SQL/migrate/*.sql; do mysql -uroot -proot game < $f && echo "Migrated $f"; done
-          mysql -uroot -proot game -e "SHOW TABLES;"
+          for f in SQL/migrate/*.sql; do mysql -h"127.0.0.1" -uroot -proot game < $f && echo "Migrated $f"; done
+          mysql -h"127.0.0.1" -uroot -proot game -e "SHOW TABLES;"
       - name: Build
         run: |
           cp config/example/* config/ && cp config/ut/config-db.txt config/config.txt && cp config/ut/dbconfig.txt config/dbconfig.txt
