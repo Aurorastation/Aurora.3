@@ -51,9 +51,10 @@ jobs:
           echo "Getting rust_g from https://github.com/Aurorastation/rust-g/releases/download/${RUST_G_VERSION}/librust_g.so"
           wget "https://github.com/Aurorastation/rust-g/releases/download/${RUST_G_VERSION}/librust_g.so" -O ./librust_g.so
           chmod +x ./librust_g.so
+      - name: Set up MariaDB
+        uses: getong/mariadb-action@v1.1
       - name: Migrate database
         run: |
-          sudo systemctl start mysql
           mysql -uroot -proot -e 'CREATE DATABASE game;'
           for f in SQL/migrate/*.sql; do mysql -uroot -proot game < $f && echo "Migrated $f"; done
           mysql -uroot -proot game -e "SHOW TABLES;"
