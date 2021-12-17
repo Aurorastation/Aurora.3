@@ -59,8 +59,8 @@ jobs:
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
           echo "Getting rust_g from https://github.com/Aurorastation/rust-g/releases/download/${RUST_G_VERSION}/librust_g.so"
-          wget "https://github.com/Aurorastation/rust-g/releases/download/${RUST_G_VERSION}/librust_g.so" -O ./librust_g.so
-          chmod +x ./librust_g.so
+          wget "https://github.com/Aurorastation/rust-g/releases/download/${RUST_G_VERSION}/librust_g.so" -O $HOME/BYOND/byond/bin/librust_g.so
+          chmod +x $HOME/BYOND/byond/bin/librust_g.so
       - name: Migrate database
         env:
           PORT: ${{ job.services.mariadb.ports[3306] }}
@@ -76,10 +76,11 @@ jobs:
         env:
           PORT: ${{ job.services.mariadb.ports[3306] }}
         run: |
-          nm -D ./librust_g.so
+          nm -D $HOME/BYOND/byond/bin/librust_g.so
           export LD_LIBRARY_PATH=./:$PWD:$HOME/BYOND/byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
           cp config/example/* config/ && cp config/ut/config-db.txt config/config.txt && cp config/ut/dbconfig.txt config/dbconfig.txt
           echo "PORT $PORT" >> config/dbconfig.txt
+          cat config/dbconfig.txt
           $HOME/BYOND/byond/bin/DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
           grep "All Unit Tests Passed" log.txt
           (! grep "runtime error:" log.txt)
