@@ -62,9 +62,11 @@ jobs:
           wget "https://github.com/Aurorastation/rust-g/releases/download/${RUST_G_VERSION}/librust_g.so" -O ./librust_g.so
           chmod +x ./librust_g.so
       - name: Migrate database
+        env:
+          PORT: ${{ job.services.mariadb.ports[3306] }}
         run: |
-          for f in SQL/migrate/*.sql; do mysql -h"127.0.0.1" -uroot -proot game < $f && echo "Migrated $f"; done
-          mysql -h"127.0.0.1" -uroot -proot game -e "SHOW TABLES;"
+          for f in SQL/migrate/*.sql; do mysql -h"127.0.0.1" -P"$PORT" -uroot -proot game < $f && echo "Migrated $f"; done
+          mysql -h"127.0.0.1" -P"$PORT" -uroot -proot game -e "SHOW TABLES;"
       - name: Build
         run: |
           cp config/example/* config/ && cp config/ut/config-db.txt config/config.txt && cp config/ut/dbconfig.txt config/dbconfig.txt
