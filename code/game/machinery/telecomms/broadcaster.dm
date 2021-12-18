@@ -232,7 +232,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 	var/list/obj/item/device/radio/radios = list()
 
 	// --- Gets the accent icon, if there is any ---
-	var/accent_icon = M.get_accent_icon(speaking, M)
+	var/accent_icon = M?.get_accent_icon(speaking, M)
 
 	// --- Broadcast only to intercom devices ---
 

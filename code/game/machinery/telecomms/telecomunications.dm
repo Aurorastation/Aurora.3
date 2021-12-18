@@ -484,10 +484,8 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	var/logs = 0 // number of logs
 	var/totaltraffic = 0 // gigabytes (if > 1024, divide by 1024 -> terrabytes)
 
-	var/list/memory = list()	// stored memory
-	var/rawcode = ""	// the code to compile (raw text)
-	var/datum/ntsl2_program/tcomm/Program // NTSL2++ datum responsible for script execution
-	var/autoruncode = 0		// 1 if the code is set to run every time a signal is picked up
+	var/code = ""	// the code to execute
+	var/datum/ntsl2_program/tcomm/program // NTSL2++ datum responsible for script execution
 
 	var/encryption = "null" // encryption key: ie "password"
 	var/salt = "null"		// encryption salt: ie "123comsat"
@@ -497,7 +495,6 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 /obj/machinery/telecomms/server/Initialize()
 	. = ..()
-	// Program = SSntsl2.new_program_tcomm(src)
 	server_radio = new()
 
 /obj/machinery/telecomms/server/receive_information(datum/signal/signal, obj/machinery/telecomms/machine_from)
@@ -573,9 +570,9 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 				var/identifier = num2text( rand(-1000,1000) + world.time )
 				log.name = "data packet ([md5(identifier)])"
 
-				if(istype(Program))
-					Program.process_message(signal)
-					Program.retrieve_messages()
+				if(istype(program))
+					program.process_message(signal)
+					program.retrieve_messages()
 
 			finish_receive_information(signal)
 
@@ -586,9 +583,10 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 
 /obj/machinery/telecomms/server/machinery_process()
+	set waitfor = FALSE
 	. = ..()
-	if(istype(Program))
-		Program.retrieve_messages()
+	if(istype(program))
+		program.retrieve_messages()
 
 /obj/machinery/telecomms/server/proc/update_logs()
 	// start deleting the very first log entry

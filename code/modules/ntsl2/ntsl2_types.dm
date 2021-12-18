@@ -42,15 +42,15 @@
 		var/data = input("", "Enter Data")
 		if(!data)
 			data = ""
-		SSntsl2.send("computer/topic", list(id = id, topic = copytext(topic, 2)), RUSTG_HTTP_METHOD_POST, data)
+		SSntsl2.send("terminal/topic", list(id = id, topic = copytext(topic, 2)), RUSTG_HTTP_METHOD_POST, data)
 	else
-		SSntsl2.send("computer/topic", list(id = id, topic = topic), RUSTG_HTTP_METHOD_POST)
+		SSntsl2.send("terminal/topic", list(id = id, topic = topic), RUSTG_HTTP_METHOD_POST)
 	update_buffer()
 
 /datum/ntsl2_program/computer/proc/update_buffer()
 	set waitfor = FALSE
 	UNTIL(is_ready())
-	var/response = SSntsl2.send("computer/get_buffer", list(id = id))
+	var/response = SSntsl2.send("terminal/get_buffer", list(id = id))
 	if(response)
 		buffer = response
 		if(istype(buffer_update_callback))
@@ -64,17 +64,36 @@
 /datum/ntsl2_program/tcomm
 	name = "NTSL2++ comm program"
 	var/obj/machinery/telecomms/server/server
+	var/buffer = ""
 
 
 /datum/ntsl2_program/tcomm/New(var/server)
 	. = ..()
 	src.server = server
 
+/datum/ntsl2_program/tcomm/proc/handle_topic(var/topic)
+	set waitfor = FALSE
+	UNTIL(is_ready())
+	if(copytext(topic, 1, 2) == "?")
+		var/data = input("", "Enter Data")
+		if(!data)
+			data = ""
+		SSntsl2.send("terminal/topic", list(id = id, topic = copytext(topic, 2)), RUSTG_HTTP_METHOD_POST, data)
+	else
+		SSntsl2.send("terminal/topic", list(id = id, topic = topic), RUSTG_HTTP_METHOD_POST)
+	update_buffer()
+
+/datum/ntsl2_program/tcomm/proc/update_buffer()
+	set waitfor = FALSE
+	UNTIL(is_ready())
+	var/response = SSntsl2.send("terminal/get_buffer", list(id = id))
+	if(response)
+		buffer = response
+
 /datum/ntsl2_program/tcomm/proc/process_message(var/datum/signal/signal)
+	UNTIL(is_ready())
 	var/datum/language/signal_language = signal.data["language"]
-	SSntsl2.send("tcom/process", list(
-		id = id,
-		signal = list(
+	SSntsl2.send("tcom/process", list(id = id), RUSTG_HTTP_METHOD_POST, list(
 			content = html_decode(signal.data["message"]),
 			freq = signal.frequency,
 			source = html_decode(signal.data["name"]),
@@ -83,8 +102,7 @@
 			verb = signal.data["verb"],
 			language = signal_language.name,
 			reference = ref(signal)
-		)
-	), RUSTG_HTTP_METHOD_POST)
+		))
 	/* [
   {
 	"content": "AAAAA",
@@ -99,7 +117,7 @@
 ]*/
 
 /datum/ntsl2_program/tcomm/proc/retrieve_messages()
-	set waitfor = FALSE
+	UNTIL(is_ready())
 	var/response = SSntsl2.send("tcom/get", list(id = id))
 	if(response)
 		var/list/signals = json_decode(response)
@@ -126,4 +144,5 @@
 			else
 				sig = new()
 				sig.data["server"] = server
+				sig.data["reject"] = !S["pass"]
 				sig.tcombroadcast(html_encode(S["content"]), S["freq"], html_encode(S["source"]), html_encode(S["job"]), html_encode(S["verb"]), S["language"])

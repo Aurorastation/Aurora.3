@@ -1,6 +1,6 @@
 var/datum/controller/subsystem/processing/ntsl2/SSntsl2
 
-// #define NTSL_TIME_TRACK list("new_program", "execute", "remove", "computer/get_buffer", "computer/topic")
+#define NTSL_TIME_TRACK list("new_program", "execute", "remove", "tcom/process", "tcom/get")
 
 /*
 NTSL2 deamon management subsystem, responsible for handling events from deamon and it's connection state.
