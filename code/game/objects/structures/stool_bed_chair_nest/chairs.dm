@@ -8,7 +8,6 @@
 	buckle_dir = 0
 	buckle_lying = 0 //force people to sit up in chairs when buckled_to
 	obj_flags = OBJ_FLAG_ROTATABLE_ANCHORED
-	var/propelled = 0 // Check for fire-extinguisher-driven chairs
 	held_item = /obj/item/material/stool/chair/
 
 /obj/structure/bed/stool/chair/Initialize()
@@ -250,71 +249,6 @@
 	held_item = null
 
 	can_pad = FALSE
-
-	var/driving = FALSE // Shit for wheelchairs. Doesn't really get used here, but it's for code cleanliness.
-	var/mob/living/pulling = null
-
-/obj/structure/bed/stool/chair/office/Move()
-	. = ..()
-	if(makes_rolling_sound)
-		playsound(src, 'sound/effects/roll.ogg', 50, 1)
-	if(buckled)
-		var/mob/living/occupant = buckled
-		if(!driving)
-			occupant.buckled_to = null
-			occupant.Move(src.loc)
-			occupant.buckled_to = src
-			if (occupant && (src.loc != occupant.loc))
-				if (propelled)
-					for (var/mob/O in src.loc)
-						if (O != occupant)
-							Collide(O)
-				else
-					unbuckle()
-			if (pulling && (get_dist(src, pulling) > 1))
-				pulling.pulledby = null
-				to_chat(pulling, SPAN_WARNING("You lost your grip!"))
-				pulling = null
-		else
-			if (occupant && (src.loc != occupant.loc))
-				src.forceMove(occupant.loc) // Failsafe to make sure the wheelchair stays beneath the occupant after driving
-
-
-/obj/structure/bed/stool/chair/office/Collide(atom/A)
-	. = ..()
-	if(!buckled)
-		return
-
-	if(propelled || (pulling && (pulling.a_intent == I_HURT)))
-		var/mob/living/occupant = unbuckle()
-
-		if (pulling && (pulling.a_intent == I_HURT))
-			occupant.throw_at(A, 3, 3, pulling)
-		else if (propelled)
-			occupant.throw_at(A, 3, propelled)
-
-		var/def_zone = ran_zone()
-		occupant.throw_at(A, 3, propelled)
-		occupant.apply_effect(6, STUN)
-		occupant.apply_effect(6, WEAKEN)
-		occupant.apply_effect(6, STUTTER)
-		occupant.apply_damage(10, BRUTE, def_zone)
-		playsound(src.loc, "punch", 50, 1, -1)
-		if(isliving(A))
-			var/mob/living/victim = A
-			def_zone = ran_zone()
-			victim.apply_effect(6, STUN)
-			victim.apply_effect(6, WEAKEN)
-			victim.apply_effect(6, STUTTER)
-			victim.apply_damage(10, BRUTE, def_zone)
-
-		if(pulling)
-			occupant.visible_message(SPAN_DANGER("[pulling] has thrusted \the [name] into \the [A], throwing \the [occupant] out of it!"))
-			pulling.attack_log += "\[[time_stamp()]\]<span class='warning'> Crashed [occupant.name]'s ([occupant.ckey]) [name] into \a [A]</span>"
-			occupant.attack_log += "\[[time_stamp()]\]<font color='orange'> Thrusted into \a [A] by [pulling.name] ([pulling.ckey]) with \the [name]</font>"
-			msg_admin_attack("[pulling.name] ([pulling.ckey]) has thrusted [occupant.name]'s ([occupant.ckey]) [name] into \a [A] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[pulling.x];Y=[pulling.y];Z=[pulling.z]'>JMP</a>)",ckey=key_name(pulling),ckey_target=key_name(occupant))
-		else
-			occupant.visible_message(SPAN_DANGER("[occupant] crashed into \the [A]!"))
 
 /obj/structure/bed/stool/chair/office/light
 	icon_state = "officechair_white_preview"
