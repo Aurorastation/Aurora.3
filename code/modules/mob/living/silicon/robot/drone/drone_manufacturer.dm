@@ -18,7 +18,7 @@
 	idle_power_usage = 20
 	active_power_usage = 5000
 
-	var/fabricator_tag = "Aurora"
+	var/fabricator_tag = STATION_TAG
 	var/drone_progress = 0
 	var/produce_drones = TRUE
 	var/time_last_drone = 500
@@ -90,6 +90,7 @@
 	announce_ghost_joinleave(player, 0, "They have taken control over a maintenance drone.")
 	visible_message(SPAN_NOTICE("\The [src] churns and grinds as it lurches into motion, disgorging a shiny new drone after a few moments."))
 	flick("h_lathe_leave", src)
+	intent_message(MACHINE_SOUND)
 
 	time_last_drone = world.time
 	if(player.mob?.mind)
@@ -98,10 +99,14 @@
 	if(!drone_tag)
 		drone_tag = "MT"
 
+	var/designation = "[drone_tag]-[rand(100,999)]"
+
 	var/mob/living/silicon/robot/drone/new_drone = new drone_type(get_turf(src))
-	new_drone.set_name("[initial(new_drone.name)] ([drone_tag]-[rand(100,999)])")
+	new_drone.set_name("[initial(new_drone.name)] ([designation])")
+	new_drone.designation = designation
 	new_drone.transfer_personality(player)
 	new_drone.master_fabricator = src
+	assign_drone_to_matrix(new_drone, fabricator_tag)
 
 	drone_progress = 0
 

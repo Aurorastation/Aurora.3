@@ -95,10 +95,17 @@
 
 /decl/recipe/pozole
 	appliance = SAUCEPAN | POT
-	fruit = list("dyn" = 1, "cabbage" = 1, "tomato" = 1)
+	fruit = list("dyn leaf" = 1, "cabbage" = 1, "tomato" = 1)
 	reagents = list(/decl/reagent/water = 10)
 	items = list(/obj/item/reagent_containers/food/snacks/meat)
 	result = /obj/item/reagent_containers/food/snacks/soup/pozole
+
+/decl/recipe/brudet
+	appliance = SAUCEPAN | POT
+	fruit = list ("tomato" = 1)
+	reagents = list(/decl/reagent/water = 10)
+	items = list(/obj/item/reagent_containers/food/snacks/fish)
+	result = /obj/item/reagent_containers/food/snacks/soup/brudet
 
 // Stews
 /decl/recipe/stew

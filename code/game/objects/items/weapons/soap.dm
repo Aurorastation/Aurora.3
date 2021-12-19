@@ -120,97 +120,78 @@
 	capacity = 20
 
 /obj/item/soap/space_soap
-	name = "Soap"
 	desc = "Smells like burnt meat."
 	icon_state = "space_soap"
 
 /obj/item/soap/water_soap
-	name = "Soap"
 	desc = "Smells like chlorine."
 	icon_state = "water_soap"
 
 /obj/item/soap/fire_soap
-	name = "Soap"
 	desc = "Smells like burnt charcoal."
 	icon_state = "fire_soap"
 
 /obj/item/soap/rainbow_soap
-	name = "Soap"
 	desc = "Smells sweet."
 	icon_state = "rainbow_soap"
 
 /obj/item/soap/diamond_soap
-	name = "Soap"
 	desc = "Smells like saffron."
 	icon_state = "diamond_soap"
 
 /obj/item/soap/uranium_soap
-	name = "Soap"
 	desc = "Doesn't smell... it's glowing though."
 	icon_state = "uranium_soap"
 
 /obj/item/soap/silver_soap
-	name = "Soap"
 	desc = "Smells bitter."
 	icon_state = "silver_soap"
 
 /obj/item/soap/brown_soap
-	name = "Soap"
 	desc = "Smells like chocolate."
 	icon_state = "brown_soap"
 
 /obj/item/soap/white_soap
-	name = "Soap"
 	desc = "Smells like vanilla."
 	icon_state = "white_soap"
 
 /obj/item/soap/grey_soap
-	name = "Soap"
 	desc = "Smells acidic."
 	icon_state = "grey_soap"
 
 /obj/item/soap/pink_soap
-	name = "Soap"
 	desc = "Smells like bubble gum"
 	icon_state = "pink_soap"
 
 /obj/item/soap/purple_soap
-	name = "Soap"
 	desc = "Smells like wisteria."
 	icon_state = "purple_soap"
 
 /obj/item/soap/blue_soap
-	name = "Soap"
 	desc = "Smells like lilies."
 	icon_state = "blue_soap"
 
 /obj/item/soap/cyan_soap
-	name = "Soap"
 	desc = "Smells like bluebells."
 	icon_state = "cyan_soap"
 
 /obj/item/soap/green_soap
-	name = "Soap"
 	desc = "Smells like a freshly mowed lawn."
 	icon_state = "green_soap"
 
 /obj/item/soap/yellow_soap
-	name = "Soap"
 	desc = "Smells like sunflowers."
 	icon_state = "yellow_soap"
 
 /obj/item/soap/orange_soap
-	name = "Soap"
 	desc = "Smells like oranges."
 	icon_state = "orange_soap"
 
 /obj/item/soap/red_soap
-	name = "Soap"
 	desc = "Smells like cherries."
 	icon_state = "red_soap"
 
 /obj/item/soap/golden_soap
-	name = "Soap"
 	desc = "Smells like honey."
 	icon_state = "golden_soap"
 

@@ -100,20 +100,23 @@ for reference:
 		visible_message(SPAN_WARNING("\The [src] is hit by \the [P]!"))
 
 /obj/structure/barricade/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/stack))
-		var/obj/item/stack/D = W
-		if(D.get_material_name() != material.name)
-			return //hitting things with the wrong type of stack usually doesn't produce messages, and probably doesn't need to.
-		if(health < maxhealth)
-			if(D.get_amount() < 1)
+	if(W.ishammer() && user.a_intent != I_HURT)
+		var/obj/item/I = usr.get_inactive_hand()
+		if(I && istype(I, /obj/item/stack))
+			var/obj/item/stack/D = I
+			if(D.get_material_name() != material.name)
 				to_chat(user, SPAN_WARNING("You need one sheet of [material.display_name] to repair \the [src]."))
-				return
-			user.visible_message("<b>[user]</b> begins to repair \the [src].", SPAN_NOTICE("You begin to repair \the [src]."))
-			if(do_after(user, 2 SECONDS) && health < maxhealth)
-				if(D.use(1))
-					health = maxhealth
-					visible_message("<b>[user]</b> repairs \the [src].", SPAN_NOTICE("You repair \the [src]."))
-		return
+				return ..()
+			if(health < maxhealth)
+				if(D.get_amount() < 1)
+					to_chat(user, SPAN_WARNING("You need one sheet of [material.display_name] to repair \the [src]."))
+					return
+				user.visible_message("<b>[user]</b> begins to repair \the [src].", SPAN_NOTICE("You begin to repair \the [src]."))
+				if(do_after(user, 2 SECONDS) && health < maxhealth)
+					if(D.use(1))
+						health = maxhealth
+						visible_message("<b>[user]</b> repairs \the [src].", SPAN_NOTICE("You repair \the [src]."))
+			return
 	else
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		switch(W.damtype)
@@ -374,7 +377,7 @@ for reference:
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "barrier_kit"
 	w_class = ITEMSIZE_LARGE
-	kit_product = /obj/structure/bed/chair/remote/mech/portable
+	kit_product = /obj/structure/bed/stool/chair/remote/mech/portable
 	assembly_time = 20 SECONDS
 
 /obj/item/deployable_kit/remote_mech/attack_self(mob/user)
@@ -387,4 +390,4 @@ for reference:
 /obj/item/deployable_kit/remote_mech/brig
 	name = "brig mech control centre assembly kit"
 	desc = "A quick assembly kit to put together a brig mech control centre."
-	kit_product = /obj/structure/bed/chair/remote/mech/prison/portable
+	kit_product = /obj/structure/bed/stool/chair/remote/mech/prison/portable

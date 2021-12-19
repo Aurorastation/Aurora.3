@@ -1001,7 +1001,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 	if(!isturf(usr.loc))
 		return
-	if(!(locate(/obj/item/stool) in usr.loc) && !(locate(/obj/structure/bed) in usr.loc) && !(locate(/obj/structure/table) in usr.loc) && !(locate(/obj/structure/toilet) in usr.loc))
+	if(!(locate(/obj/structure/bed/stool) in usr.loc) && !(locate(/obj/structure/bed) in usr.loc) && !(locate(/obj/structure/table) in usr.loc) && !(locate(/obj/structure/toilet) in usr.loc))
 		to_chat(usr, SPAN_WARNING("You have to be standing on top of a chair/table/bed to make a noose!"))
 		return FALSE
 	if(amount < 25)
@@ -1116,6 +1116,10 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			to_chat(user, SPAN_DANGER("They don't have a head."))
 			return
 
+	if(M.mob_size >= 20)
+		to_chat(user, SPAN_DANGER("They are too large for the noose to hold."))
+		return
+
 	if(M.loc != src.loc) return FALSE //Can only noose someone if they're on the same tile as noose
 
 	add_fingerprint(user)
@@ -1193,7 +1197,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		var/mob/living/B = buckled
 		if (ishuman(B))
 			var/mob/living/carbon/human/H = B
-			if (H.species && (H.species.flags & NO_BREATHE))
+			if (H.species && (H.species.flags & NO_BREATHE) || isvaurca(H))
 				return
 		B.adjustOxyLoss(5)
 		B.adjustBrainLoss(1)

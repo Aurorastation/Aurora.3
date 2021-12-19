@@ -36,6 +36,8 @@
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_SOCKS
 	flags = NO_SLIP
 
+	possible_external_organs_modifications = list("Normal","Amputated","Prosthesis", "Diona Nymph")
+
 	has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest),
 		BP_GROIN =  list("path" = /obj/item/organ/external/groin),
@@ -88,7 +90,7 @@
 
 	default_accent = ACCENT_SKRELL
 	allowed_accents = list(ACCENT_SKRELL, ACCENT_HOMEWORLD, ACCENT_QERRMALIC, ACCENT_ALIOSE, ACCENT_AWEIJI, ACCENT_TRAVERSE, ACCENT_CETI, ACCENT_GIBSON, ACCENT_COC, ACCENT_ERIDANI,
-							ACCENT_ERIDANIDREG, ACCENT_VENUS, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_ELYRA, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_EUROPA)
+							ACCENT_ERIDANIDREG, ACCENT_VENUS, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_ELYRA, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_EUROPA, ACCENT_VALKYRIE, ACCENT_MICTLAN)
 
 	zombie_type = SPECIES_ZOMBIE_SKRELL
 	bodyfall_sound = /decl/sound_category/bodyfall_skrell_sound

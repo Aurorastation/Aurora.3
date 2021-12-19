@@ -4,7 +4,10 @@ var/list/mob_icon_icon_states = list()
 	// If we don't actually need to offset this, don't bother with any of the generation/caching.
 	if(!mob_icon_icon_states[mob_icon])
 		mob_icon_icon_states[mob_icon] = icon_states(mob_icon)
-	if(LAZYLEN(H.species.equip_adjust) && H.species.equip_adjust[slot] && length(H.species.equip_adjust[slot]) && (mob_state in mob_icon_icon_states[mob_icon]) && !(H.species.bodytype in sprite_sheets))
+	var/needs_shift = !(H.species.bodytype in sprite_sheets)
+	if(!needs_shift && length(item_icons))
+		needs_shift = (slot in item_icons)
+	if(LAZYLEN(H.species.equip_adjust) && H.species.equip_adjust[slot] && length(H.species.equip_adjust[slot]) && (mob_state in mob_icon_icon_states[mob_icon]) && needs_shift)
 		// Check the cache for previously made icons.
 		var/image_key_mod = get_image_key_mod()
 		var/image_key = "[mob_icon]-[mob_state]-[color]-[slot][!isnull(image_key_mod) ? "-[image_key_mod]" : ""]"
@@ -28,10 +31,10 @@ var/list/mob_icon_icon_states = list()
 		I.appearance = H.species.equip_overlays[image_key]
 		return I
 	var/image/I = overlay_image(mob_icon, mob_state, color, RESET_COLOR|RESET_ALPHA)
-	var/image/additional_parts = build_additional_parts(H, mob_icon)
+	var/image/additional_parts = build_additional_parts(H, mob_icon, slot)
 	if(additional_parts)
 		I.add_overlay(additional_parts)
-	
+
 	return I
 
 /obj/item/proc/get_image_key_mod()
@@ -49,4 +52,6 @@ var/list/mob_icon_icon_states = list()
 	var/image/I
 	if(build_from_parts)
 		I = overlay_image(mob_icon, "[item_state][contained_sprite ? slot_str_to_contained_flag(slot) : ""]_[worn_overlay]", null, RESET_COLOR|RESET_ALPHA)
+		if(worn_overlay_color)
+			I.color = worn_overlay_color
 	return I

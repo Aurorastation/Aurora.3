@@ -249,6 +249,9 @@
 		slot_l_hand_str = "chickensuit",
 		slot_r_hand_str = "chickensuit"
 		)
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/head.dmi'
+	)
 	flags_inv = BLOCKHAIR
 	siemens_coefficient = 0.7
 	body_parts_covered = HEAD|FACE|EYES
@@ -294,6 +297,9 @@
 	contained_sprite = 1
 	slot_flags = SLOT_EARS  | SLOT_HEAD
 
+/obj/item/clothing/head/hijab/get_ear_examine_text(var/mob/user, var/ear_text = "left")
+	return "on [user.get_pronoun("his")] head"
+
 /obj/item/clothing/head/hijab/grey
 	name = "grey hijab"
 	icon_state = "hijab_grey"
@@ -337,6 +343,9 @@
 	name = "sombrero"
 	desc = "You can practically taste the fiesta."
 	icon_state = "sombrero"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/head.dmi'
+	)
 
 /obj/item/clothing/head/turban
 	name = "turban"

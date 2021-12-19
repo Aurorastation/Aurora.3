@@ -16,7 +16,7 @@
 	minimal_access = list(access_bar)
 	alt_titles = list("Barista")
 	outfit = /datum/outfit/job/bartender
-	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/bartender
 	name = "Bartender"
@@ -52,7 +52,7 @@
 	minimal_access = list(access_kitchen)
 	alt_titles = list("Cook")
 	outfit = /datum/outfit/job/chef
-	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/chef
 	name = "Chef"
@@ -93,6 +93,7 @@
 	minimal_access = list(access_hydroponics)
 	alt_titles = list("Hydroponicist")
 	outfit = /datum/outfit/job/hydro
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/hydro
 	name = "Gardener"
@@ -147,6 +148,7 @@
 	ideal_character_age = 40
 
 	outfit = /datum/outfit/job/qm
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/qm
 	name = "Quartermaster"
@@ -183,6 +185,7 @@
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
 	minimal_access = list(access_cargo, access_cargo_bot, access_mailsorting)
 	outfit = /datum/outfit/job/cargo_tech
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/cargo_tech
 	name = "Cargo Technician"
@@ -221,6 +224,7 @@
 	alt_titles = list("Drill Technician")
 	alt_outfits = list("Drill Technician" = /datum/outfit/job/mining/drill)
 	outfit = /datum/outfit/job/mining
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/mining
 	name = "Shaft Miner"
@@ -268,6 +272,7 @@
 	access = list(access_janitor, access_maint_tunnels, access_engine, access_research, access_sec_doors, access_medical)
 	minimal_access = list(access_janitor, access_engine, access_research, access_sec_doors, access_medical)
 	outfit = /datum/outfit/job/janitor
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/janitor
 	name = "Janitor"
@@ -304,7 +309,7 @@
 	alt_outfits = list("Freelance Journalist" = /datum/outfit/job/journalistf)
 	title_accesses = list("Corporate Reporter" = list(access_medical, access_sec_doors, access_research, access_engine))
 	outfit = /datum/outfit/job/journalist
-	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
+	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/journalist
 	name = "Corporate Reporter"
@@ -358,6 +363,7 @@
 	alt_outfits = list("Curator" = /datum/outfit/job/librarian/curator, "Tech Support" = /datum/outfit/job/librarian/tech_support)
 	title_accesses = list("Tech Support" = access_it)
 	outfit = /datum/outfit/job/librarian
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/librarian
 	name = "Librarian"
