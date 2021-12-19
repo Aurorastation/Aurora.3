@@ -1166,7 +1166,7 @@ proc/is_blind(A)
 	return species.handle_stance_damage(src, TRUE) >= 4
 
 /mob/living/carbon/human/proc/equip_wheelchair()
-	var/obj/structure/bed/stool/chair/wheelchair/W = new(get_turf(src))
+	var/obj/structure/bed/stool/chair/office/wheelchair/W = new(get_turf(src))
 	if(isturf(loc))
 		buckled_to = W
 		update_canmove()
