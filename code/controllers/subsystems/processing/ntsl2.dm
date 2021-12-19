@@ -9,7 +9,6 @@ NTSL2 deamon management subsystem, responsible for handling events from deamon a
 	name = "NTSL2"
 	flags = 0
 	init_order = SS_INIT_MISC
-	// priority = SS_PRIORITY_PROCESSING
 	wait = 10
 	var/connected = FALSE
 	var/list/programs = list()
@@ -46,7 +45,7 @@ NTSL2 deamon management subsystem, responsible for handling events from deamon a
 	if (response.errored)
 		log_debug("NTSL2++: Proc error while performing command '[command]': [response.error]")
 		log_debug("NTSL2++: Due to proc error, NTSL2++ has been DISABLED.")
-		connected = FALSE
+		disconnect()
 		return FALSE
 	else if (response.status_code != 200)
 		log_debug("NTSL2++: HTTP error while performing command '[command]': [response.status_code]")
