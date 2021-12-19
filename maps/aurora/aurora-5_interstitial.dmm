@@ -4388,7 +4388,7 @@
 /turf/simulated/floor/tiled,
 /area/medical/psych)
 "lf" = (
-/obj/structure/bed/stool/chair/wheelchair,
+/obj/structure/bed/stool/chair/office/wheelchair,
 /turf/simulated/floor/tiled,
 /area/medical/psych)
 "lg" = (
@@ -10696,7 +10696,7 @@
 /area/maintenance/interstitial_construction_site)
 "SF" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/bed/stool/chair/wheelchair{
+/obj/structure/bed/stool/chair/office/wheelchair{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -11288,7 +11288,7 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
 "Wm" = (
-/obj/structure/bed/stool/chair/wheelchair{
+/obj/structure/bed/stool/chair/office/wheelchair{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
