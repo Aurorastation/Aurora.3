@@ -11,7 +11,6 @@
 #define SEVERITY_NOTICE   5 //Notice: normal but significant condition
 #define SEVERITY_INFO     6 //Informational: informational messages
 #define SEVERITY_DEBUG    7 //Debug: debug-level messages
-#define WRITE_LOG(log, text) rustg_log_write(log, text, "true")
 
 #define WRITE_LOG(log, text) rustg_log_write(log, text, "true")
 #define WRITE_LOG_NO_FORMAT(log, text) rustg_log_write(log, text, "false")
