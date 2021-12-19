@@ -875,7 +875,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/mira_clothing.dmi'
 	icon_state = "mira_robes"
 	item_state = "mira_robes"
-	contained_sprite = TRUE
 
 /obj/item/clothing/shoes/fluff/mira_boots //Mira Boots - Mira Akhandi - ladyfowl
 	name = "dark boots"
@@ -1206,7 +1205,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/likho_labcoat.dmi'
 	icon_state = "likho_labcoat"
 	item_state = "likho_labcoat"
-	contained_sprite = TRUE
 
 
 /obj/item/clothing/suit/storage/toggle/fr_jacket/fluff/ramit_jacket //Winter Paramedic Jacket - Ra'mit Ma'zaira - simontheminer
@@ -1606,7 +1604,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/mekesatis_holocoat.dmi'
 	icon_state = "mekesatis_labcoat"
 	item_state = "mekesatis_labcoat"
-	contained_sprite = TRUE
 	var/changed = FALSE
 	var/changing = FALSE
 
