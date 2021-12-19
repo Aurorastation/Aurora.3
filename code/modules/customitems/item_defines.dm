@@ -55,7 +55,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/ears/bandanna/fluff/kir_bandanna //Kir's Bandanna - Kir Iziki - araskael
+/obj/item/clothing/accessory/bandanna/fluff/kir_bandanna //Kir's Bandanna - Kir Iziki - araskael
 	name = "purple bandanna"
 	desc = "A worn and faded purple bandanna with a knotted, dragon-like design on it."
 	icon = 'icons/obj/custom_items/kir_bandanna.dmi'

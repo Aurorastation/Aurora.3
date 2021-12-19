@@ -164,7 +164,7 @@
 /area/dungeon/bluespace_outpost)
 "aE" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "aF" = (
@@ -214,12 +214,12 @@
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "aN" = (
-/obj/structure/bed/chair/plastic,
+/obj/structure/bed/stool/chair/plastic,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "aO" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/bed/chair/plastic,
+/obj/structure/bed/stool/chair/plastic,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "aP" = (
@@ -430,7 +430,7 @@
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "bx" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/asteroid,
@@ -467,7 +467,7 @@
 /area/dungeon/bluespace_outpost)
 "bE" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/asteroid,
@@ -526,7 +526,7 @@
 /area/dungeon/bluespace_outpost)
 "bN" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 1
 	},
 /turf/simulated/floor/carpet,
