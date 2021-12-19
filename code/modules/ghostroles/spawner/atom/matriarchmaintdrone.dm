@@ -19,4 +19,5 @@
 	var/mob/living/silicon/robot/drone/construction/matriarch/M = ..()
 	if(M)
 		M.set_name("[initial(M.name)] ([drone_name])")
+		M.designation = drone_name
 	return M

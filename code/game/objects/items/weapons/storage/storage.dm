@@ -566,6 +566,12 @@
 	src.add_fingerprint(user)
 	return
 
+/obj/item/storage/handle_middle_mouse_click(var/mob/user)
+	if(Adjacent(user))
+		open(user)
+		return TRUE
+	return FALSE
+
 /obj/item/storage/verb/toggle_gathering_mode()
 	set name = "Switch Gathering Method"
 	set category = "Object"

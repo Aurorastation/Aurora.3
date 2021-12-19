@@ -462,3 +462,18 @@
 	center_of_mass = list("x"=16, "y"=10)
 
 	reagents_to_add = list(/decl/reagent/drink/hrozamal_soda = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/diet_cola
+	name = "Diet Cola"
+	desc = "Space Cola! Now in diet!"
+	icon_state = "diet_cola"
+	center_of_mass = list("x"=16, "y"=10)
+	reagents_to_add = list(/decl/reagent/drink/diet_cola = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/peach_soda
+	name = "Xanu Rush!"
+	desc = "Made from the NEW Xanu Prime peaches."
+	desc_fluff = "The rehabilitating environment of Xanu has allowed for small-scale agriculture to bloom. Xanu Rush! Is the number one Coalition soda, despite its dull taste."
+	icon_state = "xanu_rush"
+	center_of_mass = list("x"=16, "y"=10)
+	reagents_to_add = list(/decl/reagent/drink/peach_soda = 30)

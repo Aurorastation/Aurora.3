@@ -11,7 +11,7 @@
 	ic_name = "radiation"
 
 /datum/event/radiation_storm/announce()
-	command_announcement.Announce("High levels of radiation detected near the station. Please evacuate into one of the shielded maintenance tunnels.", "Anomaly Alert", new_sound = 'sound/AI/radiation.ogg')
+	command_announcement.Announce(current_map.radiation_detected_message, "Anomaly Alert", new_sound = 'sound/AI/radiation.ogg')
 
 /datum/event/radiation_storm/start()
 	make_maint_all_access()
@@ -19,7 +19,7 @@
 
 /datum/event/radiation_storm/tick()
 	if(activeFor == enterBelt)
-		command_announcement.Announce("The station has entered the radiation belt. Please remain in a sheltered area until we have passed the radiation belt.", "Anomaly Alert")
+		command_announcement.Announce(current_map.radiation_contact_message, "Anomaly Alert")
 		radiate()
 
 	if(activeFor >= enterBelt && activeFor <= leaveBelt)
@@ -30,7 +30,7 @@
 		radiate()
 
 	else if(activeFor == leaveBelt)
-		command_announcement.Announce("The station has passed the radiation belt. Please report to medbay if you experience any unusual symptoms. Maintenance will lose all-access again shortly.", "Anomaly Alert")
+		command_announcement.Announce(current_map.radiation_end_message, "Anomaly Alert")
 		lights()
 
 /datum/event/radiation_storm/proc/radiate()

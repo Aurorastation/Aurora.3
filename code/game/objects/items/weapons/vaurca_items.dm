@@ -17,7 +17,7 @@
 	desc = "A basic screw on filter attached beneath the mouthparts of the common Vaurca."
 	name = "filter port"
 	icon_state = "filterport"
-	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BREEDER)
+	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_WARFORM, BODYTYPE_VAURCA_BREEDER, BODYTYPE_VAURCA_BULWARK)
 	item_state = 0
 
 /obj/item/clothing/head/shaper
@@ -27,7 +27,10 @@
 	icon_state = "shaper_helmet"
 	item_state = "shaper_helmet"
 	contained_sprite = TRUE
-	species_restricted = list(BODYTYPE_VAURCA)
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/head.dmi'
+	)
+	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BULWARK)
 	body_parts_covered = HEAD|FACE|EYES
 
 /obj/item/clothing/head/expression
@@ -189,6 +192,7 @@
 	force = 15
 	throwforce = 30
 	w_class = ITEMSIZE_LARGE
+	var/seed = /datum/seed/koisspore
 
 /obj/item/grenade/spawnergrenade/vaurca/prime()
 
@@ -200,10 +204,16 @@
 				M.flash_eyes()
 
 		for(var/i=1, i<=deliveryamt, i++)
-			var/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/x = new spawner_type(T, new /datum/seed/koisspore())
+			var/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/x = new spawner_type(T, new seed())
 			x.tumble(4)
 	qdel(src)
 	return
+
+/obj/item/grenade/spawnergrenade/vaurca/liidra
+	name = "Black K'ois delivery pod"
+	desc = "A device made for rapid spread of black k'ois."
+	icon_state = "liibeacon"
+	seed = /datum/seed/koisspore/black
 
 /obj/item/clothing/suit/space/void/vaurca
 	name = "voidsuit"

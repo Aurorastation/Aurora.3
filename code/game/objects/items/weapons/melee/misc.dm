@@ -5,6 +5,9 @@
 		slot_r_hand_str = 'icons/mob/items/weapons/righthand_melee.dmi'
 		)
 
+/obj/item/melee/should_equip()
+	return TRUE
+
 /obj/item/melee/chainofcommand
 	name = "chain of command"
 	desc = "A tool used by great men to placate the frothing masses."
@@ -75,6 +78,9 @@
 	attack_verb = list("smashed", "beaten", "slammed", "smacked", "struck", "battered", "bonked")
 	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_MATERIAL = 3, TECH_ILLEGAL = 2)
+
+/obj/item/melee/hammer/ishammer()
+	return TRUE
 
 /obj/item/melee/hammer/powered
 	name = "powered hammer"

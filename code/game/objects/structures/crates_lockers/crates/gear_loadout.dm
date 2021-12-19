@@ -406,8 +406,8 @@
 	..()
 	new /obj/item/clothing/accessory/holster/armpit/brown(src)
 	new /obj/item/gun/projectile/automatic/x9(src)
-	new /obj/item/ammo_magazine/c45x(src)
-	new /obj/item/ammo_magazine/c45x(src)
+	new /obj/item/ammo_magazine/c45m/auto(src)
+	new /obj/item/ammo_magazine/c45m/auto(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/ninja/jinxiang
 	associated_hardsuit = /obj/item/rig/jinxiang/ninja

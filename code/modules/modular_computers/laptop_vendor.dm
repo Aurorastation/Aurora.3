@@ -305,6 +305,7 @@
 		fabricated_tablet.forceMove(src.loc)
 		fabricated_tablet = null
 	ping(message)
+	intent_message(MACHINE_SOUND)
 	state = 3
 
 // Simplified payment processing, returns 1 on success.

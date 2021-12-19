@@ -7,6 +7,7 @@
 	icon_state = "tablet"
 	icon_state_unpowered = "tablet"
 	icon_state_menu = "menu"
+	overlay_state = "electronic"
 	slot_flags = SLOT_ID | SLOT_BELT
 	can_reset = TRUE
 	hardware_flag = PROGRAM_TABLET

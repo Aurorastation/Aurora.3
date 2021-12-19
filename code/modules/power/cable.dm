@@ -483,7 +483,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	throw_range = 5
 	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 20)
 	recyclable = TRUE
-	flags = CONDUCT
+	flags = HELDMAPTEXT|CONDUCT
 	slot_flags = SLOT_BELT
 	attack_verb = list("whipped", "lashed", "disciplined", "flogged")
 	stacktype = /obj/item/stack/cable_coil
@@ -630,6 +630,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	update_held_icon()
 	cut_overlays()
 	add_overlay(overlay_image(icon, "[icon_state]_end", flags=RESET_COLOR))
+	check_maptext(SMALL_FONTS(7, get_amount()))
 
 /obj/item/stack/cable_coil/attackby(var/obj/item/W, var/mob/user)
 	if(W.ismultitool())
@@ -1000,7 +1001,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 	if(!isturf(usr.loc))
 		return
-	if(!(locate(/obj/item/stool) in usr.loc) && !(locate(/obj/structure/bed) in usr.loc) && !(locate(/obj/structure/table) in usr.loc) && !(locate(/obj/structure/toilet) in usr.loc))
+	if(!(locate(/obj/structure/bed/stool) in usr.loc) && !(locate(/obj/structure/bed) in usr.loc) && !(locate(/obj/structure/table) in usr.loc) && !(locate(/obj/structure/toilet) in usr.loc))
 		to_chat(usr, SPAN_WARNING("You have to be standing on top of a chair/table/bed to make a noose!"))
 		return FALSE
 	if(amount < 25)
@@ -1115,6 +1116,10 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			to_chat(user, SPAN_DANGER("They don't have a head."))
 			return
 
+	if(M.mob_size >= 20)
+		to_chat(user, SPAN_DANGER("They are too large for the noose to hold."))
+		return
+
 	if(M.loc != src.loc) return FALSE //Can only noose someone if they're on the same tile as noose
 
 	add_fingerprint(user)
@@ -1192,7 +1197,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		var/mob/living/B = buckled
 		if (ishuman(B))
 			var/mob/living/carbon/human/H = B
-			if (H.species && (H.species.flags & NO_BREATHE))
+			if (H.species && (H.species.flags & NO_BREATHE) || isvaurca(H))
 				return
 		B.adjustOxyLoss(5)
 		B.adjustBrainLoss(1)

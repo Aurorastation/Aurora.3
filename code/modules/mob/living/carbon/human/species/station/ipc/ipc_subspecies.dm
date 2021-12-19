@@ -64,7 +64,7 @@
 	character_color_presets = list("Dark" = "#000000", "Warm" = "#250302", "Cold" = "#1e1e29")
 
 	sprint_temperature_factor = 1.3
-	sprint_charge_factor = 0.85
+	move_charge_factor = 0.85
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/self_diagnostics,
@@ -175,7 +175,7 @@
 
 	sprint_speed_factor = 1.4
 	sprint_temperature_factor = 0.9
-	sprint_charge_factor = 1.1
+	move_charge_factor = 1.1
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/self_diagnostics,
@@ -279,10 +279,11 @@
 		)
 	stamina	= -1
 	sprint_speed_factor = 1.25
+	sprint_cost_factor = 1
 	slowdown = 1
 
 	sprint_temperature_factor = 0.6
-	sprint_charge_factor = 0.3
+	move_charge_factor = 0.3
 
 /datum/species/machine/terminator/get_light_color()
 	return
@@ -429,15 +430,17 @@
 
 	eyes = "zenghu_eyes"
 	brute_mod = 1.5
-	sprint_speed_factor = 1.5
+
+	slowdown = -0.8
+	sprint_speed_factor = 0.6
+	sprint_cost_factor = 2
+	move_charge_factor = 2
 
 	grab_mod = 1.1 // Smooth, fast
 	resist_mod = 4 // Not super strong, but still rather strong
 
 	allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_ELYRA, ACCENT_KONYAN, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_LUNA,
 							ACCENT_HIMEO, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_PHONG, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_TTS, ACCENT_EUROPA, ACCENT_EARTH, ACCENT_ASSUNZIONE)
-
-	slowdown = -1.2
 
 	appearance_flags = HAS_EYE_COLOR | HAS_UNDERWEAR | HAS_SOCKS
 
@@ -480,7 +483,6 @@
 
 	eyes = "bishop_eyes"
 	eyes_icon_blend = ICON_MULTIPLY
-	sprint_charge_factor = 0.25
 
 	brute_mod = 1.2
 	grab_mod = 1.1

@@ -185,7 +185,7 @@ STOCK_ITEM_COMMON(wheelchair, 1)
 				T = U
 				break
 
-	new /obj/structure/bed/chair/wheelchair(T)
+	new /obj/structure/bed/stool/chair/office/wheelchair(T)
 
 STOCK_ITEM_COMMON(trap, 2)
 	new /obj/item/trap(L)

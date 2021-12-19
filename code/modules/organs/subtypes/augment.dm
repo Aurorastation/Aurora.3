@@ -8,7 +8,7 @@
 	is_augment = TRUE
 	species_restricted = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,
 							SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI,
-							SPECIES_UNATHI, SPECIES_SKRELL, SPECIES_IPC, SPECIES_IPC_G1,
+							SPECIES_UNATHI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, SPECIES_IPC_G1,
 							SPECIES_IPC_G2, SPECIES_IPC_XION,
 							SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	var/cooldown = 150
@@ -82,8 +82,8 @@
 		return FALSE
 
 	to_chat(owner, SPAN_NOTICE("Hello [user], it is currently: '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'. Have a lovely day."))
-	if (emergency_shuttle.get_status_panel_eta())
-		to_chat(owner, SPAN_WARNING("Notice: You have one (1) scheduled flight, ETA: [emergency_shuttle.get_status_panel_eta()]."))
+	if (evacuation_controller.get_status_panel_eta())
+		to_chat(owner, SPAN_WARNING("Notice: You have one (1) scheduled flight, ETA: [evacuation_controller.get_status_panel_eta()]."))
 
 /obj/item/organ/internal/augment/tool
 	name = "retractable widget"
@@ -218,21 +218,21 @@
 	tesla_zap(owner, 7, 1500)
 
 /obj/item/organ/internal/augment/eye_sensors
-	name = "integrated eye sensors"
+	name = "integrated HUD sensors"
 	icon_state = "augment_eyes"
 	cooldown = 25
 	activable = TRUE
 	organ_tag = BP_AUG_EYE_SENSORS
 	parent_organ = BP_HEAD
-	action_button_name = "Toggle Eye Sensors"
+	action_button_name = "Toggle Security Sensors"
 	var/active_hud = "disabled"
 
 	var/static/list/hud_types = list(
-		"Disabled",
+		"disabled",
 		SEC_HUDTYPE,
 		MED_HUDTYPE)
 
-	var/selected_hud = "Disabled"
+	var/selected_hud = "disabled"
 
 /obj/item/organ/internal/augment/eye_sensors/attack_self(var/mob/user)
 	. = ..()
@@ -240,36 +240,11 @@
 	if(!.)
 		return FALSE
 
-	var/choice = input("Select the Sensor Type.", "Bionic Eyes Sensors") as null|anything in capitalize_list(hud_types)
-
-	selected_hud = lowertext(choice)
-
 /obj/item/organ/internal/augment/eye_sensors/process()
 	..()
 
 	if(!owner)
 		return
-
-	switch(selected_hud)
-
-		if(SEC_HUDTYPE)
-			req_access = list(access_security)
-			if(allowed(owner))
-				active_hud = "security"
-				process_sec_hud(owner, 1)
-			else
-				active_hud = "disabled"
-
-		if(MED_HUDTYPE)
-			req_access = list(access_medical)
-			if(allowed(owner))
-				active_hud = "medical"
-				process_med_hud(owner, 1)
-			else
-				active_hud = "disabled"
-
-		else
-			active_hud = "disabled"
 
 /obj/item/organ/internal/augment/eye_sensors/emp_act(severity)
 	..()
@@ -280,6 +255,63 @@
 
 /obj/item/organ/internal/augment/eye_sensors/proc/check_hud(var/hud)
 	return (hud == active_hud)
+
+/obj/item/organ/internal/augment/eye_sensors/security
+	name = "integrated security HUD sensors"
+	action_button_name = "Toggle Security Sensors"
+
+/obj/item/organ/internal/augment/eye_sensors/security/attack_self(var/mob/user)
+	. = ..()
+
+	if(selected_hud == "disabled")
+		selected_hud = SEC_HUDTYPE
+		to_chat(user, "You activate \the [src].")
+	else
+		selected_hud = "disabled"
+		to_chat(user, "You deactivate \the [src].")
+
+/obj/item/organ/internal/augment/eye_sensors/security/process()
+	..()
+
+	switch(selected_hud)
+
+		if(SEC_HUDTYPE)
+			req_access = list(access_security)
+			if(allowed(owner))
+				active_hud = "security"
+				process_sec_hud(owner, 1)
+			else
+				active_hud = "disabled"
+		else
+			active_hud = "disabled"
+/obj/item/organ/internal/augment/eye_sensors/medical
+	name = "integrated medical HUD sensors"
+	action_button_name = "Toggle Medical Sensors"
+
+/obj/item/organ/internal/augment/eye_sensors/medical/attack_self(var/mob/user)
+	. = ..()
+
+	if(selected_hud == "disabled")
+		selected_hud = MED_HUDTYPE
+		to_chat(user, "You activate \the [src].")
+	else
+		selected_hud = "disabled"
+		to_chat(user, "You deactivate \the [src].")
+
+/obj/item/organ/internal/augment/eye_sensors/medical/process()
+	..()
+
+	switch(selected_hud)
+
+		if(MED_HUDTYPE)
+			req_access = list(access_medical)
+			if(allowed(owner))
+				active_hud = "medical"
+				process_med_hud(owner, 1)
+			else
+				active_hud = "disabled"
+		else
+			active_hud = "disabled"
 
 /obj/item/organ/internal/augment/cyber_hair
 	name = "synthetic hair extensions"
@@ -412,6 +444,11 @@
 	desc = "An array of vocal cords loaded into an augment kit, allowing easy installation by a skilled technician."
 	organ_tag = BP_AUG_CORDS
 	parent_organ = BP_HEAD
+
+/obj/item/organ/internal/augment/synthetic_cords/voice
+    desc = "An array of vocal cords. These appears to have been modified with a specific accent."
+    organ_tag = BP_AUG_ACC_CORDS
+    var/accent = ACCENT_TTS
 
 /obj/item/organ/internal/augment/synthetic_cords/replaced(var/mob/living/carbon/human/target, obj/item/organ/external/affected)
 	. = ..()
@@ -592,6 +629,9 @@
 	desc = " A clear sign of Zeng-Hu's best, this plate bearing the company's symbol is installed on those who prove themselves in the hyper-competitive environment."
 	icon_state = "zenghu_plate"
 	on_mob_icon = 'icons/mob/human_races/augments_external.dmi'
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/augments_external.dmi'
+	)
 	parent_organ = BP_HEAD
 
 /obj/item/organ/internal/augment/head_fluff
