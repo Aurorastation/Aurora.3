@@ -12186,6 +12186,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
 "kFc" = (
+/obj/structure/bed/stool/padded/red,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},

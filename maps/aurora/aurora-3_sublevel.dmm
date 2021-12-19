@@ -19403,7 +19403,7 @@
 /turf/simulated/floor/plating,
 /area/medical/morgue)
 "aNm" = (
-/obj/structure/bed/stool/chair/wheelchair{
+/obj/structure/bed/stool/chair/office/wheelchair{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -19746,7 +19746,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/morgue)
 "aOd" = (
-/obj/structure/bed/stool/chair/wheelchair{
+/obj/structure/bed/stool/chair/office/wheelchair{
 	dir = 4
 	},
 /obj/item/device/radio/intercom{
