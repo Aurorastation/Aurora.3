@@ -666,8 +666,9 @@
 	M.add_chemical_effect(CE_BERSERK, 1)
 	if(M.a_intent != I_HURT)
 		M.a_intent_change(I_HURT)
-	if(prob(10))
-		M.add_chemical_effect(CE_NEUROTOXIC, 5*removed)
+	var/obj/item/organ/internal/heart = M.internal_organs_by_name[BP_HEART]
+	if(heart)
+		M.add_chemical_effect(CE_CARDIOTOXIC, removed * 0.020)
 
 /decl/reagent/toxin/spectrocybin
 	name = "Spectrocybin"

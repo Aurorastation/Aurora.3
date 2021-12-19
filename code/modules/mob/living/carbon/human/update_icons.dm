@@ -246,6 +246,20 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
+//Overlays for the worn overlay so you can overlay while you overlay
+//eg: ammo counters, primed grenade flashing, etc.
+//"icon_file" is used automatically for inhands etc. to make sure it gets the correct inhand file
+/obj/item/proc/worn_overlays(icon_file)
+	. = null
+	. = list()
+	var/mutable_appearance/M = null
+	if(build_from_parts)
+		M = mutable_appearance(icon_file, "[item_state]_[worn_overlay]")
+		M.appearance_flags = RESET_COLOR|RESET_ALPHA
+		if(worn_overlay_color)
+			M.color = worn_overlay_color
+		. += M
+		
 /proc/slot_str_to_contained_flag(var/slot_str)
 	switch(slot_str)
 		if(slot_back_str)
