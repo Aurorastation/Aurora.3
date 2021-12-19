@@ -8,7 +8,7 @@
 	var/list/allowed_tools = null
 	// type paths referencing races that this step applies to.
 	var/list/allowed_species = null
-	var/list/disallowed_species = null
+	var/list/disallowed_species = list("Nymph")
 
 	// duration of the step
 	var/min_duration = 0

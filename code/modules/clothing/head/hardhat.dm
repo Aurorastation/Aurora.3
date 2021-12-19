@@ -69,6 +69,7 @@
 	icon = 'icons/clothing/kit/firefighter.dmi'
 	icon_state = "helmet_firefighter"
 	item_state = "helmet_firefighter"
+	light_overlay = "firefighter_light"
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/fire.dmi'
 	)

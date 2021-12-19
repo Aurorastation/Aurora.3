@@ -32,7 +32,9 @@
 	if(!inv_overlay || force)
 		var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
 		if(icon_override)
-			if("[tmp_icon_state]_tie" in icon_states(icon_override))
+			if(contained_sprite)
+				tmp_icon_state = "[tmp_icon_state]_w"
+			else if("[tmp_icon_state]_tie" in icon_states(icon_override))
 				tmp_icon_state = "[tmp_icon_state]_tie"
 		else if(contained_sprite)
 			tmp_icon_state = "[tmp_icon_state]_w"
@@ -58,7 +60,9 @@
 	if(!accessory_mob_overlay || force)
 		var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
 		if(icon_override)
-			if("[tmp_icon_state]_mob" in icon_states(I))
+			if(contained_sprite)
+				tmp_icon_state = "[src.item_state][WORN_UNDER]"
+			else if("[tmp_icon_state]_mob" in icon_states(I))
 				tmp_icon_state = "[tmp_icon_state]_mob"
 		else if(contained_sprite)
 			tmp_icon_state = "[src.item_state][WORN_UNDER]"
@@ -557,6 +561,17 @@
 	icon_state = "galaxycape"
 	item_state = "galaxycape"
 	overlay_state = "galaxycape"
+
+/obj/item/clothing/accessory/poncho/shouldercape/qeblak
+	name = "qeblak mantle"
+	desc = "A mantle denoting the wearer as a member fo the Qeblak faith."
+	desc_fluff = "This mantle denotes the wearer as a member of the Qeblak faith. \
+	It is given to followers after they have completed their coming of age ceremony. \
+	The symbol on the back is of a protostar as it transitions into a main sequence star, \
+	representing the the wearer becoming an adult."
+	icon_state = "qeblak_cape"
+	item_state = "qeblak_cape"
+	flippable = FALSE
 
 /obj/item/clothing/accessory/poncho/trinary
 	name = "trinary perfection cape"

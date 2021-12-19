@@ -20,11 +20,14 @@
 			SPECIES_IPC_XION,
 			SPECIES_IPC_ZENGHU,
 			SPECIES_DIONA,
+			SPECIES_DIONA_COEUS,
 			SPECIES_SKRELL,
 			SPECIES_SKRELL_AXIORI,
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_TAJARA_MSAI
 		)
@@ -73,11 +76,14 @@
 			SPECIES_IPC_XION,
 			SPECIES_IPC_ZENGHU,
 			SPECIES_DIONA,
+			SPECIES_DIONA_COEUS,
 			SPECIES_SKRELL,
 			SPECIES_SKRELL_AXIORI,
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_TAJARA_MSAI
 		)
@@ -105,7 +111,7 @@
 /datum/citizenship/nka
 	name = CITIZENSHIP_NKA
 	description = "The last major faction is the rebellious New Kingdom of Adhomai, which seceded and declared itself a nation in 2450. The New Kingdom is ruled by a Njarir'Akhran noble \
-	line that survived the previous Revolution by remaining in hiding, owing to the efforts of their supporters. Ruled by King Vahzirthaamro Azunja specifically, he denounces both other \
+	line that survived the previous Revolution by remaining in hiding, owing to the efforts of their supporters. Founded by King Vahzirthaamro Azunja specifically, he denounces both other \
 	factions in the civil war as illegitimate and himself as the only legitimate ruler of Adhomai. Supporters of the New Kingdom tend to be rare outside lands it controls. However, \
 	they believe strongly that the current republic on Adhomai was founded on genocide and unspeakable slaughters. The New Kingdom puts forth the ideology that Republicanism is \
 	bloodshed. The only way to return Adhomai to peace and prosperity is to learn from the mistakes of the ancient nobles and Republicans, and create a new noble dynasty. They believe \
@@ -127,11 +133,14 @@
 			SPECIES_IPC_XION,
 			SPECIES_IPC_ZENGHU,
 			SPECIES_DIONA,
+			SPECIES_DIONA_COEUS,
 			SPECIES_SKRELL,
 			SPECIES_SKRELL_AXIORI,
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_TAJARA_MSAI
 		)

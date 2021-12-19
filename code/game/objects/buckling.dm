@@ -94,26 +94,34 @@
 		if(MA == user)
 			MA.visible_message(\
 				"<b>[MA.name]</b> buckles themselves to [src].",\
-				"<span class='notice'>You buckle yourself to [src].</span>",\
-				"<span class='notice'>You hear metal clanking.</span>")
+				SPAN_NOTICE("You buckle yourself to [src]."),\
+				SPAN_NOTICE("You hear metal clanking."))
+		else if(isliving(MA))
+			MA.visible_message(\
+				SPAN_DANGER("[MA.name] is buckled to [src] by [user.name]!"),\
+				SPAN_DANGER("You are buckled to [src] by [user.name]!"),\
+				SPAN_NOTICE("You hear metal clanking."))
 		else
 			MA.visible_message(\
-				"<span class='danger'>[MA.name] is buckled to [src] by [user.name]!</span>",\
-				"<span class='danger'>You are buckled to [src] by [user.name]!</span>",\
-				"<span class='notice'>You hear metal clanking.</span>")
+				SPAN_DANGER("\The [MA] is buckled to [src] by [user.name]!"),\
+				SPAN_NOTICE("You hear metal clanking."))
 
 /obj/proc/user_unbuckle(mob/user)
 	var/atom/movable/MA = unbuckle()
 	if(MA)
-		if(MA != user)
+		if(MA == user)
+			MA.visible_message(\
+				"<b>[MA.name]</b> unbuckles themselves.",\
+				SPAN_NOTICE("You unbuckle yourself from [src]."),\
+				SPAN_NOTICE("You hear metal clanking."))
+		else if(isliving(MA))
 			MA.visible_message(\
 				"<b>[user.name]</b> unbuckles [MA.name].", \
-				"<span class='notice'>You were unbuckled from [src] by [user.name].</span>",\
-				"<span class='notice'>You hear metal clanking.</span>")
+				SPAN_NOTICE("You were unbuckled from [src] by [user.name]."),\
+				SPAN_NOTICE("You hear metal clanking."))
 		else
 			MA.visible_message(\
 				"<b>[MA.name]</b> unbuckles themselves.",\
-				"<span class='notice'>You unbuckle yourself from [src].</span>",\
-				"<span class='notice'>You hear metal clanking.</span>")
+				SPAN_NOTICE("You hear metal clanking."))
 		add_fingerprint(user)
 	return MA

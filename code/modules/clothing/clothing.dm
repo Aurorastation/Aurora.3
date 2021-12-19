@@ -102,6 +102,14 @@
 	if(tint)
 		user.handle_vision()
 
+/obj/item/clothing/handle_middle_mouse_click(mob/user)
+	if(Adjacent(user))
+		var/obj/item/clothing/accessory/storage/S = locate() in accessories
+		if(S?.hold)
+			S.hold.open(user)
+			return TRUE
+	return FALSE
+
 /obj/item/clothing/proc/return_own_image()
 	var/image/our_image
 	if(icon_override)
@@ -484,10 +492,28 @@
 	drop_sound = 'sound/items/drop/hat.ogg'
 	pickup_sound = 'sound/items/pickup/hat.ogg'
 
+	var/allow_hair_covering = TRUE //in case if you want to allow someone to switch the BLOCKHEADHAIR var from the helmet or not
+
 	var/light_overlay = "helmet_light"
 	var/light_applied
 	var/brightness_on
 	var/on = 0
+
+/obj/item/clothing/head/Initialize(mapload, material_key)
+	. = ..()
+	if(allow_hair_covering)
+		verbs += /obj/item/clothing/head/proc/toggle_block_hair
+
+/obj/item/clothing/head/proc/toggle_block_hair()
+	set name = "Toggle Hair Coverage"
+	set category = "Object"
+
+	if(allow_hair_covering)
+		flags_inv ^= BLOCKHEADHAIR
+		to_chat(usr, SPAN_NOTICE("[src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair."))
+		if(ishuman(usr))
+			var/mob/living/carbon/human/H = usr
+			H.update_hair()
 
 /obj/item/clothing/head/get_image_key_mod()
 	return on

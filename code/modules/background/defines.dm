@@ -15,6 +15,8 @@
 #define CITIZENSHIP_NKA "New Kingdom of Adhomai"
 
 #define CITIZENSHIP_ZORA "Zo'ra Hive"
+#define CITIZENSHIP_KLAX "K'lax Hive"
+#define CITIZENSHIP_CTHUR "C'thur Hive"
 
 #define CITIZENSHIP_NONE "None"
 #define CITIZENSHIP_GOLDEN "Golden Deep"
@@ -100,6 +102,8 @@
 #define ACCENT_OLDYASSA "Old Ya'ssa"
 #define ACCENT_NORTHRASNRR "Northern Ras'nrr Siik'maas"
 #define ACCENT_DINAKK "Din'akk Mountains Siik'maas"
+#define ACCENT_HARRNRRI "Harr'nrri Siik'mas"
+#define ACCENT_ZARRJIRI "Zarr'jiri Siik'mas"
 
 #define ACCENT_HEGEMON_NOBLE "Noble Hegemonic"
 #define ACCENT_HEGEMON_PEASANT "Peasant Hegemonic"

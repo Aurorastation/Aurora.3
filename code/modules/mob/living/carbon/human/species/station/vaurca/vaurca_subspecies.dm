@@ -60,6 +60,15 @@
 	toxins_mod = 1 //they're not used to all our weird human bacteria.
 	break_cuffs = TRUE
 	mob_size = 30
+	taste_sensitivity = TASTE_DULL
+	blurb = {"Type CB Vaurcae, also known as Breeders, are the leaders of the Vaurca Society. Type C, being the only fertile caste, provide life to the Hive. Most of them, however, are not producing more eggs but in charge of hive-cells of other castes, coordinating their everyday life.<br>
+	Some Type CB Vaurcae have been recently used as representatives for their respective queens, due their keen social intelligence, making them ideal candidates for negotiating with aliens on economic and political matters. They easily grasp the nuances of social context, contracts, and systems that other castes have difficulty navigating.<br>
+	The Type C caste is not suitable for physical work and will often delegate any duties to the rest of the Vaurcae, which are below them in the hierarchy.<br>
+	<b>Vaurca Breeders can only be played as Hive Representatives of Queens affiliated to the Court of Queens.</b>"}
+
+	age_max = 1000
+	default_genders = list(FEMALE)
+	economic_modifier = 3
 
 	speech_sounds = list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
 	speech_chance = 100
@@ -68,6 +77,7 @@
 	damage_overlays = 'icons/mob/human_races/masks/dam_breeder.dmi'
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_breeder.dmi'
 	blood_mask = 'icons/mob/human_races/masks/blood_breeder.dmi'
+	canvas_icon = 'icons/mob/base_48.dmi'
 
 
 	stamina = 175
@@ -75,8 +85,10 @@
 	sprint_cost_factor = 0.80
 	stamina_recovery = 3
 
-	spawn_flags = IS_RESTRICTED
-	flags = NO_SCAN | NO_SLIP | NO_ARTERIES | PHORON_IMMUNE
+	allowed_citizenships = list(CITIZENSHIP_ZORA, CITIZENSHIP_KLAX, CITIZENSHIP_CTHUR)
+	default_citizenship = CITIZENSHIP_ZORA
+
+	flags =  NO_SLIP | NO_ARTERIES | PHORON_IMMUNE
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/bugbite
@@ -181,9 +193,10 @@
 	icon_template = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
 	deform = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
+	canvas_icon = 'icons/mob/base_48.dmi'
 	talk_bubble_icon = 'icons/mob/talk_bulwark.dmi'
 
-	bald = TRUE
+	default_h_style = "Bulwark Classic Antennae"
 
 	icon_x_offset = -9
 	healths_x = 22

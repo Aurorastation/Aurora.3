@@ -260,6 +260,9 @@
 	return data
 
 /obj/machinery/shield_gen/Topic(href, href_list)
+	if(isobserver(usr) && !check_rights(R_ADMIN, FALSE, usr))
+		return 
+
 	if (!isturf(loc))
 		return 0
 
