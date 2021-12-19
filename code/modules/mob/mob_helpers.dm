@@ -86,20 +86,30 @@
 				return 1
 	return 0
 
-/proc/isvaurca(A)
+/proc/isvaurca(A, var/isbreeder = FALSE)
 	if(istype(A, /mob/living/carbon/human))
 		switch(A:get_species())
 			if(SPECIES_VAURCA_WORKER)
+				if(isbreeder)
+					return FALSE
 				return TRUE
 			if(SPECIES_VAURCA_WARRIOR)
+				if(isbreeder)
+					return FALSE
 				return TRUE
 			if(SPECIES_VAURCA_BREEDER)
 				return TRUE
 			if(SPECIES_VAURCA_BULWARK)
+				if(isbreeder)
+					return FALSE
 				return TRUE
 			if(SPECIES_VAURCA_WARFORM)
+				if(isbreeder)
+					return FALSE
 				return TRUE
 			if(SPECIES_MONKEY_VAURCA)
+				if(isbreeder)
+					return FALSE
 				return TRUE
 	return FALSE
 
@@ -1056,7 +1066,7 @@ proc/is_blind(A)
 #undef SAFE_PERP
 
 /mob/proc/get_multitool(var/obj/P)
-	if(P.ismultitool())
+	if(P?.ismultitool())
 		return P
 
 /mob/abstract/observer/get_multitool()
@@ -1156,7 +1166,7 @@ proc/is_blind(A)
 	return species.handle_stance_damage(src, TRUE) >= 4
 
 /mob/living/carbon/human/proc/equip_wheelchair()
-	var/obj/structure/bed/chair/wheelchair/W = new(get_turf(src))
+	var/obj/structure/bed/stool/chair/office/wheelchair/W = new(get_turf(src))
 	if(isturf(loc))
 		buckled_to = W
 		update_canmove()

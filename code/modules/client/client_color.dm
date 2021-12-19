@@ -112,7 +112,7 @@
 	priority = 100
 
 /datum/client_color/berserk
-	client_color = "#AF111C"
+	client_color = list(0.793, 0.4, 0.4, 0.793, 0.4, 0.4, 0, 0, 0)
 	priority = INFINITY //This effect sort of exists on its own you /have/ to be seeing RED
 	override = TRUE //Because multiplying this will inevitably fail
 

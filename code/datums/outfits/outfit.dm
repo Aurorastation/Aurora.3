@@ -18,6 +18,7 @@
 #define OUTFIT_POCKETBOOK 17
 #define OUTFIT_BROWNPOCKETBOOK 18
 #define OUTFIT_AUBURNPOCKETBOOK 19
+#define OUTFIT_CLASSICSATCHEL 20
 
 #define OUTFIT_TAB_PDA 2
 #define OUTFIT_PDA_OLD 3
@@ -91,6 +92,7 @@
 	var/pocketbook = /obj/item/storage/backpack/satchel/pocketbook
 	var/brownpocketbook = /obj/item/storage/backpack/satchel/pocketbook/brown
 	var/auburnpocketbook = /obj/item/storage/backpack/satchel/pocketbook/reddish
+	var/classicsatchel = /obj/item/storage/backpack/satchel
 
 	var/allow_pda_choice = FALSE
 	var/tab_pda = /obj/item/modular_computer/handheld/pda/civilian
@@ -155,10 +157,15 @@
 				back = use_job_specific ? brownpocketbook : /obj/item/storage/backpack/satchel/pocketbook/brown
 			if (OUTFIT_AUBURNPOCKETBOOK)
 				back = use_job_specific ? auburnpocketbook : /obj/item/storage/backpack/satchel/pocketbook/reddish
+			if (OUTFIT_CLASSICSATCHEL)
+				back = use_job_specific ? classicsatchel : /obj/item/storage/backpack/satchel
 			else
 				back = backpack //Department backpack
 	if(back)
-		equip_item(H, back, slot_back)
+		if(isvaurca(H, TRUE))
+			equip_item(H, back, slot_r_hand)
+		else
+			equip_item(H, back, slot_back)
 
 	if(istype(H.back,/obj/item/storage/backpack))
 		var/obj/item/storage/backpack/B = H.back

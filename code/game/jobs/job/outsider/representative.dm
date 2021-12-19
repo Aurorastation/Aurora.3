@@ -16,7 +16,7 @@
 	access = list(access_lawyer, access_maint_tunnels)
 	minimal_access = list(access_lawyer)
 	outfit = /datum/outfit/job/representative
-	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
+	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/representative
 	name = "NanoTrasen Corporate Liaison"

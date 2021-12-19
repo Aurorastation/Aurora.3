@@ -168,6 +168,7 @@
 #define BP_AUG_SIGHTLIGHTS     "ocular installed sightlights"
 #define BP_AUG_CORRECTIVE_LENS "corrective lenses"
 #define BP_AUG_GLARE_DAMPENER "glare dampeners"
+#define BP_AUG_ACC_CORDS       "modified synthetic vocal cords"
 
 //Organ defines
 #define PROCESS_ACCURACY 10
@@ -393,6 +394,7 @@
 #define PROSTHETIC_DIONA "Unknown Model"
 #define PROSTHETIC_AUTAKH "Aut'akh Manufactured"
 #define PROSTHETIC_TESLA "Tesla Powered Prosthetics"
+#define PROSTHETIC_VAURCA "Vaurca Robotic Limb"
 
 //Brain Damage defines
 #define BRAIN_DAMAGE_MILD 10
@@ -443,3 +445,5 @@
 #define ROBOT_PANEL_EXPOSED  "exposed"
 #define ROBOT_PANEL_CELL     "cell"
 #define ROBOT_PANEL_NO_CELL  "no cell"
+
+#define BLOOD_REGEN_RATE 0.1
