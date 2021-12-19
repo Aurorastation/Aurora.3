@@ -16,7 +16,7 @@
 
 /datum/gear/gloves/color/New()
 	..()
-	var/gloves = list()
+	var/list/gloves = list()
 	gloves["black gloves"] = /obj/item/clothing/gloves/black
 	gloves["red gloves"] = /obj/item/clothing/gloves/red
 	gloves["blue gloves"] = /obj/item/clothing/gloves/blue
@@ -30,7 +30,7 @@
 	gloves["rainbow gloves"] = /obj/item/clothing/gloves/rainbow
 	gloves["black leather gloves"] = /obj/item/clothing/gloves/black_leather
 	gloves["lyodsuit gloves"] = /obj/item/clothing/gloves/lyodsuit
-	gear_tweaks += new/datum/gear_tweak/path(gloves)
+	gear_tweaks += new /datum/gear_tweak/path(gloves)
 
 /datum/gear/gloves/full_leather
 	display_name = "full leather gloves (colourable)"
@@ -49,7 +49,7 @@
 
 /datum/gear/gloves/ring/New()
 	..()
-	var/ringtype = list()
+	var/list/ringtype = list()
 	ringtype["engagement ring"] = /obj/item/clothing/ring/engagement
 	ringtype["signet ring"] = /obj/item/clothing/ring/seal/signet
 	ringtype["ring, steel"] = /obj/item/clothing/ring/material/steel
@@ -61,7 +61,7 @@
 	ringtype["ring, glass"] = /obj/item/clothing/ring/material/glass
 	ringtype["ring, wood"] = /obj/item/clothing/ring/material/wood
 	ringtype["ring, plastic"] = /obj/item/clothing/ring/material/plastic
-	gear_tweaks += new/datum/gear_tweak/path(ringtype)
+	gear_tweaks += new /datum/gear_tweak/path(ringtype)
 
 /datum/gear/gloves/circuitry
 	display_name = "gloves, circuitry (empty)"

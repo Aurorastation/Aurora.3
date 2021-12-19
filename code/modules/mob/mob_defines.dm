@@ -37,10 +37,13 @@
 	var/obj/screen/gun/mode/gun_setting_icon = null
 	var/obj/screen/gun/unique_action_icon = null
 	var/obj/screen/gun/toggle_firing_mode = null
+	var/obj/screen/energy/energy_display = null
+	var/obj/screen/instability/instability_display = null
 	var/obj/screen/up_hint = null
 
 	//spells hud icons - this interacts with add_spell and remove_spell
 	var/list/obj/screen/movable/spell_master/spell_masters = null
+	var/obj/screen/movable/ability_master/ability_master = null
 
 	/*A bunch of this stuff really needs to go under their own defines instead of being globally attached to mob.
 	A variable should only be globally attached to turfs/objects/whatever, when it is in fact needed as such.
@@ -114,7 +117,7 @@
 	var/bodytemperature = 310.055	//98.7 F
 	var/old_x = 0
 	var/old_y = 0
-	var/drowsyness = 0.0//Carbon
+	var/drowsiness = 0.0//Carbon
 	var/charges = 0.0
 	var/nutrition = BASE_MAX_NUTRITION * CREW_NUTRITION_SLIGHTLYHUNGRY  //carbon
 	var/nutrition_loss = HUNGER_FACTOR //How much hunger is lost per tick. This is modified by species

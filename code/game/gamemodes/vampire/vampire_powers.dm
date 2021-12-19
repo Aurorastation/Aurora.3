@@ -346,13 +346,22 @@
 			continue
 		if(!vampire_can_affect_target(T, 0))
 			continue
-
 		to_chat(T, SPAN_DANGER("<font size='3'><b>You hear an ear piercing shriek and feel your senses go dull!</b></font>"))
-		T.Weaken(5)
-		T.ear_deaf = 20
+		if (T.get_hearing_sensitivity())
+			if (T.is_listening())
+				T.Weaken(10)
+				T.Stun(10)
+				T.earpain(4)
+			else
+				T.Weaken(7)
+				T.Stun(7)
+				T.earpain(3)
+		else
+			T.Weaken(5)
+			T.Stun(5)
 		T.stuttering = 20
-		T.Stun(5)
-
+		T.adjustEarDamage(10, 20, TRUE)
+		
 		victims += T
 
 	for(var/obj/structure/window/W in view(7))
@@ -380,6 +389,9 @@
 
 	var/datum/vampire/vampire = vampire_power(0, 0, 1)
 	if(!vampire)
+		return
+
+	if(isAdminLevel(src.z))
 		return
 
 	if(pulledby)
@@ -427,7 +439,7 @@
 
 /obj/effect/dummy/veil_walk/proc/eject_all()
 	for(var/atom/movable/A in src)
-		A.forceMove(loc)
+		A.forceMove(last_valid_turf)
 		if(ismob(A))
 			var/mob/M = A
 			M.reset_view(null)
@@ -616,14 +628,29 @@
 			if(E.status & ORGAN_ARTERY_CUT)
 				E.status &= ~ORGAN_ARTERY_CUT
 				blood_used += 2
-			if(E.status & ORGAN_TENDON_CUT)
-				E.status &= ~ORGAN_TENDON_CUT
+			if((E.tendon_status() & TENDON_CUT) && E.tendon.can_recover())
+				E.tendon.rejuvenate()
 				blood_used += 2
 			if(E.status & ORGAN_BROKEN)
 				E.status &= ~ORGAN_BROKEN
 				E.stage = 0
 				blood_used += 3
 				healed = TRUE
+			if(E.germ_level > 0)
+				if(E.is_infected())
+					E.germ_level = max(0, E.germ_level - 50)
+					blood_used += 1
+				else
+					E.germ_level = 0
+					blood_used += 0.25
+			for(var/datum/wound/W in E.wounds)
+				if(W.germ_level > 0)
+					W.germ_level = max(0, W.germ_level - 50)
+					blood_used += 0.5
+				if(!W.disinfected)
+					W.disinfect()
+					blood_used += 1
+
 
 			if(healed)
 				break

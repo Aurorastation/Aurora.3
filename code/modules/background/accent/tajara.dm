@@ -73,3 +73,20 @@
 	short, sharp vowel sounds and clear pronunciation. Most speakers are found in the DPRA controlled area of the region, but some do exist within the PRA borders."
 	tag_icon = "tajara_northrasnrr"
 
+/datum/accent/dinakk
+	name = ACCENT_DINAKK
+	description = "Found in the isolated valleys of the Din'akk Mountains, little has changed in this accent since the first contact. It still clings to words and grammatical \
+	structures that have long since fallen out of use by other Siik'maas speakers. It is described as strong and abrupt by other Tajara."
+	tag_icon = "tajara_dinaak"
+
+/datum/accent/harrnrri
+	name = ACCENT_HARRNRRI
+	description = "The dialect of the people of the Harr'nrr peninsula. This accent shares some similarity with Republican Siik'mas thanks to a shared origin and the later PRA rule of Harr'nrr, \
+	but differs with a deeper tone when spoken."
+	tag_icon = "tajara_harrnrri"
+
+/datum/accent/zarrjiri
+	name = ACCENT_ZARRJIRI
+	description = "Zarr'jiri Siik'mas: Located only in the Zarr'jirah mountain range, this accent is rarity outside of the New Kingdom. Speakers of it are often noted for a soft, almost sing-song \
+	voice and hand gestures which carry over from Nal'rasan."
+	tag_icon = "tajara_zarrjiri"

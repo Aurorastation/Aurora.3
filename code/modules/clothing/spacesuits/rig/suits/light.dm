@@ -2,7 +2,9 @@
 /obj/item/rig/light
 	name = "light suit control module"
 	desc = "A lighter, less armored hardsuit."
+	icon = 'icons/clothing/rig/light_ninja.dmi'
 	icon_state = "ninja_rig"
+	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	suit_type = "light suit"
 	allowed = list(/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/cell,/obj/item/material/twohanded/fireaxe)
 	armor = list(
@@ -14,9 +16,11 @@
 	)
 	emp_protection = 10
 	slowdown = 0
-	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL
+	item_flags = THICKMATERIAL
 	offline_slowdown = 0
 	offline_vision_restriction = 0
+	max_pressure_protection = LIGHT_RIG_MAX_PRESSURE
+	min_pressure_protection = 0
 
 	chest_type = /obj/item/clothing/suit/space/rig/light
 	helm_type =  /obj/item/clothing/head/helmet/space/rig/light
@@ -40,6 +44,7 @@
 	name = "cybersuit control module"
 	suit_type = "cyber"
 	desc = "An advanced powered armor suit with many cyberwarfare enhancements. Comes with built-in insulated gloves for safely tampering with electronics."
+	icon = 'icons/clothing/rig/light_hacker.dmi'
 	icon_state = "hacker_rig"
 
 	req_access = list(access_syndicate)
@@ -97,7 +102,9 @@
 	name = "stealth suit control module"
 	suit_type = "stealth suit"
 	desc = "A unique, vacuum-proof suit of nano-enhanced armor designed specifically for stealth operations."
+	icon = 'icons/clothing/rig/light_ninja.dmi'
 	icon_state = "ninja_rig"
+	icon_supported_species_tags = list("ipc", "skr", "taj", "una", "vau", "vaw")
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_PISTOL,
@@ -170,7 +177,9 @@
 	name = "stealth suit control module"
 	suit_type = "stealth"
 	desc = "A highly advanced and expensive suit designed for covert operations."
+	icon = 'icons/clothing/rig/light_stealth.dmi'
 	icon_state = "stealth_rig"
+	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_SMALL,
@@ -194,7 +203,9 @@
 	name = "exo-stellar skeleton module"
 	suit_type = "exo-stellar skeleton"
 	desc = "A compact exoskeleton that hugs the body tightly and has various inbuilt utilities for life support."
+	icon = 'icons/clothing/rig/offworlder.dmi'
 	icon_state = "offworlder_rig"
+	icon_supported_species_tags = null
 	allowed = list(/obj/item/tank, /obj/item/device/flashlight)
 	armor = list(
 		bio = ARMOR_BIO_MINOR,
@@ -229,6 +240,7 @@
 /obj/item/rig/light/offworlder/techno
 	name = "techno-conglomerate mobility hardsuit control module"
 	desc = "A sleek hardsuit used by the Coalition forces of the Techno-Conglomerate."
+	icon = 'icons/clothing/rig/techno.dmi'
 	icon_state = "techno_rig"
 	suit_type = "techno-conglomerate mobility hardsuit"
 	armor = list(
@@ -240,12 +252,12 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_SHIELDED
 	)
-	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL
 	slowdown = -1
 	offline_slowdown = 0
 	airtight = 1
 	offline_vision_restriction = TINT_HEAVY
 	siemens_coefficient = 0.2
+	icon_supported_species_tags = null
 
 	allowed = list(
 		/obj/item/device/flashlight,

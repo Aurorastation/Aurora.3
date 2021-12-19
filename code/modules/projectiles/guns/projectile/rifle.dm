@@ -59,13 +59,25 @@
 	caliber = "a556"
 	ammo_type = null
 	magazine_type = null
-	max_shells = 4
+	allowed_magazines = list(/obj/item/ammo_magazine/a556/makeshift)
+	load_method = MAGAZINE
+	max_shells = 7
 	can_sawoff = FALSE
 
 	needspin = FALSE
 	has_safety = FALSE
 
-	jam_chance = 0
+	slot_flags = SLOT_BACK|SLOT_S_STORE // can be stored in suit slot due to built in sling
+
+	jam_chance = -10
+
+/obj/item/gun/projectile/shotgun/pump/rifle/pipegun/handle_pump_loading()
+	if(ammo_magazine && length(ammo_magazine.stored_ammo))
+		var/obj/item/ammo_casing/AC = ammo_magazine.stored_ammo[1] //load next casing.
+		if(AC)
+			AC.forceMove(src)
+			ammo_magazine.stored_ammo -= AC
+			chambered = AC
 
 /obj/item/gun/projectile/shotgun/pump/rifle/pipegun/examine(mob/user)
 	. = ..()
@@ -282,7 +294,11 @@
 	load_method = MAGAZINE
 	handle_casings = DELETE_CASINGS
 
+	force = 10
 	slot_flags = SLOT_BACK
+	can_bayonet = TRUE
+	knife_x_offset = 23
+	knife_y_offset = 13
 
 	fire_delay = 25
 	accuracy = -1

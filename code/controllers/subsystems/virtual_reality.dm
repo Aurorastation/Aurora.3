@@ -13,6 +13,10 @@
 	var/list/robotnetworks = list(REMOTE_GENERIC_ROBOT, REMOTE_BUNKER_ROBOT, REMOTE_PRISON_ROBOT, REMOTE_WARDEN_ROBOT)
 	var/list/list/robots = list()
 
+	// STATIONBOUND BODIES
+	var/list/boundnetworks = list(REMOTE_AI_ROBOT)
+	var/list/list/bounded = list()
+
 /datum/controller/subsystem/virtualreality/New()
 	NEW_SS_GLOBAL(SSvirtualreality)
 
@@ -21,6 +25,8 @@
 		mechs[network] = list()
 	for(var/network in robotnetworks)
 		robots[network] = list()
+	for(var/network in boundnetworks)
+		bounded[network] = list()
 	..()
 
 
@@ -39,6 +45,14 @@
 /datum/controller/subsystem/virtualreality/proc/remove_robot(var/mob/living/robot, var/network)
 	if(robot && network)
 		robots[network].Remove(robot)
+
+/datum/controller/subsystem/virtualreality/proc/add_bound(var/mob/living/silicon/bound, var/network)
+	if(bound && network)
+		bounded[network] += bound
+
+/datum/controller/subsystem/virtualreality/proc/remove_bound(var/mob/living/silicon/bound, var/network)
+	if(bound && network)
+		bounded[network].Remove(bound)
 
 
 /mob
@@ -85,6 +99,20 @@
 			HV.access_card.access = list()
 		to_chat(old_mob, SPAN_NOTICE("System exited safely, we hope you enjoyed your stay."))
 		old_mob = null
+	else
+		to_chat(src, SPAN_DANGER("Interface error, you cannot exit the system at this time."))
+		to_chat(src, SPAN_WARNING("Ahelp to get back into your body, a bug has occurred."))
+
+/mob/living/carbon/human/virtual_reality/body_return()
+	set name = "Return to Body"
+	set category = "IC"
+
+	if(old_mob)
+		ckey_transfer(old_mob)
+		languages = list(all_languages[LANGUAGE_TCB])
+		to_chat(old_mob, SPAN_NOTICE("System exited safely, we hope you enjoyed your stay."))
+		old_mob = null
+		qdel(src)
 	else
 		to_chat(src, SPAN_DANGER("Interface error, you cannot exit the system at this time."))
 		to_chat(src, SPAN_WARNING("Ahelp to get back into your body, a bug has occurred."))
@@ -203,3 +231,44 @@
 		return
 
 	mind_transfer(user, robot[choice])
+
+/datum/controller/subsystem/virtualreality/proc/bound_selection(var/user, var/network)
+	var/list/bound = list()
+
+	for(var/mob/living/silicon/R in bounded[network])
+		var/turf/T = get_turf(R)
+		if(!T)
+			continue
+		if(isNotStationLevel(T.z))
+			continue
+		if(R.client || R.ckey)
+			continue
+		if(R.stat == DEAD)
+			continue
+		bound[R.name] = R
+
+	if(!length(bound))
+		to_chat(user, SPAN_WARNING("No active remote units are available."))
+		return
+
+	var/choice = input("Please select a remote control unit to take over.", "Remote Unit Selection") as null|anything in bound
+	if(!choice)
+		return
+
+	mind_transfer(user, bound[choice])
+
+/datum/controller/subsystem/virtualreality/proc/create_virtual_reality_avatar(var/mob/living/carbon/human/user)
+	if(virtual_reality_spawn.len)
+		var/mob/living/carbon/human/virtual_reality/H = new /mob/living/carbon/human/virtual_reality(pick(virtual_reality_spawn))
+		H.set_species(user.species.name, 1)
+
+		H.gender = user.gender
+		H.dna = user.dna.Clone()
+		H.real_name = user.real_name
+		H.UpdateAppearance()
+
+		H.preEquipOutfit(/datum/outfit/admin/virtual_reality, FALSE)
+		H.equipOutfit(/datum/outfit/admin/virtual_reality, FALSE)
+
+		mind_transfer(user, H)
+		to_chat(H, SPAN_NOTICE("You are now in control of a virtual reality body. Dying will return you to your original body."))

@@ -85,13 +85,8 @@
 	)
 
 	possible_trading_items = list(
-		/obj/item/clothing/mask/gas/clown_hat                   = TRADER_THIS_TYPE,
-		/obj/item/clothing/mask/gas/sexyclown                   = TRADER_THIS_TYPE,
-		/obj/item/clothing/shoes/clown_shoes                    = TRADER_THIS_TYPE,
-		/obj/item/clothing/under/rank/clown                     = TRADER_THIS_TYPE,
 		/obj/item/modular_computer/handheld/pda/civilian/clown  = TRADER_THIS_TYPE,
 		/obj/item/stamp/clown                            = TRADER_THIS_TYPE,
-		/obj/item/storage/backpack/clown                 = TRADER_THIS_TYPE,
 		/obj/item/bananapeel                             = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/food/snacks/pie     = TRADER_THIS_TYPE,
 		/obj/item/bikehorn                               = TRADER_THIS_TYPE,

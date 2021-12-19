@@ -70,7 +70,7 @@
 	heat_level_1 = 330 //Default 360
 	heat_level_2 = 380 //Default 400
 	heat_level_3 = 600 //Default 1000
-	flags = NO_SLIP | NO_CHUBBY | NO_ARTERIES
+	flags = NO_SLIP | NO_CHUBBY | NO_ARTERIES | PHORON_IMMUNE
 	spawn_flags = CAN_JOIN | IS_WHITELISTED | NO_AGE_MINIMUM
 	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR
 	blood_color = COLOR_VAURCA_BLOOD // dark yellow
@@ -104,7 +104,8 @@
 		BP_PHORON_RESERVE  = /obj/item/organ/vaurca/preserve,
 		BP_LIVER               = /obj/item/organ/internal/liver/vaurca,
 		BP_KIDNEYS             = /obj/item/organ/internal/kidneys/vaurca,
-		BP_STOMACH             = /obj/item/organ/internal/stomach,
+		BP_STOMACH             = /obj/item/organ/internal/stomach/vaurca,
+		BP_APPENDIX            = /obj/item/organ/internal/appendix/vaurca,
 		BP_BRAIN               = /obj/item/organ/internal/brain/vaurca,
 		BP_EYES                = /obj/item/organ/internal/eyes/night/vaurca
 	)
@@ -127,19 +128,19 @@
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 
-	allowed_citizenships = list(CITIZENSHIP_ZORA, CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_ERIDANI, CITIZENSHIP_JARGON)
+	allowed_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_ERIDANI, CITIZENSHIP_JARGON)
 	allowed_religions = list(RELIGION_HIVEPANTHEON, RELIGION_PREIMMINENNCE, RELIGION_PILOTDREAM, RELIGION_NONE, RELIGION_OTHER)
-	default_citizenship = CITIZENSHIP_ZORA
+	default_citizenship = CITIZENSHIP_NONE
 
 	default_accent = ACCENT_TTS
 	allowed_accents = list(ACCENT_TTS, ACCENT_ZORA, ACCENT_KLAX, ACCENT_CTHUR)
 
-	alterable_internal_organs = list(BP_EYES)
+	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_STOMACH, BP_APPENDIX)
 
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	H.gender = NEUTER
-	var/obj/item/clothing/mask/breath/M = new /obj/item/clothing/mask/breath(H)
+	var/obj/item/clothing/mask/breath/vaurca/filter/M = new /obj/item/clothing/mask/breath/vaurca/filter(H)
 	if(H.equip_to_slot_or_del(M, slot_wear_mask))
 		M.autodrobe_no_remove = 1
 
@@ -159,3 +160,8 @@
 	
 /datum/species/bug/is_naturally_insulated()
 	return TRUE
+
+/datum/species/bug/can_hold_s_store(obj/item/I)
+	if(I.w_class <= ITEMSIZE_SMALL)
+		return TRUE
+	return FALSE

@@ -15,7 +15,6 @@
 	boss_short = "CentCom"
 	company_name = "NanoTrasen"
 	company_short = "NT"
-	system_name = "Tau Ceti"
 
 	station_networks = list(
 		NETWORK_CIVILIAN_EAST,
@@ -43,11 +42,14 @@
 	emergency_shuttle_recall_message = "The emergency shuttle has been recalled."
 	emergency_shuttle_called_message = "An emergency evacuation shuttle has been called. It will arrive in approximately %ETA% minutes."
 
+	evac_controller_type = /datum/evacuation_controller/shuttle
+
 	station_levels = list(1)
 	admin_levels = list(2)
 	contact_levels = list(1, 5)
 	player_levels = list(1, 3, 4, 5, 6)
 	accessible_z_levels = list("1" = 5, "3" = 10, "4" = 15, "5" = 10, "6" = 60)
+	meteor_levels = list(1)
 
 	map_shuttles = list(
 		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod1,

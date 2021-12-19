@@ -22,6 +22,9 @@
 
 	req_one_access = list(access_security, access_heads)
 
+	light_range = 3
+	light_power = 2
+
 	var/raised = 0			//if the turret cover is "open" and the turret is raised
 	var/raising= 0			//if the turret is currently opening or closing its cover
 	var/health = 80			//the turret's health
@@ -74,6 +77,8 @@
 	var/list/secondarytargets = list()	//targets that are least important
 	var/resetting = FALSE
 	var/fast_processing = FALSE
+
+	var/old_angle = 0
 
 /obj/machinery/porta_turret/examine(mob/user)
 	..()
@@ -171,6 +176,7 @@
 	if(stat & BROKEN)
 		icon_state = "turret_[sprite_set]_broken"
 		underlays += "cover_open_[cover_set]"
+		set_light(0)
 	else if(raised || raising)
 		if(powered() && enabled)
 			if(!lethal_icon)
@@ -184,6 +190,11 @@
 			underlays += "cover_open_[cover_set]"
 	else
 		icon_state = "cover_[cover_set]"
+
+	if(stat & NOPOWER)
+		set_light(0)
+	else
+		set_light(light_range, light_power)
 
 /obj/machinery/porta_turret/proc/isLocked(mob/user)
 	if(ailock && issilicon(user))
@@ -586,6 +597,9 @@
 	if(emagged)		// If emagged not even the dead get a rest
 		return L.stat ? TURRET_SECONDARY_TARGET : TURRET_PRIORITY_TARGET
 
+	if(target_borgs && isAI(L))		//don't shoot the AI if we're shooting silica!
+		return TURRET_NOT_TARGET
+
 	if(lethal && locate(/mob/living/silicon/ai) in get_turf(L))		//don't accidentally kill the AI!
 		return TURRET_NOT_TARGET
 
@@ -680,6 +694,7 @@
 	qdel(flick_holder)
 
 	set_raised_raising(0, 0)
+	set_angle(0)
 	update_icon()
 
 /obj/machinery/porta_turret/proc/set_raised_raising(var/raised, var/raising)
@@ -693,10 +708,11 @@
 	if(target)
 		last_target = target
 		popUp()				//pop the turret up if it's not already up.
-		var/d = get_dir(src, target)	//even if you can't shoot, follow the target
-		if(d != dir)
-			set_dir(d)
+		var/new_angle = Get_Angle(src, target)
+		if(new_angle > old_angle + 30 || new_angle < old_angle - 30)
 			playsound(loc, 'sound/machines/turrets/turret_rotate.ogg', 100, 1)
+		set_angle(new_angle)
+		old_angle = new_angle
 		shootAt(target)
 		return 1
 	return
@@ -1147,7 +1163,7 @@
 	sprite_set = "ballistic"
 	no_salvage = TRUE
 
-	eprojectile = /obj/item/projectile/bullet/rifle/a762
+	eprojectile = /obj/item/projectile/bullet/pistol/medium
 	eshot_sound	= 'sound/weapons/gunshot/gunshot_saw.ogg'
 
 	req_one_access = list(access_syndicate)

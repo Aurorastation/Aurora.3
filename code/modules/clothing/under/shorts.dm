@@ -89,11 +89,13 @@
 
 /obj/item/clothing/under/shorts/jeans/grey
 	name = "grey jeans shorts"
-	icon_state = "greyshorts"
-	item_state = "greyshorts"
+	icon_state = "greypants_shorts"
+	item_state = "greypants_shorts"
 
 /obj/item/clothing/under/shorts/jeans/grey/female
 	name = "grey jeans short shorts"
+	icon_state = "grey_shorts_f"
+	item_state = "grey_shorts_f"
 
 /obj/item/clothing/under/shorts/khaki
 	name = "khaki shorts"
@@ -114,7 +116,7 @@
 	icon = 'icons/obj/pants.dmi'
 	icon_state = "jeans"
 	item_state = "jeans"
-	contained_sprite = 1
+	contained_sprite = TRUE
 	gender = PLURAL
 	body_parts_covered = LOWER_TORSO|LEGS
 
@@ -124,7 +126,7 @@
 	icon = 'icons/obj/tracksuit.dmi'
 	icon_state = "trackpants"
 	item_state = "trackpants"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 /obj/item/clothing/under/pants/track/blue
 	name = "blue track pants"
@@ -157,6 +159,14 @@
 	desc = "Made in the finest space jeans factory this side of Tau Ceti."
 	icon_state = "jeansmustang"
 	item_state = "jeansmustang"
+
+/obj/item/clothing/under/pants/musthangcolour
+	name = "must hang jeans"
+	desc = "Made in the finest space jeans factory this side of Tau Ceti."
+	icon_state = "mustangcolour"
+	item_state = "mustangcolour"
+	build_from_parts = TRUE
+	worn_overlay = "belt"
 
 /obj/item/clothing/under/pants/jeansblack
 	name = "black jeans"
@@ -212,11 +222,25 @@
 	icon_state = "designer_jeans"
 	item_state = "designer_jeans"
 
+/obj/item/clothing/under/pants/tailoredjeans
+	name = "tailored jeans"
+	desc = "Close fitting denim jeans carefully distressed to perfection. They're not as rugged as they look."
+	icon_state = "tailored_jeans"
+	item_state = "tailored_jeans"
+	build_from_parts = TRUE
+	worn_overlay = "belt"
+
 /obj/item/clothing/under/pants/dress
 	name = "dress pants"
 	desc = "A pair of suit trousers. The rest of the outfit can't have gone far."
 	icon_state = "dresspants"
 	item_state = "dresspants"
+
+/obj/item/clothing/under/pants/dress/belt
+	name = "dress pants"
+	desc = "A pair of suit trousers. Comes with a belt, to secure your burdens."
+	icon_state = "dresspants_belt"
+	item_state = "dresspants_belt"
 
 /obj/item/clothing/under/pants/striped
 	name = "striped pants"

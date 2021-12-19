@@ -21,6 +21,8 @@
 
 	return new_name
 
+
+// Unathi languages
 /datum/language/unathi
 	name = LANGUAGE_UNATHI
 	short = "UNA"
@@ -47,6 +49,23 @@
 	partial_understanding = list(LANGUAGE_AZAZIBA = 25)
 	allow_accents = TRUE
 
+/datum/language/unathi_azaziba
+	name = LANGUAGE_AZAZIBA
+	short = "AZA"
+	desc = "A language of Moghes consisting of a combination of spoken word and gesticulation. While waning since Moghes entered the galactic stage, it enjoys popular use by Unathi that never fell to the Hegemony's cultural dominance."
+	speech_verb = list("hisses")
+	ask_verb = list("hisses")
+	exclaim_verb = list("roars")
+	signlang_verb = list("signs", "gestures aggressively")
+	sing_verb = list("hisses")
+	colour = "soghun_alt"
+	written_style = "sintaazaziba"
+	key = "p"
+	flags = WHITELISTED | NONVERBAL
+	syllables = list("azs","zis","zau","azua","skiu","zuakz","izo","aei","ki","kut","zo")
+	partial_understanding = list(LANGUAGE_UNATHI = 50)
+	allow_accents = TRUE
+
 // tajaran languages
 /datum/language/tajaran
 	name = LANGUAGE_SIIK_MAAS
@@ -55,7 +74,7 @@
 	speech_verb = list("mrowls")
 	ask_verb = list("mrowls")
 	exclaim_verb = list("yowls")
-	sing_verb = list("mrowmbles")
+	sing_verb = list("mrowls")
 	colour = "tajaran"
 	written_style = "siikmaas"
 	key = "j"
@@ -82,7 +101,8 @@
 	name = LANGUAGE_SIGN_TAJARA
 	desc = "A sign language developed by Adhomai hunters"
 	speech_verb = list("signs")
-	signlang_verb = list("signs", "flicks their ears", "gestures")
+	signlang_verb = list("moves their tail", "flicks their ears", "swivels their ears", "flicks their tail", "shifts their ears and tail")
+	sign_adv_length = list("", " briefly", " a few times", " several times in quick succession", " for a while")
 	sing_verb = null
 	colour = "i"
 	key = "i"
@@ -95,8 +115,9 @@
 	speech_verb = list("mrowls")
 	ask_verb = list("mrowls")
 	exclaim_verb = list("yowls")
-	signlang_verb = list("signs", "flicks their ears", "gestures")
-	sing_verb = list("mrowmbles")
+	signlang_verb = list("moves their tail", "flicks their ears", "swivels their ears", "flicks their tail", "shifts their ears and tail")
+	sign_adv_length = list("", " briefly", " a few times", " several times in quick succession", " for a while")
+	sing_verb = list("mrowls")
 	colour = "tajaran_signlang"
 	key = "w"
 	flags = WHITELISTED | NONVERBAL
@@ -113,7 +134,7 @@
 	speech_verb = list("mrowls")
 	ask_verb = list("mrowls")
 	exclaim_verb = list("yowls")
-	sing_verb = list("mrowmbles")
+	sing_verb = list("mrowls")
 	colour = "yassa"
 	written_style = "yassa"
 	key = "r"
@@ -132,7 +153,7 @@
 	speech_verb = list("mrowls")
 	ask_verb = list("mrowls")
 	exclaim_verb = list("yowls")
-	sing_verb = list("mrowmbles")
+	sing_verb = list("mrowls")
 	colour = "delvahhi"
 	written_style = "delvahhi"
 	key = "n"
@@ -296,19 +317,3 @@
 	if(prob(70))
 		return "[pick(list("PBU","HIU","SINA","ARMA","OSI"))]-[rand(100, 999)]"
 	return pick(ai_names)
-
-/datum/language/unathi_azaziba
-	name = LANGUAGE_AZAZIBA
-	short = "AZA"
-	desc = "A language of Moghes consisting of a combination of spoken word and gesticulation. While waning since Moghes entered the galactic stage, it enjoys popular use by Unathi that never fell to the Hegemony's cultural dominance."
-	speech_verb = list("hisses")
-	ask_verb = list("hisses")
-	exclaim_verb = list("roars")
-	signlang_verb = list("signs", "gestures aggressively")
-	sing_verb = list("hisses")
-	colour = "soghun_alt"
-	written_style = "sintaazaziba"
-	key = "p"
-	flags = WHITELISTED | NONVERBAL
-	syllables = list("azs","zis","zau","azua","skiu","zuakz","izo","aei","ki","kut","zo")
-	partial_understanding = list(LANGUAGE_UNATHI = 50)

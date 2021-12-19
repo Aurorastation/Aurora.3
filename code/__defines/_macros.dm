@@ -1,20 +1,22 @@
 #define Clamp(x, low, high) 	max(low, min(high, x))
 #define CLAMP01(x) 		(Clamp(x, 0, 1))
+#define JOINTEXT(X) jointext(X, null)
 
-#define span(class, text) "<span class='[class]'>[text]</span>"
-#define SPAN_NOTICE(X) "<span class='notice'>[X]</span>"
-#define SPAN_WARNING(X) "<span class='warning'>[X]</span>"
-#define SPAN_DANGER(X) "<span class='danger'>[X]</span>"
-#define SPAN_CULT(X) "<span class='cult'>[X]</span>"
-#define SPAN_GOOD(X) "<span class='good'>[X]</span>"
-#define SPAN_BAD(X) "<span class='bad'>[X]</span>"
-#define SPAN_ALIEN(X) "<span class='alium'>[X]</span>"
-#define SPAN_ALERT(X) "<span class='alert'>[X]</span>"
-#define SPAN_INFO(X) "<span class='info'>[X]</span>"
-#define SPAN_ITALIC(X) "<span class='italic'>[X]</span>"
-#define SPAN_BOLD(X) "<span class='bold'>[X]</span>"
-#define SPAN_SUBTLE(X) "<span class='subtle'>[X]</span>"
-#define SPAN_SOGHUN(X) "<span class='soghun'>[X]</span>"
+#define span(class, text) ("<span class='[class]'>" + text + "</span>")
+#define SPAN_NOTICE(X) ("<span class='notice'>" + X + "</span>")
+#define SPAN_WARNING(X) ("<span class='warning'>" + X + "</span>")
+#define SPAN_DANGER(X) ("<span class='danger'>" + X + "</span>")
+#define SPAN_CULT(X) ("<span class='cult'>" + X + "</span>")
+#define SPAN_GOOD(X) ("<span class='good'>" + X + "</span>")
+#define SPAN_BAD(X) ("<span class='bad'>" + X + "</span>")
+#define SPAN_ALIEN(X) ("<span class='alium'>" + X + "</span>")
+#define SPAN_ALERT(X) ("<span class='alert'>" + X + "</span>")
+#define SPAN_INFO(X) ("<span class='info'>" + X + "</span>")
+#define SPAN_ITALIC(X) ("<span class='italic'>" + X + "</span>")
+#define SPAN_BOLD(X) ("<span class='bold'>" + X + "</span>")
+#define SPAN_SUBTLE(X) ("<span class='subtle'>" + X + "</span>")
+#define SPAN_SOGHUN(X) ("<span class='soghun'>" + X + "</span>")
+#define SPAN_VOTE(X) ("<span class='vote'>" + X + "</span>")
 
 #define FONT_SIZE_SMALL 1
 #define FONT_SIZE_NORMAL 2
@@ -22,14 +24,20 @@
 #define FONT_SIZE_HUGE 4
 #define FONT_SIZE_GIANT 5
 
-#define FONT_SMALL(X) "<font size='1'>[X]</font>"
-#define FONT_NORMAL(X) "<font size='2'>[X]</font>"
-#define FONT_LARGE(X) "<font size='3'>[X]</font>"
-#define FONT_HUGE(X) "<font size='4'>[X]</font>"
-#define FONT_GIANT(X) "<font size='5'>[X]</font>"
+#define FONT_SMALL(X) ("<font size='1'>" + X + "</font>")
+#define FONT_NORMAL(X) ("<font size='2'>" + X + "</font>")
+#define FONT_LARGE(X) ("<font size='3'>" + X + "</font>")
+#define FONT_HUGE(X) ("<font size='4'>" + X + "</font>")
+#define FONT_GIANT(X) ("<font size='5'>" + X + "</font>")
+
+#define MATRIX_DANGER(X) (FONT_LARGE(SPAN_DANGER(X)))
+#define MATRIX_NOTICE(X) (FONT_LARGE(SPAN_NOTICE(X)))
+
+#define UNDERSCORE_OR_NULL(target) "[target ? "[target]_" : ""]"
 
 #define isAI(A) istype(A, /mob/living/silicon/ai)
 #define isDrone(A) istype(A, /mob/living/silicon/robot/drone)
+#define isMatriarchDrone(A) istype(A, /mob/living/silicon/robot/drone/construction/matriarch)
 
 #define isalien(A) istype(A, /mob/living/carbon/alien)
 
@@ -65,6 +73,8 @@
 
 #define ispAI(A) istype(A, /mob/living/silicon/pai)
 
+#define isbot(A) istype(A, /mob/living/bot)
+
 #define isrobot(A) istype(A, /mob/living/silicon/robot)
 
 #define issilicon(A) istype(A, /mob/living/silicon)
@@ -84,6 +94,8 @@
 #define isclient(A) istype(A, /client)
 
 #define isprojectile(A) istype(A, /obj/item/projectile)
+
+#define isclothing(A) istype(A, /obj/item/clothing)
 
 /// General I/O helpers
 #define to_target(target, payload)                          target << (payload)

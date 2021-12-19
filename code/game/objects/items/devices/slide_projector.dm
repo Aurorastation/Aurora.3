@@ -34,6 +34,8 @@
 		set_slide(W)
 
 /obj/item/storage/slide_projector/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
+	if(istype(target, /obj/structure/table) && proximity_flag)
+		return
 	if(!current_slide)
 		to_chat(user, SPAN_WARNING("\The [src] does not have a slide loaded."))
 		return

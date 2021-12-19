@@ -26,6 +26,8 @@
 		/obj/item/storage/box/donkpockets = 1
 	)
 
+	id_iff = IFF_KATAPHRACT
+
 /datum/outfit/admin/ert/kataphract/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.w_uniform)
 		H.w_uniform.color = pick("#42b360", "#b68029", "#5574c2")
@@ -82,7 +84,7 @@
 
 	head = /obj/item/clothing/head/helmet/space/void/kataphract/spec
 	suit = /obj/item/clothing/suit/space/void/kataphract/spec
-	belt = /obj/item/storage/belt/medical
+	belt = /obj/item/storage/belt/medical/first_responder/combat
 	l_hand = /obj/item/melee/hammer/powered/hegemony
 
 	belt_contents = list(

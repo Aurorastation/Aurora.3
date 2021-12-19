@@ -138,6 +138,10 @@
 		to_chat(user, (feedback ? feedback : "You short out the lock of \the [src]."))
 		return 1
 
+/obj/item/storage/secure/AltClick(/mob/user)
+	if (!locked)
+		return ..()
+
 // -----------------------------
 //        Secure Briefcase
 // -----------------------------

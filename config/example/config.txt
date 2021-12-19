@@ -467,7 +467,7 @@ TIME_TO_CALL_EMERGENCY_SHUTTLE 36000
 ## Keep the list semi-colon separated, in format of MAJOR.MINOR;MAJOR.MINOR
 #CLIENT_BLACKLIST_VERSION 123.4567
 
-## Uncomment to enable simple Skype/Discord style markup over OOC, LOOC, and say.
+## Uncomment to enable simple Skype/Discord style markup over OOC, LOOC, say, and me.
 #ALLOW_CHAT_MARKUP
 
 ## Default language prefix keys, separated with spaces. Only single character keys are supported. If unset, defaults to , # and -
@@ -538,6 +538,9 @@ FORCE_MAP runtime
 
 # Reminds ticket handlers/all admin staff of not-closed tickets after this many SECONDS.
 #TICKET_REMINDER_PERIOD 600
+
+# What sector the station/station is currently on. Check _defines/space_sectors.dm for possible options
+CURRENT_SPACE_SECTOR Romanovich Cloud
 
 # If using TGS, counts how many regularly TGS hard restarts the server process.
 # -1 - never do this.

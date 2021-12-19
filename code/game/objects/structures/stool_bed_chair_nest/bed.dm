@@ -12,7 +12,7 @@
 	desc = "This is used to lie in, sleep in or strap on."
 	desc_info = "Click and drag yourself (or anyone) to this to buckle in. Click on this with an empty hand to undo the buckles.<br>\
 	Anyone with restraints, such as handcuffs, will not be able to unbuckle themselves. They must use the Resist button, or verb, to break free of \
-	the buckles, instead."
+	the buckles, instead. \ To unbuckle people as a stationbound, click the bed with an empty gripper."
 	icon = 'icons/obj/furniture.dmi'
 	icon_state = "bed"
 	anchored = TRUE
@@ -26,17 +26,25 @@
 	var/buckling_sound = 'sound/effects/buckle.ogg'
 
 	var/can_dismantle = TRUE
+	var/can_pad = TRUE
+
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
-	var/makes_rolling_sound = TRUE
+	var/makes_rolling_sound = FALSE
+	var/held_item = null // Set to null if you don't want people to pick this up. 
 	slowdown = 5
 
 /obj/structure/bed/Initialize()
-	..()
+	. = ..()
 	LAZYADD(can_buckle, /mob/living)
 
 /obj/structure/bed/New(newloc, new_material = MATERIAL_STEEL, new_padding_material)
 	..(newloc)
-	color = null
+	if(can_buckle)
+		desc_info = "Click and drag yourself (or anyone) to this to buckle in. Click on this with an empty hand to undo the buckles.<br>\
+	Anyone with restraints, such as handcuffs, will not be able to unbuckle themselves. They must use the Resist button, or verb, to break free of \
+	the buckles instead. "
+	if(held_item)
+		desc_info += "Click and drag this onto yourself to pick it up. "
 	material = SSmaterials.get_material_by_name(new_material)
 	if(!istype(material))
 		qdel(src)
@@ -56,24 +64,24 @@
 	icon_state = ""
 	cut_overlays()
 	// Base icon.
-	var/list/stool_cache = SSicon_cache.stool_cache
+	var/list/furniture_cache = SSicon_cache.furniture_cache
 
 	var/cache_key = "[base_icon]-[material.name]"
-	if(!stool_cache[cache_key])
+	if(!furniture_cache[cache_key])
 		var/image/I = image('icons/obj/furniture.dmi', base_icon)
 		if(material_alteration & MATERIAL_ALTERATION_COLOR)
 			I.color = material.icon_colour
-		stool_cache[cache_key] = I
-	add_overlay(stool_cache[cache_key])
+		furniture_cache[cache_key] = I
+	add_overlay(furniture_cache[cache_key])
 	// Padding overlay.
 	if(padding_material)
 		var/padding_cache_key = "[base_icon]-[padding_material.name]-padding"
-		if(!stool_cache[padding_cache_key])
+		if(!furniture_cache[padding_cache_key])
 			var/image/I =  image(icon, "[base_icon]_padding")
 			if(material_alteration & MATERIAL_ALTERATION_COLOR)
 				I.color = padding_material.icon_colour
-			stool_cache[padding_cache_key] = I
-		add_overlay(stool_cache[padding_cache_key])
+			furniture_cache[padding_cache_key] = I
+		add_overlay(furniture_cache[padding_cache_key])
 
 	// Strings.
 	if(material_alteration & MATERIAL_ALTERATION_NAME)
@@ -112,14 +120,16 @@
 /obj/structure/bed/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.iswrench())
 		if(can_dismantle)
-			playsound(src.loc, W.usesound, 50, 1)
-			dismantle()
+			dismantle(W, user)
 	else if(istype(W,/obj/item/stack))
+		if(!can_pad)
+			return
 		if(padding_material)
 			to_chat(user, "\The [src] is already padded.")
 			return
 		var/obj/item/stack/C = W
 		if(C.get_amount() < 1) // How??
+			to_chat(user, SPAN_WARNING("You don't have enough [C]!"))
 			qdel(C)
 			return
 		var/padding_type //This is awful but it needs to be like this until tiles are given a material var.
@@ -141,12 +151,23 @@
 		return
 
 	else if (W.iswirecutter())
+		if(!can_pad)
+			return
 		if(!padding_material)
 			to_chat(user, "\The [src] has no padding to remove.")
 			return
 		to_chat(user, "You remove the padding from \the [src].")
 		playsound(src, 'sound/items/wirecutter.ogg', 100, 1)
 		remove_padding()
+
+	else if (W.isscrewdriver())
+		if(anchored)
+			anchored = FALSE
+			to_chat(user, "You unfasten \the [src] from floor.")
+		else
+			anchored = TRUE
+			to_chat(user, "You fasten \the [src] to the floor.")
+		playsound(src, 'sound/items/screwdriver.ogg', 100, 1)
 
 	else if(istype(W, /obj/item/grab))
 		var/obj/item/grab/G = W
@@ -157,9 +178,9 @@
 			spawn(0)
 				if(buckle(affecting))
 					affecting.visible_message(\
-						"<span class='danger'>[affecting.name] is buckled to [src] by [user.name]!</span>",\
-						"<span class='danger'>You are buckled to [src] by [user.name]!</span>",\
-						"<span class='notice'>You hear metal clanking.</span>")
+						SPAN_DANGER("[affecting.name] is buckled to [src] by [user.name]!"),\
+						SPAN_DANGER("You are buckled to [src] by [user.name]!"),\
+						SPAN_NOTICE("You hear metal clanking."))
 			qdel(W)
 
 	else if(istype(W, /obj/item/gripper) && buckled)
@@ -185,10 +206,14 @@
 	padding_material = SSmaterials.get_material_by_name(padding_type)
 	update_icon()
 
-/obj/structure/bed/dismantle()
-	if(padding_material)
-		padding_material.place_sheet(get_turf(src))
-	..()
+/obj/structure/bed/dismantle(obj/item/W, mob/user)
+	playsound(src.loc, W.usesound, 50, 1)
+	user.visible_message("<b>[user]</b> begins dismantling \the [src].", SPAN_NOTICE("You begin dismantling \the [src]."))
+	if(!do_after(user, 20 / W.toolspeed))
+		user.visible_message("\The [user] dismantles \the [src].", SPAN_NOTICE("You dismantle \the [src]."))
+		if(padding_material)
+			padding_material.place_sheet(get_turf(src))
+		..()
 
 /obj/structure/bed/psych
 	name = "psychiatrist's couch"
@@ -220,10 +245,13 @@
 	name = "roller bed"
 	icon = 'icons/obj/rollerbed.dmi'
 	icon_state = "standard_down"
+	item_state = "rollerbed"
 	anchored = FALSE
+	makes_rolling_sound = TRUE
 	var/base_state = "standard"
-	var/item_bedpath = /obj/item/roller
+	held_item = /obj/item/roller
 	var/obj/item/reagent_containers/beaker
+	var/obj/item/vitals_monitor/vitals
 	var/iv_attached = 0
 	var/iv_stand = TRUE
 	var/patient_shift = 9 //How much are mobs moved up when they are buckled_to.
@@ -234,8 +262,14 @@
 	..()
 	LAZYADD(can_buckle, /obj/structure/closet/body_bag)
 
+/obj/structure/bed/roller/Destroy()
+	QDEL_NULL(beaker)
+	QDEL_NULL(vitals)
+	return ..()
+
 /obj/structure/bed/roller/update_icon()
-	overlays.Cut()
+	cut_overlays()
+	vis_contents = list()
 	if(density)
 		icon_state = "[base_state]_up"
 	else
@@ -245,18 +279,31 @@
 		var/percentage = round((beaker.reagents.total_volume / beaker.volume) * 100, 25)
 		var/image/filling = image(icon, "iv_filling[percentage]")
 		filling.color = beaker.reagents.get_color()
-		iv.overlays += filling
+		iv.add_overlay(filling)
 		if(percentage < 25)
-			iv.overlays += image(icon, "light_low")
+			iv.add_overlay(image(icon, "light_low"))
 		if(density)
 			iv.pixel_y = 6
-		overlays += iv
+		add_overlay(iv)
+	if(vitals)
+		vitals.update_monitor()
+		vis_contents += vitals
 	if(bag_strap && istype(buckled, /obj/structure/closet/body_bag))
 		LAZYADD(buckled.overlays, image(icon, bag_strap))
 
 /obj/structure/bed/roller/attackby(obj/item/I, mob/user)
 	if(iswrench(I) || istype(I, /obj/item/stack) || iswirecutter(I))
 		return 1
+	if(istype(I, /obj/item/vitals_monitor))
+		if(vitals)
+			to_chat(user, SPAN_WARNING("\The [src] already has a vitals monitor attached!"))
+			return
+		to_chat(user, SPAN_NOTICE("You attach \the [I] to \the [src]."))
+		user.drop_from_inventory(I, src)
+		vitals = I
+		vitals.bed = src
+		update_icon()
+		return
 	if(iv_stand && !beaker && (istype(I, /obj/item/reagent_containers/glass/beaker) || istype(I, /obj/item/reagent_containers/blood)))
 		if(!user.unEquip(I, target = src))
 			return
@@ -273,8 +320,8 @@
 		..()
 
 /obj/structure/bed/roller/proc/collapse()
-	visible_message("<b>[usr]</b> collapses \the [src].")
-	new item_bedpath(get_turf(src))
+	usr.visible_message(SPAN_NOTICE("<b>[usr]</b> collapses \the [src]."), SPAN_NOTICE("You collapse \the [src]"))
+	new held_item(get_turf(src))
 	qdel(src)
 
 /obj/structure/bed/roller/process()
@@ -295,17 +342,25 @@
 	beaker = null
 	update_icon()
 
+/obj/structure/bed/roller/proc/remove_vitals(mob/user)
+	to_chat(user, SPAN_NOTICE("You detach \the [vitals] from \the [src]."))
+	vitals.bed = null
+	vitals.update_monitor()
+	user.put_in_hands(vitals)
+	vitals = null
+	update_icon()
+
 /obj/structure/bed/roller/proc/attach_iv(mob/living/carbon/human/target, mob/user)
 	if(!beaker)
 		return
 	if(do_mob(user, target, 1 SECOND))
-		visible_message("<b>[user]</b> attaches [target] to the IV on \the [src].")
+		user.visible_message(SPAN_NOTICE("<b>[user]</b> attaches [target] to the IV on \the [src]."), SPAN_NOTICE("You attach the IV to \the [target]."))
 		iv_attached = TRUE
 		update_icon()
 		START_PROCESSING(SSprocessing, src)
 
 /obj/structure/bed/roller/proc/detach_iv(mob/living/carbon/human/target, mob/user)
-	visible_message("<b>[user]</b> takes [target] off the IV on \the [src].")
+	user.visible_message(SPAN_NOTICE("<b>[user]</b> takes [target] off the IV on \the [src]."), SPAN_NOTICE("You take the IV off \the [target]."))
 	iv_attached = FALSE
 	update_icon()
 	STOP_PROCESSING(SSprocessing, src)
@@ -314,7 +369,7 @@
 	..()
 	if(use_check(usr) || !Adjacent(usr))
 		return
-	if(!ishuman(usr))
+	if(!ishuman(usr) && (!isrobot(usr) || isDrone(usr))) //Humans and borgs can collapse, but not drones
 		return
 	if(over_object == buckled && beaker)
 		if(iv_attached)
@@ -328,6 +383,9 @@
 			return
 	if(beaker)
 		remove_beaker(usr)
+		return
+	if(vitals)
+		remove_vitals(usr)
 		return
 	if(buckled)
 		return
@@ -371,7 +429,7 @@
 	icon_state = "hover_down"
 	base_state = "hover"
 	makes_rolling_sound = FALSE
-	item_bedpath = /obj/item/roller/hover
+	held_item = /obj/item/roller/hover
 	patient_shift = 6
 	bag_strap = null
 
@@ -383,35 +441,50 @@
 	name = "roller bed"
 	desc = "A collapsed roller bed that can be carried around."
 	icon = 'icons/obj/rollerbed.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi'
+		)
 	icon_state = "standard_folded"
+	item_state = "rollerbed"
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
 	center_of_mass = list("x" = 17,"y" = 7)
-	var/bedpath = /obj/structure/bed/roller
+	var/origin_type = /obj/structure/bed/roller
 	w_class = ITEMSIZE_NORMAL
 
 /obj/item/roller/hover
 	name = "medical hoverbed"
 	desc = "A collapsed hoverbed that can be carried around."
 	icon_state = "hover_folded"
-	bedpath = /obj/structure/bed/roller/hover
+	origin_type = /obj/structure/bed/roller/hover
 
 /obj/item/roller/attack_self(mob/user)
-		var/obj/structure/bed/roller/R = new bedpath(user.loc)
-		R.add_fingerprint(user)
-		qdel(src)
+	..()
+	deploy_roller(user, user.loc)
+
+/obj/item/roller/afterattack(obj/target, mob/user, proximity)
+	if(!proximity)
+		return
+	if(isturf(target))
+		var/turf/T = target
+		if(!T.density)
+			deploy_roller(user, target)
 
 /obj/item/roller/attackby(obj/item/W as obj, mob/user as mob)
-
 	if(istype(W,/obj/item/roller_holder))
 		var/obj/item/roller_holder/RH = W
 		if(!RH.held)
-			to_chat(user, "<span class='notice'>You collect the roller bed.</span>")
+			to_chat(user, SPAN_NOTICE("You collect the roller bed."))
 			src.forceMove(RH)
 			RH.held = src
 			return
-
 	..()
+
+/obj/item/roller/proc/deploy_roller(mob/user, atom/location)
+	var/obj/structure/bed/roller/R = new origin_type(location)
+	R.add_fingerprint(user)
+	qdel(src)
 
 /obj/item/roller_holder
 	name = "roller bed rack"
@@ -425,12 +498,10 @@
 	held = new /obj/item/roller(src)
 
 /obj/item/roller_holder/attack_self(mob/user as mob)
-
 	if(!held)
-		to_chat(user, "<span class='notice'>The rack is empty.</span>")
+		to_chat(user, SPAN_NOTICE("The rack is empty."))
 		return
-
-	to_chat(user, "<span class='notice'>You deploy the roller bed.</span>")
+	to_chat(user, SPAN_NOTICE("You deploy the roller bed."))
 	var/obj/structure/bed/roller/R = new /obj/structure/bed/roller(user.loc)
 	R.add_fingerprint(user)
 	qdel(held)

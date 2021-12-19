@@ -9,11 +9,10 @@
 	w_class = ITEMSIZE_SMALL
 	var/obj/item/stored_item = null
 	var/label_text = ""
-	var/base_name = ""
 
 /obj/item/evidencebag/Initialize()
 	. = ..()
-	base_name = name
+	AddComponent(/datum/component/base_name, name)
 
 /obj/item/evidencebag/MouseDrop(var/obj/item/I as obj)
 	if (!ishuman(usr))
@@ -61,9 +60,10 @@
 
 	user.visible_message("<b>[user]</b> puts \the [I] into \the [src].", SPAN_NOTICE("You put \the [I] inside \the [src]."),\
 	"You hear a rustle as someone puts something into a plastic bag.")
+	store_item(I)
 
+/obj/item/evidencebag/proc/store_item(obj/item/I)
 	icon_state = "evidence"
-
 	var/mutable_appearance/MA = new(I)
 	MA.pixel_x = 0
 	MA.pixel_y = 0
@@ -74,7 +74,6 @@
 	I.forceMove(src)
 	stored_item = I
 	w_class = I.w_class
-	return
 
 
 /obj/item/evidencebag/attack_self(mob/user as mob)
@@ -111,7 +110,8 @@
 		return
 	. = ..() 
 
-/obj/item/evidencebag/proc/update_name_label()
+/obj/item/evidencebag/proc/update_name_label(var/base_name = initial(name))
+	SEND_SIGNAL(src, COMSIG_BASENAME_SETNAME, args)
 	if(label_text == "")
 		name = base_name
 	else

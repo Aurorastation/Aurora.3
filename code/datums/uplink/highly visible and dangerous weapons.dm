@@ -99,6 +99,16 @@
 	item_cost = 9
 	path = /obj/item/gun/projectile/plasma
 
+/datum/uplink_item/item/visible_weapons/laser_rifle
+	name = "Laser Rifle"
+	item_cost = 8
+	path = /obj/item/gun/energy/rifle/laser
+
+/datum/uplink_item/item/visible_weapons/energy_carbine
+	name = "Energy Carbine"
+	item_cost = 6
+	path = /obj/item/gun/energy/gun
+
 /datum/uplink_item/item/visible_weapons/icelance
 	name = "Icelance Rifle"
 	item_cost = 3
@@ -124,7 +134,22 @@
 	item_cost = 6
 	path = /obj/item/clothing/gloves/tesla
 
+/datum/uplink_item/item/visible_weapons/peac
+	name = "Point Entry Anti-materiel Cannon"
+	item_cost = 9
+	path = /obj/item/gun/projectile/peac
+
+/datum/uplink_item/item/visible_weapons/recoilless_rifle
+	name = "One Use Recoilless Rifle"
+	item_cost = 5
+	path = /obj/item/gun/projectile/recoilless_rifle
+
 /datum/uplink_item/item/visible_weapons/random_weapon
 	name = "Random Gun"
 	item_cost = 3
 	path = /obj/item/storage/box/syndie_kit/random_weapon
+
+/datum/uplink_item/item/visible_weapons/ionrifle
+	name = "Ion Rifle"
+	item_cost = 5
+	path = /obj/item/gun/energy/rifle/ionrifle

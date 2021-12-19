@@ -54,6 +54,7 @@ var/list/latejoin_cryo_command = list()
 var/list/latejoin_cyborg       = list()
 var/list/latejoin_merchant     = list()
 var/list/kickoffsloc           = list()
+var/list/virtual_reality_spawn = list()
 
 var/list/prisonwarp         = list() // Prisoners go to these
 var/list/holdingfacility    = list() // Captured people go here
@@ -134,15 +135,14 @@ var/static/list/scarySounds = list(
 	'sound/items/welder.ogg',
 	'sound/items/welder_pry.ogg',
 	'sound/machines/airlock.ogg',
-	'sound/effects/clownstep1.ogg',
-	'sound/effects/clownstep2.ogg'
+
 )
 
 // Bomb cap!
 var/max_explosion_range = 14
 
 // Announcer intercom, because too much stuff creates an intercom for one message then hard del()s it.
-var/global/obj/item/device/radio/intercom/global_announcer = new(null)
+var/global/obj/item/device/radio/all_channels/global_announcer = new(null)
 
 // the number next to it denotes how much money the department receives when its account is generated
 var/list/department_funds = list(

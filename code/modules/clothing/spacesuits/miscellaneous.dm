@@ -17,7 +17,8 @@
 		bio = ARMOR_BIO_SHIELDED, 
 		rad = ARMOR_RAD_RESISTANT
 	)
-	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL
+	max_pressure_protection = FIRESUIT_MAX_PRESSURE
+	min_pressure_protection = 0
 	flags_inv = BLOCKHAIR
 	siemens_coefficient = 0.6
 
@@ -34,7 +35,6 @@
 		bullet = ARMOR_BALLISTIC_MINOR,
 		laser = ARMOR_LASER_MINOR
 	)
-	item_flags = STOPPRESSUREDAMAGE
 	flags_inv = BLOCKHAIR
 	siemens_coefficient = 0.9
 
@@ -44,7 +44,6 @@
 	desc = "Ho ho ho. Merrry X-mas!"
 	icon_state = "santahat"
 	item_state = "santahat"
-	item_flags = STOPPRESSUREDAMAGE
 	flags_inv = BLOCKHAIR
 	body_parts_covered = HEAD
 
@@ -54,7 +53,6 @@
 	icon_state = "santa"
 	item_state = "santa"
 	slowdown = 0
-	item_flags = STOPPRESSUREDAMAGE
 	allowed = list(/obj/item) //for stuffing exta special presents
 
 //Space pirate outfit
@@ -72,7 +70,6 @@
 		bio = ARMOR_BIO_SMALL, 
 		rad = ARMOR_RAD_MINOR
 	)
-	item_flags = STOPPRESSUREDAMAGE
 	flags_inv = BLOCKHAIR
 	body_parts_covered = 0
 	siemens_coefficient = 0.4

@@ -9,7 +9,8 @@
 	job_species_blacklist = list(
 		"Consular Officer" = list(
 			SPECIES_VAURCA_WORKER,
-			SPECIES_VAURCA_WARRIOR
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK
 		)
 	)
 
@@ -65,13 +66,17 @@
 			SPECIES_IPC_XION,
 			SPECIES_IPC_ZENGHU,
 			SPECIES_DIONA,
+			SPECIES_DIONA_COEUS,
 			SPECIES_SKRELL,
+			SPECIES_SKRELL_AXIORI,
 			SPECIES_TAJARA,
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_WORKER,
-			SPECIES_VAURCA_WARRIOR
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER
 		)
 	)
 
@@ -116,6 +121,7 @@
 	from whole colonial systems to travelling super ships to mining and farming outposts. Most communities here are, although not as developed as many galactic powers, very \
 	tightly-knit. Almost anything and anyone can be found in these wild, mostly uncharted lands. "
 	demonym = "frontiersman"
+	consular_outfit = /datum/outfit/job/representative/consular/coalition
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -124,8 +130,18 @@
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_WORKER,
-			SPECIES_VAURCA_WARRIOR
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER
 		)
+	)
+
+/datum/outfit/job/representative/consular/coalition
+	name = "Coalition Consular Officer"
+
+	backpack_contents = list(
+		/obj/item/device/camera = 1,
+		/obj/item/gun/projectile/colt/super = 1
 	)
 
 /datum/citizenship/elyra
@@ -135,6 +151,14 @@
 	is \"For Greatness We Strive\". It's official language is Tau Ceti Basic, though several old-earth languages cling to life in small enclaves, such as arabic, persian, and farsi. \
 	The Republic has mixed relations with NanoTrasen, due to their own possession of phoron."
 	demonym = "elyrian"
+	consular_outfit = /datum/outfit/job/representative/consular/elyra
+
+/datum/outfit/job/representative/consular/elyra
+	name = "Elyra Consular Officer"
+
+	backpack_contents = list(
+		/obj/item/gun/projectile/plasma/bolter/pistol = 1
+	)
 
 /datum/citizenship/dominia
 	name = CITIZENSHIP_DOMINIA
@@ -155,11 +179,15 @@
 			SPECIES_IPC_UNBRANDED,
 			SPECIES_IPC_XION,
 			SPECIES_IPC_ZENGHU,
+			SPECIES_SKRELL,
+			SPECIES_SKRELL_AXIORI,
 			SPECIES_TAJARA,
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_VAURCA_WORKER,
-			SPECIES_VAURCA_WARRIOR
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER
 		)
 	)
 

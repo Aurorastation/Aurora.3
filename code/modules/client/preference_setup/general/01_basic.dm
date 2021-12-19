@@ -10,6 +10,7 @@
 	S["species"]    >> pref.species
 	S["spawnpoint"] >> pref.spawnpoint
 	S["OOC_Notes"]  >> pref.metadata
+	S["floating_chat_color"] >> pref.floating_chat_color
 	if(istype(all_species[pref.species], /datum/species/machine))
 		S["ipc_tag_status"] >> pref.machine_tag_status
 		S["ipc_serial_number"] >> pref.machine_serial_number
@@ -23,6 +24,7 @@
 	S["species"]    << pref.species
 	S["spawnpoint"] << pref.spawnpoint
 	S["OOC_Notes"]  << pref.metadata
+	S["floating_chat_color"] << pref.floating_chat_color
 	if(istype(all_species[pref.species], /datum/species/machine))
 		S["ipc_tag_status"] << pref.machine_tag_status
 		S["ipc_serial_number"] << pref.machine_serial_number
@@ -40,7 +42,8 @@
 				"age",
 				"metadata",
 				"spawnpoint",
-				"species"
+				"species",
+				"floating_chat_color"
 			),
 			"args" = list("id")
 		),
@@ -72,6 +75,7 @@
 			"metadata",
 			"spawnpoint",
 			"species",
+			"floating_chat_color",
 			"id" = 1,
 			"ckey" = 1
 		),
@@ -97,6 +101,7 @@
 		"ownership_status" = pref.machine_ownership_status,
 		"id" = pref.current_character,
 		"char_id" = pref.current_character,
+		"floating_chat_color" = pref.floating_chat_color,
 		"ckey" = PREF_CLIENT_CKEY
 	)
 
@@ -140,6 +145,7 @@
 		pref.real_name      = random_name(pref.gender, pref.species)
 	pref.spawnpoint         = sanitize_inlist(pref.spawnpoint, SSatlas.spawn_locations, initial(pref.spawnpoint))
 	pref.machine_tag_status = text2num(pref.machine_tag_status) // SQL queries return as text, so make this a num
+	pref.floating_chat_color = sanitize_hexcolor(pref.floating_chat_color, get_random_colour(0, 160, 230))
 
 /datum/category_item/player_setup_item/general/basic/content(var/mob/user)
 	var/list/dat = list("<b>Name:</b> ")
@@ -156,6 +162,7 @@
 		dat += "<b>Pronouns:</b> <a href='?src=\ref[src];pronouns=1'><b>[capitalize_first_letters(pref.pronouns)]</b></a><br>"
 	dat += "<b>Age:</b> <a href='?src=\ref[src];age=1'>[pref.age]</a><br>"
 	dat += "<b>Spawn Point</b>: <a href='?src=\ref[src];spawnpoint=1'>[pref.spawnpoint]</a><br>"
+	dat += "<b>Floating Chat Color:</b> <a href='?src=\ref[src];select_floating_chat_color=1'><b>[pref.floating_chat_color]</b></a><br>"
 	if(istype(S, /datum/species/machine))
 		if(pref.can_edit_ipc_tag)
 			dat += "<b>Has Tag:</b> <a href='?src=\ref[src];ipc_tag=1'>[pref.machine_tag_status ? "Yes" : "No"]</a><br>"
@@ -219,6 +226,15 @@
 
 		pref.real_name = random_name(pref.gender, pref.species)
 		return TOPIC_REFRESH
+
+	else if(href_list["select_floating_chat_color"])
+		var/new_fc_color = input(user, "Choose Floating Chat Color:", "Global Preference") as color|null
+		if(new_fc_color && CanUseTopic(user))
+			pref.floating_chat_color = new_fc_color
+			var/mob/living/carbon/human/H = preference_mob()
+			if(ishuman(H))
+				H.set_floating_chat_color(new_fc_color)
+			return TOPIC_REFRESH
 
 	else if(href_list["gender"])
 		var/datum/species/S = all_species[pref.species]

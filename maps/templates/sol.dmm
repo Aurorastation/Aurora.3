@@ -290,7 +290,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "aS" = (
-/obj/structure/bed/chair/e_chair,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "aT" = (

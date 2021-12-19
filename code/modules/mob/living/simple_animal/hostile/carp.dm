@@ -11,6 +11,7 @@
 	speak_chance = 0
 	turns_per_move = 5
 	meat_type = /obj/item/reagent_containers/food/snacks/fish/carpmeat
+	butchering_products = list(/obj/item/reagent_containers/food/snacks/fish/roe = 1)
 	organ_names = list("head", "chest", "tail", "left flipper", "right flipper")
 	response_help = "pets the"
 	response_disarm = "gently pushes aside the"
@@ -21,7 +22,7 @@
 	mob_size = 10
 
 	blood_overlay_icon = 'icons/mob/npc/blood_overlay_carp.dmi'
-	harm_intent_damage = 8
+	harm_intent_damage = 4
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	attacktext = "bitten"
@@ -136,7 +137,6 @@
 
 	mob_size = 15
 
-	harm_intent_damage = 5
 	melee_damage_lower = 20
 	melee_damage_upper = 25
 

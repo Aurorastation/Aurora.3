@@ -120,6 +120,8 @@
 	var/has_safety = TRUE
 	var/image/safety_overlay
 
+	var/iff_capable = FALSE // if true, applies the user's ID iff_faction to the projectile
+
 	// sounds n shit
 	var/safetyon_sound = 'sound/weapons/blade_open.ogg'
 	var/safetyoff_sound = 'sound/weapons/blade_close.ogg'
@@ -151,6 +153,9 @@
 		has_safety = FALSE
 
 	queue_icon_update()
+
+/obj/item/gun/should_equip()
+	return TRUE
 
 /obj/item/gun/update_icon()
 	..()
@@ -480,8 +485,7 @@
 			else if(grabstate >= GRAB_AGGRESSIVE)
 				damage_mult = 1.5
 	P.damage *= damage_mult
-	//you can't miss at point blank..
-	P.can_miss = 1
+	P.point_blank = TRUE
 
 /obj/item/gun/proc/process_accuracy(obj/projectile, mob/user, atom/target, acc_mod, dispersion)
 	var/obj/item/projectile/P = projectile

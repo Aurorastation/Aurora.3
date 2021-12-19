@@ -110,7 +110,7 @@
 		AI.ai_announcement()
 
 /obj/screen/ai/call_shuttle
-	name = "Call Emergency Shuttle"
+	name = "Call Evacuation"
 	icon_state = "call_shuttle"
 	screen_loc = ui_ai_shuttle
 
@@ -160,7 +160,7 @@
 		AI.sensor_mode()
 
 /obj/screen/ai/remote_mech
-	name = "Remote Control Mech"
+	name = "Remote Control Shell"
 	icon_state = "remote_mech"
 	screen_loc = ui_ai_mech
 
@@ -168,7 +168,7 @@
 	if(isAI(usr))
 		var/mob/living/silicon/ai/AI = usr
 		if(AI.anchored)
-			AI.remote_control_mech()
+			AI.remote_control_shell()
 		else
 			to_chat(AI, SPAN_WARNING("You are unable to get a good connection while unanchored from the station systems."))
 

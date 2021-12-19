@@ -27,6 +27,7 @@
 	var/max_pill_count = 20
 	flags = OPENCONTAINER
 	var/datum/asset/spritesheet/chem_master/chem_asset
+	var/list/forbidden_containers = list(/obj/item/reagent_containers/glass/bucket) //For containers we don't want people to shove into the chem machine. Like big-ass buckets.
 
 /obj/machinery/chem_master/Initialize()
 	. = ..()
@@ -42,12 +43,15 @@
 				qdel(src)
 				return
 
-/obj/machinery/chem_master/attackby(var/obj/item/B as obj, var/mob/user as mob)
+/obj/machinery/chem_master/attackby(var/obj/item/B, mob/user)
 
 	if(istype(B, /obj/item/reagent_containers/glass))
 
 		if(src.beaker)
-			to_chat(user, "A beaker is already loaded into the machine.")
+			to_chat(user, SPAN_WARNING("A beaker is already loaded into the machine."))
+			return
+		if(is_type_in_list(B, forbidden_containers))
+			to_chat(user, SPAN_WARNING("There's no way to fit [B] into \the [src]!"))
 			return
 		src.beaker = B
 		user.drop_from_inventory(B,src)
@@ -266,6 +270,8 @@
 				dat += "<A href='?src=\ref[src];add=[_G];amount=1'>(1)</A> "
 				dat += "<A href='?src=\ref[src];add=[_G];amount=5'>(5)</A> "
 				dat += "<A href='?src=\ref[src];add=[_G];amount=10'>(10)</A> "
+				dat += "<A href='?src=\ref[src];add=[_G];amount=30'>(30)</A> "
+				dat += "<A href='?src=\ref[src];add=[_G];amount=60'>(60)</A> "
 				dat += "<A href='?src=\ref[src];add=[_G];amount=[REAGENT_VOLUME(R, _G)]'>(All)</A> "
 				dat += "<A href='?src=\ref[src];addcustom=[_G]'>(Custom)</A><BR>"
 
@@ -278,6 +284,8 @@
 				dat += "<A href='?src=\ref[src];remove=[_N];amount=1'>(1)</A> "
 				dat += "<A href='?src=\ref[src];remove=[_N];amount=5'>(5)</A> "
 				dat += "<A href='?src=\ref[src];remove=[_N];amount=10'>(10)</A> "
+				dat += "<A href='?src=\ref[src];remove=[_N];amount=30'>(30)</A> "
+				dat += "<A href='?src=\ref[src];remove=[_N];amount=60'>(60)</A> "
 				dat += "<A href='?src=\ref[src];remove=[_N];amount=[REAGENT_VOLUME(reagents, _N)]'>(All)</A> "
 				dat += "<A href='?src=\ref[src];removecustom=[_N]'>(Custom)</A><BR>"
 		else
@@ -502,6 +510,7 @@
 		do_hair_pull(user)
 
 	playsound(get_turf(src), 'sound/machines/blender.ogg', 50, 1)
+	intent_message(MACHINE_SOUND)
 	inuse = TRUE
 
 	// Reset the machine.

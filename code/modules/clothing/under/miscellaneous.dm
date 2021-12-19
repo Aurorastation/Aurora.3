@@ -14,7 +14,8 @@
 	body_parts_covered = 0
 	species_restricted = null
 	sprite_sheets = list(
-		BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/suit.dmi'
+		BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/suit.dmi',
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/uniform.dmi'
 		)
 
 /obj/item/clothing/under/pj/blue
@@ -44,14 +45,6 @@
 	icon_state = "waiter"
 	item_state = "waiter"
 	worn_state = "waiter"
-
-/obj/item/clothing/under/sexyclown
-	name = "sexy-clown suit"
-	desc = "It makes you look HONKable!"
-	icon_state = "sexyclown"
-	item_state = "clown"
-	worn_state = "sexyclown"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 
 //This set of uniforms looks fairly fancy and is generally used for high-ranking NT personnel from what I've seen, so lets give them appropriate ranks.
 /obj/item/clothing/under/rank/centcom
@@ -303,6 +296,7 @@
 	item_state = "bl_suit"
 	worn_state = "sundress"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	no_overheat = TRUE
 
 /obj/item/clothing/under/sundress_white
 	name = "white sundress"
@@ -507,7 +501,7 @@
 
 /obj/item/clothing/under/legion
 	name = "Tau Ceti Foreign Legion uniform"
-	desc = "A blue field uniform used by the force of the Tau Ceti Foreign Legion forces."
+	desc = "A blue field uniform worn by Tau Ceti Foreign Legion forces."
 	icon_state = "taucetilegion"
 	item_state = "bl_suit"
 	worn_state = "taucetilegion"
@@ -575,3 +569,36 @@
 	item_state = "lance_dress_m"
 	worn_state = "lance_dress_m"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+
+/obj/item/clothing/under/qipao
+	name = "qipao"
+	desc = "A traditional Solarian women's garment, typically made of (synthetic) silk."
+	icon_state = "qipao"
+	item_state = "qipao"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+
+/obj/item/clothing/under/qipao2
+	name = "slim qipao"
+	desc = "A traditional Solarian women's garment, typically made of (synthetic) silk. This one is fairly slim."
+	icon_state = "qipao2"
+	item_state = "qipao2"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+
+/obj/item/clothing/under/rank/elyran_fatigues
+	name = "elyran navy uniform"
+	desc = "An utility uniform worn by Elyran navy staff serving aboard ships and in the field."
+	icon_state = "elyran_fatigues"
+	item_state = "elyran_fatigues"
+	armor = list(
+		melee = ARMOR_MELEE_SMALL,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR
+		)
+
+/obj/item/clothing/under/rank/elyran_fatigues/commander
+	name = "elyran navy officer uniform"
+	desc = "An utility uniform worn by Elyran navy officers serving aboard ships and in the field."
+	icon_state = "elyran_commander"
+	item_state = "elyran_commander"
+
+

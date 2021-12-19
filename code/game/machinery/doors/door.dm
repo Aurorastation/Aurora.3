@@ -177,8 +177,8 @@
 				open()
 		return
 
-	if(istype(AM, /obj/structure/bed/chair/wheelchair))
-		var/obj/structure/bed/chair/wheelchair/wheel = AM
+	if(istype(AM, /obj/structure/bed/stool/chair/office/wheelchair))
+		var/obj/structure/bed/stool/chair/office/wheelchair/wheel = AM
 		if(density)
 			if(wheel.pulling && (src.allowed(wheel.pulling)))
 				open()
@@ -299,37 +299,38 @@
 	if(!istype(I, /obj/item/forensics))
 		src.add_fingerprint(user)
 
-	if(istype(I, /obj/item/stack/material) && I.get_material_name() == src.get_material_name())
-		if(stat & BROKEN)
-			to_chat(user, "<span class='notice'>It looks like \the [src] is pretty busted. It's going to need more than just patching up now.</span>")
-			return
-		if(health >= maxhealth)
-			to_chat(user, "<span class='notice'>Nothing to fix!</span>")
-			return
-		if(!density)
-			to_chat(user, "<span class='warning'>\The [src] must be closed before you can repair it.</span>")
-			return
+	if(I.ishammer() && user.a_intent != I_HURT)
+		var/obj/item/stack/stack = usr.get_inactive_hand()
+		if(istype(stack) && stack.get_material_name() == get_material_name())
+			if(stat & BROKEN)
+				to_chat(user, SPAN_NOTICE("It looks like \the [src] is pretty busted. It's going to need more than just patching up now."))
+				return
+			if(health >= maxhealth)
+				to_chat(user, SPAN_NOTICE("Nothing to fix!"))
+				return
+			if(!density)
+				to_chat(user, SPAN_WARNING("\The [src] must be closed before you can repair it."))
+				return
 
-		//figure out how much metal we need
-		var/amount_needed = (maxhealth - health) / DOOR_REPAIR_AMOUNT
-		amount_needed = (round(amount_needed) == amount_needed)? amount_needed : round(amount_needed) + 1 //Why does BYOND not have a ceiling proc?
+			//figure out how much metal we need
+			var/amount_needed = (maxhealth - health) / DOOR_REPAIR_AMOUNT
+			amount_needed = (round(amount_needed) == amount_needed)? amount_needed : round(amount_needed) + 1 //Why does BYOND not have a ceiling proc?
 
-		var/obj/item/stack/stack = I
-		var/transfer
-		if (repairing)
-			transfer = stack.transfer_to(repairing, amount_needed - repairing.amount)
-			if (!transfer)
-				to_chat(user, "<span class='warning'>You must weld or remove \the [repairing] from \the [src] before you can add anything else.</span>")
-		else
-			repairing = stack.split(amount_needed)
+			var/transfer
 			if (repairing)
-				repairing.forceMove(src)
-				transfer = repairing.amount
+				transfer = stack.transfer_to(repairing, amount_needed - repairing.amount)
+				if (!transfer)
+					to_chat(user, SPAN_WARNING("You must weld or remove \the [repairing] from \the [src] before you can add anything else."))
+			else
+				repairing = stack.split(amount_needed)
+				if (repairing)
+					repairing.forceMove(src)
+					transfer = repairing.amount
 
-		if (transfer)
-			to_chat(user, "<span class='notice'>You fit [transfer] [stack.singular_name]\s to damaged and broken parts on \the [src].</span>")
+			if (transfer)
+				to_chat(user, SPAN_NOTICE("You fit [transfer] [stack.singular_name]\s to damaged and broken parts on \the [src]."))
 
-		return
+			return
 
 	if(repairing && I.iswelder())
 		if(!density)
@@ -497,9 +498,13 @@
 
 
 /obj/machinery/door/proc/open(var/forced = 0)
+	set waitfor = FALSE
+
 	if(!can_open(forced))
 		return
 	operating = TRUE
+
+	intent_message(MACHINE_SOUND)
 
 	do_animate("opening")
 	icon_state = "door_open"
@@ -527,6 +532,8 @@
 		close()
 
 /obj/machinery/door/proc/close(var/forced = 0)
+	set waitfor = FALSE
+
 	if(!can_close(forced))
 		if (autoclose)
 			for (var/atom/movable/M in get_turf(src))
@@ -534,6 +541,8 @@
 					addtimer(CALLBACK(src, .proc/autoclose), 60, TIMER_UNIQUE)
 					break
 	operating = TRUE
+
+	intent_message(MACHINE_SOUND)
 
 	do_animate("closing")
 	sleep(3)

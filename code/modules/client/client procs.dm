@@ -337,9 +337,6 @@ var/list/localhost_addresses = list(
 /client/New(TopicData)
 	TopicData = null							//Prevent calls to client.Topic from connect
 
-	// Load goonchat
-	chatOutput = new(src)
-
 	if(!(connection in list("seeker", "web")))					//Invalid connection type.
 		return null
 	if(byond_version < MIN_CLIENT_VERSION)		//Out of date client.
@@ -356,12 +353,15 @@ var/list/localhost_addresses = list(
 	if (LAZYLEN(config.client_blacklist_version))
 		var/client_version = "[byond_version].[byond_build]"
 		if (client_version in config.client_blacklist_version)
-			to_chat(src, "<span class='danger'><b>Your version of BYOND is explicitly blacklisted from joining this server!</b></span>")
-			to_chat(src, "Your current version: [client_version].")
-			to_chat(src, "Visit http://www.byond.com/download/ to download a different version. Try looking for a newer one, or go one lower.")
+			to_chat_immediate(src, "<span class='danger'><b>Your version of BYOND is explicitly blacklisted from joining this server!</b></span>")
+			to_chat_immediate(src, "Your current version: [client_version].")
+			to_chat_immediate(src, "Visit http://www.byond.com/download/ to download a different version. Try looking for a newer one, or go one lower.")
 			log_access("Failed Login: [key] [computer_id] [address] - Blacklisted BYOND version: [client_version].")
 			del(src)
 			return 0
+
+	if(!chatOutput)
+		chatOutput = new(src)
 
 	if(IsGuestKey(key) && config.external_auth)
 		src.authed = FALSE
@@ -369,7 +369,6 @@ var/list/localhost_addresses = list(
 		m.client = src
 		src.InitPrefs() //Init some default prefs
 		m.LateLogin()
-		chatOutput.start()
 		return m
 		//Do auth shit
 	else
@@ -377,7 +376,6 @@ var/list/localhost_addresses = list(
 		src.InitClient()
 		src.InitPrefs()
 		mob.LateLogin()
-		chatOutput.start()
 
 /client/proc/InitPrefs()
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
@@ -392,6 +390,9 @@ var/list/localhost_addresses = list(
 	prefs.last_id = computer_id			//these are gonna be used for banning
 	if (byond_version >= 511 && prefs.clientfps)
 		fps = prefs.clientfps
+
+	if(prefs.toggles_secondary & FULLSCREEN_MODE)
+		toggle_fullscreen(TRUE)
 
 /client/proc/InitClient()
 	to_chat(src, "<span class='alert'>If the title screen is black, resources are still downloading. Please be patient until the title screen appears.</span>")
@@ -599,6 +600,24 @@ var/list/localhost_addresses = list(
 	set category = "Preferences"
 	if(prefs)
 		prefs.ShowChoices(usr)
+
+/client/verb/toggle_fullscreen_preference()
+	set name = "Toggle Fullscreen Preference"
+	set category = "Preferences"
+	set desc = "Toggles whether the game window will be true fullscreen or normal."
+
+	prefs.toggles_secondary ^= FULLSCREEN_MODE
+	prefs.save_preferences()
+	toggle_fullscreen(prefs.toggles_secondary & FULLSCREEN_MODE)
+
+/client/proc/toggle_fullscreen(new_value)
+	if(new_value)
+		winset(src, "mainwindow", "is-maximized=false;can-resize=false;titlebar=false;menu=menu")
+		winset(src, "mainwindow.mainvsplit", "pos=0x0")
+	else
+		winset(src, "mainwindow", "is-maximized=false;can-resize=true;titlebar=true;menu=menu")
+		winset(src, "mainwindow.mainvsplit", "pos=3x0")
+	winset(src, "mainwindow", "is-maximized=true")
 
 /client/proc/apply_fps(var/client_fps)
 	if(world.byond_version >= 511 && byond_version >= 511 && client_fps >= 0 && client_fps <= 1000)

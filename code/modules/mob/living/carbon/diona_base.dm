@@ -18,12 +18,14 @@ var/list/diona_banned_languages = list(
 	/datum/language/cultcommon,
 	/datum/language/corticalborer,
 	/datum/language/binary,
-	/datum/language/binary/drone)
+	/datum/language/binary/drone,
+	/datum/language/bug,
+	/datum/language/ling,
+	/datum/language/revenant,
+	/datum/language/machine)
 
 #define DIONA_LIGHT_COEFICIENT 0.25
 /mob/living/carbon/proc/diona_handle_light(var/datum/dionastats/DS) //Carbon is the highest common denominator between gestalts and nymphs. They will share light code
-	//if light_organ is non null, then we're working with a gestalt. otherwise nymph
-
 	var/light_amount = DS.last_lightlevel //If we're not re-fetching the light level then we'll use a recent cached version
 
 	if (life_tick % 2 == 0) //Only fetch the lightlevel every other proc to save performance
@@ -78,19 +80,12 @@ var/list/diona_banned_languages = list(
 	if (!pressure)
 		return 0
 
-	if (DS.nutrient_organ)
-		if (DS.nutrient_organ.is_broken())
-			return 0
-
 	if (consume_nutrition_from_air && (nutrition / max_nutrition > 0.25))
 		to_chat(src, SPAN_NOTICE("You feel like you have replanished enough of nutrition to stay alive. Consuming more makes you feel gross."))
 		consume_nutrition_from_air = !consume_nutrition_from_air
 		return
 
 	var/plus= (min(pressure,diona_max_pressure)  / diona_max_pressure)* diona_nutrition_factor
-	if (DS.nutrient_organ)
-		if(DS.nutrient_organ.is_bruised())
-			plus *= 0.5
 	plus = min(plus, max_nutrition - nutrition)
 
 	adjustNutritionLoss(-plus)
@@ -352,7 +347,6 @@ var/list/diona_banned_languages = list(
 			to_chat(src, "<span class='danger'>You feel a shifting sensation inside you as your nymphs move apart to make space, forming a new [O.name].</span>")
 			regenerate_icons()
 			DS.LMS = max(2, DS.LMS) //Prevents a message about darkness in light areas
-			update_dionastats() //Re-find the organs in case they were lost or regained
 			updatehealth()
 			return
 
@@ -413,7 +407,6 @@ var/list/diona_banned_languages = list(
 	DS.LMS = min(2, DS.LMS) //Prevents a message about darkness in light areas
 	DS.regening_organ = FALSE
 
-	update_dionastats() //Re-find the organs in case they were lost or regained
 	updatehealth()
 	DS.regen_limb_progress = 0
 	playsound(src, 'sound/species/diona/gestalt_grow.ogg', 30, 1)
@@ -477,13 +470,7 @@ var/list/diona_banned_languages = list(
 	if (is_ventcrawling)
 		return -1.5 //no light inside pipes
 
-
-	if (DS.light_organ)
-		if (DS.light_organ.is_broken())
-			light_factor *= 0.55
-		else if (DS.light_organ.is_bruised())
-			light_factor *= 0.8
-	else if (DS.dionatype == 2)
+	if (DS.dionatype == 2)
 		light_factor = 1
 
 	if (T)
@@ -524,6 +511,7 @@ var/list/diona_banned_languages = list(
 	languages.Cut()
 
 	add_language(species.default_language) //They always have rootsong
+	accent = host.accent //Get the accent of the main gestalt
 
 	for (var/datum/language/L in host.languages)
 		var/chance = 40
@@ -548,7 +536,7 @@ var/list/diona_banned_languages = list(
 	if(!gestalt)
 		to_chat(src, SPAN_WARNING("You have no Gestalt!"))
 	else if(gestalt.stat == DEAD)
-		to_chat(src, SPAN_DANGER("Your Gestlat is not responding! Something could have happened to it!"))
+		to_chat(src, SPAN_DANGER("Your Gestalt is not responding! Something might have happened to it!"))
 	else
 		gestalt.key = key
 		return TRUE
@@ -559,8 +547,10 @@ var/list/diona_banned_languages = list(
 	set desc = "Allows you to merge back to your parent Gestalt."
 	set category = "Abilities"
 
-	for(var/mob/living/carbon/human/H in view(src, 7))
+	for(var/mob/living/carbon/human/H in range(1))
 		if(!H.is_diona())
+			continue
+		if(!Adjacent(H))
 			continue
 		var/mob/living/carbon/human/diona/C = H
 		if(C == gestalt)
@@ -608,8 +598,6 @@ var/list/diona_banned_languages = list(
 	var/list/sampled_DNA = list()
 	var/list/language_progress = list()
 
-	var/obj/item/organ/internal/diona/node/light_organ = null //The organ this gestalt uses to receive light. This is left null for nymphs
-	var/obj/item/organ/internal/diona/nutrients/nutrient_organ = null //Organ
 	var/LMS = 1 //Lightmessage state. Switching between states gives the user a message
 	var/dionatype //1 = nymph, 2 = worker gestalt
 	var/datum/weakref/nym
@@ -684,11 +672,6 @@ var/list/diona_banned_languages = list(
 			user.add_language(i)
 			to_chat(user, SPAN_NOTICE("<font size=3>You have mastered the [i] language!</font>"))
 			language_progress.Remove(i)
-
-/datum/dionastats/Destroy()
-	light_organ = null //Nulling out these references to prevent GC errors
-	nutrient_organ = null
-	return ..()
 
 #undef TEMP_REGEN_STOP
 #undef TEMP_REGEN_NORMAL

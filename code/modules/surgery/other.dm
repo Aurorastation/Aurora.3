@@ -201,7 +201,7 @@
 		return FALSE
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	return affected && (affected.status & ORGAN_TENDON_CUT) && affected.open >= ORGAN_OPEN_RETRACTED
+	return affected && (affected.tendon_status() & TENDON_CUT) && affected.open >= ORGAN_OPEN_RETRACTED
 
 /decl/surgery_step/fix_tendon/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -214,7 +214,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_NOTICE("[user] has reattached the [affected.tendon_name] in [target]'s [affected.name] with \the [tool]."), \
 		SPAN_NOTICE("You have reattached the [affected.tendon_name] in [target]'s [affected.name] with \the [tool]."))
-	affected.status &= ~ORGAN_TENDON_CUT
+	affected.tendon.heal()
 	affected.update_damages()
 
 /decl/surgery_step/fix_tendon/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -296,7 +296,9 @@
 			to_chat(user, SPAN_WARNING("The blades aren't spinning, you can't cut anything!"))
 			return FALSE
 
-	return (affected.limb_flags & ORGAN_CAN_AMPUTATE)
+	if(affected.limb_flags & ORGAN_CAN_AMPUTATE)
+		var/confirmation = alert("You are about to amputate [target]'s [affected.name]! Are you sure you want to do that?", "Amputation confirmation", "Yes", "No")
+		return confirmation == "Yes"
 
 /decl/surgery_step/amputate/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)

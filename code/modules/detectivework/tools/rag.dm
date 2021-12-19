@@ -64,13 +64,14 @@
 	update_name()
 	update_icon()
 
-/obj/item/reagent_containers/glass/rag/proc/update_name()
+/obj/item/reagent_containers/glass/rag/proc/update_name(var/base_name = initial(name))
+	SEND_SIGNAL(src, COMSIG_BASENAME_SETNAME, args)
 	if(on_fire)
-		name = "burning [initial(name)]"
+		name = "burning [base_name]"
 	else if(reagents.total_volume)
-		name = "damp [initial(name)]"
+		name = "damp [base_name]"
 	else
-		name = "dry [initial(name)]"
+		name = "dry [base_name]"
 
 /obj/item/reagent_containers/glass/rag/update_icon()
 	if(on_fire)
@@ -107,7 +108,7 @@
 
 /obj/item/reagent_containers/glass/rag/proc/wipe_down(atom/A, mob/user)
 	if(!reagents.total_volume)
-		to_chat(user, SPAN_WARNING("\The [initial(name)] is dry!"))
+		to_chat(user, SPAN_WARNING("\The [name] is dry!"))
 	else
 		if (!(last_clean && world.time < last_clean + 120) )
 			user.visible_message("<b>[user]</b> starts to wipe [A] with [src].")
@@ -301,6 +302,12 @@
 	possible_transfer_amounts = list(5)
 	volume = 10
 	cleantime = 15
+
+/obj/item/reagent_containers/glass/rag/advanced/idris
+	name = "Idris advanced service cloth"
+	desc = "An advanced rag developed and sold by Idris Incorporated at a steep price. It's dry-clean design and advanced insulating synthetic weave make this the pinnacle of service cloths for any self respecting chef or bartender!"
+	icon_state = "idrisrag"
+	volume = 15
 
 /obj/item/reagent_containers/glass/rag/handkerchief
 	name = "handkerchief"

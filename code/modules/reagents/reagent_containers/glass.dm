@@ -4,7 +4,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 /obj/item/reagent_containers/glass
 	name = " "
-	var/base_name = " "
 	desc = " "
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = null
@@ -23,7 +22,7 @@
 
 /obj/item/reagent_containers/glass/Initialize()
 	. = ..()
-	base_name = name
+	AddComponent(/datum/component/base_name, name)
 
 /obj/item/reagent_containers/glass/examine(var/mob/user)
 	if(!..(user, 2))
@@ -82,7 +81,8 @@
 		return
 	. = ..() // in the case of nitroglycerin, explode BEFORE it shatters
 
-/obj/item/reagent_containers/glass/proc/update_name_label()
+/obj/item/reagent_containers/glass/proc/update_name_label(var/base_name = initial(name))
+	SEND_SIGNAL(src, COMSIG_BASENAME_SETNAME, args)
 	if(label_text == "")
 		name = base_name
 	else
@@ -214,8 +214,8 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 200)
 	w_class = ITEMSIZE_NORMAL
 	amount_per_transfer_from_this = 120
-	possible_transfer_amounts = list(10,20,30,60,120)
-	volume = 120
+	possible_transfer_amounts = list(5,10,15,25,30,50,60,100,120,250,300)
+	volume = 300
 	flags = OPENCONTAINER
 	unacidable = 0
 	drop_sound = 'sound/items/drop/helm.ogg'

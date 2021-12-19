@@ -224,7 +224,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		set_light(2, 0.25, "#E38F46")
 		START_PROCESSING(SSprocessing, src)
 
-/obj/item/clothing/mask/smokable/proc/die(var/no_message = 0)
+/obj/item/clothing/mask/smokable/proc/die(var/no_message = FALSE, var/intentionally = FALSE)
 	var/turf/T = get_turf(src)
 	set_light(0)
 	playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
@@ -235,15 +235,19 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			var/mob/living/M = loc
 			if(!no_message)
 				to_chat(M, SPAN_NOTICE("Your [name] goes out."))
-			if(M.wear_mask)
+			if(intentionally)
+				butt.loc = T
+			else if(M.wear_mask == src)
 				M.remove_from_mob(src) //un-equip it so the overlays can update
 				M.update_inv_wear_mask(0)
-				M.equip_to_slot_if_possible(butt, slot_wear_mask)
+				if(!(M.equip_to_slot_if_possible(butt, slot_wear_mask, ignore_blocked = TRUE)))
+					M.put_in_hands(butt) // In case the above somehow fails, ensure it is placed somewhere
 			else
 				M.remove_from_mob(src) // if it dies in your hand.
 				M.update_inv_l_hand(0)
 				M.update_inv_r_hand(1)
 				M.put_in_hands(butt)
+
 		STOP_PROCESSING(SSprocessing, src)
 		qdel(src)
 	else
@@ -296,6 +300,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	attack_verb = list("burnt", "singed")
 	icon_on = "cigon"  //Note - these are in masks.dmi not in cigarette.dmi
 	icon_off = "cigoff"
+	has_blood_overlay = FALSE
 	type_butt = /obj/item/trash/cigbutt
 	chem_volume = 30
 	burn_rate = 0.006 //Lasts ~166 seconds)
@@ -358,7 +363,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(lit)
 		user.visible_message(SPAN_NOTICE("<b>[user]</b> calmly drops and treads on the lit [src], putting it out instantly."), SPAN_NOTICE("You calmly drop and tread on the lit [src], putting it out instantly."))
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
-		die(TRUE)
+		die(TRUE, TRUE)
 	else // Cigarette packing. For compulsive smokers.
 		user.visible_message(SPAN_NOTICE("<b>[user]</b> taps \the [src] against their palm."), SPAN_NOTICE("You tap \the [src] against your palm."))
 	return ..()
@@ -777,6 +782,36 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	flame_light_color = LIGHT_COLOR_BLUE
 	flame_light_range = 2
 
+/obj/item/flame/lighter/zippo/nt
+	name = "\improper NanoTrasen Zippo lighter"
+	desc = "A zippo lighter with a depiction of NanoTrasen's iconic logo."
+	icon_state = "ntzippo"
+	item_state = "ntzippo"
+
+/obj/item/flame/lighter/zippo/fisanduh
+	name = "\improper Fisanduhian Zippo lighter"
+	desc = "A zippo with a depiction of the flag of the Confederate States of Fisanduh. This is a well crafted model that burns brighter and hotter than \
+	the usual lighter."
+	desc_fluff = "On Moroz it's rather hard to find a Confederate without at least some manner of lighter on their person. Fisanduhians don't \
+	smoke anymore than the rest of Moroz does, instead they prize these lighters for their utility. From burning loose thread to lighting a \
+	molotov and more. A common adage is that the fire of Fisanduh burns brighter than Dominia's, which seems to be true for their lighters at least. \
+	These have found purchase throughout the Spur due to their reliability and impressive capability to light up various things, causing a \
+	competition of sorts to arise with Fisanduhian and Himean producers over the best quality lighter."
+	icon_state = "fisanduhzippo"
+	item_state = "fisanduhzippo"
+	flame_light_range = 2
+
+/obj/item/flame/lighter/zippo/luceian
+	name = "\improper Luceian Zippo lighter"
+	desc = "A bright zippo lighter with the all-seeing eye of Ennoia on its front. Clearly Luceian."
+	desc_fluff = "Luceian lighters, sometimes referred to as “Ennoic Fires,” are commonly carried by Assunzionii as an emergency light \
+	source. A genuine lighter in the Luceian tradition will have a proving mark stamped upon its base that shows when and where it was \
+	blessed following its construction."
+	icon_state = "luceianzippo"
+	item_state = "luceianzippo"
+	flame_light_color = LIGHT_COLOR_WHITE
+	flame_light_range = 2
+
 /obj/item/flame/lighter/random/Initialize()
 	. = ..()
 	icon_state = "lighter-[pick("r","c","y","g")]"
@@ -999,7 +1034,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	..()
 
 /obj/item/reagent_containers/food/snacks/grown/attackby(obj/item/I, mob/user)
-	if(is_type_in_list(I, list(/obj/item/paper/cig/, /obj/item/paper/, /obj/item/teleportation_scroll)))
+	if(is_type_in_list(I, list(/obj/item/paper/cig/, /obj/item/paper/)))
 		if(!dry)
 			to_chat(user, SPAN_WARNING("You need to dry [src] first!"))
 			return

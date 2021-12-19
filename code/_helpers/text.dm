@@ -1,5 +1,12 @@
 #define SMALL_FONTS(FONTSIZE, MSG) "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: [FONTSIZE]px;\">[MSG]</span>"
 
+/// Macro from Lummox used to get height from a MeasureText proc
+#define WXH_TO_HEIGHT(x) text2num(copytext(x, findtextEx(x, "x") + 1))
+
+#define SPAN_RED(x) "<span style='color:[COLOR_RED]'>[x]</span>"
+#define SPAN_YELLOW(x) "<span style='color:[COLOR_YELLOW]'>[x]</span>"
+#define SPAN_GREEN(x) "<span style='color:[COLOR_GREEN]'>[x]</span>"
+
 /*
  * Holds procs designed to help with filtering text
  * Contains groups:
@@ -490,6 +497,7 @@
 	t = replacetext(t, "\[/large\]", "</font>")
 	t = replacetext(t, "\[small\]", "<font size = \"1\">")
 	t = replacetext(t, "\[/small\]", "</font>")
+	t = replacetext(t, "\[station\]", current_map.station_name)
 
 	// A break for signature customization code to use this proc as well.
 	if (limited)
@@ -516,6 +524,7 @@
 	t = replacetext(t, "\[/grid\]", "</td></tr></table>")
 	t = replacetext(t, "\[row\]", "</td><tr>")
 	t = replacetext(t, "\[cell\]", "<td>")
+	t = replacetext(t, "\[logo_scc\]", "<img src = scclogo.png>")
 	t = replacetext(t, "\[logo_nt\]", "<img src = ntlogo.png>")
 	t = replacetext(t, "\[logo_nt_small\]", "<img src = ntlogo_small.png>")
 	t = replacetext(t, "\[logo_zh\]", "<img src = zhlogo.png>")
@@ -533,6 +542,7 @@
 	t = replacetext(t, "\[flag_dpra\]", "<img src = dpraflag.png>")
 	t = replacetext(t, "\[flag_nka\]", "<img src = nkaflag.png>")
 	t = replacetext(t, "\[flag_izweski\]", "<img src = izweskiflag.png>")
+	t = replacetext(t, "\[logo_golden\]", "<img src = goldenlogo.png>")
 	t = replacetext(t, "\[barcode\]", "<img src = barcode[rand(0, 3)].png>")
 	t = replacetext(t, "\[time\]", "[worldtime2text()]")
 	t = replacetext(t, "\[date\]", "[worlddate2text()]")
@@ -540,7 +550,7 @@
 	t = replacetext(t, @"[image id=([\w]*?\.[\w]*?)]", "<img style=\"display:block;width:90%;\" src = [config.docs_image_host]$1></img>")
 	return t
 
-/proc/html2pencode(t)
+/proc/html2pencode(t, var/include_images = FALSE)
 	t = replacetext(t, "<B>", "\[b\]")
 	t = replacetext(t, "</B>", "\[/b\]")
 	t = replacetext(t, "<I>", "\[i\]")
@@ -556,6 +566,27 @@
 	t = replacetext(t, "</font>", "\[/large\]")
 	t = replacetext(t, "<font size = \"1\">", "\[small\]")
 	t = replacetext(t, "</font>", "\[/small\]")
+
+	if(include_images)
+		t = replacetext(t, "<img src = scclogo.png>", "\[logo_scc\]")
+		t = replacetext(t, "<img src = ntlogo.png>", "\[logo_nt\]")
+		t = replacetext(t, "<img src = ntlogo_small.png>", "\[logo_nt_small\]")
+		t = replacetext(t, "<img src = zhlogo.png>", "\[logo_zh\]")
+		t = replacetext(t, "<img src = idrislogo.png>", "\[logo_idris\]")
+		t = replacetext(t, "<img src = eridanilogo.png>", "\[logo_eridani\]")
+		t = replacetext(t, "<img src = zavodlogo.png>", "\[logo_zavod\]")
+		t = replacetext(t, "<img src = hplogo.png>", "\[logo_hp\]")
+		t = replacetext(t, "<img src = beflag.png>", "\[flag_be\]")
+		t = replacetext(t, "<img src = elyraflag.png>", "\[flag_elyra\]")
+		t = replacetext(t, "<img src = solflag.png>", "\[flag_sol\]")
+		t = replacetext(t, "<img src = cocflag.png>", "\[flag_coc\]")
+		t = replacetext(t, "<img src = domflag.png>", "\[flag_dom\]")
+		t = replacetext(t, "<img src = jargonflag.png>", "\[flag_jargon\]")
+		t = replacetext(t, "<img src = praflag.png>", "\[flag_pra\]")
+		t = replacetext(t, "<img src = dpraflag.png>", "\[flag_dpra\]")
+		t = replacetext(t, "<img src = nkaflag.png>", "\[flag_nka\]")
+		t = replacetext(t, "<img src = izweskiflag.png>", "\[flag_izweski\]")
+		t = replacetext(t, "<img src = goldenlogo.png>", "\[logo_golden\]")
 
 	return t
 
@@ -639,3 +670,29 @@
 	if(ending && !correct_punctuation[ending])
 		string += "."
 	return string
+
+/proc/num2loadingbar(percent as num, numSquares = 20, reverse = FALSE)
+	var/loadstring = ""
+	var/limit = reverse ? numSquares - percent*numSquares : percent*numSquares
+	for (var/i in 1 to numSquares)
+		loadstring += i <= limit ? "█" : "░"
+	return "\[[loadstring]\]"
+
+// Adds -s or -es to the very last word of given string
+/proc/pluralize_word(text, check_plural = FALSE)
+	var/l = length(text)
+	if (l)
+		switch(text[l])
+			if("z", "x")
+				return "[text]es"
+			if("s")
+				if (check_plural && l > 2)
+					return text
+				return "[text]es"
+			if("h") // -sh, -ch
+				if (l > 1)
+					var/second = text[l-1]
+					if(second == "s" || second == "c")
+						return "[text]es"
+		return "[text]s"
+	return ""

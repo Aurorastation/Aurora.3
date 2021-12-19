@@ -68,8 +68,7 @@
 
 /obj/item/gun/projectile/shotgun/pump/unique_action(mob/living/user)
 	if(jam_num)
-		return
-	else if(unjam_cooldown + 2 SECONDS > world.time)
+		to_chat(user, SPAN_WARNING("\The [src] is jammed!"))
 		return
 	if(world.time >= recentpump + 10)
 		pump(user)
@@ -88,13 +87,16 @@
 		playsound(src.loc, chambered.drop_sound, DROP_SOUND_VOLUME, FALSE, required_asfx_toggles = ASFX_DROPSOUND)
 		chambered = null
 
+	handle_pump_loading()
+
+	update_maptext()
+	update_icon()
+
+/obj/item/gun/projectile/shotgun/pump/proc/handle_pump_loading()
 	if(length(loaded))
 		var/obj/item/ammo_casing/AC = loaded[1] //load next casing.
 		loaded -= AC //Remove casing from loaded list.
 		chambered = AC
-
-	update_maptext()
-	update_icon()
 
 /obj/item/gun/projectile/shotgun/pump/combat
 	name = "combat shotgun"

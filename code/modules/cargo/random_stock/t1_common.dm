@@ -185,7 +185,7 @@ STOCK_ITEM_COMMON(wheelchair, 1)
 				T = U
 				break
 
-	new /obj/structure/bed/chair/wheelchair(T)
+	new /obj/structure/bed/stool/chair/office/wheelchair(T)
 
 STOCK_ITEM_COMMON(trap, 2)
 	new /obj/item/trap(L)
@@ -491,8 +491,6 @@ STOCK_ITEM_COMMON(gasmask, 2)
 		/obj/item/clothing/mask/gas = 10,
 		/obj/item/clothing/mask/gas/plaguedoctor = 1,
 		/obj/item/clothing/mask/gas/swat = 5,
-		/obj/item/clothing/mask/gas/clown_hat = 0.5,
-		/obj/item/clothing/mask/gas/sexyclown = 0.5,
 		/obj/item/clothing/mask/gas/mime = 0.5,
 		/obj/item/clothing/mask/gas/monkeymask = 0.5,
 		/obj/item/clothing/mask/gas/sexymime = 0.5,

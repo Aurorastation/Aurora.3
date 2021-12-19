@@ -5,7 +5,13 @@
 	contained_sprite = TRUE
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_HEAD | SLOT_EARS
-	species_restricted = list(SPECIES_SKRELL)
+	species_restricted = list(BODYTYPE_SKRELL)
+
+/obj/item/clothing/ears/skrell/get_ear_examine_text(var/mob/user, var/ear_text = "left")
+	return "on [user.get_pronoun("his")] headtails"
+
+/obj/item/clothing/ears/skrell/get_head_examine_text(var/mob/user)
+	return "on [user.get_pronoun("his")] headtails"
 
 /obj/item/clothing/ears/skrell/chain
 	name = "gold headtail chains"
@@ -254,18 +260,11 @@
 	icon_state = "skrellhairtie"
 	item_state = "scrunchy_seaweed"
 
-/obj/item/clothing/ears/skrell/scrunchy/hoop
-	icon_state = "skrellhairtie"
-	item_state = "scrunchy_hoop"
-
-/obj/item/clothing/ears/skrell/scrunchy/backwater
-	icon_state = "skrellhairtie"
-	item_state = "scrunchy_backwater"
-
-/obj/item/clothing/ears/skrell/scrunchy/driftwood
-	icon_state = "skrellhairtie"
-	item_state = "scrunchy_driftwood"
-
-/obj/item/clothing/ears/skrell/scrunchy/reef
-	icon_state = "skrellhairtie"
-	item_state = "scrunchy_reef"
+/obj/item/clothing/ears/skrell/scrunchy/equipped(mob/user, slot, assisted_equip)
+	if((slot in list(slot_head, slot_l_ear, slot_r_ear)) && ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(istype(hair_styles_list[H.h_style], /datum/sprite_accessory/hair/skr_tentacle_m))
+			var/datum/sprite_accessory/hair/skr_tentacle_m/hair_datum = hair_styles_list[H.h_style]
+			if(hair_datum.scrunchy_style)
+				item_state = "scrunchy_[hair_datum.scrunchy_style]"
+	return ..()

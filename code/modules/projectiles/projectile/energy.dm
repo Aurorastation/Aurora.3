@@ -219,6 +219,7 @@
 
 /obj/item/projectile/energy/blaster/heavy
 	damage = 35
+	armor_penetration = 10
 
 /obj/item/projectile/energy/blaster/incendiary
 	icon_state = "laser"

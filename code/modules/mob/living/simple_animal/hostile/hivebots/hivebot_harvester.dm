@@ -7,7 +7,6 @@
 	maxHealth = 100
 	blood_type = COLOR_OIL
 	blood_overlay_icon = 'icons/mob/npc/blood_overlay_hivebot.dmi'
-	harm_intent_damage = 3
 	melee_damage_lower = 30
 	melee_damage_upper = 30
 	destroy_surroundings = 0
@@ -160,8 +159,8 @@
 				update_icon()
 				return
 
-		if(istype(O, /obj/item/stool))
-			var/obj/item/stool/S = O
+		if(istype(O, /obj/structure/bed/stool))
+			var/obj/structure/bed/stool/S = O
 			src.visible_message(SPAN_NOTICE("[src] starts to dismantle \the [S]."))
 			busy = 2
 			update_icon()

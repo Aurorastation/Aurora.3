@@ -8,9 +8,9 @@
 		)
 	item_flags = THICKMATERIAL
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
+		melee = ARMOR_MELEE_KEVLAR,
 		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
+		laser = ARMOR_LASER_KEVLAR,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED
 	)
@@ -22,7 +22,6 @@
 	siemens_coefficient = 0.5
 	w_class = ITEMSIZE_NORMAL
 	var/obj/machinery/camera/camera
-	var/allow_hair_covering = TRUE //in case if you want to allow someone to switch the BLOCKHEADHAIR var from the helmet or not
 	drop_sound = 'sound/items/drop/helm.ogg'
 	pickup_sound = 'sound/items/pickup/helm.ogg'
 
@@ -52,14 +51,6 @@
 	if(..(user, 1) && camera)
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("To toggle the helmet camera, right click the helmet and press <b>Toggle Helmet Camera</b>.")))
 		to_chat(user, "This helmet has a built-in camera. It's [!ispath(camera) && camera.status ? "" : "in"]active.")
-
-/obj/item/clothing/head/helmet/verb/toggle_block_hair()
-	set name = "Toggle Helmet Hair Coverage"
-	set category = "Object"
-
-	if(allow_hair_covering)
-		flags_inv ^= BLOCKHEADHAIR
-		to_chat(usr, "<span class='notice'>[src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair.</span>")
 
 /obj/item/clothing/head/helmet/hos
 	name = "head of security helmet"
@@ -423,41 +414,3 @@
 	light_wedge = LIGHT_WIDE
 	camera = /obj/machinery/camera/network/tcfl
 	on = 0
-
-/obj/item/clothing/head/helmet/legion_pilot
-	name = "foreign legion flight helmet"
-	desc = "A helmet with an aged pilot visor mounted to it. The visor feeds its wearer in-flight information via a heads-up display."
-	icon_state = "legion_pilot_up"
-	body_parts_covered = null
-	flags_inv = BLOCKHEADHAIR
-	armor = list(
-		melee = ARMOR_MELEE_KNIVES,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED
-	)
-	camera = /obj/machinery/camera/network/tcfl
-	siemens_coefficient = 0.35
-	action_button_name = "Flip Pilot Visor"
-
-/obj/item/clothing/head/helmet/legion_pilot/attack_self()
-	flip_visor()
-
-/obj/item/clothing/head/helmet/legion_pilot/verb/flip_visor()
-	set category = "Object"
-	set name = "Flip pilot visor"
-	var/mob/living/carbon/human/user
-	if(istype(usr,/mob/living/carbon/human))
-		user = usr
-	else
-		return
-	if(icon_state == initial(icon_state))
-		icon_state = "legion_pilot"
-		to_chat(user, "You flip down the pilot visor.")
-		sound_to(user, 'sound/items/goggles_charge.ogg')
-	else
-		icon_state = initial(icon_state)
-		to_chat(user, "You flip up the pilot visor.")
-	update_clothing_icon()
-	user.update_action_buttons()

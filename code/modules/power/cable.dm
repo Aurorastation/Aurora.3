@@ -66,7 +66,7 @@ By design, d1 is the smallest direction and d2 is the highest
 /obj/structure/cable/white
 	color = COLOR_WHITE
 
-/obj/structure/cable/Initialize()
+/obj/structure/cable/Initialize(mapload)
 	. = ..()
 
 	// ensure d1 & d2 reflect the icon_state for entering and exiting cable
@@ -82,6 +82,13 @@ By design, d1 is the smallest direction and d2 is the highest
 		hide(!T.is_plating())
 
 	SSpower.all_cables += src //add it to the global cable list
+
+	if(mapload)
+		var/image/I = image(icon, T, icon_state, EFFECTS_ABOVE_LIGHTING_LAYER, dir, pixel_x, pixel_y)
+		I.plane = 0
+		I.alpha = 125
+		I.color = color
+		LAZYADD(T.blueprints, I)
 
 /obj/structure/cable/Destroy()					// called when a cable is deleted
 	if(powernet)
@@ -476,7 +483,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	throw_range = 5
 	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 20)
 	recyclable = TRUE
-	flags = CONDUCT
+	flags = HELDMAPTEXT|CONDUCT
 	slot_flags = SLOT_BELT
 	attack_verb = list("whipped", "lashed", "disciplined", "flogged")
 	stacktype = /obj/item/stack/cable_coil
@@ -623,6 +630,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	update_held_icon()
 	cut_overlays()
 	add_overlay(overlay_image(icon, "[icon_state]_end", flags=RESET_COLOR))
+	check_maptext(SMALL_FONTS(7, get_amount()))
 
 /obj/item/stack/cable_coil/attackby(var/obj/item/W, var/mob/user)
 	if(W.ismultitool())
@@ -654,7 +662,10 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 /obj/item/stack/cable_coil/examine(mob/user)
 	..()
-	to_chat(user, "There [src.amount == 1 ? "is" : "are"] <b>[src.amount]</b> [src.singular_name]\s of cable in the coil.")
+	if(!uses_charge)
+		to_chat(user, "There [src.amount == 1 ? "is" : "are"] <b>[src.amount]</b> [src.singular_name]\s of cable in the coil.")
+	else
+		to_chat(user, "You have enough charge to produce <b>[get_amount()]</b>.")
 
 /obj/item/stack/cable_coil/verb/make_restraint()
 	set name = "Make Cable Restraints"
@@ -990,7 +1001,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 	if(!isturf(usr.loc))
 		return
-	if(!(locate(/obj/item/stool) in usr.loc) && !(locate(/obj/structure/bed) in usr.loc) && !(locate(/obj/structure/table) in usr.loc) && !(locate(/obj/structure/toilet) in usr.loc))
+	if(!(locate(/obj/structure/bed/stool) in usr.loc) && !(locate(/obj/structure/bed) in usr.loc) && !(locate(/obj/structure/table) in usr.loc) && !(locate(/obj/structure/toilet) in usr.loc))
 		to_chat(usr, SPAN_WARNING("You have to be standing on top of a chair/table/bed to make a noose!"))
 		return FALSE
 	if(amount < 25)
@@ -1105,6 +1116,10 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			to_chat(user, SPAN_DANGER("They don't have a head."))
 			return
 
+	if(M.mob_size >= 20)
+		to_chat(user, SPAN_DANGER("They are too large for the noose to hold."))
+		return
+
 	if(M.loc != src.loc) return FALSE //Can only noose someone if they're on the same tile as noose
 
 	add_fingerprint(user)
@@ -1182,7 +1197,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		var/mob/living/B = buckled
 		if (ishuman(B))
 			var/mob/living/carbon/human/H = B
-			if (H.species && (H.species.flags & NO_BREATHE))
+			if (H.species && (H.species.flags & NO_BREATHE) || isvaurca(H))
 				return
 		B.adjustOxyLoss(5)
 		B.adjustBrainLoss(1)

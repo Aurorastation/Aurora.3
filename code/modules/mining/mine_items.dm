@@ -393,6 +393,20 @@
 	throwforce = 7.0
 	w_class = ITEMSIZE_SMALL
 
+/obj/item/shovel/gadpathur
+	name = "trench shovel"
+	desc = "A standard-issue Gadpathurian entrenching tool. Sharpened edges make this tool/weapon equally adept at breaking earth and collarbones."
+	icon_state = "gadpathur_shovel"
+	item_state = "gadpathur_shovel"
+	force = 10
+	w_class = ITEMSIZE_NORMAL
+	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1, TECH_COMBAT = 2)
+	attack_verb = list("bashed", "bludgeoned", "thrashed", "whacked", "slashed", "cut")
+	sharp = TRUE
+
+/obj/item/shovel/gadpathur/iscrowbar()
+	return TRUE
+
 // Flags.
 
 /obj/item/stack/flag
@@ -1334,12 +1348,11 @@ var/list/total_extraction_beacons = list()
 	icon_state = "punchingbag"
 	anchored = TRUE
 	layer = 5.1
-	var/list/hit_sounds = list("swing_hit", "punch")
 
 /obj/structure/punching_bag/attack_hand(mob/user as mob)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	flick("[icon_state]2", src)
-	playsound(get_turf(src), pick(src.hit_sounds), 25, 1, -1)
+	playsound(get_turf(src), /decl/sound_category/swing_hit_sound, 25, 1, -1)
 
 /obj/structure/weightlifter
 	name = "weight machine"

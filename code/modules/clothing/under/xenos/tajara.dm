@@ -8,6 +8,7 @@
 	desc_fluff = "Having direct and friendly contact with humanity, The People's Republic of Adhomai has been the most influenced by the spacer fashion. The most known \
 	being the \"assistant jumpsuits\" which directly inspired the design of factory overalls, the plight and low pay of the assistants being close to the hearts of Tajara Hadiist \
 	workers and their Republic."
+	no_overheat = TRUE
 
 /obj/item/clothing/under/tajaran/fancy
 	name = "fancy uniform"
@@ -22,7 +23,7 @@
 
 /obj/item/clothing/under/tajaran/nt
 	name = "NanoTrasen overalls"
-	desc = "Overalls meant for NanoTrasen employees of xeno descend, modified to prevent overheating."
+	desc = "Overalls meant for NanoTrasen employees of xeno descent, modified to prevent overheating."
 	icon_state = "ntoveralls"
 	item_state = "ntoveralls"
 
@@ -79,7 +80,7 @@
 /obj/item/clothing/under/tajaran/raakti_shariim
 	name = "\improper Raakti Shariim uniform"
 	desc = "A blue and lilac adhomian uniform with pale-gold insignia, worn by members of the NKA's Raakti Shariim."
-	icon = 'icons/obj/clothing/species/tajaran/raakti_shariim.dmi'
+	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "raakti_shariim_uniform"
 	item_state = "raakti_shariim_uniform"
 	desc_fluff = "The Raakti Shariim (Royal Peacekeepers in Ceti Basic) are the New Kingdom of Adhomai's policing and \
@@ -95,6 +96,7 @@
 	icon_state = "taj_dress_white"
 	item_state = "taj_dress_white"
 	contained_sprite = TRUE
+	no_overheat = TRUE
 	desc_fluff = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
 	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
 	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters usually shatter against how effective and cheap it is to \

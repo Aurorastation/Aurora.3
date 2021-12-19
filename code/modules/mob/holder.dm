@@ -623,6 +623,14 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "rabbit_rest"
 	item_state = "rabbit"
 
+/obj/item/holder/pai/parrot
+	icon_state = "parrot_rest"
+	item_state = "parrot"
+
+/obj/item/holder/pai/fox
+	icon_state = "fox_rest"
+	item_state = "fox"
+
 /obj/item/holder/pai/custom
 	var/customsprite = 1
 
@@ -655,7 +663,19 @@ var/list/holder_mob_icon_cache = list()
 
 /obj/item/holder/schlorrgo
 	name = "schlorrgo"
-	icon = 'icons/mob/npc/livestock.dmi'
+	icon = 'icons/mob/npc/schlorrgo.dmi'
 	icon_state = "schlorgo"
 	item_state = "schlorgo"
 	w_class = ITEMSIZE_NORMAL
+
+/obj/item/holder/schlorrgo/baby
+	name = "schlorrgo hatchling"
+	icon_state = "schlorrgo_baby"
+	item_state = "schlorrgo_baby"
+	w_class = ITEMSIZE_SMALL
+
+/obj/item/holder/schlorrgo/fat
+	name = "fat schlorrgo"
+	icon_state = "schlorrgo_fat"
+	item_state = "schlorrgo_fat"
+	w_class = ITEMSIZE_LARGE

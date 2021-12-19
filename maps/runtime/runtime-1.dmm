@@ -645,7 +645,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "bE" = (
-/obj/structure/table/standard,
+/obj/machinery/computer/ship/sensors,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "bF" = (
@@ -1357,14 +1357,8 @@
 	},
 /turf/simulated/floor/tiled,
 /area/storage/primary)
-"dt" = (
-/obj/effect/landmark/start,
-/turf/simulated/floor/tiled,
-/area/storage/primary)
 "du" = (
-/obj/effect/landmark{
-	name = "JoinLate"
-	},
+/obj/effect/landmark/force_spawnpoint,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "dv" = (
@@ -1505,6 +1499,12 @@
 /obj/machinery/computer/security,
 /turf/simulated/floor/tiled,
 /area/bridge)
+"nB" = (
+/obj/machinery/atmospherics/binary/pump/high_power/on{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/storage/primary)
 "ob" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -1518,6 +1518,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"pv" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/overmap/visitable/ship/runtime,
+/turf/simulated/floor/tiled,
+/area/bridge)
 "pM" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -1546,6 +1555,12 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/bridge)
+"uA" = (
+/obj/machinery/atmospherics/pipe/tank/phoron{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/storage/primary)
 "uI" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
@@ -1555,6 +1570,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
+"vm" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/template_noop,
+/area/engineering)
 "wk" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -1562,6 +1586,16 @@
 /obj/item/modular_computer/console/preset/command,
 /turf/simulated/floor/tiled,
 /area/bridge)
+"xb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/storage/primary)
+"xv" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/turf/simulated/floor/plating,
+/area/storage/primary)
 "yC" = (
 /obj/structure/lattice,
 /obj/machinery/power/terminal{
@@ -1591,6 +1625,11 @@
 /obj/machinery/door/airlock/glass,
 /turf/simulated/floor/plating,
 /area/storage/primary)
+"ES" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/shipsensors,
+/turf/template_noop,
+/area/engineering)
 "FZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/recharge_station,
@@ -1604,6 +1643,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"Gr" = (
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Chief Engineer";
+	name = "force spawnpoint (CE)"
+	},
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "HB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -1632,6 +1678,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction)
+"In" = (
+/obj/machinery/computer/ship/helm,
+/turf/simulated/floor/tiled,
+/area/bridge)
+"IY" = (
+/obj/machinery/computer/ship/engines,
+/turf/simulated/floor/plating,
+/area/storage/primary)
 "Kz" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/blue{
 	dir = 4
@@ -1665,6 +1719,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"QV" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/turf/simulated/floor/plating,
+/area/storage/primary)
+"Ro" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/storage/primary)
 "RL" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -1681,6 +1745,12 @@
 /obj/machinery/computer/station_alert/all,
 /turf/simulated/floor/tiled,
 /area/bridge)
+"TD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/storage/primary)
 "TP" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -1709,6 +1779,12 @@
 /obj/turbolift_map_holder/runtime,
 /turf/simulated/floor/plating,
 /area/turbolift/main_station)
+"Yc" = (
+/obj/effect/landmark{
+	name = "carpspawn"
+	},
+/turf/template_noop,
+/area/template_noop)
 "YP" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -1716,6 +1792,16 @@
 /obj/item/modular_computer/console/preset/command/captain,
 /turf/simulated/floor/tiled,
 /area/bridge)
+"YR" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/storage/primary)
+"ZE" = (
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/engineering)
 
 (1,1,1) = {"
 aa
@@ -1959,7 +2045,7 @@ aa
 aa
 aa
 aa
-aa
+Yc
 aa
 aa
 aa
@@ -2469,7 +2555,7 @@ aa
 aa
 aa
 aa
-aa
+Yc
 aa
 aa
 "}
@@ -2840,10 +2926,10 @@ dx
 cK
 ae
 ac
-aa
-ab
-aa
-aa
+cP
+cP
+cP
+cP
 aa
 aa
 aa
@@ -2871,8 +2957,8 @@ aN
 aZ
 ab
 bs
-bE
-cb
+In
+pv
 mn
 br
 cA
@@ -2894,10 +2980,10 @@ dx
 cK
 ae
 ac
-aa
-ab
-aa
-aa
+dc
+TD
+uA
+cP
 aa
 aa
 aa
@@ -2948,10 +3034,10 @@ dx
 cK
 ae
 ac
-aa
-ab
-aa
-aa
+TD
+xv
+uA
+cP
 aa
 aa
 aa
@@ -2965,7 +3051,7 @@ aa
 aa
 aa
 aa
-aa
+Yc
 aa
 aa
 ab
@@ -2974,10 +3060,10 @@ ad
 aa
 aa
 ab
-aA
+vm
+ZE
+ZE
 ab
-aa
-aa
 bs
 bG
 cb
@@ -3002,10 +3088,10 @@ dx
 cK
 ae
 ac
-aa
-ab
-aa
-aa
+xb
+Ro
+uA
+cP
 aa
 aa
 aa
@@ -3030,8 +3116,8 @@ aa
 ah
 aB
 ah
-aa
-aa
+ZE
+ab
 bs
 bH
 cb
@@ -3056,10 +3142,10 @@ dy
 cK
 ae
 ac
-aa
-ab
-aa
-aa
+xb
+cP
+cP
+cP
 aa
 aa
 aa
@@ -3084,8 +3170,8 @@ aa
 ah
 kM
 ah
-aa
-aa
+ES
+ab
 br
 bI
 cc
@@ -3110,9 +3196,9 @@ cP
 cP
 ae
 ac
-aa
-ab
-aa
+nB
+TD
+YR
 aa
 aa
 aa
@@ -3161,12 +3247,12 @@ dc
 dc
 dg
 dc
+dc
+dc
+dc
+Ro
+QV
 cP
-ae
-ac
-aa
-ab
-aa
 aa
 aa
 aa
@@ -3218,9 +3304,9 @@ dc
 cP
 ae
 ac
-aa
-ab
-aa
+IY
+Ro
+YR
 aa
 aa
 aa
@@ -3272,9 +3358,9 @@ cZ
 cP
 ae
 ac
-aa
-ab
-aa
+cP
+cP
+cP
 aa
 aa
 aa
@@ -3316,7 +3402,7 @@ da
 dl
 dc
 do
-dt
+du
 du
 dl
 dc
@@ -3370,7 +3456,7 @@ da
 dl
 dc
 do
-dt
+du
 du
 dl
 dc
@@ -3424,7 +3510,7 @@ da
 dl
 dc
 do
-dt
+du
 du
 dl
 dc
@@ -3474,11 +3560,11 @@ bB
 bB
 cS
 da
-da
+Gr
 dl
 dc
 pM
-dt
+du
 du
 dl
 dc
@@ -3532,7 +3618,7 @@ da
 dl
 dc
 do
-dt
+du
 du
 dl
 dc
@@ -3586,7 +3672,7 @@ da
 dl
 dc
 do
-dt
+du
 du
 dl
 dc
@@ -3640,7 +3726,7 @@ da
 dl
 dc
 do
-dt
+du
 du
 dl
 dc
@@ -3710,7 +3796,7 @@ aa
 aa
 aa
 aa
-aa
+Yc
 aa
 aa
 aa
@@ -4223,7 +4309,7 @@ aa
 aa
 aa
 aa
-aa
+Yc
 aa
 aa
 aa

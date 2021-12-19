@@ -1,78 +1,3 @@
-/obj/structure/bed/chair/e_chair
-	name = "electric chair"
-	desc = "Looks absolutely SHOCKING!"
-	icon_state = "echair0"
-	var/on = 0
-	var/obj/item/assembly/shock_kit/part = null
-	var/last_time = 0
-
-/obj/structure/bed/chair/e_chair/update_icon()
-	return
-
-/obj/structure/bed/chair/e_chair/Initialize()
-	. = ..()
-	add_overlay(image('icons/obj/furniture.dmi', src, "echair_over", MOB_LAYER + 1))
-	if(!part)
-		part = new /obj/item/assembly/shock_kit(src)
-		part.master = src
-		part.part1 = new /obj/item/clothing/head/helmet(part)
-		part.part2 = new /obj/item/device/radio/electropack(part)
-		part.part1.master = part
-		part.part2.master = part
-
-/obj/structure/bed/chair/e_chair/Destroy()
-	if (part)
-		part.master = null
-		part = null
-
-	. = ..()
-
-/obj/structure/bed/chair/e_chair/attackby(obj/item/W as obj, mob/user as mob)
-	if(W.iswrench())
-		var/obj/structure/bed/chair/C = new /obj/structure/bed/chair(loc)
-		playsound(loc, W.usesound, 50, 1)
-		C.set_dir(dir)
-		part.forceMove(get_turf(src))
-		part.master = null
-		part = null
-		qdel(src)
-
-/obj/structure/bed/chair/e_chair/verb/toggle()
-	set name = "Toggle Electric Chair"
-	set category = "Object"
-	set src in oview(1)
-
-	if(usr.stat || usr.paralysis || usr.stunned || usr.weakened || usr.lying || usr.restrained() || usr.buckled_to)
-		return
-
-	if(on)
-		on = 0
-		icon_state = "echair0"
-	else
-		on = 1
-		shock()
-		icon_state = "echair1"
-	to_chat(usr, "<span class='notice'>You switch [on ? "on" : "off"] [src].</span>")
-
-/obj/structure/bed/chair/e_chair/proc/shock()
-	if(!on)
-		return
-
-	var/obj/structure/cable/C = locate(/obj/structure/cable, get_turf(src))
-	var/datum/powernet/PN = C.powernet
-	flick("echair1", src)
-	spark(src, 12, alldirs)
-	if(istype(buckled, /mob/living) && istype(C))
-		var/mob/living/M = buckled
-		if(electrocute_mob(M, C, src, 1.25, BP_HEAD))
-			to_chat(M, "<span class='danger'>You feel a deep shock course through your body!</span>")
-			sleep(1)
-			if(electrocute_mob(M, C, src, 1.25, BP_HEAD))
-				M.Stun(PN.get_electrocute_damage()*10)
-	visible_message("<span class='danger'>The electric chair goes off!</span>", "<span class='danger'>You hear an electrical discharge!</span>")
-
-	return
-
 /obj/item/pocketwatch
 	name = "pocketwatch"
 	desc = "A watch that goes in your pocket."
@@ -169,12 +94,12 @@
 		var/thrall_response = alert(H, "Do you believe in hypnosis?", "Willpower", "Yes", "No")
 		if(thrall_response == "No")
 			H.sleeping = max(H.sleeping - 40, 0)
-			H.drowsyness = max(H.drowsyness - 60, 0)
+			H.drowsiness = max(H.drowsiness - 60, 0)
 			thrall = null
 			STOP_PROCESSING(SSfast_process, src)
 		else
 			H.sleeping = max(H.sleeping, 40)
-			H.drowsyness = max(H.drowsyness, 60)
+			H.drowsiness = max(H.drowsiness, 60)
 	else
 		STOP_PROCESSING(SSfast_process, src)
 
@@ -233,7 +158,7 @@
 		H.visible_message("<span class='warning'>[H] falls into a deep slumber!</span>", "<span class ='danger'>You fall into a deep slumber!</span>")
 
 		H.sleeping = max(H.sleeping, 40)
-		H.drowsyness = max(H.drowsyness, 60)
+		H.drowsiness = max(H.drowsiness, 60)
 		thrall = WEAKREF(H)
 		START_PROCESSING(SSfast_process, src)
 
@@ -580,7 +505,7 @@
 					var/obj/item/organ/internal/brain/sponge = H.internal_organs_by_name[BP_BRAIN]
 					var/braindamage = H.getBrainLoss()
 					if(sponge && istype(sponge))
-						if(!sponge.lobotomized)
+						if(!sponge.prepared)
 							to_chat(user, "<span class='notice'>Scans indicate [braindamage] distinct abnormalities present in subject.</span>")
 							return
 						else

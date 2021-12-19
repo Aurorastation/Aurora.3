@@ -29,13 +29,17 @@
 		SPECIES_HUMAN,
 		SPECIES_HUMAN_OFFWORLD,
 		SPECIES_SKRELL,
+		SPECIES_SKRELL_AXIORI,
 		SPECIES_UNATHI,
 		SPECIES_TAJARA,
 		SPECIES_TAJARA_MSAI,
 		SPECIES_TAJARA_ZHAN,
 		SPECIES_VAURCA_WORKER,
 		SPECIES_VAURCA_WARRIOR,
+		SPECIES_VAURCA_BREEDER,
+		SPECIES_VAURCA_BULWARK,
 		SPECIES_DIONA,
+		SPECIES_DIONA_COEUS,
 		SPECIES_MONKEY
 	)
 
@@ -503,8 +507,8 @@
 			wounds += "Appears to be composed of inorganic material."
 		if (O.status & ORGAN_ARTERY_CUT)
 			wounds += "Severed [O.artery_name]."
-		if (O.status & ORGAN_TENDON_CUT)
-			wounds += "Severed [O.tendon_name]."
+		if (O.tendon_status() & TENDON_CUT)
+			wounds += "Severed [O.tendon.name]."
 		if (O.status & ORGAN_SPLINTED)
 			wounds += "Splinted."
 		if (O.status & ORGAN_BLEEDING)
@@ -714,7 +718,7 @@
 
 		if(e.status & ORGAN_ARTERY_CUT)
 			internal_bleeding = "Arterial bleeding."
-		if(e.status & ORGAN_TENDON_CUT)
+		if(e.tendon_status() & TENDON_CUT)
 			severed_tendon = "Severed tendon."
 		if(istype(e, /obj/item/organ/external/chest) && occ["lung_ruptured"])
 			lung_ruptured = "Lung ruptured."

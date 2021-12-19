@@ -22,6 +22,8 @@
 	var/cold_protection = 0 //flags which determine which body parts are protected from cold. Use the HEAD, UPPER_TORSO, LOWER_TORSO, etc. flags. See setup.dm
 	var/max_heat_protection_temperature //Set this variable to determine up to which temperature (IN KELVIN) the item protects against heat damage. Keep at null to disable protection. Only protects areas set by heat_protection flags
 	var/min_cold_protection_temperature //Set this variable to determine down to which temperature (IN KELVIN) the item protects against cold damage. 0 is NOT an acceptable number due to if(varname) tests!! Keep at null to disable protection. Only protects areas set by cold_protection flags
+	var/max_pressure_protection // Set this variable if the item protects its wearer against high pressures below an upper bound. Keep at null to disable protection.
+	var/min_pressure_protection // Set this variable if the item protects its wearer against low pressures above a lower bound. Keep at null to disable protection. 0 represents protection against hard vacuum.
 
 	var/datum/action/item_action/action
 	var/action_button_name //It is also the text which gets displayed on the action button. If not set it defaults to 'Use [name]'. If it's not set, there'll be no button.
@@ -66,6 +68,7 @@
 
 	var/build_from_parts = FALSE // when it uses coloration and a part of it wants to remain uncolored. e.g., handle of the screwdriver is colored while the head is not.
 	var/worn_overlay = null // used similarly as above, except for inhands.
+	var/worn_overlay_color = null // When you want your worn overlay to have colors. So you can have more than one modular coloring.
 
 	//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
 	// Used to specify the icon file to be used when the item is worn. If not set the default icon for that slot will be used.
@@ -248,9 +251,9 @@
 
 // Due to storage type consolidation this should get used more now.
 // I have cleaned it up a little, but it could probably use more.  -Sayu
-/obj/item/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/storage))
-		var/obj/item/storage/S = W
+/obj/item/attackby(obj/item/I, mob/user)
+	if(istype(I,/obj/item/storage))
+		var/obj/item/storage/S = I
 		if(S.use_to_pickup)
 			if(S.collection_mode && !is_type_in_list(src, S.pickup_blacklist)) //Mode is set to collect all items on a tile and we clicked on a valid one.
 				if(isturf(loc))
@@ -259,21 +262,21 @@
 					var/failure = FALSE
 					var/original_loc = user ? user.loc : null
 
-					for(var/obj/item/I in loc)
+					for(var/obj/item/item in loc)
 						if (user && user.loc != original_loc)
 							break
 
-						if(rejections[I.type]) // To limit bag spamming: any given type only complains once
+						if(rejections[item.type]) // To limit bag spamming: any given type only complains once
 							continue
 
-						if(!S.can_be_inserted(I))	// Note can_be_inserted still makes noise when the answer is no
-							rejections[I.type] = TRUE	// therefore full bags are still a little spammy
+						if(!S.can_be_inserted(item))	// Note can_be_inserted still makes noise when the answer is no
+							rejections[item.type] = TRUE	// therefore full bags are still a little spammy
 							failure = TRUE
 							CHECK_TICK
 							continue
 
 						success = TRUE
-						S.handle_item_insertion_deferred(I, user)	//The 1 stops the "You put the [src] into [S]" insertion message from being displayed.
+						S.handle_item_insertion_deferred(item, user)	//The 1 stops the "You put the [src] into [S]" insertion message from being displayed.
 						CHECK_TICK	// Because people insist on picking up huge-ass piles of stuff.
 
 					S.handle_storage_deferred(user)
@@ -337,7 +340,7 @@
 // Called whenever an object is moved around inside the mob's contents.
 // Linker proc: mob/proc/prepare_for_slotmove, which is referenced in proc/handle_item_insertion and obj/item/attack_hand.
 // This shit exists so that dropped() could almost exclusively be called when an item is dropped.
-/obj/item/proc/on_slotmove(var/mob/user)
+/obj/item/proc/on_slotmove(var/mob/user, slot)
 	if(zoom)
 		zoom(user)
 
@@ -440,27 +443,38 @@ var/list/global/slot_flags_enumeration = list(
 				return 0
 		if(slot_wear_id)
 			return 1
+		if(slot_l_hand)
+			var/obj/item/organ/external/O
+			O = H.organs_by_name[BP_L_HAND]
+			if(!O || !O.is_usable() || O.is_malfunctioning())
+				return FALSE
+		if(slot_r_hand)
+			var/obj/item/organ/external/O
+			O = H.organs_by_name[BP_R_HAND]
+			if(!O || !O.is_usable() || O.is_malfunctioning())
+				return FALSE
 		if(slot_l_store, slot_r_store)
 			if(!H.w_uniform && (slot_w_uniform in mob_equip))
 				if(!disable_warning)
 					to_chat(H, "<span class='warning'>You need a jumpsuit before you can attach this [name].</span>")
 				return 0
-			if(slot_flags & SLOT_DENYPOCKET)
-				return 0
 			if( w_class > 2 && !(slot_flags & SLOT_POCKET) )
 				return 0
 		if(slot_s_store)
-			if(isvaurca(H) && src.w_class <= ITEMSIZE_SMALL)
+			var/can_hold_s_store = (slot_flags & SLOT_S_STORE)
+			if(!can_hold_s_store && H.species.can_hold_s_store(src))
+				can_hold_s_store = TRUE
+			if(can_hold_s_store)
 				return TRUE
 			if(!H.wear_suit && (slot_wear_suit in mob_equip))
 				if(!disable_warning)
 					to_chat(H, "<span class='warning'>You need a suit before you can attach this [name].</span>")
 				return 0
-			if(!H.wear_suit.allowed)
+			if(H.wear_suit && !length(H.wear_suit.allowed))
 				if(!disable_warning)
 					to_chat(usr, "<span class='warning'>You somehow have a suit with no defined allowed items for suit storage, stop that.</span>")
 				return 0
-			if( !(istype(src, /obj/item/modular_computer) || src.ispen() || is_type_in_list(src, H.wear_suit.allowed)) )
+			if(!istype(src, /obj/item/modular_computer) && !ispen() && !is_type_in_list(src, H.wear_suit.allowed))
 				return 0
 		if(slot_handcuffed)
 			if(!istype(src, /obj/item/handcuffs))
@@ -518,12 +532,11 @@ var/list/global/slot_flags_enumeration = list(
 	attack_self(usr)
 
 //RETURN VALUES
-//handle_shield should return a positive value to indicate that the attack is blocked and should be prevented.
-//If a negative value is returned, it should be treated as a special return value for bullet_act() and handled appropriately.
-//For non-projectile attacks this usually means the attack is blocked.
+//handle_shield
+//Return a negative value corresponding to the degree an attack is blocked. PROJECTILE_STOPPED stops the attack entirely, and is the default for projectile and non-projectile attacks
 //Otherwise should return 0 to indicate that the attack is not affected in any way.
 /obj/item/proc/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
-	return 0
+	return FALSE
 
 /obj/item/proc/can_shield_back()
 	return
@@ -534,35 +547,18 @@ var/list/global/slot_flags_enumeration = list(
 		L = L.loc
 	return loc
 
-/obj/item/proc/eyestab(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
-
-	var/mob/living/carbon/human/H = M
-	if(istype(H))
-		for(var/obj/item/protection in list(H.head, H.wear_mask, H.glasses))
-			if(protection && (protection.body_parts_covered & EYES))
-				// you can't stab someone in the eyes wearing a mask!
-				to_chat(user, "<span class='warning'>You're going to need to remove the eye covering first.</span>")
-				return
-
-	if(!M.has_eyes())
-		to_chat(user, "<span class='warning'>You cannot locate any eyes on [M]!</span>")
+/obj/item/proc/eyestab(mob/living/carbon/M, mob/living/carbon/user)
+	if(M.eyes_protected(src, TRUE))
 		return
 
+	var/mob/living/carbon/human/H = M
 	admin_attack_log(user, M, "attacked [key_name(M)] with [src]", "was attacked by [key_name(user)] using \a [src]", "used \a [src] to eyestab")
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	playsound(loc, hitsound, 70, TRUE)
 	user.do_attack_animation(M)
 
-	src.add_fingerprint(user)
-	//if((CLUMSY in user.mutations) && prob(50))
-	//	M = user
-		/*
-		to_chat(M, "<span class='warning'>You stab yourself in the eye.</span>")
-		M.sdisabilities |= BLIND
-		M.weakened += 4
-		M.adjustBruteLoss(10)
-		*/
-
+	add_fingerprint(user)
 	if(istype(H))
 		var/obj/item/organ/internal/eyes/eyes = H.get_eyes()
 
@@ -579,26 +575,30 @@ var/list/global/slot_flags_enumeration = list(
 
 		eyes.take_damage(rand(3,4))
 		if(eyes.damage >= eyes.min_bruised_damage)
-			if(M.stat != 2)
+			if(H.stat != DEAD)
 				if(eyes.robotic <= 1) //robot eyes bleeding might be a bit silly
-					to_chat(M, "<span class='danger'>Your eyes start to bleed profusely!</span>")
+					to_chat(H, "<span class='danger'>Your eyes start to bleed profusely!</span>")
 			if(prob(50))
-				if(M.stat != 2)
-					to_chat(M, "<span class='warning'>You drop what you're holding and clutch at your eyes!</span>")
-					M.drop_item()
-				M.eye_blurry += 10
-				M.Paralyse(1)
-				M.Weaken(4)
+				if(H.stat != DEAD)
+					to_chat(H, "<span class='warning'>You drop what you're holding and clutch at your eyes!</span>")
+					H.drop_item()
+				H.eye_blurry += 10
+				H.Paralyse(1)
+				H.Weaken(4)
 			if (eyes.damage >= eyes.min_broken_damage)
-				if(M.stat != 2)
-					to_chat(M, "<span class='warning'>You go blind!</span>")
+				if(H.stat != DEAD)
+					to_chat(H, "<span class='warning'>You go blind!</span>")
 		var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
-		if(affecting.take_damage(7))
-			M:UpdateDamageIcon()
+		if(affecting.take_damage(7, 0, damage_flags(), src))
+			H.UpdateDamageIcon()
 	else
 		M.take_organ_damage(7)
 	M.eye_blurry += rand(3,4)
-	return
+
+/obj/item/proc/protects_eyestab(var/obj/stab_item, var/stabbed = FALSE) // if stabbed is set to true if we're being stabbed and not just checking
+	if((item_flags & THICKMATERIAL) && (body_parts_covered & EYES))
+		return TRUE
+	return FALSE
 
 /obj/item/clean_blood()
 	. = ..()
@@ -908,7 +908,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	if(flags & HELDMAPTEXT)
 		check_maptext()
 
-/obj/item/dropped()
+/obj/item/dropped(var/mob/user)
 	..()
 	if(flags & HELDMAPTEXT)
 		check_maptext()
@@ -919,4 +919,41 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		return TRUE
 	if(isFlameSource())
 		return TRUE
+	return FALSE
+
+/obj/item/proc/get_pressure_weakness(pressure, zone)
+	. = 1
+	if(pressure > ONE_ATMOSPHERE)
+		if(max_pressure_protection != null)
+			if(max_pressure_protection < pressure)
+				return min(1, round((pressure - max_pressure_protection) / max_pressure_protection, 0.01))
+			else
+				return 0
+	if(pressure < ONE_ATMOSPHERE)
+		if(min_pressure_protection != null)
+			if(min_pressure_protection > pressure)
+				return min(1, round((min_pressure_protection - pressure) / min_pressure_protection, 0.01))
+			else
+				return 0
+
+/obj/item/proc/in_slide_projector(var/mob/user)
+	if(istype(loc, /obj/item/storage/slide_projector))
+		var/obj/item/storage/slide_projector/SP = loc
+		if(SP.current_slide == src && (SP.projection in view(world.view, user)))
+			return TRUE
+	return FALSE
+
+/obj/item/proc/get_belt_overlay() //Returns the icon used for overlaying the object on a belt
+	return mutable_appearance('icons/obj/clothing/belt_overlays.dmi', icon_state)
+
+/obj/item/proc/get_ear_examine_text(var/mob/user, var/ear_text = "left")
+	return "on [user.get_pronoun("his")] [ear_text] ear"
+
+/obj/item/proc/get_mask_examine_text(var/mob/user)
+	return "on [user.get_pronoun("his")] face"
+
+/obj/item/proc/get_head_examine_text(var/mob/user)
+	return "on [user.get_pronoun("his")] head"
+	
+/obj/item/proc/should_equip() // when you press E with an empty hand, will this item be pulled from suit storage / back slot and put into your hand
 	return FALSE

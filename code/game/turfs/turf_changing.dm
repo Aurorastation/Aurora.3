@@ -44,6 +44,7 @@
 	var/list/old_affecting_lights = affecting_lights
 	var/old_lighting_overlay = lighting_overlay
 	var/list/old_corners = corners
+	var/list/old_blueprints = blueprints
 
 	changing_turf = TRUE
 
@@ -100,6 +101,11 @@
 
 	if(!W.baseturf)
 		W.baseturf = old_baseturf
+
+	W.blueprints = old_blueprints
+	for(var/image/I as anything in W.blueprints)
+		I.loc = W
+		I.plane = 0
 
 	W.post_change()
 

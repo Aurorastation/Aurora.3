@@ -325,7 +325,8 @@
 /obj/machinery/disposal/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
 		return
-	interact(user, 1)
+	var/inside_bin = (user.loc == src)
+	interact(user, !inside_bin)
 
 // human interact with machine
 /obj/machinery/disposal/attack_hand(mob/user as mob)
@@ -333,7 +334,7 @@
 	if(stat & BROKEN)
 		return
 
-	if(user && user.loc == src)
+	if(user.loc == src)
 		to_chat(usr, "<span class='warning'>You cannot reach the controls from inside.</span>")
 		return
 
@@ -389,7 +390,7 @@
 // handle machine interaction
 
 /obj/machinery/disposal/Topic(href, href_list)
-	if(usr.loc == src)
+	if(usr.loc == src && !issilicon(usr))
 		to_chat(usr, "<span class='warning'>You cannot reach the controls from inside.</span>")
 		return
 
@@ -520,6 +521,8 @@
 		visible_message(SPAN_WARNING("\The [src] groans violently!"), range = 3)
 		flush = FALSE
 		return
+
+	intent_message(MACHINE_SOUND)
 
 	flushing = 1
 	flick("[icon_state]-flush", src)
@@ -780,6 +783,16 @@
 	var/sortType = ""
 	var/subtype = 0
 	// new pipe, set the icon_state as on map
+
+/obj/structure/disposalpipe/Initialize(mapload)
+	. = ..()
+	
+	if(mapload)
+		var/turf/T = loc
+		var/image/I = image(icon, T, icon_state, EFFECTS_ABOVE_LIGHTING_LAYER, dir, pixel_x, pixel_y)
+		I.plane = 0
+		I.alpha = 125
+		LAZYADD(T.blueprints, I)
 
 // pipe is deleted
 // ensure if holder is present, it is expelled
@@ -1531,6 +1544,7 @@
 	playsound(src, 'sound/machines/warning-buzzer.ogg', 50, 0, 0)
 	sleep(20)	//wait until correct animation frame
 	playsound(src, 'sound/machines/hiss.ogg', 50, 0, 0)
+	intent_message(THUNK_SOUND)
 
 	if(H)
 		for(var/atom/movable/AM in H)

@@ -254,6 +254,7 @@
 	description = "A strong neurotoxin that puts the subject into a death-like state."
 	reagent_state = SOLID
 	color = "#669900"
+	spectro_hidden = TRUE
 	metabolism = REM
 	strength = 3
 	taste_description = "death"
@@ -471,17 +472,17 @@
 	M.add_chemical_effect(CE_PULSE, -2)
 	var/dose = M.chem_doses[type]
 	if(dose < 2)
-		if(dose == metabolism * 2 || prob(5))
+		if(ishuman(M) && (dose == metabolism * 2 || prob(5)))
 			M.emote("yawn")
 	else if(dose < 3.5)
 		M.eye_blurry = max(M.eye_blurry, 10)
 	else if(dose < 7)
 		if(prob(50))
 			M.Weaken(2)
-		M.drowsyness = max(M.drowsyness, 20)
+		M.drowsiness = max(M.drowsiness, 20)
 	else
 		M.sleeping = max(M.sleeping, 20)
-		M.drowsyness = max(M.drowsyness, 60)
+		M.drowsiness = max(M.drowsiness, 60)
 
 /decl/reagent/polysomnine
 	name = "Polysomnine"
@@ -501,7 +502,7 @@
 	var/dose = M.chem_doses[type]
 	if(dose == metabolism)
 		M.confused += 2
-		M.drowsyness += 2
+		M.drowsiness += 2
 	else if(dose < 2)
 		M.Weaken(30)
 		M.eye_blurry = max(M.eye_blurry, 10)
@@ -607,6 +608,13 @@
 	strength = 0.008
 	nicotine = 0.1
 
+/decl/reagent/toxin/tobacco/liquid
+	name = "Nicotine Solution"
+	description = "A diluted nicotine solution."
+	reagent_state = LIQUID
+	nicotine = REM * 0.1
+	taste_mult = 2
+
 /mob/living/carbon/human/proc/berserk_start()
 	to_chat(src, SPAN_DANGER("An uncontrollable rage overtakes your thoughts!"))
 	add_client_color(/datum/client_color/berserk)
@@ -619,7 +627,7 @@
 	update_canmove()
 
 /mob/living/carbon/human/proc/berserk_process()
-	drowsyness = max(drowsyness - 5, 0)
+	drowsiness = max(drowsiness - 5, 0)
 	AdjustParalysis(-1)
 	AdjustStunned(-1)
 	AdjustWeakened(-1)
@@ -658,8 +666,9 @@
 	M.add_chemical_effect(CE_BERSERK, 1)
 	if(M.a_intent != I_HURT)
 		M.a_intent_change(I_HURT)
-	if(prob(10))
-		M.add_chemical_effect(CE_NEUROTOXIC, 5*removed)
+	var/obj/item/organ/internal/heart = M.internal_organs_by_name[BP_HEART]
+	if(heart)
+		M.add_chemical_effect(CE_CARDIOTOXIC, removed * 0.020)
 
 /decl/reagent/toxin/spectrocybin
 	name = "Spectrocybin"
@@ -762,6 +771,7 @@
 	description = "A complicated to make and highly illegal drug that cause paralysis mostly focused on the limbs."
 	reagent_state = LIQUID
 	color = "#002067"
+	spectro_hidden = TRUE
 	metabolism = REM * 0.2
 	strength = 0
 	taste_description = "danger"

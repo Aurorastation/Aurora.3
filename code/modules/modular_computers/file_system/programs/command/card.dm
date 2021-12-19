@@ -199,6 +199,7 @@
 					id_card.assignment = t1
 					id_card.rank = t1
 
+				SSrecords.reset_manifest()
 				callHook("reassign_employee", list(id_card))
 		if("access")
 			if(href_list["allowed"] && computer && can_run(user, 1))

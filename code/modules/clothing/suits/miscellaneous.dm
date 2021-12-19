@@ -168,6 +168,14 @@
 	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	siemens_coefficient = 1.5
 
+/obj/item/clothing/suit/golden_tailcoat
+	name = "golden tailcoat"
+	desc = "A brilliant looking golden tailcoat of sorts."
+	icon = 'icons/clothing/suits/goldendeep_tailcoat.dmi'
+	icon_state = "tailcoat"
+	item_state = "tailcoat"
+	body_parts_covered = UPPER_TORSO|ARMS
+
 /obj/item/clothing/suit/storage/toggle/bomber
 	name = "bomber jacket"
 	desc = "A thick, well-worn WW2 leather bomber jacket."
@@ -287,6 +295,12 @@
 	item_state = "brown_jacket_sleeveless"
 	body_parts_covered = UPPER_TORSO
 
+/obj/item/clothing/suit/storage/toggle/brown_jacket/sleeveless/colorable
+	name = "vest"
+	desc = "A vest made of synthetic fiber."
+	icon_state = "colored_vest"
+	item_state = "colored_vest"
+
 /obj/item/clothing/suit/storage/toggle/brown_jacket/nanotrasen
 	desc = "A brown leather coat. A corporate logo is proudly displayed on the back."
 	icon_state = "brown_jacket_nt"
@@ -357,6 +371,12 @@
 	desc = "A sleek canvas trenchcoat"
 	icon_state = "trenchcoat_grey"
 	item_state = "trenchcoat_grey"
+
+/obj/item/clothing/suit/storage/toggle/trench/green
+	name = "green trenchcoat"
+	desc = "A sleek canvas trenchcoat"
+	icon_state = "trenchcoat_green"
+	item_state = "trenchcoat_green"
 
 /obj/item/clothing/suit/storage/toggle/trench/colorable
 	name = "trenchcoat"

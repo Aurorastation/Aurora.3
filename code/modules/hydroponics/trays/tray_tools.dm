@@ -22,9 +22,10 @@
 
 /obj/item/device/analyzer/plant_analyzer
 	name = "plant analyzer"
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/contained_items/tools/plant_analyzer.dmi'
 	icon_state = "hydro"
-	item_state = "analyzer"
+	item_state = "hydro"
+	contained_sprite = TRUE
 	var/form_title
 	var/last_data
 	matter = list(DEFAULT_WALL_MATERIAL = 80, MATERIAL_GLASS = 20)

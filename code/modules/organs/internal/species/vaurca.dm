@@ -7,6 +7,11 @@
 	vision_mechanical_color = /datum/client_color/monochrome
 	eye_emote = "'s eyes gently shift."
 
+/obj/item/organ/internal/eyes/night/vaurca/surgical_fix(mob/user)
+	..()
+	if(damage < min_broken_damage && owner.sdisabilities & BLIND)
+		owner.sdisabilities -= BLIND
+
 /obj/item/organ/internal/eyes/night/vaurca/flash_act()
 	if(!owner)
 		return

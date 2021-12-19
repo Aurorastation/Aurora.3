@@ -5,6 +5,9 @@
 	var/hoodtype = null
 	var/suittoggled = FALSE
 	var/opened = FALSE
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/hoodie.dmi'
+	)
 
 /obj/item/clothing/suit/storage/hooded/Initialize()
 	. = ..()

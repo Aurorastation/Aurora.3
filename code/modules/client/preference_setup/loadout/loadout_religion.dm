@@ -9,8 +9,17 @@
 	path = /obj/item/clothing/mask/trinary_mask
 
 /datum/gear/religion/trinary/cape
-	display_name = "trinary perfection cape"
+	display_name = "trinary perfection cape selection"
+	description = "A selection of capes worn by adherents to the Trinary Perfection."
 	path = /obj/item/clothing/accessory/poncho/trinary
+
+/datum/gear/religion/trinary/cape/New()
+	..()
+	var/list/trinarycape = list()
+	trinarycape["trinary perfection cape"] = /obj/item/clothing/accessory/poncho/trinary
+	trinarycape["trinary perfection shoulder cape"] = /obj/item/clothing/accessory/poncho/trinary/shouldercape
+	trinarycape["trinary perfection pellegrina"] = /obj/item/clothing/accessory/poncho/trinary/pellegrina
+	gear_tweaks += new /datum/gear_tweak/path(trinarycape)
 
 /datum/gear/religion/trinary/badge
 	display_name = "trinary perfection brooch"
@@ -31,10 +40,10 @@
 
 /datum/gear/religion/dominia/robe/New()
 	..()
-	var/robe = list()
+	var/list/robe = list()
 	robe["tribunalist's robe"] = /obj/item/clothing/under/dominia/priest
 	robe["tribunal initiate's robe"] = /obj/item/clothing/under/dominia/initiate
-	gear_tweaks += new/datum/gear_tweak/path(robe)
+	gear_tweaks += new /datum/gear_tweak/path(robe)
 
 /datum/gear/religion/dominia/beret
 	display_name = "dominian beret selection"
@@ -43,10 +52,10 @@
 
 /datum/gear/religion/dominia/beret/New()
 	..()
-	var/beret = list()
+	var/list/beret = list()
 	beret["tribunal initiate's beret"] = /obj/item/clothing/head/beret/dominia
 	beret["tribunalist's beret"] = /obj/item/clothing/head/beret/dominia/priest
-	gear_tweaks += new/datum/gear_tweak/path(beret)
+	gear_tweaks += new /datum/gear_tweak/path(beret)
 
 /datum/gear/religion/dominia/cape
 	display_name = "dominian outerwear selection"
@@ -55,15 +64,20 @@
 
 /datum/gear/religion/dominia/cape/New()
 	..()
-	var/cape = list()
+	var/list/cape = list()
 	cape["tribunalist red cape"] = /obj/item/clothing/accessory/poncho/dominia/red
 	cape["tribunalist full cape"] = /obj/item/clothing/accessory/poncho/dominia/red/double
 	cape["tribunalist surcoat"] = /obj/item/clothing/accessory/poncho/dominia/red/surcoat
-	gear_tweaks += new/datum/gear_tweak/path(cape)
+	gear_tweaks += new /datum/gear_tweak/path(cape)
 
 /datum/gear/religion/dominia/accessory
 	display_name = "tribunal necklace"
-	path = "/obj/item/clothing/accessory/dominia"
+	path = /obj/item/clothing/accessory/dominia
+
+/datum/gear/religion/dominia/medical
+	display_name = "tribunalist medical beret"
+	path = /obj/item/clothing/head/beret/dominia/medical
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
 
 /datum/gear/religion/shaman_staff
 	display_name = "shaman staff"
@@ -89,14 +103,14 @@
 
 /datum/gear/religion/assunzione/accessory
 	display_name = "luceian amulet"
-	path = "/obj/item/clothing/accessory/assunzione"
+	path = /obj/item/clothing/accessory/assunzione
 
 /datum/gear/religion/assunzioneorb
 	display_name = "assunzione warding sphere"
 	description = "A religious artefact commonly associated with Luceism."
-	path = "/obj/item/assunzioneorb"
+	path = /obj/item/assunzioneorb
 
 /datum/gear/religion/assunzionesheath
 	display_name = "assunzione warding sphere sheath"
 	description = "A small metal shell designed to hold a warding sphere."
-	path = "/obj/item/storage/assunzionesheath"
+	path = /obj/item/storage/assunzionesheath
