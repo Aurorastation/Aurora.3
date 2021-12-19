@@ -2322,6 +2322,13 @@ Follow by example and make good judgement based on length which list to include 
 			length = 6
 			chatname = "Long Both Behind"
 
+		skr_tentacle_reef
+			name = "Skrell Reef Ponytail, short"
+			icon_state = "skrell_reef_short"
+			length = 4
+			chatname = "Ponytail, Reef"
+			scrunchy_style = "reef"
+
 //tajaran hair
 
 	taj_ears
@@ -2569,6 +2576,18 @@ Follow by example and make good judgement based on length which list to include 
 		taj_ears_swoop
 			name = "Tajara Swoop"
 			icon_state = "hair_swoop"
+			length = 2
+			chatname = "styled mane"
+			
+		taj_ears_swoop_alt
+			name = "Tajara Swoop Alt"
+			icon_state = "hair_swoop_alt"
+			length = 2
+			chatname = "styled mane"
+
+		taj_ears_swoop_bangs
+			name = "Tajara Swoop Bangs"
+			icon_state = "hair_swoop_bangs"
 			length = 2
 			chatname = "styled mane"
 
@@ -2830,6 +2849,18 @@ Follow by example and make good judgement based on length which list to include 
 		msai_ears_swoop
 			name = "M'sai Swoop"
 			icon_state = "msai_swoop"
+			length = 2
+			chatname = "styled mane"
+
+		msai_ears_swoop_alt
+			name = "M'sai Swoop Alt"
+			icon_state = "msai_swoop_alt"
+			length = 2
+			chatname = "styled mane"
+
+		msai_ears_swoop_bangs
+			name = "M'sai Swoop Bangs"
+			icon_state = "msai_swoop_bangs"
 			length = 2
 			chatname = "styled mane"
 

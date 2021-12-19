@@ -125,8 +125,9 @@
 
 	applied_pressure = null
 
-	if(nymph)
-		QDEL_NULL(nymph)
+	QDEL_NULL(nymph)
+
+	QDEL_NULL(tendon)
 
 	return ..()
 

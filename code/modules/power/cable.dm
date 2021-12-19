@@ -1001,7 +1001,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 	if(!isturf(usr.loc))
 		return
-	if(!(locate(/obj/item/stool) in usr.loc) && !(locate(/obj/structure/bed) in usr.loc) && !(locate(/obj/structure/table) in usr.loc) && !(locate(/obj/structure/toilet) in usr.loc))
+	if(!(locate(/obj/structure/bed/stool) in usr.loc) && !(locate(/obj/structure/bed) in usr.loc) && !(locate(/obj/structure/table) in usr.loc) && !(locate(/obj/structure/toilet) in usr.loc))
 		to_chat(usr, SPAN_WARNING("You have to be standing on top of a chair/table/bed to make a noose!"))
 		return FALSE
 	if(amount < 25)
