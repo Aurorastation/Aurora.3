@@ -2222,7 +2222,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/foresolar)
 "bIY" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/lounge)
 "bJN" = (
@@ -6320,7 +6320,7 @@
 /turf/simulated/wall/r_wall,
 /area/tcommsat/lounge)
 "fxD" = (
-/obj/structure/bed/chair/comfy/sofa/leather,
+/obj/structure/bed/stool/chair/sofa/brown,
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1"
@@ -12186,7 +12186,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
 "kFc" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -12198,6 +12198,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/lounge)
 "kFM" = (
@@ -13162,6 +13163,10 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/quartermaster/loading)
+"lxc" = (
+/obj/structure/bed/stool/padded/red,
+/turf/simulated/wall/r_wall,
+/area/tcommsat/lounge)
 "lxI" = (
 /obj/structure/cable/yellow{
 	d1 = 2;
@@ -14267,6 +14272,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/telecoms_ladder)
+"mtI" = (
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/bed/stool/padded/red,
+/turf/simulated/floor/tiled,
+/area/tcommsat/lounge)
 "muj" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -19001,7 +19015,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/structure/bed/chair/comfy/sofa/left/leather,
+/obj/structure/bed/stool/chair/sofa/left/brown,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
@@ -20318,7 +20332,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "rvJ" = (
-/obj/structure/bed/chair/comfy/sofa/leather,
+/obj/structure/bed/stool/chair/sofa/brown,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
@@ -20912,7 +20926,7 @@
 /turf/simulated/floor/tiled/old,
 /area/store)
 "rTT" = (
-/obj/structure/bed/chair/comfy/sofa/right/leather,
+/obj/structure/bed/stool/chair/sofa/right/brown,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
@@ -41340,7 +41354,7 @@ ifb
 wKH
 nGc
 kyf
-fwV
+lxc
 cBe
 bPl
 bPW
@@ -42371,7 +42385,7 @@ kyf
 fwV
 rvJ
 jUc
-rLe
+mtI
 wwx
 bPW
 gcH
