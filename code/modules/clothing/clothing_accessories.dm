@@ -122,7 +122,6 @@
 	set name = "Remove Accessory"
 	set category = "Object"
 	set src in usr
-
 	if(!isliving(usr))
 		return
 
@@ -133,10 +132,14 @@
 
 	if(!LAZYLEN(accessories))
 		return
-
+	
 	var/obj/item/clothing/accessory/A
 	if(LAZYLEN(accessories) > 1)
-		A = input("Select an accessory to remove.") as null|anything in accessories
+		var/list/options = list()
+		for (var/obj/item/clothing/accessory/i in accessories)
+			var/image/radial_button = image(icon = i.icon, icon_state = i.icon_state)
+			options[i] = radial_button
+		A = show_radial_menu(M, M, options, radius = 42, tooltips = TRUE)
 	else
 		A = accessories[1]
 	remove_accessory(usr,A)

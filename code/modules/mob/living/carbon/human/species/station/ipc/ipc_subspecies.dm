@@ -34,8 +34,6 @@
 	eyes = "eyes_s"
 	show_ssd = "completely quiescent"
 
-	max_nutrition_factor = 0.8
-
 	heat_level_1 = 500
 	heat_level_2 = 1000
 	heat_level_3 = 2000
@@ -66,7 +64,7 @@
 	character_color_presets = list("Dark" = "#000000", "Warm" = "#250302", "Cold" = "#1e1e29")
 
 	sprint_temperature_factor = 1.3
-	sprint_charge_factor = 0.85
+	move_charge_factor = 0.85
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/self_diagnostics,
@@ -130,7 +128,7 @@
 	bodytype = BODYTYPE_IPC_INDUSTRIAL
 	mob_size = 12
 
-	unarmed_types = list(/datum/unarmed_attack/industrial)
+	unarmed_types = list(/datum/unarmed_attack/industrial, /datum/unarmed_attack/palm/industrial)
 
 	brute_mod = 0.8
 	burn_mod = 1.1
@@ -175,12 +173,9 @@
 
 	heat_discomfort_level = 700
 
-	max_nutrition_factor = 1.25
-	nutrition_loss_factor = 2
-
 	sprint_speed_factor = 1.4
 	sprint_temperature_factor = 0.9
-	sprint_charge_factor = 1.1
+	move_charge_factor = 1.1
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/self_diagnostics,
@@ -284,10 +279,11 @@
 		)
 	stamina	= -1
 	sprint_speed_factor = 1.25
+	sprint_cost_factor = 1
 	slowdown = 1
 
 	sprint_temperature_factor = 0.6
-	sprint_charge_factor = 0.3
+	move_charge_factor = 0.3
 
 /datum/species/machine/terminator/get_light_color()
 	return
@@ -312,7 +308,7 @@
 
 	eyes = "heph_eyes"
 
-	unarmed_types = list(/datum/unarmed_attack/industrial/heavy)
+	unarmed_types = list(/datum/unarmed_attack/industrial/heavy, /datum/unarmed_attack/palm/industrial)
 
 	slowdown = 6
 	brute_mod = 0.7
@@ -366,7 +362,9 @@
 	preview_icon = 'icons/mob/human_races/ipc/ind_xion_preview.dmi'
 
 	unarmed_types = list(
-		/datum/unarmed_attack/industrial/xion)
+		/datum/unarmed_attack/industrial/xion,
+		/datum/unarmed_attack/palm/industrial
+	)
 
 	brute_mod = 0.9
 	grab_mod = 0.9
@@ -432,15 +430,17 @@
 
 	eyes = "zenghu_eyes"
 	brute_mod = 1.5
-	sprint_speed_factor = 1.5
+
+	slowdown = -0.8
+	sprint_speed_factor = 0.6
+	sprint_cost_factor = 2
+	move_charge_factor = 2
 
 	grab_mod = 1.1 // Smooth, fast
 	resist_mod = 4 // Not super strong, but still rather strong
 
 	allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_ELYRA, ACCENT_KONYAN, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_LUNA,
 							ACCENT_HIMEO, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_PHONG, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_TTS, ACCENT_EUROPA, ACCENT_EARTH, ACCENT_ASSUNZIONE)
-
-	slowdown = -1.2
 
 	appearance_flags = HAS_EYE_COLOR | HAS_UNDERWEAR | HAS_SOCKS
 
@@ -483,8 +483,6 @@
 
 	eyes = "bishop_eyes"
 	eyes_icon_blend = ICON_MULTIPLY
-	sprint_charge_factor = 0.25
-	max_nutrition_factor = 1.75
 
 	brute_mod = 1.2
 	grab_mod = 1.1

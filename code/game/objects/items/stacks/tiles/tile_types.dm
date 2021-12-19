@@ -121,7 +121,7 @@
 	name = "adhomian carpet"
 	singular_name = "carpet"
 	desc = "A piece of fancy adhomian carpet. It is the same size as a normal floor tile!"
-	icon_state = "tile_carpet_rubber"
+	icon_state = "carpet_art"
 	force = 1.0
 	throwforce = 1.0
 	throw_speed = 5
@@ -201,6 +201,11 @@
 	throw_speed = 5
 	throw_range = 10
 	flags = CONDUCT
+
+/obj/item/stack/tile/floor/full/Initialize(mapload)
+	. = ..()
+	amount = max_amount
+	update_icon()
 
 /obj/item/stack/tile/floor_red
 	name = "red floor tile"

@@ -146,11 +146,11 @@
 	desc = "Great for hiding incriminating bloodstains and sterilizing scalpels."
 	icon = 'icons/obj/janitor.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_hydro.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_hydro.dmi',
+		slot_l_hand_str = 'icons/mob/items/lefthand_janitor.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_janitor.dmi',
 		)
 	icon_state = "sterilespray"
-	item_state = "spraycan"
+	item_state = "cleaner"
 
 /obj/item/reagent_containers/spray/sterilizine/Initialize()
 	. = ..()

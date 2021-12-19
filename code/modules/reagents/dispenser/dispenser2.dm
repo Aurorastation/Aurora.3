@@ -5,6 +5,8 @@
 	var/icon_state_active = "dispenser_active"
 	clicksound = /decl/sound_category/button_sound
 
+	obj_flags = OBJ_FLAG_ROTATABLE
+
 	var/list/spawn_cartridges = null // Set to a list of types to spawn one of each on New()
 
 	var/list/cartridges = list() // Associative, label -> cartridge

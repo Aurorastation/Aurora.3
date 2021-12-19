@@ -19,15 +19,15 @@
 		for(var/i = 0; i < reward; ++i)
 			SScargo.try_add_bounty(SScargo.random_bounty())
 
-//during phoron scarcity lore arc. remove when lore permits. 
+//during phoron scarcity lore arc. remove when lore permits.
 
 /datum/bounty/item/phoron_sheet
 	name = "Phoron Sheets"
 	description = "Always prioritize this bounty. Failure to meet this quota may result in adverse impact upon your status in the NanoTrasen Corporation."
-	reward_low = 7000
-	reward_high = 9000
-	required_count = 75
-	random_count = 15
+	reward_low = 2600
+	reward_high = 3750
+	required_count = 40
+	random_count = 10
 	wanted_types = list(/obj/item/stack/material/phoron)
 	high_priority = TRUE
 
@@ -44,14 +44,14 @@
 
 /datum/bounty/item/phoron_canister
 	name = "Phoron Canisters"
-	description = "Updated requirement: Canisters must now be filled to at least 150% of standard stock amounts (approx. 6,800kPA at a temperature of 20C). Always prioritize this bounty. Failure to meet this quota may result in adverse impact upon your status in the NanoTrasen Corporation."
+	description = "Updated requirement: Canisters must now be filled to a minimum of 2000 moles. Always prioritize this bounty. Failure to meet this quota may result in adverse impact upon your status in the NanoTrasen Corporation."
 	reward_low = 8000
 	reward_high = 10000
 	required_count = 3
 	random_count = 1 // 2 to 4
 	wanted_types = list(/obj/machinery/portable_atmospherics/canister)
-	high_priority = TRUE	
-	var/moles_required = 2700 //Roundstart total_moles is about 1871 per tank. 50% more full w/ leeway
+	high_priority = TRUE
+	var/moles_required = 2000 //Roundstart total_moles for a FULL tank is about 1871 per tank. However during the arc this bounty is relevant, tanks are half full.
 
 /datum/bounty/item/phoron_canister/applies_to(var/obj/machinery/portable_atmospherics/canister/O)
 	if(!..())
@@ -64,3 +64,13 @@
 		return FALSE
 
 	return O.air_contents.gas["phoron"] >= moles_required
+
+/datum/bounty/item/solar_array
+	name = "Assembled Solar Panels"
+	description = "Owing to the phoron shortage continuing for over a year, longer than projected, we have decided to use solar arrays to power various facilities across our region of influence."
+	reward_low = 8000
+	reward_high = 10000
+	required_count = 6
+	random_count = 2 // 4 to 8
+	wanted_types = list(/obj/machinery/power/solar)
+	high_priority = TRUE

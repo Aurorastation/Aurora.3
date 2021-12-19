@@ -26,7 +26,7 @@
 	minimal_player_age = 14
 	outfit = /datum/outfit/job/hos
 
-	blacklisted_species = list(SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA_ZHAN, SPECIES_DIONA, SPECIES_IPC_G2, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+	blacklisted_species = list(SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA_ZHAN, SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_IPC_G2, SPECIES_IPC_ZENGHU, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/hos
 	name = "Head of Security"
@@ -34,16 +34,21 @@
 
 	uniform = /obj/item/clothing/under/rank/head_of_security
 	shoes = /obj/item/clothing/shoes/jackboots
+	id = /obj/item/card/id/navy
+	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head
+	l_pocket = /obj/item/device/flash
+
 	headset = /obj/item/device/radio/headset/heads/hos
 	bowman = /obj/item/device/radio/headset/heads/hos/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/hos
+	wrist_radio = /obj/item/device/radio/headset/wrist/hos
+
 	tab_pda = /obj/item/modular_computer/handheld/pda/security/hos
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security/hos
 	tablet = /obj/item/modular_computer/handheld/preset/security/hos
-	id = /obj/item/card/id/navy
-	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head
 
 	backpack_contents = list(
-		/obj/item/storage/box/ids = 1
+		/obj/item/handcuffs = 1
 	)
 
 	implants = list(
@@ -84,19 +89,25 @@
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/warden
 
+	blacklisted_species = list(SPECIES_IPC_ZENGHU, SPECIES_VAURCA_BULWARK, SPECIES_DIONA_COEUS, SPECIES_VAURCA_BREEDER)
+
 /datum/outfit/job/warden
 	name = "Warden"
 	jobtype = /datum/job/warden
 
 	uniform = /obj/item/clothing/under/rank/warden
 	shoes = /obj/item/clothing/shoes/jackboots
+	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head
+	l_pocket = /obj/item/device/flash
+
 	headset = /obj/item/device/radio/headset/headset_warden
 	bowman = /obj/item/device/radio/headset/headset_warden/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/sec/warden
+	wrist_radio = /obj/item/device/radio/headset/wrist/sec/warden
+
 	tab_pda = /obj/item/modular_computer/handheld/pda/security
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security
 	tablet = /obj/item/modular_computer/handheld/preset/security
-	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head
-	l_pocket = /obj/item/device/flash
 
 	backpack = /obj/item/storage/backpack/security
 	satchel = /obj/item/storage/backpack/satchel_sec
@@ -104,7 +115,7 @@
 	messengerbag = /obj/item/storage/backpack/messenger/sec
 
 	backpack_contents = list(
-		/obj/item/storage/box/ids = 1
+		/obj/item/handcuffs = 1
 	)
 
 /datum/outfit/job/warden/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -134,6 +145,7 @@
 	minimal_access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_weapons)
 	minimal_player_age = 3
 	outfit = /datum/outfit/job/forensics
+	blacklisted_species = list(SPECIES_IPC_ZENGHU, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/forensics
 	name = "Investigator"
@@ -141,11 +153,20 @@
 
 	uniform = /obj/item/clothing/under/det/forensics
 	shoes = /obj/item/clothing/shoes/laceup
+
 	headset = /obj/item/device/radio/headset/headset_sec
 	bowman = /obj/item/device/radio/headset/headset_sec/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/sec
+	wrist_radio = /obj/item/device/radio/headset/wrist/sec
+
 	tab_pda = /obj/item/modular_computer/handheld/pda/security/detective
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security/detective
 	tablet = /obj/item/modular_computer/handheld/preset/security/detective
+
+	backpack = /obj/item/storage/backpack/security
+	satchel = /obj/item/storage/backpack/satchel_sec
+	dufflebag = /obj/item/storage/backpack/duffel/sec
+	messengerbag = /obj/item/storage/backpack/messenger/sec
 
 	backpack_contents = list(
 		/obj/item/storage/box/evidence = 1
@@ -179,18 +200,24 @@
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/officer
 
+	blacklisted_species = list(SPECIES_IPC_ZENGHU, SPECIES_VAURCA_BULWARK, SPECIES_DIONA_COEUS, SPECIES_VAURCA_BREEDER)
+
 /datum/outfit/job/officer
 	name = "Security Officer"
 	jobtype = /datum/job/officer
 
 	uniform = /obj/item/clothing/under/rank/security
 	shoes = /obj/item/clothing/shoes/jackboots
+	l_pocket = /obj/item/device/flash
+
 	headset = /obj/item/device/radio/headset/headset_sec
 	bowman = /obj/item/device/radio/headset/headset_sec/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/sec
+	wrist_radio = /obj/item/device/radio/headset/wrist/sec
+
 	tab_pda = /obj/item/modular_computer/handheld/pda/security
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security
 	tablet = /obj/item/modular_computer/handheld/preset/security
-	l_pocket = /obj/item/device/flash
 
 	backpack = /obj/item/storage/backpack/security
 	satchel = /obj/item/storage/backpack/satchel_sec
@@ -225,6 +252,8 @@
 	outfit = /datum/outfit/job/intern_sec
 	minimum_character_age = 18
 
+	blacklisted_species = list(SPECIES_IPC_ZENGHU, SPECIES_VAURCA_BULWARK, SPECIES_DIONA_COEUS, SPECIES_VAURCA_BREEDER)
+
 /datum/outfit/job/intern_sec
 	name = "Security Cadet"
 	jobtype = /datum/job/intern_sec
@@ -233,8 +262,11 @@
 	suit = /obj/item/clothing/suit/storage/hazardvest/cadet
 	head = /obj/item/clothing/head/beret/security
 	shoes = /obj/item/clothing/shoes/jackboots
+
 	headset = /obj/item/device/radio/headset/headset_sec
 	bowman = /obj/item/device/radio/headset/headset_sec/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/sec
+	wrist_radio = /obj/item/device/radio/headset/wrist/sec
 
 	backpack = /obj/item/storage/backpack/security
 	satchel = /obj/item/storage/backpack/satchel_sec

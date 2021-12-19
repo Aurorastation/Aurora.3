@@ -110,7 +110,7 @@
 // self_message (optional) is what the src mob sees  e.g. "You do something!"
 // blind_message (optional) is what blind people will hear e.g. "You hear something!"
 
-/mob/visible_message(var/message, var/self_message, var/blind_message, var/range = world.view, var/show_observers = TRUE)
+/mob/visible_message(var/message, var/self_message, var/blind_message, var/range = world.view, var/show_observers = TRUE, var/intent_message = null, var/intent_range = 7)
 	var/list/messageturfs = list() //List of turfs we broadcast to.
 	var/list/messagemobs = list() //List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
 	var/list/messageobjs = list() //list of objs nearby who can see it
@@ -150,6 +150,9 @@
 	for(var/o in messageobjs)
 		var/obj/O = o
 		O.see_emote(src, message)
+
+	if(intent_message)
+		intent_message(intent_message, intent_range)
 
 // Designed for mobs contained inside things, where a normal visible message wont actually be visible
 // Useful for visible actions by pAIs, and held mobs
@@ -936,11 +939,12 @@
 		else if(buckled_to)
 			anchored = 1
 			canmove = 0
-			if(buckled_to.buckle_lying != -1)
-				lying = buckled_to.buckle_lying
-			if(buckled_to.buckle_movable)
-				anchored = 0
-				canmove = 1
+			if(isobj(buckled_to))
+				if(buckled_to.buckle_lying != -1)
+					lying = buckled_to.buckle_lying
+				if(buckled_to.buckle_movable)
+					anchored = 0
+					canmove = 1
 		else if(captured)
 			anchored = 1
 			canmove = 0
@@ -957,6 +961,10 @@
 		density = initial(density)
 
 	for(var/obj/item/grab/G in grabbed_by)
+		if(G.wielded)
+			canmove = FALSE
+			lying = TRUE
+			break
 		if(G.state >= GRAB_AGGRESSIVE)
 			canmove = 0
 			break

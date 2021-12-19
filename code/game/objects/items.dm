@@ -68,6 +68,7 @@
 
 	var/build_from_parts = FALSE // when it uses coloration and a part of it wants to remain uncolored. e.g., handle of the screwdriver is colored while the head is not.
 	var/worn_overlay = null // used similarly as above, except for inhands.
+	var/worn_overlay_color = null // When you want your worn overlay to have colors. So you can have more than one modular coloring.
 
 	//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
 	// Used to specify the icon file to be used when the item is worn. If not set the default icon for that slot will be used.
@@ -457,22 +458,23 @@ var/list/global/slot_flags_enumeration = list(
 				if(!disable_warning)
 					to_chat(H, "<span class='warning'>You need a jumpsuit before you can attach this [name].</span>")
 				return 0
-			if(slot_flags & SLOT_DENYPOCKET)
-				return 0
 			if( w_class > 2 && !(slot_flags & SLOT_POCKET) )
 				return 0
 		if(slot_s_store)
-			if(isvaurca(H) && src.w_class <= ITEMSIZE_SMALL)
+			var/can_hold_s_store = (slot_flags & SLOT_S_STORE)
+			if(!can_hold_s_store && H.species.can_hold_s_store(src))
+				can_hold_s_store = TRUE
+			if(can_hold_s_store)
 				return TRUE
 			if(!H.wear_suit && (slot_wear_suit in mob_equip))
 				if(!disable_warning)
 					to_chat(H, "<span class='warning'>You need a suit before you can attach this [name].</span>")
 				return 0
-			if(!H.wear_suit.allowed)
+			if(H.wear_suit && !length(H.wear_suit.allowed))
 				if(!disable_warning)
 					to_chat(usr, "<span class='warning'>You somehow have a suit with no defined allowed items for suit storage, stop that.</span>")
 				return 0
-			if( !(istype(src, /obj/item/modular_computer) || src.ispen() || is_type_in_list(src, H.wear_suit.allowed)) )
+			if(!istype(src, /obj/item/modular_computer) && !ispen() && !is_type_in_list(src, H.wear_suit.allowed))
 				return 0
 		if(slot_handcuffed)
 			if(!istype(src, /obj/item/handcuffs))
@@ -530,12 +532,11 @@ var/list/global/slot_flags_enumeration = list(
 	attack_self(usr)
 
 //RETURN VALUES
-//handle_shield should return a positive value to indicate that the attack is blocked and should be prevented.
-//If a negative value is returned, it should be treated as a special return value for bullet_act() and handled appropriately.
-//For non-projectile attacks this usually means the attack is blocked.
+//handle_shield
+//Return a negative value corresponding to the degree an attack is blocked. PROJECTILE_STOPPED stops the attack entirely, and is the default for projectile and non-projectile attacks
 //Otherwise should return 0 to indicate that the attack is not affected in any way.
 /obj/item/proc/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
-	return 0
+	return FALSE
 
 /obj/item/proc/can_shield_back()
 	return
@@ -950,3 +951,9 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 /obj/item/proc/get_mask_examine_text(var/mob/user)
 	return "on [user.get_pronoun("his")] face"
+
+/obj/item/proc/get_head_examine_text(var/mob/user)
+	return "on [user.get_pronoun("his")] head"
+	
+/obj/item/proc/should_equip() // when you press E with an empty hand, will this item be pulled from suit storage / back slot and put into your hand
+	return FALSE

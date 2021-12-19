@@ -151,6 +151,8 @@
 
 	if (message)
 		log_emote("[name]/[key] : [message]")
+
+	message = process_chat_markup(message, list("~", "_"))
 	if(m_type == VISIBLE_MESSAGE)
 		visible_message(message, show_observers = do_show_observers)
 	else

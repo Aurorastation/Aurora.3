@@ -122,13 +122,20 @@
 	set category = "Object"
 	set src in usr
 
+	if(use_check_and_message(usr, USE_ALLOW_NON_ADJACENT))
+		return
+
 	if((usr.is_clumsy()) && prob(50))
 		to_chat(usr, SPAN_WARNING("You cut yourself on the paper."))
 		return
-	var/n_name = sanitizeSafe(input(usr, "What would you like to label the paper?", "Paper Labelling", null) as text, MAX_NAME_LEN)
 
-	// We check loc one level up, so we can rename in clipboards and such. See also: /obj/item/photo/rename()
-	if((loc == usr || loc.loc && loc.loc == usr) && usr.stat == 0)
+	var/n_name = sanitizeSafe(input(usr, "What would you like to label the paper?", "Paper Labelling", null) as text, MAX_NAME_LEN)
+	
+	if(use_check_and_message(usr, USE_ALLOW_NON_ADJACENT))
+		return
+
+	var/atom/surface_atom = recursive_loc_turf_check(src, 3, usr)
+	if(surface_atom == usr || surface_atom.Adjacent(usr))
 		if(n_name)
 			name = "[initial(name)] ([n_name])"
 		else
@@ -310,6 +317,7 @@
 		t = replacetext(t, "\[/table\]", "")
 		t = replacetext(t, "\[row\]", "")
 		t = replacetext(t, "\[cell\]", "")
+		t = replacetext(t, "\[logo_scc\]", "")
 		t = replacetext(t, "\[logo_nt\]", "")
 		t = replacetext(t, "\[logo_nt_small\]", "")
 		t = replacetext(t, "\[logo_zh\]", "")
@@ -318,6 +326,7 @@
 		t = replacetext(t, "\[logo_zavodskoi\]", "")
 		t = replacetext(t, "\[logo_hp\]", "")
 		t = replacetext(t, "\[logo_be\]", "")
+		t = replacetext(t, "\[logo_golden\]", "")
 
 	if(iscrayon)
 		t = "<font face=\"[crayonfont]\" color=[P ? P.colour : "black"]><b>[t]</b></font>"
@@ -432,6 +441,8 @@
 			return
 
 		var/obj/item/i = usr.get_active_hand() // Check to see if he still got that darn pen, also check if he's using a crayon or pen.
+		if(!i || !i.ispen())
+			i = usr.get_inactive_hand()
 		var/obj/item/clipboard/c
 		var/iscrayon = FALSE
 		var/isfountain = FALSE
@@ -462,8 +473,7 @@
 			else
 				isfountain = FALSE
 
-		// if paper is not in usr, then it must be near them, or in a clipboard or folder, which must be in or near usr
-		if(src.loc != usr && !src.Adjacent(usr) && !((istype(src.loc, /obj/item/clipboard) || istype(src.loc, /obj/item/folder)) && (src.loc.loc == usr || src.loc.Adjacent(usr)) ) )
+		if(!write_check(usr))
 			return
 
 		var/last_fields_value = fields
@@ -494,6 +504,19 @@
 		if(c)
 			c.update_icon()
 
+/obj/item/paper/proc/write_check(var/mob/user)
+	. = TRUE
+	// if paper is not in usr, then it must be near them, or in a clipboard or folder, which must be in or near usr
+	if(loc != user && !Adjacent(user))
+		. = FALSE
+	if(!. && istype(loc, /obj/item/clipboard))
+		var/obj/item/clipboard/C = loc
+		if(C.loc == user || C.Adjacent(user))
+			. = TRUE
+	if(!. && istype(loc, /obj/item/folder))
+		var/obj/item/folder/F = loc
+		if(F.loc_check(user) || F.Adjacent(user))
+			. = TRUE
 
 /obj/item/paper/attackby(var/obj/item/P, mob/user)
 	..()
@@ -630,10 +653,11 @@
 	var/sentence = 1 // Is this form contain a sentence of guilty?
 
 /obj/item/paper/incident/New()
-	info = {"\[center\]\[logo_nt\]\[/center\]
+	var/T = parsepencode({"\[center\]\[logo_nt\]\[/center\]
 \[center\]\[b\]\[i\]Encoded NanoTrasen Security Incident Report\[/b\]\[/i\]\[hr\]
 \[small\]FOR USE BY SECURITY ONLY\[/small\]\[br\]
-\[barcode\]\[/center\]"}
+\[barcode\]\[/center\]"})
+	info = T
 
 	..()
 
@@ -642,7 +666,7 @@
 	icon_state = "pamphlet"
 
 /obj/item/paper/sentencing/New()
-	info = {"\[center\]\[logo_nt\]\[/center\]
+	var/T = parsepencode({"\[center\]\[logo_nt\]\[/center\]
 \[center\]\[b\]\[i\]Operation of Criminal Sentencing Computers\[/b\]\[/i\]\[hr\]
 \[small\]In compliance with new NanoTrasen criminal regulations, the \[b\][station_name()]\[/b\] has been equipped with state of the art sentencing computers. The operation of these terminals is quite simple:\[br\]
 \[br\]
@@ -652,7 +676,8 @@ After all the charges have been applied, the processing officer is invited to ad
 Simply press the option "Render Guilty", and the sentence is complete! The convict's records will be automatically updated to reflect their crimes. You should now insert the printed receipt into the cell timer, and begin processing.\[br\]
 \[hr\]
 Please note: Cell timers will \[b\]NOT\[/b\] function without a valid incident form receipt inserted into them.
-\[small\]FOR USE BY SECURITY ONLY\[/small\]\[br\]"}
+\[small\]FOR USE BY SECURITY ONLY\[/small\]\[br\]"})
+	info = T
 
 	..()
 

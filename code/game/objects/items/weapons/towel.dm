@@ -4,6 +4,9 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "towel"
 	slot_flags = SLOT_HEAD | SLOT_BELT | SLOT_OCLOTHING
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/suit.dmi'
+	)
 	force = 1
 	w_class = ITEMSIZE_NORMAL
 	attack_verb = list("whipped")

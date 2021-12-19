@@ -78,6 +78,7 @@
 	var/encased       // Needs to be opened with a saw to access the organs.
 	var/joint = "joint"   // Descriptive string used in dislocation.
 	var/artery_name = "artery"   //Name of the artery. Cartoid, etc.
+	var/arterial_bleed_severity = 1    // Multiplier for bleeding in a limb.
 	var/amputation_point  // Descriptive string used in amputation.
 	var/dislocated = 0    // If you target a joint, you can dislocate the limb, causing temporary damage to the organ.
 
@@ -85,7 +86,7 @@
 	var/body_hair
 	var/painted = 0
 
-	var/maim_bonus = 0.75 //For special projectile gibbing calculation, dubbed "maiming"
+	var/maim_bonus = 0 //For special projectile gibbing calculation, dubbed "maiming"
 
 	var/list/genetic_markings         // Markings (body_markings) to apply to the icon
 	var/list/temporary_markings	// Same as above, but not preserved when cloning
@@ -100,6 +101,9 @@
 
 	var/obj/item/organ/infect_target_internal //make internal organs become infected one at a time instead of all at once
 	var/obj/item/organ/infect_target_external //make child and parent organs become infected one at a time instead of all at once
+
+	var/mob/living/carbon/alien/diona/nymph //used by dionae limbs
+	var/nymph_child
 
 /obj/item/organ/external/proc/invalidate_marking_cache()
 	cached_markings = null
@@ -120,6 +124,10 @@
 	infect_target_external = null
 
 	applied_pressure = null
+
+	QDEL_NULL(nymph)
+
+	QDEL_NULL(tendon)
 
 	return ..()
 
@@ -232,7 +240,7 @@
 
 	get_icon()
 
-	if((limb_flags & ORGAN_HAS_TENDON) && !BP_IS_ROBOTIC(src))
+	if((limb_flags & ORGAN_HAS_TENDON) && !BP_IS_ROBOTIC(src) && tendon_path)
 		tendon = new tendon_path(src, tendon_name, tendon_health, tendon_msgs)
 	else if(limb_flags & ORGAN_HAS_TENDON)
 		limb_flags &= ~ORGAN_HAS_TENDON
@@ -385,7 +393,7 @@
 	organ_hit_chance = min(organ_hit_chance, 100)
 	if(prob(organ_hit_chance))
 		var/obj/item/organ/internal/victim = pickweight(victims)
-		damage_amt = max(damage_amt*victim.damage_reduction, 0)
+		damage_amt -= max(damage_amt*victim.damage_reduction, 0)
 		victim.take_internal_damage(damage_amt)
 		return TRUE
 
@@ -402,12 +410,13 @@
 
 				if(isitem(used_weapon))
 					var/obj/item/W = used_weapon
+					var/dam_flags = W.damage_flags()
 					if(isprojectile(W))
 						var/obj/item/projectile/P = W
-						if(P.damage_flags & DAM_BULLET)
+						if(dam_flags & DAM_BULLET)
 							blunt_eligible = TRUE
 						maim_bonus += P.maim_rate
-					else if(W.w_class >= w_class && edge)
+					if(W.w_class >= w_class && (dam_flags & DAM_EDGE))
 						edge_eligible = TRUE
 
 				if(!blunt_eligible && edge_eligible && brute >= max_damage / (DROPLIMB_THRESHOLD_EDGE + maim_bonus))
@@ -595,6 +604,10 @@ This function completely restores a damaged organ to perfect condition.
 		if(!(status & ORGAN_BROKEN))
 			perma_injury = 0
 
+		if(status & ORGAN_NYMPH)
+			var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
+			N.handle_nymph(src)
+
 		if(surge_damage && (status & ORGAN_ASSISTED))
 			tick_surge_damage() //Yes, this being here is intentional since this proc does not call ..() unless the owner is null.
 
@@ -653,7 +666,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		return
 
 	if(germ_level <= 0) //Catch any weirdness that might happen with negative values
-		germ_level = 0 
+		germ_level = 0
 
 	if(owner.bodytemperature >= 170)	//cryo stops germs from moving and doing their bad stuffs
 		//** Syncing germ levels with external wounds
@@ -701,7 +714,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		antibiotics = owner.chem_effects[CE_ANTIBIOTIC]
 
 	if(germ_level < INFECTION_LEVEL_TWO)
-		//null out the infect targets since at this point we're not in danger of spreading our infection. 
+		//null out the infect targets since at this point we're not in danger of spreading our infection.
 		infect_target_internal = null
 		infect_target_external = null
 		return ..()
@@ -1444,7 +1457,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		pain = 0
 		return
 	var/last_pain = pain
-	pain = max(0,min(max_damage,pain-amount))
+	pain = max(0, min(species.total_health * 2, pain - amount))
 	return -(pain-last_pain)
 
 /obj/item/organ/external/proc/add_pain(var/amount)
@@ -1457,8 +1470,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		amount -= (owner.chem_effects[CE_PAINKILLER]/3)
 		if(amount <= 0)
 			return
-	var/threshold = max_damage * 2
-	pain = max(0, min(threshold, pain + amount))
+	pain = max(0, min(pain + amount, species.total_health * 2))
 	if(owner && ((amount > 15 && prob(20)) || (amount > 30 && prob(60))))
 		owner.emote("scream")
 	return pain-last_pain

@@ -333,7 +333,7 @@
 
 /obj/item/reagent_containers/food/drinks/cans/koispunch
 	name = "\improper Phoron Punch!"
-	desc = "A radical looking can of <span class='warning'>Phoron Punch!</span> Phoron poisoning has never been more extreme!"
+	desc = "A radical looking can of " + SPAN_WARNING("Phoron Punch!") + " Phoron poisoning has never been more extreme! " + SPAN_DANGER("WARNING: Phoron is toxic to non-Vaurca. Consuming this product might lead to death.")
 	icon_state = "phoron_punch"
 	center_of_mass = list("x"=16, "y"=8)
 	can_size_overrides = list("x" = 1)
@@ -462,3 +462,18 @@
 	center_of_mass = list("x"=16, "y"=10)
 
 	reagents_to_add = list(/decl/reagent/drink/hrozamal_soda = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/diet_cola
+	name = "Diet Cola"
+	desc = "Space Cola! Now in diet!"
+	icon_state = "diet_cola"
+	center_of_mass = list("x"=16, "y"=10)
+	reagents_to_add = list(/decl/reagent/drink/diet_cola = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/peach_soda
+	name = "Xanu Rush!"
+	desc = "Made from the NEW Xanu Prime peaches."
+	desc_fluff = "The rehabilitating environment of Xanu has allowed for small-scale agriculture to bloom. Xanu Rush! Is the number one Coalition soda, despite its dull taste."
+	icon_state = "xanu_rush"
+	center_of_mass = list("x"=16, "y"=10)
+	reagents_to_add = list(/decl/reagent/drink/peach_soda = 30)

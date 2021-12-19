@@ -211,7 +211,7 @@
 
 //Einstein Engines espionage voidsuit
 /obj/item/clothing/head/helmet/space/void/einstein
-	name = "banshee combat suit helmet"
+	name = "banshee infiltration suit helmet"
 	desc = "A sleek, menacing voidsuit helmet with the branding of Taipei Engineering Industrial's private military contractors."
 	icon = 'icons/obj/clothing/voidsuit/megacorp.dmi'
 	icon_state = "bansheehelm"
@@ -236,7 +236,7 @@
 	refittable = FALSE
 
 /obj/item/clothing/suit/space/void/einstein
-	name = "banshee combat suit"
+	name = "banshee infiltration suit"
 	desc = "A tightly-fitting suit manufactured with shimmering, ablative plating. Looks almost weightless."
 	icon = 'icons/obj/clothing/voidsuit/megacorp.dmi'
 	icon_state = "banshee"
@@ -561,6 +561,50 @@
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 
+/obj/item/clothing/head/helmet/space/void/golden_deep
+	name = "golden helmet"
+	desc = "A glamorous, decorated helmet plated with gold. Very hefty."
+	icon = 'icons/obj/clothing/voidsuit/golden_deep.dmi'
+	icon_state = "goldhelm"
+	item_state = "goldhelm"
+	contained_sprite = 1
+
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SMALL
+	)
+	siemens_coefficient = 0.35
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	brightness_on = 6
+
+/obj/item/clothing/suit/space/void/golden_deep
+	name = "golden suit"
+	desc = "A very heavy, gold-plated suit. Fabulous!"
+	icon = 'icons/obj/clothing/voidsuit/golden_deep.dmi'
+	icon_state = "goldsuit"
+	item_state = "goldsuit"
+	contained_sprite = 1
+	slowdown = 1
+
+	w_class = ITEMSIZE_NORMAL
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SMALL
+	)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	siemens_coefficient = 0.35
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+
 /obj/item/clothing/head/helmet/space/void/mining/himeo
 	name = "himeo mining voidsuit helmet"
 	desc = "A rugged polymer and alloy space helmet with a ballistic glass and polycarbonate visor commonly used by astronauts from Himeo."
@@ -711,7 +755,7 @@
 
 /obj/item/clothing/head/helmet/space/void/atmos/himeo/tajara
 	name = "himeo atmospherics voidsuit helmet"
-	desc = "A rugged polymer and alloy space helmet with a reinforced ballistic glass and polycarbonate goggle-type visor commonly used by astronauts from Himeo. This particular model is fitted for Tajara and appears to have a thicker layer of insulation on it." 
+	desc = "A rugged polymer and alloy space helmet with a reinforced ballistic glass and polycarbonate goggle-type visor commonly used by astronauts from Himeo. This particular model is fitted for Tajara and appears to have a thicker layer of insulation on it."
 	desc_fluff = "The Type-78A 'Fish Fur' Helmet is a nearly 80 year old design and is part of a long line of homegrown voidsuits dating to when the planet ejected Hephaestus Industries. The main reason for its long service life \
 	is its modularity, with Himean workers often taking the time to make their own improvements to it, ranging all the way from simple morale patches slapped on the top to modern HUD-enabled visors. It quickly found purchase among \
 	Himeo's population of Tajaran expatriates, who were shown how to modify and use the voidsuits. Many of the first Tajaran-fitted suits were a product of collaborations between the two species making them all the more sentimental to those who use them."

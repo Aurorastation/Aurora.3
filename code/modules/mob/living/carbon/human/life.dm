@@ -644,7 +644,7 @@
 			move_delay_mod += -1.5 * chem_effects[CE_SPEEDBOOST]
 
 		for(var/obj/item/I in src)
-			if(I.contaminated && !(isvaurca(src) && src.species.has_organ[BP_FILTRATION_BIT]))
+			if(I.contaminated && !(species.flags & PHORON_IMMUNE))
 				if(I == r_hand)
 					apply_damage(vsc.plc.CONTAMINATION_LOSS, BURN, BP_R_HAND)
 				else if(I == l_hand)
@@ -696,6 +696,10 @@
 	// TODO: stomach and bloodstream organ.
 	if(!isSynthetic())
 		handle_trace_chems()
+	if(vessel && (/decl/reagent/blood in vessel.reagent_data))
+		// update the trace chems in our blood vessels
+		var/decl/reagent/blood/B = decls_repository.get_decl(/decl/reagent/blood)
+		B.handle_trace_chems(vessel)
 
 	for(var/_R in chem_doses)
 		if ((_R in bloodstr.reagent_volumes) || (_R in ingested.reagent_volumes) || (_R in breathing.reagent_volumes) || (_R in touching.reagent_volumes))
@@ -731,7 +735,7 @@
 		if(hallucination && !(species.flags & (NO_POISON|IS_PLANT)))
 			handle_hallucinations()
 
-		if(get_shock() >= (species.total_health * 0.6))
+		if(get_shock() >= species.total_health)
 			if(!stat)
 				to_chat(src, "<span class='warning'>[species.halloss_message_self]</span>")
 				src.visible_message("<B>[src]</B> [species.halloss_message]")
@@ -742,7 +746,7 @@
 			if(sleeping)
 				stat = UNCONSCIOUS
 
-			adjustHalLoss(-5)
+			adjustHalLoss(-3)
 			if (species.tail)
 				animate_tail_reset()
 			if(prob(2) && is_asystole() && isSynthetic())
@@ -778,6 +782,7 @@
 		if(resting)
 			dizziness = max(0, dizziness - 15)
 			jitteriness = max(0, jitteriness - 15)
+			drowsiness = max(0, drowsiness - 5)
 			adjustHalLoss(-3)
 		else
 			dizziness = max(0, dizziness - 3)
@@ -787,15 +792,21 @@
 		//Other
 		handle_statuses()
 
-		if (drowsyness)
-			if (drowsyness < 0)
-				drowsyness = 0
+		if (drowsiness)
+			if (drowsiness < 0)
+				drowsiness = 0
 			else
-				drowsyness--
-				eye_blurry = max(2, eye_blurry)
-				if (prob(5))
-					sleeping += 1
-					Paralyse(5)
+				drowsiness--
+				eye_blurry = max(drowsiness, eye_blurry)
+				if(drowsiness > 5)
+					if(prob(drowsiness/5))
+						slurring += rand(1, 5)
+					if(prob(3))
+						make_dizzy(100 + drowsiness)
+						if(!sleeping)
+							emote("yawn")
+					if(prob(drowsiness/10))
+						eye_blind += 2
 
 		// If you're dirty, your gloves will become dirty, too.
 		if(gloves && germ_level > gloves.germ_level && prob(10))
@@ -1376,6 +1387,8 @@
 		//Any suffocation damage slows stamina regen.
 		//This includes oxyloss from low blood levels
 		var/regen = stamina_recovery * (1 - min(((getOxyLoss()) / exhaust_threshold) + ((get_shock()) / exhaust_threshold), 1))
+		if(is_drowsy())
+			regen *= 0.85
 		if (regen > 0)
 			stamina = min(max_stamina, stamina+regen)
 			adjustNutritionLoss(stamina_recovery*0.09)
@@ -1446,8 +1459,8 @@
 /mob/living/carbon/human/proc/do_fever_effects(var/fever)
 	if(prob(20/3)) // every 30 seconds, roughly
 		to_chat(src, SPAN_WARNING(pick("You feel cold and clammy...", "You shiver as if a breeze has passed through.", "Your muscles ache.", "You feel tired and fatigued.")))
-	if(prob(20)) // once every 10 seconds, roughly
-		drowsyness += 4
+	if(prob(25)) // once every 8 seconds, roughly
+		drowsiness += 5
 	if(prob(20))
 		adjustHalLoss(5 * min(fever, 5)) // muscle pain from fever
 	if(fever >= 7 && prob(10)) // your organs are boiling, figuratively speaking

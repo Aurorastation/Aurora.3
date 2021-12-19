@@ -160,7 +160,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 	return
 
 /proc/copy(var/obj/machinery/target, var/obj/item/paper/copy, var/print = TRUE, var/use_sound = TRUE, var/delay = 10, var/toner) // note: var/delay is the delay from copy to print, it should be less than the sleep in copy_type()
-	var/obj/item/paper/c = new /obj/item/paper()
+	var/obj/item/paper/c = new copy.type(target)
 	var/info
 	var/pname
 	if (toner > 10)	//lots of toner, make it dark

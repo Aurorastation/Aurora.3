@@ -80,7 +80,13 @@
 
 		mind = body.mind	//we don't transfer the mind but we keep a reference to it.
 
-	if(!T)	T = pick(latejoin)			//Safety in case we cannot find the body's position
+	if(!T)
+		if(length(latejoin))
+			T = pick(latejoin)			//Safety in case we cannot find the body's position
+		else if(length(force_spawnpoints["Anyone"]))
+			T = pick(force_spawnpoints["Anyone"])
+		else
+			T = locate(1, 1, 1)
 	forceMove(T)
 
 	if(!name)							//To prevent nameless ghosts
@@ -183,18 +189,25 @@ Works together with spawning an observer, noted above.
 
 //Teleports the observer away from z-levels they shouldnt be on, if needed.
 /mob/abstract/observer/proc/teleport_if_needed()
+	//If we dont have a observe restriction we dont need to teleport
+	if(!config.observe_restriction)
+		return
+
+	//If we are not on a restricted level we dont need to get rid of them
 	if(!on_restricted_level())
 		return
 
+	//If we have observe restriction 1 and they are following a living non-animal mob we dont need to do anything.
+	if(config.observe_restriction == 1 && following && isliving(following) && !isliving(following))
+		return
+
+	//In case we have observe restriction 2 (or 1 and they are following something, then teleport them back.)
 	if(following)
-		if(!isliving(following) || isanimal(following)) //If they are following something other than a living non-animal mob, teleport them
-			var/message = "You can not follow \the [following] on this level."
-			stop_following()
-			teleport_to_spawn(message)
-		else
-			return
-	//If they are moving around freely, teleport them
-	teleport_to_spawn()
+		stop_following()
+		teleport_to_spawn("You can not follow \the [following] on this level.")
+	else
+		teleport_to_spawn()
+
 	//And update their sight settings
 	updateghostsight()
 
@@ -266,8 +279,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /mob/abstract/observer/Stat()
 	..()
 	if(statpanel("Status"))
-		if(emergency_shuttle)
-			var/eta_status = emergency_shuttle.get_status_panel_eta()
+		if(evacuation_controller)
+			var/eta_status = evacuation_controller.get_status_panel_eta()
 			if(eta_status)
 				stat(null, eta_status)
 
@@ -322,7 +335,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 	if(ishuman(following))
 		health_scan_mob(following, usr, TRUE, TRUE)
-	else 
+	else
 		to_chat(src, SPAN_WARNING("This isn't a scannable target."))
 
 /mob/abstract/observer/verb/toggle_antagHUD()
@@ -394,14 +407,13 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	stop_following()
 	usr.forceMove(pick(L))
 
-/mob/abstract/observer/verb/follow(input in getmobs())
+/mob/abstract/observer/verb/follow()
 	set category = "Ghost"
 	set name = "Follow" // "Haunt"
 	set desc = "Follow and haunt a mob."
 
-	var/target = getmobs()[input]
-	if(!target) return
-	ManualFollow(target)
+	var/datum/vueui_module/ghost_menu/GM = new /datum/vueui_module/ghost_menu(usr)
+	GM.ui_interact(usr)
 
 // This is the ghost's follow verb with an argument
 /mob/abstract/observer/proc/ManualFollow(var/atom/movable/target)

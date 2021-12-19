@@ -75,23 +75,8 @@ proc/get_radio_key_from_channel(var/channel)
 
 	return key
 
-/mob/living/proc/binarycheck()
-
-	if (istype(src, /mob/living/silicon/pai))
-		return
-
-	if (!ishuman(src))
-		return
-
-	var/mob/living/carbon/human/H = src
-	if (H.l_ear || H.r_ear)
-		var/obj/item/device/radio/headset/dongle
-		if(istype(H.l_ear,/obj/item/device/radio/headset))
-			dongle = H.l_ear
-		else
-			dongle = H.r_ear
-		if(!istype(dongle)) return
-		if(dongle.translate_binary) return 1
+/mob/living/proc/binarycheck(var/mob/speaker)
+	return FALSE
 
 /mob/living/proc/get_stuttered_message(message)
 	return stutter(message, stuttering)
@@ -200,6 +185,11 @@ proc/get_radio_key_from_channel(var/channel)
 	else
 		speaking = get_default_language()
 
+	if(speaking)
+		var/list/speech_mod = speaking.handle_message_mode(message_mode)
+		speaking = speech_mod[1]
+		message_mode = speech_mod[2]
+
 	var/is_singing = FALSE
 	if(length(message) >= 1 && copytext(message, 1, 2) == "%")
 		message = copytext(message, 2)
@@ -246,7 +236,7 @@ proc/get_radio_key_from_channel(var/channel)
 				src.custom_emote(VISIBLE_MESSAGE, "[pick(speaking.signlang_verb)].")
 
 		if (speaking.flags & SIGNLANG)
-			return say_signlang(message, pick(speaking.signlang_verb), speaking)
+			return say_signlang(message, pick(speaking.signlang_verb), speaking, speaking.sign_adv_length)
 
 	var/list/obj/item/used_radios = new
 	var/list/successful_radio = new // passes a list because standard vars don't work when passed
@@ -280,15 +270,16 @@ proc/get_radio_key_from_channel(var/channel)
 	var/turf/T = get_turf(src)
 
 	if(T)
-		//make sure the air can transmit speech - speaker's side
-		var/datum/gas_mixture/environment = T.return_air()
-		var/pressure = (environment)? environment.return_pressure() : 0
-		if(pressure < SOUND_MINIMUM_PRESSURE)
-			message_range = 1
+		if(!speaking || !(speaking.flags & PRESSUREPROOF))
+			//make sure the air can transmit speech - speaker's side
+			var/datum/gas_mixture/environment = T.return_air()
+			var/pressure = (environment)? environment.return_pressure() : 0
+			if(pressure < SOUND_MINIMUM_PRESSURE)
+				message_range = 1
 
-		if (pressure < ONE_ATMOSPHERE*0.4) //sound distortion pressure, to help clue people in that the air is thin, even if it isn't a vacuum yet
-			italics = 1
-			sound_vol *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
+			if (pressure < ONE_ATMOSPHERE*0.4) //sound distortion pressure, to help clue people in that the air is thin, even if it isn't a vacuum yet
+				italics = 1
+				sound_vol *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
 
 		get_mobs_and_objs_in_view_fast(T, message_range, listening, listening_obj, ghost_hearing)
 
@@ -300,14 +291,16 @@ proc/get_radio_key_from_channel(var/channel)
 			hear_clients += M.client
 
 	var/speech_bubble_test = say_test(message)
-	var/image/speech_bubble = image('icons/mob/talk.dmi',src,"h[speech_bubble_test]")
+	var/image/speech_bubble = image(get_talk_bubble(),src,"h[speech_bubble_test]")
 	speech_bubble.appearance_flags = RESET_COLOR|RESET_ALPHA
 	INVOKE_ASYNC(GLOBAL_PROC, /proc/animate_speechbubble, speech_bubble, hear_clients, 30)
 	do_animate_chat(message, speaking, italics, hear_clients, 30)
 
-	for(var/obj/O as anything in listening_obj)
-		if(O) //It's possible that it could be deleted in the meantime.
-			INVOKE_ASYNC(O, /obj/.proc/hear_talk, src, message, verb, speaking)
+	var/bypass_listen_obj = (speaking && (speaking.flags & PASSLISTENOBJ))
+	if(!bypass_listen_obj)
+		for(var/obj/O as anything in listening_obj)
+			if(O) //It's possible that it could be deleted in the meantime.
+				INVOKE_ASYNC(O, /obj/.proc/hear_talk, src, message, verb, speaking)
 
 	if(mind)
 		mind.last_words = message
@@ -332,11 +325,11 @@ proc/get_radio_key_from_channel(var/channel)
 	for(var/client/C in show_to)
 		C.images -= I
 
-/mob/living/proc/say_signlang(var/message, var/verb="gestures", var/datum/language/language)
+/mob/living/proc/say_signlang(var/message, var/verb="gestures", var/datum/language/language, var/list/sign_adv_length)
 	log_say("[key_name(src)] : ([get_lang_name(language)]) [message]",ckey=key_name(src))
 
 	for (var/mob/O in viewers(src, null))
-		O.hear_signlang(message, verb, language, src)
+		O.hear_signlang(message, verb, language, src, sign_adv_length)
 	return 1
 
 /obj/effect/speech_bubble

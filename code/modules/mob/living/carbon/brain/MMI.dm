@@ -81,7 +81,7 @@
 				if(!B.can_prepare)
 					to_chat(user, SPAN_WARNING("\The [B] is incompatible with [src]!"))
 					return
-				if(B.health <= 0)
+				if(B.damage >= B.max_damage)
 					to_chat(user, SPAN_WARNING("That brain is well and truly dead."))
 					return
 				else if(!B.brainmob)
@@ -279,6 +279,20 @@
 	brainmob.stat = CONSCIOUS
 	if(H.mind)
 		H.mind.transfer_to(brainmob)
+
+/obj/item/device/mmi/shell
+	name = "ai shell control module"
+	desc = "A specialised circuit created to permit an artificial intelligence to take over the body of a stationbound unit."
+	icon = 'icons/obj/module.dmi'
+	origin_tech = list(TECH_DATA = 6, TECH_ENGINEERING = 6)
+
+/obj/item/device/mmi/shell/attackby()
+	return
+
+/obj/item/device/mmi/shell/Initialize()
+	. = ..()
+	set_cradle_state(STATE_SEALED)
+	icon_state = "shell_circuit"
 
 #undef STATE_EMPTY
 #undef STATE_BRAIN

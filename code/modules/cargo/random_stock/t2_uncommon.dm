@@ -268,11 +268,16 @@ STOCK_ITEM_UNCOMMON(rped, 1)
 	new /obj/item/storage/part_replacer(L)
 
 STOCK_ITEM_UNCOMMON(briefcase, 2)
-	if(prob(20))
-		new /obj/item/storage/secure/briefcase(L)
-	else
-		var/obj/item/storage/briefcase/B = pick(typesof(/obj/item/storage/briefcase))
-		new B(L)
+	var/list/briefcases = list(
+		/obj/item/storage/briefcase = 1,
+		/obj/item/storage/briefcase/real = 0.8,
+		/obj/item/storage/briefcase/black = 0.8,
+		/obj/item/storage/briefcase/aluminium = 0.5,
+		/obj/item/storage/briefcase/nt = 0.5
+	)
+
+	var/type = pickweight(briefcases)
+	new type(L)
 
 STOCK_ITEM_UNCOMMON(blade, 1.2)
 	var/list/blades = list(
@@ -398,6 +403,9 @@ STOCK_ITEM_UNCOMMON(gumballs, 3)
 
 STOCK_ITEM_UNCOMMON(googly, 0.75)
 	new /obj/item/storage/box/googly(L)
+
+STOCK_ITEM_UNCOMMON(wizarddressup, 1)
+	new /obj/random/wizard_dressup(L)
 
 STOCK_ITEM_UNCOMMON(nothing, 0)
 	// no-op

@@ -17,8 +17,11 @@
 
 /obj/machinery/teleport/pad/Initialize()
 	. = ..()
-	station = locate() in range(2, src)
+	find_station()
 	queue_icon_update()
+
+/obj/machinery/teleport/pad/proc/find_station()
+	station = locate() in range(2, src)
 
 /obj/machinery/teleport/pad/Destroy()
 	station = null
@@ -37,7 +40,7 @@
 		station.locked_obj = null
 		return
 	if(prob(station.calibration)) //oh dear a problem, put em in deep space
-		do_teleport(M, locate(rand((2*TRANSITIONEDGE), world.maxx - (2*TRANSITIONEDGE)), rand((2*TRANSITIONEDGE), world.maxy - (2*TRANSITIONEDGE)), 3), 2)
+		do_teleport(M, locate(rand((2*TRANSITIONEDGE), world.maxx - (2*TRANSITIONEDGE)), rand((2*TRANSITIONEDGE), world.maxy - (2*TRANSITIONEDGE)), pick(GetConnectedZlevels(z))), 2)
 	else
 		do_teleport(M, teleport_obj) //dead-on precision
 	if(ishuman(M))
@@ -77,10 +80,32 @@
 
 /obj/machinery/teleport/station/Initialize()
 	. = ..()
-	pad = locate() in range(2, src)
+	find_pad()
 	set_dir(get_dir(src, pad))
 	id = "[rand(1000, 9999)]"
 	queue_icon_update()
+
+/obj/machinery/teleport/station/proc/find_pad()
+	pad = locate() in range(2, src)
+	if(pad)
+		return TRUE
+	return FALSE
+
+/obj/machinery/teleport/station/examine(mob/user)
+	. = ..()
+	to_chat(user, SPAN_NOTICE("\The [src]'s station ID is: <b>[id]</b>."))
+
+/obj/machinery/teleport/station/machinery_process()
+	var/old_engaged = engaged
+	if(locked_obj)
+		if(stat & (NOPOWER|BROKEN))
+			engaged = FALSE
+		else
+			engaged = TRUE
+	if(old_engaged != engaged)
+		update_icon()
+		if(pad)
+			pad.update_icon()
 
 /obj/machinery/teleport/station/update_icon()
 	. = ..()
@@ -116,12 +141,13 @@
 	data["calibration"] = 100 - calibration
 	var/list/area_index = list()
 
+	var/obj/selected_beacon = locked_obj ? locked_obj.resolve() : null
 	var/list/teleport_beacon_info = list()
 	for(var/obj/item/device/radio/beacon/R in teleportbeacons)
 		var/turf/BT = get_turf(R)
 		if(!BT)
 			continue
-		if(isNotStationLevel(BT.z))
+		if(!isAdminLevel(z) && (isAdminLevel(BT.z) || !AreConnectedZLevels(z, BT.z)))
 			continue
 		var/tmpname = BT.loc.name
 		if(area_index[tmpname])
@@ -130,7 +156,8 @@
 			area_index[tmpname] = 1
 		var/list/teleporter_info = list(
 			"beacon_name" = tmpname,
-			"ref" = "\ref[R]"
+			"ref" = "\ref[R]",
+			"selected_beacon" = (selected_beacon == R) ? TRUE : FALSE
 			)
 		teleport_beacon_info[++teleport_beacon_info.len] = teleporter_info
 	data["teleport_beacons"] = teleport_beacon_info
@@ -141,13 +168,12 @@
 			continue
 		else
 			var/mob/M = I.loc
-			if(M.stat == DEAD)
-				if(M.timeofdeath + 6000 < world.time)
-					continue
+			if(M.stat == DEAD && M.timeofdeath + 6000 < world.time)
+				continue
 			var/turf/IT = get_turf(M)
 			if(!IT)
 				continue
-			if(isNotStationLevel(IT.z))
+			if(!isAdminLevel(z) && (isAdminLevel(IT.z) || !AreConnectedZLevels(z, IT.z)))
 				continue
 			var/tmpname = M.real_name
 			if(area_index[tmpname])
@@ -156,7 +182,8 @@
 				area_index[tmpname] = 1
 			var/list/implant_info = list(
 				"implant_name" = tmpname,
-				"ref" = "\ref[I]"
+				"ref" = "\ref[I]",
+				"selected_implant" = (selected_beacon == I) ? TRUE : FALSE
 			)
 			teleport_implant_info[++teleport_implant_info.len] = implant_info
 	data["teleport_implants"] = teleport_implant_info
@@ -175,6 +202,7 @@
 			var/obj/LO = locked_obj.resolve()
 			if(LO == O)
 				disengage()
+				SSvueui.check_uis_for_change(src)
 				return
 		locked_obj = WEAKREF(O)
 		locked_obj_name = href_list["name"]
@@ -187,6 +215,7 @@
 			var/obj/LO = locked_obj.resolve()
 			if(LO == O)
 				disengage()
+				SSvueui.check_uis_for_change(src)
 				return
 		locked_obj = WEAKREF(O)
 		locked_obj_name = href_list["name"]
@@ -198,6 +227,9 @@
 
 /obj/machinery/teleport/station/proc/engage()
 	if(stat & (BROKEN|NOPOWER))
+		return
+
+	if(!pad && !find_pad())
 		return
 
 	use_power(5000)
@@ -214,13 +246,15 @@
 		return
 
 	update_use_power(1)
-	pad.update_use_power(1)
+	if(pad)
+		pad.update_use_power(1)
 	locked_obj = null
 	locked_obj_name = null
 	visible_message(SPAN_NOTICE("Teleporter disengaged!"))
 	add_fingerprint(usr)
 	engaged = FALSE
-	pad.queue_icon_update()
+	if(pad)
+		pad.queue_icon_update()
 	queue_icon_update()
 
 /obj/machinery/teleport/station/power_change()

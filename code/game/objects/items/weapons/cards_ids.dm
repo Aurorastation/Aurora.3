@@ -121,6 +121,8 @@ var/const/NO_EMAG_ACT = -50
 	var/dorm = 0			// determines if this ID has claimed a dorm already
 	var/datum/ntnet_user/chat_user
 
+	var/iff_faction = IFF_DEFAULT
+
 /obj/item/card/id/Destroy()
 	mob = null
 	return ..()
@@ -367,7 +369,7 @@ var/const/NO_EMAG_ACT = -50
 	item_state = "gold_id"
 	overlay_state = "gold"
 
-/obj/item/card/id/syndicate_command
+/obj/item/card/id/syndicate/command
 	name = "syndicate ID card"
 	desc = "An ID straight from the Syndicate."
 	icon_state = "dark"
@@ -375,14 +377,14 @@ var/const/NO_EMAG_ACT = -50
 	assignment = "Syndicate Overlord"
 	access = list(access_syndicate, access_external_airlocks)
 
-/obj/item/card/id/syndicate_ert
+/obj/item/card/id/syndicate/ert
 	name = "\improper Syndicate Commando ID"
 	assignment = "Commando"
 	icon_state = "centcom"
 
-/obj/item/card/id/syndicate_ert/New()
+/obj/item/card/id/syndicate/ert/Initialize()
+	. = ..()
 	access = get_all_accesses()
-	..()
 
 /obj/item/card/id/syndicate/raider
 	name = "passport"
@@ -525,9 +527,9 @@ var/const/NO_EMAG_ACT = -50
 	overlay_state = "erisec_card"
 
 /obj/item/card/id/distress/ap_eridani/New()
-	access = list(access_distress, access_maint_tunnels, access_external_airlocks, access_security, access_medical, access_medical_equip)
+	access = get_distress_access()
 	..()
-
+ 
 /obj/item/card/id/distress/iac
 	name = "\improper Interstellar Aid Corps ID"
 	assignment = "Interstellar Aid Corps Responder"
@@ -602,12 +604,14 @@ var/const/NO_EMAG_ACT = -50
 	desc = "A stylized plastic card, belonging to one of the many specialists at Einstein Engines."
 	icon_state = "einstein_card"
 	overlay_state = "einstein_card"
+	iff_faction = IFF_EE
 
 /obj/item/card/id/bluespace
 	name = "bluespace identification card"
 	desc = "A bizarre imitation of Nanotrasen identification cards. It seems to function normally as well."
 	desc_antag = "Access can be copied from other ID cards by clicking on them."
 	icon_state = "crystalid"
+	iff_faction = IFF_BLUESPACE
 
 /obj/item/card/id/bluespace/update_name()
 	return

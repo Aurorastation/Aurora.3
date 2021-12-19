@@ -16,18 +16,23 @@
 	minimal_access = list(access_bar)
 	alt_titles = list("Barista")
 	outfit = /datum/outfit/job/bartender
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/bartender
 	name = "Bartender"
 	jobtype = /datum/job/bartender
 
 	uniform = /obj/item/clothing/under/rank/bartender
+	shoes = /obj/item/clothing/shoes/black
+	
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/bartender
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/bartender
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/bartender
-	shoes = /obj/item/clothing/shoes/black
+	
 	headset = /obj/item/device/radio/headset/headset_service
 	bowman = /obj/item/device/radio/headset/headset_service/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/service
+	wrist_radio = /obj/item/device/radio/headset/wrist/service
 
 
 /datum/job/chef
@@ -47,6 +52,7 @@
 	minimal_access = list(access_kitchen)
 	alt_titles = list("Cook")
 	outfit = /datum/outfit/job/chef
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/chef
 	name = "Chef"
@@ -55,12 +61,16 @@
 	uniform = /obj/item/clothing/under/rank/chef
 	suit = /obj/item/clothing/suit/chef
 	head = /obj/item/clothing/head/chefhat
+	shoes = /obj/item/clothing/shoes/black
+	
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
 	tablet = /obj/item/modular_computer/handheld/preset/civilian
-	shoes = /obj/item/clothing/shoes/black
+	
 	headset = /obj/item/device/radio/headset/headset_service
 	bowman = /obj/item/device/radio/headset/headset_service/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/service
+	wrist_radio = /obj/item/device/radio/headset/wrist/service
 
 	backpack_contents = list(
 		/obj/item/storage/box/produce = 1
@@ -83,6 +93,7 @@
 	minimal_access = list(access_hydroponics)
 	alt_titles = list("Hydroponicist")
 	outfit = /datum/outfit/job/hydro
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/hydro
 	name = "Gardener"
@@ -90,13 +101,17 @@
 
 	uniform = /obj/item/clothing/under/rank/hydroponics
 	suit = /obj/item/clothing/suit/apron
+	shoes = /obj/item/clothing/shoes/black
+	suit_store = /obj/item/device/analyzer/plant_analyzer
+	
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
 	tablet = /obj/item/modular_computer/handheld/preset/civilian
-	shoes = /obj/item/clothing/shoes/black
+	
 	headset = /obj/item/device/radio/headset/headset_service
 	bowman = /obj/item/device/radio/headset/headset_service/alt
-	suit_store = /obj/item/device/analyzer/plant_analyzer
+	double_headset = /obj/item/device/radio/headset/alt/double/service
+	wrist_radio = /obj/item/device/radio/headset/wrist/service
 
 	backpack = /obj/item/storage/backpack/hydroponics
 	satchel = /obj/item/storage/backpack/satchel_hyd
@@ -133,20 +148,25 @@
 	ideal_character_age = 40
 
 	outfit = /datum/outfit/job/qm
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/qm
 	name = "Quartermaster"
 	jobtype = /datum/job/qm
 
 	uniform = /obj/item/clothing/under/rank/quartermaster
+	shoes = /obj/item/clothing/shoes/brown
+	l_hand = /obj/item/clipboard
+	glasses = /obj/item/clothing/glasses/sunglasses
+	
 	tab_pda = /obj/item/modular_computer/handheld/pda/supply/qm
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/supply/qm
 	tablet = /obj/item/modular_computer/handheld/preset/supply/qm
-	shoes = /obj/item/clothing/shoes/brown
+	
 	headset = /obj/item/device/radio/headset/qm
 	bowman = /obj/item/device/radio/headset/qm/alt
-	l_hand = /obj/item/clipboard
-	glasses = /obj/item/clothing/glasses/sunglasses
+	double_headset = /obj/item/device/radio/headset/alt/double/qm
+	wrist_radio = /obj/item/device/radio/headset/wrist/cargo/qm
 
 
 /datum/job/cargo_tech
@@ -165,19 +185,24 @@
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
 	minimal_access = list(access_cargo, access_cargo_bot, access_mailsorting)
 	outfit = /datum/outfit/job/cargo_tech
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/cargo_tech
 	name = "Cargo Technician"
 	jobtype = /datum/job/cargo_tech
 
 	uniform = /obj/item/clothing/under/rank/cargo
+	id = /obj/item/card/id/silver
+	shoes = /obj/item/clothing/shoes/brown
+	
 	tab_pda = /obj/item/modular_computer/handheld/pda/supply
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/supply
 	tablet = /obj/item/modular_computer/handheld/preset/supply
-	id = /obj/item/card/id/silver
-	shoes = /obj/item/clothing/shoes/brown
+	
 	headset = /obj/item/device/radio/headset/headset_cargo
 	bowman = /obj/item/device/radio/headset/headset_cargo/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/cargo
+	wrist_radio = /obj/item/device/radio/headset/wrist/cargo
 
 
 /datum/job/mining
@@ -199,21 +224,25 @@
 	alt_titles = list("Drill Technician")
 	alt_outfits = list("Drill Technician" = /datum/outfit/job/mining/drill)
 	outfit = /datum/outfit/job/mining
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/mining
 	name = "Shaft Miner"
 	jobtype = /datum/job/mining
 
 	uniform = /obj/item/clothing/under/rank/miner
+	id = /obj/item/card/id/silver
+	shoes = /obj/item/clothing/shoes/black
+	l_hand = /obj/item/coin/mining
+	
 	tab_pda = /obj/item/modular_computer/handheld/pda/supply/miner
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/supply/miner
 	tablet = /obj/item/modular_computer/handheld/preset/civilian
-	id = /obj/item/card/id/silver
-	shoes = /obj/item/clothing/shoes/black
+	
 	headset = /obj/item/device/radio/headset/headset_mining
 	bowman = /obj/item/device/radio/headset/headset_mining/alt
-
-	l_hand = /obj/item/coin/mining
+	double_headset = /obj/item/device/radio/headset/alt/double/mining
+	wrist_radio = /obj/item/device/radio/headset/wrist/cargo/mining
 
 	backpack_contents = list(
 		/obj/item/storage/bag/ore = 1
@@ -243,18 +272,23 @@
 	access = list(access_janitor, access_maint_tunnels, access_engine, access_research, access_sec_doors, access_medical)
 	minimal_access = list(access_janitor, access_engine, access_research, access_sec_doors, access_medical)
 	outfit = /datum/outfit/job/janitor
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/janitor
 	name = "Janitor"
 	jobtype = /datum/job/janitor
 
 	uniform = /obj/item/clothing/under/rank/janitor
+	shoes = /obj/item/clothing/shoes/black
+	
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/janitor
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/janitor
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/janitor
-	shoes = /obj/item/clothing/shoes/black
+	
 	headset = /obj/item/device/radio/headset/headset_service
 	bowman = /obj/item/device/radio/headset/headset_service/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/service
+	wrist_radio = /obj/item/device/radio/headset/wrist/service
 
 /datum/job/journalist
 	title = "Corporate Reporter"
@@ -275,18 +309,23 @@
 	alt_outfits = list("Freelance Journalist" = /datum/outfit/job/journalistf)
 	title_accesses = list("Corporate Reporter" = list(access_medical, access_sec_doors, access_research, access_engine))
 	outfit = /datum/outfit/job/journalist
+	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/journalist
 	name = "Corporate Reporter"
 	jobtype = /datum/job/journalist
 
 	uniform = /obj/item/clothing/under/suit_jacket/red
+	shoes = /obj/item/clothing/shoes/black
+	
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/librarian
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/librarian
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/librarian
-	shoes = /obj/item/clothing/shoes/black
+	
 	headset = /obj/item/device/radio/headset/headset_service
 	bowman = /obj/item/device/radio/headset/headset_service/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/service
+	wrist_radio = /obj/item/device/radio/headset/wrist/service
 
 	backpack_contents = list(
 		/obj/item/clothing/accessory/badge/press = 1
@@ -297,10 +336,11 @@
 	jobtype = /datum/job/journalist
 
 	uniform = /obj/item/clothing/under/suit_jacket/red
+	shoes = /obj/item/clothing/shoes/black
+	
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/librarian
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/librarian
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/librarian
-	shoes = /obj/item/clothing/shoes/black
 
 	backpack_contents = list(
 		/obj/item/clothing/accessory/badge/press/independent = 1
@@ -323,20 +363,25 @@
 	alt_outfits = list("Curator" = /datum/outfit/job/librarian/curator, "Tech Support" = /datum/outfit/job/librarian/tech_support)
 	title_accesses = list("Tech Support" = access_it)
 	outfit = /datum/outfit/job/librarian
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/librarian
 	name = "Librarian"
 	jobtype = /datum/job/librarian
 
 	uniform = /obj/item/clothing/under/suit_jacket/red
+	shoes = /obj/item/clothing/shoes/black
+	r_pocket = /obj/item/barcodescanner
+	l_hand = /obj/item/storage/bag/books
+	
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/librarian
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/librarian
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/librarian
-	shoes = /obj/item/clothing/shoes/black
+	
 	headset = /obj/item/device/radio/headset/headset_service
 	bowman = /obj/item/device/radio/headset/headset_service/alt
-	r_pocket = /obj/item/barcodescanner
-	l_hand = /obj/item/storage/bag/books
+	double_headset = /obj/item/device/radio/headset/alt/double/service
+	wrist_radio = /obj/item/device/radio/headset/wrist/service
 
 /datum/outfit/job/librarian/curator
 	name = "Curator"
@@ -355,4 +400,4 @@
 	r_pocket = /obj/item/card/tech_support
 	r_hand = /obj/item/storage/bag/circuits/basic
 	l_hand = /obj/item/modular_computer/laptop/preset
-	gloves = /obj/item/modular_computer/handheld/wristbound/preset/advanced/generic
+	gloves = /obj/item/modular_computer/handheld/wristbound/preset/advanced/civilian

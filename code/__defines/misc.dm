@@ -65,6 +65,7 @@
 #define PARALLAX_IS_STATIC 0x8
 #define FLOATING_MESSAGES 0x10
 #define HOTKEY_DEFAULT 0x20
+#define FULLSCREEN_MODE 0x40
 
 #define TOGGLES_DEFAULT (SOUND_ADMINHELP|SOUND_MIDI|SOUND_AMBIENCE|SOUND_LOBBY|CHAT_OOC|CHAT_DEAD|CHAT_GHOSTEARS|CHAT_GHOSTSIGHT|CHAT_PRAYER|CHAT_RADIO|CHAT_ATTACKLOGS|CHAT_LOOC|CHAT_GHOSTLOOC)
 
@@ -233,6 +234,7 @@
 #define PROJECTILE_CONTINUE   -1 //if the projectile should continue flying after calling bullet_act()
 #define PROJECTILE_FORCE_MISS -2 //if the projectile should treat the attack as a miss (suppresses attack and admin logs) - only applies to mobs.
 #define PROJECTILE_DODGED     -3 //this is similar to the above, but the check and message is run on the mob, instead of on the projectile code. basically just has a unique message
+#define PROJECTILE_STOPPED    -4 //stops the projectile completely, as if a shield absorbed it
 
 //Camera capture modes
 #define CAPTURE_MODE_REGULAR 0 //Regular polaroid camera mode
@@ -476,3 +478,4 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define COOK_CHECK_EXTRA	0
 #define COOK_CHECK_EXACT	1
 
+#define STATION_TAG "Aurora"

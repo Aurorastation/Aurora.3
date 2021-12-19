@@ -18,6 +18,9 @@
 		slot_l_hand_str = "backpack",
 		slot_r_hand_str = "backpack"
 		)
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/back.dmi'
+	)
 	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BACK
 	max_w_class = ITEMSIZE_NORMAL
@@ -172,12 +175,6 @@
 	desc = "It's an orange backpack which was designed to hold beakers, pill bottles and bottles."
 	icon_state = "chempack"
 
-/obj/item/storage/backpack/cloak
-	name = "tunnel cloak"
-	desc = "It's a Vaurca cloak with storage pockets."
-	icon_state = "cape"
-	sprite_sheets = list(BODYTYPE_VAURCA = 'icons/mob/species/vaurca/back.dmi')
-
 /obj/item/storage/backpack/syndie
 	name = "syndicate rucksack"
 	desc = "The latest in carbon fiber and red satin combat rucksack technology. Comfortable and tough!"
@@ -185,8 +182,8 @@
 	empty_delay = 0.8 SECOND
 
 /obj/item/storage/backpack/wizard
-	name = "wizard federation sack"
-	desc = "Perfect for keeping your shining crystal balls inside of."
+	name = "magical sack"
+	desc = "Perfect for keeping your shining crystal balls inside of. May not contain actual magic."
 	icon_state = "wizardpack"
 	empty_delay = 0.8 SECOND
 
@@ -293,8 +290,8 @@
 	empty_delay = 0.8 SECOND
 
 /obj/item/storage/backpack/satchel_wizard
-	name = "wizard federation satchel"
-	desc = "This stylish satchel will put a spell on anyone with some fashion sense to spare."
+	name = "magic satchel"
+	desc = "This stylish satchel will put a spell on anyone with some fashion sense to spare. Contains %0 actual magic."
 	icon_state = "satchel-wizard"
 	empty_delay = 0.8 SECOND
 
@@ -424,8 +421,8 @@
 	empty_delay = 0.8 SECOND
 
 /obj/item/storage/backpack/duffel/wizard
-	name = "wizardly duffel bag"
-	desc = "A fancy blue wizard bag, duffel edition."
+	name = "magical duffel bag"
+	desc = "A fancy blue spell bag, duffel edition. Comes with zero spells because magic isn't real, nerd."
 	icon_state = "duffel-wizard"
 	slowdown = 0
 	empty_delay = 0.8 SECOND
@@ -504,10 +501,36 @@
 
 /obj/item/storage/backpack/typec
 	icon = 'icons/mob/species/breeder/inventory.dmi'
-	name = "type c wings"
+	name = "type c zo'ra wings"
 	desc = "The wings of a CB Caste Vaurca. They are far too small at this stage to permit sustained periods of flight in most situations."
 	icon_state = "wings"
 	item_state = "wings"
+	w_class = ITEMSIZE_HUGE
+	slot_flags = SLOT_BACK
+	max_storage_space = 12
+	canremove = 0
+	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
+	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/back.dmi')
+
+/obj/item/storage/backpack/typec_klax
+	icon = 'icons/mob/species/breeder/inventory.dmi'
+	name = "type c k'lax wings"
+	desc = "The wings of a CB Caste Vaurca. They are far too small at this stage to permit sustained periods of flight in most situations."
+	icon_state = "wings_klax"
+	item_state = "wings_klax"
+	w_class = ITEMSIZE_HUGE
+	slot_flags = SLOT_BACK
+	max_storage_space = 12
+	canremove = 0
+	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
+	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/back.dmi')
+
+/obj/item/storage/backpack/typec_cthur
+	icon = 'icons/mob/species/breeder/inventory.dmi'
+	name = "type c c'thur wings"
+	desc = "The wings of a CB Caste Vaurca. They are far too small at this stage to permit sustained periods of flight in most situations."
+	icon_state = "wings_cthur"
+	item_state = "wings_cthur"
 	w_class = ITEMSIZE_HUGE
 	slot_flags = SLOT_BACK
 	max_storage_space = 12
@@ -531,3 +554,165 @@
 		/obj/item/reagent_containers/food/drinks/drinkingglass,
 		/obj/item/storage/toolbox/lunchbox
 		)
+
+/*
+ * Rucksacks
+ */
+
+/obj/item/storage/backpack/rucksack
+	name = "black rucksack"
+	desc = "A sturdy, military-grade backpack with low-profile straps. Designed to work well with armor."
+	icon_state = "rucksack"
+	item_state_slots = list(slot_l_hand_str = "rucksack", slot_r_hand_str = "rucksack")
+
+/obj/item/storage/backpack/rucksack/blue
+	name = "blue rucksack"
+	icon_state = "rucksack_blue"
+	item_state_slots = list(slot_l_hand_str = "rucksack_blue", slot_r_hand_str = "rucksack_blue")
+
+/obj/item/storage/backpack/rucksack/green
+	name = "green rucksack"
+	icon_state = "rucksack_green"
+	item_state_slots = list(slot_l_hand_str = "rucksack_green", slot_r_hand_str = "rucksack_green")
+
+/obj/item/storage/backpack/rucksack/navy
+	name = "navy rucksack"
+	icon_state = "rucksack_navy"
+	item_state_slots = list(slot_l_hand_str = "rucksack_navy", slot_r_hand_str = "rucksack_navy")
+
+/obj/item/storage/backpack/rucksack/tan
+	name = "tan rucksack"
+	icon_state = "rucksack_tan"
+	item_state_slots = list(slot_l_hand_str = "rucksack_tan", slot_r_hand_str = "rucksack_tan")
+
+/*
+ * Colored satchels
+ */
+
+/obj/item/storage/backpack/satchel/leather //brown, master type
+	name = "brown leather satchel"
+	desc = "A very fancy satchel made of some kind of leather."
+	icon_state = "satchel_colored"
+	item_state = "satchel_colored"
+	color = "#3d2711"
+
+/obj/item/storage/backpack/satchel/leather/khaki
+	name = "khaki leather satchel"
+	color = "#baa481"
+
+/obj/item/storage/backpack/satchel/leather/black
+	name = "black leather satchel"
+	color = "#212121"
+
+/obj/item/storage/backpack/satchel/leather/navy
+	name = "navy leather satchel"
+	color = "#1c2133"
+
+/obj/item/storage/backpack/satchel/leather/olive
+	name = "olive leather satchel"
+	color = "#544f3d"
+
+/obj/item/storage/backpack/satchel/leather/reddish
+	name = "auburn leather satchel"
+	color = "#512828"
+
+/*
+ * Colored pocketbooks
+ */
+
+/obj/item/storage/backpack/satchel/pocketbook //black, master type
+	name = "black pocketbook"
+	desc = "A neat little folding clasp pocketbook with a shoulder sling."
+	icon_state = "pocketbook"
+	item_state = "pocketbook"
+	w_class = ITEMSIZE_HUGE // to avoid recursive backpacks
+	slot_flags = SLOT_BACK
+	max_w_class = ITEMSIZE_NORMAL
+	max_storage_space = 20
+	color = "#212121"
+
+/obj/item/storage/backpack/satchel/pocketbook/brown
+	name = "brown pocketbook"
+	color = "#3d2711"
+
+/obj/item/storage/backpack/satchel/pocketbook/reddish
+	name = "auburn pocketbook"
+	color = "#512828"
+
+/*
+ * Colored pocketbooks
+ */
+
+/obj/item/storage/backpack/satchel/pocketbook/purse
+	name = "purse"
+	desc = "A small, fashionable bag typically worn over the shoulder."
+	icon_state = "purse"
+	item_state = "purse"
+	max_storage_space = 16
+
+//**Vaurca cloaks**//
+
+/obj/item/storage/backpack/cloak
+	name = "tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets."
+	icon_state = "cape"
+	item_state = "cape"
+	sprite_sheets = list(BODYTYPE_VAURCA = 'icons/mob/species/vaurca/back.dmi', BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/back.dmi')
+	var/hooded = FALSE
+
+/obj/item/storage/backpack/cloak/verb/toggle_cloak_hood()
+	set name = "Toggle Cloak Hood"
+	set desc = "Toggle your cloak hood."
+	set category = "Object"
+	set src in usr
+	if(use_check_and_message(usr))
+		return 0
+	hooded = !hooded 
+	to_chat(usr, "You [hooded ? "raise" : "lower"] \the [src] hood.")
+	icon_state = "[initial(icon_state)][hooded ? "_up" : ""]"
+	item_state = "icon_state"
+	var/mob/living/carbon/human/H = src.loc
+	H.update_icon()
+	H.update_inv_back()
+
+/obj/item/storage/backpack/cloak/sedantis
+	name = "Sedantis tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets. This one has the Sedantis flag design."
+	icon_state = "sedcape"
+	item_state = "sedcape"
+
+/obj/item/storage/backpack/cloak/medical
+	name = "medical tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets. This one has the medical department design."
+	icon_state = "medcape"
+	item_state = "medcape"
+
+/obj/item/storage/backpack/cloak/engi 
+	name = "engineering tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets. This one has the engineering department design."
+	icon_state = "engicape"
+	item_state = "engicape"
+
+/obj/item/storage/backpack/cloak/atmos
+	name = "atmospherics tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets. This one has the atmospherics design."
+	icon_state = "atmoscape"
+	item_state = "atmoscape"
+
+/obj/item/storage/backpack/cloak/cargo
+	name = "cargo tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets. This one has the supply department design."
+	icon_state = "cargocape"
+	item_state = "cargocape"
+
+/obj/item/storage/backpack/cloak/sci
+	name = "science tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets. This one has the science department design."
+	icon_state = "scicape"
+	item_state = "scicape"
+
+/obj/item/storage/backpack/cloak/sec
+	name = "security tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets. This one has the security department design."
+	icon_state = "seccape"
+	item_state = "seccape"

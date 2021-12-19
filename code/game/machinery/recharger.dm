@@ -20,7 +20,9 @@
 		/obj/item/cell,
 		/obj/item/modular_computer,
 		/obj/item/computer_hardware/battery_module,
-		/obj/item/device/flashlight/survival
+		/obj/item/device/flashlight/survival,
+		/obj/item/clothing/mask/smokable/ecig,
+		/obj/item/inductive_charger/handheld
 	)
 	var/icon_state_charged = "recharger100"
 	var/icon_state_charging = "recharger"
@@ -30,7 +32,7 @@
 
 /obj/machinery/recharger/examine(mob/user)
 	. = ..(user, 3)
-	to_chat(user, "There is [charging ? "[charging]" : "nothing"] in [src].")
+	to_chat(user, "There is [charging ? "\a [charging]" : "nothing"] in [src].")
 	if (charging && .)
 		var/obj/item/cell/C = charging.get_cell()
 		if (istype(C) && user.client && (!user.progressbars || !user.progressbars[src]))
@@ -82,6 +84,7 @@
 		user.drop_from_inventory(G,src)
 		charging = G
 		update_icon()
+		return TRUE
 
 /obj/machinery/recharger/attack_hand(mob/user as mob)
 	if(istype(user,/mob/living/silicon))

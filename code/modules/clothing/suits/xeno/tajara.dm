@@ -11,7 +11,7 @@
 	to produce Human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
 	and colorful dress wearing \"Flapper\" variety of clothing."
 
-/obj/item/clothing/suit/storage/tajaran
+/obj/item/clothing/suit/storage/toggle/tajaran/wool
 	name = "adhomian wool coat"
 	desc = "An adhomian coat, this one is a design commonly found among the Rhazar'Hrujmagh people."
 	icon = 'icons/obj/tajara_items.dmi'
@@ -24,7 +24,7 @@
 	to produce Human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
 	and colorful dress wearing \"Flapper\" variety of clothing."
 
-/obj/item/clothing/suit/storage/tajaran/raakti_shariim
+/obj/item/clothing/suit/storage/toggle/tajaran/raakti_shariim
 	name = "\improper Raakti Shariim coat"
 	desc = "A blue adhomian wool coat with lilac purple accents and pale-gold insignia, signifying a Constable of the NKA's Raakti Shariim."
 	icon = 'icons/obj/tajara_items.dmi'
@@ -56,6 +56,7 @@
 	icon_state = "messarobes"
 	item_state = "messarobes"
 	contained_sprite = TRUE
+	no_overheat = TRUE
 	desc_fluff = "The official religious body of the S'rendarr & Messa religion  is reffered to as \"Parivara\" or roughly translated \"Family\". This branch is further split into \
 	the female Sun Sisters and male Priest's of S'rendarr. Currently their main role is to act as mediator and to remain out of political matters, there is however a certain unspoken \
 	agitation about the religion of Mata'ke and S'rrendars position within that pantheon. Further the Parivara has called multiple summits over the courses of war, which usually result \
@@ -69,6 +70,7 @@
 	icon_state = "matakecoat"
 	item_state = "matakecoat"
 	contained_sprite = TRUE
+	no_overheat = TRUE
 	desc_fluff = "The priesthood of Mata'ke is comprised of only men and strangely enough, hunters. Like their patron, all priests of Mata'ke must prove themselves capable, \
 	practical, strong and masters of Adhomai wilderness. Every clan and temple of Mata'ke has a different way of testing its applicants and these tests are always kept as a strict \
 	secret, the only thing known is that the majority of applicants never return. After they're accepted, priests of Mata'ke dress in furs and carry silver \
@@ -80,6 +82,7 @@
 	desc = "Large and fancy robes worn by the priests of Azubarre."
 	icon_state = "azubarre"
 	item_state = "azubarre"
+	no_overheat = TRUE
 	desc_fluff = "The priests of Azubarre are often adored and many aspire to become one, their large flowing robes and beautiful faces often accompany carnivals, marriages, \
 	birthdays, births and many other social events making them the epitome of life. However, the selection for such priests is considered by most to be very shallow, as only those \
 	beautiful and joyous enough are selected as priests. "
@@ -105,6 +108,7 @@
 	item_state = "taj_cloak"
 	contained_sprite = TRUE
 	flags_inv = HIDETAIL
+	no_overheat = TRUE
 	hoodtype = /obj/item/clothing/head/winterhood
 	desc_fluff = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
 	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
@@ -189,11 +193,13 @@
 		bomb = ARMOR_BOMB_MINOR
 	)
 
-/obj/item/clothing/suit/storage/tajaran/pra_jacket
+/obj/item/clothing/suit/storage/tajaran
 	name = "republican service jacket"
 	desc = "An olive military jacket worn by the forces of the Grand People's Army."
+	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "greenservice"
 	item_state = "greenservice"
+	contained_sprite = TRUE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	armor = list(
 		melee = ARMOR_MELEE_KNIVES,

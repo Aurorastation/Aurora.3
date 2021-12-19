@@ -19,26 +19,26 @@
 	var/ready = 1 //Determines if the next attack will be blocked, as well if a strong lightning bolt is sent out at the attacker.
 	var/ready_icon_state = "tesla_armor_1" //also wip
 	var/normal_icon_state = "tesla_armor_0"
-	var/cooldown_to_charge = 15 SECONDS
+	var/cooldown_to_charge = 20 SECONDS
 
-/obj/item/clothing/suit/armor/tesla/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+/obj/item/clothing/suit/armor/tesla/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	//First, some retaliation.
 	if(active)
 		if(istype(damage_source, /obj/item/projectile))
 			var/obj/item/projectile/P = damage_source
 			if(P.firer && get_dist(user, P.firer) <= 3)
 				if(ready)
-					shoot_lightning(P.firer, 40)
+					shoot_lightning(P.firer, 2000)
 				else
-					shoot_lightning(P.firer, 15)
+					shoot_lightning(P.firer, 1000, /obj/item/projectile/beam/lightning/small)
 
 		else
 			if(attacker && attacker != user)
 				if(get_dist(user, attacker) <= 3) //Anyone farther away than three tiles is too far to shoot lightning at.
 					if(ready)
-						shoot_lightning(attacker, 40)
+						shoot_lightning(attacker, 2000)
 					else
-						shoot_lightning(attacker, 15)
+						shoot_lightning(attacker, 1000, /obj/item/projectile/beam/lightning/small)
 
 		//Deal with protecting our wearer now.
 		if(ready)
@@ -46,8 +46,8 @@
 			addtimer(CALLBACK(src, .proc/recharge, user), cooldown_to_charge)
 			visible_message("<span class='danger'>\The [user]'s [src.name] blocks [attack_text]!</span>")
 			update_icon()
-			return 1
-	return 0
+			return PROJECTILE_STOPPED
+	return FALSE
 
 /obj/item/clothing/suit/armor/tesla/proc/recharge(var/mob/user)
 	ready = TRUE
@@ -77,8 +77,8 @@
 		H.update_action_buttons()
 	..()
 
-/obj/item/clothing/suit/armor/tesla/proc/shoot_lightning(mob/target, power)
-	var/obj/item/projectile/beam/lightning/lightning = new(get_turf(src))
+/obj/item/clothing/suit/armor/tesla/proc/shoot_lightning(mob/target, power, lightning_type = /obj/item/projectile/beam/lightning)
+	var/obj/item/projectile/beam/lightning/lightning = new lightning_type(get_turf(src))
 	lightning.power = power
 	lightning.old_style_target(target)
 	lightning.fire()

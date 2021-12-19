@@ -178,17 +178,28 @@
 	item_state = "full_leather_colour"
 
 /obj/item/clothing/gloves/fingerless
-	desc = "A pair of gloves that don't actually cover the fingers."
 	name = "fingerless gloves"
+	desc = "A pair of gloves that don't actually cover the fingers."
 	icon_state = "fingerlessgloves"
 	item_state = "fingerlessgloves"
 	fingerprint_chance = 100
 	clipped = TRUE
-	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
+	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)
 
 /obj/item/clothing/gloves/fingerless/colour
 	icon_state = "fingerlessgloves_colour"
 	item_state = "fingerlessgloves_colour"
+
+/obj/item/clothing/gloves/fingerless/colour/knitted
+	name = "knitted fingerless gloves"
+	desc = "A pair of cozy knitted gloves that don't actually cover the fingers."
+
+/obj/item/clothing/gloves/knitted
+	name = "knitted gloves"
+	desc = "A pair of cozy knitted gloves. They don't appear as restrictive as most other type of gloves"
+	icon_state = "full_leather_colour"
+	item_state = "full_leather_colour"
+	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 
 /obj/item/clothing/gloves/zeng
 	name = "zeng-hu vinyl gloves"

@@ -100,6 +100,23 @@
 		underlay_appearance.appearance = T
 		underlays = U
 
+/turf/simulated/wall/shuttle/scc_space_ship
+	name = "spaceship hull"
+	icon = 'icons/turf/smooth/scc_ship.dmi'
+	canSmoothWith = null
+
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal
+	smooth = SMOOTH_MORE
+	canSmoothWith = list(
+		/turf/simulated/wall/shuttle/scc_space_ship
+	)
+
+/obj/structure/shuttle_part/scc_space_ship
+	name = "spaceship alloy wall"
+	icon = 'icons/turf/smooth/scc_ship.dmi'
+	icon_state = "map-shuttle"
+	outside_part = FALSE
+
 /turf/simulated/wall/shuttle/raider
 	icon = 'icons/turf/smooth/composite_metal.dmi'
 	icon_state = "composite_metal"
@@ -149,6 +166,12 @@
 	use_set_icon_state = TRUE
 	smooth = null
 	canSmoothWith = null
+
+/turf/simulated/wall/shuttle/scc
+	icon = 'icons/turf/smooth/scc_shuttle.dmi'
+
+/turf/simulated/wall/shuttle/scc/cardinal
+	smooth = SMOOTH_MORE
 
 //--Unique Shuttles--//
 
@@ -399,6 +422,12 @@
 	icon = 'icons/turf/shuttles_unique/distress_shuttle.dmi'
 	icon_state = "6,2"
 
+//scc shuttle pieces
+
+/turf/simulated/wall/shuttle/unique/scc
+	name = "shuttle hull"
+	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi'
+	icon_state = "c1"
 
 //--Floors--//
 

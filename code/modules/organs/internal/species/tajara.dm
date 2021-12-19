@@ -3,6 +3,7 @@
 	desc = "A pair of Tajaran eyes accustomed to the low light conditions of Adhomai."
 	icon_state = "tajaran_eyes"
 	action_button_name = "Activate Low Light Vision"
+	default_action_type = /datum/action/item_action/organ/night_eyes
 	relative_size = 8
 	var/night_vision = FALSE
 	var/datum/client_color/vision_color = /datum/client_color/monochrome
@@ -20,13 +21,6 @@
 /obj/item/organ/internal/eyes/night/replaced()
 	. = ..()
 	disable_night_vision()
-
-/obj/item/organ/internal/eyes/night/refresh_action_button()
-	. = ..()
-	if(.)
-		action.button_icon_state = "night_eyes"
-		if(action.button)
-			action.button.update_icon()
 
 /obj/item/organ/internal/eyes/night/attack_self(var/mob/user)
 	. = ..()
@@ -91,9 +85,11 @@
 	if(can_change_invisible())
 		owner.set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
 	if(status & ORGAN_ROBOT)
-		owner.add_client_color(vision_mechanical_color)
+		if(vision_mechanical_color)
+			owner.add_client_color(vision_mechanical_color)
 	else
-		owner.add_client_color(vision_color)
+		if(vision_color)
+			owner.add_client_color(vision_color)
 
 /obj/item/organ/internal/eyes/night/proc/disable_night_vision()
 	if(!owner)
@@ -104,9 +100,11 @@
 	if(can_change_invisible())
 		owner.set_see_invisible(SEE_INVISIBLE_LIVING)
 	if(status & ORGAN_ROBOT)
-		owner.remove_client_color(vision_mechanical_color)
+		if(vision_mechanical_color)
+			owner.remove_client_color(vision_mechanical_color)
 	else
-		owner.remove_client_color(vision_color)
+		if(vision_color)
+			owner.remove_client_color(vision_color)
 
 /obj/item/organ/internal/stomach/tajara
 	name = "reinforced stomach"

@@ -170,7 +170,7 @@ var/list/slot_equipment_priority = list( \
 	else
 		W.forceMove(get_turf(W))
 	W.layer = initial(W.layer)
-	W.dropped()
+	W.dropped(src)
 	return 0
 
 // Removes an item from inventory and places it in the target atom.
@@ -328,21 +328,16 @@ var/list/slot_equipment_priority = list( \
 
 //Throwing stuff
 /mob/proc/throw_item(atom/target)
-	return
+	return FALSE
 
 /mob/living/carbon/throw_item(atom/target)
-	src.throw_mode_off()
-	if(stat || !target)
-		return
-	if(target.type == /obj/screen)
-		return
+	if(stat || !target || istype(target, /obj/screen))
+		return FALSE
 
 	var/atom/movable/item = src.get_active_hand()
-
 	if(!item)
-		return
+		return FALSE
 
-	var/can_throw = TRUE
 	if(istype(item, /obj/item/grab))
 		var/obj/item/grab/G = item
 		item = G.throw_held() //throw the person instead of the grab
@@ -355,7 +350,7 @@ var/list/slot_equipment_priority = list( \
 					to_chat(src, "<span class='notice'>You gently let go of [M].</span>")
 					src.remove_from_mob(item)
 					item.loc = src.loc
-					return
+					return TRUE
 				var/start_T_descriptor = "<font color='#6b5d00'>tile at [start_T.x], [start_T.y], [start_T.z] in area [get_area(start_T)]</font>"
 				var/end_T_descriptor = "<font color='#6b4400'>tile at [end_T.x], [end_T.y], [end_T.z] in area [get_area(end_T)]</font>"
 
@@ -365,17 +360,34 @@ var/list/slot_equipment_priority = list( \
 
 			qdel(G)
 		else
-			can_throw = FALSE
+			return FALSE
 
-	if(!item || !can_throw)
-		return //Grab processing has a chance of returning null
+	if(!item)
+		return FALSE //Grab processing has a chance of returning null
 
-	src.remove_from_mob(item)
-	item.loc = src.loc
+	if(a_intent == I_HELP && Adjacent(target) && isitem(item))
+		var/obj/item/I = item
+		if(ishuman(target))
+			var/mob/living/carbon/human/H = target
+			if(H.in_throw_mode && H.a_intent == I_HELP && unEquip(I))
+				I.on_give(src, target)
+				if(!QDELETED(I)) // if on_give deletes the item, we don't want runtimes below
+					H.put_in_hands(I) // If this fails it will just end up on the floor, but that's fitting for things like dionaea.
+					visible_message("<b>[src]</b> hands \the [H] \a [I].", SPAN_NOTICE("You give \the [target] \a [I]."))
+			else
+				to_chat(src, SPAN_NOTICE("You offer \the [I] to \the [target]."))
+				do_give(H)
+			return TRUE
+		remove_from_mob(I)
+		make_item_drop_sound(I)
+		I.forceMove(get_turf(target))
+		return TRUE
+
+	remove_from_mob(item)
 
 	if(is_pacified())
 		to_chat(src, "<span class='notice'>You set [item] down gently on the ground.</span>")
-		return
+		return TRUE
 
 	//actually throw it!
 	if(item)
@@ -392,6 +404,9 @@ var/list/slot_equipment_priority = list( \
 			playsound(src, 'sound/effects/throw.ogg', volume, TRUE, -1)
 
 		item.throw_at(target, item.throw_range, item.throw_speed, src)
+		return TRUE
+
+	return FALSE
 
 /mob/proc/delete_inventory(var/include_carried = FALSE)
 	for(var/entry in get_equipped_items(include_carried))

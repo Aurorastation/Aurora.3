@@ -525,6 +525,10 @@ datum/projectile_data
 	else
 		return (cult.current_antagonists.len > spookiness_threshold)
 
+/// Removes an image from a client's `.images`. Useful as a callback.
+/proc/remove_image_from_client(image/image, client/remove_from)
+	remove_from?.images -= image
+
 /proc/remove_images_from_clients(image/I, list/show_to)
 	for(var/client/C in show_to)
 		C.images -= I

@@ -73,15 +73,21 @@ var/global/photo_count = 0
 	set category = "Object"
 	set src in usr
 
+	if(use_check_and_message(usr, USE_ALLOW_NON_ADJACENT))
+		return
+
 	var/n_name = sanitizeSafe(input(usr, "What would you like to label the photo?", "Photo Labelling", null)  as text, MAX_NAME_LEN)
-	//loc.loc check is for making possible renaming photos in clipboards
-	if(((loc == usr || (loc.loc && loc.loc == usr)) && usr.stat == 0))
+
+	if(use_check_and_message(usr, USE_ALLOW_NON_ADJACENT))
+		return
+
+	var/atom/surface_atom = recursive_loc_turf_check(src, 3, usr)
+	if(surface_atom == usr || surface_atom.Adjacent(usr))
 		if(n_name)
 			name = "[initial(name)] ([n_name])"
 		else
-			name = initial(n_name)
-	add_fingerprint(usr)
-	return
+			name = initial(name)
+		add_fingerprint(usr)
 
 
 /**************
@@ -175,6 +181,8 @@ var/global/photo_count = 0
 		return
 	..()
 
+/obj/item/device/camera/AltClick(var/mob/user)
+	change_size()
 
 /obj/item/device/camera/proc/get_mobs(turf/the_turf as turf)
 	var/mob_detail
