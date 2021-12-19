@@ -18,6 +18,7 @@
 #define OUTFIT_POCKETBOOK 17
 #define OUTFIT_BROWNPOCKETBOOK 18
 #define OUTFIT_AUBURNPOCKETBOOK 19
+#define OUTFIT_CLASSICSATCHEL 20
 
 #define OUTFIT_TAB_PDA 2
 #define OUTFIT_PDA_OLD 3
@@ -29,6 +30,8 @@
 
 #define OUTFIT_HEADSET 2
 #define OUTFIT_BOWMAN 3
+#define OUTFIT_DOUBLE 4
+#define OUTFIT_WRISTRAD 5
 
 /datum/outfit
 	var/name = "Naked"
@@ -89,6 +92,7 @@
 	var/pocketbook = /obj/item/storage/backpack/satchel/pocketbook
 	var/brownpocketbook = /obj/item/storage/backpack/satchel/pocketbook/brown
 	var/auburnpocketbook = /obj/item/storage/backpack/satchel/pocketbook/reddish
+	var/classicsatchel = /obj/item/storage/backpack/satchel
 
 	var/allow_pda_choice = FALSE
 	var/tab_pda = /obj/item/modular_computer/handheld/pda/civilian
@@ -98,6 +102,10 @@
 	var/allow_headset_choice = FALSE
 	var/headset = /obj/item/device/radio/headset
 	var/bowman = /obj/item/device/radio/headset/alt
+	var/double_headset = /obj/item/device/radio/headset/alt/double
+	var/wrist_radio = /obj/item/device/radio/headset/wrist
+
+	var/id_iff = IFF_DEFAULT // when spawning in, the ID will be set to this iff, preventing friendly fire
 
 	var/internals_slot = null //ID of slot containing a gas tank
 	var/list/backpack_contents = list() //In the list(path=count,otherpath=count) format
@@ -149,10 +157,15 @@
 				back = use_job_specific ? brownpocketbook : /obj/item/storage/backpack/satchel/pocketbook/brown
 			if (OUTFIT_AUBURNPOCKETBOOK)
 				back = use_job_specific ? auburnpocketbook : /obj/item/storage/backpack/satchel/pocketbook/reddish
+			if (OUTFIT_CLASSICSATCHEL)
+				back = use_job_specific ? classicsatchel : /obj/item/storage/backpack/satchel
 			else
 				back = backpack //Department backpack
 	if(back)
-		equip_item(H, back, slot_back)
+		if(isvaurca(H, TRUE))
+			equip_item(H, back, slot_r_hand)
+		else
+			equip_item(H, back, slot_back)
 
 	if(istype(H.back,/obj/item/storage/backpack))
 		var/obj/item/storage/backpack/B = H.back
@@ -164,10 +177,17 @@
 				l_ear = null
 			if (OUTFIT_BOWMAN)
 				l_ear = bowman
+			if (OUTFIT_DOUBLE)
+				l_ear = double_headset
+			if (OUTFIT_WRISTRAD)
+				l_ear = null
+				wrist = wrist_radio
 			else
 				l_ear = headset //Department headset
 	if(l_ear)
 		equip_item(H, l_ear, slot_l_ear, TRUE)
+	else if (wrist)
+		equip_item(H, wrist, slot_wrists, TRUE)
 
 	return
 

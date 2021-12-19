@@ -22,7 +22,7 @@
 /obj/item/anodevice
 	name = "anomaly power utilizer"
 	icon = 'icons/obj/xenoarchaeology.dmi'
-	icon_state = "anodev"
+	icon_state = "anodev_empty"
 	var/activated = 0
 	var/duration = 0
 	var/interval = 0

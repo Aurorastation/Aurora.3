@@ -4,6 +4,9 @@
 	gender = PLURAL
 	icon = 'icons/obj/handcuffs.dmi'
 	icon_state = "handcuff"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/cuff.dmi'
+	)
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	throwforce = 5
@@ -41,7 +44,7 @@
 			can_place = TRUE
 		else
 			for (var/obj/item/grab/G in C.grabbed_by)
-				if (G.loc == user && G.state >= GRAB_AGGRESSIVE)
+				if (G.state >= GRAB_AGGRESSIVE)
 					can_place = TRUE
 					break
 
@@ -102,7 +105,7 @@
 		user.drop_from_inventory(cuffs,target)
 	else
 		cuffs.forceMove(target)
-	
+
 	if(!legcuff)
 		target.handcuffed = cuffs
 		target.update_inv_handcuffed()

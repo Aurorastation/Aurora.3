@@ -47,16 +47,17 @@
 	desc_antag = "Always ahelp before sabotaging the supermatter, as it can potentially ruin the round. Exposing the supermatter to oxygen or vaccuum will cause it to start rapidly heating up.  \
 	Sabotaging the supermatter and making it explode will cause a period of lag as the explosion is processed by the server, as well as irradiating the entire station and causing hallucinations to happen.  \
 	Wearing radiation equipment will protect you from most of the delamination effects sans explosion."
-	icon = 'icons/obj/engine.dmi'
-	icon_state = "darkmatter"
+	icon = 'icons/obj/supermatter.dmi'
+	icon_state = "supermatter"
 	density = TRUE
 	anchored = FALSE
 	light_range = 4
 	light_power = 1
+	layer = ABOVE_ALL_MOB_LAYER
 
 	var/gasefficency = 0.25
 
-	var/base_icon_state = "darkmatter"
+	var/base_icon_state = "supermatter"
 
 	var/last_power
 	var/damage = 0
@@ -113,7 +114,6 @@
 	. = ..()
 	radio = new /obj/item/device/radio{channels=list("Engineering")}(src)
 	soundloop = new(list(src), TRUE)
-	filters += filter(type="rays", size=0, factor=1)
 
 /obj/machinery/power/supermatter/Destroy()
 	QDEL_NULL(radio)
@@ -312,7 +312,6 @@
 
 	power -= (power/DECAY_FACTOR)**3		//energy losses due to radiation
 
-	animate(filters[1], size=max(0, power+1), offset=++filter_offset, time=1 SECONDS, easing=ELASTIC_EASING|EASE_IN|EASE_OUT)
 	return 1
 
 

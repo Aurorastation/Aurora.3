@@ -28,6 +28,25 @@
 			add_overlay(I.get_belt_overlay())
 	..()
 
+/obj/item/storage/belt/build_additional_parts(H, mob_icon, slot)
+	var/image/I = ..()
+	if(!I)
+		I = image(null)
+	for(var/obj/item/i in contents)
+		var/c_state
+		var/c_icon
+		if(i.contained_sprite)
+			c_state = "[UNDERSCORE_OR_NULL(i.icon_species_tag)][i.item_state][WORN_BELT]"
+			c_icon = icon_override || icon
+		else
+			c_icon = INV_BELT_DEF_ICON
+			c_state = i.item_state || i.icon_state
+		var/image/belt_item_image = image(c_icon, c_state)
+		belt_item_image.color = i.color
+		belt_item_image.appearance_flags = RESET_ALPHA
+		I.add_overlay(belt_item_image)
+	return I
+
 /obj/item/storage/belt/verb/toggle_layer()
 	set name = "Switch Belt Layer"
 	set category = "Object"
@@ -81,6 +100,7 @@
 		/obj/item/weldingtool,
 		/obj/item/wirecutters,
 		/obj/item/wrench,
+		/obj/item/hammer,
 		/obj/item/device/multitool,
 		/obj/item/device/flashlight,
 		/obj/item/stack/cable_coil,
@@ -120,7 +140,8 @@
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters/toolbelt = 1,
 		/obj/item/stack/cable_coil/random = 1,
-		/obj/item/powerdrill = 1
+		/obj/item/powerdrill = 1,
+		/obj/item/hammer = 1
 	)
 
 /obj/item/storage/belt/utility/very_full

@@ -167,7 +167,7 @@
 /mob/living/carbon/swap_hand()
 	var/obj/item/item_in_hand = src.get_active_hand()
 	if(item_in_hand) //this segment checks if the item in your hand is twohanded.
-		if(istype(item_in_hand,/obj/item/material/twohanded) || istype(item_in_hand,/obj/item/gun) || istype(item_in_hand,/obj/item/pickaxe))
+		if(istype(item_in_hand,/obj/item/material/twohanded) || istype(item_in_hand,/obj/item/gun) || istype(item_in_hand,/obj/item/pickaxe) || istype(item_in_hand, /obj/item/grab))
 			if(item_in_hand:wielded == 1)
 				to_chat(usr, SPAN_WARNING("Your other hand is too busy holding the [item_in_hand.name]"))
 				return
@@ -355,7 +355,7 @@
 /mob/living/carbon/can_use_hands()
 	if(handcuffed)
 		return 0
-	if(buckled_to && ! istype(buckled_to, /obj/structure/bed/chair)) // buckling does not restrict hands
+	if(buckled_to && ! istype(buckled_to, /obj/structure/bed/stool/chair)) // buckling does not restrict hands
 		return 0
 	return 1
 
@@ -499,3 +499,6 @@
 
 /mob/living/carbon/proc/is_drowsy()
 	return (drowsiness >= 5)
+
+/mob/living/carbon/proc/should_have_limb(var/organ_check)
+	return FALSE

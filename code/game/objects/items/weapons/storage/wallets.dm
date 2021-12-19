@@ -46,19 +46,24 @@
 	var/flipped = null
 	var/flippable = 1
 	var/wear_over_suit = 0
-	var/base_name = ""
 
 /obj/item/storage/wallet/Initialize()
 	. = ..()
-	base_name = name
+	AddComponent(/datum/component/base_name, name)
 
+/obj/item/storage/wallet/proc/update_name(var/base_name = initial(name))
+	SEND_SIGNAL(src, COMSIG_BASENAME_SETNAME, args)
+	if(front_id)
+		name = "[base_name] ([front_id])"
+	else
+		name = "[base_name]"
 
 /obj/item/storage/wallet/remove_from_storage(obj/item/W as obj, atom/new_location)
 	. = ..(W, new_location)
 	if(.)
 		if(W == front_id)
 			front_id = null
-			name = base_name
+			update_name()
 			update_icon()
 
 /obj/item/storage/wallet/handle_item_insertion(obj/item/W as obj, prevent_warning = 0)
@@ -66,7 +71,7 @@
 	if(.)
 		if(!front_id && istype(W, /obj/item/card/id))
 			front_id = W
-			name = "[name] ([front_id])"
+			update_name()
 			update_icon()
 
 /obj/item/storage/wallet/update_icon()
@@ -198,8 +203,10 @@
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
 
-/obj/item/storage/wallet/lanyard/New()
-	..()
+	var/image/plastic_film
+
+/obj/item/storage/wallet/lanyard/Initialize()
+	. = ..()
 	var/image/film_image = new/image(icon, icon_state = "lanyard_film")
 	film_image.appearance_flags = RESET_COLOR
 	overlays += film_image
@@ -212,3 +219,13 @@
 	film_image.appearance_flags = RESET_COLOR
 	overlays += film_image
 	mob_icon_update()
+
+/obj/item/storage/wallet/lanyard/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(front_id)
+		I.add_overlay(image('icons/mob/lanyard_overlays.dmi', icon_state = "lanyard-[front_id_overlay_state]"))
+	else
+		if(!plastic_film)
+			plastic_film = image('icons/mob/lanyard_overlays.dmi', icon_state = "plasticfilm")
+		I.add_overlay(plastic_film)
+	return I

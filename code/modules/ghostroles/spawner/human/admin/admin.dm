@@ -19,7 +19,7 @@
 
 	//Vars related to human mobs
 	outfit = /datum/outfit/admin/nt/odinsec
-	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_IPC)
+	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_IPC)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Odin Security Officer"
@@ -43,7 +43,7 @@
 
 	//Vars related to human mobs
 	outfit = /datum/outfit/admin/nt/odindoc
-	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_TAJARA,SPECIES_UNATHI,SPECIES_IPC)
+	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_UNATHI,SPECIES_IPC)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Odin Medical Doctor"
@@ -64,7 +64,7 @@
 	max_count = 1
 
 	outfit = /datum/outfit/admin/nt/odinpharm
-	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_TAJARA,SPECIES_UNATHI,SPECIES_IPC)
+	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_UNATHI,SPECIES_IPC)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Odin Pharmacist"
@@ -85,7 +85,7 @@
 	max_count = 2
 
 	outfit = /datum/outfit/admin/nt/odinchef
-	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_TAJARA,SPECIES_UNATHI,SPECIES_IPC)
+	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_UNATHI,SPECIES_IPC)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Odin Chef"
@@ -106,7 +106,7 @@
 	max_count = 1
 
 	outfit = /datum/outfit/admin/nt/odinbartender
-	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_TAJARA,SPECIES_UNATHI,SPECIES_IPC)
+	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_UNATHI,SPECIES_IPC)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Odin Bartender"
@@ -126,7 +126,7 @@
 	max_count = 1
 
 	outfit = /datum/outfit/admin/nt/odinjanitor
-	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_TAJARA,SPECIES_UNATHI,SPECIES_IPC)
+	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_UNATHI,SPECIES_IPC)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Sanitation Specialist"
@@ -149,7 +149,7 @@
 	max_count = 4
 
 	outfit = /datum/outfit/admin/ert/legion/sentinel
-	possible_species = list(SPECIES_HUMAN, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_DIONA)
+	possible_species = list(SPECIES_HUMAN, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_DIONA)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "TCFL Sentinel"
@@ -177,7 +177,7 @@
 	if(start_location.landmark_tag != "nav_emergency_start")
 		return TRUE
 
-	if(emergency_shuttle.evac)
+	if(evacuation_controller.emergency_evacuation)
 		if(get_security_level() != "green" )
 			var/datum/wifi/sender/door/wifi_sender = new("odin_arrivals_lockdown", SSghostroles)
 			wifi_sender.activate("close")

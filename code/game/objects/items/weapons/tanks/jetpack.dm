@@ -31,7 +31,7 @@
 	return null
 
 /obj/item/tank/jetpack
-	name = "jetpack (empty)"
+	name = "jetpack"
 	desc = "A tank of compressed gas for use as propulsion in zero-gravity areas. Use with caution."
 	icon_state = "jetpack"
 	item_state = "jetpack"
@@ -172,17 +172,16 @@
 		icon_state = initial(icon_state)
 		ion_trail.stop()
 
-	if (ismob(usr))
-		var/mob/M = usr
-		M.update_inv_back()
-
-	to_chat(usr, "You toggle the thrusters [on? "on":"off"].")
+	to_chat(usr, SPAN_NOTICE("You toggle the thrusters [on ? "on" : "off"]."))
+	stabilization_on = !stabilization_on
+	to_chat(usr, SPAN_NOTICE("You toggle the stabilization [stabilization_on ? "on" : "off"]."))
 
 /obj/item/tank/jetpack/carbondioxide/synthetic/verb/toggle_stabilizer()
 	set name = "Toggle Jetpack Stabilization"
 	set category = "Robot Commands"
-	src.stabilization_on = !( src.stabilization_on )
-	to_chat(usr, "You toggle the stabilization [stabilization_on? "on":"off"].")
+
+	stabilization_on = !stabilization_on
+	to_chat(usr, SPAN_NOTICE("You toggle the stabilization [stabilization_on ? "on" : "off"]."))
 
 /obj/item/tank/jetpack/rig
 	name = "hardsuit jetpack"

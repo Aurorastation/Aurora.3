@@ -192,6 +192,8 @@ var/list/world_api_rate_limit = list()
 		response["data"] = command.data
 		return json_encode(response)
 
+/proc/reboot_world()
+	world.Reboot()
 
 /world/Reboot(reason, hard_reset = FALSE)
 	if (!hard_reset && world.TgsAvailable())

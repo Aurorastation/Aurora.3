@@ -141,6 +141,7 @@ Frequency:
 /obj/item/hand_tele
 	name = "hand tele"
 	desc = "A hand-held bluespace teleporter that can rip open portals to a random nearby location, or lock onto a teleporter with a selected teleportation beacon."
+	desc_info = "Ctrl-click to choose which teleportation station to link to. Use in-hand or alt-click to deploy a portal. When not linked to a station, or the station isn't pointing at a beacon, it will choose a completely random teleportation destination."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "hand_tele"
 	item_state = "electronic"
@@ -151,14 +152,25 @@ Frequency:
 	throw_range = 5
 	origin_tech = list(TECH_MAGNET = 1, TECH_BLUESPACE = 3)
 	matter = list(DEFAULT_WALL_MATERIAL = 10000)
-	var/list/active_teleporters = list()
+
+	var/obj/machinery/teleport/station/linked_station
+	var/list/active_teleporters
+
+	var/max_portals = 2
+
+/obj/item/hand_tele/examine(mob/user, distance)
+	. = ..()
+	if(linked_station)
+		to_chat(user, SPAN_NOTICE("\The [src] is linked to teleportation station [linked_station.id]."))
+	else
+		to_chat(user, SPAN_WARNING("\The [src] isn't linked to any teleportation stations!"))
 
 /obj/item/hand_tele/set_initial_maptext()
 	held_maptext = SMALL_FONTS(7, "Ready")
 
 /obj/item/hand_tele/attack_self(mob/user)
 	var/turf/current_location = get_turf(user)//What turf is the user on?
-	if(!current_location || isNotStationLevel(current_location.z))
+	if(!current_location || isAdminLevel(current_location.z))
 		to_chat(user, SPAN_WARNING("\The [src] can't get a bearing on anything right now."))
 		return
 
@@ -167,50 +179,83 @@ Frequency:
 		to_chat(user, SPAN_DANGER("\The [src] can't seem to find a lock. Something in the area must be preventing the portal from opening..."))
 		return
 
-	var/list/teleport_options = list()
-	for(var/obj/machinery/teleport/station/S in SSmachinery.all_machines)
-		if(S.locked_obj)
-			var/obj/O = S.locked_obj.resolve()
-			if(S.engaged)
-				teleport_options["[S.id] (Active)"] = O
-			else
-				teleport_options["[S.id] (Inactive)"] = O
-
-	var/list/potential_turfs = list()
-	for(var/turf/T in orange(10))
-		if(T.x > world.maxx-8 || T.x < 8)
-			continue	//putting them at the edge is dumb
-		if(T.y > world.maxy-8 || T.y < 8)
-			continue
-		if(T.density || turf_contains_dense_objects(T))
-			continue
-		if(!check_inhibitors(T))
-			continue
-		
-		potential_turfs += T
-
-	if(length(potential_turfs))
-		teleport_options["None (Dangerous)"] = pick(potential_turfs)
-
-	var/teleport_choice = input(user, "Please select a teleporter to lock in on.", "Hand Teleporter") as null|anything in teleport_options
-	if(!teleport_choice || user.get_active_hand() != src || use_check_and_message(user))
-		return
-
-	if(length(active_teleporters) >= 3)
+	if(LAZYLEN(active_teleporters) >= max_portals)
 		user.show_message(SPAN_WARNING("\The [src] is recharging!"))
 		return
 
-	var/T = teleport_options[teleport_choice]
-	audible_message(SPAN_NOTICE("Locked in."), hearing_distance = 3)
-	var/obj/effect/portal/P = new /obj/effect/portal(get_turf(src), T, src)
-	active_teleporters += P
-	if(length(active_teleporters) >= 3)
+	var/turf/teleport_turf
+	if(linked_station)
+		if(linked_station.stat & (NOPOWER|BROKEN))
+			to_chat(user, SPAN_WARNING("The station \the [src] is connected doesn't seem to be responding!"))
+			return
+		if(!AreConnectedZLevels(current_location.z, linked_station.z))
+			to_chat(user, SPAN_WARNING("The station \the [src] is connected to isn't close enough to lock onto now!"))
+			return
+		if(linked_station.locked_obj)
+			teleport_turf = get_turf(linked_station.locked_obj.resolve())
+	else
+		var/list/potential_turfs = list()
+		for(var/turf/T in orange(10))
+			if(T.x > world.maxx-8 || T.x < 8)
+				continue	//putting them at the edge is dumb
+			if(T.y > world.maxy-8 || T.y < 8)
+				continue
+			if(T.density || turf_contains_dense_objects(T))
+				continue
+			if(!check_inhibitors(T))
+				continue
+			potential_turfs += T
+		teleport_turf = pick(potential_turfs)
+
+	if(!teleport_turf)
+		to_chat(user, SPAN_WARNING("\The [src] was unable to get a lock onto anything!"))
+		return
+	if(isAdminLevel(teleport_turf.z))
+		to_chat(user, SPAN_WARNING("The signal to the beacon seems to be scrambled!"))
+		return
+
+	var/obj/effect/portal/P = new /obj/effect/portal(get_turf(src), teleport_turf, src)
+	LAZYADD(active_teleporters, P)
+	if(LAZYLEN(active_teleporters) >= max_portals)
 		check_maptext(SMALL_FONTS(6, "Charge"))
 	add_fingerprint(user)
 
+/obj/item/hand_tele/AltClick(mob/user)
+	if(user == loc)
+		attack_self(user)
+		return
+	return ..()
+
+/obj/item/hand_tele/CtrlClick(mob/user)
+	if(user == loc)
+		var/turf/current_location = get_turf(src)
+		var/list/teleport_options = list()
+		for(var/obj/machinery/teleport/station/S in SSmachinery.all_machines)
+			if(AreConnectedZLevels(current_location.z, S.z))
+				if(S.engaged)
+					teleport_options["[S.id] (Active)"] = S
+				else
+					teleport_options["[S.id] (Inactive)"] = S
+		teleport_options["None (Dangerous)"] = null
+		var/teleport_choice = input(user, "Please select a teleporter to lock in on.", "Hand Teleporter") as null|anything in teleport_options
+		if(!teleport_choice)
+			return
+		var/old_station = linked_station
+		linked_station = teleport_options[teleport_choice]
+		if(linked_station)
+			destroyed_event.register(linked_station, src, /obj/item/hand_tele/proc/station_destroyed)
+		if(old_station && linked_station != old_station)
+			destroyed_event.unregister(old_station, src)
+		return
+	return ..()
+
+/obj/item/hand_tele/proc/station_destroyed()
+	linked_station = null
+	audible_message("\The [src] beeps, \"Connected station destroyed, resetting to no-station.\"", null, 3)
+
 /obj/item/hand_tele/proc/remove_portal(var/obj/effect/portal/P)
-	active_teleporters -= P
-	if(length(active_teleporters) < 3)
+	LAZYREMOVE(active_teleporters, P)
+	if(LAZYLEN(active_teleporters) < max_portals)
 		check_maptext(SMALL_FONTS(7, "Ready"))
 
 /obj/item/closet_teleporter

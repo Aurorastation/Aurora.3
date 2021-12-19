@@ -90,6 +90,26 @@
 				return 0
 	return 1
 
+// putting on to a slot
+/obj/item/clothing/equipped(mob/user, slot, assisted_equip)
+	. = ..()
+	if(tint)
+		user.handle_vision()
+
+// taking off
+/obj/item/clothing/dropped(mob/user)
+	. = ..()
+	if(tint)
+		user.handle_vision()
+
+/obj/item/clothing/handle_middle_mouse_click(mob/user)
+	if(Adjacent(user))
+		var/obj/item/clothing/accessory/storage/S = locate() in accessories
+		if(S?.hold)
+			S.hold.open(user)
+			return TRUE
+	return FALSE
+
 /obj/item/clothing/proc/return_own_image()
 	var/image/our_image
 	if(icon_override)
@@ -357,7 +377,7 @@
 	body_parts_covered = HANDS
 	slot_flags = SLOT_GLOVES
 	attack_verb = list("challenged")
-	species_restricted = list("exclude",BODYTYPE_UNATHI,BODYTYPE_TAJARA,BODYTYPE_VAURCA, BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
+	species_restricted = list("exclude",BODYTYPE_UNATHI,BODYTYPE_TAJARA,BODYTYPE_VAURCA, BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
@@ -365,6 +385,14 @@
 	if (ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_gloves()
+
+/obj/item/clothing/gloves/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(blood_DNA)
+		var/image/bloodsies = image(H.species.blood_mask, "bloodyhands")
+		bloodsies.color = blood_color
+		I.add_overlay(bloodsies)
+	return I
 
 /obj/item/clothing/gloves/emp_act(severity)
 	if(cell)
@@ -464,10 +492,31 @@
 	drop_sound = 'sound/items/drop/hat.ogg'
 	pickup_sound = 'sound/items/pickup/hat.ogg'
 
+	var/allow_hair_covering = TRUE //in case if you want to allow someone to switch the BLOCKHEADHAIR var from the helmet or not
+
 	var/light_overlay = "helmet_light"
 	var/light_applied
 	var/brightness_on
 	var/on = 0
+
+/obj/item/clothing/head/Initialize(mapload, material_key)
+	. = ..()
+	if(allow_hair_covering)
+		verbs += /obj/item/clothing/head/proc/toggle_block_hair
+
+/obj/item/clothing/head/proc/toggle_block_hair()
+	set name = "Toggle Hair Coverage"
+	set category = "Object"
+
+	if(allow_hair_covering)
+		flags_inv ^= BLOCKHEADHAIR
+		to_chat(usr, SPAN_NOTICE("[src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair."))
+		if(ishuman(usr))
+			var/mob/living/carbon/human/H = usr
+			H.update_hair()
+
+/obj/item/clothing/head/get_image_key_mod()
+	return on
 
 /obj/item/clothing/head/attack_self(mob/user)
 	if(brightness_on)
@@ -563,6 +612,31 @@
 	if(H)
 		H.update_inv_head()
 
+/obj/item/clothing/head/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(blood_DNA)
+		var/image/bloodsies = image(H.species.blood_mask, icon_state = "helmetblood")
+		bloodsies.color = blood_color
+		bloodsies.appearance_flags = RESET_ALPHA
+		I.add_overlay(bloodsies)
+	return I
+
+/obj/item/clothing/head/build_shifted_additional_parts(mob/living/carbon/human/H, mob_icon, slot, var/icon/canvas, var/list/facing_list, use_dir)
+	canvas = ..()
+	if(on && slot == slot_head_str)
+		var/icon/lights_icon = new('icons/mob/light_overlays.dmi', icon_state = light_overlay, dir = use_dir)
+		canvas.Blend(lights_icon, ICON_OVERLAY, facing_list["x"]+1, facing_list["y"]+1)
+	return canvas
+
+/obj/item/clothing/head/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
+	var/image/I = ..()
+	if(!I)
+		I = image(null)
+	var/cache_key = "[light_overlay]_[H.cached_bodytype || (H.cached_bodytype = H.species.get_bodytype())]"
+	if(on && SSicon_cache.light_overlay_cache[cache_key] && slot == slot_head_str)
+		I.add_overlay(SSicon_cache.light_overlay_cache[cache_key])
+	return I
+
 /obj/item/clothing/head/update_clothing_icon()
 	if (ismob(src.loc))
 		var/mob/M = src.loc
@@ -589,7 +663,7 @@
 		BODYTYPE_UNATHI = 'icons/mob/species/unathi/mask.dmi'
 		)
 
-	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)
 
 	var/voicechange = 0
 	var/list/say_messages
@@ -601,6 +675,8 @@
 	var/adjustable = FALSE
 	var/hanging = 0
 
+	var/has_blood_overlay = TRUE
+
 /obj/item/clothing/mask/Initialize()
 	. = ..()
 	if(adjustable)
@@ -611,6 +687,15 @@
 	if (ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_wear_mask()
+
+/obj/item/clothing/mask/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(blood_DNA && has_blood_overlay)
+		var/image/bloodsies = image(H.species.blood_mask, "maskblood")
+		bloodsies.color = blood_color
+		bloodsies.appearance_flags = RESET_ALPHA
+		I.add_overlay(bloodsies)
+	return I
 
 /obj/item/clothing/mask/proc/filter_air(datum/gas_mixture/air)
 	return
@@ -757,14 +842,24 @@
 
 /obj/item/clothing/shoes/update_icon()
 	cut_overlays()
-	worn_overlay = null
 	if(holding)
-		worn_overlay = "knife"
-		add_overlay(overlay_image(icon, "[initial(icon_state)]_[worn_overlay]", flags=RESET_COLOR))
+		add_overlay(overlay_image(icon, "[initial(icon_state)]_knife", flags=RESET_COLOR))
 	if(ismob(usr))
 		var/mob/M = usr
 		M.update_inv_shoes()
 	return ..()
+
+/obj/item/clothing/shoes/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(blood_DNA)
+		for(var/limb_tag in list(BP_L_FOOT, BP_R_FOOT))
+			var/obj/item/organ/external/E = H.get_organ(limb_tag)
+			if(E && !E.is_stump())
+				var/image/bloodsies = image(H.species.blood_mask, "shoeblood_[E.limb_name]")
+				bloodsies.color = blood_color
+				bloodsies.appearance_flags = RESET_ALPHA
+				I.add_overlay(bloodsies)
+	return I
 
 /obj/item/clothing/shoes/proc/handle_movement(var/turf/walking, var/running)
 	return
@@ -801,6 +896,9 @@
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_suit.dmi',
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_suit.dmi'
 		)
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/suit.dmi'
+	)
 	name = "suit"
 	var/fire_resist = T0C+100
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
@@ -829,6 +927,22 @@
 	our_image.color = color
 	return our_image
 
+/obj/item/clothing/suit/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(slot == slot_l_hand_str || slot == slot_r_hand_str)
+		for(var/obj/item/clothing/accessory/A in accessories)
+			A.accessory_mob_overlay.cut_overlays()
+	else
+		for(var/obj/item/clothing/accessory/A in accessories)
+			var/image/accessory_image = A.get_accessory_mob_overlay(H)
+			I.add_overlay(accessory_image)
+
+	if(blood_DNA)
+		var/image/bloodsies = image(icon = H.species.blood_mask, icon_state = "[blood_overlay_type]blood")
+		bloodsies.color = blood_color
+		I.add_overlay(bloodsies)
+	return I
+
 /obj/item/clothing/suit/update_clothing_icon()
 	if (ismob(src.loc))
 		var/mob/M = src.loc
@@ -845,6 +959,9 @@
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_uniforms.dmi',
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_uniforms.dmi'
 		)
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/uniform.dmi'
+	)
 	name = "under"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	permeability_coefficient = 0.90
@@ -893,6 +1010,22 @@
 
 		if (SSicon_cache.uniform_states["[worn_state]_d_s"])
 			rolled_down = 0
+
+/obj/item/clothing/under/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(slot == slot_l_hand_str | slot == slot_r_hand_str)
+		for(var/obj/item/clothing/accessory/A in accessories)
+			A.accessory_mob_overlay.cut_overlays()
+	else
+		for(var/obj/item/clothing/accessory/A in accessories)
+			var/image/accessory_image = A.get_accessory_mob_overlay(H)
+			I.add_overlay(accessory_image)
+
+	if(blood_DNA)
+		var/image/bloodsies = image(icon = H.species.blood_mask, icon_state = "uniformblood")
+		bloodsies.color = blood_color
+		I.add_overlay(bloodsies)
+	return I
 
 /obj/item/clothing/under/proc/update_rolldown_status()
 	var/mob/living/carbon/human/H
@@ -1094,6 +1227,8 @@
 /obj/item/clothing/under/clothing_class()
 	return "uniform"
 
+/obj/item/clothing/under/AltClick(var/mob/user)
+	set_sensors(user)
 
 //Rings
 

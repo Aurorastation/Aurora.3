@@ -58,7 +58,9 @@
 		/decl/emote/audible/hiss,
 		/decl/emote/audible/chitter,
 		/decl/emote/audible/shriek,
-		/decl/emote/audible/screech
+		/decl/emote/audible/screech,
+		/decl/emote/audible/click,
+		/decl/emote/audible/clack
 	)
 	pain_emotes_with_pain_level = list(
 		list(/decl/emote/audible/screech, /decl/emote/audible/shriek) = 70,
@@ -86,9 +88,11 @@
 
 /datum/species/skrell
 	default_emotes = list(
-		/decl/emote/audible/warble
+		/decl/emote/audible/warble,
+		/decl/emote/audible/croon,
+		/decl/emote/audible/lowarble,
+		/decl/emote/audible/croak
 	)
-
 /mob/living/carbon/human/set_species(var/new_species, var/default_colour = 1)
 	UNLINT(. = ..())
 	update_emotes()

@@ -13,14 +13,19 @@
 	minimal_access = list(access_morgue, access_chapel_office, access_crematorium)
 	alt_titles = list("Presbyter","Rabbi","Imam","Priest","Shaman","Counselor")
 	outfit = /datum/outfit/job/chaplain
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/chaplain
 	name = "Chaplain"
 	jobtype = /datum/job/chaplain
 	uniform = /obj/item/clothing/under/rank/chaplain
 	shoes = /obj/item/clothing/shoes/black
+	
 	headset = /obj/item/device/radio/headset/headset_service
 	bowman = /obj/item/device/radio/headset/headset_service/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/service
+	wrist_radio = /obj/item/device/radio/headset/wrist/service
+	
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/chaplain
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/chaplain
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/chaplain

@@ -384,6 +384,9 @@
 /decl/reagent/alcohol/screwdrivercocktail
 	value = 0.13
 
+/decl/reagent/alcohol/sidewinderfang
+	value = 0.14
+
 /decl/reagent/alcohol/silencer
 	value = 0.135
 

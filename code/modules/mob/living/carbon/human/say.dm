@@ -146,6 +146,21 @@
 	returns = species.handle_speech_problems(src, returns, message, verb, message_mode)
 	return returns
 
+/mob/living/carbon/human/get_radio()
+	var/list/headsets = list()
+	if(istype(l_ear, /obj/item/device/radio))
+		headsets["Left Ear"] = l_ear
+	if(istype(r_ear, /obj/item/device/radio))
+		headsets["Right Ear"] = r_ear
+	if(istype(wrists, /obj/item/device/radio))
+		headsets["Wrist"] = wrists
+
+	if(length(headsets))
+		if(client && (client.prefs.primary_radio_slot in headsets))
+			return headsets[client.prefs.primary_radio_slot]
+		return headsets[headsets[1]]
+	return null
+
 /mob/living/carbon/human/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio)
 	if(paralysis || InStasis())
 		whisper_say(message, speaking, alt_name)
@@ -158,15 +173,10 @@
 				if(I.talk_into(src, message, null, verb, speaking))
 					successful_radio += I
 		if("headset")
-			if(istype(l_ear,/obj/item/device/radio))
-				var/obj/item/device/radio/R = l_ear
-				used_radios += l_ear
-				if(R.talk_into(src,message,null,verb,speaking))
-					successful_radio += R
-			else if(istype(r_ear,/obj/item/device/radio))
-				var/obj/item/device/radio/R = r_ear
-				used_radios += r_ear
-				if(R.talk_into(src,message,null,verb,speaking))
+			var/obj/item/device/radio/R = get_radio()
+			if(R)
+				used_radios += R
+				if(R.talk_into(src, message, null, verb, speaking))
 					successful_radio += R
 		if("right ear")
 			var/obj/item/device/radio/R
@@ -194,19 +204,28 @@
 				used_radios += R
 				if(R.talk_into(src,message,null,verb,speaking))
 					successful_radio += R
+		if("wrist")
+			var/obj/item/device/radio/R
+			var/has_radio = 0
+			if(istype(wrists,/obj/item/device/radio))
+				R = wrists
+				has_radio = 1
+			if(istype(r_hand, /obj/item/device/radio))
+				R = wrists
+				has_radio = 1
+			if(has_radio)
+				used_radios += R
+				if(R.talk_into(src,message,null,verb,speaking))
+					successful_radio += R
 		if("whisper")
 			whisper_say(message, speaking, alt_name)
 			return 1
-		else
-			if(message_mode)
-				if(istype(l_ear, /obj/item/device/radio))
-					used_radios += l_ear
-					if(l_ear.talk_into(src,message, message_mode, verb, speaking))
-						successful_radio += l_ear
-				else if(istype(r_ear, /obj/item/device/radio))
-					used_radios += r_ear
-					if(r_ear.talk_into(src,message, message_mode, verb, speaking))
-						successful_radio += r_ear
+		else if(message_mode)
+			var/obj/item/device/radio/R = get_radio()
+			if(R)
+				used_radios += l_ear
+				if(R.talk_into(src, message, message_mode, verb, speaking))
+					successful_radio += R
 
 /mob/living/carbon/human/handle_speech_sound()
 	var/list/returns = ..()
@@ -303,3 +322,9 @@
 
 			message = "[prefix][jointext(words," ")]"
 	return message
+
+/mob/living/carbon/human/binarycheck()
+	for(var/obj/item/device/radio/headset/dongle in list(l_ear, r_ear))
+		if(dongle.translate_binary)
+			return TRUE
+	return FALSE
