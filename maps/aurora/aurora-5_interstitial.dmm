@@ -2541,7 +2541,7 @@
 /turf/simulated/floor/plating,
 /area/security/training_theoretical)
 "gb" = (
-/obj/structure/bed/stool/chair/sofa/corner{
+/obj/structure/bed/stool/chair/sofa/corner/red{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
