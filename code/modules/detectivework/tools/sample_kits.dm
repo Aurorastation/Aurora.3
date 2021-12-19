@@ -51,7 +51,7 @@
 /obj/item/sample/fibers
 	name = "fiber bag"
 	desc = "Used to hold fiber evidence for the detective."
-	desc_info = "Holds various fibe evidence. Place it in a slide and the slide into a microscope to check them."
+	desc_info = "Holds various fibre evidence. Place it in a slide and the slide into a microscope to check them."
 	icon_state = "fiberbag"
 
 /obj/item/sample/print
