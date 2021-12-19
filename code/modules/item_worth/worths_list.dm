@@ -415,7 +415,7 @@ var/list/worths = list(
 //CLOTHING,
 //EARS,
 					/obj/item/clothing/ears/skrell = 100,
-					/obj/item/clothing/ears/bandanna = 20,
+					/obj/item/clothing/accessory/bandanna = 20,
 //GLASSES,
 					/obj/item/clothing/glasses/meson/prescription = 880,
 					/obj/item/clothing/glasses/meson = 800,

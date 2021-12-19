@@ -478,3 +478,4 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define COOK_CHECK_EXTRA	0
 #define COOK_CHECK_EXACT	1
 
+#define STATION_TAG "Aurora"

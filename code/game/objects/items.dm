@@ -68,6 +68,7 @@
 
 	var/build_from_parts = FALSE // when it uses coloration and a part of it wants to remain uncolored. e.g., handle of the screwdriver is colored while the head is not.
 	var/worn_overlay = null // used similarly as above, except for inhands.
+	var/worn_overlay_color = null // When you want your worn overlay to have colors. So you can have more than one modular coloring.
 
 	//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
 	// Used to specify the icon file to be used when the item is worn. If not set the default icon for that slot will be used.
@@ -951,6 +952,9 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 /obj/item/proc/get_mask_examine_text(var/mob/user)
 	return "on [user.get_pronoun("his")] face"
 
+/obj/item/proc/get_head_examine_text(var/mob/user)
+	return "on [user.get_pronoun("his")] head"
+	
 /obj/item/proc/should_equip() // when you press E with an empty hand, will this item be pulled from suit storage / back slot and put into your hand
 	return FALSE
 

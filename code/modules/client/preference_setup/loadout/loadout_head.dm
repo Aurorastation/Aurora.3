@@ -4,6 +4,10 @@
 	slot = slot_head
 	sort_category = "Hats and Headwear"
 
+/datum/gear/head/New()
+	..()
+	gear_tweaks += list(gear_tweak_hair_block)
+
 /datum/gear/head/ushanka_grey
 	display_name = "ushanka, grey"
 	path = /obj/item/clothing/head/ushanka/grey
@@ -344,3 +348,29 @@
 	display_name = "dominian consular cap"
 	path = /obj/item/clothing/head/dominia
 	allowed_roles = list("Consular Officer")
+
+
+/*
+	Block Hair Adjustment
+*/
+var/datum/gear_tweak/hair_block/gear_tweak_hair_block = new()
+
+/datum/gear_tweak/hair_block/get_contents(var/metadata)
+	return "Blocks Hair: [metadata]"
+
+/datum/gear_tweak/hair_block/get_default()
+	return "Default"
+
+/datum/gear_tweak/hair_block/get_metadata(var/user, var/metadata)
+	return input(user, "Choose whether you want your headgear to block hair, or use the headgear's default.", "Hair Blocking", metadata) as anything in list("Yes", "No", "Default")
+
+/datum/gear_tweak/hair_block/tweak_item(var/obj/item/clothing/head/H, var/metadata)
+	if(!istype(H))
+		return
+	if(!H.allow_hair_covering)
+		return
+	switch(metadata)
+		if("Yes")
+			H.flags_inv |= BLOCKHEADHAIR
+		if("No")
+			H.flags_inv &= ~BLOCKHEADHAIR
