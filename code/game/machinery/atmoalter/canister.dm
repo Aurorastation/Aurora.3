@@ -371,6 +371,11 @@ update_flag
 	return data
 
 /obj/machinery/portable_atmospherics/canister/Topic(href, href_list)
+
+	var/datum/vueui/ui = href_list["vueui"]
+	if(!istype(ui))
+		return
+
 	if(href_list["toggle"])
 		if (valve_open)
 			if (holding)

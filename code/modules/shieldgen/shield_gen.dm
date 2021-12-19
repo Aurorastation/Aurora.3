@@ -260,6 +260,9 @@
 	return data
 
 /obj/machinery/shield_gen/Topic(href, href_list)
+	var/datum/vueui/ui = href_list["vueui"]
+	if(!istype(ui))
+		return
 
 	if(href_list["toggle"])
 		toggle()
