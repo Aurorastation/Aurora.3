@@ -8,3 +8,4 @@
 	body_parts_covered = FACE
 	item_flags = FLEXIBLEMATERIAL
 	flags_inv = HIDEFACE
+	sprite_sheets = null

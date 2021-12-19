@@ -2,7 +2,7 @@
 	name = "journal"
 	desc = "A journal, kind of like a folder, but bigger! And personal."
 	var/closed_desc
-	desc_info = "Ctrl-click this while it's on your person to open this journal."
+	desc_info = "Alt-click this while it's on your person or next to you to open this journal.\nWhile the journal is open, use it in hand or use a pen on it to access the contents."
 	icon = 'icons/obj/contained_items/misc/journal.dmi'
 	icon_state = "journal"
 	item_state = "journal"
@@ -36,8 +36,8 @@
 	if(closed_desc)
 		desc = open ? initial(desc) + closed_desc : initial(desc)
 
-/obj/item/journal/CtrlClick(mob/user)
-	if(loc == user)
+/obj/item/journal/AltClick(mob/user)
+	if(Adjacent(user))
 		open = !open
 		to_chat(user, SPAN_NOTICE("You [open ? "open" : "close"] \the [src]."))
 		update_icon()
@@ -74,9 +74,16 @@
 		if(!E)
 			return
 		user.drop_from_inventory(I, E)
-		to_chat(user, SPAN_NOTICE("You put \the [I] into \the [E]."))
+		to_chat(user, SPAN_NOTICE("You put \the [I] into \the [E] index in \the [src]."))
 		update_icon()
 		return
+	if(I.ispen())
+		if(!open)
+			to_chat(user, SPAN_NOTICE("You open \the [src] with \the [I]."))
+			open = !open
+			update_icon()
+			return
+		attack_self(user)
 
 /obj/item/journal/proc/generate_index(var/mob/user)
 	var/obj/item/folder/embedded/E = new /obj/item/folder/embedded(src)

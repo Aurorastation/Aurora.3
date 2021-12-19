@@ -33,7 +33,7 @@
 	clickvol = 30
 
 	var/temperature_archived
-	var/mob/living/carbon/occupant = null
+	var/mob/living/carbon/human/occupant = null
 	var/obj/item/reagent_containers/glass/beaker = null
 
 	var/current_heat_capacity = 50
@@ -115,18 +115,16 @@
 		occupantData["name"] = occupant.name
 		occupantData["stat"] = occupant.stat
 		occupantData["bodyTemperature"] = occupant.bodytemperature
-		occupantData["cryostasis"] = "[occupant.stasis_value]x"
-		var/cloneloss = "none"
-		var/amount = occupant.getCloneLoss()
-		if(amount > 50)
-			cloneloss = "severe"
-		else if(amount > 25)
-			cloneloss = "significant"
-		else if(amount > 10)
-			cloneloss = "moderate"
-		else if(amount)
-			cloneloss = "minor"
-		occupantData["cloneloss"] = "<br><br>Genetic degradation: [cloneloss]"
+		occupantData["brain_activity"] = occupant.get_brain_status()
+		occupantData["pulse"] = occupant.get_pulse(GETPULSE_TOOL)
+		occupantData["blood_o2"] = occupant.get_blood_oxygenation()
+		occupantData["blood_pressure"] = occupant.get_blood_pressure()
+		occupantData["cloneLoss"] = occupant.getCloneLoss()
+		occupantData["bruteLoss"] = occupant.getBruteLoss()
+		occupantData["fireLoss"] = occupant.getFireLoss()
+		occupantData["toxLoss"] = occupant.getToxLoss()
+		occupantData["oxyLoss"] = occupant.getOxyLoss()
+		occupantData["cryostasis"] = "[occupant.stasis_value]"
 	data["occupant"] = occupantData
 
 	data["cellTemperature"] = round(air_contents.temperature)
@@ -335,7 +333,7 @@
 	update_use_power(1)
 	update_icon()
 
-/obj/machinery/atmospherics/unary/cryo_cell/proc/put_mob(mob/living/carbon/M as mob)
+/obj/machinery/atmospherics/unary/cryo_cell/proc/put_mob(mob/living/carbon/human/M as mob)
 	if (stat & (NOPOWER|BROKEN))
 		to_chat(usr, "<span class='warning'>The cryo cell is not functioning.</span>")
 		return

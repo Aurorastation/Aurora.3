@@ -13,6 +13,9 @@
 	var/image/accessory_mob_overlay = null
 	var/flippable = 0 //whether it has an attack_self proc which causes the icon to flip horizontally
 	var/flipped = 0
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/accessories.dmi'
+	)
 
 /obj/item/clothing/accessory/Destroy()
 	on_removed()
@@ -22,14 +25,16 @@
 	. = ..()
 	update_icon()
 
-/obj/item/clothing/accessory/proc/get_inv_overlay(var/force = FALSE)
+/obj/item/clothing/accessory/proc/get_inv_overlay(var/mob/M, var/force = FALSE)
 	if(!accessory_mob_overlay)
-		get_accessory_mob_overlay()
+		get_accessory_mob_overlay(M, force)
 	var/I = accessory_mob_overlay.icon
 	if(!inv_overlay || force)
 		var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
 		if(icon_override)
-			if("[tmp_icon_state]_tie" in icon_states(icon_override))
+			if(contained_sprite)
+				tmp_icon_state = "[tmp_icon_state]_w"
+			else if("[tmp_icon_state]_tie" in icon_states(icon_override))
 				tmp_icon_state = "[tmp_icon_state]_tie"
 		else if(contained_sprite)
 			tmp_icon_state = "[tmp_icon_state]_w"
@@ -41,12 +46,23 @@
 		inv_overlay.add_overlay(overlay_image(I, "[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	return inv_overlay
 
-/obj/item/clothing/accessory/proc/get_accessory_mob_overlay(var/force = FALSE)
-	var/I = icon_override ? icon_override : contained_sprite ? icon : INV_ACCESSORIES_DEF_ICON
+/obj/item/clothing/accessory/proc/get_accessory_mob_overlay(var/mob/living/carbon/human/M, var/force = FALSE)
+	var/I
+	if(icon_override)
+		I = icon_override
+	else if(istype(M) && (M.species.bodytype in sprite_sheets))
+		I = sprite_sheets[M.species.bodytype]
+		accessory_mob_overlay = null // reset the overlay
+	else if(contained_sprite)
+		I = icon
+	else
+		I = INV_ACCESSORIES_DEF_ICON
 	if(!accessory_mob_overlay || force)
 		var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
 		if(icon_override)
-			if("[tmp_icon_state]_mob" in icon_states(I))
+			if(contained_sprite)
+				tmp_icon_state = "[src.item_state][WORN_UNDER]"
+			else if("[tmp_icon_state]_mob" in icon_states(I))
 				tmp_icon_state = "[tmp_icon_state]_mob"
 		else if(contained_sprite)
 			tmp_icon_state = "[src.item_state][WORN_UNDER]"
@@ -546,6 +562,17 @@
 	item_state = "galaxycape"
 	overlay_state = "galaxycape"
 
+/obj/item/clothing/accessory/poncho/shouldercape/qeblak
+	name = "qeblak mantle"
+	desc = "A mantle denoting the wearer as a member fo the Qeblak faith."
+	desc_fluff = "This mantle denotes the wearer as a member of the Qeblak faith. \
+	It is given to followers after they have completed their coming of age ceremony. \
+	The symbol on the back is of a protostar as it transitions into a main sequence star, \
+	representing the the wearer becoming an adult."
+	icon_state = "qeblak_cape"
+	item_state = "qeblak_cape"
+	flippable = FALSE
+
 /obj/item/clothing/accessory/poncho/trinary
 	name = "trinary perfection cape"
 	desc = "A brilliant red and brown cape, commonly worn by those who serve the Trinary Perfection."
@@ -645,6 +672,14 @@
 	icon_state = "namepintag"
 	overlay_state = null
 	badge_string = null
+	slot_flags = SLOT_TIE
+	w_class = ITEMSIZE_TINY
+
+/obj/item/clothing/accessory/ribbon
+	name = "ribbon"
+	desc = "A small ribbon to commemorate or support a cause."
+	icon_state = "ribbon"
+	item_state = "ribbon"
 	slot_flags = SLOT_TIE
 	w_class = ITEMSIZE_TINY
 

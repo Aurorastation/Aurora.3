@@ -47,6 +47,7 @@
 #define ORGAN_PLANT      (1<<10)
 #define ORGAN_ARTERY_CUT (1<<11)
 #define ORGAN_LIFELIKE   (1<<12)   // Robotic, made to appear organic.
+#define ORGAN_NYMPH   (1<<13)
 
 // the largest bitflag, in the WORLD
 #define ORGAN_DAMAGE_STATES ORGAN_CUT_AWAY|ORGAN_BLEEDING|ORGAN_BROKEN|ORGAN_DESTROYED|ORGAN_SPLINTED|ORGAN_DEAD|ORGAN_MUTATED|ORGAN_ARTERY_CUT
