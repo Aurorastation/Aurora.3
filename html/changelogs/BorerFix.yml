@@ -1,7 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscadd: "Cortical Borer naming now has a randomised number at the end to help identify them."
-  - bugfix: "Small enough mobs can now be properly put into glass jars."

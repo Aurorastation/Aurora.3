@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Half-wall Windows, or windows built into window frames, will now blend and smooth into walls."
