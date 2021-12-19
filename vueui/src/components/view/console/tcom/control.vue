@@ -5,7 +5,7 @@
     <ul>
       <li v-for="(s, ref) in s.servers" :key="ref">
         <vui-button :params="{ select: ref }"
-          >{{ s.name }} ({{ s.id }})</vui-button
+        >{{ s.name }} ({{ s.id }})</vui-button
         >
       </li>
     </ul>
@@ -13,7 +13,7 @@
       <h3>{{ s.current.name }} ({{ s.current.id }})</h3>
       <view-ntsl-terminal :buffer="s.current.terminal" />
       <vui-button :params="{ submit: 1, code: code }"
-        >Save and execute</vui-button
+      >Save and execute</vui-button
       >
       <view-ntsl-editor v-model="code" />
     </template>
@@ -37,7 +37,7 @@ export default {
     },
   },
   watch: {
-    "s.current.code"(newValue, _) {
+    "s.current.code"(newValue) {
       this.code = newValue
     },
   },
