@@ -158,7 +158,7 @@
 			if("Nralakk")
 				hologram_message = pick("You see the Jargon system sky projected on the ceiling.",
 										"You see planets slowly orbiting Nralakk above the projector.",
-										"You hear faint ceremonial hymms.")
+										"You hear faint ceremonial hymns.")
 
 		if(hologram_message)
 			visible_message("<span class='notice'>[hologram_message]</span>")
