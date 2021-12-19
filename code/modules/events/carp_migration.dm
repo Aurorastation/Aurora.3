@@ -12,6 +12,7 @@
 	)
 
 	ic_name = "biological entities"
+	var/deploy_drones = TRUE
 
 /datum/event/carp_migration/setup()
 	announceWhen = rand(40, 60)
@@ -21,7 +22,7 @@
 /datum/event/carp_migration/announce()
 	var/announcement = ""
 	var/soundfile = 'sound/AI/spacecarp.ogg'
-	if(severity == EVENT_LEVEL_MAJOR)
+	if(severity == EVENT_LEVEL_MAJOR && deploy_drones)
 		announcement = "Massive migration of unknown biological entities has been detected near [station_name()], please stand-by. The NDV Icarus has dispatched combat drones to assist."
 		soundfile = 'sound/AI/massivespacecarp.ogg'
 	else
@@ -30,11 +31,11 @@
 
 /datum/event/carp_migration/start()
 	if(severity == EVENT_LEVEL_MAJOR)
-		spawn_fish(length(landmarks_list), spawn_drones = TRUE)
-		spawn_caverndweller(length(landmarks_list), spawn_drones = TRUE)
+		spawn_fish(length(landmarks_list), spawn_drones = deploy_drones)
+		spawn_caverndweller(length(landmarks_list), spawn_drones = deploy_drones)
 	else if(severity == EVENT_LEVEL_MODERATE)
-		spawn_fish(rand(4, 6), spawn_drones = TRUE)			//12 to 30 carp, in small groups
-		spawn_caverndweller(rand(1, 2), spawn_drones = TRUE) //less of those, also don't happen in the regular event
+		spawn_fish(rand(4, 6), spawn_drones = deploy_drones)			//12 to 30 carp, in small groups
+		spawn_caverndweller(rand(1, 2), spawn_drones = deploy_drones) //less of those, also don't happen in the regular event
 	else
 		spawn_fish(rand(1, 3), 1, 2)	//1 to 6 carp, alone or in pairs
 
@@ -120,3 +121,11 @@
 			var/mob/living/simple_animal/cosmozoan/cozmo = new(spawn_locations[i])
 			spawned_carp += WEAKREF(cozmo)
 		i++
+
+/datum/event/carp_migration/overmap
+	despawn_turfs = list(/turf/space)
+	deploy_drones = FALSE
+
+/datum/event/carp_migration/overmap/setup()
+	announceWhen = 1
+	despawn_turfs = typecacheof(despawn_turfs)

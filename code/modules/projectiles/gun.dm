@@ -120,6 +120,8 @@
 	var/has_safety = TRUE
 	var/image/safety_overlay
 
+	var/iff_capable = FALSE // if true, applies the user's ID iff_faction to the projectile
+
 	// sounds n shit
 	var/safetyon_sound = 'sound/weapons/blade_open.ogg'
 	var/safetyoff_sound = 'sound/weapons/blade_close.ogg'
@@ -151,6 +153,9 @@
 		has_safety = FALSE
 
 	queue_icon_update()
+
+/obj/item/gun/should_equip()
+	return TRUE
 
 /obj/item/gun/update_icon()
 	..()

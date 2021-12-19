@@ -11,6 +11,7 @@
 	var/wait_for_launch = 0	//if the shuttle is waiting to launch
 	var/failreturnnumber = 0 // the number of times the shuttle failed to leave the station
 	var/list/current_mobs = list()
+	var/shuttle_launch_countdown = 30 SECONDS
 
 /datum/controller/subsystem/arrivals/New()
 	NEW_SS_GLOBAL(SSarrivals)
@@ -44,7 +45,7 @@
 	wake()	// Wake the process.
 
 	if (!wait_for_launch && shuttle.location == 1 && shuttle.moving_status == SHUTTLE_IDLE)
-		set_launch_countdown(30)
+		set_launch_countdown()
 
 /datum/controller/subsystem/arrivals/proc/on_hotzone_exit(mob/living/M)
 	current_mobs -= SOFTREF(M)
@@ -53,7 +54,7 @@
 
 /datum/controller/subsystem/arrivals/proc/shuttle_arrived()
 	if (!shuttle.location)	//at station
-		set_launch_countdown(30)	//get ready to return
+		set_launch_countdown()	//get ready to return
 
 /datum/controller/subsystem/arrivals/proc/forbidden_atoms_check(atom/A)
 	if(istype(A,/mob/living))
@@ -73,9 +74,9 @@
 			return 1
 
 //begins the launch countdown and sets the amount of time left until launch
-/datum/controller/subsystem/arrivals/proc/set_launch_countdown(var/seconds)
+/datum/controller/subsystem/arrivals/proc/set_launch_countdown()
 	wait_for_launch = 1
-	launch_time = world.time + seconds*10
+	launch_time = world.time + shuttle_launch_countdown
 	wake()
 
 /datum/controller/subsystem/arrivals/proc/stop_launch_countdown()

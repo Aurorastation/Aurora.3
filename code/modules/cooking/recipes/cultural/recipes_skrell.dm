@@ -18,7 +18,7 @@
 	fruit = list("plumphelmet" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/cheesewedge,
-		/obj/item/reagent_containers/food/snacks/crabmeat
+		/obj/item/reagent_containers/food/snacks/fish/mollusc
 	)
 	result = /obj/item/reagent_containers/food/snacks/xuqqil
 
@@ -34,7 +34,7 @@
 	fruit = list("seaweed" = 2)
 	reagents = list(/decl/reagent/water = 10, /decl/reagent/drink/milk/cream = 5)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/squidmeat
+		/obj/item/reagent_containers/food/snacks/fish/mollusc
 	)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/soup/qilvo

@@ -117,6 +117,12 @@
 		var/charge_used = cell.use(diff)
 		target.give(charge_used*charging_efficiency)
 
+	if(isDrone(occupant))
+		var/mob/living/silicon/robot/drone/D = occupant
+		if(D.master_matrix && D.upgrade_cooldown < world.time && D.cell.fully_charged())
+			D.upgrade_cooldown = world.time + 1 MINUTE
+			D.master_matrix.apply_upgrades(D)
+
 /obj/machinery/recharge_station/examine(mob/user)
 	..(user)
 	to_chat(user, "The charge meter reads: [round(chargepercentage())]%.")

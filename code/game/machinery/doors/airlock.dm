@@ -937,21 +937,32 @@ About the new airlock wires panel:
 					user.visible_message(SPAN_WARNING("[user] headbutts the airlock. Good thing they're wearing a helmet."))
 				return
 
-		if(H.species.can_shred(H))
+		if(H.a_intent == I_HURT)
+			var/shredding = H.species.can_shred(H)
+			var/can_crowbar = H.default_attack?.crowbar_door && (stat & (BROKEN|NOPOWER))
+			if(shredding || can_crowbar)
+				if(!density)
+					return
 
-			if(!src.density)
+				H.visible_message("<b>[H]</b> begins to pry open \the [src]!", SPAN_NOTICE("You begin to pry open \the [src]!"), SPAN_WARNING("You hear the sound of an airlock being forced open."))
+
+				if(!do_after(H, 120, 1, act_target = src))
+					return
+
+				var/check = src.open(1)
+
+				if(shredding)
+					src.do_animate("spark")
+					src.stat |= BROKEN
+					H.visible_message("<b>[H]</b> slices \the [src]'s controls, [check ? "ripping it open" : "breaking it"]!", SPAN_NOTICE("You slice \the [src]'s controls, [check ? "ripping it open" : "breaking it"]!"), SPAN_WARNING("You hear something sparking."))
 				return
-
-			H.visible_message("<b>[H]</b> begins to pry open \the [src]!", SPAN_NOTICE("You begin to pry open \the [src]!"), SPAN_WARNING("You hear the sound of an airlock being forced open."))
-
-			if(!do_after(H, 120, 1, act_target = src))
+			if(H.default_attack?.attack_door && !(stat & (BROKEN|NOPOWER)))
+				user.visible_message(SPAN_DANGER("\The [user] forcefully strikes \the [src] with their [H.default_attack.attack_name]!"))
+				user.do_attack_animation(src, null)
+				playsound(loc, hitsound, 60, 1)
+				take_damage(H.default_attack.attack_door)
+				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				return
-
-			src.do_animate("spark")
-			src.stat |= BROKEN
-			var/check = src.open(1)
-			H.visible_message("<b>[H]</b> slices \the [src]'s controls, [check ? "ripping it open" : "breaking it"]!", SPAN_NOTICE("You slice \the [src]'s controls, [check ? "ripping it open" : "breaking it"]!"), SPAN_WARNING("You hear something sparking."))
-			return
 	if(src.p_open)
 		user.set_machine(src)
 		wires.Interact(user)
@@ -1194,7 +1205,7 @@ About the new airlock wires panel:
 	da.created_name = src.name
 	da.update_state()
 	if((stat & BROKEN))
-		new /obj/item/circuitboard/broken(src.loc)
+		new /obj/item/trash/broken_electronics(src.loc)
 		operating = FALSE
 	else
 		if (!electronics) create_electronics()

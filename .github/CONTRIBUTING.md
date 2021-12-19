@@ -46,11 +46,13 @@ license permits the intended use of the content in the appropriate manner.
 All pull requests are subject to peer review prior to being merged. After said reviews, they are given a final once-over by a maintainer and
 then merged if good.
 
-A **feature** pull request will require *two* reviews, with one of them being a community developer's. There is also a minimum time out of
-*three days* before a feature pull request can be merged. This is to ensure that there is enough time to review and discuss new additions
-from the game.
+A **feature** pull request will require **two** reviews, with one of them being a community developer's.
+The other review can come from a "trusted reviewer" or a developer.
+Contributors who have shown that they are capable of properly reviewing pull requests can request the "trusted reviewer" role.
+There is also a minimum time-out of **three days** before a feature pull request can be merged.
+This is to ensure that there is enough time to review and discuss new additionsfrom the game.
 
-A **bug fix** pull request will require *two* reviews, if it is to be merged in the first 24 hours, or *one* following the first 24 hours.
+A **bug fix** pull request will require **two** reviews, if it is to be merged in the first 24 hours, or **one** following the first 24 hours.
 
 ### Prefer Atomic Pull-Requests
 Pull requests should do **one** thing.

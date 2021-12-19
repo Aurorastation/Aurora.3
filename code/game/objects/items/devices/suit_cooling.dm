@@ -2,7 +2,7 @@
 	name = "portable suit cooling unit"
 	desc = "A portable heat sink and liquid cooled radiator that can be hooked up to a space suit's existing temperature controls to provide industrial levels of cooling."
 	w_class = ITEMSIZE_LARGE
-	icon = 'icons/obj/suitcooler.dmi'
+	icon = 'icons/obj/contained_items/tools/suitcooler.dmi'
 	icon_state = "suitcooler0"
 	item_state = "coolingpack"
 	contained_sprite = TRUE
@@ -24,7 +24,7 @@
 	var/cover_open = 0		//is the cover open?
 	var/obj/item/cell/cell
 	var/max_cooling = 12				//in degrees per second - probably don't need to mess with heat capacity here
-	var/charge_consumption = 16.6		//charge per second at max_cooling
+	var/charge_consumption = 8.3		//charge per second at max_cooling
 	var/thermostat = T20C
 
 	//TODO: make it heat up the surroundings when not in space
@@ -134,8 +134,13 @@
 		src.cell = null
 		update_icon()
 		return
+	toggle_power(user)
 
-	//TODO use a UI like the air tanks
+/obj/item/device/suit_cooling_unit/AltClick(mob/user)
+	if(Adjacent(user))
+		toggle_power(user)
+
+/obj/item/device/suit_cooling_unit/proc/toggle_power(var/mob/user)
 	if(on)
 		turn_off()
 	else
@@ -177,23 +182,31 @@
 		return
 
 	icon_state = "suitcooler0"
+	item_state = "coolingpack"
 
-	if(!cell || !on)
-		return
+	if(cell && on)
+		var/battery_level = 0
+		switch(round(cell.percent()))
+			if(86 to INFINITY)
+				battery_level = 0
+			if(69 to 85)
+				battery_level = 1
+			if(52 to 68)
+				battery_level = 2
+			if(35 to 51)
+				battery_level = 3
+			if(18 to 34)
+				battery_level = 4
+			if(-INFINITY to 17)
+				battery_level = 5
 
-	switch(round(cell.percent()))
-		if(86 to INFINITY)
-			add_overlay("battery-0")
-		if(69 to 85)
-			add_overlay("battery-1")
-		if(52 to 68)
-			add_overlay("battery-2")
-		if(35 to 51)
-			add_overlay("battery-3")
-		if(18 to 34)
-			add_overlay("battery-4")
-		if(-INFINITY to 17)
-			add_overlay("battery-5")
+		add_overlay("battery-[battery_level]")
+		item_state = "coolingpack[battery_level]"
+
+	if(ismob(loc))
+		var/mob/M = loc
+		M.update_inv_back()
+		M.update_inv_s_store()
 
 /obj/item/device/suit_cooling_unit/examine(mob/user)
 	if(!..(user, 1))
