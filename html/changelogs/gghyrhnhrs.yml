@@ -1,4 +1,0 @@
-author: Karolis2011
-delete-after: True
-changes:
-  - bugfix: "Fixed UI state checks for few UIs"
