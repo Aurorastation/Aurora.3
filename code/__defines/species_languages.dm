@@ -74,7 +74,7 @@
 // Synth Languages
 #define LANGUAGE_ROBOT "Robot Talk"
 #define LANGUAGE_LOCAL_DRONE "Drone Transmission"
-#define LANGUAGE_DRONE "Drone Talk"
+#define LANGUAGE_DRONE "Matrix Weave"
 #define LANGUAGE_EAL "Encoded Audio Language"
 
 // Language flags.

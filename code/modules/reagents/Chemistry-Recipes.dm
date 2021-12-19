@@ -665,6 +665,13 @@
 	required_reagents = list(/decl/reagent/carbon = 1, /decl/reagent/tungsten = 1, /decl/reagent/water = 1)
 	result_amount = 3
 
+/datum/chemical_reaction/inacusiate
+	name = "Inacusiate"
+	id = "inacusiate"
+	result = /decl/reagent/inacusiate
+	required_reagents = list(/decl/reagent/dylovene = 1, /decl/reagent/carbon = 1, /decl/reagent/sulfur = 1)
+	result_amount = 2
+
 //Mental Medication
 
 /datum/chemical_reaction/corophenidate
@@ -3646,3 +3653,17 @@
 	result = /decl/reagent/alcohol/pulque/coffee
 	required_reagents = list(/decl/reagent/alcohol/pulque = 1, /decl/reagent/drink/coffee = 1)
 	result_amount = 2
+
+/datum/chemical_reaction/drink/pulque_butanol
+	name = "xuizi pulque"
+	id = "pulque_butanol"
+	result = /decl/reagent/alcohol/butanol/pulque
+	required_reagents = list(/decl/reagent/alcohol/pulque = 1, /decl/reagent/alcohol/butanol/xuizijuice = 1)
+	result_amount = 2
+	
+/datum/chemical_reaction/drink/ichor
+	name = "xsain ichor"
+	id = "ichor"
+	result = /decl/reagent/drink/toothpaste/ichor
+	required_reagents = list(/decl/reagent/alcohol/butanol/xuizijuice = 1, /decl/reagent/kois/clean = 1, /decl/reagent/drink/toothpaste = 1)
+	result_amount = 3

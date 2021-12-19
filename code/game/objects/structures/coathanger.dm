@@ -7,7 +7,7 @@
 	var/obj/item/clothing/head/hat
 	var/list/allowed_coats = list(/obj/item/clothing/suit/storage/toggle/labcoat, /obj/item/clothing/suit/storage/toggle/det_trench,
 							/obj/item/clothing/suit/storage/toggle/forensics, /obj/item/clothing/suit/storage/toggle/trench,
-							/obj/item/clothing/suit/storage/det_jacket)
+							/obj/item/clothing/suit/storage/det_jacket, /obj/item/clothing/accessory/poncho/tajarancloak)
 	var/list/allowed_hats = list(/obj/item/clothing/head/det, /obj/item/clothing/head/beret/security, /obj/item/clothing/head/softcap/security)
 
 /obj/structure/coatrack/attack_hand(mob/user as mob)

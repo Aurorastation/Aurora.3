@@ -409,6 +409,7 @@
 	passcard["passcard, assunzione"] = /obj/item/clothing/accessory/badge/passcard/assu
 	passcard["passcard, techno-conglomerate"] = /obj/item/clothing/accessory/badge/passcard/techno
 	passcard["passcard, konyang"] = /obj/item/clothing/accessory/badge/passcard/konyang
+	passcard["passcard, visegrad"] = /obj/item/clothing/accessory/badge/passcard/sol/visegrad
 	gear_tweaks += new /datum/gear_tweak/path(passcard)
 
 /datum/gear/accessory/passport
@@ -455,3 +456,20 @@
 		var/obj/item/clothing/accessory/blood_patch/BP = type
 		patches[initial(BP.name)] = type
 	gear_tweaks += new /datum/gear_tweak/path(patches)
+
+/datum/gear/accessory/bandanna
+	display_name = "neck bandanna selection"
+	path = /obj/item/clothing/accessory/bandanna
+
+/datum/gear/accessory/bandanna/New()
+	..()
+	var/list/bandanna = list()
+	bandanna["red bandanna"] =  /obj/item/clothing/accessory/bandanna
+	bandanna["blue bandanna"] = /obj/item/clothing/accessory/bandanna/blue
+	bandanna["black bandanna"] = /obj/item/clothing/accessory/bandanna/black
+	gear_tweaks += new /datum/gear_tweak/path(bandanna)
+
+/datum/gear/accessory/bandanna_colorable
+	display_name = "neck bandanna (colorable)"
+	path = /obj/item/clothing/accessory/bandanna/colorable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION

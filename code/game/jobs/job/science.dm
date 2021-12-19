@@ -27,7 +27,7 @@
 	ideal_character_age = 50
 	outfit = /datum/outfit/job/rd
 
-	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
+	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/rd
 	name = "Research Director"
@@ -38,12 +38,12 @@
 	shoes = /obj/item/clothing/shoes/brown
 	id = /obj/item/card/id/navy
 	l_hand = /obj/item/clipboard
-	
+
 	headset = /obj/item/device/radio/headset/heads/rd
 	bowman = /obj/item/device/radio/headset/heads/rd/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/rd
 	wrist_radio = /obj/item/device/radio/headset/wrist/rd
-	
+
 	tab_pda = /obj/item/modular_computer/handheld/pda/research/rd
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research/rd
 	tablet = /obj/item/modular_computer/handheld/preset/research/rd
@@ -75,7 +75,7 @@
 	minimal_player_age = 14
 	outfit = /datum/outfit/job/scientist
 	alt_outfits = list("Xenoarcheologist"=/datum/outfit/job/scientist/xenoarcheologist)
-	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
+	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/scientist
 	name = "Scientist"
@@ -85,12 +85,12 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
 	shoes = /obj/item/clothing/shoes/science
 	id = /obj/item/card/id/white
-	
+
 	headset = /obj/item/device/radio/headset/headset_sci
 	bowman = /obj/item/device/radio/headset/headset_sci/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/sci
 	wrist_radio = /obj/item/device/radio/headset/wrist/sci
-	
+
 	tab_pda = /obj/item/modular_computer/handheld/pda/research
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research
 	tablet = /obj/item/modular_computer/handheld/preset/research
@@ -126,6 +126,7 @@
 
 	outfit = /datum/outfit/job/scientist/xenobiologist
 	alt_outfits = list("Xenobotanist"=/datum/outfit/job/scientist/xenobiologist/xenobotanist)
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/scientist/xenobiologist
 	name = "Xenobiologist"
@@ -156,6 +157,7 @@
 	minimal_player_age = 7
 
 	outfit = /datum/outfit/job/roboticist
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/roboticist
 	name = "Roboticist"
@@ -166,12 +168,12 @@
 	shoes = /obj/item/clothing/shoes/black
 	id = /obj/item/card/id/white
 	belt = /obj/item/storage/belt/utility
-	
+
 	headset = /obj/item/device/radio/headset/headset_sci
 	bowman = /obj/item/device/radio/headset/headset_sci/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/sci
 	wrist_radio = /obj/item/device/radio/headset/wrist/sci
-	
+
 	tab_pda = /obj/item/modular_computer/handheld/pda/research/robotics
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/advanced/research/robotics
 	tablet = /obj/item/modular_computer/handheld/preset/research/robotics
@@ -204,7 +206,7 @@
 	access = list(access_research, access_tox)
 	minimal_access = list(access_research, access_tox)
 	outfit = /datum/outfit/job/intern_sci
-	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/intern_sci
 	name = "Lab Assistant"

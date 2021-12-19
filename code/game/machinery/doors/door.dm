@@ -177,8 +177,8 @@
 				open()
 		return
 
-	if(istype(AM, /obj/structure/bed/chair/wheelchair))
-		var/obj/structure/bed/chair/wheelchair/wheel = AM
+	if(istype(AM, /obj/structure/bed/stool/chair/office/wheelchair))
+		var/obj/structure/bed/stool/chair/office/wheelchair/wheel = AM
 		if(density)
 			if(wheel.pulling && (src.allowed(wheel.pulling)))
 				open()
@@ -300,8 +300,8 @@
 		src.add_fingerprint(user)
 
 	if(I.ishammer() && user.a_intent != I_HURT)
-		var/obj/item/W = usr.get_inactive_hand()
-		if(W && istype(W, /obj/item/stack) && W.get_material_name() == src.get_material_name())
+		var/obj/item/stack/stack = usr.get_inactive_hand()
+		if(istype(stack) && stack.get_material_name() == get_material_name())
 			if(stat & BROKEN)
 				to_chat(user, SPAN_NOTICE("It looks like \the [src] is pretty busted. It's going to need more than just patching up now."))
 				return
@@ -316,7 +316,6 @@
 			var/amount_needed = (maxhealth - health) / DOOR_REPAIR_AMOUNT
 			amount_needed = (round(amount_needed) == amount_needed)? amount_needed : round(amount_needed) + 1 //Why does BYOND not have a ceiling proc?
 
-			var/obj/item/stack/stack = I
 			var/transfer
 			if (repairing)
 				transfer = stack.transfer_to(repairing, amount_needed - repairing.amount)
@@ -505,6 +504,8 @@
 		return
 	operating = TRUE
 
+	intent_message(MACHINE_SOUND)
+
 	do_animate("opening")
 	icon_state = "door_open"
 	set_opacity(0)
@@ -540,6 +541,8 @@
 					addtimer(CALLBACK(src, .proc/autoclose), 60, TIMER_UNIQUE)
 					break
 	operating = TRUE
+
+	intent_message(MACHINE_SOUND)
 
 	do_animate("closing")
 	sleep(3)

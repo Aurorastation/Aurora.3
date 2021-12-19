@@ -346,13 +346,22 @@
 			continue
 		if(!vampire_can_affect_target(T, 0))
 			continue
-
 		to_chat(T, SPAN_DANGER("<font size='3'><b>You hear an ear piercing shriek and feel your senses go dull!</b></font>"))
-		T.Weaken(5)
-		T.ear_deaf = 20
+		if (T.get_hearing_sensitivity())
+			if (T.is_listening())
+				T.Weaken(10)
+				T.Stun(10)
+				T.earpain(4)
+			else
+				T.Weaken(7)
+				T.Stun(7)
+				T.earpain(3)
+		else
+			T.Weaken(5)
+			T.Stun(5)
 		T.stuttering = 20
-		T.Stun(5)
-
+		T.adjustEarDamage(10, 20, TRUE)
+		
 		victims += T
 
 	for(var/obj/structure/window/W in view(7))

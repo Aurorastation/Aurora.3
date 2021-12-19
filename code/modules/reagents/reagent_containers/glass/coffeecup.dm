@@ -58,6 +58,31 @@
 	desc = "A metal coffee cup bearing the flag of Sedantis."
 	icon_state = "coffeecup_sedantis"
 
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/coc
+	name = "\improper CoC coffee cup"
+	desc = "A metallic coffee cup proudly bearing the flag of the Coalition of Colonies."
+	icon_state = "coffeecup_coc"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/eridani
+	name = "\improper Eridani coffee cup"
+	desc = "An expensive coffee cup bearing the flag of the Eridani Federation."
+	icon_state = "coffeecup_eridani"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/elyra
+	name = "\improper Elyra coffee cup"
+	desc = "A coffee cup bearing the flag of the Republic of Elyra."
+	icon_state = "coffeecup_elyra"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/hegemony
+	name = "\improper Hegemony coffee cup"
+	desc = "A coffee cup bearing the flag of the Izweski Hegemony."
+	icon_state = "coffeecup_hegemony"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/jargon
+	name = "\improper Jargon coffee cup"
+	desc = "A purple coffee cup emblazoned with the flag of the Jargon Federation."
+	icon_state = "coffeecup_jarg"
+
 // Organisations
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nt
 	name = "\improper NT coffee cup"
@@ -68,6 +93,21 @@
 	name = "\improper Tau Ceti Foreign Legion coffee cup"
 	desc = "A coffee cup with the TCFL emblem emblazoned on it."
 	icon_state = "coffeecup_tcfl"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/hepht
+	name = "\improper Hephaestus coffee cup"
+	desc = "A strong coffee cup with the hephaestus logo emblazoned on it."
+	icon_state = "coffeecup_hepht"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/idris
+	name = "\improper Idris coffee cup"
+	desc = "An Idris Incorporated coffee cup."
+	icon_state = "coffeecup_idris"
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/zeng
+	name = "\improper Zeng-Hu coffee cup"
+	desc = "A coffee cup bearing the Zeng-Hu logo."
+	icon_state = "coffeecup_zeng"
 
 // Symbols, markings
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/one
