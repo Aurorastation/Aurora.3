@@ -153,6 +153,9 @@
 /obj/item/gun/energy/mousegun/xenofauna
 	name = "xenofauna gun"
 	desc = "The NT \"Xenovermino\" Zap-Blast is a highly sophisticated and probably safe beamgun designed to deal with hostile xenofauna."
+	icon = 'icons/obj/guns/xenogun.dmi'
+	icon_state = "xenogun"
+	item_state = "xenogun"
 	projectile_type = /obj/item/projectile/beam/mousegun/xenofauna
 	max_shots = 12
 
@@ -419,28 +422,23 @@
 	needspin = FALSE
 
 /obj/item/gun/energy/vaurca/thermaldrill/special_check(var/mob/user)
+	if(is_charging)
+		to_chat(user, SPAN_DANGER("\The [src] is already charging!"))
+		return FALSE
+	if(!wielded)
+		to_chat(user, SPAN_DANGER("You cannot fire this weapon with just one hand!"))
+		return FALSE
 	if(can_autofire)
 		return ..()
-	if(is_charging)
-		to_chat(user, "<span class='danger'>\The [src] is already charging!</span>")
-		return 0
-	if(!wielded)
-		to_chat(user, "<span class='danger'>You cannot fire this weapon with just one hand!</span>")
-		return 0
-	user.visible_message(
-					"<span class='danger'>\The [user] begins charging the [src]!</span>",
-					"<span class='danger'>You begin charging the [src]!</span>",
-					"<span class='danger'>You hear a low pulsing roar!</span>"
-					)
-	is_charging = 1
-	if(!do_after(user, 40))
+	user.visible_message(SPAN_DANGER("\The [user] begins charging \the [src]!"), SPAN_DANGER("You begin charging \the [src]!"), SPAN_DANGER("You hear a low pulsing roar!"))
+	is_charging = TRUE
+	if(!do_after(user, 4 SECONDS))
 		is_charging = FALSE
-		return 0
-	is_charging = 0
-	if(!istype(user.get_active_hand(), src))
+		return FALSE
+	is_charging = FALSE
+	if(user.get_active_hand() != src)
 		return
 	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
-
 	return ..()
 
 /obj/item/gun/energy/vaurca/mountedthermaldrill
@@ -469,20 +467,15 @@
 
 /obj/item/gun/energy/vaurca/mountedthermaldrill/special_check(var/mob/user)
 	if(is_charging)
-		to_chat(user, "<span class='danger'>\The [src] is already charging!</span>")
-		return 0
-	user.visible_message(
-					"<span class='danger'>\The [user] begins charging the [src]!</span>",
-					"<span class='danger'>You begin charging the [src]!</span>",
-					"<span class='danger'>You hear a low pulsing roar!</span>"
-					)
-	is_charging = 1
-	if(!do_after(user, 20))
-		is_charging = 0
-		return 0
-	is_charging = 0
+		to_chat(user, SPAN_WARNING("\The [src] is already charging!"))
+		return FALSE
+	user.visible_message(SPAN_DANGER("\The [user] begins charging \the [src]!"), SPAN_DANGER("You begin charging \the [src]!"), SPAN_DANGER("You hear a low pulsing roar!"))
+	is_charging = TRUE
+	if(!do_after(user, 2 SECONDS))
+		is_charging = FALSE
+		return FALSE
+	is_charging = FALSE
 	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(src))
-
 	return ..()
 
 /obj/item/gun/energy/vaurca/tachyon

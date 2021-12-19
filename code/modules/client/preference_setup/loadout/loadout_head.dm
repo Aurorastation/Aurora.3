@@ -4,6 +4,10 @@
 	slot = slot_head
 	sort_category = "Hats and Headwear"
 
+/datum/gear/head/New()
+	..()
+	gear_tweaks += list(gear_tweak_hair_block)
+
 /datum/gear/head/ushanka_grey
 	display_name = "ushanka, grey"
 	path = /obj/item/clothing/head/ushanka/grey
@@ -61,6 +65,7 @@
 	softcaps["softcap, cargo"] = /obj/item/clothing/head/softcap/cargo
 	softcaps["softcap, mining"] = /obj/item/clothing/head/softcap/miner
 	softcaps["softcap, janitor"] = /obj/item/clothing/head/softcap/janitor
+	softcaps["softcap, tcfl"] = /obj/item/clothing/head/softcap/tcfl
 
 	gear_tweaks += new /datum/gear_tweak/path(softcaps)
 
@@ -130,17 +135,17 @@
 	gear_tweaks += new /datum/gear_tweak/path(hoshead)
 
 /datum/gear/head/hardhat
-	display_name = "hardhat selection"
+	display_name = "hard hat selection"
 	path = /obj/item/clothing/head/hardhat
-	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
+	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Quartermaster", "Cargo Technician", "Shaft Miner")
 
 /datum/gear/head/hardhat/New()
 	..()
 	var/list/hardhat = list()
-	hardhat["hardhat, yellow"] = /obj/item/clothing/head/hardhat
-	hardhat["hardhat, blue"] = /obj/item/clothing/head/hardhat/dblue
-	hardhat["hardhat, orange"] = /obj/item/clothing/head/hardhat/orange
-	hardhat["hardhat, red"] = /obj/item/clothing/head/hardhat/red
+	hardhat["hard hat, yellow"] = /obj/item/clothing/head/hardhat
+	hardhat["hard hat, blue"] = /obj/item/clothing/head/hardhat/dblue
+	hardhat["hard hat, orange"] = /obj/item/clothing/head/hardhat/orange
+	hardhat["hard hat, red"] = /obj/item/clothing/head/hardhat/red
 	gear_tweaks += new /datum/gear_tweak/path(hardhat)
 
 /datum/gear/head/hairflower
@@ -268,11 +273,19 @@
 	display_name = "non la hat"
 	path = /obj/item/clothing/head/nonla
 
-/datum/gear/head/iacberet
-	display_name = "IAC Beret"
+/datum/gear/head/iac
+	display_name = "IAC headgear selection"
+	description = "A selection of hats worn by Interstellar Aid Corps volunteers."
 	path = /obj/item/clothing/head/softcap/iac
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
 	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/head/iac/New()
+	..()
+	var/list/iac = list()
+	iac["IAC cap"] = /obj/item/clothing/head/softcap/iac
+	iac["IAC beret"] = /obj/item/clothing/head/beret/iac
+	gear_tweaks += new /datum/gear_tweak/path(iac)
 
 /datum/gear/head/circuitry
 	display_name = "headwear, circuitry (empty)"
@@ -335,3 +348,29 @@
 	display_name = "dominian consular cap"
 	path = /obj/item/clothing/head/dominia
 	allowed_roles = list("Consular Officer")
+
+
+/*
+	Block Hair Adjustment
+*/
+var/datum/gear_tweak/hair_block/gear_tweak_hair_block = new()
+
+/datum/gear_tweak/hair_block/get_contents(var/metadata)
+	return "Blocks Hair: [metadata]"
+
+/datum/gear_tweak/hair_block/get_default()
+	return "Default"
+
+/datum/gear_tweak/hair_block/get_metadata(var/user, var/metadata)
+	return input(user, "Choose whether you want your headgear to block hair, or use the headgear's default.", "Hair Blocking", metadata) as anything in list("Yes", "No", "Default")
+
+/datum/gear_tweak/hair_block/tweak_item(var/obj/item/clothing/head/H, var/metadata)
+	if(!istype(H))
+		return
+	if(!H.allow_hair_covering)
+		return
+	switch(metadata)
+		if("Yes")
+			H.flags_inv |= BLOCKHEADHAIR
+		if("No")
+			H.flags_inv &= ~BLOCKHEADHAIR

@@ -13,6 +13,7 @@
 	minimal_access = list(access_morgue, access_chapel_office, access_crematorium)
 	alt_titles = list("Presbyter","Rabbi","Imam","Priest","Shaman","Counselor")
 	outfit = /datum/outfit/job/chaplain
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/chaplain
 	name = "Chaplain"

@@ -111,6 +111,7 @@
 		)
 	stamina = -1	// Machines use power and generate heat, stamina is not a thing
 	sprint_speed_factor = 1  // About as capable of speed as a human
+	sprint_cost_factor = 1.5
 
 	max_hydration_factor = -1
 	max_nutrition_factor = -1
@@ -120,22 +121,28 @@
 	bodyfall_sound = /decl/sound_category/bodyfall_machine_sound
 
 	allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_ELYRA, ACCENT_KONYAN, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_LUNA,
-							ACCENT_HIMEO, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_PHONG, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_TTS, ACCENT_EUROPA, ACCENT_EARTH, ACCENT_PLUTO, ACCENT_ASSUNZIONE)
+							ACCENT_HIMEO, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_PHONG, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_TTS, ACCENT_EUROPA, ACCENT_EARTH, ACCENT_PLUTO, ACCENT_ASSUNZIONE, ACCENT_VALKYRIE)
 	allowed_religions = list(RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_JUDAISM, RELIGION_HINDU, RELIGION_BUDDHISM, RELIGION_TRINARY, RELIGION_SCARAB, RELIGION_TAOISM, RELIGION_LUCEISM)
 
 	alterable_internal_organs = list()
 
 	// Special snowflake machine vars.
 	var/sprint_temperature_factor = 1.15
-	var/sprint_charge_factor = 0.65
+	var/move_charge_factor = 1
 
 /datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	. = ..()
 	check_tag(H, H.client)
+	var/obj/item/organ/internal/cell/C = H.internal_organs_by_name[BP_CELL]
+	if(C)
+		C.move_charge_factor = move_charge_factor
 
 /datum/species/machine/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost, var/pre_move)
 	if(!pre_move && H.stat == CONSCIOUS)
 		H.bodytemperature += cost * sprint_temperature_factor
+	var/obj/item/organ/internal/cell/C = H.internal_organs_by_name[BP_CELL]
+	if(C)
+		C.use(cost * sprint_cost_factor)
 	return TRUE
 
 /datum/species/machine/handle_emp_act(mob/living/carbon/human/H, var/severity)

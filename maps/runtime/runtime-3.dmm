@@ -47,8 +47,8 @@
 "i" = (
 /obj/machinery/light{
 	brightness_range = 16;
-	must_start_working = 1;
-	dir = 8
+	dir = 8;
+	must_start_working = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -70,8 +70,8 @@
 "l" = (
 /obj/machinery/light{
 	brightness_range = 16;
-	must_start_working = 1;
-	dir = 4
+	dir = 4;
+	must_start_working = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -187,11 +187,17 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/construction/hallway)
+"I" = (
+/obj/effect/landmark{
+	name = "carpspawn"
+	},
+/turf/template_noop,
+/area/template_noop)
 "J" = (
 /obj/machinery/light{
 	brightness_range = 16;
-	must_start_working = 1;
-	dir = 8
+	dir = 8;
+	must_start_working = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -536,7 +542,7 @@ b
 b
 b
 b
-b
+I
 b
 b
 b
@@ -620,7 +626,7 @@ b
 b
 b
 b
-b
+I
 b
 b
 b
@@ -1205,7 +1211,7 @@ b
 b
 b
 b
-b
+I
 b
 b
 b
@@ -2177,7 +2183,7 @@ b
 b
 b
 b
-b
+I
 b
 b
 b
@@ -2726,7 +2732,7 @@ b
 b
 b
 b
-b
+I
 b
 b
 b
@@ -2807,7 +2813,7 @@ b
 b
 b
 b
-b
+I
 b
 b
 b

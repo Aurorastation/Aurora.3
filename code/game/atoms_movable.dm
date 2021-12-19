@@ -232,6 +232,9 @@
 
 	if(anchored)
 		return
+	
+	if(!universe.OnTouchMapEdge(src))
+		return
 
 	if(current_map.use_overmap)
 		overmap_spacetravel(get_turf(src), src)

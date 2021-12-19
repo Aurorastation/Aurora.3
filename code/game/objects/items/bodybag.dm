@@ -10,7 +10,18 @@
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
 
 /obj/item/bodybag/attack_self(mob/user)
-	var/obj/structure/closet/body_bag/R = new /obj/structure/closet/body_bag(user.loc)
+	deploy_bag(user, user.loc)
+
+/obj/item/bodybag/afterattack(obj/target, mob/user, proximity)
+	if(!proximity)
+		return
+	if(isturf(target))
+		var/turf/T = target
+		if(!T.density)
+			deploy_bag(user, target)
+
+/obj/item/bodybag/proc/deploy_bag(mob/user, atom/location)
+	var/obj/structure/closet/body_bag/R = new /obj/structure/closet/body_bag(location)
 	R.add_fingerprint(user)
 	playsound(src, 'sound/items/drop/cloth.ogg', 30)
 	qdel(src)
