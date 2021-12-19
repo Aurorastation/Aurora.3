@@ -171,6 +171,9 @@ BLIND     // can't see anything
 	desc = "Used to protect your eyes against harmful chemicals!"
 	icon_state = "purple"
 	item_state = "purple"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/eyes.dmi'
+	)
 	toggleable = 1
 	unacidable = 1
 	item_flags = AIRTIGHT
@@ -327,6 +330,9 @@ BLIND     // can't see anything
 	desc = "Very confusing glasses."
 	icon_state = "material"
 	item_state = "material"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/eyes.dmi'
+	)
 	action_button_name = "Toggle Goggles"
 	origin_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 3)
 	toggleable = 1
@@ -429,6 +435,9 @@ BLIND     // can't see anything
 	desc = "Strangely ancient technology used to help provide rudimentary eye cover."
 	icon_state = "sun"
 	item_state = "sun"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/eyes.dmi'
+	)
 	darkness_view = -1
 	flash_protection = FLASH_PROTECTION_MODERATE
 
@@ -504,7 +513,11 @@ BLIND     // can't see anything
 	desc = "Protects the eyes from welders, approved by the mad scientist association."
 	icon_state = "welding-g"
 	item_state = "welding-g"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/eyes.dmi'
+	)
 	action_button_name = "Flip Welding Goggles"
+
 	var/up = 0
 	item_flags = THICKMATERIAL
 	flash_protection = FLASH_PROTECTION_MAJOR
@@ -565,6 +578,9 @@ BLIND     // can't see anything
 	desc = "Welding goggles made from more expensive materials, strangely smells like potatoes."
 	icon_state = "rwelding-g"
 	item_state = "rwelding-g"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/eyes.dmi'
+	)
 	tint = TINT_MODERATE
 
 /obj/item/clothing/glasses/welding/emergency
@@ -603,6 +619,9 @@ BLIND     // can't see anything
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "blinders"
 	item_state = "blinders"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/eyes.dmi', BODYTYPE_VAURCA_WARFORM = 'icons/mob/species/warriorform/eyes.dmi'
+	)
 	contained_sprite = TRUE
 	shatter_material = FALSE
 	drop_sound = 'sound/items/drop/gloves.ogg'
@@ -764,6 +783,9 @@ obj/item/clothing/glasses/sunglasses/sechud/aviator/visor
 	desc = "Thermals in the shape of glasses."
 	icon_state = "thermal"
 	item_state = "thermal"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/eyes.dmi'
+	)
 	action_button_name = "Toggle Goggles"
 	origin_tech = list(TECH_MAGNET = 3)
 	toggleable = 1
@@ -796,6 +818,9 @@ obj/item/clothing/glasses/sunglasses/sechud/aviator/visor
 	name = "optical meson scanner"
 	desc = "Used for seeing walls, floors, and stuff through anything."
 	icon_state = "meson"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/eyes.dmi'
+	)
 	origin_tech = list(TECH_MAGNET = 3, TECH_ILLEGAL = 4)
 
 /obj/item/clothing/glasses/thermal/plain

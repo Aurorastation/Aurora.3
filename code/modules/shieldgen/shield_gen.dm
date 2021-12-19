@@ -29,6 +29,8 @@
 	var/time_since_fail = 100
 	var/energy_conversion_rate = 0.0002	//how many renwicks per watt?
 	use_power = 0	//doesn't use APC power
+	var/multiz = FALSE
+	var/multi_unlocked = FALSE
 
 /obj/machinery/shield_gen/Initialize()
 	for(var/obj/machinery/shield_capacitor/possible_cap in range(1, src))
@@ -73,7 +75,7 @@
 				for(var/obj/machinery/shield_capacitor/cap in range(1, src))
 					if(cap.owned_gen)
 						continue
-					if(get_dir(cap, src) == cap.dir && src.anchored)
+					if(get_dir(cap, src) == cap.dir && cap.anchored)
 						owned_capacitor = cap
 						owned_capacitor.owned_gen = src
 						updateDialog()
@@ -96,45 +98,30 @@
 	interact(user)
 
 /obj/machinery/shield_gen/interact(mob/user)
-	if ( (get_dist(src, user) > 1 ) || (stat & (BROKEN)) )
-		if (!istype(user, /mob/living/silicon))
-			user.unset_machine()
-			user << browse(null, "window=shield_generator")
-			return
-	var/t = "<B>Shield Generator Control Console</B><BR><br>"
 	if(locked)
-		t += "<i>Swipe your ID card to begin.</i>"
+		to_chat(user, SPAN_WARNING("The device is locked. Swipe your ID to unlock it."))
+		return
+	if(!anchored)
+		to_chat(user, SPAN_WARNING("The device needs to be bolted to the ground first."))
+		return
 	else
-		t += "[owned_capacitor ? "<font color=green>Charge capacitor connected.</font>" : "<font color=red>Unable to locate charge capacitor!</font>"]<br>"
-		t += "This generator is: [active ? "<font color=green>Online</font>" : "<font color=red>Offline</font>" ] <a href='?src=\ref[src];toggle=1'>[active ? "\[Deactivate\]" : "\[Activate\]"]</a><br>"
-		t += "Field Status: [time_since_fail > 2 ? "<font color=green>Stable</font>" : "<font color=red>Unstable</font>"]<br>"
-		t += "Coverage Radius (restart required): \
-		<a href='?src=\ref[src];change_radius=-50'>---</a> \
-		<a href='?src=\ref[src];change_radius=-5'>--</a> \
-		<a href='?src=\ref[src];change_radius=-1'>-</a> \
-		[field_radius] m \
-		<a href='?src=\ref[src];change_radius=1'>+</a> \
-		<a href='?src=\ref[src];change_radius=5'>++</a> \
-		<a href='?src=\ref[src];change_radius=50'>+++</a><br>"
-		t += "Overall Field Strength: [round(average_field_strength, 0.01)] Renwick ([target_field_strength ? round(100 * average_field_strength / target_field_strength, 0.1) : "NA"]%)<br>"
-		t += "Upkeep Power: [round(field.len * max(average_field_strength * dissipation_rate, min_dissipation) / energy_conversion_rate)] W<br>"
-		t += "Charge Rate: <a href='?src=\ref[src];strengthen_rate=-0.1'>--</a> \
-		[strengthen_rate] Renwick/s \
-		<a href='?src=\ref[src];strengthen_rate=0.1'>++</a><br>"
-		t += "Shield Generation Power: [round(field.len * min(strengthen_rate, target_field_strength - average_field_strength) / energy_conversion_rate)] W<br>"
-		t += "Maximum Field Strength: \
-		<a href='?src=\ref[src];target_field_strength=-10'>\[min\]</a> \
-		<a href='?src=\ref[src];target_field_strength=-5'>--</a> \
-		<a href='?src=\ref[src];target_field_strength=-1'>-</a> \
-		[target_field_strength] Renwick \
-		<a href='?src=\ref[src];target_field_strength=1'>+</a> \
-		<a href='?src=\ref[src];target_field_strength=5'>++</a> \
-		<a href='?src=\ref[src];target_field_strength=10'>\[max\]</a><br>"
-	t += "<hr>"
-	t += "<A href='?src=\ref[src]'>Refresh</A> "
-	t += "<A href='?src=\ref[src];close=1'>Close</A><BR>"
-	user << browse(t, "window=shield_generator;size=500x400")
-	user.set_machine(src)
+		if(owned_capacitor)
+			if(!(owned_capacitor in range(1, src) && get_dir(owned_capacitor, src) == owned_capacitor.dir && owned_capacitor.anchored))
+				if(owned_capacitor.owned_gen == src)
+					owned_capacitor.owned_gen = null
+				owned_capacitor = null
+	if(!owned_capacitor)
+		for(var/obj/machinery/shield_capacitor/cap in range(1, src))
+			if(cap.owned_gen)
+				continue
+			if(get_dir(cap, src) == cap.dir && cap.anchored)
+				owned_capacitor = cap
+				owned_capacitor.owned_gen = src
+				updateDialog()
+				break
+	return src.ui_interact(user)
+
+
 
 /obj/machinery/shield_gen/machinery_process()
 	if (!anchored && active)
@@ -177,28 +164,7 @@
 	else
 		average_field_strength = 0
 
-/obj/machinery/shield_gen/Topic(href, href_list[])
-	..()
-	if( href_list["close"] )
-		usr << browse(null, "window=shield_generator")
-		usr.unset_machine()
-		return
-	else if( href_list["toggle"] )
-		if (!active && !anchored)
-			to_chat(usr, "<span class='warning'>The [src] needs to be firmly secured to the floor first.</span>")
-			return
-		toggle()
-	else if( href_list["change_radius"] )
-		field_radius = between(0, field_radius + text2num(href_list["change_radius"]), max_field_radius)
-	else if( href_list["strengthen_rate"] )
-		strengthen_rate = between(0,  strengthen_rate + text2num(href_list["strengthen_rate"]), max_strengthen_rate)
-	else if( href_list["target_field_strength"] )
-		target_field_strength = between(1, target_field_strength + text2num(href_list["target_field_strength"]), max_field_strength)
-
-	updateDialog()
-
 /obj/machinery/shield_gen/ex_act(var/severity)
-
 	if(active)
 		toggle()
 	return ..()
@@ -264,3 +230,56 @@
 		T = locate(gen_turf.x + field_radius, gen_turf.y + y_offset, gen_turf.z)
 		if (T)
 			. += T
+
+/obj/machinery/shield_gen/ui_interact(mob/user)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	if (!ui)
+		ui = new(user, src, "machinery-shields-shield", 480, 400, "Shield Generator", state = interactive_state)
+		ui.open()
+		ui.auto_update_content = TRUE
+
+/obj/machinery/shield_gen/vueui_data_change(list/data, mob/user, datum/vueui/ui)
+	data = ..() || list()
+
+	data["owned_capacitor"] = owned_capacitor
+	data["active"] = active
+	data["time_since_fail"] = time_since_fail
+	data["multi_unlocked"] = multi_unlocked
+	data["multiz"] = multiz
+	data["field_radius"] = field_radius
+	data["min_field_radius"] = 1
+	data["max_field_radius"] = max_field_radius
+	data["average_field"] = round(average_field_strength, 0.01)
+	data["progress_field"] = (target_field_strength ? round(100 * average_field_strength / target_field_strength, 0.1) : "NA")
+	data["power_take"] = round(field.len * max(average_field_strength * dissipation_rate, min_dissipation) / energy_conversion_rate)
+	data["shield_power"] = round(field.len * min(strengthen_rate, target_field_strength - average_field_strength) / energy_conversion_rate)
+	data["strengthen_rate"] = (strengthen_rate * 10)
+	data["max_strengthen_rate"] = (max_strengthen_rate * 10)
+	data["target_field_strength"] = target_field_strength
+
+	return data
+
+/obj/machinery/shield_gen/Topic(href, href_list)
+	if(isobserver(usr) && !check_rights(R_ADMIN, FALSE, usr))
+		return 
+
+	if (!isturf(loc))
+		return 0
+
+	if(href_list["toggle"])
+		toggle()
+
+	if(href_list["multiz"])
+		multiz = !multiz
+
+	if (href_list["size_set"])
+		field_radius = between(1, text2num(href_list["size_set"]), max_field_radius)
+
+	if (href_list["charge_set"])
+		strengthen_rate = (between(1, text2num(href_list["charge_set"]), (max_strengthen_rate * 10)) / 10)
+
+	if (href_list["field_set"])
+		target_field_strength = between(1, text2num(href_list["field_set"]), 10)
+
+	src.add_fingerprint(usr)
+	return 1

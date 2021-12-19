@@ -18,6 +18,7 @@
 /obj/effect/hoist_hook
 	name = "hoist clamp"
 	desc = "A clamp used to lift people or things."
+	desc_info = "To use the hook, click drag the object you want to it to attach it.\nTo remove an object from the hook, click drag the hook to a nearby turf."
 	icon = 'icons/obj/hoists.dmi'
 	icon_state = "hoist_hook"
 	var/obj/structure/hoist/source_hoist
@@ -89,6 +90,7 @@
 /obj/structure/hoist
 	icon = 'icons/obj/hoists.dmi'
 	icon_state = "hoist_base"
+	desc_info = "To use the hook, click drag the object you want to it to attach it.\nTo remove an object from the hook, click drag the hook to a nearby turf."
 	var/broken = 0
 	density = 1
 	anchored = 1

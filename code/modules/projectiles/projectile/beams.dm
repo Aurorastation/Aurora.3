@@ -341,8 +341,8 @@
 /obj/item/projectile/beam/thermaldrill
 	name = "thermal drill"
 	icon_state = "gauss"
-	damage = 1
-	no_attack_log = 1
+	damage = 2
+	no_attack_log = TRUE
 
 	muzzle_type = /obj/effect/projectile/muzzle/solar
 	tracer_type = /obj/effect/projectile/tracer/solar

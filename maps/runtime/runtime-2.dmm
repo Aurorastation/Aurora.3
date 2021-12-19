@@ -133,6 +133,12 @@
 	temperature = 278
 	},
 /area/turret_protected/ai_upload_foyer)
+"fr" = (
+/obj/effect/landmark{
+	name = "carpspawn"
+	},
+/turf/template_noop,
+/area/template_noop)
 "gD" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -1401,7 +1407,7 @@ iR
 iR
 iR
 iR
-iR
+fr
 iR
 iR
 iR
@@ -1535,7 +1541,7 @@ iR
 iR
 iR
 iR
-iR
+fr
 iR
 iR
 iR
@@ -2605,7 +2611,7 @@ iR
 iR
 iR
 iR
-iR
+fr
 iR
 iR
 iR
@@ -3749,7 +3755,7 @@ iR
 iR
 iR
 iR
-iR
+fr
 iR
 iR
 iR
@@ -3995,7 +4001,7 @@ iR
 iR
 iR
 iR
-iR
+fr
 iR
 iR
 iR

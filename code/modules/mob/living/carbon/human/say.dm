@@ -175,7 +175,7 @@
 		if("headset")
 			var/obj/item/device/radio/R = get_radio()
 			if(R)
-				used_radios += l_ear
+				used_radios += R
 				if(R.talk_into(src, message, null, verb, speaking))
 					successful_radio += R
 		if("right ear")
@@ -322,3 +322,9 @@
 
 			message = "[prefix][jointext(words," ")]"
 	return message
+
+/mob/living/carbon/human/binarycheck()
+	for(var/obj/item/device/radio/headset/dongle in list(l_ear, r_ear))
+		if(dongle.translate_binary)
+			return TRUE
+	return FALSE

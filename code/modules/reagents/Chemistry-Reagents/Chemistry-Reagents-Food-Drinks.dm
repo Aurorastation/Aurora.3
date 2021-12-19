@@ -4588,6 +4588,17 @@
 		metabolism = REM * 0.33
 		M.adjustToxLoss(1.5 * removed)
 
+/decl/reagent/alcohol/butanol/pulque
+	name = "Xuizi pulque"
+	description = "A variation of Mictlanian pulque that is safe to consume for Unathi."
+	color = "#80f580"
+	strength = 5
+	taste_description = "sweet yeast"
+
+	glass_icon_state = "pulque_butanol"
+	glass_name = "cup of xuizi pulque"
+	glass_desc = "A variation of Mictlanian pulque that is safe to consume for Unathi."
+
 //ZZZZOOOODDDDAAAAA
 
 /decl/reagent/drink/zorasoda
@@ -4836,10 +4847,21 @@
 	description = "A Vaurcesian take on liqueur coffee, quickly becoming a favorite of the Zo'ra hive."
 	color = "#C00000"
 	taste_description = "minty coffee"
+	strength = 15
 
 	glass_icon_state = "caprician_coffee"
 	glass_name = "glass of caprician coffee"
 	glass_desc = "A Vaurcesian take on liqueur coffee, quickly becoming a favorite of the Zo'ra hive."
+
+/decl/reagent/drink/toothpaste/ichor
+	name = "Xsain Ichor"
+	description = "A slushy beverage popular in Tret, often used as an example of K'laxan pride."
+	color = "#584721"
+	taste_description = "minty cactus water"
+
+	glass_icon_state = "ichor"
+	glass_name = "glass of xsain ichor"
+	glass_desc = "A slushy beverage popular in Tret, often used as an example of K'laxan pride."
 
 /decl/reagent/alcohol/mojito
 	name = "Mojito"
@@ -4926,3 +4948,54 @@
 	glass_icon_state = "glass_red"
 	glass_name = "glass of Xanu Rush!"
 	glass_desc = "Made from the NEW Xanu Prime peaches."
+
+/decl/reagent/alcohol/pulque
+	name = "pulque"
+	description = "A traditional Mictlanian drink made from fermented sap of maguey."
+	strength = 15
+	color = "f1f1f1"
+	taste_description = "yeast"
+
+	glass_icon_state = "pulque"
+	glass_name = "pulque"
+	glass_desc = "A traditional Mictlanian drink made from fermented sap of maguey."
+
+/decl/reagent/alcohol/pulque/dyn
+	name = "dyn pulque"
+	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is dyn flavored."
+	color = "a8ffff"
+	taste_description = "yeasty menthol"
+
+	glass_icon_state = "pulque_dyn"
+	glass_name = "dyn pulque"
+	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is dyn flavored."
+
+/decl/reagent/alcohol/pulque/banana
+	name = "banana pulque"
+	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is banana flavored."
+	color = "ffe777"
+	taste_description = "yeasty banana"
+
+	glass_icon_state = "pulque_banana"
+	glass_name = "banana pulque"
+	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is banana flavored."
+
+/decl/reagent/alcohol/pulque/berry
+	name = "berry pulque"
+	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is berry flavored."
+	color = "cc0066"
+	taste_description = "yeasty berries"
+
+	glass_icon_state = "pulque_berry"
+	glass_name = "berry pulque"
+	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is berry flavored."
+
+/decl/reagent/alcohol/pulque/coffee
+	name = "coffee pulque"
+	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is coffee flavored."
+	color = "722b13"
+	taste_description = "yeasty coffee"
+
+	glass_icon_state = "pulque_coffee"
+	glass_name = "coffee pulque"
+	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is coffee flavored."

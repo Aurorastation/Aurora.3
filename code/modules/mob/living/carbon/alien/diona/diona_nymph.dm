@@ -47,6 +47,8 @@
 
 	var/datum/reagents/metabolism/ingested
 
+	var/can_attach = TRUE // Whether they can attach to a host
+
 /mob/living/carbon/alien/diona/get_ingested_reagents()
 	return ingested
 
@@ -229,6 +231,7 @@
 //This function makes sure the nymph has the correct split/merge verbs, depending on whether or not its part of a gestalt
 /mob/living/carbon/alien/diona/proc/update_verbs()
 	if(gestalt && !detached)
+		verbs |= /mob/living/carbon/alien/diona/proc/split
 		verbs -= /mob/living/proc/ventcrawl
 		verbs -= /mob/living/proc/hide
 		verbs -= /mob/living/carbon/alien/diona/proc/grow
@@ -236,7 +239,8 @@
 		verbs -= /mob/living/carbon/proc/absorb_nymph
 		verbs -= /mob/living/carbon/proc/sample
 		verbs -= /mob/living/carbon/alien/diona/proc/remove_hat
-		verbs |= /mob/living/carbon/alien/diona/proc/split
+		verbs -= /mob/living/carbon/alien/diona/proc/attach_nymph_limb
+		verbs -= /mob/living/carbon/alien/diona/proc/detach_nymph_limb
 	else
 		verbs |= /mob/living/carbon/alien/diona/proc/merge
 		verbs |= /mob/living/carbon/proc/absorb_nymph
@@ -245,6 +249,8 @@
 		verbs |= /mob/living/proc/hide
 		verbs |= /mob/living/carbon/proc/sample
 		verbs |= /mob/living/carbon/alien/diona/proc/remove_hat
+		verbs |= /mob/living/carbon/alien/diona/proc/attach_nymph_limb
+		verbs |= /mob/living/carbon/alien/diona/proc/detach_nymph_limb
 		verbs -= /mob/living/carbon/alien/diona/proc/split // we want to remove this one
 
 	verbs -= /mob/living/carbon/alien/verb/evolve //We don't want the old alien evolve verb
