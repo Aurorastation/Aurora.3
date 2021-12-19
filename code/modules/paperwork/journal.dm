@@ -2,7 +2,7 @@
 	name = "journal"
 	desc = "A journal, kind of like a folder, but bigger! And personal."
 	var/closed_desc
-	desc_info = "Ctrl-click this while it's on your person to open this journal."
+	desc_info = "Alt-click this while it's on your person or next to you to open this journal.\nWhile the journal is open, use it in hand or use a pen on it to access the contents."
 	icon = 'icons/obj/contained_items/misc/journal.dmi'
 	icon_state = "journal"
 	item_state = "journal"

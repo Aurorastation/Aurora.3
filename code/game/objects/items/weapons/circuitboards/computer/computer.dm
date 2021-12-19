@@ -105,7 +105,7 @@
 
 /obj/item/circuitboard/research_shuttle
 	name = T_BOARD("research shuttle console")
-	build_path = /obj/machinery/computer/shuttle_control/research
+	build_path = /obj/machinery/computer/shuttle_control/multi/research
 	origin_tech = list(TECH_DATA = 2)
 
 /obj/item/circuitboard/area_atmos

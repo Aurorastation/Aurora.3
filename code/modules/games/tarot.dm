@@ -43,7 +43,7 @@
 	desc = "An adhomian deck of divination cards, used to read the one's fortune or play games."
 	icon_state = "deck_adhomai"
 
-/obj/item/deck/tarot/fluff/adhomai/generate_deck()
+/obj/item/deck/tarot/adhomai/generate_deck()
 	var/datum/playingcard/P
 	for(var/name in list("D'as'ral Massacre","Mystic","Suns' Sister","Queen","King","Father of the Parivara","S'rendal'Matir","Tank","Royal Grenadier","Kraszarrumalkarii","Hand of Fate","Great Revolution","Assassin","Assassination","Dymtris Line",
 	"Rrak'narrr","Steeple","Messa","Raskara","S'rendarr","Kazarrhaldiye","Adhomai"))
