@@ -80,24 +80,38 @@
 		switch(A:get_species())
 			if (SPECIES_SKRELL)
 				return 1
+			if (SPECIES_SKRELL_AXIORI)
+				return 1
 			if (SPECIES_ZOMBIE_SKRELL)
 				return 1
 	return 0
 
-/proc/isvaurca(A)
+/proc/isvaurca(A, var/isbreeder = FALSE)
 	if(istype(A, /mob/living/carbon/human))
 		switch(A:get_species())
 			if(SPECIES_VAURCA_WORKER)
-				return 1
+				if(isbreeder)
+					return FALSE
+				return TRUE
 			if(SPECIES_VAURCA_WARRIOR)
-				return 1
+				if(isbreeder)
+					return FALSE
+				return TRUE
 			if(SPECIES_VAURCA_BREEDER)
-				return 1
+				return TRUE
+			if(SPECIES_VAURCA_BULWARK)
+				if(isbreeder)
+					return FALSE
+				return TRUE
 			if(SPECIES_VAURCA_WARFORM)
-				return 1
+				if(isbreeder)
+					return FALSE
+				return TRUE
 			if(SPECIES_MONKEY_VAURCA)
-				return 1
-	return 0
+				if(isbreeder)
+					return FALSE
+				return TRUE
+	return FALSE
 
 /proc/isipc(A)
 	. = 0
@@ -227,14 +241,14 @@ var/list/global/base_miss_chance = list(
 	BP_HEAD = 70,
 	BP_CHEST = 10,
 	BP_GROIN = 20,
-	BP_L_LEG = 20,
-	BP_R_LEG = 20,
-	BP_L_ARM = 30,
-	BP_R_ARM = 30,
-	BP_L_HAND = 50,
-	BP_R_HAND = 50,
-	BP_L_FOOT = 50,
-	BP_R_FOOT = 50
+	BP_L_LEG = 40,
+	BP_R_LEG = 40,
+	BP_L_ARM = 40,
+	BP_R_ARM = 40,
+	BP_L_HAND = 60,
+	BP_R_HAND = 60,
+	BP_L_FOOT = 60,
+	BP_R_FOOT = 60
 )
 
 //Used to weight organs when an organ is hit randomly (i.e. not a directed, aimed attack).
@@ -1052,7 +1066,7 @@ proc/is_blind(A)
 #undef SAFE_PERP
 
 /mob/proc/get_multitool(var/obj/P)
-	if(P.ismultitool())
+	if(P?.ismultitool())
 		return P
 
 /mob/abstract/observer/get_multitool()
@@ -1152,7 +1166,7 @@ proc/is_blind(A)
 	return species.handle_stance_damage(src, TRUE) >= 4
 
 /mob/living/carbon/human/proc/equip_wheelchair()
-	var/obj/structure/bed/chair/wheelchair/W = new(get_turf(src))
+	var/obj/structure/bed/stool/chair/office/wheelchair/W = new(get_turf(src))
 	if(isturf(loc))
 		buckled_to = W
 		update_canmove()
@@ -1247,3 +1261,34 @@ proc/is_blind(A)
 
 /mob/proc/handle_vision()
 	return
+
+/mob/proc/set_name(var/new_name)
+	real_name = new_name
+	name = real_name
+	voice_name = real_name
+	if(mind)
+		mind.name = real_name
+
+/mob/proc/get_organ_name_from_zone(var/def_zone)
+	return parse_zone(def_zone)
+
+/mob/living/silicon/robot/set_name(var/new_name, var/prefix)
+	..()
+	if(mmi)
+		mmi.brainmob.name = real_name
+		mmi.brainmob.real_name = real_name
+		mmi.name = "[initial(mmi.name)]: [real_name]"
+
+	// We also need to update our internal ID
+	if(id_card)
+		if(prefix)
+			id_card.assignment = prefix
+		id_card.registered_name = real_name
+		id_card.update_name()
+
+	//We also need to update name of internal camera.
+	if(camera)
+		camera.c_tag = real_name
+
+/mob/proc/get_talk_bubble()
+	return 'icons/mob/talk.dmi'

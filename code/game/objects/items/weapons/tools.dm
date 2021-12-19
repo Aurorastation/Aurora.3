@@ -955,3 +955,36 @@
 
 	new /obj/effect/decal/cleanable/ash(get_turf(src))
 	qdel(src)
+
+
+/obj/item/hammer
+	name = "hammer"
+	desc = "A tool with a weighted head used for striking."
+	icon = 'icons/obj/tools.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_tools.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_tools.dmi',
+		)
+	icon_state = "hammer"
+	item_state = "hammer"
+	flags = CONDUCT
+	slot_flags = SLOT_BELT
+	force = 8
+	throwforce = 5
+	throw_speed = 3
+	throw_range = 3
+	w_class = ITEMSIZE_SMALL
+	matter = list(DEFAULT_WALL_MATERIAL = 75)
+	attack_verb = list("smashed", "hammered")
+	drop_sound = 'sound/items/drop/crowbar.ogg'
+	pickup_sound = 'sound/items/pickup/crowbar.ogg'
+	usesound = /decl/sound_category/crowbar_sound
+
+/obj/item/hammer/Initialize()
+	. = ..()
+	var/mutable_appearance/handle = mutable_appearance('icons/obj/tools.dmi', "hammer_handle")
+	handle.color = pick(COLOR_BLUE, COLOR_RED, COLOR_PURPLE, COLOR_BROWN, COLOR_GREEN, COLOR_CYAN, COLOR_YELLOW)
+	add_overlay(handle)
+
+/obj/item/hammer/ishammer()
+	return TRUE

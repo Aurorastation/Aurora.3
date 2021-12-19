@@ -94,7 +94,7 @@
 	if(is_overdosing(M, location, holder))
 		overdose(M, alien, removed, LAZYACCESS(M.chem_doses, type)/get_overdose(M, location, holder), holder) //Actual overdose threshold now = overdose + od_minimum_dose. ie. Synaptizine; 5u OD threshold + 1 unit min. metab'd dose = 6u actual OD threshold.
 
-	if(LAZYACCESS(M.chem_doses, type) == 0)
+	if(LAZYACCESS(M.chem_doses, type) <= 0)
 		initial_effect(M,alien, holder)
 
 	LAZYSET(M.chem_doses, type, LAZYACCESS(M.chem_doses, type) + removed)

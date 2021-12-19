@@ -49,6 +49,8 @@ var/datum/controller/subsystem/economy/SSeconomy
 	station_account.owner_name = "[station_name()] Station Account"
 	station_account.account_number = next_account_number
 	next_account_number += rand(1,500)
+	if(next_account_number > 999999) //If we're hitting 7 digits, reset to the minimum and increase from there.
+		next_account_number = 111111 + rand(1,500)
 	station_account.remote_access_pin = rand(1111, 111111)
 	station_account.money = 75000
 

@@ -142,7 +142,7 @@ datum/preferences
 	var/list/ccia_actions = list()
 	var/list/disabilities = list()
 
-	var/nanotrasen_relation = "Neutral"
+	var/economic_status = ECONOMICALLY_AVERAGE
 
 	var/uplinklocation = "PDA"
 
@@ -482,7 +482,7 @@ datum/preferences
 		else
 			all_underwear -= underwear_category_name
 
-	if(backbag > OUTFIT_AUBURNPOCKETBOOK || backbag < OUTFIT_NOTHING)
+	if(backbag > OUTFIT_CLASSICSATCHEL || backbag < OUTFIT_NOTHING)
 		backbag = OUTFIT_NOTHING //Same as above
 	character.backbag = backbag
 	character.backbag_style = backbag_style
@@ -660,7 +660,7 @@ datum/preferences
 		ccia_actions = list()
 		disabilities = list()
 
-		nanotrasen_relation = "Neutral"
+		economic_status = ECONOMICALLY_AVERAGE
 
 // Deletes a character from the database
 /datum/preferences/proc/delete_character_sql(var/client/C)

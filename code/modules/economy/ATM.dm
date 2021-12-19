@@ -101,6 +101,7 @@ log transactions
 	//display a message to the user
 	var/response = pick("Initiating withdraw. Have a nice day!", "CRITICAL ERROR: Activating cash chamber panic siphon.","PIN Code accepted! Emptying account balance.", "Jackpot!")
 	to_chat(user, "<span class='warning'>[icon2html(src, user)] The [src] beeps: \"[response]\"</span>")
+	intent_message(MACHINE_SOUND)
 	return 1
 
 /obj/machinery/atm/attackby(obj/item/I as obj, mob/user as mob)
@@ -139,7 +140,7 @@ log transactions
 			T.time = worldtime2text()
 			SSeconomy.add_transaction_log(authenticated_account,T)
 
-
+			intent_message(MACHINE_SOUND)
 			to_chat(user, "<span class='info'>You insert [I] into [src].</span>")
 			src.attack_hand(user)
 			qdel(I)
@@ -336,6 +337,7 @@ log transactions
 
 						//	spawn_money(amount,src.loc)
 						spawn_ewallet(amount,src.loc,usr)
+						intent_message(MACHINE_SOUND)
 
 						//create an entry in the account transaction log
 						var/datum/transaction/T = new()
@@ -361,6 +363,7 @@ log transactions
 						authenticated_account.money -= amount
 
 						spawn_money(amount,src.loc,usr)
+						intent_message(MACHINE_SOUND)
 
 						//create an entry in the account transaction log
 						var/datum/transaction/T = new()

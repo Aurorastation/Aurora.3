@@ -1,4 +1,6 @@
 /mob/living/silicon/robot/drone/mining
+	name = "NT-MD-000"
+	desc_flavor = "It's a small mining drone. The casing is stamped with an corporate logo and the subscript: '%MAPNAME% Automated Pickaxe!'<br><br><b>OOC Info:</b><br><br>Mining drones are player-controlled synthetics which are lawed to serve the crew and excavate for ore.<br><br>They hold a wide array of tools to explore mining sites and extract ore. They function similarly to other synthetics, in that they require recharging regularly, have laws, and are resilient to many hazards, such as fire, radiation, vacuum, and more.<br><br>Ghosts can join the round as a mining drone by accessing the 'Ghost Spawner' menu in the 'Ghost' tab. An inactive drone can be rebooted by swiping an ID card on it with mining or robotics access, and an active drone can be shut down in the same manner.<br><br>An antagonist can use an Electromagnetic Sequencer to corrupt their laws and make them follow their orders."
 	icon_state = "miningdrone"
 	mod_type = "Mining"
 	law_type = /datum/ai_laws/mining_drone
@@ -12,6 +14,7 @@
 	speed = -1
 	hat_x_offset = 1
 	hat_y_offset = -12
+	standard_drone = FALSE
 	var/seeking_player = FALSE
 	var/health_upgrade
 	var/ranged_upgrade
@@ -21,10 +24,6 @@
 	. = ..()
 
 	verbs |= /mob/living/proc/hide
-	remove_language(LANGUAGE_ROBOT)
-	remove_language(LANGUAGE_DRONE)
-	add_language(LANGUAGE_TCB, TRUE)
-	add_language(LANGUAGE_EAL, TRUE)
 
 	//They are unable to be upgraded, so let's give them a bit of a better battery.
 	cell.maxcharge = 10000
@@ -60,20 +59,6 @@
 			output_text += " a jackhammer drill mounted to it."
 		to_chat(user, SPAN_NOTICE(output_text))
 
-/mob/living/silicon/robot/drone/mining/updatename()
-	real_name = "NT-I-[rand(100,999)]"
-	name = real_name
-
-/mob/living/silicon/robot/drone/mining/init()
-	ai_camera = new /obj/item/device/camera/siliconcam/drone_camera(src)
-	if(!laws)
-		laws = new law_type
-	if(!module)
-		module = new module_type(src, src)
-
-	flavor_text = "It's a tiny little mining drone. The casing is stamped with an corporate logo and the subscript: '[current_map.company_name] Automated Pickaxe!'"
-	playsound(src.loc, 'sound/machines/twobeep.ogg', 50, 0)
-
 /mob/living/silicon/robot/drone/mining/request_player()
 	if(too_many_active_drones())
 		return
@@ -108,6 +93,10 @@
 	else if (W.GetID())
 		if(!allowed(user))
 			to_chat(user, SPAN_WARNING("Access denied."))
+			return
+		if(ckey || client)
+			user.visible_message(SPAN_WARNING("\The [user] swipes [user.get_pronoun("his")] ID card through \the [src] shutting it down."), SPAN_NOTICE("You swipe your ID over \the [src], shutting it down! You can swipe it again to make it search for a new intelligence."))
+			shut_down()
 			return
 		if(seeking_player)
 			to_chat(user, SPAN_WARNING("\The [src] is already in the reboot process."))
@@ -204,7 +193,4 @@
 
 /mob/living/silicon/robot/drone/mining/roundstart/Initialize()
 	. = ..()
-	if(SSticker.current_state == GAME_STATE_PLAYING)
-		request_player()
-	else
-		LAZYADD(SSatoms.late_misc_firers, src)
+	check_add_to_late_firers()

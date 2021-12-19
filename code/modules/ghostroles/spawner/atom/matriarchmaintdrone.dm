@@ -8,7 +8,7 @@
 	req_head_whitelist = TRUE // basically a chief engineer for drones
 
 	loc_type = GS_LOC_ATOM
-	atom_add_message = "A matriarch maintenance drone has been created!"
+	atom_add_message = "A matriarch maintenance drone is now available!"
 
 	spawn_mob = /mob/living/silicon/robot/drone/construction/matriarch
 
@@ -18,8 +18,6 @@
 		drone_name = pick("Ripley", "Tano", "Data")
 	var/mob/living/silicon/robot/drone/construction/matriarch/M = ..()
 	if(M)
-		M.real_name = "[initial(M.name)] ([drone_name])"
-		M.name = M.real_name
-		M.voice_name = M.real_name
-		M.updatename()
+		M.set_name("[initial(M.name)] ([drone_name])")
+		M.designation = drone_name
 	return M

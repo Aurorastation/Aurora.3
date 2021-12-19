@@ -269,6 +269,24 @@
 	capacity = 500
 	can_tamper = FALSE
 	reagents_to_add = list(/decl/reagent/water = 500)
+	var/cups = 12
+	var/cup_type = /obj/item/reagent_containers/food/drinks/sillycup
+
+/obj/structure/reagent_dispensers/water_cooler/attack_hand(var/mob/user)
+	if(cups > 0)
+		var/visible_messages = DispenserMessages(user)
+		visible_message(SPAN_NOTICE(visible_messages[1]), SPAN_NOTICE(visible_messages[2]))
+		var/cup = new cup_type(loc)
+		user.put_in_active_hand(cup)
+		cups--
+	else
+		to_chat(user, SPAN_WARNING(RejectionMessage(user)))
+
+/obj/structure/reagent_dispensers/water_cooler/proc/DispenserMessages(var/mob/user)
+	return list("\The [user] grabs a paper cup from \the [src].", "You grab a paper cup from \the [src]'s cup compartment.")
+
+/obj/structure/reagent_dispensers/water_cooler/proc/RejectionMessage(var/mob/user)
+	return "[src]'s cup dispenser is empty."
 
 /obj/structure/reagent_dispensers/water_cooler/attackby(obj/item/W as obj, mob/user as mob)
 	if (W.isscrewdriver())

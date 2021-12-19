@@ -149,7 +149,7 @@
 		/obj/item/melee/baton/loaded = 1,
 		/obj/item/grenade/chem_grenade/gas = 1,
 		/obj/item/device/flash = 1,
-		/obj/item/ammo_magazine/c45x = 2
+		/obj/item/ammo_magazine/c45m/auto = 2
 	)
 
 	implants = list(

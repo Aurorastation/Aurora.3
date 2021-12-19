@@ -68,7 +68,7 @@ Follow by example and make good judgement based on length which list to include 
 	bald
 		name = "Bald"   // try to capitalize the names please~
 		icon_state = "bald" // you do not need to define _s or _l sub-states, game automatically does this for you
-		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi,/datum/species/diona)
+		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi,/datum/species/diona, /datum/species/diona/coeu)
 		length = 0
 		chatname = "bald head" //aim to keep these lowercase so they fit into the hair tugging message
 
@@ -178,7 +178,7 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Bedhead 3"
 		icon_state = "hair_bedhead3"
 		chatname = "wavy hair"
-	
+
 	bedhead4
 		name = "Bedhead 4"
 		icon_state = "hair_bedhead4"
@@ -1334,11 +1334,16 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "hair_wheeler"
 		chatname = "short hair"
 
+	fingerwave
+		name = "Fingerwave"
+		icon_state = "hair_fingercurl"
+		chatname = "fluffy hair"
+
 	bug_eyes
 		icon = 'icons/mob/human_face/dionae_hair.dmi'
 		name = "Bug Eyes"
 		icon_state = "bugeyes"
-		species_allowed = list(/datum/species/diona)
+		species_allowed = list(/datum/species/diona, /datum/species/diona/coeu)
 		gender = NEUTER
 		do_colouration = FALSE
 
@@ -1727,12 +1732,16 @@ Follow by example and make good judgement based on length which list to include 
 
 /datum/sprite_accessory/hair_gradients
 	icon = 'icons/mob/hair_gradients.dmi'
+	species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,
+		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,
+		/datum/species/skrell, /datum/species/skrell/axiori, /datum/species/zombie/skrell, /datum/species/bug, /datum/species/bug/type_b)
 
 	none
 		name = "None"
 		icon_state = "none"
 		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi,
-		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,/datum/species/skrell,/datum/species/zombie/skrell)
+		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell, /datum/species/bug,
+		/datum/species/bug/type_b)
 
 	fade_up
 		name = "Fade (Up)"
@@ -1765,12 +1774,23 @@ Follow by example and make good judgement based on length which list to include 
 	taj_inner_ear_fur
 		name = "Inner Ear Fur"
 		icon_state = "taj_innerearfur"
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan, /datum/species/zombie/tajara)
 
 	taj_msai_inner_ear_fur
 		name = "M'sai Inner Ear Fur"
 		icon_state = "taj_msai_innerearfur"
 		species_allowed = list(/datum/species/tajaran/m_sai)
+
+	skrell_spots
+		name = "Skrell Spots"
+		icon_state = "skrell_gradient_spots"
+		species_allowed = list(/datum/species/skrell, /datum/species/skrell/axiori)
+
+	bulwark_default
+		name = "Bulwark Horn"
+		icon = "icons/mob/base_48.dmi"
+		icon_state = "blank"
+		species_allowed = list(/datum/species/bug/type_e)
 
 /*
 ///////////////////////////////////
@@ -1789,7 +1809,8 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "bald"
 		gender = NEUTER
 		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi,
-		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,/datum/species/skrell,/datum/species/zombie/skrell,/datum/species/diona)
+		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell,/datum/species/diona, 
+		/datum/species/diona/coeu, /datum/species/bug/type_b)
 
 	threeOclock
 		name = "3 O'clock Shadow"
@@ -2197,7 +2218,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon = 'icons/mob/human_face/skrell_hair.dmi'
 		name = "Skrell Short Tentacles"
 		icon_state = "skrell_hair_m"
-		species_allowed = list(/datum/species/skrell,/datum/species/zombie/skrell)
+		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
 		length = 6
 		chatname = "Short Tentacles"
 		var/scrunchy_style = "seaweed" // seaweed fits the normal tentacles pretty well
@@ -2220,12 +2241,6 @@ Follow by example and make good judgement based on length which list to include 
 			length = 6
 			chatname = "Very Long Tentacles"
 
-		skr_tentacle_ponytail
-			name = "Skrell Seaweed Ponytail"
-			icon_state = "skrell_seaweed"
-			length = 3
-			chatname = "Ponytail, Seaweed"
-
 		skr_tentacle_doubletail
 			name = "Skrell Hoop Ponytail"
 			icon_state = "skrell_hoop"
@@ -2240,13 +2255,6 @@ Follow by example and make good judgement based on length which list to include 
 			chatname = "Ponytail, Reef"
 			scrunchy_style = "reef"
 
-		skr_tentacle_ponytailm
-			name = "Skrell Driftwood Ponytail"
-			icon_state = "skrell_driftwood"
-			length = 6
-			chatname = "Ponytail, Driftwood"
-			scrunchy_style = "driftwood"
-
 		skr_tentacle_backwater
 			name = "Skrell Backwater"
 			icon_state = "skrell_backwater"
@@ -2254,6 +2262,72 @@ Follow by example and make good judgement based on length which list to include 
 			chatname = "Backwater"
 			scrunchy_style = "backwater"
 
+		skr_tentacle_reserved
+			name = "Skrell Reserved"
+			icon_state = "skrell_reserved"
+			length = 6
+			chatname = "Reserved"
+
+		skr_tentacle_tucked
+			name = "Skrell Tucked"
+			icon_state = "skrell_tucked"
+			length = 3
+			chatname = "Tucked"
+
+		skr_tentacle_tuux_l
+			name = "Skrell Tuux, Long"
+			icon_state = "skrell_long_tuux"
+			length = 5
+			chatname = "Long Tuux"
+
+		skr_tentacle_tuux_s
+			name = "Skrell Tuux, Short"
+			icon_state = "skrell_short_tuux"
+			length = 3
+			chatname = "Short Tuux"
+
+		skr_tentacle_slicked
+			name = "Skrell Slicked"
+			icon_state = "skrell_slicked"
+			length = 3
+			chatname = "Slicked"
+
+		skr_tentacle_behind_r
+			name = "Skrell Behind, Right"
+			icon_state = "skrell_right_behind"
+			length = 6
+			chatname = "Right Behind"
+
+		skr_tentacle_behind_l
+			name = "Skrell Behind, Left"
+			icon_state = "skrell_left_behind"
+			length = 6
+			chatname = "Left Behind"
+
+		skr_tentacle_behind_b
+			name = "Skrell Behind, Both"
+			icon_state = "skrell_both_behind"
+			length = 6
+			chatname = "Average Both Behind"
+
+		skr_tentacle_behind_b_s
+			name = "Skrell Behind, Both short"
+			icon_state = "skrell_both_behind_short"
+			length = 6
+			chatname = "Short Both Behind"
+
+		skr_tentacle_behind_b_l
+			name = "Skrell Behind, both long"
+			icon_state = "skrell_both_behind_long"
+			length = 6
+			chatname = "Long Both Behind"
+
+		skr_tentacle_reef
+			name = "Skrell Reef Ponytail, short"
+			icon_state = "skrell_reef_short"
+			length = 4
+			chatname = "Ponytail, Reef"
+			scrunchy_style = "reef"
 
 //tajaran hair
 
@@ -2397,12 +2471,6 @@ Follow by example and make good judgement based on length which list to include 
 			length = 3
 			chatname = "sideponytail"
 
-		taj_ears_sideponyalt
-			name = "Tajara Side Ponytail Alt"
-			icon_state = "hair_sideponyalt"
-			length = 3
-			chatname = "sideponytail"
-
 		taj_ears_governmentman
 			name = "Tajara Government Man"
 			icon_state = "hair_gman"
@@ -2433,6 +2501,36 @@ Follow by example and make good judgement based on length which list to include 
 			length = 2
 			chatname = "bun"
 
+		taj_ears_wedge
+			name = "Tajara Wedge"
+			icon_state = "hair_wedge"
+			length = 2
+			chatname = "styled mane"
+
+		taj_ears_tresses
+			name = "Tajara Tresses"
+			icon_state = "hair_tresses"
+			length = 3
+			chatname = "styled mane"
+
+		taj_ears_shoulderparted
+			name = "Tajara Shoulder Parted"
+			icon_state = "hair_shoulderparted"
+			length = 3
+			chatname = "styled mane"
+
+		taj_ears_shoulderpartedsmall
+			name = "Tajara Shoulder Parted Small"
+			icon_state = "hair_shoulderpartedsmall"
+			length = 3
+			chatname = "styled mane"
+
+		taj_ears_shoulderpartedlong
+			name = "Tajara Shoulder Parted Long"
+			icon_state = "hair_shoulderpartedlong"
+			length = 3
+			chatname = "styled mane"
+
 		taj_ears_shoulderlength
 			name = "Tajara Shoulderlength"
 			icon_state = "hair_shoulderlength"
@@ -2445,15 +2543,63 @@ Follow by example and make good judgement based on length which list to include 
 			length = 2
 			chatname = "styled mane"
 
-		taj_ears_tresses
-			name = "Tajara Tresses"
-			icon_state = "hair_tresses"
+		taj_ears_sidepartedleft
+			name = "Tajara Sideparted Left"
+			icon_state = "hair_sidepartedleft"
 			length = 3
 			chatname = "styled mane"
 
-		taj_ears_tressesalt
-			name = "Tajara Tresses Alt"
-			icon_state = "hair_tressesalt"
+		taj_ears_sidepartedright
+			name = "Tajara Sideparted Right"
+			icon_state = "hair_sidepartedright"
+			length = 3
+			chatname = "styled mane"
+
+		taj_ears_fringeup
+			name = "Tajara Fringe Up"
+			icon_state = "hair_fringeup"
+			length = 2
+			chatname = "styled mane"
+
+		taj_ears_cascading
+			name = "Tajara Cascading"
+			icon_state = "hair_cascading"
+			length = 3
+			chatname = "styled mane"
+
+		taj_ears_cascadingalt
+			name = "Tajara Cascading Alt"
+			icon_state = "hair_cascadingalt"
+			length = 3
+			chatname = "styled mane"
+
+		taj_ears_swoop
+			name = "Tajara Swoop"
+			icon_state = "hair_swoop"
+			length = 2
+			chatname = "styled mane"
+			
+		taj_ears_swoop_alt
+			name = "Tajara Swoop Alt"
+			icon_state = "hair_swoop_alt"
+			length = 2
+			chatname = "styled mane"
+
+		taj_ears_swoop_bangs
+			name = "Tajara Swoop Bangs"
+			icon_state = "hair_swoop_bangs"
+			length = 2
+			chatname = "styled mane"
+
+		taj_ears_swoop_long
+			name = "Tajara Swoop Long"
+			icon_state = "hair_longswoop"
+			length = 3
+			chatname = "styled mane"
+
+		taj_ears_swoop_long_alt
+			name = "Tajara Swoop Long Alt"
+			icon_state = "hair_longswoop_alt"
 			length = 3
 			chatname = "styled mane"
 
@@ -2598,12 +2744,6 @@ Follow by example and make good judgement based on length which list to include 
 			length = 3
 			chatname = "sideponytail"
 
-		msai_ears_sideponyalt
-			name = "M'sai Side Ponytail Alt"
-			icon_state = "msai_sideponyalt"
-			length = 3
-			chatname = "sideponytail"
-
 		msai_ears_governmentman
 			name = "M'sai Government Man"
 			icon_state = "msai_gman"
@@ -2634,6 +2774,48 @@ Follow by example and make good judgement based on length which list to include 
 			length = 2
 			chatname = "bun"
 
+		msai_ears_wedge
+			name = "M'sai Wedge"
+			icon_state = "msai_wedge"
+			length = 2
+			chatname = "styled mane"
+
+		msai_ears_tresses
+			name = "M'sai Tresses"
+			icon_state = "msai_tresses"
+			length = 3
+			chatname = "styled mane"
+
+		msai_ears_shoulderparted
+			name = "M'sai Shoulderparted"
+			icon_state = "msai_shoulderparted"
+			length = 3
+			chatname = "styled mane"
+
+		msai_ears_shoulderpartedsmall
+			name = "M'sai Shoulderparted Small"
+			icon_state = "msai_shoulderpartedsmall"
+			length = 3
+			chatname = "styled mane"
+
+		msai_ears_shoulderpartedlong
+			name = "M'sai Shoulderparted Long"
+			icon_state = "msai_shoulderpartedlong"
+			length = 3
+			chatname = "styled mane"
+
+		msai_ears_sidepartedleft
+			name = "M'sai Sideparted Left"
+			icon_state = "msai_sidepartedleft"
+			length = 3
+			chatname = "styled mane"
+
+		msai_ears_sidepartedright
+			name = "M'sai Sideparted Right"
+			icon_state = "msai_sidepartedright"
+			length = 3
+			chatname = "styled mane"
+
 		msai_ears_shoulderlength
 			name = "M'sai Shoulderlength"
 			icon_state = "msai_shoulderlength"
@@ -2646,15 +2828,51 @@ Follow by example and make good judgement based on length which list to include 
 			length = 2
 			chatname = "styled mane"
 
-		msai_ears_tresses
-			name = "M'sai Tresses"
-			icon_state = "msai_tresses"
+		msai_ears_fringeup
+			name = "M'sai Fringe Up"
+			icon_state = "msai_fringeup"
+			length = 2
+			chatname = "styled mane"
+
+		msai_ears_cascading
+			name = "M'sai Cascading"
+			icon_state = "msai_cascading"
 			length = 3
 			chatname = "styled mane"
 
-		msai_ears_tressesalt
-			name = "M'sai Tresses Alt"
-			icon_state = "msai_tressesalt"
+		msai_ears_cascadingalt
+			name = "M'sai Cascading Alt"
+			icon_state = "msai_cascadingalt"
+			length = 3
+			chatname = "styled mane"
+
+		msai_ears_swoop
+			name = "M'sai Swoop"
+			icon_state = "msai_swoop"
+			length = 2
+			chatname = "styled mane"
+
+		msai_ears_swoop_alt
+			name = "M'sai Swoop Alt"
+			icon_state = "msai_swoop_alt"
+			length = 2
+			chatname = "styled mane"
+
+		msai_ears_swoop_bangs
+			name = "M'sai Swoop Bangs"
+			icon_state = "msai_swoop_bangs"
+			length = 2
+			chatname = "styled mane"
+
+		msai_ears_swoop_long
+			name = "M'sai Swoop Long"
+			icon_state = "msai_longswoop"
+			length = 3
+			chatname = "styled mane"
+
+		msai_ears_swoop_long_alt
+			name = "M'sai Swoop Long Alt"
+			icon_state = "msai_longswoop_alt"
 			length = 3
 			chatname = "styled mane"
 
@@ -2738,6 +2956,75 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "vaurca_zappy"
 			chatname = "antennae"
 			length = 2
+
+//Bulwark antennae
+	bulwark_classic
+		icon = 'icons/mob/human_face/bulwark_hair.dmi'
+		name = "Bulwark Classic Antennae"
+		icon_state = "bully_classic"
+		species_allowed = list(/datum/species/bug/type_e)
+		gender = NEUTER
+		chatname = "antennae"
+
+		bulwark_damaged_left
+			name = "Bulwark Injured Antenna, Left"
+			icon_state = "bully_inj_left"
+			chatname = "antenna"
+			length = 1
+		
+		bulwark_damaged_right 
+			name = "Bulwark Injured Antenna, Right"
+			icon_state = "bully_inj_right"
+			chatname = "antenna"
+			length = 1
+
+		bulwark_knight 
+			name = "Bulwark Knight Antennae"
+			icon_state = "bully_knight"
+			chatname = "antennae"
+			length = 2
+
+		bulwark_pointy
+			name = "Pointy Antennae"
+			icon_state = "bully_pointy"
+			chatname = "antennae"
+			length = 2
+
+		bulwark_original
+			name = "Original Antennae"
+			icon_state = "bully_original"
+			chatname = "antennae"
+			length = 2
+
+		bulwark_islero
+			name = "Islero Antennae"
+			icon_state = "bully_islero"
+			chatname = "antennae"
+			length = 3
+
+		bulwark_tall
+			name = "Tall Antennae"
+			icon_state = "bully_tall"
+			chatname = "antennae"
+			length = 4
+
+		bulwark_stag
+			name = "Stag Antennae"
+			icon_state = "bully_stag"
+			chatname = "antennae"
+			length = 5
+
+		bulwark_rhino
+			name = "Rhinoceros Antenna"
+			icon_state = "bully_rhino"
+			chatname = "antenna"
+			length = 5
+
+		bulwark_ladybug
+			name = "Ladybug Antennae"
+			icon_state = "bully_ladybug"
+			chatname = "antennae"
+			length = 6
 
 /datum/sprite_accessory/facial_hair
 	taj_goatee
@@ -3120,7 +3407,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon = 'icons/mob/human_face/dionae_hair.dmi'
 		name = "Mono Eye"
 		icon_state = "monoeye"
-		species_allowed = list(/datum/species/diona)
+		species_allowed = list(/datum/species/diona, /datum/species/diona/coeu)
 		gender = NEUTER
 		do_colouration = FALSE
 
@@ -3180,6 +3467,109 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Glorp"
 			icon_state = "glorp"
 
+	anglerfish
+		icon = 'icons/mob/human_face/skrell_beards.dmi'
+		name = "Anglerfish"
+		icon_state = "Anglerfish"
+		species_allowed = list(/datum/species/skrell, /datum/species/skrell/axiori)
+		gender = NEUTER
+
+		triton
+			name = "Triton"
+			icon_state = "Triton"
+
+		big_triton
+			name = "Big Triton"
+			icon_state = "Big_Triton"
+
+		ahab
+			name = "Ahab"
+			icon_state = "Ahab"
+
+		monotail
+			name = "Monotail"
+			icon_state = "Monotail"
+
+		long_monotail
+			name = "Long Monotail"
+			icon_state = "Long_Monotail"
+
+		face_adorns
+			name = "Face Adorns"
+			icon_state = "Face_Adorns"
+
+		sea_captain
+			name = "Sea Captain"
+			icon_state = "Sea_Captain"
+
+		fisherman
+			name = "Fisherman"
+			icon_state = "Fisherman"
+
+		sailor
+			name = "Sailor"
+			icon_state = "Sailor"
+
+		overgrown
+			name = "Overgrown"
+			icon_state = "Overgrown"
+
+		marauder_left
+			name = "Marauder (Left)"
+			icon_state = "Marauder_Left"
+
+		marauder_right
+			name = "Marauder (Right)"
+			icon_state = "Marauder_Right"
+
+		Pilot
+			name = "Pilot"
+			icon_state = "Pilot"
+
+//Vaurca mandibles
+	clicky
+		icon = 'icons/mob/human_face/vaurca_facial_hair.dmi'
+		name = "Clicky Mandibles"
+		icon_state = "vaurca_clicky"
+		species_allowed = list(/datum/species/bug/type_b)
+		gender = NEUTER
+
+		clacky
+			name = "Clacky Mandibles"
+			icon_state = "vaurca_clacky"
+
+		bulldog
+			name = "Bulldog Mandibles"
+			icon_state = "vaurca_bulldog"
+
+		mantis 
+			name = "Mantis Mandibles"
+			icon_state = "vaurca_mantis"
+
+		stag 
+			name = "Stag Mandibles"
+			icon_state = "vaurca_stag"
+
+		ectatomma
+			name = "Ectatomma Mandibles"
+			icon_state = "vaurca_ectatomma"
+
+		horridus 
+			name = "Horridus Mandibles"
+			icon_state = "vaurca_horridus"
+
+		tusks 
+			name = "Tusk Mandibles"
+			icon_state = "vaurca_tusks"
+
+		acanthognathus
+			name = "Acanthognathus Mandibles"
+			icon_state = "vaurca_acanthognathus"
+
+		myrmoteras 
+			name = "Myrmoteras Mandibles"
+			icon_state = "vaurca_myrmoteras"
+
 /*
 ////////////////////////////
 /  =--------------------=  /
@@ -3197,11 +3587,182 @@ Follow by example and make good judgement based on length which list to include 
 	var/is_genetic = TRUE	// If TRUE, the marking is considered genetic and is embedded into DNA.
 	var/is_painted = FALSE	// If TRUE, the marking can be put on prosthetics/robolimbs.
 
+	bandage_head
+		name = "Bandage, head 1"
+		icon_state = "bandage1"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+		is_genetic = FALSE
+
+		head_2
+			name = "Bandage, head 2"
+			icon_state= "bandage2"
+
+		head_3
+			name = "Bandage, head 3"
+			icon_state= "bandage3"
+
+	bandage_chest
+		name = "Bandage, chest 1"
+		icon_state = "bandage1"
+		body_parts = list(BP_CHEST)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+		is_genetic = FALSE
+
+		chest_2
+			name= "Bandage, chest 2"
+			icon_state = "bandage2"
+
+		chest_3
+			name= "Bandage, chest 3"
+			icon_state = "bandage3"
+
+	bandage_groin
+		name = "Bandage, groin 1"
+		icon_state = "bandage1"
+		body_parts = list(BP_GROIN)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+		is_genetic = FALSE
+
+		groin_2
+			name= "Bandage, groin 2"
+			icon_state = "bandage2"
+
+		groin_3
+			name= "Bandage, groin 3"
+			icon_state = "bandage3"
+
+	bandage_l_arm
+		name = "Bandage, left arm 1"
+		icon_state = "bandage1"
+		body_parts = list(BP_L_ARM)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+		is_genetic = FALSE
+
+		l_arm_2
+			name= "Bandage, left arm 2"
+			icon_state = "bandage2"
+
+		l_arm_3
+			name= "Bandage, left arm 3"
+			icon_state = "bandage3"
+
+	bandage_l_hand
+		name = "Bandage, left hand 1"
+		icon_state = "bandage1"
+		body_parts = list(BP_L_HAND)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+		is_genetic = FALSE
+
+		l_hand_2
+			name= "Bandage, left hand 2"
+			icon_state = "bandage2"
+
+		l_hand_3
+			name= "Bandage, left hand 3"
+			icon_state = "bandage3"
+
+	bandage_r_arm
+		name = "Bandage, right arm 1"
+		icon_state = "bandage1"
+		body_parts = list(BP_R_ARM)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+		is_genetic = FALSE
+
+		r_arm_2
+			name= "Bandage, right arm 2"
+			icon_state = "bandage2"
+
+		r_arm_3
+			name= "Bandage, right arm 3"
+			icon_state = "bandage3"
+
+	bandage_r_hand
+		name = "Bandage, right hand 1"
+		icon_state = "bandage1"
+		body_parts = list(BP_R_HAND)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+		is_genetic = FALSE
+
+		r_hand_2
+			name= "Bandage, right hand 2"
+			icon_state = "bandage2"
+
+		r_hand_3
+			name= "Bandage, right hand 3"
+			icon_state = "bandage3"
+
+	bandage_l_leg
+		name = "Bandage, left leg 1"
+		icon_state = "bandage1"
+		body_parts = list(BP_L_LEG)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+		is_genetic = FALSE
+
+		l_leg_2
+			name= "Bandage, left leg 2"
+			icon_state = "bandage2"
+
+		l_leg_3
+			name= "Bandage, left leg 3"
+			icon_state = "bandage3"
+
+	bandage_l_foot
+		name = "Bandage, left foot 1"
+		icon_state = "bandage1"
+		body_parts = list(BP_L_FOOT)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+		is_genetic = FALSE
+
+		l_foot_2
+			name= "Bandage, left foot 2"
+			icon_state = "bandage2"
+
+		l_foot_3
+			name= "Bandage, left foot 3"
+			icon_state = "bandage3"
+
+	bandage_r_leg
+		name = "Bandage, right leg 1"
+		icon_state = "bandage1"
+		body_parts = list(BP_R_LEG)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+		is_genetic = FALSE
+
+		r_leg_2
+			name= "Bandage, right leg 2"
+			icon_state = "bandage2"
+
+		r_leg_3
+			name= "Bandage, right leg 3"
+			icon_state = "bandage3"
+
+	bandage_r_foot
+		name = "Bandage, right foot 1"
+		icon_state = "bandage1"
+		body_parts = list(BP_R_FOOT)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+		is_genetic = FALSE
+
+		r_foot_2
+			name= "Bandage, right foot 2"
+			icon_state = "bandage2"
+
+		r_foot_3
+			name= "Bandage, right foot 3"
+			icon_state = "bandage3"
+
+	heterochromia
+		name = "Heterochromia (Right eye)"
+		icon_state = "heterochromia"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+
 	aug_scalpports
 		name = "Augment (Scalp Ports)"
 		icon_state = "aug_scalpports"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/diona/coeu, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 		vertex_left
 			name = "Augment (Scalp Port, Vertex Left)"
@@ -3223,7 +3784,7 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Augment (Scalp Ports Diode)"
 		icon_state = "aug_scalpportsdiode"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/diona/coeu, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 		vertex_left
 			name = "Augment (Scalp Port Diode, Vertex Left )"
@@ -3245,7 +3806,7 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Augment (Backside Left, Head)"
 		icon_state = "aug_backside_l"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/diona/coeu, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 		side_diode
 			name = "Augment (Backside Left Diode, Head)"
@@ -3255,7 +3816,7 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Augment (Backside Right, Head)"
 		icon_state = "aug_backside_r"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/diona/coeu, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 		side_diode
 			name = "Augment (Backside Right Diode, Head)"
@@ -3265,19 +3826,19 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Augment (Deunan, Side Left)"
 		icon_state = "aug_sidedeunan_l"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/diona/coeu, /datum/species/skrell,/datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	aug_side_deunan_right
 		name = "Augment (Deunan, Side Right)"
 		icon_state = "aug_sidedeunan_r"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/diona/coeu, /datum/species/skrell,/datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	aug_side_kuze_left
 		name = "Augment (Kuze, Side Left)"
 		icon_state = "aug_sidekuze_l"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/diona/coeu, /datum/species/skrell,/datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 		side_diode
 			name = "Augment (Kuze Diode, Side Left)"
@@ -3287,7 +3848,7 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Augment (Kuze, Side Right)"
 		icon_state = "aug_sidekuze_r"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/diona/coeu, /datum/species/skrell,/datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 		side_diode
 			name = "Augment (Kuze Diode, Side Right)"
@@ -3297,37 +3858,37 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Augment (Kinzie, Side Left)"
 		icon_state = "aug_sidekinzie_l"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/diona/coeu, /datum/species/skrell,/datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	aug_side_kinzie_right
 		name = "Augment (Kinzie, Side Right)"
 		icon_state = "aug_sidekinzie_r"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/diona/coeu, /datum/species/skrell,/datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	aug_side_shelly_left
 		name = "Augment (Shelly, Side Left)"
 		icon_state = "aug_sideshelly_l"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/diona/coeu, /datum/species/skrell,/datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	aug_side_shelly_right
 		name = "Augment (Shelly, Side Right)"
 		icon_state = "aug_sideshelly_r"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/diona/coeu, /datum/species/skrell,/datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	aug_chestports
 		name = "Augment (Chest Ports)"
 		icon_state = "aug_chestports"
 		body_parts = list(BP_CHEST)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/bug, /datum/species/bug/type_b)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/diona/coeu, /datum/species/skrell,/datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/bug, /datum/species/bug/type_b)
 
 	aug_abdomenports
 		name = "Augment (Abdomen Ports)"
 		icon_state = "aug_abdomenports"
 		body_parts = list(BP_CHEST)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/bug, /datum/species/bug/type_b)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/diona/coeu, /datum/species/skrell,/datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/bug, /datum/species/bug/type_b)
 
 	vaurca_augs
 		name = "Mecha Chest"
@@ -3397,7 +3958,7 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Back Stripe"
 		icon_state = "backstripe"
 		body_parts = list(BP_CHEST)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/diona/coeu, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 		spinemarks
 			name = "Back Stripe Marks"
@@ -3407,7 +3968,7 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Color Bands (All)"
 		icon_state = "bands"
 		body_parts = list(BP_L_LEG, BP_R_LEG, BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, BP_GROIN, BP_CHEST)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/diona/coeu, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 		chest
 			name = "Color Bands (Torso)"
@@ -3473,343 +4034,385 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Color Bands (Face)"
 		icon_state = "bandshumanface"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell)
 
 	bindi
 		name = "Bindi"
 		icon_state = "bindi"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/machine/shell, /datum/species/skrell,/datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	blush
 		name = "Blush"
 		icon_state= "blush"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell,/datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	cheekspot_left
 		name = "Cheek Spot (Left Cheek)"
 		icon_state = "cheekspot_l"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell,/datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	cheekspot_right
 		name = "Cheek Spot (Right Cheek)"
 		icon_state = "cheekspot_r"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell,/datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	cheshire_left
 		name = "Cheshire (Left Cheek)"
 		icon_state = "cheshire_l"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori,)
 
 	cheshire_right
 		name = "Cheshire (Right Cheek)"
 		icon_state = "cheshire_r"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori,)
 
 	crow_left
 		name = "Crow Mark (Left Eye)"
 		icon_state = "crow_l"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	crow_right
 		name = "Crow Mark (Right Eye)"
 		icon_state = "crow_r"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	ear_left
 		name = "Ear Cover (Left)"
 		icon_state = "ear_l"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell)
 
 	ear_right
 		name = "Ear Cover (Right)"
 		icon_state = "ear_r"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell)
 
 	eyestripe
 		name = "Eye Stripe"
 		icon_state = "eyestripe"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	eyecorner_left
 		name = "Eye Corner Left"
 		icon_state = "eyecorner_l"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	eyecorner_right
 		name = "Eye Corner Right"
 		icon_state = "eyecorner_r"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	eyelash_left
 		name = "Eyelash Left"
 		icon_state = "eyelash_l"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/skrell/axiori, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	eyelash_right
 		name = "Eyelash Right"
 		icon_state = "eyelash_r"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/skrell/axiori, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	lips
 		name = "Lips"
 		icon_state = "lips"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori)
 
 	lipcorner_left
 		name = "Lip Corner Left"
 		icon_state = "lipcorner_l"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori)
 
 	lipcorner_right
 		name = "Lip Corner Right"
 		icon_state = "lipcorner_r"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori)
 
 	lowercheek_left
 		name = "Lower Cheek Left"
 		icon_state = "lowercheek_l"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori)
 
 	lowercheek_left
 		name = "Lower Cheek Right"
 		icon_state = "lowercheek_r"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori,)
 
 	neck
 		name = "Neck Cover"
 		icon_state = "neck"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	neckthick
 		name = "Neck Cover (Thick)"
 		icon_state = "neckthick"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	nosestripe
 		name = "Nose Stripe"
 		icon_state = "nosestripe"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/bug, /datum/species/bug/type_b)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/bug, /datum/species/bug/type_b)
 
 	nosetape
 		name = "Nose Tape"
 		icon_state = "nosetape"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/bug, /datum/species/bug/type_b)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/bug, /datum/species/bug/type_b)
+
+	scar_chest
+		name = "Scar, Chest"
+		icon_state = "surgicalscar"
+		body_parts = list(BP_CHEST)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/bug, /datum/species/bug/type_b)
+
+	scar_chest_left
+		name = "Scar, Chest Left"
+		icon_state = "chestscar1"
+		body_parts = list(BP_CHEST)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/bug, /datum/species/bug/type_b)
+
+	scar_chest_right
+		name = "Scar, Chest Right"
+		icon_state = "chestscar2"
+		body_parts = list(BP_CHEST)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/bug, /datum/species/bug/type_b)
 
 	scratch_abdomen_left
 		name = "Scratch, Abdomen Left"
 		icon_state = "scratch_abdomen_l"
 		body_parts = list(BP_CHEST)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/bug, /datum/species/bug/type_b)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/bug, /datum/species/bug/type_b)
 
 	scratch_abdomen_right
 		name = "Scratch, Abdomen Right"
 		icon_state = "scratch_abdomen_r"
 		body_parts = list(BP_CHEST)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/bug, /datum/species/bug/type_b)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/bug, /datum/species/bug/type_b)
 
 	scratch_abdomen_small_left
 		name = "Scratch, Abdomen Small Left"
 		icon_state = "scratch_abdomensmall_l"
 		body_parts = list(BP_CHEST)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/bug, /datum/species/bug/type_b)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/bug, /datum/species/bug/type_b)
 
 	scratch_abdomen_small_right
 		name = "Scratch, Abdomen Small Right"
 		icon_state = "scratch_abdomensmall_r"
 		body_parts = list(BP_CHEST)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/bug, /datum/species/bug/type_b)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/bug, /datum/species/bug/type_b)
 
 	scratch_back
 		name = "Scratch, Back"
 		icon_state = "scratch_back"
 		body_parts = list(BP_CHEST)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/bug, /datum/species/bug/type_b)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/bug, /datum/species/bug/type_b)
 
 	scratch_chest_left
 		name = "Scratch, Chest (Left)"
 		icon_state = "scratch_chest_l"
 		body_parts = list(BP_CHEST)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	scratch_chest_right
 		name = "Scratch, Chest (Right)"
 		icon_state = "scratch_chest_r"
 		body_parts = list(BP_CHEST)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	tat_belly
 		name = "Tattoo (Belly)"
 		icon_state = "tat_belly"
 		body_parts = list(BP_CHEST)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	tat_campbell_leftarm
 		name = "Tattoo (Campbell, Left Arm)"
 		icon_state = "tat_campbell"
 		body_parts = list(BP_L_ARM)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	tat_campbell_rightarm
 		name = "Tattoo (Campbell, Right Arm)"
 		icon_state = "tat_campbell"
 		body_parts= list(BP_R_ARM)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	tat_campbell_leftleg
 		name = "Tattoo (Campbell, Left Leg)"
 		icon_state = "tat_campbell"
 		body_parts= list(BP_L_LEG)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	tat_campbell_rightleg
 		name = "Tattoo (Campbell, Right Leg)"
 		icon_state = "tat_campbell"
 		body_parts= list(BP_R_LEG)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+
+	tat_circle_back
+		name = "Tattoo (Circle, Back)"
+		icon_state = "tat_circle"
+		body_parts = list(BP_CHEST)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+
+	tat_circle_big_back
+		name = "Tattoo (Big Circle, Back)"
+		icon_state = "tat_bigcircle"
+		body_parts = list(BP_CHEST)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	tat_forrest_left
 		name = "Tattoo (Forrest, Left Eye)"
 		icon_state = "tat_forrest_l"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	tat_forrest_right
 		name = "Tattoo (Forrest, Right Eye)"
 		icon_state = "tat_forrest_r"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+
+	tat_harness
+		name = "Tattoo (Harness, Chest)"
+		icon_state = "tat_harness"
+		body_parts = list(BP_CHEST)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	tat_hive
 		name = "Tattoo (Hive, Back)"
 		icon_state = "tat_hive"
 		body_parts = list(BP_CHEST)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	tat_heart
 		name = "Tattoo (Heart, Chest)"
 		icon_state = "tat_heart"
 		body_parts = list(BP_CHEST)
-		species_allowed = list(/datum/species/human, /datum/species/diona, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	tat_heart_back
 		name = "Tattoo (Heart, Lower Back)"
 		icon_state = "tat_heartback"
 		body_parts = list(BP_CHEST)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell)
 
 	tat_hunter_left
 		name = "Tattoo (Hunter, Left Eye)"
 		icon_state = "tat_hunter_l"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	tat_hunter_right
 		name = "Tattoo (Hunter, Right Eye)"
 		icon_state = "tat_hunter_r"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	tat_jaeger_left
 		name = "Tattoo (Jaeger, Left Eye)"
 		icon_state = "tat_jaeger_l"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	tat_jaeger_right
 		name = "Tattoo (Jaeger, Right Eye)"
 		icon_state = "tat_jaeger_r"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	tat_kater_left
 		name = "Tattoo (Kater, Left Eye)"
 		icon_state = "tat_kater_l"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	tat_kater_right
 		name = "Tattoo (Kater, Right Eye)"
 		icon_state = "tat_kater_r"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	tat_lujan_left
 		name = "Tattoo (Lujan, Left Eye)"
 		icon_state = "tat_lujan_l"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	tat_lujan_right
 		name = "Tattoo (Lujan, Right Eye)"
 		icon_state = "tat_lujan_r"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	tat_natasha_left
 		name = "Tattoo (Natasha, Left Eye)"
 		icon_state = "tat_natasha_l"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	tat_natasha_right
 		name = "Tattoo (Natasha, Right Eye)"
 		icon_state = "tat_natasha_r"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	tat_nightling
 		name = "Tattoo (Nightling, Back)"
 		icon_state = "tat_nightling"
 		body_parts = list(BP_CHEST)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 		tat_silverburgh_left
 		name = "Tattoo (Silverburgh, Left Leg)"
 		icon_state = "tat_silverburgh"
 		body_parts = list(BP_L_LEG)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori,/datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	tat_silverburgh_right
 		name = "Tattoo (Silverburgh, Right Leg)"
 		icon_state = "tat_silverburgh"
 		body_parts = list(BP_R_LEG)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+
+	tat_spine_back
+		name = "Tattoo (Spine, Back)"
+		icon_state = "tat_spine"
+		body_parts = list(BP_CHEST)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	tat_tamoko
 		name = "Tattoo (Ta Moko, Face)"
 		icon_state = "tat_tamoko"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori)
 
 	tat_tiger
 		name = "Tattoo (Tiger Stripes, All)"
 		icon_state = "tat_tiger"
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_GROIN,BP_CHEST)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 		chest
 			name = "Tattoo (Tiger Stripes, Chest)"
@@ -3855,25 +4458,25 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Tattoo (Toshi, Left Eye)"
 		icon_state = "tat_toshi_l"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	tat_toshi_right
 		name = "Tattoo (Volgin, Right Eye)"
 		icon_state = "tat_toshi_r"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	tat_wings_back
 		name = "Tattoo (Wings, Lower Back)"
 		icon_state = "tat_wingsback"
 		body_parts = list(BP_CHEST)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell)
 
 	tigerhead
 		name = "Tiger Stripes (Head, Minor)"
 		icon_state = "tigerhead"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	backstripe
 		name = "Back Stripe"
@@ -3952,7 +4555,7 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Tear Stains"
 		icon_state = "skr_tears"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/skrell,/datum/species/zombie/skrell)
+		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
 		do_colouration = FALSE
 
 	skr_axiori_eyes
@@ -3966,14 +4569,14 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Skrell Arms"
 		icon_state = "skrell_arms"
 		body_parts = list(BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND)
-		species_allowed = list(/datum/species/skrell,/datum/species/zombie/skrell)
+		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
 
 	diona_leaves
 		name = "Diona Leaves"
 		icon = 'icons/mob/human_races/markings_diona.dmi'
 		icon_state = "diona_leaves"
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_GROIN,BP_HEAD)
-		species_allowed = list(/datum/species/diona)
+		species_allowed = list(/datum/species/diona, /datum/species/diona/coeu)
 
 		thorns_head
 			name = "Diona Thorns (Head)"
@@ -4062,7 +4665,7 @@ Follow by example and make good judgement based on length which list to include 
 			lopsided
 				name = "Lopsided"
 				icon_state = "lopsided"
-			
+
 			helmethead
 				name = "Helmethead"
 				icon_state = "helmethead"
@@ -4354,7 +4957,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon = "icons/mob/human_races/markings_tajara.dmi"
 		icon_state = "tigerheadminor"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona,  /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	taj_tigerface
 		name = "Tiger Stripes (Head, Major)"

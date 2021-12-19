@@ -484,6 +484,7 @@ default behaviour is:
 	SetWeakened(0)
 
 	// shut down ongoing problems
+	stamina = max_stamina
 	total_radiation = 0
 	nutrition = 400
 	hydration = 400
@@ -845,11 +846,24 @@ default behaviour is:
 	..()
 
 //damage/heal the mob ears and adjust the deaf amount
-/mob/living/adjustEarDamage(var/damage, var/deaf)
+/mob/living/adjustEarDamage(var/damage, var/deaf, var/ringing = FALSE)
+	var/alreadydeaf = FALSE
+	if (ear_deaf)
+		alreadydeaf = TRUE
+
 	ear_damage = max(0, ear_damage + damage)
 	ear_deaf = max(0, ear_deaf + deaf)
 
+	if (ringing && !alreadydeaf)
+		if (ear_damage >= 5)
+			if (ear_damage >= 15)
+				to_chat(src, SPAN_DANGER("Your ears start to ring badly!"))
+			else
+				to_chat(src, SPAN_DANGER("Your ears start to ring!"))
+
+
 //pass a negative argument to skip one of the variable
+
 /mob/living/setEarDamage(var/damage, var/deaf)
 	if(damage >= 0)
 		ear_damage = damage
@@ -1021,4 +1035,7 @@ default behaviour is:
 	set_death_time(CREW, world.time)
 //Used by simple animals and monkey species for renaming. M is the one doing the renaming
 /mob/living/proc/can_name(var/mob/living/M)
+	return FALSE
+
+/mob/living/proc/is_anti_materiel_vulnerable()
 	return FALSE

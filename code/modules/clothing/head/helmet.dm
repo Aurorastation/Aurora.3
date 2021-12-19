@@ -8,9 +8,9 @@
 		)
 	item_flags = THICKMATERIAL
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
+		melee = ARMOR_MELEE_KEVLAR,
 		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
+		laser = ARMOR_LASER_KEVLAR,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED
 	)
@@ -22,7 +22,6 @@
 	siemens_coefficient = 0.5
 	w_class = ITEMSIZE_NORMAL
 	var/obj/machinery/camera/camera
-	var/allow_hair_covering = TRUE //in case if you want to allow someone to switch the BLOCKHEADHAIR var from the helmet or not
 	drop_sound = 'sound/items/drop/helm.ogg'
 	pickup_sound = 'sound/items/pickup/helm.ogg'
 
@@ -52,14 +51,6 @@
 	if(..(user, 1) && camera)
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("To toggle the helmet camera, right click the helmet and press <b>Toggle Helmet Camera</b>.")))
 		to_chat(user, "This helmet has a built-in camera. It's [!ispath(camera) && camera.status ? "" : "in"]active.")
-
-/obj/item/clothing/head/helmet/verb/toggle_block_hair()
-	set name = "Toggle Helmet Hair Coverage"
-	set category = "Object"
-
-	if(allow_hair_covering)
-		flags_inv ^= BLOCKHEADHAIR
-		to_chat(usr, "<span class='notice'>[src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair.</span>")
 
 /obj/item/clothing/head/helmet/hos
 	name = "head of security helmet"

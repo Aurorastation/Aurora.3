@@ -1,5 +1,6 @@
 /obj/item/organ/internal/heart/vaurca
 	name = "double heart system"
+	desc = "A double heart capable of pushing blood in an open circulatory system."
 	icon_state = "vaurca_heart_d-on"
 	organ_tag = BP_HEART
 	parent_organ = BP_CHEST
@@ -29,7 +30,18 @@
 /obj/item/organ/internal/liver/vaurca
 	icon_state = "liver_vaurca"
 
+/obj/item/organ/internal/stomach/vaurca 
+	name = "private stomach"
+	icon_state = "stomach_vaurca"
+
+/obj/item/organ/internal/appendix/vaurca 
+	name = "social stomach"
+	desc = "A vestigial organ that stores food for throphallaxis. It has not seen a practical use since the rise of modern Hives."
+	icon_state = "vaurca_appendix"
+
 /obj/item/organ/internal/brain/vaurca
+	name = "vaurca brain"
+	desc = "The brain of a Vaurca, being similar to that of an insect; and that of a mammal."	
 	icon_state = "brain_vaurca"
 
 /obj/item/organ/vaurca/reservoir
@@ -50,6 +62,7 @@
 	name = BP_NEURAL_SOCKET
 	organ_tag = BP_NEURAL_SOCKET
 	icon_state = "neural_socket"
+	desc = "The single most important organ for a Vaurca, able to copy their mind into their Virtual Reality Afterlife upon death."
 	parent_organ = BP_HEAD
 	robotic = ROBOTIC_MECHANICAL
 
@@ -81,6 +94,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 	organ_tag = BP_PHORON_RESERVE
 	parent_organ = BP_CHEST
 	icon_state = "breathing_app"
+	desc = "A capillary tube mesh, stores and moves the phoron into the lungs."
 	robotic = ROBOTIC_ASSISTED
 	var/datum/gas_mixture/air_contents = null
 	var/distribute_pressure = ((2*ONE_ATMOSPHERE)*O2STANDARD)
@@ -340,6 +354,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 
 /obj/item/organ/external/chest/vaurca
 	limb_flags = 0
+	encased = null
 
 /obj/item/organ/external/groin/vaurca
 	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_MAIM
@@ -370,3 +385,4 @@ obj/item/organ/vaurca/neuralsocket/process()
 
 /obj/item/organ/external/head/vaurca
 	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_MAIM
+	encased = null

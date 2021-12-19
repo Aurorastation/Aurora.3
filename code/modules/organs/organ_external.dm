@@ -86,7 +86,7 @@
 	var/body_hair
 	var/painted = 0
 
-	var/maim_bonus = 0.75 //For special projectile gibbing calculation, dubbed "maiming"
+	var/maim_bonus = 0 //For special projectile gibbing calculation, dubbed "maiming"
 
 	var/list/genetic_markings         // Markings (body_markings) to apply to the icon
 	var/list/temporary_markings	// Same as above, but not preserved when cloning
@@ -101,6 +101,9 @@
 
 	var/obj/item/organ/infect_target_internal //make internal organs become infected one at a time instead of all at once
 	var/obj/item/organ/infect_target_external //make child and parent organs become infected one at a time instead of all at once
+
+	var/mob/living/carbon/alien/diona/nymph //used by dionae limbs
+	var/nymph_child
 
 /obj/item/organ/external/proc/invalidate_marking_cache()
 	cached_markings = null
@@ -121,6 +124,10 @@
 	infect_target_external = null
 
 	applied_pressure = null
+
+	QDEL_NULL(nymph)
+
+	QDEL_NULL(tendon)
 
 	return ..()
 
@@ -403,12 +410,13 @@
 
 				if(isitem(used_weapon))
 					var/obj/item/W = used_weapon
+					var/dam_flags = W.damage_flags()
 					if(isprojectile(W))
 						var/obj/item/projectile/P = W
-						if(P.damage_flags & DAM_BULLET)
+						if(dam_flags & DAM_BULLET)
 							blunt_eligible = TRUE
 						maim_bonus += P.maim_rate
-					else if(W.w_class >= w_class && edge)
+					if(W.w_class >= w_class && (dam_flags & DAM_EDGE))
 						edge_eligible = TRUE
 
 				if(!blunt_eligible && edge_eligible && brute >= max_damage / (DROPLIMB_THRESHOLD_EDGE + maim_bonus))
@@ -596,6 +604,10 @@ This function completely restores a damaged organ to perfect condition.
 		if(!(status & ORGAN_BROKEN))
 			perma_injury = 0
 
+		if(status & ORGAN_NYMPH)
+			var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
+			N.handle_nymph(src)
+
 		if(surge_damage && (status & ORGAN_ASSISTED))
 			tick_surge_damage() //Yes, this being here is intentional since this proc does not call ..() unless the owner is null.
 
@@ -654,7 +666,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		return
 
 	if(germ_level <= 0) //Catch any weirdness that might happen with negative values
-		germ_level = 0 
+		germ_level = 0
 
 	if(owner.bodytemperature >= 170)	//cryo stops germs from moving and doing their bad stuffs
 		//** Syncing germ levels with external wounds
@@ -702,7 +714,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		antibiotics = owner.chem_effects[CE_ANTIBIOTIC]
 
 	if(germ_level < INFECTION_LEVEL_TWO)
-		//null out the infect targets since at this point we're not in danger of spreading our infection. 
+		//null out the infect targets since at this point we're not in danger of spreading our infection.
 		infect_target_internal = null
 		infect_target_external = null
 		return ..()

@@ -32,6 +32,8 @@
 		/obj/item/material/knife/trench = 1
 	)
 
+	id_iff = IFF_FREELANCER
+
 /datum/outfit/admin/ert/mercenary/get_id_access()
 	return get_distress_access_lesser()
 
@@ -97,7 +99,7 @@
 
 /datum/outfit/admin/ert/mercenary/leader
 	name = "Mercenary Freelancer Leader"
-	l_hand = /obj/item/gun/projectile/automatic/rifle/sts35
+	l_hand = /obj/item/gun/projectile/automatic/rifle/shorty
 	r_hand = null
 	back = /obj/item/rig/merc/distress
 	suit_store = null
