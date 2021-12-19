@@ -52,4 +52,6 @@ var/list/mob_icon_icon_states = list()
 	var/image/I
 	if(build_from_parts)
 		I = overlay_image(mob_icon, "[item_state][contained_sprite ? slot_str_to_contained_flag(slot) : ""]_[worn_overlay]", null, RESET_COLOR|RESET_ALPHA)
+		if(worn_overlay_color)
+			I.color = worn_overlay_color
 	return I
