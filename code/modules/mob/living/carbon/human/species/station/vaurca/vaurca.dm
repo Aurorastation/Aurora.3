@@ -105,7 +105,8 @@
 		BP_PHORON_RESERVE  = /obj/item/organ/vaurca/preserve,
 		BP_LIVER               = /obj/item/organ/internal/liver/vaurca,
 		BP_KIDNEYS             = /obj/item/organ/internal/kidneys/vaurca,
-		BP_STOMACH             = /obj/item/organ/internal/stomach,
+		BP_STOMACH             = /obj/item/organ/internal/stomach/vaurca,
+		BP_APPENDIX            = /obj/item/organ/internal/appendix/vaurca,
 		BP_BRAIN               = /obj/item/organ/internal/brain/vaurca,
 		BP_EYES                = /obj/item/organ/internal/eyes/night/vaurca
 	)
@@ -135,7 +136,7 @@
 	default_accent = ACCENT_TTS
 	allowed_accents = list(ACCENT_TTS, ACCENT_ZORA, ACCENT_KLAX, ACCENT_CTHUR)
 
-	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_STOMACH)
+	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_STOMACH, BP_APPENDIX)
 
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()

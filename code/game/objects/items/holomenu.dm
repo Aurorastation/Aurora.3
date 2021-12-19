@@ -67,7 +67,7 @@
 	return ..()
 
 /obj/item/holomenu/examine(mob/user, distance)
-	if(anchored && length(menu_text) && Adjacent(user))
+	if(anchored && length(menu_text))
 		interact(user)
 		return
 	return ..()
