@@ -1772,6 +1772,12 @@
 /obj/turbolift_map_holder/runtime,
 /turf/simulated/floor/plating,
 /area/turbolift/main_station)
+"Yc" = (
+/obj/effect/landmark{
+	name = "carpspawn"
+	},
+/turf/template_noop,
+/area/template_noop)
 "YP" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -2032,7 +2038,7 @@ aa
 aa
 aa
 aa
-aa
+Yc
 aa
 aa
 aa
@@ -2542,7 +2548,7 @@ aa
 aa
 aa
 aa
-aa
+Yc
 aa
 aa
 "}
@@ -3038,7 +3044,7 @@ aa
 aa
 aa
 aa
-aa
+Yc
 aa
 aa
 ab
@@ -3783,7 +3789,7 @@ aa
 aa
 aa
 aa
-aa
+Yc
 aa
 aa
 aa
@@ -4296,7 +4302,7 @@ aa
 aa
 aa
 aa
-aa
+Yc
 aa
 aa
 aa

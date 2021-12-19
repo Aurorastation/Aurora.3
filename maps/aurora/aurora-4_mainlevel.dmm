@@ -416,7 +416,7 @@
 /turf/simulated/floor/airless,
 /area/mine/unexplored)
 "aaY" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /obj/item/handcuffs,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/dirt,
@@ -949,7 +949,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled,
 /area/security/forensics_laboratory)
 "acl" = (
@@ -1557,7 +1557,7 @@
 	id = "messhallshutters";
 	name = "Mess hall shutters"
 	},
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "adk" = (
@@ -1701,7 +1701,7 @@
 	id = "messhallshutters";
 	name = "Mess hall shutters"
 	},
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "adA" = (
@@ -2507,7 +2507,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/structure/bed/chair/office/dark,
+/obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/carpet/rubber,
 /area/server)
 "aeT" = (
@@ -2566,11 +2566,11 @@
 	network = list("Interrogation");
 	pixel_y = -32
 	},
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "afa" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /obj/item/device/radio/intercom{
 	frequency = 1449;
 	name = "Station Intercom (Interrogation)";
@@ -2948,7 +2948,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "afK" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/machinery/button/switch/windowtint{
@@ -3164,7 +3164,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "agj" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3277,7 +3277,7 @@
 /area/security/forensics_morgue)
 "agx" = (
 /obj/effect/floor_decal/corner_wide/paleblue/full,
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -3580,7 +3580,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/security/main)
 "aha" = (
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled{
@@ -4044,7 +4044,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "ahQ" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
@@ -4468,7 +4468,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "aiX" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -4913,7 +4913,7 @@
 /turf/simulated/floor/plating,
 /area/security/brig)
 "ajT" = (
-/obj/item/stool,
+/obj/structure/bed/stool,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
@@ -5555,7 +5555,7 @@
 	name = "Xenobiologist"
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/structure/bed/chair/plastic,
+/obj/structure/bed/stool/chair/plastic,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "ale" = (
@@ -5572,7 +5572,7 @@
 /obj/effect/landmark/start{
 	name = "Lab Assistant"
 	},
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
@@ -5984,7 +5984,7 @@
 /turf/simulated/floor/tiled,
 /area/security/security_office)
 "alQ" = (
-/obj/structure/bed/chair/office/dark,
+/obj/structure/bed/stool/chair/office/dark,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
@@ -6023,7 +6023,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/security_office)
 "alT" = (
-/obj/structure/bed/chair/office/dark,
+/obj/structure/bed/stool/chair/office/dark,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
 	},
@@ -6069,7 +6069,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/strongroom)
 "amc" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -6554,7 +6554,7 @@
 	dir = 8;
 	pixel_x = 28
 	},
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -6998,7 +6998,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "anZ" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /obj/item/device/radio/intercom{
 	pixel_x = -28
 	},
@@ -7821,7 +7821,7 @@
 /turf/simulated/floor/tiled,
 /area/security/security_office)
 "apo" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/blue/full,
@@ -7861,7 +7861,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/security_office)
 "apr" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/blue/full{
@@ -8025,7 +8025,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/structure/bed/chair/comfy/blue,
+/obj/structure/bed/stool/chair/padded/blue,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "apI" = (
@@ -9372,7 +9372,7 @@
 /turf/simulated/floor/tiled/ramp/bottom,
 /area/maintenance/vault)
 "arZ" = (
-/obj/structure/bed/chair/office/bridge/generic,
+/obj/structure/bed/stool/chair/office/bridge/generic,
 /turf/simulated/floor/carpet/rubber,
 /area/lawoffice/representative)
 "asa" = (
@@ -9503,7 +9503,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "asi" = (
-/obj/structure/bed/chair/office/bridge{
+/obj/structure/bed/stool/chair/office/bridge{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -9546,7 +9546,7 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
 	},
-/obj/structure/bed/chair/office/bridge{
+/obj/structure/bed/stool/chair/office/bridge{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -9903,7 +9903,7 @@
 /area/security/brig/processing)
 "asV" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -11034,7 +11034,7 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /obj/structure/sign/nosmoking_2{
 	pixel_y = 32
 	},
@@ -11051,7 +11051,7 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /obj/machinery/status_display{
 	pixel_y = 32
 	},
@@ -11286,7 +11286,7 @@
 /turf/simulated/floor/carpet,
 /area/lawoffice)
 "auZ" = (
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/stool/chair/padded/black{
 	dir = 1;
 	icon_state = "chair_padding_over"
 	},
@@ -11396,7 +11396,7 @@
 "avl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
-/obj/structure/bed/chair/office/bridge{
+/obj/structure/bed/stool/chair/office/bridge{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -11549,7 +11549,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_monitoring)
 "avB" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -11742,7 +11742,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/monitoring)
 "avQ" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -12030,7 +12030,7 @@
 /area/security/brig)
 "awp" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -13560,7 +13560,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/obj/structure/bed/chair/office/bridge{
+/obj/structure/bed/stool/chair/office/bridge{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -13586,7 +13586,7 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 6
 	},
-/obj/structure/bed/chair/office/bridge{
+/obj/structure/bed/stool/chair/office/bridge{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -13674,7 +13674,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "ayQ" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -14030,7 +14030,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "azw" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/structure/window/reinforced{
@@ -14058,7 +14058,7 @@
 /turf/simulated/floor/tiled,
 /area/security/brig/processing)
 "azy" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/structure/window/reinforced{
@@ -14098,7 +14098,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/brig/processing)
 "azB" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -14916,7 +14916,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/structure/bed/chair/office/dark,
+/obj/structure/bed/stool/chair/office/dark,
 /obj/machinery/recharger/wallcharger{
 	pixel_x = -24
 	},
@@ -14955,7 +14955,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/telesci)
 "aAW" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/blue{
@@ -14976,7 +14976,7 @@
 /turf/simulated/floor/tiled,
 /area/security/brig/processing)
 "aAY" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/blue{
@@ -15285,7 +15285,7 @@
 	name = "Roboticist"
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/structure/bed/chair/plastic{
+/obj/structure/bed/stool/chair/plastic{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -15307,7 +15307,7 @@
 	name = "Roboticist"
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/structure/bed/chair/plastic{
+/obj/structure/bed/stool/chair/plastic{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -16007,7 +16007,7 @@
 /turf/simulated/floor/tiled,
 /area/security/warden)
 "aCA" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 1
 	},
 /obj/machinery/button/remote/airlock{
@@ -16341,7 +16341,7 @@
 /turf/simulated/floor/wood,
 /area/lawoffice/consular)
 "aCX" = (
-/obj/structure/bed/chair/comfy/brown{
+/obj/structure/bed/stool/chair/padded/brown{
 	dir = 4
 	},
 /turf/simulated/floor/carpet,
@@ -17212,7 +17212,7 @@
 /turf/simulated/floor/tiled,
 /area/security/warden)
 "aEx" = (
-/obj/structure/bed/chair/remote/robot/warden{
+/obj/structure/bed/stool/chair/remote/robot/warden{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -17376,7 +17376,7 @@
 	name = "Scientist"
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/structure/bed/chair/plastic{
+/obj/structure/bed/stool/chair/plastic{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -17484,7 +17484,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/assembly/robotics/workshop)
 "aEQ" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/carpet/rubber,
 /area/assembly/robotics/workshop)
 "aER" = (
@@ -17687,7 +17687,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 1
 	},
 /obj/effect/landmark/start{
@@ -18012,7 +18012,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aFJ" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -18030,7 +18030,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aFK" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -18048,7 +18048,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aFL" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -18601,7 +18601,7 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aGx" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aGy" = (
@@ -18620,7 +18620,7 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aGA" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
@@ -19350,7 +19350,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/server)
 "aHN" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/landmark/start{
@@ -19894,7 +19894,7 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aIA" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
 	},
@@ -19970,7 +19970,7 @@
 	name = "Scientist"
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/structure/bed/chair/plastic{
+/obj/structure/bed/stool/chair/plastic{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -19992,7 +19992,7 @@
 	name = "Xenobiologist"
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/structure/bed/chair/plastic{
+/obj/structure/bed/stool/chair/plastic{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -20314,7 +20314,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aJj" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -20340,7 +20340,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
 "aJl" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/yellow{
@@ -20740,7 +20740,7 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aJT" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -20767,7 +20767,7 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aJW" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -21065,7 +21065,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "aKy" = (
-/obj/structure/bed/chair/comfy/brown{
+/obj/structure/bed/stool/chair/padded/brown{
 	dir = 8
 	},
 /obj/machinery/newscaster{
@@ -21095,7 +21095,7 @@
 /turf/simulated/floor/plating,
 /area/crew_quarters/captain)
 "aKA" = (
-/obj/structure/bed/chair/comfy/brown,
+/obj/structure/bed/stool/chair/padded/brown,
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 8;
@@ -21104,7 +21104,7 @@
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "aKB" = (
-/obj/structure/bed/chair/comfy/brown,
+/obj/structure/bed/stool/chair/padded/brown,
 /obj/structure/sign/nosmoking_2{
 	pixel_y = 32
 	},
@@ -21137,7 +21137,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "aKF" = (
-/obj/structure/bed/chair/comfy/brown{
+/obj/structure/bed/stool/chair/padded/brown{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -21317,7 +21317,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aLa" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/landmark/start{
 	name = "Engineering Apprentice"
 	},
@@ -21327,7 +21327,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aLb" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/landmark/start{
 	name = "Station Engineer"
 	},
@@ -21337,7 +21337,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aLc" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/landmark/start{
 	name = "Atmospheric Technician"
 	},
@@ -21381,7 +21381,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -21560,7 +21560,7 @@
 /turf/simulated/floor/tiled,
 /area/security/brig/control_room)
 "aLA" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /obj/machinery/button/remote/airlock{
@@ -22247,7 +22247,7 @@
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "aMt" = (
-/obj/structure/bed/chair/office/bridge{
+/obj/structure/bed/stool/chair/office/bridge{
 	dir = 8
 	},
 /obj/machinery/button/switch/windowtint{
@@ -22653,7 +22653,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
 "aNf" = (
-/obj/structure/bed/chair/comfy/red{
+/obj/structure/bed/stool/chair/padded/red{
 	dir = 4
 	},
 /obj/machinery/button/remote/blast_door{
@@ -22698,7 +22698,7 @@
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hos)
 "aNh" = (
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/stool/chair/padded/black{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -22726,7 +22726,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
 "aNl" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/blue{
@@ -22764,7 +22764,7 @@
 /turf/simulated/floor/tiled,
 /area/security/brig/control_room)
 "aNo" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /obj/machinery/button/remote/airlock{
@@ -22784,7 +22784,7 @@
 /turf/simulated/floor/tiled,
 /area/security/brig/control_room)
 "aNp" = (
-/obj/structure/bed/chair/office/dark,
+/obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/tiled,
 /area/security/brig/control_room)
 "aNq" = (
@@ -23216,7 +23216,7 @@
 /turf/simulated/floor/tiled/white,
 /area/bridge)
 "aOg" = (
-/obj/structure/bed/chair/comfy/brown{
+/obj/structure/bed/stool/chair/padded/brown{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -23242,7 +23242,7 @@
 /turf/simulated/floor/plating,
 /area/crew_quarters/captain)
 "aOi" = (
-/obj/structure/bed/chair/comfy/brown{
+/obj/structure/bed/stool/chair/padded/brown{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -23258,7 +23258,7 @@
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "aOj" = (
-/obj/structure/bed/chair/comfy/brown{
+/obj/structure/bed/stool/chair/padded/brown{
 	dir = 1
 	},
 /turf/simulated/floor/carpet,
@@ -23616,7 +23616,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
 "aOV" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -23806,7 +23806,7 @@
 /area/security/prison)
 "aPm" = (
 /obj/structure/window/reinforced,
-/obj/structure/bed/chair/remote/robot/prison,
+/obj/structure/bed/stool/chair/remote/robot/prison,
 /obj/machinery/door/window/brigdoor/northright{
 	id = "Remote Chair";
 	name = "Remote Chair";
@@ -24669,7 +24669,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
 "aQI" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/blue{
@@ -24808,7 +24808,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aQX" = (
@@ -24993,7 +24993,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "aRo" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /obj/machinery/requests_console{
@@ -25082,7 +25082,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/meeting_room)
 "aRv" = (
-/obj/structure/bed/chair/office/bridge{
+/obj/structure/bed/stool/chair/office/bridge{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -25433,7 +25433,7 @@
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
 "aRT" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -25471,7 +25471,7 @@
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
 "aRV" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -25625,7 +25625,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aSf" = (
-/obj/structure/bed/chair/office/dark,
+/obj/structure/bed/stool/chair/office/dark,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -25791,7 +25791,7 @@
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "aSu" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/machinery/button/remote/blast_door{
@@ -25821,7 +25821,7 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aSw" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -25931,7 +25931,7 @@
 /turf/simulated/floor/wood,
 /area/journalistoffice)
 "aSG" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /turf/simulated/floor/wood,
 /area/journalistoffice)
 "aSH" = (
@@ -27020,7 +27020,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "aUB" = (
-/obj/structure/bed/chair/office/bridge{
+/obj/structure/bed/stool/chair/office/bridge{
 	dir = 4
 	},
 /obj/machinery/camera/network/command{
@@ -27473,7 +27473,7 @@
 	dir = 1;
 	pixel_y = -28
 	},
-/obj/structure/bed/chair/plastic{
+/obj/structure/bed/stool/chair/plastic{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
@@ -27675,7 +27675,7 @@
 /turf/simulated/floor/carpet,
 /area/journalistoffice)
 "aVA" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 1
 	},
 /obj/effect/landmark/start{
@@ -27861,7 +27861,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge/ailobby)
 "aVW" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/machinery/status_display{
@@ -27910,7 +27910,7 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "aWa" = (
-/obj/item/stool,
+/obj/structure/bed/stool,
 /obj/structure/sign/double/map/right{
 	pixel_y = 32
 	},
@@ -28378,6 +28378,7 @@
 	},
 /obj/structure/noticeboard{
 	desc = "A board for uncovering hidden conspiracies.";
+	dir = 1;
 	name = "corkboard";
 	pixel_y = -32
 	},
@@ -28745,7 +28746,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/item/stool,
+/obj/structure/bed/stool,
 /obj/effect/landmark/start{
 	name = "Janitor"
 	},
@@ -28916,7 +28917,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
 "aXW" = (
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 4
 	},
 /obj/machinery/button/remote/airlock{
@@ -30486,7 +30487,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
 "baA" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -30495,7 +30496,7 @@
 /obj/machinery/atm{
 	pixel_y = -32
 	},
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -30971,7 +30972,7 @@
 	network = list("Research","Toxins Test Area");
 	pixel_x = -1
 	},
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -31400,7 +31401,7 @@
 /area/crew_quarters/medbreak)
 "bco" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/structure/sink{
 	pixel_y = 22
 	},
@@ -31482,7 +31483,7 @@
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop)
 "bcw" = (
-/obj/structure/bed/chair/comfy/brown{
+/obj/structure/bed/stool/chair/padded/brown{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -31500,7 +31501,7 @@
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop)
 "bcy" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /obj/machinery/button/remote/airlock{
@@ -31629,7 +31630,7 @@
 /area/janitor)
 "bcO" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -31715,7 +31716,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "bcZ" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/alarm{
 	dir = 8;
@@ -31748,7 +31749,7 @@
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics_cyborgification)
 "bdd" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -31917,7 +31918,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "bdt" = (
-/obj/structure/bed/chair/office/light,
+/obj/structure/bed/stool/chair/office/light,
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "bdu" = (
@@ -32243,7 +32244,7 @@
 /area/crew_quarters/medbreak)
 "bdU" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
 "bdV" = (
@@ -32295,7 +32296,7 @@
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop)
 "bdZ" = (
-/obj/structure/bed/chair/comfy/brown{
+/obj/structure/bed/stool/chair/padded/brown{
 	dir = 4
 	},
 /obj/structure/cable/green,
@@ -32705,7 +32706,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -32788,7 +32789,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "beR" = (
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -32976,7 +32977,7 @@
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/starboard)
 "bfm" = (
-/obj/structure/bed/chair/comfy/beige,
+/obj/structure/bed/stool/chair/padded/beige,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/medbreak)
 "bfn" = (
@@ -33796,7 +33797,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/medbreak)
 "bgB" = (
-/obj/structure/bed/chair/comfy/beige{
+/obj/structure/bed/stool/chair/padded/beige{
 	dir = 8
 	},
 /obj/machinery/firealarm/south,
@@ -33987,7 +33988,7 @@
 /turf/simulated/floor/carpet,
 /area/bridge)
 "bgT" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
@@ -34179,6 +34180,7 @@
 	},
 /obj/item/circuitboard/arcade/battle,
 /obj/item/circuitboard/arcade/orion_trail,
+/obj/item/circuitboard/research_shuttle,
 /turf/simulated/floor/plating,
 /area/storage/tech)
 "bhj" = (
@@ -34626,7 +34628,7 @@
 /area/medical/exam_room)
 "bhT" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -35531,7 +35533,7 @@
 /turf/simulated/floor/carpet/blue,
 /area/medical/exam_room2)
 "bju" = (
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 1
 	},
 /obj/machinery/button/switch/windowtint{
@@ -35799,7 +35801,7 @@
 /turf/simulated/floor/plating,
 /area/medical/exam_room)
 "bjV" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -36157,7 +36159,7 @@
 	pixel_y = -26;
 	req_access = list(40)
 	},
-/obj/structure/bed/chair/office/light,
+/obj/structure/bed/stool/chair/office/light,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "bkw" = (
@@ -37147,7 +37149,7 @@
 /turf/simulated/floor/plating,
 /area/medical/reception)
 "bmy" = (
-/obj/structure/bed/chair/plastic{
+/obj/structure/bed/stool/chair/plastic{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -37183,7 +37185,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bmC" = (
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -37514,7 +37516,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge/minibar)
 "bnm" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -37798,6 +37800,9 @@
 	dir = 1;
 	name = "Robotics Lab";
 	req_access = list(29)
+	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
@@ -38483,7 +38488,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge/minibar)
 "boS" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -38682,7 +38687,7 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/obj/structure/bed/chair/plastic{
+/obj/structure/bed/stool/chair/plastic{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -38716,7 +38721,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bpu" = (
-/obj/structure/bed/chair/office/light,
+/obj/structure/bed/stool/chair/office/light,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
@@ -38725,7 +38730,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/bed/chair/office/light,
+/obj/structure/bed/stool/chair/office/light,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bpw" = (
@@ -39062,7 +39067,7 @@
 /turf/simulated/floor/plating,
 /area/bridge)
 "bqd" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/lino/grey,
 /area/bridge/minibar)
 "bqe" = (
@@ -39183,7 +39188,7 @@
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bqt" = (
-/obj/structure/bed/chair/office/dark,
+/obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bqu" = (
@@ -41304,7 +41309,7 @@
 /area/maintenance/medbay)
 "buG" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/bed/chair/wheelchair{
+/obj/structure/bed/stool/chair/office/wheelchair{
 	dir = 4
 	},
 /obj/machinery/light/small/emergency{
@@ -41394,6 +41399,7 @@
 /area/crew_quarters/bar)
 "buX" = (
 /obj/structure/noticeboard{
+	dir = 1;
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/white,
@@ -41488,7 +41494,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bvm" = (
-/obj/structure/bed/chair/plastic{
+/obj/structure/bed/stool/chair/plastic{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
@@ -41504,7 +41510,7 @@
 /obj/machinery/newscaster{
 	pixel_y = -30
 	},
-/obj/structure/bed/chair/plastic{
+/obj/structure/bed/stool/chair/plastic{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
@@ -41668,7 +41674,7 @@
 /turf/simulated/floor/grass/alt,
 /area/bridge)
 "bvN" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/paleblue/full{
@@ -41698,7 +41704,7 @@
 /turf/simulated/floor/tiled/white,
 /area/bridge)
 "bvQ" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/paleblue/full,
@@ -42094,7 +42100,7 @@
 /turf/simulated/floor/grass/alt,
 /area/bridge)
 "bwH" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/paleblue{
@@ -42116,7 +42122,7 @@
 /turf/simulated/floor/tiled/white,
 /area/bridge)
 "bwJ" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/paleblue{
@@ -42759,7 +42765,7 @@
 /turf/simulated/floor/plating,
 /area/medical/cryo)
 "bxL" = (
-/obj/structure/bed/chair/comfy/teal{
+/obj/structure/bed/stool/chair/padded/teal{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/lime{
@@ -42797,7 +42803,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/surgeryobs)
 "bxQ" = (
-/obj/structure/bed/chair/plastic{
+/obj/structure/bed/stool/chair/plastic{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -42873,7 +42879,7 @@
 /turf/simulated/floor/grass/alt,
 /area/bridge)
 "byf" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/paleblue/full{
@@ -42907,7 +42913,7 @@
 /turf/simulated/floor/tiled/white,
 /area/bridge)
 "byi" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -43146,7 +43152,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/misc_lab)
 "byF" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -43177,7 +43183,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/lab)
 "byN" = (
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -43589,7 +43595,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "bzB" = (
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/stool/chair/padded/black{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/blue,
@@ -43664,7 +43670,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/rdoffice)
 "bzH" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 1
 	},
 /obj/machinery/button/remote/airlock{
@@ -43885,7 +43891,7 @@
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "bAc" = (
-/obj/structure/bed/chair/office/light,
+/obj/structure/bed/stool/chair/office/light,
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
@@ -43893,7 +43899,7 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -32
 	},
-/obj/structure/bed/chair/plastic{
+/obj/structure/bed/stool/chair/plastic{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/grey{
@@ -43934,7 +43940,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/cryo)
 "bAh" = (
-/obj/structure/bed/chair/comfy/teal{
+/obj/structure/bed/stool/chair/padded/teal{
 	dir = 4
 	},
 /obj/machinery/firealarm/west,
@@ -43962,7 +43968,7 @@
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/obj/structure/bed/chair/plastic{
+/obj/structure/bed/stool/chair/plastic{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -44090,7 +44096,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "bAB" = (
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/stool/chair/padded/black{
 	dir = 4
 	},
 /obj/structure/sign/nosmoking_1{
@@ -44115,7 +44121,7 @@
 /turf/simulated/floor/carpet/blue,
 /area/rnd/rdoffice)
 "bAD" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /obj/structure/window/reinforced{
@@ -44433,7 +44439,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "bBy" = (
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/stool/chair/padded/black{
 	dir = 4
 	},
 /obj/machinery/alarm{
@@ -45221,13 +45227,13 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "bDh" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/turbolift/command_sub)
 "bDi" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -45625,7 +45631,7 @@
 /turf/simulated/floor/plating,
 /area/turbolift/command_sub)
 "bEb" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -45928,7 +45934,7 @@
 	name = "Scientist"
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/structure/bed/chair/plastic,
+/obj/structure/bed/stool/chair/plastic,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bEV" = (
@@ -45936,7 +45942,7 @@
 	name = "Lab Assistant"
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/structure/bed/chair/plastic,
+/obj/structure/bed/stool/chair/plastic,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bEX" = (
@@ -45989,7 +45995,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "bFd" = (
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -46364,7 +46370,7 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/obj/structure/bed/chair/plastic{
+/obj/structure/bed/stool/chair/plastic{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -46445,7 +46451,7 @@
 	name = "Research Director"
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -46875,7 +46881,7 @@
 /turf/simulated/wall/r_wall,
 /area/rnd/telesci)
 "bHe" = (
-/obj/structure/bed/chair/office/light,
+/obj/structure/bed/stool/chair/office/light,
 /turf/simulated/floor/tiled/white,
 /area/rnd/lab)
 "bHg" = (
@@ -47104,7 +47110,7 @@
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "bHv" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 1
 	},
 /obj/effect/landmark/start{
@@ -47855,7 +47861,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/lab)
 "bJD" = (
-/obj/structure/bed/chair/office/light,
+/obj/structure/bed/stool/chair/office/light,
 /turf/simulated/floor/tiled/white,
 /area/rnd/telesci)
 "bJF" = (
@@ -48217,7 +48223,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/structure/bed/chair/comfy/black,
+/obj/structure/bed/stool/chair/padded/black,
 /turf/simulated/floor/tiled/dark,
 /area/library)
 "bKF" = (
@@ -48240,7 +48246,7 @@
 /turf/simulated/floor/wood,
 /area/library)
 "bKI" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -48406,7 +48412,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "bLc" = (
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -49269,7 +49275,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/structure/bed/chair/office/dark,
+/obj/structure/bed/stool/chair/office/dark,
 /obj/effect/landmark/start{
 	name = "Gardener"
 	},
@@ -49400,7 +49406,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/library)
 "bNp" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /turf/simulated/floor/wood,
@@ -49413,13 +49419,13 @@
 /obj/effect/landmark/start{
 	name = "Librarian"
 	},
-/obj/structure/bed/chair/office/dark,
+/obj/structure/bed/stool/chair/office/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood,
 /area/library)
 "bNs" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
@@ -49785,7 +49791,7 @@
 /turf/simulated/floor/wood,
 /area/library)
 "bOk" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -49806,7 +49812,7 @@
 /obj/effect/landmark/start{
 	name = "Librarian"
 	},
-/obj/structure/bed/chair/office/dark,
+/obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/carpet,
 /area/library)
 "bOo" = (
@@ -49960,7 +49966,7 @@
 /turf/simulated/floor/wood,
 /area/library)
 "bOM" = (
-/obj/structure/bed/chair/office/dark,
+/obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/carpet,
 /area/library)
 "bON" = (
@@ -49987,7 +49993,7 @@
 /obj/machinery/newscaster{
 	pixel_y = 30
 	},
-/obj/structure/bed/chair/comfy/sofa/left/comfy{
+/obj/structure/bed/stool/chair/sofa/left/red{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -50002,7 +50008,7 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/obj/structure/bed/chair/comfy/sofa/right/comfy{
+/obj/structure/bed/stool/chair/sofa/right/red{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -50268,7 +50274,7 @@
 /area/hallway/primary/aft)
 "bPA" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/aft)
 "bPB" = (
@@ -50387,7 +50393,7 @@
 /turf/simulated/floor/carpet,
 /area/library)
 "bPT" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 1
 	},
 /turf/simulated/floor/carpet,
@@ -50509,7 +50515,7 @@
 /turf/simulated/floor/tiled/old_white,
 /area/maintenance/research_port)
 "bQm" = (
-/obj/structure/bed/chair/comfy/brown{
+/obj/structure/bed/stool/chair/padded/brown{
 	dir = 4
 	},
 /obj/machinery/alarm{
@@ -50759,7 +50765,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bQV" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/aft)
@@ -51041,7 +51047,7 @@
 /turf/simulated/floor/carpet,
 /area/maintenance/bar)
 "bRX" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/loot,
 /turf/simulated/floor/carpet,
@@ -51058,7 +51064,7 @@
 /area/maintenance/bar)
 "bSb" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/bed/chair/wood{
+/obj/structure/bed/stool/chair/wood{
 	dir = 8
 	},
 /obj/random/loot,
@@ -51526,7 +51532,7 @@
 /turf/simulated/floor/wood,
 /area/chapel/main)
 "bTi" = (
-/obj/structure/bed/chair/wood{
+/obj/structure/bed/stool/chair/wood{
 	dir = 8
 	},
 /turf/simulated/floor/wood,
@@ -51996,12 +52002,12 @@
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/locker/locker_toilet)
 "bUk" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 "bUo" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/effect/landmark/start{
@@ -52023,7 +52029,7 @@
 /turf/simulated/floor/carpet,
 /area/chapel/office)
 "bUq" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/simulated/floor/wood,
@@ -52429,7 +52435,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "bVj" = (
-/obj/structure/bed/chair/wood{
+/obj/structure/bed/stool/chair/wood{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -52534,7 +52540,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/item/stool/bar/padded,
+/obj/structure/bed/stool/bar/padded/red,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bVA" = (
@@ -53103,7 +53109,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
 	},
@@ -53207,7 +53213,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "bXe" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/brown,
@@ -53446,7 +53452,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/supply)
 "bXK" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -53584,7 +53590,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "bYa" = (
-/obj/structure/bed/chair/office/dark,
+/obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "bYb" = (
@@ -53719,7 +53725,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 4
 	},
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -53850,7 +53856,7 @@
 /turf/simulated/floor/plating,
 /area/quartermaster/lobby)
 "bYK" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/machinery/firealarm/south,
@@ -53986,7 +53992,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bZc" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
 "bZf" = (
@@ -54104,11 +54110,11 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bZs" = (
-/obj/structure/bed/chair/wood,
+/obj/structure/bed/stool/chair/wood,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bZu" = (
-/obj/structure/bed/chair/comfy/sofa/right/comfy{
+/obj/structure/bed/stool/chair/sofa/right/red{
 	dir = 8
 	},
 /turf/simulated/floor/carpet,
@@ -54348,6 +54354,7 @@
 /area/quartermaster/lobby)
 "bZQ" = (
 /obj/structure/noticeboard{
+	dir = 4;
 	pixel_x = -32
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -55244,7 +55251,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/break_room)
 "cbx" = (
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /obj/effect/landmark/start{
 	name = "Cargo Technician"
 	},
@@ -55404,7 +55411,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
 "cbV" = (
-/obj/structure/bed/chair/office/dark,
+/obj/structure/bed/stool/chair/office/dark,
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
@@ -55915,7 +55922,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 "ccV" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -55953,7 +55960,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/break_room)
 "ccY" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /obj/effect/landmark/start{
@@ -56287,6 +56294,7 @@
 	},
 /obj/machinery/light,
 /obj/structure/noticeboard{
+	dir = 1;
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
@@ -58403,11 +58411,11 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "chP" = (
-/obj/structure/bed/chair/office/dark,
+/obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "chQ" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -58734,7 +58742,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/structure/bed/chair/wood{
+/obj/structure/bed/stool/chair/wood{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -59240,7 +59248,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/structure/bed/chair/wood{
+/obj/structure/bed/stool/chair/wood{
 	dir = 8
 	},
 /turf/simulated/floor/wood,
@@ -59337,7 +59345,7 @@
 /area/crew_quarters/kitchen)
 "dcF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/bed/chair/wood,
+/obj/structure/bed/stool/chair/wood,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "dde" = (
@@ -59380,7 +59388,7 @@
 /area/maintenance/cargo)
 "dgV" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/bed/chair,
+/obj/structure/bed/stool/chair,
 /obj/random/loot,
 /turf/simulated/floor/tiled/old_white,
 /area/maintenance/bar)
@@ -59732,12 +59740,12 @@
 /area/crew_quarters/bar)
 "dMA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/bed/chair/wood,
+/obj/structure/bed/stool/chair/wood,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "dMD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/bed/chair/wood{
+/obj/structure/bed/stool/chair/wood{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
@@ -59796,7 +59804,7 @@
 /turf/simulated/floor/tiled,
 /area/security/nuke_storage)
 "dWO" = (
-/obj/structure/bed/chair/wood{
+/obj/structure/bed/stool/chair/wood{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
@@ -60036,7 +60044,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/bed/chair/wheelchair,
+/obj/structure/bed/stool/chair/office/wheelchair,
 /obj/item/extinguisher,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
@@ -60102,7 +60110,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "eGj" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
@@ -60744,7 +60752,7 @@
 /area/maintenance/research_port)
 "fGD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/bed/chair/wood{
+/obj/structure/bed/stool/chair/wood{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
@@ -60822,7 +60830,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/old_white,
@@ -61105,7 +61113,7 @@
 /turf/simulated/floor/tiled/old,
 /area/maintenance/bar)
 "ggP" = (
-/obj/structure/bed/chair/comfy/brown,
+/obj/structure/bed/stool/chair/padded/brown,
 /turf/simulated/floor/carpet,
 /area/library)
 "ggV" = (
@@ -61365,7 +61373,7 @@
 /turf/simulated/floor/carpet/blue,
 /area/maintenance/medbay)
 "gIw" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/old,
 /area/maintenance/vault)
@@ -61519,7 +61527,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "gYT" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "gZD" = (
@@ -61807,7 +61815,7 @@
 /area/maintenance/engineering)
 "hsj" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/structure/bed/chair/comfy/sofa/left/comfy{
+/obj/structure/bed/stool/chair/sofa/left/red{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -61880,7 +61888,7 @@
 	},
 /area/maintenance/bar)
 "hza" = (
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/stool/chair/padded/black{
 	dir = 1;
 	icon_state = "chair_padding_over"
 	},
@@ -61889,7 +61897,7 @@
 "hzA" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/old_white,
@@ -61965,7 +61973,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "hFB" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/loot,
 /turf/simulated/floor/wood,
@@ -62160,7 +62168,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/bed/chair/wheelchair,
+/obj/structure/bed/stool/chair/office/wheelchair,
 /obj/item/extinguisher,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
@@ -62480,7 +62488,7 @@
 /area/crew_quarters/kitchen)
 "iBL" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/bed/chair/plastic,
+/obj/structure/bed/stool/chair/plastic,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/old_white,
 /area/maintenance/medbay)
@@ -63301,7 +63309,7 @@
 /area/hydroponics)
 "kGv" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/stool,
+/obj/structure/bed/stool,
 /turf/simulated/floor/tiled/old,
 /area/maintenance/cargo)
 "kGA" = (
@@ -63395,12 +63403,12 @@
 /area/maintenance/atmos_control)
 "kTl" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/bed/chair/office/dark,
+/obj/structure/bed/stool/chair/office/dark,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/old,
 /area/maintenance/research_port)
 "kUL" = (
-/obj/structure/bed/chair/office/dark,
+/obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/tiled/dark,
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
@@ -63421,7 +63429,7 @@
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics_cyborgification)
 "kVD" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/structure/cable/green{
 	icon_state = "6-8"
 	},
@@ -63650,7 +63658,7 @@
 /area/maintenance/medbay)
 "lrT" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_laboratory)
 "ltW" = (
@@ -63946,7 +63954,7 @@
 /area/maintenance/medbay)
 "maY" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/structure/bed/chair/comfy/sofa/right/comfy{
+/obj/structure/bed/stool/chair/sofa/right/red{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -64026,7 +64034,7 @@
 /area/lawoffice/consular)
 "mdY" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/bed/chair/wood{
+/obj/structure/bed/stool/chair/wood{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -64172,7 +64180,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "mxN" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
@@ -64521,7 +64529,7 @@
 	req_access = null;
 	specialfunctions = 4
 	},
-/obj/structure/bed/chair/office/bridge/generic{
+/obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 8
 	},
 /turf/simulated/floor/carpet,
@@ -64558,7 +64566,7 @@
 /area/maintenance/atmos_control)
 "naQ" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/structure/bed/chair/office/light,
+/obj/structure/bed/stool/chair/office/light,
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "nbB" = (
@@ -64865,7 +64873,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/library)
 "nCJ" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/maintenance/vault)
@@ -64953,7 +64961,7 @@
 /obj/structure/noticeboard{
 	pixel_x = -32
 	},
-/obj/structure/bed/chair/office/light,
+/obj/structure/bed/stool/chair/office/light,
 /turf/simulated/floor/carpet/blue,
 /area/maintenance/medbay)
 "nLD" = (
@@ -65146,7 +65154,7 @@
 /turf/simulated/floor/tiled/old_white,
 /area/maintenance/medbay)
 "ohn" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -65530,7 +65538,7 @@
 	},
 /area/security/investigations_storage)
 "oQU" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /turf/simulated/floor/wood,
@@ -65606,7 +65614,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "oWv" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -65707,6 +65715,7 @@
 /area/maintenance/bar)
 "pfO" = (
 /obj/structure/noticeboard{
+	dir = 8;
 	layer = 3.3;
 	pixel_x = 32;
 	pixel_y = 2
@@ -66270,6 +66279,7 @@
 	},
 /obj/item/storage/box/sharps,
 /obj/structure/noticeboard{
+	dir = 8;
 	layer = 3.3;
 	pixel_x = 32;
 	pixel_y = 2
@@ -66367,7 +66377,7 @@
 	name = "Security - Investigations Office"
 	})
 "qlw" = (
-/obj/structure/bed/chair/comfy/sofa/left/comfy{
+/obj/structure/bed/stool/chair/sofa/left/red{
 	dir = 8
 	},
 /turf/simulated/floor/carpet,
@@ -66390,7 +66400,7 @@
 /turf/simulated/floor/tiled/old,
 /area/maintenance/vault)
 "qoC" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/structure/cable/green{
 	icon_state = "4-10"
 	},
@@ -66689,7 +66699,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "qNw" = (
-/obj/structure/bed/chair/comfy/brown{
+/obj/structure/bed/stool/chair/padded/brown{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -67174,7 +67184,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "rzD" = (
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -67283,7 +67293,7 @@
 	pixel_x = 21;
 	pixel_y = 21
 	},
-/obj/structure/bed/chair/comfy/brown{
+/obj/structure/bed/stool/chair/padded/brown{
 	dir = 8
 	},
 /turf/simulated/floor/carpet,
@@ -67417,7 +67427,7 @@
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/old_white,
@@ -67599,7 +67609,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "slM" = (
-/obj/structure/bed/chair/comfy/brown{
+/obj/structure/bed/stool/chair/padded/brown{
 	dir = 8
 	},
 /turf/simulated/floor/carpet,
@@ -67751,7 +67761,7 @@
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
 "sEV" = (
-/obj/structure/bed/chair/wood{
+/obj/structure/bed/stool/chair/wood{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -68585,7 +68595,7 @@
 /turf/simulated/floor/tiled,
 /area/security/forensics_laboratory)
 "tPg" = (
-/obj/structure/bed/chair/comfy/sofa/left/comfy{
+/obj/structure/bed/stool/chair/sofa/left/red{
 	dir = 4
 	},
 /turf/simulated/floor/carpet,
@@ -69380,7 +69390,7 @@
 "vfO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/window/reinforced,
-/obj/structure/bed/chair/remote/robot/prison,
+/obj/structure/bed/stool/chair/remote/robot/prison,
 /obj/machinery/door/window/brigdoor/northright{
 	id = "Remote Chair";
 	name = "Remote Chair";
@@ -69675,7 +69685,7 @@
 /turf/simulated/wall,
 /area/security/training)
 "vGn" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -69726,7 +69736,7 @@
 /area/hydroponics)
 "vIC" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
@@ -69841,7 +69851,7 @@
 /turf/simulated/floor/tiled/old,
 /area/maintenance/atmos_control)
 "vNp" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -70083,7 +70093,7 @@
 	pixel_y = -33;
 	req_access = list(72)
 	},
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -70463,7 +70473,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
 "wQX" = (
-/obj/structure/bed/chair/comfy/brown{
+/obj/structure/bed/stool/chair/padded/brown{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -70496,7 +70506,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/lawoffice/representative)
 "wVv" = (
-/obj/structure/bed/chair/wood{
+/obj/structure/bed/stool/chair/wood{
 	dir = 8
 	},
 /turf/simulated/floor/wood,
@@ -70675,7 +70685,7 @@
 /turf/simulated/floor/tiled/old,
 /area/maintenance/research_port)
 "xhU" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -70860,7 +70870,7 @@
 	pixel_y = 6;
 	specialfunctions = 4
 	},
-/obj/structure/bed/chair/comfy/brown{
+/obj/structure/bed/stool/chair/padded/brown{
 	dir = 8
 	},
 /turf/simulated/floor/wood,
@@ -70890,7 +70900,7 @@
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_laboratory)
 "xxw" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /obj/effect/landmark/start{
@@ -70902,7 +70912,7 @@
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "xxH" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -71372,7 +71382,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "ymb" = (
-/obj/structure/bed/chair/comfy/sofa/right/comfy{
+/obj/structure/bed/stool/chair/sofa/right/red{
 	dir = 4
 	},
 /turf/simulated/floor/carpet,

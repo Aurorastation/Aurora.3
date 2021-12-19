@@ -85,19 +85,29 @@
 	reagent_tag = IS_UNATHI
 	base_color = "#066000"
 
-	heat_discomfort_level = 295
+	heat_discomfort_level = 304 // 30°C
 	heat_discomfort_strings = list(
 		"You feel soothingly warm.",
 		"You feel the heat sink into your bones.",
 		"You feel warm enough to take a nap."
 		)
 
-	cold_discomfort_level = 292
+	cold_discomfort_level = 294  // 20°C
 	cold_discomfort_strings = list(
 		"You feel chilly.",
 		"You feel sluggish and cold.",
 		"Your scales bristle against the cold."
 		)
+
+	has_organ = list(
+        BP_BRAIN =    /obj/item/organ/internal/brain/unathi,
+        BP_HEART =    /obj/item/organ/internal/heart/unathi,
+        BP_LIVER =    /obj/item/organ/internal/liver/unathi,
+        BP_LUNGS =    /obj/item/organ/internal/lungs/unathi,
+        BP_KIDNEYS =    /obj/item/organ/internal/kidneys/unathi,
+        BP_STOMACH =    /obj/item/organ/internal/stomach/unathi,
+        BP_EYES =    /obj/item/organ/internal/eyes/unathi
+    )
 
 	pain_emotes_with_pain_level = list(
 			list(/decl/emote/audible/wheeze, /decl/emote/audible/roar, /decl/emote/audible/bellow) = 80,
@@ -117,6 +127,8 @@
 
 	default_accent = ACCENT_HEGEMON_PEASANT
 	allowed_accents = list(ACCENT_HEGEMON_NOBLE, ACCENT_HEGEMON_PEASANT, ACCENT_TRAD_NOBLE, ACCENT_TRAD_PEASANT, ACCENT_WASTELAND, ACCENT_DOMINIA_HIGH, ACCENT_DOMINIA_VULGAR)
+
+	possible_external_organs_modifications = list("Normal","Amputated","Prosthesis", "Diona Nymph")
 
 /datum/species/unathi/after_equip(var/mob/living/carbon/human/H)
 	. = ..()
