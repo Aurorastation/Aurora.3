@@ -1768,6 +1768,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"UP" = (
+/obj/effect/map_effect/wingrille_spawn/full,
+/turf/simulated/floor/plating,
+/area/storage/primary)
 "WS" = (
 /obj/turbolift_map_holder/runtime,
 /turf/simulated/floor/plating,
@@ -3176,14 +3180,14 @@ zP
 cP
 cP
 cP
-cP
-cP
+UP
+UP
 cP
 dr
 dr
 cP
-cP
-cP
+UP
+UP
 cP
 cP
 cP

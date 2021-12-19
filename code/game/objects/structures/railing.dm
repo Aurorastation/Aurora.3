@@ -280,8 +280,9 @@
 
 /obj/structure/railing/can_climb(var/mob/living/user, climb_dir, post_climb_check=0)
 	. = ..()
+	var/turf/dest = get_step(user, climb_dir)
 	if(. && get_turf(user) == get_turf(src))
-		if(turf_is_crowded(TRUE) || !user.Adjacent(get_step(src, climb_dir)))
+		if(turf_is_crowded(TRUE) || !user.Adjacent(dest) || turf_contains_dense_objects(dest) && get_turf(src) != dest)
 			to_chat(user, SPAN_DANGER("You can't climb there, the way is blocked."))
 			return FALSE
 
@@ -303,7 +304,7 @@
 		LAZYREMOVE(climbers, user)
 		return
 
-	user.forceMove(get_step(src, climb_dir))
+	user.forceMove(get_step(user, climb_dir))
 	user.visible_message(SPAN_WARNING("\The [user] climbs over \the [src]!"))
 	LAZYREMOVE(climbers, user)
 

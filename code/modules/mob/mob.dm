@@ -348,41 +348,6 @@
 
 	face_atom(A)
 	return 1
-/datum/mobl	// I have no idea what the fuck this is, but it's better for it to be a datum than an /obj/effect.
-	var/list/container = list()
-	var/master
-
-/mob/proc/ret_grab(datum/mobl/L, flag)
-	if ((!( istype(l_hand, /obj/item/grab) ) && !( istype(r_hand, /obj/item/grab) )))
-		if (!( L ))
-			return null
-		else
-			return L.container
-	else
-		if (!( L ))
-			L = new /datum/mobl
-			L.container += src
-			L.master = src
-		if (istype(l_hand, /obj/item/grab))
-			var/obj/item/grab/G = l_hand
-			if (!(L.container.Find(G.affecting)))
-				L.container += G.affecting
-				if (G.affecting)
-					G.affecting.ret_grab(L, 1)
-		if (istype(r_hand, /obj/item/grab))
-			var/obj/item/grab/G = r_hand
-			if (!(L.container.Find(G.affecting)))
-				L.container += G.affecting
-				if (G.affecting)
-					G.affecting.ret_grab(L, 1)
-		if (!( flag ))
-			if (L.master == src)
-				var/list/temp = L.container.Copy()
-				qdel(L)
-				return temp
-			else
-				return L.container
-	return
 
 /mob/verb/mode()
 	set name = "Activate Held Object"
