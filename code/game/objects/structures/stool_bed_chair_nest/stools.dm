@@ -241,12 +241,8 @@
 	user.visible_message(SPAN_NOTICE("[user] [deploy_verb]s \the [src.name]."), SPAN_NOTICE("You [deploy_verb] \the [name]."))
 	// playsound(src, deploy_sound ? deploy_sound : drop_sound, DROP_SOUND_VOLUME)
 	user.drop_from_inventory(src)
-	var/obj/structure/bed/stool/S = new origin_type(get_turf(loc))
-	if(src.padding_material)
-		S.padding_material = src.padding_material
-		if(src.painted_colour)
-			S.painted_colour = src.painted_colour
-		S.update_icon()
+	var/obj/structure/bed/stool/S = new origin_type(get_turf(loc), material.name, padding_material ? padding_material.name : null) // Fuck me.
+	S.update_icon()
 	TransferComponents(S)
 	S.dir = user.dir // Plant it where the user's facing
 	if(blood_DNA)
