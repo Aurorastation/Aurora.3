@@ -75,6 +75,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/champagne = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/vodka = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/vodka/mushroom = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/pulque = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/fireball = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/whiskey = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/victorygin = 2,
@@ -652,7 +653,8 @@
 		/obj/item/storage/box/evidence = 6,
 		/obj/item/device/holowarrant = 5,
 		/obj/item/device/flashlight/maglight = 5,
-		/obj/item/device/hailer = 5
+		/obj/item/device/hailer = 5,
+		/obj/item/reagent_containers/food/snacks/donut/normal = 6
 	)
 	premium = list(
 		/obj/item/storage/box/fancy/donut = 2
@@ -721,6 +723,7 @@
 		/obj/item/seeds/cherryseed = 3,
 		/obj/item/seeds/chiliseed = 3,
 		/obj/item/seeds/cocoapodseed = 3,
+		/obj/item/seeds/coffeeseed = 3,
 		/obj/item/seeds/cornseed = 3,
 		/obj/item/seeds/dynseed = 3,
 		/obj/item/seeds/earthenroot = 2,
@@ -735,6 +738,7 @@
 		/obj/item/seeds/lemonseed = 3,
 		/obj/item/seeds/limeseed = 3,
 		/obj/item/seeds/mtearseed = 3,
+		/obj/item/seeds/mintseed = 3,
 		/obj/item/seeds/nifberries = 2,
 		/obj/item/seeds/onionseed = 3,
 		/obj/item/seeds/orangeseed = 3,
@@ -755,9 +759,11 @@
 		/obj/item/seeds/sugarcaneseed = 3,
 		/obj/item/seeds/sunflowerseed = 3,
 		/obj/item/seeds/sugartree = 2,
+		/obj/item/seeds/teaseed = 3,
 		/obj/item/seeds/tobaccoseed = 3,
 		/obj/item/seeds/tomatoseed = 3,
 		/obj/item/seeds/towermycelium = 3,
+		/obj/item/seeds/vanilla = 3,
 		/obj/item/seeds/watermelonseed = 3,
 		/obj/item/seeds/wheatseed = 3,
 		/obj/item/seeds/whitebeetseed = 3,
@@ -787,6 +793,7 @@
 		/obj/item/seeds/cherryseed = 40,
 		/obj/item/seeds/chiliseed = 50,
 		/obj/item/seeds/cocoapodseed = 50,
+		/obj/item/seeds/coffeeseed = 70,
 		/obj/item/seeds/cornseed = 30,
 		/obj/item/seeds/dynseed = 80,
 		/obj/item/seeds/earthenroot = 70,
@@ -801,6 +808,7 @@
 		/obj/item/seeds/lemonseed = 40,
 		/obj/item/seeds/limeseed = 50,
 		/obj/item/seeds/mtearseed = 60,
+		/obj/item/seeds/mintseed = 70,
 		/obj/item/seeds/nifberries = 70,
 		/obj/item/seeds/onionseed = 30,
 		/obj/item/seeds/orangeseed = 40,
@@ -821,9 +829,11 @@
 		/obj/item/seeds/sugarcaneseed = 20,
 		/obj/item/seeds/sunflowerseed = 20,
 		/obj/item/seeds/sugartree = 40,
+		/obj/item/seeds/teaseed = 30,
 		/obj/item/seeds/tobaccoseed = 40,
 		/obj/item/seeds/tomatoseed = 30,
 		/obj/item/seeds/towermycelium = 20,
+		/obj/item/seeds/vanilla = 30,
 		/obj/item/seeds/watermelonseed = 30,
 		/obj/item/seeds/wheatseed = 20,
 		/obj/item/seeds/whitebeetseed = 20,
@@ -956,7 +966,8 @@
 		/obj/item/device/analyzer = 5,
 		/obj/item/device/t_scanner = 5,
 		/obj/item/screwdriver = 5,
-		/obj/item/tape_roll = 3
+		/obj/item/tape_roll = 3,
+		/obj/item/hammer = 3
 	)
 	contraband = list(
 		/obj/item/weldingtool/hugetank = 2,

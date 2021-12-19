@@ -160,11 +160,20 @@ BLIND     // can't see anything
 
 	attack_self(usr)
 
+/obj/item/clothing/glasses/hud/health/aviator/visor
+	name = "medical HUD visor"
+	desc = "Modified visor glasses with a toggled health HUD. Comes with bonus prescription overlay."
+	icon_state = "visor_medhud"
+	off_state = "visor_medhud_off"
+
 /obj/item/clothing/glasses/science
 	name = "science goggles"
 	desc = "Used to protect your eyes against harmful chemicals!"
 	icon_state = "purple"
 	item_state = "purple"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/eyes.dmi'
+	)
 	toggleable = 1
 	unacidable = 1
 	item_flags = AIRTIGHT
@@ -321,6 +330,9 @@ BLIND     // can't see anything
 	desc = "Very confusing glasses."
 	icon_state = "material"
 	item_state = "material"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/eyes.dmi'
+	)
 	action_button_name = "Toggle Goggles"
 	origin_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 3)
 	toggleable = 1
@@ -416,12 +428,16 @@ BLIND     // can't see anything
 	item_state = "glasses"
 	prescription = 7
 	body_parts_covered = 0
+	canremove = FALSE
 
 /obj/item/clothing/glasses/sunglasses
 	name = "sunglasses"
 	desc = "Strangely ancient technology used to help provide rudimentary eye cover."
 	icon_state = "sun"
 	item_state = "sun"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/eyes.dmi'
+	)
 	darkness_view = -1
 	flash_protection = FLASH_PROTECTION_MODERATE
 
@@ -447,6 +463,12 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/sunglasses/big
 	icon_state = "bigsunglasses"
 	item_state = "sun"
+
+/obj/item/clothing/glasses/sunglasses/visor
+	name = "visor sunglasses"
+	desc = "A pair of visor sunglasses."
+	icon_state = "visor"
+	item_state = "visor"
 
 //For style with no powergaming connotations.
 
@@ -480,12 +502,22 @@ BLIND     // can't see anything
 	icon_state = "bigsunglasses"
 	item_state = "sun"
 
+/obj/item/clothing/glasses/fakesunglasses/visor
+	name = "stylish visor sunglasses"
+	desc = "A pair of designer visor sunglasses."
+	icon_state = "visor"
+	item_state = "visor"
+
 /obj/item/clothing/glasses/welding
 	name = "welding goggles"
 	desc = "Protects the eyes from welders, approved by the mad scientist association."
 	icon_state = "welding-g"
 	item_state = "welding-g"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/eyes.dmi'
+	)
 	action_button_name = "Flip Welding Goggles"
+
 	var/up = 0
 	item_flags = THICKMATERIAL
 	flash_protection = FLASH_PROTECTION_MAJOR
@@ -524,12 +556,15 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/aug/welding
 	name = "glare dampeners"
-	desc = "Protects the eyes from welders."
-	icon_state = "welding-g"
-	item_state = "welding-g"
+	desc = "A subdermal implant installed just above the brow line that deploys a thin sheath of hyperpolycarbonate that protects from eye damage associated with arc flash."
+	icon = 'icons/clothing/eyes/welding_goggles.dmi'
+	icon_state = "welding-aug"
+	item_state = "welding-aug"
+	contained_sprite = TRUE
 	item_flags = THICKMATERIAL
 	flash_protection = FLASH_PROTECTION_MAJOR
 	tint = TINT_HEAVY
+	canremove = FALSE
 
 /obj/item/clothing/glasses/aug/throw_at()
 	usr.drop_from_inventory(src)
@@ -543,6 +578,9 @@ BLIND     // can't see anything
 	desc = "Welding goggles made from more expensive materials, strangely smells like potatoes."
 	icon_state = "rwelding-g"
 	item_state = "rwelding-g"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/eyes.dmi'
+	)
 	tint = TINT_MODERATE
 
 /obj/item/clothing/glasses/welding/emergency
@@ -581,6 +619,9 @@ BLIND     // can't see anything
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "blinders"
 	item_state = "blinders"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/eyes.dmi', BODYTYPE_VAURCA_WARFORM = 'icons/mob/species/warriorform/eyes.dmi'
+	)
 	contained_sprite = TRUE
 	shatter_material = FALSE
 	drop_sound = 'sound/items/drop/gloves.ogg'
@@ -730,11 +771,21 @@ BLIND     // can't see anything
 	icon_state = "aviator_sec_idris"
 	off_state = "aviator_sec_idris_off"
 
+obj/item/clothing/glasses/sunglasses/sechud/aviator/visor
+	name = "security HUD visor"
+	desc = "NanoTrasen security visor glasses that can be switched between HUD and flash protection modes. They come with a built-in prescription overlay."
+	icon_state = "visor_sec"
+	off_state = "visor_sec_off"
+	item_state_slots = list(slot_r_hand_str = "visor_sec", slot_l_hand_str = "visor_sec")
+
 /obj/item/clothing/glasses/thermal
 	name = "optical thermal scanner"
 	desc = "Thermals in the shape of glasses."
 	icon_state = "thermal"
 	item_state = "thermal"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/eyes.dmi'
+	)
 	action_button_name = "Toggle Goggles"
 	origin_tech = list(TECH_MAGNET = 3)
 	toggleable = 1
@@ -767,6 +818,9 @@ BLIND     // can't see anything
 	name = "optical meson scanner"
 	desc = "Used for seeing walls, floors, and stuff through anything."
 	icon_state = "meson"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/eyes.dmi'
+	)
 	origin_tech = list(TECH_MAGNET = 3, TECH_ILLEGAL = 4)
 
 /obj/item/clothing/glasses/thermal/plain

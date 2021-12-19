@@ -36,7 +36,8 @@
 		/datum/species/skrell,
 		/datum/species/tajaran,
 		/datum/species/unathi,
-		/datum/species/bug,
+		/datum/species/bug = TRUE,
+		/datum/species/bug/type_b = TRUE,
 		/datum/species/machine
 	)
 
@@ -55,8 +56,11 @@
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_DIONA,
+			SPECIES_DIONA_COEUS,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER,
 			SPECIES_UNATHI
 		)
 	)

@@ -355,7 +355,7 @@
 /mob/living/carbon/can_use_hands()
 	if(handcuffed)
 		return 0
-	if(buckled_to && ! istype(buckled_to, /obj/structure/bed/chair)) // buckling does not restrict hands
+	if(buckled_to && ! istype(buckled_to, /obj/structure/bed/stool/chair)) // buckling does not restrict hands
 		return 0
 	return 1
 
@@ -499,3 +499,6 @@
 
 /mob/living/carbon/proc/is_drowsy()
 	return (drowsiness >= 5)
+
+/mob/living/carbon/proc/should_have_limb(var/organ_check)
+	return FALSE

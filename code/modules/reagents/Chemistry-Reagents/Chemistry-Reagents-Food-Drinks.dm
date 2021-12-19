@@ -370,6 +370,54 @@
 	taste_description = "bitterness"
 	taste_mult = 1.3
 
+/decl/reagent/nutriment/coffeegrounds
+	name = "Coffee Grounds"
+	description = "Enjoy the great taste of coffee."
+	reagent_state = SOLID
+	nutriment_factor = 1
+	color = "#5c4a11"
+	taste_description = "earthy gritty coffee"
+	taste_mult = 0.4
+	condiment_name = "ground coffee"
+	condiment_icon_state = "coffee"
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
+/decl/reagent/nutriment/coffeegrounds/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	..()
+	if(alien != IS_DIONA)
+		M.dizziness = max(0, M.dizziness - 5)
+		M.drowsiness = max(0, M.drowsiness - 3)
+		M.sleeping = max(0, M.sleeping - 2)
+		M.intoxication = max(0, (M.intoxication - (removed*0.25)))
+		//copied from coffee
+
+/decl/reagent/nutriment/coffeegrounds/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
+	if(alien != IS_DIONA)
+		M.make_jittery(5)
+		//copied from coffee
+
+/decl/reagent/nutriment/teagrounds
+	name = "Tea Grounds"
+	description = "Enjoy the great taste of tea."
+	reagent_state = SOLID
+	nutriment_factor = 1
+	color = "#4fd24d"
+	taste_description = "potent gritty tea"
+	taste_mult = 0.4
+	condiment_name = "ground tea"
+	condiment_icon_state = "tea"
+	condiment_center_of_mass = list("x"=16, "y"=8)
+	var/last_taste_time = -100
+
+/decl/reagent/nutriment/teagrounds/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(alien == IS_DIONA)
+		if(last_taste_time + 800 < world.time) // Not to spam message
+			to_chat(M, "<span class='danger'>Your body withers as you feel slight pain throughout.</span>")
+			last_taste_time = world.time
+		metabolism = REM * 0.33
+		M.adjustToxLoss(1.5 * removed)
+		//Copied from tea. though i feel it should be stronger as its not diluted with water
+
 /decl/reagent/nutriment/soysauce
 	name = "Soy Sauce"
 	description = "A salty sauce made from the soy plant."
@@ -786,6 +834,15 @@
 	glass_icon_state = "grapejuice"
 	glass_name = "glass of grape juice"
 	glass_desc = "It's grrrrrape!"
+
+/decl/reagent/drink/whitegrapejuice
+	name = "White Grape Juice"
+	description = "It's tart grape!"
+	color = "#863333"
+	taste_description = "tarty grapes"
+	glass_icon_state = "glass_clear"
+	glass_name = "glass of white grape juice"
+	glass_desc = "It's tart grape!"
 
 /decl/reagent/drink/lemonjuice
 	name = "Lemon Juice"
@@ -4064,6 +4121,28 @@
 	glass_desc = "A very classy looking drink."
 	glass_center_of_mass = list("x"=15, "y"=7)
 
+/decl/reagent/alcohol/blushwine
+	name = "Blush Wine"
+	description = "A premium alchoholic beverage made from distilled grape juice."
+	color = "#e5d272"
+	strength = 10
+	taste_description = "delightful sweetness"
+	glass_icon_state = "blushwineglass"
+	glass_name = "glass of blush wine"
+	glass_desc = "A very classy looking drink."
+	glass_center_of_mass = list("x"=15, "y"=7)
+
+/decl/reagent/alcohol/melonwine
+	name = "Melon Wine"
+	description = "A fruity alchoholic beverage made from wine and melon liquor."
+	color = "#11cf39" // rgb: 126, 64, 67
+	strength = 20
+	taste_description = "mouth watering fruity sweetness"
+	glass_icon_state = "melonwine"
+	glass_name = "glass of Melon-Wine"
+	glass_desc = "A very classy looking drink."
+	glass_center_of_mass = list("x"=15, "y"=7)
+
 /decl/reagent/alcohol/messa_mead
 	name = "Messa's Mead"
 	description = "A sweet alcoholic adhomian drink. Produced with Messa's tears and earthen-root."
@@ -4509,6 +4588,17 @@
 		metabolism = REM * 0.33
 		M.adjustToxLoss(1.5 * removed)
 
+/decl/reagent/alcohol/butanol/pulque
+	name = "Xuizi pulque"
+	description = "A variation of Mictlanian pulque that is safe to consume for Unathi."
+	color = "#80f580"
+	strength = 5
+	taste_description = "sweet yeast"
+
+	glass_icon_state = "pulque_butanol"
+	glass_name = "cup of xuizi pulque"
+	glass_desc = "A variation of Mictlanian pulque that is safe to consume for Unathi."
+
 //ZZZZOOOODDDDAAAAA
 
 /decl/reagent/drink/zorasoda
@@ -4655,6 +4745,12 @@
 	glass_name = "glass of Hro'zamal Soda"
 	glass_desc = "A cabornated version of the herbal tea made with Hro'zamal Ras'Nifs powder."
 
+/decl/reagent/nutriment/vanilla
+	name = "Vanilla Extract"
+	description = "The extract from vanilla beans..."
+	color = "#e8efe5"
+	taste_description = "vanilla"
+
 /decl/reagent/nutriment/pumpkinpulp
 	name = "Pumpkin Pulp"
 	description = "The gooey insides of a slain pumpkin. This day is the greatest..."
@@ -4751,10 +4847,21 @@
 	description = "A Vaurcesian take on liqueur coffee, quickly becoming a favorite of the Zo'ra hive."
 	color = "#C00000"
 	taste_description = "minty coffee"
+	strength = 15
 
 	glass_icon_state = "caprician_coffee"
 	glass_name = "glass of caprician coffee"
 	glass_desc = "A Vaurcesian take on liqueur coffee, quickly becoming a favorite of the Zo'ra hive."
+
+/decl/reagent/drink/toothpaste/ichor
+	name = "Xsain Ichor"
+	description = "A slushy beverage popular in Tret, often used as an example of K'laxan pride."
+	color = "#584721"
+	taste_description = "minty cactus water"
+
+	glass_icon_state = "ichor"
+	glass_name = "glass of xsain ichor"
+	glass_desc = "A slushy beverage popular in Tret, often used as an example of K'laxan pride."
 
 /decl/reagent/alcohol/mojito
 	name = "Mojito"
@@ -4784,7 +4891,7 @@
 	strength = 30
 	color = "#FFF1B2"
 	taste_description = "pineapple, coconut, and a hint of the ocean"
-	
+
 	glass_icon_state = "pina_colada"
 	glass_name = "glass of pina colada"
 	glass_desc = "Prepared just like in Silversun."
@@ -4809,7 +4916,7 @@
 
 	glass_icon_state = "spacecola"
 	glass_name = "glass of diet cola"
-	glass_desc = "Space Cola! Now in diet!" 
+	glass_desc = "Space Cola! Now in diet!"
 
 /decl/reagent/drink/milk/chocolate
 	name = "Chocolate milk"
@@ -4841,3 +4948,54 @@
 	glass_icon_state = "glass_red"
 	glass_name = "glass of Xanu Rush!"
 	glass_desc = "Made from the NEW Xanu Prime peaches."
+
+/decl/reagent/alcohol/pulque
+	name = "pulque"
+	description = "A traditional Mictlanian drink made from fermented sap of maguey."
+	strength = 15
+	color = "f1f1f1"
+	taste_description = "yeast"
+
+	glass_icon_state = "pulque"
+	glass_name = "pulque"
+	glass_desc = "A traditional Mictlanian drink made from fermented sap of maguey."
+
+/decl/reagent/alcohol/pulque/dyn
+	name = "dyn pulque"
+	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is dyn flavored."
+	color = "a8ffff"
+	taste_description = "yeasty menthol"
+
+	glass_icon_state = "pulque_dyn"
+	glass_name = "dyn pulque"
+	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is dyn flavored."
+
+/decl/reagent/alcohol/pulque/banana
+	name = "banana pulque"
+	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is banana flavored."
+	color = "ffe777"
+	taste_description = "yeasty banana"
+
+	glass_icon_state = "pulque_banana"
+	glass_name = "banana pulque"
+	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is banana flavored."
+
+/decl/reagent/alcohol/pulque/berry
+	name = "berry pulque"
+	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is berry flavored."
+	color = "cc0066"
+	taste_description = "yeasty berries"
+
+	glass_icon_state = "pulque_berry"
+	glass_name = "berry pulque"
+	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is berry flavored."
+
+/decl/reagent/alcohol/pulque/coffee
+	name = "coffee pulque"
+	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is coffee flavored."
+	color = "722b13"
+	taste_description = "yeasty coffee"
+
+	glass_icon_state = "pulque_coffee"
+	glass_name = "coffee pulque"
+	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is coffee flavored."

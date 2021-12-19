@@ -168,6 +168,14 @@
 	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	siemens_coefficient = 1.5
 
+/obj/item/clothing/suit/golden_tailcoat
+	name = "golden tailcoat"
+	desc = "A brilliant looking golden tailcoat of sorts."
+	icon = 'icons/clothing/suits/goldendeep_tailcoat.dmi'
+	icon_state = "tailcoat"
+	item_state = "tailcoat"
+	body_parts_covered = UPPER_TORSO|ARMS
+
 /obj/item/clothing/suit/storage/toggle/bomber
 	name = "bomber jacket"
 	desc = "A thick, well-worn WW2 leather bomber jacket."
