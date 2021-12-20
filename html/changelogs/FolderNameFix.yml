@@ -1,6 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - bugfix: "Folders can now be renamed while standing next to them rather than having to carry them."

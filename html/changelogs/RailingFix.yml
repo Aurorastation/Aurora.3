@@ -1,6 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - bugfix: "Jumping over railings will no longer move people into solid objects."

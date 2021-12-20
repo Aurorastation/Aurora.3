@@ -16,7 +16,7 @@
 
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
-		ui = new(user, src, "admin-permissions-panel", 800, 600, "Permissions panel", state = interactive_state)
+		ui = new(user, src, "admin-permissions-panel", 800, 600, "Permissions panel", state = admin_state)
 		ui.header = "minimal"
 		ui.data = vueui_data_change(list(), user, ui)
 
