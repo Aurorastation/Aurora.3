@@ -326,6 +326,7 @@
 
 /obj/structure/bed/stool/chair/unmovable
 	can_dismantle = FALSE
+	held_item = null
 
 /obj/structure/bed/stool/chair/shuttle
 	name = "shuttle chair"
@@ -335,6 +336,7 @@
 	material_alteration = MATERIAL_ALTERATION_NAME || MATERIAL_ALTERATION_DESC
 	can_dismantle = FALSE
 	anchored = TRUE
+	held_item = null
 
 /obj/structure/bed/stool/chair/shuttle/post_buckle()
 	if(buckled)
