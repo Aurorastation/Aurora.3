@@ -8,11 +8,7 @@
 	var/list/custom_sprites = list(/obj/item/clothing/head/beret/security, /obj/item/clothing/accessory/poncho/tajarancloak) // Custom manual sprite override.
 
 /obj/structure/coatrack/attack_hand(mob/user as mob)
-	if(!ishuman(user))
-		return
-	if(user.incapacitated())
-		return
-	if(!user.can_use_hand())
+	if(use_check_and_message(user))
 		return
 	if(coat)
 		user.visible_message("[user] takes [coat] off \the [src].", SPAN_NOTICE("You take [coat] off the \the [src]."))
@@ -26,6 +22,8 @@
 		update_icon()
 
 /obj/structure/coatrack/attackby(obj/item/W as obj, mob/user as mob)
+	if(use_check_and_message(user))
+		return
 	if(!coat && (istype(W, /obj/item/clothing/suit/storage/toggle) || istype(W, /obj/item/clothing/accessory/poncho)))
 		user.visible_message("[user] hangs [W] on \the [src].", SPAN_NOTICE("You hang [W] on the \the [src]."))
 		coat = W
