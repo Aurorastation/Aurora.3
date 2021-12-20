@@ -3,6 +3,7 @@
 	desc = "Rack that holds coats, or hats, if you're so inclined."
 	icon = 'icons/obj/coatrack.dmi'
 	icon_state = "coatrack"
+	layer = ABOVE_MOB_LAYER //Hide behind coat racks. Because funny.
 	var/obj/item/clothing/coat
 	var/obj/item/clothing/head/hat
 	var/list/custom_sprites = list(/obj/item/clothing/head/beret/security, /obj/item/clothing/accessory/poncho/tajarancloak) // Custom manual sprite override.
@@ -10,16 +11,36 @@
 /obj/structure/coatrack/attack_hand(mob/user as mob)
 	if(use_check_and_message(user))
 		return
+	if(coat && hat)
+		var/response = ""
+		response = alert(user, "Do you remove the coat, or the hat?", "Coat Rack Selection", "Coat", "Hat", "Cancel")
+		if(response != "Coat" && response != "Hat")
+			add_fingerprint(user)
+			return
+		if(response == "Coat")
+			remove_coat(user)
+		if(response == "Hat")
+			remove_hat(user)
+		add_fingerprint(user)
+		return
 	if(coat)
-		user.visible_message("[user] takes [coat] off \the [src].", SPAN_NOTICE("You take [coat] off the \the [src]."))
-		user.put_in_hands(coat)
-		coat = null
-		update_icon()
-	else if(hat)
-		user.visible_message("[user] takes [hat] off \the [src].", SPAN_NOTICE("You take [hat] off the \the [src]."))
-		user.put_in_hands(hat)
-		hat = null
-		update_icon()
+		remove_coat(user)
+	if(hat)
+		remove_hat(user)
+	add_fingerprint(user)
+	return	
+
+/obj/structure/coatrack/proc/remove_coat(mob/user as mob)
+	user.visible_message("[user] takes [coat] off \the [src].", SPAN_NOTICE("You take [coat] off the \the [src]."))
+	user.put_in_hands(coat)
+	coat = null
+	update_icon()
+
+/obj/structure/coatrack/proc/remove_hat(mob/user as mob)
+	user.visible_message("[user] takes [hat] off \the [src].", SPAN_NOTICE("You take [hat] off the \the [src]."))
+	user.put_in_hands(hat)
+	hat = null
+	update_icon()
 
 /obj/structure/coatrack/attackby(obj/item/W as obj, mob/user as mob)
 	if(use_check_and_message(user))
