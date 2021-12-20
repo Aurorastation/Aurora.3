@@ -165,8 +165,10 @@
 	if(O.anchored) return
 
 	var/obj/structure/bed/stool/chair/C
-	if(istype(O, /obj/structure/bed/stool/chair))
-		C = O
+	if(!istype(O, /obj/structure/bed/stool/chair/office))
+		return
+
+	C = O
 
 	var/list/move_speed = list(1, 1, 1, 2, 2, 3)
 	for(var/i in 1 to 6)

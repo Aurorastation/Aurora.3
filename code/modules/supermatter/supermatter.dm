@@ -363,7 +363,7 @@
 /obj/machinery/power/supermatter/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new(user, src, "machinery-power-supermattercrystal", 500, 300, "Supermatter Crystal", state = interactive_state)
+		ui = new(user, src, "machinery-power-supermattercrystal", 500, 300, "Supermatter Crystal")
 		ui.auto_update_content = TRUE
 		ui.open()
 
