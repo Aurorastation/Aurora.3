@@ -11863,7 +11863,6 @@
 /area/maintenance/research_xenobiology)
 "avn" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/machinery/disposal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
@@ -11879,6 +11878,7 @@
 	dir = 1;
 	pixel_y = -28
 	},
+/obj/machinery/disposal/small/north,
 /turf/simulated/floor/tiled,
 /area/medical/patient_wing_post2)
 "avo" = (
@@ -11987,7 +11987,6 @@
 /area/maintenance/engsublevel)
 "avy" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
@@ -11999,6 +11998,7 @@
 	c_tag = "Medical - Patient Wing Recreation Area";
 	dir = 8
 	},
+/obj/machinery/disposal/small/north,
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_hallway)
 "avz" = (

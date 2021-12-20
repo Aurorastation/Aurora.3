@@ -41972,6 +41972,7 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
 	},
+/obj/item/defibrillator/loaded,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
 "bwu" = (
@@ -47512,6 +47513,7 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 10
 	},
+/obj/item/defibrillator/loaded,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
 "bIC" = (
