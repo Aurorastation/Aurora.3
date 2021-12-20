@@ -11,7 +11,6 @@
 	if(supplied)
 		copy_evidence(supplied)
 		name = "[initial(name)] (\the [initial(supplied.name)])"
-		log_and_message_admins(supplied.name)
 		if(istype(supplied, /obj/machinery/door) && supplied.name != initial(supplied.name))
 			source += "\the [initial(supplied.name)]: [supplied.name]"
 		else
@@ -77,7 +76,6 @@
 	if(supplied)
 		copy_evidence(supplied)
 		name = "[initial(name)] (\the [initial(supplied.name)])"
-		log_and_message_admins(supplied.name)
 		if(istype(supplied, /obj/machinery/door) && supplied.name != initial(supplied.name))
 			source += "\the [initial(supplied.name)]: [supplied.name]"
 		else
