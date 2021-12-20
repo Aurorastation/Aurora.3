@@ -1,7 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - bugfix: "People can now be properly moved in all moveable chairs again."
-  - bugfix: "Only office chairs, wheelchairs & subtypes can now be propelled using a fire extinguisher."
