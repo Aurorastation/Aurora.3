@@ -14,15 +14,10 @@
 	if(coat && hat)
 		var/response = ""
 		response = alert(user, "Do you remove the coat, or the hat?", "Coat Rack Selection", "Coat", "Hat", "Cancel")
-		if(response != "Coat" && response != "Hat")
-			add_fingerprint(user)
-			return
 		if(response == "Coat")
 			remove_coat(user)
 		if(response == "Hat")
 			remove_hat(user)
-		add_fingerprint(user)
-		return
 	if(coat)
 		remove_coat(user)
 	if(hat)
