@@ -32,7 +32,7 @@
 	evidence |= supplied.evidence
 	source |= supplied.source
 	name = "[initial(name)] (combined)"
-	to_chat(user, "<span class='notice'>You transfer the contents of \the [initial(supplied.name)] into \the [src].</span>")
+	to_chat(user, SPAN_NOTICE("You transfer the contents of \the [initial(supplied.name)] into \the [src]."))
 	return 1
 
 /obj/item/sample/print/merge_evidence(var/obj/item/sample/supplied, var/mob/user)
@@ -45,7 +45,7 @@
 			evidence[print] = supplied.evidence[print]
 	source |= supplied.source
 	name = "[initial(name)] (combined)"
-	to_chat(user, "<span class='notice'>You overlay \the [src] and \the [initial(supplied.name)], combining the print records.</span>")
+	to_chat(user, SPAN_NOTICE("You overlay \the [src] and \the [initial(supplied.name)], combining the print records."))
 	return 1
 
 /obj/item/sample/attackby(var/obj/O, var/mob/user)
@@ -84,11 +84,15 @@
 /obj/item/sample/fibers
 	name = "fiber bag"
 	desc = "Used to hold fiber evidence for the detective."
+	desc_info = "Holds various fibre evidence. Place it in a slide and the slide into a microscope to check them."
 	icon_state = "fiberbag"
 
 /obj/item/sample/print
 	name = "fingerprint card"
 	desc = "Records a set of fingerprints."
+	desc_info = "A sample card for fingerprints. Risks putting your own prints on it if touched without gloves.\
+	\nPlace the card in a microscope to examine the contents. \
+	\nUse in hand to put your prints on it.\nTarget hands and click another creature to take their prints."
 	icon = 'icons/obj/card.dmi'
 	icon_state = "fingerprint0"
 	item_state = "paper"
@@ -100,10 +104,10 @@
 		return
 	var/mob/living/carbon/human/H = user
 	if(H.gloves)
-		to_chat(user, "<span class='warning'>Take \the [H.gloves] off first.</span>")
+		to_chat(user, SPAN_WARNING("Take \the [H.gloves] off first."))
 		return
 
-	to_chat(user, "<span class='notice'>You firmly press your fingertips onto the card.</span>")
+	to_chat(user, SPAN_NOTICE("You firmly press your fingertips onto the card."))
 	var/fullprint = H.get_full_print()
 	evidence[fullprint] = fullprint
 	source += "[H.name]"
@@ -121,11 +125,11 @@
 	var/mob/living/carbon/human/H = M
 
 	if(H.gloves)
-		to_chat(user, "<span class='warning'>\The [H] is wearing gloves.</span>")
+		to_chat(user, SPAN_WARNING("\The [H] is wearing gloves."))
 		return 1
 
 	if(user != H && H.a_intent != "help" && !H.lying)
-		user.visible_message("<span class='danger'>\The [user] tries to take prints from \the [H], but they move away.</span>")
+		user.visible_message(SPAN_DANGER("\The [user] tries to take prints from \the [H], but they move away."))
 		return 1
 
 	if(target_zone == BP_R_HAND || target_zone == BP_L_HAND)
@@ -138,7 +142,7 @@
 			if(istype(O) && !O.is_stump())
 				has_hand = 1
 		if(!has_hand)
-			to_chat(user, "<span class='warning'>They don't have any hands.</span>")
+			to_chat(user, SPAN_WARNING("They don't have any hands."))
 			return 1
 		user.visible_message("[user] takes a copy of \the [H]'s fingerprints.")
 		var/fullprint = H.get_full_print()
@@ -159,6 +163,7 @@
 /obj/item/forensics/sample_kit
 	name = "fiber collection kit"
 	desc = "A magnifying glass and tweezers. Used to lift suit fibers."
+	desc_info = "Click drag it on to an object to collect evidence. Alternatively click on non-help intent."
 	icon_state = "m_glass"
 	w_class = ITEMSIZE_SMALL
 	flags = NOBLUDGEON
@@ -170,7 +175,7 @@
 
 /obj/item/forensics/sample_kit/proc/take_sample(var/mob/user, var/atom/supplied)
 	var/obj/item/sample/S = new evidence_path(get_turf(user), supplied)
-	to_chat(user, "<span class='notice'>You transfer [S.evidence.len] [evidence_type]\s to \the [S].</span>")
+	to_chat(user, SPAN_NOTICE("You transfer [S.evidence.len] [evidence_type]\s to \the [S]."))
 
 /obj/item/forensics/sample_kit/afterattack(var/atom/A, var/mob/user, var/proximity)
 	if(!proximity)
@@ -180,8 +185,13 @@
 		take_sample(user,A)
 		return 1
 	else
-		to_chat(user, "<span class='warning'>You are unable to locate any [evidence_type]s on \the [A].</span>")
+		to_chat(user, SPAN_WARNING("You are unable to locate any [evidence_type]s on \the [A]."))
 		return ..()
+
+/obj/item/forensics/sample_kit/resolve_attackby(atom/A, mob/user, var/click_parameters)
+	if(user.a_intent != I_HELP)
+		return FALSE
+	. = ..()
 
 /obj/item/forensics/sample_kit/MouseDrop(atom/over)
 	var/mob/M = loc
