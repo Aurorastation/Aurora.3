@@ -1066,7 +1066,7 @@ proc/is_blind(A)
 #undef SAFE_PERP
 
 /mob/proc/get_multitool(var/obj/P)
-	if(P.ismultitool())
+	if(P?.ismultitool())
 		return P
 
 /mob/abstract/observer/get_multitool()
@@ -1166,7 +1166,7 @@ proc/is_blind(A)
 	return species.handle_stance_damage(src, TRUE) >= 4
 
 /mob/living/carbon/human/proc/equip_wheelchair()
-	var/obj/structure/bed/chair/wheelchair/W = new(get_turf(src))
+	var/obj/structure/bed/stool/chair/office/wheelchair/W = new(get_turf(src))
 	if(isturf(loc))
 		buckled_to = W
 		update_canmove()
@@ -1243,21 +1243,6 @@ proc/is_blind(A)
 	var/turf/ear = get_turf(src)
 	if(ear && speaker_coverage[ear])
 		return TRUE
-
-/mob/proc/has_grab()
-	. = MOB_GRAB_NONE
-	if(istype(l_hand, /obj/item/grab))
-		var/obj/item/grab/l_grab = l_hand
-		if(l_grab.wielded)
-			. = max(MOB_GRAB_FIREMAN, .)
-		else
-			. = max(MOB_GRAB_NORMAL, .)
-	if(istype(r_hand, /obj/item/grab))
-		var/obj/item/grab/r_grab = r_hand
-		if(r_grab.wielded)
-			. = max(MOB_GRAB_FIREMAN, .)
-		else
-			. = max(MOB_GRAB_NORMAL, .)
 
 /mob/proc/handle_vision()
 	return

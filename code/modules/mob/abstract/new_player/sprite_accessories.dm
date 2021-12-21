@@ -68,7 +68,7 @@ Follow by example and make good judgement based on length which list to include 
 	bald
 		name = "Bald"   // try to capitalize the names please~
 		icon_state = "bald" // you do not need to define _s or _l sub-states, game automatically does this for you
-		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi,/datum/species/diona)
+		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi,/datum/species/diona, /datum/species/diona/coeu)
 		length = 0
 		chatname = "bald head" //aim to keep these lowercase so they fit into the hair tugging message
 
@@ -1740,7 +1740,8 @@ Follow by example and make good judgement based on length which list to include 
 		name = "None"
 		icon_state = "none"
 		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi,
-		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
+		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell, /datum/species/bug,
+		/datum/species/bug/type_b)
 
 	fade_up
 		name = "Fade (Up)"
@@ -1785,6 +1786,12 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "skrell_gradient_spots"
 		species_allowed = list(/datum/species/skrell, /datum/species/skrell/axiori)
 
+	bulwark_default
+		name = "Bulwark Horn"
+		icon = "icons/mob/base_48.dmi"
+		icon_state = "blank"
+		species_allowed = list(/datum/species/bug/type_e)
+
 /*
 ///////////////////////////////////
 /  =---------------------------=  /
@@ -1802,7 +1809,8 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "bald"
 		gender = NEUTER
 		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi,
-		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell,/datum/species/diona, /datum/species/diona/coeu)
+		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell,/datum/species/diona, 
+		/datum/species/diona/coeu, /datum/species/bug/type_b)
 
 	threeOclock
 		name = "3 O'clock Shadow"
@@ -2314,6 +2322,13 @@ Follow by example and make good judgement based on length which list to include 
 			length = 6
 			chatname = "Long Both Behind"
 
+		skr_tentacle_reef
+			name = "Skrell Reef Ponytail, short"
+			icon_state = "skrell_reef_short"
+			length = 4
+			chatname = "Ponytail, Reef"
+			scrunchy_style = "reef"
+
 //tajaran hair
 
 	taj_ears
@@ -2561,6 +2576,18 @@ Follow by example and make good judgement based on length which list to include 
 		taj_ears_swoop
 			name = "Tajara Swoop"
 			icon_state = "hair_swoop"
+			length = 2
+			chatname = "styled mane"
+			
+		taj_ears_swoop_alt
+			name = "Tajara Swoop Alt"
+			icon_state = "hair_swoop_alt"
+			length = 2
+			chatname = "styled mane"
+
+		taj_ears_swoop_bangs
+			name = "Tajara Swoop Bangs"
+			icon_state = "hair_swoop_bangs"
 			length = 2
 			chatname = "styled mane"
 
@@ -2825,6 +2852,18 @@ Follow by example and make good judgement based on length which list to include 
 			length = 2
 			chatname = "styled mane"
 
+		msai_ears_swoop_alt
+			name = "M'sai Swoop Alt"
+			icon_state = "msai_swoop_alt"
+			length = 2
+			chatname = "styled mane"
+
+		msai_ears_swoop_bangs
+			name = "M'sai Swoop Bangs"
+			icon_state = "msai_swoop_bangs"
+			length = 2
+			chatname = "styled mane"
+
 		msai_ears_swoop_long
 			name = "M'sai Swoop Long"
 			icon_state = "msai_longswoop"
@@ -2917,6 +2956,75 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "vaurca_zappy"
 			chatname = "antennae"
 			length = 2
+
+//Bulwark antennae
+	bulwark_classic
+		icon = 'icons/mob/human_face/bulwark_hair.dmi'
+		name = "Bulwark Classic Antennae"
+		icon_state = "bully_classic"
+		species_allowed = list(/datum/species/bug/type_e)
+		gender = NEUTER
+		chatname = "antennae"
+
+		bulwark_damaged_left
+			name = "Bulwark Injured Antenna, Left"
+			icon_state = "bully_inj_left"
+			chatname = "antenna"
+			length = 1
+		
+		bulwark_damaged_right 
+			name = "Bulwark Injured Antenna, Right"
+			icon_state = "bully_inj_right"
+			chatname = "antenna"
+			length = 1
+
+		bulwark_knight 
+			name = "Bulwark Knight Antennae"
+			icon_state = "bully_knight"
+			chatname = "antennae"
+			length = 2
+
+		bulwark_pointy
+			name = "Pointy Antennae"
+			icon_state = "bully_pointy"
+			chatname = "antennae"
+			length = 2
+
+		bulwark_original
+			name = "Original Antennae"
+			icon_state = "bully_original"
+			chatname = "antennae"
+			length = 2
+
+		bulwark_islero
+			name = "Islero Antennae"
+			icon_state = "bully_islero"
+			chatname = "antennae"
+			length = 3
+
+		bulwark_tall
+			name = "Tall Antennae"
+			icon_state = "bully_tall"
+			chatname = "antennae"
+			length = 4
+
+		bulwark_stag
+			name = "Stag Antennae"
+			icon_state = "bully_stag"
+			chatname = "antennae"
+			length = 5
+
+		bulwark_rhino
+			name = "Rhinoceros Antenna"
+			icon_state = "bully_rhino"
+			chatname = "antenna"
+			length = 5
+
+		bulwark_ladybug
+			name = "Ladybug Antennae"
+			icon_state = "bully_ladybug"
+			chatname = "antennae"
+			length = 6
 
 /datum/sprite_accessory/facial_hair
 	taj_goatee
@@ -3418,6 +3526,50 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Pilot"
 			icon_state = "Pilot"
 
+//Vaurca mandibles
+	clicky
+		icon = 'icons/mob/human_face/vaurca_facial_hair.dmi'
+		name = "Clicky Mandibles"
+		icon_state = "vaurca_clicky"
+		species_allowed = list(/datum/species/bug/type_b)
+		gender = NEUTER
+
+		clacky
+			name = "Clacky Mandibles"
+			icon_state = "vaurca_clacky"
+
+		bulldog
+			name = "Bulldog Mandibles"
+			icon_state = "vaurca_bulldog"
+
+		mantis 
+			name = "Mantis Mandibles"
+			icon_state = "vaurca_mantis"
+
+		stag 
+			name = "Stag Mandibles"
+			icon_state = "vaurca_stag"
+
+		ectatomma
+			name = "Ectatomma Mandibles"
+			icon_state = "vaurca_ectatomma"
+
+		horridus 
+			name = "Horridus Mandibles"
+			icon_state = "vaurca_horridus"
+
+		tusks 
+			name = "Tusk Mandibles"
+			icon_state = "vaurca_tusks"
+
+		acanthognathus
+			name = "Acanthognathus Mandibles"
+			icon_state = "vaurca_acanthognathus"
+
+		myrmoteras 
+			name = "Myrmoteras Mandibles"
+			icon_state = "vaurca_myrmoteras"
+
 /*
 ////////////////////////////
 /  =--------------------=  /
@@ -3434,6 +3586,177 @@ Follow by example and make good judgement based on length which list to include 
 	var/body_parts = list() //A list of bodyparts this covers, TODO: port defines for organs someday
 	var/is_genetic = TRUE	// If TRUE, the marking is considered genetic and is embedded into DNA.
 	var/is_painted = FALSE	// If TRUE, the marking can be put on prosthetics/robolimbs.
+
+	bandage_head
+		name = "Bandage, head 1"
+		icon_state = "bandage1"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+		is_genetic = FALSE
+
+		head_2
+			name = "Bandage, head 2"
+			icon_state= "bandage2"
+
+		head_3
+			name = "Bandage, head 3"
+			icon_state= "bandage3"
+
+	bandage_chest
+		name = "Bandage, chest 1"
+		icon_state = "bandage1"
+		body_parts = list(BP_CHEST)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+		is_genetic = FALSE
+
+		chest_2
+			name= "Bandage, chest 2"
+			icon_state = "bandage2"
+
+		chest_3
+			name= "Bandage, chest 3"
+			icon_state = "bandage3"
+
+	bandage_groin
+		name = "Bandage, groin 1"
+		icon_state = "bandage1"
+		body_parts = list(BP_GROIN)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+		is_genetic = FALSE
+
+		groin_2
+			name= "Bandage, groin 2"
+			icon_state = "bandage2"
+
+		groin_3
+			name= "Bandage, groin 3"
+			icon_state = "bandage3"
+
+	bandage_l_arm
+		name = "Bandage, left arm 1"
+		icon_state = "bandage1"
+		body_parts = list(BP_L_ARM)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+		is_genetic = FALSE
+
+		l_arm_2
+			name= "Bandage, left arm 2"
+			icon_state = "bandage2"
+
+		l_arm_3
+			name= "Bandage, left arm 3"
+			icon_state = "bandage3"
+
+	bandage_l_hand
+		name = "Bandage, left hand 1"
+		icon_state = "bandage1"
+		body_parts = list(BP_L_HAND)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+		is_genetic = FALSE
+
+		l_hand_2
+			name= "Bandage, left hand 2"
+			icon_state = "bandage2"
+
+		l_hand_3
+			name= "Bandage, left hand 3"
+			icon_state = "bandage3"
+
+	bandage_r_arm
+		name = "Bandage, right arm 1"
+		icon_state = "bandage1"
+		body_parts = list(BP_R_ARM)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+		is_genetic = FALSE
+
+		r_arm_2
+			name= "Bandage, right arm 2"
+			icon_state = "bandage2"
+
+		r_arm_3
+			name= "Bandage, right arm 3"
+			icon_state = "bandage3"
+
+	bandage_r_hand
+		name = "Bandage, right hand 1"
+		icon_state = "bandage1"
+		body_parts = list(BP_R_HAND)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+		is_genetic = FALSE
+
+		r_hand_2
+			name= "Bandage, right hand 2"
+			icon_state = "bandage2"
+
+		r_hand_3
+			name= "Bandage, right hand 3"
+			icon_state = "bandage3"
+
+	bandage_l_leg
+		name = "Bandage, left leg 1"
+		icon_state = "bandage1"
+		body_parts = list(BP_L_LEG)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+		is_genetic = FALSE
+
+		l_leg_2
+			name= "Bandage, left leg 2"
+			icon_state = "bandage2"
+
+		l_leg_3
+			name= "Bandage, left leg 3"
+			icon_state = "bandage3"
+
+	bandage_l_foot
+		name = "Bandage, left foot 1"
+		icon_state = "bandage1"
+		body_parts = list(BP_L_FOOT)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+		is_genetic = FALSE
+
+		l_foot_2
+			name= "Bandage, left foot 2"
+			icon_state = "bandage2"
+
+		l_foot_3
+			name= "Bandage, left foot 3"
+			icon_state = "bandage3"
+
+	bandage_r_leg
+		name = "Bandage, right leg 1"
+		icon_state = "bandage1"
+		body_parts = list(BP_R_LEG)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+		is_genetic = FALSE
+
+		r_leg_2
+			name= "Bandage, right leg 2"
+			icon_state = "bandage2"
+
+		r_leg_3
+			name= "Bandage, right leg 3"
+			icon_state = "bandage3"
+
+	bandage_r_foot
+		name = "Bandage, right foot 1"
+		icon_state = "bandage1"
+		body_parts = list(BP_R_FOOT)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/skrell, /datum/species/skrell/axiori)
+		is_genetic = FALSE
+
+		r_foot_2
+			name= "Bandage, right foot 2"
+			icon_state = "bandage2"
+
+		r_foot_3
+			name= "Bandage, right foot 3"
+			icon_state = "bandage3"
+
+	heterochromia
+		name = "Heterochromia (Right eye)"
+		icon_state = "heterochromia"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	aug_scalpports
 		name = "Augment (Scalp Ports)"
@@ -3859,21 +4182,21 @@ Follow by example and make good judgement based on length which list to include 
 
 	scar_chest
 		name = "Scar, Chest"
-		icon_state = "surgicalscar_chest"
+		icon_state = "surgicalscar"
 		body_parts = list(BP_CHEST)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/bug, /datum/species/bug/type_b)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/bug, /datum/species/bug/type_b)
 
 	scar_chest_left
 		name = "Scar, Chest Left"
-		icon_state = "chestscar_l_chest"
+		icon_state = "chestscar1"
 		body_parts = list(BP_CHEST)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/bug, /datum/species/bug/type_b)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/bug, /datum/species/bug/type_b)
 
 	scar_chest_right
 		name = "Scar, Chest Right"
-		icon_state = "chestscar_r_chest"
+		icon_state = "chestscar2"
 		body_parts = list(BP_CHEST)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/bug, /datum/species/bug/type_b)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/bug, /datum/species/bug/type_b)
 
 	scratch_abdomen_left
 		name = "Scratch, Abdomen Left"
@@ -3949,13 +4272,13 @@ Follow by example and make good judgement based on length which list to include 
 
 	tat_circle_back
 		name = "Tattoo (Circle, Back)"
-		icon_state = "tat_circle_back"
+		icon_state = "tat_circle"
 		body_parts = list(BP_CHEST)
 		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	tat_circle_big_back
 		name = "Tattoo (Big Circle, Back)"
-		icon_state = "tat_bigcircle_back"
+		icon_state = "tat_bigcircle"
 		body_parts = list(BP_CHEST)
 		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
@@ -3973,7 +4296,7 @@ Follow by example and make good judgement based on length which list to include 
 
 	tat_harness
 		name = "Tattoo (Harness, Chest)"
-		icon_state = "tat_harness_body"
+		icon_state = "tat_harness"
 		body_parts = list(BP_CHEST)
 		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
@@ -4075,7 +4398,7 @@ Follow by example and make good judgement based on length which list to include 
 
 	tat_spine_back
 		name = "Tattoo (Spine, Back)"
-		icon_state = "tat_spine_back"
+		icon_state = "tat_spine"
 		body_parts = list(BP_CHEST)
 		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 

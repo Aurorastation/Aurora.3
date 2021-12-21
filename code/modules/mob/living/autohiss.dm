@@ -62,21 +62,27 @@
 
 /datum/species/bug
 	autohiss_basic_map = list(
-			"s" = list("z","zz")
+			"f" = list("v","vh"),
+			"ph" = list("v", "vh")
 		)
 	autohiss_extra_map = list(
-			"f" = list("v", "vh"),
-			"ph" = list("v", "vh")
+			"s" = list("z", "zz", "zzz"),
+			"ce" = list("z", "zz"),
+			"ci" = list("z", "zz"),
+			"v" = list("vv", "vvv")
 		)
 	autohiss_exempt = list(LANGUAGE_VAURCA)
 
 /datum/species/bug/type_b
 	autohiss_basic_map = list(
-			"s" = list("z","zz", "zzz")
+			"f" = list("v","vh"),
+			"ph" = list("v", "vh")
 		)
 	autohiss_extra_map = list(
-			"f" = list("v", "vh"),
-			"ph" = list("v", "vh")
+			"s" = list("z", "zz", "zzz"),
+			"ce" = list("z", "zz"),
+			"ci" = list("z", "zz"),
+			"v" = list("vv", "vvv")
 		)
 	autohiss_exempt = list(LANGUAGE_VAURCA)
 

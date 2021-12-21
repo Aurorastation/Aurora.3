@@ -1,6 +1,8 @@
 /obj/item/clothing/suit/storage/toggle/labcoat
 	name = "labcoat"
 	desc = "A suit that protects against minor chemical spills."
+	icon = 'icons/mob/clothing/suit/labcoat.dmi'
+	contained_sprite = TRUE
 	icon_state = "labcoat"
 	item_state = "labcoat" // used for inhands and onmobs. ESPECIALLY FOR CONTAINED SPRITES
 	blood_overlay_type = "coat"
@@ -27,11 +29,6 @@
 	desc = "A labcoat with command gold highlights."
 	icon_state = "labcoat_cmoalt2"
 
-/obj/item/clothing/suit/storage/toggle/labcoat/genetics
-	name = "geneticist labcoat"
-	desc = "A suit that protects against minor chemical spills. Has a blue stripe on the shoulder."
-	icon_state = "labcoat_gen"
-
 /obj/item/clothing/suit/storage/toggle/labcoat/medical
 	name = "medical labcoat"
 	desc = "A suit that protects against minor chemical spills. Has a green stripe on the shoulder."
@@ -41,11 +38,6 @@
 	name = "pharmacist labcoat"
 	desc = "A suit that protects against minor chemical spills. Has an orange stripe on the shoulder."
 	icon_state = "labcoat_chem"
-
-/obj/item/clothing/suit/storage/toggle/labcoat/biochemist
-	name = "protective labcoat"
-	desc = "A suit that protects against minor chemical spills. Has a red stripe on the shoulder."
-	icon_state = "labcoat_vir"
 
 /obj/item/clothing/suit/storage/toggle/labcoat/psych
 	name = "psychiatrist labcoat"
@@ -65,7 +57,7 @@
 /obj/item/clothing/suit/storage/toggle/labcoat/science
 	name = "scientist labcoat"
 	desc = "A suit that protects against minor chemical spills. Has a purple stripe on the shoulder."
-	icon_state = "labcoat_tox"
+	icon_state = "labcoat_sci"
 
 /obj/item/clothing/suit/storage/iacvest
 	desc = "It's a lightweight vest. Made of a dark, navy mesh with highly-reflective white material, designed to be worn by the Interstellar Aid Corps as a high-visibility vest, over any other clothing. The I.A.C. logo is prominently  displayed on the back of the vest, between the shoulders."
@@ -119,3 +111,11 @@
 	name = "security labcoat"
 	desc = "A suit that protects against minor chemical spills. Has a dark blue stripe on the shoulder."
 	icon_state = "labcoat_sec"
+
+/obj/item/clothing/suit/storage/toggle/labcoat/idris
+	name = "idris labcoat"
+	desc = "A suit that protects against minor chemical spills. Comes in Idris colours."
+	icon_state = "labcoat_idris"
+
+/obj/item/clothing/suit/storage/toggle/labcoat/idris/alt
+	icon_state = "labcoat_idris_alt"

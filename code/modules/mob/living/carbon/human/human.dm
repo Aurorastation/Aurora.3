@@ -613,7 +613,8 @@
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
 			if(istype(R) && istype(R.security))
 				if(hasHUD(usr,"security"))
-					to_chat(usr, "<b>Name:</b> [R.name]]	<b>Criminal Status:</b> [R.security.criminal]")
+					to_chat(usr, "<b>Name:</b> [R.name]")
+					to_chat(usr, "<b>Criminal Status:</b> [R.security.criminal]")
 					to_chat(usr, "<b>Crimes:</b> [R.security.crimes]")
 					to_chat(usr, "<b>Notes:</b> [R.security.notes]")
 					to_chat(usr, "<a href='?src=\ref[src];secrecordComment=`'>\[View Comment Log\]</a>")
@@ -911,7 +912,7 @@
 	var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
 	var/nothing_to_puke = FALSE
 	if(should_have_organ(BP_STOMACH))
-		if(!istype(stomach) || (stomach.ingested.total_volume <= 3 && !length(stomach.contents)))
+		if(!istype(stomach) || (stomach.ingested.total_volume <= 3 && !length(stomach.contents)) && nutrition <= 50)
 			nothing_to_puke = TRUE
 	else if(!(locate(/mob) in contents))
 		nothing_to_puke = TRUE
@@ -949,6 +950,7 @@
 				A.dropInto(get_turf(src))
 			if((species.gluttonous & GLUT_PROJECTILE_VOMIT) && !vomitReceptacle)
 				A.throw_at(get_edge_target_turf(src,dir),7,7,src)
+		nutrition -= 20
 	else
 		for(var/mob/M in contents)
 			if(vomitReceptacle)
@@ -1922,6 +1924,9 @@
 /mob/living/carbon/human/should_have_organ(var/organ_check)
 	return (species?.has_organ[organ_check])
 
+/mob/living/carbon/human/should_have_limb(var/limb_check)
+	return (species?.has_limbs[limb_check])
+
 /mob/living/proc/resuscitate()
 	return FALSE
 
@@ -2009,6 +2014,10 @@
 		if(rig.speech && rig.speech.voice_holder && rig.speech.voice_holder.active && rig.speech.voice_holder.current_accent)
 			used_accent = rig.speech.voice_holder.current_accent
 
+	var/obj/item/organ/internal/augment/synthetic_cords/voice/aug = internal_organs_by_name[BP_AUG_ACC_CORDS] //checks for augments, thanks grey
+	if(aug)
+		used_accent = aug.accent
+	
 	for(var/obj/item/gear in list(wear_mask,wear_suit,head)) //checks for voice changers masks now
 		if(gear)
 			var/obj/item/voice_changer/changer = locate() in gear
@@ -2113,16 +2122,16 @@
 	var/obj/item/organ/external/E = organs_by_name[BP_HEAD]
 	switch (intensity)
 		if (1)
-			custom_pain("Your ears hurt a little.", 5, FALSE, E, 0)
+			custom_pain("Your ears hurt a little.", 5, FALSE, E, TRUE)
 		if (2)
-			custom_pain("Your ears hurt!", 10, TRUE, E, 0)
+			custom_pain("Your ears hurt!", 10, TRUE, E, TRUE)
 		if (3)
-			custom_pain("Your ears hurt badly!", 40, TRUE, E, 0)
+			custom_pain("Your ears hurt badly!", 40, TRUE, E, TRUE)
 		if (4)
-			custom_pain("Your ears begin to ring faintly from the pain!", 70, TRUE, E, 0)
+			custom_pain("Your ears begin to ring faintly from the pain!", 70, TRUE, E, TRUE)
 			adjustEarDamage(5, 0, FALSE)
 			stop_listening()
 		if (5)
-			custom_pain("YOUR EARS ARE DEAFENED BY THE PAIN!", 110, TRUE, E, 1)
+			custom_pain("YOUR EARS ARE DEAFENED BY THE PAIN!", 110, TRUE, E, FALSE)
 			adjustEarDamage(5, 5, FALSE)
 			stop_listening()

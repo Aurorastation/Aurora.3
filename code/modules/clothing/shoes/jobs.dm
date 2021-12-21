@@ -49,7 +49,7 @@
 	desc = "Modified pair of boots, particularly friendly to those species whose toes hold claws."
 	icon_state = "jackboots_toeless"
 	species_restricted = null
-	sprite_sheets = list(BODYTYPE_TAJARA = 'icons/mob/species/tajaran/shoes.dmi')
+	sprite_sheets = list(BODYTYPE_TAJARA = 'icons/mob/species/tajaran/shoes.dmi', BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi')
 
 /obj/item/clothing/shoes/jackboots/toeless/knee
 	name = "knee-high toeless black boots"
@@ -89,7 +89,7 @@
 	desc = "A pair of toeless work boots designed for use in industrial settings. Modified for species whose toes have claws."
 	icon_state = "workboots_toeless"
 	species_restricted = null
-	sprite_sheets = list(BODYTYPE_TAJARA = 'icons/mob/species/tajaran/shoes.dmi')
+	sprite_sheets = list(BODYTYPE_TAJARA = 'icons/mob/species/tajaran/shoes.dmi', BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi')
 
 /obj/item/clothing/shoes/workboots/grey
 	name = "grey workboots"

@@ -236,11 +236,11 @@
 
 /*
 	Middle click
-	Only used for swapping hands
 */
 /mob/proc/MiddleClickOn(var/atom/A)
+	if(A.handle_middle_mouse_click(src))
+		return
 	swap_hand()
-	return
 
 // In case of use break glass
 /*

@@ -99,6 +99,16 @@
 		"Your scales bristle against the cold."
 		)
 
+	has_organ = list(
+        BP_BRAIN =    /obj/item/organ/internal/brain/unathi,
+        BP_HEART =    /obj/item/organ/internal/heart/unathi,
+        BP_LIVER =    /obj/item/organ/internal/liver/unathi,
+        BP_LUNGS =    /obj/item/organ/internal/lungs/unathi,
+        BP_KIDNEYS =    /obj/item/organ/internal/kidneys/unathi,
+        BP_STOMACH =    /obj/item/organ/internal/stomach/unathi,
+        BP_EYES =    /obj/item/organ/internal/eyes/unathi
+    )
+
 	pain_emotes_with_pain_level = list(
 			list(/decl/emote/audible/wheeze, /decl/emote/audible/roar, /decl/emote/audible/bellow) = 80,
 			list(/decl/emote/audible/grunt, /decl/emote/audible/groan, /decl/emote/audible/wheeze, /decl/emote/audible/hiss) = 50,
@@ -117,6 +127,8 @@
 
 	default_accent = ACCENT_HEGEMON_PEASANT
 	allowed_accents = list(ACCENT_HEGEMON_NOBLE, ACCENT_HEGEMON_PEASANT, ACCENT_TRAD_NOBLE, ACCENT_TRAD_PEASANT, ACCENT_WASTELAND, ACCENT_DOMINIA_HIGH, ACCENT_DOMINIA_VULGAR)
+
+	possible_external_organs_modifications = list("Normal","Amputated","Prosthesis", "Diona Nymph")
 
 /datum/species/unathi/after_equip(var/mob/living/carbon/human/H)
 	. = ..()

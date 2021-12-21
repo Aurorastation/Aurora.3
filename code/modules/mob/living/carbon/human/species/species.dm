@@ -19,6 +19,7 @@
 	var/list/selectable_pronouns = list(MALE, FEMALE, PLURAL)
 
 	// Icon/appearance vars.
+	var/canvas_icon = 'icons/mob/base_32.dmi'                  // Used to blend parts and icons onto this, to avoid clipping issues.
 	var/icobase = 'icons/mob/human_races/human/r_human.dmi'    // Normal icon set.
 	var/deform = 'icons/mob/human_races/human/r_def_human.dmi' // Mutated icon set.
 	var/preview_icon = 'icons/mob/human_races/human/human_preview.dmi'
@@ -94,7 +95,7 @@
 	var/break_cuffs = FALSE                   //used in resist.dm to check if they can break hand/leg cuffs
 	var/natural_climbing = FALSE             //If true, the species always succeeds at climbing.
 	var/climb_coeff = 1.25                   //The coefficient to the climbing speed of the individual = 60 SECONDS * climb_coeff
-	
+
 	// Death vars.
 	var/respawn_type = CREW
 	var/meat_type = /obj/item/reagent_containers/food/snacks/meat/human
@@ -277,6 +278,7 @@
 	var/bodyfall_sound = /decl/sound_category/bodyfall_sound //default, can be used for species specific falling sounds
 
 	var/list/alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH, BP_APPENDIX) //what internal organs can be changed in character setup
+	var/list/possible_external_organs_modifications = list("Normal","Amputated","Prosthesis")
 
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
@@ -731,7 +733,7 @@
 
 /datum/species/proc/handle_movement_tally(var/mob/living/carbon/human/H)
 	var/tally = 0
-	if(istype(H.buckled_to, /obj/structure/bed/chair/wheelchair))
+	if(istype(H.buckled_to, /obj/structure/bed/stool/chair/office/wheelchair))
 		for(var/organ_name in list(BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM))
 			var/obj/item/organ/external/E = H.get_organ(organ_name)
 			if(!E || E.is_stump())
@@ -788,3 +790,9 @@
 			stance_damage -=2
 
 	return stance_damage
+
+/datum/species/proc/can_hold_s_store(var/obj/item/I)
+	return FALSE
+
+/datum/species/proc/can_double_fireman_carry()
+	return FALSE

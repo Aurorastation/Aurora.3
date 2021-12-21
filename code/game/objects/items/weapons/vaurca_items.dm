@@ -27,7 +27,10 @@
 	icon_state = "shaper_helmet"
 	item_state = "shaper_helmet"
 	contained_sprite = TRUE
-	species_restricted = list(BODYTYPE_VAURCA)
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/head.dmi'
+	)
+	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BULWARK)
 	body_parts_covered = HEAD|FACE|EYES
 
 /obj/item/clothing/head/expression

@@ -1,6 +1,6 @@
----
---- Adds the ss13_admins SQL table again.
----
+--
+-- Adds the ss13_admins SQL table again.
+--
 
 CREATE TABLE `ss13_admins` (
   `ckey` VARCHAR(50) NOT NULL,

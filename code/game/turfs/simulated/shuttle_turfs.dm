@@ -6,7 +6,6 @@
 	icon_state = "map-shuttle"
 	permit_ao = 0
 	smooth = SMOOTH_MORE|SMOOTH_DIAGONAL
-	use_standard_smoothing = 1
 	canSmoothWith = list(
 		/turf/simulated/wall/shuttle,
 		/obj/structure/window/shuttle,
