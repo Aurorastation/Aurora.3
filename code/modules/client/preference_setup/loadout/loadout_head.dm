@@ -349,6 +349,10 @@
 	path = /obj/item/clothing/head/dominia
 	allowed_roles = list("Consular Officer")
 
+/datum/gear/head/hairnet
+	display_name = "hairnet"
+	path = /obj/item/clothing/head/surgery/hairnet
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /*
 	Block Hair Adjustment
