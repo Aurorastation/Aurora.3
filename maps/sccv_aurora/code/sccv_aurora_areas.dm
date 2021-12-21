@@ -237,3 +237,11 @@
 	name = "Secondary Crew Lounge"
 	icon_state = "lounge2"
 
+/area/crew_quarters/sleep/cryo/living_quarters_lift
+	name = "Living Quarters Lift"
+
+//shuttles
+
+/area/shuttle/intrepid
+	name = "Intrepid"
+	icon_state = "intrepid"

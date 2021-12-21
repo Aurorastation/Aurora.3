@@ -23,6 +23,14 @@
 	accent to be more properly Eridanian."
 	tag_icon = "eridani"
 
+/datum/accent/eridani_reinstated
+	name = ACCENT_ERIDANIREINSTATED
+	description = "The clipped and clinical tones of proper \"corporate\" speech in Eridani are difficult to perfect even for those born into positions of privilege. \
+	For those unfortunate individuals born outside Eridani's shining skyscrapers and silver spires, the distinctly uncorporate flow of \"dreg\" speech can make attaining \
+	the standard Eridanian accent almost impossible to fully achieve. The curious middle-ground accent of the so-called \"reinstated\" in Eridani society allows an individual \
+	to go much further than its more criminally-aligned counterpart, but still falls short of most suits' expectations."
+	tag_icon = "eridani_reinstated"
+
 /datum/accent/eridani_dreg
 	name = ACCENT_ERIDANIDREG
 	description = "The Eridanian \"dreg\" accent is almost universally looked upon as the accent of petty criminals and ne'er-do-wells throughout the Orion Spur. \
@@ -186,3 +194,22 @@
 	most notable for its elegant-sounding and evenly-paced method of speaking compared to rougher-sounding Coalition and frontier dialects. Liturgical Assunzionii is a small subset of this dialect, and is generally only spoken during \
 	Luceian services and can be distinguished by its use of archaic language."
 	tag_icon = "assunzione"
+
+/datum/accent/visegrad
+	name = ACCENT_VISEGRAD
+	description = "The Visegradi accent is unique for that of a Solarian world, being a Tradeband accent with strong influences from the various languages of the Warsaw Pact on Earth. Decidedly harsh and characterized by unusual \
+	and eclectic pronunciation, it can be fairly difficult to parse for those unfamiliar with it. This is only somewhat stymied by the fact that Visegradi people tend to speak very loudly, an adaptation necessitated by the need to \
+	make oneself heard during the planet's torrential downpours."
+	tag_icon = "visegrad"
+
+/datum/accent/valkyrie
+	name = ACCENT_VALKYRIE
+	description = "The Valkyrian accent is a difficult accent to replicate, mostly due to the cultural melting pot in which it exists. Influences from across the Orion Spur have impacted the development of the accent, with \
+	traces of Sol Common, Tau Ceti Basic, Elyran Common and even Vulgar Morozi."
+	tag_icon = "valkyrie"
+
+/datum/accent/mictlan
+	name = ACCENT_MICTLAN
+	description = "The Mictlanian accent is a variation on Tradeband that is usually recognized as being folksy and warm. This welcoming, soft voice is one of the reasons the planet of Mictlan has seen a boom in tourism. While \
+	some youth may try to sound rebellious and conceal the softness of their voice, this musicality is still prevalent and universally recognizable."
+	tag_icon = "mictlan"

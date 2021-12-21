@@ -53,6 +53,7 @@ var/list/latejoin_cryo         = list()
 var/list/latejoin_cryo_command = list()
 var/list/latejoin_cyborg       = list()
 var/list/latejoin_merchant     = list()
+var/list/latejoin_living_quarters_lift     = list()
 var/list/kickoffsloc           = list()
 var/list/virtual_reality_spawn = list()
 

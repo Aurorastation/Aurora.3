@@ -244,11 +244,10 @@ var/global/list/frozen_crew = list()
 /obj/machinery/cryopod/living_quarters
 	name = "living quarters lift"
 	desc = "A lift heading to the ship's living quarters."
-	icon = 'icons/obj/robot_storage.dmi'
-	icon = 'icons/obj/doors/Doorint.dmi'
-	icon_state = "door_open"
-	base_icon_state = "door_open"
-	occupied_icon_state = "door_closed"
+	icon = 'icons/obj/crew_quarters_lift.dmi'
+	icon_state = "lift_open"
+	base_icon_state = "lift_open"
+	occupied_icon_state = "lift_occupied"
 	on_store_message = "has departed for the living quarters."
 	on_store_name = "Living Quarters Oversight"
 	on_enter_occupant_message = "The elevator door closes slowly, ready to bring you down to the living quarters."
@@ -418,7 +417,7 @@ var/global/list/frozen_crew = list()
 
 			update_icon()
 			to_chat(M, SPAN_NOTICE("[on_enter_occupant_message]"))
-			to_chat(M, SPAN_DANGER("Press Ghost in the OOC tab to cryo, your character will shortly be removed from the round and the slot you occupy will be freed."))
+			to_chat(M, SPAN_DANGER("Press Ghost in the OOC tab to leave, your character will shortly be removed from the round and the slot you occupy will be freed."))
 			set_occupant(M)
 
 			if(isipc(M))
@@ -484,8 +483,8 @@ var/global/list/frozen_crew = list()
 			to_chat(user, SPAN_NOTICE("You stop [L == user ? "climbing into" : "putting [L] into"] \the [name]."))
 			return
 
-		to_chat(L, SPAN_NOTICE("You feel cool air surround you. You go numb as your senses turn inward."))
-		to_chat(L, SPAN_DANGER("Press Ghost in the OOC tab to cryo, your character will shortly be removed from the round and the slot you occupy will be freed."))
+		to_chat(L, SPAN_NOTICE("[on_enter_occupant_message]"))
+		to_chat(L, SPAN_DANGER("Press Ghost in the OOC tab to leave, your character will shortly be removed from the round and the slot you occupy will be freed."))
 		set_occupant(L)
 		update_icon()
 
@@ -556,7 +555,7 @@ var/global/list/frozen_crew = list()
 		update_icon()
 
 		to_chat(usr, SPAN_NOTICE("[on_enter_occupant_message]"))
-		to_chat(usr, SPAN_DANGER("Press Ghost in the OOC tab to cryo, your character will shortly be removed from the round and the slot you occupy will be freed."))
+		to_chat(usr, SPAN_DANGER("Press Ghost in the OOC tab to leave, your character will shortly be removed from the round and the slot you occupy will be freed."))
 
 		if(isipc(usr))
 			var/choice = alert(usr, "Would you like to save your tag data?", "Tag Persistence", "Yes", "No")

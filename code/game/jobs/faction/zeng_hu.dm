@@ -10,30 +10,24 @@
 	Skrell, working closely with this alien species to pioneer cloning, a once
 	controversial field that is now more accepted today.
 	</p>
-	<p>Some character examples are:
+	<p>Zeng-Hu Pharmaceuticals employees can be in the following departments:
 	<ul>
-	<li><b>Senior Surgeon</b>: Zeng-Hu has some of the best medical staff in the world and you are one of them.
-	Highly-trained and highly-experienced you are better then the rest, aside from your colleagues in Zeng-Hu.
-	You expect to be heard and obeyed, as your coworkers really should be taking advice from you in the absence of
-	a chief medical officer. Your bedside manner is impeccable and far outclasses standard NanoTrasen training and
-	procedure. You are the product of the most rigorous employee hiring and training process for medical staff in the
-	Orion Spur, and are expected to act like it. Failure is something you will not tolerate.</li>
-	<li><b>Biomechanical Engineer</b>: Our ability to combine medical research with robotics
-	is the best and you know this. We do, after all, own Bishop Cybernetics - the
-	best premium augmentation subsidiary in the known galaxy. Unlike your medical cousins
-	you are much more likely to generate a friendly working atmosphere with non Zeng-Hu colleagues,
-	due to gaps in your training surrounding the exosuits Hephaestus' "well-trained roboticists"
-	love to build. Remember to be professional, effective, driven, and dedicated in your work.
-	Zeng-Hu expects the best from you, Doctor. Do not fail us or our shareholders in Eridani, or
-	you will find your career failing in short order.</li>
+	<li><b>Science</b>
+	<li><b>Medical</b>
 	</ul></p>"}
+
+
 	title_suffix = "Zeng"
+
+	allowed_role_types = HEPH_ROLES
 
 	allowed_species_types = list(
 		/datum/species/human,
 		/datum/species/skrell,
 		/datum/species/machine,
-		/datum/species/bug,
+		/datum/species/bug = TRUE,
+		/datum/species/bug/type_b = TRUE,
+		/datum/species/bug/type_e = TRUE,
 		/datum/species/diona
 	)
 
@@ -44,50 +38,9 @@
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_VAURCA_WORKER,
-			SPECIES_VAURCA_WARRIOR
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER
 		)
 	)
 
-/datum/outfit/job/doctor/zeng_hu
-	name = "Physician - Zeng-Hu"
-	uniform = /obj/item/clothing/under/rank/zeng
-	id = /obj/item/card/id/zeng_hu
-
-/datum/outfit/job/pharmacist/zeng_hu
-	name = "Pharmacist - Zeng-Hu"
-	uniform = /obj/item/clothing/under/rank/zeng
-	id = /obj/item/card/id/zeng_hu
-
-/datum/outfit/job/psychiatrist/zeng_hu
-	name = "Psychiatrist - Zeng-Hu"
-	uniform = /obj/item/clothing/under/rank/zeng
-	id = /obj/item/card/id/zeng_hu
-
-/datum/outfit/job/psychiatrist/zeng_hu
-	name = "Psychiatrist - Zeng-Hu"
-	uniform = /obj/item/clothing/under/rank/zeng
-	id = /obj/item/card/id/zeng_hu
-
-/datum/outfit/job/med_tech/paramed/zeng_hu
-	name = "Paramedic - Zeng-Hu"
-	uniform = /obj/item/clothing/under/rank/zeng
-	id = /obj/item/card/id/zeng_hu
-
-/datum/outfit/job/scientist/xenobiologist/zeng_hu
-	name = "Xenobiologist - Zeng-Hu"
-	uniform = /obj/item/clothing/under/rank/zeng
-	id = /obj/item/card/id/zeng_hu
-
-/datum/outfit/job/representative/zeng_hu
-	name = "Zeng-Hu Corporate Liaison"
-	uniform = /obj/item/clothing/under/rank/zeng/civilian
-	head = null
-	suit = null
-	implants = null
-	id = /obj/item/card/id/zeng_hu
-
-	backpack_contents = list(
-		/obj/item/device/camera = 1,
-		/obj/item/gun/energy/pistol = 1,
-		/obj/item/stamp/zeng_hu = 1
-	)

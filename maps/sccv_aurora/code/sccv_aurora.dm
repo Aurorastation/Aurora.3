@@ -1,8 +1,8 @@
-/datum/map/placeholder
-	name = "Placeholder"
-	full_name = "NSS Placeholder"
-	path = "placeholder"
-	lobby_icons = list('icons/misc/titlescreens/placeholder/placeholder.dmi')
+/datum/map/sccv_aurora
+	name = "SCCV Aurora"
+	full_name = "SCCV Aurora"
+	path = "sccv_aurora"
+	lobby_icons = list('icons/misc/titlescreens/sccv_aurora/sccv_aurora.dmi')
 	lobby_transitions = 25 SECONDS
 
 	station_levels = list(1, 2, 3)
@@ -20,17 +20,17 @@
 		"6" = /turf/space
 	)
 
-	station_name = "NSS Placeholder"
-	station_short = "Placeholder"
+	station_name = "SCCV Aurora"
+	station_short = "Aurora"
 	dock_name = "The Shipyard"
 	dock_short = "Shipyard"
-	boss_name = "Placeholder"
-	boss_short = "Placeholder Shortened"
-	company_name = "Placeholder Inc"
-	company_short = "PI"
+	boss_name = "Stellar Corporate Conglomerate"
+	boss_short = "SCC"
+	company_name = "Stellar Corporate Conglomerate"
+	company_short = "SCC"
 
 	command_spawn_enabled = TRUE
-	command_spawn_message = "Welcome to the Shipyard!"
+	command_spawn_message = "Welcome to the SCCV Aurora!"
 
 	use_overmap = TRUE
 
@@ -75,12 +75,15 @@
 		/datum/shuttle/autodock/multi/antag/burglar_ship,
 		/datum/shuttle/autodock/multi/antag/merc_ship,
 		/datum/shuttle/autodock/multi/legion,
-		/datum/shuttle/autodock/multi/distress
+		/datum/shuttle/autodock/multi/distress,
+		/datum/shuttle/autodock/overmap/intrepid,
+		/datum/shuttle/autodock/overmap/mining
 	)
 
 	evac_controller_type = /datum/evacuation_controller/starship
 
+	spawn_types = list(/datum/spawnpoint/living_quarters_lift, /datum/spawnpoint/cryo)
 
-/datum/map/placeholder/finalize_load()
+/datum/map/sccv_aurora/finalize_load()
 	// generate an empty space Z
 	world.maxz++

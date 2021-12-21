@@ -279,15 +279,15 @@
 	return
 
 
-/obj/structure/closet/wardrobe/manufacturing_tech
-	name = "manufacturing technician wardrobe"
+/obj/structure/closet/wardrobe/machinist
+	name = "Machinist wardrobe"
 	icon_state = "black"
 	icon_closed = "black"
 
 /obj/structure/closet/wardrobe/robotics_black/fill()
 	..()
-	new /obj/item/clothing/under/rank/manufacturing_tech(src)
-	new /obj/item/clothing/under/rank/manufacturing_tech(src)
+	new /obj/item/clothing/under/rank/machinist(src)
+	new /obj/item/clothing/under/rank/machinist(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/shoes/black(src)

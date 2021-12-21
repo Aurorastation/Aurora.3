@@ -23,7 +23,7 @@
 	cost = 2
 
 /datum/gear/utility/purse
-	display_name = "Purse"
+	display_name = "purse"
 	description = "A small, fashionable bag typically worn over the shoulder."
 	path = /obj/item/storage/backpack/satchel/pocketbook/purse
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
@@ -60,6 +60,11 @@
 /datum/gear/utility/paicard
 	display_name = "personal AI device"
 	path = /obj/item/device/paicard
+
+/datum/gear/utility/classicwallet
+	display_name = "wallet"
+	path = /obj/item/storage/wallet
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/utility/wallet
 	display_name = "wallet selection"

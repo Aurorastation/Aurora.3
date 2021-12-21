@@ -204,9 +204,9 @@
 
 
 /obj/item/reagent_containers/food/drinks/bottle/gin
-	name = "Alderamin gin"
-	desc = "A bottle of average quality gin, produced on NanoTrasen Space Station Cepheus."
-	desc_fluff = DRINK_FLUFF_GETMORE
+	name = "Borovicka gin"
+	desc = "A bottle of good quality gin. Previously a mainstay in bars throughout the spur, it has become scarcer since \
+			the Solarian collapse, only remaining in stock thanks to Idris ownership of the Visegradi facilities that produce it."
 	icon_state = "ginbottle"
 	center_of_mass = list("x"=16, "y"=4)
 	reagents_to_add = list(/decl/reagent/alcohol/gin = 100)
@@ -623,7 +623,7 @@
 	desc = "A soft drink made from honey and tree syrup. The label claims it is good as the tap version."
 	icon_state = "midynhrwater"
 	center_of_mass = list("x" = 16,"y" = 5)
-	desc_fluff = "A soft drink based on Yve’kha's honey and tree syrups. The drink has a creamy consistency and is served cold from the tap of traditional soda fountains. Native to \
+	desc_fluff = "A soft drink based on Yve'kha's honey and tree syrups. The drink has a creamy consistency and is served cold from the tap of traditional soda fountains. Native to \
 	Das'nrra, the beverage is now widespread in the Al'mariist territories. Bottled versions exist, but they are considered to be inferior to what is served in bars and restaurants."
 	reagents_to_add = list(/decl/reagent/drink/midynhr_water = 30)
 
@@ -658,6 +658,15 @@
 	reagents_to_add = list(/decl/reagent/alcohol/nmshaan_liquor/darmadhirbrew = 100)
 	drink_flags = NO_EMPTY_ICON
 
+/obj/item/reagent_containers/food/drinks/bottle/pulque
+	name = "Don Augusto's pulque"
+	desc = "A glass bottle of Mictlanian pulque. The label states that it is still produced by hand."
+	desc_fluff = "Don Augusto's pulqlueria is a famous saloon in Lago de Abundancia, known for its quality pulque. After Idris invested in the city, the family-owned business became part of the \
+	megacorporation. Nowadays, it is bottled and sold all around the galaxy."
+	icon_state = "pulquebottle"
+	center_of_mass = list("x" = 16, "y" = 5)
+	reagents_to_add = list(/decl/reagent/alcohol/pulque = 100)
+
 // Butanol-based alcoholic drinks
 //=====================================
 //These are mainly for unathi, and have very little (but still some) effect on other species
@@ -688,8 +697,8 @@
 	reagents_to_add = list(/decl/reagent/alcohol/boukha = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/whitewine
-	name = "Doublebeard Bearded White Wine"
-	desc = "A faint aura of unease and asspainery surrounds the bottle."
+	name = "Pineneedle Brand white wine"
+	desc = "A mediocre quality white wine, intended more making spritzers than for drinking by itself. Produced on Visegrad by Idris."
 	icon_state = "whitewinebottle"
 	center_of_mass = list("x"=16, "y"=4)
 	reagents_to_add = list(/decl/reagent/alcohol/whitewine = 100)

@@ -454,11 +454,11 @@ There are several things that need to be remembered:
 		return
 
 	//masks and helmets can obscure our hair.
-	if( (head && (head.flags_inv & BLOCKHAIR)) || (wear_mask && (wear_mask.flags_inv & BLOCKHAIR)))
+	if( (head && (head.flags_inv & BLOCKHAIR)) || (wear_mask && (wear_mask.flags_inv & BLOCKHAIR)) || (l_ear && (l_ear.flags_inv & BLOCKHAIR)) || (r_ear && (r_ear.flags_inv & BLOCKHAIR)))
 		if(update_icons)   update_icon()
 		return
 
-	var/has_visible_hair = h_style && !(head && (head.flags_inv & BLOCKHEADHAIR))
+	var/has_visible_hair = h_style && !(head && (head.flags_inv & BLOCKHEADHAIR)) && !(l_ear && (l_ear.flags_inv & BLOCKHEADHAIR)) && !(r_ear && (r_ear.flags_inv & BLOCKHEADHAIR))
 
 	var/icon/hair_icon = generate_hair_icon(has_visible_hair)
 
@@ -566,6 +566,8 @@ There are several things that need to be remembered:
 			w_uniform.auto_adapt_species(src)
 			if(w_uniform.icon_override)
 				mob_icon = w_uniform.icon_override
+			else if(w_uniform.sprite_sheets && w_uniform.sprite_sheets[GET_BODY_TYPE])
+				mob_icon = w_uniform.sprite_sheets[GET_BODY_TYPE]
 			else
 				mob_icon = w_uniform.icon
 
@@ -774,7 +776,10 @@ There are several things that need to be remembered:
 		var/mob_state = shoes.icon_state
 
 		if(shoes.contained_sprite)
-			mob_icon = (shoes.icon_override || shoes.icon)
+			if(shoes.sprite_sheets && shoes.sprite_sheets[GET_BODY_TYPE])
+				mob_icon = shoes.sprite_sheets[GET_BODY_TYPE]
+			else
+				mob_icon = (shoes.icon_override || shoes.icon)
 			shoes.auto_adapt_species(src)
 			mob_state = "[UNDERSCORE_OR_NULL(shoes.icon_species_tag)][shoes.item_state][WORN_SHOES]"
 		else if(shoes.icon_override)
@@ -847,7 +852,10 @@ There are several things that need to be remembered:
 		var/mob_state = head.icon_state
 
 		if(head.contained_sprite)
-			mob_icon = (head.icon_override || head.icon)
+			if(head.sprite_sheets && head.sprite_sheets[GET_BODY_TYPE])
+				mob_icon = head.sprite_sheets[GET_BODY_TYPE]
+			else
+				mob_icon = (head.icon_override || head.icon)
 			head.auto_adapt_species(src)
 			mob_state = "[UNDERSCORE_OR_NULL(head.icon_species_tag)][head.item_state][WORN_HEAD]"
 		else if(head.icon_override)
@@ -878,7 +886,10 @@ There are several things that need to be remembered:
 		var/mob_state = belt.item_state
 
 		if(belt.contained_sprite)
-			mob_icon = (belt.icon_override || belt.icon)
+			if(belt.sprite_sheets && belt.sprite_sheets[GET_BODY_TYPE])
+				mob_icon = belt.sprite_sheets[GET_BODY_TYPE]
+			else
+				mob_icon = (belt.icon_override || belt.icon)
 			belt.auto_adapt_species(src)
 			mob_state = "[UNDERSCORE_OR_NULL(belt.icon_species_tag)][belt.item_state][WORN_BELT]"
 		else if(belt.icon_override)
@@ -913,7 +924,10 @@ There are several things that need to be remembered:
 		var/mob_icon = INV_SUIT_DEF_ICON
 		var/mob_state = wear_suit.icon_state
 		if(wear_suit.contained_sprite)
-			mob_icon = wear_suit.icon
+			if(wear_suit.sprite_sheets && wear_suit.sprite_sheets[GET_BODY_TYPE])
+				mob_icon = wear_suit.sprite_sheets[GET_BODY_TYPE]
+			else
+				mob_icon = wear_suit.icon
 			wear_suit.auto_adapt_species(src)
 			mob_state = "[UNDERSCORE_OR_NULL(wear_suit.icon_species_tag)][wear_suit.item_state][WORN_SUIT]"
 		else if(wear_suit.icon_override)
@@ -957,7 +971,10 @@ There are several things that need to be remembered:
 		if(wear_mask.contained_sprite)
 			wear_mask.auto_adapt_species(src)
 			var/state = "[UNDERSCORE_OR_NULL(wear_mask.icon_species_tag)][wear_mask.item_state][WORN_MASK]"
-			mob_icon = (wear_mask.icon_override || wear_mask.icon)
+			if(wear_mask.sprite_sheets && wear_mask.sprite_sheets[GET_BODY_TYPE])
+				mob_icon = wear_mask.sprite_sheets[GET_BODY_TYPE]
+			else
+				mob_icon = (wear_mask.icon_override || wear_mask.icon)
 			mob_state = state
 		else if(wear_mask.icon_override)
 			mob_icon = wear_mask.icon_override
@@ -988,7 +1005,10 @@ There are several things that need to be remembered:
 		var/mob_state = back.icon_state
 
 		if(back.contained_sprite)
-			mob_icon = (back.icon_override || back.icon)
+			if(back.sprite_sheets && back.sprite_sheets[GET_BODY_TYPE])
+				mob_icon = back.sprite_sheets[GET_BODY_TYPE]
+			else
+				mob_icon = (back.icon_override || back.icon)
 			back.auto_adapt_species(src)
 			mob_state = "[UNDERSCORE_OR_NULL(back.icon_species_tag)][back.item_state][WORN_BACK]"
 		else if(back.icon_override)

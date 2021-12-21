@@ -154,6 +154,9 @@
 
 	queue_icon_update()
 
+/obj/item/gun/should_equip()
+	return TRUE
+
 /obj/item/gun/update_icon()
 	..()
 	underlays.Cut()

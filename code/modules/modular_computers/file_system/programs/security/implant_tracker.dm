@@ -1,7 +1,7 @@
 /datum/computer_file/program/implant_tracker
 	filename = "implnttrckr"
 	filedesc = "Remote Implant Tracking"
-	program_icon_state = "security"
+	program_icon_state = "sec"
 	extended_desc = "This program allows authorized security personnel to track and remotely interface with active implants."
 	required_access_run = access_armory
 	requires_ntnet = TRUE

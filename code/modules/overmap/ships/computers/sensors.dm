@@ -1,6 +1,6 @@
 /obj/machinery/computer/ship/sensors
 	name = "sensors console"
-	icon_screen = "sensors"
+	icon_screen = "command"
 	light_color = "#77fff8"
 	extra_view = 4
 	var/obj/machinery/shipsensors/sensors

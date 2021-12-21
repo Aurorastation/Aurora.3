@@ -75,6 +75,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/champagne = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/vodka = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/vodka/mushroom = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/pulque = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/fireball = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/whiskey = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/victorygin = 2,
@@ -652,7 +653,8 @@
 		/obj/item/storage/box/evidence = 6,
 		/obj/item/device/holowarrant = 5,
 		/obj/item/device/flashlight/maglight = 5,
-		/obj/item/device/hailer = 5
+		/obj/item/device/hailer = 5,
+		/obj/item/reagent_containers/food/snacks/donut/normal = 6
 	)
 	premium = list(
 		/obj/item/storage/box/fancy/donut = 2
@@ -761,6 +763,7 @@
 		/obj/item/seeds/tobaccoseed = 3,
 		/obj/item/seeds/tomatoseed = 3,
 		/obj/item/seeds/towermycelium = 3,
+		/obj/item/seeds/vanilla = 3,
 		/obj/item/seeds/watermelonseed = 3,
 		/obj/item/seeds/wheatseed = 3,
 		/obj/item/seeds/whitebeetseed = 3,
@@ -830,6 +833,7 @@
 		/obj/item/seeds/tobaccoseed = 40,
 		/obj/item/seeds/tomatoseed = 30,
 		/obj/item/seeds/towermycelium = 20,
+		/obj/item/seeds/vanilla = 30,
 		/obj/item/seeds/watermelonseed = 30,
 		/obj/item/seeds/wheatseed = 20,
 		/obj/item/seeds/whitebeetseed = 20,
@@ -962,7 +966,8 @@
 		/obj/item/device/analyzer = 5,
 		/obj/item/device/t_scanner = 5,
 		/obj/item/screwdriver = 5,
-		/obj/item/tape_roll = 3
+		/obj/item/tape_roll = 3,
+		/obj/item/hammer = 3
 	)
 	contraband = list(
 		/obj/item/weldingtool/hugetank = 2,
@@ -1119,7 +1124,7 @@
 	vend_id = "robo-tools"
 	products = list(
 		/obj/item/clothing/suit/storage/toggle/labcoat = 4,
-		/obj/item/clothing/under/rank/manufacturing_tech = 4,
+		/obj/item/clothing/under/rank/machinist = 4,
 		/obj/item/stack/cable_coil = 4,
 		/obj/item/device/flash/synthetic = 4,
 		/obj/item/cell/high = 12,

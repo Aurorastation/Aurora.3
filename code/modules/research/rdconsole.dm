@@ -30,7 +30,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 /obj/machinery/computer/rdconsole
 	name = "R&D control console"
 
-	icon_screen = "rdcomp"
+	icon_screen = "sci"
 	light_color = "#a97faa"
 	circuit = /obj/item/circuitboard/rdconsole
 	var/datum/research/files							//Stores all the collected research data.

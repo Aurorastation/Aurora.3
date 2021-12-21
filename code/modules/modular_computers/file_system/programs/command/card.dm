@@ -2,7 +2,7 @@
 	filename = "cardmod"
 	filedesc = "ID Card Modification Program"
 	nanomodule_path = /datum/nano_module/program/card_mod
-	program_icon_state = "id"
+	program_icon_state = "command"
 	extended_desc = "Program for programming employee ID cards to access parts of the station."
 	required_access_run = access_change_ids
 	required_access_download = access_change_ids

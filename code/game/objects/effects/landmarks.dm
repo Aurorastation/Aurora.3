@@ -11,7 +11,10 @@
 /obj/effect/landmark/New()
 	..()
 	tag = text("landmark*[]", name)
+	do_landmark_effect()
+	return 1
 
+/obj/effect/landmark/proc/do_landmark_effect()
 	switch(name)			//some of these are probably obsolete
 		if("monkey")
 			monkeystart += loc
@@ -39,6 +42,9 @@
 			return
 		if("JoinLateCryoCommand")
 			latejoin_cryo_command += loc
+			delete_me = 1
+		if("JoinLateLift")
+			latejoin_living_quarters_lift += loc
 			delete_me = 1
 			return
 		if("JoinLateCyborg")
@@ -93,7 +99,6 @@
 			return
 
 	landmarks_list += src
-	return 1
 
 /obj/effect/landmark/proc/delete()
 	delete_me = 1
@@ -257,3 +262,11 @@
 
 /obj/effect/landmark/distress_team_equipment
 	name = "distress equipment"
+
+/obj/effect/landmark/force_spawnpoint
+	name = "force spawnpoint"
+	var/job_tag = "Anyone"
+
+/obj/effect/landmark/force_spawnpoint/do_landmark_effect()
+	LAZYINITLIST(force_spawnpoints)
+	LAZYADD(force_spawnpoints[job_tag], loc)
