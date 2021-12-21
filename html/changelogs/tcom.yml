@@ -1,0 +1,7 @@
+author: Karolis2011
+delete-after: True
+changes:
+  - backend: "Switched to new NTSL2++ deamon called NTSED."
+  - bugfix: "Made NTSL2++ interpeter's console more responsive."
+  - rscadd: "Ported Traffic control console to VueUI."
+  - rscadd: "Added back TCom scripting. It currently supports altering content, verb, language, sender's name, sender's job and frequency, cloning signal and initiating new signal."
