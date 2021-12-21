@@ -41,6 +41,7 @@ changes:
   - rscadd: "The vial box in the forensic lab can now be locked by swiping an id card with forensic access."
   - rscadd: "Added a syringe and vial to autopsy trays."
   - rscadd: "Paper scanners now fit in filing cabinets."
+  - rscadd: "The forensic lab and investigations office now have luminol refillers."
   - bugfix: "Fixes vial box sprites."
   - bugfix: "The investigation lab ringers now clearly indicates the call comes from there when a pda is linked."
   - maptweak: "Autopsy now has a second bodybag."
