@@ -701,6 +701,9 @@
 	name = "Forensic Laboratory";
 	req_access = list(4)
 	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/security/forensics_laboratory)
 "abE" = (
@@ -1337,6 +1340,9 @@
 /obj/machinery/door/airlock/glass_security{
 	name = "Forensic Laboratory";
 	req_access = list(4)
+	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/security/forensics_laboratory)
