@@ -17,7 +17,7 @@
 /obj/structure/bed/stool/MouseDrop(over_object, src_location, over_location)
 	. = ..()
 	if(over_object == usr && Adjacent(usr))
-		if(!held_item || use_check_and_message(usr) || buckled || !can_dismantle || (anchored && padding_material))
+		if(!held_item || use_check_and_message(usr) || buckled || (anchored && padding_material)) // Make sure held_item = null if you don't want it to get picked up.
 			return
 		usr.visible_message(SPAN_NOTICE("[usr] [withdraw_verb]s \the [src.name]."), SPAN_NOTICE("You [withdraw_verb] \the [src.name]."))
 		var/obj/item/material/stool/S = new held_item(src.loc, material.name, padding_material ? padding_material.name : null) // Handles all the material code so you don't have to.
