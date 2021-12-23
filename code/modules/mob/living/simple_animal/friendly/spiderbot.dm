@@ -46,6 +46,8 @@
 	speak_emote = list("beeps","clicks","chirps")
 	universal_understand = TRUE
 
+	psi_pingable = FALSE
+
 /mob/living/simple_animal/spiderbot/Initialize()
 	. = ..()
 	add_language(LANGUAGE_TCB)

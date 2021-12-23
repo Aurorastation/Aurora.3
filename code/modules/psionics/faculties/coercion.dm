@@ -301,7 +301,7 @@
 			var/turf/T = get_turf(L)
 			if(!T || L == user || L.stat == DEAD || L.invisibility == INVISIBILITY_LEVEL_TWO)
 				continue
-			if(L.is_psi_blocked())
+			if(!L.is_psi_pingable())
 				continue
 			var/image/ping_image = image(icon = 'icons/effects/effects.dmi', icon_state = "sonar_ping", loc = our_turf, layer = OBFUSCATION_LAYER + 0.1)
 			pixel_shift_to_turf(ping_image, our_turf, T)
