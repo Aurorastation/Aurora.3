@@ -223,9 +223,9 @@
 	log_say("[key_name(speaker)] : ([name]) [message]",ckey=key_name(speaker))
 
 	if(!speaker_mask)
-		speaker_mask = speaker.name
+		speaker_mask = speaker.real_name
 
-	var/msg = "<i><span class='game say'>[name], <span class='name'>[speaker_mask]</span>[format_message(message, get_spoken_verb(message))]</span></i>"
+	var/msg = "<i><span class='game say'>[name], <span class='name'>[speaker_mask]</span>[format_message(message, get_spoken_verb(message), speaker_mask)]</span></i>"
 
 	if(isvaurca(speaker))
 		speaker.custom_emote(VISIBLE_MESSAGE, "[pick("twitches their antennae", "twitches their antennae rhythmically")].")
@@ -239,6 +239,22 @@
 	for(var/mob/player in player_list)
 		if(istype(player,/mob/abstract/observer) || ((src in player.languages && !within_jamming_range(player)) || check_special_condition(player)))
 			to_chat(player, msg)
+
+/datum/language/bug/format_message(message, verb, speaker_mask)
+	var/message_color = colour
+	var/list/speaker_surname = splittext(speaker_mask, " ")
+	switch(speaker_surname[2])
+		if("Zo'ra")
+			message_color = "vaurca_zora"
+		if("C'thur")
+			message_color = "vaurca_cthur"
+		if("K'lax")
+			message_color = "vaurca_klax"
+		if("Lii'dra")
+			message_color = "vaurca_liidra"
+	if(copytext(message, 1, 2) == "!")
+		return " projects <span class='message'><span class='[message_color]'>[copytext(message, 2)]</span></span>"
+	return "[verb], <span class='message'><span class='[message_color]'>\"[capitalize(message)]\"</span></span>"
 
 /datum/language/bug/check_special_condition(var/mob/other)
 	if(istype(other, /mob/living/silicon))

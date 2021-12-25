@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Vaurca hivenet speech is now color-coded based on hive. Additionally, prefixing your message with ! makes it display as an emote."
+  - bugfix: "Quickee's Plastic Surgeon stations now work properly with apostrophes in names."

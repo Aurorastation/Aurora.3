@@ -169,6 +169,11 @@
 
 	return output
 
+/proc/sanitize_readd_odd_symbols(var/input)
+	input = replacetext(input, "&#39;", "\'")
+	input = replacetext(input, "&#34;", "\"")
+	return input
+
 #undef NO_CHARS_DETECTED
 #undef SPACES_DETECTED
 #undef SYMBOLS_DETECTED
