@@ -15,3 +15,4 @@ var/datum/controller/subsystem/evac/SSevac
 
 /datum/controller/subsystem/evac/fire()
 	evacuation_controller.process()
+	
