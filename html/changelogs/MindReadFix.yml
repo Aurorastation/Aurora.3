@@ -1,6 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - tweak: "When using the psi mindread ability, the target now gets informed they only have 25 seconds to respond."
