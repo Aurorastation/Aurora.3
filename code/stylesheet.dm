@@ -98,7 +98,7 @@ h1.alert, h2.alert		{color: #000000;}
 .vaurca                 {color: #9e9e39;}
 .soghun					{color: #228B22;}
 .solcom					{color: #22228B;}
-.elyran					{color: #e0a526;}
+.elyran					{color: #c79322;}
 .soghun_alt				{color: #024402;}
 .changeling				{color: #800080;}
 .rough					{font-family: "Trebuchet MS", cursive, sans-serif;}
