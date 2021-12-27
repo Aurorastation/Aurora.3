@@ -302,7 +302,7 @@
 /datum/language/elyran
 	name = LANGUAGE_ELYRAN_STANDARD
 	short = "ELY"
-	desc = "Placeholder description but it's Arabic and Farsi/Dari melded together into a cool and good future language for Elyra"
+	desc = "Elyran Standard is the official tongue of the Republic of Elyra. Constructed using elements of Farsi, Arabic, and Turkish, influence from all three of these languages can be seen throughout its grammar and vocabulary."
 	colour = "elyran"
 	written_style = "elyranstandard"
 	key = "4"
