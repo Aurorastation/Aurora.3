@@ -42,7 +42,10 @@
 		if(!furniture_cache[padding_cache_key])
 			var/image/I =  image(icon, "[base_icon]_padding_over")
 			if(material_alteration & MATERIAL_ALTERATION_COLOR)
-				I.color = padding_material.icon_colour
+				if(painted_colour)
+					I.color = painted_colour
+				else if(padding_material.icon_colour)
+					I.color = padding_material.icon_colour
 			I.layer = FLY_LAYER
 			furniture_cache[padding_cache_key] = I
 		add_overlay(furniture_cache[padding_cache_key])
@@ -62,7 +65,10 @@
 				var/image/I = image(icon, "[base_icon]_padding_armrest")
 				I.layer = FLY_LAYER
 				if(material_alteration & MATERIAL_ALTERATION_COLOR)
-					I.color = padding_material.icon_colour
+					if(painted_colour)
+						I.color = painted_colour
+					else if(padding_material.icon_colour)
+						I.color = padding_material.icon_colour
 				furniture_cache[cache_key] = I
 			add_overlay(furniture_cache[cache_key])
 
