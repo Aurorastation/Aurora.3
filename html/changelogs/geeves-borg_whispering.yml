@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Whispering has now been tied into saycode, meaning things like accents should appear as normal."
+  - rscadd: "All living mobs can now whisper, pAI, borgs, the AI, etc."

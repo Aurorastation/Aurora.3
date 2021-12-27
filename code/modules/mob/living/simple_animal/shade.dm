@@ -210,7 +210,7 @@
 			heard_dying_message = 0
 			to_chat(src, "<span class='notice'>The soothing echoes of life reinvigorate you.</span>")
 
-/mob/living/simple_animal/shade/bluespace/say(var/message)
+/mob/living/simple_animal/shade/bluespace/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
 	if(!possessive)
 		var/list/words_in_memory = dd_text2List(last_message_heard, " ")
 		var/list/words_in_message = dd_text2List(message, " ")
