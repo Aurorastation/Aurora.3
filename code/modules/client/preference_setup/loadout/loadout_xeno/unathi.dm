@@ -183,7 +183,6 @@
 	path = /obj/item/clothing/mask/gas/unathi
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
-	allowed_roles = list("Chaplain", "Roboticist")
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -192,7 +191,6 @@
 	path = /obj/item/clothing/suit/unathi/wrapping
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
-	allowed_roles = list("Chaplain", "Roboticist")
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -246,7 +244,6 @@
 	path = /obj/item/clothing/accessory/poncho/maxtlatl
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
-	allowed_roles = list("Chaplain")
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -254,7 +251,6 @@
 	display_name = "Thakhist wristguards"
 	path = /obj/item/clothing/wrists/unathi/maxtlatl
 	whitelisted = list(SPECIES_UNATHI)
-	allowed_roles = list("Chaplain")
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -262,7 +258,6 @@
 	display_name = "Thakhist headgear"
 	path = /obj/item/clothing/head/unathi/maxtlatl
 	whitelisted = list(SPECIES_UNATHI)
-	allowed_roles = list("Chaplain")
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
 
