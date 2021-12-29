@@ -18,6 +18,8 @@ var/list/banned_ruin_ids = list()
 	for(var/datum/map_template/ruin/ruin in potentialRuins)
 		if (ruin.id in banned_ruin_ids)
 			continue
+		if(!(SSatlas.current_sector.name in ruin.sectors) && !length(ruin.sectors))
+			continue
 		available[ruin] = ruin.spawn_weight
 
 	if (!length(available))

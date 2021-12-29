@@ -7,6 +7,7 @@
 
 	var/spawn_weight = 1
 	var/cost = null
+	var/list/sectors = list() //This ruin can only spawn in the sectors in this list.
 
 	var/prefix = null
 	var/suffix = null
