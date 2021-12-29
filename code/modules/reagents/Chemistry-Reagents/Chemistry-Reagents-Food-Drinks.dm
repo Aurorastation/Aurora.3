@@ -1165,6 +1165,26 @@
 	glass_name = "cup of chai latte"
 	glass_desc = "For when you need the energy to yell at the barista for making your drink wrong."
 
+/decl/reagent/drink/tea/londonfog
+	name = "London Fog"
+	description = "A frothy, steamed, tea and milk drink."
+	color = "#fff7ef"
+	taste_description = "bitter tea and sugary steamed milk"
+
+	glass_icon_state = "bigteacup"
+	glass_name = "cup of London Fog"
+	glass_desc = "A drink named after an ancient city, consisting of earl grey tea, sugar, and frothed milk."
+
+/decl/reagent/drink/tea/londonfogsoy
+	name = "Soy London Fog"
+	description = "A frothy, steamed, tea and soy milk drink."
+	color = "#fff7ef"
+	taste_description = "bitter tea and sugary steamed soy milk"
+
+	glass_icon_state = "bigteacup"
+	glass_name = "cup of soy London Fog"
+	glass_desc = "A drink named after an ancient city, consisting of earl grey tea, sugar, and frothed soy milk."
+
 /decl/reagent/drink/tea/chaitealatte/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder) //milk effects
 	..()
 	if(alien != IS_DIONA)

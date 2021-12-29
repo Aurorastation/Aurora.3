@@ -3034,6 +3034,20 @@
 	required_reagents = list(/decl/reagent/drink/tea/chaitea = 1, /decl/reagent/drink/milk = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/drink/londonfog
+	name = "London Fog"
+	id = "londonfog"
+	result = /decl/reagent/drink/tea/londonfog
+	required_reagents = list(/decl/reagent/sugar = 1, /decl/reagent/drink/tea/tea = 2, /decl/reagent/drink/milk = 3)
+	result_amount = 6	
+
+/datum/chemical_reaction/drink/londonfogsoy
+	name = "Soy London Fog"
+	id = "londonfogsoy"
+	result = /decl/reagent/drink/tea/londonfog
+	required_reagents = list(/decl/reagent/sugar = 1, /decl/reagent/drink/tea/tea = 2, /decl/reagent/drink/milk/soymilk = 3)
+	result_amount = 6	
+
 /datum/chemical_reaction/drink/chailatte/soy
 	id = "chailattesoy"
 	required_reagents = list(/decl/reagent/drink/tea/chaitea = 1, /decl/reagent/drink/milk/soymilk = 1)
