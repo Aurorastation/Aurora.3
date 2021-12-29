@@ -68,7 +68,6 @@
 	planetary_area = new planetary_area()
 
 	name = "[generate_planet_name()], \a [name]"
-	log_debug("Generated [name] with size [maxx], [maxy]")
 
 	world.maxz++
 	forceMove(locate(1,1,world.maxz))
@@ -87,23 +86,14 @@
 	..()
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/build_level()
-	log_debug("Generating Habitability")
 	generate_habitability()
-	log_debug("Generating Atmosphere")
 	generate_atmosphere()
-	log_debug("Generating Map")
 	generate_map()
-	log_debug("Generating Features")
 	generate_features()
-	log_debug("Generating Landing")
 	generate_landing(2)
-	log_debug("Updating Biome")
 	update_biome()
-	log_debug("Updating daycycle")
 	generate_daycycle()
-	log_debug("Starting Processing")
 	START_PROCESSING(SSprocessing, src)
-	log_debug("Build Level Done")
 
 //attempt at more consistent history generation for xenoarch finds.
 /obj/effect/overmap/visitable/sector/exoplanet/proc/get_engravings()
@@ -175,7 +165,6 @@
 	repopulate_types |= M.type
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_map()
-	log_debug("Generating map for [name]")
 	var/list/grasscolors = plant_colors.Copy()
 	grasscolors -= "RANDOM"
 	if(length(grasscolors))
@@ -184,28 +173,18 @@
 	for(var/datum/exoplanet_theme/T in themes)
 		T.before_map_generation(src)
 	for(var/zlevel in map_z)
-		var/padding = TRANSITIONEDGE
-		log_debug("Running map_generators for: [name]")
 		for(var/map_type in map_generators)
 			if(ispath(map_type, /datum/random_map/noise/exoplanet))
-				log_debug("Generating 1 [map_type] 1 with parameters: null, [padding+1], [padding+1], [zlevel], [maxx-padding-padding-1], [maxy-padding-padding-1], 0,1,1, [planetary_area], [plant_colors]")
 				var/datum/random_map/noise/exoplanet/RM = new map_type(null,1,1,zlevel,maxx,maxy,0,1,1,planetary_area, plant_colors)
 				get_biostuff(RM)
 			else
-				log_debug("Generating 2 [map_type] 2 with parameters: null, [1], [1], [zlevel], [maxx], [maxy], 0,1,1, [planetary_area]")
 				new map_type(null,1,1,zlevel,maxx,maxy,0,1,1,planetary_area)
 
-		log_debug("Determining edges")
 		var/list/edges
-		log_debug("Edge 1: (1,1,[zlevel]) ([TRANSITIONEDGE],[maxy],[zlevel]")
 		edges += block(locate(1, 1, zlevel), locate(TRANSITIONEDGE, maxy, zlevel))
-		log_debug("Edge 2: ([maxx-TRANSITIONEDGE+1],1,[zlevel]) ([maxx],[maxy],[zlevel]")
 		edges |= block(locate(maxx-TRANSITIONEDGE+1, 1, zlevel),locate(maxx, maxy, zlevel))
-		log_debug("Edge 3: (1,1,[zlevel]) ([maxx],[TRANSITIONEDGE],[zlevel]")
 		edges |= block(locate(1, 1, zlevel), locate(maxx, TRANSITIONEDGE, zlevel))
-		log_debug("Edge 4: (1,[maxy-TRANSITIONEDGE+1],[zlevel]) ([maxx],[maxy],[zlevel]")
 		edges |= block(locate(1, maxy-TRANSITIONEDGE+1, zlevel),locate(maxx, maxy, zlevel))
-		log_debug("Changing Turfs for Edges")
 		for(var/turf/T in edges)
 			T.ChangeTurf(/turf/simulated/planet_edge)
 
@@ -344,7 +323,6 @@
 		num--
 		places += T
 		new new_type(T)
-		log_debug("Generated Landing Size at Coordinates: [T.x], [T.y], [T.z] - [new_type]")
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_atmosphere()
 	atmosphere = new

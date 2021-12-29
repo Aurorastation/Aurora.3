@@ -9,13 +9,11 @@
 	var/cost = null
 
 	var/prefix = null
-	var/suffixes = null
+	var/suffix = null
 	template_flags = 0 // No duplicates by default
 
 /datum/map_template/ruin/New()
-	/*if (suffixes)
-		mappaths = list()
-		for (var/suffix in suffixes) TODOMATT: Mappaths conversions
-			mappaths += (prefix + suffix)*/
+	if (suffix)
+		mappath += (prefix + suffix)
 
 	..()

@@ -12,10 +12,8 @@
 		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
 		if(istype(E))
 			if(E.atmosphere)
-				//initial_gas = E.atmosphere.gas.Copy()
 				temperature = E.atmosphere.temperature
 			else
-				//initial_gas = list() todomatt: inital gas FUCK
 				temperature = T0C
 			//Must be done here, as light data is not fully carried over by ChangeTurf (but overlays are).
 			set_light(E.lightlevel, 0.1, 2)
@@ -28,7 +26,7 @@
 		visible_message("<span class='notice'>\The [user] starts digging \the [src]</span>")
 		if(do_after(user, 50))
 			to_chat(user,"<span class='notice'>You dig a deep pit.</span>")
-			//new /obj/structure/pit(src) todomatt: pits
+			new /obj/structure/pit(src)
 			diggable = 0
 		else
 			to_chat(user,"<span class='notice'>You stop shoveling.</span>")
@@ -127,7 +125,7 @@
 //Grass
 /turf/simulated/floor/exoplanet/grass
 	name = "grass"
-	//icon = 'icons/turf/jungle.dmi' todomatt: jungle icons
+	icon = 'icons/turf/jungle.dmi'
 	icon_state = "greygrass"
 	color = "#799c4b"
 	footstep_sound = /decl/sound_category/grass_footstep
