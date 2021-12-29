@@ -138,8 +138,6 @@
 			color = E.grass_color
 	if(!resources)
 		resources = list()
-	if(prob(70))
-		resources[MATERIAL_GRAPHITE] = rand(3,5)
 	if(prob(5))
 		resources[MATERIAL_URANIUM] = rand(1,3)
 	if(prob(2))

@@ -31,7 +31,7 @@
 
 /mob/living/simple_animal/proc/name_species()
 	set name = "Name Alien Species"
-	set category = "Exploration"
+	set category = "Object"
 	set src in view()
 
 	if(!current_map.use_overmap)

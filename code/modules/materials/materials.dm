@@ -1002,7 +1002,3 @@
 	display_name = "superadvanced alloy"
 	icon_colour = null
 	icon_base = "skrell"
-
-/material/graphite
-	name = MATERIAL_GRAPHITE
-	icon_colour = "#444444"

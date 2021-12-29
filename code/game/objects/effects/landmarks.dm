@@ -284,4 +284,3 @@ var/list/ruin_landmarks = list()
 	ruin_landmarks -= src
 	ruin_template = null
 	. = ..()
-	. = ..()
