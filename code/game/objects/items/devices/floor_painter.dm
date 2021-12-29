@@ -10,6 +10,7 @@
 
 	var/list/decals = list(
 		"quarter-turf" =      list("path" = /obj/effect/floor_decal/corner, "precise" = 1, "coloured" = 1),
+		"full quarter-turf" = list("path" = /obj/effect/floor_decal/corner_full, "precise" = 1, "coloured" = 1),
 		"hazard stripes" =    list("path" = /obj/effect/floor_decal/industrial/warning),
 		"corner, hazard" =    list("path" = /obj/effect/floor_decal/industrial/warning/corner),
 		"hatched marking" =   list("path" = /obj/effect/floor_decal/industrial/hatch, "coloured" = 1),
@@ -75,12 +76,21 @@
 
 	var/obj/structure/heavy_vehicle_frame/EF = A
 	if(istype(EF))
+		playsound(get_turf(src), 'sound/effects/spray3.ogg', 30, 1, -6)
 		EF.set_colour(paint_colour)
 		return
 
 	var/obj/item/mech_component/MC = A
 	if(istype(MC))
+		playsound(get_turf(src), 'sound/effects/spray3.ogg', 30, 1, -6)
 		MC.set_colour(paint_colour)
+		return
+
+	var/obj/structure/bed/B = A
+	if(istype(B))
+		playsound(get_turf(src), 'sound/effects/spray3.ogg', 30, 1, -6)
+		B.set_colour(paint_colour)
+		B.update_icon()
 		return
 
 	var/turf/simulated/floor/F = A

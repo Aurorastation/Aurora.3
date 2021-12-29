@@ -42,6 +42,8 @@
 	mob_bump_flag = HEAVY
 	mob_swap_flags = ~HEAVY
 	mob_push_flags = 0
+	
+	psi_pingable = FALSE
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/Initialize(mapload,mob/living/simple_animal/hostile/hivebot/hivebotbeacon)
 	if(hivebotbeacon)
@@ -159,8 +161,8 @@
 				update_icon()
 				return
 
-		if(istype(O, /obj/item/stool))
-			var/obj/item/stool/S = O
+		if(istype(O, /obj/structure/bed/stool))
+			var/obj/structure/bed/stool/S = O
 			src.visible_message(SPAN_NOTICE("[src] starts to dismantle \the [S]."))
 			busy = 2
 			update_icon()

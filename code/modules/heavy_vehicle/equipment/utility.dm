@@ -100,7 +100,7 @@
 				return
 
 
-			owner.visible_message(SPAN_NOTICE("\The [owner] begins loading \the [O]."))
+			owner.visible_message(SPAN_NOTICE("\The [owner] begins loading \the [O]."), intent_message = MACHINE_SOUND)
 			if(do_after(user, 2 SECONDS, act_target = owner, extra_checks = CALLBACK(GLOBAL_PROC, .proc/atom_maintain_position, O, O.loc)))
 				O.forceMove(src)
 				carrying += O

@@ -1357,14 +1357,8 @@
 	},
 /turf/simulated/floor/tiled,
 /area/storage/primary)
-"dt" = (
-/obj/effect/landmark/start,
-/turf/simulated/floor/tiled,
-/area/storage/primary)
 "du" = (
-/obj/effect/landmark{
-	name = "JoinLate"
-	},
+/obj/effect/landmark/force_spawnpoint,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "dv" = (
@@ -1443,12 +1437,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
-"hr" = (
-/obj/machinery/door/airlock/external{
-	id_tag = "runtime_shuttle"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/runtime)
 "ie" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/structure/cable{
@@ -1466,9 +1454,6 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/engineering/gravity_gen)
-"js" = (
-/turf/simulated/wall/r_wall,
-/area/shuttle/runtime)
 "kc" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1514,12 +1499,6 @@
 /obj/machinery/computer/security,
 /turf/simulated/floor/tiled,
 /area/bridge)
-"np" = (
-/obj/machinery/atmospherics/unary/engine{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/runtime)
 "nB" = (
 /obj/machinery/atmospherics/binary/pump/high_power/on{
 	dir = 4
@@ -1567,10 +1546,6 @@
 /obj/machinery/atmospherics/pipe/zpipe/up/supply,
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
-"sz" = (
-/obj/machinery/computer/ship/helm,
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/runtime)
 "tT" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1595,10 +1570,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
-"uM" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden,
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/runtime)
 "vm" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable{
@@ -1608,10 +1579,6 @@
 	},
 /turf/template_noop,
 /area/engineering)
-"vB" = (
-/obj/machinery/computer/ship/engines,
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/runtime)
 "wk" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -1658,23 +1625,11 @@
 /obj/machinery/door/airlock/glass,
 /turf/simulated/floor/plating,
 /area/storage/primary)
-"CM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/turf/simulated/wall/r_wall,
-/area/shuttle/runtime)
 "ES" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/shipsensors,
 /turf/template_noop,
 /area/engineering)
-"Fi" = (
-/obj/machinery/atmospherics/binary/pump/high_power/on{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/runtime)
 "FZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/recharge_station,
@@ -1688,6 +1643,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"Gr" = (
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Chief Engineer";
+	name = "force spawnpoint (CE)"
+	},
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "HB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -1716,12 +1678,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction)
-"Ii" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
-	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/runtime)
 "In" = (
 /obj/machinery/computer/ship/helm,
 /turf/simulated/floor/tiled,
@@ -1750,31 +1706,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"Ms" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
-	},
-/turf/simulated/wall/r_wall,
-/area/shuttle/runtime)
-"OQ" = (
-/obj/machinery/computer/shuttle_control/explore/runtime,
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/runtime)
-"Pz" = (
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/runtime)
 "PS" = (
 /obj/effect/landmark{
 	name = "Revenant"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
-"QO" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	id_tag = "runtime_shuttle"
-	},
-/turf/simulated/wall/r_wall,
-/area/shuttle/runtime)
 "QV" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/plating,
@@ -1831,31 +1768,20 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"UQ" = (
+"UP" = (
+/obj/effect/map_effect/wingrille_spawn/full,
 /turf/simulated/floor/plating,
-/area/shuttle/runtime)
-"Vb" = (
-/obj/structure/bed/chair/shuttle{
-	build_amt = 5;
-	dir = 3
-	},
-/obj/effect/overmap/visitable/ship/landable/runtime,
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/runtime)
-"Vr" = (
-/obj/structure/fuel_port,
-/turf/simulated/wall/r_wall,
-/area/shuttle/runtime)
+/area/storage/primary)
 "WS" = (
 /obj/turbolift_map_holder/runtime,
 /turf/simulated/floor/plating,
 /area/turbolift/main_station)
-"XU" = (
-/obj/machinery/atmospherics/pipe/tank/phoron{
-	dir = 4
+"Yc" = (
+/obj/effect/landmark{
+	name = "carpspawn"
 	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/runtime)
+/turf/template_noop,
+/area/template_noop)
 "YP" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -1869,10 +1795,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/storage/primary)
-"Zm" = (
-/obj/effect/shuttle_landmark/runtime/hangar,
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/runtime)
 "ZE" = (
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
@@ -2120,7 +2042,7 @@ aa
 aa
 aa
 aa
-aa
+Yc
 aa
 aa
 aa
@@ -2630,7 +2552,7 @@ aa
 aa
 aa
 aa
-aa
+Yc
 aa
 aa
 "}
@@ -2723,10 +2645,10 @@ de
 de
 de
 de
-js
-js
-js
-js
+de
+de
+de
+de
 dx
 cK
 ae
@@ -2774,13 +2696,13 @@ cV
 de
 de
 de
+de
 dq
 dq
 de
-js
-vB
-OQ
-js
+de
+de
+de
 dx
 cK
 ae
@@ -2828,13 +2750,13 @@ cV
 de
 de
 de
+de
 dq
 dq
 de
-hr
-Zm
-Vb
-js
+de
+de
+de
 dx
 cK
 ae
@@ -2882,13 +2804,13 @@ cV
 de
 de
 de
+de
 dq
 dq
 de
-js
-sz
-XU
-js
+de
+de
+de
 dx
 cK
 ae
@@ -2936,13 +2858,13 @@ cV
 de
 de
 de
+de
 dq
 dq
 de
-QO
-Pz
-Fi
-js
+de
+de
+de
 dx
 cK
 ae
@@ -2990,13 +2912,13 @@ cV
 de
 de
 de
+de
 dq
 dq
 de
-hr
-Ii
-uM
-Ms
+de
+de
+de
 dx
 cK
 ae
@@ -3044,13 +2966,13 @@ cV
 de
 de
 de
+de
 dq
 dq
 de
-Vr
-CM
-CM
-CM
+de
+de
+de
 dx
 cK
 ae
@@ -3101,10 +3023,10 @@ de
 de
 de
 de
-UQ
-np
-np
-np
+de
+de
+de
+de
 dx
 cK
 ae
@@ -3126,7 +3048,7 @@ aa
 aa
 aa
 aa
-aa
+Yc
 aa
 aa
 ab
@@ -3258,14 +3180,14 @@ zP
 cP
 cP
 cP
-cP
-cP
+UP
+UP
 cP
 dr
 dr
 cP
-cP
-cP
+UP
+UP
 cP
 cP
 cP
@@ -3477,7 +3399,7 @@ da
 dl
 dc
 do
-dt
+du
 du
 dl
 dc
@@ -3531,7 +3453,7 @@ da
 dl
 dc
 do
-dt
+du
 du
 dl
 dc
@@ -3585,7 +3507,7 @@ da
 dl
 dc
 do
-dt
+du
 du
 dl
 dc
@@ -3635,11 +3557,11 @@ bB
 bB
 cS
 da
-da
+Gr
 dl
 dc
 pM
-dt
+du
 du
 dl
 dc
@@ -3693,7 +3615,7 @@ da
 dl
 dc
 do
-dt
+du
 du
 dl
 dc
@@ -3747,7 +3669,7 @@ da
 dl
 dc
 do
-dt
+du
 du
 dl
 dc
@@ -3801,7 +3723,7 @@ da
 dl
 dc
 do
-dt
+du
 du
 dl
 dc
@@ -3871,7 +3793,7 @@ aa
 aa
 aa
 aa
-aa
+Yc
 aa
 aa
 aa
@@ -4384,7 +4306,7 @@ aa
 aa
 aa
 aa
-aa
+Yc
 aa
 aa
 aa

@@ -134,6 +134,8 @@
 
 	var/list/butchering_products	//if anything else is created when butchering this creature, like bones and leather
 
+	var/psi_pingable = TRUE
+
 	var/armor_type = /datum/component/armor
 	var/list/natural_armor //what armor animal has
 

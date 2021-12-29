@@ -32,6 +32,8 @@
 	appearance_flags = NO_CLIENT_COLOR|KEEP_TOGETHER
 	var/obj/item/residue = /obj/item/ectoplasm
 
+	psi_pingable = FALSE
+
 /mob/living/simple_animal/shade/cultify()
 	return
 

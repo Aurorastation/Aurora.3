@@ -340,7 +340,7 @@
 	display_name = "cargo technician, shorts"
 	description = "For those that value leg-room."
 	path = /obj/item/clothing/under/rank/cargo/alt
-	allowed_roles = list("Cargo Technician")
+	allowed_roles = list("Cargo Technician", "Quartermaster")
 
 /datum/gear/uniform/pyjama
 	display_name = "pyjamas"

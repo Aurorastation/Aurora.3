@@ -487,6 +487,29 @@
 	maxhealth = 160
 	smooth = 0
 
+/obj/structure/window/shuttle/scc_space_ship
+	name = "window"
+	desc = "It looks extremely strong. Might take many good hits to crack it."
+	icon = 'icons/obj/smooth/scc_space_ship.dmi'
+	icon_state = "scc_space_ship"
+	health = 500
+	maxhealth = 500
+	smooth = SMOOTH_MORE|SMOOTH_DIAGONAL
+	canSmoothWith = list(
+		/obj/structure/window/shuttle/scc_space_ship
+	)
+
+/obj/structure/window/shuttle/scc_space_ship/cardinal
+	smooth = SMOOTH_MORE
+
+/obj/structure/window/shuttle/scc
+	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi'
+	icon_state = "scc_window"
+	basestate = "scc_window"
+	health = 160
+	maxhealth = 160
+	smooth = 0
+
 /obj/structure/window/shuttle/crescent
 	desc = "It looks rather strong."
 
@@ -565,7 +588,12 @@
 	reinf = TRUE
 	maximal_heat = T0C + 750
 	dir = 5
-	smooth = SMOOTH_TRUE
+	smooth = SMOOTH_MORE
+	canSmoothWith = list(
+		/obj/structure/window/full,
+		/turf/simulated/wall,
+		/turf/unsimulated/wall
+	)
 	damage_per_fire_tick = 2.0
 	can_be_unanchored = TRUE
 	glasstype = /obj/item/stack/material/glass/reinforced
@@ -578,6 +606,42 @@
 	var/obj/structure/window_frame/F = new/obj/structure/window_frame (get_turf(src))
 	F.anchored = anchored
 	qdel(src)
+
+/obj/structure/window/full/cardinal_smooth(adjacencies, var/list/dir_mods)
+	LAZYINITLIST(dir_mods)
+	var/north_wall = FALSE
+	var/east_wall = FALSE
+	var/south_wall = FALSE
+	var/west_wall = FALSE
+	if(adjacencies & N_NORTH)
+		var/turf/T = get_step(src, NORTH)
+		if(iswall(T))
+			dir_mods["[N_NORTH]"] = "-wall"
+			north_wall = TRUE
+	if(adjacencies & N_EAST)
+		var/turf/T = get_step(src, EAST)
+		if(iswall(T))
+			dir_mods["[N_EAST]"] = "-wall"
+			east_wall = TRUE
+	if(adjacencies & N_SOUTH)
+		var/turf/T = get_step(src, SOUTH)
+		if(iswall(T))
+			dir_mods["[N_SOUTH]"] = "-wall"
+			south_wall = TRUE
+	if(adjacencies & N_WEST)
+		var/turf/T = get_step(src, WEST)
+		if(iswall(T))
+			dir_mods["[N_WEST]"] = "-wall"
+			west_wall = TRUE
+	if(((adjacencies & N_NORTH) && (adjacencies & N_WEST)) && (north_wall || west_wall))
+		dir_mods["[N_NORTH][N_WEST]"] = "-n[north_wall ? "wall" : "win"]-w[west_wall ? "wall" : "win"]"
+	if(((adjacencies & N_NORTH) && (adjacencies & N_EAST)) && (north_wall || east_wall))
+		dir_mods["[N_NORTH][N_EAST]"] = "-n[north_wall ? "wall" : "win"]-e[east_wall ? "wall" : "win"]"
+	if(((adjacencies & N_SOUTH) && (adjacencies & N_WEST)) && (south_wall || west_wall))
+		dir_mods["[N_SOUTH][N_WEST]"] = "-s[south_wall ? "wall" : "win"]-w[west_wall ? "wall" : "win"]"
+	if((adjacencies & N_SOUTH) && (adjacencies & N_EAST) && (south_wall || east_wall))
+		dir_mods["[N_SOUTH][N_EAST]"] = "-s[south_wall ? "wall" : "win"]-e[east_wall ? "wall" : "win"]"
+	return ..(adjacencies, dir_mods)
 
 /obj/structure/window/full/phoron
 	name = "reinforced borosilicate window"

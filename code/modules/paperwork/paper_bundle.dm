@@ -122,7 +122,11 @@
 		var/obj/item/paper/P = W
 		dat += P.get_content(user, P.can_read(user))
 
-		var/datum/browser/paper_win = new(user, name, null, 450, 500, null, TRUE)
+		var/datum/browser/paper_win
+		if(istype(pages[page], /obj/item/paper/business_card))
+			paper_win = new(user, name, null, 525, 300, null, TRUE)
+		else
+			paper_win = new(user, name, null, 450, 500, null, TRUE)
 		paper_win.set_content(dat)
 		paper_win.add_stylesheet("paper_languages", 'html/browser/paper_languages.css')
 		paper_win.open()
@@ -169,18 +173,27 @@
 
 	if(href_list["next_page"])
 		if(page != length(pages))
+			var/obj/P = pages[page]
 			page++
+			var/obj/A = pages[page]
 			playsound(src.loc, /decl/sound_category/page_sound, 50, 1)
+			if(A.type != P.type)
+				usr << browse(null, "window=[name]")
 	if(href_list["prev_page"])
 		if(page > 1)
+			var/obj/P = pages[page]
 			page--
+			var/obj/A = pages[page]
 			playsound(src.loc, /decl/sound_category/page_sound, 50, 1)
+			if(A.type != P.type)
+				usr << browse(null, "window=[name]")
 	if(href_list["remove"])
 		var/obj/item/W = pages[page]
 		usr.put_in_hands(W)
 		pages.Remove(pages[page])
 
-		to_chat(usr, "<span class='notice'>You remove the [W.name] from the bundle.</span>")
+		to_chat(usr, SPAN_NOTICE("You remove the [W.name] from the bundle."))
+
 
 		if(pages.len <= 1)
 			var/obj/item/paper/P = src[1]

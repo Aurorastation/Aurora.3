@@ -56,6 +56,7 @@
 			qdel(W)
 			playsound(src.loc, 'sound/bureaucracy/papershred.ogg', 75, 1)
 			to_chat(user, SPAN_NOTICE("You shred the paper."))
+			intent_message(MACHINE_SOUND)
 			if(paperamount > max_paper)
 				to_chat(user, SPAN_DANGER("\The [src] was too full, and shredded paper goes everywhere!"))
 				for(var/i=(paperamount-max_paper);i>0;i--)

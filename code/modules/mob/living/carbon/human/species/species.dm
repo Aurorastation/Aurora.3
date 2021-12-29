@@ -19,10 +19,13 @@
 	var/list/selectable_pronouns = list(MALE, FEMALE, PLURAL)
 
 	// Icon/appearance vars.
+	var/canvas_icon = 'icons/mob/base_32.dmi'                  // Used to blend parts and icons onto this, to avoid clipping issues.
 	var/icobase = 'icons/mob/human_races/human/r_human.dmi'    // Normal icon set.
 	var/deform = 'icons/mob/human_races/human/r_def_human.dmi' // Mutated icon set.
 	var/preview_icon = 'icons/mob/human_races/human/human_preview.dmi'
 	var/bandages_icon
+
+	var/talk_bubble_icon
 
 	// Damage overlay and masks.
 	var/damage_overlays = 'icons/mob/human_races/masks/dam_human.dmi'
@@ -33,6 +36,7 @@
 	var/prone_icon                                       // If set, draws this from icobase when mob is prone.
 	var/icon_x_offset = 0
 	var/icon_y_offset = 0
+	var/floating_chat_x_offset = null
 	var/eyes = "eyes_s"                                  // Icon for eyes.
 	var/eyes_icons = 'icons/mob/human_face/eyes.dmi'     // DMI file for eyes, mostly for none 32x32 species.
 	var/has_floating_eyes                                // Eyes will overlay over darkness (glow)
@@ -91,6 +95,7 @@
 	var/break_cuffs = FALSE                   //used in resist.dm to check if they can break hand/leg cuffs
 	var/natural_climbing = FALSE             //If true, the species always succeeds at climbing.
 	var/climb_coeff = 1.25                   //The coefficient to the climbing speed of the individual = 60 SECONDS * climb_coeff
+
 	// Death vars.
 	var/respawn_type = CREW
 	var/meat_type = /obj/item/reagent_containers/food/snacks/meat/human
@@ -205,6 +210,10 @@
 	var/bp_base_systolic = 120
 	var/bp_base_disatolic = 80
 
+	// Hearing sensitivity
+	var/hearing_sensitivity = HEARING_NORMAL
+
+	// Eating & nutrition related stuff
 	var/gluttonous = 0            // Can eat some mobs. Values can be GLUT_TINY, GLUT_SMALLER, GLUT_ANYTHING, GLUT_ITEM_TINY, GLUT_ITEM_NORMAL, GLUT_ITEM_ANYTHING, GLUT_PROJECTILE_VOMIT
 	var/stomach_capacity = 5      // How much stuff they can stick in their stomach
 	var/allowed_eat_types = TYPE_ORGANIC
@@ -242,6 +251,8 @@
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right)
 		)
 
+	var/list/natural_armor
+
 	// Bump vars
 	var/bump_flag = HUMAN	// What are we considered to be when bumped?
 	var/push_flags = ~HEAVY	// What can we push?
@@ -258,15 +269,16 @@
 	var/list/allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI, CITIZENSHIP_DOMINIA)
 	var/list/allowed_religions = list(RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_JUDAISM, RELIGION_HINDU, RELIGION_BUDDHISM, RELIGION_MOROZ, RELIGION_TRINARY, RELIGION_SCARAB, RELIGION_TAOISM, RELIGION_LUCEISM)
 	var/default_citizenship = CITIZENSHIP_BIESEL
-	var/list/allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_MARTIAN, ACCENT_LUNA, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_JUPITER, ACCENT_COC, ACCENT_ELYRA, ACCENT_ERIDANI,
+	var/list/allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_MARTIAN, ACCENT_LUNA, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_JUPITER, ACCENT_COC, ACCENT_ELYRA, ACCENT_ERIDANI, ACCENT_ERIDANIREINSTATED,
 									ACCENT_ERIDANIDREG, ACCENT_VYSOKA, ACCENT_HIMEO, ACCENT_PHONG, ACCENT_SILVERSUN_ORIGINAL, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_DOMINIA_HIGH, ACCENT_DOMINIA_VULGAR, ACCENT_KONYAN, ACCENT_EUROPA, ACCENT_EARTH, ACCENT_NCF, ACCENT_FISANDUH, ACCENT_GADPATHUR,
-									ACCENT_PLUTO, ACCENT_ASSUNZIONE)
+									ACCENT_PLUTO, ACCENT_ASSUNZIONE, ACCENT_VISEGRAD, ACCENT_VALKYRIE, ACCENT_MICTLAN)
 	var/default_accent = ACCENT_CETI
 	var/zombie_type	//What zombie species they become
 	var/list/character_color_presets
 	var/bodyfall_sound = /decl/sound_category/bodyfall_sound //default, can be used for species specific falling sounds
 
 	var/list/alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH, BP_APPENDIX) //what internal organs can be changed in character setup
+	var/list/possible_external_organs_modifications = list("Normal","Amputated","Prosthesis")
 
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
@@ -389,6 +401,9 @@
 			E.status |= ORGAN_ADV_ROBOT
 		for(var/obj/item/organ/I in H.internal_organs)
 			I.status |= ORGAN_ADV_ROBOT
+
+	if(natural_armor)
+		H.AddComponent(/datum/component/armor, natural_armor)
 
 /datum/species/proc/tap(var/mob/living/carbon/human/H,var/mob/living/target)
 	if(H.on_fire)
@@ -718,7 +733,7 @@
 
 /datum/species/proc/handle_movement_tally(var/mob/living/carbon/human/H)
 	var/tally = 0
-	if(istype(H.buckled_to, /obj/structure/bed/chair/wheelchair))
+	if(istype(H.buckled_to, /obj/structure/bed/stool/chair/office/wheelchair))
 		for(var/organ_name in list(BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM))
 			var/obj/item/organ/external/E = H.get_organ(organ_name)
 			if(!E || E.is_stump())
@@ -775,3 +790,9 @@
 			stance_damage -=2
 
 	return stance_damage
+
+/datum/species/proc/can_hold_s_store(var/obj/item/I)
+	return FALSE
+
+/datum/species/proc/can_double_fireman_carry()
+	return FALSE

@@ -154,6 +154,9 @@
 
 	queue_icon_update()
 
+/obj/item/gun/should_equip()
+	return TRUE
+
 /obj/item/gun/update_icon()
 	..()
 	underlays.Cut()
@@ -180,6 +183,11 @@
 			item_state = replacetext(item_state,"-wielded","")
 
 	update_held_icon()
+
+/obj/item/gun/can_swap_hands(mob/user)
+	if(wielded)
+		return FALSE
+	return ..()
 
 /obj/item/gun/proc/unique_action(var/mob/user)
 	return

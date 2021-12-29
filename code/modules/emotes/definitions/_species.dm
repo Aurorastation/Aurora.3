@@ -30,7 +30,7 @@
 		/decl/emote/human/stopsway,
 		/decl/emote/audible/lizard_bellow,
 		/decl/emote/audible/hiss,
-		/decl/emote/audible/hiss/long,
+		/decl/emote/audible/growl,
 		/decl/emote/audible/hiss/short
 		)
 	pain_emotes_with_pain_level = list(
@@ -88,9 +88,11 @@
 
 /datum/species/skrell
 	default_emotes = list(
-		/decl/emote/audible/warble
+		/decl/emote/audible/warble,
+		/decl/emote/audible/croon,
+		/decl/emote/audible/lowarble,
+		/decl/emote/audible/croak
 	)
-
 /mob/living/carbon/human/set_species(var/new_species, var/default_colour = 1)
 	UNLINT(. = ..())
 	update_emotes()

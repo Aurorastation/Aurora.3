@@ -21,7 +21,6 @@
 	var/last_state
 	var/construction_stage
 	var/hitsound = 'sound/weapons/genhit.ogg'
-	var/use_standard_smoothing
 	var/use_set_icon_state
 
 	var/under_turf = /turf/simulated/floor/plating
@@ -41,6 +40,12 @@
 		O.hide(1)
 
 /turf/simulated/wall/Initialize(mapload, var/materialtype, var/rmaterialtype)
+	if(!canSmoothWith && ((smooth & SMOOTH_TRUE) || (smooth & SMOOTH_MORE)))
+		canSmoothWith = list(
+			src.type,
+			/obj/structure/window/full,
+			/obj/structure/window/full/phoron
+		)
 	. = ..()
 	if(!use_set_icon_state)
 		icon_state = "blank"

@@ -23,7 +23,7 @@
 	cost = 2
 
 /datum/gear/utility/purse
-	display_name = "Purse"
+	display_name = "purse"
 	description = "A small, fashionable bag typically worn over the shoulder."
 	path = /obj/item/storage/backpack/satchel/pocketbook/purse
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
@@ -61,6 +61,11 @@
 	display_name = "personal AI device"
 	path = /obj/item/device/paicard
 
+/datum/gear/utility/classicwallet
+	display_name = "wallet"
+	path = /obj/item/storage/wallet
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
 /datum/gear/utility/wallet
 	display_name = "wallet selection"
 	path = /obj/item/storage/wallet
@@ -93,36 +98,47 @@
 
 /datum/gear/utility/wheelchair/color
 	display_name = "wheelchair"
-	path = /obj/item/wheelchair
+	path = /obj/item/material/stool/chair/wheelchair
 	cost = 4
-
-/datum/gear/utility/wheelchair/color/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/utility/business_card_holder
 	display_name = "business card holder"
+	description = "Comes in different materials."
 	path = /obj/item/storage/business_card_holder
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/utility/business_card_holder/New()
+	..()
+	var/list/holders = list()
+	holders["business card holder, metal"] = /obj/item/storage/business_card_holder
+	holders["business card holder, wood"] = /obj/item/storage/business_card_holder/wood
+	holders["business card holder, leather"] = /obj/item/storage/business_card_holder/leather
+	holders["business card holder, plastic"] = /obj/item/storage/business_card_holder/plastic
+	gear_tweaks += new /datum/gear_tweak/path(holders)
 
 /datum/gear/utility/business_card
 	display_name = "business card"
+	description = "A selection of business cards." // I'm not smart enough to make it spawn inside the holders and carry over the text so we'll have to live with this
 	path = /obj/item/paper/business_card
-	flags = 0
+	flags = GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/utility/business_card/New()
 	..()
 	var/list/cards = list()
-	cards["business card, divided"] = /obj/item/paper/business_card
-	cards["business card, plain"] = /obj/item/paper/business_card/alt
-	cards["business card, rounded"] = /obj/item/paper/business_card/rounded
-	cards["business card, glass"] = /obj/item/paper/business_card/glass
+	cards["paper business card, divided"] = /obj/item/paper/business_card
+	cards["paper business card, plain"] = /obj/item/paper/business_card/alt
+	cards["paper business card, rounded"] = /obj/item/paper/business_card/rounded
+	cards["glass business card"] = /obj/item/paper/business_card/glass
+	cards["glass business card, black flair"] = /obj/item/paper/business_card/glass/b
+	cards["glass business card, grey flair"] = /obj/item/paper/business_card/glass/g
+	cards["glass business card, silver flair"] = /obj/item/paper/business_card/glass/s
+	cards["glass business card, white flair"] = /obj/item/paper/business_card/glass/w
 	gear_tweaks += new /datum/gear_tweak/path(cards)
 	gear_tweaks += new /datum/gear_tweak/paper_data()
 
 /datum/gear/utility/pills
 	display_name = "pill bottle selection"
-	description = "A selection of prescription pill. NOTICE: most of these are considered contraband if possessed without the relevant prescription noted in the medical records."
+	description = "A selection of prescription pills. NOTICE: most of these are considered contraband if possessed without the relevant prescription noted in the medical records."
 	path = /obj/item/reagent_containers/pill
 
 /datum/gear/utility/pills/New()

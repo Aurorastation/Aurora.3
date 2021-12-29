@@ -16,6 +16,7 @@
 	player_levels = list(2, 3, 4, 5, 6, 7, 8)
 	restricted_levels = list()
 	accessible_z_levels = list("2" = 60, "6" = 20, "7" = 20)
+	meteor_levels = list(6)
 	base_turf_by_z = list(
 		"1" = /turf/space,
 		"2" = /turf/space,

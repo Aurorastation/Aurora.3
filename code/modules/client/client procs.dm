@@ -391,6 +391,9 @@ var/list/localhost_addresses = list(
 	if (byond_version >= 511 && prefs.clientfps)
 		fps = prefs.clientfps
 
+	if(prefs.toggles_secondary & FULLSCREEN_MODE)
+		toggle_fullscreen(TRUE)
+
 /client/proc/InitClient()
 	to_chat(src, "<span class='alert'>If the title screen is black, resources are still downloading. Please be patient until the title screen appears.</span>")
 
@@ -597,6 +600,24 @@ var/list/localhost_addresses = list(
 	set category = "Preferences"
 	if(prefs)
 		prefs.ShowChoices(usr)
+
+/client/verb/toggle_fullscreen_preference()
+	set name = "Toggle Fullscreen Preference"
+	set category = "Preferences"
+	set desc = "Toggles whether the game window will be true fullscreen or normal."
+
+	prefs.toggles_secondary ^= FULLSCREEN_MODE
+	prefs.save_preferences()
+	toggle_fullscreen(prefs.toggles_secondary & FULLSCREEN_MODE)
+
+/client/proc/toggle_fullscreen(new_value)
+	if(new_value)
+		winset(src, "mainwindow", "is-maximized=false;can-resize=false;titlebar=false;menu=menu")
+		winset(src, "mainwindow.mainvsplit", "pos=0x0")
+	else
+		winset(src, "mainwindow", "is-maximized=false;can-resize=true;titlebar=true;menu=menu")
+		winset(src, "mainwindow.mainvsplit", "pos=3x0")
+	winset(src, "mainwindow", "is-maximized=true")
 
 /client/proc/apply_fps(var/client_fps)
 	if(world.byond_version >= 511 && byond_version >= 511 && client_fps >= 0 && client_fps <= 1000)

@@ -2,6 +2,9 @@
 	name = "Runtime Ship"
 	full_name = "Runtime Debugging Ship"
 	path = "runtime"
+
+	force_spawnpoint = TRUE
+
 	lobby_icons = list('icons/misc/titlescreens/runtime/developers.dmi')
 	lobby_transitions = 10 SECONDS
 
@@ -10,6 +13,9 @@
 	contact_levels = list(1, 2, 3)
 	player_levels = list(1, 2, 3)
 	accessible_z_levels = list(1, 2, 3)
+	meteor_levels = list(1, 2, 3)
+
+	overmap_event_areas = 10
 
 	station_name = "NSV Runtime"
 	station_short = "Runtime"

@@ -59,13 +59,6 @@
 #define MATERIAL_CLOTH                   "cloth"
 #define MATERIAL_COTTON                  "cotton"
 #define MATERIAL_CARPET                  "carpet"
-#define MATERIAL_CLOTH_TEAL              "teal"
-#define MATERIAL_CLOTH_BLACK             "black"
-#define MATERIAL_CLOTH_GREEN             "green"
-#define MATERIAL_CLOTH_PURPLE            "purple"
-#define MATERIAL_CLOTH_BLUE              "blue"
-#define MATERIAL_CLOTH_BEIGE             "beige"
-#define MATERIAL_CLOTH_LIME              "lime"
 
 #define MATERIAL_ALTERATION_NONE 0
 #define MATERIAL_ALTERATION_NAME 1
