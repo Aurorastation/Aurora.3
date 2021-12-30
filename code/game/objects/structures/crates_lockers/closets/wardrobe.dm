@@ -313,20 +313,6 @@
 	return
 
 
-/obj/structure/closet/wardrobe/genetics_white
-	name = "genetics wardrobe"
-	icon_state = "white"
-	icon_closed = "white"
-
-/obj/structure/closet/wardrobe/genetics_white/fill()
-	..()
-	new /obj/item/clothing/under/rank/geneticist(src)
-	new /obj/item/clothing/under/rank/geneticist(src)
-	new /obj/item/clothing/shoes/white(src)
-	new /obj/item/clothing/shoes/white(src)
-	return
-
-
 /obj/structure/closet/wardrobe/virology_white
 	name = "virology wardrobe"
 	icon_state = "white"
@@ -334,8 +320,6 @@
 
 /obj/structure/closet/wardrobe/virology_white/fill()
 	..()
-	new /obj/item/clothing/under/rank/virologist(src)
-	new /obj/item/clothing/under/rank/virologist(src)
 	new /obj/item/clothing/shoes/biochem(src)
 	new /obj/item/clothing/shoes/biochem(src)
 	new /obj/item/clothing/mask/surgical(src)

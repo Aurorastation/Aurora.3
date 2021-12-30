@@ -21,7 +21,6 @@
 	item_state = "lb_suit"
 	worn_state = "cargo"
 
-
 /obj/item/clothing/under/rank/cargo/alt
 	desc = "Shooooorts! They're comfy and easy to wear!"
 	icon_state = "cargo_alt"
@@ -231,9 +230,9 @@
 /obj/item/clothing/under/rank/operations_manager
 	name = "operations manager's jumpsuit"
 	desc = "A uniform worn by the operations manager. It has the SCC insignia on it."
-	icon_state = "qm"
-	item_state = "lb_suit"
-	worn_state = "qm"
+	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
+	icon_state = "operations_manager"
+	item_state = "operations_manager"
 
 /obj/item/clothing/under/rank/hangar_technician
 	name = "hangar technician's jumpsuit"
@@ -245,23 +244,26 @@
 /obj/item/clothing/under/rank/bridge_crew
 	name = "bridge crew's jumpsuit"
 	desc = "The uniform worn by the SCC's bridge crew."
-	icon_state = "hop"
-	item_state = "b_suit"
-	worn_state = "hop"
+	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
+	icon_state = "bridge_crew"
+	item_state = "bridge_crew"
+	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/xo
 	name = "executive officer's jumpsuit"
 	desc = "The uniform worn by the SCC's executive officers."
-	icon_state = "hop"
-	item_state = "b_suit"
-	worn_state = "hop"
+	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
+	icon_state = "executive_officer"
+	item_state = "executive_officer"
+	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/service_manager
 	name = "service manager's jumpsuit"
 	desc = "The uniform worn by the managers of the ship service crew."
+	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
 	icon_state = "hop"
 	item_state = "b_suit"
-	worn_state = "hop"
+	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/machinist
 	name = "Machinist's jumpsuit"

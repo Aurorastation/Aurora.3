@@ -2,9 +2,10 @@
 /obj/item/clothing/under/rank/chief_engineer
 	name = "chief engineer's jumpsuit"
 	desc = "It's a high visibility jumpsuit given to those engineers insane enough to achieve the rank of \"Chief Engineer\". It has minor radiation shielding."
-	icon_state = "chiefengineer"
-	item_state = "g_suit"
-	worn_state = "chief"
+	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
+	icon_state = "chief_engineer"
+	item_state = "chief_engineer"
+	contained_sprite = TRUE
 	armor = list(
 		rad = ARMOR_RAD_MINOR
 	)
