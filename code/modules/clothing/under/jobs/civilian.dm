@@ -129,6 +129,18 @@
 	item_state = "lb_suit"
 	worn_state = "miner"
 
+/obj/item/clothing/under/rank/miner/heph
+	icon = 'icons/obj/contained_items/department_uniforms/operations.dmi'
+	contained_sprite = TRUE
+	icon_state = "heph_miner"
+	item_state = "heph_miner"
+
+/obj/item/clothing/under/rank/miner/orion
+	icon = 'icons/obj/contained_items/department_uniforms/operations.dmi'
+	contained_sprite = TRUE
+	icon_state = "orion_miner"
+	item_state = "orion_miner"
+
 /obj/item/clothing/under/rank/hephaestus
 	name = "Hephaestus Industries engineer uniform"
 	desc = "A uniform worn by Hephaestus Industries engineers."
@@ -241,6 +253,18 @@
 	item_state = "lb_suit"
 	worn_state = "cargo"
 
+/obj/item/clothing/under/rank/hangar_technician/heph
+	icon = 'icons/obj/contained_items/department_uniforms/operations.dmi'
+	contained_sprite = TRUE
+	icon_state = "heph_tech"
+	item_state = "heph_tech"
+
+/obj/item/clothing/under/rank/hangar_technician/orion
+	icon = 'icons/obj/contained_items/department_uniforms/operations.dmi'
+	contained_sprite = TRUE
+	icon_state = "orion_tech"
+	item_state = "orion_tech"
+
 /obj/item/clothing/under/rank/bridge_crew
 	name = "bridge crew's jumpsuit"
 	desc = "The uniform worn by the SCC's bridge crew."
@@ -266,8 +290,20 @@
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/machinist
-	name = "Machinist's jumpsuit"
+	name = "machinist's jumpsuit"
 	desc = "A practical uniform designed for industrial work."
 	icon_state = "hop"
 	item_state = "b_suit"
 	worn_state = "hop"
+
+/obj/item/clothing/under/rank/machinist/heph
+	icon = 'icons/obj/contained_items/department_uniforms/operations.dmi'
+	contained_sprite = TRUE
+	icon_state = "orion_tech"
+	item_state = "orion_tech"
+
+/obj/item/clothing/under/rank/machinist/orion
+	icon = 'icons/obj/contained_items/department_uniforms/operations.dmi'
+	contained_sprite = TRUE
+	icon_state = "orion_tech"
+	item_state = "orion_tech"
