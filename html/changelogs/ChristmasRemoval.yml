@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - maptweak: "Removes christmas themed decorations from the map."
