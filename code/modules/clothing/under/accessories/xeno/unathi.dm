@@ -22,7 +22,6 @@
 	set name = "Adjust Hood"
 	set src in usr
 
-	var/mob/living/carbon/human/H = usr
 	if(use_check_and_message(usr))
 		return
 	up = !up
@@ -39,7 +38,9 @@
 	update_worn_icon()
 	update_clothing_icon()
 	update_icon()
-	H.update_hair()
+	if(ishuman(usr))
+		var/mob/living/carbon/human/H = usr
+		H.update_hair()
 
 /obj/item/clothing/accessory/unathi
 	name = "gyazo belt"
