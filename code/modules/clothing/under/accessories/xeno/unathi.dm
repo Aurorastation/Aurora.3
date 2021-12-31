@@ -5,10 +5,14 @@
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "sinta_hood"
 	item_state = "sinta_hood_up"
-	slot_flags = SLOT_TIE|SLOT_HEAD
+	slot_flags = SLOT_TIE|SLOT_HEAD|SLOT_EARS
+	flags_inv = BLOCKHAIR|BLOCKHEADHAIR
 	contained_sprite = TRUE
 	action_button_name = "Adjust Hood"
 	var/up = TRUE
+
+/obj/item/clothing/accessory/sinta_hood/get_ear_examine_text(var/mob/user, var/ear_text = "left")
+	return "on [user.get_pronoun("his")] head"
 
 /obj/item/clothing/accessory/sinta_hood/attack_self()
 	toggle()
@@ -18,6 +22,7 @@
 	set name = "Adjust Hood"
 	set src in usr
 
+	var/mob/living/carbon/human/H = usr
 	if(use_check_and_message(usr))
 		return
 	up = !up
@@ -34,6 +39,7 @@
 	update_worn_icon()
 	update_clothing_icon()
 	update_icon()
+	H.update_hair()
 
 /obj/item/clothing/accessory/unathi
 	name = "gyazo belt"
