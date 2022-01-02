@@ -1,8 +1,8 @@
-/datum/map/sccv_aurora
-	name = "SCCV Aurora"
-	full_name = "SCCV Aurora"
-	path = "sccv_aurora"
-	lobby_icons = list('icons/misc/titlescreens/sccv_aurora/sccv_aurora.dmi')
+/datum/map/sccv_horizon
+	name = "SCCV Horizon"
+	full_name = "SCCV Horizon"
+	path = "sccv_horizon"
+	lobby_icons = list('icons/misc/titlescreens/sccv_horizon/sccv_horizon.dmi')
 	lobby_transitions = 25 SECONDS
 
 	station_levels = list(1, 2, 3)
@@ -20,8 +20,8 @@
 		"6" = /turf/space
 	)
 
-	station_name = "SCCV Aurora"
-	station_short = "Aurora"
+	station_name = "SCCV Horizon"
+	station_short = "Horizon"
 	dock_name = "The Shipyard"
 	dock_short = "Shipyard"
 	boss_name = "Stellar Corporate Conglomerate"
@@ -30,7 +30,7 @@
 	company_short = "SCC"
 
 	command_spawn_enabled = TRUE
-	command_spawn_message = "Welcome to the SCCV Aurora!"
+	command_spawn_message = "Welcome to the SCCV Horizon!"
 
 	use_overmap = TRUE
 
@@ -84,6 +84,6 @@
 
 	spawn_types = list(/datum/spawnpoint/living_quarters_lift, /datum/spawnpoint/cryo)
 
-/datum/map/sccv_aurora/finalize_load()
+/datum/map/sccv_horizon/finalize_load()
 	// generate an empty space Z
 	world.maxz++

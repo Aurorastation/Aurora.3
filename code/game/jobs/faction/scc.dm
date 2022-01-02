@@ -46,14 +46,3 @@
 			SPECIES_IPC_SHELL,
 		)
 	)
-
-	titles_to_loadout = list(
-		"Captain" = /datum/outfit/job/captain,
-		"Executive Officer" = /datum/outfit/job/xo,
-		"Chief Engineer" = /datum/outfit/job/chief_engineer,
-		"Head of Security" = /datum/outfit/job/hos,
-		"Research Director" = /datum/outfit/job/rd,
-		"Chief Medical Officer" = /datum/outfit/job/cmo,
-		"Operations Manager" = /datum/outfit/job/operations_manager,
-		"Bridge Crew" = /datum/outfit/job/bridge_crew
-	)

@@ -1,5 +1,5 @@
-/obj/effect/overmap/visitable/ship/sccv_aurora
-	name = "SCCV Aurora"
+/obj/effect/overmap/visitable/ship/sccv_horizon
+	name = "SCCV Horizon"
 	desc = "A Stellar Conglomerate Vessel general purpose ship."
 	fore_dir = SOUTH
 	vessel_mass = 100000
