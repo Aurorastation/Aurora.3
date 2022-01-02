@@ -344,19 +344,17 @@
 /obj/item/clothing/under/rank/service_manager
 	name = "service manager's jumpsuit"
 	desc = "The uniform worn by the managers of the ship service crew."
-	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
 	icon_state = "hop"
 	item_state = "b_suit"
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/service_manager/nt
-	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
 	icon_state = "nt_service_manager"
 	item_state = "nt_service_manager"
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/service_manager/idris
-	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
 	icon_state = "idris_service_manager"
 	item_state = "idris_service_manager"
 	contained_sprite = TRUE
@@ -371,11 +369,11 @@
 /obj/item/clothing/under/rank/machinist/heph
 	icon = 'icons/obj/contained_items/department_uniforms/operations.dmi'
 	contained_sprite = TRUE
-	icon_state = "orion_tech"
-	item_state = "orion_tech"
+	icon_state = "heph_machinist"
+	item_state = "heph_machinist"
 
 /obj/item/clothing/under/rank/machinist/orion
 	icon = 'icons/obj/contained_items/department_uniforms/operations.dmi'
 	contained_sprite = TRUE
-	icon_state = "orion_tech"
-	item_state = "orion_tech"
+	icon_state = "orion_machinist"
+	item_state = "orion_machinist"

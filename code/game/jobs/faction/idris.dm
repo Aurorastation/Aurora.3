@@ -93,12 +93,14 @@
 	name = "Chef - Idris"
 
 	uniform = /obj/item/clothing/under/rank/chef/idris
+	suit = null
+	head = null
 	id = /obj/item/card/id/idris
 
 /datum/outfit/job/hydro/idris
 	name = "Gardener - Idris"
 
-	uniform = /obj/item/clothing/under/rank/chef/idris
+	uniform = /obj/item/clothing/under/rank/hydroponics/idris
 	head = /obj/item/clothing/head/bandana/hydro/idris
 	suit = null
 	id = /obj/item/card/id/idris

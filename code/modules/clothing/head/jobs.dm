@@ -10,8 +10,8 @@
 	desc = "A headhand used by chefs. This one is in NanoTrasen's colors."
 	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
 	contained_sprite = TRUE
-	icon_state = "idris_manager_fedora"
-	item_state = "idris_manager_fedora"
+	icon_state = "nt_chef_headband"
+	item_state = "nt_chef_headband"
 
 /obj/item/clothing/head/surgery/hairnet
 	name = "hairnet"

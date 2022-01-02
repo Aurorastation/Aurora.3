@@ -15,7 +15,7 @@
 	"}
 	title_suffix = "PMC"
 
-	allowed_role_types = NT_ROLES
+	allowed_role_types = PMC_ROLES
 
 	allowed_species_types = list(
 		/datum/species/human,
@@ -70,6 +70,7 @@
 	name = "Security Cadet - PMC"
 
 	uniform = /obj/item/clothing/under/rank/cadet/pmc
+	suit = null
 	id = /obj/item/card/id/pmc
 
 /datum/outfit/job/forensics/pmc

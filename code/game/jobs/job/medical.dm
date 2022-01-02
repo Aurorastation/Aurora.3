@@ -97,8 +97,8 @@
 	base_name = "Physician"
 	jobtype = /datum/job/doctor
 
-	uniform = /obj/item/clothing/under/rank/medical
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/medical
+	uniform = /obj/item/clothing/under/rank/medical/nt
+	//suit = /obj/item/clothing/suit/storage/toggle/labcoat/medical
 	shoes = /obj/item/clothing/shoes/medical
 	id = /obj/item/card/id/white
 	suit_store = /obj/item/device/flashlight/pen
@@ -121,8 +121,8 @@
 	name = "Surgeon"
 	jobtype = /datum/job/doctor
 
-	uniform = /obj/item/clothing/under/rank/medical/blue
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/surgeon
+	uniform = /obj/item/clothing/under/rank/medical/surgeon/nt
+//	suit = /obj/item/clothing/suit/storage/toggle/labcoat/surgeon
 	shoes = /obj/item/clothing/shoes/surgeon
 
 /datum/outfit/job/doctor/surgeon/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -162,8 +162,8 @@
 	name = "Pharmacist"
 	jobtype = /datum/job/pharmacist
 
-	uniform = /obj/item/clothing/under/rank/pharmacist
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist
+	uniform = /obj/item/clothing/under/rank/pharmacist/nt
+//	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist
 	shoes = /obj/item/clothing/shoes/chemist
 	id = /obj/item/card/id/white
 
@@ -207,8 +207,8 @@
 	base_name = "Psychiatrist"
 	jobtype = /datum/job/psychiatrist
 
-	uniform = /obj/item/clothing/under/rank/psych
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/psych
+	uniform = /obj/item/clothing/under/rank/psych/nt
+//	suit = /obj/item/clothing/suit/storage/toggle/labcoat/psych
 	shoes = /obj/item/clothing/shoes/psych
 	id = /obj/item/card/id/white
 
@@ -250,7 +250,7 @@
 	base_name = "First Responder"
 	jobtype = /datum/job/med_tech
 
-	uniform = /obj/item/clothing/under/rank/medical/first_responder
+	uniform = /obj/item/clothing/under/rank/medical/first_responder/nt
 	shoes = /obj/item/clothing/shoes/jackboots
 	id = /obj/item/card/id/white
 
@@ -292,7 +292,7 @@
 	name = "Medical Intern"
 	jobtype = /datum/job/intern_med
 
-	uniform = /obj/item/clothing/under/rank/medical/intern
+	uniform = /obj/item/clothing/under/rank/medical/intern/nt
 	shoes = /obj/item/clothing/shoes/medical
 	headset = /obj/item/device/radio/headset/headset_med
 	bowman = /obj/item/device/radio/headset/headset_med/alt

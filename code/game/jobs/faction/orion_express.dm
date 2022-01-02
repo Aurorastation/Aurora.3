@@ -53,6 +53,7 @@
 /datum/outfit/job/machinist/orion
 	name = "Machinist - Orion Express"
 	uniform = /obj/item/clothing/under/rank/machinist/orion
+	suit = null
 
 /datum/outfit/job/mining/orion
 	name = "Shaft Miner - Orion Express"

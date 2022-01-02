@@ -19,7 +19,7 @@
 
 	title_suffix = "Zeng"
 
-	allowed_role_types = HEPH_ROLES
+	allowed_role_types = ZENG_ROLES
 
 	allowed_species_types = list(
 		/datum/species/human,
@@ -65,32 +65,38 @@
 	name = "Physician - Zeng-Hu"
 
 	uniform = /obj/item/clothing/under/rank/medical/zeng
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
+//	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
+	suit = null
 	id = /obj/item/card/id/zeng_hu
 
 /datum/outfit/job/doctor/surgeon/zeng_hu
 	name = "Surgeon - Zeng-Hu"
 
 	uniform = /obj/item/clothing/under/rank/medical/surgeon/zeng
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
+//	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
+	suit = null
 	id = /obj/item/card/id/zeng_hu
 
 /datum/outfit/job/pharmacist/zeng_hu
 	name = "Pharmacist - Zeng-Hu"
 
 	uniform = /obj/item/clothing/under/rank/pharmacist/zeng
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
+//	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
+	suit = null
 	id = /obj/item/card/id/zeng_hu
 
 /datum/outfit/job/psychiatrist/zeng_hu
 	name = "Psychiatrist - Zeng-Hu"
 
+//	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
+	suit = null
 	uniform = /obj/item/clothing/under/rank/psych/zeng
 	id = /obj/item/card/id/zeng_hu
 
 /datum/outfit/job/med_tech/zeng_hu
 	name = "First Responder - Zeng-Hu"
 
+	suit = null
 	uniform = /obj/item/clothing/under/rank/medical/first_responder/zeng
 	id = /obj/item/card/id/zeng_hu
 
@@ -104,14 +110,16 @@
 	name = "Scientist - Zeng-Hu"
 
 	uniform = /obj/item/clothing/under/rank/scientist/zeng
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
+//	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
+	suit = null
 	id = /obj/item/card/id/zeng_hu
 
 /datum/outfit/job/scientist/xenoarcheologist/zeng_hu
 	name = "Xenoarcheologist - Zeng-Hu"
 
 	uniform = /obj/item/clothing/under/rank/xenoarcheologist/zeng
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
+//	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
+	suit = null
 	id = /obj/item/card/id/zeng_hu
 
 /datum/outfit/job/intern_sci/zeng_hu

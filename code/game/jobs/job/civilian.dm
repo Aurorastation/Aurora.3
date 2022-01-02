@@ -2,7 +2,7 @@
 	title = "Service Manager"
 	flag = SERVICE_MANAGER
 	departments = list(DEPARTMENT_CIVILIAN = JOBROLE_SUPERVISOR)
-	department_flag = CIVILIAN
+	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
@@ -24,7 +24,9 @@
 	name = "Service Manager"
 	jobtype = /datum/job/service_manager
 
-	uniform = /obj/item/clothing/under/rank/service_manager
+	uniform = /obj/item/clothing/under/rank/service_manager/nt
+	head = /obj/item/clothing/head/service_manager/nt
+	suit = /obj/item/clothing/suit/storage/service_manager/nt
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
@@ -58,7 +60,8 @@
 	name = "Bartender"
 	jobtype = /datum/job/bartender
 
-	uniform = /obj/item/clothing/under/rank/bartender
+	uniform = /obj/item/clothing/under/rank/bartender/nt
+	head = /obj/item/clothing/head/bartender/nt
 	shoes = /obj/item/clothing/shoes/black
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/bartender
@@ -93,9 +96,9 @@
 	name = "Chef"
 	jobtype = /datum/job/chef
 
-	uniform = /obj/item/clothing/under/rank/chef
-	suit = /obj/item/clothing/suit/chef
-	head = /obj/item/clothing/head/chefhat
+	uniform = /obj/item/clothing/under/rank/chef/nt
+	suit = /obj/item/clothing/suit/chef/nt
+	head = /obj/item/clothing/head/headbando/chef_nt
 	shoes = /obj/item/clothing/shoes/black
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian
@@ -133,8 +136,9 @@
 	name = "Gardener"
 	jobtype = /datum/job/hydro
 
-	uniform = /obj/item/clothing/under/rank/hydroponics
-	suit = /obj/item/clothing/suit/apron
+	uniform = /obj/item/clothing/under/rank/hydroponics/nt
+//	suit = /obj/item/clothing/suit/apron
+	head = /obj/item/clothing/head/bandana/hydro/nt
 	shoes = /obj/item/clothing/shoes/black
 	suit_store = /obj/item/device/analyzer/plant_analyzer
 
@@ -181,7 +185,8 @@
 	name = "Janitor"
 	jobtype = /datum/job/janitor
 
-	uniform = /obj/item/clothing/under/rank/janitor
+	uniform = /obj/item/clothing/under/rank/janitor/nt
+	head = /obj/item/clothing/head/softcap/janitor/nt
 	shoes = /obj/item/clothing/shoes/black
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/janitor
@@ -273,7 +278,7 @@
 	name = "Librarian"
 	jobtype = /datum/job/librarian
 
-	uniform = /obj/item/clothing/under/suit_jacket/red
+	uniform = /obj/item/clothing/under/librarian/nt
 	shoes = /obj/item/clothing/shoes/black
 	r_pocket = /obj/item/barcodescanner
 	l_hand = /obj/item/storage/bag/books
@@ -367,7 +372,7 @@
 //Operations
 /datum/job/operations_manager
 	title = "Operations Manager"
-	flag = QUARTERMASTER
+	flag = OPERATIONS_MANAGER
 	departments = list(DEPARTMENT_CARGO = JOBROLE_SUPERVISOR, DEPARTMENT_COMMAND)
 	department_flag = CIVILIAN
 	faction = "Station"
@@ -497,9 +502,9 @@
 
 /datum/job/machinist
 	title = "Machinist"
-	flag = MACHINIST
+	flag = ROBOTICIST
 	departments = SIMPLEDEPT(DEPARTMENT_CARGO)
-	department_flag = CIVILIAN
+	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2

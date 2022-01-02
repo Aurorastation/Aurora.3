@@ -193,7 +193,7 @@
 	worn_state = "scrubsblack"
 
 /obj/item/clothing/under/rank/medical/zeng
-	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
+	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
 	icon_state = "zeng_phys"
 	item_state = "zeng_phys"
 	contained_sprite = TRUE

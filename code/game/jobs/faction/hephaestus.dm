@@ -46,7 +46,7 @@
 		"Hangar Technician" = /datum/outfit/job/hangar_tech/hephaestus,
 		"Shaft Miner" = /datum/outfit/job/mining/hephaestus,
 		"Machinist" = /datum/outfit/job/machinist/hephaestus,
-		"Engineer" = /datum/outfit/job/engineer/zavodskoi,
+		"Engineer" = /datum/outfit/job/engineer/hephaestus,
 		"Atmospheric Technician" = /datum/outfit/job/atmos/hephaestus,
 		"Engineering Apprentice" = /datum/outfit/job/intern_eng/hephaestus,
 		"Corporate Liaison" = /datum/outfit/job/representative/hephaestus
@@ -63,6 +63,7 @@
 
 	uniform = /obj/item/clothing/under/rank/machinist/heph
 	id = /obj/item/card/id/hephaestus
+	suit = null
 
 /datum/outfit/job/mining/hephaestus
 	name = "Shaft Miner - Hephaestus"

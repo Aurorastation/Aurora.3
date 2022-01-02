@@ -81,8 +81,8 @@
 	name = "Scientist"
 	jobtype = /datum/job/scientist
 
-	uniform = /obj/item/clothing/under/rank/scientist
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
+	uniform = /obj/item/clothing/under/rank/scientist/nt
+//	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
 	shoes = /obj/item/clothing/shoes/science
 	id = /obj/item/card/id/white
 
@@ -102,7 +102,7 @@
 
 /datum/outfit/job/scientist/xenoarcheologist
     name = "Xenoarcheologist"
-    uniform = /obj/item/clothing/under/rank/xenoarcheologist
+    uniform = /obj/item/clothing/under/rank/xenoarcheologist/nt
 
 /datum/job/xenobiologist
 	title = "Xenobiologist"
@@ -125,16 +125,11 @@
 	minimal_player_age = 14
 
 	outfit = /datum/outfit/job/scientist/xenobiologist
-	alt_outfits = list("Xenobotanist"=/datum/outfit/job/scientist/xenobiologist/xenobotanist)
 
 /datum/outfit/job/scientist/xenobiologist
 	name = "Xenobiologist"
 	jobtype = /datum/job/xenobiologist
 	tab_pda = /obj/item/modular_computer/handheld/pda/research
-
-/datum/outfit/job/scientist/xenobiologist/xenobotanist
-	name = "Xenobotanist"
-	uniform = /obj/item/clothing/under/rank/scientist/botany
 
 /datum/job/intern_sci
 	title = "Lab Assistant"
@@ -155,7 +150,7 @@
 	name = "Lab Assistant"
 	jobtype = /datum/job/intern_sci
 
-	uniform = /obj/item/clothing/under/rank/scientist/intern
+	uniform = /obj/item/clothing/under/rank/scientist/intern/nt
 	shoes = /obj/item/clothing/shoes/science
 	headset = /obj/item/device/radio/headset/headset_sci
 	bowman = /obj/item/device/radio/headset/headset_sci/alt

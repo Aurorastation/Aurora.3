@@ -20,13 +20,13 @@
 	siemens_coefficient = 0.75
 
 /obj/item/clothing/under/rank/atmospheric_technician/heph
-	icon = 'icons/obj/contained_items/department_uniforms/science.dmi'
+	icon = 'icons/obj/contained_items/department_uniforms/engineering.dmi'
 	icon_state = "heph_atmos"
 	item_state = "heph_atmos"
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/atmospheric_technician/zavod
-	icon = 'icons/obj/contained_items/department_uniforms/science.dmi'
+	icon = 'icons/obj/contained_items/department_uniforms/engineering.dmi'
 	icon_state = "zav_atmos"
 	item_state = "zav_atmos"
 	contained_sprite = TRUE
@@ -43,13 +43,13 @@
 	siemens_coefficient = 0.75
 
 /obj/item/clothing/under/rank/engineer/heph
-	icon = 'icons/obj/contained_items/department_uniforms/science.dmi'
+	icon = 'icons/obj/contained_items/department_uniforms/engineering.dmi'
 	icon_state = "heph_engineer"
 	item_state = "heph_engineer"
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/engineer/zavod
-	icon = 'icons/obj/contained_items/department_uniforms/science.dmi'
+	icon = 'icons/obj/contained_items/department_uniforms/engineering.dmi'
 	icon_state = "zav_engineer"
 	item_state = "zav_engineer"
 	contained_sprite = TRUE
@@ -61,13 +61,13 @@
 	worn_state = "engine_app"
 
 /obj/item/clothing/under/rank/engineer/apprentice/heph
-	icon = 'icons/obj/contained_items/department_uniforms/science.dmi'
+	icon = 'icons/obj/contained_items/department_uniforms/engineering.dmi'
 	icon_state = "heph_apprentice"
 	item_state = "heph_apprentice"
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/engineer/apprentice/zavod
-	icon = 'icons/obj/contained_items/department_uniforms/science.dmi'
+	icon = 'icons/obj/contained_items/department_uniforms/engineering.dmi'
 	icon_state = "zav_apprentice"
 	item_state = "zav_apprentice"
 	contained_sprite = TRUE
