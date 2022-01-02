@@ -86,7 +86,7 @@
 	name = "Bartender - Idris"
 
 	uniform = /obj/item/clothing/under/rank/bartender/idris
-	head = /obj/item/clothing/head/bartender
+	head = /obj/item/clothing/head/bartender/idris
 	id = /obj/item/card/id/idris
 
 /datum/outfit/job/chef/idris
@@ -121,7 +121,7 @@
 	name = "Service Manager - Idris"
 	jobtype = /datum/job/service_manager
 
-	uniform = /obj/item/clothing/under/rank/service_manager
+	uniform = /obj/item/clothing/under/rank/service_manager/idris
 	head = /obj/item/clothing/head/service_manager/idris
 	suit = /obj/item/clothing/suit/storage/service_manager/idris
 
