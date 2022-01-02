@@ -75,7 +75,6 @@
 		)
 	siemens_coefficient = 0.75
 
-
 /obj/item/clothing/under/rank/warden/remote
 	name = "remote warden's uniform"
 	desc = "It's made of a slightly sturdier material than standard jumpsuits. It has the words \"Remote Warden\" written on the shoulders and it's bolted straight onto the chassis."

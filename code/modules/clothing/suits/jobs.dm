@@ -79,6 +79,12 @@ obj/item/clothing/suit/apron/overalls/blue
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	allowed = list (/obj/item/material/knife)
 
+/obj/item/clothing/suit/chef/nt
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "nt_chef_jacket"
+	item_state = "nt_chef_jacket"
+
 //Chef
 /obj/item/clothing/suit/chef/classic
 	name = "classic chef's apron"
@@ -338,3 +344,18 @@ obj/item/clothing/suit/apron/overalls/blue
 	icon_state = "suspenders"
 	blood_overlay_type = "armor" //it's the less thing that I can put here
 	body_parts_covered = 0
+
+/obj/item/clothing/suit/storage/service_manager
+	name = "service manager's jacket"
+	desc = "This jacket is for those special occasions when a security officer actually feels safe."
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+
+/obj/item/clothing/suit/storage/service_manager/nt
+	icon_state = "nt_manager_jacket"
+	item_state = "nt_manager_jacket"
+
+/obj/item/clothing/suit/storage/service_manager/idris
+	icon_state = "idris_service_manager_jacket"
+	item_state = "idris_service_manager_jacket"

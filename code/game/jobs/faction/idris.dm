@@ -40,38 +40,94 @@
 		)
 	)
 
+	titles_to_loadout = list(
+		"Security Officer" = /datum/outfit/job/officer/idris,
+		"Warden" = /datum/outfit/job/warden/idris,
+		"Security Cadet" = /datum/outfit/job/intern_sec/idris,
+		"Investigator" =/datum/outfit/job/forensics/idris,
+		"Bartender" = /datum/outfit/job/bartender/idris,
+		"Chef" = /datum/outfit/job/chef/idris,
+		"Gardener" = /datum/outfit/job/hydro/idris,
+		"Janitor" = /datum/outfit/job/janitor/idris,
+		"Librarian" = /datum/outfit/job/librarian/idris,
+		"Service Manager" = /datum/outfit/job/service_manager/idris,
+		"Corporate Liaison" = /datum/outfit/job/representative/idris
+	)
+
 /datum/outfit/job/officer/idris
 	name = "Security Officer - Idris"
+
+	head = /obj/item/clothing/head/beret/security/idris/alt
 	uniform = /obj/item/clothing/under/rank/security/idris
 	id = /obj/item/card/id/idris/sec
 
-/datum/outfit/job/detective/idris
-	name = "Detective - Idris"
-	uniform = /obj/item/clothing/under/rank/security/idris
+/datum/outfit/job/warden/idris
+	name = "Warden - Idris"
+
+	head = /obj/item/clothing/head/beret/security/idris/alt
+	uniform = /obj/item/clothing/under/rank/warden/idris
 	id = /obj/item/card/id/idris/sec
 
 /datum/outfit/job/forensics/idris
-	name = "Forensics Technician - Idris"
-	uniform = /obj/item/clothing/under/rank/security/idris
+	name = "Investigator - Idris"
+
+	uniform = /obj/item/clothing/under/det/idris
 	id = /obj/item/card/id/idris/sec
+
+/datum/outfit/job/intern_sec/idris
+	name = "Security Cadet - Idris"
+
+	uniform = /obj/item/clothing/under/rank/cadet/idris
+	id = /obj/item/card/id/idris/sec
+	suit = null
+	head = /obj/item/clothing/head/beret/security/idris/alt
 
 /datum/outfit/job/bartender/idris
 	name = "Bartender - Idris"
-	uniform = /obj/item/clothing/under/rank/idris/service
+
+	uniform = /obj/item/clothing/under/rank/bartender/idris
+	head = /obj/item/clothing/head/bartender
 	id = /obj/item/card/id/idris
 
 /datum/outfit/job/chef/idris
 	name = "Chef - Idris"
-	uniform = /obj/item/clothing/under/rank/idris/service
+
+	uniform = /obj/item/clothing/under/rank/chef/idris
 	id = /obj/item/card/id/idris
 
 /datum/outfit/job/hydro/idris
 	name = "Gardener - Idris"
-	uniform = /obj/item/clothing/under/rank/idris/service
+
+	uniform = /obj/item/clothing/under/rank/chef/idris
+	head = /obj/item/clothing/head/bandana/hydro/idris
+	suit = null
 	id = /obj/item/card/id/idris
+
+/datum/outfit/job/janitor/idris
+	name = "Janitor - Idris"
+
+	uniform = /obj/item/clothing/under/rank/janitor/idris
+	head = /obj/item/clothing/head/softcap/janitor/idris
+	suit = null
+	id = /obj/item/card/id/idris
+
+/datum/outfit/job/librarian/idris
+	name = "Librarian - Idris"
+
+	uniform = /obj/item/clothing/under/librarian/idris
+	id = /obj/item/card/id/idris
+
+/datum/outfit/job/service_manager/idris
+	name = "Service Manager - Idris"
+	jobtype = /datum/job/service_manager
+
+	uniform = /obj/item/clothing/under/rank/service_manager
+	head = /obj/item/clothing/head/service_manager/idris
+	suit = /obj/item/clothing/suit/storage/service_manager/idris
 
 /datum/outfit/job/representative/idris
 	name = "Idris Corporate Liaison"
+
 	uniform = /obj/item/clothing/under/rank/idris
 	head = null
 	suit = null

@@ -5,6 +5,14 @@
 	icon_state = "chefhat"
 	item_state = "chefhat"
 
+/obj/item/clothing/head/headbando/chef_nt
+	name = "chef's headband"
+	desc = "A headhand used by chefs. This one is in NanoTrasen's colors."
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "idris_manager_fedora"
+	item_state = "idris_manager_fedora"
+
 /obj/item/clothing/head/surgery/hairnet
 	name = "hairnet"
 	desc = "A hairnet used to keep the hair out of the way and out of the food."
@@ -112,3 +120,36 @@
 	desc = "The black parade hat of the Head of Security. For showing the officers who's in charge."
 	icon_state = "corp"
 	item_state = "corp"
+
+/obj/item/clothing/head/service_manager
+	name = "service manager fedora"
+	desc = "A hat issued to the service manager."
+
+/obj/item/clothing/head/service_manager/nt
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "nt_manager_fedora"
+	item_state = "nt_manager_fedora"
+
+/obj/item/clothing/head/service_manager/idris
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "idris_manager_fedora"
+	item_state = "idris_manager_fedora"
+
+/obj/item/clothing/head/bartender
+	name = "bartender trilby"
+	desc = "An eccentric hat issued to bartenders."
+	icon_state = "corp"
+
+/obj/item/clothing/head/bartender/idris
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "idris_bartender_trilby"
+	item_state = "idris_bartender_trilby"
+
+/obj/item/clothing/head/bartender/nt
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "idris_manager_fedora"
+	item_state = "idris_manager_fedora"

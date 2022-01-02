@@ -7,6 +7,18 @@
 	item_state = "ba_suit"
 	worn_state = "ba_suit"
 
+/obj/item/clothing/under/rank/bartender/nt
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "nt_bartender"
+	item_state = "nt_bartender"
+
+/obj/item/clothing/under/rank/bartender/idris
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "idris_bartender"
+	item_state = "idris_bartender"
+
 /obj/item/clothing/under/rank/quartermaster
 	name = "quartermaster's jumpsuit"
 	desc = "It's a jumpsuit worn by the quartermaster. It's specially designed to prevent back injuries caused by pushing paper."
@@ -41,6 +53,18 @@
 	item_state = "w_suit"
 	worn_state = "chef"
 
+/obj/item/clothing/under/rank/chef/nt
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "nt_chef"
+	item_state = "nt_chef"
+
+/obj/item/clothing/under/rank/chef/idris
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "idris_chef"
+	item_state = "idris_chef"
+
 /obj/item/clothing/under/rank/head_of_personnel
 	desc = "It's a jumpsuit worn by someone who works in the position of \"Head of Personnel\"."
 	name = "head of personnel's jumpsuit"
@@ -63,6 +87,18 @@
 	worn_state = "hydroponics"
 	permeability_coefficient = 0.50
 
+/obj/item/clothing/under/rank/hydroponics/nt
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "nt_gardener"
+	item_state = "nt_gardener"
+
+/obj/item/clothing/under/rank/hydroponics/idris
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "idris_gardener"
+	item_state = "idris_gardener"
+
 /obj/item/clothing/under/rank/liaison
 	desc = "The plain, professional attire of a corporate liaison. The collar is <i>immaculately</i> starched."
 	name = "corporate liaison uniform"
@@ -79,6 +115,18 @@
 	armor = list(
 		bio = ARMOR_BIO_MINOR
 	)
+
+/obj/item/clothing/under/rank/janitor/nt
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "nt_janitor"
+	item_state = "nt_janitor"
+
+/obj/item/clothing/under/rank/janitor/idris
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "idris_janitor"
+	item_state = "idris_janitor"
 
 /obj/item/clothing/under/lawyer
 	desc = "Slick threads."
@@ -114,6 +162,18 @@
 	icon_state = "red_suit"
 	item_state = "lawyer_red"
 	worn_state = "red_suit"
+
+/obj/item/clothing/under/librarian/nt
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "nt_librarian"
+	item_state = "nt_librarian"
+
+/obj/item/clothing/under/librarian/idris
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "idris_librarian"
+	item_state = "idris_librarian"
 
 /obj/item/clothing/under/mime
 	name = "mime's outfit"
@@ -287,6 +347,18 @@
 	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
 	icon_state = "hop"
 	item_state = "b_suit"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/service_manager/nt
+	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
+	icon_state = "nt_service_manager"
+	item_state = "nt_service_manager"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/service_manager/idris
+	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
+	icon_state = "idris_service_manager"
+	item_state = "idris_service_manager"
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/machinist

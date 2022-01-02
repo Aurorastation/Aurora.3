@@ -44,3 +44,93 @@
 		)
 	)
 
+	titles_to_loadout = list(
+		"Physician" = /datum/outfit/job/doctor/zeng_hu,
+		"Surgeon" = /datum/outfit/job/doctor/surgeon/zeng_hu,
+		"Pharmacist" = /datum/outfit/job/pharmacist/zeng_hu,
+		"Psychiatrist" = /datum/outfit/job/psychiatrist/zeng_hu,
+		"Psychologist" = /datum/outfit/job/psychiatrist/zeng_hu,
+		"First Responder" = /datum/outfit/job/med_tech/zeng_hu,
+		"Medical Intern" = /datum/outfit/job/intern_med/zeng_hu,
+		"Xenobiologist" = /datum/outfit/job/scientist/zeng_hu,
+		"Xenobotanist" = /datum/outfit/job/scientist/zeng_hu,
+		"Xenobiologist" = /datum/outfit/job/scientist/zeng_hu,
+		"Xenobotanist" = /datum/outfit/job/scientist/zeng_hu,
+		"Lab Assistant" = /datum/outfit/job/intern_sci/zeng_hu,
+		"Xenoarcheologist"= /datum/outfit/job/scientist/xenoarcheologist/zeng_hu,
+		"Corporate Liaison" = /datum/outfit/job/representative/zeng_hu
+	)
+
+/datum/outfit/job/doctor/zeng_hu
+	name = "Physician - Zeng-Hu"
+
+	uniform = /obj/item/clothing/under/rank/medical/zeng
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
+	id = /obj/item/card/id/zeng_hu
+
+/datum/outfit/job/doctor/surgeon/zeng_hu
+	name = "Surgeon - Zeng-Hu"
+
+	uniform = /obj/item/clothing/under/rank/medical/surgeon/zeng
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
+	id = /obj/item/card/id/zeng_hu
+
+/datum/outfit/job/pharmacist/zeng_hu
+	name = "Pharmacist - Zeng-Hu"
+
+	uniform = /obj/item/clothing/under/rank/pharmacist/zeng
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
+	id = /obj/item/card/id/zeng_hu
+
+/datum/outfit/job/psychiatrist/zeng_hu
+	name = "Psychiatrist - Zeng-Hu"
+
+	uniform = /obj/item/clothing/under/rank/psych/zeng
+	id = /obj/item/card/id/zeng_hu
+
+/datum/outfit/job/med_tech/zeng_hu
+	name = "First Responder - Zeng-Hu"
+
+	uniform = /obj/item/clothing/under/rank/medical/first_responder/zeng
+	id = /obj/item/card/id/zeng_hu
+
+/datum/outfit/job/intern_med/zeng_hu
+	name = "Medical Intern - Zeng-Hu"
+
+	uniform = /obj/item/clothing/under/rank/medical/intern/zeng
+	id = /obj/item/card/id/zeng_hu
+
+/datum/outfit/job/scientist/zeng_hu
+	name = "Scientist - Zeng-Hu"
+
+	uniform = /obj/item/clothing/under/rank/scientist/zeng
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
+	id = /obj/item/card/id/zeng_hu
+
+/datum/outfit/job/scientist/xenoarcheologist/zeng_hu
+	name = "Xenoarcheologist - Zeng-Hu"
+
+	uniform = /obj/item/clothing/under/rank/xenoarcheologist/zeng
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
+	id = /obj/item/card/id/zeng_hu
+
+/datum/outfit/job/intern_sci/zeng_hu
+	name = "Lab Assistant - Zeng-Hu"
+
+	uniform = /obj/item/clothing/under/rank/scientist/intern/zeng
+	id = /obj/item/card/id/zeng_hu
+
+/datum/outfit/job/representative/zeng_hu
+	name = "Zeng-Hu Corporate Liaison"
+
+	uniform = /obj/item/clothing/under/rank/zeng/civilian
+	head = null
+	suit = null
+	implants = null
+	id = /obj/item/card/id/zeng_hu
+
+	backpack_contents = list(
+		/obj/item/device/camera = 1,
+		/obj/item/gun/energy/pistol = 1,
+		/obj/item/stamp/zeng_hu = 1
+	)

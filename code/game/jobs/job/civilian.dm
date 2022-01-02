@@ -425,11 +425,11 @@
 
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
 	minimal_access = list(access_cargo, access_cargo_bot, access_mailsorting)
-	outfit = /datum/outfit/job/cargo_tech
+	outfit = /datum/outfit/job/hangar_tech
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
-/datum/outfit/job/cargo_tech
+/datum/outfit/job/hangar_tech
 	name = "Hangar Technician"
 	jobtype = /datum/job/hangar_tech
 

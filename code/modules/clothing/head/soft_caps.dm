@@ -117,6 +117,18 @@
 	icon_state = "softcap_janitor"
 	item_state = "softcap_janitor"
 
+/obj/item/clothing/head/softcap/janitor/nt
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "nt_janitor_cap"
+	item_state = "nt_janitor_cap"
+
+/obj/item/clothing/head/softcap/janitor/idris
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "idris_janitor_cap"
+	item_state = "idris_janitor_cap"
+
 // Corporate.
 
 /obj/item/clothing/head/softcap/security/corp

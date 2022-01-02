@@ -237,6 +237,24 @@
 	item_state = "epmc_emt"
 	contained_sprite = TRUE
 
+/obj/item/clothing/under/rank/medical/surgeon/zeng
+	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
+	icon_state = "zeng_surgeon"
+	item_state = "zeng_surgeon"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/medical/surgeon/nt
+	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
+	icon_state = "nt_surgeon"
+	item_state = "nt_surgeon"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/medical/surgeon/pmc
+	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
+	icon_state = "epmc_surgeon"
+	item_state = "epmc_surgeon"
+	contained_sprite = TRUE
+
 /obj/item/clothing/under/rank/psych
 	desc = "A basic white jumpsuit. It has turqouise markings that denote the wearer as a psychiatrist."
 	name = "psychiatrist's jumpsuit"

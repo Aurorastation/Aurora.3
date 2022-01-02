@@ -65,6 +65,18 @@
 	icon_state = "bandana_hydro"
 	item_state = "bandana_hydro"
 
+/obj/item/clothing/head/bandana/hydro/nt
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "nt_gardener_headband"
+	item_state = "nt_gardener_headband"
+
+/obj/item/clothing/head/bandana/hydro/idris
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "idris_gardener_headband"
+	item_state = "idris_gardener_headband"
+
 /obj/item/clothing/head/bandana/cargo
 	name = "cargo bandana"
 	desc = "It's a supply bandana with some fine nanotech lining. Wicks away the sweat from crate-pushing all day."
