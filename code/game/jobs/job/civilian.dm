@@ -374,7 +374,7 @@
 	title = "Operations Manager"
 	flag = OPERATIONS_MANAGER
 	departments = list(DEPARTMENT_CARGO = JOBROLE_SUPERVISOR, DEPARTMENT_COMMAND)
-	department_flag = CIVILIAN
+	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
