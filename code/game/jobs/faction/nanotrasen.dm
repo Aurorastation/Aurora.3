@@ -164,7 +164,7 @@
 
 	uniform = /obj/item/clothing/under/librarian/nt
 
-/datum/outfit/job/service_manager/idris
+/datum/outfit/job/service_manager/nt
 	name = "Service Manager - NanoTrasen"
 	jobtype = /datum/job/service_manager
 
