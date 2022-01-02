@@ -305,6 +305,7 @@
 	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
 	icon_state = "operations_manager"
 	item_state = "operations_manager"
+	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/hangar_technician
 	name = "hangar technician's jumpsuit"

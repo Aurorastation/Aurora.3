@@ -34,7 +34,7 @@
 	jobtype = /datum/job/rd
 
 	uniform = /obj/item/clothing/under/rank/research_director
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
+//	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
 	shoes = /obj/item/clothing/shoes/brown
 	id = /obj/item/card/id/navy
 	l_hand = /obj/item/clipboard

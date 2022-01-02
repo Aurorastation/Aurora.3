@@ -33,7 +33,7 @@
 	jobtype = /datum/job/cmo
 
 	uniform = /obj/item/clothing/under/rank/chief_medical_officer
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/cmo
+//	suit = /obj/item/clothing/suit/storage/toggle/labcoat/cmo
 	suit_store = /obj/item/device/flashlight/pen
 	shoes = /obj/item/clothing/shoes/brown
 	id = /obj/item/card/id/navy
@@ -98,7 +98,7 @@
 	jobtype = /datum/job/doctor
 
 	uniform = /obj/item/clothing/under/rank/medical/nt
-	//suit = /obj/item/clothing/suit/storage/toggle/labcoat/medical
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/medical
 	shoes = /obj/item/clothing/shoes/medical
 	id = /obj/item/card/id/white
 	suit_store = /obj/item/device/flashlight/pen
@@ -122,7 +122,7 @@
 	jobtype = /datum/job/doctor
 
 	uniform = /obj/item/clothing/under/rank/medical/surgeon/nt
-//	suit = /obj/item/clothing/suit/storage/toggle/labcoat/surgeon
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/surgeon
 	shoes = /obj/item/clothing/shoes/surgeon
 
 /datum/outfit/job/doctor/surgeon/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -163,7 +163,7 @@
 	jobtype = /datum/job/pharmacist
 
 	uniform = /obj/item/clothing/under/rank/pharmacist/nt
-//	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist
 	shoes = /obj/item/clothing/shoes/chemist
 	id = /obj/item/card/id/white
 
@@ -208,7 +208,7 @@
 	jobtype = /datum/job/psychiatrist
 
 	uniform = /obj/item/clothing/under/rank/psych/nt
-//	suit = /obj/item/clothing/suit/storage/toggle/labcoat/psych
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/psych
 	shoes = /obj/item/clothing/shoes/psych
 	id = /obj/item/card/id/white
 

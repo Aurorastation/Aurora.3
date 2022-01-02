@@ -205,3 +205,12 @@
 		/obj/item/clothing/suit/captunic = 1,
 		/obj/item/clothing/shoes/captain/formal = 1
 	)
+
+/obj/item/clothing/under/scc_captain
+	name = "captain's jumpsuit"
+	desc = "It's a blue jumpsuit with some gold markings denoting the rank of \"Captain\"."
+	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
+	icon_state = "captain"
+	item_state = "captain"
+	contained_sprite = TRUE
+	contained_sprite = TRUE

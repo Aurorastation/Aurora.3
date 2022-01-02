@@ -28,7 +28,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	name = "Captain"
 	jobtype = /datum/job/captain
 
-	uniform = /obj/item/clothing/under/rank/captain
+	uniform = /obj/item/clothing/under/scc_captain
 	shoes = /obj/item/clothing/shoes/brown
 	head = /obj/item/clothing/head/caphat
 	glasses = /obj/item/clothing/glasses/sunglasses
@@ -131,7 +131,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	title = "Bridge Crew"
 	flag = BRIDGE_CREW
 	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
-	department_flag = CIVILIAN
+	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 3
