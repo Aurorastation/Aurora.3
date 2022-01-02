@@ -14551,7 +14551,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "Kf" = (
-/obj/effect/overmap/visitable/ship/sccv_aurora,
+/obj/effect/overmap/visitable/ship/sccv_horizon,
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
@@ -15801,6 +15801,16 @@
 	name = "Weaponry (Anti-Materiel)"
 	},
 /obj/item/gun/projectile/peac,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/crew_armory)
+"Nf" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Weaponry (Anti-Materiel Ammunition)"
+	},
+/obj/item/ammo_casing/peac,
+/obj/item/ammo_casing/peac,
+/obj/item/ammo_casing/peac,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
@@ -17481,16 +17491,13 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/fitness)
 "Rb" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Weaponry (Rifle)"
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (Anti-Materiel Ammunition)"
-	},
-/obj/item/ammo_casing/peac,
-/obj/item/ammo_casing/peac,
-/obj/item/ammo_casing/peac,
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
 "Rc" = (
@@ -43882,7 +43889,7 @@ at
 at
 at
 aK
-Fx
+Nf
 Bs
 CR
 Dn
