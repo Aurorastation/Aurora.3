@@ -1787,7 +1787,7 @@ Follow by example and make good judgement based on length which list to include 
 		species_allowed = list(/datum/species/skrell, /datum/species/skrell/axiori, /datum/species/zombie/skrell)
 
 	skrell_stripes
-		name = "Skrell Stripes"
+		name = "Skrell Headtail Blotches"
 		icon_state = "skr_headtail_stripes"
 		species_allowed = list(/datum/species/skrell, /datum/species/skrell/axiori, /datum/species/zombie/skrell)
 
