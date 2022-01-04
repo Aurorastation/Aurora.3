@@ -56,8 +56,8 @@
 		return 1
 	else if (O.ispen())
 		var/tmp_label = sanitizeSafe(input(user, "Enter a label for [name]", "Label", label_text), MAX_NAME_LEN)
-		if(length(tmp_label) > 20)
-			to_chat(user, SPAN_NOTICE("The label can be at most 20 characters long."))
+		if(length(tmp_label) > MAX_NAME_LEN)
+			to_chat(user, SPAN_NOTICE("The label can be at most [MAX_NAME_LEN] characters long."))
 		else
 			to_chat(user, SPAN_NOTICE("You set the label to \"[tmp_label]\"."))
 			label_text = tmp_label
