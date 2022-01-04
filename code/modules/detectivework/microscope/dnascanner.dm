@@ -117,7 +117,7 @@
 				data += "<b>DNA:</b> [blood]<br><br>"
 		else
 			data += "No DNA found.<br>"
-		info = "<b><font size=\"4\">[src] anaylsis report #[report_num]</font></b><HR>"
+		info = "<b><font size=\"4\">[src] analysis report #[report_num]</font></b><HR>"
 		info += "<b>Scanned item:</b> [bloodsamp.name]<br><br>" + data
 		P.set_content_unsafe(pname, info)
 		print(P)
