@@ -446,7 +446,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "zilosnish_uniform"
 	contained_sprite = TRUE
 
-/obj/item/clothing/suit/unathi/mantle/fluff/zilosnish_mantle //Exotic Mantle - Zilosnish Szu - sleepywolf
+/obj/item/clothing/accessory/poncho/unathimantle/fluff/zilosnish_mantle //Exotic Mantle - Zilosnish Szu - sleepywolf
 	name = "exotic mantle"
 	desc = "A red hide with a gold and jade insignia pin to keep it on a wearers shoulders. The hide is thick, like rhino skin."
 	icon = 'icons/obj/custom_items/zilosnish_items.dmi'
