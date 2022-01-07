@@ -3363,7 +3363,7 @@
 "upQ" = (/obj/effect/shuttle_landmark/burglar_ship/second_deck,/turf/template_noop,/area/template_noop)
 "uqi" = (/obj/machinery/deployable/barrier,/obj/effect/floor_decal/industrial/outline/blue,/obj/machinery/alarm{dir = 4; pixel_x = -28},/obj/machinery/light{dir = 8},/turf/simulated/floor/tiled/dark,/area/security/armory)
 "ura" = (/obj/structure/cable/yellow{icon_state = "1-2"},/turf/simulated/floor/tiled/dark,/area/engineering/engine_room)
-"urh" = (/obj/structure/table/steel,/obj/item/crowbar,/obj/machinery/ringer{department = "Robotics"; id = "robo_ringer"; pixel_x = 28; req_access = list(29)},/turf/simulated/floor/tiled,/area/assembly/robotics)
+"urh" = (/obj/structure/table/steel,/obj/machinery/ringer{department = "Robotics"; id = "robo_ringer"; pixel_x = 28; req_access = list(29)},/obj/item/surgery/scalpel,/obj/item/surgery/hemostat,/obj/item/surgery/retractor,/obj/item/surgery/circular_saw,/turf/simulated/floor/tiled,/area/assembly/robotics)
 "urs" = (/obj/machinery/power/emitter,/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/plating,/area/engineering/storage_hard)
 "urP" = (/obj/machinery/atmospherics/portables_connector,/obj/machinery/portable_atmospherics/canister/air/airlock,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 8},/obj/effect/floor_decal/industrial/outline/red,/turf/simulated/floor/plating,/area/maintenance/hangar/port)
 "usd" = (/obj/structure/cable/green{icon_state = "4-8"},/obj/machinery/light,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 9},/turf/simulated/floor/tiled,/area/quartermaster/mail_room)
