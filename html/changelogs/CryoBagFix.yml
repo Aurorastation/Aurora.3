@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Stasis bags can now be properly deployed on adjacent turfs without becoming bodybags."
