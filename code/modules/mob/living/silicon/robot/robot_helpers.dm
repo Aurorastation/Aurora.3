@@ -20,8 +20,8 @@
 
 /mob/living/silicon/robot/proc/setup_icon_cache()
 	cached_eye_overlays = list(
-		I_HELP = image(icon, "eyes-[module_sprites[icontype]]-help", layer = EFFECTS_ABOVE_LIGHTING_LAYER),
-		I_HURT = image(icon, "eyes-[module_sprites[icontype]]-harm", layer = EFFECTS_ABOVE_LIGHTING_LAYER)
+		I_HELP = image(icon, "[module_sprites[icontype]]-eyes_help", layer = EFFECTS_ABOVE_LIGHTING_LAYER),
+		I_HURT = image(icon, "[module_sprites[icontype]]-eyes_harm", layer = EFFECTS_ABOVE_LIGHTING_LAYER)
 	)
 	if(eye_overlay)
 		cut_overlay(eye_overlay)

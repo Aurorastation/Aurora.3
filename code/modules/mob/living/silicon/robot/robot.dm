@@ -734,7 +734,7 @@
 				to_chat(user, SPAN_WARNING("\The [src] does not have a radio installed!"))
 				return
 		else if(W.GetID() || istype(W, /obj/item/card/robot))			// trying to unlock the interface with an ID card
-			if(emagged && !is_traitor()) //still allow them to open the cover. is_traitor() dodges this text as being made traitor sets emagged to TRUE. 
+			if(emagged && !is_traitor()) //still allow them to open the cover. is_traitor() dodges this text as being made traitor sets emagged to TRUE.
 				to_chat(user, SPAN_NOTICE("You notice that \the [src]'s interface appears to be damaged."))
 			if(opened)
 				to_chat(user, SPAN_WARNING("You must close the cover to swipe an ID card."))
@@ -1083,7 +1083,7 @@
 		var/list/options = list()
 		for(var/i in module_sprites)
 			var/image/radial_button = image(icon = src.icon, icon_state = module_sprites[i])
-			radial_button.overlays.Add(image(icon = src.icon, icon_state = "eyes-[module_sprites[i]]-help"))
+			radial_button.overlays.Add(image(icon = src.icon, icon_state = "[module_sprites[i]]-eyes_help"))
 			options[i] = radial_button
 		icontype = show_radial_menu(src, src, options, radius = 42, tooltips = TRUE)
 

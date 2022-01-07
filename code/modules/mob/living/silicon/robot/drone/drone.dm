@@ -144,6 +144,11 @@
 		return default_language
 	return all_languages[LANGUAGE_LOCAL_DRONE]
 
+/mob/living/silicon/robot/drone/hide() // Only maint drones should be able to hide, hopefully.
+	..()
+	cut_overlays()
+	setup_icon_cache()
+
 /mob/living/silicon/robot/drone/construction
 	// Look and feel
 	name = "construction drone"
@@ -287,10 +292,13 @@
 	return
 
 /mob/living/silicon/robot/drone/setup_icon_cache()
+	var/eye_layer = EFFECTS_ABOVE_LIGHTING_LAYER
+	if(src.layer != MOB_LAYER)	// For hiding drones.
+		eye_layer = ABOVE_MOB_LAYER
 	cached_eye_overlays = list(
-		I_HELP = image(icon, "eyes-[icon_state]-help", layer = EFFECTS_ABOVE_LIGHTING_LAYER),
-		I_HURT = image(icon, "eyes-[icon_state]-harm", layer = EFFECTS_ABOVE_LIGHTING_LAYER),
-		"emag" = image(icon, "eyes-[icon_state]-emag", layer = EFFECTS_ABOVE_LIGHTING_LAYER)
+		I_HELP = image(icon, "[icon_state]-eyes_help", layer = eye_layer),
+		I_HURT = image(icon, "[icon_state]-eyes_harm", layer = eye_layer),
+		"emag" = image(icon, "[icon_state]-eyes_emag", layer = eye_layer)
 	)
 	if(eye_overlay)
 		cut_overlay(eye_overlay)
