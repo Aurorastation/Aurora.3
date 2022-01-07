@@ -152,6 +152,10 @@
 	var/datum/space_sector/sector = SSatlas.current_sector
 	var/list/possible_exoplanets = sector.possible_exoplanets
 
+	if(!length(list))
+		log_debug("No valid exoplanets found!")
+		return
+
 	for(var/i = 0, i < num_exoplanets, i++)
 		var/exoplanet_type = pick(possible_exoplanets)
 		log_debug("Building new exoplanet with type: [exoplanet_type] and size: [planet_size[1]] [planet_size[2]]")
