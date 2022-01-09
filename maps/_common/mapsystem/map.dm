@@ -152,7 +152,7 @@
 	var/datum/space_sector/sector = SSatlas.current_sector
 	var/list/possible_exoplanets = sector.possible_exoplanets
 
-	if(!length(list))
+	if(!length(possible_exoplanets))
 		log_debug("No valid exoplanets found!")
 		return
 
