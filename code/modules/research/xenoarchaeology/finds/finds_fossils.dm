@@ -46,9 +46,10 @@
 /obj/skeleton
 	name = "Incomplete skeleton"
 	icon = 'icons/obj/xenoarchaeology.dmi'
-	icon_state = "uskel"
 	desc = "Incomplete skeleton."
 	var/bnum = 1
+	var/skeleton_type = "beast"
+	var/list/skeleton_types = list("biped", "beast")
 	var/breq
 	var/bstate = 0
 	var/plaque_contents = "Unnamed alien creature"
@@ -56,6 +57,8 @@
 /obj/skeleton/New()
 	src.breq = rand(6)+3
 	src.desc = "An incomplete skeleton, looks like it could use [src.breq-src.bnum] more bones."
+	skeleton_type = pick(skeleton_types)
+	icon_state = "uskel_[skeleton_type]"
 
 /obj/skeleton/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/fossil/bone))
@@ -64,13 +67,22 @@
 			src.contents.Add(new/obj/item/fossil/bone)
 			qdel(W)
 			if(bnum==breq)
+				var/atom/movable/overlay/animation = new /atom/movable/overlay(src.loc)
+				animation.icon_state = "blank"
+				animation.icon = 'icons/obj/xenoarchaeology.dmi'
+				animation.master = src
+				flick("build_[skeleton_type]", animation)
+				sleep(48)
+				qdel(animation)
+				icon_state = "skel_[skeleton_type]"
 				usr = user
-				icon_state = "skel"
 				src.bstate = 1
 				src.density = 1
 				src.name = "alien skeleton display"
 				if(src.contents.Find(/obj/item/fossil/skull/horned))
 					src.desc = "A creature made of [src.contents.len-1] assorted bones and a horned skull. The plaque reads \'[plaque_contents]\'."
+				if(src.contents.Find(/obj/item/fossil/skull))
+					src.desc = "A bipedal humanlike creature made of [src.contents.len-1] assorted bones and a egg shaped head. The plaque reads \'[plaque_contents]\'."
 				else
 					src.desc = "A creature made of [src.contents.len-1] assorted bones and a skull. The plaque reads \'[plaque_contents]\'."
 			else
@@ -83,11 +95,12 @@
 		user.visible_message("<b>[user]</b> writes something on the base of [src].","You relabel the plaque on the base of [icon2html(src, user)] [src].")
 		if(src.contents.Find(/obj/item/fossil/skull/horned))
 			src.desc = "A creature made of [src.contents.len-1] assorted bones and a horned skull. The plaque reads \'[plaque_contents]\'."
+		if(src.contents.Find(/obj/item/fossil/skull))
+			src.desc = "A bipedal humanlike creature made of [src.contents.len-1] assorted bones and a egg shaped head. The plaque reads \'[plaque_contents]\'."
 		else
 			src.desc = "A creature made of [src.contents.len-1] assorted bones and a skull. The plaque reads \'[plaque_contents]\'."
 	else
 		..()
-
 //shells and plants do not make skeletons
 /obj/item/fossil/shell
 	name = "Fossilised shell"
