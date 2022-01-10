@@ -1,0 +1,5 @@
+Delete-after: True
+author: listerla
+changes:
+  - imageadd: "Added left and right arm heart tattoos."
+  - bugfix: "Fixed Skrell stomach marking, removed nonexistent heart tattoo marking."
