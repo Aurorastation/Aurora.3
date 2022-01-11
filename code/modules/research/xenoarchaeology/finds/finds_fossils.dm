@@ -95,7 +95,7 @@
 		user.visible_message("<b>[user]</b> writes something on the base of [src].","You relabel the plaque on the base of [icon2html(src, user)] [src].")
 		if(src.contents.Find(/obj/item/fossil/skull/horned))
 			src.desc = "A creature made of [src.contents.len-1] assorted bones and a horned skull. The plaque reads \'[plaque_contents]\'."
-		if(src.contents.Find(/obj/item/fossil/skull))
+		if(src.skeleton_type == "biped"
 			src.desc = "A bipedal humanlike creature made of [src.contents.len-1] assorted bones and a egg shaped head. The plaque reads \'[plaque_contents]\'."
 		else
 			src.desc = "A creature made of [src.contents.len-1] assorted bones and a skull. The plaque reads \'[plaque_contents]\'."
