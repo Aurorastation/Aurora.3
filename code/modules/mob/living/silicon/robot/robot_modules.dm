@@ -192,19 +192,20 @@ var/global/list/robot_modules = list(
 	networks = list(NETWORK_MEDICAL)
 	can_be_pushed = FALSE
 	sprites = list(
-			"Basic" = "robotmedi",
-			"Landmate" = "landmatemedi",
-			"Treadmate" = "treadmatemedi",
-			"Treadhead" = "treadheadmedi",
-			"Arachnotronic" = "arachnotronicmedi",
-			"Toileto-tron" = "toiletbotmedi",
-			"Zeng-hu Droid" = "droidrecolormedi",
-			"HD-MAD" = "mcspizzytronmedi",
-			"SD-MAD" = "floatspizzytronmedi",
-			"Heph Droid" = "heavymedi",
-			"Venus Drone" = "dronerecolormedi",
-			"Unbranded-MAD" = "offfloatspizzytronmedi",
-			"Unbranded-Android" = "droid",
+			"Basic" = "robot_medi",
+			"Landmate" = "landmate_medi",
+			"Treadmate" = "treadmate_medi",
+			"Treadhead" = "treadhead_medi",
+			"Spiffy" = "mcspizzy_medi",
+			"Tau-Ceti Drone" = "tauceti_medi",
+			"Sputnik" = "sputnik_medi",
+			"Kent" = "kent_medi",
+			"Wide" = "wide_medi",
+			"Cricket" = "cricket_medi",
+			"Quad-Dex" = "quaddex_medi",
+			"Arthrodroid" = "arthrodroid_medi",
+			"Spiderbot" = "spiderbot_medi",
+			"Heavy" = "heavy_medi"
 			)
 
 /obj/item/robot_module/medical/general/Initialize()
@@ -273,21 +274,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/medical/rescue
 	name = "rescue robot module"
-	sprites = list(
-			"Basic" = "robotmedi",
-			"Landmate" = "landmatemedi",
-			"Treadmate" = "treadmatemedi",
-			"Treadhead" = "treadheadmedi",
-			"Arachnotronic" = "arachnotronicmedi",
-			"Toileto-tron" = "toiletbotmedi",
-			"Zeng-hu Droid" = "droidrecolormedi",
-			"HD-MAD" = "mcspizzytronmedi",
-			"SD-MAD" = "floatspizzytronmedi",
-			"Heph Droid" = "heavymedi",
-			"Venus Drone" = "dronerecolormedi",
-			"Unbranded-MAD" = "offfloatspizzytronmedi",
-			"Unbranded-Android" = "droid",
-			)
+// If anyone wants to make custom rescue robot sprites, be my guest.
 
 /obj/item/robot_module/medical/rescue/Initialize()
 	. = ..()
@@ -355,21 +342,21 @@ var/global/list/robot_modules = list(
 	networks = list(NETWORK_ENGINEERING)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 	sprites = list(
-			"Basic" = "robotengi",
-			"Landmate" = "landmateengi",
-			"Treadmate" = "treadmateengi",
-			"Treadhead" = "treadheadengi",
-			"Arachnotronic" = "arachnotronicengi",
-			"Toileto-tron" = "toiletbotengi",
-			"Zeng-hu Droid" = "droidrecolorengi",
-			"HD-MAD" = "mcspizzytronengi",
-			"SD-MAD" = "floatspizzytronengi",
-			"Heph Droid" = "heavyengi",
-			"Venus Drone" = "dronerecolorengi",
-			"Unbranded-MAD" = "offfloatspizzytronengi",
-			"Unbranded-Android" = "droid",
+			"Basic" = "robot_engi",
+			"Landmate" = "landmate_engi",
+			"Treadmate" = "treadmate_engi",
+			"Treadhead" = "treadhead_engi",
+			"Spiffy" = "mcspizzy_engi",
+			"Tau-Ceti Drone" = "tauceti_engi",
+			"Sputnik" = "sputnik_engi",
+			"Kent" = "kent_engi",
+			"Wide" = "wide_engi",
+			"Cricket" = "cricket_engi",
+			"Quad-Dex" = "quaddex_engi",
+			"Arthrodroid" = "arthrodroid_engi",
+			"Spiderbot" = "spiderbot_engi",
+			"Heavy" = "heavy_engi"
 			)
-	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
 /obj/item/robot_module/engineering/construction
 	name = "construction robot module"
@@ -555,19 +542,20 @@ var/global/list/robot_modules = list(
 	channels = list(CHANNEL_SERVICE = TRUE)
 	networks = list(NETWORK_SERVICE)
 	sprites = list(
-			"Basic" = "robotjani",
-			"Landmate" = "landmatejani",
-			"Treadmate" = "treadmatejani",
-			"Treadhead" = "treadheadjani",
-			"Arachnotronic" = "arachnotronicjani",
-			"Toileto-tron" = "toiletbotjani",
-			"Zeng-hu Droid" = "droidrecolorjani",
-			"HD-MAD" = "mcspizzytronjani",
-			"SD-MAD" = "floatspizzytronjani",
-			"Heph Droid" = "heavyjani",
-			"Venus Drone" = "dronerecolorjani",
-			"Unbranded-MAD" = "offfloatspizzytronjani",
-			"Unbranded-Android" = "droid",
+			"Basic" = "robot_jani",
+			"Landmate" = "landmate_jani",
+			"Treadmate" = "treadmate_jani",
+			"Treadhead" = "treadhead_jani",
+			"Spiffy" = "mcspizzy_jani",
+			"Tau-Ceti Drone" = "tauceti_jani",
+			"Sputnik" = "sputnik_jani",
+			"Kent" = "kent_jani",
+			"Wide" = "wide_jani",
+			"Cricket" = "cricket_jani",
+			"Quad-Dex" = "quaddex_jani",
+			"Arthrodroid" = "arthrodroid_jani",
+			"Spiderbot" = "spiderbot_jani",
+			"Heavy" = "heavy_jani"
 			)
 	var/mopping = FALSE
 
@@ -624,19 +612,20 @@ var/global/list/robot_modules = list(
 					)
 
 	sprites = list(
-			"Basic" = "robotserv",
-			"Landmate" = "landmateserv",
-			"Treadmate" = "treadmateserv",
-			"Treadhead" = "treadheadserv",
-			"Arachnotronic" = "arachnotronicserv",
-			"Toileto-tron" = "toiletbotserv",
-			"Zeng-hu Droid" = "droidrecolorserv",
-			"HD-MAD" = "mcspizzytronserv",
-			"SD-MAD" = "floatspizzytronserv",
-			"Heph Droid" = "heavyserv",
-			"Venus Drone" = "dronerecolorserv",
-			"Unbranded-MAD" = "offfloatspizzytronserv",
-			"Unbranded-Android" = "droid",
+			"Basic" = "robot_serv",
+			"Landmate" = "landmate_serv",
+			"Treadmate" = "treadmate_serv",
+			"Treadhead" = "treadhead_serv",
+			"Spiffy" = "mcspizzy_serv",
+			"Tau-Ceti Drone" = "tauceti_serv",
+			"Sputnik" = "sputnik_serv",
+			"Kent" = "kent_serv",
+			"Wide" = "wide_serv",
+			"Cricket" = "cricket_serv",
+			"Quad-Dex" = "quaddex_serv",
+			"Arthrodroid" = "arthrodroid_serv",
+			"Spiderbot" = "spiderbot_serv",
+			"Heavy" = "heavy_serv"
 			)
 
 /obj/item/robot_module/clerical/butler/Initialize()
@@ -708,20 +697,22 @@ var/global/list/robot_modules = list(
 	channels = list(CHANNEL_SUPPLY = TRUE)
 	networks = list(NETWORK_MINE)
 	sprites = list(
-			"Basic" = "robotmine",
-			"Landmate" = "landmatemine",
-			"Treadmate" = "treadmatemine",
-			"Treadhead" = "treadheadmine",
-			"Arachnotronic" = "arachnotronicmine",
-			"Toileto-tron" = "toiletbotmine",
-			"Zeng-hu Droid" = "droidrecolormine",
-			"HD-MAD" = "mcspizzytronmine",
-			"SD-MAD" = "floatspizzytronmine",
-			"Heph Droid" = "heavymine",
-			"Venus Drone" = "dronerecolormine",
-			"Unbranded-MAD" = "offfloatspizzytronmine",
-			"Unbranded-Android" = "droid",
+			"Basic" = "robot_mine",
+			"Landmate" = "landmate_mine",
+			"Treadmate" = "treadmate_mine",
+			"Treadhead" = "treadhead_mine",
+			"Spiffy" = "mcspizzy_mine",
+			"Tau-Ceti Drone" = "tauceti_mine",
+			"Sputnik" = "sputnik_mine",
+			"Kent" = "kent_mine",
+			"Wide" = "wide_mine",
+			"Cricket" = "cricket_mine",
+			"Quad-Dex" = "quaddex_mine",
+			"Arthrodroid" = "arthrodroid_mine",
+			"Spiderbot" = "spiderbot_mine",
+			"Heavy" = "heavy_mine"
 			)
+
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
 /obj/item/robot_module/miner/Initialize()
@@ -771,19 +762,20 @@ var/global/list/robot_modules = list(
 	channels = list(CHANNEL_SCIENCE = TRUE)
 	networks = list(NETWORK_RESEARCH)
 	sprites = list(
-			"Basic" = "robotsci",
-			"Landmate" = "landmatesci",
-			"Treadmate" = "treadmatesci",
-			"Treadhead" = "treadheadsci",
-			"Arachnotronic" = "arachnotronicsci",
-			"Toileto-tron" = "toiletbotsci",
-			"Zeng-hu Droid" = "droidrecolorsci",
-			"HD-MAD" = "mcspizzytronsci",
-			"SD-MAD" = "floatspizzytronsci",
-			"Heph Droid" = "heavysci",
-			"Venus Drone" = "dronerecolorsci",
-			"Unbranded-MAD" = "offfloatspizzytronsci",
-			"Unbranded-Android" = "droid",
+			"Basic" = "robot_sci",
+			"Landmate" = "landmate_sci",
+			"Treadmate" = "treadmate_sci",
+			"Treadhead" = "treadhead_sci",
+			"Spiffy" = "mcspizzy_sci",
+			"Tau-Ceti Drone" = "tauceti_sci",
+			"Sputnik" = "sputnik_sci",
+			"Kent" = "kent_sci",
+			"Wide" = "wide_sci",
+			"Cricket" = "cricket_sci",
+			"Quad-Dex" = "quaddex_sci",
+			"Arthrodroid" = "arthrodroid_sci",
+			"Spiderbot" = "spiderbot_sci",
+			"Heavy" = "heavy_sci"
 			)
 
 /obj/item/robot_module/research/Initialize()
@@ -854,13 +846,21 @@ var/global/list/robot_modules = list(
 					LANGUAGE_YA_SSA =      FALSE
 					)
 	sprites = list(
-					"Bloodhound" = "syndie_bloodhound",
-					"Treadhound" = "syndie_treadhound",
-					"HD-MAD" = "mcspizzytronsyndi",
-					"Heph Droid" = "heavysyndi",
-					"Arachnotronic" = "arachnotronicsyndi",
-					"Toileto-tron" = "syndi-medi",
-					)
+			"Basic" = "robot_syndi",
+			"Bloodhound" = "bloodhound_syndi",
+			"Treadhound" = "treadhound_syndi",
+			"Treadhead" = "treadhead_syndi",
+			"Spiffy" = "mcspizzy_syndi",
+			"Tau-Ceti Drone" = "tauceti_syndi",
+			"Sputnik" = "sputnik_syndi",
+			"Kent" = "kent_syndi",
+			"Wide" = "wide_syndi",
+			"Cricket" = "cricket_syndi",
+			"Quad-Dex" = "quaddex_syndi",
+			"Arthrodroid" = "arthrodroid_syndi",
+			"Spiderbot" = "spiderbot_syndi",
+			"Heavy" = "heavy_syndi"
+			)
 
 /obj/item/robot_module/syndicate/Initialize(mapload, mob/living/silicon/robot/R)
 	. = ..()

@@ -19,20 +19,23 @@
 			add_overlay(panel_overlay)
 
 /mob/living/silicon/robot/proc/setup_icon_cache()
-	cached_eye_overlays = list(
-		I_HELP = image(icon, "[module_sprites[icontype]]-eyes_help", layer = EFFECTS_ABOVE_LIGHTING_LAYER),
-		I_HURT = image(icon, "[module_sprites[icontype]]-eyes_harm", layer = EFFECTS_ABOVE_LIGHTING_LAYER)
-	)
-	if(eye_overlay)
-		cut_overlay(eye_overlay)
-	eye_overlay = cached_eye_overlays[a_intent]
-	if(!stat)
+	if(!stat) // don't bother generating eyes if disabled
+		var/eye_layer = src.layer
+		if(lights_on && layer == MOB_LAYER) // in case you're hiding. so eyes don't go through tables.
+			eye_layer = EFFECTS_ABOVE_LIGHTING_LAYER //make them glow in the dark if the lamp is on
+		cached_eye_overlays = list(
+			I_HELP = image(icon, "[module_sprites[icontype]]-eyes_help", layer = eye_layer), //Changed so icontype goes in front. Helps with parsing in this godforsaken engine known as BYOND.
+			I_HURT = image(icon, "[module_sprites[icontype]]-eyes_harm", layer = eye_layer)
+		)
+		if(eye_overlay)
+			cut_overlay(eye_overlay)
+		eye_overlay = cached_eye_overlays[a_intent]
 		add_overlay(eye_overlay)
-	var/panelprefix = custom_sprite ? src.ckey : "ov"
+	var/panelprefix = custom_sprite ? src.ckey : module_sprites[icontype] // Could be better. But it works.
 	cached_panel_overlays = list(
-		ROBOT_PANEL_EXPOSED = image(icon, "[panelprefix]-openpanel +w"),
-		ROBOT_PANEL_CELL = image(icon, "[panelprefix]-openpanel +c"),
-		ROBOT_PANEL_NO_CELL = image(icon, "[panelprefix]-openpanel -c")
+		ROBOT_PANEL_EXPOSED = image(icon, "[panelprefix]-openpanel+w"),
+		ROBOT_PANEL_CELL = image(icon, "[panelprefix]-openpanel+c"),
+		ROBOT_PANEL_NO_CELL = image(icon, "[panelprefix]-openpanel-c")
 	)
 
 /mob/living/silicon/robot/proc/set_module_active(var/obj/item/given_module)
