@@ -140,7 +140,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	selection_color = "#2b5bb5"
 	minimal_player_age = 10
 	economic_modifier = 10
-	ideal_character_age = 50
+	ideal_character_age = 45
 
 	minimum_character_age = 30
 
