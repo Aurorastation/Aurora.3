@@ -65644,6 +65644,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
+"oZK" = (
+/obj/structure/flora/pottedplant{
+	desc = "A quiet voice tells you that Geoff should be considered a friend.";
+	name = "Geoff"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/armory)
 "oZN" = (
 /obj/effect/landmark/costume/pirate,
 /obj/effect/decal/cleanable/dirt,
@@ -98223,7 +98230,7 @@ asP
 auy
 amO
 amO
-amO
+oZK
 amO
 aCs
 aEh
