@@ -170,7 +170,7 @@
 	if(length(grasscolors))
 		grass_color = pick(grasscolors)
 
-	for(var/datum/exoplanet_theme/T in themes)
+	for(var/datum/exoplanet_theme/T as anything in themes)
 		T.before_map_generation(src)
 	for(var/zlevel in map_z)
 		for(var/map_type in map_generators)
