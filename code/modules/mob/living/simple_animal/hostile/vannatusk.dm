@@ -42,6 +42,8 @@
 
 	var/crystal_harvested = FALSE
 
+	psi_pingable = FALSE
+
 /mob/living/simple_animal/hostile/vannatusk/Initialize()
 	. = ..()
 	set_light(1.2, 3, LIGHT_COLOR_BLUE)

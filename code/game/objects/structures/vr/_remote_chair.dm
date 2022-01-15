@@ -6,6 +6,7 @@
 	var/portable_type
 	can_dismantle = FALSE
 	var/remote_network // Which network does this remote control belong to?
+	held_item = null
 
 /obj/structure/bed/stool/chair/remote/Initialize()
 	. = ..()

@@ -41,6 +41,12 @@
 	var/last_flash = 0 //spam limiter
 	can_fold = FALSE
 
+/obj/item/paper/business_card/update_icon()
+	. = ..()
+	if(worn_overlay)
+		cut_overlays()
+		add_overlay(overlay_image(icon, worn_overlay, flags=RESET_COLOR))
+
 /obj/item/paper/business_card/attack_self(mob/living/user)
 	if(last_flash <= world.time - 20)
 		last_flash = world.time

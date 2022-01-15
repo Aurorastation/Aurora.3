@@ -120,7 +120,7 @@
 
 /obj/structure/closet/wardrobe/xenos/fill()
 	..()
-	new /obj/item/clothing/suit/unathi/mantle(src)
+	new /obj/item/clothing/accessory/poncho/unathimantle(src)
 	new /obj/item/clothing/suit/unathi/robe/beige(src)
 	new /obj/item/clothing/shoes/footwraps(src)
 	new /obj/item/clothing/shoes/footwraps(src)

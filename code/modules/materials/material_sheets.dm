@@ -13,6 +13,7 @@
 	var/material/material
 	var/perunit
 	var/apply_colour //temp pending icon rewrite
+	var/painted_colour
 	var/use_material_sound = TRUE
 
 /obj/item/stack/material/Initialize(mapload, amount)
@@ -32,7 +33,9 @@
 	perunit = SHEET_MATERIAL_AMOUNT
 
 	if(apply_colour)
-		color = material.icon_colour
+		var/image/I = new(icon, icon_state)
+		I.color = material.icon_colour
+		add_overlay(I)
 
 	if(use_material_sound)	// SEE MATERIALS.DM
 		drop_sound = material.drop_sound
@@ -61,8 +64,16 @@
 
 /obj/item/stack/material/update_icon()
 	. = ..()
+	cut_overlays()
 	if(material)
 		update_strings()
+		if(apply_colour) // This is ass, but stops maptext from getting colored.
+			var/image/I = new(icon, icon_state)
+			if(!painted_colour)
+				I.color = material.icon_colour
+			else
+				I.color = painted_colour
+			add_overlay(I)
 
 /obj/item/stack/material/transfer_to(obj/item/stack/S, var/tamount=null, var/type_verified)
 	var/obj/item/stack/material/M = S
@@ -92,7 +103,7 @@
 	name = "iron"
 	icon_state = "sheet-silver"
 	default_type = MATERIAL_IRON
-	apply_colour = 1
+	apply_colour = TRUE
 
 /obj/item/stack/material/iron/full/Initialize()
 	. = ..()
@@ -223,7 +234,7 @@
 	name = "tritium"
 	icon_state = "sheet-silver"
 	default_type = MATERIAL_TRITIUM
-	apply_colour = 1
+	apply_colour = TRUE
 
 /obj/item/stack/material/tritium/full/Initialize()
 	. = ..()
@@ -234,7 +245,7 @@
 	name = "osmium"
 	icon_state = "sheet-silver"
 	default_type = MATERIAL_OSMIUM
-	apply_colour = 1
+	apply_colour = TRUE
 
 /obj/item/stack/material/osmium/full/Initialize()
 	. = ..()
@@ -315,6 +326,7 @@
 	icon_state = "sheet-cloth"
 	default_type = MATERIAL_CLOTH
 	icon_has_variants = TRUE
+	apply_colour = TRUE
 
 /obj/item/stack/material/cloth/full/Initialize()
 	. = ..()
