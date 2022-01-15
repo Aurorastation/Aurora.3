@@ -111,7 +111,7 @@
 	if(big)
 		if(LAZYLEN(big_flora_types))
 			new /obj/machinery/portable_atmospherics/hydroponics/soil/invisible(T, pick(big_flora_types), 1)
-		for(var/turf/neighbor in RANGE_TURFS(1,T))
+		for(var/turf/neighbor as anything in RANGE_TURFS(1,T))
 			spawn_grass(neighbor)
 	else
 		if(LAZYLEN(small_flora_types))

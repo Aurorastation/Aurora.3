@@ -98,8 +98,7 @@
 	update_nearby_tiles(need_rebuild=1)
 
 	if(length(SSshuttle.shuttle_areas) && !length(SSshuttle.shuttles_to_initialize) && SSshuttle.init_state == SS_INITSTATE_DONE)
-		for(var/ship in SSshuttle.ships)
-			var/obj/effect/overmap/visitable/ship/S = ship
+		for(var/obj/effect/overmap/visitable/ship/S as anything in SSshuttle.ships)
 			if(S.check_ownership(src))
 				S.engines |= controller
 				if(dir != S.fore_dir)
