@@ -51,9 +51,9 @@
 	update_icon(1)
 
 /turf/simulated/floor/exoplanet/update_icon(var/update_neighbors)
-	overlays.Cut()
+	cut_overlays()
 	if(LAZYLEN(decals))
-		overlays += decals
+		add_overlay(decals)
 	for(var/direction in cardinal)
 		var/turf/turf_to_check = get_step(src,direction)
 		if(!istype(turf_to_check, type))
@@ -207,7 +207,6 @@
 		return
 	if(E.planetary_area && istype(loc, world.area))
 		ChangeArea(src, E.planetary_area)
-		//TODO: Check if that should be done at the forcemove instead
 	var/new_x = A.x
 	var/new_y = A.y
 	if(x <= TRANSITIONEDGE)

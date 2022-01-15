@@ -40,7 +40,7 @@
 	if(use_check_and_message(usr))
 		return
 
-	for(var/obj/effect/overmap/visitable/sector/exoplanet/E)
+	for(var/obj/effect/overmap/visitable/sector/exoplanet/E in SSshuttle.initialized_sectors)
 		if(src in E.animals)
 			var/newname = input("What do you want to name this species?", "Species naming", E.get_random_species_name()) as text|null
 			newname = sanitizeName(newname, allow_numbers = TRUE)

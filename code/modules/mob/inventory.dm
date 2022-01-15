@@ -409,9 +409,9 @@ var/list/slot_equipment_priority = list( \
 	return FALSE
 
 /mob/proc/delete_inventory(var/include_carried = FALSE)
-	for(var/entry in get_equipped_items(include_carried))
-		drop_from_inventory(entry)
-		qdel(entry)
+	for(var/obj/item/I as anything in get_equipped_items(include_carried))
+		drop_from_inventory(I)
+		qdel(>I)
 
 /mob/proc/get_covering_equipped_items(var/body_parts)
 	. = list()

@@ -348,8 +348,8 @@ var/list/holder_mob_icon_cache = list()
 			sync(contained)
 
 /obj/item/holder/proc/sync(var/mob/living/M)
-	dir = 2
-	overlays.Cut()
+	dir = SOUTH
+	cut_overlays()
 	icon = M.icon
 	icon_state = M.icon_state
 	item_state = M.item_state

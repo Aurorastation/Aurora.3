@@ -267,7 +267,6 @@
 /obj/effect/landmark/force_spawnpoint/do_landmark_effect()
 	LAZYINITLIST(force_spawnpoints)
 	LAZYADD(force_spawnpoints[job_tag], loc)
-	LAZYADD(force_spawnpoints[job_tag], loc)
 
 var/list/ruin_landmarks = list()
 
