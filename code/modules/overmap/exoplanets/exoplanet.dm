@@ -207,7 +207,7 @@
 		mobs_to_tolerate[type] = TRUE
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/update_biome()
-	for(var/datum/seed/S in seeds)
+	for(var/datum/seed/S as anything in seeds)
 		adapt_seed(S)
 
 	for(var/mob/living/simple_animal/A in animals)
