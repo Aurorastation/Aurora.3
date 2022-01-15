@@ -32,10 +32,6 @@
 
 	smooth = SMOOTH_TRUE | SMOOTH_NO_CLEAR_ICON
 
-	canSmoothWith = list(
-		/turf/simulated/wall/shuttle/scc_space_ship
-	)
-
 // Walls always hide the stuff below them.
 /turf/simulated/wall/levelupdate(mapload)
 	if (mapload)
