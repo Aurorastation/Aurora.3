@@ -1,4 +1,4 @@
-/datum/map/horizon
+/datum/map/sccv_horizon
 
 	// This is formatted strangely because it fails the indentation test if it's formatted properly.
 	// ¯\_(ツ)_/¯
