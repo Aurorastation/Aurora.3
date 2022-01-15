@@ -210,7 +210,7 @@
 	for(var/datum/seed/S as anything in seeds)
 		adapt_seed(S)
 
-	for(var/mob/living/simple_animal/A in animals)
+	for(var/mob/living/simple_animal/A as anything in animals)
 		adapt_animal(A)
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_daycycle()
