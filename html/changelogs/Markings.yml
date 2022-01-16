@@ -1,5 +1,3 @@
-Delete-after: True
+Delete-after: true
 author: listerla
-changes:
-  - imageadd: "Added left and right arm heart tattoos. Credit for sprite goes to KasparoVy."
-  - bugfix: "Fixed Skrell stomach marking, removed nonexistent heart tattoo marking."
+changes: []

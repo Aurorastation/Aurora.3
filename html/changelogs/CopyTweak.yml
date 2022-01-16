@@ -1,7 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - tweak: "Business cards no longer change color when copied in a photocopier."
-  - bugfix: "Photocopiers toner now gets used correctly."
