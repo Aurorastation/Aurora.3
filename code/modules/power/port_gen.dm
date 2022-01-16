@@ -3,7 +3,8 @@
 	name = "Placeholder Generator"	//seriously, don't use this. It can't be anchored without VV magic.
 	desc = "A portable generator for emergency backup power"
 	icon = 'icons/obj/power.dmi'
-	icon_state = "portgen0"
+	icon_state = "portgen0_0"
+	var/base_icon = "portgen0"
 	density = TRUE
 	anchored = FALSE
 
@@ -56,6 +57,10 @@
 		update_icon()
 		soundloop.start()
 		return
+
+/obj/machinery/power/port_gen/update_icon()
+	icon_state = "[base_icon]_[active]"
+	return ..()
 
 /obj/machinery/power/port_gen/examine(mob/user)
 	if(!..(user, 1))
@@ -369,11 +374,11 @@
 		if(href_list["action"] == "enable")
 			if(!active && HasFuel() && !IsBroken())
 				active = TRUE
-				icon_state = "portgen1"
+				update_icon()
 		if(href_list["action"] == "disable")
 			if (active)
 				active = FALSE
-				icon_state = "portgen0"
+				update_icon()
 		if(href_list["action"] == "eject")
 			if(!active)
 				DropFuel()
@@ -388,7 +393,8 @@
 /obj/machinery/power/port_gen/pacman/super
 	name = "S.U.P.E.R.P.A.C.M.A.N.-type Portable Generator"
 	desc = "A power generator that utilizes uranium sheets as fuel. Can run for much longer than the standard PACMAN type generators. Rated for 80 kW max safe output."
-	icon_state = "portgen1"
+	icon_state = "portgen1_0"
+	base_icon = "portgen1"
 	sheet_path = /obj/item/stack/material/uranium
 	sheet_name = "Uranium Sheets"
 	time_per_sheet = 576 //same power output, but a 50 sheet stack will last 2 hours at max safe power
@@ -415,7 +421,8 @@
 /obj/machinery/power/port_gen/pacman/mrs
 	name = "M.R.S.P.A.C.M.A.N.-type Portable Generator"
 	desc = "An advanced power generator that runs on tritium. Rated for 200 kW maximum safe output!"
-	icon_state = "portgen2"
+	icon_state = "portgen2_0"
+	base_icon = "portgen2"
 	sheet_path = /obj/item/stack/material/tritium
 	sheet_name = "Tritium Fuel Sheets"
 

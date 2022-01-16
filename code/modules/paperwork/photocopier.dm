@@ -89,7 +89,6 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 				p.desc += "Copied by [tempAI.name]"
 			else
 				p.desc += " - Copied by [tempAI.name]"
-			toner -= 5
 			sleep(15)
 		SSvueui.check_uis_for_change(src)
 
@@ -173,7 +172,10 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 	info += copied
 	info += "</font>"//</font>
 	pname = copy.name // -- Doohl
-	c.color = "#f0f0f0"
+	if(istype(copy, /obj/item/paper/business_card))
+		c.color = copy.color
+	else
+		c.color = "#f0f0f0"
 	c.fields = copy.fields
 	c.stamps = copy.stamps
 	c.stamped = copy.stamped
@@ -204,7 +206,9 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 	c.set_content_unsafe(pname, info)
 	if (print)
 		if(target.type == /obj/machinery/photocopier)
+			var/obj/machinery/photocopier/T = target
 			flick("photocopier_print", target)
+			--T.toner
 		target.print(c, use_sound, 'sound/bureaucracy/print.ogg', delay)
 	return c
 
@@ -229,6 +233,11 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 		if(target.type == /obj/machinery/photocopier)
 			flick("photocopier_notoner", target)
 		playsound(target.loc, 'sound/machines/buzz-two.ogg', 75, 1)
+	if(target.type == /obj/machinery/photocopier)
+		var/obj/machinery/photocopier/T = target
+		T.toner -= 5
+		flick("photocopier_print", target)
+		playsound(target.loc, 'sound/bureaucracy/print.ogg', 75, 1)
 	return p
 
 //If need_toner is 0, the copies will still be lightened when low on toner, however it will not be prevented from printing. TODO: Implement print queues for fax machines and get rid of need_toner
@@ -239,7 +248,9 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 			toner = 0
 			target.visible_message(SPAN_NOTICE("A red light on \the [target] flashes, indicating that it is out of toner."))
 			if(target.type == /obj/machinery/photocopier)
+				var/obj/machinery/photocopier/T = target
 				flick("photocopier_notoner", target)
+				--T.toner
 			playsound(target.loc, 'sound/machines/buzz-two.ogg', 75, 1)
 			break
 
