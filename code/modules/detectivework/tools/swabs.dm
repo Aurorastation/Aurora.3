@@ -70,17 +70,17 @@
 			return
 		if(H.gloves)
 			var/obj/item/clothing/B = H.gloves
-			if(!B.gunshot_residue)
+			if(!LAZYLEN(B.gunshot_residue))
 				to_chat(user, SPAN_WARNING("There is no residue on [H]'s [B]."))
 				return
 			user.visible_message("[user] swabs [H]'s [B] for a sample.")
-			gsr = B.gunshot_residue
+			LAZYADD(gsr, B.gunshot_residue)
 		else
-			if(!H.gunshot_residue)
+			if(!LAZYLEN(H.gunshot_residue))
 				to_chat(user, SPAN_WARNING("There is no residue on [H]'s palms."))
 				return
 			user.visible_message("[user] swabs [H]'s palm for a sample.")
-			gsr = H.gunshot_residue
+			LAZYADD(gsr, H.gunshot_residue)
 		sample_type = "GSR"
 	else
 		return
@@ -134,10 +134,10 @@
 
 		if (EVIDENCE_TYPE_GSR)
 			var/obj/item/clothing/B = A
-			if(!istype(B) || !B.gunshot_residue)
+			if(!istype(B) || !LAZYLEN(B.gunshot_residue))
 				to_chat(user, SPAN_WARNING("There is no residue on \the [A]."))
 				return
-			gsr = B.gunshot_residue
+			LAZYADD(gsr, B.gunshot_residue)
 			sample_type = "residue"
 
 		if (EVIDENCE_TYPE_SALIVA)

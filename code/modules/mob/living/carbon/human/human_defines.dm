@@ -95,7 +95,7 @@
 	var/hand_blood_color
 
 	var/list/flavor_texts = list()
-	var/list/gunshot_residue = list()
+	var/list/gunshot_residue
 	var/pulling_punches // Are you trying not to hurt your opponent?
 
 	mob_bump_flag = HUMAN

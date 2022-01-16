@@ -101,12 +101,10 @@
 		var/mob/living/carbon/human/H = loc
 		if(istype(H))
 			if(!istype(H.gloves, /obj/item/clothing))
-				if(!H.gunshot_residue) H.gunshot_residue = list()
-				H.gunshot_residue |= chambered.caliber
+				LAZYDISTINCTADD(H.gunshot_residue, chambered.caliber)
 			else
 				var/obj/item/clothing/G = H.gloves
-				if(!G.gunshot_residue) G.gunshot_residue = list()
-				G.gunshot_residue |= chambered.caliber
+				LAZYDISTINCTADD(G.gunshot_residue, chambered.caliber)
 
 	switch(handle_casings)
 		if(DELETE_CASINGS)

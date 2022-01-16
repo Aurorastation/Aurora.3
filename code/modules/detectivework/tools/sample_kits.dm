@@ -2,35 +2,35 @@
 	name = "forensic sample"
 	icon = 'icons/obj/forensics.dmi'
 	w_class = ITEMSIZE_TINY
-	var/list/evidence = list()
-	var/list/source = list()
+	var/list/evidence
+	var/list/source
 	var/label_text = ""
 
-/obj/item/sample/New(var/newloc, var/atom/supplied)
+/obj/item/sample/Initialize(var/newloc, var/atom/supplied)
 	..(newloc)
 	if(supplied)
 		copy_evidence(supplied)
 		name = "[initial(name)] (\the [initial(supplied.name)])"
 		if(istype(supplied, /obj/machinery/door) && supplied.name != initial(supplied.name))
-			source += "\the [initial(supplied.name)]: [supplied.name]"
+			LAZYADD(source, "\the [initial(supplied.name)]: [supplied.name]")
 		else
-			source += "\the [initial(supplied.name)]"
+			LAZYADD(source, "\the [initial(supplied.name)]")
 
-/obj/item/sample/print/New(var/newloc, var/atom/supplied)
+/obj/item/sample/print/Initialize(var/newloc, var/atom/supplied)
 	..(newloc, supplied)
-	if(evidence && evidence.len)
+	if(LAZYLEN(evidence))
 		icon_state = "fingerprint1"
 
 /obj/item/sample/proc/copy_evidence(var/atom/supplied)
 	if(supplied.suit_fibers && supplied.suit_fibers.len)
-		evidence = supplied.suit_fibers.Copy()
+		LAZYADD(evidence, supplied.suit_fibers.Copy())
 		supplied.suit_fibers.Cut()
 
 /obj/item/sample/proc/merge_evidence(var/obj/item/sample/supplied, var/mob/user)
 	if(!supplied.evidence || !supplied.evidence.len)
 		return 0
-	evidence |= supplied.evidence
-	source |= supplied.source
+	LAZYDISTINCTADD(evidence, supplied.evidence)
+	LAZYDISTINCTADD(source, supplied.source)
 	name = "[initial(name)] (combined)"
 	to_chat(user, SPAN_NOTICE("You transfer the contents of \the [initial(supplied.name)] into \the [src]."))
 	return 1
@@ -39,11 +39,11 @@
 	if(!supplied.evidence || !supplied.evidence.len)
 		return 0
 	for(var/print in supplied.evidence)
-		if(evidence[print])
-			evidence[print] = stringmerge(evidence[print],supplied.evidence[print])
+		if(LAZYISIN(evidence, print))
+			LAZYSET(evidence, print, stringmerge(evidence[print],supplied.evidence[print]))
 		else
-			evidence[print] = supplied.evidence[print]
-	source |= supplied.source
+			LAZYSET(evidence, print, supplied.evidence[print])
+	LAZYDISTINCTADD(source, supplied.source)
 	name = "[initial(name)] (combined)"
 	to_chat(user, SPAN_NOTICE("You overlay \the [src] and \the [initial(supplied.name)], combining the print records."))
 	return 1
@@ -66,20 +66,20 @@
 	return ..()
 
 /obj/item/sample/proc/update_name_label()
-	if(label_text == "")
+	if(label_text == null)
 		name = initial(name)
 	else
 		name = "[initial(name)] ([label_text])"
 
-/obj/item/sample/New(var/newloc, var/atom/supplied)
+/obj/item/sample/Initialize(var/newloc, var/atom/supplied)
 	..(newloc)
 	if(supplied)
 		copy_evidence(supplied)
 		name = "[initial(name)] (\the [initial(supplied.name)])"
 		if(istype(supplied, /obj/machinery/door) && supplied.name != initial(supplied.name))
-			source += "\the [initial(supplied.name)]: [supplied.name]"
+			LAZYADD(source, "\the [initial(supplied.name)]: [supplied.name]")
 		else
-			source += "\the [initial(supplied.name)]"
+			LAZYADD(source, "\the [initial(supplied.name)]")
 
 /obj/item/sample/fibers
 	name = "fiber bag"
@@ -98,7 +98,7 @@
 	item_state = "paper"
 
 /obj/item/sample/print/attack_self(var/mob/user)
-	if(evidence && evidence.len)
+	if(LAZYLEN(evidence))
 		return
 	if(!ishuman(user))
 		return
@@ -109,8 +109,8 @@
 
 	to_chat(user, SPAN_NOTICE("You firmly press your fingertips onto the card."))
 	var/fullprint = H.get_full_print()
-	evidence[fullprint] = fullprint
-	source += "[H.name]"
+	LAZYSET(evidence, fullprint, fullprint)
+	LAZYADD(source, "[H.name]")
 	name = "[initial(name)] (\the [H])"
 	icon_state = "fingerprint1"
 
@@ -119,7 +119,7 @@
 	if(!ishuman(M))
 		return ..()
 
-	if(evidence && evidence.len)
+	if(LAZYLEN(evidence))
 		return 0
 
 	var/mob/living/carbon/human/H = M
@@ -146,9 +146,9 @@
 			return 1
 		user.visible_message("[user] takes a copy of \the [H]'s fingerprints.")
 		var/fullprint = H.get_full_print()
-		evidence[fullprint] = fullprint
+		LAZYSET(evidence, fullprint, fullprint)
 		copy_evidence(src)
-		source += "[H.name]"
+		LAZYADD(source, "[H.name]")
 		name = "[initial(name)] (\the [H])"
 		icon_state = "fingerprint1"
 		return 1
@@ -157,7 +157,7 @@
 /obj/item/sample/print/copy_evidence(var/atom/supplied)
 	if(supplied.fingerprints && supplied.fingerprints.len)
 		for(var/print in supplied.fingerprints)
-			evidence[print] = supplied.fingerprints[print]
+			LAZYSET(evidence, print, supplied.fingerprints[print])
 		supplied.fingerprints.Cut()
 
 /obj/item/forensics/sample_kit
