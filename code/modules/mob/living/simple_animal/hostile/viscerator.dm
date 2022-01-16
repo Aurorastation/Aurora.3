@@ -30,6 +30,8 @@
 	flying = TRUE
 	attack_emote = "buzzes at"
 
+	psi_pingable = FALSE
+
 /mob/living/simple_animal/hostile/viscerator/death()
 	..(null,"is smashed into pieces!")
 	var/T = get_turf(src)

@@ -282,6 +282,14 @@
 		icon_state = "hawaii_red"
 	color = color_rotation(rand(-11,12)*15)
 
+/obj/item/clothing/accessory/silversun/wcoat
+	name = "waistcoat"
+	desc = "A slick waistcoat."
+	icon = 'icons/obj/clothing/ties.dmi'
+	icon_state = "det_vest"
+	item_state = "det_vest"
+	contained_sprite = FALSE
+
 /obj/item/clothing/accessory/university
 	name = "university sweatshirt"
 	desc = "A comfy university sweatshirt. This one is grey."

@@ -101,10 +101,6 @@
 	path = /obj/item/material/stool/chair/wheelchair
 	cost = 4
 
-/datum/gear/utility/wheelchair/color/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
-
 /datum/gear/utility/business_card_holder
 	display_name = "business card holder"
 	description = "Comes in different materials."
