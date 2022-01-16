@@ -10,11 +10,8 @@
 	..(newloc)
 	if(supplied)
 		copy_evidence(supplied)
-		name = "[initial(name)] (\the [initial(supplied.name)])"
-		if(istype(supplied, /obj/machinery/door) && supplied.name != initial(supplied.name))
-			LAZYADD(source, "\the [initial(supplied.name)]: [supplied.name]")
-		else
-			LAZYADD(source, "\the [initial(supplied.name)]")
+		name = "[initial(name)] ([supplied.get_swab_name()])"
+		LAZYADD(source, supplied.get_swab_name())
 
 /obj/item/sample/print/Initialize(var/newloc, var/atom/supplied)
 	..(newloc, supplied)
@@ -75,11 +72,16 @@
 	..(newloc)
 	if(supplied)
 		copy_evidence(supplied)
-		name = "[initial(name)] (\the [initial(supplied.name)])"
-		if(istype(supplied, /obj/machinery/door) && supplied.name != initial(supplied.name))
-			LAZYADD(source, "\the [initial(supplied.name)]: [supplied.name]")
-		else
-			LAZYADD(source, "\the [initial(supplied.name)]")
+		name = "[initial(name)] ([supplied.get_swab_name()])"
+		LAZYADD(source, supplied.get_swab_name())
+
+/atom/proc/get_swab_name()
+  return "\the [initial(name)]"
+
+/obj/machinery/door/get_swab_name()
+  if(name != initial(name))
+    return "\the [initial(name)]: [name]"
+  return ..()
 
 /obj/item/sample/fibers
 	name = "fiber bag"
