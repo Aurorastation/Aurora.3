@@ -3,17 +3,17 @@
 /obj/item/evidencebag
 	name = "evidence bag"
 	desc = "An empty evidence bag."
+	desc_info = "Click drag this onto an object to put it inside. Click it in-hand to remove an object from it."
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "evidenceobj"
 	item_state = ""
 	w_class = ITEMSIZE_SMALL
 	var/obj/item/stored_item = null
 	var/label_text = ""
-	var/base_name = ""
 
 /obj/item/evidencebag/Initialize()
 	. = ..()
-	base_name = name
+	AddComponent(/datum/component/base_name, name)
 
 /obj/item/evidencebag/MouseDrop(var/obj/item/I as obj)
 	if (!ishuman(usr))
@@ -111,7 +111,8 @@
 		return
 	. = ..() 
 
-/obj/item/evidencebag/proc/update_name_label()
+/obj/item/evidencebag/proc/update_name_label(var/base_name = initial(name))
+	SEND_SIGNAL(src, COMSIG_BASENAME_SETNAME, args)
 	if(label_text == "")
 		name = base_name
 	else

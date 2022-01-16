@@ -90,6 +90,11 @@
 
 	action_button_name = "Wield pick/drill"
 
+/obj/item/pickaxe/can_swap_hands(mob/user)
+	if(wielded)
+		return FALSE
+	return ..()
+
 /obj/item/pickaxe/proc/unwield()
 	wielded = FALSE
 	force = force_unwielded
@@ -1348,12 +1353,11 @@ var/list/total_extraction_beacons = list()
 	icon_state = "punchingbag"
 	anchored = TRUE
 	layer = 5.1
-	var/list/hit_sounds = list("swing_hit", "punch")
 
 /obj/structure/punching_bag/attack_hand(mob/user as mob)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	flick("[icon_state]2", src)
-	playsound(get_turf(src), pick(src.hit_sounds), 25, 1, -1)
+	playsound(get_turf(src), /decl/sound_category/swing_hit_sound, 25, 1, -1)
 
 /obj/structure/weightlifter
 	name = "weight machine"

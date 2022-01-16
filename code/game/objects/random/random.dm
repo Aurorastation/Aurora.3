@@ -65,6 +65,7 @@
 		/obj/item/weldingtool,
 		/obj/item/crowbar,
 		/obj/item/wrench,
+		/obj/item/hammer,
 		/obj/item/device/flashlight
 	)
 
@@ -1570,8 +1571,10 @@
 		/obj/item/gun/projectile/automatic/c20r = 1,
 		/obj/item/gun/projectile/automatic/mini_uzi = 1,
 		/obj/item/gun/projectile/automatic/tommygun = 1,
+		/obj/item/gun/projectile/automatic/lebman = 1,
 		/obj/item/gun/projectile/automatic/wt550/lethal = 0.5,
 		/obj/item/gun/projectile/colt = 0.5,
+		/obj/item/gun/projectile/colt/super = 1,
 		/obj/item/gun/projectile/pistol/sol = 1,
 		/obj/item/gun/projectile/pistol/adhomai = 1,
 		/obj/item/gun/projectile/revolver/detective = 0.5,
@@ -1596,6 +1599,7 @@
 		/obj/item/gun/energy/xray = 1,
 		/obj/item/gun/energy/lasercannon = 1,
 		/obj/item/gun/projectile/automatic/rifle/sts35 = 1,
+		/obj/item/gun/projectile/automatic/rifle/shorty = 1,
 		/obj/item/gun/projectile/automatic/rifle/carbine = 1,
 		/obj/item/gun/projectile/automatic/x9 = 1,
 		/obj/item/gun/projectile/deagle = 1,

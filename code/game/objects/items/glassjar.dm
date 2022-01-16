@@ -137,6 +137,7 @@
 		var/obj/item/holder/H = A
 		if(H.w_class <= ITEMSIZE_SMALL)
 			contains = JAR_HOLDER
+			user.drop_from_inventory(H)
 			scoop(H, user)
 		else
 			scoop_fail(H, user)

@@ -1357,14 +1357,8 @@
 	},
 /turf/simulated/floor/tiled,
 /area/storage/primary)
-"dt" = (
-/obj/effect/landmark/start,
-/turf/simulated/floor/tiled,
-/area/storage/primary)
 "du" = (
-/obj/effect/landmark{
-	name = "JoinLate"
-	},
+/obj/effect/landmark/force_spawnpoint,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "dv" = (
@@ -1649,6 +1643,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"Gr" = (
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Chief Engineer";
+	name = "force spawnpoint (CE)"
+	},
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "HB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -1767,10 +1768,20 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"UP" = (
+/obj/effect/map_effect/wingrille_spawn/full,
+/turf/simulated/floor/plating,
+/area/storage/primary)
 "WS" = (
 /obj/turbolift_map_holder/runtime,
 /turf/simulated/floor/plating,
 /area/turbolift/main_station)
+"Yc" = (
+/obj/effect/landmark{
+	name = "carpspawn"
+	},
+/turf/template_noop,
+/area/template_noop)
 "YP" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -2031,7 +2042,7 @@ aa
 aa
 aa
 aa
-aa
+Yc
 aa
 aa
 aa
@@ -2541,7 +2552,7 @@ aa
 aa
 aa
 aa
-aa
+Yc
 aa
 aa
 "}
@@ -3037,7 +3048,7 @@ aa
 aa
 aa
 aa
-aa
+Yc
 aa
 aa
 ab
@@ -3169,14 +3180,14 @@ zP
 cP
 cP
 cP
-cP
-cP
+UP
+UP
 cP
 dr
 dr
 cP
-cP
-cP
+UP
+UP
 cP
 cP
 cP
@@ -3388,7 +3399,7 @@ da
 dl
 dc
 do
-dt
+du
 du
 dl
 dc
@@ -3442,7 +3453,7 @@ da
 dl
 dc
 do
-dt
+du
 du
 dl
 dc
@@ -3496,7 +3507,7 @@ da
 dl
 dc
 do
-dt
+du
 du
 dl
 dc
@@ -3546,11 +3557,11 @@ bB
 bB
 cS
 da
-da
+Gr
 dl
 dc
 pM
-dt
+du
 du
 dl
 dc
@@ -3604,7 +3615,7 @@ da
 dl
 dc
 do
-dt
+du
 du
 dl
 dc
@@ -3658,7 +3669,7 @@ da
 dl
 dc
 do
-dt
+du
 du
 dl
 dc
@@ -3712,7 +3723,7 @@ da
 dl
 dc
 do
-dt
+du
 du
 dl
 dc
@@ -3782,7 +3793,7 @@ aa
 aa
 aa
 aa
-aa
+Yc
 aa
 aa
 aa
@@ -4295,7 +4306,7 @@ aa
 aa
 aa
 aa
-aa
+Yc
 aa
 aa
 aa

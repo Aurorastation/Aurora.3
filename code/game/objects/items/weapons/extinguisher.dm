@@ -164,9 +164,11 @@
 /obj/item/extinguisher/proc/propel_object(var/obj/O, mob/user, movementdirection)
 	if(O.anchored) return
 
-	var/obj/structure/bed/chair/C
-	if(istype(O, /obj/structure/bed/chair))
-		C = O
+	var/obj/structure/bed/stool/chair/C
+	if(!istype(O, /obj/structure/bed/stool/chair/office))
+		return
+
+	C = O
 
 	var/list/move_speed = list(1, 1, 1, 2, 2, 3)
 	for(var/i in 1 to 6)

@@ -3,7 +3,6 @@
 	desc_info = "Use in your hand to bring up the recipe menu.  If you have enough sheets, click on something on the list to build it."
 	force = 5
 	throwforce = 5
-	flags = HELDMAPTEXT
 	w_class = ITEMSIZE_NORMAL
 	throw_speed = 3
 	throw_range = 3
@@ -14,10 +13,11 @@
 	var/material/material
 	var/perunit
 	var/apply_colour //temp pending icon rewrite
+	var/painted_colour
 	var/use_material_sound = TRUE
 
 /obj/item/stack/material/Initialize(mapload, amount)
-	..()
+	. = ..()
 	randpixel_xy()
 
 	if(!default_type)
@@ -33,7 +33,9 @@
 	perunit = SHEET_MATERIAL_AMOUNT
 
 	if(apply_colour)
-		color = material.icon_colour
+		var/image/I = new(icon, icon_state)
+		I.color = material.icon_colour
+		add_overlay(I)
 
 	if(use_material_sound)	// SEE MATERIALS.DM
 		drop_sound = material.drop_sound
@@ -43,10 +45,6 @@
 		flags |= CONDUCT
 
 	matter = material.get_matter()
-	return INITIALIZE_HINT_LATELOAD
-
-/obj/item/stack/material/LateInitialize()
-	update_strings()
 
 /obj/item/stack/material/get_material()
 	return material
@@ -63,20 +61,29 @@
 		name = "[material.use_name] [material.sheet_singular_name]"
 		desc = "A [material.sheet_singular_name] of [material.use_name]."
 		gender = NEUTER
-	check_maptext(SMALL_FONTS(7, amount))
 
-/obj/item/stack/material/use(var/used)
+/obj/item/stack/material/update_icon()
 	. = ..()
-	update_strings()
-	return
+	cut_overlays()
+	if(material)
+		update_strings()
+		if(apply_colour) // This is ass, but stops maptext from getting colored.
+			var/image/I = new(icon, icon_state)
+			if(!painted_colour)
+				I.color = material.icon_colour
+			else
+				I.color = painted_colour
+			add_overlay(I)
 
 /obj/item/stack/material/transfer_to(obj/item/stack/S, var/tamount=null, var/type_verified)
 	var/obj/item/stack/material/M = S
 	if(!istype(M) || material.name != M.material.name)
 		return 0
 	var/transfer = ..(S,tamount,1)
-	if(src) update_strings()
-	if(M) M.update_strings()
+	if(src)
+		update_icon()
+	if(M)
+		M.update_icon()
 	return transfer
 
 /obj/item/stack/material/attack_self(var/mob/user)
@@ -96,7 +103,7 @@
 	name = "iron"
 	icon_state = "sheet-silver"
 	default_type = MATERIAL_IRON
-	apply_colour = 1
+	apply_colour = TRUE
 
 /obj/item/stack/material/iron/full/Initialize()
 	. = ..()
@@ -227,7 +234,7 @@
 	name = "tritium"
 	icon_state = "sheet-silver"
 	default_type = MATERIAL_TRITIUM
-	apply_colour = 1
+	apply_colour = TRUE
 
 /obj/item/stack/material/tritium/full/Initialize()
 	. = ..()
@@ -238,7 +245,7 @@
 	name = "osmium"
 	icon_state = "sheet-silver"
 	default_type = MATERIAL_OSMIUM
-	apply_colour = 1
+	apply_colour = TRUE
 
 /obj/item/stack/material/osmium/full/Initialize()
 	. = ..()
@@ -319,6 +326,7 @@
 	icon_state = "sheet-cloth"
 	default_type = MATERIAL_CLOTH
 	icon_has_variants = TRUE
+	apply_colour = TRUE
 
 /obj/item/stack/material/cloth/full/Initialize()
 	. = ..()

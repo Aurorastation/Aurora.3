@@ -127,6 +127,19 @@
 	path = /obj/item/clothing/shoes/sandal/clogs
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/shoes/recolourable_shoes
+	display_name = "shoe selection (colourable)"
+	path = /obj/item/clothing/shoes/sneakers
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/shoes/recolourable_shoes/New()
+	..()
+	var/list/recolourable_shoes = list()
+	recolourable_shoes["sneakers"] = /obj/item/clothing/shoes/sneakers
+	recolourable_shoes["sneakers (white tip)"] = /obj/item/clothing/shoes/sneakers/whitetip
+	recolourable_shoes["oxfords"] = /obj/item/clothing/shoes/laceup/colourable
+	gear_tweaks += new /datum/gear_tweak/path(recolourable_shoes)
+
 /*
 	Shoe Layer Adjustment
 */

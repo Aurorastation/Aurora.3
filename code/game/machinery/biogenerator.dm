@@ -434,6 +434,7 @@
 		update_icon()
 		updateUsrDialog()
 		playsound(src.loc, 'sound/machines/juicer.ogg', 50, 1)
+		intent_message(MACHINE_SOUND)
 		use_power(S * 30)
 		sleep((S + 1.5 SECONDS) / eat_eff)
 		processing = 0
@@ -479,6 +480,7 @@
 			points -= totake
 			use_power(totake * 0.25)
 			playsound(src.loc, /decl/sound_category/switch_sound, 50, 1)
+			intent_message(PING_SOUND)
 			if(ispath(recipe.object, /obj/item/reagent_containers/pill))
 				if(!made_container)
 					made_container = new /obj/item/storage/pill_bottle(loc)

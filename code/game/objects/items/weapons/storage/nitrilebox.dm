@@ -44,7 +44,8 @@
 		var/list/glove_types = list(
 			"Standard Gloves" = /obj/item/clothing/gloves/latex/nitrile,
 			"Unathi Gloves" = /obj/item/clothing/gloves/latex/nitrile/unathi,
-			"Tajara Gloves" = /obj/item/clothing/gloves/latex/nitrile/tajara
+			"Tajara Gloves" = /obj/item/clothing/gloves/latex/nitrile/tajara,
+			"Vaurca Gloves" = /obj/item/clothing/gloves/latex/nitrile/vaurca
 		)
 		var/chosen_type = input(user, "Which pair of gloves would you like?", capitalize_first_letters(name)) as null|anything in glove_types
 		if(!chosen_type)

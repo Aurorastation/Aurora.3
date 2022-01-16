@@ -19,12 +19,16 @@
 			SPECIES_IPC_XION,
 			SPECIES_IPC_ZENGHU,
 			SPECIES_DIONA,
+			SPECIES_DIONA_COEUS,
 			SPECIES_SKRELL,
+			SPECIES_SKRELL_AXIORI,
 			SPECIES_TAJARA,
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_VAURCA_WORKER,
-			SPECIES_VAURCA_WARRIOR
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER
 		)
 	)
 
@@ -61,6 +65,6 @@
 	name = "Izweski Hegemony Consular Officer"
 
 	uniform = /obj/item/clothing/under/unathi
-	suit = /obj/item/clothing/suit/unathi/mantle
+	suit = /obj/item/clothing/accessory/poncho/unathimantle
 	backpack_contents = list(/obj/item/device/camera = 1)
 	belt = /obj/item/gun/energy/pistol/hegemony

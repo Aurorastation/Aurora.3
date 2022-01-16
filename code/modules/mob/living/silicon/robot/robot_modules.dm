@@ -56,9 +56,10 @@ var/global/list/robot_modules = list(
 
 	R.module = src
 
-	src.modules += new /obj/item/inductive_charger(src)
+	modules += new /obj/item/inductive_charger(src)
 
 	add_camera_networks(R)
+	handle_languages(R)
 	add_languages(R)
 	add_subsystems(R)
 	apply_status_flags(R)
@@ -70,6 +71,9 @@ var/global/list/robot_modules = list(
 	R.icon_selected = FALSE
 	R.choose_icon()
 	R.setup_icon_cache()
+
+/obj/item/robot_module/proc/handle_languages(var/mob/living/silicon/robot/R)
+	return
 
 /obj/item/robot_module/proc/Reset(var/mob/living/silicon/robot/R)
 	remove_camera_networks(R)
@@ -109,8 +113,8 @@ var/global/list/robot_modules = list(
 	return
 
 /obj/item/robot_module/proc/respawn_consumable(var/mob/living/silicon/robot/R, var/rate)
-	var/obj/item/extinguisher/E = locate() in src.modules
-	var/obj/item/device/flash/F = locate() in src.modules
+	var/obj/item/extinguisher/E = locate() in modules
+	var/obj/item/device/flash/F = locate() in modules
 	if(F)
 		if(F.broken)
 			F.broken = FALSE
@@ -127,6 +131,9 @@ var/global/list/robot_modules = list(
 
 	for(var/datum/matter_synth/T in synths)
 		T.add_charge(T.recharge_rate * rate)
+
+	for(var/obj/item/stack/SM in modules)
+		SM.update_icon()
 
 /obj/item/robot_module/proc/rebuild()//Rebuilds the list so it's possible to add/remove items from the module
 	var/list/temp_list = modules
@@ -202,41 +209,41 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/medical/general/Initialize()
 	. = ..()
-	src.modules += new /obj/item/device/healthanalyzer(src)
-	src.modules += new /obj/item/reagent_containers/hypospray/borghypo/medical(src)
-	src.modules += new /obj/item/surgery/scalpel(src)
-	src.modules += new /obj/item/surgery/hemostat(src)
-	src.modules += new /obj/item/surgery/retractor(src)
-	src.modules += new /obj/item/surgery/cautery(src)
-	src.modules += new /obj/item/surgery/bonegel(src)
-	src.modules += new /obj/item/surgery/FixOVein(src)
-	src.modules += new /obj/item/surgery/bonesetter(src)
-	src.modules += new /obj/item/surgery/circular_saw(src)
-	src.modules += new /obj/item/surgery/surgicaldrill(src)
-	src.modules += new /obj/item/gripper/chemistry(src)
-	src.modules += new /obj/item/reagent_containers/dropper/industrial(src)
-	src.modules += new /obj/item/roller_holder(src)
-	src.modules += new /obj/item/reagent_containers/syringe(src)
-	src.modules += new /obj/item/device/reagent_scanner/adv(src)
-	src.modules += new /obj/item/device/mass_spectrometer(src)
-	src.modules += new /obj/item/autopsy_scanner(src)
-	src.modules += new /obj/item/device/breath_analyzer(src)
+	modules += new /obj/item/device/healthanalyzer(src)
+	modules += new /obj/item/reagent_containers/hypospray/borghypo/medical(src)
+	modules += new /obj/item/surgery/scalpel(src)
+	modules += new /obj/item/surgery/hemostat(src)
+	modules += new /obj/item/surgery/retractor(src)
+	modules += new /obj/item/surgery/cautery(src)
+	modules += new /obj/item/surgery/bonegel(src)
+	modules += new /obj/item/surgery/FixOVein(src)
+	modules += new /obj/item/surgery/bonesetter(src)
+	modules += new /obj/item/surgery/circular_saw(src)
+	modules += new /obj/item/surgery/surgicaldrill(src)
+	modules += new /obj/item/gripper/chemistry(src)
+	modules += new /obj/item/reagent_containers/dropper/industrial(src)
+	modules += new /obj/item/roller_holder(src)
+	modules += new /obj/item/reagent_containers/syringe(src)
+	modules += new /obj/item/device/reagent_scanner/adv(src)
+	modules += new /obj/item/device/mass_spectrometer(src)
+	modules += new /obj/item/autopsy_scanner(src)
+	modules += new /obj/item/device/breath_analyzer(src)
 	modules += new /obj/item/taperoll/medical(src)
-	src.modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
-	src.modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
-	src.modules += new /obj/item/device/gps(src) // For being located while disabled and coordinating with life sensor consoles.
-	src.modules += new /obj/item/extinguisher/mini(src) // For navigating space and/or low grav, and just being useful.
-	src.modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
-	src.modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
-	src.modules += new /obj/item/pen/robopen(src)
-	src.modules += new /obj/item/form_printer(src)
-	src.modules += new /obj/item/gripper/paperwork(src)
-	src.modules += new /obj/item/device/hand_labeler(src)
-	src.modules += new /obj/item/tape_roll(src) //allows it to place flyers
-	src.modules += new /obj/item/device/nanoquikpay(src)
-	src.emag = new /obj/item/reagent_containers/hypospray/cmo(src)
-	src.emag.reagents.add_reagent(/decl/reagent/wulumunusha, 30)
-	src.emag.name = "Wulumunusha Hypospray"
+	modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
+	modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
+	modules += new /obj/item/device/gps(src) // For being located while disabled and coordinating with life sensor consoles.
+	modules += new /obj/item/extinguisher/mini(src) // For navigating space and/or low grav, and just being useful.
+	modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
+	modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
+	modules += new /obj/item/pen/robopen(src)
+	modules += new /obj/item/form_printer(src)
+	modules += new /obj/item/gripper/paperwork(src)
+	modules += new /obj/item/device/hand_labeler(src)
+	modules += new /obj/item/tape_roll(src) //allows it to place flyers
+	modules += new /obj/item/device/nanoquikpay(src)
+	emag = new /obj/item/reagent_containers/hypospray/cmo(src)
+	emag.reagents.add_reagent(/decl/reagent/wulumunusha, 30)
+	emag.name = "Wulumunusha Hypospray"
 
 	var/datum/matter_synth/medicine = new /datum/matter_synth/medicine(10000)
 	synths += medicine
@@ -249,18 +256,18 @@ var/global/list/robot_modules = list(
 	B.uses_charge = TRUE
 	B.charge_costs = list(1000)
 	B.synths = list(medicine)
-	src.modules += N
-	src.modules += B
+	modules += N
+	modules += B
 
 /obj/item/robot_module/medical/general/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
-	var/obj/item/reagent_containers/syringe/S = locate() in src.modules
+	var/obj/item/reagent_containers/syringe/S = locate() in modules
 	if(S.mode == 2)
 		S.reagents.clear_reagents()
 		S.mode = initial(S.mode)
 		S.desc = initial(S.desc)
 		S.update_icon()
-	if(src.emag)
-		var/obj/item/reagent_containers/hypospray/cmo/PS = src.emag
+	if(emag)
+		var/obj/item/reagent_containers/hypospray/cmo/PS = emag
 		PS.reagents.add_reagent(/decl/reagent/wulumunusha, 2 * amount)
 	..()
 
@@ -284,27 +291,32 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/medical/rescue/Initialize()
 	. = ..()
-	src.modules += new /obj/item/device/healthanalyzer(src)
-	src.modules += new /obj/item/device/reagent_scanner/adv(src)
-	src.modules += new /obj/item/device/mass_spectrometer(src)
-	src.modules += new /obj/item/device/breath_analyzer(src)
-	src.modules += new /obj/item/roller_holder(src)
-	src.modules += new /obj/item/reagent_containers/hypospray/borghypo/rescue(src)
-	src.modules += new /obj/item/reagent_containers/dropper/industrial(src)
-	src.modules += new /obj/item/reagent_containers/syringe(src)
-	src.modules += new /obj/item/gripper/chemistry(src)
-	src.modules += new /obj/item/tank/jetpack/carbondioxide/synthetic(src)
-	src.modules += new /obj/item/borg/rescue/mobility(src)
+	modules += new /obj/item/device/healthanalyzer(src)
+	modules += new /obj/item/device/reagent_scanner/adv(src)
+	modules += new /obj/item/device/mass_spectrometer(src)
+	modules += new /obj/item/device/breath_analyzer(src)
+	modules += new /obj/item/roller_holder(src)
+	modules += new /obj/item/reagent_containers/hypospray/borghypo/rescue(src)
+	modules += new /obj/item/reagent_containers/dropper/industrial(src)
+	modules += new /obj/item/reagent_containers/syringe(src)
+	modules += new /obj/item/gripper/chemistry(src)
+	modules += new /obj/item/tank/jetpack/carbondioxide/synthetic(src)
+	modules += new /obj/item/borg/rescue/mobility(src)
 	modules += new /obj/item/taperoll/medical(src)
-	src.modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
-	src.modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
-	src.modules += new /obj/item/device/gps(src) // For being located while disabled and coordinating with life sensor consoles.
-	src.modules += new /obj/item/extinguisher/mini(src) // For navigating space and/or low grav, and just being useful.
-	src.modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
-	src.modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
-	src.emag = new /obj/item/reagent_containers/hypospray/cmo(src)
-	src.emag.reagents.add_reagent(/decl/reagent/wulumunusha, 30)
-	src.emag.name = "Wulumunusha Hypospray"
+	modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
+	modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
+	modules += new /obj/item/device/gps(src) // For being located while disabled and coordinating with life sensor consoles.
+	modules += new /obj/item/extinguisher/mini(src) // For navigating space and/or low grav, and just being useful.
+	modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
+	modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
+	modules += new /obj/item/pen/robopen(src)
+	modules += new /obj/item/form_printer(src)
+	modules += new /obj/item/gripper/paperwork(src)
+	modules += new /obj/item/device/hand_labeler(src)
+	modules += new /obj/item/tape_roll(src)
+	emag = new /obj/item/reagent_containers/hypospray/cmo(src)
+	emag.reagents.add_reagent(/decl/reagent/wulumunusha, 30)
+	emag.name = "Wulumunusha Hypospray"
 
 	var/datum/matter_synth/medicine = new /datum/matter_synth/medicine(15000)
 	synths += medicine
@@ -321,19 +333,19 @@ var/global/list/robot_modules = list(
 	S.uses_charge = TRUE
 	S.charge_costs = list(1000)
 	S.synths = list(medicine)
-	src.modules += O
-	src.modules += B
-	src.modules += S
+	modules += O
+	modules += B
+	modules += S
 
 /obj/item/robot_module/medical/rescue/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
-	var/obj/item/reagent_containers/syringe/S = locate() in src.modules
+	var/obj/item/reagent_containers/syringe/S = locate() in modules
 	if(S.mode == 2)
 		S.reagents.clear_reagents()
 		S.mode = initial(S.mode)
 		S.desc = initial(S.desc)
 		S.update_icon()
-	if(src.emag)
-		var/obj/item/reagent_containers/spray/PS = src.emag
+	if(emag)
+		var/obj/item/reagent_containers/spray/PS = emag
 		PS.reagents.add_reagent(/decl/reagent/wulumunusha, 2 * amount)
 	..()
 
@@ -365,86 +377,102 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/engineering/construction/Initialize()
 	. = ..()
-	src.modules += new /obj/item/powerdrill(src)
-	src.modules += new /obj/item/rfd/construction/borg(src)
-	src.modules += new /obj/item/rfd/piping/borg(src)
-	src.modules += new /obj/item/screwdriver/robotic(src)
-	src.modules += new /obj/item/wrench/robotic(src)
-	src.modules += new /obj/item/weldingtool/experimental(src)
-	src.modules += new /obj/item/device/pipe_painter(src)
-	src.modules += new /obj/item/gripper/no_use/loader(src)
-	src.modules += new /obj/item/gripper(src)
-	src.modules += new /obj/item/device/t_scanner(src) // to check underfloor wiring
-	src.modules += new /obj/item/device/analyzer(src) // to check air pressure in the area
-	src.modules += new /obj/item/device/lightreplacer(src) // to install lightning in the area
-	src.modules += new /obj/item/device/floor_painter(src)// to make america great again (c)
-	src.modules += new /obj/item/pickaxe/borgdrill(src) // as station is being located at the rock terrain, which is presumed to be digged out to clear the area for new rooms
-	src.modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
-	src.modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
-	src.modules += new /obj/item/device/gps(src) // For being located while disabled and coordinating with life sensor consoles.
-	src.modules += new /obj/item/extinguisher(src) // For navigating space and/or low grav, and just being useful.
-	src.modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
-	src.modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
-	src.emag = new /obj/item/gun/energy/plasmacutter/mounted(src)
-	src.malf_AI_module += new /obj/item/rfd/transformer(src)
+	modules += new /obj/item/powerdrill(src)
+	modules += new /obj/item/rfd/construction/borg(src)
+	modules += new /obj/item/rfd/piping/borg(src)
+	modules += new /obj/item/screwdriver/robotic(src)
+	modules += new /obj/item/wrench/robotic(src)
+	modules += new /obj/item/weldingtool/experimental(src)
+	modules += new /obj/item/device/pipe_painter(src)
+	modules += new /obj/item/gripper/no_use/loader(src)
+	modules += new /obj/item/gripper(src)
+	modules += new /obj/item/device/t_scanner(src) // to check underfloor wiring
+	modules += new /obj/item/device/analyzer(src) // to check air pressure in the area
+	modules += new /obj/item/device/lightreplacer(src) // to install lightning in the area
+	modules += new /obj/item/device/floor_painter(src)// to make america great again (c)
+	modules += new /obj/item/pickaxe/borgdrill(src) // as station is being located at the rock terrain, which is presumed to be digged out to clear the area for new rooms
+	modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
+	modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
+	modules += new /obj/item/device/gps(src) // For being located while disabled and coordinating with life sensor consoles.
+	modules += new /obj/item/extinguisher(src) // For navigating space and/or low grav, and just being useful.
+	modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
+	modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
+	modules += new /obj/item/pen/robopen(src)
+	modules += new /obj/item/form_printer(src)
+	modules += new /obj/item/gripper/paperwork(src)
+	modules += new /obj/item/device/hand_labeler(src)
+	modules += new /obj/item/tape_roll(src)
+	emag = new /obj/item/gun/energy/plasmacutter/mounted(src)
+	malf_AI_module += new /obj/item/rfd/transformer(src)
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(80000)
 	var/datum/matter_synth/plasteel = new /datum/matter_synth/plasteel(40000)
 	var/datum/matter_synth/glass = new /datum/matter_synth/glass(60000)
 	var/datum/matter_synth/wire = new /datum/matter_synth/wire(60)
+	var/datum/matter_synth/cloth = new /datum/matter_synth/cloth(50000)
 	synths += metal
 	synths += plasteel
 	synths += glass
 	synths += wire
+	synths += cloth
 
 	var/obj/item/stack/material/cyborg/steel/M = new /obj/item/stack/material/cyborg/steel(src)
 	M.synths = list(metal)
-	src.modules += M
+	modules += M
 
 	var/obj/item/stack/rods/cyborg/rods = new /obj/item/stack/rods/cyborg(src)
 	rods.synths = list(metal)
-	src.modules += rods
+	modules += rods
 
 	var/obj/item/stack/material/cyborg/plasteel/S = new /obj/item/stack/material/cyborg/plasteel(src)
 	S.synths = list(plasteel)
-	src.modules += S
+	modules += S
 
 	var/obj/item/stack/material/cyborg/glass/reinforced/RG = new /obj/item/stack/material/cyborg/glass/reinforced(src)
 	RG.synths = list(metal, glass)
-	src.modules += RG
+	modules += RG
+
+	var/obj/item/stack/material/cyborg/cloth/CL = new /obj/item/stack/material/cyborg/cloth(src)
+	CL.synths = list(cloth)
+	modules += CL
 
 	var/obj/item/stack/tile/floor/cyborg/FT = new /obj/item/stack/tile/floor/cyborg(src) // to add floor over the metal rods lattice
 	FT.synths = list(metal)
-	src.modules += FT
+	modules += FT
 
 	var/obj/item/stack/cable_coil/cyborg/C = new /obj/item/stack/cable_coil/cyborg(src) // Let there be light electric said and after that did cut the wire
 	C.synths = list(wire)
-	src.modules += C
+	modules += C
 
 /obj/item/robot_module/engineering/general/Initialize()
 	. = ..()
-	src.modules += new /obj/item/powerdrill(src)
-	src.modules += new /obj/item/weldingtool/largetank(src)
-	src.modules += new /obj/item/screwdriver/robotic(src)
-	src.modules += new /obj/item/wrench/robotic(src)
-	src.modules += new /obj/item/wirecutters/robotic(src)
-	src.modules += new /obj/item/device/multitool/robotic(src)
-	src.modules += new /obj/item/rfd/piping/borg(src)
-	src.modules += new /obj/item/device/t_scanner(src)
-	src.modules += new /obj/item/device/analyzer(src)
-	src.modules += new /obj/item/gripper(src)
-	src.modules += new /obj/item/gripper/no_use/loader(src)
-	src.modules += new /obj/item/device/lightreplacer(src)
-	src.modules += new /obj/item/device/pipe_painter(src)
-	src.modules += new /obj/item/device/floor_painter(src)
-	src.modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
-	src.modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
-	src.modules += new /obj/item/device/gps(src) // For being located while disabled and coordinating with life sensor consoles.
-	src.modules += new /obj/item/extinguisher(src) // For navigating space and/or low grav, and just being useful.
-	src.modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
-	src.modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
-	src.emag = new /obj/item/melee/baton/robot/arm(src)
-	src.malf_AI_module += new /obj/item/rfd/transformer(src)
+	modules += new /obj/item/powerdrill(src)
+	modules += new /obj/item/weldingtool/largetank(src)
+	modules += new /obj/item/screwdriver/robotic(src)
+	modules += new /obj/item/wrench/robotic(src)
+	modules += new /obj/item/wirecutters/robotic(src)
+	modules += new /obj/item/device/multitool/robotic(src)
+	modules += new /obj/item/rfd/piping/borg(src)
+	modules += new /obj/item/device/t_scanner(src)
+	modules += new /obj/item/device/analyzer(src)
+	modules += new /obj/item/gripper(src)
+	modules += new /obj/item/gripper/no_use/loader(src)
+	modules += new /obj/item/device/lightreplacer(src)
+	modules += new /obj/item/device/pipe_painter(src)
+	modules += new /obj/item/device/floor_painter(src)
+	modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
+	modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
+	modules += new /obj/item/device/gps(src) // For being located while disabled and coordinating with life sensor consoles.
+	modules += new /obj/item/extinguisher(src) // For navigating space and/or low grav, and just being useful.
+	modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
+	modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
+	modules += new /obj/item/pen/robopen(src)
+	modules += new /obj/item/form_printer(src)
+	modules += new /obj/item/gripper/paperwork(src)
+	modules += new /obj/item/device/hand_labeler(src)
+	modules += new /obj/item/tape_roll(src)
+	emag = new /obj/item/melee/baton/robot/arm(src)
+	malf_AI_module += new /obj/item/rfd/transformer(src)
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(60000)
 	var/datum/matter_synth/glass = new /datum/matter_synth/glass(40000)
@@ -452,69 +480,75 @@ var/global/list/robot_modules = list(
 	var/datum/matter_synth/wire = new /datum/matter_synth/wire(45)
 	var/datum/matter_synth/wood = new /datum/matter_synth/wood(20000)
 	var/datum/matter_synth/plastic = new /datum/matter_synth/plastic(15000)
+	var/datum/matter_synth/cloth = new /datum/matter_synth/cloth(50000)
 	synths += metal
 	synths += glass
 	synths += plasteel
 	synths += wire
 	synths += wood
 	synths += plastic
+	synths += cloth
 
 	var/obj/item/matter_decompiler/MD = new /obj/item/matter_decompiler(src)
 	MD.metal = metal
 	MD.glass = glass
-	src.modules += MD
+	modules += MD
 
 	var/obj/item/stack/material/cyborg/steel/M = new (src)
 	M.synths = list(metal)
-	src.modules += M
+	modules += M
 
 	var/obj/item/stack/material/cyborg/glass/G = new (src)
 	G.synths = list(glass)
-	src.modules += G
+	modules += G
 
 	var/obj/item/stack/rods/cyborg/rods = new /obj/item/stack/rods/cyborg(src)
 	rods.synths = list(metal)
-	src.modules += rods
+	modules += rods
 
 	var/obj/item/stack/cable_coil/cyborg/C = new /obj/item/stack/cable_coil/cyborg(src)
 	C.synths = list(wire)
-	src.modules += C
+	modules += C
 
 	var/obj/item/stack/tile/floor/cyborg/S = new /obj/item/stack/tile/floor/cyborg(src)
 	S.synths = list(metal)
-	src.modules += S
+	modules += S
 
 	var/obj/item/stack/material/cyborg/glass/reinforced/RG = new /obj/item/stack/material/cyborg/glass/reinforced(src)
 	RG.synths = list(metal, glass)
-	src.modules += RG
+	modules += RG
 
 	var/obj/item/stack/material/cyborg/plasteel/PL = new /obj/item/stack/material/cyborg/plasteel(src)
 	PL.synths = list(plasteel)
-	src.modules += PL
+	modules += PL
 
 	var/obj/item/stack/material/cyborg/wood/W = new /obj/item/stack/material/cyborg/wood(src)
 	W.synths = list(wood)
-	src.modules += W
+	modules += W
 
 	var/obj/item/stack/material/cyborg/plastic/PS = new /obj/item/stack/material/cyborg/plastic(src)
 	PS.synths = list(plastic)
-	src.modules += PS
+	modules += PS
+
+	var/obj/item/stack/material/cyborg/cloth/CL = new /obj/item/stack/material/cyborg/cloth(src)
+	CL.synths = list(cloth)
+	modules += CL
 
 	var/obj/item/stack/tile/wood/cyborg/FWT = new /obj/item/stack/tile/wood/cyborg(src)
 	FWT.synths = list(wood)
-	src.modules += FWT
+	modules += FWT
 
 	var/obj/item/stack/tile/floor_white/cyborg/FTW = new /obj/item/stack/tile/floor_white/cyborg(src)
 	FTW.synths = list(plastic)
-	src.modules += FTW
+	modules += FTW
 
 	var/obj/item/stack/tile/floor_freezer/cyborg/FTF = new /obj/item/stack/tile/floor_freezer/cyborg(src)
 	FTF.synths = list(plastic)
-	src.modules += FTF
+	modules += FTF
 
 	var/obj/item/stack/tile/floor_dark/cyborg/FTD = new /obj/item/stack/tile/floor_dark/cyborg(src)
 	FTD.synths = list(plasteel)
-	src.modules += FTD
+	modules += FTD
 
 /obj/item/robot_module/janitor
 	name = "custodial robot module"
@@ -539,28 +573,33 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/janitor/Initialize()
 	. = ..()
-	src.modules += new /obj/item/soap/drone(src)
-	src.modules += new /obj/item/storage/bag/trash(src)
-	src.modules += new /obj/item/mop(src)
-	src.modules += new /obj/item/device/lightreplacer/advanced(src)
-	src.modules += new /obj/item/reagent_containers/glass/bucket(src) // a hydroponist's bucket
-	src.modules += new /obj/item/matter_decompiler(src) // free drone remains for all
-	src.modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
-	src.modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
-	src.modules += new /obj/item/device/gps(src) // For being located while disabled and coordinating with life sensor consoles.
-	src.modules += new /obj/item/extinguisher/mini(src) // For navigating space and/or low grav, and just being useful.
-	src.modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
-	src.modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
-	src.emag = new /obj/item/reagent_containers/spray(src)
-	src.emag.reagents.add_reagent(/decl/reagent/lube, 250)
-	src.emag.name = "Lube spray"
+	modules += new /obj/item/soap/drone(src)
+	modules += new /obj/item/storage/bag/trash(src)
+	modules += new /obj/item/mop(src)
+	modules += new /obj/item/device/lightreplacer/advanced(src)
+	modules += new /obj/item/reagent_containers/glass/bucket(src) // a hydroponist's bucket
+	modules += new /obj/item/matter_decompiler(src) // free drone remains for all
+	modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
+	modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
+	modules += new /obj/item/device/gps(src) // For being located while disabled and coordinating with life sensor consoles.
+	modules += new /obj/item/extinguisher/mini(src) // For navigating space and/or low grav, and just being useful.
+	modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
+	modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
+	modules += new /obj/item/pen/robopen(src)
+	modules += new /obj/item/form_printer(src)
+	modules += new /obj/item/gripper/paperwork(src)
+	modules += new /obj/item/device/hand_labeler(src)
+	modules += new /obj/item/tape_roll(src)
+	emag = new /obj/item/reagent_containers/spray(src)
+	emag.reagents.add_reagent(/decl/reagent/lube, 250)
+	emag.name = "Lube spray"
 
 /obj/item/robot_module/janitor/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
 	..()
-	var/obj/item/device/lightreplacer/LR = locate() in src.modules
+	var/obj/item/device/lightreplacer/LR = locate() in modules
 	LR.Charge(R, amount)
-	if(src.emag)
-		var/obj/item/reagent_containers/spray/S = src.emag
+	if(emag)
+		var/obj/item/reagent_containers/spray/S = emag
 		S.reagents.add_reagent(/decl/reagent/lube, 2 * amount)
 
 /obj/item/robot_module/clerical
@@ -602,67 +641,67 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/clerical/butler/Initialize()
 	. = ..()
-	src.modules += new /obj/item/gripper/service(src)
-	src.modules += new /obj/item/reagent_containers/glass/bucket(src)
-	src.modules += new /obj/item/material/minihoe(src)
-	src.modules += new /obj/item/material/hatchet(src)
-	src.modules += new /obj/item/device/analyzer/plant_analyzer(src)
-	src.modules += new /obj/item/storage/bag/plants(src)
-	src.modules += new /obj/item/robot_harvester(src)
-	src.modules += new /obj/item/material/kitchen/rollingpin(src)
-	src.modules += new /obj/item/material/knife(src)
-	src.modules += new /obj/item/soap/drone(src)
-	src.modules += new /obj/item/pen/robopen(src)
-	src.modules += new /obj/item/form_printer(src)
-	src.modules += new /obj/item/gripper/paperwork(src)
-	src.modules += new /obj/item/device/hand_labeler(src)
-	src.modules += new /obj/item/tape_roll(src) //allows it to place flyers
-	src.modules += new /obj/item/device/nanoquikpay(src)
-	src.modules += new /obj/item/reagent_containers/glass/rag(src) // a rag for.. yeah.. the primary tool of bartender
-	src.modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
-	src.modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
-	src.modules += new /obj/item/device/gps(src) // For being located while disabled and coordinating with life sensor consoles.
-	src.modules += new /obj/item/extinguisher/mini(src) // For navigating space and/or low grav, and just being useful.
-	src.modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
-	src.modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
+	modules += new /obj/item/gripper/service(src)
+	modules += new /obj/item/reagent_containers/glass/bucket(src)
+	modules += new /obj/item/material/minihoe(src)
+	modules += new /obj/item/material/hatchet(src)
+	modules += new /obj/item/device/analyzer/plant_analyzer(src)
+	modules += new /obj/item/storage/bag/plants(src)
+	modules += new /obj/item/robot_harvester(src)
+	modules += new /obj/item/material/kitchen/rollingpin(src)
+	modules += new /obj/item/material/knife(src)
+	modules += new /obj/item/soap/drone(src)
+	modules += new /obj/item/pen/robopen(src)
+	modules += new /obj/item/form_printer(src)
+	modules += new /obj/item/gripper/paperwork(src)
+	modules += new /obj/item/device/hand_labeler(src)
+	modules += new /obj/item/tape_roll(src) //allows it to place flyers
+	modules += new /obj/item/device/nanoquikpay(src)
+	modules += new /obj/item/reagent_containers/glass/rag(src) // a rag for.. yeah.. the primary tool of bartender
+	modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
+	modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
+	modules += new /obj/item/device/gps(src) // For being located while disabled and coordinating with life sensor consoles.
+	modules += new /obj/item/extinguisher/mini(src) // For navigating space and/or low grav, and just being useful.
+	modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
+	modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
 
 	var/obj/item/rfd/service/M = new /obj/item/rfd/service(src)
 	M.stored_matter = 30
-	src.modules += M
+	modules += M
 
-	src.modules += new /obj/item/reagent_containers/dropper/industrial(src)
+	modules += new /obj/item/reagent_containers/dropper/industrial(src)
 
 	var/obj/item/flame/lighter/zippo/L = new /obj/item/flame/lighter/zippo(src)
 	L.lit = TRUE
-	src.modules += L
+	modules += L
 
-	src.modules += new /obj/item/tray/robotray(src)
-	src.modules += new /obj/item/reagent_containers/hypospray/borghypo/service(src)
-	src.emag = new /obj/item/reagent_containers/food/drinks/bottle/small/beer(src)
+	modules += new /obj/item/tray/robotray(src)
+	modules += new /obj/item/reagent_containers/hypospray/borghypo/service(src)
+	emag = new /obj/item/reagent_containers/food/drinks/bottle/small/beer(src)
 
 	var/datum/reagents/RG = new /datum/reagents(50)
-	src.emag.reagents = RG
-	RG.my_atom = src.emag
+	emag.reagents = RG
+	RG.my_atom = emag
 	RG.add_reagent(/decl/reagent/polysomnine/beer2, 50)
-	src.emag.name = "Mickey Finn's Special Brew"
+	emag.name = "Mickey Finn's Special Brew"
 
 /obj/item/robot_module/clerical/general
 	name = "clerical robot module"
 
 /obj/item/robot_module/clerical/general/Initialize()
 	. = ..()
-	src.modules += new /obj/item/pen/robopen(src)
-	src.modules += new /obj/item/form_printer(src)
-	src.modules += new /obj/item/gripper/paperwork(src)
-	src.modules += new /obj/item/device/hand_labeler(src)
-	src.modules += new /obj/item/tape_roll(src) //allows it to place flyers
-	src.modules += new /obj/item/device/nanoquikpay(src)
-	src.modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
-	src.modules += new /obj/item/device/gps(src) // For being located while disabled and coordinating with life sensor consoles.
-	src.modules += new /obj/item/extinguisher/mini(src) // For navigating space and/or low grav, and just being useful.
-	src.modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
-	src.modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
-	src.emag = new /obj/item/stamp/chameleon(src)
+	modules += new /obj/item/pen/robopen(src)
+	modules += new /obj/item/form_printer(src)
+	modules += new /obj/item/gripper/paperwork(src)
+	modules += new /obj/item/device/hand_labeler(src)
+	modules += new /obj/item/tape_roll(src) //allows it to place flyers
+	modules += new /obj/item/device/nanoquikpay(src)
+	modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
+	modules += new /obj/item/device/gps(src) // For being located while disabled and coordinating with life sensor consoles.
+	modules += new /obj/item/extinguisher/mini(src) // For navigating space and/or low grav, and just being useful.
+	modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
+	modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
+	emag = new /obj/item/stamp/chameleon(src)
 
 /obj/item/robot_module/miner
 	name = "miner robot module"
@@ -687,45 +726,45 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/miner/Initialize()
 	. = ..()
-	src.modules += new /obj/item/storage/bag/ore(src)
-	src.modules += new /obj/item/pickaxe/borgdrill(src)
-	src.modules += new /obj/item/storage/bag/sheetsnatcher/borg(src)
-	src.modules += new /obj/item/gripper/miner(src)
-	src.modules += new /obj/item/rfd/mining(src)
-	src.modules += new /obj/item/ore_detector(src)
-	src.modules += new /obj/item/mining_scanner(src)
-	src.modules += new /obj/item/ore_radar(src)
-	src.modules += new /obj/item/pen/robopen(src)
-	src.modules += new /obj/item/form_printer(src)
-	src.modules += new /obj/item/gripper/paperwork(src)
-	src.modules += new /obj/item/device/hand_labeler(src)
-	src.modules += new /obj/item/tape_roll(src) //allows it to place flyers
-	src.modules += new /obj/item/device/nanoquikpay(src)
-	src.modules += new /obj/item/device/gps/mining(src) // for locating itself in the deep space
-	src.modules += new /obj/item/gun/custom_ka/cyborg(src)
-	src.modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
-	src.modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
-	src.modules += new /obj/item/device/gps(src) // For being located while disabled and coordinating with life sensor consoles.
-	src.modules += new /obj/item/extinguisher/mini(src) // For navigating space and/or low grav, and just being useful.
-	src.modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
-	src.modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
-	src.modules += new /obj/item/wrench/robotic(src)
-	src.modules += new /obj/item/screwdriver/robotic(src)
-	src.modules += new /obj/item/storage/part_replacer(src)
-	src.modules += new /obj/item/tank/jetpack/carbondioxide/synthetic(src)
+	modules += new /obj/item/storage/bag/ore(src)
+	modules += new /obj/item/pickaxe/borgdrill(src)
+	modules += new /obj/item/storage/bag/sheetsnatcher/borg(src)
+	modules += new /obj/item/gripper/miner(src)
+	modules += new /obj/item/rfd/mining(src)
+	modules += new /obj/item/ore_detector(src)
+	modules += new /obj/item/mining_scanner(src)
+	modules += new /obj/item/ore_radar(src)
+	modules += new /obj/item/pen/robopen(src)
+	modules += new /obj/item/form_printer(src)
+	modules += new /obj/item/gripper/paperwork(src)
+	modules += new /obj/item/device/hand_labeler(src)
+	modules += new /obj/item/tape_roll(src) //allows it to place flyers
+	modules += new /obj/item/device/nanoquikpay(src)
+	modules += new /obj/item/device/gps/mining(src) // for locating itself in the deep space
+	modules += new /obj/item/gun/custom_ka/cyborg(src)
+	modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
+	modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
+	modules += new /obj/item/device/gps(src) // For being located while disabled and coordinating with life sensor consoles.
+	modules += new /obj/item/extinguisher/mini(src) // For navigating space and/or low grav, and just being useful.
+	modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
+	modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
+	modules += new /obj/item/wrench/robotic(src)
+	modules += new /obj/item/screwdriver/robotic(src)
+	modules += new /obj/item/storage/part_replacer(src)
+	modules += new /obj/item/tank/jetpack/carbondioxide/synthetic(src)
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(80000)
 	synths += metal
 
 	var/obj/item/stack/rods/cyborg/rods = new /obj/item/stack/rods/cyborg(src)
 	rods.synths = list(metal)
-	src.modules += rods
+	modules += rods
 
 	var/obj/item/stack/flag/purple/borg/F = new /obj/item/stack/flag/purple/borg(src)
 	F.synths = list(metal)
-	src.modules += F
+	modules += F
 
-	src.emag = new /obj/item/gun/energy/plasmacutter/mounted(src)
+	emag = new /obj/item/gun/energy/plasmacutter/mounted(src)
 
 /obj/item/robot_module/research
 	name = "research module"
@@ -749,43 +788,43 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/research/Initialize()
 	. = ..()
-	src.modules += new /obj/item/portable_destructive_analyzer(src)
-	src.modules += new /obj/item/gripper/research(src)
-	src.modules += new /obj/item/gripper/no_use/loader(src)
-	src.modules += new /obj/item/device/robotanalyzer(src)
-	src.modules += new /obj/item/card/robot(src)
+	modules += new /obj/item/portable_destructive_analyzer(src)
+	modules += new /obj/item/gripper/research(src)
+	modules += new /obj/item/gripper/no_use/loader(src)
+	modules += new /obj/item/device/robotanalyzer(src)
+	modules += new /obj/item/card/robot(src)
 
 	var/datum/matter_synth/wire = new /datum/matter_synth/wire(15)
 	synths += wire
 	var/obj/item/stack/cable_coil/cyborg/C = new /obj/item/stack/cable_coil/cyborg(src)
 	C.synths = list(wire)
-	src.modules += C
+	modules += C
 
-	src.modules += new /obj/item/weldingtool/experimental(src)
-	src.modules += new /obj/item/wrench/robotic(src)
-	src.modules += new /obj/item/screwdriver(src)
-	src.modules += new /obj/item/wirecutters/robotic(src)
-	src.modules += new /obj/item/surgery/scalpel(src)
-	src.modules += new /obj/item/surgery/circular_saw(src)
-	src.modules += new /obj/item/reagent_containers/syringe(src)
-	src.modules += new /obj/item/gripper/chemistry(src)
-	src.modules += new /obj/item/reagent_containers/dropper/industrial(src)
-	src.modules += new /obj/item/device/reagent_scanner/adv(src)
-	src.modules += new /obj/item/storage/bag/plants(src)
-	src.modules += new /obj/item/pen/robopen(src)
-	src.modules += new /obj/item/form_printer(src)
-	src.modules += new /obj/item/gripper/paperwork(src)
-	src.modules += new /obj/item/device/hand_labeler(src)
-	src.modules += new /obj/item/tape_roll(src) //allows it to place flyers
-	src.modules += new /obj/item/device/nanoquikpay(src)
-	src.modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
-	src.modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
-	src.modules += new /obj/item/device/gps(src) // For being located while disabled and coordinating with life sensor consoles.
-	src.modules += new /obj/item/extinguisher(src) // For navigating space and/or low grav, and just being useful.
-	src.modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
-	src.modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
-	src.modules += new /obj/item/storage/part_replacer(src)
-	src.emag = new /obj/item/hand_tele(src)
+	modules += new /obj/item/weldingtool/experimental(src)
+	modules += new /obj/item/wrench/robotic(src)
+	modules += new /obj/item/screwdriver(src)
+	modules += new /obj/item/wirecutters/robotic(src)
+	modules += new /obj/item/surgery/scalpel(src)
+	modules += new /obj/item/surgery/circular_saw(src)
+	modules += new /obj/item/reagent_containers/syringe(src)
+	modules += new /obj/item/gripper/chemistry(src)
+	modules += new /obj/item/reagent_containers/dropper/industrial(src)
+	modules += new /obj/item/device/reagent_scanner/adv(src)
+	modules += new /obj/item/storage/bag/plants(src)
+	modules += new /obj/item/pen/robopen(src)
+	modules += new /obj/item/form_printer(src)
+	modules += new /obj/item/gripper/paperwork(src)
+	modules += new /obj/item/device/hand_labeler(src)
+	modules += new /obj/item/tape_roll(src) //allows it to place flyers
+	modules += new /obj/item/device/nanoquikpay(src)
+	modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
+	modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
+	modules += new /obj/item/device/gps(src) // For being located while disabled and coordinating with life sensor consoles.
+	modules += new /obj/item/extinguisher(src) // For navigating space and/or low grav, and just being useful.
+	modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
+	modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
+	modules += new /obj/item/storage/part_replacer(src)
+	emag = new /obj/item/hand_tele(src)
 
 	var/datum/matter_synth/nanite = new /datum/matter_synth/nanite(10000)
 	synths += nanite
@@ -794,7 +833,7 @@ var/global/list/robot_modules = list(
 	N.uses_charge = TRUE
 	N.charge_costs = list(1000)
 	N.synths = list(nanite)
-	src.modules += N
+	modules += N
 
 /obj/item/robot_module/syndicate
 	name = "syndicate robot module"
@@ -828,22 +867,22 @@ var/global/list/robot_modules = list(
 
 	R.faction = "syndicate" // prevents viscerators from attacking us
 
-	src.modules += new /obj/item/borg/sight/thermal(src)
-	src.modules += new /obj/item/melee/energy/sword(src)
-	src.modules += new /obj/item/gun/energy/mountedsmg(src)
-	src.modules += new /obj/item/gun/energy/net/mounted(src)
-	src.modules += new /obj/item/gun/launcher/grenade/cyborg(src)
-	src.modules += new /obj/item/robot_emag(src)
-	src.modules += new /obj/item/handcuffs/cyborg(src)
-	src.modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
-	src.modules += new /obj/item/extinguisher(src) // For navigating space and/or low grav, and just being useful.
-	src.modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
-	src.modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
-	src.modules += new /obj/item/roller_holder(src)
-	src.modules += new /obj/item/device/healthanalyzer(src)
-	src.modules += new /obj/item/reagent_containers/hypospray/borghypo/medical(src)
-	src.modules += new /obj/item/plastique/cyborg(src)
-	src.modules += new /obj/item/grenade/smokebomb/cyborg(src)
+	modules += new /obj/item/borg/sight/thermal(src)
+	modules += new /obj/item/melee/energy/sword(src)
+	modules += new /obj/item/gun/energy/mountedsmg(src)
+	modules += new /obj/item/gun/energy/net/mounted(src)
+	modules += new /obj/item/gun/launcher/grenade/cyborg(src)
+	modules += new /obj/item/robot_emag(src)
+	modules += new /obj/item/handcuffs/cyborg(src)
+	modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
+	modules += new /obj/item/extinguisher(src) // For navigating space and/or low grav, and just being useful.
+	modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
+	modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
+	modules += new /obj/item/roller_holder(src)
+	modules += new /obj/item/device/healthanalyzer(src)
+	modules += new /obj/item/reagent_containers/hypospray/borghypo/medical(src)
+	modules += new /obj/item/plastique/cyborg(src)
+	modules += new /obj/item/grenade/smokebomb/cyborg(src)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
 	if(R.radio)
@@ -859,16 +898,16 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/combat/Initialize()
 	. = ..()
-	src.modules += new /obj/item/gun/energy/laser/mounted(src)
-	src.modules += new /obj/item/melee/hammer/powered(src)
-	src.modules += new /obj/item/borg/combat/shield(src)
-	src.modules += new /obj/item/borg/combat/mobility(src)
-	src.modules += new /obj/item/handcuffs/cyborg(src)
-	src.modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
-	src.modules += new /obj/item/extinguisher(src) // For navigating space and/or low grav, and just being useful.
-	src.modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
-	src.modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
-	src.emag = new /obj/item/gun/energy/lasercannon/mounted(src)
+	modules += new /obj/item/gun/energy/laser/mounted(src)
+	modules += new /obj/item/melee/hammer/powered(src)
+	modules += new /obj/item/borg/combat/shield(src)
+	modules += new /obj/item/borg/combat/mobility(src)
+	modules += new /obj/item/handcuffs/cyborg(src)
+	modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
+	modules += new /obj/item/extinguisher(src) // For navigating space and/or low grav, and just being useful.
+	modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
+	modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
+	emag = new /obj/item/gun/energy/lasercannon/mounted(src)
 
 /obj/item/robot_module/drone
 	name = "drone module"
@@ -877,90 +916,109 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/drone/Initialize(mapload, mob/living/silicon/robot/robot)
 	. = ..()
-	src.modules += new /obj/item/weldingtool(src)
-	src.modules += new /obj/item/screwdriver/robotic(src)
-	src.modules += new /obj/item/wrench/robotic(src)
-	src.modules += new /obj/item/crowbar/robotic(src)
-	src.modules += new /obj/item/wirecutters/robotic(src)
-	src.modules += new /obj/item/device/multitool/robotic(src)
-	src.modules += new /obj/item/device/lightreplacer(src)
-	src.modules += new /obj/item/gripper(src)
-	src.modules += new /obj/item/soap/drone(src)
-	src.modules += new /obj/item/gripper/no_use/loader(src)
-	src.modules += new /obj/item/extinguisher(src)
-	src.modules += new /obj/item/rfd/piping/borg(src)
-	src.modules += new /obj/item/device/pipe_painter(src)
-	src.modules += new /obj/item/device/floor_painter(src)
-	src.modules += new /obj/item/tank/jetpack/carbondioxide/synthetic(src)
+	modules += new /obj/item/weldingtool/robotic(src)
+	modules += new /obj/item/screwdriver/robotic(src)
+	modules += new /obj/item/wrench/robotic(src)
+	modules += new /obj/item/crowbar/robotic(src)
+	modules += new /obj/item/wirecutters/robotic(src)
+	modules += new /obj/item/device/multitool/robotic(src)
+	modules += new /obj/item/taperoll/engineering(src)
+	modules += new /obj/item/device/lightreplacer(src)
+	modules += new /obj/item/soap/drone(src)
+	modules += new /obj/item/extinguisher(src)
+	modules += new /obj/item/device/pipe_painter(src)
+	modules += new /obj/item/device/floor_painter(src)
+	modules += new /obj/item/gripper/multi_purpose(src)
+	modules += new /obj/item/gripper/no_use/loader(src)
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(25000)
 	var/datum/matter_synth/glass = new /datum/matter_synth/glass(25000)
-	var/datum/matter_synth/wood = new /datum/matter_synth/wood(4000)
-	var/datum/matter_synth/plastic = new /datum/matter_synth/plastic(2000)
-	var/datum/matter_synth/wire = new /datum/matter_synth/wire(15)
+	var/datum/matter_synth/wood = new /datum/matter_synth/wood(10000)
+	var/datum/matter_synth/plastic = new /datum/matter_synth/plastic(10000)
+	var/datum/matter_synth/wire = new /datum/matter_synth/wire(30)
+	var/datum/matter_synth/cloth = new /datum/matter_synth/cloth(30000)
 	synths += metal
 	synths += glass
 	synths += wood
 	synths += plastic
 	synths += wire
+	synths += cloth
 
 	var/obj/item/matter_decompiler/MD = new /obj/item/matter_decompiler(src)
 	MD.metal = metal
 	MD.glass = glass
 	MD.wood = wood
 	MD.plastic = plastic
-	src.modules += MD
+	modules += MD
 
 	var/obj/item/stack/material/cyborg/steel/M = new (src)
 	M.synths = list(metal)
-	src.modules += M
+	modules += M
 
 	var/obj/item/stack/material/cyborg/glass/G = new (src)
 	G.synths = list(glass)
-	src.modules += G
-
-	var/obj/item/stack/rods/cyborg/R = new /obj/item/stack/rods/cyborg(src)
-	R.synths = list(metal)
-	src.modules += R
-
-	var/obj/item/stack/cable_coil/cyborg/C = new /obj/item/stack/cable_coil/cyborg(src)
-	C.synths = list(wire)
-	src.modules += C
-
-	var/obj/item/stack/tile/floor/cyborg/S = new /obj/item/stack/tile/floor/cyborg(src)
-	S.synths = list(metal)
-	src.modules += S
+	modules += G
 
 	var/obj/item/stack/material/cyborg/glass/reinforced/RG = new (src)
 	RG.synths = list(metal, glass)
-	src.modules += RG
-
-	var/obj/item/stack/tile/wood/cyborg/WT = new /obj/item/stack/tile/wood/cyborg(src)
-	WT.synths = list(wood)
-	src.modules += WT
+	modules += RG
 
 	var/obj/item/stack/material/cyborg/wood/W = new (src)
 	W.synths = list(wood)
-	src.modules += W
+	modules += W
 
 	var/obj/item/stack/material/cyborg/plastic/P = new (src)
 	P.synths = list(plastic)
-	src.modules += P
+	modules += P
 
-/obj/item/robot_module/drone/construction
-	name = "construction drone module"
-	channels = list(CHANNEL_ENGINEERING = TRUE)
-	languages = list()
+	var/obj/item/stack/material/cyborg/cloth/CL = new /obj/item/stack/material/cyborg/cloth(src)
+	CL.synths = list(cloth)
+	modules += CL
 
-/obj/item/robot_module/drone/construction/Initialize()
-	. = ..()
-	src.modules += new /obj/item/rfd/construction/borg(src)
+	var/obj/item/stack/rods/cyborg/R = new /obj/item/stack/rods/cyborg(src)
+	R.synths = list(metal)
+	modules += R
+
+	var/obj/item/stack/cable_coil/cyborg/C = new /obj/item/stack/cable_coil/cyborg(src)
+	C.synths = list(wire)
+	modules += C
+
+	var/obj/item/stack/tile/floor/cyborg/S = new /obj/item/stack/tile/floor/cyborg(src)
+	S.synths = list(metal)
+	modules += S
+
+	var/obj/item/stack/tile/wood/cyborg/WT = new /obj/item/stack/tile/wood/cyborg(src)
+	WT.synths = list(wood)
+	modules += WT
+
+	modules += new /obj/item/tank/jetpack/carbondioxide/synthetic(src)
+	modules += new /obj/item/inflatable_dispenser(src)
+	modules += new /obj/item/rfd/piping/borg(src) // putting this here so it's next to the RFD-C on construction drones
 
 /obj/item/robot_module/drone/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
 	var/obj/item/device/lightreplacer/LR = locate() in src.modules
 	LR.Charge(R, amount)
-	..()
-	return
+	return ..()
+
+/obj/item/robot_module/drone/handle_languages(var/mob/living/silicon/robot/R)
+	R.languages = list()
+	R.speech_synthesizer_langs = list()
+	for(var/language in languages)
+		languages[language] = FALSE
+	languages[LANGUAGE_DRONE] = TRUE
+	languages[LANGUAGE_LOCAL_DRONE] = TRUE
+
+/obj/item/robot_module/drone/construction
+	name = "construction drone module"
+	channels = list(CHANNEL_ENGINEERING = TRUE)
+
+/obj/item/robot_module/drone/construction/Initialize()
+	. = ..()
+	modules += new /obj/item/rfd/construction/borg(src)
+	modules += new /obj/item/pickaxe/drill(src)
+
+/obj/item/robot_module/drone/construction/matriarch
+	name = "matriarch drone module"
 
 /obj/item/robot_module/mining_drone
 	name = "mining drone module"
@@ -970,6 +1028,14 @@ var/global/list/robot_modules = list(
 /obj/item/robot_module/mining_drone/Initialize(mapload, mob/living/silicon/robot/R)
 	. = ..()
 	set_up_default(R)
+
+/obj/item/robot_module/mining_drone/handle_languages(var/mob/living/silicon/robot/R)
+	R.languages = list()
+	R.speech_synthesizer_langs = list()
+	for(var/language in languages)
+		languages[language] = FALSE
+	languages[LANGUAGE_DRONE] = TRUE
+	languages[LANGUAGE_LOCAL_DRONE] = TRUE
 
 /obj/item/robot_module/mining_drone/proc/set_up_default(var/mob/living/silicon/robot/R, var/has_drill = TRUE)
 	modules += new /obj/item/device/flash(src)
@@ -1052,48 +1118,48 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/bluespace/Initialize(mapload, mob/living/silicon/robot/R)
 	. = ..()
-	src.modules += new /obj/item/device/flash(src)
-	src.modules += new /obj/item/borg/sight/meson(src)
-	src.modules += new /obj/item/rfd/construction/borg/infinite(src)
-	src.modules += new /obj/item/extinguisher(src)
-	src.modules += new /obj/item/weldingtool/largetank(src)
-	src.modules += new /obj/item/screwdriver/robotic(src)
-	src.modules += new /obj/item/wrench/robotic(src)
-	src.modules += new /obj/item/crowbar/robotic(src)
-	src.modules += new /obj/item/wirecutters/robotic(src)
-	src.modules += new /obj/item/device/multitool/robotic(src)
-	src.modules += new /obj/item/device/t_scanner(src)
-	src.modules += new /obj/item/device/analyzer(src)
-	src.modules += new /obj/item/gripper(src)
-	src.modules += new /obj/item/gripper/no_use/loader(src)
-	src.modules += new /obj/item/device/lightreplacer(src)
-	src.modules += new /obj/item/inflatable_dispenser(src)
+	modules += new /obj/item/device/flash(src)
+	modules += new /obj/item/borg/sight/meson(src)
+	modules += new /obj/item/rfd/construction/borg/infinite(src)
+	modules += new /obj/item/extinguisher(src)
+	modules += new /obj/item/weldingtool/largetank(src)
+	modules += new /obj/item/screwdriver/robotic(src)
+	modules += new /obj/item/wrench/robotic(src)
+	modules += new /obj/item/crowbar/robotic(src)
+	modules += new /obj/item/wirecutters/robotic(src)
+	modules += new /obj/item/device/multitool/robotic(src)
+	modules += new /obj/item/device/t_scanner(src)
+	modules += new /obj/item/device/analyzer(src)
+	modules += new /obj/item/gripper(src)
+	modules += new /obj/item/gripper/no_use/loader(src)
+	modules += new /obj/item/device/lightreplacer(src)
+	modules += new /obj/item/inflatable_dispenser(src)
 	// Medical
-	src.modules += new /obj/item/device/healthanalyzer(src)
-	src.modules += new /obj/item/reagent_containers/hypospray/borghypo/medical(src)
-	src.modules += new /obj/item/surgery/scalpel(src)
-	src.modules += new /obj/item/surgery/hemostat(src)
-	src.modules += new /obj/item/surgery/retractor(src)
-	src.modules += new /obj/item/surgery/cautery(src)
-	src.modules += new /obj/item/surgery/bonegel(src)
-	src.modules += new /obj/item/surgery/FixOVein(src)
-	src.modules += new /obj/item/surgery/bonesetter(src)
-	src.modules += new /obj/item/surgery/circular_saw(src)
-	src.modules += new /obj/item/surgery/surgicaldrill(src)
-	src.modules += new /obj/item/gripper/chemistry(src)
-	src.modules += new /obj/item/reagent_containers/dropper/industrial(src)
-	src.modules += new /obj/item/reagent_containers/syringe(src)
-	src.modules += new /obj/item/reagent_containers/hypospray/borghypo/rescue(src)
-	src.modules += new /obj/item/roller_holder(src)
+	modules += new /obj/item/device/healthanalyzer(src)
+	modules += new /obj/item/reagent_containers/hypospray/borghypo/medical(src)
+	modules += new /obj/item/surgery/scalpel(src)
+	modules += new /obj/item/surgery/hemostat(src)
+	modules += new /obj/item/surgery/retractor(src)
+	modules += new /obj/item/surgery/cautery(src)
+	modules += new /obj/item/surgery/bonegel(src)
+	modules += new /obj/item/surgery/FixOVein(src)
+	modules += new /obj/item/surgery/bonesetter(src)
+	modules += new /obj/item/surgery/circular_saw(src)
+	modules += new /obj/item/surgery/surgicaldrill(src)
+	modules += new /obj/item/gripper/chemistry(src)
+	modules += new /obj/item/reagent_containers/dropper/industrial(src)
+	modules += new /obj/item/reagent_containers/syringe(src)
+	modules += new /obj/item/reagent_containers/hypospray/borghypo/rescue(src)
+	modules += new /obj/item/roller_holder(src)
 	// Security
-	src.modules += new /obj/item/handcuffs/cyborg(src)
-	src.modules += new /obj/item/melee/baton/robot(src)
-	src.modules += new /obj/item/melee/hammer/powered(src)
-	src.modules += new /obj/item/gun/energy/lasercannon/mounted/cyborg/overclocked(src)
-	src.modules += new /obj/item/borg/combat/shield(src)
-	src.modules += new /obj/item/borg/combat/mobility(src)
+	modules += new /obj/item/handcuffs/cyborg(src)
+	modules += new /obj/item/melee/baton/robot(src)
+	modules += new /obj/item/melee/hammer/powered(src)
+	modules += new /obj/item/gun/energy/lasercannon/mounted/cyborg/overclocked(src)
+	modules += new /obj/item/borg/combat/shield(src)
+	modules += new /obj/item/borg/combat/mobility(src)
 	// BST
-	src.modules += new/obj/item/card/id/bst(src)
+	modules += new/obj/item/card/id/bst(src)
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(60000)
 	var/datum/matter_synth/glass = new /datum/matter_synth/glass(40000)
@@ -1109,39 +1175,39 @@ var/global/list/robot_modules = list(
 	var/obj/item/matter_decompiler/MD = new /obj/item/matter_decompiler(src)
 	MD.metal = metal
 	MD.glass = glass
-	src.modules += MD
+	modules += MD
 
 	var/obj/item/stack/material/cyborg/steel/M = new (src)
 	M.synths = list(metal)
-	src.modules += M
+	modules += M
 
 	var/obj/item/stack/material/cyborg/glass/G = new (src)
 	G.synths = list(glass)
-	src.modules += G
+	modules += G
 
 	var/obj/item/stack/rods/cyborg/RO = new /obj/item/stack/rods/cyborg(src)
 	RO.synths = list(metal)
-	src.modules += RO
+	modules += RO
 
 	var/obj/item/stack/cable_coil/cyborg/C = new /obj/item/stack/cable_coil/cyborg(src)
 	C.synths = list(wire)
-	src.modules += C
+	modules += C
 
 	var/obj/item/stack/tile/floor/cyborg/S = new /obj/item/stack/tile/floor/cyborg(src)
 	S.synths = list(metal)
-	src.modules += S
+	modules += S
 
 	var/obj/item/stack/material/cyborg/glass/reinforced/RG = new (src)
 	RG.synths = list(metal, glass)
-	src.modules += RG
+	modules += RG
 
 	var/obj/item/stack/material/cyborg/plasteel/PL = new (src)
 	PL.synths = list(plasteel)
-	src.modules += PL
+	modules += PL
 
 	var/obj/item/stack/tile/floor_dark/cyborg/FTD = new (src)
 	FTD.synths = list(plasteel)
-	src.modules += FTD
+	modules += FTD
 
 	var/obj/item/stack/nanopaste/N = new /obj/item/stack/nanopaste(src)
 	var/obj/item/stack/medical/advanced/bruise_pack/B = new /obj/item/stack/medical/advanced/bruise_pack(src)
@@ -1151,15 +1217,15 @@ var/global/list/robot_modules = list(
 	B.uses_charge = 1
 	B.charge_costs = list(1000)
 	B.synths = list(medicine)
-	src.modules += N
-	src.modules += B
+	modules += N
+	modules += B
 
 /obj/item/robot_module/bluespace/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
 	..()
-	var/obj/item/melee/baton/robot/B = locate() in src.modules
+	var/obj/item/melee/baton/robot/B = locate() in modules
 	if(B?.bcell)
 		B.bcell.give(amount)
-	var/obj/item/reagent_containers/syringe/S = locate() in src.modules
+	var/obj/item/reagent_containers/syringe/S = locate() in modules
 	if(S.mode == 2)
 		S.reagents.clear_reagents()
 		S.mode = initial(S.mode)

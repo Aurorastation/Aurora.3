@@ -134,6 +134,8 @@
 
 	var/list/butchering_products	//if anything else is created when butchering this creature, like bones and leather
 
+	var/psi_pingable = TRUE
+
 
 /mob/living/simple_animal/proc/update_nutrition_stats()
 	nutrition_step = mob_size * 0.03 * metabolic_factor
@@ -659,7 +661,7 @@
 
 /mob/living/simple_animal/updatehealth()
 	..()
-	if (health <= 0)
+	if (health <= 0 && (stat != DEAD))
 		death()
 
 /mob/living/simple_animal/death(gibbed, deathmessage = "dies!")
@@ -752,8 +754,7 @@
 /mob/living/simple_animal/proc/reset_sound_time()
 	sound_time = TRUE
 
-/mob/living/simple_animal/say(var/message)
-	var/verb = "says"
+/mob/living/simple_animal/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
 	if(speak_emote.len)
 		verb = pick(speak_emote)
 
@@ -929,6 +930,15 @@
 
 /mob/living/simple_animal/set_respawn_time()
 	set_death_time(ANIMAL, world.time)
+
+/mob/living/simple_animal/get_organ_name_from_zone(var/def_zone)
+	return pick(organ_names)
+
+/mob/living/simple_animal/is_anti_materiel_vulnerable()
+	if(isSynthetic())
+		return TRUE
+	else
+		return FALSE
 
 #undef BLOOD_NONE
 #undef BLOOD_LIGHT

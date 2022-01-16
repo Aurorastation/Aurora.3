@@ -17,7 +17,7 @@
 	throwforce = 10
 	w_class = ITEMSIZE_SMALL
 	var/cooldown = 0 // floor tap cooldown
-	var/static/list/nullchoices = list("Null Rod" = /obj/item/nullrod/, "Null Staff" = /obj/item/nullrod/staff, "Null Orb" = /obj/item/nullrod/orb, "Null Athame" = /obj/item/nullrod/athame, "Tribunal Rod" = /obj/item/nullrod/dominia)
+	var/static/list/nullchoices = list("Null Rod" = /obj/item/nullrod/, "Null Staff" = /obj/item/nullrod/staff, "Null Orb" = /obj/item/nullrod/orb, "Null Athame" = /obj/item/nullrod/athame, "Tribunal Rod" = /obj/item/nullrod/dominia, "Tajaran charm" = /obj/item/nullrod/charm)
 
 /obj/item/nullrod/dominia
 	name = "tribunalist purification rod"
@@ -48,6 +48,24 @@
 	desc = "An athame of pure obsidian, its very presence disrupts and dampens the powers of paranormal phenomenae."
 	icon_state = "nullathame"
 	item_state = "nullathame"
+
+/obj/item/nullrod/charm
+	name = "obsidian charm"
+	desc = "A tajaran charm created from obsidian created to ward off the supernatural and bring good fortune."
+	desc_fluff = "Talismans and charms are common among religious and superstitious tajara, with many believing them to be able to bring good fortune or ward off raskara and other evils."
+	icon = 'icons/obj/tajara_items.dmi'
+	contained_sprite = TRUE
+	item_icons = null
+	icon_state = "stone_talisman"
+	item_state = "stone_talisman"
+	force = 4
+	throw_range = 7
+	throwforce = 2
+	slot_flags = SLOT_MASK | SLOT_WRISTS | SLOT_EARS | SLOT_TIE
+	w_class = ITEMSIZE_TINY
+
+/obj/item/nullrod/charm/get_mask_examine_text(mob/user)
+	return "around [user.get_pronoun("his")] neck"
 
 /obj/item/nullrod/obsidianshards
 	name = "obsidian shards"
@@ -166,8 +184,9 @@
 	icon_state = "urn"
 	applies_material_colour = TRUE
 	w_class = ITEMSIZE_SMALL
+	flags = NOBLUDGEON
 
-/obj/item/material/urn/attack(var/obj/A, var/mob/user, var/proximity)
+/obj/item/material/urn/afterattack(var/obj/A, var/mob/user, var/proximity)
 	if(!istype(A, /obj/effect/decal/cleanable/ash))
 		return ..()
 	else if(proximity)

@@ -268,6 +268,8 @@
 		busy = TRUE
 		update_use_power(2)
 
+		intent_message(MACHINE_SOUND)
+
 		//Check if we still have the materials.
 		for(var/material in build_item.resources)
 			if(!isnull(stored_material[material]))

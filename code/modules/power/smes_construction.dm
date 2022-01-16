@@ -62,6 +62,14 @@
 	component_parts += new /obj/item/smes_coil/super_io(src)
 	component_parts += new /obj/item/smes_coil(src)
 
+/obj/machinery/power/smes/buildable/main_engine
+	cur_coils = 4
+	input_attempt = TRUE
+	input_level = 500000
+	output_attempt = TRUE
+	output_level = 500000
+	charge =1.5e+7
+
 // END SMES SUBTYPES
 
 // SMES itself
@@ -321,9 +329,10 @@
 // Parameters: None
 // Description: Allows us to use special icon overlay for critical SMESs
 /obj/machinery/power/smes/buildable/update_icon()
-	if (failing)
+	if(failing)
 		cut_overlays()
 		add_overlay("smes-crit")
+		add_overlay("smes-crit_screen")
 	else
 		..()
 

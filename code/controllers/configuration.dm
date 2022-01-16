@@ -237,6 +237,7 @@ var/list/gamemode_cache = list()
 
 	var/ghosts_can_possess_animals = 0
 	var/delist_when_no_admins = 0
+	var/observe_restriction = 1 // 0 - no restrictions; 1 - only following is permited on restricted levels; 2 - nothing is permitted on restricted levels
 
 	//Snowflake antag contest boolean
 	//AUG2016
@@ -541,6 +542,9 @@ var/list/gamemode_cache = list()
 
 				if ("ghosts_can_possess_animals")
 					config.ghosts_can_possess_animals = value
+
+				if ("observe_restriction")
+					config.observe_restriction = text2num(value)
 
 				if ("guest_jobban")
 					config.guest_jobban = 1

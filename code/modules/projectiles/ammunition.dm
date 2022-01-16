@@ -166,6 +166,10 @@
 				new_state = ammo_states[idx]
 				break
 		icon_state = (new_state)? new_state : initial(icon_state)
+	if(!length(stored_ammo))
+		recyclable = TRUE
+	else
+		recyclable = FALSE
 
 /obj/item/ammo_magazine/examine(mob/user)
 	..()
