@@ -170,6 +170,9 @@
 	if(check_min_dose(M, 0.5))
 		M.add_chemical_effect(CE_OXYGENATED, strength/6) // 1 for dexalin, 2 for dexplus
 	holder.remove_reagent(/decl/reagent/lexorin, strength/3 * removed)
+	if(alien == IS_VAURCA) //Vaurca need a mixture of phoron and oxygen. Dexalin likely imbalances that.
+		M.adjustToxLoss(removed * strength / 2)
+		M.eye_blurry = max(M.eye_blurry, 5)
 
 //Hyperoxia causes brain and eye damage
 /decl/reagent/dexalin/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -179,9 +182,6 @@
 		var/obj/item/organ/internal/eyes/E = H.get_eyes(no_synthetic = TRUE)
 		if(E && istype(E))
 			E.take_damage(removed * (strength / 12))
-	if(alien == IS_VAURCA) //Vaurca need a mixture of phoron and oxygen. Too much dexalin likely imbalances that.
-		M.adjustToxLoss(removed * strength / 2)
-		M.eye_blurry = max(M.eye_blurry, 5)
 
 /decl/reagent/dexalin/plus
 	name = "Dexalin Plus"
@@ -225,9 +225,10 @@
 	M.add_chemical_effect(CE_CRYO, 1)
 	if(M.bodytemperature < 170)
 		M.add_chemical_effect(CE_PULSE, -2)
-		M.adjustCloneLoss(-10 * removed)
+		M.adjustCloneLoss(-100 * removed)
 		M.adjustOxyLoss(-10 * removed)
 		M.heal_organ_damage(10 * removed, 10 * removed)
+		M.adjustToxLoss(-10 * removed)
 
 /decl/reagent/clonexadone
 	name = "Clonexadone"
@@ -242,9 +243,10 @@
 	M.add_chemical_effect(CE_CRYO, 1)
 	if(M.bodytemperature < 170)
 		M.add_chemical_effect(CE_PULSE, -2)
-		M.adjustCloneLoss(-30 * removed)
+		M.adjustCloneLoss(-100 * removed)
 		M.adjustOxyLoss(-30 * removed)
 		M.heal_organ_damage(30 * removed, 30 * removed)
+		M.adjustToxLoss(-30 * removed)
 
 /* Painkillers */
 
@@ -486,6 +488,9 @@
 		if(E && istype(E))
 			if(E.damage > 0)
 				E.damage = max(E.damage - 5 * removed, 0)
+		if(isvaurca(H))
+			if(E.damage < E.min_broken_damage && H.sdisabilities & BLIND)
+				H.sdisabilities -= BLIND
 
 /decl/reagent/oculine/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
@@ -875,6 +880,23 @@
 	if(prob(2))
 		to_chat(M, SPAN_WARNING("You feel very cold..."))
 
+/decl/reagent/inacusiate
+	name = "Inacusiate"
+	description = ""
+	reagent_state = LIQUID
+	color = "#D2B48C"
+	overdose = 10
+	scannable = TRUE
+	metabolism = REM * 1
+	taste_description = "a roll of gauze"
+
+/decl/reagent/inacusiate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	M.adjustEarDamage(-0.6, -0.6, FALSE)
+
+/decl/reagent/inacusiate/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	var/obj/item/organ/external/E = M.organs_by_name[BP_HEAD]
+	M.custom_pain("Your head hurts a ton!", 70, FALSE, E, 1)
+
 /* mental */
 
 #define MEDICATION_MESSAGE_DELAY 10 MINUTES 
@@ -934,7 +956,6 @@
 /decl/reagent/mental/nicotine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale, var/datum/reagents/holder)
 	. = ..()
 	M.adjustOxyLoss(10 * removed * scale)
-	M.Weaken(10 * removed * scale)
 	M.add_chemical_effect(CE_PULSE, 0.5)
 
 /decl/reagent/mental/corophenidate
@@ -1262,11 +1283,19 @@
 	scannable = TRUE
 	taste_description = "sickness"
 
+/decl/reagent/rezadone/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	. = ..()
+	if(.)
+		M.add_chemical_effect(CE_ORGANREPAIR, 1)
+		M.add_chemical_effect(CE_BLOODRESTORE, 15)
+
 /decl/reagent/rezadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustCloneLoss(-20 * removed)
 	M.adjustOxyLoss(-2 * removed)
 	M.heal_organ_damage(20 * removed, 20 * removed)
 	M.adjustToxLoss(-1 * removed)
+	if(M.is_asystole() && prob(20))
+		M.resuscitate()
 	if(M.chem_doses[type] > 3)
 		M.status_flags &= ~DISFIGURED
 	if(M.chem_doses[type] > 10)
@@ -1471,3 +1500,15 @@
 		to_chat(H, SPAN_WARNING(pick("You feel a clot shoot through your heart!", "Your veins feel like they're being shredded!")))
 		var/obj/item/organ/internal/heart/heart = H.internal_organs_by_name[BP_HEART]
 		heart.take_internal_damage(1, TRUE)
+
+/decl/reagent/mental/vkrexi
+	name = "V'krexi taffy"
+	description = "V'krexi meat, processed to become a chewy, sticky candy."
+	reagent_state = SOLID
+	scannable = TRUE
+	color = "#d6ec57"
+	metabolism = 0.4 * REM
+	taste_description = "bittersweetness, insect meat and regret"
+	metabolism_min = 0.5
+	breathe_mul = 0
+	goodmessage = list("You feel strange, in a good way.")

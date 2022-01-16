@@ -120,6 +120,8 @@
 	var/has_safety = TRUE
 	var/image/safety_overlay
 
+	var/iff_capable = FALSE // if true, applies the user's ID iff_faction to the projectile
+
 	// sounds n shit
 	var/safetyon_sound = 'sound/weapons/blade_open.ogg'
 	var/safetyoff_sound = 'sound/weapons/blade_close.ogg'
@@ -152,6 +154,9 @@
 
 	queue_icon_update()
 
+/obj/item/gun/should_equip()
+	return TRUE
+
 /obj/item/gun/update_icon()
 	..()
 	underlays.Cut()
@@ -178,6 +183,11 @@
 			item_state = replacetext(item_state,"-wielded","")
 
 	update_held_icon()
+
+/obj/item/gun/can_swap_hands(mob/user)
+	if(wielded)
+		return FALSE
+	return ..()
 
 /obj/item/gun/proc/unique_action(var/mob/user)
 	return

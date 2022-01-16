@@ -31,6 +31,8 @@
 	var/rigged = 0
 	var/last_honk = 0
 	var/old_name		// The name of the paper before it was folded into a plane.
+	var/can_fold = TRUE		// If it can be folded into a plane or swan
+	var/paper_like = TRUE		// Is it made of paper and/or burnable material?
 
 	var/const/deffont = "Verdana"
 	var/const/signfont = "Times New Roman"
@@ -90,16 +92,15 @@
 
 /obj/item/paper/examine(mob/user)
 	. = ..()
-	if (old_name && icon_state == "paper_plane" || icon_state == "paper_swan")
+	if (old_name && (icon_state == "paper_plane" || icon_state == "paper_swan"))
 		to_chat(user, SPAN_NOTICE("You're going to have to unfold it before you can read it."))
 		return
 	if(name != initial(name))
 		to_chat(user,"It's titled '[name]'.")
 	if(in_range(user, src) || isobserver(user) || in_slide_projector(user))
-		show_content(usr)
+		show_content(user)
 	else
 		to_chat(user, SPAN_NOTICE("You have to go closer if you want to read it."))
-
 
 /obj/item/paper/proc/show_content(mob/user, forceshow)
 	var/datum/browser/paper_win = new(user, name, null, 450, 500, null, TRUE)
@@ -122,13 +123,20 @@
 	set category = "Object"
 	set src in usr
 
+	if(use_check_and_message(usr, USE_ALLOW_NON_ADJACENT))
+		return
+
 	if((usr.is_clumsy()) && prob(50))
 		to_chat(usr, SPAN_WARNING("You cut yourself on the paper."))
 		return
-	var/n_name = sanitizeSafe(input(usr, "What would you like to label the paper?", "Paper Labelling", null) as text, MAX_NAME_LEN)
 
-	// We check loc one level up, so we can rename in clipboards and such. See also: /obj/item/photo/rename()
-	if((loc == usr || loc.loc && loc.loc == usr) && usr.stat == 0)
+	var/n_name = sanitizeSafe(input(usr, "What would you like to label the paper?", "Paper Labelling", null) as text, MAX_NAME_LEN)
+	
+	if(use_check_and_message(usr, USE_ALLOW_NON_ADJACENT))
+		return
+
+	var/atom/surface_atom = recursive_loc_turf_check(src, 3, usr)
+	if(surface_atom == usr || surface_atom.Adjacent(usr))
 		if(n_name)
 			name = "[initial(name)] ([n_name])"
 		else
@@ -136,7 +144,7 @@
 		add_fingerprint(usr)
 
 /obj/item/paper/attack_self(mob/living/user as mob)
-	if(user.a_intent == I_HURT)
+	if(user.a_intent == I_HURT && paper_like)
 		if(icon_state == "scrap")
 			user.show_message(SPAN_WARNING("\The [src] is already crumpled."))
 			return
@@ -148,7 +156,7 @@
 		throw_range = 4 //you can now make epic paper ball hoops into the disposals (kinda dumb that you could only throw crumpled paper 1 tile) -wezzy
 		return
 
-	if (user.a_intent == I_GRAB && icon_state != "scrap" && !istype(src, /obj/item/paper/carbon))
+	if (user.a_intent == I_GRAB && icon_state != "scrap" && can_fold)
 		if (icon_state == "paper_plane")
 			user.show_message(SPAN_ALERT("The paper is already folded into a plane."))
 			return
@@ -161,7 +169,7 @@
 		name = "paper plane"
 		return
 
-	if (user.a_intent == I_DISARM && icon_state != "scrap" && !istype(src, /obj/item/paper/carbon))
+	if (user.a_intent == I_DISARM && icon_state != "scrap" && can_fold)
 		if (icon_state == "paper_swan")
 			user.show_message(SPAN_ALERT("The paper is already folded into a swan."))
 			return
@@ -173,20 +181,11 @@
 		name = "origami swan"
 		return
 
-	if (user.a_intent == I_HELP && old_name && icon_state == "paper_plane")
+	if (user.a_intent == I_HELP && old_name && (icon_state == "paper_plane" || icon_state == "paper_swan"))
 		user.visible_message(SPAN_NOTICE("\The [user] unfolds \the [src]."), SPAN_NOTICE("You unfold \the [src]."), "You hear paper rustling.")
 		playsound(src, 'sound/bureaucracy/paperfold.ogg', 50, 1)
 		icon_state = initial(icon_state)
 		throw_range = initial(throw_range)
-		name = old_name
-		old_name = null
-		update_icon()
-		return
-
-	if (user.a_intent == I_HELP && old_name && icon_state == "paper_swan")
-		user.visible_message(SPAN_NOTICE("\The [user] unfolds \the [src]."), SPAN_NOTICE("You unfold \the [src]."), "You hear paper rustling.")
-		playsound(src, 'sound/bureaucracy/paperfold.ogg', 50, 1)
-		icon_state = initial(icon_state)
 		name = old_name
 		old_name = null
 		update_icon()
@@ -204,11 +203,11 @@
 
 /obj/item/paper/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(target_zone == BP_EYES)
-		user.visible_message(SPAN_NOTICE("You show the paper to [M]."), \
-			SPAN_NOTICE("[user] holds up a paper and shows it to [M]."))
+		user.visible_message(SPAN_NOTICE("You show \the [src] to [M]."), \
+			SPAN_NOTICE("[user] holds up \the [src] and shows it to [M]."))
 		M.examinate(src)
 
-	else if(target_zone == BP_MOUTH) // lipstick wiping
+	else if(target_zone == BP_MOUTH && paper_like) // lipstick wiping
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			if(H == user)
@@ -310,6 +309,7 @@
 		t = replacetext(t, "\[/table\]", "")
 		t = replacetext(t, "\[row\]", "")
 		t = replacetext(t, "\[cell\]", "")
+		t = replacetext(t, "\[logo_scc\]", "")
 		t = replacetext(t, "\[logo_nt\]", "")
 		t = replacetext(t, "\[logo_nt_small\]", "")
 		t = replacetext(t, "\[logo_zh\]", "")
@@ -318,6 +318,7 @@
 		t = replacetext(t, "\[logo_zavodskoi\]", "")
 		t = replacetext(t, "\[logo_hp\]", "")
 		t = replacetext(t, "\[logo_be\]", "")
+		t = replacetext(t, "\[logo_golden\]", "")
 
 	if(iscrayon)
 		t = "<font face=\"[crayonfont]\" color=[P ? P.colour : "black"]><b>[t]</b></font>"
@@ -342,7 +343,7 @@
 
 /obj/item/paper/proc/burnpaper(obj/item/P, mob/user)
 	var/class = "warning"
-	if(!use_check_and_message(user))
+	if(!use_check_and_message(user) && paper_like)
 		if(istype(P, /obj/item/flame/lighter/zippo))
 			class = "rose"
 
@@ -432,6 +433,8 @@
 			return
 
 		var/obj/item/i = usr.get_active_hand() // Check to see if he still got that darn pen, also check if he's using a crayon or pen.
+		if(!i || !i.ispen())
+			i = usr.get_inactive_hand()
 		var/obj/item/clipboard/c
 		var/iscrayon = FALSE
 		var/isfountain = FALSE
@@ -462,8 +465,7 @@
 			else
 				isfountain = FALSE
 
-		// if paper is not in usr, then it must be near them, or in a clipboard or folder, which must be in or near usr
-		if(src.loc != usr && !src.Adjacent(usr) && !((istype(src.loc, /obj/item/clipboard) || istype(src.loc, /obj/item/folder)) && (src.loc.loc == usr || src.loc.Adjacent(usr)) ) )
+		if(!write_check(usr))
 			return
 
 		var/last_fields_value = fields
@@ -494,11 +496,24 @@
 		if(c)
 			c.update_icon()
 
+/obj/item/paper/proc/write_check(var/mob/user)
+	. = TRUE
+	// if paper is not in usr, then it must be near them, or in a clipboard or folder, which must be in or near usr
+	if(loc != user && !Adjacent(user))
+		. = FALSE
+	if(!. && istype(loc, /obj/item/clipboard))
+		var/obj/item/clipboard/C = loc
+		if(C.loc == user || C.Adjacent(user))
+			. = TRUE
+	if(!. && istype(loc, /obj/item/folder))
+		var/obj/item/folder/F = loc
+		if(F.loc_check(user) || F.Adjacent(user))
+			. = TRUE
 
 /obj/item/paper/attackby(var/obj/item/P, mob/user)
 	..()
 
-	if(istype(P, /obj/item/tape_roll))
+	if(istype(P, /obj/item/tape_roll) && !istype(src, /obj/item/paper/business_card))
 		var/obj/item/tape_roll/tape = P
 		tape.stick(src, user)
 		return
@@ -630,10 +645,11 @@
 	var/sentence = 1 // Is this form contain a sentence of guilty?
 
 /obj/item/paper/incident/New()
-	info = {"\[center\]\[logo_nt\]\[/center\]
+	var/T = parsepencode({"\[center\]\[logo_nt\]\[/center\]
 \[center\]\[b\]\[i\]Encoded NanoTrasen Security Incident Report\[/b\]\[/i\]\[hr\]
 \[small\]FOR USE BY SECURITY ONLY\[/small\]\[br\]
-\[barcode\]\[/center\]"}
+\[barcode\]\[/center\]"})
+	info = T
 
 	..()
 
@@ -642,7 +658,7 @@
 	icon_state = "pamphlet"
 
 /obj/item/paper/sentencing/New()
-	info = {"\[center\]\[logo_nt\]\[/center\]
+	var/T = parsepencode({"\[center\]\[logo_nt\]\[/center\]
 \[center\]\[b\]\[i\]Operation of Criminal Sentencing Computers\[/b\]\[/i\]\[hr\]
 \[small\]In compliance with new NanoTrasen criminal regulations, the \[b\][station_name()]\[/b\] has been equipped with state of the art sentencing computers. The operation of these terminals is quite simple:\[br\]
 \[br\]
@@ -652,7 +668,8 @@ After all the charges have been applied, the processing officer is invited to ad
 Simply press the option "Render Guilty", and the sentence is complete! The convict's records will be automatically updated to reflect their crimes. You should now insert the printed receipt into the cell timer, and begin processing.\[br\]
 \[hr\]
 Please note: Cell timers will \[b\]NOT\[/b\] function without a valid incident form receipt inserted into them.
-\[small\]FOR USE BY SECURITY ONLY\[/small\]\[br\]"}
+\[small\]FOR USE BY SECURITY ONLY\[/small\]\[br\]"})
+	info = T
 
 	..()
 

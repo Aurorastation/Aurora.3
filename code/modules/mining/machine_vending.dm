@@ -118,7 +118,11 @@ var/global/list/minevendor_list = list( //keep in order of price
 	interact(user)
 
 /obj/machinery/mineral/equipment_vendor/proc/get_user_id(var/mob/user)
-	if(!scanned_id && !isDrone(user))
+	if(isDrone(user))
+		var/mob/living/silicon/robot/drone/D = user
+		if(D.standard_drone)
+			return
+	if(!scanned_id)
 		var/obj/item/card/id/ID = user.GetIdCard()
 		if(ID)
 			scanned_id = WEAKREF(ID)
@@ -211,6 +215,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 					if(prize.amount != -1)
 						prize.amount--
 					new prize.equipment_path(get_turf(src))
+					intent_message(MACHINE_SOUND)
 
 	updateUsrDialog()
 	return

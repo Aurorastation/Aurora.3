@@ -5,7 +5,7 @@
 	category_name = "Diona"
 	bodytype = BODYTYPE_DIONA
 	total_health = 240
-	age_min = 1
+	age_min = 30
 	age_max = 1000
 	default_genders = list(NEUTER)
 	selectable_pronouns = list(NEUTER, PLURAL)
@@ -36,7 +36,7 @@
 	num_alternate_languages = 2
 	name_language = LANGUAGE_ROOTSONG
 	ethanol_resistance = -1	//Can't get drunk
-	taste_sensitivity = TASTE_DULL
+	taste_sensitivity = TASTE_NUMB
 	mob_size = 12	//Worker gestalts are 150kg
 	remains_type = /obj/effect/decal/cleanable/ash //no bones, so, they just turn into dust
 	gluttonous = GLUT_ITEM_ANYTHING|GLUT_SMALLER
@@ -64,15 +64,7 @@
 	grab_mod = 0.6 // Viney Tentacles and shit to cling onto
 	resist_mod = 1.5 // Reasonably stronk, not moreso than an Unathi or robot.
 
-	has_organ = list(
-		"nutrient channel"   = /obj/item/organ/internal/diona/nutrients,
-		"neural strata"      = /obj/item/organ/internal/diona/strata,
-		"response node"      = /obj/item/organ/internal/diona/node,
-		"gas bladder"        = /obj/item/organ/internal/diona/bladder,
-		"polyp segment"      = /obj/item/organ/internal/diona/polyp,
-		"anchoring ligament" = /obj/item/organ/internal/diona/ligament,
-		BP_STOMACH           = /obj/item/organ/internal/stomach/diona
-	)
+	has_organ = list( BP_STOMACH = /obj/item/organ/internal/stomach/diona)
 
 	has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest/diona),
@@ -181,6 +173,9 @@
 
 /datum/species/diona/has_psi_potential()
 	return FALSE
-	
+
 /datum/species/diona/is_naturally_insulated()
+	return TRUE
+
+/datum/species/diona/bypass_food_fullness(var/mob/living/carbon/human/H)
 	return TRUE

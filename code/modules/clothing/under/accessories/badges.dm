@@ -282,6 +282,14 @@
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
 
+/obj/item/clothing/accessory/badge/passcard/synthetic
+	name = "synthetic residence card"
+	desc = "A passcard issued to free IPCs within the Republic of Biesel, providing resident status and allowing the owning of property, among other things."
+	desc_fluff = "Working alongside IPC tags within the Republic of Biesel, the synthetic residence card has a small RFID chip embedded in it which allows governmental authorities to confirm whether or not an IPC \
+    is free and taking residency within the system. They were recently introduced in order to provide streamlined documentation for IPCs that have attained freedom but are not citizens."
+	icon_state = "passcard_ceti_m"
+	item_state = "passcard_ceti_m"
+
 /obj/item/clothing/accessory/badge/passcard/sol
 	name = "\improper ASSN passcard"
 	desc = "A passcard issued to citizens of the Alliance of Sovereign Solarian Nations, typically from planets such as the Jewel Worlds or smaller zones of authority."
@@ -347,6 +355,14 @@
 	in most reservations for the world's restaurants. If ever there was a silver spoon, it sits here."
 	icon_state = "passcard_moon"
 	item_state = "passcard_moon"
+
+/obj/item/clothing/accessory/badge/passcard/sol/visegrad
+	name = "visegradi passcard"
+	desc = "A passcard issued to Solarian citizens from the outer ring planet Visegrad."
+	desc_fluff = "The Visegradi passcard is an unusual thing, as many Solarian outer ring planets did not issue passcards at all, especially high-quality holographic ones. Predominantly seen in the hands of the \
+	urban population who could justify paying the government fee to acquire one, their manufacture is still undertaken by the Southern Solarian Military District that now controls Visegrad."
+	icon_state = "passcard_visegrad"
+	item_state = "passcard_visegrad"
 
 /obj/item/clothing/accessory/badge/passcard/eridani
 	name = "eridani passcard"

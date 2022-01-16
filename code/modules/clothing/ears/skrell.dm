@@ -5,7 +5,13 @@
 	contained_sprite = TRUE
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_HEAD | SLOT_EARS
-	species_restricted = list(SPECIES_SKRELL)
+	species_restricted = list(BODYTYPE_SKRELL)
+
+/obj/item/clothing/ears/skrell/get_ear_examine_text(var/mob/user, var/ear_text = "left")
+	return "on [user.get_pronoun("his")] headtails"
+
+/obj/item/clothing/ears/skrell/get_head_examine_text(var/mob/user)
+	return "on [user.get_pronoun("his")] headtails"
 
 /obj/item/clothing/ears/skrell/chain
 	name = "gold headtail chains"

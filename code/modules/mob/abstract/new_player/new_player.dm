@@ -274,11 +274,12 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	character.lastarea = get_area(loc)
 	// Moving wheelchair if they have one
-	if(character.buckled_to && istype(character.buckled_to, /obj/structure/bed/chair/wheelchair))
+	if(character.buckled_to && istype(character.buckled_to, /obj/structure/bed/stool/chair/office/wheelchair))
 		character.buckled_to.forceMove(character.loc)
 		character.buckled_to.set_dir(character.dir)
 
 	SSticker.mode.handle_latejoin(character)
+	universe.OnPlayerLatejoin(character)
 	if(SSjobs.ShouldCreateRecords(character.mind))
 		if(character.mind.assigned_role != "Cyborg")
 			SSrecords.generate_record(character)

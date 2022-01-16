@@ -35,6 +35,7 @@
 	)
 
 	id = /obj/item/card/id/syndicate
+	id_iff = IFF_LANCER
 	var/id_access = "Lancer"
 
 /datum/outfit/admin/event/lance/post_equip(mob/living/carbon/human/H, visualsOnly)
@@ -140,6 +141,8 @@
 
 	accessory = /obj/item/clothing/accessory/holster/hip/brown
 	accessory_contents = list(/obj/item/gun/projectile/pistol/sol = 1)
+
+	id_iff = IFF_SOL
 
 /datum/outfit/admin/event/sol_marine/heavy
 	name = "Heavy Solarian Marine"

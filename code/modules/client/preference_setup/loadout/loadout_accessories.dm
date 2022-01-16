@@ -14,6 +14,13 @@
 	path = /obj/item/clothing/accessory/wcoat_rec
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/accessory/waistcoat/New()
+	..()
+	var/list/waistcoats = list()
+	waistcoats["waistcoat"] = /obj/item/clothing/accessory/wcoat_rec
+	waistcoats["waistcoat, alt"] = /obj/item/clothing/accessory/silversun/wcoat
+	gear_tweaks += new /datum/gear_tweak/path(waistcoats)
+
 /datum/gear/accessory/chaps
 	display_name = "chaps selection"
 	path = /obj/item/clothing/accessory/chaps
@@ -208,6 +215,10 @@
 	shirt["cropped dress shirt, rolled up"] = /obj/item/clothing/accessory/dressshirt/crop/rolled
 	shirt["dress shirt, alt"] = /obj/item/clothing/accessory/dressshirt/alt
 	shirt["dress shirt, alt rolled up"] = /obj/item/clothing/accessory/dressshirt/alt/rolled
+	shirt["dress shirt, v-neck alt"] = /obj/item/clothing/accessory/dressshirt/alt/vneck
+	shirt["dress shirt, v-neck alt rolled up"] = /obj/item/clothing/accessory/dressshirt/alt/vneck/rolled
+	shirt["dress shirt, deep v-neck"] = /obj/item/clothing/accessory/dressshirt/deepv
+	shirt["dress shirt, deep v-neck rolled up"] = /obj/item/clothing/accessory/dressshirt/deepv/rolled
 	shirt["long-sleeved shirt"] = /obj/item/clothing/accessory/longsleeve
 	shirt["long-sleeved shirt, black striped"] = /obj/item/clothing/accessory/longsleeve_s
 	shirt["long-sleeved shirt, blue striped"] = /obj/item/clothing/accessory/longsleeve_sb
@@ -230,6 +241,22 @@
 	shirts["red silversun shirt"] = /obj/item/clothing/accessory/silversun/red
 	shirts["random colored silversun shirt"] = /obj/item/clothing/accessory/silversun/random
 	gear_tweaks += new /datum/gear_tweak/path(shirts)
+
+/datum/gear/accessory/university 
+	display_name = "university sweatshirt selection"
+	path = /obj/item/clothing/accessory/university
+	description = "A selection of university sweatshirts."
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/university/New()
+	..()
+	var/list/university = list()
+	university["grey university sweatshirt"] = /obj/item/clothing/accessory/university
+	university["crimson university sweatshirt"] = /obj/item/clothing/accessory/university/red
+	university["mustard university sweatshirt"] = /obj/item/clothing/accessory/university/yellow
+	university["navy university sweatshirt"] = /obj/item/clothing/accessory/university/blue
+	university["black university sweatshirt"] = /obj/item/clothing/accessory/university/black
+	gear_tweaks += new /datum/gear_tweak/path(university)
 
 /datum/gear/accessory/scarf
 	display_name = "scarf selection"
@@ -295,6 +322,11 @@
 	display_name = "pin tag (colourable)"
 	path = /obj/item/clothing/accessory/badge/namepin
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/ribbon
+	display_name = "ribbon (colourable)"
+	path = /obj/item/clothing/accessory/ribbon
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION 
 
 /datum/gear/accessory/sleeve_patch
 	display_name = "shoulder sleeve patch"
@@ -384,6 +416,7 @@
 	passcard["passcard, assunzione"] = /obj/item/clothing/accessory/badge/passcard/assu
 	passcard["passcard, techno-conglomerate"] = /obj/item/clothing/accessory/badge/passcard/techno
 	passcard["passcard, konyang"] = /obj/item/clothing/accessory/badge/passcard/konyang
+	passcard["passcard, visegrad"] = /obj/item/clothing/accessory/badge/passcard/sol/visegrad
 	gear_tweaks += new /datum/gear_tweak/path(passcard)
 
 /datum/gear/accessory/passport
@@ -430,3 +463,20 @@
 		var/obj/item/clothing/accessory/blood_patch/BP = type
 		patches[initial(BP.name)] = type
 	gear_tweaks += new /datum/gear_tweak/path(patches)
+
+/datum/gear/accessory/bandanna
+	display_name = "neck bandanna selection"
+	path = /obj/item/clothing/accessory/bandanna
+
+/datum/gear/accessory/bandanna/New()
+	..()
+	var/list/bandanna = list()
+	bandanna["red bandanna"] =  /obj/item/clothing/accessory/bandanna
+	bandanna["blue bandanna"] = /obj/item/clothing/accessory/bandanna/blue
+	bandanna["black bandanna"] = /obj/item/clothing/accessory/bandanna/black
+	gear_tweaks += new /datum/gear_tweak/path(bandanna)
+
+/datum/gear/accessory/bandanna_colorable
+	display_name = "neck bandanna (colorable)"
+	path = /obj/item/clothing/accessory/bandanna/colorable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION

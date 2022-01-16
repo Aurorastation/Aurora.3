@@ -33,20 +33,23 @@
 		NETWORK_SECURITY
 	)
 
-	shuttle_docked_message = "The scheduled Crew Transfer Shuttle to %dock% has docked with the station. It will depart in approximately %ETA% minutes."
-	shuttle_leaving_dock = "The Crew Transfer Shuttle has left the station. Estimate %ETA% minutes until the shuttle docks at %dock%."
-	shuttle_called_message = "A crew transfer to %dock% has been scheduled. The shuttle has been called. It will arrive in approximately %ETA% minutes."
+	shuttle_docked_message = "The scheduled Crew Transfer Shuttle to %dock% has docked with the station. It will depart in approximately %ETA%."
+	shuttle_leaving_dock = "The Crew Transfer Shuttle has left the station. Estimate %ETA% until the shuttle docks at %dock%."
+	shuttle_called_message = "A crew transfer to %dock% has been scheduled. The shuttle has been called. It will arrive in approximately %ETA%."
 	shuttle_recall_message = "The scheduled crew transfer has been cancelled."
-	emergency_shuttle_docked_message = "The Emergency Shuttle has docked with the station. You have approximately %ETD% minutes to board the Emergency Shuttle."
-	emergency_shuttle_leaving_dock = "The Emergency Shuttle has left the station. Estimate %ETA% minutes until the shuttle docks at %dock%."
+	emergency_shuttle_docked_message = "The Emergency Shuttle has docked with the station. You have approximately %ETA% to board the Emergency Shuttle."
+	emergency_shuttle_leaving_dock = "The Emergency Shuttle has left the station. Estimate %ETA% until the shuttle docks at %dock%."
 	emergency_shuttle_recall_message = "The emergency shuttle has been recalled."
-	emergency_shuttle_called_message = "An emergency evacuation shuttle has been called. It will arrive in approximately %ETA% minutes."
+	emergency_shuttle_called_message = "An emergency evacuation shuttle has been called. It will arrive in approximately %ETA%."
+
+	evac_controller_type = /datum/evacuation_controller/shuttle
 
 	station_levels = list(1)
 	admin_levels = list(2)
 	contact_levels = list(1, 5)
 	player_levels = list(1, 3, 4, 5, 6)
 	accessible_z_levels = list("1" = 5, "3" = 10, "4" = 15, "5" = 10, "6" = 60)
+	meteor_levels = list(1)
 
 	map_shuttles = list(
 		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod1,

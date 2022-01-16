@@ -266,11 +266,6 @@
 		owner.failed_last_breath = 1
 	else
 		owner.failed_last_breath = 0
-		if(owner.disabilities & ASTHMA)
-			owner.adjustOxyLoss(rand(-5,0))
-		else
-			owner.adjustOxyLoss(-5)
-
 
 	// Hot air hurts :(
 	handle_temperature_effects(breath)
@@ -284,6 +279,10 @@
 	else
 		last_successful_breath = world.time
 		owner.oxygen_alert = 0
+		if(owner.disabilities & ASTHMA)
+			owner.adjustOxyLoss(rand(-5,0) * inhale_efficiency)
+		else
+			owner.adjustOxyLoss(-5 * inhale_efficiency)
 		if(!BP_IS_ROBOTIC(src) && species.breathing_sound && is_below_sound_pressure(get_turf(owner)))
 			if(breathing || owner.shock_stage >= 10)
 				sound_to(owner, sound(species.breathing_sound,0,0,0,5))

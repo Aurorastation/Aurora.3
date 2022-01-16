@@ -2,6 +2,7 @@
 	name = "Ives"
 	desc = "A mysterious docile hivebot, this type seems to be of a kind rarely seen in the Orion Spur. Look at its little tail!"
 	named = TRUE
+	gender = FEMALE
 
 	icon = 'icons/mob/npc/pets.dmi'
 	icon_state = "ives"
@@ -47,6 +48,8 @@
 
 	destroy_surroundings = FALSE
 	attack_emote = "blares a tiny siren"
+
+	psi_pingable = FALSE
 
 /mob/living/simple_animal/hostile/commanded/baby_harvester/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL

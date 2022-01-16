@@ -1,39 +1,36 @@
 /datum/shuttle/autodock/ferry/emergency
-	//pass
+	category = /datum/shuttle/autodock/ferry/emergency
+	move_time = 10 MINUTES
+	var/datum/evacuation_controller/shuttle/emergency_controller
 
 /datum/shuttle/autodock/ferry/emergency/New()
 	..()
-	if(emergency_shuttle.shuttle)
+	emergency_controller = evacuation_controller
+	if(!istype(emergency_controller))
+		CRASH("Escape shuttle created without the appropriate controller type.")
+	if(emergency_controller.shuttle)
 		CRASH("An emergency shuttle has already been created.")
-	emergency_shuttle.shuttle = src
+	emergency_controller.shuttle = src
 
 /datum/shuttle/autodock/ferry/emergency/arrived()
 	. = ..()
+	
+	if(!emergency_controller.has_evacuated())
+		emergency_controller.finish_preparing_evac()
+
 	if (istype(in_use, /obj/machinery/computer/shuttle_control/emergency))
 		var/obj/machinery/computer/shuttle_control/emergency/C = in_use
 		C.reset_authorization()
 
-	emergency_shuttle.shuttle_arrived()
+	if((current_location == waypoint_offsite) && emergency_controller.has_evacuated())
+		emergency_controller.shuttle_evacuated()
 
 /datum/shuttle/autodock/ferry/emergency/long_jump(var/obj/effect/shuttle_landmark/destination, var/obj/effect/shuttle_landmark/interim, var/travel_time)
-	var/time_to_go = SHUTTLE_TRANSIT_DURATION
-	if(destination == waypoint_offsite)
-		time_to_go = SHUTTLE_TRANSIT_DURATION_RETURN
-
-	..(destination, interim, time_to_go)
-	emergency_shuttle.launch_time = world.time
+	..(destination, interim, emergency_controller.get_long_jump_time(), direction)
 
 /datum/shuttle/autodock/ferry/emergency/shuttle_moved()
-	if (!emergency_shuttle.departed && next_location != waypoint_station) //leaving the station
-		var/list/replacements = list(
-			"%ETA%" = round(emergency_shuttle.estimate_arrival_time()/60,1),
-			"%dock%" = current_map.dock_name
-		)
-		if (emergency_shuttle.evac)
-			priority_announcement.Announce(replacemany(current_map.emergency_shuttle_leaving_dock, replacements))
-		else
-			priority_announcement.Announce(replacemany(current_map.shuttle_leaving_dock, replacements))
-		emergency_shuttle.departed = TRUE
+	if(next_location != waypoint_station)
+		emergency_controller.shuttle_leaving() // This is a hell of a line. v
 	..()
 
 /datum/shuttle/autodock/ferry/emergency/can_launch(var/user)
@@ -54,6 +51,8 @@
 	return ..()
 
 /datum/shuttle/autodock/ferry/emergency/can_cancel(var/user)
+	if(emergency_controller.has_evacuated())
+		return 0
 	//If we try to cancel it via the shuttle computer
 	if (istype(user, /obj/machinery/computer/shuttle_control/emergency))
 		var/obj/machinery/computer/shuttle_control/emergency/C = user
@@ -62,8 +61,8 @@
 			return 0
 
 		// If the emergency shuttle is waiting to leave the station and the world time exceeded the force time
-		if(emergency_shuttle.waiting_to_leave() && (world.time > emergency_shuttle.force_time))
-			return 0
+		if(evacuation_controller.is_prepared() && (world.time > emergency_controller.force_time))
+			return 0 
 
 	return ..()
 
@@ -72,8 +71,8 @@
 		return
 
 	if (istype(user, /obj/machinery/computer/shuttle_control/emergency))	//if we were given a command by an emergency shuttle console
-		if (emergency_shuttle.autopilot)
-			emergency_shuttle.autopilot = 0
+		if (emergency_controller.autopilot)
+			emergency_controller.autopilot = FALSE
 			to_world("<span class='notice'><b>Alert: The shuttle autopilot has been overridden. Launch sequence initiated!</b></span>")
 
 	if(usr)
@@ -87,8 +86,8 @@
 		return
 
 	if (istype(user, /obj/machinery/computer/shuttle_control/emergency))	//if we were given a command by an emergency shuttle console
-		if (emergency_shuttle.autopilot)
-			emergency_shuttle.autopilot = 0
+		if (emergency_controller.autopilot)
+			emergency_controller.autopilot = FALSE
 			to_world("<span class='notice'><b>Alert: The shuttle autopilot has been overridden. Bluespace drive engaged!</b></span>")
 
 	if(usr)
@@ -102,8 +101,8 @@
 		return
 
 	if (istype(user, /obj/machinery/computer/shuttle_control/emergency))	//if we were given a command by an emergency shuttle console
-		if (emergency_shuttle.autopilot)
-			emergency_shuttle.autopilot = 0
+		if (emergency_controller.autopilot)
+			emergency_controller.autopilot = FALSE
 			to_world("<span class='notice'><b>Alert: The shuttle autopilot has been overridden. Launch sequence aborted!</b></span>")
 
 	if(usr)

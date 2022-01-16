@@ -1,5 +1,5 @@
 /obj/item/clothing/suit/armor
-	allowed = list(/obj/item/gun/energy,/obj/item/reagent_containers/spray/pepper,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/device/flashlight)
+	allowed = list(/obj/item/gun/energy,/obj/item/reagent_containers/spray/pepper,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/device/flashlight,/obj/item/clothing/head/helmet)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	item_flags = THICKMATERIAL
 
@@ -8,20 +8,23 @@
 	heat_protection = UPPER_TORSO|LOWER_TORSO
 	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.5
-	var/obj/item/storage/internal/pockets
+
+	species_restricted = list("exclude", BODYTYPE_VAURCA_BREEDER, BODYTYPE_VAURCA_WARFORM, BODYTYPE_VAURCA_BULWARK)
+	var/obj/item/storage/internal/pockets = /obj/item/storage/internal
 	var/pocket_slots = 2
 	var/pocket_size = 2
 	var/pocket_total = null//This will be calculated, unless specifically overidden
 
 /obj/item/clothing/suit/armor/Initialize()
 	. = ..()
-	pockets = new /obj/item/storage/internal(src)
-	pockets.storage_slots = pocket_slots	//two slots
-	pockets.max_w_class = pocket_size		//fit only pocket sized items
-	if (pocket_total)
-		pockets.max_storage_space = pocket_total
-	else
-		pockets.max_storage_space = pocket_slots * pocket_size
+	if(pockets)
+		pockets = new pockets(src)
+		pockets.storage_slots = pocket_slots	//two slots
+		pockets.max_w_class = pocket_size		//fit only pocket sized items
+		if (pocket_total)
+			pockets.max_storage_space = pocket_total
+		else
+			pockets.max_storage_space = pocket_slots * pocket_size
 
 /obj/item/clothing/suit/armor/Destroy()
 	if (pockets)

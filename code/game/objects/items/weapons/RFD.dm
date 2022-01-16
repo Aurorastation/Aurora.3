@@ -193,14 +193,13 @@ RFD Construction-Class
 		return
 	if(disabled && !isrobot(user))
 		return FALSE
-	if(istype(get_area(A),/area/shuttle)||istype(get_area(A),/turf/space/transit))
-		return FALSE
-	var/turf/t = get_turf(A)
-	if(isNotStationLevel(t.z))
+	var/area/Area = get_area(A)
+	if(Area.centcomm_area || istype(Area, /area/shuttle) || istype(Area, /turf/space/transit))
+		to_chat(user, SPAN_WARNING("\The [src] can't be used here!"))
 		return FALSE
 	if(is_type_in_list(A, valid_atoms))
 		return alter_atom(A, user, (mode == RFD_DECONSTRUCT))
-	return alter_atom(t, user, (mode == RFD_DECONSTRUCT))
+	return alter_atom(get_turf(A), user, (mode == RFD_DECONSTRUCT))
 
 /obj/item/rfd/construction/proc/alter_atom(var/atom/A, var/mob/user, var/deconstruct)
 	if(working)
@@ -209,6 +208,10 @@ RFD Construction-Class
 	var/turf/T = isturf(A) ? A : null // the lower istypes will return false if T is null, which means we don't have to check whether it's an atom or a turf
 	if(mode == RFD_FLOORS_AND_WALL)
 		if(istype(T, /turf/space) || istype(T, T.baseturf))
+			build_cost =  1
+			build_type =  "floor"
+			build_atom =  /turf/simulated/floor/airless
+		else if(istype(T, /turf/simulated/open))
 			build_cost =  1
 			build_type =  "floor"
 			build_atom =  /turf/simulated/floor/airless

@@ -20,6 +20,7 @@
 		if (!Master.initializing && SS.flags & SS_NO_DISPLAY)
 			continue
 		available_controllers[SS.name] = SS
+	available_controllers["Evacuation Main Controller"] = evacuation_controller
 	var/css = input("What controller would you like to debug?", "Controllers") as null|anything in available_controllers
 	debug_variables(available_controllers[css])
 	

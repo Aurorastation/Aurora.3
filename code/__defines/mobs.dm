@@ -25,7 +25,6 @@
 #define INCORPOREAL_SHADE   4 // Shady
 #define INCORPOREAL_MECH    5 // stripped down bstech
 
-#define MOB_GRAB_NONE 0
 #define MOB_GRAB_NORMAL 1
 #define MOB_GRAB_FIREMAN 2
 
@@ -168,6 +167,7 @@
 #define BP_AUG_SIGHTLIGHTS     "ocular installed sightlights"
 #define BP_AUG_CORRECTIVE_LENS "corrective lenses"
 #define BP_AUG_GLARE_DAMPENER "glare dampeners"
+#define BP_AUG_ACC_CORDS       "modified synthetic vocal cords"
 
 //Organ defines
 #define PROCESS_ACCURACY 10
@@ -236,14 +236,14 @@
 #define IPC_OWNERSHIP_COMPANY "Company Owned"
 #define IPC_OWNERSHIP_PRIVATE "Privately Owned"
 
-// NT's alignment towards the character
-#define COMPANY_LOYAL 			"Loyal"
-#define COMPANY_SUPPORTATIVE	"Supportive"
-#define COMPANY_NEUTRAL 		"Neutral"
-#define COMPANY_SKEPTICAL		"Skeptical"
-#define COMPANY_OPPOSED			"Opposed"
+// How wealthy/poor a character is
+#define ECONOMICALLY_WEALTHY	"Wealthy"
+#define ECONOMICALLY_WELLOFF	"Well-off"
+#define ECONOMICALLY_AVERAGE	"Average"
+#define ECONOMICALLY_UNDERPAID	"Underpaid"
+#define ECONOMICALLY_POOR		"Poor"
 
-#define COMPANY_ALIGNMENTS		list(COMPANY_LOYAL,COMPANY_SUPPORTATIVE,COMPANY_NEUTRAL,COMPANY_SKEPTICAL,COMPANY_OPPOSED)
+#define ECONOMIC_POSITIONS		list(ECONOMICALLY_WEALTHY, ECONOMICALLY_WELLOFF, ECONOMICALLY_AVERAGE, ECONOMICALLY_UNDERPAID, ECONOMICALLY_POOR)
 
 // Defines the argument used for get_mobs_and_objs_in_view_fast
 #define GHOSTS_ALL_HEAR 1
@@ -364,6 +364,16 @@
 #define HEARING_DAMAGE_LIMIT 100
 #define HEARING_DAMAGE_SLOW_HEAL 25
 
+// Used by hearing sensitivity
+#define HEARING_NORMAL 0
+#define HEARING_SENSITIVE 1
+#define HEARING_VERY_SENSITIVE 2
+
+#define MACHINE_SOUND "You hear the sound of machinery"
+#define BUTTON_FLICK "You hear a click"
+#define THUNK_SOUND "You hear a THUNK"
+#define PING_SOUND "You hear a ping"
+
 //Used by emotes
 #define VISIBLE_MESSAGE 1
 #define AUDIBLE_MESSAGE 2
@@ -383,6 +393,7 @@
 #define PROSTHETIC_DIONA "Unknown Model"
 #define PROSTHETIC_AUTAKH "Aut'akh Manufactured"
 #define PROSTHETIC_TESLA "Tesla Powered Prosthetics"
+#define PROSTHETIC_VAURCA "Vaurca Robotic Limb"
 
 //Brain Damage defines
 #define BRAIN_DAMAGE_MILD 10
@@ -433,3 +444,5 @@
 #define ROBOT_PANEL_EXPOSED  "exposed"
 #define ROBOT_PANEL_CELL     "cell"
 #define ROBOT_PANEL_NO_CELL  "no cell"
+
+#define BLOOD_REGEN_RATE 0.1
