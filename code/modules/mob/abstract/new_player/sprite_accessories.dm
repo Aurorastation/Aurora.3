@@ -4313,11 +4313,16 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list(BP_CHEST)
 		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
-	tat_heart
-		name = "Tattoo (Heart, Chest)"
-		icon_state = "tat_heart"
-		body_parts = list(BP_CHEST)
+	tat_heart_arm
+		name = "Tattoo (Heart, Left Arm)"
+		icon_state = "tat_lheart"
+		body_parts = list(BP_L_ARM)
 		species_allowed = list(/datum/species/human, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+
+		right
+			name = "Tattoo (Heart, Right Arm)"
+			icon_state = "tat_rheart"
+			body_parts = list(BP_R_ARM)
 
 	tat_heart_back
 		name = "Tattoo (Heart, Lower Back)"
@@ -4560,6 +4565,7 @@ Follow by example and make good judgement based on length which list to include 
 
 	skr_tears
 		name = "Tear Stains"
+		icon = 'icons/mob/human_races/markings_skrell.dmi'
 		icon_state = "skr_tears"
 		body_parts = list(BP_HEAD)
 		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
@@ -4567,6 +4573,7 @@ Follow by example and make good judgement based on length which list to include 
 
 	skr_axiori_eyes
 		name = "Axiori Eyes"
+		icon = 'icons/mob/human_races/markings_skrell.dmi'
 		icon_state = "skr_axiori_eyes"
 		body_parts = list(BP_HEAD)
 		species_allowed = list(/datum/species/skrell, /datum/species/zombie/skrell,/datum/species/zombie/skrell)
@@ -4574,7 +4581,8 @@ Follow by example and make good judgement based on length which list to include 
 
 	skr_arms
 		name = "Skrell Arms"
-		icon_state = "skrell_arms"
+		icon = 'icons/mob/human_races/markings_skrell.dmi'
+		icon_state = "skr_arms"
 		body_parts = list(BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND)
 		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
 
@@ -4603,7 +4611,7 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Skrell Stomach"
 		icon = 'icons/mob/human_races/markings_skrell.dmi'
 		icon_state = "skr_stomach"
-		body_parts = list(BP_CHEST)
+		body_parts = list(BP_CHEST, BP_GROIN)
 		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
 
 	skr_chin
