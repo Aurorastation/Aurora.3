@@ -77,7 +77,9 @@
 		/datum/shuttle/autodock/multi/legion,
 		/datum/shuttle/autodock/multi/distress,
 		/datum/shuttle/autodock/overmap/intrepid,
-		/datum/shuttle/autodock/overmap/mining
+		/datum/shuttle/autodock/overmap/mining,
+		/datum/shuttle/autodock/ferry/merchant_aurora,
+		/datum/shuttle/autodock/ferry/autoreturn/ccia
 	)
 
 	evac_controller_type = /datum/evacuation_controller/starship
