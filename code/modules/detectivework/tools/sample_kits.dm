@@ -57,7 +57,7 @@
 	else if (O.ispen())
 		var/tmp_label = sanitizeSafe(input(user, "Enter a label for [name]", "Label", label_text), MAX_NAME_LEN)
 		if(length(tmp_label) > MAX_NAME_LEN)
-			to_chat(user, SPAN_NOTICE("The label can be at most [MAX_NAME_LEN] characters long."))
+			to_chat(user, SPAN_WARNING("The label can be at most [MAX_NAME_LEN] characters long."))
 		else
 			to_chat(user, SPAN_NOTICE("You set the label to \"[tmp_label]\"."))
 			label_text = tmp_label
@@ -67,7 +67,7 @@
 
 /obj/item/sample/proc/update_name_label()
 	if(label_text == "")
-		return
+		name = initial(name)
 	else
 		name = "[initial(name)] ([label_text])"
 

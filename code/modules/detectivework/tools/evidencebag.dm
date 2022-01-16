@@ -103,7 +103,7 @@
 	if(W.ispen() || istype(W, /obj/item/device/flashlight/pen))
 		var/tmp_label = sanitizeSafe(input(user, "Enter a label for [name]", "Label", label_text), MAX_NAME_LEN)
 		if(length(tmp_label) > MAX_NAME_LEN)
-			to_chat(user, "<span class='notice'>The label can be at most [MAX_NAME_LEN] characters long.</span>")
+			to_chat(user, SPAN_NOTICE("The label can be at most [MAX_NAME_LEN] characters long."))
 		else
 			to_chat(user, "<span class='notice'>You set the label to \"[tmp_label]\".</span>")
 			label_text = tmp_label

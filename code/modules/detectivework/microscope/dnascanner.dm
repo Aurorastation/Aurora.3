@@ -110,7 +110,7 @@
 		//dna data itself
 		var/data = "No scan information available."
 		if(bloodsamp.dna != null)
-			data = "Spectometric analysis on provided sample has determined the presence of [bloodsamp.dna.len] string(s) of DNA.<br><br>"
+			data = "Spectometric analysis on provided sample has determined the presence of [length(bloodsamp.dna)] string\s of DNA.<br><br>"
 			for(var/blood in bloodsamp.dna)
 				if(bloodsamp.dna[blood])
 					data += "<b>Blood type:</b> [bloodsamp.dna[blood]]<br>"

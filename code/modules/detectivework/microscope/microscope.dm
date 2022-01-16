@@ -54,9 +54,9 @@
 			pname = "GSR report #[report_gsr_num]"
 			info = "<b><font size=\"4\">GSR anaylsis report #[report_gsr_num]</font></b><HR>"
 			if(length(swab.gsr))
-				info += "Residue analysis of \the [swab.name] has determined the presence of the following residues.<ul>"
+				info += "Residue analysis of the [swab.name] has determined the presence of the following residues.<ul>"
 				for(var/gsr in swab.gsr)
-					info += "<li>Residue from a [gsr] bullet detected."
+					info += "<li>Residue from a [gsr] bullet detected.</li>"
 				info += "</ul>"
 			else
 				info += "No gunpowder residue found."
@@ -71,7 +71,7 @@
 				info += "[english_list(fibers.source, "no sources were found", ", ", ", ", "")].<br><br>"
 				info += "Molecular analysis on [fibers.name] has determined the presence of unique fiber strings.<ul>"
 				for(var/fiber in fibers.evidence)
-					info += "<li><b>Most likely match for fibers:</b> [fiber]"
+					info += "<li><b>Most likely match for fibers:</b> [fiber]</li>"
 				info += "</ul>"
 			else
 				info += "No fibers found."
@@ -82,7 +82,7 @@
 		report_print_num++
 		pname = "Fingerprint report #[report_print_num]"
 		var/obj/item/sample/print/card = sample
-		info = "<b><font size=\"4\">Fingerprint anaylsis report #[report_print_num]</font></b><HR>"
+		info = "<b><font size=\"4\">Fingerprint analysis report #[report_print_num]</font></b><HR>"
 		info += "<b>Source locations:</b> "
 		info += "[english_list(card.source, "no sources were found", ", ", ", ", "")].<br><br>"
 		if(card.evidence && card.evidence.len)
@@ -93,7 +93,7 @@
 					info += "INCOMPLETE PRINT"
 				else
 					info += "[prints]"
-				info += "<br>"
+				info += "</li>"
 			info += "</ul>"
 		else
 			info += "No information available."
