@@ -8944,6 +8944,10 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/merchant)
 "auW" = (
@@ -37515,6 +37519,15 @@
 /obj/effect/shuttle_landmark/mining/transit,
 /turf/space/transit/south,
 /area/template_noop)
+"rCq" = (
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1337;
+	id_tag = "merchant_station";
+	pixel_y = -28;
+	tag_door = "merchant_station_door"
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_station/warehouse)
 
 (1,1,1) = {"
 aab
@@ -43317,7 +43330,7 @@ asC
 atI
 axf
 asv
-axf
+rCq
 aya
 aAf
 aAf
