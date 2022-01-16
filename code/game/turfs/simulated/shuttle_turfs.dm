@@ -195,6 +195,13 @@
 /turf/simulated/wall/shuttle/space_ship/cardinal
 	smooth = SMOOTH_MORE
 
+/turf/simulated/wall/shuttle/space_ship/mercenary
+	color = "#5b5b5b"
+
+/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal
+	smooth = SMOOTH_MORE
+	color = "#5b5b5b"
+
 //--Unique Shuttles--//
 
 /turf/simulated/wall/shuttle/unique

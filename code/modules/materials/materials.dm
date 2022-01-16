@@ -988,7 +988,6 @@
 	name = MATERIAL_SHUTTLE
 	display_name = "spaceship alloy"
 	stack_type = null
-	icon_colour = "#6C7364"
 	icon_base = "shuttle"
 	integrity = 1200
 	melting_point = 6000       // Hull plating.

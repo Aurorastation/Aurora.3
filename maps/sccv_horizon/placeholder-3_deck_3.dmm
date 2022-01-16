@@ -4499,6 +4499,7 @@
 /area/crew_quarters/lounge)
 "kN" = (
 /obj/machinery/light,
+/obj/machinery/deployable/barrier,
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
 "kO" = (
@@ -7509,6 +7510,7 @@
 	dir = 8;
 	pixel_x = -24
 	},
+/obj/machinery/deployable/barrier,
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
 "rY" = (
@@ -11013,7 +11015,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hop/xo)
 "Bg" = (
-/obj/machinery/anti_bluespace,
+/obj/machinery/deployable/barrier,
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
 "Bh" = (
@@ -11851,6 +11853,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/deployable/barrier,
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
 "Do" = (
@@ -12425,7 +12428,7 @@
 /turf/simulated/floor,
 /area/maintenance/vault)
 "EZ" = (
-/obj/structure/table/rack,
+/obj/machinery/anti_bluespace,
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
 "Fa" = (

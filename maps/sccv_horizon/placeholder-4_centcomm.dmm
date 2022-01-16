@@ -30612,7 +30612,7 @@
 /area/shuttle/mercenary)
 "bqv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/wall/shuttle/space_ship,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/mercenary)
 "bqy" = (
 /obj/structure/lattice,
@@ -33510,8 +33510,12 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/skipjack)
 "bwZ" = (
-/obj/structure/window/shuttle,
-/obj/structure/grille,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "raidercockpit";
+	name = "blast door"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
 "bxd" = (
@@ -33589,7 +33593,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/mercenary)
 "bxw" = (
-/turf/simulated/wall/shuttle/space_ship,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/mercenary)
 "bxx" = (
 /obj/machinery/door/blast/odin/open{
@@ -35394,7 +35398,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/skipjack)
 "bEI" = (
-/turf/simulated/wall/shuttle/space_ship,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/skipjack)
 "bER" = (
 /obj/structure/shuttle/engine/propulsion/burst/left,
@@ -38376,6 +38380,21 @@
 	name = "ocean"
 	},
 /area/centcom/shared_dream)
+"hRp" = (
+/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	id = "raidercockpit";
+	name = "blast door"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/skipjack)
+"lJo" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/area/shuttle/mercenary)
+"oKJ" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/area/shuttle/skipjack)
 "pTp" = (
 /obj/effect/shuttle_landmark/intrepid/transit,
 /turf/space/transit/south,
@@ -38384,6 +38403,20 @@
 /obj/effect/shuttle_landmark/mining/transit,
 /turf/space/transit/south,
 /area/template_noop)
+"rCy" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/button/remote/blast_door{
+	dir = 8;
+	id = "raidercockpit";
+	name = "blast door";
+	pixel_x = 25;
+	req_access = list(150)
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/skipjack)
 
 (1,1,1) = {"
 aab
@@ -44526,7 +44559,7 @@ bni
 bxw
 boS
 boS
-bxw
+lJo
 bxw
 bsf
 bsN
@@ -57646,9 +57679,9 @@ aaa
 aaa
 aaa
 bEI
-bEI
+oKJ
 bza
-bEI
+oKJ
 bBt
 bEI
 bEI
@@ -58154,9 +58187,9 @@ btj
 blU
 aaa
 bwZ
-bwZ
-bwZ
-bEI
+hRp
+hRp
+oKJ
 byo
 byU
 bEI
@@ -58670,7 +58703,7 @@ aaa
 bwZ
 bvX
 bwY
-bxO
+rCy
 byq
 bxO
 bzB
@@ -58925,9 +58958,9 @@ bjB
 bjB
 aaa
 bwZ
-bwZ
-bwZ
-bEI
+hRp
+hRp
+oKJ
 byr
 byV
 bEI
@@ -59445,7 +59478,7 @@ aaa
 aaa
 aaa
 bEI
-bEI
+oKJ
 bAw
 bEI
 bEI
@@ -59704,7 +59737,7 @@ aaa
 aaa
 bEI
 bAy
-bEI
+oKJ
 bBy
 bCk
 bCS
@@ -59959,7 +59992,7 @@ bEI
 bEI
 bEI
 bEI
-bEI
+oKJ
 bAz
 bBe
 bBz
