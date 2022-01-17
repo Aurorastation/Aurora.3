@@ -40,4 +40,4 @@ delete-after: True
 changes:
   - bugfix: "Seethrough blindfolds are actually see-through again."
   - bugfix: "Recolored blindfolds no longer are called white. Check your loadouts."
-  - bugfix: "Seethrough blindfolds no longer provide flash protection."
+  - balance: "Seethrough blindfolds no longer provide flash protection."
