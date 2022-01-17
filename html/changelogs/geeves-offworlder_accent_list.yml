@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Offworlders now have access to all human accents plus scarab fleets, minus the silversun, pluto, europan, cytherean and gadpathurian accents."
