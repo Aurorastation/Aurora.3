@@ -1,0 +1,10 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Fingerprint & fiber reports now show all source locations, even when combined and doors will have the door's name attached."
+  - rscadd: "Added the ability to rename fingerprint cards & fiber bags."
+  - tweak: "Changed the layout of the various forensic machine reports."
+  - tweak: "Each report from the forensic machines are now numbered per evidence type (fiber, fingerprint, GSR, DNA) rather than combined amount of reports."
+  - bugfix: "Gunshot residue now shows all residue on something rather than only the most recent."
