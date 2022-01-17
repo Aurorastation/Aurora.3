@@ -4771,6 +4771,30 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "dionatail"
 			body_parts = list(BP_GROIN)
 			do_colouration = FALSE
+			
+		right_arm
+			name = "Diona Right Arm Alt"
+			icon_state = "altrarm"
+			body_parts = list(BP_R_ARM, BP_R_HAND)
+			do_colouration = FALSE
+
+		left_arm
+			name = "Diona Left Arm Alt"
+			icon_state = "altlarm"
+			body_parts = list(BP_L_ARM, BP_L_HAND)
+			do_colouration = FALSE
+
+		right_leg
+			name = "Diona Right Leg Alt"
+			icon_state = "altrleg"
+			body_parts = list(BP_R_LEG, BP_R_FOOT)
+			do_colouration = FALSE
+
+		left_leg
+			name = "Diona Left Leg Alt"
+			icon_state = "altlleg"
+			body_parts = list(BP_L_LEG, BP_L_FOOT)
+			do_colouration = FALSE
 
 //bishop
 	bishop_lights
