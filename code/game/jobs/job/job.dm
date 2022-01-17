@@ -119,8 +119,8 @@
 			var/datum/faction/F = faction
 			if(!F.is_default)
 				var/new_outfit = F.titles_to_loadout[title]
-				var/datum/outfit/O = new new_outfit
-				if(O)
+				if(ispath(new_outfit))
+					var/datum/outfit/O = new new_outfit
 					O.pre_equip(H, TRUE)
 					O.equip(H, TRUE)
 					return

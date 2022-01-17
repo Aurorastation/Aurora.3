@@ -1,7 +1,0 @@
-author: listerla
-
-delete-after: True
-
-changes:
-  - bugfix: "Warding sphere sheath animation no longer makes the entire sprite relocate downwards."
-
