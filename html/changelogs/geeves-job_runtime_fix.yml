@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed a bug where faction overrides caused certain occupations to runtime when creating their outfits."
