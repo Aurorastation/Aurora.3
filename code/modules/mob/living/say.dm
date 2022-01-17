@@ -124,13 +124,13 @@ proc/get_radio_key_from_channel(var/channel)
 	returns[4] = world.view
 	return returns
 
-/mob/living/proc/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio)
+/mob/living/proc/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio, whisper)
 	if(message_mode == "intercom")
 		for(var/obj/item/device/radio/intercom/I in view(1, null))
 			used_radios += I
 			if(I.talk_into(src, message, verb, speaking))
 				successful_radio += I
-	if(message_mode == "whisper")
+	if(message_mode == "whisper" && !whisper)
 		whisper(message, speaking)
 		return TRUE
 	return 0
@@ -245,7 +245,7 @@ proc/get_radio_key_from_channel(var/channel)
 
 	var/list/obj/item/used_radios = new
 	var/list/successful_radio = new // passes a list because standard vars don't work when passed
-	if(handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio))
+	if(handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio, whisper))
 		return 1
 
 	var/list/handle_v = handle_speech_sound()

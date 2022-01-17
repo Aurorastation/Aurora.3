@@ -303,7 +303,9 @@
 		/obj/item/surgery/scalpel = 1,
 		/obj/item/surgery/surgicaldrill = 1,
 		/obj/item/autopsy_scanner = 1,
-		/obj/item/device/mass_spectrometer = 1
+		/obj/item/device/mass_spectrometer = 1,
+		/obj/item/reagent_containers/glass/beaker/vial = 1,
+		/obj/item/reagent_containers/syringe = 1
 	)
 
 	can_hold = list(

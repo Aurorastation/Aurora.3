@@ -161,8 +161,8 @@
 		return headsets[headsets[1]]
 	return null
 
-/mob/living/carbon/human/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio)
-	if(paralysis || InStasis())
+/mob/living/carbon/human/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio, whisper)
+	if(!whisper && (paralysis || InStasis()))
 		whisper(message, speaking)
 		return TRUE
 	switch(message_mode)

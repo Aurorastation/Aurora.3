@@ -20,8 +20,8 @@
 	returns[4] = world.view
 	return returns
 
-/mob/living/silicon/robot/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
-	if(message_mode == "whisper")
+/mob/living/silicon/robot/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio, whisper)
+	if(message_mode == "whisper" && !whisper)
 		whisper(message, speaking)
 		return TRUE
 	if(message_mode)
@@ -36,8 +36,8 @@
 /mob/living/silicon/robot/drone/handle_message_mode()
 	return null
 
-/mob/living/silicon/ai/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
-	if(message_mode == "whisper")
+/mob/living/silicon/ai/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio, whisper)
+	if(message_mode == "whisper" && !whisper)
 		whisper(message, speaking)
 		return TRUE
 	if(message_mode == "department")
@@ -52,9 +52,9 @@
 		log_say("[key_name(src)] : [message]",ckey=key_name(src))
 		return ai_radio.talk_into(src, message, message_mode, verb, speaking)
 
-/mob/living/silicon/pai/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
+/mob/living/silicon/pai/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio, whisper)
 	if(message_mode)
-		if(message_mode == "whisper")
+		if(message_mode == "whisper" && !whisper)
 			whisper(message, speaking)
 			return TRUE
 		if(message_mode == "general")
