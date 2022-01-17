@@ -46,6 +46,10 @@
 			/obj/structure/window/full,
 			/obj/structure/window/full/phoron
 		)
+		if(istype(src, /turf/simulated/wall/r_wall))
+			LAZYADD(canSmoothWith, /turf/simulated/wall)
+		if(src.type == /turf/simulated/wall)
+			LAZYADD(canSmoothWith, /turf/simulated/wall/r_wall)
 	. = ..()
 	if(!use_set_icon_state)
 		icon_state = "blank"
