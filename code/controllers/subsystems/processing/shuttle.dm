@@ -22,6 +22,7 @@ var/datum/controller/subsystem/processing/shuttle/SSshuttle
 	var/list/landmarks_still_needed = list()     //Stores landmark_tags that need to be assigned to the sector (landmark_tag = sector) when registered.
 	var/list/shuttles_to_initialize = list()     //A queue for shuttles to initialize at the appropriate time.
 	var/list/sectors_to_initialize               //Used to find all sector objects at the appropriate time.
+	var/list/initialized_sectors = list()
 	var/block_queue = TRUE
 
 	var/tmp/list/working_shuttles
@@ -115,6 +116,8 @@ var/datum/controller/subsystem/processing/shuttle/SSshuttle
 		if(landmark.z in given_sector.map_z)
 			given_sector.add_landmark(landmark, landmark.shuttle_restricted)
 			landmarks_awaiting_sector -= landmark
+
+	initialized_sectors |= given_sector
 
 /datum/controller/subsystem/processing/shuttle/proc/try_add_landmark_tag(landmark_tag, obj/effect/overmap/visitable/given_sector)
 	var/obj/effect/shuttle_landmark/landmark = get_landmark(landmark_tag)
