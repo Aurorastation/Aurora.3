@@ -64,7 +64,7 @@
 	. = ..()
 
 	set_light(1.2, 3, LIGHT_COLOR_BLUE)
-	
+
 	if(prob(5))
 		projectiletype = /obj/item/projectile/beam/pulse/drone
 		projectilesound = 'sound/weapons/pulse2.ogg'
@@ -106,8 +106,8 @@
 		else
 			to_chat(user, SPAN_WARNING("Most of its lights are off, and its targetting vanes are retracted."))
 
-/mob/living/simple_animal/hostile/icarus_drone/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
-	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
+/mob/living/simple_animal/hostile/icarus_drone/do_animate_chat(var/message, var/datum/language/language, var/font_size, var/list/show_to, var/duration, var/list/message_override)
+	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, font_size, show_to, duration)
 
 /mob/living/simple_animal/hostile/icarus_drone/Allow_Spacemove(var/check_drift = 0)
 	return TRUE

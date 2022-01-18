@@ -767,8 +767,8 @@
 	var/can_ghosts_hear = client ? GHOSTS_ALL_HEAR : ONLY_GHOSTS_IN_VIEW
 	..(message, null, verb, ghost_hearing = can_ghosts_hear)
 
-/mob/living/simple_animal/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
-	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, pick(speak), language, small, show_to, duration)
+/mob/living/simple_animal/do_animate_chat(var/message, var/datum/language/language, var/font_size, var/list/show_to, var/duration, var/list/message_override)
+	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, pick(speak), language, font_size, show_to, duration)
 
 /mob/living/simple_animal/get_speech_ending(verb, var/ending)
 	return verb

@@ -310,7 +310,11 @@ proc/get_radio_key_from_channel(var/channel)
 	var/image/speech_bubble = image(get_talk_bubble(),src,"h[speech_bubble_test]")
 	speech_bubble.appearance_flags = RESET_COLOR|RESET_ALPHA
 	INVOKE_ASYNC(GLOBAL_PROC, /proc/animate_speechbubble, speech_bubble, hear_clients, 30)
-	do_animate_chat(message, speaking, italics, hear_clients, 30)
+
+	var/animate_fontsize = italics ? 5 : 6
+	if(font_size > FONT_SIZE_NORMAL)
+		animate_fontsize += 2
+	do_animate_chat(message, speaking, animate_fontsize, hear_clients, 30)
 
 	var/bypass_listen_obj = (speaking && (speaking.flags & PASSLISTENOBJ))
 	if(!bypass_listen_obj)
@@ -323,8 +327,8 @@ proc/get_radio_key_from_channel(var/channel)
 
 	return 1
 
-/mob/living/proc/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration)
-	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
+/mob/living/proc/do_animate_chat(var/message, var/datum/language/language, var/font_size, var/list/show_to, var/duration)
+	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, font_size, show_to, duration)
 
 /proc/animate_speechbubble(image/I, list/show_to, duration)
 	var/matrix/M = matrix()
