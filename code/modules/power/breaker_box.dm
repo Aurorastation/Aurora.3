@@ -41,7 +41,6 @@
 /obj/machinery/power/breakerbox/activated/LateInitialize()
 	set_state(1)
 
->>>>>>> master
 /obj/machinery/power/breakerbox/examine(mob/user)
 	..()
 	if(on)
