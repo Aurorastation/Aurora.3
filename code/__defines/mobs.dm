@@ -446,3 +446,15 @@
 #define ROBOT_PANEL_NO_CELL  "no cell"
 
 #define BLOOD_REGEN_RATE 0.1
+
+
+
+// Say modifiers
+#define SAY_MOD_MESSAGE "message"
+#define SAY_MOD_VERB "verb"
+#define SAY_MOD_SPEAKING "speaking"
+#define SAY_MOD_ALT_NAME "alt_name"
+#define SAY_MOD_ITALICS "italics"
+#define SAY_MOD_SPEECH_SOUND "speech_sound"
+#define SAY_MOD_SOUND_VOL "sound_vol"
+#define SAY_MOD_FONT_SIZE "font_size"

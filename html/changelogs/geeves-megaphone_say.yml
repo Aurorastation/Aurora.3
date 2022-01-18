@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Megaphones now work by turning them on and having them in either of your hands when speaking normally. They increase the size of your speech and sets the speaking verb to broadcasts."
+  - rscdel: "Megaphones can no longer be emagged."
+  - rscadd: "Exosuit megaspeakers now change your speech verb to broadcasts and gives any Tajara listening intently ear pain."

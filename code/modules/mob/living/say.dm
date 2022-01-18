@@ -149,13 +149,6 @@ proc/get_radio_key_from_channel(var/channel)
 		return "asks"
 	return verb
 
-/mob/living/proc/get_font_size_modifier()
-	if(ismech(loc))
-		var/mob/living/heavy_vehicle/HV = loc
-		if(HV.loudening)
-			return FONT_SIZE_LARGE
-	return null
-
 /mob/living/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
 	if(stat)
 		if(stat == DEAD)
@@ -292,10 +285,24 @@ proc/get_radio_key_from_channel(var/channel)
 
 		get_mobs_and_objs_in_view_fast(T, message_range, listening, listening_obj, ghost_hearing)
 
+	if(whisper)
+		log_whisper("[key_name(src)] : ([get_lang_name(speaking)]) [message]",ckey=key_name(src))
+	else
+		log_say("[key_name(src)] : ([get_lang_name(speaking)]) [message]",ckey=key_name(src))
+
 	var/list/hear_clients = list()
-	for(var/m in listening)
-		var/mob/M = m
-		var/heard_say = M.hear_say(message, verb, speaking, alt_name, italics, src, speech_sound, sound_vol, get_font_size_modifier())
+	var/list/hear_say_list = list(SAY_MOD_MESSAGE = message, SAY_MOD_VERB = verb, SAY_MOD_SPEAKING = speaking, SAY_MOD_ALT_NAME = alt_name, SAY_MOD_ITALICS = italics, SAY_MOD_SPEECH_SOUND = speech_sound, SAY_MOD_SOUND_VOL = sound_vol, SAY_MOD_FONT_SIZE = FONT_SIZE_NORMAL)
+	SEND_SIGNAL(src, COMSIG_SAY_MODIFIER, hear_say_list)
+	message = hear_say_list[SAY_MOD_MESSAGE]
+	verb = hear_say_list[SAY_MOD_VERB]
+	speaking = hear_say_list[SAY_MOD_SPEAKING]
+	alt_name = hear_say_list[SAY_MOD_ALT_NAME]
+	italics = hear_say_list[SAY_MOD_ITALICS]
+	speech_sound = hear_say_list[SAY_MOD_SPEECH_SOUND]
+	sound_vol = hear_say_list[SAY_MOD_SOUND_VOL]
+	var/font_size = hear_say_list[SAY_MOD_FONT_SIZE]
+	for(var/mob/M as anything in listening)
+		var/heard_say = M.hear_say(message, verb, speaking, alt_name, italics, src, speech_sound, sound_vol, font_size)
 		if(heard_say && M.client)
 			hear_clients += M.client
 
@@ -313,11 +320,6 @@ proc/get_radio_key_from_channel(var/channel)
 
 	if(mind)
 		mind.last_words = message
-
-	if(whisper)
-		log_whisper("[key_name(src)] : ([get_lang_name(speaking)]) [message]",ckey=key_name(src))
-	else
-		log_say("[key_name(src)] : ([get_lang_name(speaking)]) [message]",ckey=key_name(src))
 
 	return 1
 

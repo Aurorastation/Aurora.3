@@ -1671,8 +1671,12 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "akinyi_mic"
 	w_class = ITEMSIZE_SMALL
 	contained_sprite = TRUE
-	activation_sound = null
-	needs_user_location = FALSE
+	speech_sound = null
+
+/obj/item/device/megaphone/fluff/akinyi_mic/modify_say(mob/M, list/say_modifiers) // not a foolproof update, but will avoid most of the oddities with the megaphone rewrite
+	if(loc != M && get_dist(get_turf(src), M) > 1)
+		return
+	return ..()
 
 /obj/item/fluff/akinyi_stand //Telescopic Mic Stand - Akinyi Idowu - kyres1
 	name = "telescopic mic stand"

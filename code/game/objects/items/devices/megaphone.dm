@@ -10,59 +10,42 @@
 	w_class = ITEMSIZE_SMALL
 	flags = CONDUCT
 
-	var/spamcheck = 0
-	var/emagged = 0
-	var/insults = 0
-	var/list/insultmsg = list("FUCK EVERYONE!", "I'M A TATER!", "ALL SECURITY TO SHOOT ME ON SIGHT!", "I HAVE A BOMB!", "CAPTAIN IS A COMDOM!", "FOR THE SYNDICATE!")
-	var/activation_sound = 'sound/items/megaphone.ogg'
-	var/needs_user_location = TRUE
+	var/active = FALSE
+	var/speech_sound = 'sound/items/megaphone.ogg'
 
-/obj/item/device/megaphone/attack_self(mob/living/user as mob)
-	if(user.client)
-		if(user.client.prefs.muted & MUTE_IC)
-			to_chat(src, SPAN_WARNING("You cannot speak in IC (muted)."))
-			return
-	if(!ishuman(user))
-		to_chat(user, SPAN_WARNING("You don't know how to use this!"))
-		return
-	if(user.silent)
-		return
-	if(spamcheck > world.time)
-		to_chat(user, SPAN_WARNING("\The [src] needs to recharge!"))
-		return
+/obj/item/device/megaphone/handle_pickup_drop(var/mob/M, var/picked_up = TRUE)
+	..()
+	handle_signals(M, !picked_up)
 
-	var/message = sanitize(input(user, "Shout a message?", "Megaphone", null)  as text)
-	if(!message)
-		return
-	message = capitalize(message)
-	if ((user.stat == CONSCIOUS))
-		if(needs_user_location)
-			if(!src.loc == user)
-				return
-		if(emagged)
-			if(insults)
-				user.audible_message("<B>[user]</B> broadcasts, <FONT size=3>\"[pick(insultmsg)]\"</FONT>", "<B>[user]</B> speaks into \the [src].", 7)
-				insults--
+/obj/item/device/megaphone/equipped(mob/user, slot, assisted_equip)
+	. = ..()
+	if(!(slot in list(slot_r_hand, slot_l_hand)))
+		handle_signals(user, TRUE)
+
+/obj/item/device/megaphone/attack_self(mob/user)
+	active = !active
+	to_chat(user, SPAN_NOTICE("You turn \the [src] [active ? "on" : "off"]."))
+	handle_signals(user)
+
+/obj/item/device/megaphone/proc/handle_signals(var/mob/M, var/disable = FALSE)
+	if(active && !disable)
+		RegisterSignal(M, COMSIG_SAY_MODIFIER, .proc/modify_say)
+	else
+		UnregisterSignal(M, COMSIG_SAY_MODIFIER)
+
+/obj/item/device/megaphone/proc/modify_say(var/mob/M, var/list/say_modifiers)
+	if(say_modifiers[SAY_MOD_FONT_SIZE] < FONT_SIZE_LARGE)
+		say_modifiers[SAY_MOD_FONT_SIZE] = FONT_SIZE_LARGE
+	say_modifiers[SAY_MOD_VERB] = "broadcasts"
+
+	var/turf/T = get_turf(src)
+	if(T)
+		playsound(T, speech_sound, 100, FALSE, 1)
+		for(var/mob/living/carbon/human/H in range(T, 2) - M)
+			if(get_dist(T, H) < 1) // within one tile
+				H.earpain(3, TRUE, 2)
 			else
-				to_chat(user, SPAN_WARNING("*BZZZZzzzzzt*"))
-		else
-			user.audible_message("<B>[user]</B> broadcasts, <FONT size=3>\"[message]\"</FONT>", "<B>[user]</B> speaks into \the [src].", 7)
-		if(activation_sound)
-			playsound(loc, activation_sound, 100, 0, 1)
-		for (var/mob/living/carbon/human/C in range(user, 2) - user)
-			if (C in range(user, 1))
-				C.earpain(3, TRUE, 2)
-			else
-				C.earpain(2, TRUE, 2)
-		spamcheck = world.time + 50
-		return
-
-/obj/item/device/megaphone/emag_act(var/remaining_charges, var/mob/user)
-	if(!emagged)
-		to_chat(user, SPAN_WARNING("You overload \the [src]'s voice synthesizer."))
-		emagged = 1
-		insults = rand(1, 3)//to prevent dickflooding
-		return 1
+				H.earpain(2, TRUE, 2)
 
 /obj/item/device/megaphone/red
 	name = "red megaphone"
