@@ -260,6 +260,10 @@
 			for(var/obj/machinery/door/airlock/phoron/D in range(3,src))
 				D.ignite(temperature/4)
 
+
 /turf/simulated/wall/proc/set_wall_smooth()
 	if(src.type == /turf/simulated/wall) //Only does this for basic walls, not every type of wall
 		LAZYADD(canSmoothWith, /turf/simulated/wall/r_wall)
+
+/turf/simulated/wall/is_wall()
+	return TRUE
