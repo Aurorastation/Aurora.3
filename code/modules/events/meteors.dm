@@ -19,16 +19,16 @@
 	endWhen = worst_case_end()
 
 /datum/event/meteor_wave/announce()
-	command_announcement.Announce(current_map.meteors_detected_message, "Meteor Alert", new_sound = 'sound/AI/meteors.ogg')
+	command_announcement.Announce(current_map.meteors_detected_message, "Meteor Alert", new_sound = 'sound/AI/meteors.ogg', zlevels = affecting_z)
 
 /datum/event/meteor_wave/start()
-	command_announcement.Announce(current_map.meteor_contact_message, "Meteor Alert")
+	command_announcement.Announce(current_map.meteor_contact_message, "Meteor Alert", zlevels = affecting_z)
 
 /datum/event/meteor_wave/end(var/faked)
 	if(faked)
 		return
 	spawn(100)//We give 10 seconds before announcing, for the last wave of meteors to hit the station
-		command_announcement.Announce(current_map.meteor_end_message, "Meteor Alert")
+		command_announcement.Announce(current_map.meteor_end_message, "Meteor Alert", zlevels = affecting_z)
 
 /datum/event/meteor_wave/tick()
 
@@ -40,7 +40,7 @@
 
 /datum/event/meteor_wave/proc/send_wave()
 	var/pick_side = prob(80) ? start_side : (prob(50) ? turn(start_side, 90) : turn(start_side, -90))
-	spawn() spawn_meteors(get_wave_size(), get_meteors(), pick_side, pick(current_map.meteor_levels))
+	spawn() spawn_meteors(get_wave_size(), get_meteors(), pick_side, pick(affecting_z))
 	next_meteor += rand(next_meteor_lower, next_meteor_upper) / severity
 	waves--
 	endWhen = worst_case_end()
@@ -102,16 +102,16 @@
 	return downed_ship_meteors
 
 /datum/event/meteor_wave/downed_ship/announce()
-	command_announcement.Announce(current_map.ship_meteor_end_message, "Ship Debris Alert", new_sound = 'sound/AI/unknownvesseldowned.ogg')
+	command_announcement.Announce(current_map.ship_meteor_end_message, "Ship Debris Alert", new_sound = 'sound/AI/unknownvesseldowned.ogg', zlevels = affecting_z)
 
 /datum/event/meteor_wave/downed_ship/start()
-	command_announcement.Announce(current_map.ship_meteor_contact_message, "Ship Debris Alert")
+	command_announcement.Announce(current_map.ship_meteor_contact_message, "Ship Debris Alert", zlevels = affecting_z)
 
 /datum/event/meteor_wave/downed_ship/end(var/faked)
 	if(faked)
 		return
 	spawn(100)//We give 10 seconds before announcing, for the last wave of meteors to hit the station
-		command_announcement.Announce(current_map.ship_meteor_end_message, "Ship Debris Alert")
+		command_announcement.Announce(current_map.ship_meteor_end_message, "Ship Debris Alert", zlevels = affecting_z)
 
 /datum/event/meteor_wave/overmap
 	next_meteor_lower = 5
@@ -120,6 +120,9 @@
 
 /datum/event/meteor_wave/overmap/announce()
 	return
+
+/datum/event/meteor_wave/get_wave_size()
+	return INFINITY
 
 /datum/event/meteor_wave/dust
 	ic_name = "a dust belt"
@@ -146,3 +149,6 @@
 
 /datum/event/meteor_wave/dust/overmap/announce()
 	return
+
+/datum/event/meteor_wave/get_wave_size()
+	return INFINITY

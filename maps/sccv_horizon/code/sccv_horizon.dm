@@ -33,6 +33,9 @@
 	command_spawn_message = "Welcome to the SCCV Horizon!"
 
 	use_overmap = TRUE
+	num_exoplanets = 2
+	planet_size = list(50,50)
+	overmap_event_areas = 15
 
 	station_networks = list(
 		NETWORK_COMMAND,
