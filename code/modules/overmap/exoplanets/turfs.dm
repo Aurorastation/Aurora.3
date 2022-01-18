@@ -161,9 +161,8 @@
 	icon = 'icons/turf/flooring/misc.dmi'
 	icon_state = "concrete"
 
-//Special world edge turf
-
-/turf/simulated/planet_edge
+//Special world edge turf,
+/turf/unsimulated/planet_edge
 	name = "world's edge"
 	desc = "Government didn't want you to see this!"
 	density = TRUE
@@ -172,23 +171,22 @@
 	icon = null
 	icon_state = null
 
-/turf/simulated/planet_edge/Initialize()
+/turf/unsimulated/planet_edge/Initialize()
 	. = ..()
 	var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
 	if(!istype(E))
 		return
-
 	var/nx = x
 	if (x <= TRANSITIONEDGE)
-		nx = x + (E.maxx - 2*TRANSITIONEDGE)
-	else if (x >= (E.maxx - TRANSITIONEDGE + 1))
-		nx = x - (E.maxx  - 2*TRANSITIONEDGE)
+		nx = x + (E.maxx - 2*TRANSITIONEDGE) - 1
+	else if (x >= (E.maxx - TRANSITIONEDGE))
+		nx = x - (E.maxx  - 2*TRANSITIONEDGE) + 1
 
 	var/ny = y
 	if(y <= TRANSITIONEDGE)
-		ny = y + (E.maxy - 2*TRANSITIONEDGE)
-	else if (y >= (E.maxy - TRANSITIONEDGE + 1))
-		ny = y - (E.maxy - 2*TRANSITIONEDGE)
+		ny = y + (E.maxy - 2*TRANSITIONEDGE) - 1
+	else if (y >= (E.maxy - TRANSITIONEDGE))
+		ny = y - (E.maxy - 2*TRANSITIONEDGE) + 1
 
 	var/turf/NT = locate(nx, ny, z)
 	if(NT)
@@ -200,7 +198,7 @@
 	O.name = "distant terrain"
 	O.desc = "You need to come over there to take a better look."
 
-/turf/simulated/planet_edge/CollidedWith(atom/movable/A)
+/turf/unsimulated/planet_edge/CollidedWith(atom/movable/A)
 	. = ..()
 	var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
 	if(!istype(E))
@@ -210,12 +208,12 @@
 	var/new_x = A.x
 	var/new_y = A.y
 	if(x <= TRANSITIONEDGE)
-		new_x = E.maxx - TRANSITIONEDGE
-	else if (x >= (E.maxx - TRANSITIONEDGE + 1))
+		new_x = E.maxx - TRANSITIONEDGE - 1
+	else if (x >= (E.maxx - TRANSITIONEDGE))
 		new_x = TRANSITIONEDGE + 1
 	else if (y <= TRANSITIONEDGE)
-		new_y = E.maxy - TRANSITIONEDGE
-	else if (y >= (E.maxy - TRANSITIONEDGE + 1))
+		new_y = E.maxy - TRANSITIONEDGE - 1
+	else if (y >= (E.maxy - TRANSITIONEDGE))
 		new_y = TRANSITIONEDGE + 1
 
 	var/turf/T = locate(new_x, new_y, A.z)

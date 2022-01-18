@@ -172,21 +172,20 @@
 
 	for(var/datum/exoplanet_theme/T as anything in themes)
 		T.before_map_generation(src)
-	for(var/zlevel in map_z)
-		for(var/map_type in map_generators)
-			if(ispath(map_type, /datum/random_map/noise/exoplanet))
-				var/datum/random_map/noise/exoplanet/RM = new map_type(null,1,1,zlevel,maxx,maxy,0,1,1,planetary_area, plant_colors)
-				get_biostuff(RM)
-			else
-				new map_type(null,1,1,zlevel,maxx,maxy,0,1,1,planetary_area)
-
+	for (var/zlevel in map_z)
 		var/list/edges
 		edges += block(locate(1, 1, zlevel), locate(TRANSITIONEDGE, maxy, zlevel))
-		edges |= block(locate(maxx-TRANSITIONEDGE+1, 1, zlevel),locate(maxx, maxy, zlevel))
+		edges |= block(locate(maxx-TRANSITIONEDGE, 1, zlevel),locate(maxx, maxy, zlevel))
 		edges |= block(locate(1, 1, zlevel), locate(maxx, TRANSITIONEDGE, zlevel))
-		edges |= block(locate(1, maxy-TRANSITIONEDGE+1, zlevel),locate(maxx, maxy, zlevel))
-		for(var/turf/T in edges)
-			T.ChangeTurf(/turf/simulated/planet_edge)
+		edges |= block(locate(1, maxy-TRANSITIONEDGE, zlevel),locate(maxx, maxy, zlevel))
+		for (var/turf/T in edges)
+			T.ChangeTurf(/turf/unsimulated/planet_edge)
+		var/padding = TRANSITIONEDGE
+		for (var/map_type in map_generators)
+			if (ispath(map_type, /datum/random_map/noise/exoplanet))
+				new map_type(null,padding,padding,zlevel,maxx-padding,maxy-padding,0,1,1,planetary_area, plant_colors)
+			else
+				new map_type(null,1,1,zlevel,maxx,maxy,0,1,1,planetary_area)
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_features()
 	spawned_features = seedRuins(map_z, features_budget, possible_features, /area/exoplanet, maxx, maxy)
