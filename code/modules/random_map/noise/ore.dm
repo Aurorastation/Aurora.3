@@ -96,3 +96,8 @@
 		return "R"
 	else
 		return "D"
+
+/datum/random_map/noise/ore/rich
+	deep_val = 0.7
+	rare_val = 0.5
+	
