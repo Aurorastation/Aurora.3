@@ -34,8 +34,8 @@
 
 	use_overmap = TRUE
 	num_exoplanets = 2
-	planet_size = list(50,50)
 	overmap_event_areas = 15
+	planet_size = list(255,255)
 
 	station_networks = list(
 		NETWORK_COMMAND,
