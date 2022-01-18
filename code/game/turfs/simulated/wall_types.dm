@@ -4,6 +4,9 @@
 /turf/simulated/wall/r_wall/Initialize(mapload)
 	. = ..(mapload, "plasteel","plasteel") //3strong
 
+/turf/simulated/wall/r_wall/set_wall_smooth()
+	LAZYADD(canSmoothWith, /turf/simulated/wall)
+
 /turf/simulated/wall/cult
 	icon_state = "cult"
 	desc = "Hideous images dance beneath the surface."
