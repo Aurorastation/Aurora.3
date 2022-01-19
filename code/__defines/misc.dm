@@ -494,3 +494,4 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define TEMPLATE_FLAG_NO_RADS          16// Removes all radiation from the template after spawning.
 
 
+#define LANDING_ZONE_RADIUS 15 // Used for autoplacing landmarks on exoplanets

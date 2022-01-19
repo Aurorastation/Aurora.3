@@ -61,12 +61,9 @@
 	desc = "A phoron rich asteroid."
 	map_generators = list(/datum/random_map/noise/exoplanet/barren/asteroid, /datum/random_map/noise/ore/rich/phoron)
 
-/area/exoplanet/barren/asteroid
-	base_turf = /turf/unsimulated/floor/asteroid/ash
-
 /datum/random_map/noise/exoplanet/barren/asteroid
 	descriptor = "asteroid exoplanet"
 	smoothing_iterations = 4
-	land_type = /turf/unsimulated/floor/asteroid/ash
 	fauna_prob = 1
 	fauna_types = list(/mob/living/simple_animal/carp, /mob/living/simple_animal/hostile/retaliate/cavern_dweller)
+
