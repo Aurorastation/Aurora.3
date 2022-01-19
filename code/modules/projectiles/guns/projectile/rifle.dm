@@ -332,6 +332,8 @@
 	name = "gauss carbine"
 	desc = "A simple gun utilizing the gauss technology. It is still reliable and cheap despite being outdated."
 	icon = 'icons/obj/guns/gauss_carbine.dmi'
+	icon_state = "gauss_carbine"
+	item_state = "gauss_carbine"
 	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BACK
 	ammo_type = /obj/item/ammo_casing/gauss/carbine
@@ -341,6 +343,13 @@
 
 	fire_delay_wielded = 20
 	accuracy_wielded = 1
+
+/obj/item/gun/projectile/gauss/carbine/update_icon()
+	..()
+	if(loaded.len)
+		icon_state = "gauss_carbine"
+	else
+		icon_state = "gauss_carbine-e"
 
 /obj/item/gun/projectile/gauss/carbine/special_check(mob/user)
 	if(!wielded)
