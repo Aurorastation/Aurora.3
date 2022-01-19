@@ -10,7 +10,6 @@ var/datum/controller/subsystem/atlas/SSatlas
 	init_order = SS_INIT_MAPLOAD
 
 	var/list/known_maps = list()
-	var/dmm_suite/maploader
 	var/list/height_markers = list()
 
 	var/list/mapload_callbacks = list()
@@ -33,8 +32,6 @@ var/datum/controller/subsystem/atlas/SSatlas
 	if (world.maxx != WORLD_MIN_SIZE || world.maxy != WORLD_MIN_SIZE || world.maxz != 1)
 		to_world("<span class='warning'>WARNING: Suspected pre-compiled map: things may break horribly!</span>")
 		log_ss("atlas", "-- WARNING: Suspected pre-compiled map! --")
-
-	maploader = new
 
 	var/datum/map/M
 	for (var/type in subtypesof(/datum/map))
@@ -75,8 +72,6 @@ var/datum/controller/subsystem/atlas/SSatlas
 		world.map_panic("No maps loaded!")
 
 	setup_multiz()
-
-	QDEL_NULL(maploader)
 
 	InitializeSectors()
 

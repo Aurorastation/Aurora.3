@@ -122,3 +122,5 @@
 #define isdatum(target) istype(target, /datum)
 #define isitem(D) istype(D, /obj/item)
 #define islist(D) istype(D, /list)
+
+#define regex_find(RE, ARGS...) RE.Find(ARGS)

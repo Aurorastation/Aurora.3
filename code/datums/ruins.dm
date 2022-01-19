@@ -10,11 +10,13 @@
 	var/list/sectors = list() //This ruin can only spawn in the sectors in this list.
 
 	var/prefix = null
-	var/suffix = null
+	var/suffixes = null
 	template_flags = 0 // No duplicates by default
 
 /datum/map_template/ruin/New()
-	if (suffix)
-		mappath += (prefix + suffix)
+	if (suffixes)
+		mappaths = list()
+		for (var/suffix in suffixes)
+			mappaths += (prefix + suffix)
 
 	..()

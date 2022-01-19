@@ -78,6 +78,7 @@ var/list/banned_ruin_ids = list()
 		var/turf/T = i
 		for(var/mob/living/simple_animal/monster in T)
 			qdel(monster)
+	testing("Template: [template]")
 	template.load(central_turf,centered = TRUE)
 	var/datum/map_template/ruin = template
 	if(istype(ruin))

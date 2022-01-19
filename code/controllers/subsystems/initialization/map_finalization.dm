@@ -5,7 +5,6 @@
 	flags = SS_NO_FIRE | SS_NO_DISPLAY
 	init_order = SS_INIT_MAPFINALIZE
 
-	var/dmm_suite/maploader
 	var/datum/away_mission/selected_mission
 
 /datum/controller/subsystem/finalize/Initialize(timeofday)
@@ -110,8 +109,6 @@
 	return
 
 /datum/controller/subsystem/finalize/proc/load_space_ruin()
-	maploader = new
-
 	if(!selected_mission)
 		log_ss("map_finalization", "Not loading away mission, because no mission has been selected.")
 		admin_notice(SPAN_DANGER("Not loading away mission, because no mission has been selected."), R_DEBUG)
@@ -128,14 +125,12 @@
 			log_ss("map_finalization", "Loaded away mission on z [world.maxz] in [(world.time - time)/10] seconds.")
 			admin_notice(SPAN_DANGER("Loaded away mission on z [world.maxz] in [(world.time - time)/10] seconds."), R_DEBUG)
 			current_map.restricted_levels.Add(world.maxz)
-	QDEL_NULL(maploader)
 
 /datum/controller/subsystem/finalize/proc/place_dungeon_spawns()
 	var/map_directory = "maps/dungeon_spawns/"
 	var/list/files = flist(map_directory)
 	var/start_time = world.time
 	var/dungeons_placed = 0
-	var/dmm_suite/maploader = new
 
 	var/dungeon_chance = config.dungeon_chance
 
@@ -169,8 +164,6 @@
 				files -= chosen_dungeon
 
 	log_ss("map_finalization","Loaded [dungeons_placed] asteroid dungeons in [(world.time - start_time)/10] seconds.")
-
-	qdel(maploader)
 
 /datum/controller/subsystem/finalize/proc/generate_contact_report()
 	if(!selected_mission)

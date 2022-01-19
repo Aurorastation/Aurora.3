@@ -1,10 +1,68 @@
+/*
+	dmm_suite version 1.0
+		Released January 30th, 2011.
+
+	NOTE: Map saving functionality removed
+
+	defines the object /dmm_suite
+		- Provides the proc load_map()
+			- Loads the specified map file onto the specified z-level.
+		- provides the proc write_map()
+			- Returns a text string of the map in dmm format
+				ready for output to a file.
+		- provides the proc save_map()
+			- Returns a .dmm file if map is saved
+			- Returns FALSE if map fails to save
+
+	The dmm_suite provides saving and loading of map files in BYOND's native DMM map
+	format. It approximates the map saving and loading processes of the Dream Maker
+	and Dream Seeker programs so as to allow editing, saving, and loading of maps at
+	runtime.
+
+	------------------------
+
+	To save a map at runtime, create an instance of /dmm_suite, and then call
+	write_map(), which accepts three arguments:
+		- A turf representing one corner of a three dimensional grid (Required).
+		- Another turf representing the other corner of the same grid (Required).
+		- Any, or a combination, of several bit flags (Optional, see documentation).
+
+	The order in which the turfs are supplied does not matter, the /dmm_writer will
+	determine the grid containing both, in much the same way as DM's block() function.
+	write_map() will then return a string representing the saved map in dmm format;
+	this string can then be saved to a file, or used for any other purose.
+
+	------------------------
+
+	To load a map at runtime, create an instance of /dmm_suite, and then call load_map(),
+	which accepts two arguments:
+		- A .dmm file to load (Required).
+		- A number representing the z-level on which to start loading the map (Optional).
+
+	The /dmm_suite will load the map file starting on the specified z-level. If no
+	z-level	was specified, world.maxz will be increased so as to fit the map. Note
+	that if you wish to load a map onto a z-level that already has objects on it,
+	you will have to handle the removal of those objects. Otherwise the new map will
+	simply load the new objects on top of the old ones.
+
+	Also note that all type paths specified in the .dmm file must exist in the world's
+	code, and that the /dmm_reader trusts that files to be loaded are in fact valid
+	.dmm files. Errors in the .dmm format will cause runtime errors.
+
+	*/
+
 ///////////////////////////////////////////////////////////////
 //SS13 Optimized Map loader
 //////////////////////////////////////////////////////////////
 
 //global datum that will preload variables on atoms instanciation
-var/global/use_preloader = FALSE
-var/global/dmm_suite/preloader/_preloader = new
+var/use_preloader = FALSE
+var/dmm_suite/preloader/_preloader = new()
+var/dmm_suite/maploader = new()
+
+/datum/map_load_metadata
+	var/bounds
+	var/list/atoms_to_initialise
 
 /dmm_suite
 		// /"([a-zA-Z]+)" = \(((?:.|\n)*?)\)\n(?!\t)|\((\d+),(\d+),(\d+)\) = \{"([a-zA-Z\n]*)"\}/g
@@ -29,21 +87,30 @@ var/global/dmm_suite/preloader/_preloader = new
  * 2) Read the map line by line, parsing the result (using parse_grid)
  *
  */
-/dmm_suite/load_map(dmm_file as file, x_offset as num, y_offset as num, z_offset as num, cropMap as num, measureOnly as num, no_changeturf as num, lower_crop_x as num,  lower_crop_y as num, upper_crop_x as num, upper_crop_y as num)
+// dmm_files: A list of .dmm files to load (Required).
+// z_offset: A number representing the z-level on which to start loading the map (Optional).
+// cropMap: When true, the map will be cropped to fit the existing world dimensions (Optional).
+// measureOnly: When true, no changes will be made to the world (Optional).
+// no_changeturf: When true, turf/AfterChange won't be called on loaded turfs
+/dmm_suite/proc/load_map(var/dmm_file, var/x_offset, var/y_offset, var/z_offset, var/cropMap, var/measureOnly, var/no_changeturf, var/clear_contents, var/lower_crop_x, var/lower_crop_y, var/upper_crop_x, var/upper_crop_y, var/initialized_areas_by_type)
 	//How I wish for RAII
 	Master.StartLoadingMap()
 	space_key = null
 	#ifdef TESTING
 	turfsSkipped = 0
 	#endif
-	. = load_map_impl(dmm_file, x_offset, y_offset, z_offset, cropMap, measureOnly, no_changeturf, lower_crop_x, upper_crop_x, lower_crop_y, upper_crop_y)
+	initialized_areas_by_type = initialized_areas_by_type || list()
+	if(!(world.area in initialized_areas_by_type))
+		initialized_areas_by_type[world.area] = locate(world.area)
+	. = load_map_impl(dmm_file, x_offset, y_offset, z_offset, cropMap, measureOnly, no_changeturf, clear_contents, lower_crop_x, upper_crop_x, lower_crop_y, upper_crop_y, initialized_areas_by_type)
 	#ifdef TESTING
 	if(turfsSkipped)
 		testing("Skipped loading [turfsSkipped] default turfs")
 	#endif
 	Master.StopLoadingMap()
+	testing("Map loading over")
 
-/dmm_suite/proc/load_map_impl(dmm_file, x_offset, y_offset, z_offset, cropMap, measureOnly, no_changeturf, x_lower = -INFINITY, x_upper = INFINITY, y_lower = -INFINITY, y_upper = INFINITY)
+/dmm_suite/proc/load_map_impl(dmm_file, x_offset, y_offset, z_offset, cropMap, measureOnly, no_changeturf, clear_contents, x_lower = -INFINITY, x_upper = INFINITY, y_lower = -INFINITY, y_upper = INFINITY, initialized_areas_by_type)
 	var/tfile = dmm_file//the map file we're creating
 	if(isfile(tfile))
 		tfile = file2text(tfile)
@@ -61,7 +128,10 @@ var/global/dmm_suite/preloader/_preloader = new
 
 	var/stored_index = 1
 
-	while(dmmRegex.Find(tfile, stored_index))
+	var/list/atoms_to_initialise = list()
+	var/list/atoms_to_delete = list()
+
+	while(regex_find(dmmRegex, tfile, stored_index))
 		stored_index = dmmRegex.next
 
 		// "aa" = (/type{vars=blah})
@@ -93,8 +163,14 @@ var/global/dmm_suite/preloader/_preloader = new
 			var/ycrd = text2num(dmmRegex.group[4]) + y_offset - 1
 			var/zcrd = text2num(dmmRegex.group[5]) + z_offset - 1
 
+			var/is_connected_to_lower_levels = AreConnectedZLevels(zcrd, z_offset)
+			var/is_on_an_existing_zlevel = zcrd <= world.maxz
+
+			if (is_on_an_existing_zlevel && !is_connected_to_lower_levels)
+				continue
+
 			var/zexpansion = zcrd > world.maxz
-			if(zexpansion)
+			if(zexpansion && !measureOnly) // don't actually expand the world if we're only measuring bounds
 				if(cropMap)
 					continue
 				else
@@ -102,7 +178,7 @@ var/global/dmm_suite/preloader/_preloader = new
 				if(!no_changeturf)
 					WARNING("Z-level expansion occurred without no_changeturf set, this may cause problems when /turf/post_change is called.")
 
-			bounds[MAP_MINX] = min(bounds[MAP_MINX], Clamp(xcrdStart, x_lower, x_upper))
+			bounds[MAP_MINX] = min(bounds[MAP_MINX], clamp(xcrdStart, x_lower, x_upper))
 			bounds[MAP_MINZ] = min(bounds[MAP_MINZ], zcrd)
 			bounds[MAP_MAXZ] = max(bounds[MAP_MAXZ], zcrd)
 
@@ -119,15 +195,15 @@ var/global/dmm_suite/preloader/_preloader = new
 			if(gridLines.len && gridLines[gridLines.len] == "")
 				gridLines.Cut(gridLines.len) // Remove only one blank line at the end.
 
-			bounds[MAP_MINY] = min(bounds[MAP_MINY], Clamp(ycrd, y_lower, y_upper))
+			bounds[MAP_MINY] = min(bounds[MAP_MINY], clamp(ycrd, y_lower, y_upper))
 			ycrd += gridLines.len - 1 // Start at the top and work down
 
 			if(!cropMap && ycrd > world.maxy)
 				if(!measureOnly)
 					world.maxy = ycrd // Expand Y here.  X is expanded in the loop below
-				bounds[MAP_MAXY] = max(bounds[MAP_MAXY], Clamp(ycrd, y_lower, y_upper))
+				bounds[MAP_MAXY] = max(bounds[MAP_MAXY], clamp(ycrd, y_lower, y_upper))
 			else
-				bounds[MAP_MAXY] = max(bounds[MAP_MAXY], Clamp(min(ycrd, world.maxy), y_lower, y_upper))
+				bounds[MAP_MAXY] = max(bounds[MAP_MAXY], clamp(min(ycrd, world.maxy), y_lower, y_upper))
 
 			var/maxx = xcrdStart
 			if(measureOnly)
@@ -156,7 +232,10 @@ var/global/dmm_suite/preloader/_preloader = new
 								if(!no_afterchange || (model_key != space_key))
 									if(!grid_models[model_key])
 										throw EXCEPTION("Undefined model key in DMM.")
-									parse_grid(grid_models[model_key], model_key, xcrd, ycrd, zcrd, no_changeturf || zexpansion)
+									var/datum/grid_load_metadata/M = parse_grid(grid_models[model_key], model_key, xcrd, ycrd, zcrd, no_changeturf || zexpansion, clear_contents, initialized_areas_by_type)
+									if (M)
+										atoms_to_initialise += M.atoms_to_initialise
+										atoms_to_delete += M.atoms_to_delete
 								#ifdef TESTING
 								else
 									++turfsSkipped
@@ -165,8 +244,10 @@ var/global/dmm_suite/preloader/_preloader = new
 							maxx = max(maxx, xcrd)
 							++xcrd
 					--ycrd
+				if (zexpansion)
+					create_lighting_overlays_zlevel(zcrd)
 
-			bounds[MAP_MAXX] = Clamp(max(bounds[MAP_MAXX], cropMap ? min(maxx, world.maxx) : maxx), x_lower, x_upper)
+			bounds[MAP_MAXX] = clamp(max(bounds[MAP_MAXX], cropMap ? min(maxx, world.maxx) : maxx), x_lower, x_upper)
 
 		CHECK_TICK
 
@@ -174,12 +255,13 @@ var/global/dmm_suite/preloader/_preloader = new
 		return null
 	else
 		if(!measureOnly)
-			if(!no_changeturf)
-				for(var/t in block(locate(bounds[MAP_MINX], bounds[MAP_MINY], bounds[MAP_MINZ]), locate(bounds[MAP_MAXX], bounds[MAP_MAXY], bounds[MAP_MAXZ])))
-					var/turf/T = t
-					//we do this after we load everything in. if we don't; we'll have weird atmos bugs regarding atmos adjacent turfs
-					T.post_change(TRUE)
-		return bounds
+			if(clear_contents)
+				for(var/atom/to_delete in atoms_to_delete)
+					qdel(to_delete)
+		var/datum/map_load_metadata/M = new
+		M.bounds = bounds
+		M.atoms_to_initialise = atoms_to_initialise
+		return M
 
 /**
  * Fill a given tile with its area/turf/objects/mobs
@@ -198,7 +280,21 @@ var/global/dmm_suite/preloader/_preloader = new
  * 4) Instanciates the atom with its variables
  *
  */
-/dmm_suite/proc/parse_grid(model as text, model_key as text, xcrd as num,ycrd as num,zcrd as num, no_changeturf as num)
+
+/datum/grid_load_metadata
+	var/list/atoms_to_initialise
+	var/list/atoms_to_delete
+
+/dmm_suite/proc/types_to_delete()
+	return list(
+		/mob/living,
+		/obj/effect,
+		/obj/item,
+		/obj/machinery,
+		/obj/structure,
+	)
+
+/dmm_suite/proc/parse_grid(model as text, model_key as text, xcrd as num,ycrd as num,zcrd as num, no_changeturf as num, clear_contents as num, initialized_areas_by_type)
 	/*Method parse_grid()
 	- Accepts a text string containing a comma separated list of type paths of the
 		same construction as those contained in a .dmm file, and instantiates them.
@@ -230,14 +326,17 @@ var/global/dmm_suite/preloader/_preloader = new
 
 			var/full_def = trim_text(copytext(model, old_position, dpos)) //full definition, e.g : /obj/foo/bar{variables=derp}
 			var/variables_start = findtext(full_def, "{")
-
-			var/path_str = trim_text(copytext(full_def, 1, variables_start))
-			var/atom_def = text2path(path_str) //path definition, e.g /obj/foo/bar
+			var/atom_def = text2path(trim_text(copytext(full_def, 1, variables_start))) //path definition, e.g /obj/foo/bar
 			old_position = dpos + 1
 
 			if(!atom_def) // Skip the item if the path does not exist.  Fix your crap, mappers!
-				crash_with("Invalid type in map. [path_str]")
-				continue
+	#ifdef UNIT_TEST
+				log_error("Couldn't find atom path specified in map: [full_def]")
+	#endif
+				if (dpos == 0)
+					break
+				else
+					continue
 
 			members += atom_def
 
@@ -284,23 +383,28 @@ var/global/dmm_suite/preloader/_preloader = new
 	//The next part of the code assumes there's ALWAYS an /area AND a /turf on a given tile
 	var/turf/crds = locate(xcrd,ycrd,zcrd)
 
+	var/is_not_noop = FALSE
+	var/atoms_to_delete = list()
+
 	//first instance the /area and remove it from the members list
 	index = members.len
 	if(members[index] != /area/template_noop)
-		var/atype = members[index]
-		var/atom/instance = areas_by_type[atype]
+		is_not_noop = TRUE
 		var/list/attr = members_attributes[index]
 		if (LAZYLEN(attr))
 			_preloader.setup(attr)//preloader for assigning  set variables on atom creation
+		var/atype = members[index]
+		var/atom/instance = initialized_areas_by_type[atype]
 		if(!instance)
 			instance = new atype(null)
+			initialized_areas_by_type[atype] = instance
 		if(crds)
-			instance.contents += crds
+			instance.contents.Add(crds)
 
 		if(use_preloader && instance)
 			_preloader.load(instance)
 
-	//then instance the /turf
+	//then instance the /turf and, if multiple tiles are presents, simulates the DMM underlays piling effect
 
 	var/first_turf_index = 1
 	while(!ispath(members[first_turf_index], /turf)) //find first /turf object in members
@@ -308,22 +412,42 @@ var/global/dmm_suite/preloader/_preloader = new
 
 	//turn off base new Initialization until the whole thing is loaded
 	SSatoms.map_loader_begin()
+	//since we've switched off autoinitialisation, record atoms to initialise later
+	var/list/atoms_to_initialise = list()
+
 	//instanciate the first /turf
 	var/turf/T
 	if(members[first_turf_index] != /turf/template_noop)
+		is_not_noop = TRUE
 		T = instance_atom(members[first_turf_index],members_attributes[first_turf_index],crds,no_changeturf)
+		atoms_to_initialise += T
 
 	if(T)
+		//if others /turf are presents, simulates the underlays piling effect
 		index = first_turf_index + 1
 		while(index <= members.len - 1) // Last item is an /area
-			crash_with("Tried to load additional turf at [model_key].")
+			var/underlay = T.appearance
+			T = instance_atom(members[index],members_attributes[index],crds,no_changeturf)//instance new turf
+			T.underlays += underlay
 			index++
+			atoms_to_initialise += T
+
+	if (clear_contents && is_not_noop)
+		for (var/type_to_delete in types_to_delete())
+			for (var/atom/pre_existing in crds)
+				if (istype(pre_existing, type_to_delete))
+					atoms_to_delete |= pre_existing
 
 	//finally instance all remainings objects/mobs
 	for(index in 1 to first_turf_index-1)
-		instance_atom(members[index],members_attributes[index],crds,no_changeturf)
-	//Restore initialization to the previous value
+		atoms_to_initialise += instance_atom(members[index],members_attributes[index],crds,no_changeturf)
+	//Restore initialization to the previous valsue
 	SSatoms.map_loader_stop()
+
+	var/datum/grid_load_metadata/M = new
+	M.atoms_to_initialise = atoms_to_initialise
+	M.atoms_to_delete = atoms_to_delete
+	return M
 
 ////////////////
 //Helpers procs
@@ -343,24 +467,20 @@ var/global/dmm_suite/preloader/_preloader = new
 	if(use_preloader && .)//second preloader pass, for those atoms that don't ..() in New()
 		_preloader.load(.)
 
-	//custom CHECK_TICK here because we don't want things created while we're sleeping to not initialize
+	//custom CHECK_TICK here because we don't want things created while we're sleeping to delay initialization.
 	if(TICK_CHECK)
 		SSatoms.map_loader_stop()
 		stoplag()
 		SSatoms.map_loader_begin()
 
 /dmm_suite/proc/create_atom(path, crds)
-	set waitfor = FALSE
-	. = new path (crds)
+	// Doing this async is impossible, as we must return the ref.
+	return new path (crds)
 
 //text trimming (both directions) helper proc
 //optionally removes quotes before and after the text (for variable name)
-/dmm_suite/proc/trim_text(what as text,trim_quotes=0)
-	if(trim_quotes)
-		return trimQuotesRegex.Replace(what, "")
-	else
-		return trimRegex.Replace(what, "")
-
+/dmm_suite/proc/trim_text(text, trim_quotes)
+	return replacetext_char(text, trim_quotes ? trimQuotesRegex : trimRegex, "")
 
 //find the position of the next delimiter,skipping whatever is comprised between opening_escape and closing_escape
 //returns 0 if reached the last delimiter
@@ -376,15 +496,13 @@ var/global/dmm_suite/preloader/_preloader = new
 
 	return next_delimiter
 
-/dmm_suite/proc/readlistitem(text as text, is_key = FALSE)
+/dmm_suite/proc/readlistitem(text as text)
 	//Check for string
 	if(findtext(text,"\"",1,2))
 		. = copytext(text,2,findtext(text,"\"",3,0))
 
 	//Check for number
-	// Keys cannot safely be numbers. This implementation will return null if
-	// an assoc key is a number.
-	else if(!is_key && isnum(text2num(text)))
+	else if(isnum(text2num(text)) && text == "[text2num(text)]") //text2num will parse truthy false positives; this demands that the only numbers parsed as such are properly formatted ones.
 		. = text2num(text)
 
 	//Check for null
@@ -392,7 +510,7 @@ var/global/dmm_suite/preloader/_preloader = new
 		. = null
 
 	//Check for list
-	else if(copytext(text,1,6) == "list(")
+	else if(copytext(text,1,5) == "list")
 		. = readlist(copytext(text,6,length(text)))
 
 	//Check for file
@@ -403,12 +521,6 @@ var/global/dmm_suite/preloader/_preloader = new
 	else if(ispath(text2path(text)))
 		. = text2path(text)
 
-	// Associative keys are fed in without quotation marks.
-	// So if none of the other cases apply, return simply the string that was given.
-	// This case is also triggered for item values. So I guess we're also looking for text.
-	else if(is_key || istext(text))
-		. = text
-
 //build a list from variables in text form (e.g {var1="derp"; var2; var3=7} => list(var1="derp", var2, var3=7))
 //return the filled list
 /dmm_suite/proc/readlist(text as text, delimiter=",")
@@ -416,7 +528,6 @@ var/global/dmm_suite/preloader/_preloader = new
 
 	var/position
 	var/old_position = 1
-	var/list_index = 1
 
 	do
 		//find next delimiter that is not within  "..."
@@ -425,17 +536,29 @@ var/global/dmm_suite/preloader/_preloader = new
 		//check if this is a simple variable (as in list(var1, var2)) or an associative one (as in list(var1="foo",var2=7))
 		var/equal_position = findtext(text,"=",old_position, position)
 
-		var/trim_left = trim_text(copytext(text,old_position,(equal_position ? equal_position : position)),1)//the name of the variable, must trim quotes to build a BYOND compliant associatives list
+		var/trim_left = trim_text(copytext(text,old_position,(equal_position ? equal_position : position)), 0)
 		old_position = position + 1
 
-		if(equal_position) //associative var, so do the association
-			var/trim_right = trim_text(copytext(text,equal_position+1,position))//the content of the variable
-			trim_left = readlistitem(trim_left, TRUE) // Assoc vars can be anything that isn't a num!
-			to_return[trim_left] = readlistitem(trim_right)
-			list_index++
-		else if (length(trim_left))	//simple var
+		if(!length(trim_left))
+			if(position == 0)
+				break // That terminal commas are ignored is real dm behavior.
 			to_return.len++
-			to_return[list_index++] = readlistitem(trim_left)
+			continue
+
+		var/left = readlistitem(trim_left)
+		if(equal_position)
+			if(!left && trim_left != "null")
+				left = trim_left // This is dm behavior: unindentifiable keys in associative lists are parsed as literal strings.
+			if(left == 1.#INF || left == -1.#INF)
+				left = trim_left // This is not valid as a list index; we could let it runtime, but if associative it should be parsed as "inf" or "-inf" instead.
+		to_return += left
+
+		if(equal_position)//associative var, so do the association
+			if(isnum(left))
+				crash_with("Numerical key in associative list.")
+				break // This is invalid; apparently dm will runtime in this situation.
+			var/trim_right = trim_text(copytext(text,equal_position+1,position))//the content of the variable
+			to_return[left] = readlistitem(trim_right)
 
 	while(position != 0)
 
@@ -465,12 +588,23 @@ var/global/dmm_suite/preloader/_preloader = new
 		var/value = attributes[attribute]
 		if(islist(value))
 			value = deepCopyList(value)
-		what.vars[attribute] = value
+		try
+			what.vars[attribute] = value
+		catch (var/ex)
+			var/found = FALSE
+			for (var/V in what.vars)
+				if (deep_string_equals(V, attribute))
+					what.vars[V] = value
+					log_debug("Successfully performed manual var detection for var [V] \ref[V] on provided attribute [attribute] \ref[attribute] for atom [what]")
+					found = TRUE
+					break
+			if (!found)
+				throw ex
 	use_preloader = FALSE
 
 /area/template_noop
 	name = "Area Passthrough"
-	icon_state = "space"
+	icon_state = "unknown"
 
 /turf/template_noop
 	name = "Turf Passthrough"
