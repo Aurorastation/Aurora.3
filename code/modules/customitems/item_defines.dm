@@ -603,8 +603,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = ITEMSIZE_NORMAL
 
 
-/obj/item/dice/fluff/baron_dice //BARON's Dice - BARON - iamcrystalclear
-	weighted = TRUE
+/obj/item/stack/dice/fluff/baron_dice //BARON's Dice - BARON - iamcrystalclear
+	weight_roll = 70
 	favored_number = 2
 
 
@@ -2284,11 +2284,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "sur_dbag"
 
 	starts_with = list(
-		/obj/item/dice/fluff/suraya_dice = 3,
-		/obj/item/dice/fluff/suraya_dice/alt = 3
+		/obj/item/stack/dice/fluff/suraya_dice = 3,
+		/obj/item/stack/dice/fluff/suraya_dice/alt = 3
 	)
 
-/obj/item/dice/fluff/suraya_dice
+/obj/item/stack/dice/fluff/suraya_dice
 	name = "blue adhomian die"
 	desc = "A blue-and-gold wooden die with six sides, beautifully carved and delicately painted. The single dot on the number one side is, on closer inspection, a miniature image of the god Rredouane."
 	icon = 'icons/obj/custom_items/suraya_dice.dmi'
@@ -2296,19 +2296,17 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "sur_b_d1"
 	base_icon = "sur_b_d"
 	favored_number = 1
-	weighted_value = 22
+	weight_roll = 22
 
-/obj/item/dice/fluff/suraya_dice/AltClick(mob/user)
-	weighted = !weighted
-
-	if(!weighted)
-		to_chat(user, SPAN_NOTICE("You jiggle the die rapidly in your hand, resetting the internal weighting."))
+/obj/item/stack/dice/fluff/suraya_dice/AltClick(mob/user)
+	if(!weight_roll)
+		user.visible_message("<b>\The [user]</b> jiggles \the [src] around in their hand for a second.", SPAN_NOTICE("You jiggle the die rapidly in your hand, resetting the internal weighting."))
+		weight_roll = 0
 	else
-		to_chat(user, SPAN_NOTICE("You carefully jiggle the die one way, then the other, allowing its internal weighting to lock into place."))
+		user.visible_message("<b>\The [user]</b> jiggles \the [src] around in their hand for a second.", SPAN_NOTICE("You carefully jiggle the die one way, then the other, allowing its internal weighting to lock into place."))
+		weight_roll = initial(weight_roll)
 
-	user.visible_message("<b>\The [user]</b> jiggles \the [src] around in their hand for a second.")
-
-/obj/item/dice/fluff/suraya_dice/alt
+/obj/item/stack/dice/fluff/suraya_dice/alt
 	name = "green adhomian die"
 	desc = "A green-and-silver wooden die with six sides, beautifully carved and delicately painted. The single dot on the number one side is, on closer inspection, a miniature image of the god Rredouane."
 	icon_state = "sur_g_d1"
