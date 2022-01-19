@@ -331,6 +331,7 @@
 /obj/item/gun/projectile/gauss/carbine
 	name = "gauss carbine"
 	desc = "A simple gun utilizing the gauss technology. It is still reliable and cheap despite being outdated."
+	icon = 'icons/obj/guns/gauss_carbine.dmi'
 	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BACK
 	ammo_type = /obj/item/ammo_casing/gauss/carbine
