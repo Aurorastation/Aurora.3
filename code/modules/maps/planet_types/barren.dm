@@ -67,6 +67,7 @@
 /datum/random_map/noise/exoplanet/barren/asteroid
 	descriptor = "asteroid exoplanet"
 	smoothing_iterations = 4
+	land_type = /turf/unsimulated/floor/asteroid/ash
 	fauna_prob = 1
 	fauna_types = list(/mob/living/simple_animal/carp, /mob/living/simple_animal/hostile/retaliate/cavern_dweller)
 
