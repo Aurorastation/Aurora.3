@@ -78,7 +78,7 @@
 	if(T.y + height > world.maxy)
 		return
 
-	Testing("Bounds initialized")
+	testing("Bounds initialized")
 	var/list/bounds = maploader.load_map(file(mappath), T.x, T.y, T.z, cropMap=TRUE, no_changeturf = FALSE)
 	if(!bounds)
 		return
