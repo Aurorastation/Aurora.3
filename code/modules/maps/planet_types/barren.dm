@@ -50,11 +50,14 @@
 	ambience = list('sound/effects/wind/wind_2_1.ogg','sound/effects/wind/wind_2_2.ogg','sound/effects/wind/wind_3_1.ogg','sound/effects/wind/wind_4_1.ogg','sound/effects/wind/wind_4_2.ogg','sound/effects/wind/wind_5_1.ogg')
 	base_turf = /turf/simulated/floor/exoplanet/barren
 
+//asteroid
+
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid
 	name = "mineral asteroid"
 	desc = "A large, resource rich asteroid."
 	map_generators = list(/datum/random_map/noise/exoplanet/barren/asteroid, /datum/random_map/noise/ore/rich)
-	rock_colors = list(COLOR_ASTEROID_ROCK)
+	rock_colors = null
+	planetary_area = /area/exoplanet/barren/asteroid
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/romanovich
 	name = "romanovich cloud asteroid"
@@ -67,3 +70,6 @@
 	fauna_prob = 1
 	fauna_types = list(/mob/living/simple_animal/carp, /mob/living/simple_animal/hostile/retaliate/cavern_dweller)
 
+/area/exoplanet/barren/asteroid
+	name = "\improper Asteroi surface"
+	base_turf = /turf/unsimulated/floor/asteroid/ash
