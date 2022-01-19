@@ -58,6 +58,7 @@
 	map_generators = list(/datum/random_map/noise/exoplanet/barren/asteroid, /datum/random_map/noise/ore/rich)
 	rock_colors = null
 	planetary_area = /area/exoplanet/barren/asteroid
+	possible_features = list(/datum/map_template/ruin/exoplanet/abandoned_mining)
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/romanovich
 	name = "romanovich cloud asteroid"
