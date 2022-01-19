@@ -1,0 +1,53 @@
+/datum/submap
+	var/name
+	var/pref_name
+	var/decl/submap_archetype/archetype
+	var/associated_z
+
+/datum/submap/New(var/existing_z)
+	SSmapping.submaps[src] = TRUE
+	associated_z = existing_z
+
+/datum/submap/Destroy()
+	SSmapping.submaps -= src
+	. = ..()
+
+/datum/submap/proc/setup_submap(var/decl/submap_archetype/_archetype)
+
+	if(!istype(_archetype))
+		testing( "Submap error - [name] - null or invalid archetype supplied ([_archetype]).")
+		qdel(src)
+		return
+
+	// Not much point doing this when it has presumably been done already.
+	if(_archetype == archetype)
+		testing( "Submap error - [name] - submap already set up.")
+		return
+
+	archetype = _archetype
+	if(!pref_name)
+		pref_name = archetype.descriptor
+
+	testing("Starting submap setup - '[name]', [archetype], [associated_z]z.")
+
+	if(!associated_z)
+		testing( "Submap error - [name]/[archetype ? archetype.descriptor : "NO ARCHETYPE"] could not find an associated z-level for spawnpoint placement.")
+		qdel(src)
+		return
+
+	var/obj/effect/overmap/visitable/cell = map_sectors["[associated_z]"]
+	if(istype(cell))
+		sync_cell(cell)
+
+	/*// Open the ghost roles. TODOMATT FIGURE THIS OUT
+	var/added_spawnpoint
+	for(var/check_z in GetConnectedZlevels(associated_z))
+		for(var/thing in block(locate(1, 1, check_z), locate(world.maxx, world.maxy, check_z)))
+			for(var/obj/effect/ghostspawpoint/landmark in thing)
+				landmark.*/
+
+/datum/submap/proc/sync_cell(var/obj/effect/overmap/visitable/cell)
+	name = cell.name
+
+/datum/submap/proc/available()
+	return TRUE

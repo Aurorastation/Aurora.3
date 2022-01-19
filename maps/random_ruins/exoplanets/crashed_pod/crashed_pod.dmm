@@ -1,0 +1,26 @@
+"a" = ()
+"b" = (/obj/structure/bed/stool/chair/shuttle,/turf/simulated/floor/tiled,/area/map_template/crashed_pod)
+"c" = (/obj/item/frame/air_alarm,/turf/simulated/wall/shuttle/dark,/area/map_template/crashed_pod)
+"h" = (/turf/simulated/floor/tiled,/area/map_template/crashed_pod)
+"i" = (/obj/machinery/power/terminal{dir = 8},/obj/structure/cable{dir = 8},/turf/simulated/floor/tiled,/area/map_template/crashed_pod)
+"l" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/tiled,/area/map_template/crashed_pod)
+"t" = (/obj/structure/closet/toolcloset,/turf/simulated/floor/tiled,/area/map_template/crashed_pod)
+"w" = (/obj/structure/droppod_door,/turf/simulated/wall/shuttle/dark,/area/map_template/crashed_pod)
+"z" = (/obj/structure/cable{dir = 4},/obj/machinery/power/smes/buildable,/turf/simulated/floor/tiled,/area/map_template/crashed_pod)
+"C" = (/turf/simulated/wall/shuttle/dark,/area/map_template/crashed_pod)
+"G" = (/obj/machinery/autolathe,/turf/simulated/floor/tiled,/area/map_template/crashed_pod)
+"R" = (/obj/machinery/suit_storage_unit/standard_unit,/turf/simulated/floor/tiled,/area/map_template/crashed_pod)
+"U" = (/obj/machinery/power/apc/super,/turf/simulated/wall/shuttle/dark,/area/map_template/crashed_pod)
+"X" = (/obj/structure/table/rack,/obj/item/storage/toolbox/emergency,/obj/item/storage/toolbox/emergency,/obj/item/storage/toolbox/emergency,/obj/item/storage/belt/utility,/obj/item/storage/belt/utility,/obj/item/storage/belt/utility,/obj/item/clothing/gloves/yellow,/obj/item/clothing/gloves/yellow,/obj/item/clothing/gloves/yellow,/turf/simulated/floor/tiled,/area/map_template/crashed_pod)
+
+(1,1,1) = {"
+hhhhhhhhh
+hCCCCCCCh
+hCRbbbRCh
+hCXhhhtCh
+hUilllzCh
+hcthhhGCh
+hCthhhRCh
+hCCwwwCCh
+ahhhhhhhh
+"}
