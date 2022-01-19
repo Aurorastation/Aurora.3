@@ -5,7 +5,7 @@
 	planetary_area = /area/exoplanet/barren
 	rock_colors = list(COLOR_BEIGE, COLOR_GRAY80, COLOR_BROWN)
 	possible_themes = list(/datum/exoplanet_theme/mountains)
-	map_generators = list(/datum/random_map/noise/exoplanet/barren, /datum/random_map/noise/ore/rich)
+	map_generators = list(/datum/random_map/noise/exoplanet/barren, /datum/random_map/noise/ore)
 	ruin_tags_blacklist = RUIN_HABITAT|RUIN_WATER
 	features_budget = 6
 	surface_color = "#807d7a"
@@ -49,3 +49,24 @@
 	name = "\improper Planetary surface"
 	ambience = list('sound/effects/wind/wind_2_1.ogg','sound/effects/wind/wind_2_2.ogg','sound/effects/wind/wind_3_1.ogg','sound/effects/wind/wind_4_1.ogg','sound/effects/wind/wind_4_2.ogg','sound/effects/wind/wind_5_1.ogg')
 	base_turf = /turf/simulated/floor/exoplanet/barren
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid
+	name = "mineral asteroid"
+	desc = "A large, resource rich asteroid."
+	map_generators = list(/datum/random_map/noise/exoplanet/barren/asteroid, /datum/random_map/noise/ore/rich)
+	rock_colors = list(COLOR_ASTEROID_ROCK)
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/romanovich
+	name = "romanovich cloud asteroid"
+	desc = "A phoron rich asteroid."
+	map_generators = list(/datum/random_map/noise/exoplanet/barren/asteroid, /datum/random_map/noise/ore/rich/phoron)
+
+/area/exoplanet/barren/asteroid
+	base_turf = /turf/unsimulated/floor/asteroid/ash
+
+/datum/random_map/noise/exoplanet/barren/asteroid
+	descriptor = "asteroid exoplanet"
+	smoothing_iterations = 4
+	land_type = /turf/unsimulated/floor/asteroid/ash
+	fauna_prob = 1
+	fauna_types = list(/mob/living/simple_animal/carp, /mob/living/simple_animal/hostile/retaliate/cavern_dweller)
