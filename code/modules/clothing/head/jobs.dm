@@ -5,13 +5,18 @@
 	icon_state = "chefhat"
 	item_state = "chefhat"
 
-/obj/item/clothing/head/headbando/chef_nt
-	name = "chef's headband"
-	desc = "A headhand used by chefs. This one is in NanoTrasen's colors."
+/obj/item/clothing/head/chefhat/nt
 	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
 	contained_sprite = TRUE
-	icon_state = "nt_chef_headband"
-	item_state = "nt_chef_headband"
+	icon_state = "nt_chef_hat"
+	item_state = "nt_chef_hat"
+
+/obj/item/clothing/head/chefhat/idris
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "idris_chef_hat"
+	item_state = "idris_chef_hat"
+
 
 /obj/item/clothing/head/surgery/hairnet
 	name = "hairnet"
@@ -69,6 +74,24 @@
 	desc = "A cap surgeons wear during operations. Keeps their hair from tickling your internal organs. This one is black."
 	icon_state = "surgcap_black"
 
+/obj/item/clothing/head/surgery/nt
+	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
+	contained_sprite = TRUE
+	icon_state = "surgcap_nt"
+	item_state = "surgcap_nt"
+
+/obj/item/clothing/head/surgery/zeng
+	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
+	contained_sprite = TRUE
+	icon_state = "surgcap_zeng"
+	item_state = "surgcap_zeng"
+
+/obj/item/clothing/head/surgery/pmc
+	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
+	contained_sprite = TRUE
+	icon_state = "surgcap_epmc"
+	item_state = "surgcap_epmc"
+
 //Detective
 
 /obj/item/clothing/head/det
@@ -106,6 +129,24 @@
 	icon_state = "corp"
 	item_state = "corp"
 
+/obj/item/clothing/head/warden/zavod
+	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
+	icon_state = "zav_warden"
+	item_state = "zav_warden"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/warden/pmc
+	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
+	icon_state = "epmc_warden"
+	item_state = "epmc_warden"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/warden/idris
+	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
+	icon_state = "idris_warden"
+	item_state = "idris_warden"
+	contained_sprite = TRUE
+
 /obj/item/clothing/head/hos
 	name = "head of security hat"
 	desc = "The navy blue parade hat of the Head of Security. For showing the officers who's in charge."
@@ -114,6 +155,11 @@
 	item_state = "hos"
 	flags_inv = HIDEEARS
 	contained_sprite = TRUE
+
+/obj/item/clothing/head/hos/scc
+	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
+	icon_state = "hos_hat"
+	item_state = "hos_hat"
 
 /obj/item/clothing/head/hos/corp
 	name = "corporate head of security hat"
@@ -137,19 +183,21 @@
 	icon_state = "idris_manager_fedora"
 	item_state = "idris_manager_fedora"
 
-/obj/item/clothing/head/bartender
-	name = "bartender trilby"
-	desc = "An eccentric hat issued to bartenders."
+/obj/item/clothing/head/flatcap/bartender
+	name = "bartender flatcap"
+	desc = "An simple hat issued to bartenders."
 	icon_state = "corp"
 
-/obj/item/clothing/head/bartender/idris
+/obj/item/clothing/head/flatcap/bartender/idris
 	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	desc = "An simple hat issued to bartenders. This one has Idris colors."
 	contained_sprite = TRUE
-	icon_state = "idris_bartender_trilby"
-	item_state = "idris_bartender_trilby"
+	icon_state = "idris_bartender_flatcap"
+	item_state = "idris_bartender_flatcap"
 
-/obj/item/clothing/head/bartender/nt
+/obj/item/clothing/head/flatcap/bartender/nt
+	desc = "An simple hat issued to bartenders. This one has NanoTrasen colors."
 	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
 	contained_sprite = TRUE
-	icon_state = "idris_manager_fedora"
-	item_state = "idris_manager_fedora"
+	icon_state = "nt_bartender_flatcap"
+	item_state = "nt_bartender_flatcap"

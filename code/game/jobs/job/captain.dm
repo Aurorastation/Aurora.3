@@ -30,7 +30,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 	uniform = /obj/item/clothing/under/scc_captain
 	shoes = /obj/item/clothing/shoes/brown
-	head = /obj/item/clothing/head/caphat
+	head = /obj/item/clothing/head/caphat/scc
 	glasses = /obj/item/clothing/glasses/sunglasses
 	id = /obj/item/card/id/gold
 

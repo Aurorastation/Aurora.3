@@ -53,9 +53,8 @@
 		"First Responder" = /datum/outfit/job/med_tech/zeng_hu,
 		"Medical Intern" = /datum/outfit/job/intern_med/zeng_hu,
 		"Scientist" = /datum/outfit/job/scientist/zeng_hu,
-		"Xenobiologist" = /datum/outfit/job/scientist/zeng_hu,
+		"Xenobiologist" = /datum/outfit/job/scientist/zeng_hu/xenobio,
 		"Xenobotanist" = /datum/outfit/job/scientist/zeng_hu,
-		"Xenobiologist" = /datum/outfit/job/scientist/zeng_hu,
 		"Xenobotanist" = /datum/outfit/job/scientist/zeng_hu,
 		"Lab Assistant" = /datum/outfit/job/intern_sci/zeng_hu,
 		"Xenoarcheologist"= /datum/outfit/job/scientist/xenoarcheologist/zeng_hu,
@@ -74,6 +73,7 @@
 
 	uniform = /obj/item/clothing/under/rank/medical/surgeon/zeng
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
+	head = /obj/item/clothing/head/surgery/zeng
 	id = /obj/item/card/id/zeng_hu
 
 /datum/outfit/job/pharmacist/zeng_hu
@@ -110,6 +110,15 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
 	id = /obj/item/card/id/zeng_hu
 	suit = null
+
+/datum/outfit/job/scientist/zeng_hu/xenobio
+	name = "Xenobiologist - Zeng-Hu"
+
+	uniform = /obj/item/clothing/under/rank/scientist/xenobio/zeng
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi
+	id = /obj/item/card/id/zavodskoi
+	suit = null
+
 
 /datum/outfit/job/scientist/xenoarcheologist/zeng_hu
 	name = "Xenoarcheologist - Zeng-Hu"

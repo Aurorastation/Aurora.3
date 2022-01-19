@@ -85,6 +85,12 @@ obj/item/clothing/suit/apron/overalls/blue
 	icon_state = "nt_chef_jacket"
 	item_state = "nt_chef_jacket"
 
+/obj/item/clothing/suit/chef/idris
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "idris_chef_jacket"
+	item_state = "idris_chef_jacket"
+
 //Chef
 /obj/item/clothing/suit/chef/classic
 	name = "classic chef's apron"
@@ -345,17 +351,19 @@ obj/item/clothing/suit/apron/overalls/blue
 	blood_overlay_type = "armor" //it's the less thing that I can put here
 	body_parts_covered = 0
 
-/obj/item/clothing/suit/storage/service_manager
-	name = "service manager's jacket"
-	desc = "This jacket is for those special occasions when a security officer actually feels safe."
+/obj/item/clothing/suit/storage/bartender
+	name = "bartender jacket"
+	desc = "A fancy jacket worn by corporate bartenders."
 	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
 	contained_sprite = TRUE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
-/obj/item/clothing/suit/storage/service_manager/nt
-	icon_state = "nt_manager_jacket"
-	item_state = "nt_manager_jacket"
+/obj/item/clothing/suit/storage/bartender/nt
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	icon_state = "nt_bartender_jacket"
+	item_state = "nt_bartender_jacket"
 
-/obj/item/clothing/suit/storage/service_manager/idris
-	icon_state = "idris_service_manager_jacket"
-	item_state = "idris_service_manager_jacket"
+/obj/item/clothing/suit/storage/bartender/idris
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	icon_state = "idris_bartender_jacket"
+	item_state = "idris_bartender_jacket"

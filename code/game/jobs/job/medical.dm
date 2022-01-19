@@ -33,7 +33,7 @@
 	jobtype = /datum/job/cmo
 
 	uniform = /obj/item/clothing/under/rank/chief_medical_officer
-//	suit = /obj/item/clothing/suit/storage/toggle/labcoat/cmo
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/cmo
 	suit_store = /obj/item/device/flashlight/pen
 	shoes = /obj/item/clothing/shoes/brown
 	id = /obj/item/card/id/navy
@@ -121,6 +121,7 @@
 	name = "Surgeon"
 	jobtype = /datum/job/doctor
 
+	head = /obj/item/clothing/head/surgery/nt
 	uniform = /obj/item/clothing/under/rank/medical/surgeon/nt
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/surgeon
 	shoes = /obj/item/clothing/shoes/surgeon

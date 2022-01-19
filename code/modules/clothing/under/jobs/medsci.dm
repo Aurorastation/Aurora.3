@@ -44,11 +44,44 @@
 
 /obj/item/clothing/under/rank/scientist/botany
 	desc = "It's made of a special fiber that provides minor protection against biohazards. Its colour denotes the wearer as a xenobotanist."
-	icon_state = "botany"
-	worn_state = "botany"
+	icon = 'icons/obj/contained_items/department_uniforms/science.dmi'
+	icon_state = "nt_xenob"
+	item_state = "nt_xenob"
+	contained_sprite = TRUE
 	armor = list(
 		bio = ARMOR_BIO_MINOR
 	)
+
+/obj/item/clothing/under/rank/scientist/botany/zeng
+	icon = 'icons/obj/contained_items/department_uniforms/science.dmi'
+	icon_state = "zeng_xenob"
+	item_state = "zeng_xenob"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/scientist/botany/zavod
+	icon = 'icons/obj/contained_items/department_uniforms/science.dmi'
+	icon_state = "zav_xenob"
+	item_state = "zav_xenob"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/scientist/xenobio
+	desc = "It's made of a special fiber that provides minor protection against biohazards. Its colour denotes the wearer as a xenobiologist."
+	icon = 'icons/obj/contained_items/department_uniforms/science.dmi'
+	icon_state = "nt_xenob"
+	item_state = "nt_xenob"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/scientist/xenobio/zeng
+	icon = 'icons/obj/contained_items/department_uniforms/science.dmi'
+	icon_state = "zeng_xenob"
+	item_state = "zeng_xenob"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/scientist/xenobio/zavod
+	icon = 'icons/obj/contained_items/department_uniforms/science.dmi'
+	icon_state = "zav_xenob"
+	item_state = "zav_xenob"
+	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/scientist/intern
 	desc = "It's made of a special fiber that provides minor protection against biohazards. It has markings that denote the wearer as a laboratory assistant."

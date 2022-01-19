@@ -8,6 +8,12 @@
 		slot_r_hand_str = "caphat"
 		)
 
+/obj/item/clothing/head/caphat/scc
+	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
+	icon_state = "caphat"
+	item_state = "caphat"
+	contained_sprite = TRUE
+
 /obj/item/clothing/head/caphat/cap
 	name = "captain's cap"
 	desc = "You fear to wear it for the negligence it brings."

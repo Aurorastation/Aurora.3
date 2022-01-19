@@ -63,6 +63,7 @@
 /datum/outfit/job/warden/pmc
 	name = "Warden - PMC"
 
+	head = /obj/item/clothing/head/warden/pmc
 	uniform = /obj/item/clothing/under/rank/warden/pmc
 	id = /obj/item/card/id/pmc
 
@@ -90,6 +91,7 @@
 	name = "Surgeon - PMC"
 
 	uniform = /obj/item/clothing/under/rank/medical/surgeon/pmc
+	head = /obj/item/clothing/head/surgery/pmc
 	suit = null
 	id = /obj/item/card/id/pmc
 

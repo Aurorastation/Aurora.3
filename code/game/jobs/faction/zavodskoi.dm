@@ -50,7 +50,7 @@
 		"Security Cadet" = /datum/outfit/job/intern_sec/zavodskoi,
 		"Investigator" =/datum/outfit/job/forensics/zavodskoi,
 		"Scientist" = /datum/outfit/job/scientist/zavodskoi,
-		"Xenobiologist" = /datum/outfit/job/scientist/zavodskoi,
+		"Xenobiologist" = /datum/outfit/job/scientist/zavodskoi/xenobio,
 		"Xenobotanist" = /datum/outfit/job/scientist/zavodskoi,
 		"Lab Assistant" = /datum/outfit/job/intern_sci/zavodskoi,
 		"Xenoarcheologist"= /datum/outfit/job/scientist/xenoarcheologist/zavodskoi,
@@ -72,7 +72,7 @@
 
 	uniform = /obj/item/clothing/under/rank/warden/zavod
 	id = /obj/item/card/id/zavodskoi/sec
-	head = /obj/item/clothing/head/beret/security/zavodskoi/alt
+	head = /obj/item/clothing/head/warden/zavod
 
 /datum/outfit/job/intern_sec/zavodskoi
 	name = "Security Cadet - Zavodskoi Interstellar"
@@ -86,13 +86,21 @@
 	name = "Investigator - Zavodskoi Interstellar"
 
 	id = /obj/item/card/id/zavodskoi/sec
-	uniform = /obj/item/clothing/under/det/forensics
+	uniform = /obj/item/clothing/under/det/zavod
 	head = /obj/item/clothing/head/softcap/zavod/alt
 
 /datum/outfit/job/scientist/zavodskoi
 	name = "Scientist - Zavodskoi Interstellar"
 
 	uniform = /obj/item/clothing/under/rank/scientist/zavod
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi
+	id = /obj/item/card/id/zavodskoi
+	suit = null
+
+/datum/outfit/job/scientist/zavodskoi/xenobio
+	name = "Xenobiologist - Zavodskoi Interstellar"
+
+	uniform = /obj/item/clothing/under/rank/scientist/xenobio/zavod
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi
 	id = /obj/item/card/id/zavodskoi
 	suit = null

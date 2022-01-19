@@ -64,7 +64,7 @@
 /datum/outfit/job/warden/idris
 	name = "Warden - Idris"
 
-	head = /obj/item/clothing/head/beret/security/idris/alt
+	head = /obj/item/clothing/head/warden/idris
 	uniform = /obj/item/clothing/under/rank/warden/idris
 	id = /obj/item/card/id/idris/sec
 
@@ -86,15 +86,16 @@
 	name = "Bartender - Idris"
 
 	uniform = /obj/item/clothing/under/rank/bartender/idris
-	head = /obj/item/clothing/head/bartender/idris
+	head = /obj/item/clothing/head/flatcap/bartender/idris
 	id = /obj/item/card/id/idris
+	suit = /obj/item/clothing/suit/storage/bartender/idris
 
 /datum/outfit/job/chef/idris
 	name = "Chef - Idris"
 
 	uniform = /obj/item/clothing/under/rank/chef/idris
-	suit = null
-	head = null
+	suit = /obj/item/clothing/suit/chef/idris
+	head = /obj/item/clothing/head/chefhat/idris
 	id = /obj/item/card/id/idris
 
 /datum/outfit/job/hydro/idris
@@ -124,8 +125,6 @@
 	jobtype = /datum/job/service_manager
 
 	uniform = /obj/item/clothing/under/rank/service_manager/idris
-	head = /obj/item/clothing/head/service_manager/idris
-	suit = /obj/item/clothing/suit/storage/service_manager/idris
 
 /datum/outfit/job/representative/idris
 	name = "Idris Corporate Liaison"

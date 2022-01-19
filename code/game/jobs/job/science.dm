@@ -128,6 +128,7 @@
 
 /datum/outfit/job/scientist/xenobiologist
 	name = "Xenobiologist"
+	uniform = /obj/item/clothing/under/rank/scientist/xenobio
 	jobtype = /datum/job/xenobiologist
 	tab_pda = /obj/item/modular_computer/handheld/pda/research
 

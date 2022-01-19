@@ -26,7 +26,6 @@
 
 	uniform = /obj/item/clothing/under/rank/service_manager/nt
 	head = /obj/item/clothing/head/service_manager/nt
-	suit = /obj/item/clothing/suit/storage/service_manager/nt
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
@@ -61,8 +60,9 @@
 	jobtype = /datum/job/bartender
 
 	uniform = /obj/item/clothing/under/rank/bartender/nt
-	head = /obj/item/clothing/head/bartender/nt
+	head = /obj/item/clothing/head/flatcap/bartender/nt
 	shoes = /obj/item/clothing/shoes/black
+	suit = /obj/item/clothing/suit/storage/bartender/nt
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/bartender
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/bartender
@@ -98,7 +98,7 @@
 
 	uniform = /obj/item/clothing/under/rank/chef/nt
 	suit = /obj/item/clothing/suit/chef/nt
-	head = /obj/item/clothing/head/headbando/chef_nt
+	head = /obj/item/clothing/head/chefhat/nt
 	shoes = /obj/item/clothing/shoes/black
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian
