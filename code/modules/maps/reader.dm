@@ -331,7 +331,7 @@ var/dmm_suite/maploader = new()
 
 			if(!atom_def) // Skip the item if the path does not exist.  Fix your crap, mappers!
 	#ifdef UNIT_TEST
-				log_error("Couldn't find atom path specified in map: [full_def]")
+				WARNING("Couldn't find atom path specified in map: [full_def]")
 	#endif
 				if (dpos == 0)
 					break

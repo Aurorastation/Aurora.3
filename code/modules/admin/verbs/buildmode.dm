@@ -344,7 +344,7 @@
 	if (!name || !T)
 		return
 
-	var/datum/map_template/maploader = new (templates["templates_folder"] + name, name)
+	var/datum/map_template/maploader = new (list(templates["templates_folder"] + name), name)
 	if (!maploader)
 		log_debug("Error, unable to load maploader in proc load_template!")
 		return
