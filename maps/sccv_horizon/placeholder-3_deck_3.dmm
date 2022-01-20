@@ -2222,9 +2222,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
-"eN" = (
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/crew_quarters/theatre)
 "eO" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -6848,7 +6845,7 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/reinforced,
-/area/crew_quarters/theatre)
+/area/hallway/crew_area)
 "qt" = (
 /obj/structure/table/standard,
 /obj/machinery/light/small/red{
@@ -7843,12 +7840,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
-"sP" = (
-/obj/structure/grille,
-/obj/structure/window/shuttle/scc_space_ship,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/crew_quarters/theatre)
 "sQ" = (
 /obj/machinery/shower{
 	pixel_y = 21
@@ -10728,7 +10719,7 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/reinforced,
-/area/crew_quarters/theatre)
+/area/hallway/crew_area)
 "Aw" = (
 /obj/machinery/light{
 	dir = 8
@@ -19316,7 +19307,7 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/reinforced,
-/area/crew_quarters/theatre)
+/area/hallway/crew_area)
 "VI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -31026,17 +31017,17 @@ at
 at
 at
 at
-eN
-sP
-sP
-eN
-sP
-sP
-sP
-sP
-eN
-sP
-sP
+eb
+GQ
+GQ
+eb
+GQ
+GQ
+GQ
+GQ
+eb
+GQ
+GQ
 eb
 QC
 Ku
@@ -31228,7 +31219,7 @@ at
 at
 at
 at
-sP
+GQ
 QL
 QL
 QL
@@ -31430,7 +31421,7 @@ at
 at
 at
 qs
-eN
+eb
 QL
 QL
 QL
@@ -31632,7 +31623,7 @@ at
 at
 at
 at
-sP
+GQ
 QL
 QL
 QL
@@ -31834,7 +31825,7 @@ at
 at
 at
 at
-sP
+GQ
 QL
 QL
 QL
@@ -32036,7 +32027,7 @@ at
 at
 at
 at
-sP
+GQ
 QL
 QL
 QL
@@ -32238,7 +32229,7 @@ at
 at
 at
 qs
-eN
+eb
 QL
 QL
 QL
@@ -32440,7 +32431,7 @@ at
 at
 at
 at
-sP
+GQ
 QL
 QL
 QL
@@ -32642,17 +32633,17 @@ at
 at
 at
 at
-eN
-sP
-sP
-eN
-sP
-sP
-sP
-sP
-eN
-sP
-sP
+eb
+GQ
+GQ
+eb
+GQ
+GQ
+GQ
+GQ
+eb
+GQ
+GQ
 eb
 mr
 gE
