@@ -23672,24 +23672,16 @@
 /obj/structure/table/standard,
 /obj/machinery/firealarm/south,
 /obj/item/device/radio/med{
-	name = "Medbay Emergency Radio Link";
-	step_x = 0;
-	step_y = 0
+	name = "Medbay Emergency Radio Link"
 	},
 /obj/item/device/radio/med{
-	name = "Medbay Emergency Radio Link";
-	step_x = 0;
-	step_y = 0
+	name = "Medbay Emergency Radio Link"
 	},
 /obj/item/device/radio/med{
-	name = "Medbay Emergency Radio Link";
-	step_x = 0;
-	step_y = 0
+	name = "Medbay Emergency Radio Link"
 	},
 /obj/item/device/radio/med{
-	name = "Medbay Emergency Radio Link";
-	step_x = 0;
-	step_y = 0
+	name = "Medbay Emergency Radio Link"
 	},
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
