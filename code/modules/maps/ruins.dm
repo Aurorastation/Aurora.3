@@ -49,6 +49,7 @@ var/list/banned_ruin_ids = list()
 					if (attempts == 1)
 						available -= ruin
 					valid = FALSE
+					testing("Invalid turf")
 					break
 			if (!valid)
 				continue
@@ -80,7 +81,8 @@ var/list/banned_ruin_ids = list()
 		var/turf/T = i
 		for(var/mob/living/simple_animal/monster in T)
 			qdel(monster)
-	template.load(central_turf,centered = TRUE)
+	testing("Loading template at [central_turf.x] [central_turf.y] [central_turf.z]")
+	template.load(central_turf, TRUE)
 	var/datum/map_template/ruin = template
 	if(istype(ruin))
 		new /obj/effect/landmark/ruin(central_turf, ruin)

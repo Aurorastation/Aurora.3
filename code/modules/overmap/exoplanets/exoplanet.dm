@@ -77,13 +77,10 @@
 		themes += new T
 
 	for(var/T in subtypesof(/datum/map_template/ruin/exoplanet))
-		WARNING("Testing ruin subtype: [T]")
 		var/datum/map_template/ruin/exoplanet/ruin = T
 		if(ruin_tags_whitelist && !(ruin_tags_whitelist & initial(ruin.ruin_tags)))
-			WARNING("Ruin excluded due to tag whitelists:  [ruin_tags_whitelist] [ruin.ruin_tags]")
 			continue
 		if(ruin_tags_blacklist & initial(ruin.ruin_tags))
-			WARNING("Ruin excluded due to tag blacklist:  [ruin_tags_blacklist] [ruin.ruin_tags]")
 			continue
 		possible_features += new ruin
 	..()
