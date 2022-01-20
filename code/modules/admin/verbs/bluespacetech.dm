@@ -106,6 +106,7 @@
 	// Other station species' languages
 	bst.add_language(LANGUAGE_SKRELLIAN)
 	bst.add_language(LANGUAGE_SOL_COMMON)
+	bst.add_language(LANGUAGE_ELYRAN_STANDARD)
 	bst.add_language(LANGUAGE_ROOTSONG)
 	bst.add_language(LANGUAGE_VAURCA)
 	// Synthetics
