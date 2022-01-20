@@ -2380,3 +2380,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if(has_suit)
 		has_suit.verbs -= /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_cloak
 	..()
+
+/obj/item/clothing/accessory/poncho/shouldercape/qeblak/zeng/fluff/eden_cloak // Zeng-Hu Jargon division cloak - Eden Li - Huntime
+	name = "Zeng-Hu cloak: Jargon Division"
+	desc = "A cloak worn by Zeng-Hu personnel who worked with or in the Jargon Federation."
+	icon = 'icons/obj/custom_items/eden_cloak.dmi'
+	icon_override = 'icons/obj/custom_items/eden_cloak.dmi'
+	icon_state = "ZH_cape_custom"
+	item_state = "ZH_cape_custom"
