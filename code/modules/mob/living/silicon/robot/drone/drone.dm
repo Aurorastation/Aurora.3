@@ -144,11 +144,6 @@
 		return default_language
 	return all_languages[LANGUAGE_LOCAL_DRONE]
 
-/mob/living/silicon/robot/drone/hide() // Only maint drones should be able to hide, hopefully.
-	..()
-	cut_overlays()
-	setup_icon_cache()
-
 /mob/living/silicon/robot/drone/construction
 	// Look and feel
 	name = "construction drone"
@@ -291,20 +286,24 @@
 /mob/living/silicon/robot/drone/updatename()
 	return
 
-/mob/living/silicon/robot/drone/setup_icon_cache()
-	if(!stat) // don't bother generating eyes if disabled
-		var/eye_layer = src.layer
-		if(lights_on && layer == MOB_LAYER) // in case you're hiding. so eyes don't go through tables.
-			eye_layer = EFFECTS_ABOVE_LIGHTING_LAYER //make them glow in the dark if the lamp is on
-		cached_eye_overlays = list(
-			I_HELP = image(icon, "[icon_state]-eyes_help", layer = eye_layer),
-			I_HURT = image(icon, "[icon_state]-eyes_harm", layer = eye_layer),
-			"emag" = image(icon, "[icon_state]-eyes_emag", layer = eye_layer)
-		)
-		if(eye_overlay)
-			cut_overlay(eye_overlay)
-		eye_overlay = cached_eye_overlays[a_intent]
-		add_overlay(eye_overlay)
+/mob/living/silicon/robot/drone/setup_eye_cache()
+	cached_eye_overlays = list(
+		I_HELP = image(icon, "[icon_state]-eyes_help"),
+		I_HURT = image(icon, "[icon_state]-eyes_harm"),
+		"emag" = image(icon, "[icon_state]-eyes_emag")
+	)
+	if(eye_overlay)
+		cut_overlay(eye_overlay)
+	eye_overlay = cached_eye_overlays[a_intent]
+	add_overlay(eye_overlay)
+
+/mob/living/silicon/robot/drone/setup_panel_cache()
+	cached_panel_overlays = list(
+		ROBOT_PANEL_EXPOSED = image(icon, "[icon_state]-openpanel+w"),
+		ROBOT_PANEL_CELL = image(icon, "[icon_state]-openpanel+c"),
+		ROBOT_PANEL_NO_CELL = image(icon, "[icon_state]-openpanel-c")
+	)
+
 
 /mob/living/silicon/robot/drone/set_intent(var/set_intent)
 	a_intent = set_intent
