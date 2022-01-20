@@ -15,23 +15,23 @@
 /datum/submap/proc/setup_submap(var/decl/submap_archetype/_archetype)
 
 	if(!istype(_archetype))
-		testing( "Submap error - [name] - null or invalid archetype supplied ([_archetype]).")
+		log_game( "Submap error - [name] - null or invalid archetype supplied ([_archetype]).")
 		qdel(src)
 		return
 
 	// Not much point doing this when it has presumably been done already.
 	if(_archetype == archetype)
-		testing( "Submap error - [name] - submap already set up.")
+		log_game( "Submap error - [name] - submap already set up.")
 		return
 
 	archetype = _archetype
 	if(!pref_name)
 		pref_name = archetype.descriptor
 
-	testing("Starting submap setup - '[name]', [archetype], [associated_z]z.")
+	log_game("Starting submap setup - '[name]', [archetype], [associated_z]z.")
 
 	if(!associated_z)
-		testing( "Submap error - [name]/[archetype ? archetype.descriptor : "NO ARCHETYPE"] could not find an associated z-level for spawnpoint placement.")
+		log_game( "Submap error - [name]/[archetype ? archetype.descriptor : "NO ARCHETYPE"] could not find an associated z-level for spawnpoint placement.")
 		qdel(src)
 		return
 

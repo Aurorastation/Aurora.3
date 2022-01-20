@@ -148,8 +148,6 @@
 	else
 		return FALSE
 	
-	testing("Atoms to initialise: [length(atoms_to_initialise)]")
-
 	//initialize things that are normally initialized after map load
 	init_atoms(atoms_to_initialise)
 	init_shuttles(shuttle_state)

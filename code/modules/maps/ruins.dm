@@ -52,7 +52,7 @@ var/list/banned_ruin_ids = list()
 			if (!valid)
 				continue
 
-			testing("Ruin \"[ruin.name]\" placed at ([choice.x], [choice.y], [choice.z])!")
+			log_admin("Ruin \"[ruin.name]\" placed at ([choice.x], [choice.y], [choice.z])!")
 
 			load_ruin(choice, ruin)
 			selected += ruin
