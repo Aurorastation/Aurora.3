@@ -131,20 +131,20 @@
 
 /obj/item/clothing/head/warden/zavod
 	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
-	icon_state = "zav_warden"
-	item_state = "zav_warden"
+	icon_state = "zav_warden_hat"
+	item_state = "zav_warden_hat"
 	contained_sprite = TRUE
 
 /obj/item/clothing/head/warden/pmc
 	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
-	icon_state = "epmc_warden"
-	item_state = "epmc_warden"
+	icon_state = "epmc_warden_hat"
+	item_state = "epmc_warden_hat"
 	contained_sprite = TRUE
 
 /obj/item/clothing/head/warden/idris
 	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
-	icon_state = "idris_warden"
-	item_state = "idris_warden"
+	icon_state = "idris_warden_hat"
+	item_state = "idris_warden_hat"
 	contained_sprite = TRUE
 
 /obj/item/clothing/head/hos
