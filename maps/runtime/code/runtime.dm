@@ -42,7 +42,7 @@
 	)
 
 	num_exoplanets = 3
-	planet_size = list(255, 255)
+	planet_size = list(65, 65)
 
 	away_site_budget = 3
 
