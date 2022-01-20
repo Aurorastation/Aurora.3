@@ -28,5 +28,5 @@
 /obj/effect/landmark/scorcher/Initialize()
 	var/turf/simulated/T = get_turf(src)
 	if(istype(T))
-		T.fire_act(exposed_temperature = temp)
+		T.fire_act(temp)
 	. = ..()
