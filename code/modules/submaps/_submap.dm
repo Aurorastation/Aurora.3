@@ -39,13 +39,6 @@
 	if(istype(cell))
 		sync_cell(cell)
 
-	/*// Open the ghost roles. TODOMATT FIGURE THIS OUT
-	var/added_spawnpoint
-	for(var/check_z in GetConnectedZlevels(associated_z))
-		for(var/thing in block(locate(1, 1, check_z), locate(world.maxx, world.maxy, check_z)))
-			for(var/obj/effect/ghostspawpoint/landmark in thing)
-				landmark.*/
-
 /datum/submap/proc/sync_cell(var/obj/effect/overmap/visitable/cell)
 	name = cell.name
 
