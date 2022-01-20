@@ -33,9 +33,10 @@
 	height = bounds[MAP_MAXY] - bounds[MAP_MINX] + 1
 	return bounds
 
-/datum/map_template/proc/load_new_z()
-	var/x = round(world.maxx / 2)
-	var/y = round(world.maxy / 2)
+/datum/map_template/proc/load_new_z(var/no_changeturf = TRUE)
+	var/x = round((world.maxx - width)/2)
+	var/y = round((world.maxy - height)/2)
+	var/initial_z = world.maxz + 1
 
 	if (x < 1) x = 1
 	if (y < 1) y = 1
@@ -44,12 +45,19 @@
 	var/list/atoms_to_initialise = list()
 	var/shuttle_state = pre_init_shuttles()
 
-	var/datum/map_load_metadata/M = maploader.load_map(file(mappath), x, y, no_changeturf = TRUE)
+	var/datum/map_load_metadata/M = maploader.load_map(file(mappath), x, y, no_changeturf = no_changeturf)
 	if (M)
 		bounds = extend_bounds_if_needed(bounds, M.bounds)
 		atoms_to_initialise += M.atoms_to_initialise
 	else
 		return FALSE
+
+	for (var/z_index = bounds[MAP_MINZ]; z_index <= bounds[MAP_MAXZ]; z_index++)
+		if (accessibility_weight)
+			current_map.accessible_z_levels[num2text(z_index)] = accessibility_weight
+		if (base_turf_for_zs)
+			current_map.base_turf_by_z[num2text(z_index)] = base_turf_for_zs
+		current_map.player_levels |= z_index
 
 	smooth_zlevel(world.maxz)
 	resort_all_areas()
@@ -57,7 +65,13 @@
 	//initialize things that are normally initialized after map load
 	init_atoms(atoms_to_initialise)
 	init_shuttles(shuttle_state)
+	after_load(initial_z)
+	for(var/light_z = initial_z to world.maxz)
+		create_lighting_overlays_zlevel(light_z)
 	log_game("Z-level [name] loaded at [x], [y], [world.maxz]")
+	loaded++
+
+	return locate(world.maxx/2, world.maxy/2, world.maxz)
 
 /datum/map_template/proc/pre_init_shuttles()
 	. = SSshuttle.block_queue
@@ -158,3 +172,13 @@
 	for (var/max_bound in list(MAP_MAXX, MAP_MAXY, MAP_MAXZ))
 		bounds_to_combine[max_bound] = max(existing_bounds[max_bound], new_bounds[max_bound])
 	return bounds_to_combine
+
+/datum/map_template/proc/after_load(z)
+	for(var/obj/effect/landmark/map_load_mark/mark in subtemplates_to_spawn)
+		subtemplates_to_spawn -= mark
+		if(LAZYLEN(mark.templates))
+			var/template = pick(mark.templates)
+			var/datum/map_template/M = new template()
+			M.load(get_turf(mark), TRUE)
+			qdel(mark)
+	LAZYCLEARLIST(subtemplates_to_spawn)

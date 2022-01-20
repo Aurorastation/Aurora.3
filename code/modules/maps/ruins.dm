@@ -16,7 +16,6 @@ var/list/banned_ruin_ids = list()
 	var/remaining = budget
 
 	for(var/datum/map_template/ruin/ruin in potentialRuins)
-		testing("Potential ruins: [english_list(potentialRuins)]")
 		if (ruin.id in banned_ruin_ids)
 			continue
 		if(!(SSatlas.current_sector.name in ruin.sectors))
@@ -49,12 +48,11 @@ var/list/banned_ruin_ids = list()
 					if (attempts == 1)
 						available -= ruin
 					valid = FALSE
-					testing("Invalid turf")
 					break
 			if (!valid)
 				continue
 
-			testing("Ruin \"[ruin.name]\" placed at ([choice.x], [choice.y], [choice.z])")
+			testing("Ruin \"[ruin.name]\" placed at ([choice.x], [choice.y], [choice.z])!")
 
 			load_ruin(choice, ruin)
 			selected += ruin
@@ -75,13 +73,11 @@ var/list/banned_ruin_ids = list()
 
 /proc/load_ruin(turf/central_turf, datum/map_template/template)
 	if(!template)
-		testing("No template")
 		return FALSE
 	for(var/i in template.get_affected_turfs(central_turf, 1))
 		var/turf/T = i
 		for(var/mob/living/simple_animal/monster in T)
 			qdel(monster)
-	testing("Loading template at [central_turf.x] [central_turf.y] [central_turf.z]")
 	template.load(central_turf, TRUE)
 	var/datum/map_template/ruin = template
 	if(istype(ruin))

@@ -19,13 +19,7 @@
 		submap.setup_submap(SSmapping.submap_archetypes[archetype])
 	else
 		if(SSmapping.submaps[name])
-			to_world_log( "Submap error - mapped landmark is duplicate of existing.")
+			log_debug( "Submap error - mapped landmark is duplicate of existing.")
 		else
-			to_world_log( "Submap error - mapped landmark had invalid archetype.")
+			log_debug( "Submap error - mapped landmark had invalid archetype.")
 	return INITIALIZE_HINT_QDEL
-
-/obj/effect/submap_landmark/spawnpoint
-	icon_state = "x3"
-
-/obj/effect/submap_landmark/spawnpoint/survivor
-	name = "Survivor"
