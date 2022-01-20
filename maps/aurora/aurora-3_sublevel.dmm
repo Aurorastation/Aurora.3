@@ -23673,23 +23673,23 @@
 /obj/machinery/firealarm/south,
 /obj/item/device/radio/med{
 	name = "Medbay Emergency Radio Link";
-	step_x = -8;
-	step_y = 7
+	step_x = 0;
+	step_y = 0
 	},
 /obj/item/device/radio/med{
 	name = "Medbay Emergency Radio Link";
-	step_x = -3;
-	step_y = 7
+	step_x = 0;
+	step_y = 0
 	},
 /obj/item/device/radio/med{
 	name = "Medbay Emergency Radio Link";
-	step_x = 2;
-	step_y = 7
+	step_x = 0;
+	step_y = 0
 	},
 /obj/item/device/radio/med{
 	name = "Medbay Emergency Radio Link";
-	step_x = 7;
-	step_y = 7
+	step_x = 0;
+	step_y = 0
 	},
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
