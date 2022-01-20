@@ -50,8 +50,7 @@
 	if(is_edge_turf(T))
 		return
 	var/v = noise2value(value)
-	if(v > 5)
-		T.icon_state = "desert[v-1]"
+	if(v > 6)
 		if(prob(10))
 			new/obj/structure/quicksand(T)
 
