@@ -423,6 +423,17 @@ var/const/access_consular = 72
 	id = access_consular
 	desc = "Consular"
 
+var/const/access_intrepid = 73
+/datum/access/intrepid
+	id = access_intrepid
+	desc = "Intrepid Shuttle"
+	region = ACCESS_REGION_COMMAND
+
+var/const/access_bridge_crew = 74
+/datum/access/bridge_crew
+	id = access_bridge_crew
+	desc = "Bridge Crew"
+	region = ACCESS_REGION_COMMAND
 
 /******************
 * Central Command *

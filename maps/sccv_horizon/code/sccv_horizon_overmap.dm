@@ -20,6 +20,7 @@
 /obj/machinery/computer/shuttle_control/explore/intrepid
 	name = "Intrepid control console"
 	shuttle_tag = "Intrepid"
+	req_access = list(access_intrepid)
 
 /obj/effect/overmap/visitable/ship/landable/intrepid
 	name = "Intrepid"
@@ -44,3 +45,4 @@
 /obj/machinery/computer/shuttle_control/explore/mining_shuttle
 	name = "mining shuttle control console"
 	shuttle_tag = "Mining Shuttle"
+	req_access = list(access_mining)

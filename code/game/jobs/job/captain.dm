@@ -95,12 +95,11 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	access = list(access_sec_doors, access_medical, access_engine, access_change_ids, access_eva, access_heads,
 			            access_all_personal_lockers, access_maint_tunnels, access_bar, access_janitor, access_construction,
 			            access_crematorium, access_kitchen, access_hydroponics,access_chapel_office, access_library, access_research,
-			            access_mining, access_mining_station, access_janitor, access_hop, access_RC_announce, access_keycard_auth,
-			            access_gateway, access_weapons, access_journalist)
+			            access_janitor, access_hop, access_RC_announce, access_keycard_auth, access_gateway, access_weapons, access_journalist, access_bridge_crew, access_intrepid)
 	minimal_access = list(access_sec_doors, access_medical, access_engine, access_change_ids, access_eva, access_heads,
 			            access_all_personal_lockers, access_maint_tunnels, access_bar, access_janitor, access_construction,
 			            access_crematorium, access_kitchen, access_hydroponics, access_chapel_office, access_library, access_research,
-			            access_janitor,   access_hop, access_RC_announce, access_keycard_auth, access_gateway, access_weapons, access_journalist)
+			            access_janitor,   access_hop, access_RC_announce, access_keycard_auth, access_gateway, access_weapons, access_journalist, access_bridge_crew, access_intrepid)
 
 	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_DIONA, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
@@ -138,7 +137,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	intro_prefix = "the"
 	supervisors = "the executive officer and the captain"
 	selection_color = "#2b5bb5"
-	minimal_player_age = 10
+	minimal_player_age = 20
 	economic_modifier = 10
 	ideal_character_age = 45
 
@@ -146,9 +145,8 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 	outfit = /datum/outfit/job/bridge_crew
 
-	access = list(access_change_ids, access_eva, access_heads,access_maint_tunnels, access_bar, access_cargo, access_cargo_bot,
-						access_RC_announce, access_keycard_auth, access_gateway, access_weapons, access_journalist)
-	minimal_access = list(access_eva, access_heads, access_gateway, access_weapons)
+	access = list(access_eva, access_heads, access_maint_tunnels, access_weapons, access_bridge_crew, access_intrepid)
+	minimal_access = list(access_heads, access_eva, access_heads, access_gateway, access_weapons, access_bridge_crew, access_intrepid)
 
 	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_DIONA, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 

@@ -428,7 +428,7 @@
 
 /obj/structure/closet/secure_closet/bridge_crew
 	name = "bridge crew's locker"
-	req_access = list(access_heads)
+	req_access = list(access_bridge_crew)
 	icon_state = "hopsecure1"
 	icon_closed = "hopsecure"
 	icon_locked = "hopsecure1"
@@ -447,7 +447,7 @@
 
 /obj/structure/closet/secure_closet/pilot
 	name = "pilot's locker"
-	req_access = list(access_heads)
+	req_access = list(access_bridge_crew)
 	icon_state = "hopsecure1"
 	icon_closed = "hopsecure"
 	icon_locked = "hopsecure1"
