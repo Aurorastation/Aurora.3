@@ -20,7 +20,7 @@
 					LANGUAGE_YA_SSA =      FALSE
 					)
 
-	sprites = list("Basic" = "shell")
+	sprites = list("Basic" = list(ROBOT_CHASSIS = "shell", ROBOT_PANEL = "shell", ROBOT_EYES = "shell"))
 
 /obj/item/robot_module/aicontrol/Initialize()
 	. = ..()

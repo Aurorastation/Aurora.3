@@ -17,12 +17,12 @@
 		add_overlay(panel_overlay)
 
 /mob/living/silicon/robot/proc/setup_icon_cache()
-	if(!module_sprites[icontype])
-		return
 	setup_eye_cache()
 	setup_panel_cache()
 
 /mob/living/silicon/robot/proc/setup_eye_cache()
+	if(!module_sprites[icontype][ROBOT_EYES])
+		return
 	var/eye_layer = src.layer
 	if(lights_on && layer == MOB_LAYER) // in case you're hiding. so eyes don't go through tables.
 		eye_layer = EFFECTS_ABOVE_LIGHTING_LAYER //make them glow in the dark if the lamp is on
@@ -43,6 +43,8 @@
 	add_overlay(eye_overlay)
 
 /mob/living/silicon/robot/proc/setup_panel_cache()
+	if(!module_sprites[icontype][ROBOT_PANEL])
+		return
 	var/panelprefix = custom_sprite ? src.ckey : module_sprites[icontype][ROBOT_PANEL] // Shoutout to Geeves.
 	cached_panel_overlays = list(
 		ROBOT_PANEL_EXPOSED = image(icon, "[panelprefix]-openpanel+w"),
