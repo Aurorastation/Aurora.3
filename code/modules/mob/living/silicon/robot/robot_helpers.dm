@@ -17,6 +17,8 @@
 		add_overlay(panel_overlay)
 
 /mob/living/silicon/robot/proc/setup_icon_cache()
+	if(!module_sprites[icontype])
+		return
 	setup_eye_cache()
 	setup_panel_cache()
 
