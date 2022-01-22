@@ -551,6 +551,7 @@ CURRENT_SPACE_SECTOR Romanovich Cloud
 # NTSL2+ Connection Info
 NTSL_HOSTNAME localhost
 NTSL_PORT 1945
+NTSL_DISABLED 1
 
 # Limit to how many hacked drones can AI have at the same time.
 # HACKED_DRONES_LIMIT 5
