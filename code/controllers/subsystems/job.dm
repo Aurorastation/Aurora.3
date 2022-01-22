@@ -672,11 +672,14 @@
 
 		var/datum/spawnpoint/spawnpos
 
-		if(H.client.prefs.spawnpoint)
+		if(H.client.prefs.spawnpoint in SSatlas.spawn_locations)
 			spawnpos = SSatlas.spawn_locations[H.client.prefs.spawnpoint]
 
 		if(rank == "Cyborg")
 			spawnpos = new/datum/spawnpoint/cyborg
+
+		if(!spawnpos)
+			spawnpos = SSatlas.spawn_locations[current_map.default_spawn]
 
 		if(spawnpos && istype(spawnpos))
 			if(spawnpos.check_job_spawning(rank))
