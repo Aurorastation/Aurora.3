@@ -735,8 +735,7 @@
 	},
 /obj/machinery/status_display{
 	layer = 4;
-	pixel_x = -32;
-	pixel_y = 0
+	pixel_x = -32
 	},
 /turf/simulated/floor/tiled,
 /area/security/investigations)
@@ -2643,8 +2642,7 @@
 	dir = 4
 	},
 /obj/machinery/light_switch{
-	pixel_x = -26;
-	pixel_y = 0
+	pixel_x = -26
 	},
 /turf/simulated/floor/tiled,
 /area/security/investigations_storage)
@@ -2739,8 +2737,7 @@
 /obj/item/storage/box/cups,
 /obj/machinery/button/switch/windowtint{
 	id = "Interro";
-	pixel_x = -28;
-	pixel_y = 0
+	pixel_x = -28
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/investigations)
@@ -5248,7 +5245,6 @@
 	dir = 4
 	},
 /obj/machinery/light_switch{
-	pixel_x = 0;
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/ramp/bottom{
@@ -6144,8 +6140,7 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/table/glass,
 /obj/machinery/light_switch{
-	pixel_x = -30;
-	pixel_y = 0
+	pixel_x = -30
 	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_morgue)
@@ -7715,7 +7710,6 @@
 /obj/item/device/radio/intercom{
 	frequency = 1449;
 	name = "Station Intercom (Interrogation)";
-	pixel_x = 0;
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark,
@@ -10475,7 +10469,6 @@
 	},
 /obj/item/device/radio/intercom{
 	broadcasting = 1;
-	dir = 2;
 	frequency = 1449;
 	listening = 0;
 	name = "Station Intercom (Interrogation)";
@@ -14119,8 +14112,7 @@
 /area/tcommsat/chamber)
 "IP" = (
 /obj/machinery/recharger/wallcharger{
-	pixel_x = 32;
-	pixel_y = 0
+	pixel_x = 32
 	},
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 32;
@@ -17135,8 +17127,7 @@
 /obj/machinery/requests_console{
 	department = "Forensics Lab";
 	departmentType = 5;
-	pixel_x = -30;
-	pixel_y = 0
+	pixel_x = -30
 	},
 /obj/machinery/camera/network/security{
 	c_tag = "Security - Forensics Lab";
