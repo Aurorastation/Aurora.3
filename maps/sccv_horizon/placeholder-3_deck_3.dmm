@@ -15775,6 +15775,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
+"MI" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/landmark{
+	name = "JoinLate"
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/sleep/cryo)
 "MJ" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -39469,7 +39476,7 @@ bH
 KU
 rJ
 rJ
-rJ
+MI
 xK
 Zm
 ch
