@@ -357,7 +357,7 @@
 	},
 /obj/machinery/door/airlock/command{
 	id_tag = "hopdoor";
-	name = "Executive Officerl's Office";
+	name = "Executive Officer's Office";
 	req_access = list(57)
 	},
 /obj/machinery/door/firedoor,
@@ -1110,12 +1110,12 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "cx" = (
-/obj/structure/lattice,
-/obj/structure/cable/white{
-	icon_state = "11-4"
+/obj/structure/curtain/open/shower,
+/obj/machinery/shower{
+	dir = 8
 	},
-/turf/simulated/open,
-/area/turret_protected/ai)
+/turf/simulated/floor/tiled/freezer,
+/area/crew_quarters/toilet)
 "cy" = (
 /obj/structure/table/standard,
 /obj/item/device/camera_film,
@@ -1266,9 +1266,6 @@
 "cL" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
-	},
-/obj/structure/cable/white{
-	icon_state = "2-8"
 	},
 /obj/machinery/camera/network/command{
 	c_tag = "AI Core - Third Deck Chamber Port";
@@ -1558,9 +1555,7 @@
 /obj/effect/floor_decal/corner/green/diagonal{
 	dir = 8
 	},
-/obj/structure/bed/stool/chair/plastic{
-	dir = 4
-	},
+/obj/machinery/iv_drip,
 /turf/simulated/floor/tiled/white,
 /area/medical/equipment)
 "dz" = (
@@ -1910,6 +1905,9 @@
 "ea" = (
 /obj/structure/curtain/open/shower,
 /obj/random/soap,
+/obj/machinery/shower{
+	pixel_y = 21
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/medical/washroom)
 "eb" = (
@@ -1924,6 +1922,9 @@
 /area/hallway/crew_area)
 "ed" = (
 /obj/structure/curtain/open/shower,
+/obj/machinery/shower{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
 "ee" = (
@@ -2016,26 +2017,10 @@
 "em" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/engineering_ladder)
-"en" = (
-/obj/structure/lattice,
-/obj/structure/cable/white{
-	icon_state = "4-8"
-	},
-/turf/simulated/open,
-/area/turret_protected/ai)
 "eo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/security/investigations)
-"eq" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/structure/cable/white{
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/bluegrid,
-/area/turret_protected/ai)
 "er" = (
 /obj/structure/bed/stool/chair/office/bridge{
 	dir = 8
@@ -2359,6 +2344,10 @@
 	dir = 8
 	},
 /obj/machinery/firealarm/west,
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Hallway 5";
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
 "fj" = (
@@ -2776,7 +2765,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/wall,
+/turf/simulated/floor,
 /area/maintenance/security_starboard)
 "gv" = (
 /obj/structure/closet/firecloset/full,
@@ -3885,6 +3874,9 @@
 /area/bridge)
 "jh" = (
 /obj/structure/curtain/open/shower,
+/obj/machinery/shower{
+	pixel_y = 21
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/medical/washroom)
 "ji" = (
@@ -4215,9 +4207,6 @@
 "jU" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
-	},
-/obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck - Lounge 2"
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/lounge/secondary)
@@ -5083,6 +5072,10 @@
 /obj/structure/table/rack,
 /obj/item/tank/oxygen,
 /obj/item/clothing/mask/gas,
+/obj/machinery/camera/network/command{
+	c_tag = "Third Deck - Teleporter";
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/teleporter)
 "mi" = (
@@ -6393,7 +6386,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/wall/r_wall,
+/turf/simulated/floor/tiled,
 /area/teleporter)
 "pp" = (
 /obj/structure/cable/green{
@@ -7467,7 +7460,7 @@
 	req_access = list(66)
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/wall,
+/turf/simulated/floor,
 /area/medical/exam)
 "rG" = (
 /obj/structure/bed/stool/chair/sofa/right/brown,
@@ -10418,14 +10411,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/pool)
-"zv" = (
-/obj/structure/table/wood,
-/obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck - Lounge 1";
-	dir = 1
-	},
-/turf/simulated/floor/carpet,
-/area/crew_quarters/lounge)
 "zw" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
@@ -11049,6 +11034,10 @@
 /area/storage/shields)
 "Bb" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Crew Armory";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -13482,6 +13471,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Hallway 6";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
 "Hp" = (
@@ -15123,10 +15116,6 @@
 	dir = 8
 	},
 /obj/structure/table/standard,
-/obj/item/paper_bin{
-	pixel_x = -1;
-	pixel_y = 7
-	},
 /obj/item/paper_scanner,
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 9
@@ -17797,7 +17786,6 @@
 "Rz" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/nanotrasen,
-/obj/structure/trash_pile,
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
 "RB" = (
@@ -36469,7 +36457,7 @@ xA
 rG
 eV
 yC
-zv
+Xh
 gW
 at
 fh
@@ -40873,9 +40861,9 @@ ah
 DJ
 DJ
 ga
-ed
+cx
 qu
-ed
+cx
 Ga
 Up
 JD
@@ -47937,9 +47925,9 @@ En
 WC
 qj
 VB
-cx
+Px
 VB
-en
+Px
 VB
 WP
 zJ
@@ -48141,7 +48129,7 @@ np
 Jh
 cL
 dr
-eq
+Jh
 Jh
 Zh
 Ml
