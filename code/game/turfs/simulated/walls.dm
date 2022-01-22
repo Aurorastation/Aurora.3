@@ -41,8 +41,6 @@
 		O.hide(1)
 
 /turf/simulated/wall/Initialize(mapload, var/materialtype, var/rmaterialtype)
-	if(!canSmoothWith && ((smooth & SMOOTH_TRUE) || (smooth & SMOOTH_MORE)))
-		set_wall_smooth()
 	. = ..()
 	if(!use_set_icon_state)
 		icon_state = "blank"
