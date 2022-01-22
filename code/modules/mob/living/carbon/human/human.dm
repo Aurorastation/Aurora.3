@@ -160,8 +160,6 @@
 					if(!silent)
 						to_chat(src, SPAN_WARNING("You need a tighter hold on \the [M]!"))
 					return FALSE
-		else
-			return FALSE
 
 	. = stomach.get_devour_time(victim) || ..()
 
@@ -251,7 +249,7 @@
 
 			if (!istype(l_ear, /obj/item/clothing/ears/earmuffs) && !istype(r_ear, /obj/item/clothing/ears/earmuffs))
 				adjustEarDamage(30, 120)
-				
+
 			if (prob(70))
 				Paralyse(10)
 
@@ -2017,7 +2015,7 @@
 	var/obj/item/organ/internal/augment/synthetic_cords/voice/aug = internal_organs_by_name[BP_AUG_ACC_CORDS] //checks for augments, thanks grey
 	if(aug)
 		used_accent = aug.accent
-	
+
 	for(var/obj/item/gear in list(wear_mask,wear_suit,head)) //checks for voice changers masks now
 		if(gear)
 			var/obj/item/voice_changer/changer = locate() in gear
@@ -2109,7 +2107,7 @@
 // Intensity 1: mild, 2: hurts, 3: very painful, 4: extremely painful, 5: that's going to leave some damage
 // Sensitive_only: If yes, only those with sensitive hearing are affected
 // Listening_pain: Increases the intensity by the listed amount if the person is listening in
-/mob/living/carbon/human/proc/earpain(var/intensity, var/sensitive_only = FALSE, var/listening_pain = 0) 
+/mob/living/carbon/human/proc/earpain(var/intensity, var/sensitive_only = FALSE, var/listening_pain = 0)
 	if (ear_deaf)
 		return
 	if (sensitive_only && !get_hearing_sensitivity())
@@ -2118,7 +2116,7 @@
 		intensity += listening_pain
 	else if (sensitive_only)
 		return
-	
+
 	var/obj/item/organ/external/E = organs_by_name[BP_HEAD]
 	switch (intensity)
 		if (1)
