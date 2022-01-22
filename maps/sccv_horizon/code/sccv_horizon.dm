@@ -88,6 +88,7 @@
 	evac_controller_type = /datum/evacuation_controller/starship
 
 	spawn_types = list(/datum/spawnpoint/living_quarters_lift, /datum/spawnpoint/cryo)
+	default_spawn = "Living Quarters Lift"
 
 /datum/map/sccv_horizon/finalize_load()
 	// generate an empty space Z

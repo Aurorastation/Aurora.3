@@ -137,6 +137,13 @@
 	if(!is_in_playable_species)
 		pref.species = SPECIES_HUMAN
 
+	var/list/spawnkeys = list()
+	for(var/S in SSatlas.spawn_locations)
+		spawnkeys += S
+
+	if(!(pref.spawnpoint in spawnkeys))
+		pref.spawnpoint = current_map.default_spawn
+
 	pref.age                = sanitize_integer(text2num(pref.age), pref.getMinAge(), pref.getMaxAge(), initial(pref.age))
 	pref.gender             = sanitize_gender(pref.gender, pref.species)
 	pref.pronouns           = sanitize_pronouns(pref.pronouns, pref.species, pref.gender)

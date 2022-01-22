@@ -14849,9 +14849,6 @@
 	name = "elevator Button";
 	pixel_y = 31
 	},
-/obj/effect/landmark{
-	name = "JoinLate"
-	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -14861,9 +14858,6 @@
 	dir = 4;
 	name = "adjusted light fixture";
 	pixel_y = -16
-	},
-/obj/effect/landmark{
-	name = "JoinLate"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -15108,14 +15102,6 @@
 "aJT" = (
 /turf/unsimulated/floor,
 /area/centcom/spawning)
-"aJU" = (
-/obj/effect/landmark{
-	name = "JoinLate"
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark2"
-	},
-/area/centcom/spawning)
 "aKc" = (
 /obj/effect/decal/fake_object{
 	color = "#545c68";
@@ -15271,20 +15257,6 @@
 	icon_state = "dark2"
 	},
 /area/centcom/holding)
-"aKs" = (
-/obj/effect/decal/fake_object{
-	desc = "Ding.";
-	icon = 'icons/obj/doors/doorlift.dmi';
-	icon_state = "door_open";
-	name = "elevator door"
-	},
-/obj/effect/landmark{
-	name = "JoinLate"
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark2"
-	},
-/area/centcom/spawning)
 "aKF" = (
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
@@ -66736,8 +66708,8 @@ aHU
 aHC
 aIH
 aJj
-aJU
-aKs
+aPo
+aLb
 aLb
 aLO
 aJT
@@ -66993,8 +66965,8 @@ aHU
 aHC
 aIH
 aJk
-aJU
-aKs
+aPo
+aLb
 aLb
 aLP
 aJT
@@ -68021,8 +67993,8 @@ aHU
 aHC
 aIH
 aJj
-aJU
-aKs
+aPo
+aLb
 aLb
 aLP
 aJT
@@ -68278,8 +68250,8 @@ aHW
 aHC
 aIH
 aJk
-aJU
-aKs
+aPo
+aLb
 aLb
 aLP
 aJT
