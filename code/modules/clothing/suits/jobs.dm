@@ -152,7 +152,7 @@ obj/item/clothing/suit/apron/overalls/blue
 
 /obj/item/clothing/suit/storage/det_jacket
 	name = "detective's jacket"
-	desc = "Stylish yet comfortable professional jacket manufactured by CL corporation for NT detectives."
+	desc = "Stylish yet comfortable professional jacket manufactured by CL corporation for detectives."
 	icon_state = "det_jacket"
 	item_state = "det_jacket"
 	blood_overlay_type = "coat"
@@ -180,6 +180,24 @@ obj/item/clothing/suit/apron/overalls/blue
 	item_state = "forensics"
 	body_parts_covered = UPPER_TORSO|ARMS
 	allowed = list(/obj/item/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/box/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder,/obj/item/clothing/accessory/badge/investigator)
+
+/obj/item/clothing/suit/storage/det_jacket/zavod
+	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
+	icon_state = "zav_invest_coat"
+	item_state = "zav_invest_coat"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/det_jacket/pmc
+	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
+	icon_state = "epmc_invest_coat"
+	item_state = "epmc_invest_coat"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/det_jacket/idris
+	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
+	icon_state = "idris_invest_coat"
+	item_state = "idris_invest_coat"
+	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/forensics/blue
 	icon_state = "forensicsblue"

@@ -37,6 +37,22 @@
 	desc = "A stylish hat that both protects you from enraged former-crewmembers and gives you a false sense of authority."
 	icon_state = "hopcap"
 
+/obj/item/clothing/head/caphat/xo
+	name = "executive officer cap"
+	desc = "A stylish cap issued to SCC executive officers."
+	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
+	contained_sprite = TRUE
+	icon_state = "executive_officer_cap"
+	item_state = "executive_officer_cap"
+
+/obj/item/clothing/head/caphat/bridge_crew
+	name = "bridge crew cap"
+	desc = "A stylish cap issued to the SCC bridge crew."
+	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
+	contained_sprite = TRUE
+	icon_state = "bridge_officer_cap"
+	item_state = "bridge_officer_cap"
+
 //Chaplain
 /obj/item/clothing/head/chaplain_hood
 	name = "chaplain's hood"

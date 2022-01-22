@@ -107,6 +107,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	name = "Executive Officer"
 	jobtype = /datum/job/xo
 
+	head = /obj/item/clothing/head/caphat/xo
 	uniform = /obj/item/clothing/under/rank/xo
 	shoes = /obj/item/clothing/shoes/brown
 	id = /obj/item/card/id/navy
@@ -148,12 +149,13 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	access = list(access_eva, access_heads, access_maint_tunnels, access_weapons, access_bridge_crew, access_intrepid)
 	minimal_access = list(access_heads, access_eva, access_heads, access_gateway, access_weapons, access_bridge_crew, access_intrepid)
 
-	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_DIONA, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/bridge_crew
 	name = "Bridge Crew"
 	jobtype = /datum/job/bridge_crew
 
+	head = /obj/item/clothing/head/caphat/bridge_crew
 	uniform = /obj/item/clothing/under/rank/bridge_crew
 	shoes = /obj/item/clothing/shoes/black
 

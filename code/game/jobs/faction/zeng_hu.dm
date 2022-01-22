@@ -93,6 +93,7 @@
 /datum/outfit/job/med_tech/zeng_hu
 	name = "First Responder - Zeng-Hu"
 
+	head = /obj/item/clothing/head/softcap/medical/pmc
 	suit = null
 	uniform = /obj/item/clothing/under/rank/medical/first_responder/zeng
 	id = /obj/item/card/id/zeng_hu

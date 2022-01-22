@@ -72,6 +72,7 @@
 	name = "Investigator - Idris"
 
 	uniform = /obj/item/clothing/under/det/idris
+	suit = /obj/item/clothing/suit/storage/det_jacket/idris
 	id = /obj/item/card/id/idris/sec
 
 /datum/outfit/job/intern_sec/idris

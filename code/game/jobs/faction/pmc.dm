@@ -78,6 +78,7 @@
 	name = "Investigator - PMC"
 
 	uniform = /obj/item/clothing/under/det/pmc
+	suit = /obj/item/clothing/suit/storage/det_jacket/pmc
 	id = /obj/item/card/id/pmc
 
 /datum/outfit/job/doctor/pmc
@@ -111,6 +112,7 @@
 /datum/outfit/job/med_tech/pmc
 	name = "First Responder - PMC"
 
+	head = /obj/item/clothing/head/softcap/medical/pmc
 	uniform = /obj/item/clothing/under/rank/medical/first_responder/pmc
 	id = /obj/item/card/id/pmc
 

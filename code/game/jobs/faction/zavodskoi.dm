@@ -25,6 +25,9 @@
 		/datum/species/skrell,
 		/datum/species/unathi,
 		/datum/species/diona,
+		/datum/species/bug = TRUE,
+		/datum/species/bug/type_b = TRUE,
+		/datum/species/bug/type_e = TRUE,
 		/datum/species/machine
 	)
 
@@ -87,7 +90,8 @@
 
 	id = /obj/item/card/id/zavodskoi/sec
 	uniform = /obj/item/clothing/under/det/zavod
-	head = /obj/item/clothing/head/softcap/zavod/alt
+	suit = /obj/item/clothing/suit/storage/det_jacket/zavod
+	head = null
 
 /datum/outfit/job/scientist/zavodskoi
 	name = "Scientist - Zavodskoi Interstellar"
