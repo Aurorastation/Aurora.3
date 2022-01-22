@@ -11,7 +11,6 @@
 
 	allowed_role_types = list(
 		/datum/job/passenger,
-		/datum/job/journalist,
 		/datum/job/merchant,
 		/datum/job/consular
 	)

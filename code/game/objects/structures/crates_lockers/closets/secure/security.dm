@@ -129,8 +129,6 @@
 	new /obj/item/clothing/suit/armor/carrier/hos(src)
 	new /obj/item/clothing/accessory/leg_guard(src)
 	new /obj/item/clothing/accessory/arm_guard(src)
-	new /obj/item/clothing/under/rank/head_of_security/corp(src)
-	new /obj/item/clothing/head/beret/security/hos/corp(src)
 	new /obj/item/clothing/head/hos/corp(src)
 	new /obj/item/clothing/head/helmet/hos(src)
 	new /obj/item/clothing/suit/storage/security/hos(src)
@@ -180,9 +178,7 @@
 	new /obj/item/clothing/suit/armor/carrier/hos(src)
 	new /obj/item/clothing/accessory/leg_guard(src)
 	new /obj/item/clothing/accessory/arm_guard(src)
-	new /obj/item/clothing/under/rank/head_of_security/corp(src)
 	new /obj/item/clothing/head/beret/security/corp(src)
-	new /obj/item/clothing/head/hos/corp(src)
 	new /obj/item/clothing/head/helmet/hos(src)
 	new /obj/item/clothing/suit/storage/security/hos(src)
 	//Tools
@@ -218,7 +214,6 @@
 	new /obj/item/clothing/suit/armor/carrier/officer(src)
 	new /obj/item/clothing/accessory/arm_guard(src)
 	new /obj/item/clothing/accessory/leg_guard(src)
-	new /obj/item/clothing/under/rank/warden/corp(src)
 	new /obj/item/clothing/head/beret/security/corp(src)
 	new /obj/item/clothing/head/warden/corp(src)
 	new /obj/item/clothing/head/helmet/security(src)
@@ -296,7 +291,6 @@
 	new /obj/item/clothing/suit/armor/carrier/officer(src)
 	new /obj/item/clothing/accessory/arm_guard(src)
 	new /obj/item/clothing/accessory/leg_guard(src)
-	new /obj/item/clothing/under/rank/security/corp(src)
 	new /obj/item/clothing/head/beret/security/corp(src)
 	new /obj/item/clothing/head/softcap/security/corp(src)
 	new /obj/item/clothing/head/helmet/security(src)
@@ -434,7 +428,7 @@
 
 /obj/structure/closet/secure_closet/bridge_crew
 	name = "bridge crew's locker"
-	req_access = list(access_heads)
+	req_access = list(access_bridge_crew)
 	icon_state = "hopsecure1"
 	icon_closed = "hopsecure"
 	icon_locked = "hopsecure1"
@@ -453,7 +447,7 @@
 
 /obj/structure/closet/secure_closet/pilot
 	name = "pilot's locker"
-	req_access = list(access_heads)
+	req_access = list(access_bridge_crew)
 	icon_state = "hopsecure1"
 	icon_closed = "hopsecure"
 	icon_locked = "hopsecure1"

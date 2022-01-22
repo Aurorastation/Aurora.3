@@ -6,7 +6,6 @@
 	icon_state = "map-shuttle"
 	permit_ao = 0
 	smooth = SMOOTH_MORE|SMOOTH_DIAGONAL
-	use_standard_smoothing = 1
 	canSmoothWith = list(
 		/turf/simulated/wall/shuttle,
 		/obj/structure/window/shuttle,
@@ -195,6 +194,13 @@
 
 /turf/simulated/wall/shuttle/space_ship/cardinal
 	smooth = SMOOTH_MORE
+
+/turf/simulated/wall/shuttle/space_ship/mercenary
+	color = "#5b5b5b"
+
+/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal
+	smooth = SMOOTH_MORE
+	color = "#5b5b5b"
 
 //--Unique Shuttles--//
 

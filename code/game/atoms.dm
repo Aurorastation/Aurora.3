@@ -595,7 +595,7 @@
 			if(!(H in mobs))
 				if(src.z == H.z && get_dist(src, H) <= range)
 					H.intent_listen(src, message)
-	
+
 /atom/proc/change_area(var/area/oldarea, var/area/newarea)
 	change_area_name(oldarea.name, newarea.name)
 
@@ -650,3 +650,6 @@
 	if(degrees)
 		appearance_flags |= PIXEL_SCALE
 	transform = M
+
+/atom/proc/handle_middle_mouse_click(var/mob/user)
+	return FALSE

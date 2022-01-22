@@ -102,6 +102,8 @@
 #define ACCENT_OLDYASSA "Old Ya'ssa"
 #define ACCENT_NORTHRASNRR "Northern Ras'nrr Siik'maas"
 #define ACCENT_DINAKK "Din'akk Mountains Siik'maas"
+#define ACCENT_HARRNRRI "Harr'nrri Siik'mas"
+#define ACCENT_ZARRJIRI "Zarr'jiri Siik'mas"
 
 #define ACCENT_HEGEMON_NOBLE "Noble Hegemonic"
 #define ACCENT_HEGEMON_PEASANT "Peasant Hegemonic"

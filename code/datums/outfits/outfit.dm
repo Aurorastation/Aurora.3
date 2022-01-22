@@ -191,7 +191,7 @@
 
 	return
 
-// Used to equip an item to the mob. Mainly to prevent copypasta for collect_not_del. 
+// Used to equip an item to the mob. Mainly to prevent copypasta for collect_not_del.
 //override_collect temporarily allows equip_or_collect without enabling it for the job. Mostly used to prevent weirdness with hand equips when the player is missing one
 /datum/outfit/proc/equip_item(mob/living/carbon/human/H, path, slot, var/set_no_remove = FALSE, var/override_collect = FALSE)
 	var/obj/item/I
@@ -313,7 +313,7 @@
 	if(suit_store)
 		equip_item(H, suit_store, slot_s_store)
 
-	//Hand equips. If person is missing an arm or hand it attempts to put it in the other hand. 
+	//Hand equips. If person is missing an arm or hand it attempts to put it in the other hand.
 	//Override_collect should attempt to collect any items that can't be equipped regardless of collect_not_del settings for the outfit.
 	if(l_hand)
 		var/obj/item/organ/external/O
@@ -497,7 +497,7 @@
 	. = GetAssignment(H)
 
 	if (. && . != "Unassigned" && H?.mind?.selected_faction)
-		if (!H.mind.selected_faction.is_default && H.mind.selected_faction.title_suffix)
+		if (H.mind.selected_faction.title_suffix)
 			. += " ([H.mind.selected_faction.title_suffix])"
 
 /datum/outfit/proc/get_id_rank(mob/living/carbon/human/H)

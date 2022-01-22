@@ -38,7 +38,6 @@
 		/obj/item/toy/bosunwhistle            = TRADER_THIS_TYPE,
 		/obj/item/board                = TRADER_THIS_TYPE,
 		/obj/item/deck                 = TRADER_SUBTYPES_ONLY,
-		/obj/item/deck/tarot/fluff     = TRADER_BLACKLIST_ALL,
 		/obj/item/pack                 = TRADER_SUBTYPES_ONLY,
 		/obj/item/dice                 = TRADER_ALL,
 		/obj/item/eightball                   = TRADER_ALL,

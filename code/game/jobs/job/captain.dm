@@ -28,9 +28,9 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	name = "Captain"
 	jobtype = /datum/job/captain
 
-	uniform = /obj/item/clothing/under/rank/captain
+	uniform = /obj/item/clothing/under/scc_captain
 	shoes = /obj/item/clothing/shoes/brown
-	head = /obj/item/clothing/head/caphat
+	head = /obj/item/clothing/head/caphat/scc
 	glasses = /obj/item/clothing/glasses/sunglasses
 	id = /obj/item/card/id/gold
 
@@ -95,12 +95,11 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	access = list(access_sec_doors, access_medical, access_engine, access_change_ids, access_eva, access_heads,
 			            access_all_personal_lockers, access_maint_tunnels, access_bar, access_janitor, access_construction,
 			            access_crematorium, access_kitchen, access_hydroponics,access_chapel_office, access_library, access_research,
-			            access_mining, access_mining_station, access_janitor, access_hop, access_RC_announce, access_keycard_auth,
-			            access_gateway, access_weapons, access_journalist)
+			            access_janitor, access_hop, access_RC_announce, access_keycard_auth, access_gateway, access_weapons, access_journalist, access_bridge_crew, access_intrepid)
 	minimal_access = list(access_sec_doors, access_medical, access_engine, access_change_ids, access_eva, access_heads,
 			            access_all_personal_lockers, access_maint_tunnels, access_bar, access_janitor, access_construction,
 			            access_crematorium, access_kitchen, access_hydroponics, access_chapel_office, access_library, access_research,
-			            access_janitor,   access_hop, access_RC_announce, access_keycard_auth, access_gateway, access_weapons, access_journalist)
+			            access_janitor,   access_hop, access_RC_announce, access_keycard_auth, access_gateway, access_weapons, access_journalist, access_bridge_crew, access_intrepid)
 
 	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_DIONA, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
@@ -108,6 +107,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	name = "Executive Officer"
 	jobtype = /datum/job/xo
 
+	head = /obj/item/clothing/head/caphat/xo
 	uniform = /obj/item/clothing/under/rank/xo
 	shoes = /obj/item/clothing/shoes/brown
 	id = /obj/item/card/id/navy
@@ -131,31 +131,31 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	title = "Bridge Crew"
 	flag = BRIDGE_CREW
 	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
-	department_flag = CIVILIAN
+	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 3
 	intro_prefix = "the"
 	supervisors = "the executive officer and the captain"
 	selection_color = "#2b5bb5"
-	minimal_player_age = 10
+	minimal_player_age = 20
 	economic_modifier = 10
-	ideal_character_age = 50
+	ideal_character_age = 45
 
 	minimum_character_age = 30
 
 	outfit = /datum/outfit/job/bridge_crew
 
-	access = list(access_change_ids, access_eva, access_heads,access_maint_tunnels, access_bar, access_cargo, access_cargo_bot,
-						access_RC_announce, access_keycard_auth, access_gateway, access_weapons, access_journalist)
-	minimal_access = list(access_eva, access_heads, access_gateway, access_weapons)
+	access = list(access_eva, access_heads, access_maint_tunnels, access_weapons, access_bridge_crew, access_intrepid)
+	minimal_access = list(access_heads, access_eva, access_heads, access_gateway, access_weapons, access_bridge_crew, access_intrepid)
 
-	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_DIONA, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/bridge_crew
 	name = "Bridge Crew"
 	jobtype = /datum/job/bridge_crew
 
+	head = /obj/item/clothing/head/caphat/bridge_crew
 	uniform = /obj/item/clothing/under/rank/bridge_crew
 	shoes = /obj/item/clothing/shoes/black
 

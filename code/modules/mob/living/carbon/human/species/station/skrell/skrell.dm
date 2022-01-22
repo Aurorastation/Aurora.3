@@ -36,6 +36,8 @@
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_SOCKS
 	flags = NO_SLIP
 
+	possible_external_organs_modifications = list("Normal","Amputated","Prosthesis", "Diona Nymph")
+
 	has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest),
 		BP_GROIN =  list("path" = /obj/item/organ/external/groin),
@@ -57,7 +59,6 @@
 		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/skrell,
 		BP_BRAIN =    /obj/item/organ/internal/brain/skrell,
 		BP_STOMACH =  /obj/item/organ/internal/stomach,
-		BP_APPENDIX = /obj/item/organ/internal/appendix,
 		BP_EYES =     /obj/item/organ/internal/eyes/skrell
 		)
 
@@ -82,13 +83,13 @@
 
 	default_h_style = "Skrell Short Tentacles"
 
-	allowed_citizenships = list(CITIZENSHIP_JARGON, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI)
+	allowed_citizenships = list(CITIZENSHIP_JARGON, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ERIDANI)
 	allowed_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_SUURKA, RELIGION_KIRGUL, RELIGION_NONE, RELIGION_OTHER)
 	default_citizenship = CITIZENSHIP_JARGON
 
 	default_accent = ACCENT_SKRELL
 	allowed_accents = list(ACCENT_SKRELL, ACCENT_HOMEWORLD, ACCENT_QERRMALIC, ACCENT_ALIOSE, ACCENT_AWEIJI, ACCENT_TRAVERSE, ACCENT_CETI, ACCENT_GIBSON, ACCENT_COC, ACCENT_ERIDANI,
-							ACCENT_ERIDANIDREG, ACCENT_VENUS, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_ELYRA, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_EUROPA, ACCENT_VALKYRIE, ACCENT_MICTLAN)
+							ACCENT_ERIDANIDREG, ACCENT_VENUS, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_EUROPA, ACCENT_VALKYRIE, ACCENT_MICTLAN)
 
 	zombie_type = SPECIES_ZOMBIE_SKRELL
 	bodyfall_sound = /decl/sound_category/bodyfall_skrell_sound

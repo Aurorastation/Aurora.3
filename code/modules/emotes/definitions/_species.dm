@@ -30,7 +30,7 @@
 		/decl/emote/human/stopsway,
 		/decl/emote/audible/lizard_bellow,
 		/decl/emote/audible/hiss,
-		/decl/emote/audible/hiss/long,
+		/decl/emote/audible/growl,
 		/decl/emote/audible/hiss/short
 		)
 	pain_emotes_with_pain_level = list(

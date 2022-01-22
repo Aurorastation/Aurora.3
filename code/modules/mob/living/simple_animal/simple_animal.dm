@@ -134,6 +134,15 @@
 
 	var/list/butchering_products	//if anything else is created when butchering this creature, like bones and leather
 
+	var/psi_pingable = TRUE
+
+	var/armor_type = /datum/component/armor
+	var/list/natural_armor //what armor animal has
+
+	//for simple animals that reflect damage when attacked in melee
+	var/return_damage_min
+	var/return_damage_max
+
 
 /mob/living/simple_animal/proc/update_nutrition_stats()
 	nutrition_step = mob_size * 0.03 * metabolic_factor
@@ -157,6 +166,9 @@
 	if(has_udder)
 		udder = new(50)
 		udder.my_atom = src
+
+	if(LAZYLEN(natural_armor))
+		AddComponent(armor_type, natural_armor)
 
 /mob/living/simple_animal/Move(NewLoc, direct)
 	. = ..()
@@ -752,8 +764,7 @@
 /mob/living/simple_animal/proc/reset_sound_time()
 	sound_time = TRUE
 
-/mob/living/simple_animal/say(var/message)
-	var/verb = "says"
+/mob/living/simple_animal/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
 	if(speak_emote.len)
 		verb = pick(speak_emote)
 
@@ -938,6 +949,17 @@
 		return TRUE
 	else
 		return FALSE
+
+/mob/living/simple_animal/proc/reflect_unarmed_damage(var/mob/living/carbon/human/attacker, var/damage_type, var/description)
+	if(attacker.a_intent == I_HURT)
+		var/hand_hurtie
+		if(attacker.hand)
+			hand_hurtie = BP_L_HAND
+		else
+			hand_hurtie = BP_R_HAND
+		attacker.apply_damage(rand(return_damage_min, return_damage_max), damage_type, hand_hurtie, used_weapon = description)
+		if(rand(25))
+			to_chat(attacker, SPAN_WARNING("Your attack has no obvious effect on \the [src]'s [description]!"))
 
 #undef BLOOD_NONE
 #undef BLOOD_LIGHT

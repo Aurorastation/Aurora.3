@@ -176,6 +176,49 @@
 		result = first ^ second
 	return result
 
+/*
+ * Returns a list with the results from both lists
+ * If norepeat = TRUE, it won't include repeat instances.
+ * If unpack = TRUE, it unpacks each list
+ */
+/proc/mergelists(var/list/first, var/list/second, var/norepeat = TRUE, var/unpack = FALSE)
+	if(!islist(first) || !islist(second))
+		return
+	var/list/result = new
+	if(unpack)
+		first = unpacklist(first)
+		second = unpacklist(second)
+	for(var/A in first)
+		result += A
+	if(norepeat)
+		for(var/A in second)
+			if(!(A in result))
+				result += A
+	else
+		for(var/A in second)
+			result += A
+	return result
+
+/*
+ * Returns a list with the unpacked results from the list.
+ * If repeatunpack = TRUE, it unpacks each found list within it
+ */
+/proc/unpacklist(var/list/packed, repeatunpack = TRUE)
+	if(!islist(packed))
+		return
+	var/list/result = new
+	for(var/A in packed)
+		if(islist(A))
+			for(var/B in A)
+				if(repeatunpack && islist(B))
+					var/list/unpacked = unpacklist(B)
+					for(var/C in unpacked)
+						result += C
+				else
+					result += B
+		else
+			result += A
+	return result
 
 //Picks a random element by weight from a list. The list must be correctly constructed in this format:
 //mylist[myelement1] = myweight1
@@ -504,35 +547,30 @@
 //returns a new list with only atoms that are in typecache L
 /proc/typecache_filter_list(list/atoms, list/typecache)
 	. = list()
-	for(var/thing in atoms)
-		var/atom/A = thing
+	for(var/atom/A as anything in atoms)
 		if (typecache[A.type])
 			. += A
 
 /proc/typecache_filter_list_reverse(list/atoms, list/typecache)
 	. = list()
-	for(var/thing in atoms)
-		var/atom/A = thing
+	for(var/atom/A as anything in atoms)
 		if(!typecache[A.type])
 			. += A
 
 /proc/typecache_filter_multi_list_exclusion(list/atoms, list/typecache_include, list/typecache_exclude)
 	. = list()
-	for(var/thing in atoms)
-		var/atom/A = thing
+	for(var/atom/A as anything in atoms)
 		if(typecache_include[A.type] && !typecache_exclude[A.type])
 			. += A
 
 /proc/range_in_typecache(dist, center, list/typecache)
-	for (var/thing in range(dist, center))
-		var/atom/A = thing
+	for(var/atom/A as anything in range(dist, center))
 		if (typecache[A.type])
 			return TRUE
 
 /proc/typecache_first_match(list/target, list/typecache)
-	for (var/thing in target)
-		var/datum/D = thing
-		if (typecache[D.type])
+	for(var/datum/D as anything in target)
+		if(typecache[D.type])
 			return D
 
 //Like typesof() or subtypesof(), but returns a typecache instead of a list

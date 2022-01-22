@@ -30,10 +30,16 @@
 #define FONT_HUGE(X) ("<font size='4'>" + X + "</font>")
 #define FONT_GIANT(X) ("<font size='5'>" + X + "</font>")
 
+#define MATRIX_DANGER(X) (FONT_LARGE(SPAN_DANGER(X)))
+#define MATRIX_NOTICE(X) (FONT_LARGE(SPAN_NOTICE(X)))
+
 #define UNDERSCORE_OR_NULL(target) "[target ? "[target]_" : ""]"
+
+#define sequential_id(key) uniqueness_repository.Generate(/datum/uniqueness_generator/id_sequential, key)
 
 #define isAI(A) istype(A, /mob/living/silicon/ai)
 #define isDrone(A) istype(A, /mob/living/silicon/robot/drone)
+#define isMatriarchDrone(A) istype(A, /mob/living/silicon/robot/drone/construction/matriarch)
 
 #define isalien(A) istype(A, /mob/living/carbon/alien)
 

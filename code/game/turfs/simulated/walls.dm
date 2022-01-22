@@ -21,7 +21,6 @@
 	var/last_state
 	var/construction_stage
 	var/hitsound = 'sound/weapons/genhit.ogg'
-	var/use_standard_smoothing
 	var/use_set_icon_state
 
 	var/under_turf = /turf/simulated/floor/plating
@@ -33,10 +32,6 @@
 
 	smooth = SMOOTH_TRUE | SMOOTH_NO_CLEAR_ICON
 
-	canSmoothWith = list(
-		/turf/simulated/wall/shuttle/scc_space_ship
-	)
-
 // Walls always hide the stuff below them.
 /turf/simulated/wall/levelupdate(mapload)
 	if (mapload)
@@ -45,6 +40,12 @@
 		O.hide(1)
 
 /turf/simulated/wall/Initialize(mapload, var/materialtype, var/rmaterialtype)
+	if(!canSmoothWith && ((smooth & SMOOTH_TRUE) || (smooth & SMOOTH_MORE)))
+		canSmoothWith = list(
+			src.type,
+			/obj/structure/window/full,
+			/obj/structure/window/full/phoron
+		)
 	. = ..()
 	if(!use_set_icon_state)
 		icon_state = "blank"
@@ -257,3 +258,6 @@
 				W.burn((temperature/4))
 			for(var/obj/machinery/door/airlock/phoron/D in range(3,src))
 				D.ignite(temperature/4)
+
+/turf/simulated/wall/is_wall()
+	return TRUE

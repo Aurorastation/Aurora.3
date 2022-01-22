@@ -163,11 +163,11 @@
 
 /decl/emote/audible/mumble
 	key = "mumble"
-	emote_message_3p = "USER mumbles!"
+	emote_message_3p = "USER mumbles."
 
 /decl/emote/audible/grumble
 	key = "grumble"
-	emote_message_3p = "USER grumbles!"
+	emote_message_3p = "USER grumbles."
 
 /decl/emote/audible/groan
 	key = "groan"
@@ -239,11 +239,17 @@
 	emote_message_3p_target = "USER hisses softly at TARGET."
 	emote_message_3p = "USER hisses softly."
 
-/decl/emote/audible/hiss/long
-	key = "hiss2"
+/decl/emote/audible/growl
+    key = "growl"
+    emote_message_3p_target = "USER growls softly at TARGET."
+    emote_message_3p = "USER growls softly."
+    emote_sound = 'sound/voice/Lizardgrowl.ogg'
 
 /decl/emote/audible/hiss/short
-	key = "hiss3"
+    key = "hiss2"
+    emote_message_3p_target = "USER hisses softly at TARGET."
+    emote_message_3p = "USER hisses softly."
+    emote_sound = 'sound/voice/lizardhiss2.ogg'
 
 /decl/emote/audible/lizard_bellow
 	key = "bellow"
@@ -265,7 +271,7 @@
 	key = "lwarble"
 	emote_message_3p = "USER lets out a low, throaty warble!"
 	emote_sound = 'sound/voice/low warble.ogg'
-	
+
 /decl/emote/audible/croak
 	key = "croak"
 	emote_message_3p = "USER croaks!"

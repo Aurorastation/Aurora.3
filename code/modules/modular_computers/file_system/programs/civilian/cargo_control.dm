@@ -242,6 +242,7 @@
 				if(B.claimed)
 					continue
 				text += "<h3>[B.name]</h3>"
+				text += "<font size = \"1\">[B.description]</font>"
 				text += "<ul><li>Reward: [B.reward_string()]</li>"
 				text += "<li>Completed: [B.completion_string()]</li></ul>"
 			if(!console.nano_printer.print_text(text,"paper - Bounties"))

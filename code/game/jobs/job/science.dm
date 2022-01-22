@@ -17,7 +17,7 @@
 			            access_tox_storage, access_teleporter, access_sec_doors, access_medical, access_engine, access_construction,
 			            access_research, access_robotics, access_xenobiology, access_ai_upload, access_tech_storage,
 			            access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway, access_xenoarch, access_network,
-			            access_maint_tunnels, access_it)
+			            access_maint_tunnels, access_it, access_intrepid)
 	minimal_access = list(access_rd, access_heads, access_tox, access_genetics, access_morgue, access_eva, access_external_airlocks,
 			            access_tox_storage, access_teleporter, access_sec_doors, access_medical, access_engine, access_construction,
 			            access_research, access_robotics, access_xenobiology, access_ai_upload, access_tech_storage,
@@ -81,7 +81,7 @@
 	name = "Scientist"
 	jobtype = /datum/job/scientist
 
-	uniform = /obj/item/clothing/under/rank/scientist
+	uniform = /obj/item/clothing/under/rank/scientist/nt
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
 	shoes = /obj/item/clothing/shoes/science
 	id = /obj/item/card/id/white
@@ -102,7 +102,7 @@
 
 /datum/outfit/job/scientist/xenoarcheologist
     name = "Xenoarcheologist"
-    uniform = /obj/item/clothing/under/rank/xenoarcheologist
+    uniform = /obj/item/clothing/under/rank/xenoarcheologist/nt
 
 /datum/job/xenobiologist
 	title = "Xenobiologist"
@@ -125,16 +125,12 @@
 	minimal_player_age = 14
 
 	outfit = /datum/outfit/job/scientist/xenobiologist
-	alt_outfits = list("Xenobotanist"=/datum/outfit/job/scientist/xenobiologist/xenobotanist)
 
 /datum/outfit/job/scientist/xenobiologist
 	name = "Xenobiologist"
+	uniform = /obj/item/clothing/under/rank/scientist/xenobio
 	jobtype = /datum/job/xenobiologist
 	tab_pda = /obj/item/modular_computer/handheld/pda/research
-
-/datum/outfit/job/scientist/xenobiologist/xenobotanist
-	name = "Xenobotanist"
-	uniform = /obj/item/clothing/under/rank/scientist/botany
 
 /datum/job/intern_sci
 	title = "Lab Assistant"
@@ -155,7 +151,7 @@
 	name = "Lab Assistant"
 	jobtype = /datum/job/intern_sci
 
-	uniform = /obj/item/clothing/under/rank/scientist/intern
+	uniform = /obj/item/clothing/under/rank/scientist/intern/nt
 	shoes = /obj/item/clothing/shoes/science
 	headset = /obj/item/device/radio/headset/headset_sci
 	bowman = /obj/item/device/radio/headset/headset_sci/alt

@@ -52,7 +52,7 @@
 	shoes = /obj/item/clothing/shoes/black
 
 /datum/job/passenger
-	title = "passenger"
+	title = "Passenger"
 	flag = PASSENGER
 	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
 	department_flag = CIVILIAN

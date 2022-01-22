@@ -166,11 +166,9 @@
 
 /mob/living/carbon/swap_hand()
 	var/obj/item/item_in_hand = src.get_active_hand()
-	if(item_in_hand) //this segment checks if the item in your hand is twohanded.
-		if(istype(item_in_hand,/obj/item/material/twohanded) || istype(item_in_hand,/obj/item/gun) || istype(item_in_hand,/obj/item/pickaxe) || istype(item_in_hand, /obj/item/grab))
-			if(item_in_hand:wielded == 1)
-				to_chat(usr, SPAN_WARNING("Your other hand is too busy holding the [item_in_hand.name]"))
-				return
+	if(item_in_hand && !item_in_hand.can_swap_hands(src)) //this segment checks if the item in your hand is twohanded.
+		to_chat(src, SPAN_WARNING("Your other hand is too busy holding \the [item_in_hand]!"))
+		return
 	src.hand = !src.hand
 	if(hud_used.l_hand_hud_object && hud_used.r_hand_hud_object)
 		if(hand)	//This being 1 means the left hand is in use
@@ -179,11 +177,6 @@
 		else
 			hud_used.l_hand_hud_object.icon_state = "l_hand_inactive"
 			hud_used.r_hand_hud_object.icon_state = "r_hand_active"
-	/*if (!( src.hand ))
-		src.hands.set_dir(NORTH)
-	else
-		src.hands.set_dir(SOUTH)*/
-	return
 
 /mob/living/carbon/proc/activate_hand(var/selhand) //0 or "r" or "right" for right hand; 1 or "l" or "left" for left hand.
 	if(istext(selhand))
@@ -355,7 +348,7 @@
 /mob/living/carbon/can_use_hands()
 	if(handcuffed)
 		return 0
-	if(buckled_to && ! istype(buckled_to, /obj/structure/bed/chair)) // buckling does not restrict hands
+	if(buckled_to && ! istype(buckled_to, /obj/structure/bed/stool/chair)) // buckling does not restrict hands
 		return 0
 	return 1
 
@@ -499,3 +492,6 @@
 
 /mob/living/carbon/proc/is_drowsy()
 	return (drowsiness >= 5)
+
+/mob/living/carbon/proc/should_have_limb(var/organ_check)
+	return FALSE

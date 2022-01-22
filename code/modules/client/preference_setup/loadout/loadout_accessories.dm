@@ -14,6 +14,13 @@
 	path = /obj/item/clothing/accessory/wcoat_rec
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/accessory/waistcoat/New()
+	..()
+	var/list/waistcoats = list()
+	waistcoats["waistcoat"] = /obj/item/clothing/accessory/wcoat_rec
+	waistcoats["waistcoat, alt"] = /obj/item/clothing/accessory/silversun/wcoat
+	gear_tweaks += new /datum/gear_tweak/path(waistcoats)
+
 /datum/gear/accessory/chaps
 	display_name = "chaps selection"
 	path = /obj/item/clothing/accessory/chaps
@@ -456,3 +463,20 @@
 		var/obj/item/clothing/accessory/blood_patch/BP = type
 		patches[initial(BP.name)] = type
 	gear_tweaks += new /datum/gear_tweak/path(patches)
+
+/datum/gear/accessory/bandanna
+	display_name = "neck bandanna selection"
+	path = /obj/item/clothing/accessory/bandanna
+
+/datum/gear/accessory/bandanna/New()
+	..()
+	var/list/bandanna = list()
+	bandanna["red bandanna"] =  /obj/item/clothing/accessory/bandanna
+	bandanna["blue bandanna"] = /obj/item/clothing/accessory/bandanna/blue
+	bandanna["black bandanna"] = /obj/item/clothing/accessory/bandanna/black
+	gear_tweaks += new /datum/gear_tweak/path(bandanna)
+
+/datum/gear/accessory/bandanna_colorable
+	display_name = "neck bandanna (colorable)"
+	path = /obj/item/clothing/accessory/bandanna/colorable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION

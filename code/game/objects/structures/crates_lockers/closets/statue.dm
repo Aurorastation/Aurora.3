@@ -5,7 +5,7 @@
 /mob/statue_mob/send_emote()
 	to_chat(src, "You are unable to move while trapped as a statue.")
 
-/mob/statue_mob/say()
+/mob/statue_mob/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
 	to_chat(src, "You are unable to speak while trapped as a statue.")
 
 /obj/structure/closet/statue

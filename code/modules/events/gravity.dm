@@ -13,4 +13,5 @@
 	gravity_is_on = 0
 	for(var/A in SSmachinery.gravity_generators)
 		var/obj/machinery/gravity_generator/main/B = A
-		B.eventshutofftoggle()
+		if(B.z in affecting_z)
+			B.eventshutofftoggle()

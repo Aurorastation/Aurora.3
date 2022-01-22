@@ -16,6 +16,7 @@
 	player_levels = list(2, 3, 4, 5, 6, 7, 8)
 	restricted_levels = list()
 	accessible_z_levels = list("2" = 60, "6" = 20, "7" = 20)
+	meteor_levels = list(6)
 	base_turf_by_z = list(
 		"1" = /turf/space,
 		"2" = /turf/space,
@@ -62,8 +63,8 @@
 	shuttle_leaving_dock = "The crew transfer shuttle has left the station. Estimate %ETA% until the shuttle docks at %dock%."
 	shuttle_called_message = "A crew transfer to %dock% has been scheduled. The shuttle has been called. It will arrive in approximately %ETA%."
 	shuttle_recall_message = "The scheduled crew transfer has been cancelled."
-	emergency_shuttle_docked_message = "The emergency shuttle has docked with the station. You have approximately %ETD% minutes to board the emergency shuttle."
-	emergency_shuttle_leaving_dock = "The emergency shuttle has left the station. Estimate %ETA% minutes until the shuttle docks at %dock%."
+	emergency_shuttle_docked_message = "The emergency shuttle has docked with the station. You have approximately %ETA% to board the emergency shuttle."
+	emergency_shuttle_leaving_dock = "The emergency shuttle has left the station. Estimate %ETA% until the shuttle docks at %dock%."
 	emergency_shuttle_recall_message = "The emergency shuttle has been recalled."
 	emergency_shuttle_called_message = "An emergency evacuation shuttle has been called. It will arrive in approximately %ETA%."
 

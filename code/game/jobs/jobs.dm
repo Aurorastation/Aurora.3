@@ -14,6 +14,8 @@ var/const/CYBORG			=(1<<9)
 var/const/INTERN_SEC		=(1<<10)
 var/const/INTERN_ENG		=(1<<11)
 var/const/BRIDGE_CREW		=(1<<12)
+var/const/SERVICE_MANAGER	=(1<<13)
+var/const/OPERATIONS_MANAGER =(1<<14)
 
 var/const/MEDSCI			=(1<<1)
 
@@ -40,7 +42,7 @@ var/const/BOTANIST			=(1<<2)
 var/const/CHEF				=(1<<3)
 var/const/JANITOR			=(1<<4)
 var/const/LIBRARIAN			=(1<<5)
-var/const/QUARTERMASTER		=(1<<6)
+var/const/PASSENGER			=(1<<6)
 var/const/CARGOTECH			=(1<<7)
 var/const/MINER				=(1<<8)
 var/const/LAWYER			=(1<<9)
@@ -50,9 +52,6 @@ var/const/CONSULAR			=(1<<12)
 var/const/MERCHANT			=(1<<13)
 var/const/JOURNALIST		=(1<<14)
 var/const/ASSISTANT			=(1<<15)
-var/const/MACHINIST			=(1<<16)
-var/const/SERVICE_MANAGER	=(1<<17)
-var/const/PASSENGER			=(1<<18)
 
 
 var/list/command_positions = list(
@@ -134,7 +133,7 @@ var/list/nonhuman_positions = list(
 )
 
 /proc/guest_jobbans(var/job)
-	return ((job in command_positions) || job == "Corporate Liaison" || job == "Consular Officer" || job != "Bridge Crew")
+	return ((job in command_positions) || job == "Corporate Liaison" || job == "Consular Officer")
 
 /proc/get_job_datums()
 	var/list/occupations = list()

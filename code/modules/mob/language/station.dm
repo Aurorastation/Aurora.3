@@ -298,6 +298,20 @@
 	else
 		return ..()
 
+//Placeholder stuff for now, a lot of it
+/datum/language/elyran
+	name = LANGUAGE_ELYRAN_STANDARD
+	short = "ELY"
+	desc = "Elyran Standard is the official tongue of the Republic of Elyra. Constructed using elements of Farsi, Arabic, and Turkish, influence from all three of these languages can be seen throughout its grammar and vocabulary."
+	colour = "elyran"
+	written_style = "elyranstandard"
+	key = "4"
+	flags = WHITELISTED | TCOMSSIM
+	syllables = list("af", "if", "ba", "ta", "tha", "id", "jem", "ha", "kha", "dal", "dhl", "ra", "zay", "sen", "um", "shn", "sid", "ad", "ta", "za", "ayn", "gha", "zir", "yn", "fa", "qaf", "iam", "mim", "al", "ja", "non", "ha", "waw", "ya",
+		"hem", "zah", "hml", "ks", "ini", "da", "ks", "iga", "ih", "la", "ulf", "xe", "ayw", "sit", "ah", "aarah", "jalaa", "sirt", "kurt", "turhk", "ust", "irk", "kir", "mir", "ach", "oglu", "bolu", "shek", "she", "ghoz", "miya", "ejdan", 
+		"haaz", "quq", "taab", "shanha", "an", "saa", "seh", "an'", "e'", "a'", "em'")
+	allow_accents = TRUE
+
 /datum/language/machine
 	name = LANGUAGE_EAL
 	short = "EAL"

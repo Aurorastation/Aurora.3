@@ -40,3 +40,21 @@
 			SPECIES_VAURCA_BREEDER
 		)
 	)
+	titles_to_loadout = list(
+		"Hangar Technician" = /datum/outfit/job/hangar_tech/orion,
+		"Shaft Miner" = /datum/outfit/job/mining/orion,
+		"Machinist" = /datum/outfit/job/machinist/orion
+	)
+
+/datum/outfit/job/hangar_tech/orion
+	name = "Hangar Technician - Orion Express"
+	uniform = /obj/item/clothing/under/rank/hangar_technician/orion
+
+/datum/outfit/job/machinist/orion
+	name = "Machinist - Orion Express"
+	uniform = /obj/item/clothing/under/rank/machinist/orion
+	suit = null
+
+/datum/outfit/job/mining/orion
+	name = "Shaft Miner - Orion Express"
+	uniform = /obj/item/clothing/under/rank/miner/orion

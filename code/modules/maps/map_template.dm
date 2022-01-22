@@ -1,10 +1,16 @@
 /datum/map_template
 	var/name = "Default Template Name"
+	var/id = null // All maps that should be loadable during runtime need an id
 	var/width = 0
 	var/height = 0
 	var/mappath = null
 	var/loaded = 0 // Times loaded this round
 	var/static/dmm_suite/maploader = new
+	var/list/shuttles_to_initialise = list()
+	var/list/subtemplates_to_spawn
+	var/base_turf_for_zs = null
+	var/accessibility_weight = 0
+	var/template_flags = TEMPLATE_FLAG_ALLOW_DUPLICATES
 
 /datum/map_template/New(path = null, rename = null)
 	if(path)

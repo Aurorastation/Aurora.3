@@ -15,7 +15,7 @@
 	"}
 	title_suffix = "PMC"
 
-	allowed_role_types = NT_ROLES
+	allowed_role_types = PMC_ROLES
 
 	allowed_species_types = list(
 		/datum/species/human,
@@ -39,3 +39,93 @@
 		)
 	)
 
+	titles_to_loadout = list(
+		"Security Officer" = /datum/outfit/job/officer/pmc,
+		"Warden" = /datum/outfit/job/warden/pmc,
+		"Security Cadet" = /datum/outfit/job/intern_sec/pmc,
+		"Investigator" =/datum/outfit/job/forensics/pmc,
+		"Physician" = /datum/outfit/job/doctor/pmc,
+		"Surgeon" = /datum/outfit/job/doctor/surgeon/pmc,
+		"Pharmacist" = /datum/outfit/job/pharmacist/pmc,
+		"Psychiatrist" = /datum/outfit/job/psychiatrist/pmc,
+		"Psychologist" = /datum/outfit/job/psychiatrist/pmc,
+		"First Responder" = /datum/outfit/job/med_tech/pmc,
+		"Medical Intern" = /datum/outfit/job/intern_med/pmc,
+		"Corporate Liaison" = /datum/outfit/job/representative/pmc
+	)
+
+/datum/outfit/job/officer/pmc
+	name = "Security Officer - PMC"
+
+	uniform = /obj/item/clothing/under/rank/security/pmc
+	id = /obj/item/card/id/pmc
+
+/datum/outfit/job/warden/pmc
+	name = "Warden - PMC"
+
+	head = /obj/item/clothing/head/warden/pmc
+	uniform = /obj/item/clothing/under/rank/warden/pmc
+	id = /obj/item/card/id/pmc
+
+/datum/outfit/job/intern_sec/pmc
+	name = "Security Cadet - PMC"
+
+	uniform = /obj/item/clothing/under/rank/cadet/pmc
+	suit = null
+	id = /obj/item/card/id/pmc
+
+/datum/outfit/job/forensics/pmc
+	name = "Investigator - PMC"
+
+	uniform = /obj/item/clothing/under/det/pmc
+	suit = /obj/item/clothing/suit/storage/det_jacket/pmc
+	id = /obj/item/card/id/pmc
+
+/datum/outfit/job/doctor/pmc
+	name = "Physician - PMC"
+
+	uniform = /obj/item/clothing/under/rank/medical/pmc
+	suit = null
+	id = /obj/item/card/id/pmc
+
+/datum/outfit/job/doctor/surgeon/pmc
+	name = "Surgeon - PMC"
+
+	uniform = /obj/item/clothing/under/rank/medical/surgeon/pmc
+	head = /obj/item/clothing/head/surgery/pmc
+	suit = null
+	id = /obj/item/card/id/pmc
+
+/datum/outfit/job/pharmacist/pmc
+	name = "Pharmacist - PMC"
+
+	uniform = /obj/item/clothing/under/rank/pharmacist/pmc
+	suit = null
+	id = /obj/item/card/id/pmc
+
+/datum/outfit/job/psychiatrist/pmc
+	name = "Psychiatrist - PMC"
+
+	uniform = /obj/item/clothing/under/rank/psych/pmc
+	id = /obj/item/card/id/pmc
+
+/datum/outfit/job/med_tech/pmc
+	name = "First Responder - PMC"
+
+	head = /obj/item/clothing/head/softcap/medical/pmc
+	uniform = /obj/item/clothing/under/rank/medical/first_responder/pmc
+	id = /obj/item/card/id/pmc
+
+/datum/outfit/job/intern_med/pmc
+	name = "Medical Intern - PMC"
+
+	uniform = /obj/item/clothing/under/rank/medical/intern/pmc
+	id = /obj/item/card/id/pmc
+
+/datum/outfit/job/representative/pmc
+	name = "PMC Corporate Liaison"
+	uniform = /obj/item/clothing/under/rank/security/eridani/alt
+	head = null
+	suit = null
+	implants = null
+	id = /obj/item/card/id/pmc

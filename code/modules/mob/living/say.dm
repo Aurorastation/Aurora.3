@@ -75,23 +75,8 @@ proc/get_radio_key_from_channel(var/channel)
 
 	return key
 
-/mob/living/proc/binarycheck()
-
-	if (istype(src, /mob/living/silicon/pai))
-		return
-
-	if (!ishuman(src))
-		return
-
-	var/mob/living/carbon/human/H = src
-	if (H.l_ear || H.r_ear)
-		var/obj/item/device/radio/headset/dongle
-		if(istype(H.l_ear,/obj/item/device/radio/headset))
-			dongle = H.l_ear
-		else
-			dongle = H.r_ear
-		if(!istype(dongle)) return
-		if(dongle.translate_binary) return 1
+/mob/living/proc/binarycheck(var/mob/speaker)
+	return FALSE
 
 /mob/living/proc/get_stuttered_message(message)
 	return stutter(message, stuttering)
@@ -139,12 +124,15 @@ proc/get_radio_key_from_channel(var/channel)
 	returns[4] = world.view
 	return returns
 
-/mob/living/proc/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio)
+/mob/living/proc/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio, whisper)
 	if(message_mode == "intercom")
 		for(var/obj/item/device/radio/intercom/I in view(1, null))
 			used_radios += I
 			if(I.talk_into(src, message, verb, speaking))
 				successful_radio += I
+	if(message_mode == "whisper" && !whisper)
+		whisper(message, speaking)
+		return TRUE
 	return 0
 
 /mob/living/proc/handle_speech_sound()
@@ -168,7 +156,7 @@ proc/get_radio_key_from_channel(var/channel)
 			return FONT_SIZE_LARGE
 	return null
 
-/mob/living/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR)
+/mob/living/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
 	if(stat)
 		if(stat == DEAD)
 			return say_dead(message)
@@ -192,13 +180,15 @@ proc/get_radio_key_from_channel(var/channel)
 	message = trim(message)
 	message = formalize_text(message)
 
+	var/had_speaking = !!speaking
 	//parse the language code and consume it
 	if(!speaking || speaking.always_parse_language)
 		speaking = parse_language(message)
-	if(speaking)
-		message = copytext(message,2+length(speaking.key))
-	else
-		speaking = get_default_language()
+	if(!had_speaking)
+		if(speaking)
+			message = copytext(message,2+length(speaking.key))
+		else
+			speaking = get_default_language()
 
 	if(speaking)
 		var/list/speech_mod = speaking.handle_message_mode(message_mode)
@@ -220,7 +210,7 @@ proc/get_radio_key_from_channel(var/channel)
 		speaking.broadcast(src,trim(message))
 		return 1
 
-	verb = say_quote(message, speaking, is_singing)
+	verb = say_quote(message, speaking, is_singing, whisper)
 
 	if(is_muzzled())
 		to_chat(src, "<span class='danger'>You're muzzled and cannot speak!</span>")
@@ -255,7 +245,7 @@ proc/get_radio_key_from_channel(var/channel)
 
 	var/list/obj/item/used_radios = new
 	var/list/successful_radio = new // passes a list because standard vars don't work when passed
-	if(handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio))
+	if(handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio, whisper))
 		return 1
 
 	var/list/handle_v = handle_speech_sound()
@@ -283,6 +273,10 @@ proc/get_radio_key_from_channel(var/channel)
 	var/list/listening = list()
 	var/list/listening_obj = list()
 	var/turf/T = get_turf(src)
+
+	if(whisper)
+		message_range = 1
+		italics = TRUE
 
 	if(T)
 		if(!speaking || !(speaking.flags & PRESSUREPROOF))
@@ -320,7 +314,11 @@ proc/get_radio_key_from_channel(var/channel)
 	if(mind)
 		mind.last_words = message
 
-	log_say("[key_name(src)] : ([get_lang_name(speaking)]) [message]",ckey=key_name(src))
+	if(whisper)
+		log_whisper("[key_name(src)] : ([get_lang_name(speaking)]) [message]",ckey=key_name(src))
+	else
+		log_say("[key_name(src)] : ([get_lang_name(speaking)]) [message]",ckey=key_name(src))
+
 	return 1
 
 /mob/living/proc/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration)

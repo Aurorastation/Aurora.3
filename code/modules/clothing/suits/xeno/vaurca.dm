@@ -27,7 +27,10 @@
 	desc = "Commonly worn by Preimmients, these robes are meant to catch pheromones, obfuscating hive affiliation."
 	icon_state = "shaper_robes"
 	item_state = "shaper_robes"
-	species_restricted = list(BODYTYPE_VAURCA)
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/suit.dmi'
+	)
+	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BULWARK)
 
 /obj/item/clothing/suit/vaurca/breeder
 	name = "zo'ra representative clothes"
