@@ -2,7 +2,7 @@
 	name = "heavy-duty cell charger"
 	desc = "A much more powerful version of the standard recharger that is specially designed for charging power cells."
 	icon = 'icons/obj/power.dmi'
-	icon_state = "ccharger0"
+	icon_state = "ccharger"
 	anchored = 1
 	use_power = 1
 	idle_power_usage = 5
@@ -17,20 +17,22 @@
 	update_icon()
 
 /obj/machinery/cell_charger/update_icon()
-	icon_state = "ccharger[charging ? 1 : 0]"
-
 	if(charging && !(stat & (BROKEN|NOPOWER)) )
 
 		var/newlevel = 	round(charging.percent() * 4.0 / 99)
 
 		if(chargelevel != newlevel)
-
 			cut_overlays()
 			add_overlay("ccharger-o[newlevel]")
-
 			chargelevel = newlevel
+		add_overlay(charging.icon_state)
+		add_overlay("cell-o2")
+		add_overlay("ccharger-on")
 	else
 		cut_overlays()
+
+	if(!charging)
+		return
 
 /obj/machinery/cell_charger/examine(mob/user)
 	if(!..(user, 5))

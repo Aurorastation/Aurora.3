@@ -9,7 +9,7 @@
 	lobby_transitions = 10 SECONDS
 
 	station_levels = list(1, 2, 3)
-	admin_levels = list()
+	admin_levels = list(9)
 	contact_levels = list(1, 2, 3)
 	player_levels = list(1, 2, 3)
 	accessible_z_levels = list(1, 2, 3)
@@ -26,8 +26,9 @@
 	company_short = "BT"
 
 	use_overmap = TRUE
+	overmap_size = 35
 
-	shuttle_docked_message = "Attention all hands: Jump preparation complete. The bluespace drive is now spooling up, secure all stations for departure. Time to jump: approximately %ETD%."
+	shuttle_docked_message = "Attention all hands: Jump preparation complete. The bluespace drive is now spooling up, secure all stations for departure. Time to jump: approximately %ETA%."
 	shuttle_leaving_dock = "Attention all hands: Jump initiated, exiting bluespace in %ETA%."
 	shuttle_called_message = "Attention all hands: Jump sequence initiated. Transit procedures are now in effect. Jump in %ETA%."
 	shuttle_recall_message = "Attention all hands: Jump sequence aborted, return to normal operating conditions."
@@ -39,3 +40,8 @@
 		NETWORK_COMMAND,
 		NETWORK_ENGINEERING,
 	)
+
+	num_exoplanets = 3
+	planet_size = list(65, 65)
+
+	map_shuttles = list(/datum/shuttle/autodock/overmap/runtime)

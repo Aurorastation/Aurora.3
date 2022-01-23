@@ -4,6 +4,7 @@
 	networks = list(NETWORK_COMMAND)
 	languages = list(
 					LANGUAGE_SOL_COMMON =  TRUE,
+					LANGUAGE_ELYRAN_STANDARD = TRUE,
 					LANGUAGE_TRADEBAND =   TRUE,
 					LANGUAGE_UNATHI =      TRUE,
 					LANGUAGE_SIIK_MAAS =   TRUE,

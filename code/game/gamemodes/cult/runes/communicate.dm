@@ -15,5 +15,5 @@
 	log_and_message_admins("used a communicate rune to say '[input]'")
 	for(var/datum/mind/H in cult.current_antagonists)
 		if(H.current)
-			to_chat(H.current, SPAN_CULT("The familiar voice of [H.current] fills your mind: [input]"))
+			to_chat(H.current, SPAN_CULT("The familiar voice of [user] fills your mind: [input]"))
 	qdel(A)

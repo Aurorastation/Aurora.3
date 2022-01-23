@@ -48,6 +48,7 @@
 	var/list/close_destinations = list()
 	var/area/latest_area
 	attack_emote = "focuses on"
+	psi_pingable = FALSE
 
 /mob/living/simple_animal/hostile/hivebotbeacon/incendiary
 	projectiletype = /obj/item/projectile/beam/hivebot/incendiary

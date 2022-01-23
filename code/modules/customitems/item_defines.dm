@@ -446,7 +446,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "zilosnish_uniform"
 	contained_sprite = TRUE
 
-/obj/item/clothing/suit/unathi/mantle/fluff/zilosnish_mantle //Exotic Mantle - Zilosnish Szu - sleepywolf
+/obj/item/clothing/accessory/poncho/unathimantle/fluff/zilosnish_mantle //Exotic Mantle - Zilosnish Szu - sleepywolf
 	name = "exotic mantle"
 	desc = "A red hide with a gold and jade insignia pin to keep it on a wearers shoulders. The hide is thick, like rhino skin."
 	icon = 'icons/obj/custom_items/zilosnish_items.dmi'
@@ -875,7 +875,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/mira_clothing.dmi'
 	icon_state = "mira_robes"
 	item_state = "mira_robes"
-	contained_sprite = TRUE
 
 /obj/item/clothing/shoes/fluff/mira_boots //Mira Boots - Mira Akhandi - ladyfowl
 	name = "dark boots"
@@ -1206,7 +1205,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/likho_labcoat.dmi'
 	icon_state = "likho_labcoat"
 	item_state = "likho_labcoat"
-	contained_sprite = TRUE
 
 
 /obj/item/clothing/suit/storage/toggle/fr_jacket/fluff/ramit_jacket //Winter Paramedic Jacket - Ra'mit Ma'zaira - simontheminer
@@ -1606,7 +1604,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/mekesatis_holocoat.dmi'
 	icon_state = "mekesatis_labcoat"
 	item_state = "mekesatis_labcoat"
-	contained_sprite = TRUE
 	var/changed = FALSE
 	var/changing = FALSE
 
@@ -2100,6 +2097,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	parent_organ = BP_R_LEG
 	supports_limb = TRUE
 	min_broken_damage = 15
+	min_bruised_damage = 5
 	var/last_drop = 0
 
 /obj/item/organ/internal/augment/fluff/kath_legbrace/process()
@@ -2107,13 +2105,22 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 	if(last_drop + 6 SECONDS > world.time)
 		return
-	if(is_bruised() && prob(20))
-		owner.Weaken(2)
-		last_drop = world.time
-	else if(is_broken() && prob(40))
-		owner.Weaken(3)
-		last_drop = world.time
+	if(owner.lying || owner.buckled_to || length(owner.grabbed_by))
+		return
 
+	if(is_bruised())
+		if(is_broken())
+			collapse(40, 3, 110)
+		else
+			collapse()
+
+/obj/item/organ/internal/augment/fluff/kath_legbrace/proc/collapse(var/prob_chance = 20, var/weaken_strength = 2, var/pain_strength = 40)
+	if(prob(prob_chance))
+		var/obj/item/organ/external/E = owner.organs_by_name[parent_organ]
+		owner.Weaken(weaken_strength)
+		last_drop = world.time
+		owner.custom_pain("Something inside your [E.name] hurts too much to stand!", pain_strength, TRUE, E, TRUE)
+		owner.visible_message("<b>[owner]</b> collapses!")
 
 /obj/item/flame/lighter/zippo/fluff/sezrak_zippo //Imperial 16th Zippo - Sezrak Han'san - captaingecko
 	name = "imperial 16th zippo"

@@ -1784,7 +1784,14 @@ Follow by example and make good judgement based on length which list to include 
 	skrell_spots
 		name = "Skrell Spots"
 		icon_state = "skrell_gradient_spots"
-		species_allowed = list(/datum/species/skrell, /datum/species/skrell/axiori)
+		species_allowed = list(/datum/species/skrell, /datum/species/skrell/axiori, /datum/species/zombie/skrell)
+
+	skrell_stripes
+		name = "Skrell Headtail Blotches"
+		icon_state = "skr_headtail_stripes"
+		species_allowed = list(/datum/species/skrell, /datum/species/skrell/axiori, /datum/species/zombie/skrell)
+
+
 
 	bulwark_default
 		name = "Bulwark Horn"
@@ -1809,7 +1816,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "bald"
 		gender = NEUTER
 		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi,
-		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell,/datum/species/diona, 
+		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell,/datum/species/diona,
 		/datum/species/diona/coeu, /datum/species/bug/type_b)
 
 	threeOclock
@@ -2578,7 +2585,7 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "hair_swoop"
 			length = 2
 			chatname = "styled mane"
-			
+
 		taj_ears_swoop_alt
 			name = "Tajara Swoop Alt"
 			icon_state = "hair_swoop_alt"
@@ -2971,14 +2978,14 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "bully_inj_left"
 			chatname = "antenna"
 			length = 1
-		
-		bulwark_damaged_right 
+
+		bulwark_damaged_right
 			name = "Bulwark Injured Antenna, Right"
 			icon_state = "bully_inj_right"
 			chatname = "antenna"
 			length = 1
 
-		bulwark_knight 
+		bulwark_knight
 			name = "Bulwark Knight Antennae"
 			icon_state = "bully_knight"
 			chatname = "antennae"
@@ -3542,11 +3549,11 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Bulldog Mandibles"
 			icon_state = "vaurca_bulldog"
 
-		mantis 
+		mantis
 			name = "Mantis Mandibles"
 			icon_state = "vaurca_mantis"
 
-		stag 
+		stag
 			name = "Stag Mandibles"
 			icon_state = "vaurca_stag"
 
@@ -3554,11 +3561,11 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Ectatomma Mandibles"
 			icon_state = "vaurca_ectatomma"
 
-		horridus 
+		horridus
 			name = "Horridus Mandibles"
 			icon_state = "vaurca_horridus"
 
-		tusks 
+		tusks
 			name = "Tusk Mandibles"
 			icon_state = "vaurca_tusks"
 
@@ -3566,7 +3573,7 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Acanthognathus Mandibles"
 			icon_state = "vaurca_acanthognathus"
 
-		myrmoteras 
+		myrmoteras
 			name = "Myrmoteras Mandibles"
 			icon_state = "vaurca_myrmoteras"
 
@@ -4306,11 +4313,16 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list(BP_CHEST)
 		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
-	tat_heart
-		name = "Tattoo (Heart, Chest)"
-		icon_state = "tat_heart"
-		body_parts = list(BP_CHEST)
+	tat_heart_arm
+		name = "Tattoo (Heart, Left Arm)"
+		icon_state = "tat_lheart"
+		body_parts = list(BP_L_ARM)
 		species_allowed = list(/datum/species/human, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+
+		right
+			name = "Tattoo (Heart, Right Arm)"
+			icon_state = "tat_rheart"
+			body_parts = list(BP_R_ARM)
 
 	tat_heart_back
 		name = "Tattoo (Heart, Lower Back)"
@@ -4553,6 +4565,7 @@ Follow by example and make good judgement based on length which list to include 
 
 	skr_tears
 		name = "Tear Stains"
+		icon = 'icons/mob/human_races/markings_skrell.dmi'
 		icon_state = "skr_tears"
 		body_parts = list(BP_HEAD)
 		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
@@ -4560,15 +4573,52 @@ Follow by example and make good judgement based on length which list to include 
 
 	skr_axiori_eyes
 		name = "Axiori Eyes"
+		icon = 'icons/mob/human_races/markings_skrell.dmi'
 		icon_state = "skr_axiori_eyes"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/skrell, /datum/species/zombie/skrell)
+		species_allowed = list(/datum/species/skrell, /datum/species/zombie/skrell,/datum/species/zombie/skrell)
 		do_colouration = FALSE
 
 	skr_arms
 		name = "Skrell Arms"
-		icon_state = "skrell_arms"
+		icon = 'icons/mob/human_races/markings_skrell.dmi'
+		icon_state = "skr_arms"
 		body_parts = list(BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND)
+		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
+
+	skr_blotch_arms
+		name = "Skrell Arm Blotches"
+		icon = 'icons/mob/human_races/markings_skrell.dmi'
+		icon_state = "skr_blotch_arms"
+		body_parts = list(BP_L_ARM,BP_R_ARM)
+		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
+
+	skr_blotch_leg
+		name = "Skrell Leg Blotches"
+		icon = 'icons/mob/human_races/markings_skrell.dmi'
+		icon_state = "skr_blotch_legs"
+		body_parts = list(BP_L_LEG,BP_R_LEG)
+		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
+
+	skr_back_stripes
+		name = "Skrell Back Stripes"
+		icon = 'icons/mob/human_races/markings_skrell.dmi'
+		icon_state = "skr_back_stripes"
+		body_parts = list(BP_CHEST)
+		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
+
+	skr_stomach
+		name = "Skrell Stomach"
+		icon = 'icons/mob/human_races/markings_skrell.dmi'
+		icon_state = "skr_stomach"
+		body_parts = list(BP_CHEST, BP_GROIN)
+		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
+
+	skr_chin
+		name = "Skrell Chin"
+		icon = 'icons/mob/human_races/markings_skrell.dmi'
+		icon_state = "skr_chin"
+		body_parts = list(BP_HEAD)
 		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
 
 	diona_leaves

@@ -542,3 +542,12 @@ var/const/enterloopsanity = 100
 		return 15
 	else
 		return 0
+
+/turf/proc/is_wall()
+	return FALSE
+
+/turf/proc/is_open()
+	return FALSE
+
+/turf/proc/is_floor()
+	return FALSE

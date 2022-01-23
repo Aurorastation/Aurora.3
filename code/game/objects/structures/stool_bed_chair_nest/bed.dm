@@ -25,6 +25,8 @@
 	var/material_alteration = MATERIAL_ALTERATION_ALL
 	var/buckling_sound = 'sound/effects/buckle.ogg'
 
+	var/painted_colour // Used for paint gun and preset colours. I know this name sucks.
+
 	var/can_dismantle = TRUE
 	var/can_pad = TRUE
 
@@ -33,11 +35,15 @@
 	var/held_item = null // Set to null if you don't want people to pick this up. 
 	slowdown = 5
 
+	var/driving = FALSE // Shit for wheelchairs. Doesn't really get used here, but it's for code cleanliness.
+	var/mob/living/pulling = null
+	var/propelled = 0 // Check for fire-extinguisher-driven chairs
+
 /obj/structure/bed/Initialize()
 	. = ..()
 	LAZYADD(can_buckle, /mob/living)
 
-/obj/structure/bed/New(newloc, new_material = MATERIAL_STEEL, new_padding_material)
+/obj/structure/bed/New(newloc, new_material = MATERIAL_STEEL, new_padding_material, new_painted_colour)
 	..(newloc)
 	if(can_buckle)
 		desc_info = "Click and drag yourself (or anyone) to this to buckle in. Click on this with an empty hand to undo the buckles.<br>\
@@ -51,6 +57,8 @@
 		return
 	if(new_padding_material)
 		padding_material = SSmaterials.get_material_by_name(new_padding_material)
+	if(new_painted_colour)
+		painted_colour = new_painted_colour
 	update_icon()
 
 /obj/structure/bed/buckle(mob/living/M)
@@ -76,10 +84,13 @@
 	// Padding overlay.
 	if(padding_material)
 		var/padding_cache_key = "[base_icon]-[padding_material.name]-padding"
-		if(!furniture_cache[padding_cache_key])
+		if(!furniture_cache[padding_cache_key] || painted_colour) //avoid having to regenerate the image everytime unless painted.
 			var/image/I =  image(icon, "[base_icon]_padding")
 			if(material_alteration & MATERIAL_ALTERATION_COLOR)
-				I.color = padding_material.icon_colour
+				if(painted_colour)
+					I.color = painted_colour
+				else
+					I.color = padding_material.icon_colour
 			furniture_cache[padding_cache_key] = I
 		add_overlay(furniture_cache[padding_cache_key])
 
@@ -89,8 +100,13 @@
 
 	if(material_alteration & MATERIAL_ALTERATION_DESC)
 		desc = initial(desc)
-		desc += padding_material ? " It's made of [material.use_name] and covered with [padding_material.use_name]." : " It's made of [material.use_name]."
+		desc += padding_material ? " It's made of [material.use_name] and covered with [padding_material.use_name][painted_colour ? ", colored in <font color='[painted_colour]'>[painted_colour]</font>" : ""]." : " It's made of [material.use_name]." //Yeah plain hex codes suck but at least it's a little funny and less of a headache for players.
 
+/obj/structure/bed/proc/set_colour(new_colour)
+	if(padding_material)
+		var/last_colour = painted_colour
+		painted_colour = new_colour
+		return painted_colour != last_colour
 
 /obj/structure/bed/forceMove(atom/dest)
 	. = ..()
@@ -158,6 +174,7 @@
 			return
 		to_chat(user, "You remove the padding from \the [src].")
 		playsound(src, 'sound/items/wirecutter.ogg', 100, 1)
+		painted_colour = null
 		remove_padding()
 
 	else if (W.isscrewdriver())
@@ -193,6 +210,9 @@
 		W.pixel_x = 10 //make sure they reach the pillow
 		W.pixel_y = -6
 
+	else if(istype(W, /obj/item/device/floor_painter))
+		return
+
 	else if(!istype(W, /obj/item/bedsheet))
 		..()
 
@@ -209,11 +229,72 @@
 /obj/structure/bed/dismantle(obj/item/W, mob/user)
 	playsound(src.loc, W.usesound, 50, 1)
 	user.visible_message("<b>[user]</b> begins dismantling \the [src].", SPAN_NOTICE("You begin dismantling \the [src]."))
-	if(!do_after(user, 20 / W.toolspeed))
+	if(do_after(user, 20 / W.toolspeed))
 		user.visible_message("\The [user] dismantles \the [src].", SPAN_NOTICE("You dismantle \the [src]."))
 		if(padding_material)
 			padding_material.place_sheet(get_turf(src))
 		..()
+
+/obj/structure/bed/Move()
+	. = ..()
+	if(makes_rolling_sound)
+		playsound(src, 'sound/effects/roll.ogg', 50, 1)
+	if(buckled && !istype(src, /obj/structure/bed/roller))
+		var/mob/living/occupant = buckled
+		if(!driving)
+			occupant.buckled_to = null
+			occupant.Move(src.loc)
+			occupant.buckled_to = src
+			if (occupant && (src.loc != occupant.loc))
+				if (propelled)
+					for (var/mob/O in src.loc)
+						if (O != occupant)
+							Collide(O)
+				else
+					unbuckle()
+			if (pulling && (get_dist(src, pulling) > 1))
+				pulling.pulledby = null
+				to_chat(pulling, SPAN_WARNING("You lost your grip!"))
+				pulling = null
+		else
+			if (occupant && (src.loc != occupant.loc))
+				src.forceMove(occupant.loc) // Failsafe to make sure the wheelchair stays beneath the occupant after driving
+
+/obj/structure/bed/Collide(atom/A)
+	. = ..()
+	if(!buckled)
+		return
+
+	if(propelled || (pulling && (pulling.a_intent == I_HURT)))
+		var/mob/living/occupant = unbuckle()
+
+		if (pulling && (pulling.a_intent == I_HURT))
+			occupant.throw_at(A, 3, 3, pulling)
+		else if (propelled)
+			occupant.throw_at(A, 3, propelled)
+
+		var/def_zone = ran_zone()
+		occupant.throw_at(A, 3, propelled)
+		occupant.apply_effect(6, STUN)
+		occupant.apply_effect(6, WEAKEN)
+		occupant.apply_effect(6, STUTTER)
+		occupant.apply_damage(10, BRUTE, def_zone)
+		playsound(src.loc, "punch", 50, 1, -1)
+		if(isliving(A))
+			var/mob/living/victim = A
+			def_zone = ran_zone()
+			victim.apply_effect(6, STUN)
+			victim.apply_effect(6, WEAKEN)
+			victim.apply_effect(6, STUTTER)
+			victim.apply_damage(10, BRUTE, def_zone)
+
+		if(pulling)
+			occupant.visible_message(SPAN_DANGER("[pulling] has thrusted \the [name] into \the [A], throwing \the [occupant] out of it!"))
+			pulling.attack_log += "\[[time_stamp()]\]<span class='warning'> Crashed [occupant.name]'s ([occupant.ckey]) [name] into \a [A]</span>"
+			occupant.attack_log += "\[[time_stamp()]\]<font color='orange'> Thrusted into \a [A] by [pulling.name] ([pulling.ckey]) with \the [name]</font>"
+			msg_admin_attack("[pulling.name] ([pulling.ckey]) has thrusted [occupant.name]'s ([occupant.ckey]) [name] into \a [A] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[pulling.x];Y=[pulling.y];Z=[pulling.z]'>JMP</a>)",ckey=key_name(pulling),ckey_target=key_name(occupant))
+		else
+			occupant.visible_message(SPAN_DANGER("[occupant] crashed into \the [A]!"))
 
 /obj/structure/bed/psych
 	name = "psychiatrist's couch"
@@ -393,8 +474,6 @@
 
 /obj/structure/bed/roller/Move()
 	..()
-	if(makes_rolling_sound)
-		playsound(src, 'sound/effects/roll.ogg', 100, 1)
 	if(buckled)
 		if(buckled.buckled_to == src)
 			buckled.forceMove(src.loc)
