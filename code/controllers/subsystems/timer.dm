@@ -30,6 +30,9 @@ var/datum/controller/subsystem/timer/SStimer
 	var/static/last_invoke_warning = 0
 	var/static/bucket_auto_reset = TRUE
 
+	var/datum/timedevent/current_processing
+	var/loop_loc = 0
+
 /datum/controller/subsystem/timer/New()
 	NEW_SS_GLOBAL(SStimer)
 	bucket_list.len = BUCKET_LEN
@@ -58,6 +61,9 @@ var/datum/controller/subsystem/timer/SStimer
 			var/datum/timedevent/bucket_head = bucket_list[i]
 			if (!bucket_head)
 				continue
+
+			current_processing = bucket_head
+			loop_loc = 1
 
 			log_ss(name, "Active timers at index [i]:")
 
@@ -128,6 +134,8 @@ var/datum/controller/subsystem/timer/SStimer
 			head = bucket_list[practical_offset]
 			timer = head
 		while (timer)
+			current_processing = timer
+			loop_loc = 2
 			var/datum/callback/callBack = timer.callBack
 			if (!callBack)
 				bucket_resolution = null //force bucket recreation
@@ -185,6 +193,9 @@ var/datum/controller/subsystem/timer/SStimer
 			var/bucket_pos = max(1, BUCKET_POS(timer))
 
 			var/datum/timedevent/bucket_head = bucket_list[bucket_pos]
+			current_processing = bucket_head
+			loop_loc = 3
+
 			if (!bucket_head)
 				bucket_list[bucket_pos] = timer
 				timer.next = null
@@ -206,6 +217,8 @@ var/datum/controller/subsystem/timer/SStimer
 
 	for (var/i in spent)
 		var/datum/timedevent/qtimer = i
+		current_processing = qtimer
+		loop_loc = 4
 		if(QDELETED(qtimer))
 			bucket_count++
 			continue
