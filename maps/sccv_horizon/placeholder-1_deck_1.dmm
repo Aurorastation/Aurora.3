@@ -8431,8 +8431,7 @@
 "hEh" = (
 /obj/machinery/conveyor{
 	id = "mining_1";
-	layer = 2.9;
-	reversed = 1
+	layer = 2.9
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/plasticflaps/mining,
@@ -15369,7 +15368,7 @@
 "ohS" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/mineral/processing_unit{
-	dir = 4
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
@@ -15487,9 +15486,6 @@
 	id = "mining_2"
 	},
 /obj/machinery/mineral/processing_unit_console{
-	pixel_y = 28
-	},
-/obj/machinery/alarm{
 	pixel_y = 28
 	},
 /obj/effect/floor_decal/corner/brown/full{
@@ -17960,6 +17956,10 @@
 "qOf" = (
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 8
+	},
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -28
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
@@ -23118,8 +23118,7 @@
 "vKa" = (
 /obj/machinery/conveyor{
 	id = "mining_2";
-	layer = 2.9;
-	reversed = 1
+	layer = 2.9
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/plasticflaps/mining,
