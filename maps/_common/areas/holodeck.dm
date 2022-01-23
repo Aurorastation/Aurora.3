@@ -86,3 +86,6 @@
 /area/holodeck/source_battlemonsters
 	name = "Holodeck - Battlemonsters Arena"
 	sound_env = ARENA
+
+/area/holodeck/source_chessboard
+	name = "Holodeck - Chessboard"
