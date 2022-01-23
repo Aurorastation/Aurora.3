@@ -144,8 +144,8 @@
 			return O
 	return
 
-/mob/Login()
-	..()
+/mob/LateLogin()
+	. = ..()
 	if(ability_master)
 		ability_master.toggle_open(1)
 		client.screen -= ability_master
