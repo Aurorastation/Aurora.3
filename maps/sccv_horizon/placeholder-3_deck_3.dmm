@@ -10849,7 +10849,7 @@
 /area/crew_quarters/sleep/cryo)
 "Av" = (
 /obj/machinery/light{
-	dir = 8;
+	dir = 4;
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/reinforced,
@@ -19581,7 +19581,7 @@
 /area/hallway/primary/starboard)
 "VH" = (
 /obj/machinery/light{
-	dir = 4;
+	dir = 8;
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/reinforced,
@@ -30919,12 +30919,12 @@ at
 at
 at
 at
+Av
 at
 at
 at
 at
-at
-at
+Av
 at
 at
 eb
@@ -31118,17 +31118,17 @@ at
 at
 at
 at
-at
-at
-at
-VH
-at
-at
-at
-at
-VH
-at
-at
+eb
+GQ
+GQ
+eb
+GQ
+GQ
+GQ
+GQ
+eb
+GQ
+GQ
 eb
 UM
 qe
@@ -31320,17 +31320,17 @@ at
 at
 at
 at
-eb
 GQ
-GQ
-eb
-GQ
-GQ
-GQ
-GQ
-eb
-GQ
-GQ
+QL
+QL
+QL
+QL
+QL
+QL
+QL
+QL
+QL
+QL
 eb
 QC
 Ku
@@ -32936,17 +32936,17 @@ at
 at
 at
 at
-eb
 GQ
-GQ
-eb
-GQ
-GQ
-GQ
-GQ
-eb
-GQ
-GQ
+QL
+QL
+QL
+QL
+QL
+QL
+QL
+QL
+QL
+QL
 eb
 mr
 gE
@@ -33138,17 +33138,17 @@ at
 at
 at
 at
-at
-at
-at
-Av
-at
-at
-at
-at
-Av
-at
-at
+eb
+GQ
+GQ
+eb
+GQ
+GQ
+GQ
+GQ
+eb
+GQ
+GQ
 eb
 vr
 XD
@@ -33343,12 +33343,12 @@ at
 at
 at
 at
+VH
 at
 at
 at
 at
-at
-at
+VH
 at
 at
 GQ

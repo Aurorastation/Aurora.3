@@ -62,6 +62,7 @@
 			),
 			FALSE
 		),
+		"chessboard" = new /datum/holodeck_program(/area/holodeck/source_chessboard),
 		"turnoff" = new /datum/holodeck_program(/area/holodeck/source_plating)
 	)
 
@@ -81,7 +82,8 @@
 		"Courtroom"         = "courtroom",
 		"Chapel"            = "chapel",
 		"Xavier Trasen Memorial Gymnasium" = "gym",
-		"Battle Monsters Duelling Arena" = "battlemonsters"
+		"Battle Monsters Duelling Arena" = "battlemonsters",
+		"Chessboard" = "chessboard"
 	)
 	holodeck_restricted_programs = list(
 		"Atmospheric Burn Simulation" = "burntest",
