@@ -977,6 +977,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/meeting_room)
+"cg" = (
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
+	id = "Interro"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
+/area/security/investigations)
 "ch" = (
 /obj/structure/banner/scc,
 /turf/simulated/floor/tiled/dark,
@@ -1084,6 +1091,7 @@
 /obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
 	id = "ExamR1"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/medical/exam)
 "cu" = (
@@ -1321,6 +1329,7 @@
 /area/hallway/primary/starboard)
 "cT" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/storage/shields)
 "cU" = (
@@ -1408,6 +1417,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/hallway/primary/starboard)
 "di" = (
@@ -2251,6 +2261,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/maintenance/bridge)
 "eP" = (
@@ -2795,6 +2806,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
 "gv" = (
@@ -3398,6 +3410,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/tcommsat/entrance)
 "hW" = (
@@ -4274,6 +4287,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/starboard)
+"kb" = (
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor,
+/area/bridge)
 "kd" = (
 /obj/machinery/newscaster{
 	pixel_x = 32
@@ -4721,6 +4739,7 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/crew_quarters/heads/hop/xo)
 "lh" = (
@@ -5657,6 +5676,7 @@
 /obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
 	id = "hop"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/crew_quarters/heads/hop/xo)
 "nv" = (
@@ -6059,6 +6079,7 @@
 /area/medical/ward/isolation)
 "os" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/security/vacantoffice)
 "ot" = (
@@ -6947,6 +6968,11 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/hallway/primary/starboard)
+"qq" = (
+/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
+/area/security/vacantoffice2)
 "qr" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -7102,6 +7128,11 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/break_room)
+"qL" = (
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor,
+/area/hallway/primary/starboard)
 "qM" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 9
@@ -8861,7 +8892,10 @@
 /turf/simulated/floor/carpet/rubber,
 /area/bridge)
 "vh" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/machinery/door/firedoor,
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
+	id = "cmooffice"
+	},
 /turf/simulated/floor,
 /area/crew_quarters/heads/cmo)
 "vi" = (
@@ -9310,6 +9344,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/black{
 	dir = 1
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/tcommsat/entrance)
 "wE" = (
@@ -9654,6 +9689,7 @@
 /obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
 	id = "consular"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/lawoffice/consular)
 "xx" = (
@@ -11024,6 +11060,7 @@
 	name = "Bridge Officer Preparation";
 	req_one_access = list(19,38,72)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/bridge/bridge_crew)
 "AU" = (
@@ -11347,6 +11384,7 @@
 /obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
 	id = "investigator_office"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
@@ -12658,6 +12696,7 @@
 /area/security/investigations_storage)
 "Fm" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/hallway/medical/upper)
 "Fn" = (
@@ -13522,6 +13561,7 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/crew_quarters/heads/hop/xo)
 "Hj" = (
@@ -13692,6 +13732,7 @@
 "HD" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/hallway/medical/upper)
 "HE" = (
@@ -14013,6 +14054,7 @@
 /obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
 	id = "investigator_office"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
@@ -14834,6 +14876,7 @@
 /obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
 	id = "cap"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/crew_quarters/captain)
 "Ks" = (
@@ -14907,12 +14950,6 @@
 	temperature = 278
 	},
 /area/tcommsat/chamber)
-"Kx" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
-	id = "conferecen_room"
-	},
-/turf/simulated/floor,
-/area/bridge/meeting_room)
 "Ky" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/crew_quarters/fitness/pool)
@@ -16276,6 +16313,7 @@
 /obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
 	id = "rep_inner"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/lawoffice/representative)
 "NC" = (
@@ -17120,6 +17158,12 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/button/switch/windowtint{
+	id = "cmooffice";
+	pixel_x = 10;
+	pixel_y = -26;
+	req_access = list(40)
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "PF" = (
@@ -17167,8 +17211,8 @@
 	},
 /obj/machinery/button/switch/windowtint{
 	id = "ExamR1";
-	pixel_x = -10;
-	pixel_y = -36;
+	pixel_x = 10;
+	pixel_y = -26;
 	req_access = list(5)
 	},
 /obj/structure/bed/stool/chair/office/light,
@@ -18510,6 +18554,7 @@
 /area/hallway/primary/starboard)
 "Td" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/crew_quarters/cafeteria)
 "Te" = (
@@ -18749,6 +18794,7 @@
 /area/hallway/crew_area)
 "TG" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
 "TH" = (
@@ -19248,6 +19294,11 @@
 "US" = (
 /turf/simulated/wall/r_wall,
 /area/bridge)
+"UT" = (
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor,
+/area/maintenance/bridge)
 "UV" = (
 /turf/simulated/open,
 /area/hallway/primary/starboard)
@@ -19395,6 +19446,7 @@
 /area/crew_quarters/fitness)
 "Vm" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "Vo" = (
@@ -19884,6 +19936,7 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/crew_quarters/heads/hop/xo)
 "Ww" = (
@@ -20389,6 +20442,7 @@
 /area/crew_quarters/sleep/cryo)
 "XU" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/tcommsat/entrance)
 "XW" = (
@@ -21258,7 +21312,10 @@
 /turf/simulated/floor,
 /area/hallway/crew_area)
 "ZP" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
+	id = "conferecen_room"
+	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/bridge/meeting_room)
 "ZQ" = (
@@ -37792,10 +37849,10 @@ rF
 nr
 nr
 nr
-yk
-yk
+UT
+UT
 eO
-yk
+UT
 fc
 fc
 fc
@@ -40643,7 +40700,7 @@ qE
 Zb
 vZ
 xr
-wi
+kb
 am
 Oo
 oO
@@ -40845,7 +40902,7 @@ qE
 CZ
 vZ
 al
-wi
+kb
 LN
 Kq
 Uk
@@ -41047,7 +41104,7 @@ mw
 CZ
 SI
 ru
-wi
+kb
 bT
 AJ
 AJ
@@ -41210,7 +41267,7 @@ ga
 ga
 rY
 iY
-co
+qL
 bC
 bC
 bC
@@ -41614,7 +41671,7 @@ fp
 aV
 sO
 iY
-co
+qL
 UV
 UV
 UV
@@ -41816,7 +41873,7 @@ xs
 xs
 uV
 iY
-co
+qL
 UV
 UV
 UV
@@ -43058,10 +43115,10 @@ Dg
 Dg
 ZP
 Ll
-Kx
-Kx
-Kx
-Kx
+ZP
+ZP
+ZP
+ZP
 JP
 Dg
 fx
@@ -47291,7 +47348,7 @@ Fo
 Fo
 Fo
 KX
-AK
+cg
 JH
 mA
 jm
@@ -48098,8 +48155,8 @@ si
 nf
 yo
 nf
-si
-si
+qq
+qq
 Ed
 nx
 mZ
