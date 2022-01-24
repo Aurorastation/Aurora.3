@@ -75,6 +75,7 @@
 
 // Reuse the cache/code from stools, todo maybe unify.
 /obj/structure/bed/update_icon()
+	generate_strings()
 	// Prep icon.
 	icon_state = ""
 	cut_overlays()
