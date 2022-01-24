@@ -19,18 +19,27 @@
 				pilot.client.screen -= hud_elements
 				LAZYREMOVE(pilots, pilot)
 				UNSETEMPTY(pilots)
-		update_pilot_overlay()
 
 	if(radio)
-		radio.on = (head?.radio && head.radio.is_functional())
+		radio.on = (head?.radio && head.radio.is_functional() && get_cell())
 
 	if(camera)
 		camera.status = (head?.camera && head.camera.is_functional())
 
 	body.update_air(hatch_closed && use_air)
 
-	if((client || LAZYLEN(pilots)) && get_cell())
-		get_cell()?.drain_power(0, 0, calc_power_draw())
+	var/powered = FALSE
+	if(get_cell())
+		powered = drain_cell_power(calc_power_draw()) > 0
+
+	if(!powered)
+		//Shut down all systems
+		if(head)
+			head.active_sensors = FALSE
+		for(var/hardpoint in hardpoints)
+			var/obj/item/mecha_equipment/M = hardpoints[hardpoint]
+			if(istype(M) && M.active && M.passive_power_use)
+				M.deactivate()
 
 	updatehealth()
 	if(health <= 0 && stat != DEAD)
@@ -39,12 +48,33 @@
 	..()
 
 	lying = 0 // Fuck off, carp.
-	handle_vision()
+	handle_vision(powered)
 	handle_hud_icons()
 
-/mob/living/heavy_vehicle/get_cell()
+/mob/living/heavy_vehicle/think()
+	var/mob/resolved_following
+	if(following)
+		resolved_following = following.resolve()
+
+	if(length(pilots))
+		if(resolved_following && !(resolved_following in pilots)) // if the person we're following is our pilot, we keep following them, otherwise we drop them
+			unassign_following()
+		return
+
+	if(following)
+		if(isturf(loc) && can_move())
+			if(resolved_following)
+				walk_to(src, resolved_following, follow_distance, legs.move_delay)
+			else
+				unassign_following()
+		else
+			walk(src, 0) // this stops them from moving
+
+/mob/living/heavy_vehicle/get_cell(force)
 	RETURN_TYPE(/obj/item/cell)
-	return body.cell
+	if(power == MECH_POWER_ON || force) //For most intents we can assume that a powered off exosuit acts as if it lacked a cell
+		return body ? body.cell : null
+	return null
 
 /mob/living/heavy_vehicle/proc/calc_power_draw()
 	var/total_draw = 0
@@ -129,19 +159,17 @@
 	qdel(src)
 	return
 
-/mob/living/heavy_vehicle/handle_status_effects()
-	..()
-	if(hallucination > 0)
-		hallucination--
-	else if(hallucination < 0)
-		hallucination = 0
-
-/mob/living/heavy_vehicle/handle_vision()
+/mob/living/heavy_vehicle/handle_vision(powered)
+	var/was_blind = sight & BLIND
 	if(head)
-		sight = head.get_sight()
-		see_invisible = head.get_invisible()
-	if(body && (body.pilot_coverage < 100 || body.transparent_cabin))
+		sight = head.get_sight(powered)
+		see_invisible = head.get_invisible(powered)
+	if(!hatch_closed || (body && (body.pilot_coverage < 100 || body.transparent_cabin)))
 		sight &= ~BLIND
+
+	if(sight & BLIND && !was_blind)
+		for(var/mob/pilot in pilots)
+			to_chat(pilot, SPAN_WARNING("The camera sensors flicker out and you lose sight of the outside world!"))
 
 /mob/living/heavy_vehicle/additional_sight_flags()
 	return sight

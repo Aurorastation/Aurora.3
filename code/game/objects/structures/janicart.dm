@@ -11,6 +11,7 @@
 	density = 1
 	climbable = 1
 	flags = OPENCONTAINER
+	build_amt = 15
 	//copypaste sorry
 	var/amount_per_transfer_from_this = 5 //shit I dunno, adding this so syringes stop runtime erroring. --NeoFite
 	var/obj/item/storage/bag/trash/mybag	= null
@@ -20,9 +21,23 @@
 	var/obj/structure/mopbucket/mybucket = null
 	var/signs = 0	//maximum capacity hardcoded below
 	var/has_items = 0//This is set true whenever the cart has anything loaded/mounted on it
-	var/dismantled = 0//This is set true after the object has been dismantled to avoid an infintie loop
 	var/driving
 	var/mob/living/pulling
+
+/obj/structure/janitorialcart/full/Initialize()
+	..()
+	mybag = new /obj/item/storage/bag/trash(src)
+	mymop = new /obj/item/mop(src)
+	myspray = new /obj/item/reagent_containers/spray/cleaner(src)
+	myreplacer = new /obj/item/device/lightreplacer(src)
+
+	mybucket = new /obj/structure/mopbucket(src)
+	mybucket.reagents.add_reagent(/decl/reagent/water, mybucket.bucketsize)
+
+	for(signs, signs < 4, signs++)
+		new /obj/item/clothing/suit/caution(src)
+
+	update_icon()
 
 /obj/structure/janitorialcart/New()
 	..()
@@ -44,9 +59,9 @@
 	if(..(user, 1))
 		if (mybucket)
 			var/contains = mybucket.reagents.total_volume
-			to_chat(user, "\icon[src] The bucket contains [contains] unit\s of liquid!")
+			to_chat(user, "[icon2html(src, user)] The bucket contains [contains] unit\s of liquid!")
 		else
-			to_chat(user, "\icon[src] There is no bucket mounted on it!")
+			to_chat(user, "[icon2html(src, user)] There is no bucket mounted on it!")
 	//everything else is visible, so doesn't need to be mentioned
 
 
@@ -144,24 +159,21 @@
 		//This prevents dumb stuff like splashing the cart with the contents of a container, after putting said container into trash
 
 	else if (!has_items && (I.iswrench() || I.iswelder() || istype(I, /obj/item/gun/energy/plasmacutter)))
-		dismantle(user)
+		take_apart(user, I)
 		return
 	..()
 
-/obj/structure/janitorialcart/proc/dismantle(var/mob/user = null)
-	if (!dismantled)
-		if (has_items)
-			spill()
+/obj/structure/janitorialcart/proc/take_apart(var/mob/user = null, var/obj/I)
+	if(has_items)
+		spill()
 
-		if (user)
-			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-			user.visible_message("[user] starts taking apart the [src]", "You start disasembling the [src]")
-			if (!do_after(user, 30, needhand = 0))
-				return
+	if(user)
+		playsound(src.loc, I.usesound, 50, 1)
+		user.visible_message("<b>[user]</b> starts taking apart the [src]...", SPAN_NOTICE("You start disassembling the [src]..."))
+		if (!do_after(user, 30, needhand = 0))
+			return
 
-		new /obj/item/stack/material/steel(src.loc, 15)
-		dismantled = 1
-		qdel(src)
+	dismantle()
 
 /obj/structure/janitorialcart/ex_act(severity)
 	spill(100 / severity)

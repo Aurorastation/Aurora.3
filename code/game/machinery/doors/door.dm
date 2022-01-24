@@ -5,7 +5,7 @@
 	name = "Door"
 	desc = "It opens and closes."
 	icon = 'icons/obj/doors/Doorint.dmi'
-	icon_state = "door1"
+	icon_state = "door_closed"
 	anchored = 1
 	opacity = 1
 	density = 1
@@ -15,12 +15,13 @@
 
 	var/visible = 1
 	var/p_open = 0
-	var/operating = 0
+	var/operating = FALSE
 	var/autoclose = 0
 	var/glass = 0
 	var/normalspeed = 1
 	var/heat_proof = 0 // For glass airlocks/opacity firedoors
 	var/air_properties_vary_with_direction = 0
+	var/unres_dir = null // corresponds to dirs. if opened from this dir, no access is required
 	var/maxhealth = 300
 	var/health
 	var/destroy_hits = 10 //How many strong hits it takes to destroy the door
@@ -71,7 +72,20 @@
 		layer = open_layer
 		explosion_resistance = 0
 
+	SetBounds()
+	health = maxhealth
 
+	update_nearby_tiles(need_rebuild=1)
+	if(hashatch && !(width > 1))
+		setup_hatch()
+
+/obj/machinery/door/Move(new_loc, new_dir)
+	. = ..()
+	SetBounds()
+	update_nearby_tiles()
+	update_icon()
+
+/obj/machinery/door/proc/SetBounds()
 	if(width > 1)
 		if(dir in list(EAST, WEST))
 			bound_width = width * world.icon_size
@@ -79,12 +93,6 @@
 		else
 			bound_width = world.icon_size
 			bound_height = width * world.icon_size
-
-	health = maxhealth
-
-	update_nearby_tiles(need_rebuild=1)
-	if (hashatch)
-		setup_hatch()
 
 /obj/machinery/door/proc/setup_hatch()
 	hatch_image = image('icons/obj/doors/hatches.dmi', src, hatchstyle, closed_layer+0.1)
@@ -144,7 +152,7 @@
 		var/mob/M = AM
 		if(world.time - M.last_bumped <= 10) return	//Can bump-open one airlock per second. This is to prevent shock spam.
 		M.last_bumped = world.time
-		if(!M.restrained() && (!issmall(M) || ishuman(M)))
+		if(!M.restrained() && (!issmall(M) || ishuman(M) || istype(M, /mob/living/silicon/robot/drone/mining)))
 			bumpopen(M)
 		return
 
@@ -169,8 +177,8 @@
 				open()
 		return
 
-	if(istype(AM, /obj/structure/bed/chair/wheelchair))
-		var/obj/structure/bed/chair/wheelchair/wheel = AM
+	if(istype(AM, /obj/structure/bed/stool/chair/office/wheelchair))
+		var/obj/structure/bed/stool/chair/office/wheelchair/wheel = AM
 		if(density)
 			if(wheel.pulling && (src.allowed(wheel.pulling)))
 				open()
@@ -189,7 +197,7 @@
 	if(istype(AM, /obj/vehicle))
 		var/obj/vehicle/V = AM
 		if(density)
-			if(V.buckled_mob && (src.allowed(V.buckled_mob)))
+			if(V.buckled && (src.allowed(V.buckled)))
 				open()
 			else
 				do_animate("deny")
@@ -266,8 +274,10 @@
 		take_damage(tforce)
 		return
 
-/obj/machinery/door/attack_ai(mob/user as mob)
-	return src.attack_hand(user)
+/obj/machinery/door/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
+	return attack_hand(user)
 
 /obj/machinery/door/attack_hand(mob/user as mob)
 	if(src.operating > 0 || isrobot(user))	return //borgs can't attack doors open because it conflicts with their AI-like interaction with them.
@@ -289,37 +299,38 @@
 	if(!istype(I, /obj/item/forensics))
 		src.add_fingerprint(user)
 
-	if(istype(I, /obj/item/stack/material) && I.get_material_name() == src.get_material_name())
-		if(stat & BROKEN)
-			to_chat(user, "<span class='notice'>It looks like \the [src] is pretty busted. It's going to need more than just patching up now.</span>")
-			return
-		if(health >= maxhealth)
-			to_chat(user, "<span class='notice'>Nothing to fix!</span>")
-			return
-		if(!density)
-			to_chat(user, "<span class='warning'>\The [src] must be closed before you can repair it.</span>")
-			return
+	if(I.ishammer() && user.a_intent != I_HURT)
+		var/obj/item/stack/stack = usr.get_inactive_hand()
+		if(istype(stack) && stack.get_material_name() == get_material_name())
+			if(stat & BROKEN)
+				to_chat(user, SPAN_NOTICE("It looks like \the [src] is pretty busted. It's going to need more than just patching up now."))
+				return
+			if(health >= maxhealth)
+				to_chat(user, SPAN_NOTICE("Nothing to fix!"))
+				return
+			if(!density)
+				to_chat(user, SPAN_WARNING("\The [src] must be closed before you can repair it."))
+				return
 
-		//figure out how much metal we need
-		var/amount_needed = (maxhealth - health) / DOOR_REPAIR_AMOUNT
-		amount_needed = (round(amount_needed) == amount_needed)? amount_needed : round(amount_needed) + 1 //Why does BYOND not have a ceiling proc?
+			//figure out how much metal we need
+			var/amount_needed = (maxhealth - health) / DOOR_REPAIR_AMOUNT
+			amount_needed = (round(amount_needed) == amount_needed)? amount_needed : round(amount_needed) + 1 //Why does BYOND not have a ceiling proc?
 
-		var/obj/item/stack/stack = I
-		var/transfer
-		if (repairing)
-			transfer = stack.transfer_to(repairing, amount_needed - repairing.amount)
-			if (!transfer)
-				to_chat(user, "<span class='warning'>You must weld or remove \the [repairing] from \the [src] before you can add anything else.</span>")
-		else
-			repairing = stack.split(amount_needed)
+			var/transfer
 			if (repairing)
-				repairing.forceMove(src)
-				transfer = repairing.amount
+				transfer = stack.transfer_to(repairing, amount_needed - repairing.amount)
+				if (!transfer)
+					to_chat(user, SPAN_WARNING("You must weld or remove \the [repairing] from \the [src] before you can add anything else."))
+			else
+				repairing = stack.split(amount_needed)
+				if (repairing)
+					repairing.forceMove(src)
+					transfer = repairing.amount
 
-		if (transfer)
-			to_chat(user, "<span class='notice'>You fit [transfer] [stack.singular_name]\s to damaged and broken parts on \the [src].</span>")
+			if (transfer)
+				to_chat(user, SPAN_NOTICE("You fit [transfer] [stack.singular_name]\s to damaged and broken parts on \the [src]."))
 
-		return
+			return
 
 	if(repairing && I.iswelder())
 		if(!density)
@@ -329,7 +340,7 @@
 		var/obj/item/weldingtool/welder = I
 		if(welder.remove_fuel(0,user))
 			to_chat(user, "<span class='notice'>You start to fix dents and weld \the [repairing] into place.</span>")
-			playsound(src, 'sound/items/Welder.ogg', 100, 1)
+			playsound(src, 'sound/items/welder.ogg', 100, 1)
 			if(do_after(user, 5 * repairing.amount) && welder && welder.isOn())
 				to_chat(user, "<span class='notice'>You finish repairing the damage to \the [src].</span>")
 				health = between(health, health + repairing.amount*DOOR_REPAIR_AMOUNT, maxhealth)
@@ -340,7 +351,7 @@
 
 	if(repairing && I.iscrowbar())
 		to_chat(user, "<span class='notice'>You remove \the [repairing].</span>")
-		playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
+		playsound(src.loc, I.usesound, 100, 1)
 		repairing.forceMove(user.loc)
 		repairing = null
 		return
@@ -355,7 +366,7 @@
 				user.visible_message("<span class='danger'>\The [user] hits \the [src] with \the [W] with no visible effect.</span>")
 			else
 				user.visible_message("<span class='danger'>\The [user] forcefully strikes \the [src] with \the [W]!</span>")
-				playsound(src.loc, hitsound, 100, 1)
+				playsound(src.loc, hitsound, W.get_clamped_volume(), 1)
 				take_damage(W.force)
 		return
 
@@ -377,9 +388,10 @@
 /obj/machinery/door/emag_act(var/remaining_charges)
 	if(density && operable())
 		do_animate("spark")
+		emagged = 1
 		sleep(6)
-		open()
-		operating = -1
+		stat |= BROKEN
+		open(1)
 		return 1
 
 /obj/machinery/door/proc/take_damage(var/damage)
@@ -388,11 +400,11 @@
 	if(src.health <= 0 && initialhealth > 0)
 		src.set_broken()
 	else if(src.health < src.maxhealth / 4 && initialhealth >= src.maxhealth / 4)
-		visible_message("\The [src] looks like it's about to break!" )
+		visible_message(SPAN_WARNING("\The [src] looks like it's about to break!"))
 	else if(src.health < src.maxhealth / 2 && initialhealth >= src.maxhealth / 2)
-		visible_message("\The [src] looks seriously damaged!" )
+		visible_message(SPAN_WARNING("\The [src] looks seriously damaged!"))
 	else if(src.health < src.maxhealth * 3/4 && initialhealth >= src.maxhealth * 3/4)
-		visible_message("\The [src] shows signs of damage!" )
+		visible_message(SPAN_WARNING("\The [src] shows signs of damage!"))
 	update_icon()
 	return
 
@@ -400,18 +412,16 @@
 /obj/machinery/door/examine(mob/user)
 	. = ..()
 	if(src.health < src.maxhealth / 4)
-		to_chat(user, "\The [src] looks like it's about to break!")
+		to_chat(user, SPAN_WARNING("\The [src] looks like it's about to break!"))
 	else if(src.health < src.maxhealth / 2)
-		to_chat(user, "\The [src] looks seriously damaged!")
+		to_chat(user, SPAN_WARNING("\The [src] looks seriously damaged!"))
 	else if(src.health < src.maxhealth * 3/4)
-		to_chat(user, "\The [src] shows signs of damage!")
+		to_chat(user, SPAN_WARNING("\The [src] shows signs of damage!"))
 
 
 /obj/machinery/door/proc/set_broken()
 	stat |= BROKEN
-	for (var/mob/O in viewers(src, null))
-		if ((O.client && !( O.blinded )))
-			O.show_message("[src.name] breaks!" )
+	visible_message(SPAN_WARNING("[src] breaks!"))
 	update_icon()
 	return
 
@@ -459,9 +469,9 @@
 
 /obj/machinery/door/update_icon()
 	if(density)
-		icon_state = "door1"
+		icon_state = "door_closed"
 	else
-		icon_state = "door0"
+		icon_state = "door_open"
 	return
 
 
@@ -488,12 +498,16 @@
 
 
 /obj/machinery/door/proc/open(var/forced = 0)
+	set waitfor = FALSE
+
 	if(!can_open(forced))
 		return
-	operating = 1
+	operating = TRUE
+
+	intent_message(MACHINE_SOUND)
 
 	do_animate("opening")
-	icon_state = "door0"
+	icon_state = "door_open"
 	set_opacity(0)
 	sleep(3)
 	src.density = 0
@@ -503,7 +517,7 @@
 	explosion_resistance = 0
 	update_icon()
 	set_opacity(0)
-	operating = 0
+	operating = FALSE
 
 	if(autoclose)
 		close_door_in(next_close_time())
@@ -518,12 +532,17 @@
 		close()
 
 /obj/machinery/door/proc/close(var/forced = 0)
+	set waitfor = FALSE
+
 	if(!can_close(forced))
 		if (autoclose)
 			for (var/atom/movable/M in get_turf(src))
 				if (M.density && M != src)
-					addtimer(CALLBACK(src, .proc/autoclose), 60)
-	operating = 1
+					addtimer(CALLBACK(src, .proc/autoclose), 60, TIMER_UNIQUE)
+					break
+	operating = TRUE
+
+	intent_message(MACHINE_SOUND)
 
 	do_animate("closing")
 	sleep(3)
@@ -535,7 +554,7 @@
 	update_icon()
 	if(visible && !glass)
 		set_opacity(1)	//caaaaarn!
-	operating = 0
+	operating = FALSE
 
 	//I shall not add a check every x ticks if a door has closed over some fire.
 	var/obj/fire/fire = locate() in loc
@@ -548,8 +567,15 @@
 
 /obj/machinery/door/allowed(mob/M)
 	if(!requiresID())
-		return 1 // Door doesn't require an ID. So obviously they're allowed.
+		return TRUE // Door doesn't require an ID. So obviously they're allowed.
+	if(unrestricted_side(M))
+		return TRUE
 	return ..(M)
+
+/obj/machinery/door/proc/unrestricted_side(mob/M) //Allows for specific side of airlocks to be unrestrected (IE, can exit maint freely, but need access to enter)
+	if(!unres_dir)
+		return FALSE
+	return get_dir(src, M) & unres_dir
 
 /obj/machinery/door/update_nearby_tiles(need_rebuild)
 	for(var/turf/T in locs)
@@ -571,19 +597,6 @@
 	if(invert)
 		return src.density
 	return !src.density
-
-/obj/machinery/door/Move(new_loc, new_dir)
-	//update_nearby_tiles()
-	. = ..()
-	if(width > 1)
-		if(dir in list(EAST, WEST))
-			bound_width = width * world.icon_size
-			bound_height = world.icon_size
-		else
-			bound_width = world.icon_size
-			bound_height = width * world.icon_size
-
-	update_nearby_tiles()
 
 /obj/machinery/door/morgue
 	icon = 'icons/obj/doors/doormorgue.dmi'

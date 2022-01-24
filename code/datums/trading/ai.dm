@@ -32,7 +32,6 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/device/assembly_holder            = TRADER_BLACKLIST_ALL,
 		/obj/item/device/encryptionkey              = TRADER_BLACKLIST_SUB, //Why should ai want NT encryption keys?
 		/obj/item/device/radio                      = TRADER_BLACKLIST_ALL,
-		/obj/item/device/pda                        = TRADER_BLACKLIST_SUB,
 		/obj/item/device/chameleon                  = TRADER_BLACKLIST, // Why should it want a chameleon projector
 		/obj/item/device/dociler                    = TRADER_BLACKLIST, //Item unobtaineable
 		/obj/item/device/flashlight/drone           = TRADER_BLACKLIST, // No drone stuff
@@ -88,13 +87,12 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/storage/backpack/fluff              = TRADER_BLACKLIST_ALL, // Custom items, let's not
 		/obj/item/storage/belt/champion               = TRADER_THIS_TYPE,
 		/obj/item/storage/briefcase                   = TRADER_THIS_TYPE,
-		/obj/item/storage/fancy                       = TRADER_SUBTYPES_ONLY,
+		/obj/item/storage/box/fancy                       = TRADER_SUBTYPES_ONLY,
 		/obj/item/storage/laundry_basket              = TRADER_THIS_TYPE,
 		/obj/item/storage/secure/briefcase            = TRADER_THIS_TYPE,
 		/obj/item/storage/bag/plants                  = TRADER_THIS_TYPE,
 		/obj/item/storage/bag/ore                     = TRADER_THIS_TYPE,
 		/obj/item/storage/toolbox                     = TRADER_ALL,
-		/obj/item/storage/toolbox/fluff               = TRADER_BLACKLIST_ALL, // Custom items
 		/obj/item/storage/wallet                      = TRADER_THIS_TYPE,
 		/obj/item/storage/wallet/fluff                = TRADER_BLACKLIST_ALL, // Custom items
 		/obj/item/storage/photo_album                 = TRADER_THIS_TYPE,
@@ -180,9 +178,9 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/storage/box/gloves                             = TRADER_THIS_TYPE,
 		/obj/item/storage/box/cdeathalarm_kit                    = TRADER_THIS_TYPE,
 		/obj/item/storage/box/beakers                            = TRADER_THIS_TYPE,
-		/obj/item/reagent_containers/glass/bottle/norepinephrine = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/glass/bottle/inaprovaline = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/glass/bottle/stoxin         = TRADER_THIS_TYPE,
-		/obj/item/reagent_containers/glass/bottle/chloralhydrate = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/glass/bottle/polysomnine = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/glass/bottle/antitoxin      = TRADER_THIS_TYPE,
 		/obj/item/device/handheld_medical                        = TRADER_THIS_TYPE,
 		/obj/item/stack/medical/advanced/bruise_pack/spaceklot   = TRADER_THIS_TYPE

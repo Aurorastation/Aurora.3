@@ -40,7 +40,7 @@
 			"Why doesn't Santa have any children?\n\n<i>Because he only comes down the chimney.</i>")
 		Joke.set_content_unsafe(title, content)
 		new /obj/item/clothing/head/festive(target.loc)
-		user.update_icons()
+		user.update_icon()
 		cracked = 1
 		icon_state = "cracker1"
 		var/obj/item/toy/xmas_cracker/other_half = new /obj/item/toy/xmas_cracker(target)
@@ -62,5 +62,9 @@
 /obj/item/clothing/head/festive/santa
 	name = "santa hat"
 	icon_state = "santahat"
+	desc = "A cheap fabric santa hat."
+
+/obj/item/clothing/head/festive/santa/beard
+	desc = "A cheap fabric santa hat, this one with a beard."
 	body_parts_covered = HEAD
-	desc = "A cheap fabric santa hat, with a fake beard and a little bell at the end."
+	icon_state = "santahat_alt"

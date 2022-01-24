@@ -77,7 +77,7 @@
 /turf/simulated/floor,
 /area/derelict/ship)
 "ak" = (
-/obj/structure/bed/chair/office/bridge{
+/obj/structure/bed/stool/chair/office/bridge{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/black,
@@ -235,7 +235,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
-/obj/structure/bed/chair/comfy/beige,
+/obj/structure/bed/stool/chair/padded/beige,
 /turf/simulated/floor/wood,
 /area/derelict/ship)
 "aI" = (
@@ -250,7 +250,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/obj/structure/bed/chair/comfy/beige{
+/obj/structure/bed/stool/chair/padded/beige{
 	dir = 8
 	},
 /turf/simulated/floor/wood,
@@ -261,8 +261,8 @@
 	},
 /obj/structure/coatrack,
 /obj/item/clothing/accessory/tajaran,
-/obj/item/clothing/suit/storage/tajaran,
-/obj/item/clothing/suit/storage/tajaran/cloak/fancy,
+/obj/item/clothing/suit/storage/toggle/tajaran/wool,
+/obj/item/clothing/accessory/poncho/tajarancloak/fancy,
 /turf/simulated/floor/wood,
 /area/derelict/ship)
 "aL" = (
@@ -276,9 +276,7 @@
 /area/derelict/ship)
 "aN" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/structure/closet/secure_closet/freezer/kitchen{
-	req_access = null
-	},
+/obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "aO" = (
@@ -288,7 +286,7 @@
 /turf/simulated/floor/wood,
 /area/derelict/ship)
 "aP" = (
-/obj/structure/bed/chair/comfy/blue{
+/obj/structure/bed/stool/chair/padded/blue{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
@@ -324,7 +322,7 @@
 "aU" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/table/wood,
-/obj/item/storage/fancy/cigarettes/cigar,
+/obj/item/storage/box/fancy/cigarettes/cigar,
 /obj/item/flame/lighter/zippo,
 /turf/simulated/floor/wood,
 /area/derelict/ship)
@@ -512,14 +510,15 @@
 /area/derelict/ship)
 "by" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/item/stool,
+/obj/structure/bed/stool,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "bz" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/structure/table/wood,
 /obj/machinery/firealarm/east,
-/obj/machinery/reagentgrinder,
+/obj/structure/closet/secure_closet/freezer/kitchen{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "bA" = (
@@ -585,12 +584,6 @@
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass,
-/turf/simulated/floor/tiled/white,
-/area/derelict/ship)
-"bI" = (
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/structure/table/wood,
-/obj/machinery/microwave,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "bJ" = (
@@ -737,7 +730,7 @@
 	},
 /obj/effect/decal/cleanable/vomit,
 /obj/structure/closet/cabinet,
-/obj/item/clothing/suit/storage/tajaran/cloak,
+/obj/item/clothing/accessory/poncho/tajarancloak/fancy,
 /turf/simulated/floor/wood,
 /area/derelict/ship)
 "cl" = (
@@ -909,7 +902,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cO" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/black,
@@ -926,7 +919,7 @@
 /turf/simulated/floor/wood,
 /area/derelict/ship)
 "cQ" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/black,
@@ -1144,11 +1137,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
-"dF" = (
-/obj/effect/floor_decal/corner/orange/diagonal,
-/obj/machinery/pipelayer,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
 "dG" = (
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/structure/table/rack,
@@ -1266,7 +1254,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "eb" = (
-/obj/structure/bed/chair/office/dark,
+/obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "ec" = (
@@ -1309,7 +1297,7 @@
 /turf/simulated/floor,
 /area/derelict/ship)
 "eh" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1338,7 +1326,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/derelict/ship)
 "en" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /obj/machinery/light/small{
@@ -1392,6 +1380,12 @@
 	req_access = list(13)
 	},
 /turf/simulated/floor,
+/area/derelict/ship)
+"hg" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/structure/table/wood,
+/obj/machinery/reagentgrinder,
+/turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 
 (1,1,1) = {"
@@ -1675,7 +1669,7 @@ de
 cT
 dq
 dy
-dF
+cS
 dP
 eu
 eA
@@ -2031,7 +2025,7 @@ aG
 aG
 aG
 by
-bI
+hg
 ab
 bT
 bQ

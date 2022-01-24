@@ -171,7 +171,7 @@
 	if(!location)
 		return
 
-	if(chemholder.reagents.reagent_list.len) //reagent application - only run if there are extra reagents in the smoke
+	if(LAZYLEN(chemholder.reagents.reagent_volumes)) //reagent application - only run if there are extra reagents in the smoke
 		for(var/turf/T in wallList)
 			chemholder.reagents.touch_turf(T)
 		for(var/turf/T in targetTurfs)
@@ -236,9 +236,11 @@
 					break
 			if(bad_turf)
 				continue
-			if(prob(min(seed.get_trait(TRAIT_POTENCY),50)) && sporecount < max(1,round(seed.get_trait(TRAIT_POTENCY)/20),1))
+			if(prob(min(seed.get_trait(TRAIT_POTENCY), 50)))
 				new /obj/machinery/portable_atmospherics/hydroponics/soil/invisible(T,seed)
 				sporecount++
+			if(sporecount < max(1, round(seed.get_trait(TRAIT_POTENCY) / 20), 1))
+				break
 
 
 //------------------------------------------
@@ -253,7 +255,7 @@
 	else
 		smoke = new /obj/effect/effect/smoke/chem(location, smoke_duration + rand(smoke_duration*-0.25, smoke_duration*0.25), T, I)
 
-	if(chemholder.reagents.reagent_list.len)
+	if(LAZYLEN(chemholder?.reagents?.reagent_volumes))
 		chemholder.reagents.trans_to_obj(smoke, chemholder.reagents.total_volume / dist, copy = 1) //copy reagents to the smoke so mob/breathe() can handle inhaling the reagents
 
 	//Kinda ugly, but needed unless the system is reworked

@@ -66,14 +66,24 @@
 	return
 
 /obj/machinery/atmospherics/unary/freezer/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	ui_interact(user)
 
 /obj/machinery/atmospherics/unary/freezer/attack_hand(mob/user as mob)
 	ui_interact(user)
 
-/obj/machinery/atmospherics/unary/freezer/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	// this is the data which will be sent to the ui
-	var/data[0]
+/obj/machinery/atmospherics/unary/freezer/ui_interact(mob/user)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	if(!ui)
+		ui = new(user, src, "machinery-atmospherics-freezer", 440, 300, "Gas Cooling System")
+		ui.auto_update_content = TRUE
+	
+	ui.open()
+
+/obj/machinery/atmospherics/unary/freezer/vueui_data_change(list/data, mob/user, datum/vueui/ui)
+	data = list()
+
 	data["on"] = use_power ? 1 : 0
 	data["gasPressure"] = round(air_contents.return_pressure())
 	data["gasTemperature"] = round(air_contents.temperature)
@@ -82,25 +92,12 @@
 	data["targetGasTemperature"] = round(set_temperature)
 	data["powerSetting"] = power_setting
 
-	var/temp_class = "good"
-	if(air_contents.temperature > (T0C - 20))
-		temp_class = "bad"
-	else if(air_contents.temperature < (T0C - 20) && air_contents.temperature > (T0C - 100))
-		temp_class = "average"
-	data["gasTemperatureClass"] = temp_class
+	data["gasTemperatureBadTop"] = (T0C - 20)
+	data["gasTemperatureBadBottom"] = null
+	data["gasTemperatureAvgTop"] = (T0C - 20)
+	data["gasTemperatureAvgBottom"] = (T0C - 100)
 
-	// update the ui if it exists, returns null if no ui is passed/found
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if(!ui)
-		// the ui does not exist, so we'll create a new() one
-        // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
-		ui = new(user, src, ui_key, "freezer.tmpl", "Gas Cooling System", 440, 300)
-		// when the ui is first opened this is the data it will use
-		ui.set_initial_data(data)
-		// open the new ui window
-		ui.open()
-		// auto update every Master Controller tick
-		ui.set_auto_update(1)
+	return data
 
 /obj/machinery/atmospherics/unary/freezer/Topic(href, href_list)
 	if(..())

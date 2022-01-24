@@ -41,7 +41,7 @@
 	var/next_destination = "__nearest__"	// This is the next beacon's ID
 	var/nearest_beacon				// Tag of the beakon that we assume to be the closest one
 
-	var/bot_version = 1.4
+	var/bot_version = 1.5
 	var/list/threat_found_sounds = list(
 		'sound/voice/bcriminal.ogg',
 		'sound/voice/bjustice.ogg',
@@ -86,7 +86,7 @@
 	frustration = 0
 	mode = SECBOT_IDLE
 
-/mob/living/bot/secbot/update_icons()
+/mob/living/bot/secbot/update_icon()
 	if(on && is_attacking)
 		icon_state = "secbot-c"
 	else
@@ -102,8 +102,7 @@
 		to_chat(user, "<span class='warning'>The unit's interface refuses to unlock!</span>")
 		return
 	user.set_machine(src)
-	var/dat
-	dat += "<TT><B>Automatic Security Unit v[bot_version]</B></TT><BR><BR>"
+	var/dat = ""
 	dat += "Status: <A href='?src=\ref[src];power=1'>[on ? "On" : "Off"]</A><BR>"
 	dat += "Behaviour controls are [locked ? "locked" : "unlocked"]<BR>"
 	dat += "Maintenance panel is [open ? "opened" : "closed"]"
@@ -114,9 +113,10 @@
 		dat += "Operating Mode: <A href='?src=\ref[src];operation=switchmode'>[arrest_type ? "Detain" : "Arrest"]</A><BR>"
 		dat += "Report Arrests: <A href='?src=\ref[src];operation=declarearrests'>[declare_arrests ? "Yes" : "No"]</A><BR>"
 		dat += "Auto Patrol: <A href='?src=\ref[src];operation=patrol'>[auto_patrol ? "On" : "Off"]</A>"
-	user << browse("<HEAD><TITLE>Securitron v[bot_version] controls</TITLE></HEAD>[dat]", "window=autosec")
-	onclose(user, "autosec")
-	return
+
+	var/datum/browser/bot_win = new(user, "autosec", "Automatic Securitron v[bot_version] Controls")
+	bot_win.set_content(dat)
+	bot_win.open()
 
 /mob/living/bot/secbot/Topic(href, href_list)
 	if(..())
@@ -291,7 +291,7 @@
 			playsound(loc, 'sound/weapons/Egloves.ogg', 50, 1, -1)
 			do_attack_animation(C)
 			is_attacking = 1
-			update_icons()
+			update_icon()
 			addtimer(CALLBACK(src, .proc/stop_attacking_cb), 2)
 			visible_message("<span class='warning'>[C] was prodded by [src] with a stun baton!</span>")
 		else
@@ -307,15 +307,15 @@
 		var/mob/living/simple_animal/S = M
 		S.adjustBruteLoss(15)
 		do_attack_animation(M)
-		playsound(loc, "swing_hit", 50, 1, -1)
+		playsound(loc, /decl/sound_category/swing_hit_sound, 50, 1, -1)
 		is_attacking = 1
-		update_icons()
+		update_icon()
 		addtimer(CALLBACK(src, .proc/stop_attacking_cb), 2)
 		visible_message("<span class='warning'>[M] was beaten by [src] with a stun baton!</span>")
 
 /mob/living/bot/secbot/proc/stop_attacking_cb()
 	is_attacking = FALSE
-	update_icons()
+	update_icon()
 
 /mob/living/bot/secbot/explode()
 	visible_message("<span class='warning'>[src] blows apart!</span>")
@@ -354,7 +354,7 @@
 		if(threat >= 4)
 			target = M
 			say("Level [threat] infraction alert!")
-			custom_emote(1, "points at [M.name]!")
+			custom_emote(VISIBLE_MESSAGE, "points at [M.name]!")
 			mode = SECBOT_HUNT
 			break
 	return
@@ -452,7 +452,7 @@
 
 	var/datum/signal/signal = new()
 	signal.source = secbot
-	signal.transmission_method = 1
+	signal.transmission_method = TRANSMISSION_RADIO
 	signal.data = keyval.Copy()
 
 	if(signal.data["findbeacon"])
@@ -598,7 +598,7 @@
 
 /mob/living/bot/secbot/attackby(var/obj/item/O, var/mob/user)
 	..()
-	if(istype(O, /obj/item/card/id) || O.ispen() || istype(O, /obj/item/device/pda))
+	if(O.GetID() || O.ispen())
 		return
 
 	target = user
@@ -649,7 +649,7 @@
 		..()
 		return
 
-	if(type != /obj/item/clothing/head/helmet) //Eh, but we don't want people making secbots out of space helmets.
+	if(type != /obj/item/clothing/head/helmet/security) //Eh, but we don't want people making secbots out of space helmets.
 		return
 
 	if(S.secured)

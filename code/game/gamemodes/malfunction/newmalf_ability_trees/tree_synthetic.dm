@@ -43,6 +43,7 @@
 	set desc = "100 CPU - Forces a module reset on a cyborg that is enslaved to you. Has a chance of failing."
 	set category = "Software"
 	var/price = 100
+
 	var/mob/living/silicon/ai/user = usr
 	if(!ability_prechecks(user, price))
 		return
@@ -109,7 +110,11 @@
 	set desc = "125 CPU - Infect an APC which can cause an IPC to become slaved to you if they download the files by trying to charge off of it. "
 	set category = "Software"
 	var/price = 125
+
 	var/mob/living/silicon/ai/user = usr
+	if(user.stat == DEAD)
+		to_chat(user, SPAN_WARNING("You are dead!"))
+		return
 	if(!A)
 		return
 
@@ -152,8 +157,8 @@
 	set desc = "300 CPU - Allows you to overclock a slaved cyborg granting them various improvements to their systems."
 	set category = "Software"
 	var/price = 300
-	var/mob/living/silicon/ai/user = usr
 
+	var/mob/living/silicon/ai/user = usr
 	if(!ability_prechecks(user, price))
 		return
 
@@ -215,8 +220,8 @@
 	set desc = "450 CPU - Starts a takeover of the station enabling several abilities that relate to synthetic dominance."
 	set category = "Software"
 	var/price = 450
-	var/mob/living/silicon/ai/user = usr
 
+	var/mob/living/silicon/ai/user = usr
 	if(!ability_prechecks(user,price))
 		return
 

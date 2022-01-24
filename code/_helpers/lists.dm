@@ -5,31 +5,77 @@
  *			Sorting
  */
 
+// Determiner constants
+#define DET_NONE        0x00
+#define DET_DEFINITE    0x01 // the
+#define DET_INDEFINITE  0x02 // a, an, some
+#define DET_AUTO        0x04
+
 /*
  * Misc
  */
 
 //Returns a list in plain english as a string
-/proc/english_list(var/list/input, nothing_text = "nothing", and_text = " and ", comma_text = ", ", final_comma_text = "" )
-	var/total = input.len
-	if (!total)
-		return "[nothing_text]"
-	else if (total == 1)
-		return "[input[1]]"
-	else if (total == 2)
-		return "[input[1]][and_text][input[2]]"
-	else
-		var/output = ""
-		var/index = 1
-		while (index < total)
-			if (index == total - 1)
-				comma_text = final_comma_text
+/proc/english_list(var/list/input, nothing_text = "nothing", and_text = " and ", comma_text = ", ", final_comma_text = "")
+	// this proc cannot be merged with counting_english_list to maintain compatibility
+	// with shoddy use of this proc for code logic and for cases that require original order
+	switch(input.len)
+		if(0) return nothing_text
+		if(1) return "[input[1]]"
+		if(2) return "[input[1]][and_text][input[2]]"
+		else  return "[jointext(input, comma_text, 1, -1)][final_comma_text][and_text][input[input.len]]"
 
-			output += "[input[index]][comma_text]"
-			index++
+//Returns a newline-separated list that counts equal-ish items, outputting count and item names, optionally with icons and specific determiners
+/proc/counting_english_list(var/list/input, output_icons = TRUE, determiners = DET_NONE, nothing_text = "nothing", line_prefix = "\t", first_item_prefix = "\n", last_item_suffix = "\n", and_text = "\n", comma_text = "\n", final_comma_text = "")
+	var/list/counts = list() // counted input items
+	var/list/items = list() // actual objects for later reference (for icons and formatting)
 
-		return "[output][and_text][input[index]]"
+	// count items
+	for(var/item in input)
+		var/name = "[item]" // index items by name; usually works fairly well for loose equality
+		if(name in counts)
+			counts[name]++
+		else
+			counts[name] = 1
+			items.Add(item)
 
+	// assemble the output list
+	var/list/out = list()
+	var/i = 0
+	for(var/item in items)
+		var/name = "[item]"
+		var/count = counts[name]
+		var/item_str = line_prefix
+
+		if(count > 1)
+			item_str += "[count]x&nbsp;"
+
+		// atoms use special string conversion rules
+		if(isatom(item))
+			// atoms/items/objects can be pretty and whatnot
+			var/atom/A = item
+			if(output_icons && isicon(A.icon) && !ismob(A)) // mobs tend to have unusable icons
+				item_str += "[icon2html(A, viewers(get_turf(A)))]&nbsp;"
+			switch(determiners)
+				if(DET_NONE) item_str += A.name
+				if(DET_DEFINITE) item_str += "\the [A]"
+				if(DET_INDEFINITE) item_str += "\a [A]"
+				else item_str += name
+
+		if(i == 0)
+			item_str = first_item_prefix + item_str
+		if(i == items.len - 1)
+			item_str = item_str + last_item_suffix
+
+		out.Add(item_str)
+		i++
+
+	// finally return the list using regular english_list builder
+	return english_list(out, nothing_text, and_text, comma_text, final_comma_text)
+
+//A "preset" for counting_english_list that displays the list "inline" (comma separated)
+/proc/inline_counting_english_list(var/list/input, output_icons = TRUE, determiners = DET_NONE, nothing_text = "nothing", and_text = " and ", comma_text = ", ", final_comma_text = "", line_prefix = "", first_item_prefix = "", last_item_suffix = "")
+	return counting_english_list(input, output_icons, determiners, nothing_text, and_text, comma_text, final_comma_text)
 
 /proc/ConvertReqString2List(var/list/source_list)
 	var/list/temp_list = params2list(source_list)
@@ -47,12 +93,27 @@
 				return TRUE
 	return FALSE
 
+// Checks that all of the values are in the given list
+/proc/all_in_list(var/list/values, var/list/L)
+	if(!istype(values) || !istype(L))
+		return FALSE
+	for(var/value in values)
+		if(!(value in L))
+			return FALSE
+	return TRUE
+
+/proc/is_path_in_list(var/check_path, var/list/L)
+	for(var/path in L)
+		if(ispath(check_path, path))
+			return TRUE
+	return FALSE
+
 //Checks for specific types in a list
 /proc/is_type_in_list(var/datum/A, var/list/L)
 	for(var/type in L)
 		if(istype(A, type))
-			return 1
-	return 0
+			return TRUE
+	return FALSE
 
 /proc/instances_of_type_in_list(var/datum/A, list/L, strict = FALSE)
 	. = 0
@@ -115,6 +176,49 @@
 		result = first ^ second
 	return result
 
+/*
+ * Returns a list with the results from both lists
+ * If norepeat = TRUE, it won't include repeat instances.
+ * If unpack = TRUE, it unpacks each list
+ */
+/proc/mergelists(var/list/first, var/list/second, var/norepeat = TRUE, var/unpack = FALSE)
+	if(!islist(first) || !islist(second))
+		return
+	var/list/result = new
+	if(unpack)
+		first = unpacklist(first)
+		second = unpacklist(second)
+	for(var/A in first)
+		result += A
+	if(norepeat)
+		for(var/A in second)
+			if(!(A in result))
+				result += A
+	else
+		for(var/A in second)
+			result += A
+	return result
+
+/*
+ * Returns a list with the unpacked results from the list.
+ * If repeatunpack = TRUE, it unpacks each found list within it
+ */
+/proc/unpacklist(var/list/packed, repeatunpack = TRUE)
+	if(!islist(packed))
+		return
+	var/list/result = new
+	for(var/A in packed)
+		if(islist(A))
+			for(var/B in A)
+				if(repeatunpack && islist(B))
+					var/list/unpacked = unpacklist(B)
+					for(var/C in unpacked)
+						result += C
+				else
+					result += B
+		else
+			result += A
+	return result
 
 //Picks a random element by weight from a list. The list must be correctly constructed in this format:
 //mylist[myelement1] = myweight1
@@ -443,35 +547,30 @@
 //returns a new list with only atoms that are in typecache L
 /proc/typecache_filter_list(list/atoms, list/typecache)
 	. = list()
-	for(var/thing in atoms)
-		var/atom/A = thing
+	for(var/atom/A as anything in atoms)
 		if (typecache[A.type])
 			. += A
 
 /proc/typecache_filter_list_reverse(list/atoms, list/typecache)
 	. = list()
-	for(var/thing in atoms)
-		var/atom/A = thing
+	for(var/atom/A as anything in atoms)
 		if(!typecache[A.type])
 			. += A
 
 /proc/typecache_filter_multi_list_exclusion(list/atoms, list/typecache_include, list/typecache_exclude)
 	. = list()
-	for(var/thing in atoms)
-		var/atom/A = thing
+	for(var/atom/A as anything in atoms)
 		if(typecache_include[A.type] && !typecache_exclude[A.type])
 			. += A
 
 /proc/range_in_typecache(dist, center, list/typecache)
-	for (var/thing in range(dist, center))
-		var/atom/A = thing
+	for(var/atom/A as anything in range(dist, center))
 		if (typecache[A.type])
 			return TRUE
 
 /proc/typecache_first_match(list/target, list/typecache)
-	for (var/thing in target)
-		var/datum/D = thing
-		if (typecache[D.type])
+	for(var/datum/D as anything in target)
+		if(typecache[D.type])
 			return D
 
 //Like typesof() or subtypesof(), but returns a typecache instead of a list
@@ -717,8 +816,18 @@
 
 	values += value
 
+/proc/list_keys(var/list/L) // Return a list of keys in a list
+	. = list()
+	for(var/e in L)
+		. += e
+
 // Return a list of the values in an assoc list (including null)
 /proc/list_values(var/list/L)
 	. = list()
 	for(var/e in L)
 		. += L[e]
+
+/proc/capitalize_list(var/list/L)
+	. = list()
+	for (var/string in L)
+		. += capitalize(string)

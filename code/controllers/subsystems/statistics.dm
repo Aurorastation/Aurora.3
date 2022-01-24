@@ -5,6 +5,8 @@
 	wait = 1 MINUTE
 	flags = SS_NO_TICK_CHECK | SS_BACKGROUND
 	priority = SS_PRIORITY_STATISTICS
+	
+	var/kicked_clients = 0
 
 	var/list/messages = list()		//Stores messages of non-standard frequencies
 	var/list/messages_admin = list()
@@ -20,6 +22,7 @@
 	var/list/msg_raider = list()
 	var/list/msg_burglar = list()
 	var/list/msg_ninja = list()
+	var/list/msg_bluespace = list()
 	var/list/msg_cargo = list()
 	var/list/msg_service = list()
 
@@ -45,14 +48,15 @@
 
 /datum/controller/subsystem/statistics/fire()
 	// Handle AFK.
-	if (config.kick_inactive)
+	if(config.kick_inactive)
 		var/inactivity_threshold = config.kick_inactive MINUTES
-		for (var/client/C in clients)
-			if (!istype(C.mob, /mob/abstract))
-				if (C.is_afk(inactivity_threshold))
+		for(var/client/C in clients)
+			if(!isobserver(C.mob) && !C.holder)
+				if(C.is_afk(inactivity_threshold))
 					log_access("AFK: [key_name(C)]")
-					to_chat(C, SPAN_WARNING("You have been inactive for more than [config.kick_inactive] minute\s and have been disconnected."))
+					to_chat_immediate(C, SPAN_WARNING("You have been inactive for more than [config.kick_inactive] minute\s and have been disconnected."))
 					qdel(C)
+					kicked_clients++
 
 	// Handle population polling.
 	if (config.sql_enabled && config.sql_stats)
@@ -61,8 +65,7 @@
 		for(var/mob/M in player_list)
 			if(M.client)
 				playercount += 1
-		establish_db_connection(dbcon)
-		if(!dbcon.IsConnected())
+		if(!establish_db_connection(dbcon))
 			log_game("SQL ERROR during population polling. Failed to connect.")
 		else
 			var/sqltime = time2text(world.realtime, "YYYY-MM-DD hh:mm:ss")
@@ -131,7 +134,6 @@
 	feedback_add_details("radio_usage","CAR-[msg_cargo.len]")
 	feedback_add_details("radio_usage","SRV-[msg_service.len]")
 	feedback_add_details("radio_usage","OTH-[messages.len]")
-	feedback_add_details("radio_usage","PDA-[pda_msg_amt]")
 	feedback_add_details("radio_usage","RC-[rc_msg_amt]")
 
 	for (var/key in simple_statistics)
@@ -160,8 +162,7 @@
 		return
 
 	round_end_data_gathering() //round_end time logging and some other data processing
-	establish_db_connection(dbcon)
-	if(!dbcon.IsConnected())
+	if(!establish_db_connection(dbcon))
 		return
 
 	for(var/datum/feedback_variable/FV in feedback)
@@ -234,10 +235,12 @@
 
 	FV.add_details(details)
 
-/proc/sql_report_death(var/mob/living/carbon/human/H)
+/proc/sql_report_death(var/mob/living/H)
 	if(!config.sql_enabled || !config.sql_stats)
 		return
 	if(!H)
+		return
+	if(!istype(H, /mob/living/carbon/human) && !istype(H, /mob/living/silicon/robot))
 		return
 	if(!H.key || !H.mind)
 		return
@@ -245,57 +248,28 @@
 	var/area/placeofdeath = get_area(H)
 	var/podname = placeofdeath ? "[placeofdeath]" : "Unknown area"
 
-	var/sqlname = sanitizeSQL(H.real_name)
-	var/sqlkey = sanitizeSQL(H.key)
-	var/sqlpod = sanitizeSQL(podname)
-	var/sqlspecial = sanitizeSQL(H.mind.special_role)
-	var/sqljob = sanitizeSQL(H.mind.assigned_role)
-	var/laname
-	var/lakey
-	if(H.lastattacker)
-		laname = sanitizeSQL(H.lastattacker:real_name)
-		lakey = sanitizeSQL(H.lastattacker:key)
-	var/sqltime = time2text(world.realtime, "YYYY-MM-DD hh:mm:ss")
-	var/coord = "[H.x], [H.y], [H.z]"
-	establish_db_connection(dbcon)
-	if(!dbcon.IsConnected())
+	if(!establish_db_connection(dbcon))
 		log_game("SQL ERROR during death reporting. Failed to connect.")
 	else
-		var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_death (name, byondkey, job, special, pod, tod, laname, lakey, gender, bruteloss, fireloss, brainloss, oxyloss, coord) VALUES ('[sqlname]', '[sqlkey]', '[sqljob]', '[sqlspecial]', '[sqlpod]', '[sqltime]', '[laname]', '[lakey]', '[H.gender]', [H.getBruteLoss()], [H.getFireLoss()], [H.getBrainLoss()], [H.getOxyLoss()], '[coord]')")
-		if(!query.Execute())
-			var/err = query.ErrorMsg()
-			log_game("SQL ERROR during death reporting. Error : \[[err]\]\n")
-
-
-/proc/sql_report_cyborg_death(var/mob/living/silicon/robot/H)
-	if(!config.sql_enabled || !config.sql_stats)
-		return
-	if(!H)
-		return
-	if(!H.key || !H.mind)
-		return
-
-	var/area/placeofdeath = get_area(H)
-	var/podname = placeofdeath ? "[placeofdeath]" : "Unknown area"
-
-	var/sqlname = sanitizeSQL(H.real_name)
-	var/sqlkey = sanitizeSQL(H.key)
-	var/sqlpod = sanitizeSQL(podname)
-	var/sqlspecial = sanitizeSQL(H.mind.special_role)
-	var/sqljob = sanitizeSQL(H.mind.assigned_role)
-	var/laname
-	var/lakey
-	if(H.lastattacker)
-		laname = sanitizeSQL(H.lastattacker:real_name)
-		lakey = sanitizeSQL(H.lastattacker:key)
-	var/sqltime = time2text(world.realtime, "YYYY-MM-DD hh:mm:ss")
-	var/coord = "[H.x], [H.y], [H.z]"
-	establish_db_connection(dbcon)
-	if(!dbcon.IsConnected())
-		log_game("SQL ERROR during death reporting. Failed to connect.")
-	else
-		var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_death (name, byondkey, job, special, pod, tod, laname, lakey, gender, bruteloss, fireloss, brainloss, oxyloss, coord) VALUES ('[sqlname]', '[sqlkey]', '[sqljob]', '[sqlspecial]', '[sqlpod]', '[sqltime]', '[laname]', '[lakey]', '[H.gender]', [H.getBruteLoss()], [H.getFireLoss()], [H.getBrainLoss()], [H.getOxyLoss()], '[coord]')")
-		if(!query.Execute())
+		var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_death (name, ckey, char_id, job, special, pod, tod, laname, lackey, gender, bruteloss, fireloss, brainloss, oxyloss, coord) VALUES \
+		(:name:, :ckey:, :char_id:, :job:, :special:, :pod:, :tod:, :laname:, :lackey:, :gender:, :bruteloss:, :fireloss:, :brainloss:, :oxyloss:, :coord:')")
+		if(!query.Execute(list(
+			"name"=H.real_name,
+			"ckey"=H.ckey,
+			"char_id"=H.character_id,
+			"job"=H?.mind.assigned_role,
+			"special"=H?.mind.special_role,
+			"pod"=podname,
+			"tod"=time2text(world.realtime, "YYYY-MM-DD hh:mm:ss"),
+			"laname"=H?.lastattacker.real_name,
+			"lackey"=H?.lastattacker.ckey,
+			"gender"=H.gender,
+			"bruteloss"=H.getBruteLoss(),
+			"fireloss"=H.getFireLoss(),
+			"brainloss"=H.getBrainLoss(),
+			"oxyloss"=H.getOxyLoss(),
+			"coord"="[H.x], [H.y], [H.z]")
+			))
 			var/err = query.ErrorMsg()
 			log_game("SQL ERROR during death reporting. Error : \[[err]\]\n")
 
@@ -312,3 +286,6 @@
 	if (!S)
 		return FALSE
 	S.increment_value(key)
+
+/datum/controller/subsystem/statistics/stat_entry()
+	..("Kicked: [kicked_clients]")

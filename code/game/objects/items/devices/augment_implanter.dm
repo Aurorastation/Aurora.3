@@ -8,11 +8,12 @@
 	item_state = "decloner"
 	contained_sprite = TRUE
 	var/obj/item/organ/augment_type
+	var/new_augment
 
 /obj/item/device/augment_implanter/Initialize()
 	. = ..()
 	if(!augment_type)
-		augment_type = new augment_type(src)
+		augment_type = new new_augment(src)
 
 /obj/item/device/augment_implanter/examine(mob/user)
 	..(user)
@@ -46,7 +47,9 @@
 	if(!do_mob(user, H, 4 SECONDS))
 		return
 
-	augment_type.replaced(H, augment_type.parent_organ)
+	var/obj/item/organ/external/affected = H.get_organ(augment_type.parent_organ)
+
+	augment_type.replaced(H, affected)
 	H.update_body()
 	H.updatehealth()
 	H.UpdateDamageIcon()
@@ -55,7 +58,7 @@
 	user.visible_message(SPAN_WARNING("\The [user] thrusts \the [src] deep into \the [H], injecting something!"))
 
 /obj/item/device/augment_implanter/advanced_tesla
-	augment_type = /obj/item/organ/internal/augment/tesla/advanced
+	new_augment = /obj/item/organ/internal/augment/tesla/advanced
 
 /obj/item/device/augment_implanter/advanced_suspension
-	augment_type =	/obj/item/organ/internal/augment/suspension/advanced
+	new_augment =	/obj/item/organ/internal/augment/suspension/advanced

@@ -24,13 +24,35 @@
 	var/id = null
 	var/datum/radio_frequency/radio_connection
 
+	var/broadcast_status_next_process = FALSE
+
+/obj/machinery/atmospherics/binary/passive_gate/scrubbers
+	name = "scrubbers pressure regulator"
+	desc = "A one-way air valve that can be used to regulate input or output pressure, and flow rate. This is one is for scrubber pipes."
+	icon_state = "map-scrubbers"
+	connect_types = CONNECT_TYPE_SCRUBBER
+	icon_connect_type = "-scrubbers"
+
+	unlocked = TRUE
+	target_pressure = 200
+
+/obj/machinery/atmospherics/binary/passive_gate/supply
+	name = "supply pressure regulator"
+	desc = "A one-way air valve that can be used to regulate input or output pressure, and flow rate. This is one is for supply pipes."
+	icon_state = "map-supply"
+	connect_types = CONNECT_TYPE_SUPPLY
+	icon_connect_type = "-supply"
+
+	unlocked = TRUE
+	target_pressure = 200
+
 /obj/machinery/atmospherics/binary/passive_gate/Initialize()
 	. = ..()
 	air1.volume = ATMOS_DEFAULT_VOLUME_PUMP * 2.5
 	air2.volume = ATMOS_DEFAULT_VOLUME_PUMP * 2.5
 
 /obj/machinery/atmospherics/binary/passive_gate/update_icon()
-	icon_state = (unlocked && flowing)? "on" : "off"
+	icon_state = (unlocked && flowing)? "on" + icon_connect_type : "off" + icon_connect_type
 
 /obj/machinery/atmospherics/binary/passive_gate/update_underlays()
 	if(..())
@@ -38,14 +60,18 @@
 		var/turf/T = get_turf(src)
 		if(!istype(T))
 			return
-		add_underlay(T, node1, turn(dir, 180))
-		add_underlay(T, node2, dir)
+		add_underlay(T, node1, turn(dir, 180), node1?.icon_connect_type)
+		add_underlay(T, node2, dir, node2?.icon_connect_type)
 
 /obj/machinery/atmospherics/binary/passive_gate/hide(var/i)
 	update_underlays()
 
 /obj/machinery/atmospherics/binary/passive_gate/machinery_process()
 	..()
+
+	if (broadcast_status_next_process)
+		broadcast_status()
+		broadcast_status_next_process = FALSE
 
 	last_flow_rate = 0
 
@@ -73,7 +99,7 @@
 		//Figure out how much gas to transfer to meet the target pressure.
 		switch (regulate_mode)
 			if (REGULATE_INPUT)
-				transfer_moles = min(transfer_moles, calculate_transfer_moles(air2, air1, pressure_delta, (network1)? network1.volume : 0))
+				transfer_moles = min(transfer_moles, air1.total_moles*(pressure_delta/input_starting_pressure))
 			if (REGULATE_OUTPUT)
 				transfer_moles = min(transfer_moles, calculate_transfer_moles(air1, air2, pressure_delta, (network2)? network2.volume : 0))
 
@@ -106,7 +132,7 @@
 		return 0
 
 	var/datum/signal/signal = new
-	signal.transmission_method = 1 //radio signal
+	signal.transmission_method = TRANSMISSION_RADIO
 	signal.source = src
 
 	signal.data = list(
@@ -152,10 +178,10 @@
 		regulate_mode = text2num(signal.data["set_flow_rate"])
 
 	if("status" in signal.data)
-		addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
+		broadcast_status_next_process = TRUE
 		return //do not update_icon
 
-	addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
+	broadcast_status_next_process = TRUE
 	update_icon()
 	return
 

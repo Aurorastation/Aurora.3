@@ -11,7 +11,8 @@
 /obj/item/material/kitchen/utensil
 	drop_sound = 'sound/items/drop/knife.ogg'
 	pickup_sound = 'sound/items/pickup/knife.ogg'
-	w_class = 1
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	w_class = ITEMSIZE_TINY
 	thrown_force_divisor = 1
 	origin_tech = list(TECH_MATERIAL = 1)
 	attack_verb = list("attacked", "stabbed", "poked")
@@ -22,20 +23,21 @@
 	var/loaded      //Descriptive string for currently loaded food object.
 	var/is_liquid = FALSE //whether you've got liquid on your utensil
 	var/scoop_food = 1
+	var/transfer_amt = 1
+	var/list/bite_sizes = list(1,2,3,4,5)
 
-/obj/item/material/kitchen/utensil/New()
-	..()
+/obj/item/material/kitchen/utensil/Initialize(newloc, material_key)
+	. = ..()
 	if (prob(60))
 		src.pixel_y = rand(0, 4)
 	create_reagents(5)
-	return
 
 /obj/item/material/kitchen/utensil/attack(mob/living/carbon/M, mob/user, var/target_zone)
 	if(!istype(M))
 		return ..()
 
 	if(user.a_intent != I_HELP)
-		if(target_zone == BP_HEAD || target_zone == BP_EYES)
+		if((target_zone == BP_HEAD || target_zone == BP_EYES) && !M.eyes_protected(src, FALSE))
 			if((user.is_clumsy()) && prob(50))
 				M = user
 			return eyestab(M,user)
@@ -70,6 +72,23 @@
 		to_chat(user, SPAN_WARNING("You don't have anything on \the [src].")) 	//if we have help intent and no food scooped up DON'T STAB OURSELVES WITH THE FORK)
 		return
 
+/obj/item/material/kitchen/utensil/on_rag_wipe()
+	. = ..()
+	if(reagents.total_volume > 0)
+		reagents.clear_reagents()
+		is_liquid = FALSE
+		loaded = null
+		cut_overlays()
+	return
+
+/obj/item/material/kitchen/utensil/verb/bite_size()
+	set name = "Change bite size"
+	set category = "Object"
+	var/nsize = input("Bite Size","Pick the amount of reagents to pick up.") as null|anything in bite_sizes
+	if(nsize)
+		transfer_amt = nsize
+		to_chat(usr, SPAN_NOTICE("\The [src] will now scoop up [transfer_amt] reagents."))
+
 /obj/item/material/kitchen/utensil/fork
 	name = "fork"
 	desc = "It's a fork. Sure is pointy."
@@ -78,6 +97,20 @@
 
 /obj/item/material/kitchen/utensil/fork/plastic
 	default_material = MATERIAL_PLASTIC
+
+/obj/item/material/kitchen/utensil/fork/chopsticks
+	name = "chopsticks"
+	desc = "A pair of chopsticks. The most challenging utensil in the Spur."
+	icon_state = "chopsticks"
+	default_material = MATERIAL_WOOD
+	transfer_amt = 2 //Chopsticks are hard to grab stuff with
+	bite_sizes = list(1,2)
+
+/obj/item/material/kitchen/utensil/fork/chopsticks/cheap
+	name = "cheap chopsticks"
+	desc = "A pair of cheap, disposable chopsticks."
+	use_material_name = 0
+	applies_material_colour = 0
 
 /obj/item/material/kitchen/utensil/spoon
 	name = "spoon"
@@ -134,8 +167,6 @@
 	default_material = "wood"
 	force_divisor = 0.7 // 10 when wielded with weight 15 (wood)
 	thrown_force_divisor = 1 // as above
-	drop_sound = 'sound/items/drop/wooden.ogg'
-	pickup_sound = 'sound/items/pickup/wooden.ogg'
 
 /obj/item/material/kitchen/rollingpin/attack(mob/living/M, mob/living/user, var/target_zone)
 	if ((user.is_clumsy()) && prob(50))

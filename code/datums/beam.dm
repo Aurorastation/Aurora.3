@@ -7,32 +7,37 @@
 	var/icon
 	var/icon_state = "" //icon state of the main segments of the beam
 	var/max_distance = 0
+	var/curr_distance = 0
 	var/sleep_time = 3
 	var/finished = 0
-	var/target_oldloc = null
-	var/origin_oldloc = null
-	var/static_beam = 0
+	var/turf/target_oldloc = null
+	var/turf/origin_oldloc = null
 	var/beam_type = /obj/effect/ebeam //must be subtype
 	var/timing_id = null
 	var/recalculating = FALSE
 
 /datum/beam/New(beam_origin,beam_target,beam_icon='icons/effects/beam.dmi',beam_icon_state="b_beam",time=50,maxdistance=10,btype = /obj/effect/ebeam,beam_sleep_time=3)
 	origin = beam_origin
-	origin_oldloc =	get_turf(origin)
 	target = beam_target
-	target_oldloc = get_turf(target)
-	sleep_time = beam_sleep_time
-	if(origin_oldloc == origin && target_oldloc == target)
-		static_beam = 1
+	var/turf/origin_turf = get_turf(origin)
+	var/turf/target_turf = get_turf(target)
 	max_distance = maxdistance
+	curr_distance = get_dist(origin_turf, target_turf)
+
+	if((curr_distance == -1 && origin_turf != target_turf) || curr_distance >= max_distance || origin_turf.z != target_turf.z)
+		qdel(src)
+		return
+
+	sleep_time = beam_sleep_time
 	base_icon = new(beam_icon,beam_icon_state)
 	icon = beam_icon
 	icon_state = beam_icon_state
 	beam_type = btype
-	addtimer(CALLBACK(src,.proc/End), time)
+	if(time != -1)
+		addtimer(CALLBACK(src,.proc/End), time)
 
 /datum/beam/proc/Start()
-	Draw()
+	recalculate()
 	recalculate_in(sleep_time)
 
 /datum/beam/proc/recalculate()
@@ -41,10 +46,11 @@
 		return
 	recalculating = TRUE
 	timing_id = null
-	if(origin && target && get_dist(origin,target)<max_distance && origin.z == target.z)
-		var/origin_turf = get_turf(origin)
-		var/target_turf = get_turf(target)
-		if(!static_beam && (origin_turf != origin_oldloc || target_turf != target_oldloc))
+	var/turf/origin_turf = get_turf(origin)
+	var/turf/target_turf = get_turf(target)
+	curr_distance = get_dist(origin_turf, target_turf)
+	if(!(curr_distance == -1 && origin_turf != target_turf) && curr_distance < max_distance && origin_turf.z == target_turf.z)
+		if((origin_turf != origin_oldloc || target_turf != target_oldloc))
 			origin_oldloc = origin_turf //so we don't keep checking against their initial positions, leading to endless Reset()+Draw() calls
 			target_oldloc = target_turf
 			Reset()
@@ -84,58 +90,105 @@
 	return ..()
 
 /datum/beam/proc/Draw()
-	var/Angle = round(Get_Angle(origin,target))
+	var/Angle = round(Get_Angle(origin.z ? origin : get_turf(origin), target.z ? target : get_turf(target)))
 	var/matrix/rot_matrix = matrix()
 	rot_matrix.Turn(Angle)
 
 	//Translation vector for origin and target
-	var/DX = (32*target.x+target.pixel_x)-(32*origin.x+origin.pixel_x)
-	var/DY = (32*target.y+target.pixel_y)-(32*origin.y+origin.pixel_y)
+	var/DX = get_x_translation_vector()
+	var/DY = get_y_translation_vector()
 	var/N = 0
 	var/length = round(sqrt((DX)**2+(DY)**2)) //hypotenuse of the triangle formed by target and origin's displacement
 
-	for(N in 0 to length-1 step 32)//-1 as we want < not <=, but we want the speed of X in Y to Z and step X
-		var/obj/effect/ebeam/X = new beam_type(origin_oldloc)
-		X.owner = src
-		elements += X
+	for(N in 0 to length-1 step world.icon_size)//-1 as we want < not <=, but we want the speed of X in Y to Z and step X
+		var/obj/effect/ebeam/segment = new beam_type(origin_oldloc)
+		segment.owner = src
+		elements += segment
 
 		//Assign icon, for main segments it's base_icon, for the end, it's icon+icon_state
 		//cropped by a transparent box of length-N pixel size
-		if(N+32>length)
+		if(N + world.icon_size > length)
 			var/icon/II = new(icon, icon_state)
-			II.DrawBox(null,1,(length-N),32,32)
-			X.icon = II
+			II.DrawBox(null, 1, (length-N), world.icon_size, world.icon_size)
+			segment.icon = II
 		else
-			X.icon = base_icon
-		X.transform = rot_matrix
+			segment.icon = base_icon
+		segment.transform = rot_matrix
 
 		//Calculate pixel offsets (If necessary)
-		var/Pixel_x
-		var/Pixel_y
-		if(DX == 0)
-			Pixel_x = 0
-		else
-			Pixel_x = round(sin(Angle)+32*sin(Angle)*(N+16)/32)
-		if(DY == 0)
-			Pixel_y = 0
-		else
-			Pixel_y = round(cos(Angle)+32*cos(Angle)*(N+16)/32)
+		var/x_offset = round(sin(Angle) * (N + world.icon_size/2))
+		var/y_offset = round(cos(Angle) * (N + world.icon_size/2))
+		//Position the effect so the beam is one continuous line
+		segment.x += SIMPLE_SIGN(x_offset) * Floor(abs(x_offset)/world.icon_size)
+		x_offset %= world.icon_size
 
-		//Position the effect so the beam is one continous line
-		var/a
-		if(abs(Pixel_x)>32)
-			a = Pixel_x > 0 ? round(Pixel_x/32) : Ceiling(Pixel_x/32)
-			X.x += a
-			Pixel_x %= 32
-		if(abs(Pixel_y)>32)
-			a = Pixel_y > 0 ? round(Pixel_y/32) : Ceiling(Pixel_y/32)
-			X.y += a
-			Pixel_y %= 32
+		segment.y += SIMPLE_SIGN(y_offset) * Floor(abs(y_offset)/world.icon_size)
+		y_offset %= world.icon_size
 
-		X.pixel_x = Pixel_x
-		X.pixel_y = Pixel_y
+		segment.pixel_x = x_offset
+		segment.pixel_y = y_offset
 		CHECK_TICK
 	afterDraw()
+
+/datum/beam/proc/get_x_translation_vector()
+	return (world.icon_size*target.x+target.pixel_x)-(world.icon_size*origin.x+origin.pixel_x)
+
+/datum/beam/proc/get_y_translation_vector()
+	return (world.icon_size*target.y+target.pixel_y)-(world.icon_size*origin.y+origin.pixel_y)
+
+/datum/beam/exploration
+	var/obj/item/tethering_device/owner
+
+/datum/beam/exploration/End()
+	owner.active_beams -= target
+	owner.untether(target, FALSE)
+	return ..()
+
+/datum/beam/exploration/get_x_translation_vector()
+	return (world.icon_size * target_oldloc.x) - (world.icon_size * origin_oldloc.x)
+
+/datum/beam/exploration/get_y_translation_vector()
+	return (world.icon_size * target_oldloc.y) - (world.icon_size * origin_oldloc.y)
+
+/datum/beam/exploration/afterDraw()
+	var/distance = curr_distance / max_distance
+	var/set_color = COLOR_GREEN
+	if(distance >= 0.8)
+		set_color = COLOR_MAROON
+	else if(distance >= 0.3)
+		set_color = COLOR_BLUE
+	else
+		set_color = COLOR_GREEN
+	for(var/beam in elements)
+		var/obj/effect/ebeam/B = beam
+		B.color = set_color
+
+/datum/beam/power
+	var/obj/item/computer_hardware/tesla_link/charging_cable/owner
+
+/datum/beam/power/End()
+	owner.beam = null
+	if(owner.source)
+		owner.untether(FALSE)
+	return ..()
+
+/datum/beam/power/get_x_translation_vector()
+	return (world.icon_size * target_oldloc.x + target.pixel_x) - (world.icon_size * origin_oldloc.x + origin.pixel_x)
+
+/datum/beam/power/get_y_translation_vector()
+	return (world.icon_size * target_oldloc.y + target.pixel_y) - (world.icon_size * origin_oldloc.y + origin.pixel_y)
+
+/datum/beam/power/afterDraw()
+	for(var/beam in elements)
+		var/obj/effect/ebeam/B = beam
+		B.color = COLOR_GRAY40
+
+// this simplified datum will work with timed beams that are held
+/datum/beam/held/get_x_translation_vector()
+	return (world.icon_size * target_oldloc.x) - (world.icon_size * origin_oldloc.x)
+
+/datum/beam/held/get_y_translation_vector()
+	return (world.icon_size * target_oldloc.y) - (world.icon_size * origin_oldloc.y)
 
 /obj/effect/ebeam
 	mouse_opacity = 0
@@ -151,10 +204,10 @@
 	owner = null
 	return ..()
 
-/atom/proc/Beam(atom/BeamTarget,icon_state="b_beam",icon='icons/effects/beam.dmi',time=50, maxdistance=10,beam_type=/obj/effect/ebeam,beam_sleep_time = 3)
+/atom/proc/Beam(atom/BeamTarget,icon_state="b_beam",icon='icons/effects/beam.dmi',time=50, maxdistance=10,beam_type=/obj/effect/ebeam,beam_sleep_time = 3, beam_datum_type=/datum/beam)
 	if(time >= INFINITY)
 		crash_with("Tried to create beam with infinite time!")
 		return null
-	var/datum/beam/newbeam = new(src,BeamTarget,icon,icon_state,time,maxdistance,beam_type,beam_sleep_time)
+	var/datum/beam/newbeam = new beam_datum_type(src,BeamTarget,icon,icon_state,time,maxdistance,beam_type,beam_sleep_time)
 	INVOKE_ASYNC(newbeam, /datum/beam/.proc/Start)
 	return newbeam

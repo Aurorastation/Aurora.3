@@ -4,10 +4,8 @@
 /turf/simulated/wall/shuttle
 	icon = 'icons/turf/smooth/shuttle_wall.dmi'
 	icon_state = "map-shuttle"
-	roof_flags = ROOF_CLEANUP
 	permit_ao = 0
 	smooth = SMOOTH_MORE|SMOOTH_DIAGONAL
-	use_standard_smoothing = 1
 	canSmoothWith = list(
 		/turf/simulated/wall/shuttle,
 		/obj/structure/window/shuttle,
@@ -33,7 +31,7 @@
 			var/obj/item/weldingtool/WT = W
 			if( WT.remove_fuel(0,user) )
 				to_chat(user, "<span class='notice'>You burn away the fungi with \the [WT].</span>")
-				playsound(src, 'sound/items/Welder.ogg', 10, 1)
+				playsound(src, 'sound/items/welder.ogg', 10, 1)
 				for(var/obj/effect/overlay/wallrot/WR in src)
 					qdel(WR)
 				return
@@ -58,7 +56,7 @@
 
 			spark(EB, 5)
 			to_chat(user, "<span class='notice'>You slash \the [src] with \the [EB]; the thermite ignites!</span>")
-			playsound(src, "sparks", 50, 1)
+			playsound(src, /decl/sound_category/spark_sound, 50, 1)
 			playsound(src, 'sound/weapons/blade.ogg', 50, 1)
 
 			thermitemelt(user)
@@ -100,6 +98,23 @@
 	if(T && !istype(T, /turf/simulated/open))
 		underlay_appearance.appearance = T
 		underlays = U
+
+/turf/simulated/wall/shuttle/scc_space_ship
+	name = "spaceship hull"
+	icon = 'icons/turf/smooth/scc_ship.dmi'
+	canSmoothWith = null
+
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal
+	smooth = SMOOTH_MORE
+	canSmoothWith = list(
+		/turf/simulated/wall/shuttle/scc_space_ship
+	)
+
+/obj/structure/shuttle_part/scc_space_ship
+	name = "spaceship alloy wall"
+	icon = 'icons/turf/smooth/scc_ship.dmi'
+	icon_state = "map-shuttle"
+	outside_part = FALSE
 
 /turf/simulated/wall/shuttle/raider
 	icon = 'icons/turf/smooth/composite_metal.dmi'
@@ -151,6 +166,12 @@
 	smooth = null
 	canSmoothWith = null
 
+/turf/simulated/wall/shuttle/scc
+	icon = 'icons/turf/smooth/scc_shuttle.dmi'
+
+/turf/simulated/wall/shuttle/scc/cardinal
+	smooth = SMOOTH_MORE
+
 //--Unique Shuttles--//
 
 /turf/simulated/wall/shuttle/unique
@@ -161,13 +182,20 @@
 	smooth = null
 	canSmoothWith = null
 
-/obj/structure/shuttle_part //For placing them over space, if sprite covers not whole tile.
+/obj/structure/shuttle_part //For placing them over space, if the sprite doesn't cover the whole turf.
 	name = "shuttle part"
 	icon = 'icons/turf/shuttle.dmi'
 	icon_state = "door0"
 	anchored = TRUE
 	density = TRUE
 	var/outside_part = TRUE
+	atmos_canpass = CANPASS_DENSITY
+
+/obj/structure/shuttle_part/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(density)
+		return 0
+	else
+		return ..()
 
 /obj/structure/window/shuttle/unique
 	name = "shuttle window"
@@ -179,6 +207,7 @@
 	smooth = null
 	canSmoothWith = null
 	can_be_unanchored = FALSE
+	var/outside_window = FALSE
 
 //merchant shuttle
 
@@ -221,6 +250,20 @@
 /obj/structure/window/shuttle/unique/ccia
 	icon = 'icons/turf/shuttles_unique/ccia_shuttle.dmi'
 	icon_state = "6,2"
+
+//burglar shuttle
+
+/turf/simulated/wall/shuttle/unique/burglar
+	icon = 'icons/turf/shuttles_unique/ccia_shuttle_gray.dmi'
+	icon_state = "8,4"
+
+/obj/structure/shuttle_part/burglar
+	icon = 'icons/turf/shuttles_unique/ccia_shuttle_gray.dmi'
+	icon_state = "2,0"
+
+/obj/structure/window/shuttle/unique/burglar
+	icon = 'icons/turf/shuttles_unique/ccia_shuttle_gray.dmi'
+	icon_state = "1,3"
 
 //ert shuttle
 
@@ -271,6 +314,8 @@
 	icon_state = "5,4"
 
 /obj/structure/shuttle_part/raider
+	name = "Skipjack"
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands."
 	icon = 'icons/turf/shuttles_unique/raider_shuttle.dmi'
 	icon_state = "4,1"
 
@@ -320,6 +365,20 @@
 	icon = 'icons/turf/shuttles_unique/merc_shuttle.dmi'
 	icon_state = "6,2"
 
+//mercenary shuttle - small
+
+/turf/simulated/wall/shuttle/unique/mercenary/small
+	icon = 'icons/turf/shuttles_unique/merc_shuttle_small.dmi'
+	icon_state = "1,2"
+
+/obj/structure/shuttle_part/mercenary/small
+	icon = 'icons/turf/shuttles_unique/merc_shuttle_small.dmi'
+	icon_state = "1,0"
+
+/obj/structure/window/shuttle/unique/mercenary/small
+	icon = 'icons/turf/shuttles_unique/merc_shuttle_small.dmi'
+	icon_state = "4,13"
+
 //arrivals shuttle
 
 /turf/simulated/wall/shuttle/unique/arrivals
@@ -362,6 +421,12 @@
 	icon = 'icons/turf/shuttles_unique/distress_shuttle.dmi'
 	icon_state = "6,2"
 
+//scc shuttle pieces
+
+/turf/simulated/wall/shuttle/unique/scc
+	name = "shuttle hull"
+	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi'
+	icon_state = "c1"
 
 //--Floors--//
 
@@ -369,10 +434,9 @@
 	name = "shuttle floor"
 	icon = 'icons/turf/shuttle.dmi'
 	icon_state = "floor"
-	roof_flags = ROOF_CLEANUP
 	permit_ao = 0
 	initial_flooring = /decl/flooring/shuttle
-	footstep_sound = "plating"
+	footstep_sound = /decl/sound_category/plating_footstep
 
 /turf/simulated/floor/shuttle/yellow
 	icon_state = "floor2"
@@ -413,7 +477,7 @@
 /turf/simulated/floor/shuttle/skrell
 	icon_state = "skrell_purple"
 	initial_flooring = /decl/flooring/shuttle/skrell
-	footstep_sound = "sandstep"
+	footstep_sound = /decl/sound_category/sand_footstep
 
 /turf/simulated/floor/shuttle/skrell/blue
 	icon_state = "skrell_blue"

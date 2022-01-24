@@ -7,7 +7,7 @@
 	use_power = 1
 	idle_power_usage = 300
 	active_power_usage = 300
-	clicksound = "keyboard"
+	clicksound = /decl/sound_category/keyboard_sound
 
 	var/circuit = null //The path to the circuit board type. If circuit==null, the computer can't be disassembled.
 	var/processing = 0
@@ -18,6 +18,7 @@
 	var/light_power_on = 1
 	var/overlay_layer
 	var/is_holographic = TRUE
+	var/icon_broken = "broken"
 
 /obj/machinery/computer/Initialize()
 	. = ..()
@@ -69,9 +70,9 @@
 	if(stat & BROKEN)
 		icon_state = "[initial(icon_state)]-broken"
 		if (overlay_layer != layer)
-			add_overlay(image(icon, "broken", overlay_layer))
+			add_overlay(image(icon, icon_broken, overlay_layer))
 		else
-			add_overlay("broken")
+			add_overlay(icon_broken)
 	else if (icon_screen)
 		if (is_holographic)
 			holographic_overlay(src, src.icon, icon_screen)
@@ -138,3 +139,8 @@
 //Animals can run under them, lots of empty space
 		return 1
 	return ..()
+
+// screens have a layer above, so we can't attach here
+/obj/machinery/computer/can_attach_sticker(var/mob/user, var/obj/item/sticker/S)
+	to_chat(user, SPAN_WARNING("\The [src]'s non-stick surface prevents you from attaching a sticker to it!"))
+	return FALSE

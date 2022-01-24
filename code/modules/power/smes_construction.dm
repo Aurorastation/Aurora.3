@@ -8,31 +8,40 @@
 //MAGNETIC COILS - These things actually store and transmit power within the SMES. Different types have different
 /obj/item/smes_coil
 	name = "superconductive magnetic coil"
-	desc = "Standard superconductive magnetic coil with average capacity and I/O rating."
+	desc = "Standard superconductive magnetic coil with balanced capacity and I/O rating."
 	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "smes_coil"			// Just few icons patched together. If someone wants to make better icon, feel free to do so!
-	w_class = 4.0 						// It's LARGE (backpack size)
+	w_class = ITEMSIZE_LARGE 			// It's LARGE (backpack size)
 	var/ChargeCapacity = 5000000
 	var/IOCapacity = 250000
+
+/obj/item/smes_coil/examine(mob/user)
+	. = ..()
+	if(Adjacent(user))
+		to_chat(user, "The label reads:\
+			<div class='notice' style='padding-left:2rem'>Only certified professionals are allowed to handle and install this component.<br>\
+			Charge capacity: [ChargeCapacity/1000000] MJ<br>\
+			Input/Output rating: [IOCapacity/1000] kW</div>",
+			trailing_newline = FALSE)
 
 // 20% Charge Capacity, 60% I/O Capacity. Used for substation/outpost SMESs.
 /obj/item/smes_coil/weak
 	name = "basic superconductive magnetic coil"
-	desc = "Cheaper model of standard superconductive magnetic coil. It's capacity and I/O rating are considerably lower."
+	desc = "Cheaper model of the standard superconductive magnetic coil. Its capacity and I/O rating are considerably lower."
 	ChargeCapacity = 1000000
 	IOCapacity = 150000
 
 // 1000% Charge Capacity, 20% I/O Capacity
 /obj/item/smes_coil/super_capacity
 	name = "superconductive capacitance coil"
-	desc = "Specialised version of standard superconductive magnetic coil. This one has significantly stronger containment field, allowing for significantly larger power storage. It's IO rating is much lower, however."
+	desc = "Specialised version of the standard superconductive magnetic coil. It has significantly stronger containment field, allowing for immense power storage. However its I/O rating is much lower."
 	ChargeCapacity = 50000000
 	IOCapacity = 50000
 
 // 10% Charge Capacity, 400% I/O Capacity. Technically turns SMES into large super capacitor.Ideal for shields.
 /obj/item/smes_coil/super_io
 	name = "superconductive transmission coil"
-	desc = "Specialised version of standard superconductive magnetic coil. While this one won't store almost any power, it rapidly transfers power, making it useful in systems which require large throughput."
+	desc = "Specialised version of the standard superconductive magnetic coil. While it's almost useless for power storage it can rapidly transfer power, making it useful in systems that require large throughput."
 	ChargeCapacity = 500000
 	IOCapacity = 1000000
 
@@ -53,11 +62,19 @@
 	component_parts += new /obj/item/smes_coil/super_io(src)
 	component_parts += new /obj/item/smes_coil(src)
 
+/obj/machinery/power/smes/buildable/main_engine
+	cur_coils = 4
+	input_attempt = TRUE
+	input_level = 500000
+	output_attempt = TRUE
+	output_level = 500000
+	charge =1.5e+7
+
 // END SMES SUBTYPES
 
 // SMES itself
 /obj/machinery/power/smes/buildable
-	var/max_coils = 6 			//30M capacity, 1.5MW input/output when fully upgraded /w default coils
+	max_coils = 6 				// 30M capacity, 1.5MW input/output when fully upgraded /w default coils
 	var/cur_coils = 1 			// Current amount of installed coils
 	var/safeties_enabled = 1 	// If 0 modifications can be done without discharging the SMES, at risk of critical failure.
 	var/failing = 0 			// If 1 critical failure has occured and SMES explosion is imminent.
@@ -78,6 +95,29 @@
 	SSmachinery.queue_rcon_update()
 	return ..()
 
+/obj/machinery/power/smes/buildable/bullet_act(obj/item/projectile/P, def_zone)
+	. = ..()
+	visible_message(SPAN_WARNING("\The [src] is hit by \the [P]!"))
+	health_check(P.damage)
+
+/obj/machinery/power/smes/buildable/proc/health_check(var/health_reduction = 0)
+	health -= health_reduction
+	if(health < 0)
+		visible_message(SPAN_DANGER("\The [src] blows apart!"))
+		for(var/thing in component_parts)
+			var/obj/O = thing
+			if(prob(40))
+				O.forceMove(loc)
+				O.throw_at_random(FALSE, 3, THROWNOBJ_KNOCKBACK_SPEED)
+			else
+				qdel(O)
+		explosion(loc, 1, 2, 4, 8) //copied from the catastrophic failure code
+		qdel(src)
+	else if(is_badly_damaged() && !busted)
+		busted = TRUE
+		open_hatch = TRUE
+		visible_message(SPAN_DANGER("\The [src]'s maintenance hatch [open_hatch ? "releases a torrent of sparks" : "blows open with a flurry of sparks"]!"))
+
 // Proc: process()
 // Parameters: None
 // Description: Uses parent process, but if grounding wire is cut causes sparks to fly around.
@@ -94,7 +134,9 @@
 // Proc: attack_ai()
 // Parameters: None
 // Description: AI requires the RCON wire to be intact to operate the SMES.
-/obj/machinery/power/smes/buildable/attack_ai()
+/obj/machinery/power/smes/buildable/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	if(RCon)
 		..()
 	else // RCON wire cut
@@ -287,9 +329,10 @@
 // Parameters: None
 // Description: Allows us to use special icon overlay for critical SMESs
 /obj/machinery/power/smes/buildable/update_icon()
-	if (failing)
+	if(failing)
 		cut_overlays()
 		add_overlay("smes-crit")
+		add_overlay("smes-crit_screen")
 	else
 		..()
 
@@ -305,7 +348,23 @@
 	// - Hatch is open, so we can modify the SMES
 	// - No action was taken in parent function (terminal de/construction atm).
 	if (..())
-
+		if(W.iswelder())
+			if(health == initial(health))
+				to_chat(user, SPAN_WARNING("\The [src] is already repaired."))
+				return
+			var/obj/item/weldingtool/WT = W
+			if(!WT.welding)
+				to_chat(user, SPAN_WARNING("\The [src] isn't lit."))
+				return
+			if(WT.get_fuel() < 2)
+				to_chat(user, SPAN_WARNING("You don't have enough fuel to repair \the [src]."))
+				return
+			if(do_after(user, 5 SECONDS) && WT.remove_fuel(2, user))
+				health = min(health + 100, initial(health))
+				to_chat(user, SPAN_NOTICE("You repair \the [src], it is now [round((health / initial(health)) * 100)]% repaired."))
+				if(health == initial(health))
+					busted = FALSE
+				return
 		// Multitool - change RCON tag
 		if(W.ismultitool())
 			var/newtag = input(user, "Enter new RCON tag. Use \"NO_TAG\" to disable RCON or leave empty to cancel.", "SMES RCON system") as text
@@ -336,7 +395,7 @@
 				to_chat(user, "<span class='warning'>You have to disassemble the terminal first!</span>")
 				return
 
-			playsound(get_turf(src), 'sound/items/Crowbar.ogg', 50, 1)
+			playsound(get_turf(src), W.usesound, 50, 1)
 			to_chat(user, "<span class='warning'>You begin to disassemble the [src]!</span>")
 			if (do_after(usr, 100 * cur_coils)) // More coils = takes longer to disassemble. It's complex so largest one with 5 coils will take 50s
 

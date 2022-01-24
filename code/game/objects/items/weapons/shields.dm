@@ -31,17 +31,17 @@
 
 /obj/item/shield
 	name = "shield"
-	hitsound = "swing_hit"
 	icon = 'icons/obj/weapons.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_shield.dmi',
 		slot_r_hand_str = 'icons/mob/items/weapons/righthand_shield.dmi'
 		)
 	var/base_block_chance = 50
+	recyclable = TRUE
 
 /obj/item/shield/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(user.incapacitated())
-		return 0
+		return FALSE
 
 	var/shield_dir = reverse_dir[user.dir]
 	if(on_back)
@@ -52,8 +52,8 @@
 	if(check_shield_arc(user, bad_arc, damage_source, attacker))
 		if(prob(get_block_chance(user, damage, damage_source, attacker)))
 			user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
-			return 1
-	return 0
+			return PROJECTILE_STOPPED
+	return FALSE
 
 /obj/item/shield/can_shield_back()
 	return TRUE
@@ -71,7 +71,7 @@
 	throwforce = 5.0
 	throw_speed = 1
 	throw_range = 4
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 	origin_tech = list(TECH_MATERIAL = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 7500)
 	attack_verb = list("shoved", "bashed")
@@ -79,7 +79,7 @@
 
 /obj/item/shield/riot/handle_shield(mob/user)
 	. = ..()
-	if(.) playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
+	if(.) playsound(user.loc, 'sound/weapons/genhit.ogg', 50, 1)
 
 /obj/item/shield/riot/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
 	if(istype(damage_source, /obj/item/projectile))
@@ -118,7 +118,7 @@
 
 /obj/item/shield/buckler/handle_shield(mob/user)
 	. = ..()
-	if(.) playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
+	if(.) playsound(user.loc, 'sound/weapons/genhit.ogg', 50, 1)
 
 /obj/item/shield/buckler/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
 	if(istype(damage_source, /obj/item/projectile))
@@ -140,7 +140,7 @@
 	throwforce = 5.0
 	throw_speed = 1
 	throw_range = 4
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	origin_tech = list(TECH_MATERIAL = 4, TECH_MAGNET = 3, TECH_ILLEGAL = 4)
 	attack_verb = list("shoved", "bashed")
 	var/shield_power = 150
@@ -148,10 +148,10 @@
 
 /obj/item/shield/energy/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(!active)
-		return 0 //turn it on first!
+		return FALSE //turn it on first!
 
 	if(user.incapacitated())
-		return 0
+		return FALSE
 
 	if(.)
 		spark(user.loc, 5)
@@ -175,10 +175,10 @@
 				active = 0
 				force = 3
 				update_icon()
-				w_class = 1
+				w_class = ITEMSIZE_TINY
 				playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
 				shield_power = initial(shield_power)
-				return 0
+				return FALSE
 
 			if(istype(damage_source, /obj/item/projectile/energy) || istype(damage_source, /obj/item/projectile/beam))
 				var/obj/item/projectile/P = damage_source
@@ -198,10 +198,10 @@
 					return PROJECTILE_CONTINUE // complete projectile permutation
 				else
 					user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
-					return 1
+					return PROJECTILE_STOPPED
 			else
 				user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
-				return 1
+				return PROJECTILE_STOPPED
 
 /obj/item/shield/energy/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
 	if(istype(damage_source, /obj/item/projectile))
@@ -218,14 +218,14 @@
 	if (active)
 		force = 10
 		update_icon()
-		w_class = 4
+		w_class = ITEMSIZE_LARGE
 		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>\The [src] is now active.</span>")
 
 	else
 		force = 3
 		update_icon()
-		w_class = 1
+		w_class = ITEMSIZE_TINY
 		playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>\The [src] can now be concealed.</span>")
 
@@ -268,6 +268,18 @@
 	else
 		set_light(0)
 
+/obj/item/shield/energy/dominia
+	name = "dominian energy barrier"
+	desc = "A hardlight energy shield meant to provide excellent protection in melee engagements."
+	icon_state = "dominian-eshield0"
+
+/obj/item/shield/energy/dominia/update_icon()
+	icon_state = "dominian-eshield[active]"
+	if(active)
+		set_light(1.5, 1.5, "#ff5132")
+	else
+		set_light(0)
+
 // tact
 /obj/item/shield/riot/tact
 	name = "tactical shield"
@@ -280,7 +292,7 @@
 	throwforce = 3.0
 	throw_speed = 3
 	throw_range = 4
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	attack_verb = list("shoved", "bashed")
 	var/active = 0
 
@@ -292,15 +304,15 @@
 
 /obj/item/shield/riot/tact/handle_shield(mob/user)
 	if(!active)
-		return 0 //turn it on first!
-	. = ..()
+		return FALSE //turn it on first!
 
+	. = ..()
 	if(.)
-		if(.) playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
+		if(.) playsound(user.loc, 'sound/weapons/genhit.ogg', 50, 1)
 
 /obj/item/shield/riot/tact/attack_self(mob/living/user)
 	active = !active
-	playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
+	playsound(src.loc, 'sound/weapons/click.ogg', 50, 1)
 
 	if(active)
 		icon_state = "[initial(icon_state)]_[active]"
@@ -308,7 +320,7 @@
 		force = 5
 		throwforce = 5
 		throw_speed = 2
-		w_class = 4
+		w_class = ITEMSIZE_LARGE
 		slot_flags = SLOT_BACK
 		to_chat(user, SPAN_NOTICE("You extend \the [src] downward with a sharp snap of your wrist."))
 	else
@@ -317,7 +329,7 @@
 		force = 3
 		throwforce = 3
 		throw_speed = 3
-		w_class = 3
+		w_class = ITEMSIZE_NORMAL
 		slot_flags = 0
 		to_chat(user, SPAN_NOTICE("\The [src] folds inwards neatly as you snap your wrist upwards and push it back into the frame."))
 

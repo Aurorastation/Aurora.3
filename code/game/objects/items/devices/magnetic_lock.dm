@@ -11,7 +11,7 @@
 	icon = 'icons/obj/magnetic_locks.dmi'
 	icon_state = "inactive_CENTCOM"
 	//icon_state = "inactive"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	req_access = list(access_cent_specops)
 	health = 150
 
@@ -44,10 +44,10 @@
 /obj/item/device/magnetic_lock/security/legion
 	name = "legion magnetic door lock"
 	req_access = (access_legion)
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 
 /obj/item/device/magnetic_lock/security/legion/Initialize()
-	..()
+	. = ..()
 	desc = "A large, ID locked device used for completely locking down airlocks. This one carries the insignia of the Tau Ceti Foreign Legion."
 
 /obj/item/device/magnetic_lock/Initialize()
@@ -124,7 +124,7 @@
 				locked = !locked
 				playsound(src, 'sound/machines/ping.ogg', 30, 1)
 				var/msg = "[I] through \the [src] and it [locked ? "locks" : "unlocks"] with a beep."
-				var/pos_adj = "[user.name] swipes \his "
+				var/pos_adj = "[user.name] swipes [user.get_pronoun("his")] "
 				var/fp_adj = "You swipe your "
 				user.visible_message("<span class='warning'>[addtext(pos_adj, msg)]</span>", "<span class='notice'>[addtext(fp_adj, msg)]</span>")
 				update_icon()
@@ -145,7 +145,7 @@
 			return
 		else
 			user.visible_message("<span class='danger'>[user] hits [src] with [I] but fails to damage it.</span>", "<span class='warning'>You hit [src] with [I], [I.force >= 10 ? "and it almost makes a dent!" : "but it appears to have no visible effect."]</span>")
-			playsound(loc, "sound/weapons/Genhit.ogg", I.force*2.5, 1)
+			playsound(loc, "sound/weapons/genhit.ogg", I.force*2.5, 1)
 			return
 
 	if(invincible)
@@ -167,7 +167,7 @@
 				var/obj/item/weldingtool/WT = I
 				if (WT.remove_fuel(2, user))
 					user.visible_message(SPAN_NOTICE("[user] starts welding the metal shell of [src]."), SPAN_NOTICE("You start [hacked ? "repairing" : "welding open"] the metal covering of [src]."))
-					playsound(loc, 'sound/items/Welder.ogg', 50, 1)
+					playsound(loc, 'sound/items/welder.ogg', 50, 1)
 					add_overlay("overlay_welding")
 					if (do_after(user, 25/I.toolspeed))
 						to_chat(user, SPAN_NOTICE("You are able to [hacked ? "repair" : "weld through"] the metal shell of [src]."))
@@ -222,7 +222,7 @@
 		if (3)
 			if (I.iswirecutter())
 				to_chat(user, SPAN_NOTICE("You cut the wires connecting the [src]'s magnets to their internal powersupply, [target ? "making the device fall off [target] and rendering it unusable." : "rendering the device unusable."]"))
-				playsound(loc, 'sound/items/Wirecutter.ogg', 50, 1)
+				playsound(loc, 'sound/items/wirecutter.ogg', 50, 1)
 				setconstructionstate(4)
 				return
 

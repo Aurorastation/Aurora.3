@@ -33,6 +33,7 @@ import sys
 import re
 import time
 import argparse
+from html import escape
 from datetime import datetime, date
 from time import time
 
@@ -126,7 +127,7 @@ if failed_cache_read and os.path.isfile(args.targetFile):
                 for changeT in ulT.children:
                     if changeT.name != 'li':
                         continue
-                    val = changeT.decode_contents(formatter="html")
+                    val = escape(changeT.decode_contents(formatter="html"))
                     newdat = {changeT['class'][0] + '': val + ''}
                     if newdat not in changes:
                         changes += [newdat]
@@ -164,11 +165,11 @@ for fileName in glob.glob(os.path.join(args.ymlDir, "*.yml")):
         new = 0
         for change in cl['changes']:
             if change not in author_entries:
-                (change_type, _) = dictToTuples(change)[0]
+                (change_type, change_entry) = dictToTuples(change)[0]
                 if change_type not in validPrefixes:
                     errors = True
                     print('  {0}: Invalid prefix {1}'.format(fileName, change_type), file=sys.stderr)
-                author_entries += [change]
+                author_entries += [{change_type : escape(change_entry)}]
                 new += 1
         all_changelog_entries[today][cl['author']] = author_entries
         if new > 0:

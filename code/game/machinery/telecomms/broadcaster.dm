@@ -232,10 +232,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 	var/list/obj/item/device/radio/radios = list()
 
 	// --- Gets the accent icon, if there is any ---
-	var/accent_icon
-	if(ishuman(M) && speaking)
-		var/mob/living/carbon/human/H = M
-		accent_icon = H.get_accent_icon(speaking)
+	var/accent_icon = M.get_accent_icon(speaking, M)
 
 	// --- Broadcast only to intercom devices ---
 
@@ -321,7 +318,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 		// --- Can understand the speech ---
 
-		if (!M || R.say_understands(M))
+		if (!M || R.say_understands(M, speaking))
 
 			// - Not human or wearing a voice mask -
 			if (!M || !ishuman(M) || vmask)
@@ -355,8 +352,8 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 		var/part_a = "<span class='[frequency_span_class(display_freq)]'>[accent_icon ? accent_icon + " " : ""]<b>\[[freq_text]\][part_b_extra]</b> <span class='name'>" // goes in the actual output
 
 		// --- Some more pre-message formatting ---
-		var/part_b = "</span> <span class='message'>" // Tweaked for security headsets -- TLE
-		var/part_c = "</span></span>"
+		var/part_b = "</span> <span class='message'></span>" // Tweaked for security headsets -- TLE
+		var/part_c = "</span>"
 
 
 		// --- Filter the message; place it in quotes apply a verb ---
@@ -396,6 +393,8 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 					SSfeedback.msg_raider += blackbox_msg
 				if(NINJ_FREQ)
 					SSfeedback.msg_ninja += blackbox_msg
+				if(BLSP_FREQ)
+					SSfeedback.msg_bluespace += blackbox_msg
 				if(BURG_FREQ)
 					SSfeedback.msg_burglar += blackbox_msg
 				if(SUP_FREQ)
@@ -414,33 +413,33 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 		if (length(heard_masked))
 			for (var/mob/R in heard_masked)
-				R.hear_radio(message,verbage, speaking, part_a, part_b, M, 0, name)
+				R.hear_radio(message, verbage, speaking, part_a, part_b, part_c, M, 0, name)
 
 		/* --- Process all the mobs that heard the voice normally (understood) --- */
 
 		if (length(heard_normal))
 			for (var/mob/R in heard_normal)
-				R.hear_radio(message, verbage, speaking, part_a, part_b, M, 0, realname)
+				R.hear_radio(message, verbage, speaking, part_a, part_b, part_c, M, 0, realname)
 
 		/* --- Process all the mobs that heard the voice normally (did not understand) --- */
 
 		if (length(heard_voice))
 			for (var/mob/R in heard_voice)
-				R.hear_radio(message,verbage, speaking, part_a, part_b, M,0, vname)
+				R.hear_radio(message,verbage, speaking, part_a, part_b, part_c, M,0, vname)
 
 		/* --- Process all the mobs that heard a garbled voice (did not understand) --- */
 			// Displays garbled message (ie "f*c* **u, **i*er!")
 
 		if (length(heard_garbled))
 			for (var/mob/R in heard_garbled)
-				R.hear_radio(message, verbage, speaking, part_a, part_b, M, 1, vname)
+				R.hear_radio(message, verbage, speaking, part_a, part_b, part_c, M, 1, vname)
 
 
 		/* --- Complete gibberish. Usually happens when there's a compressed message --- */
 
 		if (length(heard_gibberish))
 			for (var/mob/R in heard_gibberish)
-				R.hear_radio(message, verbage, speaking, part_a, part_b, M, 1)
+				R.hear_radio(message, verbage, speaking, part_a, part_b, part_c, M, 1)
 
 	return 1
 
@@ -554,9 +553,6 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 		if(data == 3) // intercepted radio message
 			part_b_extra = " <i>(Intercepted)</i>"
 
-		// Create a radio headset for the sole purpose of using its icon
-		var/static/obj/item/device/radio/headset/radio = new
-
 		var/part_b = "</span><b> \[[freq_text]\][part_b_extra]</b> <span class='message'>" // Tweaked for security headsets -- TLE
 		var/part_blackbox_b = "</span><b> \[[freq_text]\]</b> <span class='message'>" // Tweaked for security headsets -- TLE
 		var/part_c = "</span></span>"
@@ -586,6 +582,8 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 					SSfeedback.msg_raider += blackbox_msg
 				if(NINJ_FREQ)
 					SSfeedback.msg_ninja += blackbox_msg
+				if(BLSP_FREQ)
+					SSfeedback.msg_bluespace += blackbox_msg
 				if(BURG_FREQ)
 					SSfeedback.msg_burglar += blackbox_msg
 				if(SUP_FREQ)
@@ -638,7 +636,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 	// First, we want to generate a new radio signal
 	var/datum/signal/signal = new
-	signal.transmission_method = 2 // 2 would be a subspace transmission.
+	signal.transmission_method = TRANSMISSION_SUBSPACE
 	var/turf/pos = get_turf(src)
 
 	// --- Finally, tag the actual signal with the appropriate values ---
@@ -669,7 +667,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 	// First, we want to generate a new radio signal
 	var/datum/signal/signal = new
-	signal.transmission_method = 2 // 2 would be a subspace transmission.
+	signal.transmission_method = TRANSMISSION_SUBSPACE
 
 	// --- Finally, tag the actual signal with the appropriate values ---
 	signal.data = list(
@@ -689,5 +687,3 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 		R.receive_signal(signal)
 
 	return signal
-
-

@@ -12,7 +12,7 @@
 	away_site = TRUE
 
 	outfit = /datum/outfit/admin/zenghu_survivor
-	possible_species = list("Human", "Off-Worlder Human", "Skrell", "Vaurca Worker", "Vaurca Warrior", "Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame")
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Zeng-Hu Survivor"

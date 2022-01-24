@@ -6,7 +6,7 @@
 	color = LIGHT_COLOR_GREEN
 	unsendable = TRUE
 	undeletable = TRUE
-	size = 4
+	size = 2
 	requires_ntnet = TRUE
 	requires_ntnet_feature = NTNET_SOFTWAREDOWNLOAD
 	available_on_ntnet = 0
@@ -92,7 +92,7 @@
 
 	if(href_list["download"])
 		var/datum/computer_file/program/PRG = ntnet_global.find_ntnet_file_by_name(href_list["download"])
-		
+
 		if(!istype(PRG))
 			return 1
 		return add_to_queue(PRG, ui.user)
@@ -126,7 +126,7 @@
 		generate_network_log("Began downloading file [PRG.filename].[PRG.filetype] from unspecified server.")
 
 
-	download_files[PRG.filename] = PRG.clone()
+	download_files[PRG.filename] = PRG.clone(FALSE, computer)
 	queue_size += PRG.size
 	download_queue[PRG.filename] = 0
 	for(var/i in SSvueui.get_open_uis(src))
@@ -224,9 +224,8 @@
 
 	if(download_queue[active_download] >= active_download_file.size)
 		finish_from_queue(active_download)
-		active_download = null
 		playsound(get_turf(computer), 'sound/machines/ping.ogg', 40, 0)
-		computer.output_message("\icon[computer] <b>[capitalize_first_letters(computer)]</b> pings, \"Software download completed successfully!\"", 1)
+		computer.output_message("[icon2html(computer, viewers(get_turf(computer)), computer.icon_state)] <b>[capitalize_first_letters(computer.name)]</b> pings: \"[active_download_file.filedesc ? active_download_file.filedesc : active_download_file.filename] downloaded successfully!\"", 1)
+		active_download = null
 
 	SSvueui.check_uis_for_change(src)
-	

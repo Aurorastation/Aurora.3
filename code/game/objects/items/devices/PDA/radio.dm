@@ -3,14 +3,14 @@
 	desc = "An electronic radio system."
 	icon = 'icons/obj/module.dmi'
 	icon_state = "power_mod"
-	var/obj/item/device/pda/hostpda = null
+	var/obj/item/modular_computer/hostpda = null
 
 	var/on = 0 //Are we currently active??
 	var/menu_message = ""
 
 /obj/item/radio/integrated/Initialize()
 	. = ..()
-	if (istype(loc.loc, /obj/item/device/pda))
+	if (istype(loc.loc, /obj/item/modular_computer))
 		hostpda = loc.loc
 
 /obj/item/radio/integrated/Destroy()
@@ -24,7 +24,7 @@
 
 	var/datum/signal/signal = new()
 	signal.source = src
-	signal.transmission_method = 1
+	signal.transmission_method = TRANSMISSION_RADIO
 	signal.data[key] = value
 	if(key2)
 		signal.data[key2] = value2
@@ -67,7 +67,7 @@
 
 /obj/item/radio/integrated/beepsky/Topic(href, href_list)
 	..()
-	var/obj/item/device/pda/PDA = src.hostpda
+	var/obj/item/modular_computer/PDA = src.hostpda
 
 	switch(href_list["op"])
 

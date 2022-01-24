@@ -6,11 +6,11 @@
 	// Speaking
 	gender = NEUTER
 	voice_name = "Synthesized Voice"
+	accent = ACCENT_TTS
 	var/list/speech_synthesizer_langs = list() //which languages can be vocalized by the speech synthesizer
 	var/speak_statement = "states"
 	var/speak_exclamation = "declares"
 	var/speak_query = "queries"
-	var/local_transmit //If set, can only speak to others of the same type within a short range.
 
 	// Description
 	var/pose //Yes, now AIs can pose too.
@@ -42,7 +42,8 @@
 	var/list/silicon_subsystems = list(
 		/mob/living/silicon/proc/subsystem_alarm_monitor,
 		/mob/living/silicon/proc/subsystem_law_manager,
-		/mob/living/silicon/proc/computer_interact
+		/mob/living/silicon/proc/computer_interact,
+		/mob/living/silicon/proc/silicon_mimic_accent
 	)
 
 	// Utility
@@ -53,14 +54,19 @@
 	var/obj/item/card/id/id_card
 	var/id_card_type = /obj/item/card/id/synthetic
 
+	var/list/possible_accents = list(ACCENT_TTS, ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_LUNA, ACCENT_MARTIAN, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_JUPITER, ACCENT_COC, ACCENT_ELYRA, ACCENT_ERIDANI,
+									ACCENT_SILVERSUN_EXPATRIATE, ACCENT_KONYAN, ACCENT_EARTH)
+
 	// Misc
 	uv_intensity = 175 //Lights cast by robots have reduced effect on diona
 	mob_thinks = FALSE
 
+	var/can_speak_basic = TRUE
+
 /mob/living/silicon/Initialize()
 	silicon_mob_list |= src
 	. = ..()
-	add_language(LANGUAGE_TCB)
+	add_language(LANGUAGE_TCB, can_speak_basic)
 	init_id()
 
 	var/datum/language/L = locate(/datum/language/common) in languages
@@ -90,6 +96,10 @@
 /mob/living/silicon/proc/SetName(pickedName as text)
 	real_name = pickedName
 	name = real_name
+	if(istype(id_card))
+		if(!istype(id_card.chat_user))
+			id_card.InitializeChatUser()
+		id_card.chat_user.username = real_name
 
 /mob/living/silicon/proc/show_laws()
 	return
@@ -105,12 +115,12 @@
 		if(2)
 			src.take_organ_damage(0, 10, emp = TRUE)
 			Stun(rand(1, 5))
-	flick("noise", src:flash)
+	flash_eyes(affect_silicon = 1)
 	to_chat(src, SPAN_DANGER("BZZZT"))
 	to_chat(src, SPAN_WARNING("Warning: Electromagnetic pulse detected."))
 	..()
 
-/mob/living/silicon/stun_effect_act()
+/mob/living/silicon/stun_effect_act(var/stun_amount, var/agony_amount, var/def_zone, var/used_weapon, var/damage_flags)
 	return	//immune
 
 /mob/living/silicon/electrocute_act(shock_damage, obj/source, siemens_coeff = 1.0, tesla_shock = FALSE, ground_zero)
@@ -167,8 +177,8 @@
 
 // this function displays the shuttles ETA in the status panel if the shuttle has been called
 /mob/living/silicon/proc/show_emergency_shuttle_eta()
-	if(emergency_shuttle)
-		var/eta_status = emergency_shuttle.get_status_panel_eta()
+	if(evacuation_controller)
+		var/eta_status = evacuation_controller.get_status_panel_eta()
 		if(eta_status)
 			stat(null, eta_status)
 
@@ -180,20 +190,11 @@
 		show_malf_ai()
 	..()
 
-// this function displays the stations manifest in a separate window
-/mob/living/silicon/proc/show_station_manifest()
-	var/dat
-	dat += "<h4>Crew Manifest</h4>"
-	dat += SSrecords.get_manifest(1) // make it monochrome
-	dat += "<br>"
-	src << browse(dat, "window=airoster")
-	onclose(src, "airoster")
-
 //can't inject synths
 /mob/living/silicon/can_inject(mob/user, error_msg)
 	if(error_msg)
-		to_chat(user, SPAN_ALERT("The armoured plating is too tough."))
-	return FALSE
+		to_chat(user, SPAN_ALERT("The armored plating is too tough."))
+	return 0
 
 //Silicon mob language procs
 
@@ -282,22 +283,14 @@
 		if(1.0)
 			brute = 400
 			burn = 100
-			if(!anchored && !prob(getarmor(null, "bomb")))
-				gib()
 		if(2.0)
 			brute = 60
 			burn = 60
 		if(3.0)
 			brute = 30
 
-	var/protection = BLOCKED_MULT(getarmor(null, "bomb"))
-	brute *= protection
-	burn *= protection
-
-	adjustBruteLoss(brute)
-	adjustFireLoss(burn)
-
-	updatehealth()
+	apply_damage(brute, BRUTE, damage_flags = DAM_EXPLODE)
+	apply_damage(burn, BURN, damage_flags = DAM_EXPLODE)
 
 /mob/living/silicon/proc/receive_alarm(var/datum/alarm_handler/alarm_handler, var/datum/alarm/alarm, was_raised)
 	if(!next_alarm_notice)
@@ -378,6 +371,13 @@
 	if(cameraFollow)
 		cameraFollow = null
 
+/mob/living/silicon/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
+	if(affect_silicon)
+		return ..()
+
+/mob/living/silicon/seizure()
+	flash_eyes(affect_silicon = TRUE)
+
 /mob/living/silicon/Move(newloc, direct)
 	. = ..()
 	if(underdoor)
@@ -393,3 +393,6 @@
 
 /mob/living/silicon/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
+
+/mob/living/silicon/get_radio()
+	return common_radio

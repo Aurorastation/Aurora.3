@@ -11,7 +11,7 @@
 	item_state = "paper"
 	contained_sprite = 1
 	throwforce = 0
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	throw_range = 1
 	throw_speed = 1
 	layer = 4
@@ -31,6 +31,8 @@
 	var/rigged = 0
 	var/last_honk = 0
 	var/old_name		// The name of the paper before it was folded into a plane.
+	var/can_fold = TRUE		// If it can be folded into a plane or swan
+	var/paper_like = TRUE		// Is it made of paper and/or burnable material?
 
 	var/const/deffont = "Verdana"
 	var/const/signfont = "Times New Roman"
@@ -89,38 +91,52 @@
 		free_space -= length(strip_html_properly(new_text))
 
 /obj/item/paper/examine(mob/user)
-	..()
-	if (old_name && icon_state == "paper_plane")
+	. = ..()
+	if (old_name && (icon_state == "paper_plane" || icon_state == "paper_swan"))
 		to_chat(user, SPAN_NOTICE("You're going to have to unfold it before you can read it."))
 		return
 	if(name != initial(name))
 		to_chat(user,"It's titled '[name]'.")
-	if(in_range(user, src) || isobserver(user))
-		show_content(usr)
+	if(in_range(user, src) || isobserver(user) || in_slide_projector(user))
+		show_content(user)
 	else
 		to_chat(user, SPAN_NOTICE("You have to go closer if you want to read it."))
 
-
 /obj/item/paper/proc/show_content(mob/user, forceshow)
+	var/datum/browser/paper_win = new(user, name, null, 450, 500, null, TRUE)
+	paper_win.set_content(get_content(user, can_read(user, forceshow)))
+	paper_win.add_stylesheet("paper_languages", 'html/browser/paper_languages.css')
+	paper_win.open()
+
+/obj/item/paper/proc/can_read(var/mob/user, var/forceshow = FALSE)
 	var/can_read = (istype(user, /mob/living/carbon/human) || isobserver(user) || istype(user, /mob/living/silicon)) || forceshow
 	if(!forceshow && istype(user,/mob/living/silicon/ai))
 		var/mob/living/silicon/ai/AI
 		can_read = get_dist(src, AI.camera) < 2
-	user << browse("<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY bgcolor='[color]'>[can_read ? info : stars(info)][stamps]</BODY></HTML>", "window=[name]")
-	onclose(user, "[name]")
+	return can_read
+
+/obj/item/paper/proc/get_content(var/mob/user, var/can_read = TRUE)
+	return "<head><title>[capitalize_first_letters(name)]</title><style>body {background-color: [color];}</style></head><body>[can_read ? parse_languages(user, info) : stars(info)][stamps]</body>"
 
 /obj/item/paper/verb/rename()
 	set name = "Rename paper"
 	set category = "Object"
 	set src in usr
 
+	if(use_check_and_message(usr, USE_ALLOW_NON_ADJACENT))
+		return
+
 	if((usr.is_clumsy()) && prob(50))
 		to_chat(usr, SPAN_WARNING("You cut yourself on the paper."))
 		return
-	var/n_name = sanitizeSafe(input(usr, "What would you like to label the paper?", "Paper Labelling", null) as text, MAX_NAME_LEN)
 
-	// We check loc one level up, so we can rename in clipboards and such. See also: /obj/item/photo/rename()
-	if((loc == usr || loc.loc && loc.loc == usr) && usr.stat == 0)
+	var/n_name = sanitizeSafe(input(usr, "What would you like to label the paper?", "Paper Labelling", null) as text, MAX_NAME_LEN)
+	
+	if(use_check_and_message(usr, USE_ALLOW_NON_ADJACENT))
+		return
+
+	var/atom/surface_atom = recursive_loc_turf_check(src, 3, usr)
+	if(surface_atom == usr || surface_atom.Adjacent(usr))
 		if(n_name)
 			name = "[initial(name)] ([n_name])"
 		else
@@ -128,7 +144,7 @@
 		add_fingerprint(usr)
 
 /obj/item/paper/attack_self(mob/living/user as mob)
-	if(user.a_intent == I_HURT)
+	if(user.a_intent == I_HURT && paper_like)
 		if(icon_state == "scrap")
 			user.show_message(SPAN_WARNING("\The [src] is already crumpled."))
 			return
@@ -140,7 +156,7 @@
 		throw_range = 4 //you can now make epic paper ball hoops into the disposals (kinda dumb that you could only throw crumpled paper 1 tile) -wezzy
 		return
 
-	if (user.a_intent == I_GRAB && icon_state != "scrap" && !istype(src, /obj/item/paper/carbon))
+	if (user.a_intent == I_GRAB && icon_state != "scrap" && can_fold)
 		if (icon_state == "paper_plane")
 			user.show_message(SPAN_ALERT("The paper is already folded into a plane."))
 			return
@@ -153,7 +169,19 @@
 		name = "paper plane"
 		return
 
-	if (user.a_intent == I_HELP && old_name && icon_state == "paper_plane")
+	if (user.a_intent == I_DISARM && icon_state != "scrap" && can_fold)
+		if (icon_state == "paper_swan")
+			user.show_message(SPAN_ALERT("The paper is already folded into a swan."))
+			return
+		user.visible_message(SPAN_NOTICE("\The [user] carefully folds \the [src] into an origami swan."),
+			SPAN_NOTICE("You carefully fold \the [src] into a swan."), "\The [user] folds \the [src] into a swan.")
+		playsound(src, 'sound/bureaucracy/paperfold.ogg', 50, 1)
+		icon_state = "paper_swan"
+		old_name = name
+		name = "origami swan"
+		return
+
+	if (user.a_intent == I_HELP && old_name && (icon_state == "paper_plane" || icon_state == "paper_swan"))
 		user.visible_message(SPAN_NOTICE("\The [user] unfolds \the [src]."), SPAN_NOTICE("You unfold \the [src]."), "You hear paper rustling.")
 		playsound(src, 'sound/bureaucracy/paperfold.ogg', 50, 1)
 		icon_state = initial(icon_state)
@@ -175,11 +203,11 @@
 
 /obj/item/paper/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(target_zone == BP_EYES)
-		user.visible_message(SPAN_NOTICE("You show the paper to [M]."), \
-			SPAN_NOTICE("[user] holds up a paper and shows it to [M]."))
+		user.visible_message(SPAN_NOTICE("You show \the [src] to [M]."), \
+			SPAN_NOTICE("[user] holds up \the [src] and shows it to [M]."))
 		M.examinate(src)
 
-	else if(target_zone == BP_MOUTH) // lipstick wiping
+	else if(target_zone == BP_MOUTH && paper_like) // lipstick wiping
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			if(H == user)
@@ -267,7 +295,7 @@
 	return signfont
 
 /obj/item/paper/proc/parsepencode(t, obj/item/pen/P, mob/user, iscrayon, isfountain)
-
+	t = parse_languages(user, t, TRUE)
 	t = replacetext(t, "\[sign\]", "<font face=\"[get_signfont(P, user)]\">[get_signature(P, user)]</font>")
 
 	if(iscrayon) // If it is a crayon, and he still tries to use these, make them empty!
@@ -281,6 +309,7 @@
 		t = replacetext(t, "\[/table\]", "")
 		t = replacetext(t, "\[row\]", "")
 		t = replacetext(t, "\[cell\]", "")
+		t = replacetext(t, "\[logo_scc\]", "")
 		t = replacetext(t, "\[logo_nt\]", "")
 		t = replacetext(t, "\[logo_nt_small\]", "")
 		t = replacetext(t, "\[logo_zh\]", "")
@@ -289,6 +318,7 @@
 		t = replacetext(t, "\[logo_zavodskoi\]", "")
 		t = replacetext(t, "\[logo_hp\]", "")
 		t = replacetext(t, "\[logo_be\]", "")
+		t = replacetext(t, "\[logo_golden\]", "")
 
 	if(iscrayon)
 		t = "<font face=\"[crayonfont]\" color=[P ? P.colour : "black"]><b>[t]</b></font>"
@@ -313,11 +343,11 @@
 
 /obj/item/paper/proc/burnpaper(obj/item/P, mob/user)
 	var/class = "warning"
-	if(!use_check_and_message(user))
+	if(!use_check_and_message(user) && paper_like)
 		if(istype(P, /obj/item/flame/lighter/zippo))
 			class = "rose"
-			
-		user.visible_message("<span class='[class]'>[user] holds \the [P] up to \the [src], it looks like \he's trying to burn it!</span>", \
+
+		user.visible_message("<span class='[class]'>[user] holds \the [P] up to \the [src], it looks like [user.get_pronoun("he")]'s trying to burn it!</span>", \
 		"<span class='[class]'>You hold \the [P] up to \the [src], burning it slowly.</span>")
 		playsound(src.loc, 'sound/bureaucracy/paperburn.ogg', 50, 1)
 		if(icon_state == "scrap")
@@ -325,17 +355,64 @@
 		else
 			flick("paper_onfire", src)
 
-		//I was going to add do_after in here, but keeping the current method allows people to burn papers they're holding, while they move. That seems fine to keep -Nanako
-		spawn(20)
-			if(get_dist(src, user) < 2 && user.get_active_hand() == P)
-				user.visible_message("<span class='[class]'>[user] burns right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>", \
-				"<span class='[class]'>You burn right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>")
-				new /obj/effect/decal/cleanable/ash(src.loc)
-				qdel(src)
+		addtimer(CALLBACK(src, .proc/burnpaper_callback, P, user, class), 20, TIMER_UNIQUE)
 
+/obj/item/paper/proc/burnpaper_callback(obj/item/P, mob/user, class = "warning")
+	if (QDELETED(user) || QDELETED(src))
+		return
+
+	if(get_dist(src, user) < 2 && user.get_active_hand() == P)
+		user.visible_message("<span class='[class]'>[user] burns right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>", \
+		"<span class='[class]'>You burn right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>")
+
+		if(user.get_inactive_hand() == src)
+			user.drop_from_inventory(src)
+
+		new /obj/effect/decal/cleanable/ash(src.loc)
+		qdel(src)
+
+	else
+		to_chat(user, "<span class='warning'>You must hold \the [P] steady to burn \the [src].</span>")
+
+/**
+ * Takes the paper's info variable, a user, and parses language markers that exist
+ * in it. It returns an HTML string which represents the languages properly.
+ *
+ * @param	user The mob we're parsing the text for.
+ *
+ * @return	An HTML string where all of the [lang][/lang] marker contents are replaced
+ * with scrambled and properly fonted content depending on what languages the user knows.
+ */
+/obj/item/paper/proc/parse_languages(mob/user, input, language_check = FALSE)
+	// Just a safety fallback.
+	if (!user)
+		return input
+
+	var/static/regex/written_lang_regex
+	if (!written_lang_regex)
+		written_lang_regex = new(@"(\[lang=([#_a-zA-Z0-9\^]{1})])(.*?)(\[\/lang])", "g")
+
+	. = input
+
+	while (written_lang_regex.Find(.))
+		var/datum/language/L = language_keys[written_lang_regex.group[2]]
+		// Unknown language.
+		if (!L || !L.written_style)
+			continue
+
+		var/content = written_lang_regex.group[3]
+		var/reader_understands = user.say_understands(null, L)
+
+		// Replace the content with <p>content here</p>
+		if(!reader_understands)
+			if(language_check)
+				. = replacetext(., written_lang_regex.match, "")
 			else
-				to_chat(user, SPAN_WARNING("You must hold \the [P] steady to burn \the [src]."))
-
+				content = L.scramble(content)
+		
+		if(!language_check)
+			// Refer to paper/proc/show_content to edit the spans here.
+			. = replacetext(., written_lang_regex.match, "<span class='[L.written_style] [reader_understands ? "understood" : "scramble"]'>[L.short && reader_understands ? "([L.short]) [content]" : content]</span>")
 
 /obj/item/paper/Topic(href, href_list)
 	..()
@@ -356,6 +433,8 @@
 			return
 
 		var/obj/item/i = usr.get_active_hand() // Check to see if he still got that darn pen, also check if he's using a crayon or pen.
+		if(!i || !i.ispen())
+			i = usr.get_inactive_hand()
 		var/obj/item/clipboard/c
 		var/iscrayon = FALSE
 		var/isfountain = FALSE
@@ -386,8 +465,7 @@
 			else
 				isfountain = FALSE
 
-		// if paper is not in usr, then it must be near them, or in a clipboard or folder, which must be in or near usr
-		if(src.loc != usr && !src.Adjacent(usr) && !((istype(src.loc, /obj/item/clipboard) || istype(src.loc, /obj/item/folder)) && (src.loc.loc == usr || src.loc.Adjacent(usr)) ) )
+		if(!write_check(usr))
 			return
 
 		var/last_fields_value = fields
@@ -408,18 +486,34 @@
 
 		update_space(t)
 
-		usr << browse("<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY bgcolor='[color]'>[info_links][stamps]</BODY></HTML>", "window=[name]") // Update the window
+		var/datum/browser/paper_win = new(usr, name, null, 450, 500, null, TRUE)
+		paper_win.set_content("<head><title>[capitalize_first_letters(name)]</title><style>body {background-color: [color];}</style></head><body>[parse_languages(usr, info_links)][stamps]</body>")
+		paper_win.add_stylesheet("paper_languages", 'html/browser/paper_languages.css')
+		paper_win.open()
 
 		playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
 		update_icon()
 		if(c)
 			c.update_icon()
 
+/obj/item/paper/proc/write_check(var/mob/user)
+	. = TRUE
+	// if paper is not in usr, then it must be near them, or in a clipboard or folder, which must be in or near usr
+	if(loc != user && !Adjacent(user))
+		. = FALSE
+	if(!. && istype(loc, /obj/item/clipboard))
+		var/obj/item/clipboard/C = loc
+		if(C.loc == user || C.Adjacent(user))
+			. = TRUE
+	if(!. && istype(loc, /obj/item/folder))
+		var/obj/item/folder/F = loc
+		if(F.loc_check(user) || F.Adjacent(user))
+			. = TRUE
 
 /obj/item/paper/attackby(var/obj/item/P, mob/user)
 	..()
 
-	if(istype(P, /obj/item/tape_roll))
+	if(istype(P, /obj/item/tape_roll) && !istype(src, /obj/item/paper/business_card))
 		var/obj/item/tape_roll/tape = P
 		tape.stick(src, user)
 		return
@@ -442,10 +536,10 @@
 			var/mob/living/carbon/human/h_user = user
 			if (h_user.r_hand == src)
 				h_user.drop_from_inventory(src)
-				h_user.put_in_r_hand(B)
+				h_user.equip_to_slot_if_possible(B, slot_r_hand)
 			else if (h_user.l_hand == src)
 				h_user.drop_from_inventory(src)
-				h_user.put_in_l_hand(B)
+				h_user.equip_to_slot_if_possible(B, slot_l_hand)
 			else if (h_user.l_store == src)
 				h_user.drop_from_inventory(src)
 				B.forceMove(h_user)
@@ -482,7 +576,10 @@
 		if ( istype(RP) && RP.mode == 2 )
 			RP.RenamePaper(user,src)
 		else
-			user << browse("<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY bgcolor='[color]'>[info_links][stamps]</BODY></HTML>", "window=[name]")
+			var/datum/browser/paper_win = new(user, name, null, 450, 500, null, TRUE)
+			paper_win.set_content("<head><title>[capitalize_first_letters(name)]</title><style>body {background-color: [color];}</style></head><body>[info_links][stamps]</body>")
+			paper_win.add_stylesheet("paper_languages", 'html/browser/paper_languages.css')
+			paper_win.open()
 		return
 
 	else if(istype(P, /obj/item/stamp) || istype(P, /obj/item/clothing/ring/seal))
@@ -548,10 +645,11 @@
 	var/sentence = 1 // Is this form contain a sentence of guilty?
 
 /obj/item/paper/incident/New()
-	info = {"\[center\]\[logo_nt\]\[/center\]
+	var/T = parsepencode({"\[center\]\[logo_nt\]\[/center\]
 \[center\]\[b\]\[i\]Encoded NanoTrasen Security Incident Report\[/b\]\[/i\]\[hr\]
 \[small\]FOR USE BY SECURITY ONLY\[/small\]\[br\]
-\[barcode\]\[/center\]"}
+\[barcode\]\[/center\]"})
+	info = T
 
 	..()
 
@@ -560,7 +658,7 @@
 	icon_state = "pamphlet"
 
 /obj/item/paper/sentencing/New()
-	info = {"\[center\]\[logo_nt\]\[/center\]
+	var/T = parsepencode({"\[center\]\[logo_nt\]\[/center\]
 \[center\]\[b\]\[i\]Operation of Criminal Sentencing Computers\[/b\]\[/i\]\[hr\]
 \[small\]In compliance with new NanoTrasen criminal regulations, the \[b\][station_name()]\[/b\] has been equipped with state of the art sentencing computers. The operation of these terminals is quite simple:\[br\]
 \[br\]
@@ -570,7 +668,8 @@ After all the charges have been applied, the processing officer is invited to ad
 Simply press the option "Render Guilty", and the sentence is complete! The convict's records will be automatically updated to reflect their crimes. You should now insert the printed receipt into the cell timer, and begin processing.\[br\]
 \[hr\]
 Please note: Cell timers will \[b\]NOT\[/b\] function without a valid incident form receipt inserted into them.
-\[small\]FOR USE BY SECURITY ONLY\[/small\]\[br\]"}
+\[small\]FOR USE BY SECURITY ONLY\[/small\]\[br\]"})
+	info = T
 
 	..()
 
@@ -579,6 +678,4 @@ Please note: Cell timers will \[b\]NOT\[/b\] function without a valid incident f
 
 /obj/item/paper/nka_pledge
 	name = "imperial volunteer Alam'ardii corps pledge"
-
-/obj/item/paper/nka_pledge/New()
 	info = "<center><b><u>Imperial Volunteer Alam'ardii Corps Pledge</u></b></center> <hr> <center><i><u>May the Gods bless his Kingdom and Dynasty</u></i></center> <hr> I, <field>, hereby declare, under a vow of loyalty and compromise, that I shall serve as a volunteer in the Imperial Volunteer Alam'ardii Corps, for the mininum duration of three years or until discharge. I accept the duty of aiding the New Kingdom of Adhomai and His Majesty, King Vahzirthaamro Azunja, in this struggle and I shall not relinquish this pledge. <hr> Volunteer Signature: <field> <hr> Recruiting Officer Stamp:"

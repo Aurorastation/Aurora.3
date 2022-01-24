@@ -28,14 +28,14 @@
 	if(!proximity)
 		return
 	if(user.mind && (user.mind.assigned_role == "Chaplain"))
-		if(A.reagents && A.reagents.has_reagent(/datum/reagent/water)) //blesses all the water in the holder
-			if(A.reagents.get_reagent_amount(/datum/reagent/water) > 60)
+		if(A.reagents && A.reagents.has_reagent(/decl/reagent/water)) //blesses all the water in the holder
+			if(REAGENT_VOLUME(A.reagents, /decl/reagent/water) > 60)
 				to_chat(user, SPAN_NOTICE("There's too much water for you to bless at once!"))
 			else
 				to_chat(user, SPAN_NOTICE("You bless the water in [A], turning it into holy water."))
-				var/water2holy = A.reagents.get_reagent_amount(/datum/reagent/water)
-				A.reagents.del_reagent(/datum/reagent/water)
-				A.reagents.add_reagent(/datum/reagent/water/holywater, water2holy)
+				var/water2holy = REAGENT_VOLUME(A.reagents, /decl/reagent/water)
+				A.reagents.del_reagent(/decl/reagent/water)
+				A.reagents.add_reagent(/decl/reagent/water/holywater, water2holy)
 
 /obj/item/storage/bible/attackby(obj/item/W as obj, mob/user as mob)
 	if(src.use_sound)
@@ -89,9 +89,6 @@
 		if("Scroll")
 			icon_state = "scroll"
 			item_state = "scroll"
-		if("The King in Yellow")
-			icon_state = "kingyellow"
-			item_state = "kingyellow"
 		if("Ithaqua")
 			icon_state = "ithaqua"
 			item_state = "ithaqua"
@@ -111,7 +108,7 @@
 			icon_state = "necronomicon"
 			item_state = "necronomicon"
 		else
-			var/randbook = "book" + pick("1", "2", "3", "4", "5", "6" , "7")
+			var/randbook = "book" + pick("1", "2", "3", "4", "5", "6" , "7", "8", "9", "10", "11", "12", "13" , "14", "15" , "16")
 			icon_state = randbook
 			item_state = randbook
 

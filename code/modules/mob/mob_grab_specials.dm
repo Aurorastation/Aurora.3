@@ -35,6 +35,10 @@
 		if(H.getOxyLoss() >= 20)
 			to_chat(user, "<span class='warning'>[H]'s skin is unusually pale.</span>")
 			bad = 1
+		if(E.is_infected())
+			var/severity = E.germ_level < INFECTION_LEVEL_TWO ? "slightly" : E.germ_level < INFECTION_LEVEL_THREE ? "moderately" : "extremely"
+			to_chat(user, SPAN_WARNING("[H]'s skin is [severity] warm and reddened."))
+			bad = 1
 		if(E.status & ORGAN_DEAD)
 			to_chat(user, "<span class='warning'>[E] is decaying!</span>")
 			bad = 1
@@ -51,10 +55,10 @@
 		return
 
 	attacker.visible_message("<span class='danger'>[attacker] [pick("bent", "twisted")] [target]'s [organ.name] into a jointlock!</span>")
-	var/armor = target.run_armor_check(target, "melee")
-	if(armor < 100)
+	var/armor = 100 * affecting.get_blocked_ratio(target, BRUTE, damage = 30)
+	if(armor < 70)
 		to_chat(target, "<span class='danger'>You feel extreme pain!</span>")
-		affecting.adjustHalLoss(Clamp(0, 60-affecting.getHalLoss(), 30)) //up to 60 halloss
+		affecting.adjustHalLoss(Clamp(0, 60 - affecting.getHalLoss(), 30)) //up to 60 halloss
 
 /obj/item/grab/proc/attack_eye(mob/living/carbon/human/target, mob/living/carbon/human/attacker)
 	if(!istype(attacker))
@@ -82,12 +86,12 @@
 
 	attack.handle_eye_attack(attacker, target)
 
-/obj/item/grab/proc/headbut(mob/living/carbon/human/target, mob/living/carbon/human/attacker)
+/obj/item/grab/proc/headbutt(mob/living/carbon/human/target, mob/living/carbon/human/attacker)
 	if(!istype(attacker))
 		return
 	if(target.lying)
 		return
-	attacker.visible_message("<span class='danger'>[attacker] thrusts \his head into [target]'s skull!</span>")
+	attacker.visible_message("<span class='danger'>[attacker] thrusts [attacker.get_pronoun("his")] head into [target]'s skull!</span>")
 
 	var/damage = 20
 	if(attacker.mob_size >= 10)
@@ -100,16 +104,15 @@
 	if(istype(hat))
 		damage += hat.force * 3
 
-	var/armor = target.run_armor_check(BP_HEAD, "melee")
-	target.apply_damage(damage, BRUTE, BP_HEAD, armor)
-	attacker.apply_damage(10, BRUTE, BP_HEAD, attacker.run_armor_check(BP_HEAD, "melee"))
+	target.apply_damage(damage, BRUTE, BP_HEAD)
+	attacker.apply_damage(10, BRUTE, BP_HEAD)
 
 	if(armor < 25 && target.headcheck(BP_HEAD) && prob(damage))
 		target.apply_effect(20, PARALYZE)
 		target.visible_message("<span class='danger'>[target] [target.species.knockout_message]</span>")
 
-	playsound(attacker.loc, "swing_hit", 25, 1, -1)
-	attacker.attack_log += text("\[[time_stamp()]\] <font color='red'>Headbutted [target.name] ([target.ckey])</font>")
+	playsound(attacker.loc, /decl/sound_category/swing_hit_sound, 25, 1, -1)
+	attacker.attack_log += text("\[[time_stamp()]\] <span class='warning'>Headbutted [target.name] ([target.ckey])</span>")
 	target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Headbutted by [attacker.name] ([attacker.ckey])</font>")
 	msg_admin_attack("[key_name(attacker)] has headbutted [key_name(target)]",ckey=key_name(attacker),ckey_target=key_name(target))
 
@@ -121,7 +124,7 @@
 		to_chat(attacker, "<span class='warning'>You require a better grab to do this.</span>")
 		return
 	if(target.grab_joint(attacker, target_zone))
-		playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+		playsound(loc, 'sound/weapons/push_connect.ogg', 50, 1, -1)
 		return
 
 /obj/item/grab/proc/pin_down(mob/target, mob/attacker)

@@ -9,12 +9,24 @@
 #define CANPARALYSE 0x4
 #define CANPUSH     0x8
 #define LEAPING     0x10
-#define PASSEMOTES  0x32    // Mob has a cortical borer or holders inside of it that need to see emotes.
+#define PASSEMOTES  0x20    // Mob has a cortical borer or holders inside of it that need to see emotes.
+#define NOFALL      0x800
 #define GODMODE     0x1000
 #define FAKEDEATH   0x2000  // Replaces stuff like changeling.changeling_fakedeath.
 #define DISFIGURED  0x4000  // Set but never checked. Remove this sometime and replace occurences with the appropriate organ code
 #define XENO_HOST   0x8000  // Tracks whether we're gonna be a baby alien's mummy.
 #define NO_ANTAG    0x10000  // Players are restricted from gaining antag roles when occupying this mob
+
+// Incorporeal movement
+#define INCORPOREAL_DISABLE 0 // Disabled
+#define INCORPOREAL_GHOST   1 // Pass through matter like a ghost
+#define INCORPOREAL_NINJA   2 // Pass through matter with a cool effect
+#define INCORPOREAL_BSTECH  3 // Like ninja, but also go across Z-levels and move in space freely
+#define INCORPOREAL_SHADE   4 // Shady
+#define INCORPOREAL_MECH    5 // stripped down bstech
+
+#define MOB_GRAB_NORMAL 1
+#define MOB_GRAB_FIREMAN 2
 
 // Grab levels.
 #define GRAB_PASSIVE    1
@@ -37,6 +49,8 @@
 #define LEFT  1
 #define RIGHT 2
 
+#define FIST_ATTACK_ANIMATION -1
+
 // Pulse levels, very simplified.
 #define PULSE_NONE    0 // So !M.pulse checks would be possible.
 #define PULSE_SLOW    1 // <60     bpm
@@ -49,13 +63,10 @@
 #define PULSE_MAX_BPM 250 // Highest, readable BPM by machines and humans.
 
 // Blood pressure levels, simplified
-#define BP_HIGH_SYSTOLIC 		140
-#define BP_PRE_HIGH_SYSTOLIC 	125
-#define BP_IDEAL_SYSTOLIC		80
-
-#define BP_HIGH_DIASTOLIC 		100
-#define BP_PRE_HIGH_DIASTOLIC	85
-#define BP_IDEAL_DIASTOLIC 		60
+#define HIGH_BP_MOD 20
+#define PRE_HIGH_BP_MOD 5
+#define BP_SYS_IDEAL_MOD 40
+#define BP_DIS_IDEAL_MOD 20
 
 #define BLOOD_PRESSURE_HIGH     4
 #define BLOOD_PRESSURE_PRE_HIGH 3
@@ -75,6 +86,10 @@
 #define I_GRAB		"grab"
 #define I_HURT		"harm"
 
+//movement intents
+#define M_WALK "walk"
+#define M_RUN  "run"
+
 // Limbs and robotic stuff.
 #define BP_L_FOOT "l_foot"
 #define BP_R_FOOT "r_foot"
@@ -90,6 +105,10 @@
 #define BP_ALL_LIMBS list(BP_CHEST, BP_GROIN, BP_HEAD, BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT)
 #define BP_IS_ROBOTIC(org)  (org.status & ORGAN_ROBOT)
 
+#define ROBOTIC_NONE       0
+#define ROBOTIC_ASSISTED   1
+#define ROBOTIC_MECHANICAL 2
+
 //Generic organs
 #define BP_MOUTH    "mouth"
 #define BP_EYES     "eyes"
@@ -101,6 +120,14 @@
 #define BP_STOMACH  "stomach"
 #define BP_APPENDIX "appendix"
 
+//Vaurca organs
+#define BP_NEURAL_SOCKET "neural socket"
+#define BP_PHORON_RESERVE "phoron reserve tank"
+#define BP_FILTRATION_BIT "filtration bit"
+#define BP_PHORON_RESERVOIR "phoron reservoir"
+#define BP_VAURCA_LIVER "mechanical liver"
+#define BP_VAURCA_KIDNEYS "mechanical kidneys"
+
 //Aut'akh organs
 #define BP_ANCHOR   "anchor"
 #define BP_HAEMO    "haemodynamic"
@@ -111,24 +138,36 @@
 #define BP_OPTICS   "optics"
 #define BP_IPCTAG   "ipc tag"
 
+// Zombie organ
+#define BP_ZOMBIE_PARASITE "zombieparasite"
+
 //Augment organs
 #define BP_AUG_TIMEPIECE    "integrated timepiece"
-#define BP_AUG_PDA          "integrated pda"
 #define BP_AUG_TOOL         "retractable combitool"
 #define BP_AUG_PEN          "retractable combipen"
 #define BP_AUG_LIGHTER      "retractable lighter"
 #define BP_AUG_HEALTHSCAN   "integrated health scanner"
+#define BP_AUG_GUSTATORIAL   "integrated gustatorial centre"
 #define BP_AUG_TESLA        "tesla spine"
 #define BP_AUG_EYE_SENSORS  "integrated eyes sensors"
 #define BP_AUG_HAIR         "synthetic hair extensions"
-#define BP_AUG_SUSPENSION   "calf suspension"
+#define BP_AUG_CORDS           "synthetic vocal cords"
+#define BP_AUG_COCHLEAR        "cochlear implant"
+#define BP_AUG_SUSPENSION      "calf suspension"
 #define BP_AUG_TASTE_BOOSTER   "taste booster"
-#define BP_AUG_RADIO        "integrated radio"
-#define BP_AUG_FUEL_CELL    "integrated fuel cell"
-#define BP_AUG_AIR_ANALYZER "integrated air analyzer"
-#define BP_AUG_LANGUAGE     "integrated language processor"
-#define BP_AUG_PSI         "psionic receiver"
-#define BP_AUG_CALF_OVERRIDE     "calf overdrive"
+#define BP_AUG_RADIO           "integrated radio"
+#define BP_AUG_FUEL_CELL       "integrated fuel cell"
+#define BP_AUG_AIR_ANALYZER    "integrated air analyzer"
+#define BP_AUG_LANGUAGE        "integrated language processor"
+#define BP_AUG_PSI             "psionic receiver"
+#define BP_AUG_CALF_OVERRIDE   "calf overdrive"
+#define BP_AUG_MEMORY          "memory inhibitor"
+#define BP_AUG_EMOTION         "emotional manipulator"
+#define BP_AUG_ENCHANED_VISION "vision enhanced retinas"
+#define BP_AUG_SIGHTLIGHTS     "ocular installed sightlights"
+#define BP_AUG_CORRECTIVE_LENS "corrective lenses"
+#define BP_AUG_GLARE_DAMPENER "glare dampeners"
+#define BP_AUG_ACC_CORDS       "modified synthetic vocal cords"
 
 //Organ defines
 #define PROCESS_ACCURACY 10
@@ -155,18 +194,20 @@
 #define ROBOT_NOTIFICATION_MODULE_RESET 4
 
 // Appearance change flags
-#define APPEARANCE_UPDATE_DNA  0x1
-#define APPEARANCE_RACE       (0x2|APPEARANCE_UPDATE_DNA)
-#define APPEARANCE_GENDER     (0x4|APPEARANCE_UPDATE_DNA)
-#define APPEARANCE_SKIN        0x8
-#define APPEARANCE_HAIR        0x10
-#define APPEARANCE_HAIR_COLOR  0x20
-#define APPEARANCE_FACIAL_HAIR 0x40
-#define APPEARANCE_FACIAL_HAIR_COLOR 0x80
-#define APPEARANCE_EYE_COLOR 0x100
-#define APPEARANCE_ALL_HAIR (APPEARANCE_HAIR|APPEARANCE_HAIR_COLOR|APPEARANCE_FACIAL_HAIR|APPEARANCE_FACIAL_HAIR_COLOR)
-#define APPEARANCE_ALL       0xFFFF
-#define APPEARANCE_PLASTICSURGERY (APPEARANCE_ALL & ~APPEARANCE_RACE)
+#define APPEARANCE_UPDATE_DNA				1
+#define APPEARANCE_RACE						(2|APPEARANCE_UPDATE_DNA)
+#define APPEARANCE_GENDER					(4|APPEARANCE_UPDATE_DNA)
+#define APPEARANCE_SKIN						8
+#define APPEARANCE_HAIR						16
+#define APPEARANCE_HAIR_COLOR				32
+#define APPEARANCE_FACIAL_HAIR 				64
+#define APPEARANCE_FACIAL_HAIR_COLOR 		128
+#define APPEARANCE_EYE_COLOR 				256
+#define APPEARANCE_ACCENT					512
+#define APPEARANCE_LANGUAGE					1024
+#define APPEARANCE_ALL						65535
+#define APPEARANCE_ALL_HAIR					(APPEARANCE_HAIR|APPEARANCE_HAIR_COLOR|APPEARANCE_FACIAL_HAIR|APPEARANCE_FACIAL_HAIR_COLOR)
+#define APPEARANCE_PLASTICSURGERY 			(APPEARANCE_ALL & ~APPEARANCE_RACE)
 
 // Click cooldown
 #define DEFAULT_ATTACK_COOLDOWN 8 //Default timeout for aggressive actions
@@ -177,27 +218,32 @@
 #define MAX_SUPPLIED_LAW_NUMBER 50
 
 //default item on-mob icons
-#define INV_HEAD_DEF_ICON 'icons/mob/head.dmi'
-#define INV_BACK_DEF_ICON 'icons/mob/back.dmi'
-#define INV_L_HAND_DEF_ICON 'icons/mob/items/lefthand.dmi'
-#define INV_R_HAND_DEF_ICON 'icons/mob/items/righthand.dmi'
-#define INV_W_UNIFORM_DEF_ICON 'icons/mob/uniform.dmi'
-#define INV_ACCESSORIES_DEF_ICON 'icons/mob/ties.dmi'
-#define INV_SUIT_DEF_ICON 'icons/mob/suit.dmi'
+#define INV_HEAD_DEF_ICON			'icons/mob/head.dmi'
+#define INV_BACK_DEF_ICON			'icons/mob/back.dmi'
+#define INV_L_HAND_DEF_ICON			'icons/mob/items/lefthand.dmi'
+#define INV_R_HAND_DEF_ICON			'icons/mob/items/righthand.dmi'
+#define INV_W_UNIFORM_DEF_ICON		'icons/mob/uniform.dmi'
+#define INV_ACCESSORIES_DEF_ICON	'icons/mob/ties.dmi'
+#define INV_BELT_DEF_ICON 'icons/mob/belt.dmi'
+#define INV_SUIT_DEF_ICON			'icons/mob/suit.dmi'
+#define INV_L_EAR_DEF_ICON			'icons/mob/l_ear.dmi'
+#define INV_R_EAR_DEF_ICON			'icons/mob/r_ear.dmi'
+#define INV_SHOES_DEF_ICON			'icons/mob/feet.dmi'
+#define INV_WRISTS_DEF_ICON			'icons/mob/wrist.dmi'
 
 // IPC tags
-#define IPC_OWNERSHIP_SELF "Self Owned"
+#define IPC_OWNERSHIP_SELF	  "Self Owned"
 #define IPC_OWNERSHIP_COMPANY "Company Owned"
 #define IPC_OWNERSHIP_PRIVATE "Privately Owned"
 
-// NT's alignment towards the character
-#define COMPANY_LOYAL 			"Loyal"
-#define COMPANY_SUPPORTATIVE	"Supportive"
-#define COMPANY_NEUTRAL 		"Neutral"
-#define COMPANY_SKEPTICAL		"Skeptical"
-#define COMPANY_OPPOSED			"Opposed"
+// How wealthy/poor a character is
+#define ECONOMICALLY_WEALTHY	"Wealthy"
+#define ECONOMICALLY_WELLOFF	"Well-off"
+#define ECONOMICALLY_AVERAGE	"Average"
+#define ECONOMICALLY_UNDERPAID	"Underpaid"
+#define ECONOMICALLY_POOR		"Poor"
 
-#define COMPANY_ALIGNMENTS		list(COMPANY_LOYAL,COMPANY_SUPPORTATIVE,COMPANY_NEUTRAL,COMPANY_SKEPTICAL,COMPANY_OPPOSED)
+#define ECONOMIC_POSITIONS		list(ECONOMICALLY_WEALTHY, ECONOMICALLY_WELLOFF, ECONOMICALLY_AVERAGE, ECONOMICALLY_UNDERPAID, ECONOMICALLY_POOR)
 
 // Defines the argument used for get_mobs_and_objs_in_view_fast
 #define GHOSTS_ALL_HEAR 1
@@ -299,7 +345,7 @@
 // Note that any given mob can be more than one type
 #define TYPE_ORGANIC      1	// Almost any creature under /mob/living/carbon and most simple animals
 #define TYPE_SYNTHETIC    2	// Everything under /mob/living/silicon, plus IPCs, viscerators
-#define TYPE_HUMANOID     4	// Humans, skrell, unathi, tajara, vaurca, diona, IPC, vox
+#define TYPE_HUMANOID     4	// Humans, skrell, unathi, tajara, vaurca, diona, IPC
 #define TYPE_WEIRD        8	// Slimes, constructs, demons, and other creatures of a magical or bluespace nature.
 #define TYPE_INCORPOREAL 16 // Mobs that don't really have any physical form to them.
 
@@ -313,6 +359,20 @@
 #define TASTE_NORMAL 1 //anything below 15%
 #define TASTE_DULL 0.5 //anything below 30%
 #define TASTE_NUMB 0.1 //anything below 150%
+
+//ear healing limit - past this ear_damage your ear will not recover its hearing over time
+#define HEARING_DAMAGE_LIMIT 100
+#define HEARING_DAMAGE_SLOW_HEAL 25
+
+// Used by hearing sensitivity
+#define HEARING_NORMAL 0
+#define HEARING_SENSITIVE 1
+#define HEARING_VERY_SENSITIVE 2
+
+#define MACHINE_SOUND "You hear the sound of machinery"
+#define BUTTON_FLICK "You hear a click"
+#define THUNK_SOUND "You hear a THUNK"
+#define PING_SOUND "You hear a ping"
 
 //Used by emotes
 #define VISIBLE_MESSAGE 1
@@ -333,14 +393,11 @@
 #define PROSTHETIC_DIONA "Unknown Model"
 #define PROSTHETIC_AUTAKH "Aut'akh Manufactured"
 #define PROSTHETIC_TESLA "Tesla Powered Prosthetics"
+#define PROSTHETIC_VAURCA "Vaurca Robotic Limb"
 
 //Brain Damage defines
 #define BRAIN_DAMAGE_MILD 10
 #define BRAIN_DAMAGE_SEVERE 40
-
-#define BRAIN_TRAUMA_MILD /datum/brain_trauma/mild
-#define BRAIN_TRAUMA_SEVERE /datum/brain_trauma/severe
-#define BRAIN_TRAUMA_SPECIAL /datum/brain_trauma/special
 
 #define CURE_CRYSTAL "crystal"
 #define CURE_SOLITUDE "solitude"
@@ -348,10 +405,21 @@
 #define CURE_SURGERY "surgery"
 #define CURE_ADMIN "all"
 
+// triage tags
+#define TRIAGE_NONE "None"
+#define TRIAGE_GREEN "Green"
+#define TRIAGE_YELLOW "Yellow"
+#define TRIAGE_RED "Red"
+#define TRIAGE_BLACK "Black"
+
 // Surgery Stuff
 #define SURGERY_SUCCESS 2 // Proceed with surgery
 #define SURGERY_FAIL 1 // Autofail surgery
 #define SURGERY_IGNORE 0 // Ignore surgery completely and just attack
+
+#define STASIS_MISC     "misc"
+#define STASIS_CRYOBAG  "cryobag"
+#define STASIS_COLD     "cold"
 
 #define AURA_CANCEL 1
 #define AURA_FALSE  2
@@ -360,7 +428,21 @@
 #define AURA_TYPE_THROWN "Thrown"
 #define AURA_TYPE_LIFE   "Life"
 
+// Remote Control defines
+#define REMOTE_GENERIC_MECH "remotemechs"
+#define REMOTE_AI_MECH "aimechs"
+#define REMOTE_PRISON_MECH "prisonmechs"
+
+#define REMOTE_GENERIC_ROBOT "remoterobots"
+#define REMOTE_BUNKER_ROBOT "bunkerrobots"
+#define REMOTE_PRISON_ROBOT "prisonrobots"
+#define REMOTE_WARDEN_ROBOT "wardenrobots"
+
+#define REMOTE_AI_ROBOT "airobots"
+
 // Robot Overlay Defines
 #define ROBOT_PANEL_EXPOSED  "exposed"
 #define ROBOT_PANEL_CELL     "cell"
 #define ROBOT_PANEL_NO_CELL  "no cell"
+
+#define BLOOD_REGEN_RATE 0.1

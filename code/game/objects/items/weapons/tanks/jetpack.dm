@@ -31,12 +31,12 @@
 	return null
 
 /obj/item/tank/jetpack
-	name = "jetpack (empty)"
+	name = "jetpack"
 	desc = "A tank of compressed gas for use as propulsion in zero-gravity areas. Use with caution."
 	icon_state = "jetpack"
 	item_state = "jetpack"
 	gauge_icon = null
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 	distribute_pressure = ONE_ATMOSPHERE*O2STANDARD
 	var/datum/effect_system/ion_trail/ion_trail
 	var/on = 0.0
@@ -61,15 +61,24 @@
 /obj/item/tank/jetpack/verb/toggle_rockets()
 	set name = "Toggle Jetpack Stabilization"
 	set category = "Object"
-	src.stabilization_on = !( src.stabilization_on )
-	to_chat(usr, "You toggle the stabilization [stabilization_on? "on":"off"].")
+
+	toggle_rockets_stabilization(usr)
+
+/obj/item/tank/jetpack/proc/toggle_rockets_stabilization(mob/user, var/list/message_mobs)
+	stabilization_on = !stabilization_on
+	to_chat(user, SPAN_NOTICE("You toggle \the [src]'s stabilization [stabilization_on ? "on" : "off"]."))
+	for(var/M in message_mobs)
+		to_chat(M, SPAN_NOTICE("[user] toggles \the [src]'s stabilization [stabilization_on ? "on" : "off"]."))
 
 /obj/item/tank/jetpack/verb/toggle()
 	set name = "Toggle Jetpack"
 	set category = "Object"
 
+	toggle_jetpack(usr)
+
+/obj/item/tank/jetpack/proc/toggle_jetpack(mob/user, var/list/message_mobs)
 	on = !on
-	stabilization_on = !stabilization_on
+	toggle_rockets_stabilization(user, message_mobs)
 	if(on)
 		icon_state = "[icon_state]-on"
 		ion_trail.start()
@@ -77,13 +86,12 @@
 		icon_state = initial(icon_state)
 		ion_trail.stop()
 
-	if (ismob(usr))
-		var/mob/M = usr
-		M.update_inv_back()
-		M.update_action_buttons()
+	user.update_inv_back()
+	user.update_action_buttons()
 
-	to_chat(usr, SPAN_NOTICE("You toggle the thrusters [on? "on":"off"]."))
-	to_chat(usr, SPAN_NOTICE("You toggle the stabilization [stabilization_on? "on":"off"]."))
+	to_chat(user, SPAN_NOTICE("You toggle \the [src]'s thrusters [on ? "on" : "off"]."))
+	for(var/M in message_mobs)
+		to_chat(M, SPAN_NOTICE("[user] toggles \the [src]'s thrusters [on ? "on" : "off"]."))
 
 /obj/item/tank/jetpack/proc/allow_thrust(num, mob/living/user as mob)
 	if(!(src.on))
@@ -104,7 +112,7 @@
 
 	var/datum/gas_mixture/G = src.air_contents.remove(num)
 
-	var/allgases = G.gas["carbon_dioxide"] + G.gas["nitrogen"] + G.gas["oxygen"] + G.gas["phoron"]
+	var/allgases = G.gas[GAS_CO2] + G.gas[GAS_NITROGEN] + G.gas[GAS_OXYGEN] + G.gas[GAS_PHORON] + G.gas[GAS_HYDROGEN]
 	if(allgases >= 0.005)
 		return 1
 
@@ -123,9 +131,8 @@
 	icon_state = "jetpack-void"
 	item_state =  "jetpack-void"
 
-/obj/item/tank/jetpack/void/Initialize()
-	. = ..()
-	air_contents.adjust_gas("oxygen", (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
+/obj/item/tank/jetpack/void/adjust_initial_gas()
+	air_contents.adjust_gas(GAS_OXYGEN, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 
 /obj/item/tank/jetpack/oxygen
 	name = "jetpack (oxygen)"
@@ -133,24 +140,25 @@
 	icon_state = "jetpack"
 	item_state = "jetpack"
 
-/obj/item/tank/jetpack/oxygen/Initialize()
-	. = ..()
-	air_contents.adjust_gas("oxygen", (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
+/obj/item/tank/jetpack/oxygen/adjust_initial_gas()
+	air_contents.adjust_gas(GAS_OXYGEN, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 
 /obj/item/tank/jetpack/carbondioxide
 	name = "jetpack (carbon dioxide)"
 	desc = "A tank of compressed carbon dioxide for use as propulsion in zero-gravity areas. Painted black to indicate that it should not be used as a source for internals."
 	distribute_pressure = 0
 	icon_state = "jetpack-black"
-	item_state =  "jetpack-black"
+	item_state = "jetpack-black"
 
-/obj/item/tank/jetpack/carbondioxide/Initialize()
-	. = ..()
-	air_contents.adjust_gas("carbon_dioxide", (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
+/obj/item/tank/jetpack/carbondioxide/adjust_initial_gas()
+	air_contents.adjust_gas(GAS_CO2, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 
 /obj/item/tank/jetpack/carbondioxide/synthetic
 	name = "Synthetic Jetpack"
 	desc = "A chassis-mounted tank of compressed carbon dioxide for use as propulsion in zero-gravity areas."
+
+/obj/item/tank/jetpack/carbondioxide/synthetic/adjust_initial_gas()
+	air_contents.adjust_gas(GAS_CO2, (15*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 
 /obj/item/tank/jetpack/carbondioxide/synthetic/verb/toggle_synthetic_jetpack()
 	set name = "Toggle Jetpack"
@@ -164,20 +172,19 @@
 		icon_state = initial(icon_state)
 		ion_trail.stop()
 
-	if (ismob(usr))
-		var/mob/M = usr
-		M.update_inv_back()
-
-	to_chat(usr, "You toggle the thrusters [on? "on":"off"].")
+	to_chat(usr, SPAN_NOTICE("You toggle the thrusters [on ? "on" : "off"]."))
+	stabilization_on = !stabilization_on
+	to_chat(usr, SPAN_NOTICE("You toggle the stabilization [stabilization_on ? "on" : "off"]."))
 
 /obj/item/tank/jetpack/carbondioxide/synthetic/verb/toggle_stabilizer()
 	set name = "Toggle Jetpack Stabilization"
 	set category = "Robot Commands"
-	src.stabilization_on = !( src.stabilization_on )
-	to_chat(usr, "You toggle the stabilization [stabilization_on? "on":"off"].")
+
+	stabilization_on = !stabilization_on
+	to_chat(usr, SPAN_NOTICE("You toggle the stabilization [stabilization_on ? "on" : "off"]."))
 
 /obj/item/tank/jetpack/rig
-	name = "jetpack"
+	name = "hardsuit jetpack"
 	var/obj/item/rig/holder
 
 /obj/item/tank/jetpack/rig/examine()
@@ -200,7 +207,7 @@
 
 	var/datum/gas_mixture/G = pressure_vessel.air_contents.remove(num)
 
-	var/allgases = G.gas["carbon_dioxide"] + G.gas["nitrogen"] + G.gas["oxygen"] + G.gas["phoron"]
+	var/allgases = G.gas[GAS_CO2] + G.gas[GAS_NITROGEN] + G.gas[GAS_OXYGEN] + G.gas[GAS_PHORON] + G.gas[GAS_HYDROGEN]
 	if(allgases >= 0.005)
 		return 1
 	qdel(G)

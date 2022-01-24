@@ -1,10 +1,3 @@
-
-#define AUTOHISS_OFF 0
-#define AUTOHISS_BASIC 1
-#define AUTOHISS_FULL 2
-
-#define AUTOHISS_NUM 3
-
 /mob/living/proc/handle_autohiss(message, datum/language/L)
 	return message // no autohiss at this level
 
@@ -35,6 +28,7 @@
 			to_chat(src, "Auto-hiss is now OFF.")
 
 /datum/species
+	var/has_autohiss = FALSE
 	var/list/autohiss_basic_map = null
 	var/list/autohiss_extra_map = null
 	var/list/autohiss_exempt = null
@@ -68,21 +62,27 @@
 
 /datum/species/bug
 	autohiss_basic_map = list(
-			"s" = list("z","zz")
+			"f" = list("v","vh"),
+			"ph" = list("v", "vh")
 		)
 	autohiss_extra_map = list(
-			"f" = list("v", "vh"),
-			"ph" = list("v", "vh")
+			"s" = list("z", "zz", "zzz"),
+			"ce" = list("z", "zz"),
+			"ci" = list("z", "zz"),
+			"v" = list("vv", "vvv")
 		)
 	autohiss_exempt = list(LANGUAGE_VAURCA)
 
 /datum/species/bug/type_b
 	autohiss_basic_map = list(
-			"s" = list("z","zz", "zzz")
+			"f" = list("v","vh"),
+			"ph" = list("v", "vh")
 		)
 	autohiss_extra_map = list(
-			"f" = list("v", "vh"),
-			"ph" = list("v", "vh")
+			"s" = list("z", "zz", "zzz"),
+			"ce" = list("z", "zz"),
+			"ci" = list("z", "zz"),
+			"v" = list("vv", "vvv")
 		)
 	autohiss_exempt = list(LANGUAGE_VAURCA)
 

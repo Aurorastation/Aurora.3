@@ -10,9 +10,10 @@
 // Alert status
 // And arbitrary messages set by comms computer
 /obj/machinery/status_display
+	name = "status display"
 	icon = 'icons/obj/status_display.dmi'
 	icon_state = "frame"
-	name = "status display"
+	layer = OBJ_LAYER
 	anchored = 1
 	density = 0
 	use_power = 1
@@ -85,22 +86,23 @@
 		if(STATUS_DISPLAY_BLANK)	//blank
 			return 1
 		if(STATUS_DISPLAY_TRANSFER_SHUTTLE_TIME)				//emergency shuttle timer
-			if(emergency_shuttle.waiting_to_leave())
-				message1 = "-ETD-"
-				if (emergency_shuttle.shuttle.is_launching())
-					message2 = "Launch"
-				else
-					message2 = get_shuttle_timer_departure()
+			if(evacuation_controller)
+				if(evacuation_controller.is_prepared())
+					message1 = "-ETD-"
+					if (evacuation_controller.waiting_to_leave())
+						message2 = "Launch"
+					else
+						message2 = get_shuttle_timer()
+						if(length(message2) > CHARS_PER_LINE)
+							message2 = "Error"
+					update_display(message1, message2)
+				else if(evacuation_controller.has_eta())
+					message1 = "-ETA-"
+					message2 = get_shuttle_timer()
 					if(length(message2) > CHARS_PER_LINE)
 						message2 = "Error"
-				update_display(message1, message2)
-			else if(emergency_shuttle.has_eta())
-				message1 = "-ETA-"
-				message2 = get_shuttle_timer_arrival()
-				if(length(message2) > CHARS_PER_LINE)
-					message2 = "Error"
-				update_display(message1, message2)
-			return 1
+					update_display(message1, message2)
+				return 1
 		if(STATUS_DISPLAY_MESSAGE)	//custom messages
 			var/line1
 			var/line2
@@ -164,14 +166,8 @@
 	if(maptext != new_text)
 		maptext = new_text
 
-/obj/machinery/status_display/proc/get_shuttle_timer_arrival()
-	var/timeleft = emergency_shuttle.estimate_arrival_time()
-	if(timeleft < 0)
-		return ""
-	return "[add_zero(num2text((timeleft / 60) % 60),2)]:[add_zero(num2text(timeleft % 60), 2)]"
-
-/obj/machinery/status_display/proc/get_shuttle_timer_departure()
-	var/timeleft = emergency_shuttle.estimate_launch_time()
+/obj/machinery/status_display/proc/get_shuttle_timer()
+	var/timeleft = evacuation_controller.get_eta()
 	if(timeleft < 0)
 		return ""
 	return "[add_zero(num2text((timeleft / 60) % 60),2)]:[add_zero(num2text(timeleft % 60), 2)]"

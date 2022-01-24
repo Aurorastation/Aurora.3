@@ -16,7 +16,7 @@
 /datum/find/New(var/digsite, var/exc_req)
 	excavation_required = exc_req
 	find_type = get_random_find_type(digsite)
-	clearance_range = rand(2,6)
+	clearance_range = min(rand(2,6), exc_req - 1)
 	dissonance_spread = rand(1500,2500) / 100
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

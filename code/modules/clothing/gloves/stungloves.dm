@@ -37,7 +37,7 @@
 			return
 		user.drop_from_inventory(W,src)
 		cell = W
-		w_class = 3.0
+		w_class = ITEMSIZE_NORMAL
 		to_chat(user, "<span class='notice'>You attach the [cell] to the [src].</span>")
 		update_icon()
 		return
@@ -50,7 +50,7 @@
 			to_chat(user, "<span class='notice'>You cut the [cell] away from the [src].</span>")
 			cell.forceMove(get_turf(src.loc))
 			cell = null
-			w_class = 2.0
+			w_class = ITEMSIZE_SMALL
 			update_icon()
 			return
 		if(wired) //wires disappear into the void because fuck that shit

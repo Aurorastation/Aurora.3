@@ -7,6 +7,7 @@
 	icon_dead = "faithless_dead"
 	speak_chance = 0
 	turns_per_move = 5
+	organ_names = list("chest", "lower body", "left arm", "right arm", "left leg", "right leg", "head")
 	response_help = "passes through"
 	response_disarm = "shoves"
 	response_harm = "hits"
@@ -17,7 +18,6 @@
 
 	tameable = FALSE
 
-	harm_intent_damage = 10
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	attacktext = "gripped"
@@ -38,12 +38,15 @@
 
 	flying = TRUE
 
+	psi_pingable = FALSE
+
 /mob/living/simple_animal/hostile/faithless/Allow_Spacemove(var/check_drift = 0)
 	return 1
 
 /mob/living/simple_animal/hostile/faithless/FindTarget()
+	var/my_target = target_mob
 	. = ..()
-	if(.)
+	if(. && (prob(30) || (. != my_target)))
 		audible_emote("wails at [.]")
 
 /mob/living/simple_animal/hostile/faithless/AttackingTarget()
@@ -52,7 +55,7 @@
 	if(istype(L))
 		if(prob(12))
 			L.Weaken(3)
-			L.visible_message("<span class='danger'>\the [src] knocks down \the [L]!</span>")
+			L.visible_message(SPAN_DANGER("\the [src] knocks down \the [L]!"))
 
 /mob/living/simple_animal/hostile/faithless/cult
 	faction = "cult"
@@ -67,27 +70,6 @@
 
 /mob/living/simple_animal/hostile/faithless/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
 	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
-
-/mob/living/simple_animal/hostile/faithless/wizard
-	name = "lost soul"
-	desc = "The result of a dark bargain."
-	speed = -3
-	maxHealth = 400
-	health = 400
-	universal_speak = 1
-	universal_understand = 1
-
-	see_in_dark = 8
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
-	harm_intent_damage = 0
-	melee_damage_lower = 25
-	melee_damage_upper = 25
-	var/list/darkform_spells = list(/spell/aoe_turf/conjure/forcewall/lesser)
-
-/mob/living/simple_animal/hostile/faithless/wizard/Initialize()
-	. = ..()
-	for(var/spell in darkform_spells)
-		src.add_spell(new spell, "const_spell_ready")
 
 /mob/living/simple_animal/hostile/faithless/can_fall()
 	return FALSE

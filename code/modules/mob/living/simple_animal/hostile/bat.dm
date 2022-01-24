@@ -8,7 +8,9 @@
 	icon_gib = "bat_dead"
 	speak_chance = 0
 	turns_per_move = 3
-	meat_type = /obj/item/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/bat
+	meat_amount = 6 //two wings per bat
+	organ_names = list("upper bat", "mid bat", "lower bat")
 	response_help = "pets the"
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"
@@ -20,6 +22,7 @@
 	harm_intent_damage = 8
 	melee_damage_lower = 10
 	melee_damage_upper = 10
+	resist_mod = 10 // can't grab a cloud of bats easily
 	attacktext = "bites"
 	attack_sound = 'sound/weapons/bite.ogg'
 

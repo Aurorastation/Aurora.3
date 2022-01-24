@@ -1,5 +1,6 @@
-/mob/living/carbon/
+/mob/living/carbon
 	gender = MALE
+	accent = ACCENT_CETI
 	var/datum/species/species //Contains icon generation and language information, set during New().
 	//stomach contents redefined at mob/living level, removed from here
 
@@ -14,6 +15,7 @@
 	//Active emote/pose
 	var/pose = null
 	var/list/chem_effects = list()
+	var/list/chem_doses = list()
 	var/intoxication = 0//Units of alcohol in their system
 	var/datum/reagents/metabolism/bloodstr = null
 	var/datum/reagents/metabolism/touching = null
@@ -37,3 +39,5 @@
 	var/list/organs_by_name = list() // map organ names to organs
 	var/list/internal_organs_by_name = list() // so internal organs have less ickiness too
 
+	var/list/stasis_sources = list()
+	var/stasis_value

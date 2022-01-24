@@ -102,6 +102,8 @@ nanoui is used to open and update nano browser uis
   * @return nothing
   */
 /datum/nanoui/proc/add_common_assets()
+	add_script("https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js")
+	add_script("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js")
 	add_script("libraries.min.js") // A JS file comprising of jQuery, doT.js and jQuery Timer libraries (compressed together)
 	add_script("nano_utility.js") // The NanoUtility JS, this is used to store utility functions.
 	add_script("nano_template.js") // The NanoTemplate JS, this is used to render templates.
@@ -469,7 +471,7 @@ nanoui is used to open and update nano browser uis
 	var/list/send_data = get_send_data(data)
 
 	//to_chat(user, list2json(data) // used for debugging)
-	to_chat(user, output(list2params(list(json_encode(send_data))),"[window_id].browser:receiveUpdateData"))
+	send_output(user, list2params(list(json_encode(send_data))),"[window_id].browser:receiveUpdateData")
 
  /**
   * This Topic() proc is called whenever a user clicks on a link within a Nano UI

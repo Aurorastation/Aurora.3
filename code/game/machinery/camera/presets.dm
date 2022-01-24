@@ -47,6 +47,9 @@ var/global/list/engineering_networks = list(
 /obj/machinery/camera/network/mercenary
 	network = list(NETWORK_MERCENARY)
 
+/obj/machinery/camera/network/tcfl
+	network = list(NETWORK_TCFL)
+
 /obj/machinery/camera/network/exodus
 	network = list(NETWORK_STATION)
 

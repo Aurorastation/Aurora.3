@@ -16,6 +16,26 @@
 	icon_state = "filingcabinet"
 	density = 1
 	anchored = 1
+	var/static/list/accepted_items = list(
+		/obj/item/paper, 
+		/obj/item/folder, 
+		/obj/item/photo, 
+		/obj/item/paper_bundle,
+		/obj/item/sample,
+		/obj/item/book,
+		/obj/item/card,
+		/obj/item/forensics/slide,
+		/obj/item/forensics/swab,
+		/obj/item/storage/photo_album,
+		/obj/item/clipboard,
+		/obj/item/disk,
+		/obj/item/pen,
+		/obj/item/clothing/accessory/badge,
+		/obj/item/pack,
+		/obj/item/hand,
+		/obj/item/key,
+		/obj/item/paper_scanner
+)
 
 
 /obj/structure/filingcabinet/chestdrawer
@@ -30,12 +50,12 @@
 /obj/structure/filingcabinet/Initialize()
 	. = ..()
 	for(var/obj/item/I in loc)
-		if(istype(I, /obj/item/paper) || istype(I, /obj/item/folder) || istype(I, /obj/item/photo) || istype(I, /obj/item/paper_bundle))
+		if(is_type_in_list(I, accepted_items))
 			I.forceMove(src)
 
 
-/obj/structure/filingcabinet/attackby(obj/item/P as obj, mob/user as mob)
-	if(istype(P, /obj/item/paper) || istype(P, /obj/item/folder) || istype(P, /obj/item/photo) || istype(P, /obj/item/paper_bundle))
+/obj/structure/filingcabinet/attackby(obj/item/P, mob/user)
+	if(is_type_in_list(P, accepted_items))
 		to_chat(user, "<span class='notice'>You put [P] in [src].</span>")
 		user.drop_from_inventory(P,src)
 		flick("[initial(icon_state)]-open",src)

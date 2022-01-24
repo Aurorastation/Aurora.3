@@ -1,9 +1,5 @@
 /datum/design/circuit/electronics
-	design_order = 4
-
-/datum/design/circuit/electronics/AssembleDesignName()
-	..()
-	name = "Electronics Design ([item_name])"
+	p_category = "Electronics Designs"
 
 /datum/design/circuit/electronics/secure_airlock
 	name = "Secure Airlock Electronics"

@@ -1,9 +1,3 @@
-/mob/living/silicon/say(message, sanitize = TRUE)
-	return ..(sanitize ? sanitize(message) : message)
-
-/mob/living/silicon/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
-	log_say("[key_name(src)] : [message]",ckey=key_name(src))
-
 /mob/living/silicon/robot/handle_speech_problems(var/message, var/verb, var/message_mode)
 	var/speech_problem_flag = FALSE
 	//Handle gibberish when components are damaged
@@ -26,19 +20,28 @@
 	returns[4] = world.view
 	return returns
 
-/mob/living/silicon/robot/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
-	..()
+/mob/living/silicon/robot/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio, whisper)
+	if(message_mode == "whisper" && !whisper)
+		whisper(message, speaking)
+		return TRUE
 	if(message_mode)
 		if(!is_component_functioning("radio"))
 			to_chat(src, SPAN_WARNING("Your radio isn't functional at this time."))
 			return 0
 		if(message_mode == "general")
 			message_mode = null
+		log_say("[key_name(src)] : [message]",ckey=key_name(src))
 		return common_radio.talk_into(src, message, message_mode, verb, speaking)
 
-/mob/living/silicon/ai/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
-	..()
+/mob/living/silicon/robot/drone/handle_message_mode()
+	return null
+
+/mob/living/silicon/ai/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio, whisper)
+	if(message_mode == "whisper" && !whisper)
+		whisper(message, speaking)
+		return TRUE
 	if(message_mode == "department")
+		log_say("[key_name(src)] : [message]",ckey=key_name(src))
 		return holopad_talk(message, verb, speaking)
 	else if(message_mode)
 		if(ai_radio.disabledAi || ai_restore_power_routine || stat)
@@ -46,22 +49,37 @@
 			return FALSE
 		if(message_mode == "general")
 			message_mode = null
+		log_say("[key_name(src)] : [message]",ckey=key_name(src))
 		return ai_radio.talk_into(src, message, message_mode, verb, speaking)
 
-/mob/living/silicon/pai/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
-	..()
+/mob/living/silicon/pai/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio, whisper)
 	if(message_mode)
+		if(message_mode == "whisper" && !whisper)
+			whisper(message, speaking)
+			return TRUE
 		if(message_mode == "general")
 			message_mode = null
+		log_say("[key_name(src)] : [message]",ckey=key_name(src))
 		return radio.talk_into(src, message, message_mode, verb, speaking)
 
-/mob/living/silicon/say_quote(var/text)
+/mob/living/silicon/say_quote(var/text, var/datum/language/speaking = null, var/singing = FALSE, var/whisper = FALSE)
+	if(singing)
+		return "sings"
+	if(whisper)
+		return "whispers"
 	var/ending = copytext(text, length(text))
 	if(ending == "?")
 		return speak_query
 	else if(ending == "!")
 		return speak_exclamation
 	return speak_statement
+
+/mob/living/silicon/robot/drone/say_quote(var/message, var/datum/language/speaking = null, var/singing = FALSE)
+	if(speaking)
+		var/ending = copytext(message, length(message))
+		var/pre_ending = copytext(message, length(message) - 1, length(message))
+		return speaking.get_spoken_verb(ending, pre_ending, singing)
+	return ..()
 
 #define IS_AI 1
 #define IS_ROBOT 2
@@ -73,6 +91,8 @@
 		if(istype(other, /mob/living/carbon))
 			return TRUE
 		if(istype(other, /mob/living/silicon))
+			return TRUE
+		if (istype(other, /mob/living/announcer))
 			return TRUE
 		if(istype(other, /mob/living/carbon/brain))
 			return TRUE
@@ -86,7 +106,7 @@
 		return
 
 	var/obj/machinery/hologram/holopad/H = src.holo
-	if(H && H.masters[src])//If there is a hologram and its master is the user.
+	if(H?.active_holograms[src])//If there is a hologram and its master is the user.
 		// AI can hear their own message, this formats it for them.
 		if(speaking)
 			to_chat(src, "<i><span class='game say'>Holopad transmitted, <span class='name'>[real_name]</span> [speaking.format_message(message, verb)]</span></i>")
@@ -135,7 +155,7 @@
 		return
 
 	var/obj/machinery/hologram/holopad/T = src.holo
-	if(T?.masters[src])
+	if(T?.active_holograms[src])
 		var/rendered = "<span class='game say'><span class='name'>[name]</span> <span class='message'>[message]</span></span>"
 		to_chat(src, "<i><span class='game say'>Holopad action relayed, <span class='name'>[real_name]</span> <span class='message'>[message]</span></span></i>")
 
@@ -148,7 +168,7 @@
 
 /mob/living/silicon/ai/emote(var/act, var/type, var/message)
 	var/obj/machinery/hologram/holopad/T = src.holo
-	if(T?.masters[src]) //Is the AI using a holopad?
+	if(T?.active_holograms[src]) //Is the AI using a holopad?
 		src.holopad_emote(message)
 	else //Emote normally, then.
 		..()

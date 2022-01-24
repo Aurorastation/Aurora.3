@@ -11,7 +11,7 @@
 	icon_state = "farmbot0"
 	health = 50
 	maxHealth = 50
-	req_one_access = list(access_hydroponics, access_robotics)
+	req_one_access = list(access_hydroponics, access_robotics, access_xenobiology)
 
 	var/action = "" // Used to update icon
 	var/waters_trays = TRUE
@@ -49,7 +49,6 @@
 		return
 
 	var/dat = ""
-	dat += "<TT><B>Automatic Hyrdoponic Assisting Unit v1.1</B></TT><BR><BR>"
 	dat += "Status: <A href='?src=\ref[src];power=1'>[on ? "On" : "Off"]</A><BR>"
 	dat += "Water Tank: "
 	if (tank)
@@ -71,9 +70,9 @@
 		dat += "Remove dead plants: <A href='?src=\ref[src];removedead=1'>[removes_dead ? "Yes" : "No"]</A><BR>"
 		dat += "</TT>"
 
-	user << browse("<HEAD><TITLE>Farmbot v1.1 controls</TITLE></HEAD>[dat]", "window=autofarm")
-	onclose(user, "autofarm")
-	return
+	var/datum/browser/bot_win = new(user, "autofarm", "Automatic Farmbot v1.2 Controls")
+	bot_win.set_content(dat)
+	bot_win.open()
 
 /mob/living/bot/farmbot/emag_act(var/remaining_charges, var/mob/user)
 	. = ..()
@@ -122,7 +121,7 @@
 	attack_hand(usr)
 	return
 
-/mob/living/bot/farmbot/update_icons()
+/mob/living/bot/farmbot/update_icon()
 	if(on && action)
 		icon_state = "farmbot_[action]"
 	else
@@ -144,11 +143,11 @@
 			path = list()
 			target = null
 		else
-			if(path.len && frustration < 5)
+			if(length(path) && frustration < 5)
 				if(path[1] == loc)
 					path -= path[1]
 
-				if (path.len)
+				if(length(path))
 					var/t = step_towards(src, path[1])
 					if(t)
 						path -= path[1]
@@ -168,16 +167,24 @@
 					target = tray
 					frustration = 0
 					break
+			if(target) //We found a tray we can do something to. Set path to there.
+				pathfind(target)
+				return
 			if(check_tank())
 				for(var/obj/structure/sink/source in view(7, src))
-					target = source
-					frustration = 0
-					break
-		if(target)
-			var/t = get_dir(target, src) // Turf with the tray is impassable, so a* can't navigate directly to it
-			path = AStar(loc, get_step(target, t), /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 30, id = botcard)
-			if(!path)
-				path = list()
+					if(pathfind(source)) //If we can find a valid path to this sink, it's our target
+						target = source
+						frustration = 0
+						break
+				
+
+/mob/living/bot/farmbot/proc/pathfind(var/atom/A)
+	var/t = get_dir(A, src) // Turf with the tray is impassable, so a* can't navigate directly to it
+	path = AStar(loc, get_step(A, t), /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 30, id = botcard)
+	if(!path)
+		path = list()
+		return FALSE
+	return path
 
 /mob/living/bot/farmbot/UnarmedAttack(var/atom/A, var/proximity)
 	. = ..()
@@ -194,7 +201,7 @@
 				return
 			if(FARMBOT_COLLECT)
 				action = "collect"
-				update_icons()
+				update_icon()
 				visible_message(SPAN_NOTICE("[src] starts [T.dead? "removing the plant from" : "harvesting"] \the [A]."))
 				attacking = TRUE
 				if(do_after(src, 30))
@@ -202,7 +209,7 @@
 					T.attack_hand(src)
 			if(FARMBOT_WATER)
 				action = "water"
-				update_icons()
+				update_icon()
 				visible_message(SPAN_NOTICE("[src] starts watering \the [A]."))
 				attacking = TRUE
 				if(do_after(src, 30))
@@ -211,7 +218,7 @@
 					tank.reagents.trans_to(T, 100 - T.waterlevel)
 			if(FARMBOT_UPROOT)
 				action = "hoe"
-				update_icons()
+				update_icon()
 				visible_message(SPAN_NOTICE("[src] starts uprooting the weeds in \the [A]."))
 				attacking = TRUE
 				if(do_after(src, 30))
@@ -220,40 +227,40 @@
 					T.update_icon()
 			if(FARMBOT_PESTKILL)
 				action = "hoe"
-				update_icons()
+				update_icon()
 				visible_message(SPAN_NOTICE("[src] starts eliminating the pests in \the [A]."))
 				attacking = TRUE
 				if(do_after(src, 30))
 					visible_message(SPAN_NOTICE("[src] eliminates the pests in \the [A]."))
 					T.pestlevel = 0
-					T.reagents.add_reagent(/datum/reagent/nutriment, 0.5)
+					T.reagents.add_reagent(/decl/reagent/nutriment, 0.5)
 					T.update_icon()
 			if(FARMBOT_NUTRIMENT)
 				action = "fertile"
-				update_icons()
+				update_icon()
 				visible_message(SPAN_NOTICE("[src] starts fertilizing \the [A]."))
 				attacking = TRUE
 				if(do_after(src, 30))
 					visible_message(SPAN_NOTICE("[src] waters \the [A]."))
-					T.reagents.add_reagent(/datum/reagent/ammonia, 10)
+					T.reagents.add_reagent(/decl/reagent/ammonia, 10)
 		attacking = FALSE
 		action = ""
-		update_icons()
+		update_icon()
 		T.update_icon()
 	else if(istype(A, /obj/structure/sink))
 		if(!tank || tank.reagents.total_volume >= tank.reagents.maximum_volume)
 			return
 		action = "water"
-		update_icons()
+		update_icon()
 		visible_message(SPAN_NOTICE("[src] starts refilling its tank from \the [A]."))
 		attacking = TRUE
 		while(do_after(src, 10) && tank.reagents.total_volume < tank.reagents.maximum_volume)
-			tank.reagents.add_reagent(/datum/reagent/water, 10)
+			tank.reagents.add_reagent(/decl/reagent/water, 10)
 			if(prob(5))
 				playsound(get_turf(src), 'sound/effects/slosh.ogg', 25, TRUE)
 		attacking = FALSE
 		action = ""
-		update_icons()
+		update_icon()
 		visible_message(SPAN_NOTICE("[src] finishes refilling its tank."))
 	else if(emagged && ishuman(A))
 		var/action = pick("weed", "water")
@@ -297,7 +304,7 @@
 		return FALSE
 	if(tray.dead && removes_dead || tray.harvest && collects_produce)
 		return FARMBOT_COLLECT
-	else if(waters_trays && tray.waterlevel < 10 && !tray.reagents.has_reagent(/datum/reagent/water))
+	else if(waters_trays && tray.waterlevel < 10 && !tray.reagents.has_reagent(/decl/reagent/water))
 		return FARMBOT_WATER
 	else if(uproots_weeds && tray.weedlevel >= 5)
 		return FARMBOT_UPROOT

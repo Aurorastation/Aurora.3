@@ -11,7 +11,7 @@
 	desc = "Emergency air-tight shutter, capable of sealing off breached areas."
 	icon = 'icons/obj/doors/DoorHazard.dmi'
 	icon_state = "door_open"
-	req_one_access = list(access_atmospherics, access_engine_equip, access_emt)
+	req_one_access = list(access_atmospherics, access_engine_equip, access_first_responder)
 	opacity = 0
 	density = 0
 	layer = DOOR_OPEN_LAYER - 0.01
@@ -208,9 +208,7 @@
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-
-		if(H.species.can_shred(H))
-
+		if(H.species.can_shred(H) || H.default_attack?.crowbar_door)
 			if(src.density)
 				visible_message("<span class='danger'>\The [H] forces \the [src] open!</span>")
 				open(1)
@@ -226,7 +224,7 @@
 	if(alarmed && density && lockdown && !allowed(user))
 		to_chat(user, "<span class='warning'>Access denied.  Please wait for authorities to arrive, or for the alert to clear.</span>")
 		return
-	else
+	else if(Adjacent(user))
 		user.visible_message("[user] [density ? "open" : "close"]s \an [src].",\
 		"You [density ? "open" : "close"] \the [src].",\
 		"You hear a beep, and a door opening.")
@@ -269,7 +267,7 @@
 			user.visible_message("<span class='danger'>\The [user] [blocked ? "welds" : "unwelds"] \the [src] with \a [W].</span>",\
 			"You [blocked ? "weld" : "unweld"] \the [src] with \the [W].",\
 			"You hear something being welded.")
-			playsound(src, 'sound/items/Welder.ogg', 100, 1)
+			playsound(src, 'sound/items/welder.ogg', 100, 1)
 			update_icon()
 			return
 
@@ -288,12 +286,12 @@
 									"You start to remove the electronics from [src].")
 			if(do_after(user,30/C.toolspeed))
 				if(blocked && density && hatch_open)
-					playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
+					playsound(src.loc, C.usesound, 100, 1)
 					user.visible_message("<span class='danger'>[user] has removed the electronics from \the [src].</span>",
 										"You have removed the electronics from [src].")
 
 					if (stat & BROKEN)
-						new /obj/item/circuitboard/broken(src.loc)
+						new /obj/item/trash/broken_electronics(src.loc)
 					else
 						new/obj/item/airalarm_electronics(src.loc)
 
@@ -404,7 +402,16 @@
 			close()
 	return
 
+/obj/machinery/door/firedoor/can_close()
+	if(locate(/obj/effect/blob) in get_turf(src))
+		return FALSE
+	if(locate(/mob/living) in get_turf(src))
+		return FALSE
+	return ..()
+
 /obj/machinery/door/firedoor/close()
+	if(!can_close())
+		return
 	cut_overlays()
 	latetoggle()
 	return ..()
@@ -465,7 +472,7 @@
 				do_set_light = TRUE
 
 		if (hashatch)
-			if (hatchstate)
+			if (hatchstate && hatch_image)
 				hatch_image.icon_state = "[hatchstyle]_open"
 			else
 				hatch_image.icon_state = hatchstyle

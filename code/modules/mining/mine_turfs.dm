@@ -57,16 +57,10 @@ var/list/mineral_can_smooth_with = list(
 
 	has_resources = TRUE
 
-/turf/simulated/mineral/proc/kinetic_hit(var/damage,var/direction)
-
+/turf/simulated/mineral/proc/kinetic_hit(var/damage)
 	rock_health -= damage
-
 	if(rock_health <= 0)
-		var/turf/simulated/mineral/next_rock = get_step(src,direction)
-		if(istype(next_rock))
-			new /obj/effect/overlay/temp/kinetic_blast(next_rock)
-			next_rock.kinetic_hit(-rock_health,direction)
-		GetDrilled(1)
+		GetDrilled(TRUE)
 
 // Copypaste parent call for performance.
 /turf/simulated/mineral/Initialize(mapload)
@@ -135,11 +129,15 @@ var/list/mineral_can_smooth_with = list(
 			GetDrilled()
 
 /turf/simulated/mineral/bullet_act(var/obj/item/projectile/Proj)
+	if(istype(Proj, /obj/item/projectile/beam/plasmacutter))
+		var/obj/item/projectile/beam/plasmacutter/PC_beam = Proj
+		. = PC_beam.pass_check(src)
+
 	// Emitter blasts
 	if(istype(Proj, /obj/item/projectile/beam/emitter))
 		emitter_blasts_taken++
 
-	if(emitter_blasts_taken > 2) // 3 blasts per tile
+	if(emitter_blasts_taken >= 3)
 		GetDrilled()
 
 /turf/simulated/mineral/CollidedWith(AM)
@@ -241,7 +239,6 @@ var/list/mineral_can_smooth_with = list(
 		return
 
 	if(istype(W, /obj/item/device/core_sampler))
-		geologic_data.UpdateNearbyArtifactInfo(src) // good god
 		var/obj/item/device/core_sampler/C = W
 		C.sample_item(src, user)
 		return
@@ -257,7 +254,7 @@ var/list/mineral_can_smooth_with = list(
 		if(do_after(user,25))
 			if(!istype(src, /turf/simulated/mineral))
 				return
-			to_chat(user, SPAN_NOTICE("\icon[P] \The [src] has been excavated to a depth of [2 * excavation_level]cm."))
+			to_chat(user, SPAN_NOTICE("[icon2html(P, user)] \The [src] has been excavated to a depth of [2 * excavation_level]cm."))
 		return
 
 	if(istype(W, /obj/item/pickaxe) && W.simulated)	// Pickaxe offhand is not simulated.
@@ -307,8 +304,7 @@ var/list/mineral_can_smooth_with = list(
 				else
 					O = new /obj/item/ore(src)
 				if(istype(O))
-					geologic_data.UpdateNearbyArtifactInfo(src)
-					O.geologic_data = geologic_data
+					O.geologic_data = get_geodata()
 				addtimer(CALLBACK(O, /atom/movable/.proc/forceMove, user.loc), 1)
 
 			if(finds?.len)
@@ -331,14 +327,14 @@ var/list/mineral_can_smooth_with = list(
 				if(artifact_find)
 					if(excavation_level > 0 || prob(15))
 						//boulder with an artifact inside
-						B = new(src)
+						B = new(src, "#9c9378") // if we ever get natural walls, edit this
 						if(artifact_find)
 							B.artifact_find = artifact_find
 					else
 						artifact_debris(1)
 				else if(prob(15))
 					//empty boulder
-					B = new(src)
+					B = new(src, "#9c9378") // if we ever get natural walls, edit this
 
 				if(B)
 					GetDrilled(0)
@@ -369,6 +365,12 @@ var/list/mineral_can_smooth_with = list(
 		new /obj/structure/sculpting_block(src)
 		GetDrilled(1)
 
+/turf/simulated/mineral/proc/get_geodata()
+	if(!geologic_data)
+		geologic_data = new /datum/geosample(src)
+	geologic_data.UpdateNearbyArtifactInfo(src)
+	return geologic_data
+
 /turf/simulated/mineral/proc/clear_ore_effects()
 	if(my_mineral)
 		qdel(my_mineral)
@@ -380,8 +382,7 @@ var/list/mineral_can_smooth_with = list(
 	clear_ore_effects()
 	var/obj/item/ore/O = new mineral.ore(src)
 	if(istype(O))
-		geologic_data.UpdateNearbyArtifactInfo(src) //whoever named this proc must be shot - geeves
-		O.geologic_data = geologic_data
+		O.geologic_data = get_geodata()
 	return O
 
 /turf/simulated/mineral/proc/GetDrilled(var/artifact_fail = 0)
@@ -395,8 +396,8 @@ var/list/mineral_can_smooth_with = list(
 	if(prob(25))
 		var/datum/reagents/R = new/datum/reagents(20)
 		R.my_atom = src
-		R.add_reagent(/datum/reagent/stone_dust,20)
-		var/datum/effect/effect/system/smoke_spread/chem/S = new /datum/effect/effect/system/smoke_spread/chem(/datum/reagent/stone_dust) // have to explicitly say the type to avoid issues with warnings
+		R.add_reagent(/decl/reagent/stone_dust,20)
+		var/datum/effect/effect/system/smoke_spread/chem/S = new /datum/effect/effect/system/smoke_spread/chem(/decl/reagent/stone_dust) // have to explicitly say the type to avoid issues with warnings
 		S.show_log = 0
 		S.set_up(R, 10, 0, src, 40)
 		S.start()
@@ -415,12 +416,12 @@ var/list/mineral_can_smooth_with = list(
 	if(prob_clean)
 		X = new /obj/item/archaeological_find(src, new_item_type = F.find_type)
 	else
-		X = new /obj/item/ore/strangerock(src, inside_item_type = F.find_type)
-		geologic_data.UpdateNearbyArtifactInfo(src) //AAAAAAAAAAAAAAAAAAAAAAAAAA
-		X:geologic_data = geologic_data //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+		var/obj/item/ore/strangerock/SR = new /obj/item/ore/strangerock(src, inside_item_type = F.find_type)
+		SR.geologic_data = get_geodata()
+		X = SR
 
 	//some find types delete the /obj/item/archaeological_find and replace it with something else, this handles when that happens
-	//yuck //yuck indeed.
+	//yuck //yuck indeed. //yuck ultra
 	var/display_name = "something"
 	if(!X)
 		X = last_find
@@ -550,7 +551,7 @@ var/list/mineral_can_smooth_with = list(
 	var/dug = 0 //Increments by 1 everytime it's dug. 11 is the last integer that should ever be here.
 	var/digging
 	has_resources = 1
-	footstep_sound = "gravelstep"
+	footstep_sound = /decl/sound_category/asteroid_footstep
 
 	roof_type = null
 
@@ -632,7 +633,7 @@ var/list/asteroid_floor_smooth = list(
 		var/obj/item/stack/rods/R = W
 		if(R.use(1))
 			to_chat(user, SPAN_NOTICE("Constructing support lattice..."))
-			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
+			playsound(src, 'sound/weapons/genhit.ogg', 50, 1)
 			ReplaceWithLattice()
 		return
 
@@ -643,7 +644,7 @@ var/list/asteroid_floor_smooth = list(
 			if(S.get_amount() < 1)
 				return
 			qdel(L)
-			playsound(src, 'sound/weapons/Genhit.ogg', 50, TRUE)
+			playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
 			S.use(1)
 			ChangeTurf(/turf/simulated/floor/airless)
 			return

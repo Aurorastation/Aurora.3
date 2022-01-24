@@ -10,16 +10,19 @@
 
 
 	attackby(var/obj/item/card/W as obj, var/mob/user as mob)
-		if(stat & (BROKEN|NOPOWER))	return
-		if ((!( istype(W, /obj/item/card) ) || !(ROUND_IS_STARTED) || emergency_shuttle.location() || !( user )))	return
-		if (istype(W, /obj/item/card/id)||istype(W, /obj/item/device/pda))
-			var/obj/item/card/id/id = W
-			if (istype(W, /obj/item/device/pda))
-				var/obj/item/device/pda/pda = W
-				id = pda.id
+		if(stat & (BROKEN|NOPOWER))
+			return
 
-				if (!id)
-					return
+		var/datum/evacuation_controller/shuttle/evac_control = evacuation_controller
+		if(!istype(evac_control))
+			to_chat(user, SPAN_DANGER("This console should not in use on this map. Please report this to a developer."))
+			return
+
+		if ((!( istype(W, /obj/item/card) ) || !( SSticker ) || evacuation_controller.has_evacuated() || !( user )))
+			return
+
+		if (W.GetID())
+			var/obj/item/card/id/id = W
 
 			if (!id.access) //no access
 				to_chat(user, "The access level of [id.registered_name]\'s card is not high enough. ")
@@ -35,7 +38,7 @@
 				return 0
 
 			var/choice = alert(user, text("Would you like to (un)authorize a shortened launch time? [] authorization\s are still needed. Use abort to cancel all authorizations.", src.auth_need - src.authorized.len), "Shuttle Launch", "Authorize", "Repeal", "Abort")
-			if(emergency_shuttle.location() && user.get_active_hand() != id)
+			if(evacuation_controller.is_prepared() && user.get_active_hand() != id)
 				return 0
 			switch(choice)
 				if("Authorize")
@@ -49,7 +52,7 @@
 						message_admins("[key_name_admin(user)] has launched the shuttle")
 						log_game("[key_name(user)] has launched the shuttle early",ckey=key_name(user))
 						to_world("<span class='notice'><b>Alert: Shuttle launch time shortened to 10 seconds!</b></span>")
-						emergency_shuttle.set_launch_countdown(10)
+						evacuation_controller.set_launch_time(world.time+100)
 						//src.authorized = null
 						qdel(src.authorized)
 						src.authorized = list(  )
@@ -66,11 +69,11 @@
 		else if (istype(W, /obj/item/card/emag) && !emagged)
 			var/choice = alert(user, "Would you like to launch the shuttle?","Shuttle control", "Launch", "Cancel")
 
-			if(!emagged && !emergency_shuttle.location() && user.get_active_hand() == W)
+			if(!emagged && !evacuation_controller.is_prepared() && user.get_active_hand() == W)
 				switch(choice)
 					if("Launch")
 						to_world("<span class='notice'><b>Alert: Shuttle launch time shortened to 10 seconds!</b></span>")
-						emergency_shuttle.set_launch_countdown(10)
+						evacuation_controller.set_launch_time(world.time+100)
 						emagged = 1
 					if("Cancel")
 						return

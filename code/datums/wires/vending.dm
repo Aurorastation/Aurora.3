@@ -2,6 +2,9 @@
 	holder_type = /obj/machinery/vending
 	wire_count = 6
 
+/datum/wires/vending/blueprint
+	cares_about_holder = FALSE
+
 var/const/VENDING_WIRE_THROW = 1
 var/const/VENDING_WIRE_CONTRABAND = 2
 var/const/VENDING_WIRE_ELECTRIFY = 4
@@ -63,3 +66,27 @@ var/const/VENDING_WIRE_HEATING = 32
 			V.temperature_setting = mended && V.temperature_setting != 1 ? -1 : 0
 		if(VENDING_WIRE_HEATING)
 			V.temperature_setting = mended && V.temperature_setting != -1 ? 1 : 0
+
+/datum/wires/vending/get_wire_diagram(var/mob/user)
+	var/dat = ""
+	for(var/color in wires)
+		dat += "<font color='[color]'>[capitalize(color)]</font>: [index_to_type(GetIndex(color))]<br>"
+
+	var/datum/browser/wire_win = new(user, "vendingwires", "Vending Wires", 450, 500)
+	wire_win.set_content(dat)
+	wire_win.open()
+
+/datum/wires/vending/proc/index_to_type(var/index)
+	switch(index)
+		if(1)
+			return "Ballistic Delivery Service"
+		if(2)
+			return "Secondary Stock"
+		if(4)
+			return "Anti-tampering"
+		if(8)
+			return "ID Scan"
+		if(16)
+			return "Cooling"
+		if(32)
+			return "Heating"

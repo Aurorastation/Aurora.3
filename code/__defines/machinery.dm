@@ -48,6 +48,7 @@
 #define NETWORK_MECHS "Mechs"
 #define NETWORK_MEDICAL "Medical"
 #define NETWORK_MERCENARY "MercurialNet"
+#define NETWORK_TCFL "TCFL"
 #define NETWORK_MINE "MINE"
 #define NETWORK_RESEARCH "Research"
 #define NETWORK_RESEARCH_OUTPOST "Research Outpost"
@@ -77,7 +78,7 @@ var/list/restricted_camera_networks = list(NETWORK_ERT,NETWORK_MERCENARY,"Secret
 #define STAGE_FIVE	9
 #define STAGE_SUPER	11
 
-// Interaction flags 
+// Interaction flags
 #define STATUS_INTERACTIVE 2 // GREEN Visability
 #define STATUS_UPDATE 1 // ORANGE Visability
 #define STATUS_DISABLED 0 // RED Visability
@@ -111,11 +112,9 @@ var/list/restricted_camera_networks = list(NETWORK_ERT,NETWORK_MERCENARY,"Secret
 #define M_PROCESSES 0x1
 #define M_USES_POWER 0x2
 
-// If this is returned from a machine's process() proc, the machine will stop processing but 
+// If this is returned from a machine's process() proc, the machine will stop processing but
 // will continue to have power calculations done.
 #define M_NO_PROCESS 27
 
 // This controls how much power the AME generates per unit of fuel.
-// Assuming 100% efficency, use this equation to figure out power output.
-//      power_generated = (fuel**2) * AM_POWER_FACTOR
-#define AM_POWER_FACTOR 50000
+#define AM_POWER_FACTOR 1000000

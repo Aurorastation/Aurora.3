@@ -37,7 +37,7 @@
 	move_to_delay = 3
 
 /mob/living/bot/secbot/ed209/Initialize()
-	..()
+	. = ..()
 	if(!short_name)
 		short_name = name
 
@@ -140,7 +140,7 @@
 		arrest_type = 0
 
 	if(isnull(target))
-		custom_emote(2, "[emote_hear], \"Error, unit is unable to find target in view range!\"")
+		custom_emote(AUDIBLE_MESSAGE, "[emote_hear], \"Error, unit is unable to find target in view range!\"")
 		return 0
 	else
 		if(ishuman(target))
@@ -155,10 +155,10 @@
 			if(R && R.security)
 				R.security.criminal = "*Arrest*"
 			else
-				custom_emote(2, "[emote_hear], \"Warning, [target] does not have Security records! Enabling security records check mode!\"")
+				custom_emote(AUDIBLE_MESSAGE, "[emote_hear], \"Warning, [target] does not have Security records! Enabling security records check mode!\"")
 				check_records = TRUE
 			mode = SECBOT_HUNT
-			custom_emote(2, "[emote_hear], \"[arrest_type ? ("Detaining") : ("Arresting")] [target]\"")
+			custom_emote(AUDIBLE_MESSAGE, "[emote_hear], \"[arrest_type ? ("Detaining") : ("Arresting")] [target]\"")
 
 /mob/living/bot/secbot/ed209/proc/stay_command(var/mob/speaker,var/text)
 	walk_to(src, src, 0, move_to_delay)
@@ -166,7 +166,7 @@
 	auto_patrol = 0
 	target = null
 	check_records = FALSE
-	custom_emote(2, "[emote_hear], \"Roger that, going into idle mode. Auto patrol disabled.\"")
+	custom_emote(AUDIBLE_MESSAGE, "[emote_hear], \"Roger that, going into idle mode. Auto patrol disabled.\"")
 	return 1
 
 /mob/living/bot/secbot/ed209/proc/stop_command(var/mob/speaker,var/text)
@@ -174,7 +174,7 @@
 		return
 	walk_to(src, src, 0, move_to_delay)
 	check_records = FALSE
-	custom_emote(2, "[emote_hear], \"Roger that, unit going offline.\"")
+	custom_emote(AUDIBLE_MESSAGE, "[emote_hear], \"Roger that, unit going offline.\"")
 	turn_off()
 	return 1
 
@@ -183,7 +183,7 @@
 	mode = SECBOT_IDLE
 	auto_patrol = 1
 	target = null
-	custom_emote(2, "[emote_hear], \"Roger that, starting patrol now.\"")
+	custom_emote(AUDIBLE_MESSAGE, "[emote_hear], \"Roger that, starting patrol now.\"")
 	return 1
 
 /mob/living/bot/secbot/ed209/proc/follow_command(var/mob/speaker,var/text)
@@ -191,7 +191,7 @@
 	if(findtext(text,"me"))
 		mode = SECBOT_FOLLOW
 		target = speaker
-		custom_emote(2, "[emote_hear], \"Roger that, following you\"")
+		custom_emote(AUDIBLE_MESSAGE, "[emote_hear], \"Roger that, following you\"")
 		return 1
 
 	target = get_target_by_name(text)
@@ -202,7 +202,7 @@
 		return 0
 
 	mode = SECBOT_FOLLOW
-	custom_emote(2, "[emote_hear], \"Roger that, following [target]\"")
+	custom_emote(AUDIBLE_MESSAGE, "[emote_hear], \"Roger that, following [target]\"")
 
 	return 1
 
@@ -236,7 +236,7 @@
 		short_name = short_input
 		return 1
 
-/mob/living/bot/secbot/ed209/update_icons()
+/mob/living/bot/secbot/ed209/update_icon()
 	if(on && is_attacking)
 		icon_state = "ed209-c"
 	else
@@ -278,7 +278,7 @@
 	if(emagged)
 		projectile = /obj/item/projectile/beam
 
-	playsound(loc, emagged ? 'sound/weapons/Laser.ogg' : 'sound/weapons/Taser.ogg', 50, 1)
+	playsound(loc, emagged ? 'sound/weapons/laser1.ogg' : 'sound/weapons/Taser.ogg', 50, 1)
 	var/obj/item/projectile/P = new projectile(loc)
 	var/def_zone = get_exposed_defense_zone(A)
 	P.launch_projectile(A, def_zone)
@@ -322,7 +322,7 @@
 				return 1
 
 		if(2)
-			if(istype(W, /obj/item/clothing/suit/storage/vest))
+			if(istype(W, /obj/item/clothing/accessory/armor_plate))
 				user.drop_from_inventory(W,get_turf(src))
 				qdel(W)
 				build_step++
@@ -338,7 +338,7 @@
 				if(WT.remove_fuel(0, user))
 					build_step++
 					name = "shielded frame assembly"
-					to_chat(user, "<span class='notice'>You welded the vest to [src].</span>")
+					to_chat(user, "<span class='notice'>You welded the armor to [src].</span>")
 					return 1
 		if(4)
 			if(istype(W, /obj/item/clothing/head/helmet))
@@ -377,7 +377,7 @@
 				return
 
 		if(7)
-			if(istype(W, /obj/item/gun/energy/taser))
+			if(istype(W, /obj/item/gun/energy/disruptorpistol))
 				name = "taser ED-209 assembly"
 				build_step++
 				to_chat(user, "<span class='notice'>You add [W] to [src].</span>")

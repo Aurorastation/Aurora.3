@@ -83,6 +83,11 @@ var/obj/screen/robot_inventory
 	if(r.module)
 		mymob.hands.icon_state = lowertext(r.mod_type)
 
+	if (istype(mymob, /mob/living/silicon/robot/shell))
+		mymob.hands.icon = 'icons/mob/screen/ai.dmi'
+		mymob.hands.icon_state = "remote_mech"
+		mymob.hands.name = "Return-to-core"
+
 //Module Panel
 	using = new /obj/screen()
 	using.name = "panel"
@@ -114,30 +119,15 @@ var/obj/screen/robot_inventory
 	mymob.pullin.name = "pull"
 	mymob.pullin.screen_loc = ui_borg_pull
 
-	mymob.blind = new /obj/screen()
-	mymob.blind.icon = 'icons/mob/screen/full.dmi'
-	mymob.blind.icon_state = "blackimageoverlay"
-	mymob.blind.name = " "
-	mymob.blind.screen_loc = "1,1"
-	mymob.blind.invisibility = 101
-
-	mymob.flash = new /obj/screen()
-	mymob.flash.icon = 'icons/mob/screen/robot.dmi'
-	mymob.flash.icon_state = "blank"
-	mymob.flash.name = "flash"
-	mymob.flash.screen_loc = ui_entire_screen
-	mymob.flash.layer = 17
-	mymob.flash.mouse_opacity = 0
-
 	mymob.zone_sel = new /obj/screen/zone_sel()
 	mymob.zone_sel.icon = 'icons/mob/screen/robot.dmi'
 	mymob.zone_sel.cut_overlays()
 	mymob.zone_sel.add_overlay(image('icons/mob/zone_sel.dmi', "[mymob.zone_sel.selecting]"))
 
 	// Computer device hud
-
-	r.computer.screen_loc = ui_oxygen
-	r.computer.layer = SCREEN_LAYER
+	if(r.computer)
+		r.computer.screen_loc = ui_oxygen
+		r.computer.layer = SCREEN_LAYER
 
 
 	//Handle the gun settings buttons
@@ -145,6 +135,8 @@ var/obj/screen/robot_inventory
 	mymob.item_use_icon = new /obj/screen/gun/item(null)
 	mymob.gun_move_icon = new /obj/screen/gun/move(null)
 	mymob.radio_use_icon = new /obj/screen/gun/radio(null)
+	mymob.toggle_firing_mode = new /obj/screen/gun/burstfire(null)
+	mymob.unique_action_icon = new /obj/screen/gun/uniqueaction(null)
 
 	mymob.client.screen = null
 
@@ -156,11 +148,12 @@ var/obj/screen/robot_inventory
 		r.cells,
 		mymob.up_hint,
 		mymob.pullin,
-		mymob.blind,
-		mymob.flash,
 		robot_inventory,
 		mymob.gun_setting_icon,
-		r.computer)
+		mymob.toggle_firing_mode,
+		mymob.unique_action_icon,
+		r.computer
+		)
 	mymob.client.screen += src.adding + src.other
 
 	return
@@ -181,6 +174,9 @@ var/obj/screen/robot_inventory
 		return
 
 	var/mob/living/silicon/robot/r = mymob
+
+	if(!r.client || !r)
+		return
 
 	if(r.shown_robot_modules)
 		//Modules display is shown
@@ -215,7 +211,7 @@ var/obj/screen/robot_inventory
 				r.module.modules -= r.module.emag
 
 		if(r.malf_AI_module)
-			if(!((r.module.malf_AI_module in r.module.modules) && r.module.malf_AI_module == null))
+			if(!((r.module.malf_AI_module in r.module.modules) || r.module.malf_AI_module == null))
 				r.module.modules += r.module.malf_AI_module
 		else
 			if(r.module.malf_AI_module in r.module.modules)

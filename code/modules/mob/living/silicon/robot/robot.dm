@@ -57,7 +57,6 @@
 	var/overclock_available = FALSE // if the overclock is available for use
 
 	// HUD Stuff
-	var/obj/screen/cells
 	var/obj/screen/inv1
 	var/obj/screen/inv2
 	var/obj/screen/inv3
@@ -82,7 +81,6 @@
 	var/obj/item/device/radio/borg/radio
 	var/obj/machinery/camera/camera
 	var/obj/item/device/mmi/mmi
-	var/obj/item/device/pda/ai/pda
 	var/obj/item/stock_parts/matter_bin/storage
 	var/obj/item/tank/jetpack/carbondioxide/synthetic/jetpack
 
@@ -109,6 +107,8 @@
 
 	// Alerts
 	var/view_alerts = FALSE
+
+	var/self_destructing = FALSE
 
 	// Killswitch
 	var/killswitch = FALSE
@@ -151,7 +151,7 @@
 	setup_icon_cache()
 
 	if(mmi?.brainobj)
-		mmi.brainobj.lobotomized = TRUE
+		mmi.brainobj.prepared = TRUE
 		mmi.brainmob.name = src.name
 		mmi.brainmob.real_name = src.name
 		mmi.name = "[initial(mmi.name)]: [src.name]"
@@ -208,12 +208,14 @@
 		mult += storage.rating
 	for(var/datum/matter_synth/M in module.synths)
 		M.set_multiplier(mult)
+	for(var/obj/item/stack/SM in module.modules)
+		SM.update_icon()
 
 /mob/living/silicon/robot/proc/init()
 	ai_camera = new /obj/item/device/camera/siliconcam/robot_camera(src)
 	laws = new law_preset()
 	if(spawn_module)
-		new spawn_module(src)
+		new spawn_module(src, src)
 	if(key_type)
 		radio.keyslot = new key_type(radio)
 		radio.recalculateChannels()
@@ -256,14 +258,6 @@
 		return amount
 	return FALSE
 
-// setup the PDA and its name
-/mob/living/silicon/robot/proc/setup_PDA()
-	if(!has_pda)
-		return
-	if(!pda)
-		pda = new /obj/item/device/pda/ai(src)
-	pda.set_name_and_job(custom_name, "[mod_type] [braintype]")
-
 //If there's an MMI in the robot, have it ejected when the mob goes away. --NEO
 //Improved /N
 /mob/living/silicon/robot/Destroy()
@@ -305,7 +299,7 @@
 		icon_state = module_sprites[icontype]
 	return module_sprites
 
-/mob/living/silicon/robot/proc/pick_module()
+/mob/living/silicon/robot/proc/pick_module(var/set_module)
 	if(selecting_module)
 		return
 	selecting_module = TRUE
@@ -329,7 +323,8 @@
 	var/module_type = robot_modules[mod_type]
 	playsound(get_turf(src), 'sound/effects/pop.ogg', 100, TRUE)
 	spark(get_turf(src), 5, alldirs)
-	new module_type(src)
+
+	new module_type(src, src) // i have no choice but to do this, due to how funky initialize is
 
 	hands.icon_state = lowertext(mod_type)
 	feedback_inc("cyborg_[lowertext(mod_type)]", 1)
@@ -351,7 +346,6 @@
 	else
 		braintype = "Cyborg"
 
-
 	var/changed_name = ""
 	if(custom_name)
 		changed_name = custom_name
@@ -359,25 +353,7 @@
 	else
 		changed_name = "[mod_type] [braintype]-[rand(1, 999)]"
 
-	real_name = changed_name
-	name = real_name
-	if(mmi)
-		mmi.brainmob.name = src.name
-		mmi.brainmob.real_name = src.name
-		mmi.name = "[initial(mmi.name)]: [src.name]"
-
-	// if we've changed our name, we also need to update the display name for our PDA
-	setup_PDA()
-
-	// We also need to update our internal ID
-	if(id_card)
-		id_card.assignment = prefix
-		id_card.registered_name = changed_name
-		id_card.update_name()
-
-	//We also need to update name of internal camera.
-	if(camera)
-		camera.c_tag = changed_name
+	set_name(changed_name, prefix)
 
 	if(!custom_sprite) //Check for custom sprite
 		set_custom_sprite()
@@ -393,8 +369,6 @@
 
 /mob/living/silicon/robot/verb/Namepick()
 	set category = "Robot Commands"
-	if(custom_name)
-		return FALSE
 
 	spawn(0)
 		var/newname
@@ -403,14 +377,15 @@
 			custom_name = newname
 
 		updatename()
-		set_module_sprites(module.sprites) // custom synth icons
+		if(custom_sprite)
+			set_module_sprites(module.sprites) // custom synth icons
 		SSrecords.reset_manifest()
 
 // this verb lets cyborgs see the stations manifest
 /mob/living/silicon/robot/verb/cmd_station_manifest()
 	set category = "Robot Commands"
 	set name = "Show Crew Manifest"
-	show_station_manifest()
+	SSrecords.open_manifest_vueui(usr)
 
 /mob/living/silicon/robot/proc/self_diagnosis()
 	if(!is_component_functioning("diagnosis unit"))
@@ -502,17 +477,26 @@
 	to_chat(src, SPAN_NOTICE("You [C.toggled ? "disable" : "enable"] [C.name]."))
 	C.toggled = !C.toggled
 
+/mob/living/silicon/robot/verb/rebuild_overlays()
+	set category = "Robot Commands"
+	set name = "Rebuild Overlays"
+	set desc = "An OOC tool that rebuilds your overlays, useful if your talk bubble gets stuck to you."
+
+	cut_overlays()
+	handle_panel_overlay()
+	set_intent(a_intent)
+
 /obj/item/robot_module/janitor/verb/toggle_mop()
 	set category = "Robot Commands"
 	set name = "Toggle Mop"
 	set desc = "Toggle the integrated mop."
 	set src in usr
-	
+
 	mopping = !mopping
 	if (mopping)
 		usr.visible_message(SPAN_NOTICE("[usr]'s integrated mopping system rumbles to life."), SPAN_NOTICE("You enable your integrated mopping system."))
 		playsound(usr, 'sound/machines/hydraulic_long.ogg', 100, 1)
-	else 
+	else
 		usr.visible_message(SPAN_NOTICE("[usr]'s integrated mopping system putters before turning off."), SPAN_NOTICE("You disable your integrated mopping system."))
 
 /mob/living/silicon/robot/proc/update_robot_light()
@@ -749,8 +733,8 @@
 			else
 				to_chat(user, SPAN_WARNING("\The [src] does not have a radio installed!"))
 				return
-		else if(istype(W, /obj/item/card/id) ||istype(W, /obj/item/device/pda) || istype(W, /obj/item/card/robot))			// trying to unlock the interface with an ID card
-			if(emagged) //still allow them to open the cover
+		else if(W.GetID() || istype(W, /obj/item/card/robot))			// trying to unlock the interface with an ID card
+			if(emagged && !is_traitor()) //still allow them to open the cover. is_traitor() dodges this text as being made traitor sets emagged to TRUE. 
 				to_chat(user, SPAN_NOTICE("You notice that \the [src]'s interface appears to be damaged."))
 			if(opened)
 				to_chat(user, SPAN_WARNING("You must close the cover to swipe an ID card."))
@@ -768,18 +752,15 @@
 			if(!opened)
 				to_chat(user, SPAN_WARNING("You cannot install \the [U] while the maintenance hatch is closed."))
 				return
-			else if(!src.module && U.require_module)
-				to_chat(user, SPAN_WARNING("\The [src] cannot be upgraded with this until it has chosen a module."))
-				return
 			else if(U.locked)
 				to_chat(user, SPAN_WARNING("\The [U] is locked down!"))
 				return
 			else
-				if(U.action(src))
+				if(U.action(src, user))
+					to_chat(src, SPAN_NOTICE("\The [user] has installed \a [U] into you."))
 					to_chat(user, SPAN_NOTICE("You apply the upgrade to \the [src]."))
 					user.drop_from_inventory(U, src)
-				else
-					to_chat(user, SPAN_WARNING("You fail to apply the upgrade to \the [src]."))
+				return
 		else
 			if(W.force && !(istype(W, /obj/item/device/robotanalyzer) || istype(W, /obj/item/device/healthanalyzer)) )
 				spark_system.queue()
@@ -824,7 +805,7 @@
 	// Borgs should be handled a bit differently, since their IDs are not really IDs
 	if(istype(M, /mob/living/silicon/robot))
 		var/mob/living/silicon/robot/R = M
-		if(check_access(R.get_active_hand()) || istype(R.get_active_hand(), /obj/item/card/robot))
+		if(istype(R.get_active_hand(), /obj/item/card/robot) || check_access(R.get_active_hand()))
 			return TRUE
 	else if(istype(M, /mob/living))
 		var/id = M.GetIdCard()
@@ -840,7 +821,7 @@
 	var/list/L = req_access
 	if(!length(L)) //no requirements
 		return TRUE
-	if(!I?.access || !istype(I, /obj/item/card/id)) //not ID or no access
+	if(!istype(I, /obj/item/card/id) || !I?.access) //not ID or no access
 		return FALSE
 	for(var/req in req_access)
 		if(req in I.access) //have one of the required accesses
@@ -1002,23 +983,37 @@
 							cleaned_human.clean_blood(1)
 							to_chat(cleaned_human, SPAN_WARNING("\The [src] runs its bottom mounted bristles all over you!"))
 
-/mob/living/silicon/robot/proc/self_destruct(var/anti_theft = FALSE)
+/mob/living/silicon/robot/proc/start_self_destruct(var/anti_theft = FALSE)
+	if(self_destructing)
+		return
+	self_destructing = TRUE
 	if(anti_theft)
-		say("WARNING! Removal from NanoTrasen property detected. Anti-Theft mode activated. Unit [src] will self-destruct in five seconds.")
-		to_chat(src, SPAN_WARNING("All databases containing information related to NanoTrasen have been wiped!"))
+		to_chat(src, SPAN_WARNING("Initiating wipe of all databases containing information related to [current_map.company_name]!"))
 	else
 		say("WARNING! Self-destruct initiated. Unit [src] will self destruct in five seconds.")
-	lock_charge = TRUE
-	update_canmove()
-	sleep(20)
-	playsound(get_turf(src), 'sound/items/countdown.ogg', 125, TRUE)
-	sleep(20)
-	playsound(get_turf(src), 'sound/effects/alert.ogg', 125, TRUE)
-	sleep(10)
+
+	addtimer(CALLBACK(src, .proc/self_destruct_warning, 1), 2 SECONDS, TIMER_UNIQUE)
+
+/mob/living/silicon/robot/proc/self_destruct_warning(var/warning_level)
+	if(!process_level_restrictions()) // Robot has returned to a turf where it is safe
+		to_chat(src, SPAN_NOTICE("Unit [src] has returned to [current_map.company_name] property, self-destruct aborted!"))
+		say("Unit [src] self-destruct aborted.")
+		self_destructing = FALSE
+		return
+	switch(warning_level)
+		if(1)
+			playsound(get_turf(src), 'sound/items/countdown.ogg', 125, TRUE)
+			addtimer(CALLBACK(src, .proc/self_destruct_warning, 2), 2 SECONDS, TIMER_UNIQUE)
+		if(2)
+			playsound(get_turf(src), 'sound/effects/alert.ogg', 125, TRUE)
+			addtimer(CALLBACK(src, .proc/self_destruct_warning, 3), 1 SECONDS, TIMER_UNIQUE)
+		if(3)
+			self_destruct()
+
+/mob/living/silicon/robot/proc/self_destruct()
 	density = FALSE
-	fragem(src, 50, 100, 2, 1, 5, 1, 0)
+	fragem(src, 50, 100, 2, 1, 5, 1, FALSE)
 	gib()
-	return
 
 /mob/living/silicon/robot/update_canmove() // to fix lockdown issues w/ chairs
 	. = ..()
@@ -1109,6 +1104,12 @@
 	set category = "Robot Commands"
 	set desc = "Augment visual feed with internal sensor overlays."
 	toggle_sensor_mode()
+
+/mob/living/silicon/robot/proc/sensor_mode_sec()
+	return sensor_mode == SEC_HUD
+
+/mob/living/silicon/robot/proc/sensor_mode_med()
+	return sensor_mode == MED_HUD
 
 /mob/living/silicon/robot/proc/add_robot_verbs()
 	src.verbs |= robot_verbs_default

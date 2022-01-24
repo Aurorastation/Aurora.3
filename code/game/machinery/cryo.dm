@@ -2,6 +2,7 @@
 
 /obj/machinery/atmospherics/unary/cryo_cell
 	name = "cryo cell"
+	desc = "A cryogenic chamber that can freeze occupants while keeping them alive, preventing them from taking any further damage. It can be loaded with a chemical cocktail for various medical benefits."
 	desc_info = "The cryogenic chamber, or 'cryo', treats most damage types, most notably genetic damage. It also stabilizes patients \
 	in critical condition by placing them in stasis, so they can be treated at a later time.<br>\
 	<br>\
@@ -32,7 +33,7 @@
 	clickvol = 30
 
 	var/temperature_archived
-	var/mob/living/carbon/occupant = null
+	var/mob/living/carbon/human/occupant = null
 	var/obj/item/reagent_containers/glass/beaker = null
 
 	var/current_heat_capacity = 50
@@ -105,16 +106,26 @@
 		return
 
 	// this is the data which will be sent to the ui
-	var/data[0]
+	var/list/data = list()
 	data["isOperating"] = on
 	data["hasOccupant"] = occupant ? 1 : 0
 
-	var/occupantData[0]
+	var/list/occupantData = list()
 	if (occupant)
 		occupantData["name"] = occupant.name
 		occupantData["stat"] = occupant.stat
 		occupantData["bodyTemperature"] = occupant.bodytemperature
-	data["occupant"] = occupantData;
+		occupantData["brain_activity"] = occupant.get_brain_status()
+		occupantData["pulse"] = occupant.get_pulse(GETPULSE_TOOL)
+		occupantData["blood_o2"] = occupant.get_blood_oxygenation()
+		occupantData["blood_pressure"] = occupant.get_blood_pressure()
+		occupantData["cloneLoss"] = occupant.getCloneLoss()
+		occupantData["bruteLoss"] = occupant.getBruteLoss()
+		occupantData["fireLoss"] = occupant.getFireLoss()
+		occupantData["toxLoss"] = occupant.getToxLoss()
+		occupantData["oxyLoss"] = occupant.getOxyLoss()
+		occupantData["cryostasis"] = "[occupant.stasis_value]"
+	data["occupant"] = occupantData
 
 	data["cellTemperature"] = round(air_contents.temperature)
 	data["cellTemperatureStatus"] = "good"
@@ -124,32 +135,19 @@
 		data["cellTemperatureStatus"] = "average"
 
 	data["isBeakerLoaded"] = beaker ? 1 : 0
-	/* // Removing beaker contents list from front-end, replacing with a total remaining volume
-	var beakerContents[0]
-	if(beaker && beaker.reagents && beaker.reagents.reagent_list.len)
-		for(var/datum/reagent/R in beaker.reagents.reagent_list)
-			beakerContents.Add(list(list("name" = R.name, "volume" = R.volume))) // list in a list because Byond merges the first list...
-	data["beakerContents"] = beakerContents
-	*/
 	data["beakerLabel"] = null
 	data["beakerVolume"] = 0
 	if(beaker)
 		data["beakerLabel"] = beaker.label_text ? beaker.label_text : null
-		if (beaker.reagents && beaker.reagents.reagent_list.len)
-			for(var/datum/reagent/R in beaker.reagents.reagent_list)
-				data["beakerVolume"] += R.volume
+		for(var/_R in beaker.reagents.reagent_volumes)
+			data["beakerVolume"] += REAGENT_VOLUME(beaker.reagents, _R)
 
 	// update the ui if it exists, returns null if no ui is passed/found
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
-		// the ui does not exist, so we'll create a new() one
-        // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
 		ui = new(user, src, ui_key, "cryo.tmpl", "Cryo Cell Control System", 520, 410)
-		// when the ui is first opened this is the data it will use
 		ui.set_initial_data(data)
-		// open the new ui window
 		ui.open()
-		// auto update every Master Controller tick
 		ui.set_auto_update(1)
 
 /obj/machinery/atmospherics/unary/cryo_cell/Topic(href, href_list)
@@ -200,11 +198,11 @@
 
 		if(do_mob(user, L, 30, needhand = 0))
 			var/bucklestatus = L.bucklecheck(user)
-			if(!bucklestatus)//incase the patient got buckled during the delay
+			if(!bucklestatus)//incase the patient got buckled_to during the delay
 				return
 			if(bucklestatus == 2)
-				var/obj/structure/LB = L.buckled
-				LB.user_unbuckle_mob(user)
+				var/obj/structure/LB = L.buckled_to
+				LB.user_unbuckle(user)
 			for(var/mob/living/carbon/slime/M in range(1, L))
 				if(M.victim == L)
 					to_chat(user, SPAN_WARNING("[L] will not fit into the cryo because they have a slime latched onto their head."))
@@ -236,8 +234,8 @@
 		user.visible_message("<span class='notice'>[user] starts putting [L] into the cryopod.</span>", "<span class='notice'>You start putting [L] into [src].</span>", range = 3)
 	if (do_mob(user, L, 30, needhand = 0))
 		if (bucklestatus == 2)
-			var/obj/structure/LB = L.buckled
-			LB.user_unbuckle_mob(user)
+			var/obj/structure/LB = L.buckled_to
+			LB.user_unbuckle(user)
 		if(put_mob(L))
 			if(L == user)
 				user.visible_message("<span class='notice'>[user] climbs into [src].</span>", "<span class='notice'>You climb into [src].</span>", range = 3)
@@ -285,12 +283,6 @@
 		occupant.bodytemperature = max(occupant.bodytemperature, air_contents.temperature) // this is so ugly i'm sorry for doing it i'll fix it later i promise
 		occupant.stat = 1
 		if(occupant.bodytemperature < T0C)
-			occupant.sleeping = max(5, (1/occupant.bodytemperature)*2000)
-			occupant.Paralyse(max(5, (1/occupant.bodytemperature)*3000))
-			if(air_contents.gas["oxygen"] > 2)
-				if(occupant.getOxyLoss()) occupant.adjustOxyLoss(-1)
-			else
-				occupant.adjustOxyLoss(-1)
 			//severe damage should heal waaay slower without proper chemicals
 			if(occupant.bodytemperature < 225)
 				if(!occupant.is_diona())
@@ -299,11 +291,11 @@
 					occupant.heal_organ_damage(heal_brute,heal_fire)
 				else
 					occupant.adjustFireLoss(3)//Cryopods kill diona. This damage combines with the normal cold temp damage, and their disabled regen
-		var/has_cryo = occupant.reagents.get_reagent_amount(/datum/reagent/cryoxadone) >= 1
-		var/has_clonexa = occupant.reagents.get_reagent_amount(/datum/reagent/clonexadone) >= 1
+		var/has_cryo = REAGENT_VOLUME(occupant.reagents, /decl/reagent/cryoxadone) >= 1
+		var/has_clonexa = REAGENT_VOLUME(occupant.reagents, /decl/reagent/clonexadone) >= 1
 		var/has_cryo_medicine = has_cryo || has_clonexa
 		if(beaker && !has_cryo_medicine)
-			beaker.reagents.trans_to_mob(occupant, 1, CHEM_BLOOD, 10)
+			beaker.reagents.trans_to_mob(occupant, 1, CHEM_BLOOD)
 
 /obj/machinery/atmospherics/unary/cryo_cell/proc/heat_gas_contents()
 	if(air_contents.total_moles < 1)
@@ -336,13 +328,12 @@
 	occupant.forceMove(get_step(loc, SOUTH))	//this doesn't account for walls or anything, but i don't forsee that being a problem.
 	if (occupant.bodytemperature < 261 && occupant.bodytemperature >= 70) //Patch by Aranclanos to stop people from taking burn damage after being ejected
 		occupant.bodytemperature = 261									  // Changed to 70 from 140 by Zuhayr due to reoccurance of bug.
-//	occupant.metabslow = 0
 	occupant = null
 	current_heat_capacity = initial(current_heat_capacity)
 	update_use_power(1)
 	update_icon()
-	return
-/obj/machinery/atmospherics/unary/cryo_cell/proc/put_mob(mob/living/carbon/M as mob)
+
+/obj/machinery/atmospherics/unary/cryo_cell/proc/put_mob(mob/living/carbon/human/M as mob)
 	if (stat & (NOPOWER|BROKEN))
 		to_chat(usr, "<span class='warning'>The cryo cell is not functioning.</span>")
 		return

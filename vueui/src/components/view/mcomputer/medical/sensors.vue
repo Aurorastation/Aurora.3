@@ -1,26 +1,30 @@
 <template>
   <div>
-    <div class="table">
-      <div class="header">
+    <div class="table border">
+      <div class="header border">
         <div class="header-item">Name</div>
         <div class="header-item"><vui-tooltip label="Pulse/Cell">Pulse rate or Cell Charge (IPCs)</vui-tooltip></div>
         <div class="header-item"><vui-tooltip label="BP">Blood pressure</vui-tooltip></div>
         <div class="header-item"><vui-tooltip label="Oxy">Oxygenation</vui-tooltip></div>
         <div class="header-item"><vui-tooltip label="Temp">Temperature</vui-tooltip></div>
         <div class="header-item">Location</div>
-        <div class="header-item"/>
+        <template v-if="isAI">
+          <div class="header-item"/>
+        </template>
       </div>
       <div class="sensor" v-for="sensor in crewmembers" :key="sensor.ref">
         <div class="item">{{ sensor.name }} ({{ sensor.ass }})</div>
-        <div class="item center" :class="getPulseClass(sensor.tpulse)" v-if="sensor.cellCharge == -1">{{ sensor.pulse }}</div>
-        <div class="item center" :class="getChargeClass(sensor.cellCharge)" v-else>{{ sensor.cellCharge }}%</div>
-        <div class="item center" :class="getPressureClass(sensor.tpressure)" v-if="sensor.stype > 1">{{ sensor.pressure }}</div>
-        <div class="item center" v-else>N/A</div>
-        <div class="item center" :class="getOxyClass(sensor.oxyg)">{{ toOxyLabel(sensor.oxyg) }}</div>
-        <div class="item center"><span v-if="sensor.stype > 1">{{ roundTemp(sensor.bodytemp) }}</span></div>
-        <div class="item right" v-if="sensor.stype > 2">{{sensor.area}} ({{sensor.x}}, {{sensor.y}}, {{sensor.z}})</div>
-        <div class="item right" v-else>Not Available</div>
-        <div class="item right" v-if="isAI"><vui-button :params="{track: sensor.ref}" :disabled="sensor.stype < 3">Track</vui-button></div>
+        <div class="item" :class="getPulseClass(sensor.tpulse)" v-if="sensor.cellCharge == -1">{{ sensor.pulse }}</div>
+        <div class="item" :class="getChargeClass(sensor.cellCharge)" v-else>{{ sensor.cellCharge }}%</div>
+        <div class="item" :class="getPressureClass(sensor.tpressure)" v-if="sensor.stype > 1">{{ sensor.pressure }}</div>
+        <div class="item" v-else>N/A</div>
+        <div class="item" :class="getOxyClass(sensor.oxyg)">{{ toOxyLabel(sensor.oxyg) }}</div>
+        <div class="item"><span v-if="sensor.stype > 1">{{ roundTemp(sensor.bodytemp) }}</span></div>
+        <div class="item" v-if="sensor.stype > 2">{{sensor.area}} ({{sensor.x}}, {{sensor.y}}, {{sensor.z}})</div>
+        <div class="item" v-else>Not Available</div>
+        <template v-if="isAI">
+          <div class="item"><vui-button :params="{track: sensor.ref}" :disabled="sensor.stype < 3">Track</vui-button></div>
+        </template>
       </div>
     </div>
   </div>
@@ -125,14 +129,18 @@ export default {
       padding: 1px;
       vertical-align: middle;
     }
+    .sensor:last-child {
+      padding-right: 0;
+    }
   }
 }
 
-.center {
+.item {
   text-align: center;
 }
 
-.right {
-  text-align: right;
+.sensor .item {
+  border: 0.5px solid rgba(0, 0, 0, 0.5);
+  border-radius: 0.15em;
 }
 </style>

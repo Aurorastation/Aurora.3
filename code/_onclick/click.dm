@@ -119,11 +119,9 @@
 		RestrainedClickOn(A)
 		return 1
 
-	if(in_throw_mode)
-		if(isturf(A) || isturf(A.loc))
-			throw_item(A)
-			return 1
+	if(in_throw_mode && (isturf(A) || isturf(A.loc)) && throw_item(A))
 		throw_mode_off()
+		return TRUE
 
 	var/obj/item/W = get_active_hand()
 
@@ -222,9 +220,10 @@
 	animals lunging, etc.
 */
 /mob/proc/RangedAttack(var/atom/A, var/params)
-	if(!mutations.len) return
-	if((LASER_EYES in mutations) && a_intent == I_HURT)
+	if(length(mutations) && (LASER_EYES in mutations) && a_intent == I_HURT)
 		LaserEyes(A, params) // moved into a proc below
+		return
+	A.attack_ranged(src, params)
 
 /*
 	Restrained ClickOn
@@ -237,11 +236,11 @@
 
 /*
 	Middle click
-	Only used for swapping hands
 */
 /mob/proc/MiddleClickOn(var/atom/A)
+	if(A.handle_middle_mouse_click(src))
+		return
 	swap_hand()
-	return
 
 // In case of use break glass
 /*
@@ -259,9 +258,8 @@
 	return
 
 /atom/proc/ShiftClick(var/mob/user)
-	if(user.client && user.client.eye == user)
+	if(user.can_examine())
 		user.examinate(src)
-	return
 
 /*
 	Ctrl click
@@ -361,4 +359,56 @@
 			direction = WEST
 
 	if(direction != dir)
-		facedir(direction)
+		facedir(direction, TRUE)
+
+var/global/list/click_catchers
+
+/obj/screen/click_catcher
+	icon = 'icons/mob/screen_gen.dmi'
+	icon_state = "click_catcher"
+	plane = CLICKCATCHER_PLANE
+	mouse_opacity = 2
+	screen_loc = "CENTER-7,CENTER-7"
+
+/obj/screen/click_catcher/Destroy()
+	SHOULD_CALL_PARENT(FALSE)
+	return QDEL_HINT_LETMELIVE
+
+/proc/create_click_catcher()
+	. = list()
+	for(var/i = 0, i<15, i++)
+		for(var/j = 0, j<15, j++)
+			var/obj/screen/click_catcher/CC = new()
+			CC.screen_loc = "NORTH-[i],EAST-[j]"
+			. += CC
+
+/obj/screen/click_catcher/Click(location, control, params)
+	var/list/modifiers = params2list(params)
+	if(modifiers["middle"] && istype(usr, /mob/living/carbon))
+		var/mob/living/carbon/C = usr
+		C.swap_hand()
+	else
+		var/turf/T = screen_loc2turf(screen_loc, get_turf(usr))
+		if(T)
+			T.Click(location, control, params)
+	. = 1
+
+// Suppress the mouse macros
+/client/var/has_mouse_macro_warning
+/mob/proc/LogMouseMacro(verbused, params)
+	if(!client)
+		return
+	if(!client.has_mouse_macro_warning) // Log once
+		log_admin("[key_name(usr)] attempted to use a mouse macro: [verbused] [params]")
+/mob/verb/ClickSubstitute(params as command_text)
+	set hidden = 1
+	set name = ".click"
+	LogMouseMacro(".click", params)
+/mob/verb/DblClickSubstitute(params as command_text)
+	set hidden = 1
+	set name = ".dblclick"
+	LogMouseMacro(".dblclick", params)
+/mob/verb/MouseSubstitute(params as command_text)
+	set hidden = 1
+	set name = ".mouse"
+	LogMouseMacro(".mouse", params)

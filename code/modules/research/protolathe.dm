@@ -1,5 +1,6 @@
 /obj/machinery/r_n_d/protolathe
 	name = "protolathe"
+	desc = "An upgraded variant of a common Autolathe, this can only be operated via a nearby RnD console, but can manufacture cutting edge technology, provided it has the design and the correct materials."
 	icon_state = "protolathe"
 	flags = OPENCONTAINER
 
@@ -45,7 +46,7 @@
 		update_icon()
 	else
 		if(busy)
-			visible_message("<span class='notice'>\icon [src] flashes: insufficient materials: [getLackingMaterials(D)].</span>")
+			visible_message("<span class='notice'>[icon2html(src, viewers(get_turf(src)))] [src] flashes: insufficient materials: [getLackingMaterials(D)].</span>")
 			busy = 0
 			update_icon()
 
@@ -160,11 +161,9 @@
 
 /obj/machinery/r_n_d/protolathe/proc/addToQueue(var/datum/design/D)
 	queue += D
-	return
 
 /obj/machinery/r_n_d/protolathe/proc/removeFromQueue(var/index)
 	queue.Cut(index, index + 1)
-	return
 
 /obj/machinery/r_n_d/protolathe/proc/canBuild(var/datum/design/D)
 	for(var/M in D.materials)
@@ -184,9 +183,10 @@
 			ret += "[D.materials[M] - materials[M]] [M]"
 	for(var/C in D.chemicals)
 		if(!reagents.has_reagent(C, D.chemicals[C]))
+			var/decl/reagent/R = decls_repository.get_decl(C)
 			if(ret != "")
 				ret += ", "
-			ret += C
+			ret += "[R.name]"
 	return ret
 
 /obj/machinery/r_n_d/protolathe/proc/build(var/datum/design/D)
@@ -199,6 +199,8 @@
 		materials[M] = max(0, materials[M] - D.materials[M] * mat_efficiency)
 	for(var/C in D.chemicals)
 		reagents.remove_reagent(C, D.chemicals[C] * mat_efficiency)
+
+	intent_message(MACHINE_SOUND)
 
 	if(D.build_path)
 		var/obj/new_item = D.Fabricate(src, src)

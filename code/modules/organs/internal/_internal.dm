@@ -4,9 +4,11 @@
 /obj/item/organ/internal
 	var/dead_icon // Icon to use when the organ has died.
 	var/damage_reduction = 0.5     //modifier for internal organ injury
+	var/unknown_pain_location = TRUE // if TRUE, pain messages will point to the parent organ, otherwise it will print the organ name
 	var/toxin_type = "undefined"
 	var/relative_size = 25 //Used for size calcs
 	var/on_mob_icon
+	var/list/possible_modifications = list("Normal","Assisted","Mechanical") //this is used in the character setup
 
 	min_broken_damage = 10 //Internal organs are frail, man.
 
@@ -119,9 +121,11 @@
 	if(istype(owner) && (toxin_type in owner.chem_effects))
 		take_damage(owner.chem_effects[toxin_type] * 0.1 * PROCESS_ACCURACY, prob(1))
 	handle_regeneration()
+	tick_surge_damage() //Yes, this is intentional.
 
 /obj/item/organ/internal/proc/handle_regeneration()
-	if(!damage || BP_IS_ROBOTIC(src) || !owner || owner.chem_effects[CE_TOXIN] || owner.is_asystole())
+	if(!damage || BP_IS_ROBOTIC(src) || !istype(owner) || owner.chem_effects[CE_TOXIN] || (toxin_type in owner.chem_effects) || owner.is_asystole())
 		return
-	if(damage < 0.1*max_damage)
-		heal_damage(0.1)
+	var/repair_modifier = owner.chem_effects[CE_ORGANREPAIR] || 0.1
+	if(damage < repair_modifier*max_damage)
+		heal_damage(repair_modifier)

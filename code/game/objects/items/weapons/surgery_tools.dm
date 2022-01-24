@@ -8,17 +8,18 @@
  *		Circular Saw
  *   	Tray
  */
-/obj/item/surgery/
+/obj/item/surgery
 	name = "surgery tool"
 	desc = "hey, you aren't supposed to have this"
 	icon = 'icons/obj/surgery.dmi'
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	drop_sound = 'sound/items/drop/weldingtool.ogg'
 	pickup_sound = 'sound/items/pickup/weldingtool.ogg'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
 		)
+	recyclable = TRUE
 
 /*
  * Retractor
@@ -66,11 +67,11 @@
 	desc = "You can drill using this item. You dig?"
 	icon_state = "drill"
 	item_state = "drill"
-	hitsound = 'sound/weapons/saw/circsawhit.ogg'
+	hitsound = /decl/sound_category/drillhit_sound
 	matter = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GLASS = 10000)
 	flags = CONDUCT
 	force = 15.0
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	attack_verb = list("drilled")
 	drop_sound = 'sound/items/drop/accessory.ogg'
@@ -87,8 +88,8 @@
 	flags = CONDUCT
 	force = 10.0
 	sharp = 1
-	edge = 1
-	w_class = 1
+	edge = TRUE
+	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS
 	throwforce = 5.0
 	throw_speed = 3
@@ -135,11 +136,11 @@
 	name = "circular saw"
 	desc = "For heavy duty cutting."
 	icon_state = "saw"
-	item_state = "scalpel"
+	item_state = "saw"
 	hitsound = 'sound/weapons/saw/circsawhit.ogg'
 	flags = CONDUCT
 	force = 15.0
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	throwforce = 9.0
 	throw_speed = 3
 	throw_range = 5
@@ -147,7 +148,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GLASS = 10000)
 	attack_verb = list("attacked", "slashed", "sawed", "cut")
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
@@ -182,7 +183,7 @@
 	throw_range = 5
 	attack_verb = list("attacked", "hit", "bludgeoned")
 
-/obj/item/storage/fancy/tray
+/obj/item/storage/box/fancy/tray
 	name = "surgery tray"
 	desc = "A tray of surgical tools."
 	icon = 'icons/obj/surgery.dmi'
@@ -191,7 +192,7 @@
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
 	force = 2
-	w_class = 5.0
+	w_class = ITEMSIZE_HUGE
 	storage_slots = 10
 	attack_verb = list("slammed")
 	icon_type = "surgery tool"
@@ -223,7 +224,7 @@
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 	)
 
-/obj/item/storage/fancy/tray/update_icon()
+/obj/item/storage/box/fancy/tray/update_icon()
 	cut_overlays()
 
 	var/list/types_and_overlays = list(
@@ -240,26 +241,30 @@
 		/obj/item/surgery/surgicaldrill = "tray_drill",
 		/obj/item/surgery/bonegel = "tray_bone-gel",
 		/obj/item/surgery/FixOVein = "tray_fixovein",
-		/obj/item/stack/medical/advanced/bruise_pack = "tray_bruise_pack"
+		/obj/item/stack/medical/advanced/bruise_pack = "tray_bruise_pack",
+		/obj/item/autopsy_scanner = "tray_autopsy_scanner",
+		/obj/item/device/mass_spectrometer = "tray_mass_spectrometer",
+		/obj/item/reagent_containers/glass/beaker/vial = "tray_vial",
+		/obj/item/reagent_containers/syringe = "tray_syringe"
 	)
 	for (var/obj/item/W in contents)
 		if (types_and_overlays[W.type])
 			add_overlay(types_and_overlays[W.type])
 			types_and_overlays -= W.type
 
-/obj/item/storage/fancy/tray/fill()
+/obj/item/storage/box/fancy/tray/fill()
 	. = ..()
 	update_icon()
 
-/obj/item/storage/fancy/tray/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/storage/box/fancy/tray/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 	update_icon()
 
-/obj/item/storage/fancy/tray/attack_hand(mob/user as mob)
+/obj/item/storage/box/fancy/tray/attack_hand(mob/user as mob)
 	if(ishuman(user))
 		src.open(user)
 
-/obj/item/storage/fancy/tray/MouseDrop(mob/user as mob)
+/obj/item/storage/box/fancy/tray/MouseDrop(mob/user as mob)
 	if((user && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
 		if(ishuman(user) && !user.get_active_hand())
 			var/mob/living/carbon/human/H = user
@@ -279,12 +284,38 @@
 
 	return
 
-/obj/item/storage/fancy/tray/attack(mob/living/M as mob, mob/user as mob, var/target_zone)
+/obj/item/storage/box/fancy/tray/attack(mob/living/M as mob, mob/user as mob, var/target_zone)
 	if(..() && contents.len)
 		spill(3, get_turf(M))
-		playsound(M, 'sound/items/trayhit2.ogg', 50, 1)  //sound playin' again
+		playsound(M, /decl/sound_category/tray_hit_sound, 50, 1)  //sound playin' again
 		user.visible_message(SPAN_DANGER("[user] smashes \the [src] into [M], causing it to spill its contents across the area!"))
 
-/obj/item/storage/fancy/tray/throw_impact(atom/hit_atom)
+/obj/item/storage/box/fancy/tray/throw_impact(atom/hit_atom)
 	..()
 	spill(3, src.loc)
+
+/obj/item/storage/box/fancy/tray/autopsy
+	name = "autopsy tray"
+	starts_with = list(
+		/obj/item/surgery/circular_saw = 1,
+		/obj/item/surgery/hemostat = 1,
+		/obj/item/surgery/retractor = 1,
+		/obj/item/surgery/scalpel = 1,
+		/obj/item/surgery/surgicaldrill = 1,
+		/obj/item/autopsy_scanner = 1,
+		/obj/item/device/mass_spectrometer = 1,
+		/obj/item/reagent_containers/glass/beaker/vial = 1,
+		/obj/item/reagent_containers/syringe = 1
+	)
+
+	can_hold = list(
+		/obj/item/surgery/circular_saw,
+		/obj/item/surgery/hemostat,
+		/obj/item/surgery/retractor,
+		/obj/item/surgery/scalpel,
+		/obj/item/surgery/surgicaldrill,
+		/obj/item/autopsy_scanner,
+		/obj/item/device/mass_spectrometer,
+		/obj/item/reagent_containers/glass/beaker/vial,
+		/obj/item/reagent_containers/syringe
+	)

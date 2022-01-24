@@ -3,6 +3,7 @@
 	desc = "Different from the Middle Ages version."
 	icon = 'icons/obj/tables.dmi'
 	icon_state = "rack"
+	build_amt = 1
 	can_plate = 0
 	can_reinforce = 0
 	flipped = -1

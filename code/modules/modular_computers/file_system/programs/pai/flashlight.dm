@@ -11,14 +11,15 @@
 	. = ..()
 
 	if(!istype(computer, /obj/item/modular_computer/silicon))
-		return
+		return FALSE
 	
 	var/obj/item/modular_computer/silicon/true_computer = computer
 	if(!istype(true_computer.computer_host, /mob/living/silicon/pai))
-		return
+		return FALSE
 
 	var/mob/living/silicon/pai/host = true_computer.computer_host
 	host.toggle_flashlight()
+	return TRUE
 
 /datum/computer_file/program/pai_flashlight/service_deactivate()
 	. = ..()

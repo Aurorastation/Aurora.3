@@ -1,9 +1,5 @@
 /datum/design/circuit/machine
-	design_order = 3
-
-/datum/design/circuit/machine/AssembleDesignName()
-	..()
-	name = "Machine Circuit Design ([item_name])"
+	p_category = "Machine Circuit Designs"
 
 /datum/design/circuit/machine/arcademachine
 	name = "Battle Arcade Machine"
@@ -50,6 +46,11 @@
 	req_tech = list(TECH_DATA = 3)
 	build_path = /obj/item/circuitboard/rdserver
 
+/datum/design/circuit/machine/rdtechprocessor
+	name = "R&D Tech Processor"
+	req_tech = list(TECH_DATA = 3)
+	build_path = /obj/item/circuitboard/rdtechprocessor
+
 /datum/design/circuit/machine/mechfab
 	name = "Exosuit Fabricator"
 	req_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 3)
@@ -59,6 +60,11 @@
 	name = "Mech Recharger"
 	req_tech = list(TECH_DATA = 2, TECH_POWER = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/mech_recharger
+
+/datum/design/circuit/machine/heph_mech_recharger
+	name = "Hephaestus Mech Recharger"
+	req_tech = list(TECH_DATA = 3, TECH_POWER = 3, TECH_ENGINEERING = 4)
+	build_path = /obj/item/circuitboard/mech_recharger/hephaestus
 
 /datum/design/circuit/machine/recharge_station
 	name = "Cyborg Recharge Station"
@@ -74,6 +80,11 @@
 	name = "Sleeper"
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/sleeper
+
+/datum/design/circuit/machine/stasis_bed
+	name = "Lifeform Stasis Unit"
+	req_tech = list(TECH_MAGNET = 4, TECH_ENGINEERING = 4, TECH_BIO = 4)
+	build_path = /obj/item/circuitboard/stasis_bed
 
 /datum/design/circuit/machine/bodyscannerm
 	name = "Body Scanner"
@@ -115,10 +126,10 @@
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/crystelpodconsole
 
-/datum/design/circuit/machine/microwave
-	name = "Microwave"
+/datum/design/circuit/machine/stove
+	name = "Stove"
 	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
-	build_path = /obj/item/circuitboard/microwave
+	build_path = /obj/item/circuitboard/stove
 
 /datum/design/circuit/machine/oven
 	name = "Oven"
@@ -134,6 +145,11 @@
 	name = "Cereal Maker"
 	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/cerealmaker
+
+/datum/design/circuit/machine/grill
+	name = "Grill"
+	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/circuitboard/grill
 
 /datum/design/circuit/machine/candymaker
 	name = "Candy Machine"
@@ -162,7 +178,6 @@
 
 /datum/design/circuit/machine/smes_cell
 	name = "'SMES' Superconductive Magnetic Energy Storage"
-	desc = "Allows for the construction of circuits used to build a SMES."
 	req_tech = list(TECH_POWER = 7, TECH_ENGINEERING = 5)
 	build_path = /obj/item/circuitboard/smes
 
@@ -188,6 +203,7 @@
 
 /datum/design/circuit/machine/aicore
 	name = "AI Core"
+	desc = "Used in the construction of an: <b>AI core</b>, Secure housing for an AI, it provides power and protection to its inhabitant."
 	req_tech = list(TECH_DATA = 4, TECH_BIO = 3)
 	build_path = /obj/item/circuitboard/aicore
 
@@ -211,17 +227,17 @@
 	req_tech = list(TECH_DATA = 4, TECH_BLUESPACE = 4, TECH_MATERIAL = 3, TECH_ENGINEERING = 3)
 	build_path = /obj/item/circuitboard/telesci_pad
 
-/datum/design/circuit/machine/miningdrill
-	name = "Mining Drill Head"
+/datum/design/circuit/machine/cargo_trolley
+	name = "Cargo Trolley"
 	req_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
-	build_path = /obj/item/circuitboard/miningdrill
-
-/datum/design/circuit/machine/miningdrillbrace
-	name = "Mining Drill Brace"
-	req_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
-	build_path = /obj/item/circuitboard/miningdrillbrace
+	build_path = /obj/item/circuitboard/cargo_trolley
 
 /datum/design/circuit/machine/weapons_analyzer
 	name = "Weapons Analyzer"
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 3, TECH_COMBAT = 2)
 	build_path = /obj/item/circuitboard/weapons_analyzer
+
+/datum/design/circuit/machine/slime_extractor
+	name = "Slime Extractor"
+	req_tech = list(TECH_BIO = 2, TECH_ENGINEERING = 1, TECH_BLUESPACE = 1)
+	build_path = /obj/item/circuitboard/slime_extractor

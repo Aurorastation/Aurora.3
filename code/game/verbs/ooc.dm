@@ -58,9 +58,9 @@
 					else
 						display_name = holder.fakekey
 			if(holder && !holder.fakekey && (holder.rights & R_ADMIN) && config.allow_admin_ooccolor && (src.prefs.ooccolor != initial(src.prefs.ooccolor))) // keeping this for the badmins
-				to_chat(target, "<font color='[src.prefs.ooccolor]'><span class='ooc'>" + create_text_tag("ooc", "OOC:", target) + " <EM>[display_name]:</EM> <span class='message'>[msg]</span></span></font>")
+				to_chat(target, "<font color='[src.prefs.ooccolor]'><span class='ooc'>" + create_text_tag("OOC", target) + " <EM>[display_name]:</EM> <span class='message linkify'>[msg]</span></span></font>")
 			else
-				to_chat(target, "<span class='ooc'><span class='[ooc_style]'>" + create_text_tag("ooc", "OOC:", target) + " <EM>[display_name]:</EM> <span class='message'>[msg]</span></span></span>")
+				to_chat(target, "<span class='ooc'><span class='[ooc_style]'>" + create_text_tag("OOC", target) + " <EM>[display_name]:</EM> <span class='message linkify'>[msg]</span></span></span>")
 
 /client/verb/looc(msg as text)
 	set name = "LOOC"
@@ -85,6 +85,9 @@
 
 	if(!(prefs.toggles & CHAT_LOOC))
 		to_chat(src, "<span class='danger'>You have LOOC muted.</span>")
+		return
+	if(mob.stat == DEAD && !(prefs.toggles & CHAT_GHOSTLOOC))
+		to_chat(src, "<span class='danger'>You have observer LOOC muted.</span>")
 		return
 
 	if(!holder)
@@ -138,6 +141,8 @@
 	var/admin_stuff
 	for(var/client/target in clients)
 		if(target.prefs.toggles & CHAT_LOOC)
+			if(mob.stat == DEAD && !(target.prefs.toggles & CHAT_GHOSTLOOC))
+				continue
 			admin_stuff = ""
 			var/display_remote = 0
 			if (target.holder && ((R_MOD|R_ADMIN) & target.holder.rights))
@@ -150,7 +155,7 @@
 			if(target.mob in messagemobs)
 				prefix = ""
 			if((target.mob in messagemobs) || display_remote)
-				to_chat(target, "<span class='ooc'><span class='looc'>" + create_text_tag("looc", "LOOC:", target) + " <span class='prefix'>[prefix]</span><EM>[display_name][admin_stuff]:</EM> <span class='message'>[msg]</span></span></span>")
+				to_chat(target, "<span class='ooc'><span class='looc'>" + create_text_tag("LOOC", target) + " <span class='prefix'>[prefix]</span><EM>[display_name][admin_stuff]:</EM> <span class='message linkify'>[msg]</span></span></span>")
 
 /client/verb/stop_all_sounds()
 	set name = "Stop all sounds"

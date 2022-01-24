@@ -7,7 +7,7 @@
 	contained_sprite = TRUE
 	throw_range = 3
 	force = 10
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BACK
 
 /obj/item/ladder_mobile/proc/place_ladder(atom/A, mob/user)

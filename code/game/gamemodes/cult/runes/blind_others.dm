@@ -11,7 +11,7 @@
 
 /datum/rune/blind/proc/do_blind(mob/living/user, atom/movable/A, var/range = 7, var/effect_mod = 1, var/special_effects = TRUE)
 	var/list/affected = list()
-	for(var/mob/living/carbon/C in view(A, range))
+	for(var/mob/living/carbon/C in viewers(get_turf(A), range))
 		if(iscultist(C))
 			continue
 		var/obj/item/nullrod/N = locate() in C

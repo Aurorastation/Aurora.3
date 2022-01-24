@@ -5,7 +5,7 @@
 	icon_state = "pneumatic"
 	item_state = "pneumatic"
 	slot_flags = SLOT_BELT
-	w_class = 5.0
+	w_class = ITEMSIZE_HUGE
 	flags = CONDUCT
 	fire_sound_text = "a loud whoosh of moving air"
 	fire_delay = 50
@@ -13,7 +13,7 @@
 	needspin = FALSE
 
 	var/fire_pressure                                   // Used in fire checks/pressure checks.
-	var/max_w_class = 3                                 // Hopper intake size.
+	var/max_w_class = ITEMSIZE_NORMAL                                 // Hopper intake size.
 	var/max_storage_space = 20                       // Total internal storage size.
 	var/obj/item/tank/tank = null                // Tank of gas for use in firing the cannon.
 
@@ -74,7 +74,7 @@
 	else if(istype(W) && item_storage.can_be_inserted(W))
 		item_storage.handle_item_insertion(W)
 
-/obj/item/gun/launcher/pneumatic/attack_self(mob/user as mob)
+/obj/item/gun/launcher/pneumatic/unique_action(mob/user)
 	eject_tank(user)
 
 /obj/item/gun/launcher/pneumatic/consume_next_projectile(mob/user=null)
@@ -146,8 +146,6 @@
 	icon_state = "pneumatic0"
 	item_state = "pneumatic"
 	icon = 'icons/obj/weapons.dmi'
-	hitsound = "swing_hit"
-
 	var/buildstate = 0
 
 /obj/item/cannonframe/update_icon()
@@ -192,7 +190,7 @@
 			var/obj/item/weldingtool/T = W
 			if(T.remove_fuel(0,user))
 				if(!src || !T.isOn()) return
-				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
+				playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
 				to_chat(user, "<span class='notice'>You weld the pipe into place.</span>")
 				buildstate++
 				update_icon()
@@ -200,7 +198,7 @@
 			var/obj/item/weldingtool/T = W
 			if(T.remove_fuel(0,user))
 				if(!src || !T.isOn()) return
-				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
+				playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
 				to_chat(user, "<span class='notice'>You weld the metal chassis together.</span>")
 				buildstate++
 				update_icon()
@@ -208,7 +206,7 @@
 			var/obj/item/weldingtool/T = W
 			if(T.remove_fuel(0,user))
 				if(!src || !T.isOn()) return
-				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
+				playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
 				to_chat(user, "<span class='notice'>You weld the valve into place.</span>")
 				new /obj/item/gun/launcher/pneumatic(get_turf(src))
 				qdel(src)
@@ -219,5 +217,5 @@
 /obj/item/gun/launcher/pneumatic/small
 	name = "small pneumatic cannon"
 	desc = "It looks smaller than your garden variety cannon"
-	max_w_class = 1
-	w_class = 3
+	max_w_class = ITEMSIZE_TINY
+	w_class = ITEMSIZE_NORMAL

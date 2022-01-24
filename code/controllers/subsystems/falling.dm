@@ -80,6 +80,9 @@
 		// fall_collateral if the next turf is not open space.
 		if (isopenturf(victim.loc) && victim.loc:is_hole)
 			victim.forceMove(below)
+			if(victim.pulledby && victim.pulledby.z != victim.z)
+				var/mob/M = victim.pulledby
+				M.stop_pulling()
 
 			if (locate(/obj/structure/stairs) in victim.loc)	// If there's stairs, we're probably going down them.
 				if (falling[victim] <= 1)	// Just moving down a flight, skip damage.

@@ -51,6 +51,10 @@
 	name = "cow crate"
 	held_type = /mob/living/simple_animal/cow
 
+/obj/structure/largecrate/animal/pig
+	name = "pig crate"
+	held_type = /mob/living/simple_animal/pig
+
 /obj/structure/largecrate/animal/goat
 	name = "goat crate"
 	held_type = /mob/living/simple_animal/hostile/retaliate/goat

@@ -3,7 +3,7 @@
 	desc = "A window."
 	icon = 'icons/obj/structures.dmi'
 	density = 1
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	layer = 3.2//Just above doors
 	anchored = 1.0
 	flags = ON_BORDER
@@ -19,6 +19,7 @@
 	var/shardtype = /obj/item/material/shard
 	var/glasstype = null // Set this in subtypes. Null is assumed strange or otherwise impossible to dismantle, such as for shuttle glass.
 	var/silicate = 0 // number of units of silicate
+	var/base_frame = null
 
 	atmos_canpass = CANPASS_PROC
 
@@ -45,6 +46,12 @@
 		else
 			to_chat(user, SPAN_NOTICE("There is a thick layer of silicate covering it."))
 
+/obj/structure/window/proc/update_nearby_icons()
+	queue_smooth_neighbors(src)
+
+/obj/structure/window/update_icon()
+	queue_smooth(src)
+
 /obj/structure/window/proc/take_damage(var/damage = 0,  var/sound_effect = 1)
 	var/initialhealth = health
 
@@ -60,13 +67,13 @@
 			playsound(loc, 'sound/effects/glass_hit.ogg', 100, 1)
 		if(health < maxhealth / 4 && initialhealth >= maxhealth / 4)
 			visible_message(SPAN_DANGER("[src] looks like it's about to shatter!"))
-			playsound(loc, "glasscrack", 100, 1)
+			playsound(loc, /decl/sound_category/glasscrack_sound, 100, 1)
 		else if(health < maxhealth / 2 && initialhealth >= maxhealth / 2)
 			visible_message(SPAN_WARNING("[src] looks seriously damaged!"))
-			playsound(loc, "glasscrack", 100, 1)
+			playsound(loc, /decl/sound_category/glasscrack_sound, 100, 1)
 		else if(health < maxhealth * 3/4 && initialhealth >= maxhealth * 3/4)
 			visible_message(SPAN_WARNING("Cracks begin to appear in [src]!"))
-			playsound(loc, "glasscrack", 100, 1)
+			playsound(loc, /decl/sound_category/glasscrack_sound, 100, 1)
 	return
 
 /obj/structure/window/proc/apply_silicate(var/amount)
@@ -87,7 +94,7 @@
 	add_overlay(img)
 
 /obj/structure/window/proc/shatter(var/display_message = 1)
-	playsound(src, "shatter", 70, 1)
+	playsound(src, /decl/sound_category/glass_break_sound, 70, 1)
 	if(display_message)
 		visible_message(SPAN_WARNING("\The [src] shatters!"))
 	if(dir == SOUTHWEST)
@@ -102,6 +109,14 @@
 		new shardtype(loc) //todo pooling?
 		if(reinf)
 			new /obj/item/stack/rods(loc)
+
+	if(base_frame)
+		if(prob(50))
+			var/obj/F = new base_frame(loc)
+			F.anchored = anchored
+		else
+			new /obj/item/material/shard/shrapnel(loc)
+
 	qdel(src)
 	return
 
@@ -233,6 +248,7 @@
 			to_chat(user, (state == 1 ? SPAN_NOTICE("You have unfastened the window from the frame.") : SPAN_NOTICE("You have fastened the window to the frame.")))
 		else if(reinf && state == 0)
 			anchored = !anchored
+			update_icon()
 			update_nearby_icons()
 			playsound(loc, W.usesound, 75, 1)
 			to_chat(user, (anchored ? SPAN_NOTICE("You have fastened the frame to the floor.") : SPAN_NOTICE("You have unfastened the frame from the floor.")))
@@ -241,6 +257,8 @@
 			update_nearby_icons()
 			playsound(loc, W.usesound, 75, 1)
 			to_chat(user, (anchored ? SPAN_NOTICE("You have fastened the window to the floor.") : SPAN_NOTICE("You have unfastened the window.")))
+			update_icon()
+			update_nearby_icons()
 	else if(W.iscrowbar() && reinf && state <= 1)
 		state = 1 - state
 		playsound(loc, W.usesound, 75, 1)
@@ -250,12 +268,7 @@
 			to_chat(user, SPAN_NOTICE("You're not sure how to dismantle \the [src] properly."))
 		else
 			visible_message(SPAN_NOTICE("[user] dismantles \the [src]."))
-			if(dir == SOUTHWEST)
-				var/obj/item/stack/material/mats = new glasstype(loc)
-				mats.amount = is_fulltile() ? 4 : 2
-			else
-				new glasstype(loc)
-			qdel(src)
+			dismantle_window()
 	else
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		if(W.damtype == BRUTE || W.damtype == BURN)
@@ -278,28 +291,35 @@
 	qdel(G)	//gotta delete it here because if window breaks, it won't get deleted
 
 	var/def_zone = ran_zone(BP_HEAD, 20)
-	var/blocked = M.run_armor_check(def_zone, "melee")
 	switch (state)
 		if(1)
 			M.visible_message(SPAN_WARNING("[user] slams [M] against \the [src]!"))
-			M.apply_damage(7, damtype, def_zone, blocked, src)
+			M.apply_damage(7, damtype, def_zone, used_weapon = src)
 			hit(10)
 		if(2)
 			M.visible_message(SPAN_DANGER("[user] bashes [M] against \the [src]!"))
 			if (prob(50))
 				M.Weaken(1)
-			M.apply_damage(10, damtype, def_zone, blocked, src)
+			M.apply_damage(10, damtype, def_zone, used_weapon = src)
 			hit(25)
 		if(3)
 			M.visible_message(SPAN_DANGER("<big>[user] crushes [M] against \the [src]!</big>"))
 			M.Weaken(5)
-			M.apply_damage(20, damtype, def_zone, blocked, src)
+			M.apply_damage(20, damtype, def_zone, used_weapon = src)
 			hit(50)
 
 /obj/structure/window/proc/hit(var/damage, var/sound_effect = 1)
 	if(reinf) damage *= 0.5
 	take_damage(damage)
 	return
+
+/obj/structure/window/proc/dismantle_window()
+	if(dir == SOUTHWEST)
+		var/obj/item/stack/material/mats = new glasstype(loc)
+		mats.amount = is_fulltile() ? 4 : 2
+	else
+		new glasstype(loc)
+	qdel(src)
 
 /obj/structure/window/Initialize(mapload, start_dir = null, constructed=0)
 	. = ..()
@@ -342,33 +362,6 @@
 	if(dir & (dir - 1))
 		return 1
 	return 0
-
-//This proc is used to update the icons of nearby windows. It should not be confused with update_nearby_tiles(), which is an atmos proc!
-/obj/structure/window/proc/update_nearby_icons()
-	update_icon()
-	for(var/obj/structure/window/W in orange(src, 1))
-		W.update_icon()
-
-//merges adjacent full-tile windows into one (blatant ripoff from game/smoothwall.dm)
-/obj/structure/window/update_icon()
-	//A little cludge here, since I don't know how it will work with slim windows. Most likely VERY wrong.
-	//this way it will only update full-tile ones
-	cut_overlays()
-	if(!is_fulltile())
-		icon_state = "[basestate]"
-		return
-	var/list/dirs = list()
-	if(anchored)
-		for(var/obj/structure/window/W in orange(src,1))
-			if(W.anchored && W.density && W.type == src.type && W.is_fulltile()) //Only counts anchored, not-destroyed fill-tile windows.
-				dirs += get_dir(src, W)
-
-	var/list/connections = dirs_to_corner_states(dirs)
-
-	icon_state = ""
-	for(var/i = 1 to 4)
-		var/image/I = image(icon, "[basestate][connections[i]]", dir = 1<<(i-1))
-		add_overlay(I)
 
 /obj/structure/window/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if(exposed_temperature > maximal_heat)
@@ -486,17 +479,42 @@
 		/obj/structure/window/shuttle/skrell
 	)
 
+/obj/structure/window/shuttle/scc
+	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi'
+	icon_state = "scc_window"
+	basestate = "scc_window"
+	health = 160
+	maxhealth = 160
+	smooth = 0
+
+/obj/structure/window/shuttle/scc_space_ship
+	name = "window"
+	desc = "It looks extremely strong. Might take many good hits to crack it."
+	icon = 'icons/obj/smooth/scc_space_ship.dmi'
+	icon_state = "scc_space_ship"
+	health = 500
+	maxhealth = 500
+	smooth = SMOOTH_MORE|SMOOTH_DIAGONAL
+	canSmoothWith = list(
+		/obj/structure/window/shuttle/scc_space_ship
+	)
+
+/obj/structure/window/shuttle/scc_space_ship/cardinal
+	smooth = SMOOTH_MORE
+
+/obj/structure/window/shuttle/scc
+	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi'
+	icon_state = "scc_window"
+	basestate = "scc_window"
+	health = 160
+	maxhealth = 160
+	smooth = 0
+
 /obj/structure/window/shuttle/crescent
 	desc = "It looks rather strong."
 
 /obj/structure/window/shuttle/crescent/take_damage()
 	return
-
-/obj/structure/window/shuttle/update_nearby_icons()
-	queue_smooth_neighbors(src)
-
-/obj/structure/window/update_icon()
-	queue_smooth(src)
 
 /obj/structure/window/reinforced/polarized
 	name = "electrochromic window"
@@ -529,20 +547,18 @@
 /obj/structure/window/reinforced/crescent/shatter()
 	return
 
-/obj/machinery/button/windowtint
+/obj/machinery/button/switch/windowtint
 	name = "window tint control"
-	icon = 'icons/obj/power.dmi'
-	icon_state = "light0"
 	desc = "A remote control switch for polarized windows."
 	var/range = 16
 
-/obj/machinery/button/windowtint/attack_hand(mob/user as mob)
+/obj/machinery/button/switch/windowtint/attack_hand(mob/user as mob)
 	if(..())
 		return 1
 
 	toggle_tint()
 
-/obj/machinery/button/windowtint/proc/toggle_tint()
+/obj/machinery/button/switch/windowtint/proc/toggle_tint()
 	use_power(5)
 
 	active = !active
@@ -554,10 +570,107 @@
 				W.toggle()
 				return
 
-/obj/machinery/button/windowtint/power_change()
+/obj/machinery/button/switch/windowtint/power_change()
 	..()
 	if(active && !powered(power_channel))
 		toggle_tint()
 
-/obj/machinery/button/windowtint/update_icon()
+/obj/machinery/button/switch/windowtint/update_icon()
 	icon_state = "light[active]"
+
+/obj/structure/window/full
+	name = "reinforced window"
+	desc = "It looks rather strong. Might take a few good hits to shatter it."
+	icon = 'icons/obj/smooth/full_window.dmi'
+	icon_state = "window_glass"
+	basestate = "window_glass"
+	maxhealth = 40
+	reinf = TRUE
+	maximal_heat = T0C + 750
+	dir = 5
+	smooth = SMOOTH_MORE
+	canSmoothWith = list(
+		/obj/structure/window/full,
+		/turf/simulated/wall,
+		/turf/unsimulated/wall
+	)
+	damage_per_fire_tick = 2.0
+	can_be_unanchored = TRUE
+	glasstype = /obj/item/stack/material/glass/reinforced
+	layer = 2.99
+	base_frame = /obj/structure/window_frame
+
+/obj/structure/window/full/dismantle_window()
+	var/obj/item/stack/material/mats = new glasstype(loc)
+	mats.amount = 4
+	var/obj/structure/window_frame/F = new/obj/structure/window_frame (get_turf(src))
+	F.anchored = anchored
+	qdel(src)
+
+/obj/structure/window/full/cardinal_smooth(adjacencies, var/list/dir_mods)
+	LAZYINITLIST(dir_mods)
+	var/north_wall = FALSE
+	var/east_wall = FALSE
+	var/south_wall = FALSE
+	var/west_wall = FALSE
+	if(adjacencies & N_NORTH)
+		var/turf/T = get_step(src, NORTH)
+		if(iswall(T))
+			dir_mods["[N_NORTH]"] = "-wall"
+			north_wall = TRUE
+	if(adjacencies & N_EAST)
+		var/turf/T = get_step(src, EAST)
+		if(iswall(T))
+			dir_mods["[N_EAST]"] = "-wall"
+			east_wall = TRUE
+	if(adjacencies & N_SOUTH)
+		var/turf/T = get_step(src, SOUTH)
+		if(iswall(T))
+			dir_mods["[N_SOUTH]"] = "-wall"
+			south_wall = TRUE
+	if(adjacencies & N_WEST)
+		var/turf/T = get_step(src, WEST)
+		if(iswall(T))
+			dir_mods["[N_WEST]"] = "-wall"
+			west_wall = TRUE
+	if(((adjacencies & N_NORTH) && (adjacencies & N_WEST)) && (north_wall || west_wall))
+		dir_mods["[N_NORTH][N_WEST]"] = "-n[north_wall ? "wall" : "win"]-w[west_wall ? "wall" : "win"]"
+	if(((adjacencies & N_NORTH) && (adjacencies & N_EAST)) && (north_wall || east_wall))
+		dir_mods["[N_NORTH][N_EAST]"] = "-n[north_wall ? "wall" : "win"]-e[east_wall ? "wall" : "win"]"
+	if(((adjacencies & N_SOUTH) && (adjacencies & N_WEST)) && (south_wall || west_wall))
+		dir_mods["[N_SOUTH][N_WEST]"] = "-s[south_wall ? "wall" : "win"]-w[west_wall ? "wall" : "win"]"
+	if((adjacencies & N_SOUTH) && (adjacencies & N_EAST) && (south_wall || east_wall))
+		dir_mods["[N_SOUTH][N_EAST]"] = "-s[south_wall ? "wall" : "win"]-e[east_wall ? "wall" : "win"]"
+	return ..(adjacencies, dir_mods)
+
+/obj/structure/window/full/phoron
+	name = "reinforced borosilicate window"
+	desc = "A borosilicate alloy window, with rods supporting it. It seems to be very strong."
+	icon = 'icons/obj/smooth/phoron_full_window.dmi'
+	icon_state = "window_glass"
+	basestate = "window_glass"
+	shardtype = /obj/item/material/shard/phoron
+	glasstype = /obj/item/stack/material/glass/phoronrglass
+	maximal_heat = T0C + 4000
+	damage_per_fire_tick = 1.0
+	maxhealth = 80.0
+	layer = 2.99
+	base_frame = /obj/structure/window_frame
+
+/obj/structure/window/reinforced/polarized/full
+	name = "reinforced electrochromic window"
+	desc = "Adjusts its tint with voltage. Might take a few good hits to shatter it."
+	icon = 'icons/obj/smooth/full_window.dmi'
+	icon_state = "window_glass"
+	basestate = "window_glass"
+	dir = 5
+	smooth = SMOOTH_TRUE
+	layer = 2.99
+	base_frame = /obj/structure/window_frame
+
+/obj/structure/window/reinforced/polarized/full/dismantle_window()
+	var/obj/item/stack/material/mats = new glasstype(loc)
+	mats.amount = 4
+	var/obj/structure/window_frame/F = new/obj/structure/window_frame (get_turf(src))
+	F.anchored = anchored
+	qdel(src)

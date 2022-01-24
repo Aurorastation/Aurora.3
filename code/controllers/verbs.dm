@@ -8,30 +8,20 @@
 		usr.client.debug_variables(antag)
 		message_admins("Admin [key_name_admin(usr)] is debugging the [antag.role_text] template.")
 
-/var/list/controller_debug_list = list(
-	"Configuration",
-	"Cameras",
-	"Gas Data",
-	"Observation"
-)
-
-/client/proc/debug_controller(controller in controller_debug_list)
+/client/proc/debug_controller()
 	set category = "Debug"
 	set name = "Debug Controller"
 	set desc = "Debug the various periodic loop controllers for the game (be careful!)"
 
-	if(!holder)	return
-	switch(controller)
-		if("Configuration")
-			debug_variables(config)
-			feedback_add_details("admin_verb","DConf")
-		if("Cameras")
-			debug_variables(cameranet)
-			feedback_add_details("admin_verb","DCameras")
-		if("Gas Data")
-			debug_variables(gas_data)
-			feedback_add_details("admin_verb","DGasdata")
-		if("Observation")
-			debug_variables(all_observable_events)
-			feedback_add_details("admin_verb", "DObservation")
-	message_admins("Admin [key_name_admin(usr)] is debugging the [controller] controller.")
+	if(!holder)
+		return
+	var/list/available_controllers = list()
+	for(var/datum/controller/subsystem/SS in Master.subsystems)
+		if (!Master.initializing && SS.flags & SS_NO_DISPLAY)
+			continue
+		available_controllers[SS.name] = SS
+	available_controllers["Evacuation Main Controller"] = evacuation_controller
+	var/css = input("What controller would you like to debug?", "Controllers") as null|anything in available_controllers
+	debug_variables(available_controllers[css])
+	
+	message_admins("Admin [key_name_admin(usr)] is debugging the [css] controller.")

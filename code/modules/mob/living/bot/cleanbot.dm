@@ -107,7 +107,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		return
 
 	if(!screw_loose && !odd_button && prob(2) && world.time > last_emote + 2 MINUTES)
-		custom_emote(2, "makes an excited beeping booping sound!")
+		custom_emote(AUDIBLE_MESSAGE, "makes an excited beeping booping sound!")
 		last_emote = world.time
 
 	if(screw_loose && prob(5)) // Make a mess
@@ -174,7 +174,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 
 				var/datum/signal/signal = new()
 				signal.source = src
-				signal.transmission_method = 1
+				signal.transmission_method = TRANSMISSION_RADIO
 				signal.data = list("findbeacon" = "patrol")
 				frequency.post_signal(src, signal, filter = RADIO_NAVBEACONS)
 				signal_sent = world.time
@@ -211,7 +211,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 
 	cleaning = TRUE
 	D.being_cleaned = TRUE
-	update_icons()
+	update_icon()
 	var/clean_time = istype(D, /obj/effect/decal/cleanable/dirt) ? 10 : 50
 	INVOKE_ASYNC(src, .proc/do_clean, D, clean_time)
 
@@ -228,7 +228,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 			target = null
 		qdel(D)
 	cleaning = FALSE
-	update_icons()
+	update_icon()
 
 /mob/living/bot/cleanbot/explode()
 	on = FALSE // the first thing i do when i explode is turn off, tbh - geeves
@@ -242,7 +242,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	qdel(src)
 	return
 
-/mob/living/bot/cleanbot/update_icons()
+/mob/living/bot/cleanbot/update_icon()
 	if(cleaning)
 		icon_state = "cleanbot-c"
 	else
@@ -259,8 +259,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		to_chat(user, SPAN_WARNING("The unit's interface refuses to unlock!"))
 		return
 
-	var/dat
-	dat += "<TT><B>Automatic Station Cleaner v1.1</B></TT><BR><BR>"
+	var/dat = ""
 	dat += "Status: <A href='?src=\ref[src];operation=start'>[on ? "On" : "Off"]</A><BR>"
 	dat += "Behaviour controls are [locked ? "locked" : "unlocked"]<BR>"
 	dat += "Maintenance panel is [open ? "opened" : "closed"]"
@@ -271,9 +270,9 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		dat += "Odd looking screw twiddled: <A href='?src=\ref[src];operation=screw'>[screw_loose ? "Yes" : "No"]</A><BR>"
 		dat += "Weird button pressed: <A href='?src=\ref[src];operation=odd_button'>[odd_button ? "Yes" : "No"]</A>"
 
-	user << browse("<HEAD><TITLE>Cleaner v1.1 controls</TITLE></HEAD>[dat]", "window=autocleaner")
-	onclose(user, "autocleaner")
-	return
+	var/datum/browser/bot_win = new(user, "autocleaner", "Automatic Station Cleaner v1.2 Controls")
+	bot_win.set_content(dat)
+	bot_win.open()
 
 /mob/living/bot/cleanbot/Topic(href, href_list)
 	if(..())

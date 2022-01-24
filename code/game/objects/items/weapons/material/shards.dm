@@ -7,8 +7,9 @@
 	icon_state = "large"
 	randpixel = 8
 	sharp = 1
-	edge = 1
-	w_class = 2
+	edge = TRUE
+	recyclable = TRUE
+	w_class = ITEMSIZE_SMALL
 	force_divisor = 0.2 // 6 with hardness 30 (glass)
 	thrown_force_divisor = 0.4 // 4 with weight 15 (glass)
 	item_state = "shard-glass"
@@ -61,7 +62,7 @@
 	if(isliving(AM))
 		var/mob/M = AM
 
-		if(M.buckled) //wheelchairs, office chairs, rollerbeds
+		if(M.buckled_to) //wheelchairs, office chairs, rollerbeds
 			return
 
 		to_chat(M, SPAN_DANGER("You step on \the [src]!"))
@@ -92,14 +93,14 @@
 			return
 
 // Preset types - left here for the code that uses them
-/obj/item/material/shard/shrapnel/New(loc)
-	..(loc, MATERIAL_STEEL)
+/obj/item/material/shard/shrapnel/Initialize(newloc, material_key)
+	. = ..(loc, MATERIAL_STEEL)
 
-/obj/item/material/shard/shrapnel/flechette/New(loc)
-	..(loc, MATERIAL_TITANIUM)
+/obj/item/material/shard/shrapnel/flechette/Initialize(newloc, material_key)
+	. = ..(loc, MATERIAL_TITANIUM)
 
-/obj/item/material/shard/phoron/New(loc)
-	..(loc, MATERIAL_GLASS_PHORON)
+/obj/item/material/shard/phoron/Initialize(newloc, material_key)
+	. = ..(loc, MATERIAL_GLASS_PHORON)
 
-/obj/item/material/shard/wood/New(loc)
-	..(loc, MATERIAL_WOOD)
+/obj/item/material/shard/wood/Initialize(newloc, material_key)
+	. = ..(loc, MATERIAL_WOOD)

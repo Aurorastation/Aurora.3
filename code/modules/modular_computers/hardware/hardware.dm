@@ -13,6 +13,19 @@
 	var/damage_failure = 50				// "Failure" threshold. When damage exceeds this value the hardware piece will not work at all.
 	var/malfunction_probability = 10	// Chance of malfunction when the component is damaged
 
+// Default handling of hardware enable/disable. Override for specific functionality.
+
+/obj/item/computer_hardware/proc/enable()
+	. = enabled = TRUE
+
+/obj/item/computer_hardware/proc/disable()
+	. = enabled = FALSE
+
+/obj/item/computer_hardware/proc/toggle()
+	if(enabled)
+		return disable()
+	return enable()
+
 /obj/item/computer_hardware/attackby(obj/item/W, mob/living/user)
 	// Multitool. Runs diagnostics
 	if(W.ismultitool())

@@ -9,14 +9,14 @@
 	flags = CONDUCT
 	force = 0.0
 	throwforce = 0.0
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS
+	drop_sound = 'sound/items/drop/ring.ogg'
+	pickup_sound = 'sound/items/pickup/ring.ogg'
 	var/string_attached
 	var/sides = 2
 	var/cmineral = null
-	drop_sound = 'sound/items/drop/ring.ogg'
-	pickup_sound = 'sound/items/pickup/ring.ogg'
-
+	var/last_flip = 0 //Spam limiter
 /obj/item/coin/New()
 	randpixel_xy()
 
@@ -65,6 +65,12 @@
 	icon_state = "coin_battlemonsters_heads"
 	cmineral = "battlemonsters"
 
+/obj/item/coin/mining
+	name = "mining coin"
+	desc = "A flat disc or piece of metal with an official stamp. This coin can be used at a mining vendor to gain access to additional equipment."
+	icon_state = "coin_mining_heads"
+	cmineral = "mining"
+
 /obj/item/coin/attackby(obj/item/W, mob/user)
 	if(W.iscoil())
 		var/obj/item/stack/cable_coil/CC = W
@@ -92,14 +98,16 @@
 	else ..()
 
 /obj/item/coin/attack_self(mob/user)
-	var/result = rand(1, sides)
-	var/comment = ""
-	if(result == 1)
-		comment = "tails"
-	else if(result == 2)
-		comment = "heads"
-	flick("coin_[cmineral]_flip", src)
-	icon_state = "coin_[cmineral]_[comment]"
-	playsound(get_turf(src), 'sound/items/coinflip.ogg', 100, 1, -4)
-	user.visible_message(SPAN_NOTICE("\The [user] throws \the [src]. It lands on [comment]!"), \
-						 SPAN_NOTICE("You throw \the [src]. It lands on [comment]!"))
+	if(last_flip <= world.time - 20)
+		last_flip = world.time
+		var/result = rand(1, sides)
+		var/comment = ""
+		if(result == 1)
+			comment = "tails"
+		else if(result == 2)
+			comment = "heads"
+		flick("coin_[cmineral]_flip", src)
+		icon_state = "coin_[cmineral]_[comment]"
+		playsound(get_turf(src), 'sound/items/coinflip.ogg', 100, 1, -4)
+		user.visible_message(SPAN_NOTICE("\The [user] throws \the [src]. It lands on [comment]!"), \
+							 SPAN_NOTICE("You throw \the [src]. It lands on [comment]!"))

@@ -10,8 +10,8 @@
 	set category = "Hardware"
 	set name = "Destroy Core"
 	set desc = "Activates or deactivates self destruct sequence of your physical mainframe."
-	var/mob/living/silicon/ai/user = usr
 
+	var/mob/living/silicon/ai/user = usr
 	if(!ability_prechecks(user, 0, 1))
 		return
 
@@ -49,8 +49,8 @@
 	set category = "Hardware"
 	set name = "Toggle APU Generator"
 	set desc = "Activates or deactivates your APU generator, allowing you to operate even without power."
-	var/mob/living/silicon/ai/user = usr
 
+	var/mob/living/silicon/ai/user = usr
 	if(!ability_prechecks(user, 0, 1))
 		return
 
@@ -67,7 +67,12 @@
 	set category = "Hardware"
 	set name = "Destroy Station"
 	set desc = "Activates or deactivates self destruct sequence of this station. Sequence takes two minutes, and if you are shut down before timer reaches zero it will be cancelled."
+
 	var/mob/living/silicon/ai/user = usr
+	if(user.stat == DEAD)
+		to_chat(user, SPAN_WARNING("You are dead!"))
+		return
+
 	var/obj/item/device/radio/radio = new/obj/item/device/radio()
 	var/datum/weakref/nuke
 	//Time control for the self destruct

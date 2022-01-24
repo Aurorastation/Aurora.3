@@ -4,12 +4,12 @@
 	desc = "A generic brand of lipstick."
 	icon = 'icons/obj/cosmetics.dmi'
 	icon_state = "lipstick"
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS
 	var/colour = "red"
 	var/open = 0
-	drop_sound = 'sound/items/drop/glass.ogg'
-	pickup_sound = 'sound/items/pickup/glass.ogg'
+	drop_sound = 'sound/items/drop/screwdriver.ogg'
+	pickup_sound = 'sound/items/pickup/screwdriver.ogg'
 
 /obj/item/lipstick/purple
 	name = "purple lipstick"
@@ -23,15 +23,67 @@
 	name = "black lipstick"
 	colour = "black"
 
+/obj/item/lipstick/amberred
+	name = "amberred lipstick"
+	colour = "amberred"
+
+/obj/item/lipstick/cherry
+	name = "cherry lipstick"
+	colour = "cherry"
+
+/obj/item/lipstick/orange
+	name = "orange lipstick"
+	colour = "orange"
+
+/obj/item/lipstick/gold
+	name = "gold lipstick"
+	colour = "gold"
+
+/obj/item/lipstick/purple
+	name = "purple lipstick"
+	colour = "purple"
+
+/obj/item/lipstick/deepred
+	name = "deepred lipstick"
+	colour = "deepred"
+
 /obj/item/lipstick/pink
 	name = "pink lipstick"
 	colour = "pink"
+
+/obj/item/lipstick/rosepink
+	name = "rosepink lipstick"
+	colour = "rosepink"
+
+/obj/item/lipstick/nude
+	name = "nude lipstick"
+	colour = "nude"
+
+/obj/item/lipstick/wine
+	name = "wine lipstick"
+	colour = "wine"
+
+/obj/item/lipstick/peach
+	name = "peach lipstick"
+	colour = "peach"
+
+/obj/item/lipstick/forestgreen
+	name = "forestgreen lipstick"
+	colour = "forestgreen"
+
+/obj/item/lipstick/skyblue
+	name = "skyblue lipstick"
+	colour = "skyblue"
+
+/obj/item/lipstick/teal
+	name = "teal lipstick"
+	colour = "teal"
 
 /obj/item/lipstick/random
 	name = "lipstick"
 
 /obj/item/lipstick/random/New()
-	colour = pick("red","purple","jade","pink","black")
+	colour = pick("red","purple","jade","black","amberred","cherry","orange","gold","purple","deepred","pink","rosepink","nude","wine","peach","forestgreen","skyblue","teal")
 	name = "[colour] lipstick"
 
 
@@ -75,7 +127,7 @@
 /obj/item/haircomb //sparklysheep's comb
 	name = "plastic comb"
 	desc = "A pristine comb made from flexible plastic."
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS
 	icon = 'icons/obj/cosmetics.dmi'
 	icon_state = "comb"
@@ -93,7 +145,7 @@
 	desc = "The latest and greatest power razor born from the science of shaving."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "razor"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 
 /obj/item/razor/proc/shave(mob/living/carbon/human/H, location)
 	if(location == BP_HEAD)
@@ -102,7 +154,7 @@
 		H.f_style = H.species.default_f_style
 
 	H.update_hair()
-	playsound(H, 'sound/items/welder2.ogg', 20, 1)
+	playsound(H, 'sound/items/welder_pry.ogg', 20, 1)
 
 
 /obj/item/razor/attack(mob/M, mob/user, var/target_zone)
@@ -130,10 +182,10 @@
 			return FALSE
 
 		if(H == user) //shaving yourself
-			user.visible_message("\The [user] starts to shave \his head with \the [src].", \
+			user.visible_message("\The [user] starts to shave [user.get_pronoun("his")] head with \the [src].", \
 									 "<span class='notice'>You start to shave your head with \the [src].</span>")
 			if(do_mob(user, user, 20))
-				user.visible_message("\The [user] shaves \his head with \the [src].", \
+				user.visible_message("\The [user] shaves [user.get_pronoun("his")] head with \the [src].", \
 										 "<span class='notice'>You finish shaving with \the [src].</span>")
 				shave(H, target_zone)
 
@@ -164,10 +216,10 @@
 			return	FALSE
 
 		if(H == user) //shaving yourself
-			user.visible_message("<span class='warning'>\The [user] starts to shave \his facial hair with \the [src].</span>", \
+			user.visible_message("<span class='warning'>\The [user] starts to shave [user.get_pronoun("his")] facial hair with \the [src].</span>", \
 									 "<span class='notice'>You take a moment to shave your facial hair with \the [src].</span>")
 			if(do_mob(user, user, 20))
-				user.visible_message("<span class='warning'>\The [user] shaves \his facial hair clean with \the [src].</span>", \
+				user.visible_message("<span class='warning'>\The [user] shaves [user.get_pronoun("his")] facial hair clean with \the [src].</span>", \
 										 "<span class='notice'>You finish shaving with \the [src].</span>")
 				shave(H, target_zone)
 

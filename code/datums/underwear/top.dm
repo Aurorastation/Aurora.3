@@ -98,3 +98,23 @@
 	name = "Sarashi, Female Chest"
 	icon_state = "sarashi_fchest"
 	has_color = TRUE
+
+/datum/category_item/underwear/top/fishnet_base
+	name = "Fishnet Top"
+	icon_state = "fishnet_body"
+	has_color = TRUE
+
+/datum/category_item/underwear/top/fishnet_sleeves
+	name = "Fishnet Top, Sleeves"
+	icon_state = "fishnet_sleeves"
+	has_color = TRUE
+
+/datum/category_item/underwear/top/fishnet_gloves
+	name = "Fishnet Top, Gloves"
+	icon_state = "fishnet_gloves"
+	has_color = TRUE
+
+/datum/category_item/underwear/top/fishnet_simple
+	name = "Fishnet Top, Simple"
+	icon_state = "fishnet_simple"
+	has_color = TRUE

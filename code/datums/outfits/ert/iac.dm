@@ -3,7 +3,7 @@
 
 	uniform = /obj/item/clothing/under/rank/iacjumpsuit
 	suit = /obj/item/clothing/suit/storage/iacvest
-	head = /obj/item/clothing/head/soft/iacberet
+	head = /obj/item/clothing/head/softcap/iac
 	mask = /obj/item/clothing/mask/surgical
 	glasses = /obj/item/clothing/glasses/hud/health/aviator
 	shoes = /obj/item/clothing/shoes/iac
@@ -11,8 +11,8 @@
 	belt = /obj/item/storage/belt/medical
 	back = /obj/item/storage/backpack/satchel_med
 	accessory = /obj/item/clothing/accessory/storage/white_vest
-	accessory_contents = list(/obj/item/reagent_containers/hypospray/cmo = 1, /obj/item/storage/pill_bottle/dexalin_plus = 1, /obj/item/storage/pill_bottle/tramadol = 1)
 	id = /obj/item/card/id/distress/iac
+	accessory_contents = list(/obj/item/stack/medical/advanced/bruise_pack = 1, /obj/item/stack/medical/advanced/ointment = 1, /obj/item/reagent_containers/glass/bottle/mortaphenyl = 1)
 
 	l_ear = /obj/item/device/radio/headset/distress
 
@@ -22,16 +22,21 @@
 		/obj/item/storage/firstaid/surgery = 1,
 		/obj/item/storage/box/gloves = 1,
 		/obj/item/storage/box/syringes = 1,
-		/obj/item/device/flashlight/pen = 1
+		/obj/item/device/flashlight/pen = 1,
+		/obj/item/device/healthanalyzer = 1
 	)
 
 	belt_contents = list(
-		/obj/item/stack/medical/advanced/bruise_pack = 2,
-		/obj/item/stack/medical/advanced/ointment = 2,
-		/obj/item/stack/medical/splint = 1,
-		/obj/item/reagent_containers/syringe = 1,
-		/obj/item/reagent_containers/glass/bottle/norepinephrine = 1
-	)
+		/obj/item/reagent_containers/hypospray/cmo = 1,
+		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
+		/obj/item/reagent_containers/glass/bottle/antitoxin = 1,
+		/obj/item/reagent_containers/glass/bottle/dexalin_plus = 1,
+		/obj/item/reagent_containers/glass/bottle/butazoline = 1,
+		/obj/item/reagent_containers/glass/bottle/dermaline = 1,
+		/obj/item/reagent_containers/glass/bottle/perconol = 1
+		)
+
+	id_iff = IFF_IAC
 
 /datum/outfit/admin/ert/iac/get_id_access()
 	return get_distress_access()
@@ -54,7 +59,7 @@
 	name = "IAC Bodyguard"
 
 	accessory = /obj/item/clothing/accessory/storage/black_vest
-	accessory_contents = list(/obj/item/reagent_containers/hypospray/autoinjector/norepinephrine = 2, /obj/item/reagent_containers/hypospray/autoinjector/survival = 1)
+	accessory_contents = list(/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 2, /obj/item/reagent_containers/hypospray/autoinjector/survival = 1)
 	suit = /obj/item/clothing/suit/storage/vest/heavy
 	head = /obj/item/clothing/head/helmet/iachelmet
 	mask = /obj/item/clothing/mask/gas/alt
@@ -73,7 +78,7 @@
 	)
 
 	belt_contents = list(
-		/obj/item/ammo_magazine/c45x = 3,
+		/obj/item/ammo_magazine/c45m/auto = 3,
 		/obj/item/device/flash = 1,
 		/obj/item/handcuffs/ziptie = 2,
 		/obj/item/melee/baton/loaded = 1,
@@ -93,5 +98,6 @@
 		/obj/item/device/healthanalyzer = 1,
 		/obj/item/storage/firstaid/adv = 2,
 		/obj/item/storage/firstaid/o2 = 1,
-		/obj/item/storage/box/syringes = 1
+		/obj/item/storage/box/syringes = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/coagzolug = 1
 	)

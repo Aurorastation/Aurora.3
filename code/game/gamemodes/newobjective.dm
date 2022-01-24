@@ -267,7 +267,7 @@ datum
 				explanation_text = "Frame [target.current.real_name], the [target.assigned_role] for a crime and make sure they are arrested and brought back to the Centcom station alive.  We'll handle the rest from there."
 
 			check_completion()
-				if(!emergency_shuttle.returned())
+				if(!evacuation_controller.round_over())
 					return 0
 				if(target.current.stat == 2)
 					return 0
@@ -313,7 +313,7 @@ datum
 				explanation_text = "[target.current.real_name], the [target.assigned_role] is a [pick("relative of a","friend of a","") + pick("high ranking","important","well-liked")] mercenary [pick("Leader","Officer","Agent","sympathiser")].  Make sure they get off the station safely, while minimizing intervention."
 
 			check_completion()
-				if(!emergency_shuttle.returned())
+				if(!evacuation_controller.round_over())
 					return 0
 
 				if(target.current.stat == 2)
@@ -477,7 +477,7 @@ datum
 			explanation_text = "Hijack the emergency shuttle by escaping alone."
 
 			check_completion()
-				if(!emergency_shuttle.returned())
+				if(!evacuation_controller.round_over())
 					return 0
 
 				if(!owner.current || owner.current.stat == 2)
@@ -512,7 +512,7 @@ datum
 			explanation_text = "Escape on the shuttle alive, without being arrested."
 
 			check_completion()
-				if(!emergency_shuttle.returned())
+				if(!evacuation_controller.round_over())
 					return 0
 
 				if(!owner.current || owner.current.stat ==2)
@@ -1081,7 +1081,7 @@ datum
 						return 0
 
 			drugs
-				steal_target = /datum/reagent/space_drugs
+				steal_target = /decl/reagent/space_drugs
 				explanation_text = "Steal some space drugs."
 				weight = 40
 
@@ -1110,7 +1110,7 @@ datum
 
 
 			pacid
-				steal_target = /datum/reagent/acid/polyacid
+				steal_target = /decl/reagent/acid/polyacid
 				explanation_text = "Steal some polytrinic acid."
 				weight = 40
 
@@ -1149,25 +1149,25 @@ datum
 					target_name = pick(items)
 					switch(target_name)
 						if("Sulphuric acid")
-							steal_target = /datum/reagent/acid
+							steal_target = /decl/reagent/acid
 						if("Polytrinic acid")
-							steal_target = /datum/reagent/acid/polyacid
+							steal_target = /decl/reagent/acid/polyacid
 						if("Space Lube")
-							steal_target = /datum/reagent/lube
+							steal_target = /decl/reagent/lube
 						if("Unstable mutagen")
-							steal_target = /datum/reagent/mutagen
+							steal_target = /decl/reagent/mutagen
 						if("Leporazine")
-							steal_target = /datum/reagent/leporazine
+							steal_target = /decl/reagent/leporazine
 						if("Cryptobiolin")
-							steal_target =/datum/reagent/cryptobiolin
+							steal_target =/decl/reagent/cryptobiolin
 						if("Lexorin")
-							steal_target = /datum/reagent/lexorin
+							steal_target = /decl/reagent/lexorin
 						if("Kelotane")
-							steal_target = /datum/reagent/kelotane
+							steal_target = /decl/reagent/kelotane
 						if("Dexalin")
-							steal_target = /datum/reagent/dexalin
+							steal_target = /decl/reagent/dexalin
 						if("Tricordrazine")
-							steal_target = /datum/reagent/tricordrazine
+							steal_target = /decl/reagent/tricordrazine
 
 					explanation_text = "Steal a container filled with [target_name]."
 
@@ -1230,7 +1230,7 @@ datum
 			check_completion()
 				if(!istype(owner.current, /mob/living/silicon))
 					return 0
-				if(!emergency_shuttle.returned())
+				if(!evacuation_controller.round_over())
 					return 0
 				if(!owner.current)
 					return 0
@@ -1455,7 +1455,7 @@ datum/objective/silence
 	explanation_text = "Do not allow anyone to escape the station.  Only allow the shuttle to be called when everyone is dead and your story is the only one left."
 
 	check_completion()
-		if(!emergency_shuttle.returned())
+		if(!evacuation_controller.round_over())
 			return 0
 
 		var/area/shuttle = locate(/area/shuttle/escape/centcom)

@@ -69,10 +69,16 @@
 		to_chat(src, "<span class='warning'>We cannot perform this ability in this form!</span>")
 		return
 
+	if(!isturf(loc)) // so people can't transform inside places they should not, like sleepers
+		return
+
 	if(H.handcuffed)
 		var/cuffs = H.handcuffed
 		H.u_equip(H.handcuffed)
 		qdel(cuffs)
+
+	if(H.buckled_to)
+		H.buckled_to.unbuckle()
 
 	changeling.chem_charges--
 	H.visible_message("<span class='warning'>[H] transforms!</span>")
@@ -204,6 +210,9 @@
 	C.status_flags |= FAKEDEATH		//play dead
 	C.update_canmove()
 	C.remove_changeling_powers()
+	if(ishuman(C))
+		var/mob/living/carbon/human/H = C
+		H.handle_hud_list(TRUE)
 
 	C.emote("gasp")
 	C.tod = worldtime2text()
@@ -253,8 +262,9 @@
 	C.SetStunned(0)
 	C.SetWeakened(0)
 	C.lying = FALSE
-	C.reagents.add_reagent(/datum/reagent/hyperzine, 0.10) //Certainly this can't be abused. - Geeves
-	C.reagents.add_reagent(/datum/reagent/oxycodone, 0.10)
+	C.reagents.add_reagent(/decl/reagent/hyperzine, 0.10) //Certainly this can't be abused. - Geeves
+	C.reagents.add_reagent(/decl/reagent/oxycomorphine, 0.10)
+	C.reagents.add_reagent(/decl/reagent/synaptizine, 0.5) //To counter oxycomorphine's side-effects.
 	C.update_canmove()
 
 	src.verbs -= /mob/proc/changeling_unstun
@@ -280,8 +290,8 @@
 	C.digitalcamo = !C.digitalcamo
 
 	spawn(0)
-		while(C && C.digitalcamo && C.mind && C.mind.changeling)
-			C.mind.changeling.chem_charges = max(C.mind.changeling.chem_charges - 1, 0)
+		while(C && C.digitalcamo && C.mind && changeling)
+			changeling.chem_charges = max(changeling.chem_charges - 1, 0)
 			sleep(40)
 
 	src.verbs -= /mob/proc/changeling_digitalcamo
@@ -298,7 +308,7 @@
 	var/datum/changeling/changeling = changeling_power(30, 0, 100, UNCONSCIOUS)
 	if(!changeling)
 		return FALSE
-	src.mind.changeling.chem_charges -= 30
+	changeling.chem_charges -= 30
 
 	var/mob/living/carbon/human/C = src
 	spawn(0)
@@ -359,11 +369,11 @@
 	feedback_add_details("changeling_powers","MV")
 
 	spawn(0)
-		while(src && src.mind && src.mind.changeling && src.mind.changeling.mimicing)
-			src.mind.changeling.chem_charges = max(src.mind.changeling.chem_charges - 1, 0)
+		while(src?.mind && changeling?.mimicing)
+			changeling.chem_charges = max(changeling.chem_charges - 1, 0)
 			sleep(40)
-		if(src && src.mind && src.mind.changeling)
-			src.mind.changeling.mimicing = ""
+		if(changeling)
+			changeling.mimicing = ""
 
 /mob/proc/armblades()
 	set category = "Changeling"
@@ -373,7 +383,7 @@
 	var/datum/changeling/changeling = changeling_power(20, 0, 0)
 	if(!changeling)
 		return FALSE
-	src.mind.changeling.chem_charges -= 20
+	changeling.chem_charges -= 20
 
 	var/mob/living/carbon/M = src
 
@@ -411,7 +421,7 @@
 	var/datum/changeling/changeling = changeling_power(20,0,0)
 	if(!changeling)
 		return FALSE
-	src.mind.changeling.chem_charges -= 20
+	changeling.chem_charges -= 20
 
 	var/mob/living/carbon/M = src
 
@@ -450,12 +460,15 @@
 	if(!changeling)
 		return FALSE
 
-	var/mob/living/M = src
+	if(!isturf(loc)) // so people can't transform inside places they should not, like sleepers
+		return
+
+	var/mob/living/carbon/human/M = src
 
 	if(alert("Are we sure we wish to reveal ourselves? This will only revert after ten minutes.", , "Yes", "No") == "No") //Changelings have to confirm whether they want to go full horrorform
 		return
 
-	src.mind.changeling.chem_charges -= 40
+	changeling.chem_charges -= 40
 
 	M.visible_message("<span class='danger'>[M] writhes and contorts, their body expanding to inhuman proportions!</span>", \
 						"<span class='danger'>We begin our transformation to our true form!</span>")
@@ -470,10 +483,18 @@
 	var/mob/living/simple_animal/hostile/true_changeling/ling = new (get_turf(M))
 
 	if(istype(M,/mob/living/carbon/human))
+		if(M.handcuffed)
+			var/cuffs = M.handcuffed
+			M.u_equip(M.handcuffed)
+			qdel(cuffs)
+
 		for(var/obj/item/I in M.contents)
 			if(isorgan(I))
 				continue
 			M.drop_from_inventory(I)
+
+	if(M.buckled_to)
+		M.buckled_to.unbuckle()
 
 	if(M.mind)
 		M.mind.transfer_to(ling)

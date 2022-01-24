@@ -11,7 +11,10 @@
 /obj/effect/landmark/New()
 	..()
 	tag = text("landmark*[]", name)
+	do_landmark_effect()
+	return 1
 
+/obj/effect/landmark/proc/do_landmark_effect()
 	switch(name)			//some of these are probably obsolete
 		if("monkey")
 			monkeystart += loc
@@ -35,6 +38,10 @@
 			return
 		if("JoinLateCryo")
 			latejoin_cryo += loc
+			delete_me = 1
+			return
+		if("JoinLateCryoCommand")
+			latejoin_cryo_command += loc
 			delete_me = 1
 			return
 		if("JoinLateCyborg")
@@ -83,9 +90,12 @@
 			dream_entries += loc
 			delete_me = 1
 			return
+		if("virtual_reality_spawn")
+			virtual_reality_spawn += loc
+			delete_me = 1
+			return
 
 	landmarks_list += src
-	return 1
 
 /obj/effect/landmark/proc/delete()
 	delete_me = 1
@@ -135,7 +145,7 @@
 /obj/effect/landmark/costume/madscientist/New()
 	new /obj/item/clothing/under/gimmick/rank/captain/suit(src.loc)
 	new /obj/item/clothing/head/flatcap(src.loc)
-	new /obj/item/clothing/suit/storage/toggle/labcoat/mad(src.loc)
+	new /obj/item/clothing/suit/storage/toggle/labcoat(src.loc)
 	new /obj/item/clothing/glasses/regular(src.loc)
 	delete_me = 1
 
@@ -169,7 +179,7 @@
 
 /obj/effect/landmark/costume/highlander/New()
 	new /obj/item/clothing/under/kilt(src.loc)
-	new /obj/item/clothing/head/beret(src.loc)
+	new /obj/item/clothing/head/beret/red(src.loc)
 	delete_me = 1
 
 /obj/effect/landmark/costume/prig/New()
@@ -201,7 +211,7 @@
 
 /obj/effect/landmark/costume/pirate/New()
 	new /obj/item/clothing/suit/pirate(src.loc)
-	var/CHOICE = pick( /obj/item/clothing/head/pirate , /obj/item/clothing/head/bandana )
+	var/CHOICE = pick( /obj/item/clothing/head/pirate , /obj/item/clothing/head/bandana/pirate)
 	new CHOICE(src.loc)
 	new /obj/item/clothing/glasses/eyepatch(src.loc)
 	delete_me = 1
@@ -237,11 +247,6 @@
 	new /obj/item/staff/(src.loc)
 	delete_me = 1
 
-/obj/effect/landmark/costume/sexyclown/New()
-	new /obj/item/clothing/mask/gas/sexyclown(src.loc)
-	new /obj/item/clothing/under/sexyclown(src.loc)
-	delete_me = 1
-
 /obj/effect/landmark/costume/sexymime/New()
 	new /obj/item/clothing/mask/gas/sexymime(src.loc)
 	new /obj/item/clothing/under/sexymime(src.loc)
@@ -254,3 +259,27 @@
 
 /obj/effect/landmark/distress_team_equipment
 	name = "distress equipment"
+
+/obj/effect/landmark/force_spawnpoint
+	name = "force spawnpoint"
+	var/job_tag = "Anyone"
+
+/obj/effect/landmark/force_spawnpoint/do_landmark_effect()
+	LAZYINITLIST(force_spawnpoints)
+	LAZYADD(force_spawnpoints[job_tag], loc)
+
+var/list/ruin_landmarks = list()
+
+/obj/effect/landmark/ruin
+	var/datum/map_template/ruin/ruin_template
+
+/obj/effect/landmark/ruin/New(loc, my_ruin_template)
+	name = "ruin_[sequential_id(/obj/effect/landmark/ruin)]"
+	..(loc)
+	ruin_template = my_ruin_template
+	ruin_landmarks |= src
+
+/obj/effect/landmark/ruin/Destroy()
+	ruin_landmarks -= src
+	ruin_template = null
+	. = ..()

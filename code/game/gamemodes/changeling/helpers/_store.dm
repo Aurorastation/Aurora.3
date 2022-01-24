@@ -1,5 +1,3 @@
-// READ: Don't use the apostrophe in name or desc. Causes script errors.
-
 var/list/powers = typesof(/datum/power/changeling) - /datum/power/changeling	//needed for the badmin verb for now
 var/list/datum/power/changeling/powerinstances = list()
 
@@ -75,6 +73,25 @@ var/list/datum/power/changeling/powerinstances = list()
 	genomecost = 0
 	verbpath = /mob/proc/changeling_hivedownload
 
+/datum/power/changeling/hivemind_commune
+	name = "Hivemind Commune"
+	desc = "We can speak with the members of our Hivemind, without it being apparent to the people in our view."
+	genomecost = 0
+	verbpath = /mob/proc/changeling_hivemind_commune
+
+/datum/power/changeling/hivemind_eject
+	name = "Hivemind Eject"
+	desc = "We can eject a pesky hivemind from ourselves, if it complains a lot. This won't free up space, but will prevent them from screaming at us."
+	helptext = "Ghosts the chosen hivemind. Use it on salty people spamming you to send them to deadchat."
+	genomecost = 0
+	verbpath = /mob/proc/changeling_eject_hivemind
+
+/datum/power/changeling/hivemind_morph
+	name = "Hivemind Release Morph"
+	desc = "We release a hivemind member as a morph. They will be able to crawl inside vents and disguise themselves as objects."
+	genomecost = 0
+	verbpath = /mob/living/carbon/human/proc/changeling_release_morph
+
 //Stings and sting accessorries
 //Rest in pieces, unfat sting. - Geeves
 
@@ -139,7 +156,7 @@ var/list/datum/power/changeling/powerinstances = list()
 	name = "Adrenaline Sacs"
 	desc = "We evolve additional ways of producing stimulants throughout our body."
 	helptext = "Gives us the ability to instantly shrug off stuns, as well as producing some painkiller and stimulants."
-	genomecost = 3
+	genomecost = 1
 	verbpath = /mob/proc/changeling_unstun
 
 /datum/power/changeling/ChemicalSynth
@@ -157,6 +174,13 @@ var/list/datum/power/changeling/powerinstances = list()
 	genomecost = 4
 	isVerb = FALSE
 	verbpath = /mob/proc/changeling_engorgedglands
+
+/datum/power/changeling/space_adaption
+	name = "UPGRADE: Space Adaption"
+	desc = "Our body chemistry changes to become resistant to the effects of low pressure, and we no longer have the need to breathe."
+	genomecost = 5
+	isVerb = FALSE
+	verbpath = /mob/proc/changeling_spaceadaption
 
 /datum/power/changeling/rapid_regeneration
 	name = "Rapid Regeneration"
@@ -198,13 +222,15 @@ var/list/datum/power/changeling/powerinstances = list()
 
 // Modularchangling, totally stolen from the new player panel.  YAYY
 //I'm too afraid to touch this, you win this time, oldcode - Geeves
+// After an HTML course, I finally conquered this. Convert into VueUi eventually. - Geeves
 /datum/changeling/proc/EvolutionMenu()//The new one
 	set category = "Changeling"
 	set desc = "Buy new abilities with the genomes we obtained."
 
-	if(!usr || !usr.mind || !usr.mind.changeling)
+	var/datum/changeling/changeling = usr.mind.antag_datums[MODE_CHANGELING]
+	if(!usr || !usr.mind || !changeling)
 		return
-	src = usr.mind.changeling
+	src = changeling
 
 	if(!powerinstances.len)
 		for(var/P in powers)
@@ -220,38 +246,34 @@ var/list/datum/power/changeling/powerinstances = list()
 
 				var locked_tabs = new Array();
 
-				function updateSearch(){
+				function updateSearch() {
 
 
 					var filter_text = document.getElementById('filter');
 					var filter = filter_text.value.toLowerCase();
 
-					if(complete_list != null && complete_list != ""){
+					if(complete_list != null && complete_list != "") {
 						var mtbl = document.getElementById("maintable_data_archive");
 						mtbl.innerHTML = complete_list;
 					}
 
-					if(filter.value == ""){
+					if(filter.value == "") {
 						return;
-					}else{
-
+					} else {
 						var maintable_data = document.getElementById('maintable_data');
 						var ltr = maintable_data.getElementsByTagName("tr");
 						for ( var i = 0; i < ltr.length; ++i )
 						{
-							try{
+							try {
 								var tr = ltr\[i\];
-								if(tr.getAttribute("id").indexOf("data") != 0){
+								if(tr.getAttribute("id").indexOf("data") != 0) {
 									continue;
 								}
 								var ltd = tr.getElementsByTagName("td");
 								var td = ltd\[0\];
 								var lsearch = td.getElementsByTagName("b");
 								var search = lsearch\[0\];
-								//var inner_span = li.getElementsByTagName("span")\[1\] //Should only ever contain one element.
-								//document.write("<p>"+search.innerText+"<br>"+filter+"<br>"+search.innerText.indexOf(filter))
-								if ( search.innerText.toLowerCase().indexOf(filter) == -1 )
-								{
+								if ( search.innerText.toLowerCase().indexOf(filter) == -1 ) {
 									//document.write("a");
 									//ltr.removeChild(tr);
 									td.innerHTML = "";
@@ -270,29 +292,24 @@ var/list/datum/power/changeling/powerinstances = list()
 				}
 
 				function expand(id,name,desc,helptext,power,ownsthis){
-
 					clearAll();
 
 					var span = document.getElementById(id);
 
 					body = "<table><tr><td>";
-
 					body += "</td><td align='center'>";
+					body += "<font color='#79d39e' size='2'>"+desc+"</font><br>";
 
-					body += "<font size='2'><b>"+desc+"</b></font> <BR>"
+					if(helptext) {
+						body += "<font color='#f14c46' size='2'>"+helptext+"</font><br>";
+					}
 
-					body += "<font size='2'><font color = 'red'><b>"+helptext+"</b></font></font><BR>"
-
-					if(!ownsthis)
-					{
-						body += "<a href='?src=\ref[src];P="+power+"'>Evolve</a>"
+					if(!ownsthis) {
+						body += "<a href='?src=\ref[src];P="+power+"'>Evolve</a>";
 					}
 
 					body += "</td><td align='center'>";
-
 					body += "</td></tr></table>";
-
-
 					span.innerHTML = body
 				}
 
@@ -303,13 +320,13 @@ var/list/datum/power/changeling/powerinstances = list()
 
 						var id = span.getAttribute("id");
 
-						if(!(id.indexOf("item")==0))
+						if(!(id.indexOf("item") == 0))
 							continue;
 
 						var pass = 1;
 
-						for(var j = 0; j < locked_tabs.length; j++){
-							if(locked_tabs\[j\]==id){
+						for(var j = 0; j < locked_tabs.length; j++) {
+							if(locked_tabs\[j\]==id) {
 								pass = 0;
 								break;
 							}
@@ -318,9 +335,6 @@ var/list/datum/power/changeling/powerinstances = list()
 						if(pass != 1)
 							continue;
 
-
-
-
 						span.innerHTML = "";
 					}
 				}
@@ -328,17 +342,17 @@ var/list/datum/power/changeling/powerinstances = list()
 				function addToLocked(id,link_id,notice_span_id){
 					var link = document.getElementById(link_id);
 					var decision = link.getAttribute("name");
-					if(decision == "1"){
+					if(decision == "1") {
 						link.setAttribute("name","2");
-					}else{
+					} else {
 						link.setAttribute("name","1");
 						removeFromLocked(id,link_id,notice_span_id);
 						return;
 					}
 
 					var pass = 1;
-					for(var j = 0; j < locked_tabs.length; j++){
-						if(locked_tabs\[j\]==id){
+					for(var j = 0; j < locked_tabs.length; j++) {
+						if(locked_tabs\[j\] == id) {
 							pass = 0;
 							break;
 						}
@@ -348,12 +362,9 @@ var/list/datum/power/changeling/powerinstances = list()
 					locked_tabs.push(id);
 					var notice_span = document.getElementById(notice_span_id);
 					notice_span.innerHTML = "<font color='red'>Locked</font> ";
-					//link.setAttribute("onClick","attempt('"+id+"','"+link_id+"','"+notice_span_id+"');");
-					//document.write("removeFromLocked('"+id+"','"+link_id+"','"+notice_span_id+"')");
-					//document.write("aa - "+link.getAttribute("onClick"));
 				}
 
-				function attempt(ab){
+				function attempt(ab) {
 					return ab;
 				}
 
@@ -361,8 +372,8 @@ var/list/datum/power/changeling/powerinstances = list()
 					//document.write("a");
 					var index = 0;
 					var pass = 0;
-					for(var j = 0; j < locked_tabs.length; j++){
-						if(locked_tabs\[j\]==id){
+					for(var j = 0; j < locked_tabs.length; j++) {
+						if(locked_tabs\[j\] == id) {
 							pass = 1;
 							index = j;
 							break;
@@ -373,8 +384,6 @@ var/list/datum/power/changeling/powerinstances = list()
 					locked_tabs\[index\] = "";
 					var notice_span = document.getElementById(notice_span_id);
 					notice_span.innerHTML = "";
-					//var link = document.getElementById(link_id);
-					//link.setAttribute("onClick","addToLocked('"+id+"','"+link_id+"','"+notice_span_id+"')");
 				}
 
 				function selectTextField(){
@@ -398,7 +407,7 @@ var/list/datum/power/changeling/powerinstances = list()
 		<table width='560' align='center' cellspacing='0' cellpadding='5' id='maintable'>
 			<tr id='title_tr'>
 				<td align='center'>
-					<font size='5'><b>Changling Evolution Menu</b></font><br>
+					<font size='5'><b>Changeling Evolution Menu</b></font><br>
 					Hover over a power to see more information<br>
 					Current evolution points left to evolve with: [geneticpoints]<br>
 					Absorb genomes to acquire more evolution points
@@ -427,9 +436,9 @@ var/list/datum/power/changeling/powerinstances = list()
 			ownsthis = 1
 
 
-		var/color = "#e6e6e6"
+		var/color = "#2b2b2b"
 		if(i%2 == 0)
-			color = "#f2f2f2"
+			color = "#363636"
 
 
 		dat += {"
@@ -437,11 +446,7 @@ var/list/datum/power/changeling/powerinstances = list()
 			<tr id='data[i]' name='[i]' onClick="addToLocked('item[i]','data[i]','notice_span[i]')">
 				<td align='center' bgcolor='[color]'>
 					<span id='notice_span[i]'></span>
-					<a id='link[i]'
-					onmouseover='expand("item[i]","[P.name]","[P.desc]","[P.helptext]","[P]",[ownsthis])'
-					>
-					<span id='search[i]'><b>Evolve [P] - Cost: [ownsthis ? "Purchased" : P.genomecost]</b></span>
-					</a>
+					<font color='#505dcf' id='link[i]' onmouseover='expand("item[i]","[html_encode(P.name)]","[html_encode(P.desc)]","[html_encode(P.helptext)]","[P]",[ownsthis])'><span id='search[i]'><b>Evolve [P] - Cost: [ownsthis ? "Purchased" : P.genomecost]</b></span></font>
 					<br><span id='item[i]'></span>
 				</td>
 			</tr>
@@ -463,7 +468,9 @@ var/list/datum/power/changeling/powerinstances = list()
 	</body></html>
 	"}
 
-	usr << browse(dat, "window=powers;size=900x480")
+	var/datum/browser/power_win = new(usr, "powers", "Changeling Powers", 900, 480)
+	power_win.set_content(dat)
+	power_win.open()
 
 
 /datum/changeling/Topic(href, href_list)
@@ -481,7 +488,8 @@ var/list/datum/power/changeling/powerinstances = list()
 
 
 /datum/changeling/proc/purchasePower(var/datum/mind/M, var/power_name, var/remake_verbs = 1)
-	if(!M || !M.changeling)
+	var/datum/changeling/changeling = M.antag_datums[MODE_CHANGELING]
+	if(!M || !changeling)
 		return
 
 	var/datum/power/changeling/power = power_name
@@ -509,4 +517,3 @@ var/list/datum/power/changeling/powerinstances = list()
 		call(M.current, power.verbpath)()
 	else if(remake_verbs)
 		M.current.make_changeling()
-

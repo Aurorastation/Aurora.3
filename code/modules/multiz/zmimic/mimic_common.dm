@@ -12,7 +12,8 @@
  * @return	TRUE if A can pass in the movement direction, FALSE if not.
  */
 /turf/proc/CanZPass(atom/A, direction)
-	if(z == A.z) //moving FROM this turf
+	var/turf/T = get_turf(A)
+	if(z == T.z) //moving FROM this turf
 		return direction == UP //can't go below
 	else
 		if(direction == UP) //on a turf below, trying to enter

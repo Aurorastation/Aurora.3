@@ -3,6 +3,7 @@
 	var/description
 	var/datum/outfit/consular_outfit = /datum/outfit/job/representative/consular
 	var/demonym
+	var/list/job_species_blacklist = list()
 
 /datum/citizenship/proc/get_objectives(mission_level, var/mob/living/carbon/human/H)
 	var/rep_objectives

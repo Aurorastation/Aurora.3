@@ -35,9 +35,6 @@
 	if (eyeobj)
 		return eyeobj.zMove(direction)
 
-	if(istype(src.loc,/obj/machinery/cryopod)||istype(src.loc,/obj/machinery/recharge_station))
-		return FALSE
-
 	// Check if we can actually travel a Z-level.
 	if (!can_ztravel(direction))
 		to_chat(src, SPAN_WARNING("You lack means of travel in that direction."))
@@ -48,6 +45,10 @@
 	if(!destination)
 		to_chat(src, SPAN_NOTICE("There is nothing of interest in this direction."))
 		return FALSE
+
+	if(incorporeal_move == INCORPOREAL_BSTECH)
+		forceMove(destination)
+		return TRUE
 
 	var/turf/start = get_turf(src)
 	if(!start.CanZPass(src, direction))
@@ -72,10 +73,10 @@
 			to_chat(src, SPAN_WARNING("\The [A] blocks you."))
 			return FALSE
 
-	if(buckled && istype(buckled, /obj/vehicle))
-		var/obj/vehicle/car = buckled
+	if(buckled_to && istype(buckled_to, /obj/vehicle))
+		var/obj/vehicle/car = buckled_to
 		if(car.flying)
-			buckled.Move(destination)
+			buckled_to.Move(destination)
 			return TRUE
 	// Actually move.
 	Move(destination)
@@ -90,7 +91,7 @@
 	if(.)
 		for(var/obj/item/grab/G in list(l_hand, r_hand))
 			if(G.state >= GRAB_NECK) //strong grip
-				if(G.affecting && !(G.affecting.buckled))
+				if(G.affecting && !(G.affecting.buckled_to))
 					G.affecting.Move(get_turf(src))
 					visible_message(SPAN_WARNING("[src] pulls [G.affecting] [direction & UP ? "upwards" : "downwards"]!"))
 
@@ -116,13 +117,6 @@
 	else
 		to_chat(src, SPAN_NOTICE("There is nothing of interest in this direction."))
 
-/mob/living/carbon/human/bst/zMove(direction)
-	var/turf/destination = (direction == UP) ? GetAbove(src) : GetBelow(src)
-	if(destination)
-		forceMove(destination)
-	else
-		to_chat(src, SPAN_NOTICE("There is nothing of interest in this direction."))
-
 /**
  * An initial check for Z-level travel. Called relatively early in mob/proc/zMove.
  *
@@ -132,6 +126,8 @@
  *			FALSE otherwise.
  */
 /mob/proc/can_ztravel(var/direction)
+	if(incorporeal_move == INCORPOREAL_BSTECH)
+		return TRUE
 	return FALSE
 
 /mob/abstract/observer/can_ztravel(var/direction)
@@ -140,6 +136,9 @@
 /mob/living/carbon/human/can_ztravel(var/direction)
 	if(incapacitated())
 		return FALSE
+
+	if(incorporeal_move == INCORPOREAL_BSTECH)
+		return TRUE
 
 	if(Allow_Spacemove())
 		return TRUE
@@ -159,7 +158,7 @@
 	if(!destination)
 		return
 
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		return
 
 	if(destination.density)
@@ -246,6 +245,8 @@
  *			FALSE otherwise.
  */
 /mob/proc/CanAvoidGravity()
+	if(status_flags & NOFALL || incorporeal_move == INCORPOREAL_BSTECH)
+		return TRUE
 	return FALSE
 
 // Humans and borgs have jetpacks which allows them to override gravity! Or rather,
@@ -257,8 +258,8 @@
 		if (thrust && !lying && thrust.allow_thrust(0.01, src))
 			return TRUE
 
-	if(buckled && istype(buckled, /obj/vehicle))
-		var/obj/vehicle/car = buckled
+	if(buckled_to && istype(buckled_to, /obj/vehicle))
+		var/obj/vehicle/car = buckled_to
 		if(car.flying)
 			return TRUE
 
@@ -329,6 +330,11 @@
 	if((locate(/obj/structure/disposalpipe/up) in below) || (locate(/obj/machinery/atmospherics/pipe/zpipe/up) in below))
 		return FALSE
 
+/mob/can_fall()
+	if(status_flags & NOFALL || incorporeal_move == INCORPOREAL_BSTECH)
+		return FALSE
+	return ..()
+
 /mob/living/heavy_vehicle/can_ztravel(var/direction)
 	if(legs)
 		if(legs.hover && legs.motivator.is_functional())
@@ -376,14 +382,11 @@
 			!lying && thrust.allow_thrust(0.01, src))
 			return FALSE
 
-	for(var/mob/living/carbon/human/H in range(1, src)) // can't fall if someone's holding you
-		for(var/obj/item/grab/G in list(H.l_hand, H.r_hand))
-			if(G.state >= GRAB_AGGRESSIVE && G.affecting == src)
-				return FALSE
+	for(var/grab in grabbed_by)
+		var/obj/item/grab/G = grab
+		if(G.state >= GRAB_AGGRESSIVE)
+			return FALSE
 	return ..()
-
-/mob/living/carbon/human/bst/can_fall()
-	return fall_override ? FALSE : ..()
 
 /mob/abstract/eye/can_fall()
 	return FALSE
@@ -450,6 +453,11 @@
 	if (istype(loc, /turf/space) || (area && !area.has_gravity()))
 		return FALSE
 
+	if(status_flags & GODMODE) // Godmode
+		visible_message(SPAN_NOTICE("\The [src] lands flawlessly on their legs, bending their knee to the floor. They promptly stand up."))
+		playsound(src.loc, /decl/sound_category/swing_hit_sound, 50, 1)
+		return FALSE
+
 	visible_message("\The [src] falls and lands on \the [loc]!",
 		"With a loud thud, you land on \the [loc]!", "You hear a thud!")
 
@@ -468,7 +476,7 @@
 			if(51 to INFINITY)
 				playsound(src.loc, "sound/weapons/heavysmash.ogg", 100, 1)
 			else
-				playsound(src.loc, "sound/weapons/genhit1.ogg", 75, 1)
+				playsound(src.loc, /decl/sound_category/swing_hit_sound, 75, 1)
 	else
 		playsound(src.loc, "sound/weapons/smash.ogg", 75, 1)
 
@@ -484,9 +492,14 @@
 	if (istype(rig))
 		for (var/obj/item/rig_module/actuators/A in rig.installed_modules)
 			if (A.active && rig.check_power_cost(src, 10, A, 0))
-				visible_message(SPAN_NOTICE("\The [src] lands flawlessly with \his [rig]."),
+				visible_message(SPAN_NOTICE("\The [src] lands flawlessly with [src.get_pronoun("his")] [rig]."),
 					SPAN_NOTICE("You hear an electric <i>*whirr*</i> right after the slam!"))
 				return FALSE
+
+	if(status_flags & GODMODE) // Godmode
+		visible_message(SPAN_NOTICE("\The [src] lands flawlessly on their legs, bending their knee to the floor. They promptly stand up."))
+		playsound(src.loc, /decl/sound_category/swing_hit_sound, 50, 1)
+		return FALSE
 
 	var/combat_roll = 1
 	if(lying)
@@ -504,7 +517,6 @@
 
 	var/z_velocity = 5*(levels_fallen**2)
 	var/damage = (((40 * species.fall_mod) + z_velocity) + rand(-20,20)) * combat_roll * damage_mod * aug_mod
-
 	var/limb_damage = rand(0,damage/2)
 
 	if(prob(30) && combat_roll >= 1) //landed on their legs
@@ -621,11 +633,11 @@
 			if(-INFINITY to 10)
 				playsound(src.loc, "sound/weapons/bladeslice.ogg", 50, 1)
 			if(11 to 50)
-				playsound(src.loc, "sound/weapons/punch[rand(1, 4)].ogg", 75, 1)
+				playsound(src.loc, /decl/sound_category/punch_sound, 75, 1)
 			if(51 to INFINITY)
 				playsound(src.loc, "sound/weapons/heavysmash.ogg", 100, 1)
 			else
-				playsound(src.loc, "sound/weapons/genhit1.ogg", 75, 1)
+				playsound(src.loc, /decl/sound_category/swing_hit_sound, 75, 1)
 	else
 		playsound(src.loc, "sound/weapons/smash.ogg", 75, 1)
 
@@ -642,22 +654,6 @@
 /mob/living/carbon/human/proc/post_fall_death_check()
 	if (stat == DEAD)
 		SSfeedback.IncrementSimpleStat("openturf_human_deaths")
-
-/mob/living/carbon/human/bst/fall_impact(var/damage_mod)
-	return FALSE
-
-/mob/living/heavy_vehicle/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
-	. = ..()
-	if (!.)
-		return
-
-	var/z_velocity = 5*(levels_fallen**2)
-	var/damage = ((60 + z_velocity) + rand(-20,20)) * damage_mod
-
-	apply_damage(damage)
-
-	playsound(loc, "sound/effects/bang.ogg", 100, 1)
-	playsound(loc, "sound/effects/bamf.ogg", 100, 1)
 
 /obj/vehicle/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
 	. = ..()
@@ -738,10 +734,14 @@
 	else
 		L.apply_damage(damage, BRUTE)
 
-	L.visible_message(SPAN_DANGER("\The [L] had \the [src] fall onto \him!"),
+	L.visible_message(SPAN_DANGER("\The [L] had \the [src] fall onto [src.get_pronoun("him")]!"),
 		SPAN_DANGER("You had \the [src] fall onto you and strike you!"))
 
-	admin_attack_log((ismob(src) ? src : null), L, "fell onto", "was fallen on by", "fell ontop of")
+	if(istype(src, /mob/living/heavy_vehicle))
+		var/mob/living/heavy_vehicle/HV = src
+		admin_attack_log((HV.pilots.len ? HV.pilots[1] : null), L, "fell onto", "was fallen on by", "fell ontop of")
+	else
+		admin_attack_log((ismob(src) ? src : null), L, "fell onto", "was fallen on by", "fell ontop of")
 
 	playsound(L.loc, "sound/waepons/genhit[rand(1, 3)].ogg", 75, 1)
 

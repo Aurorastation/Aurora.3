@@ -15,7 +15,7 @@
 	var/obj/machinery/mineral/processing_unit/machine
 	var/show_all_ores = FALSE
 	var/points = 0
-	var/obj/item/card/id/inserted_id
+	var/datum/weakref/scanned_id
 
 	var/list/ore/input_mats = list()
 	var/list/material/output_mats = list()
@@ -23,11 +23,22 @@
 	var/waste = 0
 	var/idx = 0
 
+	component_types = list(
+		/obj/item/circuitboard/redemption_console,
+		/obj/item/stock_parts/scanning_module,
+		/obj/item/stock_parts/console_screen
+	)
+
 /obj/machinery/mineral/processing_unit_console/Initialize(mapload, d, populate_components)
 	. = ..()
 	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "production_console-screen", EFFECTS_ABOVE_LIGHTING_LAYER)
 	add_overlay(screen_overlay)
 	set_light(1.4, 1, COLOR_CYAN)
+
+/obj/machinery/mineral/processing_unit_console/Destroy()
+	if(machine)
+		machine.console = null
+	return ..()
 
 /obj/machinery/mineral/processing_unit_console/proc/setup_machine(mob/user)
 	if(!machine)
@@ -44,19 +55,40 @@
 
 	return machine
 
+/obj/machinery/mineral/processing_unit_console/attackby(obj/item/I, mob/user)
+	if(default_deconstruction_screwdriver(user, I))
+		return
+	if(default_deconstruction_crowbar(user, I))
+		return
+	if(default_part_replacement(user, I))
+		return
+	return ..()
+
 /obj/machinery/mineral/processing_unit_console/attack_hand(mob/user)
 	add_fingerprint(user)
+	if(!scanned_id)
+		get_user_id(user)
+	else
+		var/obj/item/card/id/ID = scanned_id.resolve()
+		if(!ID)
+			scanned_id = null
+			get_user_id(user)
+		else
+			var/turf/id_turf = get_turf(ID)
+			if(!id_turf.Adjacent(loc))
+				scanned_id = null
+				get_user_id(user)
 	interact(user)
 
-/obj/machinery/mineral/processing_unit_console/attackby(obj/item/I, mob/user)
-	if(istype(I,/obj/item/card/id))
-		var/obj/item/card/id/C = user.get_active_hand()
-		if(istype(C) && !istype(inserted_id))
-			user.drop_from_inventory(C, src)
-			inserted_id = C
-			interact(user)
-	else
-		..()
+/obj/machinery/mineral/processing_unit_console/proc/get_user_id(var/mob/user)
+	if(isDrone(user))
+		var/mob/living/silicon/robot/drone/D = user
+		if(D.standard_drone)
+			return
+	if(!scanned_id)
+		var/obj/item/card/id/ID = user.GetIdCard()
+		if(ID)
+			scanned_id = WEAKREF(ID)
 
 /obj/machinery/mineral/processing_unit_console/interact(mob/user)
 	if(..())
@@ -65,18 +97,15 @@
 	if(!setup_machine(user))
 		return
 
-	if(!allowed(user))
-		to_chat(user, SPAN_WARNING("Access denied."))
-		return
-
 	user.set_machine(src)
 
 	var/dat = "<h1>Ore processor console</h1>"
 
 	dat += "Current unclaimed points: [points]<br>"
 
-	if(istype(inserted_id))
-		dat += "You have [inserted_id.mining_points] mining points collected. <A href='?src=\ref[src];choice=eject'>Eject ID.</A><br>"
+	var/obj/item/card/id/ID = scanned_id.resolve()
+	if(ID)
+		dat += "You have [ID.mining_points] mining points collected. <A href='?src=\ref[src];choice=eject'>Eject ID.</A><br>"
 		dat += "<A href='?src=\ref[src];choice=claim'>Claim points.</A><br>"
 		dat += "<A href='?src=\ref[src];choice=print_report'>Print yield declaration.</A><br>"
 	else
@@ -95,23 +124,24 @@
 		if(machine.ores_processing[ore])
 			switch(machine.ores_processing[ore])
 				if(0)
-					dat += "<font color='red'>not processing</font>"
+					dat += "<span class='warning'>not processing</span>"
 				if(1)
 					dat += "<font color='orange'>smelting</font>"
 				if(2)
-					dat += "<font color='blue'>compressing</font>"
+					dat += "<span class='notice'>compressing</span>"
 				if(3)
 					dat += "<font color='gray'>alloying</font>"
 		else
-			dat += "<font color='red'>not processing</font>"
+			dat += "<span class='warning'>not processing</span>"
 		dat += ".</td><td width = 30><a href='?src=\ref[src];toggle_smelting=[ore]'>\[change\]</a></td></tr>"
 
 	dat += "</table><hr>"
 	dat += "Currently displaying [show_all_ores ? "all ore types" : "only available ore types"]. <A href='?src=\ref[src];toggle_ores=1'>\[[show_all_ores ? "show less" : "show more"]\]</a></br>"
 	dat += "The ore processor is currently <A href='?src=\ref[src];toggle_power=1'>[(machine.active ? "<font color='green'>processing</font>" : "<font color='red'>disabled</font>")]</a>."
-	user << browse(dat, "window=processor_console;size=400x500")
-	onclose(user, "processor_console")
-	return
+	
+	var/datum/browser/processor_win = new(user, "processor_console", capitalize_first_letters(name))
+	processor_win.set_content(dat)
+	processor_win.open()
 
 /obj/machinery/mineral/processing_unit_console/Topic(href, href_list)
 	if(..())
@@ -120,16 +150,14 @@
 	src.add_fingerprint(usr)
 
 	if(href_list["choice"])
-		if(istype(inserted_id))
+		var/obj/item/card/id/ID = scanned_id.resolve()
+		if(ID)
 			if(href_list["choice"] == "eject")
-				inserted_id.forceMove(loc)
-				if(!usr.get_active_hand())
-					usr.put_in_hands(inserted_id)
-				inserted_id = null
+				scanned_id = null
 			if(href_list["choice"] == "claim")
-				if(access_mining_station in inserted_id.access)
+				if(access_mining_station in ID.access)
 					if(points >= 0)
-						inserted_id.mining_points += points
+						ID.mining_points += points
 						if(points != 0)
 							ping("\The [src] pings, \"Point transfer complete! Transaction total: [points] points!\"")
 						points = 0
@@ -138,7 +166,7 @@
 				else
 					to_chat(usr, SPAN_WARNING("Required access not found."))
 			if(href_list["choice"] == "print_report")
-				if(access_mining_station in inserted_id.access)
+				if(access_mining_station in ID.access)
 					print_report(usr)
 				else
 					to_chat(usr, SPAN_WARNING("Required access not found."))
@@ -146,10 +174,7 @@
 		else if(href_list["choice"] == "insert")
 			var/obj/item/card/id/I = usr.get_active_hand()
 			if(istype(I))
-				usr.drop_from_inventory(I,src)
-				inserted_id = I
-			else
-				to_chat(usr, SPAN_WARNING("No valid ID."))
+				scanned_id = WEAKREF(I)
 
 	if(href_list["toggle_smelting"])
 		var/choice = input("What setting do you wish to use for processing [href_list["toggle_smelting"]]?") as null|anything in list("Smelting","Compressing","Alloying","Nothing")
@@ -183,7 +208,8 @@
 	return
 
 /obj/machinery/mineral/processing_unit_console/proc/print_report(var/mob/living/user)
-	if(!inserted_id)
+	var/obj/item/card/id/ID = scanned_id.resolve()
+	if(!ID)
 		to_chat(user, SPAN_WARNING("No ID inserted. Cannot digitally sign."))
 		return
 	if(!input_mats.len && !output_mats.len && !alloy_mats)
@@ -270,8 +296,7 @@
 	input_mats = list()
 	waste = 0
 
-	if(ishuman(user) && !(user.l_hand && user.r_hand))
-		user.put_in_hands(P)
+	user.put_in_hands(P)
 
 	printing = FALSE
 	return
@@ -287,8 +312,8 @@
 	density = TRUE
 	anchored = TRUE
 	light_range = 3
-	var/obj/machinery/mineral/input
-	var/obj/machinery/mineral/output
+	var/turf/input
+	var/turf/output
 	var/obj/machinery/mineral/processing_unit_console/console
 	var/sheets_per_tick = 20
 	var/list/ores_processing[0]
@@ -322,13 +347,35 @@
 
 	//Locate our output and input machinery.
 	for(var/dir in cardinal)
-		src.input = locate(/obj/machinery/mineral/input, get_step(src, dir))
-		if(src.input)
+		var/input_spot = locate(/obj/machinery/mineral/input, get_step(src, dir))
+		if(input_spot)
+			input = get_turf(input_spot) // thought of qdeling the spots here, but it's useful when rebuilding a destroyed machine
 			break
 	for(var/dir in cardinal)
-		src.output = locate(/obj/machinery/mineral/output, get_step(src, dir))
-		if(src.output)
+		var/output_spot = locate(/obj/machinery/mineral/output, get_step(src, dir))
+		if(output)
+			output = get_turf(output_spot)
 			break
+
+	if(!input)
+		input = get_step(src, reverse_dir[dir])
+	if(!output)
+		output = get_step(src, dir)
+
+/obj/machinery/mineral/processing_unit/Destroy()
+	if(console)
+		console.machine = null
+	return ..()
+
+/obj/machinery/mineral/processing_unit/attackby(obj/item/I, mob/user)
+	if(default_deconstruction_screwdriver(user, I))
+		return
+	if(default_deconstruction_crowbar(user, I))
+		return
+	if(default_part_replacement(user, I))
+		return
+	return ..()
+
 
 /obj/machinery/mineral/processing_unit/machinery_process()
 	..()
@@ -340,7 +387,7 @@
 
 	//Grab some more ore to process this tick.
 	for(var/i = 0, i < sheets_per_tick, i++)
-		var/obj/item/ore/O = locate() in get_turf(input)
+		var/obj/item/ore/O = locate() in input
 		if(!O)
 			break
 		if(!isnull(ores_stored[O.material]))
@@ -397,8 +444,9 @@
 							sheets += total - 1
 
 						for(var/i = 0, i < total, i++)
-							console.alloy_mats[A] = console.alloy_mats[A] + 1
-							new A.product(get_turf(output))
+							if(console)
+								console.alloy_mats[A] = console.alloy_mats[A] + 1
+							new A.product(output)
 
 			else if(ores_processing[metal] == 2 && O.compresses_to) //Compressing.
 				var/can_make = Clamp(ores_stored[metal], 0, sheets_per_tick - sheets)
@@ -417,7 +465,7 @@
 					ores_stored[metal] -= 2
 					sheets += 2
 					console.output_mats[M] += 1
-					new M.stack_type(get_turf(output))
+					new M.stack_type(output)
 
 			else if(ores_processing[metal] == 1 && O.smelts_to) //Smelting.
 				var/can_make = Clamp(ores_stored[metal], 0, sheets_per_tick - sheets)
@@ -432,27 +480,24 @@
 					use_power(100)
 					ores_stored[metal] -= 1
 					sheets++
-					console.output_mats[M] += 1
-					new M.stack_type(get_turf(output))
+					if(console)
+						console.output_mats[M] += 1
+					new M.stack_type(output)
 			else
 				if(console)
 					console.points -= O.worth * 3 //reee wasting our materials!
 				use_power(500)
 				ores_stored[metal] -= 1
 				sheets++
-				console.input_mats[O] += 1
-				console.waste++
-				new /obj/item/ore/slag(get_turf(output))
+				if(console)
+					console.input_mats[O] += 1
+					console.waste++
+				new /obj/item/ore/slag(output)
 		else
 			continue
 
-	console.updateUsrDialog()
-
-/obj/machinery/mineral/processing_unit/attackby(obj/item/W, mob/user)
-	if(default_deconstruction_screwdriver(user, W))
-		return
-	else if(default_part_replacement(user, W))
-		return
+	if(console)
+		console.updateUsrDialog()
 
 /obj/machinery/mineral/processing_unit/RefreshParts()
 	..()

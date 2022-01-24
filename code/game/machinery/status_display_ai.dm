@@ -76,6 +76,8 @@ var/list/ai_status_emotions = list(
 	return ..()
 
 /obj/machinery/ai_status_display/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	var/emote = get_ai_emotion(user)
 	src.emotion = emote
 	src.update()

@@ -11,9 +11,9 @@
  *		Prescription glasses and drinking glass boxes,
  *		Condiment bottle and silly cup boxes,
  *		Donkpocket and monkeycube boxes,
- *		ID and security PDA cart boxes,
+ *		ID boxes,
  *		Handcuff, mousetrap, and pillbottle boxes,
- *		Snap-pops and matchboxes,
+ *		Snap-pops,
  *		Replacement light boxes.
  *		Kitchen utensil box
  * 		Random preserved snack box
@@ -28,6 +28,7 @@
 	item_state = "box"
 	center_of_mass = list("x" = 13,"y" = 10)
 	var/foldable = /obj/item/stack/material/cardboard	// BubbleWrap - if set, can be folded (when empty) into a sheet of cardboard
+	var/trash = null // if set, can be crushed into a trash item when empty
 	var/maxHealth = 20	//health is already defined
 	use_sound = 'sound/items/storage/box.ogg'
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
@@ -37,6 +38,10 @@
 /obj/item/storage/box/Initialize()
 	. = ..()
 	health = maxHealth
+	if(foldable)
+		desc_info += "You can fold this into a sheet. "
+	if(ispath(src.trash))
+		desc_info += "This can be crumpled up into a trash item when empty, or forcibly crumpled on harm intent. "
 
 /obj/item/storage/box/proc/damage(var/severity)
 	health -= severity
@@ -49,7 +54,7 @@
 /obj/item/storage/box/attack_generic(var/mob/user)
 	if(!chewable)
 		return
-	if (istype(user, /mob/living))
+	if(istype(user, /mob/living))
 		var/mob/living/L = user
 
 		if (istype(L, /mob/living/carbon/alien/diona) || istype(L, /mob/living/simple_animal) || istype(L, /mob/living/carbon/human))//Monkey-like things do attack_generic, not crew
@@ -70,7 +75,7 @@
 				L.visible_message("<span class='danger'>[L] tears open the [src], spilling its contents everywhere!</span>", "<span class='danger'>You tear open the [src], spilling its contents everywhere!</span>")
 				spill()
 			else
-				animate_shake()
+				shake_animation()
 				var/toplay = pick(list('sound/effects/creatures/nibble1.ogg','sound/effects/creatures/nibble2.ogg'))
 				playsound(loc, toplay, 30, 1)
 			damage(damage)
@@ -86,51 +91,74 @@
 
 // BubbleWrap - A box can be folded up to make card
 /obj/item/storage/box/attack_self(mob/user as mob)
-	if(..()) return
-
-	//try to fold it.
-	if ( contents.len )
+	if(..())
 		return
 
-	if ( !ispath(src.foldable) )
-		return
-	var/found = 0
-	// Close any open UI windows first
-	for(var/mob/M in range(1))
-		if (M.s_active == src)
-			src.close(M)
-		if ( M == user )
-			found = 1
-	if ( !found )	// User is too far away
-		return
-	// Now make the cardboard
-	to_chat(user, "<span class='notice'>You fold [src] flat.</span>")
-	playsound(src.loc, 'sound/items/storage/boxfold.ogg', 30, 1)
-	new src.foldable(get_turf(src))
-	qdel(src)
-
-/obj/item/storage/backpack/attackby(obj/item/W as obj, mob/user as mob)
-	if (src.use_sound)
-		playsound(src.loc, src.use_sound, 50, 1, -5)
-	..()
+	if(ispath(src.foldable) || ispath(src.trash))
+		var/found = 0
+		for(var/mob/M in range(1))
+			if(M.s_active == src)
+				src.close(M) // Close any open UI windows first
+			if(M == user)
+				found = 1
+		if(!found)	// User is too far away
+			return
+		if(ispath(src.foldable))
+			if(contents.len)
+				return
+			to_chat(user, SPAN_NOTICE("You fold \the [src] flat.")) //make cardboard
+			playsound(src.loc, 'sound/items/storage/boxfold.ogg', 30, 1)
+			var/obj/item/foldable = new src.foldable()
+			qdel(src)
+			user.put_in_hands(foldable) //try to put it inhands if possible
+		if(ispath(src.trash) && user.a_intent == I_HURT)
+			if(!contents.len)
+				to_chat(user, SPAN_NOTICE("You crumple up \the [src]."))
+			else
+				user.visible_message(SPAN_DANGER("You crush \the [src], spilling its contents everywhere!"), SPAN_DANGER("[user] crushes \the [src], spilling its contents everywhere!"))
+				spill()
+			playsound(src.loc, 'sound/items/pickup/wrapper.ogg', 30, 1)
+			var/obj/item/trash = new src.trash()
+			qdel(src)
+			user.put_in_hands(trash)
 
 /obj/item/storage/box/survival
 	name = "emergency survival box"
 	desc = "A faithful box that will remain with you, no matter where you go, and probably save you."
 	icon_state = "e_box"
 	autodrobe_no_remove = 1
-	starts_with = list(/obj/item/clothing/mask/breath = 1,
-					   /obj/item/tank/emergency_oxygen = 1,
-					   /obj/item/device/flashlight/flare/glowstick/red = 1
-						)
+	max_storage_space = 14
+	can_hold = list(
+				/obj/item/clothing/mask,
+				/obj/item/tank/emergency_oxygen,
+				/obj/item/device/flashlight/flare/glowstick,
+				/obj/item/stack/medical,
+				/obj/item/reagent_containers/hypospray/autoinjector,
+				/obj/item/reagent_containers/inhaler,
+				/obj/item/device/oxycandle,
+				/obj/item/extinguisher/mini,
+				/obj/item/device/radio,
+				/obj/item/device/flashlight,
+				/obj/item/reagent_containers/food/drinks/flask,
+				/obj/item/storage/box/fancy/cigarettes,
+				/obj/item/flame/lighter,
+				/obj/item/disk/nuclear,
+				/obj/item/crowbar,
+				/obj/item/airbubble
+				)
+	starts_with = list(
+					/obj/item/clothing/mask/breath = 1,
+					/obj/item/tank/emergency_oxygen = 1,
+					/obj/item/device/oxycandle = 1,
+					/obj/item/device/flashlight/flare/glowstick/red = 1,
+					/obj/item/stack/medical/bruise_pack = 1,
+					/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1
+					)
 
 /obj/item/storage/box/survival/fill()
 	..()
 	for(var/obj/item/thing in contents)
 		thing.autodrobe_no_remove = 1
-
-/obj/item/storage/box/vox
-	starts_with = list(/obj/item/clothing/mask/breath = 1, /obj/item/tank/emergency_nitrogen = 1)
 
 /obj/item/storage/box/engineer
 	autodrobe_no_remove = 1
@@ -256,6 +284,14 @@
 	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 	starts_with = list(/obj/item/ammo_casing/shotgun/incendiary = 8)
 
+/obj/item/storage/box/trackingslugs
+	name = "box of tracking slugs"
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "trackingshot_box"
+	drop_sound = 'sound/items/drop/ammobox.ogg'
+	pickup_sound = 'sound/items/pickup/ammobox.ogg'
+	starts_with = list(/obj/item/ammo_casing/shotgun/tracking = 4)
+
 /obj/item/storage/box/sniperammo
 	name = "box of 14.5mm shells"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
@@ -281,6 +317,11 @@
 	desc = "A box of NT brand Firearm authentication pins; Needed to operate most weapons."
 	starts_with = list(/obj/item/device/firing_pin = 7)
 
+/obj/item/storage/box/securitypins
+	name = "box of wireless-control firing pins"
+	desc = "A box of NT brand Firearm authentication pins; Needed to operate most weapons.  These firing pins are wireless-control enabled."
+	starts_with = list(/obj/item/device/firing_pin/wireless = 7)
+
 /obj/item/storage/box/testpins
 	name = "box of firing pins"
 	desc = "A box of NT brand Testing Authentication pins; allows guns to fire in designated firing ranges."
@@ -302,6 +343,15 @@
 	name = "box of assorted firing pins"
 	desc = "A box of varied assortment of firing pins. Appears to have R&D stickers on all sides of the box. Also seems to have a smiley face sticker on the top of it."
 	starts_with = list(/obj/item/device/firing_pin = 2, /obj/item/device/firing_pin/access = 2, /obj/item/device/firing_pin/implant/loyalty = 2, /obj/item/device/firing_pin/clown = 1, /obj/item/device/firing_pin/dna = 1)
+
+/obj/item/storage/box/tethers
+	name = "box of tethering devices"
+	desc = "A box containing eight electro-tethers, used primarily to keep track of partners during expeditions."
+	starts_with = list(/obj/item/tethering_device = 8)
+
+/obj/item/storage/box/tethers/fill()
+	..()
+	make_exact_fit()
 
 /obj/item/storage/box/teargas
 	name = "box of pepperspray grenades"
@@ -403,10 +453,11 @@
 	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket = 6)
 
 /obj/item/storage/box/sinpockets
-	name = "box of sin-pockets"
-	desc = "<B>Instructions:</B> <I>Crush bottom of package to initiate chemical heating. Wait for 20 seconds before consumption. Product will cool if not eaten within seven minutes.</I>"
+	name = "box of donk-pockets"
+	desc = "<B>Instructions:</B> <I>Heat in microwave. Product will cool if not eaten within seven minutes.</I>"
 	icon_state = "donk_kit"
 	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket = 6)
+	desc_antag = "Crush bottom of package to initiate chemical heating. Wait for 20 seconds before consumption. Product will cool if not eaten within seven minutes."
 
 /obj/item/storage/box/monkeycubes
 	name = "monkey cube box"
@@ -443,12 +494,6 @@
 	icon_state = "id"
 	starts_with = list(/obj/item/card/id = 7)
 
-/obj/item/storage/box/seccarts
-	name = "box of spare R.O.B.U.S.T. Cartridges"
-	desc = "A box full of R.O.B.U.S.T. Cartridges, used by Security."
-	icon_state = "pda"
-	starts_with = list(/obj/item/cartridge/security = 7)
-
 /obj/item/storage/box/handcuffs
 	name = "box of spare handcuffs"
 	desc = "A box full of handcuffs."
@@ -463,7 +508,7 @@
 
 /obj/item/storage/box/mousetraps
 	name = "box of Pest-B-Gon mousetraps"
-	desc = "<B><FONT color='red'>WARNING:</FONT></B> <I>Keep out of reach of children</I>."
+	desc = "<B><span class='warning'>WARNING:</span></B> <I>Keep out of reach of children</I>."
 	icon_state = "mousetraps"
 	starts_with = list(/obj/item/device/assembly/mousetrap = 6)
 
@@ -490,29 +535,10 @@
 	desc_antag = "These snap pops have an extra compound added that will deploy a tiny smokescreen when snapped."
 	starts_with = list(/obj/item/toy/snappop/syndi = 8)
 
-/obj/item/storage/box/matches
-	name = "safety match box"
-	desc = "A small box of 'Space-Proof' premium safety matches." //can't strike these anywhere other than matchboxes, so they're safety matches
-	icon = 'icons/obj/cigs_lighters.dmi'
-	icon_state = "matchbox"
-	item_state = "box"
-	w_class = ITEMSIZE_TINY
-	drop_sound = 'sound/items/drop/matchbox.ogg'
-	pickup_sound =  'sound/items/pickup/matchbox.ogg'
-	slot_flags = SLOT_BELT
-	can_hold = list(/obj/item/flame/match)
-	starts_with = list(/obj/item/flame/match = 10)
-
-/obj/item/storage/box/matches/attackby(obj/item/flame/match/W, mob/user)
-	if(istype(W) && !W.lit)
-		if(prob(25))
-			playsound(src.loc, 'sound/items/cigs_lighters/matchstick_lit.ogg', 25, 0, -1)
-			user.visible_message("<b>[user]</b> manages to light \the [W] by striking it on \the [src].", range = 3)
-			W.light()
-		else
-			playsound(src.loc, 'sound/items/cigs_lighters/matchstick_hit.ogg', 25, 0, -1)
-	W.update_icon()
-	return
+/obj/item/storage/box/partypopper
+	name = "party popper box"
+	desc = "Six cones of confetti conflagarating fun!"
+	starts_with = list(/obj/item/toy/partypopper = 6)
 
 /obj/item/storage/box/autoinjectors
 	name = "box of empty injectors"
@@ -614,7 +640,7 @@
 		)
 	icon_state = "portafreezer"
 	item_state = "medicalpack"
-	max_w_class = 3
+	max_w_class = ITEMSIZE_NORMAL
 	max_storage_space = 21
 	use_to_pickup = FALSE // for picking up broken bulbs, not that most people will try
 	chewable = FALSE
@@ -663,6 +689,7 @@
 	var/list/snacks = list(
 			/obj/item/reagent_containers/food/snacks/koisbar_clean,
 			/obj/item/reagent_containers/food/snacks/candy,
+			/obj/item/reagent_containers/food/snacks/candy/koko,
 			/obj/item/reagent_containers/food/snacks/candy_corn,
 			/obj/item/reagent_containers/food/snacks/chips,
 			/obj/item/reagent_containers/food/snacks/chocolatebar,
@@ -683,7 +710,11 @@
 			/obj/item/reagent_containers/food/snacks/maps,
 			/obj/item/reagent_containers/food/snacks/nathisnack,
 			/obj/item/reagent_containers/food/snacks/adhomian_can,
-			/obj/item/reagent_containers/food/snacks/tuna
+			/obj/item/reagent_containers/food/snacks/tuna,
+			/obj/item/storage/box/fancy/gum,
+			/obj/item/storage/box/fancy/cookiesnack,
+			/obj/item/storage/box/fancy/admints,
+			/obj/item/storage/box/fancy/vkrexitaffy
 	)
 	for (var/i = 0,i<7,i++)
 		var/type = pick(snacks)
@@ -803,9 +834,19 @@
 	starts_with = list(/obj/item/clothing/accessory/badge/hadii_card = 6)
 
 /obj/item/storage/box/hadii_manifesto
-	name = "hadiist manifesto card box"
+	name = "hadiist manifesto box"
 	desc = "A box full of hadiist manifesto books."
 	starts_with = list(/obj/item/book/manual/pra_manifesto = 6)
+
+/obj/item/storage/box/dpra_manifesto
+	name = "al'mariist manifesto box"
+	desc = "A box full of al'mariist manifesto books."
+	starts_with = list(/obj/item/book/manual/dpra_manifesto = 6)
+
+/obj/item/storage/box/nka_manifesto
+	name = "royalist manifesto card box"
+	desc = "A box full of royalist manifesto books."
+	starts_with = list(/obj/item/book/manual/nka_manifesto = 6)
 
 /obj/item/storage/box/dominia_honor
 	name = "dominian honor codex box"
@@ -864,3 +905,97 @@
 	var/obj/item/closet_teleporter/CT_2 = new /obj/item/closet_teleporter(src)
 	CT_1.linked_teleporter = CT_2
 	CT_2.linked_teleporter = CT_1
+
+/obj/item/storage/box/googly
+	name = "googly eye box"
+	desc = "A box containing googly eyes."
+	starts_with = list(/obj/item/sticker/googly_eye = 8)
+
+/obj/item/storage/box/goldstar
+	name = "gold star box"
+	desc = "A box containing gold star stickers."
+	starts_with = list(/obj/item/sticker/goldstar = 8)
+
+/obj/item/storage/box/folders
+	name = "box of folders"
+	desc = "A box full of folders."
+	starts_with = list(/obj/item/folder = 5)
+
+/obj/item/storage/box/folders/blue
+	starts_with = list(/obj/item/folder/sec = 5)
+
+/obj/item/storage/box/papersack
+	name = "paper sack"
+	desc = "A neatly sack crafted out of paper."
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand.dmi',
+		)
+	item_state = "papersack"
+	icon_state = "paperbag_None"
+	use_sound = 'sound/bureaucracy/papercrumple.ogg'
+	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/storage/wrapper.ogg'
+	foldable = null
+	max_w_class = ITEMSIZE_NORMAL
+	max_storage_space = 8
+	use_to_pickup = TRUE
+	chewable = TRUE
+	var/opened = TRUE
+	var/static/list/papersack_designs
+	var/choice = "None"
+
+/obj/item/storage/box/papersack/update_icon()
+	. = ..()
+	if(length(contents) == 0)
+		icon_state = "paperbag_[choice]"
+	else if(length(contents) < 8)
+		icon_state = "paperbag_[choice]-food"
+
+/obj/item/storage/box/papersack/attackby(obj/item/O, mob/user)
+	if(O.ispen())
+		if(!papersack_designs)
+			papersack_designs = sortList(list(
+			"None" = image(icon = src.icon, icon_state = "paperbag_None"),
+			"NanotrasenStandard" = image(icon = src.icon, icon_state = "paperbag_NanotrasenStandard"),
+			"Idris" = image(icon = src.icon, icon_state = "paperbag_Idris"),
+			"Heart" = image(icon = src.icon, icon_state = "paperbag_Heart"),
+			"SmileyFace" = image(icon = src.icon, icon_state = "paperbag_SmileyFace")
+			))
+
+		var/selected = show_radial_menu(user, src, papersack_designs, radius = 42, tooltips = TRUE)
+		if(!selected)
+			return
+		choice = selected
+		switch(choice)
+			if("None")
+				desc = "A sack neatly crafted out of paper."
+			if("NanotrasenStandard")
+				desc = "A standard Nanotrasen paper lunch sack for loyal employees on the go."
+			if("Idris")
+				desc = "A premium paper bag produced by Idris Incorporated."
+			if("Heart")
+				desc = "A paper sack with a heart etched onto the side."
+			if("SmileyFace")
+				desc = "A paper sack with a crude smile etched onto the side."
+			else
+				return
+		to_chat(user, SPAN_NOTICE("You make some modifications to [src] using your pen."))
+		update_icon()
+		return
+
+	else if(O.isscrewdriver())
+		if(length(contents) == 0)
+			to_chat(user, SPAN_NOTICE("You begin poking holes in \the [src]."))
+			if (do_after(user, 10/O.toolspeed, act_target = src))
+				if(choice == "SmileyFace")
+					var/obj/item/clothing/head/papersack/smiley/S = new()
+					user.put_in_hands(S)
+				else    
+					var/obj/item/clothing/head/papersack/PS = new()
+					user.put_in_hands(PS)
+				qdel(src)
+		else
+			to_chat(user, SPAN_WARNING("\The [src] needs to be empty before you can do that!"))
+	else
+		..()

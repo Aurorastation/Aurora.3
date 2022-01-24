@@ -1,4 +1,4 @@
-/obj/item/storage/fancy/cigarettes/pra
+/obj/item/storage/box/fancy/cigarettes/pra
 	name = "\improper Labourer's Choice cigarette packet"
 	desc = "Jokingly referred to an essential part of a working class citizen's breakfast, beside state-provided provisions."
 	desc_fluff = "Imported from the People's Republic of Adhomai."
@@ -8,11 +8,17 @@
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/adhomai
 	can_hold = list(/obj/item/clothing/mask/smokable/cigarette, /obj/item/flame/lighter, /obj/item/trash/cigbutt, /obj/item/tajcard)
 
-/obj/item/storage/fancy/cigarettes/pra/fill()
+/obj/item/storage/box/fancy/cigarettes/pra/update_icon()
+	. = ..()
+	var/card_count = instances_of_type_in_list(new /obj/item/tajcard, src.contents) //having cards in here doesn't count for icon
+	if(opened)
+		icon_state = "[initial(icon_state)][contents.len - card_count]"
+
+/obj/item/storage/box/fancy/cigarettes/pra/fill()
 	..()
 	new /obj/item/tajcard(src)
 
-/obj/item/storage/fancy/cigarettes/dpra
+/obj/item/storage/box/fancy/cigarettes/dpra
 	name = "\improper Shastar List'ya cigarette packet"
 	desc = "Rumored to be a de-facto currency for Adhominian knuckles off-planet."
 	desc_fluff = "Imported from the Democratic People's Republic of Adhomai."
@@ -20,7 +26,7 @@
 	item_state = "Bpacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/adhomai
 
-/obj/item/storage/fancy/cigarettes/nka
+/obj/item/storage/box/fancy/cigarettes/nka
 	name = "\improper Gato Royales cigarette packet"
 	desc = "Popular with the aristocrats of the New Kingdom of Adhomai for its mild menthol flavor."
 	desc_fluff = "Imported from the New Kingdom of Adhomai."
@@ -131,6 +137,11 @@
 	icon_state = "adhomai_clock"
 	item_state = "adhomai_clock"
 	contained_sprite = TRUE
+	slot_flags = SLOT_MASK
+	var/static/months = list("Menshe-aysaif", "Sil'nryy-aysaif", "Menshe-rhazzimy", "Sil'nryy-rhazzimy")
+
+/obj/item/pocketwatch/adhomai/get_mask_examine_text(mob/user)
+	return "around [user.get_pronoun("his")] neck"
 
 /obj/item/pocketwatch/adhomai/checktime(mob/user)
 	set category = "Object"
@@ -142,47 +153,23 @@
 	else
 
 		var/adhomian_year = game_year + 1158
-
-		var/current_month = time2text(world.realtime, "Month")
+		var/current_month = text2num(time2text(world.realtime, "MM"))
 		var/current_day = text2num(time2text(world.realtime, "DD"))
 		var/adhomian_day
-		var/adhomian_month
+		var/adhomian_month = src.months[Ceiling(current_month/3)]
 		switch(current_month)
-			if("January", "February", "March")
-				adhomian_month = "Menshe-aysaif"
-				if (current_month == "February")
-					adhomian_day = current_day + 15
-				if (current_month == "March")
-					adhomian_day = current_day + 30
-
-			if("April", "May", "June")
-				adhomian_month = "Sil'nryy-aysaif"
-				if (current_month == "May")
-					adhomian_day = current_day + 15
-				if (current_month == "June")
-					adhomian_day = current_day + 30
-
-			if("July", "August", "September")
-				adhomian_month = "Menshe-rhazzimy"
-				if (current_month == "August")
-					adhomian_day = current_day + 15
-				if (current_month == "September")
-					adhomian_day = current_day + 30
-
-			if("October", "November", "December")
-				adhomian_month = "Sil'nryy-rhazzimy"
-				if (current_month == "November")
-					adhomian_day = current_day + 15
-				if (current_month == "December")
-					adhomian_day = current_day + 30
-
-		var/real_time = text2num(time2text(world.time + (roundstart_hour HOURS), "hh"))
+			if(2, 5, 8, 11)
+				current_day += 31
+			if(6, 9, 12)
+				current_day += 61
+			if(3)
+				current_day += 59 + isLeap(text2num(time2text(world.realtime, "YYYY"))) // we can conveniently use the result of `isLeap` to add 1 when we are in a leap year
+		var/real_time = text2num(time2text(world.time + (REALTIMEOFDAY - (TIME_OFFSET HOURS)), "hh"))
 		var/adhomian_time = real_time
-		if(IsOdd(current_day))
+		if(ISEVEN(current_day))
 			adhomian_time = real_time + 24
-			adhomian_day -= 1
-
-		to_chat(usr, "You check your \the [src], glancing over at the watch face, reading the time to be '[adhomian_time]'. Today's date is '[adhomian_day]th day of [adhomian_month] [adhomian_year]'.")
+		adhomian_day = Floor(current_day / 2)
+		to_chat(usr, "You check your [src.name], glancing over at the watch face, reading the time to be '[adhomian_time]'. Today's date is the '[adhomian_day]th day of [adhomian_month], [adhomian_year]'.")
 
 
 /obj/item/flame/lighter/adhomai

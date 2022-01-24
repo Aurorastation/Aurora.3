@@ -1,5 +1,6 @@
 /obj/machinery/chem_heater
 	name = "chemical heater"
+	desc = "A simple device that can be used to heat the contents of a beaker to a precise temperature."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "mixer0b"
 	use_power = 0
@@ -52,33 +53,33 @@
 	if(stat & BROKEN)
 		return
 	user.set_machine(src)
-	var/dat ="<html>"
-	dat += "<head><TITLE>Chem Heater MKI</TITLE><style>body{font-family:Garamond}</style></head>"
-	dat += "<body><H1>Chem Heater MKI</H1>"
+	var/dat = "<html>"
 
-	dat += "<p>Power: <a href='?src=\ref[src];action=togglepower'>[use_power ? "On" : "Off"]</a></p>"
-	dat += "<p>Target Temp: [round(target_temperature)]K / [round(target_temperature - T0C,0.1)]C<br> "
+	dat += "Power: <a href='?src=\ref[src];action=togglepower'>[use_power ? "On" : "Off"]</a>"
 
-	dat += "("
-	dat += "<a href='?src=\ref[src];action=adjusttemp;power=-100'>----</a>|"
-	dat += "<a href='?src=\ref[src];action=adjusttemp;power=-25'>---</a>|"
-	dat += "<a href='?src=\ref[src];action=adjusttemp;power=-5'>--</a>|"
-	dat += "<a href='?src=\ref[src];action=adjusttemp;power=-1'>-</a>|"
-	dat += "<a href='?src=\ref[src];action=adjusttemp;power=1'>+</a>|"
-	dat += "<a href='?src=\ref[src];action=adjusttemp;power=5'>++</a>|"
-	dat += "<a href='?src=\ref[src];action=adjusttemp;power=25'>+++</a>|"
+	dat += "<p>Target Temp: [round(target_temperature)]K / [round(target_temperature - T0C,0.1)]C<br>"
+
+	dat += "| "
+	dat += "<a href='?src=\ref[src];action=adjusttemp;power=-100'>----</a>"
+	dat += "<a href='?src=\ref[src];action=adjusttemp;power=-25'>---</a>"
+	dat += "<a href='?src=\ref[src];action=adjusttemp;power=-5'>--</a>"
+	dat += "<a href='?src=\ref[src];action=adjusttemp;power=-1'>-</a>"
+	dat += "<a href='?src=\ref[src];action=adjusttemp;power=1'>+</a>"
+	dat += "<a href='?src=\ref[src];action=adjusttemp;power=5'>++</a>"
+	dat += "<a href='?src=\ref[src];action=adjusttemp;power=25'>+++</a>"
 	dat += "<a href='?src=\ref[src];action=adjusttemp;power=100'>++++</a>"
-	dat += ")</p>"
+	dat += "| </p>"
 
 	if(container)
-		dat += "<p>Beaker Temp: [round(container.get_temperature(),0.01)]K / [round(container.get_temperature() - T0C,0.1)]C (<a href='?src=\ref[src];action=removebeaker'>Remove</a>)</p>"
+		dat += "<p>Beaker Temp: [round(container.get_temperature(),0.01)]K / [round(container.get_temperature() - T0C,0.1)]C <a href='?src=\ref[src];action=removebeaker'>Remove</a></p>"
 	else
 		dat += "<p>No container loaded!</p>"
 
-	dat += "</body><html>"
+	dat += "</html>"
 
-	user << browse(dat, "window=chem_heater")
-	onclose(user, "chem_heater")
+	var/datum/browser/chem_win = new(user, "chem_heater", "Chem Heater MKI")
+	chem_win.set_content(dat)
+	chem_win.open()
 
 /obj/machinery/chem_heater/Topic(href, href_list)
 	if(stat & BROKEN) return

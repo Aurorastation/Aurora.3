@@ -3,11 +3,6 @@
 /turf/unsimulated/chasm_mask,
 /area/mine/unexplored)
 "ab" = (
-/obj/machinery/access_button/airlock_exterior{
-	frequency = 1352;
-	master_tag = "bunker_airlock";
-	pixel_y = -25
-	},
 /obj/machinery/light/small{
 	brightness_color = "#FA8282"
 	},
@@ -19,20 +14,15 @@
 "ad" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/machinery/appliance/cooker/oven,
-/turf/simulated/floor/lino,
+/turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "ae" = (
 /obj/structure/table/standard,
-/turf/simulated/floor/lino,
+/turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "af" = (
 /obj/machinery/appliance/cooker/fryer,
-/turf/simulated/floor/lino,
-/area/dungeon/sol_outpost)
-"ag" = (
-/obj/structure/table/standard,
-/obj/machinery/microwave,
-/turf/simulated/floor/lino,
+/turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "ah" = (
 /obj/effect/decal/cleanable/dirt,
@@ -40,6 +30,7 @@
 	brightness_color = "#FA8282";
 	dir = 1
 	},
+/obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "ai" = (
@@ -49,7 +40,7 @@
 /area/dungeon/sol_outpost)
 "aj" = (
 /obj/structure/table/reinforced,
-/obj/item/storage/box/donkpockets,
+/obj/item/storage/box/snack,
 /turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "ak" = (
@@ -64,22 +55,14 @@
 	pixel_x = -12;
 	pixel_y = 6
 	},
-/turf/simulated/floor/lino,
-/area/dungeon/sol_outpost)
-"am" = (
-/turf/simulated/floor/lino,
-/area/dungeon/sol_outpost)
-"an" = (
-/obj/effect/decal/cleanable/flour,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/lino,
+/turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "ao" = (
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "ap" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
@@ -99,7 +82,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "spiderling";
-	name = "dead spider"
+	name = "dead greimorian"
 	},
 /turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
@@ -109,7 +92,7 @@
 /turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "av" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/decal/cleanable/flour,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
@@ -125,14 +108,14 @@
 /turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "ay" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "az" = (
 /obj/structure/toilet,
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "spiderling";
-	name = "dead spider"
+	name = "dead greimorian"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
@@ -144,15 +127,6 @@
 /obj/structure/toilet,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/scarybat{
-	wander = 0
-	},
-/mob/living/simple_animal/hostile/scarybat{
-	wander = 0
-	},
-/mob/living/simple_animal/hostile/scarybat{
-	wander = 0
-	},
 /turf/simulated/floor/tiled/white,
 /area/dungeon/sol_outpost)
 "aC" = (
@@ -163,7 +137,7 @@
 /turf/simulated/floor/tiled/white,
 /area/dungeon/sol_outpost)
 "aD" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/machinery/light{
 	brightness_color = "#FA8282"
 	},
@@ -174,7 +148,7 @@
 /turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "aF" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light{
 	brightness_color = "#FA8282"
@@ -187,8 +161,8 @@
 /turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "aH" = (
-/obj/machinery/door/airlock,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/door_assembly,
 /turf/simulated/floor/tiled/white,
 /area/dungeon/sol_outpost)
 "aI" = (
@@ -215,46 +189,44 @@
 /area/dungeon/sol_outpost)
 "aM" = (
 /obj/effect/decal/cleanable/cobweb,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "aN" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "aO" = (
 /obj/structure/sign/flag/sol/left{
 	pixel_y = 32
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "aP" = (
 /obj/structure/sign/flag/sol/right{
 	pixel_y = 32
 	},
-/obj/machinery/light{
-	brightness_color = "#FA8282";
+/obj/machinery/light_construct{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "aQ" = (
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "aR" = (
 /obj/structure/sign/flag/sol/left{
 	pixel_y = 32
 	},
-/obj/machinery/light{
-	brightness_color = "#FA8282";
+/obj/machinery/light_construct{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "aS" = (
 /obj/structure/sign/flag/sol/right{
 	pixel_y = 32
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "aT" = (
 /obj/structure/sink{
@@ -295,17 +267,12 @@
 /turf/simulated/floor/tiled/white,
 /area/dungeon/sol_outpost)
 "aZ" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1352;
-	icon_state = "door_locked";
-	id_tag = "bunker_exterior";
-	locked = 1
-	},
+/obj/structure/door_assembly/door_assembly_ext,
 /turf/simulated/floor,
 /area/dungeon/sol_outpost)
 "ba" = (
 /obj/random/junk,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "bb" = (
 /obj/structure/sink{
@@ -343,11 +310,6 @@
 /area/dungeon/sol_outpost)
 "bg" = (
 /obj/effect/decal/cleanable/mucus,
-/obj/machinery/airlock_sensor{
-	frequency = 1352;
-	id_tag = "bunker_sensor";
-	pixel_x = -25
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
@@ -355,58 +317,31 @@
 /area/dungeon/sol_outpost)
 "bh" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_pump{
-	dir = 8;
-	frequency = 1352;
-	id_tag = "bunker_vent"
-	},
-/obj/machinery/light/small{
-	brightness_color = "#FA8282";
-	dir = 4
-	},
 /turf/simulated/floor,
 /area/dungeon/sol_outpost)
 "bi" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/porta_turret/pulse,
 /obj/effect/decal/warning_stripes,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "bj" = (
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "bk" = (
 /obj/machinery/porta_turret/pulse,
 /obj/effect/decal/warning_stripes,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "bl" = (
-/obj/machinery/door/airlock,
+/obj/structure/door_assembly,
 /turf/simulated/floor/tiled/white,
 /area/dungeon/sol_outpost)
 "bm" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	frequency = 1352;
-	id_tag = "bunker_airlock";
-	pixel_x = -25;
-	tag_airpump = "bunker_vent";
-	tag_chamber_sensor = "bunker_sensor";
-	tag_exterior_door = "bunker_exterior";
-	tag_interior_door = "bunker_interior"
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
-	},
-/turf/simulated/floor,
-/area/dungeon/sol_outpost)
-"bn" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_pump{
-	dir = 8;
-	frequency = 1352;
-	id_tag = "bunker_vent"
 	},
 /turf/simulated/floor,
 /area/dungeon/sol_outpost)
@@ -469,13 +404,10 @@
 "bu" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/sol/marine,
-/obj/item/clothing/shoes/jackboots,
-/obj/item/clothing/mask/gas/tactical,
-/obj/item/clothing/glasses/night,
-/obj/item/clothing/gloves/swat/tactical,
-/obj/item/clothing/head/helmet/sol,
-/obj/item/clothing/suit/storage/vest/sol,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	nitrogen = 0;
+	oxygen = 0
+	},
 /area/dungeon/sol_outpost)
 "bv" = (
 /obj/machinery/light{
@@ -483,7 +415,10 @@
 	dir = 1;
 	status = 2
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	nitrogen = 0;
+	oxygen = 0
+	},
 /area/dungeon/sol_outpost)
 "bw" = (
 /obj/effect/decal/cleanable/dirt,
@@ -498,26 +433,18 @@
 	brightness_color = "#FA8282";
 	dir = 1
 	},
-/obj/item/stool/padded,
-/turf/simulated/floor/wood,
+/obj/structure/bed/stool/padded/red,
+/turf/simulated/floor/wood{
+	nitrogen = 0;
+	oxygen = 0
+	},
 /area/dungeon/sol_outpost)
 "bz" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1352;
-	icon_state = "door_locked";
-	id_tag = "bunker_interior";
-	locked = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/door_assembly/door_assembly_ext,
 /turf/simulated/floor,
 /area/dungeon/sol_outpost)
 "bA" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1352;
-	icon_state = "door_locked";
-	id_tag = "bunker_interior";
-	locked = 1
-	},
 /turf/simulated/floor,
 /area/dungeon/sol_outpost)
 "bB" = (
@@ -548,11 +475,6 @@
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/wood,
 /area/dungeon/sol_outpost)
-"bE" = (
-/obj/structure/table/wood,
-/obj/random/finances,
-/turf/simulated/floor/wood,
-/area/dungeon/sol_outpost)
 "bF" = (
 /obj/random/junk,
 /turf/simulated/floor/wood,
@@ -568,18 +490,26 @@
 /obj/item/gun/projectile/pistol/sol{
 	pixel_y = 6
 	},
+/obj/item/ammo_magazine/mc9mm,
+/obj/structure/closet/crate/drop,
 /turf/simulated/floor/wood,
 /area/dungeon/sol_outpost)
 "bI" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	nitrogen = 0;
+	oxygen = 0
+	},
 /area/dungeon/sol_outpost)
 "bJ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	nitrogen = 0;
+	oxygen = 0
+	},
 /area/dungeon/sol_outpost)
 "bK" = (
 /obj/effect/decal/cleanable/cobweb,
@@ -591,45 +521,36 @@
 	dir = 1
 	},
 /obj/machinery/door/window/eastleft,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/sol,
-/obj/item/clothing/head/helmet/space/void/sol,
 /obj/structure/sign/vacuum{
 	pixel_y = 32
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "bL" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/spiderling_remains,
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "bM" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/access_button/airlock_interior{
-	frequency = 1352;
-	master_tag = "bunker_airlock";
-	pixel_y = 25
-	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "bN" = (
 /obj/structure/sign/flag/sol{
 	pixel_x = -32
 	},
-/obj/machinery/light{
-	brightness_color = "#FA8282";
+/obj/machinery/light_construct{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "bO" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "bP" = (
 /obj/structure/grille,
@@ -648,7 +569,7 @@
 /turf/simulated/floor/wood,
 /area/dungeon/sol_outpost)
 "bR" = (
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
@@ -664,24 +585,25 @@
 "bU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/mucus,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "bV" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/sign/flag/sol{
 	pixel_x = 32
 	},
-/obj/machinery/light{
-	brightness_color = "#FA8282";
+/obj/machinery/light_construct{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "bW" = (
 /obj/effect/decal/cleanable/ash,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	nitrogen = 0;
+	oxygen = 0
+	},
 /area/dungeon/sol_outpost)
 "bX" = (
 /obj/structure/table/rack,
@@ -691,15 +613,14 @@
 /obj/machinery/door/window/eastleft,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/sol,
-/obj/item/clothing/head/helmet/space/void/sol,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "bY" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "bZ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -707,41 +628,48 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "ca" = (
-/obj/machinery/door/airlock/hatch,
-/turf/simulated/floor/tiled/steel,
+/obj/structure/door_assembly/door_assembly_hatch,
+/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "cb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "spiderling";
-	name = "dead spider"
+	name = "dead greimorian"
 	},
 /turf/simulated/floor/wood,
 /area/dungeon/sol_outpost)
 "cc" = (
-/obj/machinery/door/airlock,
-/turf/simulated/floor/wood,
+/obj/structure/door_assembly{
+	anchored = 1
+	},
+/turf/simulated/floor/wood{
+	nitrogen = 0;
+	oxygen = 0
+	},
 /area/dungeon/sol_outpost)
 "cd" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	nitrogen = 0;
+	oxygen = 0
+	},
 /area/dungeon/sol_outpost)
 "ce" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/sign/poster{
 	pixel_x = 32
 	},
-/obj/structure/undies_wardrobe,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	nitrogen = 0;
+	oxygen = 0
+	},
 /area/dungeon/sol_outpost)
-"cf" = (
-/turf/simulated/wall/r_wall,
-/area/mine/unexplored)
 "cg" = (
 /obj/structure/table/rack,
 /obj/structure/window/reinforced{
@@ -749,29 +677,27 @@
 	},
 /obj/structure/window/reinforced,
 /obj/machinery/door/window/eastleft,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/sol,
 /obj/item/clothing/head/helmet/space/void/sol,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "ch" = (
 /obj/effect/decal/cleanable/ash,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "ci" = (
 /obj/random/junk,
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "cj" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "ck" = (
 /obj/effect/decal/cleanable/dirt,
@@ -781,7 +707,10 @@
 "cl" = (
 /obj/effect/decal/cleanable/spiderling_remains,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	nitrogen = 0;
+	oxygen = 0
+	},
 /area/dungeon/sol_outpost)
 "cm" = (
 /obj/effect/decal/cleanable/dirt,
@@ -789,22 +718,23 @@
 /obj/structure/sign/flag/sol{
 	pixel_x = 32
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	nitrogen = 0;
+	oxygen = 0
+	},
 /area/dungeon/sol_outpost)
 "cn" = (
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "co" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/sign/nosmoking_1{
 	pixel_y = -32
 	},
-/obj/machinery/light{
-	brightness_color = "#FA8282"
-	},
-/turf/simulated/floor/tiled/steel,
+/obj/machinery/light_construct,
+/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "cp" = (
 /obj/structure/window/reinforced{
@@ -818,7 +748,7 @@
 	dir = 1
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "cq" = (
 /obj/structure/window/reinforced{
@@ -835,21 +765,20 @@
 /obj/structure/sign/flag/sol{
 	pixel_y = -32
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "cr" = (
 /obj/structure/sign/vacuum{
 	pixel_x = -32
 	},
-/obj/machinery/light{
-	brightness_color = "#FA8282";
+/obj/machinery/light_construct{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "cs" = (
 /obj/effect/decal/cleanable/spiderling_remains,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "ct" = (
 /obj/structure/grille,
@@ -866,7 +795,7 @@
 /area/dungeon/sol_outpost)
 "cu" = (
 /obj/random/junk,
-/obj/structure/bed/chair/office/light,
+/obj/structure/bed/stool/chair/office/light,
 /turf/simulated/floor/wood,
 /area/dungeon/sol_outpost)
 "cv" = (
@@ -875,7 +804,7 @@
 /area/dungeon/sol_outpost)
 "cw" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -890,11 +819,10 @@
 /obj/structure/sign/flag/sol{
 	pixel_x = 32
 	},
-/obj/machinery/light{
-	brightness_color = "#FA8282";
+/obj/machinery/light_construct{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "cz" = (
 /obj/effect/decal/fake_object{
@@ -909,7 +837,10 @@
 /obj/effect/decal/cleanable/dirt{
 	layer = 3.1
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	nitrogen = 0;
+	oxygen = 0
+	},
 /area/dungeon/sol_outpost)
 "cA" = (
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -918,18 +849,23 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/blue,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	nitrogen = 0;
+	oxygen = 0
+	},
 /area/dungeon/sol_outpost)
 "cC" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/blue,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	nitrogen = 0;
+	oxygen = 0
+	},
 /area/dungeon/sol_outpost)
 "cD" = (
 /obj/structure/table/wood,
-/obj/random/document/junk,
 /turf/simulated/floor/wood,
 /area/dungeon/sol_outpost)
 "cE" = (
@@ -954,7 +890,10 @@
 	name = "dilapitated cryogenic freezer";
 	pixel_x = 1
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	nitrogen = 0;
+	oxygen = 0
+	},
 /area/dungeon/sol_outpost)
 "cH" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1012,18 +951,24 @@
 /obj/machinery/light{
 	brightness_color = "#FA8282"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	nitrogen = 0;
+	oxygen = 0
+	},
 /area/dungeon/sol_outpost)
 "cO" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "spiderling";
-	name = "dead spider"
+	name = "dead greimorian"
 	},
 /obj/machinery/light{
 	brightness_color = "#FA8282"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	nitrogen = 0;
+	oxygen = 0
+	},
 /area/dungeon/sol_outpost)
 "cP" = (
 /obj/structure/curtain/open/shower,
@@ -1033,46 +978,32 @@
 /area/dungeon/sol_outpost)
 "cQ" = (
 /obj/effect/decal/cleanable/mucus,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "cR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/sign/securearea{
 	pixel_y = -32
 	},
-/obj/machinery/light{
-	brightness_color = "#FA8282"
-	},
-/turf/simulated/floor/tiled/steel,
+/obj/machinery/light_construct,
+/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "cS" = (
 /obj/structure/sign/securearea{
 	pixel_y = -32
 	},
-/obj/machinery/light{
-	brightness_color = "#FA8282"
-	},
-/turf/simulated/floor/tiled/steel,
+/obj/machinery/light_construct,
+/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "cT" = (
-/obj/machinery/door/airlock/highsecurity{
-	icon_state = "door_locked";
-	locked = 1
+/obj/structure/door_assembly/door_assembly_highsecurity{
+	anchored = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "cU" = (
 /obj/structure/table/reinforced,
-/obj/item/ammo_magazine/c762/sol,
 /obj/effect/decal/cleanable/cobweb,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/sol_outpost)
-"cV" = (
-/obj/structure/table/reinforced,
-/obj/item/gun/launcher/grenade{
-	pixel_y = 6
-	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/sol_outpost)
@@ -1085,25 +1016,16 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/sol_outpost)
-"cZ" = (
-/obj/structure/table/reinforced,
-/obj/item/ammo_magazine/mc9mm/empty,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/sol_outpost)
 "da" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(150)
 	},
 /obj/item/melee/ceremonial_sword/marine,
-/obj/item/melee/ceremonial_sword/marine,
-/obj/item/melee/ceremonial_sword/marine,
-/obj/item/melee/ceremonial_sword/marine,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/sol_outpost)
 "db" = (
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1128,7 +1050,7 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "dg" = (
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1138,20 +1060,20 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(150)
 	},
-/obj/item/gun/projectile/pistol/sol,
-/obj/item/gun/projectile/pistol/sol,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_magazine/mc9mm,
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/sol_outpost)
 "di" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(150)
-	},
-/obj/item/gun/projectile/shotgun/pump/combat/sol,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light{
 	brightness_color = "#FA8282";
 	dir = 8
+	},
+/obj/structure/closet/secure_closet/guncabinet{
+	locked = 0;
+	opened = 1;
+	req_access = list(150)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/sol_outpost)
@@ -1161,26 +1083,25 @@
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/sol_outpost)
 "dk" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(150)
-	},
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light{
 	brightness_color = "#FA8282";
 	dir = 4
 	},
+/obj/structure/closet/secure_closet/guncabinet{
+	locked = 0;
+	opened = 1;
+	req_access = list(150)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/sol_outpost)
 "dl" = (
+/obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/secure_closet/guncabinet{
+	locked = 0;
+	opened = 1;
 	req_access = list(150)
 	},
-/obj/item/gun/projectile/automatic/rifle/sol,
-/obj/item/gun/projectile/automatic/rifle/sol,
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/sol_outpost)
 "dm" = (
@@ -1193,55 +1114,121 @@
 /obj/random/junk,
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/sol_outpost)
-"do" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(150)
-	},
-/obj/item/ammo_magazine/c762/sol,
-/obj/item/ammo_magazine/c762/sol,
-/obj/item/ammo_magazine/c762/sol,
-/obj/item/ammo_magazine/c762/sol,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/sol_outpost)
-"dp" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(150)
-	},
-/obj/item/storage/box/shotgunshells,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/sol_outpost)
 "dq" = (
-/obj/machinery/porta_turret/pulse,
 /obj/structure/sign/flag/sol/left{
 	pixel_y = -32
 	},
-/obj/effect/decal/warning_stripes,
+/obj/effect/decal/fake_object{
+	density = 1;
+	icon = 'icons/obj/turrets.dmi';
+	icon_state = "cover_open_0";
+	layer = 2.99;
+	name = "broken turret"
+	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/fake_object{
+	density = 1;
+	dir = 9;
+	icon = 'icons/obj/turrets.dmi';
+	icon_state = "turret_pulse_broken";
+	name = "broken turret"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/sol_outpost)
 "dr" = (
-/obj/machinery/porta_turret/pulse,
 /obj/structure/sign/flag/sol/right{
 	pixel_y = -32
 	},
-/obj/effect/decal/warning_stripes,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/sol_outpost)
-"ds" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(150)
+/obj/effect/decal/fake_object{
+	density = 1;
+	icon = 'icons/obj/turrets.dmi';
+	icon_state = "cover_open_0";
+	name = "broken turret"
 	},
-/obj/item/storage/box/flashbangs,
-/obj/item/storage/box/frags,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/fake_object{
+	density = 1;
+	dir = 4;
+	icon = 'icons/obj/turrets.dmi';
+	icon_state = "turret_pulse_broken";
+	name = "broken turret"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/sol_outpost)
 "dt" = (
 /obj/item/reagent_containers/toothbrush,
 /turf/simulated/floor/tiled/white,
+/area/dungeon/sol_outpost)
+"pb" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/wood{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/sol_outpost)
+"tn" = (
+/obj/effect/overlay/burnt_wall/steel,
+/turf/simulated/floor/airless,
+/area/dungeon/sol_outpost)
+"tV" = (
+/obj/structure/table/reinforced,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/gun/launcher/grenade{
+	pixel_y = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/dungeon/sol_outpost)
+"vX" = (
+/turf/simulated/floor/wood{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/sol_outpost)
+"ze" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/landmine/frag{
+	deployed = 1
+	},
+/turf/simulated/floor/tiled/airless,
+/area/dungeon/sol_outpost)
+"Ec" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/door_assembly,
+/turf/simulated/floor/wood{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/sol_outpost)
+"Hv" = (
+/obj/structure/bed/padded,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/sol_outpost)
+"OV" = (
+/obj/item/landmine/frag{
+	deployed = 1
+	},
+/turf/simulated/floor/tiled/airless,
+/area/dungeon/sol_outpost)
+"QN" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/sol_outpost)
+"XU" = (
+/obj/effect/decal/fake_object{
+	density = 1;
+	icon = 'icons/obj/turrets.dmi';
+	icon_state = "turret_frame_2_0";
+	name = "broken turret"
+	},
+/turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 
 (1,1,1) = {"
@@ -1426,7 +1413,7 @@ cA
 cA
 aZ
 bh
-bn
+bh
 bA
 aN
 bZ
@@ -1476,9 +1463,9 @@ dc
 dc
 aa
 aa
+cA
 aa
-aa
-aa
+cA
 aa
 aa
 "}
@@ -1510,9 +1497,9 @@ dc
 dc
 dc
 dc
-dc
-aa
-aa
+cA
+cA
+cA
 aa
 aa
 "}
@@ -1544,9 +1531,9 @@ dc
 dc
 dc
 dc
-dc
-dc
-dc
+cA
+cA
+cA
 dc
 aa
 "}
@@ -1565,7 +1552,7 @@ aQ
 aN
 ba
 bO
-aN
+ze
 aN
 cs
 aQ
@@ -1574,13 +1561,13 @@ aN
 aQ
 ac
 ac
-cf
-cf
-cf
-cf
-cf
-cf
-cf
+ac
+ac
+ac
+ac
+tn
+ac
+ac
 dc
 aa
 "}
@@ -1612,9 +1599,9 @@ ac
 ac
 ac
 ac
+tn
 ac
 ac
-cf
 dc
 aa
 "}
@@ -1646,9 +1633,9 @@ cU
 da
 di
 dl
-dp
+cX
 ac
-cf
+ac
 dc
 aa
 "}
@@ -1656,7 +1643,7 @@ aa
 dc
 ac
 ae
-am
+aq
 as
 au
 ai
@@ -1673,16 +1660,16 @@ bQ
 cD
 cJ
 bj
-aQ
+XU
 aQ
 ac
-cV
+cW
 db
 cX
 cX
 cX
 ac
-cf
+ac
 dc
 aa
 "}
@@ -1690,7 +1677,7 @@ aa
 dc
 ac
 af
-an
+as
 as
 av
 aD
@@ -1699,7 +1686,7 @@ aP
 aN
 aN
 bq
-bE
+cD
 bR
 cH
 bw
@@ -1716,15 +1703,15 @@ cX
 dm
 cX
 ac
-cf
+ac
 dc
 aa
 "}
 (15,1,1) = {"
 dc
 ac
-ag
-am
+ae
+aq
 at
 ar
 aE
@@ -1750,7 +1737,7 @@ dj
 cX
 dq
 ac
-cf
+ac
 dc
 aa
 "}
@@ -1775,7 +1762,7 @@ bx
 cH
 br
 aQ
-aQ
+OV
 aQ
 cT
 cX
@@ -1784,7 +1771,7 @@ cX
 cX
 dr
 ac
-cf
+ac
 dc
 aa
 "}
@@ -1818,7 +1805,7 @@ cX
 dn
 cX
 ac
-cf
+ac
 dc
 aa
 "}
@@ -1846,13 +1833,13 @@ aQ
 aN
 ba
 ac
-cW
+tV
 dg
 cX
 cX
 cX
 ac
-cf
+ac
 dc
 aa
 "}
@@ -1880,13 +1867,13 @@ aN
 aQ
 aQ
 ac
-cZ
+cW
 dh
 dk
-do
-ds
+cX
+cX
 ac
-cf
+ac
 dc
 aa
 "}
@@ -1905,7 +1892,7 @@ bk
 aN
 aQ
 aQ
-aN
+ze
 aQ
 aQ
 aN
@@ -1917,10 +1904,10 @@ ac
 ac
 ac
 ac
+tn
 ac
 ac
 ac
-cf
 dc
 aa
 "}
@@ -1948,13 +1935,13 @@ aN
 aQ
 ac
 ac
-cf
-cf
-cf
-cf
-cf
-cf
-cf
+ac
+ac
+ac
+tn
+ac
+ac
+ac
 dc
 aa
 "}
@@ -1985,8 +1972,8 @@ dc
 dc
 dc
 dc
-dc
-dc
+cA
+cA
 dc
 dc
 dc
@@ -2007,7 +1994,7 @@ aA
 aA
 aA
 ac
-cc
+QN
 cc
 aA
 aA
@@ -2019,8 +2006,8 @@ dc
 dc
 dc
 dc
-dc
-dc
+cA
+cA
 dc
 dc
 aa
@@ -2039,9 +2026,9 @@ aT
 bb
 aA
 bu
-bu
-bu
-bw
+QN
+Ec
+QN
 cl
 cz
 cG
@@ -2052,9 +2039,9 @@ dc
 dc
 dc
 dc
-dc
-dc
-dc
+df
+cA
+cA
 dc
 dc
 aa
@@ -2076,19 +2063,19 @@ bv
 bI
 bI
 bJ
-bw
-bw
-bw
+QN
+QN
+QN
 cN
 ac
 dc
 dc
-dc
-dc
-dc
-dc
-dc
-dc
+cA
+cA
+df
+cA
+cA
+cA
 dc
 aa
 aa
@@ -2106,22 +2093,22 @@ aJ
 aV
 aJ
 bl
-bw
+QN
 bJ
-bw
-bw
-bw
-bw
-bx
-bw
-ac
-dc
-dc
-dc
-dc
-dc
-dc
-dc
+QN
+QN
+QN
+QN
+vX
+QN
+tn
+cA
+cA
+cA
+cA
+cA
+cA
+cA
 aa
 aa
 aa
@@ -2140,22 +2127,22 @@ aJ
 aW
 dt
 bl
-bx
+vX
 bI
 bW
-bw
+QN
 bI
 cB
 cB
 cB
 ac
 dc
-dc
-dc
-dc
-dc
-dc
-dc
+cA
+cA
+cA
+cA
+cA
+cA
 aa
 aa
 aa
@@ -2175,18 +2162,18 @@ aY
 be
 aA
 by
-bx
-bw
+vX
+QN
 cd
-bw
-bw
-cH
+QN
+QN
+pb
 cO
 ac
 dc
 dc
-dc
-dc
+cA
+cA
 aa
 aa
 aa
@@ -2209,13 +2196,13 @@ cP
 bf
 aA
 bu
-bu
-bu
+QN
+QN
 ce
 cm
 cC
 cC
-cC
+Hv
 ac
 dc
 dc

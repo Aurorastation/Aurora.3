@@ -13,15 +13,15 @@
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS
 	volume = 5
-	drop_sound = 'sound/items/drop/glass.ogg'
-	pickup_sound = 'sound/items/pickup/glass.ogg'
+	drop_sound = 'sound/items/drop/glass_small.ogg'
+	pickup_sound = 'sound/items/pickup/glass_small.ogg'
 
 /obj/item/reagent_containers/dropper/afterattack(var/obj/target, var/mob/user, var/flag)
 	if(!target.reagents || !flag)
 		return
 
 	if(reagents.total_volume)
-		if(!target.reagents.get_free_space())
+		if(!REAGENTS_FREE_SPACE(target.reagents))
 			to_chat(user, "<span class='notice'>[target] is full.</span>")
 			return
 
@@ -52,7 +52,7 @@
 					if (victim.head.body_parts_covered & EYES)
 						safe_thing = victim.head
 				if(victim.glasses)
-					if (!safe_thing)
+					if (!safe_thing && (victim.glasses.body_parts_covered & EYES))
 						safe_thing = victim.glasses
 
 				if(safe_thing)
@@ -66,7 +66,7 @@
 			var/mob/living/M = target
 			var/contained = reagentlist()
 			M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been squirted with [name] by [user.name] ([user.ckey]). Reagents: [contained]</font>")
-			user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [name] to squirt [M.name] ([M.key]). Reagents: [contained]</font>")
+			user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Used the [name] to squirt [M.name] ([M.key]). Reagents: [contained]</span>")
 			msg_admin_attack("[key_name_admin(user)] squirted [key_name_admin(M)] with [name]. Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M))
 			return
 

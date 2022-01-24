@@ -16,7 +16,7 @@
 		return
 	..()
 
-/obj/item/frame/proc/try_build(turf/on_wall)
+/obj/item/frame/proc/try_build(turf/on_wall, mob/user)
 	if(!build_machine_type)
 		return
 
@@ -37,7 +37,7 @@
 	if (!istype(loc, /turf/simulated/floor))
 		to_chat(usr, "<span class='danger'>\The [src] Alarm cannot be placed on this spot.</span>")
 		return
-	if (A.requires_power == FALSE || istype(A, /area/space) || istype(A, /area/mine))
+	if (istype(A, /area/space) || istype(A, /area/mine))
 		to_chat(usr, "<span class='danger'>\The [src] Alarm cannot be placed in this area.</span>")
 		return
 
@@ -49,6 +49,7 @@
 	M.fingerprints = src.fingerprints
 	M.fingerprintshidden = src.fingerprintshidden
 	M.fingerprintslast = src.fingerprintslast
+	user.remove_from_mob(src) //Prevents gripper duplication
 	qdel(src)
 
 /obj/item/frame/fire_alarm

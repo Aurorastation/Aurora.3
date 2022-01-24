@@ -10,15 +10,15 @@
 	slot_flags = SLOT_BELT
 	force = 5
 	sharp = 0
-	edge = 0
+	edge = FALSE
 	throwforce = 7
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	drop_sound = 'sound/items/drop/metalweapon.ogg'
 	pickup_sound = 'sound/items/pickup/metalweapon.ogg'
 	origin_tech = list(TECH_COMBAT = 2)
 	attack_verb = list("beaten")
 	var/stunforce = 0
-	var/agonyforce = 70
+	var/agonyforce = 60
 	var/status = 0		//whether the thing is on or not
 	var/obj/item/cell/bcell
 	var/hitcost = 1000
@@ -94,7 +94,7 @@
 	if(bcell && bcell.charge > hitcost)
 		status = !status
 		to_chat(user, "<span class='notice'>[src] is now [status ? "on" : "off"].</span>")
-		playsound(loc, "sparks", 75, 1, -1)
+		playsound(loc, /decl/sound_category/spark_sound, 75, 1, -1)
 		update_icon()
 	else
 		status = 0
@@ -195,10 +195,6 @@
 	if(status)
 		deductcharge(hitcost)
 
-	if(ishuman(L))
-		var/mob/living/carbon/human/H = L
-		H.forcesay(hit_appends)
-
 	return 1
 
 /obj/item/melee/baton/emp_act(severity)
@@ -250,6 +246,14 @@
 	slot_flags = null
 	baton_color = "#FFDF00"
 	sheathed = 0
+
+/obj/item/melee/baton/cattleprod/Initialize(mapload, var/cable_color)
+	. = ..()
+	var/image/I = image(icon, null, "stunprod_cable")
+	if(!cable_color)
+		cable_color = COLOR_RED
+	I.color = cable_color
+	add_overlay(I)
 
 /obj/item/melee/baton/stunrod
 	name = "stunrod"

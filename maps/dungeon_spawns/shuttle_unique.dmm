@@ -40,7 +40,7 @@
 	id = "crashed";
 	pixel_x = 32
 	},
-/obj/structure/bed/chair/office/bridge,
+/obj/structure/bed/stool/chair/office/bridge,
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/crashed_ship)
 "ah" = (
@@ -85,13 +85,13 @@
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/dungeon/crashed_ship)
 "an" = (
-/obj/structure/bed/chair/shuttle{
+/obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/crashed_ship)
 "ao" = (
-/obj/structure/bed/chair/shuttle{
+/obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -104,7 +104,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/structure/bed/chair/shuttle{
+/obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -113,7 +113,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/structure/bed/chair/shuttle{
+/obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -232,8 +232,8 @@
 	dir = 9
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 8
+	dir = 8;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/white,
 /area/dungeon/crashed_ship)
@@ -253,8 +253,8 @@
 /area/dungeon/crashed_ship)
 "aN" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/crashed_ship)
@@ -312,7 +312,6 @@
 /area/dungeon/crashed_ship)
 "aU" = (
 /obj/machinery/cryopod{
-	icon_state = "body_scanner_0";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -423,14 +422,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/crashed_ship)
 "bn" = (
-/obj/structure/closet/excavation,
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/crashed_ship)
-"bo" = (
-/obj/structure/closet/toolcloset,
+/obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/crashed_ship)
 "bp" = (
@@ -1243,7 +1238,7 @@ aK
 aK
 bf
 ae
-bo
+bw
 ai
 ai
 bA

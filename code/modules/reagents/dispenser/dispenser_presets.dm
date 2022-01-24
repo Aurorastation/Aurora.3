@@ -26,14 +26,16 @@
 /obj/machinery/chemical_dispenser/ert
 	name = "medicine dispenser"
 	spawn_cartridges = list(
-			/obj/item/reagent_containers/chem_disp_cartridge/norepi,
+			/obj/item/reagent_containers/chem_disp_cartridge/inaprov,
 			/obj/item/reagent_containers/chem_disp_cartridge/ryetalyn,
-			/obj/item/reagent_containers/chem_disp_cartridge/paracetamol,
-			/obj/item/reagent_containers/chem_disp_cartridge/tramadol,
-			/obj/item/reagent_containers/chem_disp_cartridge/oxycodone,
+			/obj/item/reagent_containers/chem_disp_cartridge/perconol,
+			/obj/item/reagent_containers/chem_disp_cartridge/mortaphenyl,
+			/obj/item/reagent_containers/chem_disp_cartridge/oxycomorphine,
 			/obj/item/reagent_containers/chem_disp_cartridge/sterilizine,
 			/obj/item/reagent_containers/chem_disp_cartridge/leporazine,
 			/obj/item/reagent_containers/chem_disp_cartridge/kelotane,
+			/obj/item/reagent_containers/chem_disp_cartridge/butazoline,
+			/obj/item/reagent_containers/chem_disp_cartridge/saline,
 			/obj/item/reagent_containers/chem_disp_cartridge/dermaline,
 			/obj/item/reagent_containers/chem_disp_cartridge/dexalin,
 			/obj/item/reagent_containers/chem_disp_cartridge/dexalin_p,
@@ -42,12 +44,12 @@
 			/obj/item/reagent_containers/chem_disp_cartridge/hyronalin,
 			/obj/item/reagent_containers/chem_disp_cartridge/arithrazine,
 			/obj/item/reagent_containers/chem_disp_cartridge/alkysine,
-			/obj/item/reagent_containers/chem_disp_cartridge/imidazoline,
+			/obj/item/reagent_containers/chem_disp_cartridge/oculine,
 			/obj/item/reagent_containers/chem_disp_cartridge/peridaxon,
 			/obj/item/reagent_containers/chem_disp_cartridge/bicaridine,
 			/obj/item/reagent_containers/chem_disp_cartridge/thetamycin,
 			/obj/item/reagent_containers/chem_disp_cartridge/coughsyrup,
-			/obj/item/reagent_containers/chem_disp_cartridge/benadryl,
+			/obj/item/reagent_containers/chem_disp_cartridge/cetahydramine,
 			/obj/item/reagent_containers/chem_disp_cartridge/ethylredox,
 			/obj/item/reagent_containers/chem_disp_cartridge/sleeptox,
 			/obj/item/reagent_containers/chem_disp_cartridge/chloral,
@@ -66,16 +68,18 @@
 	name = "soft drink dispenser"
 	desc = "A soda machine."
 	icon_state = "soda_dispenser"
+	icon_state_active = null
 	ui_title = "Soda Dispenser"
 	accept_drinking = 1
 	density = 0//It's a half-height machine that sits on a table, this allows small things to walk under that table
+	pass_flags = PASSTABLE // put it back on the table
 
 /obj/machinery/chemical_dispenser/bar_soft/full
 	spawn_cartridges = list(
 			/obj/item/reagent_containers/chem_disp_cartridge/water,
 			/obj/item/reagent_containers/chem_disp_cartridge/ice,
 			/obj/item/reagent_containers/chem_disp_cartridge/coffee{temperature_override = 369},
-			/obj/item/reagent_containers/chem_disp_cartridge/hot_coco{temperature_override = 349},			
+			/obj/item/reagent_containers/chem_disp_cartridge/hot_coco{temperature_override = 349},
 			/obj/item/reagent_containers/chem_disp_cartridge/cream,
 			/obj/item/reagent_containers/chem_disp_cartridge/tea{temperature_override = 349},
 			/obj/item/reagent_containers/chem_disp_cartridge/icetea,
@@ -101,9 +105,11 @@
 	name = "booze dispenser"
 	desc = "A beer machine. Like a soda machine, but more fun!"
 	icon_state = "booze_dispenser"
+	icon_state_active = null
 	ui_title = "Booze Dispenser"
 	accept_drinking = 1
 	density = 0//It's a half-height machine that sits on a table, this allows small things to walk under that table
+	pass_flags = PASSTABLE // put it back on the table
 
 /obj/machinery/chemical_dispenser/bar_alc/full
 	spawn_cartridges = list(
@@ -125,16 +131,20 @@
 			/obj/item/reagent_containers/chem_disp_cartridge/vermouth,
 			/obj/item/reagent_containers/chem_disp_cartridge/cognac,
 			/obj/item/reagent_containers/chem_disp_cartridge/ale,
-			/obj/item/reagent_containers/chem_disp_cartridge/mead
+			/obj/item/reagent_containers/chem_disp_cartridge/mead,
+			/obj/item/reagent_containers/chem_disp_cartridge/grenadine,
+			/obj/item/reagent_containers/chem_disp_cartridge/cream
 		)
 
 /obj/machinery/chemical_dispenser/coffeemaster
 	name = "Coffee Master 3000"
 	desc = "The only thing that can get some workers though the day, a coffee maker on steroids!"
 	icon_state = "coffee_master"
+	icon_state_active = null
 	ui_title = "Coffee Master 3000"
 	accept_drinking = 1
 	density = 0
+	pass_flags = PASSTABLE // put it back on the table
 
 /obj/machinery/chemical_dispenser/coffeemaster/full
 	spawn_cartridges = list(
@@ -157,7 +167,9 @@
 	desc = "The only thing that can get some workers though the day, the coffee maker is the stations most valuable resource."
 	icon_state = "coffee_machine"
 	ui_title = "Morning Glory Coffee Mate"
+	icon_state_active = null
 	accept_drinking = 1
+	pass_flags = PASSTABLE // put it back on the table
 
 /obj/machinery/chemical_dispenser/coffee/full
 	spawn_cartridges = list(

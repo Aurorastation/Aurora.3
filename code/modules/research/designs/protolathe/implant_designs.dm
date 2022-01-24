@@ -1,10 +1,6 @@
 /datum/design/item/implant
 	materials = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
-	design_order = 5
-
-/datum/design/item/implant/AssembleDesignName()
-	..()
-	name = "Implantable Biocircuit Design ([item_name])"
+	p_category = "Implantable Biocircuit Designs"
 
 /datum/design/item/implant/chemical
 	name = "Chemical"

@@ -10,6 +10,7 @@
 	anchored = FALSE
 	obj_flags = OBJ_FLAG_ROTATABLE
 
+	build_amt = 2
 	var/broken = FALSE
 	var/health = 70
 	var/maxhealth = 70
@@ -225,7 +226,7 @@
 				if(anchored)
 					return
 				user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."), SPAN_NOTICE("You dismantle \the [src]."))
-				material.place_sheet(get_turf(src), 2)
+				dismantle()
 				qdel(src)
 			return
 	// Wrench Open
@@ -277,15 +278,19 @@
 /obj/structure/railing/ex_act(severity)
 	qdel(src)
 
-/obj/structure/railing/can_climb(var/mob/living/user, post_climb_check=0)
+/obj/structure/railing/can_climb(var/mob/living/user, climb_dir, post_climb_check=0)
 	. = ..()
+	var/turf/dest = get_step(user, climb_dir)
 	if(. && get_turf(user) == get_turf(src))
-		if(turf_is_crowded(TRUE))
-			to_chat(user, SPAN_WARNING("You can't climb there, the way is blocked."))
+		if(turf_is_crowded(TRUE) || !user.Adjacent(dest) || turf_contains_dense_objects(dest) && get_turf(src) != dest)
+			to_chat(user, SPAN_DANGER("You can't climb there, the way is blocked."))
 			return FALSE
 
 /obj/structure/railing/do_climb(mob/living/user)
-	if(!can_climb(user))
+	var/climb_dir = get_dir(user, src)
+	if(get_turf(src) == get_turf(user))
+		climb_dir = src.dir
+	if(!can_climb(user, climb_dir))
 		return
 
 	user.visible_message(SPAN_WARNING("\The [user] starts climbing over \the [src]!"))
@@ -295,14 +300,11 @@
 		LAZYREMOVE(climbers, user)
 		return
 
-	if(!can_climb(user, post_climb_check = TRUE))
+	if(!can_climb(user, climb_dir, post_climb_check = TRUE))
 		LAZYREMOVE(climbers, user)
 		return
 
-	var/climb_dir = get_dir(user, src)
-	if(get_turf(src) == get_turf(user))
-		climb_dir = src.dir
-	user.forceMove(get_step(src, climb_dir))
+	user.forceMove(get_step(user, climb_dir))
 	user.visible_message(SPAN_WARNING("\The [user] climbs over \the [src]!"))
 	LAZYREMOVE(climbers, user)
 

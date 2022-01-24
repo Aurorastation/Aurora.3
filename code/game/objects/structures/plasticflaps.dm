@@ -7,6 +7,7 @@
 	anchored = 1
 	layer = 4
 	explosion_resistance = 5
+	build_amt = 4
 	var/manipulating = FALSE //Prevents queueing up a ton of deconstructs
 	var/list/mobs_can_pass = list(
 		/mob/living/carbon/slime,
@@ -14,12 +15,16 @@
 		/mob/living/silicon/robot/drone
 		)
 
+/obj/structure/plasticflaps/Initialize()
+	. = ..()
+	material = SSmaterials.get_material_by_name(MATERIAL_PLASTIC)
+
 /obj/structure/plasticflaps/CanPass(atom/A, turf/T)
 	if(istype(A) && A.checkpass(PASSGLASS))
 		return prob(60)
 
 	var/obj/structure/bed/B = A
-	if (istype(A, /obj/structure/bed) && B.buckled_mob)//if it's a bed/chair and someone is buckled, it will not pass
+	if (istype(A, /obj/structure/bed) && B.buckled)//if it's a bed/chair and someone is buckled, it will not pass
 		return 0
 
 	if(istype(A, /obj/vehicle))	//no vehicles
@@ -49,17 +54,16 @@
 
 /obj/structure/plasticflaps/attackby(obj/item/W, mob/user)
 	if(manipulating)	return
-	manipulating = TRUE
 	if(W.iswirecutter() || W.sharp && !W.noslice)
+		manipulating = TRUE
 		visible_message(SPAN_NOTICE("[user] begins cutting down \the [src]."),
 					SPAN_NOTICE("You begin cutting down \the [src]."))
 		if(!do_after(user, 30/W.toolspeed))
 			manipulating = FALSE
 			return
-		playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
-		visible_message(SPAN_NOTICE("[user] cuts down \the [src]."),
-		SPAN_NOTICE("You cut down \the [src]."))
-		qdel(src)
+		playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
+		visible_message(SPAN_NOTICE("[user] cuts down \the [src]."), SPAN_NOTICE("You cut down \the [src]."))
+		dismantle()
 
 /obj/structure/plasticflaps/mining //A specific type for mining that doesn't allow airflow because of them damn crates
 	name = "airtight plastic flaps"

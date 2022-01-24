@@ -94,9 +94,9 @@
 					qdel(src)
 				else if(istype(P, /obj/item/gun/energy/plasmacutter))
 					var/obj/item/gun/energy/plasmacutter/PC = P
-					if(!PC.power_supply)
-						to_chat(user, SPAN_WARNING("\The [src] doesn't have a power supply installed!"))
+					if(PC.check_power_and_message(user))
 						return
+					PC.use_resource(1)
 					playsound(get_turf(src), PC.fire_sound, 75, TRUE)
 					to_chat(user, SPAN_NOTICE("You dismantle the blueprint."))
 					new /obj/item/stack/material/steel(get_turf(src), 2)
@@ -141,7 +141,7 @@
 
 		if(COMPONENT_STATE)
 			if(P.iscrowbar())
-				playsound(get_turf(src), 'sound/items/Crowbar.ogg', 50, TRUE)
+				playsound(get_turf(src), P.usesound, 50, TRUE)
 				state = CIRCUITBOARD_STATE
 				circuit.forceMove(get_turf(src))
 				circuit = null
@@ -167,26 +167,27 @@
 					if(component_check)
 						playsound(get_turf(src), P.usesound, 50, TRUE)
 						var/obj/machinery/new_machine = new circuit.build_path(loc, dir, FALSE)
-						if(new_machine.component_parts)
-							new_machine.component_parts.Cut()
-						else
-							new_machine.component_parts = list()
-						circuit.construct(new_machine)
-
-						for(var/obj/O in src)
-							if(circuit.contain_parts) // things like disposal don't want their parts in them
-								O.forceMove(new_machine)
+						if(istype(new_machine))
+							if(new_machine.component_parts)
+								new_machine.component_parts.Cut()
 							else
-								O.forceMove(null)
-							new_machine.component_parts += O
+								new_machine.component_parts = list()
+							circuit.construct(new_machine)
 
-						if(circuit.contain_parts)
-							circuit.forceMove(new_machine)
-						else
-							circuit.forceMove(null)
+							for(var/obj/O in src)
+								if(circuit.contain_parts) // things like disposal don't want their parts in them
+									O.forceMove(new_machine)
+								else
+									O.forceMove(null)
+								new_machine.component_parts += O
 
-						new_machine.RefreshParts()
-						new_machine.anchored = TRUE
+							if(circuit.contain_parts)
+								circuit.forceMove(new_machine)
+							else
+								circuit.forceMove(null)
+
+							new_machine.RefreshParts()
+							new_machine.anchored = TRUE
 						qdel(src)
 				else
 					if(istype(P, /obj/item))

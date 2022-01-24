@@ -40,10 +40,10 @@ var/const/TAG_WIRE_HACK = 8
 	var/obj/item/ipc_tag_scanner/S = holder
 	switch(index)
 		if(TAG_WIRE_POWER)
-			S.visible_message(SPAN_WARNING("\icon[S] <b>[capitalize_first_letters(S.name)]</b> beeps, \"BOOWEEEP!\""))
+			S.visible_message(SPAN_WARNING("[icon2html(S, viewers(get_turf(S)))] <b>[capitalize_first_letters(S.name)]</b> beeps, \"BOOWEEEP!\""))
 
 		if(TAG_WIRE_HACK)
-			S.visible_message(SPAN_WARNING("\icon[S] <b>[capitalize_first_letters(S.name)]</b> beeps, \"BEEYUUP!\""))
+			S.visible_message(SPAN_WARNING("[icon2html(S, viewers(get_turf(S)))] <b>[capitalize_first_letters(S.name)]</b> beeps, \"BEEYUUP!\""))
 
 /datum/wires/tag_scanner/CanUse(var/mob/living/L)
 	var/obj/item/ipc_tag_scanner/S = holder

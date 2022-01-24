@@ -6,12 +6,14 @@ env:
   global:
     BYOND_MAJOR="513"
     BYOND_MINOR="1517"
-    MACRO_COUNT=77
+    MACRO_COUNT=0
+    GENDER_COUNT=6
+    TO_WORLD_COUNT=209
     FLYWAY_BUILD="5.2.4"
     NODE_VERSION=10
-    RUST_G_VERSION="0.4.1"
+    RUST_G_VERSION="0.4.2+a2"
     PATH=/opt/python/3.7.1/bin:$PATH
-    SPACEMAN_DMM_VERSION="suite-1.4"
+    SPACEMAN_DMM_VERSION="suite-1.6"
   matrix:
     - USE_MAP=aurora
     - USE_MAP=runtime
@@ -86,9 +88,11 @@ jobs:
         - (cd vueui && (npm run lint | tee lint.log))
         - grep "No lint errors found!" vueui/lint.log
         - (cd vueui && npm run build)
-        - (num=`grep -E '\\\\(red|blue|green|black|b|i[^mc])' **/*.dm | wc -l`; echo "$num escapes (expecting ${MACRO_COUNT} or less)"; [ $num -le ${MACRO_COUNT} ])
+        - (num=`grep -E '\\\\(red|blue|green|black|b|i[^mc])' **/*.dm | wc -l`; echo "$num escapes (expecting ${MACRO_COUNT} or less)"; [ $num -eq ${MACRO_COUNT} ])
+        - (num=`grep -EIr '\\\\(he|him|his|she|hers|He|His|She|himself|herself)\b' code | wc -l`; echo "$num gender-based escapes (expecting ${GENDER_COUNT} or less)"; [ $num -eq ${GENDER_COUNT} ])
+        - (num=`grep -r --include \*.dm -oh to_world\( . | wc -w`; echo "$num to_worlds (expecting ${TO_WORLD_COUNT})"; [ $num -eq ${TO_WORLD_COUNT} ])
         - awk -f tools/indentation.awk **/*.dm
-        - md5sum -c - <<< "60a49502d9f6dfdcc255deb98c901b72 *html/changelogs/example.yml"
+        - md5sum -c - <<< "6a5ae087fe5bfa66e52e508655e57120 *html/changelogs/example.yml"
         - python3 tools/TagMatcher/tag-matcher.py ../..
         - python3 tools/GenerateChangelog/ss13_genchangelog.py html/changelog.html html/changelogs --dry-run
         - python3 tools/mapmerge2/travis_mapcheck.py

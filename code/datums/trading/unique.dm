@@ -28,6 +28,7 @@
 /datum/trader/ship/unique/syndicate
 	name = "Cyndie Kate"
 	origin = "Cloaked ship"
+	allowed_space_sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
 
 	possible_wanted_items = list (
 		/obj/item/gun/energy/captain                 = TRADER_THIS_TYPE,
@@ -78,6 +79,7 @@
 /datum/trader/ship/unique/severance
 	name = "Unknown"
 	origin = "SGS Severance"
+	allowed_space_sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
 
 	possible_wanted_items = list(
 		/obj/item/reagent_containers/food/snacks/human      = TRADER_SUBTYPES_ONLY,
@@ -160,7 +162,7 @@
 		/obj/item/grenade/spawnergrenade/vaurca   = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/space/void/vaurca        = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/helmet/space/void/vaurca = TRADER_THIS_TYPE,
-		/obj/item/clothing/shoes/magboots/vox/vaurca     = TRADER_THIS_TYPE,
+		/obj/item/clothing/shoes/magboots/vaurca     = TRADER_THIS_TYPE,
 		/obj/item/gun/energy/vaurca/blaster       = TRADER_THIS_TYPE
 	)
 
@@ -194,8 +196,7 @@
 		/obj/item/circuitboard/telesci_pad     = TRADER_THIS_TYPE,
 		/obj/item/phylactery                          = TRADER_THIS_TYPE,
 		/obj/item/blueprints                          = TRADER_THIS_TYPE,
-		/obj/item/storage/backpack/holding     = TRADER_THIS_TYPE,
-		/obj/item/teleportation_scroll         = TRADER_THIS_TYPE
+		/obj/item/storage/backpack/holding     = TRADER_THIS_TYPE
 	)
 
 	possible_trading_items = list(

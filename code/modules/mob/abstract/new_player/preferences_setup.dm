@@ -22,6 +22,7 @@
 	randomize_hair_color("facial")
 
 	backbag = 2
+	pda_choice = 2
 	age = rand(getMinAge(),getMaxAge())
 	if(H)
 		copy_to(H,1)
@@ -194,23 +195,15 @@
 /datum/preferences/proc/dress_preview_mob(var/mob/living/carbon/human/mannequin)
 	copy_to(mannequin)
 
+	if(!equip_preview_mob)
+		return
+
 	// Determine what job is marked as 'High' priority, and dress them up as such.
 	var/datum/job/previewJob
 	if(job_civilian_low & ASSISTANT)
 		previewJob = SSjobs.GetJob("Assistant")
 	else
-		for(var/datum/job/job in SSjobs.occupations)
-			var/job_flag
-			switch(job.department_flag)
-				if(CIVILIAN)
-					job_flag = job_civilian_high
-				if(MEDSCI)
-					job_flag = job_medsci_high
-				if(ENGSEC)
-					job_flag = job_engsec_high
-			if(job.flag == job_flag)
-				previewJob = job
-				break
+		previewJob = return_chosen_high_job()
 
 	if(previewJob)
 		mannequin.job = previewJob.title
@@ -218,23 +211,43 @@
 		var/list/leftovers = list()
 		var/list/used_slots = list()
 
-		SSjobs.EquipCustom(mannequin, previewJob, src, leftovers, null, used_slots)
+		if((equip_preview_mob & EQUIP_PREVIEW_LOADOUT) && !(previewJob && (equip_preview_mob & EQUIP_PREVIEW_JOB) && (previewJob.type == /datum/job/ai || previewJob.type == /datum/job/cyborg)))
+			SSjobs.EquipCustom(mannequin, previewJob, src, leftovers, null, used_slots)
 
-		previewJob.equip_preview(mannequin, player_alt_titles[previewJob.title])
+		if((equip_preview_mob & EQUIP_PREVIEW_JOB) && previewJob)
+			previewJob.equip_preview(mannequin, player_alt_titles[previewJob.title], faction)
 
-		SSjobs.EquipCustomDeferred(mannequin, src, leftovers, used_slots)
+		if(equip_preview_mob & EQUIP_PREVIEW_LOADOUT && leftovers.len)
+			SSjobs.EquipCustomDeferred(mannequin, src, leftovers, used_slots)
 
 		if (!SSATOMS_IS_PROBABLY_DONE)
 			SSatoms.ForceInitializeContents(mannequin)
 			mannequin.regenerate_icons()
 		else
-			mannequin.update_icons()
+			mannequin.update_icon()
 
-/datum/preferences/proc/update_preview_icon()
+/datum/preferences/proc/return_chosen_high_job(var/title = FALSE)
+	var/datum/job/chosenJob
+	if(job_civilian_high)
+		chosenJob = SSjobs.bitflag_to_job["[CIVILIAN]"]["[job_civilian_high]"]
+	else if(job_medsci_high)
+		chosenJob = SSjobs.bitflag_to_job["[MEDSCI]"]["[job_medsci_high]"]
+	else if(job_engsec_high)
+		chosenJob = SSjobs.bitflag_to_job["[ENGSEC]"]["[job_engsec_high]"]
+
+	if(title)
+		return chosenJob.title
+	return chosenJob
+
+/datum/preferences/proc/update_mannequin()
 	var/mob/living/carbon/human/dummy/mannequin/mannequin = SSmob.get_mannequin(client.ckey)
 	mannequin.delete_inventory(TRUE)
 	mannequin.species.create_organs(mannequin)
 	if(gender)
 		mannequin.change_gender(gender)
 	dress_preview_mob(mannequin)
+	return mannequin
+
+/datum/preferences/proc/update_preview_icon()
+	var/mannequin = update_mannequin()
 	update_character_previews(new /mutable_appearance(mannequin))

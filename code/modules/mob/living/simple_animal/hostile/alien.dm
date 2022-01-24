@@ -11,8 +11,10 @@
 	response_harm = "hits"
 	speed = -1
 	meat_type = /obj/item/reagent_containers/food/snacks/xenomeat
+	organ_names = list("chest", "lower body", "left arm", "right arm", "left leg", "right leg", "head")
 	maxHealth = 100
 	health = 100
+	blood_type = "#5BDD04"
 	harm_intent_damage = 5
 	melee_damage_lower = 25
 	melee_damage_upper = 25
@@ -37,7 +39,7 @@
 
 	tameable = FALSE
 	attack_emote = "growls at"
-	smart = TRUE
+	smart_ranged = TRUE
 
 	butchering_products = list(/obj/item/stack/material/animalhide/xeno = 5)
 
@@ -96,9 +98,9 @@
 	icon_state = "toxin"
 
 // Xenoarch aliens.
-/mob/living/simple_animal/hostile/samak
+/mob/living/simple_animal/hostile/retaliate/samak
 	name = "samak"
-	desc = "A fast, armoured predator accustomed to hiding and ambushing in cold terrain."
+	desc = "A fast, armored predator accustomed to hiding and ambushing in cold terrain."
 	faction = "samak"
 	icon_state = "samak"
 	icon_living = "samak"
@@ -118,7 +120,7 @@
 	emote_hear = list("snuffles")
 	mob_size = 10
 
-/mob/living/simple_animal/hostile/diyaab
+/mob/living/simple_animal/hostile/retaliate/diyaab
 	name = "diyaab"
 	desc = "A small pack animal. Although omnivorous, it will hunt meat on occasion."
 	faction = "diyaab"
@@ -142,7 +144,7 @@
 	density = 0
 	mob_size = 3
 
-/mob/living/simple_animal/hostile/shantak
+/mob/living/simple_animal/hostile/retaliate/shantak
 	name = "shantak"
 	desc = "A piglike creature with a bright iridiscent mane that sparkles as though lit by an inner light. Don't be fooled by its beauty though."
 	faction = "shantak"

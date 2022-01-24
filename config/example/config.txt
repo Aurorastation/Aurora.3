@@ -10,6 +10,9 @@ ALERT_RED_UPTO There is an immediate serious threat to the station. Security may
 ALERT_RED_DOWNTO The self-destruct mechanism has been deactivated, there is still however an immediate serious threat to the station. Security may have weapons unholstered at all times, random searches are allowed and advised.
 ALERT_DELTA The station's self-destruct mechanism has been engaged. All crew are instructed to obey all instructions given by heads of staff. Any violations of these orders can be punished by death. This is not a drill.
 
+## Add a # in front of this to disable automatic admin rights for users connecting from the host the server is running on.
+AUTO_LOCAL_ADMIN
+
 ## Add a # infront of this if you want to use the SQL based admin system, the legacy system uses admins.txt. You need to set up your database to use the SQL based system.
 ADMIN_LEGACY_SYSTEM
 
@@ -54,6 +57,9 @@ LOG_SAY
 ## log admin actions
 LOG_ADMIN
 
+## log signaler actions
+LOG_SIGNALER
+
 ## log client access (logon/logoff)
 LOG_ACCESS
 
@@ -94,7 +100,7 @@ LOG_PDA
 # SQL_ENABLED
 
 ## disconnect players who did nothing during the set amount of minutes
-# KICK_INACTIVE 10
+KICK_INACTIVE 10
 
 ##Show mods on staffwho
 SHOW_MODS
@@ -125,13 +131,16 @@ PROBABILITY S EXTENDED 1
 PROBABILITY S MALFUNCTION 1
 PROBABILITY S MERCENARY 1
 PROBABILITY S WIZARD 1
+PROBABILITY S LONER 1
 PROBABILITY S CHANGELING 1
 PROBABILITY S CULT 1
 PROBABILITY S BURGLARS 1
 PROBABILITY S CONFLICT 1
+PROBABILITY S MAGISTAKE 1
 PROBABILITY S NINJA 1
 PROBABILITY S HEIST 1
 PROBABILITY S VAMPIRE 1
+PROBABILITY S REVENANTS 1
 PROBABILITY S EXTEND-A-TRAITORMONGOUS 6
 PROBABILITY S CONFLUX 1
 PROBABILITY S CROSSFIRE 1
@@ -211,6 +220,9 @@ VOTE_AUTOGAMEMODE_TIMELEFT 100
 
 ## min delay (deciseconds) before a transfer vote can be called (default 120 minutes)
 TRANSFER_TIMEOUT 72000
+
+## delay (deciseconds) before round ends and server restarts after transfer/evac shuttle docks with odin and admin tickets are resolved
+RESTART_TIMEOUT 1200
 
 ## Prevets lobby-sitters and ghosts who went straight from the lobby to observing from voting.
 ## Ghosts who died will still be able to vote.
@@ -315,14 +327,8 @@ GATEWAY_DELAY 18000
 ## Uncomment to restrict non-admins from using humanoid alien races
 USEALIENWHITELIST
 
-## Comment this to disable automated station night lighting
-NIGHT_LIGHTING
-
-## Hour when the station night lighting is disabled (if above is enabled)
-NL_FINISH_HOUR 8
-
-## Hour when the station night lighting is enabled (if above is enabled)
-NL_START_HOUR 19
+## Adjust this time to modify the time offset (in hours) of the station time from GMT
+TIME_OFFSET 6
 
 ## Comment this to unrestrict the number of alien players allowed in the round. The number represents the number of alien players for every human player.
 #ALIEN_PLAYER_RATIO 0.2
@@ -458,7 +464,7 @@ TIME_TO_CALL_EMERGENCY_SHUTTLE 36000
 ## Keep the list semi-colon separated, in format of MAJOR.MINOR;MAJOR.MINOR
 #CLIENT_BLACKLIST_VERSION 123.4567
 
-## Uncomment to enable simple Skype/Discord style markup over OOC, LOOC, and say.
+## Uncomment to enable simple Skype/Discord style markup over OOC, LOOC, say, and me.
 #ALLOW_CHAT_MARKUP
 
 ## Default language prefix keys, separated with spaces. Only single character keys are supported. If unset, defaults to , # and -
@@ -530,6 +536,9 @@ FORCE_MAP runtime
 # Reminds ticket handlers/all admin staff of not-closed tickets after this many SECONDS.
 #TICKET_REMINDER_PERIOD 600
 
+# What sector the station/station is currently on. Check _defines/space_sectors.dm for possible options
+CURRENT_SPACE_SECTOR Romanovich Cloud
+
 # If using TGS, counts how many regularly TGS hard restarts the server process.
 # -1 - never do this.
 # 0 - do this after every round.
@@ -539,6 +548,7 @@ FORCE_MAP runtime
 # NTSL2+ Connection Info
 NTSL_HOSTNAME localhost
 NTSL_PORT 1945
+NTSL_DISABLED 1
 
 # Limit to how many hacked drones can AI have at the same time.
 # HACKED_DRONES_LIMIT 5
@@ -588,3 +598,24 @@ FAIL2TOPIC_ENABLED 0
 ## gets dumped. Time is in DECISECONDS (1/10th of a second). Might not be wise to
 ## use a value less than 10.
 #PROFILER_TIMEOUT_THRESHOLD 20
+
+### Forumuser API configuration
+### Enables the updating of the ss13_admins table from the forumuser API.
+### You can think of this as LDAP for admin ranks: a single central repo is
+### used for multiple different services.
+## Uncomment this to enable the use of the system. SQL admins MUST be enabled for this to work.
+#USE_FORUMUSER_API
+## The base URL of the API. Without a trailing slash.
+#FORUMUSER_API_URL
+## The API key of the system.
+#FORUMUSER_API_KEY
+
+## External resource URL
+## Set the PRELOAD_RSC in code/__defines/_compile_options.dm to 0 to use this.
+## Must contain a .zip of the server's .rsc file. Must use HTTP (not secured).
+## Can contain multiple URLs which are then cycled through. Delimit them with a COMMA.
+#EXTERNAL_RSC_URLS http://one.tld/rsc.zip
+
+## Lore Summary
+## The text that will appear when the player clicks the lore button at the start screen
+LORE_SUMMARY

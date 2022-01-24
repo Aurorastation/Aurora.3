@@ -70,6 +70,10 @@
 	name = "Shorts, Expedition"
 	icon_state = "shorts_expedition"
 
+/datum/category_item/underwear/bottom/shorts_scc
+	name = "Shorts, SCC"
+	icon_state = "shorts_scc"
+
 /datum/category_item/underwear/bottom/shorts_fleet
 	name = "Shorts, Fleet"
 	icon_state = "shorts_fleet"
@@ -113,5 +117,6 @@
 	has_color = TRUE
 
 /datum/category_item/underwear/bottom/fishnet_lower
-	name = "Fishnets"
+	name = "Fishnet Bottoms"
 	icon_state = "fishnet_lower"
+	has_color = TRUE

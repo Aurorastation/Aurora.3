@@ -17,10 +17,10 @@
 /datum/bounty/weapon_prototype/can_claim()
 	return ..() && shipped
 
-/datum/bounty/weapon_prototype/applies_to(obj/O)
+/datum/bounty/weapon_prototype/applies_to(var/obj/item/gun/energy/laser/prototype/O)
 	if(shipped)
 		return FALSE
-	if(!istype(O, /obj/item/gun/energy/laser/prototype))
+	if(!istype(O))
 		return FALSE
 	if(accepts_weapon(O))
 		return TRUE
@@ -31,7 +31,7 @@
 		return
 	shipped = TRUE
 
-/datum/bounty/weapon_prototype/compatible_with(datum/other_bounty)
+/datum/bounty/weapon_prototype/compatible_with(var/datum/other_bounty)
 	if(!istype(other_bounty, /datum/bounty/weapon_prototype))
 		return TRUE
 	var/datum/bounty/weapon_prototype/W = other_bounty

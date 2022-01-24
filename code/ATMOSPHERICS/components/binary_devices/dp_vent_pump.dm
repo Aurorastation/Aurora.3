@@ -41,6 +41,8 @@
 	//2: Do not pass input_pressure_min
 	//4: Do not pass output_pressure_max
 
+	var/broadcast_status_next_process = FALSE
+
 /obj/machinery/atmospherics/binary/dp_vent_pump/Initialize()
 	. = ..()
 	air1.volume = ATMOS_DEFAULT_VOLUME_PUMP
@@ -106,6 +108,10 @@
 	if(stat & (NOPOWER|BROKEN) || !use_power)
 		return 0
 
+	if (broadcast_status_next_process)
+		broadcast_status()
+		broadcast_status_next_process = FALSE
+
 	var/datum/gas_mixture/environment = loc.return_air()
 
 	var/power_draw = -1
@@ -169,7 +175,7 @@
 		return 0
 
 	var/datum/signal/signal = new
-	signal.transmission_method = 1 //radio signal
+	signal.transmission_method = TRANSMISSION_RADIO
 	signal.source = src
 
 	signal.data = list(
@@ -248,10 +254,10 @@
 		)
 
 	if(signal.data["status"])
-		addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
+		broadcast_status_next_process = TRUE
 		return //do not update_icon
 
-	addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
+	broadcast_status_next_process = TRUE
 	update_icon()
 
 #undef DEFAULT_PRESSURE_DELTA

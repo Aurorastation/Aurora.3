@@ -15,11 +15,12 @@ hr
 }
 
 a, a:link, a:visited, a:active, .linkOn, .linkOff
-{ 
+{
 	color: #ffffff; 
 	text-decoration: none;
 	background: #40628a;
-	border: 1px solid #161616;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
 	padding: 1px 4px 1px 4px;
 	margin: 0 2px 0 0;
 	cursor:default;
@@ -36,7 +37,8 @@ a.white, a.white:link, a.white:visited, a.white:active
 	color: #40628a; 
 	text-decoration: none;
 	background: #ffffff;
-	border: 1px solid #161616;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
 	padding: 1px 4px 1px 4px;
 	margin: 0 2px 0 0;
 	cursor:default;

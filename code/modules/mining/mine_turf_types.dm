@@ -63,7 +63,7 @@
 	canSmoothWith = null
 	openspace_override_type = /turf/simulated/open/chasm/airless
 
-	footstep_sound = "asteroid"
+	footstep_sound = /decl/sound_category/asteroid_footstep
 
 /turf/unsimulated/floor/asteroid/basalt/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
 	underlay_appearance.icon = icon
@@ -85,6 +85,10 @@
 				light_range = 2
 	. = ..()
 
+/turf/unsimulated/floor/asteroid/ReplaceWithLattice()
+	ChangeTurf(baseturf)
+	new /obj/structure/lattice(src)
+
 /turf/unsimulated/floor/asteroid/ash
 	name = "ash"
 	icon_state = "ash"
@@ -92,7 +96,7 @@
 	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
 	base_icon = 'icons/turf/smooth/ash.dmi'
 	base_icon_state = "ash"
-	footstep_sound = "sand"
+	footstep_sound = /decl/sound_category/sand_footstep
 	does_footprint = TRUE
 	footprint_color = COLOR_ASH
 	track_distance = 6

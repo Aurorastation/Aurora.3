@@ -47,15 +47,17 @@
 
 	switch(freq)
 		if(NINJ_FREQ)
-			R = new/obj/item/device/radio/headset/ninja(player)
+			R = new /obj/item/device/radio/headset/ninja(player)
+		if(BLSP_FREQ)
+			R = new /obj/item/device/radio/headset/bluespace(player)
 		if(BURG_FREQ)
 			R = new /obj/item/device/radio/headset/burglar(player)
 		if(SYND_FREQ)
-			R = new/obj/item/device/radio/headset/syndicate(player)
+			R = new /obj/item/device/radio/headset/syndicate(player)
 		if(RAID_FREQ)
-			R = new/obj/item/device/radio/headset/raider(player)
+			R = new /obj/item/device/radio/headset/raider(player)
 		else
-			R = new/obj/item/device/radio/headset(player)
+			R = new /obj/item/device/radio/headset(player)
 			R.set_frequency(freq)
 
 	R.set_frequency(freq)
@@ -109,6 +111,9 @@
 	else
 		to_chat(player.current, "<span class='notice'>[welcome_text]</span>")
 
+	if(antag_sound)
+		player.current.playsound_simple(get_turf(src), sound(antag_sound), 50, FALSE)
+
 	if((flags & ANTAG_HAS_NUKE) && !spawned_nuke)
 		create_nuke()
 
@@ -121,6 +126,8 @@
 	if(ishuman(player))
 		var/mob/living/carbon/human/H = player
 		var/datum/language/L = H.default_language
+		if(!L)
+			L = all_languages[LANGUAGE_TCB]
 		H.real_name = L.get_random_name()
 		H.name = H.real_name
 		H.dna.real_name = H.real_name

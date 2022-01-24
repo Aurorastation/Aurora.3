@@ -7,8 +7,11 @@
 	icon_state = "impact_laser"
 	light_color = LIGHT_COLOR_RED
 
+/obj/effect/projectile/impact/laser/scc
+	icon_state = "impact_scc"
+	light_color = COLOR_INDIGO
+
 /obj/effect/projectile/impact/laser/blue
-	name = "laser impact"
 	icon_state = "impact_blue"
 	light_color = LIGHT_COLOR_BLUE
 
@@ -79,3 +82,7 @@
 /obj/effect/projectile/impact/hegemony
 	icon_state = "impact_hegemony"
 	light_color = LIGHT_COLOR_ORANGE
+
+/obj/effect/projectile/impact/tesla
+	icon_state = "impact_lightning"
+	light_color = LIGHT_COLOR_CYAN

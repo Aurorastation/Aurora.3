@@ -111,11 +111,10 @@ var/list/jobban_keylist = list() // Global jobban list.
 	CKEY_OR_MOB(ckey, player)
 
 	if (ckey)
-		if (guest_jobbans(rank))
-			if (config.guest_jobban && IsGuestKey(ckey))
-				return "GUEST JOB-BAN"
-			if (config.usewhitelist && ismob(player) && !check_whitelist(player))
-				return "WHITELISTED"
+		if (guest_jobbans(rank) && config.guest_jobban && IsGuestKey(ckey))
+			return "GUEST JOB-BAN"
+		if (config.usewhitelist && ismob(player) && !check_whitelist_rank(player, rank))
+			return "WHITELISTED"
 
 		var/age_whitelist = player_old_enough_for_role(player, rank)
 		if (age_whitelist)

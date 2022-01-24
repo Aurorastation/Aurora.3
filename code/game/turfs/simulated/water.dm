@@ -2,7 +2,7 @@
 	name = "beach"
 	icon = 'icons/misc/beach.dmi'
 	icon_state = "sand"
-	footstep_sound = "sand"
+	footstep_sound = /decl/sound_category/sand_footstep
 
 /turf/simulated/floor/beach/sand
 	name = "sand"
@@ -18,12 +18,12 @@
 	name = "coastline"
 	icon = 'icons/misc/beach2.dmi'
 	icon_state = "sandwater"
-	footstep_sound = "water"
+	footstep_sound = /decl/sound_category/water_footstep
 
 /turf/simulated/floor/beach/water
 	name = "water"
 	icon_state = "water"
-	footstep_sound = "water"
+	footstep_sound = /decl/sound_category/water_footstep
 	movement_cost = 2
 	var/watertype = "water5"
 	var/obj/effect/water_effect/water_overlay
@@ -75,11 +75,11 @@
 			var/datum/gas_mixture/water_breath = new()
 			var/datum/gas_mixture/above_air = return_air()
 			var/amount = 300
-			water_breath.adjust_gas("oxygen", amount) // Assuming water breathes just extract the oxygen directly from the water.
+			water_breath.adjust_gas(GAS_OXYGEN, amount) // Assuming water breathes just extract the oxygen directly from the water.
 			water_breath.temperature = above_air.temperature
 			return water_breath
 		else
-			var/gasid = "carbon_dioxide"
+			var/gasid = GAS_CO2
 			if(ishuman(L))
 				var/mob/living/carbon/human/H = L
 				if(H.species && H.species.exhale_type)
@@ -94,7 +94,7 @@
 /turf/simulated/floor/beach/water/Entered(atom/movable/AM, atom/oldloc)
 	if(!SSATOMS_IS_PROBABLY_DONE)
 		return
-	reagents.add_reagent(/datum/reagent/water, 2)
+	reagents.add_reagent(/decl/reagent/water, 2)
 	clean(src)
 	START_PROCESSING(SSprocessing, src)
 	if(istype(AM, /obj))
@@ -110,7 +110,7 @@
 /turf/simulated/floor/beach/water/Exited(atom/movable/AM, atom/newloc)
 	if(!SSATOMS_IS_PROBABLY_DONE)
 		return
-	reagents.add_reagent(/datum/reagent/water, 2)
+	reagents.add_reagent(/decl/reagent/water, 2)
 	clean(src)
 	if(istype(AM, /obj) && numobjects)
 		numobjects -= 1
@@ -123,7 +123,7 @@
 	..()
 
 /turf/simulated/floor/beach/water/process()
-	reagents.add_reagent(/datum/reagent/water, 2)
+	reagents.add_reagent(/decl/reagent/water, 2)
 	clean(src)
 	for(var/mob/living/L in src)
 		wash(L)
@@ -143,7 +143,7 @@
 
 	var/obj/effect/effect/water/W = new(O)
 	W.create_reagents(100)
-	W.reagents.add_reagent(/datum/reagent/water, 100)
+	W.reagents.add_reagent(/decl/reagent/water, 100)
 	W.set_up(O, 100)
 
 	if(iscarbon(O))
@@ -163,15 +163,17 @@
 
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
-			var/washgloves = 1
-			var/washshoes = 1
-			var/washmask = 1
-			var/washears = 1
-			var/washglasses = 1
+			var/washgloves = TRUE
+			var/washshoes = TRUE
+			var/washmask = TRUE
+			var/washears = TRUE
+			var/washglasses = TRUE
+			var/washwrists = TRUE
 
 			if(H.wear_suit)
 				washgloves = !(H.wear_suit.flags_inv & HIDEGLOVES)
 				washshoes = !(H.wear_suit.flags_inv & HIDESHOES)
+				washwrists = !(H.wear_suit.flags_inv & HIDEWRISTS)
 
 			if(H.head)
 				washmask = !(H.head.flags_inv & HIDEMASK)
@@ -207,13 +209,16 @@
 					H.update_inv_glasses(0)
 			if(H.l_ear && washears)
 				if(H.l_ear.clean_blood())
-					H.update_inv_ears(0)
+					H.update_inv_l_ear(0)
 			if(H.r_ear && washears)
 				if(H.r_ear.clean_blood())
-					H.update_inv_ears(0)
+					H.update_inv_r_ear(0)
 			if(H.belt)
 				if(H.belt.clean_blood())
 					H.update_inv_belt(0)
+			if(H.wrists && washwrists)
+				if(H.wrists.clean_blood())
+					H.update_inv_wrists(0)
 			H.clean_blood(washshoes)
 		else
 			if(M.wear_mask)						//if the mob is not human, it cleans the mask without asking for bitflags

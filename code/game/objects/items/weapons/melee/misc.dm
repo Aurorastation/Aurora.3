@@ -1,10 +1,12 @@
 /obj/item/melee
 	icon = 'icons/obj/weapons.dmi'
-	hitsound = "swing_hit"
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_melee.dmi',
 		slot_r_hand_str = 'icons/mob/items/weapons/righthand_melee.dmi'
 		)
+
+/obj/item/melee/should_equip()
+	return TRUE
 
 /obj/item/melee/chainofcommand
 	name = "chain of command"
@@ -15,7 +17,7 @@
 	slot_flags = SLOT_BELT
 	force = 10
 	throwforce = 7
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_COMBAT = 4)
 	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
 	hitsound = 'sound/weapons/chainhit.ogg'
@@ -29,9 +31,9 @@
 	slot_flags = SLOT_BELT
 	force = 15
 	throwforce = 7
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	origin_tech = list(TECH_COMBAT = 5)
 	attack_verb = list("chopped", "sliced", "shredded", "slashed", "cut", "ripped")
 	hitsound = 'sound/weapons/bladeslice.ogg'
@@ -74,10 +76,11 @@
 	throw_speed = 5
 	throw_range = 7
 	attack_verb = list("smashed", "beaten", "slammed", "smacked", "struck", "battered", "bonked")
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_MATERIAL = 3, TECH_ILLEGAL = 2)
-	hitsound = 'sound/weapons/genhit3.ogg'
 
+/obj/item/melee/hammer/ishammer()
+	return TRUE
 
 /obj/item/melee/hammer/powered
 	name = "powered hammer"
@@ -147,7 +150,7 @@
 	item_state = "chain"
 	slot_flags = SLOT_BELT
 	force = 10
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	reach = 2
 	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
 	hitsound = 'sound/weapons/whip.ogg'
@@ -176,9 +179,9 @@
 	slot_flags = SLOT_BELT
 	force = 15
 	throwforce = 5
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	can_embed = 0
 	origin_tech = list(TECH_COMBAT = 4)
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")

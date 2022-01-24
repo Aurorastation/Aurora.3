@@ -164,7 +164,6 @@
 	},
 /area/derelict/ship)
 "aI" = (
-/obj/item/clothing/shoes/magboots/vox,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
@@ -186,7 +185,6 @@
 	},
 /area/derelict/ship)
 "aM" = (
-/obj/item/organ/stack/vox,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
@@ -215,7 +213,6 @@
 	},
 /area/derelict/ship)
 "aQ" = (
-/obj/item/clothing/mask/gas/swat/vox,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
@@ -471,7 +468,7 @@
 /turf/simulated/floor,
 /area/derelict/ship)
 "bL" = (
-/obj/item/stool/padded,
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/lino,
 /area/derelict/ship)
 "bM" = (

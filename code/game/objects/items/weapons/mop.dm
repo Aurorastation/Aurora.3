@@ -12,8 +12,10 @@
 	throwforce = 10.0
 	throw_speed = 3
 	throw_range = 7
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	attack_verb = list("mopped", "bashed", "bludgeoned", "whacked")
+	drop_sound = 'sound/items/drop/woodweapon.ogg'
+	pickup_sound = 'sound/items/pickup/woodweapon.ogg'
 	var/mopping = 0
 	var/mopcount = 0
 	var/cleantime = 25
@@ -36,22 +38,19 @@
 			if(clean_msg)
 				to_chat(user, SPAN_NOTICE("Your mop is dry!"))
 			return
-		if (!(last_clean && world.time < last_clean + 120)) //spam is bad
+		if(!(last_clean && world.time < last_clean + 120)) //spam is bad
 			user.visible_message(SPAN_WARNING("[user] begins to mop \the [get_turf(A)]."))
 			clean_msg = TRUE
 			last_clean = world.time
 		else
 			clean_msg = FALSE
 		playsound(loc, 'sound/effects/mop.ogg', 25, 1)
-
 		if(do_after(user, cleantime))
 			var/turf/T = get_turf(A)
 			if(T)
 				T.clean(src, user)
 			if(clean_msg)
 				to_chat(user, SPAN_NOTICE("You have finished mopping!"))
-			update_icon()
-
 
 /obj/effect/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/mop) || istype(I, /obj/item/soap))
@@ -59,12 +58,9 @@
 	..()
 
 /obj/item/mop/update_icon()
-	if(reagents.total_volume < 1)
-		icon_state = "[initial(icon_state)]"
-		item_state = icon_state
-	if(reagents.total_volume > 1)
-		icon_state = "[initial(icon_state)]_wet"
-		item_state = icon_state
+	icon_state = "[initial(icon_state)][reagents.total_volume > 1 ? "_wet" : null]"
+	item_state = icon_state
+	update_held_icon()
 
 /obj/item/mop/on_reagent_change()
 	update_icon()
@@ -81,7 +77,7 @@
 	cleantime = 15
 	var/refill_enabled = TRUE //Self-refill toggle for when a janitor decides to mop with something other than water.
 	var/refill_rate = 0.5 //Rate per process() tick mop refills itself
-	var/refill_reagent = /datum/reagent/water //Determins what reagent to use for refilling, just in case someone wanted to make a HOLY MOP OF PURGING
+	var/refill_reagent = /decl/reagent/water //Determins what reagent to use for refilling, just in case someone wanted to make a HOLY MOP OF PURGING
 
 /obj/item/mop/advanced/New()
 	..()

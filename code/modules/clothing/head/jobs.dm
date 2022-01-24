@@ -5,25 +5,18 @@
 	icon_state = "chefhat"
 	item_state = "chefhat"
 
-//Captain
-/obj/item/clothing/head/caphat
-	name = "captain's hat"
-	icon_state = "captain"
-	desc = "It's good being the king."
-	item_state_slots = list(
-		slot_l_hand_str = "caphat",
-		slot_r_hand_str = "caphat"
+/obj/item/clothing/head/surgery/hairnet
+	name = "hairnet"
+	desc = "A hairnet used to keep the hair out of the way and out of the food."
+	icon_state = "hairnet"
+	item_state = "hairnet"
+	sprite_sheets = list(
+		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi'
 		)
-
-/obj/item/clothing/head/caphat/cap
-	name = "captain's cap"
-	desc = "You fear to wear it for the negligence it brings."
-	icon_state = "capcap"
-
-/obj/item/clothing/head/caphat/formal
-	name = "parade hat"
-	desc = "No one in a commanding position should be without a perfect, white hat of ultimate authority."
-	icon_state = "officercap"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand.dmi',
+		)
 
 //HOP
 /obj/item/clothing/head/caphat/hop
@@ -44,120 +37,6 @@
 	desc = "Maximum piety in this star system."
 	icon_state = "nun_hood"
 	flags_inv = BLOCKHAIR
-
-//Mime
-/obj/item/clothing/head/beret
-	name = "beret"
-	desc = "A beret, an artists favorite headwear."
-	icon_state = "beret"
-
-//berets
-/obj/item/clothing/head/beret/sec
-	name = "security beret"
-	desc = "A beret with the security insignia emblazoned on it. For officers that are more inclined towards style than safety."
-	icon_state = "beret_badge"
-
-/obj/item/clothing/head/beret/sec/alt
-	name = "officer beret"
-	desc = "A navy blue beret with an officer's rank emblem. For officers that are more inclined towards style than safety."
-	icon_state = "officerberet"
-
-/obj/item/clothing/head/beret/sec/idris
-	name = "idris security beret"
-	desc = "A beret with the Idris Incorporated insignia emblazoned on it."
-	icon_state = "idrissecberet"
-
-/obj/item/clothing/head/beret/sec/zavodskoi
-	name = "zavodskoi interstellar security beret"
-	desc = "A brown beret with the Zavodskoi Interstellar insignia emblazoned on it."
-	icon_state = "necrosecberet"
-
-/obj/item/clothing/head/beret/sec/zavodskoi/alt
-	name = "zavodskoi interstellar security beret"
-	desc = "A black beret with the Zavodskoi Interstellar insignia emblazoned on it."
-	icon_state = "necrosecaltberet"
-
-/obj/item/clothing/head/beret/sec/eri
-	name = "eridani security beret"
-	desc = "A beret with the Eridani PMC insignia emblazoned on it."
-	icon_state = "erisecberet"
-
-/obj/item/clothing/head/beret/sec/cadet
-	name = "cadet beret"
-	desc = "A beret with the security insignia emblazoned on it. This one is for in training security personnel."
-	icon_state = "cadetberet"
-
-/obj/item/clothing/head/beret/sec/hos
-	name = "commander beret"
-	desc = "A navy blue beret with a commander's rank emblem. For officers that are more inclined towards style than safety."
-	icon_state = "hosberet"
-
-/obj/item/clothing/head/beret/sec/warden
-	name = "warden beret"
-	desc = "A navy blue beret with a warden's rank emblem. For officers that are more inclined towards style than safety."
-	icon_state = "wardenberet"
-
-/obj/item/clothing/head/beret/engineering
-	name = "engineering beret"
-	desc = "A beret with the engineering insignia emblazoned on it. For engineers that are more inclined towards style than safety."
-	icon_state = "e_beret"
-
-/obj/item/clothing/head/beret/medical
-	name = "medical beret"
-	desc = "A beret with the medical insignia emblazoned on it. For medical members that want to crush their brains after college left them in massive debt."
-	icon_state = "medberet"
-
-/obj/item/clothing/head/beret/zeng
-	name = "zeng-hu beret"
-	desc = "A purple beret with the Zeng-Hu insignia emblazoned on it."
-	icon_state = "zengberet"
-
-/obj/item/clothing/head/beret/zeng/alt
-	name = "zeng-hu beret"
-	desc = "A white beret with the Zeng-Hu insignia emblazoned on it."
-	icon_state = "zengaltberet"
-
-/obj/item/clothing/head/beret/heph
-	name = "hephaestus beret"
-	desc = "A green beret with the Hephaestus insignia emblazoned on it."
-	icon_state = "hephberet"
-
-/obj/item/clothing/head/beret/purple
-	name = "purple beret"
-	desc = "A stylish, if purple, beret."
-	icon_state = "purpleberet"
-
-/obj/item/clothing/head/beret/liaison
-	name = "corporate liaison beret"
-	desc = "A stylish beret worn by corporate liaisons."
-	icon_state = "centcomofficerberet"
-
-/obj/item/clothing/head/beret/centcom/officer
-	name = "officers beret"
-	desc = "A black beret adorned with the shield - a silver kite shield with an engraved sword - of the NanoTrasen security forces."
-	icon_state = "centcomofficerberet"
-
-/obj/item/clothing/head/beret/centcom/officer/civilprotection
-	name = "civil protection beret"
-	desc = "A black beret adorned with the shield - a gold kite shield with an engraved sword - of the NanoTrasen security forces."
-	icon_state = "civilprotection_beret"
-	item_state = "civilprotection_beret"
-
-/obj/item/clothing/head/beret/centcom/captain
-	name = "captains beret"
-	desc = "A white beret adorned with the shield - a silver kite shield with an engraved sword - of the NanoTrasen security forces."
-	icon_state = "centcomcaptain"
-
-/obj/item/clothing/head/beret/centcom/commander
-	name = "commanders beret"
-	desc = "A white beret adorned with the crest of an ERT detachment. Worn by commanders of Nanotrasen response teams."
-	icon_state = "centcomcaptain"
-
-/obj/item/clothing/head/beret/misc
-	name = "beret"
-	desc = "A colorful beret, treasured by artists and the French."
-	icon_state = "miscberet"
-	item_state = "miscberet"
 
 //Medical
 /obj/item/clothing/head/surgery
@@ -193,35 +72,43 @@
 		slot_r_hand_str = "det_hat"
 		)
 	allowed = list(/obj/item/reagent_containers/food/snacks/candy_corn, /obj/item/pen)
-	armor = list(melee = 50, bullet = 5, laser = 25,energy = 10, bomb = 0, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR
+	)
 	siemens_coefficient = 0.75
 
 /obj/item/clothing/head/det/grey
 	icon_state = "grey_fedora"
 	desc = "A grey fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
 
-/obj/item/clothing/head/det/technicolor
-	desc = "A 23rd-century fedora. It's fibres are hyper-absorbent."
-	icon = 'icons/obj/clothing/coloured_detective_hats.dmi'
-	icon_state = "hat_detective_black"
-	item_state = "hat_detective_black"
-	var/hat_color
-	contained_sprite = 1
+/obj/item/clothing/head/warden
+	name = "warden hat"
+	desc = "A blue warden hat. For showing who is in charge of the brig."
+	icon = 'icons/obj/clothing/hats/security.dmi'
+	icon_state = "warden"
+	item_state = "warden"
+	flags_inv = HIDEEARS
+	contained_sprite = TRUE
 
-/obj/item/clothing/head/det/technicolor/Initialize()
-	if(prob(5))
-		var/list/colors = list("yellow"=2,"red"=1,"white"=1,"orange"=1,"purple"=1,"green"=1,"blue"=1 )
-		var/color = pickweight(colors)
-		icon_state = "hat_detective_[color]"
-		item_state = "hat_detective_[color]"
-	. = ..()
+/obj/item/clothing/head/warden/corp
+	name = "corporate warden hat"
+	desc = "A black warden parade hat. For showing who is in charge of the brig."
+	icon_state = "corp"
+	item_state = "corp"
 
-/obj/item/clothing/head/det/technicolor/attackby(obj/item/O as obj, mob/user as mob)
-	if(istype(O, /obj/item/reagent_containers/glass/paint))
-		var/obj/item/reagent_containers/glass/paint/P = O
-		hat_color = P.paint_type
-		name = "[hat_color] fedora"
-		user.visible_message("<span class='warning'>[user] soaks \the [src] into [P]!</span>")
-		icon_state = "hat_detective_[hat_color]"
-		item_state = "hat_detective_[hat_color]"
-	..()
+/obj/item/clothing/head/hos
+	name = "head of security hat"
+	desc = "The navy blue parade hat of the Head of Security. For showing the officers who's in charge."
+	icon = 'icons/obj/clothing/hats/security.dmi'
+	icon_state = "hos"
+	item_state = "hos"
+	flags_inv = HIDEEARS
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/hos/corp
+	name = "corporate head of security hat"
+	desc = "The black parade hat of the Head of Security. For showing the officers who's in charge."
+	icon_state = "corp"
+	item_state = "corp"

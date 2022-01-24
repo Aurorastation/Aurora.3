@@ -7,6 +7,7 @@
 	w_class = ITEMSIZE_SMALL
 	icon = 'icons/obj/assemblies/electronic_setups.dmi'
 	icon_state = "setup_small"
+	flags = NOBLUDGEON
 	var/max_components = IC_COMPONENTS_BASE
 	var/max_complexity = IC_COMPLEXITY_BASE
 	var/opened = 0
@@ -141,7 +142,7 @@
 		else
 			var/turf/T = get_turf(src)
 			battery.forceMove(T)
-			playsound(T, 'sound/items/Crowbar.ogg', 50, 1)
+			playsound(T, 'sound/items/crowbar_pry.ogg', 50, 1)
 			to_chat(usr, "<span class='notice'>You pull \the [battery] out of \the [src]'s power supply.</span>")
 			battery = null
 
@@ -247,7 +248,7 @@
 			return TRUE
 
 	else if(I.iswrench() && can_anchor)
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(src.loc, I.usesound, 50, 1)
 		anchored = !anchored
 		if(anchored)
 			on_anchored()
@@ -257,13 +258,13 @@
 		return TRUE
 
 	else if(I.iscrowbar())
-		playsound(get_turf(src), 'sound/items/Crowbar.ogg', 50, 1)
+		playsound(get_turf(src), I.usesound, 50, 1)
 		opened = !opened
 		to_chat(user, "<span class='notice'>You [opened ? "open" : "close"] \the [src].</span>")
 		update_icon()
 		return TRUE
 
-	else if(istype(I, /obj/item/device/integrated_electronics/wirer) || istype(I, /obj/item/device/integrated_electronics/debugger) || I.isscrewdriver())
+	else if(istype(I, /obj/item/device/integrated_electronics/wirer) || istype(I, /obj/item/device/integrated_electronics/debugger) || I.ismultitool() || I.isscrewdriver())
 		if(opened)
 			interact(user)
 		else

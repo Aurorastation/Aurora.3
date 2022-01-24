@@ -1,7 +1,7 @@
 // At minimum every mob has a hear_say proc.
 
-/mob/proc/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "",var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
-	if(!istype(src, /mob/living/test) && (!client && !vr_mob))
+/mob/proc/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "",var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol, var/font_size = null)
+	if(!istype(src, /mob/living/test) && cant_hear())
 		return
 
 	if(speaker && !istype(speaker, /mob/living/test) && (!speaker.client && istype(src,/mob/abstract/observer) && client.prefs.toggles & CHAT_GHOSTEARS && !(speaker in view(src))))
@@ -9,9 +9,13 @@
 			//Or someone snoring.  So we make it where they won't hear it.
 		return
 
+	if((language && (language.flags & KNOWONLYHEAR)) && !say_understands(speaker, language))
+		return
+
 	//make sure the air can transmit speech - hearer's side
 	var/turf/T = get_turf(src)
-	if ((T) && (!(isobserver(src)))) //Ghosts can hear even in vacuum.
+	var/vacuum_proof = ((language && (language.flags & PRESSUREPROOF)) || isobserver(src))
+	if(T && !vacuum_proof) //Ghosts can hear even in vacuum.
 		var/datum/gas_mixture/environment = T.return_air()
 		var/pressure = (environment)? environment.return_pressure() : 0
 		if(pressure < SOUND_MINIMUM_PRESSURE && get_dist(speaker, src) > 1)
@@ -21,7 +25,7 @@
 			italics = 1
 			sound_vol *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
 
-	if((sleeping && !vr_mob) || stat == 1)
+	if(!vr_mob && (sleeping || stat == UNCONSCIOUS))
 		hear_sleep(message)
 		return
 
@@ -41,14 +45,11 @@
 				else
 					message = stars(message)
 
-	var/accent_icon
-
+	var/accent_icon = speaker.get_accent_icon(language, src)
 	var/speaker_name = speaker.name
 	if(ishuman(speaker))
 		var/mob/living/carbon/human/H = speaker
 		speaker_name = H.GetVoice()
-
-		accent_icon = H.get_accent_icon(language)
 
 	if(italics)
 		message = "<i>[message]</i>"
@@ -63,31 +64,62 @@
 		if((client.prefs.toggles & CHAT_GHOSTEARS) && (speaker in view(src)))
 			message = "<b>[message]</b>"
 
-	var/hearing_aid = FALSE
-	if(ishuman(src))
-		var/mob/living/carbon/human/H = src
-		hearing_aid = H.has_hearing_aid()
-
-	if(((sdisabilities & DEAF) && !hearing_aid) || ear_deaf > 1)
+	if(isdeaf(src))
 		if(!language || !(language.flags & INNATE)) // INNATE is the flag for audible-emote-language, so we don't want to show an "x talks but you cannot hear them" message if it's set
 			if(speaker == src)
 				to_chat(src, "<span class='warning'>You cannot hear yourself speak!</span>")
 			else
-				to_chat(src, "<span class='name'>[speaker_name]</span>[alt_name] talks but you cannot hear \him.")
+				to_chat(src, "<span class='name'>[speaker_name]</span>[alt_name] talks but you cannot hear them.")
 	else
 		if(language)
-			on_hear_say("[track][accent_icon ? accent_icon + " " : ""]<span class='game say'><span class='name'>[speaker_name]</span>[alt_name] [language.format_message(message, verb)]</span>")
+			if(font_size)
+				on_hear_say("[track][accent_icon ? accent_icon + " " : ""]<font size='[font_size]'><span class='game say'><span class='name'>[speaker_name]</span>[alt_name] [language.format_message(message, verb)]</span></font>")
+			else
+				on_hear_say("[track][accent_icon ? accent_icon + " " : ""]<span class='game say'><span class='name'>[speaker_name]</span>[alt_name] [language.format_message(message, verb)]</span>")
 		else
-			on_hear_say("[track]<span class='game say'><span class='name'>[speaker_name]</span>[alt_name] [verb], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
+			if(font_size)
+				on_hear_say("[track]<font size='[font_size]'><span class='game say'><span class='name'>[speaker_name]</span>[alt_name] [verb], <span class='message'><span class='body'>\"[message]\"</span></span></span></font>")
+			else
+				on_hear_say("[track]<span class='game say'><span class='name'>[speaker_name]</span>[alt_name] [verb], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
 		if (speech_sound && (get_dist(speaker, src) <= world.view && src.z == speaker.z))
 			var/turf/source = speaker? get_turf(speaker) : get_turf(src)
 			playsound_simple(source, speech_sound, sound_vol, use_random_freq = TRUE)
 		return TRUE
 
+/mob/proc/cant_hear()
+	if(!client && !vr_mob)
+		return TRUE
+	return FALSE
+
+/mob/living/carbon/cant_hear()
+	. = ..()
+	if(.)
+		var/datum/dionastats/DS = get_dionastats()
+		if(DS?.nym)
+			return FALSE
+
+/mob/living/carbon/alien/diona/cant_hear()
+	. = ..()
+	if(. && detached && gestalt)
+		return FALSE
+
 /mob/proc/on_hear_say(var/message)
 	to_chat(src, message)
 	if(vr_mob)
 		to_chat(vr_mob, message)
+
+/mob/living/carbon/on_hear_say(var/message)
+	..()
+	var/datum/dionastats/DS = get_dionastats()
+	if(DS?.nym)
+		var/mob/living/carbon/alien/diona/D = DS.nym.resolve()
+		if(D)
+			to_chat(D, message)
+
+/mob/living/carbon/alien/diona/on_hear_say(var/message)
+	to_chat(src, message)
+	if(detached && gestalt)
+		to_chat(gestalt, message)
 
 /mob/living/silicon/on_hear_say(var/message)
 	var/time = say_timestamp()
@@ -95,11 +127,11 @@
 	if(vr_mob)
 		to_chat(vr_mob, "[time] [message]")
 
-/mob/proc/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/mob/speaker = null, var/hard_to_hear = 0, var/vname ="")
+/mob/proc/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/part_c, var/mob/speaker = null, var/hard_to_hear = 0, var/vname ="")
 	if(!client && !vr_mob)
 		return
 
-	if((sleeping && !vr_mob) || stat==1) //If unconscious or sleeping
+	if(!vr_mob && (sleeping || stat == UNCONSCIOUS))
 		hear_sleep(message)
 		return
 
@@ -205,7 +237,8 @@
 		formatted = language.format_message_radio(message, verb)
 	else
 		formatted = "[verb], <span class=\"body\">\"[message]\"</span>"
-	if(sdisabilities & DEAF || ear_deaf)
+	formatted += part_c
+	if(isdeaf(src))
 		if(prob(20))
 			to_chat(src, "<span class='warning'>You feel your headset vibrate but can hear nothing from it!</span>")
 	else
@@ -215,12 +248,9 @@
 	return "<span class='say_quote'>\[[worldtime2text()]\]</span>"
 
 /mob/proc/on_hear_radio(part_a, speaker_name, track, part_b, formatted, accent_icon)
-	var/accent_tag
-	if(accent_icon)
-		accent_tag = "<IMG src='\ref['./icons/accent_tags.dmi']' class='text_tag' iconstate='[accent_icon]'>"
 	to_chat(src, "[part_a][speaker_name][part_b][formatted]")
 	if(vr_mob)
-		to_chat(vr_mob, "[part_a][accent_tag][speaker_name][part_b][formatted]")
+		to_chat(vr_mob, "[part_a][speaker_name][part_b][formatted]")
 
 /mob/abstract/observer/on_hear_radio(part_a, speaker_name, track, part_b, formatted)
 	to_chat(src, "[track][part_a][speaker_name][part_b][formatted]")
@@ -237,21 +267,23 @@
 	if(vr_mob)
 		to_chat(vr_mob, "[time][part_a][track][part_b][formatted]")
 
-/mob/proc/hear_signlang(var/message, var/verb = "gestures", var/datum/language/language, var/mob/speaker = null)
+/mob/proc/hear_signlang(var/message, var/verb = "gestures", var/datum/language/language, var/mob/speaker = null, var/list/sign_adv_length = null)
 	if(!client || !speaker)
 		return
 
 	if(say_understands(speaker, language))
 		message = "<B>[speaker]</B> [verb], \"[message]\""
 	else
+		if (length(sign_adv_length) <= 4)
+			sign_adv_length = list(" briefly", " a short message", " a message", " a lengthy message", " a very lengthy message")
 		var/adverb
 		var/length = length(message) * pick(0.8, 0.9, 1.0, 1.1, 1.2)	//Inserts a little fuzziness.
 		switch(length)
-			if(0 to 12) 	adverb = " briefly"
-			if(12 to 30)	adverb = " a short message"
-			if(30 to 48)	adverb = " a message"
-			if(48 to 90)	adverb = " a lengthy message"
-			else        	adverb = " a very lengthy message"
+			if(0 to 12) 	adverb = sign_adv_length[1]
+			if(12 to 30)	adverb = sign_adv_length[2]
+			if(30 to 48)	adverb = sign_adv_length[3]
+			if(48 to 90)	adverb = sign_adv_length[4]
+			else        	adverb = sign_adv_length[5]
 		message = "<B>[speaker]</B> [verb][adverb]."
 
 	if(src.status_flags & PASSEMOTES)

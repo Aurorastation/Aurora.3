@@ -11,12 +11,18 @@
 	S["all_underwear_metadata"] >> pref.all_underwear_metadata
 	S["backbag"]       >> pref.backbag
 	S["backbag_style"] >> pref.backbag_style
+	S["pda_choice"] >> pref.pda_choice
+	S["headset_choice"] >> pref.headset_choice
+	S["primary_radio_slot"] >> pref.primary_radio_slot
 
 /datum/category_item/player_setup_item/general/equipment/save_character(var/savefile/S)
 	S["all_underwear"] << pref.all_underwear
 	S["all_underwear_metadata"] << pref.all_underwear_metadata
 	S["backbag"]       << pref.backbag
 	S["backbag_style"] << pref.backbag_style
+	S["pda_choice"] << pref.pda_choice
+	S["headset_choice"] << pref.headset_choice
+	S["primary_radio_slot"] << pref.primary_radio_slot
 
 /datum/category_item/player_setup_item/general/equipment/gather_load_query()
 	return list(
@@ -25,7 +31,10 @@
 				"all_underwear",
 				"all_underwear_metadata",
 				"backbag",
-				"backbag_style"
+				"backbag_style",
+				"pda_choice",
+				"headset_choice",
+				"primary_radio_slot"
 			),
 			"args" = list("id")
 		)
@@ -41,6 +50,9 @@
 			"all_underwear_metadata",
 			"backbag",
 			"backbag_style",
+			"pda_choice",
+			"headset_choice",
+			"primary_radio_slot",
 			"id" = 1,
 			"ckey" = 1
 		)
@@ -52,6 +64,9 @@
 		"all_underwear_metadata" = json_encode(pref.all_underwear_metadata),
 		"backbag" = pref.backbag,
 		"backbag_style" = pref.backbag_style,
+		"pda_choice" = pref.pda_choice,
+		"headset_choice" = pref.headset_choice,
+		"primary_radio_slot" = pref.primary_radio_slot,
 		"id" = pref.current_character,
 		"ckey" = PREF_CLIENT_CKEY
 	)
@@ -60,6 +75,8 @@
 	if (sql_load)
 		pref.backbag = text2num(pref.backbag)
 		pref.backbag_style = text2num(pref.backbag_style)
+		pref.pda_choice = text2num(pref.pda_choice)
+		pref.headset_choice = text2num(pref.headset_choice)
 		if(istext(pref.all_underwear))
 			var/before = pref.all_underwear
 			try
@@ -102,6 +119,10 @@
 
 	pref.backbag	= sanitize_integer(pref.backbag, 1, backbaglist.len, initial(pref.backbag))
 	pref.backbag_style = sanitize_integer(pref.backbag_style, 1, backbagstyles.len, initial(pref.backbag_style))
+	pref.pda_choice = sanitize_integer(pref.pda_choice, 1, pdalist.len, initial(pref.pda_choice))
+	pref.headset_choice	= sanitize_integer(pref.headset_choice, 1, headsetlist.len, initial(pref.headset_choice))
+	if(!(pref.primary_radio_slot in primary_radio_slot_choice))
+		pref.primary_radio_slot = primary_radio_slot_choice[1]
 
 /datum/category_item/player_setup_item/general/equipment/content(var/mob/user)
 	. = list()
@@ -119,6 +140,9 @@
 
 	. += "Backpack Type: <a href='?src=\ref[src];change_backpack=1'><b>[backbaglist[pref.backbag]]</b></a><br>"
 	. += "Backpack Style: <a href='?src=\ref[src];change_backpack_style=1'><b>[backbagstyles[pref.backbag_style]]</b></a><br>"
+	. += "PDA Type: <a href='?src=\ref[src];change_pda=1'><b>[pdalist[pref.pda_choice]]</b></a><br>"
+	. += "Headset Type: <a href='?src=\ref[src];change_headset=1'><b>[headsetlist[pref.headset_choice]]</b></a><br>"
+	. += "Primary Radio Slot: <a href='?src=\ref[src];change_radio_slot=1'><b>[pref.primary_radio_slot]</b></a><br>"
 
 	return jointext(., null)
 
@@ -151,6 +175,24 @@
 			pref.backbag_style = backbagstyles.Find(new_backbag)
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
+	else if(href_list["change_pda"])
+		var/new_pda = input(user, "Choose your character's PDA type:", "Character Preference", pdalist[pref.pda_choice]) as null|anything in pdalist
+		if(!isnull(new_pda) && CanUseTopic(user))
+			pref.pda_choice = pdalist.Find(new_pda)
+			return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["change_headset"])
+		var/new_headset = input(user, "Choose your character's headset type:", "Character Preference", headsetlist[pref.headset_choice]) as null|anything in headsetlist
+		if(!isnull(new_headset) && CanUseTopic(user))
+			pref.headset_choice = headsetlist.Find(new_headset)
+			return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["change_radio_slot"])
+		var/new_slot = input(user, "Choose which radio will be spoken into first if multiple slots are occupied.", "Charcter Preference", pref.primary_radio_slot) as null|anything in primary_radio_slot_choice
+		if(!isnull(new_slot) && CanUseTopic(user))
+			pref.primary_radio_slot = new_slot
+			return TOPIC_REFRESH_UPDATE_PREVIEW
+
 	else if(href_list["change_underwear"])
 		var/datum/category_group/underwear/UWC = global_underwear.categories_by_name[href_list["change_underwear"]]
 		if(!UWC)
@@ -172,4 +214,3 @@
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	return ..()
-

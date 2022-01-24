@@ -60,9 +60,9 @@
 		var/obj/item/grab/G = A.get_active_hand()
 		if(G && G.affecting == D)
 			G.state = GRAB_AGGRESSIVE
-			D.visible_message("<span class='danger'>[A] gets a strong grip on [D]!</span>")
+			D.visible_message(SPAN_DANGER("[A] gets a strong grip on [D]!"))
 			if(isvaurca(A))
-				A.bugbite()
+				A.bugbite(TRUE)
 				qdel(G)
 	return 1
 
@@ -73,17 +73,16 @@
 	if(istype(A.get_active_hand(),/obj/item/grab))
 		var/obj/item/grab/G = A.get_active_hand()
 		if(G && G.affecting == D)
-			var/armor_block = D.run_armor_check(null, "melee")
 			A.visible_message("<span class='warning'>[A] crushes [D] with its mandibles!</span>")
-			D.apply_damage(30, BRUTE, null, armor_block)
-			D.apply_effect(6, WEAKEN, armor_block)
+			D.apply_damage(30, BRUTE)
+			D.apply_effect(6, WEAKEN)
 			qdel(G)
 	return 1
 
 /datum/martial_art/vkutet/proc/vkutet_help()
-	set name = "Recall Teachings"
+	set name = "Recall Vk'utet"
 	set desc = "Remember the martial techniques of the Vk'utet."
-	set category = "Vk'utet"
+	set category = "Abilities"
 
 	to_chat(usr, "<b><i>You chitter deeply and remember the indoctrination...</i></b>")
 	to_chat(usr, "<span class='notice'>Piercing Strike</span>: Disarm Harm Harm. Slashes your victim, bypassing their armor and causing bleeding.")
@@ -96,3 +95,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "harddisk"
 	martial_art = /datum/martial_art/vkutet
+
+#undef PIERCING_STRIKE
+#undef SWIFT_BITE
+#undef CRUSHING_JAWS

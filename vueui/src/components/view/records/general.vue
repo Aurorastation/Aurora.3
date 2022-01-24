@@ -11,14 +11,14 @@
       <vui-group-item label="Sex:"><view-records-field :editable="(editable & 1) > 0" path="active.sex"/></vui-group-item>
       <vui-group-item label="Rank:"><view-records-field :editable="(editable & 1) > 0" path="active.rank"/></vui-group-item>
       <vui-group-item label="Physical Status:">
-        <view-records-field :editable="(editable & 1) > 0" path="active.physical_status">
+        <view-records-field :editable="(editable & 1 || editable & 2) > 0" path="active.physical_status">
           <select v-model="$root.$data.state.editingvalue">
             <option v-for="i in choices.physical_status" :key="i" :value="i">{{ i }}</option>
           </select>
         </view-records-field>
       </vui-group-item>
       <vui-group-item label="Mental Status:">
-        <view-records-field :editable="(editable & 1) > 0" path="active.mental_status">
+        <view-records-field :editable="(editable & 1 || editable & 2) > 0" path="active.mental_status">
           <select v-model="$root.$data.state.editingvalue">
             <option v-for="i in choices.mental_status" :key="i" :value="i">{{ i }}</option>
           </select>
@@ -42,7 +42,11 @@
       </template>
       <slot/>
     </vui-group>
-    <vui-button v-if="!hideAdvanced && (editable & 1)" :params="{ deleterecord: 1 }" icon="trash-alt" class="danger">Delete record</vui-button>
+    <div class="bottombuttons">
+      <vui-button :params="{ setactive: 'null'}" @click="activeview = 'list'" push-state>Unload Record</vui-button>
+      <vui-button v-if="canprint" :params="{ print: 'active'}">Print</vui-button>
+      <vui-button v-if="!hideAdvanced && (editable & 1)" :params="{ deleterecord: 1 }" icon="trash-alt" class="danger">Delete record</vui-button>
+    </div>
   </div>
 </template>
 
@@ -74,6 +78,12 @@ export default {
     height: 64px;
     -ms-interpolation-mode: nearest-neighbor;
     image-rendering: crisp-edges;
+  }
+}
+.bottombuttons {
+  margin-top: 8px;
+  .button {
+    margin-right: 6px;
   }
 }
 </style>

@@ -9,12 +9,11 @@
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	throwforce = 3
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	throw_speed = 5
 	throw_range = 10
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 1, TECH_ENGINEERING = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 500, MATERIAL_GLASS = 200)
-	var/mode = 1
 
 /obj/item/device/robotanalyzer/attack(mob/living/M, mob/living/user)
 	if((user.is_clumsy() || (DUMB in user.mutations)) && prob(50))
@@ -45,8 +44,8 @@
 
 			to_chat(user, SPAN_NOTICE("Analyzing Results for [M]:"))
 			to_chat(user, SPAN_NOTICE("Overall Status: [M.stat > 1 ? "fully disabled" : "[M.health - M.getHalLoss()]% functional"]"))
-			to_chat(user, "Key: <font color='#FFA500'>Electronics</font>/<font color='red'>Brute</font>")
-			to_chat(user, "Damage Specifics: <font color='#FFA500'>[BU]</font> - <font color='red'>[BR]</font>")
+			to_chat(user, "Key: <font color='#FFA500'>Electronics</font>/<span class='warning'>Brute</span>")
+			to_chat(user, "Damage Specifics: <font color='#FFA500'>[BU]</font> - <span class='warning'>[BR]</span>")
 			if(M.tod && M.stat == DEAD)
 				to_chat(user, SPAN_NOTICE("Time of Disable: [M.tod]"))
 			var/mob/living/silicon/robot/H = M
@@ -56,11 +55,11 @@
 				for(var/datum/robot_component/org in damaged)
 					user.show_message(text("<span class='notice'>\t []: [][] - [] - [] - []</span>",	\
 					capitalize(org.name),					\
-					(org.installed == -1)	?	"<font color='red'><b>DESTROYED</b></font> "							:"",\
+					(org.installed == -1)	?	"<span class='warning'><b>DESTROYED</b></span> "							:"",\
 					(org.electronics_damage > 0)	?	"<font color='#FFA500'>[org.electronics_damage]</font>"	:0,	\
-					(org.brute_damage > 0)	?	"<font color='red'>[org.brute_damage]</font>"							:0,		\
-					(org.toggled)	?	"Toggled ON"	:	"<font color='red'>Toggled OFF</font>",\
-					(org.powered)	?	"Power ON"		:	"<font color='red'>Power OFF</font>"),1)
+					(org.brute_damage > 0)	?	"<span class='warning'>[org.brute_damage]</span>"							:0,		\
+					(org.toggled)	?	"Toggled ON"	:	"<span class='warning'>Toggled OFF</span>",\
+					(org.powered)	?	"Power ON"		:	"<span class='warning'>Power OFF</span>"),1)
 			else
 				to_chat(user, SPAN_NOTICE("Components are OK."))
 			if(H.emagged && prob(5))
@@ -69,8 +68,12 @@
 		if("prosthetics")
 			var/mob/living/carbon/human/H = M
 			to_chat(user, SPAN_NOTICE("Analyzing Results for \the [H]:"))
-			to_chat(user, "Key: <font color='#FFA500'>Electronics</font>/<font color='red'>Brute</font>")
-
+			to_chat(user, "Key: <font color='#FFA500'>Electronics</font>/<span class='warning'>Brute</span>")
+			var/obj/item/organ/internal/cell/IC = H.internal_organs_by_name[BP_CELL]
+			if(IC)
+				to_chat(user, SPAN_NOTICE("Cell charge: [IC.percent()] %"))
+			else
+				to_chat(user, SPAN_NOTICE("Cell charge: ERROR - Cell not present"))
 			to_chat(user, SPAN_NOTICE("External prosthetics:"))
 			var/organ_found
 			if(length(H.internal_organs))
@@ -78,7 +81,7 @@
 					if(!(E.status & ORGAN_ROBOT))
 						continue
 					organ_found = TRUE
-					to_chat(user, "[E.name]: <font color='red'>[E.brute_dam]</font> <font color='#FFA500'>[E.burn_dam]</font>")
+					to_chat(user, "[E.name]: <span class='warning'>[E.brute_dam]</span> <font color='#FFA500'>[E.burn_dam]</font>")
 			if(!organ_found)
 				to_chat(user, SPAN_NOTICE("No prosthetics located."))
 			to_chat(user, "<hr>")
@@ -95,9 +98,8 @@
 					if(!show_tag && istype(O, /obj/item/organ/internal/ipc_tag))
 						continue
 					organ_found = TRUE
-					to_chat(user, "[O.name]: <font color='red'>[O.damage]</font>")
+					to_chat(user, "[O.name]: <span class='warning'>[O.damage]</span>")
 			if(!organ_found)
 				to_chat(user, SPAN_NOTICE("No prosthetics located."))
 
 	add_fingerprint(user)
-	return

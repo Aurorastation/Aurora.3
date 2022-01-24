@@ -18,19 +18,19 @@
 	name = "rock sliver"
 	desc = "It looks extremely delicate."
 	icon = 'icons/obj/xenoarchaeology.dmi'
-	icon_state = "sliver1"	//0-4
+	icon_state = "sliver1"	// 1 - 3
 	randpixel = 8
-	w_class = 1
-	sharp = 1
-	//item_state = "electronic"
-	var/source_rock = "/turf/simulated/mineral/"
-	var/datum/geosample/geological_data
+	w_class = ITEMSIZE_TINY
+	sharp = TRUE
+	var/datum/geosample/geologic_data
 
-/obj/item/rocksliver/New()
+/obj/item/rocksliver/Initialize(mapload, geodata)
+	. = ..()
+	geologic_data = geodata
 	icon_state = "sliver[rand(1,3)]"
 	randpixel_xy()
 	create_reagents(50)
-	reagents.add_reagent(/datum/reagent/stone_dust,50)
+	reagents.add_reagent(/decl/reagent/stone_dust,50)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Geosample datum

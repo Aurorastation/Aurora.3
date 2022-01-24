@@ -131,7 +131,7 @@
 	base_icon_state = "laser"
 	origin_tech = list(TECH_COMBAT = 1, TECH_MAGNET = 2)
 	var/obj/item/projectile/beam/projectile = /obj/item/projectile/beam
-	var/firing_sound = 'sound/weapons/Laser.ogg'
+	var/firing_sound = 'sound/weapons/laser1.ogg'
 
 /obj/item/laser_components/modulator/degrade()
 	return
@@ -139,7 +139,7 @@
 /obj/item/device/laser_assembly
 	name = "laser assembly (small)"
 	desc = "A case for shoving things into. Hopefully they work."
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	icon = 'icons/obj/guns/modular_laser.dmi'
 	var/base_icon_state = "small"
 	contained_sprite = TRUE
@@ -251,3 +251,20 @@
 	capacitor = null
 	qdel(src)
 	return TRUE
+
+/obj/item/device/laser_assembly/get_print_info()
+	. = ""
+	for(var/i in list(capacitor, focusing_lens, modulator) + gun_mods)
+		var/obj/item/laser_components/l_component = i
+		if(!l_component)
+			continue
+
+		. += "<br>Component Name: [initial(l_component.name)]</br><br>"
+		var/l_repair_name = initial(l_component.repair_item.name) ? initial(l_component.repair_item.name) : "nothing"
+		. += "Reliability: [initial(l_component.reliability)]<br>"
+		. += "Damage Modifier: [initial(l_component.damage)]<br>"
+		. += "Fire Delay Modifier: [initial(l_component.fire_delay)]<br>"
+		. += "Shots Modifier: [initial(l_component.fire_delay)]<br>"
+		. += "Burst Modifier: [initial(l_component.burst)]<br>"
+		. += "Accuracy Modifier: [initial(l_component.accuracy)]<br>"
+		. += "Repair Tool: [l_repair_name]<br>"

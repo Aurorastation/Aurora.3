@@ -21,7 +21,7 @@
 	//Departments that the cycler can paint suits to look like.
 	var/list/departments = list("Engineering", "Mining", "Medical", "Security", "Atmos")
 	//Species that the suits can be configured to fit.
-	var/list/species = list("Human", "Skrell", "Unathi", "Tajara", "Vaurca", "Machine")
+	var/list/species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_TAJARA, BODYTYPE_IPC)
 
 	var/target_department
 	var/target_species
@@ -74,11 +74,15 @@
 		var/image/active_lights = make_screen_overlay(icon, "light_active")
 		add_overlay(active_lights)
 
+/obj/machinery/suit_cycler/relaymove(var/mob/user)
+	eject_occupant(user)
+
 /obj/machinery/suit_cycler/engineering
 	name = "engineering suit cycler"
 	model_text = "Engineering"
 	req_access = list(access_construction)
 	departments = list("Engineering", "Atmos")
+	species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_TAJARA, BODYTYPE_VAURCA, BODYTYPE_IPC)
 
 /obj/machinery/suit_cycler/mining
 	name = "mining suit cycler"
@@ -110,7 +114,7 @@
 	model_text = "Wizardry"
 	req_access = null
 	departments = list("Wizardry")
-	species = list("Human", "Tajara", "Skrell", "Unathi", "Machine")
+	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_IPC)
 	can_repair = TRUE
 
 /obj/machinery/suit_cycler/hos
@@ -118,7 +122,7 @@
 	model_text = "head of Security"
 	req_access = list(access_hos)
 	departments = list("Head of Security") // ONE MAN DEPARTMENT HOO HA GIMME CRAYONS - Geeves
-	species = list("Human", "Tajara", "Skrell", "Unathi", "Machine")
+	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_IPC)
 	can_repair = TRUE
 
 /obj/machinery/suit_cycler/captain
@@ -126,7 +130,7 @@
 	model_text = "Captain"
 	req_access = list(access_captain)
 	departments = list("Captain")
-	species = list("Human", "Tajara", "Skrell", "Unathi", "Machine")
+	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_IPC)
 	can_repair = TRUE
 
 /obj/machinery/suit_cycler/science
@@ -134,7 +138,7 @@
 	model_text = "Research"
 	req_access = list(access_research)
 	departments = list("Research")
-	species = list("Human", "Tajara", "Skrell", "Unathi", "Machine")
+	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_IPC)
 	can_repair = TRUE
 
 /obj/machinery/suit_cycler/freelancer
@@ -142,7 +146,7 @@
 	model_text = "Freelancers"
 	req_access = list(access_distress)
 	departments = list("Freelancers")
-	species = list("Human", "Tajara", "Skrell", "Unathi", "Machine")
+	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_IPC)
 	can_repair = TRUE
 
 /obj/machinery/suit_cycler/MouseDrop_T(mob/living/M, mob/living/user)
@@ -181,6 +185,8 @@
 		update_icon()
 
 /obj/machinery/suit_cycler/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/suit_cycler/attackby(obj/item/I, mob/user)
@@ -188,7 +194,7 @@
 		if(src.shock(user, 100))
 			return
 
-	if(istype(I, /obj/item/card/id) || istype(I, /obj/item/device/pda) || istype(I, /obj/item/modular_computer))
+	if(I.GetID())
 		if(allowed(user))
 			locked = !locked
 			to_chat(user, SPAN_NOTICE("You [locked ? "" : "un"]lock \the [src]."))
@@ -334,10 +340,10 @@
 	var/dat = ""
 
 	if(src.active)
-		dat += "<font color='red'><B>The [model_text ? "[model_text] " : ""]suit cycler is currently in use. Please wait...</b></font>"
+		dat += "<span class='warning'><B>The [model_text ? "[model_text] " : ""]suit cycler is currently in use. Please wait...</b></span>"
 
 	else if(locked)
-		dat += "<font color='red'><B>The [model_text ? "[model_text] " : ""]suit cycler is currently locked. Please contact your system administrator.</b></font>"
+		dat += "<span class='warning'><B>The [model_text ? "[model_text] " : ""]suit cycler is currently locked. Please contact your system administrator.</b></span>"
 		if(src.allowed(usr))
 			dat += "<br><a href='?src=\ref[src];toggle_lock=1'>\[unlock unit\]</a>"
 	else
@@ -503,10 +509,10 @@
 			occupant.take_organ_damage(0, radiation_level * 2 + rand(1, 3))
 		if(radiation_level > 1)
 			occupant.take_organ_damage(0, radiation_level + rand(1, 3))
-		occupant.apply_effect(radiation_level * 10, IRRADIATE)
+		occupant.apply_damage(radiation_level * 10, IRRADIATE, damage_flags = DAM_DISPERSED)
 
 /obj/machinery/suit_cycler/proc/finished_job()
-	visible_message("\icon[src] <span class='notice'>\The [src] pings loudly.</span>")
+	visible_message("[icon2html(src, viewers(get_turf(src)))] <span class='notice'>\The [src] pings loudly.</span>")
 	playsound(loc, 'sound/machines/ping.ogg', 50, FALSE)
 	active = FALSE
 	update_icon()
@@ -532,7 +538,7 @@
 	eject_occupant(usr)
 
 /obj/machinery/suit_cycler/proc/eject_occupant(mob/user)
-	if(locked || active)
+	if(user && (locked || active))
 		to_chat(user, SPAN_WARNING("\The [src] is locked!"))
 		return
 
@@ -546,10 +552,10 @@
 	occupant.forceMove(get_turf(src))
 	occupant = null
 
-	add_fingerprint(usr)
+	if(user)
+		add_fingerprint(user)
 	updateUsrDialog()
 	update_icon()
-	return
 
 //There HAS to be a less bloated way to do this. TODO: some kind of table/icon name coding? ~Z
 /obj/machinery/suit_cycler/proc/apply_paintjob()

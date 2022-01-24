@@ -1,6 +1,7 @@
 /datum/rune/hide_runes
 	name = "concealment rune"
 	desc = "This rune is used to conceal other runes in an area around us."
+	rune_flags = CAN_MEMORIZE
 
 /datum/rune/hide_runes/do_rune_action(mob/living/user, atom/movable/A)
 	var/rune_found

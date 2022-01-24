@@ -1,21 +1,18 @@
 // TODO: remove the robot.mmi and robot.cell variables and completely rely on the robot component system
 
-/datum/robot_component/var/name
-/datum/robot_component/var/installed = 0
-/datum/robot_component/var/powered = 0
-/datum/robot_component/var/toggled = 1
-/datum/robot_component/var/brute_damage = 0
-/datum/robot_component/var/electronics_damage = 0
-/datum/robot_component/var/idle_usage = 0   // Amount of power used every MC tick. In joules.
-/datum/robot_component/var/active_usage = 0 // Amount of power used for every action. Actions are module-specific. Actuator for each tile moved, etc.
-/datum/robot_component/var/max_damage = 30  // HP of this component.
-/datum/robot_component/var/mob/living/silicon/robot/owner
-
-// The actual device object that has to be installed for this.
-/datum/robot_component/var/external_type = null
-
-// The wrapped device(e.g. radio), only set if external_type isn't null
-/datum/robot_component/var/obj/item/wrapped = null
+/datum/robot_component
+	var/name = "robot component"
+	var/installed = 0
+	var/powered = 0
+	var/toggled = 1
+	var/brute_damage = 0
+	var/electronics_damage = 0
+	var/idle_usage = 0			// Amount of power used every MC tick. In joules.
+	var/active_usage = 0		// Amount of power used for every action. Actions are module-specific. Actuator for each tile moved, etc.
+	var/max_damage = 30			// HP of this component.
+	var/mob/living/silicon/robot/owner
+	var/external_type = null	// The actual device object that has to be installed for this.
+	var/obj/item/wrapped = null // The wrapped device(e.g. radio), only set if external_type isn't null
 
 /datum/robot_component/New(mob/living/silicon/robot/R)
 	src.owner = R
@@ -28,7 +25,7 @@
 
 /datum/robot_component/proc/destroy()
 	var/brokenstate = "broken" // Generic icon
-	if (istype(wrapped, /obj/item/robot_parts/robot_component))
+	if(istype(wrapped, /obj/item/robot_parts/robot_component))
 		var/obj/item/robot_parts/robot_component/comp = wrapped
 		brokenstate = comp.icon_state_broken
 	if(wrapped)
@@ -80,7 +77,7 @@
 // Protects the cyborg from damage. Usually first module to be hit
 // No power usage
 /datum/robot_component/armor
-	name = "armour plating"
+	name = "armor plating"
 	external_type = /obj/item/robot_parts/robot_component/armor
 	max_damage = 60
 
@@ -234,7 +231,7 @@
 	components["diagnosis unit"] = new /datum/robot_component/diagnosis_unit(src)
 	components["camera"] = new /datum/robot_component/camera(src)
 	components["comms"] = new /datum/robot_component/binary_communication(src)
-	components["armour"] = new /datum/robot_component/armor(src)
+	components["armor"] = new /datum/robot_component/armor(src)
 	components["jetpack"] = new /datum/robot_component/jetpack(src)
 	components["surge"] = new /datum/robot_component/surge(src)
 	jetpackComponent = components["jetpack"]
@@ -263,7 +260,7 @@
 	burn += burn_amt
 	total_dam = brute + burn
 	if(total_dam >= max_dam)
-		var/obj/item/circuitboard/broken/broken_device = new(get_turf(src))
+		var/obj/item/trash/broken_electronics/broken_device = new(get_turf(src))
 		if(icon_state_broken != "broken")
 			broken_device.icon = src.icon
 			broken_device.icon_state = icon_state_broken
@@ -285,32 +282,37 @@
 
 /obj/item/robot_parts/robot_component/binary_communication_device
 	name = "binary communication device"
+	desc = "A module used for binary communications over encrypted frequencies, commonly used by synthetic robots."
 	icon_state = "binradio"
 	icon_state_broken = "binradio_broken"
 
 /obj/item/robot_parts/robot_component/actuator
 	name = "actuator"
+	desc = "A modular, hydraulic actuator used by exosuits and robots alike for movement and manipulation."
 	icon_state = "motor"
 	icon_state_broken = "motor_broken"
 
 /obj/item/robot_parts/robot_component/armor
 	name = "armor plating"
+	desc = "A pair of flexible, adaptable armor plates, used to protect the internals of robots."
 	icon_state = "armor"
 	icon_state_broken = "armor_broken"
 
 /obj/item/robot_parts/robot_component/surge
 	name = "surge preventor"
-	desc = "Cyborg component designed to save internal electronics from damage of EMP pulse."
+	desc = "A high-tech device designed to safeguard the internal battery from electromagnetic pulses."
 	icon_state = "surge"
 	icon_state_broken = "surge_broken"
 
 /obj/item/robot_parts/robot_component/camera
 	name = "camera"
+	desc = "A modified camera module used as a visual receptor for robots and exosuits, also serving as a relay for wireless video feed."
 	icon_state = "camera"
 	icon_state_broken = "camera_broken"
 
 /obj/item/robot_parts/robot_component/diagnosis_unit
 	name = "diagnostics unit"
+	desc = "An internal computer and sensors used by robots and exosuits to accurately diagnose any system discrepancies on their components."
 	icon_state = "analyser"
 	icon_state_broken = "analyser_broken"
 
@@ -322,5 +324,6 @@
 
 /obj/item/robot_parts/robot_component/radio
 	name = "radio"
+	desc = "A modular, multi-frequency radio used by robots and exosuits to enable communication systems. Comes with built-in subspace receivers."
 	icon_state = "radio"
 	icon_state_broken = "radio_broken"

@@ -1,15 +1,5 @@
-{{if data.have_id_slot}}{{:helper.link('Access Modification', 'home', {'action' : 'switchm', 'target' : 'mod'}, data.mmode ? 'disabled' : null)}}{{/if}}
-{{:helper.link('Crew Manifest', 'folder-open', {'action' : 'switchm', 'target' : 'manifest'}, !data.mmode ? 'disabled' : null)}}
-{{if data.have_printer}}{{:helper.link('Print', 'print', {'action' : 'print'}, (!data.mmode || data.has_id) ? null : 'disabled')}}{{/if}}
+{{if data.have_printer}}{{:helper.link('Print', 'print', {'action' : 'print'}, data.has_id ? null : 'disabled')}}{{/if}}
 
-{{if !data.mmode}}
-<div class='item'>
-  <h2>Crew Manifest</h2>
-</div>
-<div class='item'>
-  {{:data.manifest}}
-</div>
-{{else}}
 <div class='item'>
   <h2>Access Modification</h2>
 </div>
@@ -51,7 +41,6 @@
 		{{:helper.link(data.id_account_number, 'pencil', {'action' : 'edit', 'account' : 1})}}
 	  </div>
 	</div>
-	
 
 	<div class='item'>
 	  <div class='itemLabel'>
@@ -68,7 +57,7 @@
 		{{:helper.link(data.assignments ? "Hide assignments" : "Show assignments", 'gear', {'action' : 'togglea'})}}
 	<div class='item'>
 	  <span id='allvalue.jobsslot'>
-		
+
 	  </span>
 	</div>
 	<div class='item'>
@@ -187,5 +176,4 @@
 	  </div>
 	{{/if}}
   {{/if}}
-{{/if}}
 {{/if}}

@@ -26,9 +26,9 @@
 		/mob/living/simple_animal/mushroom                           = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/tomato                             = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/rat/king                           = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/hostile/diyaab                     = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/hostile/shantak                    = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/hostile/samak                      = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/hostile/retaliate/diyaab                     = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/hostile/retaliate/shantak                    = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/hostile/retaliate/samak                      = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/hostile/bear                       = TRADER_ALL,
 		/mob/living/simple_animal/hostile/carp                       = TRADER_ALL,
 		/mob/living/simple_animal/hostile/biglizard                  = TRADER_THIS_TYPE,
@@ -47,6 +47,7 @@
 		/mob/living/simple_animal/rat                    = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/parrot                 = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/tindalos               = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/pig                    = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/cow                    = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/chick                  = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/chicken                = TRADER_THIS_TYPE,
@@ -84,14 +85,8 @@
 	)
 
 	possible_trading_items = list(
-		/obj/item/clothing/mask/gas/clown_hat                   = TRADER_THIS_TYPE,
-		/obj/item/clothing/mask/gas/sexyclown                   = TRADER_THIS_TYPE,
-		/obj/item/clothing/shoes/clown_shoes                    = TRADER_THIS_TYPE,
-		/obj/item/clothing/under/rank/clown                     = TRADER_THIS_TYPE,
-		/obj/item/device/pda/clown                              = TRADER_THIS_TYPE,
-		/obj/item/cartridge/clown                        = TRADER_THIS_TYPE,
+		/obj/item/modular_computer/handheld/pda/civilian/clown  = TRADER_THIS_TYPE,
 		/obj/item/stamp/clown                            = TRADER_THIS_TYPE,
-		/obj/item/storage/backpack/clown                 = TRADER_THIS_TYPE,
 		/obj/item/bananapeel                             = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/food/snacks/pie     = TRADER_THIS_TYPE,
 		/obj/item/bikehorn                               = TRADER_THIS_TYPE,
@@ -140,17 +135,16 @@
 		/obj/item/clothing/head/plaguedoctorhat         = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/helmet/unathi           = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/helmet/tank             = TRADER_ALL,
-		/obj/item/clothing/head/helmet/tajara           = TRADER_THIS_TYPE,
+		/obj/item/clothing/head/helmet/amohda           = TRADER_THIS_TYPE,
 		/obj/item/clothing/glasses/monocle              = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/smokable/pipe           = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/gas/plaguedoctor        = TRADER_THIS_TYPE,
-		/obj/item/clothing/suit/hastur                  = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/imperium_monk           = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/judgerobe               = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/wizrobe/magusred        = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/wizrobe/magusblue       = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/armor/unathi            = TRADER_THIS_TYPE,
-		/obj/item/clothing/suit/armor/tajara            = TRADER_THIS_TYPE,
+		/obj/item/clothing/suit/armor/amohda            = TRADER_THIS_TYPE,
 		/obj/item/clothing/under/gladiator              = TRADER_THIS_TYPE,
 		/obj/item/clothing/under/kilt                   = TRADER_THIS_TYPE,
 		/obj/item/material/harpoon               = TRADER_THIS_TYPE,
@@ -161,7 +155,10 @@
 		/obj/item/material/twohanded/pike        = TRADER_ALL,
 		/obj/item/material/twohanded/zweihander  = TRADER_THIS_TYPE,
 		/obj/item/melee/whip                     = TRADER_THIS_TYPE,
-		/obj/item/grenade/dynamite               = TRADER_THIS_TYPE
+		/obj/item/grenade/dynamite               = TRADER_THIS_TYPE,
+		/obj/item/gun/projectile/musket          = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/powder_horn = TRADER_THIS_TYPE,
+		/obj/item/ammo_casing/musket             = TRADER_THIS_TYPE
 	)
 
 

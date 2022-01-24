@@ -35,7 +35,7 @@
 		/obj/item/reagent_containers/pill/kelotane = 3,
 		/obj/item/stack/medical/ointment = 2,
 		/obj/item/device/healthanalyzer = 1,
-		/obj/item/reagent_containers/hypospray/autoinjector/norepinephrine = 1
+		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1
 	)
 
 /obj/item/storage/firstaid/fire/fill()
@@ -48,7 +48,7 @@
 		/obj/item/stack/medical/bruise_pack = 3,
 		/obj/item/stack/medical/ointment = 2,
 		/obj/item/device/healthanalyzer = 1,
-		/obj/item/reagent_containers/hypospray/autoinjector/norepinephrine = 1
+		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1
 	)
 
 /obj/item/storage/firstaid/toxin
@@ -73,7 +73,7 @@
 	item_state = "o2"
 	starts_with = list(
 		/obj/item/reagent_containers/inhaler/dexalin = 4,
-		/obj/item/reagent_containers/hypospray/autoinjector/norepinephrine = 2,
+		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 2,
 		/obj/item/device/breath_analyzer = 1
 	)
 
@@ -83,7 +83,7 @@
 	icon_state = "advfirstaid"
 	item_state = "advfirstaid"
 	starts_with = list(
-		/obj/item/reagent_containers/hypospray/autoinjector/norepinephrine = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 3,
 		/obj/item/stack/medical/advanced/ointment = 2,
 		/obj/item/stack/medical/splint = 1
@@ -95,12 +95,12 @@
 	icon_state = "bezerk"
 	item_state = "bezerk"
 	starts_with = list(
-		/obj/item/storage/pill_bottle/bicaridine = 1,
+		/obj/item/storage/pill_bottle/butazoline = 1,
 		/obj/item/storage/pill_bottle/dermaline = 1,
 		/obj/item/storage/pill_bottle/dexalin_plus = 1,
 		/obj/item/storage/pill_bottle/dylovene = 1,
-		/obj/item/storage/pill_bottle/tramadol = 1,
-		/obj/item/reagent_containers/inhaler/hyperzine = 1,
+		/obj/item/storage/pill_bottle/mortaphenyl = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/sideeffectbgone = 1,
 		/obj/item/stack/medical/splint = 1
 	)
 
@@ -135,8 +135,11 @@
 	icon_state = "brute"
 	item_state = "brute"
 	starts_with = list(
-		/obj/item/stack/medical/bruise_pack = 4,
-		/obj/item/stack/medical/advanced/bruise_pack = 2
+		/obj/item/stack/medical/bruise_pack = 2,
+		/obj/item/stack/medical/advanced/bruise_pack = 2,
+		/obj/item/reagent_containers/pill/bicaridine = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/coagzolug = 1,
+		/obj/item/device/healthanalyzer = 1
 	)
 
 /*
@@ -153,7 +156,7 @@
 		)
 	item_state = "pill_canister"
 	center_of_mass = list("x" = 16,"y" = 12)
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	can_hold = list(/obj/item/reagent_containers/pill,/obj/item/dice,/obj/item/paper)
 	allow_quick_gather = 1
 	use_to_pickup = 1
@@ -183,61 +186,104 @@
 
 
 /obj/item/storage/pill_bottle/antitox
-	name = "bottle of Dylovene pills"
-	desc = "Contains pills used to counter toxins."
+	name = "bottle of 10u Dylovene pills"
+	desc = "Contains pills used to remove toxic substances from the blood."
 	starts_with = list(/obj/item/reagent_containers/pill/antitox = 7)
 
 /obj/item/storage/pill_bottle/bicaridine
-	name = "bottle of Bicaridine pills"
-	desc = "Contains pills used to stabilize the severely injured."
+	name = "bottle of 10u Bicaridine pills"
+	desc = "Contains pills used to treat minor injuries and bleeding."
 	starts_with = list(/obj/item/reagent_containers/pill/bicaridine = 7)
 
 /obj/item/storage/pill_bottle/dexalin_plus
-	name = "bottle of Dexalin Plus pills"
+	name = "bottle of 15u Dexalin Plus pills"
 	desc = "Contains pills used to treat extreme cases of oxygen deprivation."
 	starts_with = list(/obj/item/reagent_containers/pill/dexalin_plus = 7)
 
 /obj/item/storage/pill_bottle/dermaline
-	name = "bottle of Dermaline pills"
-	desc = "Contains pills used to treat burn wounds."
+	name = "bottle of 10u Dermaline pills"
+	desc = "Contains pills used to treat severe burn wounds."
 	starts_with = list(/obj/item/reagent_containers/pill/dermaline = 7)
 
 /obj/item/storage/pill_bottle/dylovene
-	name = "bottle of Dylovene pills"
-	desc = "Contains pills used to treat toxic substances in the blood."
+	name = "bottle of 15u Dylovene pills"
+	desc = "Contains pills used to remove toxic substances from the blood."
 	starts_with = list(/obj/item/reagent_containers/pill/dylovene = 7)
 
-/obj/item/storage/pill_bottle/norepinephrine
-	name = "bottle of Norepinephrine pills"
-	desc = "Contains pills used to stabilize patients."
-	starts_with = list(/obj/item/reagent_containers/pill/norepinephrine = 7)
+/obj/item/storage/pill_bottle/inaprovaline
+	name = "bottle of 10u Inaprovaline pills"
+	desc = "Contains pills used to stabilize a patient's heart activity."
+	starts_with = list(/obj/item/reagent_containers/pill/inaprovaline = 7)
 
 /obj/item/storage/pill_bottle/kelotane
-	name = "bottle of kelotane pills"
-	desc = "Contains pills used to treat burns."
+	name = "bottle of 10u Kelotane pills"
+	desc = "Contains pills used to treat minor burns."
 	starts_with = list(/obj/item/reagent_containers/pill/kelotane = 7)
 
-/obj/item/storage/pill_bottle/antihistamine
-	name = "bottle of diphenhydramine pills"
-	desc = "Diphenhydramine, a common antihistamine used to reduce symptoms of allergies. Helps with sneezing."
-	starts_with = list(/obj/item/reagent_containers/pill/antihistamine = 7)
+obj/item/storage/pill_bottle/butazoline
+	name = "bottle of 10u Butazoline pills"
+	desc = "Contains pills used to severe injuries and bleeding."
+	starts_with = list(/obj/item/reagent_containers/pill/butazoline = 7)
 
-/obj/item/storage/pill_bottle/tramadol
-	name = "bottle of Tramadol pills"
-	desc = "Contains pills used to relieve pain."
-	starts_with = list(/obj/item/reagent_containers/pill/tramadol = 7)
+/obj/item/storage/pill_bottle/cetahydramine
+	name = "bottle of 5u Cetahydramine pills"
+	desc = "Contains pills used to treat coughing, sneezing and itching."
+	starts_with = list(/obj/item/reagent_containers/pill/cetahydramine = 7)
 
-/obj/item/storage/pill_bottle/paracetamol
-	name = "bottle of paracetamol pills"
-	desc = "Contains pills used to relieve pain and reduce fevers."
-	starts_with = list(/obj/item/reagent_containers/pill/paracetamol = 7)
+/obj/item/storage/pill_bottle/mortaphenyl
+	name = "bottle of 10u Mortaphenyl pills"
+	desc = "Contains pills used to relieve severe pain in a trauma setting."
+	starts_with = list(/obj/item/reagent_containers/pill/mortaphenyl = 7)
 
-/obj/item/storage/pill_bottle/escitalopram
-	name = "bottle of Escitalopram pills"
-	desc = "Contains pills used to stabilize a patient's mood."
-	starts_with = list(/obj/item/reagent_containers/pill/escitalopram = 7)
+/obj/item/storage/pill_bottle/perconol
+	name = "bottle of 10u Perconol pills"
+	desc = "Contains pills used to relieve minor-moderate pain and reduce fevers."
+	starts_with = list(/obj/item/reagent_containers/pill/perconol = 7)
+
+/obj/item/storage/pill_bottle/minaphobin
+	name = "bottle of 2u Minaphobin pills"
+	desc = "Contains pills used to treat anxiety disorders and depression."
+	starts_with = list(/obj/item/reagent_containers/pill/minaphobin = 7)
 
 /obj/item/storage/pill_bottle/rmt
-	name = "bottle of RMT pills"
-	desc = "Contains pills used to remedy the effects of prolonged zero-gravity adaptations."
-	starts_with = list(/obj/item/reagent_containers/pill/rmt = 7)
+	name = "bottle of 15u RMT pills"
+	desc = "Contains pills used to remedy the effects of prolonged zero-gravity adaptations. Do not exceed 30u dosage."
+	starts_with = list(/obj/item/reagent_containers/pill/rmt = 10) // 10x 15u RMT pills will last 4 hours.
+
+/obj/item/storage/pill_bottle/corophenidate
+	name = "bottle of 2u Corophenidate pills"
+	desc = "Contains pills used to improve the ability to concentrate."
+	starts_with = list(/obj/item/reagent_containers/pill/corophenidate = 3)
+
+/obj/item/storage/pill_bottle/emoxanyl
+	name = "bottle of 2u Emoxanyl pills"
+	desc = "Contains pills used to treat anxiety disorders, depression and epilepsy."
+	starts_with = list(/obj/item/reagent_containers/pill/emoxanyl = 3)
+
+/obj/item/storage/pill_bottle/minaphobin/small
+	starts_with = list(/obj/item/reagent_containers/pill/minaphobin = 3)
+
+/obj/item/storage/pill_bottle/nerospectan
+	name = "bottle of 2u Nerospectan pills"
+	desc = "Contains pills used to treat a large variety of disorders including tourette, depression, anxiety and psychoses."
+	starts_with = list(/obj/item/reagent_containers/pill/nerospectan = 3)
+
+/obj/item/storage/pill_bottle/neurapan
+	name = "bottle of 2u Neurapan pills"
+	desc = "Contains pills used to treat large variety of disorders including tourette, depression, anxiety and psychoses."
+	starts_with = list(/obj/item/reagent_containers/pill/neurapan= 3)
+
+/obj/item/storage/pill_bottle/neurostabin
+	name = "bottle of 2u Neurostabin pills"
+	desc = "Contains pills used to treat psychoses and muscle weakness."
+	starts_with = list(/obj/item/reagent_containers/pill/neurostabin = 3)
+
+/obj/item/storage/pill_bottle/orastabin
+	name = "bottle of 2u Orastabin pills"
+	desc = "Contains pills used to treat anxiety disorders and speech impediments."
+	starts_with = list(/obj/item/reagent_containers/pill/orastabin = 3)
+
+/obj/item/storage/pill_bottle/parvosil
+	name = "bottle of 2u Parvosil pills"
+	desc = "Contains pills used to treat anxiety disorders such as phobias and social anxiety."
+	starts_with = list(/obj/item/reagent_containers/pill/parvosil = 3)

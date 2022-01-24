@@ -8,8 +8,18 @@
 	var/stage = 1
 	var/max_stage = 4
 	var/stage_ticker = 0
+	var/infection_speed = 2 //Will be determined by get_infect_speed()
+	var/infect_speed_high = 35	//The fastest this parasite will advance stages
+	var/infect_speed_low = 15	//The slowest this parasite will advance stages
 	var/stage_interval = 600 //time between stages, in seconds
 	var/subtle = 0 //will the body reject the parasite naturally?
+
+/obj/item/organ/internal/parasite/Initialize()
+	. = ..()
+	get_infect_speed()
+
+/obj/item/organ/internal/parasite/proc/get_infect_speed() //Slightly randomizes how fast each infection progresses.
+	infection_speed = rand(infect_speed_low, infect_speed_high) / 10
 
 /obj/item/organ/internal/parasite/process()
 	..()
@@ -18,10 +28,11 @@
 		return
 
 	if(stage < max_stage)
-		stage_ticker += 2 //process ticks every ~2 seconds
+		stage_ticker += infection_speed 
 
 	if(stage_ticker >= stage*stage_interval)
 		stage = min(stage+1,max_stage)
+		get_infect_speed() //Each stage may progress faster or slower than the previous one
 		stage_effect()
 
 /obj/item/organ/internal/parasite/handle_rejection()
@@ -60,27 +71,27 @@
 
 	if(prob(10) && (owner.can_feel_pain()))
 		to_chat(owner, "<span class='warning'>You feel a stinging pain in your abdomen!</span>")
-		owner.emote("me",1,"winces slightly.")
+		owner.visible_message("<b>[owner]</b> winces slightly.")
 		owner.adjustHalLoss(5)
 
 	else if(prob(10) && !(owner.species.flags & NO_BREATHE))
 		owner.emote("cough")
 
 	else if(prob(10) && !(owner.species.flags & NO_BREATHE))
-		owner.emote("me", 1, "coughs up blood!")
+		owner.visible_message("<b>[owner]</b> coughs up blood!")
 		owner.drip(10)
 
 	if(stage >= 2)
 		if(prob(10) && !(owner.species.flags & NO_BREATHE))
-			owner.emote("me", 1, "gasps for air!")
+			owner.visible_message("<b>[owner]</b> gasps for air!")
 			owner.losebreath += 5
 
 	if(stage >= 3)
 		set_light(1, l_color = "#E6E600")
 		if(prob(10))
 			to_chat(owner, "<span class='warning'>You feel something squirming inside of you!</span>")
-			owner.reagents.add_reagent(/datum/reagent/toxin/phoron, 8)
-			owner.reagents.add_reagent(/datum/reagent/kois, 5)
+			owner.reagents.add_reagent(/decl/reagent/toxin/phoron, 8)
+			owner.reagents.add_reagent(/decl/reagent/kois, 5)
 
 	if(stage >= 4)
 		if(prob(10))
@@ -90,8 +101,8 @@
 			var/turf/T = get_turf(owner)
 
 			var/datum/reagents/R = new/datum/reagents(100)
-			R.add_reagent(/datum/reagent/kois,10)
-			R.add_reagent(/datum/reagent/toxin/phoron,10)
+			R.add_reagent(/decl/reagent/kois,10)
+			R.add_reagent(/decl/reagent/toxin/phoron,10)
 			var/datum/effect/effect/system/smoke_spread/chem/spores/S = new("koisspore")
 
 			S.attach(T)
@@ -127,15 +138,15 @@
 
 	if(prob(10) && (owner.can_feel_pain()))
 		if(stage < 3)
-			to_chat(owner, "<span class='warning'>You feel a stinging pain in your abdomen!</span>")
-		else
 			to_chat(owner, "<span class='warning'>You feel a stinging pain in your head!</span>")
-		owner.emote("me",1,"winces slightly.")
+		else
+			to_chat(owner, "A part of you tries to fight back, but the taste of the black k'ois puts you at ease.")
+		owner.visible_message("<b>[owner]</b> winces slightly.")
 		owner.adjustHalLoss(5)
 
 	if(stage >= 2)
 		if(prob(10) && !(owner.species.flags & NO_BREATHE))
-			owner.emote("me", 1, "gasps for air!")
+			owner.visible_message("<b>[owner]</b> gasps for air!")
 			owner.losebreath += 5
 
 	if(stage >= 3)
@@ -146,7 +157,10 @@
 
 		if(prob(5))
 			to_chat(owner, "<span class='warning'>You feel something squirming inside of you!</span>")
-			owner.reagents.add_reagent(/datum/reagent/kois/black, 4)
+			owner.reagents.add_reagent(/decl/reagent/kois/black, 4)
+
+		else if(prob(5))
+			to_chat(owner, "In your struggle, a part of you wishes for the spread to continue.")
 
 		else if(prob(10))
 			to_chat(owner, "<span class='warning'>You feel disorientated!</span>")
@@ -163,11 +177,11 @@
 
 		var/obj/item/organ/internal/brain/B = owner.internal_organs_by_name[BP_BRAIN]
 
-		if(B && !B.lobotomized)
+		if(B && !B.prepared)
 			to_chat(owner, "<span class='danger'>As the K'ois consumes your mind, you feel your past self, your memories, your very being slip away... only slavery to the swarm remains...</span>")
 			to_chat(owner, "<b>You have been lobotomized by K'ois infection. All of your previous memories up until this point are gone, and all of your ambitions are nothing. You live for only one purpose; to serve the Lii'dra hive.</b>")
 
-			B.lobotomized = 1
+			B.prepared = 1
 
 
 		if(!removed_langs)
@@ -182,14 +196,13 @@
 				owner.emote("scream")
 			owner.adjustBrainLoss(1, 55)
 
-		else if(prob(10))
+		else if(prob(0.5))
 			to_chat(owner, "<span class='danger'>You feel something alien coming up your throat!</span>")
 
 			var/turf/T = get_turf(owner)
 
-			var/datum/reagents/R = new/datum/reagents(100)
-			R.add_reagent(/datum/reagent/kois/black,10)
-			R.add_reagent(/datum/reagent/toxin/phoron,5)
+			var/datum/reagents/R = new/datum/reagents(20)
+			R.add_reagent(/decl/reagent/kois/black,5)
 			var/datum/effect/effect/system/smoke_spread/chem/spores/S = new("blackkois")
 
 			S.attach(T)
@@ -198,8 +211,8 @@
 
 			if(owner.can_feel_pain())
 				owner.emote("scream")
-				owner.adjustHalLoss(15)
-				owner.drip(15)
+				owner.adjustHalLoss(5)
+				owner.drip(5)
 				owner.delayed_vomit()
 
 /obj/item/organ/internal/parasite/blackkois/removed(var/mob/living/carbon/human/target)
@@ -215,16 +228,52 @@
 	icon_state = "blacktumor"
 	dead_icon = "blacktumor"
 
-	organ_tag = "zombie"
-
-	parent_organ = BP_CHEST
+	organ_tag = BP_ZOMBIE_PARASITE
+	parent_organ = BP_HEAD
 	stage_interval = 150
+
+	var/last_heal = 0
+	var/heal_rate = 5 SECONDS
 
 /obj/item/organ/internal/parasite/zombie/process()
 	..()
 
 	if (!owner)
 		return
+
+	if(length(owner.bad_external_organs) && last_heal + heal_rate < world.time && iszombie(owner))
+		var/list/organs_to_heal = owner.bad_external_organs
+		shuffle(organs_to_heal)
+		for(var/thing in organs_to_heal)
+			var/obj/item/organ/external/O = thing
+			if(istype(O, /obj/item/organ/external/head)) // the head is the weak point
+				continue
+			var/healed = FALSE
+			if(O.status & ORGAN_ARTERY_CUT)
+				O.status &= ~ORGAN_ARTERY_CUT
+				owner.visible_message(SPAN_WARNING("The severed artery in \the [owner]'s [O] stitches itself back together..."), SPAN_NOTICE("The severed artery in your [O] stitches itself back together..."))
+				healed = TRUE
+			else if((O.tendon_status() & TENDON_CUT) && O.tendon.can_recover())
+				O.tendon.rejuvenate()
+				owner.visible_message(SPAN_WARNING("The severed tendon in \the [owner]'s [O] stitches itself back together..."), SPAN_NOTICE("The severed tendon in your [O] stitches itself back together..."))
+				healed = TRUE
+			else if(O.status & ORGAN_BROKEN)
+				var/list/brute_wounds = list()
+				for(var/wound in O.wounds)
+					var/datum/wound/W = wound
+					if(W.damage_type in list(CUT, BRUISE, PIERCE))
+						brute_wounds += W
+				for(var/wound in brute_wounds)
+					var/datum/wound/W = wound
+					W.damage = max(min(W.damage, (O.min_broken_damage / length(brute_wounds))), 0)
+				O.status &= ~ORGAN_BROKEN
+				owner.visible_message(SPAN_WARNING("The shattered bone in \the [owner]'s [O] melds back together..."), SPAN_NOTICE("The shattered bone in your [O] melds back together..."))
+				healed = TRUE
+			if(healed)
+				last_heal = world.time
+				heal_rate += 2 SECONDS
+				O.update_damages()
+				break
 
 	if(prob(10) && (owner.can_feel_pain()))
 		to_chat(owner, "<span class='warning'>You feel a burning sensation on your skin!</span>")

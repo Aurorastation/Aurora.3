@@ -15,13 +15,14 @@
 /obj/item/storage
 	name = "storage"
 	icon = 'icons/obj/storage.dmi'
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	var/list/can_hold  //List of objects which this item can store (if set, it can't store anything else)
 	var/list/cant_hold //List of objects which this item can't store (in effect only if can_hold isn't set)
 	var/list/is_seeing //List of mobs which are currently seeing the contents of this item's storage
-	var/max_w_class = 3 //Max size of objects that this object can store (in effect only if can_hold isn't set)
+	var/max_w_class = ITEMSIZE_NORMAL //Max size of objects that this object can store (in effect only if can_hold isn't set)
 	var/max_storage_space = 8 //The sum of the storage costs of all the items in this storage item.
 	var/storage_slots //The number of storage slots in this container.
+	var/force_column_number // the number of columns the storage item will appear to have
 	var/obj/screen/storage/boxes
 	var/obj/screen/storage/storage_start //storage UI
 	var/obj/screen/storage/storage_continue
@@ -37,7 +38,7 @@
 	var/allow_quick_empty	//Set this variable to allow the object to have the 'empty' verb, which dumps all the contents on the floor.
 	var/allow_quick_gather	//Set this variable to allow the object to have the 'toggle mode' verb, which quickly collects all items from a tile.
 	var/collection_mode = 1  //0 = pick one at a time, 1 = pick all on tile
-	var/use_sound = "rustle"	//sound played when used. null for no sound.
+	var/use_sound = /decl/sound_category/rustle_sound	//sound played when used. null for no sound.
 	var/list/starts_with // for pre-filled items
 	var/empty_delay = 0 SECOND // time it takes to empty bag. this is multiplies by number of objects stored
 
@@ -52,6 +53,11 @@
 	QDEL_NULL(stored_end)
 	QDEL_NULL(closer)
 	return ..()
+
+/obj/item/storage/examine(mob/user)
+	. = ..()
+	if(isobserver(user))
+		to_chat(user, "It contains: [counting_english_list(contents)]")
 
 /obj/item/storage/MouseDrop(obj/over_object)
 	if(!canremove)
@@ -79,13 +85,22 @@
 			return
 
 		switch(over_object.name)
-			if(BP_R_HAND)
+			if("right hand")
 				usr.u_equip(src)
-				usr.put_in_r_hand(src,FALSE)
-			if(BP_L_HAND)
+				usr.equip_to_slot_if_possible(src, slot_r_hand)
+			if("left hand")
 				usr.u_equip(src)
-				usr.put_in_l_hand(src,FALSE)
+				usr.equip_to_slot_if_possible(src, slot_l_hand)
 		src.add_fingerprint(usr)
+
+/obj/item/storage/AltClick(var/mob/usr)
+	if(!canremove)
+		return ..()
+	if (!use_check_and_message(usr))
+		add_fingerprint(usr)
+		open(usr)
+		return TRUE
+	. = ..()
 
 /obj/item/storage/proc/return_inv()
 	. = contents.Copy()
@@ -190,7 +205,7 @@
 	if(display_contents_with_number)
 		for(var/datum/numbered_display/ND in display_contents)
 			ND.sample_object.screen_loc = "[cx]:16,[cy]:16"
-			ND.sample_object.maptext = "<font color='white'>[(ND.number > 1)? "[ND.number]" : ""]</font>"
+			ND.sample_object.maptext = SMALL_FONTS(7, "[(ND.number > 1)? "[ND.number]" : ""]")
 			ND.sample_object.layer = SCREEN_LAYER+0.01
 			cx++
 			if (cx > (4+cols))
@@ -289,7 +304,7 @@
 		space_orient_objs(numbered_contents, defer_overlays)
 	else
 		var/row_num = 0
-		var/col_count = min(7,storage_slots) -1
+		var/col_count = force_column_number ? force_column_number : min(7, storage_slots) - 1
 		if (adjusted_contents > 7)
 			row_num = round((adjusted_contents-1) / 7) // 7 is the maximum allowed width.
 		src.slot_orient_objs(row_num, col_count, numbered_contents)
@@ -303,7 +318,7 @@
 	if(usr && usr.isEquipped(W) && !usr.canUnEquip(W))
 		return 0
 
-	if(!dropsafety(W))
+	if(!W.dropsafety())
 		return 0
 
 	if(src.loc == W)
@@ -318,12 +333,12 @@
 
 	if(LAZYLEN(can_hold))
 		if(!is_type_in_list(W, can_hold))
-			if(!stop_messages && ! istype(W, /obj/item/hand_labeler))
+			if(!stop_messages && ! istype(W, /obj/item/device/hand_labeler))
 				to_chat(usr, "<span class='notice'>[src] cannot hold \the [W].</span>")
 			return 0
 		var/max_instances = can_hold[W.type]
 		if(max_instances && instances_of_type_in_list(W, contents, TRUE) >= max_instances)
-			if(!stop_messages && !istype(W, /obj/item/hand_labeler))
+			if(!stop_messages && !istype(W, /obj/item/device/hand_labeler))
 				to_chat(usr, "<span class='notice'>[src] has no more space specifically for \the [W].</span>")
 			return 0
 
@@ -362,6 +377,8 @@
 		user.prepare_for_slotmove(W)
 	W.forceMove(src)
 	W.on_enter_storage(src)
+	if(use_sound)
+		playsound(src.loc, src.use_sound, 50, 0, -5)
 	if(user)
 		W.dropped(user)
 		if(!istype(W, /obj/item/forensics))
@@ -373,7 +390,7 @@
 					to_chat(usr, "<span class='notice'>You put \the [W] into [src].</span>")
 				else if (M in range(1)) //If someone is standing close enough, they can tell what it is...
 					M.show_message("<span class='notice'>\The [user] puts [W] into [src].</span>")
-				else if (W && W.w_class >= 3) //Otherwise they can only see large or normal items from a distance...
+				else if (W && W.w_class >= ITEMSIZE_NORMAL) //Otherwise they can only see large or normal items from a distance...
 					M.show_message("<span class='notice'>\The [user] puts [W] into [src].</span>")
 
 		orient2hud(user)
@@ -397,7 +414,7 @@
 
 /obj/item/storage/proc/handle_storage_deferred(mob/user)
 	add_fingerprint(user)
-	user.update_icons()
+	user.update_icon()
 	orient2hud(user)
 	if (user.s_active)
 		user.s_active.show_to(user)
@@ -408,8 +425,8 @@
 	if(!istype(W))
 		return FALSE
 
-	if(istype(src, /obj/item/storage/fancy))
-		var/obj/item/storage/fancy/F = src
+	if(istype(src, /obj/item/storage/box/fancy))
+		var/obj/item/storage/box/fancy/F = src
 		F.update_icon(TRUE)
 
 	for(var/mob/M in range(1, get_turf(src)))
@@ -472,7 +489,7 @@
 		user.s_active.show_to(user)
 
 	// who knows what the fuck this does
-	if (istype(src, /obj/item/storage/fancy))
+	if (istype(src, /obj/item/storage/box/fancy))
 		update_icon(1)
 	else
 		update_icon()
@@ -485,11 +502,10 @@
 
 	return handle_item_insertion(W, prevent_messages)
 
-
 /obj/item/storage/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 
-	if(!dropsafety(W))
+	if(!W.dropsafety())
 		return.
 
 	if(istype(W, /obj/item/device/lightreplacer))
@@ -517,13 +533,18 @@
 			to_chat(user, "<span class='warning'>Trying to place a loaded tray into [src] was a bad idea.</span>")
 			return
 
+	if(istype(W, /obj/item/device/hand_labeler))
+		var/obj/item/device/hand_labeler/HL = W
+		if(HL.mode == 1)
+			return
+
 	W.add_fingerprint(user)
 	return handle_item_insertion(W)
 
 /obj/item/storage/dropped(mob/user as mob)
 	return
 
-/obj/item/storage/attack_hand(mob/user as mob)
+/obj/item/storage/attack_hand(mob/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.l_store == src && !H.get_active_hand())	//Prevents opening if it's in a pocket.
@@ -539,11 +560,17 @@
 		src.open(user)
 	else
 		..()
-		for(var/mob/M in range(1))
+		for(var/mob/M in range(1, get_turf(src)) - user)
 			if (M.s_active == src)
 				src.close(M)
 	src.add_fingerprint(user)
 	return
+
+/obj/item/storage/handle_middle_mouse_click(var/mob/user)
+	if(Adjacent(user))
+		open(user)
+		return TRUE
+	return FALSE
 
 /obj/item/storage/verb/toggle_gathering_mode()
 	set name = "Switch Gathering Method"
@@ -683,6 +710,9 @@
 		remove_from_storage(O, T)
 		O.tumble(2)
 
+// putting a sticker on something puts it in its contents, storage items use their contents to store their items
+/obj/item/storage/can_attach_sticker(var/mob/user, var/obj/item/sticker/S)
+	return FALSE
 
 //Returns the storage depth of an atom. This is the number of storage items the atom is contained in before reaching toplevel (the area).
 //Returns -1 if the atom was not found on container.
@@ -734,15 +764,15 @@
 	if (storage_cost)
 		return storage_cost
 	else
-		if(w_class == 1)
+		if(w_class == ITEMSIZE_TINY)
 			return 1
-		if(w_class == 2)
+		if(w_class == ITEMSIZE_SMALL)
 			return 2
-		if(w_class == 3)
+		if(w_class == ITEMSIZE_NORMAL)
 			return 4
-		if(w_class == 4)
+		if(w_class == ITEMSIZE_LARGE)
 			return 8
-		if(w_class == 5)
+		if(w_class == ITEMSIZE_HUGE)
 			return 16
 		else
 			return 1000

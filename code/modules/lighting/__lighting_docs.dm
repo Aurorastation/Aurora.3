@@ -27,7 +27,7 @@
     no_update -> if TRUE, the light will not be updated. Useful for when making several of these calls to the same object. Optional.
 
 /atom/proc/set_opacity(new_opacity)
-  desc: Sets an atom's opacity, updating affecting lights' visibility.
+  desc: Sets an atom's opacity, updating affecting lights' visibility. Returns TRUE if opacity changed, FALSE otherwise.
   args:
     new_opacity -> the new opacity value.
 

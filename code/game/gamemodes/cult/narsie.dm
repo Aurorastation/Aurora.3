@@ -44,7 +44,7 @@ var/global/list/narsie_list = list()
 	..()
 	if(announce)
 		to_world("<font size='15' color='red'><b>[uppertext(name)] HAS RISEN</b></font>")
-		to_world(sound('sound/effects/narsie.ogg'))
+		sound_to(world, ('sound/effects/narsie.ogg'))
 
 	narsie_spawn_animation()
 
@@ -56,9 +56,9 @@ var/global/list/narsie_list = list()
 		narsie_cometh = 1
 
 		spawn(10 SECONDS)
-			if(emergency_shuttle)
-				emergency_shuttle.call_evac()
-				emergency_shuttle.launch_time = 0	// Cannot recall
+			if(evacuation_controller)
+				evacuation_controller.call_evacuation(null, TRUE, 1)
+				evacuation_controller.evac_no_return = 0 // Cannot recall
 
 /obj/singularity/narsie/process()
 	eat()

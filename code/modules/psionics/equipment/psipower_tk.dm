@@ -15,7 +15,6 @@
 	. = ..()
 
 /obj/item/psychic_power/telekinesis/proc/set_focus(var/atom/movable/_focus)
-
 	if(!_focus.simulated || !istype(_focus.loc, /turf))
 		return FALSE
 
@@ -51,7 +50,6 @@
 	return focus.do_simple_ranged_interaction(user)
 
 /obj/item/psychic_power/telekinesis/afterattack(var/atom/target, var/mob/living/user, var/proximity)
-
 	if(!target || !user || (isobj(target) && !isturf(target.loc)) || !user.psi || !user.psi.can_use() || !user.psi.spend_power(5))
 		return
 

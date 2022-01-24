@@ -67,13 +67,22 @@
 
 /obj/item/modular_computer/console/preset/command/captain
 	name = "captain's console"
-	_app_preset_type = /datum/modular_computer_app_presets/captain
+	_app_preset_type = /datum/modular_computer_app_presets/command/captain
 	enrolled = 1
 
 /obj/item/modular_computer/console/preset/command/hop
 	name = "command console"
 	_app_preset_type = /datum/modular_computer_app_presets/command/hop
 	enrolled = 1
+
+/obj/item/modular_computer/console/preset/command/account
+	name = "account console"
+	_app_preset_type = /datum/modular_computer_app_presets/command/account
+	enrolled = 1
+
+/obj/item/modular_computer/console/preset/command/account/centcomm
+	name = "centcomm accounts database"
+	_app_preset_type = /datum/modular_computer_app_presets/command/account/centcomm
 
 // Security
 /obj/item/modular_computer/console/preset/security
@@ -84,6 +93,11 @@
 /obj/item/modular_computer/console/preset/security/investigations
 	name = "investigations console"
 	_app_preset_type = /datum/modular_computer_app_presets/security/investigations
+	enrolled = 1
+
+/obj/item/modular_computer/console/preset/security/armory
+	name = "armory console"
+	_app_preset_type = /datum/modular_computer_app_presets/security/armory
 	enrolled = 1
 
 /obj/item/modular_computer/console/preset/security/hos

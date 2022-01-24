@@ -1,7 +1,7 @@
 #define LAZYINITLIST(L) if (!L) L = list()
 
 #define UNSETEMPTY(L) if (L && !L.len) L = null
-#define LAZYREMOVE(L, I) if(L) { L -= I; if(!L.len) { L = null; } }
+#define LAZYREMOVE(L, I) if(L) { L -= I; if(!length(L)) { L = null; } }
 #define LAZYADD(L, I) if(!L) { L = list(); } L += I;
 #define LAZYACCESS(L, I) (L ? (isnum(I) ? (I > 0 && I <= L.len ? L[I] : null) : L[I]) : null)
 #define LAZYLEN(L) length(L)
@@ -13,8 +13,6 @@
 
 // Shims for some list procs in lists.dm.
 #define isemptylist(L) (!LAZYLEN(L))
-#define safepick(L) LAZYPICK(L,null)
-#define listgetindex(L,I) LAZYACCESS(L,I)
 
 // binary search sorted insert
 // IN: Object to be inserted

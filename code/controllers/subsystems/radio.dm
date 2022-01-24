@@ -173,6 +173,8 @@ var/datum/controller/subsystem/radio/SSradio
 			. = "airadio"
 		if (SEC_FREQ,SEC_I_FREQ)
 			. = "secradio"
+		if (PEN_FREQ)
+			. = "penradio"
 		if (ENG_FREQ)
 			. = "engradio"
 		if (SCI_FREQ)
@@ -185,6 +187,8 @@ var/datum/controller/subsystem/radio/SSradio
 			. = "srvradio"
 		if (ENT_FREQ) //entertainment
 			. = "entradio"
+		if (BLSP_FREQ)
+			. = "bluespaceradio"
 		else
 			if(DEPT_FREQS_ASSOC[fstr])
 				. = "deptradio"

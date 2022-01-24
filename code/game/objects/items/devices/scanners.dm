@@ -15,7 +15,7 @@ BREATH ANALYZER
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	throwforce = 3
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	throw_speed = 5
 	throw_range = 10
 	matter = list(DEFAULT_WALL_MATERIAL = 200)
@@ -30,7 +30,7 @@ BREATH ANALYZER
 	health_scan_mob(user, user, mode)
 	add_fingerprint(user)
 
-/proc/get_wound_severity(var/damage_ratio) //Used for ratios.
+/proc/get_wound_severity(var/damage_ratio, var/uppercase = FALSE) //Used for ratios.
 	var/degree = "none"
 
 	switch(damage_ratio)
@@ -44,25 +44,34 @@ BREATH ANALYZER
 			degree = "severe"
 		if(0.75 to 1)
 			degree = "extreme"
+
+	if(uppercase)
+		degree = capitalize(degree)
 	return degree
 
-/proc/get_severity(amount, var/tag = FALSE)
+/proc/get_severity(amount, var/uppercase = FALSE)
+	var/output = "none"
 	if(!amount)
-		return "none"
-	. = "minor"
-	if(amount > 50)
-		. = "severe"
+		output = "none"
+	else if(amount > 50)
+		output = "severe"
 	else if(amount > 25)
-		. = "significant"
+		output = "significant"
 	else if(amount > 10)
-		. = "moderate"
+		output = "moderate"
+	else
+		output = "minor"
+
+	if(uppercase)
+		output = capitalize(output)
+	return output
 
 /proc/health_scan_mob(var/mob/M, var/mob/living/user, var/show_limb_damage = TRUE, var/just_scan = FALSE)
 	if(!just_scan)
 		if (((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
 			user.visible_message("<b>[user]</b> runs the scanner over the floor.", "<span class='notice'>You run the scanner over the floor.</span>", "<span class='notice'>You hear metal repeatedly clunking against the floor.</span>")
 			to_chat(user, "<span class='notice'><b>Scan results for the floor:</b></span>")
-			to_chat(user, "Overall Status: Healthy</span>")
+			to_chat(user, "Overall Status: <span class='good'>Healthy</span>")
 			return
 
 		if(!usr.IsAdvancedToolUser())
@@ -197,6 +206,18 @@ BREATH ANALYZER
 					limb_result = "[limb_result] \[<font color = '#ffa500'><b>[get_severity(org.burn_dam, TRUE)] burns</b></font>\]"
 				if(org.status & ORGAN_BLEEDING)
 					limb_result = "[limb_result] \[<span class='scan_danger'>bleeding</span>\]"
+				var/is_bandaged = org.is_bandaged()
+				var/is_salved = org.is_salved()
+				if(is_bandaged && is_salved)
+					var/icon/B = icon('icons/obj/stacks/medical.dmi', "bandaged")
+					var/icon/S = icon('icons/obj/stacks/medical.dmi', "salved")
+					limb_result = "[limb_result] \[[icon2html(B, user)] | [icon2html(S, user)]\]"
+				else if(is_bandaged)
+					var/icon/B = icon('icons/obj/stacks/medical.dmi', "bandaged")
+					limb_result = "[limb_result] \[[icon2html(B, user)]\]"
+				else if(is_salved)
+					var/icon/S = icon('icons/obj/stacks/medical.dmi', "salved")
+					limb_result = "[limb_result] \[[icon2html(S, user)]\]"
 				dat += limb_result
 		else
 			dat += "No detectable limb injuries."
@@ -227,7 +248,7 @@ BREATH ANALYZER
 			if(!found_bleed && (e.status & ORGAN_ARTERY_CUT))
 				dat += "<span class='scan_warning'>Arterial bleeding detected. Advanced scanner required for location.</span>"
 				found_bleed = TRUE
-			if(!found_tendon && (e.status & ORGAN_TENDON_CUT))
+			if(!found_tendon && (e.tendon_status() & TENDON_CUT))
 				dat += "<span class='scan_warning'>Tendon or ligament damage detected. Advanced scanner required for location.</span>"
 				found_tendon = TRUE
 		if(found_disloc && found_bleed && found_tendon)
@@ -244,11 +265,11 @@ BREATH ANALYZER
 	if(H.reagents.total_volume)
 		var/unknown = 0
 		var/reagentdata[0]
-		for(var/A in H.reagents.reagent_list)
-			var/datum/reagent/R = A
+		for(var/_R in H.reagents.reagent_volumes)
+			var/decl/reagent/R = decls_repository.get_decl(_R)
 			if(R.scannable)
 				print_reagent_default_message = FALSE
-				reagentdata["[R.type]"] = "<span class='notice'>    [round(H.reagents.get_reagent_amount(R.type), 1)]u [R.name]</span>"
+				reagentdata["[_R]"] = "<span class='notice'>    [round(REAGENT_VOLUME(H.reagents, _R), 1)]u [R.name]</span>"
 			else
 				unknown++
 		if(reagentdata.len)
@@ -263,7 +284,8 @@ BREATH ANALYZER
 	var/datum/reagents/ingested = H.get_ingested_reagents()
 	if(ingested && ingested.total_volume)
 		var/unknown = 0
-		for(var/datum/reagent/R in ingested.reagent_list)
+		for(var/_R in ingested.reagent_volumes)
+			var/decl/reagent/R = decls_repository.get_decl(_R)
 			if(R.scannable)
 				print_reagent_default_message = FALSE
 				dat += "<span class='notice'>[R.name] found in subject's stomach.</span>"
@@ -300,9 +322,11 @@ BREATH ANALYZER
 /obj/item/device/analyzer
 	name = "analyzer"
 	desc = "A hand-held environmental scanner which reports current gas levels."
-	icon_state = "atmos"
+	icon = 'icons/obj/contained_items/tools/air_analyzer.dmi'
+	icon_state = "analyzer"
 	item_state = "analyzer"
-	w_class = 2.0
+	contained_sprite = TRUE
+	w_class = ITEMSIZE_SMALL
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	throwforce = 5
@@ -336,7 +360,7 @@ BREATH ANALYZER
 	desc = "A hand-held mass spectrometer which identifies trace chemicals in a blood sample."
 	icon_state = "spectrometer"
 	item_state = "analyzer"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	flags = CONDUCT | OPENCONTAINER
 	slot_flags = SLOT_BELT
 	throwforce = 5
@@ -346,59 +370,70 @@ BREATH ANALYZER
 	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
 
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
-	var/details = 0
-	var/recent_fail = 0
+	var/details = FALSE
 
-/obj/item/device/mass_spectrometer/New()
-	..()
-	var/datum/reagents/R = new/datum/reagents(5)
-	reagents = R
-	R.my_atom = src
+/obj/item/device/mass_spectrometer/Initialize()
+	. = ..()
+	create_reagents(5)
 
 /obj/item/device/mass_spectrometer/on_reagent_change()
+	clear_blood_overlay()
 	if(reagents.total_volume)
 		icon_state = initial(icon_state) + "_s"
+		var/image/I = image(icon, null, "[initial(icon_state)]-reagent")
+		I.color = reagents.get_color()
+		add_blood_overlay(I)
 	else
 		icon_state = initial(icon_state)
 
-/obj/item/device/mass_spectrometer/attack_self(mob/user as mob)
-	if (user.stat)
-		return
-	if (!user.IsAdvancedToolUser())
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
+/obj/item/device/mass_spectrometer/proc/clear_blood_overlay()
+	underlays = null
+
+/obj/item/device/mass_spectrometer/proc/add_blood_overlay(var/image/I)
+	underlays += I
+
+/obj/item/device/mass_spectrometer/attack_self(mob/user)
+	if(use_check_and_message(user))
 		return
 	if(reagents.total_volume)
-		var/list/blood_traces = list()
-		for(var/datum/reagent/R in reagents.reagent_list)
-			if(R.type != /datum/reagent/blood)
-				reagents.clear_reagents()
-				to_chat(user, "<span class='warning'>The sample was contaminated! Please insert another sample</span>")
-				return
-			else
-				blood_traces = params2list(R.data["trace_chem"])
-				break
-		var/dat = "Trace Chemicals Found: "
-		for(var/R in blood_traces)
+		if(LAZYLEN(reagents.reagent_volumes) > 1)
+			to_chat(user, SPAN_WARNING("There isn't enough blood in the sample!"))
+			return
+		if(!REAGENT_DATA(reagents, /decl/reagent/blood))
+			to_chat(user, SPAN_WARNING("The sample was contaminated with non-blood reagents!"))
+			return
+		var/list/blood_traces = reagents.reagent_data[/decl/reagent/blood]["trace_chem"]
+		var/list/output_text = list("Trace Chemicals Found:")
+		for(var/_C in blood_traces)
+			var/decl/reagent/C = decls_repository.get_decl(_C)
+			if(C.spectro_hidden && !details)
+				continue
 			if(details)
-				dat += "[R] ([blood_traces[R]] units) "
+				output_text += "- [C] ([max(round(blood_traces[_C], 0.1), 0.1)] units)"
 			else
-				dat += "[R] "
-		to_chat(user, "[dat]")
-		reagents.clear_reagents()
-	return
+				output_text += "- [C]"
+		if(length(output_text) == 1)
+			output_text[1] = SPAN_NOTICE("No trace chemicals found.")
+		to_chat(user, jointext(output_text, "\n"))
 
 /obj/item/device/mass_spectrometer/adv
 	name = "advanced mass spectrometer"
 	icon_state = "adv_spectrometer"
-	details = 1
+	details = TRUE
 	origin_tech = list(TECH_MAGNET = 4, TECH_BIO = 2)
+
+/obj/item/device/mass_spectrometer/adv/clear_blood_overlay()
+	cut_overlays()
+
+/obj/item/device/mass_spectrometer/adv/add_blood_overlay(var/image/I)
+	add_overlay(I)
 
 /obj/item/device/reagent_scanner
 	name = "reagent scanner"
 	desc = "A hand-held reagent scanner which identifies chemical agents."
-	icon_state = "spectrometer"
+	icon_state = "reagent_scanner"
 	item_state = "analyzer"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	throwforce = 5
@@ -410,35 +445,27 @@ BREATH ANALYZER
 	var/details = 0
 	var/recent_fail = 0
 
-/obj/item/device/reagent_scanner/afterattack(obj/O, mob/user as mob, proximity)
+/obj/item/device/reagent_scanner/afterattack(obj/O, mob/user, proximity)
 	if(!proximity)
 		return
-	if (user.stat)
-		return
-	if (!user.IsAdvancedToolUser())
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
+	if(use_check_and_message(user))
 		return
 	if(!istype(O))
 		return
+	if(isemptylist(O.reagents?.reagent_volumes))
+		to_chat(user, SPAN_WARNING("No active chemical agents found in [O]."))
+		return
 
-	if(!isnull(O.reagents))
-		var/dat = ""
-		if(O.reagents.reagent_list.len > 0)
-			var/one_percent = O.reagents.total_volume / 100
-			for (var/datum/reagent/R in O.reagents.reagent_list)
-				dat += "\n \t <span class='notice'>[R][details ? ": [R.volume / one_percent]%" : ""]"
-		if(dat)
-			to_chat(user, "<span class='notice'>Chemicals found: [dat]</span>")
-		else
-			to_chat(user, "<span class='notice'>No active chemical agents found in [O].</span>")
-	else
-		to_chat(user, "<span class='notice'>No significant chemical agents found in [O].</span>")
-
-	return
+	var/dat = ""
+	var/one_percent = O.reagents.total_volume / 100
+	for (var/_R in O.reagents.reagent_volumes)
+		var/decl/reagent/R = decls_repository.get_decl(_R)
+		dat += "\n \t [R][details ? ": [O.reagents.reagent_volumes[_R] / one_percent]%" : ""]"
+	to_chat(user, SPAN_NOTICE("Chemicals found: [dat]"))
 
 /obj/item/device/reagent_scanner/adv
 	name = "advanced reagent scanner"
-	icon_state = "adv_spectrometer"
+	icon_state = "adv_reagent_scanner"
 	details = 1
 	origin_tech = list(TECH_MAGNET = 4, TECH_BIO = 2)
 
@@ -447,7 +474,7 @@ BREATH ANALYZER
 	icon_state = "adv_spectrometer"
 	item_state = "analyzer"
 	origin_tech = list(TECH_BIO = 1)
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	flags = CONDUCT
 	throwforce = 0
 	throw_speed = 3
@@ -489,8 +516,9 @@ BREATH ANALYZER
 	name = "price scanner"
 	desc = "Using an up-to-date database of various costs and prices, this device estimates the market price of an item up to 0.001% accuracy."
 	icon_state = "price_scanner"
+	flags = NOBLUDGEON
 	slot_flags = SLOT_BELT
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 3
@@ -509,7 +537,7 @@ BREATH ANALYZER
 	desc = "A hand-held breath analyzer that provides a robust amount of information about the subject's repository system."
 	icon_state = "breath_analyzer"
 	item_state = "analyzer"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	throwforce = 0
@@ -526,7 +554,8 @@ BREATH ANALYZER
 
 	if ( ((user.is_clumsy()) || (DUMB in user.mutations)) && prob(20))
 		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
-		eyestab(H,user)
+		if(!H.eyes_protected(src, FALSE))
+			eyestab(H,user)
 		to_chat(user,"<span class='danger'>Alert: No breathing detected.</span>")
 		return
 
@@ -564,14 +593,14 @@ BREATH ANALYZER
 		if(0 to 25)
 			to_chat(user,"Subject oxygen levels nominal.")
 		if(25 to 50)
-			to_chat(user,"<font color='blue'>Subject oxygen levels abnormal.</font>")
+			to_chat(user,"<span class='notice'>Subject oxygen levels abnormal.</span>")
 		if(50 to INFINITY)
-			to_chat(user,"<font color='blue'><b>Severe oxygen deprivation detected.</b></font>")
+			to_chat(user,"<span class='notice'><b>Severe oxygen deprivation detected.</b></span>")
 
 	var/obj/item/organ/internal/L = H.internal_organs_by_name[BP_LUNGS]
 	if(istype(L))
 		if(L.is_bruised())
-			to_chat(user,"<font color='red'><b>Ruptured lung detected.</b></font>")
+			to_chat(user,"<span class='warning'><b>Ruptured lung detected.</b></span>")
 		else if(L.is_damaged())
 			to_chat(user,"<b>Damaged lung detected.</b>")
 		else
@@ -587,19 +616,97 @@ BREATH ANALYZER
 		if(INTOX_MUSCLEIMP to INTOX_VOMIT)
 			additional_string = "\[MODERATELY INTOXICATED\]"
 		if(INTOX_VOMIT to INTOX_BALANCE)
-			additional_string = "<font color='red'>\[HEAVILY INTOXICATED\]</font>"
+			additional_string = "<span class='warning'>\[HEAVILY INTOXICATED\]</span>"
 		if(INTOX_BALANCE to INTOX_DEATH)
-			additional_string = "<font color='red'>\[ALCOHOL POISONING LIKELY\]</font>"
+			additional_string = "<span class='warning'>\[ALCOHOL POISONING LIKELY\]</span>"
 		if(INTOX_DEATH to INFINITY)
-			additional_string = "<font color='red'>\[DEATH IMMINENT\]</font>"
+			additional_string = "<span class='warning'>\[DEATH IMMINENT\]</span>"
 	to_chat(user,"<span class='normal'>Blood Alcohol Content: [round(bac,0.01)] <b>[additional_string]</b></span>")
 
 	if(H.breathing && H.breathing.total_volume)
 		var/unknown = 0
-		for(var/datum/reagent/R in H.breathing.reagent_list)
+		for(var/_R in H.breathing.reagent_volumes)
+			var/decl/reagent/R = decls_repository.get_decl(_R)
 			if(R.scannable)
 				to_chat(user,"<span class='notice'>[R.name] found in subject's respitory system.</span>")
 			else
 				++unknown
 		if(unknown)
 			to_chat(user,"<span class='warning'>Non-medical reagent[(unknown > 1)?"s":""] found in subject's respitory system.</span>")
+
+
+/obj/item/device/advanced_healthanalyzer
+	name = "zeng-hu body analyzer"
+	desc = "An expensive and varied-use health analyzer that prints full-body scans after a short scanning delay."
+	icon_state = "zh-analyzer"
+	item_state = "zh-analyzer"
+	slot_flags = SLOT_BELT
+	w_class = ITEMSIZE_NORMAL
+	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 3)
+	var/obj/machinery/body_scanconsole/internal_bodyscanner = null //this is used to print the date and to deal with extra
+
+/obj/item/device/advanced_healthanalyzer/Initialize()
+	. = ..()
+	if(!internal_bodyscanner)
+		var/obj/machinery/body_scanconsole/S = new (src)
+		S.forceMove(src)
+		S.use_power = FALSE
+		internal_bodyscanner = S
+
+/obj/item/device/advanced_healthanalyzer/Destroy()
+	if(internal_bodyscanner)
+		QDEL_NULL(internal_bodyscanner)
+	return ..()
+
+/obj/item/device/advanced_healthanalyzer/attack(mob/living/M, mob/living/user)
+	if(!internal_bodyscanner)
+		return
+	user.visible_message("<b>[user]</b> starts scanning \the [M] with \the [src].", SPAN_NOTICE("You start scanning \the [M] with \the [src]."))
+	if(do_after(user, 7 SECONDS, TRUE))
+		print_scan(M, user)
+		add_fingerprint(user)
+
+/obj/item/device/advanced_healthanalyzer/proc/print_scan(var/mob/M, var/mob/living/user)
+	var/obj/item/paper/R = new(user.loc)
+	R.color = "#eeffe8"
+	R.set_content_unsafe("Scan ([M.name])", internal_bodyscanner.format_occupant_data(get_medical_data(M)))
+
+	if(ishuman(user) && !(user.l_hand && user.r_hand))
+		user.put_in_hands(R)
+	user.visible_message("\The [src] spits out a piece of paper.")
+
+/obj/item/device/advanced_healthanalyzer/proc/get_medical_data(var/mob/living/carbon/human/H)
+	if (!ishuman(H))
+		return
+
+	var/list/medical_data = list(
+		"stationtime" = worldtime2text(),
+		"brain_activity" = H.get_brain_status(),
+		"blood_volume" = H.get_blood_volume(),
+		"blood_oxygenation" = H.get_blood_oxygenation(),
+		"blood_pressure" = H.get_blood_pressure(),
+
+		"bruteloss" = get_severity(H.getBruteLoss(), TRUE),
+		"fireloss" = get_severity(H.getFireLoss(), TRUE),
+		"oxyloss" = get_severity(H.getOxyLoss(), TRUE),
+		"toxloss" = get_severity(H.getToxLoss(), TRUE),
+		"cloneloss" = get_severity(H.getCloneLoss(), TRUE),
+
+		"rads" = H.total_radiation,
+		"paralysis" = H.paralysis,
+		"bodytemp" = H.bodytemperature,
+		"borer_present" = H.has_brain_worms(),
+		"inaprovaline_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/inaprovaline),
+		"dexalin_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/dexalin),
+		"stoxin_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/soporific),
+		"bicaridine_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/bicaridine),
+		"dermaline_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/dermaline),
+		"thetamycin_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/thetamycin),
+		"blood_amount" = REAGENT_VOLUME(H.vessel, /decl/reagent/blood),
+		"disabilities" = H.sdisabilities,
+		"lung_ruptured" = H.is_lung_ruptured(),
+		"external_organs" = H.organs.Copy(),
+		"internal_organs" = H.internal_organs.Copy(),
+		"species_organs" = H.species.has_organ
+		)
+	return medical_data

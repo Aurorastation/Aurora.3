@@ -1,5 +1,4 @@
 /mob/living/heavy_vehicle/apply_effect(var/effect = 0,var/effecttype = STUN, var/blocked = 0)
-
 	if(!effect || (blocked >= 100))
 		return 0
 
@@ -7,7 +6,7 @@
 		if(effect > 0 && effecttype == IRRADIATE)
 			var/mob/living/pilot = pick(pilots)
 			return pilot.apply_effect(effect, effecttype, blocked)
-	if(effecttype in list(PAIN, STUTTER, EYE_BLUR, DROWSY, STUN, WEAKEN))
+	if(!(effecttype in list(PAIN, STUTTER, EYE_BLUR, DROWSY, STUN, WEAKEN)))
 		. = ..()
 
 /mob/living/heavy_vehicle/proc/attacked_by(var/obj/item/I, var/mob/living/user, var/def_zone)
@@ -28,26 +27,40 @@
 		return pilot.hitby(AM, speed)
 	. = ..()
 
-/mob/living/heavy_vehicle/getarmor(var/def_zone, var/type)
+/mob/living/heavy_vehicle/get_armors_by_zone(def_zone, damage_type, damage_flags)
+	. = ..()
 	if(body && body.mech_armor)
-		return isnull(body.mech_armor.armor[type]) ? 0 : body.mech_armor.armor[type]
-	return 0
+		var/body_armor = body.mech_armor.GetComponent(/datum/component/armor)
+		if(body_armor)
+			. += body_armor
 
 /mob/living/heavy_vehicle/updatehealth()
 	maxHealth = body.mech_health
 	health = maxHealth-(getFireLoss()+getBruteLoss())
 
-/mob/living/heavy_vehicle/adjustFireLoss(var/amount)
-	var/obj/item/mech_component/MC = pick(list(arms, legs, body, head))
-	if(MC)
-		MC.take_burn_damage(amount)
-		MC.update_health()
+/mob/living/heavy_vehicle/adjustFireLoss(var/amount, var/obj/item/mech_component/C)
+	if(C)
+		C.take_brute_damage(amount)
+		C.update_health()
+	else
+		var/list/components = list(body, arms, legs, head)
+		components = shuffle(components)
+		for(var/obj/item/mech_component/MC in components)
+			MC.take_burn_damage(amount)
+			MC.update_health()
+			break
 
-/mob/living/heavy_vehicle/adjustBruteLoss(var/amount)
-	var/obj/item/mech_component/MC = pick(list(arms, legs, body, head))
-	if(MC)
-		MC.take_brute_damage(amount)
-		MC.update_health()
+/mob/living/heavy_vehicle/adjustBruteLoss(var/amount, var/obj/item/mech_component/C)
+	if(C)
+		C.take_brute_damage(amount)
+		C.update_health()
+	else
+		var/list/components = list(body, arms, legs, head)
+		components = shuffle(components)
+		for(var/obj/item/mech_component/MC in components)
+			MC.take_burn_damage(amount)
+			MC.update_health()
+			break
 
 /mob/living/heavy_vehicle/proc/zoneToComponent(var/zone)
 	switch(zone)
@@ -60,7 +73,14 @@
 		else
 			return body
 
-/mob/living/heavy_vehicle/apply_damage(var/damage = 0,var/damagetype = BRUTE, var/def_zone = null, var/blocked = 0, var/used_weapon = null, var/damage_flags)
+/mob/living/heavy_vehicle/apply_damage(var/damage = 0, var/damagetype = BRUTE, var/def_zone, var/used_weapon, var/damage_flags, var/armor_pen, var/silent = FALSE)
+	if(!damage)
+		return 0
+
+	var/list/after_armor = modify_damage_by_armor(def_zone, damage, damagetype, damage_flags, src, armor_pen, TRUE)
+	damage = after_armor[1]
+	damagetype = after_armor[2]
+
 	if(!damage)
 		return 0
 
@@ -68,9 +88,9 @@
 	//Only 2 types of damage concern mechs and vehicles
 	switch(damagetype)
 		if(BRUTE)
-			adjustBruteLoss(damage * BLOCKED_MULT(blocked), target)
+			adjustBruteLoss(damage, target)
 		if(BURN)
-			adjustFireLoss(damage * BLOCKED_MULT(blocked), target)
+			adjustFireLoss(damage, target)
 
 	if((damagetype == BRUTE || damagetype == BURN) && prob(25+(damage*2)))
 		spark(src, 3)
@@ -93,6 +113,17 @@
 	return total
 
 /mob/living/heavy_vehicle/emp_act(var/severity)
+	var/ratio = get_blocked_ratio(null, BURN, null, (4-severity) * 20)
+
+	if(ratio >= 0.5)
+		for(var/mob/living/m in pilots)
+			to_chat(m, SPAN_NOTICE("Your Faraday shielding absorbed the pulse!"))
+		return
+	else if(ratio > 0)
+		for(var/mob/living/m in pilots)
+			to_chat(m, SPAN_NOTICE("Your Faraday shielding mitigated the pulse!"))
+
+	emp_damage += round((12 - (severity*3))*( 1 - ratio))
 	if(severity <= 3)
 		for(var/obj/item/thing in list(arms,legs,head,body))
 			thing.emp_act(severity)
@@ -100,3 +131,23 @@
 			for(var/thing in pilots)
 				var/mob/pilot = thing
 				pilot.emp_act(severity)
+
+/mob/living/heavy_vehicle/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
+	// No gravity, stop falling into spess!
+	var/area/area = get_area(src)
+	if(isspace(loc) || (area && !area.has_gravity()))
+		return FALSE
+
+	visible_message(SPAN_DANGER("\The [src] falls and lands on \the [loc]!"), "", SPAN_DANGER("You hear a thud!"))
+
+	var/z_velocity = 5 * (levels_fallen**2) // 1z - 5, 2z - 20, 3z - 45
+	var/damage = max((z_velocity + rand(-10, 10)) * damage_mod, 0)
+
+	apply_damage(damage, BRUTE, BP_L_LEG) // can target any leg, it will be changed to the proper component
+
+	playsound(loc, "sound/effects/bang.ogg", 100, 1)
+	playsound(loc, "sound/effects/bamf.ogg", 100, 1)
+	return TRUE
+
+/mob/living/heavy_vehicle/get_bullet_impact_effect_type(var/def_zone)
+	return BULLET_IMPACT_METAL

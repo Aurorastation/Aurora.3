@@ -160,17 +160,6 @@
 		NEWSCASTER.newsAlert(annoncement)
 		NEWSCASTER.update_icon()
 
-	var/list/receiving_pdas = new
-	for (var/obj/item/device/pda/P in PDAs)
-		if (!P.owner)
-			continue
-		if (P.toff)
-			continue
-		receiving_pdas += P
-
-	for(var/obj/item/device/pda/PDA in receiving_pdas)
-		PDA.new_news(annoncement)
-
 /datum/controller/subsystem/news/proc/GetForumAuthor(topic_id, post_id)
 	topic_id = "[topic_id]"
 	post_id = text2num(post_id)

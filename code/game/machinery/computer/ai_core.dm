@@ -1,9 +1,11 @@
 /obj/structure/AIcore
-	density = 1
-	anchored = 0
 	name = "\improper AI core"
+	desc = "A large machine that can store an AI, give it power, and protection. Additionally, it provides site-wide camera access."
 	icon = 'icons/mob/AI.dmi'
 	icon_state = "0"
+	density = 1
+	anchored = 0
+	build_amt = 4
 	var/state = 0
 	var/datum/ai_laws/laws = new /datum/ai_laws/nanotrasen
 	var/obj/item/circuitboard/circuit = null
@@ -25,7 +27,7 @@
 				if(!WT.isOn())
 					to_chat(user, "The welder must be on for this task.")
 					return
-				playsound(loc, 'sound/items/Welder.ogg', 50, 1)
+				playsound(loc, 'sound/items/welder.ogg', 50, 1)
 				if(do_after(user, 20/P.toolspeed))
 					if(!src || !WT.remove_fuel(0, user)) return
 					to_chat(user, "<span class='notice'>You deconstruct the frame.</span>")
@@ -50,7 +52,7 @@
 				state = 2
 				icon_state = "2"
 			if(P.iscrowbar() && circuit)
-				playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
+				playsound(loc, P.usesound, 50, 1)
 				to_chat(user, "<span class='notice'>You remove the circuit board.</span>")
 				state = 1
 				icon_state = "0"
@@ -80,7 +82,7 @@
 				if (brain)
 					to_chat(user, "Get that brain out of there first")
 				else
-					playsound(loc, 'sound/items/Wirecutter.ogg', 50, 1)
+					playsound(loc, 'sound/items/wirecutter.ogg', 50, 1)
 					to_chat(user, "<span class='notice'>You remove the cables.</span>")
 					state = 2
 					icon_state = "2"
@@ -124,13 +126,8 @@
 
 			if(istype(P, /obj/item/device/mmi))
 				var/obj/item/device/mmi/M = P
-				if(!M.brainmob)
-					to_chat(user, "<span class='warning'>Sticking an empty [P] into the frame would sort of defeat the purpose.</span>")
+				if(!M.ready_for_use(user))
 					return
-				if(M.brainmob.stat == 2)
-					to_chat(user, "<span class='warning'>Sticking a dead [P] into the frame would sort of defeat the purpose.</span>")
-					return
-
 				if(jobban_isbanned(M.brainmob, "AI"))
 					to_chat(user, "<span class='warning'>This [P] does not seem to fit.</span>")
 					return
@@ -144,7 +141,7 @@
 				icon_state = "3b"
 
 			if(P.iscrowbar() && brain)
-				playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
+				playsound(loc, P.usesound, 50, 1)
 				to_chat(user, "<span class='notice'>You remove the brain.</span>")
 				brain.forceMove(loc)
 				brain = null
@@ -152,7 +149,7 @@
 
 		if(4)
 			if(P.iscrowbar())
-				playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
+				playsound(loc, P.usesound, 50, 1)
 				to_chat(user, "<span class='notice'>You remove the glass panel.</span>")
 				state = 3
 				if (brain)

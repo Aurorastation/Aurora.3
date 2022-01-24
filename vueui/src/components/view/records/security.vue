@@ -25,14 +25,13 @@
 </template>
 
 <script>
-import Utils from '../../../utils.js'
 export default {
   data() {
     return this.$root.$data.state
   },
   methods: {
     add(path, value) {
-      Utils.sendToTopic({
+      this.$toTopic({
         addtorecord: {
           value: value,
           key: path.split(".")
@@ -49,4 +48,3 @@ div.incidents {
   padding: 4px;
 }
 </style>
-

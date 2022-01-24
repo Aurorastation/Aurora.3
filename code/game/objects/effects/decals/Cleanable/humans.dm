@@ -20,6 +20,9 @@
 	var/drytime
 	var/dries = TRUE
 
+/obj/effect/decal/cleanable/blood/no_dry
+	dries = FALSE
+
 /obj/effect/decal/cleanable/blood/reveal_blood()
 	if(!fluorescent)
 		fluorescent = 1
@@ -55,6 +58,11 @@
 	else if (dries)
 		dry()
 
+/obj/effect/decal/cleanable/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/gun/energy/rifle/cult))
+		return
+	..()
+
 /obj/effect/decal/cleanable/blood/update_icon()
 	if(basecolor == "rainbow") basecolor = get_random_colour(1)
 	color = basecolor
@@ -72,9 +80,11 @@
 	var/hasfeet = 1
 	if((!l_foot || l_foot.is_stump()) && (!r_foot || r_foot.is_stump()))
 		hasfeet = 0
-	if(perp.shoes && !perp.buckled)//Adding blood to shoes
+	if(perp.shoes && !perp.buckled_to)//Adding blood to shoes
 		var/obj/item/clothing/shoes/S = perp.shoes
 		if(istype(S))
+			if(S.item_flags & LIGHTSTEP)
+				return
 			S.blood_color = basecolor
 			S.track_footprint = max(amount, S.track_footprint)
 			if(!S.blood_overlay)
@@ -96,13 +106,13 @@
 		LAZYINITLIST(perp.feet_blood_DNA)
 		if (blood_DNA)
 			perp.feet_blood_DNA |= blood_DNA.Copy()
-	else if (perp.buckled && istype(perp.buckled, /obj/structure/bed/chair/wheelchair))
-		var/obj/structure/bed/chair/wheelchair/W = perp.buckled
+	else if (perp.buckled_to && istype(perp.buckled_to, /obj/structure/bed/stool/chair/office/wheelchair))
+		var/obj/structure/bed/stool/chair/office/wheelchair/W = perp.buckled_to
 		W.bloodiness = 4
 
 	perp.update_inv_shoes(1)
 	amount--
-	if(amount > 2 && prob(perp.slip_chance(perp.m_intent == "run" ? 20 : 5)))
+	if(amount > 2 && prob(perp.slip_chance(perp.m_intent == M_RUN ? 20 : 5)))
 		perp.slip(src, 4)
 
 /obj/effect/decal/cleanable/blood/proc/dry()
@@ -178,7 +188,7 @@
 	layer = 2
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "gib1"
-	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gib6")
+	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5")
 	var/fleshcolor = "#FFFFFF"
 
 /obj/effect/decal/cleanable/blood/gibs/update_icon()
@@ -197,10 +207,10 @@
 	add_overlay(giblets)
 
 /obj/effect/decal/cleanable/blood/gibs/up
-	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gib6","gibup1","gibup1","gibup1")
+	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gibup1","gibup1","gibup1")
 
 /obj/effect/decal/cleanable/blood/gibs/down
-	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gib6","gibdown1","gibdown1","gibdown1")
+	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gibdown1","gibdown1","gibdown1")
 
 /obj/effect/decal/cleanable/blood/gibs/body
 	random_icon_states = list("gibhead", "gibtorso")

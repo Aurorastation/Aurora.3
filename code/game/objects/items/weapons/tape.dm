@@ -3,7 +3,7 @@
 	desc = "A roll of sticky tape. Possibly for taping ducks... or was that ducts?"
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "taperoll"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 
@@ -18,7 +18,7 @@
 				to_chat(user, "<span class='warning'>\The [H] doesn't have any eyes.</span>")
 				return
 			if(H.glasses)
-				to_chat(user, "<span class='warning'>\The [H] is already wearing somethign on their eyes.</span>")
+				to_chat(user, "<span class='warning'>\The [H] is already wearing something on their eyes.</span>")
 				return
 			if(H.head && (H.head.body_parts_covered & FACE))
 				to_chat(user, "<span class='warning'>Remove their [H.head] first.</span>")
@@ -91,7 +91,7 @@
 	desc = "A piece of sticky tape."
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "tape"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	layer = 4
 	anchored = 1 //it's sticky, no you cant move it
 	drop_sound = null

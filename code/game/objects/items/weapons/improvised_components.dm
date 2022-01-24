@@ -47,10 +47,22 @@
 	flags = CONDUCT
 	force = 8
 	throwforce = 10
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	attack_verb = list("hit", "bludgeoned", "whacked", "bonked")
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
+	applies_material_colour = FALSE
+	var/forward_cable_color = COLOR_RED
+
+/obj/item/material/wirerod/Initialize(mapload, var/material_key, var/cable_color)
+	. = ..()
+	if(!cable_color)
+		cable_color = COLOR_RED
+	forward_cable_color = cable_color
+	var/image/I = image(icon, null, "wiredrod_cable")
+	I.appearance_flags = RESET_COLOR
+	I.color = cable_color
+	add_overlay(I)
 
 /obj/item/material/wirerod/attackby(var/obj/item/I, mob/user as mob)
 	..()
@@ -58,10 +70,13 @@
 	if(istype(I, /obj/item/material/shard) || istype(I, /obj/item/material/spearhead))
 		var/obj/item/material/tmp_shard = I
 		finished = new /obj/item/material/twohanded/spear(get_turf(user), tmp_shard.material.name)
-		to_chat(user, "<span class='notice'>You fasten \the [I] to the top of the rod with the cable.</span>")
+		to_chat(user, SPAN_NOTICE("You fasten \the [I] to the top of the rod with the cable."))
 	else if(I.iswirecutter())
-		finished = new /obj/item/melee/baton/cattleprod(get_turf(user))
-		to_chat(user, "<span class='notice'>You fasten the wirecutters to the top of the rod with the cable, prongs outward.</span>")
+		finished = new /obj/item/melee/baton/cattleprod(get_turf(user), forward_cable_color)
+		to_chat(user, SPAN_NOTICE("You fasten the wirecutters to the top of the rod with the cable, prongs outward."))
+	else if(istype(I, /obj/item/material/wirerod))
+		finished = new /obj/item/trap/tripwire(get_turf(user), forward_cable_color)
+		to_chat(user, SPAN_NOTICE("You attach the two wired rods together, spooling the cable between them."))
 	if(finished)
 		user.drop_from_inventory(src,finished)
 		user.drop_from_inventory(I,finished)
@@ -79,7 +94,7 @@
 	item_state = "rods"
 	force = 5
 	throwforce = 3
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	attack_verb = list("hit", "bludgeoned", "whacked", "bonked")
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
@@ -91,7 +106,7 @@
 	if(istype(I, /obj/item/material/spearhead))
 		var/obj/item/material/spearhead/tip = I
 		finished = new /obj/item/material/twohanded/pike(get_turf(user), tip.material.name)
-		to_chat(user, "<span class='notice'>You attach \the [I] to the top of \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You attach \the [I] to the top of \the [src]."))
 	if(finished)
 		user.drop_from_inventory(src,finished)
 		user.drop_from_inventory(I,finished)
@@ -108,7 +123,7 @@
 	icon_state = "spearhead"
 	force = 5
 	throwforce = 5
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	attack_verb = list("attacked", "poked")
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
@@ -168,7 +183,7 @@
 			complete = new /obj/item/clothing/head/lavender_crown(get_turf(user))
 
 		if(complete != null)
-			to_chat(user, "<span class='notice'>You attach the " + S.seed.seed_name + " to the circlet and create a beautiful flower crown.</span>")
+			to_chat(user, SPAN_NOTICE("You attach the " + S.seed.seed_name + " to the circlet and create a beautiful flower crown."))
 			user.drop_from_inventory(W)
 			user.drop_from_inventory(src)
 			qdel(W)

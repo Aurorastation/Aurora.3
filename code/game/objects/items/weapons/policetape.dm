@@ -1,33 +1,39 @@
+var/list/tape_roll_applications = list()
+
 //Define all tape types in policetape.dm
 /obj/item/taperoll
 	name = "tape roll"
 	icon = 'icons/policetape.dmi'
 	icon_state = "tape"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
+	var/static/list/hazard_overlays
 	var/turf/start
 	var/turf/end
 	var/tape_type = /obj/item/tape
 	var/icon_base
 
-var/list/image/hazard_overlays
-var/list/tape_roll_applications = list()
+/obj/item/taperoll/Initialize()
+	. = ..()
+	if(!hazard_overlays)
+		hazard_overlays = list()
+		hazard_overlays["[NORTH]"]	= image('icons/effects/warning_stripes.dmi', icon_state = "N")
+		hazard_overlays["[EAST]"]	= image('icons/effects/warning_stripes.dmi', icon_state = "E")
+		hazard_overlays["[SOUTH]"]	= image('icons/effects/warning_stripes.dmi', icon_state = "S")
+		hazard_overlays["[WEST]"]	= image('icons/effects/warning_stripes.dmi', icon_state = "W")
 
 /obj/item/tape
 	name = "tape"
 	icon = 'icons/policetape.dmi'
 	anchored = 1
 	var/lifted = 0
+	var/list/crumplers
 	var/crumpled = 0
 	var/icon_base
 
-/obj/item/tape/New()
-	..()
-	if(!hazard_overlays)
-		hazard_overlays = list()
-		hazard_overlays["[NORTH]"]	= new/image('icons/effects/warning_stripes.dmi', icon_state = "N")
-		hazard_overlays["[EAST]"]	= new/image('icons/effects/warning_stripes.dmi', icon_state = "E")
-		hazard_overlays["[SOUTH]"]	= new/image('icons/effects/warning_stripes.dmi', icon_state = "S")
-		hazard_overlays["[WEST]"]	= new/image('icons/effects/warning_stripes.dmi', icon_state = "W")
+/obj/item/tape/examine(mob/user, distance)
+	. = ..()
+	if(LAZYLEN(crumplers) && Adjacent(user))
+		to_chat(user, SPAN_WARNING("\The [initial(name)] has been crumpled by [english_list(crumplers)]."))
 
 /obj/item/taperoll/police
 	name = "police tape"
@@ -42,6 +48,32 @@ var/list/tape_roll_applications = list()
 	req_access = list(access_security)
 	icon_base = "police"
 
+/obj/item/taperoll/medical
+	name = "medical tape"
+	desc = "A roll of medical tape used to prevent overcrowding of hallways during emergencies."
+	icon_state = "medical_start"
+	tape_type = /obj/item/tape/medical
+	icon_base = "medical"
+
+/obj/item/tape/medical
+	name = "medical tape"
+	desc = "A length of medical tape. Better not cross it."
+	req_one_access = list(access_medical_equip)
+	icon_base = "medical"
+
+/obj/item/taperoll/science
+	name = "science tape"
+	desc = "A high-tech roll of science tape, used to prevent curious onlookers from failing into a research-borne singularity."
+	icon_state = "science_start"
+	tape_type = /obj/item/tape/science
+	icon_base = "science"
+
+/obj/item/tape/science
+	name = "science tape"
+	desc = "A length of science tape. Better not cross it."
+	req_one_access = list(access_research)
+	icon_base = "science"
+
 /obj/item/taperoll/engineering
 	name = "engineering tape"
 	desc = "A roll of engineering tape used to block off working areas from the public."
@@ -52,8 +84,26 @@ var/list/tape_roll_applications = list()
 /obj/item/tape/engineering
 	name = "engineering tape"
 	desc = "A length of engineering tape. Better not cross it."
-	req_one_access = list(access_engine,access_atmospherics)
+	desc_info = "You can use a multitool on this tape to allow emergency shield generators to deploy shields on this tile."
+	req_one_access = list(access_engine, access_atmospherics)
 	icon_base = "engineering"
+	var/shield_marker = FALSE
+
+/obj/item/tape/engineering/examine(mob/user, distance)
+	. = ..()
+	if(shield_marker)
+		to_chat(user, SPAN_NOTICE("This strip of tape has been modified to serve as a marker for emergency shield generators to lock onto."))
+
+/obj/item/tape/engineering/attackby(obj/item/W, mob/user)
+	if(W.ismultitool())
+		shield_marker = !shield_marker
+		to_chat(user, SPAN_NOTICE("You [shield_marker ? "" : "un"]designate \the [src] as a target for an emergency shield generator."))
+		if(shield_marker)
+			animate(src, 1 SECOND, color = color_rotation(-60))
+		else
+			animate(src, 1 SECOND, color = initial(color))
+		return
+	return ..()
 
 /obj/item/taperoll/attack_self(mob/user as mob)
 	if(icon_state == "[icon_base]_start")
@@ -137,41 +187,50 @@ var/list/tape_roll_applications = list()
 			tape_roll_applications[F] |= direction
 		return
 
-/obj/item/tape/proc/crumple()
+/obj/item/tape/proc/crumple(var/mob/user)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		var/obj/item/card/id/ID = H.GetIdCard(TRUE)
+		if(ID && ID.registered_name)
+			LAZYDISTINCTADD(crumplers, ID.registered_name)
 	if(!crumpled)
-		crumpled = 1
+		crumpled = TRUE
 		icon_state = "[icon_state]_c"
 		name = "crumpled [name]"
 
 /obj/item/tape/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(!lifted && ismob(mover))
 		var/mob/M = mover
-		add_fingerprint(M)
-		if (!allowed(M))	//only select few learn art of not crumpling the tape
-			to_chat(M, "<span class='warning'>You are not supposed to go past [src]...</span>")
-			crumple()
-	return ..(mover)
+		if(!allowed(M))	//only select few learn art of not crumpling the tape
+			if(M.a_intent != I_HURT && M.m_intent != M_RUN)
+				return FALSE
+			to_chat(M, SPAN_WARNING("You aren't supposed to go past the [initial(name)]..."))
+			crumple(mover)
+	return ..()
 
-/obj/item/tape/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/tape/attackby(obj/item/W, mob/user)
 	breaktape(W, user)
 
-/obj/item/tape/attack_hand(mob/user as mob)
-	if (user.a_intent == I_HELP && src.allowed(user))
-		user.show_viewers(SPAN_NOTICE("[user] lifts [src], allowing passage."))
-		crumple()
-		lifted = 1
-		spawn(200)
-			lifted = 0
+/obj/item/tape/attack_hand(mob/user)
+	if(user.a_intent == I_HELP)
+		lifted = !lifted
+		user.visible_message("<b>[user]</b> [lifted ? "lifts" : "drops"] the [initial(name)], [lifted ? "allowing" : "blocking"] passage.", SPAN_NOTICE("You [lifted ? "lift" : "drop"] the [initial(name)], [lifted ? "allowing" : "blocking"] passage."))
+		var/shake_time = shake_animation()
+		sleep(shake_time)
+		if(!allowed(user))
+			crumple(user)
+		if(lifted)
+			animate(src, 1 SECOND, alpha = 150)
+		else
+			animate(src, 1 SECOND, alpha = initial(alpha))
 	else
 		breaktape(null, user)
 
-
-
 /obj/item/tape/proc/breaktape(obj/item/W as obj, mob/user as mob)
-	if(user.a_intent == I_HELP && ((!can_puncture(W) && src.allowed(user))))
-		to_chat(user, "You can't break the [src] with that!")
+	if(user.a_intent == I_HELP && ((!W.can_puncture() && src.allowed(user))))
+		to_chat(user, SPAN_NOTICE("You can't break \the [src] with that!"))
 		return
-	user.show_viewers(SPAN_NOTICE("[user] breaks the [src]!"))
+	user.visible_message(SPAN_NOTICE("[user] breaks \the [src]!"))
 
 	var/dir[2]
 	var/icon_dir = src.icon_state
@@ -194,4 +253,3 @@ var/list/tape_roll_applications = list()
 			cur = get_step(cur,dir[i])
 
 	qdel(src)
-	return

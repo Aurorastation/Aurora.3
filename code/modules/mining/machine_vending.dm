@@ -25,7 +25,6 @@ var/global/list/minevendor_list = list( //keep in order of price
 	new /datum/data/mining_equipment("Seismic Charge",				/obj/item/plastique/seismic,								25,					150),
 	new /datum/data/mining_equipment("Deployable Ladder",			/obj/item/ladder_mobile,									5,					200),
 	new /datum/data/mining_equipment("Deployable Hoist Kit",		/obj/item/hoist_kit,										5,					200),
-	new /datum/data/mining_equipment("Material Scanners",			/obj/item/clothing/glasses/material,						15,					200),
 	new /datum/data/mining_equipment("Mining Drill",				/obj/item/pickaxe/drill,									10,					200),
 	new /datum/data/mining_equipment("Deep Ore Scanner",			/obj/item/mining_scanner,									10,					250),
 	new /datum/data/mining_equipment("Magboots",					/obj/item/clothing/shoes/magboots,							10,					300),
@@ -67,7 +66,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 	icon_state = "mining"
 	density = TRUE
 	anchored = TRUE
-	var/obj/item/card/id/inserted_id
+	var/datum/weakref/scanned_id
 
 /datum/data/mining_equipment
 	var/equipment_name = "generic"
@@ -104,13 +103,36 @@ var/global/list/minevendor_list = list( //keep in order of price
 /obj/machinery/mineral/equipment_vendor/attack_hand(mob/user)
 	if(..())
 		return
+	if(!scanned_id)
+		get_user_id(user)
+	else
+		var/obj/item/card/id/ID = scanned_id.resolve()
+		if(!ID)
+			scanned_id = null
+			get_user_id(user)
+		else
+			var/turf/id_turf = get_turf(ID)
+			if(!id_turf.Adjacent(loc))
+				scanned_id = null
+				get_user_id(user)
 	interact(user)
+
+/obj/machinery/mineral/equipment_vendor/proc/get_user_id(var/mob/user)
+	if(isDrone(user))
+		var/mob/living/silicon/robot/drone/D = user
+		if(D.standard_drone)
+			return
+	if(!scanned_id)
+		var/obj/item/card/id/ID = user.GetIdCard()
+		if(ID)
+			scanned_id = WEAKREF(ID)
 
 /obj/machinery/mineral/equipment_vendor/interact(mob/user)
 	var/dat
 	dat +="<div class='statusDisplay'>"
-	if(istype(inserted_id))
-		dat += "You have [inserted_id.mining_points ? inserted_id.mining_points : 0] mining points collected. <A href='?src=\ref[src];choice=eject'>Eject ID.</A><br>"
+	var/obj/item/card/id/ID = scanned_id.resolve()
+	if(ID)
+		dat += "You have [ID.mining_points ? ID.mining_points : 0] mining points collected. <A href='?src=\ref[src];choice=eject'>Eject ID.</A><br>"
 	else
 		dat += "No ID inserted.  <A href='?src=\ref[src];choice=insert'>Insert ID.</A><br>"
 	dat += "</div>"
@@ -133,30 +155,23 @@ var/global/list/minevendor_list = list( //keep in order of price
 	if(..())
 		return
 	if(href_list["choice"])
-		if(istype(inserted_id))
+		var/obj/item/card/id/ID = scanned_id.resolve()
+		if(ID)
 			if(href_list["choice"] == "eject")
-				inserted_id.forceMove(loc)
-				if(ishuman(usr))
-					if(!usr.get_active_hand())
-						usr.put_in_hands(inserted_id)
-				else
-					inserted_id.forceMove(get_turf(src))
-				inserted_id = null
+				scanned_id = null
 		else if(href_list["choice"] == "insert")
 			var/obj/item/card/id/I = usr.get_active_hand()
 			if(istype(I))
-				usr.drop_from_inventory(I,src)
-				inserted_id = I
-			else
-				to_chat(usr, SPAN_DANGER("No valid ID."))
+				scanned_id = WEAKREF(I)
 	if(href_list["purchase"])
-		if(istype(inserted_id))
+		var/obj/item/card/id/ID = scanned_id.resolve()
+		if(ID)
 			var/datum/data/mining_equipment/prize = locate(href_list["purchase"])
 			if(!prize || !(prize in minevendor_list))
 				return
 			if(prize.amount <= 0 && prize.amount != -1)
 				return
-			if(prize.cost > inserted_id.mining_points)
+			if(prize.cost > ID.mining_points)
 			else
 				if(prize.shuttle)
 					var/datum/shuttle/autodock/ferry/supply/shuttle = SScargo.shuttle
@@ -186,7 +201,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 						var/turf/pickedloc = clear_turfs[i]
 
 						if(pickedloc)
-							inserted_id.mining_points -= prize.cost
+							ID.mining_points -= prize.cost
 							new prize.equipment_path(pickedloc)
 							to_chat(usr, SPAN_NOTICE("Order passed. Your order has been placed on the next available supply shuttle."))
 						else
@@ -196,21 +211,30 @@ var/global/list/minevendor_list = list( //keep in order of price
 						to_chat(usr, SPAN_DANGER("{ERR Code: NO_SHUTTLE} Order failed! Please try again."))
 						return
 				else
-					inserted_id.mining_points -= prize.cost
+					ID.mining_points -= prize.cost
 					if(prize.amount != -1)
 						prize.amount--
 					new prize.equipment_path(get_turf(src))
+					intent_message(MACHINE_SOUND)
 
 	updateUsrDialog()
 	return
 
 /obj/machinery/mineral/equipment_vendor/attackby(obj/item/I, mob/user, params)
-	if(istype(I,/obj/item/card/id))
-		var/obj/item/card/id/C = usr.get_active_hand()
-		if(istype(C) && !istype(inserted_id))
-			usr.drop_from_inventory(C,src)
-			inserted_id = C
-			interact(user)
+	if(istype(I, /obj/item/coin/mining))
+		var/choice = input(user, "Which special equipment would you like to dispense from \the [src]?", capitalize_first_letters(name)) as null|anything in list("Enhanced Power Converter", "Hand-held Drill")
+		if(!choice || QDELETED(I) || !Adjacent(user))
+			return
+		var/obj/dispensed_equipment
+		switch(choice)
+			if("Enhanced Power Converter")
+				dispensed_equipment = new /obj/item/custom_ka_upgrade/barrels/barrel02(src)
+			if("Hand-held Drill")
+				dispensed_equipment = new /obj/item/pickaxe/drill/weak(src)
+		if(dispensed_equipment)
+			to_chat(user, SPAN_NOTICE("\The [src] accepts your coin and dispenses \a [dispensed_equipment]."))
+			qdel(I)
+			user.put_in_hands(dispensed_equipment)
 		return
 	if(default_deconstruction_screwdriver(user, "mining-open", "mining", I))
 		updateUsrDialog()

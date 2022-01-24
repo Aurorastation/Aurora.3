@@ -28,6 +28,10 @@
 			if(T == get_turf(target))
 				break
 		sleep(delay)
+	if(length(reagents))
+		var/mob/M = locate() in get_turf(src)
+		if(M)
+			reagents.trans_to(M, reagents.total_volume * 0.75)
 	sleep(lifespan)
 	qdel(src)
 

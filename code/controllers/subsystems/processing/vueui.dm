@@ -110,10 +110,8 @@ Byond Vue UI framework's management subsystem
   */
 /datum/controller/subsystem/processing/vueui/proc/ui_opened(var/datum/vueui/ui)
 	var/src_object_key = SOFTREF(ui.object)
-	LAZYINITLIST(open_uis[src_object_key])
-	LAZYINITLIST(ui.user.open_vueui_uis)
-	LAZYADD(ui.user.open_vueui_uis, ui)
-	LAZYADD(open_uis[src_object_key], ui)
+	LAZYDISTINCTADD(ui.user.open_vueui_uis, ui)
+	LAZYDISTINCTADD(open_uis[src_object_key], ui)
 	START_PROCESSING(SSvueui, ui)
 
 /**
@@ -126,18 +124,19 @@ Byond Vue UI framework's management subsystem
 /datum/controller/subsystem/processing/vueui/proc/ui_closed(var/datum/vueui/ui)
 	var/src_object_key = SOFTREF(ui.object)
 
-	if (!LAZYLEN(open_uis[src_object_key]))
-		return 0	// Wasn't open.
-
 	STOP_PROCESSING(SSvueui, ui)
-	if(!QDELETED(ui.user))	// Sanity check in case a user has been deleted (say a blown up borg watching the alarm interface)
-		LAZYREMOVE(ui.user.open_vueui_uis, ui)
-
-	open_uis[src_object_key] -= ui
+	if(!QDELETED(ui.user)) // Sanity check in case a user has been deleted (say a blown up borg watching the alarm interface)
+		LAZYREMOVE(ui.user.open_vueui_uis, ui) // remove the UI from the user
 
 	if (!LAZYLEN(open_uis[src_object_key]))
+		return FALSE // Wasn't open.
+
+	// remove this UI from the list of UIs for the object
+	open_uis[src_object_key] -= ui
+	if(!LAZYLEN(open_uis[src_object_key])) // remove the object from the open UI list if it references no more open UIs
 		open_uis -= src_object_key
-	return 1
+
+	return TRUE
 
 /**
   * Alerts of subsystem of logged off user and closes there uis.

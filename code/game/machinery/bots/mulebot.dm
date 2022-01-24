@@ -156,6 +156,8 @@
 
 
 /obj/machinery/bot/mulebot/attack_ai(var/mob/user)
+	if(!ai_can_interact(user))
+		return
 	user.set_machine(src)
 	interact(user, 1)
 
@@ -805,7 +807,7 @@
 	var/datum/signal/signal = new()
 
 	signal.source = src
-	signal.transmission_method = 1
+	signal.transmission_method = TRANSMISSION_RADIO
 	signal.data = keyval
 
 	if (signal.data["findbeacon"])

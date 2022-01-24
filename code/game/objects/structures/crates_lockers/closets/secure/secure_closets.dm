@@ -94,7 +94,7 @@
 					"<span class='notice'>You begin cutting [src] apart.</span>",
 					"You hear a welding torch on metal."
 				)
-				playsound(loc, 'sound/items/Welder2.ogg', 50, 1)
+				playsound(loc, 'sound/items/welder_pry.ogg', 50, 1)
 				if (!do_after(user, 2/W.toolspeed SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_open)))
 					return
 				if(!WT.remove_fuel(0,user))
@@ -126,7 +126,7 @@
 				screwed = 0
 		else if(!screwed && wrenched)
 			to_chat(user,  "<span class='notice'>You start to screw the locker to the floor...</span>")
-			playsound(src, 'sound/items/Welder.ogg', 80, 1)
+			playsound(src, 'sound/items/welder.ogg', 80, 1)
 			if (do_after(user, 15/W.toolspeed SECONDS, act_target = src))
 				to_chat(user,  "<span class='notice'>You screw the locker!</span>")
 				playsound(loc, W.usesound, 50, 1)
@@ -148,6 +148,12 @@
 				playsound(loc, W.usesound, 50, 1)
 				wrenched = 1
 				anchored = 1
+	else if(istype(W, /obj/item/device/hand_labeler))
+		var/obj/item/device/hand_labeler/HL = W
+		if (HL.mode == 1)
+			return
+		else
+			togglelock(user)
 	else if(!opened)
 		if(!broken && istype(W,/obj/item/material/twohanded/chainsaw))
 			var/obj/item/material/twohanded/chainsaw/ChainSawVar = W
@@ -170,7 +176,7 @@
 			if(emag_act(INFINITY, user, "<span class='danger'>The locker has been sliced open by [user] with \an [W]</span>!", "<span class='danger'>You hear metal being sliced and sparks flying.</span>"))
 				spark(src, 5)
 				playsound(loc, 'sound/weapons/blade.ogg', 50, 1)
-				playsound(loc, "sparks", 50, 1)
+				playsound(loc, /decl/sound_category/spark_sound, 50, 1)
 		else if(W.iswelder())
 			var/obj/item/weldingtool/WT = W
 			if(WT.isOn())
@@ -179,7 +185,7 @@
 					"<span class='notice'>You begin welding [src] [welded ? "open" : "shut"].</span>",
 					"You hear a welding torch on metal."
 				)
-				playsound(loc, 'sound/items/Welder2.ogg', 50, 1)
+				playsound(loc, 'sound/items/welder_pry.ogg', 50, 1)
 				if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
 					return
 				if(!WT.remove_fuel(0,user))
@@ -193,6 +199,8 @@
 				)
 			else
 				togglelock(user)
+		else if(istype(W, /obj/item/ducttape))
+			return
 		else
 			togglelock(user)//Attempt to lock locker if closed
 
@@ -235,7 +243,7 @@
 	else
 		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
 
-/obj/structure/closet/secure_closet/update_icon()//Putting the welded stuff in updateicon() so it's easy to overwrite for special cases (Fridges, cabinets, and whatnot)
+/obj/structure/closet/secure_closet/update_icon()//Putting the welded stuff in update_icon() so it's easy to overwrite for special cases (Fridges, cabinets, and whatnot)
 	cut_overlays()
 	if(!opened)
 		if(locked)
@@ -274,4 +282,3 @@
 		var/obj/structure/bigDelivery/BD = loc
 		BD.unwrap()
 	open()
-

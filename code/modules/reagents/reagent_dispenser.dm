@@ -1,6 +1,7 @@
 /obj/structure/reagent_dispensers
 	name = "strange dispenser"
 	desc = "What the fuck is this?"
+	desc_info = "You can right-click this and change the amount transferred per use."
 	icon = 'icons/obj/reagent_dispensers.dmi'
 	icon_state = "watertank"
 	density = 1
@@ -18,6 +19,7 @@
 	create_reagents(capacity)
 	if (!possible_transfer_amounts)
 		src.verbs -= /obj/structure/reagent_dispensers/verb/set_APTFT
+		desc_info = ""
 
 /obj/structure/reagent_dispensers/examine(mob/user)
 	if(!..(user, 2))
@@ -59,10 +61,13 @@
 				if(is_open_container())
 					RG.standard_pour_into(user,src)
 				else
-					to_chat(user,"<span class='notice'>The top cap is wrenched on tight!</span>")
+					to_chat(user,"<span class='notice'>The inlet cap on \the [src] is wrenched on tight!</span>")
 		return
 
 	if (O.iswrench())
+		if(use_check(user, USE_DISALLOW_SPECIALS))
+			to_chat(user, SPAN_WARNING("A strange force prevents you from doing this.")) //there is no way to justify this icly
+			return
 		if(can_tamper && user.a_intent == I_HURT)
 			user.visible_message("<span class='warning'>\The [user] wrenches \the [src]'s faucet [is_leaking ? "closed" : "open"].</span>","<span class='warning'>You wrench \the [src]'s faucet [is_leaking ? "closed" : "open"]</span>")
 			is_leaking = !is_leaking
@@ -72,10 +77,10 @@
 				START_PROCESSING(SSprocessing,src)
 
 		else if(accept_any_reagent)
-			var/is_closed = flags & OPENCONTAINER
-			var/verb01 = is_closed ? "unwrenches" : "wrenches"
-			var/verb02 = (is_closed ? "open" : "shut")
-			user.visible_message("<span class='notice'>[user] [verb01] the top cap [verb02] from \the [src].</span>", "<span class='notice'>You [verb01] the top cap [verb02] from \the [src].</span>")
+			if(flags & OPENCONTAINER)
+				user.visible_message(SPAN_NOTICE("[user] wrenches the inlet cap on \the [src] shut."), SPAN_NOTICE("You wrench the inlet cap back on \the [src]."))
+			else
+				user.visible_message(SPAN_NOTICE("[user] unwrenches the inlet cap from \the [src]."), SPAN_NOTICE("You unwrench the inlet cap from \the [src]."))
 			flags ^= OPENCONTAINER
 			return
 
@@ -94,34 +99,34 @@
 	name = "extinguisher tank"
 	desc = "A tank filled with extinguisher fluid."
 	icon_state = "extinguisher_tank"
-	amount_per_transfer_from_this = 10
-	reagents_to_add = list(/datum/reagent/toxin/fertilizer/monoammoniumphosphate = 1000)
+	amount_per_transfer_from_this = 30
+	reagents_to_add = list(/decl/reagent/toxin/fertilizer/monoammoniumphosphate = 1000)
 
 // Tanks
 /obj/structure/reagent_dispensers/watertank
 	name = "water tank"
 	desc = "A tank filled with water."
 	icon_state = "watertank"
-	amount_per_transfer_from_this = 10
-	reagents_to_add = list(/datum/reagent/water = 1000)
+	amount_per_transfer_from_this = 300
+	reagents_to_add = list(/decl/reagent/water = 1000)
 
 /obj/structure/reagent_dispensers/lube
 	name = "lube tank"
 	desc = "A tank filled with a silly amount of lube."
 	icon_state = "lubetank"
-	amount_per_transfer_from_this = 10
-	reagents_to_add = list(/datum/reagent/lube = 1000)
+	amount_per_transfer_from_this = 30
+	reagents_to_add = list(/decl/reagent/lube = 1000)
 
 /obj/structure/reagent_dispensers/fueltank
 	name = "fuel tank"
 	desc = "A tank filled with welding fuel."
 	icon_state = "weldtank"
 	accept_any_reagent = FALSE
-	amount_per_transfer_from_this = 10
+	amount_per_transfer_from_this = 30
 	var/defuse = 0
 	var/armed = 0
 	var/obj/item/device/assembly_holder/rig = null
-	reagents_to_add = list(/datum/reagent/fuel = 1000)
+	reagents_to_add = list(/decl/reagent/fuel = 1000)
 
 /obj/structure/reagent_dispensers/fueltank/examine(mob/user)
 	if(!..(user, 2))
@@ -146,6 +151,7 @@
 		user.visible_message(SPAN_WARNING("\The [user] carefully removes \the [rig] from \the [src]."), \
 							SPAN_NOTICE("You carefully remove \the [rig] from \the [src]."))
 		rig.forceMove(get_turf(user))
+		rig.detached()
 		user.put_in_hands(rig)
 		rig = null
 		overlays = new/list()
@@ -190,7 +196,7 @@
 			log_and_message_admins("shot a welding tank", Proj.firer)
 			log_game("[key_name(Proj.firer)] shot fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]).",ckey=key_name(Proj.firer))
 
-		if(!istype(Proj ,/obj/item/projectile/beam/lastertag) && !istype(Proj ,/obj/item/projectile/beam/practice) && !istype(Proj ,/obj/item/projectile/kinetic))
+		if(!istype(Proj ,/obj/item/projectile/beam/laser_tag) && !istype(Proj ,/obj/item/projectile/beam/practice) && !istype(Proj ,/obj/item/projectile/kinetic))
 			ex_act(2.0)
 
 /obj/structure/reagent_dispensers/fueltank/ex_act(var/severity = 3.0)
@@ -228,7 +234,7 @@
 	density = 0
 	amount_per_transfer_from_this = 45
 	can_tamper = FALSE
-	reagents_to_add = list(/datum/reagent/capsaicin/condensed = 1000)
+	reagents_to_add = list(/decl/reagent/capsaicin/condensed = 1000)
 
 /obj/structure/reagent_dispensers/virusfood
 	name = "virus food dispenser"
@@ -238,7 +244,7 @@
 	anchored = 1
 	density = 0
 	can_tamper = FALSE
-	reagents_to_add = list(/datum/reagent/nutriment/virusfood = 1000)
+	reagents_to_add = list(/decl/reagent/nutriment/virusfood = 1000)
 
 /obj/structure/reagent_dispensers/acid
 	name = "sulphuric acid dispenser"
@@ -248,7 +254,14 @@
 	anchored = 1
 	density = 0
 	can_tamper = FALSE
-	reagents_to_add = list(/datum/reagent/acid = 1000)
+	reagents_to_add = list(/decl/reagent/acid = 1000)
+
+/obj/structure/reagent_dispensers/peppertank/luminol
+	name = "luminol dispenser"
+	desc = "A dispenser to refill luminol bottles."
+	icon_state = "luminoltank"
+	amount_per_transfer_from_this = 50
+	reagents_to_add = list(/decl/reagent/luminol = 1000)
 
 //Water Cooler
 
@@ -262,7 +275,25 @@
 	anchored = 1
 	capacity = 500
 	can_tamper = FALSE
-	reagents_to_add = list(/datum/reagent/water = 500)
+	reagents_to_add = list(/decl/reagent/water = 500)
+	var/cups = 12
+	var/cup_type = /obj/item/reagent_containers/food/drinks/sillycup
+
+/obj/structure/reagent_dispensers/water_cooler/attack_hand(var/mob/user)
+	if(cups > 0)
+		var/visible_messages = DispenserMessages(user)
+		visible_message(SPAN_NOTICE(visible_messages[1]), SPAN_NOTICE(visible_messages[2]))
+		var/cup = new cup_type(loc)
+		user.put_in_active_hand(cup)
+		cups--
+	else
+		to_chat(user, SPAN_WARNING(RejectionMessage(user)))
+
+/obj/structure/reagent_dispensers/water_cooler/proc/DispenserMessages(var/mob/user)
+	return list("\The [user] grabs a paper cup from \the [src].", "You grab a paper cup from \the [src]'s cup compartment.")
+
+/obj/structure/reagent_dispensers/water_cooler/proc/RejectionMessage(var/mob/user)
+	return "[src]'s cup dispenser is empty."
 
 /obj/structure/reagent_dispensers/water_cooler/attackby(obj/item/W as obj, mob/user as mob)
 	if (W.isscrewdriver())
@@ -312,19 +343,19 @@
 /obj/structure/reagent_dispensers/keg/beerkeg
 	name = "beer keg"
 	desc = "A beer keg"
-	reagents_to_add = list(/datum/reagent/alcohol/ethanol/beer = 1000)
+	reagents_to_add = list(/decl/reagent/alcohol/beer = 1000)
 
 /obj/structure/reagent_dispensers/keg/xuizikeg
 	name = "xuizi juice keg"
 	desc = "A keg full of Xuizi juice, blended flower buds from the Moghean Xuizi cactus. The export stamp of the Arizi Guild is imprinted on the side."
 	icon_state = "keg_xuizi"
-	reagents_to_add = list(/datum/reagent/alcohol/butanol/xuizijuice = 1000)
+	reagents_to_add = list(/decl/reagent/alcohol/butanol/xuizijuice = 1000)
 
 /obj/structure/reagent_dispensers/keg/mead
 	name = "mead barrel"
 	desc = "A wooden mead barrel."
 	icon_state = "woodkeg"
-	reagents_to_add = list(/datum/reagent/alcohol/ethanol/messa_mead = 1000)
+	reagents_to_add = list(/decl/reagent/alcohol/messa_mead = 1000)
 
 //Cooking oil tank
 /obj/structure/reagent_dispensers/cookingoil
@@ -333,7 +364,7 @@
 	icon_state = "oiltank"
 	amount_per_transfer_from_this = 120
 	capacity = 5000
-	reagents_to_add = list(/datum/reagent/nutriment/triglyceride/oil/corn = 5000)
+	reagents_to_add = list(/decl/reagent/nutriment/triglyceride/oil/corn = 5000)
 
 /obj/structure/reagent_dispensers/cookingoil/bullet_act(var/obj/item/projectile/Proj)
 	if(Proj.get_structure_damage())
@@ -346,7 +377,7 @@
 	desc = "A tank of industrial coolant"
 	icon_state = "coolanttank"
 	amount_per_transfer_from_this = 10
-	reagents_to_add = list(/datum/reagent/coolant = 1000)
+	reagents_to_add = list(/decl/reagent/coolant = 1000)
 
 /obj/structure/reagent_dispensers/coolanttank/bullet_act(var/obj/item/projectile/Proj)
 	if(Proj.get_structure_damage())

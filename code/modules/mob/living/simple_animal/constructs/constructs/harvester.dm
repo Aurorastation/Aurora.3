@@ -10,6 +10,7 @@
 	melee_damage_lower = 25
 	melee_damage_upper = 25
 	attacktext = "violently stabbed"
+	organ_names = list("core", "harvesting array")
 	speed = -1
 	environment_smash = 1
 	see_in_dark = 7

@@ -10,7 +10,7 @@
 
 //mob verbs are faster than object verbs. See above.
 var/mob/living/next_point_time = 0
-/mob/living/pointed(atom/A as mob|obj|turf in view())
+/mob/living/pointed(atom/movable/A as mob|obj|turf in view())
 	if(!isturf(src.loc) || !(A in range(world.view, get_turf(src))))
 		return FALSE
 	if(src.stat || !src.canmove || src.restrained())
@@ -24,19 +24,15 @@ var/mob/living/next_point_time = 0
 	face_atom(A)
 	if(isturf(A))
 		if(pointing_effect)
-			clear_point()
+			QDEL_NULL(pointing_effect)
 		pointing_effect = new /obj/effect/decal/point(A)
 		pointing_effect.invisibility = invisibility
-		addtimer(CALLBACK(src, .proc/clear_point), 20)
+		addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, pointing_effect), 2 SECONDS)
 	else
-		var/pointglow = filter(type = "drop_shadow", x = 0, y = -1, offset = 1, size = 1, color = "#F00")
-		LAZYADD(A.filters, pointglow)
-		addtimer(CALLBACK(src, .proc/remove_filter, A, pointglow), 20)
+		A.add_filter("pointglow", 1, list(type = "drop_shadow", x = 0, y = -1, offset = 1, size = 1, color = "#F00"))
+		addtimer(CALLBACK(A, /atom/movable.proc/remove_filter, "pointglow"), 2 SECONDS)
 	visible_message("<b>\The [src]</b> points to \the [A].")
 	return TRUE
-
-/mob/living/proc/remove_filter(var/atom/A, var/filter_to_remove)
-	LAZYREMOVE(A.filters, filter_to_remove)
 
 /*one proc, four uses
 swapping: if it's 1, the mobs are trying to switch, if 0, non-passive is pushing passive
@@ -98,11 +94,29 @@ default behaviour is:
 				return
 
 			if(can_swap_with(tmob)) // mutual brohugs all around!
-				var/turf/oldloc = loc
-				forceMove(tmob.loc)
-				tmob.forceMove(oldloc)
+				var/turf/tmob_oldloc = tmob.loc
+				var/turf/src_oldloc = loc
+				if(pulling?.density)
+					tmob.forceMove(pulling.loc)
+					forceMove(tmob_oldloc)
+					pulling.forceMove(src_oldloc)
+				else if(tmob.pulling?.density)
+					forceMove(tmob.pulling.loc)
+					tmob.forceMove(src_oldloc)
+					tmob.pulling.forceMove(tmob_oldloc)
+				else
+					forceMove(tmob_oldloc)
+					if(pulling)
+						pulling.forceMove(src_oldloc)
+					tmob.forceMove(src_oldloc)
+					if(tmob.pulling)
+						tmob.pulling.forceMove(tmob_oldloc)
+				for(var/obj/item/grab/G in list(l_hand, r_hand))
+					G.affecting.forceMove(loc)
+				for(var/obj/item/grab/G in list(tmob.l_hand, tmob.r_hand))
+					G.affecting.forceMove(tmob.loc)
 				now_pushing = FALSE
-				for(var/mob/living/carbon/slime/slime in view(1,tmob))
+				for(var/mob/living/carbon/slime/slime in view(2, tmob))
 					if(slime.victim == tmob)
 						slime.UpdateFeed()
 				return
@@ -177,7 +191,7 @@ default behaviour is:
 			return 1
 
 /mob/living/proc/can_swap_with(var/mob/living/tmob)
-	if(tmob.buckled || buckled)
+	if(tmob.buckled_to || buckled_to)
 		return 0
 	//BubbleWrap: people in handcuffs are always switched around as if they were on 'help' intent to prevent a person being pulled from being seperated from their puller
 	if(!(tmob.mob_always_swap || (tmob.a_intent == I_HELP || tmob.restrained()) && (a_intent == I_HELP || src.restrained())))
@@ -190,6 +204,9 @@ default behaviour is:
 
 	if(swap_density_check(tmob, src))
 		return 0
+
+	if(pulling?.density && tmob.pulling?.density) // if both are pulling, don't shuffle
+		return FALSE
 
 	return can_move_mob(tmob, 1, 0)
 
@@ -204,7 +221,7 @@ default behaviour is:
 
 /mob/living/proc/updatehealth()
 	if(status_flags & GODMODE)
-		health = 100
+		health = maxHealth
 		stat = CONSCIOUS
 	else
 		health = maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss() - getHalLoss()
@@ -218,7 +235,7 @@ default behaviour is:
 	return
 
 
-//sort of a legacy burn method for /electrocute, /shock, and the e_chair
+//sort of a legacy burn method for /electrocute, /shock
 /mob/living/proc/burn_skin(burn_amount)
 	if(istype(src, /mob/living/carbon/human))
 		if(mShock in src.mutations) //shockproof
@@ -380,7 +397,7 @@ default behaviour is:
 			return 1
 	return 0
 
-
+// Returns injection time modifier, if 0 then injection fails
 /mob/living/proc/can_inject()
 	return 1
 
@@ -436,8 +453,8 @@ default behaviour is:
 //		suiciding = 0
 
 	rejuvenate()
-	if(buckled)
-		buckled.unbuckle_mob()
+	if(buckled_to)
+		buckled_to.unbuckle()
 	if(iscarbon(src))
 		var/mob/living/carbon/C = src
 
@@ -467,6 +484,7 @@ default behaviour is:
 	SetWeakened(0)
 
 	// shut down ongoing problems
+	stamina = max_stamina
 	total_radiation = 0
 	nutrition = 400
 	hydration = 400
@@ -557,7 +575,7 @@ default behaviour is:
 	return
 
 /mob/living/Move(a, b, flag)
-	if (buckled)
+	if (buckled_to)
 		return
 
 	if (restrained())
@@ -629,9 +647,9 @@ default behaviour is:
 											location.add_blood(M)
 											if(ishuman(M))
 												var/mob/living/carbon/human/H = M
-												var/total_blood = round(H.vessel.get_reagent_amount(/datum/reagent/blood))
+												var/total_blood = round(REAGENT_VOLUME(H.vessel, /decl/reagent/blood))
 												if(total_blood > 0)
-													H.vessel.remove_reagent(/datum/reagent/blood, 1)
+													H.vessel.remove_reagent(/decl/reagent/blood, 1)
 
 
 						step(pulling, get_dir(pulling.loc, T))
@@ -650,7 +668,7 @@ default behaviour is:
 		stop_pulling()
 		. = ..()
 
-	if (s_active && !( s_active in contents ) && get_turf(s_active) != get_turf(src))	//check !( s_active in contents ) first so we hopefully don't have to call get_turf() so much.
+	if (s_active && !s_active.Adjacent(src))	//check !( s_active in contents ) first so we hopefully don't have to call get_turf() so much.
 		s_active.close(src)
 
 	if(update_slimes)
@@ -673,7 +691,7 @@ default behaviour is:
 		return
 
 	//unbuckling yourself
-	if(buckled)
+	if(buckled_to)
 		spawn() escape_buckle()
 
 	//Breaking out of a locker?
@@ -682,7 +700,11 @@ default behaviour is:
 		spawn() C.mob_breakout(src)
 
 /mob/living/proc/escape_inventory(obj/item/holder/H)
-	if(H != src.loc) return
+	if(H != src.loc)
+		return
+	if(health < maxHealth * 0.6)
+		to_chat(src, SPAN_WARNING("You're too injured to escape..."))
+		return
 
 	var/mob/M = H.loc //Get our mob holder (if any).
 
@@ -708,8 +730,8 @@ default behaviour is:
 		H.forceMove(get_turf(H))
 
 /mob/living/proc/escape_buckle()
-	if(buckled)
-		buckled.user_unbuckle_mob(src)
+	if(buckled_to)
+		buckled_to.user_unbuckle(src)
 
 /mob/living/var/last_resist
 
@@ -763,8 +785,17 @@ default behaviour is:
 	set name = "Rest"
 	set category = "IC"
 
+	if(last_special + 1 SECOND > world.time)
+		to_chat(src, SPAN_WARNING("You're too tired to do this now!"))
+		return
+	if(in_neck_grab())
+		to_chat(src, SPAN_WARNING("You are being restrained!"))
+		return
+	last_special = world.time
 	resting = !resting
-	to_chat(src, "<span class='notice'>You are now [resting ? "resting" : "getting up"]</span>")
+	to_chat(src, "<span class='notice'>You are now [resting ? "resting" : "getting up"].</span>")
+	update_canmove()
+	update_icon()
 
 /mob/living/proc/cannot_use_vents()
 	return "You can't fit into that vent."
@@ -774,6 +805,11 @@ default behaviour is:
 
 /mob/living/proc/has_eyes()
 	return 1
+
+/mob/living/proc/eyes_protected(var/obj/stab_item, var/stabbed = FALSE) // if stabbed is set to true if we're being stabbed and not just checking
+	if(!has_eyes())
+		return TRUE
+	return FALSE
 
 /mob/living/proc/slip(var/slipped_on,stun_duration=8)
 	return 0
@@ -810,11 +846,24 @@ default behaviour is:
 	..()
 
 //damage/heal the mob ears and adjust the deaf amount
-/mob/living/adjustEarDamage(var/damage, var/deaf)
+/mob/living/adjustEarDamage(var/damage, var/deaf, var/ringing = FALSE)
+	var/alreadydeaf = FALSE
+	if (ear_deaf)
+		alreadydeaf = TRUE
+
 	ear_damage = max(0, ear_damage + damage)
 	ear_deaf = max(0, ear_deaf + deaf)
 
+	if (ringing && !alreadydeaf)
+		if (ear_damage >= 5)
+			if (ear_damage >= 15)
+				to_chat(src, SPAN_DANGER("Your ears start to ring badly!"))
+			else
+				to_chat(src, SPAN_DANGER("Your ears start to ring!"))
+
+
 //pass a negative argument to skip one of the variable
+
 /mob/living/setEarDamage(var/damage, var/deaf)
 	if(damage >= 0)
 		ear_damage = damage
@@ -897,9 +946,9 @@ default behaviour is:
 	if (!composition_reagent)//if no reagent has been set, then we'll set one
 		var/type = find_type(src)
 		if (type & TYPE_SYNTHETIC)
-			src.composition_reagent = /datum/reagent/iron
+			src.composition_reagent = /decl/reagent/iron
 		else
-			src.composition_reagent = /datum/reagent/nutriment/protein
+			src.composition_reagent = /decl/reagent/nutriment/protein
 
 	//if the mob is a simple animal with a defined meat quantity
 	if (istype(src, /mob/living/simple_animal))
@@ -924,7 +973,10 @@ default behaviour is:
 		make_jittery(rand(150,200))
 		adjustHalLoss(rand(50,60))
 
-/mob/living/update_icons()
+/mob/living/proc/InStasis()
+	return FALSE
+
+/mob/living/update_icon()
 	for(var/aura in auras)
 		var/obj/aura/A = aura
 		var/icon/aura_overlay = icon(A.icon, icon_state = A.icon_state)
@@ -932,12 +984,12 @@ default behaviour is:
 
 /mob/living/proc/add_aura(var/obj/aura/aura)
 	LAZYDISTINCTADD(auras, aura)
-	update_icons()
+	update_icon()
 	return TRUE
 
 /mob/living/proc/remove_aura(var/obj/aura/aura)
 	LAZYREMOVE(auras, aura)
-	update_icons()
+	update_icon()
 	return TRUE
 
 /mob/living/proc/apply_radiation_effects()
@@ -957,4 +1009,33 @@ default behaviour is:
 	return ..()
 
 /mob/living/proc/needs_wheelchair()
+	return FALSE
+
+//called when the mob receives a bright flash
+/mob/living/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
+	if(override_blindness_check || !(disabilities & BLIND))
+		..()
+		overlay_fullscreen("flash", type)
+		spawn(25)
+			if(src)
+				clear_fullscreen("flash", 25)
+		return 1
+
+/mob/living/verb/toggle_run_intent()
+	set hidden = 1
+	set name = "mov_intent"
+	if(hud_used?.move_intent)
+		hud_used.move_intent.Click()
+
+/mob/living/proc/add_hallucinate(var/amount)
+	hallucination += amount
+	hallucination += amount
+
+/mob/living/set_respawn_time()
+	set_death_time(CREW, world.time)
+//Used by simple animals and monkey species for renaming. M is the one doing the renaming
+/mob/living/proc/can_name(var/mob/living/M)
+	return FALSE
+
+/mob/living/proc/is_anti_materiel_vulnerable()
 	return FALSE

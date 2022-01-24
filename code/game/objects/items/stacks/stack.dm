@@ -12,6 +12,7 @@
 /obj/item/stack
 	gender = PLURAL
 	origin_tech = list(TECH_MATERIAL = 1)
+	flags = HELDMAPTEXT
 	var/list/datum/stack_recipe/recipes
 	var/singular_name
 	var/amount = 1
@@ -43,6 +44,10 @@
 		item_state = icon_state
 
 	update_icon()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/item/stack/LateInitialize()
+	check_maptext(SMALL_FONTS(7, get_amount()))
 
 /obj/item/stack/Destroy()
 	if (src && usr && usr.machine == src)
@@ -50,6 +55,8 @@
 	return ..()
 
 /obj/item/stack/update_icon()
+	check_maptext(SMALL_FONTS(7, get_amount()))
+
 	if (!icon_has_variants)
 		return ..()
 
@@ -68,63 +75,67 @@
 			else
 				to_chat(user, "You have enough charge to produce <b>[get_amount()]</b>.")
 
-/obj/item/stack/attack_self(mob/user as mob)
-	list_recipes(user)
+/obj/item/stack/attack_self(mob/user)
+	list_recipes(user, recipes)
 
-/obj/item/stack/proc/list_recipes(mob/user as mob, recipes_sublist)
-	if (!recipes)
+/obj/item/stack/proc/list_recipes(mob/user, recipes_sublist, var/datum/stack_recipe/sublist)
+	if(!recipes)
 		return
-	if (!src || get_amount() <= 0)
+	if(!src || get_amount() <= 0)
 		user << browse(null, "window=stack")
 	user.set_machine(src) //for correct work of onclose
-	var/list/recipe_list = recipes
-	if (recipes_sublist && recipe_list[recipes_sublist] && istype(recipe_list[recipes_sublist], /datum/stack_recipe_list))
-		var/datum/stack_recipe_list/srl = recipe_list[recipes_sublist]
-		recipe_list = srl.recipes
-	var/t1 = text("<HTML><HEAD><title>Constructions from []</title></HEAD><body><TT>Amount Left: []<br>", src, src.get_amount())
-	for(var/i=1;i<=recipe_list.len,i++)
-		var/E = recipe_list[i]
-		if (isnull(E))
-			t1 += "<hr>"
+
+	var/t1 = "<html><head><title>Constructions from [capitalize_first_letters(src.name)]</title></head><body><tt>Amount Left: [src.get_amount()]<br>"
+
+	if(sublist)
+		t1 += "<a href='?src=\ref[src];go_back=1'>Back</a><br>"
+	if(locate(/datum/stack_recipe_list) in recipes_sublist)
+		t1 += "<h2>Recipe Categories</h2>"
+	for(var/datum/stack_recipe_list/srl in recipes_sublist)
+		t1 += "<a href='?src=\ref[src];sublist=\ref[srl]'>[capitalize_first_letters(srl.title)]</a><br>"
+
+	if(locate(/datum/stack_recipe) in recipes_sublist)
+		var/sublist_title = sublist ? " ([capitalize_first_letters(sublist.title)])" : ""
+		t1 += "<h2>Recipes[sublist_title]</h2>"
+	for(var/datum/stack_recipe/R in recipes_sublist)
+		var/max_multiplier = round(src.get_amount() / R.req_amount)
+		var/title = ""
+		var/can_build = TRUE
+		can_build = (max_multiplier > 0)
+
+		if(R.res_amount > 1)
+			title += "[R.res_amount]x [R.title]\s"
+		else
+			title += "[capitalize_first_letters(R.title)]"
+
+		title += " ([R.req_amount] [src.singular_name]\s)"
+
+		if(can_build)
+			var/sublist_var = sublist ? "\ref[sublist]" : ""
+			t1 += "<a href='?src=\ref[src];make=\ref[R];sublist=[sublist_var];multiplier=1'>[title]</a>"
+		else
+			t1 += "<div class='no-build inline'>[title]</div><br>"
 			continue
 
-		if (i>1 && !isnull(recipe_list[i-1]))
-			t1+="<br>"
+		if(R.max_res_amount > 1 && max_multiplier > 1)
+			max_multiplier = min(max_multiplier, round(R.max_res_amount / R.res_amount))
+			t1 += " |"
+			var/list/multipliers = list(5, 10, 25)
+			for(var/n in multipliers)
+				if(max_multiplier >= n)
+					var/sublist_var = sublist ? "\ref[sublist]" : ""
+					t1 += " <a href='?src=\ref[src];make=\ref[R];sublist=[sublist_var];multiplier=[n]'>[n * R.res_amount]x</a>"
+			if(!(max_multiplier in multipliers))
+				var/sublist_var = sublist ? "\ref[sublist]" : ""
+				t1 += " <a href='?src=\ref[src];make=\ref[R];sublist=[sublist_var];multiplier=[max_multiplier]'>[max_multiplier * R.res_amount]x</a>"
+		t1 += "<br>"
 
-		if (istype(E, /datum/stack_recipe_list))
-			var/datum/stack_recipe_list/srl = E
-			t1 += "<a href='?src=\ref[src];sublist=[i]'>[srl.title]</a>"
+	t1 += "</tt></body></html>"
 
-		if (istype(E, /datum/stack_recipe))
-			var/datum/stack_recipe/R = E
-			var/max_multiplier = round(src.get_amount() / R.req_amount)
-			var/title
-			var/can_build = 1
-			can_build = can_build && (max_multiplier>0)
-			if (R.res_amount>1)
-				title+= "[R.res_amount]x [R.title]\s"
-			else
-				title+= "[R.title]"
-			title+= " ([R.req_amount] [src.singular_name]\s)"
-			if (can_build)
-				t1 += text("<A href='?src=\ref[src];sublist=[recipes_sublist];make=[i];multiplier=1'>[title]</A>  ")
-			else
-				t1 += text("[]", title)
-				continue
-			if (R.max_res_amount>1 && max_multiplier>1)
-				max_multiplier = min(max_multiplier, round(R.max_res_amount/R.res_amount))
-				t1 += " |"
-				var/list/multipliers = list(5,10,25)
-				for (var/n in multipliers)
-					if (max_multiplier>=n)
-						t1 += " <A href='?src=\ref[src];make=[i];multiplier=[n]'>[n*R.res_amount]x</A>"
-				if (!(max_multiplier in multipliers))
-					t1 += " <A href='?src=\ref[src];make=[i];multiplier=[max_multiplier]'>[max_multiplier*R.res_amount]x</A>"
-
-	t1 += "</TT></body></HTML>"
-	user << browse(t1, "window=stack")
-	onclose(user, "stack")
-	return
+	var/datum/browser/stack_win = new(user, "stack", capitalize_first_letters(name))
+	stack_win.set_content(t1)
+	stack_win.add_stylesheet("misc", 'html/browser/misc.css')
+	stack_win.open()
 
 /obj/item/stack/proc/produce_recipe(datum/stack_recipe/recipe, var/quantity, mob/user)
 	var/required = quantity*recipe.req_amount
@@ -132,70 +143,54 @@
 
 	if (!can_use(required))
 		if (produced>1)
-			to_chat(user, "<span class='warning'>You haven't got enough [src] to build \the [produced] [recipe.title]\s!</span>")
+			to_chat(user, SPAN_WARNING("You haven't got enough [src] to build \the [produced] [recipe.title]\s!"))
 		else
-			to_chat(user, "<span class='warning'>You haven't got enough [src] to build \the [recipe.title]!</span>")
+			to_chat(user, SPAN_WARNING("You haven't got enough [src] to build \the [recipe.title]!"))
 		return
 
 	if (recipe.one_per_turf && (locate(recipe.result_type) in user.loc))
-		to_chat(user, "<span class='warning'>There is another [recipe.title] here!</span>")
+		to_chat(user, SPAN_WARNING("There is another [recipe.title] here!"))
 		return
 
 	if (recipe.on_floor && !isfloor(user.loc))
-		to_chat(user, "<span class='warning'>\The [recipe.title] must be constructed on the floor!</span>")
+		to_chat(user, SPAN_WARNING("\The [recipe.title] must be constructed on the floor!"))
 		return
 
+	to_chat(user, SPAN_NOTICE("Building [recipe.title]..."))
 	if (recipe.time)
-		to_chat(user, "<span class='notice'>Building [recipe.title] ...</span>")
 		if (!do_after(user, recipe.time))
 			return
 
 	if (use(required))
-		var/atom/O
-		if(recipe.use_material)
-			O = new recipe.result_type(user.loc, recipe.use_material)
-		else
-			O = new recipe.result_type(user.loc)
-		O.set_dir(user.dir)
-		O.add_fingerprint(user)
-
-		if (istype(O, /obj/item/stack))
-			var/obj/item/stack/S = O
-			S.amount = produced
-			S.add_to_stacks(user)
-
-		if (istype(O, /obj/item/storage)) //BubbleWrap - so newly formed boxes are empty
-			for (var/obj/item/I in O)
-				qdel(I)
+		recipe.Produce(produced, user.loc, user.dir, user)
 
 /obj/item/stack/Topic(href, href_list)
 	..()
-	if ((usr.restrained() || usr.stat || usr.get_active_hand() != src))
+	if((usr.restrained() || usr.stat || usr.get_active_hand() != src))
 		return
 
-	if (href_list["sublist"] && !href_list["make"])
-		list_recipes(usr, text2num(href_list["sublist"]))
+	if(href_list["go_back"])
+		list_recipes(usr, recipes)
+		return
 
-	if (href_list["make"])
-		if (src.get_amount() < 1) qdel(src) //Never should happen
+	if(href_list["sublist"] && !href_list["make"])
+		var/datum/stack_recipe_list/recipe_list = locate(href_list["sublist"]) in recipes
+		list_recipes(usr, recipe_list.recipes, recipe_list)
 
-		var/list/recipes_list = recipes
-		if (href_list["sublist"])
-			var/datum/stack_recipe_list/srl = recipes_list[text2num(href_list["sublist"])]
-			recipes_list = srl.recipes
+	if(href_list["make"])
+		if(src.get_amount() < 1)
+			qdel(src) //Never should happen
 
-		var/datum/stack_recipe/R = recipes_list[text2num(href_list["make"])]
+		var/datum/stack_recipe/R = locate(href_list["make"]) in recipes
+		if(href_list["sublist"])
+			var/datum/stack_recipe_list/recipe_list = locate(href_list["sublist"]) in recipes
+			R = locate(href_list["make"]) in recipe_list.recipes
 		var/multiplier = text2num(href_list["multiplier"])
-		if (!multiplier || (multiplier <= 0)) //href exploit protection
+		if(!multiplier || (multiplier <= 0)) //href exploit protection
 			return
 
-		src.produce_recipe(R, multiplier, usr)
-
-	if (src && usr.machine==src) //do not reopen closed window
-		spawn( 0 )
-			src.interact(usr)
-			return
-	return
+		produce_recipe(R, multiplier, usr)
+		updateUsrDialog()
 
 //Return 1 if an immediate subsequent call to use() would succeed.
 //Ensures that code dealing with stacks uses the same logic
@@ -224,6 +219,7 @@
 			var/datum/matter_synth/S = synths[i]
 			if(!S.use_charge(charge_costs[i] * used)) // Doesn't need to be deleted
 				return 0
+		check_maptext(SMALL_FONTS(7, get_amount()))
 		return 1
 
 /obj/item/stack/proc/add(var/extra)
@@ -240,6 +236,7 @@
 		for(var/i = 1 to uses_charge)
 			var/datum/matter_synth/S = synths[i]
 			S.add_charge(charge_costs[i] * extra)
+		check_maptext(SMALL_FONTS(7, get_amount()))
 
 /*
 	The transfer and split procs work differently than use() and add().
@@ -277,7 +274,7 @@
 
 	var/orig_amount = src.get_amount()
 	if (transfer && src.use(transfer))
-		var/obj/item/stack/newstack = new src.type(loc, transfer)
+		var/obj/item/stack/newstack = new src.stacktype(loc, transfer)
 		newstack.color = color
 		if (prob(transfer/orig_amount * 100))
 			transfer_fingerprints_to(newstack)
@@ -318,7 +315,8 @@
 			continue
 		var/transfer = src.transfer_to(item)
 		if (transfer)
-			to_chat(user, "<span class='notice'>You add a new [item.singular_name] to the stack. It now contains [item.amount] [item.singular_name]\s.</span>")
+			to_chat(user, SPAN_NOTICE("You add a new [item.singular_name] to the stack. It now contains [item.amount] [item.singular_name]\s."))
+		item.update_icon()
 		if(!amount)
 			break
 
@@ -368,16 +366,44 @@
 	var/on_floor = 0
 	var/use_material
 
-	New(title, result_type, req_amount = 1, res_amount = 1, max_res_amount = 1, time = 0, one_per_turf = 0, on_floor = 0, supplied_material = null)
-		src.title = title
-		src.result_type = result_type
+/datum/stack_recipe/New(title, result_type, req_amount = 1, res_amount = 1, max_res_amount = 1, time = 0, one_per_turf = 0, on_floor = 0, supplied_material = null)
+	src.title = title
+	src.result_type = result_type
+	if(ispath(result_type, /obj/structure))
+		var/obj/structure/S = result_type
+		src.req_amount = initial(S.build_amt) ? initial(S.build_amt) : req_amount
+	else
 		src.req_amount = req_amount
-		src.res_amount = res_amount
-		src.max_res_amount = max_res_amount
-		src.time = time
-		src.one_per_turf = one_per_turf
-		src.on_floor = on_floor
-		src.use_material = supplied_material
+	src.res_amount = res_amount
+	src.max_res_amount = max_res_amount
+	src.time = time
+	src.one_per_turf = one_per_turf
+	src.on_floor = on_floor
+	src.use_material = supplied_material
+
+/datum/stack_recipe/proc/Produce(var/amount = 1, var/loc = null, var/dir = NORTH, var/user = null)
+	if(amount < 1)
+		return null
+
+	var/atom/O
+	if(use_material)
+		O = new result_type(loc, use_material)
+	else
+		O = new result_type(loc)
+	O.set_dir(dir)
+	O.add_fingerprint(user)
+
+	if (istype(O, /obj/item/stack))
+		var/obj/item/stack/S = O
+		S.amount = amount
+		S.update_icon()
+		if(user)
+			S.add_to_stacks(user)
+
+	if (istype(O, /obj/item/storage)) //BubbleWrap - so newly formed boxes are empty
+		for (var/obj/item/I in O)
+			qdel(I)
+	return O
 
 /*
  * Recipe list datum
@@ -385,6 +411,7 @@
 /datum/stack_recipe_list
 	var/title = "ERROR"
 	var/list/recipes = null
-	New(title, recipes)
-		src.title = title
-		src.recipes = recipes
+
+/datum/stack_recipe_list/New(new_title, new_recipes)
+	src.title = new_title
+	src.recipes = new_recipes

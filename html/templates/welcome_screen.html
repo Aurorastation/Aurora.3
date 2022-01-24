@@ -5,7 +5,10 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- Bootstrap -->
-		<link href="bootstrap.min.css" rel="stylesheet" media="screen">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="anonymous" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap-theme.min.css" crossorigin="anonymous" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
 		<style media="screen">
 			.nav-tabs>li.updated>a, .nav-tabs>li.updated>a:hover, .nav-tabs>li.updated>a:focus {
 				background-color: #fcf8e3;
@@ -60,8 +63,6 @@
 		</div>
 	</body>
 
-	<script src="jquery-2.0.0.min.js"></script>
-	<script src="bootstrap.min.js"></script>
 	<script src="ie-truth.min.js"></script>
 	<script src="conninfo.min.js"></script>
 	<script type="text/javascript">
@@ -137,7 +138,7 @@
 		}
 
 		// DOM ready function.
-		$(document).ready(function () {
+		$(function () {
 			// Handle tabs (mostly bootstrap).
 			$('#myTab a').click(function (e) {
 				e.preventDefault();
@@ -171,7 +172,7 @@
 
 
 			// Operations before closing.
-			$(window).unload(function() {
+			$(window).on('unload', function() {
 				try {
 					window.location = '?JSlink=updateHashes;' + jQuery.param(hashesToUpdate);
 				} catch (e) { }

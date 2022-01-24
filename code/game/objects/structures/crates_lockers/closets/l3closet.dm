@@ -11,8 +11,9 @@
 	icon_opened = "bio_generalopen"
 
 /obj/structure/closet/l3closet/general/fill()
-	new /obj/item/clothing/suit/bio_suit/general( src )
-	new /obj/item/clothing/head/bio_hood/general( src )
+	new /obj/item/clothing/suit/bio_suit/general(src)
+	new /obj/item/clothing/head/bio_hood/general(src)
+	new /obj/item/clothing/mask/gas/half(src)
 
 
 /obj/structure/closet/l3closet/virology
@@ -21,9 +22,9 @@
 	icon_opened = "bio_virologyopen"
 
 /obj/structure/closet/l3closet/virology/fill()
-	new /obj/item/clothing/suit/bio_suit/virology( src )
-	new /obj/item/clothing/head/bio_hood/virology( src )
-	new /obj/item/clothing/mask/breath(src)
+	new /obj/item/clothing/suit/bio_suit/virology(src)
+	new /obj/item/clothing/head/bio_hood/virology(src)
+	new /obj/item/clothing/mask/gas/half(src)
 	new /obj/item/tank/oxygen(src)
 
 
@@ -33,8 +34,9 @@
 	icon_opened = "bio_securityopen"
 
 /obj/structure/closet/l3closet/security/fill()
-	new /obj/item/clothing/suit/bio_suit/security( src )
-	new /obj/item/clothing/head/bio_hood/security( src )
+	new /obj/item/clothing/suit/bio_suit/security(src)
+	new /obj/item/clothing/head/bio_hood/security(src)
+	new /obj/item/clothing/mask/gas/half(src)
 
 
 /obj/structure/closet/l3closet/janitor
@@ -43,8 +45,8 @@
 	icon_opened = "bio_janitoropen"
 
 /obj/structure/closet/l3closet/janitor/fill()
-	new /obj/item/clothing/suit/bio_suit/janitor( src )
-	new /obj/item/clothing/head/bio_hood/janitor( src )
+	new /obj/item/clothing/suit/bio_suit/janitor(src)
+	new /obj/item/clothing/head/bio_hood/janitor(src)
 
 
 /obj/structure/closet/l3closet/scientist
@@ -53,5 +55,6 @@
 	icon_opened = "bio_scientistopen"
 
 /obj/structure/closet/l3closet/scientist/fill()
-	new /obj/item/clothing/suit/bio_suit/scientist( src )
-	new /obj/item/clothing/head/bio_hood/scientist( src )
+	new /obj/item/clothing/suit/bio_suit/scientist(src)
+	new /obj/item/clothing/head/bio_hood/scientist(src)
+	new /obj/item/clothing/mask/gas/half(src)

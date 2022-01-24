@@ -15,7 +15,8 @@
 	return 0
 
 /obj/item/proc/GetAccess()
-	return list()
+	var/obj/item/card/id = GetID()
+	return istype(id) ? id.GetAccess() : list()
 
 /obj/proc/GetID()
 	return null
@@ -41,30 +42,27 @@
 
 /proc/get_centcom_access(job)
 	switch(job)
-		if("VIP Guest")
-			return list(access_cent_general)
-		if("Custodian")
-			return list(access_cent_general, access_cent_living, access_cent_storage)
-		if("Thunderdome Overseer")
-			return list(access_cent_general, access_cent_thunder)
-		if("Intel Officer")
+		if("SCC Agent", "SCC Executive", "SCC Bodyguard")
+			return list(access_cent_general, access_cent_ccia, access_cent_specops)
+		if("CCIA Agent")
+			return list(access_cent_general, access_cent_ccia, access_cent_specops)
+		if("Emergency Response Team")
+			return list(access_cent_general, access_cent_specops, access_cent_living)
+		if("Odin Security")
+			return list(access_cent_general, access_cent_specops, access_cent_living)
+		if("Medical Doctor")
+			return list(access_cent_general, access_cent_medical)
+		if("Service")
 			return list(access_cent_general, access_cent_living)
-		if("Medical Officer")
-			return list(access_cent_general, access_cent_living, access_cent_medical)
 		if("Death Commando")
-			return list(access_cent_general, access_cent_specops, access_cent_living, access_cent_storage)
-		if("NanoTrasen Representative")
-			return list(access_cent_general, access_cent_living, access_cent_storage, access_cent_thunder, access_cent_medical, access_cent_specops, access_cent_teleporter)
-		if("Research Officer")
-			return list(access_cent_general, access_cent_specops, access_cent_medical, access_cent_teleporter, access_cent_storage)
+			return list(access_cent_general, access_cent_specops, access_cent_living, access_cent_storage, access_cent_medical)
 		if("BlackOps Commander")
 			return list(access_cent_general, access_cent_thunder, access_cent_specops, access_cent_living, access_cent_storage, access_cent_creed)
+		if("NanoTrasen Representative") //Adminspawn roles
+			return get_all_centcom_access()
 		if("Supreme Commander")
 			return get_all_centcom_access()
-		if("CCIA Agent")
-			return list(access_cent_general, access_cent_captain, access_cent_living, access_cent_storage)
-		if("Emergency Response Team")
-			return list(access_cent_general, access_cent_specops, access_cent_living, access_cent_storage)
+
 	log_debug("Invalid job [job] passed to get_centcom_access")
 	return list()
 
@@ -82,7 +80,7 @@
 	return list()
 
 /proc/get_distress_access()
-	return list(access_legion, access_distress, access_maint_tunnels, access_external_airlocks, access_security, access_engine, access_engine_equip, access_medical, access_research, access_atmospherics, access_medical_equip)
+	return list(access_legion, access_distress, access_maint_tunnels, access_external_airlocks, access_security, access_engine, access_engine_equip, access_medical, access_research, access_atmospherics, access_medical_equip, access_construction)
 
 /proc/get_distress_access_lesser()
 	return list(access_distress, access_external_airlocks)
@@ -203,23 +201,26 @@
 	return all_jobs
 
 /proc/get_all_centcom_jobs()
-	return list("VIP Guest",
-		"Custodian",
-		"Thunderdome Overseer",
-		"Intel Officer",
-		"General",
+	return list("NanoTrasen Representative",
+		"NanoTrasen Navy Officer",
+		"NanoTrasen Navy Captain",
+		"ERT Protection Detail",
+		"ERT Commander",
 		"Bluespace Technician",
-		"Internal Affairs Agent",
-		"VIP Guest",
-		"Medical Officer",
-		"Death Commando",
-		"Research Officer",
-		"BlackOps Commander",
-		"Supreme Commander",
+		"CCIA Agent",
+		"CCIA Escort",
+		"Odin Checkpoint Security",
+		"Odin Security",
+		"Aurora Prepatory Wing Security",
+		"Odin Medical Doctor",
+		"Odin Pharmacist",
+		"Odin Chef",
+		"Odin Bartender",
+		"Sanitation Specialist",
 		"Emergency Response Team",
 		"Emergency Response Team Leader",
 		"Emergency Responder",
-		"Central Command Internal Affairs Agent")
+		"Death Commando")
 
 /mob/proc/GetIdCard()
 	return null
@@ -239,18 +240,18 @@ var/obj/item/card/id/all_access/ghost_all_access
 /mob/living/simple_animal/spiderbot/GetIdCard()
 	return internal_id
 
-/mob/living/carbon/human/GetIdCard()
+/mob/living/carbon/human/GetIdCard(var/ignore_hand = FALSE)
+	var/obj/item/I = get_active_hand()
+	if(I && !ignore_hand)
+		var/id = I.GetID()
+		if(id)
+			return id
 	if(wear_id)
 		var/id = wear_id.GetID()
 		if(id)
 			return id
-	var/obj/item/I = get_active_hand()
-	if(I)
-		var/id = I.GetID()
-		if(id)
-			return id
-	if(gloves)
-		var/id = gloves.GetID()
+	if(wrists)
+		var/id = wrists.GetID()
 		if(id)
 			return id
 

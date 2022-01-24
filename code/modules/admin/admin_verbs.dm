@@ -30,6 +30,7 @@ var/list/admin_verbs_admin = list(
 	/datum/admins/proc/access_news_network,	/*allows access of newscasters*/
 	/client/proc/giveruntimelog,		/*allows us to give access to runtime logs to somebody*/
 	/client/proc/getserverlog,			/*allows us to fetch server logs (diary) for other days*/
+	/client/proc/view_signal_log,		/*allows admins to check the log of signaler uses*/
 	/client/proc/jumptocoord,			/*we ghost and jump to a coordinate*/
 	/client/proc/Getmob,				/*teleports a mob to our location*/
 	/client/proc/Getkey,				/*teleports a mob with a certain ckey to our location*/
@@ -48,7 +49,6 @@ var/list/admin_verbs_admin = list(
 	/client/proc/rename_silicon,		//properly renames silicons,
 	/client/proc/manage_silicon_laws,	// Allows viewing and editing silicon laws. ,
 	/client/proc/check_antagonists,
-	/client/proc/admin_memo_control,			/*admin memo system. show/delete/write. +SERVER needed to delete admin memos of others*/
 	/client/proc/dsay,					/*talk in deadchat using our ckey/fakekey*/
 	/client/proc/toggleprayers,			/*toggles prayers on/off*/
 //	/client/proc/toggle_hear_deadcast,	/*toggles whether we hear deadchat*/
@@ -72,13 +72,12 @@ var/list/admin_verbs_admin = list(
 	/client/proc/toggleghostwriters,
 	/client/proc/toggledrones,
 	/datum/admins/proc/show_skills,
-	/client/proc/check_customitem_activity,
+	/client/proc/damage_menu,
 	/client/proc/man_up,
 	/client/proc/global_man_up,
 	/client/proc/response_team, // Response Teams admin verb,
 	/client/proc/toggle_antagHUD_use,
 	/client/proc/toggle_antagHUD_restrictions,
-	/client/proc/allow_character_respawn,    // Allows a ghost to respawn ,
 	/client/proc/allow_stationbound_reset,
 	/client/proc/end_round,
 	/client/proc/event_manager_panel,
@@ -99,7 +98,9 @@ var/list/admin_verbs_admin = list(
 	/client/proc/wipe_ai,	// allow admins to force-wipe AIs
 	/client/proc/fix_player_list,
 	/client/proc/reset_openturf,
-	/client/proc/toggle_aooc
+	/client/proc/toggle_aooc,
+	/client/proc/force_away_mission,
+	/client/proc/alooc
 )
 var/list/admin_verbs_ban = list(
 	/client/proc/unban_panel,
@@ -135,8 +136,6 @@ var/list/admin_verbs_fun = list(
 	/client/proc/show_tip,
 	/client/proc/fab_tip,
 	/client/proc/apply_sunstate,
-	/client/proc/cure_traumas,
-	/client/proc/add_traumas,
 	/datum/admins/proc/ccannoucment
 	)
 
@@ -144,7 +143,6 @@ var/list/admin_verbs_spawn = list(
 	/client/proc/game_panel,
 	/datum/admins/proc/spawn_fruit,
 	/datum/admins/proc/spawn_custom_item,
-	/datum/admins/proc/check_custom_items,
 	/datum/admins/proc/spawn_plant,
 	/datum/admins/proc/spawn_atom,		// allows us to spawn instances,
 	/client/proc/respawn_character,
@@ -170,15 +168,14 @@ var/list/admin_verbs_server = list(
 	/datum/admins/proc/toggle_round_spookyness,
 	/datum/admins/proc/toggle_space_ninja,
 	/client/proc/toggle_random_events,
-	/client/proc/check_customitem_activity,
 	/client/proc/nanomapgen_DumpImage,
-	/client/proc/admin_edit_motd,
 	/client/proc/toggle_recursive_explosions,
 	/client/proc/restart_controller,
 	/client/proc/cmd_ss_panic,
 	/client/proc/configure_access_control,
 	/datum/admins/proc/togglehubvisibility, //toggles visibility on the BYOND Hub
-	/client/proc/dump_memory_usage
+	/client/proc/dump_memory_usage,
+	/client/proc/force_away_mission
 	)
 var/list/admin_verbs_debug = list(
 	/client/proc/getruntimelog,                     // allows us to access runtime logs to somebody,
@@ -196,7 +193,6 @@ var/list/admin_verbs_debug = list(
 	/client/proc/cmd_debug_tog_aliens,
 	/client/proc/air_report,
 	/client/proc/reload_admins,
-	/client/proc/reload_mentors,
 	/client/proc/print_random_map,
 	/client/proc/create_random_map,
 	/client/proc/apply_random_map,
@@ -266,6 +262,7 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/toggledrones,
 	/datum/admins/proc/show_skills,
 	/client/proc/restart_sql,
+	/client/proc/damage_menu,
 	/client/proc/man_up,
 	/client/proc/global_man_up,
 	/client/proc/connect_ntsl,
@@ -274,7 +271,6 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/toggle_antagHUD_use,
 	/client/proc/toggle_antagHUD_restrictions,
 	/client/proc/event_manager_panel,
-	/client/proc/admin_edit_motd,
 	/client/proc/empty_ai_core_toggle_latejoin,
 	/client/proc/empty_ai_core_toggle_latejoin,
 	/client/proc/cmd_admin_change_custom_event,
@@ -302,7 +298,6 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/add_client_color,
 	/datum/admins/proc/force_mode_latespawn,
 	/datum/admins/proc/toggleenter,
-	/client/proc/admin_memo_control,
 	/datum/admins/proc/toggleguests,
 	/datum/admins/proc/capture_map_part,
 	/client/proc/Set_Holiday,
@@ -352,12 +347,9 @@ var/list/admin_verbs_hideable = list(
 	/datum/admins/proc/call_drop_pod,
 	/datum/admins/proc/spawn_fruit,
 	/datum/admins/proc/spawn_custom_item,
-	/datum/admins/proc/check_custom_items,
 	/datum/admins/proc/spawn_plant,
 	/client/proc/show_plant_genes,
 	/datum/admins/proc/spawn_atom,
-	/client/proc/cure_traumas,
-	/client/proc/add_traumas,
 	/client/proc/respawn_character,
 	/client/proc/spawn_chemdisp_cartridge,
 	/client/proc/jobbans,
@@ -374,7 +366,6 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/cmd_debug_tog_aliens,
 	/client/proc/air_report,
 	/client/proc/reload_admins,
-	/client/proc/reload_mentors,
 	/client/proc/restart_controller,
 	/client/proc/print_random_map,
 	/client/proc/create_random_map,
@@ -403,11 +394,11 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/callproc,
 	/client/proc/callproc_target,
 	/client/proc/debug_controller,
-	/client/proc/check_customitem_activity,
 	/client/proc/print_logout_report,
 	/client/proc/edit_admin_permissions,
 	/proc/possess,
-	/proc/release
+	/proc/release,
+	/client/proc/force_away_mission
 	)
 var/list/admin_verbs_mod = list(
 	/client/proc/cmd_admin_pm_context,	// right-click adminPM interface,
@@ -427,9 +418,12 @@ var/list/admin_verbs_mod = list(
 	/datum/admins/proc/paralyze_mob,
 	/client/proc/toggleattacklogs,
 	/client/proc/cmd_admin_check_contents,
+	/client/proc/print_logout_report,
 	/client/proc/check_ai_laws,			/*shows AI and borg laws*/
 	/client/proc/aooc,
-	/client/proc/toggle_aooc
+	/client/proc/toggle_aooc,
+	/client/proc/alooc,
+	/client/proc/allow_character_respawn
 )
 
 var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
@@ -570,13 +564,13 @@ var/list/admin_verbs_cciaa = list(
 			ghost.reenter_corpse()
 			log_admin("[src] reentered their corpose using aghost.",admin_key=key_name(src))
 		else
-			to_chat(ghost, "<font color='red'>Error: Aghost: Can't reenter corpse.</font>")
+			to_chat(ghost, "<span class='warning'>Error: Aghost: Can't reenter corpse.</span>")
 			return
 
 		feedback_add_details("admin_verb","P") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 	else if(istype(mob,/mob/abstract/new_player))
-		to_chat(src, "<font color='red'>Error: Aghost: Can't admin-ghost whilst in the lobby. Join or Observe first.</font>")
+		to_chat(src, "<span class='warning'>Error: Aghost: Can't admin-ghost whilst in the lobby. Join or Observe first.</span>")
 	else
 		//ghostize
 		var/mob/body = mob
@@ -607,8 +601,7 @@ var/list/admin_verbs_cciaa = list(
 	set name = "Player Panel"
 	set category = "Admin"
 	if(holder)
-		if(!global_player_panel)
-			global_player_panel = new()
+		var/static/datum/vueui_module/player_panel/global_player_panel = new()
 		global_player_panel.ui_interact(usr)
 	feedback_add_details("admin_verb","PPM") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return
@@ -716,52 +709,6 @@ var/list/admin_verbs_cciaa = list(
 			explosion(epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range)
 	message_admins("<span class='notice'>[ckey] creating an admin explosion at [epicenter.loc].</span>")
 	feedback_add_details("admin_verb","DB") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
-/client/proc/cure_traumas(mob/T as mob in mob_list)
-	set category = "Fun"
-	set name = "Cure Traumas"
-	set desc = "Cure the traumas of a given mob."
-
-	if(!istype(T,/mob/living/carbon/human))
-		to_chat(usr, "This can only be done to instances of type /mob/living/carbon/human")
-		return
-
-	var/mob/living/carbon/human/C = T
-
-	C.cure_all_traumas(TRUE, CURE_ADMIN)
-	log_and_message_admins("<span class='notice'>cured [key_name(C)]'s traumas.</span>")
-	feedback_add_details("admin_verb","TB") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!\
-
-/client/proc/add_traumas(mob/T as mob in mob_list)
-	set category = "Fun"
-	set name = "Add Traumas"
-	set desc = "Induces traumas on a given mob."
-
-	if(!istype(T,/mob/living/carbon/human))
-		to_chat(usr, "This can only be done to instances of type /mob/living/carbon/human")
-		return
-
-	var/mob/living/carbon/human/C = T
-
-	var/list/traumas = subtypesof(/datum/brain_trauma)
-	var/result = input(usr, "Choose the brain trauma to apply","Traumatize") as null|anything in traumas
-	if(!result) return
-	var/permanent = alert("Do you want to make the trauma unhealable?", "Permanently Traumatize", "Yes", "No")
-	if(permanent == "Yes")
-		permanent = TRUE
-	else
-		permanent = FALSE
-	if(!usr)
-		return
-	if(!C)
-		to_chat(usr, "Mob doesn't exist anymore")
-		return
-
-	if(result)
-		C.gain_trauma(result, permanent)
-
-	log_and_message_admins("<span class='notice'>gave [key_name(C)] [result].</span>")
-	feedback_add_details("admin_verb","BT") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/make_sound(var/obj/O in range(world.view)) // -- TLE
 	set category = "Special Verbs"
@@ -912,7 +859,7 @@ var/list/admin_verbs_cciaa = list(
 	if(!H) return
 
 	log_and_message_admins("is altering the appearance of [H].")
-	H.change_appearance(APPEARANCE_ALL, usr, usr, check_species_whitelist = 0, state = admin_state)
+	H.change_appearance(APPEARANCE_ALL, usr, FALSE)
 	feedback_add_details("admin_verb","CHAA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/change_human_appearance_self()
@@ -931,11 +878,11 @@ var/list/admin_verbs_cciaa = list(
 
 	switch(alert("Do you wish for [H] to be allowed to select non-whitelisted races?","Alter Mob Appearance","Yes","No","Cancel"))
 		if("Yes")
-			log_and_message_admins("has allowed [H] to change \his appearance, without whitelisting of races.")
-			H.change_appearance(APPEARANCE_ALL, H.loc, check_species_whitelist = 0)
+			log_and_message_admins("has allowed [H] to change [H.get_pronoun("his")] appearance, without whitelisting of races.")
+			H.change_appearance(APPEARANCE_ALL, H, FALSE)
 		if("No")
-			log_and_message_admins("has allowed [H] to change \his appearance, with whitelisting of races.")
-			H.change_appearance(APPEARANCE_ALL, H.loc, check_species_whitelist = 1)
+			log_and_message_admins("has allowed [H] to change [H.get_pronoun("his")] appearance, with whitelisting of races.")
+			H.change_appearance(APPEARANCE_ALL, H, TRUE)
 	feedback_add_details("admin_verb","CMAS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/change_security_level()
@@ -970,7 +917,7 @@ var/list/admin_verbs_cciaa = list(
 	if(!istype(M, /mob/living/carbon/human))
 		to_chat(usr, "<span class='warning'>You can only do this to humans!</span>")
 		return
-	switch(alert("Are you sure you wish to edit this mob's appearance? Skrell, Unathi, Vox and Tajaran can result in unintended consequences.",,"Yes","No"))
+	switch(alert("Are you sure you wish to edit this mob's appearance? Skrell, Unathi and Tajaran can result in unintended consequences.",,"Yes","No"))
 		if("No")
 			return
 	var/new_facial = input("Please select facial hair color.", "Character Generation") as color
@@ -1037,16 +984,19 @@ var/list/admin_verbs_cciaa = list(
 	if(holder)
 		var/list/jobs = list()
 		for (var/datum/job/J in SSjobs.occupations)
-			if (J.current_positions >= J.total_positions && J.total_positions != -1)
+			if (J.current_positions >= J.get_total_positions() && J.get_total_positions() != -1)
 				jobs += J.title
 		if (!jobs.len)
-			to_chat(usr, "There are no fully staffed jobs.")
+			to_chat(usr, SPAN_NOTICE("There are no fully staffed jobs."))
 			return
-		var/job = input("Please select job slot to free", "Free job slot")  as null|anything in jobs
+		var/job = input("Please select job slot to free", "Free job slot") as null|anything in jobs
 		if (job)
-			SSjobs.FreeRole(job)
-			message_admins("A job slot for [job] has been opened by [key_name_admin(usr)]")
-			return
+			var/datum/job/J = SSjobs.GetJob(job)
+			if(istype(J))
+				J.total_positions++
+				message_admins("A job slot for [job] has been added by [key_name_admin(usr)]. The total is now [J.get_total_positions()] with [J.current_positions] positions occupied.")
+			else
+				to_chat(usr, SPAN_DANGER("Failed to increase total positions in job [job]."))
 
 /client/proc/toggleattacklogs()
 	set name = "Toggle Attack Log Messages"
@@ -1098,6 +1048,13 @@ var/list/admin_verbs_cciaa = list(
 	else
 		to_chat(usr, "You now won't get debug log messages")
 
+/client/proc/damage_menu(mob/living/carbon/human/H as null|mob in human_mob_list)
+	set name = "Damage Menu"
+	set desc = "Access a human mob's damage menu, allowing you to make their life hell."
+	set category = "Fun"
+
+	if(H)
+		new /datum/vueui_module/damage_menu(WEAKREF(H), usr)
 
 /client/proc/man_up(mob/T as mob in mob_list)
 	set category = "Fun"
@@ -1326,3 +1283,83 @@ var/list/admin_verbs_cciaa = list(
 		to_chat(usr, SPAN_WARNING("File creation failed. Please check to see if the data/logs/memory folder actually exists."))
 	else
 		to_chat(usr, SPAN_NOTICE("Memory dump completed."))
+
+
+/client/proc/force_away_mission()
+	set category = "Server"
+	set name = "Force Away Mission"
+	set desc = "Force a specific away mission to occur."
+
+	if (!check_rights(R_SERVER))
+		return
+
+	var/mission_name = input("Enter Mission Name or press cancel to Reset","Mission Name") as null|text
+	SSpersist_config.forced_awaymission = mission_name
+
+	if(!mission_name)
+		log_and_message_admins("reset the forced away mission.")
+	else
+		log_and_message_admins("forced the following away mission: [mission_name].")
+
+/client/proc/alooc(msg as text)
+	set name = "Admin LOOC"
+	set desc = "Admin Local OOC, seen only by those in view, regardless of their LOOC preferences."
+	set category = "Admin"
+
+	if(!check_rights(R_ADMIN|R_MOD))
+		return
+
+	if(!mob)
+		return
+
+	msg = sanitize(msg)
+	msg = process_chat_markup(msg, list("*"))
+	if(!msg)
+		return
+
+	log_ooc("(ADMIN LOCAL) [mob.name]/[key] : [msg]",ckey=key_name(mob))
+
+	var/mob/source = src.mob
+	var/list/messageturfs = list() //List of turfs we broadcast to.
+	var/list/messagemobs = list() //List of living mobs nearby who can hear it
+
+	for(var/turf in range(world.view, get_turf(source)))
+		messageturfs += turf
+	if(isAI(source))
+		var/mob/living/silicon/ai/AI = source
+		for(var/turf in range(world.view, get_turf(AI.eyeobj)))
+			messageturfs += turf
+
+	for(var/mob/M in player_list)
+		if(!M.client || istype(M, /mob/abstract/new_player))
+			continue
+		if(isAI(M))
+			var/mob/living/silicon/ai/AI = M
+			if(get_turf(AI.eyeobj) in messageturfs)
+				messagemobs += M
+				continue
+		if(get_turf(M) in messageturfs)
+			messagemobs += M
+
+	var/display_name = source.key
+	if(holder && holder.fakekey)
+		display_name = holder.fakekey
+
+	msg = process_chat_markup(msg, list("*"))
+
+	var/prefix
+	var/admin_stuff
+	for(var/client/target in clients)
+		admin_stuff = ""
+		var/display_remote = FALSE
+		if (target.holder && ((R_MOD|R_ADMIN) & target.holder.rights))
+			display_remote = TRUE
+		if(display_remote)
+			prefix = "(R)"
+			admin_stuff += "/([source.key])"
+			if(target != source.client)
+				admin_stuff += "(<A HREF='?src=\ref[target.holder];adminplayerobservejump=\ref[mob]'>JMP</A>)"
+		if(target.mob in messagemobs)
+			prefix = ""
+		if((target.mob in messagemobs) || display_remote)
+			to_chat(target, "<span class='ooc'><span class='adminlooc'>" + create_text_tag("ALOOC", target) + " <span class='prefix'>[prefix]</span><EM>[display_name][admin_stuff]:</EM> <span class='message linkify'>[msg]</span></span></span>")

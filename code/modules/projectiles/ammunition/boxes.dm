@@ -45,7 +45,7 @@
 
 /obj/item/ammo_magazine/c45x
 	name = "magazine (.45)"
-	icon_state = "45x-16"
+	icon_state = "45x"
 	origin_tech = list(TECH_COMBAT = 3)
 	mag_type = MAGAZINE
 	matter = list(DEFAULT_WALL_MATERIAL = 600)
@@ -56,13 +56,25 @@
 
 /obj/item/ammo_magazine/c45m
 	name = "magazine (.45)"
-	icon_state = "45-10"
+	icon_state = "45"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/c45
 	matter = list(DEFAULT_WALL_MATERIAL = 525) //metal costs are very roughly based around 1 .45 casing = 75 metal
 	caliber = ".45"
-	max_ammo = 7
+	max_ammo = 9
 	multiple_sprites = 1
+
+/obj/item/ammo_magazine/c45m/stendo
+	name = "extended magazine (.45)"
+	desc = "A custom .45 pistol magazine fitted with an extended baseplate, increasing capacity to eleven rounds."
+	icon_state = "45e"
+	max_ammo = 11
+
+/obj/item/ammo_magazine/c45m/lebman
+	name = "extended magazine (.45)"
+	desc = "A custom .45 pistol magazine made by welding two together. Has double the capacity of a normal magazine at eighteen rounds."
+	icon_state = "45l"
+	max_ammo = 18
 
 /obj/item/ammo_magazine/c45m/empty
 	initial_ammo = 0
@@ -79,6 +91,15 @@
 /obj/item/ammo_magazine/c45m/flash
 	name = "magazine (.45 flash)"
 	ammo_type = /obj/item/ammo_casing/c45/flash
+
+/obj/item/ammo_magazine/c45m/auto
+	name = "extended magazine (.45)"
+	icon_state = "45a"
+	desc = "A NanoTrasen-produced extended magazine for their Mk58 line of pistols. \
+	The overall construction has been strengthened to withstand the rigors of fully-automatic fire."
+	ammo_type = /obj/item/ammo_casing/c45
+	max_ammo = 16
+	multiple_sprites = 1
 
 /obj/item/ammo_magazine/mc10mm
 	name = "magazine (10mm)"
@@ -104,6 +125,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
 	max_ammo = 5
 	multiple_sprites = 1
+	insert_sound = 'sound/weapons/clip_insert.ogg'
 
 /obj/item/ammo_magazine/mc9mm
 	name = "magazine (9mm)"
@@ -113,13 +135,14 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 600)
 	caliber = "9mm"
 	ammo_type = /obj/item/ammo_casing/c9mm
-	max_ammo = 10
+	max_ammo = 12
 	multiple_sprites = 1
 
 /obj/item/ammo_magazine/mc9mm/empty
 	initial_ammo = 0
 
 /obj/item/ammo_magazine/mc9mm/flash
+	name = "magazine (9mm flash)"
 	ammo_type = /obj/item/ammo_casing/c9mm/flash
 
 /obj/item/ammo_magazine/c9mm
@@ -189,7 +212,7 @@
 	caliber = "a556"
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
 	ammo_type = /obj/item/ammo_casing/a556
-	max_ammo = 10
+	max_ammo = 30
 	multiple_sprites = 1
 
 /obj/item/ammo_magazine/a556/empty
@@ -204,6 +227,36 @@
 	icon_state = "5.56AP"
 	origin_tech = list(TECH_COMBAT = 3)
 	ammo_type = /obj/item/ammo_casing/a556/ap
+
+/obj/item/ammo_magazine/a556/carbine
+	name = "carbine magazine (5.56mm)"
+	icon_state = "5.56c"
+	desc = "A 5.56 ammo magazine fit for a carbine, not an assault rifle."
+	matter = list(DEFAULT_WALL_MATERIAL = 1250)
+	max_ammo = 15
+
+/obj/item/ammo_magazine/a556/carbine/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/a556/carbine/practice
+	name = "carbine magazine (5.56mm practice)"
+	ammo_type = /obj/item/ammo_casing/a556/practice
+
+/obj/item/ammo_magazine/a556/carbine/ap
+	name = "carbine magazine (5.56mm AP)"
+	icon_state = "5.56APc"
+	origin_tech = list(TECH_COMBAT = 3)
+	ammo_type = /obj/item/ammo_casing/a556/ap
+
+/obj/item/ammo_magazine/a556/makeshift
+	name = "makeshift magazine (5.56mm)"
+	icon_state = "5.56m"
+	origin_tech = list(TECH_COMBAT = 1)
+	matter = list(DEFAULT_WALL_MATERIAL = 600)
+	max_ammo = 7
+
+/obj/item/ammo_magazine/a556/makeshift/empty
+	initial_ammo = 0
 
 /obj/item/ammo_magazine/a50
 	name = "magazine (.50)"
@@ -279,6 +332,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
 	max_ammo = 5
 	multiple_sprites = 1
+	insert_sound = 'sound/weapons/clip_insert.ogg'
 
 /obj/item/ammo_magazine/boltaction/vintage
 	name = "vintage stripper clip"
@@ -313,7 +367,7 @@
 /obj/item/ammo_magazine/submachinedrum
 	name = "drum magazine (.45)"
 	icon_state = "tommy-drum"
-	w_class = 3 // Bulky ammo doesn't fit in your pockets!
+	w_class = ITEMSIZE_NORMAL // Bulky ammo doesn't fit in your pockets!
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/c45
 	matter = list(DEFAULT_WALL_MATERIAL = 3750)
@@ -417,12 +471,14 @@
 	ammo_type = /obj/item/ammo_casing/gauss
 	max_ammo = 7
 	multiple_sprites = 1
+	insert_sound = 'sound/weapons/railgun_insert.ogg'
+
 
 /obj/item/ammo_magazine/gauss/emp
 	name = "ion slug box"
 	icon_state = "empslugbox"
 	ammo_type = /obj/item/ammo_casing/gauss/emp
-
+	insert_sound = 'sound/weapons/railgun_insert_emp.ogg'
 
 /obj/item/ammo_magazine/plasma
 	name = "heavy duty plasma cell"
@@ -439,10 +495,15 @@
 	ammo_type = /obj/item/ammo_casing/plasma_bolt
 	max_ammo = 30
 
+/obj/item/ammo_magazine/plasma/light/pistol
+	name = "tiny plasma cell"
+	ammo_type = /obj/item/ammo_casing/plasma_bolt
+	max_ammo = 15
+
 /obj/item/ammo_magazine/nuke
 	name = "nuclear launcher cartridge"
 	icon_state = "nukemag"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	mag_type = MAGAZINE
 	caliber = "nuke"
 	ammo_type = /obj/item/ammo_casing/nuke

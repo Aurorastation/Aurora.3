@@ -8,11 +8,32 @@
 	. = ..()
 
 /mob/living/carbon/Life()
-	..()
+	if(!..())
+		return
+
+	UpdateStasis()
 
 	// Increase germ_level regularly
 	if(germ_level < GERM_LEVEL_AMBIENT && prob(30))	//if you're just standing there, you shouldn't get more germs beyond an ambient level
 		germ_level++
+
+	if(stat != DEAD && !InStasis())
+		//Breathing, if applicable
+		handle_breathing()
+
+		//Chemicals in the body
+		handle_chemicals_in_body()
+
+		//Random events (vomiting etc)
+		handle_random_events()
+
+		// eye, ear, brain damages
+		handle_disabilities()
+
+		//all special effects, stunned, weakened, jitteryness, hallucination, sleeping, etc
+		handle_statuses()
+
+		. = 1
 
 /mob/living/carbon/Destroy()
 	QDEL_NULL(touching)
@@ -41,7 +62,7 @@
 			if(src.hydration)
 				adjustHydrationLoss(hydration_loss*0.1)
 
-		if((FAT in src.mutations) && src.m_intent == "run" && src.bodytemperature <= 360)
+		if((FAT in src.mutations) && src.m_intent == M_RUN && src.bodytemperature <= 360)
 			src.bodytemperature += 2
 
 		// Moving around increases germ_level faster
@@ -86,7 +107,7 @@
 
 	if(M.a_intent != I_HELP)
 		var/action
-		switch(a_intent)
+		switch(M.a_intent)
 			if(I_GRAB)
 				action = "grabbed"
 			if(I_DISARM)
@@ -112,7 +133,6 @@
 			visible_message(SPAN_NOTICE("[M] [action] [src] waking [t_him] up!"))
 			sleeping = 0
 			willfully_sleeping = FALSE
-	return
 
 /mob/living/carbon/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
 	if(status_flags & GODMODE)
@@ -123,7 +143,7 @@
 		return 0
 
 	src.apply_damage(shock_damage, BURN, def_zone, used_weapon="Electrocution")
-	playsound(loc, "sparks", 50, 1, -1)
+	playsound(loc, /decl/sound_category/spark_sound, 50, 1, -1)
 	if(shock_damage > 15 || tesla_shock)
 		src.visible_message(
 			SPAN_WARNING("[src] was shocked by the [source]!"), \
@@ -146,11 +166,9 @@
 
 /mob/living/carbon/swap_hand()
 	var/obj/item/item_in_hand = src.get_active_hand()
-	if(item_in_hand) //this segment checks if the item in your hand is twohanded.
-		if(istype(item_in_hand,/obj/item/material/twohanded) || istype(item_in_hand,/obj/item/gun) || istype(item_in_hand,/obj/item/pickaxe))
-			if(item_in_hand:wielded == 1)
-				to_chat(usr, SPAN_WARNING("Your other hand is too busy holding the [item_in_hand.name]"))
-				return
+	if(item_in_hand && !item_in_hand.can_swap_hands(src)) //this segment checks if the item in your hand is twohanded.
+		to_chat(src, SPAN_WARNING("Your other hand is too busy holding \the [item_in_hand]!"))
+		return
 	src.hand = !src.hand
 	if(hud_used.l_hand_hud_object && hud_used.r_hand_hud_object)
 		if(hand)	//This being 1 means the left hand is in use
@@ -159,11 +177,6 @@
 		else
 			hud_used.l_hand_hud_object.icon_state = "l_hand_inactive"
 			hud_used.r_hand_hud_object.icon_state = "r_hand_active"
-	/*if (!( src.hand ))
-		src.hands.set_dir(NORTH)
-	else
-		src.hands.set_dir(SOUTH)*/
-	return
 
 /mob/living/carbon/proc/activate_hand(var/selhand) //0 or "r" or "right" for right hand; 1 or "l" or "left" for left hand.
 	if(istext(selhand))
@@ -235,10 +248,14 @@
 					status += "dangling uselessly"
 				if(org.status & ORGAN_BLEEDING)
 					status += SPAN_DANGER("bleeding")
-				if(status.len)
-					src.show_message("My [org.name] is [SPAN_WARNING("[english_list(status)].")]", 1)
+				var/output = ""
+				if(length(status))
+					output = "My [org.name] is [SPAN_WARNING("[english_list(status)].")]"
 				else
-					src.show_message("My [org.name] feels [SPAN_NOTICE("OK.")]" ,1)
+					output = "My [org.name] feels [SPAN_NOTICE("OK.")]"
+				if(length(org.implants))
+					output += " [SPAN_WARNING("I can feel something inside it.")]"
+				to_chat(src, output)
 
 			if((isskeleton(H)) && (!H.w_uniform) && (!H.wear_suit))
 				H.play_xylophone()
@@ -331,7 +348,7 @@
 /mob/living/carbon/can_use_hands()
 	if(handcuffed)
 		return 0
-	if(buckled && ! istype(buckled, /obj/structure/bed/chair)) // buckling does not restrict hands
+	if(buckled_to && ! istype(buckled_to, /obj/structure/bed/stool/chair)) // buckling does not restrict hands
 		return 0
 	return 1
 
@@ -346,8 +363,8 @@
 	else if (W == handcuffed)
 		handcuffed = null
 		update_inv_handcuffed()
-		if(buckled && buckled.buckle_require_restraints)
-			buckled.unbuckle_mob()
+		if(buckled_to && buckled_to.buckle_require_restraints)
+			buckled_to.unbuckle()
 
 	else if (W == legcuffed)
 		legcuffed = null
@@ -379,7 +396,7 @@
 	return
 
 /mob/living/carbon/slip(var/slipped_on,stun_duration=8)
-	if(buckled)
+	if(buckled_to)
 		return 0
 	stop_pulling()
 	to_chat(src, SPAN_WARNING("You slipped on [slipped_on]!"))
@@ -446,3 +463,35 @@
 
 /mob/living/carbon/proc/should_have_organ(var/organ_check)
 	return 0
+
+/mob/living/carbon/proc/SetStasis(var/factor, var/source = "misc")
+	if((species && (species.flags & NO_SCAN)) || isSynthetic())
+		return
+	stasis_sources[source] = factor
+
+/mob/living/carbon/InStasis()
+	if(!stasis_value)
+		return FALSE
+	return life_tick % stasis_value
+
+// call only once per run of life
+/mob/living/carbon/proc/UpdateStasis()
+	stasis_value = 0
+	if((species && (species.flags & NO_SCAN)) || isSynthetic())
+		return
+	for(var/source in stasis_sources)
+		stasis_value += stasis_sources[source]
+	stasis_sources.Cut()
+
+/mob/living/carbon/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
+	if(eyecheck() < intensity || override_blindness_check)
+		return ..()
+
+/mob/living/carbon/get_contained_external_atoms()
+	. = contents - internal_organs
+
+/mob/living/carbon/proc/is_drowsy()
+	return (drowsiness >= 5)
+
+/mob/living/carbon/proc/should_have_limb(var/organ_check)
+	return FALSE

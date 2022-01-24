@@ -42,17 +42,17 @@
 	explosion(get_turf(src), 1, 2, 3, 5)
 	qdel(src)
 
-/mob/living/silicon/robot/syndicate/proc/spawn_into_syndiborg(var/mob/user)
+/mob/living/silicon/robot/syndicate/assign_player(var/mob/user)
 	if(src.ckey)
 		return
 	src.ckey = user.ckey
-	SSghostroles.remove_spawn_atom("syndiborg", src)
 	if(assigned_antagonist)
 		assigned_antagonist.add_antagonist_mind(src.mind, TRUE)
 		if(assigned_antagonist.get_antag_radio())
 			module.channels[assigned_antagonist.get_antag_radio()] = TRUE
 			radio.recalculateChannels()
 	say("Boot sequence complete!")
+	return src
 
 //syndicate borg gear
 
@@ -78,6 +78,9 @@
 		list(mode_name="short bursts",   burst=5, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1,-2,-2), dispersion=list(0, 15, 15, 18, 18, 20))
 		)
 	has_safety = FALSE
+
+/obj/item/gun/energy/mountedsmg/mech
+	projectile_type = /obj/item/projectile/bullet/pistol/medium/mech
 
 /obj/item/gun/energy/crossbow/cyborg
 	name = "mounted energy-crossbow"

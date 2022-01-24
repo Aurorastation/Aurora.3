@@ -12,19 +12,20 @@
 	var/construct_op = 0
 
 
-/obj/machinery/telecomms/attackby(obj/item/P as obj, mob/user as mob)
+/obj/machinery/telecomms/attackby(obj/item/I, mob/user)
 
 	// Using a multitool lets you access the receiver's interface
-	if(P.ismultitool())
-		attack_hand(user)
+	if(I.ismultitool())
+		user.set_machine(src)
+		interact(user, I)
+		return
 
-
-	// REPAIRING: Use Nanopaste to repair 10-20 integrity points.
-	if(istype(P, /obj/item/stack/nanopaste))
-		var/obj/item/stack/nanopaste/T = P
+	// REPAIRING: Use Nanopaste to repair half of the system's integrity. At 24 machines, it will take 48 uses of nanopaste to repair the entire array.
+	if(istype(I, /obj/item/stack/nanopaste))
+		var/obj/item/stack/nanopaste/T = I
 		if (integrity < 100)               								//Damaged, let's repair!
 			if (T.use(1))
-				integrity = between(0, integrity + rand(10,20), 100)
+				integrity = between(0, initial(integrity) / 2, initial(integrity))
 				to_chat(usr, "You apply the Nanopaste to [src], repairing some of the damage.")
 		else
 			to_chat(usr, "This machine is already in perfect condition.")
@@ -33,44 +34,44 @@
 
 	switch(construct_op)
 		if(0)
-			if(P.isscrewdriver())
+			if(I.isscrewdriver())
 				to_chat(user, "You unfasten the bolts.")
-				playsound(src.loc, P.usesound, 50, 1)
+				playsound(src.loc, I.usesound, 50, 1)
 				construct_op ++
 		if(1)
-			if(P.isscrewdriver())
+			if(I.isscrewdriver())
 				to_chat(user, "You fasten the bolts.")
-				playsound(src.loc, P.usesound, 50, 1)
+				playsound(src.loc, I.usesound, 50, 1)
 				construct_op --
-			if(P.iswrench())
+			if(I.iswrench())
 				to_chat(user, "You dislodge the external plating.")
-				playsound(src.loc, P.usesound, 75, 1)
+				playsound(src.loc, I.usesound, 75, 1)
 				construct_op ++
 		if(2)
-			if(P.iswrench())
+			if(I.iswrench())
 				to_chat(user, "You secure the external plating.")
-				playsound(src.loc, P.usesound, 75, 1)
+				playsound(src.loc, I.usesound, 75, 1)
 				construct_op --
-			if(P.iswirecutter())
-				playsound(src.loc, P.usesound, 50, 1)
+			if(I.iswirecutter())
+				playsound(src.loc, I.usesound, 50, 1)
 				to_chat(user, "You remove the cables.")
 				construct_op ++
 				var/obj/item/stack/cable_coil/A = new /obj/item/stack/cable_coil( user.loc )
 				A.amount = 5
 				stat |= BROKEN // the machine's been borked!
 		if(3)
-			if(P.iscoil())
-				var/obj/item/stack/cable_coil/A = P
+			if(I.iscoil())
+				var/obj/item/stack/cable_coil/A = I
 				if (A.use(5))
 					to_chat(user, "<span class='notice'>You insert the cables.</span>")
 					construct_op--
 					stat &= ~BROKEN // the machine's not borked anymore!
 				else
 					to_chat(user, "<span class='warning'>You need five coils of wire for this.</span>")
-			if(P.iscrowbar())
+			if(I.iscrowbar())
 				to_chat(user, "You begin prying out the circuit board other components...")
-				playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
-				if(do_after(user,60/P.toolspeed))
+				playsound(src.loc, I.usesound, 50, 1)
+				if(do_after(user,60/I.toolspeed))
 					to_chat(user, "You finish prying out the components.")
 
 					// Drop all the component stuff
@@ -83,13 +84,13 @@
 						// manually find the components and drop them!
 						var/newpath = text2path(circuitboard)
 						var/obj/item/circuitboard/C = new newpath
-						for(var/I in C.req_components)
-							for(var/i = 1, i <= C.req_components[I], i++)
-								newpath = text2path(I)
+						for(var/component in C.req_components)
+							for(var/i = 1, i <= C.req_components[component], i++)
+								newpath = text2path(component)
 								var/obj/item/s = new newpath
 								s.forceMove(user.loc)
-								if(P.iscoil())
-									var/obj/item/stack/cable_coil/A = P
+								if(s.iscoil())
+									var/obj/item/stack/cable_coil/A = I
 									A.amount = 1
 
 						// Drop a circuit board too
@@ -102,24 +103,17 @@
 
 	update_icon()
 
-/obj/machinery/telecomms/attack_ai(var/mob/user as mob)
-	attack_hand(user)
-
-/obj/machinery/telecomms/attack_hand(var/mob/user as mob)
-
-	if(stat & (BROKEN|NOPOWER))
+/obj/machinery/telecomms/attack_ai(mob/living/silicon/user)
+	if(!ai_can_interact(user))
 		return
+	interact(user, user.get_multitool())
 
-	var/obj/item/device/multitool/P = user.get_multitool()
-
-	if(!P)
-		return
-
-	user.set_machine(src)
+/obj/machinery/telecomms/interact(mob/user, var/obj/item/device/multitool/M)
+	if(!M)
+		M = user.get_multitool()
 	var/dat
-	dat = "<font face = \"Courier\"><HEAD><TITLE>[src.name]</TITLE></HEAD><center><H3>[src.name] Access</H3></center>"
-	dat += "<br>[temp]<br>"
-	dat += "<br>Power Status: <a href='?src=\ref[src];input=toggle'>[src.toggled ? "On" : "Off"]</a>"
+	dat += "<br>[temp]<br><br>"
+	dat += "Power Status: <a href='?src=\ref[src];input=toggle'>[src.toggled ? "On" : "Off"]</a>"
 	if(on && toggled)
 		if(id != "" && id)
 			dat += "<br>Identification String: <a href='?src=\ref[src];input=id'>[id]</a>"
@@ -142,7 +136,7 @@
 			dat += "<li>\ref[T] [T.name] ([T.id])  <a href='?src=\ref[src];unlink=[i]'>\[X\]</a></li>"
 		dat += "</ol>"
 
-		dat += "<br>Filtering Frequencies: "
+		dat += "Filtering Frequencies: "
 
 		i = 0
 		if(length(freq_listening))
@@ -158,17 +152,19 @@
 		dat += "<br>  <a href='?src=\ref[src];input=freq'>\[Add Filter\]</a>"
 		dat += "<hr>"
 
-		if(P)
-			var/obj/machinery/telecomms/device = P.get_buffer()
+		if(M)
+			var/obj/machinery/telecomms/device = M.get_buffer()
 			if(istype(device))
-				dat += "<br><br>MULTITOOL BUFFER: [device] ([device.id]) <a href='?src=\ref[src];link=1'>\[Link\]</a> <a href='?src=\ref[src];flush=1'>\[Flush\]"
+				dat += "<br>MULTITOOL BUFFER: [device] ([device.id]) <a href='?src=\ref[src];link=1'>\[Link\]</a> <a href='?src=\ref[src];flush=1'>\[Flush\]</a>"
 			else
-				dat += "<br><br>MULTITOOL BUFFER: <a href='?src=\ref[src];buffer=1'>\[Add Machine\]</a>"
+				dat += "<br>MULTITOOL BUFFER: <a href='?src=\ref[src];buffer=1'>\[Add Machine\]</a>"
 
-	dat += "</font>"
 	temp = ""
-	user << browse(dat, "window=tcommachine;size=520x500;can_resize=0")
-	onclose(user, "dormitory")
+
+	var/datum/browser/tcomms_win = new(user, "tcommachine", "[name] Access", 520, 500)
+	tcomms_win.set_content(dat)
+	tcomms_win.set_window_options(replacetext(tcomms_win.window_options, "can_resize=1", "can_resize=0"))
+	tcomms_win.open()
 
 // Additional Options for certain machines. Use this when you want to add an option to a specific machine.
 // Example of how to use below.
@@ -343,7 +339,7 @@
 	usr.set_machine(src)
 	src.add_fingerprint(usr)
 
-	updateUsrDialog()
+	updateDialog()
 
 /obj/machinery/telecomms/proc/canAccess(var/mob/user)
 	if(issilicon(user) || in_range(user, src))

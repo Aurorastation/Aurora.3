@@ -12,14 +12,17 @@
 	turns_per_move = 5
 	speak_chance = 5
 	meat_type = /obj/item/reagent_containers/food/snacks/xenomeat
+	organ_names = list("chest", "lower body", "left arm", "right arm", "left leg", "right leg", "head")
 	response_help  = "pets"
 	response_disarm = "shoves"
 	response_harm   = "harmlessly punches"
+	blood_overlay_icon = null
 	maxHealth = 450
 	health = 450
 	harm_intent_damage = 0
 	melee_damage_lower = 30
 	melee_damage_upper = 30
+	resist_mod = 10
 	mob_size = 30
 	environment_smash = 2
 	attacktext = "chomped"

@@ -9,6 +9,7 @@
 	maxHealth = 80
 	melee_damage_lower = 25
 	melee_damage_upper = 50
+	organ_names = list("meaty core")
 	attacktext = "chomped"
 	attack_sound = 'sound/weapons/bite.ogg'
 	faction = "creature"

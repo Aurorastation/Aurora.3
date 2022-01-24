@@ -27,11 +27,11 @@
 
 /datum/religion/autakh
 	name = RELIGION_AUTAKH
-	description = "The Aut'akh are a religious commune of cybernetically-augmented Unathi. In the safety of their ships and bunker complexes they know a remarkably efficient life, with \
-	few accidents and a smoothly running operations despite relatively poor conditions. Their society is guided, but not controlled, by Sk'akh manifesting in their operating system \
-	calledOss. Oss communicates with its followers through a commune's network called the Mesh, giving Aut'akh the tools they need to create and run their society. The Aut'akh are \
-	highly emotional but very friendly, approaching others with a sort of serene contentment. The Aut'akh believe that Sk'akh made the universe, but that demonic entities manifested \
-	within all beings. These demons are given power within a being when the person succumbs to greed, anger, or other vices. Aut'akh preach that the Contact War was the result of \
-	Sinta's being so consumed by the demons within them that they brought the world to ruin, and that all Sinta'Unathi are now cursed and forever barred from joining Sk'akh, doomed \
-	to forever reincarnate."
-	book_name = "Oss codex"
+	description = "Coming from radicalized and sidelined views of former warriors, the Aut'akh are a religious commune of cybernetically-augmented Unathi. They live in the relative safety \
+	 of their communes scattered across various towns, planets, and systems, though have yet to truly attain their perfect leaderless society, as their own supposedly-defeated prejudice \
+	 still runs in quiet circles within communes. Meanwhile, society often rebukes and ridicules these fanatical trans-speciests. Their lives are gently guided by the shamans or \"paradigms,\" \
+	 which sometimes act as the biomechanical engineers of these groups. The Aut'akh believe that spirits inhabit all things, much like the Th'akh religion. However, they also believe the flesh's \
+	 weakness hampers the soul, thus evil spirits can manipulate people's minds and souls to commit evil acts. These malicious spirits are given power within a being when the person succumbs to greed, \
+	 anger, or other emotional vices. Aut'akh preach that the Contact War was the result of sinta being so misled by evil spirits that they brought the world to ruin, and all power, whether a government, \
+	 religion, or corporation, is inherently corrupt due to the influence of evil spirits."
+	book_name = "Rituals and Regiments of the Ancient Mador"

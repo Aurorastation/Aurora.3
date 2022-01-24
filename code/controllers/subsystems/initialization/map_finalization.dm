@@ -73,9 +73,9 @@
 			log_ss("map_finalization", "Error while creating away mission datum: [ec]")
 			continue
 
-		if(length(am.valid_maps))
-			if(!(current_map.name in am.valid_maps))
-				log_ss("map_finalization", "[current_map.name] is not a valid map for [am.name]")
+		if(length(am.valid_sectors))
+			if(!(SSatlas.current_sector.name in am.valid_sectors))
+				log_ss("map_finalization", "[SSatlas.current_sector.name] is not a valid map for [am.name]")
 				continue
 
 		if(!am.validate_maps(folder))
@@ -94,14 +94,15 @@
 	log_ss("map_finalization", "Loaded ruin config.")
 
 	//Check if we have a enforced mission we should try to load.
-	if(SSpersist_config.forced_awaymission in mission_list)
-		selected_mission = mission_list[SSpersist_config.forced_awaymission]
-		log_ss("map_finalization", "Selected enforced away mission.")
-		admin_notice(SPAN_DANGER("Selected enforced away mission."), R_DEBUG)
-		return
-	else
-		log_ss("map_finalization", "Failed to selected enforced away mission. Fallback to weighted selection.")
-		admin_notice(SPAN_DANGER("Failed to selected enforced away mission. Fallback to weighted selection."), R_DEBUG)
+	if(SSpersist_config.forced_awaymission)
+		if(SSpersist_config.forced_awaymission in mission_list)
+			selected_mission = mission_list[SSpersist_config.forced_awaymission]
+			log_ss("map_finalization", "Selected enforced away mission.")
+			admin_notice(SPAN_DANGER("Selected enforced away mission."), R_DEBUG)
+			return
+		else
+			log_ss("map_finalization", "Failed to selected enforced away mission. Fallback to weighted selection.")
+			admin_notice(SPAN_DANGER("Failed to selected enforced away mission. Fallback to weighted selection."), R_DEBUG)
 
 	var/mission_name = pickweight(weighted_mission_list)
 	selected_mission = mission_list[mission_name]

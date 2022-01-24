@@ -14,10 +14,10 @@
 		ui.update_icon()
 	cancel()
 
-/datum/psi_complexus/proc/get_armour(var/armourtype)
+/datum/psi_complexus/proc/get_armor(var/armortype)
 	if(can_use_passive())
 		last_armor_check = world.time
-		return round(Clamp(Clamp(4 * rating, 0, 20) * get_rank(SSpsi.armour_faculty_by_type[armourtype]), 0, 100) * (stamina/max_stamina))
+		return round(Clamp(Clamp(4 * rating, 0, 20) * get_rank(SSpsi.armor_faculty_by_type[armortype]), 0, 100) * (stamina/max_stamina))
 	else
 		last_armor_check = 0
 		return 0

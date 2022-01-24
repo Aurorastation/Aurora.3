@@ -8,6 +8,7 @@
 	icon_gib = "syndicate_gib"
 	speak_chance = 0
 	turns_per_move = 5
+	organ_names = list("chest", "lower body", "left arm", "right arm", "left leg", "right leg", "head")
 	response_help = "pokes"
 	response_disarm = "shoves"
 	response_harm = "hits"
@@ -46,7 +47,7 @@
 	projectiletype = /obj/item/projectile/bullet
 	projectilesound = 'sound/weapons/gunshot/gunshot1.ogg'
 	casingtype = /obj/item/ammo_casing/a357
-	smart = TRUE
+	smart_ranged = TRUE
 
 /mob/living/simple_animal/hostile/russian/death()
 	..()

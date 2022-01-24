@@ -31,10 +31,4 @@
 	icon_state = "mainboard"
 	origin_tech = list(TECH_DATA = 4, TECH_COMBAT = 3)
 
-/obj/item/circuitboard/exosystem/advweapons
-	name = T_BOARD_MECHA("advanced weapon systems")
-	contains_software = list(MECH_SOFTWARE_ADVWEAPONS)
-	icon_state = "mainboard"
-	origin_tech = list(TECH_DATA = 4, TECH_COMBAT = 5)
-
 #undef T_BOARD_MECHA

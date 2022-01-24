@@ -1,9 +1,5 @@
 /datum/design/item/modular_weapon
-	design_order = 2.5
-
-/datum/design/item/modular_weapon/AssembleDesignName()
-	..()
-	name = "Modular Weapon Design ([capitalize_first_letters(item_name)])"
+	p_category = "Modular Weapon Designs"
 
 /datum/design/item/modular_weapon/firing_pin
 	req_tech = list(TECH_MATERIAL = 1)
@@ -247,3 +243,8 @@
 	req_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4, TECH_ILLEGAL = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 1000, MATERIAL_PHORON = 3000)
 	build_path = /obj/item/laser_components/modulator/net
+
+/datum/design/item/modular_weapon/freezing_ray
+	req_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 5, TECH_MATERIAL = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 2000, MATERIAL_GLASS = 1000, MATERIAL_URANIUM = 500)
+	build_path = /obj/item/laser_components/modulator/freeze

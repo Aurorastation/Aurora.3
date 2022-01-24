@@ -2,9 +2,10 @@
 
 /mob/abstract/new_player
 	var/ready = 0
-	var/spawning = 0//Referenced when you want to delete the new_player later on in the code.
-	var/totalPlayers = 0		 //Player counts for the Lobby tab
+	var/spawning = 0 //Referenced when you want to delete the new_player later on in the code
+	var/totalPlayers = 0 //Player counts for the Lobby tab
 	var/totalPlayersReady = 0
+	var/datum/late_choices/late_choices_ui = null
 	universal_speak = 1
 
 	invisibility = 101
@@ -21,6 +22,10 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 /mob/abstract/new_player/Initialize()
 	. = ..()
 	dead_mob_list -= src
+
+/mob/abstract/new_player/Destroy()
+	QDEL_NULL(late_choices_ui)
+	return ..()
 
 /mob/abstract/new_player/Stat()
 	..()
@@ -44,9 +49,9 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			totalPlayers = 0
 			totalPlayersReady = 0
 			for(var/mob/abstract/new_player/player in player_list)
-				stat("[player.key]", (player.ready)?("(Playing)"):(null))
 				totalPlayers++
 				if(player.ready)
+					stat("[copytext_char(player.client.prefs.real_name, 1, 18)]", ("[player.client.prefs.return_chosen_high_job(TRUE)]"))
 					totalPlayersReady++
 
 /mob/abstract/new_player/Topic(href, href_list[])
@@ -63,7 +68,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 				alert(src, "You have not saved your character yet. Please do so before readying up.")
 				return
 			if(client.unacked_warning_count > 0)
-				alert(src, "You can not ready up, because you have unacknowledged warnings. Acknowledge your warnings in OOC->Warnings and Notifications.")
+				alert(src, "You can not ready up, because you have unacknowledged warnings or notifications. Acknowledge them in OOC->Warnings and Notifications.")
 				return
 
 			ready = text2num(href_list["ready"])
@@ -116,7 +121,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			return
 
 		if(client.unacked_warning_count > 0)
-			alert(usr, "You can not join the game, because you have unacknowledged warnings. Acknowledge your warnings in OOC->Warnings and Notifications.")
+			alert(usr, "You can not join the game, because you have unacknowledged warnings or notifications. Acknowledge them in OOC->Warnings and Notifications.")
 			return
 
 		var/datum/species/S = all_species[client.prefs.species]
@@ -269,11 +274,12 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	character.lastarea = get_area(loc)
 	// Moving wheelchair if they have one
-	if(character.buckled && istype(character.buckled, /obj/structure/bed/chair/wheelchair))
-		character.buckled.forceMove(character.loc)
-		character.buckled.set_dir(character.dir)
+	if(character.buckled_to && istype(character.buckled_to, /obj/structure/bed/stool/chair/office/wheelchair))
+		character.buckled_to.forceMove(character.loc)
+		character.buckled_to.set_dir(character.dir)
 
 	SSticker.mode.handle_latejoin(character)
+	universe.OnPlayerLatejoin(character)
 	if(SSjobs.ShouldCreateRecords(character.mind))
 		if(character.mind.assigned_role != "Cyborg")
 			SSrecords.generate_record(character)
@@ -295,52 +301,11 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		global_announcer.autosay("A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "has arrived on the station"].", "Arrivals Announcement Computer")
 
 /mob/abstract/new_player/proc/LateChoices()
-	var/name = client.prefs.real_name
-
-	var/dat = "<center>"
-	dat += "<b>Welcome, [name].<br></b>"
-	dat += "Round Duration: [get_round_duration_formatted()]<br>"
-	dat += "Alert Level: [capitalize(get_security_level())]<br>"
-
-	if(emergency_shuttle) //In case Nanotrasen decides reposess CentComm's shuttles.
-		if(emergency_shuttle.going_to_centcom()) //Shuttle is going to centcomm, not recalled
-			dat += "<font color='red'><b>The station has been evacuated.</b></font><br>"
-		if(emergency_shuttle.online())
-			if (emergency_shuttle.evac)	// Emergency shuttle is past the point of no recall
-				dat += "<font color='red'>The station is currently undergoing evacuation procedures.</font><br>"
-			else						// Crew transfer initiated
-				dat += "<font color='red'>The station is currently undergoing crew transfer procedures.</font><br>"
-
-	var/unique_role_available = FALSE
-	for(var/ghost_role in SSghostroles.spawners)
-		var/datum/ghostspawner/G = SSghostroles.spawners[ghost_role]
-		if(!G.show_on_job_select)
-			continue
-		if(!G.enabled)
-			continue
-		if(!isnull(G.req_perms))
-			continue
-		unique_role_available = TRUE
-		break
-
-	if(unique_role_available)
-		dat += "<font color='[COLOR_BRIGHT_GREEN]'><b>A unique ghost role is available:</b></font><br>"
-	dat += "<a href='byond://?src=\ref[src];ghostspawner=1'>Ghost Spawner Menu</A><br>"
-
-	dat += "Choose from the following open/valid positions:<br>"
-	for(var/datum/job/job in SSjobs.occupations)
-		if(job && IsJobAvailable(job.title))
-			var/active = 0
-			// Only players with the job assigned and AFK for less than 10 minutes count as active
-			for(var/mob/M in player_list) //Added isliving check here, so it won't check ghosts and qualify them as active
-				if(isliving(M) && M.mind && M.client && M.mind.assigned_role == job.title && M.client.inactivity <= 10 MINUTES)
-					active++
-			dat += "<a href='byond://?src=\ref[src];SelectedJob=[job.title]'>[client.prefs.GetPlayerAltTitle(job)] ([job.current_positions]) (Active: [active])</a><br>"
-
-	dat += "</center>"
-	send_theme_resources(src)
-	src << browse(enable_ui_theme(src, dat), "window=latechoices;size=300x640;can_close=1")
-
+	if(!istype(late_choices_ui))
+		late_choices_ui = new(src)
+	else // if the UI exists force refresh it
+		late_choices_ui.ui_refresh()
+	late_choices_ui.ui_open()
 
 /mob/abstract/new_player/proc/create_character()
 	spawning = 1
@@ -378,6 +343,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	else
 		client.prefs.copy_to(new_character)
 
+	client.autohiss_mode = client.prefs.autohiss_setting
+
 	src << sound(null, repeat = 0, wait = 0, volume = 85, channel = 1) // MAD JAMS cant last forever yo)
 
 	if(mind)
@@ -389,6 +356,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	new_character.dna.ready_dna(new_character)
 	new_character.dna.b_type = client.prefs.b_type
 	new_character.sync_organ_dna()
+	new_character.fixblood() // now that dna is set
 	if(client.prefs.disabilities & NEARSIGHTED)
 		// Set defer to 1 if you add more crap here so it only recalculates struc_enzymes once. - N3X
 		new_character.dna.SetSEState(GLASSESBLOCK,1,0)
@@ -408,19 +376,13 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	return new_character
 
 /mob/abstract/new_player/proc/ViewManifest()
-	var/dat = "<html><body>"
-	dat += "<h4>Show Crew Manifest</h4>"
-	dat += SSrecords.get_manifest(OOC = 1)
-
-	send_theme_resources(src)
-	src << browse(enable_ui_theme(src, dat), "window=manifest;size=370x420;can_close=1")
+	SSrecords.open_manifest_vueui(src)
 
 /mob/abstract/new_player/Move()
 	return 0
 
 /mob/abstract/new_player/proc/close_spawn_windows()
-	src << browse(null, "window=latechoices") //closes late choices window)
-	src << browse(null, "window=playersetup") //closes the player setup window)
+	src << browse(null, "window=playersetup") //closes the player setup window
 
 /mob/abstract/new_player/proc/has_admin_rights()
 	return check_rights(R_ADMIN, 0, src)
@@ -435,7 +397,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		chosen_species = all_species[client.prefs.species]
 
 	if(!chosen_species)
-		return "Human"
+		return SPECIES_HUMAN
 
 	if(is_species_whitelisted(chosen_species) || has_admin_rights())
 		if (reference)
@@ -443,7 +405,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		else
 			return chosen_species.name
 
-	return "Human"
+	return SPECIES_HUMAN
 
 /mob/abstract/new_player/get_gender()
 	if(!client || !client.prefs)
@@ -456,7 +418,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 /mob/abstract/new_player/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "",var/italics = 0, var/mob/speaker = null)
 	return
 
-/mob/abstract/new_player/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/mob/speaker = null, var/hard_to_hear = 0)
+/mob/abstract/new_player/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/part_c, var/mob/speaker = null, var/hard_to_hear = 0)
 	return
 
 /mob/abstract/new_player/MayRespawn()

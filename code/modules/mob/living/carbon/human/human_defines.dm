@@ -5,6 +5,12 @@
 	var/b_hair = 0
 	var/h_style = "Bald"
 
+	//Hair gradient color and style
+	var/r_grad = 0
+	var/g_grad = 0
+	var/b_grad = 0
+	var/g_style = "None"
+
 	//Facial hair colour and style
 	var/r_facial = 0
 	var/g_facial = 0
@@ -35,8 +41,10 @@
 	var/list/all_underwear = list()
 	var/list/all_underwear_metadata = list()
 	var/list/hide_underwear = list()
-	var/backbag = 2		//Which backpack type the player has chosen. Nothing, Satchel or Backpack.
+	var/backbag = OUTFIT_BACKPACK		//Which backpack type the player has chosen. Nothing, Satchel or Backpack.
 	var/backbag_style = 1
+	var/pda_choice = OUTFIT_TAB_PDA
+	var/headset_choice = OUTFIT_HEADSET
 
 	var/last_chew = 0 // Used for hand chewing
 
@@ -44,7 +52,6 @@
 	var/citizenship = ""
 	var/employer_faction = ""
 	var/religion = ""
-	var/accent = ""
 
 	//Equipment slots
 	var/obj/item/wear_suit = null
@@ -60,6 +67,7 @@
 	var/obj/item/r_store = null
 	var/obj/item/l_store = null
 	var/obj/item/s_store = null
+	var/obj/item/wrists = null
 
 	var/used_skillpoints = 0
 	var/skill_specialization = null
@@ -87,7 +95,7 @@
 	var/hand_blood_color
 
 	var/list/flavor_texts = list()
-	var/gunshot_residue
+	var/list/gunshot_residue
 	var/pulling_punches // Are you trying not to hurt your opponent?
 
 	mob_bump_flag = HUMAN
@@ -103,7 +111,7 @@
 	var/list/equipment_overlays = list()	// Extra overlays from equipped items
 
 	var/is_noisy = FALSE		// if TRUE, movement should make sound.
-	var/bodyfall_sound = "bodyfall"
+	var/bodyfall_sound = /decl/sound_category/bodyfall_sound
 
 	var/last_x = 0
 	var/last_y = 0
@@ -114,4 +122,7 @@
 
 	var/datum/unarmed_attack/default_attack	//default unarmed attack
 
-	var/datum/martial_art/martial_art = null
+	var/datum/martial_art/primary_martial_art = null
+	var/list/datum/martial_art/known_martial_arts = null
+
+	var/triage_tag = TRIAGE_NONE

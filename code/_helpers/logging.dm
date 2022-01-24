@@ -12,6 +12,9 @@
 #define SEVERITY_INFO     6 //Informational: informational messages
 #define SEVERITY_DEBUG    7 //Debug: debug-level messages
 
+#define WRITE_LOG(log, text) rustg_log_write(log, text, "true")
+#define WRITE_LOG_NO_FORMAT(log, text) rustg_log_write(log, text, "false")
+
 /var/global/log_end = world.system_type == UNIX ? ascii2text(13) : ""
 
 // logging.dm
@@ -49,6 +52,14 @@
 	if (config.log_admin)
 		game_log("ADMIN", text)
 	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="ADMIN",additional_data=list("_ckey"=html_encode(ckey),"_admin_key"=html_encode(admin_key),"_ckey_target"=html_encode(ckey_target)))
+
+/proc/log_signal(var/text)
+	if(length(signal_log) >= 100)
+		signal_log.Cut(1, 2)
+	signal_log.Add("|[time_stamp()]| [text]")
+	if(config.log_signaler)
+		game_log("SIGNALER", text)
+	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=SEVERITY_NOTICE,category="SIGNALER")
 
 /proc/log_debug(text,level = SEVERITY_DEBUG)
 	if (config.log_debug)
@@ -121,17 +132,6 @@
 	if (config.log_adminchat)
 		game_log("ADMINSAY", text)
 	send_gelf_log(short_message = text, long_message = "[time_stamp()]: [text]",level = SEVERITY_NOTICE, category = "ADMINSAY")
-
-/proc/log_pda(text, level = SEVERITY_NOTICE, ckey = "", ckey_target = "")
-	if (config.log_pda)
-		game_log("PDA", text)
-	send_gelf_log(
-		short_message = text,
-		long_message = "[time_stamp()]: [text]",
-		level = level,
-		category="PDA",
-		additional_data = list("_ckey" = html_encode(ckey), "_ckey_target" = html_encode(ckey_target))
-	)
 
 /proc/log_ntirc(text, level = SEVERITY_NOTICE, ckey = "", conversation = "")
 	if (config.log_pda)

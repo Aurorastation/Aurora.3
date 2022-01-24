@@ -10,7 +10,8 @@ STOCK_ITEM_COMMON(toolbox, 4)
 STOCK_ITEM_COMMON(meds, 5)
 	new /obj/random/medical(L)
 	new /obj/random/medical(L)
-	new /obj/random/medical(L)
+	if(prob(50))
+		new /obj/random/medical(L)
 
 STOCK_ITEM_COMMON(steel, 7)
 	new /obj/item/stack/material/steel(L, 50)
@@ -45,14 +46,13 @@ STOCK_ITEM_COMMON(lightreplacer, 1)
 STOCK_ITEM_COMMON(bodybag, 2.2)
 	if(prob(25))
 		new /obj/item/bodybag/cryobag(L)
-		new /obj/item/bodybag/cryobag(L)
 		if(prob(50))
 			new /obj/item/bodybag/cryobag(L)
 			new /obj/item/bodybag/cryobag(L)
 	else
 		new /obj/item/storage/box/bodybags(L)
 
-STOCK_ITEM_COMMON(lamp, 2.4)
+STOCK_ITEM_COMMON(lamp, 2)
 	var/obj/item/device/flashlight/lamp/P
 	if(prob(50))
 		P = new /obj/item/device/flashlight/lamp/green(L)
@@ -70,8 +70,6 @@ STOCK_ITEM_COMMON(sterile, 2)
 
 STOCK_ITEM_COMMON(light, 1.8)
 	new /obj/item/storage/box/lights/mixed(L)
-	if(prob(50))
-		new /obj/item/storage/box/lights/mixed(L)
 	if(prob(25))
 		new /obj/item/storage/box/lights/coloredmixed(L)
 	if(prob(15))
@@ -89,16 +87,16 @@ STOCK_ITEM_COMMON(aid, 4)
 	new /obj/random/firstaid(L)
 
 STOCK_ITEM_COMMON(flame, 2)
-	new /obj/item/storage/box/matches(L)
+	new /obj/item/storage/box/fancy/matches(L)
 	new /obj/item/flame/lighter/random(L)
 
 STOCK_ITEM_COMMON(candles, 1.5)
-	new /obj/item/storage/fancy/candle_box(L)
+	new /obj/item/storage/box/fancy/candle_box(L)
 	if(prob(75))
-		new /obj/item/storage/fancy/candle_box(L)
+		new /obj/item/storage/box/fancy/candle_box(L)
 
 STOCK_ITEM_COMMON(crayons, 1.5)
-	new /obj/item/storage/fancy/crayons(L)
+	new /obj/item/storage/box/fancy/crayons(L)
 
 STOCK_ITEM_COMMON(figure, 1)
 	new /obj/random/action_figure(L)
@@ -121,7 +119,7 @@ STOCK_ITEM_COMMON(vials, 2)
 	if(prob(20))
 		new /obj/item/storage/lockbox/vials(L)
 	else
-		new /obj/item/storage/fancy/vials(L)
+		new /obj/item/storage/box/fancy/vials(L)
 
 STOCK_ITEM_COMMON(smallcell, 4)
 	for(var/i in 1 to rand(1, 2))
@@ -135,7 +133,7 @@ STOCK_ITEM_COMMON(smallcell, 4)
 
 //Spawns a random circuitboard
 //Allboards being a global list might be faster, but it didnt seem worth the extra memory
-STOCK_ITEM_COMMON(circuitboard, 2)
+STOCK_ITEM_COMMON(circuitboard, 1)
 	var/list/allboards = subtypesof(/obj/item/circuitboard)
 	var/list/exclusion = list(
 		/obj/item/circuitboard/unary_atmos,
@@ -149,18 +147,18 @@ STOCK_ITEM_COMMON(circuitboard, 2)
 
 STOCK_ITEM_COMMON(oxy, 3.2)
 	new /obj/random/smalltank(L)
-	new /obj/item/tank/oxygen(L)
 	if(prob(25))
 		new /obj/random/smalltank(L)
 		new /obj/random/smalltank(L)
-	if(prob(10))
+	if(prob(40))
 		new /obj/item/tank/oxygen(L)
 
 STOCK_ITEM_COMMON(belts, 2)
 	new /obj/random/belt(L)
-	new /obj/random/belt(L)
+	if(prob(50))
+		new /obj/random/belt(L)
 
-STOCK_ITEM_COMMON(backpack, 4.5)
+STOCK_ITEM_COMMON(backpack, 3.5)
 	new /obj/random/backpack(L)
 	new /obj/random/backpack(L)
 
@@ -170,10 +168,10 @@ STOCK_ITEM_COMMON(weldgear, 2)
 	if(prob(50))
 		new /obj/item/clothing/head/welding(L)
 	if(prob(50))
-		new /obj/item/weldpack(L)
+		new /obj/item/reagent_containers/weldpack(L)
 
 STOCK_ITEM_COMMON(inflatable, 3)
-	new /obj/item/storage/briefcase/inflatable(L)
+	new /obj/item/storage/bag/inflatable(L)
 
 STOCK_ITEM_COMMON(wheelchair, 1)
 	//Wheelchair is not dense so it doesnt NEED a clear tile, but it looks a little silly to
@@ -187,26 +185,18 @@ STOCK_ITEM_COMMON(wheelchair, 1)
 				T = U
 				break
 
-	new /obj/structure/bed/chair/wheelchair(T)
-
-STOCK_ITEM_COMMON(meson, 1.5)
-	new /obj/item/clothing/glasses/meson(L)
-	if(prob(50))
-		new /obj/item/clothing/glasses/meson(L)
+	new /obj/structure/bed/stool/chair/office/wheelchair(T)
 
 STOCK_ITEM_COMMON(trap, 2)
 	new /obj/item/trap(L)
 	if(prob(30))
 		new /obj/item/trap(L)
 
-STOCK_ITEM_COMMON(trays, 1.8)
-	new /obj/item/tray(L)
-
 STOCK_ITEM_COMMON(utensil, 2)
 	new /obj/item/storage/box/kitchen(L)
 
 STOCK_ITEM_COMMON(utilitygrenades, 1.5)
-	for(var/i in 1 to rand(1, 4))
+	for(var/i in 1 to rand(1, 3))
 		if(prob(50))
 			new /obj/item/grenade/chem_grenade/metalfoam(L)
 		else
@@ -227,7 +217,7 @@ STOCK_ITEM_COMMON(gloves, 3.3)
 	)
 	exclusion += typesof(/obj/item/clothing/gloves/rig)
 	exclusion += typesof(/obj/item/clothing/gloves/lightrig)
-	exclusion += typesof(/obj/item/clothing/gloves/watch)
+	exclusion += typesof(/obj/item/clothing/wrists/watch)
 	exclusion += typesof(/obj/item/clothing/gloves/fluff)
 	exclusion += typesof(/obj/item/clothing/gloves/ballistic)
 	allgloves -= exclusion
@@ -236,7 +226,7 @@ STOCK_ITEM_COMMON(gloves, 3.3)
 		var/gtype = pick(allgloves)
 		new gtype(L)
 
-STOCK_ITEM_COMMON(insulated, 1.8)
+STOCK_ITEM_COMMON(insulated, 1.5)
 	new /obj/item/clothing/gloves/yellow(L)
 	if(prob(50))
 		new /obj/item/clothing/gloves/yellow(L)
@@ -258,14 +248,12 @@ STOCK_ITEM_COMMON(scanners, 3.2)
 		/obj/item/barcodescanner = 1,
 		/obj/item/device/depth_scanner = 1
 	)
-	for(var/i in 1 to rand(1, 3))
+	for(var/i in 1 to rand(1, 2))
 		var/stype = pickweight(possible)
 		new stype(L)
 
 STOCK_ITEM_COMMON(binoculars, 1.5)
 	new /obj/item/device/binoculars(L)
-	if(prob(50))
-		new /obj/item/device/binoculars(L)
 
 STOCK_ITEM_COMMON(flash, 1)
 	new /obj/item/device/flash(L)
@@ -297,9 +285,9 @@ STOCK_ITEM_COMMON(cleaning, 3.5)
 STOCK_ITEM_COMMON(bsdm, 1.5)
 	if(prob(50))
 		new /obj/item/clothing/glasses/sunglasses/blindfold(L)
-	if(prob(50))
+	if(prob(20))
 		new /obj/item/clothing/mask/muzzle(L)
-	if(prob(30))
+	if(prob(20))
 		new /obj/item/clothing/suit/straight_jacket(L)
 
 STOCK_ITEM_COMMON(charger, 2)
@@ -320,20 +308,18 @@ STOCK_ITEM_COMMON(smokebombs, 1.1)
 STOCK_ITEM_COMMON(jar, 2)
 	new /obj/item/glass_jar(L)
 
-STOCK_ITEM_COMMON(glasses, 1.2)
-	new /obj/item/storage/box/rxglasses(L)
-
 STOCK_ITEM_COMMON(pills, 1.2)
 	var/list/options = pick( \
 		/obj/item/storage/pill_bottle/bicaridine, \
+		/obj/item/storage/pill_bottle/butazoline, \
 		/obj/item/storage/pill_bottle/dexalin_plus, \
 		/obj/item/storage/pill_bottle/dermaline, \
 		/obj/item/storage/pill_bottle/dylovene, \
-		/obj/item/storage/pill_bottle/norepinephrine, \
+		/obj/item/storage/pill_bottle/inaprovaline, \
 		/obj/item/storage/pill_bottle/kelotane, \
-		/obj/item/storage/pill_bottle/antihistamine, \
-		/obj/item/storage/pill_bottle/tramadol, \
-		/obj/item/storage/pill_bottle/paracetamol \
+		/obj/item/storage/pill_bottle/cetahydramine, \
+		/obj/item/storage/pill_bottle/mortaphenyl, \
+		/obj/item/storage/pill_bottle/perconol \
 	)
 	var/newtype = pick(options)
 	new newtype(L)
@@ -349,7 +335,7 @@ STOCK_ITEM_COMMON(suitcooler, 1.2)
 
 STOCK_ITEM_COMMON(paperwork, 1.2)
 	if(prob(50))
-		new /obj/item/hand_labeler(L)
+		new /obj/item/device/hand_labeler(L)
 	else
 		new /obj/item/clipboard(L)
 	if(prob(15))
@@ -358,14 +344,6 @@ STOCK_ITEM_COMMON(paperwork, 1.2)
 	else if(prob(15))
 		new /obj/item/pen/multi(L)
 
-STOCK_ITEM_COMMON(officechair, 1.2)
-	var/turf/T = get_turf(L)
-	if(!turf_clear(T))
-		for (var/turf/U in range(T,1))
-			if (turf_clear(U))
-				T = U
-				break
-	new /obj/structure/bed/chair/office/dark(T)
 
 STOCK_ITEM_COMMON(booze, 3.7)
 	if(prob(8))//Spare keg of beer or xuizi juice
@@ -382,7 +360,7 @@ STOCK_ITEM_COMMON(booze, 3.7)
 		var/list/drinks = subtypesof(/obj/item/reagent_containers/food/drinks/bottle)
 		drinks += subtypesof(/obj/item/reagent_containers/food/drinks/carton)
 
-		for (var/i in 1 to rand(1, 3))
+		for (var/i in 1 to rand(1, 2))
 			var/type = pick(drinks)
 			new type(L)
 
@@ -395,7 +373,7 @@ STOCK_ITEM_COMMON(plant, 3.5)
 				break
 	new /obj/structure/flora/pottedplant/random(T)
 
-STOCK_ITEM_COMMON(bag, 3.5)
+STOCK_ITEM_COMMON(bag, 2)
 	var/type = pick( \
 		/obj/item/storage/bag/trash, \
 		/obj/item/storage/bag/plasticbag, \
@@ -410,7 +388,7 @@ STOCK_ITEM_COMMON(bag, 3.5)
 		new type(L)
 
 STOCK_ITEM_COMMON(extinguish, 2.2)
-	for(var/i in 1 to rand(1, 3))
+	for(var/i in 1 to rand(1, 2))
 		var/type = pick( \
 			/obj/item/extinguisher, \
 			/obj/item/extinguisher/mini \
@@ -425,7 +403,7 @@ STOCK_ITEM_COMMON(hailer, 1.1)
 
 //A target, for target practice
 //Take em up to science for gun testing
-STOCK_ITEM_COMMON(target, 2)
+STOCK_ITEM_COMMON(target, 0.5)
 	var/turf/T = get_turf(L)
 	if(!turf_clear(T))
 		for(var/turf/U in range(T,1))
@@ -462,10 +440,8 @@ STOCK_ITEM_COMMON(posters, 3)
 	new /obj/item/contraband/poster(L)
 	if(prob(40))
 		new /obj/item/contraband/poster(L)
-	if(prob(20))
-		new /obj/item/contraband/poster(L)
 
-STOCK_ITEM_COMMON(parts, 5)
+STOCK_ITEM_COMMON(parts, 4)
 	var/list/parts = list(
 		/obj/item/stock_parts/console_screen = 3, //Low ranking parts, common
 		/obj/item/stock_parts/capacitor = 3,
@@ -492,7 +468,7 @@ STOCK_ITEM_COMMON(parts, 5)
 		/obj/item/stock_parts/subspace/transmitter = 0.5
 	)
 
-	for(var/i in 1 to rand(2, 3))
+	for(var/i in 1 to rand(1, 2))
 		var/part = pickweight(parts)
 		new part(L)
 
@@ -515,8 +491,6 @@ STOCK_ITEM_COMMON(gasmask, 2)
 		/obj/item/clothing/mask/gas = 10,
 		/obj/item/clothing/mask/gas/plaguedoctor = 1,
 		/obj/item/clothing/mask/gas/swat = 5,
-		/obj/item/clothing/mask/gas/clown_hat = 0.5,
-		/obj/item/clothing/mask/gas/sexyclown = 0.5,
 		/obj/item/clothing/mask/gas/mime = 0.5,
 		/obj/item/clothing/mask/gas/monkeymask = 0.5,
 		/obj/item/clothing/mask/gas/sexymime = 0.5,
@@ -528,9 +502,8 @@ STOCK_ITEM_COMMON(gasmask, 2)
 	new type(L)
 
 STOCK_ITEM_COMMON(mining, 2)
-	var/list/mine_items = list(/obj/item/shovel, /obj/item/pickaxe, /obj/item/clothing/glasses/material,
-				/obj/item/device/flashlight/lantern, /obj/item/mining_scanner, /obj/item/storage/box/excavation)
-	for(var/i in 1 to rand(1, 3))
+	var/list/mine_items = list(/obj/item/shovel, /obj/item/device/flashlight/lantern, /obj/item/mining_scanner, /obj/item/storage/box/excavation)
+	for(var/i in 1 to rand(1, 2))
 		var/to_spawn = pick(mine_items)
 		new to_spawn(L)
 
@@ -545,6 +518,11 @@ STOCK_ITEM_COMMON(custom_ka, 1)
 
 STOCK_ITEM_COMMON(towel, 1)
 	new /obj/item/towel(L)
+
+STOCK_ITEM_COMMON(camera, 1)
+	new /obj/item/device/camera(L)
+	if(prob(60))
+		new /obj/item/device/camera_film(L)
 
 STOCK_ITEM_COMMON(nothing, 0)
 	// do nothing

@@ -57,7 +57,6 @@ var/global/datum/global_init/init = new ()
 	maxx = WORLD_MIN_SIZE	// So that we don't get map-window-popin at boot. DMMS will expand this.
 	maxy = WORLD_MIN_SIZE
 
-
 #define RECOMMENDED_VERSION 510
 /world/New()
 	//logs
@@ -82,9 +81,6 @@ var/global/datum/global_init/init = new ()
 		config.server_name += " #[(world.port % 1000) / 100]"
 
 	callHook("startup")
-	//Emergency Fix
-	load_mods()
-	//end-emergency fix
 
 	. = ..()
 
@@ -196,6 +192,8 @@ var/list/world_api_rate_limit = list()
 		response["data"] = command.data
 		return json_encode(response)
 
+/proc/reboot_world()
+	world.Reboot()
 
 /world/Reboot(reason, hard_reset = FALSE)
 	if (!hard_reset && world.TgsAvailable())
@@ -216,6 +214,12 @@ var/list/world_api_rate_limit = list()
 
 	SSpersist_config.save_to_file("data/persistent_config.json")
 	Master.Shutdown()
+
+	var/datum/chatOutput/co
+	for(var/client/C in clients)
+		co = C.chatOutput
+		if(co)
+			co.ehjax_send(data = "roundrestart")
 
 	if(config.server)	//if you set a server location in config.txt, it sends you there instead of trying to reconnect to the same world address. -- NeoFite
 		for(var/client/C in clients)
@@ -278,14 +282,6 @@ var/list/world_api_rate_limit = list()
 
 	time_stamped = 1
 
-/hook/startup/proc/initialize_greeting()
-	world.initialize_greeting()
-	return 1
-
-/world/proc/initialize_greeting()
-	server_greeting = new()
-
-
 /proc/load_configuration()
 	config = new /datum/configuration()
 	config.load("config/config.txt")
@@ -293,52 +289,6 @@ var/list/world_api_rate_limit = list()
 
 	if (config.age_restrictions_from_file)
 		config.load("config/age_restrictions.txt", "age_restrictions")
-
-/hook/startup/proc/loadMods()
-	world.load_mods()
-	world.load_mentors() // no need to write another hook.
-	return 1
-
-/world/proc/load_mods()
-	if(config.admin_legacy_system)
-		var/text = file2text("config/moderators.txt")
-		if (!text)
-			error("Failed to load config/mods.txt")
-		else
-			var/list/lines = text2list(text, "\n")
-			for(var/line in lines)
-				if (!line)
-					continue
-
-				if (copytext(line, 1, 2) == ";")
-					continue
-
-				var/title = "Moderator"
-				var/rights = admin_ranks[title]
-
-				var/ckey = copytext(line, 1, length(line)+1)
-				var/datum/admins/D = new /datum/admins(title, rights, ckey)
-				D.associate(directory[ckey])
-
-/world/proc/load_mentors()
-	if(config.admin_legacy_system)
-		var/text = file2text("config/mentors.txt")
-		if (!text)
-			error("Failed to load config/mentors.txt")
-		else
-			var/list/lines = text2list(text, "\n")
-			for(var/line in lines)
-				if (!line)
-					continue
-				if (copytext(line, 1, 2) == ";")
-					continue
-
-				var/title = "Mentor"
-				var/rights = admin_ranks[title]
-
-				var/ckey = copytext(line, 1, length(line)+1)
-				var/datum/admins/D = new /datum/admins(title, rights, ckey)
-				D.associate(directory[ckey])
 
 /world/proc/update_status()
 	var/list/s = list()
@@ -349,7 +299,6 @@ var/list/world_api_rate_limit = list()
 	s += "<b>[station_name()]</b>";
 	s += " ("
 	s += "<a href=\"[config.forumurl]\">" //Change this to wherever you want the hub to link to.
-//	s += "[game_version]"
 	s += "Forums"  //Replace this with something else. Or ever better, delete it and uncomment the game version.
 	s += "</a>"
 	s += ")"
@@ -398,13 +347,16 @@ var/list/world_api_rate_limit = list()
 #define FAILED_DB_CONNECTION_CUTOFF 5
 
 /hook/startup/proc/load_databases()
+	if(!config.sql_enabled)
+		world.log << "Database Connection disabled. - Skipping Connection Establishment"
+		return 1
 	//Construct the database object from an init file.
 	dbcon = initialize_database_object("config/dbconfig.txt")
 
-	if (!setup_database_connection(dbcon))
-		world.log <<  "Your server failed to establish a connection with the feedback database."
+	if(!setup_database_connection(dbcon))
+		world.log <<  "Your server failed to establish a connection with the configured database."
 	else
-		world.log <<  "Feedback database connection established."
+		world.log <<  "Database connection established."
 	return 1
 
 /proc/initialize_database_object(var/filename)
@@ -474,17 +426,20 @@ var/list/world_api_rate_limit = list()
 
 //This proc ensures that the connection to the feedback database (global variable dbcon) is established
 /proc/establish_db_connection(var/DBConnection/con)
+	if (!config.sql_enabled)
+		return FALSE
+
 	if (!con)
 		error("No DBConnection object passed to establish_db_connection() proc.")
-		return 0
+		return FALSE
 
 	if (con.failed_connections > FAILED_DB_CONNECTION_CUTOFF)
 		error("DB connection cutoff exceeded for a database object in establish_db_connection().")
-		return 0
+		return FALSE
 
 	if (!con.IsConnected())
 		return setup_database_connection(con)
 	else
-		return 1
+		return TRUE
 
 #undef FAILED_DB_CONNECTION_CUTOFF

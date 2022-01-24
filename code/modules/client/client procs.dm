@@ -1,3 +1,8 @@
+var/list/localhost_addresses = list(
+	"127.0.0.1" = TRUE,
+	"::1" = TRUE
+)
+
 	////////////
 	//SECURITY//
 	////////////
@@ -19,6 +24,7 @@
 		- If so, is there any protection against somebody spam-clicking a link?
 	If you have any  questions about this stuff feel free to ask. ~Carn
 	*/
+
 /client/Topic(href, href_list, hsrc)
 	if(!usr || usr != mob)	//stops us calling Topic for somebody else's client. Also helps prevent usr=null
 		return
@@ -26,6 +32,14 @@
 	if(!authed)
 		if(href_list["authaction"] in list("guest", "forums")) // Protection
 			..()
+		return
+
+	if(href_list["vueuiclose"])
+		var/datum/vueui/ui = locate(href_list["src"])
+		if(istype(ui))
+			ui.close()
+		else // UI is an orphan, close it directly.
+			src << browse(null, "window=vueui[href_list["src"]]")
 		return
 
 	// asset_cache
@@ -42,8 +56,6 @@
 		if (!info_sent)
 			handle_connection_info(src, href_list["data"])
 			info_sent = 1
-		else
-			server_greeting.close_window(src, "Your greeting window has malfunctioned and has been shut down.")
 
 		return
 
@@ -96,6 +108,11 @@
 		if("usr")		hsrc = mob
 		if("prefs")		return prefs.process_link(usr,href_list)
 		if("vars")		return view_var_Topic(href,href_list,hsrc)
+		if("chat")		return chatOutput.Topic(href, href_list)
+
+	switch(href_list["action"])
+		if("openLink")
+			send_link(src, href_list["link"])
 
 	if(href_list["warnacknowledge"])
 		var/queryid = text2num(href_list["warnacknowledge"])
@@ -117,8 +134,7 @@
 
 		var/request_id = text2num(href_list["linkingrequest"])
 
-		establish_db_connection(dbcon)
-		if (!dbcon.IsConnected())
+		if (!establish_db_connection(dbcon))
 			to_chat(src, "<span class='warning'>Action failed! Database link could not be established!</span>")
 			return
 
@@ -143,13 +159,13 @@
 				query_details["new_status"] = "confirmed"
 				query_details["id"] = request_id
 
-				feedback_message = "<font color='green'><b>Account successfully linked!</b></font>"
+				feedback_message = "<span class='good'><b>Account successfully linked!</b></span>"
 			if ("deny")
 				query_contents = "UPDATE ss13_player_linking SET status = :new_status:, deleted_at = NOW() WHERE id = :id:"
 				query_details["new_status"] = "rejected"
 				query_details["id"] = request_id
 
-				feedback_message = "<font color='red'><b>Link request rejected!</b></font>"
+				feedback_message = "<span class='warning'><b>Link request rejected!</b></span>"
 			else
 				to_chat(src, "<span class='warning'>Invalid command sent.</span>")
 				return
@@ -209,11 +225,6 @@
 			// Web interface href link from various panels.
 			if ("webint")
 				src.open_webint()
-
-			// Forward appropriate topics to the server greeting datum.
-			if ("greeting")
-				if (server_greeting)
-					server_greeting.handle_call(href_list, src)
 
 			// Handle the updating of MotD and Memo tabs upon click.
 			if ("updateHashes")
@@ -308,13 +319,13 @@
 //This stops files larger than UPLOAD_LIMIT being sent from client to server via input(), client.Import() etc.
 /client/AllowUpload(filename, filelength)
 	if(filelength > UPLOAD_LIMIT)
-		to_chat(src, "<font color='red'>Error: AllowUpload(): File Upload too large. Upload Limit: [UPLOAD_LIMIT/1024]KiB.</font>")
+		to_chat(src, "<span class='warning'>Error: AllowUpload(): File Upload too large. Upload Limit: [UPLOAD_LIMIT/1024]KiB.</span>")
 		return 0
 /*	//Don't need this at the moment. But it's here if it's needed later.
 	//Helps prevent multiple files being uploaded at once. Or right after eachother.
 	var/time_to_wait = fileaccess_timer - world.time
 	if(time_to_wait > 0)
-		to_chat(src, "<font color='red'>Error: AllowUpload(): Spam prevention. Please wait [round(time_to_wait/10)] seconds.</font>")
+		to_chat(src, "<span class='warning'>Error: AllowUpload(): Spam prevention. Please wait [round(time_to_wait/10)] seconds.</span>")
 		return 0
 	fileaccess_timer = world.time + FTPDELAY	*/
 	return 1
@@ -342,12 +353,15 @@
 	if (LAZYLEN(config.client_blacklist_version))
 		var/client_version = "[byond_version].[byond_build]"
 		if (client_version in config.client_blacklist_version)
-			to_chat(src, "<span class='danger'><b>Your version of BYOND is explicitly blacklisted from joining this server!</b></span>")
-			to_chat(src, "Your current version: [client_version].")
-			to_chat(src, "Visit http://www.byond.com/download/ to download a different version. Try looking for a newer one, or go one lower.")
+			to_chat_immediate(src, "<span class='danger'><b>Your version of BYOND is explicitly blacklisted from joining this server!</b></span>")
+			to_chat_immediate(src, "Your current version: [client_version].")
+			to_chat_immediate(src, "Visit http://www.byond.com/download/ to download a different version. Try looking for a newer one, or go one lower.")
 			log_access("Failed Login: [key] [computer_id] [address] - Blacklisted BYOND version: [client_version].")
 			del(src)
 			return 0
+
+	if(!chatOutput)
+		chatOutput = new(src)
 
 	if(IsGuestKey(key) && config.external_auth)
 		src.authed = FALSE
@@ -376,15 +390,19 @@
 	prefs.last_id = computer_id			//these are gonna be used for banning
 	if (byond_version >= 511 && prefs.clientfps)
 		fps = prefs.clientfps
-	if(SStheming)
-		SStheming.apply_theme_from_perfs(src)
 
-	// Server greeting shenanigans.
-	if (server_greeting.find_outdated_info(src, 1) && !info_sent)
-		server_greeting.display_to_client(src)
+	if(prefs.toggles_secondary & FULLSCREEN_MODE)
+		toggle_fullscreen(TRUE)
 
 /client/proc/InitClient()
 	to_chat(src, "<span class='alert'>If the title screen is black, resources are still downloading. Please be patient until the title screen appears.</span>")
+
+	var/local_connection = (config.auto_local_admin && !config.use_forumuser_api && (isnull(address) || localhost_addresses[address]))
+	// Automatic admin rights for people connecting locally.
+	// Concept stolen from /tg/ with deepest gratitude.
+	// And ported from Nebula with love.
+	if(local_connection && !admin_datums[ckey])
+		new /datum/admins("Local Host", R_ALL, ckey)
 
 	//Admin Authorisation
 	holder = admin_datums[ckey]
@@ -465,8 +483,7 @@
 // Returns null if no DB connection can be established, or -1 if the requested key was not found in the database
 
 /proc/get_player_age(key)
-	establish_db_connection(dbcon)
-	if(!dbcon.IsConnected())
+	if(!establish_db_connection(dbcon))
 		return null
 
 	var/DBQuery/query = dbcon.NewQuery("SELECT datediff(Now(),firstseen) as age FROM ss13_player WHERE ckey = :ckey:")
@@ -558,6 +575,14 @@
 
 //send resources to the client. It's here in its own proc so we can move it around easiliy if need be
 /client/proc/send_resources()
+#if (PRELOAD_RSC == 0)
+	var/static/next_external_rsc = 0
+	var/list/external_rsc_urls = config.external_rsc_urls
+	if(length(external_rsc_urls))
+		next_external_rsc = Wrap(next_external_rsc+1, 1, external_rsc_urls.len+1)
+		preload_rsc = external_rsc_urls[next_external_rsc]
+#endif
+
 	SSassets.handle_connect(src)
 
 /mob/proc/MayRespawn()
@@ -576,6 +601,24 @@
 	if(prefs)
 		prefs.ShowChoices(usr)
 
+/client/verb/toggle_fullscreen_preference()
+	set name = "Toggle Fullscreen Preference"
+	set category = "Preferences"
+	set desc = "Toggles whether the game window will be true fullscreen or normal."
+
+	prefs.toggles_secondary ^= FULLSCREEN_MODE
+	prefs.save_preferences()
+	toggle_fullscreen(prefs.toggles_secondary & FULLSCREEN_MODE)
+
+/client/proc/toggle_fullscreen(new_value)
+	if(new_value)
+		winset(src, "mainwindow", "is-maximized=false;can-resize=false;titlebar=false;menu=menu")
+		winset(src, "mainwindow.mainvsplit", "pos=0x0")
+	else
+		winset(src, "mainwindow", "is-maximized=false;can-resize=true;titlebar=true;menu=menu")
+		winset(src, "mainwindow.mainvsplit", "pos=3x0")
+	winset(src, "mainwindow", "is-maximized=true")
+
 /client/proc/apply_fps(var/client_fps)
 	if(world.byond_version >= 511 && byond_version >= 511 && client_fps >= 0 && client_fps <= 1000)
 		vars["fps"] = prefs.clientfps
@@ -592,8 +635,7 @@
 	if (!config.webint_url || !config.sql_enabled)
 		return
 
-	establish_db_connection(dbcon)
-	if (!dbcon.IsConnected())
+	if (!establish_db_connection(dbcon))
 		return
 
 	var/list/requests = list()
@@ -630,8 +672,7 @@
 	if (!config.webint_url || !config.sql_enabled)
 		return
 
-	establish_db_connection(dbcon)
-	if (!dbcon.IsConnected())
+	if (!establish_db_connection(dbcon))
 		return
 
 	var/DBQuery/select_query = dbcon.NewQuery("SELECT COUNT(*) AS request_count FROM ss13_player_linking WHERE status = 'new' AND player_ckey = :ckey: AND deleted_at IS NULL")
@@ -686,15 +727,6 @@
 	send_link(src, linkURL)
 	return
 
-/client/verb/show_greeting()
-	set name = "Open Greeting"
-	set category = "OOC"
-
-	// Update the information just in case.
-	server_greeting.find_outdated_info(src, 1)
-
-	server_greeting.display_to_client(src)
-
 /client/proc/check_ip_intel()
 	set waitfor = 0 //we sleep when getting the intel, no need to hold up the client connection while we sleep
 	if (config.ipintel_email)
@@ -747,8 +779,16 @@
 				return
 
 		if(istype(M) && !M.incapacitated())
-			var/obj/item/gun/gun = mob.get_active_hand()
-			if(istype(gun) && gun.can_autofire())
-				M.set_dir(get_dir(M, over_object))
-				gun.Fire(get_turf(over_object), mob, params, (get_dist(over_object, mob) <= 1), FALSE)
+			var/obj/item/I = M.get_active_hand()
+			if(istype(I, /obj/item/gun))
+				var/obj/item/gun/gun = I
+				if(gun.can_autofire())
+					M.set_dir(get_dir(M, over_object))
+					gun.Fire(get_turf(over_object), M, params, (get_dist(over_object, M) <= 1), FALSE)
+
+			if(istype(I, /obj/item/rfd/mining) && isturf(over_object))
+				var/proximity = M.Adjacent(over_object)
+				var/obj/item/rfd/mining/RFDM = I
+				RFDM.afterattack(over_object, M, proximity, params, FALSE)
+
 	CHECK_TICK

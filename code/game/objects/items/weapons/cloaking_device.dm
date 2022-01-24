@@ -14,7 +14,7 @@
 	throwforce = 10.0
 	throw_speed = 2
 	throw_range = 10
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_MAGNET = 3, TECH_ILLEGAL = 4)
 
 	var/power_usage = 35000//A high powered cell allows 5 minutes of continuous usage
@@ -69,7 +69,7 @@
 	if (!cell || !cell.checked_use(power_usage*5*CELLRATE))//Costs a small burst to enter cloak
 		if (owner)
 			to_chat(owner, "The [src] clicks uselessly, it has no power left.")
-		playsound(get_turf(src), 'sound/weapons/empty.ogg', 25, 1)
+		playsound(get_turf(src), 'sound/weapons/click.ogg', 25, 1)
 		return
 
 	START_PROCESSING(SSprocessing, src)
@@ -166,7 +166,7 @@
 	var/mob/living/L = target
 	L.cloaked = 1
 	L.mouse_opacity = 0
-	L.update_icons()
+	L.update_icon()
 
 
 /datum/modifier/cloaking_device/deactivate()
@@ -180,7 +180,7 @@
 	var/mob/living/L = target
 	L.cloaked = 0
 	L.mouse_opacity = 1
-	L.update_icons()
+	L.update_icon()
 
 
 /datum/modifier/cloaking_device/check_validity()

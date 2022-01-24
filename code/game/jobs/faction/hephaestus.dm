@@ -50,7 +50,9 @@
 		/datum/species/skrell,
 		/datum/species/machine,
 		/datum/species/unathi,
-		/datum/species/bug,
+		/datum/species/bug = TRUE,
+		/datum/species/bug/type_b = TRUE,
+		/datum/species/bug/type_e = TRUE,
 		/datum/species/tajaran,
 		/datum/species/diona
 	)
@@ -66,6 +68,15 @@
 		"Drill Technician" = /datum/outfit/job/mining/drill/hephaestus,
 		"Cargo Technician" = /datum/outfit/job/cargo_tech/hephaestus,
 		"Corporate Liaison" = /datum/outfit/job/representative/hephaestus
+	)
+
+	job_species_blacklist = list(
+		"Corporate Liaison" = list(
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER
+		)
 	)
 
 /datum/outfit/job/engineer/hephaestus
@@ -105,3 +116,9 @@
 	suit = null
 	implants = null
 	id = /obj/item/card/id/hephaestus
+
+	backpack_contents = list(
+		/obj/item/device/camera = 1,
+		/obj/item/gun/energy/pistol = 1,
+		/obj/item/stamp/hephaestus = 1
+	)

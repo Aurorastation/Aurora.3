@@ -4,7 +4,10 @@
 	uses_charge = 1
 	charge_costs = list(1000)
 	gender = NEUTER
-	matter = null // Don't shove it in the autholathe.
+
+	// Don't shove it in the autholathe
+	recyclable = FALSE
+	matter = null
 
 /obj/item/stack/material/cyborg/New()
 	if(..())
@@ -27,6 +30,10 @@
 /obj/item/stack/material/cyborg/wood
 	icon_state = "sheet-wood"
 	default_type = MATERIAL_WOOD
+
+/obj/item/stack/material/cyborg/cloth
+	icon_state = "sheet-cloth"
+	default_type = MATERIAL_CLOTH
 
 /obj/item/stack/material/cyborg/glass
 	desc_info = "Use in your hand to build a window.  Can be upgraded to reinforced glass by adding metal rods, which are made from metal sheets.<br>\

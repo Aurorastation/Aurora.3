@@ -10,7 +10,11 @@
 	return (istype(T, /turf/simulated/wall) || istype(T, /turf/unsimulated/wall))
 
 /proc/isfloor(turf/T)
-	return (istype(T, /turf/simulated/floor) || istype(T, /turf/unsimulated/floor))
+	if(locate(/obj/structure/lattice) in T)
+		return TRUE
+	else if(istype(T, /turf/simulated/floor) || istype(T, /turf/unsimulated/floor))
+		return TRUE
+	return FALSE
 
 
 //Edit by Nanako
@@ -25,7 +29,7 @@
 			return 0
 	return 1
 
-/proc/get_random_turf_in_range(var/atom/origin, var/outer_range, var/inner_range, var/check_density)
+/proc/get_random_turf_in_range(var/atom/origin, var/outer_range, var/inner_range, var/check_density, var/check_indoors)
 	origin = get_turf(origin)
 	if(!origin)
 		return
@@ -38,10 +42,27 @@
 				continue
 			if(check_density && turf_contains_dense_objects(T))
 				continue
+			if(check_indoors)
+				var/area/A = get_area(T)
+				if(A.station_area)
+					continue
 		if(!inner_range || get_dist(origin, T) >= inner_range)
 			turfs += T
 	if(turfs.len)
 		return pick(turfs)
+
+/proc/screen_loc2turf(text, turf/origin)
+	if(!origin)
+		return null
+	var/tZ = splittext(text, ",")
+	var/tX = splittext(tZ[1], "-")
+	var/tY = text2num(tX[2])
+	tX = splittext(tZ[2], "-")
+	tX = text2num(tX[2])
+	tZ = origin.z
+	tX = max(1, min(origin.x + 7 - tX, world.maxx))
+	tY = max(1, min(origin.y + 7 - tY, world.maxy))
+	return locate(tX, tY, tZ)
 
 // This proc will check if a neighboring tile in the stated direction "dir" is dense or not
 // Will return 1 if it is dense and zero if not
@@ -153,3 +174,11 @@
 		M.forceMove(new_turf)
 
 	return new_turf
+
+/proc/air_sound(atom/source, var/required_pressure = SOUND_MINIMUM_PRESSURE)
+	var/turf/T = get_turf(source)
+	var/datum/gas_mixture/environment = T.return_air()
+	var/pressure = (environment)? environment.return_pressure() : 0
+	if(pressure < required_pressure)
+		return FALSE
+	return TRUE

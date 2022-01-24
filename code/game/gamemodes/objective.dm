@@ -79,7 +79,7 @@ datum/objective/anti_revolution/execute
 	find_target()
 		..()
 		if(target && target.current)
-			explanation_text = "[target.current.real_name], the [target.assigned_role] has extracted confidential information above their clearance. Execute \him[target.current]."
+			explanation_text = "[target.current.real_name], the [target.assigned_role] has extracted confidential information above their clearance. Execute [target.current.get_pronoun("him")]."
 		else
 			explanation_text = "Free Objective"
 		return target
@@ -88,7 +88,7 @@ datum/objective/anti_revolution/execute
 	find_target_by_role(role, role_type=0)
 		..(role, role_type)
 		if(target && target.current)
-			explanation_text = "[target.current.real_name], the [!role_type ? target.assigned_role : target.special_role] has extracted confidential information above their clearance. Execute \him[target.current]."
+			explanation_text = "[target.current.real_name], the [!role_type ? target.assigned_role : target.special_role] has extracted confidential information above their clearance. Execute [target.current.get_pronoun("him")]."
 		else
 			explanation_text = "Free Objective"
 		return target
@@ -137,7 +137,7 @@ datum/objective/anti_revolution/demote
 	find_target()
 		..()
 		if(target && target.current)
-			explanation_text = "[target.current.real_name], the [target.assigned_role]  has been classified as harmful to [current_map.company_name]'s goals. Demote \him[target.current] to assistant."
+			explanation_text = "[target.current.real_name], the [target.assigned_role]  has been classified as harmful to [current_map.company_name]'s goals. Demote [target.current.get_pronoun("him")] to assistant."
 		else
 			explanation_text = "Free Objective"
 		return target
@@ -145,17 +145,15 @@ datum/objective/anti_revolution/demote
 	find_target_by_role(role, role_type=0)
 		..(role, role_type)
 		if(target && target.current)
-			explanation_text = "[target.current.real_name], the [!role_type ? target.assigned_role : target.special_role] has been classified as harmful to [current_map.company_name]'s goals. Demote \him[target.current] to assistant."
+			explanation_text = "[target.current.real_name], the [!role_type ? target.assigned_role : target.special_role] has been classified as harmful to [current_map.company_name]'s goals. Demote [target.current.get_pronoun("him")] to assistant."
 		else
 			explanation_text = "Free Objective"
 		return target
 
 	check_completion()
-		if(target && target.current && istype(target,/mob/living/carbon/human))
-			var/obj/item/card/id/I = target.current:wear_id
-			if(istype(I, /obj/item/device/pda))
-				var/obj/item/device/pda/P = I
-				I = P.id
+		if(target && target.current && ishuman(target))
+			var/mob/living/carbon/human/H = target
+			var/obj/item/card/id/I = H.GetIdCard()
 
 			if(!istype(I)) return 1
 
@@ -232,11 +230,11 @@ datum/objective/hijack
 	check_completion()
 		if(!owner.current || owner.current.stat)
 			return 0
-		if(!emergency_shuttle.returned())
+		if(!evacuation_controller.round_over())
 			return 0
 		if(issilicon(owner.current))
 			return 0
-		var/area/shuttle = locate(/area/shuttle/escape/centcom)
+		var/area/shuttle = locate(/area/shuttle/escape)
 		var/list/protected_mobs = list(/mob/living/silicon/ai, /mob/living/silicon/pai)
 		for(var/mob/living/player in player_list)
 			if(player.type in protected_mobs)	continue
@@ -254,11 +252,11 @@ datum/objective/block
 	check_completion()
 		if(!istype(owner.current, /mob/living/silicon))
 			return 0
-		if(!emergency_shuttle.returned())
+		if(!evacuation_controller.round_over())
 			return 0
 		if(!owner.current)
 			return 0
-		var/area/shuttle = locate(/area/shuttle/escape/centcom)
+		var/area/shuttle = locate(/area/shuttle/escape)
 		var/protected_mobs[] = list(/mob/living/silicon/ai, /mob/living/silicon/pai, /mob/living/silicon/robot)
 		for(var/mob/living/player in player_list)
 			if(player.type in protected_mobs)	continue
@@ -272,7 +270,7 @@ datum/objective/silence
 	explanation_text = "Do not allow anyone to escape the station.  Only allow the shuttle to be called when everyone is dead and your story is the only one left."
 
 	check_completion()
-		if(!emergency_shuttle.returned())
+		if(!evacuation_controller.round_over())
 			return 0
 
 		for(var/mob/living/player in player_list)
@@ -281,10 +279,10 @@ datum/objective/silence
 			if(player.mind)
 				if(player.stat != DEAD)
 					var/turf/T = get_turf(player)
-					if(!T)	continue
-					switch(T.loc.type)
-						if(/area/shuttle/escape/centcom, /area/shuttle/escape_pod1/centcom, /area/shuttle/escape_pod2/centcom, /area/shuttle/escape_pod3/centcom, /area/shuttle/escape_pod5/centcom)
-							return 0
+					if(!T)
+						continue
+					if(istype(T.loc.type, /area/shuttle/escape) || istype(T.loc.type, /area/shuttle/escape_pod))
+						return 0
 		return 1
 
 
@@ -297,7 +295,7 @@ datum/objective/escape
 			return 0
 		if(isbrain(owner.current))
 			return 0
-		if(!emergency_shuttle.returned())
+		if(!evacuation_controller.round_over())
 			return 0
 		if(!owner.current || owner.current.stat ==2)
 			return 0
@@ -306,20 +304,12 @@ datum/objective/escape
 			return 0
 
 		var/area/check_area = location.loc
-		if(istype(check_area, /area/shuttle/escape/centcom))
+		if(istype(check_area, /area/shuttle/escape))
 			return 1
-		if(istype(check_area, /area/shuttle/escape_pod1/centcom))
-			return 1
-		if(istype(check_area, /area/shuttle/escape_pod2/centcom))
-			return 1
-		if(istype(check_area, /area/shuttle/escape_pod3/centcom))
-			return 1
-		if(istype(check_area, /area/shuttle/escape_pod5/centcom))
+		if(istype(check_area, /area/shuttle/escape_pod))
 			return 1
 		else
 			return 0
-
-
 
 datum/objective/survive
 	explanation_text = "Stay alive until the end."
@@ -445,7 +435,7 @@ datum/objective/steal
 		"a head of personnel's jumpsuit" = /obj/item/clothing/under/rank/head_of_personnel,
 		"the hypospray" = /obj/item/reagent_containers/hypospray,
 		"the captain's pinpointer" = /obj/item/pinpointer,
-		"an ablative armor vest" = /obj/item/clothing/suit/armor/laserproof
+		"an ablative armor vest" = /obj/item/clothing/suit/armor/carrier/ablative
 	)
 
 	var/global/possible_items_special[] = list(
@@ -503,7 +493,7 @@ datum/objective/steal
 
 				for(var/obj/item/I in all_items) //Check for phoron tanks
 					if(istype(I, steal_target))
-						found_amount += (target_name=="28 moles of phoron (full tank)" ? (I:air_contents:gas["phoron"]) : (I:amount))
+						found_amount += (target_name=="28 moles of phoron (full tank)" ? (I:air_contents:gas[GAS_PHORON]) : (I:amount))
 				return found_amount>=target_amount
 
 			if("50 coins (in bag)")
@@ -527,15 +517,9 @@ datum/objective/steal
 					var/turf/T = get_turf(ai)
 					if(istype(T))
 						var/area/check_area = get_area(ai)
-						if(istype(check_area, /area/shuttle/escape/centcom))
+						if(istype(check_area, /area/shuttle/escape))
 							return 1
-						if(istype(check_area, /area/shuttle/escape_pod1/centcom))
-							return 1
-						if(istype(check_area, /area/shuttle/escape_pod2/centcom))
-							return 1
-						if(istype(check_area, /area/shuttle/escape_pod3/centcom))
-							return 1
-						if(istype(check_area, /area/shuttle/escape_pod5/centcom))
+						if(istype(check_area, /area/shuttle/escape_pod))
 							return 1
 			else
 
@@ -543,8 +527,6 @@ datum/objective/steal
 					if(istype(I, steal_target))
 						return 1
 		return 0
-
-
 
 datum/objective/download
 	proc/gen_amount_goal()
@@ -618,7 +600,8 @@ datum/objective/capture
 					n_p ++
 		else if (SSticker.current_state == GAME_STATE_PLAYING)
 			for(var/mob/living/carbon/human/P in player_list)
-				if(P.client && !(P.mind.changeling) && P.mind!=owner)
+				var/datum/changeling/changeling = P.mind.antag_datums[MODE_CHANGELING]
+				if(P.client && !changeling && P.mind != owner)
 					n_p ++
 		target_amount = min(target_amount, n_p)
 
@@ -626,7 +609,8 @@ datum/objective/capture
 		return target_amount
 
 	check_completion()
-		if(owner && owner.changeling && owner.changeling.absorbed_dna && (owner.changeling.absorbedcount >= target_amount))
+		var/datum/changeling/changeling = owner.antag_datums[MODE_CHANGELING]
+		if(owner && changeling?.absorbed_dna && (changeling.absorbedcount >= target_amount))
 			return 1
 		else
 			return 0
@@ -668,7 +652,7 @@ datum/objective/heist/kidnap
 			//if (!target.current.restrained())
 			//	return 0 // They're loose. Close but no cigar.
 
-			var/area/skipjack_station/start/A = locate()
+			var/area/shuttle/skipjack/A = locate()
 			for(var/mob/living/carbon/human/M in A)
 				if(target.current == M)
 					return 1 //They're restrained on the shuttle. Success.
@@ -719,7 +703,7 @@ datum/objective/heist/loot
 
 		var/total_amount = 0
 
-		for(var/obj/O in locate(/area/skipjack_station/start))
+		for(var/obj/O in locate(/area/shuttle/skipjack))
 			if(istype(O,target)) total_amount++
 			for(var/obj/I in O.contents)
 				if(istype(I,target)) total_amount++
@@ -747,7 +731,7 @@ datum/objective/heist/salvage
 				target = "plasteel"
 				target_amount = 100
 			if(4)
-				target = "phoron"
+				target = MATERIAL_PHORON
 				target_amount = 100
 			if(5)
 				target = "silver"
@@ -768,7 +752,7 @@ datum/objective/heist/salvage
 
 		var/total_amount = 0
 
-		for(var/obj/item/O in locate(/area/skipjack_station/start))
+		for(var/obj/item/O in locate(/area/shuttle/skipjack))
 
 			var/obj/item/stack/material/S
 			if(istype(O,/obj/item/stack/material))

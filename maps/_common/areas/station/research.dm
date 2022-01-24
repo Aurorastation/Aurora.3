@@ -123,6 +123,10 @@
 	name = "Research - Toxins Storage"
 	icon_state = "toxstorage"
 
+/area/rnd/strongroom
+	name = "Research - Research Storage"
+	icon_state = "toxlab"
+
 /area/rnd/test_area
 	name = "Research - Toxins Test Area"
 	icon_state = "toxtest"

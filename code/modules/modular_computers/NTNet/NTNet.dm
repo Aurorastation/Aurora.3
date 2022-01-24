@@ -5,14 +5,14 @@ var/global/datum/ntnet/ntnet_global = new()
 /datum/ntnet
 	var/list/relays = list()
 	var/list/logs = list()
+	var/list/messages = list()
 	var/list/available_station_software = list()
 	var/list/available_antag_software = list()
 	var/list/available_software = list()
 	var/list/available_software_presets = list()
 	var/list/available_news = list()
-	var/list/chat_channels = list()
-	var/list/chat_clients = list()
 	var/list/fileservers = list()
+	var/list/datum/ntnet_account/users = list()
 	// Amount of logs the system tries to keep in memory. Keep below 999 to prevent byond from acting weirdly.
 	// High values make displaying logs much laggier.
 	var/setting_maxlogcount = 100
@@ -37,20 +37,22 @@ var/global/datum/ntnet/ntnet_global = new()
 		R.NTNet = src
 	build_software_lists()
 	build_news_list()
-	add_log("NTNet logging system activated.")
 
 	//add some default channels
 	new /datum/ntnet_conversation("NTNet Relay", TRUE)
 
 // Simplified logging: Adds a log. log_string is mandatory parameter, source is optional.
-/datum/ntnet/proc/add_log(var/log_string, var/obj/item/computer_hardware/network_card/source = null)
+/datum/ntnet/proc/add_log(var/log_string, var/obj/item/computer_hardware/network_card/source = null, var/messaging=FALSE)
 	var/log_text = "[worldtime2text()] - "
 	if(source)
 		log_text += "[source.get_network_tag()] - "
 	else
 		log_text += "*SYSTEM* - "
 	log_text += log_string
-	logs.Add(log_text)
+	if(!messaging)
+		logs.Add(log_text)
+	else
+		messages.Add(log_text)
 
 	if(logs.len > setting_maxlogcount)
 		// We have too many logs, remove the oldest entries until we get into the limit
@@ -133,6 +135,7 @@ var/global/datum/ntnet/ntnet_global = new()
 // Removes all logs
 /datum/ntnet/proc/purge_logs()
 	logs = list()
+	messages = list()
 	add_log("-!- LOGS DELETED BY SYSTEM OPERATOR -!-")
 
 // Updates maximal amount of stored logs. Use this instead of setting the number, it performs required checks.

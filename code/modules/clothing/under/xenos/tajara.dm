@@ -8,6 +8,7 @@
 	desc_fluff = "Having direct and friendly contact with humanity, The People's Republic of Adhomai has been the most influenced by the spacer fashion. The most known \
 	being the \"assistant jumpsuits\" which directly inspired the design of factory overalls, the plight and low pay of the assistants being close to the hearts of Tajara Hadiist \
 	workers and their Republic."
+	no_overheat = TRUE
 
 /obj/item/clothing/under/tajaran/fancy
 	name = "fancy uniform"
@@ -22,7 +23,7 @@
 
 /obj/item/clothing/under/tajaran/nt
 	name = "NanoTrasen overalls"
-	desc = "Overalls meant for NanoTrasen employees of xeno descend, modified to prevent overheating."
+	desc = "Overalls meant for NanoTrasen employees of xeno descent, modified to prevent overheating."
 	icon_state = "ntoveralls"
 	item_state = "ntoveralls"
 
@@ -46,6 +47,10 @@
 	contracted engineers, access to higher education abroad and training from Sol Alliance naval advisers, the People's Republic has been able to commission and crew some of its own \
 	ships. The Republican Navy's space-arm primarily conducts counter piracy operations in conjunction with fending off raiders."
 	starting_accessories = (/obj/item/clothing/accessory/storage/bayonet)
+	siemens_coefficient = 0.5 // Every Kosmostrelki is expected to assist in repairs when push comes to shove, so their uniform is slightly better at absorbing shocks compared to other combat uniforms
+	armor = list(
+		melee = ARMOR_MELEE_SMALL,
+		bullet = ARMOR_BALLISTIC_MINOR)
 
 /obj/item/clothing/under/tajaran/cosmonaut/commissar
 	name = "kosmostrelki commissar uniform"
@@ -72,6 +77,18 @@
 	with the Party. The average worker that labours in the industrial suburbs, can expect an honest living to be made, and a modest lifestyle to be led. The majority of the city labourers \
 	work in government run factories and spaceports, with stable but strict work hours and schedule the Hadii regime boasts of its fairness to the worker."
 
+/obj/item/clothing/under/tajaran/raakti_shariim
+	name = "\improper Raakti Shariim uniform"
+	desc = "A blue and lilac adhomian uniform with pale-gold insignia, worn by members of the NKA's Raakti Shariim."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "raakti_shariim_uniform"
+	item_state = "raakti_shariim_uniform"
+	desc_fluff = "The Raakti Shariim (Royal Peacekeepers in Ceti Basic) are the New Kingdom of Adhomai's policing and \
+		peacekeeping force, working closely with both the Royal Constabulary and the Royal Ministry of Intelligence to \
+		seek out internal threats to the Kingdom such as spies, terrorists, and other domestic enemies to the crown. \
+		The Raakti Shariim's uniforms incorporate a dark, navy blue paired with a lilac accent and pale-gold twin-sun \
+		insignia."
+
 /obj/item/clothing/under/dress/tajaran
 	name = "fancy adhomian dress"
 	desc = "Created for the rich and party-loving circles of Adhomai, this dress is fashioned from smooth silk and is see through at parts. This one is white."
@@ -79,6 +96,7 @@
 	icon_state = "taj_dress_white"
 	item_state = "taj_dress_white"
 	contained_sprite = TRUE
+	no_overheat = TRUE
 	desc_fluff = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
 	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
 	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters usually shatter against how effective and cheap it is to \
@@ -141,13 +159,18 @@
 	icon_state = "prauniform"
 	item_state = "prauniform"
 	starting_accessories = list(/obj/item/clothing/accessory/storage/bayonet)
+	siemens_coefficient = 0.7
+	armor = list(
+		melee = ARMOR_MELEE_SMALL,
+		bullet = ARMOR_BALLISTIC_MINOR)
 
 /obj/item/clothing/under/tajaran/nka_uniform
 	name = "imperial adhomian army uniform"
-	desc = "A military uniform used by the forces of New Kingdom's army."
+	desc = "A military uniform used by the forces of the New Kingdom of Adhomai's army."
 	icon_state = "nka_uniform"
 	item_state = "nka_uniform"
 	starting_accessories = list(/obj/item/clothing/accessory/storage/bayonet)
+	armor = list(melee = ARMOR_MELEE_SMALL)
 
 /obj/item/clothing/under/tajaran/consular
 	name = "people's republic consular uniform"

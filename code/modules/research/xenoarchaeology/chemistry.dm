@@ -7,7 +7,7 @@
 	icon = 'icons/obj/device.dmi'
 	icon_state = "solution_tray"
 	matter = list(MATERIAL_GLASS = 5)
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	amount_per_transfer_from_this = 1
 	possible_transfer_amounts = list(1, 2)
 	volume = 2
@@ -40,21 +40,21 @@ obj/item/reagent_containers/glass/solution_tray/attackby(obj/item/W as obj, mob/
 	name = "beaker 'tungsten'"
 	Initialize()
 		. = ..()
-		reagents.add_reagent(/datum/reagent/tungsten,50)
+		reagents.add_reagent(/decl/reagent/tungsten,50)
 		update_icon()
 
 /obj/item/reagent_containers/glass/beaker/oxygen
 	name = "beaker 'oxygen'"
 	Initialize()
 		. = ..()
-		reagents.add_reagent(/datum/reagent/acetone,50)
+		reagents.add_reagent(/decl/reagent/acetone,50)
 		update_icon()
 
 /obj/item/reagent_containers/glass/beaker/sodium
 	name = "beaker 'sodium'"
 	Initialize()
 		. = ..()
-		reagents.add_reagent(/datum/reagent/sodium,50)
+		reagents.add_reagent(/decl/reagent/sodium,50)
 		update_icon()
 
 /obj/item/reagent_containers/glass/beaker/lithium
@@ -62,7 +62,7 @@ obj/item/reagent_containers/glass/solution_tray/attackby(obj/item/W as obj, mob/
 
 	Initialize()
 		. = ..()
-		reagents.add_reagent(/datum/reagent/lithium,50)
+		reagents.add_reagent(/decl/reagent/lithium,50)
 		update_icon()
 
 /obj/item/reagent_containers/glass/beaker/water
@@ -70,7 +70,7 @@ obj/item/reagent_containers/glass/solution_tray/attackby(obj/item/W as obj, mob/
 
 	Initialize()
 		. = ..()
-		reagents.add_reagent(/datum/reagent/water,50)
+		reagents.add_reagent(/decl/reagent/water,50)
 		update_icon()
 
 /obj/item/reagent_containers/glass/beaker/fuel
@@ -78,5 +78,5 @@ obj/item/reagent_containers/glass/solution_tray/attackby(obj/item/W as obj, mob/
 
 	Initialize()
 		. = ..()
-		reagents.add_reagent(/datum/reagent/fuel,50)
+		reagents.add_reagent(/decl/reagent/fuel,50)
 		update_icon()

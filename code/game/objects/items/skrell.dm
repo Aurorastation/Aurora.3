@@ -3,7 +3,7 @@
 	desc = "An antique and delicate looking instrument used to study the stars."
 	icon = 'icons/obj/skrell_items.dmi'
 	icon_state = "starscope"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	matter = list(MATERIAL_GLASS = 200)
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
@@ -27,7 +27,7 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(isskrell(H))
-			H.visible_message("<span class='notice'>\The [H] holds the brassy instrument up to \his eye and peers at something unseen.</span>",
+			H.visible_message("<span class='notice'>\The [H] holds the brassy instrument up to [H.get_pronoun("his")] eye and peers at something unseen.</span>",
 							"<span class='notice'>You see the starry edge of srom floating on the void of space.</span>")
 			if(projection_ready)
 				new/obj/effect/temp_visual/constellation (get_turf(user))
@@ -83,7 +83,7 @@
 	desc = "A projector meant to help Federation Skrell feel like theyre carrying home with them wherever they go. It looks very complex."
 	icon = 'icons/obj/skrell_items.dmi'
 	icon_state = "projector"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	matter = list(MATERIAL_GLASS = 200)
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
@@ -158,7 +158,7 @@
 			if("Nralakk")
 				hologram_message = pick("You see the Jargon system sky projected on the ceiling.",
 										"You see planets slowly orbiting Nralakk above the projector.",
-										"You hear faint ceremonial hymms.")
+										"You hear faint ceremonial hymns.")
 
 		if(hologram_message)
 			visible_message("<span class='notice'>[hologram_message]</span>")
@@ -214,3 +214,13 @@
 	else
 		to_chat(user, SPAN_NOTICE("\The [src] isn't locked down, your e-mag has no effect!"))
 		return FALSE
+
+/obj/item/clothing/accessory/badge/starlight
+	name = "starlight zone residency card"
+	desc = "A residency card given to Skrell who reside within the Starlight Zone in District Eight."
+	icon = 'icons/clothing/accessories/passcards.dmi'
+	icon_state = "resident_starlight"
+	item_state = "resident_starlight"
+	flippable = FALSE
+	v_flippable = FALSE
+	badge_string = null

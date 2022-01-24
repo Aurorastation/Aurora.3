@@ -1,6 +1,6 @@
 /obj/machinery/gumballmachine
 	name = "gumball machine"
-	desc = "A colorful candy machine."
+	desc = "A lithe device with a glass globe on top, which can be operated to dispense various candies."
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "gumball_100"
 	layer = 2.9
@@ -97,7 +97,7 @@
 
 /obj/machinery/gumballmachine/proc/smashgumball()
 	icon_state = "[initialicon]_broken"
-	playsound(get_turf(src), "shatter", 75, 1)
+	playsound(get_turf(src), /decl/sound_category/glass_break_sound, 75, 1)
 	if(amountleft)
 		var/amountleftinside = amountleft
 		for(var/i = 1;i<=amountleftinside,i++)

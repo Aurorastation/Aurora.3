@@ -81,14 +81,6 @@
 	},
 /turf/simulated/floor/shuttle/dark_red,
 /area/mine/unexplored)
-"x" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/corpse/syndicatesoldier,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/shuttle/dark_red,
-/area/mine/unexplored)
 "y" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
@@ -657,7 +649,7 @@ c
 p
 p
 t
-x
+w
 h
 h
 z

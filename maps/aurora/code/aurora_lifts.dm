@@ -225,7 +225,7 @@
 
 /area/turbolift/medical_station
 	name = "Medical Lift - Main"
-	lift_announce_str = "Arriving at the Medical Main Level. Facilities in this floor include: Lobby, Chemistry, Intensive Care Unit, General Treatment Unit, Surgery Wing, Consultation Wing, Cloning Wing."
+	lift_announce_str = "Arriving at the Medical Main Level. Facilities in this floor include: Lobby, Chemistry, Intensive Care Unit, General Treatment Unit, Surgery Wing, Consultation Wing."
 
 	lift_floor_label = "Main Level (Medical)"
 	lift_floor_name = "Main Level (Medical)"

@@ -14,7 +14,6 @@
 	var/selected_category = "" // Category that is currently selected
 	var/selected_item = "" // Path of the currently selected item
 	var/datum/cargo_order/co
-	var/last_user_name = "" //Name of the user that used the program
 	var/status_message //Status Message to be displayed to the user
 	var/user_tracking_id = 0 //Tracking id of the user
 	var/user_tracking_code = 0 //Tracking Code of the user
@@ -28,14 +27,7 @@
 	var/list/data = host.initial_data()
 
 	//Pass the ID Data
-	var/obj/item/card/id/user_id_card = user.GetIdCard()
-	if(!user_id_card)
-		last_user_name = "Unknown"
-	else
-		last_user_name = user_id_card.registered_name
-
-
-	data["username"] = last_user_name
+	data["username"] = GetNameAndAssignmentFromId(user.GetIdCard())
 
 	//Pass the list of all ordered items and the order value
 	data["order_items"] = co.get_item_list()
@@ -92,12 +84,14 @@
 	if(..())
 		return TRUE
 
+	var/obj/item/card/id/I = usr.GetIdCard()
+
 	//Send the order to cargo
 	if(href_list["submit_order"])
 		if(!co.items.len)
 			return TRUE //Only submit the order if there are items in it
 
-		if(last_user_name == "Unknown")
+		if(!I)
 			status_message = "Unable to submit order. ID could not be located."
 			return TRUE
 
@@ -106,9 +100,7 @@
 			status_message = "Unable to submit order. No reason supplied."
 			return TRUE
 
-		co.ordered_by = last_user_name
-		co.reason = reason
-		co.set_submitted()
+		co.set_submitted(GetNameAndAssignmentFromId(I), usr.character_id, reason)
 		status_message = "Order submitted successfully. Order ID: [co.order_id] Tracking code: [co.get_tracking_code()]"
 		//TODO: Print a list with the order data
 		co = null

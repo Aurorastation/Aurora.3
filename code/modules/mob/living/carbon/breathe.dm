@@ -21,7 +21,11 @@
 	return from.trans_to_holder(target,amount,multiplier,copy) //complete transfer
 
 /mob/living/carbon/proc/breathe(var/volume_needed = BREATH_VOLUME)
-	if(species && (species.flags & NO_BREATHE)) return
+	if(species && (species.flags & NO_BREATHE))
+		return
+	var/datum/changeling/changeling = get_antag_datum(MODE_CHANGELING)
+	if(changeling?.space_adapted)
+		return
 	
 	volume_needed *= (species?.breath_vol_mul || 1)
 

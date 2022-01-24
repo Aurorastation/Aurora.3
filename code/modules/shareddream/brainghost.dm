@@ -19,7 +19,14 @@
 	name = form.real_name
 	loc = pick(dream_entries)
 	body = form
+	old_mob = body
 
+	if(client)
+		client.screen |= body.healths
+
+/mob/living/brain_ghost/LateLogin()
+	..()
+	client.screen |= body.healths
 
 /mob/living/brain_ghost/verb/awaken()
 	set name = "Awaken"
@@ -51,7 +58,7 @@
 	if(body.stat == DEAD) // Body is dead, and won't get a life tick.
 		body.handle_shared_dreaming()
 
-/mob/living/brain_ghost/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="")
+/mob/living/brain_ghost/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
 	if(!istype(body) || body.stat!=UNCONSCIOUS)
 		return
 	if(prob(20)) // 1/5 chance to mumble out anything you say in the dream.

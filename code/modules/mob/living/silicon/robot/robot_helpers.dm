@@ -48,3 +48,6 @@
 	if(client)
 		client.screen -= stored_module
 	contents -= stored_module
+
+/mob/living/silicon/robot/get_cell()
+	return cell

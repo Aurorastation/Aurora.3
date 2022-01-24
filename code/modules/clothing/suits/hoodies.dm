@@ -3,8 +3,11 @@
 /obj/item/clothing/suit/storage/hooded
 	var/obj/item/clothing/head/winterhood/hood
 	var/hoodtype = null
-	var/suittoggled = 0
-	var/hooded = 0
+	var/suittoggled = FALSE
+	var/opened = FALSE
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/hoodie.dmi'
+	)
 
 /obj/item/clothing/suit/storage/hooded/Initialize()
 	. = ..()
@@ -24,12 +27,11 @@
 	..()
 
 /obj/item/clothing/suit/storage/hooded/proc/RemoveHood()
-	icon_state = initial(icon_state)
-	item_state = initial(item_state)
-	suittoggled = 0
-
+	suittoggled = FALSE
+	icon_state = "[initial(icon_state)][opened ? "_open" : ""][suittoggled ? "_t" : ""]"
+	item_state = icon_state
 	// Hood got nuked. Probably because of RIGs or the like.
-	if (!hood)
+	if(!hood)
 		MakeHood()
 		return
 
@@ -46,7 +48,6 @@
 	RemoveHood()
 
 /obj/item/clothing/suit/storage/hooded/verb/ToggleHood()
-
 	set name = "Toggle Coat Hood"
 	set category = "Object"
 	set src in usr
@@ -64,14 +65,22 @@
 				to_chat(H, "<span class='warning'>You're already wearing something on your head!</span>")
 				return
 			else
+				suittoggled = TRUE
+				icon_state = "[initial(icon_state)][opened ? "_open" : ""]"
+				 //spawn appropriate hood.
+				CreateHood()
 				H.equip_to_slot_if_possible(hood,slot_head,0,0,1)
-				suittoggled = 1
-				icon_state = "[initial(icon_state)]_t"
-				item_state = "[initial(item_state)]_t"
 				H.update_inv_wear_suit()
 	else
 		RemoveHood()
 
+/obj/item/clothing/suit/storage/hooded/proc/CreateHood()
+	hood.color = src.color
+	hood.icon_state = "[icon_state]_hood"
+	hood.item_state = "[icon_state]_hood"
+	icon_state = "[icon_state][suittoggled ? "_t" : ""]"
+	item_state = icon_state
+	update_icon()
 
 //hoodies and the like
 
@@ -81,20 +90,22 @@
 	icon = 'icons/obj/hoodies.dmi'
 	icon_state = "coatwinter"
 	item_state = "coatwinter"
-	contained_sprite = 1
+	contained_sprite = TRUE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
+	armor = list(
+		bio = ARMOR_BIO_MINOR
+	)
 	siemens_coefficient = 0.75
-	hooded = 1
 	hoodtype = /obj/item/clothing/head/winterhood
 
 /obj/item/clothing/head/winterhood
 	name = "winter hood"
 	desc = "A hood attached to a heavy winter jacket."
 	icon = 'icons/obj/hoodies.dmi'
-	icon_state = "generic_hood"
+	icon_state = "coatwinter_hood"
+	contained_sprite = TRUE
 	body_parts_covered = HEAD
 	cold_protection = HEAD
 	siemens_coefficient = 0.75
@@ -116,25 +127,26 @@
 	name = "security winter coat"
 	icon_state = "coatsecurity"
 	item_state = "coatsecurity"
-	armor = list(melee = 25, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/medical
 	name = "medical winter coat"
 	icon_state = "coatmedical"
 	item_state = "coatmedical"
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 50, rad = 0)
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/iac
+	name = "IAC winter coat"
+	icon_state = "coatIAC"
+	item_state = "coatIAC"
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/science
 	name = "science winter coat"
 	icon_state = "coatscience"
 	item_state = "coatscience"
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 10, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/engineering
 	name = "engineering winter coat"
 	icon_state = "coatengineer"
 	item_state = "coatengineer"
-	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 20)
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/engineering/atmos
 	name = "atmospherics winter coat"
@@ -167,7 +179,6 @@
 /obj/item/clothing/head/winterhood/corgi
 	name = "corgi hood"
 	desc = "A hood attached to a corgi costume."
-	icon_state = "corgi_helm"
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/carp
 	name = "space carp costume"
@@ -180,73 +191,73 @@
 /obj/item/clothing/head/winterhood/carp
 	name = "space carp hood"
 	desc = "A hood attached to a space carp costume."
-	icon_state = "carp_helm"
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie
 	name = "hoodie"
 	desc = "Warm and cozy."
 	icon_state = "hoodie"
-	var/icon_open = "hoodie_open"
-	var/icon_closed = "hoodie"
 	item_state = "hoodie"
 	hoodtype = /obj/item/clothing/head/winterhood/hoodie
 
-/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/RemoveHood()
-	..()
-	icon_open = initial(icon_open)
-	icon_closed = initial(icon_closed)
-
-/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/verb/Toggle() //copied from storage toggle
-	set name = "Toggle Coat Buttons"
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/verb/Toggle()
+	set name = "Toggle Coat Zipper"
 	set category = "Object"
 	set src in usr
 	if(use_check_and_message(usr))
 		return 0
-	if(icon_state == icon_open)
-		icon_state = icon_closed
-		item_state = icon_closed
-		to_chat(usr, "You zip \the [src].")
-	else if(icon_state == icon_closed)
-		icon_state = icon_open
-		item_state = icon_open
-		to_chat(usr, "You unzip \the [src].")
-	else
-		to_chat(usr, "You attempt to zip the velcro on your [src], before promptly realising how silly you are.")
-		return
+	opened = !opened
+	to_chat(usr, "You [opened ? "unzip" : "zip"] \the [src].")
+	playsound(src, 'sound/items/zip.ogg', EQUIP_SOUND_VOLUME, TRUE)
+	icon_state = "[initial(icon_state)][opened ? "_open" : ""]"
+	item_state = icon_state
+	if(suittoggled)
+		CreateHood() //rebuild the hood with open/closed version
+	update_icon()
 	update_clothing_icon()
-
-/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/ToggleHood()
-	set name ="Toggle Coat Hood"
-	set category = "Object"
-	set src in usr
-
-	if(use_check_and_message(usr))
-		return 0
-
-	if(!suittoggled)
-		if(ishuman(loc))
-			var/mob/living/carbon/human/H = src.loc
-			if(H.wear_suit != src)
-				to_chat(H, "<span class='warning'>You must be wearing [src] to put up the hood!</span>")
-				return
-			if(H.head)
-				to_chat(H, "<span class='warning'>You're already wearing something on your head!</span>")
-				return
-			else
-				H.equip_to_slot_if_possible(hood,slot_head,0,0,1)
-				suittoggled = 1
-				icon_open = "[initial(icon_open)]_t" // this is where the change is.
-				icon_closed = "[initial(icon_closed)]_t"
-				icon_state = "[initial(icon_state)]_t"
-				item_state = "[initial(item_state)]_t"
-				H.update_inv_wear_suit()
-	else
-		RemoveHood()
+	usr.update_inv_head()
 
 /obj/item/clothing/head/winterhood/hoodie
 	name = "hood"
 	desc = "A hood attached to a warm hoodie."
-	icon_state = "hoodie_hood"
 
-/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/grey //legacy item. for raiders, shuttle spawn
-	color = "#777777"
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/random/Initialize()
+	. = ..()
+	color = get_random_colour(lower = 150)
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/short
+	icon_state = "hoodie_short"
+	item_state = "hoodie_short"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/crop
+	icon_state = "hoodie_crop"
+	item_state = "hoodie_crop"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/sleeveless
+	icon_state = "hoodie_sleeveless"
+	item_state = "hoodie_sleeveless"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/mars
+	name = "martian hoodie"
+	desc = "An orange hoodie jacket featuring the face of Warrant Officer August 'Gus' Maldarth, typically worn as a symbol of both solidarity with Mars, and a sign of protest against the Sol Alliance government. \
+	Strangely, Maldarth seems to be mispelled as 'Maldrath' on this garment. Additionally, #GusticeForGus can be seen written on the back. It seems to have typeface issues."
+	desc_fluff = "In November 2462, the planet of Mars was devastated by a phoron explosion widely believed to be\
+	caused by experiments the Solarian government was conducting on the planet. As a result, an earlier whistleblower,\
+	Gus Maldarth was regarded as a martyr after being silenced by operatives allegedly working on the behalf of Sol."
+	icon_state = "hoodie_mars"
+	item_state = "hoodie_mars"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/colorable
+	icon_state = "coatwinter_w"
+	item_state = "coatwinter_w"
+	build_from_parts = TRUE
+	hoodtype = /obj/item/clothing/head/winterhood/colorable
+	worn_overlay = "collar"
+
+/obj/item/clothing/head/winterhood/colorable
+	icon_state = "coatwinter_w_hood"
+	build_from_parts = TRUE
+	worn_overlay = "collar"
+
+/obj/item/clothing/head/winterhood/colorable/update_icon(mob/user)
+	. = ..()
+	

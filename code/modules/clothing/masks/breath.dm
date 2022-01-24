@@ -5,7 +5,7 @@
 	item_state = "breath"
 	item_flags = AIRTIGHT|FLEXIBLEMATERIAL
 	body_parts_covered = FACE
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	gas_transfer_coefficient = 0.10
 	permeability_coefficient = 0.50
 	down_gas_transfer_coefficient = 1
@@ -39,5 +39,5 @@
 	icon_state = "gillcover"
 	item_state = "gillcover"
 	contained_sprite = TRUE
-	species_restricted = list("Skrell")
+	species_restricted = list(BODYTYPE_SKRELL)
 	adjustable = FALSE

@@ -1,5 +1,6 @@
 /mob/living/bot
 	name = "Bot"
+	accent = ACCENT_TTS
 	health = 20
 	maxHealth = 20
 	icon = 'icons/obj/aibots.dmi'
@@ -27,7 +28,9 @@
 
 /mob/living/bot/Initialize()
 	. = ..()
-	update_icons()
+	update_icon()
+	add_language(LANGUAGE_TCB)
+	set_default_language(all_languages[LANGUAGE_TCB])
 
 	botcard = new /obj/item/card/id(src)
 	botcard.access = botcard_access.Copy()
@@ -150,17 +153,16 @@
 		..()
 
 /mob/living/bot/attack_ai(mob/user)
+	if(within_jamming_range(src, FALSE))
+		to_chat(user, SPAN_WARNING("Something in the area of \the [src] is blocking the remote signal!"))
+		return FALSE
 	if(pAI)
 		to_chat(user, SPAN_WARNING("\The [src] contains a pAI and cannot be remotely controlled."))
 		return
 	return attack_hand(user)
 
-/mob/living/bot/say(var/message)
-	var/verb = "beeps"
-
-	message = sanitize(message)
-
-	..(message, null, verb)
+/mob/living/bot/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
+	..(message, null, "beeps")
 
 /mob/living/bot/Collide(atom/A)
 	if(on && botcard && istype(A, /obj/machinery/door))
@@ -191,13 +193,13 @@
 		return FALSE
 	on = TRUE
 	set_light(light_strength)
-	update_icons()
+	update_icon()
 	return TRUE
 
 /mob/living/bot/proc/turn_off()
 	on = FALSE
 	set_light(0)
-	update_icons()
+	update_icon()
 
 /mob/living/bot/proc/explode()
 	qdel(src)

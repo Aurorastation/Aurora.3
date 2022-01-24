@@ -9,6 +9,7 @@
 #define AI_FREQ 1343
 #define DTH_FREQ 1341
 #define SYND_FREQ 1213
+#define BLSP_FREQ 1253
 #define NINJ_FREQ 1255
 #define BURG_FREQ 1257
 #define RAID_FREQ 1277
@@ -16,6 +17,7 @@
 
 // department channels
 var/const/PUB_FREQ = 1459
+var/const/PEN_FREQ = 1451
 var/const/SEC_FREQ = 1359
 var/const/ENG_FREQ = 1357
 var/const/MED_FREQ = 1355
@@ -34,10 +36,12 @@ var/list/radiochannels = list(
 	"Medical"		= MED_FREQ,
 	"Engineering"	= ENG_FREQ,
 	"Security" 		= SEC_FREQ,
+	"Penal"			= PEN_FREQ,
 	"Response Team" = ERT_FREQ,
 	"Special Ops" 	= DTH_FREQ,
 	"Mercenary" 	= SYND_FREQ,
 	"Ninja"			= NINJ_FREQ,
+	"Bluespace"		= BLSP_FREQ,
 	"Burglar"		= BURG_FREQ,
 	"Raider"		= RAID_FREQ,
 	"Supply" 		= SUP_FREQ,
@@ -52,7 +56,7 @@ var/list/radiochannels = list(
 
 // central command channels, i.e deathsquid & response teams
 var/list/CENT_FREQS = list(
-	ERT_FREQ, 
+	ERT_FREQ,
 	DTH_FREQ
 )
 
@@ -63,9 +67,10 @@ var/list/CENT_FREQS_ASSOC = list(
 
 // Antag channels, i.e. Syndicate
 var/list/ANTAG_FREQS = list(
-	SYND_FREQ, 
+	SYND_FREQ,
 	RAID_FREQ,
 	NINJ_FREQ,
+	BLSP_FREQ,
 	BURG_FREQ
 )
 
@@ -101,8 +106,9 @@ var/list/DEPT_FREQS_ASSOC = list(
 	"[ENT_FREQ]" = TRUE
 )
 
-#define TRANSMISSION_WIRE	0
-#define TRANSMISSION_RADIO	1
+#define TRANSMISSION_WIRE        0 // Wired transmission, unused at the moment
+#define TRANSMISSION_RADIO       1
+#define TRANSMISSION_SUBSPACE    2
 
 /* filters */
 //When devices register with the radio controller, they might register under a certain filter.
@@ -122,3 +128,7 @@ var/list/DEPT_FREQS_ASSOC = list(
 #define RADIO_MULEBOT "radio_mulebot"
 #define RADIO_MAGNETS "radio_magnet"
 #define RADIO_ARRIVALS "radio_arrvl"
+
+#define JAMMER_OFF -1
+#define JAMMER_ALL 1 // affects ALL wireless streams
+#define JAMMER_SYNTHETIC 2 // affects only synthetic wireless connections (attack_ai)

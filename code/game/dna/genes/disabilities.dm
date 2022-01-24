@@ -57,73 +57,69 @@
 	activation_message="Your mind says 'Hello'."
 	mutation=mHallucination
 
-	New()
-		block=HALLUCINATIONBLOCK
+/datum/dna/gene/disability/hallucinate/New()
+	block=HALLUCINATIONBLOCK
 
 /datum/dna/gene/disability/epilepsy
 	name="Epilepsy"
 	activation_message="You get a headache."
 	disability=EPILEPSY
 
-	New()
-		block=HEADACHEBLOCK
+/datum/dna/gene/disability/epilepsy/New()
+	block=HEADACHEBLOCK
 
 /datum/dna/gene/disability/cough
 	name="Coughing"
 	activation_message="You start coughing."
 	disability=COUGHING
 
-	New()
-		block=COUGHBLOCK
+/datum/dna/gene/disability/cough/New()
+	block=COUGHBLOCK
 
 /datum/dna/gene/disability/clumsy
 	name="Clumsiness"
 	activation_message="You feel lightheaded."
 	mutation=CLUMSY
 
-	New()
-		block=CLUMSYBLOCK
+/datum/dna/gene/disability/clumsy/New()
+	block=CLUMSYBLOCK
 
 /datum/dna/gene/disability/tourettes
 	name="Tourettes"
 	activation_message="You twitch."
 	disability=TOURETTES
 
-	New()
-		block=TWITCHBLOCK
+/datum/dna/gene/disability/tourettes/New()
+	block=TWITCHBLOCK
 
 /datum/dna/gene/disability/stutter
 	name="Stuttering"
 	activation_message="You feel like forming words becomes increasingly difficult."
 	disability=STUTTERING
 
-	New()
-		block=STUTTERBLOCK
+/datum/dna/gene/disability/stutter/New()
+	block=STUTTERBLOCK
 
 /datum/dna/gene/disability/blindness
 	name="Blindness"
 	activation_message="You can't seem to see anything."
 	sdisability=BLIND
 
-	New()
-		block=BLINDBLOCK
+/datum/dna/gene/disability/blindness/New()
+	block=BLINDBLOCK
 
 /datum/dna/gene/disability/deaf
 	name="Deafness"
 	activation_message="It's kinda quiet."
 	sdisability=DEAF
 
-	New()
-		block=DEAFBLOCK
-
-	activate(var/mob/M, var/connected, var/flags)
-		..(M,connected,flags)
-		M.ear_deaf = 1
+/datum/dna/gene/disability/deaf/New()
+	block=DEAFBLOCK
 
 /datum/dna/gene/disability/nearsighted
 	name="Nearsightedness"
 	activation_message="Your eyes feel weird..."
 	disability=NEARSIGHTED
 
-	New()
-		block=GLASSESBLOCK
+/datum/dna/gene/disability/nearsighted/New()
+	block=GLASSESBLOCK

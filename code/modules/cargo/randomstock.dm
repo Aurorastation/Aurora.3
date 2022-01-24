@@ -45,15 +45,41 @@ STOCK_ITEM_COMMON(bees, 2)
 
 */
 
-// This datum doesn't actually do anything beyond hold the setup_cargo_stock proc. Defining it as a global proc causes things to break.
-/var/datum/cargo_master/cargo_master = new
+// The cargo_master datum is used to hold metadata about the cargo spawners. All subtypes are instantiated in misc_early to generate the cargo lists (as Atoms runs before Cargo).
+// This also means that if you want to do something fancy with the spawning probability you can directly create a custom sub-datum of this
+// instead of using the macros and override the get_probability proc or even the register_spawner proc.
+/datum/cargo_master
+	var/category = null
+	var/probability = 0
+	var/spawner_proc = null
 
+/datum/cargo_master/proc/get_probability()
+	return src.probability
 
-// Called in misc_early to generate the cargo lists (as Atoms runs before Cargo).
-/datum/cargo_master/proc/setup_cargo_stock()
+/datum/cargo_master/proc/register_spawner()
+	var/P = src.get_probability()
+	if(P <= 0)
+		return 0
+	switch(src.category)
+		if("common")
+			return global.random_stock_common[src.spawner_proc] = P
+		if("uncommon")
+			return global.random_stock_uncommon[src.spawner_proc] = P
+		if("rare")
+			return global.random_stock_rare[src.spawner_proc] = P
+		if("large")
+			return global.random_stock_large[src.spawner_proc] = P
+	throw EXCEPTION("Cargo spawner definition '[src.type]' has invalid category '[src.category]'. Please fix your definition.")
 
+/proc/setup_cargo_spawn_lists()
+	var/i
+	for(var/type in subtypesof(/datum/cargo_master))
+		var/datum/cargo_master/def = new type()
+		def.register_spawner()
+		i++
+	log_debug("Registered [i] cargo spawners.")
 
-// These lists are populated by the files in `./random_stock`.
+// These lists are populated by the files in `./random_stock` using the above procs.
 var/list/global/random_stock_common = list()
 var/list/global/random_stock_uncommon = list()
 var/list/global/random_stock_rare = list()
@@ -80,13 +106,13 @@ var/list/global/random_stock_large = list()
 
 	var/list/infest_mobs_moderate = list(
 		/mob/living/simple_animal/bee/standalone = 1,
-		/mob/living/simple_animal/hostile/diyaab = 1,
+		/mob/living/simple_animal/hostile/retaliate/diyaab = 1,
 		/mob/living/simple_animal/hostile/viscerator = 1,
 		/mob/living/simple_animal/hostile/scarybat = 1)
 
 	var/list/infest_mobs_severe = list(
 		/mob/living/simple_animal/hostile/giant_spider/hunter = 1,
-		/mob/living/simple_animal/hostile/shantak = 0.7,
+		/mob/living/simple_animal/hostile/retaliate/shantak = 0.7,
 		/mob/living/simple_animal/hostile/bear = 0.5,
 		/mob/living/simple_animal/hostile/carp = 1.5,
 		/mob/living/simple_animal/hostile/carp/russian = 0.3,

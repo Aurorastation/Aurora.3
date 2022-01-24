@@ -22,15 +22,9 @@
 	build_path = /obj/machinery/computer/scan_consolenew
 	origin_tech = list(TECH_DATA = 2, TECH_BIO = 2)
 
-/obj/item/circuitboard/teleporter
-	name = T_BOARD("teleporter control console")
-	build_path = /obj/machinery/computer/teleporter
-	origin_tech = list(TECH_DATA = 2, TECH_BLUESPACE = 2)
-
 /obj/item/circuitboard/sentencing
 	name = T_BOARD("criminal sentencing console")
 	build_path = /obj/machinery/computer/sentencing
-
 
 /obj/item/circuitboard/atmos_alert
 	name = T_BOARD("atmospheric alert console")
@@ -90,10 +84,6 @@
 	name = T_BOARD("Magix")
 	build_path = /obj/machinery/computer/pod/old/swf
 
-/obj/item/circuitboard/prisoner
-	name = T_BOARD("prisoner management console")
-	build_path = /obj/machinery/computer/prisoner
-
 /obj/item/circuitboard/rdservercontrol
 	name = T_BOARD("R&D server control console")
 	build_path = /obj/machinery/computer/rdservercontrol
@@ -115,7 +105,7 @@
 
 /obj/item/circuitboard/research_shuttle
 	name = T_BOARD("research shuttle console")
-	build_path = /obj/machinery/computer/shuttle_control/research
+	build_path = /obj/machinery/computer/shuttle_control/multi/research
 	origin_tech = list(TECH_DATA = 2)
 
 /obj/item/circuitboard/area_atmos

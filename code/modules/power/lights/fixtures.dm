@@ -31,6 +31,7 @@
 	var/light_type = /obj/item/light/tube		// the type of light item
 	var/obj/item/light/inserted_light = /obj/item/light/tube
 	var/fitting = "tube"
+	var/must_start_working = FALSE // Whether the bulb can break during Initialize or not
 	var/switchcount = 0			// count of number of times switched on/off
 								// this is used to calc the probability the light burns out
 
@@ -40,6 +41,8 @@
 	var/start_with_cell = TRUE	// if true, this fixture generates a very weak cell at roundstart
 	var/emergency_mode = FALSE	// if true, the light is in emergency mode.
 	var/no_emergency = FALSE	// if true, this light cannot enter emergency mode.
+
+	var/next_spark = 0
 
 	var/bulb_is_noisy = TRUE
 
@@ -74,7 +77,7 @@
 /obj/machinery/light/small/emergency
 	brightness_range = 6
 	brightness_power = 1
-	brightness_color = "#FA8282"//"#FF0000"
+	brightness_color = LIGHT_COLOR_EMERGENCY_SOFT
 
 /obj/machinery/light/small/red
 	brightness_range = 2.5
@@ -122,7 +125,7 @@
 	if (start_with_cell && !no_emergency)
 		cell = new /obj/item/cell/device/emergency_light(src)
 
-	if (mapload && loc && isNotAdminLevel(z))
+	if (!must_start_working && mapload && loc && isNotAdminLevel(z))
 		switch(fitting)
 			if("tube")
 				if(prob(2))
@@ -221,12 +224,19 @@
 
 	active_power_usage = ((light_range * light_power) * 10)
 
+/obj/machinery/light/proc/broken_sparks()
+	if(world.time > next_spark && !(stat & POWEROFF) && has_power())
+		spark(src, 3, alldirs)
+		next_spark = world.time + 1 MINUTE + (rand(-15, 15) SECONDS)
+
 // ehh
 /obj/machinery/light/machinery_process()
 	if (cell && cell.charge != cell.maxcharge && has_power())
 		cell.charge = min(cell.maxcharge, cell.charge + 0.2)
 	if (emergency_mode && !use_emergency_power(LIGHT_EMERGENCY_POWER_USE))
 		update(FALSE)
+	if(status == LIGHT_BROKEN)
+		broken_sparks()
 
 /obj/machinery/light/proc/has_emergency_power(pwr = LIGHT_EMERGENCY_POWER_USE)
 	if (no_emergency | !cell)
@@ -388,6 +398,8 @@
 	else
 		user.visible_message(SPAN_WARNING("\The [user] hits \the [src], but it doesn't break."), SPAN_WARNING("You hit \the [src], but it doesn't break."), SPAN_WARNING("You hear something hitting against glass."))
 
+/obj/machinery/light/bullet_act(obj/item/projectile/P, def_zone)
+	shatter()
 
 // returns whether this light has power
 // true if area has power
@@ -424,6 +436,8 @@
 // ai attack - make lights flicker, because why not
 
 /obj/machinery/light/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	src.flicker(1)
 	return
 

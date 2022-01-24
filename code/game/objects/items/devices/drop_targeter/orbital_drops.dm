@@ -46,3 +46,23 @@
 	desc_antag = "This is a stealthy variant of the standard armory orbital drop. It will not report itself dropping on common, unless emagged."
 	announcer_name = "Syndicate Autodrone"
 	announcer_channel = "Mercenary"
+
+/obj/item/device/orbital_dropper/icarus_drones
+	name = "icarus painter"
+	desc = "A device used to paint a target, which will then promptly orbitally drop the requested items. This one has been modified to call in Icarus Drones."
+
+	var/num_of_drones = 2
+	drop_amount = 1
+	does_explosion = FALSE
+
+	emagged = TRUE // to let people drop it in the station
+
+	drop_message_emagged = "NanoTrasen combat drones coming your way! Happy hunting!"
+	announcer_name = "NDV Icarus"
+
+	map = null
+
+/obj/item/device/orbital_dropper/icarus_drones/orbital_drop(var/turf/target, var/user)
+	log_and_message_admins("[key_name_admin(user)] has used a [src] at <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>.")
+	for(var/i = 1, i <= num_of_drones, i++)
+		new /mob/living/simple_animal/hostile/icarus_drone(get_random_turf_in_range(target, 4, 2, TRUE))

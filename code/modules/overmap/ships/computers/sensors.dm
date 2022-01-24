@@ -67,6 +67,9 @@
 		ui.set_auto_update(1)
 
 /obj/machinery/computer/ship/sensors/Topic(href, href_list)
+	if (..())
+		return TOPIC_HANDLED
+
 	if (!linked)
 		return TOPIC_NOACTION
 
@@ -98,13 +101,13 @@
 			new/obj/item/paper/(get_turf(src), O.get_scan_data(usr), "paper (Sensor Scan - [O])")
 		return TOPIC_HANDLED
 
-/obj/machinery/computer/ship/sensors/process()
+/obj/machinery/computer/ship/sensors/machinery_process()
 	..()
 	if(!linked)
 		return
 	if(sensors && sensors.use_power && sensors.powered())
 		var/sensor_range = round(sensors.range*1.5) + 1
-		linked.set_light(1, sensor_range, sensor_range+1)
+		linked.set_light(sensor_range, sensor_range+1, light_color)
 	else
 		linked.set_light(0)
 
@@ -133,7 +136,7 @@
 
 		if(WT.remove_fuel(0,user))
 			to_chat(user, "<span class='notice'>You start repairing the damage to [src].</span>")
-			playsound(src, 'sound/items/Welder.ogg', 100, 1)
+			playsound(src, 'sound/items/welder.ogg', 100, 1)
 			if(do_after(user, max(5, damage / 5), src) && WT && WT.isOn())
 				to_chat(user, "<span class='notice'>You finish repairing the damage to [src].</span>")
 				take_damage(-damage)
@@ -180,7 +183,8 @@
 	update_use_power(!use_power)
 	queue_icon_update()
 
-/obj/machinery/shipsensors/process()
+/obj/machinery/shipsensors/machinery_process()
+	..()
 	if(use_power) //can't run in non-vacuum
 		if(!in_vacuum())
 			toggle()

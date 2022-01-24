@@ -23,7 +23,7 @@
 	var/corpseidjob = null // Needs to be in quotes, such as "Clown" or "Chef." This just determines what the ID reads as, not their access
 	var/corpseidaccess = null //This is for access. See access.dm for which jobs give what access. Again, put in quotes. Use "Captain" if you want it to be all access.
 	var/corpseidicon = null //For setting it to be a gold, silver, centcomm etc ID
-	var/species = "Human"
+	var/species = SPECIES_HUMAN
 
 /obj/effect/landmark/corpse/Initialize()
 	. = ..()
@@ -169,20 +169,8 @@
 
 /obj/effect/landmark/corpse/engineer/rotten
 	name = "unidentifiable corpse"
-	species = "Skeleton"
+	species = SPECIES_SKELETON
 	corpseid = 0
-
-/obj/effect/landmark/corpse/clown
-	name = "Clown"
-	corpseuniform = /obj/item/clothing/under/rank/clown
-	corpseshoes = /obj/item/clothing/shoes/clown_shoes
-	corpseradio = /obj/item/device/radio/headset
-	corpsemask = /obj/item/clothing/mask/gas/clown_hat
-	corpsepocket1 = /obj/item/bikehorn
-	corpseback = /obj/item/storage/backpack/clown
-	corpseid = 1
-	corpseidjob = "Clown"
-	corpseidaccess = "Clown"
 
 /obj/effect/landmark/corpse/scientist
 	name = "Scientist"
@@ -217,7 +205,7 @@
 	name = "Bridge Officer"
 	corpseradio = /obj/item/device/radio/headset/heads/hop
 	corpseuniform = /obj/item/clothing/under/rank/centcom_officer
-	corpsesuit = /obj/item/clothing/suit/armor/bulletproof
+	corpsesuit = /obj/item/clothing/suit/armor/carrier/ballistic
 	corpseshoes = /obj/item/clothing/shoes/black
 	corpseglasses = /obj/item/clothing/glasses/sunglasses
 	corpseid = 1
@@ -227,7 +215,7 @@
 /obj/effect/landmark/corpse/commander
 	name = "Commander"
 	corpseuniform = /obj/item/clothing/under/rank/centcom_captain
-	corpsesuit = /obj/item/clothing/suit/armor/bulletproof
+	corpsesuit = /obj/item/clothing/suit/armor/carrier/ballistic
 	corpseradio = /obj/item/device/radio/headset/heads/captain
 	corpseglasses = /obj/item/clothing/glasses/eyepatch
 	corpsemask = /obj/item/clothing/mask/smokable/cigarette/cigar/cohiba

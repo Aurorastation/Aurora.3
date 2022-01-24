@@ -13,7 +13,6 @@
 /datum/nano_module/program/civilian/cargocontrol
 	name = "Cargo Control"
 	var/page = "overview_main" //overview_main - Main Menu, overview_submitted - Submitted Order Overview, overview_approved - Approved Order Overview, settings - Settings, details - order details, bounties - centcom bounties
-	var/last_user_name = "" //Name of the User that last used the computer
 	var/status_message //A status message that can be displayed
 	var/list/order_details = list() //Order Details for the order
 	var/list/shipment_details = list() //Shipment Details for a selected shipment
@@ -29,10 +28,7 @@
 	//Send the status message
 	data["status_message"] = status_message
 
-	//Pass the ID Data
-	var/obj/item/card/id/user_id_card = user.GetIdCard()
-	last_user_name = GetNameAndAssignmentFromId(user_id_card)
-	data["username"] = last_user_name
+	data["username"] = GetNameAndAssignmentFromId(user.GetIdCard())
 
 	var/list/submitted_orders = SScargo.get_orders_by_status("submitted",1)
 	data["order_submitted_number"] = submitted_orders.len
@@ -108,6 +104,11 @@
 		ui.set_auto_update(TRUE)
 
 /datum/nano_module/program/civilian/cargocontrol/Topic(href, href_list)
+	if(..())
+		return TRUE
+
+	var/obj/item/card/id/I = usr.GetIdCard()
+
 	var/datum/shuttle/autodock/ferry/supply/shuttle = SScargo.shuttle
 	var/obj/item/modular_computer/console = program.computer
 	if (!shuttle)
@@ -150,7 +151,7 @@
 	if(href_list["order_approve"])
 		var/datum/cargo_order/co = SScargo.get_order_by_id(text2num(href_list["order_approve"]))
 		if(co)
-			var/message = co.set_approved(last_user_name)
+			var/message = co.set_approved(GetNameAndAssignmentFromId(I), usr.character_id)
 			if(message)
 				status_message = message
 		return TRUE
@@ -166,7 +167,7 @@
 
 	//Send shuttle
 	if(href_list["shuttle_send"])
-		var/message = SScargo.shuttle_call(last_user_name)
+		var/message = SScargo.shuttle_call(GetNameAndAssignmentFromId(I))
 		if(message)
 			status_message = message
 		return TRUE
@@ -240,6 +241,7 @@
 				if(B.claimed)
 					continue
 				text += "<h3>[B.name]</h3>"
+				text += "<font size = \"1\">[B.description]</font>"
 				text += "<ul><li>Reward: [B.reward_string()]</li>"
 				text += "<li>Completed: [B.completion_string()]</li></ul>"
 			if(!console.nano_printer.print_text(text,"paper - Bounties"))
@@ -257,7 +259,7 @@
 
 	var/datum/signal/status_signal = new
 	status_signal.source = src
-	status_signal.transmission_method = 1
+	status_signal.transmission_method = TRANSMISSION_RADIO
 	status_signal.data["command"] = command
 
 	frequency.post_signal(src, status_signal)

@@ -8,7 +8,7 @@
 	icon = 'icons/obj/device.dmi'
 	icon_state = "autopsy"
 	flags = CONDUCT
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	var/list/datum/autopsy_data_scanner/wdata = list()
 	var/list/datum/autopsy_data_scanner/chemtraces = list()
@@ -109,13 +109,13 @@
 			if(0)
 				damage_desc = "Unknown"
 			if(1 to 5)
-				damage_desc = "<font color='green'>negligible</font>"
+				damage_desc = "<span class='good'>negligible</span>"
 			if(5 to 15)
-				damage_desc = "<font color='green'>light</font>"
+				damage_desc = "<span class='good'>light</span>"
 			if(15 to 30)
 				damage_desc = "<font color='orange'>moderate</font>"
 			if(30 to 1000)
-				damage_desc = "<font color='red'>severe</font>"
+				damage_desc = "<span class='warning'>severe</span>"
 
 		if(!total_score) total_score = D.organs_scanned.len
 

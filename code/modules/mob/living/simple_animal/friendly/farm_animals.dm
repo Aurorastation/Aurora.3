@@ -16,6 +16,7 @@
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	meat_amount = 6
 	mob_size = 4.5//weight based on Chanthangi goats
+	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
@@ -28,6 +29,7 @@
 	canbrush = TRUE
 	emote_sounds = list('sound/effects/creatures/goat.ogg')
 	has_udder = TRUE
+	hostile_nameable = TRUE
 
 	butchering_products = list(/obj/item/stack/material/animalhide = 3)
 
@@ -46,7 +48,9 @@
 	..()
 	//chance to go crazy and start wacking stuff
 	if(!enemies.len && prob(1))
-		Retaliate()
+		var/mob/living/L = locate() in oview(world.view, src)
+		if(L)
+			handle_attack_by(L)
 
 	if(enemies.len && prob(10))
 		enemies = list()
@@ -59,10 +63,10 @@
 			var/step = get_step_to(src, food, 0)
 			Move(step)
 
-/mob/living/simple_animal/hostile/retaliate/goat/Retaliate()
+/mob/living/simple_animal/hostile/retaliate/goat/handle_attack_by(mob/M)
 	..()
 	if(stat == CONSCIOUS)
-		visible_message("<span class='warning'>[src] gets an evil-looking gleam in their eye.</span>")
+		visible_message(SPAN_WARNING("[src] gets an evil-looking gleam in their eye."))
 
 /mob/living/simple_animal/hostile/retaliate/goat/Move()
 	..()
@@ -88,6 +92,7 @@
 	see_in_dark = 6
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	meat_amount = 40 //Cows are huge, should be worth a lot of meat
+	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
@@ -116,6 +121,32 @@
 	else
 		..()
 
+/mob/living/simple_animal/pig
+	name = "pig"
+	desc = "Used in the past simply as meat farms, modern people recognize the affectionate side of these bacon factories."
+	icon = 'icons/mob/npc/livestock.dmi'
+	icon_state = "pig"
+	icon_living = "pig"
+	icon_dead = "pig_dead"
+	speak = list("oink", "oink oink", "OINK")
+	speak_emote = list("squeels")
+	emote_hear = list("snorts", "grunts")
+	emote_see = list("sways its tail")
+	speak_chance = 1
+	turns_per_move = 5
+	see_in_dark = 6
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/pig
+	meat_amount = 20
+	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
+	response_help  = "pets"
+	response_disarm = "gently pushes aside"
+	response_harm   = "kicks"
+	attacktext = "kicked"
+	health = 120
+	emote_sounds = list('sound/effects/creatures/pigsnort.ogg')
+	butchering_products = list(/obj/item/stack/material/animalhide/barehide = 6)
+	forbidden_foods = list(/obj/item/reagent_containers/food/snacks/egg)
+
 /mob/living/simple_animal/chick
 	name = "\improper chick"
 	desc = "Adorable! They make such a racket though."
@@ -132,6 +163,7 @@
 	turns_per_move = 2
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/chicken
 	meat_amount = 1
+	organ_names = list("head", "chest", "left leg", "right leg")
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
@@ -252,20 +284,6 @@
 		E.pixel_y = rand(-6,6)
 		if(chicken_count < MAX_CHICKENS && prob(10))
 			START_PROCESSING(SSprocessing, E)
-
-/obj/item/reagent_containers/food/snacks/egg
-	var/amount_grown = 0
-
-/obj/item/reagent_containers/food/snacks/egg/process()
-	if(isturf(loc))
-		amount_grown += rand(1,2)
-		if(amount_grown >= 100)
-			visible_message("[src] hatches with a quiet cracking sound.")
-			new /mob/living/simple_animal/chick(get_turf(src))
-			STOP_PROCESSING(SSprocessing, src)
-			qdel(src)
-	else
-		STOP_PROCESSING(SSprocessing, src)
 
 // Penguins
 

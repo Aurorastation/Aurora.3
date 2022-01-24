@@ -1,23 +1,23 @@
-var/DBConnection/dbcon_ut
-
-/proc/check_ut_db()
-	if (!dbcon_ut)
-		dbcon_ut = new("127.0.0.1", 3306, "ss13_test", "root")
-
-	return establish_db_connection(dbcon_ut)
-
 /datum/unit_test/sql_preferences_columns
 	name = "SQL: Preferences Columns"
 
 /datum/unit_test/sql_preferences_columns/start_test()
-	if (!check_ut_db())
-		fail("Test DB setup failed.")
+	if(!config.sql_enabled)
+		log_unit_test("[ascii_yellow]--------------- Database not Configured - Skipping Preference Column UT")
+		return TRUE
+	
+	log_unit_test("[ascii_yellow]--------------- Database Configured - Running SQL Preference UTs")
+	
+	if(!establish_db_connection(dbcon))
+		log_unit_test("[ascii_red]--------------- Unable to establish database connection.")
+		fail("Database connection could not be established.")
 		return TRUE
 
 	var/faults = 0
 	var/valid_columns = list()
 
 	// this is the worst unit test in the history of unit tests - geeves
+	// At least the credentials are no longer hardcoded - arrow768
 	var/list/table_names = list(
 		"ss13_characters",
 		"ss13_characters_flavour",
@@ -27,7 +27,7 @@ var/DBConnection/dbcon_ut
 		"ss13_characters_ipc_tags"
 	)
 	for (var/T in table_names)
-		var/DBQuery/get_cs = dbcon_ut.NewQuery("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_NAME` = :table:")
+		var/DBQuery/get_cs = dbcon.NewQuery("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_NAME` = :table:")
 		get_cs.Execute(list("table" = T))
 
 		if (get_cs.ErrorMsg())
@@ -47,7 +47,6 @@ var/DBConnection/dbcon_ut
 			var/list/test_columns = list()
 			var/list/temp
 
-
 			temp = A.gather_load_query()
 			for (var/B in temp)
 				if (!test_columns[B])
@@ -56,7 +55,6 @@ var/DBConnection/dbcon_ut
 				test_columns[B] |= temp[B]["vars"]
 				test_columns[B] |= temp[B]["args"]
 			temp.Cut()
-
 
 			temp = A.gather_load_parameters()
 			var/list/unfound = temp.Copy()
@@ -71,7 +69,6 @@ var/DBConnection/dbcon_ut
 					log_unit_test("[ascii_red]--------------- load parameter '[C]' not found in any queries for '[A.name]':[A.type].[ascii_reset]")
 					faults++
 			temp.Cut()
-
 
 			temp = A.gather_save_query()
 			for (var/B in temp)

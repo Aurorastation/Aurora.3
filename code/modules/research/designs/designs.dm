@@ -30,8 +30,8 @@ other types of metals and chemistry for reagents).
 	var/list/chemicals = list()		//List of chemicals.
 	var/build_path					//The path of the object that gets created.
 	var/time = 10					//How many ticks it requires to build
+	var/p_category = "Misc"
 	var/category					//Primarily used for Mech Fabricators, but can be used for anything.
-	var/design_order = 0			// How things are sorted, lower things are higher up
 
 /datum/design/New()
 	..()
@@ -52,9 +52,9 @@ other types of metals and chemistry for reagents).
 	return
 
 /datum/design/proc/AssembleDesignDesc()
-	if(!desc)								//Try to make up a nice description if we don't have one
-		desc = "Allows for the construction of \a [item_name]."
-	return
+	if(!desc)
+		var/atom/build_item = build_path
+		desc = initial(build_item.desc)
 
 //Returns a new instance of the item for this design
 //This is to allow additional initialization to be performed, including possibly additional contructor arguments.

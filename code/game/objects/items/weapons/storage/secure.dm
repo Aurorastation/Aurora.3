@@ -23,9 +23,9 @@
 	var/l_hacking = 0
 	var/emagged = 0
 	var/open = 0
-	w_class = 3
-	max_w_class = 2
-	max_storage_space = 14
+	w_class = ITEMSIZE_LARGE
+	max_w_class = ITEMSIZE_NORMAL
+	max_storage_space = 16
 	use_sound = 'sound/items/storage/briefcase.ogg'
 
 	examine(mob/user)
@@ -38,7 +38,7 @@
 				var/obj/item/melee/energy/blade/blade = W
 				blade.spark_system.queue()
 				playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
-				playsound(src.loc, "sparks", 50, 1)
+				playsound(src.loc, /decl/sound_category/spark_sound, 50, 1)
 				return
 
 			if (W.isscrewdriver())
@@ -138,6 +138,10 @@
 		to_chat(user, (feedback ? feedback : "You short out the lock of \the [src]."))
 		return 1
 
+/obj/item/storage/secure/AltClick(/mob/user)
+	if (!locked)
+		return ..()
+
 // -----------------------------
 //        Secure Briefcase
 // -----------------------------
@@ -154,7 +158,7 @@
 	force = 8.0
 	throw_speed = 1
 	throw_range = 4
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 
 	attack_hand(mob/user as mob)
 		if ((src.loc == user) && (src.locked == 1))
@@ -181,8 +185,8 @@
 	icon_locking = "safeb"
 	icon_sparking = "safespark"
 	force = 8.0
-	w_class = 8.0
-	max_w_class = 8
+	w_class = ITEMSIZE_IMMENSE
+	max_w_class = ITEMSIZE_IMMENSE
 	anchored = 1.0
 	density = 0
 	cant_hold = list(/obj/item/storage/secure/briefcase)

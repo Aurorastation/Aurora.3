@@ -5,143 +5,128 @@
 	slot = slot_glasses
 	sort_category = "Glasses and Eyewear"
 
+/datum/gear/eyes/whitepatch
+	display_name = "simple eyepatch (colorable)"
+	path = /obj/item/clothing/glasses/eyepatch/white
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/eyes/glasses
-	display_name = "glasses, prescription"
+	display_name = "glasses selection"
+	description = "A selection of glasses."
 	path = /obj/item/clothing/glasses/regular
 
-/datum/gear/eyes/glasses/hipster
-	display_name = "glasses, hipster"
-	path = /obj/item/clothing/glasses/regular/hipster
+/datum/gear/eyes/glasses/New()
+	..()
+	var/list/glasses = list()
+	glasses["glasses, regular"] = /obj/item/clothing/glasses/regular
+	glasses["glasses, hipster"] = /obj/item/clothing/glasses/regular/hipster
+	glasses["glasses, circle"] = /obj/item/clothing/glasses/regular/circle
+	glasses["glasses, jamjar"] = /obj/item/clothing/glasses/regular/jamjar
+	glasses["glasses, monocle"] = /obj/item/clothing/glasses/monocle
+	glasses["glasses, safety"] = /obj/item/clothing/glasses/safety
+	gear_tweaks += new /datum/gear_tweak/path(glasses)
 
-/datum/gear/eyes/glasses/circle
-	display_name = "glasses, circle"
-	path = /obj/item/clothing/glasses/regular/circle
+/datum/gear/eyes/fakesunglasses
+	display_name = "sunglasses selection"
+	description = "A selection of sunglasses."
+	path = /obj/item/clothing/glasses/sunglasses
 
-/datum/gear/eyes/glasses/jamjar
-	display_name = "glasses, jamjar"
-	path = /obj/item/clothing/glasses/regular/jamjar
+/datum/gear/eyes/fakesunglasses/New()
+	..()
+	var/list/glasses = list()
+	glasses["sunglasses, regular"] = /obj/item/clothing/glasses/fakesunglasses
+	glasses["sunglasses, aviator"] = /obj/item/clothing/glasses/fakesunglasses/aviator
+	glasses["sunglasses, prescription"] = /obj/item/clothing/glasses/fakesunglasses/prescription
+	glasses["sunglasses, fat"] = /obj/item/clothing/glasses/fakesunglasses/big
+	glasses["sunglasses, visor"] = /obj/item/clothing/glasses/fakesunglasses/visor
+	gear_tweaks += new /datum/gear_tweak/path(glasses)
 
-/datum/gear/eyes/glasses/monocle
-	display_name = "monocle"
-	path = /obj/item/clothing/glasses/monocle
+/datum/gear/eyes/sunglasses
+	display_name = "flash-proof sunglasses selection (Security/Command)"
+	description = "A selection of flash-proof sunglasses."
+	path = /obj/item/clothing/glasses/sunglasses
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Captain", "Head of Personnel", "Quartermaster", "Internal Affairs Agent", "Investigator")
 
-/datum/gear/eyes/glasses/safety
-	display_name = "safety glasses"
-	path = /obj/item/clothing/glasses/safety
+/datum/gear/eyes/sunglasses/New()
+	..()
+	var/list/glasses = list()
+	glasses["flash-proof sunglasses, regular"] = /obj/item/clothing/glasses/sunglasses
+	glasses["flash-proof sunglasses, aviator"] = /obj/item/clothing/glasses/sunglasses/aviator
+	glasses["flash-proof sunglasses, prescription"] = /obj/item/clothing/glasses/sunglasses/prescription
+	glasses["flash-proof sunglasses, fat"] = /obj/item/clothing/glasses/sunglasses/big
+	glasses["flash-proof sunglasses, visor"] = /obj/item/clothing/glasses/sunglasses/visor
+	gear_tweaks += new /datum/gear_tweak/path(glasses)
 
-/datum/gear/eyes/glasses/safety/goggles
-	display_name = "safety goggles"
+/datum/gear/eyes/goggles
+	display_name = "goggles selection"
+	description = "A selection of safer eyewear."
 	path = /obj/item/clothing/glasses/safety/goggles
 
-/datum/gear/eyes/scanning_goggles
-	display_name = "scanning goggles"
-	path = /obj/item/clothing/glasses/regular/scanners
+/datum/gear/eyes/goggles/New()
+	..()
+	var/list/goggles = list()
+	goggles["goggles, safety"] = /obj/item/clothing/glasses/safety/goggles
+	goggles["goggles, scanning"] = /obj/item/clothing/glasses/regular/scanners
+	goggles["goggles, science"] = /obj/item/clothing/glasses/science
+	goggles["goggles, orange"] = /obj/item/clothing/glasses/spiffygogs
+	gear_tweaks += new /datum/gear_tweak/path(goggles)
 
-/datum/gear/eyes/sciencegoggles
-	display_name = "science Goggles"
-	path = /obj/item/clothing/glasses/science
-
-/datum/gear/eyes/materialaviators
-	display_name = "aviators, material"
-	path = /obj/item/clothing/glasses/material/aviator
-	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice","Shaft Miner")
-
-/datum/gear/eyes/mesonaviators
-	display_name = "aviators, meson"
-	path = /obj/item/clothing/glasses/meson/aviator
-	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice", "Research Director","Scientist", "Shaft Miner")
-
-/datum/gear/eyes/mesonprescription
-	display_name = "meson goggles, prescription"
-	path = /obj/item/clothing/glasses/meson/prescription
-	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice", "Research Director","Scientist", "Shaft Miner")
-
-/datum/gear/eyes/security
-	display_name = "security HUD"
-	path = /obj/item/clothing/glasses/hud/security
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
-
-/datum/gear/eyes/security/aviator
-	display_name = "aviators, security"
-	path = /obj/item/clothing/glasses/sunglasses/sechud/aviator
-
-/datum/gear/eyes/medical
-	display_name = "medical HUD"
-	path = /obj/item/clothing/glasses/hud/health
-	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "Emergency Medical Technician", "Psychiatrist", "Medical Resident")
-
-/datum/gear/eyes/medical/aviator
-	display_name = "aviators, medical"
+/datum/gear/eyes/medhuds
+	display_name = "medical HUD selection"
+	description = "A selection of medical HUDs."
 	path = /obj/item/clothing/glasses/hud/health/aviator
+	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern")
 
-/datum/gear/eyes/shades
-	display_name = "sunglasses, fat (Security/Command)"
-	path = /obj/item/clothing/glasses/sunglasses/big
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Captain", "Head of Personnel", "Quartermaster", "Internal Affairs Agent", "Detective", "Forensic Technician")
+/datum/gear/eyes/medhuds/New()
+	..()
+	var/list/medhud = list()
+	medhud["aviators, medical"] = /obj/item/clothing/glasses/hud/health/aviator
+	medhud["HUD, medical"] = /obj/item/clothing/glasses/hud/health
+	medhud["HUDpatch, medical"] = /obj/item/clothing/glasses/eyepatch/hud/medical
+	medhud["prescription HUD, medical"] = /obj/item/clothing/glasses/hud/health/prescription
+	medhud["visor sunglasses, medical"] = /obj/item/clothing/glasses/hud/health/aviator/visor
+	gear_tweaks += new /datum/gear_tweak/path(medhud)
 
-/datum/gear/eyes/shades/prescriptionsun
-	display_name = "sunglasses, presciption (Security/Command)"
-	path = /obj/item/clothing/glasses/sunglasses/prescription
+/datum/gear/eyes/sechuds
+	display_name = "security HUD selection"
+	description = "A selection of security HUDs."
+	path = /obj/item/clothing/glasses/sunglasses/sechud/aviator
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator")
 
-/datum/gear/eyes/shades/aviator
-	display_name = "sunglasses, aviator (Security/Command)"
-	path = /obj/item/clothing/glasses/sunglasses/aviator
-
-/datum/gear/eyes/glasses/fakesun
-	display_name = "sunglasses, stylish"
-	path = /obj/item/clothing/glasses/fakesunglasses
-
-/datum/gear/eyes/glasses/fakesun/prescription
-	display_name = "prescription sunglasses, stylish"
-	path = /obj/item/clothing/glasses/fakesunglasses/prescription
-
-/datum/gear/eyes/glasses/fakesun/aviator
-	display_name = "aviators, stylish"
-	path = /obj/item/clothing/glasses/fakesunglasses/aviator
+/datum/gear/eyes/sechuds/New()
+	..()
+	var/list/sechud = list()
+	sechud["sunglasses, security"] = /obj/item/clothing/glasses/sunglasses/sechud
+	sechud["fat sunglasses, security"] = /obj/item/clothing/glasses/sunglasses/sechud/big
+	sechud["aviators, security"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator
+	sechud["HUD, security"] = /obj/item/clothing/glasses/hud/security
+	sechud["HUDpatch, security"] = /obj/item/clothing/glasses/eyepatch/hud/security
+	sechud["prescription HUD, security"] = /obj/item/clothing/glasses/hud/security/prescription
+	sechud["visor sunglasses, security"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator/visor
+	gear_tweaks += new /datum/gear_tweak/path(sechud)
 
 /datum/gear/eyes/hudpatch
 	display_name = "iPatch"
 	path = /obj/item/clothing/glasses/eyepatch/hud
 
-/datum/gear/eyes/secpatch
-	display_name = "HUDpatch, Security"
-	path= /obj/item/clothing/glasses/eyepatch/hud/security
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
-	cost = 2 //snowflake tax
-
-/datum/gear/eyes/medpatch
-	display_name = "HUDpatch, Medical"
-	path = /obj/item/clothing/glasses/eyepatch/hud/medical
-	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "Emergency Medical Technician", "Psychiatrist", "Medical Resident")
-	cost = 2
-
-/datum/gear/eyes/mespatch
-	display_name = "HUDpatch, Mesons"
-	path = /obj/item/clothing/glasses/eyepatch/hud/meson
-	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice", "Research Director","Scientist", "Shaft Miner")
-	cost = 2
-
-/datum/gear/eyes/matpatch
-	display_name = "HUDpatch, Material"
-	path = /obj/item/clothing/glasses/eyepatch/hud/material
-	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice", "Shaft Miner")
-	cost = 2
-
 /datum/gear/eyes/scipatch
 	display_name = "HUDpatch, Science"
 	path = /obj/item/clothing/glasses/eyepatch/hud/science
-	cost = 2
-
-/datum/gear/eyes/weldpatch
-	display_name = "HUDpatch, Welding"
-	path = /obj/item/clothing/glasses/eyepatch/hud/welder
-	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice","Research Director","Roboticist")
-	cost = 2
-
-/datum/gear/eyes/spiffygogs
-	display_name = "orange goggles"
-	path = /obj/item/clothing/glasses/spiffygogs
+	cost = 1
 
 /datum/gear/eyes/circuitry
 	display_name = "goggles, circuitry (empty)"
 	path = /obj/item/clothing/glasses/circuitry
+
+/datum/gear/eyes/blindfolds
+	display_name = "blindfold selection"
+	description = "A selection of blindfolds."
+	path = /obj/item/clothing/glasses/sunglasses/blindfold
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/eyes/blindfolds/New()
+	..()
+	var/list/blindfold = list()
+	blindfold["blindfold"] = /obj/item/clothing/glasses/sunglasses/blindfold/white
+	blindfold["blindfold, transparent"] = /obj/item/clothing/glasses/sunglasses/blindfold/white/seethrough
+	gear_tweaks += new /datum/gear_tweak/path(blindfold)

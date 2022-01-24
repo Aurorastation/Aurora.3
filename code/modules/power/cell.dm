@@ -12,6 +12,9 @@
 	charge = 0
 	update_icon()
 
+/obj/item/cell/get_cell()
+	return src
+
 /obj/item/cell/drain_power(var/drain_check, var/surge, var/power = 0)
 
 	if(drain_check)
@@ -57,12 +60,10 @@
 	return used
 
 // Checks if the specified amount can be provided. If it can, it removes the amount
-// from the cell and returns 1. Otherwise does nothing and returns 0.
+// from the cell and returns 1. Otherwise drains the charge to exactly 0 and returns 0.
 /obj/item/cell/proc/checked_use(var/amount)
-	if(!check_charge(amount))
-		return 0
+	. = check_charge(amount)
 	use(amount)
-	return 1
 
 // recharge the cell
 /obj/item/cell/proc/give(var/amount)
@@ -86,18 +87,17 @@
 		return
 
 	if(maxcharge <= 2500)
-		to_chat(user, "[desc]\nThe manufacturer's label states this cell has a power rating of [maxcharge], and that you should not swallow it.\nThe charge meter reads [round(src.percent() )]%.")
+		to_chat(user, "[desc]\nThe manufacturer's label states this cell has a power rating of [maxcharge]J, and that you should not swallow it.\nThe charge meter reads [round(src.percent() )]%.")
 	else
-		to_chat(user, "This power cell has an exciting chrome finish, as it is an uber-capacity cell type! It has a power rating of [maxcharge]!\nThe charge meter reads [round(src.percent() )]%.")
+		to_chat(user, "This power cell has an exciting chrome finish, as it is an uber-capacity cell type! It has a power rating of [maxcharge]J!\nThe charge meter reads [round(src.percent() )]%.")
 
 /obj/item/cell/attackby(obj/item/W, mob/user)
-	..()
 	if(istype(W, /obj/item/reagent_containers/syringe))
 		var/obj/item/reagent_containers/syringe/S = W
 
 		to_chat(user, "You inject the solution into the power cell.")
 
-		if(S.reagents.has_reagent(/datum/reagent/toxin/phoron, 5))
+		if(S.reagents.has_reagent(/decl/reagent/toxin/phoron, 5))
 
 			rigged = 1
 
@@ -105,6 +105,7 @@
 			message_admins("[key_name_admin(user)] injected a power cell with phoron, rigging it to explode.")
 
 		S.reagents.clear_reagents()
+		return
 	else if(istype(W, /obj/item/device/assembly_holder))
 		var/obj/item/device/assembly_holder/assembly = W
 		if (istype(assembly.a_left, /obj/item/device/assembly/signaler) && istype(assembly.a_right, /obj/item/device/assembly/signaler))
@@ -115,6 +116,22 @@
 			new /obj/item/device/radiojammer/improvised(assembly, src, user)
 		else
 			to_chat(user, "<span class='notice'>You'd need both devices to be signallers for this to work.</span>")
+		return
+	else if(W.ismultitool() && ishuman(user) && user.get_inactive_hand() == src)
+		if(charge < 10)
+			to_chat(user, SPAN_WARNING("\The [src] doesn't have enough charge to produce sufficient current!"))
+			return
+		var/mob/living/carbon/human/H = user
+		var/siemens_coeff = 1
+		if(H.gloves)
+			siemens_coeff = H.gloves.siemens_coefficient
+		if(siemens_coeff >= 0.75 && prob(10 * siemens_coeff))
+			to_chat(H, SPAN_WARNING("You probe \the [src] with \the [W] and feel a jolt of electricity shoot through you! It reads out that [100 * siemens_coeff]% of the current was let through."))
+			H.electrocute_act(5, src, siemens_coeff, H.hand ? BP_R_HAND : BP_L_HAND) // hand holding the battery gets shocked
+		else
+			to_chat(H, SPAN_NOTICE("You probe \the [src] with \the [W]. It reads out that [100 * siemens_coeff]% of the current was let through."))
+		return
+	return ..()
 
 /obj/item/cell/proc/explode()
 	var/turf/T = get_turf(src.loc)

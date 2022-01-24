@@ -22,17 +22,15 @@
 
 	D.visible_message("<span class='danger'>[A] suplexes [D]!</span>")
 	D.forceMove(A.loc)
-	var/armor_block = D.run_armor_check(null, "melee")
-	D.apply_damage(30, BRUTE, null, armor_block)
-	D.apply_effect(6, WEAKEN, armor_block)
+	D.apply_damage(30, BRUTE)
+	D.apply_effect(6, WEAKEN)
 	add_logs(A, D, "suplexed")
 
 	A.SpinAnimation(10,1)
 
 	D.SpinAnimation(10,1)
 	spawn(3)
-		armor_block = A.run_armor_check(null, "melee")
-		A.apply_effect(4, WEAKEN, armor_block)
+		A.apply_effect(4, WEAKEN)
 	return
 
 /datum/martial_art/wrestling/disarm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
@@ -48,14 +46,13 @@
 	D.grabbedby(A,1)
 	D.visible_message("<span class='danger'>[A] holds [D] down!</span>")
 	var/obj/item/organ/external/affecting = D.get_organ(ran_zone(A.zone_sel.selecting))
-	var/armor_block = D.run_armor_check(affecting, "melee")
-	D.apply_damage(40, PAIN, affecting, armor_block)
+	D.apply_damage(40, PAIN, affecting)
 	return 1
 
 /datum/martial_art/wrestling/proc/wrestling_help()
-	set name = "Recall Teachings"
+	set name = "Recall Wrestling"
 	set desc = "Remember how to wrestle."
-	set category = "Wrestling"
+	set category = "Abilities"
 
 	to_chat(usr, "<b><i>You flex your muscles and have a revelation...</i></b>")
 	to_chat(usr, "<span class='notice'>Clinch</span>: Grab. Passively gives you a chance to immediately aggressively grab someone. Not always successful.")

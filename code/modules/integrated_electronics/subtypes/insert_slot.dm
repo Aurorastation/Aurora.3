@@ -56,7 +56,7 @@
 	power_draw_per_use = 3
 	allowed_types = list(/obj/item/paper)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	origin_tech = list(TECH_ENGINEERING = 2, TECH_MATERIALS = 2)
+	origin_tech = list(TECH_ENGINEERING = 2, TECH_MATERIAL = 2)
 
 /obj/item/integrated_circuit/insert_slot/beaker_holder
 	name = "beaker holder"
@@ -67,4 +67,4 @@
 	capacity = 1
 	allowed_types = list(/obj/item/reagent_containers/glass/beaker)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	origin_tech = list(TECH_ENGINEERING = 2, TECH_BIO = 2, TECH_MATERIALS = 2)
+	origin_tech = list(TECH_ENGINEERING = 2, TECH_BIO = 2, TECH_MATERIAL = 2)

@@ -97,7 +97,6 @@
 	new /obj/item/clothing/under/rank/dress/officer(src)
 	new /obj/item/clothing/head/dress/officer(src)
 	new /obj/item/clothing/suit/storage/vest(src)
-	new /obj/item/cartridge/captain(src)
 	new /obj/item/clothing/head/helmet(src)
 	new /obj/item/clothing/shoes/laceup(src)
 	new /obj/item/device/radio/headset/heads/captain(src)

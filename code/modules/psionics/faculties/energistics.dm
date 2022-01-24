@@ -2,7 +2,7 @@
 	id = PSI_ENERGISTICS
 	name = "Energistics"
 	associated_intent = I_HURT
-	armour_types = list("bomb", "laser", "energy")
+	armor_types = list("bomb", "laser", "energy")
 
 /datum/psionic_power/energistics
 	faculty = PSI_ENERGISTICS
@@ -74,14 +74,14 @@
 
 		switch(user_rank)
 			if(PSI_RANK_PARAMOUNT)
-				pew = new /obj/item/projectile/energy/tesla/paramount(get_turf(user))
+				pew = new /obj/item/projectile/beam/tesla/paramount(get_turf(user))
 				pew.name = "thunderstrike"
 				pew_sound = 'sound/effects/psi/thunderstrike.ogg'
 			if(PSI_RANK_GRANDMASTER)
-				pew = new /obj/item/projectile/energy/tesla/grandmaster(get_turf(user))
+				pew = new /obj/item/projectile/beam/tesla/grandmaster(get_turf(user))
 				pew.name = "lightning shock"
 			if(PSI_RANK_MASTER)
-				pew = new /obj/item/projectile/energy/tesla/master(get_turf(user))
+				pew = new /obj/item/projectile/beam/tesla/master(get_turf(user))
 				pew.name = "lightning beam"
 
 		if(istype(pew))
@@ -101,15 +101,16 @@
 	use_description = "Target a non-living target in melee range on harm intent to cause some sparks to appear. This can light fires."
 
 /datum/psionic_power/energistics/spark/invoke(var/mob/living/user, var/mob/living/target)
-	if(isnull(target) || istype(target)) return FALSE
+	if(isnull(target) || istype(target))
+		return FALSE
 	. = ..()
 	if(.)
 		if(istype(target,/obj/item/clothing/mask/smokable/cigarette))
 			var/obj/item/clothing/mask/smokable/cigarette/S = target
-			S.light(SPAN_NOTICE("\The [user] snaps \his fingers and \the [S] lights up."))
-			playsound(S.loc, "sparks", 50, 1)
-		else
-			var/datum/effect_system/sparks/spark_system
-			spark_system = bind_spark(src, 3)
-			spark_system.queue()
+			S.light(SPAN_NOTICE("\The [user] snaps [user.get_pronoun("his")] fingers and \the [S] lights up."))
+			playsound(S.loc, /decl/sound_category/spark_sound, 50, 1)
+			return TRUE
+		if(!isturf(target))
+			return FALSE
+		spark(target, 3)
 		return TRUE

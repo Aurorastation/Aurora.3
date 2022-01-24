@@ -10,7 +10,9 @@
 	icon_rest = "carp_rest"
 	speak_chance = 0
 	turns_per_move = 5
-	meat_type = /obj/item/reagent_containers/food/snacks/carpmeat
+	meat_type = /obj/item/reagent_containers/food/snacks/fish/carpmeat
+	butchering_products = list(/obj/item/reagent_containers/food/snacks/fish/roe = 1)
+	organ_names = list("head", "chest", "tail", "left flipper", "right flipper")
 	response_help = "pets the"
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"
@@ -19,7 +21,8 @@
 	health = 25
 	mob_size = 10
 
-	harm_intent_damage = 8
+	blood_overlay_icon = 'icons/mob/npc/blood_overlay_carp.dmi'
+	harm_intent_damage = 4
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	attacktext = "bitten"
@@ -42,6 +45,16 @@
 	attack_emote = "nashes at"
 
 	flying = TRUE
+	see_in_dark = 8
+	see_invisible = SEE_INVISIBLE_NOLIGHTING
+
+/mob/living/simple_animal/hostile/carp/update_icon()
+	..()
+	if(resting || stat == DEAD)
+		blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
+	else
+		blood_overlay_icon = initial(blood_overlay_icon)
+	handle_blood(TRUE)
 
 /mob/living/simple_animal/hostile/carp/Allow_Spacemove(var/check_drift = 0)
 	return 1	//No drifting in space for space carp!	//original comments do not steal
@@ -74,10 +87,12 @@
 		return e
 
 /mob/living/simple_animal/hostile/carp/DestroySurroundings(var/bypass_prob = FALSE)
+	if(stance != HOSTILE_STANCE_ATTACKING)
+		return 0
 	if(prob(break_stuff_probability) || bypass_prob)
 		for(var/dir in cardinal) // North, South, East, West
 			var/obj/effect/energy_field/e = locate(/obj/effect/energy_field, get_step(src, dir))
-			if(e)
+			if(e && e.strength >= 1)
 				e.Stress(rand(1,2))
 				visible_message("<span class='danger'>\the [src] bites \the [e]!</span>")
 				src.do_attack_animation(e)
@@ -106,7 +121,7 @@
 /mob/living/simple_animal/hostile/carp/russian/FindTarget()
     . = ..()
     if(.)
-        custom_emote(1,"spots a filthy capitalist!")
+        custom_emote(VISIBLE_MESSAGE,"spots a filthy capitalist!")
 
 /mob/living/simple_animal/hostile/carp/shark
 	name = "space shark"
@@ -122,7 +137,6 @@
 
 	mob_size = 15
 
-	harm_intent_damage = 5
 	melee_damage_lower = 20
 	melee_damage_upper = 25
 

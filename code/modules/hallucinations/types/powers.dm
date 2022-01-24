@@ -25,10 +25,10 @@
 		if(2)
 			sound_to(holder, 'sound/hallucinations/behind_you1.ogg')
 			to_chat(holder, SPAN_GOOD("You hear a whispering in your mind. A promise of [pick("power", "enlightenment", "sight beyond sight", "knowledge terrible but true")]. Your vision goes white for a moment; when it returns, you feel... different."))
-			flick("e_flash", holder.flash)
+			holder.flash_eyes()
 		if(3)
 			to_chat(holder, FONT_LARGE(SPAN_DANGER("You feel a sudden pain in your head, as if it's being ripped in two! When it subsides to a dull throbbing a moment later, you feel... different.")))
-			holder.emote("me",1,"winces.")
+			holder.visible_message("<b>[holder]</b> winces.")
 			if(ishuman(holder))
 				var/mob/living/carbon/human/H = holder
 				var/obj/item/organ/external/O = H.get_organ(BP_HEAD)
@@ -79,7 +79,7 @@
 	to_chat(usr, SPAN_NOTICE("<b>You dip your mentality into the surface layer of \the [target]'s mind, seeking a prominent thought.</b>"))
 	if(do_after(usr, 30))
 		sleep(rand(50, 120))
-		usr.visible_message("<B>[usr]</B> puts [usr.get_pronoun(1)] hands to [usr.get_pronoun(1)] head and mumbles incoherently as they stare, unblinking, at \the [target].",
+		usr.visible_message("<B>[usr]</B> puts [usr.get_pronoun("his")] hands to [usr.get_pronoun("his")] head and mumbles incoherently as they stare, unblinking, at \the [target].",
 						SPAN_NOTICE("<b>You skim thoughts from the surface of \the [target]'s mind: \"<i>[pick(SShallucinations.hallucinated_phrases)]</i>\"</b>"))
 	else
 		to_chat(usr, SPAN_WARNING("You need to stay still to focus your energy!"))
@@ -112,10 +112,10 @@
 		if(2)
 			sound_to(holder, 'sound/hallucinations/behind_you1.ogg')
 			to_chat(holder, SPAN_GOOD("You hear a whispering in your mind. A promise of [pick("power", "enlightenment", "sight beyond sight", "knowledge terrible but true")]. Your vision goes white for a moment; when it returns, you feel... different."))
-			flick("e_flash", holder.flash)
+			holder.flash_eyes()
 		if(3)
 			to_chat(holder, FONT_LARGE(SPAN_DANGER("You feel a sudden pain in your head, as if it's being ripped in two! When it subsides to a dull throbbing a moment later, you feel... different.")))
-			holder.emote("me",1,"winces.")
+			holder.visible_message("<b>[holder]</b> winces.")
 			if(ishuman(holder))
 				var/mob/living/carbon/human/H = holder
 				var/obj/item/organ/external/O = H.get_organ(BP_HEAD)

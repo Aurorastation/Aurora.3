@@ -5,7 +5,7 @@
 	icon_state = "aislot"
 	origin_tech = list(TECH_BLUESPACE = 3, TECH_MATERIAL = 4, TECH_DATA = 4)
 	w_class = ITEMSIZE_SMALL
-	var/mech_remote_network = "remotemechs"
+	var/mech_remote_network = REMOTE_GENERIC_MECH
 	var/hardpoint_lock = FALSE // Whether mechs that receive this upgrade gets locked
 	var/dummy_path = /mob/living/simple_animal/spiderbot
 
@@ -19,7 +19,7 @@
 /obj/item/remote_mecha/penal
 	name = "penal exosuit remote upgrade"
 	desc = "A device that, when inserted into an exosuit, allows it to be remotely piloted. Intended for prison networks."
-	mech_remote_network = "prisonmechs"
+	mech_remote_network = REMOTE_PRISON_MECH
 	hardpoint_lock = TRUE
 
 /obj/item/remote_mecha/penal/examine(mob/user)
@@ -30,5 +30,5 @@
 /obj/item/remote_mecha/ai
 	name = "AI exosuit remote upgrade"
 	desc = "A device that, when inserted into an exosuit, allows it to be remotely piloted by the artificial intelligence."
-	mech_remote_network = "aimechs"
+	mech_remote_network = REMOTE_AI_MECH
 	dummy_path = /mob/living/simple_animal/spiderbot/ai

@@ -28,6 +28,8 @@
 	return ..()
 
 /obj/machinery/igniter/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/igniter/attack_hand(mob/user as mob)
@@ -108,11 +110,11 @@
 			user.visible_message("<span class='warning'>[user] has reconnected the [src]!</span>", "<span class='warning'>You fix the connection to the [src].</span>")
 		update_icon()
 
-/obj/machinery/sparker/attack_ai()
+/obj/machinery/sparker/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	if (anchored)
 		return ignite()
-	else
-		return
 
 /obj/machinery/sparker/proc/ignite()
 	if (!powered())

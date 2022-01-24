@@ -9,19 +9,20 @@
 	throwforce = 5.0
 	throw_speed = 3
 	throw_range = 5
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	var/charge = 0	// note %age conveted to actual charge in New
 	var/maxcharge = 1000
 	var/rigged = 0		// true if rigged to explode
 	var/minor_fault = 0 //If not 100% reliable, it will build up faults.
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 50)
+	recyclable = TRUE
 
 //currently only used by energy-type guns, that may change in the future.
 /obj/item/cell/device
 	name = "device power cell"
 	desc = "A small power cell designed to power handheld devices."
 	icon_state = "cell" //placeholder
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	force = 0
 	throw_speed = 5
 	throw_range = 7
@@ -43,6 +44,11 @@
 /obj/item/cell/crap/empty/Initialize()
 	. = ..()
 	charge = 0
+
+/obj/item/cell/crap/cig
+	name = "\improper rechargable mini-battery"
+	desc = "A miniature power cell designed to power very small handheld devices."
+	maxcharge = 200
 
 /obj/item/cell/secborg
 	name = "security borg rechargable D battery"
@@ -94,7 +100,7 @@
 	origin_tech = list(TECH_POWER = 6)
 	icon_state = "hpcell"
 	maxcharge = 30000
-	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 80)
+	matter = list(DEFAULT_WALL_MATERIAL = 200, MATERIAL_GOLD = 50, MATERIAL_SILVER = 50, MATERIAL_GLASS = 40)
 
 /obj/item/cell/hyper/empty/Initialize()
 	. = ..()

@@ -1,8 +1,9 @@
 /obj/machinery/computer/arcade/
 	name = "random arcade"
 	desc = "random arcade machine"
-	icon_state = "arcade"
-	icon_screen = "invaders"
+	icon_state = "arcade2"
+	icon_screen = "battler"
+	icon_broken = "broken-arcade"
 	var/prize = /obj/random/arcade
 
 /obj/machinery/computer/arcade/Initialize()
@@ -24,6 +25,8 @@
 		chosen_prize.forceMove(src.loc)
 
 /obj/machinery/computer/arcade/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/computer/arcade/emp_act(severity)
@@ -48,7 +51,8 @@
 /obj/machinery/computer/arcade/battle
 	name = "arcade machine"
 	desc = "Does not support Pinball."
-	icon_state = "arcade"
+	icon_state = "arcade2"
+	icon_screen = "battler"
 	circuit = /obj/item/circuitboard/arcade/battle
 	var/enemy_name = "Space Villian"
 	var/temp = "Winners don't use space drugs" //Temporary message, for attack messages, etc
@@ -79,10 +83,9 @@
 	if(..())
 		return
 	user.set_machine(src)
-	var/dat = "<a href='byond://?src=\ref[src];close=1'>Close</a>"
-	dat += "<center><h4>[src.enemy_name]</h4></center>"
-
-	dat += "<br><center><h3>[src.temp]</h3></center>"
+	var/dat = ""
+	dat += "<center><h3>[src.enemy_name]</h3></center>"
+	dat += "<br><center><h2>[src.temp]</h2></center>"
 	dat += "<br><center>Health: [src.player_hp] | Magic: [src.player_mp] | Enemy Health: [src.enemy_hp]</center>"
 
 	dat += "<center><b>"
@@ -95,9 +98,9 @@
 
 	dat += "</b></center>"
 
-	user << browse(dat, "window=arcade")
-	onclose(user, "arcade")
-	return
+	var/datum/browser/arcade_win = new(user, "arcade", capitalize_first_letters(name))
+	arcade_win.set_content(dat)
+	arcade_win.open()
 
 /obj/machinery/computer/arcade/battle/Topic(href, href_list)
 	if(..())

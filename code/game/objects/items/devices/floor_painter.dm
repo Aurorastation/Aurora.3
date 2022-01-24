@@ -1,15 +1,16 @@
 /obj/item/device/floor_painter
 	name = "paint gun"
-	icon = 'icons/obj/bureaucracy.dmi'
-	icon_state = "labeler1"
-	item_state = "flight"
-
+	icon = 'icons/obj/contained_items/tools/floor_painter.dmi'
+	icon_state = "floor_painter"
+	item_state = "floor_painter"
+	contained_sprite = TRUE
 	var/decal =        "remove all decals"
 	var/paint_dir =    "precise"
 	var/paint_colour = COLOR_WHITE
 
 	var/list/decals = list(
 		"quarter-turf" =      list("path" = /obj/effect/floor_decal/corner, "precise" = 1, "coloured" = 1),
+		"full quarter-turf" = list("path" = /obj/effect/floor_decal/corner_full, "precise" = 1, "coloured" = 1),
 		"hazard stripes" =    list("path" = /obj/effect/floor_decal/industrial/warning),
 		"corner, hazard" =    list("path" = /obj/effect/floor_decal/industrial/warning/corner),
 		"hatched marking" =   list("path" = /obj/effect/floor_decal/industrial/hatch, "coloured" = 1),
@@ -75,12 +76,21 @@
 
 	var/obj/structure/heavy_vehicle_frame/EF = A
 	if(istype(EF))
+		playsound(get_turf(src), 'sound/effects/spray3.ogg', 30, 1, -6)
 		EF.set_colour(paint_colour)
 		return
 
 	var/obj/item/mech_component/MC = A
 	if(istype(MC))
+		playsound(get_turf(src), 'sound/effects/spray3.ogg', 30, 1, -6)
 		MC.set_colour(paint_colour)
+		return
+
+	var/obj/structure/bed/B = A
+	if(istype(B))
+		playsound(get_turf(src), 'sound/effects/spray3.ogg', 30, 1, -6)
+		B.set_colour(paint_colour)
+		B.update_icon()
 		return
 
 	var/turf/simulated/floor/F = A

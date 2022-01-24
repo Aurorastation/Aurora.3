@@ -66,6 +66,7 @@
 		current_antagonists -= player
 		faction_members -= player
 		player.special_role = null
+		player.antag_datums -= id
 		update_icons_removed(player)
 		BITSET(player.current.hud_updateflag, SPECIALROLE_HUD)
 

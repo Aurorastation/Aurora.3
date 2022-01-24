@@ -183,10 +183,10 @@
 	return
 
 /proc/seen_turfs_in_range(var/source, var/range)
+	. = list()
 	var/turf/pos = get_turf(source)
 	if(pos)
-		. = hear(range, pos)
-	else
-		. = list()
+		for(var/turf/T in hear(range, pos))
+			. += T
 
 #undef UPDATE_BUFFER

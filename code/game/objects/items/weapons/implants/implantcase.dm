@@ -8,7 +8,7 @@
 	item_state = "implantcase"
 	throw_speed = 1
 	throw_range = 5
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 	var/obj/item/implant/imp = null
 
 /obj/item/implantcase/proc/update()
@@ -139,13 +139,13 @@
 	return
 
 
-/obj/item/implantcase/dexplosive
+/obj/item/implantcase/explosive/deadman
 	name = "glass case - 'explosive'"
 	desc = "A case containing an explosive."
 	icon_state = "implantcase-r"
 
-/obj/item/implantcase/dexplosive/New()
-	src.imp = new /obj/item/implant/dexplosive( src )
+/obj/item/implantcase/explosive/deadman/New()
+	src.imp = new /obj/item/implant/explosive/deadman( src )
 	..()
 	return
 

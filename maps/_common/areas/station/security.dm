@@ -11,11 +11,6 @@
 	icon_state = "security"
 
 // For mapppers
-/area/security/hallway
-	name = "Security - Hallway"
-	lightswitch = TRUE
-	icon_state = "security"
-
 /area/security/lobby
 	name = "Security - Lobby"
 	icon_state = "security"
@@ -25,6 +20,7 @@
 /area/security/brig
 	name = "Security - Brig"
 	lightswitch = TRUE
+	flags = PRISON
 	icon_state = "brig"
 
 /area/security/brig/prison_break()
@@ -35,9 +31,21 @@
 		temp_timer.releasetime = 1
 	..()
 
+/area/security/brig/control_room
+	name = "Security - Brig Control Room"
+	icon_state = "brig_control"
+	lightswitch = FALSE
+	no_light_control = 0
+
+/area/security/brig/processing
+	name = "Security - Brig Processing"
+	icon_state = "brig_proc"
+	no_light_control = 0
+
 /area/security/prison
 	name = "Security - Prison Wing"
 	lightswitch = TRUE
+	flags = PRISON
 	icon_state = "sec_prison"
 
 /area/security/prison/prison_break()
@@ -51,40 +59,84 @@
 /area/security/warden
 	name = "Security - Warden's Office"
 	icon_state = "Warden"
+	sound_env = SMALL_SOFTFLOOR
+	no_light_control = 0
 
-/area/security/armoury
+/area/security/armory
 	name = "Security - Armory"
 	icon_state = "Warden"
-
-/area/security/forensics_office
-	name = "Security - Forensic Office"
-	icon_state = "detective"
-	sound_env = MEDIUM_SOFTFLOOR
-
-/area/security/detectives_office
-	name = "Security - Detective's Office"
-	icon_state = "detective"
+	ambience = AMBIENCE_HIGHSEC
+	no_light_control = 0
 
 /area/security/investigations
 	name = "Security - Investigations Division"
-	icon_state = "detective"
+	icon_state = "investigations"
+	allow_nightmode = 1
+	no_light_control = 0
+
+/area/security/investigations_storage
+	name = "Security - Evidence Storage"
+	icon_state = "evidence"
+	no_light_control = 0
+
+/area/security/forensics_office
+	name = "Security - Forensic Office"
+	icon_state = "investigations_office"
+	sound_env = MEDIUM_SOFTFLOOR
+	no_light_control = 0
+
+/area/security/forensics_laboratory
+	name = "Security - Forensic Laboratory"
+	icon_state = "investigations_office"
+	sound_env = SMALL_ENCLOSED
+	no_light_control = 0
+
+/area/security/forensics_morgue
+	name = "Security - Autopsy Lab"
+	icon_state = "morgue"
+	ambience = AMBIENCE_GHOSTLY
+	no_light_control = 0
+
+/area/security/break_room
+	name = "Security - Break Room"
+	icon_state = "security"
+	sound_env = SMALL_SOFTFLOOR
+	no_light_control = 0
 
 /area/security/training
 	name = "Security - Training Wing"
-	icon_state = "firingrange"
+	icon_state = "training"
+	allow_nightmode = 1
+	no_light_control = 0
+
+/area/security/training_theoretical
+	name = "Security - Theoretical Training"
+	icon_state = "training_office"
+	sound_env = MEDIUM_SOFTFLOOR
+	no_light_control = 0
+
+/area/security/training_crimescene
+	name = "Security - Crime Scene Training"
+	icon_state = "training_office"
+	sound_env = SMALL_ENCLOSED
+	no_light_control = 0
 
 /area/security/range
 	name = "Security - Firing Range"
 	icon_state = "firingrange"
 	flags = FIRING_RANGE
+	no_light_control = 0
 
 /area/security/tactical
 	name = "Security - Tactical Equipment"
 	icon_state = "Tactical"
+	ambience = AMBIENCE_HIGHSEC
+	no_light_control = 0
 
 /area/security/security_office
 	name = "Security - Security Office"
 	icon_state = "security"
+	no_light_control = 0
 
 /*
 	New()
@@ -106,16 +158,20 @@
 /area/security/nuke_storage
 	name = "Vault"
 	icon_state = "nuke_storage"
+	ambience = AMBIENCE_HIGHSEC
 	holomap_color = null
 	flags = HIDE_FROM_HOLOMAP
+	no_light_control = 0
 
 /area/security/checkpoint
 	name = "Security Checkpoint"
 	icon_state = "checkpoint1"
+	no_light_control = 0
 
 /area/security/checkpoint2
 	name = "Security - Arrivals Checkpoint"
 	icon_state = "security"
+	ambience = AMBIENCE_ARRIVALS
 
 /area/security/bridge_surface_checkpoint
 	name = "Bridge Security Checkpoint"
@@ -140,7 +196,27 @@
 /area/security/vacantoffice
 	name = "Vacant Office"
 	icon_state = "security"
+	no_light_control = 0
 
 /area/security/vacantoffice2
 	name = "Security - Meeting Room"
+	no_light_control = 0
+
+/area/security/penal_colony
+	name = "\improper Security - Penal Mining Colony"
 	icon_state = "security"
+	icon_state = "security"
+	holomap_color = null
+	flags = HIDE_FROM_HOLOMAP | PRISON
+	sound_env = LARGE_ENCLOSED
+	ambience = AMBIENCE_HIGHSEC
+
+/area/security/penal_colony/warden
+	name = "\improper Security - Remote Warden's Office"
+	icon_state = "Warden"
+	sound_env = SMALL_ENCLOSED
+
+/area/security/penal_colony/prison
+	name = "\improper Security - Remote Prison Wing"
+	icon_state = "sec_prison"
+	sound_env = SMALL_ENCLOSED

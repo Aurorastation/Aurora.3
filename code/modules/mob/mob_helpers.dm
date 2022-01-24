@@ -19,6 +19,9 @@
 /mob/living/carbon/human/proc/isFBP()
 	return species && (species.appearance_flags & HAS_FBP)
 
+/mob/living/carbon/human/proc/isShell()
+	return species && (species.name in list(SPECIES_IPC_SHELL, SPECIES_IPC_SHELL_ROGUE))
+
 /proc/isMMI(A)
 	if(isbrain(A))
 		var/mob/living/carbon/brain/B = A
@@ -38,56 +41,77 @@
 
 
 /proc/ishuman_species(A)
-	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Human"))
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == SPECIES_HUMAN))
 		return 1
 	return 0
+
+/proc/isgolem(A)
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
+		if(istype(H.species, /datum/species/golem))
+			return TRUE
+	return FALSE
 
 /proc/isunathi(A)
 	if(ishuman(A))
 		var/mob/living/carbon/human/H = A
 		switch(H.get_species())
-			if ("Unathi")
+			if (SPECIES_UNATHI)
 				return 1
-			if ("Unathi Zombie")
+			if (SPECIES_ZOMBIE_UNATHI)
 				return 1
 	return 0
 
 /proc/istajara(A)
 	if(istype(A, /mob/living/carbon/human))
 		switch(A:get_species())
-			if ("Tajara")
+			if (SPECIES_TAJARA)
 				return 1
-			if("Zhan-Khazan Tajara")
+			if(SPECIES_TAJARA_ZHAN)
 				return 1
-			if("M'sai Tajara")
+			if(SPECIES_TAJARA_MSAI)
 				return 1
-			if ("Tajara Zombie")
+			if (SPECIES_ZOMBIE_TAJARA)
 				return 1
 	return 0
 
 /proc/isskrell(A)
 	if(istype(A, /mob/living/carbon/human))
 		switch(A:get_species())
-			if ("Skrell")
+			if (SPECIES_SKRELL)
 				return 1
-			if ("Skrell Zombie")
+			if (SPECIES_SKRELL_AXIORI)
+				return 1
+			if (SPECIES_ZOMBIE_SKRELL)
 				return 1
 	return 0
 
-/proc/isvaurca(A)
+/proc/isvaurca(A, var/isbreeder = FALSE)
 	if(istype(A, /mob/living/carbon/human))
 		switch(A:get_species())
-			if("Vaurca Worker")
-				return 1
-			if("Vaurca Warrior")
-				return 1
-			if("Vaurca Breeder")
-				return 1
-			if("Vaurca Warform")
-				return 1
-			if("V'krexi")
-				return 1
-	return 0
+			if(SPECIES_VAURCA_WORKER)
+				if(isbreeder)
+					return FALSE
+				return TRUE
+			if(SPECIES_VAURCA_WARRIOR)
+				if(isbreeder)
+					return FALSE
+				return TRUE
+			if(SPECIES_VAURCA_BREEDER)
+				return TRUE
+			if(SPECIES_VAURCA_BULWARK)
+				if(isbreeder)
+					return FALSE
+				return TRUE
+			if(SPECIES_VAURCA_WARFORM)
+				if(isbreeder)
+					return FALSE
+				return TRUE
+			if(SPECIES_MONKEY_VAURCA)
+				if(isbreeder)
+					return FALSE
+				return TRUE
+	return FALSE
 
 /proc/isipc(A)
 	. = 0
@@ -95,67 +119,82 @@
 		var/mob/living/carbon/human/H = A
 		. = H.species && (H.species.flags & IS_MECHANICAL)
 
-/proc/isvox(A)
-	if(istype(A, /mob/living/carbon/human))
-		switch(A:get_species())
-			if ("Vox")
-				return 1
-			if ("Vox Armalis")
-				return 1
-	return 0
-
 /mob/proc/is_diona()
-	//returns which type of diona we are, or zero
-	if (istype(src, /mob/living/carbon/human))
-		var/mob/living/carbon/human/T = src
-		if (istype(T.species, /datum/species/diona) || istype(src, /mob/living/carbon/human/diona))
-			return DIONA_WORKER
+	return FALSE
 
-	if (istype(src, /mob/living/carbon/alien/diona))
-		return DIONA_NYMPH
-	return 0
+/mob/living/carbon/human/is_diona()
+	if(istype(species, /datum/species/diona))
+		return DIONA_WORKER
+	return FALSE
+
+/mob/living/carbon/alien/diona/is_diona()
+	return DIONA_NYMPH
+
+/proc/is_mob_special(A) // determines special mobs. has restrictions on certain things, like welderbombing
+	if(isrevenant(A))
+		return TRUE
+	if(iszombie(A))
+		return TRUE
+	return FALSE
 
 /proc/isskeleton(A)
-	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Skeleton"))
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == SPECIES_SKELETON))
 		return 1
 	return 0
 
+/proc/iszombie(A)
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
+		switch(H.get_species())
+			if(SPECIES_ZOMBIE)
+				return TRUE
+			if(SPECIES_ZOMBIE_TAJARA)
+				return TRUE
+			if(SPECIES_ZOMBIE_UNATHI)
+				return TRUE
+			if(SPECIES_ZOMBIE_SKRELL)
+				return TRUE
+	return FALSE
+
 /proc/isundead(A)
-	if(istype(A, /mob/living/carbon/human))
-		switch(A:get_species())
-			if ("Skeleton")
-				return 1
-			if ("Zombie")
-				return 1
-			if ("Tajara Zombie")
-				return 1
-			if ("Unathi Zombie")
-				return 1
-			if ("Skrell Zombie")
-				return 1
-			if ("Apparition")
-				return 1
-	return 0
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
+		switch(H.get_species())
+			if(SPECIES_SKELETON)
+				return TRUE
+			if(SPECIES_CULTGHOST)
+				return TRUE
+	if(iszombie(A))
+		return TRUE
+	return FALSE
+
+/proc/isrevenant(A)
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
+		switch(H.get_species())
+			if(SPECIES_REVENANT)
+				return TRUE
+	return FALSE
 
 /proc/islesserform(A)
 	if(istype(A, /mob/living/carbon/human))
 		switch(A:get_species())
-			if ("Monkey")
+			if (SPECIES_MONKEY)
 				return 1
-			if ("Farwa")
+			if (SPECIES_MONKEY_TAJARA)
 				return 1
-			if ("Neaera")
+			if (SPECIES_MONKEY_SKRELL)
 				return 1
-			if ("Stok")
+			if (SPECIES_MONKEY_UNATHI)
 				return 1
-			if ("V'krexi")
+			if (SPECIES_MONKEY_VAURCA)
 				return 1
 	return 0
 
 proc/isdeaf(A)
 	if(istype(A, /mob))
 		var/mob/M = A
-		return (M.sdisabilities & DEAF) || M.ear_deaf
+		return M.ear_deaf
 	return 0
 
 proc/iscuffed(A)
@@ -185,12 +224,6 @@ proc/getsensorlevel(A)
 /proc/hsl2rgb(h, s, l)
 	return //TODO: Implement
 
-/mob/living/proc/is_wizard(exclude_apprentice = FALSE)
-	if(exclude_apprentice)
-		return mind && mind.assigned_role == "Space Wizard"
-	else
-		return mind && (mind.assigned_role == "Space Wizard" || mind.assigned_role == "Apprentice")
-
 /mob/proc/is_berserk()
 	return FALSE
 
@@ -208,18 +241,18 @@ var/list/global/base_miss_chance = list(
 	BP_HEAD = 70,
 	BP_CHEST = 10,
 	BP_GROIN = 20,
-	BP_L_LEG = 20,
-	BP_R_LEG = 20,
-	BP_L_ARM = 30,
-	BP_R_ARM = 30,
-	BP_L_HAND = 50,
-	BP_R_HAND = 50,
-	BP_L_FOOT = 50,
-	BP_R_FOOT = 50
+	BP_L_LEG = 40,
+	BP_R_LEG = 40,
+	BP_L_ARM = 40,
+	BP_R_ARM = 40,
+	BP_L_HAND = 60,
+	BP_R_HAND = 60,
+	BP_L_FOOT = 60,
+	BP_R_FOOT = 60
 )
 
 //Used to weight organs when an organ is hit randomly (i.e. not a directed, aimed attack).
-//Also used to weight the protection value that armour provides for covering that body part when calculating protection from full-body effects.
+//Also used to weight the protection value that armor provides for covering that body part when calculating protection from full-body effects.
 var/list/global/organ_rel_size = list(
 	BP_HEAD = 25,
 	BP_CHEST = 70,
@@ -235,7 +268,8 @@ var/list/global/organ_rel_size = list(
 )
 
 /proc/check_zone(zone)
-	if(!zone)	return BP_CHEST
+	if(!zone)
+		return BP_CHEST
 	switch(zone)
 		if(BP_EYES)
 			zone = BP_HEAD
@@ -278,7 +312,7 @@ var/list/global/organ_rel_size = list(
 
 	if(!ranged_attack)
 		// you cannot miss if your target is prone or restrained
-		if(target.buckled || target.lying)
+		if(target.buckled_to || target.lying)
 			return zone
 		// if your target is being grabbed aggressively by someone you cannot miss either
 		for(var/obj/item/grab/G in target.grabbed_by)
@@ -399,6 +433,9 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 	if(!M || !M.client || M.shakecamera || M.stat || isEye(M) || isAI(M))
 		return
 
+	if(M.client && ((M.client.view != world.view) || (M.client.pixel_x != 0) || (M.client.pixel_y != 0))) //to prevent it while zooming, because zoom does not play well with this code
+		return
+
 	M.shakecamera = TRUE
 	strength = abs(strength)*PIXELS_PER_STRENGTH_VAL
 	var/steps = min(1, Floor(duration/TICKS_PER_RECOIL_ANIM))-1
@@ -491,7 +528,7 @@ proc/is_blind(A)
 	for(var/mob/M in targets)
 		var/turf/targetturf = get_turf(M)
 		if(targetturf && (targetturf.z == sourceturf.z))
-			M.show_message("<span class='info'>\icon[icon] [message]</span>", 1)
+			M.show_message("<span class='info'>[icon2html(icon, M)] [message]</span>", 1)
 
 /proc/mobs_in_area(var/area/A)
 	var/list/mobs = new
@@ -543,7 +580,7 @@ proc/is_blind(A)
 					else										// Everyone else (dead people who didn't ghost yet, etc.)
 						lname = name
 				lname = "<span class='name'>[lname]</span> "
-			to_chat(M, "[follow] <span class='deadsay'>" + create_text_tag("dead", "DEAD:", M.client) + " [lname][message]</span>")
+			to_chat(M, "[follow] <span class='deadsay'>" + create_text_tag("DEAD", M.client) + " [lname][message]</span>")
 
 //Announces that a ghost has joined/left, mainly for use with wizards
 /proc/announce_ghost_joinleave(O, var/joined_ghosts = 1, var/message = "")
@@ -645,7 +682,7 @@ proc/is_blind(A)
 		if(istype(belt, /obj/item/gun) || istype(belt, /obj/item/melee))
 			threatcount += 2
 
-		if(species.name != "Human")
+		if(species.name != SPECIES_HUMAN)
 			threatcount += 2
 
 	if(check_records || check_arrest)
@@ -674,7 +711,7 @@ proc/is_blind(A)
 
 
 /mob/living/proc/bucklecheck(var/mob/living/user)
-	if (buckled && istype(buckled, /obj/structure))
+	if (buckled_to && istype(buckled_to, /obj/structure))
 		if (istype(user,/mob/living/silicon/robot))
 			return 2
 		else
@@ -740,6 +777,8 @@ proc/is_blind(A)
 		return slot_l_ear
 	else if (H.shoes == src)
 		return slot_shoes
+	else if (H.wrists == src)
+		return slot_wrists
 	else
 		return null//We failed to find the slot
 
@@ -873,8 +912,8 @@ proc/is_blind(A)
 				preposition = "on"
 				action3 = "wears"
 				newlocation = "feet"
-	else if (istype(loc,/obj/item/device/pda))
-		var/obj/item/device/pda/S = loc
+	else if (istype(loc,/obj/item/modular_computer))
+		var/obj/item/modular_computer/S = loc
 		newlocation = S.name
 		if (justmoved)
 			preposition = "into"
@@ -895,9 +934,9 @@ proc/is_blind(A)
 			preposition = "inside"
 
 	if (justmoved)
-		reportto.contained_visible_message(H,  "<span class='notice'>[H] [action3] [reportto] [preposition] their [newlocation]</span>", "<span class='notice'>You are [action] [preposition] [H]'s [newlocation]</span>", "", 1)
+		reportto.contained_visible_message(H, SPAN_NOTICE("[H] [action3] [reportto] [preposition] their [newlocation]."), SPAN_NOTICE("You are [action] [preposition] [H]'s [newlocation]."), "", 1)
 	else
-		to_chat(reportto, "<span class='notice'>You are [action] [preposition] [H]'s [newlocation]</span>")
+		to_chat(reportto, SPAN_NOTICE("You are [action] [preposition] [H]'s [newlocation]."))
 
 /atom/proc/get_holding_mob()
 	//This function will return the mob which is holding this holder, or null if it's not held
@@ -1024,93 +1063,10 @@ proc/is_blind(A)
 	if (is_type_in_typecache(src, SSmob.mtl_humanoid))
 		. |= TYPE_HUMANOID
 
-
-/mob/living/proc/get_vessel(create = FALSE)
-	if (!create)
-		return
-
-	//we make a new vessel for whatever creature we're devouring. this allows blood to come from creatures that can't normally bleed
-	//We create an MD5 hash of the mob's reference to use as its DNA string.
-	//This creates unique DNA for each creature in a consistently repeatable process
-	var/datum/reagents/vessel = new/datum/reagents(600)
-	vessel.add_reagent(/datum/reagent/blood,560)
-	for(var/datum/reagent/blood/B in vessel.reagent_list)
-		if(B.type == /datum/reagent/blood)
-			B.data = list(
-				"donor" = WEAKREF(src),
-				"species" = name,
-				"blood_DNA" = md5("\ref[src]"),
-				"blood_colour" = "#a10808",
-				"blood_type" = null,
-				"resistances" = null,
-				"trace_chem" = null
-			)
-
-			B.color = B.data["blood_colour"]
-
-	return vessel
-
-/mob/living/carbon/human/get_vessel(create = FALSE)
-	. = vessel
-
-/mob/living/carbon/alien/diona/get_vessel(create = FALSE)
-	. = vessel
-
-#define POSESSIVE_PRONOUN	0
-#define POSESSIVE_ADJECTIVE	1
-#define REFLEXIVE			2
-#define SUBJECTIVE_PERSONAL	3
-#define OBJECTIVE_PERSONAL	4
-/mob/proc/get_pronoun(var/type)
-	switch (type)
-		if (POSESSIVE_PRONOUN)
-			switch(gender)
-				if (MALE)
-					return "his"
-				if (FEMALE)
-					return "hers"
-				else
-					return "theirs"
-		if (POSESSIVE_ADJECTIVE)
-			switch(gender)
-				if (MALE)
-					return "his"
-				if (FEMALE)
-					return "her"
-				else
-					return "their"
-		if (REFLEXIVE)
-			switch(gender)
-				if (MALE)
-					return "himself"
-				if (FEMALE)
-					return "herself"
-				else
-					return "themselves"
-		if (SUBJECTIVE_PERSONAL)
-			switch(gender)
-				if (MALE)
-					return "he"
-				if (FEMALE)
-					return "she"
-				else
-					return "they"
-		if (OBJECTIVE_PERSONAL)
-			switch(gender)
-				if (MALE)
-					return "him"
-				if (FEMALE)
-					return "her"
-				else
-					return "them"
-
-		else
-			return "its"//Something went wrong
-
 #undef SAFE_PERP
 
 /mob/proc/get_multitool(var/obj/P)
-	if(P.ismultitool())
+	if(P?.ismultitool())
 		return P
 
 /mob/abstract/observer/get_multitool()
@@ -1207,21 +1163,117 @@ proc/is_blind(A)
 	return
 
 /mob/living/carbon/human/needs_wheelchair()
-	var/stance_damage = 0
-	for(var/limb_tag in list(BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT))
-		var/obj/item/organ/external/E = organs_by_name[limb_tag]
-		if(!E || !E.is_usable())
-			stance_damage += 2
-	return stance_damage >= 4
+	return species.handle_stance_damage(src, TRUE) >= 4
 
 /mob/living/carbon/human/proc/equip_wheelchair()
-	var/obj/structure/bed/chair/wheelchair/W = new(get_turf(src))
+	var/obj/structure/bed/stool/chair/office/wheelchair/W = new(get_turf(src))
 	if(isturf(loc))
-		buckled = W
+		buckled_to = W
 		update_canmove()
 		W.set_dir(dir)
-		W.buckled_mob = src
+		W.buckled = src
 		W.add_fingerprint(src)
 
 /mob/proc/set_intent(var/set_intent)
 	a_intent = set_intent
+
+/mob/proc/get_accent_icon(var/datum/language/speaking, var/mob/hearer, var/force_accent)
+	SHOULD_CALL_PARENT(TRUE)
+	var/used_accent = force_accent ? force_accent : accent
+	if(used_accent && speaking?.allow_accents)
+		var/datum/accent/a = SSrecords.accents[used_accent]
+		if(istype(a))
+			var/final_icon = a.tag_icon
+			var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/goonchat)
+			return S.icon_tag(final_icon)
+
+/mob/proc/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
+	for(var/mob/M in contents)
+		M.flash_eyes(intensity, override_blindness_check, affect_silicon, visual, type)
+		M.flash_eyes(intensity, override_blindness_check, affect_silicon, visual, type)
+
+/mob/assign_player(var/mob/user)
+	ckey = user.ckey
+	resting = FALSE // ghosting sets resting to true
+	return src
+
+/mob/proc/get_standard_pixel_x()
+	return initial(pixel_x)
+
+/mob/proc/get_standard_pixel_y()
+	return initial(pixel_y)
+
+/mob/proc/remove_nearsighted()
+	disabilities &= ~NEARSIGHTED
+
+/mob/proc/remove_deaf()
+	sdisabilities &= ~DEAF
+
+/mob/proc/get_antag_datum(var/antag_role)
+	if(!mind)
+		return
+	var/datum/D = mind.antag_datums[antag_role]
+	if(D)
+		return D
+
+/mob/dump_contents()
+	for(var/thing in get_contained_external_atoms())
+		var/atom/movable/AM = thing
+		drop_from_inventory(AM, loc)
+		if(ismob(AM))
+			var/mob/M = AM
+			if(M.client)
+				M.client.eye = M.client.mob
+				M.client.perspective = MOB_PERSPECTIVE
+
+/mob/proc/in_neck_grab()
+	for(var/thing in grabbed_by)
+		var/obj/item/grab/G = thing
+		if(G.state >= GRAB_NECK)
+			return TRUE
+	return FALSE
+
+/mob/get_cell()
+	return FALSE
+
+/mob/proc/get_radio()
+	return null
+
+/mob/proc/can_hear_radio(var/list/speaker_coverage = list())
+	var/turf/ear = get_turf(src)
+	if(ear && speaker_coverage[ear])
+		return TRUE
+
+/mob/proc/handle_vision()
+	return
+
+/mob/proc/set_name(var/new_name)
+	real_name = new_name
+	name = real_name
+	voice_name = real_name
+	if(mind)
+		mind.name = real_name
+
+/mob/proc/get_organ_name_from_zone(var/def_zone)
+	return parse_zone(def_zone)
+
+/mob/living/silicon/robot/set_name(var/new_name, var/prefix)
+	..()
+	if(mmi)
+		mmi.brainmob.name = real_name
+		mmi.brainmob.real_name = real_name
+		mmi.name = "[initial(mmi.name)]: [real_name]"
+
+	// We also need to update our internal ID
+	if(id_card)
+		if(prefix)
+			id_card.assignment = prefix
+		id_card.registered_name = real_name
+		id_card.update_name()
+
+	//We also need to update name of internal camera.
+	if(camera)
+		camera.c_tag = real_name
+
+/mob/proc/get_talk_bubble()
+	return 'icons/mob/talk.dmi'

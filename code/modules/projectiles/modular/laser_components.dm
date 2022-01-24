@@ -3,21 +3,21 @@
 /obj/item/device/laser_assembly/medium
 	name = "laser assembly (medium)"
 	base_icon_state = "medium"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	size = CHASSIS_MEDIUM
 	modifier_cap = 4
 
 /obj/item/device/laser_assembly/large
 	name = "laser assembly (large)"
 	base_icon_state = "large"
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	size = CHASSIS_LARGE
 	modifier_cap = 5
 
 /obj/item/device/laser_assembly/admin
 	name = "laser assembly (obscene)"
 	base_icon_state = "large"
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	size = CHASSIS_LARGE
 	modifier_cap = 25
 
@@ -314,7 +314,7 @@
 /obj/item/laser_components/modulator/tesla
 	name = "tesla modulator"
 	desc = "A modification that modulates the beam into a lethal electrical arc."
-	projectile = /obj/item/projectile/energy/tesla
+	projectile = /obj/item/projectile/beam/tesla
 	icon_state = "tesla"
 	firing_sound = 'sound/magic/LightningShock.ogg'
 
@@ -365,21 +365,21 @@
 /obj/item/laser_components/modulator/red
 	name = "red team modulator"
 	desc = "Modulates the beam into firing red team tagger beams."
-	projectile = /obj/item/projectile/beam/lastertag/red
+	projectile = /obj/item/projectile/beam/laser_tag
 	damage = 0
 	icon_state = "red"
 
 /obj/item/laser_components/modulator/blue
 	name = "blue team modulator"
 	desc = "Modulates the beam into firing blue team tagger beams."
-	projectile = /obj/item/projectile/beam/lastertag/blue
+	projectile = /obj/item/projectile/beam/laser_tag/blue
 	damage = 0
 	icon_state = "blue"
 
 /obj/item/laser_components/modulator/omni
 	name = "omni team modulator"
 	desc = "Modulates the beam into firing omni team tagger beams."
-	projectile = /obj/item/projectile/beam/lastertag/omni
+	projectile = /obj/item/projectile/beam/laser_tag/omni
 	damage = 0
 	icon_state = "omni"
 
@@ -412,7 +412,7 @@
 	projectile = /obj/item/projectile/energy/dart
 	damage = 0.25
 	icon_state = "dart"
-	firing_sound = 'sound/weapons/Genhit.ogg'
+	firing_sound = 'sound/weapons/genhit.ogg'
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 3)
 
 /obj/item/laser_components/modulator/blaster
@@ -445,3 +445,11 @@
 	icon_state = "xray"
 	firing_sound = 'sound/weapons/plasma_cutter.ogg'
 	origin_tech = list(TECH_COMBAT = 3, TECH_PHORON = 4, TECH_ILLEGAL = 4)
+
+/obj/item/laser_components/modulator/freeze
+	name = "freeze ray modulator"
+	desc = "Modulates the beam into freezing rays."
+	projectile = /obj/item/projectile/beam/freezer
+	icon_state = "blue"
+	firing_sound = 'sound/weapons/pulse3.ogg'
+	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 5, TECH_MATERIAL = 4)

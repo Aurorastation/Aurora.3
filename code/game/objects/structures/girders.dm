@@ -7,12 +7,14 @@
 	anchored = 1
 	density = 1
 	layer = ABOVE_CABLE_LAYER
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
 	var/state = 0
 	var/health = 200
 	var/cover = 50 //how much cover the girder provides against projectiles.
+	build_amt = 2
 	var/material/reinf_material
 	var/reinforcing = 0
+	var/plating = FALSE
 
 /obj/structure/girder/examine(mob/user, distance, infix, suffix)
 	. = ..()
@@ -85,10 +87,14 @@
 				reset_girder()
 
 	else if(istype(W, /obj/item/gun/energy/plasmacutter))
-		to_chat(user, "<span class='notice'>Now slicing apart the girder...</span>")
-		if(do_after(user,30/W.toolspeed))
-			if(!src) return
-			to_chat(user, "<span class='notice'>You slice apart the girder!</span>")
+		var/obj/item/gun/energy/plasmacutter/PC = W
+		to_chat(user, SPAN_NOTICE("You start lining up \the [PC] to the joints of \the [src]..."))
+		if(do_after(user, 2 SECONDS))
+			if(!src)
+				return
+			playsound(loc, PC.fire_sound, 100, 1)
+			to_chat(user, SPAN_NOTICE("You blast apart the girder!"))
+			W.use_resource(user, 1)
 			dismantle()
 
 	else if(istype(W, /obj/item/melee/energy))
@@ -150,7 +156,7 @@
 			return
 
 	else if(W.iswirecutter() && state == 1)
-		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
+		playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
 		to_chat(user, "<span class='notice'>Now removing support struts...</span>")
 		if(do_after(user,40/W.toolspeed))
 			if(!src) return
@@ -159,7 +165,7 @@
 			reset_girder()
 
 	else if(W.iscrowbar() && state == 0 && anchored)
-		playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
+		playsound(src.loc, W.usesound, 100, 1)
 		to_chat(user, "<span class='notice'>Now dislodging the girder...</span>")
 		if(do_after(user, 40/W.toolspeed))
 			if(!src) return
@@ -212,10 +218,17 @@
 		to_chat(user, "<span class='notice'>This material is too soft for use in wall construction.</span>")
 		return 0
 
-	to_chat(user, "<span class='notice'>You begin adding the plating...</span>")
+	if(!plating)
+		to_chat(user, "<span class='notice'>You begin adding the plating...</span>")
+		plating = TRUE
+	else
+		return TRUE
 
 	if(!do_after(user,40) || !S.use(2))
+		plating = FALSE
 		return 1 //once we've gotten this far don't call parent attackby()
+
+	plating = FALSE
 
 	if(anchored)
 		to_chat(user, "<span class='notice'>You added the plating!</span>")
@@ -224,8 +237,10 @@
 		wall_fake = 1
 
 	var/turf/Tsrc = get_turf(src)
+	var/original_type = Tsrc.type
 	Tsrc.ChangeTurf(/turf/simulated/wall)
-	var/turf/simulated/wall/T = get_turf(src)
+	var/turf/simulated/wall/T = Tsrc
+	T.under_turf = original_type
 	T.set_material(M, reinf_material)
 	if(wall_fake)
 		T.can_open = 1
@@ -262,11 +277,6 @@
 	state = 2
 	icon_state = "reinforced"
 	reinforcing = 0
-
-/obj/structure/girder/proc/dismantle()
-	new /obj/item/stack/material/steel(get_turf(src))
-	new /obj/item/stack/material/steel(get_turf(src))
-	qdel(src)
 
 /obj/structure/girder/attack_hand(mob/user as mob)
 	if (HULK in user.mutations)

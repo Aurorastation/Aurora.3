@@ -11,7 +11,7 @@
 	var/mode = 1;  //0 = pick one at a time, 1 = pick all on tile
 	var/capacity = 500; //the number of seeds it can carry.
 	slot_flags = SLOT_BELT
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	var/list/item_quants = list()
 
 /obj/item/seedbag/attack_self(mob/user as mob)

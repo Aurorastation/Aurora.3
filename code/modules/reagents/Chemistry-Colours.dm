@@ -1,23 +1,33 @@
 /datum/reagents/proc/get_color()
-	if(!reagent_list || !reagent_list.len)
+	if(!LAZYLEN(reagent_volumes))
 		return "#ffffffff"
-	if(reagent_list.len == 1) // It's pretty common and saves a lot of work
-		var/datum/reagent/R = reagent_list[1]
-		return R.color
+	if(reagent_volumes.len == 1) // It's pretty common and saves a lot of work
+		var/decl/reagent/R = decls_repository.get_decl(reagent_volumes[1])
+		return R.get_color(src)
 
 	var/list/colors = list(0, 0, 0, 0)
 	var/tot_w = 0
-	for(var/datum/reagent/R in reagent_list)
+	for(var/rtype in reagent_volumes)
+		var/decl/reagent/R = decls_repository.get_decl(rtype)
+		if(R.color_weight <= 0)
+			continue
 		var/hex = uppertext(R.color)
 		if(length(hex) == 7)
 			hex += "FF"
-		if(length(hex) != 9) // PANIC PANIC PANIC
-			warning("Reagent [R.type] has an incorrect color set ([R.color])")
-			hex = "#FFFFFFFF"
-		colors[1] += hex2num(copytext(hex, 2, 4)) * R.volume * R.color_weight
-		colors[2] += hex2num(copytext(hex, 4, 6)) * R.volume * R.color_weight
-		colors[3] += hex2num(copytext(hex, 6, 8)) * R.volume * R.color_weight
-		colors[4] += hex2num(copytext(hex, 8, 10)) * R.volume * R.color_weight
-		tot_w += R.volume * R.color_weight
+		var/mod = REAGENT_VOLUME(src, rtype) * R.color_weight
+		colors[1] += hex2num(copytext(hex, 2, 4))  * mod
+		colors[2] += hex2num(copytext(hex, 4, 6))  * mod
+		colors[3] += hex2num(copytext(hex, 6, 8))  * mod
+		colors[4] += hex2num(copytext(hex, 8, 10)) * mod
+		tot_w += mod
 
 	return rgb(colors[1] / tot_w, colors[2] / tot_w, colors[3] / tot_w, colors[4] / tot_w)
+
+/decl/reagent/proc/get_color(var/datum/reagents/holder)
+	return color
+
+/decl/reagent/blood/get_color(var/datum/reagents/holder)
+	if(!holder || isemptylist(REAGENT_DATA(holder, type)))
+		return color
+
+	return LAZYACCESS(holder.reagent_data[type], "blood_colour") || color // return default colour if not set

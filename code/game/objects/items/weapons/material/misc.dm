@@ -1,7 +1,7 @@
 /obj/item/material/harpoon
 	name = "harpoon"
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	desc = "Tharr she blows!"
 	icon_state = "harpoon"
 	item_state = "harpoon"
@@ -36,9 +36,9 @@
 	item_state = "hatchet"
 	force_divisor = 0.2 // 12 with hardness 60 (steel)
 	thrown_force_divisor = 0.75 // 15 with weight 20 (steel)
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 1)
 	attack_verb = list("chopped", "torn", "cut")
 	applies_material_colour = 0
@@ -49,6 +49,7 @@
 	name = "butcher's cleaver"
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "butch"
+	item_state = "butch"
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_kitchen.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_kitchen.dmi',
@@ -80,7 +81,8 @@
 		slot_r_hand_str = 'icons/mob/items/righthand_kitchen.dmi',
 		)
 	sharp = 1
-	edge = 1
+	edge = TRUE
+	force_divisor = 0.25
 
 /obj/item/material/minihoe // -- Numbers
 	name = "mini hoe"
@@ -94,7 +96,7 @@
 	item_state = "hoe"
 	force_divisor = 0.25 // 5 with weight 20 (steel)
 	thrown_force_divisor = 0.25 // as above
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	attack_verb = list("slashed", "sliced", "cut", "clawed")
 
 /obj/item/material/scythe
@@ -108,10 +110,10 @@
 	force_divisor = 0.275 // 16 with hardness 60 (steel)
 	thrown_force_divisor = 0.25 // 5 with weight 20 (steel)
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	throw_speed = 1
 	throw_range = 3
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 2)
 	attack_verb = list("chopped", "sliced", "cut", "reaped")
@@ -124,4 +126,4 @@
 	thrown_force_divisor = 0.04 // 5 with weight 20 (steel)
 	throw_speed = 2
 	throw_range = 3
-	w_class = 2
+	w_class = ITEMSIZE_SMALL

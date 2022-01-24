@@ -26,7 +26,7 @@
 	if(headerdata)
 		data["_PC"] = headerdata
 		. = data
-	
+
 	if(!istype(computer, /obj/item/modular_computer/silicon))
 		return
 	var/obj/item/modular_computer/silicon/true_computer = computer
@@ -38,7 +38,7 @@
 	VUEUI_SET_CHECK(data["dna"], host.master_dna, ., data)
 	VUEUI_SET_CHECK(data["prime"], host.pai_law0, ., data)
 	VUEUI_SET_CHECK(data["supplemental"], host.pai_laws, ., data)
-	
+
 /datum/computer_file/program/pai_directives/Topic(href, href_list)
 	. = ..()
 
@@ -48,7 +48,7 @@
 	if(!istype(true_computer.computer_host, /mob/living/silicon/pai))
 		return
 	var/mob/living/silicon/pai/host = true_computer.computer_host
-	
+
 	if(href_list["getdna"])
 		var/mob/living/M = host.loc
 		var/count = 0
@@ -67,7 +67,7 @@
 		if(answer == "Yes")
 			var/turf/T = get_turf_or_move(host.loc)
 			for (var/mob/v in viewers(T))
-				v.show_message(SPAN_NOTICE("[M] presses \his thumb against [host]."), 3, SPAN_NOTICE("[host] makes a sharp clicking sound as it extracts DNA material from [M]."), 2)
+				v.show_message(SPAN_NOTICE("[M] presses [M.get_pronoun("his")] thumb against [host]."), 3, SPAN_NOTICE("[host] makes a sharp clicking sound as it extracts DNA material from [M]."), 2)
 			var/datum/dna/dna = M.dna
 			to_chat(host, "<font color = red><h3>[M]'s UE string : [dna.unique_enzymes]</h3></font>")
 			if(dna.unique_enzymes == host.master_dna)
@@ -75,5 +75,5 @@
 			else
 				to_chat(host, SPAN_WARNING("<b>Provided DNA does not match stored Master DNA.</b>"))
 		else
-			to_chat(host, SPAN_WARNING("[M] does not seem like \he [gender_datums[M.gender].is] going to provide a DNA sample willingly."))
+			to_chat(host, SPAN_WARNING("[M] does not seem like [M.get_pronoun("he")] [M.get_pronoun("is")] going to provide a DNA sample willingly."))
 		return 1

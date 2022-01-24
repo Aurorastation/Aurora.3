@@ -12,7 +12,7 @@
 	flags = OPENCONTAINER|NOBLUDGEON
 	slot_flags = SLOT_BELT
 	throwforce = 3
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	throw_speed = 2
 	throw_range = 10
 	amount_per_transfer_from_this = 10
@@ -31,7 +31,7 @@
 /obj/item/reagent_containers/spray/AltClick()
 	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))	return
 	safety = !safety
-	playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
+	playsound(src.loc, 'sound/weapons/safety_click.ogg', 50, 1)
 	to_chat(usr, "<span class = 'notice'>You twist the locking cap on the end of the nozzle. \The [src] is now [safety ? "locked" : "unlocked"].</span>")
 
 
@@ -61,7 +61,7 @@
 		return
 
 	if(safety)
-		playsound(src.loc, 'sound/weapons/empty.ogg', 25, 1)
+		playsound(src.loc, 'sound/weapons/safety_click.ogg', 25, 1)
 		to_chat(user, "<span class='notice'>The safety is on!</span>")
 		return
 
@@ -69,13 +69,13 @@
 
 	playsound(src.loc, spray_sound, 50, 1, -6)
 
-	if(reagents.has_reagent(/datum/reagent/acid))
+	if(reagents.has_reagent(/decl/reagent/acid))
 		message_admins("[key_name_admin(user)] fired sulphuric acid from \a [src].")
 		log_game("[key_name(user)] fired sulphuric acid from \a [src].",ckey=key_name(user))
-	if(reagents.has_reagent(/datum/reagent/acid/polyacid))
+	if(reagents.has_reagent(/decl/reagent/acid/polyacid))
 		message_admins("[key_name_admin(user)] fired Polyacid from \a [src].")
 		log_game("[key_name(user)] fired Polyacid from \a [src].",ckey=key_name(user))
-	if(reagents.has_reagent(/datum/reagent/lube))
+	if(reagents.has_reagent(/decl/reagent/lube))
 		message_admins("[key_name_admin(user)] fired Space lube from \a [src].")
 		log_game("[key_name(user)] fired Space lube from \a [src].",ckey=key_name(user))
 	return
@@ -139,15 +139,22 @@
 
 /obj/item/reagent_containers/spray/cleaner/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/spacecleaner, volume)
+	reagents.add_reagent(/decl/reagent/spacecleaner, volume)
 
 /obj/item/reagent_containers/spray/sterilizine
 	name = "sterilizine"
 	desc = "Great for hiding incriminating bloodstains and sterilizing scalpels."
+	icon = 'icons/obj/janitor.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_janitor.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_janitor.dmi',
+		)
+	icon_state = "sterilespray"
+	item_state = "cleaner"
 
 /obj/item/reagent_containers/spray/sterilizine/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/sterilizine, volume)
+	reagents.add_reagent(/decl/reagent/sterilizine, volume)
 
 /obj/item/reagent_containers/spray/pepper
 	name = "pepperspray"
@@ -159,8 +166,7 @@
 	possible_transfer_amounts = null
 	volume = 40
 	safety = 1
-	hitsound = "swing_hit"
-	reagents_to_add = list(/datum/reagent/capsaicin/condensed = 40)
+	reagents_to_add = list(/decl/reagent/capsaicin/condensed = 40)
 
 /obj/item/reagent_containers/spray/pepper/examine(mob/user)
 	if(..(user, 1))
@@ -172,7 +178,7 @@
 /obj/item/reagent_containers/spray/pepper/attack_self(var/mob/user)
 	safety = !safety
 	to_chat(user, "<span class = 'notice'>You switch the safety [safety ? "on" : "off"].</span>")
-	playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
+	playsound(src.loc, 'sound/weapons/safety_click.ogg', 50, 1)
 
 /obj/item/reagent_containers/spray/waterflower
 	name = "water flower"
@@ -190,7 +196,7 @@
 	possible_transfer_amounts = null
 	volume = 10
 
-	reagents_to_add = list(/datum/reagent/water = 10)
+	reagents_to_add = list(/decl/reagent/water = 10)
 
 /obj/item/reagent_containers/spray/chemsprayer
 	name = "chem sprayer"
@@ -201,7 +207,7 @@
 	contained_sprite = TRUE
 	center_of_mass = list("x" = 16,"y" = 16)
 	throwforce = 3
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	possible_transfer_amounts = null
 	volume = 600
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3, TECH_ENGINEERING = 3)
@@ -252,7 +258,7 @@
 	item_state = "plantbgone"
 	volume = 100
 
-	reagents_to_add = list(/datum/reagent/toxin/plantbgone = 100)
+	reagents_to_add = list(/decl/reagent/toxin/plantbgone = 100)
 
 /obj/item/reagent_containers/spray/plantbgone/afterattack(atom/A as mob|obj, mob/user as mob, proximity)
 	if(!proximity) return

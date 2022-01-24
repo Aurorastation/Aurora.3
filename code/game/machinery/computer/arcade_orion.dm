@@ -4,7 +4,7 @@
 //////////////////////////
 
 //Orion Trail Events
-#define ORION_TRAIL_RAIDERS				"Vox Raiders"
+#define ORION_TRAIL_RAIDERS				"Raiders"
 #define ORION_TRAIL_FLUX				"Interstellar Flux"
 #define ORION_TRAIL_ILLNESS				"Illness"
 #define ORION_TRAIL_BREAKDOWN			"Breakdown"
@@ -30,7 +30,8 @@
 /obj/machinery/computer/arcade/orion_trail
 	name = "orion trail"
 	desc = "Imported straight from Outpost-T71!"
-	icon_state = "arcade"
+	icon_state = "arcade1"
+	icon_screen = "orion"
 	circuit = /obj/item/circuitboard/arcade/orion_trail
 	var/list/supplies = list("1" = 0, "2" = 0, "3" = 0, "4" = 0, "5" = 0, "6" = 0) //engine,hull,electronics,food,fuel
 	var/list/supply_cost = list("1" = 1000, "2" = 950, "3" = 1100, "4" = 75, "5" = 100)
@@ -123,7 +124,7 @@
 					event_title  += ": [stops[port]]"
 					event_actions = "<a href='?src=\ref[src];continue=1'>Shove off</a>"
 				if(ORION_TRAIL_RAIDERS)
-					event_desc   = "You arm yourselves as you prepare to fight off the vox menace!"
+					event_desc   = "You arm yourselves as you prepare to fight off the raiders!"
 				if(ORION_TRAIL_DERELICT)
 					event_desc = "You come across an unpowered ship drifting slowly in the vastness of space. Sensors indicate there are no lifeforms aboard."
 				if(ORION_TRAIL_ILLNESS)
@@ -328,7 +329,7 @@
 			else
 				event_info = "You couldn't fight them off!<br>"
 				if(prob(10*settlers.len))
-					remove_settler(null, "was kidnapped by the Vox!")
+					remove_settler(null, "was kidnapped by the raiders!")
 				change_resource(null,-1)
 				change_resource(null,-0.5)
 		if(ORION_TRAIL_DERELICT)
@@ -455,7 +456,7 @@
 			to_chat(usr, "<span class='danger'><font size=3>You're never going to make it to Orion...</font></span>")
 			var/mob/living/M = usr
 			M.visible_message("\The [M] starts rapidly deteriorating.")
-			to_chat(M, browse (null,"window=arcade"))
+			show_browser(M, null, "window=arcade")
 			for(var/i=0;i<10;i++)
 				sleep(10)
 				M.Stun(5)
@@ -487,7 +488,7 @@
 	desc = "A model spaceship, it looks like those used back in the day when travelling to Orion! It even has a miniature FX-293 reactor, which was renowned for its instability and tendency to explode..."
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "ship"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	var/active = 0 //if the ship is on
 /obj/item/orion_ship/examine(mob/user)
 	..()

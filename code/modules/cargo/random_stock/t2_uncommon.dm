@@ -14,11 +14,11 @@ STOCK_ITEM_UNCOMMON(plasteel, 3)
 STOCK_ITEM_UNCOMMON(silver, 2)
 	new /obj/item/stack/material/silver(L, rand(5,30))
 
-STOCK_ITEM_UNCOMMON(phoronsheets, 2)
-	new /obj/item/stack/material/phoron(L, rand(5,50))
+STOCK_ITEM_UNCOMMON(phoronsheets, 0.5)
+	new /obj/item/stack/material/phoron(L, rand(5,20))
 
-STOCK_ITEM_UNCOMMON(phoronglass, 2)
-	new /obj/item/stack/material/glass/phoronglass(L, 50)
+STOCK_ITEM_UNCOMMON(phoronglass, 0.5)
+	new /obj/item/stack/material/glass/phoronglass(L, rand(10,20))
 
 STOCK_ITEM_UNCOMMON(sandstone, 2)
 	new /obj/item/stack/material/sandstone(L, 50)
@@ -42,7 +42,7 @@ STOCK_ITEM_UNCOMMON(flare, 2)
 STOCK_ITEM_UNCOMMON(implants, 1)
 	if(prob(50))
 		new /obj/item/storage/box/cdeathalarm_kit(L)
-	else 
+	else
 		new /obj/item/storage/box/trackimp(L)
 
 STOCK_ITEM_UNCOMMON(flashbang, 0.75)
@@ -72,7 +72,7 @@ STOCK_ITEM_UNCOMMON(specialcrayon, 1.5)
 		new /obj/item/pen/crayon/rainbow(L)
 
 STOCK_ITEM_UNCOMMON(contraband, 2)
-	for(var/i in 1 to rand(1, 4))
+	for(var/i in 1 to rand(1, 3))
 		new /obj/random/contraband(L)
 
 STOCK_ITEM_UNCOMMON(mediumcell, 3)
@@ -85,21 +85,19 @@ STOCK_ITEM_UNCOMMON(mediumcell, 3)
 		new type(L)
 
 STOCK_ITEM_UNCOMMON(chempack, 5)
-	var/list/chems = SSchemistry.chemical_reagents.Copy()
-	var/list/exclusion = list(/datum/reagent/drink, /datum/reagent, /datum/reagent/adminordrazine, /datum/reagent/chloralhydrate/beer2, /datum/reagent/azoth, /datum/reagent/elixir,\
-		/datum/reagent/liquid_fire, /datum/reagent/philosopher_stone, /datum/reagent/toxin/undead, /datum/reagent/love_potion, /datum/reagent/shapesand, /datum/reagent/usolve,\
-		/datum/reagent/sglue, /datum/reagent/black_matter, /datum/reagent/bottle_lightning, /datum/reagent/toxin/trioxin, /datum/reagent/toxin/phoron_salt, /datum/reagent/toxin/nanites, /datum/reagent/nitroglycerin)
+	var/list/chems = decls_repository.get_decls_of_subtype(/decl/reagent/)
+	var/list/exclusion = list(/decl/reagent/drink, /decl/reagent, /decl/reagent/adminordrazine, /decl/reagent/polysomnine/beer2, /decl/reagent/azoth, /decl/reagent/elixir,\
+		/decl/reagent/liquid_fire, /decl/reagent/philosopher_stone, /decl/reagent/toxin/undead, /decl/reagent/love_potion, /decl/reagent/shapesand, /decl/reagent/usolve,\
+		/decl/reagent/sglue, /decl/reagent/black_matter, /decl/reagent/bottle_lightning, /decl/reagent/toxin/trioxin, /decl/reagent/toxin/nanites, /decl/reagent/nitroglycerin)
 	chems -= exclusion
 	for (var/i in 1 to rand(2, 4))
 		var/obj/item/reagent_containers/chem_disp_cartridge/C = new /obj/item/reagent_containers/chem_disp_cartridge(L)
 		var/rname = pick(chems)
-		var/datum/reagent/R = SSchemistry.chemical_reagents[rname]
-
 		//If we get a drink, reroll it once.
 		//Should result in a higher chance of getting medicines and chemicals
-		if (istype(R, /datum/reagent/drink) || istype(R, /datum/reagent/alcohol/ethanol))
+		if (ispath(rname, /decl/reagent/drink) || ispath(rname, /decl/reagent/alcohol))
 			rname = pick(chems)
-			R = SSchemistry.chemical_reagents[rname]
+		var/decl/reagent/R = decls_repository.get_decl(rname)
 		C.reagents.add_reagent(rname, C.volume)
 		C.setLabel(R.name)
 
@@ -123,7 +121,7 @@ STOCK_ITEM_UNCOMMON(circuitboards, 3)
 	exclusion += typesof(/obj/item/circuitboard/mecha)
 
 	allboards -= exclusion
-	for(var/i in 1 to rand(2, 3))
+	for(var/i in 1 to rand(1, 2))
 		var/type = pick(allboards)
 		new type(L)
 
@@ -145,9 +143,6 @@ STOCK_ITEM_UNCOMMON(advwelder, 2)
 		new /obj/item/weldingtool/experimental(L)
 	else
 		new /obj/item/weldingtool/hugetank(L)
-
-STOCK_ITEM_UNCOMMON(sord, 1)
-	new /obj/item/sord(L)
 
 STOCK_ITEM_UNCOMMON(policebaton, 1.5)
 	new /obj/item/melee/classic_baton(L)
@@ -171,19 +166,12 @@ STOCK_ITEM_UNCOMMON(MMI, 1.5)
 STOCK_ITEM_UNCOMMON(voidsuit, 2)
 	new /obj/random/voidsuit(L,1)
 
-STOCK_ITEM_UNCOMMON(nightvision, 2)
-	new /obj/item/clothing/glasses/night(L)
-
-STOCK_ITEM_UNCOMMON(violin, 2)
+STOCK_ITEM_UNCOMMON(violin, 1)
 	new /obj/item/device/violin(L)
 
 STOCK_ITEM_UNCOMMON(atmosfiresuit, 2)
 	new /obj/item/clothing/head/hardhat/red/atmos(L)
 	new /obj/item/clothing/suit/fire/atmos(L)
-
-STOCK_ITEM_UNCOMMON(pdacart, 3)
-	for(var/i in 1 to rand(1, 3))
-		new /obj/random/pda_cart(L)
 
 STOCK_ITEM_UNCOMMON(debugger, 2)
 	new /obj/item/device/debugger(L)
@@ -200,18 +188,9 @@ STOCK_ITEM_UNCOMMON(carpet, 2)
 STOCK_ITEM_UNCOMMON(gift, 4)
 	new /obj/item/a_gift(L)
 
-STOCK_ITEM_UNCOMMON(coatrack, 1)
-	var/turf/T = get_turf(L)
-	if(!turf_clear(T))
-		for (var/turf/U in range(T,1))
-			if (turf_clear(U))
-				T = U
-				break
-	new /obj/structure/coatrack(T)
-
 STOCK_ITEM_UNCOMMON(riotshield, 2)
 	new /obj/item/shield/riot(L)
-	if(prob(40))
+	if(prob(20))
 		new /obj/item/shield/riot(L)
 
 STOCK_ITEM_UNCOMMON(fireaxe, 1)
@@ -274,23 +253,31 @@ STOCK_ITEM_UNCOMMON(manual, 2)
 	var/type = pick(booklist)
 	new type(L)
 
-STOCK_ITEM_UNCOMMON(jammer, 2)
-	new /obj/item/device/radiojammer(L)
+STOCK_ITEM_UNCOMMON(spystuff, 0.75)
+	if(prob(40))
+		new /obj/item/device/radiojammer(L)
+	else
+		new /obj/item/clothing/glasses/night(L)
 
 STOCK_ITEM_UNCOMMON(seeds, 1)
 	for(var/i in 1 to rand(1, 3))
-		var/obj/item/seeds/SP = pick(subtypesof(/obj/item/seeds))
+		var/obj/item/seeds/SP = pick(subtypesof(/obj/item/seeds) - /obj/item/seeds/cutting)
 		new SP(L)
 
-STOCK_ITEM_UNCOMMON(rped, 2)
+STOCK_ITEM_UNCOMMON(rped, 1)
 	new /obj/item/storage/part_replacer(L)
 
 STOCK_ITEM_UNCOMMON(briefcase, 2)
-	if(prob(20))
-		new /obj/item/storage/secure/briefcase(L)
-	else
-		var/obj/item/storage/briefcase/B = pick(typesof(/obj/item/storage/briefcase))
-		new B(L)
+	var/list/briefcases = list(
+		/obj/item/storage/briefcase = 1,
+		/obj/item/storage/briefcase/real = 0.8,
+		/obj/item/storage/briefcase/black = 0.8,
+		/obj/item/storage/briefcase/aluminium = 0.5,
+		/obj/item/storage/briefcase/nt = 0.5
+	)
+
+	var/type = pickweight(briefcases)
+	new type(L)
 
 STOCK_ITEM_UNCOMMON(blade, 1.2)
 	var/list/blades = list(
@@ -330,7 +317,7 @@ STOCK_ITEM_UNCOMMON(randomhide, 0.5)
 	var/obj/item/stack/material/animalhide/spawn_hide = pick(typesof(/obj/item/stack/material/animalhide))
 	new spawn_hide(L, rand(5, 50))
 
-STOCK_ITEM_UNCOMMON(hoodie, 0.5)
+STOCK_ITEM_UNCOMMON(hoodie, 1)
 	new /obj/random/hoodie(L)
 
 STOCK_ITEM_UNCOMMON(bang, 0.5)
@@ -367,28 +354,58 @@ STOCK_ITEM_UNCOMMON(apiary, 1)
 		new /obj/item/honey_frame(L)
 
 STOCK_ITEM_UNCOMMON(wristbound, 0.5)
-	var/obj/item/modular_computer/wristbound/preset/P = pick(subtypesof(/obj/item/modular_computer/wristbound/preset))
-	new P(L)
+	var/list/possible_wristbounds = list()
+	for(var/thing in subtypesof(/obj/item/modular_computer/handheld/wristbound/preset))
+		var/obj/item/modular_computer/handheld/wristbound/preset/P = thing
+		if(initial(P.hidden))
+			continue
+		possible_wristbounds += P
+	var/wristbound_type = pick(possible_wristbounds)
+	new wristbound_type(L)
 
 STOCK_ITEM_UNCOMMON(pops, 0.5)
 	if(prob(85))
 		new /obj/item/storage/box/snappops(L)
-	else
+	else if (prob(25))
 		new /obj/item/storage/box/snappops/syndi(L)
+	else
+		new /obj/item/storage/box/partypopper(L)
 
 STOCK_ITEM_UNCOMMON(collectable_headwear, 0.5)
-	var/type = pick(subtypesof(/obj/item/clothing/head/collectable/))
+	var/type = pick(subtypesof(/obj/item/clothing/head/collectable))
+	new type(L)
+
+STOCK_ITEM_UNCOMMON(pickaxes, 1)
+	var/list/pickaxe_type = list(
+		/obj/item/pickaxe = 10,
+		/obj/item/pickaxe/hammer = 1,
+		/obj/item/pickaxe/silver = 2,
+		/obj/item/pickaxe/drill = 5,
+		/obj/item/pickaxe/gold = 0.5,
+		/obj/item/pickaxe/diamond = 0.25,
+		/obj/item/pickaxe/brush = 1,
+		/obj/item/pickaxe/hand = 2
+		)
+	var/type = pickweight(pickaxe_type)
 	new type(L)
 
 STOCK_ITEM_UNCOMMON(alt_glasses, 1)
-	var/list/glasses = list(/obj/item/clothing/glasses/regular/circle, 
+	var/list/glasses = list(/obj/item/clothing/glasses/regular/circle,
 			/obj/item/clothing/glasses/regular/jamjar,
 			/obj/item/clothing/glasses/threedglasses,
 			/obj/item/clothing/glasses/regular/hipster,
 			/obj/item/clothing/glasses/regular/scanners)
-	for(var/i in 1 to rand(1, 2))
-		var/type = pick(glasses)
-		new type(L)
+	var/type = pick(glasses)
+	new type(L)
+
+STOCK_ITEM_UNCOMMON(gumballs, 3)
+	new /obj/item/glass_jar/gumball(L)
+
+STOCK_ITEM_UNCOMMON(googly, 0.75)
+	new /obj/item/storage/box/googly(L)
+
+STOCK_ITEM_UNCOMMON(wizarddressup, 1)
+	new /obj/random/wizard_dressup(L)
 
 STOCK_ITEM_UNCOMMON(nothing, 0)
 	// no-op

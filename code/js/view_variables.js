@@ -14,7 +14,10 @@ function updateSearch() {
 		} else {
 			li.style.display = "none";
 		}
-	}
+  }
+
+  var refresh_link = document.getElementById('refresh');
+  refresh_link.href = refresh_link.getAttribute('data-initial-href') + filter;
 }
 
 function selectTextField() {

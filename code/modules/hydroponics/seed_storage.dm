@@ -21,7 +21,7 @@
 	name = "Seed storage"
 	desc = "It stores, sorts, and dispenses seeds."
 	icon = 'icons/obj/vending.dmi'
-	icon_state = "seeds"
+	icon_state = SEED_NOUN_SEEDS
 	density = 1
 	anchored = 1
 	use_power = 1
@@ -44,6 +44,7 @@
 		/obj/item/seeds/appleseed = 3,
 		/obj/item/seeds/bananaseed = 3,
 		/obj/item/seeds/berryseed = 3,
+		/obj/item/seeds/blizzard = 3,
 		/obj/item/seeds/blueberryseed = 3,
 		/obj/item/seeds/cabbageseed = 3,
 		/obj/item/seeds/carrotseed = 3,
@@ -51,16 +52,20 @@
 		/obj/item/seeds/cherryseed = 3,
 		/obj/item/seeds/chiliseed = 3,
 		/obj/item/seeds/cocoapodseed = 3,
+		/obj/item/seeds/coffeeseed = 3,
 		/obj/item/seeds/cornseed = 3,
-		/obj/item/seeds/replicapod = 3,
+		/obj/item/seeds/dynseed = 3,
 		/obj/item/seeds/earthenroot = 2,
 		/obj/item/seeds/eggplantseed = 3,
+		/obj/item/seeds/eki = 3,
 		/obj/item/seeds/garlicseed = 3,
 		/obj/item/seeds/grapeseed = 3,
 		/obj/item/seeds/grassseed = 3,
+		/obj/item/seeds/guamiseed = 2,
 		/obj/item/seeds/lemonseed = 3,
 		/obj/item/seeds/limeseed = 3,
 		/obj/item/seeds/mtearseed = 2,
+		/obj/item/seeds/mintseed = 3,
 		/obj/item/seeds/nifberries = 2,
 		/obj/item/seeds/onionseed = 3,
 		/obj/item/seeds/orangeseed = 3,
@@ -71,21 +76,30 @@
 		/obj/item/seeds/poppyseed = 3,
 		/obj/item/seeds/potatoseed = 3,
 		/obj/item/seeds/pumpkinseed = 3,
+		/obj/item/seeds/qlortseed = 2,
 		/obj/item/seeds/reishimycelium = 2,
+		/obj/item/seeds/replicapod = 3,
 		/obj/item/seeds/riceseed = 3,
+		/obj/item/seeds/seaweed = 3,
+		/obj/item/seeds/shandseed = 2,
 		/obj/item/seeds/soyaseed = 3,
 		/obj/item/seeds/sugarcaneseed = 3,
-		/obj/item/seeds/sunflowerseed = 3,
 		/obj/item/seeds/sugartree = 2,
-		/obj/item/seeds/shandseed = 2,
+		/obj/item/seeds/sunflowerseed = 3,
+		/obj/item/seeds/teaseed = 3,
 		/obj/item/seeds/tobaccoseed = 3,
 		/obj/item/seeds/tomatoseed = 3,
 		/obj/item/seeds/towermycelium = 3,
+		/obj/item/seeds/vanilla = 3,
 		/obj/item/seeds/watermelonseed = 3,
 		/obj/item/seeds/wheatseed = 3,
 		/obj/item/seeds/whitebeetseed = 3,
-		/obj/item/seeds/dynseed = 3,
-		/obj/item/seeds/wulumunushaseed = 2
+		/obj/item/seeds/wulumunushaseed = 2,
+		/obj/item/seeds/ylpha = 2,
+		/obj/item/seeds/clam = 15,
+		/obj/item/seeds/barnacle = 15,
+		/obj/item/seeds/mollusc = 15,
+		/obj/item/seeds/clam/rasval = 15
 	)
 
 /obj/machinery/seed_storage/xenobotany
@@ -97,6 +111,7 @@
 		/obj/item/seeds/amanitamycelium = 2,
 		/obj/item/seeds/bananaseed = 3,
 		/obj/item/seeds/berryseed = 3,
+		/obj/item/seeds/blizzard = 3,
 		/obj/item/seeds/blueberryseed = 3,
 		/obj/item/seeds/cabbageseed = 3,
 		/obj/item/seeds/carrotseed = 3,
@@ -104,6 +119,7 @@
 		/obj/item/seeds/cherryseed = 3,
 		/obj/item/seeds/chiliseed = 3,
 		/obj/item/seeds/cocoapodseed = 3,
+		/obj/item/seeds/coffeeseed = 3,
 		/obj/item/seeds/cornseed = 3,
 		/obj/item/seeds/replicapod = 3,
 		/obj/item/seeds/earthenroot = 2,
@@ -117,6 +133,7 @@
 		/obj/item/seeds/libertymycelium = 2,
 		/obj/item/seeds/limeseed = 3,
 		/obj/item/seeds/mtearseed = 2,
+		/obj/item/seeds/mintseed = 3,
 		/obj/item/seeds/nettleseed = 2,
 		/obj/item/seeds/nifberries = 2,
 		/obj/item/seeds/onionseed = 3,
@@ -135,9 +152,11 @@
 		/obj/item/seeds/sunflowerseed = 3,
 		/obj/item/seeds/sugartree = 2,
 		/obj/item/seeds/shandseed = 2,
+		/obj/item/seeds/teaseed = 3,
 		/obj/item/seeds/tobaccoseed = 3,
 		/obj/item/seeds/tomatoseed = 3,
 		/obj/item/seeds/towermycelium = 3,
+		/obj/item/seeds/vanilla = 3,
 		/obj/item/seeds/watermelonseed = 3,
 		/obj/item/seeds/wheatseed = 3,
 		/obj/item/seeds/whitebeetseed = 3,
@@ -165,7 +184,7 @@
 
 	var/dat = "<center><h1>Seed storage contents</h1></center>"
 	if (piles.len == 0)
-		dat += "<font color='red'>No seeds</font>"
+		dat += "<span class='warning'>No seeds</span>"
 	else
 		dat += "<table style='text-align:center;border-style:solid;border-width:1px;padding:4px'><tr><td>Name</td>"
 		dat += "<td>Variety</td>"
@@ -220,12 +239,12 @@
 				if(1)
 					dat += "CARN "
 				if(2)
-					dat	+= "<font color='red'>CARN </font>"
+					dat	+= "<span class='warning'>CARN </span>"
 			switch(seed.get_trait(TRAIT_SPREAD))
 				if(1)
 					dat += "VINE "
 				if(2)
-					dat	+= "<font color='red'>VINE </font>"
+					dat	+= "<span class='warning'>VINE </span>"
 			if ("pressure" in scanner)
 				if(seed.get_trait(TRAIT_LOWKPA_TOLERANCE) < 20)
 					dat += "LP "

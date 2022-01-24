@@ -4,7 +4,7 @@
 //Added by Jack Rost
 /obj/item/trash
 	icon = 'icons/obj/trash.dmi'
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_food.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_food.dmi'
@@ -55,7 +55,7 @@
 /obj/item/trash/waffles
 	name = "square tray"
 	icon_state = "waffles"
-	drop_sound = 'sound/items/trayhit1.ogg'
+	drop_sound = /decl/sound_category/tray_hit_sound
 
 /obj/item/trash/plate
 	name = "plate"
@@ -83,7 +83,7 @@
 /obj/item/trash/tray
 	name = "tray"
 	icon_state = "tray"
-	drop_sound = 'sound/items/trayhit1.ogg'
+	drop_sound = /decl/sound_category/tray_hit_sound
 
 /obj/item/trash/candle
 	name = "candle"
@@ -119,7 +119,7 @@
 /obj/item/trash/brownies
 	name = "square tray"
 	icon_state = "brownies"
-	drop_sound = 'sound/items/trayhit1.ogg'
+	drop_sound = /decl/sound_category/tray_hit_sound
 
 /obj/item/trash/snacktray
 	name = "snacktray"
@@ -139,9 +139,17 @@
 
 /obj/item/trash/can
 	name = "used can"
-	icon_state = "can-used"
+	icon_state = "cola"
 	drop_sound = 'sound/items/drop/soda.ogg'
 	pickup_sound = 'sound/items/pickup/soda.ogg'
+	randpixel = 4
+
+/obj/item/trash/can/Initialize()
+	. = ..()
+	randpixel_xy()
+
+/obj/item/trash/can/adhomian_can
+	icon_state = "can-used"
 
 /obj/item/trash/tuna
 	name = "\improper Tuna Snax"
@@ -158,11 +166,19 @@
 /obj/item/trash/grease //used for generic plattered food. example is lasagna.
 	name = "square tray"
 	icon_state = "grease"
-	drop_sound = 'sound/items/trayhit1.ogg'
+	drop_sound = /decl/sound_category/tray_hit_sound
 
 /obj/item/trash/cookiesnack
 	name = "\improper Carps Ahoy! miniature cookies"
 	icon_state = "cookiesnack"
+
+/obj/item/trash/admints
+	name = "\improper Ad-mints"
+	icon_state = "admint_pack"
+
+/obj/item/trash/gum
+	name = "\improper Chewy Fruit flavored gum"
+	icon_state = "gum_pack"
 
 /obj/item/trash/stew
 	name = "empty pot"
@@ -188,3 +204,40 @@
 	icon_state = "candy_bowl"
 	drop_sound = 'sound/items/drop/bottle.ogg'
 	pickup_sound = 'sound/items/pickup/bottle.ogg'
+
+/obj/item/trash/ricetub
+	name = "empty rice tub"
+	icon_state = "ricetub"
+	var/has_chopsticks = FALSE
+
+/obj/item/trash/ricetub/attackby(obj/item/W, mob/living/user)
+	if(istype(W, /obj/item/material/kitchen/utensil/fork/chopsticks))
+		to_chat(user, SPAN_NOTICE("You reattach the [W] to \the [src]"))
+		qdel(W)
+		has_chopsticks = TRUE
+		update_icon()
+
+/obj/item/trash/ricetub/update_icon()
+	if(has_chopsticks)
+		icon_state = "ricetub_s"
+	else
+		icon_state = "ricetub"
+
+/obj/item/trash/ricetub/sticks
+	has_chopsticks = TRUE
+
+/obj/item/trash/seaweed
+	name = "empty moss pack"
+	icon_state = "seaweed"
+
+/obj/item/trash/vkrexitaffy
+	name = "V'krexi Snax"
+	icon_state = "vkrexitaffy"
+
+/obj/item/trash/broken_electronics
+	name = "broken electronics"
+	icon_state = "door_electronics_smoked"
+
+/obj/item/trash/phoroncandy
+	name = "\improper phoron rock candy stick"
+	icon_state = "rock_candy"

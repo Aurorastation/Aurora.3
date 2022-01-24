@@ -48,6 +48,7 @@
 	set desc = "25 CPU - Sends termination signal to quantum relay aborting current shuttle call."
 	set category = "Software"
 	var/price = 25
+
 	var/mob/living/silicon/ai/user = usr
 	if(!ability_prechecks(user, price))
 		return
@@ -67,8 +68,8 @@
 	set desc = "125 CPU - Bypasses firewalls on Cyborg lock mechanism, allowing you to override lock command from robotics control console."
 	set category = "Software"
 	var/price = 125
-	var/mob/living/silicon/ai/user = usr
 
+	var/mob/living/silicon/ai/user = usr
 	if(!ability_prechecks(user, price))
 		return
 
@@ -137,7 +138,12 @@
 	set desc = "2500 CPU - Allows you to hack a random active maintenance drone which is slaved to you. Bringing them under your control."
 	set category = "Software"
 	var/price = 2500
+
 	var/mob/living/silicon/ai/user = usr
+	if(user.stat == DEAD)
+		to_chat(user, SPAN_WARNING("You are dead!"))
+		return
+
 	var/list/drone_list = list()
 	var/hacked_num = 0
 	for(var/mob/living/silicon/robot/drone/D in mob_list)
@@ -173,7 +179,11 @@
 	set desc = "350 CPU - Allows you to hack cyborgs which are not slaved to you, bringing them under your control."
 	set category = "Software"
 	var/price = 350
+
 	var/mob/living/silicon/ai/user = usr
+	if(user.stat == DEAD)
+		to_chat(user, SPAN_WARNING("You are dead!"))
+		return
 
 	var/list/L = get_unlinked_cyborgs(user)
 	if(!L.len)
@@ -239,7 +249,11 @@
 	set desc = "600 CPU - Allows you to hack other AIs, slaving them under you."
 	set category = "Software"
 	var/price = 600
+
 	var/mob/living/silicon/ai/user = usr
+	if(user.stat == DEAD)
+		to_chat(user, SPAN_WARNING("You are dead!"))
+		return
 
 	var/list/L = get_other_ais(user)
 	if(!L.len)

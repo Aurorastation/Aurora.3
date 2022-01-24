@@ -42,6 +42,7 @@
 				missing_params += param["name"]
 	if(errorcount)
 		log_debug("API: Request aborted. Required parameters missing")
+		log_debug("API: Received the following params: [json_encode(queryparams)]")
 		statuscode = 400
 		response = "Required params missing"
 		data = missing_params

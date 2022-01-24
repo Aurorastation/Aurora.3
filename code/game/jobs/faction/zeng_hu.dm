@@ -17,7 +17,7 @@
 	You expect to be heard and obeyed, as your coworkers really should be taking advice from you in the absence of
 	a chief medical officer. Your bedside manner is impeccable and far outclasses standard NanoTrasen training and
 	procedure. You are the product of the most rigorous employee hiring and training process for medical staff in the
-	Orion Spur, and are expected to act like it. Failure is you will not tolerate.</li>
+	Orion Spur, and are expected to act like it. Failure is something you will not tolerate.</li>
 	<li><b>Biomechanical Engineer</b>: Our ability to combine medical research with robotics
 	is the best and you know this. We do, after all, own Bishop Cybernetics - the
 	best premium augmentation subsidiary in the known galaxy. Unlike your medical cousins
@@ -45,7 +45,9 @@
 		/datum/species/human,
 		/datum/species/skrell,
 		/datum/species/machine,
-		/datum/species/bug,
+		/datum/species/bug = TRUE,
+		/datum/species/bug/type_b = TRUE,
+		/datum/species/bug/type_e = TRUE,
 		/datum/species/diona
 	)
 
@@ -59,13 +61,26 @@
 		"Psychiatrist" = /datum/outfit/job/psychiatrist/zeng_hu,
 		"Psychologist" = /datum/outfit/job/psychiatrist/zeng_hu,
 		"Paramedic" = /datum/outfit/job/med_tech/paramed/zeng_hu,
-		"Emergency Medical Technician" = /datum/outfit/job/med_tech/paramed/zeng_hu,
+		"First Responder" = /datum/outfit/job/med_tech/paramed/zeng_hu,
 		"Roboticist" = /datum/outfit/job/roboticist/zeng_hu,
 		"Biomechanical Engineer" = /datum/outfit/job/roboticist/zeng_hu,
 		"Mechatronic Engineer" = /datum/outfit/job/roboticist/zeng_hu,
 		"Xenobiologist" = /datum/outfit/job/scientist/xenobiologist/zeng_hu,
 		"Xenobotanist" = /datum/outfit/job/scientist/xenobiologist/zeng_hu,
 		"Corporate Liaison" = /datum/outfit/job/representative/zeng_hu
+	)
+
+	job_species_blacklist = list(
+		"Corporate Liaison" = list(
+			SPECIES_UNATHI,
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER
+		)
 	)
 
 /datum/outfit/job/doctor/zeng_hu
@@ -110,3 +125,9 @@
 	suit = null
 	implants = null
 	id = /obj/item/card/id/zeng_hu
+
+	backpack_contents = list(
+		/obj/item/device/camera = 1,
+		/obj/item/gun/energy/pistol = 1,
+		/obj/item/stamp/zeng_hu = 1
+	)

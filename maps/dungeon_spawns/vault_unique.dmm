@@ -18,11 +18,11 @@
 /area/turret_protected/corp_vault)
 "e" = (
 /obj/machinery/power/smes/buildable{
+	RCon = 0;
 	charge = 5e+006;
 	input_level = 200000;
 	output_attempt = 1;
-	output_level = 200000;
-	RCon = 0
+	output_level = 200000
 	},
 /obj/structure/cable/yellow{
 	d2 = 8;
@@ -85,7 +85,7 @@
 	},
 /obj/item/gun/energy/toxgun,
 /obj/item/frame/apc,
-/obj/item/circuitboard/broken,
+/obj/item/trash/broken_electronics,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/turret_protected/corp_vault)
 "m" = (
@@ -99,8 +99,8 @@
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/turret_protected/corp_vault)
 "n" = (
-/obj/machinery/porta_turret/thermal,
 /obj/effect/decal/warning_stripes,
+/obj/machinery/porta_turret/ballistic,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/turret_protected/corp_vault)
 "o" = (

@@ -1,8 +1,10 @@
 // This is the base type that handles everything. Subtypes can be easily created by tweaking variables in this file to your liking.
+
 /obj/item/modular_computer
 	name = "Modular Computer"
 	desc = "A modular computer. You shouldn't see this."
 
+	var/lexical_name = "computer"
 	var/enabled = FALSE										// Whether the computer is turned on.
 	var/screen_on = TRUE									// Whether the computer is active/opened/it's screen is on.
 	var/working = TRUE										// Whether the computer is working.
@@ -21,6 +23,12 @@
 	var/_app_preset_type									// Used for specifying the software preset of the console
 	var/ambience_last_played								// Last time sound was played
 	var/pAI_lock = FALSE									// Toggles whether pAI can interact with the modular computer while installed in it
+	var/obj/item/card/id/registered_id = null 				// ID used for chat client registering
+	var/scan_mode = null									// Mode used for health/reagent scanners
+	var/silent = FALSE
+	var/doorcode = "smindicate"
+	var/hidden = FALSE
+	var/initial_name
 
 	// Modular computers can run on various devices. Each DEVICE (Laptop, Console, Tablet,..)
 	// must have it's own DMI file. Icon states must be called exactly the same in all files, but may look differently
@@ -40,7 +48,8 @@
 	var/message_output_range = 0							// Adds onto the output_message proc's range
 	var/max_hardware_size = 0								// Maximal hardware size. Currently, tablets have 1, laptops 2 and consoles 3. Limits what hardware types can be installed.
 	var/steel_sheet_cost = 5								// Amount of steel sheets refunded when disassembling an empty frame of this computer.
-	var/light_strength = 0									// Intensity of light this computer emits. Comparable to numbers light fixtures use.
+	light_range = 0											// Tile range of lighting emitted by the computer.
+	light_power = 0											// Intensity of lighting emitted by the computer. Valid range between 0 and 1.
 	var/list/idle_threads = list()							// Idle programs on background. They still receive process calls but can't be interacted with.
 	var/list/enabled_services = list()						// Enabled services that run in background and handle things pasively. Supported on all CPUs.
 	var/power_has_failed = FALSE
@@ -64,6 +73,7 @@
 	var/obj/item/computer_hardware/ai_slot/ai_slot							// AI slot, an intellicard housing that allows modifications of AIs.
 	var/obj/item/computer_hardware/tesla_link/tesla_link					// Tesla Link, Allows remote charging from nearest APC.
 	var/obj/item/device/paicard/personal_ai									// Personal AI, can control the device via a verb when installed
+	var/obj/item/computer_hardware/flashlight/flashlight
 
 	var/listener/listener	//Listener needed for things
 

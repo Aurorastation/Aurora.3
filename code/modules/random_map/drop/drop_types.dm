@@ -61,7 +61,7 @@ var/global/list/datum/supply_drop_loot/supply_drop
 		/obj/item/gun/projectile/automatic/rifle/z8)
 
 /datum/supply_drop_loot/seeds
-	name = "Seeds"
+	name = SEED_NOUN_SEEDS
 	container = /obj/structure/closet/crate
 /datum/supply_drop_loot/seeds/New()
 	..()
@@ -94,30 +94,30 @@ var/global/list/datum/supply_drop_loot/supply_drop
 		/obj/item/reagent_containers/food/condiment/flour,
 		/obj/item/reagent_containers/food/drinks/milk,
 		/obj/item/reagent_containers/food/drinks/milk,
-		/obj/item/storage/fancy/egg_box,
+		/obj/item/storage/box/fancy/egg_box,
 		/obj/item/reagent_containers/food/snacks/tofu,
 		/obj/item/reagent_containers/food/snacks/tofu,
 		/obj/item/reagent_containers/food/snacks/meat,
 		/obj/item/reagent_containers/food/snacks/meat)
 
-/datum/supply_drop_loot/armour
-	name = "Armour"
+/datum/supply_drop_loot/armor
+	name = "Armor"
 	container = /obj/structure/largecrate
-/datum/supply_drop_loot/armour/New()
+/datum/supply_drop_loot/armor/New()
 	..()
 	contents = list(
 		/obj/item/clothing/head/helmet/riot,
-		/obj/item/clothing/suit/armor/riot,
+		/obj/item/clothing/suit/armor/carrier/riot,
 		/obj/item/clothing/head/helmet/riot,
-		/obj/item/clothing/suit/armor/riot,
+		/obj/item/clothing/suit/armor/carrier/riot,
 		/obj/item/clothing/head/helmet/riot,
-		/obj/item/clothing/suit/armor/riot,
+		/obj/item/clothing/suit/armor/carrier/riot,
 		/obj/item/clothing/suit/armor/vest,
 		/obj/item/clothing/suit/armor/vest,
 		/obj/item/clothing/suit/storage/vest,
 		/obj/item/clothing/suit/storage/vest,
-		/obj/item/clothing/suit/armor/laserproof,
-		/obj/item/clothing/suit/armor/bulletproof)
+		/obj/item/clothing/suit/armor/carrier/ablative,
+		/obj/item/clothing/suit/armor/carrier/ballistic)
 
 /datum/supply_drop_loot/materials
 	name = "Materials"
@@ -147,7 +147,7 @@ var/global/list/datum/supply_drop_loot/supply_drop
 		/obj/item/storage/firstaid/o2,
 		/obj/item/storage/firstaid/adv,
 		/obj/item/reagent_containers/glass/bottle/antitoxin,
-		/obj/item/reagent_containers/glass/bottle/norepinephrine,
+		/obj/item/reagent_containers/glass/bottle/inaprovaline,
 		/obj/item/reagent_containers/glass/bottle/stoxin,
 		/obj/item/storage/box/syringes,
 		/obj/item/storage/box/autoinjectors)

@@ -40,6 +40,9 @@ var/datum/controller/subsystem/events/SSevents
 	)
 	initialized = TRUE
 
+	if(current_map.use_overmap)
+		overmap_event_handler.create_events(current_map.overmap_z, current_map.overmap_size, current_map.overmap_event_areas)
+
 /datum/controller/subsystem/events/Recover()
 	active_events = SSevents.active_events
 	finished_events = SSevents.finished_events
@@ -272,6 +275,7 @@ var/datum/controller/subsystem/events/SSevents
 		var/datum/event/E = locate(href_list["stop"])
 		var/datum/event_meta/EM = E.event_meta
 		log_and_message_admins("has stopped the [severity_to_string[EM.severity]] event '[EM.name]'.")
+		E.end()
 		E.kill()
 	else if(href_list["view_events"])
 		selected_event_container = locate(href_list["view_events"])

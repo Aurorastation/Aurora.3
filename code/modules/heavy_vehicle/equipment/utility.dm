@@ -8,9 +8,10 @@
 	var/carrying_capacity = 5
 	var/list/obj/carrying = list()
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
+	var/list/afterattack_types = list(/obj/structure/closet, /obj/machinery/door/airlock)
 
 /obj/item/mecha_equipment/clamp/resolve_attackby(atom/A, mob/user, click_params)
-	if(istype(A, /obj/structure/closet) && owner)
+	if(is_type_in_list(A, afterattack_types) && owner)
 		return FALSE
 	return ..()
 
@@ -29,12 +30,66 @@
 	. = ..()
 
 	if(.)
+		if(istype(target, /obj/machinery/door/firedoor))
+			var/obj/machinery/door/firedoor/FD = target
+			if(FD.blocked)
+				FD.visible_message(SPAN_WARNING("\The [owner] begins prying on \the [FD]!"))
+				if(do_after(user, 10 SECONDS, act_target = owner, extra_checks = CALLBACK(GLOBAL_PROC, .proc/atom_maintain_position, FD, FD.loc)) && FD.blocked)
+					playsound(FD, 'sound/effects/meteorimpact.ogg', 100, 1)
+					playsound(FD, 'sound/machines/airlock_open_force.ogg', 100, 1)
+					FD.blocked = FALSE
+					INVOKE_ASYNC(FD, /obj/machinery/door/firedoor/.proc/open)
+					FD.visible_message(SPAN_WARNING("\The [owner] tears \the [FD] open!"))
+			else
+				FD.visible_message(SPAN_WARNING("\The [owner] begins forcing \the [FD]!"))
+				if(do_after(user, 4 SECONDS, act_target = owner, extra_checks = CALLBACK(GLOBAL_PROC, .proc/atom_maintain_position, FD, FD.loc)) && !FD.blocked)
+					if(FD.density)
+						FD.visible_message(SPAN_WARNING("\The [owner] forces \the [FD] open!"))
+						playsound(FD, 'sound/machines/airlock_open_force.ogg', 100, 1)
+						INVOKE_ASYNC(FD, /obj/machinery/door/firedoor/.proc/open)
+					else
+						FD.visible_message(SPAN_WARNING("\The [owner] forces \the [FD] closed!"))
+						playsound(FD, 'sound/machines/airlock_close_force.ogg', 100, 1)
+						INVOKE_ASYNC(FD, /obj/machinery/door/firedoor/.proc/close)
+			return
+		else if(istype(target, /obj/machinery/door/airlock))
+			if(istype(target, /obj/machinery/door/airlock/centcom))
+				to_chat(user, SPAN_WARNING("You can't force these airlocks!"))
+				return
+			var/obj/machinery/door/airlock/AD = target
+			if(!AD.operating)
+				if(AD.welded || AD.locked)
+					AD.visible_message(SPAN_WARNING("\The [owner] begins prying on \the [AD]!"))
+					var/time_to_open = 15 SECONDS
+					if(AD.welded && AD.locked)
+						time_to_open = 30 SECONDS
+					if(do_after(user, time_to_open, act_target = owner, extra_checks = CALLBACK(GLOBAL_PROC, .proc/atom_maintain_position, AD, AD.loc)))
+						AD.welded = FALSE
+						AD.locked = FALSE
+						AD.update_icon()
+						playsound(AD, 'sound/effects/meteorimpact.ogg', 100, 1)
+						playsound(AD, 'sound/machines/airlock_open_force.ogg', 100, 1)
+						AD.visible_message(SPAN_WARNING("\The [owner] tears \the [AD] open!"))
+						INVOKE_ASYNC(AD, /obj/machinery/door/airlock/.proc/open)
+				else
+					AD.visible_message(SPAN_WARNING("\The [owner] begins forcing \the [AD]!"))
+					if(do_after(user, 5 SECONDS, act_target = owner, extra_checks = CALLBACK(GLOBAL_PROC, .proc/atom_maintain_position, AD, AD.loc)) && !(AD.operating || AD.welded || AD.locked))
+						if(AD.density)
+							INVOKE_ASYNC(AD, /obj/machinery/door/airlock/.proc/open)
+							playsound(AD, 'sound/machines/airlock_open_force.ogg', 100, 1)
+							AD.visible_message(SPAN_DANGER("\The [owner] forces \the [AD] open!"))
+						else
+							INVOKE_ASYNC(AD, /obj/machinery/door/airlock/.proc/close)
+							playsound(AD, 'sound/machines/airlock_close_force.ogg', 100, 1)
+							AD.visible_message(SPAN_DANGER("\The [owner] forces \the [AD] closed!"))
+			return
+
 		if(length(carrying) >= carrying_capacity)
 			to_chat(user, SPAN_WARNING("\The [src] is fully loaded!"))
 			return
 		if(istype(target, /obj))
 			var/obj/O = target
-			if(O.buckled_mob)
+			if(O.buckled)
 				return
 			if(locate(/mob/living) in O)
 				to_chat(user, SPAN_WARNING("You can't load living things into the cargo compartment."))
@@ -45,8 +100,8 @@
 				return
 
 
-			owner.visible_message(SPAN_NOTICE("\The [owner] begins loading \the [O]."))
-			if(do_after(owner, 20, O, 0, 1))
+			owner.visible_message(SPAN_NOTICE("\The [owner] begins loading \the [O]."), intent_message = MACHINE_SOUND)
+			if(do_after(user, 2 SECONDS, act_target = owner, extra_checks = CALLBACK(GLOBAL_PROC, .proc/atom_maintain_position, O, O.loc)))
 				O.forceMove(src)
 				carrying += O
 				owner.visible_message(SPAN_NOTICE("\The [owner] loads \the [O] into its cargo compartment."))
@@ -135,9 +190,8 @@
 	name = "floodlight"
 	desc = "An exosuit-mounted light."
 	icon_state = "mech_floodlight"
-	item_state = "mech_floodlight"
 	restricted_hardpoints = list(HARDPOINT_HEAD)
-	mech_layer = MECH_INTERMEDIATE_LAYER
+	mech_layer = MECH_DECAL_LAYER
 
 	var/on = 0
 	var/brightness_on = 12		//can't remember what the maxed out value is
@@ -148,10 +202,20 @@
 /obj/item/mecha_equipment/light/attack_self(var/mob/user)
 	. = ..()
 	if(.)
-		on = !on
+		toggle()
 		to_chat(user, "You switch \the [src] [on ? "on" : "off"].")
-		update_icon()
-		owner.update_icon()
+
+/obj/item/mecha_equipment/light/proc/toggle()
+	on = !on
+	update_icon()
+	owner.update_icon()
+	active = on
+	passive_power_use = on ? 0.1 KILOWATTS : 0
+
+/obj/item/mecha_equipment/light/deactivate()
+	if(on)
+		toggle()
+	..()
 
 /obj/item/mecha_equipment/light/update_icon()
 	if(on)
@@ -165,6 +229,7 @@
 	on = FALSE
 	update_icon()
 	. = ..()
+
 #define CATAPULT_SINGLE 1
 #define CATAPULT_AREA   2
 
@@ -207,9 +272,7 @@
 						log_and_message_admins("used [src] to throw [locked] at [target].", user, owner.loc)
 						locked = null
 
-						var/obj/item/cell/C = owner.get_cell()
-						if(istype(C))
-							C.use(active_power_use * CELLRATE)
+						owner.use_cell_power(active_power_use * CELLRATE)
 
 					else
 						locked = null
@@ -228,9 +291,8 @@
 
 
 				log_and_message_admins("used [src]'s area throw on [target].", user, owner.loc)
-				var/obj/item/cell/C = owner.get_cell()
-				if(istype(C))
-					C.use(active_power_use * CELLRATE * 2) //bit more expensive to throw all
+				
+				owner.use_cell_power(active_power_use * CELLRATE * 2) //bit more expensive to throw all
 
 /obj/item/material/drill_head
 	var/durability = 0
@@ -238,7 +300,7 @@
 	desc = "A replaceable drill head usually used in exosuit drills."
 	icon_state = "drill_head"
 
-/obj/item/material/drill_head/New(var/newloc)
+/obj/item/material/drill_head/Initialize(newloc, material_key)
 	. = ..()
 	durability = 2 * material.integrity
 
@@ -309,9 +371,7 @@
 			to_chat(user, "<span class='warning'>Your drill doesn't have a head!</span>")
 			return
 
-		var/obj/item/cell/C = owner.get_cell()
-		if(istype(C))
-			C.use(active_power_use * CELLRATE)
+		owner.use_cell_power(active_power_use * CELLRATE)
 		owner.visible_message("<span class='danger'>\The [owner] starts to drill \the [target]</span>", "<span class='warning'>You hear a large drill.</span>")
 
 		var/T = target.loc
@@ -319,7 +379,7 @@
 		//Better materials = faster drill!
 		var/delay = max(5, 20 - drill_head.material.protectiveness)
 		owner.setClickCooldown(delay) //Don't spamclick!
-		if(do_after(owner, delay, target) && drill_head)
+		if(do_after(user, delay, act_target = owner, extra_checks = CALLBACK(GLOBAL_PROC, .proc/atom_maintain_position, target, target.loc)) && drill_head)
 			if(src == owner.selected_system)
 				if(drill_head.durability <= 0)
 					drill_head.shatter()
@@ -591,3 +651,76 @@
 
 /obj/item/mecha_equipment/quick_enter/attack_self()
 	return
+
+/obj/item/mecha_equipment/phazon
+	name = "phazon bluespace transmission system"
+	desc = "A large back-mounted device that grants the exosuit it's mounted to the ability to semi-shift into bluespace, allowing it to pass through dense objects."
+	desc_info = "It needs an anomaly core to function. You can install some simply by using a core on it."
+	icon_state = "mecha_phazon"
+	restricted_hardpoints = list(HARDPOINT_BACK)
+	w_class = ITEMSIZE_HUGE
+	origin_tech = list(TECH_MATERIAL = 6, TECH_ENGINEERING = 6, TECH_BLUESPACE = 6)
+	active_power_use = 88 KILOWATTS
+
+	var/obj/item/anomaly_core/AC
+	var/image/anomaly_overlay
+
+/obj/item/mecha_equipment/phazon/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/anomaly_core))
+		if(AC)
+			to_chat(user, SPAN_WARNING("\The [src] already has an anomaly core installed!"))
+			return
+		user.drop_from_inventory(I, src)
+		AC = I
+		to_chat(user, SPAN_NOTICE("You insert \the [AC] into \the [src]."))
+		desc_info = "\The [src] has an anomaly core installed! You can use a wrench to remove it."
+		anomaly_overlay = image(AC.icon, null, AC.icon_state)
+		anomaly_overlay.pixel_y = 3
+		add_overlay(anomaly_overlay)
+		return
+	if(I.iswrench())
+		if(!AC)
+			to_chat(user, SPAN_WARNING("\The [src] doesn't have an anomaly core installed!"))
+			return
+		to_chat(user, SPAN_NOTICE("You remove \the [AC] from \the [src]."))
+		playsound(loc, I.usesound, 50, TRUE)
+		user.put_in_hands(AC)
+		cut_overlay(anomaly_overlay)
+		qdel(anomaly_overlay)
+		AC = null
+		if(owner)
+			deactivate()
+		return
+	return ..()
+
+/obj/item/mecha_equipment/phazon/attack_self(mob/user)
+	. = ..()
+	if(!.)
+		return
+
+	if(!AC)
+		to_chat(user, SPAN_WARNING("\The [src] needs an anomaly core to function!"))
+		return
+
+	if(!owner.incorporeal_move)
+		to_chat(user, SPAN_NOTICE("You fire up \the [src], semi-shifting into another plane of existence!"))
+		owner.set_mech_incorporeal(INCORPOREAL_MECH)
+	else
+		to_chat(user, SPAN_NOTICE("You disable \the [src], shifting back into your normal reality."))
+		owner.set_mech_incorporeal(INCORPOREAL_DISABLE)
+
+/obj/item/mecha_equipment/phazon/deactivate()
+	owner.set_mech_incorporeal(INCORPOREAL_DISABLE)
+	..()
+
+/obj/item/mecha_equipment/phazon/uninstalled()
+	owner.set_mech_incorporeal(INCORPOREAL_DISABLE)
+	..()
+
+/obj/item/mecha_equipment/mounted_system/grenadecleaner
+	name = "cleaner grenade launcher"
+	desc = "The SGL-6CL grenade launcher is designed to launch primed cleaner grenades."
+	icon_state = "mech_gl"
+	holding_type = /obj/item/gun/launcher/mech/mountedgl/cl
+	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
+	restricted_software = list(MECH_SOFTWARE_UTILITY)

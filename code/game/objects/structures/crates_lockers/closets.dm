@@ -4,8 +4,9 @@
 	icon = 'icons/obj/closet.dmi'
 	icon_state = "closed"
 	density = 1
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
 	layer = OBJ_LAYER - 0.01
+	build_amt = 2
 	var/icon_closed = "closed"
 	var/icon_opened = "open"
 	var/welded_overlay_state = "welded"
@@ -23,9 +24,12 @@
 	var/store_misc = 1
 	var/store_items = 1
 	var/store_mobs = 1
+	var/maximum_mob_size = 15
 
 	var/const/default_mob_size = 15
 	var/obj/item/closet_teleporter/linked_teleporter
+
+	slowdown = 5
 
 /obj/structure/closet/LateInitialize()
 	if (opened)	// if closed, any item at the crate's loc is put in the contents
@@ -65,13 +69,17 @@
 		to_chat(user, "\The [src] is full.")
 
 /obj/structure/closet/examine(mob/user)
-	if(..(user, 1) && !opened)
+	if(!src.opened && (..(user, 1) || isobserver(user)))
 		var/content_size = 0
 		for(var/obj/item/I in contents)
 			if(!I.anchored)
 				content_size += Ceiling(I.w_class/2)
 		content_info(user, content_size)
-	if(linked_teleporter && Adjacent(user) && opened)
+
+	if(!src.opened && isobserver(user))
+		to_chat(user, "It contains: [counting_english_list(contents)]")
+
+	if(src.opened && linked_teleporter && (Adjacent(user) || isobserver(user)))
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("There appears to be a device attached to the interior backplate of \the [src]...")))
 
 /obj/structure/closet/proc/stored_weight()
@@ -83,6 +91,8 @@
 
 /obj/structure/closet/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0 || wall_mounted)) return 1
+	if(istype(mover) && mover.checkpass(PASSTRACE))
+		return 1
 	return (!density)
 
 /obj/structure/closet/proc/can_open()
@@ -96,17 +106,15 @@
 			return 0
 	return 1
 
-/obj/structure/closet/proc/dump_contents()
+/obj/structure/closet/dump_contents()
 	//Cham Projector Exception
-	for(var/obj/effect/dummy/chameleon/AD in src)
+	for(var/obj/effect/dummy/chameleon/AD in contents)
 		AD.forceMove(loc)
 
-	for(var/obj/I in src)
-		if(linked_teleporter && I == linked_teleporter)
-			continue
+	for(var/obj/I in contents - linked_teleporter)
 		I.forceMove(loc)
 
-	for(var/mob/M in src)
+	for(var/mob/M in contents)
 		M.forceMove(loc)
 		if(M.client)
 			M.client.eye = M.client.mob
@@ -122,9 +130,9 @@
 	dump_contents()
 
 	icon_state = icon_opened
-	opened = 1
+	opened = TRUE
 	playsound(loc, open_sound, 25, 0, -3)
-	density = 0
+	density = FALSE
 	return 1
 
 /obj/structure/closet/proc/close()
@@ -143,16 +151,19 @@
 		stored_units += store_mobs(stored_units)
 
 	icon_state = icon_closed
-	opened = 0
+	opened = FALSE
 	if(linked_teleporter)
 		if(linked_teleporter.last_use + 600 > world.time)
 			return
+		var/did_teleport = FALSE
 		for(var/mob/M in contents)
-			linked_teleporter.do_teleport(M)
-		linked_teleporter.last_use = world.time
+			if(linked_teleporter.do_teleport(M))
+				did_teleport = TRUE
+		if(did_teleport)
+			linked_teleporter.last_use = world.time
 
 	playsound(get_turf(src), close_sound, 25, 0, -3)
-	density = TRUE
+	density = initial(density)
 	return TRUE
 
 //Cham Projector Exception
@@ -179,7 +190,9 @@
 /obj/structure/closet/proc/store_mobs(var/stored_units)
 	var/added_units = 0
 	for(var/mob/living/M in loc)
-		if(M.buckled || M.pinned.len)
+		if(M.buckled_to || M.pinned.len)
+			continue
+		if(M.mob_size >= maximum_mob_size)
 			continue
 		if(stored_units + added_units + M.mob_size > storage_capacity)
 			break
@@ -270,14 +283,13 @@
 					"<span class='notice'>You begin cutting [src] apart.</span>",
 					"You hear a welding torch on metal."
 				)
-				playsound(loc, 'sound/items/Welder2.ogg', 50, 1)
+				playsound(loc, 'sound/items/welder_pry.ogg', 50, 1)
 				if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_open)))
 					return
 				if(!WT.remove_fuel(0,user))
 					to_chat(user, "<span class='notice'>You need more welding fuel to complete this task.</span>")
 					return
 				else
-					new /obj/item/stack/material/steel(loc)
 					user.visible_message(
 						"<span class='notice'>[src] has been cut apart by [user] with [WT].</span>",
 						"<span class='notice'>You cut apart [src] with [WT].</span>"
@@ -285,7 +297,7 @@
 					if(linked_teleporter)
 						linked_teleporter.forceMove(get_turf(src))
 						linked_teleporter = null
-					qdel(src)
+					dismantle()
 					return
 		if(istype(W, /obj/item/storage/laundry_basket) && W.contents.len)
 			var/obj/item/storage/laundry_basket/LB = W
@@ -298,13 +310,15 @@
 				"<span class='notice'>You hear rustling of clothes.</span>"
 			)
 			return
-		if(!dropsafety(W))
+		if(!W.dropsafety())
 			return
 		if(W)
 			user.drop_from_inventory(W,loc)
 		else
 			user.drop_item()
 	else if(istype(W, /obj/item/stack/packageWrap))
+		return
+	else if(istype(W, /obj/item/ducttape))
 		return
 	else if(W.iswelder())
 		var/obj/item/weldingtool/WT = W
@@ -314,7 +328,7 @@
 				"<span class='notice'>You begin welding [src] [welded ? "open" : "shut"].</span>",
 				"You hear a welding torch on metal."
 			)
-			playsound(loc, 'sound/items/Welder2.ogg', 50, 1)
+			playsound(loc, 'sound/items/welder_pry.ogg', 50, 1)
 			if (!do_after(user, 2/W.toolspeed SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
 				return
 			if(!WT.remove_fuel(0,user))
@@ -326,6 +340,12 @@
 				"<span class='warning'>[src] has been [welded ? "welded shut" : "unwelded"] by [user].</span>",
 				"<span class='notice'>You weld [src] [!welded ? "open" : "shut"].</span>"
 			)
+		else
+			attack_hand(user)
+	else if(istype(W, /obj/item/device/hand_labeler))
+		var/obj/item/device/hand_labeler/HL = W
+		if (HL.mode == 1)
+			return
 		else
 			attack_hand(user)
 	else
@@ -357,7 +377,7 @@
 		return
 	step_towards(O, loc)
 	if(user != O)
-		user.show_viewers("<span class='danger'>[user] stuffs [O] into [src]!</span>")
+		user.visible_message(SPAN_DANGER("<b>[user]</b> stuffs \the [O] into \the [src]!"), SPAN_NOTICE("You stuff \the [O] into \the [src]."), range = 3)
 	add_fingerprint(user)
 	return
 
@@ -390,7 +410,7 @@
 	else
 		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
 
-/obj/structure/closet/update_icon()//Putting the welded stuff in updateicon() so it's easy to overwrite for special cases (Fridges, cabinets, and whatnot)
+/obj/structure/closet/update_icon()//Putting the welded stuff in update_icon() so it's easy to overwrite for special cases (Fridges, cabinets, and whatnot)
 	cut_overlays()
 	if(!opened)
 		icon_state = icon_closed
@@ -439,7 +459,7 @@
 	escapee.next_move = world.time + 100
 	escapee.last_special = world.time + 100
 	to_chat(escapee, "<span class='warning'>You lean on the back of \the [src] and start pushing the door open. (this will take about [breakout_time] minutes)</span>")
-	visible_message("<span class='danger'>\The [src] begins to shake violently!</span>")
+	visible_message(SPAN_DANGER("\The [src] begins to shake violently!"), SPAN_DANGER("You hear the sound of metal trashing around nearby."), intent_message = THUNK_SOUND)
 
 	var/time = 6 * breakout_time * 2
 
@@ -450,7 +470,8 @@
 	breakout = 1
 	for(var/i in 1 to time) //minutes * 6 * 5seconds * 2
 		playsound(loc, 'sound/effects/grillehit.ogg', 100, 1)
-		animate_shake()
+		shake_animation()
+		intent_message(THUNK_SOUND)
 
 		if (bar)
 			bar.update(i)
@@ -477,7 +498,7 @@
 	visible_message("<span class='danger'>\the [escapee] successfully broke out of \the [src]!</span>")
 	playsound(loc, 'sound/effects/grillehit.ogg', 100, 1)
 	break_open()
-	animate_shake()
+	shake_animation()
 	qdel(bar)
 
 /obj/structure/closet/proc/break_open()

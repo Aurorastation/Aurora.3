@@ -11,7 +11,7 @@
 	icon_state = "minimoog"
 	anchored = 1
 	density = 1
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
 	var/datum/song/song
 	var/playing = 0
 	var/help = 0
@@ -209,7 +209,7 @@
 	//hearers(15, src) << sound(soundfile)
 	var/turf/source = get_turf(src)
 	for(var/mob/M in hearers(15, source))
-		M.playsound_simple(source, file(soundfile), 100, falloff = 5)
+		M.playsound_simple(source, file(soundfile), 100, falloff = 5, required_asfx_toggles = ASFX_INSTRUMENT)
 
 /obj/structure/device/piano/proc/playsong()
 	do

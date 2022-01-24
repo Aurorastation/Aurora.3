@@ -6,7 +6,7 @@
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	throwforce = 1
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
 	throw_speed = 3
 	throw_range = 7
 	layer = OBJ_LAYER - 0.1

@@ -49,6 +49,8 @@
 	var/radio_filter_out
 	var/radio_filter_in
 
+	var/broadcast_status_next_process = FALSE
+
 /obj/machinery/atmospherics/unary/vent_pump/on
 	use_power = 1
 	icon_state = "map_vent_out"
@@ -70,7 +72,15 @@
 	pressure_checks = 2
 	pressure_checks_default = 2
 
-/obj/machinery/atmospherics/unary/vent_pump/Initialize()
+/obj/machinery/atmospherics/unary/vent_pump/Initialize(mapload)
+	if(mapload)
+		var/turf/T = loc
+		var/image/I = image(icon, T, icon_state, EFFECTS_ABOVE_LIGHTING_LAYER, dir, pixel_x, pixel_y)
+		I.plane = 0
+		I.color = color
+		I.alpha = 125
+		LAZYADD(T.blueprints, I)
+
 	. = ..()
 	air_contents.volume = ATMOS_DEFAULT_VOLUME_PUMP
 
@@ -79,7 +89,9 @@
 	if (!id_tag)
 		assign_uid()
 		id_tag = num2text(uid)
+	setup_radio()
 
+/obj/machinery/atmospherics/unary/vent_pump/proc/setup_radio()
 	//some vents work his own special way
 	radio_filter_in = frequency == 1439 ? (RADIO_FROM_AIRALARM) : null
 	radio_filter_out = frequency == 1439 ? (RADIO_TO_AIRALARM) : null
@@ -166,6 +178,10 @@
 /obj/machinery/atmospherics/unary/vent_pump/machinery_process()
 	..()
 
+	if (broadcast_status_next_process)
+		broadcast_status()
+		broadcast_status_next_process = FALSE
+
 	if (hibernate > world.time)
 		return 1
 
@@ -230,7 +246,7 @@
 		return 0
 
 	var/datum/signal/signal = new
-	signal.transmission_method = 1 //radio signal
+	signal.transmission_method = TRANSMISSION_RADIO
 	signal.source = src
 
 	signal.data = list(
@@ -336,14 +352,11 @@
 		return
 
 	if(signal.data["status"] != null)
-		addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
+		broadcast_status_next_process = TRUE
 		return //do not update_icon
 
-		//log_debug("DEBUG \[[world.timeofday]\]: vent_pump/receive_signal: unknown command \"[signal.data["command"]]\"\n[signal.debug_print()]")
-	addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
-
+	broadcast_status_next_process = TRUE
 	update_icon()
-	return
 
 /obj/machinery/atmospherics/unary/vent_pump/attackby(obj/item/W, mob/user)
 	if(W.iswelder())
@@ -353,11 +366,11 @@
 		else if (WT.remove_fuel(0,user))
 			to_chat(user, SPAN_NOTICE("Now welding the vent."))
 			if(do_after(user, 30/W.toolspeed))
-				if(!src || !WT.isOn()) 
+				if(!src || !WT.isOn())
 					return
 				welded = !welded
 				update_icon()
-				playsound(src, 'sound/items/Welder2.ogg', 50, 1)
+				playsound(src, 'sound/items/welder_pry.ogg', 50, 1)
 				user.visible_message(SPAN_NOTICE("\The [user] [welded ? "welds \the [src] shut" : "unwelds \the [src]"]."), \
 									 SPAN_NOTICE("You [welded ? "weld \the [src] shut" : "unweld \the [src]"]."), \
 									 "You hear welding.")
@@ -366,8 +379,27 @@
 		else
 			to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
 			return 1
+	else if(istype(W, /obj/item/melee/arm_blade))
+		if(!welded)
+			to_chat(user, SPAN_WARNING("\The [W] can only be used to tear open welded air vents!"))
+			return
+		user.visible_message(SPAN_WARNING("\The [user] starts using \the [W] to hack open \the [src]!"), SPAN_NOTICE("You start hacking open \the [src] with \the [W]..."))
+		user.do_attack_animation(src, W)
+		playsound(loc, 'sound/weapons/smash.ogg', 60, TRUE)
+		var/cut_amount = 3
+		for(var/i = 0; i <= cut_amount; i++)
+			if(!W || !do_after(user, 30, src))
+				return
+			user.do_attack_animation(src, W)
+			user.visible_message(SPAN_WARNING("\The [user] smashes \the [W] into \the [src]!"), SPAN_NOTICE("You smash \the [W] into \the [src]."))
+			playsound(loc, 'sound/weapons/smash.ogg', 60, TRUE)
+			if(i == cut_amount)
+				welded = FALSE
+				spark(get_turf(src), 3, alldirs)
+				playsound(loc, 'sound/items/welder_pry.ogg', 50, TRUE)
+				update_icon()
 	else
-		..()
+		return ..()
 
 /obj/machinery/atmospherics/unary/vent_pump/examine(mob/user)
 	if(..(user, 1))

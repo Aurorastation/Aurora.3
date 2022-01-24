@@ -4,6 +4,7 @@
 	icon = 'icons/obj/clothing/ears.dmi'
 	icon_state = "earmuffs"
 	item_state = "earmuffs"
+	item_flags = SOUNDPROTECTION
 	slot_flags = SLOT_EARS | SLOT_TWOEARS
 
 /obj/item/clothing/ears/earmuffs/headphones
@@ -12,7 +13,6 @@
 	var/headphones_on = 0
 	icon_state = "headphones_off"
 	item_state = "headphones"
-	slot_flags = SLOT_EARS | SLOT_TWOEARS
 
 /obj/item/clothing/ears/earmuffs/headphones/attack_self(mob/user)
 	togglemusic()

@@ -3,7 +3,7 @@
 	icon_state = "spark"
 	damage = 0
 	damage_type = BURN
-	check_armour = "energy"
+	check_armor = "energy"
 
 //releases a burst of light on impact or after travelling a distance
 /obj/item/projectile/energy/flash
@@ -25,7 +25,7 @@
 	for(var/mob/living/carbon/M in viewers(T, flash_range))
 		if(M.eyecheck() < FLASH_PROTECTION_MODERATE)
 			M.confused = rand(5,15)
-			flick("e_flash", M.flash)
+			M.flash_eyes()
 		else if(affected_limb && M == A)
 			M.confused = rand(2, 7)
 			flick("flash", M.flash)
@@ -50,7 +50,6 @@
 	icon_state = "spark"
 	damage = 2 //Flavor.
 	damage_type = BURN
-	taser_effect = 1
 	agony = 40
 	eyeblur = 1
 	//Damage will be handled on the MOB side, to prevent window shattering.
@@ -58,7 +57,6 @@
 /obj/item/projectile/energy/electrode/stunshot
 	name = "stunshot"
 	damage = 5
-	taser_effect = 1
 	agony = 80
 
 /obj/item/projectile/energy/declone
@@ -78,17 +76,16 @@
 /obj/item/projectile/energy/bolt
 	name = "bolt"
 	icon_state = "cbbolt"
-	damage = 10
-	damage_type = TOX
-	nodamage = 0
-	agony = 40
+	damage = 1
+	damage_type = BURN
+	agony = 45
 	stutter = 10
-
 
 /obj/item/projectile/energy/bolt/large
 	name = "largebolt"
-	damage = 20
-
+	damage = 2
+	damage_type = BURN
+	agony = 60
 
 /obj/item/projectile/energy/neurotoxin
 	name = "neuro"
@@ -100,15 +97,13 @@
 /obj/item/projectile/energy/phoron
 	name = "phoron bolt"
 	icon_state = "energy"
-	damage = 20
-	damage_type = TOX
 	irradiate = 20
 
 /obj/item/projectile/energy/bfg
 	name = "distortion"
 	icon = 'icons/obj/projectiles.dmi'
 	icon_state = "bfg"
-	check_armour = "bomb"
+	check_armor = "bomb"
 	damage = 60
 	damage_type = BRUTE
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
@@ -147,33 +142,6 @@
 			A.ex_act(2)
 			playsound(src, 'sound/magic/LightningShock.ogg', 75, 1)
 
-/obj/item/projectile/energy/tesla
-	name = "tesla bolt"
-	icon = 'icons/effects/effects.dmi'
-	icon_state = "lightning1"
-	damage = 10
-	damage_type = BURN
-	pass_flags = PASSTABLE | PASSGRILLE
-	range = 40
-	embed = 0
-	speed = 1.5
-	light_range = 5
-	light_color = "#b5ff5b"
-
-/obj/item/projectile/energy/tesla/on_impact(atom/target)
-	. = ..()
-	if(isliving(target))
-		tesla_zap(target, 3, 5000)
-
-/obj/item/projectile/energy/tesla/master
-	damage = 15
-
-/obj/item/projectile/energy/tesla/grandmaster
-	damage = 20
-
-/obj/item/projectile/energy/tesla/paramount
-	damage = 25
-
 /obj/item/projectile/energy/gravitydisabler
 	name = "gravity disabler"
 	icon = 'icons/obj/projectiles.dmi'
@@ -205,7 +173,7 @@
 	name = "bees"
 	icon = 'icons/obj/apiary_bees_etc.dmi'
 	icon_state = "beegun"
-	check_armour = "bio"
+	check_armor = "bio"
 	damage = 5
 	damage_type = BRUTE
 	pass_flags = PASSTABLE | PASSGRILLE
@@ -227,14 +195,31 @@
 	name = "blaster bolt"
 	icon_state = "heavybolt"
 	damage = 30
-	check_armour = "laser"
+	check_armor = "laser"
 	damage_type = BURN
+	damage_flags = DAM_LASER
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 	muzzle_type = /obj/effect/projectile/muzzle/bolt
 	hit_effect = /obj/effect/temp_visual/blaster_effect
 
+/obj/item/projectile/energy/blaster/disruptor
+	damage = 20
+	pass_flags = PASSTABLE
+
+/obj/item/projectile/energy/disruptorstun
+	name = "disruptor bolt"
+	icon_state = "blue_laser"
+	damage = 1
+	agony = 40
+	speed = 0.4
+	damage_type = BURN
+	eyeblur = TRUE
+	pass_flags = PASSTABLE
+	muzzle_type = /obj/effect/projectile/muzzle/bolt
+
 /obj/item/projectile/energy/blaster/heavy
 	damage = 35
+	armor_penetration = 10
 
 /obj/item/projectile/energy/blaster/incendiary
 	icon_state = "laser"

@@ -5,6 +5,10 @@
 	var/anchored = 0
 	var/movable_flags
 
+	var/icon_scale_x = 1 // Used to scale icons up or down horizonally in update_transform().
+	var/icon_scale_y = 1 // Used to scale icons up or down vertically in update_transform().
+	var/icon_rotation = 0 // Used to rotate icons in update_transform()
+
 	// var/elevation = 2    - not used anywhere
 	var/move_speed = 10
 	var/l_move_time = 1
@@ -82,19 +86,32 @@
 				M.turf_collision(T, speed)
 
 //decided whether a movable atom being thrown can pass through the turf it is in.
-/atom/movable/proc/hit_check(var/speed)
+/atom/movable/proc/hit_check(var/speed, var/target)
 	if(throwing)
 		for(var/atom/A in get_turf(src))
 			if(A == src)
 				continue
 			if(isliving(A))
 				var/mob/living/M = A
-				if(M.lying)
+				if(M.lying && M != target)
 					continue
 				throw_impact(A, speed)
 			if(isobj(A))
-				if(A.density && !A.throwpass)	// **TODO: Better behaviour for windows which are dense, but shouldn't always stop movement
+				if(A.density && !A.throwpass && !A.CanPass(src, target))
 					src.throw_impact(A,speed)
+
+// Prevents robots dropping their modules
+/atom/movable/proc/dropsafety()
+	if(!istype(src.loc))
+		return TRUE
+
+	if (issilicon(src.loc))
+		return FALSE
+
+	if (istype(src.loc, /obj/item/rig_module))
+		return FALSE
+
+	return TRUE
 
 /atom/movable/proc/throw_at(atom/target, range, speed, thrower, var/do_throw_animation = TRUE)
 	if(!target || !src)	return 0
@@ -159,7 +176,7 @@
 		if(!step) // going off the edge of the map makes get_step return null, don't let things go off the edge
 			break
 		src.Move(step)
-		hit_check(speed)
+		hit_check(speed, target)
 		dist_travelled++
 		dist_since_sleep++
 		if(dist_since_sleep >= speed)
@@ -172,7 +189,8 @@
 				src.SpinAnimation(speed = 4, loops = 1)
 
 	//done throwing, either because it hit something or it finished moving
-	if(isobj(src)) src.throw_impact(get_turf(src),speed)
+	if(isturf(loc) && isobj(src))
+		throw_impact(loc, speed)
 	src.throwing = 0
 	src.thrower = null
 	src.throw_source = null
@@ -213,6 +231,12 @@
 	if(z in current_map.sealed_levels)
 		return
 
+	if(anchored)
+		return
+	
+	if(!universe.OnTouchMapEdge(src))
+		return
+
 	if(current_map.use_overmap)
 		overmap_spacetravel(get_turf(src), src)
 		return
@@ -242,11 +266,43 @@
 			G.check_nuke_disks()
 
 		spawn(0)
-			if(loc) loc.Entered(src)
+			if(loc)
+				var/turf/T = loc
+				loc.Entered(src)
+				if(!T.is_hole)
+					fall_impact(text2num(pickweight(list("1" = 60, "2" = 30, "3" = 10))))
 
 //by default, transition randomly to another zlevel
 /atom/movable/proc/get_transit_zlevel()
 	return current_map.get_transit_zlevel()
+
+// Returns the current scaling of the sprite.
+// Note this DOES NOT measure the height or width of the icon, but returns what number is being multiplied with to scale the icons, if any.
+/atom/movable/proc/get_icon_scale_x()
+	return icon_scale_x
+
+/atom/movable/proc/get_icon_scale_y()
+	return icon_scale_y
+
+/atom/movable/proc/update_transform()
+	var/matrix/M = matrix()
+	M.Scale(icon_scale_x, icon_scale_y)
+	M.Turn(icon_rotation)
+	src.transform = M
+
+// Use this to set the object's scale.
+/atom/movable/proc/adjust_scale(new_scale_x, new_scale_y)
+	if(isnull(new_scale_y))
+		new_scale_y = new_scale_x
+	if(new_scale_x != 0)
+		icon_scale_x = new_scale_x
+	if(new_scale_y != 0)
+		icon_scale_y = new_scale_y
+	update_transform()
+
+/atom/movable/proc/adjust_rotation(new_rotation)
+	icon_rotation = new_rotation
+	update_transform()
 
 // Parallax stuff.
 
@@ -313,12 +369,11 @@
 /atom/movable/proc/get_bullet_impact_effect_type()
 	return BULLET_IMPACT_NONE
 
-/obj/item/proc/do_pickup_animation(atom/target)
+/atom/movable/proc/do_pickup_animation(atom/target)
 	set waitfor = FALSE
 	if(!isturf(loc))
 		return
-	var/image/I = image(icon = src, loc = loc, layer = layer + 0.1)
-	I.plane = -1
+	var/image/I = image(icon, loc, icon_state, layer + 0.1, dir, pixel_x, pixel_y)
 	I.transform *= 0.75
 	I.appearance_flags = (RESET_COLOR|RESET_TRANSFORM|NO_CLIENT_COLOR|RESET_ALPHA|PIXEL_SCALE)
 	var/turf/T = get_turf(src)
@@ -339,12 +394,42 @@
 	if(!direction)
 		to_y = 16
 	var/list/viewing = list()
-	for (var/mob/M in viewers(target))
-		if (M.client)
+	for(var/mob/M in viewers(target))
+		if(M.client)
 			viewing |= M.client
-	flick_overlay(I, viewing, 6)
+	flick_overlay(I, viewing, 7)
 	var/matrix/M = new
 	M.Turn(pick(-30, 30))
 	animate(I, alpha = 175, pixel_x = to_x, pixel_y = to_y, time = 3, transform = M, easing = CUBIC_EASING)
 	sleep(1)
 	animate(I, alpha = 0, transform = matrix(), time = 1)
+
+/atom/movable/proc/simple_move_animation(atom/target)
+	set waitfor = FALSE
+
+	var/old_invisibility = invisibility // I don't know, it may be used.
+	invisibility = 100
+	var/turf/old_turf = get_turf(src)
+	var/image/I = image(icon = src, loc = src.loc, layer = layer + 0.1)
+	I.appearance_flags = (RESET_COLOR|RESET_TRANSFORM|NO_CLIENT_COLOR|RESET_ALPHA|PIXEL_SCALE)
+
+	var/list/viewing = list()
+	for(var/mob/M in viewers(target))
+		if(M.client)
+			viewing |= M.client
+	flick_overlay(I, viewing, 4)
+
+	var/to_x = (target.x - old_turf.x) * 32 + pixel_x
+	var/to_y = (target.y - old_turf.y) * 32 + pixel_y
+
+	animate(I, pixel_x = to_x, pixel_y = to_y, time = 3, easing = CUBIC_EASING)
+	sleep(3)
+	if(QDELETED(src))
+		return
+	invisibility = old_invisibility
+
+/atom/movable/proc/get_floating_chat_x_offset()
+	return 0
+
+/atom/movable/proc/can_attach_sticker(var/mob/user, var/obj/item/sticker/S)
+	return TRUE

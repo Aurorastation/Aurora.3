@@ -38,7 +38,7 @@
 
 /obj/item/organ/internal/eyes/take_damage(amount, var/silent=0)
 	var/oldbroken = is_broken()
-	..()
+	. = ..()
 	if(is_broken() && !oldbroken && owner && !owner.stat)
 		to_chat(owner, "<span class='danger'>You go blind!</span>")
 
@@ -53,6 +53,14 @@
 		owner.eye_blurry = 20
 	if(is_broken())
 		owner.eye_blind = 20
+
+/obj/item/organ/internal/eyes/do_surge_effects()
+	if(owner)
+		owner.overlay_fullscreen("noise", /obj/screen/fullscreen/flash/noise)
+
+/obj/item/organ/internal/eyes/clear_surge_effects()
+	if(owner)
+		owner.clear_fullscreen("noise")
 
 /obj/item/organ/internal/eyes/robotize()
 	..()

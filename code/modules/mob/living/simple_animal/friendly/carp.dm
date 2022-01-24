@@ -16,11 +16,15 @@
 	speak_chance = 1
 	turns_per_move = 5
 	see_in_dark = 6
-	meat_type = /obj/item/reagent_containers/food/snacks/carpmeat
+	meat_type = /obj/item/reagent_containers/food/snacks/fish/carpmeat
+	organ_names = list("head", "chest", "tail", "left flipper", "right flipper")
 	response_help = "brushes"
 	response_disarm = "attempts to push"
 	response_harm = "injures"
+	blood_overlay_icon = 'icons/mob/npc/blood_overlay_carp.dmi'
 	gender = NEUTER
+	faction = "carp"
+	flying = TRUE
 
 	//Space carp aren't affected by atmos.
 	min_oxy = 0
@@ -47,6 +51,14 @@
 
 	possession_candidate = TRUE
 
+/mob/living/simple_animal/carp/update_icon()
+	..()
+	if(resting || stat == DEAD)
+		blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
+	else
+		blood_overlay_icon = initial(blood_overlay_icon)
+	handle_blood(TRUE)
+
 /mob/living/simple_animal/carp/fall_impact()
 	src.visible_message(SPAN_NOTICE("\The [src] gently floats to a stop."))
 	return FALSE
@@ -58,7 +70,7 @@
 
 /mob/living/simple_animal/carp/fluff/think()
 	..()
-	if(!stat && !buckled && (turns_since_move > 5))
+	if(!stat && !buckled_to && (turns_since_move > 5))
 		walk_to(src,0)
 		turns_since_move = 0
 		handle_movement_target()

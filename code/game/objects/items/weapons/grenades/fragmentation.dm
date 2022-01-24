@@ -1,4 +1,4 @@
-proc/fragem(var/source,var/fragx,var/fragy,var/light_dam,var/flash_dam,var/p_dam,var/p_range,var/can_cover=1)
+proc/fragem(var/source,var/fragx,var/fragy,var/light_dam,var/flash_dam,var/p_dam,var/p_range,var/can_cover=TRUE,var/shard_range = 50)
 	var/turf/O = get_turf(source)
 	var/fragger = rand(fragx,fragy)
 	explosion(O, -1, -1, light_dam, flash_dam)
@@ -13,6 +13,7 @@ proc/fragem(var/source,var/fragx,var/fragy,var/light_dam,var/flash_dam,var/p_dam
 		P.pellets = fragments_per_projectile
 		P.range_step = p_range
 		P.shot_from = source
+		P.range = shard_range
 		P.name = "shrapnel"
 
 		P.launch_projectile(T)
@@ -28,7 +29,8 @@ proc/fragem(var/source,var/fragx,var/fragy,var/light_dam,var/flash_dam,var/p_dam
 
 //Fragmentation grenade projectile
 /obj/item/projectile/bullet/pellet/fragment
-	damage = 10
+	damage = 15
+	armor_penetration = 35
 	range_step = 2
 
 	base_spread = 0 //causes it to be treated as a shrapnel explosion instead of cone
@@ -55,6 +57,6 @@ proc/fragem(var/source,var/fragx,var/fragy,var/light_dam,var/flash_dam,var/p_dam
 	set waitfor = 0
 	..()
 
-	fragem(src,num_fragments,num_fragments,explosion_size,explosion_size+1,fragment_damage,damage_step,1)
+	fragem(src,num_fragments,num_fragments,explosion_size,explosion_size+1,fragment_damage,damage_step,TRUE)
 
 	qdel(src)

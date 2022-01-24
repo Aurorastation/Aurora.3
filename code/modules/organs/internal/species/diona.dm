@@ -1,3 +1,6 @@
+/obj/item/organ/internal/diona
+	unknown_pain_location = FALSE
+
 /obj/item/organ/internal/diona/process()
 	return
 
@@ -57,7 +60,7 @@
 	return
 
 /obj/item/organ/internal/stomach/diona
-	name = "digestion chamber"
+	name = "digestion cavity"
 	should_process_alcohol = FALSE
 	icon = 'icons/mob/npc/alien.dmi'
 	icon_state = "chitin"

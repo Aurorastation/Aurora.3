@@ -11,12 +11,15 @@
 	force = 8.0
 	throw_speed = 1
 	throw_range = 4
-	w_class = 4
-	max_w_class = 3
+	w_class = ITEMSIZE_LARGE
+	max_w_class = ITEMSIZE_NORMAL
 	max_storage_space = 16
 	use_sound = 'sound/items/storage/briefcase.ogg'
 	drop_sound = 'sound/items/drop/backpack.ogg'
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
+
+/obj/item/storage/briefcase/real
+	desc = "A leather briefcase, made of real leather. Looks fancy, owner must be real proud."
 
 /obj/item/storage/briefcase/black
 	name = "black briefcase"

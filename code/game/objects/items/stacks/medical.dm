@@ -19,7 +19,7 @@ Contains:
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	amount = 5
 	max_amount = 5
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	throw_speed = 4
 	throw_range = 20
 	var/heal_brute = 0
@@ -157,6 +157,7 @@ Contains:
 					else
 						to_chat(user, "<span class='warning'>\The [src] is used up, but there are more wounds to treat on \the [affecting.name].</span>")
 				use(used)
+				H.update_bandages(TRUE)
 		else
 			if (can_operate(H))        //Checks if mob is lying down on table for surgery
 				if (do_surgery(H,user,src))
@@ -282,6 +283,7 @@ Contains:
 					else
 						to_chat(user, "<span class='warning'>\The [src] is used up, but there are more wounds to treat on \the [affecting.name].</span>")
 				use(used)
+				H.update_bandages(TRUE)
 		else
 			if (can_operate(H))        //Checks if mob is lying down on table for surgery
 				if (do_surgery(H,user,src))

@@ -175,15 +175,11 @@
 		see_invisible = SEE_INVISIBLE_LIVING // This is normal vision (25), setting it lower for normal vision means you don't "see" things like darkness since darkness
 							 // has a "invisible" value of 15
 
-	var/obj/item/borg/sight/hud/hud = (locate(/obj/item/borg/sight/hud) in src)
-	if(hud?.hud)
-		hud.hud.process_hud(src)
-	else
-		switch(sensor_mode)
-			if(SEC_HUD)
-				process_sec_hud(src, FALSE)
-			if(MED_HUD)
-				process_med_hud(src, FALSE)
+	switch(sensor_mode)
+		if(SEC_HUD)
+			process_sec_hud(src, FALSE)
+		if(MED_HUD)
+			process_med_hud(src, FALSE)
 
 	if(healths)
 		if(stat != DEAD)
@@ -265,23 +261,16 @@
 			else
 				bodytemp.icon_state = "temp-2"
 
-	client.screen.Remove(global_hud.blurry, global_hud.druggy, global_hud.vimpaired)
-
-	if((blind && stat != DEAD))
-		if(blinded)
-			blind.invisibility = 0
-		else
-			blind.invisibility = 101
-			if(disabilities & NEARSIGHTED)
-				client.screen += global_hud.vimpaired
-			if(eye_blurry)
-				client.screen += global_hud.blurry
-			if(druggy)
-				client.screen += global_hud.druggy
-
 	if(stat != DEAD)
-		if(machine)
-			if(machine.check_eye(src) < 0)
+		if(blinded)
+			overlay_fullscreen("blind", /obj/screen/fullscreen/blind)
+		else
+			clear_fullscreen("blind")
+			set_fullscreen(disabilities & NEARSIGHTED, "impaired", /obj/screen/fullscreen/impaired, 1)
+			set_fullscreen(eye_blurry, "blurry", /obj/screen/fullscreen/blurry)
+
+		if (machine)
+			if (machine.check_eye(src) < 0)
 				reset_view(null)
 		else
 			if(client && !client.adminobs)
@@ -301,7 +290,7 @@
 		module_state_2:screen_loc = ui_inv2
 	if(module_state_3)
 		module_state_3:screen_loc = ui_inv3
-	updateicon()
+	update_icon()
 
 /mob/living/silicon/robot/proc/process_killswitch()
 	if(killswitch)
@@ -324,7 +313,7 @@
 			weapon_lock_time = 120
 
 /mob/living/silicon/robot/update_canmove()
-	if(paralysis || stunned || weakened || buckled || lock_charge || !is_component_functioning("actuator"))
+	if(paralysis || stunned || weakened || buckled_to || lock_charge || !is_component_functioning("actuator"))
 		canmove = FALSE
 	else
 		canmove = TRUE
@@ -333,15 +322,17 @@
 /mob/living/silicon/robot/proc/process_level_restrictions()
 	//Abort if they should not get blown
 	if(lock_charge || scrambled_codes || emagged)
-		return
+		return FALSE
 	//Check if they are on a player level -> abort
 	var/turf/T = get_turf(src)
 	if(!T || isStationLevel(T.z))
-		return
+		return FALSE
 	//If they are on centcom -> abort
 	if(istype(get_area(src), /area/centcom) || istype(get_area(src), /area/shuttle/escape) || istype(get_area(src), /area/shuttle/arrival))
-		return
-	self_destruct(TRUE)
+		return FALSE
+	if(!self_destructing)
+		start_self_destruct(TRUE)
+	return TRUE
 
 /mob/living/silicon/robot/update_fire()
 	cut_overlay(image("icon"='icons/mob/OnFire.dmi', "icon_state"="Standing"))

@@ -5,7 +5,7 @@
 	var/list/doors = list()                             // Doors inside the lift structure.
 	var/list/queued_floors = list()                     // Where are we moving to next?
 	var/list/floors = list()                            // All floors in this system.
-	var/move_delay = 45                                 // Time between floor changes.
+	var/move_delay = 15                                 // Time between floor changes.
 	var/floor_wait_delay = 95                           // Time to wait at floor stops.
 	var/obj/structure/lift/panel/control_panel_interior // Lift control panel.
 	var/doors_closing = 0								// Whether doors are in the process of closing
@@ -54,7 +54,7 @@
 		if(!doors_closing)
 			close_doors()
 			doors_closing = 1
-			queue_movement()
+			queue_movement(move_delay / 2)
 			return 1
 
 		else // We failed to close the doors - probably, someone is blocking them; stop trying to move
@@ -91,12 +91,24 @@
 	if(!istype(origin) || !istype(destination) || (origin == destination))
 		return 0
 
-	if (!moving_upwards || next_floor == floors[floors.len])	// If moving down or moving to the top floor, squish.
+	var/list/move_candidates = list()
+	if(!moving_upwards)
 		for(var/turf/T in destination)
 			for(var/atom/movable/AM in T)
 				AM.crush_act()
+	else
+		for(var/turf/simulated/wall/W in origin)
+			var/turf/T = GET_ABOVE(W)
+			for(var/atom/movable/AM in T)
+				if(next_floor == floors[floors.len])
+					AM.crush_act()
+				else
+					move_candidates += AM
 
 	origin.move_contents_to(destination)
+	for(var/thing in move_candidates)
+		var/atom/movable/AM = thing
+		AM.forceMove(GET_ABOVE(AM))
 
 	current_floor = next_floor
 	control_panel_interior.visible_message("The elevator [moving_upwards ? "rises" : "descends"] smoothly.")

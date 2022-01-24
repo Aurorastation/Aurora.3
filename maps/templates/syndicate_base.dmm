@@ -90,7 +90,7 @@
 /turf/simulated/wall/shuttle/dark/cardinal,
 /area/derelict)
 "ap" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle{
@@ -551,12 +551,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/lino,
 /area/derelict)
-"bp" = (
-/obj/structure/table/wood/gamblingtable,
-/obj/item/cartridge/syndicate,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood,
-/area/derelict)
 "bq" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/storage/card,
@@ -775,16 +769,12 @@
 	},
 /area/derelict)
 "bW" = (
-/obj/machinery/vending/cigarette{
-	name = "hacked cigarette machine";
-	prices = list();
-	products = list(/obj/item/storage/fancy/cigarettes = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
-	},
+/obj/machinery/vending/cigarette/hacked,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/lino,
 /area/derelict)
 "bX" = (
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/stool/chair/padded/black{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1278,7 +1268,7 @@
 /turf/simulated/floor,
 /area/derelict)
 "ds" = (
-/obj/structure/bed/chair/comfy/black,
+/obj/structure/bed/stool/chair/padded/black,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor7"
@@ -1379,7 +1369,7 @@
 	},
 /area/derelict)
 "dG" = (
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/stool/chair/padded/black{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1412,7 +1402,7 @@
 	},
 /area/derelict)
 "dJ" = (
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/stool/chair/padded/black{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1449,7 +1439,7 @@
 	},
 /area/derelict)
 "dQ" = (
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/stool/chair/padded/black{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1514,19 +1504,6 @@
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
-/area/derelict)
-"eb" = (
-/obj/structure/table/reinforced,
-/obj/machinery/microwave{
-	pixel_x = -1;
-	pixel_y = 8
-	},
-/turf/simulated/floor/lino,
-/area/derelict)
-"ec" = (
-/obj/machinery/media/jukebox,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/lino,
 /area/derelict)
 "ed" = (
 /obj/machinery/door/firedoor,
@@ -1648,7 +1625,7 @@
 /turf/simulated/floor,
 /area/derelict)
 "en" = (
-/obj/structure/bed/chair/office/bridge{
+/obj/structure/bed/stool/chair/office/bridge{
 	icon_state = "bridge";
 	dir = 4
 	},
@@ -1877,7 +1854,7 @@
 	},
 /area/derelict)
 "eM" = (
-/obj/structure/crematorium,
+/obj/structure/morgue/crematorium,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
@@ -2293,7 +2270,7 @@
 /turf/simulated/floor,
 /area/derelict)
 "fY" = (
-/obj/structure/bed/chair/office/dark,
+/obj/structure/bed/stool/chair/office/dark,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/derelict)
@@ -2315,7 +2292,7 @@
 /turf/simulated/floor/wood,
 /area/derelict)
 "gd" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2338,7 +2315,7 @@
 /turf/simulated/floor/wood,
 /area/derelict)
 "gf" = (
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/stool/chair/padded/black{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2399,7 +2376,7 @@
 /turf/simulated/floor,
 /area/derelict)
 "gr" = (
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/stool/chair/padded/black{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2530,6 +2507,19 @@
 /turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
+/area/derelict)
+"nD" = (
+/obj/structure/table/reinforced,
+/obj/machinery/microwave{
+	pixel_x = -1;
+	pixel_y = 8
+	},
+/turf/simulated/floor/lino,
+/area/derelict)
+"NT" = (
+/obj/machinery/media/jukebox,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/lino,
 /area/derelict)
 
 (1,1,1) = {"
@@ -6607,7 +6597,7 @@ bl
 bl
 bl
 ab
-eb
+nD
 bl
 bl
 bl
@@ -6757,7 +6747,7 @@ ab
 dw
 dw
 ab
-ec
+NT
 bl
 bl
 ab
@@ -6897,7 +6887,7 @@ aa
 aa
 aa
 aX
-bp
+bJ
 bI
 bX
 cv

@@ -7,7 +7,7 @@
 	icon_state = "ishotgun"
 	item_state = "ishotgun"
 	max_shells = 2
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 	force = 5
 	recoil = 2
 	accuracy = -1
@@ -43,7 +43,7 @@
 		if(do_after(user, 30))
 			icon_state = "ishotgunsawn"
 			item_state = "ishotgunsawn"
-			w_class = 3
+			w_class = ITEMSIZE_NORMAL
 			force = 5
 			slot_flags &= ~SLOT_BACK
 			slot_flags |= (SLOT_BELT|SLOT_HOLSTER)
@@ -64,11 +64,10 @@
 /obj/item/gun/projectile/shotgun/improvised/sawn
 	name = "sawn-off improvised shotgun"
 	desc = "An improvised pipe assembly that can fire shotgun shells."
-	icon = 'icons/obj/guns/ishotgunsawn.dmi'
 	icon_state = "ishotgunsawn"
 	item_state = "ishotgunsawn"
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	force = 5
 
 // shotgun construction
@@ -123,12 +122,11 @@
 		var/obj/item/stack/cable_coil/C = W
 		if(buildstate == 3)
 			if(C.use(10))
-				to_chat(user, "<span class='notice'>You tie the lengths of cable to the shotgun, making a sling.</span>")
-				var/obj/item/gun/projectile/shotgun/improvised/G = new(get_turf(src))
-				G.fail_chance = rand(1,100)
+				to_chat(user, "<span class='notice'>You tie the lengths of cable to the pipegun, making a sling.</span>")
+				new /obj/item/gun/projectile/shotgun/pump/rifle/pipegun(get_turf(src))
 				qdel(src)
 			else
-				to_chat(user, "<span class='notice'>You need at least ten lengths of cable if you want to make a sling!.</span>")
+				to_chat(user, "<span class='notice'>You need at least ten lengths of cable if you want to make a sling!</span>")
 			return
 
 		..()
@@ -141,6 +139,7 @@
 	max_shells = 7
 	recoil = 2
 	accuracy = -1
+	offhand_accuracy = 1
 	fire_delay = 9
 	icon = 'icons/obj/guns/ipistol.dmi'
 	icon_state = "ipistol"
@@ -152,6 +151,9 @@
 	load_method = MAGAZINE
 	jam_chance = 20
 	needspin = FALSE
+
+/obj/item/gun/projectile/improvised_handgun/loaded
+	magazine_type = /obj/item/ammo_magazine/c45m
 
 /obj/item/gun/projectile/improvised_handgun/examine(mob/user)
 	..(user)
@@ -198,7 +200,7 @@
 			var/obj/item/weldingtool/T = W
 			if(T.remove_fuel(0,user))
 				if(!src || !T.isOn()) return
-				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
+				playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
 				to_chat(user, "<span class='notice'>You shorten the barrel with the welding tool.</span>")
 				var/obj/item/gun/projectile/improvised_handgun/G = new(get_turf(src))
 				G.jam_chance = rand(1,100)

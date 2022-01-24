@@ -1,127 +1,68 @@
 <template>
   <div>
-    <table class="pmon">
-      <tr v-for="el in fixedmanifest" :key="el">
-        <th v-if="el.header" colspan="3" :class="el.class">{{ el.name }}</th>
-        <template v-else>
-          <td>{{el.name}}</td>
-          <td>{{el.rank}}</td>
-          <td>{{el.active}}</td>
-        </template>
-      </tr>
-    </table>
+    <div v-if="manifestLen(fixedmanifest) > 0">
+      <table v-for="(el, dept) in fixedmanifest" :key="dept" :class="'border-dept-' + dept.toLowerCase()">
+        <tr :class="'bg-dept-' + dept.toLowerCase()">
+          <th colspan="3" class="fw-bold">{{ dept }}</th>
+        </tr>
+        <tr v-for="entry in el" :key="entry.name" :class="{'fw-bold': entry.head}">
+          <td>{{ entry.name }}</td>
+          <td>{{ entry.rank }}</td>
+          <td>{{ entry.active }}</td>
+        </tr>
+      </table>
+    </div>
+    <div v-else class="fst-italic">
+      There is no crew.
+    </div>
+    <div v-if="allow_printing" class="text-center mt-2">
+      <vui-button :params="{ action: 'print' }" icon="print">Print current manifest</vui-button>
+    </div>
   </div>
 </template>
-
 
 <script>
 export default {
   data() {
-    return this.$root.$data.state
+    let ret = this.$root.$data.state
+    ret.manifestLen = function(manif) {
+      let len = 0
+      Object.values(manif).forEach((val) => len += val.length)
+      return len
+    }
+    return ret
   },
   computed: {
     fixedmanifest() {
-      var entries = Object.entries(this.manifest)
-        .filter(([, crew]) => !!crew.length)
-        .flatMap(([name, crew]) =>
-          [
-            {
-              header: name,
-              class: this.getClass(name),
-              name: this.getTitle(name),
-            },
-            crew,
-          ].flat()
-        )
-      return entries
-    },
-  },
-  methods: {
-    getTitle(key) {
-      switch (key) {
-        case "heads":
-          return "Command"
-        case "sec":
-          return "Security"
-        case "eng":
-          return "Engineering"
-        case "med":
-          return "Medical"
-        case "sci":
-          return "Science"
-        case "car":
-          return "Cargo"
-        case "civ":
-          return "Civilian"
-        case "misc":
-          return "Misc"
-        case "bot":
-          return "Equipment"
-        default:
-          return "Unknown"
-      }
-    },
-    getClass(key) {
-      switch (key) {
-        case "heads":
-          return "command"
-        default:
-          return key
-      }
+      return Object.fromEntries(Object.entries(this.manifest).filter(([, crew]) => Object.entries(crew).length > 0))
     },
   },
 }
 </script>
 
 <style lang="scss" scoped>
-/* Table Stuffs for manifest*/
-
 table {
-  border: 2px solid RoyalBlue;
   width: 100%;
-}
+  border-collapse: collapse;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 2px solid;
+  margin-top: .5rem;
 
-table {
-  td,
-  th {
-    border-bottom: 1px dotted black;
-    padding: 0px 5px 0px 5px;
-    width: auto;
+  td {
+    padding-left: .5rem;
+    padding-right: .5rem;
   }
-  th {
-    font-weight: bold;
-    color: #ffffff;
-    &.command {
-      background: #3333ff;
-    }
 
-    &.sec {
-      background: #8e0000;
-    }
+  // middle (rank) column
+  td:nth-child(2) {
+    width: 12.5rem;
+  }
 
-    &.med {
-      background: #006600;
-    }
-
-    &.eng {
-      background: #b27300;
-    }
-
-    &.sci {
-      background: #a65ba6;
-    }
-
-    &.car {
-      background: #bb9040;
-    }
-
-    &.civ {
-      background: #a32800;
-    }
-
-    &.misc {
-      background: #666666;
-    }
+  // last (activity) column
+  td:last-child {
+    text-align: right;
+    width: 6.5rem;
   }
 }
 </style>

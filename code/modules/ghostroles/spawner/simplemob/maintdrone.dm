@@ -1,7 +1,7 @@
 /datum/ghostspawner/simplemob/maintdrone
 	short_name = "maintdrone"
-	name = "Maintenence Drone"
-	desc = "Maintain and Improve the Systems on the Aurora"
+	name = "Maintenance Drone"
+	desc = "Maintain and Improve the Systems on the Aurora."
 	show_on_job_select = FALSE
 	tags = list("Simple Mobs")
 
@@ -9,15 +9,25 @@
 	jobban_job = "Cyborg"
 
 	//Vars regarding the mob to use
-	spawn_mob = /mob/living/simple_animal/rat //The mob that should be spawned
+	spawn_mob = /mob/living/silicon/robot/drone //The mob that should be spawned
 
-/datum/ghostspawner/simplemob/maintdrone/cant_see()
+// we fake it here to ensure it pops up and gets added to SSghostroles.spawners, handling of the fabricators is done below
+/datum/ghostspawner/simplemob/maintdrone/select_spawnlocation()
+	return TRUE
+
+/datum/ghostspawner/simplemob/maintdrone/cant_spawn()
 	if(!config.allow_drone_spawn)
 		return "Spawning as drone is disabled"
+	if(count_drones() >= config.max_maint_drones)
+		return "The maximum number of active drones has been reached"
+	var/has_active_fabricator = FALSE
+	for(var/obj/machinery/drone_fabricator/DF in SSmachinery.all_machines)
+		if((DF.stat & NOPOWER) || !DF.produce_drones || DF.drone_progress < 100)
+			continue
+		has_active_fabricator = TRUE
+	if(!has_active_fabricator)
+		return "There are no active fabricators to spawn at"
 	return ..()
-
-/datum/ghostspawner/simplemob/maintdrone/select_spawnpoint(var/use)
-	return TRUE //We just fake it here, since the spawnpoint is selected if someone is spawned in.
 
 //The proc to actually spawn in the user
 /datum/ghostspawner/simplemob/maintdrone/spawn_mob(mob/user)
@@ -37,6 +47,34 @@
 		return FALSE
 	fabricator = all_fabricators[choice]
 
-	if(user && fabricator && !((fabricator.stat & NOPOWER) || !fabricator.produce_drones || fabricator.drone_progress < 100))
-		return fabricator.create_drone(user.client)
-	return FALSE
+	if(!fabricator_check(fabricator, user))
+		return FALSE
+
+	var/drone_tag = sanitizeSafe(input(user, "Select a tag for your maintenance drone, for example, 'MT' would appear as 'maintenance drone (MT-[rand(100,999)])'. (Max length: 3 Characters)", "Name Tag Selection"), 4)
+	if(!drone_tag)
+		drone_tag = "MT"
+	drone_tag = uppertext(drone_tag)
+
+	if(!fabricator_check(fabricator, user))
+		return FALSE
+
+	return fabricator.create_drone(user.client, drone_tag)
+
+/datum/ghostspawner/simplemob/maintdrone/proc/fabricator_check(var/obj/machinery/drone_fabricator/fabricator, var/mob/user)
+	if(!fabricator)
+		to_chat(user, SPAN_WARNING("Something has gone wrong and the fabricator couldn't be found! Make a github issue about this."))
+		return FALSE
+
+	if(!fabricator.produce_drones)
+		to_chat(user, SPAN_WARNING("The fabricator's drone production has been disabled, try again."))
+		return FALSE
+
+	if(fabricator.stat & NOPOWER)
+		to_chat(user, SPAN_WARNING("The fabricator has lost power, try again."))
+		return FALSE
+
+	if(fabricator.drone_progress < 100)
+		to_chat(user, SPAN_WARNING("The fabricator isn't ready to produce another drone, try again."))
+		return FALSE
+
+	return TRUE

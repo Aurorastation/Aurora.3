@@ -34,6 +34,7 @@
 	melee_damage_lower = 1
 	melee_damage_upper = 3
 
+	organ_names = list("head")
 	response_help  = "pets"
 	response_disarm = "shoos"
 	response_harm   = "stomps on"
@@ -45,6 +46,8 @@
 	speak_emote = list("beeps","clicks","chirps")
 	universal_understand = TRUE
 
+	psi_pingable = FALSE
+
 /mob/living/simple_animal/spiderbot/Initialize()
 	. = ..()
 	add_language(LANGUAGE_TCB)
@@ -54,6 +57,9 @@
 	verbs |= /mob/living/proc/hide
 	verbs |= /mob/living/simple_animal/spiderbot/proc/control_integrated_radio
 	voice_name = name
+
+/mob/living/simple_animal/spiderbot/can_name(var/mob/living/M)
+	return FALSE
 
 /mob/living/simple_animal/spiderbot/attackby(var/obj/item/O as obj, var/mob/user as mob)
 
@@ -111,18 +117,15 @@
 		else
 			to_chat(user, "<span class='danger'>You need more welding fuel for this task!</span>")
 			return
-	else if(istype(O, /obj/item/card/id)||istype(O, /obj/item/device/pda))
+	else if(O.GetID())
 		if (!mmi)
 			to_chat(user, "<span class='danger'>There's no reason to swipe your ID - \the [src] has no brain to remove.</span>")
 			return 0
 
-		var/obj/item/card/id/id_card
+		var/obj/item/card/id/id_card = O.GetID()
 
-		if(istype(O, /obj/item/card/id))
-			id_card = O
-		else
-			var/obj/item/device/pda/pda = O
-			id_card = pda.id
+		if(!istype(id_card))
+			return 0
 
 		if(access_robotics in id_card.access)
 			to_chat(user, "<span class='notice'>You swipe your access card and pop the brain out of \the [src].</span>")
@@ -186,6 +189,9 @@
 		update_icon()
 	remove_language("Robot Talk")
 	positronic = null
+
+/mob/living/simple_animal/spiderbot/get_radio()
+	return radio
 
 /mob/living/simple_animal/spiderbot/Destroy()
 	eject_brain()
@@ -285,7 +291,7 @@
 /mob/living/simple_animal/spiderbot/examine(mob/user)
 	..(user)
 	if(src.held_item)
-		to_chat(user, "It is carrying \icon[src.held_item] \a [src.held_item].")
+		to_chat(user, "It is carrying [icon2html(src.held_item, user)] \a [src.held_item].")
 
 /mob/living/simple_animal/spiderbot/cannot_use_vents()
 	return
@@ -310,8 +316,12 @@
 /mob/living/simple_animal/spiderbot/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
 
-/mob/living/simple_animal/spiderbot/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
+/mob/living/simple_animal/spiderbot/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio, whisper)
 	switch(message_mode)
+		if("whisper")
+			if(!whisper)
+				whisper(message, speaking)
+				return TRUE
 		if("headset")
 			radio.talk_into(src, message, null, verb, speaking)
 			used_radios += radio

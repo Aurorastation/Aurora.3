@@ -6,6 +6,14 @@
 	unrest and gridlock undermine the government, and the aggressive attitude of the Sol Alliance against its former system has made many worried for the future of the Republic."
 	consular_outfit = /datum/outfit/job/representative/consular/ceti
 
+	job_species_blacklist = list(
+		"Consular Officer" = list(
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK
+		)
+	)
+
 /datum/citizenship/tau_ceti/get_objectives(mission_level, var/mob/living/carbon/human/H)
 	var/rep_objectives
 
@@ -32,6 +40,7 @@
 	backpack_contents = list(
 		/obj/item/storage/box/ceti_visa = 1,
 		/obj/item/storage/box/tcfl_pamphlet = 1,
+		/obj/item/stamp/biesel = 1,
 		/obj/item/gun/energy/pistol = 1
 	)
 
@@ -43,6 +52,33 @@
 	colonies and its control over the Sol system and Earth. In recent times, however, Sol Alliance has been failing to hold its grip, and many believe it to be in a state of decline. \
 	It is generally authoritarian, and many aliens here find themselves discriminated against."
 	consular_outfit = /datum/outfit/job/representative/consular/sol
+
+	job_species_blacklist = list(
+		"Consular Officer" = list(
+			SPECIES_HUMAN,
+			SPECIES_HUMAN_OFFWORLD,
+			SPECIES_IPC,
+			SPECIES_IPC_BISHOP,
+			SPECIES_IPC_G1,
+			SPECIES_IPC_G2,
+			SPECIES_IPC_SHELL,
+			SPECIES_IPC_UNBRANDED,
+			SPECIES_IPC_XION,
+			SPECIES_IPC_ZENGHU,
+			SPECIES_DIONA,
+			SPECIES_DIONA_COEUS,
+			SPECIES_SKRELL,
+			SPECIES_SKRELL_AXIORI,
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_UNATHI,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER
+		)
+	)
 
 /datum/citizenship/sol_alliance/get_objectives(mission_level, var/mob/living/carbon/human/H)
 	var/rep_objectives
@@ -67,6 +103,7 @@
 	accessory = /obj/item/clothing/accessory/sol_pin
 	backpack_contents = list(
 		/obj/item/storage/box/sol_visa = 1,
+		/obj/item/stamp/sol = 1,
 		/obj/item/device/camera = 1,
 		/obj/item/gun/projectile/pistol/sol = 1
 	)
@@ -78,12 +115,38 @@
 	and poor, yet free-willed and provocative Dregs. The Federation is controlled by several megacorporations, and although NanoTrasen is not one of them, it is a common former \
 	workplace of various contractors on board NSS Aurora."
 
+	job_species_blacklist = list(
+		"Consular Officer" = ALL_SPECIES
+	)
+
 /datum/citizenship/coalition
 	name = CITIZENSHIP_COALITION
 	description = "The Coalition of Colonies is a loose confederation of united \"entities\" within the human frontier. These entities range \
 	from whole colonial systems to travelling super ships to mining and farming outposts. Most communities here are, although not as developed as many galactic powers, very \
 	tightly-knit. Almost anything and anyone can be found in these wild, mostly uncharted lands. "
 	demonym = "frontiersman"
+	consular_outfit = /datum/outfit/job/representative/consular/coalition
+
+	job_species_blacklist = list(
+		"Consular Officer" = list(
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_UNATHI,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER
+		)
+	)
+
+/datum/outfit/job/representative/consular/coalition
+	name = "Coalition Consular Officer"
+
+	backpack_contents = list(
+		/obj/item/device/camera = 1,
+		/obj/item/gun/projectile/colt/super = 1
+	)
 
 /datum/citizenship/elyra
 	name = CITIZENSHIP_ELYRA
@@ -92,15 +155,44 @@
 	is \"For Greatness We Strive\". It's official language is Tau Ceti Basic, though several old-earth languages cling to life in small enclaves, such as arabic, persian, and farsi. \
 	The Republic has mixed relations with NanoTrasen, due to their own possession of phoron."
 	demonym = "elyrian"
+	consular_outfit = /datum/outfit/job/representative/consular/elyra
+
+/datum/outfit/job/representative/consular/elyra
+	name = "Elyra Consular Officer"
+
+	backpack_contents = list(
+		/obj/item/gun/projectile/plasma/bolter/pistol = 1
+	)
 
 /datum/citizenship/dominia
 	name = CITIZENSHIP_DOMINIA
-	description = "A heavily religious absolute monarchy with its capital, Nova Luxembourg, on the planet of Dominia in the X'yr Vharn'p system. This autocratic state is ruled by His \
-	Imperial Majesty Boleslaw Keeser. The Empire of Dominia was proclaimed in 2437 by Unathi raiders who invaded the planet of Moroz, a colony which had been isolated for hundreds of \
-	years. Imperial society is dominated by the Great and Minor Houses under the Emperor and is very socio-economically stratified due to the so-called blood debt, \
-	known as the Mor'iz'al. All citizens are born with the Mor'iz'al debt in exchange for the privileges of citizenship, a debt that takes a lifetime or more to pay off. \
-	Indebted citizens are known as Ma'zals, forming the massive underclass in Dominia. Many in the Empire follow a strict code of honor."
+	description = "A heavily religious absolute monarchy with its capital, Nova Luxembourg, on the planet of Moroz in the Mira Sancta system. This autocratic state is ruled by \
+	His Imperial Majesty Boleslaw Keeser. The Empire of Dominia was proclaimed in 2385 by then-Emperor Godwin Keeser, unifying a colony which had been isolated for hundreds of years. \
+	Imperial society is dominated by the Great and Minor Houses under the Emperor and is very socio-economically stratified due to the so-called blood debt, known as the Mor’iz’al."
+
 	consular_outfit = /datum/outfit/job/representative/consular/dominia
+
+	job_species_blacklist = list(
+		"Consular Officer" = list(
+			SPECIES_IPC,
+			SPECIES_IPC_BISHOP,
+			SPECIES_IPC_G1,
+			SPECIES_IPC_G2,
+			SPECIES_IPC_SHELL,
+			SPECIES_IPC_UNBRANDED,
+			SPECIES_IPC_XION,
+			SPECIES_IPC_ZENGHU,
+			SPECIES_SKRELL,
+			SPECIES_SKRELL_AXIORI,
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER
+		)
+	)
 
 /datum/citizenship/dominia/get_objectives(mission_level, var/mob/living/carbon/human/H)
 	var/rep_objectives

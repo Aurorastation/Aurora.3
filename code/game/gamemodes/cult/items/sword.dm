@@ -1,20 +1,23 @@
 /obj/item/melee/cultblade
 	name = "eldritch blade"
-	desc = "A sword humming with unholy energy. It glows with a dim red light."
+	desc = "A sword humming with unholy energy. It glows with a dim red light and looks deadly sharp."
 	desc_antag = "This sword is a powerful weapon, capable of severing limbs easily, if they are targeted.  Non-believers are unable to use this weapon."
 	icon = 'icons/obj/sword.dmi'
 	icon_state = "cultblade"
 	item_state = "cultblade"
 	contained_sprite = TRUE
-	w_class = 4
-	force = 30
+	force = 25
+	armor_penetration = 50 // Narsie's blessing is strong. Also needed so the cult isn't obliterated by the average voidsuit with melee resistance.
+	w_class = ITEMSIZE_LARGE
 	throwforce = 10
 	slot_flags = SLOT_BELT
 	edge = TRUE
 	sharp = TRUE
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = 'sound/items/pickup/sword.ogg'
+	pickup_sound = /decl/sound_category/sword_pickup_sound
+	equip_sound = /decl/sound_category/sword_equip_sound
+	var/does_cult_check = TRUE
 
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	can_embed = FALSE //can't get stuck anymore, because blood magic
@@ -23,7 +26,7 @@
 	return
 
 /obj/item/melee/cultblade/attack(mob/living/M, mob/living/user, var/target_zone)
-	if(iscultist(user))
+	if(iscultist(user) || !does_cult_check)
 		return ..()
 
 	var/zone = (user.hand ? BP_L_ARM:BP_R_ARM)
@@ -59,3 +62,8 @@
 		var/obj/item/material/sword/blade = new(get_turf(src))
 		blade.force = 15
 		qdel(src)
+
+/obj/item/melee/cultblade/mounted
+	name = "daemon doomblade"
+	force = 40
+	does_cult_check = FALSE

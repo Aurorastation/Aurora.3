@@ -5,7 +5,6 @@
 	icon_state = "hdd_normal"
 	hardware_size = 1
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
-	var/has_installed = FALSE // whether we've been installed in a computer yet
 	var/max_capacity = 128
 	var/used_capacity = 0
 	var/read_only = FALSE				// If the HDD is read only
@@ -51,7 +50,7 @@
 /obj/item/computer_hardware/hard_drive/micro
 	name = "micro hard drive"
 	desc = "A small micro hard drive for portable devices."
-	power_usage = 2
+	power_usage = 5
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
 	max_capacity = 32
 	icon_state = "hdd_micro"
@@ -74,8 +73,9 @@
 	if(!stored_files)
 		return FALSE
 	// This file is already stored. Don't store it again.
-	if(F in stored_files)
-		return FALSE
+	for(var/datum/computer_file/program/P in stored_files)
+		if(F.type == P.type)
+			return FALSE
 
 	F.hard_drive = src
 	stored_files.Add(F)
@@ -84,11 +84,10 @@
 
 // Use this proc to add file to the drive. Returns 1 on success and 0 on failure. Contains necessary sanity checks.
 /obj/item/computer_hardware/hard_drive/proc/install_default_programs()
-	if(parent_computer && !has_installed)
+	if(parent_computer)
 		store_file(new /datum/computer_file/program/computerconfig(parent_computer))		// Computer configuration utility, allows hardware control and displays more info than status bar
 		store_file(new /datum/computer_file/program/clientmanager(parent_computer))			// Client Manager to Enroll the Device
 		store_file(new /datum/computer_file/program/pai_access_lock(parent_computer))		// pAI access control, to stop pesky pAI from messing with computers
-		has_installed = TRUE
 
 // Use this proc to remove file from the drive. Returns 1 on success and 0 on failure. Contains necessary sanity checks.
 /obj/item/computer_hardware/hard_drive/proc/remove_file(var/datum/computer_file/F)

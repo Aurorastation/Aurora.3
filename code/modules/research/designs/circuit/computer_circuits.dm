@@ -1,17 +1,9 @@
 /datum/design/circuit/computer
-	design_order = 1
-
-/datum/design/circuit/computer/AssembleDesignName()
-	..()
-	name = "Computer Circuit Design ([item_name])"
+	p_category = "Computer Circuit Designs"
 
 /datum/design/circuit/computer/seccamera
 	name = "Security Camera Monitor"
 	build_path = /obj/item/circuitboard/security
-
-/datum/design/circuit/computer/prisonmanage
-	name = "Prisoner Management Console"
-	build_path = /obj/item/circuitboard/prisoner
 
 /datum/design/circuit/computer/sentencing
 	name = "Criminal Sentencing Console"
@@ -20,11 +12,6 @@
 /datum/design/circuit/computer/operating
 	name = "Patient Monitoring Console"
 	build_path = /obj/item/circuitboard/operating
-
-/datum/design/circuit/computer/teleconsole
-	name = "Teleporter Control Console"
-	req_tech = list(TECH_DATA = 3, TECH_BLUESPACE = 2)
-	build_path = /obj/item/circuitboard/teleporter
 
 /datum/design/circuit/computer/robocontrol
 	name = "Robotics Control Console"

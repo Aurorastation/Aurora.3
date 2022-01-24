@@ -1,7 +1,13 @@
 /datum/bounty/reagent
 	var/required_volume = 10
 	var/shipped_volume = 0
-	var/datum/reagent/wanted_reagent
+	var/decl/reagent/wanted_reagent
+	var/list/possible_descriptions = list("We're interested in testing the quality of our stations' bartenders!",
+	"We're holding an office party and need some drink variety.",
+	"We're holding a mixing competition, and you'll receive a bonus for competing.",
+	"One of our agents has had a hard day and needs to unwind so badly they're willing to put up for a bounty.",
+	"We need some drinks for a PR campaign setup.",
+	"One of our bartenders is having trouble getting inspired, and wants to see a different drink.")
 
 /datum/bounty/reagent/completion_string()
 	return {"[round(shipped_volume)]/[required_volume] Units"}
@@ -19,7 +25,7 @@
 /datum/bounty/reagent/ship(obj/O)
 	if(!applies_to(O))
 		return
-	shipped_volume += O.reagents.get_reagent_amount(wanted_reagent.type)
+	shipped_volume += REAGENT_VOLUME(O.reagents, wanted_reagent.type)
 	if(shipped_volume > required_volume)
 		shipped_volume = required_volume
 
@@ -31,94 +37,142 @@
 
 /datum/bounty/reagent/simple_drink
 	name = "Simple Drink"
-	reward = 1500
+	reward_low = 1000
+	reward_high = 1800
 
 /datum/bounty/reagent/simple_drink/New()
+	..()
 	// Don't worry about making this comprehensive. It doesn't matter if some drinks are skipped.
-	var/static/list/possible_reagents = list(\
-		/datum/reagent/alcohol/ethanol/antifreeze,\
-		/datum/reagent/alcohol/ethanol/andalusia,\
-		/datum/reagent/alcohol/ethanol/coffee/b52,\
-		/datum/reagent/alcohol/ethanol/bananahonk,\
-		/datum/reagent/alcohol/ethanol/beepsky_smash,\
-		/datum/reagent/alcohol/ethanol/bilk,\
-		/datum/reagent/alcohol/ethanol/black_russian,\
-		/datum/reagent/alcohol/ethanol/bloody_mary,\
-		/datum/reagent/alcohol/ethanol/martini,\
-		/datum/reagent/alcohol/ethanol/cubalibre,\
-		/datum/reagent/alcohol/ethanol/erikasurprise,\
-		/datum/reagent/alcohol/ethanol/ginfizz,\
-		/datum/reagent/alcohol/ethanol/gintonic,\
-		/datum/reagent/alcohol/ethanol/grog,\
-		/datum/reagent/alcohol/ethanol/hooch,\
-		/datum/reagent/alcohol/ethanol/iced_beer,\
-		/datum/reagent/alcohol/ethanol/irishcarbomb,\
-		/datum/reagent/alcohol/ethanol/manhattan,\
-		/datum/reagent/alcohol/ethanol/margarita,\
-		/datum/reagent/alcohol/ethanol/gargle_blaster,\
-		/datum/reagent/alcohol/ethanol/screwdrivercocktail,\
-		/datum/reagent/alcohol/ethanol/snowwhite,\
-		/datum/reagent/drink/coffee/soy_latte,\
-		/datum/reagent/drink/coffee/cafe_latte,\
-		/datum/reagent/alcohol/ethanol/gibsonhooch,\
-		/datum/reagent/alcohol/ethanol/manly_dorf,\
-		/datum/reagent/alcohol/ethanol/thirteenloko,\
-		/datum/reagent/alcohol/ethanol/vodkamartini,\
-		/datum/reagent/alcohol/ethanol/whiskeysoda,\
-		/datum/reagent/alcohol/ethanol/demonsblood,\
-		/datum/reagent/alcohol/ethanol/singulo)
+	var/list/possible_reagents = list(
+		/decl/reagent/alcohol/antifreeze,
+		/decl/reagent/alcohol/andalusia,
+		/decl/reagent/alcohol/coffee/b52,
+		/decl/reagent/alcohol/bananahonk,
+		/decl/reagent/alcohol/bilk,
+		/decl/reagent/alcohol/blackrussian,
+		/decl/reagent/alcohol/bloodymary,
+		/decl/reagent/alcohol/martini,
+		/decl/reagent/alcohol/cubalibre,
+		/decl/reagent/alcohol/erikasurprise,
+		/decl/reagent/alcohol/ginfizz,
+		/decl/reagent/alcohol/gintonic,
+		/decl/reagent/alcohol/grog,
+		/decl/reagent/alcohol/iced_beer,
+		/decl/reagent/alcohol/irishcarbomb,
+		/decl/reagent/alcohol/manhattan,
+		/decl/reagent/alcohol/margarita,
+		/decl/reagent/alcohol/gargleblaster,
+		/decl/reagent/alcohol/screwdrivercocktail,
+		/decl/reagent/alcohol/cobaltvelvet,
+		/decl/reagent/alcohol/snowwhite,
+		/decl/reagent/alcohol/sidewinderfang,
+		/decl/reagent/alcohol/gibsonhooch,
+		/decl/reagent/alcohol/manly_dorf,
+		/decl/reagent/alcohol/thirteenloko,
+		/decl/reagent/alcohol/vodkamartini,
+		/decl/reagent/alcohol/whiskeysoda,
+		/decl/reagent/alcohol/demonsblood,
+		/decl/reagent/alcohol/cinnamonapplewhiskey,
+		/decl/reagent/drink/coffee/soy_latte,
+		/decl/reagent/drink/coffee/cafe_latte,
+		/decl/reagent/drink/tea/coco_chaitea,
+		/decl/reagent/drink/tea/chaitealatte,
+		/decl/reagent/drink/tea/bureacratea,
+		/decl/reagent/drink/tea/desert_tea,
+		/decl/reagent/drink/tea/hakhma_tea,
+		/decl/reagent/drink/tea/portsvilleminttea,
+		/decl/reagent/drink/meatshake,
+		/decl/reagent/alcohol/butanol/sandgria,
+		/decl/reagent/alcohol/butanol/cactuscola,
+		/decl/reagent/alcohol/butanol/trizkizki_tea)
 
-	var/reagent_type = pick(possible_reagents)
+	var/decl/reagent/reagent_type = pick(possible_reagents)
 	wanted_reagent = new reagent_type
 	name = wanted_reagent.name
-	description = "%BOSSSHORT is thirsty! Send a shipment of [name] to %DOCKNAME to quench the company's thirst."
-	reward += rand(0, 2) * 500
-	..()
+	description = "[pick(possible_descriptions)] Send a shipment of [name]." //punctuation is already in pick()
+	required_volume = rand(2, 12) * 10
+	reward += required_volume * 20		//range from +400(20u) to +2400(120u)
 
+//Complex drinks. Requires coordination with other departments for ingredients
 /datum/bounty/reagent/complex_drink
 	name = "Complex Drink"
-	reward = 4000
+	reward_low = 2000
+	reward_high = 3200
 
 /datum/bounty/reagent/complex_drink/New()
+	..()
 	// Don't worry about making this comprehensive. It doesn't matter if some drinks are skipped.
-	var/static/list/possible_reagents = list(\
-		/datum/reagent/alcohol/ethanol/atomicbomb,\
-		/datum/reagent/alcohol/ethanol/booger,\
-		/datum/reagent/alcohol/ethanol/hippies_delight,\
-		/datum/reagent/alcohol/ethanol/goldschlager,\
-		/datum/reagent/alcohol/ethanol/manhattan_proj,\
-		/datum/reagent/alcohol/ethanol/neurotoxin,\
-		/datum/reagent/alcohol/ethanol/patron,\
-		/datum/reagent/alcohol/ethanol/silencer)
-		
+	var/list/possible_reagents = list(
+		/decl/reagent/alcohol/hooch,
+		/decl/reagent/alcohol/atomicbomb,
+		/decl/reagent/alcohol/beepsky_smash,
+		/decl/reagent/alcohol/booger,
+		/decl/reagent/alcohol/hippiesdelight,
+		/decl/reagent/alcohol/goldschlager,
+		/decl/reagent/alcohol/manhattan_proj,
+		/decl/reagent/alcohol/neurotoxin,
+		/decl/reagent/alcohol/singulo,
+		/decl/reagent/alcohol/patron,
+		/decl/reagent/alcohol/silencer,
+		/decl/reagent/alcohol/cbsc,
+		/decl/reagent/alcohol/rixulin_sundae,
+		/decl/reagent/drink/xrim,
+		/decl/reagent/drink/tea/securitea,
+		/decl/reagent/drink/toothpaste/sedantian_firestorm,
+		/decl/reagent/alcohol/butanol/wastelandheat,
+		/decl/reagent/alcohol/butanol/contactwine,
+		/decl/reagent/alcohol/butanol/crocodile_booze)
+
 	var/reagent_type = pick(possible_reagents)
 	wanted_reagent = new reagent_type
 	name = wanted_reagent.name
-	description = "%BOSSSHORT is offering a reward for talented bartenders. Ship a container of [name] to claim the prize."
-	reward += rand(0, 4) * 500
-	..()
+	description = "[pick(possible_descriptions)] Send a shipment of [name]." //punctuation is already in pick()
+	required_volume = rand(2, 12) * 10
+	reward += required_volume * 30		//range from +600(20u) to +3600(120u)
 
+//Medicines, toxins, and drugs
 /datum/bounty/reagent/chemical
 	name = "Chemical"
-	reward = 4000
-	required_volume = 30
+	reward_low = 2000
+	reward_high = 3200
 
 /datum/bounty/reagent/chemical/New()
+	..()
 	// Don't worry about making this comprehensive. It doesn't matter if some chems are skipped.
-	var/static/list/possible_reagents = list(\
-		/datum/reagent/leporazine,\
-		/datum/reagent/clonexadone,\
-		/datum/reagent/rezadone,\
-		/datum/reagent/space_drugs,\
-		/datum/reagent/thermite,\
-		/datum/reagent/nutriment/honey,\
-		/datum/reagent/frostoil,\
-		/datum/reagent/slimejelly,\
-		/datum/reagent/toxin/cyanide)
+	var/list/possible_reagents = list(
+		/decl/reagent/leporazine,
+		/decl/reagent/clonexadone,
+		/decl/reagent/space_drugs,
+		/decl/reagent/thermite,
+		/decl/reagent/cetahydramine,
+		/decl/reagent/sterilizine,
+		/decl/reagent/mental/emoxanyl,
+		/decl/reagent/mental/minaphobin,
+		/decl/reagent/mental/neurapan,
+		/decl/reagent/rmt,
+		/decl/reagent/mortaphenyl,
+		/decl/reagent/oxycomorphine,
+		/decl/reagent/oculine,
+		/decl/reagent/peridaxon,
+		/decl/reagent/cataleptinol,
+		/decl/reagent/verunol,
+		/decl/reagent/hyperzine,
+		/decl/reagent/fluvectionem,
+		/decl/reagent/pacifier,
+		/decl/reagent/dexalin/plus,
+		/decl/reagent/ryetalyn,
+		/decl/reagent/pneumalin,
+		/decl/reagent/acid/polyacid,
+		/decl/reagent/mutagen,
+		/decl/reagent/impedrezene,
+		/decl/reagent/night_juice,
+		/decl/reagent/toxin/cardox,
+		/decl/reagent/toxin/lean,
+		/decl/reagent/toxin/stimm)
 
 	var/reagent_type = pick(possible_reagents)
 	wanted_reagent = new reagent_type
 	name = wanted_reagent.name
-	description = "%BOSSSHORT is in desperate need of the chemical [name]. Ship a container of it to be rewarded."
-	reward += rand(0, 4) * 500
-	..()
+	description = "One of our labs is in desperate need of [name]. Ship a container of it to be rewarded."
+	required_volume = rand(2, 12) * 10
+	reward += required_volume * 40		//range from +800(20u) to +4800(120u)

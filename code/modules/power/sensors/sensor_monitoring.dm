@@ -32,12 +32,10 @@
 /obj/machinery/computer/power_monitor/update_icon()
 	if(stat & NOPOWER)
 		icon_screen = null
-		return
-	if(alerting)
+	else if(alerting)
 		icon_screen = "power_alert"
-		return
-	icon_screen = "power"
-
+	else
+		icon_screen = "power"
 	..()
 
 // On creation automatically connects to active sensors. This is delayed to ensure sensors already exist.

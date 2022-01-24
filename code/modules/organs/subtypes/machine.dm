@@ -62,26 +62,99 @@
 	desc = "A small, powerful cell for use in fully prosthetic bodies."
 	icon = 'icons/obj/power.dmi'
 	icon_state = "scell"
-	organ_tag = "cell"
+	organ_tag = BP_CELL
 	parent_organ = BP_CHEST
-	vital = 1
-	var/emp_counter = 0
+	max_damage = 80
+	relative_size = 80
+	var/open = FALSE
+	var/obj/item/cell/cell = /obj/item/cell/super
+	var/move_charge_factor = 1
+	//at 0.8 completely depleted after 60ish minutes of constant walking or 130 minutes of standing still
+	var/servo_cost = 0.8
 
 /obj/item/organ/internal/cell/Initialize()
 	robotize()
+	replace_cell(new cell(src))
 	. = ..()
+
+/obj/item/organ/internal/cell/proc/percent()
+	if(!cell)
+		return 0
+	return get_charge()/cell.maxcharge * 100
+
+/obj/item/organ/internal/cell/proc/get_charge()
+	if(!cell)
+		return 0
+	if(status & ORGAN_DEAD)
+		return 0
+	return round(cell.charge*(1 - damage/max_damage))
+
+/obj/item/organ/internal/cell/proc/use(var/amount)
+	if(!is_usable() || !cell)
+		return
+	return cell.use(amount)
 
 /obj/item/organ/internal/cell/process()
 	..()
-	if(emp_counter)
-		emp_counter--
+	if(!owner)
+		return
+	if(owner.stat == DEAD)	//not a drain anymore
+		return
+	var/cost = get_power_drain()
+	if(world.time - owner.l_move_time < 15)
+		cost *= 2
+	cost *= move_charge_factor
+	use(cost)
+
+/obj/item/organ/internal/cell/proc/get_power_drain()
+	return servo_cost
 
 /obj/item/organ/internal/cell/emp_act(severity)
-	emp_counter += 30/severity
-	if(emp_counter >= 30)
-		owner.Paralyse(emp_counter/6)
-		to_chat(owner, "<span class='danger'>%#/ERR: Power leak detected!$%^/</span>")
+	..()
+	if(cell)
+		cell.emp_act(severity)
 
+/obj/item/organ/internal/cell/attackby(obj/item/W, mob/user)
+	if(W.isscrewdriver())
+		if(open)
+			open = FALSE
+			to_chat(user, SPAN_NOTICE("You screw the battery panel in place."))
+		else
+			open = TRUE
+			to_chat(user, SPAN_NOTICE("You unscrew the battery panel."))
+
+	if(W.iscrowbar())
+		if(open)
+			if(cell)
+				user.put_in_hands(cell)
+				to_chat(user, SPAN_NOTICE("You remove \the [cell] from \the [src]."))
+				cell = null
+			else
+				to_chat(user, SPAN_WARNING("There is no cell to remove."))
+		else
+			to_chat(user, SPAN_WARNING("You need to unscrew the battery panel first."))
+
+	if(istype(W, /obj/item/cell))
+		if(open)
+			if(cell)
+				to_chat(user, SPAN_WARNING("There is a power cell already installed."))
+			else if(user.unEquip(W, src))
+				replace_cell(W)
+				to_chat(user, SPAN_NOTICE("You insert \the [cell]."))
+		else
+			to_chat(user, SPAN_WARNING("You need to unscrew the battery panel first."))
+
+/obj/item/organ/internal/cell/proc/replace_cell(var/obj/item/cell/C)
+	if(istype(cell))
+		qdel(cell)
+	if(C.loc != src)
+		C.forceMove(src)
+	cell = C
+	name = "[initial(name)] ([C.name])"
+
+/obj/item/organ/internal/cell/listen()
+	if(get_charge())
+		return "faint hum of the power bank"
 
 /obj/item/organ/internal/surge
 	name = "surge preventor"
@@ -90,7 +163,7 @@
 	icon_state = "surge_ipc"
 	organ_tag = "surge"
 	parent_organ = BP_CHEST
-	vital = 0
+	vital = FALSE
 	var/surge_left = 0
 	var/broken = 0
 
@@ -125,7 +198,7 @@
 /obj/item/organ/internal/eyes/optical_sensor
 	name = "optical sensor"
 	singular_name = "optical sensor"
-	organ_tag = "optics"
+	organ_tag = BP_EYES
 	icon = 'icons/obj/robot_component.dmi'
 	icon_state = "camera"
 	dead_icon = "camera_broken"
@@ -136,7 +209,7 @@
 
 /obj/item/organ/internal/ipc_tag
 	name = "identification tag"
-	organ_tag = "ipc tag"
+	organ_tag = BP_IPCTAG
 	parent_organ = BP_HEAD
 	icon = 'icons/obj/ipc_utilities.dmi'
 	icon_state = "ipc_tag"
@@ -211,7 +284,7 @@
 	name = "brain"
 	organ_tag = BP_BRAIN
 	parent_organ = BP_HEAD
-	vital = 1
+	vital = TRUE
 	var/obj/item/device/mmi/stored_mmi
 
 /obj/item/organ/internal/mmi_holder/proc/update_from_mmi()
@@ -239,7 +312,7 @@
 	robotize()
 	stored_mmi = new /obj/item/device/mmi/digital/posibrain(src)
 	. = ..()
-	addtimer(CALLBACK(src, .proc/setup_brain), 1)
+	addtimer(CALLBACK(src, .proc/setup_brain), 30)
 
 /obj/item/organ/internal/mmi_holder/posibrain/proc/setup_brain()
 	if(owner)
@@ -276,7 +349,7 @@
 	name = BP_BRAIN
 	organ_tag = BP_BRAIN
 	parent_organ = BP_CHEST
-	vital = 1
+	vital = TRUE
 	emp_coeff = 0.1
 
 /obj/item/organ/internal/data
@@ -285,7 +358,7 @@
 	parent_organ = BP_GROIN
 	icon = 'icons/obj/cloning.dmi'
 	icon_state = "harddisk"
-	vital = 0
+	vital = FALSE
 	emp_coeff = 0.1
 
 /obj/item/organ/internal/data/Initialize()
@@ -299,7 +372,7 @@
 	icon_state = "scell"
 	organ_tag = "shielded cell"
 	parent_organ = BP_CHEST
-	vital = 1
+	vital = TRUE
 	emp_coeff = 0.1
 
 /obj/item/organ/internal/cell/Initialize()
@@ -380,58 +453,58 @@
 //Industrial//
 //////////////
 
-/obj/item/organ/external/head/industrial
+/obj/item/organ/external/head/ipc/industrial
 	dislocated = -1
 	can_intake_reagents = 0
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
 
-/obj/item/organ/external/chest/industrial
+/obj/item/organ/external/chest/ipc/industrial
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
 
-/obj/item/organ/external/groin/industrial
+/obj/item/organ/external/groin/ipc/industrial
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
 
-/obj/item/organ/external/arm/industrial
+/obj/item/organ/external/arm/ipc/industrial
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
 
-/obj/item/organ/external/arm/right/industrial
+/obj/item/organ/external/arm/right/ipc/industrial
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
 
-/obj/item/organ/external/leg/industrial
+/obj/item/organ/external/leg/ipc/industrial
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
 
-/obj/item/organ/external/leg/right/industrial
+/obj/item/organ/external/leg/right/ipc/industrial
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
 
-/obj/item/organ/external/foot/industrial
+/obj/item/organ/external/foot/ipc/industrial
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
 
-/obj/item/organ/external/foot/right/industrial
+/obj/item/organ/external/foot/right/ipc/industrial
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
 
-/obj/item/organ/external/hand/industrial
+/obj/item/organ/external/hand/ipc/industrial
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
 
-/obj/item/organ/external/hand/right/industrial
+/obj/item/organ/external/hand/right/ipc/industrial
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
@@ -440,68 +513,68 @@
 //Shell limbs//
 ///////////////
 
-/obj/item/organ/external/head/shell
+/obj/item/organ/external/head/ipc/shell
 	dislocated = -1
 	can_intake_reagents = 0
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
 
-/obj/item/organ/external/chest/shell
+/obj/item/organ/external/chest/ipc/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
 
-/obj/item/organ/external/groin/shell
+/obj/item/organ/external/groin/ipc/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
 
-/obj/item/organ/external/arm/shell
+/obj/item/organ/external/arm/ipc/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
 
-/obj/item/organ/external/arm/right/shell
+/obj/item/organ/external/arm/right/ipc/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
 
-/obj/item/organ/external/leg/shell
+/obj/item/organ/external/leg/ipc/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
 
-/obj/item/organ/external/leg/right/shell
+/obj/item/organ/external/leg/right/ipc/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
 
-/obj/item/organ/external/foot/shell
+/obj/item/organ/external/foot/ipc/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
 
-/obj/item/organ/external/foot/right/shell
+/obj/item/organ/external/foot/right/ipc/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
 
-/obj/item/organ/external/hand/shell
+/obj/item/organ/external/hand/ipc/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
 
-/obj/item/organ/external/hand/right/shell
+/obj/item/organ/external/hand/right/ipc/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
@@ -509,58 +582,74 @@
 
 //unbranded
 
-/obj/item/organ/external/head/unbranded
+/obj/item/organ/external/head/ipc/unbranded
 	dislocated = -1
 	can_intake_reagents = 0
 	encased = "support frame"
 	robotize_type = "Unbranded"
 
-/obj/item/organ/external/chest/unbranded
+/obj/item/organ/external/chest/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = "Unbranded"
 
-/obj/item/organ/external/groin/unbranded
+/obj/item/organ/external/groin/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = "Unbranded"
 
-/obj/item/organ/external/arm/unbranded
+/obj/item/organ/external/groin/ipc/unbranded/cap // extreme nugget action
+	force_prosthetic_name = "prosthetic groin cap"
+	supports_children = FALSE
+
+/obj/item/organ/external/groin/ipc/unbranded/cap/Initialize(mapload)
+	. = ..()
+	var/obj/item/organ/internal/kidneys/K = new(src)
+	K.robotize()
+	internal_organs += K
+	var/obj/item/organ/internal/liver/L = new(src)
+	L.robotize()
+	internal_organs += L
+	var/obj/item/organ/internal/stomach/S = new(src)
+	S.robotize()
+	internal_organs += S
+
+/obj/item/organ/external/arm/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = "Unbranded"
 
-/obj/item/organ/external/arm/right/unbranded
+/obj/item/organ/external/arm/right/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = "Unbranded"
 
-/obj/item/organ/external/leg/unbranded
+/obj/item/organ/external/leg/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = "Unbranded"
 
-/obj/item/organ/external/leg/right/unbranded
+/obj/item/organ/external/leg/right/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = "Unbranded"
 
-/obj/item/organ/external/foot/unbranded
+/obj/item/organ/external/foot/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = "Unbranded"
 
-/obj/item/organ/external/foot/right/unbranded
+/obj/item/organ/external/foot/right/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = "Unbranded"
 
-/obj/item/organ/external/hand/unbranded
+/obj/item/organ/external/hand/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = "Unbranded"
 
-/obj/item/organ/external/hand/right/unbranded
+/obj/item/organ/external/hand/right/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = "Unbranded"

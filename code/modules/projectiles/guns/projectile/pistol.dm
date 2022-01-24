@@ -1,6 +1,7 @@
 /obj/item/gun/projectile/colt
-	name = "vintage .45 pistol"
-	desc = "A cheap Martian knock-off of a Colt M1911. Uses .45 rounds."
+	name = ".45 combat pistol"
+	desc = "A robust metal-framed .45-caliber handgun of a type descended from old-Earth designs, manufactured in many factories across \
+	human-inhabited space. Used by all manners of factions across the Spur."
 	magazine_type = /obj/item/ammo_magazine/c45m
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 	icon = 'icons/obj/guns/colt.dmi'
@@ -8,13 +9,14 @@
 	item_state = "colt"
 	caliber = ".45"
 	accuracy = 1
+	offhand_accuracy = 1
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_light.ogg'
 	load_method = MAGAZINE
 
 /obj/item/gun/projectile/colt/update_icon()
 	..()
-	if(ammo_magazine && ammo_magazine.stored_ammo.len)
+	if(ammo_magazine?.stored_ammo.len)
 		icon_state = "colt"
 	else
 		icon_state = "colt-e"
@@ -40,6 +42,49 @@
 		to_chat(M, "You name the gun [input]. Say hello to your new friend.")
 		return 1
 
+/obj/item/gun/projectile/colt/super
+	name = "ornamental .45 combat pistol"
+	desc = "A robust metal-framed .45-caliber handgun of a type descended from old-Earth designs, manufactured in many factories across \
+	human-inhabited space. This example sports a short slide, wood-paneled grips, and few signs of use, likely belonging to someone of higher stature."
+	desc_fluff = "Whoever did this is a professional, no question. This thing could shoot a one-hole at 25 yards in a machine rest."
+	magazine_type = /obj/item/ammo_magazine/c45m/stendo
+	icon = 'icons/obj/guns/coltsuper.dmi'
+	icon_state = "coltsuper"
+	item_state = "coltsuper"
+
+/obj/item/gun/projectile/colt/super/update_icon()
+	..()
+	if(ammo_magazine?.stored_ammo.len)
+		icon_state = "coltsuper"
+	else
+		icon_state = "coltsuper-e"
+
+/obj/item/gun/projectile/automatic/lebman
+	name = "automatic .45 combat pistol"
+	desc = "A robust metal-framed .45-caliber handgun of a type descended from old-Earth designs, manufactured in many factories across \
+	human-inhabited space. This example has been modified to allow fully-automatic fire, and sports a prominent vertical grip and muzzle compensator to aid in control."
+	magazine_type = /obj/item/ammo_magazine/c45m/lebman
+	icon = 'icons/obj/guns/coltauto.dmi'
+	icon_state = "coltauto"
+	item_state = "coltauto"
+	w_class = ITEMSIZE_NORMAL
+	accuracy = 1
+	offhand_accuracy = 1
+	load_method = MAGAZINE
+	slot_flags = SLOT_BELT|SLOT_HOLSTER
+	max_shells = 18
+	caliber = ".45"
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+	ammo_type = /obj/item/ammo_casing/c45
+	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
+
+/obj/item/gun/projectile/automatic/lebman/update_icon()
+	..()
+	if(ammo_magazine?.stored_ammo.len)
+		icon_state = "coltauto"
+	else
+		icon_state = "coltauto-e"
+
 /obj/item/gun/projectile/sec
 	name = ".45 pistol"
 	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces. Uses .45 rounds."
@@ -51,6 +96,7 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 	caliber = ".45"
 	accuracy = 1
+	offhand_accuracy = 1
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	load_method = MAGAZINE
@@ -86,23 +132,34 @@
 
 /obj/item/gun/projectile/automatic/x9
 	name = "automatic .45 pistol"
-	desc = "The x9 tactical pistol is a lightweight fast firing handgun. Uses .45 rounds."
+	desc = "A NanoTrasen-designed sidearm, modified for fully-automatic fire. Issued to select security and law enforcement groups. Uses .45 rounds."
+	desc_fluff = "The NT Mk58 is a ballistic sidearm developed and produced by Nanotrasen. Bulky and heavy, the Mk58 is nonetheless used by security \
+	forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. \
+	A trademark of Nanotrasen security forces. This one has been modified for fully-automatic fire from the factory and sports a collapsible shoulder stock for better control. It uses .45 rounds."
 	icon = 'icons/obj/guns/x9.dmi'
-	icon_state = "x9tactical"
-	item_state = "x9"
-	w_class = 3
+	icon_state = "secgunauto"
+	item_state = "secgunauto"
+	w_class = ITEMSIZE_NORMAL
 	accuracy = 1
+	offhand_accuracy = 1
 	load_method = MAGAZINE
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	max_shells = 16
 	caliber = ".45"
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
 	ammo_type = /obj/item/ammo_casing/c45
-	magazine_type = /obj/item/ammo_magazine/c45x
-	allowed_magazines = list(/obj/item/ammo_magazine/c45x)
+	magazine_type = /obj/item/ammo_magazine/c45m/auto
+	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 	multi_aim = 1
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+
+/obj/item/gun/projectile/automatic/x9/update_icon()
+	..()
+	if(ammo_magazine?.stored_ammo.len)
+		icon_state = "secgunauto"
+	else
+		icon_state = "secgunauto-e"
 
 /obj/item/gun/projectile/tanto
 	desc = "A Zavodskoi Interstellar Tanto .40, designed to compete with the NT Mk58. Uses 10mm rounds."
@@ -114,6 +171,7 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/mc10mm)
 	caliber = "10mm"
 	accuracy = 1
+	offhand_accuracy = 1
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	load_method = MAGAZINE
@@ -139,8 +197,9 @@
 	icon_state = "silenced_pistol"
 	item_state = "silenced_pistol"
 	fire_sound = 'sound/weapons/gunshot/gunshot_suppressed.ogg'
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	accuracy = 1
+	offhand_accuracy = 1
 	caliber = ".45"
 	silenced = 1
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
@@ -223,8 +282,9 @@
 	icon = 'icons/obj/guns/pistol.dmi'
 	icon_state = "pistol"
 	item_state = "pistol"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	accuracy = 1
+	offhand_accuracy = 2
 	caliber = "9mm"
 	silenced = 0
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 2)
@@ -276,7 +336,7 @@
 			to_chat(user, "<span class='notice'>You unscrew [silenced] from [src].</span>")
 			user.put_in_hands(silenced)
 			silenced = 0
-			w_class = 2
+			w_class = ITEMSIZE_SMALL
 			update_icon()
 			return
 	..()
@@ -289,7 +349,7 @@
 		user.drop_from_inventory(I,src)
 		to_chat(user, "<span class='notice'>You screw [I] onto [src].</span>")
 		silenced = I	//dodgy?
-		w_class = 3
+		w_class = ITEMSIZE_NORMAL
 		update_icon()
 		return
 	..()
@@ -315,7 +375,7 @@
 	desc = "A silencer"
 	icon = 'icons/obj/guns/pistol.dmi'
 	icon_state = "silencer"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 
 /obj/item/gun/projectile/pirate
 	name = "zip gun"
@@ -354,19 +414,13 @@
 	icon_state = "leyon"
 	item_state = "leyon"
 	caliber = "10mm"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	ammo_type = /obj/item/ammo_casing/c10mm
 	magazine_type = /obj/item/ammo_magazine/mc10mm/leyon
 	max_shells = 5
 	origin_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 1)
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	load_method = SINGLE_CASING|SPEEDLOADER
-
-/obj/item/gun/projectile/leyon/load_ammo(var/obj/item/A, mob/user)
-	user.visible_message("[user] begins reloading \the [src].", "You begin reloading \the [src].")
-	if(!do_after(user, 20, act_target = src))
-		return
-	return ..()
 
 /obj/item/gun/projectile/leyon/update_icon()
 	..()

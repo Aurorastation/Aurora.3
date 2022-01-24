@@ -1,7 +1,7 @@
 /datum/rune/convert
 	name = "conversion rune"
 	desc = "A rune used to convert the Unenlightened."
-	rune_flags = NO_TALISMAN
+	rune_flags = NO_TALISMAN | CAN_MEMORIZE
 
 	var/list/converting
 
@@ -65,31 +65,42 @@
 		if(!target.can_feel_pain())
 			target.visible_message(SPAN_WARNING("The markings below [target] glow a bloody red."))
 		else
-			target.visible_message(SPAN_WARNING("[target] writhes in pain as the markings below \him glow a bloody red."), SPAN_DANGER("AAAAAAHHHH!"))
+			target.visible_message(SPAN_WARNING("[target] writhes in pain as the markings below [target.get_pronoun("him")] glow a bloody red."), SPAN_DANGER("AAAAAAHHHH!"))
 
 		if(!waiting_for_input[target]) //so we don't spam them with dialogs if they hesitate
 			waiting_for_input[target] = TRUE
 
-			if(!cult.can_become_antag(target.mind) || jobban_isbanned(target, "cultist") || player_is_antag(target.mind))//putting jobban check here because is_convertable uses mind as argument
-				//waiting_for_input ensures this is only shown once, so they basically auto-resist from here on out. They still need to find a way to get off the freaking rune if they don't want to burn to death, though.
-				to_chat(target, SPAN_CULT("Your blood pulses. Your head throbs. The world goes red. All at once you are aware of a horrible, horrible truth. The veil of reality has been ripped away and in the festering wound left behind, something sinister takes root."))
-				to_chat(target, SPAN_CULT("And you were able to force it out of your mind. Though the memory of that dark, horrible vision will surely haunt you for decades to come."))
-				var/has_implant // we don't want people with loy implants to just get gibbed
-				for(var/obj/item/implant/mindshield/L in target)
-					if(L?.imp_in == target)
-						has_implant = TRUE
-				if(!has_implant)
-					to_chat(target, SPAN_CULT("..or will it?"))
-					target.gib() // people who can't be cultists get gibbed to preserve cult anonymity
+			if(!cult.can_become_antag(target.mind) || player_is_antag(target.mind))
+				if(jobban_isbanned(target.mind, "cultist"))
+					shard_player(target, A)
+				else
+					//waiting_for_input ensures this is only shown once, so they basically auto-resist from here on out. They still need to find a way to get off the freaking rune if they don't want to burn to death, though.
+					to_chat(target, SPAN_CULT("Your blood pulses. Your head throbs. The world goes red. All at once you are aware of a horrible, horrible truth. The veil of reality has been ripped away and in the festering wound left behind, something sinister takes root."))
+					to_chat(target, SPAN_CULT("And you were able to force it out of your mind. Though the memory of that dark, horrible vision will surely haunt you for decades to come."))
+					target.visible_message(SPAN_WARNING("The markings below [target] lose their glow, this unworthy offering has been rejected!"))
 			else
-				var/choice = alert(target,"Do you want to join the cult?", "Submit to Nar'Sie", "Resist", "Submit")
+				var/choice = alert(target,"Do you want to join the cult? (Choosing ghost will ghost you and spawn a shade)", "Submit to Nar'Sie", "Resist", "Submit", "Ghost")
 				waiting_for_input[target] = FALSE
-				if(choice == "Submit") //choosing 'Resist' does nothing of course.
-					cult.add_antagonist(target.mind)
-					converting -= target
-					target.hallucination = 0 //sudden clarity
-					target.setBrainLoss(0) // nar'sie heals you
-					sound_to(target, 'sound/effects/bloodcult.ogg')
+				switch(choice)
+					if("Submit")
+						cult.add_antagonist(target.mind)
+						converting -= target
+						target.hallucination = 0 //sudden clarity
+						target.setBrainLoss(0) // nar'sie heals you
+						sound_to(target, 'sound/effects/bloodcult.ogg')
+					if("Ghost")
+						shard_player(target, A)
+
 		sleep(100) //proc once every 10 seconds
 	LAZYCLEARLIST(converting)
 	return TRUE
+
+/datum/rune/convert/proc/shard_player(var/mob/living/target, atom/movable/A)
+	converting -= target
+	var/obj/item/device/soulstone/stone = new /obj/item/device/soulstone(get_turf(A))
+	target.death()
+	stone.transfer_human(target)
+	var/mob/living/simple_animal/shade/shade = locate() in stone
+	announce_ghost_joinleave(shade)
+	shade.ghostize(FALSE)
+	target.dust()

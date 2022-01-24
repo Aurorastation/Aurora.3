@@ -25,7 +25,8 @@
 	var/check_weapons = 0	//checks if it can shoot people that have a weapon they aren't authorized to have
 	var/check_access = 1	//if this is active, the turret shoots everything that does not meet the access requirements
 	var/check_wildlife = 1	//checks if it can shoot at simple animals or anything that passes issmall
-	var/check_synth = 0 	//if active, will shoot at anything not an AI or cyborg
+	var/check_synth = 0		//if active, will shoot at anything not an AI or cyborg
+	var/target_borgs = FALSE//if active, will shoot at borgs
 	var/ailock = 0 	//Silicons cannot use this
 	req_access = list(access_ai_upload)
 
@@ -95,7 +96,7 @@
 	if(stat & BROKEN)
 		return
 
-	if(istype(W, /obj/item/card/id)||istype(W, /obj/item/device/pda))
+	if(W.GetID())
 		if(src.allowed(usr))
 			if(emagged)
 				to_chat(user, "<span class='notice'>The turret control is unresponsive.</span>")
@@ -114,6 +115,8 @@
 		return 1
 
 /obj/machinery/turretid/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	if(isLocked(user))
 		return
 
@@ -139,6 +142,7 @@
 
 	var/usedSettings = list(
 		"check_synth" = "Neutralize All Non-Synthetics",
+		"target_borgs" = "Neutralize All Cyborg-likes",
 		"check_wildlife" = "Neutralize All Wildlife",
 		"check_weapons" = "Check Weapon Authorization",
 		"check_records" = "Check Security Records",
@@ -184,6 +188,8 @@
 				lethal = value
 			else if(href_list["command"] == "check_synth")
 				check_synth = value
+			else if(href_list["command"] == "target_borgs")
+				target_borgs = value
 			else if(href_list["command"] == "check_weapons")
 				check_weapons = value
 			else if(href_list["command"] == "check_records")
@@ -221,6 +227,7 @@
 	TC.enabled = enabled
 	TC.lethal = lethal
 	TC.check_synth = check_synth
+	TC.target_borgs = target_borgs
 	TC.check_access = check_access
 	TC.check_records = check_records
 	TC.check_arrest = check_arrest

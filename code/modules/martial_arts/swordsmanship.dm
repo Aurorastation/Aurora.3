@@ -1,6 +1,6 @@
 /datum/martial_art/swordsmanship
 	name = "Swordsmanship"
-	weapon_affinity	= /obj/item/material/sword
+	weapon_affinity = list(/obj/item/material/sword)
 	parry_multiplier = 2
 	possible_weapons = list(/obj/item/material/sword, /obj/item/material/sword/katana, /obj/item/material/sword/rapier)
 

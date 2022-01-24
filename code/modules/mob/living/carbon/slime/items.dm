@@ -4,7 +4,7 @@
 	icon = 'icons/mob/npc/slimes.dmi'
 	icon_state = "grey slime extract"
 	force = 1.0
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 6
@@ -29,7 +29,7 @@
 /obj/item/slime_extract/Initialize()
 	. = ..()
 	create_reagents(100)
-	reagents.add_reagent(/datum/reagent/slimejelly, 30)
+	reagents.add_reagent(/decl/reagent/slimejelly, 30)
 
 /obj/item/slime_extract/grey
 	name = "grey slime extract"
@@ -161,30 +161,30 @@
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "bottle19"
 
-	attack(mob/living/carbon/slime/M as mob, mob/user as mob)
-		if(!istype(M, /mob/living/carbon/slime/))//If target is not a slime.
-			to_chat(user, SPAN_WARNING("The potion only works on slimes!"))
-			return ..()
-		if(M.stat)
-			to_chat(user, SPAN_WARNING("The slime is dead!"))
-			return ..()
-		if(M.mind)
-			to_chat(user, SPAN_WARNING("The slime resists!"))
-			return ..()
-		var/mob/living/simple_animal/adultslime/pet = new /mob/living/simple_animal/adultslime(M.loc)
-		pet.icon_state = "[M.colour] adult slime"
-		pet.icon_living = "[M.colour] adult slime"
-		pet.icon_dead = "[M.colour] baby slime dead"
-		pet.colour = "[M.colour]"
-		to_chat(user, "You feed the slime the potion, removing it's powers and calming it.")
-		qdel(M)
-		var/newname = sanitize(input(user, "Would you like to give the slime a name?", "Name your new pet", "pet slime") as null|text, MAX_NAME_LEN)
+/obj/item/slimepotion2/attack(mob/living/carbon/slime/M as mob, mob/user as mob)
+	if(!istype(M, /mob/living/carbon/slime/))//If target is not a slime.
+		to_chat(user, SPAN_WARNING("The potion only works on slimes!"))
+		return ..()
+	if(M.stat)
+		to_chat(user, SPAN_WARNING("The slime is dead!"))
+		return ..()
+	if(M.mind)
+		to_chat(user, SPAN_WARNING("The slime resists!"))
+		return ..()
+	var/mob/living/simple_animal/adultslime/pet = new /mob/living/simple_animal/adultslime(M.loc)
+	pet.icon_state = "[M.colour] adult slime"
+	pet.icon_living = "[M.colour] adult slime"
+	pet.icon_dead = "[M.colour] baby slime dead"
+	pet.colour = "[M.colour]"
+	to_chat(user, "You feed the slime the potion, removing it's powers and calming it.")
+	qdel(M)
+	var/newname = sanitize(input(user, "Would you like to give the slime a name?", "Name your new pet", "pet slime") as null|text, MAX_NAME_LEN)
 
-		if(!newname)
-			newname = "pet slime"
-		pet.name = newname
-		pet.real_name = newname
-		qdel(src)
+	if(!newname)
+		newname = "pet slime"
+	pet.name = newname
+	pet.real_name = newname
+	qdel(src)
 
 /obj/item/slimesteroid
 	name = "slime steroid"
@@ -224,13 +224,11 @@
 	icon_state = "golem"
 	unacidable = TRUE
 	layer = TURF_LAYER
-	var/wizardy = FALSE //if this rune can only be used by a wizard or not
 	var/golem_type = "Adamantine Golem"
 
 /obj/effect/golemrune/Initialize()
 	. = ..()
 	START_PROCESSING(SSprocessing, src)
-	announce_to_ghosts()
 	SSghostroles.add_spawn_atom("golem", src)
 
 /obj/effect/golemrune/random_type/Initialize()
@@ -255,7 +253,7 @@
 	else
 		icon_state = "golem"
 
-/obj/effect/golemrune/proc/spawn_golem(var/mob/user)
+/obj/effect/golemrune/assign_player(var/mob/user)
 	var/obj/item/stack/material/O = (locate(/obj/item/stack/material) in src.loc)
 	if(O?.amount >= 10)
 		if(O.material.golem)
@@ -270,16 +268,14 @@
 	G.set_species(golem_type)
 	G.name = G.species.get_random_name()
 	G.real_name = G.name
+	G.accent = G.species.default_accent
+	G.preEquipOutfit(/datum/outfit/admin/golem, FALSE)
+	G.equipOutfit(/datum/outfit/admin/golem, FALSE)
 	to_chat(G, SPAN_NOTICE("You are a golem. Serve your master, and assist them in completing their goals at any cost."))
+
 	qdel(src)
 
-/obj/effect/golemrune/proc/announce_to_ghosts()
-	var/area/A = get_area(src)
-	if(A)
-		say_dead_direct("A golem rune has been created in [A.name]! Access using the ghost spawner menu in the ghost tab.")
-
-/obj/effect/golemrune/wizard
-	wizardy = TRUE
+	return G
 
 /mob/living/carbon/slime/has_eyes()
 	return FALSE

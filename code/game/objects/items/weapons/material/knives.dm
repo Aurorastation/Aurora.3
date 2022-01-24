@@ -12,7 +12,7 @@
 	desc = "A general purpose Chef's Knife made by SpaceCook Incorporated. Guaranteed to stay sharp for years to come."
 	flags = CONDUCT
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	var/active = 1 // For butterfly knives
 	force_divisor = 0.15 // 9 when wielded with hardness 60 (steel)
 	matter = list(DEFAULT_WALL_MATERIAL = 12000)
@@ -21,17 +21,18 @@
 	unbreakable = 1
 	drop_sound = 'sound/items/drop/knife.ogg'
 	pickup_sound = 'sound/items/pickup/knife.ogg'
+	hitsound = 'sound/weapons/bladeslice.ogg'
 
 /obj/item/material/knife/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(active == 1)
-		if(target_zone != BP_EYES && target_zone != BP_HEAD)
+		if((target_zone != BP_EYES && target_zone != BP_HEAD) || M.eyes_protected(src, FALSE))
 			return ..()
 		if((user.is_clumsy()) && prob(50))
 			M = user
 		return eyestab(M,user)
 
-/obj/item/material/knife/verb/extract_shrapnel(var/mob/living/carbon/human/H as mob in view(1))
-	set name = "Extract Shrapnel"
+/obj/item/material/knife/verb/extract_embedded(var/mob/living/carbon/human/H as mob in view(1))
+	set name = "Extract Embedded Item"
 	set category = "Object"
 	set src in usr
 
@@ -41,18 +42,24 @@
 	if(!istype(H))
 		return
 
-	if(!H.get_visible_implants(1))
-		to_chat(usr, "<span class='warning'>There's nothing large enough to remove!</span>")
+	var/list/available_organs = list()
+	for(var/thing in H.organs)
+		var/obj/item/organ/external/O = thing
+		available_organs[capitalize_first_letters(O.name)] = O
+	var/choice = input(usr, "Select an external organ to extract any embedded or implanted item from.", "Organ Selection") as null|anything in available_organs
+	if(!choice)
 		return
 
-	for(var/obj/item/material/shard/S in H.contents)
-		visible_message("<span class='notice'>[usr] starts carefully digging out some of the shrapnel in [H == usr ? "themselves" : H]...</span>")
+	var/obj/item/organ/external/O = available_organs[choice]
+	for(var/thing in O.implants)
+		var/obj/S = thing
+		usr.visible_message("<span class='notice'>[usr] starts carefully digging out something in [H == usr ? "themselves" : H]...</span>")
+		O.take_damage(8, 0, DAM_SHARP|DAM_EDGE, src)
 		H.custom_pain("<font size=3><span class='danger'>It burns!</span></font>", 50)
 		if(do_mob(usr, H, 100))
 			H.remove_implant(S, FALSE)
-			log_and_message_admins("has extracted shrapnel out of [key_name(H)]")
-		if(H.can_feel_pain())
-			H.emote("scream")
+			log_and_message_admins("has extracted [S] out of [key_name(H)]")
+		H.emote("scream")
 
 /obj/item/material/knife/ritual
 	name = "ritual knife"
@@ -71,7 +78,7 @@
 	applies_material_colour = 0
 	force_divisor = 0.35
 	can_embed = 0
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 
 /obj/item/material/knife/tacknife
 	name = "tactical knife"
@@ -90,7 +97,7 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "trench"
 	item_state = "knife"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	applies_material_colour = 0
 	slot_flags = SLOT_BELT
 
@@ -108,25 +115,25 @@
 		)
 	hitsound = null
 	active = 0
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	attack_verb = list("patted", "tapped")
 	force_divisor = 0.25 // 15 when wielded with hardness 60 (steel)
 	thrown_force_divisor = 0.25 // 5 when thrown with weight 20 (steel)
 
 /obj/item/material/knife/butterfly/update_force()
 	if(active)
-		edge = 1
+		edge = TRUE
 		sharp = 1
 		..() //Updates force.
 		throwforce = max(3,force-3)
 		icon_state += "_open"
 		item_state = icon_state
 		hitsound = 'sound/weapons/bladeslice.ogg'
-		w_class = 3
+		w_class = ITEMSIZE_NORMAL
 		attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	else
 		force = 3
-		edge = 0
+		edge = FALSE
 		sharp = 0
 		hitsound = initial(hitsound)
 		icon_state = initial(icon_state)

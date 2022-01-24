@@ -1,9 +1,9 @@
 /obj/item/aicard
-	name = "inteliCard"
+	name = "intelliCard"
 	icon = 'icons/obj/pai.dmi'
 	icon_state = "aicard" // aicard-full
 	item_state = "electronic"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_BELT
 	var/flush = null
 	origin_tech = list(TECH_DATA = 4, TECH_MATERIAL = 4)
@@ -31,46 +31,60 @@
 		to_chat(user, "<b>ERROR ERROR ERROR</b>")
 
 /obj/item/aicard/attack_self(mob/user)
-
 	ui_interact(user)
 
-/obj/item/aicard/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = inventory_state)
-	var/data[0]
+/obj/item/aicard/ui_interact(mob/user, datum/topic_state/state = inventory_state)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+
+	if (!ui)
+		ui = new(user, src, "devices-aicard", 600, 400, "[name]", state = state)
+		ui.auto_update_content = TRUE
+
+	ui.open()
+
+/obj/item/aicard/vueui_data_change(list/data, mob/user, datum/vueui/ui)
+	data = list(
+		"has_ai" = FALSE,
+		"name" = null,
+		"hardware_integrity" = null,
+		"backup_capacitor" = null,
+		"radio" = null,
+		"wireless" = null,
+		"operational" = null,
+		"flushing" = FALSE,
+		"laws" = null,
+		"has_laws" = null
+	)
+
 	data["has_ai"] = carded_ai != null
-	if(carded_ai)
+	if (carded_ai)
 		data["name"] = carded_ai.name
 		data["hardware_integrity"] = carded_ai.hardware_integrity()
 		data["backup_capacitor"] = carded_ai.backup_capacitor()
-		data["radio"] = !carded_ai.ai_radio.disabledAi
+		data["radio"] = !carded_ai.ai_radio?.disabledAi
 		data["wireless"] = !carded_ai.control_disabled
 		data["operational"] = carded_ai.stat != DEAD
 		data["flushing"] = flush
 
-		var/laws[0]
+		var/list/laws = list()
 		for(var/datum/ai_law/AL in carded_ai.laws.all_laws())
 			laws[++laws.len] = list("index" = AL.get_index(), "law" = sanitize(AL.law))
 		data["laws"] = laws
-		data["has_laws"] = laws.len
+		data["has_laws"] = !!laws.len
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "aicard.tmpl", "[name]", 600, 400, state = state)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
 /obj/item/aicard/Topic(href, href_list, state)
-	if(..())
+	if (..())
 		return 1
 
-	if(!carded_ai)
+	if (!carded_ai)
 		return 1
 
-	var/user = usr
 	if (href_list["wipe"])
 		var/confirm = alert("Are you sure you want to wipe this card's memory? This cannot be undone once started.", "Confirm Wipe", "Yes", "No")
-		if(confirm == "Yes" && (CanUseTopic(user, state) == STATUS_INTERACTIVE))
-			admin_attack_log(user, carded_ai, "Wiped using \the [src.name]", "Was wiped with \the [src.name]", "used \the [src.name] to wipe")
+		if(confirm == "Yes" && (CanUseTopic(usr, state) == STATUS_INTERACTIVE))
+			admin_attack_log(usr, carded_ai, "Wiped using \the [src.name]", "Was wiped with \the [src.name]", "used \the [src.name] to wipe")
 			flush = 1
 			to_chat(carded_ai, "Your core files are being wiped!")
 			while (carded_ai && carded_ai.stat != DEAD)
@@ -78,14 +92,14 @@
 				carded_ai.updatehealth()
 				sleep(10)
 			flush = 0
-	if (href_list["radio"])
+	if (!isnull(href_list["radio"]))
 		carded_ai.ai_radio.disabledAi = text2num(href_list["radio"])
 		to_chat(carded_ai, "<span class='warning'>Your Subspace Transceiver has been [carded_ai.ai_radio.disabledAi ? "disabled" : "enabled"]!</span>")
-		to_chat(user, "<span class='notice'>You [carded_ai.ai_radio.disabledAi ? "disable" : "enable"] the AI's Subspace Transceiver.</span>")
-	if (href_list["wireless"])
+		to_chat(usr, "<span class='notice'>You [carded_ai.ai_radio.disabledAi ? "disable" : "enable"] the AI's Subspace Transceiver.</span>")
+	if (!isnull(href_list["wireless"]))
 		carded_ai.control_disabled = text2num(href_list["wireless"])
 		to_chat(carded_ai, "<span class='warning'>Your wireless interface has been [carded_ai.control_disabled ? "disabled" : "enabled"]!</span>")
-		to_chat(user, "<span class='notice'>You [carded_ai.control_disabled ? "disable" : "enable"] the AI's wireless interface.</span>")
+		to_chat(usr, "<span class='notice'>You [carded_ai.control_disabled ? "disable" : "enable"] the AI's wireless interface.</span>")
 		update_icon()
 	return 1
 

@@ -120,3 +120,26 @@
 	statuscode = 200
 	response = "Text sent"
 	return TRUE
+
+//Reloads all admins via remote command. Updates from the forumuser API if enabled.
+/datum/topic_command/admins_reload
+	name = "admins_reload"
+	description = "Reloads all admins and pulls new data from the forumuser API if it's enabled."
+
+/datum/topic_command/broadcast_text/run_command(queryparams)
+	log_and_message_admins("AdminRanks: remote reload of the admins list initiated.")
+
+	if (config.use_forumuser_api)
+		if (!update_admins_from_api(reload_once_done=FALSE))
+			statuscode = 500
+			response = "Updating admins from the forumuser API failed. Aborted."
+			return FALSE
+		else
+			statuscode = 201
+			response = "Admins updated from the forumuser API and reloaded."
+	else
+		statuscode = 200
+		response = "Admins reloaded."
+
+	load_admins()
+	return TRUE

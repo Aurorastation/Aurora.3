@@ -5,21 +5,13 @@
 	station_area = 1
 	holomap_color = HOLOMAP_AREACOLOR_MEDICAL
 
+//Medbay is a large area, these additional areas help level out APC load.
+
 /area/medical/medbay
 	name = "Medbay Hallway - Port"
 	lightswitch = TRUE
 	icon_state = "medbay"
 	ambience = list('sound/ambience/signal.ogg')
-
-//Medbay is a large area, these additional areas help level out APC load.
-
-/area/medical/emt
-	name = "Medical - Emergency Technician Storage"
-	icon_state = "medbay"
-
-/area/medical/temp_morgue
-	name = "Medical - Temporary Morgue"
-	icon_state = "morgue"
 
 /area/medical/medbay2
 	name = "Medbay Hallway - Starboard"
@@ -39,10 +31,18 @@
 	icon_state = "medbay4"
 	ambience = list('sound/ambience/signal.ogg')
 
+/area/medical/first_responder
+	name = "Medical - First Responder Equipment Storage"
+	icon_state = "medbay"
+
+/area/medical/temp_morgue
+	name = "Medical - Temporary Morgue"
+	icon_state = "morgue"
+	ambience = AMBIENCE_GHOSTLY
+
 /area/medical/biostorage
 	name = "Medical - Secondary Storage"
 	icon_state = "medbay2"
-	ambience = list('sound/ambience/signal.ogg')
 
 /area/medical/reception
 	name = "Medical - Reception"
@@ -52,7 +52,6 @@
 /area/medical/psych
 	name = "Medical - Psych Room"
 	icon_state = "medbay3"
-	ambience = list('sound/ambience/signal.ogg')
 
 /area/medical/upperlevel
 	name = "Medical - Upper-Level Hallway"
@@ -62,7 +61,6 @@
 /area/crew_quarters/medbreak
 	name = "Medical - Break Room"
 	icon_state = "medbay3"
-	ambience = list('sound/ambience/signal.ogg')
 
 /area/medical/patients_rooms
 	name = "Medical - Patient's Rooms"
@@ -120,22 +118,12 @@
 /area/medical/robotics
 	name = "Robotics"
 	icon_state = "medresearch"
-
-/area/medical/abandoned
-	name = "Abandoned Sector"
-	icon_state = "green"
-	ambience = list(
-		'sound/ambience/ambimaint1.ogg',
-		'sound/ambience/ambimaint2.ogg',
-		'sound/ambience/ambimaint3.ogg',
-		'sound/ambience/ambimaint4.ogg',
-		'sound/ambience/ambimaint5.ogg'
-	)
+	ambience = AMBIENCE_ENGINEERING
 
 /area/medical/morgue
 	name = "Medical - Long-term Morgue"
 	icon_state = "morgue"
-	ambience = list('sound/ambience/ambimo1.ogg','sound/ambience/ambimo2.ogg','sound/music/main.ogg')
+	ambience = AMBIENCE_GHOSTLY
 
 /area/medical/pharmacy
 	name = "Medical - Pharmacy"
@@ -167,7 +155,11 @@
 	icon_state = "cryo"
 
 /area/medical/exam_room
-	name = "Medical - Exam Room"
+	name = "Medical - Exam Room 1"
+	icon_state = "exam_room"
+
+/area/medical/exam_room2
+	name = "Medical - Exam Room 2"
 	icon_state = "exam_room"
 
 /area/medical/genetics

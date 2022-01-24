@@ -1,16 +1,24 @@
 <template>
   <div @click="senddata()" class="button" :disabled="$root.$data.status < 2 || this.disabled">
-    <div v-if="icon" class="uiIcon16" :class="'ic-' + icon"/>
+    <div v-if="icon" class="uiIcon16" :class="[`ic-${this.icon}`, {'mr-1': !this.iconOnly}, getRotateClass, getFlipClass]"/>
     <span><slot/></span>
   </div>
 </template>
 
 <script>
-import Store from '../../store.js'
-import Utils from '../../utils.js'
+import Store from "@/store"
+import Utils from "@/utils"
 export default {
   props: {
     icon: {
+      type: String,
+      default: ""
+    },
+    rotate: {
+      type: Number,
+      default: 0
+    },
+    flip: {
       type: String,
       default: ""
     },
@@ -27,6 +35,10 @@ export default {
       default: false
     },
     disabled: {
+      type: Boolean,
+      default: false
+    },
+    iconOnly: {
       type: Boolean,
       default: false
     }
@@ -48,12 +60,24 @@ export default {
       }
       Utils.sendToTopic(this.params, this.pushState)
     }
+  },
+  computed: {
+    getRotateClass() {
+      switch(this.rotate % 360) {
+        case 90:
+          return "ic-rotate-90"
+        case 180:
+          return "ic-rotate-180"
+        case 270:
+          return "ic-rotate-270"
+        default:
+          return ""
+      }
+    },
+    getFlipClass() {
+      if(!this.flip) return
+      return `ic-flip-${this.flip}`
+    }
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.uiIcon16 {
-  margin-right: 4px;
-}
-</style>

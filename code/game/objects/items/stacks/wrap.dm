@@ -14,10 +14,22 @@
 
 /obj/item/stack/wrapping_paper/attackby(obj/item/W, mob/user)
 	..()
+	if (isrobot(user))
+		if(istype(W.loc, /obj/item/gripper))
+			var/obj/item/gripper/G = W.loc
+			if(!is_type_in_list(G, list(/obj/item/gripper/service, /obj/item/gripper/paperwork)))
+				to_chat(user, SPAN_WARNING("\The [G] isn't deft enough to wrap up \the [G.wrapped]."))
+				return
+		else if(istype(W, /obj/item/gripper))
+			return
+		else
+			to_chat(user, SPAN_WARNING("You can't wrap up a cyborg module!"))
+			// Prevent robots from accidentally wrapping any of their internal tools, and non-service borgs from wrapping up parcels
+			return
 	if (!isturf(loc))
 		to_chat(user, SPAN_WARNING("The paper must be set down for you to wrap a gift!"))
 		return
-	if (W.w_class < 4)
+	if (W.w_class < ITEMSIZE_LARGE)
 		var/a_used = 2 * (src.w_class - 1)
 		if (src.amount < a_used)
 			to_chat(user, SPAN_WARNING("You need more paper!"))
@@ -68,7 +80,7 @@
 			H.forceMove(present)
 
 			H.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been wrapped with [src.name]  by [user.name] ([user.ckey])</font>")
-			user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src.name] to wrap [H.name] ([H.ckey])</font>")
+			user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Used the [src.name] to wrap [H.name] ([H.ckey])</span>")
 			msg_admin_attack("[key_name_admin(user)] used [src] to wrap [key_name_admin(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(H))
 
 		else
@@ -81,7 +93,7 @@
 	icon = 'icons/obj/stacks/wrap.dmi'
 	icon_state = "deliveryPaper"
 	desc = "A roll of paper used to enclose an object for delivery."
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	amount = 25.0
 	var/wrapping_tag = "Sorting Office"
 	drop_sound = 'sound/items/drop/wrapper.ogg'
@@ -101,7 +113,7 @@
 	if(user in target) //no wrapping closets that you are inside - it's not physically possible
 		return
 
-	user.attack_log += text("\[[time_stamp()]\] <font color='blue'>Has used [src.name] on \ref[target]</font>")
+	user.attack_log += text("\[[time_stamp()]\] <span class='notice'>Has used [src.name] on \ref[target]</span>")
 
 
 	if (istype(target, /obj/item) && !(istype(target, /obj/item/storage) && !istype(target,/obj/item/storage/box)))
@@ -187,6 +199,6 @@
 	icon = 'icons/obj/stacks/wrap.dmi'
 	icon_state = "c_tube"
 	throwforce = 1
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	throw_speed = 4
 	throw_range = 5

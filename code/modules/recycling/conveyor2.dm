@@ -1,3 +1,4 @@
+#define MAX_CONVEYOR_ITEMS_MOVE 20
 //conveyor2 is pretty much like the original, except it supports corners, but not diverters.
 //note that corner pieces transfer stuff clockwise when running forward, and anti-clockwise backwards.
 
@@ -14,8 +15,8 @@
 	var/backwards		// hopefully self-explanatory
 	var/movedir			// the actual direction to move stuff in
 	var/reversed		// se to 1 if the belt is reversed
+	var/conveying = FALSE
 
-	var/list/affecting	// the list of all items that will be moved this ptick
 	var/id = ""			// the control ID	- must match controller ID
 
 	var/listener/antenna
@@ -45,7 +46,6 @@
 
 /obj/machinery/conveyor/Destroy()
 	QDEL_NULL(antenna)
-	affecting = null
 	return ..()
 
 /obj/machinery/conveyor/proc/setmove()
@@ -72,7 +72,7 @@
 /obj/machinery/conveyor/machinery_process()
 	if(stat & (BROKEN | NOPOWER))
 		return
-	if(!operating)
+	if(!operating || conveying)
 		return
 
 	if (!loc)
@@ -81,25 +81,31 @@
 
 	use_power(100)
 
-	var/list/affecting = loc.contents.Copy() - src
-	if (affecting.len)
-		addtimer(CALLBACK(src, .proc/post_process, affecting), 1)	// slight delay to prevent infinite propagation due to map order
+	var/turf/locturf = loc
+	var/list/items = locturf.contents - src
+	if(!length(items))
+		return
+	var/list/affecting
+	if(length(items) > MAX_CONVEYOR_ITEMS_MOVE)
+		affecting = items.Copy(1, MAX_CONVEYOR_ITEMS_MOVE + 1)
+	else
+		affecting = items
+	conveying = TRUE
 
-/obj/machinery/conveyor/proc/post_process(list/affecting)
-	var/items_moved = 0
-	for (var/thing in affecting)
-		var/atom/movable/AM = thing
-		if (AM.anchored || !AM.simulated)
+	addtimer(CALLBACK(src,.proc/post_process, affecting),1)
+
+/obj/machinery/conveyor/proc/post_process(var/list/affecting)
+	for(var/af in affecting)
+		if(!ismovable(af))
 			continue
-
-		if (AM.loc != loc)	// prevents the object from being affected if it's not currently here.
+		var/atom/movable/mv = af
+		stoplag()
+		if(QDELETED(mv) || (mv.loc != loc))
 			continue
-
-		if (items_moved >= 10 || TICK_CHECK)
-			break
-
-		AM.conveyor_act(movedir)
-		items_moved++
+		if(!mv.simulated)
+			continue
+		mv.conveyor_act(movedir)
+	conveying = FALSE
 
 /atom/movable/proc/conveyor_act(move_dir)
 	set waitfor = FALSE
@@ -291,7 +297,7 @@
 	icon_state = "conveyor0"
 	name = "conveyor belt assembly"
 	desc = "A conveyor belt assembly."
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	var/id = "" //inherited by the belt
 
 /obj/item/conveyor_construct/attackby(obj/item/I, mob/user, params)
@@ -322,7 +328,7 @@
 	desc = "A conveyor control switch assembly."
 	icon = 'icons/obj/recycling.dmi'
 	icon_state = "switch-off"
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	var/id = "" //inherited by the switch
 
 /obj/item/conveyor_switch_construct/New()
@@ -338,7 +344,7 @@
 			found = 1
 			break
 	if(!found)
-		to_chat(user, "\icon[src]<span class=notice>The conveyor switch did not detect any linked conveyor belts in range.</span>")
+		to_chat(user, "[icon2html(src, user)]<span class=notice>The conveyor switch did not detect any linked conveyor belts in range.</span>")
 		return
 	var/obj/machinery/conveyor_switch/NC = new/obj/machinery/conveyor_switch(A, id)
 	transfer_fingerprints_to(NC)

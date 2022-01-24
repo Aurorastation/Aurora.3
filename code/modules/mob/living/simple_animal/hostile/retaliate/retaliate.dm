@@ -15,28 +15,38 @@
 			enemies -= L
 
 /mob/living/simple_animal/hostile/retaliate/ListTargets()
-	if(!enemies.len)
+	if(!length(enemies))
 		return list()
 	var/list/see = ..()
 	see &= enemies // Remove all entries that aren't in enemies
 	return see
 
-/mob/living/simple_animal/hostile/retaliate/proc/Retaliate()
-	var/list/around = view(src, 7)
+/mob/living/simple_animal/hostile/retaliate/handle_attack_by(mob/M)
+	enemies |= M
+	targets |= M
 
-	for(var/atom/movable/A in around)
-		if(A == src)
-			continue
-		if(isliving(A))
-			var/mob/living/M = A
-			if(!attack_same && M.faction != faction)
-				enemies |= M
+	for(var/mob/living/simple_animal/hostile/retaliate/H in view(world.view, get_turf(src)))
+		if(H.faction == faction)
+			H.enemies |= M
 
-	for(var/mob/living/simple_animal/hostile/retaliate/H in around)
-		if(!attack_same && !H.attack_same && H.faction == faction)
-			H.enemies |= enemies
-	return 0
+/mob/living/simple_animal/proc/name_species()
+	set name = "Name Alien Species"
+	set category = "Object"
+	set src in view()
 
-/mob/living/simple_animal/hostile/retaliate/adjustBruteLoss(var/damage)
-	..(damage)
-	Retaliate()
+	if(!current_map.use_overmap)
+		return
+
+	if(use_check_and_message(usr))
+		return
+
+	for(var/obj/effect/overmap/visitable/sector/exoplanet/E in SSshuttle.initialized_sectors)
+		if(src in E.animals)
+			var/newname = input("What do you want to name this species?", "Species naming", E.get_random_species_name()) as text|null
+			newname = sanitizeName(newname, allow_numbers = TRUE)
+			if(newname && !use_check_and_message(usr))
+				if(E.rename_species(type, newname))
+					to_chat(usr,"<span class='notice'>This species will be known from now on as '[newname]'.</span>")
+				else
+					to_chat(usr,"<span class='warning'>This species has already been named!</span>")
+			return

@@ -26,7 +26,14 @@
 	var/obj/machinery/atmospherics/portables_connector/port = locate() in loc
 	if(port)
 		connect(port)
-		update_icon()
+
+/obj/machinery/portable_atmospherics/canister/Initialize()
+	..()
+
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/portable_atmospherics/canister/LateInitialize()
+	update_icon()
 
 /obj/machinery/portable_atmospherics/machinery_process()
 	if(!connected_port) //only react when pipe_network will ont it do it for you
@@ -34,6 +41,7 @@
 		air_contents.react()
 	else
 		update_icon()
+		SSvueui.check_uis_for_change(src)
 
 /obj/machinery/portable_atmospherics/Destroy()
 	qdel(air_contents)
@@ -42,8 +50,8 @@
 
 /obj/machinery/portable_atmospherics/proc/StandardAirMix()
 	return list(
-		"oxygen" = O2STANDARD * MolesForPressure(),
-		"nitrogen" = N2STANDARD *  MolesForPressure())
+		GAS_OXYGEN = O2STANDARD * MolesForPressure(),
+		GAS_NITROGEN = N2STANDARD *  MolesForPressure())
 
 /obj/machinery/portable_atmospherics/proc/MolesForPressure(var/target_pressure = start_pressure)
 	return (target_pressure * air_contents.volume) / (R_IDEAL_GAS_EQUATION * air_contents.temperature)
@@ -106,6 +114,7 @@
 		user.drop_from_inventory(T,src)
 		src.holding = T
 		update_icon()
+		SSvueui.check_uis_for_change(src)
 		return
 
 	else if (W.iswrench())
@@ -113,6 +122,7 @@
 			disconnect()
 			to_chat(user, "<span class='notice'>You disconnect \the [src] from the port.</span>")
 			update_icon()
+			SSvueui.check_uis_for_change(src)
 			return
 		else
 			var/obj/machinery/atmospherics/portables_connector/possible_port = locate(/obj/machinery/atmospherics/portables_connector/) in loc
@@ -120,6 +130,7 @@
 				if(connect(possible_port))
 					to_chat(user, "<span class='notice'>You connect \the [src] to the port.</span>")
 					update_icon()
+					SSvueui.check_uis_for_change(src)
 					return
 				else
 					to_chat(user, "<span class='notice'>\The [src] failed to connect to the port.</span>")
@@ -133,8 +144,7 @@
 		A.analyze_gases(src, user)
 		return
 
-	return
-
+	return ..()
 
 
 /obj/machinery/portable_atmospherics/powered
@@ -164,6 +174,7 @@
 		cell = C
 		user.visible_message("<span class='notice'>[user] opens the panel on [src] and inserts [C].</span>", "<span class='notice'>You open the panel on [src] and insert [C].</span>")
 		power_change()
+		SSvueui.check_uis_for_change(src)
 		return
 
 	if(I.isscrewdriver())
@@ -176,6 +187,7 @@
 		cell.forceMove(src.loc)
 		cell = null
 		power_change()
+		SSvueui.check_uis_for_change(src)
 		return
 	..()
 
@@ -195,3 +207,9 @@
 
 	log_admin("[user] ([user.ckey]) opened '[src.name]' containing [gases].", ckey=key_name(user))
 	message_admins("[key_name_admin(user)] opened '[src.name]' containing [gases]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
+
+/obj/machinery/portable_atmospherics/proc/log_open_userless(var/cause)
+	if(air_contents.gas.len == 0)
+		return
+
+	message_admins("'[src.name]' was opened[cause ? " by [cause]" : ""], containing [english_list(air_contents.gas)]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")

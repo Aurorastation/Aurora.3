@@ -8,8 +8,17 @@
 		slot_l_hand_str = "syndicate-helm-black-red",
 		slot_r_hand_str = "syndicate-helm-black-red"
 		)
-	armor = list(melee = 65, bullet = 55, laser = 35,energy = 20, bomb = 30, bio = 100, rad = 60)
-	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL
+	armor = list(
+		melee = ARMOR_MELEE_VERY_HIGH, 
+		bullet = ARMOR_BALLISTIC_MEDIUM, 
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_SMALL, 
+		bomb = ARMOR_BOMB_PADDED, 
+		bio = ARMOR_BIO_SHIELDED, 
+		rad = ARMOR_RAD_RESISTANT
+	)
+	max_pressure_protection = FIRESUIT_MAX_PRESSURE
+	min_pressure_protection = 0
 	flags_inv = BLOCKHAIR
 	siemens_coefficient = 0.6
 
@@ -17,9 +26,15 @@
 /obj/item/clothing/head/helmet/space/deathsquad/beret
 	name = "officer's beret"
 	desc = "An armored beret commonly used by special operations officers."
-	icon_state = "beret_badge"
-	armor = list(melee = 65, bullet = 55, laser = 35,energy = 20, bomb = 30, bio = 30, rad = 30)
-	item_flags = STOPPRESSUREDAMAGE
+	icon = 'icons/obj/clothing/hats/berets.dmi'
+	icon_state = "beret_sec"
+	item_state = "beret_sec"
+	contained_sprite = TRUE
+	armor = list(
+		melee = ARMOR_MELEE_KNIVES,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR
+	)
 	flags_inv = BLOCKHAIR
 	siemens_coefficient = 0.9
 
@@ -29,7 +44,6 @@
 	desc = "Ho ho ho. Merrry X-mas!"
 	icon_state = "santahat"
 	item_state = "santahat"
-	item_flags = STOPPRESSUREDAMAGE
 	flags_inv = BLOCKHAIR
 	body_parts_covered = HEAD
 
@@ -39,7 +53,6 @@
 	icon_state = "santa"
 	item_state = "santa"
 	slowdown = 0
-	item_flags = STOPPRESSUREDAMAGE
 	allowed = list(/obj/item) //for stuffing exta special presents
 
 //Space pirate outfit
@@ -48,8 +61,15 @@
 	desc = "Yarr."
 	icon_state = "pirate"
 	item_state = "pirate"
-	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 30, rad = 30)
-	item_flags = STOPPRESSUREDAMAGE
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR, 
+		bullet = ARMOR_BALLISTIC_PISTOL, 
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR, 
+		bomb = ARMOR_BOMB_PADDED, 
+		bio = ARMOR_BIO_SMALL, 
+		rad = ARMOR_RAD_MINOR
+	)
 	flags_inv = BLOCKHAIR
 	body_parts_covered = 0
 	siemens_coefficient = 0.4
@@ -59,10 +79,18 @@
 	desc = "Yarr."
 	icon_state = "pirate"
 	item_state = "pirate"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	allowed = list(/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/tank/emergency_oxygen)
 	slowdown = 0
-	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 30, rad = 30)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR, 
+		bullet = ARMOR_BALLISTIC_PISTOL, 
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR, 
+		bomb = ARMOR_BOMB_PADDED, 
+		bio = ARMOR_BIO_SMALL, 
+		rad = ARMOR_RAD_MINOR
+	)
 	siemens_coefficient = 0.4
 	body_parts_covered = UPPER_TORSO|ARMS
 

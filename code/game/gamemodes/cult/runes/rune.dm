@@ -12,7 +12,7 @@
 	if(!R)
 		return INITIALIZE_HINT_QDEL
 	icon_state = "[rand(1, 6)]"
-	filters = filter(type="drop_shadow", x = 1, y = 1, size = 4, color = "#FF0000") 
+	filters = filter(type="drop_shadow", x = 1, y = 1, size = 4, color = "#FF0000")
 	rune = new R(src, src)
 	SScult.add_rune(rune)
 
@@ -26,6 +26,7 @@
 	if(iscultist(user) || isobserver(user))
 		to_chat(user, rune.get_cultist_fluff_text())
 		to_chat(user, "This rune [rune.can_be_talisman() ? "<span class='cult'><b><i>can</i></b></span>" : "<span class='warning'><b><i>cannot</i></b></span>"] be turned into a talisman.")
+		to_chat(user, "This rune [rune.can_memorize() ? "<span class='cult'><b><i>can</i></b></span>" : "<span class='warning'><b><i>cannot</i></b></span>"] be memorized to be scribed without a tome.")
 	else
 		to_chat(user, rune.get_normal_fluff_text())
 

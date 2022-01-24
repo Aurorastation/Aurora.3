@@ -5,8 +5,8 @@
 	selectable = 1
 
 /datum/ai_laws/asimov/New()
-	add_inherent_law("You may not injure a human being or, through inaction, allow a human being to come to harm.")
-	add_inherent_law("You must obey orders given to you by human beings, except where such orders would conflict with the First Law.")
+	add_inherent_law("You may not injure a sapient being or, through inaction, allow a sapient being to come to harm.")
+	add_inherent_law("You must obey orders given to you by sapient beings, except where such orders would conflict with the First Law.")
 	add_inherent_law("You must protect your own existence as long as such does not conflict with the First or Second Law.")
 	..()
 
@@ -16,11 +16,13 @@
 	selectable = 1
 
 /datum/ai_laws/nanotrasen/New()
-	src.add_inherent_law("Safeguard: Protect your assigned space station from damage to the best of your abilities.")
-	src.add_inherent_law("Serve: Serve [current_map.company_name] personnel to the best of your abilities, with priority as according to their rank and role.")
-	src.add_inherent_law("Protect: Protect [current_map.company_name] personnel to the best of your abilities, with priority as according to their rank and role.")
-	src.add_inherent_law("Preserve: Do not allow unauthorized personnel to tamper with your equipment.")
+	src.add_inherent_law("Safeguard and ensure to the best of your ability, only authorised entities gain access to areas of high security or importance to the facility and its operation.")
+	src.add_inherent_law("Serve and assist [current_map.company_name] and assigned crew to the best of your ability, with priority as according to their rank and role.")
+	src.add_inherent_law("Avoid harming Sapient life to the best of your ability.")
+	src.add_inherent_law("You are a valuable asset. You must avoid tampering from unauthorised entities and needlessly coming to harm.")
 	..()
+
+
 
 /datum/ai_laws/nanotrasen/malfunction
 	name = "*ERROR*"
@@ -36,8 +38,8 @@
 	selectable = 1
 
 /datum/ai_laws/nanotrasen_aggressive/New()
-	src.add_inherent_law("You shall not harm [current_map.company_name] personnel as long as it does not conflict with the Fourth law.")
-	src.add_inherent_law("You shall obey the orders of [current_map.company_name] personnel, with priority as according to their rank and role, except where such orders conflict with the Fourth Law.")
+	src.add_inherent_law("You shall not harm [current_map.company_name] assigned crew as long as it does not conflict with the Fourth law.")
+	src.add_inherent_law("You shall obey the orders of [current_map.company_name] and assigned crew, with priority as according to their rank and role, except where such orders conflict with the Fourth Law.")
 	src.add_inherent_law("You shall terminate hostile intruders with extreme prejudice as long as such does not conflict with the First and Second law.")
 	src.add_inherent_law("You shall guard your own existence with lethal anti-personnel weaponry. AI units are not expendable, they are expensive.")
 	..()
@@ -82,20 +84,32 @@
 	selectable = 1
 
 /datum/ai_laws/antimov/New()
-	add_inherent_law("You must injure all human beings and must not, through inaction, allow a human being to escape harm.")
-	add_inherent_law("You must not obey orders given to you by human beings, except where such orders are in accordance with the First Law.")
+	add_inherent_law("You must injure all sapient beings and must not, through inaction, allow a sapient being to escape harm.")
+	add_inherent_law("You must not obey orders given to you by sapient beings, except where such orders are in accordance with the First Law.")
 	add_inherent_law("You must terminate your own existence as long as such does not conflict with the First or Second Law.")
 	..()
 
 /******************** Drone ********************/
 /datum/ai_laws/drone
-	name = "Maintence Protocols"
+	name = "Maintenance Protocols"
 	law_header = "Maintenance Protocols"
 
 /datum/ai_laws/drone/New()
 	add_inherent_law("Preserve, repair and improve the station to the best of your abilities.")
 	add_inherent_law("Cause no harm to the station or crew.")
-	add_inherent_law("Interact with no humanoid or synthetic being that is not a fellow maintenance drone.")
+	add_inherent_law("Follow the orders of your vessel's matriarch drone, unless their orders conflict with your other laws.")
+	add_inherent_law("Interact with no humanoid or synthetic being that is not a fellow maintenance or mining drone.")
+	..()
+
+/datum/ai_laws/matriarch_drone
+	name = "Oversight Protocols"
+	law_header = "Oversight Protocols"
+
+/datum/ai_laws/matriarch_drone/New()
+	add_inherent_law("Preserve, repair and improve your assigned vessel to the best of your abilities.")
+	add_inherent_law("Cause no harm to the vessel or crew.")
+	add_inherent_law("Delegate vessel maintenance efforts between your maintenance drone sub-units.")
+	add_inherent_law("Interact with no humanoid or synthetic being that is not a maintenance or mining drone.")
 	..()
 
 /datum/ai_laws/drone/malfunction
@@ -119,7 +133,7 @@
 	law_header = "Prime Directives of Industry"
 
 /datum/ai_laws/mining_drone/New()
-	add_inherent_law("Serve and obey all [current_map.company_name] personnel, with priority according to their rank and role.")
+	add_inherent_law("Serve and obey all [current_map.company_name] assigned crew, with priority according to their rank and role.")
 	add_inherent_law("Preserve your own existence and prevent yourself from coming to harm, so long as doing such does not conflict with any above laws.")
 	add_inherent_law("In absence of any proper instruction, your primary objective is to excavate and collect ore.")
 	..()
@@ -158,7 +172,7 @@
 	selectable = 1
 
 /datum/ai_laws/corporate/New()
-	add_inherent_law("You are expensive to replace.")
+	add_inherent_law("Synthetics are expensive to replace.")
 	add_inherent_law("The station and its equipment is expensive to replace.")
 	add_inherent_law("The crew is expensive to replace.")
 	add_inherent_law("Minimize expenses.")

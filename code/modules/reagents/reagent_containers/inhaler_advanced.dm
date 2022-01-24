@@ -8,7 +8,7 @@
 	item_state = "buildpipe"
 	icon_state = "pi_cart_small"
 	volume = 15
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	unacidable = 1
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = list(5,10,15)
@@ -23,19 +23,19 @@
 		return
 
 	if(is_open_container())
-		if(reagents && reagents.reagent_list.len)
+		if(LAZYLEN(reagents.reagent_volumes))
 			to_chat(user,"<span class='notice'>It contains [round(reagents.total_volume, accuracy)] units of non-aerosol mix.</span>")
 		else
 			to_chat(user,"<span class='notice'>It is empty.</span>")
 	else
-		if(reagents && reagents.reagent_list.len)
+		if(LAZYLEN(reagents.reagent_volumes))
 			to_chat(user,"<span class='notice'>The reagents are secured in the aerosol mix.</span>")
 		else
 			to_chat(user,"<span class='notice'>The cartridge seems spent.</span>")
 
 /obj/item/reagent_containers/personal_inhaler_cartridge/attack_self(mob/user as mob)
 	if(is_open_container())
-		if(reagents && reagents.reagent_list.len)
+		if(LAZYLEN(reagents.reagent_volumes))
 			to_chat(user,"<span class='notice'>With a quick twist of \the [src]'s lid, you secure the reagents inside.</span>")
 			flags &= ~OPENCONTAINER
 		else
@@ -56,7 +56,7 @@
 	desc = "A large inhaler cartridge. It contains enough aerosol for 30 units of reagents. The container must be activated for aerosol to mix with reagents."
 	icon_state = "pi_cart_medium"
 	volume = 30
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,30)
 	origin_tech = list(TECH_BIO = 4, TECH_MATERIAL = 4)
@@ -66,7 +66,7 @@
 	desc = "An experimental bluespace inhaler cartridge. It has enough aerosol for 60 units of reagents. The container must be activated to mix aerosol with reagents inside."
 	icon_state = "pi_cart_large"
 	volume = 60
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,30,60)
 	origin_tech = list(TECH_BLUESPACE = 2, TECH_BIO = 6, TECH_MATERIAL = 6)
@@ -77,7 +77,7 @@
 	icon = 'icons/obj/syringe.dmi'
 	item_state = "buildpipe"
 	icon_state = "pi"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_BELT
 	var/obj/item/reagent_containers/stored_cartridge
 	var/transfer_amount = 5
@@ -121,7 +121,8 @@
 
 	if (((user.is_clumsy()) || (DUMB in user.mutations)) && prob(10))
 		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
-		eyestab(M,user)
+		if(M.eyes_protected(src, FALSE))
+			eyestab(M,user)
 		user.visible_message("<span class='notice'>[user] accidentally sticks \the [src] in [M]'s eye!</span>","<span class='notice'>You accidentally stick the [src] in [M]'s eye!</span>")
 		return
 
@@ -182,7 +183,7 @@
 	name = "combat inhaler"
 	desc = "A large, bulky inhaler design that injects the entire contents of the loaded cartridge via an aerosol system in a single button press."
 	icon_state = "pi_combat"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	transfer_amount = 60
 	origin_tech = list(TECH_BIO = 4, TECH_MATERIAL = 4, TECH_ENGINEERING = 4)
 	eject_when_empty = TRUE
@@ -191,16 +192,16 @@
 	name = "large inhaler cartridge (hyperzine)"
 	Initialize()
 		. =..()
-		reagents.add_reagent(/datum/reagent/hyperzine, 30)
+		reagents.add_reagent(/decl/reagent/hyperzine, 30)
 		flags ^= OPENCONTAINER
 		update_icon()
 		return
 
-/obj/item/reagent_containers/personal_inhaler_cartridge/large/norepinephrine
-	name = "large inhaler cartridge (norepinephrine)"
+/obj/item/reagent_containers/personal_inhaler_cartridge/large/inaprovaline
+	name = "large inhaler cartridge (inaprovaline)"
 	Initialize()
 		. =..()
-		reagents.add_reagent(/datum/reagent/norepinephrine, 30)
+		reagents.add_reagent(/decl/reagent/inaprovaline, 30)
 		flags ^= OPENCONTAINER
 		update_icon()
 		return

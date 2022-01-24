@@ -1,13 +1,13 @@
 /obj/item/gun/projectile/heavysniper
 	name = "anti-materiel rifle"
-	desc = "A portable anti-armour rifle fitted with a scope, the PTR-7 is capable of punching through windows and non-reinforced walls with ease. Fires armor piercing 14.5mm shells."
-	desc_info = "This is a ballistic weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
-	then click where you want to fire.  The gun's chamber can be opened or closed by using it in your hand.  To reload, open the chamber, add a new bullet \
-	then close it.  To use the scope, use the appropriate verb in the object tab."
+	desc = "The PTR-7 is man-portable anti-armor rifle fitted with a high-powered scope, capable of penetrating through most windows, airlocks, and non-reinforced walls with ease. Fires armor piercing 14.5mm shells."
+	desc_info = "A single-shot, bolt-action anachronism in an age of energy weapons, the PTR-7 was originally developed to combat exosuits, either by disabling critical systems \
+	or killing the pilot. Firing a high-velocity 14.5mm cartridge designed to defeat heavy armor, the PTR-7 boasts penetrative power unmatched by most in its class, though recent advancements \
+	in composites have rendered the weapon less effective at its intended purpose. Nonetheless, it still sees use among some groups as a general-purpose anti-materiel rifle."
 	icon = 'icons/obj/guns/heavysniper.dmi'
 	icon_state = "heavysniper"
 	item_state = "heavysniper"
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	force = 10
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
@@ -19,6 +19,7 @@
 	ammo_type = /obj/item/ammo_casing/a145
 	//+2 accuracy over the LWAP because only one shot
 	accuracy = -3
+	offhand_accuracy = -1
 	scoped_accuracy = 4
 	var/bolt_open = 0
 	var/has_scope = TRUE
@@ -30,18 +31,22 @@
 	recoil_wielded = 2
 	accuracy_wielded = -1
 
+/obj/item/gun/projectile/heavysniper/get_ammo()
+	var/ammo_count = 0
+	for(var/thing in loaded)
+		var/obj/item/ammo_casing/AC = thing
+		if(AC.BB) // my favourite band - geeves
+			ammo_count++
+	return ammo_count
+
 /obj/item/gun/projectile/heavysniper/update_icon()
+	..()
 	if(bolt_open)
 		icon_state = "heavysniper-open"
 	else
 		icon_state = "heavysniper"
-	if(wielded)
-		item_state = "heavysniper-wielded"
-	else
-		item_state = "heavysniper"
-	update_held_icon()
 
-/obj/item/gun/projectile/heavysniper/attack_self(mob/user as mob)
+/obj/item/gun/projectile/heavysniper/unique_action(mob/user as mob)
 	bolt_open = !bolt_open
 	if(bolt_open)
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
@@ -107,17 +112,13 @@
 	has_scope = FALSE
 
 /obj/item/gun/projectile/heavysniper/unathi/update_icon()
+	..()
 	if(bolt_open && length(loaded))
 		icon_state = "slugger-open-loaded"
 	else if(bolt_open && !length(loaded))
 		icon_state = "slugger-open"
 	else
 		icon_state = "slugger"
-	if(wielded)
-		item_state = "slugger-wielded"
-	else
-		item_state = "slugger"
-	update_held_icon()
 
 /obj/item/gun/projectile/heavysniper/unathi/handle_post_fire(mob/user)
 	..()
@@ -138,18 +139,13 @@
 			else
 				RH.take_damage(30)
 
-/obj/item/gun/projectile/heavysniper/unathi/get_ammo()
-	if(chambered)
-		return TRUE
-	return FALSE
-
 /obj/item/gun/projectile/heavysniper/tranq
 	name = "tranquilizer rifle"
 	desc = "A nonlethal modification to the PTR-7 anti-materiel rifle meant for sedation and capture of the most dangerous of game. Fires .50 cal PPS shells that deploy a torpor inducing drug payload."
 	icon = 'icons/obj/guns/tranqsniper.dmi'
 	icon_state = "tranqsniper"
 	item_state = "tranqsniper"
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	force = 10
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 2)
@@ -168,23 +164,23 @@
 	accuracy_wielded = 2
 
 /obj/item/gun/projectile/heavysniper/tranq/update_icon()
+	..()
 	if(bolt_open)
 		icon_state = "tranqsniper-open"
 	else
 		icon_state = "tranqsniper"
-	if(wielded)
-		item_state = "tranqsniper-wielded"
-	else
-		item_state = "tranqsniper"
-	update_held_icon()
 
 /obj/item/gun/projectile/dragunov
-	name = "antique sniper rifle"
-	desc = "An old semi-automatic marksman rifle. Uses 7.62mm rounds."
+	name = "marksman rifle"
+	desc = "A semi-automatic marksman rifle. Uses 7.62mm rounds."
 	icon = 'icons/obj/guns/dragunov.dmi'
 	icon_state = "dragunov"
 	item_state = "dragunov"
-	w_class = 4
+
+	desc_fluff = "The Ho'taki Marksman Rifle was created by the Shastar Technical University, created through the reverse engineering of captured Tsarrayut'yan rifle. \
+	The rifle is commonly issued to the feared Das'nrra Marksmen."
+
+	w_class = ITEMSIZE_LARGE
 	force = 10
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 5)
@@ -206,18 +202,11 @@
 	accuracy_wielded = 1
 
 /obj/item/gun/projectile/dragunov/update_icon()
-
+	..()
 	if(ammo_magazine)
 		icon_state = "dragunov"
 	else
 		icon_state = "dragunov-empty"
-
-	if(wielded)
-		item_state = "dragunov-wielded"
-	else
-		item_state = "dragunov"
-
-	update_held_icon()
 
 /obj/item/gun/projectile/dragunov/special_check(mob/user)
 	if(!wielded)
@@ -241,7 +230,7 @@
 	icon = 'icons/obj/guns/w556.dmi'
 	icon_state = "w556rifle"
 	item_state = "w556rifle"
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	force = 10
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3)
@@ -273,10 +262,3 @@
 		toggle_scope(2.0, usr)
 	else
 		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
-
-/obj/item/gun/projectile/automatic/rifle/w556/update_icon()
-	if(wielded)
-		item_state = "w556rifle-wielded"
-	else
-		item_state = "w556rifle"
-	update_held_icon()

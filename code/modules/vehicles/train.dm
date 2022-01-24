@@ -23,10 +23,17 @@
 //-------------------------------------------
 // Standard procs
 //-------------------------------------------
-/obj/vehicle/train/Initialize()
-	. = ..()
+/obj/vehicle/train/setup_vehicle()
+	..()
 	for(var/obj/vehicle/train/T in orange(1, src))
 		latch(T)
+
+/obj/vehicle/train/examine(mob/user)
+	. = ..()
+	if(lead)
+		to_chat(user, SPAN_NOTICE("It is being towed by \the [lead] in the [dir2text(get_dir(src, lead))]."))
+	if(tow)
+		to_chat(user, SPAN_NOTICE("It towing \the [tow] in the [dir2text(get_dir(src, tow))]."))
 
 /obj/vehicle/train/Move()
 	var/old_loc = get_turf(src)
@@ -51,13 +58,13 @@
 			A.Move(T)	//bump things away when hit
 
 	if(emagged)
-		if(istype(A, /mob/living))
+		if(isliving(A))
 			var/mob/living/M = A
 			visible_message("<span class='warning'>[src] knocks over [M]!</span>")
 			var/def_zone = ran_zone()
 			M.apply_effects(5, 5)				//knock people down if you hit them
-			M.apply_damage(22 / move_delay, BRUTE, def_zone, M.run_armor_check(def_zone, "melee"))	// and do damage according to how fast the train is going
-			if(istype(load, /mob/living/carbon/human))
+			M.apply_damage(22 / move_delay, BRUTE, def_zone,)	// and do damage according to how fast the train is going
+			if(isliving(load))
 				var/mob/living/D = load
 				to_chat(D, "<span class='warning'>You hit [M]!</span>")
 				msg_admin_attack("[D.name] ([D.ckey]) hit [M.name] ([M.ckey]) with [src]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(D),ckey_target=key_name(M))
@@ -95,10 +102,10 @@
 	return 1
 
 /obj/vehicle/train/MouseDrop_T(var/atom/movable/C, mob/user as mob)
-	if(user.buckled || user.stat || user.restrained() || !Adjacent(user) || !user.Adjacent(C) || !istype(C) || (user == C && !user.canmove))
+	if(user.buckled_to || user.stat || user.restrained() || !Adjacent(user) || !user.Adjacent(C) || !istype(C) || (user == C && !user.canmove))
 		return
-	if(istype(C,/obj/vehicle/train))
-		latch(C, user)
+	if(istype(C, /obj/vehicle/train))
+		attach_to(C, user)
 	else
 		if(!load(C))
 			to_chat(user, "<span class='warning'>You were unable to load [C] on [src].</span>")
@@ -111,25 +118,13 @@
 		user.forceMove(loc)			//for handling players stuck in src
 	else if(load)
 		unload(user)			//unload if loaded
-	else if(!load && !user.buckled)
-		load(user)				//else try climbing on board
-	else
-		return 0
 
-/obj/vehicle/train/verb/unlatch_v()
-	set name = "Unlatch"
-	set desc = "Unhitches this train from the one in front of it."
-	set category = "Vehicle"
-	set src in view(1)
-
-	if(!istype(usr, /mob/living/carbon/human))
+/obj/vehicle/train/attackby(obj/item/W, mob/user)
+	if(W.iswrench())
+		playsound(loc, W.usesound, 70, FALSE)
+		unattach(user)
 		return
-
-	if(!usr.canmove || usr.stat || usr.restrained() || !Adjacent(usr))
-		return
-
-	unattach(usr)
-
+	return ..()
 
 //-------------------------------------------
 // Latching/unlatching procs

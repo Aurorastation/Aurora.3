@@ -53,8 +53,8 @@
 		if((usr.stat || usr.restrained()))	//For when a player is handcuffed while they have the notice window open
 			return
 		var/obj/item/P = locate(href_list["remove"])
-		if(P && P.loc == src)
-			P.forceMove(get_turf(src))	//dump paper on the floor because you're a clumsy fuck
+		if(P && P.loc == src && Adjacent(usr))
+			usr.put_in_hands(P) // we are no longer clumsy fucks
 			P.add_fingerprint(usr)
 			add_fingerprint(usr)
 			notices--

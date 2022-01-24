@@ -65,8 +65,8 @@
 			to_chat(user, SPAN_WARNING("There is nobody on \the [src]. It would be pointless to turn the suppressor on."))
 
 		suppressing = !suppressing
-		user.visible_message(SPAN_NOTICE("\The [user] switches [suppressing ? "on" : "off"] \the [src]'s neural suppressor."))
-		playsound(loc, "switchsounds", 50, 1)
+		user.visible_message(SPAN_NOTICE("\The [user] switches [suppressing ? "on" : "off"] \the [src]'s neural suppressor."), intent_message = BUTTON_FLICK)
+		playsound(loc, /decl/sound_category/switch_sound, 50, 1)
 
 /obj/machinery/optable/CanPass(atom/movable/mover, turf/target, height = 0, air_group = 0)
 	if(air_group || (height == 0)) 
@@ -133,8 +133,8 @@
 			user.visible_message(SPAN_NOTICE("\The [user] starts putting [L] onto \the [src]."), SPAN_NOTICE("You start putting \the [L] onto \the [src]."), range = 3)
 		if(do_mob(user, L, 10, needhand = FALSE))
 			if(bucklestatus == 2)
-				var/obj/structure/LB = L.buckled
-				LB.user_unbuckle_mob(user)
+				var/obj/structure/LB = L.buckled_to
+				LB.user_unbuckle(user)
 			take_victim(target,user)
 	else
 		return ..()
@@ -168,8 +168,8 @@
 			user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [L] onto \the [src]."), SPAN_NOTICE("You start putting \the [L] onto \the [src]."), range = 3)
 		if(do_mob(user, L, 10, needhand = FALSE))
 			if(bucklestatus == 2)
-				var/obj/structure/LB = L.buckled
-				LB.user_unbuckle_mob(user)
+				var/obj/structure/LB = L.buckled_to
+				LB.user_unbuckle(user)
 			take_victim(G.affecting,usr)
 			qdel(W)
 			return
@@ -185,7 +185,7 @@
 	if(victim?.lying && get_turf(victim) == get_turf(src))
 		to_chat(usr, SPAN_WARNING("\The [src] is already occupied!"))
 		return FALSE
-	if(patient.buckled)
+	if(patient.buckled_to)
 		to_chat(usr, SPAN_NOTICE("Unbuckle \the [patient] first!"))
 		return FALSE
 	return TRUE

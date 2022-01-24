@@ -108,7 +108,6 @@
 /mob/living/silicon/ai/AltClickOn(var/atom/A)
 	if(!control_disabled && A.AIAltClick(src))
 		return
-	..()
 
 /mob/living/silicon/ai/MiddleClickOn(var/atom/A)
 	if(!control_disabled && A.AIMiddleClick(src))
@@ -136,11 +135,12 @@
 /atom/proc/AICtrlClick(mob/user)
 	return
 
-/obj/machinery/door/airlock/AICtrlClick() // Bolts doors
+/obj/machinery/door/airlock/AICtrlClick(mob/user) // Bolts doors
+	var/command = player_is_antag(user.mind) ? "bolts_override" : "bolts"
 	if(locked)
-		Topic(src, list("command"="bolts", "activate" = "0"))
+		Topic(src, list("command"=command, "activate" = "0"))
 	else
-		Topic(src, list("command"="bolts", "activate" = "1"))
+		Topic(src, list("command"=command, "activate" = "1"))
 	return 1
 
 /obj/machinery/power/apc/AICtrlClick() // turns off/on APCs.
@@ -148,7 +148,7 @@
 	return 1
 
 /obj/machinery/turretid/AICtrlClick() //turns off/on Turrets
-	Topic(src, list("command"="enable", "value"="[!enabled]"))
+	Topic(src, list("turret_ref" = "this", "command"="enable", "value"="[!enabled]"))
 	return 1
 
 /atom/proc/AIAltClick(var/atom/A)
@@ -164,14 +164,13 @@
 	return 1
 
 /obj/machinery/turretid/AIAltClick() //toggles lethal on turrets
-	Topic(src, list("command"="lethal", "value"="[!lethal]"))
+	Topic(src, list("turret_ref" = "this", "command"="lethal", "value"="[!lethal]"))
 	return 1
 
 /atom/proc/AIMiddleClick(var/mob/living/silicon/user)
 	return 0
 
 /obj/machinery/door/airlock/AIMiddleClick() // Toggles door bolt lights.
-
 	if(..())
 		return
 

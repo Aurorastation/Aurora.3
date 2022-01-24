@@ -96,7 +96,7 @@ Class Procs:
 /obj/machinery
 	name = "machinery"
 	icon = 'icons/obj/stationobjs.dmi'
-	w_class = 10
+	w_class = ITEMSIZE_IMMENSE
 	layer = OBJ_LAYER - 0.01
 
 	var/stat = 0
@@ -132,6 +132,7 @@ Class Procs:
 	var/clicksound //played sound on usage
 	var/clickvol = 40 //volume
 	var/obj/item/device/assembly/signaler/signaler // signaller attached to the machine
+	var/obj/effect/overmap/visitable/ship/linked // overmap sector the machine is linked to
 
 /obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE)
 	. = ..()
@@ -142,11 +143,16 @@ Class Procs:
 		component_parts = list()
 		for (var/type in component_types)
 			var/count = component_types[type]
-			if (count > 1)
-				for (var/i in 1 to count)
-					component_parts += new type(src)
+			if(ispath(type, /obj/item/stack))
+				if(isnull(count))
+					count = 1
+				component_parts += new type(src, count)
 			else
-				component_parts += new type(src)
+				if(count > 1)
+					for (var/i in 1 to count)
+						component_parts += new type(src)
+				else
+					component_parts += new type(src)
 
 		if(component_parts.len)
 			RefreshParts()
@@ -163,6 +169,11 @@ Class Procs:
 				component_parts -= A
 
 	return ..()
+
+/obj/machinery/examine(mob/user)
+	. = ..()
+	if(signaler && Adjacent(user))
+		to_chat(user, SPAN_WARNING("\The [src] has a hidden signaler attached to it."))
 
 /obj/machinery/proc/machinery_process()	//If you dont use process or power why are you here
 	if(!(use_power || idle_power_usage || active_power_usage))
@@ -243,6 +254,8 @@ Class Procs:
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /obj/machinery/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	if(isrobot(user))
 		// For some reason attack_robot doesn't work
 		// This is to stop robots from using cameras to remotely control machines.
@@ -278,6 +291,44 @@ Class Procs:
 
 	return ..()
 
+/obj/machinery/attackby(obj/item/W, mob/user)
+	if(obj_flags & OBJ_FLAG_SIGNALER)
+		if(issignaler(W))
+			if(signaler)
+				to_chat(user, SPAN_WARNING("\The [src] already has a signaler attached."))
+				return
+			var/obj/item/device/assembly/signaler/S = W
+			user.drop_from_inventory(W, src)
+			signaler = S
+			S.machine = src
+			user.visible_message("<b>[user]</b> attaches \the [S] to \the [src].", SPAN_NOTICE("You attach \the [S] to \the [src]."), range = 3)
+			log_and_message_admins("has attached a signaler to \the [src].", user, get_turf(src))
+			return
+		else if(W.iswirecutter() && signaler)
+			user.visible_message("<b>[user]</b> removes \the [signaler] from \the [src].", SPAN_NOTICE("You remove \the [signaler] from \the [src]."), range = 3)
+			user.put_in_hands(detach_signaler())
+			return
+
+	return ..()
+
+/obj/machinery/proc/detach_signaler(var/turf/detach_turf)
+	if(!signaler)
+		return
+
+	if(!detach_turf)
+		detach_turf = get_turf(src)
+	if(!detach_turf)
+		log_debug("[src] tried to drop a signaler, but it had no turf ([src.x]-[src.y]-[src.z])")
+		return
+	
+	var/obj/item/device/assembly/signaler/S = signaler
+
+	signaler.forceMove(detach_turf)
+	signaler.machine = null
+	signaler = null
+
+	return S
+
 /obj/machinery/proc/RefreshParts()
 
 /obj/machinery/proc/assign_uid()
@@ -286,7 +337,7 @@ Class Procs:
 
 /obj/machinery/proc/state(var/msg)
 	for(var/mob/O in hearers(src, null))
-		O.show_message("\icon[src] <span class = 'notice'>[msg]</span>", 2)
+		O.show_message("[icon2html(src, O)] <span class = 'notice'>[msg]</span>", 2)
 
 /obj/machinery/proc/ping(text=null)
 	if (!text)
@@ -335,19 +386,19 @@ Class Procs:
 
 /obj/machinery/proc/default_deconstruction_screwdriver(var/mob/user, var/obj/item/S)
 	if(!istype(S) || !S.isscrewdriver())
-		return 0
-	playsound(src.loc,  S.usesound, 50, 1)
+		return FALSE
+	playsound(src.loc, S.usesound, 50, 1)
 	panel_open = !panel_open
 	to_chat(user, "<span class='notice'>You [panel_open ? "open" : "close"] the maintenance hatch of [src].</span>")
 	update_icon()
-	return 1
+	return TRUE
 
 /obj/machinery/proc/default_part_replacement(var/mob/user, var/obj/item/storage/part_replacer/R)
 	if(!istype(R))
-		return 0
+		return FALSE
 	if(!LAZYLEN(component_parts))
-		return 0
-
+		return FALSE
+	var/parts_replaced = FALSE
 	if(panel_open)
 		var/obj/item/circuitboard/CB = locate(/obj/item/circuitboard) in component_parts
 		var/P
@@ -383,17 +434,19 @@ Class Procs:
 						component_parts += B
 						B.forceMove(src)
 						to_chat(user, "<span class='notice'>[A.name] replaced with [B.name].</span>")
+						parts_replaced = TRUE
 						break
 		RefreshParts()
 		update_icon()
 	else
-		to_chat(user, "<span class='notice'>Following parts detected in the machine:</span>")
-		for(var/obj/item/C in component_parts)
-			to_chat(user, "<span class='notice'>    [C.name]</span>")
+		to_chat(user, "<span class='notice'>The following parts have been detected in \the [src]:</span>")
+		to_chat(user, counting_english_list(component_parts))
+	if(parts_replaced) //only play sound when RPED actually replaces parts
+		playsound(src, 'sound/items/rped.ogg', 40, TRUE)
 	return 1
 
 /obj/machinery/proc/dismantle()
-	playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
+	playsound(loc, /decl/sound_category/crowbar_sound, 50, 1)
 	var/obj/machinery/constructable_frame/machine_frame/M = new /obj/machinery/constructable_frame/machine_frame(loc)
 	M.set_dir(src.dir)
 	M.state = 3
@@ -403,7 +456,7 @@ Class Procs:
 	qdel(src)
 	return 1
 
-/obj/machinery/proc/print(var/obj/paper, var/play_sound = 1, var/print_sfx = 'sound/items/polaroid1.ogg', var/print_delay = 10)
+/obj/machinery/proc/print(var/obj/paper, var/play_sound = 1, var/print_sfx = 'sound/items/polaroid1.ogg', var/print_delay = 10, var/message)
 	if( printing )
 		return 0
 
@@ -412,7 +465,9 @@ Class Procs:
 	if (play_sound)
 		playsound(src.loc, print_sfx, 50, 1)
 
-	visible_message("<span class='notice'>[src] rattles to life and spits out a paper titled [paper].</span>")
+	if(!message)
+		message = "\The [src] rattles to life and spits out a paper titled [paper]."
+	visible_message(SPAN_NOTICE(message))
 
 	addtimer(CALLBACK(src, .proc/print_move_paper, paper), print_delay)
 
@@ -423,7 +478,10 @@ Class Procs:
 	printing = FALSE
 
 /obj/machinery/proc/do_hair_pull(mob/living/carbon/human/H)
-	if(!ishuman(H))
+	if(stat & (NOPOWER|BROKEN))
+		return
+
+	if(!istype(H))
 		return
 
 	//for whatever reason, skrell's tentacles have a really long length
@@ -434,16 +492,38 @@ Class Procs:
 
 	var/datum/sprite_accessory/hair/hair_style = hair_styles_list[H.h_style]
 	for(var/obj/item/protection in list(H.head))
-		if(protection && (protection.flags_inv & BLOCKHAIR))
+		if(protection && (protection.flags_inv & BLOCKHAIR|BLOCKHEADHAIR))
 			return
 
-	if(hair_style.length >= 4)
-		if(prob(25))
-			H.apply_damage(30, BRUTE, BP_HEAD)
-			H.visible_message("<span class='danger'>[H]'s hair catches in \the [src]!</span>", "<span class='danger'>Your hair gets caught in \the [src]!</span>")
-			if(H.can_feel_pain())
-				H.emote("scream")
-				H.apply_damage(45, PAIN)
+	if(hair_style.length >= 4 && prob(25))
+		H.apply_damage(30, BRUTE, BP_HEAD)
+		H.visible_message(SPAN_DANGER("\The [H]'s hair catches in \the [src]!"),
+					SPAN_DANGER("Your hair gets caught in \the [src]!"))
+		if(H.can_feel_pain())
+			H.emote("scream")
+			H.apply_damage(45, PAIN)
 
 /obj/machinery/proc/do_signaler() // override this to customize effects
 	return
+
+
+// A late init operation called in SSshuttle for ship computers, used to attach the thing to the right ship.
+/obj/machinery/proc/attempt_hook_up(obj/effect/overmap/visitable/ship/sector)
+	if(!istype(sector))
+		return
+	if(sector.check_ownership(src))
+		linked = sector
+		return 1
+
+/obj/machinery/proc/sync_linked()
+	var/obj/effect/overmap/visitable/ship/sector = map_sectors["[z]"]
+	if(!sector)
+		return
+	return attempt_hook_up_recursive(sector)
+
+/obj/machinery/proc/attempt_hook_up_recursive(obj/effect/overmap/visitable/ship/sector)
+	if(attempt_hook_up(sector))
+		return sector
+	for(var/obj/effect/overmap/visitable/ship/candidate in sector)
+		if((. = .(candidate)))
+			return

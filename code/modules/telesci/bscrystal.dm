@@ -5,7 +5,7 @@
 	desc = "A glowing bluespace crystal, not much is known about how they work. It looks very delicate."
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "bluespace_crystal"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	origin_tech = list(TECH_BLUESPACE = 4, TECH_MATERIAL = 3)
 	var/blink_range = 8 // The teleport range when crushed/thrown at someone.
 
@@ -15,12 +15,12 @@
 	pixel_x = rand(-5, 5)
 	pixel_y = rand(-5, 5)
 	create_reagents(10)
-	reagents.add_reagent(/datum/reagent/bluespace_dust, blink_range)
+	reagents.add_reagent(/decl/reagent/bluespace_dust, blink_range)
 
 /obj/item/bluespace_crystal/attack_self(mob/user)
 	user.visible_message("<span class='warning'>[user] crushes [src]!</span>", "<span class='danger'>You crush [src]!</span>")
 	single_spark(loc)
-	playsound(src.loc, "sparks", 50, 1)
+	playsound(src.loc, /decl/sound_category/spark_sound, 50, 1)
 	blink_mob(user)
 	user.unEquip(src)
 	qdel(src)
@@ -33,7 +33,7 @@
 		visible_message("<span class='notice'>[src] fizzles and disappears upon impact!</span>")
 		var/turf/T = get_turf(hit_atom)
 		single_spark(T)
-		playsound(src.loc, "sparks", 50, 1)
+		playsound(src.loc, /decl/sound_category/spark_sound, 50, 1)
 		if(isliving(hit_atom))
 			blink_mob(hit_atom)
 		qdel(src)

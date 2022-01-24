@@ -1,5 +1,6 @@
 /obj/machinery/r_n_d/server
-	name = "R&D server"
+	name = "\improper R&D server"
+	desc = "A server which houses a back-up of all station research. It can be used to restore lost data, or to act as another point of retrieval."
 	icon = 'icons/obj/machines/research.dmi'
 	icon_state = "server"
 	var/datum/research/files
@@ -9,10 +10,12 @@
 	var/id_with_upload_string = ""		//String versions for easy editing in map editor.
 	var/id_with_download_string = ""
 	var/server_id = 0
-	var/produces_heat = 1
+	var/produces_heat = TRUE
 	idle_power_usage = 800
 	var/delay = 10
 	req_access = list(access_rd) //Only the R&D can change server settings.
+
+	var/list/linked_processors
 
 	component_types = list(
 		/obj/item/circuitboard/rdserver,
@@ -21,6 +24,8 @@
 	)
 
 /obj/machinery/r_n_d/server/Destroy()
+	for(var/obj/machinery/r_n_d/tech_processor/TP as anything in linked_processors)
+		TP.set_server(null)
 	griefProtection()
 	return ..()
 
@@ -51,6 +56,9 @@
 			id_with_download += text2num(N)
 
 /obj/machinery/r_n_d/server/machinery_process()
+	if(stat & (NOPOWER|BROKEN))
+		return
+
 	var/datum/gas_mixture/environment = loc.return_air()
 	switch(environment.temperature)
 		if(0 to T0C)
@@ -62,7 +70,8 @@
 	if(health <= 0)
 		griefProtection() //I dont like putting this in process() but it's the best I can do without re-writing a chunk of rd servers.
 		files.known_designs = list()
-		for(var/datum/tech/T in files.known_tech)
+		for(var/id in files.known_tech)
+			var/datum/tech/T = files.known_tech[id]
 			if(prob(1))
 				T.level--
 		files.RefreshResearch()
@@ -71,6 +80,19 @@
 	else
 		produce_heat()
 		delay = initial(delay)
+	upgrade_techs()
+
+/obj/machinery/r_n_d/server/proc/upgrade_techs()
+	for(var/obj/machinery/r_n_d/tech_processor/TP as anything in linked_processors)
+		if(TP.stat & (NOPOWER|BROKEN))
+			continue
+		TP.processing_stage++
+		if(TP.processing_stage == 5)
+			for(var/tech_id in files.known_tech)
+				var/datum/tech/T = files.known_tech[tech_id]
+				if(T.level)
+					files.UpdateTech(T.id, round(TP.tech_rate))
+			TP.processing_stage = 0
 
 /obj/machinery/r_n_d/server/emp_act(severity)
 	griefProtection()
@@ -83,10 +105,9 @@
 //Backup files to centcomm to help admins recover data after greifer attacks
 /obj/machinery/r_n_d/server/proc/griefProtection()
 	for(var/obj/machinery/r_n_d/server/centcom/C in SSmachinery.all_machines)
-		for(var/datum/tech/T in files.known_tech)
+		for(var/id in files.known_tech)
+			var/datum/tech/T = files.known_tech[id]
 			C.files.AddTech2Known(T)
-		for(var/datum/design/D in files.known_designs)
-			C.files.AddDesign2Known(D)
 		C.files.RefreshResearch()
 
 /obj/machinery/r_n_d/server/proc/produce_heat()
@@ -112,7 +133,15 @@
 
 			env.merge(removed)
 
-/obj/machinery/r_n_d/server/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/r_n_d/server/attackby(obj/item/O, mob/user)
+	if(O.ismultitool())
+		var/obj/item/device/multitool/MT = O
+		var/obj/machinery/r_n_d/tech_processor/TP = MT.get_buffer(/obj/machinery/r_n_d/tech_processor)
+		if(TP)
+			TP.set_server(src)
+			MT.unregister_buffer(TP)
+		to_chat(user, SPAN_NOTICE("You link \the [TP] to \the [src]."))
+		return
 	if(default_deconstruction_screwdriver(user, O))
 		return
 	if(default_deconstruction_crowbar(user, O))
@@ -169,6 +198,7 @@
 
 /obj/machinery/computer/rdservercontrol
 	name = "R&D server controller"
+	desc = "A console use to operate a RnD server, such as locking it, wiping it, or downloading its stored research."
 
 	icon_screen = "rdcomp"
 	light_color = "#a97faa"
@@ -240,11 +270,8 @@
 	else if(href_list["reset_design"])
 		var/choice = alert("Design Data Deletion", "Are you sure you want to delete this design? If you still have the prerequisites for the design, it'll reset to its base reliability. Data lost cannot be recovered.", "Continue", "Cancel")
 		if(choice == "Continue")
-			for(var/datum/design/D in temp_server.files.known_designs)
-				if("[D.type]" == href_list["reset_design"])
-					temp_server.files.known_designs -= D
-					break
-		temp_server.files.RefreshResearch()
+			temp_server.files.known_designs -= href_list["reset_design"]
+			temp_server.files.RefreshResearch()
 
 	updateUsrDialog()
 	return
@@ -291,13 +318,15 @@
 		if(2) //Data Management menu
 			dat += "[temp_server.name] Data ManagementP<BR><BR>"
 			dat += "Known Technologies<BR>"
-			for(var/datum/tech/T in temp_server.files.known_tech)
+			for(var/path in temp_server.files.known_tech)
+				var/datum/tech/T = temp_server.files.known_tech[path]
 				dat += "* [T.name] "
-				dat += "<A href='?src=\ref[src];reset_tech=[T.id]'>(Reset)</A><BR>" //FYI, these are all strings.
+				dat += "<A href='?src=\ref[src];reset_tech=[T.id]'>(Reset)</A><BR>"
 			dat += "Known Designs<BR>"
-			for(var/datum/design/D in temp_server.files.known_designs)
+			for(var/path in temp_server.files.known_designs)
+				var/datum/design/D = temp_server.files.known_designs[path]
 				dat += "* [D.name] "
-				dat += "<A href='?src=\ref[src];reset_design=[D.type]'>(Delete)</A><BR>"
+				dat += "<A href='?src=\ref[src];reset_design=[path]'>(Delete)</A><BR>"
 			dat += "<HR><A href='?src=\ref[src];main=1'>Main Menu</A>"
 
 		if(3) //Server Data Transfer

@@ -20,7 +20,7 @@
 			var/list/datum/sprite_accessory/hair/valid_hairstyles = list()
 			for(var/hair_string in hair_styles_list)
 				var/datum/sprite_accessory/hair/test = hair_styles_list[hair_string]
-				if(test.length >= 2 && (species.bodytype in test.species_allowed))
+				if(test.length >= 2 && (species.type in test.species_allowed))
 					valid_hairstyles.Add(hair_string)
 			selected_string = input("Select a new hairstyle", "Your hairstyle", hair_style) as null|anything in valid_hairstyles
 		if(selected_string && h_style != selected_string)
@@ -41,7 +41,7 @@ mob/living/carbon/human/proc/change_monitor()
 		var/list/datum/sprite_accessory/facial_hair/valid_screenstyles = list()
 		for(var/screen_string in facial_hair_styles_list)
 			var/datum/sprite_accessory/facial_hair/test = facial_hair_styles_list[screen_string]
-			if(species.bodytype in test.species_allowed)
+			if(species.type in test.species_allowed)
 				valid_screenstyles.Add(screen_string)
 		selected_string = input("Select a new screen", "Your monitor display", screen_style) as null|anything in valid_screenstyles
 		if(selected_string && f_style != selected_string)
@@ -59,7 +59,7 @@ mob/living/carbon/human/proc/change_monitor()
 	if(last_special > world.time)
 		return
 
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		to_chat(src, "You cannot tackle someone in your current state.")
 		return
 
@@ -78,7 +78,7 @@ mob/living/carbon/human/proc/change_monitor()
 	if(last_special > world.time)
 		return
 
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		to_chat(src, "You cannot tackle in your current state.")
 		return
 
@@ -115,7 +115,7 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src, "<span class='warning'>You're already leaping!</span>")
 		return FALSE
 
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		to_chat(src, "<span class='warning'>You cannot leap in your current state.</span>")
 		return FALSE
 
@@ -142,10 +142,6 @@ mob/living/carbon/human/proc/change_monitor()
 
 	visible_message("<span class='danger'>[src] leaps at [T]!</span>", "<span class='danger'>You leap at [T]!</span>")
 	throw_at(get_step(get_turf(T), get_turf(src)), 4, 1, src, do_throw_animation = FALSE)
-
-	// Only Vox get to shriek. Seriously.
-	if (isvox(src))
-		playsound(loc, 'sound/voice/shriek1.ogg', 50, 1)
 
 	sleep(5)
 
@@ -336,6 +332,9 @@ mob/living/carbon/human/proc/change_monitor()
 	set name = "Bite"
 	set desc = "While grabbing someone aggressively, tear into them with your mandibles."
 
+	do_bugbite()
+
+/mob/living/carbon/human/proc/do_bugbite(var/ignore_grab = FALSE)
 	if(last_special > world.time)
 		to_chat(src, SPAN_WARNING("Your mandibles still ache!"))
 		return
@@ -356,7 +355,7 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src, SPAN_WARNING("You are not grabbing anyone."))
 		return
 
-	if(G.state < GRAB_KILL)
+	if(!ignore_grab && G.state < GRAB_KILL)
 		to_chat(src, SPAN_WARNING("You must have a strangling grip to bite someone!"))
 		return
 
@@ -570,7 +569,7 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src, "<span class='danger'>Your spine still aches!</span>")
 		return
 
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		to_chat(src, "You cannot launch a quill in your current state.")
 		return
 
@@ -584,6 +583,15 @@ mob/living/carbon/human/proc/change_monitor()
 	A.throw_at(target, 10, 30, usr)
 	msg_admin_attack("[key_name_admin(src)] launched a quill at [key_name_admin(target)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(target))
 
+/mob/living/carbon/human/proc/dissolve()
+	set name = "Dissolve Self"
+	set desc = "Dissolve yourself in order to escape permanent imprisonment."
+	set category = "Abilities"
+
+	if(alert(usr, "This ability kills you, are you sure you want to do this?", "Dissolve Self", "Yes", "No") == "No")
+		return
+	visible_message(SPAN_DANGER("[src] dissolves!"), SPAN_WARNING("You dissolve yourself, rejoining your brethren in bluespace."))
+	death()
 
 /mob/living/carbon/human/proc/shatter_light()
 	set category = "Abilities"
@@ -597,7 +605,14 @@ mob/living/carbon/human/proc/change_monitor()
 	last_special = world.time + 50
 
 	visible_message("<span class='danger'>\The [src] shrieks!</span>")
-	playsound(src.loc, 'sound/species/shadow/grue_screech.ogg', 100, 1)
+	playsound(src.loc, 'sound/species/revenant/grue_screech.ogg', 100, 1)
+	for (var/mob/living/carbon/human/T in hearers(4, src) - src)
+		if(T.protected_from_sound())
+			continue
+		if (T.get_hearing_sensitivity() == HEARING_VERY_SENSITIVE)
+			earpain(2, TRUE, 1)
+		else if (T in range(src, 2))
+			earpain(1, TRUE, 1)
 
 	for(var/obj/machinery/light/L in range(7))
 		L.broken()
@@ -613,7 +628,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	last_special = world.time + 100
 
-	playsound(src.loc, 'sound/species/shadow/grue_growl.ogg', 100, 1)
+	playsound(src.loc, 'sound/species/revenant/grue_growl.ogg', 100, 1)
 
 	src.set_light(4,-20)
 
@@ -681,7 +696,7 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src, "<span class='danger'>You are too tired to charge!</span>")
 		return
 
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		to_chat(src, "<span class='danger'>You cannot charge in your current state!</span>")
 		return
 
@@ -690,7 +705,7 @@ mob/living/carbon/human/proc/change_monitor()
 	src.visible_message("<span class='warning'>\The [src] takes a step backwards and rears up.</span>",
 			"<span class='notice'>You take a step backwards and then...</span>")
 	if(do_after(src,5))
-		playsound(loc, 'sound/species/shadow/grue_screech.ogg', 100, 1)
+		playsound(loc, 'sound/species/revenant/grue_screech.ogg', 100, 1)
 		src.visible_message("<span class='danger'>\The [src] charges!</span>")
 		trampling()
 
@@ -727,11 +742,11 @@ mob/living/carbon/human/proc/change_monitor()
 
 	if (brokesomething)
 		playsound(get_turf(target), 'sound/weapons/heavysmash.ogg', 100, 1)
-		attack_log += "\[[time_stamp()]\]<font color='red'>crashed into [brokesomething] objects at ([target.x];[target.y];[target.z]) </font>"
+		attack_log += "\[[time_stamp()]\]<span class='warning'>crashed into [brokesomething] objects at ([target.x];[target.y];[target.z]) </span>"
 		msg_admin_attack("[key_name(src)] crashed into [brokesomething] objects at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>)" )
 
 	if (!done && target.Enter(src, null))
-		if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+		if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 			return 0
 
 		step(src, dir)
@@ -747,12 +762,12 @@ mob/living/carbon/human/proc/change_monitor()
 /mob/living/carbon/human/proc/crash_into(var/atom/A)
 	var/aname = A.name
 	var/oldtype = A.type
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		return 0
 
 	if (istype(A, /mob/living))
 		var/mob/living/M = A
-		attack_log += "\[[time_stamp()]\]<font color='red'> Crashed into [key_name(M)]</font>"
+		attack_log += "\[[time_stamp()]\]<span class='warning'> Crashed into [key_name(M)]</span>"
 		M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [key_name(src)]</font>"
 		msg_admin_attack("[key_name(src)] crashed into [key_name(M)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)" )
 
@@ -771,33 +786,38 @@ mob/living/carbon/human/proc/change_monitor()
 	set desc = "Emit a powerful screech which stuns hearers in a two-tile radius."
 
 	if(last_special > world.time)
-		to_chat(src, "<span class='danger'>You are too tired to screech!</span>")
+		to_chat(src, SPAN_DANGER("You are too tired to screech!"))
 		return
 
 	if(stat || paralysis || stunned || weakened)
-		to_chat(src, "<span class='danger'>You cannot screech in your current state!</span>")
+		to_chat(src, SPAN_DANGER("You cannot screech in your current state!"))
 		return
 
 	last_special = world.time + 100
 
-	visible_message("<span class='danger'>[src.name] lets out an ear piercing shriek!</span>",
-			"<span class='danger'>You let out an ear-shattering shriek!</span>",
-			"<span class='danger'>You hear a painfully loud shriek!</span>")
+	visible_message(SPAN_DANGER("[src.name] lets out an ear piercing shriek!"),
+			SPAN_DANGER("You let out an ear-shattering shriek!"),
+			SPAN_DANGER("You hear a painfully loud shriek!"))
 
 	playsound(loc, 'sound/voice/shriek1.ogg', 100, 1)
 
 	var/list/victims = list()
 
-	for (var/mob/living/carbon/human/T in hearers(2, src))
-		if (T == src)
+	for (var/mob/living/carbon/human/T in hearers(4, src) - src)
+		if(T.protected_from_sound())
+			continue
+		if (T.get_hearing_sensitivity() == HEARING_VERY_SENSITIVE)
+			earpain(3, TRUE, 1)
+		else if (T in range(src, 2))
+			earpain(2, TRUE, 2)
+	
+	for (var/mob/living/carbon/human/T in hearers(2, src) - src)
+		if(T.protected_from_sound())
 			continue
 
-		if (istype(T) && (T:l_ear || T:r_ear) && istype((T:l_ear || T:r_ear), /obj/item/clothing/ears/earmuffs))
-			continue
-
-		to_chat(T, "<span class='danger'>You hear an ear piercing shriek and feel your senses go dull!</span>")
+		to_chat(T, SPAN_DANGER("You hear an ear piercing shriek and feel your senses go dull!"))
 		T.Weaken(5)
-		T.ear_deaf = 20
+		T.adjustEarDamage(10, 20)
 		T.stuttering = 20
 		T.Stun(5)
 
@@ -821,12 +841,12 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src,"<span class='notice'>You are too tired to spray napalm!</span>")
 		return
 
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		to_chat(src,"<span class='notice'>You cannot spray napalm in your current state.</span>")
 		return
 
 	last_special = world.time + 100
-	playsound(loc, 'sound/species/shadow/grue_screech.ogg', 100, 1)
+	playsound(loc, 'sound/species/revenant/grue_screech.ogg', 100, 1)
 	visible_message("<span class='danger'>\The [src] unleashes a torrent of raging flame!</span>",
 			"<span class='danger'>You unleash a gust of fire!</span>",
 			"<span class='danger'>You hear the roar of an inferno!</span>")
@@ -850,7 +870,7 @@ mob/living/carbon/human/proc/change_monitor()
 			D.create_reagents(200)
 			if(!src)
 				return
-			D.reagents.add_reagent(/datum/reagent/fuel/napalm, 200)
+			D.reagents.add_reagent(/decl/reagent/fuel/napalm, 200)
 			D.set_color()
 			D.set_up(my_target, rand(6,8), 1, 50)
 	return
@@ -895,7 +915,7 @@ mob/living/carbon/human/proc/change_monitor()
 			adjustBruteLoss(-10*O.amount)
 			adjustFireLoss(-10*O.amount)
 			if(!(species.flags & NO_BLOOD))
-				vessel.add_reagent(/datum/reagent/blood,20*O.amount)
+				vessel.add_reagent(/decl/reagent/blood,20*O.amount, temperature = species.body_temperature)
 			qdel(O)
 			last_special = world.time + 50
 
@@ -976,7 +996,7 @@ mob/living/carbon/human/proc/change_monitor()
 	updatehealth()
 	UpdateDamageIcon()
 
-	visible_message("<span class='notice'>\The [src] detaches \his [E]!</span>",
+	visible_message("<span class='notice'>\The [src] detaches [get_pronoun("his")] [E]!</span>",
 			"<span class='notice'>You detach your [E]!</span>")
 
 /mob/living/carbon/human/proc/attach_limb()
@@ -1013,17 +1033,17 @@ mob/living/carbon/human/proc/change_monitor()
 
 		last_special = world.time + 20
 
-		src.drop_from_inventory(O)
+		drop_from_inventory(O)
 		O.replaced(src)
-		src.update_body()
-		src.updatehealth()
-		src.UpdateDamageIcon()
+		update_body()
+		updatehealth()
+		UpdateDamageIcon()
 
 		update_body()
 		updatehealth()
 		UpdateDamageIcon()
 
-		visible_message("<span class='notice'>\The [src] attaches \the [O] to \his body!</span>",
+		visible_message("<span class='notice'>\The [src] attaches \the [O] to [get_pronoun("his")] body!</span>",
 				"<span class='notice'>You attach \the [O] to your body!</span>")
 
 /mob/living/carbon/human/proc/self_diagnostics()
@@ -1039,7 +1059,11 @@ mob/living/carbon/human/proc/change_monitor()
 
 		output += "Internal Temperature: [convert_k2c(bodytemperature)] Degrees Celsius\n"
 
-		output += "Current Charge Level: [nutrition]\n"
+		var/obj/item/organ/internal/cell/C = internal_organs_by_name[BP_CELL]
+		if(!C || !C.cell)
+			output += SPAN_DANGER("ERROR: NO BATTERY DETECTED")
+		else
+			output += "Current Charge Level: [C.percent()]\n"
 
 		var/toxDam = getToxLoss()
 		if(toxDam)
@@ -1149,7 +1173,7 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src, SPAN_NOTICE("You can't flick your tongue out with something covering your face."))
 		return
 	else
-		custom_emote(1, "flicks their tongue out.")
+		custom_emote(VISIBLE_MESSAGE, "flicks their tongue out.")
 
 	var/datum/gas_mixture/mixture = src.loc.return_air()
 	var/total_moles = mixture.total_moles
@@ -1160,8 +1184,8 @@ mob/living/carbon/human/proc/change_monitor()
 			var/composition = "Non-existant"
 			switch(round((mixture.gas[mix] / total_moles) * 100))
 				if(0)
-					composition = "Non-existent"
-				if(0 to 5)
+					continue
+				if(0.1 to 5)
 					composition = "Trace-amounts"
 				if(5 to 15)
 					composition = "Low-volume"
@@ -1185,45 +1209,82 @@ mob/living/carbon/human/proc/change_monitor()
 			to_chat(src, SPAN_NOTICE("[line]"))
 		return
 
-/mob/living/carbon/human/proc/crush()
+/mob/living/carbon/human/proc/select_primary_martial_art()
+	set name = "Select Martial Art"
+	set desc = "Set the martial art you want to use when fighting barehanded."
 	set category = "Abilities"
-	set name = "Crush"
-	set desc = "While grabbing someone in a neck grab, crush them with your arms."
 
-	if(last_special > world.time)
-		to_chat(src, "<span class='warning'>Your arms are still recovering!</span>")
+	if(!length(known_martial_arts))
+		to_chat(src, SPAN_WARNING("You don't know any martial arts!"))
 		return
 
-	if(use_check_and_message(usr))
+	var/datum/martial_art/selected_martial_art = input(src, "Select a primary martial art to use when fighting barehanded.", "Martial Art Selection") as null|anything in known_martial_arts
+	if(!selected_martial_art)
 		return
 
-	var/obj/item/grab/G = src.get_active_hand()
-	if(!istype(G))
-		to_chat(src, "<span class='warning'>You are not grabbing anyone.</span>")
+	primary_martial_art = selected_martial_art
+	to_chat(src, SPAN_NOTICE("You will now use [primary_martial_art.name] when fighting barehanded."))
+
+//Used to rename monkey mobs since they are humans with a monkey species applied
+/mob/living/carbon/human/proc/change_animal_name()
+	set name = "Name Animal"
+	set desc = "Name a monkeylike animal."
+	set category = "IC"
+	set src in view(1)
+
+	var/mob/living/M = usr
+	if(!M || usr == src)
 		return
 
-	if(G.state < GRAB_NECK)
-		to_chat(src, "<span class='warning'>You must have a stronger grab to crush your prey!</span>")
-		return
-
-	if(ishuman(G.affecting))
-		var/mob/living/carbon/human/H = G.affecting
-		var/hit_zone = zone_sel.selecting
-		var/obj/item/organ/external/affected = H.get_organ(hit_zone)
-
-		if(!affected || affected.is_stump())
-			to_chat(H, "<span class='danger'>They are missing that limb!</span>")
+	if(can_name(M))
+		var/input = sanitizeSafe(input("What do you want to name \the [src]?","Choose a name") as text|null, MAX_NAME_LEN)
+		if(!input)
 			return
+		if(stat != DEAD && in_range(M,src))
+			to_chat(M, SPAN_NOTICE("You rename \the [src] to [input]."))
+			name = "\proper [input]"
+			real_name = input
+			named = TRUE
 
-		H.apply_damage(40, BRUTE, hit_zone)
-		visible_message("<span class='warning'><b>[src]</b> viciously crushes [affected] of [G.affecting] with its metallic arms!</span>")
-		msg_admin_attack("[key_name_admin(src)] crushed [key_name_admin(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(H))
+//Used only to check for renaming of monkey mobs
+/mob/living/carbon/human/can_name(var/mob/living/M)
+	if(named)
+		to_chat(M, SPAN_NOTICE("\The [src] already has a name!"))
+		return FALSE
+	if(stat == DEAD)
+		to_chat(M, SPAN_WARNING("You can't name a corpse."))
+		return FALSE
+	return TRUE
+
+/mob/living/carbon/human/proc/intent_listen(var/source,var/message)
+	if(air_sound(src))
+		if (is_listening() && (ear_deaf <= 0 || !ear_deaf))
+			var/sound_dir = angle2text(Get_Angle(get_turf(src), get_turf(source)))
+			to_chat(src, SPAN_WARNING(message + " from \the [sound_dir]."))
+
+/mob/living/carbon/human/proc/listening_close()
+	set category = "Abilities"
+	set name = "Listen closely"
+
+	if (last_special > world.time)
+		return
+
+	if (stat || paralysis || stunned || weakened)
+		return
+
+	if (!is_listening())
+		start_listening()
 	else
-		var/mob/living/M = G.affecting
-		if(!istype(M))
-			return
-		M.apply_damage(40,BRUTE)
-		visible_message("<span class='warning'><b>[src]</b> viciously crushes [G.affecting]'s flesh with its metallic arms!</span>")
-		msg_admin_attack("[key_name_admin(src)] crushed [key_name_admin(M)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(M))
-	playsound(src.loc, 'sound/weapons/heavysmash.ogg', 50, 1)
-	last_special = world.time + 100
+		stop_listening()
+
+	last_special = world.time + 20
+
+/mob/living/carbon/human/proc/start_listening()
+	if (!is_listening())
+		visible_message("<b>[src]</b> begins to listen intently.")
+		intent_listener |= src
+
+/mob/living/carbon/human/proc/stop_listening()
+	if (is_listening())
+		visible_message("<b>[src]</b> stops listening intently.")
+		intent_listener -= src

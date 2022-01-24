@@ -162,3 +162,10 @@
 	icon_state = "darkred"
 	item_state = "r_suit"
 	worn_state = "darkred"
+
+/obj/item/clothing/under/color/colorable
+	name = "colorable jumpsuit"
+	desc = "A non-descript jumpsuit in 167,777,216 designer colors."
+	icon_state = "white"
+	item_state = "w_suit"
+	worn_state = "colorable"

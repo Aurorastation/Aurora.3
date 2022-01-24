@@ -134,9 +134,9 @@ Used In File(s): \code\game\machinery\requests_console.dm
 	</div>
 {{else}}
 	{{if data.newmessagepriority == 1}}
-		<div class="item"><font color='red'>There are new messages</font></div>
+		<div class="item"><span class='warning'>There are new messages</span></div>
 	{{else data.newmessagepriority == 2}}
-		<div class="item"><font color='red'><b>NEW PRIORITY MESSAGES</b></font></div>
+		<div class="item"><span class='warning'><b>NEW PRIORITY MESSAGES</b></span></div>
 	{{/if}}
 	<div class="item">{{:helper.link('View Messages', data.newmessagepriority ? 'mail-closed' : 'mail-open', { 'setScreen' : 6 })}}</div>
 	<br>

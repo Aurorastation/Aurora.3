@@ -30,6 +30,7 @@
 	maxHealth = 5
 	health = 5
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/rat
+	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
 	response_help = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm = "stomps on"
@@ -85,20 +86,6 @@
 	SSmob.all_rats -= src
 
 	return ..()
-
-//Pixel offsetting as they scamper around
-/mob/living/simple_animal/rat/Move()
-	if(..())
-		if (prob(50))
-			var/new_pixelx = pixel_x
-			new_pixelx += rand(-2,2)
-			new_pixelx = Clamp(new_pixelx, -10, 10)
-			animate(src, pixel_x = new_pixelx, time = 0.5)
-		else
-			var/new_pixely = pixel_y
-			new_pixely += rand(-2,2)
-			new_pixely = Clamp(new_pixely, -4, 14)
-			animate(src, pixel_y = new_pixely, time = 0.5)
 
 /mob/living/simple_animal/rat/Initialize()
 	. = ..()
@@ -236,7 +223,7 @@
 	if( ishuman(AM) )
 		if(!stat)
 			var/mob/M = AM
-			to_chat(M, "<span class='notice'>\icon[src] Squeek!</span>")
+			to_chat(M, "<span class='notice'>[icon2html(src, M)] Squeek!</span>")
 			poke(1) //Wake up if stepped on
 			if (prob(95))
 				squeak(0)

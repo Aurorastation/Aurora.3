@@ -2,15 +2,13 @@
 	name = "Lighting Control"
 	var/context = "pub"
 	var/lstate = "full"
-	var/mob/lusr = null 	// for admin logs
+	var/lusr = null 	// for admin logs
 
 /datum/nano_module/lighting_ctrl/New()
 	..()
 	lstate = SSnightlight.is_active() ? "dark" : "full"
 
 /datum/nano_module/lighting_ctrl/proc/update_lighting()
-	if (!config.night_lighting)
-		return
 
 	// whether to only select areas explicitly marked for nightlighting
 	var/wl_only = context == "all" ? 0 : 1
@@ -35,7 +33,7 @@
 		update_lighting()
 
 /datum/nano_module/lighting_ctrl/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
-	lusr = user
+	lusr = WEAKREF(user)
 	var/list/data = host.initial_data()
 
 	data["context"] = context

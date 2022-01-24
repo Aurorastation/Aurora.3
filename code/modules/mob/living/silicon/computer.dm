@@ -1,17 +1,34 @@
+/mob/living/silicon
+	var/computer_path
+
+/mob/living/silicon/pai
+	computer_path = /obj/item/modular_computer/silicon/pai
+
+/mob/living/silicon/robot
+	computer_path = /obj/item/modular_computer/silicon/robot
+
+/mob/living/silicon/robot/drone
+	computer_path = /obj/item/modular_computer/silicon/robot/drone
+
 /mob/living/silicon/ai
 	var/datum/nano_module/computer_ntnetmonitor/ntnet_monitor
+	computer_path = /obj/item/modular_computer/silicon/ai
 
 /mob/living/silicon/ai
 	silicon_subsystems = list(
 		/mob/living/silicon/proc/subsystem_alarm_monitor,
 		/mob/living/silicon/proc/subsystem_law_manager,
 		/mob/living/silicon/ai/proc/subsystem_ntnet_monitor,
-		/mob/living/silicon/proc/computer_interact
+		/mob/living/silicon/proc/computer_interact,
+		/mob/living/silicon/proc/silicon_mimic_accent
 	)
 
 /mob/living/silicon/robot/syndicate
 	register_alarms = 0
-	silicon_subsystems = list(/mob/living/silicon/proc/subsystem_law_manager)
+	silicon_subsystems = list(
+		/mob/living/silicon/proc/subsystem_law_manager,
+		/mob/living/silicon/proc/silicon_mimic_accent
+	)
 
 /mob/living/silicon/ai/Destroy()
 	QDEL_NULL(ntnet_monitor)
@@ -22,6 +39,9 @@
 	law_manager 	= new(src)
 	rcon 			= new(src)
 
+	if(computer_path)
+		computer = new computer_path(src)
+
 	if(!register_alarms)
 		return
 
@@ -31,16 +51,7 @@
 
 /mob/living/silicon/ai/init_subsystems()
 	..()
-	computer = new/obj/item/modular_computer/silicon/ai(src)
 	ntnet_monitor = new(src)
-
-/mob/living/silicon/pai/init_subsystems()
-	..()
-	computer = new/obj/item/modular_computer/silicon/pai(src)
-
-/mob/living/silicon/robot/init_subsystems()
-	..()
-	computer = new/obj/item/modular_computer/silicon/robot(src)
 
 /****************
 *	Computer	*
@@ -55,6 +66,9 @@
 	set name = "Access Local Computer"
 	set category = "Subsystems"
 
+	if(!parent_computer)
+		to_chat(usr, SPAN_WARNING("You don't have a local computer to interface with!"))
+		return
 	parent_computer.attack_self(src)
 
 /********************

@@ -22,15 +22,6 @@
 /obj/effect/decal/cleanable/blood/drip,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
-"g" = (
-/obj/effect/decal/cleanable/blood/drip,
-/obj/effect/decal/cleanable/blood/tracks,
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
-"h" = (
-/obj/effect/decal/cleanable/blood/tracks,
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
 "i" = (
 /obj/effect/decal/remains/human,
 /obj/effect/decal/cleanable/blood,
@@ -46,7 +37,6 @@
 	icon_state = "small"
 	},
 /obj/effect/decal/cleanable/blood/drip,
-/obj/effect/decal/cleanable/blood/tracks,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "l" = (
@@ -62,7 +52,6 @@
 /area/mine/unexplored)
 "o" = (
 /obj/effect/decal/cleanable/blood/drip,
-/obj/effect/decal/cleanable/blood/tracks,
 /obj/machinery/door/airlock/external{
 	icon_state = "door_locked";
 	locked = 1
@@ -81,19 +70,11 @@
 /area/mine/unexplored)
 "q" = (
 /obj/effect/decal/cleanable/blood,
-/turf/simulated/floor/shuttle,
-/area/mine/unexplored)
-"r" = (
-/obj/effect/decal/cleanable/blood/drip,
-/obj/effect/decal/cleanable/blood/tracks,
-/turf/simulated/floor/shuttle,
-/area/mine/unexplored)
-"s" = (
-/turf/simulated/floor/shuttle,
+/turf/simulated/floor/shuttle/dark_blue,
 /area/mine/unexplored)
 "t" = (
 /obj/item/arrow/rod,
-/turf/simulated/floor/shuttle,
+/turf/simulated/floor/shuttle/dark_blue,
 /area/mine/unexplored)
 "u" = (
 /obj/structure/grille,
@@ -104,20 +85,19 @@
 /turf/simulated/floor,
 /area/mine/unexplored)
 "v" = (
-/obj/structure/bed/chair/shuttle,
+/obj/structure/bed/stool/chair/shuttle,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/remains/human,
-/turf/simulated/floor/shuttle,
+/turf/simulated/floor/shuttle/dark_blue,
 /area/mine/unexplored)
 "w" = (
 /obj/effect/decal/cleanable/blood/drip,
-/turf/simulated/floor/shuttle,
+/turf/simulated/floor/shuttle/dark_blue,
 /area/mine/unexplored)
 "x" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/blood/drip,
-/obj/effect/decal/cleanable/blood/tracks,
-/turf/simulated/floor/shuttle,
+/turf/simulated/floor/shuttle/dark_blue,
 /area/mine/unexplored)
 "y" = (
 /obj/machinery/door/airlock/external{
@@ -128,21 +108,20 @@
 /turf/simulated/floor/shuttle,
 /area/mine/unexplored)
 "z" = (
-/obj/structure/bed/chair/shuttle,
+/obj/structure/bed/stool/chair/shuttle,
 /obj/effect/decal/cleanable/blood,
-/turf/simulated/floor/shuttle,
+/turf/simulated/floor/shuttle/dark_blue,
 /area/mine/unexplored)
 "A" = (
-/obj/effect/decal/cleanable/blood/tracks,
-/turf/simulated/floor/shuttle,
+/turf/simulated/floor/shuttle/dark_blue,
 /area/mine/unexplored)
 "B" = (
 /obj/random/voidsuit,
-/turf/simulated/floor/shuttle,
+/turf/simulated/floor/shuttle/dark_blue,
 /area/mine/unexplored)
 "C" = (
 /obj/item/device/gps,
-/turf/simulated/floor/shuttle,
+/turf/simulated/floor/shuttle/dark_blue,
 /area/mine/unexplored)
 "D" = (
 /obj/structure/grille,
@@ -159,26 +138,26 @@
 /area/mine/unexplored)
 "E" = (
 /obj/structure/closet/crate/secure/loot,
-/turf/simulated/floor/shuttle,
+/turf/simulated/floor/shuttle/dark_blue,
 /area/mine/unexplored)
 "F" = (
 /obj/random/loot,
-/turf/simulated/floor/shuttle,
+/turf/simulated/floor/shuttle/dark_blue,
 /area/mine/unexplored)
 "G" = (
-/obj/structure/bed/chair/shuttle{
+/obj/structure/bed/stool/chair/shuttle{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/remains/human,
-/turf/simulated/floor/shuttle,
+/turf/simulated/floor/shuttle/dark_blue,
 /area/mine/unexplored)
 "H" = (
 /obj/effect/decal/cleanable/blood/drip,
 /mob/living/simple_animal/hostile/carp{
 	wander = 0
 	},
-/turf/simulated/floor/shuttle,
+/turf/simulated/floor/shuttle/dark_blue,
 /area/mine/unexplored)
 "I" = (
 /obj/structure/grille,
@@ -206,7 +185,7 @@
 /mob/living/simple_animal/hostile/carp/shark{
 	wander = 0
 	},
-/turf/simulated/floor/shuttle,
+/turf/simulated/floor/shuttle/dark_blue,
 /area/mine/unexplored)
 
 (1,1,1) = {"
@@ -667,9 +646,9 @@ a
 a
 c
 e
-h
+c
 o
-r
+w
 y
 x
 w
@@ -734,7 +713,7 @@ a
 a
 a
 c
-g
+f
 c
 m
 m
@@ -768,13 +747,13 @@ a
 a
 a
 c
-h
-g
+c
+f
 c
 c
 m
 v
-s
+A
 G
 m
 b
@@ -802,8 +781,8 @@ a
 a
 a
 c
-h
-g
+c
+f
 c
 c
 m
@@ -836,7 +815,7 @@ a
 a
 a
 c
-g
+f
 l
 c
 c

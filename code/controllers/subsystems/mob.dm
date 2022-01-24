@@ -46,7 +46,7 @@
 /datum/controller/subsystem/mobs/Initialize()
 	// Some setup work for the eat-types lists.
 	mtl_synthetic = typecacheof(mtl_synthetic) + list(
-		/mob/living/simple_animal/hostile/retaliate/malf_drone = TRUE,
+		/mob/living/simple_animal/hostile/icarus_drone = TRUE,
 		/mob/living/simple_animal/hostile/viscerator = TRUE,
 		/mob/living/simple_animal/spiderbot = TRUE
 	)

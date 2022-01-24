@@ -27,6 +27,11 @@
 	desc = "They look like the remains of a small reptile."
 	icon_state = "lizard"
 
+/obj/effect/decal/remains/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/gun/energy/rifle/cult))
+		return
+	..()
+
 //Target turns to ash.
 /obj/effect/decal/remains/proc/crumble()
 	var/turf/simulated/floor/F = get_turf(src)
@@ -46,6 +51,9 @@
 /obj/effect/decal/remains/Move()
 	if(pulledby)
 		crumble()
+
+/obj/effect/decal/remains/can_fall()
+	return TRUE
 
 /obj/effect/decal/remains/attack_hand(mob/user)
 	crumble()

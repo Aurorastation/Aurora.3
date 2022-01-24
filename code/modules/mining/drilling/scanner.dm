@@ -40,7 +40,7 @@
 			if(ore_type)
 				metals[ore_type] += T.resources[metal]
 
-	to_chat(user, "\icon[src] [SPAN_NOTICE("The scanner beeps and displays a readout:")]")
+	to_chat(user, "[icon2html(src, user)] [SPAN_NOTICE("The scanner beeps and displays a readout:")]")
 
 	for(var/ore_type in metals)
 		var/result = "no sign"

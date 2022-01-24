@@ -22,6 +22,9 @@
 
 	req_one_access = list(access_security, access_heads)
 
+	light_range = 3
+	light_power = 2
+
 	var/raised = 0			//if the turret cover is "open" and the turret is raised
 	var/raising= 0			//if the turret is currently opening or closing its cover
 	var/health = 80			//the turret's health
@@ -47,7 +50,8 @@
 	var/check_weapons = 0	//checks if it can shoot people that have a weapon they aren't authorized to have
 	var/check_access = 1	//if this is active, the turret shoots everything that does not meet the access requirements
 	var/check_wildlife = 1	//checks if it can shoot at simple animals or anything that passes issmall
-	var/check_synth	 = 0 	//if active, will shoot at anything not an AI or cyborg
+	var/check_synth	 = 0	//if active, will shoot at anything not an AI or cyborg
+	var/target_borgs = FALSE//if active, will shoot at borgs
 	var/ailock = 0 			// AI cannot use this
 
 	var/immobile = FALSE	// If TRUE, the turret cannot be detached from the ground with a wrench.
@@ -63,7 +67,7 @@
 	var/eprojectile = /obj/item/projectile/beam		//holder for lethal (secondary) mode beam
 
 	var/shot_sound = 'sound/weapons/Taser.ogg'		//what sound should play when the turret fires
-	var/eshot_sound	= 'sound/weapons/Laser.ogg'		//what sound should play when the lethal turret fires
+	var/eshot_sound	= 'sound/weapons/laser1.ogg'		//what sound should play when the lethal turret fires
 
 	var/datum/effect_system/sparks/spark_system		//the spark system, used for generating... sparks?
 
@@ -73,6 +77,8 @@
 	var/list/secondarytargets = list()	//targets that are least important
 	var/resetting = FALSE
 	var/fast_processing = FALSE
+
+	var/old_angle = 0
 
 /obj/machinery/porta_turret/examine(mob/user)
 	..()
@@ -93,6 +99,7 @@
 	enabled = FALSE
 	ailock = TRUE
 	check_synth	 = FALSE
+	target_borgs = FALSE
 	check_access = TRUE
 	check_arrest = TRUE
 	check_records = TRUE
@@ -169,6 +176,7 @@
 	if(stat & BROKEN)
 		icon_state = "turret_[sprite_set]_broken"
 		underlays += "cover_open_[cover_set]"
+		set_light(0)
 	else if(raised || raising)
 		if(powered() && enabled)
 			if(!lethal_icon)
@@ -183,6 +191,11 @@
 	else
 		icon_state = "cover_[cover_set]"
 
+	if(stat & NOPOWER)
+		set_light(0)
+	else
+		set_light(light_range, light_power)
+
 /obj/machinery/porta_turret/proc/isLocked(mob/user)
 	if(ailock && issilicon(user))
 		to_chat(user, SPAN_WARNING("There seems to be a firewall preventing you from accessing this device."))
@@ -196,6 +209,8 @@
 	return FALSE
 
 /obj/machinery/porta_turret/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	ui_interact(user)
 
 /obj/machinery/porta_turret/attack_hand(mob/user)
@@ -214,6 +229,7 @@
 
 	var/usedSettings = list(
 		"check_synth" = "Neutralize All Non-Synthetics",
+		"target_borgs" = "Neutralize All Cyborg-likes",
 		"check_wildlife" = "Neutralize All Wildlife",
 		"check_weapons" = "Check Weapon Authorization",
 		"check_records" = "Check Security Records",
@@ -272,6 +288,8 @@
 			lethal_icon = value
 		else if(href_list["command"] == "check_synth")
 			check_synth = value
+		else if(href_list["command"] == "target_borgs")
+			target_borgs = value
 		else if(href_list["command"] == "check_weapons")
 			check_weapons = value
 		else if(href_list["command"] == "check_records")
@@ -351,7 +369,7 @@
 				update_icon()
 		wrenching = 0
 
-	else if(istype(I, /obj/item/card/id) || istype(I, /obj/item/device/pda))
+	else if(I.GetID())
 		//Behavior lock/unlock mangement
 		if(allowed(user))
 			locked = !locked
@@ -373,7 +391,7 @@
 			if(do_after(user, 5))
 				if(QDELETED(src) || !WT.isOn())
 					return
-				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
+				playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
 				health += maxhealth / 3
 				health = min(maxhealth, health)
 				return
@@ -491,13 +509,16 @@
 
 	for(var/v in view(world.view, src))
 		if(isliving(v))
-			var/mob/living/L = v
-			assess_and_assign(L, targets, secondarytargets)
+			assess_and_assign_living(v, targets, secondarytargets)
+		if(istype(v,/obj/structure/closet))
+			assess_and_assign_closet(v, targets, secondarytargets)
+
 
 	if(!tryToShootAt(targets))
 		if(!tryToShootAt(secondarytargets) && !resetting) // if no valid targets, go for secondary targets
-			resetting = TRUE
-			addtimer(CALLBACK(src, .proc/reset), 6 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE) // no valid targets, close the cover
+			if(raised || raising) // we've already reset
+				resetting = TRUE
+				addtimer(CALLBACK(src, .proc/reset), 6 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE) // no valid targets, close the cover
 
 	if(targets.len || secondarytargets.len)
 		if(!fast_processing)
@@ -519,12 +540,33 @@
 		popDown()
 	resetting = FALSE
 
-/obj/machinery/porta_turret/proc/assess_and_assign(var/mob/living/L, var/list/targets, var/list/secondarytargets)
+/obj/machinery/porta_turret/proc/assess_and_assign_living(var/mob/living/L, var/list/targets, var/list/secondarytargets)
 	switch(assess_living(L))
 		if(TURRET_PRIORITY_TARGET)
 			targets += L
 		if(TURRET_SECONDARY_TARGET)
 			secondarytargets += L
+
+/obj/machinery/porta_turret/proc/assess_and_assign_closet(var/obj/structure/closet/C, var/list/targets, var/list/secondarytargets)
+	if(is_type_in_list(C,list(/obj/structure/closet/statue,/obj/structure/closet/hydrant,/obj/structure/closet/walllocker)))
+		return
+	if(!lethal)
+		return
+
+	//If someone in the locker is a primary target, we assign the locker as a primary target and return immediately.
+	//If someone in the locker is a secondary target, we remember that and only assign the locker as a secondary target, if there is no other primary target in the locker.
+	var/found_secondary = FALSE
+	for(var/O in C.contents)
+		if(!isliving(O))
+			continue
+		switch(assess_living(O))
+			if(TURRET_PRIORITY_TARGET)
+				targets += C
+				return
+			if(TURRET_SECONDARY_TARGET)
+				found_secondary = TRUE
+	if(found_secondary)
+		secondarytargets += C
 
 /obj/machinery/porta_turret/proc/assess_living(var/mob/living/L)
 	if(!istype(L))
@@ -536,7 +578,7 @@
 	if(L.invisibility >= INVISIBILITY_LEVEL_ONE) // Cannot see him. see_invisible is a mob-var
 		return TURRET_NOT_TARGET
 
-	if(!emagged && issilicon(L))	// Don't target silica
+	if(!emagged && !target_borgs && issilicon(L))	// Don't target silica
 		return TURRET_NOT_TARGET
 
 	if(L.stat && !emagged)		//if the perp is dead/dying, no need to bother really
@@ -545,7 +587,7 @@
 	if(get_dist(src, L) > 7)	//if it's too far away, why bother?
 		return TURRET_NOT_TARGET
 
-	var/flags =  PASSTABLE
+	var/flags =  PASSTABLE|PASSTRACE
 	if(ispath(projectile, /obj/item/projectile/beam) || ispath(eprojectile, /obj/item/projectile/beam))
 		flags |= PASSTABLE|PASSGLASS|PASSGRILLE
 
@@ -554,6 +596,9 @@
 
 	if(emagged)		// If emagged not even the dead get a rest
 		return L.stat ? TURRET_SECONDARY_TARGET : TURRET_PRIORITY_TARGET
+
+	if(target_borgs && isAI(L))		//don't shoot the AI if we're shooting silica!
+		return TURRET_NOT_TARGET
 
 	if(lethal && locate(/mob/living/silicon/ai) in get_turf(L))		//don't accidentally kill the AI!
 		return TURRET_NOT_TARGET
@@ -597,14 +642,14 @@
 
 	return H.assess_perp(src, check_access, check_weapons, check_records, check_arrest)
 
-/obj/machinery/porta_turret/proc/tryToShootAt(var/list/mob/living/targets)
+/obj/machinery/porta_turret/proc/tryToShootAt(var/list/targets)
 	if(targets.len && last_target && (last_target in targets) && target(last_target))
 		return 1
 
 	while(targets.len > 0)
-		var/mob/living/M = pick(targets)
-		targets -= M
-		if(target(M))
+		var/T = pick(targets)
+		targets -= T
+		if(target(T))
 			return 1
 
 
@@ -649,6 +694,7 @@
 	qdel(flick_holder)
 
 	set_raised_raising(0, 0)
+	set_angle(0)
 	update_icon()
 
 /obj/machinery/porta_turret/proc/set_raised_raising(var/raised, var/raising)
@@ -656,16 +702,17 @@
 	src.raising = raising
 	density = raised || raising
 
-/obj/machinery/porta_turret/proc/target(var/mob/living/target)
+/obj/machinery/porta_turret/proc/target(var/target)
 	if(disabled)
 		return
 	if(target)
 		last_target = target
 		popUp()				//pop the turret up if it's not already up.
-		var/d = get_dir(src, target)	//even if you can't shoot, follow the target
-		if(d != dir)
-			set_dir(d)
+		var/new_angle = Get_Angle(src, target)
+		if(new_angle > old_angle + 30 || new_angle < old_angle - 30)
 			playsound(loc, 'sound/machines/turrets/turret_rotate.ogg', 100, 1)
+		set_angle(new_angle)
+		old_angle = new_angle
 		shootAt(target)
 		return 1
 	return
@@ -673,7 +720,7 @@
 /obj/machinery/porta_turret/proc/reset_last_fired()
 	last_fired = FALSE
 
-/obj/machinery/porta_turret/proc/shootAt(var/mob/living/target)
+/obj/machinery/porta_turret/proc/shootAt(var/target)
 	//any emagged turrets will shoot extremely fast! This not only is deadly, but drains a lot power!
 	if(last_fired || !raised)	//prevents rapid-fire shooting, unless it's been emagged
 		return
@@ -714,6 +761,7 @@
 	var/enabled
 	var/lethal
 	var/check_synth
+	var/target_borgs
 	var/check_access
 	var/check_records
 	var/check_arrest
@@ -738,6 +786,7 @@
 		src.lethal_icon = TC.lethal
 
 	check_synth = TC.check_synth
+	target_borgs = TC.target_borgs
 	check_access = TC.check_access
 	check_records = TC.check_records
 	check_arrest = TC.check_arrest
@@ -782,7 +831,7 @@
 				return
 
 			else if(I.iscrowbar() && !anchored)
-				playsound(loc, 'sound/items/Crowbar.ogg', 75, 1)
+				playsound(loc, I.usesound, 75, 1)
 				to_chat(user, "<span class='notice'>You dismantle the turret construction.</span>")
 				new /obj/item/stack/material/steel( loc, 5)
 				qdel(src)
@@ -824,7 +873,7 @@
 					to_chat(user, "<span class='notice'>You need more fuel to complete this task.</span>")
 					return
 
-				playsound(loc, pick('sound/items/Welder.ogg', 'sound/items/Welder2.ogg'), 50, 1)
+				playsound(loc, pick('sound/items/welder.ogg', 'sound/items/welder_pry.ogg'), 50, 1)
 				if(do_after(user, 20/I.toolspeed))
 					if(!src || !WT.remove_fuel(5, user)) return
 					build_step = 1
@@ -913,7 +962,7 @@
 				if(WT.get_fuel() < 5)
 					to_chat(user, "<span class='notice'>You need more fuel to complete this task.</span>")
 
-				playsound(loc, pick('sound/items/Welder.ogg', 'sound/items/Welder2.ogg'), 50, 1)
+				playsound(loc, pick('sound/items/welder.ogg', 'sound/items/welder_pry.ogg'), 50, 1)
 				if(do_after(user, 30/I.toolspeed))
 					if(!src || !WT.remove_fuel(5, user))
 						return
@@ -953,7 +1002,7 @@
 					qdel(src) // qdel
 
 			else if(I.iscrowbar())
-				playsound(loc, 'sound/items/Crowbar.ogg', 75, 1)
+				playsound(loc, I.usesound, 75, 1)
 				to_chat(user, "<span class='notice'>You pry off the turret's exterior armor.</span>")
 				new /obj/item/stack/material/steel(loc, 2)
 				build_step = 6
@@ -1022,8 +1071,8 @@
 
 	projectile = /obj/item/projectile/ion/stun
 	eprojectile = /obj/item/projectile/ion
-	shot_sound = 'sound/weapons/Laser.ogg'
-	eshot_sound	= 'sound/weapons/Laser.ogg'
+	shot_sound = 'sound/weapons/laser1.ogg'
+	eshot_sound	= 'sound/weapons/laser1.ogg'
 	req_one_access = list(access_syndicate)
 
 /obj/machinery/porta_turret/crossbow
@@ -1034,7 +1083,7 @@
 	sprite_set = "crossbow"
 
 	eprojectile = /obj/item/projectile/energy/bolt/large
-	eshot_sound	= 'sound/weapons/Genhit.ogg'
+	eshot_sound	= 'sound/weapons/genhit.ogg'
 	req_one_access = list(access_syndicate)
 
 /obj/machinery/porta_turret/cannon
@@ -1114,7 +1163,7 @@
 	sprite_set = "ballistic"
 	no_salvage = TRUE
 
-	eprojectile = /obj/item/projectile/bullet/rifle/a762
+	eprojectile = /obj/item/projectile/bullet/pistol/medium
 	eshot_sound	= 'sound/weapons/gunshot/gunshot_saw.ogg'
 
 	req_one_access = list(access_syndicate)

@@ -201,6 +201,15 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		linked = locate(href_list["link"]) in pin.linked
 
 	var/obj/held_item = usr.get_active_hand()
+	var/obj/off_hand = usr.get_inactive_hand()
+	var/obj/item/device/multitool/M
+	if(held_item?.ismultitool())
+		M = held_item
+	if(!M && off_hand?.ismultitool())
+		M = off_hand
+	if(M?.tracking_apc)
+		to_chat(usr, SPAN_WARNING("\The [M]'s smart tracking is enabled! Disable it to regain I/O functionality."))
+		return TRUE
 
 	if(href_list["rename"])
 		rename_component(usr)
@@ -211,25 +220,22 @@ a creative player the means to solve many problems.  Circuits are held inside an
 				ea.interact(usr)
 
 	if(href_list["pin_name"])
-		if (!held_item.ismultitool() || !allow_multitool)
+		if(!M || !allow_multitool)
 			href_list["wire"] = 1
 		else
-			var/obj/item/device/multitool/M = held_item
 			M.wire(pin,usr)
 
 	if(href_list["pin_data"])
-		if (!held_item.ismultitool() || !allow_multitool)
+		if(!M || !allow_multitool)
 			href_list["wire"] = 1
-
 		else
 			var/datum/integrated_io/io = pin
 			io.ask_for_pin_data(usr) // The pins themselves will determine how to ask for data, and will validate the data.
 
 	if(href_list["pin_unwire"])
-		if (!held_item.ismultitool() || !allow_multitool)
+		if(!M || !allow_multitool)
 			href_list["wire"] = 1
 		else
-			var/obj/item/device/multitool/M = held_item
 			M.unwire(pin, linked, usr)
 
 	if(href_list["wire"])
@@ -295,7 +301,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		var/turf/T = get_turf(src)
 		forceMove(T)
 		assembly = null
-		playsound(T, 'sound/items/Crowbar.ogg', 50, 1)
+		playsound(T, 'sound/items/crowbar_pry.ogg', 50, 1)
 		to_chat(usr, "<span class='notice'>You pop \the [src] out of the case, and slide it out.</span>")
 
 		if(istype(ea))

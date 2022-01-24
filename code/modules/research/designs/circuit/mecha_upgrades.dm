@@ -1,10 +1,7 @@
 /datum/design/circuit/exosuit_upgrade
-	design_order = 2.6
+	p_category = "Exosuit Hardware Upgrades"
 
-/datum/design/circuit/exosuit_upgrade/AssembleDesignName()
-	name = "Exosuit Hardware Upgrade ([name])"
-
-/datum/design/circuit/exosuit/AssembleDesignDesc()
+/datum/design/circuit/exosuit_upgrade/AssembleDesignDesc()
 	desc = "Complex circuitry which unlock certain exosuit faculties."
 
 /datum/design/circuit/exosuit_upgrade/remote

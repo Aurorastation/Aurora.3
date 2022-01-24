@@ -12,6 +12,7 @@
 	speak_chance = 1
 	turns_per_move = 5
 	meat_amount = 35
+	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
@@ -24,4 +25,4 @@
 	mob_size = 15
 
 	has_udder = TRUE
-	milk_type = /datum/reagent/drink/milk/beetle
+	milk_type = /decl/reagent/drink/milk/beetle

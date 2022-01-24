@@ -38,7 +38,6 @@
 		/obj/item/toy/bosunwhistle            = TRADER_THIS_TYPE,
 		/obj/item/board                = TRADER_THIS_TYPE,
 		/obj/item/deck                 = TRADER_SUBTYPES_ONLY,
-		/obj/item/deck/tarot/fluff     = TRADER_BLACKLIST_ALL,
 		/obj/item/pack                 = TRADER_SUBTYPES_ONLY,
 		/obj/item/dice                 = TRADER_ALL,
 		/obj/item/eightball                   = TRADER_ALL,
@@ -83,7 +82,7 @@
 		/obj/item/circuitboard/telecomms                  = TRADER_BLACKLIST,
 		/obj/item/circuitboard/unary_atmos                = TRADER_BLACKLIST,
 		/obj/item/circuitboard/arcade                     = TRADER_BLACKLIST,
-		/obj/item/circuitboard/broken                     = TRADER_BLACKLIST,
+		/obj/item/trash/broken_electronics                     = TRADER_BLACKLIST,
 		/obj/item/storage/box/lights/colored              = TRADER_SUBTYPES_ONLY,
 		/obj/item/stack/cable_coil                               = TRADER_SUBTYPES_ONLY,
 		/obj/item/stack/cable_coil/cyborg                        = TRADER_BLACKLIST,
@@ -108,7 +107,6 @@
 	possible_origins = list("Space Eagle", "Banana Democracy", "Forever 22", "Textiles Factory Warehouse Outlet", "Blocks Brothers")
 	speech = list(
 		"hail_generic"      = "Hello, sir! Welcome to ORIGIN!",
-		"hail_Vox"          = "Well hello sir! I don't believe we have any clothes that fit you... but you can still look!",
 		"hail_deny"         = "We do not trade with rude customers. Consider yourself blacklisted.",
 		"trade_complete"    = "Thank you for shopping at ORIGIN. Remember: We cannot accept returns without the original tags!",
 		"trade_blacklist"   = "Hm, how about no?",
@@ -140,7 +138,6 @@
 		/obj/item/clothing/under/tactical                        = TRADER_BLACKLIST,
 		/obj/item/clothing/under/punpun                          = TRADER_BLACKLIST,
 		/obj/item/clothing/under/fluff                           = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/under/dress/fluff                     = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/under/rank/centcom_officer/bst        = TRADER_BLACKLIST,
 		/obj/item/clothing/suit/storage/hooded                   = TRADER_SUBTYPES_ONLY,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/fluff  = TRADER_BLACKLIST_ALL,
@@ -158,7 +155,6 @@
 		/obj/item/clothing/shoes                        = TRADER_SUBTYPES_ONLY,
 		/obj/item/clothing/shoes/chameleon              = TRADER_BLACKLIST,
 		/obj/item/clothing/shoes/combat                 = TRADER_BLACKLIST,
-		/obj/item/clothing/shoes/clown_shoes            = TRADER_BLACKLIST,
 		/obj/item/clothing/shoes/cult                   = TRADER_BLACKLIST,
 		/obj/item/clothing/shoes/cyborg                 = TRADER_BLACKLIST,
 		/obj/item/clothing/shoes/lightrig               = TRADER_BLACKLIST_ALL,
@@ -184,7 +180,7 @@
 		/obj/item/clothing/gloves/chameleon             = TRADER_BLACKLIST,
 		/obj/item/clothing/gloves/force                 = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/gloves/swat/bst              = TRADER_BLACKLIST,
-		/obj/item/clothing/gloves/watch/fluff           = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/wrists/watch/fluff           = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/gloves/fluff                 = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head                         = TRADER_SUBTYPES_ONLY,
 		/obj/item/clothing/head/beret/centcom           = TRADER_BLACKLIST_ALL,
@@ -355,6 +351,8 @@ Sells devices, odds and ends, and medical stuff
 		/obj/item/gun/energy/plasmacutter         = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/helmet/space/void/mining = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/space/void/mining        = TRADER_THIS_TYPE,
+		/obj/item/clothing/head/helmet/space/void/mining/fluff = TRADER_BLACKLIST, //No custom items
+		/obj/item/clothing/suit/space/void/mining/fluff        = TRADER_BLACKLIST, //No custom items
 		/obj/machinery/mining/drill                      = TRADER_THIS_TYPE,
 		/obj/machinery/mining/brace                      = TRADER_THIS_TYPE,
 		/mob/living/heavy_vehicle/premade/ripley                      = TRADER_THIS_TYPE,

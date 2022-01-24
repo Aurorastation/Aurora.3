@@ -101,16 +101,17 @@
 
 /obj/item/ammo_casing/shotgun
 	name = "shotgun slug"
-	desc = "A 12 gauge slug."
+	desc = "A 12-gauge slug."
 	icon_state = "slshell"
 	spent_icon = "slshell-spent"
 	caliber = "shotgun"
 	projectile_type = /obj/item/projectile/bullet/shotgun
 	matter = list(DEFAULT_WALL_MATERIAL = 360)
+	reload_sound = 'sound/weapons/reload_shell.ogg'
 
 /obj/item/ammo_casing/shotgun/pellet
 	name = "shotgun shell"
-	desc = "A 12 gauge shell."
+	desc = "A 12-gauge shell."
 	icon_state = "gshell"
 	spent_icon = "gshell-spent"
 	projectile_type = /obj/item/projectile/bullet/pellet/shotgun
@@ -118,7 +119,7 @@
 
 /obj/item/ammo_casing/shotgun/blank
 	name = "shotgun shell"
-	desc = "A blank shell."
+	desc = "A 12-gauge blank shell."
 	icon_state = "blshell"
 	spent_icon = "blshell-spent"
 	projectile_type = /obj/item/projectile/bullet/blank
@@ -126,7 +127,7 @@
 
 /obj/item/ammo_casing/shotgun/practice
 	name = "shotgun shell"
-	desc = "A practice shell."
+	desc = "A 12-gauge practice shell."
 	icon_state = "pshell"
 	spent_icon = "pshell-spent"
 	projectile_type = /obj/item/projectile/bullet/shotgun/practice
@@ -134,7 +135,7 @@
 
 /obj/item/ammo_casing/shotgun/beanbag
 	name = "beanbag shell"
-	desc = "A beanbag shell."
+	desc = "A 12-gauge beanbag shell."
 	icon_state = "bshell"
 	spent_icon = "bshell-spent"
 	projectile_type = /obj/item/projectile/bullet/shotgun/beanbag
@@ -144,11 +145,12 @@
 //is blocked by clothing that stops tasers and is vulnerable to EMP
 /obj/item/ammo_casing/shotgun/stunshell
 	name = "stun shell"
-	desc = "A 12 gauge taser cartridge."
+	desc = "A 12-gauge taser cartridge."
 	icon_state = "stunshell"
 	spent_icon = "stunshell-spent"
 	projectile_type = /obj/item/projectile/energy/electrode/stunshot
 	matter = list(DEFAULT_WALL_MATERIAL = 360, MATERIAL_GLASS = 720)
+	reload_sound = 'sound/weapons/reload_shell_emp.ogg'
 
 /obj/item/ammo_casing/shotgun/stunshell/emp_act(severity)
 	if(prob(100/severity)) BB = null
@@ -157,15 +159,16 @@
 //Does not stun, only blinds, but has area of effect.
 /obj/item/ammo_casing/shotgun/flash
 	name = "flash shell"
-	desc = "A chemical shell used to signal distress or provide illumination."
+	desc = "A 12-gauge chemical shell used to signal distress or provide illumination."
 	icon_state = "fshell"
 	spent_icon = "fshell-spent"
 	projectile_type = /obj/item/projectile/energy/flash/flare
 	matter = list(DEFAULT_WALL_MATERIAL = 90, MATERIAL_GLASS = 90)
+	reload_sound = 'sound/weapons/reload_shell_emp.ogg'
 
 /obj/item/ammo_casing/shotgun/incendiary
 	name = "incendiary shell"
-	desc = "A 12 gauge incendiary shell."
+	desc = "A 12-gauge incendiary shell."
 	icon_state = "ishell"
 	spent_icon = "ishell-spent"
 	projectile_type = /obj/item/projectile/bullet/shotgun/incendiary
@@ -176,8 +179,16 @@
 	desc = "A 12-gauge shotgun slug fitted with a single-use ion pulse generator."
 	icon_state = "empshell"
 	spent_icon = "empshell-spent"
-	projectile_type  = /obj/item/projectile/ion
+	projectile_type = /obj/item/projectile/ion
 	matter = list(DEFAULT_WALL_MATERIAL = 260, MATERIAL_URANIUM = 200)
+	reload_sound = 'sound/weapons/reload_shell_emp.ogg'
+
+/obj/item/ammo_casing/shotgun/tracking
+	name = "tracking slug"
+	desc = "A 12-gauge shotgun slug fitted with a tracking implant, set to activate upon embedding flesh."
+	icon_state = "trackingshell"
+	spent_icon = "trackingshell-spent"
+	projectile_type = /obj/item/projectile/bullet/tracking
 
 /obj/item/ammo_casing/tranq
 	name = "PPS shell"
@@ -287,6 +298,7 @@
 	desc = "A heavy ion gauss slug."
 	icon_state = "empslug"
 	projectile_type = /obj/item/projectile/ion/gauss
+	reload_sound = 'sound/weapons/reload_shell_emp.ogg'
 
 /obj/item/ammo_casing/plasma_slug
 	name = "plasma slug"
@@ -312,7 +324,9 @@
 	projectile_type = /obj/item/projectile/bullet/cannonball
 	matter = list(DEFAULT_WALL_MATERIAL = 800)
 	w_class = ITEMSIZE_NORMAL
+	slot_flags = null
 	max_stack = 1
+	reload_sound = 'sound/weapons/reload_shell.ogg'
 
 /obj/item/ammo_casing/cannon/explosive
 	name = "explosive cannonball"
@@ -329,6 +343,37 @@
 	name = "miniaturized nuclear warhead"
 	icon_state = "nuke"
 	caliber = "nuke"
+	w_class = ITEMSIZE_NORMAL
+	slot_flags = null
 	desc = "A miniaturized version of a nuclear bomb."
 	projectile_type = /obj/item/projectile/bullet/nuke
 	max_stack = 2
+
+/obj/item/ammo_casing/musket
+	name = "musket ball"
+	desc = "A solid ball made of lead."
+	icon_state = "musketball"
+	caliber = "musket"
+	projectile_type = /obj/item/projectile/bullet/pistol/strong
+	reload_sound = 'sound/weapons/reload_shell.ogg'
+
+/obj/item/ammo_casing/recoilless_rifle
+	name = "anti-tank warhead"
+	icon_state = "missile"
+	caliber = "recoilless_rifle"
+	w_class = ITEMSIZE_NORMAL
+	slot_flags = null
+	projectile_type = /obj/item/projectile/bullet/recoilless_rifle
+	reload_sound = 'sound/weapons/reload_shell.ogg'
+	max_stack = 1
+
+/obj/item/ammo_casing/peac
+	name = "anti-materiel cannon cartridge"
+	icon_state = "peac"
+	spent_icon = "peac-spent"
+	caliber = "peac"
+	w_class = ITEMSIZE_NORMAL
+	slot_flags = null
+	projectile_type = /obj/item/projectile/bullet/recoilless_rifle/peac
+	reload_sound = 'sound/weapons/railgun_insert_emp.ogg'
+	max_stack = 1

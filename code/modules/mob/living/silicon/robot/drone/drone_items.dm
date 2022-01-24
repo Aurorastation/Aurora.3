@@ -124,6 +124,14 @@
 		else if(istype(W, /obj/item/broken_bottle))
 			if(glass)
 				glass.add_charge(2000)
+		else if(istype(W, /obj/item/reagent_containers/food/drinks/cans))
+			var/obj/item/reagent_containers/food/drinks/cans/C = W
+			if(!C.reagents || !C.reagents.total_volume)
+				if(metal)
+					metal.add_charge(500)
+			else
+				to_chat(user, SPAN_WARNING("\the [W] is not empty, let the owner finish their drink first!"))
+				return
 		else
 			continue
 

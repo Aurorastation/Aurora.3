@@ -53,10 +53,7 @@
 
 	var/has_been_rev = 0//Tracks if this mind has been a rev or not
 
-	var/datum/faction/faction 			//associated faction
-	var/datum/changeling/changeling		//changeling holder
-
-	var/datum/vampire/vampire //vampire holder
+	var/list/antag_datums = list()
 
 	var/rev_cooldown = 0
 
@@ -70,6 +67,7 @@
 	//put this here for easier tracking ingame
 	var/datum/money_account/initial_account
 
+	var/last_words
 	var/ambitions
 
 /datum/mind/New(var/key)
@@ -78,7 +76,6 @@
 
 /datum/mind/proc/handle_mob_deletion(mob/living/deleted_mob)
 	if (current == deleted_mob)
-		current.spellremove()
 		current = null
 
 	if (original == deleted_mob)
@@ -87,6 +84,8 @@
 /datum/mind/proc/transfer_to(mob/living/new_character)
 	if(!istype(new_character))
 		world.log <<  "## DEBUG: transfer_to(): Some idiot has tried to transfer_to( a non mob/living mob. Please inform Carn"
+	var/datum/changeling/changeling = antag_datums[MODE_CHANGELING]
+	var/datum/vampire/vampire = antag_datums[MODE_VAMPIRE]
 	if(current)					//remove ourself from our old body's mind variable
 		if(changeling)
 			current.remove_changeling_powers()
@@ -137,7 +136,9 @@
 			output += "<B>Objective #[obj_count]</B>: [objective.explanation_text]"
 			obj_count++
 
-	recipient << browse(output,"window=memory")
+	var/datum/browser/memory_win = new(recipient, "memory")
+	memory_win.set_content(output)
+	memory_win.open()
 
 /datum/mind/proc/edit_memory()
 	if(!ROUND_IS_STARTED)
@@ -160,9 +161,9 @@
 		for(var/datum/objective/O in objectives)
 			out += "<b>Objective #[num]:</b> [O.explanation_text] "
 			if(O.completed)
-				out += "(<font color='green'>complete</font>)"
+				out += "(<span class='good'>complete</span>)"
 			else
-				out += "(<font color='red'>incomplete</font>)"
+				out += "(<span class='warning'>incomplete</span>)"
 			out += " <a href='?src=\ref[src];obj_completed=\ref[O]'>\[toggle\]</a>"
 			out += " <a href='?src=\ref[src];obj_delete=\ref[O]'>\[remove\]</a><br>"
 			num++
@@ -457,19 +458,15 @@
 // have to call this periodically for the duration to work properly
 /datum/mind/proc/is_brigged(duration)
 	var/turf/T = current.loc
-	if(!istype(T))
+	if(isnull(T))
 		brigged_since = -1
 		return 0
+	var/area/A = T.loc
 	var/is_currently_brigged = 0
-	if(istype(T.loc,/area/security/brig))
+	if(A?.is_prison())
 		is_currently_brigged = 1
-		for(var/obj/item/card/id/card in current)
+		if(current.GetIdCard())
 			is_currently_brigged = 0
-			break // if they still have ID they're not brigged
-		for(var/obj/item/device/pda/P in current)
-			if(P.id)
-				is_currently_brigged = 0
-				break // if they still have ID they're not brigged
 
 	if(!is_currently_brigged)
 		brigged_since = -1
@@ -486,8 +483,8 @@
 	role_alt_title =  null
 	assigned_job =    null
 	//faction =       null //Uncommenting this causes a compile error due to 'undefined type', fucked if I know.
-	changeling =      null
-	vampire =         null
+	for(var/thing in antag_datums)
+		QDEL_NULL(thing)
 	initial_account = null
 	objectives =      list()
 	special_verbs =   list()
@@ -572,29 +569,12 @@
 	mind.assigned_role = "Wraith"
 	mind.special_role = "Cultist"
 
-/mob/living/simple_animal/construct/armoured/mind_initialize()
+/mob/living/simple_animal/construct/armored/mind_initialize()
 	..()
 	mind.assigned_role = "Juggernaut"
 	mind.special_role = "Cultist"
-
-/mob/living/carbon/human/voxarmalis/mind_initialize()
-	..()
-	mind.assigned_role = "Armalis"
-	mind.special_role = "Vox Raider"
 
 /mob/living/silicon/robot/syndicate/mind_initialize()
 	..()
 	mind.assigned_role = "Syndicate Robot"
 	mind.special_role = "Mercenary"
-
-/mob/living/simple_animal/hostile/faithless/wizard/mind_initialize()
-	..()
-	mind.assigned_role = "Space Wizard"
-
-/mob/living/simple_animal/familiar/mind_initialize()
-	..()
-	mind.assigned_role = "Familiar"
-
-/mob/living/simple_animal/rat/familiar/familiar/mind_initialize()
-	..()
-	mind.assigned_role = "Familiar"

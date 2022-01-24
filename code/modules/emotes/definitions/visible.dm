@@ -55,7 +55,7 @@
 
 /decl/emote/visible/collapse/do_extra(var/mob/user)
 	if(istype(user))
-		user.Paralyse(2)
+		user.Weaken(2)
 
 /decl/emote/visible/flash
 	key = "flash"
@@ -83,16 +83,6 @@
 	key = "salute"
 	emote_message_3p_target = "USER salutes TARGET."
 	emote_message_3p = "USER salutes."
-
-/decl/emote/visible/flap
-	key = "flap"
-	check_restraints = TRUE
-	emote_message_3p = "USER flaps USER_THEIR wings."
-
-/decl/emote/visible/aflap
-	key = "aflap"
-	check_restraints = TRUE
-	emote_message_3p = "USER flaps USER_THEIR wings ANGRILY!"
 
 /decl/emote/visible/eyebrow
 	key = "eyebrow"

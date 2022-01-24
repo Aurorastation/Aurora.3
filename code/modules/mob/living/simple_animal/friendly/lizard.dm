@@ -10,6 +10,7 @@
 	attacktext = "bitten"
 	melee_damage_lower = 1
 	melee_damage_upper = 2
+	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
 	response_help  = "pets"
 	response_disarm = "shoos"
 	response_harm   = "stomps on"

@@ -87,8 +87,7 @@
 
 /obj/screen/ai/crew_manifest/Click()
 	if (isAI(usr))
-		var/mob/living/silicon/ai/AI = usr
-		AI.show_station_manifest()
+		SSrecords.open_manifest_vueui(usr)
 
 /obj/screen/ai/alerts
 	name = "Show Alerts"
@@ -111,7 +110,7 @@
 		AI.ai_announcement()
 
 /obj/screen/ai/call_shuttle
-	name = "Call Emergency Shuttle"
+	name = "Call Evacuation"
 	icon_state = "call_shuttle"
 	screen_loc = ui_ai_shuttle
 
@@ -129,26 +128,6 @@
 	if (isAI(usr))
 		var/mob/living/silicon/ai/AI = usr
 		AI.subsystem_law_manager()
-
-/obj/screen/ai/pda_msg
-	name = "PDA - Send Message"
-	icon_state = "pda_send"
-	screen_loc = ui_ai_pda_send
-
-/obj/screen/ai/pda_msg/Click()
-	if (isAI(usr))
-		var/mob/living/silicon/ai/AI = usr
-		AI.ai_pda.cmd_send_pdamesg(usr)
-
-/obj/screen/ai/pda_log
-	name = "PDA - Show Message Log"
-	icon_state = "pda_receive"
-	screen_loc = ui_ai_pda_log
-
-/obj/screen/ai/pda_log/Click()
-	if (isAI(usr))
-		var/mob/living/silicon/ai/AI = usr
-		AI.ai_pda.cmd_show_message_log(usr)
 
 /obj/screen/ai/take_image
 	name = "Take Image"
@@ -181,14 +160,17 @@
 		AI.sensor_mode()
 
 /obj/screen/ai/remote_mech
-	name = "Remote Control Mech"
+	name = "Remote Control Shell"
 	icon_state = "remote_mech"
 	screen_loc = ui_ai_mech
 
 /obj/screen/ai/remote_mech/Click()
 	if(isAI(usr))
 		var/mob/living/silicon/ai/AI = usr
-		AI.remote_control_mech()
+		if(AI.anchored)
+			AI.remote_control_shell()
+		else
+			to_chat(AI, SPAN_WARNING("You are unable to get a good connection while unanchored from the station systems."))
 
 /obj/screen/ai/move_up
 	name = "Move Up"

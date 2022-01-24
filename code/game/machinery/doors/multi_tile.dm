@@ -7,23 +7,8 @@
 
 /obj/machinery/door/airlock/multi_tile/Initialize()
 	. = ..()
-	SetBounds()
-	setup_hatch()
-	update_icon()
-
-/obj/machinery/door/airlock/multi_tile/Move()
-	. = ..()
-	SetBounds()
-	setup_hatch()
-	update_icon()
-
-/obj/machinery/door/airlock/multi_tile/proc/SetBounds()
-	if(dir in list(EAST, WEST))
-		bound_width = width * world.icon_size
-		bound_height = world.icon_size
-	else
-		bound_width = world.icon_size
-		bound_height = width * world.icon_size
+	if(hashatch)
+		setup_hatch()
 
 /obj/machinery/door/airlock/multi_tile/glass
 	name = "Glass Airlock"
@@ -32,28 +17,19 @@
 	glass = 1
 	assembly_type = /obj/structure/door_assembly/multi_tile
 
-/obj/machinery/door/airlock/multi_tile/setup_hatch()
 
-	if (overlays != null)
+/obj/machinery/door/airlock/multi_tile/setup_hatch()
+	if(overlays != null)
+		hatch_image = null
 		hatch_image = image('icons/obj/doors/hatches.dmi', src, hatchstyle, closed_layer+0.1)
 		hatch_image.color = hatch_colour
+		hatch_image.transform = turn(hatch_image.transform, 90)
+		// reset any rotation and transformation applied
 		switch(dir)
-			if(EAST)
+			if(EAST, WEST)
 				hatch_image.pixel_x = hatch_offset_x
 				hatch_image.pixel_y = hatch_offset_y
-			if(WEST)
-				hatch_image.transform = turn(hatch_image.transform, 180)
-				hatch_image.pixel_x = hatch_offset_x
-				hatch_image.pixel_y = hatch_offset_y
-			if(NORTH)
-				hatch_image.transform = turn(hatch_image.transform, -90)
-				hatch_image.pixel_x = hatch_offset_y
-				hatch_image.pixel_y = hatch_offset_x
-			if(SOUTH)
-				hatch_image.transform = turn(hatch_image.transform, 90)
+			if(NORTH, SOUTH)
 				hatch_image.pixel_x = hatch_offset_y
 				hatch_image.pixel_y = hatch_offset_x
 		add_overlay(hatch_image)
-	else
-		spawn(10)//If overlays aren't initialised, wait a second and try again
-			setup_hatch()

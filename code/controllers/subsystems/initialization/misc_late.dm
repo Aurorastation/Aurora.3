@@ -11,13 +11,13 @@
 	for (var/thing in all_areas)
 		var/area/AR = thing
 		picked = null
-		if(!(istype(AR, /area/shuttle) || istype(AR, /area/syndicate_station) || istype(AR, /area/wizard_station)))
+		if(!(istype(AR, /area/shuttle) || istype(AR, /area/antag/wizard)))
 			picked = pick_area_turf(AR.type, list(/proc/is_station_turf))
 			if (picked)
 				teleportlocs += AR.name
 				teleportlocs[AR.name] = AR
 
-		if(istype(AR, /area/turret_protected/aisat) || istype(AR, /area/tdome) || istype(AR, /area/shuttle/specops/centcom))
+		if(istype(AR, /area/turret_protected/aisat) || istype(AR, /area/tdome) || istype(AR, /area/shuttle/specops))
 			ghostteleportlocs += AR.name
 			ghostteleportlocs[AR.name] = AR
 
@@ -35,6 +35,18 @@
 		admin_notice("<span class='notice'><b>Fastboot is enabled; some features may not be available.</b></span>", R_DEBUG)
 
 	populate_code_phrases()
+
+	// this covers mapped in drone fabs
+	for(var/atom/thing as anything in SSatoms.late_misc_firers)
+		thing.do_late_fire()
+		LAZYREMOVE(SSatoms.late_misc_firers, thing)
+
+	if (config.use_forumuser_api)
+		update_admins_from_api(TRUE)
+
+	click_catchers = create_click_catcher()
+
+	current_map.build_exoplanets()
 
 	..(timeofday)
 

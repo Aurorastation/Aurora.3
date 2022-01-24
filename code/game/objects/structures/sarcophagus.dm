@@ -75,4 +75,4 @@
 	desc = "An archaic key, probably not used to open any airlock on station."
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "unknown1"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL

@@ -112,7 +112,8 @@
 			harvesting.has_resources = FALSE
 			harvesting.resources = null
 			resource_field -= harvesting
-			harvesting = pick(resource_field)
+			if(length(resource_field))
+				harvesting = pick(resource_field)
 
 		if(!harvesting)
 			return
@@ -188,6 +189,8 @@
 			set_light(4, 1, LIGHT_COLOR_LAVA)
 
 /obj/machinery/mining/drill/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/mining/drill/attackby(obj/item/O, mob/user)
@@ -339,9 +342,9 @@
 				system_error("Unbraced drill error.")
 				sleep(30)
 				if(!supported) //if you can resolve it manually in three seconds then power to you good-sir.
-					visible_message(SPAN_NOTICE("\icon[src] [src.name] beeps, \"Unbraced drill error automatically corrected. Please brace your drill.\""))
+					visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] [src.name] beeps, \"Unbraced drill error automatically corrected. Please brace your drill.\""))
 				else
-					visible_message(SPAN_NOTICE("\icon[src] [src.name] beeps, \"Unbraced drill error manually resolved. Operations may resume normally.\""))
+					visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] [src.name] beeps, \"Unbraced drill error manually resolved. Operations may resume normally.\""))
 			if(supported && panel_open)
 				if(cell)
 					system_error("Unsealed cell fitting error. Volatile cell discharge may occur if not immediately corrected.")
@@ -362,7 +365,7 @@
 							component_parts -= cell
 							cell = null
 					else
-						visible_message(SPAN_NOTICE("\icon[src] [src.name] beeps, \"Unsealed cell fitting error manually resolved. Operations may resume normally.\""))
+						visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] [src.name] beeps, \"Unsealed cell fitting error manually resolved. Operations may resume normally.\""))
 		else
 			to_chat(user, SPAN_NOTICE("\The [src] is unpowered."))
 	update_icon()
@@ -412,7 +415,7 @@
 
 /obj/machinery/mining/drill/proc/system_error(var/error)
 	if(error)
-		visible_message(SPAN_WARNING("\icon[src] <b>[capitalize_first_letters(src.name)]</b> flashes a system warning: \"[error]\"."))
+		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] <b>[capitalize_first_letters(src.name)]</b> flashes a system warning: \"[error]\"."))
 		current_error = error
 		playsound(get_turf(src), 'sound/machines/warning-buzzer.ogg', 100, 1)
 	need_player_check = TRUE
@@ -519,7 +522,7 @@
 				connected.system_error("Unbraced drill error.")
 				sleep(30)
 				if(connected?.active) //if you can resolve it manually in three seconds then power to you good-sir.
-					visible_message(SPAN_NOTICE("\icon[src] [src.name] beeps, \"Unbraced drill error automatically corrected. Please brace your drill.\""))
+					visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] [src.name] beeps, \"Unbraced drill error automatically corrected. Please brace your drill.\""))
 			else
 				connected.system_error("Unexpected user interface error.")
 				return

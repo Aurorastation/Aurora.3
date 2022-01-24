@@ -1,17 +1,20 @@
 /datum/species/human
-	name = "Human"
+	name = SPECIES_HUMAN
 	hide_name = TRUE
 	short_name = "hum"
 	name_plural = "Humans"
-	bodytype = "Human"
+	category_name = "Human"
+	bodytype = BODYTYPE_HUMAN
 	age_max = 125
 	economic_modifier = 12
+	bandages_icon = 'icons/mob/bandage.dmi'
 
-	primitive_form = "Monkey"
+	primitive_form = SPECIES_MONKEY
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
 		/datum/unarmed_attack/punch,
+		/datum/unarmed_attack/palm,
 		/datum/unarmed_attack/bite
 	)
 	blurb = "Humanity originated in the Sol system, and over the last four centuries has spread colonies across a wide swathe of space. \
@@ -21,7 +24,7 @@
 	megacorporations have sparked secretive factions to fight their influence, while there is always the risk of someone digging too \
 	deep into the secrets of the galaxy..."
 	num_alternate_languages = 2
-	secondary_langs = list(LANGUAGE_SOL_COMMON)
+	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_ELYRAN_STANDARD)
 	name_language = null // Use the first-name last-name generator rather than a language scrambler
 	mob_size = 9
 	spawn_flags = CAN_JOIN
@@ -39,7 +42,7 @@
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/tie_hair)
 
-	zombie_type = "Zombie"
+	zombie_type = SPECIES_ZOMBIE
 	base_color = "#25032"
 	character_color_presets = list("Dark" = "#000000", "Warm" = "#250302", "Cold" = "#1e1e29")
 
@@ -57,7 +60,7 @@
 		H.emote("scream")
 
 	if(!H.restrained() && H.lying && H.shock_stage >= 60 && prob(3))
-		H.custom_emote("thrashes in agony")
+		H.custom_emote(VISIBLE_MESSAGE, "thrashes in agony")
 
 	if(!H.restrained() && H.shock_stage < 40 && prob(3))
 		var/maxdam = 0
@@ -71,16 +74,15 @@
 			if(dam > maxdam && (maxdam == 0 || prob(50)) )
 				damaged_organ = E
 				maxdam = dam
-		var/datum/gender/T = gender_datums[H.get_gender()]
 		if(damaged_organ)
 			if(damaged_organ.status & ORGAN_BLEEDING)
-				H.custom_emote("clutches [T.his] [damaged_organ.name], trying to stop the blood.")
+				H.custom_emote(VISIBLE_MESSAGE, "clutches [H.get_pronoun("his")] [damaged_organ.name], trying to stop the blood.")
 			else if(damaged_organ.status & ORGAN_BROKEN)
-				H.custom_emote("holds [T.his] [damaged_organ.name] carefully.")
+				H.custom_emote(VISIBLE_MESSAGE, "holds [H.get_pronoun("his")] [damaged_organ.name] carefully.")
 			else if(damaged_organ.burn_dam > damaged_organ.brute_dam && damaged_organ.organ_tag != BP_HEAD)
-				H.custom_emote("blows on [T.his] [damaged_organ.name] carefully.")
+				H.custom_emote(VISIBLE_MESSAGE, "blows on [H.get_pronoun("his")] [damaged_organ.name] carefully.")
 			else
-				H.custom_emote("rubs [T.his] [damaged_organ.name] carefully.")
+				H.custom_emote(VISIBLE_MESSAGE, "rubs [H.get_pronoun("his")] [damaged_organ.name] carefully.")
 
 		for(var/obj/item/organ/I in H.internal_organs)
 			if((I.status & ORGAN_DEAD) || BP_IS_ROBOTIC(I))
@@ -88,4 +90,4 @@
 			if(I.damage > 2)
 				if(prob(2))
 					var/obj/item/organ/external/parent = H.get_organ(I.parent_organ)
-					H.custom_emote("clutches [T.his] [parent.name]!")
+					H.custom_emote(VISIBLE_MESSAGE, "clutches [H.get_pronoun("his")] [parent.name]!")

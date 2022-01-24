@@ -9,9 +9,6 @@
 	Dominia, and are at the forefront of weapons development technology.
 	</p>
 
-	<p><font size='5' color='red'><b> DO NOT PLAY AN IPC AS A ZAVODSKOI LIAISON, THIS IS UNINTENDED. JOINING AS ONE WILL RESULT IN AN IPC/HEAD WHITELIST STRIP.</b></font>
-	</p>
-
 	<p>Some character examples are:
 	<ul>
 	<li><b>Surgical Specialist</b>: Unit to unit Zavodskoi ships the most firearms and weapons compared
@@ -22,7 +19,7 @@
 	professional through-and-through, and consider yourself a (literal) cut above whatever washouts
 	NanoTrasen can hire as surgeons. Just remember, you need to prove that you're better than Zeng-Hu.
 	We need these medical contracts, lest we have to cut back the medical division just like the genetics one.</li>
-	<li><b>Personal Security Professional</b>:Excellent customer service and client
+	<li><b>Personal Security Professional</b>: Excellent customer service and client
 	care is why Zavodskoi's private security personnel win security contracts and
 	you know this. A cut above the rest, you are clear, calm, concise and polite when
 	working. As a security force you were voted the most professional private security
@@ -50,6 +47,22 @@
 		/datum/species/unathi,
 		/datum/species/diona,
 		/datum/species/machine
+	)
+
+	job_species_blacklist = list(
+		"Corporate Liaison" = list(
+			SPECIES_IPC,
+			SPECIES_IPC_G1,
+			SPECIES_IPC_G2,
+			SPECIES_IPC_XION,
+			SPECIES_IPC_ZENGHU,
+			SPECIES_IPC_BISHOP,
+			SPECIES_IPC_SHELL,
+			SPECIES_UNATHI,
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA_ZHAN
+		)
 	)
 
 	titles_to_loadout = list(
@@ -98,3 +111,9 @@
 	suit = null
 	implants = null
 	id = /obj/item/card/id/zavodskoi
+
+	backpack_contents = list(
+		/obj/item/device/camera = 1,
+		/obj/item/gun/projectile/pistol = 1,
+		/obj/item/stamp/zavodskoi = 1
+	)

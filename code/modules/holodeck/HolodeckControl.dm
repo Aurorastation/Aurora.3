@@ -32,6 +32,8 @@
 	linkedholodeck = locate(linkedholodeck_area)
 
 /obj/machinery/computer/HolodeckControl/attack_ai(var/mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/computer/HolodeckControl/attack_hand(var/mob/user as mob)
@@ -233,7 +235,7 @@
 		var/mob/M = obj.loc
 		if(ismob(M))
 			M.remove_from_mob(obj)
-			M.update_icons()	//so their overlays update
+			M.update_icon()	//so their overlays update
 
 	if(!silent)
 		var/obj/oldobj = obj

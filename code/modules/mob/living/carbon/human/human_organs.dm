@@ -52,7 +52,7 @@
 			E.process()
 			number_wounds += E.number_wounds
 
-			if (!lying && !buckled && world.time - l_move_time < 15)
+			if (!lying && !buckled_to && world.time - l_move_time < 15)
 			//Moving around with fractured ribs won't do you any good
 				if (prob(10) && !stat && can_feel_pain() && E.is_broken() && E.internal_organs.len)
 					var/obj/item/organ/I = pick(E.internal_organs)
@@ -65,47 +65,38 @@
 						if (W.infection_check())
 							W.germ_level += 1
 
+/mob/living/carbon/human
+	var/next_stance_collapse = 0
+
 /mob/living/carbon/human/proc/handle_stance()
 	// Don't need to process any of this if they aren't standing anyways
 	// unless their stance is damaged, and we want to check if they should stay down
-	if (!stance_damage && (lying || resting) && (life_tick % 4) == 0)
+	if(!stance_damage && (lying || resting))
 		return
 
 	stance_damage = 0
 
-	// Buckled to a bed/chair. Stance damage is forced to 0 since they're sitting on something solid
-	if (istype(buckled, /obj/structure/bed))
+	if(next_stance_collapse > world.time)
 		return
 
-	for(var/limb_tag in list(BP_L_LEG,BP_R_LEG,BP_L_FOOT,BP_R_FOOT))
-		var/obj/item/organ/external/E = organs_by_name[limb_tag]
-		if(!E || (E.status & (ORGAN_MUTATED|ORGAN_DEAD)) || E.is_stump()) //should just be !E.is_usable() here but dislocation screws that up.
-			stance_damage += 2 // let it fail even if just foot&leg
-		else if (E.is_malfunctioning())
-			//malfunctioning only happens intermittently so treat it as a missing limb when it procs
-			stance_damage += 2
-			if(prob(10))
-				visible_message("\The [src]'s [E.name] [pick("twitches", "shudders")] and sparks!")
-				spark(src, 5)
-		else if (E.is_broken() || !E.is_usable())
-			stance_damage += 1
-		else if (E.is_dislocated())
-			stance_damage += 0.5
+	// buckled_to to a bed/chair. Stance damage is forced to 0 since they're sitting on something solid
+	if (istype(buckled_to, /obj/structure/bed))
+		return
 
-	// Canes and crutches help you stand (if the latter is ever added)
-	// One cane mitigates a broken leg+foot, or a missing foot.
-	// Two canes are needed for a lost leg. If you are missing both legs, canes aren't gonna help you.
-	if (l_hand && istype(l_hand, /obj/item/cane))
-		stance_damage -= 2
-	if (r_hand && istype(r_hand, /obj/item/cane))
-		stance_damage -= 2
+	stance_damage = species.handle_stance_damage(src)
 
-	// standing is poor
+	//Standing is poor.
 	if(stance_damage >= 4 || (stance_damage >= 2 && prob(5)))
 		if(!(lying || resting))
-			if(can_feel_pain())
-				emote("scream")
-			emote("collapse")
+			emote("scream")
+			if(!weakened)
+				custom_emote(VISIBLE_MESSAGE, "collapses!")
+
+		if(stance_damage <= 5)
+			Weaken(3)
+			next_stance_collapse = world.time + (rand(8, 16) SECONDS)
+		else
+			Weaken(6) //No legs or feet means you should be really fucked.
 
 /mob/living/carbon/human/proc/handle_grasp()
 	if(!l_hand && !r_hand)
@@ -148,11 +139,11 @@
 					drop_from_inventory(r_hand)
 
 			var/emote_scream = pick(species.pain_item_drop_cry)
-			emote("me", 1, "[(species.flags & NO_PAIN) ? "" : emote_scream ]drops what they were holding in their [E.name]!")
+			visible_message("<b>[src]</b> [(species.flags & NO_PAIN) ? "" : emote_scream ]drops what they were holding in their [E.name]!")
 
 		else if(!(E.status & ORGAN_ROBOT) && (CE_DROPITEM in chem_effects) && prob(chem_effects[CE_DROPITEM]))
 			to_chat(src, SPAN_WARNING("Your [E.name] goes limp and unresponsive for a moment, dropping what it was holding!"))
-			emote("me", 1, "drops what they were holding in their [E.name]!")
+			visible_message("<b>[src]</b> drops what they were holding in their [E.name]!")
 			switch(E.body_part)
 				if(HAND_LEFT, ARM_LEFT)
 					if(!l_hand)
@@ -174,14 +165,15 @@
 						continue
 					drop_from_inventory(r_hand)
 
-			emote("me", 1, "drops what they were holding, their [E.name] malfunctioning!")
+			visible_message("<b>[src]</b> drops what they were holding, their [E.name] malfunctioning!")
 
 			spark(src, 5)
 
 //Handles chem traces
 /mob/living/carbon/human/proc/handle_trace_chems()
 	//New are added for reagents to random organs.
-	for(var/datum/reagent/A in reagents.reagent_list)
+	for(var/_A in reagents.reagent_volumes)
+		var/decl/reagent/A = decls_repository.get_decl(_A)
 		var/obj/item/organ/O = pick(organs)
 		O.trace_chemicals[A.name] = 100
 
@@ -191,13 +183,18 @@
 		O.set_dna(dna)
 
 /mob/living/carbon/human/proc/get_blood_alcohol()
-	return round(intoxication/max(vessel.get_reagent_amount(/datum/reagent/blood),1),0.01)
+	return round(intoxication/max(REAGENT_VOLUME(vessel, /decl/reagent/blood),1),0.01)
 
 /mob/living/proc/is_asystole()
 	return FALSE
 
 /mob/living/carbon/human/is_asystole()
-	if(species.has_organ[BP_HEART] && !isSynthetic())
+	if(isSynthetic())
+		var/obj/item/organ/internal/cell/C = internal_organs_by_name[BP_CELL]
+		if(istype(C) && C.is_usable() && C.percent())
+			return FALSE
+		return TRUE
+	else if(should_have_organ(BP_HEART))
 		var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
 		if(!istype(heart) || !heart.is_working())
 			return TRUE

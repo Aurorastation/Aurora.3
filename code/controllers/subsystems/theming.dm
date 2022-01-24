@@ -28,47 +28,8 @@ var/datum/controller/subsystem/theming/SStheming
 		)
 	)
 
-	var/skin_files = list("Light" = "interface/skin.txt", "Dark" = "interface/dark.txt")
-	var/skin_themes
-
 /datum/controller/subsystem/theming/New()
 	NEW_SS_GLOBAL(SStheming)
-	skin_themes = list()
-
-/datum/controller/subsystem/theming/Initialize(start_timeofday)
-	for(var/name in skin_files)
-		skin_themes[name] = list()
-		var/loaded = file2list(skin_files[name])
-		for(var/op in loaded)
-			var/split = text2list(op, "	")
-			if(!islist(skin_themes[name][split[1]]))
-				skin_themes[name][split[1]] = list()
-			skin_themes[name][split[1]] += split[2]
-
-	for(var/mob/M in mob_list)
-		if(M.client)
-			apply_theme_from_perfs(M.client)
-	..()
-
-/datum/controller/subsystem/theming/proc/apply_theme_from_perfs(var/user)
-	var/client/c
-	if(ismob(user))
-		var/mob/M = user
-		c = M.client
-	if(isclient(user))
-		c = user
-	if(!isclient(c))
-		return
-	apply_theme(user, c.prefs.skin_theme)
-
-/datum/controller/subsystem/theming/proc/apply_theme(var/user, var/theme = "Dark")
-	if(!isclient(user) && !ismob(user))
-		return
-	var/skin = skin_themes[theme]
-	if(!skin)
-		return
-	for(var/param in skin)
-		winset(user, param, jointext(skin[param], ";"))
 
 /datum/controller/subsystem/theming/proc/get_html_theme(var/mob/user)
 	var/client/cl = null

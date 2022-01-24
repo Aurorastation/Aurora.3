@@ -30,7 +30,7 @@
 		if("NanoTrasen Sponsored")
 			new /obj/item/reagent_containers/food/snacks/liquidfood(src)
 			new /obj/item/reagent_containers/food/snacks/liquidfood(src)
-			new /obj/item/reagent_containers/food/drinks/cans/sodawater(src)
+			new /obj/item/reagent_containers/food/drinks/cans/hrozamal_soda(src)
 			desc += " This one has the NanoTrasen logo."
 
 /obj/item/storage/field_ration/army
@@ -69,3 +69,16 @@
 
 /obj/item/storage/field_ration/nka/navy
 	preset_ration = "Royal Navy"
+
+/obj/item/storage/field_ration/dpra
+	icon_state = "bigbox"
+	desc_fluff = "The Adhomai Liberation army, being an amalgamation of regular army units, militia groups, and undercover agents, does not have any standard set when the subject is \
+	military nutrition. Depending on the area where one army might operate, its commanding officer, and available resources, rations might range from industrialized goods to foraging \
+	and hunting. It is a common practice for armies to confiscate villages productions, something that can cause resentment among farmers when their lands are occupied by the liberation \
+	army, to feed their soldiers."
+
+/obj/item/storage/field_ration/dpra/create_ration()
+	new /obj/item/reagent_containers/food/snacks/explorer_ration(src)
+	new /obj/item/reagent_containers/food/snacks/tajaran_bread(src)
+	new /obj/item/reagent_containers/food/drinks/cans/adhomai_milk(src)
+	desc += " This one has the stamp of the Adhomai Liberation Army."

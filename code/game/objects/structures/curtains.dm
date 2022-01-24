@@ -9,7 +9,13 @@
 	opacity = 1
 	density = 0
 	anchored = TRUE //curtains start secured in place
+	build_amt = 2
 	var/manipulating = FALSE //prevents queuing up multiple deconstructs and returning a bunch of cloth
+	var/curtain_material = MATERIAL_CLOTH
+
+/obj/structure/curtain/Initialize()
+	. = ..()
+	material = SSmaterials.get_material_by_name(curtain_material)
 
 /obj/structure/curtain/open
 	icon_state = "open"
@@ -42,14 +48,10 @@
 		if(!do_after(user, 30/W.toolspeed))
 			manipulating = FALSE
 			return
-		playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
+		playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
 		visible_message(SPAN_NOTICE("[user] cuts down \the [src]."),
 					SPAN_NOTICE("You cut down \the [src]."))
-		if(istype(src, /obj/structure/curtain/open/medical))
-			new /obj/item/stack/material/plastic(src.loc)
-		else
-			new /obj/item/stack/material/cloth(src.loc, (W.iswirecutter() ? 2 : 1)) //wirecutters return full. Sharp items return half.
-		qdel(src)
+		dismantle()
 
 	if(W.isscrewdriver()) //You can anchor/unanchor curtains
 		anchored = !anchored
@@ -79,12 +81,14 @@
 	color = "#B8F5E3"
 	anchored = FALSE
 	alpha = 200
+	curtain_material = MATERIAL_PLASTIC
 
 /obj/structure/curtain/open/medical
 	name = "plastic curtain"
 	color = "#B8F5E3"
 	anchored = FALSE
 	alpha = 200
+	curtain_material = MATERIAL_PLASTIC
 
 /obj/structure/curtain/open/bed
 	name = "bed curtain"

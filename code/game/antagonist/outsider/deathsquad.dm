@@ -5,11 +5,12 @@ var/datum/antagonist/deathsquad/deathsquad
 	role_text = "Asset Protection Specialist"
 	role_text_plural = "Asset Protection Specialists"
 	welcome_text = "You work in the service of corporate Asset Protection, answering directly to the Board of Directors."
+	antag_sound = 'sound/effects/antag_notice/deathsquid_alert.ogg'
 	landmark_id = "Commando"
 
 	id_type = /obj/item/card/id/asset_protection
 
-	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_OVERRIDE_MOB | ANTAG_HAS_NUKE | ANTAG_HAS_LEADER | ANTAG_RANDOM_EXCEPTED | ANTAG_CHOOSE_NAME | ANTAG_SET_APPEARANCE | ANTAG_NO_FLAVORTEXT
+	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_OVERRIDE_MOB | ANTAG_HAS_NUKE | ANTAG_HAS_LEADER | ANTAG_RANDOM_EXCEPTED | ANTAG_CHOOSE_NAME | ANTAG_SET_APPEARANCE | ANTAG_NO_FLAVORTEXT | ANTAG_NO_ROUNDSTART_SPAWN
 	antaghud_indicator = "huddeathsquad"
 
 	var/deployed = FALSE

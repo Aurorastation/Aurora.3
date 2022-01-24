@@ -42,3 +42,8 @@
 /obj/item/organ/external/head/unbreakable
 	dislocated = -1
 	limb_flags = ORGAN_CAN_AMPUTATE
+
+/obj/item/organ/external/head/unbreakable/revenant/get_additional_images(var/mob/living/carbon/human/H)
+	var/image/return_image = image(H.species.eyes_icons, H, "[H.species.eyes]_glow", EFFECTS_ABOVE_LIGHTING_LAYER)
+	return_image.appearance_flags = KEEP_APART
+	return list(return_image)

@@ -42,17 +42,17 @@
 		return
 
 	if(modifiers["alt"])
-		if(selected_system)
-			if(selected_system == A)
-				selected_system.attack_self(user)
-				setClickCooldown(5)
+		var/obj/item/mecha_equipment/ME = A
+		if(istype(ME))
+			ME.attack_self(user)
+			setClickCooldown(5)
 			return
-	
+
 	if(modifiers["ctrl"])
-		if(selected_system)
-			if(selected_system == A)
-				selected_system.CtrlClick(user)
-				setClickCooldown(5)
+		var/obj/item/mecha_equipment/ME = A
+		if(istype(ME))
+			ME.CtrlClick(user)
+			setClickCooldown(5)
 			return
 
 	if(!(user in pilots) && user != src)
@@ -75,8 +75,9 @@
 		setClickCooldown(15)
 		return
 
-	if(!(get_cell()?.checked_use(arms.power_use * CELLRATE)))
-		to_chat(user, "<span class='warning'>Error: Power levels insufficient.</span>")
+	if(!checked_use_cell(arms.power_use * CELLRATE))
+		to_chat(user, power == MECH_POWER_ON ? SPAN_WARNING("Error: Power levels insufficient.") : SPAN_WARNING("\The [src] is powered off."))
+		return
 
 	if(user != src)
 		set_intent(user.a_intent)
@@ -157,20 +158,22 @@
 		playsound(src.loc, arms.punch_sound, 45 + 25 * (arms.melee_damage / 50), -1 )
 		if(ismob(A))
 			var/mob/target = A
-			user.attack_log += "\[[time_stamp()]\]<font color='red'> Attacked [target.name] ([target.ckey]) with [arms] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(arms.damagetype)])</font>"
-			src.attack_log += "\[[time_stamp()]\]<font color='red'> [user] ([user.ckey]) attacked [target.name] ([target.ckey]) with [arms] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(arms.damagetype)])</font>"
+			user.attack_log += "\[[time_stamp()]\]<span class='warning'> Attacked [target.name] ([target.ckey]) with [arms] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(arms.damagetype)])</span>"
+			src.attack_log += "\[[time_stamp()]\]<span class='warning'> [user] ([user.ckey]) attacked [target.name] ([target.ckey]) with [arms] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(arms.damagetype)])</span>"
 			target.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [user.name] ([user.ckey]) with [arms] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(arms.damagetype)])</font>"
 			msg_admin_attack("[key_name(user, highlight_special = 1)] attacked [key_name(target, highlight_special = 1)] with [arms] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(arms.damagetype)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target) )
 		return A.attack_generic(src, arms.melee_damage, "attacked")
 	return
 
 /mob/living/heavy_vehicle/setClickCooldown(var/timeout)
+	var/old_next_move = next_move
 	next_move = max(world.time + timeout, next_move)
 	for(var/hardpoint in hardpoint_hud_elements)
 		var/obj/screen/mecha/hardpoint/H = hardpoint_hud_elements[hardpoint]
 		if(H)
 			H.color = "#FF0000"
-	addtimer(CALLBACK(src, .proc/reset_hardpoint_color), timeout)
+	if(next_move > old_next_move) // TIMER_OVERRIDE would not work here, because the smaller delays tend to be called after the longer ones
+		addtimer(CALLBACK(src, .proc/reset_hardpoint_color), timeout)
 
 /mob/living/heavy_vehicle/proc/reset_hardpoint_color()
 	for(var/hardpoint in hardpoint_hud_elements)
@@ -233,13 +236,11 @@
 	user.forceMove(src)
 	LAZYDISTINCTADD(pilots, user)
 	sync_access()
-	update_pilot_overlay()
 	playsound(src, 'sound/machines/windowdoor.ogg', 50, 1)
-	user << sound('sound/mecha/nominal.ogg',volume=50)
 	if(user.client) user.client.screen |= hud_elements
 	LAZYDISTINCTADD(user.additional_vision_handlers, src)
 	update_icon()
-	update_pilot_overlay()
+	walk(src, 0) // stop it from auto moving when the pilot gets in
 	return 1
 
 /mob/living/heavy_vehicle/proc/sync_access()
@@ -257,9 +258,7 @@
 		if(hatch_locked)
 			if(!silent) to_chat(user, "<span class='warning'>The [body.hatch_descriptor] is locked.</span>")
 			return
-		hatch_closed = 0
-		hud_open.update_icon()
-		update_icon()
+		hud_open.toggled(FALSE)
 		if(!silent)
 			to_chat(user, "<span class='notice'>You open the hatch and climb out of \the [src].</span>")
 	else
@@ -275,35 +274,9 @@
 		set_intent(I_HURT)
 		LAZYREMOVE(pilots, user)
 		UNSETEMPTY(pilots)
-		update_pilot_overlay()
-	return
 
 /mob/living/heavy_vehicle/relaymove(var/mob/living/user, var/direction)
-	if(world.time < next_mecha_move)
-		return 0
-
-	if(!user || incapacitated() || user.incapacitated() || lockdown)
-		return
-
-	if(!legs)
-		to_chat(user, "<span class='warning'>\The [src] has no means of propulsion!</span>")
-		next_mecha_move = world.time + 3 // Just to stop them from getting spammed with messages.
-		return
-
-	if(!legs.motivator || legs.total_damage > 45)
-		to_chat(user, "<span class='warning'>Your motivators are damaged! You can't move!</span>")
-		next_mecha_move = world.time + 15
-		return
-
-	next_mecha_move = world.time + legs.move_delay
-
-	if(maintenance_protocols)
-		to_chat(user, "<span class='warning'>Maintenance protocols are in effect.</span>")
-		return
-
-	var/obj/item/cell/C = get_cell()
-	if(!C || !C.check_charge(legs.power_use * CELLRATE))
-		to_chat(user, "<span class='warning'>The power indicator flashes briefly.</span>")
+	if(!can_move(user))
 		return
 
 	if(hallucination >= EMP_MOVE_DISRUPT && prob(30))
@@ -313,9 +286,15 @@
 		var/turf/target_loc = get_step(src, direction)
 		if(!legs.can_move_on(loc, target_loc))
 			return
-		Move(target_loc, direction)
+		if(incorporeal_move)
+			if(legs && legs.mech_step_sound)
+				playsound(src.loc,legs.mech_step_sound,40,1)
+			use_cell_power(legs.power_use * CELLRATE)
+			user.client.Process_Incorpmove(direction, src)
+		else
+			Move(target_loc, direction)
 	else
-		get_cell()?.use(legs.power_use * CELLRATE)
+		use_cell_power(legs.power_use * CELLRATE)
 		if(legs && legs.mech_turn_sound)
 			playsound(src.loc,legs.mech_turn_sound,40,1)
 		next_mecha_move = world.time + legs.turn_delay
@@ -334,8 +313,14 @@
 	if(..() && !istype(loc, /turf/space))
 		if(legs && legs.mech_step_sound)
 			playsound(src.loc,legs.mech_step_sound,40,1)
-		get_cell()?.use(legs.power_use * CELLRATE)
+		use_cell_power(legs.power_use * CELLRATE)
 	update_icon()
+
+/mob/living/heavy_vehicle/Post_Incorpmove()
+	if(istype(hardpoints[HARDPOINT_BACK], /obj/item/mecha_equipment/phazon))
+		var/obj/item/mecha_equipment/phazon/PZ = hardpoints[HARDPOINT_BACK]
+		use_cell_power(PZ.active_power_use * CELLRATE)
+	return ..()
 
 /mob/living/heavy_vehicle/attackby(var/obj/item/thing, var/mob/user)
 	if(user.a_intent != I_HURT && istype(thing, /obj/item/mecha_equipment))
@@ -451,8 +436,10 @@
 
 				user.put_in_hands(body.cell)
 				to_chat(user, "<span class='notice'>You remove \the [body.cell] from \the [src].</span>")
-				playsound(user.loc, 'sound/items/Crowbar.ogg', 50, 1)
+				playsound(user.loc, thing.usesound, 50, 1)
 				visible_message("<span class='notice'>\The [user] pries out \the [body.cell] using the \the [thing].</span>")
+				power = MECH_POWER_OFF
+				hud_power_control.update_icon()
 				body.cell = null
 				return
 			else if(istype(thing, /obj/item/cell))
@@ -467,7 +454,7 @@
 					thing.forceMove(body)
 					body.cell = thing
 					to_chat(user, "<span class='notice'>You install \the [body.cell] into \the [src].</span>")
-					playsound(user.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+					playsound(user.loc, 'sound/items/screwdriver.ogg', 50, 1)
 					visible_message("<span class='notice'>\The [user] installs \the [body.cell] into \the [src].</span>")
 				return
 			else if(istype(thing, /obj/item/device/robotanalyzer))
@@ -547,7 +534,7 @@
 			var/mob/living/carbon/human/D = H
 			if(D.lying)
 				D.attack_log += "\[[time_stamp()]\]<font color='orange'> Was trampled by [src]</font>"
-				attack_log += text("\[[time_stamp()]\] <font color='red'>trampled [D.name] ([D.ckey]) with \the [src].</font>")
+				attack_log += text("\[[time_stamp()]\] <span class='warning'>trampled [D.name] ([D.ckey]) with \the [src].</span>")
 				msg_admin_attack("[src] trampled [key_name(D)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[D.x];Y=[D.y];Z=[D.z]'>JMP</a>)" )
 				src.visible_message("<span class='danger'>\The [src] runs over \the [D]!</span>")
 				D.apply_damage(legs.trample_damage, BRUTE)
@@ -569,3 +556,154 @@
 		src.visible_message("<span class='warning'>\The [src] beeps loudly as its servos sieze up, and it enters lockdown mode!</span>")
 	else
 		src.visible_message("<span class='warning'>\The [src] hums with life as it is released from its lockdown mode!</span>")
+
+/mob/living/heavy_vehicle/get_floating_chat_x_offset()
+	return -offset_x // reverse the offset
+
+/mob/living/heavy_vehicle/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "", var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
+	if(can_listen())
+		addtimer(CALLBACK(src, .proc/handle_hear_say, speaker, message), 0.5 SECONDS)
+	return ..()
+
+// heavily commented so it doesn't look like one fat chunk of code, which it still does - Geeves
+/mob/living/heavy_vehicle/proc/handle_hear_say(var/mob/speaker, var/text)
+	var/found_text = findtext(text, name)
+	if(!found_text && nickname)
+		found_text = findtext(text, nickname)
+	if(found_text)
+		text = copytext(text, found_text) // I'm trimming the text each time so only information stated after eachother is valid
+
+		// a quick way to figure out the remote control status of the mech
+		if(findtext(text, "report diagnostics"))
+			var/has_leader = FALSE
+			if(leader)
+				var/mob/resolved_leader = leader.resolve()
+				if(!resolved_leader)
+					say("Error, leader not found. Unassigning...")
+					unassign_leader()
+					return
+				has_leader = TRUE
+			say("Currently [has_leader ? "paired with [leader_name]" : "unpaired"].")
+			if(following)
+				var/mob/resolved_following = following.resolve()
+				if(!resolved_following)
+					say("Error, follow target not found. Unassigning...")
+					unassign_following()
+				else
+					say("Currently following [resolved_following.name].")
+			if(nickname)
+				say("Nickname set to [nickname].")
+			say("Maintenance protocols, [maintenance_protocols ? "active" : "disabled"].")
+			return
+
+		// Checking whether we have a leader or not
+		if(!leader)
+			if(!maintenance_protocols) // don't select a leader unless we have maintenance protocols set
+				return
+			// If we have no leader, we listen to the keywords 'listen to'
+			if(findtext(text, "listen to"))
+				text = copytext(text, found_text)
+				found_text = findtext(text, "me") // if they say listen to me, we listen to them
+				if(found_text)
+					assign_leader(speaker)
+					say("New paired leader, [leader_name], confirmed and added to temporary biometric database.")
+					return
+				// check for humans and their IDs
+				for(var/mob/living/carbon/human/H in view(world.view, src))
+					var/obj/item/card/id/ID = H.GetIdCard(TRUE)
+					if(ID?.registered_name) // we ID people based on their... ID
+						if(findtext(text, ID.registered_name))
+							assign_leader(H)
+							say("New paired leader, [ID.registered_name], confirmed and added to temporary biometric database.")
+							break
+				return
+		else
+			var/mob/resolved_leader = leader.resolve()
+			if(!resolved_leader)
+				say("Error, leader not found. Unassigning...")
+				unassign_leader()
+				return
+			if(speaker != resolved_leader && !(speaker in pilots))
+				return
+
+			found_text = findtext(text, "set nickname to")
+			if(found_text)
+				text = copytext(text, found_text + 15)
+				text = prepare_nickname(text)
+				if(lowertext(text) == "null")
+					nickname = null
+					say("Nickname removed.")
+				else
+					nickname = text
+					say("Nickname set to [text].")
+				return
+
+			// simply toggle maintenance protocols
+			if(findtext(text, "toggle maintenance protocols"))
+				if(toggle_maintenance_protocols())
+					say("Maintenance protocols toggled [maintenance_protocols ? "on" : "off"].")
+				return
+
+			// simply open or close the hatch
+			if(findtext(text, "toggle hatch"))
+				if(hatch_locked || force_locked)
+					say("Hatch locked, cannot toggle status.")
+					return
+				if(toggle_hatch())
+					say("Hatch [hatch_closed ? "closed" : "opened"].")
+				return
+
+			// simply toggle the lock status
+			if(findtext(text, "toggle lock"))
+				if(!hatch_closed)
+					say("Hatch lock cannot be toggled while the hatch is open.")
+					return
+				if(force_locked)
+					say("Hatch lock forced on, cannot override.")
+					return
+				if(toggle_lock())
+					say("Hatch [hatch_locked ? "locked" : "unlocked"].")
+				return
+			
+			// unlink the leader to get a new one
+			if(findtext(text, "unlink"))
+				unassign_leader()
+				say("Leader dropped, awaiting new leader.")
+				return
+			
+			// stop following who you were assigned to follow
+			if(findtext(text, "stop"))
+				unassign_following()
+				walk(src, 0)
+				say("Holding position.")
+				return
+
+			// set a follow range for the mecha, one to three, at which point it stops approaching
+			found_text = findtext(text, "follow range")
+			if(found_text)
+				text = copytext(text, found_text)
+				var/list/follow_range = list("one", "two", "three")
+				for(var/i = 1 to length(follow_range))
+					if(findtext(text, follow_range[i]))
+						say("Follow range set to [follow_range[i]] units.")
+						follow_distance = i
+						break
+				return
+
+			// set who it has to follow, broken into two steps to make it more versatile
+			found_text = findtext(text, "follow")
+			if(found_text)
+				text = copytext(text, found_text)
+				found_text = findtext(text, "me")
+				if(found_text)
+					assign_following(speaker)
+					say("Following [speaker.name].")
+					return
+				for(var/mob/living/carbon/human/H in view(world.view, src))
+					var/obj/item/card/id/ID = H.GetIdCard(TRUE)
+					if(ID?.registered_name) // we ID people based on their... ID
+						if(findtext(text, ID.registered_name))
+							assign_following(H)
+							say("Following [ID.registered_name].")
+							break
+				return

@@ -34,12 +34,12 @@
 	. = ..()
 
 	//setup primary effect - these are the main ones (mixed)
-	var/effecttype = pick(typesof(/datum/artifact_effect) - /datum/artifact_effect)
+	var/effecttype = pick(subtypesof(/datum/artifact_effect))
 	my_effect = new effecttype(src)
 
 	//75% chance to have a secondary stealthy (and mostly bad) effect
 	if(prob(75))
-		effecttype = pick(typesof(/datum/artifact_effect) - /datum/artifact_effect)
+		effecttype = pick(subtypesof(/datum/artifact_effect))
 		secondary_effect = new effecttype(src)
 		if(prob(75))
 			secondary_effect.ToggleActivate(0)
@@ -102,13 +102,13 @@
 			else if(env.temperature > 375)
 				trigger_hot = 1
 
-			if(env.gas["phoron"] >= 10)
+			if(env.gas[GAS_PHORON] >= 10)
 				trigger_phoron = 1
-			if(env.gas["oxygen"] >= 10)
+			if(env.gas[GAS_OXYGEN] >= 10)
 				trigger_oxy = 1
-			if(env.gas["carbon_dioxide"] >= 10)
+			if(env.gas[GAS_CO2] >= 10)
 				trigger_co2 = 1
-			if(env.gas["nitrogen"] >= 10)
+			if(env.gas[GAS_NITROGEN] >= 10)
 				trigger_nitro = 1
 
 	//COLD ACTIVATION
@@ -183,24 +183,23 @@
 		if(secondary_effect?.trigger == TRIGGER_NITRO && secondary_effect.activated)
 			secondary_effect.ToggleActivate()
 
-/obj/machinery/artifact/attack_hand(var/mob/user as mob)
-	if (get_dist(user, src) > 1)
-		to_chat(user, "<span class='warning'>You can't reach [src] from here.</span>")
+/obj/machinery/artifact/attack_hand(mob/user)
+	if(use_check_and_message(user, USE_ALLOW_NON_ADV_TOOL_USR))
 		return
 	if(ishuman(user) && user:gloves)
-		to_chat(user, "<b>You touch [src]</b> with your gloved hands, [pick("but nothing of note happens","but nothing happens","but nothing interesting happens","but you notice nothing different","but nothing seems to have happened")].")
+		to_chat(user, "<b>You touch \the [src]</b> with your gloved hands, [pick("but nothing of note happens","but nothing happens","but nothing interesting happens","but you notice nothing different","but nothing seems to have happened")].")
 		return
 
 	src.add_fingerprint(user)
 
 	if(my_effect.trigger == TRIGGER_TOUCH)
-		to_chat(user, "<b>You touch [src].</b>")
+		to_chat(user, "<b>You touch \the [src].</b>")
 		my_effect.ToggleActivate()
 	else
-		to_chat(user, "<b>You touch [src],</b> [pick("but nothing of note happens","but nothing happens","but nothing interesting happens","but you notice nothing different","but nothing seems to have happened")].")
+		to_chat(user, "<b>You touch \the [src],</b> [pick("but nothing of note happens","but nothing happens","but nothing interesting happens","but you notice nothing different","but nothing seems to have happened")].")
 
 	if(secondary_effect?.trigger == TRIGGER_TOUCH)
-		to_chat(user, "<b>You touch [src].</b>")
+		to_chat(user, "<b>You touch \the [src].</b>")
 		secondary_effect.ToggleActivate()
 
 	if (my_effect.effect == EFFECT_TOUCH)
@@ -209,25 +208,25 @@
 	if(secondary_effect?.effect == EFFECT_TOUCH && secondary_effect.activated)
 		secondary_effect.DoEffectTouch(user)
 
-/obj/machinery/artifact/attackby(obj/item/W as obj, mob/living/user as mob)
+/obj/machinery/artifact/attackby(var/obj/item/W, mob/living/user)
 
 	if (istype(W, /obj/item/reagent_containers/))
-		if(W.reagents.has_reagent(/datum/reagent/hydrazine, 1) || W.reagents.has_reagent(/datum/reagent/water, 1))
+		if(W.reagents.has_reagent(/decl/reagent/hydrazine, 1) || W.reagents.has_reagent(/decl/reagent/water, 1))
 			if(my_effect.trigger == TRIGGER_WATER)
 				my_effect.ToggleActivate()
 			if(secondary_effect?.trigger == TRIGGER_WATER)
 				secondary_effect.ToggleActivate()
-		else if(W.reagents.has_reagent(/datum/reagent/acid, 1) || W.reagents.has_reagent(/datum/reagent/acid/polyacid, 1) || W.reagents.has_reagent(/datum/reagent/diethylamine, 1))
+		else if(W.reagents.has_reagent(/decl/reagent/acid, 1) || W.reagents.has_reagent(/decl/reagent/acid/polyacid, 1) || W.reagents.has_reagent(/decl/reagent/diethylamine, 1))
 			if(my_effect.trigger == TRIGGER_ACID)
 				my_effect.ToggleActivate()
 			if(secondary_effect?.trigger == TRIGGER_ACID)
 				secondary_effect.ToggleActivate()
-		else if(W.reagents.has_reagent(/datum/reagent/toxin/phoron, 1) || W.reagents.has_reagent(/datum/reagent/thermite, 1))
+		else if(W.reagents.has_reagent(/decl/reagent/toxin/phoron, 1) || W.reagents.has_reagent(/decl/reagent/thermite, 1))
 			if(my_effect.trigger == TRIGGER_VOLATILE)
 				my_effect.ToggleActivate()
 			if(secondary_effect?.trigger == TRIGGER_VOLATILE)
 				secondary_effect.ToggleActivate()
-		else if(W.reagents.has_reagent(/datum/reagent/toxin, 1) || W.reagents.has_reagent(/datum/reagent/toxin/cyanide, 1) || W.reagents.has_reagent(/datum/reagent/toxin/amatoxin, 1) || W.reagents.has_reagent(/datum/reagent/alcohol/ethanol/neurotoxin, 1))
+		else if(W.reagents.has_reagent(/decl/reagent/toxin, 1) || W.reagents.has_reagent(/decl/reagent/toxin/cyanide, 1) || W.reagents.has_reagent(/decl/reagent/toxin/amatoxin, 1) || W.reagents.has_reagent(/decl/reagent/alcohol/neurotoxin, 1))
 			if(my_effect.trigger == TRIGGER_TOXIN)
 				my_effect.ToggleActivate()
 			if(secondary_effect?.trigger == TRIGGER_TOXIN)
@@ -324,3 +323,8 @@
 		my_effect.UpdateMove()
 	if(secondary_effect)
 		secondary_effect.UpdateMove()
+
+/obj/machinery/artifact/attack_ai(mob/user) //AI can't interfact with weird artifacts. Borgs can but not remotely. 
+	if(!isrobot(user) || !Adjacent(user))
+		return
+	return ..()

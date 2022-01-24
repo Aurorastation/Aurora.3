@@ -1,7 +1,7 @@
 /obj/item/device/dociler
 	name = "dociler"
 	desc = "A complex single use recharging injector that spreads a complex neurological serum that makes animals docile and friendly. Somewhat."
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_BIO = 5, TECH_MATERIAL = 2)
 	// To-do track down where the hell this sprite went?
 	icon = 'icons/obj/guns/decloner.dmi'
@@ -50,6 +50,7 @@
 			H.LoseTarget()
 			H.attack_same = 0
 			H.friends += user
+			H.hostile_nameable = TRUE
 
 	L.desc += "<br><span class='notice'>It looks especially docile.</span>"
 	var/name = input(user, "Would you like to rename \the [L]?", "Dociler", L.name) as text

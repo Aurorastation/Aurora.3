@@ -16,10 +16,15 @@
 	animation.master = src
 
 	flick(anim, animation)
-	if(do_gibs) gibs(loc, viruses, dna)
+
+	if(do_gibs)
+		gibs(loc, viruses, dna, get_gibs_type())
 
 	QDEL_IN(animation, 15)
 	QDEL_IN(src, 15)
+
+/mob/proc/get_gibs_type()
+	return /obj/effect/gibspawner/generic
 
 //This is the proc for turning a mob into ash. Mostly a copy of gib code (above).
 //Originally created for wizard disintegrate. I've removed the virus code since it's irrelevant here.
@@ -58,12 +63,8 @@
 	if(!gibbed && deathmessage != "no message") // This is gross, but reliable. Only brains use it.
 		src.visible_message("<b>\The [src.name]</b> [deathmessage]", range = messagerange)
 
-	// If we have a remotely controlled mob, we come back to our body to die properly
-	if(vr_mob)
-		vr_mob.body_return()
-	// Alternatively, if we are the remotely controlled mob, just kick our controller out
-	if(old_mob)
-		body_return()
+	exit_vr()
+
 	stat = DEAD
 
 	update_canmove()
@@ -72,9 +73,6 @@
 	jitteriness = 0
 
 	layer = MOB_LAYER
-
-	if(blind && client)
-		blind.invisibility = 101
 
 	sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
 	see_in_dark = 8
@@ -89,21 +87,26 @@
 			healths.icon_state = "health7"
 
 	timeofdeath = world.time
-	if (isanimal(src))
-		set_death_time(ANIMAL, world.time)
-	else if (ispAI(src) || isDrone(src))
-		set_death_time(MINISYNTH, world.time)
-	else if (isliving(src))
-		set_death_time(CREW, world.time)//Crew is the fallback
+	set_respawn_time()
 	if(mind)
 		mind.store_memory("Time of death: [worldtime2text()]", 0)
 	living_mob_list -= src
 	dead_mob_list |= src
 
-	updateicon()
+	update_icon()
 
 	if(SSticker.mode)
 		SSticker.mode.check_win()
 
-
 	return 1
+
+/mob/proc/set_respawn_time()
+	return
+
+/mob/proc/exit_vr()
+	// If we have a remotely controlled mob, we come back to our body to die properly
+	if(vr_mob)
+		vr_mob.body_return()
+	// Alternatively, if we are the remotely controlled mob, just kick our controller out
+	if(old_mob)
+		body_return()

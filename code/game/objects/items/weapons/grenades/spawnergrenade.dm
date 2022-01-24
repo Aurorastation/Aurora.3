@@ -20,7 +20,7 @@
 		if (flash)
 			for(var/mob/living/carbon/human/M in viewers(T, null))
 				if(M.eyecheck(TRUE) < FLASH_PROTECTION_MODERATE)
-					flick("e_flash", M.flash)
+					M.flash_eyes()
 		else
 			spark(T, 3, alldirs) //give spawning some flair if there's no flash
 
@@ -46,6 +46,9 @@
 	deliveryamt = 5 //Five seems a bit much, but we'll keep it as-is.
 	origin_tech = list(TECH_MATERIAL = 3, TECH_MAGNET = 4, TECH_ILLEGAL = 4)
 	flash = FALSE
+
+/obj/item/grenade/spawnergrenade/manhacks/lubed
+	spawner_type = /mob/living/simple_animal/hostile/viscerator/lube
 
 /obj/item/grenade/spawnergrenade/spesscarp
 	name = "carp delivery grenade"

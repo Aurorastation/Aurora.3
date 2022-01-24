@@ -57,7 +57,7 @@
 
 	else
 		world.log <<  "ERROR: Could not initate grey-tide. Unable to find suitable containment area."
-		kill()
+		kill(TRUE)
 
 
 /datum/event/prison_break/tick()
@@ -68,6 +68,6 @@
 					L.flicker(10)
 
 
-/datum/event/prison_break/end()
+/datum/event/prison_break/end(var/faked)
 	for(var/area/A in shuffle(areas))
 		A.prison_break()

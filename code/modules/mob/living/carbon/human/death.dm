@@ -3,7 +3,7 @@
 
 	for(var/obj/item/organ/I in internal_organs)
 		I.removed()
-		if(istype(loc,/turf))
+		if(isturf(loc))
 			I.throw_at(get_edge_target_turf(src,pick(alldirs)),rand(1,3),30)
 
 	for(var/obj/item/organ/external/E in src.organs)
@@ -70,7 +70,7 @@
 		sql_report_death(src)
 		SSticker.mode.check_win()
 
-	if(wearing_rig)
+	if(wearing_rig?.ai_override_enabled)
 		wearing_rig.notify_ai("<span class='danger'>Warning: user death event. Mobility control passed to integrated intelligence system.</span>")
 
 	. = ..(gibbed, species.death_message, species.death_message_range)
@@ -132,3 +132,14 @@
 	if(remote_network)
 		SSvirtualreality.remove_robot(src, remote_network)
 		remote_network = null
+
+/mob/living/carbon/human/proc/drop_all_limbs(var/droplimb_type = DROPLIMB_BLUNT)
+	for(var/thing in organs)
+		var/obj/item/organ/external/limb = thing
+		var/limb_can_amputate = (limb.limb_flags & ORGAN_CAN_AMPUTATE)
+		limb.limb_flags |= ORGAN_CAN_AMPUTATE
+		limb.droplimb(TRUE, droplimb_type, TRUE, TRUE)
+		if(!QDELETED(limb) && !limb_can_amputate)
+			limb.limb_flags &= ~ORGAN_CAN_AMPUTATE
+	dump_contents()
+	qdel(src)

@@ -18,6 +18,7 @@
 	var/t_phoron = null
 	var/t_oxygen = null
 	var/t_sl_gas = null
+	var/hydrogen = null
 	var/t_n2 = null
 
 	var/now_pushing = null
@@ -71,3 +72,5 @@
 
 	var/limb_breaking = FALSE // used to limit people from queuing up limb-breaks
 	var/list/obj/aura/auras //Basically a catch-all aura/force-field thing.
+
+	var/named = FALSE //Affects renaming animals and monkey species. Set to TRUE for animals with unique names, such as station pets. Doesn't affect any other mob. 

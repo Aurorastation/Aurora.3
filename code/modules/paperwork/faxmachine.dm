@@ -26,7 +26,7 @@ var/list/admin_departments
 
 	var/department = "Unknown" // our department
 
-	var/list/obj/item/device/pda/alert_pdas = list() //A list of PDAs to alert upon arrival of the fax.
+	var/list/obj/item/modular_computer/alert_pdas = list() //A list of PDAs to alert upon arrival of the fax.
 
 /obj/machinery/photocopier/faxmachine/Initialize()
 	. = ..()
@@ -50,7 +50,7 @@ var/list/admin_departments
 	VUEUI_SET_CHECK_LIST(newdata["alertpdas"], alert_pdas, ., newdata)
 	newdata["alertpdas"] = list()
 	if (alert_pdas && alert_pdas.len)
-		for (var/obj/item/device/pda/pda in alert_pdas)
+		for (var/obj/item/modular_computer/pda in alert_pdas)
 			newdata["alertpdas"] += list(list("name" = "[alert_pdas[pda]]", "ref" = "\ref[pda]"))
 	newdata["departiments"] = list()
 	for (var/dept in (alldepartments + admin_departments + broadcast_departments))
@@ -120,7 +120,7 @@ var/list/admin_departments
 		SSvueui.check_uis_for_change(src)
 
 	if(href_list["linkpda"])
-		var/obj/item/device/pda/pda = usr.get_active_hand()
+		var/obj/item/modular_computer/pda = usr.get_active_hand()
 		if (!pda || !istype(pda))
 			to_chat(usr, "<span class='warning'>You need to be holding a PDA to link it.</span>")
 		else if (pda in alert_pdas)
@@ -135,7 +135,7 @@ var/list/admin_departments
 			SSvueui.check_uis_for_change(src)
 
 	if(href_list["unlink"])
-		var/obj/item/device/pda/pda = locate(href_list["unlink"])
+		var/obj/item/modular_computer/pda = locate(href_list["unlink"])
 		if (pda && istype(pda))
 			if (pda in alert_pdas)
 				to_chat(usr, "<span class='notice'>You unlink [alert_pdas[pda]] from \the [src]. It will no longer be notified of new faxes.</span>")
@@ -220,11 +220,11 @@ var/list/admin_departments
 	// give the sprite some time to flick
 	spawn(20)
 		if (istype(incoming, /obj/item/paper))
-			copy(incoming, 1, 0, 0)
+			copy(src, incoming, 1, 0, 0)
 		else if (istype(incoming, /obj/item/photo))
-			photocopy(incoming)
+			photocopy(src, incoming)
 		else if (istype(incoming, /obj/item/paper_bundle))
-			bundlecopy(incoming)
+			bundlecopy(src, incoming)
 		do_pda_alerts()
 		use_power(active_power_usage)
 
@@ -234,7 +234,7 @@ var/list/admin_departments
 	var success = 1
 	for (var/dest in (alldepartments - department))
 		// Send to everyone except this department
-		delay(1)
+		sleep(1)
 		success &= sendfax(dest, 0)	// 0: don't display success/error messages
 
 		if(!success)// Stop on first error
@@ -254,11 +254,11 @@ var/list/admin_departments
 
 	var/obj/item/rcvdcopy
 	if (istype(copyitem, /obj/item/paper))
-		rcvdcopy = copy(copyitem, 0)
+		rcvdcopy = copy(src, copyitem, 0)
 	else if (istype(copyitem, /obj/item/photo))
-		rcvdcopy = photocopy(copyitem)
+		rcvdcopy = photocopy(src, copyitem)
 	else if (istype(copyitem, /obj/item/paper_bundle))
-		rcvdcopy = bundlecopy(copyitem, 0)
+		rcvdcopy = bundlecopy(src, copyitem, 0)
 	else
 		visible_message("[src] beeps, \"Error transmitting message.\"")
 		return
@@ -306,12 +306,6 @@ var/list/admin_departments
 	discord_bot.send_to_cciaa(discord_msg)
 
 /obj/machinery/photocopier/faxmachine/proc/do_pda_alerts()
-	if (!alert_pdas || !alert_pdas.len)
-		return
-
-	for (var/obj/item/device/pda/pda in alert_pdas)
-		if (pda.toff || pda.message_silent)
-			continue
-
-		var/message = "New fax has arrived at [src.department] fax machine."
-		pda.new_info(pda.message_silent, pda.ttone, "\icon[pda] <b>[message]</b>")
+	for(var/obj/item/modular_computer/pda in alert_pdas)
+		var/message = "New message has arrived!"
+		pda.get_notification(message, 1, "[department] [name]")

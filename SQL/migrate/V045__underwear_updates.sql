@@ -4,8 +4,8 @@
 -- 
 
 ALTER TABLE `ss13_characters`
-	ADD COLUMN `all_underwear` JSON NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `eyes_colour`,
+	ADD COLUMN `all_underwear` JSON NULL DEFAULT NULL AFTER `eyes_colour`,
 	DROP COLUMN `underwear`,
 	DROP COLUMN `undershirt`,
 	DROP COLUMN `socks`,
-	ADD COLUMN `all_underwear_metadata` JSON NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `all_underwear`;
+	ADD COLUMN `all_underwear_metadata` JSON NULL DEFAULT NULL AFTER `all_underwear`;

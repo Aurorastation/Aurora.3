@@ -1,7 +1,7 @@
 /datum/rune/raise_dead
 	name = "revival rune"
 	desc = "This rune is used to revive a body in exchange for a dead sacrifice."
-	rune_flags = NO_TALISMAN
+	rune_flags = NO_TALISMAN | CAN_MEMORIZE
 
 /datum/rune/raise_dead/do_rune_action(mob/living/user, atom/movable/A)
 	var/mob/living/carbon/human/corpse_to_raise
@@ -66,10 +66,10 @@
 	corpse_to_raise.key = ghost.key	//the corpse will keep its old mind! but a new player takes ownership of it (they are essentially possessed)
 									//This means, should that player leave the body, the original may re-enter
 	user.say("Pasnar val'keriam usinar. Savrae ines amutan. Yam'toth remium il'tarat!")
-	corpse_to_raise.visible_message("<span class='warning'>[corpse_to_raise]'s eyes glow with a faint red as \he stands up, slowly starting to breathe again.</span>", \
+	corpse_to_raise.visible_message("<span class='warning'>[corpse_to_raise]'s eyes glow with a faint red as [corpse_to_raise.get_pronoun("he")] stands up, slowly starting to breathe again.</span>", \
 	"<span class='warning'>Life... I'm alive again...</span>", \
 	"<span class='warning'>You hear a faint, slightly familiar whisper.</span>")
-	body_to_maim.visible_message("<span class='danger'>[body_to_maim] is torn apart, a black smoke swiftly dissipating from \his wounds!</span>", \
+	body_to_maim.visible_message("<span class='danger'>[body_to_maim] is torn apart, a black smoke swiftly dissipating from [body_to_maim.get_pronoun("his")] wounds!</span>", \
 	"<span class='danger'>You feel as your blood boils, tearing you apart.</span>", \
 	"<span class='danger'>You hear a thousand voices, all crying in pain.</span>")
 

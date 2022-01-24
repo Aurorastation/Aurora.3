@@ -14,6 +14,10 @@ automatically by GUI tools like TortoiseGit and GitHub for Windows, but
 ## Current Hooks
 
 * **Pre-commit**: Runs [mapmerge2] on changed maps, if any.
+* **DMI merger**: Attempts to [fix icon conflicts] when performing a git merge.
+  If it succeeds, the file is marked merged. If it fails, it logs what states
+  are still in conflict and adds them to the .dmi file, where the desired
+  resolution can be chosen.
 
 ## Adding New Hooks
 

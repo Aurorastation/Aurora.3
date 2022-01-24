@@ -1,5 +1,7 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:32
 
+#define ABOVE_TABLE 1
+#define UNDER_TABLE -1
 /obj/structure/closet/crate
 	name = "crate"
 	desc = "A rectangular steel crate."
@@ -8,14 +10,13 @@
 	icon_opened = "crateopen"
 	icon_closed = "crate"
 	climbable = 1
-//	mouse_drag_pointer = MOUSE_ACTIVE_POINTER	//???
+	build_amt = 10
 	var/rigged = 0
 	var/tablestatus = 0
-	pass_flags = PASSTABLE
-
+	slowdown = 0
 
 /obj/structure/closet/crate/can_open()
-	if (tablestatus != -1)//Can't be opened while under a table
+	if (tablestatus != UNDER_TABLE)//Can't be opened while under a table
 		return 1
 	return 0
 
@@ -75,14 +76,13 @@
 			continue
 		if(istype(O, /obj/structure/bed)) //This is only necessary because of rollerbeds and swivel chairs.
 			var/obj/structure/bed/B = O
-			if(B.buckled_mob)
+			if(B.buckled)
 				continue
 		O.forceMove(src)
 		itemcount++
 
 	icon_state = icon_closed
 	opened = 0
-	pass_flags = PASSTABLE//Crates can only slide under tables when closed
 	return 1
 
 
@@ -110,9 +110,15 @@
 	else if(W.iswirecutter())
 		if(rigged)
 			to_chat(user, "<span class='notice'>You cut away the wiring.</span>")
-			playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
+			playsound(loc, 'sound/items/wirecutter.ogg', 100, 1)
 			rigged = 0
 			return
+	else if(istype(W, /obj/item/device/hand_labeler))
+		var/obj/item/device/hand_labeler/HL = W
+		if (HL.mode == 1)
+			return
+		else
+			attack_hand(user)
 	else return attack_hand(user)
 
 /obj/structure/closet/crate/ex_act(severity)
@@ -133,10 +139,6 @@
 				A.ex_act(severity)
 		qdel(src)
 
-
-
-
-
 /*
 ==========================
 	Table interactions
@@ -145,35 +147,31 @@
 /obj/structure/closet/crate/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if (istype(mover, /obj/structure/closet/crate))//Handle interaction with other crates
 		var/obj/structure/closet/crate/C = mover
-		if (tablestatus == 1 && C.tablestatus != 1 && !C.opened)//Allow the crate to slide under us if we're ontop of a table
-			return 1
-		else if (tablestatus == -1 && C.tablestatus == 1)//Allow it to slide over us if we're underneath a table
-			return 1
-		else//Otherwise, block it. Don't allow two crates on the same level of a tile
-			return 0
-	if(istype(mover,/obj/item/projectile))
-		if (tablestatus == 1)//They always block shots on a table
-			return 0
-		else if (!tablestatus && prob(15))//Usually will not block shots when lying on the floor
-			return 0
-		else return 1
-	else if(istype(mover) && mover.checkpass(PASSTABLE))
-		return 1
+		if (tablestatus && tablestatus != C.tablestatus) // Crates can go under tables with crates on top of them, and vice versa
+			return TRUE
+		else
+			return FALSE
+	if (istype(mover,/obj/item/projectile))
+		// Crates on a table always block shots, otherwise they only occasionally do so.
+		return tablestatus == ABOVE_TABLE ? FALSE : (prob(15) ? FALSE : TRUE)
+	else if(istype(mover) && mover.checkpass(PASSTABLE) && tablestatus == ABOVE_TABLE)
+		return TRUE
 	return ..()
 
 /obj/structure/closet/crate/Move(var/turf/destination, dir)
 	if(..())
 		if (locate(/obj/structure/table) in destination)
-			if (tablestatus != 1)
-				set_tablestatus(-1)//Slide under the table
+			if(locate(/obj/structure/table/rack) in destination)
+				set_tablestatus(ABOVE_TABLE)
+			else if(tablestatus != ABOVE_TABLE)
+				set_tablestatus(UNDER_TABLE)//Slide under the table
 		else
-			set_tablestatus(0)
-
+			set_tablestatus(FALSE)
 
 /obj/structure/closet/crate/toggle(var/mob/user)
-	if (!opened && tablestatus == -1)
-		to_chat(user, SPAN_WARNING("You can't open that while it's under the table"))
-		return 0
+	if (!opened && tablestatus == UNDER_TABLE)
+		to_chat(user, SPAN_WARNING("You can't open that while the lid is obstructed!"))
+		return FALSE
 	else
 		return ..()
 
@@ -183,29 +181,26 @@
 
 	spawn(3)//Short spawn prevents things popping up where they shouldnt
 		switch (target)
-			if (1)
+			if (ABOVE_TABLE)
 				layer = LAYER_ABOVE_TABLE
 				pixel_y = 8
-			if (0)
+			if (FALSE)
 				layer = initial(layer)
 				pixel_y = 0
-			if (-1)
+			if (UNDER_TABLE)
 				layer = LAYER_UNDER_TABLE
 				pixel_y = -4
-
 
 //For putting on tables
 /obj/structure/closet/crate/MouseDrop(atom/over_object)
 	if (istype(over_object, /obj/structure/table))
 		put_on_table(over_object, usr)
-		return 1
+		return TRUE
 	else
 		return ..()
 
-
-
 /obj/structure/closet/crate/proc/put_on_table(var/obj/structure/table/table, var/mob/user)
-	if (!table || !user || (tablestatus == -1))
+	if (!table || !user || (tablestatus == UNDER_TABLE))
 		return
 
 	//User must be in reach of the crate
@@ -218,24 +213,20 @@
 		to_chat(user, SPAN_WARNING("Take the crate closer to the table!"))
 		return
 
-
 	for (var/obj/structure/closet/crate/C in get_turf(table))
-		if (C.tablestatus != -1)
+		if (C.tablestatus != UNDER_TABLE)
 			to_chat(user, SPAN_WARNING("There's already a crate on this table!"))
 			return
 
 	//Crates are heavy, hauling them onto tables is hard.
 	//The more stuff thats in it, the longer it takes
 	//Good place to factor in Strength in future
-	var/timeneeded = 20
-	var/success = 0
+	var/timeneeded = 2 SECONDS
 
-
-
-	if (tablestatus == 1 && Adjacent(table))
+	if (tablestatus == ABOVE_TABLE && Adjacent(table))
 		//Sliding along a tabletop we're already on. Instant and silent
 		timeneeded = 0
-		success = 1
+		return TRUE
 	else
 		//Add time based on mass of contents
 		for (var/obj/O in contents)
@@ -244,16 +235,14 @@
 			timeneeded += 3* M.mob_size
 
 	if (timeneeded > 0)
-		user.visible_message("[user] starts hoisting [src] onto the [table]", "You start hoisting [src] onto the [table]. This will take about [timeneeded*0.1] seconds")
+		user.visible_message("[user] starts hoisting \the [src] onto \the [table].", "You start hoisting \the [src] onto \the [table]. This will take about [timeneeded * 0.1] seconds.")
 		user.face_atom(src)
-		if (do_after(user, timeneeded, needhand = 1))
-			success = 1
-
-
-	if (success == 1)
-		forceMove(get_turf(table))
-		set_tablestatus(1)
-
+		if (!do_after(user, timeneeded, needhand = TRUE, act_target = src))
+			return FALSE
+		else
+			forceMove(get_turf(table))
+			set_tablestatus(ABOVE_TABLE)
+			return TRUE
 
 /*
 =====================
@@ -338,7 +327,14 @@
 		return ..()
 	if(istype(W, /obj/item/melee/energy/blade))
 		emag_act(INFINITY, user)
-	if(!opened)
+	if(istype(W, /obj/item/device/hand_labeler))
+		var/obj/item/device/hand_labeler/HL = W
+		if (HL.mode == 1)
+			return
+		else if(!opened)
+			togglelock(user)
+			return
+	else if(!opened)
 		togglelock(user)
 		return
 	return ..()
@@ -349,7 +345,7 @@
 		add_overlay(emag)
 		add_overlay(sparks)
 		CUT_OVERLAY_IN(sparks, 6)
-		playsound(loc, "sparks", 60, 1)
+		playsound(loc, /decl/sound_category/spark_sound, 60, 1)
 		locked = 0
 		broken = 1
 		to_chat(user, "<span class='notice'>You unlock \the [src].</span>")
@@ -493,7 +489,7 @@
 /obj/structure/closet/crate/freezer/rations/fill()
 	for(var/i=1,i<=6,i++)
 		new /obj/item/reagent_containers/food/snacks/liquidfood(src)
-		new /obj/item/reagent_containers/food/drinks/cans/waterbottle(src)
+		new /obj/item/reagent_containers/food/drinks/waterbottle(src)
 
 /obj/structure/closet/crate/bin
 	name = "large bin"
@@ -532,6 +528,15 @@
 	new /obj/item/clothing/head/radiation(src)
 	new /obj/item/clothing/suit/radiation(src)
 	new /obj/item/clothing/head/radiation(src)
+
+/obj/structure/closet/crate/secure/aimodules
+	name = "AI modules crate"
+	desc = "A secure crate full of AI modules."
+	req_access = list(access_cent_specops)
+
+/obj/structure/closet/crate/secure/aimodules/fill()
+	for(var/moduletype in subtypesof(/obj/item/aiModule))
+		new moduletype(src)
 
 /obj/structure/closet/crate/secure/weapon
 	name = "weapons crate"
@@ -690,7 +695,10 @@
 		"critter" = "critteropen",
 		"largemetal" = "largemetalopen",
 		"medicalcrate" = "medicalcrateopen",
-		"tcflcrate" = "tcflcrateopen"
+		"tcflcrate" = "tcflcrateopen",
+		"necrocrate" = "necrocrateopen",
+		"zenghucrate" = "zenghucrateopen",
+		"hephcrate" = "hephcrateopen"
 	)
 
 

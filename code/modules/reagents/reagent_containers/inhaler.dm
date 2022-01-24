@@ -11,7 +11,7 @@
 	unacidable = 1
 	amount_per_transfer_from_this = 5
 	volume = 5
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	possible_transfer_amounts = null
 	flags = OPENCONTAINER
 	slot_flags = SLOT_BELT
@@ -38,7 +38,8 @@
 
 	if ( ((user.is_clumsy()) || (DUMB in user.mutations)) && prob(10))
 		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
-		eyestab(H,user)
+		if(!H.eyes_protected(src, FALSE))
+			eyestab(H,user)
 		if(H.reagents)
 			var/contained = reagentlist()
 			var/trans = reagents.trans_to_mob(H, amount_per_transfer_from_this, CHEM_TOUCH)
@@ -95,7 +96,7 @@
 
 /obj/item/reagent_containers/inhaler/attack_self(mob/user as mob)
 	if(is_open_container())
-		if(reagents && reagents.reagent_list.len)
+		if(LAZYLEN(reagents.reagent_volumes))
 			to_chat(user,"<span class='notice'>With a quick twist of \the [src]'s lid, you secure the reagents inside.</span>")
 			flags &= ~OPENCONTAINER
 			update_icon()
@@ -121,7 +122,7 @@
 
 /obj/item/reagent_containers/inhaler/examine(mob/user)
 	..(user)
-	if(reagents && reagents.reagent_list.len)
+	if(LAZYLEN(reagents.reagent_volumes))
 		to_chat(user, "<span class='notice'>It is currently loaded.</span>")
 	else
 		to_chat(user, "<span class='notice'>It is spent.</span>")
@@ -132,7 +133,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent(/datum/reagent/dexalin, volume)
+		reagents.add_reagent(/decl/reagent/dexalin, volume)
 		update_icon()
 		return
 
@@ -142,7 +143,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent(/datum/reagent/peridaxon, volume)
+		reagents.add_reagent(/decl/reagent/peridaxon, volume)
 		update_icon()
 		return
 
@@ -152,7 +153,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent(/datum/reagent/hyperzine, volume)
+		reagents.add_reagent(/decl/reagent/hyperzine, volume)
 		update_icon()
 		return
 
@@ -162,7 +163,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent(/datum/reagent/toxin/phoron, volume)
+		reagents.add_reagent(/decl/reagent/toxin/phoron, volume)
 		update_icon()
 		return
 
@@ -174,7 +175,7 @@
 	volume = 10
 	Initialize()
 		. =..()
-		reagents.add_reagent(/datum/reagent/toxin/phoron, volume)
+		reagents.add_reagent(/decl/reagent/toxin/phoron, volume)
 		update_icon()
 		return
 
@@ -187,7 +188,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent(/datum/reagent/soporific, volume)
+		reagents.add_reagent(/decl/reagent/soporific, volume)
 		update_icon()
 		return
 
@@ -197,7 +198,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent(/datum/reagent/space_drugs, volume)
+		reagents.add_reagent(/decl/reagent/space_drugs, volume)
 		update_icon()
 		return
 
@@ -207,7 +208,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent(/datum/reagent/ammonia, volume)
+		reagents.add_reagent(/decl/reagent/ammonia, volume)
 		update_icon()
 		return
 
@@ -217,11 +218,19 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent(/datum/reagent/pulmodeiectionem, volume)
+		reagents.add_reagent(/decl/reagent/pulmodeiectionem, volume)
 		update_icon()
 		return
 
+/obj/item/reagent_containers/inhaler/pneumalin
+	name = "autoinhaler (pneumalin)"
+	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains pneumalin."
+	icon_state = "so_inhaler1"
+	empty_state = "so_inhaler0"
+	volume = 10
 
-
-
-
+	Initialize()
+		. =..()
+		reagents.add_reagent(/decl/reagent/pneumalin, volume)
+		update_icon()
+		return

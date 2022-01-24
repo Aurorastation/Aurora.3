@@ -37,7 +37,10 @@
 
 	uniform = "suit selection"
 	shoes = "shoe selection"
-	l_ear = /obj/item/device/radio/headset
+	l_ear = list(
+		/obj/item/device/radio/headset,
+		/obj/item/device/radio/headset/alt,
+	)
 	back = list(
 		/obj/item/storage/backpack,
 		/obj/item/storage/backpack/satchel_norm,
@@ -53,8 +56,8 @@
 			var/path = pick(list(
 				/obj/item/clothing/mask/smokable/pipe,
 				/obj/item/clothing/mask/smokable/pipe/cobpipe,
-				/obj/item/storage/fancy/cigarettes/cigar,
-				/obj/item/storage/fancy/cigarettes
+				/obj/item/storage/box/fancy/cigarettes/cigar,
+				/obj/item/storage/box/fancy/cigarettes
 			))
 			H.equip_or_collect(new path(), slot_wear_mask)
 
@@ -67,9 +70,9 @@
 				/obj/item/clothing/glasses/eyepatch,
 				/obj/item/clothing/glasses/regular,
 				/obj/item/clothing/glasses/regular/hipster,
-				/datum/gear/eyes/glasses/monocle,
-				/datum/gear/eyes/shades/aviator,
-				/datum/gear/eyes/glasses/fakesun
+				/obj/item/clothing/glasses/monocle,
+				/obj/item/clothing/glasses/sunglasses/aviator,
+				/obj/item/clothing/glasses/sunglasses/prescription
 			))
 			H.equip_or_collect(new path(), slot_glasses)
 
@@ -81,10 +84,21 @@
 	name = "Random Visitor"
 
 	id = /obj/item/card/id
-	pda = /obj/item/device/pda
+	pda = /obj/item/modular_computer/handheld/pda/civilian
 
 /datum/outfit/admin/random/visitor/get_id_assignment()
 	return "Visitor"
 
 /datum/outfit/admin/random/visitor/get_id_rank()
 	return "Visitor"
+
+/datum/outfit/admin/virtual_reality
+	name = "Virtual Reality Outfit"
+	uniform = /obj/item/clothing/under/chameleon
+	suit = /obj/item/clothing/suit/chameleon
+	back = /obj/item/storage/backpack/chameleon
+	gloves = /obj/item/clothing/gloves/chameleon
+	shoes = /obj/item/clothing/shoes/chameleon
+	head = /obj/item/clothing/head/chameleon
+	mask = /obj/item/clothing/mask/chameleon
+	glasses = /obj/item/clothing/glasses/chameleon

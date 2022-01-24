@@ -7,6 +7,7 @@
 			return
 		found = TRUE
 		portable_drive = H
+		verbs += /obj/item/modular_computer/proc/eject_usb
 	else if(istype(H, /obj/item/computer_hardware/hard_drive))
 		if(hard_drive)
 			to_chat(user, SPAN_WARNING("\The [src]'s hard drive slot is already occupied by \the [hard_drive]."))
@@ -39,6 +40,8 @@
 			return
 		found = TRUE
 		battery_module = H
+		if(battery_module.hotswappable)
+			verbs += /obj/item/modular_computer/proc/eject_battery
 	else if(istype(H, /obj/item/computer_hardware/processor_unit))
 		if(processor_unit)
 			to_chat(user, SPAN_WARNING("\The [src]'s processor slot is already occupied by \the [processor_unit]."))
@@ -51,6 +54,7 @@
 			return
 		found = TRUE
 		ai_slot = H
+		verbs += /obj/item/modular_computer/proc/eject_ai
 	else if(istype(H, /obj/item/computer_hardware/tesla_link))
 		if(tesla_link)
 			to_chat(user, SPAN_WARNING("\The [src]'s tesla link slot is already occupied by \the [tesla_link]."))
@@ -63,8 +67,8 @@
 			return
 		personal_ai = H
 		to_chat(user, SPAN_NOTICE("You install \the [H] into \the [src]."))
+		verbs += /obj/item/modular_computer/proc/eject_personal_ai
 		personal_ai.pai.parent_computer = src
-		personal_ai.pai.verbs += /mob/living/silicon/pai/proc/personal_computer_interact
 		to_chat(personal_ai.pai, SPAN_NOTICE("You gain access to \the [src]'s computronics."))
 		user.drop_from_inventory(H, src)
 		update_icon()
@@ -105,13 +109,15 @@
 	else if(tesla_link == H)
 		tesla_link = null
 		found = TRUE
+	else if(flashlight == H)
+		flashlight = null
+		found = TRUE
 	else if(personal_ai == H)
 		if(user)
 			to_chat(user, SPAN_NOTICE("You remove \the [H] from \the [src]."))
 		H.forceMove(get_turf(src))
 		if(put_in_hands)
 			user.put_in_hands(H)
-		personal_ai.pai.verbs -= /mob/living/silicon/pai/proc/personal_computer_interact
 		to_chat(personal_ai.pai, SPAN_NOTICE("You lose access to \the [src]'s computronics."))
 		personal_ai.pai.parent_computer = null
 		update_icon()
@@ -151,6 +157,8 @@
 		return personal_ai
 	if(tesla_link && (initial(tesla_link.name) == name))
 		return tesla_link
+	if(flashlight && initial(flashlight.name) == name)
+		return flashlight
 	return null
 
 // Returns list of all components
@@ -176,4 +184,6 @@
 		all_components.Add(personal_ai)
 	if(tesla_link)
 		all_components.Add(tesla_link)
+	if(flashlight)
+		all_components.Add(flashlight)
 	return all_components

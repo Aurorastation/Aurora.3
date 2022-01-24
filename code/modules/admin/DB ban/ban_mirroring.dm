@@ -6,9 +6,7 @@
 	if (!ckey || !address || !computer_id || !ban_id)
 		return
 
-	establish_db_connection(dbcon)
-
-	if (!dbcon.IsConnected())
+	if (!establish_db_connection(dbcon))
 		error("Ban database connection failure while attempting to mirror. Key passed for mirror handling: [ckey].")
 		log_misc("Ban database connection failure while attempting to mirror. Key passed for mirror handling: [ckey].")
 		return
@@ -59,9 +57,7 @@
 	if (!ckey || !address || !computer_id)
 		return null
 
-	establish_db_connection(dbcon)
-
-	if (!dbcon.IsConnected())
+	if (!establish_db_connection(dbcon))
 		error("Ban database connection failure while attempting to check mirrors. Key passed for mirror checking: [ckey].")
 		log_misc("Ban database connection failure while attempting to check mirrors. Key passed for mirror checking: [ckey].")
 		return null
@@ -111,9 +107,7 @@
 	if (!ban_id)
 		return null
 
-	establish_db_connection(dbcon)
-
-	if (!dbcon.IsConnected())
+	if (!establish_db_connection(dbcon))
 		return null
 
 	var/DBQuery/query = dbcon.NewQuery("SELECT id, ckey, ip, computerid, date(datetime) as datetime, source, extra_info, deleted_at FROM ss13_ban_mirrors WHERE ban_id = :ban_id:")
@@ -342,7 +336,7 @@
 	data += list(list(C.ckey, C.address, C.computer_id))
 
 	var/data_str = json_encode(data)
-	to_chat(C, output(list2params(list("E-DAT", data_str, 900)), "greeting.browser:setCookie"))
+	send_output(C, list2params(list("E-DAT", data_str, 900)), "greeting.browser:setCookie")
 
 #undef BAD_CID
 #undef BAD_IP

@@ -1,8 +1,9 @@
 /obj/item/device/pipe_painter
 	name = "pipe painter"
-	icon = 'icons/obj/bureaucracy.dmi'
-	icon_state = "labeler1"
-	item_state = "flight"
+	icon = 'icons/obj/contained_items/tools/pipe_painter.dmi'
+	icon_state = "pipe_painter"
+	item_state = "pipe_painter"
+	contained_sprite = TRUE
 	var/list/modes
 	var/mode
 
@@ -13,19 +14,23 @@
 		modes += "[C]"
 	mode = pick(modes)
 
-/obj/item/device/pipe_painter/afterattack(atom/A, mob/user as mob, proximity)
+/obj/item/device/pipe_painter/afterattack(var/atom/A, var/mob/user, proximity)
 	if(!proximity)
 		return
-
-	if(!istype(A,/obj/machinery/atmospherics/pipe) || istype(A,/obj/machinery/atmospherics/pipe/tank) || istype(A,/obj/machinery/atmospherics/pipe/vent) || istype(A,/obj/machinery/atmospherics/pipe/simple/heat_exchanging) || istype(A,/obj/machinery/atmospherics/pipe/simple/insulated) || !in_range(user, A))
+	if(!in_range(user, A))
 		return
-	var/obj/machinery/atmospherics/pipe/P = A
+	else if(is_type_in_list(A, list(/obj/machinery/atmospherics/pipe/tank, /obj/machinery/atmospherics/pipe/vent, /obj/machinery/atmospherics/pipe/simple/heat_exchanging, /obj/machinery/atmospherics/pipe/simple/insulated)))
+		return
+	else if(istype(A,/obj/machinery/atmospherics/pipe))
+		var/obj/machinery/atmospherics/pipe/P = A
+		P.change_color(pipe_colors[mode])
+	else if(istype(A, /obj/item/pipe) && pipe_color_check(pipe_colors[mode]))
+		var/obj/item/pipe/P = A
+		P.color = pipe_colors[mode]
 
-	P.change_color(pipe_colors[mode])
-
-/obj/item/device/pipe_painter/attack_self(mob/user as mob)
+/obj/item/device/pipe_painter/attack_self(var/mob/user)
 	mode = input("Which colour do you want to use?", "Pipe painter", mode) in modes
 
-/obj/item/device/pipe_painter/examine(mob/user)
+/obj/item/device/pipe_painter/examine(var/mob/user)
 	..(user)
 	to_chat(user, "It is in [mode] mode.")

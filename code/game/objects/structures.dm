@@ -1,6 +1,6 @@
 /obj/structure
 	icon = 'icons/obj/structures.dmi'
-	w_class = 10
+	w_class = ITEMSIZE_IMMENSE
 	layer = OBJ_LAYER - 0.01
 
 	var/climbable
@@ -8,7 +8,11 @@
 	var/parts
 	var/list/climbers
 	var/list/footstep_sound	//footstep sounds when stepped on
+
 	var/material/material
+	var/build_amt = 2 // used by some structures to determine into how many pieces they should disassemble into or be made with
+
+	var/slowdown = 0 //amount that pulling mobs have their movement delayed by
 
 /obj/structure/Destroy()
 	if(parts)
@@ -45,6 +49,16 @@
 				return
 		if(3.0)
 			return
+
+/obj/structure/proc/dismantle()
+	var/material/dismantle_material
+	if(!get_material())
+		dismantle_material = SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL) //if there is no defined material, it will use steel
+	else
+		dismantle_material = get_material()
+	for(var/i = 1 to build_amt)
+		dismantle_material.place_sheet(loc)
+	qdel(src)
 
 /obj/structure/Initialize(mapload)
 	. = ..()
@@ -176,7 +190,7 @@
 		return 0
 	if(!Adjacent(user))
 		return 0
-	if (user.restrained() || user.buckled)
+	if (user.restrained() || user.buckled_to)
 		to_chat(user, "<span class='notice'>You need your hands and legs free for this.</span>")
 		return 0
 	if (user.stat || user.paralysis || user.sleeping || user.lying || user.weakened)

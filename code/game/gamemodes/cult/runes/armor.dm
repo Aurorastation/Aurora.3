@@ -15,13 +15,14 @@
 		else
 			construct_class = alert(C, "Please choose which type of construct you wish to become.", "Construct Selection", "Juggernaut", "Wraith", "Artificer")
 
-		var/list/static/construct_types = list("Juggernaut" = /mob/living/simple_animal/construct/armoured,
+		var/list/static/construct_types = list("Juggernaut" = /mob/living/simple_animal/construct/armored,
 											   "Wraith"     = /mob/living/simple_animal/construct/wraith,
 											   "Artificer"  = /mob/living/simple_animal/construct/builder,
 											   "Harvester"  = /mob/living/simple_animal/construct/harvester)
 		
 		var/construct_path = construct_types[construct_class]
 		var/mob/living/simple_animal/construct/Z = new construct_path(get_turf(C))
+		Z.health = Z.health * (C.health / C.maxHealth)
 		Z.key = C.key
 		if(iscultist(C))
 			cult.add_antagonist(Z.mind)

@@ -1,13 +1,13 @@
 /datum/job/representative
 	title = "Corporate Liaison"
 	flag = LAWYER
-	department = "Civilian"
+	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "company officials"
-	selection_color = "#C0C0C0"
+	selection_color = "#90524b"
 	economic_modifier = 7
 	latejoin_at_spawnpoints = TRUE
 
@@ -16,29 +16,23 @@
 	access = list(access_lawyer, access_maint_tunnels)
 	minimal_access = list(access_lawyer)
 	outfit = /datum/outfit/job/representative
-	alt_titles = list("Consular Officer")
-
-	blacklisted_species = list("M'sai Tajara", "Zhan-Khazan Tajara")
-
-/datum/job/representative/get_outfit(mob/living/carbon/human/H, alt_title = null)
-	if(H.mind?.role_alt_title == "Consular Officer" || alt_title == "Consular Officer")
-		var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
-		if(citizenship)
-			return citizenship.consular_outfit
-	else
-		. = ..()
+	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/representative
 	name = "NanoTrasen Corporate Liaison"
+	var/fax_department = "Representative's Office"
 	jobtype = /datum/job/representative
 
-	head = /obj/item/clothing/head/beret/liaison
+	head = /obj/item/clothing/head/beret/centcom/liaison
 	uniform = /obj/item/clothing/under/rank/liaison
 	suit = /obj/item/clothing/suit/storage/toggle/liaison
-	pda = /obj/item/device/pda/lawyer
+	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/lawyer
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/lawyer
+	tablet = /obj/item/modular_computer/handheld/preset/civilian/lawyer
 	shoes = /obj/item/clothing/shoes/laceup
 	glasses = /obj/item/clothing/glasses/sunglasses/big
-	l_ear = /obj/item/device/radio/headset/representative
+	headset = /obj/item/device/radio/headset/representative
+	bowman = /obj/item/device/radio/headset/representative/alt
 	l_hand =  /obj/item/storage/briefcase
 	backpack_contents = list(
 		/obj/item/device/camera = 1,
@@ -48,7 +42,6 @@
 	implants = list(
 		/obj/item/implant/mindshield
 	)
-
 
 /datum/outfit/job/representative/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
@@ -69,7 +62,7 @@
 		faxtext += "<li>[get_objectives(H, REPRESENTATIVE_MISSION_HIGH)].</li>"
 
 	for (var/obj/machinery/photocopier/faxmachine/F in allfaxes)
-		if (F.department == "Representative's Office")
+		if (F.department == fax_department)
 			var/obj/item/paper/P = new /obj/item/paper(get_turf(F))
 			P.name = "[name] - Directives"
 			P.info = faxtext
@@ -87,8 +80,35 @@
 
 	return rep_objectives
 
+/datum/job/consular
+	title = "Consular Officer"
+	flag = CONSULAR
+	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
+	department_flag = CIVILIAN
+	faction = "Station"
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "your embassy"
+	selection_color = "#90524b"
+	economic_modifier = 7
+	latejoin_at_spawnpoints = TRUE
+
+	minimum_character_age = 30
+
+	access = list(access_consular, access_maint_tunnels)
+	minimal_access = list(access_consular)
+	outfit = /datum/outfit/job/representative/consular
+	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
+
+/datum/job/consular/get_outfit(mob/living/carbon/human/H, alt_title = null)
+	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
+	if(citizenship)
+		return citizenship.consular_outfit
+
 /datum/outfit/job/representative/consular
 	name = "Consular Officer"
+	fax_department = "Consular's Office"
+	jobtype = /datum/job/consular
 
 	uniform = /obj/item/clothing/under/suit_jacket/navy
 	head = null
@@ -104,5 +124,4 @@
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
 	if(citizenship)
 		rep_objectives = citizenship.get_objectives(mission_level, H)
-
 	return rep_objectives

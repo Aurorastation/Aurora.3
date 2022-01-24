@@ -30,25 +30,27 @@
 					say(temp)
 				winset(client, "input", "text=[null]")
 
-/mob/living/carbon/human/say_understands(var/mob/other,var/datum/language/speaking = null)
+/mob/living/carbon/human/say_understands(var/mob/other, var/datum/language/speaking = null)
 
 	if(has_brain_worms()) //Brain worms translate everything. Even rat and alien speak.
-		return 1
+		return TRUE
 
 	if(species.can_understand(other))
-		return 1
+		return TRUE
 
 	//These only pertain to common. Languages are handled by mob/say_understands()
 	if (!speaking)
 		if (istype(other, /mob/living/carbon/alien/diona))
 			if(other.languages.len >= 2) //They've sucked down some blood and can speak common now.
-				return 1
+				return TRUE
 		if (istype(other, /mob/living/silicon))
-			return 1
+			return TRUE
+		if (istype(other, /mob/living/announcer))
+			return TRUE
 		if (istype(other, /mob/living/carbon/brain))
-			return 1
+			return TRUE
 		if (istype(other, /mob/living/carbon/slime))
-			return 1
+			return TRUE
 
 	//This is already covered by mob/say_understands()
 	//if (istype(other, /mob/living/simple_animal))
@@ -77,8 +79,10 @@
 	var/obj/item/organ/external/head/face = organs_by_name[BP_HEAD]
 	if(face?.disfigured) // if your face is ruined, your ability to vocalize is also ruined
 		return "Unknown" // above ling voice mimicing so they don't get caught out immediately
-	if(mind?.changeling?.mimicing)
-		return mind.changeling.mimicing
+	if(mind)
+		var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+		if(changeling?.mimicing)
+			return changeling.mimicing
 	if(GetSpecialVoice())
 		return GetSpecialVoice()
 	return real_name
@@ -105,25 +109,17 @@
    for it but just ignore it.
 */
 
-/mob/living/carbon/human/say_quote(var/message, var/datum/language/speaking = null)
-	var/verb = "says"
+/mob/living/carbon/human/say_quote(var/message, var/datum/language/speaking = null, var/singing = FALSE, var/whisper = FALSE)
 	var/ending = copytext(message, length(message))
+	var/pre_ending = copytext(message, length(message) - 1, length(message))
 
 	if(speaking)
-		verb = speaking.get_spoken_verb(ending)
+		. = speaking.get_spoken_verb(ending, pre_ending, singing, whisper)
 	else
-		if(ending == "!")
-			verb=pick("exclaims","shouts","yells")
-		else if(ending == "?")
-			verb="asks"
-
-	return verb
+		. = ..()
 
 /mob/living/carbon/human/handle_speech_problems(var/message, var/verb, var/message_mode)
 	message = handle_speech_muts(message,verb)
-	for(var/datum/brain_trauma/trauma in get_traumas())
-		if(!trauma.suppressed)
-			message = trauma.on_say(message)
 	if(silent || (sdisabilities & MUTE))
 		message = ""
 		speech_problem_flag = 1
@@ -150,71 +146,91 @@
 	returns = species.handle_speech_problems(src, returns, message, verb, message_mode)
 	return returns
 
-/mob/living/carbon/human/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
-	if(!restrained())
-		switch(message_mode)
-			if("intercom")
-				if(!src.restrained())
-					for(var/obj/item/device/radio/intercom/I in view(1))
-						I.talk_into(src, message, null, verb, speaking)
-						I.add_fingerprint(src)
-						used_radios += I
-			if("headset")
-				if(l_ear && istype(l_ear,/obj/item/device/radio))
-					var/obj/item/device/radio/R = l_ear
-					R.talk_into(src,message,null,verb,speaking)
-					used_radios += l_ear
-				else if(r_ear && istype(r_ear,/obj/item/device/radio))
-					var/obj/item/device/radio/R = r_ear
-					R.talk_into(src,message,null,verb,speaking)
-					used_radios += r_ear
-			if("right ear")
-				var/obj/item/device/radio/R
-				var/has_radio = 0
-				if(r_ear && istype(r_ear,/obj/item/device/radio))
-					R = r_ear
-					has_radio = 1
-				if(r_hand && istype(r_hand, /obj/item/device/radio))
-					R = r_hand
-					has_radio = 1
-				if(has_radio)
-					R.talk_into(src,message,null,verb,speaking)
-					used_radios += R
-			if("left ear")
-				var/obj/item/device/radio/R
-				var/has_radio = 0
-				if(l_ear && istype(l_ear,/obj/item/device/radio))
-					R = l_ear
-					has_radio = 1
-				if(l_hand && istype(l_hand,/obj/item/device/radio))
-					R = l_hand
-					has_radio = 1
-				if(has_radio)
-					R.talk_into(src,message,null,verb,speaking)
-					used_radios += R
-			if("whisper")
-				whisper_say(message, speaking, alt_name)
-				return 1
-			else
-				if(message_mode)
-					if(l_ear && istype(l_ear,/obj/item/device/radio))
-						l_ear.talk_into(src,message, message_mode, verb, speaking)
-						used_radios += l_ear
-					else if(r_ear && istype(r_ear,/obj/item/device/radio))
-						r_ear.talk_into(src,message, message_mode, verb, speaking)
-						used_radios += r_ear
+/mob/living/carbon/human/get_radio()
+	var/list/headsets = list()
+	if(istype(l_ear, /obj/item/device/radio))
+		headsets["Left Ear"] = l_ear
+	if(istype(r_ear, /obj/item/device/radio))
+		headsets["Right Ear"] = r_ear
+	if(istype(wrists, /obj/item/device/radio))
+		headsets["Wrist"] = wrists
+
+	if(length(headsets))
+		if(client && (client.prefs.primary_radio_slot in headsets))
+			return headsets[client.prefs.primary_radio_slot]
+		return headsets[headsets[1]]
+	return null
+
+/mob/living/carbon/human/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio, whisper)
+	if(!whisper && (paralysis || InStasis()))
+		whisper(message, speaking)
+		return TRUE
+	switch(message_mode)
+		if("intercom")
+			for(var/obj/item/device/radio/intercom/I in view(1))
+				I.add_fingerprint(src)
+				used_radios += I
+				if(I.talk_into(src, message, null, verb, speaking))
+					successful_radio += I
+		if("headset")
+			var/obj/item/device/radio/R = get_radio()
+			if(R)
+				used_radios += R
+				if(R.talk_into(src, message, null, verb, speaking))
+					successful_radio += R
+		if("right ear")
+			var/obj/item/device/radio/R
+			var/has_radio = 0
+			if(istype(r_ear,/obj/item/device/radio))
+				R = r_ear
+				has_radio = 1
+			if(istype(r_hand, /obj/item/device/radio))
+				R = r_hand
+				has_radio = 1
+			if(has_radio)
+				used_radios += R
+				if(R.talk_into(src,message,null,verb,speaking))
+					successful_radio += R
+		if("left ear")
+			var/obj/item/device/radio/R
+			var/has_radio = 0
+			if(istype(l_ear, /obj/item/device/radio))
+				R = l_ear
+				has_radio = 1
+			if(istype(l_hand, /obj/item/device/radio))
+				R = l_hand
+				has_radio = 1
+			if(has_radio)
+				used_radios += R
+				if(R.talk_into(src,message,null,verb,speaking))
+					successful_radio += R
+		if("wrist")
+			var/obj/item/device/radio/R
+			var/has_radio = 0
+			if(istype(wrists,/obj/item/device/radio))
+				R = wrists
+				has_radio = 1
+			if(istype(r_hand, /obj/item/device/radio))
+				R = wrists
+				has_radio = 1
+			if(has_radio)
+				used_radios += R
+				if(R.talk_into(src,message,null,verb,speaking))
+					successful_radio += R
+		if("whisper")
+			whisper(message, speaking)
+			return TRUE
+		else if(message_mode)
+			var/obj/item/device/radio/R = get_radio()
+			if(R)
+				used_radios += l_ear
+				if(R.talk_into(src, message, message_mode, verb, speaking))
+					successful_radio += R
 
 /mob/living/carbon/human/handle_speech_sound()
 	var/list/returns = ..()
 	returns = species.handle_speech_sound(src, returns)
 	return returns
-
-/mob/living/carbon/human/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "",var/italics = 0, var/mob/speaker = null)
-	for(var/T in get_traumas())
-		var/datum/brain_trauma/trauma = T
-		if(!trauma.suppressed)
-			message = trauma.on_hear(message, verb, language, alt_name, italics, speaker)
-	return ..()
 
 /mob/living/carbon/human/proc/handle_speech_muts(var/message, var/verb)
 	if(message)
@@ -301,8 +317,14 @@
 				if(prob(50))
 					emote("gasp")
 				else
-					emote("chokes!")
+					emote("choke")
 
 
 			message = "[prefix][jointext(words," ")]"
 	return message
+
+/mob/living/carbon/human/binarycheck()
+	for(var/obj/item/device/radio/headset/dongle in list(l_ear, r_ear))
+		if(dongle.translate_binary)
+			return TRUE
+	return FALSE

@@ -11,6 +11,7 @@
 	var/atmosalm = 0
 	var/poweralm = 1
 	var/party = null
+	var/radiation_active = null
 	level = null
 	name = "Unknown"
 	icon = 'icons/turf/areas.dmi'
@@ -39,20 +40,7 @@
 //	var/list/lights				// list of all lights on this area
 	var/list/all_doors = list()		//Added by Strumpetplaya - Alarm Change - Contains a list of doors adjacent to this area
 	var/air_doors_activated = 0
-	var/list/ambience = list(
-		'sound/ambience/ambigen1.ogg',
-		'sound/ambience/ambigen3.ogg',
-		'sound/ambience/ambigen4.ogg',
-		'sound/ambience/ambigen5.ogg',
-		'sound/ambience/ambigen6.ogg',
-		'sound/ambience/ambigen7.ogg',
-		'sound/ambience/ambigen8.ogg',
-		'sound/ambience/ambigen9.ogg',
-		'sound/ambience/ambigen10.ogg',
-		'sound/ambience/ambigen11.ogg',
-		'sound/ambience/ambigen12.ogg',
-		'sound/ambience/ambigen14.ogg'
-	)
+	var/list/ambience = list()
 	var/list/forced_ambience = null
 	var/loop_ambience = TRUE
 	var/sound_env = STANDARD_STATION
@@ -105,7 +93,16 @@
 
 	. = ..()
 
-/area/proc/set_lightswitch(var/state)
+/area/proc/is_prison()
+	return flags & PRISON
+
+/area/proc/is_no_crew_expected()
+	return flags & NO_CREW_EXPECTED
+
+/area/proc/set_lightswitch(var/state) // Set lights in area. TRUE for on, FALSE for off, NULL for initial state.
+	if(isnull(state))
+		state = initial(lightswitch)
+
 	lightswitch = state
 	var/obj/machinery/light_switch/L = locate() in src
 	if(L)
@@ -222,10 +219,15 @@
 #define DO_PARTY(COLOR) animate(color = COLOR, time = 0.5 SECONDS, easing = QUAD_EASING)
 
 /area/update_icon()
-	if ((fire || eject || party) && (!requires_power||power_environ) && !istype(src, /area/space)) //If it doesn't require power, can still activate this proc.
-		if(fire && !eject && !party)		// FIRE
-			color = "#ff9292"
+	if ((fire || eject || party || radiation_active) && (!requires_power||power_environ) && !istype(src, /area/space)) //If it doesn't require power, can still activate this proc.
+		if(radiation_active)
+			color = "#30e63f"
 			animate(src)	// stop any current animations.
+			animate(src, color = "#2ea138", time = 1 SECOND, loop = -1, easing = SINE_EASING)
+			animate(color ="#30e63f", time = 1 SECOND, easing = SINE_EASING)
+		else if(fire && !eject && !party)		// FIRE
+			color = "#ff9292"
+			animate(src)
 			animate(src, color = "#ffa5b2", time = 1 SECOND, loop = -1, easing = SINE_EASING)
 			animate(color = "#ff9292", time = 1 SECOND, easing = SINE_EASING)
 		else if(!fire && eject && !party)		// EJECT
@@ -324,7 +326,7 @@ var/list/mob/living/forced_ambiance_list = new
 		L.lastarea = get_area(L.loc)
 	var/area/newarea = get_area(L.loc)
 	var/area/oldarea = L.lastarea
-	if((oldarea.has_gravity() == 0) && (newarea.has_gravity() == 1) && (L.m_intent == "run")) // Being ready when you change areas gives you a chance to avoid falling all together.
+	if((oldarea.has_gravity() == 0) && (newarea.has_gravity() == 1) && (L.m_intent == M_RUN)) // Being ready when you change areas gives you a chance to avoid falling all together.
 		thunk(L)
 		L.update_floating( L.Check_Dense_Object() )
 
@@ -379,7 +381,7 @@ var/list/mob/living/forced_ambiance_list = new
 		if(H.Check_Shoegrip(FALSE))
 			return
 
-		if(H.m_intent == "run")
+		if(H.m_intent == M_RUN)
 			H.AdjustStunned(2)
 			H.AdjustWeakened(2)
 		else
@@ -434,6 +436,8 @@ var/list/mob/living/forced_ambiance_list = new
 		if (istype(A, /area/maintenance/substation))
 			continue
 		if (istype(A, /area/turbolift))
+			continue
+		if (istype(A, /area/security/penal_colony))
 			continue
 		if (istype(A, /area/mine))
 			continue

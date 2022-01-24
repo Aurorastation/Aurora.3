@@ -114,7 +114,7 @@
 //-------------------------------
 /datum/wifi/receiver/button/crematorium/activate(mob/living/user)
 	..()
-	var/obj/structure/crematorium/C = parent
+	var/obj/structure/morgue/crematorium/C = parent
 	if(istype(C))
 		C.cremate(user)
 

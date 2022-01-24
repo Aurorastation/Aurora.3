@@ -10,7 +10,7 @@
 	color = LIGHT_COLOR_GREEN
 	unsendable = TRUE
 	undeletable = TRUE
-	size = 4
+	size = 2
 	available_on_ntnet = FALSE
 	requires_ntnet = FALSE
 
@@ -68,9 +68,9 @@
 	if(!computer)
 		return FALSE
 	computer.enrolled = 2 // private devices
-	computer.hard_drive.store_file(new /datum/computer_file/program/filemanager())
-	computer.hard_drive.store_file(new /datum/computer_file/program/ntnetdownload())
-	computer.hard_drive.store_file(new /datum/computer_file/program/chatclient())
+	computer.hard_drive.store_file(new /datum/computer_file/program/filemanager(computer))
+	computer.hard_drive.store_file(new /datum/computer_file/program/ntnetdownload(computer))
+	computer.hard_drive.store_file(new /datum/computer_file/program/chat_client(computer))
 	return TRUE
 
 //Set´s up the programs from the preset
@@ -80,7 +80,7 @@
 
 	for (var/datum/modular_computer_app_presets/prs in ntnet_global.available_software_presets)
 		if(prs.name == preset && prs.available == 1)
-			var/list/prs_programs = prs.return_install_programs()
+			var/list/prs_programs = prs.return_install_programs(computer)
 			for (var/datum/computer_file/program/prog in prs_programs)
 				if(!prog.is_supported_by_hardware(computer.hardware_flag, FALSE))
 					continue

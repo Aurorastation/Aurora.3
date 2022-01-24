@@ -7,6 +7,7 @@
 
 	var/list/shuttle_area //can be both single area type or a list of areas
 	var/obj/effect/shuttle_landmark/current_location //This variable is type-abused initially: specify the landmark_tag, not the actual landmark.
+	var/list/shuttle_computers = list()
 
 	var/arrive_time = 0	//the time at which the shuttle arrives when long jumping
 	var/flags = 0
@@ -14,12 +15,12 @@
 	var/category = /datum/shuttle
 	var/multiz = 0	//how many multiz levels, starts at 0
 
-	var/ceiling_type = /turf/simulated/shuttle_roof
+	var/ceiling_type = /turf/simulated/floor/airless/ceiling
 
 	var/sound_takeoff = 'sound/effects/shuttle_takeoff.ogg'
 	var/sound_landing = 'sound/effects/shuttle_landing.ogg'
 
-	var/knockdown = TRUE //whether shuttle downs non-buckled people when it moves
+	var/knockdown = TRUE //whether shuttle downs non-buckled_to people when it moves
 
 	var/defer_initialisation = FALSE //this shuttle will/won't be initialised automatically. If set to true, you are responsible for initialzing the shuttle manually.
 	                                 //Useful for shuttles that are initialed by map_template loading, or shuttles that are created in-game or not used.
@@ -28,6 +29,8 @@
 
 	var/mothershuttle //tag of mothershuttle
 	var/motherdock    //tag of mothershuttle landmark, defaults to starting location
+
+	var/squishes = TRUE //decides whether or not things get squished when it moves.
 
 /datum/shuttle/New(_name, var/obj/effect/shuttle_landmark/initial_location)
 	..()
@@ -54,6 +57,10 @@
 	if(src.name in SSshuttle.shuttles)
 		CRASH("A shuttle with the name '[name]' is already defined.")
 	SSshuttle.shuttles[src.name] = src
+	for(var/obj/machinery/computer/shuttle_control/SC as anything in SSshuttle.lonely_shuttle_computers)
+		if(SC.shuttle_tag == name)
+			SSshuttle.lonely_shuttle_computers -= SC
+			shuttle_computers += SC
 	if(flags & SHUTTLE_FLAGS_PROCESS)
 		SSshuttle.process_shuttles += src
 	if(flags & SHUTTLE_FLAGS_SUPPLY)
@@ -79,7 +86,7 @@
 	moving_status = SHUTTLE_WARMUP
 	callHook("shuttle_moved", list(start_location,destination))
 	if(sound_takeoff)
-		playsound(current_location, sound_takeoff, 50, 20, is_global = TRUE)
+		playsound(current_location, sound_takeoff, 25, 20, is_global = TRUE)
 	spawn(warmup_time*10)
 		if(moving_status == SHUTTLE_IDLE)
 			return FALSE	//someone cancelled the launch
@@ -103,7 +110,7 @@
 	moving_status = SHUTTLE_WARMUP
 	callHook("shuttle_moved", list(start_location, destination))
 	if(sound_takeoff)
-		playsound(current_location, sound_takeoff, 100, 20, is_global = TRUE)
+		playsound(current_location, sound_takeoff, 50, 20, is_global = TRUE)
 	spawn(warmup_time*10)
 		if(moving_status == SHUTTLE_IDLE)
 			return	//someone cancelled the launch
@@ -121,7 +128,7 @@
 			while (world.time < arrive_time)
 				if(!fwooshed && (arrive_time - world.time) < 100)
 					fwooshed = 1
-					playsound(destination, sound_landing, 100, 20, is_global = TRUE)
+					playsound(destination, sound_landing, 50, 20, is_global = TRUE)
 				sleep(5)
 			if(!attempt_move(destination))
 				attempt_move(start_location) //try to go back to where we started. If that fails, I guess we're stuck in the interim location
@@ -149,7 +156,10 @@
 	for(var/area/A in shuttle_area)
 		testing("Moving [A]")
 		translation += get_turf_translation(get_turf(current_location), get_turf(destination), A.contents)
+	var/old_location = current_location
+	shuttle_pre_move_event.raise_event(src, old_location, destination)
 	shuttle_moved(destination, translation)
+	shuttle_moved_event.raise_event(src, old_location, destination)
 	destination.shuttle_arrived(src)
 	return TRUE
 
@@ -172,7 +182,7 @@
 
 	for(var/turf/src_turf in turf_translation)
 		var/turf/dst_turf = turf_translation[src_turf]
-		if(src_turf.is_solid_structure()) //in case someone put a hole in the shuttle and you were lucky enough to be under it
+		if(squishes && src_turf.is_solid_structure()) //in case someone put a hole in the shuttle and you were lucky enough to be under it
 			for(var/atom/movable/AM in dst_turf)
 				if(!AM.simulated)
 					continue
@@ -190,17 +200,22 @@
 				if(istype(TA, ceiling_type))
 					TA.ChangeTurf(get_base_turf_by_area(TA), 1, 1)
 		if(knockdown)
-			for(var/mob/M in A)
+			for(var/mob/living/carbon/M in A)
 				spawn(0)
-					if(istype(M, /mob/living/carbon))
-						if(M.buckled)
-							to_chat(M, "<span class='warning'>Sudden acceleration presses you into your chair!</span>")
-							shake_camera(M, 3, 1)
-						else
-							to_chat(M, "<span class='warning'>The floor lurches beneath you!</span>")
-							shake_camera(M, 10, 1)
-							M.visible_message("<span class='warning'>[M.name] is tossed around by the sudden acceleration!</span>")
-							M.throw_at_random(FALSE, 4, 1)
+					if(M.buckled_to)
+						to_chat(M, "<span class='warning'>Sudden acceleration presses you into your chair!</span>")
+						shake_camera(M, 3, 1)
+					else if(M.Check_Shoegrip(FALSE))
+						to_chat(M, SPAN_WARNING("You feel immense pressure in your feet as you cling to the floor!"))
+						M.apply_damage(10, PAIN, BP_L_FOOT)
+						M.apply_damage(10, PAIN, BP_R_FOOT)
+						shake_camera(M, 5, 1)
+					else
+						to_chat(M, "<span class='warning'>The floor lurches beneath you!</span>")
+						shake_camera(M, 10, 1)
+						M.visible_message("<span class='warning'>[M.name] is tossed around by the sudden acceleration!</span>")
+						M.throw_at_random(FALSE, 4, 1)
+						M.Weaken(3)
 
 		for(var/obj/structure/cable/C in A)
 			powernets |= C.powernet
@@ -225,6 +240,12 @@
 			var/turf/target_turf = get_turf(part)
 			if(part.outside_part)
 				target_turf.ChangeTurf(destination.base_turf)
+		for(var/obj/structure/window/shuttle/unique/SW in sub_area)
+			if(SW.outside_window)
+				var/turf/target_turf = get_turf(SW)
+				target_turf.ChangeTurf(destination.base_turf)
+		for(var/obj/effect/energy_field/ef in sub_area)
+			qdel(ef)
 
 	// Remove all powernets that were affected, and rebuild them.
 	var/list/cables = list()
@@ -271,3 +292,8 @@
 	if(!next_location)
 		return "None"
 	return next_location.name
+
+/datum/shuttle/proc/set_process_state(var/new_state)
+	process_state = new_state
+	for(var/obj/machinery/computer/shuttle_control/SC as anything in shuttle_computers)
+		SC.update_helmets(src)

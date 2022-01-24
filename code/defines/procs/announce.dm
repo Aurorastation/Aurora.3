@@ -66,9 +66,9 @@
 
 /datum/announcement/priority/command/MessageAndSound(var/message as text, var/message_title as text, var/message_sound)
 	var/command_title
-	command_title += "<h2><font color='#272727'>[current_map.boss_name] Update</font></h2>"
+	command_title += "<h2 class='alert'>[current_map.boss_name] Update</h2>"
 	if (message_title)
-		command_title += "<h3><span class='alert'>[message_title]</span></h3>"
+		command_title += "<h3 class='alert'>[message_title]</h3>"
 
 	var/command_body
 	command_body += "<br><span class='alert'>[message]</span><br>"
@@ -77,9 +77,9 @@
 
 /datum/announcement/priority/security/MessageAndSound(var/message as text, var/message_title as text, var/message_sound)
 	to_world("<font size=4 color='red'>[message_title]</font>")
-	to_world("<font color='red'>[message]</font>")
+	to_world("<span class='warning'>[message]</span>")
 	if(message_sound)
-		to_world(message_sound)
+		sound_to(world, message_sound)
 
 /datum/announcement/proc/NewsCast(message as text, message_title as text)
 	if(!newscast)

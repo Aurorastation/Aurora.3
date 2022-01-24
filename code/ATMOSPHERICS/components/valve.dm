@@ -230,6 +230,8 @@
 	var/datum/radio_frequency/radio_connection
 
 /obj/machinery/atmospherics/valve/digital/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/atmospherics/valve/digital/attack_hand(mob/user as mob)
@@ -240,7 +242,7 @@
 		return
 	..()
 
-	log_and_message_admins("has [open ? "<font color='red'>OPENED</font>" : "closed"] [name].", user)
+	log_and_message_admins("has [open ? "<span class='warning'>OPENED</span>" : "closed"] [name].", user)
 
 /obj/machinery/atmospherics/valve/digital/AltClick(var/mob/abstract/observer/admin)
 	if (istype(admin))

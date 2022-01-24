@@ -51,9 +51,12 @@
 	dat += "<br>"
 	dat += "<hr>"
 	dat += "<a href='?src=\ref[src]'>Refresh</a> <a href='?src=\ref[src];close=1'>Close</a>"
-	user << browse(dat, "window=artanalyser;size=450x500")
+
 	user.set_machine(src)
-	onclose(user, "artanalyser")
+
+	var/datum/browser/analyzer_win = new(user, "artanalyser", capitalize_first_letters(name), 500, 500)
+	analyzer_win.set_content(dat)
+	analyzer_win.open()
 
 /obj/machinery/artifact_analyser/machinery_process()
 	if(scan_in_progress && world.time > scan_completion_time)
@@ -77,7 +80,7 @@
 		var/pname = "[src] report #[++report_num]"
 		var/info = "<b>[src] analysis report #[report_num]</b><br>"
 		info += "<br>"
-		info += "\icon[scanned_object] [results]"
+		info += "[icon2html(scanned_object, viewers(get_turf(src)))] [results]"
 		P.stamped = list(/obj/item/stamp)
 		P.overlays = list("paper_stamped")
 		P.set_content_unsafe(pname, info)

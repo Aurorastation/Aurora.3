@@ -4,7 +4,7 @@
 	icon_state = "flash"
 	item_state = "flash"
 	throwforce = 5
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	throw_speed = 4
 	throw_range = 10
 	flags = CONDUCT
@@ -36,7 +36,7 @@
 	if(!user || !M)	return	//sanity
 
 	M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been flashed (attempt) with [src.name]  by [user.name] ([user.ckey])</font>")
-	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src.name] to flash [M.name] ([M.ckey])</font>")
+	user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Used the [src.name] to flash [M.name] ([M.ckey])</span>")
 	msg_admin_attack("[user.name] ([user.ckey]) Used the [src.name] to flash [M.name] ([M.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M))
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -71,14 +71,14 @@
 			var/mob/living/carbon/C = M
 			var/datum/dionastats/DS = C.get_dionastats()
 			DS.stored_energy += 10
-			flick("e_flash", M.flash)
+			M.flash_eyes()
 			M.Weaken(5)
 			M.eye_blind = 5
 			return
 
 		var/safety = M:eyecheck(TRUE)
 		if(safety <= 0)
-			flick("e_flash", M.flash)
+			M.flash_eyes()
 			M.confused = 10
 			var/mob/living/carbon/human/H = M
 			var/obj/item/organ/internal/eyes/E = H.get_eyes()
@@ -178,7 +178,8 @@
 	return
 
 /obj/item/device/flash/emp_act(severity)
-	if(broken)	return
+	if(broken)
+		return
 	flash_recharge()
 	switch(times_used)
 		if(0 to 5)
@@ -187,13 +188,10 @@
 				icon_state = "flashburnt"
 				return
 			times_used++
-			if(istype(loc, /mob/living/carbon))
+			if(iscarbon(loc))
 				var/mob/living/carbon/M = loc
-				var/safety = M.eyecheck(TRUE)
-				if(safety < FLASH_PROTECTION_MODERATE)
-					flick("e_flash", M.flash)
-					for(var/mob/O in viewers(M, null))
-						O.show_message("<span class='disarm'>[M] is blinded by the flash!</span>")
+				M.flash_eyes()
+				to_chat(M, SPAN_WARNING("Your [name] goes off!"))
 	..()
 
 /obj/item/device/flash/synthetic

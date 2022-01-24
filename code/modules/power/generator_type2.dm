@@ -19,10 +19,10 @@
 	input2 = locate(/obj/machinery/atmospherics/unary/generator_input) in get_step(src,turn(dir, -90))
 	if(!input1 || !input2)
 		stat |= BROKEN
-	updateicon()
+	update_icon()
 
 
-/obj/machinery/power/generator_type2/proc/updateicon()
+/obj/machinery/power/generator_type2/update_icon()
 	cut_overlays()
 	if(!(stat & (NOPOWER|BROKEN)))
 		if(lastgenlev != 0)
@@ -76,12 +76,14 @@
 	var/genlev = max(0, min( round(11*lastgen / 100000), 11))
 	if(genlev != lastgenlev)
 		lastgenlev = genlev
-		updateicon()
+		update_icon()
 
 	src.updateDialog()
 
 
 /obj/machinery/power/generator_type2/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	if(stat & (BROKEN|NOPOWER)) return
 	interact(user)
 
@@ -133,4 +135,4 @@
 
 /obj/machinery/power/generator_type2/power_change()
 	..()
-	updateicon()
+	update_icon()

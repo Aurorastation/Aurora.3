@@ -17,8 +17,8 @@
 	new /obj/item/reagent_containers/dropper(src)
 	new /obj/item/reagent_containers/glass/beaker(src)
 	new /obj/item/reagent_containers/glass/beaker(src)
-	new /obj/item/reagent_containers/glass/bottle/norepinephrine(src)
-	new /obj/item/reagent_containers/glass/bottle/norepinephrine(src)
+	new /obj/item/reagent_containers/glass/bottle/inaprovaline(src)
+	new /obj/item/reagent_containers/glass/bottle/inaprovaline(src)
 	new /obj/item/reagent_containers/glass/bottle/antitoxin(src)
 	new /obj/item/reagent_containers/glass/bottle/antitoxin(src)
 
@@ -42,7 +42,7 @@
 	new /obj/item/clothing/mask/breath/medical(src)
 
 /obj/structure/closet/secure_closet/medical3
-	name = "physician's locker"
+	name = "medical equipment locker"
 	req_access = list(access_medical_equip)
 	icon_state = "securemed1"
 	icon_closed = "securemed"
@@ -86,7 +86,45 @@
 	new /obj/item/clothing/glasses/hud/health/aviator(src)
 	new /obj/item/clothing/glasses/eyepatch/hud/medical(src)
 	new /obj/item/clothing/suit/storage/medical_chest_rig(src)
+	new /obj/item/clothing/suit/storage/medical_chest_rig/first_responder(src)
+	new /obj/item/clothing/head/hardhat/first_responder(src)
 
+/obj/structure/closet/secure_closet/medical_fr
+	name = "first responder's locker"
+	desc = "An immobile, card-locked storage unit containing all the necessary equipment for a first responder."
+	req_access = list(access_first_responder)
+	icon_state = "securemed1"
+	icon_closed = "securemed"
+	icon_locked = "securemed1"
+	icon_opened = "securemedopen"
+	icon_broken = "securemedbroken"
+	icon_off = "securemedoff"
+
+/obj/structure/closet/secure_closet/medical_fr/fill()
+	..()
+	new /obj/item/storage/backpack/satchel_med(src)
+	new /obj/item/storage/backpack/duffel/med(src)
+	new /obj/item/clothing/head/hardhat/first_responder(src)
+	new /obj/item/device/radio/headset/headset_med(src)
+	new /obj/item/clothing/glasses/hud/health(src)
+	new /obj/item/storage/backpack/medic/first_responder(src)
+	new /obj/item/clothing/suit/storage/medical_chest_rig(src)
+	new /obj/item/clothing/suit/storage/medical_chest_rig/first_responder(src)
+	new /obj/item/clothing/under/rank/medical/first_responder(src)
+	new /obj/item/clothing/shoes/jackboots(src)
+	new /obj/item/device/flashlight/pen(src)
+	new /obj/item/clothing/accessory/stethoscope(src)
+	new /obj/item/storage/belt/medical/first_responder(src)
+	new /obj/item/device/gps(src)
+	new /obj/item/reagent_containers/hypospray(src)
+	new /obj/item/taperoll/medical(src)
+	new /obj/item/device/radio(src)
+	new /obj/item/roller(src)
+	new /obj/item/crowbar/red(src)
+	new /obj/item/clothing/mask/gas/alt(src)
+	new /obj/item/clothing/mask/gas/half(src)
+	new /obj/item/auto_cpr(src)
+	new /obj/item/clothing/suit/storage/toggle/fr_jacket/alt(src)
 
 /obj/structure/closet/secure_closet/CMO
 	name = "chief medical officer's locker"
@@ -107,16 +145,18 @@
 	new /obj/item/clothing/head/bio_hood/cmo(src)
 	new /obj/item/clothing/shoes/medical(src)
 	new /obj/item/clothing/under/rank/chief_medical_officer(src)
-	new /obj/item/cartridge/cmo(src)
 	new /obj/item/clothing/gloves/latex/nitrile(src)
 	new /obj/item/device/radio/headset/heads/cmo(src)
 	new /obj/item/device/radio/headset/heads/cmo/alt(src)
+	new /obj/item/device/megaphone/med(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/reagent_containers/hypospray/cmo(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat/cmo(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat/cmoalt(src)
 	new /obj/item/storage/box/inhalers(src)
 	new /obj/item/clothing/glasses/hud/health/aviator(src)
+	new /obj/item/storage/box/fancy/keypouch/med(src)
+	new /obj/item/device/advanced_healthanalyzer(src)
 
 /obj/structure/closet/secure_closet/CMO2
 	name = "chief medical officer's attire"
@@ -180,6 +220,8 @@
 	new /obj/item/storage/box/syringes(src)
 	new /obj/item/storage/box/beakers(src)
 	new /obj/item/storage/box/beakers(src)
+	new /obj/item/storage/bag/chemistry(src)
+	new /obj/item/storage/bag/chemistry(src)
 
 /obj/structure/closet/secure_closet/medical_wall
 	name = "first aid closet"
@@ -190,6 +232,7 @@
 	icon_opened = "medical_wall_open"
 	icon_broken = "medical_wall_spark"
 	icon_off = "medical_wall_off"
+	store_mobs = FALSE
 	anchored = 1
 	density = 0
 	wall_mounted = 1

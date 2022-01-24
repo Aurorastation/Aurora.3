@@ -15,7 +15,7 @@
 	desc = "A camera film cartridge. Insert it into a camera to reload it."
 	icon_state = "film"
 	item_state = "electropack"
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 
 
 /********
@@ -25,10 +25,12 @@ var/global/photo_count = 0
 
 /obj/item/photo
 	name = "photo"
+	desc = "An archaic means of visual preservation, kept alive as kitschy memorabilia by paparazzi, conspiracy theorists and teenage girls."
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "photo"
 	item_state = "paper"
-	w_class = 2.0
+	w_class = ITEMSIZE_TINY
+	var/picture_desc // Who and/or what's in the picture.
 	var/id
 	var/icon/img	//Big photo image
 	var/scribble	//Scribble on the back.
@@ -52,39 +54,47 @@ var/global/photo_count = 0
 	..()
 
 /obj/item/photo/examine(mob/user)
-	if(in_range(user, src))
+	. = ..()
+	if(in_range(user, src) || isobserver(user) || in_slide_projector(user))
 		show(user)
-		to_chat(user, desc)
+		to_chat(user, "<span class='notice'>[picture_desc]</span>")
 	else
-		to_chat(user, "<span class='notice'>It is too far away.</span>")
+		to_chat(user, "<span class='notice'>You are too far away to discern its contents.</span>")
+
 
 /obj/item/photo/proc/show(mob/user as mob)
-	to_chat(user, browse_rsc(img, "tmp_photo_[id].png"))
+	send_rsc(user, img, "tmp_photo_[id].png")
 	user << browse("<html><head><title>[name]</title></head>" + "<body style='overflow:hidden;margin:0;text-align:center'>" + "<img src='tmp_photo_[id].png' width='[64*photo_size]' style='-ms-interpolation-mode:nearest-neighbor' />" + "[scribble ? "<br>Written on the back:<br><i>[scribble]</i>" : ""]" + "</body></html>", "window=book;size=[64*photo_size]x[scribble ? 400 : 64*photo_size]")
 	onclose(user, "[name]")
 	return
 
 /obj/item/photo/verb/rename()
-	set name = "Rename photo"
+	set name = "Rename Photo"
 	set category = "Object"
 	set src in usr
 
+	if(use_check_and_message(usr, USE_ALLOW_NON_ADJACENT))
+		return
+
 	var/n_name = sanitizeSafe(input(usr, "What would you like to label the photo?", "Photo Labelling", null)  as text, MAX_NAME_LEN)
-	//loc.loc check is for making possible renaming photos in clipboards
-	if(((loc == usr || (loc.loc && loc.loc == usr)) && usr.stat == 0))
+
+	if(use_check_and_message(usr, USE_ALLOW_NON_ADJACENT))
+		return
+
+	var/atom/surface_atom = recursive_loc_turf_check(src, 3, usr)
+	if(surface_atom == usr || surface_atom.Adjacent(usr))
 		if(n_name)
 			name = "[initial(name)] ([n_name])"
 		else
-			name = initial(n_name)
-	add_fingerprint(usr)
-	return
+			name = initial(name)
+		add_fingerprint(usr)
 
 
 /**************
 * photo album *
 **************/
 /obj/item/storage/photo_album
-	name = "Photo album"
+	name = "photo album"
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "album"
 	item_state = "briefcase"
@@ -96,15 +106,15 @@ var/global/photo_count = 0
 		var/mob/M = usr
 		if(!( istype(over_object, /obj/screen) ))
 			return ..()
-		playsound(loc, "rustle", 50, 1, -5)
+		playsound(loc, /decl/sound_category/rustle_sound, 50, 1, -5)
 		if((!( M.restrained() ) && !( M.stat ) && M.back == src))
 			switch(over_object.name)
-				if(BP_R_HAND)
+				if("right hand")
 					M.u_equip(src)
-					M.put_in_r_hand(src)
-				if(BP_L_HAND)
+					M.equip_to_slot_if_possible(src, slot_r_hand)
+				if("left hand")
 					M.u_equip(src)
-					M.put_in_l_hand(src)
+					M.equip_to_slot_if_possible(src, slot_l_hand)
 			add_fingerprint(usr)
 			return
 		if(over_object == usr && in_range(src, usr) || usr.contents.Find(src))
@@ -123,7 +133,7 @@ var/global/photo_count = 0
 	desc = "A polaroid camera."
 	icon_state = "camera"
 	item_state = "electropack"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
@@ -171,6 +181,8 @@ var/global/photo_count = 0
 		return
 	..()
 
+/obj/item/device/camera/AltClick(var/mob/user)
+	change_size()
 
 /obj/item/device/camera/proc/get_mobs(turf/the_turf as turf)
 	var/mob_detail
@@ -186,9 +198,9 @@ var/global/photo_count = 0
 					holding = "They are holding \a [A.r_hand]"
 
 		if(!mob_detail)
-			mob_detail = "You can see [A] on the photo[A:health < 75 ? " - [A] looks hurt":""].[holding ? " [holding]":"."]. "
+			mob_detail = "You can see [A] in the photo[A:health < 75 ? " - [A] looks hurt":""].[holding ? " [holding]":"."]. "
 		else
-			mob_detail += "You can also see [A] on the photo[A:health < 75 ? " - [A] looks hurt":""].[holding ? " [holding]":"."]."
+			mob_detail += "You can also see [A] in the photo[A:health < 75 ? " - [A] looks hurt":""].[holding ? " [holding]":"."]."
 	return mob_detail
 
 /obj/item/device/camera/afterattack(atom/target as mob|obj|turf|area, mob/user as mob, flag)
@@ -204,6 +216,11 @@ var/global/photo_count = 0
 	spawn(64)
 		icon_state = icon_on
 		on = 1
+
+/obj/item/device/camera/detective
+	name = "detectives camera"
+	desc = "A one use - polaroid camera."
+	pictures_left = 30
 
 //Proc for capturing check
 /mob/living/proc/can_capture_turf(turf/T)
@@ -248,7 +265,7 @@ var/global/photo_count = 0
 	p.icon = ic
 	p.tiny = pc
 	p.img = photoimage
-	p.desc = mobs
+	p.picture_desc = mobs
 	p.pixel_x = rand(-10, 10)
 	p.pixel_y = rand(-10, 10)
 	p.photo_size = size
@@ -267,7 +284,7 @@ var/global/photo_count = 0
 	p.icon = icon(icon, icon_state)
 	p.tiny = icon(tiny)
 	p.img = icon(img)
-	p.desc = desc
+	p.picture_desc = picture_desc
 	p.pixel_x = pixel_x
 	p.pixel_y = pixel_y
 	p.photo_size = photo_size

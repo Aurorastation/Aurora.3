@@ -213,28 +213,12 @@
 
 //--Tau Ceti Foreign Legion Shuttle--//
 
-/obj/machinery/computer/shuttle_control/legion
+/obj/machinery/computer/shuttle_control/multi/legion
 	name = "dropship control console"
 	req_access = list(access_legion)
 	shuttle_tag = "Legion Shuttle"
 
-/datum/shuttle/autodock/ferry/legion
-	var/dropship_return_delay = 6600
-	var/earliest_departure_time = 0
-
-/datum/shuttle/autodock/ferry/legion/arrived()
-	if(!location)
-		earliest_departure_time = world.time + dropship_return_delay
-
-/datum/shuttle/autodock/ferry/legion/launch(var/user)
-	if(!location && earliest_departure_time > world.time)
-		var/obj/machinery/computer/shuttle_control/legion/L = user
-		L.visible_message(SPAN_NOTICE("The dropship's skipthrusters will be done recharging in approximately [round((earliest_departure_time - world.time)/600)] minute\s."),null,3)
-		return
-	else
-		..()
-
-/obj/machinery/computer/shuttle_control/distress
+/obj/machinery/computer/shuttle_control/multi/distress
 	name = "shuttle control computer"
 	req_access = list(access_distress)
 	shuttle_tag = "Distress Shuttle"

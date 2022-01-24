@@ -13,7 +13,6 @@
 
 /datum/nano_module/program/card_mod
 	name = "ID card modification program"
-	var/mod_mode = TRUE
 	var/is_centcom = FALSE
 	var/show_assignments = FALSE
 
@@ -22,19 +21,15 @@
 
 	data["src"] = "\ref[src]"
 	data["station_name"] = station_name()
-	data["manifest"] = SSrecords.get_manifest()
 	data["assignments"] = show_assignments
 	if(program?.computer)
 		data["have_id_slot"] = !!program.computer.card_slot
 		data["have_printer"] = !!program.computer.nano_printer
 		data["authenticated"] = program.can_run(user)
-		if(!program.computer.card_slot)
-			mod_mode = FALSE //We can't modify IDs when there is no card reader
 	else
 		data["have_id_slot"] = 0
 		data["have_printer"] = 0
 		data["authenticated"] = 0
-	data["mmode"] = mod_mode
 	data["centcom_access"] = is_centcom
 
 	if(program && program.computer && program.computer.card_slot)
@@ -114,50 +109,34 @@
 	var/obj/item/card/id/id_card = computer.card_slot.stored_card
 	var/datum/nano_module/program/card_mod/module = NM
 	switch(href_list["action"])
-		if("switchm")
-			if(href_list["target"] == "mod")
-				module.mod_mode = TRUE
-			else if (href_list["target"] == "manifest")
-				module.mod_mode = FALSE
+
 		if("togglea")
 			if(module.show_assignments)
 				module.show_assignments = FALSE
 			else
 				module.show_assignments = TRUE
 		if("print")
-			if(computer?.nano_printer) //This option should never be called if there is no printer
-				if(module.mod_mode)
-					if(can_run(user, 1))
-						var/contents = {"<h4>Access Report</h4>
-									<u>Prepared By:</u> [user_id_card.registered_name ? user_id_card.registered_name : "Unknown"]<br>
-									<u>For:</u> [id_card.registered_name ? id_card.registered_name : "Unregistered"]<br>
-									<hr>
-									<u>Assignment:</u> [id_card.assignment]<br>
-									<u>Account Number:</u> #[id_card.associated_account_number]<br>
-									<u>Blood Type:</u> [id_card.blood_type]<br><br>
-									<u>Access:</u><br>
-								"}
+			if(computer?.nano_printer && can_run(user, 1)) //This option should never be called if there is no printer
+				var/contents = {"<h4>Access Report</h4>
+							<u>Prepared By:</u> [user_id_card.registered_name ? user_id_card.registered_name : "Unknown"]<br>
+							<u>For:</u> [id_card.registered_name ? id_card.registered_name : "Unregistered"]<br>
+							<hr>
+							<u>Assignment:</u> [id_card.assignment]<br>
+							<u>Account Number:</u> #[id_card.associated_account_number]<br>
+							<u>Blood Type:</u> [id_card.blood_type]<br><br>
+							<u>Access:</u><br>
+						"}
 
-						var/known_access_rights = get_access_ids(ACCESS_TYPE_STATION|ACCESS_TYPE_CENTCOM)
-						for(var/A in id_card.access)
-							if(A in known_access_rights)
-								contents += "  [get_access_desc(A)]"
+				var/known_access_rights = get_access_ids(ACCESS_TYPE_STATION|ACCESS_TYPE_CENTCOM)
+				for(var/A in id_card.access)
+					if(A in known_access_rights)
+						contents += "  [get_access_desc(A)]"
 
-						if(!computer.nano_printer.print_text(contents,"access report"))
-							to_chat(usr, SPAN_WARNING("Hardware error: Printer was unable to print the file. It may be out of paper."))
-							return
-						else
-							computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."))
+				if(!computer.nano_printer.print_text(contents,"access report"))
+					to_chat(usr, SPAN_WARNING("Hardware error: Printer was unable to print the file. It may be out of paper."))
+					return
 				else
-					var/contents = {"<h4>Crew Manifest</h4>
-									<br>
-									[SSrecords.get_manifest(1)]
-									"}
-					if(!computer.nano_printer.print_text(contents,text("crew manifest ([])", worldtime2text())))
-						to_chat(usr, SPAN_WARNING(">Hardware error: Printer was unable to print the file. It may be out of paper."))
-						return
-					else
-						computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."))
+					computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."))
 		if("eject")
 			if(computer && computer.card_slot)
 				if(id_card)
@@ -173,7 +152,7 @@
 								break
 						R.rank = id_card.assignment
 						R.real_rank = real_title
-				computer.proc_eject_id(user)
+				computer.eject_id()
 		if("suspend")
 			if(computer && can_run(user, 1))
 				id_card.assignment = "Suspended"
@@ -220,6 +199,7 @@
 					id_card.assignment = t1
 					id_card.rank = t1
 
+				SSrecords.reset_manifest()
 				callHook("reassign_employee", list(id_card))
 		if("access")
 			if(href_list["allowed"] && computer && can_run(user, 1))

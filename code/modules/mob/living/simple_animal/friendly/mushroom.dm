@@ -12,6 +12,7 @@
 	maxHealth = 5
 	health = 5
 	meat_type = /obj/item/reagent_containers/food/snacks/hugemushroomslice
+	organ_names = list("cap", "chest", "left leg", "right leg")
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "whacks"

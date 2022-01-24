@@ -13,8 +13,10 @@
 		/datum/job/visitor,
 		/datum/job/journalist,
 		/datum/job/merchant,
-		/datum/job/representative
+		/datum/job/consular
 	)
+
+	title_suffix = "INDEP"
 
 /datum/faction/unaffiliated/get_logo_name()
 	return "faction_unaffiliated.png"

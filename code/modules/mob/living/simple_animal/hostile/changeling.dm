@@ -15,6 +15,7 @@
 
 	tameable = FALSE
 
+	organ_names = list("head", "chest", "tail", "leg")
 	response_help  = "pets"
 	response_disarm = "shoves"
 	response_harm   = "harmlessly punches"
@@ -23,6 +24,7 @@
 	harm_intent_damage = 0
 	melee_damage_lower = 30
 	melee_damage_upper = 30
+	resist_mod = 3
 	mob_size = 25
 	environment_smash = 2
 	attacktext = "mangled"
@@ -162,8 +164,8 @@
 	response_help  = "pets"
 	response_disarm = "shoves"
 	response_harm   = "harmlessly punches"
-	maxHealth = 150
-	health = 150
+	maxHealth = 50
+	health = 50
 	harm_intent_damage = 5
 	melee_damage_lower = 5
 	melee_damage_upper = 10
@@ -184,7 +186,7 @@
 	max_co2 = 0
 	max_tox = 0
 
-	speed = -2
+	speed = -1
 
 	var/mob/living/carbon/human/occupant = null
 

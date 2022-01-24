@@ -1,7 +1,7 @@
 #define INFESTATION_RATS "rats"
 #define INFESTATION_LIZARDS "lizards"
 #define INFESTATION_SPACE_BATS "space bats"
-#define INFESTATION_SPIDERLINGS "spiderlings"
+#define INFESTATION_SPIDERLINGS "greimorian larva"
 #define INFESTATION_HIVEBOTS "hivebots"
 #define INFESTATION_SLIMES "slimes"
 
@@ -26,11 +26,22 @@
 		INFESTATION_SPACE_BATS = 1,
 		INFESTATION_SPIDERLINGS = 1
 	)
-/datum/event/infestation/major
-	possible_mobs = list(
-		INFESTATION_HIVEBOTS = 1,
-		INFESTATION_SLIMES = 1
-	)
+
+/datum/event/infestation/major/setup()
+	var/player_count = 0
+	for(var/mob/living/carbon/human/H in living_mob_list)
+		if(H.stat == CONSCIOUS && H.client)
+			player_count++
+	if(player_count >= 15)
+		possible_mobs = list(
+			INFESTATION_HIVEBOTS = 1,
+			INFESTATION_SLIMES = 1
+		)
+	else
+		possible_mobs = list(
+			INFESTATION_SLIMES = 1
+		)
+	..()
 
 /datum/event/infestation/setup()
 	choose_area()
@@ -53,7 +64,6 @@
 			chosen_scan_type = "Bluespace readings"
 			var/list/beacon_types = list(
 				/mob/living/simple_animal/hostile/hivebotbeacon = 1,
-				/mob/living/simple_animal/hostile/hivebotbeacon/toxic = 1,
 				/mob/living/simple_animal/hostile/hivebotbeacon/incendiary = 1
 			)
 			chosen_mob_types += pickweight(beacon_types)
@@ -106,7 +116,7 @@
 				chosen_mob_types += chosen_slime_type
 
 		if(INFESTATION_SPIDERLINGS)
-			event_name = "Spiderling Infestation"
+			event_name = "Greimorian Infestation"
 			chosen_verb = "have burrowed into"
 			for(var/i = 1, i < rand(3,6),i++)
 				chosen_mob_types += /obj/effect/spider/spiderling

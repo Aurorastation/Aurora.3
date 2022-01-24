@@ -49,7 +49,8 @@
 	desc = "It's a wall. It appears to be composed of a highly durable alloy."
 	smooth = SMOOTH_TRUE
 	canSmoothWith = list(
-		/turf/unsimulated/wall/darkshuttlewall
+		/turf/unsimulated/wall/darkshuttlewall,
+		/turf/unsimulated/wall/riveted
 	)
 
 /turf/unsimulated/wall/fakeairlock

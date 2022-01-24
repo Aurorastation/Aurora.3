@@ -7,7 +7,7 @@
 	flags = CONDUCT
 	slot_flags = SLOT_BELT | SLOT_EARS
 	throwforce = 1
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 	var/leaves_residue = 1
 	var/caliber = ""					//Which kind of guns it can be loaded into
@@ -16,14 +16,16 @@
 	var/obj/item/projectile/BB = null	//The loaded bullet - make it so that the projectiles are created only when needed?
 	var/spent_icon = "s-casing-spent"
 
-	drop_sound = 'sound/items/drop/ring.ogg'
+	drop_sound = /decl/sound_category/casing_drop_sound
 	pickup_sound = 'sound/items/pickup/ring.ogg'
+	var/reload_sound = 'sound/weapons/reload_bullet.ogg' //sound that plays when inserted into gun.
 
 /obj/item/ammo_casing/Initialize()
 	. = ..()
 	if(ispath(projectile_type))
 		BB = new projectile_type(src)
 	randpixel_xy()
+	transform = turn(transform,rand(0,360))
 
 //removes the projectile from the ammo casing
 /obj/item/ammo_casing/proc/expend()
@@ -91,7 +93,7 @@
 	item_state = "box"
 	matter = list(DEFAULT_WALL_MATERIAL = 500)
 	throwforce = 5
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	throw_speed = 4
 	throw_range = 10
 
@@ -107,6 +109,9 @@
 	//because BYOND doesn't support numbers as keys in associative lists
 	var/list/icon_keys = list()		//keys
 	var/list/ammo_states = list()	//values
+
+	var/insert_sound = 'sound/weapons/magazine_insert.ogg' //sound it plays when it gets inserted into a gun.
+	var/eject_sound = 'sound/weapons/magazine_eject.ogg'
 
 /obj/item/ammo_magazine/Initialize()
 	. = ..()
@@ -134,6 +139,10 @@
 		C.forceMove(src)
 		stored_ammo.Insert(1, C) //add to the head of the list
 		update_icon()
+	else if(istype(W, /obj/item/gun) && ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.check_weapon_affinity(W)) // if we have gun-kata, we can reload by attacking a magazine
+			W.attackby(src, user)
 
 /obj/item/ammo_magazine/attack_self(mob/user)
 	if(!stored_ammo.len)
@@ -142,7 +151,7 @@
 	to_chat(user, "<span class='notice'>You empty [src].</span>")
 	for(var/obj/item/ammo_casing/C in stored_ammo)
 		C.forceMove(user.loc)
-		playsound(C, "sound/weapons/casingdrop[rand(1,5)].ogg", 50, 1)
+		playsound(C, /decl/sound_category/casing_drop_sound, 50, FALSE)
 		C.set_dir(pick(alldirs))
 	stored_ammo.Cut()
 	update_icon()
@@ -157,6 +166,10 @@
 				new_state = ammo_states[idx]
 				break
 		icon_state = (new_state)? new_state : initial(icon_state)
+	if(!length(stored_ammo))
+		recyclable = TRUE
+	else
+		recyclable = FALSE
 
 /obj/item/ammo_magazine/examine(mob/user)
 	..()

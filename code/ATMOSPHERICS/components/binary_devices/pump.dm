@@ -34,6 +34,8 @@ Thus, the two variables affect pump operation are set in New():
 	var/id = null
 	var/datum/radio_frequency/radio_connection
 
+	var/broadcast_status_next_process = FALSE
+
 /obj/machinery/atmospherics/binary/pump/Initialize()
 	. = ..()
 	air1.volume = ATMOS_DEFAULT_VOLUME_PUMP
@@ -69,6 +71,10 @@ Thus, the two variables affect pump operation are set in New():
 	if((stat & (NOPOWER|BROKEN)) || !use_power)
 		return
 
+	if (broadcast_status_next_process)
+		broadcast_status()
+		broadcast_status_next_process = FALSE
+
 	var/power_draw = -1
 	var/pressure_delta = target_pressure - air2.return_pressure()
 
@@ -102,7 +108,7 @@ Thus, the two variables affect pump operation are set in New():
 		return 0
 
 	var/datum/signal/signal = new
-	signal.transmission_method = 1 //radio signal
+	signal.transmission_method = TRANSMISSION_RADIO
 	signal.source = src
 
 	signal.data = list(
@@ -169,12 +175,11 @@ Thus, the two variables affect pump operation are set in New():
 		)
 
 	if(signal.data["status"])
-		addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
+		broadcast_status_next_process = TRUE
 		return //do not update_icon
 
-	addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
+	broadcast_status_next_process = TRUE
 	update_icon()
-	return
 
 /obj/machinery/atmospherics/binary/pump/attack_hand(user as mob)
 	if(..())

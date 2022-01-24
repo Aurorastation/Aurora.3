@@ -8,7 +8,9 @@
 	a_intent = I_HURT
 	mob_size = MOB_LARGE
 	mob_push_flags = ALLMOBS
-	can_buckle = FALSE
+	can_be_buckled = FALSE
+	accent = ACCENT_TTS
+	appearance_flags = KEEP_TOGETHER
 	var/decal
 
 	var/emp_damage = 0
@@ -26,6 +28,16 @@
 	var/obj/item/card/id/access_card
 	var/list/saved_access = list()
 	var/sync_access = TRUE
+
+	// Mob we're currently paired with or following | the names are saved to prevent metagaming when returning diagnostics
+	var/datum/weakref/leader
+	var/leader_name
+	var/datum/weakref/following
+	var/following_name
+
+	// Orders from our leader
+	var/nickname // we'll respond to our name or our nickname
+	var/follow_distance = 3
 
 	// Mob currently piloting the mech.
 	var/list/pilots
@@ -55,6 +67,7 @@
 	var/maintenance_protocols
 	var/lockdown
 	var/entry_speed = 30
+	var/loudening = FALSE // whether we're increasing the speech volume of our pilot
 
 	// Material
 	var/material/material
@@ -73,8 +86,13 @@
 	var/obj/screen/mecha/health/hud_health
 	var/obj/screen/mecha/toggle/hatch_open/hud_open
 	var/obj/screen/mecha/power/hud_power
+	var/obj/screen/mecha/toggle/power_control/hud_power_control
+	//POWER
+	var/power = MECH_POWER_OFF
 
 /mob/living/heavy_vehicle/Destroy()
+	unassign_leader()
+	unassign_following()
 
 	selected_system = null
 
@@ -87,7 +105,7 @@
 	pilots = null
 
 	QDEL_NULL_LIST(hud_elements)
-	
+
 	if(remote_network)
 		SSvirtualreality.remove_mech(src, remote_network)
 
@@ -199,6 +217,9 @@
 	// Build icon.
 	update_icon()
 
+	add_language(LANGUAGE_TCB)
+	set_default_language(all_languages[LANGUAGE_TCB])
+
 	. = INITIALIZE_HINT_LATELOAD
 
 /mob/living/heavy_vehicle/LateInitialize()
@@ -211,6 +232,26 @@
 
 /mob/living/heavy_vehicle/GetIdCard()
 	return access_card
+
+/mob/living/heavy_vehicle/proc/toggle_power(var/mob/user)
+	if(power == MECH_POWER_TRANSITION)
+		to_chat(user, SPAN_NOTICE("Power transition in progress. Please wait."))
+	else if(power == MECH_POWER_ON) //Turning it off is instant
+		playsound(src, 'sound/mecha/mech-shutdown.ogg', 100, 0)
+		power = MECH_POWER_OFF
+	else if(get_cell(TRUE))
+		//Start power up sequence
+		power = MECH_POWER_TRANSITION
+		playsound(src, 'sound/mecha/powerup.ogg', 50, 0)
+		if(do_after(user, 1.5 SECONDS) && power == MECH_POWER_TRANSITION)
+			playsound(src, 'sound/mecha/nominal.ogg', 50, 0)
+			power = MECH_POWER_ON
+		else
+			to_chat(user, SPAN_WARNING("You abort the powerup sequence."))
+			power = MECH_POWER_OFF
+		hud_power_control?.queue_icon_update()
+	else
+		to_chat(user, SPAN_WARNING("Error: No power cell was detected."))
 
 /obj/item/device/radio/exosuit
 	name = "exosuit radio"
@@ -254,7 +295,7 @@
 	remote = TRUE
 	name = name + " \"[pick("Jaeger", "Reaver", "Templar", "Juggernaut", "Basilisk")]-[rand(0, 999)]\""
 	if(!remote_network)
-		remote_network = "remotemechs"
+		remote_network = REMOTE_GENERIC_MECH
 	SSvirtualreality.add_mech(src, remote_network)
 
 	if(hatch_closed)
@@ -278,3 +319,6 @@
 		hardpoints_locked = TRUE
 	force_locked = TRUE
 	update_icon()
+
+/mob/living/heavy_vehicle/is_anti_materiel_vulnerable()
+	return TRUE

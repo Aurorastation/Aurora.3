@@ -65,6 +65,7 @@
 		/obj/item/weldingtool,
 		/obj/item/crowbar,
 		/obj/item/wrench,
+		/obj/item/hammer,
 		/obj/item/device/flashlight
 	)
 
@@ -128,7 +129,7 @@
 		/obj/item/stack/packageWrap = 1,
 		/obj/random/bomb_supply = 2,
 		/obj/item/extinguisher = 1,
-		/obj/item/clothing/gloves/fyellow = 1,
+		/obj/item/clothing/gloves/yellow/budget = 1,
 		/obj/item/stack/cable_coil = 3,
 		/obj/random/toolbox = 2,
 		/obj/item/storage/belt/utility = 2,
@@ -151,10 +152,11 @@
 		/obj/item/bodybag = 2,
 		/obj/item/bodybag/cryobag = 1,
 		/obj/item/storage/pill_bottle/kelotane = 2,
+		/obj/item/storage/pill_bottle/bicaridine = 2,
 		/obj/item/storage/pill_bottle/antitox = 2,
-		/obj/item/storage/pill_bottle/tramadol = 2,
+		/obj/item/storage/pill_bottle/mortaphenyl = 2,
 		/obj/item/reagent_containers/syringe/dylovene = 2,
-		/obj/item/reagent_containers/syringe/norepinephrine = 2,
+		/obj/item/reagent_containers/syringe/inaprovaline = 2,
 		/obj/item/stack/nanopaste = 1
 	)
 
@@ -167,8 +169,9 @@
 		/obj/item/storage/firstaid/regular = 3,
 		/obj/item/storage/firstaid/toxin = 2,
 		/obj/item/storage/firstaid/o2 = 2,
-		/obj/item/storage/firstaid/adv = 1,
-		/obj/item/storage/firstaid/fire = 2
+		/obj/item/storage/firstaid/fire = 2,
+		/obj/item/storage/firstaid/brute = 1,
+		/obj/item/storage/firstaid/adv = 1
 	)
 
 /obj/random/contraband
@@ -178,7 +181,7 @@
 	icon_state = "purplecomb"
 //	spawn_nothing_percentage = 50
 	problist = list(
-		/obj/item/storage/pill_bottle/tramadol = 3,
+		/obj/item/storage/pill_bottle/mortaphenyl = 3,
 		/obj/item/storage/pill_bottle/happy = 2,
 		/obj/item/storage/pill_bottle/zoom = 2,
 		/obj/item/reagent_containers/glass/beaker/vial/random/toxin = 1,
@@ -212,16 +215,16 @@
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigpacket"
 	problist = list(
-		/obj/item/storage/fancy/cigarettes = 30,
-		/obj/item/storage/fancy/cigarettes/blank = 5,
-		/obj/item/storage/fancy/cigarettes/acmeco = 2,
-		/obj/item/storage/fancy/cigarettes/dromedaryco = 10,
-		/obj/item/storage/fancy/cigarettes/cigar = 9,
-		/obj/item/storage/fancy/cigarettes/nicotine = 10,
-		/obj/item/storage/fancy/cigarettes/rugged = 10,
-		/obj/item/storage/fancy/cigarettes/pra = 5,
-		/obj/item/storage/fancy/cigarettes/dpra = 2,
-		/obj/item/storage/fancy/cigarettes/nka = 2
+		/obj/item/storage/box/fancy/cigarettes = 30,
+		/obj/item/storage/box/fancy/cigarettes/blank = 5,
+		/obj/item/storage/box/fancy/cigarettes/acmeco = 2,
+		/obj/item/storage/box/fancy/cigarettes/dromedaryco = 10,
+		/obj/item/storage/box/fancy/cigarettes/cigar = 9,
+		/obj/item/storage/box/fancy/cigarettes/nicotine = 10,
+		/obj/item/storage/box/fancy/cigarettes/rugged = 10,
+		/obj/item/storage/box/fancy/cigarettes/pra = 5,
+		/obj/item/storage/box/fancy/cigarettes/dpra = 2,
+		/obj/item/storage/box/fancy/cigarettes/nka = 2
 	)
 
 /obj/random/energy
@@ -340,6 +343,56 @@
 		/obj/item/toy/plushie/bearfire
 	)
 
+/obj/random/balloon
+	name = "random balloon"
+	desc = "This is a random balloon."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "balloon"
+	spawnlist = list(
+		/obj/item/toy/balloon/color = 7,
+		/obj/item/toy/balloon/latex = 1,
+		/obj/item/toy/balloon/latex/nitrile = 1,
+		/obj/item/toy/balloon/syndicate = 2,
+		/obj/item/toy/balloon/nanotrasen = 2,
+		/obj/item/toy/balloon/fellowship = 1,
+		/obj/item/toy/balloon/fellowshiphead = 1,
+		/obj/item/toy/balloon/contender = 1,
+		/obj/item/toy/balloon/contenderhead = 1,
+		/obj/item/toy/balloon/bat = 1,
+		/obj/item/toy/balloon/ghost = 1,
+		/obj/item/toy/balloon/xmastree = 1,
+		/obj/item/toy/balloon/candycane = 1
+	)
+
+/obj/random/desktoy
+	name = "random desk toy"
+	desc = "This is a random desk toy."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "dippybird"
+	spawnlist = list(
+		/obj/item/toy/desk/newtoncradle,
+		/obj/item/toy/desk/fan,
+		/obj/item/toy/desk/officetoy,
+		/obj/item/toy/desk/dippingbird
+	)
+
+/obj/random/lavalamp
+	name = "random lava lamp"
+	desc = "This is a random lava lamp."
+	icon = 'icons/obj/lighting.dmi'
+	icon_state = "lavalamp"
+	spawnlist = list(
+		/obj/item/device/flashlight/lamp/lava,
+		/obj/item/device/flashlight/lamp/lava/red,
+		/obj/item/device/flashlight/lamp/lava/orange,
+		/obj/item/device/flashlight/lamp/lava/yellow,
+		/obj/item/device/flashlight/lamp/lava/green,
+		/obj/item/device/flashlight/lamp/lava/cyan,
+		/obj/item/device/flashlight/lamp/lava/blue,
+		/obj/item/device/flashlight/lamp/lava/purple,
+		/obj/item/device/flashlight/lamp/lava/pink
+	)
+
 /obj/random/smalltank
 	name = "random small tank"
 
@@ -356,7 +409,8 @@
 	problist = list(
 		/obj/item/storage/belt/utility = 1,
 		/obj/item/storage/belt/medical = 0.4,
-		/obj/item/storage/belt/medical/emt = 0.4,
+		/obj/item/storage/belt/medical/first_responder = 0.4,
+		/obj/item/storage/belt/medical/first_responder/combat = 0.1,
 		/obj/item/storage/belt/security/tactical = 0.1,
 		/obj/item/storage/belt/military = 0.1,
 		/obj/item/storage/belt/janitor = 0.4
@@ -370,7 +424,6 @@
 		/obj/item/storage/backpack = 3,
 		/obj/item/storage/backpack/holding = 0.5,
 		/obj/item/storage/backpack/cultpack = 2,
-		/obj/item/storage/backpack/clown = 2,
 		/obj/item/storage/backpack/medic = 3,
 		/obj/item/storage/backpack/security = 3,
 		/obj/item/storage/backpack/captain = 2,
@@ -429,7 +482,6 @@
 /obj/random/voidsuit
 	name = "random voidsuit"
 	var/damaged = 0
-	var/for_vox = FALSE
 	var/list/suitmap = list(
 		/obj/item/clothing/suit/space/void = /obj/item/clothing/head/helmet/space/void,
 		/obj/item/clothing/suit/space/void/engineering = /obj/item/clothing/head/helmet/space/void/engineering,
@@ -472,6 +524,32 @@
 	)
 	has_postspawn = TRUE
 
+/obj/random/voidsuit/no_nanotrasen
+	suitmap = list(
+		/obj/item/clothing/suit/space/void = /obj/item/clothing/head/helmet/space/void,
+		/obj/item/clothing/suit/space/void/merc = /obj/item/clothing/head/helmet/space/void/merc,
+		/obj/item/clothing/suit/space/void/cruiser = /obj/item/clothing/head/helmet/space/void/cruiser,
+		/obj/item/clothing/suit/space/void/coalition = /obj/item/clothing/head/helmet/space/void/coalition,
+		/obj/item/clothing/suit/space/void/lancer = /obj/item/clothing/head/helmet/space/void/lancer,
+		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol,
+		/obj/item/clothing/suit/space/void/hephaestus = /obj/item/clothing/head/helmet/space/void/hephaestus,
+		/obj/item/clothing/suit/space/void/zenghu = /obj/item/clothing/head/helmet/space/void/zenghu,
+		/obj/item/clothing/suit/space/void/einstein = /obj/item/clothing/head/helmet/space/void/einstein,
+		/obj/item/clothing/suit/space/void/zavodskoi = /obj/item/clothing/head/helmet/space/void/zavodskoi
+	)
+	problist = list(
+		/obj/item/clothing/suit/space/void = 2,
+		/obj/item/clothing/suit/space/void/merc = 0.5,
+		/obj/item/clothing/suit/space/void/cruiser = 0.5,
+		/obj/item/clothing/suit/space/void/coalition = 1,
+		/obj/item/clothing/suit/space/void/lancer = 0.3,
+		/obj/item/clothing/suit/space/void/sol = 0.5,
+		/obj/item/clothing/suit/space/void/zavodskoi = 0.5,
+		/obj/item/clothing/suit/space/void/einstein = 0.5,
+		/obj/item/clothing/suit/space/void/hephaestus = 0.5,
+		/obj/item/clothing/suit/space/void/zenghu = 0.5
+	)
+
 /obj/random/voidsuit/Initialize(mapload, _damaged = 0)
 	damaged = _damaged
 	. = ..(mapload)
@@ -482,46 +560,25 @@
 		new helmet(loc)
 	else
 		log_debug("random_obj (voidsuit): Type [suit.type] was unable to spawn a matching helmet!")
-	if(!for_vox)
-		new /obj/item/clothing/shoes/magboots(loc)
-	else
-		new /obj/item/clothing/shoes/magboots/vox(loc)
-		new /obj/item/clothing/gloves/yellow/vox(loc)
+	new /obj/item/clothing/shoes/magboots(loc)
 	if (damaged && prob(60))
 		suit.create_breaches(pick(BRUTE, BURN), rand(1, 5))
 
-/obj/random/voidsuit/vox
-	name = "random vox voidsuit"
-	for_vox = TRUE
-	suitmap = list(
-		/obj/item/clothing/suit/space/vox/carapace = /obj/item/clothing/head/helmet/space/vox/carapace,
-		/obj/item/clothing/suit/space/vox/medic = /obj/item/clothing/head/helmet/space/vox/medic,
-		/obj/item/clothing/suit/space/vox/pressure = /obj/item/clothing/head/helmet/space/vox/pressure,
-		/obj/item/clothing/suit/space/vox/stealth = /obj/item/clothing/head/helmet/space/vox/stealth
-	)
-	problist = list(
-		/obj/item/clothing/suit/space/vox/carapace = 1,
-		/obj/item/clothing/suit/space/vox/medic = 1,
-		/obj/item/clothing/suit/space/vox/pressure = 1,
-		/obj/item/clothing/suit/space/vox/stealth = 1
-	)
-
 /obj/random/vendor
 	name = "random vendor"
-	var/depleted = 0
+	var/depleted = FALSE
+	var/scan_id = TRUE // Should the spawned vendor check IDs
 	problist = list(
 		/obj/machinery/vending/boozeomat = 1,
 		/obj/machinery/vending/coffee = 1,
 		/obj/machinery/vending/snack = 1,
 		/obj/machinery/vending/cola = 1,
-		/obj/machinery/vending/cart = 1.5,
 		/obj/machinery/vending/cigarette = 1,
 		/obj/machinery/vending/medical = 1.2,
 		/obj/machinery/vending/phoronresearch = 0.7,
 		/obj/machinery/vending/security = 0.3,
 		/obj/machinery/vending/hydronutrients = 1,
 		/obj/machinery/vending/hydroseeds = 1,
-		/obj/machinery/vending/magivend = 0.5,	//The things it dispenses are just costumes to non-wizards
 		/obj/machinery/vending/dinnerware = 1,
 		/obj/machinery/vending/sovietsoda = 2,
 		/obj/machinery/vending/tool = 1,
@@ -557,15 +614,7 @@
 			// Clamp to an integer so we don't get 0.78 of a screwdriver.
 			V.products[content] = round(V.products[content])
 
-/obj/random/pda_cart/item_to_spawn()
-	var/list/options = typesof(/obj/item/cartridge)
-	var/type = pick(options)
-
-	//reroll syndicate cartridge once to make it less common
-	if (type == /obj/item/cartridge/syndicate)
-		type = pick(options)
-
-	return type
+	V.scan_id &= scan_id
 
 /obj/random/glowstick
 	name = "random glowstick"
@@ -694,7 +743,8 @@
 		/obj/item/gun/energy/rifle/laser/xray,
 		/obj/item/gun/energy/net,
 		/obj/item/gun/energy/laser/shotgun,
-		/obj/item/gun/energy/decloner
+		/obj/item/gun/energy/decloner,
+		/obj/item/gun/energy/freeze
 	)
 
 /obj/random/colored_jumpsuit
@@ -731,14 +781,10 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "gift3"
 	problist = list(
-		/obj/item/assembly/shock_kit = 0.1,
 		/obj/item/bluespace_crystal/artificial = 0.1,
 		/obj/item/bodybag = 0.7,
 		/obj/item/clothing/accessory/storage/knifeharness = 0.3,
 		/obj/item/clothing/accessory/storage/webbing = 0.6,
-		/obj/item/clothing/glasses/material = 0.8,
-		/obj/item/clothing/glasses/meson = 0.5,
-		/obj/item/clothing/glasses/meson/prescription = 0.25,
 		/obj/item/clothing/glasses/sunglasses = 0.75,
 		/obj/item/clothing/glasses/welding = 0.75,
 		/obj/item/clothing/head/bearpelt = 0.4,
@@ -751,14 +797,13 @@
 		/obj/item/clothing/head/pumpkin/lantern = 0.4,
 		/obj/item/clothing/head/redcoat = 0.2,
 		/obj/item/clothing/head/richard = 0.3,
-		/obj/item/clothing/head/soft/rainbow = 0.7,
+		/obj/item/clothing/head/softcap/rainbow = 0.7,
 		/obj/item/clothing/head/syndicatefake = 0.5,
 		/obj/item/clothing/head/ushanka = 0.3,
 		/obj/item/clothing/head/witchwig = 0.5,
 		/obj/item/clothing/mask/balaclava = 0.75,
 		/obj/item/clothing/mask/fakemoustache = 0.4,
 		/obj/item/clothing/mask/gas = 1.25,
-		/obj/item/clothing/mask/gas/clown_hat = 0.1,
 		/obj/item/clothing/mask/gas/cyborg = 0.7,
 		/obj/item/clothing/mask/gas/mime = 0.1,
 		/obj/item/clothing/mask/gas/old = 0.75,
@@ -773,7 +818,6 @@
 		/obj/item/clothing/mask/smokable/cigarette/cigar/cohiba = 0.7,
 		/obj/item/clothing/mask/smokable/pipe/cobpipe = 0.5,
 		/obj/item/clothing/shoes/carp = 0.5,
-		/obj/item/clothing/shoes/clown_shoes = 0.1,
 		/obj/item/clothing/shoes/combat = 0.2,
 		/obj/item/clothing/shoes/cyborg = 0.4,
 		/obj/item/clothing/shoes/galoshes = 0.6,
@@ -791,7 +835,6 @@
 		/obj/item/clothing/under/mime = 0.1,
 		/obj/item/clothing/under/overalls = 1,
 		/obj/item/clothing/under/rainbow = 0.9,
-		/obj/item/clothing/under/rank/clown = 0.1,
 		/obj/item/clothing/under/syndicate/tacticool = 0.4,
 		/obj/item/clothing/under/syndicate/tracksuit = 0.2,
 		/obj/item/device/firing_pin = 0.3,
@@ -841,7 +884,7 @@
 		/obj/item/reagent_containers/food/drinks/flask/lithium = 0.3,
 		/obj/item/reagent_containers/food/drinks/flask/shiny = 0.3,
 		/obj/item/reagent_containers/food/drinks/teapot = 0.4,
-		/obj/item/reagent_containers/glass/beaker/bowl = 0.8,
+		/obj/item/reagent_containers/cooking_container/plate/bowl = 0.8,
 		/obj/item/reagent_containers/inhaler/hyperzine = 0.1,
 		/obj/item/reagent_containers/spray/cleaner = 0.6,
 		/obj/item/reagent_containers/spray/sterilizine = 0.4,
@@ -866,11 +909,11 @@
 		/obj/item/storage/box/pineapple = 0.1,
 		/obj/item/storage/box/smokebombs = 0.1,
 		/obj/item/storage/box/syringes = 0.3,
-		/obj/item/storage/fancy/cigarettes = 1.2,
-		/obj/item/storage/fancy/cigarettes/acmeco = 0.3,
-		/obj/item/storage/fancy/cigarettes/blank = 1,
-		/obj/item/storage/fancy/cigarettes/dromedaryco = 0.8,
-		/obj/item/storage/fancy/crayons = 0.5,
+		/obj/item/storage/box/fancy/cigarettes = 1.2,
+		/obj/item/storage/box/fancy/cigarettes/acmeco = 0.3,
+		/obj/item/storage/box/fancy/cigarettes/blank = 1,
+		/obj/item/storage/box/fancy/cigarettes/dromedaryco = 0.8,
+		/obj/item/storage/box/fancy/crayons = 0.5,
 		/obj/item/storage/wallet/random/ = 0.1,
 		/obj/item/trap/animal = 0.8,
 		/obj/random/arcade = 0.25,
@@ -881,14 +924,15 @@
 		/obj/random/coin = 1.2,
 		/obj/random/colored_jumpsuit = 0.7,
 		/obj/random/contraband = 0.9,
-		/obj/random/document = 0.5,
 		/obj/random/firstaid = 0.4,
 		/obj/random/gloves = 2,
 		/obj/random/glowstick = 0.4,
 		/obj/random/hoodie = 0.5,
+		/obj/random/bandana = 0.5,
+		/obj/random/softcap = 0.5,
+		/obj/random/beret = 0.5,
 		/obj/random/junk = 0.4,
 		/obj/random/medical = 0.4,
-		/obj/random/pda_cart = 0.5,
 		/obj/random/powercell = 0.8,
 		/obj/random/smalltank = 0.5,
 		/obj/random/soap = 0.5,
@@ -898,7 +942,8 @@
 		/obj/random/tool = 1,
 		/obj/random/toolbox = 1,
 		/obj/random_produce = 0.25,
-		/obj/random/watches = 1
+		/obj/random/watches = 1,
+		/obj/random/wizard_dressup = 0.25
 	)
 
 
@@ -913,10 +958,10 @@
 		/obj/item/clothing/gloves/black = 10,
 
 		/obj/item/clothing/head/chameleon = 0.5,
-		/obj/item/clothing/head/soft/grey = 5,
+		/obj/item/clothing/head/softcap = 5,
 
 		/obj/item/clothing/mask/chameleon = 1,
-		/obj/item/clothing/mask/gas/ = 10,
+		/obj/item/clothing/mask/gas = 10,
 
 		/obj/item/clothing/shoes/chameleon = 0.5,
 		/obj/item/clothing/shoes/black = 5,
@@ -931,10 +976,9 @@
 		/obj/item/gun/bang/deagle = 0.1,
 
 		/obj/item/storage/backpack/chameleon = 1,
-		/obj/item/storage/backpack/ = 10,
+		/obj/item/storage/backpack = 10,
 
-		/obj/item/clothing/glasses/chameleon = 1,
-		/obj/item/clothing/glasses/meson = 1
+		/obj/item/clothing/glasses/chameleon = 1
 
 	)
 
@@ -951,7 +995,7 @@
 		/obj/item/clothing/gloves/boxing/green = 0.3,
 		/obj/item/clothing/gloves/captain = 0.1,
 		/obj/item/clothing/gloves/combat = 0.2,
-		/obj/item/clothing/gloves/fyellow = 1.2,
+		/obj/item/clothing/gloves/yellow/budget = 1.2,
 		/obj/item/clothing/gloves/latex = 0.5,
 		/obj/item/clothing/gloves/latex/nitrile = 0.4,
 		/obj/item/clothing/gloves/yellow = 0.9
@@ -963,10 +1007,10 @@
 	icon = 'icons/obj/clothing/gloves.dmi'
 	icon_state = "watch"
 	problist = list(
-		/obj/item/clothing/gloves/watch = 1,
-		/obj/item/clothing/gloves/watch/silver = 0.7,
-		/obj/item/clothing/gloves/watch/gold = 0.5,
-		/obj/item/clothing/gloves/watch/spy = 0.3,
+		/obj/item/clothing/wrists/watch = 1,
+		/obj/item/clothing/wrists/watch/silver = 0.7,
+		/obj/item/clothing/wrists/watch/gold = 0.5,
+		/obj/item/clothing/wrists/watch/spy = 0.3,
 	)
 
 /obj/random/hoodie
@@ -987,6 +1031,60 @@
 		/obj/item/clothing/suit/storage/hooded/wintercoat/captain = 1
 	)
 
+/obj/random/bandana
+	name = "random bandana"
+	desc = "This is a random bandana."
+	icon = 'icons/obj/clothing/hats/bandanas.dmi'
+	icon_state = "bandana"
+	problist = list(
+		/obj/item/clothing/head/bandana/colorable/random = 5,
+		/obj/item/clothing/head/bandana/engineering = 3,
+		/obj/item/clothing/head/bandana/atmos = 3,
+		/obj/item/clothing/head/bandana/medical = 3,
+		/obj/item/clothing/head/bandana/science = 3,
+		/obj/item/clothing/head/bandana/hydro = 3,
+		/obj/item/clothing/head/bandana/cargo = 3,
+		/obj/item/clothing/head/bandana/miner = 3,
+		/obj/item/clothing/head/bandana/security = 2,
+		/obj/item/clothing/head/bandana/captain = 1
+	)
+
+/obj/random/softcap
+	name = "random softcap"
+	desc = "This is a random softcap."
+	icon = 'icons/obj/clothing/hats/soft_caps.dmi'
+	icon_state = "softcap"
+	problist = list(
+		/obj/item/clothing/head/softcap/colorable/random = 5,
+		/obj/item/clothing/head/softcap/engineering = 3,
+		/obj/item/clothing/head/softcap/atmos = 3,
+		/obj/item/clothing/head/softcap/medical = 3,
+		/obj/item/clothing/head/softcap/science = 3,
+		/obj/item/clothing/head/softcap/hydro = 3,
+		/obj/item/clothing/head/softcap/cargo = 3,
+		/obj/item/clothing/head/softcap/miner = 3,
+		/obj/item/clothing/head/softcap/security = 2,
+		/obj/item/clothing/head/softcap/captain = 1
+	)
+
+/obj/random/beret
+	name = "random beret"
+	desc = "This is a random beret."
+	icon = 'icons/obj/clothing/hats/berets.dmi'
+	icon_state = "beret"
+	problist = list(
+		/obj/item/clothing/head/beret/colorable/random = 5,
+		/obj/item/clothing/head/beret/engineering = 3,
+		/obj/item/clothing/head/beret/atmos = 3,
+		/obj/item/clothing/head/beret/medical = 3,
+		/obj/item/clothing/head/beret/science = 3,
+		/obj/item/clothing/head/beret/hydro = 3,
+		/obj/item/clothing/head/beret/cargo = 3,
+		/obj/item/clothing/head/beret/miner = 3,
+		/obj/item/clothing/head/beret/security = 2,
+		/obj/item/clothing/head/beret/captain = 1
+	)
+
 /obj/random/highvalue
 	name = "random high valuable item"
 	desc = "This is a random high valuable item."
@@ -995,6 +1093,21 @@
 	problist = list(
 		/obj/item/bluespace_crystal = 5,
 		/obj/item/stack/telecrystal{amount = 10} = 5,
+		/obj/item/clothing/suit/armor/reactive = 0.5,
+		/obj/item/clothing/glasses/thermal = 0.5,
+		/obj/item/gun/projectile/automatic/rifle/shotgun = 0.5,
+		/obj/random/sword = 0.5,
+		/obj/item/gun/energy/lawgiver = 0.5,
+		/obj/item/melee/energy/axe = 0.5,
+		/obj/item/gun/projectile/automatic/terminator = 0.5,
+		/obj/item/rig/military = 0.5,
+		/obj/item/rig/unathi/fancy = 0.5,
+		/obj/item/rig/vaurca/minimal = 0.5,
+		/obj/item/anomaly_core = 0.5
+	)
+
+/obj/random/highvalue/no_crystal
+	problist = list(
 		/obj/item/clothing/suit/armor/reactive = 0.5,
 		/obj/item/clothing/glasses/thermal = 0.5,
 		/obj/item/gun/projectile/automatic/rifle/shotgun = 0.5,
@@ -1058,7 +1171,6 @@
 		/obj/item/ammo_casing/c9mm/rubber = 0.5,
 		/obj/item/ammo_casing/c45/flash = 0.5,
 		/obj/item/ammo_casing/shotgun/beanbag = 0.5,
-		/obj/random/document/junk = 0.5,
 		/obj/item/flame/lighter/random = 0.25,
 		/obj/item/lipstick/random = 0.25,
 		/obj/item/reagent_containers/glass/beaker/vial/random = 0.1,
@@ -1114,7 +1226,7 @@
 		/obj/item/toy/sword								= 22,
 		/obj/item/gun/projectile/revolver/capgun	= 11,
 		/obj/item/toy/crossbow							= 11,
-		/obj/item/storage/fancy/crayons			= 11,
+		/obj/item/storage/box/fancy/crayons			= 11,
 		/obj/item/toy/spinningtoy						= 11,
 		/obj/item/toy/prize/ripley						= 1,
 		/obj/item/toy/prize/fireripley					= 1,
@@ -1131,8 +1243,7 @@
 		/obj/random/action_figure						= 11,
 		/obj/random/plushie								= 44,
 		/obj/item/toy/cultsword							= 5,
-		/obj/item/toy/syndicateballoon					= 5,
-		/obj/item/toy/nanotrasenballoon					= 5,
+		/obj/random/balloon								= 22,
 		/obj/item/toy/katana							= 11,
 		/obj/item/toy/bosunwhistle						= 5,
 		/obj/item/storage/belt/champion			= 11,
@@ -1140,7 +1251,6 @@
 		/obj/item/grenade/fake					= 1,
 		/obj/item/bikehorn						= 11,
 		/obj/item/clothing/mask/fakemoustache			= 11,
-		/obj/item/clothing/mask/gas/clown_hat			= 11,
 		/obj/item/clothing/mask/gas/mime				= 11,
 		/obj/item/clothing/shoes/carp					= 9,
 		/obj/item/gun/energy/wand/toy			= 5,
@@ -1151,9 +1261,8 @@
 		/obj/item/eightball/broken						= 1,
 		/obj/item/spirit_board					= 5,
 		/obj/item/device/laser_pointer					= 1,
-		/obj/item/clothing/accessory/badge/press/plastic = 2
-
-
+		/obj/item/clothing/accessory/badge/press/plastic = 2,
+		/obj/item/storage/box/partypopper						= 11
 	)
 
 /obj/random/arcade/orion
@@ -1169,8 +1278,7 @@
 		/obj/item/toy/crossbow							= 11,
 		/obj/random/action_figure						= 11,
 		/obj/item/toy/cultsword							= 7,
-		/obj/item/toy/syndicateballoon					= 10,
-		/obj/item/toy/nanotrasenballoon					= 5,
+		/obj/random/balloon								= 22,
 		/obj/item/toy/katana							= 11,
 		/obj/random/plushie								= 55,
 		/obj/item/storage/belt/champion			= 11,
@@ -1427,7 +1535,7 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "gift1"
 	spawnlist = list(
-		/obj/item/xmasgift/small = 0.5,
+		/obj/item/xmasgift = 0.5,
 		/obj/item/xmasgift/medium =  0.3,
 		/obj/item/xmasgift/large = 0.2
 	)
@@ -1446,12 +1554,12 @@
 		/obj/item/gun/energy/retro = 0.5,
 		/obj/item/gun/energy/toxgun = 0.5,
 		/obj/item/gun/projectile/automatic/improvised = 1,
-		/obj/item/gun/projectile/contender = 1,
+		/obj/item/gun/projectile/contender = 0.5,
 		/obj/item/gun/projectile/leyon = 1,
 		/obj/item/gun/projectile/revolver/derringer = 1,
 		/obj/item/gun/projectile/shotgun/pump/rifle/obrez = 1,
 		/obj/item/gun/projectile/shotgun/pump/rifle/vintage = 1,
-		/obj/item/gun/launcher/harpoon = 0.5
+		/obj/item/gun/launcher/harpoon = 1
 		)
 
 	var/list/Common = list(
@@ -1462,8 +1570,11 @@
 		/obj/item/gun/energy/rifle = 1,
 		/obj/item/gun/projectile/automatic/c20r = 1,
 		/obj/item/gun/projectile/automatic/mini_uzi = 1,
+		/obj/item/gun/projectile/automatic/tommygun = 1,
+		/obj/item/gun/projectile/automatic/lebman = 1,
 		/obj/item/gun/projectile/automatic/wt550/lethal = 0.5,
 		/obj/item/gun/projectile/colt = 0.5,
+		/obj/item/gun/projectile/colt/super = 1,
 		/obj/item/gun/projectile/pistol/sol = 1,
 		/obj/item/gun/projectile/pistol/adhomai = 1,
 		/obj/item/gun/projectile/revolver/detective = 0.5,
@@ -1473,7 +1584,8 @@
 		/obj/item/gun/projectile/shotgun/doublebarrel/pellet = 1,
 		/obj/item/gun/projectile/shotgun/pump/rifle = 1,
 		/obj/item/gun/projectile/tanto = 1,
-		/obj/item/gun/projectile/gauss = 1
+		/obj/item/gun/projectile/gauss = 1,
+		/obj/item/gun/projectile/revolver/knife = 1
 		)
 
 	var/list/Rare = list(
@@ -1481,25 +1593,31 @@
 		/obj/item/gun/energy/blaster/rifle = 1,
 		/obj/item/gun/energy/pistol/hegemony = 1,
 		/obj/item/gun/energy/rifle/laser = 1,
+		/obj/item/gun/energy/rifle/icelance = 1,
 		/obj/item/gun/energy/rifle/ionrifle = 0.5,
 		/obj/item/gun/energy/vaurca/blaster = 1,
 		/obj/item/gun/energy/xray = 1,
 		/obj/item/gun/energy/lasercannon = 1,
 		/obj/item/gun/projectile/automatic/rifle/sts35 = 1,
+		/obj/item/gun/projectile/automatic/rifle/shorty = 1,
+		/obj/item/gun/projectile/automatic/rifle/carbine = 1,
 		/obj/item/gun/projectile/automatic/x9 = 1,
 		/obj/item/gun/projectile/deagle = 1,
 		/obj/item/gun/projectile/deagle/adhomai = 1,
 		/obj/item/gun/projectile/silenced = 1,
 		/obj/item/gun/projectile/dragunov = 1,
-		/obj/item/gun/projectile/plasma/bolter = 1,
+		/obj/item/gun/projectile/plasma/bolter = 0.5,
 		/obj/item/gun/projectile/shotgun/doublebarrel/sawn = 1,
 		/obj/item/gun/projectile/shotgun/foldable = 1,
 		/obj/item/gun/projectile/shotgun/pump/combat = 1,
-		/obj/item/gun/projectile/shotgun/pump/combat/sol = 1
+		/obj/item/gun/projectile/shotgun/pump/combat/sol = 1,
+		/obj/item/gun/projectile/automatic/rifle/adhomian = 1,
+		/obj/item/gun/projectile/musket = 0.5,
+		/obj/item/gun/launcher/grenade = 1,
+		/obj/item/gun/energy/freeze = 0.5
 		)
 
 	var/list/Epic = list(
-		/obj/item/gun/energy/pulse/pistol = 1,
 		/obj/item/gun/energy/decloner = 0.5,
 		/obj/item/gun/energy/rifle/laser/xray = 1,
 		/obj/item/gun/energy/rifle/laser/tachyon = 1,
@@ -1512,17 +1630,19 @@
 		/obj/item/gun/projectile/automatic/rifle/w556 = 1,
 		/obj/item/gun/projectile/automatic/rifle/z8 = 1,
 		/obj/item/gun/projectile/cannon = 1,
-		/obj/item/gun/projectile/gyropistol = 0.5,
-		/obj/item/gun/projectile/plasma = 1
+		/obj/item/gun/projectile/plasma = 0.5,
+		/obj/item/gun/projectile/revolver = 0.5
 		)
 
 	var/list/Legendary = list(
 		/obj/item/gun/energy/lawgiver = 1,
 		/obj/item/gun/energy/pulse = 1,
+		/obj/item/gun/energy/pulse/pistol = 1,
 		/obj/item/gun/energy/rifle/pulse = 1,
 		/obj/item/gun/projectile/automatic/railgun = 1,
 		/obj/item/gun/projectile/automatic/rifle/l6_saw = 1,
 		/obj/item/gun/projectile/automatic/terminator = 1,
+		/obj/item/gun/projectile/gyropistol = 1,
 		/obj/item/gun/projectile/nuke = 1,
 		/obj/item/gun/projectile/revolver/mateba = 1
 		)
@@ -1531,21 +1651,45 @@
 	concealable = TRUE
 
 /obj/random/weapon_and_ammo/post_spawn(var/obj/item/gun/projectile/spawned)
-	if(!istype(spawned, /obj/item/gun/projectile))
+	if(istype(spawned, /obj/item/gun/energy))
 		return
-	if(spawned.magazine_type)
-		var/obj/item/ammo_magazine/am = spawned.magazine_type
-		new am(spawned.loc)
-		new am(spawned.loc)
-	else if(istype(spawned, /obj/item/gun/projectile/shotgun) && spawned.caliber == "shotgun")
-		if(istype(spawned.loc, /obj/item/storage/box))
-			spawned.loc.icon_state = "largebox"
-		var/obj/item/storage/box/b = new /obj/item/storage/box(spawned.loc)
-		for(var/i = 0; i < 8; i++)
-			new spawned.ammo_type(b)
-	else if(spawned.ammo_type)
-		for(var/i = 0; i < (spawned.max_shells * 2); i++)
-			new spawned.ammo_type(spawned.loc)
+
+	else if(istype(spawned, /obj/item/gun/projectile))
+		if(spawned.magazine_type)
+			var/obj/item/ammo_magazine/am = spawned.magazine_type
+			new am(spawned.loc)
+			new am(spawned.loc)
+		else if(istype(spawned, /obj/item/gun/projectile/shotgun) && spawned.caliber == "shotgun")
+			if(istype(spawned.loc, /obj/item/storage/box))
+				spawned.loc.icon_state = "largebox"
+			var/obj/item/storage/box/b = new /obj/item/storage/box(spawned.loc)
+			for(var/i = 0; i < 8; i++)
+				new spawned.ammo_type(b)
+		else if(spawned.ammo_type)
+			var/list/provided_ammo = list()
+			for(var/i = 0; i < (spawned.max_shells * 2); i++)
+				provided_ammo += new spawned.ammo_type(spawned.loc)
+			if(provided_ammo.len)
+				new /obj/item/ammo_pile(spawned.loc, provided_ammo)
+
+		if(istype(spawned, /obj/item/gun/projectile/musket))
+			new /obj/item/reagent_containers/powder_horn(spawned.loc)
+
+	else if(istype(spawned, /obj/item/gun/launcher))
+		if(istype(spawned, /obj/item/gun/launcher/harpoon))
+			for(var/i in 1 to 4)
+				new /obj/item/material/harpoon(spawned.loc)
+		if(istype(spawned, /obj/item/gun/launcher/grenade))
+			var/list/grenade_types = list(
+				/obj/item/grenade/smokebomb,
+				/obj/item/grenade/flashbang,
+				/obj/item/grenade/empgrenade,
+				/obj/item/grenade/chem_grenade/incendiary
+				)
+			var/obj/item/storage/bag/plasticbag/bag = new /obj/item/storage/bag/plasticbag(spawned.loc)
+			for(var/i in 1 to 7)
+				var/chosen_type = pick(grenade_types)
+				new chosen_type(bag)
 
 /obj/random/weapon_and_ammo/spawn_item()
 	var/obj/item/W = pick_gun()
@@ -1591,3 +1735,63 @@
 		/obj/structure/reagent_dispensers/keg/xuizikeg =  0.5,
 		/obj/structure/reagent_dispensers/keg/mead = 0.5
 	)
+
+/obj/random/pizzabox
+	name = "random pizzabox"
+	desc = "Contains a random pizzabox."
+	icon = 'icons/obj/food.dmi'
+	icon_state = "pizzabox1"
+	spawnlist = list(
+		/obj/item/pizzabox/margherita,
+		/obj/item/pizzabox/vegetable,
+		/obj/item/pizzabox/mushroom,
+		/obj/item/pizzabox/meat,
+		/obj/item/pizzabox/pineapple
+	)
+
+/obj/random/seed
+	name = "random seed"
+	desc = "This is a random normal seed."
+	icon = 'icons/obj/seeds.dmi'
+	icon_state = "random"
+	spawnlist = list(
+		/obj/item/seeds/limeseed,
+		/obj/item/seeds/lemonseed,
+		/obj/item/seeds/orangeseed,
+		/obj/item/seeds/grapeseed,
+		/obj/item/seeds/berryseed,
+		/obj/item/seeds/appleseed,
+		/obj/item/seeds/bananaseed,
+		/obj/item/seeds/watermelonseed,
+		/obj/item/seeds/pumpkinseed,
+		/obj/item/seeds/wheatseed,
+		/obj/item/seeds/cornseed,
+		/obj/item/seeds/riceseed,
+		/obj/item/seeds/sugarcaneseed,
+		/obj/item/seeds/carrotseed,
+		/obj/item/seeds/garlicseed,
+		/obj/item/seeds/onionseed,
+		/obj/item/seeds/potatoseed,
+		/obj/item/seeds/whitebeetseed,
+		/obj/item/seeds/tomatoseed,
+		/obj/item/seeds/chiliseed,
+		/obj/item/seeds/eggplantseed,
+		/obj/item/seeds/peanutseed,
+		/obj/item/seeds/soyaseed,
+		/obj/item/seeds/cabbageseed
+	)
+
+/obj/random/wizard_dressup
+	name = "random wizard clothes"
+	desc = "This is a random piece of fake wizard clothing."
+	icon = 'icons/obj/wizard.dmi'
+	icon_state = "staff"
+	has_postspawn = TRUE
+
+/obj/random/wizard_dressup/spawn_item()
+	var/obj/item/clothing/suit/wizrobe/W = pick(typesof(/obj/item/clothing/suit/wizrobe))
+	. = new W(loc)
+
+/obj/random/wizard_dressup/post_spawn(obj/thing)
+	var/obj/item/clothing/head/wizard/H = pick(typesof(/obj/item/clothing/head/wizard))
+	new H(loc)

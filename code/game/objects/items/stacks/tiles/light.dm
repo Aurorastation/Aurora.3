@@ -21,7 +21,7 @@
 	if(O.iscrowbar())
 		amount--
 		to_chat(user, "<span class='notice'>You pry off the steel sheet from the [name].</span>")
-		playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
+		playsound(src.loc, O.usesound, 100, 1)
 		new /obj/item/stack/material/glass/wired(user.loc)
 		new /obj/item/stack/material/steel(user.loc)
 		if(amount <= 0)

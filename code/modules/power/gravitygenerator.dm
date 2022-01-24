@@ -209,7 +209,7 @@
 				var/obj/item/weldingtool/WT = I
 				if(WT.remove_fuel(1, user))
 					to_chat(user, "<span class='notice'>You mend the damaged framework.</span>")
-					playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
+					playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
 					broken_state++
 		if(GRAV_NEEDS_PLASTEEL)
 			if(istype(I, /obj/item/stack/material/plasteel))
@@ -230,11 +230,11 @@
 			..()
 	if(I.iscrowbar())
 		if(backpanelopen)
-			playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
+			playsound(src.loc, I.usesound, 50, 1)
 			to_chat(user, "<span class='notice'>You replace the back panel.</span>")
 			backpanelopen = 0
 		else
-			playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
+			playsound(src.loc, I.usesound, 50, 1)
 			to_chat(user, "<span class='notice'>You open the back panel.</span>")
 			backpanelopen = 1
 
@@ -281,7 +281,7 @@
 
 	if(href_list["gentoggle"])
 		breaker = !breaker
-		investigate_log("was toggled [breaker ? "<font color='green'>ON</font>" : "<font color='red'>OFF</font>"] by [usr.key].", "gravity")
+		investigate_log("was toggled [breaker ? "<font color='green'>ON</font>" : "<span class='warning'>OFF</span>"] by [usr.key].", "gravity")
 		set_power()
 		src.updateUsrDialog()
 	else if(href_list["eshutoff"])
@@ -413,7 +413,7 @@
 
 /obj/machinery/gravity_generator/main/proc/pulse_radiation(var/amount = 20)
 	for(var/mob/living/L in view(7, src))
-		L.apply_effect(amount, IRRADIATE, blocked = L.getarmor(null, "rad"))
+		L.apply_damage(amount, IRRADIATE, damage_flags = DAM_DISPERSED)
 
 // Shake everyone on the z level to let them know that gravity was enagaged/disenagaged.
 /obj/machinery/gravity_generator/main/proc/shake_everyone()

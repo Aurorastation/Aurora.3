@@ -60,7 +60,7 @@
 	if(!body)
 		switch(event_type)
 			if(RIOTS)
-				body = "[pick("Riots have","Unrest has")] broken out on planet [affected_dest.name]. Authorities call for calm, as [pick("various parties","rebellious elements","peacekeeping forces","\'REDACTED\'")] begin stockpiling weaponry and armour. Meanwhile, food and mineral prices are dropping as local industries attempt empty their stocks in expectation of looting."
+				body = "[pick("Riots have","Unrest has")] broken out on planet [affected_dest.name]. Authorities call for calm, as [pick("various parties","rebellious elements","peacekeeping forces","\'REDACTED\'")] begin stockpiling weaponry and armor. Meanwhile, food and mineral prices are dropping as local industries attempt empty their stocks in expectation of looting."
 			if(WILD_ANIMAL_ATTACK)
 				body = "Local [pick("wildlife","animal life","fauna")] on planet [affected_dest.name] has been increasing in agression and raiding outlying settlements for food. Big game hunters have been called in to help alleviate the problem, but numerous injuries have already occurred."
 			if(INDUSTRIAL_ACCIDENT)

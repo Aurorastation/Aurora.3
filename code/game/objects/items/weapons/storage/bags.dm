@@ -41,8 +41,8 @@
 	icon_state = "trashbag0"
 	item_state = "trashbag"
 
-	w_class = 4
-	max_w_class = 2
+	w_class = ITEMSIZE_LARGE
+	max_w_class = ITEMSIZE_SMALL
 	max_storage_space = 56
 	can_hold = null // any
 	cant_hold = list(/obj/item/disk/nuclear)
@@ -111,8 +111,8 @@
 	icon_state = "plasticbag"
 	item_state = "plasticbag"
 
-	w_class = 4
-	max_w_class = 2
+	w_class = ITEMSIZE_LARGE
+	max_w_class = ITEMSIZE_SMALL
 	can_hold = null // any
 	cant_hold = list(/obj/item/disk/nuclear)
 	drop_sound = 'sound/items/drop/wrapper.ogg'
@@ -131,8 +131,8 @@
 		slot_r_hand_str = 'icons/mob/items/righthand_hydro.dmi',
 		)
 	max_storage_space = 100
-	max_w_class = 3
-	w_class = 2
+	max_w_class = ITEMSIZE_NORMAL
+	w_class = ITEMSIZE_SMALL
 	can_hold = list(/obj/item/reagent_containers/food/snacks/grown,/obj/item/seeds,/obj/item/grown)
 
 // -----------------------------
@@ -145,8 +145,8 @@
 	icon_state = "slimebag"
 	desc = "A pressurized and thermoregulated bag for the storage and transport of slime cores."
 	max_storage_space = 100
-	max_w_class = 3
-	w_class = 2
+	max_w_class = ITEMSIZE_NORMAL
+	w_class = ITEMSIZE_SMALL
 	can_hold = list(/obj/item/slime_extract)
 
 // -----------------------------
@@ -162,7 +162,7 @@
 	desc = "A patented storage system designed for any kind of mineral sheet."
 
 	var/capacity = 300; //the number of sheets it can carry.
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	storage_slots = 7
 
 	allow_quick_empty = 1 // this function is superceded
@@ -207,7 +207,7 @@
 
 	if(!inserted || !S.amount)
 		usr.remove_from_mob(S)
-		usr.update_icons()	//update our overlays
+		usr.update_icon()	//update our overlays
 		if (usr.client && usr.s_active != src)
 			usr.client.screen -= S
 		S.dropped(usr)
@@ -300,7 +300,7 @@
 	icon_state = "moneybag"
 	flags = CONDUCT
 	max_storage_space = 100
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	can_hold = list(/obj/item/coin,/obj/item/spacecash)
 
 /obj/item/storage/bag/money/vault
@@ -326,7 +326,23 @@
 	icon_state = "bookbag"
 	storage_slots = 7
 	max_storage_space = 200
-	max_w_class = 3
-	w_class = 3
-	can_hold = list(/obj/item/book, /obj/item/spellbook)
+	max_w_class = ITEMSIZE_NORMAL
+	w_class = ITEMSIZE_NORMAL
+	can_hold = list(/obj/item/book)
 
+	// -----------------------------
+	//           Chemistry Bag
+	// -----------------------------
+/obj/item/storage/bag/chemistry
+	name = "chemistry bag"
+	icon = 'icons/obj/chemical.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
+		)
+	icon_state = "chembag"
+	desc = "A bag for storing pills and bottles of medicine."
+	max_storage_space = 200
+	w_class = ITEMSIZE_LARGE
+	slowdown = 1
+	can_hold = list(/obj/item/reagent_containers/pill,/obj/item/reagent_containers/glass/beaker,/obj/item/reagent_containers/glass/bottle)

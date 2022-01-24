@@ -1,7 +1,6 @@
 // Wires for cameras.
 
 /datum/wires/camera
-	random = 1
 	holder_type = /obj/machinery/camera
 	wire_count = 6
 
@@ -64,7 +63,7 @@ var/const/CAMERA_WIRE_NOTHING2 = 32
 			C.light_disabled = !C.light_disabled
 
 		if(CAMERA_WIRE_ALARM)
-			C.visible_message("\icon[C] *beep*", "\icon[C] *beep*")
+			C.visible_message("[icon2html(C, viewers(get_turf(C)))] *beep*", "[icon2html(C, viewers(get_turf(C)))] *beep*")
 	return
 
 /datum/wires/camera/proc/CanDeconstruct()

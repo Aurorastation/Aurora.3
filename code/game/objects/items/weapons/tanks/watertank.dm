@@ -5,7 +5,7 @@
 	icon_state = "waterpack"
 	item_state = "waterpack"
 	contained_sprite = 1
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	slot_flags = SLOT_BACK
 
 	var/obj/item/reagent_containers/spray/chemsprayer/mister/noz
@@ -95,7 +95,7 @@
 	icon_state = "mister"
 	item_state = "mister"
 	contained_sprite = 1
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	amount_per_transfer_from_this = 50
 	volume = 500
 	slot_flags = 0
@@ -127,10 +127,7 @@
 	desc = "A janitorial watertank backpack with nozzle to clean dirt and graffiti."
 	icon_state = "waterpackjani"
 	item_state = "waterpackjani"
-
-/obj/item/watertank/janitor/Initialize()
-	. = ..()
-	reagents.add_reagent(/datum/reagent/spacecleaner, 500)
+	reagents_to_add = list(/decl/reagent/spacecleaner = 500)
 
 /obj/item/reagent_containers/spray/chemsprayer/mister/janitor
 	name = "janitor spray nozzle"

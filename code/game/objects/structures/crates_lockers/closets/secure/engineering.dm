@@ -13,10 +13,7 @@
 		new /obj/item/storage/backpack/industrial(src)
 	else
 		new /obj/item/storage/backpack/satchel_eng(src)
-	if (prob(70))
-		new /obj/item/clothing/accessory/storage/brown_vest(src)
-	else
-		new /obj/item/clothing/accessory/storage/webbing(src)
+	new /obj/item/clothing/accessory/storage/brown_vest(src)
 	new /obj/item/blueprints(src)
 	new /obj/item/clothing/under/rank/chief_engineer(src)
 	new /obj/item/clothing/head/hardhat/white(src)
@@ -25,18 +22,19 @@
 	new /obj/item/clothing/gloves/yellow/specialu(src)
 	new /obj/item/clothing/gloves/yellow/specialt(src)
 	new /obj/item/clothing/shoes/brown(src)
-	new /obj/item/cartridge/ce(src)
 	new /obj/item/device/radio/headset/heads/ce(src)
 	new /obj/item/device/radio/headset/heads/ce/alt(src)
+	new /obj/item/device/megaphone/engi(src)
 	new /obj/item/storage/toolbox/mechanical(src)
-	new /obj/item/clothing/suit/storage/hazardvest(src)
+	new /obj/item/clothing/suit/storage/hazardvest/ce(src)
 	new /obj/item/clothing/mask/gas(src)
-	new /obj/item/clothing/glasses/meson/aviator(src)
+	new /obj/item/clothing/mask/gas/half(src)
 	new /obj/item/device/multitool(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/taperoll/engineering(src)
 	new /obj/item/clothing/accessory/storage/overalls/chief(src)
 	new /obj/item/rfd/piping(src)
+	new /obj/item/storage/box/fancy/keypouch/eng(src)
 
 /obj/structure/closet/secure_closet/engineering_chief2
 	name = "chief engineer's attire"
@@ -101,9 +99,9 @@
 	new /obj/item/weldingtool/largetank(src)
 	new /obj/item/weldingtool/largetank(src)
 	new /obj/item/weldingtool/largetank(src)
-	new /obj/item/weldpack(src)
-	new /obj/item/weldpack(src)
-	new /obj/item/weldpack(src)
+	new /obj/item/reagent_containers/weldpack(src)
+	new /obj/item/reagent_containers/weldpack(src)
+	new /obj/item/reagent_containers/weldpack(src)
 
 /obj/structure/closet/secure_closet/engineering_personal
 	name = "engineer's locker"
@@ -120,18 +118,13 @@
 		new /obj/item/storage/backpack/industrial(src)
 	else
 		new /obj/item/storage/backpack/satchel_eng(src)
-	if (prob(70))
-		new /obj/item/clothing/accessory/storage/brown_vest(src)
-	else
-		new /obj/item/clothing/accessory/storage/webbing(src)
+	new /obj/item/clothing/accessory/storage/brown_vest(src)
 	new /obj/item/storage/toolbox/mechanical(src)
 	new /obj/item/device/radio/headset/headset_eng(src)
 	new /obj/item/device/radio/headset/headset_eng/alt(src)
 	new /obj/item/clothing/suit/storage/hazardvest(src)
 	new /obj/item/clothing/mask/gas(src)
-	new /obj/item/clothing/glasses/meson(src)
-	new /obj/item/clothing/glasses/meson/aviator(src)
-	new /obj/item/cartridge/engineering(src)
+	new /obj/item/clothing/mask/gas/half(src)
 	new /obj/item/taperoll/engineering(src)
 	new /obj/item/clothing/accessory/storage/overalls/engineer(src)
 
@@ -150,10 +143,7 @@
 		new /obj/item/storage/backpack/industrial(src)
 	else
 		new /obj/item/storage/backpack/satchel_eng(src)
-	if (prob(70))
-		new /obj/item/clothing/accessory/storage/brown_vest(src)
-	else
-		new /obj/item/clothing/accessory/storage/webbing(src)
+	new /obj/item/clothing/accessory/storage/brown_vest(src)
 	new /obj/item/clothing/suit/fire/atmos(src)
 	new /obj/item/clothing/head/hardhat/red/atmos(src)
 	new /obj/item/device/flashlight(src)
@@ -162,7 +152,7 @@
 	new /obj/item/device/radio/headset/headset_eng/alt(src)
 	new /obj/item/clothing/suit/storage/hazardvest/blue/atmos(src)
 	new /obj/item/clothing/mask/gas(src)
-	new /obj/item/cartridge/atmos(src)
+	new /obj/item/clothing/mask/gas/half(src)
 	new /obj/item/taperoll/engineering(src)
 	new /obj/item/clothing/accessory/storage/overalls/engineer(src)
 	new /obj/item/rfd/piping(src)

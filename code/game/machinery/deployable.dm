@@ -60,15 +60,24 @@ for reference:
 	desc = "This space is blocked off by a barricade."
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "barricade"
-	anchored = 1.0
-	density = 1.0
+
+	build_amt = 5
+	anchored = TRUE
+	density = TRUE
+
+	var/force_material
 	var/health = 100
 	var/maxhealth = 100
 
-/obj/structure/barricade/New(var/newloc, var/material_name)
-	..(newloc)
+/obj/structure/barricade/Initialize(mapload, var/material_name)
+	. = ..()
 	if(!material_name)
-		material_name = "wood"
+		material_name = MATERIAL_WOOD
+	set_material(material_name)
+
+/obj/structure/barricade/proc/set_material(var/material_name)
+	if(force_material)
+		material_name = force_material
 	material = SSmaterials.get_material_by_name(material_name)
 	if(!material)
 		qdel(src)
@@ -79,67 +88,87 @@ for reference:
 	maxhealth = material.integrity
 	health = maxhealth
 
-/obj/structure/barricade/attackby(obj/item/W as obj, mob/user as mob)
-	if (istype(W, /obj/item/stack))
-		var/obj/item/stack/D = W
-		if(D.get_material_name() != material.name)
-			return //hitting things with the wrong type of stack usually doesn't produce messages, and probably doesn't need to.
-		if (health < maxhealth)
-			if (D.get_amount() < 1)
-				to_chat(user, "<span class='warning'>You need one sheet of [material.display_name] to repair \the [src].</span>")
-				return
-			visible_message("<span class='notice'>[user] begins to repair \the [src].</span>")
-			if(do_after(user,20) && health < maxhealth)
-				if (D.use(1))
-					health = maxhealth
-					visible_message("<span class='notice'>[user] repairs \the [src].</span>")
-				return
-		return
+/obj/structure/barricade/bullet_act(obj/item/projectile/P, def_zone)
+	var/damage_modifier = 0.4
+	switch(P.damage_type)
+		if(BURN)
+			damage_modifier = 1
+		if(BRUTE)
+			damage_modifier = 0.75
+	health -= P.damage * damage_modifier
+	if(!check_dismantle())
+		visible_message(SPAN_WARNING("\The [src] is hit by \the [P]!"))
+
+/obj/structure/barricade/attackby(obj/item/W, mob/user)
+	if(W.ishammer() && user.a_intent != I_HURT)
+		var/obj/item/I = usr.get_inactive_hand()
+		if(I && istype(I, /obj/item/stack))
+			var/obj/item/stack/D = I
+			if(D.get_material_name() != material.name)
+				to_chat(user, SPAN_WARNING("You need one sheet of [material.display_name] to repair \the [src]."))
+				return ..()
+			if(health < maxhealth)
+				if(D.get_amount() < 1)
+					to_chat(user, SPAN_WARNING("You need one sheet of [material.display_name] to repair \the [src]."))
+					return
+				user.visible_message("<b>[user]</b> begins to repair \the [src].", SPAN_NOTICE("You begin to repair \the [src]."))
+				if(do_after(user, 2 SECONDS) && health < maxhealth)
+					if(D.use(1))
+						health = maxhealth
+						visible_message("<b>[user]</b> repairs \the [src].", SPAN_NOTICE("You repair \the [src]."))
+			return
 	else
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		switch(W.damtype)
-			if("fire")
+			if(BURN)
 				src.health -= W.force * 1
-			if("brute")
+			if(BRUTE)
 				src.health -= W.force * 0.75
-			else
-		animate_shake()
-		playsound(src.loc, material.hitsound, 100, 1)
-		if (src.health <= 0)
-			visible_message("<span class='danger'>The barricade is smashed apart!</span>")
-			dismantle()
-			qdel(src)
+		shake_animation()
+		playsound(src.loc, material.hitsound, W.get_clamped_volume(), 1)
+		if(check_dismantle())
 			return
 		..()
 
-/obj/structure/barricade/proc/dismantle()
-	material.place_dismantled_product(get_turf(src))
-	qdel(src)
-	return
+/obj/structure/barricade/proc/check_dismantle()
+	if(src.health <= 0)
+		visible_message(SPAN_DANGER("The barricade is smashed apart!"))
+		dismantle()
+		qdel(src)
+		return TRUE
+	return FALSE
 
 /obj/structure/barricade/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			visible_message("<span class='danger'>\The [src] is blown apart!</span>")
+			visible_message(SPAN_DANGER("\The [src] is blown apart!"))
 			qdel(src)
 			return
 		if(2.0)
 			src.health -= 25
 			if (src.health <= 0)
-				visible_message("<span class='danger'>\The [src] is blown apart!</span>")
+				visible_message(SPAN_DANGER("\The [src] is blown apart!"))
 				dismantle()
 			return
 
 /obj/structure/barricade/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
 	if(air_group || (height==0))
-		return 1
+		return TRUE
+	if(istype(mover, /obj/item/projectile))
+		var/obj/item/projectile/P = mover
+		if(P.original == src)
+			return FALSE
+		if(P.firer && Adjacent(P.firer))
+			return TRUE
+		return prob(35)
+	if(isliving(mover))
+		return FALSE
 	if(istype(mover) && mover.checkpass(PASSTABLE))
-		return 1
-	else
-		return 0
+		return TRUE
+	return FALSE
 
-/obj/structure/barricade/steel/New(var/newloc)
-	.=..(newloc, MATERIAL_STEEL)
+/obj/structure/barricade/steel
+	force_material = MATERIAL_STEEL
 
 //Actual Deployable machinery stuff
 /obj/machinery/deployable
@@ -285,7 +314,7 @@ for reference:
 		qdel(src)
 
 /obj/item/deployable_kit/proc/assemble_kit(mob/user)
-	playsound(src.loc, 'sound/items/Screwdriver.ogg', 25, 1)
+	playsound(src.loc, 'sound/items/screwdriver.ogg', 25, 1)
 	var/atom/A = new kit_product(user.loc)
 	user.visible_message(SPAN_NOTICE("[user] assembles \a [A]."), SPAN_NOTICE("You assemble \a [A]."))
 	A.add_fingerprint(user)
@@ -294,7 +323,7 @@ for reference:
 	name = "legion barrier kit"
 	desc = "A quick assembly kit for deploying id-lockable barriers in the field. Most commonly seen used for crowd control by corporate security."
 	icon_state = "barrier_kit"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	kit_product = /obj/machinery/deployable/barrier/legion
 
 /obj/item/deployable_kit/surgery_table
@@ -303,7 +332,7 @@ for reference:
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "table_deployable"
 	item_state = "table_parts"
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	kit_product = /obj/machinery/optable
 	assembly_time = 20 SECONDS
 
@@ -328,7 +357,7 @@ for reference:
 	item_state = "table_parts"
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	kit_product = /obj/machinery/porta_turret/legion
 	assembly_time = 15 SECONDS
 
@@ -338,7 +367,7 @@ for reference:
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "inf_box"
 	item_state = "syringe_kit"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	kit_product = /obj/machinery/iv_drip
 	assembly_time = 4 SECONDS
 
@@ -348,10 +377,17 @@ for reference:
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "barrier_kit"
 	w_class = ITEMSIZE_LARGE
-	kit_product = /obj/structure/bed/chair/remote/mech/portable
+	kit_product = /obj/structure/bed/stool/chair/remote/mech/portable
 	assembly_time = 20 SECONDS
+
+/obj/item/deployable_kit/remote_mech/attack_self(mob/user)
+	var/area/A = get_area(user)
+	if(!A.powered(EQUIP))
+		to_chat(user, SPAN_WARNING("\The [src] can not be deployed in an unpowered area."))
+		return FALSE
+	..()
 
 /obj/item/deployable_kit/remote_mech/brig
 	name = "brig mech control centre assembly kit"
 	desc = "A quick assembly kit to put together a brig mech control centre."
-	kit_product = /obj/structure/bed/chair/remote/mech/prison/portable
+	kit_product = /obj/structure/bed/stool/chair/remote/mech/prison/portable

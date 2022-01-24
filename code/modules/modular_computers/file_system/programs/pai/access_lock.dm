@@ -14,6 +14,7 @@
 	if(computer.personal_ai)
 		to_chat(computer.personal_ai.pai, SPAN_WARNING("pAI Access Lock systems engaged."))
 	computer.pAI_lock = TRUE
+	return TRUE
 
 /datum/computer_file/program/pai_access_lock/service_deactivate()
 	. = ..()

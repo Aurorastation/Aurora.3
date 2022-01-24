@@ -5,31 +5,36 @@
 	icon_state = "void"
 
 	heat_protection = HEAD
-	armor = list(melee = 40, bullet = 5, laser = 20,energy = 5, bomb = 35, bio = 100, rad = 20)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_MINOR
+	)
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
+	max_pressure_protection = VOIDSUIT_MAX_PRESSURE
+	min_pressure_protection = 0
 	siemens_coefficient = 0.5
 
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand.dmi'
-		)
-
 	//Species-specific stuff.
-	species_restricted = list("Human", "Bishop Accessory Frame", "Zeng-Hu Mobility Frame")
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
 	sprite_sheets_refit = list(
-		"Unathi" = 'icons/mob/species/unathi/helmet.dmi',
-		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi',
-		"Skrell" = 'icons/mob/species/skrell/helmet.dmi',
-		"Vaurca" = 'icons/mob/species/vaurca/helmet.dmi',
-		"Machine" = 'icons/mob/species/machine/helmet.dmi'
-		)
+		BODYTYPE_UNATHI = 'icons/mob/species/unathi/helmet.dmi',
+		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/helmet.dmi',
+		BODYTYPE_SKRELL = 'icons/mob/species/skrell/helmet.dmi',
+		BODYTYPE_VAURCA = 'icons/mob/species/vaurca/helmet.dmi',
+		BODYTYPE_IPC = 'icons/mob/species/machine/helmet.dmi'
+	)
 	sprite_sheets_obj = list(
-		"Unathi" = 'icons/obj/clothing/species/unathi/hats.dmi',
-		"Tajara" = 'icons/obj/clothing/species/tajaran/hats.dmi',
-		"Skrell" = 'icons/obj/clothing/species/skrell/hats.dmi',
-		"Vaurca" = 'icons/obj/clothing/species/vaurca/hats.dmi',
-		"Machine" = 'icons/obj/clothing/species/machine/hats.dmi'
-		)
+		BODYTYPE_UNATHI = 'icons/obj/clothing/species/unathi/hats.dmi',
+		BODYTYPE_TAJARA = 'icons/obj/clothing/species/tajaran/hats.dmi',
+		BODYTYPE_SKRELL = 'icons/obj/clothing/species/skrell/hats.dmi',
+		BODYTYPE_VAURCA = 'icons/obj/clothing/species/vaurca/hats.dmi',
+		BODYTYPE_IPC = 'icons/obj/clothing/species/machine/hats.dmi'
+	)
 
 	light_overlay = "helmet_light"
 
@@ -39,32 +44,35 @@
 	item_state = "void"
 	desc = "A high-tech dark red space suit. Used for AI satellite maintenance."
 	slowdown = 1
-	armor = list(melee = 40, bullet = 5, laser = 20,energy = 5, bomb = 35, bio = 100, rad = 20)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_MINOR
+	)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit)
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.5
 
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand.dmi'
-		)
-
-	species_restricted = list("Human", "Skrell", "Bishop Accessory Frame", "Zeng-Hu Mobility Frame")
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
 	sprite_sheets_refit = list(
-		"Unathi" = 'icons/mob/species/unathi/suit.dmi',
-		"Tajara" = 'icons/mob/species/tajaran/suit.dmi',
-		"Skrell" = 'icons/mob/species/skrell/suit.dmi',
-		"Vaurca" = 'icons/mob/species/vaurca/suit.dmi',
-		"Machine" = 'icons/mob/species/machine/suit.dmi'
-		)
+		BODYTYPE_UNATHI = 'icons/mob/species/unathi/suit.dmi',
+		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/suit.dmi',
+		BODYTYPE_SKRELL = 'icons/mob/species/skrell/suit.dmi',
+		BODYTYPE_VAURCA = 'icons/mob/species/vaurca/suit.dmi',
+		BODYTYPE_IPC = 'icons/mob/species/machine/suit.dmi'
+	)
 	sprite_sheets_obj = list(
-		"Unathi" = 'icons/obj/clothing/species/unathi/suits.dmi',
-		"Tajara" = 'icons/obj/clothing/species/tajaran/suits.dmi',
-		"Skrell" = 'icons/obj/clothing/species/skrell/suits.dmi',
-		"Vaurca" = 'icons/obj/clothing/species/vaurca/suits.dmi',
-		"Machine" = 'icons/obj/clothing/species/machine/suits.dmi'
-		)
+		BODYTYPE_UNATHI = 'icons/obj/clothing/species/unathi/suits.dmi',
+		BODYTYPE_TAJARA = 'icons/obj/clothing/species/tajaran/suits.dmi',
+		BODYTYPE_SKRELL = 'icons/obj/clothing/species/skrell/suits.dmi',
+		BODYTYPE_VAURCA = 'icons/obj/clothing/species/vaurca/suits.dmi',
+		BODYTYPE_IPC= 'icons/obj/clothing/species/machine/suits.dmi'
+	)
 
 	action_button_name = "Toggle Helmet"
 	var/helmet_deploy_sound = 'sound/items/helmet_close.ogg'
@@ -218,7 +226,7 @@
 
 	if(!istype(user,/mob/living)) return
 
-	if(istype(W,/obj/item/clothing/accessory) || istype(W, /obj/item/hand_labeler))
+	if(istype(W,/obj/item/clothing/accessory) || istype(W, /obj/item/device/hand_labeler))
 		return ..()
 
 	if(user.get_inventory_slot(src) == slot_wear_suit)
@@ -230,7 +238,7 @@
 			var/choice = input("What component would you like to remove?") as null|anything in list(helmet,boots,tank)
 			if(!choice) return
 
-			playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
+			playsound(src, 'sound/items/screwdriver.ogg', 50, 1)
 			if(choice == tank)	//No, a switch doesn't work here. Sorry. ~Techhead
 				to_chat(user, "You pop \the [tank] out of \the [src]'s storage compartment.")
 				tank.forceMove(get_turf(src))
@@ -247,7 +255,7 @@
 			to_chat(user, "\The [src] does not have anything installed.")
 		return
 	else if(istype(W,/obj/item/clothing/head/helmet/space))
-		if(helmet)	
+		if(helmet)
 			to_chat(user, "\The [src] already has a helmet installed.")
 		else
 			playsound(src, 'sound/items/Deconstruct.ogg', 30, 1)

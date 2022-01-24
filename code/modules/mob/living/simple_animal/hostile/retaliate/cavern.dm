@@ -7,8 +7,9 @@
 	icon_living = "dweller"
 	icon_dead = "dweller_dead"
 	ranged = 1
-	smart = TRUE
+	smart_ranged = TRUE
 	turns_per_move = 3
+	organ_names = list("head", "central segment", "tail")
 	response_help = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm = "hits"
@@ -19,6 +20,7 @@
 
 	health = 60
 	maxHealth = 60
+	blood_type = "#006666"
 	melee_damage_lower = 10
 	melee_damage_upper = 10
 	attacktext = "chomped"
@@ -29,8 +31,6 @@
 	destroy_surroundings = 1
 
 	emote_see = list("stares","hovers ominously","blinks")
-	see_in_dark = 8
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	min_oxy = 0
 	max_oxy = 0
@@ -45,6 +45,8 @@
 	faction = "cavern"
 
 	flying = TRUE
+	see_in_dark = 8
+	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 /mob/living/simple_animal/hostile/retaliate/cavern_dweller/Allow_Spacemove(var/check_drift = 0)
 	return 1
@@ -53,12 +55,18 @@
 	name = "electrical discharge"
 	icon_state = "stun"
 	damage_type = BURN
-	check_armour = "energy"
+	check_armor = "energy"
 	damage = 5
 
 	muzzle_type = /obj/effect/projectile/muzzle/stun
 	tracer_type = /obj/effect/projectile/tracer/stun
 	impact_type = /obj/effect/projectile/impact/stun
+
+/mob/living/simple_animal/hostile/retaliate/cavern_dweller/DestroySurroundings(var/bypass_prob = FALSE)
+	if(stance != HOSTILE_STANCE_ATTACKING)
+		return 0
+	else
+		..()
 
 /obj/item/projectile/beam/cavern/on_hit(var/atom/target, var/blocked = 0)
 	if(ishuman(target))
@@ -78,11 +86,12 @@
 	maxHealth = 60
 	harm_intent_damage = 5
 	ranged = 1
-	smart = TRUE
+	smart_ranged = TRUE
+	organ_names = list("core", "right fore wheel", "left fore wheel", "right rear wheel", "left rear wheel")
 	melee_damage_lower = 0
 	melee_damage_upper = 0
 	attacktext = "barrels into"
-	attack_sound = 'sound/weapons/punch1.ogg'
+	attack_sound = /decl/sound_category/punch_sound
 	a_intent = I_HURT
 	speak_emote = list("chirps","buzzes","whirrs")
 	emote_hear = list("chirps cheerfully","buzzes","whirrs","hums placidly","chirps","hums")
@@ -101,6 +110,7 @@
 	light_range = 10
 	light_wedge = LIGHT_WIDE
 	see_in_dark = 8
+	psi_pingable = FALSE
 
 	faction = "sol"
 
