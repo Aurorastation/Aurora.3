@@ -550,13 +550,13 @@ var/datum/controller/subsystem/timer/SStimer
 		CRASH("addtimer called without a callback")
 
 	if (wait < 0)
-		crash_with("addtimer called with a negative wait. Converting to 0")
+		CRASH("addtimer called with a negative wait. Converting to [world.tick_lag]")
 
 	if (callback.object != GLOBAL_PROC && QDELETED(callback.object) && !QDESTROYING(callback.object))
-		crash_with("addtimer called with a callback assigned to a qdeleted object. In the future such timers will not \
+		CRASH("addtimer called with a callback assigned to a qdeleted object. In the future such timers will not \
 			be supported and may refuse to run or run with a 0 wait")
 
-	wait = max(wait, 0)
+	wait = max(Ceilm(wait, world.tick_lag), world.tick_lag)
 
 	if(wait >= INFINITY)
 		CRASH("Attempted to create timer with INFINITY delay")
@@ -576,8 +576,8 @@ var/datum/controller/subsystem/timer/SStimer
 				hash_timer.hash = null // but keep it from accidentally deleting us
 			else
 				if (flags & TIMER_OVERRIDE)
-					hash_timer.hash = null // no need having it delete its hash if we are going to replace it
-					qdel(hash_timer) // /datum/timedevent/Destroy will remove it from SStimer.hashes
+					hash_timer.hash = null // no need having it delete it's hash if we are going to replace it
+					qdel(hash_timer)
 				else
 					if (hash_timer.flags & TIMER_STOPPABLE)
 						. = hash_timer.id
@@ -588,6 +588,7 @@ var/datum/controller/subsystem/timer/SStimer
 	var/datum/timedevent/timer = new(callback, wait, flags, hash)
 	return timer.id
 
+
 /**
  * Delete a timer
  *
@@ -597,14 +598,12 @@ var/datum/controller/subsystem/timer/SStimer
 /proc/deltimer(id)
 	if (!id)
 		return FALSE
-
 	if (id == TIMER_ID_NULL)
-		CRASH("Tried to delete a null timerid. Use the TIMER_STOPPABLE flag.")
-
+		CRASH("Tried to delete a null timerid. Use TIMER_STOPPABLE flag")
 	if (istype(id, /datum/timedevent))
 		qdel(id)
 		return TRUE
-
+	//id is string
 	var/datum/timedevent/timer = SStimer.timer_id_dict[id]
 	if (timer && !timer.spent)
 		qdel(timer)
