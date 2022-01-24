@@ -1,0 +1,10 @@
+author: ChangeMe
+
+delete-after: True
+
+changes:
+  - tweak: "Autoinhaler sprites tweaked and subtly easier to click."
+  - tweak: "Inhaler sprites refreshened and sligthyly larger and subtly easier to click."
+  - rscadd: "Autoinhalers that spawn with reagents can have their labels removed properly"
+  - rscadd: "Inhaler Cartridge sprites revamped with the ability to show how much stuff there is inside of them, like hyposprays!"
+  - bugfix: "Fixed autoinhalers letting you inject people without being twisted closed."
