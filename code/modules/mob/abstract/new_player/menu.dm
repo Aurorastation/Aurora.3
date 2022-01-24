@@ -18,6 +18,7 @@
 
 	using = new /obj/screen/new_player/selection/join_game(src)
 	using.name = "Join Game"
+	using.hud = src
 	adding += using
 
 	using = new /obj/screen/new_player/selection/settings(src)
@@ -83,6 +84,8 @@
 	. = ..()
 
 /obj/screen/new_player/title/proc/Update()
+	if(!istype(hud) || !isnewplayer(hud.mymob))
+		return
 	lobby_index += 1
 	if (lobby_index > length(current_map.lobby_screens))
 		lobby_index = 1
