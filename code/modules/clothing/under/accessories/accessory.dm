@@ -67,11 +67,12 @@
 		else if(contained_sprite)
 			tmp_icon_state = "[src.item_state][WORN_UNDER]"
 		accessory_mob_overlay = image("icon" = I, "icon_state" = "[tmp_icon_state]")
+		if(build_from_parts)
+			accessory_mob_overlay.cut_overlays()
+			accessory_mob_overlay.add_overlay(overlay_image(I, "[tmp_icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
+			to_world(tmp_icon_state)
 	if(color)
 		accessory_mob_overlay.color = color
-	if(build_from_parts)
-		accessory_mob_overlay.cut_overlays()
-		accessory_mob_overlay.add_overlay(overlay_image(I, "[icon_state][WORN_UNDER]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	accessory_mob_overlay.appearance_flags = RESET_ALPHA|RESET_COLOR
 	return accessory_mob_overlay
 
