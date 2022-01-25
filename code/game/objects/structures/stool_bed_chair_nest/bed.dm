@@ -13,6 +13,7 @@
 #define CACHE_TYPE_PADDING_OVER "padding_over"
 #define CACHE_TYPE_ARMREST "armrest"
 #define CACHE_TYPE_PADDING_ARMREST "padding_armrest"
+#define CACHE_TYPE_SPECIAL "special" // Currently being used for shuttle chair special buckles.
 
 /obj/structure/bed
 	name = "bed"
@@ -89,23 +90,23 @@
 /obj/structure/bed/proc/generate_overlay_cache(var/new_material, var/cache_type, var/cache_layer = layer, var/apply_painted_colour = FALSE) // Cache type refers to what cache we're making. Material type refers if we're taking from the padding or the chair material itself.
 	var/material/overlay_material = new_material
 	var/list/furniture_cache = SSicon_cache.furniture_cache
-	var/cache_key = "[base_icon]-[overlay_material.name]"
+	var/cache_key = "[base_icon]-[overlay_material.name]" // Basically, generates a cache key for an overlay.
 	if(cache_type)
-		cache_key = "[base_icon]-[overlay_material.name]-[cache_type]" // In case material does not have color. Avoids runtimes, if not superfluous.
-		if(overlay_material.icon_colour)
-			cache_key = "[base_icon]-[overlay_material.icon_colour]-[cache_type]"
-	if(!furniture_cache[cache_key])
-		var/cache_icon_state = "[base_icon]"
-		if(cache_type)
-			cache_icon_state = "[base_icon]_[cache_type]"
-		var/image/I =  image(icon, cache_icon_state, layer = cache_layer)
+		cache_key += "-[cache_type]"
+		if(painted_colour && apply_painted_colour)
+			cache_key += "-[painted_colour]"
+		else if(overlay_material.icon_colour)
+			cache_key += "-[overlay_material.icon_colour]"
+	if(!furniture_cache[cache_key]) // Check for cache key. Generate if image does not exist yet.
+		var/cache_icon_state = cache_type ? "[base_icon]_[cache_type]" : "[base_icon]" // Modularized. Just change cache_type when calling the proc if you ever wanted to add a different overlay. Not like you'd need to.
+		var/image/I =  image(icon, cache_icon_state, layer = cache_layer) // Generate the icon.
 		if(material_alteration & MATERIAL_ALTERATION_COLOR)
-			if(painted_colour && apply_painted_colour)
+			if(painted_colour && apply_painted_colour) // apply_painted_color, when you only want the padding to be painted, NOT the chair itself.
 				I.color = painted_colour
-			else if(overlay_material.icon_colour)
+			else if(overlay_material.icon_colour) // Either that, or just fall back on the regular material color.
 				I.color = overlay_material.icon_colour
 		furniture_cache[cache_key] = I
-	add_overlay(furniture_cache[cache_key])
+	add_overlay(furniture_cache[cache_key]) // Use image from cache key!
 
 /obj/structure/bed/proc/generate_strings()
 	if(material_alteration & MATERIAL_ALTERATION_NAME)

@@ -364,11 +364,7 @@
 /obj/structure/bed/stool/chair/shuttle/update_icon()
 	..()
 	if(!buckled)
-		var/image/I = image(icon, "[base_icon]_special")
-		I.layer = ABOVE_MOB_LAYER
-		if(material_alteration & MATERIAL_ALTERATION_COLOR)
-			I.color = material.icon_colour
-		overlays |= I
+		generate_overlay_cache(material, CACHE_TYPE_SPECIAL, ABOVE_MOB_LAYER)
 
 // pool chair, to sit with your feet in the water. only works when facing south, because water overlays weirdly otherwise
 /obj/structure/bed/stool/chair/pool
