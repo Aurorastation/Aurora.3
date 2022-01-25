@@ -2183,7 +2183,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/journal/fluff/mrakiizar_book/update_icon()
 	..()
-	if(!open)
+	if(open)
 		icon_state = pick("mrakiizar_book1","mrakiizar_book2","mrakiizar_book3","mrakiizar_book4")
 
 /obj/item/clothing/accessory/fluff/jaquelyn_necklace //Shrapnel Necklace - Jaquelyn Roberts - roostercat12
