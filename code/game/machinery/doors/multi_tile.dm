@@ -11,7 +11,7 @@
 		setup_hatch()
 
 /obj/machinery/door/airlock/multi_tile/glass
-	name = "Glass Airlock"
+	name = "Glass Hatch"
 	icon = 'icons/obj/doors/Door2x1glass.dmi'
 	opacity = 0
 	glass = 1
@@ -21,7 +21,7 @@
 /obj/machinery/door/airlock/multi_tile/setup_hatch()
 	if(overlays != null)
 		hatch_image = null
-		hatch_image = image('icons/obj/doors/hatches.dmi', src, hatchstyle, closed_layer+0.1)
+		hatch_image = image('icons/obj/doors/hatches.dmi', src, hatchestyle, closed_layer+0.1)
 		hatch_image.color = hatch_colour
 		hatch_image.transform = turn(hatch_image.transform, 90)
 		// reset any rotation and transformation applied

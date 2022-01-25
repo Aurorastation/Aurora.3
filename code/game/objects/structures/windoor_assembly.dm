@@ -153,7 +153,7 @@ obj/structure/windoor_assembly/Destroy()
 			//Removing wire from the assembly. Step 5 undone.
 			if(W.iswirecutter() && !src.electronics)
 				playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
-				user.visible_message("[user] cuts the wires from the airlock assembly.", "You start to cut the wires from airlock assembly.")
+				user.visible_message("[user] cuts the wires from the hatch assembly.", "You start to cut the wires from hatch assembly.")
 
 				if(do_after(user, 40/W.toolspeed))
 					if(!src) return
@@ -171,13 +171,13 @@ obj/structure/windoor_assembly/Destroy()
 				var/obj/item/airlock_electronics/EL = W
 				if(!EL.is_installed)
 					playsound(src.loc, 'sound/items/screwdriver.ogg', 100, 1)
-					user.visible_message("[user] installs the electronics into the airlock assembly.", "You start to install electronics into the airlock assembly.")
+					user.visible_message("[user] installs the electronics into the hatch assembly.", "You start to install electronics into the hatch assembly.")
 					EL.is_installed = 1
 					if(do_after(user, 40))
 						EL.is_installed = 0
 						if(!src) return
 						user.drop_from_inventory(EL,src)
-						to_chat(user, "<span class='notice'>You've installed the airlock electronics!</span>")
+						to_chat(user, "<span class='notice'>You've installed the hatch electronics!</span>")
 						src.name = "Near finished Windoor Assembly"
 						src.electronics = EL
 					else
@@ -186,11 +186,11 @@ obj/structure/windoor_assembly/Destroy()
 			//Screwdriver to remove airlock electronics. Step 6 undone.
 			else if(W.isscrewdriver() && src.electronics)
 				playsound(src.loc, W.usesound, 100, 1)
-				user.visible_message("[user] removes the electronics from the airlock assembly.", "You start to uninstall electronics from the airlock assembly.")
+				user.visible_message("[user] removes the electronics from the hatch assembly.", "You start to uninstall electronics from the hatch assembly.")
 
 				if(do_after(user, 40/W.toolspeed))
 					if(!src || !src.electronics) return
-					to_chat(user, "<span class='notice'>You've removed the airlock electronics!</span>")
+					to_chat(user, "<span class='notice'>You've removed the hatch electronics!</span>")
 					if(src.secure)
 						src.name = "Secure Wired Windoor Assembly"
 					else

@@ -54,7 +54,7 @@
 			return
 		else if(istype(target, /obj/machinery/door/airlock))
 			if(istype(target, /obj/machinery/door/airlock/centcom))
-				to_chat(user, SPAN_WARNING("You can't force these airlocks!"))
+				to_chat(user, SPAN_WARNING("You can't force these hatches!"))
 				return
 			var/obj/machinery/door/airlock/AD = target
 			if(!AD.operating)

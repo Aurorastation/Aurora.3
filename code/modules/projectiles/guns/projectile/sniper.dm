@@ -1,6 +1,6 @@
 /obj/item/gun/projectile/heavysniper
 	name = "anti-materiel rifle"
-	desc = "The PTR-7 is man-portable anti-armor rifle fitted with a high-powered scope, capable of penetrating through most windows, airlocks, and non-reinforced walls with ease. Fires armor piercing 14.5mm shells."
+	desc = "The PTR-7 is man-portable anti-armor rifle fitted with a high-powered scope, capable of penetrating through most windows, hatches, and non-reinforced walls with ease. Fires armor piercing 14.5mm shells."
 	desc_info = "A single-shot, bolt-action anachronism in an age of energy weapons, the PTR-7 was originally developed to combat exosuits, either by disabling critical systems \
 	or killing the pilot. Firing a high-velocity 14.5mm cartridge designed to defeat heavy armor, the PTR-7 boasts penetrative power unmatched by most in its class, though recent advancements \
 	in composites have rendered the weapon less effective at its intended purpose. Nonetheless, it still sees use among some groups as a general-purpose anti-materiel rifle."

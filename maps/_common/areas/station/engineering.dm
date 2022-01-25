@@ -44,7 +44,7 @@
 	ambience = AMBIENCE_SINGULARITY
 
 /area/engineering/engine_airlock
-	name = "Engineering - Engine Room Airlock"
+	name = "Engineering - Engine Room Hatch"
 	icon_state = "engine"
 
 /area/engineering/engine_monitoring

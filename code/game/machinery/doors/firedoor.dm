@@ -472,10 +472,10 @@
 				do_set_light = TRUE
 
 		if (hashatch)
-			if (hatchstate && hatch_image)
-				hatch_image.icon_state = "[hatchstyle]_open"
+			if (hatchestate && hatch_image)
+				hatch_image.icon_state = "[hatchestyle]_open"
 			else
-				hatch_image.icon_state = hatchstyle
+				hatch_image.icon_state = hatchestyle
 			add_overlay(hatch_image)
 	else
 		icon_state = "door_open"

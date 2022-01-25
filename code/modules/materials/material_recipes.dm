@@ -79,25 +79,25 @@
 			new /datum/stack_recipe("sofa (corner)", /obj/structure/bed/stool/chair/sofa/corner, BUILD_AMT, one_per_turf = 1, on_floor = 1)
 		))
 
-	recipes += new /datum/stack_recipe_list("airlock assemblies",
+	recipes += new /datum/stack_recipe_list("hatch assemblies",
 		list(
-			new /datum/stack_recipe("standard airlock assembly", /obj/structure/door_assembly, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("command airlock assembly", /obj/structure/door_assembly/door_assembly_com, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("security airlock assembly", /obj/structure/door_assembly/door_assembly_sec, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("engineering airlock assembly", /obj/structure/door_assembly/door_assembly_eng, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("mining airlock assembly", /obj/structure/door_assembly/door_assembly_min, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("atmospherics airlock assembly", /obj/structure/door_assembly/door_assembly_atmo, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("research airlock assembly", /obj/structure/door_assembly/door_assembly_research, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("medical airlock assembly", /obj/structure/door_assembly/door_assembly_med, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("maintenance airlock assembly", /obj/structure/door_assembly/door_assembly_mai, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("external airlock assembly", /obj/structure/door_assembly/door_assembly_ext, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("freezer airlock assembly", /obj/structure/door_assembly/door_assembly_fre, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("standard hatch assembly", /obj/structure/door_assembly, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("command hatch assembly", /obj/structure/door_assembly/door_assembly_com, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("security hatch assembly", /obj/structure/door_assembly/door_assembly_sec, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("engineering hatch assembly", /obj/structure/door_assembly/door_assembly_eng, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("mining hatch assembly", /obj/structure/door_assembly/door_assembly_min, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("atmospherics hatch assembly", /obj/structure/door_assembly/door_assembly_atmo, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("research hatch assembly", /obj/structure/door_assembly/door_assembly_research, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("medical hatch assembly", /obj/structure/door_assembly/door_assembly_med, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("maintenance hatch assembly", /obj/structure/door_assembly/door_assembly_mai, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("external hatch assembly", /obj/structure/door_assembly/door_assembly_ext, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("freezer hatch assembly", /obj/structure/door_assembly/door_assembly_fre, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("airtight hatch assembly", /obj/structure/door_assembly/door_assembly_hatch, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("maintenance hatch assembly", /obj/structure/door_assembly/door_assembly_mhatch, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("high security airlock assembly", /obj/structure/door_assembly/door_assembly_highsecurity, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("high security hatch assembly", /obj/structure/door_assembly/door_assembly_highsecurity, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("vault assembly", /obj/structure/door_assembly/door_assembly_vault, BUILD_AMT, time = 100, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("emergency shutter", /obj/structure/firedoor_assembly, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("multi-tile airlock assembly", /obj/structure/door_assembly/multi_tile, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1)
+			new /datum/stack_recipe("multi-tile hatch assembly", /obj/structure/door_assembly/multi_tile, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1)
 		))
 
 	recipes += new /datum/stack_recipe_list("turret frames",

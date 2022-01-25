@@ -204,7 +204,7 @@
 	category = "General"
 
 /datum/autolathe/recipe/airlockmodule
-	name = "airlock electronics"
+	name = "hatch electronics"
 	path = /obj/item/airlock_electronics
 	category = "Engineering"
 

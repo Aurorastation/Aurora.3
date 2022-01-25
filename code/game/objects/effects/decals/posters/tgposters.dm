@@ -46,5 +46,5 @@
 
 /datum/poster/tg_10
 	name = "Hacking Guide"
-	desc = "This poster details the internal workings of the common Nanotrasen airlock."
+	desc = "This poster details the internal workings of the common Nanotrasen hatch."
 	icon_state="poster10"

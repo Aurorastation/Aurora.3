@@ -79,8 +79,8 @@
 	item_cost = 1
 	path = /obj/item/device/multitool/hacktool
 	desc = "Appears and functions as a standard multitool until the mode is toggled by applying a screwdriver appropriately. \
-			When in hacking mode this device will grant full access to any standard airlock within 7 to 13 seconds. \
-			This device will also be able to immediately access the last 6 to 8 hacked airlocks."
+			When in hacking mode this device will grant full access to any standard hatch within 7 to 13 seconds. \
+			This device will also be able to immediately access the last 6 to 8 hacked hatches."
 
 /datum/uplink_item/item/tools/space_suit
 	name = "Space Suit"

@@ -7748,7 +7748,7 @@
 	icon_state = "door_locked";
 	id_tag = "eng_ladder_outer";
 	locked = 1;
-	name = "Telecoms Ladder Shaft Exterior Airlock";
+	name = "Telecoms Ladder Shaft Exterior Hatch";
 	req_access = list(13)
 	},
 /obj/effect/decal/cleanable/dirt,

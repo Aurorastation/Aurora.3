@@ -71,7 +71,7 @@
 		icon_state = "doorctrl0"
 
 /*
-	Airlock remote control
+	Hatch remote control
 */
 
 // Bitmasks for door switches.

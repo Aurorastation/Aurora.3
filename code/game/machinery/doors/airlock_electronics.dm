@@ -1,5 +1,5 @@
 /obj/item/airlock_electronics
-	name = "airlock electronics"
+	name = "hatch electronics"
 	icon = 'icons/obj/doors/door_assembly.dmi'
 	icon_state = "door_electronics"
 	w_class = ITEMSIZE_TINY
@@ -137,7 +137,7 @@
 		..()
 
 /obj/item/airlock_electronics/secure
-	name = "secure airlock electronics"
+	name = "secure hatch electronics"
 	desc = "Designed to be somewhat more resistant to hacking than standard electronics."
 	desc_info = "With these electronics, wires will be randomized and bolts will drop if the airlock is broken."
 	origin_tech = list(TECH_DATA = 2)

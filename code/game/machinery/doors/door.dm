@@ -33,8 +33,8 @@
 	var/open_duration = 150//How long it stays open
 
 	var/hashatch = 0//If 1, this door has hatches, and certain small creatures can move through them without opening the door
-	var/hatchstate = 0//0: closed, 1: open
-	var/hatchstyle = "1x1"
+	var/hatchestate = 0//0: closed, 1: open
+	var/hatchestyle = "1x1"
 	var/hatch_offset_x = 0
 	var/hatch_offset_y = 0
 	var/hatch_colour = "#FFFFFF"
@@ -95,7 +95,7 @@
 			bound_height = width * world.icon_size
 
 /obj/machinery/door/proc/setup_hatch()
-	hatch_image = image('icons/obj/doors/hatches.dmi', src, hatchstyle, closed_layer+0.1)
+	hatch_image = image('icons/obj/doors/hatches.dmi', src, hatchestyle, closed_layer+0.1)
 	hatch_image.color = hatch_colour
 	hatch_image.pixel_x = hatch_offset_x
 	hatch_image.pixel_y = hatch_offset_y
@@ -104,8 +104,8 @@
 	update_icon()
 
 /obj/machinery/door/proc/open_hatch(var/atom/mover = null)
-	if (!hatchstate)
-		hatchstate = 1
+	if (!hatchestate)
+		hatchestate = 1
 		update_icon()
 		playsound(src.loc, hatch_open_sound, 40, 1, -1)
 
@@ -118,7 +118,7 @@
 
 
 /obj/machinery/door/proc/close_hatch()
-	hatchstate = 0//hatch stays open for 3 seconds
+	hatchestate = 0//hatch stays open for 3 seconds
 	update_icon()
 	playsound(src.loc, hatch_close_sound, 30, 1, -1)
 

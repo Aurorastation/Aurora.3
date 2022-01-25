@@ -3,7 +3,7 @@
 #define STATE_ELECTRONICS_INSTALLED 2
 
 /obj/structure/door_assembly
-	name = "airlock assembly"
+	name = "hatch assembly"
 	icon = 'icons/obj/doors/door_assembly.dmi'
 	icon_state = "door_as_0"
 	anchored = 0
@@ -13,7 +13,7 @@
 	obj_flags = OBJ_FLAG_ROTATABLE
 	var/state = STATE_UNWIRED
 	var/base_icon_state = ""
-	var/base_name = "Airlock"
+	var/base_name = "Hatch"
 	var/obj/item/airlock_electronics/electronics = null
 	var/airlock_type = "" //the type path of the airlock once completed
 	var/glass_type = "/glass"
@@ -27,67 +27,67 @@
 
 /obj/structure/door_assembly/door_assembly_com
 	base_icon_state = "com"
-	base_name = "Command Airlock"
+	base_name = "Command Hatch"
 	glass_type = "/glass_command"
 	airlock_type = "/command"
 
 /obj/structure/door_assembly/door_assembly_sec
 	base_icon_state = "sec"
-	base_name = "Security Airlock"
+	base_name = "Security Hatch"
 	glass_type = "/glass_security"
 	airlock_type = "/security"
 
 /obj/structure/door_assembly/door_assembly_eng
 	base_icon_state = "eng"
-	base_name = "Engineering Airlock"
+	base_name = "Engineering Hatch"
 	glass_type = "/glass_engineering"
 	airlock_type = "/engineering"
 
 /obj/structure/door_assembly/door_assembly_min
 	base_icon_state = "min"
-	base_name = "Mining Airlock"
+	base_name = "Mining Hatch"
 	glass_type = "/glass_mining"
 	airlock_type = "/mining"
 
 /obj/structure/door_assembly/door_assembly_atmo
 	base_icon_state = "atmo"
-	base_name = "Atmospherics Airlock"
+	base_name = "Atmospherics Hatch"
 	glass_type = "/glass_atmos"
 	airlock_type = "/atmos"
 
 /obj/structure/door_assembly/door_assembly_research
 	base_icon_state = "res"
-	base_name = "Research Airlock"
+	base_name = "Research Hatch"
 	glass_type = "/glass_research"
 	airlock_type = "/research"
 
 /obj/structure/door_assembly/door_assembly_science
 	base_icon_state = "sci"
-	base_name = "Science Airlock"
+	base_name = "Science Hatch"
 	glass_type = "/glass_science"
 	airlock_type = "/science"
 
 /obj/structure/door_assembly/door_assembly_med
 	base_icon_state = "med"
-	base_name = "Medical Airlock"
+	base_name = "Medical Hatch"
 	glass_type = "/glass_medical"
 	airlock_type = "/medical"
 
 /obj/structure/door_assembly/door_assembly_mai
 	base_icon_state = "mai"
-	base_name = "Maintenance Airlock"
+	base_name = "Maintenance Hatch"
 	airlock_type = "/maintenance"
 	glass = -1
 
 /obj/structure/door_assembly/door_assembly_ext
 	base_icon_state = "ext"
-	base_name = "External Airlock"
+	base_name = "External Hatch"
 	airlock_type = "/external"
 	glass = -1
 
 /obj/structure/door_assembly/door_assembly_fre
 	base_icon_state = "fre"
-	base_name = "Freezer Airlock"
+	base_name = "Freezer Hatch"
 	airlock_type = "/freezer"
 	glass = -1
 
@@ -111,7 +111,7 @@
 
 /obj/structure/door_assembly/door_assembly_highsecurity
 	base_icon_state = "highsec"
-	base_name = "High Security Airlock"
+	base_name = "High Security Hatch"
 	airlock_type = "/highsecurity"
 	glass = -1
 
@@ -129,13 +129,13 @@
 
 /obj/structure/door_assembly/door_assembly_skrell
 	base_icon_state = "skrell_purple"
-	base_name = "Airlock"
+	base_name = "Hatch"
 	airlock_type = "/skrell"
 	glass = -1
 
 /obj/structure/door_assembly/door_assembly_skrell/grey
 	base_icon_state = "skrell_grey"
-	base_name = "Airlock"
+	base_name = "Hatch"
 	airlock_type = "/skrell/grey"
 
 /obj/structure/door_assembly/multi_tile
@@ -182,7 +182,7 @@
 		if(WT.remove_fuel(0, user))
 			playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
 			if(istext(glass))
-				user.visible_message("<b>[user]</b> starts welding the [glass] plating off the airlock assembly.", SPAN_NOTICE("You start welding the [glass] plating off the airlock assembly."))
+				user.visible_message("<b>[user]</b> starts welding the [glass] plating off the hatch assembly.", SPAN_NOTICE("You start welding the [glass] plating off the hatch assembly."))
 				if(do_after(user, 40 / W.toolspeed))
 					if(!src || !WT.isOn())
 						return
@@ -191,7 +191,7 @@
 					new M(src.loc, 2)
 					glass = FALSE
 			else if(glass == TRUE)
-				user.visible_message("<b>[user]</b> starts welding the glass panel out of the airlock assembly.", SPAN_NOTICE("You start welding the glass panel out of the airlock assembly."))
+				user.visible_message("<b>[user]</b> starts welding the glass panel out of the hatch assembly.", SPAN_NOTICE("You start welding the glass panel out of the hatch assembly."))
 				if(do_after(user, 40 / W.toolspeed))
 					if(!src || !WT.isOn())
 						return
@@ -199,11 +199,11 @@
 					new /obj/item/stack/material/glass/reinforced(src.loc)
 					glass = FALSE
 			else if(!anchored)
-				user.visible_message("<b>[user]</b> starts disassembling the airlock assembly.", SPAN_NOTICE("You start disassembling the airlock assembly."))
+				user.visible_message("<b>[user]</b> starts disassembling the hatch assembly.", SPAN_NOTICE("You start disassembling the hatch assembly."))
 				if(do_after(user, 40 / W.toolspeed))
 					if(!src || !WT.isOn())
 						return
-					to_chat(user, SPAN_NOTICE("You disassemble the airlock assembly."))
+					to_chat(user, SPAN_NOTICE("You disassemble the hatch assembly."))
 					dismantle()
 		else
 			to_chat(user, SPAN_WARNING("You need more welding fuel."))
@@ -217,11 +217,11 @@
 		playsound(src.loc, W.usesound, 100, 1)
 	
 		if(anchored)
-			user.visible_message("<b>[user]</b> begins unsecuring the airlock assembly from the floor.", \
-								SPAN_NOTICE("You start unsecuring the airlock assembly from the floor."))
+			user.visible_message("<b>[user]</b> begins unsecuring the hatch assembly from the floor.", \
+								SPAN_NOTICE("You start unsecuring the hatch assembly from the floor."))
 		else
-			user.visible_message("<b>[user]</b> begins securing the airlock assembly to the floor.", \
-								SPAN_NOTICE("You start securing the airlock assembly to the floor."))
+			user.visible_message("<b>[user]</b> begins securing the hatch assembly to the floor.", \
+								SPAN_NOTICE("You start securing the hatch assembly to the floor."))
 
 		if(do_after(user, 40 / W.toolspeed))
 			if(!src)
@@ -238,13 +238,13 @@
 			return
 		var/obj/item/stack/cable_coil/C = W
 		if (C.get_amount() < 3)
-			to_chat(user, SPAN_WARNING("You need three lengths of coil to wire the airlock assembly."))
+			to_chat(user, SPAN_WARNING("You need three lengths of coil to wire the hatch assembly."))
 			return
-		user.visible_message("<b>[user]</b> starts wiring the airlock assembly.", SPAN_NOTICE("You start wiring the airlock assembly."))
+		user.visible_message("<b>[user]</b> starts wiring the hatch assembly.", SPAN_NOTICE("You start wiring the hatch assembly."))
 		if(do_after(user, 40) && state == STATE_UNWIRED && anchored)
 			if(C.use(3))
 				state = STATE_WIRED
-				to_chat(user, SPAN_NOTICE("You wire the airlock."))
+				to_chat(user, SPAN_NOTICE("You wire the hatch."))
 
 	else if(W.iswirecutter())
 		if(state == STATE_UNWIRED)
@@ -255,12 +255,12 @@
 			return
 
 		playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
-		user.visible_message("<b>[user]</b> starts cutting the wires from the airlock assembly.", SPAN_NOTICE("You start cutting the wires from airlock assembly."))
+		user.visible_message("<b>[user]</b> starts cutting the wires from the hatch assembly.", SPAN_NOTICE("You start cutting the wires from hatch assembly."))
 
 		if(do_after(user, 40 / W.toolspeed))
 			if(!src)
 				return
-			to_chat(user, SPAN_NOTICE("You cut the airlock wires."))
+			to_chat(user, SPAN_NOTICE("You cut the hatch wires."))
 			new /obj/item/stack/cable_coil(src.loc, 1)
 			state = STATE_UNWIRED
 
@@ -274,7 +274,7 @@
 		var/obj/item/airlock_electronics/EL = W
 		if(!EL.is_installed)
 			playsound(src.loc, 'sound/items/screwdriver.ogg', 100, 1)
-			user.visible_message("<b>[user]</b> starts installing \the [EL] into the airlock assembly.", SPAN_NOTICE("You start installing \the [EL] into the airlock assembly."))
+			user.visible_message("<b>[user]</b> starts installing \the [EL] into the hatch assembly.", SPAN_NOTICE("You start installing \the [EL] into the hatch assembly."))
 			EL.is_installed = TRUE
 			if(do_after(user, 40 / W.toolspeed) && state == STATE_WIRED)
 				EL.is_installed = FALSE
@@ -320,22 +320,22 @@
 			if(S.get_amount() >= 1)
 				if(material_name == "rglass")
 					playsound(src.loc, /decl/sound_category/crowbar_sound, 100, 1)
-					user.visible_message("<b>[user]</b> starts installing [S] into the airlock assembly.", "You start installing [S] into the airlock assembly.")
+					user.visible_message("<b>[user]</b> starts installing [S] into the hatch assembly.", "You start installing [S] into the hatch assembly.")
 					if(do_after(user, 40) && !glass)
 						if(S.use(1))
-							to_chat(user, SPAN_NOTICE("You install reinforced glass windows into the airlock assembly."))
+							to_chat(user, SPAN_NOTICE("You install reinforced glass windows into the hatch assembly."))
 							glass = 1
 				else if(material_name)
 					// Ugly hack, will suffice for now. Need to fix it upstream as well, may rewrite mineral walls. ~Z
 					if(!(material_name in list("gold", "silver", "diamond", "uranium", "phoron", "sandstone")))
-						to_chat(user, SPAN_WARNING("You cannot make an airlock out of [S]."))
+						to_chat(user, SPAN_WARNING("You cannot make a hatch out of [S]."))
 						return
 					if(S.get_amount() >= 2)
 						playsound(src.loc, /decl/sound_category/crowbar_sound, 100, 1)
-						user.visible_message("<b>[user]</b> starts installing [S] into the airlock assembly.", "You start installing [S] into the airlock assembly.")
+						user.visible_message("<b>[user]</b> starts installing [S] into the hatch assembly.", "You start installing [S] into the hatch assembly.")
 						if(do_after(user, 40) && !glass)
 							if (S.use(2))
-								to_chat(user, SPAN_NOTICE("You install [SSmaterials.material_display_name(material_name)] plating into the airlock assembly."))
+								to_chat(user, SPAN_NOTICE("You install [SSmaterials.material_display_name(material_name)] plating into the hatch assembly."))
 								glass = material_name
 
 	else if(W.isscrewdriver())
@@ -349,7 +349,7 @@
 		if(do_after(user, 40 / W.toolspeed))
 			if(!src)
 				return
-			to_chat(user, SPAN_NOTICE("You finish the airlock!"))
+			to_chat(user, SPAN_NOTICE("You finish the hatch!"))
 			var/path
 			if(istext(glass))
 				path = text2path("/obj/machinery/door/airlock/[glass]")
@@ -365,9 +365,9 @@
 	else if(istype(W, /obj/item/material/twohanded/chainsaw))
 		var/obj/item/material/twohanded/chainsaw/ChainSawVar = W
 		if(!ChainSawVar.wielded)
-			to_chat(user, SPAN_WARNING("Cutting the airlock requires the strength of two hands."))
+			to_chat(user, SPAN_WARNING("Cutting the hatch requires the strength of two hands."))
 		else if(ChainSawVar.cutting)
-			to_chat(user, SPAN_WARNING("You are already cutting an airlock open."))
+			to_chat(user, SPAN_WARNING("You are already cutting a hatch open."))
 		else if(!ChainSawVar.powered)
 			to_chat(user, SPAN_WARNING("\The [W] needs to be on in order to tear \the [src] apart."))
 		else
@@ -405,7 +405,7 @@
 			name = "Wired "
 		if(STATE_ELECTRONICS_INSTALLED)
 			name = "Near-finished "
-	name += "[glass == 1 ? "Window " : ""][istext(glass) ? "[glass] Airlock" : base_name] Assembly"
+	name += "[glass == 1 ? "Window " : ""][istext(glass) ? "[glass] Hatch" : base_name] Assembly"
 	if(created_name)
 		name += " ([created_name])"
 

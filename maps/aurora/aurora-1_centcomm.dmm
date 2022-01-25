@@ -9909,7 +9909,7 @@
 /turf/unsimulated/wall/fakeairlock{
 	icon = 'icons/obj/doors/Doorext.dmi';
 	icon_state = "door_locked";
-	name = "Service Airlock"
+	name = "Service Hatch"
 	},
 /area/centcom/legion)
 "cDL" = (
@@ -20867,7 +20867,7 @@
 /turf/unsimulated/wall/fakeairlock{
 	icon = 'icons/obj/doors/Doorext.dmi';
 	icon_state = "door_locked";
-	name = "Service Airlock"
+	name = "Service Hatch"
 	},
 /area/centcom/ferry)
 "jre" = (
@@ -22679,7 +22679,7 @@
 /turf/unsimulated/wall/fakeairlock{
 	icon = 'icons/obj/doors/Doorext.dmi';
 	icon_state = "door_locked";
-	name = "airlock"
+	name = "hatch"
 	},
 /area/centcom/specops)
 "kCR" = (
@@ -29983,7 +29983,7 @@
 /turf/unsimulated/wall/fakeairlock{
 	icon = 'icons/obj/doors/Doorext.dmi';
 	icon_state = "door_locked";
-	name = "Service Airlock"
+	name = "Service Hatch"
 	},
 /area/centcom/legion/hangar5)
 "pkN" = (
@@ -32314,7 +32314,7 @@
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/doors/door_assembly.dmi';
 	icon_state = "door_as_ext0";
-	name = "damaged airlock"
+	name = "damaged hatch"
 	},
 /turf/unsimulated/floor{
 	icon_state = "panelscorched"
@@ -32812,7 +32812,7 @@
 /turf/unsimulated/wall/fakeairlock{
 	icon = 'icons/obj/doors/Doorext.dmi';
 	icon_state = "door_locked";
-	name = "service airlock"
+	name = "service hatch"
 	},
 /area/template_noop)
 "rhm" = (
@@ -34178,7 +34178,7 @@
 /obj/machinery/door/airlock/external{
 	close_sound_powered = 'sound/machines/airlock_close_force.ogg';
 	glass = 1;
-	name = "airlock";
+	name = "hatch";
 	opacity = 0;
 	open_sound_powered = 'sound/machines/airlock_open_force.ogg'
 	},
@@ -41346,7 +41346,7 @@
 /turf/unsimulated/wall/fakeairlock{
 	icon = 'icons/obj/doors/Doorext.dmi';
 	icon_state = "door_locked";
-	name = "service airlock"
+	name = "service hatch"
 	},
 /area/centcom/specops)
 "wOm" = (
@@ -43680,7 +43680,7 @@
 /obj/machinery/door/airlock/external{
 	close_sound_powered = 'sound/machines/airlock_close_force.ogg';
 	glass = 1;
-	name = "airlock";
+	name = "hatch";
 	opacity = 0;
 	open_sound_powered = 'sound/machines/airlock_open_force.ogg'
 	},

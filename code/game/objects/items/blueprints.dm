@@ -115,7 +115,7 @@
 						<p>This place isn't noted on the blueprint.</p>
 					"}
 
-	text += "<br><a href='?src=\ref[src];action=airlock_wires'>View Airlock Wire Schema</a><br>"
+	text += "<br><a href='?src=\ref[src];action=hatch_wires'>View Hatch Wire Schema</a><br>"
 	text += "<br><a href='?src=\ref[src];action=vending_wires'>View Vending Machine Wire Schema</a><br>"
 
 	text += "</BODY></HTML>"

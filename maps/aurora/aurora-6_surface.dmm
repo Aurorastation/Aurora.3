@@ -15910,7 +15910,7 @@
 /obj/machinery/embedded_controller/radio/airlock/advanced_airlock_controller{
 	frequency = 1381;
 	id_tag = "server_access_airlock";
-	name = "Server Access Airlock";
+	name = "Server Access Hatch";
 	pixel_y = 25;
 	tag_airpump = "server_access_pump";
 	tag_chamber_sensor = "server_access_sensor";

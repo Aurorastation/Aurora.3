@@ -6975,7 +6975,7 @@
 	icon_state = "door_locked";
 	id_tag = "ai_core_outer";
 	locked = 1;
-	name = "Outer Core Airlock";
+	name = "Outer Core Hatch";
 	req_access = list(13)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -6992,7 +6992,7 @@
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
 	id_tag = "ai_core_airlock";
-	name = "AI Core airlock controller";
+	name = "AI Core hatch controller";
 	pixel_y = 30;
 	req_one_access = list(13);
 	tag_airpump = "ai_core_pump";
@@ -7034,7 +7034,7 @@
 	icon_state = "door_locked";
 	id_tag = "ai_core_inner";
 	locked = 1;
-	name = "Inner Core Airlock";
+	name = "Inner Core Hatch";
 	req_access = list(13)
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
@@ -10602,7 +10602,7 @@
 	},
 /obj/machinery/button/remote/airlock{
 	id = "bunker2";
-	name = "Bunker Outer Airlock Bolt Control";
+	name = "Bunker Outer Hatch Bolt Control";
 	pixel_x = 26;
 	req_access = list(20);
 	specialfunctions = 4
@@ -11178,7 +11178,7 @@
 	},
 /obj/machinery/button/remote/airlock{
 	id = "bunker3";
-	name = "Bunker Inner Airlock Bolt Control";
+	name = "Bunker Inner Hatch Bolt Control";
 	pixel_x = 26;
 	req_access = list(19);
 	specialfunctions = 4
@@ -11189,7 +11189,7 @@
 "auq" = (
 /obj/machinery/button/remote/airlock{
 	id = "bunker3";
-	name = "Bunker Inner Airlock Bolt Control";
+	name = "Bunker Inner Hatch Bolt Control";
 	pixel_x = -26;
 	req_access = list(19);
 	specialfunctions = 4
@@ -11686,7 +11686,7 @@
 	},
 /obj/machinery/button/remote/airlock{
 	id = "bunker2";
-	name = "Bunker Outer Airlock Bolt Control";
+	name = "Bunker Outer Hatch Bolt Control";
 	pixel_x = -26;
 	req_access = list(20);
 	specialfunctions = 4
@@ -14375,7 +14375,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/glass_medical{
-	name = "Dusty Airlock";
+	name = "Dusty Hatch";
 	req_access = list(66)
 	},
 /turf/simulated/floor/tiled/white,
@@ -19123,7 +19123,7 @@
 	icon_state = "door_locked";
 	id_tag = "xeno_airlock_exterior";
 	locked = 1;
-	name = "Xenobiology External Airlock";
+	name = "Xenobiology External Hatch";
 	req_access = list(55)
 	},
 /obj/machinery/access_button{
@@ -28052,7 +28052,7 @@
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	id_tag = "eng_sl_eva_airlock";
-	name = "Engineering Sub-level Airlock Console";
+	name = "Engineering Sub-level Hatch Console";
 	pixel_x = 24;
 	req_access = list(13,10);
 	tag_airpump = "eng_sl_eva_pump";
@@ -28802,7 +28802,7 @@
 	icon_state = "door_locked";
 	id_tag = "tesla2_airlock_exterior";
 	locked = 1;
-	name = "Engine Airlock Exterior";
+	name = "Engine Hatch Exterior";
 	req_access = list(11)
 	},
 /obj/machinery/door/firedoor,
@@ -28880,7 +28880,7 @@
 	icon_state = "door_locked";
 	id_tag = "tesla1_airlock_interior";
 	locked = 1;
-	name = "Engine Airlock Interior";
+	name = "Engine Hatch Interior";
 	req_access = list(11)
 	},
 /obj/machinery/access_button{
@@ -31577,7 +31577,7 @@
 	icon_state = "door_locked";
 	id_tag = "xenobotany_airlock_interior";
 	locked = 1;
-	name = "Hazardous Specimens Interior Airlock";
+	name = "Hazardous Specimens Interior Hatch";
 	req_access = list(55)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -32265,7 +32265,7 @@
 	icon_state = "door_locked";
 	id_tag = "tesla1_airlock_exterior";
 	locked = 1;
-	name = "Engine Airlock Exterior";
+	name = "Engine Hatch Exterior";
 	req_access = list(11)
 	},
 /obj/machinery/access_button{
@@ -35185,7 +35185,7 @@
 	icon_state = "door_locked";
 	id_tag = "tesla2_airlock_interior";
 	locked = 1;
-	name = "Engine Airlock Interior";
+	name = "Engine Hatch Interior";
 	req_access = list(11)
 	},
 /obj/machinery/door/firedoor,
@@ -36795,7 +36795,7 @@
 	icon_state = "door_locked";
 	id_tag = "xenobotany_airlock_exterior";
 	locked = 1;
-	name = "Hazardous Specimens Exterior Airlock";
+	name = "Hazardous Specimens Exterior Hatch";
 	req_access = list(55)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{

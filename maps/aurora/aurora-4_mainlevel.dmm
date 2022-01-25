@@ -2642,7 +2642,7 @@
 /obj/machinery/button/remote/airlock/screamer{
 	channel = "Science";
 	id = "server_door_lock";
-	message = "The Server Room Airlock's ID lock toggle has been used.";
+	message = "The Server Room Hatch's ID lock toggle has been used.";
 	name = "Server Room Control";
 	pixel_x = -24;
 	pixel_y = -24;
@@ -17795,7 +17795,7 @@
 	icon_state = "door_locked";
 	id_tag = "engine_airlock_interior";
 	locked = 1;
-	name = "Engine Airlock Interior";
+	name = "Engine Hatch Interior";
 	req_access = list(11)
 	},
 /obj/machinery/access_button{
@@ -17856,7 +17856,7 @@
 	icon_state = "door_locked";
 	id_tag = "engine_airlock_exterior";
 	locked = 1;
-	name = "Engine Airlock Exterior";
+	name = "Engine Hatch Exterior";
 	req_access = list(11)
 	},
 /obj/machinery/access_button{

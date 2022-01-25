@@ -1,0 +1,6 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - tweak: "Changed the name of airlocks to hatches, to better reflect what an airlock is."

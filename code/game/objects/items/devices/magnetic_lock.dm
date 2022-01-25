@@ -7,7 +7,7 @@
 
 /obj/item/device/magnetic_lock
 	name = "magnetic door lock"
-	desc = "A large, ID locked device used for completely locking down airlocks."
+	desc = "A large, ID locked device used for completely locking down hatches."
 	icon = 'icons/obj/magnetic_locks.dmi'
 	icon_state = "inactive_CENTCOM"
 	//icon_state = "inactive"
@@ -48,7 +48,7 @@
 
 /obj/item/device/magnetic_lock/security/legion/Initialize()
 	. = ..()
-	desc = "A large, ID locked device used for completely locking down airlocks. This one carries the insignia of the Tau Ceti Foreign Legion."
+	desc = "A large, ID locked device used for completely locking down hatches. This one carries the insignia of the Tau Ceti Foreign Legion."
 
 /obj/item/device/magnetic_lock/Initialize()
 	. = ..()
@@ -318,7 +318,7 @@
 					return
 
 		if (locate(/obj/machinery/door/airlock) in oview(1, newtarget))
-			if (alert("Brace adjacent airlocks?",,"Yes", "No") == "Yes")
+			if (alert("Brace adjacent hatches?",,"Yes", "No") == "Yes")
 				if (!check_target(newtarget, user)) return
 				for (var/obj/machinery/door/airlock/A in get_step(newtarget.loc, turn(direction, -90)))
 					if (istype(A, newtarget.type))
@@ -457,7 +457,7 @@
 
 /obj/item/device/magnetic_lock/keypad
 	name = "magnetic door lock"
-	desc = "A large, passcode locked device used for completely locking down airlocks."
+	desc = "A large, passcode locked device used for completely locking down hatches."
 
 	req_access = list(access_none)
 

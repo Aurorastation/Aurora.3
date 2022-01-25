@@ -64,7 +64,7 @@
 	sparring_variant_type = /datum/unarmed_attack/pain_strike/heavy // unathi have heavier pain hits in this mode
 
 /datum/unarmed_attack/claws/shredding
-	desc = "Use your in-built knives to turn your foes into mincemeat. These claws are durable enough for you to shred some objects open, such as airlocks. Some call it unfair, some call it species superiority. Can't complain if they're dead*, though.<br/>*Citation Needed"
+	desc = "Use your in-built knives to turn your foes into mincemeat. These claws are durable enough for you to shred some objects open, such as hatches. Some call it unfair, some call it species superiority. Can't complain if they're dead*, though.<br/>*Citation Needed"
 	shredding = TRUE
 	attack_name = "durable claws"
 

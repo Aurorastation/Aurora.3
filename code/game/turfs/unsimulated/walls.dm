@@ -56,5 +56,5 @@
 /turf/unsimulated/wall/fakeairlock
 	icon = 'icons/obj/doors/Doorele.dmi'
 	icon_state = "door_closed"
-	name = "Airlock"
+	name = "Hatch"
 	desc = "It opens and closes."
