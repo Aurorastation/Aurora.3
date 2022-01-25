@@ -226,7 +226,7 @@ Possible to do for anyone motivated enough:
 /obj/machinery/hologram/holopad/attack_ai(mob/living/silicon/user)
 	if(!istype(user))
 		return
-	
+
 	if(!ai_can_interact(user))
 		return
 
@@ -259,7 +259,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 				text = speaking.scramble(text)
 			else
 				text = stars(text)
-		
+
 		//This communication is imperfect because the holopad "filters" voices and is only designed to connect to the master only.
 		var/rendered
 		if(speaking)
@@ -374,7 +374,8 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 
 /obj/machinery/hologram/holopad/proc/move_hologram(mob/living/silicon/ai/user)
 	if(LAZYISIN(active_holograms, user))
-		step_to(active_holograms[user], user.eyeobj) // So it turns.
+		if(!user.facing_dir)
+			step_to(active_holograms[user], user.eyeobj) // So it turns.
 		var/obj/effect/overlay/H = active_holograms[user]
 		H.forceMove(get_turf(user.eyeobj))
 		active_holograms[user] = H

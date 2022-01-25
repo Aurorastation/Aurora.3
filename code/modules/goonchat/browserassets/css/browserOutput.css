@@ -63,6 +63,7 @@ a {color: #397ea5;}
 a.visited {color: #7c00e6;}
 a:visited {color: #7c00e6;}
 a.popt {text-decoration: none;}
+.ai_tracking, .ai_tracking:link, .ai_tracking:visited, .ai_tracking:active, .ai_tracking:hover {color: #397ea5;}
 
 /*****************************************
 *
