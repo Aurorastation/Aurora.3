@@ -3980,7 +3980,6 @@
 /area/centcom/holding)
 "awE" = (
 /obj/structure/closet/secure_closet{
-	icon_state = "sec"
 	name = "equipment locker"
 	},
 /turf/unsimulated/floor{
