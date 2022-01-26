@@ -26225,12 +26225,7 @@
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/closet/secure_closet/freezer{
-	icon_broken = "fridgebroken";
-	icon_closed = "fridge";
-	icon_locked = "fridge1";
-	icon_off = "fridge1";
-	icon_opened = "fridgeopen";
-	icon_state = "fridge1";
+	icon_state = "freezer"
 	name = "cafe fridge"
 	},
 /obj/machinery/button/remote/blast_door{
