@@ -199,9 +199,6 @@
 	desc = "It's a storage unit for fire-fighting supplies."
 	icon = 'icons/obj/walllocker.dmi'
 	icon_state = "hydrant"
-	icon_closed = "hydrant"
-	icon_opened = "hydrant_open"
-	icon_welded = "welded_wallcloset"
 	anchored = 1
 	density = 0
 	wall_mounted = 1
@@ -225,9 +222,6 @@
 	desc = "It's wall-mounted storage unit for first aid supplies."
 	icon = 'icons/obj/walllocker.dmi'
 	icon_state = "medical_wall"
-	icon_closed = "medical_wall"
-	icon_opened = "medical_wall_open"
-	icon_welded = "welded_wallcloset"
 	anchored = 1
 	density = 0
 	wall_mounted = 1
