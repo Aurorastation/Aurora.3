@@ -23,7 +23,7 @@ var/datum/controller/subsystem/timer/SStimer
 	wait = 1 //SS_TICKER subsystem, so wait is in ticks
 	priority = SS_PRIORITY_TIMER
 
-	flags = SS_FIRE_IN_LOBBY|SS_TICKER|SS_NO_INIT
+	flags = SS_TICKER|SS_NO_INIT
 
 	/// Queue used for storing timers that do not fit into the current buckets
 	var/list/datum/timedevent/second_queue = list()
@@ -366,10 +366,9 @@ var/datum/controller/subsystem/timer/SStimer
 	var/bucket_joined = FALSE
 	/// Initial bucket position
 	var/bucket_pos = -1
-	/// The next ID to assign to a TIMER_STOPPABLE timer.
-	var/static/nextid = 1
 
 /datum/timedevent/New(datum/callback/callBack, wait, flags, hash, source)
+	var/static/nextid = 1
 	id = TIMER_ID_NULL
 	src.callBack = callBack
 	src.wait = wait
