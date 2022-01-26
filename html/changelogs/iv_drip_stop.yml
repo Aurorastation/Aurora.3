@@ -1,0 +1,6 @@
+author: Vrow
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a togglable automatic blood injection stop for the IV drips, which causes them to automatically and safely disengage from patients if their blood volume is full."
