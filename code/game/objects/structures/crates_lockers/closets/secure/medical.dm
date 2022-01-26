@@ -1,13 +1,7 @@
 /obj/structure/closet/secure_closet/medical1
 	name = "medicine closet"
 	desc = "Filled with medical junk."
-	icon_state = "medical1"
-	icon_closed = "medical"
-	icon_locked = "medical1"
-	icon_opened = "medicalopen"
-	icon_broken = "medicalbroken"
-	icon_off = "medicaloff"
-	welded_overlay_state = "welded_wallcloset"
+	icon_state = "med"
 	req_access = list(access_medical_equip)
 
 /obj/structure/closet/secure_closet/medical1/fill()
@@ -25,12 +19,7 @@
 /obj/structure/closet/secure_closet/medical2
 	name = "anesthetics closet"
 	desc = "Used to knock people out."
-	icon_state = "medical1"
-	icon_closed = "medical"
-	icon_locked = "medical1"
-	icon_opened = "medicalopen"
-	icon_broken = "medicalbroken"
-	icon_off = "medicaloff"
+	icon_state = "med"
 	req_access = list(access_surgery)
 
 /obj/structure/closet/secure_closet/medical2/fill()
@@ -44,12 +33,7 @@
 /obj/structure/closet/secure_closet/medical3
 	name = "medical equipment locker"
 	req_access = list(access_medical_equip)
-	icon_state = "securemed1"
-	icon_closed = "securemed"
-	icon_locked = "securemed1"
-	icon_opened = "securemedopen"
-	icon_broken = "securemedbroken"
-	icon_off = "securemedoff"
+	icon_state = "med"
 
 /obj/structure/closet/secure_closet/medical3/fill()
 	if(prob(50))
@@ -93,12 +77,7 @@
 	name = "first responder's locker"
 	desc = "An immobile, card-locked storage unit containing all the necessary equipment for a first responder."
 	req_access = list(access_first_responder)
-	icon_state = "securemed1"
-	icon_closed = "securemed"
-	icon_locked = "securemed1"
-	icon_opened = "securemedopen"
-	icon_broken = "securemedbroken"
-	icon_off = "securemedoff"
+	icon_state = "med"
 
 /obj/structure/closet/secure_closet/medical_fr/fill()
 	..()
@@ -129,12 +108,7 @@
 /obj/structure/closet/secure_closet/CMO
 	name = "chief medical officer's locker"
 	req_access = list(access_cmo)
-	icon_state = "cmosecure1"
-	icon_closed = "cmosecure"
-	icon_locked = "cmosecure1"
-	icon_opened = "cmosecureopen"
-	icon_broken = "cmosecurebroken"
-	icon_off = "cmosecureoff"
+	icon_state = "cmo"
 
 /obj/structure/closet/secure_closet/CMO/fill()
 	if(prob(50))
@@ -161,12 +135,7 @@
 /obj/structure/closet/secure_closet/CMO2
 	name = "chief medical officer's attire"
 	req_access = list(access_cmo)
-	icon_state = "cmosecure1"
-	icon_closed = "cmosecure"
-	icon_locked = "cmosecure1"
-	icon_opened = "cmosecureopen"
-	icon_broken = "cmosecurebroken"
-	icon_off = "cmosecureoff"
+	icon_state = "cmo"
 
 /obj/structure/closet/secure_closet/CMO2/fill()
 	new /obj/item/storage/backpack/medic(src)
@@ -200,12 +169,7 @@
 /obj/structure/closet/secure_closet/chemical
 	name = "chemistry equipment closet"
 	desc = "Contains equipment useful to chemists."
-	icon_state = "medical1"
-	icon_closed = "medical"
-	icon_locked = "medical1"
-	icon_opened = "medicalopen"
-	icon_broken = "medicalbroken"
-	icon_off = "medicaloff"
+	icon_state = "chemical"
 	req_access = list(access_pharmacy)
 
 /obj/structure/closet/secure_closet/chemical/fill()
@@ -226,14 +190,12 @@
 /obj/structure/closet/secure_closet/medical_wall
 	name = "first aid closet"
 	desc = "It's a secure wall-mounted storage unit for first aid supplies."
-	icon_state = "medical_wall_locked"
-	icon_closed = "medical_wall_unlocked"
-	icon_locked = "medical_wall_locked"
-	icon_opened = "medical_wall_open"
-	icon_broken = "medical_wall_spark"
-	icon_off = "medical_wall_off"
+	icon = 'icons/obj/walllocker.dmi'
+	icon_state = "medical_wall"
+	icon_door = "medical_wall_secure"
+	door_anim_time = 0
 	store_mobs = FALSE
-	anchored = 1
-	density = 0
-	wall_mounted = 1
+	anchored = TRUE
+	density = FALSE
+	wall_mounted = TRUE
 	req_access = list(access_medical_equip)

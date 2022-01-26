@@ -3,21 +3,24 @@
 	desc = "It's a basic storage unit."
 	icon = 'icons/obj/closet.dmi'
 	icon_state = "closed"
-	density = 1
-	w_class = ITEMSIZE_HUGE
-	layer = OBJ_LAYER - 0.01
+	density = TRUE
+	var/icon_door = null
+	var/icon_door_override = FALSE //override to have open overlay use icon different to its base's
+	var/icon_welded = "welded"
+
+	var/secure = FALSE //secure locker or not, also used if overriding a non-secure locker with a secure door overlay to add fancy lights
+	var/opened = FALSE
+	var/welded = FALSE
+	var/locked = FALSE
+	var/broken = FALSE
+
 	build_amt = 2
-	var/icon_closed = "closed"
-	var/icon_opened = "open"
-	var/welded_overlay_state = "welded"
-	var/opened = 0
-	var/welded = 0
+
 	var/wall_mounted = 0 //never solid (You can always pass over it)
 	var/health = 100
 	var/breakout = 0 //if someone is currently breaking out. mutex
 	var/storage_capacity = 40 //Tying this to mob sizes was dumb
-	//This is so that someone can't pack hundreds of items in a locker/crate
-							  //then open it in a populated area to crash clients.
+	//This is so that someone can't pack hundreds of items in a locker/crate then open it in a populated area to crash clients.
 	var/open_sound = 'sound/effects/closet_open.ogg'
 	var/close_sound = 'sound/effects/closet_close.ogg'
 
@@ -29,10 +32,17 @@
 	var/const/default_mob_size = 15
 	var/obj/item/closet_teleporter/linked_teleporter
 
+	var/obj/effect/overlay/closet_door/door_obj
+	var/is_animating_door = FALSE
+	var/door_anim_squish = 0.12
+	var/door_anim_angle = 136
+	var/door_hinge_x = -6.5
+	var/door_anim_time = 2.5 // set to 0 to make the door not animate at all
+
 	slowdown = 5
 
 /obj/structure/closet/LateInitialize()
-	if (opened)	// if closed, any item at the crate's loc is put in the contents
+	if(opened)	// if closed, any item at the crate's loc is put in the contents
 		return
 	var/obj/I
 	for(I in loc)
@@ -50,6 +60,7 @@
 
 /obj/structure/closet/Initialize(mapload)
 	..()
+	update_icon()
 	fill()
 	return mapload ? INITIALIZE_HINT_LATELOAD : INITIALIZE_HINT_NORMAL
 
@@ -129,7 +140,7 @@
 
 	dump_contents()
 
-	icon_state = icon_opened
+	update_icon()
 	opened = TRUE
 	playsound(loc, open_sound, 25, 0, -3)
 	density = FALSE
@@ -150,7 +161,7 @@
 	if(store_mobs)
 		stored_units += store_mobs(stored_units)
 
-	icon_state = icon_closed
+	update_icon()
 	opened = FALSE
 	if(linked_teleporter)
 		if(linked_teleporter.last_use + 600 > world.time)
@@ -410,14 +421,30 @@
 	else
 		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
 
-/obj/structure/closet/update_icon()//Putting the welded stuff in update_icon() so it's easy to overwrite for special cases (Fridges, cabinets, and whatnot)
+/obj/structure/closet/update_icon()
 	cut_overlays()
 	if(!opened)
-		icon_state = icon_closed
-		if(welded)
-			add_overlay(welded_overlay_state)
+		layer = OBJ_LAYER
+		if(!is_animating_door)
+			if(icon_door)
+				add_overlay("[icon_door]_door")
+			else
+				add_overlay("[icon_state]_door")
+			if(secure && !broken)
+				if(locked)
+					add_overlay("locked")
+				else
+					add_overlay("unlocked")
+			if(welded)
+				add_overlay(icon_welded)
+
 	else
-		icon_state = icon_opened
+		layer = BELOW_OBJ_LAYER
+		if(!is_animating_door)
+			if(icon_door_override)
+				add_overlay("[icon_door]_open")
+			else
+				add_overlay("[icon_state]_open")
 
 /obj/structure/closet/hear_talk(mob/M as mob, text, verb, datum/language/speaking)
 	for (var/atom/A in src)

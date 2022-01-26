@@ -3,8 +3,6 @@
 	name = "sol navy uniform closet"
 	desc = "It's a storage unit for Sol Alliance navy uniforms."
 	icon_state = "syndicate1"
-	icon_closed = "syndicate1"
-	icon_opened = "syndicate1open"
 
 /obj/structure/closet/sol/navy/fill()
 	..()
@@ -81,12 +79,7 @@
 /obj/structure/closet/secure_closet/soll_officer
 	name = "sol alliance officer locker"
 	req_access = list(access_captain)
-	icon_state = "capsecure1"
-	icon_closed = "capsecure"
-	icon_locked = "capsecure1"
-	icon_opened = "capsecureopen"
-	icon_broken = "capsecurebroken"
-	icon_off = "capsecureoff"
+	icon_state = "cap"
 
 /obj/structure/closet/secure_closet/soll_officer/fill()
 	..()

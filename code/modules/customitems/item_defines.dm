@@ -1319,8 +1319,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A relatively good quality tent, complete with mounting poles and straps for keeping it open."
 	icon = 'icons/obj/custom_items/muhawir_items.dmi'
 	icon_state = "tent-closed"
-	icon_closed = "tent-closed"
-	icon_opened = "tent-open"
 	open_sound = 'sound/items/zip.ogg'
 	close_sound = 'sound/items/zip.ogg'
 	anchored = TRUE

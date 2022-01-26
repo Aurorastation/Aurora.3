@@ -11,8 +11,7 @@
 /obj/structure/closet/gmcloset
 	name = "formal closet"
 	desc = "It's a storage unit for formal clothing."
-	icon_state = "black"
-	icon_closed = "black"
+	icon_door = "black"
 
 /obj/structure/closet/gmcloset/fill()
 	new /obj/item/clothing/head/that(src)
@@ -39,8 +38,7 @@
 /obj/structure/closet/chefcloset
 	name = "chef's closet"
 	desc = "It's a storage unit for foodservice garments."
-	icon_state = "black"
-	icon_closed = "black"
+	icon_door = "black"
 
 /obj/structure/closet/chefcloset/fill()
 	new /obj/item/clothing/under/sundress(src)
@@ -63,9 +61,7 @@
 /obj/structure/closet/jcloset
 	name = "custodial closet"
 	desc = "It's a storage unit for janitorial clothes and gear."
-	icon_state = "janitorial"
-	icon_closed = "janitorial"
-	icon_opened = "janitorialopen"
+	icon_door = "mixed"
 
 /obj/structure/closet/jcloset/fill()
 	new /obj/item/clothing/under/rank/janitor(src)
@@ -101,7 +97,6 @@
 	name = "legal closet"
 	desc = "It's a storage unit for courtroom apparel and items."
 	icon_state = "blue"
-	icon_closed = "blue"
 
 /obj/structure/closet/lawcloset/fill()
 	new /obj/item/clothing/under/lawyer/black(src)

@@ -24,24 +24,7 @@
 
 
 /obj/structure/closet/secure_closet/personal/cabinet
-	icon_state = "cabinetdetective_locked"
-	icon_closed = "cabinetdetective"
-	icon_locked = "cabinetdetective_locked"
-	icon_opened = "cabinetdetective_open"
-	icon_broken = "cabinetdetective_broken"
-	icon_off = "cabinetdetective_broken"
-
-/obj/structure/closet/secure_closet/personal/cabinet/update_icon()
-	if(broken)
-		icon_state = icon_broken
-	else
-		if(!opened)
-			if(locked)
-				icon_state = icon_locked
-			else
-				icon_state = icon_closed
-		else
-			icon_state = icon_opened
+	icon_state = "cabinet"
 
 /obj/structure/closet/secure_closet/personal/cabinet/fill()
 	new /obj/item/storage/backpack/satchel/withwallet(src)
@@ -69,8 +52,7 @@
 		if(allowed(user) || !registered_name || (istype(I) && (registered_name == I.registered_name)))
 			//they can open all lockers, or nobody owns this, or they own this locker
 			locked = !( locked )
-			if(locked)	icon_state = icon_locked
-			else	icon_state = icon_closed
+			update_icon()
 
 			if(!registered_name)
 				registered_name = I.registered_name
@@ -92,7 +74,7 @@
 		broken = 1
 		locked = 0
 		desc = "It appears to be broken."
-		icon_state = icon_broken
+		update_icon()
 		if(visual_feedback)
 			visible_message("<span class='warning'>[visual_feedback]</span>", "<span class='warning'>[audible_feedback]</span>")
 		return 1
@@ -114,7 +96,7 @@
 				if(!close())
 					return
 			locked = 1
-			icon_state = icon_locked
+			update_icon()
 			registered_name = null
 			desc = "It's a secure locker for personnel. The first card swiped gains control."
 	return
