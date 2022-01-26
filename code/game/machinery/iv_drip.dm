@@ -6,6 +6,7 @@
 
 	var/mob/living/carbon/human/attached = null
 	var/mode = 1 // 1 is injecting, 0 is taking blood.
+	var/toggle_stop = 1
 	var/transfer_amount = REM
 	var/obj/item/reagent_containers/beaker = null
 	var/blood_message_sent = FALSE
@@ -104,6 +105,16 @@
 			beaker.reagents.trans_to_mob(attached, transfer_amount, CHEM_BLOOD)
 			update_icon()
 
+		if(toggle_stop) // Automatically detaches if the blood volume is at 100%
+			if(beaker.reagents.has_reagent(/decl/reagent/blood) && attached.get_blood_volume() >= 100)
+				visible_message("[icon2html(src, viewers(get_turf(src)))] \The <b>[src]</b> flashes a warning light, disengaging from [attached] automatically!")
+				playsound(src, 'sound/machines/buzz-two.ogg', 50)
+				src.attached = null
+				src.update_icon()
+				blood_message_sent = FALSE
+				update_icon()
+				return
+
 	// Take blood
 	else
 		var/amount = REAGENTS_FREE_SPACE(beaker.reagents)
@@ -147,6 +158,22 @@
 
 	mode = !mode
 	to_chat(usr, "[src] is now [mode ? "injecting" : "taking blood"].")
+
+/obj/machinery/iv_drip/verb/toggle_stop()
+	set category = "Object"
+	set name = "Toggle Stop"
+	set src in view(1)
+
+	if(!istype(usr, /mob/living))
+		to_chat(usr, "<span class='warning'>You can't do that.</span>")
+		return
+
+	if(usr.stat)
+		return
+
+	toggle_stop = !toggle_stop
+	to_chat(usr, "[src]'s automatic stop mode is now [toggle_stop ? "active" : "deactivated"]")
+	playsound(usr, 'sound/machines/click.ogg', 50)
 
 /obj/machinery/iv_drip/examine(mob/user)
 	..(user)
