@@ -74,7 +74,7 @@
 	name = "nifberries"
 	seed_name = "dirt berries"
 	display_name = "dirt berries shrub"
-	chems = list(/decl/reagent/nutriment = list(0, 15), /decl/reagent/nutriment/triglyceride/oil = list(1, 5))
+	chems = list(/decl/reagent/nutriment = list(0, 15), /decl/reagent/nutriment/triglyceride/oil = list(1, 5), /decl/reagent/drink/dirtberryjuice = list(10,10))
 	kitchen_tag = "nifberries"
 
 /datum/seed/nifberries/setup_traits()

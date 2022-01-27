@@ -119,7 +119,7 @@
 	seed_name = "ylpha berry"
 	display_name = "ylpha berry bush"
 	mutants = null
-	chems = list(/decl/reagent/nutriment = list(3, 5))
+	chems = list(/decl/reagent/nutriment = list(3, 5), /decl/reagent/drink/ylphaberryjuice = list(10,10))
 	kitchen_tag = "ylpha"
 
 /datum/seed/ylpha/setup_traits()

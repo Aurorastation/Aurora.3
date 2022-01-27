@@ -794,7 +794,6 @@
 	description = "The raw essence of a banana."
 	color = "#C3AF00"
 	taste_description = "banana"
-
 	glass_icon_state = "banana"
 	glass_name = "glass of banana juice"
 	glass_desc = "The raw essence of a banana. HONK!"
@@ -804,9 +803,99 @@
 	description = "A delicious blend of several different kinds of berries."
 	color = "#990066"
 	taste_description = "berries"
-
 	glass_icon_state = "berryjuice"
 	glass_name = "glass of berry juice"
+	glass_desc = "Berry juice. Or maybe it's jam. Who cares?"
+
+/decl/reagent/drink/dirtberryjuice
+	name = "Dirt Berry Juice"
+	description = "A delicious blend of several dirt berries."
+	color = "#C4AE7A"
+	taste_description = "dirt berries"
+	glass_icon_state = "berryjuice"
+	glass_name = "glass of dirt berry juice"
+	glass_desc = "Berry juice. Or maybe it's jam. Who cares?"
+
+/decl/reagent/drink/glowberryjuice
+	name = "Glow Berry Juice"
+	description = "A delicious blend of several glow berries."
+	color = "#c9fa16"
+	taste_description = "glow berries"
+	glass_icon_state = "berryjuice"
+	glass_name = "glass of glow berry juice"
+	glass_desc = "Berry juice. Or maybe it's jam. Who cares?"
+
+/decl/reagent/drink/strawberryjuice
+	name = "Strawberry Juice"
+	description = "A delicious blend of several strawberries."
+	color = "#bb0202"
+	taste_description = "strawberries"
+	glass_icon_state = "berryjuice"
+	glass_name = "glass of strawberry juice"
+	glass_desc = "Berry juice. Or maybe it's jam. Who cares?"
+
+/decl/reagent/drink/blueberryjuice
+	name = "Blueberry Juice"
+	description = "A delicious blend of several blueberries."
+	color = "#1C225C"
+	taste_description = "blueberries"
+	glass_icon_state = "berryjuice"
+	glass_name = "glass of blueberry juice"
+	glass_desc = "Berry juice. Or maybe it's jam. Who cares?"
+
+/decl/reagent/drink/raspberryjuice
+	name = "Raspberry Juice"
+	description = "A delicious blend of several raspberries."
+	color = "#ff0000"
+	taste_description = "raspberries"
+	glass_icon_state = "berryjuice"
+	glass_name = "glass of raspberry juice"
+	glass_desc = "Berry juice. Or maybe it's jam. Who cares?"
+
+/decl/reagent/drink/blueraspberryjuice
+	name = "Blue Raspberry Juice"
+	description = "A delicious blend of several dark raspberries."
+	color = "#030145"
+	taste_description = "blue raspberries"
+	glass_icon_state = "berryjuice"
+	glass_name = "glass of blue raspberry juice"
+	glass_desc = "Berry juice. Or maybe it's jam. Who cares?"
+
+/decl/reagent/drink/blackberryjuice
+	name = "Black Berry Juice"
+	description = "A delicious blend of several black berries."
+	color = "#1a063f"
+	taste_description = "black berries"
+	glass_icon_state = "berryjuice"
+	glass_name = "glass of black berry juice"
+	glass_desc = "Berry juice. Or maybe it's jam. Who cares?"
+
+/decl/reagent/toxin/poisonberryjuice // It has more in common with toxins than drinks... but it's a juice
+	name = "Poison Berry Juice"
+	description = "A tasty juice blended from various kinds of very deadly and toxic berries."
+	color = "#863353"
+	strength = 5
+	taste_description = "berries"
+	glass_icon_state = "poisonberryjuice"
+	glass_name = "glass of poison berry juice"
+	glass_desc = "A glass of deadly juice."
+
+/decl/reagent/drink/deathberryjuice
+	name = "Death Berry Juice"
+	description = "A delicious blend of several toxic death berries."
+	color = "#7A5454"
+	taste_description = "death and decay"
+	glass_icon_state = "berryjuice"
+	glass_name = "glass of berry juice?"
+	glass_desc = "Berry juice. Or maybe it's jam. Who cares?"
+
+/decl/reagent/drink/ylphaberryjuice
+	name = "Ylpha Berry Juice"
+	description = "A delicious blend of several ylpha berries."
+	color = "#d46423"
+	taste_description = "ylpha berries"
+	glass_icon_state = "berryjuice"
+	glass_name = "glass of ylpha berry juice"
 	glass_desc = "Berry juice. Or maybe it's jam. Who cares?"
 
 /decl/reagent/drink/carrotjuice
@@ -814,7 +903,6 @@
 	description = "It is just like a carrot but without crunching."
 	color = "#FF8C00" // rgb: 255, 140, 0
 	taste_description = "carrots"
-
 	glass_icon_state = "carrotjuice"
 	glass_name = "glass of carrot juice"
 	glass_desc = "It is just like a carrot but without crunching."
@@ -830,7 +918,6 @@
 	description = "It's grrrrrape!"
 	color = "#660099"
 	taste_description = "grapes"
-
 	glass_icon_state = "grapejuice"
 	glass_name = "glass of grape juice"
 	glass_desc = "It's grrrrrape!"
@@ -880,17 +967,6 @@
 	if(alien == IS_DIONA)
 		return
 	M.adjustOxyLoss(-2 * removed)
-
-/decl/reagent/toxin/poisonberryjuice // It has more in common with toxins than drinks... but it's a juice
-	name = "Poison Berry Juice"
-	description = "A tasty juice blended from various kinds of very deadly and toxic berries."
-	color = "#863353"
-	strength = 5
-	taste_description = "berries"
-
-	glass_icon_state = "poisonberryjuice"
-	glass_name = "glass of poison berry juice"
-	glass_desc = "A glass of deadly juice."
 
 /decl/reagent/drink/potatojuice
 	name = "Potato Juice"
