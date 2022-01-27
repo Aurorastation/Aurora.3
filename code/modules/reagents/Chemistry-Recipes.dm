@@ -3391,17 +3391,17 @@
 //Coffee expansion
 //=======================
 /datum/chemical_reaction/drink/coffee
-	name = "Latte"
-	id = "latte"
+	name = "Coffee"
+	id = "coffee"
 	result = /decl/reagent/drink/coffee
-	required_reagents = list(/decl/reagent/drink/coffee/espresso = 5, /decl/reagent/water = 5)
+	required_reagents = list(/decl/reagent/nutriment/coffeegrounds = 1, /decl/reagent/water = 5)
 	result_amount = 10
 
 /datum/chemical_reaction/drink/espresso
-	name = "Latte"
-	id = "latte"
+	name = "Espresso"
+	id = "espresso"
 	result = /decl/reagent/drink/coffee/espresso
-	required_reagents = list(/decl/reagent/nutriment/coffeegrounds = 1, /decl/reagent/water = 5)
+	required_reagents = list(/decl/reagent/nutriment/darkcoffeegrounds = 1, /decl/reagent/water = 5)
 	result_amount = 5
 
 /datum/chemical_reaction/caramelisation
@@ -3470,6 +3470,85 @@
 	required_reagents = list(/decl/reagent/nutriment/mint = 2, /decl/reagent/drink/syrup_simple = 3)
 	result_amount = 5
 
+//
+/datum/chemical_reaction/berrysyrup
+	name = "Berry Syrup"
+	id = "berrysyrup"
+	result = /decl/reagent/drink/syrup_berry
+	required_reagents = list(/decl/reagent/drink/berryjuice = 2, /decl/reagent/drink/syrup_simple = 3)
+	result_amount = 5
+
+/datum/chemical_reaction/strawberrysyrup
+	name = "Strawberry Syrup"
+	id = "strawberrysyrup"
+	result = /decl/reagent/drink/syrup_strawberry
+	required_reagents = list(/decl/reagent/drink/strawberryjuice = 2, /decl/reagent/drink/syrup_simple = 3)
+	result_amount = 5
+
+/datum/chemical_reaction/blueberrysyrup
+	name = "Blueberry Syrup"
+	id = "blueberrysyrup"
+	result = /decl/reagent/drink/syrup_blueberry
+	required_reagents = list(/decl/reagent/drink/blueberryjuice = 2, /decl/reagent/drink/syrup_simple = 3)
+	result_amount = 5
+
+/datum/chemical_reaction/raspberrysyrup
+	name = "Raspberry Syrup"
+	id = "raspberrysyrup"
+	result = /decl/reagent/drink/syrup_raspberry
+	required_reagents = list(/decl/reagent/drink/raspberryjuice = 2, /decl/reagent/drink/syrup_simple = 3)
+	result_amount = 5
+
+/datum/chemical_reaction/blueraspberrysyrup
+	name = "Blue Raspberry Syrup"
+	id = "blueraspberrysyrup"
+	result = /decl/reagent/drink/syrup_blueraspberry
+	required_reagents = list(/decl/reagent/drink/blueraspberryjuice = 2, /decl/reagent/drink/syrup_simple = 3)
+	result_amount = 5
+
+/datum/chemical_reaction/blackraspberrysyrup
+	name = "Black Raspberry Syrup"
+	id = "blackraspberrysyrup"
+	result = /decl/reagent/drink/syrup_blackraspberry
+	required_reagents = list(/decl/reagent/drink/blackraspberryjuice = 2, /decl/reagent/drink/syrup_simple = 3)
+	result_amount = 5
+
+/datum/chemical_reaction/poisonberrysyrup
+	name = "Poison Berry Syrup"
+	id = "poisonberrysyrup"
+	result = /decl/reagent/drink/syrup_poisonberry
+	required_reagents = list(/decl/reagent/toxin/poisonberryjuice = 2, /decl/reagent/drink/syrup_simple = 3)
+	result_amount = 5
+
+/datum/chemical_reaction/deathberrysyrup
+	name = "Death Berry Syrup"
+	id = "deathberrysyrup"
+	result = /decl/reagent/drink/syrup_deathberry
+	required_reagents = list(/decl/reagent/toxin/deathberryjuice = 2, /decl/reagent/drink/syrup_simple = 3)
+	result_amount = 5
+
+/datum/chemical_reaction/glowberrysyrup
+	name = "Glowberry Syrup"
+	id = "glowberrysyrup"
+	result = /decl/reagent/drink/syrup_glowberry
+	required_reagents = list(/decl/reagent/drink/glowberryjuice = 2, /decl/reagent/drink/syrup_simple = 3)
+	result_amount = 5
+
+/datum/chemical_reaction/ylphaberrysyrup
+	name = "Ylpha Berry Syrup"
+	id = "ylphaberrysyrup"
+	result = /decl/reagent/drink/syrup_ylphaberry
+	required_reagents = list(/decl/reagent/drink/ylphaberryjuice = 2, /decl/reagent/drink/syrup_simple = 3)
+	result_amount = 5
+
+/datum/chemical_reaction/dirtberrysyrup
+	name = "Dirt Berry Syrup"
+	id = "dirtberrysyrup"
+	result = /decl/reagent/drink/syrup_dirtberry
+	required_reagents = list(/decl/reagent/drink/dirtberryjuice = 2, /decl/reagent/drink/syrup_simple = 3)
+	result_amount = 5
+
+//
 /datum/chemical_reaction/drink/cuba_libre
 	name = "Cuba Libre"
 	id = "cubalibre"
@@ -3660,7 +3739,7 @@
 	result = /decl/reagent/alcohol/butanol/pulque
 	required_reagents = list(/decl/reagent/alcohol/pulque = 1, /decl/reagent/alcohol/butanol/xuizijuice = 1)
 	result_amount = 2
-	
+
 /datum/chemical_reaction/drink/ichor
 	name = "xsain ichor"
 	id = "ichor"
