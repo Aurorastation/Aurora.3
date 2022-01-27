@@ -254,7 +254,7 @@
 
 
 /obj/structure/closet/crate/secure
-	name = "Secure crate"
+	name = "secure crate"
 	desc = "A secure crate."
 	icon_state = "securecrate"
 	var/secure_type = "securecrate" // For snowflake security locks n' schiesse.
@@ -537,6 +537,7 @@
 	name = "secure hydroponics crate"
 	desc = "A crate with a lock on it, painted in the scheme of the station's botanists."
 	icon_state = "hydrosecurecrate"
+
 /obj/structure/closet/crate/secure/bin
 	name = "secure bin"
 	desc = "A secure bin."

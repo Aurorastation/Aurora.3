@@ -138,10 +138,10 @@
 	if(!can_open())
 		return 0
 
+	opened = TRUE
 	dump_contents()
 	animate_door(FALSE)
 	update_icon()
-	opened = TRUE
 	playsound(loc, open_sound, 25, 0, -3)
 	density = FALSE
 	return 1
@@ -160,9 +160,10 @@
 		stored_units += store_items(stored_units)
 	if(store_mobs)
 		stored_units += store_mobs(stored_units)
+	opened = FALSE
 	animate_door(TRUE)
 	update_icon()
-	opened = FALSE
+
 	if(linked_teleporter)
 		if(linked_teleporter.last_use + 600 > world.time)
 			return
@@ -218,7 +219,6 @@
 	if(!(opened ? close() : open()))
 		to_chat(user, "<span class='notice'>It won't budge!</span>")
 		return
-	update_icon()
 	return 1
 
 /obj/structure/closet/ex_act(severity)
@@ -475,6 +475,7 @@
 	is_animating_door = FALSE
 	vis_contents -= door_obj
 	update_icon()
+	compile_overlays(src)
 
 /obj/structure/closet/proc/get_door_transform(angle)
 	var/matrix/M = matrix()
@@ -567,7 +568,6 @@
 
 /obj/structure/closet/proc/break_open()
 	welded = 0
-	update_icon()
 	//Do this to prevent contents from being opened into nullspace (read: bluespace)
 	if(istype(loc, /obj/structure/bigDelivery))
 		var/obj/structure/bigDelivery/BD = loc

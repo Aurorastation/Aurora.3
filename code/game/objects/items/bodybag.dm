@@ -143,8 +143,10 @@
 	qdel(src)
 
 /obj/structure/closet/body_bag/update_icon()
-	flick("[initial(icon_state)]_anim_[opened ? "open" : "closed"]]", src)
 	icon_state = "[initial(icon_state)][opened ? "_open" : "[contains_body ? "_occupied" : ""]"]"
+
+/obj/structure/closet/body_bag/animate_door()
+	flick("[initial(icon_state)]_anim_[opened ? "open" : "close"]", src)
 
 /obj/item/bodybag/cryobag
 	name = "stasis bag"
@@ -196,7 +198,7 @@
 /obj/structure/closet/body_bag/cryobag/update_icon()
 	..()
 	overlays.Cut()
-	var/image/I = image(icon, "indicator[opened]")
+	var/image/I = image(icon, "indicator")
 	I.appearance_flags = RESET_COLOR
 	var/maxstasis = initial(stasis_power)
 	if(stasis_power > 0.5 * maxstasis)
