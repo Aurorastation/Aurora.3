@@ -106,7 +106,7 @@ var/datum/controller/subsystem/timer/SStimer
 		WARNING(msg)
 		if(bucket_auto_reset)
 			bucket_resolution = 0
-		dump_timer_buckets(config.log_timers_on_bucket_reset)
+		dump_timer_buckets()
 
 	// Process client-time timers
 	if (next_clienttime_timer_index)
@@ -132,7 +132,7 @@ var/datum/controller/subsystem/timer/SStimer
 		if(ctime_timer.flags & TIMER_LOOP)
 			ctime_timer.spent = 0
 			ctime_timer.timeToRun = REALTIMEOFDAY + ctime_timer.wait
-			BINARY_INSERT_TG(ctime_timer, clienttime_timers, /datum/timedevent, ctime_timer, timeToRun, COMPARE_KEY)
+			BINARY_INSERT(ctime_timer, clienttime_timers, /datum/timedevent, ctime_timer, timeToRun, COMPARE_KEY)
 		else
 			qdel(ctime_timer)
 
@@ -495,7 +495,7 @@ var/datum/controller/subsystem/timer/SStimer
 	else if (timeToRun >= TIMER_MAX)
 		L = SStimer.second_queue
 	if(L)
-		BINARY_INSERT_TG(src, L, /datum/timedevent, src, timeToRun, COMPARE_KEY)
+		BINARY_INSERT(src, L, /datum/timedevent, src, timeToRun, COMPARE_KEY)
 		return
 
 	// Get a local reference to the bucket list, this is faster than referencing the datum
