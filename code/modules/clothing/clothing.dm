@@ -292,6 +292,15 @@
 			siemens_coefficient = between(0, material.conductivity / 10, 10)
 		slowdown = between(0, round(material.weight / 10, 0.1), 6)
 
+/obj/item/clothing/proc/get_accessory(var/typepath)
+	if(istype(src, typepath))
+		return src
+	if(LAZYLEN(accessories))
+		var/accessory = locate(typepath) in accessories
+		if(accessory)
+			return accessory
+	return null
+
 ///////////////////////////////////////////////////////////////////////
 // Ears: headsets, earmuffs and tiny objects
 /obj/item/clothing/ears

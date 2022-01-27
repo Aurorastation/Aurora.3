@@ -2340,7 +2340,20 @@ All custom items with worn sprites must follow the contained sprite system: http
 	var/name2 = "handmade royalist cloak"
 	var/desc2 = "A blue cloak with the symbol of the New Kingdom of Adhomai proudly displayed on the back.\nUpon closer examination it appears to be a patchwork of older textile and newer fabrics, with the inside of the cloak appearing to be colored differently."
 	var/changed = FALSE
+	var/hooded = FALSE
+	var/obj/item/clothing/head/winterhood/hood
+	var/hoodtype = /obj/item/clothing/head/winterhood
 
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/update_icon(var/user)
+	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
+	K.icon_state = "[K.changed ? K.style : initial(K.icon_state)]"
+	K.item_state = "[K.icon_state][K.hooded ? "_up" : ""]"
+	K.accessory_mob_overlay = null
+	. = ..()
+	usr.update_icon()
+	usr.update_inv_w_uniform()
+	usr.update_inv_wear_suit()
+	
 /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_cloak()
 	set name = "Change Cloak"
 	set category = "Object"
@@ -2349,34 +2362,108 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if(use_check_and_message(usr))
 		return
 
-	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = null
-	if(istype(src, /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak))
-		K = src
-	if(!K && isclothing(src))
-		var/obj/item/clothing/S = src
-		if(LAZYLEN(S.accessories))
-			K = locate() in S.accessories
+	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
 	if(!K)
 		return
 
 	usr.visible_message(SPAN_NOTICE("[usr] swiftly pulls \the [K] inside out, changing its appearance."))
-	K.icon_state = "[K.changed ? initial(K.icon_state) : K.style]"
-	K.item_state = K.icon_state
-	K.name = "[K.changed ? initial(K.name) : K.name2]"
-	K.desc = "[K.changed ? initial(K.desc) : K.desc2]"
-	K.accessory_mob_overlay = null
-
 	K.changed = !K.changed
 	K.update_icon()
-	usr.update_icon()
-	usr.update_inv_w_uniform()
-	usr.update_inv_wear_suit()
 
 /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/on_attached(obj/item/clothing/S, mob/user as mob)
 	..()
 	has_suit.verbs += /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_cloak
+	has_suit.verbs += /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_hood
 
 /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/on_removed(mob/user as mob)
 	if(has_suit)
 		has_suit.verbs -= /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_cloak
+		has_suit.verbs -= /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_hood
 	..()
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_hood()
+	set name = "Toggle Hood"
+	set category = "Object"
+	set src in usr
+
+	if(use_check_and_message(usr))
+		return
+	
+	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
+	if(!K)
+		return
+
+	usr.visible_message(SPAN_NOTICE("[usr] pulls up the hood on \the [K]."))
+
+	if(!K.hooded)
+		if(ishuman(loc))
+			var/mob/living/carbon/human/H = src.loc
+			if(H.wear_suit != src && H.w_uniform != src)
+				to_chat(H, SPAN_WARNING("You must be wearing \the [K] to put up the hood!"))
+				return
+			if(H.head)
+				to_chat(H, SPAN_WARNING("You're already wearing something on your head!"))
+				return
+			else
+				K.hooded = TRUE
+				K.CreateHood()
+				H.equip_to_slot_if_possible(K.hood,slot_head,0,0,1)
+	else
+		K.RemoveHood()
+	
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/proc/RemoveHood()
+	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
+	if(!K)
+		return
+
+	if(!K.hooded)
+		return
+	K.hooded = FALSE
+
+	if(!K.hood)
+		K.MakeHood()
+		return
+
+	if(ishuman(K.hood.loc))
+		var/mob/living/carbon/H = K.hood.loc
+		H.unEquip(K.hood, 1)
+	K.hood.forceMove(src)
+	K.update_icon(usr)
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/proc/MakeHood()
+	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
+	if(!K.hood)
+		K.hood = new hoodtype(src)
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/Destroy()
+	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
+	QDEL_NULL(K.hood)
+	return ..()
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/dropped()
+	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
+	K.RemoveHood()
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/on_slotmove()
+	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
+	K.RemoveHood()
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/proc/CreateHood()
+	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
+	if(!K.hood)
+		K.hood = new hoodtype(src)
+	K.hood.color = src.color
+	K.hood.icon_state = "[icon_state]_hood"
+	K.hood.item_state = "[icon_state]_hood"
+	K.update_icon(usr)
+
+// /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/proc/GetCloak()
+// 	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = null
+// 	if(istype(src, /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak))
+// 		K = src
+// 	if(!K && isclothing(src))
+// 		var/obj/item/clothing/S = src
+// 		if(LAZYLEN(S.accessories))
+// 			K = locate() in S.accessories
+// 	return K
