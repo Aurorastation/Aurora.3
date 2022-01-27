@@ -2,6 +2,7 @@ author: Xxxxyobdab
 
 delete-after: True
 
+changes
   - rscdel: "Removed recipe: Espresso + Water = coffee. Reason: Americano already uses this mix."
   - rscadd: "Rich Coffee Plant to gather Rich Coffee Beans."
   - rscadd: "Grind Rich Coffee Beans for Dark Coffee Grounds."
