@@ -127,9 +127,9 @@ var/datum/controller/subsystem/timer/SStimer
 
 		var/datum/callback/callBack = ctime_timer.callBack
 		if (!callBack)
-			CRASH("Invalid timer: [get_timer_debug_string(ctime_timer)] world.time: [world.time], \
-				head_offset: [head_offset], practical_offset: [practical_offset], REALTIMEOFDAY: [REALTIMEOFDAY]")
 			message_admins("Invalid timer: [get_timer_debug_string(ctime_timer)] world.time: [world.time], \
+				head_offset: [head_offset], practical_offset: [practical_offset], REALTIMEOFDAY: [REALTIMEOFDAY]")
+			CRASH("Invalid timer: [get_timer_debug_string(ctime_timer)] world.time: [world.time], \
 				head_offset: [head_offset], practical_offset: [practical_offset], REALTIMEOFDAY: [REALTIMEOFDAY]")
 
 		ctime_timer.spent = REALTIMEOFDAY
@@ -169,9 +169,9 @@ var/datum/controller/subsystem/timer/SStimer
 			timer_processed = timer
 			var/datum/callback/callBack = timer.callBack
 			if (!callBack)
-				crash_with("Invalid timer: [get_timer_debug_string(timer)] world.time: [world.time], \
-					head_offset: [head_offset], practical_offset: [practical_offset], bucket_joined: [timer.bucket_joined]")
 				message_admins("Invalid timer: [get_timer_debug_string(timer)] world.time: [world.time], \
+					head_offset: [head_offset], practical_offset: [practical_offset], bucket_joined: [timer.bucket_joined]")
+				crash_with("Invalid timer: [get_timer_debug_string(timer)] world.time: [world.time], \
 					head_offset: [head_offset], practical_offset: [practical_offset], bucket_joined: [timer.bucket_joined]")
 				if (!timer.spent)
 					bucket_resolution = null // force bucket recreation
@@ -210,18 +210,18 @@ var/datum/controller/subsystem/timer/SStimer
 				// Check for timers that are scheduled to run in the past
 				if (timer.timeToRun < head_offset)
 					bucket_resolution = null // force bucket recreation
-					crash_with("[i] Invalid timer state: Timer in long run queue with a time to run less then head_offset. \
-						[get_timer_debug_string(timer)] world.time: [world.time], head_offset: [head_offset], practical_offset: [practical_offset]")
 					message_admins("[i] Invalid timer state: Timer in long run queue with a time to run less then head_offset. \
+						[get_timer_debug_string(timer)] world.time: [world.time], head_offset: [head_offset], practical_offset: [practical_offset]")
+					crash_with("[i] Invalid timer state: Timer in long run queue with a time to run less then head_offset. \
 						[get_timer_debug_string(timer)] world.time: [world.time], head_offset: [head_offset], practical_offset: [practical_offset]")
 					break
 
 				// Check for timers that are not capable of being scheduled to run without rebuilding buckets
 				if (timer.timeToRun < head_offset + TICKS2DS(practical_offset - 1))
 					bucket_resolution = null // force bucket recreation
-					crash_with("[i] Invalid timer state: Timer in long run queue that would require a backtrack to transfer to \
-						short run queue. [get_timer_debug_string(timer)] world.time: [world.time], head_offset: [head_offset], practical_offset: [practical_offset]")
 					message_admins("[i] Invalid timer state: Timer in long run queue that would require a backtrack to transfer to \
+						short run queue. [get_timer_debug_string(timer)] world.time: [world.time], head_offset: [head_offset], practical_offset: [practical_offset]")
+					crash_with("[i] Invalid timer state: Timer in long run queue that would require a backtrack to transfer to \
 						short run queue. [get_timer_debug_string(timer)] world.time: [world.time], head_offset: [head_offset], practical_offset: [practical_offset]")
 					break
 
