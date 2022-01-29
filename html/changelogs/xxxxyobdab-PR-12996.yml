@@ -27,7 +27,7 @@
 #################################
 
 # Your name.
-author: Wowzewow (Wezzy)
+author: xxxxyobdab
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -38,6 +38,9 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - bugfix: "Seethrough blindfolds are actually see-through again."
-  - bugfix: "Recolored blindfolds no longer are called white. Check your loadouts."
-  - balance: "Seethrough blindfolds no longer provide flash protection."
+  - rscadd: "Leather sheets can be used to reskin books."
+  - rscadd: "The bookbinder can now be set to print a book with a specific cover. Basic input menu."
+  - rscadd: "Books now retain reference to it's category."
+  - rscadd: "Books spawned from only the library bookspawners will gain the category of it."
+  - rscadd: "Books printed from the external archive will now have their category."
+  - rscadd: "The barcode scanner's base function will now also tell title, author, category on scan."
