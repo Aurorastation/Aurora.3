@@ -1,9 +1,8 @@
-var/datum/controller/subsystem/processing/shuttle/SSshuttle
+var/datum/controller/subsystem/shuttle/SSshuttle
 
-/datum/controller/subsystem/processing/shuttle
+/datum/controller/subsystem/shuttle
 	name = "Shuttle"
 	wait = 2 SECONDS
-	flags = 0
 	priority = SS_PRIORITY_SHUTTLE
 	init_order = SS_INIT_MISC                    //Should be initialized after all maploading is over and atoms are initialized, to ensure that landmarks have been initialized.
 
@@ -27,10 +26,10 @@ var/datum/controller/subsystem/processing/shuttle/SSshuttle
 
 	var/tmp/list/working_shuttles
 
-/datum/controller/subsystem/processing/shuttle/New()
+/datum/controller/subsystem/shuttle/New()
 	NEW_SS_GLOBAL(SSshuttle)
 
-/datum/controller/subsystem/processing/shuttle/Initialize()
+/datum/controller/subsystem/shuttle/Initialize()
 	last_landmark_registration_time = world.time
 	for(var/shuttle_type in subtypesof(/datum/shuttle)) // This accounts for most shuttles, though away maps can queue up more.
 		var/datum/shuttle/shuttle = shuttle_type
@@ -42,26 +41,26 @@ var/datum/controller/subsystem/processing/shuttle/SSshuttle
 	clear_init_queue()
 	. = ..()
 
-/datum/controller/subsystem/processing/shuttle/fire(resumed = FALSE)
+/datum/controller/subsystem/shuttle/fire(resumed = FALSE)
 	if (!resumed)
 		working_shuttles = process_shuttles.Copy()
 
 	while(working_shuttles.len)
 		var/datum/shuttle/shuttle = working_shuttles[working_shuttles.len]
 		working_shuttles.len--
-		if(shuttle.process_state && (shuttle.process(wait, times_fired, src) == PROCESS_KILL))
+		if(shuttle.process_state && (shuttle.process() == PROCESS_KILL))
 			process_shuttles -= shuttle
 
 		if(TICK_CHECK)
 			return
 
-/datum/controller/subsystem/processing/shuttle/proc/clear_init_queue()
+/datum/controller/subsystem/shuttle/proc/clear_init_queue()
 	if(block_queue)
 		return
 	initialize_shuttles()
 	initialize_sectors()
 
-/datum/controller/subsystem/processing/shuttle/proc/initialize_shuttles()
+/datum/controller/subsystem/shuttle/proc/initialize_shuttles()
 	var/list/shuttles_made = list()
 	for(var/shuttle_type in shuttles_to_initialize)
 		var/shuttle = initialize_shuttle(shuttle_type)
@@ -70,12 +69,12 @@ var/datum/controller/subsystem/processing/shuttle/SSshuttle
 	hook_up_motherships(shuttles_made)
 	shuttles_to_initialize = null
 
-/datum/controller/subsystem/processing/shuttle/proc/initialize_sectors()
+/datum/controller/subsystem/shuttle/proc/initialize_sectors()
 	for(var/sector in sectors_to_initialize)
 		initialize_sector(sector)
 	sectors_to_initialize = null
 
-/datum/controller/subsystem/processing/shuttle/proc/register_landmark(shuttle_landmark_tag, obj/effect/shuttle_landmark/shuttle_landmark)
+/datum/controller/subsystem/shuttle/proc/register_landmark(shuttle_landmark_tag, obj/effect/shuttle_landmark/shuttle_landmark)
 	if (registered_shuttle_landmarks[shuttle_landmark_tag])
 		CRASH("Attempted to register shuttle landmark with tag [shuttle_landmark_tag], but it is already registered!")
 	if (istype(shuttle_landmark))
@@ -93,12 +92,12 @@ var/datum/controller/subsystem/processing/shuttle/SSshuttle
 			else
 				landmarks_awaiting_sector += shuttle_landmark
 
-/datum/controller/subsystem/processing/shuttle/proc/get_landmark(var/shuttle_landmark_tag)
+/datum/controller/subsystem/shuttle/proc/get_landmark(var/shuttle_landmark_tag)
 	return registered_shuttle_landmarks[shuttle_landmark_tag]
 
 //Checks if the given sector's landmarks have initialized; if so, registers them with the sector, if not, marks them for assignment after they come in.
 //Also adds automatic landmarks that were waiting on their sector to spawn.
-/datum/controller/subsystem/processing/shuttle/proc/initialize_sector(obj/effect/overmap/visitable/given_sector)
+/datum/controller/subsystem/shuttle/proc/initialize_sector(obj/effect/overmap/visitable/given_sector)
 	given_sector.populate_sector_objects() // This is a late init operation that sets up the sector's map_z and does non-overmap-related init tasks.
 
 	for(var/landmark_tag in given_sector.initial_generic_waypoints)
@@ -119,7 +118,7 @@ var/datum/controller/subsystem/processing/shuttle/SSshuttle
 
 	initialized_sectors |= given_sector
 
-/datum/controller/subsystem/processing/shuttle/proc/try_add_landmark_tag(landmark_tag, obj/effect/overmap/visitable/given_sector)
+/datum/controller/subsystem/shuttle/proc/try_add_landmark_tag(landmark_tag, obj/effect/overmap/visitable/given_sector)
 	var/obj/effect/shuttle_landmark/landmark = get_landmark(landmark_tag)
 	if(!landmark)
 		return FALSE
@@ -132,14 +131,14 @@ var/datum/controller/subsystem/processing/shuttle/SSshuttle
 			given_sector.add_landmark(landmark, shuttle_name)
 			. = TRUE
 
-/datum/controller/subsystem/processing/shuttle/proc/initialize_shuttle(var/shuttle_type)
+/datum/controller/subsystem/shuttle/proc/initialize_shuttle(var/shuttle_type)
 	var/datum/shuttle/shuttle = shuttle_type
 	if(initial(shuttle.category) != shuttle_type)
 		shuttle = new shuttle()
 		shuttle_areas |= shuttle.shuttle_area
 		return shuttle
 
-/datum/controller/subsystem/processing/shuttle/proc/hook_up_motherships(shuttles_list)
+/datum/controller/subsystem/shuttle/proc/hook_up_motherships(shuttles_list)
 	for(var/datum/shuttle/S in shuttles_list)
 		if(S.mothershuttle && !S.motherdock)
 			var/datum/shuttle/mothership = shuttles[S.mothershuttle]
@@ -149,7 +148,7 @@ var/datum/controller/subsystem/processing/shuttle/SSshuttle
 			else
 				error("Shuttle [S] was unable to find mothership [mothership]!")
 
-/datum/controller/subsystem/processing/shuttle/proc/toggle_overmap(new_setting)
+/datum/controller/subsystem/shuttle/proc/toggle_overmap(new_setting)
 	if(overmap_halted == new_setting)
 		return
 	overmap_halted = !overmap_halted
@@ -157,5 +156,5 @@ var/datum/controller/subsystem/processing/shuttle/SSshuttle
 		var/obj/effect/overmap/visitable/ship/ship_effect = ship
 		overmap_halted ? ship_effect.halt() : ship_effect.unhalt()
 
-/datum/controller/subsystem/processing/shuttle/stat_entry()
+/datum/controller/subsystem/shuttle/stat_entry()
 	..("Shuttles:[shuttles.len], Ships:[ships.len], L:[registered_shuttle_landmarks.len][overmap_halted ? ", HALT" : ""]")
