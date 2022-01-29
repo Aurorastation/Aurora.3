@@ -314,6 +314,9 @@ var/list/bookcoveroptions=list("Random","Black","Light Grey","Grey","White","Lig
 			carved = 1
 			return
 	else if(istype(W, /obj/item/stack/material/leather))
+		if(unique)
+			to_chat(user, "Looks like you can't modify it.")
+			return
 		var/obj/item/stack/Ls=W
 		if(Ls.get_amount() < 1)//there obviously should be atleast one, i feel this is pointless but meh.
 			return
