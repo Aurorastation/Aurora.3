@@ -44531,6 +44531,7 @@
 /obj/machinery/vending/wallmed1{
 	pixel_y = -30
 	},
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "bBH" = (

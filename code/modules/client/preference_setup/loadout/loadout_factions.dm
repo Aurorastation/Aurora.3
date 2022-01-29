@@ -216,6 +216,12 @@
 	slot = slot_gloves
 	faction = "Zeng-Hu Pharmaceuticals"
 
+/datum/gear/faction/zenghu_cloak
+	display_name = "Zeng-Hu Jargon Division cloak"
+	path = /obj/item/clothing/accessory/poncho/shouldercape/qeblak/zeng
+	slot = slot_wear_suit
+	faction = "Zeng-Hu Pharmaceuticals"
+
 /datum/gear/faction/zavodskoi_patch
 	display_name = "zavodskoi sleeve patch"
 	path = /obj/item/clothing/accessory/sleevepatch/zavodskoi
