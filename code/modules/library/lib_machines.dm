@@ -365,18 +365,21 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 			bibledelay = 1
 			spawn(60)
 				bibledelay = 0
-			var/DBQuery/query = dbcon.NewQuery("SELECT * FROM ss13_library WHERE id=[sqlid]")
+			//var/DBQuery/query = dbcon.NewQuery("SELECT * FROM ss13_library WHERE id=[sqlid]")
+			var/DBQuery/query = dbcon.NewQuery("SELECT author, title, content, category FROM ss13_library WHERE id=[sqlid]")
 			query.Execute()
 
 			while(query.NextRow())
-				var/author = query.item[2]
-				var/title = query.item[3]
-				var/content = query.item[4]
+				var/author = query.item[1]
+				var/title = query.item[2]
+				var/content = query.item[3]
+				var/bcategory = query.item[4]
 				var/obj/item/book/B = new(src.loc)
 				B.name = "Book: [title]"
 				B.title = title
 				B.author = author
 				B.dat = content
+				B.book_category = bcategory
 				B.icon_state = "book[rand(1,7)]"
 				src.visible_message("[src]'s printer hums as it produces a completely bound book. How did it do that?")
 				break

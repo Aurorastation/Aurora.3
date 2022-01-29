@@ -128,6 +128,7 @@ var/list/bookcoveroptions=list("Random","Black","Light Grey","Grey","White","Lig
 		B.title = title
 		B.author = author
 		B.dat = content
+		B.book_category="[spawn_category]"
 		var/randbook = "book[rand(1,16)]"
 		B.icon_state = randbook
 		B.item_state = randbook
@@ -203,6 +204,7 @@ var/list/bookcoveroptions=list("Random","Black","Light Grey","Grey","White","Lig
 	var/unique = 0   // 0 - Normal book, 1 - Should not be treated as normal book, unable to be copied, unable to be modified
 	var/title		 // The real name of the book.
 	var/carved = 0	 // Has the book been hollowed out for use as a secret storage item?
+	var/book_category="Any"
 	var/obj/item/store	//What's in the book?
 	drop_sound = 'sound/items/drop/book.ogg'
 	pickup_sound = 'sound/items/pickup/book.ogg'
@@ -279,6 +281,9 @@ var/list/bookcoveroptions=list("Random","Black","Light Grey","Grey","White","Lig
 				if(0)
 					scanner.book = src
 					to_chat(user, "[W]'s screen flashes: 'Book stored in buffer.'")
+					to_chat(user, "Title: [src.title]")
+					to_chat(user, "Author: [src.author]")
+					to_chat(user, "Category:[src.book_category]")
 				if(1)
 					scanner.book = src
 					scanner.computer.buffer_book = src.name
@@ -402,7 +407,7 @@ obj/item/book/proc/ReskinProc(text="")//directly changes the book icon_state
 		var/modedesc
 		switch(mode)
 			if(0)
-				modedesc = "Scan book to local buffer."
+				modedesc = "Scan book to local buffer and check information."
 			if(1)
 				modedesc = "Scan book to local buffer and set associated computer buffer to match."
 			if(2)
