@@ -1,0 +1,187 @@
+{
+    "size": [1200, 800],
+    "data": {
+        "assets": [],
+        "state": {
+            "noscan": 0,
+            "nocons": 0,
+            "occupied": "So Harding",
+            "invalid": 0,
+            "ipc": 0,
+            "stat": 1,
+            "name": "So Harding",
+            "species": "Human",
+            "brain_activity": 100,
+            "pulse": 85,
+            "blood_pressure": "124/82",
+            "blood_pressure_level": 2,
+            "blood_volume": 100,
+            "blood_o2": 100,
+            "rads": 0,
+            "cloneLoss": "None",
+            "oxyLoss": "None",
+            "bruteLoss": "None",
+            "fireLoss": "None",
+            "toxLoss": "None",
+            "paralysis": 0,
+            "bodytemp": 310.055,
+            "occupant": 1,
+            "norepiAmt": null,
+            "soporAmt": null,
+            "bicardAmt": null,
+            "dexAmt": null,
+            "dermAmt": null,
+            "thetaAmt": null,
+            "otherAmt": 0,
+            "bodyparts": [
+                {
+                    "burnDmg": "None",
+                    "bruteDmg": "None",
+                    "name": "Upper Body",
+                    "hasWounds": 0,
+                    "wounds": []
+                },
+                {
+                    "burnDmg": "None",
+                    "bruteDmg": "None",
+                    "name": "Lower Body",
+                    "hasWounds": 0,
+                    "wounds": []
+                },
+                {
+                    "burnDmg": "None",
+                    "bruteDmg": "None",
+                    "name": "Head",
+                    "hasWounds": 0,
+                    "wounds": []
+                },
+                {
+                    "burnDmg": "None",
+                    "bruteDmg": "None",
+                    "name": "Left Arm",
+                    "hasWounds": 0,
+                    "wounds": []
+                },
+                {
+                    "burnDmg": "None",
+                    "bruteDmg": "None",
+                    "name": "Right Arm",
+                    "hasWounds": 0,
+                    "wounds": []
+                },
+                {
+                    "burnDmg": "None",
+                    "bruteDmg": "None",
+                    "name": "Left Leg",
+                    "hasWounds": 0,
+                    "wounds": []
+                },
+                {
+                    "burnDmg": "None",
+                    "bruteDmg": "None",
+                    "name": "Right Leg",
+                    "hasWounds": 0,
+                    "wounds": []
+                },
+                {
+                    "burnDmg": "None",
+                    "bruteDmg": "None",
+                    "name": "Left Hand",
+                    "hasWounds": 0,
+                    "wounds": []
+                },
+                {
+                    "burnDmg": "None",
+                    "bruteDmg": "None",
+                    "name": "Right Hand",
+                    "hasWounds": 0,
+                    "wounds": []
+                },
+                {
+                    "burnDmg": "None",
+                    "bruteDmg": "None",
+                    "name": "Left Foot",
+                    "hasWounds": 0,
+                    "wounds": []
+                },
+                {
+                    "burnDmg": "None",
+                    "bruteDmg": "None",
+                    "name": "Right Foot",
+                    "hasWounds": 0,
+                    "wounds": []
+                }
+            ],
+            "organs": [
+                {
+                    "name": "Heart",
+                    "location": "Chest",
+                    "damage": "None",
+                    "hasWounds": 0,
+                    "wounds": []
+                },
+                {
+                    "name": "Lungs",
+                    "location": "Chest",
+                    "damage": "None",
+                    "hasWounds": 0,
+                    "wounds": []
+                },
+                {
+                    "name": "Liver",
+                    "location": "Groin",
+                    "damage": "None",
+                    "hasWounds": 0,
+                    "wounds": []
+                },
+                {
+                    "name": "Kidneys",
+                    "location": "Groin",
+                    "damage": "None",
+                    "hasWounds": 0,
+                    "wounds": []
+                },
+                {
+                    "name": "Stomach",
+                    "location": "Groin",
+                    "damage": "None",
+                    "hasWounds": 0,
+                    "wounds": []
+                },
+                {
+                    "name": "Brain",
+                    "location": "Head",
+                    "damage": "None",
+                    "hasWounds": 0,
+                    "wounds": []
+                },
+                {
+                    "name": "Appendix",
+                    "location": "Groin",
+                    "damage": "None",
+                    "hasWounds": 0,
+                    "wounds": []
+                },
+                {
+                    "name": "Eyeballs",
+                    "location": "Head",
+                    "damage": "None",
+                    "hasWounds": 0,
+                    "wounds": []
+                }
+            ],
+            "missingparts": [],
+            "hasmissing": 0,
+            "hasinternalinjury": 0,
+            "hasexternalinjury": 0
+        },
+        "active": "medical-bodyscanner",
+        "uiref": "[0x21002126]",
+        "status": 2,
+        "debug": 1,
+        "debug_view": true,
+        "wtime": 2351.81,
+        "roundstart_hour": 500991,
+        "title": "Body scanner console"
+    }
+}
