@@ -38,7 +38,7 @@
 		. = data
 
 	var/datum/signal/signal
-	signal = telecomms_process_active()
+	signal = telecomms_process_active(user.loc.z)
 
 	VUEUI_SET_CHECK(data["isAI"], isAI(user), ., data)
 	data["crewmembers"] = list()
