@@ -30,66 +30,66 @@
 	appearance_flags = NO_CLIENT_COLOR
 
 /turf/simulated/wall/vaurca/Initialize(mapload)
-	. = ..(mapload, MATERIAL_VAURCA)
 	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_VAURCA)
 
 /turf/simulated/wall/iron/Initialize(mapload)
-	. = ..(mapload, MATERIAL_IRON)
 	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_IRON)
 
 /turf/simulated/wall/uranium/Initialize(mapload)
-	. = ..(mapload, MATERIAL_URANIUM)
 	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_URANIUM)
 
 /turf/simulated/wall/diamond/Initialize(mapload)
-	. = ..(mapload, MATERIAL_DIAMOND)
 	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_DIAMOND)
 
 /turf/simulated/wall/gold/Initialize(mapload)
-	. = ..(mapload, MATERIAL_GOLD)
 	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_GOLD)
 
 /turf/simulated/wall/silver/Initialize(mapload)
-	. = ..(mapload, MATERIAL_SILVER)
 	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_SILVER)
 
 /turf/simulated/wall/phoron/Initialize(mapload)
-	. = ..(mapload, MATERIAL_PHORON)
 	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_PHORON)
 
 /turf/simulated/wall/sandstone/Initialize(mapload)
-	. = ..(mapload, MATERIAL_SANDSTONE)
 	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_SANDSTONE)
 
 /turf/simulated/wall/ironphoron/Initialize(mapload)
-	. = ..(mapload, MATERIAL_IRON, MATERIAL_PHORON)
 	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_IRON, MATERIAL_PHORON)
 
 /turf/simulated/wall/golddiamond/Initialize(mapload)
-	. = ..(mapload, MATERIAL_GOLD, MATERIAL_DIAMOND)
 	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_GOLD, MATERIAL_DIAMOND)
 
 /turf/simulated/wall/silvergold/Initialize(mapload)
-	. = ..(mapload, MATERIAL_SILVER, MATERIAL_GOLD)
 	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_SILVER, MATERIAL_GOLD)
 
 /turf/simulated/wall/sandstonediamond/Initialize(mapload)
-	. = ..(mapload, MATERIAL_SANDSTONE, MATERIAL_DIAMOND)
 	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_SANDSTONE, MATERIAL_DIAMOND)
 
 /turf/simulated/wall/titanium/Initialize(mapload)
-	. = ..(mapload, MATERIAL_TITANIUM)
 	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_TITANIUM)
 
 /turf/simulated/wall/titanium_reinforced/Initialize(mapload)
-	. = ..(mapload, MATERIAL_TITANIUM, MATERIAL_TITANIUM)
 	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_TITANIUM, MATERIAL_TITANIUM)
 
 /turf/simulated/wall/wood/Initialize(mapload)
-	. = ..(mapload, MATERIAL_WOOD)
 	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_WOOD)
 
 /turf/simulated/wall/rusty/Initialize(mapload)
+	canSmoothWith = list(src.type)
 	. = ..(mapload, MATERIAL_RUST)
 	desc = "Rust stains this ancient wall."
-	canSmoothWith = list(src.type)
