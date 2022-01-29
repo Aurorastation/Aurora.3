@@ -65,8 +65,8 @@
 /obj/item/organ/internal/is_usable()
 	if(robotize_type)
 		var/datum/robolimb/R = all_robolimbs[robotize_type]
-		if(R.malfunctioning_check(owner))
-			return FALSE
+		if(!R.malfunctioning_check(owner))
+			return TRUE
 	else
 		return ..() && !is_broken()
 
