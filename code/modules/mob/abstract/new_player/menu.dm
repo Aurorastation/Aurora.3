@@ -19,6 +19,7 @@
 
 	using = new /obj/screen/new_player/selection/join_game(src)
 	using.name = "Join Game"
+	using.hud = src
 	adding += using
 
 	using = new /obj/screen/new_player/selection/settings(src)
