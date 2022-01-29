@@ -454,6 +454,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 	icon_state = "binder"
 	anchored = 1
 	density = 1
+	var/bookcover="random"
 
 /obj/machinery/bookbinder/attackby(var/obj/O as obj, var/mob/user as mob)
 	if(istype(O, /obj/item/paper))
@@ -467,7 +468,64 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 		var/obj/item/book/b = new(src.loc)
 		b.dat = O:info
 		b.name = "Print Job #" + "[rand(100, 999)]"
-		b.icon_state = "book[rand(1,7)]"
+		if(bookcover=="random")
+			b.icon_state = "book[rand(1,7)]"
+		else
+			b.icon_state = bookcover
 		qdel(O)
 	else
 		..()
+
+/obj/machinery/bookbinder/attack_hand(var/mob/user as mob)
+	var/bsc=input(user,"Which book cover? It is currently set as:","Book Cover") in bookcoveroptions
+	SetBookCover(bsc)//cancel is in the list already so we dont need to check for cancel
+	return
+
+/obj/machinery/bookbinder/proc/SetBookCover(text="")
+	switch(text)
+		if("" || "Cancel") return
+		if("Black")
+			bookcover="book1"
+		if("Light Grey")
+			bookcover="book_template"
+		if("Grey")
+			bookcover="book2"
+		if("White")
+			bookcover="book16"
+		if("Light Blue")
+			bookcover="book12"
+		if("Blue")
+			bookcover="book13"
+		if("Dark Blue")
+			bookcover="book14"
+		if("Light Green")
+			bookcover="book9"
+		if("Green")
+			bookcover="book8"
+		if("Light Red")
+			bookcover="book3"
+		if("Red")
+			bookcover="book4"
+		if("Light Orange")
+			bookcover="book5"
+		if("Yellow")
+			bookcover="book6"
+		if("Light Teal")
+			bookcover="book11"
+		if("Teal")
+			bookcover="book10"
+		if("Purple")
+			bookcover="book15"
+		if("Olive")
+			bookcover="book7"
+		if("Scrapbook")
+			bookcover="scrapbook"
+		if("Detailed Red")
+			bookcover="hadii-manifesto"
+		if("Detailed Blue")
+			bookcover="nka-manifesto"
+		if("Detailed Grey")
+			bookcover="dpra-manifesto"
+		if("Random")
+			bookcover="random"
+	visible_message("[icon2html(src, viewers(get_turf(src)))] [src] highlights the [text] book image.")

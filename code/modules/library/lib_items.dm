@@ -10,7 +10,7 @@
 /*
  * Bookcase
  */
-
+var/list/bookcoveroptions=list("Random","Black","Light Grey","Grey","White","Light Blue","Blue","Dark Blue","Light Green","Green","Light Red","Red","Light Orange","Yellow","Light Teal","Teal","Purple","Olive","Scrapbook","Detailed Red","Detailed Blue","Detailed Grey","Cancel")
 /obj/structure/bookcase
 	name = "bookcase"
 	icon = 'icons/obj/library.dmi'
@@ -308,6 +308,22 @@
 			new /obj/item/shreddedp(get_turf(src))
 			carved = 1
 			return
+	else if(istype(W, /obj/item/stack/material/leather))
+		var/obj/item/stack/Ls=W
+		if(Ls.get_amount() < 1)//there obviously should be atleast one, i feel this is pointless but meh.
+			return
+		var/bsc=input(user,"Which book cover did you want?","Reskin book") in bookcoveroptions
+		switch(bsc)
+			if("Cancel")
+				return
+			else
+				if(do_after(user, 20))
+					if(Ls.get_amount() < 1)//there obviously should be atleast one, i feel this is pointless but meh.
+						return
+					to_chat(user, "You reskin the book cover!")
+					Ls.use(1)
+					ReskinProc(bsc)
+				return
 	else
 		..()
 
@@ -318,7 +334,52 @@
 		M << browse("<TT><I>Penned by [author].</I></TT> <BR>" + "[dat]", "window=book")
 		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN) //to prevent spam
 
-
+obj/item/book/proc/ReskinProc(text="")//directly changes the book icon_state
+	switch(text)
+		if("Black")
+			icon_state="book1"
+		if("Light Grey")
+			icon_state="book_template"
+		if("Grey")
+			icon_state="book2"
+		if("White")
+			icon_state="book16"
+		if("Light Blue")
+			icon_state="book12"
+		if("Blue")
+			icon_state="book13"
+		if("Dark Blue")
+			icon_state="book14"
+		if("Light Green")
+			icon_state="book9"
+		if("Green")
+			icon_state="book8"
+		if("Light Red")
+			icon_state="book3"
+		if("Red")
+			icon_state="book4"
+		if("Light Orange")
+			icon_state="book5"
+		if("Yellow")
+			icon_state="book6"
+		if("Light Teal")
+			icon_state="book11"
+		if("Teal")
+			icon_state="book10"
+		if("Purple")
+			icon_state="book15"
+		if("Olive")
+			icon_state="book7"
+		if("Scrapbook")
+			icon_state="scrapbook"
+		if("Detailed Red")
+			icon_state="hadii-manifesto"
+		if("Detailed Blue")
+			icon_state="nka-manifesto"
+		if("Detailed Grey")
+			icon_state="dpra-manifesto"
+		if("Random")
+			icon_state="random"
 /*
  * Barcode Scanner
  */
