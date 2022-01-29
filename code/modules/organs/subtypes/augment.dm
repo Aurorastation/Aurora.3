@@ -12,6 +12,7 @@
 							SPECIES_UNATHI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, SPECIES_IPC_G1,
 							SPECIES_IPC_G2, SPECIES_IPC_XION,
 							SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	robotic_sprite = FALSE
 	var/cooldown = 150
 	var/action_button_icon = "augment"
 	var/activable = FALSE
