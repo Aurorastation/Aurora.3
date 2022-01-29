@@ -1,5 +1,6 @@
 /obj/item/organ/internal/augment
 	name = "augment"
+	icon = 'icons/obj/organs/augments.dmi'
 	icon_state = "augment"
 	parent_organ = BP_CHEST
 	organ_tag = "augment"
