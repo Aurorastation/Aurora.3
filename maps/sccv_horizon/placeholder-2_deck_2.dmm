@@ -464,15 +464,20 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/security/prison)
-"and" = (
-/obj/structure/lattice/catwalk/indoor/grate,
+"anb" = (
+/obj/structure/lattice/catwalk/indoor/grate/damaged,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port/far)
+"and" = (
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light/small/emergency{
 	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
@@ -6106,13 +6111,6 @@
 "dSU" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/substation/engineering)
-"dTa" = (
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port/far)
 "dTc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/bed/stool/padded/red,
@@ -7533,6 +7531,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload)
+"eUX" = (
+/obj/machinery/door/airlock/maintenance,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/wing/port/far)
 "eUY" = (
 /obj/structure/table/standard,
 /obj/item/stack/packageWrap,
@@ -9103,6 +9108,16 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/template_noop)
+"fRN" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
+/turf/simulated/floor/plating,
+/area/tcommsat/mainlvl_tcomms__relay/second)
 "fSg" = (
 /obj/effect/floor_decal/corner/white,
 /obj/effect/floor_decal/spline/plain/corner,
@@ -9278,6 +9293,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/smes/tesla)
+"fWG" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port/far)
 "fWI" = (
 /turf/simulated/floor/tiled/dark,
 /area/chapel/main)
@@ -10807,6 +10829,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
+"gRU" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port/far)
 "gRY" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/machinery/light{
@@ -11013,15 +11042,6 @@
 "gZt" = (
 /turf/simulated/floor/wood,
 /area/hydroponics/garden)
-"gZV" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port/far)
 "hal" = (
 /obj/effect/floor_decal/corner_wide/yellow/full,
 /obj/machinery/button/remote/blast_door{
@@ -13299,8 +13319,6 @@
 "iBT" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
@@ -13976,6 +13994,15 @@
 /obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/carpet/rubber,
 /area/crew_quarters/heads/hor)
+"iTh" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/telecomms/relay/preset/station,
+/obj/machinery/camera/network/telecom{
+	c_tag = "Telecomms - Second Deck Relay";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/tcommsat/mainlvl_tcomms__relay/second)
 "iUg" = (
 /obj/structure/table/standard,
 /obj/item/stamp/rd{
@@ -14283,6 +14310,16 @@
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
 /area/security/armory)
+"jeo" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port/far)
 "jes" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -15642,6 +15679,13 @@
 /obj/machinery/disposal,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
+"jVc" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port/far)
 "jVn" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 5
@@ -16843,6 +16887,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/port/far)
+"kPu" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/tcommsat/mainlvl_tcomms__relay/second)
 "kPz" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/appliance/cooker/oven,
@@ -23127,6 +23178,9 @@
 	dir = 6
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "oKR" = (
@@ -23186,6 +23240,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology)
+"oNE" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port/far)
 "oNS" = (
 /obj/machinery/vending/battlemonsters,
 /obj/machinery/alarm{
@@ -23415,13 +23476,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/lino/grey,
 /area/crew_quarters/bar)
-"oUW" = (
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port/far)
 "oVe" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -31278,8 +31332,6 @@
 	dir = 1
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/ramp{
@@ -33035,17 +33087,15 @@
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "uNq" = (
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/machinery/door/airlock/highsecurity{
+	name = "Second Deck Telecommunications Relay";
+	req_access = list(61)
 	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 1
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/wing/port/far)
+/area/tcommsat/mainlvl_tcomms__relay/second)
 "uNs" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
@@ -33443,6 +33493,15 @@
 	},
 /turf/simulated/open/airless,
 /area/template_noop)
+"vbe" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/obj/machinery/power/apc{
+	name = "south bump";
+	pixel_y = -24
+	},
+/turf/simulated/floor/plating,
+/area/tcommsat/mainlvl_tcomms__relay/second)
 "vbk" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -36043,11 +36102,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
-"wzU" = (
-/turf/simulated/floor/tiled/ramp{
-	dir = 4
-	},
-/area/maintenance/wing/port/far)
 "wAa" = (
 /obj/item/reagent_containers/glass/beaker/cryoxadone{
 	pixel_x = 6;
@@ -36106,11 +36160,8 @@
 /turf/simulated/floor/wood,
 /area/hydroponics/garden)
 "wBF" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/ramp{
-	dir = 8
-	},
-/area/maintenance/wing/port/far)
+/turf/simulated/wall/r_wall,
+/area/tcommsat/mainlvl_tcomms__relay/second)
 "wCm" = (
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -39005,6 +39056,13 @@
 /obj/item/storage/box/syringes,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
+"yjg" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port/far)
 "yjZ" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/table/standard,
@@ -71697,10 +71755,10 @@ lBd
 lBd
 sEu
 vqk
-lBd
-lBd
-lBd
-lBd
+yjg
+oNE
+oNE
+gRU
 lBd
 lBd
 lBd
@@ -71900,9 +71958,9 @@ lBd
 fuu
 wBF
 uNq
-gZV
-dTa
-qQs
+wBF
+wBF
+anb
 lBd
 dXB
 lZQ
@@ -72100,11 +72158,11 @@ fuu
 fuu
 lBd
 dXB
-ueH
-jIj
-jIj
-oUW
-lBd
+wBF
+fRN
+vbe
+wBF
+jVc
 lBd
 wox
 ulr
@@ -72302,11 +72360,11 @@ aIx
 rLg
 lBd
 dXB
-jIj
-jIj
-jIj
-oUW
-lBd
+wBF
+iTh
+kPu
+wBF
+jVc
 lBd
 lGm
 ulr
@@ -72504,11 +72562,11 @@ uuL
 hIV
 sEu
 fuu
-wzU
-uNq
-gZV
-xdA
-lBd
+wBF
+wBF
+wBF
+wBF
+jVc
 qQs
 xpX
 jIj
@@ -72705,12 +72763,12 @@ lBd
 lBd
 lBd
 lBd
-lBd
-mLH
-lBd
-lBd
-lBd
-lBd
+yjg
+jeo
+oNE
+oNE
+oNE
+fWG
 lBd
 kPj
 jpc
@@ -72907,7 +72965,7 @@ xPm
 xPm
 xPm
 xPm
-qOt
+eUX
 fuu
 fuu
 fuu
