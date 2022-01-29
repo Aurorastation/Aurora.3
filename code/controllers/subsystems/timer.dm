@@ -53,9 +53,6 @@ var/datum/controller/subsystem/timer/SStimer
 	var/static/bucket_auto_reset = TRUE
 	/// How many times bucket was reset
 	var/bucket_reset_count = 0
-	// DEBUG VARIABLE REMOVE THIS
-	var/datum/timedevent/timer_processed
-	var/bucket_stuck = 0
 
 /datum/controller/subsystem/timer/New()
 	NEW_SS_GLOBAL(SStimer)
@@ -120,15 +117,12 @@ var/datum/controller/subsystem/timer/SStimer
 			next_clienttime_timer_index--
 			break
 		var/datum/timedevent/ctime_timer = clienttime_timers[next_clienttime_timer_index]
-		timer_processed = ctime_timer
 		if (ctime_timer.timeToRun > REALTIMEOFDAY)
 			next_clienttime_timer_index--
 			break
 
 		var/datum/callback/callBack = ctime_timer.callBack
 		if (!callBack)
-			message_admins("Invalid timer: [get_timer_debug_string(ctime_timer)] world.time: [world.time], \
-				head_offset: [head_offset], practical_offset: [practical_offset], REALTIMEOFDAY: [REALTIMEOFDAY]")
 			CRASH("Invalid timer: [get_timer_debug_string(ctime_timer)] world.time: [world.time], \
 				head_offset: [head_offset], practical_offset: [practical_offset], REALTIMEOFDAY: [REALTIMEOFDAY]")
 
@@ -161,16 +155,11 @@ var/datum/controller/subsystem/timer/SStimer
 		resumed = FALSE
 
 	// Iterate through each bucket starting from the practical offset
-	bucket_stuck = 0
 	while (practical_offset <= BUCKET_LEN && head_offset + ((practical_offset - 1) * world.tick_lag) <= world.time)
-		bucket_stuck++
 		var/datum/timedevent/timer
 		while ((timer = bucket_list[practical_offset]))
-			timer_processed = timer
 			var/datum/callback/callBack = timer.callBack
 			if (!callBack)
-				message_admins("Invalid timer: [get_timer_debug_string(timer)] world.time: [world.time], \
-					head_offset: [head_offset], practical_offset: [practical_offset], bucket_joined: [timer.bucket_joined]")
 				crash_with("Invalid timer: [get_timer_debug_string(timer)] world.time: [world.time], \
 					head_offset: [head_offset], practical_offset: [practical_offset], bucket_joined: [timer.bucket_joined]")
 				if (!timer.spent)
@@ -205,13 +194,10 @@ var/datum/controller/subsystem/timer/SStimer
 				if (timer.timeToRun >= TIMER_MAX)
 					i--
 					break
-				timer_processed = timer
 
 				// Check for timers that are scheduled to run in the past
 				if (timer.timeToRun < head_offset)
 					bucket_resolution = null // force bucket recreation
-					message_admins("[i] Invalid timer state: Timer in long run queue with a time to run less then head_offset. \
-						[get_timer_debug_string(timer)] world.time: [world.time], head_offset: [head_offset], practical_offset: [practical_offset]")
 					crash_with("[i] Invalid timer state: Timer in long run queue with a time to run less then head_offset. \
 						[get_timer_debug_string(timer)] world.time: [world.time], head_offset: [head_offset], practical_offset: [practical_offset]")
 					break
@@ -219,8 +205,6 @@ var/datum/controller/subsystem/timer/SStimer
 				// Check for timers that are not capable of being scheduled to run without rebuilding buckets
 				if (timer.timeToRun < head_offset + TICKS2DS(practical_offset - 1))
 					bucket_resolution = null // force bucket recreation
-					message_admins("[i] Invalid timer state: Timer in long run queue that would require a backtrack to transfer to \
-						short run queue. [get_timer_debug_string(timer)] world.time: [world.time], head_offset: [head_offset], practical_offset: [practical_offset]")
 					crash_with("[i] Invalid timer state: Timer in long run queue that would require a backtrack to transfer to \
 						short run queue. [get_timer_debug_string(timer)] world.time: [world.time], head_offset: [head_offset], practical_offset: [practical_offset]")
 					break
@@ -311,8 +295,6 @@ var/datum/controller/subsystem/timer/SStimer
 		// Check that timer has a valid callback and hasn't been invoked
 		if (!timer.callBack || timer.spent)
 			WARNING("Invalid timer: [get_timer_debug_string(timer)] world.time: [world.time], \
-				head_offset: [head_offset], practical_offset: [practical_offset]")
-			message_admins("Invalid timer: [get_timer_debug_string(timer)] world.time: [world.time], \
 				head_offset: [head_offset], practical_offset: [practical_offset]")
 			if (timer.callBack)
 				qdel(timer)
