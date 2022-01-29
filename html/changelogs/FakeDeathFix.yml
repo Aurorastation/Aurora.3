@@ -1,7 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed most methods to easily detect if a fake death is fake. Primarily affects lings."
-  - bugfix: "Time of death now shows properly on health analyzers again."
