@@ -4451,14 +4451,8 @@
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "kw" = (
-/obj/structure/shuttle_part/scc_space_ship{
-	icon = 'icons/obj/machines/stargazer.dmi';
-	icon_state = "tau_ceti";
-	layer = 5;
-	name = "stargazer system";
-	pixel_x = -32
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/stargazer,
 /turf/simulated/floor,
 /area/bridge/aibunker)
 "kx" = (
@@ -41081,8 +41075,8 @@ FC
 QR
 qO
 vZ
-vZ
 kw
+vZ
 ze
 vB
 mw
