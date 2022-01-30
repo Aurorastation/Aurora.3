@@ -1,0 +1,7 @@
+author: Vrow
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a Blood Volume reading to Body Scanners and Vitals Monitors."
+  - rscadd: "Printed Scans should also have the blood volume reading."

@@ -7,7 +7,8 @@
 	endWhen = rand(15, 60)
 
 /datum/event/gravity/announce()
-	command_announcement.Announce("Feedback surge detected in the gravity generation systems. Artificial gravity has been disabled whilst the system reinitializes. Further failures may result in a gravitational collapse and formation of blackholes.", "Gravity Failure")
+	if(affecting_z in current_map.station_levels)
+		command_announcement.Announce("Feedback surge detected in the gravity generation systems. Artificial gravity has been disabled whilst the system reinitializes. Further failures may result in a gravitational collapse and formation of blackholes.", "Gravity Failure")
 
 /datum/event/gravity/start()
 	gravity_is_on = 0
