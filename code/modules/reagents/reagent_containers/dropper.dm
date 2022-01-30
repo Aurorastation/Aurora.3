@@ -94,6 +94,7 @@
 	cut_overlays()
 	if(reagents)
 		var/filling = image('icons/obj/reagentfillings.dmi', src, "[icon_state]")
+		filling.icon_state = "[icon_state]"
 		filling.color = reagents.get_color()
 		add_overlay(filling)
 
