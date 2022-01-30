@@ -1329,7 +1329,6 @@
 /area/hallway/primary/starboard)
 "cT" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/storage/shields)
 "cU" = (
@@ -1417,7 +1416,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/hallway/primary/starboard)
 "di" = (
@@ -2261,7 +2259,6 @@
 	dir = 4
 	},
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/maintenance/bridge)
 "eP" = (
@@ -2800,7 +2797,6 @@
 /obj/machinery/door/airlock/maintenance{
 	req_one_access = list(12)
 	},
-/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
@@ -3410,7 +3406,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/tcommsat/entrance)
 "hW" = (
@@ -4288,10 +4283,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/starboard)
 "kb" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor,
-/area/bridge)
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/starboard)
 "kd" = (
 /obj/machinery/newscaster{
 	pixel_x = 32
@@ -6079,7 +6076,6 @@
 /area/medical/ward/isolation)
 "os" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/security/vacantoffice)
 "ot" = (
@@ -7129,10 +7125,9 @@
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/break_room)
 "qL" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor,
-/area/hallway/primary/starboard)
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/wood,
+/area/bridge/minibar)
 "qM" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 9
@@ -9344,7 +9339,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/black{
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/tcommsat/entrance)
 "wE" = (
@@ -11987,6 +11981,7 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
+/obj/structure/closet/lasertag,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/locker)
 "Dj" = (
@@ -12696,7 +12691,6 @@
 /area/security/investigations_storage)
 "Fm" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/hallway/medical/upper)
 "Fn" = (
@@ -13732,7 +13726,6 @@
 "HD" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/hallway/medical/upper)
 "HE" = (
@@ -17037,6 +17030,7 @@
 	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
+/obj/structure/closet/lasertag/blue,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/locker)
 "Pq" = (
@@ -18554,7 +18548,6 @@
 /area/hallway/primary/starboard)
 "Td" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/crew_quarters/cafeteria)
 "Te" = (
@@ -18794,7 +18787,6 @@
 /area/hallway/crew_area)
 "TG" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
 "TH" = (
@@ -19294,11 +19286,6 @@
 "US" = (
 /turf/simulated/wall/r_wall,
 /area/bridge)
-"UT" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor,
-/area/maintenance/bridge)
 "UV" = (
 /turf/simulated/open,
 /area/hallway/primary/starboard)
@@ -19446,7 +19433,6 @@
 /area/crew_quarters/fitness)
 "Vm" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "Vo" = (
@@ -20442,7 +20428,6 @@
 /area/crew_quarters/sleep/cryo)
 "XU" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/tcommsat/entrance)
 "XW" = (
@@ -37849,10 +37834,10 @@ rF
 nr
 nr
 nr
-UT
-UT
+yk
+yk
 eO
-UT
+yk
 fc
 fc
 fc
@@ -40700,7 +40685,7 @@ qE
 Zb
 vZ
 xr
-kb
+wi
 am
 Oo
 oO
@@ -40902,7 +40887,7 @@ qE
 CZ
 vZ
 al
-kb
+wi
 LN
 Kq
 Uk
@@ -41104,7 +41089,7 @@ mw
 CZ
 SI
 ru
-kb
+wi
 bT
 AJ
 AJ
@@ -41267,7 +41252,7 @@ ga
 ga
 rY
 iY
-qL
+co
 bC
 bC
 bC
@@ -41671,14 +41656,14 @@ fp
 aV
 sO
 iY
-qL
+co
 UV
 UV
 UV
 GN
 cV
 XR
-QW
+kb
 QW
 jo
 QB
@@ -41873,7 +41858,7 @@ xs
 xs
 uV
 iY
-qL
+co
 UV
 UV
 UV
@@ -43535,7 +43520,7 @@ hq
 Ha
 nh
 SR
-SR
+qL
 SR
 SR
 Rs

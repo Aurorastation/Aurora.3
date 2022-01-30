@@ -137,6 +137,9 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 		return 1
 
 	var/obj/item/stack/material/stack = O
+	if(!stack.default_type)
+		to_chat(user, SPAN_WARNING("This stack cannot be used!"))
+		return
 	var/amount = round(input("How many sheets do you want to add?") as num)
 	if(!O)
 		return
@@ -152,13 +155,10 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 
 	busy = 1
 	use_power(max(1000, (SHEET_MATERIAL_AMOUNT * amount / 10)))
-	var/stacktype = stack.type
-	var/t = getMaterialName(stacktype)
-	if(t)
-		if(do_after(usr, 16))
-			if(stack.use(amount))
-				to_chat(user, "<span class='notice'>You add [amount] sheets to \the [src].</span>")
-				materials[t] += amount * SHEET_MATERIAL_AMOUNT
+	if(do_after(user, 16))
+		if(stack.use(amount))
+			to_chat(user, "<span class='notice'>You add [amount] sheets to \the [src].</span>")
+			materials[stack.default_type] += amount * SHEET_MATERIAL_AMOUNT
 	busy = 0
 	updateUsrDialog()
 
