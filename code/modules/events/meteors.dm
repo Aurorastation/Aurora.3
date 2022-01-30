@@ -27,8 +27,8 @@
 /datum/event/meteor_wave/start()
 	for (var/zlevel in affecting_z)
 		if(zlevel in current_map.station_levels)
-		command_announcement.Announce(current_map.meteor_contact_message, "Meteor Alert")
-		break
+			command_announcement.Announce(current_map.meteor_contact_message, "Meteor Alert")
+			break
 
 /datum/event/meteor_wave/end(var/faked)
 	if(faked)
@@ -110,8 +110,8 @@
 /datum/event/meteor_wave/downed_ship/announce()
 	for (var/zlevel in affecting_z)
 		if(zlevel in current_map.station_levels)
-		command_announcement.Announce(current_map.ship_meteor_end_message, "Ship Debris Alert", new_sound = 'sound/AI/unknownvesseldowned.ogg')
-		break
+			command_announcement.Announce(current_map.ship_meteor_end_message, "Ship Debris Alert", new_sound = 'sound/AI/unknownvesseldowned.ogg')
+			break
 
 /datum/event/meteor_wave/downed_ship/start()
 	command_announcement.Announce(current_map.ship_meteor_contact_message, "Ship Debris Alert")
@@ -136,8 +136,8 @@
 /datum/event/meteor_wave/dust/announce()
 	for (var/zlevel in affecting_z)
 		if(zlevel in current_map.station_levels)
-		command_announcement.Announce(current_map.dust_detected_message, "Dust Belt Alert")
-		break
+			command_announcement.Announce(current_map.dust_detected_message, "Dust Belt Alert")
+			break
 
 /datum/event/meteor_wave/dust/start()
 	command_announcement.Announce(current_map.dust_contact_message, "Dust Belt Alert")
