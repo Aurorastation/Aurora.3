@@ -2941,12 +2941,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "bKX" = (
-/obj/machinery/button/remote/blast_door{
-	id = "bar_desk";
-	name = "Bar Pickup Desk Shutters";
-	pixel_x = 30;
-	req_access = list(25)
-	},
 /obj/structure/sink{
 	dir = 4;
 	pixel_x = 12
@@ -13790,6 +13784,12 @@
 	c_tag = "Dinner - Bartender Area";
 	dir = 4
 	},
+/obj/machinery/button/remote/blast_door{
+	id = "bar_desk";
+	name = "Bar Pickup Desk Shutters";
+	pixel_x = -30;
+	req_access = list(25)
+	},
 /turf/simulated/floor/lino/grey,
 /area/crew_quarters/bar)
 "iLR" = (
@@ -24411,12 +24411,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
-"pwK" = (
-/obj/effect/landmark{
-	name = "cavernspawn"
-	},
-/turf/template_noop,
-/area/template_noop)
 "pwO" = (
 /obj/machinery/shieldwallgen,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -41797,7 +41791,6 @@ qgN
 qgN
 qgN
 qgN
-pwK
 qgN
 qgN
 qgN
@@ -41811,6 +41804,7 @@ qgN
 qgN
 qgN
 qgN
+hVj
 qgN
 qgN
 qgN
@@ -41820,7 +41814,7 @@ qgN
 qgN
 qgN
 qgN
-pwK
+qgN
 qgN
 qgN
 qgN
@@ -42035,7 +42029,7 @@ qgN
 qgN
 qgN
 qgN
-hVj
+qgN
 qgN
 qgN
 qgN
@@ -42212,7 +42206,6 @@ qgN
 qgN
 qgN
 qgN
-hVj
 qgN
 qgN
 qgN
@@ -42224,7 +42217,8 @@ qgN
 qgN
 qgN
 qgN
-hVj
+qgN
+qgN
 qgN
 qgN
 qgN
@@ -43009,7 +43003,7 @@ qgN
 qgN
 qgN
 qgN
-hVj
+qgN
 qgN
 qgN
 qgN
@@ -43256,7 +43250,7 @@ qgN
 qgN
 qgN
 qgN
-pwK
+qgN
 qgN
 qgN
 qgN
@@ -44613,7 +44607,7 @@ qgN
 qgN
 qgN
 qgN
-pwK
+qgN
 qgN
 qgN
 qgN
@@ -44816,7 +44810,7 @@ qgN
 qgN
 qgN
 qgN
-hVj
+qgN
 qgN
 qgN
 qgN
@@ -45473,7 +45467,7 @@ qgN
 qgN
 qgN
 qgN
-hVj
+qgN
 qgN
 qgN
 qgN
@@ -46884,7 +46878,7 @@ qgN
 qgN
 qgN
 qgN
-hVj
+qgN
 qgN
 qgN
 qgN
@@ -47220,7 +47214,7 @@ qgN
 qgN
 qgN
 qgN
-qgN
+hVj
 qgN
 qgN
 qgN
@@ -47705,7 +47699,7 @@ qgN
 qgN
 qgN
 qgN
-pwK
+qgN
 qgN
 qgN
 qgN
@@ -48245,9 +48239,9 @@ qgN
 qgN
 qgN
 qgN
-pwK
 qgN
-hVj
+qgN
+qgN
 qgN
 qgN
 qgN
@@ -48302,7 +48296,7 @@ qgN
 qgN
 qgN
 qgN
-hVj
+qgN
 qgN
 qgN
 qgN
@@ -48518,7 +48512,7 @@ qgN
 qgN
 qgN
 qgN
-qgN
+hVj
 qgN
 qgN
 qgN
@@ -49724,7 +49718,7 @@ qgN
 qgN
 qgN
 qgN
-hVj
+qgN
 qgN
 qgN
 qgN
@@ -50658,7 +50652,7 @@ qgN
 qgN
 qgN
 qgN
-pwK
+qgN
 qgN
 qgN
 qgN
@@ -50868,7 +50862,7 @@ qgN
 qgN
 qgN
 qgN
-hVj
+qgN
 qgN
 qgN
 qgN
@@ -51252,7 +51246,7 @@ qgN
 qgN
 qgN
 qgN
-hVj
+qgN
 qgN
 qgN
 qgN
@@ -53969,7 +53963,7 @@ qgN
 qgN
 qgN
 qgN
-pwK
+qgN
 qgN
 qgN
 qgN
@@ -54078,7 +54072,7 @@ qgN
 qgN
 qgN
 qgN
-hVj
+qgN
 qgN
 qgN
 qgN
@@ -56808,7 +56802,7 @@ qgN
 qgN
 qgN
 qgN
-pwK
+qgN
 qgN
 qgN
 qgN
@@ -57107,7 +57101,7 @@ qgN
 qgN
 qgN
 qgN
-hVj
+qgN
 qgN
 qgN
 qgN
@@ -58832,7 +58826,7 @@ qgN
 qgN
 qgN
 qgN
-qgN
+hVj
 qgN
 qgN
 qgN
@@ -59945,7 +59939,7 @@ qgN
 qgN
 qgN
 qgN
-pwK
+qgN
 qgN
 qgN
 qgN
@@ -60939,7 +60933,7 @@ qgN
 qgN
 qgN
 qgN
-qgN
+hVj
 qgN
 qgN
 qgN
@@ -62965,7 +62959,7 @@ qgN
 qgN
 qgN
 qgN
-hVj
+qgN
 qgN
 qgN
 qgN
@@ -63674,7 +63668,7 @@ qgN
 qgN
 qgN
 qgN
-pwK
+qgN
 qgN
 qgN
 qgN
@@ -64065,7 +64059,7 @@ qgN
 qgN
 qgN
 qgN
-hVj
+qgN
 qgN
 qgN
 qgN
@@ -64879,7 +64873,7 @@ qgN
 qgN
 qgN
 qgN
-hVj
+qgN
 qgN
 qgN
 qgN
@@ -65478,7 +65472,7 @@ qgN
 qgN
 qgN
 qgN
-hVj
+qgN
 qgN
 qgN
 qgN
@@ -67009,7 +67003,7 @@ qgN
 qgN
 qgN
 qgN
-hVj
+qgN
 qgN
 qgN
 qgN
@@ -67302,7 +67296,7 @@ qgN
 qgN
 qgN
 qgN
-pwK
+qgN
 qgN
 qgN
 qgN
@@ -67913,7 +67907,7 @@ qgN
 qgN
 qgN
 qgN
-qgN
+hVj
 qgN
 qgN
 qgN
@@ -68040,7 +68034,7 @@ qgN
 qgN
 qgN
 qgN
-hVj
+qgN
 qgN
 qgN
 qgN
@@ -68434,7 +68428,7 @@ qgN
 qgN
 qgN
 qgN
-hVj
+qgN
 qgN
 qgN
 qgN
@@ -68706,7 +68700,7 @@ qgN
 qgN
 qgN
 qgN
-hVj
+qgN
 qgN
 qgN
 qgN
@@ -69450,7 +69444,7 @@ qgN
 qgN
 qgN
 qgN
-pwK
+qgN
 qgN
 qgN
 qgN
@@ -69913,14 +69907,14 @@ kmx
 qgN
 qgN
 qgN
-hVj
 qgN
 qgN
 qgN
 qgN
 qgN
 qgN
-pwK
+qgN
+qgN
 qgN
 qgN
 qgN
@@ -71681,7 +71675,7 @@ qgN
 qgN
 qgN
 qgN
-hVj
+qgN
 qgN
 qgN
 qgN
@@ -71878,7 +71872,7 @@ qgN
 qgN
 qgN
 qgN
-pwK
+qgN
 qgN
 qgN
 qgN
@@ -72276,7 +72270,7 @@ qgN
 qgN
 qgN
 qgN
-qgN
+hVj
 qgN
 qgN
 qgN
@@ -72336,7 +72330,7 @@ qgN
 qgN
 qgN
 qgN
-pwK
+qgN
 qgN
 qgN
 qgN
@@ -73905,7 +73899,7 @@ qgN
 qgN
 qgN
 qgN
-pwK
+qgN
 qgN
 qgN
 qgN
@@ -74158,7 +74152,7 @@ qgN
 qgN
 qgN
 qgN
-hVj
+qgN
 qgN
 qgN
 qgN
@@ -76376,7 +76370,7 @@ qgN
 qgN
 qgN
 qgN
-hVj
+qgN
 qgN
 qgN
 qgN
@@ -76563,7 +76557,7 @@ qgN
 qgN
 qgN
 qgN
-hVj
+qgN
 qgN
 qgN
 qgN
@@ -78176,7 +78170,7 @@ qgN
 qgN
 qgN
 qgN
-qgN
+hVj
 qgN
 qgN
 qgN

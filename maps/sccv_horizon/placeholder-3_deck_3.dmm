@@ -8041,7 +8041,7 @@
 /obj/effect/landmark{
 	name = "carpspawn"
 	},
-/turf/simulated/floor/reinforced,
+/turf/template_noop,
 /area/template_noop)
 "ta" = (
 /obj/structure/table/wood,
@@ -9853,12 +9853,6 @@
 /obj/structure/closet,
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
-"xR" = (
-/obj/effect/landmark{
-	name = "cavernspawn"
-	},
-/turf/template_noop,
-/area/template_noop)
 "xS" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -17767,12 +17761,6 @@
 /obj/effect/floor_decal/corner/beige/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
-"QT" = (
-/obj/effect/landmark{
-	name = "cavernspawn"
-	},
-/turf/simulated/floor/reinforced,
-/area/template_noop)
 "QW" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -20508,12 +20496,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
-"Yd" = (
-/obj/effect/landmark{
-	name = "carpspawn"
-	},
-/turf/template_noop,
-/area/template_noop)
 "Ye" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -21880,7 +21862,7 @@ Wm
 Wm
 Wm
 Wm
-Wm
+sZ
 Wm
 Wm
 Wm
@@ -26129,7 +26111,7 @@ at
 at
 at
 at
-sZ
+at
 at
 at
 at
@@ -26526,7 +26508,7 @@ at
 at
 at
 at
-QT
+at
 at
 at
 at
@@ -26678,7 +26660,7 @@ Wm
 Wm
 Wm
 Wm
-Wm
+sZ
 Wm
 Wm
 Wm
@@ -27122,7 +27104,7 @@ at
 at
 at
 at
-QT
+at
 at
 at
 at
@@ -27701,7 +27683,7 @@ Wm
 Wm
 Wm
 Wm
-xR
+Wm
 Wm
 Wm
 Wm
@@ -28158,7 +28140,6 @@ Wm
 Wm
 Wm
 Wm
-Yd
 Wm
 Wm
 Wm
@@ -28171,7 +28152,8 @@ Wm
 Wm
 Wm
 Wm
-xR
+Wm
+Wm
 Wm
 Wm
 Wm
@@ -28764,7 +28746,7 @@ Wm
 Wm
 Wm
 Wm
-xR
+Wm
 Wm
 Wm
 Wm
@@ -28940,7 +28922,7 @@ at
 at
 at
 at
-sZ
+at
 at
 at
 at
@@ -29326,7 +29308,7 @@ Wm
 Wm
 Wm
 Wm
-Yd
+Wm
 Wm
 Wm
 Wm
@@ -29756,7 +29738,7 @@ at
 at
 at
 at
-sZ
+at
 at
 at
 at
@@ -30148,7 +30130,7 @@ at
 at
 at
 at
-sZ
+at
 at
 at
 at
@@ -30385,7 +30367,7 @@ Wm
 Wm
 Wm
 Wm
-Yd
+Wm
 Wm
 Wm
 Wm
@@ -30758,7 +30740,7 @@ at
 at
 at
 at
-QT
+at
 at
 at
 at
@@ -31518,7 +31500,7 @@ Wm
 Wm
 Wm
 Wm
-xR
+Wm
 Wm
 Wm
 Wm
@@ -31946,7 +31928,7 @@ Wm
 Wm
 Wm
 Wm
-Yd
+Wm
 Wm
 Wm
 Wm
@@ -32027,7 +32009,7 @@ Wm
 Wm
 Wm
 Wm
-Wm
+sZ
 Wm
 Wm
 Wm
@@ -32161,7 +32143,7 @@ at
 at
 at
 at
-QT
+at
 at
 at
 at
@@ -32569,7 +32551,7 @@ at
 at
 at
 at
-sZ
+at
 at
 at
 at
@@ -32613,7 +32595,7 @@ Wm
 Wm
 Wm
 Wm
-xR
+Wm
 Wm
 Wm
 Wm
@@ -33231,7 +33213,7 @@ Wm
 Wm
 Wm
 Wm
-xR
+Wm
 Wm
 Wm
 Wm
@@ -33351,7 +33333,7 @@ Wm
 Wm
 Wm
 Wm
-Yd
+Wm
 Wm
 Wm
 Wm
@@ -34984,7 +34966,7 @@ at
 at
 at
 at
-sZ
+at
 at
 at
 at
@@ -35244,7 +35226,7 @@ Wm
 Wm
 Wm
 Wm
-Yd
+Wm
 Wm
 Wm
 Wm
@@ -36784,7 +36766,7 @@ at
 at
 at
 at
-QT
+at
 at
 at
 at
@@ -36854,7 +36836,7 @@ Wm
 Wm
 Wm
 Wm
-Yd
+Wm
 Wm
 Wm
 Wm
@@ -37275,7 +37257,7 @@ Wm
 Wm
 Wm
 Wm
-Yd
+Wm
 Wm
 Wm
 Wm
@@ -39704,7 +39686,7 @@ Wm
 Wm
 Wm
 Wm
-xR
+Wm
 Wm
 Wm
 Wm
@@ -40406,7 +40388,7 @@ Wm
 Wm
 Wm
 Wm
-xR
+Wm
 Wm
 Wm
 Wm
@@ -41199,7 +41181,7 @@ Wm
 Wm
 Wm
 Wm
-Wm
+sZ
 Wm
 Wm
 Wm
@@ -42134,7 +42116,7 @@ Wm
 Wm
 Wm
 Wm
-Wm
+sZ
 Wm
 Wm
 Wm
@@ -43134,7 +43116,7 @@ Wm
 Wm
 Wm
 Wm
-xR
+Wm
 Wm
 Wm
 Wm
@@ -45455,7 +45437,7 @@ Wm
 Wm
 Wm
 Wm
-xR
+Wm
 Wm
 Wm
 Wm
@@ -45947,7 +45929,7 @@ Wm
 Wm
 Wm
 Wm
-Yd
+Wm
 Wm
 Wm
 Wm
@@ -46078,7 +46060,7 @@ at
 at
 at
 at
-QT
+at
 at
 at
 at
@@ -46301,7 +46283,7 @@ at
 at
 at
 at
-QT
+at
 at
 at
 at
@@ -46351,7 +46333,7 @@ Wm
 Wm
 Wm
 Wm
-xR
+Wm
 Wm
 Wm
 Wm
@@ -47572,7 +47554,7 @@ Wm
 Wm
 Wm
 Wm
-Yd
+Wm
 Wm
 Wm
 Wm
@@ -49532,7 +49514,7 @@ at
 at
 at
 at
-QT
+at
 at
 at
 at
@@ -50387,7 +50369,7 @@ Wm
 Wm
 Wm
 Wm
-xR
+Wm
 Wm
 Wm
 Wm
@@ -50523,7 +50505,7 @@ Wm
 Wm
 Wm
 Wm
-Yd
+Wm
 Wm
 Wm
 Wm
@@ -50787,7 +50769,7 @@ Wm
 Wm
 Wm
 Wm
-Yd
+Wm
 Wm
 Wm
 Wm
@@ -50974,7 +50956,7 @@ at
 at
 at
 at
-QT
+at
 at
 at
 at
@@ -51351,7 +51333,7 @@ at
 at
 at
 at
-sZ
+at
 at
 at
 at
@@ -51563,7 +51545,7 @@ at
 at
 at
 at
-sZ
+at
 at
 at
 at
@@ -52219,7 +52201,7 @@ Wm
 Wm
 Wm
 Wm
-Wm
+sZ
 Wm
 Wm
 Wm
@@ -52522,7 +52504,7 @@ Wm
 Wm
 Wm
 Wm
-Wm
+sZ
 Wm
 Wm
 Wm
@@ -53375,7 +53357,7 @@ at
 at
 at
 at
-QT
+at
 at
 at
 at
@@ -54600,7 +54582,7 @@ at
 at
 at
 at
-QT
+at
 at
 at
 at
@@ -54630,7 +54612,7 @@ Wm
 Wm
 Wm
 Wm
-Yd
+Wm
 Wm
 Wm
 Wm
@@ -55198,7 +55180,7 @@ at
 at
 at
 at
-sZ
+at
 at
 at
 at
@@ -59649,7 +59631,7 @@ Wm
 Wm
 Wm
 Wm
-Wm
+sZ
 Wm
 Wm
 Wm

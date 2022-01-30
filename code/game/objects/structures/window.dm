@@ -480,13 +480,6 @@
 		/obj/structure/window/shuttle/skrell
 	)
 
-/obj/structure/window/shuttle/scc
-	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi'
-	icon_state = "scc_window"
-	basestate = "scc_window"
-	health = 160
-	maxhealth = 160
-	smooth = 0
 
 /obj/structure/window/shuttle/scc_space_ship
 	name = "window"
@@ -504,12 +497,9 @@
 	smooth = SMOOTH_MORE
 
 /obj/structure/window/shuttle/scc
-	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi'
-	icon_state = "scc_window"
-	basestate = "scc_window"
+	icon = 'icons/obj/smooth/scc_shuttle_window.dmi'
 	health = 160
 	maxhealth = 160
-	smooth = 0
 
 /obj/structure/window/shuttle/crescent
 	desc = "It looks rather strong."
