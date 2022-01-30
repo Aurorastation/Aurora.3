@@ -7445,14 +7445,6 @@
 "gCN" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/engineering/atmos/air)
-"gDj" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black,
-/obj/structure/fuel_port{
-	pixel_x = 5;
-	pixel_y = 5
-	},
-/turf/simulated/wall/shuttle/scc/cardinal,
-/area/shuttle/mining)
 "gDC" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
@@ -14141,6 +14133,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
+/obj/structure/fuel_port{
+	pixel_x = 30
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "mXD" = (
@@ -15960,7 +15955,7 @@
 	dir = 8
 	},
 /obj/machinery/light{
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
@@ -42658,7 +42653,7 @@ ukS
 rcA
 bIe
 vHW
-gDj
+vHW
 vHW
 vHW
 qqg
