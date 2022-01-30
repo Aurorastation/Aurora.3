@@ -1,6 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscdel: "Removes advanced mutation toxin from warehouse spawns."
