@@ -784,6 +784,22 @@
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
+"aNO" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "mining_shuttle_out"
+	},
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1380;
+	master_tag = "mining_shuttle";
+	name = "exterior access button";
+	pixel_x = -25;
+	pixel_y = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/mining)
 "aNR" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -818,6 +834,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "aOh" = (
@@ -2874,12 +2891,21 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/auxiliary)
 "cLh" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 5
+/obj/effect/floor_decal/corner_wide/purple{
+	dir = 10
 	},
-/obj/machinery/meter,
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos/propulsion)
+/obj/effect/floor_decal/corner_wide/purple{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/obj/machinery/disposal/small/north,
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
 "cLn" = (
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 8
@@ -3186,6 +3212,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "2-4"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -4326,14 +4355,11 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
-	},
 /obj/machinery/camera/network/research{
 	c_tag = "Research - Xenoarcheology 3";
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "edO" = (
@@ -4341,7 +4367,6 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1380;
@@ -4349,6 +4374,11 @@
 	name = "interior access button";
 	pixel_x = -24;
 	pixel_y = -10
+	},
+/obj/machinery/atmospherics/binary/passive_gate{
+	name = "shuttle airlock pressure regulator";
+	target_pressure = 75;
+	unlocked = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid)
@@ -7392,9 +7422,13 @@
 /area/maintenance/wing/port/deck1)
 "gAi" = (
 /obj/effect/floor_decal/industrial/warning/corner,
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
+	},
+/obj/machinery/atmospherics/binary/passive_gate{
+	name = "shuttle airlock pressure regulator";
+	target_pressure = 75;
+	unlocked = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid)
@@ -7445,6 +7479,13 @@
 "gCN" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/engineering/atmos/air)
+"gDj" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/fuel_port{
+	pixel_x = -32
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/intrepid)
 "gDC" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
@@ -7792,6 +7833,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -9001,10 +9045,11 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 6
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4;
+	layer = 2.8
 	},
-/obj/machinery/meter,
+/obj/machinery/portable_atmospherics/canister/phoron,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
 "ieu" = (
@@ -10137,6 +10182,9 @@
 	},
 /obj/machinery/disposal,
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "jmi" = (
@@ -10234,8 +10282,11 @@
 /area/outpost/mining_main/refinery)
 "jpU" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
+/obj/machinery/atmospherics/binary/passive_gate{
+	dir = 4;
+	name = "shuttle airlock pressure regulator";
+	target_pressure = 75;
+	unlocked = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
@@ -10614,8 +10665,9 @@
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
+/obj/structure/disposalpipe/junction{
+	dir = 8;
+	icon_state = "pipe-j2"
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -11247,6 +11299,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
+"kqT" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/machinery/bluespace_beacon,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/mining)
 "kqZ" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -12092,6 +12151,9 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_research{
 	name = "Test Range"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
@@ -14134,7 +14196,7 @@
 	dir = 9
 	},
 /obj/structure/fuel_port{
-	pixel_x = 30
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
@@ -15607,6 +15669,8 @@
 "oum" = (
 /obj/structure/closet/excavation,
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
 /turf/simulated/floor/tiled/white,
 /area/rnd/eva)
 "ouE" = (
@@ -16058,6 +16122,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "oZj" = (
@@ -16245,7 +16312,9 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/isolation_b)
 "pii" = (
-/obj/effect/map_effect/airlock/w_to_e,
+/obj/effect/map_effect/airlock/w_to_e{
+	required_access = null
+	},
 /turf/simulated/wall/shuttle/scc/cardinal,
 /area/shuttle/intrepid)
 "piI" = (
@@ -16528,6 +16597,8 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
 /turf/simulated/floor/tiled/white,
 /area/rnd/eva)
 "pwQ" = (
@@ -17056,6 +17127,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/firealarm/west,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "pWZ" = (
@@ -17088,9 +17160,17 @@
 /turf/simulated/wall,
 /area/hangar/intrepid/interstitial)
 "pYu" = (
-/obj/structure/fuel_port,
-/turf/simulated/wall/shuttle/scc/cardinal,
-/area/shuttle/intrepid)
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating,
+/area/hangar/control)
 "pYy" = (
 /obj/machinery/washing_machine,
 /turf/simulated/floor/tiled/dark,
@@ -17554,6 +17634,8 @@
 	},
 /obj/structure/closet/excavation,
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/eva)
 "qpO" = (
@@ -17587,10 +17669,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "qrh" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 4;
-	layer = 2.8
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
 	},
+/obj/machinery/meter,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
 "qri" = (
@@ -19083,7 +19165,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/obj/item/device/radio/beacon,
+/obj/machinery/bluespace_beacon,
 /turf/simulated/floor/tiled,
 /area/shuttle/intrepid)
 "rJZ" = (
@@ -19464,6 +19546,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "scW" = (
@@ -19578,6 +19663,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "2-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -20730,6 +20818,16 @@
 /obj/random/junk,
 /turf/simulated/floor/tiled,
 /area/maintenance/engineering)
+"tqs" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/machinery/camera/network/mining{
+	c_tag = "Mining - Shuttle";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/mining)
 "tqT" = (
 /obj/structure/closet/wardrobe/machinist,
 /obj/machinery/camera/network/supply{
@@ -20905,6 +21003,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -21763,11 +21864,6 @@
 	c_tag = "Engineering - Port Propulsion";
 	dir = 1
 	},
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
-	},
-/obj/machinery/portable_atmospherics/canister/phoron,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
 "unm" = (
@@ -22198,6 +22294,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "uIN" = (
@@ -22539,6 +22636,14 @@
 	dir = 4
 	},
 /obj/structure/closet/secure_closet/pilot,
+/obj/machinery/power/apc/low{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
 "vat" = (
@@ -22846,6 +22951,9 @@
 /obj/machinery/camera/network/research{
 	c_tag = "Research - Firing Range";
 	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
@@ -23431,9 +23539,6 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -24470,6 +24575,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "wVd" = (
@@ -25110,6 +25219,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid)
+"xpX" = (
+/obj/effect/floor_decal/industrial/loading/yellow,
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1380;
+	master_tag = "mining_shuttle";
+	name = "interior access button";
+	pixel_x = 24;
+	pixel_y = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/mining)
 "xqe" = (
 /obj/machinery/disposal,
 /turf/simulated/floor/tiled,
@@ -42045,12 +42166,12 @@ ukS
 ovb
 ukS
 qsC
-xij
+aNO
 lhE
 ozA
-xij
+ePy
 tzo
-xgk
+kqT
 vhg
 bZC
 sQc
@@ -42453,8 +42574,8 @@ xij
 fjW
 mWV
 ePy
-tzo
-xgk
+xpX
+tqs
 oSA
 vSC
 fSl
@@ -46279,7 +46400,7 @@ uOO
 dhi
 ayq
 xvk
-dir
+gDj
 dir
 jXW
 wnV
@@ -46681,7 +46802,7 @@ jqE
 jqE
 cFq
 ifJ
-pYu
+rmT
 rmT
 rmT
 rmT
@@ -49311,7 +49432,7 @@ fdB
 tYN
 qgi
 gnn
-tKi
+pYu
 tKi
 tKi
 tKi
@@ -50280,7 +50401,7 @@ uVL
 fnB
 gnP
 wpM
-cLh
+hRF
 uVL
 gYQ
 buc
@@ -52330,7 +52451,7 @@ bNW
 wjW
 xtK
 jEG
-xsS
+cLh
 xtK
 wwN
 wwN

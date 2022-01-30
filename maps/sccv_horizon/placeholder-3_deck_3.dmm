@@ -2472,6 +2472,7 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/requests_console{
+	department = "Conference Room";
 	pixel_y = -32
 	},
 /turf/simulated/floor/wood,
@@ -9250,10 +9251,10 @@
 	name = "Security - Investigations Office"
 	})
 "wt" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
-	id = "HoS Windows"
-	},
 /obj/machinery/door/firedoor,
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
+	id = "journalist"
+	},
 /turf/simulated/floor,
 /area/journalistoffice)
 "wu" = (
@@ -9308,7 +9309,7 @@
 "wB" = (
 /obj/machinery/door/blast/shutters{
 	dir = 2;
-	id = "isolation";
+	id = "medicalisolation";
 	layer = 5;
 	name = "Isolation Ward Shutters"
 	},
@@ -10608,11 +10609,13 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/hallway/crew_area)
 "zM" = (
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /obj/machinery/door/blast/shutters{
 	dir = 2;
-	layer = 5
+	id = "medicalisolation";
+	layer = 5;
+	name = "Isolation Ward Shutters"
 	},
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor/tiled,
 /area/medical/ward/isolation)
 "zN" = (
@@ -11732,6 +11735,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/ward/isolation)
+"CB" = (
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
+	id = "journalist"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor,
+/area/journalistoffice)
 "CC" = (
 /obj/effect/landmark{
 	name = "RevenantRift"
@@ -20454,6 +20464,7 @@
 	dir = 4
 	},
 /obj/machinery/button/remote/blast_door{
+	id = "medicalisolation";
 	name = "Isolation Ward Shutters";
 	pixel_y = 30;
 	req_access = list(66)
@@ -44900,7 +44911,7 @@ Ty
 rs
 Yh
 wt
-wt
+CB
 vx
 vx
 vx

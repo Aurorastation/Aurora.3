@@ -13,7 +13,7 @@
 	minimum_character_age = 25
 
 	access = list(access_bar, access_janitor, access_construction, access_crematorium, access_kitchen, access_hydroponics,access_chapel_office, access_library, access_janitor, access_journalist)
-	access = list(access_bar, access_janitor, access_construction, access_crematorium, access_kitchen, access_hydroponics,access_chapel_office, access_library, access_janitor, access_journalist)
+	minimal_access = list(access_bar, access_janitor, access_construction, access_crematorium, access_kitchen, access_hydroponics,access_chapel_office, access_library, access_janitor, access_journalist)
 
 	ideal_character_age = 40
 
