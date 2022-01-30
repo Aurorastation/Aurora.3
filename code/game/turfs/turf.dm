@@ -277,6 +277,16 @@ var/const/enterloopsanity = 100
 				from.add_tracks(H.species.get_move_trail(H), footprint_DNA, 0, H.dir, footprint_color) // Going
 			footprint_DNA = null
 
+		else
+			if(isskrell(H))
+				if(!H.shoes)
+					footprint_color = rgb(H.r_skin, H.g_skin, H.b_skin)
+					add_tracks(/obj/effect/decal/cleanable/blood/tracks/footprints/skrellprints, footprint_DNA, H.dir, 0, footprint_color + "25") // Coming
+					var/turf/simulated/from = get_step(H, reverse_direction(H.dir))
+					if(istype(from) && from)
+						from.add_tracks(/obj/effect/decal/cleanable/blood/tracks/footprints/skrellprints, footprint_DNA, 0, H.dir, footprint_color + "25") // Going
+					footprint_DNA = H.blood_DNA
+
 	..()
 
 	var/objects = 0

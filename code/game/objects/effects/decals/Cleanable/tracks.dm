@@ -195,3 +195,9 @@
 	drydesc = "A dried trail left by someone crawling."
 	coming_state = "trail1"
 	going_state  = "trail2"
+
+/obj/effect/decal/cleanable/blood/tracks/footprints/skrellprints
+	desc = "They look like still wet tracks left by skrellian feet."
+
+/obj/effect/decal/cleanable/blood/tracks/footprints/skrellprints/dry()
+	qdel(src)

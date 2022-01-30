@@ -1,0 +1,6 @@
+author: listerla
+
+delete-after: True
+
+changes:
+  - rscadd: "Skrell now leave mostly-transparent footprints that dissipate over time when barefoot."
