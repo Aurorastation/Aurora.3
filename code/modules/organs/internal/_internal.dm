@@ -73,13 +73,10 @@
 /obj/item/organ/internal/proc/is_damaged()
 	return damage > 0
 
-/obj/item/organ/internal/robotize(var/company)
+/obj/item/organ/internal/robotize(var/company = "Unbranded")
 	..()
 	min_bruised_damage += 5
 	min_broken_damage += 10
-
-	if(!company)
-		company = "Unbranded"
 
 	if(company)
 		model = company
