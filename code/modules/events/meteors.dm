@@ -19,10 +19,12 @@
 	endWhen = worst_case_end()
 
 /datum/event/meteor_wave/announce()
-	command_announcement.Announce(current_map.meteors_detected_message, "Meteor Alert", new_sound = 'sound/AI/meteors.ogg')
+	if(affecting_z in current_map.station_levels)
+		command_announcement.Announce(current_map.meteors_detected_message, "Meteor Alert", new_sound = 'sound/AI/meteors.ogg')
 
 /datum/event/meteor_wave/start()
-	command_announcement.Announce(current_map.meteor_contact_message, "Meteor Alert")
+	if(affecting_z in current_map.station_levels)
+		command_announcement.Announce(current_map.meteor_contact_message, "Meteor Alert")
 
 /datum/event/meteor_wave/end(var/faked)
 	if(faked)
