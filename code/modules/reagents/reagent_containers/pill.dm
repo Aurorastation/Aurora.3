@@ -226,7 +226,7 @@
 /obj/item/reagent_containers/pill/happy
 	name = "Happy Pill"
 	desc = "Happy happy joy joy!"
-	icon_state = "pill18"
+	icon_state = "pill_happy"
 	reagents_to_add = list(/decl/reagent/space_drugs = 15, /decl/reagent/sugar = 15)
 
 /obj/item/reagent_containers/pill/zoom

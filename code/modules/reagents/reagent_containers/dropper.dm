@@ -91,10 +91,11 @@
 	update_icon()
 
 /obj/item/reagent_containers/dropper/update_icon()
-	if(reagents.total_volume)
-		icon_state = "dropper1"
-	else
-		icon_state = "dropper0"
+	cut_overlays()
+	if(reagents)
+		var/filling = image('icons/obj/reagentfillings.dmi', src, "[icon_state]")
+		filling.color = reagents.get_color()
+		add_overlay(filling)
 
 /obj/item/reagent_containers/dropper/AltClick(mob/user)
 	var/N = input("Amount per transfer from this:", "[src]") as null|anything in possible_transfer_amounts
