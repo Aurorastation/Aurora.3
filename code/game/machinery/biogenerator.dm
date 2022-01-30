@@ -133,6 +133,11 @@
 	name = "Hydroponic Belt"
 	object = /obj/item/storage/belt/hydro
 
+/decl/biorecipe/item/plantbag
+	name = "Plant Bag"
+	object = /obj/item/storage/bag/plants
+	cost = 500
+
 /decl/biorecipe/item/wallet
 	name = "Leather Wallet"
 	object = /obj/item/storage/wallet
