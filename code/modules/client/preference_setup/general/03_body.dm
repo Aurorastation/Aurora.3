@@ -751,7 +751,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 
 				var/datum/robolimb/R = all_robolimbs[choice]
-				if(!organ_name in R.allowed_internal_organs)
+				if(!(organ_name in R.allowed_internal_organs))
 					alert(user, "You can not selected this manufacturer for this organ.")
 					return
 				pref.rlimb_data[organ_name] = choice
