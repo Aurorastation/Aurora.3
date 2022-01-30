@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - imageadd: "Adds new sprites for pills and pill bottles, by Kokonut. Resprites Chem-master to have the same color pallete as the chemical dispensers. Adds new chemical jugs, ported from Goon, and new dropper sprite from TG."
+  - imageadd: "Adds new sprites for pills and pill bottles, by Kokonut. Resprites Chem-master to have the same color pallete as the chemical dispensers, and the chemical cartriges. Adds new chemical jugs, ported from Goon, and new dropper sprite from TG."
