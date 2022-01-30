@@ -1,6 +1,0 @@
-author: Geevesy
-
-delete-after: True
-
-changes:
-  - backend: "Fixed a couple of roundstart runtimes, added an option in the config to disable NTSL."
