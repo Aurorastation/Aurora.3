@@ -132,7 +132,7 @@ var/global/datum/robolimb/basic_robolimb
 	icon = 'icons/mob/human_races/tajara/tesla_limbs.dmi'
 	species_can_use = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	internal_organ_suffix = "tesla"
-	list/allowed_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH, BP_APPENDIX)
+	allowed_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH, BP_APPENDIX)
 
 /datum/robolimb/tesla/malfunctioning_check(var/mob/living/carbon/human/H)
 	var/obj/item/organ/internal/augment/tesla/T = H.internal_organs_by_name[BP_AUG_TESLA]
