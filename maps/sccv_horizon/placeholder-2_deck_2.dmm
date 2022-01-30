@@ -367,6 +367,9 @@
 "ajO" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/filingcabinet/chestdrawer,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "ajV" = (
@@ -762,22 +765,11 @@
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology)
 "auU" = (
-/obj/structure/closet/secure_closet/medical_wall{
-	name = "Medication Closet";
-	pixel_x = -31
-	},
-/obj/item/reagent_containers/glass/bottle/antitoxin,
-/obj/item/storage/pill_bottle/dermaline,
-/obj/item/storage/pill_bottle/mortaphenyl,
-/obj/item/storage/pill_bottle/dylovene,
-/obj/item/storage/pill_bottle/dylovene,
-/obj/item/reagent_containers/syringe/antibiotic,
-/obj/item/reagent_containers/syringe/antibiotic,
-/obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/closet/hydrant{
 	pixel_x = -30;
 	pixel_y = 31
 	},
+/obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "avb" = (
@@ -961,6 +953,9 @@
 /obj/structure/fireaxecabinet{
 	pixel_y = 32
 	},
+/obj/structure/table/standard,
+/obj/item/device/flashlight/heavy,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/storage)
 "azB" = (
@@ -2493,6 +2488,7 @@
 	pixel_y = 4
 	},
 /obj/machinery/requests_console{
+	department = "Psychiatric Wing";
 	pixel_x = -31
 	},
 /turf/simulated/floor/carpet,
@@ -2945,7 +2941,16 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "bKX" = (
-/obj/structure/table/stone/marble,
+/obj/machinery/button/remote/blast_door{
+	id = "bar_desk";
+	name = "Bar Pickup Desk Shutters";
+	pixel_x = 30;
+	req_access = list(25)
+	},
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 12
+	},
 /turf/simulated/floor/lino/grey,
 /area/crew_quarters/bar)
 "bLu" = (
@@ -3714,6 +3719,21 @@
 	req_access = list(7)
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular{
+	closed_layer = 3.5;
+	density = 0;
+	icon_state = "pdoor0";
+	id = "RDStorage";
+	name = "Storage lockdown";
+	opacity = 0
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "RDStorage";
+	name = "Storage lockdown";
+	pixel_x = 27;
+	pixel_y = 5;
+	req_access = list(30)
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/strongroom)
 "ckc" = (
@@ -5163,6 +5183,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/structure/closet/crate,
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/strongroom)
 "dkz" = (
@@ -6960,8 +6981,13 @@
 /area/medical/reception)
 "exU" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/door/window/westright,
-/obj/machinery/door/window/eastright,
+/obj/machinery/door/window/westright{
+	name = "Bas access";
+	req_access = list(25)
+	},
+/obj/machinery/door/window/eastright{
+	name = "Bar Access"
+	},
 /obj/machinery/door/blast/shutters{
 	dir = 2;
 	id = "bar_desk";
@@ -7531,11 +7557,15 @@
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
+"eUp" = (
+/obj/structure/closet/secure_closet/sciguncabinet,
+/turf/simulated/floor/carpet/rubber,
+/area/rnd/strongroom)
 "eUT" = (
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 4
@@ -7905,11 +7935,21 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "fdE" = (
-/obj/effect/floor_decal/corner/white/diagonal,
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 28
+/obj/structure/closet/secure_closet/medical_wall{
+	name = "Medication Closet";
+	pixel_x = 31
 	},
+/obj/item/reagent_containers/glass/bottle/antitoxin,
+/obj/item/storage/pill_bottle/dermaline,
+/obj/item/storage/pill_bottle/mortaphenyl,
+/obj/item/storage/pill_bottle/dylovene,
+/obj/item/storage/pill_bottle/dylovene,
+/obj/item/reagent_containers/syringe/antibiotic,
+/obj/item/reagent_containers/syringe/antibiotic,
+/obj/effect/floor_decal/corner/white/diagonal,
+/obj/item/reagent_containers/hypospray/autoinjector/coagzolug,
+/obj/item/reagent_containers/hypospray/autoinjector/coagzolug,
+/obj/item/reagent_containers/hypospray/autoinjector/coagzolug,
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "fdZ" = (
@@ -8666,7 +8706,7 @@
 	dir = 8
 	},
 /obj/structure/cable/green{
-	icon_state = "4-8"
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/strongroom)
@@ -10633,13 +10673,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
 "gKG" = (
-/obj/machinery/power/apc/low{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
+/obj/structure/window/reinforced{
+	dir = 8
 	},
-/obj/structure/cable/green{
-	icon_state = "0-2"
+/obj/structure/table/reinforced{
+	table_mat = "steel";
+	table_reinf = "mhydrogen"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/strongroom)
@@ -11308,15 +11347,11 @@
 /turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
 "hiq" = (
-/obj/machinery/button/remote/blast_door{
-	id = "bar_desk";
-	name = "Bar Pickup Desk Shutters";
-	pixel_x = -2;
-	pixel_y = 30;
-	req_access = list(25)
+/obj/machinery/light{
+	dir = 4
 	},
-/turf/simulated/floor/lino/grey,
-/area/crew_quarters/bar)
+/turf/simulated/floor/carpet/rubber,
+/area/rnd/strongroom)
 "hiR" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 5
@@ -13212,9 +13247,6 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/structure/ladder/up{
-	pixel_y = 13
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/engineering)
 "iwd" = (
@@ -14685,15 +14717,17 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "jnQ" = (
-/obj/structure/table/standard,
 /obj/machinery/requests_console{
 	department = "Atmospherics";
 	departmentType = 4;
 	name = "Atmos RC";
 	pixel_y = 28
 	},
-/obj/item/device/hand_labeler,
-/obj/item/device/flashlight/heavy,
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/structure/closet/secure_closet/atmos_personal,
+/obj/item/storage/belt/utility,
+/obj/item/device/gps/engineering,
+/obj/item/pipewrench,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/storage)
 "jow" = (
@@ -14958,10 +14992,26 @@
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 1
 	},
+/obj/machinery/light_switch{
+	pixel_x = 25;
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "jwc" = (
-/turf/simulated/wall,
+/obj/structure/closet/secure_closet/scientist,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/nitrilebox,
+/obj/machinery/camera/network/research{
+	c_tag = "Research - Research Storage";
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/rnd/strongroom)
 "jwY" = (
 /obj/effect/floor_decal/corner/mauve/full{
@@ -15589,18 +15639,6 @@
 /obj/machinery/porta_turret/stationary,
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai)
-"jTb" = (
-/obj/structure/closet/secure_closet/scientist,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/gloves/latex/nitrile/tajara,
-/obj/item/clothing/gloves/latex/nitrile/tajara,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
-/obj/item/nitrilebox,
-/obj/machinery/light,
-/turf/simulated/floor/carpet/rubber,
-/area/rnd/strongroom)
 "jTA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/floor_decal/industrial/warning{
@@ -19347,7 +19385,6 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
 "mqn" = (
-/obj/machinery/pipedispenser,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -19355,6 +19392,7 @@
 	pixel_x = 29
 	},
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/pipedispenser/disposal,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/storage)
 "mqq" = (
@@ -26577,8 +26615,9 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "qRY" = (
-/obj/structure/cable/green{
-	icon_state = "1-8"
+/obj/machinery/door/window{
+	dir = 8;
+	req_access = list(7)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/strongroom)
@@ -26933,7 +26972,10 @@
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/hor)
 "rbL" = (
-/obj/structure/closet/radiation,
+/obj/structure/table/reinforced{
+	table_mat = "steel";
+	table_reinf = "mhydrogen"
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/strongroom)
 "rbO" = (
@@ -27085,6 +27127,24 @@
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload_foyer)
 "rfO" = (
+/obj/structure/table/rack{
+	dir = 8;
+	layer = 2.9
+	},
+/obj/item/stack/material/steel{
+	amount = 50
+	},
+/obj/item/stack/material/glass{
+	amount = 50
+	},
+/obj/machinery/power/apc/low{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24
+	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/strongroom)
 "rfQ" = (
@@ -28626,10 +28686,6 @@
 "rXm" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/mech_recharger,
-/obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
-	},
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "rXD" = (
@@ -28700,8 +28756,12 @@
 /area/assembly/robotics)
 "rZU" = (
 /obj/effect/floor_decal/corner/mauve/full,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	external_pressure_bound = 102;
+	external_pressure_bound_default = 102;
+	icon_state = "map_vent_in";
+	pump_direction = 0
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
@@ -58344,7 +58404,7 @@ sKJ
 kiW
 wNI
 bKX
-hiq
+wNI
 gwy
 fUj
 ugp
@@ -66193,10 +66253,10 @@ rRA
 rRA
 rRA
 rRA
-jwc
-jwc
-jwc
-jwc
+kGX
+kGX
+kGX
+kGX
 dTj
 wsW
 mst
@@ -66395,10 +66455,10 @@ lhU
 uDd
 fqa
 uon
-jwc
+kGX
 ndO
 cAx
-jwc
+kGX
 kaT
 kaT
 nvF
@@ -66600,8 +66660,8 @@ uGW
 cjX
 goQ
 dnJ
-jwc
-jwc
+kGX
+kGX
 kaT
 kaT
 uXV
@@ -66799,11 +66859,11 @@ qFD
 pJy
 nac
 eZp
-jwc
+kGX
 dkr
 vEg
-ndO
 jwc
+kGX
 mEc
 dSI
 nTF
@@ -67001,11 +67061,11 @@ xun
 ygL
 nac
 eZp
-jwc
+kGX
 rfO
 fEY
-ndO
-jwc
+eUp
+kGX
 hSG
 dSI
 nTF
@@ -67203,11 +67263,11 @@ rlX
 rVL
 nac
 eZp
-jwc
+kGX
 gKG
 qRY
-ndO
-jwc
+gKG
+kGX
 kaT
 oVe
 uXV
@@ -67405,11 +67465,11 @@ huw
 qIr
 huw
 eZp
-jwc
+kGX
 rbL
-rfO
-jTb
-jwc
+hiq
+rbL
+kGX
 xed
 xuX
 oqW
@@ -67607,11 +67667,11 @@ jjl
 jjl
 wlF
 vVL
-jwc
+kGX
 kGX
 kGX
 rgR
-sYc
+rgR
 sYc
 sYc
 qsg
