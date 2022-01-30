@@ -201,7 +201,6 @@
 
 	var/last_color_level = 5
 	var/health_timer = 10 MINUTES // you need to reduce the health by standing near it with a neutralizer
-	var/datum/looping_sound/revenant_rift/soundloop
 
 /obj/effect/portal/revenant/Initialize(mapload)
 	. = ..()
@@ -210,8 +209,6 @@
 	var/turf/T = get_turf(src)
 	log_and_message_admins("Revenant Bluespace Rift spawned at \the [get_area(T)]", null, T)
 	revenants.revenant_rift = src
-	soundloop = new(list(src), FALSE)
-	soundloop.start()
 
 /obj/effect/portal/revenant/Destroy()
 	revenants.destroyed_rift()
@@ -224,7 +221,6 @@
 		O.throw_at_random(FALSE, 3, THROWNOBJ_KNOCKBACK_SPEED)
 	var/area/A = get_area(src)
 	message_all_revenants(FONT_LARGE(SPAN_WARNING("The rift keeping us here has been destroyed in [A.name]!")))
-	QDEL_NULL(soundloop)
 	return ..()
 
 /obj/effect/portal/revenant/attackby(obj/item/I, mob/user)
