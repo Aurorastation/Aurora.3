@@ -55,11 +55,11 @@
 		NETWORK_INTREPID
 	)
 
-	shuttle_docked_message = "Attention all hands: Jump preparation complete. The bluespace drive is now spooling up, secure all stations for departure. Time to jump: approximately %ETD%."
+	shuttle_docked_message = "Attention all hands: Jump preparation complete. The bluespace drive is now spooling up, secure all stations for departure. Time to jump: approximately %ETA%."
 	shuttle_leaving_dock = "Attention all hands: Jump initiated, exiting bluespace in %ETA%."
 	shuttle_called_message = "Attention all hands: Jump sequence initiated. Transit procedures are now in effect. Jump in %ETA%."
 	shuttle_recall_message = "Attention all hands: Jump sequence aborted, return to normal operating conditions."
-	emergency_shuttle_docked_message = "The emergency evacuation has started. You have approximately %ETD% minutes to board the emergency pods."
+	emergency_shuttle_docked_message = "The emergency evacuation has started. You have approximately %ETA% minutes to board the emergency pods."
 	emergency_shuttle_leaving_dock = "The emergency evacuatioon has been completed."
 	emergency_shuttle_recall_message = "The emergency evacuation has been canceled."
 	emergency_shuttle_called_message = "An emergency evacuation has been called. It will start in approximately %ETA%."
