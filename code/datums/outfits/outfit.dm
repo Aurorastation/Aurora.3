@@ -345,7 +345,7 @@
 		var/obj/item/I = new pda(H)
 		switch(H.pda_choice)
 			if(OUTFIT_TAB_PDA)
-				I.desc_fluff += "For its many years of service, this model has held a virtual monopoly for PDA models for Nanotrasen. The secret? A lapel pin affixed to the back."
+				I.desc_fluff += "For its many years of service, this model has held a virtual monopoly for PDA models for NanoTrasen. The secret? A lapel pin affixed to the back."
 			if(OUTFIT_PDA_OLD)
 				I.icon = 'icons/obj/pda_old.dmi'
 				I.desc_fluff += "Nicknamed affectionately as the 'Brick', PDA enthusiasts rejoice with the return of an old favorite, retrofitted to new modular computing standards."
@@ -357,7 +357,7 @@
 				I.desc_fluff += "A bet between an engineer and a disgruntled scientist, it turns out you CAN make a PDA out of an atmospherics scanner. Also, probably don't tell management, just enjoy."
 			if(OUTFIT_PDA_SMART)
 				I.icon = 'icons/obj/pda_smart.dmi'
-				I.desc_fluff += "Nanotrasen originally designed this as a portable media player. Unfortunately, Royalty-free and corporate-approved ukulele isn't particularly popular."
+				I.desc_fluff += "NanoTrasen originally designed this as a portable media player. Unfortunately, Royalty-free and corporate-approved ukulele isn't particularly popular."
 		I.update_icon()
 		if (H.pda_choice == OUTFIT_WRISTBOUND)
 			H.equip_or_collect(I, slot_wrists)
