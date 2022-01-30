@@ -37,7 +37,7 @@
 	data["_PC"] = get_header_data(data["_PC"])
 	
 	var/datum/signal/signal
-	signal = telecomms_process_active()
+	signal = telecomms_process_active(user.loc.z)
 
 	var/list/mechs = list()
 	var/list/robots = list()
