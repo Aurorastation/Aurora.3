@@ -70,7 +70,8 @@
 	smoothing_iterations = 4
 	land_type = /turf/unsimulated/floor/asteroid/ash
 	fauna_prob = 1
-	fauna_types = list(/mob/living/simple_animal/carp, /mob/living/simple_animal/hostile/retaliate/cavern_dweller)
+	fauna_types = list(/mob/living/simple_animal/carp, /mob/living/simple_animal/hostile/retaliate/cavern_dweller, /mob/living/simple_animal/hostile/carp/bloater,
+						/mob/living/simple_animal/hostile/carp/shark, /mob/living/simple_animal/hostile/gnat)
 
 /area/exoplanet/barren/asteroid
 	name = "\improper Asteroi surface"
