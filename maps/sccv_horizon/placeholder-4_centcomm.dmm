@@ -4758,15 +4758,6 @@
 	icon_state = "lino_grey"
 	},
 /area/centcom/bar)
-"akr" = (
-/obj/effect/ghostspawpoint{
-	identifier = "OdinChef";
-	name = "igs - OdinChef"
-	},
-/turf/unsimulated/floor{
-	icon_state = "lino_grey"
-	},
-/area/centcom/bar)
 "aks" = (
 /obj/machinery/appliance/cooker/fryer{
 	stat = 0
@@ -5813,15 +5804,6 @@
 	icon_state = "tube1";
 	name = "adjusted light fixture";
 	pixel_y = -16
-	},
-/turf/unsimulated/floor{
-	icon_state = "lino_grey"
-	},
-/area/centcom/bar)
-"amr" = (
-/obj/effect/ghostspawpoint{
-	identifier = "OdinBartender";
-	name = "igs - OdinBartender"
 	},
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
@@ -12262,15 +12244,6 @@
 	icon_state = "dark2"
 	},
 /area/centcom/holding)
-"aBV" = (
-/obj/effect/ghostspawpoint{
-	identifier = "OdinCheckpoint";
-	name = "igs - OdinCheckpoint"
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark2"
-	},
-/area/centcom/holding)
 "aBW" = (
 /obj/structure/table/rack,
 /obj/item/clothing/mask/gas/half,
@@ -12835,10 +12808,6 @@
 	},
 /area/centcom/holding)
 "aDo" = (
-/obj/effect/ghostspawpoint{
-	identifier = "OdinCheckpoint";
-	name = "igs - OdinCheckpoint"
-	},
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
@@ -14738,20 +14707,8 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/ferry)
-"aIX" = (
-/obj/effect/landmark{
-	name = "LateJoinCorporate Liaison"
-	},
-/obj/structure/bed/stool/chair/padded/blue,
-/turf/unsimulated/floor{
-	icon_state = "wood_light"
-	},
-/area/centcom/ferry)
 "aIY" = (
 /obj/structure/bed/stool/chair/padded/blue,
-/obj/effect/landmark{
-	name = "LateJoinCorporate Liaison"
-	},
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
 	},
@@ -14928,17 +14885,6 @@
 /turf/unsimulated/floor,
 /area/centcom/ferry)
 "aJz" = (
-/turf/unsimulated/floor{
-	icon_state = "wood_light"
-	},
-/area/centcom/ferry)
-"aJA" = (
-/obj/structure/bed/stool/chair/padded/blue{
-	dir = 8
-	},
-/obj/effect/landmark{
-	name = "LateJoinConsular Officer"
-	},
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
 	},
@@ -15155,9 +15101,6 @@
 	},
 /area/centcom/ferry)
 "aKg" = (
-/obj/effect/landmark{
-	name = "LateJoinConsular Officer"
-	},
 /obj/structure/bed/stool/chair/padded/blue{
 	dir = 8
 	},
@@ -17855,21 +17798,9 @@
 "aRt" = (
 /turf/simulated/floor,
 /area/tdome/tdome1)
-"aRw" = (
-/obj/structure/window/shuttle/scc{
-	icon_state = "c4"
-	},
-/turf/simulated/floor/plating,
-/area/supply/dock)
 "aRx" = (
 /obj/structure/computerframe,
 /turf/simulated/floor/shuttle/black,
-/area/supply/dock)
-"aRy" = (
-/obj/structure/window/shuttle/scc{
-	icon_state = "c5"
-	},
-/turf/simulated/floor/plating,
 /area/supply/dock)
 "aRz" = (
 /turf/simulated/wall/shuttle/scc/cardinal,
@@ -17906,24 +17837,6 @@
 	icon_state = "floor"
 	},
 /area/tdome/tdome1)
-"aRH" = (
-/obj/structure/window/shuttle/scc{
-	icon_state = "c1"
-	},
-/turf/simulated/floor/plating,
-/area/supply/dock)
-"aRI" = (
-/obj/structure/window/shuttle/scc{
-	icon_state = "c2"
-	},
-/turf/simulated/floor/plating,
-/area/supply/dock)
-"aRJ" = (
-/obj/structure/window/shuttle/scc{
-	icon_state = "c3"
-	},
-/turf/simulated/floor/plating,
-/area/supply/dock)
 "aRL" = (
 /turf/simulated/floor/plating,
 /area/centcom/suppy)
@@ -54841,8 +54754,8 @@ anf
 ani
 aRz
 ank
-aRw
-aRH
+aQY
+aQY
 aOi
 aOi
 aNR
@@ -55099,7 +55012,7 @@ anf
 anj
 anl
 aRx
-aRI
+aQY
 aOi
 aSm
 aNR
@@ -55355,8 +55268,8 @@ anf
 ani
 aRz
 anO
-aRy
-aRJ
+aQY
+aQY
 aOi
 aOi
 aNR
@@ -57391,7 +57304,7 @@ aHs
 aHK
 aIj
 aIw
-aIX
+aIY
 aJz
 aJz
 aKL
@@ -57906,7 +57819,7 @@ aHM
 alR
 aIw
 aIZ
-aJA
+aKg
 aKg
 aKL
 aLy
@@ -61747,7 +61660,7 @@ awx
 azF
 aug
 aAZ
-aBV
+ayK
 ayK
 aDo
 aDQ
@@ -62261,9 +62174,9 @@ ayE
 azH
 aug
 aBb
-aBV
 ayK
-aBV
+ayK
+ayK
 aDQ
 aum
 aFh
@@ -64043,7 +63956,7 @@ akk
 adV
 alv
 ajp
-amr
+ajp
 ajp
 ajp
 aoF
@@ -67123,7 +67036,7 @@ aik
 adV
 ajn
 ajp
-akr
+ajp
 ajp
 ajp
 ajp
@@ -67894,7 +67807,7 @@ aik
 aht
 ajq
 ajp
-akr
+ajp
 ajp
 ajp
 ajp

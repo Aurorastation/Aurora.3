@@ -20,15 +20,17 @@
 	despawn_turfs = typecacheof(despawn_turfs)
 
 /datum/event/carp_migration/announce()
-	if(affecting_z in current_map.station_levels)
-		var/announcement = ""
-		var/soundfile = 'sound/AI/spacecarp.ogg'
-		if(severity == EVENT_LEVEL_MAJOR && deploy_drones)
-			announcement = "Massive migration of unknown biological entities has been detected near [location_name()], please stand-by. The NDV Icarus has dispatched combat drones to assist."
-			soundfile = 'sound/AI/massivespacecarp.ogg'
-		else
-			announcement = "Unknown biological [length(spawned_carp) == 1 ? "entity has" : "entities have"] been detected near [location_name()], please stand-by.[severity == EVENT_LEVEL_MODERATE ? " The NDV Icarus has dispatched combat drones to assist." : ""]"
-		command_announcement.Announce(announcement, "Lifesign Alert", new_sound = soundfile)
+	for (var/zlevel in affecting_z)
+		if(zlevel in current_map.station_levels)
+			var/announcement = ""
+			var/soundfile = 'sound/AI/spacecarp.ogg'
+			if(severity == EVENT_LEVEL_MAJOR && deploy_drones)
+				announcement = "Massive migration of unknown biological entities has been detected near [location_name()], please stand-by. The NDV Icarus has dispatched combat drones to assist."
+				soundfile = 'sound/AI/massivespacecarp.ogg'
+			else
+				announcement = "Unknown biological [length(spawned_carp) == 1 ? "entity has" : "entities have"] been detected near [location_name()], please stand-by.[severity == EVENT_LEVEL_MODERATE ? " The NDV Icarus has dispatched combat drones to assist." : ""]"
+			command_announcement.Announce(announcement, "Lifesign Alert", new_sound = soundfile)
+			break
 
 /datum/event/carp_migration/start()
 	if(severity == EVENT_LEVEL_MAJOR)
@@ -103,8 +105,10 @@
 	spawn_fish(7, 3, 5)
 
 /datum/event/carp_migration/cozmo/announce()
-	if(affecting_z in current_map.station_levels)
-		command_announcement.Announce("A migration of non-hostile entities has been detected outside.", "Lifesign Alert", 'sound/AI/cozmo_migration.ogg')
+	for (var/zlevel in affecting_z)
+		if(zlevel in current_map.station_levels)
+			command_announcement.Announce("A migration of non-hostile entities has been detected outside.", "Lifesign Alert", 'sound/AI/cozmo_migration.ogg')
+			break
 
 /datum/event/carp_migration/cozmo/spawn_fish(var/num_groups, var/group_size_min = 3, var/group_size_max = 5, var/spawn_drones = FALSE)
 	set waitfor = FALSE

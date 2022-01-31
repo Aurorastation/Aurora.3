@@ -22,7 +22,7 @@
 
 	station_name = "SCCV Horizon"
 	station_short = "Horizon"
-	dock_name = "The Shipyard"
+	dock_name = "SCC Shipyard"
 	dock_short = "Shipyard"
 	boss_name = "Stellar Corporate Conglomerate"
 	boss_short = "SCC"
@@ -64,6 +64,28 @@
 	emergency_shuttle_recall_message = "The emergency evacuation has been canceled."
 	emergency_shuttle_called_message = "An emergency evacuation has been called. It will start in approximately %ETA%."
 
+	meteors_detected_message = "A meteor storm has been detected on collision course with the ship. Estimated three minutes until impact, please activate station shields, and seek shelter in the central areas."
+	meteor_contact_message = "Contact with meteor wave imminent, all hands brace for impact."
+	meteor_end_message = "The ship has cleared the meteor shower, please return to your stations."
+
+	ship_meteor_contact_message = "Debris from a nearby derelict are on collision course with the ship. Prepare for impact."
+	ship_detected_end_message = "Ship debris colliding now, all hands brace for impact."
+	ship_meteor_end_message = "The last of the ship debris has hit or passed by the ship, it is now safe to commence repairs."
+
+	dust_detected_message = "A belt of space dust is approaching the ship."
+	dust_contact_message = "The ship is now passing through a belt of space dust."
+	dust_end_message = "The ship has now passed through the belt of space dust."
+
+	radiation_detected_message = "High levels of radiation detected near the ship. Please evacuate into one of the shielded maintenance tunnels."
+	radiation_contact_message = "The ship has entered the radiation belt. Please remain in a sheltered area until we have passed the radiation belt."
+	radiation_end_message = "The ship has passed the radiation belt. Please report to medbay if you experience any unusual symptoms. Maintenance will lose all-access again shortly."
+
+	rogue_drone_detected_messages = list("Combat drone swarm from a nearby facility have engaged the ship. If any are sighted in the area, approach with caution.",
+													"Malfunctioning combat drones have been detected close to the ship. If any are sighted in the area, approach with caution.")
+	rogue_drone_end_message = "The hostile drone swarm has left the ship's proximity."
+	rogue_drone_destroyed_message = "Sensors indicate the unidentified drone swarm has left the immediate proximity of the ship."
+
+
 	map_shuttles = list(
 		/datum/shuttle/autodock/ferry/lift/scc_ship/cargo,
 		/datum/shuttle/autodock/ferry/lift/scc_ship/morgue,
@@ -89,6 +111,8 @@
 
 	spawn_types = list(/datum/spawnpoint/living_quarters_lift, /datum/spawnpoint/cryo)
 	default_spawn = "Living Quarters Lift"
+
+	allow_borgs_to_leave = TRUE
 
 /datum/map/sccv_horizon/finalize_load()
 	// generate an empty space Z

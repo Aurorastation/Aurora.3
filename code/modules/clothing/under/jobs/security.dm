@@ -179,12 +179,6 @@
 	icon_state = "necro_sec_alt"
 	worn_state = "necro_sec_alt"
 
-/obj/item/clothing/under/rank/security/idris
-	name = "Idris Incorporated security uniform"
-	desc = "A uniform worn by Idris Incorporated employees and contractors."
-	icon_state = "idris_sec"
-	worn_state = "idris_sec"
-
 /obj/item/clothing/under/rank/security/eridani
 	name = "Eridani PMC uniform"
 	desc = "A uniform worn by contracted Eridani security forces."
