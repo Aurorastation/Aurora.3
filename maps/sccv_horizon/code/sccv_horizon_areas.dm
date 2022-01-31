@@ -154,6 +154,9 @@
 	name = "Operations Equipment Storage"
 	icon_state = "dark160"
 
+/area/operations/lower/machinist
+	name = "Machinist Workshop"
+
 //Wings
 
 /area/maintenance/substation/wing_starboard
