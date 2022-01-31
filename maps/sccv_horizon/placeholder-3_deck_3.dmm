@@ -1959,6 +1959,10 @@
 	dir = 8
 	},
 /obj/machinery/vending/zora,
+/obj/machinery/status_display{
+	layer = 4;
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/crew_area)
 "ed" = (
@@ -2990,6 +2994,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/crew_area)
+"gQ" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 28;
+	req_one_access = list(24,11,55)
+	},
+/turf/simulated/floor/wood,
+/area/security/vacantoffice2)
 "gR" = (
 /obj/structure/bed/stool/chair/padded/black,
 /obj/effect/landmark/start{
@@ -7551,6 +7564,10 @@
 	},
 /obj/effect/landmark/start{
 	name = "Passenger"
+	},
+/obj/machinery/status_display{
+	layer = 4;
+	pixel_y = 32
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/lounge)
@@ -17615,6 +17632,10 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
+	},
+/obj/machinery/status_display{
+	layer = 4;
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/crew_area)
@@ -49103,7 +49124,7 @@ nq
 nf
 lh
 AN
-WA
+gQ
 ma
 ou
 iK

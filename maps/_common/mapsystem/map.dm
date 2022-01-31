@@ -87,8 +87,8 @@
 	var/meteor_contact_message = "Contact with meteor wave imminent, all hands brace for impact."
 	var/meteor_end_message = "The station has cleared the meteor shower, please return to your stations."
 
-	var/ship_detected_end_message = "The NDV Icarus reports that it has downed an unknown vessel that was approaching your station. Prepare for debris impact - please evacuate the surface level if needed."
-	var/ship_meteor_contact_message = "Ship debris colliding now, all hands brace for impact."
+	var/ship_meteor_contact_message = "The NDV Icarus reports that it has downed an unknown vessel that was approaching your station. Prepare for debris impact - please evacuate the surface level if needed."
+	var/ship_detected_end_message = "Ship debris colliding now, all hands brace for impact."
 	var/ship_meteor_end_message = "The last of the ship debris has hit or passed by the station, it is now safe to commence repairs."
 
 	var/dust_detected_message = "A belt of space dust is approaching the station."
@@ -104,7 +104,7 @@
 													"Unidentified hackers have targetted a combat drone wing deployed from the NDV Icarus. If any are sighted in the area, approach with caution.")
 	var/rogue_drone_end_message = "Icarus drone control reports the malfunctioning wing has been recovered safely."
 	var/rogue_drone_destroyed_message = "Icarus drone control registers disappointment at the loss of the drones, but the survivors have been recovered."
-	
+
 	var/num_exoplanets = 0
 	var/list/planet_size  //dimensions of planet zlevel, defaults to world size. Due to how maps are generated, must be (2^n+1) e.g. 17,33,65,129 etc. Map will just round up to those if set to anything other.
 
