@@ -352,7 +352,7 @@
 	muzzle_type = /obj/effect/projectile/muzzle/gauss
 	embed = 0
 
-/obj/item/projectile/bullet/gauss
+/obj/item/projectile/bullet/gauss/carbine
 	name = "compact slug"
 	damage = 20
 
