@@ -3485,10 +3485,6 @@
 "dlM" = (
 /turf/simulated/floor/tiled,
 /area/storage/eva)
-"dmq" = (
-/obj/machinery/mecha_part_fabricator,
-/turf/simulated/floor/tiled/dark,
-/area/operations/lower/machinist)
 "dns" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -5706,7 +5702,7 @@
 "fga" = (
 /obj/machinery/optable{
 	desc = "Used for advanced medical procedures, such as removing brains for cyborgification. Also used to repair unlawed synthetics.";
-	name = "Repairs Operation Table"
+	name = "Workshop Operation Table"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -6914,6 +6910,11 @@
 	layer = 2.9
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	id = "machinistworkshop";
+	name = "Machinist Workshop"
+	},
 /turf/simulated/floor/plating,
 /area/operations/lower/machinist)
 "ghn" = (
@@ -7347,11 +7348,11 @@
 	},
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/item/storage/bag/circuits/basic,
 /obj/structure/disposalpipe/segment{
 	dir = 8;
 	icon_state = "pipe-c"
 	},
+/obj/item/reagent_containers/glass/beaker/sulphuric,
 /turf/simulated/floor/tiled/white,
 /area/operations/lower/machinist)
 "gzQ" = (
@@ -11699,6 +11700,12 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/button/remote/blast_door{
+	id = "machinistworkshop";
+	name = "Conveyor Belt Shutter";
+	pixel_x = 24;
+	pixel_y = 24
+	},
 /turf/simulated/floor/tiled/dark,
 /area/operations/lower/machinist)
 "kHT" = (
@@ -16131,12 +16138,8 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "oZj" = (
-/obj/machinery/r_n_d/circuit_imprinter{
-	dir = 1;
-	product_offset = 1
-	},
-/obj/structure/reagent_dispensers/acid{
-	pixel_y = -32
+/obj/machinery/mecha_part_fabricator{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/operations/lower/machinist)
@@ -21151,7 +21154,8 @@
 	name = "Workshop";
 	req_access = list(29)
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/corner/white/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/operations/lower/machinist)
 "tGU" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -22950,7 +22954,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass_mining{
+/obj/machinery/door/airlock/mining{
 	name = "Workshop";
 	req_access = list(29)
 	},
@@ -44036,8 +44040,8 @@ iDw
 wqs
 vrg
 tqT
-dmq
-dmq
+oZj
+oZj
 oZj
 iDw
 lou
