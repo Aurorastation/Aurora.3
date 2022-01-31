@@ -2228,17 +2228,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/security/warden)
-"blD" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/plating,
-/area/security/prison)
 "blJ" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -38569,6 +38558,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"xVz" = (
+/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
+/area/security/prison)
 "xVB" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -63799,7 +63799,7 @@ kkW
 aaa
 gDR
 jAp
-blD
+xVz
 nFf
 gDR
 lKN
