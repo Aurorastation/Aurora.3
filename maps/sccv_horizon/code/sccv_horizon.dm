@@ -112,6 +112,8 @@
 	spawn_types = list(/datum/spawnpoint/living_quarters_lift, /datum/spawnpoint/cryo)
 	default_spawn = "Living Quarters Lift"
 
+	allow_borgs_to_leave = TRUE
+
 /datum/map/sccv_horizon/finalize_load()
 	// generate an empty space Z
 	world.maxz++

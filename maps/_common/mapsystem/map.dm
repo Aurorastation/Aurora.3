@@ -107,6 +107,7 @@
 
 	var/num_exoplanets = 0
 	var/list/planet_size  //dimensions of planet zlevel, defaults to world size. Due to how maps are generated, must be (2^n+1) e.g. 17,33,65,129 etc. Map will just round up to those if set to anything other.
+	var/allow_borgs_to_leave = FALSE //this controls if borgs can leave the station or ship without exploding
 
 /datum/map/New()
 	if(!map_levels)
