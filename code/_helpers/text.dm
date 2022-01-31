@@ -497,6 +497,8 @@
 	t = replacetext(t, "\[/large\]", "</font>")
 	t = replacetext(t, "\[small\]", "<font size = \"1\">")
 	t = replacetext(t, "\[/small\]", "</font>")
+	t = replacetext(t, "\[redacted\]", "<span class='redacted'>")
+	t = replacetext(t, "\[/redacted\]", "</span>")
 	t = replacetext(t, "\[station\]", current_map.station_name)
 
 	// A break for signature customization code to use this proc as well.
