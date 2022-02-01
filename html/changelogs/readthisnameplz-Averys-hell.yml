@@ -1,0 +1,6 @@
+author: ReadThisNamePkz
+
+delete-after: True
+
+changes:
+  - bugfix: "Dead lizard mobs no longer vanish"
