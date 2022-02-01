@@ -109,6 +109,7 @@
 /obj/item/reagent_containers/syringe/afterattack(obj/target, mob/user, proximity)
 	if(last_jab + time > world.time)
 		to_chat(usr, SPAN_WARNING("You're already using \the [src]!"))
+		return
 
 	if(!proximity || !target.reagents)
 		return
