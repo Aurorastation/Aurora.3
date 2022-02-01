@@ -35,6 +35,7 @@
 	var/image/filling //holds a reference to the current filling overlay
 	var/visible_name = "a syringe"
 	var/time = 30
+	var/last_jab = 0 //Spam prevention
 	center_of_mass = null
 	drop_sound = 'sound/items/drop/glass_small.ogg'
 	pickup_sound = 'sound/items/pickup/glass_small.ogg'
@@ -106,6 +107,9 @@
 	return
 
 /obj/item/reagent_containers/syringe/afterattack(obj/target, mob/user, proximity)
+	if(last_jab + time > world.time)
+		to_chat(usr, SPAN_WARNING("You're already using \the [src]!"))
+
 	if(!proximity || !target.reagents)
 		return
 
@@ -119,10 +123,19 @@
 	if(user.a_intent == I_GRAB && ishuman(user) && ishuman(target)) // we could add other things here eventually. trepanation maybe
 		var/mob/living/carbon/human/H = target
 		if (check_zone(user.zone_sel.selecting) == BP_CHEST) // impromptu needle thoracostomy, re-inflate a collapsed lung
+			var/obj/item/organ/internal/lungs/L = H.internal_organs_by_name[BP_LUNGS]
 			var/P = (user == target) ? "their" : (target.name + "\'s")
 			var/SM = (user == target) ? "your" : (target.name + "\'s")
+			if(!L)
+				return
+			if(L.rescued == TRUE)
+				to_chat(usr, SPAN_NOTICE("[H]'s ribs are already punctured!"))
+				return
+			last_jab = world.time
 			user.visible_message("<b>[user]</b> aims \the [src] between [P] ribs!", SPAN_NOTICE("You aim \the [src] between [SM] ribs!"))
 			if(!do_mob(user, target, 1.5 SECONDS))
+				last_jab = 0 //Resets to try again immediately
+				user.visible_message("<b>[user]</b> fumbles with \the [src]!", SPAN_NOTICE("You fumble with \the [src]!"))
 				return
 			var/blocked = H.get_blocked_ratio(BP_CHEST, BRUTE, DAM_SHARP, damage = 5)
 			if(blocked > 20)
@@ -130,10 +143,8 @@
 				return
 			user.visible_message("<b>[user]</b> jabs \the [src] between [P] ribs!", SPAN_NOTICE("You jab \the [src] between [SM] ribs!"))
 			H.apply_damage(3, BRUTE, BP_CHEST)
-			H.custom_pain("The pain in your chest is living hell!", 75, affecting = H.organs_by_name[BP_CHEST])
-			var/obj/item/organ/internal/lungs/L = H.internal_organs_by_name[BP_LUNGS]
-			if(!L)
-				return
+			H.custom_pain("The pain in your chest is living hell!", 50, affecting = H.organs_by_name[BP_CHEST])
+			L.oxygen_deprivation = 0
 			L.rescued = TRUE
 			return
 
@@ -221,6 +232,7 @@
 			if(ismob(target) && target != user)
 				var/inject_time = time
 				if(isliving(target))
+					last_jab = world.time
 					var/mob/living/L = target
 					var/inject_mod = L.can_inject(user, TRUE, user.zone_sel.selecting)
 					if(!inject_mod)
@@ -231,6 +243,8 @@
 				user.do_attack_animation(target)
 
 				if(!do_mob(user, target, inject_time))
+					last_jab = 0
+					user.visible_message("<b>[user]</b> fumbles with \the [src]!", SPAN_NOTICE("You fumble with \the [src]!"))
 					return
 
 				user.visible_message(SPAN_WARNING("[user] injects [target] with the syringe!"))
