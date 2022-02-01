@@ -2342,15 +2342,25 @@ All custom items with worn sprites must follow the contained sprite system: http
 	var/changed = FALSE
 	var/hooded = FALSE
 	var/obj/item/clothing/head/winterhood/hood
-	var/hoodtype = /obj/item/clothing/head/winterhood
+	var/hoodtype = /obj/item/clothing/head/winterhood/fluff/kathira_hood
+
+/obj/item/clothing/head/winterhood/fluff/kathira_hood
+	name = "handsewn hood"
+	desc = "A hood attached to a cloak."
+	icon = 'icons/obj/custom_items/kathira_cloak.dmi'
+	icon_override = 'icons/obj/custom_items/kathira_cloak.dmi'
+	icon_state = "idris_cloak_hood"
+	contained_sprite = TRUE
+	flags_inv = HIDEEARS | BLOCKHAIR | HIDEEARS
 
 /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/update_icon(var/user)
 	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
 	K.icon_state = "[K.changed ? K.style : initial(K.icon_state)]"
 	K.item_state = "[K.icon_state][K.hooded ? "_up" : ""]"
+	K.name = "[K.changed ? K.name2 : initial(K.name)]"
+	K.desc = "[K.changed ? K.desc2 : initial(K.desc)]"
 	K.accessory_mob_overlay = null
 	. = ..()
-	usr.update_icon()
 	usr.update_inv_w_uniform()
 	usr.update_inv_wear_suit()
 	
@@ -2369,6 +2379,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	usr.visible_message(SPAN_NOTICE("[usr] swiftly pulls \the [K] inside out, changing its appearance."))
 	K.changed = !K.changed
 	K.update_icon()
+	if(K.hooded)
+		K.RemoveHood()
 
 /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/on_attached(obj/item/clothing/S, mob/user as mob)
 	..()
@@ -2393,8 +2405,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if(!K)
 		return
 
-	usr.visible_message(SPAN_NOTICE("[usr] pulls up the hood on \the [K]."))
-
 	if(!K.hooded)
 		if(ishuman(loc))
 			var/mob/living/carbon/human/H = src.loc
@@ -2408,9 +2418,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 				K.hooded = TRUE
 				K.CreateHood()
 				H.equip_to_slot_if_possible(K.hood,slot_head,0,0,1)
+				usr.visible_message(SPAN_NOTICE("[usr] pulls up the hood on \the [K]."))
 	else
 		K.RemoveHood()
-	
+		usr.visible_message(SPAN_NOTICE("[usr] pulls down the hood on \the [K]."))
 
 /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/proc/RemoveHood()
 	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
@@ -2457,13 +2468,3 @@ All custom items with worn sprites must follow the contained sprite system: http
 	K.hood.icon_state = "[icon_state]_hood"
 	K.hood.item_state = "[icon_state]_hood"
 	K.update_icon(usr)
-
-// /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/proc/GetCloak()
-// 	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = null
-// 	if(istype(src, /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak))
-// 		K = src
-// 	if(!K && isclothing(src))
-// 		var/obj/item/clothing/S = src
-// 		if(LAZYLEN(S.accessories))
-// 			K = locate() in S.accessories
-// 	return K
