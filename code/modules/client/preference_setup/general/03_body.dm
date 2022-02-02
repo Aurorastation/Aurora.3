@@ -256,6 +256,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			var/datum/robolimb/R
 			if(pref.rlimb_data[name] && all_robolimbs[pref.rlimb_data[name]])
 				R = all_robolimbs[pref.rlimb_data[name]]
+			else
+				R = basic_robolimb
 			out += "\t[R.company] Mechanical [organ_name]"
 		else if(status == "nymph")
 			++ind
