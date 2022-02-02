@@ -434,7 +434,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/appliance/cooker/microwave, microwavemonitor)
 		var/datum/reagents/S = reagents
 		for (var/R in S.reagent_volumes)
 			var/decl/reagent/R = decls_repository.get_decl(R)
-			if(R.get_primary_reagent_name() == href_list["eject"])
+			if(R.name == href_list["eject"])
 				eject_reagent(R, usr)
 				break
 		for (var/obj/O in contents)
