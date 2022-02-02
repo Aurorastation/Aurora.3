@@ -19386,6 +19386,10 @@
 /area/rnd/research)
 "aHQ" = (
 /obj/structure/table/standard,
+/obj/machinery/microwave{
+	pixel_x = -2;
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aHR" = (
@@ -23843,6 +23847,7 @@
 	pixel_x = 27
 	},
 /obj/structure/table/standard,
+/obj/machinery/appliance/cooker/microwave,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aPq" = (
@@ -33843,10 +33848,7 @@
 "bgE" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
-	},
+/obj/item/storage/box/donkpockets,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
 "bgF" = (
@@ -34656,6 +34658,10 @@
 "bhV" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
+/obj/machinery/microwave{
+	pixel_x = -2;
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
 "bhW" = (
@@ -55455,12 +55461,10 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/break_room)
 "cbZ" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/kitchen)
+/obj/structure/table/standard,
+/obj/item/storage/box/donkpockets,
+/turf/simulated/floor/carpet,
+/area/quartermaster/break_room)
 "cca" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/carpet,
@@ -56265,6 +56269,9 @@
 /area/quartermaster/break_room)
 "cdJ" = (
 /obj/structure/table/standard,
+/obj/machinery/microwave{
+	pixel_y = 6
+	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled,
 /area/quartermaster/break_room)
@@ -67657,16 +67664,11 @@
 	icon_state = "4-8"
 	},
 /obj/structure/table/standard,
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package";
-	pixel_x = 4;
-	pixel_y = 4
-	},
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
-	},
+/obj/item/storage/box/donkpockets{
+	pixel_x = 3;
+	pixel_y = 3
+  },
+/obj/item/storage/box/donkpockets,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "sny" = (
@@ -69989,10 +69991,7 @@
 /area/assembly/robotics/workshop)
 "vWF" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
-	},
+/obj/item/storage/box/donkpockets,
 /turf/simulated/floor/carpet,
 /area/quartermaster/break_room)
 "vXj" = (

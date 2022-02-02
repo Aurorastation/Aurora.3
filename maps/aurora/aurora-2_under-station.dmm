@@ -70,10 +70,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
-	},
+/obj/item/storage/box/donkpockets,
 /obj/item/storage/box/drinkingglasses{
 	pixel_x = 1;
 	pixel_y = 4

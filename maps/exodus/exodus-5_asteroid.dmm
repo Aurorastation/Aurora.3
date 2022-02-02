@@ -2036,19 +2036,13 @@
 /area/outpost/research/kitchen)
 "eg" = (
 /obj/structure/table/standard,
+/obj/item/storage/box/donkpockets,
 /obj/machinery/light,
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
-	},
 /turf/simulated/floor/wood,
 /area/outpost/research/kitchen)
 "eh" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
-	},
+/obj/machinery/microwave,
 /turf/simulated/floor/wood,
 /area/outpost/research/kitchen)
 "ei" = (
@@ -7413,10 +7407,7 @@
 	dir = 4
 	},
 /obj/structure/table/standard,
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
-	},
+/obj/item/storage/box/donkpockets,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_north)
 "pe" = (
@@ -7430,6 +7421,9 @@
 "pf" = (
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/cobweb2,
+/obj/machinery/microwave{
+	pixel_y = 6
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
@@ -8634,10 +8628,7 @@
 /area/outpost/engineering/meeting)
 "rc" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
-	},
+/obj/item/storage/box/donkpockets,
 /turf/simulated/floor/carpet,
 /area/outpost/engineering/meeting)
 "rd" = (
@@ -9416,6 +9407,7 @@
 	dir = 8
 	},
 /obj/structure/table/standard,
+/obj/machinery/microwave,
 /turf/simulated/floor/wood,
 /area/outpost/engineering/meeting)
 "sA" = (
@@ -12158,10 +12150,7 @@
 /area/outpost/mining_west)
 "xw" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
-	},
+/obj/machinery/microwave,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_west)
 "xx" = (
@@ -16075,10 +16064,7 @@
 "Vn" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
-	},
+/obj/machinery/microwave,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/dorms)
 

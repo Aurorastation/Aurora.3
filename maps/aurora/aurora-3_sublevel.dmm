@@ -27103,6 +27103,8 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
+/obj/structure/table/standard,
+/obj/item/storage/box/donkpockets,
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
 "dHl" = (
@@ -27706,6 +27708,9 @@
 	},
 /area/mine/unexplored)
 "eCT" = (
+/obj/machinery/appliance/cooker/microwave{
+	pixel_y = 4
+	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -32904,16 +32909,13 @@
 /area/engineering/break_room)
 "pQb" = (
 /obj/structure/table/standard,
+/obj/item/storage/box/donkpockets,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light/small{
 	dir = 4
 	},
 /obj/item/reagent_containers/food/drinks/teapot{
 	pixel_y = 16
-	},
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_hallway)
@@ -35352,9 +35354,9 @@
 "uYK" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
+/obj/machinery/appliance/cooker/microwave{
+	pixel_x = -2;
+	pixel_y = 5
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)

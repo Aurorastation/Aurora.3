@@ -11644,18 +11644,15 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
-	},
+/obj/machinery/microwave,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "awj" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
-	},
+/obj/item/storage/box/donkpockets,
+/obj/item/storage/box/donkpockets{
+	pixel_x = -3;
+	pixel_y = -3
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "awk" = (
@@ -26482,16 +26479,16 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/kitchen)
 "aZe" = (
+/obj/item/storage/box/donkpockets{
+	pixel_x = 3;
+	pixel_y = 3
+	},
 /obj/item/reagent_containers/glass/beaker{
 	pixel_x = 5
 	},
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/white/diagonal{
 	dir = 4
-	},
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/kitchen)
@@ -70802,13 +70799,15 @@
 /area/engineering/engine_monitoring)
 "cEz" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
-	},
+/obj/machinery/microwave{
+	pixel_x = -2;
+	pixel_y = 5
+  },
 /turf/simulated/floor/tiled,
 /area/engineering/engine_monitoring)
 "cEA" = (
+/obj/structure/table/standard,
+/obj/item/storage/box/donkpockets,
 /obj/machinery/status_display{
 	layer = 4;
 	pixel_y = 32
@@ -71011,10 +71010,9 @@
 /area/maintenance/medbay)
 "cES" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
-	},
+/obj/machinery/microwave{
+	pixel_x = -2;
+	pixel_y = 5
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
 "cET" = (
