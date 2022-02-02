@@ -673,6 +673,7 @@
 	dat += text("Brain Activity: []<br>", occ["brain_activity"])
 	dat += text("Blood Pressure: []<br>", occ["blood_pressure"])
 	dat += text("Blood Oxygenation: []%<br>", occ["blood_oxygenation"])
+	dat += text("Blood Volume: []%<br>", occ["blood_volume"])
 	dat += text("Physical Trauma: []<br>", occ["bruteloss"])
 	dat += text("Oxygen Deprivation: []<br>", occ["oxyloss"])
 	dat += text("Systemic Organ Failure: []<br>", occ["toxloss"])
