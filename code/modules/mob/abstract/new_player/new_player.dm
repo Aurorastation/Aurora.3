@@ -379,7 +379,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	SSrecords.open_manifest_vueui(src)
 
 /mob/abstract/new_player/Move()
-	return 0
+	return TRUE
 
 /mob/abstract/new_player/proc/close_spawn_windows()
 	src << browse(null, "window=playersetup") //closes the player setup window

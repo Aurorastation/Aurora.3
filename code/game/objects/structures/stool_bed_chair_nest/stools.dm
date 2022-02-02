@@ -155,7 +155,7 @@
 	..(newloc, MATERIAL_SHUTTLE_SKRELL)
 	set_light(1,1,LIGHT_COLOR_CYAN)
 
-/obj/item/material/stool // Not intended to be spawned in. You will be sad. Thankfully will self-correct.
+/obj/item/material/stool
 	icon = 'icons/obj/furniture.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_chairs.dmi',
@@ -173,7 +173,6 @@
 	force_divisor = 0.4
 	w_class = ITEMSIZE_HUGE
 	use_material_name = FALSE
-	applies_material_colour = FALSE
 	var/material/padding_material
 	var/obj/structure/bed/stool/origin_type = /obj/structure/bed/stool
 	var/deploy_verb = "right"

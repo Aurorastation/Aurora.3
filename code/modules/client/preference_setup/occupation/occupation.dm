@@ -287,12 +287,23 @@
 		ResetJobs()
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
+	var/datum/species/S = pref.get_species_datum()
 	var/datum/faction/faction = SSjobs.name_factions[pref.faction]
-	for(var/datum/job/job in faction.get_occupations())
+	for(var/datum/job/job in SSjobs.occupations)
 		for(var/department = 1 to NUM_JOB_DEPTS)
 			if(pref.GetJobDepartment(job, department) & job.flag)
+				if(!(job in faction.get_occupations()))
+					to_client_chat(SPAN_DANGER("Your faction selection does not permit this job, [job.title] as [pref.faction]."))
+					to_client_chat(SPAN_DANGER("Your jobs have been reset due to this!"))
+					ResetJobs()
+					return TOPIC_REFRESH_UPDATE_PREVIEW
 				if(pref.species in job.blacklisted_species)
 					to_client_chat(SPAN_DANGER("Your faction selection does not permit this species-occupation combination, [pref.species] as [job.title]."))
+					to_client_chat(SPAN_DANGER("Your jobs have been reset due to this!"))
+					ResetJobs()
+					return TOPIC_REFRESH_UPDATE_PREVIEW
+				if(!is_type_in_typecache(S, faction.allowed_species_types))
+					to_client_chat(SPAN_DANGER("Your faction selection does not permit this species, [pref.species] as [pref.faction]."))
 					to_client_chat(SPAN_DANGER("Your jobs have been reset due to this!"))
 					ResetJobs()
 					return TOPIC_REFRESH_UPDATE_PREVIEW
