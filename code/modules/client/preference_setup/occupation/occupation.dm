@@ -302,7 +302,7 @@
 					to_client_chat(SPAN_DANGER("Your jobs have been reset due to this!"))
 					ResetJobs()
 					return TOPIC_REFRESH_UPDATE_PREVIEW
-				if(!is_type_in_typecache(S, faction.allowed_species_types))
+				if(!is_type_in_typecache(S, faction.allowed_species_types) && length(faction.allowed_species_types))
 					to_client_chat(SPAN_DANGER("Your faction selection does not permit this species, [pref.species] as [pref.faction]."))
 					to_client_chat(SPAN_DANGER("Your jobs have been reset due to this!"))
 					ResetJobs()

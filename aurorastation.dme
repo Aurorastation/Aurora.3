@@ -1607,6 +1607,7 @@
 #include "code\modules\clothing\under\accessories\medal.dm"
 #include "code\modules\clothing\under\accessories\shirts.dm"
 #include "code\modules\clothing\under\accessories\storage.dm"
+#include "code\modules\clothing\under\accessories\xeno\skrell.dm"
 #include "code\modules\clothing\under\accessories\xeno\tajara.dm"
 #include "code\modules\clothing\under\accessories\xeno\unathi.dm"
 #include "code\modules\clothing\under\accessories\xeno\vaurca.dm"
