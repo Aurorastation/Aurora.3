@@ -135,7 +135,8 @@
 		if (!O.reagents)
 			return 1
 		if(LAZYLEN(O.reagents))
-			for(var/R in O.reagents)
+			var/datum/reagents/S = O.reagents
+			for (var/R in S.reagent_volumes)
 				var/decl/reagent/R = decls_repository.get_decl(R)
 				if(!(R.type in acceptable_reagents))
 					to_chat(user, SPAN_WARNING("Your [O] contains components unsuitable for cookery."))
@@ -251,7 +252,8 @@ VUEUI_MONITOR_VARS(/obj/machinery/appliance/cooker/microwave, microwavemonitor)
 		for (var/C in cook_count)
 			VUEUI_SET_CHECK(data["cookingobjs"][C], cook_count[C], ., data)
 	if (LAZYLEN(reagents))
-		for (var/R in reagents)
+		var/datum/reagents/S = reagents
+		for (var/R in S.reagent_volumes)
 			var/decl/reagent/R = decls_repository.get_decl(R)
 			VUEUI_SET_CHECK(data["cookingreas"][R], REAGENT_VOLUME(reagents, R), ., data)
 
@@ -429,7 +431,8 @@ VUEUI_MONITOR_VARS(/obj/machinery/appliance/cooker/microwave, microwavemonitor)
 	else if(href_list["eject_all"])
 		eject()
 	else if(href_list["eject"])
-		for (var/R in reagents)
+		var/datum/reagents/S = reagents
+		for (var/R in S.reagent_volumes)
 			var/decl/reagent/R = decls_repository.get_decl(R)
 			if(R.get_primary_reagent_name() == href_list["eject"])
 				eject_reagent(R, usr)
