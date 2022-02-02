@@ -79,69 +79,69 @@
 /obj/machinery/appliance/cooker/microwave/proc/add_item(var/obj/item/I as obj, var/mob/user as mob)
 	user.drop_from_inventory(I, src)
 	user.visible_message( \
-		"<span class='notice'>\The [user] has added one of [I] to \the [src].</span>", \
-		"<span class='notice'>You add one of [I] to \the [src].</span>")
+		SPAN_NOTICE("\The [user] has added one of [I] to \the [src]."), \
+		SPAN_NOTICE("You add one of [I] to \the [src]."))
 	SSvueui.check_uis_for_change(src)
 
 /obj/machinery/appliance/cooker/microwave/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if(broken > 0)
 		if(broken == 2 && O.isscrewdriver()) // If it's broken and they're using a screwdriver
 			user.visible_message( \
-				"<span class='notice'>\The [user] starts to fix part of the microwave.</span>", \
-				"<span class='notice'>You start to fix part of the microwave.</span>" \
+				SPAN_NOTICE("\The [user] starts to fix part of the microwave."), \
+				SPAN_NOTICE("You start to fix part of the microwave.") \
 			)
 			if (do_after(user,20/O.toolspeed))
 				user.visible_message( \
-					"<span class='notice'>\The [user] fixes part of the microwave.</span>", \
-					"<span class='notice'>You have fixed part of the microwave.</span>" \
+					SPAN_NOTICE("\The [user] fixes part of the microwave."), \
+					SPAN_NOTICE("You have fixed part of the microwave.") \
 				)
 				broken = 1 // Fix it a bit
 		else if(broken == 1 && O.iswrench()) // If it's broken and they're doing the wrench
 			user.visible_message( \
-				"<span class='notice'>\The [user] starts to fix part of the microwave.</span>", \
-				"<span class='notice'>You start to fix part of the microwave.</span>" \
+				SPAN_NOTICE("\The [user] starts to fix part of the microwave."), \
+				SPAN_NOTICE("You start to fix part of the microwave.") \
 			)
 			if (do_after(user,20/O.toolspeed))
 				user.visible_message( \
-					"<span class='notice'>\The [user] fixes the microwave.</span>", \
-					"<span class='notice'>You have fixed the microwave.</span>" \
+					SPAN_NOTICE("\The [user] fixes the microwave."), \
+					SPAN_NOTICE("You have fixed the microwave.") \
 				)
 				icon_state = "mw"
 				broken = 0 // Fix it!
 				dirty = 0 // just to be sure
 				flags = OPENCONTAINER | NOREACT
 		else
-			to_chat(user, "<span class='warning'>It's broken!</span>")
+			to_chat(user, SPAN_WARNING("It's broken!"))
 			return 1
 	else if(dirty >= 100) // The microwave is all dirty so can't be used!
 		if(istype(O, /obj/item/reagent_containers/spray/cleaner) || istype(O, /obj/item/soap) || istype(O, /obj/item/reagent_containers/glass/rag)) // If they're trying to clean it then let them
 			user.visible_message( \
-				"<span class='notice'>\The [user] starts to clean the microwave.</span>", \
-				"<span class='notice'>You start to clean the microwave.</span>" \
+				SPAN_NOTICE("\The [user] starts to clean the microwave."), \
+				SPAN_NOTICE("You start to clean the microwave.") \
 			)
 			if (do_after(user,20/O.toolspeed))
 				user.visible_message( \
-					"<span class='notice'>\The [user] has cleaned the microwave.</span>", \
-					"<span class='notice'>You have cleaned the microwave.</span>" \
+					SPAN_NOTICE("\The [user] has cleaned the microwave."), \
+					SPAN_NOTICE("You have cleaned the microwave.") \
 				)
 				dirty = 0 // It's clean!
 				broken = 0 // just to be sure
 				icon_state = "mw"
 				flags = OPENCONTAINER | NOREACT
 		else //Otherwise bad luck!!
-			to_chat(user, "<span class='warning'>It's dirty!</span>")
+			to_chat(user, SPAN_WARNING("It's dirty!"))
 			return 1
 	else if(is_type_in_list(O, acceptable_containers))
 		if (!O.reagents)
 			return 1
 		for (var/decl/reagent/R in O.reagents)
 			if (!(R.type in acceptable_reagents))
-				to_chat(user, "<span class='warning'>Your [O] contains components unsuitable for cookery.</span>")
+				to_chat(user, SPAN_WARNING("Your [O] contains components unsuitable for cookery."))
 				return 1
 		return // Note to the future: reagents are added after this in the container's afterattack().
 	else if(istype(O,/obj/item/grab))
 		var/obj/item/grab/G = O
-		to_chat(user, "<span class='warning'>This is ridiculous. You can not fit \the [G.affecting] in this [src].</span>")
+		to_chat(user, SPAN_WARNING("This is ridiculous. You can not fit \the [G.affecting] in this [src]."))
 		return 1
 	else if(O.isscrewdriver())
 		default_deconstruction_screwdriver(user, O)
@@ -151,22 +151,22 @@
 			return
 		else
 			user.visible_message( \
-				"<span class='notice'>\The [user] begins [src.anchored ? "unsecuring" : "securing"] the microwave.</span>", \
-				"<span class='notice'>You attempt to [src.anchored ? "unsecure" : "secure"] the microwave.</span>"
+				SPAN_NOTICE("\The [user] begins [src.anchored ? "unsecuring" : "securing"] the microwave."), \
+				SPAN_NOTICE("You attempt to [src.anchored ? "unsecure" : "secure"] the microwave.")
 				)
 			if (do_after(user,20/O.toolspeed))
 				user.visible_message( \
-				"<span class='notice'>\The [user] [src.anchored ? "unsecures" : "secures"] the microwave.</span>", \
-				"<span class='notice'>You [src.anchored ? "unsecure" : "secure"] the microwave.</span>"
+				SPAN_NOTICE("\The [user] [src.anchored ? "unsecures" : "secures"] the microwave."), \
+				SPAN_NOTICE("You [src.anchored ? "unsecure" : "secure"] the microwave.")
 				)
 				src.anchored = !src.anchored
 			else
-				to_chat(user, "<span class='notice'>You decide not to do that.</span>")
+				to_chat(user, SPAN_NOTICE("You decide not to do that."))
 	else if(default_part_replacement(user, O))
 		return
 	else
 		if (contents.len>=max_n_of_items)
-			to_chat(user, "<span class='warning'>This [src] is full of ingredients, you can't fit any more!</span>")
+			to_chat(user, SPAN_WARNING("This [src] is full of ingredients, you can't fit any more!"))
 			return 1
 		if(istype(O, /obj/item/stack))
 			var/obj/item/stack/S = O
@@ -174,8 +174,8 @@
 				new O.type (src)
 				S.use(1)
 				user.visible_message( \
-					"<span class='notice'>\The [user] has added one of [O] to \the [src].</span>", \
-					"<span class='notice'>You add one of [O] to \the [src].</span>")
+					SPAN_NOTICE("\The [user] has added one of [O] to \the [src]."), \
+					SPAN_NOTICE("You add one of [O] to \the [src]."))
 				SSvueui.check_uis_for_change(src)
 				return
 			else
@@ -197,9 +197,9 @@
 /obj/machinery/appliance/cooker/microwave/attack_hand(mob/user as mob)
 	user.set_machine(src)
 	if(broken > 0)
-		to_chat(user, "<span class='warning'>\The [name] is broken! You'll need to fix it before using it.</span>")
+		to_chat(user, SPAN_WARNING("\The [name] is broken! You'll need to fix it before using it."))
 	else if(dirty >= 100)
-		to_chat(user, "<span class='warning'>\The [name] is dirty! You'll need to clean it before using it.</span>")
+		to_chat(user, SPAN_WARNING("\The [name] is dirty! You'll need to clean it before using it."))
 	else
 		ui_interact(user)
 
@@ -333,7 +333,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/appliance/cooker/microwave, microwavemonitor)
 
 	START_PROCESSING(SSprocessing, src)
 	addtimer(CALLBACK(src, .proc/half_time_process), cook_time / 2)
-	visible_message("<span class='notice'>The microwave turns on.</span>", "<span class='notice'>You hear a microwave.</span>")
+	visible_message(SPAN_NOTICE("The microwave turns on."), SPAN_NOTICE("You hear a microwave."))
 
 	if(cook_dirty)
 		playsound(loc, 'sound/effects/splat.ogg', 50, 1) // Play a splat sound
@@ -389,7 +389,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/appliance/cooker/microwave, microwavemonitor)
 	ffuu.reagents.add_reagent(/decl/reagent/toxin, amount/10)
 
 	if(!abort)
-		visible_message("<span class='danger'>\The [src] belches out foul-smelling smoke!</span>")
+		visible_message(SPAN_DANGER("\The [src] belches out foul-smelling smoke!"))
 		var/datum/effect/effect/system/smoke_spread/bad/smoke = new /datum/effect/effect/system/smoke_spread/bad
 		smoke.attach(src)
 		smoke.set_up(10, 0, get_turf(src), 300)
@@ -404,11 +404,11 @@ VUEUI_MONITOR_VARS(/obj/machinery/appliance/cooker/microwave, microwavemonitor)
 		return
 
 	if(dirty >= 100)
-		to_chat(usr, "<span class='warning'>\The [name] is dirty! You'll need to clean it before using it.</span>")
+		to_chat(usr, SPAN_WARNING("\The [name] is dirty! You'll need to clean it before using it."))
 		return
 
 	if(broken > 0)
-		to_chat(usr, "<span class='warning'>\The [name] is broken! You'll need to fix it before using it.</span>")
+		to_chat(usr, SPAN_WARNING("\The [name] is broken! You'll need to fix it before using it."))
 		return
 
 	usr.set_machine(src)
@@ -442,18 +442,18 @@ VUEUI_MONITOR_VARS(/obj/machinery/appliance/cooker/microwave, microwavemonitor)
 		var/obj/item/reagent_containers/RC = user.l_hand || user.r_hand
 		var/free_space = REAGENTS_FREE_SPACE(RC.reagents)
 		if(free_space > REAGENT_VOLUME(src.reagents, R))
-			to_chat(user, "<span class='notice'>You empty [REAGENT_VOLUME(src.reagents, R)] units of [R.name] into your [RC.name].</span>")
+			to_chat(user, SPAN_NOTICE("You empty [REAGENT_VOLUME(src.reagents, R)] units of [R.name] into your [RC.name]."))
 			RC.reagents.add_reagent(R.type, REAGENT_VOLUME(src.reagents, R))
 			reagents.remove_reagent(R.type, REAGENT_VOLUME(src.reagents, R))
 		else if(free_space <= 0)
-			to_chat(user, "<span class='warning'>[RC.name] is full!</span>")
+			to_chat(user, SPAN_WARNING("[RC.name] is full!"))
 		else
-			to_chat(user, "<span class='notice'>You empty [free_space] units of [R.name] into your [RC.name].</span>")
+			to_chat(user, SPAN_NOTICE("You empty [free_space] units of [R.name] into your [RC.name]."))
 			RC.reagents.add_reagent(R.type, free_space)
 			reagents.remove_reagent(R.type, free_space)
 		SSvueui.check_uis_for_change(src)
 	else
-		to_chat(user, "<span class='warning'>You need to be holding a valid container to empty [R.name]!</span>")
+		to_chat(user, SPAN_WARNING("You need to be holding a valid container to empty [R.name]!"))
 
 /obj/machinery/appliance/cooker/microwave/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if (!mover)
