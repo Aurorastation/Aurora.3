@@ -55461,10 +55461,12 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/break_room)
 "cbZ" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/donkpockets,
-/turf/simulated/floor/carpet,
-/area/quartermaster/break_room)
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "cca" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/carpet,
