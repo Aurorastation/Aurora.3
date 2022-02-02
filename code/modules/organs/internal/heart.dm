@@ -5,6 +5,7 @@
 	parent_organ = BP_CHEST
 	dead_icon = "heart-off"
 	robotic_name = "circulatory pump"
+	robotic_sprite = "heart-prosthetic"
 	toxin_type = CE_CARDIOTOXIC
 
 	max_damage = 45

@@ -4,6 +4,7 @@
 	organ_tag = BP_LIVER
 	parent_organ = BP_GROIN
 	robotic_name = "toxin filter"
+	robotic_sprite = "liver-prosthetic"
 	toxin_type = CE_HEPATOTOXIC
 	min_bruised_damage = 25
 	min_broken_damage = 55

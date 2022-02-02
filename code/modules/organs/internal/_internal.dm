@@ -63,30 +63,15 @@
 		. += "[get_wound_severity(get_scarring_level())] scarring"
 
 /obj/item/organ/internal/is_usable()
-	if(robotize_type)
-		var/datum/robolimb/R = all_robolimbs[robotize_type]
-		if(!R.malfunctioning_check(owner))
-			return TRUE
-	else
-		return ..() && !is_broken()
+	return ..() && !is_broken()
 
 /obj/item/organ/internal/proc/is_damaged()
 	return damage > 0
 
-/obj/item/organ/internal/robotize(var/company = "Unbranded")
+/obj/item/organ/internal/robotize()
 	..()
 	min_bruised_damage += 5
 	min_broken_damage += 10
-
-	if(company)
-		model = company
-		var/datum/robolimb/R = all_robolimbs[company]
-
-		if(R)
-			if(robotic_sprite)
-				icon_state = "[initial(icon_state)]-[R.internal_organ_suffix]"
-
-			robotize_type = company
 
 /obj/item/organ/internal/proc/getToxLoss()
 	if(BP_IS_ROBOTIC(src))

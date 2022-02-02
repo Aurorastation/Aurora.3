@@ -8,6 +8,7 @@
 	organ_tag = BP_STOMACH
 	parent_organ = BP_GROIN
 	robotic_name = "digestive pump"
+	robotic_sprite = "stomach-prosthetic"
 	var/datum/reagents/metabolism/ingested
 	var/next_cramp = 0
 	var/should_process_alcohol = TRUE

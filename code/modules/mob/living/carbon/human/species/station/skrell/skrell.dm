@@ -94,8 +94,6 @@
 	zombie_type = SPECIES_ZOMBIE_SKRELL
 	bodyfall_sound = /decl/sound_category/bodyfall_skrell_sound
 
-	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH)
-
 /datum/species/skrell/handle_post_spawn(mob/living/carbon/human/H)
 	..()
 	H.set_psi_rank(PSI_COERCION, PSI_RANK_OPERANT)

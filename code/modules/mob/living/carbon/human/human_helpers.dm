@@ -122,10 +122,7 @@
 						if ("assisted")
 							I.mechassist()
 						if ("mechanical")
-							if (rlimb_data[name])
-								I.robotize(rlimb_data[name])
-							else
-								I.robotize()
+							I.robotize()
 						if ("removed")
 							qdel(I)
 

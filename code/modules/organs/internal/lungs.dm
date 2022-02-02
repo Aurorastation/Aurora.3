@@ -7,6 +7,7 @@
 	organ_tag = BP_LUNGS
 	parent_organ = BP_CHEST
 	robotic_name = "gas exchange system"
+	robotic_sprite = "lungs-prosthetic"
 	min_bruised_damage = 30
 	min_broken_damage = 45
 	toxin_type = CE_PNEUMOTOXIC
