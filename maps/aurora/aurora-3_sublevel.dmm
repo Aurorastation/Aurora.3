@@ -32911,7 +32911,7 @@
 /obj/item/reagent_containers/food/drinks/teapot{
 	pixel_y = 16
 	},
-/obj/machinery/appliance/cooker/microwave
+/obj/machinery/appliance/cooker/microwave{
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_hallway)
@@ -35350,7 +35350,7 @@
 "uYK" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
-/obj/machinery/appliance/cooker/microwave
+/obj/machinery/appliance/cooker/microwave{
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)

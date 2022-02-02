@@ -70,7 +70,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/appliance/cooker/microwave
+/obj/machinery/appliance/cooker/microwave{
 	},
 /obj/item/storage/box/drinkingglasses{
 	pixel_x = 1;
