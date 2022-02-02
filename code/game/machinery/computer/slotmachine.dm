@@ -12,7 +12,7 @@
 	name = "slot machine"
 	desc = "Gambling for the antisocial."
 	icon = 'icons/obj/machines/slotmachine.dmi'
-	icon_state = "slots1"
+	icon_state = "slots"
 	density = TRUE
 	use_power = 1
 	idle_power_usage = 250
