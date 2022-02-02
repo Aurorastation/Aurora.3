@@ -1,0 +1,7 @@
+author: Alberyk, Ramke
+
+delete-after: True
+
+changes:
+  - rscadd: "Added Tesla Powered internal organs to the Tajara species."
+  - bugfix: "Skrell and Unathi no longer have the option to edit their appendix in the character setup."
