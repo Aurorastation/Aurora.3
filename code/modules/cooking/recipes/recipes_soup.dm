@@ -1,41 +1,41 @@
 /decl/recipe/onionsoup
-	appliance = SAUCEPAN | POT
+	appliance = SAUCEPAN | POT | MICROWAVE
 	fruit = list("onion" = 1)
 	reagents = list(/decl/reagent/water = 10)
 	result = /obj/item/reagent_containers/food/snacks/soup/onion
 
 /decl/recipe/bluespacetomatosoup
-	appliance = SAUCEPAN | POT
+	appliance = SAUCEPAN | POT | MICROWAVE
 	fruit = list("bluespacetomato" = 2)
 	reagents = list(/decl/reagent/water = 10)
 	result = /obj/item/reagent_containers/food/snacks/soup/bluespace
 
 /decl/recipe/meatballsoup
-	appliance = SAUCEPAN | POT
+	appliance = SAUCEPAN | POT | MICROWAVE
 	fruit = list("carrot" = 1, "potato" = 1)
 	reagents = list(/decl/reagent/water = 10)
 	items = list(/obj/item/reagent_containers/food/snacks/meatball)
 	result = /obj/item/reagent_containers/food/snacks/soup/meatball
 
 /decl/recipe/vegetablesoup
-	appliance = SAUCEPAN | POT
+	appliance = SAUCEPAN | POT | MICROWAVE
 	fruit = list("carrot" = 1, "potato" = 1, "corn" = 1, "eggplant" = 1)
 	reagents = list(/decl/reagent/water = 10)
 	result = /obj/item/reagent_containers/food/snacks/soup/vegetable
 
 /decl/recipe/nettlesoup
-	appliance = SAUCEPAN | POT
+	appliance = SAUCEPAN | POT | MICROWAVE
 	fruit = list("nettle" = 1, "potato" = 1, )
 	reagents = list(/decl/reagent/water = 10, /decl/reagent/nutriment/protein/egg = 3)
 	result = /obj/item/reagent_containers/food/snacks/soup/nettle
 
 /decl/recipe/wishsoup
-	appliance = SAUCEPAN | POT
+	appliance = SAUCEPAN | POT | MICROWAVE
 	reagents = list(/decl/reagent/water = 20)
 	result= /obj/item/reagent_containers/food/snacks/soup/wish
 
 /decl/recipe/tomatosoup
-	appliance = SAUCEPAN | POT
+	appliance = SAUCEPAN | POT | MICROWAVE
 	fruit = list("tomato" = 2)
 	reagents = list(/decl/reagent/water = 10)
 	result = /obj/item/reagent_containers/food/snacks/soup/tomato
@@ -52,12 +52,12 @@
 	result = /obj/item/reagent_containers/food/snacks/soup/milo
 
 /decl/recipe/bloodsoup
-	appliance = SAUCEPAN | POT
+	appliance = SAUCEPAN | POT | MICROWAVE
 	reagents = list(/decl/reagent/blood = 30)
 	result = /obj/item/reagent_containers/food/snacks/soup/blood
 
 /decl/recipe/slimesoup
-	appliance = SAUCEPAN | POT
+	appliance = SAUCEPAN | POT | MICROWAVE
 	reagents = list(/decl/reagent/water = 10, /decl/reagent/slimejelly = 5)
 	items = list()
 	result = /obj/item/reagent_containers/food/snacks/soup/slime
@@ -74,7 +74,7 @@
 	result = /obj/item/reagent_containers/food/snacks/soup/mystery
 
 /decl/recipe/mushroomsoup
-	appliance = SAUCEPAN | POT
+	appliance = SAUCEPAN | POT | MICROWAVE
 	fruit = list("mushroom" = 1)
 	reagents = list(/decl/reagent/water = 5, /decl/reagent/drink/milk = 5)
 	reagent_mix = RECIPE_REAGENT_REPLACE
@@ -88,20 +88,20 @@
 	result = /obj/item/reagent_containers/food/snacks/chawanmushi
 
 /decl/recipe/beetsoup
-	appliance = SAUCEPAN | POT
+	appliance = SAUCEPAN | POT | MICROWAVE
 	fruit = list("whitebeet" = 1, "cabbage" = 1)
 	reagents = list(/decl/reagent/water = 10)
 	result = /obj/item/reagent_containers/food/snacks/soup/beet
 
 /decl/recipe/pozole
-	appliance = SAUCEPAN | POT
+	appliance = SAUCEPAN | POT | MICROWAVE
 	fruit = list("dyn leaf" = 1, "cabbage" = 1, "tomato" = 1)
 	reagents = list(/decl/reagent/water = 10)
 	items = list(/obj/item/reagent_containers/food/snacks/meat)
 	result = /obj/item/reagent_containers/food/snacks/soup/pozole
 
 /decl/recipe/brudet
-	appliance = SAUCEPAN | POT
+	appliance = SAUCEPAN | POT | MICROWAVE
 	fruit = list ("tomato" = 1)
 	reagents = list(/decl/reagent/water = 10)
 	items = list(/obj/item/reagent_containers/food/snacks/fish)

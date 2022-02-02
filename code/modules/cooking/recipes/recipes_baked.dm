@@ -94,7 +94,7 @@
 	result = /obj/item/reagent_containers/food/snacks/berryclafoutis
 
 /decl/recipe/loadedbakedpotato
-	appliance = OVEN
+	appliance = OVEN | MICROWAVE
 	fruit = list("potato" = 1)
 	items = list(/obj/item/reagent_containers/food/snacks/cheesewedge)
 	result = /obj/item/reagent_containers/food/snacks/loadedbakedpotato
@@ -107,7 +107,7 @@
 	result = /obj/item/reagent_containers/food/snacks/ribplate
 
 /decl/recipe/eggplantparm
-	appliance = OVEN
+	appliance = OVEN | MICROWAVE
 	fruit = list("eggplant" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/cheesewedge,
@@ -126,7 +126,7 @@
 	result_quantity = 2
 
 /decl/recipe/donkpocket
-	appliance = OVEN
+	appliance = OVEN | MICROWAVE
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough,
 		/obj/item/reagent_containers/food/snacks/meatball
@@ -144,8 +144,8 @@
 	reagents = list(/decl/reagent/water = 5, /decl/reagent/alcohol/vodka = 5, /decl/reagent/psilocybin = 5)
 	result = /obj/item/reagent_containers/food/snacks/spacylibertyduff
 
-/decl/recipe/hotdiggitydonk //heated donk, in lieu of a microwave
-	appliance = OVEN
+/decl/recipe/hotdiggitydonk // MY MICROWAVE IS BACK, WOMAN
+	appliance = OVEN | MICROWAVE
 	items = list(
 		/obj/item/reagent_containers/food/snacks/donkpocket
 	)

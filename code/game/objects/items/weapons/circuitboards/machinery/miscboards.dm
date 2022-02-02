@@ -1,5 +1,5 @@
 #ifndef T_BOARD
-#error T_BOARD macro is not defined but we need it! 
+#error T_BOARD macro is not defined but we need it!
 #endif
 
 //Stuff that doesn't fit into any category goes here
@@ -95,6 +95,17 @@
 	req_components = list(
 							"/obj/item/stock_parts/manipulator" = 3)
 
+/obj/item/circuitboard/microwave
+	name = T_BOARD("microwave")
+	desc = "The circuitboard for a microwave."
+	build_path = /obj/machinery/appliance/cooker/microwave
+	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	board_type = "machine"
+	req_components = list(
+							"/obj/item/stock_parts/capacitor" = 3,
+							"/obj/item/stock_parts/micro_laser" = 1,
+							"/obj/item/stock_parts/matter_bin" = 2)
+
 /obj/item/circuitboard/oven
 	name = T_BOARD("oven")
 	desc = "The circuitboard for an oven."
@@ -167,7 +178,7 @@
 	desc = "The circuitboard for a holopad."
 	build_path = /obj/machinery/hologram/holopad
 	origin_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 2)
-	board_type = "machine" 
+	board_type = "machine"
 	req_components = list(
 							"/obj/item/stock_parts/capacitor" = 2,
 							"/obj/item/stock_parts/scanning_module" = 1)

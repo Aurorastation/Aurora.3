@@ -2037,17 +2037,13 @@
 "eg" = (
 /obj/structure/table/standard,
 /obj/machinery/light,
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
+/obj/machinery/appliance/cooker/microwave
 	},
 /turf/simulated/floor/wood,
 /area/outpost/research/kitchen)
 "eh" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
+/obj/machinery/appliance/cooker/microwave
 	},
 /turf/simulated/floor/wood,
 /area/outpost/research/kitchen)
@@ -7413,9 +7409,7 @@
 	dir = 4
 	},
 /obj/structure/table/standard,
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
+/obj/machinery/appliance/cooker/microwave
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_north)
@@ -8634,9 +8628,7 @@
 /area/outpost/engineering/meeting)
 "rc" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
+/obj/machinery/appliance/cooker/microwave
 	},
 /turf/simulated/floor/carpet,
 /area/outpost/engineering/meeting)
@@ -12158,9 +12150,7 @@
 /area/outpost/mining_west)
 "xw" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
+/obj/machinery/appliance/cooker/microwave
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_west)
@@ -16075,9 +16065,7 @@
 "Vn" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
+/obj/machinery/appliance/cooker/microwave
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/dorms)

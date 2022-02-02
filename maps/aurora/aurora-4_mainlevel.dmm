@@ -33843,9 +33843,7 @@
 "bgE" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
+/obj/machinery/appliance/cooker/microwave
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
@@ -67657,15 +67655,11 @@
 	icon_state = "4-8"
 	},
 /obj/structure/table/standard,
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package";
+/obj/machinery/appliance/cooker/microwave;
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
+/obj/machinery/appliance/cooker/microwave
 	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
@@ -69989,9 +69983,7 @@
 /area/assembly/robotics/workshop)
 "vWF" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
+/obj/machinery/appliance/cooker/microwave
 	},
 /turf/simulated/floor/carpet,
 /area/quartermaster/break_room)

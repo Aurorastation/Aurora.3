@@ -1,5 +1,5 @@
 /decl/recipe/popcorn
-	appliance = SAUCEPAN
+	appliance = SAUCEPAN | MICROWAVE
 	fruit = list("corn" = 1)
 	result = /obj/item/reagent_containers/food/snacks/popcorn
 
@@ -14,15 +14,15 @@
 		for (var/obj/item/reagent_containers/food/snacks/amanitajelly/being_cooked in .)
 			being_cooked.reagents.del_reagent(/decl/reagent/toxin/amatoxin)
 
-// Ports from the microwave... yeah
+// Ports from the microwave... yeah // YEAH RIGHT
 
 /decl/recipe/mint
-	appliance = SAUCEPAN
+	appliance = SAUCEPAN | MICROWAVE
 	reagents = list(/decl/reagent/sugar = 5, /decl/reagent/frostoil = 5)
 	result = /obj/item/reagent_containers/food/snacks/mint
 
 /decl/recipe/porkbowl
-	appliance = SAUCEPAN
+	appliance = SAUCEPAN | MICROWAVE
 	reagents = list(/decl/reagent/water = 5, /decl/reagent/nutriment/rice = 10)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(
@@ -31,7 +31,7 @@
 	result = /obj/item/reagent_containers/food/snacks/porkbowl
 
 /decl/recipe/crab_legs
-	appliance = SAUCEPAN | POT
+	appliance = SAUCEPAN | POT | MICROWAVE
 	reagents = list(/decl/reagent/water = 10, /decl/reagent/sodiumchloride = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/crabmeat,

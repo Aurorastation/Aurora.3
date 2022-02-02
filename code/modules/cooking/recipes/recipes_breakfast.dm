@@ -1,5 +1,5 @@
 /decl/recipe/friedegg_easy
-	appliance = SKILLET
+	appliance = SKILLET | MICROWAVE
 	reagents = list(/decl/reagent/sodiumchloride = 1, /decl/reagent/blackpepper = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/egg
@@ -7,14 +7,14 @@
 	result = /obj/item/reagent_containers/food/snacks/friedegg/overeasy
 
 /decl/recipe/friedegg
-	appliance = SKILLET
+	appliance = SKILLET | MICROWAVE
 	items = list(
 		/obj/item/reagent_containers/food/snacks/friedegg/overeasy
 	)
 	result = /obj/item/reagent_containers/food/snacks/friedegg
 
 /decl/recipe/poachedegg
-	appliance = SKILLET | SAUCEPAN
+	appliance = SKILLET | SAUCEPAN | MICROWAVE
 	reagents = list(/decl/reagent/spacespice = 1, /decl/reagent/sodiumchloride = 1, /decl/reagent/blackpepper = 1, /decl/reagent/water = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/egg
@@ -40,7 +40,7 @@
 	result = /obj/item/reagent_containers/food/snacks/bacon_and_eggs
 
 /decl/recipe/ntmuffin
-	appliance = SKILLET
+	appliance = SKILLET | MICROWAVE
 	items = list(
 		/obj/item/reagent_containers/food/snacks/plumphelmetbiscuit,
 		/obj/item/reagent_containers/food/snacks/sausage,
@@ -51,7 +51,7 @@
 	result = /obj/item/reagent_containers/food/snacks/nt_muffin
 
 /decl/recipe/boiledegg
-	appliance = SAUCEPAN | POT
+	appliance = SAUCEPAN | POT | MICROWAVE
 	reagents = list(/decl/reagent/water = 5)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(
