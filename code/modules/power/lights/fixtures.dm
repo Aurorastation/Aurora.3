@@ -19,9 +19,9 @@
 	power_channel = LIGHT //Lights are calc'd via area so they dont need to be in the machine list
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	var/brightness_range = 8	// luminosity when on, also used in power calculation
-	var/brightness_power = 0.8
+	var/brightness_power = 0.45
 	var/night_brightness_range = 6
-	var/night_brightness_power = 0.6
+	var/night_brightness_power = 0.4
 	var/supports_nightmode = TRUE
 	var/nightmode = FALSE
 	var/brightness_color = LIGHT_COLOR_HALOGEN
@@ -56,7 +56,7 @@
 	bulb_is_noisy = FALSE
 	light_type = /obj/item/light/tube
 	inserted_light = /obj/item/light/tube
-	brightness_power = 1
+	brightness_power = 0.45
 	brightness_color = LIGHT_COLOR_PURPLE
 
 // the smaller bulb light fixture
@@ -66,7 +66,7 @@
 	base_state = "bulb"
 	fitting = "bulb"
 	brightness_range = 5
-	brightness_power = 0.75
+	brightness_power = 0.45
 	brightness_color = LIGHT_COLOR_TUNGSTEN
 	desc = "A small lighting fixture."
 	light_type = /obj/item/light/bulb
@@ -76,12 +76,12 @@
 
 /obj/machinery/light/small/emergency
 	brightness_range = 6
-	brightness_power = 1
+	brightness_power = 0.45
 	brightness_color = LIGHT_COLOR_EMERGENCY_SOFT
 
 /obj/machinery/light/small/red
 	brightness_range = 2.5
-	brightness_power = 1
+	brightness_power = 0.45
 	brightness_color = LIGHT_COLOR_RED
 
 /obj/machinery/light/colored/blue
@@ -96,7 +96,7 @@
 	light_type = /obj/item/light/tube/large
 	inserted_light = /obj/item/light/tube/large
 	brightness_range = 12
-	brightness_power = 4
+	brightness_power = 3.5
 	supports_nightmode = FALSE
 
 /obj/machinery/light/spot/weak
