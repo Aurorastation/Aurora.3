@@ -287,9 +287,6 @@
 		balance += SPIN_PRICE * 4
 		money = max(money - SPIN_PRICE * 4, money)
 
-	else
-		to_chat(user, SPAN_WARNING("Try again!"))
-
 /obj/machinery/computer/slot_machine/proc/get_lines()
 	var/amountthesame
 
