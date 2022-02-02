@@ -32911,7 +32911,9 @@
 /obj/item/reagent_containers/food/drinks/teapot{
 	pixel_y = 16
 	},
-/obj/machinery/appliance/cooker/microwave{
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_hallway)
@@ -35350,7 +35352,9 @@
 "uYK" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
-/obj/machinery/appliance/cooker/microwave{
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
