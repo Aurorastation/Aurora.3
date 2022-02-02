@@ -1,0 +1,15 @@
+author: Xxxxyobdab
+
+delete-after: True
+
+changes
+  - rscdel: "Removed recipe: Espresso + Water = coffee. Reason: Americano already uses this mix."
+  - rscadd: "Rich Coffee Plant to gather Rich Coffee Beans."
+  - rscadd: "Grind Rich Coffee Beans for Dark Coffee Grounds."
+  - rscadd: "Recipe:Dark Coffee Grounds + Water = Espresso"
+  - tweak: "(Coffee Grounds + Water) From: makes Espresso. To: makes Coffee"
+  - rscadd: "Plants: Strawberry, Raspberry, Black Raspberry, Blue Raspberry"
+  - rscadd: "Strawberry, Raspberry, Black Raspberry, Blue Raspberry and Rich Coffee Seeds added to vending machines."
+  - rscadd: "Produce: Strawberries, Raspberries, Black Raspberries, Blue Raspberries"
+  - rscadd: "Specific juices for: Glowberry, Deathberry, Dirtberry, Ylphaberry, Blueberry, Strawberry, Raspberry, Blue raspberry, Black raspberry"
+  - rscadd: "Syrup(3u simple syrup + 2u of listed juice) recipes for: Berry, Strawberry, Blueberry, Poisonberry, Deathberry, Glowberry, Dirtberry, Ylphaberry, Raspberry, Black Raspberry, Blue Raspberry"
