@@ -54,7 +54,7 @@
 
 /obj/machinery/appliance/cooker/microwave/Initialize(mapload)
 	. = ..(mapload, 0, FALSE) // shadow-realm the parts for now, jimbo
-	reagents = new/datum/reagents(100)
+	create_reagents(100)
 	reagents.my_atom = src
 	soundloop = new(list(src), FALSE)
 
