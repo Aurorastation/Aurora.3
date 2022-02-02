@@ -301,7 +301,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/appliance/cooker/microwave, microwavemonitor)
 	RefreshParts()
 	return (ct / cooking_power)
 
-/obj/machinery/appliance/cooker/microwave/process() // What you see here are the remains of proc/wzhzhzh, 2010 - 2019. RIP.
+/obj/machinery/appliance/cooker/microwave/machinery_process() // What you see here are the remains of proc/wzhzhzh, 2010 - 2019. RIP.
 	if (stat & (NOPOWER|BROKEN))
 		stop()
 		return
