@@ -1,6 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - bugfix: "The job code now checks if a given job & species preference is permitted for a given faction when loading a character."
