@@ -2510,7 +2510,7 @@
 /area/derelict)
 "nD" = (
 /obj/structure/table/reinforced,
-/obj/machinery/microwave{
+/obj/machinery/appliance/cooker/microwave{
 	pixel_x = -1;
 	pixel_y = 8
 	},

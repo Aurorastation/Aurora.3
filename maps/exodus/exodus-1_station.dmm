@@ -11644,7 +11644,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/microwave,
+/obj/machinery/appliance/cooker/microwave,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "awj" = (
@@ -70799,7 +70799,7 @@
 /area/engineering/engine_monitoring)
 "cEz" = (
 /obj/structure/table/standard,
-/obj/machinery/microwave{
+/obj/machinery/appliance/cooker/microwave{
 	pixel_x = -2;
 	pixel_y = 5
   },
@@ -71010,7 +71010,7 @@
 /area/maintenance/medbay)
 "cES" = (
 /obj/structure/table/standard,
-/obj/machinery/microwave{
+/obj/machinery/appliance/cooker/microwave{
 	pixel_x = -2;
 	pixel_y = 5
 /turf/simulated/floor/tiled/white,

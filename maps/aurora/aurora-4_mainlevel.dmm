@@ -19386,7 +19386,7 @@
 /area/rnd/research)
 "aHQ" = (
 /obj/structure/table/standard,
-/obj/machinery/microwave{
+/obj/machinery/appliance/cooker/microwave{
 	pixel_x = -2;
 	pixel_y = 5
 	},
@@ -34658,7 +34658,7 @@
 "bhV" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
-/obj/machinery/microwave{
+/obj/machinery/appliance/cooker/microwave{
 	pixel_x = -2;
 	pixel_y = 5
 	},
@@ -56271,7 +56271,7 @@
 /area/quartermaster/break_room)
 "cdJ" = (
 /obj/structure/table/standard,
-/obj/machinery/microwave{
+/obj/machinery/appliance/cooker/microwave{
 	pixel_y = 6
 	},
 /obj/effect/floor_decal/corner/red/diagonal,

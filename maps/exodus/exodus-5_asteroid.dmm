@@ -2042,7 +2042,7 @@
 /area/outpost/research/kitchen)
 "eh" = (
 /obj/structure/table/standard,
-/obj/machinery/microwave,
+/obj/machinery/appliance/cooker/microwave,
 /turf/simulated/floor/wood,
 /area/outpost/research/kitchen)
 "ei" = (
@@ -7421,7 +7421,7 @@
 "pf" = (
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/cobweb2,
-/obj/machinery/microwave{
+/obj/machinery/appliance/cooker/microwave{
 	pixel_y = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -9407,7 +9407,7 @@
 	dir = 8
 	},
 /obj/structure/table/standard,
-/obj/machinery/microwave,
+/obj/machinery/appliance/cooker/microwave,
 /turf/simulated/floor/wood,
 /area/outpost/engineering/meeting)
 "sA" = (
@@ -12150,7 +12150,7 @@
 /area/outpost/mining_west)
 "xw" = (
 /obj/structure/table/standard,
-/obj/machinery/microwave,
+/obj/machinery/appliance/cooker/microwave,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_west)
 "xx" = (
@@ -16064,7 +16064,7 @@
 "Vn" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/microwave,
+/obj/machinery/appliance/cooker/microwave,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/dorms)
 
