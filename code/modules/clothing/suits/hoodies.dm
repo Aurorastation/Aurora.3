@@ -1,9 +1,6 @@
 //Hoods for winter coats and chaplain hoodie etc
 
 /obj/item/clothing/suit/storage/hooded
-	var/obj/item/clothing/head/winterhood/hood
-	var/hoodtype = null
-	var/suittoggled = FALSE
 	var/opened = FALSE
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/hoodie.dmi'
@@ -13,39 +10,12 @@
 	. = ..()
 	MakeHood()
 
-/obj/item/clothing/suit/storage/hooded/Destroy()
-	QDEL_NULL(hood)
-	return ..()
-
-/obj/item/clothing/suit/storage/hooded/proc/MakeHood()
-	if(!hood)
-		hood = new hoodtype(src)
-
-/obj/item/clothing/suit/storage/hooded/equipped(mob/user, slot)
-	if(slot != slot_wear_suit)
-		RemoveHood()
-	..()
-
-/obj/item/clothing/suit/storage/hooded/proc/RemoveHood()
-	suittoggled = FALSE
-	icon_state = "[initial(icon_state)][opened ? "_open" : ""][suittoggled ? "_t" : ""]"
+/obj/item/clothing/suit/storage/hooded/update_icon()
+	. = ..()
+	icon_state = "[initial(icon_state)][hooded ? "_t" : ""]"
 	item_state = icon_state
-	// Hood got nuked. Probably because of RIGs or the like.
-	if(!hood)
-		MakeHood()
-		return
-
-	if(ishuman(hood.loc))
-		var/mob/living/carbon/H = hood.loc
-		H.unEquip(hood, 1)
-		H.update_inv_wear_suit()
-	hood.forceMove(src)
-
-/obj/item/clothing/suit/storage/hooded/dropped()
-	RemoveHood()
-
-/obj/item/clothing/suit/storage/hooded/on_slotmove()
-	RemoveHood()
+	if(usr)
+		usr.update_inv_wear_suit()
 
 /obj/item/clothing/suit/storage/hooded/verb/ToggleHood()
 	set name = "Toggle Coat Hood"
@@ -55,32 +25,15 @@
 	if(use_check_and_message(usr))
 		return 0
 
-	if(!suittoggled)
-		if(ishuman(loc))
+	if(!hooded)
+		if(CheckSlot())
 			var/mob/living/carbon/human/H = src.loc
-			if(H.wear_suit != src)
-				to_chat(H, "<span class='warning'>You must be wearing [src] to put up the hood!</span>")
-				return
-			if(H.head)
-				to_chat(H, "<span class='warning'>You're already wearing something on your head!</span>")
-				return
-			else
-				suittoggled = TRUE
-				icon_state = "[initial(icon_state)][opened ? "_open" : ""]"
-				 //spawn appropriate hood.
-				CreateHood()
-				H.equip_to_slot_if_possible(hood,slot_head,0,0,1)
-				H.update_inv_wear_suit()
+			hooded = TRUE
+				//spawn appropriate hood.
+			CreateHood()
+			H.equip_to_slot_if_possible(hood,slot_head,0,0,1)
 	else
 		RemoveHood()
-
-/obj/item/clothing/suit/storage/hooded/proc/CreateHood()
-	hood.color = src.color
-	hood.icon_state = "[icon_state]_hood"
-	hood.item_state = "[icon_state]_hood"
-	icon_state = "[icon_state][suittoggled ? "_t" : ""]"
-	item_state = icon_state
-	update_icon()
 
 //hoodies and the like
 
@@ -210,7 +163,7 @@
 	playsound(src, 'sound/items/zip.ogg', EQUIP_SOUND_VOLUME, TRUE)
 	icon_state = "[initial(icon_state)][opened ? "_open" : ""]"
 	item_state = icon_state
-	if(suittoggled)
+	if(hooded)
 		CreateHood() //rebuild the hood with open/closed version
 	update_icon()
 	update_clothing_icon()

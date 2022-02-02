@@ -31,6 +31,10 @@
 
 	var/move_trail = /obj/effect/decal/cleanable/blood/tracks/footprints
 
+	var/obj/item/clothing/head/winterhood/hood
+	var/hoodtype = null
+	var/clothing_type // used for holsters & hoods. Do not set it outside init.
+	var/hooded = FALSE
 
 /obj/item/clothing/Initialize(var/mapload, var/material_key)
 	. = ..(mapload)
@@ -42,6 +46,7 @@
 		for(var/T in starting_accessories)
 			var/obj/item/clothing/accessory/tie = new T(src)
 			src.attach_accessory(null, tie)
+	clothing_type = type
 	update_icon()
 
 /obj/item/clothing/Destroy()
@@ -300,6 +305,71 @@
 		if(accessory)
 			return accessory
 	return null
+
+// Hood relevant parts. Look at /obj/item/clothing/suit/storage/hooded for how to implement the verb to use it
+/obj/item/clothing/proc/MakeHood()
+	var/obj/item/clothing/K = get_accessory(clothing_type)
+	if(!K.hood)
+		K.hood = new hoodtype(src)
+
+/obj/item/clothing/Destroy()
+	var/obj/item/clothing/K = get_accessory(clothing_type)
+	QDEL_NULL(K.hood)
+	return ..()
+
+/obj/item/clothing/dropped()
+	var/obj/item/clothing/K = get_accessory(clothing_type)
+	K.RemoveHood()
+
+/obj/item/clothing/on_slotmove()
+	var/obj/item/clothing/K = get_accessory(clothing_type)
+	K.RemoveHood()
+
+/obj/item/clothing/hooded/equipped(mob/user, slot)
+	if(slot != slot_wear_suit && slot != slot_w_uniform)
+		RemoveHood()
+	..()
+
+/obj/item/clothing/proc/CreateHood()
+	var/obj/item/clothing/K = get_accessory(clothing_type)
+	if(!K.hood)
+		K.hood = new hoodtype(src)
+	K.hood.color = src.color
+	K.hood.icon_state = "[icon_state]_hood"
+	K.hood.item_state = "[icon_state]_hood"
+	K.update_icon(usr)
+
+/obj/item/clothing/proc/RemoveHood()
+	var/obj/item/clothing/K = get_accessory(clothing_type)
+	if(!K)
+		return
+
+	if(!K.hooded)
+		return
+	K.hooded = FALSE
+
+	if(!K.hood)
+		K.MakeHood()
+		return
+
+	if(ishuman(K.hood.loc))
+		var/mob/living/carbon/H = K.hood.loc
+		H.unEquip(K.hood, 1)
+	K.hood.forceMove(src)
+	K.update_icon(usr)
+
+/obj/item/clothing/proc/CheckSlot()
+	if(ishuman(loc))
+		var/mob/living/carbon/human/H = src.loc
+		if(H.wear_suit != src && H.w_uniform != src)
+			to_chat(H, "<span class='warning'>You must be wearing [src] to put up the hood!</span>")
+			return FALSE
+		else if(H.head)
+			to_chat(H, "<span class='warning'>You're already wearing something on your head!</span>")
+			return FALSE
+		else
+			return TRUE
+	return FALSE
 
 ///////////////////////////////////////////////////////////////////////
 // Ears: headsets, earmuffs and tiny objects

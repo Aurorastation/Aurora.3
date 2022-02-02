@@ -2095,9 +2095,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	var/name2 = "handmade royalist cloak"
 	var/desc2 = "A blue cloak with the symbol of the New Kingdom of Adhomai proudly displayed on the back.\nUpon closer examination it appears to be a patchwork of older textile and newer fabrics, with the inside of the cloak appearing to be colored differently."
 	var/changed = FALSE
-	var/hooded = FALSE
-	var/obj/item/clothing/head/winterhood/hood
-	var/hoodtype = /obj/item/clothing/head/winterhood/fluff/kathira_hood
+	hoodtype = /obj/item/clothing/head/winterhood/fluff/kathira_hood
 
 /obj/item/clothing/head/winterhood/fluff/kathira_hood
 	name = "handsewn hood"
@@ -2108,7 +2106,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	flags_inv = HIDEEARS | BLOCKHAIR | HIDEEARS
 
-/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/update_icon(var/user)
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/update_icon()
 	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
 	K.icon_state = "[K.changed ? K.style : initial(K.icon_state)]"
 	K.item_state = "[K.icon_state][K.hooded ? "_up" : ""]"
@@ -2116,8 +2114,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 	K.desc = "[K.changed ? K.desc2 : initial(K.desc)]"
 	K.accessory_mob_overlay = null
 	. = ..()
-	usr.update_inv_w_uniform()
-	usr.update_inv_wear_suit()
+	if(usr)
+		usr.update_inv_w_uniform()
+		usr.update_inv_wear_suit()
 	
 /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_cloak()
 	set name = "Change Cloak"
@@ -2156,73 +2155,20 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if(use_check_and_message(usr))
 		return
 	
-	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
+	var/obj/item/clothing/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
 	if(!K)
 		return
 
 	if(!K.hooded)
-		if(ishuman(loc))
+		if(CheckSlot())
 			var/mob/living/carbon/human/H = src.loc
-			if(H.wear_suit != src && H.w_uniform != src)
-				to_chat(H, SPAN_WARNING("You must be wearing \the [K] to put up the hood!"))
-				return
-			if(H.head)
-				to_chat(H, SPAN_WARNING("You're already wearing something on your head!"))
-				return
-			else
-				K.hooded = TRUE
-				K.CreateHood()
-				H.equip_to_slot_if_possible(K.hood,slot_head,0,0,1)
-				usr.visible_message(SPAN_NOTICE("[usr] pulls up the hood on \the [K]."))
+			K.hooded = TRUE
+			K.CreateHood()
+			H.equip_to_slot_if_possible(K.hood,slot_head,0,0,1)
+			usr.visible_message(SPAN_NOTICE("[usr] pulls up the hood on \the [K]."))
 	else
 		K.RemoveHood()
 		usr.visible_message(SPAN_NOTICE("[usr] pulls down the hood on \the [K]."))
-
-/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/proc/RemoveHood()
-	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
-	if(!K)
-		return
-
-	if(!K.hooded)
-		return
-	K.hooded = FALSE
-
-	if(!K.hood)
-		K.MakeHood()
-		return
-
-	if(ishuman(K.hood.loc))
-		var/mob/living/carbon/H = K.hood.loc
-		H.unEquip(K.hood, 1)
-	K.hood.forceMove(src)
-	K.update_icon(usr)
-
-/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/proc/MakeHood()
-	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
-	if(!K.hood)
-		K.hood = new hoodtype(src)
-
-/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/Destroy()
-	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
-	QDEL_NULL(K.hood)
-	return ..()
-
-/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/dropped()
-	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
-	K.RemoveHood()
-
-/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/on_slotmove()
-	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
-	K.RemoveHood()
-
-/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/proc/CreateHood()
-	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
-	if(!K.hood)
-		K.hood = new hoodtype(src)
-	K.hood.color = src.color
-	K.hood.icon_state = "[icon_state]_hood"
-	K.hood.item_state = "[icon_state]_hood"
-	K.update_icon(usr)
 
 /obj/item/clothing/suit/storage/toggle/fluff/leonid_chokha //Old Rebel's Chokha - Leonid Myagmar - lucaken
 	name = "old rebel's chokha"
