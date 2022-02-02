@@ -134,10 +134,11 @@
 	else if(is_type_in_list(O, acceptable_containers))
 		if (!O.reagents)
 			return 1
-		for (var/decl/reagent/R in O.reagents)
-			if (!(R.type in acceptable_reagents))
-				to_chat(user, SPAN_WARNING("Your [O] contains components unsuitable for cookery."))
-				return 1
+		if(reagents && LAZYLEN(O.reagents))
+			for(var/decl/reagent/R in O.reagents)
+				if(!(R.type in acceptable_reagents))
+					to_chat(user, SPAN_WARNING("Your [O] contains components unsuitable for cookery."))
+					return 1
 		return // Note to the future: reagents are added after this in the container's afterattack().
 	else if(istype(O,/obj/item/grab))
 		var/obj/item/grab/G = O
@@ -248,8 +249,8 @@ VUEUI_MONITOR_VARS(/obj/machinery/appliance/cooker/microwave, microwavemonitor)
 			cook_count[O.name]++
 		for (var/C in cook_count)
 			VUEUI_SET_CHECK(data["cookingobjs"][C], cook_count[C], ., data)
-	if (LAZYLEN(reagents))
-		for (var/decl/reagent/R in reagents)
+	if (LAZYLEN(src.reagents))
+		for (var/decl/reagent/R in src.reagents)
 			VUEUI_SET_CHECK(data["cookingreas"][R], REAGENT_VOLUME(src.reagents, R), ., data)
 
 /obj/machinery/appliance/cooker/microwave/ui_interact(mob/user)
@@ -426,7 +427,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/appliance/cooker/microwave, microwavemonitor)
 	else if(href_list["eject_all"])
 		eject()
 	else if(href_list["eject"])
-		for (var/decl/reagent/R in reagents)
+		for (var/decl/reagent/R in src.reagents)
 			if(R.name == href_list["eject"])
 				eject_reagent(R, usr)
 				break
