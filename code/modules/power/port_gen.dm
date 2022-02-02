@@ -13,11 +13,9 @@
 	var/open = FALSE
 	var/power_output = 1
 	has_special_power_checks = TRUE
-	var/datum/looping_sound/generator/soundloop
 
 /obj/machinery/power/port_gen/Initialize()
 	. = ..()
-	soundloop = new(list(src), active)
 
 /obj/machinery/power/port_gen/proc/IsBroken()
 	return (stat & (BROKEN|EMPED))
@@ -51,11 +49,9 @@
 /obj/machinery/power/port_gen/attack_hand(mob/user)
 	if(..())
 		update_icon()
-		soundloop.stop()
 		return
 	if(!anchored)
 		update_icon()
-		soundloop.start()
 		return
 
 /obj/machinery/power/port_gen/update_icon()

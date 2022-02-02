@@ -104,7 +104,7 @@
 		else
 			if (SS_flags & SS_BACKGROUND)
 				continue
-			if (SS_flags & SS_TICKER)
+			if (SS_flags & (SS_TICKER|SS_BACKGROUND) == SS_TICKER)
 				break
 			if (queue_node_priority < SS_priority)
 				break
