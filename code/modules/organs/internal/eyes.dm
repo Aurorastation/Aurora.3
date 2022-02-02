@@ -5,6 +5,7 @@
 	organ_tag = BP_EYES
 	parent_organ = BP_HEAD
 	robotic_name = "optical sensors"
+	robotic_sprite = "eyes-prosthetic"
 	max_damage = 45
 	relative_size = 5
 	var/list/eye_colour = list(0,0,0)

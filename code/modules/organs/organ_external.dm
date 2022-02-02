@@ -21,7 +21,7 @@
 	var/icon_name = null
 	var/body_part = null
 	var/icon_position = 0
-
+	var/model
 	var/damage_state = "00"
 
 	//Damage variables.

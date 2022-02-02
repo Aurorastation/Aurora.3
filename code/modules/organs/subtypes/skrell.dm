@@ -1,20 +1,21 @@
 /obj/item/organ/internal/heart/skrell
-	icon = 'icons/obj/organs/skrell_organs.dmi'
+	icon_state = "skrell_heart-on"
+	dead_icon = "skrell_heart-off"
 
 /obj/item/organ/internal/lungs/skrell
-	icon = 'icons/obj/organs/skrell_organs.dmi'
+	icon_state = "lungs_skrell"
 
 /obj/item/organ/internal/kidneys/skrell
-	icon = 'icons/obj/organs/skrell_organs.dmi'
+	icon_state = "kidney_skrell"
 
 /obj/item/organ/internal/eyes/skrell
-	icon = 'icons/obj/organs/skrell_organs.dmi'
+	icon_state = "eyes_skrell"
 
 /obj/item/organ/internal/liver/skrell
-	icon = 'icons/obj/organs/skrell_organs.dmi'
+	icon_state = "liver_skrell"
 
 /obj/item/organ/internal/brain/skrell
-	icon = 'icons/obj/organs/skrell_organs.dmi'
+	icon_state = "brain_skrell"
 
 /obj/item/organ/external/head/skrell
 	var/obj/item/storage/internal/skrell/storage

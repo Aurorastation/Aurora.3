@@ -14,7 +14,7 @@
 
 /obj/item/organ/internal/appendix/process()
 	..()
-	if(inflamed && owner && !(status & ORGAN_ROBOT))
+	if(inflamed && owner)
 		inflamed++
 		if(prob(5))
 			if(owner.can_feel_pain())
