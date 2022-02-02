@@ -130,6 +130,8 @@
 	overlays += light
 
 /obj/machinery/appliance/cooker/machinery_process()
+	if(!src.loc)
+		return
 	var/datum/gas_mixture/loc_air = loc.return_air()
 	if (stat || (use_power != 2)) // if we're not actively heating
 		temperature -= min(loss, temperature - loc_air.temperature)
