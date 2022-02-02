@@ -117,6 +117,9 @@
 
 	//can't we just use src here?
 	var/obj/item/clothing/accessory/holster/H = get_accessory(/obj/item/clothing/accessory/holster)
+	if(!H && istype(src, /obj/item/clothing/suit/armor/tactical)) // This armor is a snowflake and has an integrated holster.
+		var/obj/item/clothing/suit/armor/tactical/tacticool = src
+		H = tacticool.holster
 
 	if (!H)
 		to_chat(usr, "<span class='warning'>Something is very wrong.</span>")
