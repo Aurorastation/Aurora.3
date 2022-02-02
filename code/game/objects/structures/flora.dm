@@ -260,7 +260,7 @@
 		qdel(src)
 		playsound(src.loc, 'sound/effects/woodcutting.ogg', 50, 1)
 	if(istype(W,/obj/item/material/hatchet))//no items
-		to_chat(usr, "<span class='notice'>You chop at the bush!</span>")
+		to_chat(usr, SPAN_NOTICE("You chop at the bush!"))
 		qdel(src)
 		playsound(src.loc, 'sound/effects/woodcutting.ogg', 50, 1)
 
