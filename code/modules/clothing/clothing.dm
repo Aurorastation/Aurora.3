@@ -308,22 +308,22 @@
 
 // Hood relevant parts. Look at /obj/item/clothing/suit/storage/hooded for how to implement the verb to use it
 /obj/item/clothing/proc/MakeHood()
-	var/obj/item/clothing/K = get_accessory(clothing_type)
-	if(!K.hood)
-		K.hood = new hoodtype(src)
+	var/obj/item/clothing/C = get_accessory(clothing_type)
+	if(!C.hood)
+		C.hood = new hoodtype(src)
 
 /obj/item/clothing/Destroy()
-	var/obj/item/clothing/K = get_accessory(clothing_type)
-	QDEL_NULL(K.hood)
+	var/obj/item/clothing/C = get_accessory(clothing_type)
+	QDEL_NULL(C.hood)
 	return ..()
 
 /obj/item/clothing/dropped()
-	var/obj/item/clothing/K = get_accessory(clothing_type)
-	K.RemoveHood()
+	var/obj/item/clothing/C = get_accessory(clothing_type)
+	C.RemoveHood()
 
 /obj/item/clothing/on_slotmove()
-	var/obj/item/clothing/K = get_accessory(clothing_type)
-	K.RemoveHood()
+	var/obj/item/clothing/C = get_accessory(clothing_type)
+	C.RemoveHood()
 
 /obj/item/clothing/hooded/equipped(mob/user, slot)
 	if(slot != slot_wear_suit && slot != slot_w_uniform)
@@ -331,32 +331,32 @@
 	..()
 
 /obj/item/clothing/proc/CreateHood()
-	var/obj/item/clothing/K = get_accessory(clothing_type)
-	if(!K.hood)
-		K.hood = new hoodtype(src)
-	K.hood.color = src.color
-	K.hood.icon_state = "[icon_state]_hood"
-	K.hood.item_state = "[icon_state]_hood"
-	K.update_icon(usr)
+	var/obj/item/clothing/C = get_accessory(clothing_type)
+	if(!C.hood)
+		C.hood = new hoodtype(src)
+	C.hood.color = src.color
+	C.hood.icon_state = "[icon_state]_hood"
+	C.hood.item_state = "[icon_state]_hood"
+	C.update_icon(usr)
 
 /obj/item/clothing/proc/RemoveHood()
-	var/obj/item/clothing/K = get_accessory(clothing_type)
-	if(!K)
+	var/obj/item/clothing/C = get_accessory(clothing_type)
+	if(!C)
 		return
 
-	if(!K.hooded)
+	if(!C.hooded)
 		return
-	K.hooded = FALSE
+	C.hooded = FALSE
 
-	if(!K.hood)
-		K.MakeHood()
+	if(!C.hood)
+		C.MakeHood()
 		return
 
-	if(ishuman(K.hood.loc))
-		var/mob/living/carbon/H = K.hood.loc
-		H.unEquip(K.hood, 1)
-	K.hood.forceMove(src)
-	K.update_icon(usr)
+	if(ishuman(C.hood.loc))
+		var/mob/living/carbon/H = C.hood.loc
+		H.unEquip(C.hood, 1)
+	C.hood.forceMove(src)
+	C.update_icon(usr)
 
 /obj/item/clothing/proc/CheckSlot()
 	if(ishuman(loc))
