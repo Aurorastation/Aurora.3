@@ -362,10 +362,10 @@
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = src.loc
 		if(H.wear_suit != src && H.w_uniform != src)
-			to_chat(H, "<span class='warning'>You must be wearing [src] to put up the hood!</span>")
+			to_chat(H, SPAN_WARNING("You must be wearing [src] to put up the hood!"))
 			return FALSE
 		else if(H.head)
-			to_chat(H, "<span class='warning'>You're already wearing something on your head!</span>")
+			to_chat(H, SPAN_WARNING("You're already wearing something on your head!"))
 			return FALSE
 		else
 			return TRUE
