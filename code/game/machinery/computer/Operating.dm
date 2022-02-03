@@ -81,7 +81,7 @@
 	Blood Volume: <b>[victim.get_blood_volume()]%</b><br>
 	"}
 		if(!input_scan)
-			dat += "Patient Scan: <b>Patient Scan not found.</br><br>"
+			dat += "Patient Scan: <b>Patient Scan not found.</b><br>"
 		else
 			dat += {"
 		Patient Scan: <b>[input_scan]</b><br>
@@ -297,7 +297,7 @@
 		dat += "<tr>"
 		dat += "<td>[i.name]</td><td>N/A</td><td>[internal_bodyscanner.get_internal_damage(i)]</td><td>[infection], [mech][necrotic]</td><td></td>"
 		dat += "</tr>"
-	dat += "</table></div>"
+	dat += "</table></div></center>"
 
 	var/list/species_organs = occ["species_organs"]
 	for(var/organ_name in species_organs)
