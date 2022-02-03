@@ -31,6 +31,7 @@
 		/obj/item/reagent_containers/syringe,
 		/obj/item/reagent_containers/pill,
 		/obj/item/reagent_containers/hypospray/autoinjector,
+		/obj/item/reagent_containers/inhaler,
 		/obj/item/screwdriver,
 		/obj/item/stamp,
 		/obj/item/device/paicard,
