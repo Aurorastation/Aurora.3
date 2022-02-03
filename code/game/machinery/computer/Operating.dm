@@ -11,6 +11,10 @@
 	circuit = /obj/item/circuitboard/operating
 	var/mob/living/carbon/human/victim = null
 	var/obj/machinery/optable/table = null
+	var/last_alarm
+	var/last_ring
+	var/obj/item/paper/medscan/input_scan = null
+	var/obj/machinery/body_scanconsole/internal_bodyscanner = null
 
 /obj/machinery/computer/operating/Initialize()
 	. = ..()
@@ -19,6 +23,11 @@
 		if (table)
 			table.computer = src
 			break
+	if(!internal_bodyscanner) // So it can scan correctly
+		var/obj/machinery/body_scanconsole/S = new (src)
+		S.forceMove(src)
+		S.use_power = FALSE
+		internal_bodyscanner = S
 
 /obj/machinery/computer/operating/attack_ai(mob/user)
 	if(!ai_can_interact(user))
@@ -35,6 +44,22 @@
 		return
 	interact(user)
 
+/obj/machinery/computer/operating/attackby(obj/item/O as obj, mob/user)
+	if(istype(O, /obj/item/paper/medscan))
+		if(input_scan)
+			to_chat(usr, SPAN_NOTICE("There is already a [O] inside!"))
+			return
+		user.drop_from_inventory(O,src)
+		input_scan = O
+		input_scan.color = "#272727"
+		input_scan.set_content_unsafe("Scan ([victim])", operating_format(get_medical_data(victim)))
+		usr.visible_message("\The [src] pings, displaying the [input_scan].")
+		to_chat(usr, SPAN_NOTICE("You insert the [O] into [src]."))
+		playsound(src, 'sound/bureaucracy/scan.ogg', 50, 1)
+	else
+		to_chat(usr, SPAN_NOTICE("You try to insert the [O], but \the [src] buzzes, unable to read it."))
+		playsound(src, 'sound/machines/buzz-sigh.ogg', 50, 1)
+		return
 
 /obj/machinery/computer/operating/interact(mob/user)
 	if ( (get_dist(src, user) > 1 ) || (stat & (BROKEN|NOPOWER)) )
@@ -48,12 +73,23 @@
 	if(src.table && (src.table.check_victim()))
 		src.victim = src.table.victim
 		dat += {"
-<B>Patient Information:</B><BR>
-Brain Activity: <b>[victim.isFBP() ? "<span class='danger'>N/A</span>" : victim.get_brain_status()]</b><br>
-Pulse: <b>[victim.get_pulse(GETPULSE_TOOL)]</b><br>
-BP: <b>[victim.get_blood_pressure()]</b><br>
-Blood Oxygenation: <b>[victim.get_blood_oxygenation()]</b><br>
-"}
+	<B>Patient Information:</B><BR>
+	Brain Activity: <b>[victim.isFBP() ? "<span class='danger'>N/A</span>" : victim.get_brain_status()]</b><br>
+	Pulse: <b>[victim.get_pulse(GETPULSE_TOOL)]</b><br>
+	BP: <b>[victim.get_blood_pressure()]</b><br>
+	Blood Oxygenation: <b>[victim.get_blood_oxygenation()]</b><br>
+	Blood Volume: <b>[victim.get_blood_volume()]%</b><br>
+	"}
+		if(!input_scan)
+			dat += "Patient Scan: <b>Patient Scan not found.</br><br>"
+		else
+			dat += {"
+		Patient Scan: <b>[input_scan]</b><br>
+		<a href='?src=\ref[src];action=update'>Update scan</a>
+		<a href='?src=\ref[src];action=eject'>Remove and update scan</a>
+		<a href='?src=\ref[src];action=print_new'>Print new scan</a><br><hr>
+		"}
+			dat += "[input_scan.get_content()]"
 	else
 		src.victim = null
 		dat += {"
@@ -76,18 +112,200 @@ Blood Oxygenation: <b>[victim.get_blood_oxygenation()]</b><br>
 			to_chat(user, SPAN_NOTICE("Pulse: [victim.get_pulse(GETPULSE_TOOL)]"))
 			to_chat(user, SPAN_NOTICE("BP: [victim.get_blood_pressure()]"))
 			to_chat(user, SPAN_NOTICE("Blood Oxygenation: [victim.get_blood_oxygenation()]"))
+			to_chat(user, SPAN_NOTICE("Blood Volume: [victim.get_blood_volume()]%"))
+			to_chat(user, SPAN_NOTICE("Patient Scan: [input_scan]"))
 		else
 			src.victim = null
 			to_chat(user, SPAN_NOTICE("No Patient Detected"))
 
 /obj/machinery/computer/operating/Topic(href, href_list)
-	if(..())
-		return 1
+	..()
+	if(href_list["action"])
+		switch(href_list["action"])
+			if("update")
+				input_scan.set_content_unsafe("Scan ([victim])", operating_format(get_medical_data(victim)))
+				usr.visible_message("\The [src] chimes, updating the [input_scan].")
+				playsound(src, 'sound/machines/chime.ogg', 50, 1)
+			if("eject")
+				usr.visible_message("\The [src] beeps, ejecting the [input_scan].")
+				input_scan.color = "#eeffe8"
+				input_scan.set_content_unsafe("Scan ([victim])", internal_bodyscanner.format_occupant_data(get_medical_data(victim))) // Re-formats it correctly
+				input_scan.forceMove(usr.loc)
+				usr.put_in_hands(input_scan)
+				input_scan = null
+				playsound(src, 'sound/machines/twobeep.ogg', 50, 1)
+			if("print_new")
+				print_new()
+				usr.visible_message("\The [src] beeps, printing a new [input_scan] after a moment.")
 	if ((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
 		usr.set_machine(src)
 	return
 
-
 /obj/machinery/computer/operating/machinery_process()
 	if(operable())
 		src.updateDialog()
+	if(src.table && (src.table.check_victim()) && victim != DEAD) // Specific warning alarms for specific conditions. Times to be tweaked according to feedback
+		src.victim = src.table.victim
+		if(victim.get_blood_oxygenation() < 30)
+			if(world.time > last_ring + 15 SECONDS)
+				last_ring = world.time
+				src.visible_message(SPAN_WARNING("Warning! [victim]'s <b>Blood Oxygenation</b> is in critical condition!"))
+				playsound(src, 'sound/machines/ringer.ogg', 50)
+		if(victim.get_brain_result() < 20)
+			if(world.time > last_alarm + 10 SECONDS)
+				last_alarm = world.time
+				src.visible_message(SPAN_WARNING("Warning! [victim]'s <b>Brain Activity</b> is in critical condition!"))
+				playsound(src, 'sound/effects/alert.ogg', 50)
+
+// PRINTING SHENANIGANRY
+/obj/machinery/computer/operating/proc/print_new()
+	var/obj/item/paper/medscan/S = new()
+	usr.put_in_hands(S)
+	S.color = "#eeffe8"
+	S.set_content_unsafe("Scan ([victim])", internal_bodyscanner.format_occupant_data(get_medical_data(victim)))
+	playsound(src, 'sound/bureaucracy/print.ogg', 50, 1)
+
+/obj/machinery/computer/operating/proc/get_medical_data(var/mob/living/carbon/human/H)
+	if (!ishuman(H))
+		return
+
+	var/list/medical_data = list(
+		"stationtime" = worldtime2text(),
+		"brain_activity" = H.get_brain_status(),
+		"blood_volume" = H.get_blood_volume(),
+		"blood_oxygenation" = H.get_blood_oxygenation(),
+		"blood_pressure" = H.get_blood_pressure(),
+
+		"bruteloss" = get_severity(H.getBruteLoss(), TRUE),
+		"fireloss" = get_severity(H.getFireLoss(), TRUE),
+		"oxyloss" = get_severity(H.getOxyLoss(), TRUE),
+		"toxloss" = get_severity(H.getToxLoss(), TRUE),
+		"cloneloss" = get_severity(H.getCloneLoss(), TRUE),
+
+		"rads" = H.total_radiation,
+		"paralysis" = H.paralysis,
+		"bodytemp" = H.bodytemperature,
+		"borer_present" = H.has_brain_worms(),
+		"inaprovaline_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/inaprovaline),
+		"dexalin_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/dexalin),
+		"stoxin_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/soporific),
+		"bicaridine_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/bicaridine),
+		"dermaline_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/dermaline),
+		"thetamycin_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/thetamycin),
+		"blood_amount" = REAGENT_VOLUME(H.vessel, /decl/reagent/blood),
+		"disabilities" = H.sdisabilities,
+		"lung_ruptured" = H.is_lung_ruptured(),
+		"external_organs" = H.organs.Copy(),
+		"internal_organs" = H.internal_organs.Copy(),
+		"species_organs" = H.species.has_organ
+		)
+	return medical_data
+
+/obj/machinery/computer/operating/proc/operating_format(var/list/occ) // Format to cut out redundant information
+	var/dat = "<center><b>Scan last updated at [occ["stationtime"]]</b></center>"
+	if(occ["borer_present"])
+		dat += "Large growth detected in frontal lobe, possibly cancerous. Surgical removal is recommended.<br>"
+
+	dat += "<center><div style='background-color: #E8FAFF; color: black'><table border='1'>"
+	dat += "<tr>"
+	dat += "<th>Organ</th>"
+	dat += "<th>Burn Severity</th>"
+	dat += "<th>Physical Trauma</th>"
+	dat += "<th>Other Wounds</th>"
+	dat += "</tr>"
+
+	for(var/obj/item/organ/external/e in occ["external_organs"])
+		var/AN = ""
+		var/open = ""
+		var/infected = ""
+		var/imp = ""
+		var/bled = ""
+		var/robot = ""
+		var/splint = ""
+		var/internal_bleeding = ""
+		var/severed_tendon = ""
+		var/lung_ruptured = ""
+		var/dislocated = ""
+
+		dat += "<tr>"
+
+		if(e.status & ORGAN_ARTERY_CUT)
+			internal_bleeding = "Arterial bleeding."
+		if(e.tendon_status() & TENDON_CUT)
+			severed_tendon = "Severed tendon."
+		if(istype(e, /obj/item/organ/external/chest) && occ["lung_ruptured"])
+			lung_ruptured = "Lung ruptured."
+		if(e.status & ORGAN_SPLINTED)
+			splint = "Splinted."
+		if(e.is_dislocated())
+			dislocated = "Dislocated."
+		if(e.status & ORGAN_BLEEDING)
+			bled = "Bleeding."
+		if(e.status & ORGAN_BROKEN)
+			AN = "[e.broken_description]."
+		if(e.status & ORGAN_ROBOT)
+			robot = "Prosthetic."
+		if(e.open)
+			open = "Open."
+
+		var/infection = internal_bodyscanner.get_infection_level(e.germ_level)
+		if (infection != "")
+			infected = "[infection] infection"
+		if(e.rejecting)
+			infected += " (being rejected)"
+
+		if (e.implants.len)
+			var/unknown_body = 0
+			for(var/I in e.implants)
+				if(is_type_in_list(I,internal_bodyscanner.known_implants))
+					imp += "[I] implanted:"
+				else
+					unknown_body++
+			if(unknown_body)
+				imp += "Unknown body present:"
+
+		if(!AN && !open && !infected & !imp)
+			AN = "None:"
+		if(!e.is_stump())
+			dat += "<td>[e.name]</td><td>[e.burn_dam]</td><td>[get_severity(e.brute_dam, TRUE)]</td><td>[robot][bled][AN][splint][open][infected][imp][dislocated][internal_bleeding][severed_tendon][lung_ruptured]</td>"
+		else
+			dat += "<td>[e.name]</td><td>-</td><td>-</td><td>Not [e.is_stump() ? "Found" : "Attached Completely"]</td>"
+		dat += "</tr>"
+
+	for(var/obj/item/organ/internal/i in occ["internal_organs"])
+
+		var/mech = ""
+		if(i.robotic == ROBOTIC_ASSISTED)
+			mech = "Assisted:"
+		if(i.robotic == ROBOTIC_MECHANICAL)
+			mech = "Mechanical:"
+
+		var/infection = internal_bodyscanner.get_infection_level(i.germ_level)
+		if(infection == "")
+			infection = "No Infection"
+		else
+			infection = "[infection] infection"
+		if(i.rejecting)
+			infection += "(being rejected)"
+
+		var/necrotic = ""
+		if(i.get_scarring_level() > 0.01)
+			necrotic += ", [i.get_scarring_results()]"
+		if(i.status & ORGAN_DEAD)
+			necrotic = ", <span class='warning'>necrotic and decaying</span>"
+
+		dat += "<tr>"
+		dat += "<td>[i.name]</td><td>N/A</td><td>[internal_bodyscanner.get_internal_damage(i)]</td><td>[infection], [mech][necrotic]</td><td></td>"
+		dat += "</tr>"
+	dat += "</table></div>"
+
+	var/list/species_organs = occ["species_organs"]
+	for(var/organ_name in species_organs)
+		if(!locate(species_organs[organ_name]) in occ["internal_organs"])
+			dat += text("<span class='warning'>No [organ_name] detected.</span><BR>")
+
+	if(occ["sdisabilities"] & BLIND)
+		dat += text("<span class='warning'>Cataracts detected.</span><BR>")
+	if(occ["sdisabilities"] & NEARSIGHTED)
+		dat += text("<font color='red'>Retinal misalignment detected.</font><BR>")
+	return dat
