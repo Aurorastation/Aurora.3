@@ -20,6 +20,8 @@
 	mob_size = MOB_TINY
 	var/image/eye_overlay
 
+	psi_pingable = FALSE
+
 /mob/living/simple_animal/hostile/rogue_drone/Initialize()
 	. = ..()
 	name = "[initial(name)] ([rand(100, 999)])"

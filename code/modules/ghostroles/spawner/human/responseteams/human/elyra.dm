@@ -8,7 +8,7 @@
 	outfit = /datum/outfit/admin/ert/elyran_trooper
 	possible_species = list(SPECIES_HUMAN)
 
-	extra_languages = list(LANGUAGE_SOL_COMMON)
+	extra_languages = list(LANGUAGE_ELYRAN_STANDARD)
 
 /datum/ghostspawner/human/ert/elyra/leader
 	short_name = "elyra_leadertrooper"

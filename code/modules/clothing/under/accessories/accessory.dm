@@ -67,11 +67,11 @@
 		else if(contained_sprite)
 			tmp_icon_state = "[src.item_state][WORN_UNDER]"
 		accessory_mob_overlay = image("icon" = I, "icon_state" = "[tmp_icon_state]")
+		if(build_from_parts)
+			accessory_mob_overlay.cut_overlays()
+			accessory_mob_overlay.add_overlay(overlay_image(I, "[tmp_icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	if(color)
 		accessory_mob_overlay.color = color
-	if(build_from_parts)
-		accessory_mob_overlay.cut_overlays()
-		accessory_mob_overlay.add_overlay(overlay_image(I, "[icon_state][WORN_UNDER]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	accessory_mob_overlay.appearance_flags = RESET_ALPHA|RESET_COLOR
 	return accessory_mob_overlay
 
@@ -572,6 +572,19 @@
 	icon_state = "qeblak_cape"
 	item_state = "qeblak_cape"
 	flippable = FALSE
+
+/obj/item/clothing/accessory/poncho/shouldercape/qeblak/zeng
+	name = "Jargon Division Zeng-Hu cloak"
+	desc = "This cloak is given to Zeng-Hu employees who have assisted or worked in collaboration with the Jargon Federation."
+	desc_fluff = "A cloak given to senior level doctors and researchers for Zeng-Hu who has \
+	in the past been given the privilege of working within or in collaboration with the Jargon Federation\
+	 as a show of goodwill between the corporation and federation."
+	icon = 'icons/obj/contained_items/accessories/ZH_cape.dmi'
+	icon_override = 'icons/obj/contained_items/accessories/ZH_cape.dmi'
+	icon_state = "ZH_cape"
+	item_state = "ZH_cape"
+	flippable = FALSE
+	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/poncho/trinary
 	name = "trinary perfection cape"

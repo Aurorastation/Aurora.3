@@ -5373,7 +5373,7 @@
 /obj/item/clothing/under/color/black,
 /obj/item/clothing/under/color/pink,
 /obj/item/clothing/under/unathi,
-/obj/item/clothing/suit/unathi/mantle,
+/obj/item/clothing/accessory/poncho/unathimantle,
 /obj/item/clothing/accessory/poncho,
 /turf/simulated/floor/wood,
 /area/shuttle/skipjack)

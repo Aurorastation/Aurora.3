@@ -110,6 +110,7 @@
 	light_range = 10
 	light_wedge = LIGHT_WIDE
 	see_in_dark = 8
+	psi_pingable = FALSE
 
 	faction = "sol"
 

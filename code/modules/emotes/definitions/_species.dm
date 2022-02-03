@@ -30,8 +30,13 @@
 		/decl/emote/human/stopsway,
 		/decl/emote/audible/lizard_bellow,
 		/decl/emote/audible/hiss,
+<<<<<<< HEAD
 		/decl/emote/audible/hiss/long,
 		/decl/emote/audible/growl
+=======
+		/decl/emote/audible/growl,
+		/decl/emote/audible/hiss/short
+>>>>>>> master
 		)
 	pain_emotes_with_pain_level = list(
 		list(/decl/emote/audible/roar, /decl/emote/audible/whimper, /decl/emote/audible/moan) = 70,

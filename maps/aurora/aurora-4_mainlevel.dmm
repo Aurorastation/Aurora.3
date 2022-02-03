@@ -393,13 +393,9 @@
 "aaU" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/structure/table/glass,
-/obj/item/reagent_containers/glass/beaker/large,
 /obj/machinery/camera/network/security{
 	c_tag = "Security - Forensics Lab Port";
 	dir = 4
-	},
-/obj/item/storage/box/folders/blue{
-	pixel_y = 15
 	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_laboratory)
@@ -448,11 +444,10 @@
 	pixel_x = -3;
 	pixel_y = 7
 	},
-/obj/item/pen{
-	pixel_x = 5;
-	pixel_y = 5
-	},
 /obj/item/pen/red,
+/obj/item/pen{
+	pixel_x = -4
+	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_laboratory)
 "abc" = (
@@ -462,11 +457,16 @@
 /area/security/forensics_laboratory)
 "abd" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
-/obj/structure/table/glass,
+/obj/structure/closet{
+	name = "Forensic Closet"
+	},
+/obj/item/storage/box/swabs,
+/obj/item/storage/box/folders/blue,
 /obj/item/reagent_containers/spray/cleaner{
 	pixel_x = 2;
 	pixel_y = 4
 	},
+/obj/item/storage/box/evidence,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_laboratory)
 "abe" = (
@@ -700,6 +700,9 @@
 /obj/machinery/door/airlock/glass_security{
 	name = "Forensic Laboratory";
 	req_access = list(4)
+	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/security/forensics_laboratory)
@@ -963,8 +966,8 @@
 	},
 /obj/machinery/ringer_button{
 	id = "investigation_ringer";
-	pixel_x = 5;
-	pixel_y = 5
+	pixel_x = 6;
+	pixel_y = 6
 	},
 /turf/simulated/floor/tiled,
 /area/security/forensics_laboratory)
@@ -1337,6 +1340,9 @@
 /obj/machinery/door/airlock/glass_security{
 	name = "Forensic Laboratory";
 	req_access = list(4)
+	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/security/forensics_laboratory)
@@ -3256,12 +3262,13 @@
 "agu" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/bodybags,
-/obj/item/device/healthanalyzer,
 /obj/machinery/requests_console{
 	department = "Autopsy";
 	departmentType = 5;
 	pixel_x = -32
 	},
+/obj/item/storage/box/bodybags,
+/obj/item/device/healthanalyzer,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -3981,7 +3988,7 @@
 	},
 /obj/item/pen/red,
 /obj/machinery/ringer{
-	department = "Security";
+	department = "Forensic Lab";
 	id = "investigation_ringer";
 	pixel_x = -30;
 	req_access = list(1)
@@ -20760,7 +20767,7 @@
 /area/security/prison)
 "aJV" = (
 /obj/structure/table/standard,
-/obj/item/dice,
+/obj/item/stack/dice,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -21620,12 +21627,14 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/structure/sign/nosmoking_2{
-	pixel_x = 32
-	},
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk{
 	dir = 8
+	},
+/obj/structure/noticeboard{
+	layer = 3.3;
+	pixel_x = 32;
+	pixel_y = 2
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig/control_room)
@@ -44522,6 +44531,7 @@
 /obj/machinery/vending/wallmed1{
 	pixel_y = -30
 	},
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "bBH" = (
@@ -60443,6 +60453,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/security{
+	id_tag = "investdoor";
 	name = "Investigations Office";
 	req_access = list(4)
 	},
@@ -64939,6 +64950,7 @@
 /obj/machinery/firealarm/north,
 /obj/structure/table/standard,
 /obj/item/paper_scanner,
+/obj/item/paper_scanner,
 /turf/simulated/floor/tiled/dark,
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
@@ -65527,7 +65539,7 @@
 	dir = 1
 	},
 /obj/machinery/ringer{
-	department = "Security";
+	department = "Forensic Lab";
 	id = "investigation_ringer";
 	pixel_y = 30;
 	req_access = list(1)
@@ -65763,7 +65775,7 @@
 "phk" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/machinery/ringer{
-	department = "Security";
+	department = "Forensic Lab";
 	id = "investigation_ringer";
 	pixel_y = -30;
 	req_access = list(1)
@@ -66619,6 +66631,9 @@
 /area/maintenance/medbay)
 "qHy" = (
 /obj/structure/coatrack,
+/obj/structure/reagent_dispensers/peppertank/luminol{
+	pixel_x = -31
+	},
 /turf/simulated/floor/lino/grey,
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
@@ -67066,7 +67081,7 @@
 	dir = 4
 	},
 /obj/machinery/ringer{
-	department = "Security";
+	department = "Forensic Lab";
 	id = "investigation_ringer";
 	pixel_x = 30;
 	req_access = list(1)
@@ -69425,6 +69440,10 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/reagent_dispensers/peppertank/luminol{
+	pixel_x = 0;
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_laboratory)
 "vgB" = (
@@ -70583,11 +70602,13 @@
 "xcZ" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/structure/table/glass,
-/obj/item/paper_scanner,
 /obj/machinery/requests_console{
 	department = "Forensics Lab";
 	departmentType = 5;
 	pixel_y = 30
+	},
+/obj/item/paper_scanner{
+	pixel_x = -8
 	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_laboratory)
@@ -70892,11 +70913,11 @@
 "xxd" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/structure/table/glass,
-/obj/item/storage/box/swabs{
-	pixel_x = 5;
-	pixel_y = 5
+/obj/item/storage/lockbox/vials/forensic,
+/obj/item/reagent_containers/glass/beaker/large{
+	pixel_x = 15;
+	pixel_y = 2
 	},
-/obj/item/storage/box/fancy/vials,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_laboratory)
 "xxw" = (
@@ -71341,11 +71362,23 @@
 /area/library)
 "yiH" = (
 /obj/structure/table/standard,
-/obj/item/paper_bin,
-/obj/item/pen,
+/obj/item/paper_bin{
+	pixel_x = 7
+	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
+/obj/machinery/button/remote/airlock{
+	id = "investdoor";
+	name = "Office Door";
+	pixel_x = -6;
+	pixel_y = 8;
+	req_access = list(4)
+	},
+/obj/item/pen{
+	pixel_x = -4
+	},
+/obj/item/pen/red,
 /turf/simulated/floor/tiled/dark,
 /area/security/forensics_office{
 	name = "Security - Investigations Office"

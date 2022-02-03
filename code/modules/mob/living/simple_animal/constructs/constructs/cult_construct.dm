@@ -44,6 +44,8 @@
 	var/health_prefix = ""
 	appearance_flags = NO_CLIENT_COLOR|KEEP_TOGETHER
 
+	psi_pingable = FALSE
+
 
 /mob/living/simple_animal/construct/cultify()
 	return
