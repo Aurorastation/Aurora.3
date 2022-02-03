@@ -40,3 +40,4 @@ delete-after: True
 changes:
   - rscadd: "Slot machines now accept credits! Use the multitool to switch between coin mode and credit mode."
   - soundadd: "Slot machines also have sound! Be sure to toggle Arcade SFX to hear it. Also, makes it 87% more addictive."
+  - imageadd: "Adds new sprites for slot machines."
