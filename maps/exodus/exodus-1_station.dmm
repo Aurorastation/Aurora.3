@@ -11653,6 +11653,7 @@
 /obj/item/storage/box/donkpockets{
 	pixel_x = -3;
 	pixel_y = -3
+  },
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "awk" = (
@@ -71013,6 +71014,7 @@
 /obj/machinery/appliance/cooker/microwave{
 	pixel_x = -2;
 	pixel_y = 5
+  },
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
 "cET" = (
