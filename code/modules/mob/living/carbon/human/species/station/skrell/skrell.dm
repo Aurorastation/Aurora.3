@@ -62,6 +62,8 @@
 		BP_EYES =     /obj/item/organ/internal/eyes/skrell
 		)
 
+	pain_messages = list("I can't feel my tentacles", "You really need some painkillers", "Stars above, the pain")
+
 	flesh_color = "#8CD7A3"
 	blood_color = COLOR_SKRELL_BLOOD
 	base_color = "#006666"
@@ -93,6 +95,7 @@
 
 	zombie_type = SPECIES_ZOMBIE_SKRELL
 	bodyfall_sound = /decl/sound_category/bodyfall_skrell_sound
+	footsound = /decl/sound_category/footstep_skrell_sound
 
 /datum/species/skrell/handle_post_spawn(mob/living/carbon/human/H)
 	..()
