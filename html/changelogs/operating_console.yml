@@ -1,0 +1,11 @@
+author: Vrow
+
+delete-after: True
+
+changes:
+  - rscadd: "Operating console is now more responsive, with specific alarms for 2 specific conditions."
+  - rscadd: "Operating console will now show the current scan inserted into it, which you can update whenever you want or need."
+  - tweak: "Operating console also shows Blood Volume"
+  - rscadd: "Added a new paper type: Medscan papers."
+  - imageadd: "Medscan papers sprites added."
+  - tweak: "Relevant machines and device print out the Medscan paper type."
