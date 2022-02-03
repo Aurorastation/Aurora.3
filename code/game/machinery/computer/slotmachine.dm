@@ -14,6 +14,7 @@
 	icon = 'icons/obj/machines/slotmachine.dmi'
 	icon_state = "slots"
 	density = TRUE
+	clicksound = null
 	use_power = 1
 	idle_power_usage = 250
 	active_power_usage = 500
@@ -94,11 +95,11 @@
 				if(prob(10))
 					balance = max(balance - SPIN_PRICE, 0)
 				to_chat(user, SPAN_WARNING("[src] spits your coin back out!"))
-
 			else
 				to_chat(user, SPAN_NOTICE("You insert [C] into [src]'s slot!"))
 				playsound(loc, 'sound/arcade/sloto_token.ogg', 10, 1, extrarange = -3, falloff = 10, required_asfx_toggles = ASFX_ARCADE)
 				balance += get_value(C)
+				updateUsrDialog()
 				qdel(C)
 		else
 			to_chat(user, SPAN_WARNING("This machine is only accepting credit chips!"))
@@ -108,6 +109,7 @@
 			to_chat(user, SPAN_NOTICE("You insert [H.worth] credits into [src]'s slot!"))
 			playsound(loc, 'sound/arcade/sloto_token.ogg', 10, 1, extrarange = -3, falloff = 10, required_asfx_toggles = ASFX_ARCADE)
 			balance += H.worth
+			updateUsrDialog()
 			qdel(H)
 		else
 			to_chat(user, SPAN_WARNING("This machine is only accepting coins!"))
@@ -171,9 +173,11 @@
 		spin(usr)
 
 	else if(href_list["refund"])
+		playsound(src, /decl/sound_category/button_sound, clickvol)
 		if(balance > 0)
-			give_payout(balance)
+			give_payout(balance, usr)
 			balance = 0
+			updateUsrDialog()
 
 /obj/machinery/computer/slot_machine/emp_act(severity)
 	. = ..()
@@ -197,7 +201,8 @@
 	if(user)
 		the_name = user.real_name
 		visible_message(SPAN_NOTICE("[user] pulls the lever and the slot machine starts spinning!"))
-		playsound(loc, 'sound/arcade/sloto_lever.ogg', 10, 1, extrarange = -3, falloff = 10, required_asfx_toggles = ASFX_ARCADE)
+		playsound(loc, 'sound/arcade/sloto_lever.ogg', 10, 0, extrarange = -3, falloff = 10, required_asfx_toggles = ASFX_ARCADE)
+		flick("slots_pull", src)
 	else
 		the_name = "Exaybachay"
 
@@ -263,7 +268,7 @@
 		balance += money - give_payout(JACKPOT)
 		money = 0
 		if(paymode == CREDITCHIP)
-			spawn_money(JACKPOT, loc, user)
+			spawn_money(JACKPOT, get_turf(user), user)
 		else
 			for(var/i in 1 to 5)
 				cointype = pick(subtypesof(/obj/item/coin))
@@ -285,6 +290,8 @@
 		playsound(loc, 'sound/arcade/sloto_token.ogg', 10, 1, required_asfx_toggles = ASFX_ARCADE)
 		balance += SPIN_PRICE * 4
 		money = max(money - SPIN_PRICE * 4, money)
+
+	updateUsrDialog()
 
 /obj/machinery/computer/slot_machine/proc/get_lines()
 	var/amountthesame
@@ -311,14 +318,14 @@
 	money = max(0, money - amount)
 	balance += surplus
 
-/obj/machinery/computer/slot_machine/proc/give_payout(amount)
+/obj/machinery/computer/slot_machine/proc/give_payout(amount, usr)
 	if(paymode == CREDITCHIP)
 		cointype = /obj/item/spacecash
 	else
 		cointype = emagged ? /obj/item/coin/iron : /obj/item/coin/silver
 
 	if(!(emagged))
-		amount = dispense(amount, cointype, null, 0)
+		amount = dispense(amount, cointype, usr, 0)
 
 	else
 		var/mob/living/target = locate() in range(2, src)
@@ -329,7 +336,10 @@
 
 /obj/machinery/computer/slot_machine/proc/dispense(amount = 0, cointype = /obj/item/coin/silver, mob/living/target, throwit = 0)
 	if(paymode == CREDITCHIP)
-		spawn_money(amount, loc, target)
+		spawn_money(amount, src.loc, target)
+		if(throwit && target)
+			for(var/obj/item/spacecash/S in loc)
+				S.throw_at(target, 3, 10)
 	else
 		var/value = coinvalues["[cointype]"]
 		if(value <= 0)
