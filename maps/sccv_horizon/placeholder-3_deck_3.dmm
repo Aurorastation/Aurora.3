@@ -382,7 +382,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
 	},
-/obj/machinery/shield_gen,
+/obj/machinery/shield_gen/external,
 /turf/simulated/floor/tiled/dark,
 /area/storage/shields)
 "aR" = (
@@ -6698,7 +6698,7 @@
 	},
 /obj/machinery/door/airlock/highsecurity{
 	name = "Shield Generator Room";
-	req_one_access = list(11.24)
+	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,

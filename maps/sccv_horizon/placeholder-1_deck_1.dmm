@@ -3611,7 +3611,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/gravity_gen)
 "dsG" = (
-/obj/structure/reagent_dispensers/fueltank,
+/obj/machinery/suit_cycler/medical,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
@@ -4901,25 +4904,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
-"eDt" = (
-/obj/structure/table/rack{
-	dir = 8;
-	layer = 2.9
-	},
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/void/medical,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/medical,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/window/northleft{
-	name = "Medical Voidsuit";
-	req_access = list(5)
-	},
-/turf/simulated/floor/tiled/dark,
-/area/storage/eva)
 "eDE" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black,
 /obj/machinery/air_sensor,
@@ -7896,6 +7880,11 @@
 	temperature = 278
 	},
 /area/medical/morgue/lower)
+"hbx" = (
+/obj/effect/floor_decal/industrial/outline,
+/obj/machinery/door/window/westleft,
+/turf/simulated/floor/tiled/dark,
+/area/storage/eva)
 "hbT" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "AI SMES";
@@ -8075,14 +8064,26 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "hjt" = (
-/obj/machinery/suit_cycler/medical,
+/obj/structure/table/rack{
+	dir = 8;
+	layer = 2.9
+	},
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/head/helmet/space/void/medical,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/medical,
+/obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 10
+/obj/machinery/door/window/northleft{
+	name = "Medical Voidsuit";
+	req_access = list(5)
 	},
-/turf/simulated/floor/tiled,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "hjO" = (
 /obj/structure/cable/green{
@@ -8126,24 +8127,6 @@
 	dir = 8
 	},
 /area/maintenance/hangar/starboard)
-"hlt" = (
-/obj/structure/table/rack,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/void/security,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/security,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/window/southleft{
-	name = "Security Voidsuits";
-	req_access = list(2)
-	},
-/turf/simulated/floor/tiled/dark,
-/area/storage/eva)
 "hmn" = (
 /obj/structure/table/rack{
 	dir = 8;
@@ -9338,6 +9321,9 @@
 /obj/machinery/camera/network/first_deck{
 	c_tag = "First Deck - EVA Storage 2"
 	},
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
 /turf/simulated/floor/tiled,
 /area/storage/eva)
 "isL" = (
@@ -10281,6 +10267,7 @@
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
 	},
+/obj/item/storage/toolbox/electrical,
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "jqE" = (
@@ -12829,6 +12816,9 @@
 	name = "Security Voidsuit";
 	req_access = list(2)
 	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "lOi" = (
@@ -15053,13 +15043,9 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/eva)
 "nMp" = (
-/obj/structure/closet/crate/drop/grey,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/machinery/alarm{
-	pixel_y = 28
+/obj/machinery/suit_cycler/security,
+/obj/structure/window/reinforced{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/storage/eva)
@@ -16453,10 +16439,12 @@
 	dir = 4
 	},
 /obj/structure/table/steel,
-/obj/item/storage/toolbox/electrical,
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 4
 	},
+/obj/item/storage/bag/inflatable,
+/obj/item/storage/bag/inflatable,
+/obj/item/storage/bag/inflatable,
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "ppj" = (
@@ -18915,6 +18903,9 @@
 	name = "Medical Voidsuit";
 	req_access = list(5)
 	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "rrR" = (
@@ -19023,11 +19014,25 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/engineering/drone_fabrication)
 "ryj" = (
-/obj/machinery/suit_cycler/security,
+/obj/structure/table/rack,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/head/helmet/space/void/security,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/security,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/door/window/southleft{
+	name = "Security Voidsuits";
+	req_access = list(2)
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "ryA" = (
 /obj/effect/decal/cleanable/dirt,
@@ -20230,7 +20235,6 @@
 /area/rnd/xenoarch_atrium)
 "sJZ" = (
 /obj/effect/floor_decal/industrial/outline,
-/obj/machinery/door/window/westleft,
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "sKK" = (
@@ -50305,8 +50309,8 @@ lvP
 mVU
 wRE
 ryj
-dlM
-dlM
+oaZ
+hbx
 hjt
 pwA
 oum
@@ -50506,10 +50510,10 @@ pwd
 lvP
 mVU
 wRE
-hlt
-oaZ
+ryj
+erd
 sJZ
-eDt
+hjt
 wRE
 fQC
 fQC

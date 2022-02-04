@@ -286,17 +286,24 @@
 /mob/living/silicon/robot/drone/updatename()
 	return
 
-/mob/living/silicon/robot/drone/setup_icon_cache()
+/mob/living/silicon/robot/drone/setup_eye_cache()
 	cached_eye_overlays = list(
-		I_HELP = image(icon, "eyes-[icon_state]-help", layer = EFFECTS_ABOVE_LIGHTING_LAYER),
-		I_HURT = image(icon, "eyes-[icon_state]-harm", layer = EFFECTS_ABOVE_LIGHTING_LAYER),
-		"emag" = image(icon, "eyes-[icon_state]-emag", layer = EFFECTS_ABOVE_LIGHTING_LAYER)
+		I_HELP = image(icon, "[icon_state]-eyes_help"),
+		I_HURT = image(icon, "[icon_state]-eyes_harm"),
+		"emag" = image(icon, "[icon_state]-eyes_emag")
 	)
 	if(eye_overlay)
 		cut_overlay(eye_overlay)
 	eye_overlay = cached_eye_overlays[a_intent]
-	if(!stat)
-		add_overlay(eye_overlay)
+	add_overlay(eye_overlay)
+
+/mob/living/silicon/robot/drone/setup_panel_cache()
+	cached_panel_overlays = list(
+		ROBOT_PANEL_EXPOSED = image(icon, "[icon_state]-openpanel+w"),
+		ROBOT_PANEL_CELL = image(icon, "[icon_state]-openpanel+c"),
+		ROBOT_PANEL_NO_CELL = image(icon, "[icon_state]-openpanel-c")
+	)
+
 
 /mob/living/silicon/robot/drone/set_intent(var/set_intent)
 	a_intent = set_intent
