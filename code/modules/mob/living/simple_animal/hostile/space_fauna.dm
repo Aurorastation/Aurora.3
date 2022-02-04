@@ -3,10 +3,11 @@
 /mob/living/simple_animal/hostile/carp
 	name = "space carp"
 	desc = "A ferocious, fang-bearing creature that resembles a fish."
+	desc_fluff = "This specimen is a native to the Romanovich Cloud, and possesses a shimmering appearance to its scales. Much like other Cloud-faring creatures, this primarily thrives off of a \
+	diet consisting of raw ores and rock."
 	icon_state = "carp"
 	icon_living = "carp"
 	icon_dead = "carp_dead"
-	icon_gib = "carp_gib"
 	icon_rest = "carp_rest"
 	speak_chance = 0
 	turns_per_move = 5
@@ -123,6 +124,12 @@
     if(.)
         custom_emote(VISIBLE_MESSAGE,"spots a filthy capitalist!")
 
+/mob/living/simple_animal/hostile/carp/asteroid
+	icon_state = "carp_asteroid"
+	icon_living = "carp_asteroid"
+	icon_dead = "carp_asteroid_dead"
+	icon_rest = "carp_asteroid_rest"
+
 /mob/living/simple_animal/hostile/carp/shark
 	name = "space shark"
 	desc = "The bigger, angrier cousin of the space carp."
@@ -140,6 +147,93 @@
 	melee_damage_lower = 20
 	melee_damage_upper = 25
 
+/mob/living/simple_animal/hostile/carp/shark/reaver
+	name = "reaver"
+	desc = "A whirl of talons, kept precariously balanced by its oversized whip-like tail. Its violent tendencies overshadow any other behavioral patterns it possesses."
+	icon = 'icons/mob/npc/large_space_xenofauna.dmi'
+	icon_state = "reaver"
+	icon_living = "reaver"
+	icon_dead = "reaver"
+	meat_amount = 5
+
+	maxHealth = 100
+	health = 100
+
+	mob_size = 15
+
+	melee_damage_lower = 30
+	melee_damage_upper = 30
+
+/mob/living/simple_animal/hostile/carp/shark/reaver/death(gibbed)
+	..()
+	if(!gibbed)
+		gibs(src.loc)
+		qdel(src)
+		return
+
+/mob/living/simple_animal/hostile/carp/shark/reaver/eel
+	name = "spectral eel"
+	desc = "An uncanny mimic of a grinning face is the most unique trait of this otherwise dark-scaled, highly carnivorous beast. It moves slowly, creeping along at a foreboding pace."
+	icon_state = "eel"
+	icon_living = "eel"
+	icon_dead = "eel"
+	meat_amount = 5
+
+	maxHealth = 250
+	health = 250
+
+	speed = 9
+
+	melee_damage_lower = 40
+	melee_damage_upper = 40
+
+/mob/living/simple_animal/hostile/carp/bloater
+	name = "bloater"
+	desc = "A fat, mineral-devouring creature frequently herded for mining expeditions. Its actual ability to dig is less valuable than its volatile nature, however."
+	icon = 'icons/mob/npc/large_space_xenofauna.dmi'
+	icon_state = "bloater"
+	icon_living = "bloater"
+	icon_dead = "bloater"
+	meat_amount = 5
+
+	maxHealth = 50
+	health = 50
+
+	mob_size = 5
+
+	melee_damage_lower = 15
+	melee_damage_upper = 15
+
+	var/has_exploded = FALSE
+
+/mob/living/simple_animal/hostile/carp/bloater/AttackingTarget()
+	..()
+	LoseTarget()
+	stance = HOSTILE_STANCE_TIRED
+	stop_automated_movement = 1
+	wander = 0
+	if(!has_exploded)
+		icon_state = "bloater_bloating"
+		icon_living = "bloater_bloating"
+		has_exploded = TRUE
+		addtimer(CALLBACK(src, .proc/explode), 5)
+
+/mob/living/simple_animal/hostile/carp/bloater/bullet_act(var/obj/item/projectile/Proj)
+	if(!has_exploded)
+		has_exploded = TRUE
+		explode()
+
+/mob/living/simple_animal/hostile/carp/bloater/death(gibbed)
+	..()
+	if(!gibbed)
+		explode(src.loc)
+		qdel(src)
+		return
+
+/mob/living/simple_animal/hostile/carp/bloater/proc/explode()
+	explosion(src, -1, 1, 2)
+	src.gib()
+
 /mob/living/simple_animal/hostile/carp/old
 	icon_state = "carp_old"
 	icon_living = "carp_old"
@@ -154,3 +248,49 @@
 	icon_dead = "shark_dead"
 	icon_rest = "shark"
 	pixel_x = -16
+
+/mob/living/simple_animal/hostile/gnat
+	name = "gnat"
+	desc = "A small, obnoxious looking specimen. This is a renowned wire-chewing menace in the Romanovich Cloud, similarly insufferable as an Earth insect."
+	desc_fluff = "This specimen is a native to the Romanovich Cloud, and possesses a shimmering appearance to its scales. Much like other Cloud-faring creatures, this primarily thrives off of a \
+	diet consisting of raw ores and rock."
+	icon_state = "gnat"
+	icon_living = "gnat"
+	icon_dead = "gnat_dead"
+	speak_chance = 0
+	turns_per_move = 5
+	meat_type = /obj/item/reagent_containers/food/snacks/fish/carpmeat
+	organ_names = list("head", "chest", "tail", "left flipper", "right flipper")
+	response_help = "pets the"
+	response_disarm = "gently pushes aside the"
+	response_harm = "hits the"
+	speed = 2
+	maxHealth = 5
+	health = 5
+	mob_size = 2
+	density = FALSE
+
+	blood_overlay_icon = 'icons/mob/npc/blood_overlay_carp.dmi'
+	harm_intent_damage = 5
+	melee_damage_lower = 5
+	melee_damage_upper = 5
+	attacktext = "bitten"
+	attack_sound = 'sound/weapons/bite.ogg'
+
+	min_oxy = 0
+	max_oxy = 0
+	min_tox = 0
+	max_tox = 0
+	min_co2 = 0
+	max_co2 = 0
+	min_n2 = 0
+	max_n2 = 0
+	minbodytemp = 0
+
+	faction = "carp"
+	attack_emote = "nashes at"
+
+	flying = TRUE
+	see_in_dark = 8
+	see_invisible = SEE_INVISIBLE_NOLIGHTING
+
