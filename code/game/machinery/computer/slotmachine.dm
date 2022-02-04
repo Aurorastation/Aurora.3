@@ -66,6 +66,8 @@
 /obj/machinery/computer/slot_machine/update_icon()
 	if(stat & BROKEN)
 		icon_state = "slots_broken"
+		if(!NOPOWER)
+			icon_screen = "slots_screen_broken"
 	else
 		icon_state = "slots"
 		if(working)
