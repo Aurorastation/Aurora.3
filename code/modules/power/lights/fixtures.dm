@@ -50,7 +50,8 @@
 	var/randomize_color = TRUE
 	var/list/randomized_colors = LIGHT_STANDARD_COLORS
 	var/list/emergency_lights = list(
-		LIGHT_MODE_RED = LIGHT_COLOR_EMERGENCY
+		LIGHT_MODE_RED = LIGHT_COLOR_EMERGENCY,
+		LIGHT_MODE_DELTA = LIGHT_COLOR_ORANGE
 	)
 
 /obj/machinery/light/skrell
@@ -631,6 +632,7 @@
 
 /obj/machinery/light/set_emergency_state(var/new_security_level)
 	var/area/A = get_area(src)
-	if((new_security_level in emergency_lights) && A.emergency_lights)
-		brightness_color = emergency_lights[new_security_level]
+	if(new_security_level in emergency_lights)
+		if(A.emergency_lights)
+			brightness_color = emergency_lights[new_security_level]
 	update(0)

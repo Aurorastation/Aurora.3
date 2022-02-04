@@ -99,9 +99,8 @@
 #define LIGHT_STANDARD_COLORS list(LIGHT_COLOUR_WHITE, LIGHT_COLOUR_WARM, LIGHT_COLOR_HALOGEN) // List of standard light colors used for randomized lighting and selectable printed lights.
 
 #define LIGHT_MODE_GREEN    "green"
-#define LIGHT_MODE_BLUE     "blue"
-#define LIGHT_MODE_RED     "red"
-#define LIGHT_MODE_YELLOW   "yellow"
+#define LIGHT_MODE_RED      "red"
+#define LIGHT_MODE_DELTA    "delta"
 
 //Defines for lighting status, see power/lighting.dm
 #define LIGHT_OK     0
@@ -118,7 +117,7 @@
 #define LIGHT_NARROW 45
 
 // Some brightness/range defines for objects.
-#define L_WALLMOUNT_POWER 0.4
+#define L_WALLMOUNT_POWER 1.3
 #define L_WALLMOUNT_RANGE 2
 #define L_WALLMOUNT_HI_POWER 1	// For red/delta alert on fire alarms.
 #define L_WALLMOUNT_HI_RANGE 4
