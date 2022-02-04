@@ -236,9 +236,9 @@
 	update_icon()
 	return
 
-/obj/machinery/firealarm/proc/set_security_level(var/newlevel)
-	if(seclevel != newlevel)
-		seclevel = newlevel
+/obj/machinery/firealarm/set_emergency_state(var/new_security_level)
+	if(seclevel != new_security_level)
+		seclevel = new_security_level
 		update_icon()
 
 /obj/machinery/firealarm/Initialize(mapload, ndir = 0, building)

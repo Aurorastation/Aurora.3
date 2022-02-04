@@ -47,6 +47,11 @@
 	var/bulb_is_noisy = TRUE
 
 	var/previous_stat
+	var/randomize_color = TRUE
+	var/list/randomized_colors = LIGHT_STANDARD_COLORS
+	var/list/emergency_lights = list(
+		LIGHT_MODE_RED = LIGHT_COLOR_EMERGENCY
+	)
 
 /obj/machinery/light/skrell
 	base_state = "skrell"
@@ -134,6 +139,9 @@
 				if(prob(5))
 					broken(1)
 
+	if(randomize_color)
+		brightness_color = pick(randomized_colors)
+	emergency_lights[LIGHT_MODE_GREEN] = brightness_color
 	update(0)
 
 /obj/machinery/light/Destroy()
@@ -620,3 +628,9 @@
 	explosion(T, 0, 0, 2, 2)
 	sleep(1)
 	qdel(src)
+
+/obj/machinery/light/set_emergency_state(var/new_security_level)
+	var/area/A = get_area(src)
+	if((new_security_level in emergency_lights) && A.emergency_lights)
+		brightness_color = emergency_lights[new_security_level]
+	update(0)

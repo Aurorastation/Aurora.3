@@ -527,3 +527,6 @@ Class Procs:
 	for(var/obj/effect/overmap/visitable/ship/candidate in sector)
 		if((. = .(candidate)))
 			return
+
+/obj/machinery/proc/set_emergency_state(var/new_security_level)
+	return
