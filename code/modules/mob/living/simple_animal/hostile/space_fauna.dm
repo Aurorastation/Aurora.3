@@ -124,7 +124,30 @@
     if(.)
         custom_emote(VISIBLE_MESSAGE,"spots a filthy capitalist!")
 
+/mob/living/simple_animal/hostile/carp/asteroid
+	icon_state = "carp_asteroid"
+	icon_living = "carp_asteroid"
+	icon_dead = "carp_asteroid_dead"
+	icon_rest = "carp_asteroid_rest"
+
 /mob/living/simple_animal/hostile/carp/shark
+	name = "space shark"
+	desc = "The bigger, angrier cousin of the space carp."
+	icon_state = "shark"
+	icon_living = "shark"
+	icon_dead = "shark_dead"
+	icon_rest = "shark_rest"
+	meat_amount = 5
+
+	maxHealth = 100
+	health = 100
+
+	mob_size = 15
+
+	melee_damage_lower = 20
+	melee_damage_upper = 25
+
+/mob/living/simple_animal/hostile/carp/shark/reaver
 	name = "reaver"
 	desc = "A whirl of talons, kept precariously balanced by its oversized whip-like tail. Its violent tendencies overshadow any other behavioral patterns it possesses."
 	icon = 'icons/mob/npc/large_space_xenofauna.dmi'
@@ -141,12 +164,28 @@
 	melee_damage_lower = 30
 	melee_damage_upper = 30
 
-/mob/living/simple_animal/hostile/carp/shark/death(gibbed)
+/mob/living/simple_animal/hostile/carp/shark/reaver/death(gibbed)
 	..()
 	if(!gibbed)
 		gibs(src.loc)
 		qdel(src)
 		return
+
+/mob/living/simple_animal/hostile/carp/shark/reaver/eel
+	name = "spectral eel"
+	desc = "An uncanny mimic of a grinning face is the most unique trait of this otherwise dark-scaled, highly carnivorous beast. It moves slowly, creeping along at a foreboding pace."
+	icon_state = "eel"
+	icon_living = "eel"
+	icon_dead = "eel"
+	meat_amount = 5
+
+	maxHealth = 250
+	health = 250
+
+	speed = 9
+
+	melee_damage_lower = 40
+	melee_damage_upper = 40
 
 /mob/living/simple_animal/hostile/carp/bloater
 	name = "bloater"
@@ -194,22 +233,6 @@
 /mob/living/simple_animal/hostile/carp/bloater/proc/explode()
 	explosion(src, -1, 1, 2)
 	src.gib()
-
-/mob/living/simple_animal/hostile/carp/shark/eel
-	name = "spectral eel"
-	desc = "An uncanny mimic of a grinning face is the most unique trait of this otherwise dark-scaled, highly carnivorous beast. It moves slowly, creeping along at a foreboding pace."
-	icon_state = "eel"
-	icon_living = "eel"
-	icon_dead = "eel"
-	meat_amount = 5
-
-	maxHealth = 250
-	health = 250
-
-	speed = 9
-
-	melee_damage_lower = 40
-	melee_damage_upper = 40
 
 /mob/living/simple_animal/hostile/carp/old
 	icon_state = "carp_old"
