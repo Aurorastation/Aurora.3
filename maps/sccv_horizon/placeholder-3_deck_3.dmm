@@ -382,7 +382,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
 	},
-/obj/machinery/shield_gen,
+/obj/machinery/shield_gen/external,
 /turf/simulated/floor/tiled/dark,
 /area/storage/shields)
 "aR" = (
