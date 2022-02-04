@@ -309,3 +309,7 @@
 	path =  /obj/item/storage/box/yarn
 	description = "A box containing yarn."
 	flags = null
+
+/datum/gear/gadbook
+	display_name = "gadpathurian morale manual"
+	path = /obj/item/device/litanybook/gadpathur

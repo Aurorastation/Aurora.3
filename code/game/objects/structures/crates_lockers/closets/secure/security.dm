@@ -145,18 +145,14 @@
 	new /obj/item/clothing/glasses/sunglasses/sechud(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud/head(src)
 	new /obj/item/shield/riot/tact(src)
-	new /obj/item/melee/baton/loaded(src)
 	new /obj/item/melee/telebaton(src)
 	new /obj/item/gun/energy/disruptorpistol(src)
 	new /obj/item/taperoll/police(src)
-	new /obj/item/device/flash(src)
-	new /obj/item/device/holowarrant(src)
 	new /obj/item/device/breath_analyzer(src)
-	new /obj/item/handcuffs(src)
 	new /obj/item/crowbar/red(src)
 	//Belts
 	new /obj/item/clothing/accessory/holster/waist(src)
-	new /obj/item/storage/belt/security(src)
+	new /obj/item/storage/belt/security/full(src)
 	new /obj/item/storage/box/fancy/keypouch/sec(src)
 
 /obj/structure/closet/secure_closet/hos2
@@ -228,15 +224,11 @@
 	new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud(src)
 	new /obj/item/taperoll/police(src)
-	new /obj/item/reagent_containers/spray/pepper(src)
-	new /obj/item/melee/baton/loaded(src)
 	new /obj/item/gun/energy/disruptorpistol(src)
-	new /obj/item/handcuffs(src)
-	new /obj/item/device/holowarrant(src)
 	//Belts
 	new /obj/item/clothing/accessory/storage/black_vest(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
-	new /obj/item/storage/belt/security(src)
+	new /obj/item/storage/belt/security/full(src)
 
 
 /obj/structure/closet/secure_closet/security_cadet
@@ -304,18 +296,13 @@
 	new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud(src)
 	new /obj/item/gun/energy/disruptorpistol/security(src)
-	new /obj/item/device/flash(src)
-	new /obj/item/reagent_containers/spray/pepper(src)
-	new /obj/item/melee/baton/loaded(src)
 	new /obj/item/taperoll/police(src)
 	new /obj/item/device/hailer(src)
-	new /obj/item/device/holowarrant(src)
 	new /obj/item/device/flashlight/flare/glowstick/red(src)
-	new /obj/item/handcuffs(src)
 	//Belts
 	new /obj/item/clothing/accessory/storage/black_vest(src)
 	new /obj/item/clothing/accessory/holster/hip(src)
-	new /obj/item/storage/belt/security(src)
+	new /obj/item/storage/belt/security/full(src)
 
 /obj/structure/closet/secure_closet/investigator
 	name = "investigator's locker"
