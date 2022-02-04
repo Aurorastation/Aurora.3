@@ -6698,7 +6698,7 @@
 	},
 /obj/machinery/door/airlock/highsecurity{
 	name = "Shield Generator Room";
-	req_one_access = list(11.24)
+	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
