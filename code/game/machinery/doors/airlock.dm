@@ -199,8 +199,8 @@
 	assembly_type = /obj/structure/door_assembly/door_assembly_science
 	glass = 1
 	hatch_colour = "#d2d2d2"
-	open_sound_powered = 'sound/machines/airlock/hall1o.ogg'
-	close_sound_powered = 'sound/machines/airlock/hall1c.ogg'
+	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
+	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
 /obj/machinery/door/airlock/glass
 	name = "Glass Airlock"
@@ -212,8 +212,8 @@
 	glass = 1
 	panel_visible_while_open = TRUE
 	hatch_colour = "#eaeaea"
-	open_sound_powered = 'sound/machines/airlock/hall1o.ogg'
-	close_sound_powered = 'sound/machines/airlock/hall1c.ogg'
+	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
+	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
 /obj/machinery/door/airlock/vaurca
 	name = "Alien Biomass Airlock"
@@ -382,8 +382,8 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	assembly_type = /obj/structure/door_assembly/door_assembly_com
 	glass = 1
 	hatch_colour = "#3e638c"
-	open_sound_powered = 'sound/machines/airlock/hall1o.ogg'
-	close_sound_powered = 'sound/machines/airlock/hall1c.ogg'
+	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
+	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
 /obj/machinery/door/airlock/glass_engineering
 	name = "Glass Airlock"
@@ -395,8 +395,8 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	assembly_type = /obj/structure/door_assembly/door_assembly_eng
 	glass = 1
 	hatch_colour = "#caa638"
-	open_sound_powered = 'sound/machines/airlock/hall1o.ogg'
-	close_sound_powered = 'sound/machines/airlock/hall1c.ogg'
+	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
+	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
 /obj/machinery/door/airlock/glass_security
 	name = "Glass Airlock"
@@ -408,8 +408,8 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	assembly_type = /obj/structure/door_assembly/door_assembly_sec
 	glass = 1
 	hatch_colour = "#677c97"
-	open_sound_powered = 'sound/machines/airlock/hall1o.ogg'
-	close_sound_powered = 'sound/machines/airlock/hall1c.ogg'
+	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
+	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
 /obj/machinery/door/airlock/glass_medical
 	name = "Glass Airlock"
@@ -421,8 +421,8 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	assembly_type = /obj/structure/door_assembly/door_assembly_med
 	glass = 1
 	hatch_colour = "#d2d2d2"
-	open_sound_powered = 'sound/machines/airlock/hall1o.ogg'
-	close_sound_powered = 'sound/machines/airlock/hall1c.ogg'
+	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
+	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
 /obj/machinery/door/airlock/mining
 	name = "Mining Airlock"
@@ -453,8 +453,8 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	glass = 1
 	heat_proof = 1
 	hatch_colour = "#d2d2d2"
-	open_sound_powered = 'sound/machines/airlock/hall1o.ogg'
-	close_sound_powered = 'sound/machines/airlock/hall1c.ogg'
+	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
+	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
 /obj/machinery/door/airlock/glass_mining
 	name = "Glass Airlock"
@@ -466,8 +466,8 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	assembly_type = /obj/structure/door_assembly/door_assembly_min
 	glass = 1
 	hatch_colour = "#c29142"
-	open_sound_powered = 'sound/machines/airlock/hall1o.ogg'
-	close_sound_powered = 'sound/machines/airlock/hall1c.ogg'
+	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
+	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
 /obj/machinery/door/airlock/glass_atmos
 	name = "Glass Airlock"
@@ -479,8 +479,8 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	assembly_type = /obj/structure/door_assembly/door_assembly_atmo
 	glass = 1
 	hatch_colour = "#caa638"
-	open_sound_powered = 'sound/machines/airlock/hall1o.ogg'
-	close_sound_powered = 'sound/machines/airlock/hall1c.ogg'
+	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
+	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
 /obj/machinery/door/airlock/gold
 	name = "Gold Airlock"
