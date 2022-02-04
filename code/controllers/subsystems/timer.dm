@@ -54,10 +54,6 @@ var/datum/controller/subsystem/timer/SStimer
 	/// How many times bucket was reset
 	var/bucket_reset_count = 0
 
-	//Debug variables.
-	var/loop_loc = 0
-	var/datum/timedevent/current_timer
-
 /datum/controller/subsystem/timer/New()
 	NEW_SS_GLOBAL(SStimer)
 	bucket_list.len = BUCKET_LEN
@@ -117,7 +113,6 @@ var/datum/controller/subsystem/timer/SStimer
 		clienttime_timers.Cut(1, next_clienttime_timer_index+1)
 		next_clienttime_timer_index = 0
 	for (next_clienttime_timer_index in 1 to length(clienttime_timers))
-		loop_loc = 1
 		if (MC_TICK_CHECK)
 			next_clienttime_timer_index--
 			break
@@ -125,8 +120,6 @@ var/datum/controller/subsystem/timer/SStimer
 		if (ctime_timer.timeToRun > REALTIMEOFDAY)
 			next_clienttime_timer_index--
 			break
-
-		current_timer = ctime_timer
 
 		var/datum/callback/callBack = ctime_timer.callBack
 		if (!callBack)
@@ -163,10 +156,8 @@ var/datum/controller/subsystem/timer/SStimer
 
 	// Iterate through each bucket starting from the practical offset
 	while (practical_offset <= BUCKET_LEN && head_offset + ((practical_offset - 1) * world.tick_lag) <= world.time)
-		loop_loc = 2
 		var/datum/timedevent/timer
 		while ((timer = bucket_list[practical_offset]))
-			loop_loc = 3
 			var/datum/callback/callBack = timer.callBack
 			if (!callBack)
 				crash_with("Invalid timer: [get_timer_debug_string(timer)] world.time: [world.time], \
@@ -174,8 +165,6 @@ var/datum/controller/subsystem/timer/SStimer
 				if (!timer.spent)
 					bucket_resolution = null // force bucket recreation
 					return
-
-			current_timer = timer
 
 			timer.bucketEject() //pop the timer off of the bucket list.
 
@@ -201,12 +190,10 @@ var/datum/controller/subsystem/timer/SStimer
 			practical_offset++
 			var/i = 0
 			for (i in 1 to length(second_queue))
-				loop_loc = 4
 				timer = second_queue[i]
 				if (timer.timeToRun >= TIMER_MAX)
 					i--
 					break
-				current_timer = timer
 
 				// Check for timers that are scheduled to run in the past
 				if (timer.timeToRun < head_offset)
