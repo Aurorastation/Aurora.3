@@ -376,8 +376,8 @@
 	req_access = list(access_captain)
 
 /obj/structure/closet/secure_closet/injection/fill()
-	new /obj/item/reagent_containers/syringe/ld50_syringe/chloral(src)
-	new /obj/item/reagent_containers/syringe/ld50_syringe/chloral(src)
+	new /obj/item/reagent_containers/syringe/large/ld50_syringe/chloral(src)
+	new /obj/item/reagent_containers/syringe/large/ld50_syringe/chloral(src)
 
 
 // These are special snowflakes that need to be in a global list.

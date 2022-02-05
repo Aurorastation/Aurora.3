@@ -15,9 +15,9 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
 		)
-	item_state = "syringe_0"
 	icon_state = "0"
-	center_of_mass = list("x" = 16,"y" = 14)
+	item_state = "syringe"
+	build_from_parts = TRUE
 	matter = list(MATERIAL_GLASS = 150)
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = list(1, 2, 5, 15)
@@ -28,14 +28,12 @@
 	noslice = 1
 	unacidable = 1 //glass
 	var/mode = SYRINGE_CAPPED
+	var/image/filling //holds a reference to the current filling overlay (used for syringe guns)
 	var/used = FALSE
 	var/dirtiness = 0
 	var/list/targets
 	var/list/datum/disease2/disease/viruses
-	var/image/filling //holds a reference to the current filling overlay
-	var/visible_name = "a syringe"
 	var/time = 30
-	center_of_mass = null
 	drop_sound = 'sound/items/drop/glass_small.ogg'
 	pickup_sound = 'sound/items/pickup/glass_small.ogg'
 
@@ -233,7 +231,7 @@
 				if(!do_mob(user, target, inject_time))
 					return
 
-				user.visible_message(SPAN_WARNING("[user] injects [target] with the syringe!"))
+				user.visible_message(SPAN_WARNING("[user] injects [target] with \the [src]!"))
 
 			var/trans
 			if(ismob(target))
@@ -253,21 +251,23 @@
 /obj/item/reagent_containers/syringe/update_icon()
 	cut_overlays()
 
-	var/matrix/tf = matrix()
-	if(istype(loc, /obj/item/storage))
-		tf.Turn(-90) //Vertical for storing compactly
-		tf.Translate(-3,0) //Could do this with pixel_x but let's just update the appearance once.
-	transform = tf
-
+	var/iconstring = initial(item_state)
 	if(mode == SYRINGE_BROKEN)
 		icon_state = "broken"
+		worn_overlay = null
 		return
 
 	if(mode == SYRINGE_CAPPED)
-		icon_state = "capped"
-		return
+		add_overlay("capped")
 
-	var/rounded_vol = round(reagents.total_volume, round(reagents.maximum_volume / 3))
+	if(reagents && reagents.total_volume)
+		worn_overlay = Clamp(round((reagents.total_volume / volume * 15),5), 1, 15) //roundedvol
+		add_overlay(overlay_image('icons/obj/reagentfillings.dmi', "[iconstring][worn_overlay]", color = reagents.get_color()))
+		worn_overlay_color = reagents.get_color() // handles inhands
+		update_held_icon()
+	else
+		worn_overlay = 0
+	icon_state = "[worn_overlay]"
 	if(ismob(loc))
 		var/injoverlay
 		switch(mode)
@@ -276,16 +276,6 @@
 			if (SYRINGE_INJECT)
 				injoverlay = "inject"
 		add_overlay(injoverlay)
-	icon_state = "[rounded_vol]"
-	item_state = "syringe_[rounded_vol]"
-
-	if(reagents.total_volume)
-		filling = image('icons/obj/syringe.dmi', src, "syringe10")
-
-		filling.icon_state = "syringe[rounded_vol]"
-
-		filling.color = reagents.get_color()
-		add_overlay(filling)
 
 /obj/item/reagent_containers/syringe/proc/syringestab(mob/living/carbon/target as mob, mob/living/carbon/user as mob)
 	if(mode == SYRINGE_CAPPED)
@@ -343,22 +333,29 @@
 	if(user)
 		add_fingerprint(user)
 	update_icon()
+/obj/item/reagent_containers/syringe/large
+	name = "large syringe"
+	desc = "A large syringe - for those patients who need a little more."
+	icon = 'icons/obj/large_syringe.dmi'
+	icon_state = "0"
+	possible_transfer_amounts = list(5, 15, 30)
+	volume = 30
 
-/obj/item/reagent_containers/syringe/ld50_syringe
+/obj/item/reagent_containers/syringe/large/ld50_syringe
 	name = "Lethal Injection Syringe"
 	desc = "A syringe used for lethal injections."
 	amount_per_transfer_from_this = 60
 	volume = 60
-	visible_name = "a giant syringe"
 	time = 300
 
-/obj/item/reagent_containers/syringe/ld50_syringe/afterattack(obj/target, mob/user, flag)
+/obj/item/reagent_containers/syringe/large/ld50_syringe/afterattack(obj/target, mob/user, flag)
 	if(mode == SYRINGE_DRAW && ismob(target)) // No drawing 50 units of blood at once
 		to_chat(user, SPAN_NOTICE("This needle isn't designed for drawing blood."))
 		return
 	if(user.a_intent == "hurt" && ismob(target)) // No instant injecting
 		to_chat(user, SPAN_NOTICE("This syringe is too big to stab someone with it."))
 	..()
+
 
 ////////////////////////////////////////////////////////////////////////////////
 /// Syringes. END
@@ -414,11 +411,10 @@
 	mode = SYRINGE_INJECT
 	update_icon()
 
-
-/obj/item/reagent_containers/syringe/ld50_syringe/chloral
+/obj/item/reagent_containers/syringe/large/ld50_syringe/chloral
 	reagents_to_add = list(/decl/reagent/polysomnine = 60)
 
-/obj/item/reagent_containers/syringe/ld50_syringe/chloral/Initialize()
+/obj/item/reagent_containers/syringe/large/ld50_syringe/chloral/Initialize()
 	. = ..()
 	mode = SYRINGE_INJECT
 	update_icon()
