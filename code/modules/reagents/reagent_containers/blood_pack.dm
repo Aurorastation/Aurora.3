@@ -63,12 +63,6 @@
 	if(reagents && reagents.total_volume)
 		add_overlay(overlay_image('icons/obj/reagentfillings.dmi', "[icon_state][get_filling_state()]", color = reagents.get_color()))
 
-	if(!reagents || !reagents.total_volume)
-		return
-		var/mutable_appearance/filling = mutable_appearance(icon, "")
-		filling.color = reagents.get_color()
-		add_overlay(filling)
-
 /obj/item/reagent_containers/blood/attack(mob/living/carbon/human/M as mob, mob/living/carbon/human/user as mob, var/target_zone)
 	if(user == M && (MODE_VAMPIRE in user.mind?.antag_datums))
 		var/datum/vampire/vampire = user.mind.antag_datums[MODE_VAMPIRE]
