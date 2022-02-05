@@ -2178,11 +2178,68 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "mrakiizar_book"
 	item_state = "mrakiizar_book"
 	contained_sprite = TRUE
+	var/open_state = "mrakiizar_book1"
+	var/list/open_states = list("mrakiizar_book1", "mrakiizar_book2", "mrakiizar_book3", "mrakiizar_book4")
 
 /obj/item/journal/fluff/mrakiizar_book/update_icon()
-	..()
-	if(open)
-		icon_state = pick("mrakiizar_book1","mrakiizar_book2","mrakiizar_book3","mrakiizar_book4")
+	if(!open)
+		icon_state = "mrakiizar_book_closed"
+	else
+		icon_state = open_state
+
+	if(closed_desc)
+		desc = open ? initial(desc) + closed_desc : initial(desc)
+
+/obj/item/journal/fluff/mrakiizar_book/attack_hand(mob/user)
+	if(open && user.a_intent == I_HURT)
+		if(!LAZYLEN(indices))
+			to_chat(user, SPAN_WARNING("There aren't any indices to rip a paper out of!"))
+			return
+
+		var/list/viable_indices = list()
+		for(var/index in indices)
+			var/obj/item/folder/embedded/E = indices[index]
+			if(!(locate(/obj/item/paper) in E))
+				continue
+			viable_indices += index
+
+		if(!length(viable_indices))
+			to_chat(user, SPAN_WARNING("None of the indices in \the [src] contain a paper!"))
+			return
+
+		var/selected_folder = input(user, "Select an index to rip a paper out of.", "Rip Index Select") as null|anything in viable_indices
+		if(isnull(selected_folder))
+			return
+
+		var/obj/item/folder/embedded/E = indices[selected_folder]
+		var/list/papers = list()
+
+		for(var/obj/item/paper/P in E)
+			papers += P
+
+		var/obj/item/paper/selected_paper = input(user, "Select a paper to rip out.", "Rip Paper Select") as null|anything in papers
+		if(isnull(selected_paper))
+			return
+
+		user.visible_message(SPAN_WARNING("<b>[user]</b> rips \the [selected_paper] out of \the [src]."), SPAN_NOTICE("You rip \the [selected_paper] out of \the [src]."), range = 5)
+		if(selected_paper.can_change_icon_state)
+			selected_paper.icon = icon
+			selected_paper.base_state = "torn"
+			selected_paper.update_icon()
+		user.put_in_hands(selected_paper)
+		E.handle_post_remove()
+		playsound(loc, 'sound/items/poster_ripped.ogg', 50, FALSE)
+		return
+	return ..()
+
+/obj/item/journal/fluff/mrakiizar_book/CtrlClick(mob/user)
+	if(open && Adjacent(user))
+		open_state = next_in_list(icon_state, open_states)
+		user.visible_message("<b>[user]</b> flips a page in \the [src].", SPAN_NOTICE("You flip a page in \the [src]."), range = 3)
+		playsound(loc, 'sound/items/pickup/paper.ogg', 50, FALSE)
+		update_icon()
+		return
+	return ..()
 
 /obj/item/clothing/accessory/fluff/jaquelyn_necklace //Shrapnel Necklace - Jaquelyn Roberts - roostercat12
 	name = "shrapnel necklace"
@@ -2223,7 +2280,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "quoro_suit"
 	item_state = "quoro_suit"
 	contained_sprite = TRUE
-	
+
 
 /obj/item/clothing/accessory/poncho/shouldercape/qeblak/zeng/fluff/eden_cloak // Zeng-Hu Jargon division cloak - Eden Li - Huntime
 	name = "Zeng-Hu cloak: Jargon Division"
