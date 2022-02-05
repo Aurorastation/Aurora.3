@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Barefoot skrell now leave behind slimy footprints that will evaporate after some time."

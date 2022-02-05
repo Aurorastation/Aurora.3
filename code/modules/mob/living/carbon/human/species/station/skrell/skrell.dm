@@ -94,6 +94,16 @@
 	zombie_type = SPECIES_ZOMBIE_SKRELL
 	bodyfall_sound = /decl/sound_category/bodyfall_skrell_sound
 
+/datum/species/skrell/handle_trail(var/mob/living/carbon/human/H, var/turf/T)
+	var/list/trail_info = ..()
+	if(!length(trail_info) && !H.shoes)
+		var/list/blood_data = REAGENT_DATA(H.vessel, /decl/reagent/blood)
+		trail_info["footprint_DNA"] = list(blood_data["blood_DNA"] = blood_data["blood_type"])
+		trail_info["footprint_color"] = rgb(H.r_skin, H.g_skin, H.b_skin, 25)
+		trail_info["footprint_type"] = /obj/effect/decal/cleanable/blood/tracks/footprints/barefoot/del_dry // makes skrellprints del on dry
+
+	return trail_info
+
 /datum/species/skrell/handle_post_spawn(mob/living/carbon/human/H)
 	..()
 	H.set_psi_rank(PSI_COERCION, PSI_RANK_OPERANT)
