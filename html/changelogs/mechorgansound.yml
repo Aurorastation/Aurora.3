@@ -1,0 +1,6 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - tweak: "Changed the pickup and drop sounds for mechanical organs to be different from organic ones."

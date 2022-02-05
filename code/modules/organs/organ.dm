@@ -361,6 +361,8 @@
 	robotic = ROBOTIC_MECHANICAL
 	status = ORGAN_ROBOT
 	status |= ORGAN_ASSISTED
+	drop_sound = 'sound/items/drop/metalweapon.ogg'
+	pickup_sound = 'sound/items/pickup/metalweapon.ogg'
 	if(robotic_name)
 		name = robotic_name
 	if(robotic_sprite)
