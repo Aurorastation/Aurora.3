@@ -497,9 +497,14 @@
 	t = replacetext(t, "\[/large\]", "</font>")
 	t = replacetext(t, "\[small\]", "<font size = \"1\">")
 	t = replacetext(t, "\[/small\]", "</font>")
-	t = replacetext(t, "\[redacted\]", "<span class='redacted'>")
-	t = replacetext(t, "\[/redacted\]", "</span>")
 	t = replacetext(t, "\[station\]", current_map.station_name)
+
+	var/regex/redacted_text = new(@"(\[redacted\])(.*?)(\[\/redacted\])", "g")
+	while (redacted_text.Find(t))
+		var/new_content = ""
+		for(var/i = 1 to length(redacted_text.group[2]))
+			new_content += "|"
+		t = replacetext(t, redacted_text.match, "<span class='redacted'>[new_content]</span>")
 
 	// A break for signature customization code to use this proc as well.
 	if (limited)
