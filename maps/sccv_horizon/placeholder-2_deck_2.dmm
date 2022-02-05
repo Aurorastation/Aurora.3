@@ -308,10 +308,6 @@
 /area/medical/or1)
 "ais" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
-	},
 /obj/machinery/light{
 	dir = 1
 	},
@@ -652,6 +648,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/cable/orange{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload_foyer)
@@ -3829,6 +3828,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
+/obj/machinery/computer/cryopod/robot{
+	pixel_y = 32
+	},
 /turf/simulated/floor/reinforced,
 /area/turret_protected/ai_upload_foyer)
 "cpl" = (
@@ -6961,6 +6963,9 @@
 	name = "AI core maintenance hatch";
 	opacity = 0
 	},
+/obj/structure/cable/orange{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload_foyer)
 "eyY" = (
@@ -7589,8 +7594,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/glass_security{
-	id_tag = "BrigFoyer";
-	name = "Security Wing";
+	id_tag = null;
+	name = "Armory Entrance";
 	req_access = list(63)
 	},
 /obj/machinery/door/firedoor,
@@ -9957,6 +9962,15 @@
 "gsz" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/engine_waste)
+"gsQ" = (
+/obj/machinery/power/apc{
+	is_critical = 1;
+	name = "south bump";
+	pixel_y = -24
+	},
+/obj/structure/cable/orange,
+/turf/simulated/floor/tiled/dark,
+/area/turret_protected/ai_upload_foyer)
 "gsR" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/glass/beaker/large,
@@ -13092,9 +13106,12 @@
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/camera/network/research{
-	c_tag = "Research - Xenoflora Hazardous Specimen";
-	dir = 8
+/obj/machinery/alarm{
+	alarm_id = 1601;
+	dir = 8;
+	name = "Hazardous Specimens";
+	pixel_x = 28;
+	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora_hazard)
@@ -16329,6 +16346,9 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/cable/orange{
 	icon_state = "4-8"
+	},
+/obj/structure/cable/orange{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload_foyer)
@@ -29428,8 +29448,13 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/computer/cryopod/robot{
-	pixel_y = 32
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24
+	},
+/obj/structure/cable/orange{
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/reinforced,
 /area/turret_protected/ai_upload_foyer)
@@ -31201,6 +31226,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable/orange{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload)
 "tME" = (
@@ -31686,7 +31714,10 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "ucq" = (
-/obj/machinery/door/airlock/security,
+/obj/machinery/door/airlock/security{
+	name = "Security Eqiuipment Room";
+	req_access = list(63)
+	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -34860,6 +34891,17 @@
 	},
 /turf/simulated/open,
 /area/maintenance/hangar/port)
+"vTP" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/machinery/camera/network/research{
+	c_tag = "Research - Xenoflora Hazardous Specimen";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenobiology/xenoflora_hazard)
 "vTY" = (
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 5
@@ -36996,6 +37038,9 @@
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
+/obj/structure/cable/orange{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/ramp,
 /area/turret_protected/ai_upload_foyer)
 "xcK" = (
@@ -37056,7 +37101,7 @@
 	dir = 10
 	},
 /obj/structure/cable/orange{
-	icon_state = "0-4"
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload_foyer)
@@ -38811,17 +38856,17 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/structure/table/standard,
+/obj/structure/sign/biohazard{
+	pixel_x = 32;
+	pixel_y = -32
+	},
 /obj/machinery/computer/atmoscontrol/laptop{
 	monitored_alarm_ids = list("1601");
 	name = "Hazardous Specimens Atmospheric Controls";
 	pixel_x = -2;
 	req_access = null;
 	req_one_access = list(55,24,11)
-	},
-/obj/structure/table/standard,
-/obj/structure/sign/biohazard{
-	pixel_x = 32;
-	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
@@ -65162,7 +65207,7 @@ lYP
 qnb
 cyG
 kxt
-gfN
+gsQ
 cyZ
 eKP
 wHs
@@ -70623,7 +70668,7 @@ vzO
 mAO
 uvo
 nir
-oLv
+vTP
 rNx
 rNx
 rNx
