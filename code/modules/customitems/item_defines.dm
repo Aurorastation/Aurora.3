@@ -2093,7 +2093,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 	var/name2 = "handmade royalist cloak"
 	var/desc2 = "A blue cloak with the symbol of the New Kingdom of Adhomai proudly displayed on the back.\nUpon closer examination it appears to be a patchwork of older textile and newer fabrics, with the inside of the cloak appearing to be colored differently."
 	var/changed = FALSE
-	hoodtype = /obj/item/clothing/head/winterhood/fluff/kathira_hood
+
+	var/hoodtype = /obj/item/clothing/head/winterhood/fluff/kathira_hood
+	var/obj/item/clothing/head/winterhood/hood
 
 /obj/item/clothing/head/winterhood/fluff/kathira_hood
 	name = "handsewn hood"
@@ -2104,18 +2106,20 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	flags_inv = HIDEEARS | BLOCKHAIR | HIDEEARS
 
-/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/update_icon()
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/update_icon(var/hooded = FALSE)
 	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
 	K.icon_state = "[K.changed ? K.style : initial(K.icon_state)]"
-	K.item_state = "[K.icon_state][K.hooded ? "_up" : ""]"
+	SEND_SIGNAL(K, COMSIG_ITEM_HOOD_UP, args)
+	K.item_state = "[K.icon_state][hooded ? "_up" : ""]"
 	K.name = "[K.changed ? K.name2 : initial(K.name)]"
 	K.desc = "[K.changed ? K.desc2 : initial(K.desc)]"
 	K.accessory_mob_overlay = null
 	. = ..()
+	SEND_SIGNAL(K, COMSIG_ITEM_HOOD_UPDATE)
 	if(usr)
 		usr.update_inv_w_uniform()
 		usr.update_inv_wear_suit()
-	
+
 /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_cloak()
 	set name = "Change Cloak"
 	set category = "Object"
@@ -2131,8 +2135,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	usr.visible_message(SPAN_NOTICE("[usr] swiftly pulls \the [K] inside out, changing its appearance."))
 	K.changed = !K.changed
 	K.update_icon()
-	if(K.hooded)
-		K.RemoveHood()
+	SEND_SIGNAL(K, COMSIG_ITEM_REMOVE_HOOD)
 
 /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/on_attached(obj/item/clothing/S, mob/user as mob)
 	..()
@@ -2152,21 +2155,16 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 	if(use_check_and_message(usr))
 		return
-	
-	var/obj/item/clothing/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
+
+	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
 	if(!K)
 		return
 
-	if(!K.hooded)
-		if(CheckSlot())
-			var/mob/living/carbon/human/H = src.loc
-			K.hooded = TRUE
-			K.CreateHood()
-			H.equip_to_slot_if_possible(K.hood,slot_head,0,0,1)
-			usr.visible_message(SPAN_NOTICE("[usr] pulls up the hood on \the [K]."))
-	else
-		K.RemoveHood()
-		usr.visible_message(SPAN_NOTICE("[usr] pulls down the hood on \the [K]."))
+	if(!K.hood)
+		K.hood = new K.hoodtype(K)
+		K.hood.parent(K)
+	SEND_SIGNAL(K, COMSIG_ITEM_HOOD_CHANGE)
+	K.update_icon()
 
 /obj/item/clothing/suit/storage/toggle/fluff/leonid_chokha //Old Rebel's Chokha - Leonid Myagmar - lucaken
 	name = "old rebel's chokha"

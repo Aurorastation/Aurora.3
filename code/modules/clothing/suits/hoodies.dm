@@ -5,13 +5,15 @@
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/hoodie.dmi'
 	)
+	var/hoodtype = /obj/item/clothing/head/winterhood
+	var/obj/item/clothing/head/winterhood/hood
 
 /obj/item/clothing/suit/storage/hooded/Initialize()
 	. = ..()
-	MakeHood()
 
-/obj/item/clothing/suit/storage/hooded/update_icon()
+/obj/item/clothing/suit/storage/hooded/update_icon(var/hooded = FALSE)
 	. = ..()
+	SEND_SIGNAL(src, COMSIG_ITEM_HOOD_UP, args)
 	icon_state = "[initial(icon_state)][hooded ? "_t" : ""]"
 	item_state = icon_state
 	if(usr)
@@ -25,15 +27,11 @@
 	if(use_check_and_message(usr))
 		return 0
 
-	if(!hooded)
-		if(CheckSlot())
-			var/mob/living/carbon/human/H = src.loc
-			hooded = TRUE
-				//spawn appropriate hood.
-			CreateHood()
-			H.equip_to_slot_if_possible(hood,slot_head,0,0,1)
-	else
-		RemoveHood()
+	if(!hood)
+		hood = new hoodtype(src)
+		hood.parent(src)
+	SEND_SIGNAL(src, COMSIG_ITEM_HOOD_CHANGE)
+	update_icon()
 
 //hoodies and the like
 
@@ -51,7 +49,6 @@
 		bio = ARMOR_BIO_MINOR
 	)
 	siemens_coefficient = 0.75
-	hoodtype = /obj/item/clothing/head/winterhood
 
 /obj/item/clothing/head/winterhood
 	name = "winter hood"
@@ -65,6 +62,75 @@
 	flags_inv = HIDEEARS | BLOCKHAIR | HIDEEARS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	canremove = 0
+	var/obj/item/clothing/parent
+	var/hooded = FALSE
+
+/obj/item/clothing/head/winterhood/proc/parent(var/newparent)
+	. = ..()
+	parent = newparent
+	RegisterSignal(parent, COMSIG_ITEM_REMOVE_HOOD, .proc/RemoveHood)
+	RegisterSignal(parent, COMSIG_PARENT_QDELETING, .Destroy)
+	RegisterSignal(parent, COMSIG_ITEM_HOOD_UP, .proc/hooded)
+	RegisterSignal(parent, COMSIG_ITEM_HOOD_CHANGE, .proc/change_hood)
+	RegisterSignal(parent, COMSIG_ITEM_HOOD_UPDATE, .update_icon)
+	color = parent.color
+	icon_state = "[parent.icon_state]_hood"
+	item_state = "[parent.icon_state]_hood"
+
+/obj/item/clothing/head/winterhood/update_icon(mob/user)
+	. = ..()
+	if(parent)
+		color = parent.color
+		icon_state = "[parent.icon_state]_hood"
+		item_state = "[parent.icon_state]_hood"
+
+/obj/item/clothing/head/winterhood/proc/hooded(var/hood, list/arguments)
+	arguments[1] = hooded
+
+/obj/item/clothing/head/winterhood/proc/change_hood()
+	if(!hooded)
+		if(CheckSlot())
+			var/mob/living/carbon/human/H = get_human()
+			hooded = TRUE
+			H.equip_to_slot_if_possible(src,slot_head,0,0,1)
+			usr.visible_message(SPAN_NOTICE("[usr] pulls up the hood on \the [src]."))
+	else
+		RemoveHood()
+		usr.visible_message(SPAN_NOTICE("[usr] pulls down the hood on \the [src]."))
+
+/obj/item/clothing/head/winterhood/proc/RemoveHood()
+	if(ishuman(loc))
+		var/mob/living/carbon/H = loc
+		H.unEquip(src, 1)
+		forceMove(parent)
+		update_icon(H)
+		hooded = FALSE
+
+/obj/item/clothing/head/winterhood/proc/get_human()
+	var/mob/living/carbon/human/H
+	if(isclothing(parent.loc))
+		if(ishuman(parent.loc.loc))
+			H = parent.loc.loc
+	else if(ishuman(parent.loc))
+		H = parent.loc
+	return H
+
+/obj/item/clothing/head/winterhood/proc/CheckSlot()
+	var/mob/living/carbon/human/H = get_human()
+	var/obj/base_item = parent
+	if(isclothing(parent.loc))
+		base_item = parent.loc
+
+	if(H)
+		if(H.wear_suit != base_item && H.w_uniform != base_item)
+			to_chat(H, SPAN_WARNING("You must be wearing [base_item] to put up the hood!"))
+			return FALSE
+		else if(H.head)
+			to_chat(H, SPAN_WARNING("You're already wearing something on your head!"))
+			return FALSE
+		else
+			return TRUE
+	return FALSE
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/red
 	name = "red winter coat"
@@ -163,8 +229,6 @@
 	playsound(src, 'sound/items/zip.ogg', EQUIP_SOUND_VOLUME, TRUE)
 	icon_state = "[initial(icon_state)][opened ? "_open" : ""]"
 	item_state = icon_state
-	if(hooded)
-		CreateHood() //rebuild the hood with open/closed version
 	update_icon()
 	update_clothing_icon()
 	usr.update_inv_head()

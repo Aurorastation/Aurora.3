@@ -33,5 +33,13 @@
 // /mob signals
 
 // /obj signals
+/// when a hood is unequipped
+#define COMSIG_ITEM_REMOVE_HOOD "hood_remove"
+/// checks if a hood is pulled up or not
+#define COMSIG_ITEM_HOOD_UP "hood_up"
+/// changes hoods between being pulled up and down
+#define COMSIG_ITEM_HOOD_CHANGE "hood_change"
+/// updates hood sprite
+#define COMSIG_ITEM_HOOD_UPDATE "hood_update"
 
 /*******Component Specific Signals*******/

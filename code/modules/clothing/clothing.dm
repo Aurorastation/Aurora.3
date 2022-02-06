@@ -31,11 +31,6 @@
 
 	var/move_trail = /obj/effect/decal/cleanable/blood/tracks/footprints
 
-	var/obj/item/clothing/head/winterhood/hood
-	var/hoodtype = null
-	var/clothing_type // used for holsters & hoods. Do not set it outside init.
-	var/hooded = FALSE
-
 /obj/item/clothing/Initialize(var/mapload, var/material_key)
 	. = ..(mapload)
 	if(!material_key)
@@ -46,7 +41,6 @@
 		for(var/T in starting_accessories)
 			var/obj/item/clothing/accessory/tie = new T(src)
 			src.attach_accessory(null, tie)
-	clothing_type = type
 	update_icon()
 
 /obj/item/clothing/Destroy()
@@ -306,70 +300,20 @@
 			return accessory
 	return null
 
-// Hood relevant parts. Look at /obj/item/clothing/suit/storage/hooded for how to implement the verb to use it
-/obj/item/clothing/proc/MakeHood()
-	var/obj/item/clothing/C = get_accessory(clothing_type)
-	if(!C.hood)
-		C.hood = new hoodtype(src)
-
 /obj/item/clothing/Destroy()
-	var/obj/item/clothing/C = get_accessory(clothing_type)
-	QDEL_NULL(C.hood)
+	SEND_SIGNAL(src, COMSIG_PARENT_QDELETING, args)
 	return ..()
 
 /obj/item/clothing/dropped()
-	var/obj/item/clothing/C = get_accessory(clothing_type)
-	C.RemoveHood()
-
+	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE_HOOD, args)
+	return ..()
 /obj/item/clothing/on_slotmove()
-	var/obj/item/clothing/C = get_accessory(clothing_type)
-	C.RemoveHood()
+	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE_HOOD, args)
+	return ..()
 
 /obj/item/clothing/hooded/equipped(mob/user, slot)
-	if(slot != slot_wear_suit && slot != slot_w_uniform)
-		RemoveHood()
+	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE_HOOD, args)
 	..()
-
-/obj/item/clothing/proc/CreateHood()
-	var/obj/item/clothing/C = get_accessory(clothing_type)
-	if(!C.hood)
-		C.hood = new hoodtype(src)
-	C.hood.color = src.color
-	C.hood.icon_state = "[icon_state]_hood"
-	C.hood.item_state = "[icon_state]_hood"
-	C.update_icon(usr)
-
-/obj/item/clothing/proc/RemoveHood()
-	var/obj/item/clothing/C = get_accessory(clothing_type)
-	if(!C)
-		return
-
-	if(!C.hooded)
-		return
-	C.hooded = FALSE
-
-	if(!C.hood)
-		C.MakeHood()
-		return
-
-	if(ishuman(C.hood.loc))
-		var/mob/living/carbon/H = C.hood.loc
-		H.unEquip(C.hood, 1)
-	C.hood.forceMove(src)
-	C.update_icon(usr)
-
-/obj/item/clothing/proc/CheckSlot()
-	if(ishuman(loc))
-		var/mob/living/carbon/human/H = src.loc
-		if(H.wear_suit != src && H.w_uniform != src)
-			to_chat(H, SPAN_WARNING("You must be wearing [src] to put up the hood!"))
-			return FALSE
-		else if(H.head)
-			to_chat(H, SPAN_WARNING("You're already wearing something on your head!"))
-			return FALSE
-		else
-			return TRUE
-	return FALSE
 
 ///////////////////////////////////////////////////////////////////////
 // Ears: headsets, earmuffs and tiny objects
