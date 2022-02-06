@@ -44,7 +44,7 @@
 		if(ball)
 			to_chat(user, "There is \the [ball] between the needles.")
 
-/obj/item/knittingneedles/update_icon(var/mob/user)
+/obj/item/knittingneedles/update_icon()
 	if(working)
 		icon_state = "knittingneedles_on"
 		item_state = "knittingneedles_on"
@@ -61,9 +61,7 @@
 		add_overlay(yarn_overlay)
 	else
 		cut_overlays()
-	if(user)
-		user.update_inv_l_hand()
-		user.update_inv_r_hand()
+	update_held_icon()
 
 /obj/item/knittingneedles/attackby(obj/item/O, mob/user)
 	if(istype(O, /obj/item/yarn))
@@ -99,12 +97,12 @@
 
 	user.visible_message("<b>[user]</b> begins knitting something soft and cozy.")
 	working = TRUE
-	update_icon(user)
+	update_icon()
 
 	if(!do_after(user,2 MINUTES))
 		to_chat(user, SPAN_WARNING("Your concentration is broken!"))
 		working = FALSE
-		update_icon(user)
+		update_icon()
 		return
 
 	var/obj/item/clothing/S = new type_path(get_turf(user))
@@ -113,7 +111,7 @@
 	qdel(ball)
 	ball = null
 	working = FALSE
-	update_icon(user)
+	update_icon()
 	user.visible_message("<b>[user]</b> finishes working on \the [S].")
 
 /obj/item/yarn
