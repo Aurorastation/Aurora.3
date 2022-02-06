@@ -1,0 +1,5 @@
+author: Desven
+delete-after: True
+changes:
+  - rscadd: "Vaurcae can now be Zavod."
+  - rscadd: "Added Bulwark version of the Zavod research suit."
