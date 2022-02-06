@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Consular, liaison and representative wrist & double radio now works properly instead of spawning without any radio keys."
