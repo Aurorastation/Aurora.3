@@ -62,7 +62,7 @@
 		BP_EYES =     /obj/item/organ/internal/eyes/skrell
 		)
 
-	pain_messages = list("I can't feel my tentacles", "You really need some painkillers", "Stars above, the pain")
+	pain_messages = list("I can't feel my headtails", "You really need some painkillers", "Stars above, the pain")
 
 	flesh_color = "#8CD7A3"
 	blood_color = COLOR_SKRELL_BLOOD
