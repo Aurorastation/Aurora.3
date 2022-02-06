@@ -1,6 +1,0 @@
-author: Sparky_hotdog
-
-delete-after: True
-
-changes:
-  - tweak: "Reduced some of the things that could be put in wallets that realistically shouldn't have."
