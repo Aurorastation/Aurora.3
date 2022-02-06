@@ -172,7 +172,7 @@
 		return
 
 	toggle_stop = !toggle_stop
-	to_chat(usr, "[src]'s automatic stop mode is now [toggle_stop ? "active" : "deactivated"]")
+	usr.visible_message("<b>[usr]</b> toggles \the [src]'s automatic stop mode [toggle_stop ? "on" : "off"]", SPAN_NOTICE("You toggle \the [src]'s automatic stop mode [toggle_stop ? "on" : "off"]."))
 	playsound(usr, 'sound/machines/click.ogg', 50)
 
 /obj/machinery/iv_drip/examine(mob/user)
