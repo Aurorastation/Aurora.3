@@ -24,7 +24,7 @@
 
 /datum/species/human/offworlder/New()
 	var/list/offworlder_accents = list(ACCENT_SCARAB)
-	var/list/disallowed_accents = list(ACCENT_SILVERSUN_EXPATRIATE, ACCENT_SILVERSUN_ORIGINAL, ACCENT_PLUTO, ACCENT_EUROPA, ACCENT_VENUS, ACCENT_GADPATHUR, ACCENT_PHONG)
+	var/list/disallowed_accents = list(ACCENT_SILVERSUN_EXPATRIATE, ACCENT_SILVERSUN_ORIGINAL, ACCENT_PLUTO, ACCENT_EUROPA, ACCENT_VENUS, ACCENT_GADPATHUR, ACCENT_PHONG, ACCENT_VYSOKA, ACCENT_FISANDUH, ACCENT_MICTLAN)
 	allowed_accents = offworlder_accents + allowed_accents - disallowed_accents
 	..()
 
