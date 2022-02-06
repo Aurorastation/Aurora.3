@@ -4666,12 +4666,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/hydroponics)
 "cWx" = (
-/obj/machinery/atmospherics/binary/passive_gate/scrubbers{
-	dir = 1
-	},
-/obj/machinery/atmospherics/binary/passive_gate/supply,
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "cWG" = (
@@ -5155,6 +5153,9 @@
 	req_one_access = list(31,48,26,67)
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
 "dlR" = (
@@ -5234,6 +5235,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4;
 	icon_state = "pipe-c"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
@@ -5397,6 +5401,12 @@
 "dwb" = (
 /obj/machinery/power/smes/buildable{
 	RCon_tag = "Substation - Starboard Wing"
+	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/structure/cable{
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/wing_starboard)
@@ -7357,7 +7367,9 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "ePc" = (
-/obj/machinery/vending/tool,
+/obj/machinery/vending/tool{
+	random_itemcount = 0
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_eva)
@@ -7612,6 +7624,12 @@
 "eYp" = (
 /obj/machinery/power/smes/buildable{
 	RCon_tag = "Substation - Port Wing"
+	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/structure/cable{
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/wing_port)
@@ -9933,6 +9951,9 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
 "grL" = (
@@ -10353,9 +10374,6 @@
 "gDM" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
-	},
-/obj/structure/cable/green{
-	icon_state = "2-8"
 	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -11397,6 +11415,9 @@
 	dir = 5
 	},
 /obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
 "hnf" = (
@@ -11588,6 +11609,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
 "hrZ" = (
@@ -12883,7 +12907,10 @@
 	pump_direction = 0;
 	use_power = 1
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/greengrid/nitrogen{
+	icon = 'icons/turf/flooring/plating.dmi';
+	icon_state = "plating"
+	},
 /area/engineering/engine_room)
 "ikB" = (
 /obj/machinery/light,
@@ -13034,9 +13061,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "iqg" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
@@ -13187,6 +13211,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/engine_airlock)
+"iyh" = (
+/turf/simulated/floor/greengrid/nitrogen{
+	icon = 'icons/turf/flooring/plating.dmi';
+	icon_state = "plating"
+	},
+/area/engineering/engine_room)
 "iyl" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
@@ -16879,7 +16909,10 @@
 	use_power = 1;
 	volume_rate = 700
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/greengrid/nitrogen{
+	icon = 'icons/turf/flooring/plating.dmi';
+	icon_state = "plating"
+	},
 /area/engineering/engine_room)
 "kRr" = (
 /obj/machinery/door/airlock{
@@ -20567,6 +20600,10 @@
 "nfs" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/door/window/northright,
+/obj/machinery/computer/shuttle_control/lift{
+	pixel_x = 10;
+	shuttle_tag = "Robotics Lift"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/assembly/chargebay)
 "nfz" = (
@@ -22034,14 +22071,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/cafeteria)
 "obr" = (
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
@@ -29563,7 +29600,10 @@
 /obj/machinery/camera/network/engine{
 	c_tag = "Engine Core"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/greengrid/nitrogen{
+	icon = 'icons/turf/flooring/plating.dmi';
+	icon_state = "plating"
+	},
 /area/engineering/engine_room)
 "sMi" = (
 /obj/machinery/door/firedoor,
@@ -30964,7 +31004,10 @@
 	dir = 1;
 	id = "enginecore"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/greengrid/nitrogen{
+	icon = 'icons/turf/flooring/plating.dmi';
+	icon_state = "plating"
+	},
 /area/engineering/engine_room)
 "tFP" = (
 /obj/structure/cable/green{
@@ -54684,7 +54727,7 @@ qjm
 hMy
 sLy
 ijJ
-sSY
+iyh
 srn
 lMQ
 mrx
@@ -54884,7 +54927,7 @@ mdU
 sSY
 sSY
 mdU
-sSY
+iyh
 tFC
 aPe
 srn
@@ -55086,9 +55129,9 @@ qjm
 hMy
 qjm
 hMy
-sSY
+iyh
 kQY
-sSY
+iyh
 srn
 lMQ
 mrx

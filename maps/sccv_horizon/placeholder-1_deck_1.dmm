@@ -123,12 +123,15 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
 "ajK" = (
-/obj/structure/railing/mapped{
-	dir = 8
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/ramp/bottom{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-4"
 	},
+/turf/simulated/floor/tiled,
 /area/hangar/intrepid/interstitial)
 "ajM" = (
 /obj/machinery/cryopod/robot,
@@ -1776,6 +1779,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
 "bFw" = (
@@ -2738,6 +2744,10 @@
 /obj/item/device/floor_painter,
 /obj/random/tech_supply,
 /obj/random/tech_supply,
+/obj/item/hoist_kit{
+	pixel_y = 7
+	},
+/obj/item/ladder_mobile,
 /turf/simulated/floor/plating,
 /area/engineering/storage/lower)
 "cCq" = (
@@ -2991,13 +3001,15 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "cNp" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/ramp{
+	dir = 8
+	},
 /area/hangar/intrepid/interstitial)
 "cOy" = (
 /obj/structure/cable/green{
@@ -7540,11 +7552,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/operations/lower/machinist)
 "gIc" = (
-/obj/structure/table/standard,
-/obj/item/hoist_kit{
-	pixel_y = 7
-	},
-/obj/item/ladder_mobile,
+/obj/structure/closet/crate,
+/obj/item/circuitboard/smes,
+/obj/item/circuitboard/smes,
+/obj/item/smes_coil,
+/obj/item/smes_coil,
+/obj/item/smes_coil/super_capacity,
+/obj/item/smes_coil/super_capacity,
+/obj/item/smes_coil/super_io,
+/obj/item/smes_coil/super_io,
 /turf/simulated/floor/plating,
 /area/engineering/storage/lower)
 "gIr" = (
@@ -8548,15 +8564,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
 "hIl" = (
-/obj/machinery/atmospherics/binary/passive_gate/supply{
-	dir = 1
-	},
-/obj/machinery/atmospherics/binary/passive_gate/scrubbers,
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
 /obj/structure/railing/mapped,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "hIw" = (
@@ -10038,6 +10052,14 @@
 	},
 /obj/structure/closet/secure_closet/security,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/machinery/power/apc/low{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24
+	},
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
 "jdP" = (
@@ -11141,6 +11163,9 @@
 /obj/structure/disposalpipe/junction{
 	dir = 2;
 	icon_state = "pipe-j2"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid/interstitial)
@@ -13142,6 +13167,9 @@
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk{
 	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
@@ -15801,6 +15829,9 @@
 /obj/machinery/door/airlock/security{
 	name = "Security Checkpoint";
 	req_access = list(63)
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
@@ -21764,6 +21795,9 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
 "ufy" = (
@@ -23346,15 +23380,13 @@
 /turf/simulated/wall/shuttle/scc,
 /area/shuttle/escape_pod/pod3)
 "vDj" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/ramp{
-	dir = 1
+/obj/effect/floor_decal/corner/black{
+	dir = 6
 	},
+/turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid/interstitial)
 "vDP" = (
 /obj/structure/cable/green{
@@ -46488,7 +46520,7 @@ eaO
 erk
 ftn
 ney
-ftn
+ajK
 wrE
 jpK
 hYy
@@ -46890,7 +46922,7 @@ pYa
 xtH
 fuL
 ifd
-ajK
+fuL
 vDj
 cNp
 wuD
