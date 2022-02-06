@@ -168,7 +168,7 @@
 		to_chat(usr, SPAN_WARNING("You can't do that."))
 		return
 
-	if(usr.stat)
+	if(usr.incapacitated())
 		return
 
 	toggle_stop = !toggle_stop
