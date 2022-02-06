@@ -1,0 +1,8 @@
+author: Granodd
+
+delete-after: True
+
+changes:
+  - tweak: "Battlemonster vendor stock increased and prices reduced."
+  - tweak: "Amount of cards in each pack increased."
+  - spellcheck: "Fixes the name of the Battlemonster legendary pack."
