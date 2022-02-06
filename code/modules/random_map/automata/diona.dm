@@ -1,5 +1,7 @@
 /turf/simulated/wall/diona/Initialize(mapload)
+	canSmoothWith = list(src.type)
 	. = ..(mapload, "biomass")
+	canSmoothWith = list(src.type)
 
 /obj/structure/diona
 	icon = 'icons/obj/diona.dmi'

@@ -20767,7 +20767,7 @@
 /area/security/prison)
 "aJV" = (
 /obj/structure/table/standard,
-/obj/item/dice,
+/obj/item/stack/dice,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -44531,6 +44531,7 @@
 /obj/machinery/vending/wallmed1{
 	pixel_y = -30
 	},
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "bBH" = (

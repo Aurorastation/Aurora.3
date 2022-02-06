@@ -16,7 +16,7 @@
 		/obj/item/seeds,
 		/obj/item/stack/medical,
 		/obj/item/coin,
-		/obj/item/dice,
+		/obj/item/stack/dice,
 		/obj/item/disk,
 		/obj/item/implanter,
 		/obj/item/flame/lighter,
