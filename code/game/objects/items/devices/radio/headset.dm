@@ -703,6 +703,12 @@
 	icon_state = "com_headset_alt"
 	item_state = "headset_alt"
 
+/obj/item/device/radio/headset/alt/double/command/representative
+	name = "soundproof representative headset"
+
+/obj/item/device/radio/headset/wrist/command/representative
+	name = "wristbound representative radio"
+
 /obj/item/device/radio/headset/heads/ai_integrated //No need to care about icons, it should be hidden inside the AI anyway.
 	name = "\improper AI subspace transceiver"
 	desc = "Integrated AI radio transceiver."

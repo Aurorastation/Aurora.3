@@ -32,6 +32,9 @@
 	glasses = /obj/item/clothing/glasses/sunglasses/big
 	headset = /obj/item/device/radio/headset/representative
 	bowman = /obj/item/device/radio/headset/representative/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/command/representative
+	wrist_radio = /obj/item/device/radio/headset/wrist/command/representative
+
 	l_hand =  /obj/item/storage/briefcase
 	backpack_contents = list(
 		/obj/item/device/camera = 1,
