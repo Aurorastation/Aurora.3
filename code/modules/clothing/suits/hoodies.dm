@@ -66,16 +66,18 @@
 	var/hooded = FALSE
 
 /obj/item/clothing/head/winterhood/proc/parent(var/newparent)
-	. = ..()
 	parent = newparent
 	RegisterSignal(parent, COMSIG_ITEM_REMOVE_HOOD, .proc/RemoveHood)
-	RegisterSignal(parent, COMSIG_PARENT_QDELETING, .Destroy)
+	RegisterSignal(parent, COMSIG_PARENT_QDELETING, /obj/item/clothing/head/winterhood/Destroy)
 	RegisterSignal(parent, COMSIG_ITEM_HOOD_UP, .proc/hooded)
 	RegisterSignal(parent, COMSIG_ITEM_HOOD_CHANGE, .proc/change_hood)
-	RegisterSignal(parent, COMSIG_ITEM_HOOD_UPDATE, .update_icon)
+	RegisterSignal(parent, COMSIG_ITEM_HOOD_UPDATE, /obj/item/clothing/head/winterhood/update_icon)
 	color = parent.color
 	icon_state = "[parent.icon_state]_hood"
 	item_state = "[parent.icon_state]_hood"
+
+/obj/item/clothing/head/winterhood/Destroy()
+	. = ..()
 
 /obj/item/clothing/head/winterhood/update_icon(mob/user)
 	. = ..()
