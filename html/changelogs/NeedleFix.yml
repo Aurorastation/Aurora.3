@@ -1,0 +1,8 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a verb to remove yarn on knitting needles."
+  - bugfix: "Fixed animations on knitting needles."
+  - bugfix: "Knitting needles no longer try to produce something when the selection is cancelled."
