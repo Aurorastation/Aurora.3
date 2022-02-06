@@ -8,6 +8,8 @@
 	climbable = TRUE
 	layer = OBJ_LAYER
 	anchored = FALSE
+
+	flags = ON_BORDER
 	obj_flags = OBJ_FLAG_ROTATABLE
 
 	build_amt = 2
