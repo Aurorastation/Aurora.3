@@ -161,7 +161,7 @@
 
 /obj/item/clothing/under/rank/captain/white_dress
 	name = "captain's white dress"
-	desc = "The white variant of feminine fashion for the style concious captain"
+	desc = "The white variant of feminine fashion for the style conscious captain."
 	icon = 'icons/clothing/kit/captain_white.dmi'
 	icon_state = "uniform_fem"
 	item_state = "uniform_fem"
