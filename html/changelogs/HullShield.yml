@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - tweak: "The hull shield generator now also makes shields over some floor types if they're in space."
