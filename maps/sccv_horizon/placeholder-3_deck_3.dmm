@@ -20417,11 +20417,7 @@
 /area/security/forensics_office)
 "Yy" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1;
-	external_pressure_bound = 102;
-	external_pressure_bound_default = 102;
-	icon_state = "map_vent_in";
-	pump_direction = 0
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
