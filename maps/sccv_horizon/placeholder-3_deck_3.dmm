@@ -276,7 +276,7 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "sbridgedoor";
 	name = "Bridge";
-	req_one_access = list(19,38,72)
+	req_one_access = list(19,38)
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/map_effect/door_helper/unres,
@@ -5396,15 +5396,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
-"mJ" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass_command{
-	id_tag = "";
-	name = "Bridge";
-	req_one_access = list(19,38,72)
-	},
-/turf/simulated/floor/tiled,
-/area/bridge)
 "mK" = (
 /obj/machinery/case_button/shuttle{
 	pixel_y = 32
@@ -10077,7 +10068,7 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Helm";
-	req_one_access = list(19,38,72)
+	req_one_access = list(19,38)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -12466,7 +12457,7 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "sbridgedoor";
 	name = "Bridge";
-	req_one_access = list(19,38,72)
+	req_one_access = list(19,38)
 	},
 /obj/effect/map_effect/door_helper/unres,
 /obj/machinery/door/firedoor,
@@ -15768,7 +15759,7 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Bridge";
-	req_one_access = list(19,38,72)
+	req_one_access = list(19,38)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -16222,7 +16213,7 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Bridge";
-	req_one_access = list(19,38,72)
+	req_one_access = list(19,38)
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -18286,7 +18277,7 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Helm";
-	req_one_access = list(19,38,72)
+	req_one_access = list(19,38)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -19874,7 +19865,7 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Helm";
-	req_one_access = list(19,38,72)
+	req_one_access = list(19,38)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
@@ -42506,7 +42497,7 @@ SF
 uY
 Ns
 uT
-mJ
+yn
 ZS
 yn
 GW
