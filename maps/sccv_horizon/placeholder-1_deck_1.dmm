@@ -15588,7 +15588,7 @@
 /area/crew_quarters/kitchen/freezer)
 "oma" = (
 /obj/structure/window/reinforced,
-/obj/structure/plasticflaps,
+/obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
 "omo" = (

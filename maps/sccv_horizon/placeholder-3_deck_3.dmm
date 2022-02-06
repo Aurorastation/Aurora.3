@@ -1284,6 +1284,15 @@
 	},
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai)
+"cN" = (
+/obj/machinery/newscaster{
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/corner_wide/blue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/fitness/pool)
 "cO" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -3373,6 +3382,13 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
+"hP" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/machinery/newscaster{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/locker)
 "hR" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -3496,6 +3512,12 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/locker)
@@ -3945,6 +3967,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/toilet)
@@ -7512,6 +7537,7 @@
 	name = "east bump";
 	pixel_x = 24
 	},
+/obj/structure/cable/green,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/toilet)
 "rC" = (
@@ -10486,6 +10512,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/pool)
 "zw" = (
@@ -10550,6 +10579,13 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
+"zF" = (
+/obj/machinery/washing_machine,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/locker)
 "zG" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light{
@@ -10739,6 +10775,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/locker)
 "Ae" = (
@@ -10760,6 +10799,9 @@
 /obj/structure/closet/secure_closet/personal,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/locker)
@@ -10938,6 +10980,9 @@
 /area/maintenance/engineering_ladder)
 "AF" = (
 /obj/structure/closet/lasertag,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/locker)
 "AG" = (
@@ -11071,6 +11116,24 @@
 	},
 /turf/simulated/floor/bluegrid,
 /area/storage/shields)
+"AW" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/newscaster{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/starboard)
 "AX" = (
 /obj/structure/table/standard,
 /obj/item/storage/firstaid,
@@ -11843,6 +11906,7 @@
 /area/bridge/aibunker)
 "Da" = (
 /obj/structure/table/rack,
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/locker)
 "Db" = (
@@ -11889,6 +11953,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/pool)
 "Dj" = (
@@ -12151,6 +12218,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/locker)
 "DX" = (
@@ -12198,6 +12268,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
+"Ec" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/locker)
 "Ed" = (
 /turf/simulated/wall,
 /area/security/forensics_morgue)
@@ -12900,6 +12976,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/locker)
@@ -14222,6 +14301,9 @@
 	dir = 8;
 	name = "west bump";
 	pixel_x = -24
+	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/locker)
@@ -16726,6 +16808,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
+"Pg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/fitness/pool)
 "Ph" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -16987,6 +17077,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/locker)
 "PL" = (
@@ -17035,6 +17128,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/pool)
@@ -17662,6 +17758,9 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/locker)
 "Rv" = (
@@ -17795,6 +17894,21 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
+"RS" = (
+/obj/effect/floor_decal/corner_wide/blue{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/newscaster{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hallway/primary/starboard)
 "RT" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -20015,6 +20129,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/toilet)
@@ -36483,7 +36600,7 @@ tt
 Um
 Zl
 DW
-ov
+hP
 Af
 ov
 Jm
@@ -36688,7 +36805,7 @@ DW
 Ny
 Ak
 Ny
-Ny
+Ec
 TI
 eX
 MN
@@ -36890,7 +37007,7 @@ DW
 yz
 WF
 yz
-Ny
+Ec
 Da
 eX
 jM
@@ -37277,7 +37394,7 @@ at
 at
 at
 QY
-kW
+cN
 jw
 ne
 qM
@@ -37292,7 +37409,7 @@ Um
 DU
 ng
 HZ
-HZ
+zF
 HZ
 DW
 gM
@@ -37901,7 +38018,7 @@ zj
 zj
 zj
 PP
-zj
+Pg
 Dh
 uz
 xd
@@ -38916,7 +39033,7 @@ Ye
 Ye
 Ye
 xs
-Lg
+AW
 iY
 Cf
 jW
@@ -40317,7 +40434,7 @@ at
 at
 SG
 Yz
-kD
+RS
 xs
 xs
 co
