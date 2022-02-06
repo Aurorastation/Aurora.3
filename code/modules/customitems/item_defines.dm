@@ -2253,6 +2253,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "quoro_suit"
 	contained_sprite = TRUE
 
+
 /obj/item/clothing/accessory/poncho/shouldercape/qeblak/zeng/fluff/eden_cloak // Zeng-Hu Jargon division cloak - Eden Li - Huntime
 	name = "Zeng-Hu cloak: Jargon Division"
 	desc = "A cloak worn by Zeng-Hu personnel who worked with or in the Jargon Federation."
@@ -2260,3 +2261,15 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/eden_cloak.dmi'
 	icon_state = "ZH_cape_custom"
 	item_state = "ZH_cape_custom"
+
+/obj/item/clothing/head/welding/fluff/akara_mask //Steel Face Mask - Akara Seuseisak - aticius
+	name = "steel face mask"
+	desc = "A slab of steel that has been hammered into the shape of a full-face mask with crude tools. It seems quite old and an appreciable layer of rust has built up."
+	icon = 'icons/obj/custom_items/akara_mask.dmi'
+	icon_override = 'icons/obj/custom_items/akara_mask.dmi'
+	icon_state = "akara_mask"
+	item_state = "akara_mask"
+	contained_sprite = TRUE
+	action_button_name = "Adjust mask"
+	flash_protection = FLASH_PROTECTION_NONE
+	tint = TINT_NONE
