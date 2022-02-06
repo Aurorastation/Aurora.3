@@ -164,7 +164,7 @@
 	set name = "Toggle Stop"
 	set src in view(1)
 
-	if(!istype(usr, /mob/living))
+	if(!isliving(usr))
 		to_chat(usr, SPAN_WARNING("You can't do that."))
 		return
 
