@@ -20767,7 +20767,7 @@
 /area/security/prison)
 "aJV" = (
 /obj/structure/table/standard,
-/obj/item/dice,
+/obj/item/stack/dice,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
