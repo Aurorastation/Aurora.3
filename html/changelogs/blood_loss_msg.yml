@@ -1,0 +1,6 @@
+author: Vrow
+
+delete-after: True
+
+changes:
+  - tweak: "Tweaked the messages you get from blood loss. Now it's not just the same dizzy, faint, and woozy for all blood loss levels."
