@@ -48,8 +48,8 @@
 
 	var/previous_stat
 	var/randomize_color = TRUE
-	var/list/randomized_colors = LIGHT_STANDARD_COLORS
-	var/list/emergency_lights = list(
+	var/static/list/randomized_colors = LIGHT_STANDARD_COLORS
+	var/static/list/emergency_lights = list(
 		LIGHT_MODE_RED = LIGHT_COLOR_EMERGENCY,
 		LIGHT_MODE_DELTA = LIGHT_COLOR_ORANGE
 	)
