@@ -12,10 +12,10 @@
 	new hoodtype(src)
 
 /obj/item/clothing/suit/storage/hooded/update_icon(var/hooded = FALSE)
-	. = ..()
-	SEND_SIGNAL(src, COMSIG_ITEM_HOOD_UP, args)
+	SEND_SIGNAL(src, COMSIG_ITEM_STATE_CHECK, args)
 	icon_state = "[initial(icon_state)][hooded ? "_t" : ""]"
 	item_state = icon_state
+	. = ..()
 	if(usr)
 		usr.update_inv_wear_suit()
 
@@ -27,7 +27,7 @@
 	if(use_check_and_message(usr))
 		return 0
 
-	SEND_SIGNAL(src, COMSIG_ITEM_HOOD_CHANGE)
+	SEND_SIGNAL(src, COMSIG_ITEM_UPDATE_STATE)
 	update_icon()
 
 //hoodies and the like
@@ -66,9 +66,9 @@
 	if(isclothing(loc))
 		RegisterSignal(loc, COMSIG_ITEM_REMOVE, .proc/RemoveHood)
 		RegisterSignal(loc, COMSIG_PARENT_QDELETING, /datum/.proc/Destroy)
-		RegisterSignal(loc, COMSIG_ITEM_HOOD_UP, .proc/hooded)
-		RegisterSignal(loc, COMSIG_ITEM_HOOD_CHANGE, .proc/change_hood)
-		RegisterSignal(loc, COMSIG_ITEM_HOOD_UPDATE, /atom/.proc/update_icon)
+		RegisterSignal(loc, COMSIG_ITEM_STATE_CHECK, .proc/hooded)
+		RegisterSignal(loc, COMSIG_ITEM_UPDATE_STATE, .proc/change_hood)
+		RegisterSignal(loc, COMSIG_ITEM_ICON_UPDATE, /atom/.proc/update_icon)
 		color = loc.color
 		icon_state = "[loc.icon_state]_hood"
 		item_state = "[loc.icon_state]_hood"
@@ -88,6 +88,7 @@
 		if(CheckSlot(parent))
 			var/mob/living/carbon/human/H = get_human(parent)
 			hooded = TRUE
+			update_icon(H)
 			H.equip_to_slot_if_possible(src,slot_head,0,0,1)
 			usr.visible_message(SPAN_NOTICE("[usr] pulls up the hood on \the [src]."))
 	else
