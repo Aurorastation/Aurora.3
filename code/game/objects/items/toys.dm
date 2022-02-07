@@ -295,8 +295,33 @@
 	icon_state = "singularity_s1"
 
 /*
+ * Comic books
+ */
+/obj/item/toy/comic
+	name = "comic book"
+	desc = "A magazine presenting a fictional story through a sequence of images. Perfect for those long, boring shifts."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "comic"
+
+/obj/item/toy/comic/inspector
+	name = "inspector 404 manga"
+	desc = "Inspector 404 follows the adventures of the titular I404, a shell inspector from Konyang. This issue, #67, follows the \
+	404, also known as Kyung-Sun's quest to bring down the corrupt Superintendent Hayashi."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "comicinspector"
+
+/obj/item/toy/comic/stormman
+	name = "stormman manga"
+	desc = "Stormman, often stylized as STORMMAN! is one of Konyang's most beloved anime series, following a masked superhero named Stormman \
+	who has the power to harness the weather to defend his homeworld while keeping his secret identity. Since its release, all kinds of merchanidse \
+	have been made, including a conversion of the show to a paperback manga."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "comicstormman"
+
+/*
  * Toy crossbow
  */
+
 
 /obj/item/toy/crossbow
 	name = "foam dart crossbow"

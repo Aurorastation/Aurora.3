@@ -36,3 +36,14 @@
 		to_chat(usr, "<span class='notice'>You turn the music on.</span>")
 
 	update_clothing_icon()
+
+/obj/item/clothing/ears/earmuffs/headphones/earphones
+	name = "earphones"
+	var/headphones_on = 0
+	icon_state = "earphones_off"
+	item_state = "earphones"
+
+/obj/item/clothing/ears/earmuffs/headphones/earphones/blue
+	var/headphones_on = 0
+	icon_state = "earphones_blue_off"
+	item_state = "earphones_blue"

@@ -469,6 +469,12 @@
 	icon_state = "swim_red"
 	siemens_coefficient = 1
 
+/obj/item/clothing/under/zhongshan
+	name = "zhongshan"
+	desc = "A type of tunic suit popular in Earth's Federal Republic of China."
+	icon_state = "zhongshan"
+	item_state = "zhongshan"
+
 /obj/item/clothing/under/kimono
 	name = "kimono"
 	desc = "A traditional Japanese kimono."

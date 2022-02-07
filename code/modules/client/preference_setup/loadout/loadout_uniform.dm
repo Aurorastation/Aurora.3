@@ -363,6 +363,7 @@
 	var/list/hanbok = list()
 	hanbok["magenta-blue hanbok"] = /obj/item/clothing/under/konyang
 	hanbok["white-pink hanbok"] = /obj/item/clothing/under/konyang/pink
+	hanbok["male hanbok"] = /obj/item/clothing/under/konyang/male
 	gear_tweaks += new /datum/gear_tweak/path(hanbok)
 
 /datum/gear/uniform/gadpathur

@@ -276,6 +276,18 @@
 	plushies["plushie, Aphy"] = /obj/item/toy/plushie/ipc
 	gear_tweaks += new /datum/gear_tweak/path(plushies)
 
+/datum/gear/comic
+	display_name = "comic selection"
+	description = "A selection of comics and manga from across the Spur."
+	path = /obj/item/toy/comic
+
+/datum/gear/comic/New()
+	..()
+	var/list/comics = list()
+	comics["comic book"] = /obj/item/toy/comic
+	comics["comic book"] = /obj/item/toy/comic/inspector
+	comics["comic book"] = /obj/item/toy/comic/stormman
+
 /datum/gear/toothpaste
 	display_name = "toothpaste and toothbrush"
 	path = /obj/item/storage/box/toothpaste
