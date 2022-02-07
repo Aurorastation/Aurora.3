@@ -3,4 +3,4 @@ author: listerla
 delete-after: True
 
 changes:
-  - rscdel: "Removed the ability of cats to spam your chat with 'seeing ghosts.'"
+  - rscdel: "Removed the ability of cats to see observers."
