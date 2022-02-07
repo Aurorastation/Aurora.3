@@ -300,21 +300,6 @@
 			return accessory
 	return null
 
-/obj/item/clothing/Destroy()
-	SEND_SIGNAL(src, COMSIG_PARENT_QDELETING, args)
-	return ..()
-
-/obj/item/clothing/dropped()
-	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE_HOOD, args)
-	return ..()
-/obj/item/clothing/on_slotmove()
-	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE_HOOD, args)
-	return ..()
-
-/obj/item/clothing/hooded/equipped(mob/user, slot)
-	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE_HOOD, args)
-	..()
-
 ///////////////////////////////////////////////////////////////////////
 // Ears: headsets, earmuffs and tiny objects
 /obj/item/clothing/ears

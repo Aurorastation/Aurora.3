@@ -2095,7 +2095,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 	var/changed = FALSE
 
 	var/hoodtype = /obj/item/clothing/head/winterhood/fluff/kathira_hood
-	var/obj/item/clothing/head/winterhood/hood
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/Initialize()
+	. = ..()
+	new hoodtype(src)
 
 /obj/item/clothing/head/winterhood/fluff/kathira_hood
 	name = "handsewn hood"
@@ -2135,7 +2138,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	usr.visible_message(SPAN_NOTICE("[usr] swiftly pulls \the [K] inside out, changing its appearance."))
 	K.changed = !K.changed
 	K.update_icon()
-	SEND_SIGNAL(K, COMSIG_ITEM_REMOVE_HOOD)
+	SEND_SIGNAL(K, COMSIG_ITEM_REMOVE, K)
 
 /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/on_attached(obj/item/clothing/S, mob/user as mob)
 	..()
@@ -2160,10 +2163,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if(!K)
 		return
 
-	if(!K.hood)
-		K.hood = new K.hoodtype(K)
-		K.hood.parent(K)
-	SEND_SIGNAL(K, COMSIG_ITEM_HOOD_CHANGE)
+	SEND_SIGNAL(K, COMSIG_ITEM_HOOD_CHANGE, K)
 	K.update_icon()
 
 /obj/item/clothing/suit/storage/toggle/fluff/leonid_chokha //Old Rebel's Chokha - Leonid Myagmar - lucaken
