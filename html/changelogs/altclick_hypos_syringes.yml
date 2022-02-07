@@ -1,0 +1,6 @@
+author: Vrow
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a set transfer amount AltClick function for Hyposprays and Syringes."
