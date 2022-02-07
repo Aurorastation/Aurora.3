@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - tweak: "Changed how hoods works slightly. Shouldn't be any player-facing changes."
