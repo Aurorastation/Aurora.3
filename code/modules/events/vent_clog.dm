@@ -41,7 +41,8 @@
 		/decl/reagent/nutriment/protein/egg = 2,
 		/decl/reagent/serotrotium = 1,
 		/decl/reagent/psilocybin = 0.5,
-		/decl/reagent/toxin/spectrocybin = 0.1
+		/decl/reagent/toxin/spectrocybin = 0.1,
+		/decl/reagent/ambrosia_extract = 0.3
 	)
 
 /datum/event/vent_clog/setup()

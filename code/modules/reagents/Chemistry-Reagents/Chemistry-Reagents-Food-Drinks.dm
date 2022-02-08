@@ -537,7 +537,7 @@
 	description = "A salt made of sodium chloride. Commonly used to season food."
 	reagent_state = SOLID
 	color = "#FFFFFF"
-	overdose = REAGENTS_OVERDOSE
+	overdose = 30
 	taste_description = "salt"
 	condiment_name = "salt shaker"
 	condiment_desc = "Salt. From space oceans, presumably."
@@ -549,9 +549,17 @@
 	M.adjustHydrationLoss(2*removed)
 
 /decl/reagent/sodiumchloride/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	overdose(M, alien, holder)
+
+/decl/reagent/sodiumchloride/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.intoxication -= min(M.intoxication,removed*20)
 	M.adjustHydrationLoss(20*removed)
 	M.adjustToxLoss(removed*2)
+	M.confused = max(M.confused, 20)
+	if(prob(2))
+		M.emote("twitch")
+	if(prob(5))
+		to_chat(M, SPAN_WARNING(pick("You're beginning to lose your appetite.","Your mouth is so incredibly dry.","You feel really confused.","What was I just thinking of?","Where am I?","Your muscles are tingling.")))
 
 /decl/reagent/blackpepper
 	name = "Black Pepper"

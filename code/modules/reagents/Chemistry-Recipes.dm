@@ -208,7 +208,7 @@
 	result_amount = 3
 
 /datum/chemical_reaction/space_drugs
-	name = "Space Drugs"
+	name = "Mercury Monolithium Sucrose"
 	id = "space_drugs"
 	result = /decl/reagent/space_drugs
 	required_reagents = list(/decl/reagent/mercury = 1, /decl/reagent/sugar = 1, /decl/reagent/lithium = 1)
@@ -795,6 +795,13 @@
 	required_reagents = list(/decl/reagent/mental/corophenidate = 1, /decl/reagent/synaptizine = 1, /decl/reagent/nitroglycerin = 1)
 	required_temperature_min = T0C + 200
 	result_amount = 3
+
+/datum/chemical_reaction/joy
+	name = "Joy"
+	id = "joy"
+	result = /decl/reagent/joy
+	required_reagents = list(/decl/reagent/mental/neurapan = 1, /decl/reagent/oxycomorphine = 2)
+	result_amount = 1
 
 /* Solidification */
 
