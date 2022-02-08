@@ -307,7 +307,7 @@ obj/item/clothing/suit/apron/overalls/blue
 	item_state = "firstresponderjacket"
 
 /obj/item/clothing/suit/storage/toggle/fr_jacket/zeng
-	desc = "A dark green first responder jacket."
+	desc = "A first responder jacket in the classic white and purple of Zeng-Hu Pharmaceuticals.."
 	icon = 'icons/clothing/suits/coats/zeng_responder.dmi'
 	contained_sprite = TRUE
 	icon_state = "zengresponderjacket"
