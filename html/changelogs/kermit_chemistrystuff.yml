@@ -40,7 +40,8 @@ delete-after: True
 changes:
   - bugfix: "Fixed neurotoxic chemicals doing no damage. Neurotoxic chemicals will prevent Alkysine from working unless Dylovene is also in the system."
   - tweak: "All neurotoxic chemicals have had their numbers tweaked to ensure they don't nuke the brain."
-  - tweak: "Added flavour messages for all the recreational drugs."
-  - tweak: "Tweaked some effects of recreational drugs here and there to make them bearable to use."
+  - tweak: "Tweaked effects and added flavour messages for many, if not all, the recreational drugs. Affected drugs include Psilocybin, Raskara Dust, Krok Juice, Nightlife, Space Drugs (now Mercury Monolithium Sucrose & Ambrosia Extract) Mortaphenyl, Oxycomorphine, Hyperzine, Stimm, Mindbreaker Toxin, and Wulumunusha."
   - rscadd: "Split Space Drugs into Mercury Monolithium Sucrose and Ambrosia Extract. MMS remains the chemical precursor for various mental reagents; Ambrosia Extract is a lite version of MMS found in Ambrosia."
-  - rscadd: "Added Joy (1 part Neurapan, 2 parts Oxycomorphine). Also available on the Traitor Uplink in the Random Toxin Vial."
+  - rscadd: "Added another recreational drug: Joy (1 part Neurapan, 2 parts Oxycomorphine). Also available on the Traitor Uplink in the Random Toxin Vial."
+  - tweak: "Ammonia/fertilisers can be tossed onto people to minor burn damage. A cheap tool for traitors or an accident waiting to happen in Hydroponics."
+  - tweak: "Space Cleaner and Sterilisine now have toxic properties if ingested in large doses. Another cheap tool for traitors. Accidentally spraying someone (even multiple times) isn't going to hurt them, don't worry."
