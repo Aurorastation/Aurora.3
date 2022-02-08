@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added the redacted tag to papercode formatting, examine pens to learn how to do it."
