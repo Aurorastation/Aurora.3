@@ -2247,7 +2247,7 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Unathi Alberta Horns"
 			icon_state = "albertahorns"
 			length = 5
-			chatname = "horns"
+			chatname = "small horns"
 
 		una_styrahorn
 			name = "Unathi Styra Horn"
@@ -2260,12 +2260,6 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "styrafrill"
 			length = 0
 			chatname = "frill"
-
-		una_styraboth
-			name = "Unathi Styra Horn + Frill"
-			icon_state = "styraboth"
-			length = 5
-			chatname = "massive horn"
 
 		una_pachyboss
 			name = "Unathi Pachy Boss"
@@ -3306,10 +3300,6 @@ Follow by example and make good judgement based on length which list to include 
 		una_styracrest
 			name = "Unathi Styra Frill"
 			icon_state = "styrafrill"
-
-		una_styraboth
-			name = "Unathi Styra Horn + Frill"
-			icon_state = "styraboth"
 
 		una_pachyboss
 			name = "Unathi Pachy Boss"
