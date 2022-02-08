@@ -262,7 +262,7 @@
 	faction = "Hephaestus Industries"
 
 /datum/gear/faction/heph_passcard
-	display_name = "hephaestus burszia passcard"
-	path = /obj/item/clothing/accessory/badge/passcard/burszia
+	display_name = "hephaestus burzsia passcard"
+	path = /obj/item/clothing/accessory/badge/passcard/burzsia
 	slot = slot_tie
 	faction = "Hephaestus Industries"
