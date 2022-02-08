@@ -1,0 +1,6 @@
+author: Vrow
+
+delete-after: True
+
+changes:
+  - tweak: "Autoinjectors can now go into ear slots."
