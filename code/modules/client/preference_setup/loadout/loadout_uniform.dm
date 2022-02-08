@@ -366,6 +366,11 @@
 	hanbok["male hanbok"] = /obj/item/clothing/under/konyang/male
 	gear_tweaks += new /datum/gear_tweak/path(hanbok)
 
+/datum/gear/uniform/konyang
+	display_name = "konyanger dress"
+	path = /obj/item/clothing/under/konyangdress
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
 /datum/gear/uniform/gadpathur
 	display_name = "gadpathurian fatigues"
 	path = /obj/item/clothing/under/uniform/gadpathur

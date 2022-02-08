@@ -11,7 +11,7 @@
 	name = "headphones"
 	desc = "Unce unce unce unce."
 	var/headphones_on = 0
-	icon_state = "headphones_off"
+	icon_state = "headphones"
 	item_state = "headphones"
 
 /obj/item/clothing/ears/earmuffs/headphones/attack_self(mob/user)
@@ -27,11 +27,11 @@
 		return
 
 	if(headphones_on)
-		icon_state = "headphones_off"
+		icon_state = initial(icon_state)
 		headphones_on = 0
 		to_chat(usr, "<span class='notice'>You turn the music off.</span>")
 	else
-		icon_state = "headphones_on"
+		icon_state = "[initial(icon_state)]_on"
 		headphones_on = 1
 		to_chat(usr, "<span class='notice'>You turn the music on.</span>")
 
@@ -39,11 +39,12 @@
 
 /obj/item/clothing/ears/earmuffs/headphones/earphones
 	name = "earphones"
-	var/headphones_on = 0
-	icon_state = "earphones_off"
+	var/earphones_on = 0
+	icon_state = "earphones"
 	item_state = "earphones"
 
 /obj/item/clothing/ears/earmuffs/headphones/earphones/blue
-	var/headphones_on = 0
-	icon_state = "earphones_blue_off"
+	name = "blue earphones"
+	icon_state = "earphones_blue"
+	var/earphones_blue_on = 0
 	item_state = "earphones_blue"

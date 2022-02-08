@@ -81,7 +81,7 @@
 	assunzionerobe["assunzione robe"] = /obj/item/clothing/accessory/poncho/assunzione
 	assunzionerobe["assunzione vine-inlaid robe"] = /obj/item/clothing/accessory/poncho/assunzione/vine
 	assunzionerobe["assunzione gold-inlaid robe"] = /obj/item/clothing/accessory/poncho/assunzione/gold
-	gear_tweaks += new /datum/gear_tweak/path(cape)
+	gear_tweaks += new /datum/gear_tweak/path(assunzionerobe)
 
 /datum/gear/religion/dominia/accessory
 	display_name = "tribunal necklace"

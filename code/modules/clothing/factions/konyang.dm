@@ -25,7 +25,7 @@
 /obj/item/clothing/suit/storage/toggle/konyang
 	name = "konyanger jacket"
 	desc = "A remarkably breathable yet water-resistant jacket from Konyang."
-	icon = 'icons/clothing/suits/coats/konyang_jacket.dmi
+	icon = 'icons/clothing/suits/konyang_jacket.dmi'
 	icon_state = "konyang_jacket"
 	item_state = "konyang_jacket"
 	contained_sprite = TRUE
@@ -40,24 +40,22 @@
 	icon_state = "konyang_jacket_pants"
 	item_state = "konyang_jacket_pants"
 
-/obj/item/clothing/suit/storage/toggle/konyang/pants/orange
+/obj/item/clothing/suit/storage/toggle/konyang/orange
 	name = "konyanger jumpjacket"
 	desc = "A remarkably breathable yet water-resistant jacket from Konyang. This one comes with pant legs to keep water out."
-	icon_state = "konyang_jacket_orange_pants"
-	item_state = "konyang_jacket_orange_pants"
-
-/obj/item/clothing/suit/storage/toggle/konyang/orange
 	icon_state = "konyang_jacket_orange"
 	item_state = "konyang_jacket_orange"
 
 /obj/item/clothing/suit/storage/toggle/konyang/blue
+	name = "konyanger jumpjacket"
+	desc = "A remarkably breathable yet water-resistant jacket from Konyang. This one comes with pant legs to keep water out."
 	icon_state = "konyang_jacket_blue"
 	item_state = "konyang_jacket_blue"
 
 /obj/item/clothing/head/konyang
 	name = "gat"
-	desc = "A traditional hat worn on Konyang and originating on Earth. Although traditionally made from horsehair, many different types of \
-	fabrics, including water-resistant fibres from feathers are now used."
+	desc = "A traditional hat worn on Konyang and originating on Earth."
+	desc_fluff = "Although traditionally made from horsehair, many different types of fabrics, including water-resistant fibres from feathers are now used."
 	icon = 'icons/clothing/head/konyang_gat.dmi'
 	icon_state = "konyang_gat"
 	item_state = "konyang_gat"
@@ -69,7 +67,7 @@
 	desc_fluff = "Konyanger clothes are often designed to remain both water-resistant and breathable, made of light fabrics that can \
 	only be sourced on the planet. Not all clothes are made equal, however, and plant-derived plastics and cloth have found just as much use as the \
 	'miracle weave' in an attempt to keep costs down."
-	icon = 'icons/clothing/under/uniforms/konyang_dress.dmi
+	icon = 'icons/clothing/under/uniforms/konyang_dress.dmi'
 	icon_state = "konyang_dress"
 	worn_state = "konyang_dress"
 	item_state = "konyang_dress"
