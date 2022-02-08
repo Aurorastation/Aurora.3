@@ -48,6 +48,7 @@
 
 	var/previous_stat
 	var/randomize_color = TRUE
+	var/default_color
 	var/static/list/randomized_colors = LIGHT_STANDARD_COLORS
 	var/static/list/emergency_lights = list(
 		LIGHT_MODE_RED = LIGHT_COLOR_EMERGENCY,
@@ -142,7 +143,7 @@
 
 	if(randomize_color)
 		brightness_color = pick(randomized_colors)
-	emergency_lights[LIGHT_MODE_GREEN] = brightness_color
+	default_color = brightness_color // We need a different var so the new color doesn't get wiped away. Initial() wouldn't work since brightness_color is overridden.
 	update(0)
 
 /obj/machinery/light/Destroy()
@@ -635,4 +636,6 @@
 	if(new_security_level in emergency_lights)
 		if(A.emergency_lights)
 			brightness_color = emergency_lights[new_security_level]
+	else
+		brightness_color = default_color
 	update(0)
