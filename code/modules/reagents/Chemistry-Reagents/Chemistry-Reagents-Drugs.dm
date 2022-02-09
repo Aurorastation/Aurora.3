@@ -448,8 +448,8 @@
 	to_chat(M, SPAN_GOOD(pick("You feel a numbing sensation spread from within you.", "A numbing sensation builds within you.", "Everything will be okay... just relax.")))
 
 /decl/reagent/joy/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.add_chemical_effect(CE_PAINKILLER, 200)
-	M.add_chemical_effect(CE_NEUROTOXIC, 8*removed)
+	M.add_chemical_effect(CE_PAINKILLER, 100)
+	M.add_chemical_effect(CE_NEUROTOXIC, 4*removed)
 	M.add_chemical_effect(CE_PACIFIED, 1)
 	M.eye_blurry = max(M.eye_blurry, 30)
 	M.drowsiness = max(M.drowsiness, 10)
