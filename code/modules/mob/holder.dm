@@ -348,8 +348,8 @@ var/list/holder_mob_icon_cache = list()
 			sync(contained)
 
 /obj/item/holder/proc/sync(var/mob/living/M)
-	src.name = M.name
-	src.overlays = M.overlays
+	name = M.name
+	overlays = M.overlays
 	dir = M.dir
 	reagents = M.reagents
 
