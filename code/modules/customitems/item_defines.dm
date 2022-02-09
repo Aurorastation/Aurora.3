@@ -2148,7 +2148,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 
 /obj/item/clothing/suit/storage/toggle/fluff/sezrak_coat //red Domelkoan Coat - Sezrak Han'san - captaingecko
-	name = "red Domelkoan Coa"
+	name = "red Domelkoan Coat"
 	desc = "A warm coat made in Domelkos. This red coat is stuffed with yupmi fur and made out of reinforced cloth-like synthetic materials, both to keep the wearer warm in the cold winters of \
 	Moroz, and to resist all but the rougher treatments... All the while remaining good-looking enough. Both shoulders on this coat feature the standard of the Han'san clan-house, presented in a \
 	gilded color."
