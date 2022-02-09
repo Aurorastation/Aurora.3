@@ -1,7 +1,0 @@
-author: ReadThisNamePlz
-
-delete-after: True
-
-changes:
-  - tweak: "Buffed the Cyber Ninja suit. Net gun module added, 100 EMP defense, speed boost to the suit, and an energy sword to the crate."
-  - rscdel: "Removed Tajaran and IPC access to the cyberwarfare suit for balance reasons."
