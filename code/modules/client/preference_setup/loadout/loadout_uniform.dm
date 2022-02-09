@@ -76,7 +76,7 @@
 
 /datum/gear/uniform/command_suitskirt
 	display_name = "command skirtsuit"
-	description = "A Skirtsuit for staff in a command role."
+	description = "A skirtsuit for staff in a command role."
 	path = /obj/item/clothing/under/suit_jacket/skirtsuit_command
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
