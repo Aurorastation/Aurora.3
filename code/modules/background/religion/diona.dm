@@ -11,7 +11,7 @@
   
 /datum/religion/ksshr
   name = RELIGION_KSSHR
-  description = The Ksshr, also known as the Enlightened, is a religious sect on Xrim known for their complete rejection of The First Consciousness, instead of being an agnostic \
+  description = "The Ksshr, also known as the Enlightened, is a religious sect on Xrim known for their complete rejection of The First Consciousness, instead of being an agnostic \
   sect that centers around working together to create a better future, as well as the advancement of technology and understanding how the universe works. The Ksshr faith is the \
   primary religion of Xrim, with most of its inhabitants considering themselves a part of the religion. The Jargon Federation does encourage practicing the faith amongst the \
   population so long as they continue to reject The First Consciousness, as well as stay away from the teachings of the Shrkh."
