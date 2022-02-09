@@ -32,7 +32,8 @@
 		/obj/item/device/encryptionkey,
 		/obj/item/fluff,
 		/obj/item/storage/business_card_holder,
-		/obj/item/sample
+		/obj/item/sample,
+		/obj/item/key
 	)
 	slot_flags = SLOT_ID
 
