@@ -54,6 +54,8 @@
 #define RELIGION_PILOTDREAM "Pilot Dream"
 
 #define RELIGION_ETERNAL "The Eternal"
+#define RELIGION_KSSHR "Ksshr"
+#define RELIGION_RELIGION_SHRKH "Shrkh"
 
 //accent defines
 
