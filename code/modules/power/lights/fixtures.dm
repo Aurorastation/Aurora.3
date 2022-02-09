@@ -636,6 +636,8 @@
 	if(new_security_level in emergency_lights)
 		if(A.emergency_lights)
 			brightness_color = emergency_lights[new_security_level]
+			update(0)
 	else
-		brightness_color = default_color
-	update(0)
+		if(brightness_color != default_color)
+			brightness_color = default_color
+			update(0)
