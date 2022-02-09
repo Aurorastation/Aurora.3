@@ -104,6 +104,9 @@
 													"Unidentified hackers have targetted a combat drone wing deployed from the NDV Icarus. If any are sighted in the area, approach with caution.")
 	var/rogue_drone_end_message = "Icarus drone control reports the malfunctioning wing has been recovered safely."
 	var/rogue_drone_destroyed_message = "Icarus drone control registers disappointment at the loss of the drones, but the survivors have been recovered."
+	
+	var/num_exoplanets = 0
+	var/list/planet_size  //dimensions of planet zlevel, defaults to world size. Due to how maps are generated, must be (2^n+1) e.g. 17,33,65,129 etc. Map will just round up to those if set to anything other.
 
 /datum/map/New()
 	if(!map_levels)
@@ -112,6 +115,8 @@
 		allowed_jobs = subtypesof(/datum/job)
 	if (!spawn_types)
 		spawn_types = subtypesof(/datum/spawnpoint)
+	if(!LAZYLEN(planet_size))
+		planet_size = list(world.maxx, world.maxy)
 
 /datum/map/proc/generate_asteroid()
 	return
@@ -139,3 +144,20 @@
 
 // Called right after SSatlas finishes loading the map & multiz is setup.
 /datum/map/proc/finalize_load()
+
+/datum/map/proc/build_exoplanets()
+	if(!use_overmap)
+		return
+
+	var/datum/space_sector/sector = SSatlas.current_sector
+	var/list/possible_exoplanets = sector.possible_exoplanets
+
+	if(!length(possible_exoplanets))
+		log_debug("No valid exoplanets found!")
+		return
+
+	for(var/i = 0, i < num_exoplanets, i++)
+		var/exoplanet_type = pick(possible_exoplanets)
+		log_debug("Building new exoplanet with type: [exoplanet_type] and size: [planet_size[1]] [planet_size[2]]")
+		var/obj/effect/overmap/visitable/sector/exoplanet/new_planet = new exoplanet_type(null, planet_size[1], planet_size[2])
+		new_planet.build_level()

@@ -112,8 +112,8 @@ BREATH ANALYZER
 	var/brain_result = H.get_brain_status()
 	dat += "Brain activity: [brain_result]."
 
-	if(H.stat == DEAD || (H.status_flags & FAKEDEATH))
-		dat += "<span class='scan_warning'>[b]Time of Death:[endb] [time2text(worldtime2text(H.timeofdeath), "hh:mm")]</span>"
+	if(H.stat == DEAD || H.status_flags & FAKEDEATH)
+		dat += "<span class='scan_warning'>[b]Time of Death:[endb] [worldtime2text(H.timeofdeath)]</span>"
 
 	// Pulse rate.
 	var/pulse_result = "normal"
@@ -169,7 +169,7 @@ BREATH ANALYZER
 	dat += temperature_string
 
 	// Traumatic shock.
-	if(H.is_asystole())
+	if(H.is_asystole() || (H.status_flags & FAKEDEATH))
 		dat += "<span class='scan_danger'>Patient is suffering from cardiovascular shock. Administer CPR immediately.</span>"
 	else if(H.shock_stage > 80)
 		dat += "<span class='scan_warning'>Patient is at serious risk of going into shock. Pain relief recommended.</span>"

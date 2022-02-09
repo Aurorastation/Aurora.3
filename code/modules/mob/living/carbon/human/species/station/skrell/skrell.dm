@@ -83,7 +83,7 @@
 
 	default_h_style = "Skrell Short Tentacles"
 
-	allowed_citizenships = list(CITIZENSHIP_JARGON, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ERIDANI)
+	allowed_citizenships = list(CITIZENSHIP_JARGON, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ERIDANI, CITIZENSHIP_EUM)
 	allowed_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_SUURKA, RELIGION_KIRGUL, RELIGION_NONE, RELIGION_OTHER)
 	default_citizenship = CITIZENSHIP_JARGON
 
@@ -93,6 +93,8 @@
 
 	zombie_type = SPECIES_ZOMBIE_SKRELL
 	bodyfall_sound = /decl/sound_category/bodyfall_skrell_sound
+
+	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH)
 
 /datum/species/skrell/handle_post_spawn(mob/living/carbon/human/H)
 	..()

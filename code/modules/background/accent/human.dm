@@ -12,8 +12,9 @@
 
 /datum/accent/elyra
 	name = ACCENT_ELYRA
-	description = "The typical Elyran accent is an odd combination of Tau Ceti Basic and Sol Common due to the Republic's independence from the Sol Alliance. The standard language \
-	of the Republic of Elyra is Elyran Common, a variation upon standard Sol Common that is closer to Tau Ceti Basic than other Sol Common dialects."
+	description = "The typical Elyran accent is a relatively nondescript affair, typically sticking close to the accepted dictionary norms of pronunciation. The standard language \
+	of the Republic of Elyra is Elyran Standard, a constructed language which melds elements of Arabic, Farsi, and Turkish into one standardised tongue. This variation of Elyran Standard \
+	is the one officially taught in schools, but is rarely able to overpower more significant regional variations in the language."
 	tag_icon = "elyra"
 
 /datum/accent/eridani
@@ -213,3 +214,33 @@
 	description = "The Mictlanian accent is a variation on Tradeband that is usually recognized as being folksy and warm. This welcoming, soft voice is one of the reasons the planet of Mictlan has seen a boom in tourism. While \
 	some youth may try to sound rebellious and conceal the softness of their voice, this musicality is still prevalent and universally recognizable."
 	tag_icon = "mictlan"
+
+/datum/accent/persepolis
+	name = ACCENT_PERSEPOLIS
+	description = "Well-known across Elyra for its rapid-fire, energetic cadence, the Persepolitian accent is characterised by a vibrant and fast-paced nature that represents the New Ankaran Jewel's cosmopolitan nature. \
+	Speakers of this variant of Elyran Standard tend to be affluent and well-cultured, in keeping with the Elyran capital's general prosperity."
+	tag_icon = "persepolis"
+
+/datum/accent/medina
+	name = ACCENT_MEDINA
+	description = "Medinan Elyran is characterised by its breathy and almost stutter-step characteristics, both of which are thought to result from the elevated altitudes citizens experience living day-to-day in their \
+	sand-skimming cities. The variation has seen little spread outside Medina itself, owing to the planet's relatively minimal footprint on Elyran cinema and television."
+	tag_icon = "medina"
+
+/datum/accent/aemaq
+	name = ACCENT_AEMAQ
+	description = "Aemaqi Elyran is often described as a more considered and methodical variation on the standard dictionary dialect, and its speakers are frequently stereotyped as speaking slowly and languidly. Elements of Tradeband \
+	from the planet's Dominian refugee population have helped to reinforce this effect, and the variation is rarely found in those born off Aemaq itself or its innumerable orbital stations."
+	tag_icon = "aemaq"
+
+/datum/accent/newsuez
+	name = ACCENT_NEWSUEZ
+	description = "Often labelled the most divergent large-scale variation of Elyran Standard, the New Suezi accent has evolved rapidly since the moon's megacorporate opening to mix elements of Freespeak, Basic, and even Solarian Common \
+	into its vocabulary and grammar. While purists might frown upon these deviations from the accepted linguistic standard, the melodic and almost singsong tones of the New Suezi variation feature increasingly often across many forms of Elyran media."
+	tag_icon = "newsuez"
+
+/datum/accent/damascus
+	name = ACCENT_DAMASCUS
+	description = "One of the most venerable of all Elyra's linguistic variations, the Damascene accent is famous across the Serene Republic for its scholarly, almost archaic air. Drawing more heavily from Arabic influence \
+	than the standard dictionary might, Damascene Elyran retains a refined, cultured, and historically resonant weight to its words, much like the storied planet itself."
+	tag_icon = "damascus"

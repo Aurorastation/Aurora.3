@@ -46,7 +46,10 @@
 		/datum/species/skrell,
 		/datum/species/unathi,
 		/datum/species/diona,
-		/datum/species/machine
+		/datum/species/machine,
+		/datum/species/bug = TRUE,
+		/datum/species/bug/type_b = TRUE,
+		/datum/species/bug/type_e = TRUE
 	)
 
 	job_species_blacklist = list(
@@ -61,7 +64,11 @@
 			SPECIES_UNATHI,
 			SPECIES_TAJARA,
 			SPECIES_TAJARA_MSAI,
-			SPECIES_TAJARA_ZHAN
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BREEDER,
+			SPECIES_VAURCA_BULWARK
 		)
 	)
 

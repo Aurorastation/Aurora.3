@@ -1,0 +1,23 @@
+{
+    "size": [480,250],
+    "data": {
+        "assets": [],
+        "state": {
+            "has_occupant": 1,
+            "stat": 1,
+            "brain_activity": 100,
+            "blood_pressure": "125/82",
+            "blood_pressure_level": 2,
+            "blood_volume": 100,
+            "blood_o2": 100
+        },
+        "active": "devices-vitalsmonitor",
+        "uiref": "[0x210023a1]",
+        "status": 2,
+        "debug": 1,
+        "debug_view": true,
+        "wtime": 2351.81,
+        "roundstart_hour": 500991,
+        "title": "Vitals Monitor"
+    }
+}
