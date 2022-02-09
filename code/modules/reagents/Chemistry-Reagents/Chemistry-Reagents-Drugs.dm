@@ -110,10 +110,10 @@
 /decl/reagent/mindbreaker/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.hallucination = max(M.hallucination, 100)
 	M.add_chemical_effect(CE_HALLUCINATE, 2)
-	M.add_chemical_effect(CE_NEUROTOXIC, 5*removed)
+	M.add_chemical_effect(CE_NEUROTOXIC, 2*removed)
 
 /decl/reagent/mindbreaker/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.add_chemical_effect(CE_NEUROTOXIC, 5*removed)
+	M.add_chemical_effect(CE_NEUROTOXIC, 4*removed)
 	if(prob(5))
 		to_chat(M, SPAN_DANGER(pick("You feel the strongest of pains deeply rooted beneath your skull.", "Your head feels like it's going to burst!", "Your head stings!")))
 		M.adjustHalLoss(20)
