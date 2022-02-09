@@ -228,12 +228,11 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
 /obj/item/clothing/under/suit_jacket/skirtsuit_command
-	desc = "A black coat with a gold kerchief accompanied by a swept skirt with a respectable golden trim. Works only for Women in Power."
+	desc = "A black coat with a gold kerchief accompanied by a swept skirt with a respectable golden trim. Works only for people in power."
 	icon_state = "skirtsuit_command"
 	item_state = "skirtsuit_command"
 	worn_state = "skirtsuit_command"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-
 
 /obj/item/clothing/under/kilt
 	name = "kilt"

@@ -69,18 +69,16 @@
 	gear_tweaks += new /datum/gear_tweak/path(skirts)
 
 /datum/gear/uniform/suitskirt
-	display_name = "Skirtsuit (recolourable)"
-	description = "A recolourable skirtsuit"
+	display_name = "skirtsuit (recolourable)"
+	description = "A recolourable skirtsuit."
 	path = /obj/item/clothing/under/suit_jacket/skirtsuit/color
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-
 /datum/gear/uniform/command_suitskirt
-	display_name = "Command Skirtsuit"
-	description = "A Skirtsuit for Women in a Command Role"
+	display_name = "command skirtsuit"
+	description = "A Skirtsuit for staff in a command role."
 	path = /obj/item/clothing/under/suit_jacket/skirtsuit_command
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
-
 
 /datum/gear/uniform/suit
 	display_name = "suit selection"
