@@ -1,50 +1,50 @@
 /obj/item/organ/internal/heart/vaurca
 	name = "double heart system"
 	desc = "A double heart capable of pushing blood in an open circulatory system."
-	icon_state = "vaurca_heart_d-on"
+	icon = 'icons/obj/organs/vaurca_organs.dmi'
 	organ_tag = BP_HEART
 	parent_organ = BP_CHEST
-	dead_icon = "vaurca_heart_d-off"
 	max_damage = 90 //two hearts = stronger hearts
 
 /obj/item/organ/internal/lungs/vaurca
-	icon_state = "lungs_vaurca"
+	icon = 'icons/obj/organs/vaurca_organs.dmi'
 
 /obj/item/organ/internal/kidneys/vaurca
-	icon_state = "kidney_vaurca"
+	icon = 'icons/obj/organs/vaurca_organs.dmi'
 
 /obj/item/organ/internal/kidneys/vaurca/robo
-	icon_state = "kidney_vaurca"
+	icon = 'icons/obj/organs/vaurca_organs.dmi'
 	organ_tag = BP_VAURCA_KIDNEYS
 	robotic = ROBOTIC_MECHANICAL
 	robotic_name = null
-	robotic_sprite = null
+	robotic_sprite = FALSE
 
 /obj/item/organ/internal/liver/vaurca/robo
-	icon_state = "liver_vaurca"
+	icon = 'icons/obj/organs/vaurca_organs.dmi'
 	organ_tag = BP_VAURCA_LIVER
 	robotic = ROBOTIC_MECHANICAL
 	robotic_name = null
-	robotic_sprite = null
+	robotic_sprite = FALSE
 
 /obj/item/organ/internal/liver/vaurca
-	icon_state = "liver_vaurca"
+	icon = 'icons/obj/organs/vaurca_organs.dmi'
 
-/obj/item/organ/internal/stomach/vaurca 
+/obj/item/organ/internal/stomach/vaurca
 	name = "private stomach"
-	icon_state = "stomach_vaurca"
+	icon = 'icons/obj/organs/vaurca_organs.dmi'
 
-/obj/item/organ/internal/appendix/vaurca 
+/obj/item/organ/internal/appendix/vaurca
 	name = "social stomach"
 	desc = "A vestigial organ that stores food for throphallaxis. It has not seen a practical use since the rise of modern Hives."
-	icon_state = "vaurca_appendix"
+	icon = 'icons/obj/organs/vaurca_organs.dmi'
 
 /obj/item/organ/internal/brain/vaurca
 	name = "vaurca brain"
-	desc = "The brain of a Vaurca, being similar to that of an insect; and that of a mammal."	
-	icon_state = "brain_vaurca"
+	desc = "The brain of a Vaurca, being similar to that of an insect; and that of a mammal."
+	icon = 'icons/obj/organs/vaurca_organs.dmi'
 
 /obj/item/organ/vaurca/reservoir
+	icon = 'icons/obj/organs/vaurca_organs.dmi'
 	name = BP_PHORON_RESERVOIR
 	organ_tag = BP_PHORON_RESERVOIR
 	parent_organ = BP_CHEST
@@ -52,6 +52,7 @@
 	robotic = ROBOTIC_ASSISTED
 
 /obj/item/organ/vaurca/filtrationbit
+	icon = 'icons/obj/organs/vaurca_organs.dmi'
 	name = BP_FILTRATION_BIT
 	organ_tag = BP_FILTRATION_BIT
 	parent_organ = BP_HEAD
@@ -59,6 +60,7 @@
 	robotic = ROBOTIC_MECHANICAL
 
 /obj/item/organ/vaurca/neuralsocket
+	icon = 'icons/obj/organs/vaurca_organs.dmi'
 	name = BP_NEURAL_SOCKET
 	organ_tag = BP_NEURAL_SOCKET
 	icon_state = "neural_socket"
@@ -90,6 +92,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 	..()
 
 /obj/item/organ/vaurca/preserve
+	icon = 'icons/obj/organs/vaurca_organs.dmi'
 	name = BP_PHORON_RESERVE
 	organ_tag = BP_PHORON_RESERVE
 	parent_organ = BP_CHEST

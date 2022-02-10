@@ -158,6 +158,20 @@
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/security/lobby)
+"acA" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/alarm{
+	alarm_id = 1601;
+	dir = 8;
+	name = "Hazardous Specimens";
+	pixel_x = 28;
+	req_one_access = list(24,11,55)
+	},
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/rnd/xenobiology/xenoflora_hazard)
 "acH" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -308,9 +322,6 @@
 /area/medical/or1)
 "ais" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/light{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora_hazard)
 "aiv" = (
@@ -1930,17 +1941,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/starboard)
-"bcG" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/structure/bed/stool/chair/office/dark,
-/obj/effect/floor_decal/corner/grey{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/white{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenobiology/xenoflora)
 "bdj" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -1957,6 +1957,10 @@
 	},
 /obj/structure/cable{
 	icon_state = "0-8"
+	},
+/obj/machinery/power/sensor{
+	name = "Powernet Sensor - Master Grid";
+	name_tag = "Master"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
@@ -3832,7 +3836,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/reinforced,
-/area/turret_protected/ai_upload_foyer)
+/area/turret_protected/ai_upload)
 "cpl" = (
 /turf/simulated/wall,
 /area/storage/tech)
@@ -4122,14 +4126,13 @@
 /area/security/security_office)
 "cBY" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
 /obj/effect/floor_decal/corner/grey{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/white{
 	dir = 4
 	},
+/obj/machinery/botany/extractor,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "cCy" = (
@@ -4583,19 +4586,12 @@
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology)
 "cSS" = (
-/obj/structure/table/standard,
-/obj/item/disk/botany,
-/obj/item/disk/botany,
-/obj/item/disk/botany,
-/obj/item/disk/botany,
-/obj/item/disk/botany,
-/obj/item/disk/botany,
-/obj/item/disk/botany,
-/obj/item/disk/botany,
-/obj/item/disk/botany,
-/obj/structure/window/reinforced,
-/turf/simulated/floor/tiled/dark,
-/area/rnd/xenobiology/xenoflora)
+/obj/structure/shuttle_part/scc_space_ship{
+	icon_state = "d3-6"
+	},
+/obj/structure/girder,
+/turf/simulated/floor/plating,
+/area/rnd/xenobiology/xenoflora_hazard)
 "cTn" = (
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/dark,
@@ -5316,7 +5312,7 @@
 	c_tag = "AI Core - Cyborg Storage"
 	},
 /turf/simulated/floor/bluegrid,
-/area/turret_protected/ai_upload_foyer)
+/area/turret_protected/ai_upload)
 "dsj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
@@ -5690,6 +5686,10 @@
 	name = "south bump";
 	pixel_y = -24
 	},
+/obj/machinery/power/sensor{
+	name = "Powernet Sensor - Port Wing Subgrid";
+	name_tag = "Port Wing Subgrid"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/wing_port)
 "dGd" = (
@@ -5955,7 +5955,7 @@
 "dOP" = (
 /obj/machinery/cryopod/robot,
 /turf/simulated/floor/bluegrid,
-/area/turret_protected/ai_upload_foyer)
+/area/turret_protected/ai_upload)
 "dPi" = (
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 1
@@ -8172,7 +8172,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/dark,
-/area/turret_protected/ai_upload_foyer)
+/area/turret_protected/ai_upload)
 "fnh" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -8719,10 +8719,10 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
 "fHr" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port/far)
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/portable_atmospherics/hydroponics,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenobiology/xenoflora_hazard)
 "fHt" = (
 /obj/structure/railing/mapped,
 /obj/machinery/light/small/emergency{
@@ -9445,7 +9445,7 @@
 	name = "JoinLateCyborg"
 	},
 /turf/simulated/floor/reinforced,
-/area/turret_protected/ai_upload_foyer)
+/area/turret_protected/ai_upload)
 "gds" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -10466,7 +10466,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/reinforced,
-/area/turret_protected/ai_upload_foyer)
+/area/turret_protected/ai_upload)
 "gFx" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_mining{
@@ -10832,13 +10832,24 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/closet/secure_closet/xenobotany,
 /obj/effect/floor_decal/corner/grey{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/white{
 	dir = 4
 	},
+/obj/structure/table/standard,
+/obj/item/disk/botany,
+/obj/item/disk/botany,
+/obj/item/disk/botany,
+/obj/item/disk/botany,
+/obj/item/disk/botany,
+/obj/item/disk/botany,
+/obj/item/disk/botany,
+/obj/item/disk/botany,
+/obj/item/disk/botany,
+/obj/item/disk/botany,
+/obj/item/disk/botany,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "gSb" = (
@@ -11485,7 +11496,7 @@
 	name = "JoinLateCyborg"
 	},
 /turf/simulated/floor/reinforced,
-/area/turret_protected/ai_upload_foyer)
+/area/turret_protected/ai_upload)
 "hoZ" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
@@ -13125,20 +13136,6 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/wood,
 /area/chapel/main)
-"iuL" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 10
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/alarm{
-	alarm_id = 1601;
-	dir = 8;
-	name = "Hazardous Specimens";
-	pixel_x = 28;
-	req_one_access = list(24,11,55)
-	},
-/turf/simulated/floor/plating,
-/area/rnd/xenobiology/xenoflora_hazard)
 "iuP" = (
 /turf/simulated/wall,
 /area/quartermaster/mail_room)
@@ -15788,7 +15785,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/reinforced,
-/area/turret_protected/ai_upload_foyer)
+/area/turret_protected/ai_upload)
 "kat" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -16599,7 +16596,7 @@
 /obj/structure/railing/mapped,
 /obj/machinery/recharge_station,
 /turf/simulated/floor/bluegrid,
-/area/turret_protected/ai_upload_foyer)
+/area/turret_protected/ai_upload)
 "kFa" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/keycard_auth{
@@ -17685,6 +17682,11 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/closet/l3closet/scientist,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora_hazard)
 "lrW" = (
@@ -18127,7 +18129,7 @@
 "lHx" = (
 /obj/structure/railing/mapped,
 /turf/simulated/floor/bluegrid,
-/area/turret_protected/ai_upload_foyer)
+/area/turret_protected/ai_upload)
 "lHB" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -19808,6 +19810,10 @@
 	name = "south bump";
 	pixel_y = -24
 	},
+/obj/machinery/power/sensor{
+	name = "Powernet Sensor - Research Subgrid";
+	name_tag = "Research Subgrid"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/research)
 "mHa" = (
@@ -20018,9 +20024,17 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/medical)
 "mOp" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced_phoron,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/corner/grey{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/white{
+	dir = 4
+	},
+/obj/structure/bed/stool/chair/office/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "mOt" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -20094,7 +20108,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/seed_extractor,
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/window/reinforced{
 	dir = 4
@@ -20104,6 +20117,9 @@
 	},
 /obj/effect/floor_decal/corner/white{
 	dir = 4
+	},
+/obj/machinery/biogenerator{
+	icon_state = "biogen-empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
@@ -20616,9 +20632,6 @@
 /area/crew_quarters/bar)
 "nfK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
-/obj/machinery/biogenerator{
-	icon_state = "biogen-empty"
-	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/window/reinforced{
 	dir = 4
@@ -23720,6 +23733,10 @@
 	name = "south bump";
 	pixel_y = -24
 	},
+/obj/machinery/power/sensor{
+	name = "Powernet Sensor - Port Wing Subgrid";
+	name_tag = "Starboard Wing Subgrid"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/wing_starboard)
 "pcJ" = (
@@ -23941,13 +23958,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload)
 "pkV" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 1
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
+/obj/machinery/atmospherics/pipe/manifold4w/visible,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora_hazard)
 "plb" = (
@@ -24764,10 +24779,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "pMq" = (
-/obj/structure/closet/l3closet/scientist,
-/obj/item/clothing/mask/gas/alt,
-/obj/item/tank/oxygen,
-/obj/item/tank/oxygen,
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora_hazard)
 "pMB" = (
@@ -25317,7 +25333,7 @@
 "qcc" = (
 /obj/structure/railing/mapped,
 /turf/simulated/floor/reinforced,
-/area/turret_protected/ai_upload_foyer)
+/area/turret_protected/ai_upload)
 "qcs" = (
 /obj/machinery/disposal/small/east,
 /obj/structure/disposalpipe/trunk{
@@ -27623,15 +27639,13 @@
 /area/engineering/atmos/storage)
 "rvJ" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/structure/filingcabinet/chestdrawer{
-	pixel_y = 2
-	},
 /obj/effect/floor_decal/corner/grey{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/white{
 	dir = 4
 	},
+/obj/machinery/seed_extractor,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "rvT" = (
@@ -29446,11 +29460,22 @@
 /turf/simulated/floor/reinforced,
 /area/assembly/chargebay)
 "sGR" = (
-/obj/structure/table/standard,
-/obj/machinery/door/window/northright,
-/obj/machinery/door/window/southleft,
-/turf/simulated/floor/tiled,
-/area/rnd/xenobiology/xenoflora)
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/meter,
+/turf/simulated/floor/plating,
+/area/rnd/xenobiology/xenoflora_hazard)
 "sHm" = (
 /obj/machinery/photocopier/faxmachine,
 /obj/structure/table/standard,
@@ -29490,7 +29515,7 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/reinforced,
-/area/turret_protected/ai_upload_foyer)
+/area/turret_protected/ai_upload)
 "sHY" = (
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/strongroom)
@@ -30134,12 +30159,12 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "tbi" = (
-/obj/machinery/botany/editor,
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/machinery/camera/network/research{
 	c_tag = "Research - Xenobotany Laboratory 2";
 	dir = 1
 	},
+/obj/structure/closet/secure_closet/xenobotany,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "tbu" = (
@@ -33661,6 +33686,10 @@
 	pixel_x = 24
 	},
 /obj/structure/cable/green,
+/obj/machinery/power/sensor{
+	name = "Powernet Sensor - Engineering Subgrid";
+	name_tag = "Engineering Subgrid"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/engineering)
 "vhU" = (
@@ -35417,8 +35446,8 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
 "wfi" = (
-/obj/machinery/botany/extractor,
 /obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/closet/secure_closet/xenobotany,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "wfy" = (
@@ -36053,7 +36082,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/reinforced,
-/area/maintenance/vault)
+/area/maintenance/hangar/port)
 "wzD" = (
 /obj/structure/flora/pottedplant/random,
 /obj/machinery/camera/network/engineering{
@@ -37081,7 +37110,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/ramp,
-/area/turret_protected/ai_upload_foyer)
+/area/turret_protected/ai_upload)
 "xcK" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
@@ -37544,6 +37573,9 @@
 	},
 /obj/effect/floor_decal/corner/white{
 	dir = 4
+	},
+/obj/item/device/flashlight/lamp{
+	pixel_x = -5
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
@@ -38095,6 +38127,10 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
+/obj/machinery/power/sensor{
+	name = "Powernet Sensor - Medbay Subgrid";
+	name_tag = "Medbay Subgrid"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/medical)
 "xLh" = (
@@ -38542,6 +38578,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
+"xXP" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenobiology/xenoflora_hazard)
 "xYK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -63422,10 +63466,10 @@ ecV
 ecV
 uEq
 uxE
-cyZ
-cyZ
-cyZ
-cyZ
+mBB
+mBB
+mBB
+mBB
 mBB
 mBB
 mBB
@@ -63624,7 +63668,7 @@ yaT
 gAs
 uEq
 uxE
-cyZ
+mBB
 dOP
 gcS
 kEL
@@ -63826,7 +63870,7 @@ ecV
 fhh
 uEq
 uxE
-cyZ
+mBB
 fmV
 gFs
 lHx
@@ -64028,7 +64072,7 @@ ecV
 uQQ
 uEq
 uxE
-cyZ
+mBB
 drB
 hoo
 kEL
@@ -64230,7 +64274,7 @@ ecV
 ecV
 uEq
 xap
-cyZ
+mBB
 cpi
 jZT
 qcc
@@ -67880,7 +67924,7 @@ krL
 gRY
 cBY
 xqe
-mOp
+rFn
 tPq
 rSx
 dcT
@@ -68080,9 +68124,9 @@ vFz
 iJq
 qbl
 qbl
-qbl
-bcG
-sGR
+mOp
+cBY
+rFn
 tPq
 aDA
 rnA
@@ -68284,7 +68328,7 @@ uQS
 oaQ
 oBe
 rvJ
-mOp
+rFn
 vYV
 qNm
 bAZ
@@ -68481,12 +68525,12 @@ qvb
 kPA
 kRz
 vFz
-cSS
+vFz
 xXM
 pev
 nfK
 mPn
-kPA
+rFn
 bDv
 daM
 rnA
@@ -68688,7 +68732,7 @@ lvl
 pkf
 vId
 kZZ
-kPA
+rFn
 fpm
 bIK
 lCI
@@ -70504,7 +70548,7 @@ kPA
 fpb
 mAO
 wKP
-tkB
+sGR
 xio
 rNx
 glI
@@ -71110,8 +71154,8 @@ umW
 vnz
 mue
 pMq
-iuL
-oLv
+pkV
+xXP
 mAO
 fuu
 aKU
@@ -71311,9 +71355,9 @@ qgN
 qgN
 iox
 olJ
-mAO
-mAO
-mAO
+fHr
+acA
+oLv
 mAO
 pVs
 hoi
@@ -71512,11 +71556,11 @@ qgN
 qgN
 qgN
 dmK
-sgi
-duk
-fuu
-fHr
-fuu
+cSS
+mAO
+mAO
+mAO
+mAO
 kZj
 kZj
 dXB
