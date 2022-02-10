@@ -206,7 +206,7 @@
 
 /decl/reagent/raskara_dust/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(3))
-		to_chat(M, SPAN_WARNING(pick("You feel... disconnected from your body - is it your body?.", "Are you ascending to another plane of existence... that's so cool?", "You are dying... but that's okay, right?", "You feel a tingly sensation in your body.", "You can smell something unusual.", "You can taste something unusual.")))
+		to_chat(M, SPAN_WARNING(pick("You feel... disconnected from your body - is it your body?", "Are you ascending to another plane of existence... that's so cool?", "You are dying... but that's okay, right?", "You feel a tingly sensation in your body.", "You can smell something unusual.", "You can taste something unusual.")))
 	if(prob(M.chem_doses[type] / 3))
 		if(prob(85))
 			M.emote(pick("twitch", "shiver"))
