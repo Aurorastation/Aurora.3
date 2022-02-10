@@ -367,7 +367,7 @@
 	else
 		H.add_chemical_effect(CE_PAINKILLER, 10)
 		if(prob(3))
-			to_chat(M, SPAN_GOOD(pick("You feel a little bit more comfortable.", "You feel alright.", "Your joints feel warm and tingly.", "You feel soothed and at-ease.")))
+			to_chat(M, SPAN_GOOD(pick("You feel a little bit more comfortable.", "You feel alright.", "Your joints feel warm and tingly.", "You feel soothed and at ease.")))
 
 	var/obj/item/organ/internal/eyes/eyes = H.internal_organs_by_name[H.species.vision_organ || BP_EYES]
 	if(eyes.status & ORGAN_ROBOT)
