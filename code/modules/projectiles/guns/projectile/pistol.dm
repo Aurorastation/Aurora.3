@@ -162,7 +162,9 @@
 		icon_state = "secgunauto-e"
 
 /obj/item/gun/projectile/tanto
-	desc = "A Zavodskoi Interstellar Tanto .40, designed to compete with the NT Mk58. Uses 10mm rounds."
+	desc = "A crude-looking open-bolt machine pistol manufactured by a multitude of arms companies, or in some cases, particularly handy individuals. \
+    Owing to their low cost and relative effectiveness, weapons like these are very common all across the Spur, from the tunnels of Oran to fringe colonies along the frontier. \
+    This pistol is made almost entirely from sheet metal and has cloth wrappings around the grip for shooter comfort."
 	name = "10mm auto-pistol"
 	icon = 'icons/obj/guns/c05r.dmi'
 	icon_state = "c05r"
