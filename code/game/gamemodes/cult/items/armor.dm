@@ -18,8 +18,8 @@
 	desc = "A bulky armored voidsuit helmet, bristling with menacing spikes. It looks space proof."
 	icon_state = "cult_helmet"
 	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_SMALL,
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_REVOLVER,
 		laser = ARMOR_LASER_MAJOR,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
@@ -41,8 +41,8 @@
 	allowed = list(/obj/item/book/tome, /obj/item/melee/cultblade, /obj/item/gun/energy/rifle/cult, /obj/item/tank, /obj/item/device/suit_cooling_unit)
 	slowdown = 1
 	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_SMALL,
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_REVOLVER,
 		laser = ARMOR_LASER_MAJOR,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
