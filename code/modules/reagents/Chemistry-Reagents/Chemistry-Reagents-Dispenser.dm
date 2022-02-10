@@ -71,7 +71,7 @@
 /decl/reagent/ammonia/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!(alien == IS_DIONA))
 		M.adjustFireLoss(20)
-		to_chat(M, SPAN_WARNING(pick("Your skin burns!.", "The chemical is melting your skin!", "Wash it off, wash it off!")))
+		to_chat(M, SPAN_WARNING(pick("Your skin burns!", "The chemical is melting your skin!", "Wash it off, wash it off!")))
 		remove_self(REAGENT_VOLUME(holder, type), holder)
 
 /decl/reagent/carbon
