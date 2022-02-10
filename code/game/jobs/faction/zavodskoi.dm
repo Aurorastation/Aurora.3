@@ -36,7 +36,7 @@
 		/datum/job/officer,
 		/datum/job/warden,
 		/datum/job/scientist,
-		/datum/job/roboticist,
+		/datum/job/machinist,
 		/datum/job/surgeon,
 		/datum/job/representative
 	)
