@@ -870,7 +870,7 @@
 		if(M.losebreath < 15)
 			M.losebreath++
 		if(prob(5))
-			to_chat(M, SPAN_WARNING(pick("Your throat burns!'", "All you can taste is blood!", "Your insides are on fire!", "Your feel a burning pain in your gut!")))
+			to_chat(M, SPAN_WARNING(pick("Your throat burns!", "All you can taste is blood!", "Your insides are on fire!", "Your feel a burning pain in your gut!")))
 	else
 		if(prob(5))
 			to_chat(M, SPAN_WARNING(pick("Your throat stings a bit.", "You can taste something chemically.")))
