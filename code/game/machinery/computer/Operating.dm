@@ -11,8 +11,9 @@
 	circuit = /obj/item/circuitboard/operating
 	var/mob/living/carbon/human/victim = null
 	var/obj/machinery/optable/table = null
-	var/last_alarm
-	var/last_ring
+	var/last_ba // Brain Activity
+	var/last_bo // Blood Oxygenation
+	var/last_critical
 	var/obj/item/paper/medscan/input_scan = null
 	var/obj/machinery/body_scanconsole/internal_bodyscanner = null
 
@@ -53,11 +54,11 @@
 		input_scan = O
 		input_scan.color = "#272727"
 		input_scan.set_content_unsafe("Scan ([victim])", operating_format(get_medical_data(victim)))
-		usr.visible_message("\The [src] pings, displaying the [input_scan].")
-		to_chat(usr, SPAN_NOTICE("You insert the [O] into [src]."))
+		usr.visible_message("\The [src] pings, displaying \the [input_scan].")
+		to_chat(usr, SPAN_NOTICE("You insert \the [O] into [src]."))
 		playsound(src, 'sound/bureaucracy/scan.ogg', 50, 1)
 	else
-		to_chat(usr, SPAN_NOTICE("You try to insert the [O], but \the [src] buzzes, unable to read it."))
+		to_chat(usr, SPAN_NOTICE("You try to insert \the [O], but \the [src] buzzes, unable to read it."))
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 50, 1)
 		return
 
@@ -81,7 +82,7 @@
 	Blood Volume: <b>[victim.get_blood_volume()]%</b><br>
 	"}
 		if(!input_scan)
-			dat += "Patient Scan: <b>Patient Scan not found.</b><br>"
+			dat += "Patient Scan: <b>Scan not found. Please insert a Medical Scan.</b><br>"
 		else
 			dat += {"
 		Patient Scan: <b>[input_scan]</b><br>
@@ -97,7 +98,7 @@
 <BR>
 <B>No Patient Detected</B>
 "}
-	var/datum/browser/op_win = new(user, "op", capitalize_first_letters(name), 200, 200)
+	var/datum/browser/op_win = new(user, "op", capitalize_first_letters(name), 450, 800)
 	op_win.set_content(dat)
 	op_win.open()
 
@@ -113,7 +114,10 @@
 			to_chat(user, SPAN_NOTICE("BP: [victim.get_blood_pressure()]"))
 			to_chat(user, SPAN_NOTICE("Blood Oxygenation: [victim.get_blood_oxygenation()]"))
 			to_chat(user, SPAN_NOTICE("Blood Volume: [victim.get_blood_volume()]%"))
-			to_chat(user, SPAN_NOTICE("Patient Scan: [input_scan]"))
+			if(!input_scan)
+				to_chat(user, SPAN_NOTICE("Patient Scan: Scan not found. Please insert the Medical Scan."))
+			else
+				to_chat(user, SPAN_NOTICE("Patient Scan: [input_scan]"))
 		else
 			src.victim = null
 			to_chat(user, SPAN_NOTICE("No Patient Detected"))
@@ -124,10 +128,10 @@
 		switch(href_list["action"])
 			if("update")
 				input_scan.set_content_unsafe("Scan ([victim])", operating_format(get_medical_data(victim)))
-				usr.visible_message("\The [src] chimes, updating the [input_scan].")
+				usr.visible_message("\The [src] chimes, updating \the [input_scan].")
 				playsound(src, 'sound/machines/chime.ogg', 50, 1)
 			if("eject")
-				usr.visible_message("\The [src] beeps, ejecting the [input_scan].")
+				usr.visible_message("\The [src] beeps, ejecting \the [input_scan].")
 				input_scan.color = "#eeffe8"
 				input_scan.set_content_unsafe("Scan ([victim])", internal_bodyscanner.format_occupant_data(get_medical_data(victim))) // Re-formats it correctly
 				input_scan.forceMove(usr.loc)
@@ -144,18 +148,32 @@
 /obj/machinery/computer/operating/machinery_process()
 	if(operable())
 		src.updateDialog()
-	if(src.table && (src.table.check_victim()) && victim != DEAD) // Specific warning alarms for specific conditions. Times to be tweaked according to feedback
+	if(src.table && (src.table.check_victim())) // Specific warning alarms for specific conditions. Times to be tweaked according to feedback
 		src.victim = src.table.victim
-		if(victim.get_blood_oxygenation() < 30)
-			if(world.time > last_ring + 15 SECONDS)
-				last_ring = world.time
-				src.visible_message(SPAN_WARNING("Warning! [victim]'s <b>Blood Oxygenation</b> is in critical condition!"))
-				playsound(src, 'sound/machines/ringer.ogg', 50)
-		if(victim.get_brain_result() < 20)
-			if(world.time > last_alarm + 10 SECONDS)
-				last_alarm = world.time
-				src.visible_message(SPAN_WARNING("Warning! [victim]'s <b>Brain Activity</b> is in critical condition!"))
-				playsound(src, 'sound/effects/alert.ogg', 50)
+		if(src.victim.stat != DEAD && !src.victim.is_diona())
+			if(victim.get_blood_oxygenation() < 30 && victim.get_brain_result() < 20)
+				if(world.time > last_critical + 25 SECONDS)
+					last_critical = world.time
+					src.visible_message(SPAN_WARNING("Warning! <b>[victim]'s Blood Oxygenation AND Brain Activity</b> are in critical condition!"))
+					playsound(src, 'sound/effects/3.wav', 75)
+			else
+				if(victim.get_blood_oxygenation() < 30 && victim.get_brain_result() > 20)
+					blood_oxygenation_alarm()
+				if(victim.get_brain_result() < 20 && victim.get_blood_oxygenation() > 30)
+					brain_activity_alarm()
+
+
+/obj/machinery/computer/operating/proc/blood_oxygenation_alarm()
+	if(world.time > last_bo + 25 SECONDS)
+		last_bo = world.time
+		src.visible_message(SPAN_WARNING("Warning! <b>[victim]'s Blood Oxygenation</b> is in critical condition!"))
+		playsound(src, 'sound/machines/ringer.ogg', 50)
+
+/obj/machinery/computer/operating/proc/brain_activity_alarm()
+	if(world.time > last_ba + 20 SECONDS)
+		last_ba = world.time
+		src.visible_message(SPAN_WARNING("Warning! <b>[victim]'s Brain Activity</b> is in critical condition!"))
+		playsound(src, 'sound/effects/alert.ogg', 50)
 
 // PRINTING SHENANIGANRY
 /obj/machinery/computer/operating/proc/print_new()
