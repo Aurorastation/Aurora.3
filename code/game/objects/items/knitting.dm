@@ -31,7 +31,7 @@
 
 	H.put_in_hands(ball)
 	ball = null
-	to_chat(usr, SPAN_NOTICE("You remove \the [ball] from \the [src]"))
+	to_chat(usr, SPAN_NOTICE("You remove \the [ball] from \the [src]."))
 	update_icon()
 
 /obj/item/knittingneedles/Destroy()
