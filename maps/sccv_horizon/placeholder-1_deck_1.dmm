@@ -1600,6 +1600,9 @@
 	icon_state = "1-4"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
 "bzh" = (
@@ -4116,6 +4119,10 @@
 	dir = 8;
 	name = "west bump";
 	pixel_x = -24
+	},
+/obj/machinery/power/sensor{
+	name = "Powernet Sensor - Port Hangar Subgrid";
+	name_tag = "Port Hangar Subgrid"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/security)
@@ -11064,6 +11071,9 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
 "kcL" = (
@@ -12054,6 +12064,10 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
+	},
+/obj/machinery/power/sensor{
+	name = "Powernet Sensor - Research First Deck Subgrid";
+	name_tag = "Research First Deck Subgrid"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/research_sublevel)
@@ -15474,6 +15488,10 @@
 	name = "east bump";
 	pixel_x = 24
 	},
+/obj/machinery/power/sensor{
+	name = "Powernet Sensor - Starboard Hangar Subgrid";
+	name_tag = "Starboard Hangar Subgrid"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/civilian_west)
 "odO" = (
@@ -15587,15 +15605,19 @@
 	},
 /area/crew_quarters/kitchen/freezer)
 "oma" = (
-/obj/structure/window/reinforced,
-/obj/structure/plasticflaps/airtight,
+/obj/structure/window/reinforced{
+	layer = 4.1
+	},
+/obj/structure/plasticflaps/mining,
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
 "omo" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/machinery/door/window/brigdoor/eastleft,
+/obj/machinery/door/window/brigdoor/eastleft{
+	req_access = null
+	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
@@ -16546,6 +16568,10 @@
 /obj/machinery/power/apc/low{
 	name = "south bump";
 	pixel_y = -24
+	},
+/obj/machinery/power/sensor{
+	name = "Powernet Sensor - Supply";
+	name_tag = "Supply Subgrid"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/supply)
@@ -19803,6 +19829,9 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
 "snD" = (
@@ -19939,6 +19968,10 @@
 /area/engineering/atmos)
 "sup" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/machinery/door/blast/regular/open{
+	id = "hangarlockdown";
+	name = "Hangar Lockdown"
+	},
 /turf/simulated/floor/plating,
 /area/hangar/control)
 "suw" = (

@@ -2409,7 +2409,9 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/vending/boozeomat,
+/obj/machinery/vending/boozeomat{
+	req_access = null
+	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
@@ -7227,6 +7229,10 @@
 	name = "south bump";
 	pixel_y = -24
 	},
+/obj/machinery/power/sensor{
+	name = "Powernet Sensor - Command Subgrid";
+	name_tag = "Command Subgrid"
+	},
 /turf/simulated/floor,
 /area/maintenance/substation/command)
 "qY" = (
@@ -11072,6 +11078,13 @@
 	req_one_access = list(19,38,72)
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
+	},
 /turf/simulated/floor/tiled,
 /area/bridge/bridge_crew)
 "AU" = (
@@ -14972,10 +14985,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck - Consular Office";
-	dir = 1
-	},
 /turf/simulated/floor/wood,
 /area/lawoffice/consular)
 "KN" = (
@@ -15579,9 +15588,6 @@
 	},
 /obj/machinery/light_switch{
 	pixel_y = 30
-	},
-/obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck - Liaison"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/lawoffice/representative)
@@ -16218,6 +16224,13 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
+	},
 /turf/simulated/floor/tiled,
 /area/bridge/aibunker)
 "NP" = (
@@ -16548,6 +16561,9 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/toilet)
 "OC" = (
@@ -19094,7 +19110,7 @@
 	id = "crew_armory";
 	name = "Crew Armory";
 	pixel_x = 28;
-	req_access = list(19)
+	req_access = list(60)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/bridge)
@@ -19602,6 +19618,7 @@
 	dir = 8
 	},
 /obj/machinery/recharge_station,
+/obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/toilet)
 "Wk" = (
