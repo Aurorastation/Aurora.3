@@ -365,7 +365,7 @@
 
 /decl/reagent/oxycomorphine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(3))
-		to_chat(M, SPAN_GOOD(pick("You feel soothed and at-ease.", "You feel content and at peace.", "You feel a pleasant emptiness.", "You feel like sharing the wonderful memories and feelings you're experiencing.", "All your anxieties fade away.", "You feel like you're floating off the ground.", "You don't want this feeling to end.")))
+		to_chat(M, SPAN_GOOD(pick("You feel soothed and at ease.", "You feel content and at peace.", "You feel a pleasant emptiness.", "You feel like sharing the wonderful memories and feelings you're experiencing.", "All your anxieties fade away.", "You feel like you're floating off the ground.", "You don't want this feeling to end.")))
 
 	if(check_min_dose(M))
 		M.add_chemical_effect(CE_PAINKILLER, 200)
