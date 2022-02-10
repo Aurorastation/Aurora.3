@@ -164,7 +164,7 @@
 /decl/reagent/psilocybin/overdose(var/mob/living/carbon/M, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type])
 	if(prob(3))
-		to_chat(M, SPAN_WARNING(pick("You feel... disconnected from your body - is it your body?.", "You are dying... but that's okay, right?", "You are at peace with the universe.", "The stars are beckoning you to them.")))
+		to_chat(M, SPAN_WARNING(pick("You feel... disconnected from your body - is it your body?", "You are dying... but that's okay, right?", "You are at peace with the universe.", "The stars are beckoning you to them.")))
 	if(prob(5))
 		M.custom_pain("You feel a sharp pain in your stomach!", 10)
 
