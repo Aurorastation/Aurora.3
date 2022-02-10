@@ -230,7 +230,7 @@
 	LAZYSET(., "special", 0)
 
 /decl/reagent/night_juice/initial_effect(var/mob/living/carbon/human/M, var/alien, var/holder)
-	to_chat(M, SPAN_GOOD(pick("You feel a wave of pleasure smash into you and life you up!", "You're startled by the sheer strength and speed of this drug!", "You already feel so damn good!", "This is the best decision you've ever made!")))
+	to_chat(M, SPAN_GOOD(pick("You feel a wave of pleasure smash into you and liven you up!", "You're startled by the sheer strength and speed of this drug!", "You already feel so damn good!", "This is the best decision you've ever made!")))
 
 /decl/reagent/night_juice/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!istype(M))
