@@ -873,7 +873,7 @@
 			to_chat(M, SPAN_WARNING(pick("Your throat burns!", "All you can taste is blood!", "Your insides are on fire!", "Your feel a burning pain in your gut!")))
 	else
 		if(prob(5))
-			to_chat(M, SPAN_WARNING(pick("Your throat stings a bit.", "You can taste something chemically.")))
+			to_chat(M, SPAN_WARNING(pick("Your throat stings a bit.", "You can taste something chemical.")))
 
 /decl/reagent/sterilizine/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(REAGENT_VOLUME(holder, type) > 15)
