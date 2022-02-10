@@ -329,7 +329,7 @@
 			to_chat(M, SPAN_WARNING(pick("Your throat burns!", "All you can taste is blood!", "Your insides are on fire!", "Your feel a burning pain in your gut!")))
 	else
 		if(prob(5))
-			to_chat(M, SPAN_NOTICE(pick("You get a strong whiff of spacecleaner fumes - careful.")))
+			to_chat(M, SPAN_NOTICE(pick("You get a strong whiff of space cleaner fumes - careful.")))
 
 /decl/reagent/spacecleaner/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(REAGENT_VOLUME(holder, type) > 15)
