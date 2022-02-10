@@ -241,14 +241,14 @@
 
 /decl/emote/audible/growl
     key = "growl"
-    emote_message_3p_target = "USER growls softly at TARGET."
-    emote_message_3p = "USER growls softly."
+    emote_message_3p_target = "USER growls at TARGET."
+    emote_message_3p = "USER growls."
     emote_sound = 'sound/voice/Lizardgrowl.ogg'
 
-/decl/emote/audible/hiss/short
+/decl/emote/audible/hiss/long
     key = "hiss2"
-    emote_message_3p_target = "USER hisses softly at TARGET."
-    emote_message_3p = "USER hisses softly."
+    emote_message_3p_target = "USER hisses loudly at TARGET!"
+    emote_message_3p = "USER hisses loudly!"
     emote_sound = 'sound/voice/lizardhiss2.ogg'
 
 /decl/emote/audible/lizard_bellow

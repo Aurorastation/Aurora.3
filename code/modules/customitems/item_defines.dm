@@ -2148,7 +2148,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 
 /obj/item/clothing/suit/storage/toggle/fluff/sezrak_coat //red Domelkoan Coat - Sezrak Han'san - captaingecko
-	name = "red Domelkoan Coa"
+	name = "red Domelkoan Coat"
 	desc = "A warm coat made in Domelkos. This red coat is stuffed with yupmi fur and made out of reinforced cloth-like synthetic materials, both to keep the wearer warm in the cold winters of \
 	Moroz, and to resist all but the rougher treatments... All the while remaining good-looking enough. Both shoulders on this coat feature the standard of the Han'san clan-house, presented in a \
 	gilded color."
@@ -2223,7 +2223,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "quoro_suit"
 	item_state = "quoro_suit"
 	contained_sprite = TRUE
-	
+
 
 /obj/item/clothing/accessory/poncho/shouldercape/qeblak/zeng/fluff/eden_cloak // Zeng-Hu Jargon division cloak - Eden Li - Huntime
 	name = "Zeng-Hu cloak: Jargon Division"
@@ -2233,3 +2233,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "ZH_cape_custom"
 	item_state = "ZH_cape_custom"
 
+/obj/item/clothing/head/welding/fluff/akara_mask //Steel Face Mask - Akara Seuseisak - aticius
+	name = "steel face mask"
+	desc = "A slab of steel that has been hammered into the shape of a full-face mask with crude tools. It seems quite old and an appreciable layer of rust has built up."
+	icon = 'icons/obj/custom_items/akara_mask.dmi'
+	icon_override = 'icons/obj/custom_items/akara_mask.dmi'
+	icon_state = "akara_mask"
+	item_state = "akara_mask"
+	contained_sprite = TRUE
+	action_button_name = "Adjust mask"
+	flash_protection = FLASH_PROTECTION_NONE
+	tint = TINT_NONE

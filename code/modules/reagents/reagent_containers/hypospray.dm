@@ -113,6 +113,7 @@
 	desc_info = "Autoinjectors are spent after using them. To re-use, use a screwdriver to open the back panel, then simply pour any desired reagent inside. Use in-hand, or click it while it's in your active hand to prepare it for reuse."
 	icon_state = "autoinjector"
 	item_state = "autoinjector"
+	slot_flags = SLOT_EARS
 	var/name_label
 	var/spent = TRUE
 	amount_per_transfer_from_this = 5

@@ -260,7 +260,7 @@
 
 	var/pass_flags = 0
 
-	var/obj/effect/decal/cleanable/blood/tracks/move_trail = /obj/effect/decal/cleanable/blood/tracks/footprints // What marks are left when walking
+	var/obj/effect/decal/cleanable/blood/tracks/move_trail = /obj/effect/decal/cleanable/blood/tracks/footprints/barefoot // What marks are left when walking
 
 	var/default_h_style = "Bald"
 	var/default_f_style = "Shaved"
@@ -636,6 +636,35 @@
 
 /datum/species/proc/can_breathe_water()
 	return FALSE
+
+/datum/species/proc/handle_trail(var/mob/living/carbon/human/H, var/turf/T)
+	var/list/trail_info = list()
+	if(H.shoes)
+		var/obj/item/clothing/shoes/S = H.shoes
+		if(istype(S))
+			S.handle_movement(T, H.m_intent == M_RUN ? TRUE : FALSE)
+			if(S.track_footprint)
+				if(S.blood_DNA)
+					trail_info["footprint_DNA"] = S.blood_DNA
+				trail_info["footprint_color"] = S.blood_color
+				S.track_footprint--
+	else
+		if(H.track_footprint)
+			if(H.feet_blood_DNA)
+				trail_info["footprint_DNA"] = H.feet_blood_DNA
+			trail_info["footprint_color"] = H.footprint_color
+			H.track_footprint--
+
+	return trail_info
+
+/datum/species/proc/deploy_trail(var/mob/living/carbon/human/H, var/turf/T)
+	var/list/trail_info = handle_trail(H, T)
+	if(length(trail_info))
+		var/track_path = trail_info["footprint_type"]
+		T.add_tracks(track_path ? track_path : H.species.get_move_trail(H), trail_info["footprint_DNA"], H.dir, 0, trail_info["footprint_color"]) // Coming
+		var/turf/simulated/from = get_step(H, reverse_direction(H.dir))
+		if(istype(from))
+			from.add_tracks(track_path ? track_path : H.species.get_move_trail(H), trail_info["footprint_DNA"], 0, H.dir, trail_info["footprint_color"]) // Going
 
 /datum/species/proc/get_move_trail(var/mob/living/carbon/human/H)
 	if(H.lying)
