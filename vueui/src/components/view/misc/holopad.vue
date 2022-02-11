@@ -26,7 +26,16 @@ export default {
   },
   computed: {
     holopads_filtered() {
-      return Object.values(this.s.holopad_list).filter(x => x)
+      return Object.values(this.s.holopad_list).filter(x => x).sort((a,b) => {
+        let fa = a.id.toLowerCase(), fb = b.id.toLowerCase();
+        if (fa < fb) {
+          return -1
+        }
+        if (fa > fb) {
+          return 1
+        }
+        return 0
+      })
     },
     score_multiplier() {
       return 1 / this.threshold
