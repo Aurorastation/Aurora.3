@@ -475,7 +475,7 @@
 
 /decl/reagent/xuxigas
 	name = "Xu'Xi Gas"
-	description = "In the past decades, the Gasrider community has gradually creeped into human space, bringing Synthetic Xu'Xi Ga with them. The drug is frequently pumped into shady, unlicensed establishments at Qerr'Malic's Second Surface to entice their tourist customers to spend more money. Only works when inhaled."
+	description = "In the past decades, the Gasrider community has gradually creeped into human space, bringing Synthetic Xu'Xi Gas with them. The drug is frequently pumped into shady, unlicensed establishments at Qerr'Malic's Second Surface to entice their tourist customers to spend more money. Only works when inhaled."
 	color = "#58D373"
 	taste_description = "algae"
 	reagent_state = GAS
