@@ -233,7 +233,7 @@
 	name = "Zoom Pill"
 	desc = "Zoooom!"
 	icon_state = "pill18"
-	reagents_to_add = list(/decl/reagent/impedrezene = 10, /decl/reagent/synaptizine = 5, /decl/reagent/hyperzine = 5)
+	reagents_to_add = list(/decl/reagent/impedrezene = 5, /decl/reagent/synaptizine = 5, /decl/reagent/hyperzine = 5)
 
 obj/item/reagent_containers/pill/joy
 	name = "Joy Pill"
