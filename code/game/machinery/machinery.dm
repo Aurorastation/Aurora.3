@@ -507,7 +507,7 @@ Class Procs:
 	return
 
 
-// A late init operation called in SSshuttle for ship computers, used to attach the thing to the right ship.
+// A late init operation called in SSshuttle for ship computers and holopads, used to attach the thing to the right ship.
 /obj/machinery/proc/attempt_hook_up(obj/effect/overmap/visitable/ship/sector)
 	if(!istype(sector))
 		return
