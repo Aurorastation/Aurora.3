@@ -412,6 +412,8 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	if(current_map.use_overmap)
 		if(!linked || !HP.linked)
 			return FALSE
+		if(!(HP.linked in view(4, linked)))
+			return FALSE
 	return TRUE
 
 /obj/machinery/hologram/holopad/long_range/has_command_auth(var/mob/user)
