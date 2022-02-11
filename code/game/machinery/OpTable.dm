@@ -91,10 +91,9 @@
 		if(suppressing && victim.sleeping < 3)
 			victim.Sleeping(3 - victim.sleeping)
 			victim.willfully_sleeping = FALSE
-		if(ishuman(victim))
-			icon_state = victim.pulse() ? "[modify_state]-active" : "[modify_state]-idle"
-			if(victim.stat == DEAD || victim.is_asystole() || victim.status_flags & FAKEDEATH)
-				icon_state = "[modify_state]-critical"
+		icon_state = victim.pulse() ? "[modify_state]-active" : "[modify_state]-idle"
+		if(victim.stat == DEAD || victim.is_asystole() || victim.status_flags & FAKEDEATH)
+			icon_state = "[modify_state]-critical"
 		return TRUE
 	icon_state = "[modify_state]-idle"
 	return FALSE
