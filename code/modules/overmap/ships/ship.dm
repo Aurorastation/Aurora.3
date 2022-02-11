@@ -213,7 +213,7 @@
 	..()
 	for(var/obj/machinery/computer/ship/S in SSmachinery.all_machines)
 		S.attempt_hook_up(src)
-	for(var/obj/machinery/hologram/holopad/H in SSmachinery.all_machines)
+	for(var/obj/machinery/hologram/holopad/H as anything in SSmachinery.all_holopads)
 		H.attempt_hook_up(src)
 	for(var/datum/ship_engine/E in ship_engines)
 		if(check_ownership(E.holder))
