@@ -1,0 +1,7 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed blood overlays on clothes."
+  - bugfix: "Fixed tracks still being left after cleaning shoes."
