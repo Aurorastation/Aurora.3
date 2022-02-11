@@ -14,7 +14,7 @@
 	if(client.handle_spam_prevention(message, MUTE_IC))
 		return
 
-	whisper(message)
+	say(message, whisper = TRUE)
 
 /mob/living/proc/whisper(var/message, var/datum/language/speaking)
 	if(is_muzzled())
