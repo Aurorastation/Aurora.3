@@ -412,7 +412,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	if(current_map.use_overmap)
 		if(!linked || !HP.linked)
 			return FALSE
-		if(!(HP.linked in view(4, linked)))
+		if(get_dist(HP.linked, linked) > 1 && !(HP.linked in view(4, linked)))
 			return FALSE
 	return TRUE
 
