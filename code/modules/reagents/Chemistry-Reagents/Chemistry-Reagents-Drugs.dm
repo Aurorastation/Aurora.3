@@ -472,3 +472,58 @@
 
 /decl/reagent/joy/final_effect(var/mob/living/carbon/human/M, var/alien, var/holder)
 	to_chat(M, SPAN_GOOD("You feel grounded in the real world again... for better or worse."))
+
+/decl/reagent/xuxigas
+	name = "Xu'Xi Gas"
+	description = "In the past decades, the Gasrider community has gradually creeped into human space, bringing Synthetic Xu'Xi Ga with them. The drug is frequently pumped into shady, unlicensed establishments at Qerr'Malic's Second Surface to entice their tourist customers to spend more money. Only works when inhaled."
+	color = "#58D373"
+	taste_description = "algae"
+	reagent_state = GAS
+	overdose = REAGENTS_OVERDOSE
+	breathe_met = REM*0.2
+
+/decl/reagent/xuxigas/affect_breathe(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
+	M.druggy = max(M.druggy, M.chem_doses[type]/2)
+	M.add_chemical_effect(CE_PULSE, -1)
+	if(prob(3))
+		to_chat(M, SPAN_GOOD(pick("You feel soothed and at ease.", "You feel like sharing the wonderful memories and feelings you're experiencing.", "You feel like you're floating off the ground.", "You don't want this feeling to end.", "You wish to please all those around you.", "You feel particularly susceptible to persuasion.", "Everyone is so trustworthy nowadays.")))
+	if(prob(2) && !isskrell(M))
+		to_chat(M, SPAN_GOOD(pick("You can almost see the currents of air as they dance around you.", "You see the colours around you beginning to bleed together.", "You feel safe and comfortable.")))
+	if(prob(2) && isskrell(M))
+		to_chat(M, SPAN_ALIEN(pick("You can see the thoughts of those around you dancing in the air.", "You feel as if your mind has opened even further, your thought-field expanding.", "It's difficult to contain your thoughts - but why hide them anyway?")))
+
+/decl/reagent/xuxigas/overdose(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(prob(3))
+		to_chat(M, SPAN_WARNING(pick("You feel particularly vulnerable to being swayed by those around you...", "You have an urge to please those around you.", "This high cannot end... where can you get more?", "You don't want this feeling to end.")))
+
+/decl/reagent/skrell_nootropic
+	name = "Co'qnixq Wuxi"
+	description = "Co'qnixq Wuxi, or Co'qnixq Nootropic, has existed since before Glorsh, and was developed as a cognitive enhancer for Skrell with on-set dementia. When taken, one's consciousness is heightened greatly alongside receiving mild energy boost. Frequently used as a 'smart drug' by students and scientists."
+	color = "#E3B0E5"
+	taste_description = "concentration"
+	reagent_state = LIQUID
+	overdose = 10
+	od_minimum_dose = 2
+	metabolism = REM*0.05
+	var/psi_boosted = FALSE
+	var/initial_stamina
+
+/decl/reagent/skrell_nootropic/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(M.psi && !psi_boosted)
+		initial_stamina = M.psi.max_stamina
+		M.psi.max_stamina = M.psi.max_stamina*1.25
+		psi_boosted = TRUE
+	if(prob(2))
+		to_chat(M, SPAN_GOOD(pick("You have a renewed sense of focus.", "You feel more determined to get things done.", "You feel more confident in your own abilities.", "Your head-space feels tidy and organised - now's the time to get to work.", "You could climb a mountain right now!")))
+
+/decl/reagent/skrell_nootropic/final_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(M.psi && psi_boosted)
+		M.psi.max_stamina = initial_stamina
+		psi_boosted = FALSE
+
+/decl/reagent/skrell_nootropic/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	M.add_chemical_effect(CE_SPEEDBOOST, 0.5)
+	if(prob(25))
+		M.add_chemical_effect(CE_NEPHROTOXIC, 0.5)
+	if(prob(2))
+		to_chat(M, SPAN_WARNING(pick("You can't allow anyone to get between you and your tasks.", "You feel like screaming at the next person who interrupts you.", "No one can stop you!", "You can power through this...")))	

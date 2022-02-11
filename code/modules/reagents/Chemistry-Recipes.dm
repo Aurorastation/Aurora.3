@@ -757,6 +757,28 @@
 	required_reagents = list(/decl/reagent/psilocybin = 1, /decl/reagent/alcohol/moonshine = 1)
 	result_amount = 1
 
+/datum/chemical_reaction/joy
+	name = "Joy"
+	id = "joy"
+	result = /decl/reagent/joy
+	required_reagents = list(/decl/reagent/mental/neurapan = 1, /decl/reagent/oxycomorphine = 2)
+	result_amount = 1
+
+/datum/chemical_reaction/xuxigas
+	name = "Xu'Xi Gas"
+	id = "xuxigas"
+	result = /decl/reagent/xuxigas
+	required_reagents = list(/decl/reagent/dexalin = 2, /decl/reagent/space_drugs = 2, /decl/reagent/mental/truthserum = 1)
+	required_temperature_min = T0C + 134
+	result_amount = 5
+
+/datum/chemical_reaction/skrell_nootropic
+	name = "Co'qnixq Wuxi"
+	id = "skrell_nootropic"
+	result = /decl/reagent/skrell_nootropic
+	required_reagents = list(/decl/reagent/wulumunusha = 1, /decl/reagent/synaptizine = 1, /decl/reagent/mental/emoxanyl = 1)
+	result_amount = 3
+
 /* Makeshift Chemicals and Drugs */
 
 /datum/chemical_reaction/stimm
@@ -795,13 +817,6 @@
 	required_reagents = list(/decl/reagent/mental/corophenidate = 1, /decl/reagent/synaptizine = 1, /decl/reagent/nitroglycerin = 1)
 	required_temperature_min = T0C + 200
 	result_amount = 3
-
-/datum/chemical_reaction/joy
-	name = "Joy"
-	id = "joy"
-	result = /decl/reagent/joy
-	required_reagents = list(/decl/reagent/mental/neurapan = 1, /decl/reagent/oxycomorphine = 2)
-	result_amount = 1
 
 /* Solidification */
 

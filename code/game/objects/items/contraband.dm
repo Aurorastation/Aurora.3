@@ -16,6 +16,11 @@
 	desc = "Highly illegal drug. Bang - and your stress is gone."
 	starts_with = list(/obj/item/reagent_containers/pill/joy = 3)
 
+/obj/item/storage/pill_bottle/smart
+	name = "bottle of Smart pills"
+	desc = "Highly illegal drug. For exam season."
+	starts_with = list(/obj/item/reagent_containers/pill/skrell_nootropic = 7)
+
 /obj/item/reagent_containers/glass/beaker/vial/random
 	flags = 0
 	var/list/random_reagent_list = list(list(/decl/reagent/water = 15) = 1, list(/decl/reagent/spacecleaner = 15) = 1)

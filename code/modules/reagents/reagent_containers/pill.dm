@@ -269,3 +269,9 @@ obj/item/reagent_containers/pill/joy
 	desc = "Used to treat coughing, sneezing and itching."
 	icon_state = "pill19"
 	reagents_to_add = list(/decl/reagent/cetahydramine = 5)
+
+/obj/item/reagent_containers/pill/skrell_nootropic
+	name = "5u Co'qnixq Wuxi Pill"
+	desc = "Used to treat dementia."
+	icon_state = "pill8"
+	reagents_to_add = list(/decl/reagent/skrell_nootropic = 5)
