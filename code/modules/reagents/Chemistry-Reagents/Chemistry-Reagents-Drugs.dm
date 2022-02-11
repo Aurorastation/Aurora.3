@@ -475,7 +475,7 @@
 
 /decl/reagent/xuxigas
 	name = "Xu'Xi Gas"
-	description = "In the past decades, the Gasrider community has gradually creeped into human space, bringing Synthetic Xu'Xi Gas with them. The drug is frequently pumped into shady, unlicensed establishments at Qerr'Malic's Second Surface to entice their tourist customers to spend more money. Only works when inhaled."
+	description = "A recreational drug hailing from Qerr'Malic that must be inhaled. It produces a mild high similar to Wulumunusha and is known to make users susceptible to persuasion. Most forms of Xu'Xi Gas found outside of the Jargon Federation are cheap, synthetic substitutes. Only works when inhaled."
 	color = "#58D373"
 	taste_description = "algae"
 	reagent_state = GAS
