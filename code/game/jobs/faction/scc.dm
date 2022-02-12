@@ -15,7 +15,7 @@
 	</ul></p>
 	"}
 
-	title_suffix = "SCC"
+	title_suffix = "Scc"
 
 	allowed_role_types = SCC_ROLES
 
