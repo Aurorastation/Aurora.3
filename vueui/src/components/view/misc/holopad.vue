@@ -5,7 +5,7 @@
     <br><br>
     <vui-input-search :input="holopads_filtered" v-model="search_results" :keys="['id', 'ref']" autofocus :threshold="threshold" include-score/>
     <div v-if="!search_results.length">
-      <span>No holopads detected in range.</span>
+      <span>No compatible holopads detected within range{{ s.call_range > 0 ? " " + s.call_range : "" }}.</span>
     </div>
     <div v-else>
       <div v-for="h in search_results" :key="h.item.ref" :style="{opacity: 1 - (h.score * score_multiplier)}">
