@@ -104,6 +104,7 @@
 
 //tell the docking port to start getting ready for undocking - e.g. close those doors.
 /datum/computer/file/embedded_program/docking/airlock/prepare_for_undocking()
+	testing("[src.name] is closing doors")
 	airlock_program.stop_cycling()
 	airlock_program.close_doors()
 	airlock_program.disable_mech_regulators()
