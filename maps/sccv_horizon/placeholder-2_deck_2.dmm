@@ -14121,8 +14121,6 @@
 /area/engineering/locker_room)
 "iXv" = (
 /obj/structure/table/reinforced,
-/obj/item/crowbar,
-/obj/item/device/flash,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
@@ -14130,6 +14128,8 @@
 	c_tag = "Security - Second Deck Checkpoint";
 	dir = 4
 	},
+/obj/item/gun/energy/mousegun/xenofauna,
+/obj/item/gun/energy/mousegun/xenofauna,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "iXI" = (
@@ -20908,6 +20908,7 @@
 	dir = 10
 	},
 /obj/item/paper_scanner,
+/obj/item/device/flash,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "nkT" = (
@@ -28982,6 +28983,7 @@
 	pixel_y = 6
 	},
 /obj/machinery/firealarm/north,
+/obj/item/crowbar,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "snU" = (
