@@ -191,6 +191,10 @@
 	name_label = "inaprovaline"
 	reagents_to_add = list(/decl/reagent/inaprovaline = 5)
 
+/obj/item/reagent_containers/hypospray/autoinjector/dylovene
+	name_label = "dylovene"
+	reagents_to_add = list(/decl/reagent/dylovene = 5)
+
 /obj/item/reagent_containers/hypospray/autoinjector/emergency
 	name_label = "emergency"
 	reagents_to_add = list(/decl/reagent/inaprovaline = 2.5, /decl/reagent/dexalin = 2.5)

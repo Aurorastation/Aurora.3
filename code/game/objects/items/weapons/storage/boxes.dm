@@ -152,7 +152,8 @@
 					/obj/item/device/oxycandle = 1,
 					/obj/item/device/flashlight/flare/glowstick/red = 1,
 					/obj/item/stack/medical/bruise_pack = 1,
-					/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1
+					/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1,
+					/obj/item/reagent_containers/hypospray/autoinjector/dylovene = 1,
 					)
 
 /obj/item/storage/box/survival/fill()
