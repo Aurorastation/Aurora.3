@@ -168,6 +168,7 @@
 	name = "Intrepid Hangar"
 	landmark_tag = "nav_hangar_intrepid"
 	docking_controller = "intrepid_dock"
+	base_area = /area/hangar/intrepid
 	base_turf = /turf/simulated/floor/plating
 
 /obj/effect/shuttle_landmark/intrepid/transit
