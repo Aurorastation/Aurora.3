@@ -34,7 +34,7 @@
 
 	var/obj/effect/overlay/closet_door/door_obj
 	var/is_animating_door = FALSE
-	var/door_anim_squish = 0.12
+	var/door_anim_squish = 0.12 // Multiplier on proc/get_door_transform. See fridge as example. I hope you like trigonometry.
 	var/door_anim_angle = 136
 	var/door_hinge_x = -6.5
 	var/door_anim_time = 2.5 // set to 0 to make the door not animate at all
