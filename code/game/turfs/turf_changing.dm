@@ -33,7 +33,7 @@
 		return src
 
 	// This makes sure that turfs are not changed to space when there's a multi-z turf below
-	if(N == /turf/space && HasBelow(z) && !ignore_override)
+	if(ispath(N, /turf/space) && HasBelow(z) && !ignore_override)
 		N = openspace_override_type || /turf/simulated/open/airless
 
 	var/obj/fire/old_fire = fire
@@ -54,7 +54,7 @@
 	// So we call destroy.
 	qdel(src)
 
-	var/turf/simulated/W = new N(src)
+	var/turf/W = new N(src)
 
 #ifndef AO_USE_LIGHTING_OPACITY
 	// If we're using opacity-based AO, this is done in recalc_atom_opacity().
