@@ -64,6 +64,7 @@ Possible to do for anyone motivated enough:
 	get_holopad_id()
 	desc += " Its ID is '[holopad_id]'"
 
+	SSmachinery.all_holopads += src
 	listening_objects += src
 
 	light_color = long_range ? rgb(225, 173, 125) : rgb(125, 180, 225)
@@ -121,7 +122,7 @@ Possible to do for anyone motivated enough:
 /obj/machinery/hologram/holopad/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	data = data || list()
 	LAZYINITLIST(data["holopad_list"])
-	for(var/obj/machinery/hologram/holopad/H in SSmachinery.processing_machines - src)
+	for(var/obj/machinery/hologram/holopad/H as anything in SSmachinery.all_holopads - src)
 		if(can_connect(H) && H.operable())
 			data["holopad_list"]["\ref[H]"] = list("id" = H.holopad_id, "busy" = (H.has_established_connection() || H.incoming_connection), "ref" = "\ref[H]")
 	data["command_auth"] = has_command_auth(user)
@@ -411,7 +412,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	if(current_map.use_overmap)
 		if(!linked || !HP.linked)
 			return FALSE
-		if(!(HP.linked in view(4, linked)))
+		if(get_dist(HP.linked, linked) > 1 && !(HP.linked in view(4, linked)))
 			return FALSE
 	return TRUE
 
@@ -446,6 +447,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		end_call()
 	clear_holos(TRUE)
 	listening_objects -= src
+	SSmachinery.all_holopads -= src
 	return ..()
 
 /obj/effect/overlay/hologram
