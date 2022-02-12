@@ -226,3 +226,6 @@
 	if(!t)
 		return null
 	return t.roof_type
+
+/turf/simulated/open/is_open()
+	return TRUE
