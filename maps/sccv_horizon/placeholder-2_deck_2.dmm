@@ -22551,7 +22551,8 @@
 /obj/machinery/button/remote/blast_door{
 	id = "ai_upload";
 	name = "AI Upload Entrance";
-	pixel_x = 25
+	pixel_x = 25;
+	req_access = list(16)
 	},
 /obj/machinery/light{
 	dir = 4
