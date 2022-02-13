@@ -20,7 +20,7 @@
   
 /datum/religion/shrkh
   name = RELIGION_SHRKH
-  description = "The Shrkh, or “Scorned as they call themselves, continue to follow the age-old tradition of worshipping Glorsh-Omega. They believe that Glorsh-Omega planted them \
+  description = "The Shrkh, or 'Scorned' as they call themselves, continue to follow the age-old tradition of worshipping Glorsh-Omega. They believe that Glorsh-Omega planted them \
   on the planet intentionally, granting them a blissful haven via the use of technology. Once the prominent and only religion on the planet, Shrkh-ism was quickly displaced when \
   Skrell explorers crashlanded and their memories, thoughts, emotions, everything was consumed, and doubt was first seeded in the minds of all Dionae on Xrim. The premise \
   behind the religion itself is simple; revere, help sustain and maintain synthetic life. As synthetic life brought dionae into this haven, so too shall it be preserved. In the \
