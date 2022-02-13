@@ -433,6 +433,115 @@ obj/machinery/computer/general_air_control/Destroy()
 
 		radio_connection.post_signal(src, signal, filter = RADIO_ATMOSIA)
 
+/obj/machinery/computer/general_air_control/reaction_chamber
+	name = "reaction chamber monitoring console"
+	desc = "A console that monitors and controls a reaction chamber."
+	icon_screen = "engi"
+	light_color = "#ffcc33"
+
+	frequency = 1442
+	var/igniter_id
+	var/last_ignite = 0
+	var/input_tag
+	var/output_tag
+
+	var/list/input_info
+	var/list/output_info
+
+	var/default_input_flow_setting = 200
+	var/default_pressure_setting = ONE_ATMOSPHERE * 45
+	var/max_input_flow_setting = ATMOS_DEFAULT_VOLUME_PUMP + 500
+	var/max_pressure_setting = 50 * ONE_ATMOSPHERE
+
+	circuit = /obj/item/circuitboard/air_management/reaction_chamber
+
+/obj/machinery/computer/general_air_control/reaction_chamber/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
+	. = ..()
+	if(!data)
+		. = data = list("sensors" = list())
+
+	VUEUI_SET_CHECK(data["igniter"], !!igniter_id, ., data)
+
+	data["maxrate"] = max_input_flow_setting
+	data["maxpressure"] = max_pressure_setting
+
+	if(input_info)
+		LAZYINITLIST(data["input"])
+		VUEUI_SET_CHECK(data["input"]["power"], input_info["power"], ., data)
+		VUEUI_SET_CHECK(data["input"]["rate"], input_info["volume_rate"], ., data)
+		VUEUI_SET_CHECK_IFNOTSET(data["input"]["setrate"], default_input_flow_setting, ., data)
+
+	if(output_info)
+		LAZYINITLIST(data["output"])
+		VUEUI_SET_CHECK(data["output"]["power"], output_info["power"], ., data)
+		VUEUI_SET_CHECK(data["output"]["pressure"], output_info["internal"], ., data)
+		VUEUI_SET_CHECK_IFNOTSET(data["output"]["setpressure"], default_pressure_setting, ., data)
+		
+/obj/machinery/computer/general_air_control/reaction_chamber/ui_interact(mob/user)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	if (!ui)
+		ui = new(user, src, "console-atmocontrol-reaction", 460, 470, capitalize(src.name))
+		ui.auto_update_content = TRUE
+	ui.open()
+
+/obj/machinery/computer/general_air_control/reaction_chamber/receive_signal(datum/signal/signal)
+	if(!signal || signal.encryption) return
+
+	var/id_tag = signal.data["tag"]
+	if(!id_tag) return
+
+	if(input_tag == id_tag)
+		input_info = signal.data
+	else if(output_tag == id_tag)
+		output_info = signal.data
+	else
+		..(signal)
+
+/obj/machinery/computer/general_air_control/reaction_chamber/Topic(href, href_list)
+	if(..())
+		return 1
+
+	if(!radio_connection)
+		return 0
+	var/datum/signal/signal = new
+	signal.transmission_method = TRANSMISSION_RADIO
+	signal.source = src
+	if(href_list["in_refresh_status"])
+		input_info = null
+		signal.data = list ("tag" = input_tag, "status" = 1)
+
+	if(href_list["in_toggle_injector"])
+		input_info = null
+		signal.data = list ("tag" = input_tag, "power_toggle" = 1)
+
+	if(href_list["in_set_flowrate"] != null)
+		var/setrate = between(0, text2num(href_list["in_set_flowrate"]), max_input_flow_setting)
+		input_info = null
+		signal.data = list ("tag" = input_tag, "set_volume_rate" = "[setrate]")
+
+	if(href_list["out_refresh_status"])
+		output_info = null
+		signal.data = list ("tag" = output_tag, "status" = 1)
+
+	if(href_list["out_toggle_power"])
+		output_info = null
+		signal.data = list ("tag" = output_tag, "power_toggle" = 1)
+
+	if(href_list["out_set_pressure"] != null)
+		var/setpressure = between(0, text2num(href_list["out_set_pressure"]), max_pressure_setting)
+		output_info = null
+		signal.data = list ("tag" = output_tag, "set_internal_pressure" = "[setpressure]")
+
+	if(href_list["fire_igniter"])
+		if((last_ignite + 5 SECONDS) < world.time)
+			for(var/obj/machinery/sparker/M in SSmachinery.all_machines)
+				if(M.id == igniter_id)
+					M.ignite()
+					last_ignite = world.time
+
+	signal.data["sigtype"] = "command"
+	radio_connection.post_signal(src, signal, filter = RADIO_ATMOSIA)
+
 #undef SIGNAL_OXYGEN
 #undef SIGNAL_PHORON
 #undef SIGNAL_NITROGEN
