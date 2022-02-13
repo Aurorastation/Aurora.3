@@ -703,6 +703,17 @@
 	random_itemcount = 0
 	light_color = COLOR_BABY_BLUE
 
+/obj/machinery/vending/hydronutrients/xenobotany
+	products = list(
+		/obj/item/reagent_containers/glass/fertilizer/ez = 6,
+		/obj/item/reagent_containers/glass/fertilizer/l4z = 5,
+		/obj/item/reagent_containers/glass/fertilizer/rh = 3,
+		/obj/item/plantspray/pests = 20,
+		/obj/item/reagent_containers/syringe = 5,
+		/obj/item/storage/bag/plants = 5,
+		/obj/item/reagent_containers/glass/bottle/mutagen = 3
+	)
+
 /obj/machinery/vending/hydroseeds
 	name = "MegaSeed Servitor"
 	desc = "When you need seeds fast!"
