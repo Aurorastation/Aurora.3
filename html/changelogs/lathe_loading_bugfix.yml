@@ -1,6 +1,0 @@
-author: mikomyazaki
-delete-after: True
-
-changes:
-  - bugfix: "Fixed issue where trying to load a lathe with <1 of a sheet of something didn't delete the sheet item."
-  - bugfix: "Fixed issue where loading a lathe with an object consisting of >1 materials could provide incorrect messages about how full it is."
