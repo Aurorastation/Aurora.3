@@ -1,0 +1,12 @@
+author: Vrow
+
+delete-after: True
+
+changes:
+  - rscadd: "Operating console is now more responsive, with alarms for some specific conditions."
+  - rscadd: "Inserting a Medical Scan into the Operating console now displays it accordingly, which you can update whenever you want or need."
+  - tweak: "Operating console also shows Blood Volume"
+  - rscadd: "Added a new paper type: Medscan papers."
+  - imageadd: "Medscan papers sprites added."
+  - tweak: "Relevant machines and device print out the Medscan paper type."
+  - imageadd: "The Operating Table pulse display now has a flatlined state!"
