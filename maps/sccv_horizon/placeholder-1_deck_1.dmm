@@ -24167,6 +24167,9 @@
 	req_access = null;
 	req_one_access = list(31,48,26,67)
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
 "wkj" = (
