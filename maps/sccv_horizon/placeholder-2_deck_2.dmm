@@ -37171,7 +37171,10 @@
 	dir = 10
 	},
 /obj/structure/cable/orange{
-	icon_state = "4-8"
+	icon_state = "0-4"
+	},
+/obj/structure/cable/orange{
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload_foyer)
