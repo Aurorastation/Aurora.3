@@ -174,55 +174,7 @@
 	if(is_robot_module(O))
 		return FALSE
 
-	//Resources are being loaded.
-	var/obj/item/eating = O
-	if(!eating.matter || !eating.recyclable)
-		to_chat(user, SPAN_WARNING("\The [eating] cannot be recycled by \the [src]."))
-		return
-
-	var/filltype = 0       // Used to determine message.
-	var/total_used = 0     // Amount of material used.
-	var/mass_per_sheet = 0 // Amount of material constituting one sheet.
-
-	for(var/material in eating.matter)
-		if(isnull(stored_material[material]) || isnull(storage_capacity[material]))
-			continue
-		if(stored_material[material] >= storage_capacity[material])
-			continue
-
-		var/total_material = eating.matter[material]
-
-		//If it's a stack, we eat multiple sheets.
-		if(istype(eating, /obj/item/stack))
-			var/obj/item/stack/stack = eating
-			total_material *= stack.get_amount()
-
-		if(stored_material[material] + total_material > storage_capacity[material])
-			total_material = storage_capacity[material] - stored_material[material]
-			filltype = 1
-		else
-			filltype = 2
-
-		stored_material[material] += total_material
-		total_used += total_material
-		mass_per_sheet += eating.matter[material]
-
-	if(!filltype)
-		to_chat(user, SPAN_WARNING("\The [src] is full. Please remove some material in order to insert more."))
-		return
-	else if(filltype == 1)
-		to_chat(user, SPAN_NOTICE("You fill \the [src] to capacity with \the [eating]."))
-	else
-		to_chat(user, SPAN_NOTICE("You fill \the [src] with \the [eating]."))
-
-	flick("autolathe_o", src) // Plays metal insertion animation. Work out a good way to work out a fitting animation. ~Z
-
-	if(istype(eating, /obj/item/stack))
-		var/obj/item/stack/stack = eating
-		stack.use(max(1, round(total_used / mass_per_sheet))) // Always use at least 1 to prevent infinite materials.
-	else
-		user.remove_from_mob(O)
-		qdel(O)
+	load_lathe(O, user)
 
 	updateUsrDialog()
 	return
@@ -334,3 +286,64 @@
 			qdel(S)
 	..()
 	return TRUE
+
+#define NO_SPACE "No Space"
+#define FILL_COMPLETELY "Fill Completely"
+#define FILL_INCOMPLETELY "Fill Incompletely"
+
+/obj/machinery/autolathe/proc/load_lathe(obj/item/O, mob/user)
+
+	//Resources are being loaded.
+	var/obj/item/eating = O
+	if(!eating.matter || !eating.recyclable)
+		to_chat(user, SPAN_WARNING("\The [eating] cannot be recycled by \the [src]."))
+		return
+
+	var/list/fill_status = list() // Used to determine message in cases of multiple materials.
+	var/total_used = 0     // Amount of material used.
+	var/mass_per_sheet = 0 // Amount of material constituting one sheet.
+
+	for(var/material in eating.matter)
+		if(isnull(stored_material[material]) || isnull(storage_capacity[material]))
+			continue
+		if(stored_material[material] >= storage_capacity[material])
+			LAZYADD(fill_status[NO_SPACE], material)
+			continue
+
+		var/total_material = eating.matter[material]
+
+		//If it's a stack, we eat multiple sheets.
+		if(istype(eating, /obj/item/stack))
+			var/obj/item/stack/stack = eating
+			total_material *= stack.get_amount()
+
+		if(stored_material[material] + total_material > storage_capacity[material])
+			total_material = storage_capacity[material] - stored_material[material]
+			LAZYADD(fill_status[FILL_COMPLETELY], material)
+		else
+			LAZYADD(fill_status[FILL_INCOMPLETELY], material)
+
+		stored_material[material] += total_material
+		total_used += total_material
+		mass_per_sheet += eating.matter[material]
+
+	if(fill_status[NO_SPACE])
+		to_chat(user, SPAN_WARNING("\The [src] is full of [english_list(fill_status[NO_SPACE])]. Please remove some material in order to insert more."))
+		return
+	else if(fill_status[FILL_COMPLETELY])
+		to_chat(user, SPAN_NOTICE("You fill \the [src] to capacity with [english_list(fill_status[FILL_COMPLETELY])] with \the [eating]."))
+	else if(fill_status[FILL_INCOMPLETELY])
+		to_chat(user, SPAN_NOTICE("You fill \the [src] with [english_list(fill_status[FILL_INCOMPLETELY])] \the [eating]."))
+
+	flick("autolathe_o", src) // Plays metal insertion animation. Work out a good way to work out a fitting animation. ~Z
+
+	if(istype(eating, /obj/item/stack))
+		var/obj/item/stack/stack = eating
+		stack.use(min(stack.get_amount(), total_used / mass_per_sheet)) // Prevent maths imprecision from leading to infinite resources
+	else
+		user.remove_from_mob(O)
+		qdel(O)
+
+#undef NO_SPACE
+#undef FILL_COMPLETELY
+#undef FILL_INCOMPLETELY
