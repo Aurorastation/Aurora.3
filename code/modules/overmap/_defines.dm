@@ -68,7 +68,7 @@ proc/toggle_move_stars(zlevel, direction)
 		var/list/spaceturfs = block(locate(1, 1, zlevel), locate(world.maxx, world.maxy, zlevel))
 		for(var/turf/space/T in spaceturfs)
 			if(!gen_dir)
-				T.icon_state = "white"
+				T.appearance = SSicon_cache.space_cache["[((T.x + T.y) ^ ~(T.x * T.y) + T.z) % 25]"]
 			else
 				T.icon_state = "transit_[gen_dir]"
 				for(var/atom/movable/AM in T)
