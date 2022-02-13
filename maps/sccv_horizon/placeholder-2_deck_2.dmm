@@ -20391,7 +20391,12 @@
 "mYp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/ramp,
+/obj/machinery/door/blast/regular{
+	dir = 4;
+	id = "ai_upload";
+	name = "AI Upload Blast Doors"
+	},
+/turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "mYs" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen,
@@ -22099,7 +22104,12 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "obZ" = (
-/turf/simulated/floor/tiled/ramp,
+/obj/machinery/door/blast/regular{
+	dir = 4;
+	id = "ai_upload";
+	name = "AI Upload Blast Doors"
+	},
+/turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "ocU" = (
 /obj/structure/table/standard,
@@ -23812,12 +23822,7 @@
 "pgj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/blast/regular{
-	dir = 4;
-	id = "ai_upload";
-	name = "AI Upload Blast Doors"
-	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/ramp,
 /area/turret_protected/ai_upload)
 "pgD" = (
 /obj/structure/railing/mapped{
@@ -24496,12 +24501,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard)
 "pEu" = (
-/obj/machinery/door/blast/regular{
-	dir = 4;
-	id = "ai_upload";
-	name = "AI Upload Blast Doors"
-	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/ramp,
 /area/turret_protected/ai_upload)
 "pEA" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -35792,9 +35792,7 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "wpz" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/machinery/porta_turret/stationary,
 /obj/structure/window/reinforced{
 	layer = 5;
 	name = "adjusted reinforced window"
@@ -35805,9 +35803,11 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
 /obj/effect/decal/warning_stripes,
-/obj/machinery/porta_turret/stationary,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload)
 "wqe" = (
 /obj/effect/floor_decal/spline/plain{
@@ -63648,8 +63648,8 @@ kEL
 sVn
 xee
 fan
-mBB
 wpz
+mBB
 fGi
 fnh
 qLj
@@ -64456,8 +64456,8 @@ sHR
 xcp
 tLc
 rez
-mBB
 wpz
+mBB
 otf
 kgT
 iJH
