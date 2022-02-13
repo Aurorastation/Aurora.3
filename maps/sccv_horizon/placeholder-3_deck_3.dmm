@@ -2819,6 +2819,7 @@
 	name = "Staff Facilities";
 	req_access = list(66)
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/hallway/medical/upper)
 "gw" = (
@@ -3192,7 +3193,6 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/firedoor,
-/obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/glass_command{
@@ -3728,8 +3728,9 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
-/obj/structure/disposalpipe/junction{
-	dir = 1
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/open,
 /area/hallway/crew_area)
@@ -4061,8 +4062,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/disposalpipe/sortjunction/flipped{
-	dir = 8;
+/obj/structure/disposalpipe/sortjunction{
+	dir = 4;
 	name = "XO Office";
 	sortType = "XO Office"
 	},
@@ -5047,6 +5048,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "lT" = (
@@ -5640,8 +5642,8 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/structure/disposalpipe/junction{
-	dir = 8
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
@@ -8832,11 +8834,6 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
-/obj/structure/disposalpipe/sortjunction/flipped{
-	dir = 2;
-	name = "Journalist";
-	sortType = "Journalist"
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
@@ -8845,6 +8842,11 @@
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
+	},
+/obj/structure/disposalpipe/sortjunction{
+	dir = 1;
+	name = "Journalist";
+	sortType = "Journalist"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/starboard)
@@ -8959,9 +8961,8 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/structure/disposalpipe/junction{
-	dir = 2;
-	icon_state = "pipe-j2"
+/obj/structure/disposalpipe/junction/yjunction{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
@@ -9509,7 +9510,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "wM" = (
-/obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -9644,10 +9644,6 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
@@ -9659,6 +9655,10 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "1-4"
+	},
+/obj/structure/disposalpipe/junction{
+	dir = 2;
+	icon_state = "pipe-j2"
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
@@ -10736,7 +10736,8 @@
 	icon_state = "4-8"
 	},
 /obj/structure/disposalpipe/junction{
-	dir = 4
+	dir = 8;
+	icon_state = "pipe-j2"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
@@ -12556,12 +12557,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/disposalpipe/junction{
-	dir = 8;
-	icon_state = "pipe-j2"
-	},
 /obj/random/junk,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/disposalpipe/junction{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/maintenance/bridge)
 "EZ" = (
@@ -12808,11 +12808,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
+	},
+/obj/structure/disposalpipe/junction{
+	dir = 4;
+	icon_state = "pipe-j2"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/crew_area)
@@ -13393,7 +13394,6 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -14349,10 +14349,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 1
 	},
-/obj/structure/disposalpipe/junction{
-	dir = 1;
-	icon_state = "pipe-j2"
-	},
+/obj/structure/disposalpipe/junction,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/starboard)
 "Jq" = (
@@ -14363,7 +14360,8 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/junction{
-	dir = 1
+	dir = 2;
+	icon_state = "pipe-j2"
 	},
 /turf/simulated/floor/lino/grey,
 /area/security/forensics_office{
@@ -15669,9 +15667,8 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "Mx" = (
-/obj/structure/lattice,
 /obj/structure/disposalpipe/segment,
-/turf/simulated/open,
+/turf/simulated/floor/tiled,
 /area/hallway/crew_area)
 "My" = (
 /turf/simulated/open,
@@ -18957,9 +18954,6 @@
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "Uy" = (
-/obj/structure/disposalpipe/junction{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -18968,6 +18962,10 @@
 	},
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
@@ -35217,11 +35215,11 @@ YA
 xf
 lR
 gv
-pm
-pm
-pm
-pm
-pm
+Mx
+Mx
+Mx
+Mx
+Mx
 FB
 Gz
 Hz
@@ -36025,8 +36023,8 @@ ji
 ya
 Uy
 HD
-Mx
-Mx
+tf
+tf
 iw
 lL
 eF
