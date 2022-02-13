@@ -2448,7 +2448,7 @@
 /area/engineering/atmos/propulsion/starboard)
 "cne" = (
 /obj/machinery/sparker{
-	id = "portpropulsionignite";
+	id = "port_prop_igni";
 	pixel_x = 22
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -3815,7 +3815,7 @@
 /area/turret_protected/ai)
 "dCC" = (
 /obj/machinery/sparker{
-	id = "starboardpropulsionignite";
+	id = "starboard_prop_igni";
 	pixel_x = -16
 	},
 /turf/simulated/floor/reinforced,
@@ -4901,7 +4901,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
 "eBj" = (
-/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos,
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+	frequency = 1442;
+	id_tag = "port_prop_out"
+	},
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/propulsion)
 "eBt" = (
@@ -4959,7 +4962,11 @@
 /area/quartermaster/loading)
 "eDE" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black,
-/obj/machinery/air_sensor,
+/obj/machinery/air_sensor{
+	frequency = 1442;
+	id_tag = "starboard_prop_sensor";
+	output = 31
+	},
 /turf/simulated/floor/reinforced,
 /area/engineering/atmos/propulsion/starboard)
 "eDV" = (
@@ -5359,6 +5366,19 @@
 /obj/machinery/door/airlock/maintenance,
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/port/deck1)
+"eTJ" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/purple,
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos/propulsion/starboard)
 "eTW" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -6082,7 +6102,7 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/phoron,
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
 "fwA" = (
@@ -8331,7 +8351,10 @@
 /area/rnd/xenoarch_atrium)
 "hqH" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
-	dir = 4
+	dir = 4;
+	frequency = 1442;
+	id = "starboard_prop_in";
+	tag = null
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/atmos/propulsion/starboard)
@@ -9106,7 +9129,7 @@
 	dir = 4;
 	layer = 2.8
 	},
-/obj/machinery/portable_atmospherics/canister/phoron,
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
 "ieu" = (
@@ -9834,16 +9857,18 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
 "iNX" = (
-/obj/structure/table/steel,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/random/tech_supply,
-/obj/random/tech_supply,
-/obj/random/tech_supply,
+/obj/machinery/computer/general_air_control/reaction_chamber{
+	igniter_id = "port_prop_igni";
+	input_tag = "port_prop_in";
+	output_tag = "port_prop_out";
+	sensors = list("port_prop_sensor" = "Port Reaction Chamber")
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
 "iOn" = (
@@ -12679,7 +12704,11 @@
 /area/engineering/gravity_gen)
 "lBi" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black,
-/obj/machinery/air_sensor,
+/obj/machinery/air_sensor{
+	frequency = 1442;
+	id_tag = "port_prop_sensor";
+	output = 31
+	},
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/propulsion)
 "lBp" = (
@@ -12765,14 +12794,19 @@
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
 "lFS" = (
-/obj/structure/table/steel,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/random/tech_supply,
+/obj/machinery/computer/general_air_control/reaction_chamber{
+	dir = 8;
+	igniter_id = "starboard_prop_igni";
+	input_tag = "starboard_prop_in";
+	output_tag = "starboard_prop_out";
+	sensors = list("starboard_prop_sensor" = "Starboard Reaction Chamber")
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
 "lGb" = (
@@ -12943,12 +12977,6 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -13740,10 +13768,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
-	},
-/obj/machinery/button/ignition{
-	id = "starboardpropulsionignite";
-	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
@@ -18799,16 +18823,12 @@
 /area/maintenance/substation/hangar)
 "rhI" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
-	dir = 8
+	dir = 8;
+	frequency = 1442;
+	id = "port_prop_in";
+	tag = "port_prop_in"
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/engineering/atmos/propulsion)
-"rhY" = (
-/obj/machinery/button/ignition{
-	id = "portpropulsionignite";
-	pixel_x = 32
-	},
-/turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
 "riF" = (
 /obj/structure/window/reinforced{
@@ -22901,7 +22921,10 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "uZU" = (
-/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos,
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+	frequency = 1442;
+	id_tag = "starboard_prop_out"
+	},
 /turf/simulated/floor/reinforced,
 /area/engineering/atmos/propulsion/starboard)
 "vai" = (
@@ -24456,17 +24479,8 @@
 /turf/simulated/wall,
 /area/hangar/intrepid)
 "wuW" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
 /obj/machinery/meter,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/purple{
 	dir = 4
 	},
@@ -43419,7 +43433,7 @@ mqI
 lrd
 awJ
 azl
-gFE
+eTJ
 gFE
 boB
 rNz
@@ -51501,7 +51515,7 @@ uVL
 xtY
 tkS
 fCd
-rhY
+hRF
 uVL
 cxA
 cxA
