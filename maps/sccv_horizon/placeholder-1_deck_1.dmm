@@ -11544,10 +11544,6 @@
 /area/hallway/primary/aft)
 "kzv" = (
 /obj/structure/bed/stool/chair/office/dark,
-/obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
-	},
 /obj/effect/landmark/start{
 	name = "Janitor"
 	},
@@ -11556,6 +11552,9 @@
 	name = "Custodial Garage";
 	pixel_x = -32;
 	req_access = list(26)
+	},
+/obj/machinery/alarm{
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -20934,6 +20933,10 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/computer/shuttle_control/lift{
+	pixel_y = 10;
+	shuttle_tag = "Robotics Lift"
+	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "tiV" = (
