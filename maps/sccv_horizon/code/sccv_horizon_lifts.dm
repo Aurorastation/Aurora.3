@@ -75,27 +75,27 @@
 
 //Cargo Lift
 /datum/shuttle/autodock/ferry/lift/scc_ship/cargo
-	name = "Cargo Lift"
+	name = "Operations Lift"
 	location = 1
 	shuttle_area = /area/turbolift/scc_ship/cargo_lift
 	waypoint_station = "nav_cargo_lift_bottom"
 	waypoint_offsite = "nav_cargo_lift_top"
 
 /obj/effect/shuttle_landmark/lift/cargo_top
-	name = "Cargo Top"
+	name = "Operations Top"
 	landmark_tag = "nav_cargo_lift_top"
-	base_area = /area/quartermaster/storage
+	base_area = /area/operations/storage
 	base_turf = /turf/simulated/open
 
 /obj/effect/shuttle_landmark/lift/cargo_bottom
-	name = "Cargo Bottom"
+	name = "Operations Bottom"
 	landmark_tag = "nav_cargo_lift_bottom"
 	flags = SLANDMARK_FLAG_AUTOSET
-	base_area = /area/quartermaster/loading
+	base_area = /area/operations/loading
 	base_turf = /turf/simulated/floor/plating
 
 /area/turbolift/scc_ship/cargo_lift
-	name = "Cargo Lift"
+	name = "Operations Lift"
 	sound_env = STANDARD_STATION
 	ambience = AMBIENCE_HANGAR
 
