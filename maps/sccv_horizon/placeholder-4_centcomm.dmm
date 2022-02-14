@@ -6160,7 +6160,7 @@
 /area/supply/dock)
 "anj" = (
 /obj/machinery/door/airlock/centcom{
-	name = "Cargo Shuttle Cockpit";
+	name = "Operations Shuttle Cockpit";
 	req_access = list(108,109)
 	},
 /turf/simulated/floor/tiled/dark,

@@ -193,6 +193,11 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
+/obj/machinery/power/sensor{
+	long_range = 1;
+	name = "Powernet Sensor - Shields Subgrid";
+	name_tag = "Shields Subgrid"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/shields)
 "aw" = (
@@ -11154,11 +11159,6 @@
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Shield Room";
 	dir = 8
-	},
-/obj/machinery/power/sensor{
-	long_range = 1;
-	name = "Powernet Sensor - Shields Subgrid";
-	name_tag = "Shields Subgrid"
 	},
 /turf/simulated/floor/bluegrid,
 /area/storage/shields)

@@ -125,8 +125,8 @@
 /area/hangar/intrepid/interstitial
 	name = "Intrepid Hangar Access"
 
-/area/hangar/cargo
-	name = "Cargo Hangar"
+/area/hangar/operations
+	name = "Operations Hangar"
 
 /area/hangar/auxiliary
 	name = "Auxiliary Hangar"
@@ -153,9 +153,35 @@
 /area/operations/storage
 	name = "Operations Equipment Storage"
 	icon_state = "dark160"
+	sound_env = LARGE_ENCLOSED
 
 /area/operations/lower/machinist
 	name = "Machinist Workshop"
+
+/area/operations/lobby
+	name = "Operations Lobby"
+
+/area/operations/loading
+	name = "Operations Bay"
+	icon_state = "quartloading"
+
+/area/operations/break_room
+	name = "Operations Break Room"
+	icon_state = "blue"
+
+/area/operations/office
+	name = "Operations Office"
+	icon_state = "quartoffice"
+	sound_env = MEDIUM_SOFTFLOOR
+
+/area/operations/mail_room
+	name = "Operations Mail Room"
+	icon_state = "red"
+
+/area/operations/qm
+	name = "Operations Manager's Office"
+	icon_state = "quart"
+	sound_env = SMALL_SOFTFLOOR
 
 //Wings
 
@@ -242,6 +268,18 @@
 
 /area/crew_quarters/sleep/cryo/living_quarters_lift
 	name = "Living Quarters Lift"
+
+// Maintenance
+
+/area/maintenance/operations
+	name = "Operations Maintenance"
+	icon_state = "maint_cargo"
+
+// Infrastructure
+
+/area/storage/shields
+	name = "Ship Shield Control"
+	icon_state = "eva"
 
 //shuttles
 
