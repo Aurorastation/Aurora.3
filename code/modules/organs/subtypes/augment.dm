@@ -572,7 +572,6 @@
 
 /obj/item/organ/internal/augment/enhanced_vision/Initialize()
 	. = ..()
-	set_light(3, 2, LIGHT_COLOR_TUNGSTEN, uv = 0, angle = LIGHT_WIDE)
 
 /obj/item/organ/internal/augment/enhanced_vision/attack_self(var/mob/user)
 	. = ..()

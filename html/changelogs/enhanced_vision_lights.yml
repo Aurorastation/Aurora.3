@@ -1,0 +1,6 @@
+author: Vrow
+
+delete-after: True
+
+changes:
+  - bugfix: "Vision Enhanced Retinas no longer has lights like the sightlights."
