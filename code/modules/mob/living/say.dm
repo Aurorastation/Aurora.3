@@ -156,7 +156,7 @@ proc/get_radio_key_from_channel(var/channel)
 			return FONT_SIZE_LARGE
 	return null
 
-/mob/living/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
+/mob/living/say(var/message, var/datum/language/speaking = null, var/verb, var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
 	if(stat)
 		if(stat == DEAD)
 			return say_dead(message)
@@ -209,8 +209,9 @@ proc/get_radio_key_from_channel(var/channel)
 			return
 		speaking.broadcast(src,trim(message))
 		return 1
-
-	verb = say_quote(message, speaking, is_singing, whisper)
+	
+	if(!verb)
+		verb = say_quote(message, speaking, is_singing, whisper)
 
 	if(is_muzzled())
 		to_chat(src, "<span class='danger'>You're muzzled and cannot speak!</span>")

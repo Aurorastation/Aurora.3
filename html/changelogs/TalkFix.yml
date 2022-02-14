@@ -5,3 +5,4 @@ delete-after: True
 changes:
   - bugfix: "Using the whisper verb with a language should now show the message properly."
   - bugfix: "Radios now properly show what is spoken into rather than always picking the item on the left ear slot."
+  - bugfix: "Language specific whisper verbs will now be used again."

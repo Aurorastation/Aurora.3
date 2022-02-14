@@ -14,14 +14,21 @@
 	if(client.handle_spam_prevention(message, MUTE_IC))
 		return
 
-	say(message, whisper = TRUE)
+	whisper(message)
 
 /mob/living/proc/whisper(var/message, var/datum/language/speaking)
 	if(is_muzzled())
 		to_chat(src, SPAN_DANGER("You're muzzled and cannot speak!"))
 		return
 
+	var/had_speaking = !!speaking
 	speaking = speaking ? speaking : parse_language(message)
+
+	if(!had_speaking)
+		if(speaking)
+			message = copytext(message,2+length(speaking.key))
+		else
+			speaking = get_default_language()
 
 	var/message_range = 1
 	var/eavesdropping_range = 2
@@ -35,8 +42,9 @@
 			not_heard = "[whisper_text] something"
 		else
 			var/adverb = pick("quietly", "softly")
-			whisper_text = "[speaking.speech_verb] [adverb]"
-			not_heard = "[speaking.speech_verb] something [adverb]"
+			var/speak_text = pick(speaking.speech_verb)
+			whisper_text = "[speak_text] [adverb]"
+			not_heard = "[speak_text] something [adverb]"
 
 	var/list/listening = list(src)
 
