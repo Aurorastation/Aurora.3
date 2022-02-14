@@ -10346,7 +10346,9 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "jpT" = (
-/obj/machinery/mineral/stacking_machine,
+/obj/machinery/mineral/stacking_machine{
+	id = "stacking_w"
+	},
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
@@ -11286,6 +11288,7 @@
 	id = "mining_1"
 	},
 /obj/machinery/mineral/processing_unit_console{
+	id = "processing_s";
 	layer = 3.3;
 	pixel_y = 28
 	},
@@ -15672,7 +15675,8 @@
 "ohS" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/mineral/processing_unit{
-	dir = 8
+	dir = 8;
+	id = "processing_n"
 	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
@@ -15815,6 +15819,7 @@
 	id = "mining_2"
 	},
 /obj/machinery/mineral/processing_unit_console{
+	id = "processing_n";
 	pixel_y = 28
 	},
 /obj/effect/floor_decal/corner/brown/full{
@@ -19531,6 +19536,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
+"rRb" = (
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/mineral/processing_unit{
+	dir = 8;
+	id = "processing_s"
+	},
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/refinery)
 "rRi" = (
 /obj/structure/plasticflaps/airtight,
 /obj/structure/cable/green{
@@ -21892,6 +21905,7 @@
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mineral/stacking_unit_console{
+	id = "stacking_e";
 	pixel_x = 28;
 	pixel_y = -3
 	},
@@ -24765,6 +24779,13 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
+"wPz" = (
+/obj/machinery/mineral/stacking_machine{
+	id = "stacking_e"
+	},
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/refinery)
 "wPD" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -26576,6 +26597,7 @@
 /area/operations/lower/machinist)
 "yiT" = (
 /obj/machinery/mineral/stacking_unit_console{
+	id = "stacking_w";
 	pixel_y = -3
 	},
 /turf/simulated/wall,
@@ -41041,7 +41063,7 @@ uVX
 vul
 oDv
 avx
-jpT
+wPz
 hEh
 ucs
 cpf
@@ -41646,7 +41668,7 @@ lEQ
 nnw
 vul
 ohS
-ohS
+rRb
 wkD
 frg
 obc
