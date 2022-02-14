@@ -1515,7 +1515,7 @@
 /area/hallway/engineering)
 "aSB" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(31)
+	req_access = list(12)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -1794,7 +1794,9 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(12)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard)
 "aYf" = (
@@ -2351,7 +2353,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(12)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/port/far)
 "bpY" = (
@@ -6089,7 +6093,9 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "dTj" = (
-/obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(12)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/port)
 "dUw" = (
@@ -6498,6 +6504,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
+"ekS" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(12)
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/starboard/far)
 "elh" = (
 /obj/structure/stairs/north,
 /turf/simulated/floor/tiled/ramp,
@@ -7526,7 +7539,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload)
 "eUX" = (
-/obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(12)
+	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -9978,7 +9993,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(12)
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
 "gsz" = (
@@ -11445,6 +11462,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
+"hnN" = (
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(12)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/wing/port/far)
 "hnP" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -19118,7 +19141,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(12)
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
 "mjl" = (
@@ -19955,7 +19980,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(12)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/port/far)
 "mMz" = (
@@ -21624,7 +21651,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(66)
+	req_access = list(12)
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
@@ -22669,7 +22696,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(12)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/port)
 "oyq" = (
@@ -25689,7 +25718,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(12)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/port)
 "qsj" = (
@@ -33813,7 +33844,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(12)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/port/far)
 "vpj" = (
@@ -36804,7 +36837,9 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(12)
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
 "wTb" = (
@@ -44662,7 +44697,7 @@ tGP
 dEz
 dEz
 dEz
-qxK
+ekS
 dEz
 dEz
 kDC
@@ -45459,13 +45494,13 @@ pcG
 vcH
 oyP
 qNd
-qxK
+ekS
 pYU
 uOq
 qNd
 uOq
 cKn
-qxK
+ekS
 dyg
 uOq
 dEz
@@ -45660,7 +45695,7 @@ kHx
 vcH
 vcH
 dEz
-qxK
+ekS
 dEz
 dEz
 dEz
@@ -46264,7 +46299,7 @@ oIL
 fcF
 fsf
 fsf
-qxK
+ekS
 uOq
 uOq
 gwZ
@@ -46670,7 +46705,7 @@ fsf
 qdY
 dEz
 dEz
-qxK
+ekS
 dEz
 dEz
 dEz
@@ -47072,7 +47107,7 @@ fsf
 wnA
 fsf
 fsf
-qxK
+ekS
 pYU
 uOq
 dRJ
@@ -71329,7 +71364,7 @@ eGZ
 iwo
 bKu
 pLX
-qOt
+hnN
 lBd
 nUP
 ueH
@@ -71730,7 +71765,7 @@ lBd
 lBd
 sEu
 vqk
-qOt
+hnN
 lBd
 pbM
 fuu
@@ -71935,7 +71970,7 @@ fuu
 fuu
 kbL
 wNQ
-qOt
+hnN
 lBd
 fKG
 svf
@@ -73952,7 +73987,7 @@ dXB
 dXB
 dXB
 fuu
-qOt
+hnN
 fuu
 fuu
 fuu
