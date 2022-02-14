@@ -21111,17 +21111,6 @@
 	},
 /turf/simulated/floor/reinforced/nitrogen,
 /area/engineering/atmos/air)
-"trP" = (
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1380;
-	master_tag = "intrepid_shuttle_cargo";
-	name = "interior access button";
-	pixel_x = 10;
-	pixel_y = -10
-	},
-/turf/simulated/wall/shuttle/scc/cardinal,
-/area/shuttle/intrepid)
 "trT" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -24320,6 +24309,14 @@
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 8
+	},
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1380;
+	master_tag = "intrepid_shuttle_cargo";
+	name = "interior access button";
+	pixel_x = -24;
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/intrepid)
@@ -46526,7 +46523,7 @@ aRG
 rmT
 rmT
 pTp
-trP
+rmT
 mwR
 dVS
 elI
