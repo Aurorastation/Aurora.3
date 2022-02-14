@@ -1354,7 +1354,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/suit/storage/toggle/labcoat/fluff/mekesatis_labcoat //Biochemist Holocoat - Neith Mekesatis - vrow
 	name = "biochemist holocoat"
-	desc = "An extremely cared for and high quality labcoat that protects against minor chemical spills. The material feels like it could shimmer. There is a pharmaceutical logo on the front."
+	desc = "An extremely cared for and high quality labcoat that protects against minor chemical spills. The material feels like it could shimmer. There is a pharmaceutical logo displayed on the front."
 	icon = 'icons/obj/custom_items/mekesatis_holocoat.dmi'
 	icon_override = 'icons/obj/custom_items/mekesatis_holocoat.dmi'
 	icon_state = "mekesatis_labcoat"
@@ -1375,14 +1375,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 		to_chat(user, SPAN_NOTICE("On the inside of the coat there is a sentence in Tradeband printed in [changed ? "an elegant blue" : "a stylish red"] font."))
 		return
 
-	if(!changed)
+	else if(!changed)
 		to_chat(user, SPAN_NOTICE("On the inside of the coat, the following words are printed in a stylish red font:<br><span style='font-family: Fixedsys; color: red'>Exclusive Time Limited Holocoat Deal from July 30, 2459. \
 		Now with graced with an animated Eridani Corporate Federation logo. For the Prosperity of all Eridanians - <i>Delta HoloTextiles. Sector Alpha's best wears.</i></span>"))
 		return
 
 	else
-		to_chat(user, SPAN_NOTICE("On the inside of the coat, the following words are printed in an elegant blue font:<br><small><i><font face='Courier New'>Every cloud has a silver lining, \
-		and you should be grateful for yours. Congratulations on your graduation.</font> - <font face='Times New Roman'>Taiwo O. M.</font></i></small>"))
+		to_chat(user, SPAN_NOTICE("On the inside of the coat, the following words are printed in an elegant blue font:<br><i><font face='Courier New'>Every cloud has a silver lining, \
+		and you should be grateful for yours. Congratulations on your graduation.</font> - <font face='Times New Roman'>Taiwo O. M.</font></i>"))
 		return
 
 /obj/item/clothing/suit/storage/toggle/labcoat/fluff/mekesatis_labcoat/toggle_open()
