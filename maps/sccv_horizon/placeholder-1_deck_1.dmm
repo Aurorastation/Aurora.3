@@ -1787,8 +1787,7 @@
 "bEJ" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -16259,8 +16258,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/table/steel,
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /obj/machinery/cell_charger,
 /obj/item/device/multitool,
