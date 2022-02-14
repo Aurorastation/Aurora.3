@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "PDAs should no longer show up as 'unknown' on roundstart."
