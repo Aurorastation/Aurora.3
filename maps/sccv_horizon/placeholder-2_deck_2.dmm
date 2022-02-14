@@ -14506,6 +14506,7 @@
 	name = "Server Room Control";
 	pixel_x = 24;
 	pixel_y = -24;
+	req_access = list(47);
 	specialfunctions = 2
 	},
 /obj/structure/cable/green{
