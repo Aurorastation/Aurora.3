@@ -570,9 +570,6 @@
 	cooldown = 30
 	activable = TRUE
 
-/obj/item/organ/internal/augment/enhanced_vision/Initialize()
-	. = ..()
-
 /obj/item/organ/internal/augment/enhanced_vision/attack_self(var/mob/user)
 	. = ..()
 
