@@ -1,6 +1,0 @@
-author: Vrow
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed Icelance Icon disappearing when it has 2/3 shots remaining."
