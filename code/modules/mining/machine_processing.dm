@@ -1,3 +1,6 @@
+/obj/machinery/mineral
+	var/id //used for linking machines to consoles
+
 /**********************Mineral processing unit console**************************/
 
 /obj/machinery/mineral/processing_unit_console
@@ -45,7 +48,10 @@
 		var/area/A = get_area(src)
 		var/best_distance = INFINITY
 		for(var/obj/machinery/mineral/processing_unit/checked_machine in SSmachinery.all_machines)
-			if(!checked_machine.console && A == get_area(checked_machine) && get_dist_euclidian(checked_machine, src) < best_distance)
+			if(id)
+				if(checked_machine.id == id)
+					machine = checked_machine
+			else if(!checked_machine.console && A == get_area(checked_machine) && get_dist_euclidian(checked_machine, src) < best_distance)
 				machine = checked_machine
 				best_distance = get_dist_euclidian(checked_machine, src)
 		if(machine)

@@ -677,8 +677,7 @@
 "asO" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /turf/simulated/floor/grass/alt,
 /area/hydroponics/garden)
@@ -1516,7 +1515,7 @@
 /area/hallway/engineering)
 "aSB" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(31)
+	req_access = list(12)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -1795,7 +1794,9 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(12)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard)
 "aYf" = (
@@ -2352,7 +2353,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(12)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/port/far)
 "bpY" = (
@@ -2657,8 +2660,7 @@
 	dir = 8
 	},
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/break_room)
@@ -3156,8 +3158,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/wing_starboard)
@@ -3386,8 +3387,7 @@
 /area/engineering/atmos/storage)
 "bYY" = (
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
@@ -6093,7 +6093,9 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "dTj" = (
-/obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(12)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/port)
 "dUw" = (
@@ -6485,8 +6487,7 @@
 	dir = 5
 	},
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -6503,6 +6504,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
+"ekS" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(12)
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/starboard/far)
 "elh" = (
 /obj/structure/stairs/north,
 /turf/simulated/floor/tiled/ramp,
@@ -7097,8 +7105,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/tank/oxygen,
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /obj/item/device/radio,
 /obj/item/device/taperecorder,
@@ -7178,8 +7185,7 @@
 	dir = 4
 	},
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/wing_port)
@@ -7533,7 +7539,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload)
 "eUX" = (
-/obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(12)
+	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -8425,8 +8433,7 @@
 	dir = 1
 	},
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/cafeteria)
@@ -9986,7 +9993,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(12)
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
 "gsz" = (
@@ -10345,8 +10354,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
@@ -11454,6 +11462,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
+"hnN" = (
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(12)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/wing/port/far)
 "hnP" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -11928,8 +11942,7 @@
 "hBQ" = (
 /obj/structure/railing/mapped,
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
@@ -13374,8 +13387,7 @@
 /area/maintenance/wing/starboard)
 "iEd" = (
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -14743,8 +14755,7 @@
 "jrr" = (
 /obj/machinery/chemical_dispenser,
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
@@ -14915,8 +14926,7 @@
 	dir = 1
 	},
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/hallway)
@@ -15944,8 +15954,7 @@
 "kfZ" = (
 /obj/machinery/chem_heater,
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /turf/simulated/floor/lino/grey,
 /area/crew_quarters/bar)
@@ -16198,8 +16207,7 @@
 	dir = 8
 	},
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
@@ -19133,7 +19141,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(12)
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
 "mjl" = (
@@ -19184,8 +19194,7 @@
 /area/quartermaster/mail_room)
 "mlD" = (
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -19971,7 +19980,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(12)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/port/far)
 "mMz" = (
@@ -21640,7 +21651,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(66)
+	req_access = list(12)
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
@@ -22685,7 +22696,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(12)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/port)
 "oyq" = (
@@ -23947,8 +23960,7 @@
 /obj/item/paper_bin,
 /obj/item/pen,
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload)
@@ -25078,8 +25090,7 @@
 	dir = 1
 	},
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/ward)
@@ -25707,7 +25718,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(12)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/port)
 "qsj" = (
@@ -27082,8 +27095,7 @@
 	dir = 5
 	},
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
@@ -27862,8 +27874,7 @@
 "rDH" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
@@ -28274,8 +28285,7 @@
 /area/medical/gen_treatment)
 "rPp" = (
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/ramp{
 	dir = 8
@@ -33834,7 +33844,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(12)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/port/far)
 "vpj" = (
@@ -35964,8 +35976,7 @@
 	dir = 4
 	},
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
@@ -36826,7 +36837,9 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(12)
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
 "wTb" = (
@@ -37325,8 +37338,7 @@
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/white,
 /area/quartermaster/break_room)
@@ -44685,7 +44697,7 @@ tGP
 dEz
 dEz
 dEz
-qxK
+ekS
 dEz
 dEz
 kDC
@@ -45482,13 +45494,13 @@ pcG
 vcH
 oyP
 qNd
-qxK
+ekS
 pYU
 uOq
 qNd
 uOq
 cKn
-qxK
+ekS
 dyg
 uOq
 dEz
@@ -45683,7 +45695,7 @@ kHx
 vcH
 vcH
 dEz
-qxK
+ekS
 dEz
 dEz
 dEz
@@ -46287,7 +46299,7 @@ oIL
 fcF
 fsf
 fsf
-qxK
+ekS
 uOq
 uOq
 gwZ
@@ -46693,7 +46705,7 @@ fsf
 qdY
 dEz
 dEz
-qxK
+ekS
 dEz
 dEz
 dEz
@@ -47095,7 +47107,7 @@ fsf
 wnA
 fsf
 fsf
-qxK
+ekS
 pYU
 uOq
 dRJ
@@ -71352,7 +71364,7 @@ eGZ
 iwo
 bKu
 pLX
-qOt
+hnN
 lBd
 nUP
 ueH
@@ -71753,7 +71765,7 @@ lBd
 lBd
 sEu
 vqk
-qOt
+hnN
 lBd
 pbM
 fuu
@@ -71958,7 +71970,7 @@ fuu
 fuu
 kbL
 wNQ
-qOt
+hnN
 lBd
 fKG
 svf
@@ -73975,7 +73987,7 @@ dXB
 dXB
 dXB
 fuu
-qOt
+hnN
 fuu
 fuu
 fuu

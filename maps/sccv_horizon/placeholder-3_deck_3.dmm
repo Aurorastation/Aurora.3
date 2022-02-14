@@ -914,8 +914,7 @@
 /area/crew_quarters/cafeteria)
 "bY" = (
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/selfdestruct)
@@ -5978,8 +5977,7 @@
 /area/security/forensics_morgue)
 "nZ" = (
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /obj/structure/closet/wardrobe/mixed,
 /turf/simulated/floor/tiled/dark,
@@ -6042,8 +6040,7 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_morgue)
@@ -6347,8 +6344,7 @@
 "oP" = (
 /obj/structure/table/standard,
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /obj/item/paper_bin,
 /obj/item/pen,
@@ -8871,8 +8867,7 @@
 /area/bridge)
 "uV" = (
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -9543,8 +9538,7 @@
 	dir = 4
 	},
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /obj/structure/filingcabinet/chestdrawer,
 /turf/simulated/floor/carpet,
@@ -10755,8 +10749,7 @@
 /area/hallway/secondary/entry/emergency)
 "Ab" = (
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
@@ -12347,8 +12340,7 @@
 /area/maintenance/engineering_ladder)
 "Em" = (
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
@@ -12360,8 +12352,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/shields)
@@ -13039,8 +13030,7 @@
 	name = "Evidence Closet"
 	},
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled,
 /area/security/investigations_storage)
@@ -14028,8 +14018,7 @@
 "IG" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/closet/secure_closet/freezer/fridge,
@@ -15923,8 +15912,7 @@
 	dir = 4
 	},
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/ramp/bottom{
 	dir = 4
@@ -17288,8 +17276,7 @@
 	dir = 8
 	},
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -17922,8 +17909,7 @@
 	icon_state = "pipe-c"
 	},
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -20983,8 +20969,7 @@
 	dir = 1
 	},
 /obj/machinery/alarm{
-	pixel_y = 28;
-	target_temperature = 278
+	pixel_y = 28
 	},
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
