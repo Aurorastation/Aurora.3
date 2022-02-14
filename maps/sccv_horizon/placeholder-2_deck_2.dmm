@@ -10503,6 +10503,10 @@
 /obj/machinery/power/apc/super/critical{
 	pixel_y = -24
 	},
+/obj/machinery/power/sensor{
+	name = "Powernet Sensor - Supermatter Containment";
+	name_tag = "SM Containment"
+	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "gGv" = (
@@ -18732,19 +18736,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/chapel/main)
-"lYK" = (
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	dir = 4
-	},
-/obj/machinery/power/sensor{
-	name = "Powernet Sensor - Supermatter Output";
-	name_tag = "SM Output"
-	},
-/turf/simulated/floor/plating,
-/area/engineering/engine_room)
 "lYP" = (
 /obj/structure/window/phoronreinforced/skrell{
 	dir = 8
@@ -23868,10 +23859,6 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
-/obj/machinery/power/sensor{
-	name = "Powernet Sensor - Supermatter Containment";
-	name_tag = "SM Containment"
-	},
 /obj/structure/cable/orange{
 	icon_state = "1-4"
 	},
@@ -24566,6 +24553,10 @@
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 28
+	},
+/obj/machinery/power/sensor{
+	name = "Powernet Sensor - Supermatter Output";
+	name_tag = "SM Output"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -55392,7 +55383,7 @@ hMy
 egl
 mrx
 vsM
-lYK
+dPM
 dZY
 mrx
 ggd

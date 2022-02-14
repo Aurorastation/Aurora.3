@@ -275,6 +275,12 @@
 	name = "Operations Maintenance"
 	icon_state = "maint_cargo"
 
+// Infrastructure
+
+/area/storage/shields
+	name = "Ship Shield Control"
+	icon_state = "eva"
+
 //shuttles
 
 /area/shuttle/intrepid
