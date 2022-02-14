@@ -16,7 +16,7 @@
 
 	whisper(message)
 
-/mob/living/proc/whisper(var/message, var/datum/language/speaking)
+/mob/living/proc/whisper(var/message, var/datum/language/speaking, var/is_singing = FALSE)
 	if(is_muzzled())
 		to_chat(src, SPAN_DANGER("You're muzzled and cannot speak!"))
 		return
@@ -29,6 +29,10 @@
 			message = copytext(message,2+length(speaking.key))
 		else
 			speaking = get_default_language()
+
+	if(length(message) >= 1 && copytext(message, 1, 2) == "%")
+		if(speaking?.sing_verb)
+			is_singing = TRUE
 
 	var/message_range = 1
 	var/eavesdropping_range = 2
@@ -43,6 +47,8 @@
 		else
 			var/adverb = pick("quietly", "softly")
 			var/speak_text = pick(speaking.speech_verb)
+			if(is_singing && speaking?.sing_verb)
+				speak_text = pick(speaking.sing_verb)
 			whisper_text = "[speak_text] [adverb]"
 			not_heard = "[speak_text] something [adverb]"
 

@@ -246,7 +246,7 @@ proc/get_radio_key_from_channel(var/channel)
 
 	var/list/obj/item/used_radios = new
 	var/list/successful_radio = new // passes a list because standard vars don't work when passed
-	if(handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio, whisper))
+	if(handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio, whisper, is_singing))
 		return 1
 
 	var/list/handle_v = handle_speech_sound()
