@@ -25972,8 +25972,8 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "qzH" = (
-/obj/effect/decal/fake_object{
-	pixel_y = 25
+/obj/structure/ladder/up{
+	pixel_y = 32
 	},
 /turf/simulated/floor/reinforced,
 /area/template_noop)
