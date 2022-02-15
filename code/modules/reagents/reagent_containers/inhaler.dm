@@ -35,10 +35,7 @@
 	return
 
 /obj/item/reagent_containers/inhaler/proc/inject(var/mob/living/carbon/human/H, var/mob/user, var/proximity)
-	if (!istype(H))
-		return ..()
-
-	if(!proximity)
+	if (!istype(H) || !proximity)
 		return
 
 	if(!reagents.total_volume)
