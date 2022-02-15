@@ -26,7 +26,8 @@
 	if (!bound_overlay)
 		return
 
-	if (TURF_IS_MIMICING(loc))
+	var/turf/T = loc
+	if (TURF_IS_MIMICING(T.above))
 		if (!bound_overlay.queued)
 			SSzcopy.queued_overlays += bound_overlay
 			bound_overlay.queued = TRUE
