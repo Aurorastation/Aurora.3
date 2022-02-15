@@ -16,8 +16,6 @@
 	name = "emergency closet"
 	desc = "It's a storage unit for emergency breathmasks and o2 tanks."
 	icon_state = "emergency"
-	icon_closed = "emergency"
-	icon_opened = "emergencyopen"
 
 /obj/structure/closet/emcloset/fill()
 	switch (pickweight(list("small" = 50, "aid" = 20, "tank" = 10, "seal" = 10, "all" = 10)))
@@ -85,9 +83,7 @@
 /obj/structure/closet/firecloset
 	name = "fire-safety closet"
 	desc = "It's a storage unit for fire-fighting supplies."
-	icon_state = "firecloset"
-	icon_closed = "firecloset"
-	icon_opened = "fireclosetopen"
+	icon_state = "fire"
 
 /obj/structure/closet/firecloset/fill()
 	new /obj/item/clothing/head/hardhat/firefighter(src)
@@ -113,9 +109,8 @@
 /obj/structure/closet/toolcloset
 	name = "tool closet"
 	desc = "It's a storage unit for tools."
-	icon_state = "toolcloset"
-	icon_closed = "toolcloset"
-	icon_opened = "toolclosetopen"
+	icon_state = "eng"
+	icon_door = "eng_tool"
 
 /obj/structure/closet/toolcloset/fill()
 	if(prob(40))
@@ -158,9 +153,8 @@
 /obj/structure/closet/radiation
 	name = "radiation suit closet"
 	desc = "It's a storage unit for rad-protective suits."
-	icon_state = "radsuitcloset"
-	icon_opened = "toolclosetopen"
-	icon_closed = "radsuitcloset"
+	icon_state = "eng"
+	icon_door = "eng_rad"
 
 /obj/structure/closet/radiation/fill()
 	for(var/i = 1 to 2)
@@ -176,9 +170,7 @@
 /obj/structure/closet/bombcloset
 	name = "\improper EOD closet"
 	desc = "It's a storage unit for explosive-defusal equipment."
-	icon_state = "bombsuit"
-	icon_closed = "bombsuit"
-	icon_opened = "bombsuitopen"
+	icon_state = "bomb"
 
 /obj/structure/closet/bombcloset/fill()
 	new /obj/item/clothing/suit/bomb_suit(src)
@@ -187,12 +179,10 @@
 	new /obj/item/clothing/head/bomb_hood(src)
 	new /obj/item/wirecutters/bomb(src)
 
-/obj/structure/closet/bombclosetsecurity
+/obj/structure/closet/bombclosetsecurity // Why the hell is this different? And this is like, only used ONCE! Madness, I tell you.
 	name = "\improper EOD closet"
 	desc = "It's a storage unit for the security department's explosive-defusal equipment."
-	icon_state = "bombsuitsec"
-	icon_closed = "bombsuitsec"
-	icon_opened = "bombsuitsecopen"
+	icon_state = "bombsec"
 
 /obj/structure/closet/bombclosetsecurity/fill()
 	new /obj/item/clothing/suit/bomb_suit/security(src)
@@ -207,10 +197,8 @@
 /obj/structure/closet/hydrant //wall mounted fire closet
 	name = "fire-safety closet"
 	desc = "It's a storage unit for fire-fighting supplies."
+	icon = 'icons/obj/walllocker.dmi'
 	icon_state = "hydrant"
-	icon_closed = "hydrant"
-	icon_opened = "hydrant_open"
-	welded_overlay_state = "welded_wallcloset"
 	anchored = 1
 	density = 0
 	wall_mounted = 1
@@ -232,10 +220,8 @@
 /obj/structure/closet/medical_wall //wall mounted medical closet
 	name = "first-aid closet"
 	desc = "It's wall-mounted storage unit for first aid supplies."
+	icon = 'icons/obj/walllocker.dmi'
 	icon_state = "medical_wall"
-	icon_closed = "medical_wall"
-	icon_opened = "medical_wall_open"
-	welded_overlay_state = "welded_wallcloset"
 	anchored = 1
 	density = 0
 	wall_mounted = 1

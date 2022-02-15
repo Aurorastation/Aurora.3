@@ -11681,12 +11681,7 @@
 /area/maintenance/medbay_interstitial)
 "YU" = (
 /obj/structure/closet/secure_closet/freezer{
-	icon_broken = "fridgebroken";
-	icon_closed = "fridge";
-	icon_locked = "fridge1";
-	icon_off = "fridgeoff";
-	icon_opened = "fridgeopen";
-	icon_state = "fridge1";
+	icon_state = "fridge";
 	name = "refrigerator"
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,

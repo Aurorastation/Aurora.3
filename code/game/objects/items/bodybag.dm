@@ -50,16 +50,13 @@
 	name = "body bag"
 	desc = "A plastic bag designed for the storage and transportation of cadavers."
 	icon = 'icons/obj/bodybag.dmi'
-	icon_state = "bodybag_closed"
-	icon_closed = "bodybag_closed"
-	icon_opened = "bodybag_open"
+	icon_state = "bodybag"
 	open_sound = 'sound/items/zip.ogg'
 	close_sound = 'sound/items/zip.ogg'
 	density = 0
 	storage_capacity = 30
 	var/item_path = /obj/item/bodybag
-	var/contains_body = 0
-	var/shapely = TRUE
+	var/contains_body = FALSE
 	can_be_buckled = TRUE
 
 /obj/structure/closet/body_bag/content_info(mob/user, content_size)
@@ -146,20 +143,16 @@
 	qdel(src)
 
 /obj/structure/closet/body_bag/update_icon()
-	if(opened)
-		icon_state = icon_opened
-	else
-		if(contains_body > 0 && shapely)
-			icon_state = "bodybag_closed1"
-		else
-			icon_state = icon_closed
+	icon_state = "[initial(icon_state)][opened ? "_open" : "[contains_body ? "_occupied" : ""]"]"
+
+/obj/structure/closet/body_bag/animate_door()
+	flick("[initial(icon_state)]_anim_[opened ? "open" : "close"]", src)
 
 /obj/item/bodybag/cryobag
 	name = "stasis bag"
 	desc = "A folded, reusable bag designed to prevent additional damage to an occupant, especially useful if short on time or in \
 	a hostile enviroment."
-	icon = 'icons/obj/cryobag.dmi'
-	icon_state = "bodybag_folded"
+	icon_state = "stasis_folded"
 	origin_tech = list(TECH_BIO = 4)
 	deploy_type = /obj/structure/closet/body_bag/cryobag
 	var/stasis_power
@@ -172,11 +165,8 @@
 	name = "stasis bag"
 	desc = "A reusable plastic bag designed to prevent additional damage to an occupant, especially useful if short on time or in \
 	a hostile enviroment."
-	icon = 'icons/obj/cryobag.dmi'
-	icon_opened = "stasis_open"
-	icon_closed = "stasis_closed"
+	icon_state = "stasis"
 	item_path = /obj/item/bodybag/cryobag
-	shapely = FALSE
 	var/datum/gas_mixture/airtank
 
 	var/stasis_power = 20
@@ -208,7 +198,7 @@
 /obj/structure/closet/body_bag/cryobag/update_icon()
 	..()
 	overlays.Cut()
-	var/image/I = image(icon, "indicator[opened]")
+	var/image/I = image(icon, "indicator")
 	I.appearance_flags = RESET_COLOR
 	var/maxstasis = initial(stasis_power)
 	if(stasis_power > 0.5 * maxstasis)
@@ -260,6 +250,6 @@
 
 /obj/item/usedcryobag
 	name = "used stasis bag"
-	desc = "Pretty useless now.."
-	icon_state = "bodybag_used"
-	icon = 'icons/obj/cryobag.dmi'
+	desc = "Pretty useless now."
+	icon_state = "cryobag_used"
+	icon = 'icons/obj/bodybag.dmi'
