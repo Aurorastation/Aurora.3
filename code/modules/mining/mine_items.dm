@@ -441,7 +441,7 @@
 	anchored = TRUE
 
 /obj/item/stack/flag/red/planted/Initialize()
-	..()
+	. = ..()
 	base_state = "redflag"
 	set_light(2)
 

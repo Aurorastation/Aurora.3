@@ -7,14 +7,14 @@
 	var/label_text = ""
 
 /obj/item/sample/Initialize(var/newloc, var/atom/supplied)
-	..(newloc)
+	. = ..(newloc)
 	if(supplied)
 		copy_evidence(supplied)
 		name = "[initial(name)] ([supplied.get_swab_name()])"
 		LAZYADD(source, supplied.get_swab_name())
 
 /obj/item/sample/print/Initialize(var/newloc, var/atom/supplied)
-	..(newloc, supplied)
+	. = ..(newloc, supplied)
 	if(LAZYLEN(evidence))
 		icon_state = "fingerprint1"
 
@@ -68,12 +68,6 @@
 	else
 		name = "[initial(name)] ([label_text])"
 
-/obj/item/sample/Initialize(var/newloc, var/atom/supplied)
-	..(newloc)
-	if(supplied)
-		copy_evidence(supplied)
-		name = "[initial(name)] ([supplied.get_swab_name()])"
-		LAZYADD(source, supplied.get_swab_name())
 
 /atom/proc/get_swab_name()
   return "\the [initial(name)]"
