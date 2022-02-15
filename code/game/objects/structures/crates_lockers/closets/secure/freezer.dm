@@ -1,8 +1,16 @@
 /obj/structure/closet/secure_closet/freezer
-	icon_state = "freezer"
-	door_anim_squish = 0.22
-	door_anim_angle = 123
-	door_anim_time = 4
+
+/obj/structure/closet/secure_closet/freezer/update_icon()
+	if(broken)
+		icon_state = icon_broken
+	else
+		if(!opened)
+			if(locked)
+				icon_state = icon_locked
+			else
+				icon_state = icon_closed
+		else
+			icon_state = icon_opened
 
 /obj/structure/closet/secure_closet/freezer/kitchen
 	name = "kitchen cabinet"
@@ -19,6 +27,12 @@
 
 /obj/structure/closet/secure_closet/freezer/meat
 	name = "meat fridge"
+	icon_state = "fridge1"
+	icon_closed = "fridge"
+	icon_locked = "fridge1"
+	icon_opened = "fridgeopen"
+	icon_broken = "fridgebroken"
+	icon_off = "fridge1"
 
 /obj/structure/closet/secure_closet/freezer/meat/fill()
 	..()
@@ -41,6 +55,12 @@
 
 /obj/structure/closet/secure_closet/freezer/fridge
 	name = "refrigerator"
+	icon_state = "fridge1"
+	icon_closed = "fridge"
+	icon_locked = "fridge1"
+	icon_opened = "fridgeopen"
+	icon_broken = "fridgebroken"
+	icon_off = "fridge1"
 
 /obj/structure/closet/secure_closet/freezer/fridge/fill()
 	..()
@@ -54,7 +74,12 @@
 
 /obj/structure/closet/secure_closet/freezer/money
 	name = "freezer"
-	desc = "This contains cold hard cash."
+	icon_state = "fridge1"
+	icon_closed = "fridge"
+	icon_locked = "fridge1"
+	icon_opened = "fridgeopen"
+	icon_broken = "fridgebroken"
+	icon_off = "fridge1"
 	req_access = list(access_heads_vault)
 
 /obj/structure/closet/secure_closet/freezer/money/fill()

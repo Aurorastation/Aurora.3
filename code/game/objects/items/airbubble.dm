@@ -57,6 +57,8 @@
 	desc = "Special air bubble designed to protect people inside of it from decompressed environments. Has an integrated cooling unit to preserve a stable temperature inside. Requires a power cell to operate."
 	icon = 'icons/obj/airbubble.dmi'
 	icon_state = "airbubble"
+	icon_closed = "airbubble"
+	icon_opened = "airbubble_open"
 	open_sound = 'sound/items/zip.ogg'
 	close_sound = 'sound/items/zip.ogg'
 	var/item_path = /obj/item/airbubble
@@ -155,7 +157,7 @@
 
 	dump_contents()
 
-	update_icon()
+	icon_state = icon_opened
 	opened = 1
 	playsound(loc, open_sound, 15, 1, -3)
 	density = 0
@@ -176,7 +178,7 @@
 	if(store_mobs)
 		stored_units += store_mobs(stored_units)
 
-	update_icon()
+	icon_state = icon_closed
 	opened = 0
 
 	playsound(loc, close_sound, 25, 0, -3)
@@ -223,10 +225,10 @@
 		bag.desc += " <span class='notice'>It appears to be poorly hand folded.</span>"
 
 		if(ripped)
-			bag.icon_state = "[icon_state]_man_folded_ripped"
+			bag.icon_state = "[icon_closed]_man_folded_ripped"
 			bag.desc += " <span class='danger'>It has hole in it! Maybe you shouldn't use it!</span>"
 		else
-			bag.icon_state = "[icon_state]_man_folded"
+			bag.icon_state = "[icon_closed]_man_folded"
 		qdel(src)
 		return
 
@@ -487,13 +489,15 @@
 
 /obj/structure/closet/airbubble/update_icon()
 	cut_overlays()
-	if(ripped)
+	if(opened)
+		icon_state = icon_opened
+	else if(ripped)
 		name = "ripped air bubble"
-		icon_state = "[icon_state]_ripped"
+		icon_state = "[icon_closed]_ripped"
 	else
-		icon_state = "[initial(icon_state)][opened ? "_open" : ""]"
+		icon_state = icon_closed
 	if(zipped)
-		add_overlay("[icon_state]_restrained")
+		add_overlay("[icon_closed]_restrained")
 	add_overlay("pressure_[(use_internal_tank) ?("on") : ("off") ]")
 
 // Process transfer of air from the tank. Handle if it is ripped open.
@@ -622,5 +626,8 @@
 	name = "air bubble"
 	desc = "Special air bubble designed to protect people inside of it from decompressed environments. Has an integrated cooling unit to preserve a stable temperature inside. Requires a power cell to operate. This does not seem like a regular color scheme."
 	icon_state = "airbubble_syndie"
+	icon_closed = "airbubble_syndie"
+	icon_closed = "airbubble_syndie"
+	icon_opened = "airbubble_syndie_open"
 	item_path = /obj/item/airbubble/syndie
 	syndie = TRUE

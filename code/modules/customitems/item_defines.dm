@@ -1142,6 +1142,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "nai_gloves"
 	contained_sprite = TRUE
 
+
 /obj/item/clothing/head/fluff/djikstra_hood //Stellar Hood - Msizi Djikstra - happyfox
 	name = "stellar hood"
 	desc = "A more encompassing version of the Starveil, made from a resilient xeno-silk, intended to protect not just the eyes but also the soul of the wearer."

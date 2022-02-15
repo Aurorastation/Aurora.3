@@ -1,8 +1,16 @@
 /obj/structure/closet/cabinet
 	name = "cabinet"
 	desc = "Old will forever be in fashion."
-	icon_state = "cabinet"
+	icon_state = "cabinet_closed"
+	icon_closed = "cabinet_closed"
+	icon_opened = "cabinet_open"
 	storage_capacity = 45 //such a big closet deserves a little more capacity
+
+/obj/structure/closet/cabinet/update_icon()
+	if(!opened)
+		icon_state = icon_closed
+	else
+		icon_state = icon_opened
 
 /obj/structure/closet/cabinet/attackby(obj/item/W as obj, mob/user as mob)
 	if(opened)
@@ -25,17 +33,25 @@
 /obj/structure/closet/acloset
 	name = "strange closet"
 	desc = "It looks alien!"
-	icon_state = "decursed"
+	icon_state = "acloset"
+	icon_closed = "acloset"
+	icon_opened = "aclosetopen"
+
 
 /obj/structure/closet/gimmick
 	name = "administrative supply closet"
 	desc = "It's a storage unit for things that have no right being here."
 	icon_state = "syndicate1"
+	icon_closed = "syndicate1"
+	icon_opened = "syndicate1open"
 	anchored = 0
 
 /obj/structure/closet/gimmick/russian
 	name = "russian surplus closet"
 	desc = "It's a storage unit for Russian standard-issue surplus."
+	icon_state = "syndicate1"
+	icon_closed = "syndicate1"
+	icon_opened = "syndicate1open"
 
 /obj/structure/closet/gimmick/russian/fill()
 	new /obj/item/clothing/head/ushanka/grey(src)
@@ -47,6 +63,9 @@
 /obj/structure/closet/gimmick/tacticool
 	name = "tacticool gear closet"
 	desc = "It's a storage unit for Tacticool gear."
+	icon_state = "syndicate1"
+	icon_closed = "syndicate1"
+	icon_opened = "syndicate1open"
 
 /obj/structure/closet/gimmick/tacticool/fill()
 	new /obj/item/clothing/glasses/eyepatch(src)
@@ -69,6 +88,8 @@
 	name = "\improper Thunderdome closet"
 	desc = "Everything you need!"
 	icon_state = "syndicate"
+	icon_closed = "syndicate"
+	icon_opened = "syndicateopen"
 	anchored = 1
 
 /obj/structure/closet/thunderdome/tdred
@@ -97,6 +118,8 @@
 /obj/structure/closet/thunderdome/tdgreen
 	name = "green-team Thunderdome closet"
 	icon_state = "syndicate1"
+	icon_closed = "syndicate1"
+	icon_opened = "syndicate1open"
 
 /obj/structure/closet/thunderdome/tdgreen/fill()
 	new /obj/item/clothing/suit/armor/tdome/green(src)
@@ -119,5 +142,7 @@
 	new /obj/item/clothing/head/helmet/thunderdome(src)
 
 /obj/structure/closet/skrell
-	icon_state = "alien"
-	layer = BELOW_OBJ_LAYER
+	icon_state = "skrell"
+	icon_closed = "skrell"
+	icon_opened = "skrellopen"
+	layer = OBJ_LAYER - 0.01

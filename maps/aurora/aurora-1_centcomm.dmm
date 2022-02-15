@@ -2799,7 +2799,12 @@
 "ala" = (
 /obj/structure/closet/secure_closet{
 	anchored = 1;
-	icon_state = "cabinet";
+	icon_broken = "cabinetdetective_broken";
+	icon_closed = "cabinetdetective";
+	icon_locked = "cabinetdetective_locked";
+	icon_off = "cabinetdetective_broken";
+	icon_opened = "cabinetdetective_open";
+	icon_state = "cabinetdetective_locked";
 	name = "legate's closet";
 	req_access = list(108,111)
 	},
@@ -3980,6 +3985,12 @@
 /area/centcom/holding)
 "awE" = (
 /obj/structure/closet/secure_closet{
+	icon_broken = "secbroken";
+	icon_closed = "sec";
+	icon_locked = "sec1";
+	icon_off = "secoff";
+	icon_opened = "secopen";
+	icon_state = "sec1";
 	name = "equipment locker"
 	},
 /turf/unsimulated/floor{
@@ -8206,6 +8217,8 @@
 /area/centcom/ferry)
 "bvr" = (
 /obj/structure/closet{
+	icon_closed = "syndicate1";
+	icon_opened = "syndicate1open";
 	icon_state = "syndicate1";
 	name = "emergency response team wardrobe"
 	},
@@ -9304,8 +9317,9 @@
 	pixel_y = 6
 	},
 /obj/structure/closet{
-	icon_state = "eng";
-	icon_door = "eng_tool";
+	icon_closed = "toolcloset";
+	icon_opened = "toolclosetopen";
+	icon_state = "toolcloset"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/item/pickaxe/jackhammer,
@@ -9427,7 +9441,8 @@
 /area/centcom/legion/hangar5)
 "clq" = (
 /obj/structure/closet{
-	icon_door = "blue";
+	icon_closed = "blue";
+	icon_state = "blue";
 	name = "Spare Uniforms"
 	},
 /obj/item/clothing/under/legion,
@@ -11613,7 +11628,8 @@
 /area/centcom/ferry)
 "dIG" = (
 /obj/structure/closet{
-	icon_door = "blue";
+	icon_closed = "blue";
+	icon_state = "blue";
 	name = "megacorp clothing"
 	},
 /obj/item/clothing/under/rank/einstein_engines,
@@ -14438,6 +14454,8 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet{
+	icon_closed = "emergency";
+	icon_opened = "emergencyopen";
 	icon_state = "emergency";
 	name = "offworlder supplies"
 	},
@@ -16184,7 +16202,8 @@
 /area/shuttle/administration)
 "gtA" = (
 /obj/structure/closet{
-	icon_door = "blue";
+	icon_closed = "blue";
+	icon_state = "blue";
 	name = "misc clothing"
 	},
 /obj/item/clothing/mask/pig,
@@ -20980,6 +20999,8 @@
 	dir = 8
 	},
 /obj/structure/closet{
+	icon_closed = "emergency";
+	icon_opened = "emergencyopen";
 	icon_state = "emergency";
 	name = "offworlder supplies"
 	},
@@ -21273,6 +21294,8 @@
 /area/antag/mercenary)
 "jFk" = (
 /obj/structure/closet{
+	icon_closed = "emergency";
+	icon_opened = "emergencyopen";
 	icon_state = "emergency";
 	name = "offworlder supplies"
 	},
@@ -21295,6 +21318,8 @@
 /area/antag/mercenary)
 "jFq" = (
 /obj/structure/closet{
+	icon_closed = "syndicate1";
+	icon_opened = "syndicate1open";
 	icon_state = "syndicate1";
 	name = "emergency response team wardrobe"
 	},
@@ -26697,7 +26722,8 @@
 	dir = 1
 	},
 /obj/structure/closet{
-	icon_door = "blue";
+	icon_closed = "blue";
+	icon_state = "blue";
 	name = "\improper FIB tactical gear"
 	},
 /obj/item/clothing/gloves/swat/tactical,
@@ -28024,6 +28050,8 @@
 /area/shuttle/mercenary)
 "nRM" = (
 /obj/structure/closet{
+	icon_closed = "syndicate1";
+	icon_opened = "syndicate1open";
 	icon_state = "syndicate1";
 	name = "sol clothing"
 	},
@@ -28982,7 +29010,8 @@
 /area/centcom/legion)
 "ozg" = (
 /obj/structure/closet{
-	icon_door = "white";
+	icon_closed = "white";
+	icon_state = "white";
 	name = "Fresh Scrubs"
 	},
 /obj/item/clothing/under/rank/medical/blue,
@@ -29699,6 +29728,8 @@
 /area/shuttle/administration)
 "oZm" = (
 /obj/structure/closet{
+	icon_closed = "syndicate1";
+	icon_opened = "syndicate1open";
 	icon_state = "syndicate1";
 	name = "emergency response team wardrobe"
 	},
@@ -30117,6 +30148,8 @@
 /area/shuttle/administration)
 "prI" = (
 /obj/structure/closet{
+	icon_closed = "syndicate1";
+	icon_opened = "syndicate1open";
 	icon_state = "syndicate1";
 	name = "emergency response team wardrobe"
 	},
@@ -30671,7 +30704,8 @@
 	icon_state = "tube1"
 	},
 /obj/structure/closet{
-	icon_door = "blue";
+	icon_closed = "blue";
+	icon_state = "blue";
 	name = "spare modules"
 	},
 /turf/unsimulated/floor{
@@ -30760,6 +30794,8 @@
 /area/shuttle/merchant)
 "pIu" = (
 /obj/structure/closet{
+	icon_closed = "syndicate1";
+	icon_opened = "syndicate1open";
 	icon_state = "syndicate1";
 	name = "emergency response team wardrobe"
 	},
@@ -30855,6 +30891,8 @@
 /area/template_noop)
 "pKR" = (
 /obj/structure/closet{
+	icon_closed = "syndicate1";
+	icon_opened = "syndicate1open";
 	icon_state = "syndicate1";
 	name = "emergency response team wardrobe"
 	},
@@ -39218,7 +39256,8 @@
 /area/centcom/legion/hangar5)
 "vKR" = (
 /obj/structure/closet{
-	icon_door = "blue";
+	icon_closed = "blue";
+	icon_state = "blue";
 	name = "Spare Uniforms"
 	},
 /obj/item/clothing/under/legion,

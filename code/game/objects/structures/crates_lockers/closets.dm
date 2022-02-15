@@ -3,24 +3,21 @@
 	desc = "It's a basic storage unit."
 	icon = 'icons/obj/closet.dmi'
 	icon_state = "closed"
-	density = TRUE
-	var/icon_door = null
-	var/icon_door_override = FALSE //override to have open overlay use icon different to its base's
-	var/icon_welded = "welded"
-
-	var/secure = FALSE //secure locker or not, also used if overriding a non-secure locker with a secure door overlay to add fancy lights
-	var/opened = FALSE
-	var/welded = FALSE
-	var/locked = FALSE
-	var/broken = FALSE
-
+	density = 1
+	w_class = ITEMSIZE_HUGE
+	layer = OBJ_LAYER - 0.01
 	build_amt = 2
-
+	var/icon_closed = "closed"
+	var/icon_opened = "open"
+	var/welded_overlay_state = "welded"
+	var/opened = 0
+	var/welded = 0
 	var/wall_mounted = 0 //never solid (You can always pass over it)
 	var/health = 100
 	var/breakout = 0 //if someone is currently breaking out. mutex
 	var/storage_capacity = 40 //Tying this to mob sizes was dumb
-	//This is so that someone can't pack hundreds of items in a locker/crate then open it in a populated area to crash clients.
+	//This is so that someone can't pack hundreds of items in a locker/crate
+							  //then open it in a populated area to crash clients.
 	var/open_sound = 'sound/effects/closet_open.ogg'
 	var/close_sound = 'sound/effects/closet_close.ogg'
 
@@ -32,17 +29,10 @@
 	var/const/default_mob_size = 15
 	var/obj/item/closet_teleporter/linked_teleporter
 
-	var/obj/effect/overlay/closet_door/door_obj
-	var/is_animating_door = FALSE
-	var/door_anim_squish = 0.12 // Multiplier on proc/get_door_transform. See fridge as example. I hope you like trigonometry.
-	var/door_anim_angle = 136
-	var/door_hinge_x = -6.5
-	var/door_anim_time = 2.5 // set to 0 to make the door not animate at all
-
 	slowdown = 5
 
 /obj/structure/closet/LateInitialize()
-	if(opened)	// if closed, any item at the crate's loc is put in the contents
+	if (opened)	// if closed, any item at the crate's loc is put in the contents
 		return
 	var/obj/I
 	for(I in loc)
@@ -60,7 +50,6 @@
 
 /obj/structure/closet/Initialize(mapload)
 	..()
-	update_icon()
 	fill()
 	return mapload ? INITIALIZE_HINT_LATELOAD : INITIALIZE_HINT_NORMAL
 
@@ -138,10 +127,10 @@
 	if(!can_open())
 		return 0
 
-	opened = TRUE
 	dump_contents()
-	animate_door(FALSE)
-	update_icon()
+
+	icon_state = icon_opened
+	opened = TRUE
 	playsound(loc, open_sound, 25, 0, -3)
 	density = FALSE
 	return 1
@@ -160,10 +149,9 @@
 		stored_units += store_items(stored_units)
 	if(store_mobs)
 		stored_units += store_mobs(stored_units)
-	opened = FALSE
-	animate_door(TRUE)
-	update_icon()
 
+	icon_state = icon_closed
+	opened = FALSE
 	if(linked_teleporter)
 		if(linked_teleporter.last_use + 600 > world.time)
 			return
@@ -219,6 +207,7 @@
 	if(!(opened ? close() : open()))
 		to_chat(user, "<span class='notice'>It won't budge!</span>")
 		return
+	update_icon()
 	return 1
 
 /obj/structure/closet/ex_act(severity)
@@ -421,68 +410,14 @@
 	else
 		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
 
-/obj/structure/closet/update_icon()
+/obj/structure/closet/update_icon()//Putting the welded stuff in update_icon() so it's easy to overwrite for special cases (Fridges, cabinets, and whatnot)
 	cut_overlays()
 	if(!opened)
-		layer = OBJ_LAYER
-		if(!is_animating_door)
-			if(icon_door)
-				add_overlay("[icon_door]_door")
-			else
-				add_overlay("[icon_state]_door")
-			if(secure && !broken)
-				if(locked)
-					add_overlay("locked")
-				else
-					add_overlay("unlocked")
-			if(welded)
-				add_overlay(icon_welded)
-
+		icon_state = icon_closed
+		if(welded)
+			add_overlay(welded_overlay_state)
 	else
-		layer = BELOW_OBJ_LAYER
-		if(!is_animating_door)
-			if(icon_door_override)
-				add_overlay("[icon_door]_open")
-			else
-				add_overlay("[icon_state]_open")
-
-/obj/structure/closet/proc/animate_door(var/closing = FALSE)
-	if(!door_anim_time)
-		return
-	if(!door_obj) door_obj = new
-	vis_contents |= door_obj
-	door_obj.icon = icon
-	door_obj.icon_state = "[icon_door || icon_state]_door"
-	is_animating_door = TRUE
-	var/num_steps = door_anim_time / world.tick_lag
-	for(var/I in 0 to num_steps)
-		var/angle = door_anim_angle * (closing ? 1 - (I/num_steps) : (I/num_steps))
-		var/matrix/M = get_door_transform(angle)
-		var/door_state = angle >= 90 ? "[icon_door_override ? icon_door : icon_state]_back" : "[icon_door || icon_state]_door"
-		var/door_layer = angle >= 90 ? FLOAT_LAYER : ABOVE_MOB_LAYER
-
-		if(I == 0)
-			door_obj.transform = M
-			door_obj.icon_state = door_state
-			door_obj.layer = door_layer
-		else if(I == 1)
-			animate(door_obj, transform = M, icon_state = door_state, layer = door_layer, time = world.tick_lag, flags = ANIMATION_END_NOW)
-		else
-			animate(transform = M, icon_state = door_state, layer = door_layer, time = world.tick_lag)
-	addtimer(CALLBACK(src,.proc/end_door_animation),door_anim_time,TIMER_UNIQUE|TIMER_OVERRIDE)
-
-/obj/structure/closet/proc/end_door_animation()
-	is_animating_door = FALSE
-	vis_contents -= door_obj
-	update_icon()
-	compile_overlays(src)
-
-/obj/structure/closet/proc/get_door_transform(angle)
-	var/matrix/M = matrix()
-	M.Translate(-door_hinge_x, 0)
-	M.Multiply(matrix(cos(angle), 0, 0, -sin(angle) * door_anim_squish, 1, 0))
-	M.Translate(door_hinge_x, 0)
-	return M
+		icon_state = icon_opened
 
 /obj/structure/closet/hear_talk(mob/M as mob, text, verb, datum/language/speaking)
 	for (var/atom/A in src)
@@ -568,6 +503,7 @@
 
 /obj/structure/closet/proc/break_open()
 	welded = 0
+	update_icon()
 	//Do this to prevent contents from being opened into nullspace (read: bluespace)
 	if(istype(loc, /obj/structure/bigDelivery))
 		var/obj/structure/bigDelivery/BD = loc
