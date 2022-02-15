@@ -31,6 +31,9 @@
 	. = ..()
 	update_icon()
 
+/obj/item/reagent_containers/hypospray/AltClick(var/mob/user)
+	set_APTFT()
+
 /obj/item/reagent_containers/hypospray/on_reagent_change()
 	update_icon()
 	return
