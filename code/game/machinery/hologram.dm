@@ -355,12 +355,8 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 			continue
 
 	if(has_established_connection())
-		if(connected_pad.stat & NOPOWER)
-			end_call()
+		if(!check_connected_pad())
 			return TRUE
-		if(!hacked)
-			create_holos()
-			update_holos()
 
 	use_power(power_per_hologram * LAZYLEN(active_holograms))
 
@@ -374,6 +370,15 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 			connected_pad.update_icon()
 			connected_pad = null
 			update_icon()
+	return TRUE
+
+/obj/machinery/hologram/holopad/proc/check_connected_pad()
+	if(connected_pad.stat & NOPOWER)
+		end_call()
+		return FALSE
+	if(!hacked)
+		create_holos()
+		update_holos()
 	return TRUE
 
 /obj/machinery/hologram/holopad/proc/move_hologram(mob/living/silicon/ai/user)
@@ -422,6 +427,9 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 
 /obj/machinery/hologram/holopad/long_range/has_command_auth(var/mob/user)
 	return FALSE
+
+/obj/machinery/hologram/holopad/long_range/check_connected_pad()
+	return ..() && can_connect(connected_pad)
 
 /*
  * Hologram
