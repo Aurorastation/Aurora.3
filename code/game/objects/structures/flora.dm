@@ -246,7 +246,7 @@
 	icon_state = "firstbush_[rand(1, 4)]"
 
 /obj/structure/flora/ausbushes/attackby(var/obj/item/W as obj, var/mob/user as mob)
-	if(istype(W,/obj/item/material/scythe/sickle))
+	if(istype(W,/obj/item/material/scythe))
 		if(prob(50))
 			new /obj/item/stack/material/wood(get_turf(src), 2)
 		if(prob(40))
@@ -257,6 +257,10 @@
 			new pickberry(get_turf(src), 4)
 			to_chat(usr, "<span class='notice'>You find some seeds as you hack the bush away!</span>")
 		to_chat(usr, "<span class='notice'>You slice at the bush!</span>")
+		qdel(src)
+		playsound(src.loc, 'sound/effects/woodcutting.ogg', 50, 1)
+	if(istype(W,/obj/item/material/hatchet))//no items
+		to_chat(usr, SPAN_NOTICE("You chop at the bush!"))
 		qdel(src)
 		playsound(src.loc, 'sound/effects/woodcutting.ogg', 50, 1)
 

@@ -19,9 +19,9 @@
 	power_channel = LIGHT //Lights are calc'd via area so they dont need to be in the machine list
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	var/brightness_range = 8	// luminosity when on, also used in power calculation
-	var/brightness_power = 0.8
+	var/brightness_power = 0.45
 	var/night_brightness_range = 6
-	var/night_brightness_power = 0.6
+	var/night_brightness_power = 0.4
 	var/supports_nightmode = TRUE
 	var/nightmode = FALSE
 	var/brightness_color = LIGHT_COLOR_HALOGEN
@@ -47,6 +47,13 @@
 	var/bulb_is_noisy = TRUE
 
 	var/previous_stat
+	var/randomize_color = TRUE
+	var/default_color
+	var/static/list/randomized_colors = LIGHT_STANDARD_COLORS
+	var/static/list/emergency_lights = list(
+		LIGHT_MODE_RED = LIGHT_COLOR_EMERGENCY,
+		LIGHT_MODE_DELTA = LIGHT_COLOR_ORANGE
+	)
 
 /obj/machinery/light/skrell
 	base_state = "skrell"
@@ -56,7 +63,7 @@
 	bulb_is_noisy = FALSE
 	light_type = /obj/item/light/tube
 	inserted_light = /obj/item/light/tube
-	brightness_power = 1
+	brightness_power = 0.45
 	brightness_color = LIGHT_COLOR_PURPLE
 
 // the smaller bulb light fixture
@@ -66,7 +73,7 @@
 	base_state = "bulb"
 	fitting = "bulb"
 	brightness_range = 5
-	brightness_power = 0.75
+	brightness_power = 0.45
 	brightness_color = LIGHT_COLOR_TUNGSTEN
 	desc = "A small lighting fixture."
 	light_type = /obj/item/light/bulb
@@ -76,12 +83,12 @@
 
 /obj/machinery/light/small/emergency
 	brightness_range = 6
-	brightness_power = 1
+	brightness_power = 0.45
 	brightness_color = LIGHT_COLOR_EMERGENCY_SOFT
 
 /obj/machinery/light/small/red
 	brightness_range = 2.5
-	brightness_power = 1
+	brightness_power = 0.45
 	brightness_color = LIGHT_COLOR_RED
 
 /obj/machinery/light/colored/blue
@@ -96,7 +103,7 @@
 	light_type = /obj/item/light/tube/large
 	inserted_light = /obj/item/light/tube/large
 	brightness_range = 12
-	brightness_power = 4
+	brightness_power = 3.5
 	supports_nightmode = FALSE
 
 /obj/machinery/light/spot/weak
@@ -134,6 +141,9 @@
 				if(prob(5))
 					broken(1)
 
+	if(randomize_color)
+		brightness_color = pick(randomized_colors)
+	default_color = brightness_color // We need a different var so the new color doesn't get wiped away. Initial() wouldn't work since brightness_color is overridden.
 	update(0)
 
 /obj/machinery/light/Destroy()
@@ -620,3 +630,14 @@
 	explosion(T, 0, 0, 2, 2)
 	sleep(1)
 	qdel(src)
+
+/obj/machinery/light/set_emergency_state(var/new_security_level)
+	var/area/A = get_area(src)
+	if(new_security_level in emergency_lights)
+		if(A.emergency_lights)
+			brightness_color = emergency_lights[new_security_level]
+			update(0)
+	else
+		if(brightness_color != default_color)
+			brightness_color = default_color
+			update(0)

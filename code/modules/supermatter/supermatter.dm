@@ -108,16 +108,12 @@
 	var/debug = 0
 	var/last_message_time = -100 //for message
 
-	var/datum/looping_sound/supermatter/soundloop
-
 /obj/machinery/power/supermatter/Initialize()
 	. = ..()
 	radio = new /obj/item/device/radio{channels=list("Engineering")}(src)
-	soundloop = new(list(src), TRUE)
 
 /obj/machinery/power/supermatter/Destroy()
 	QDEL_NULL(radio)
-	QDEL_NULL(soundloop)
 	. = ..()
 
 /obj/machinery/power/supermatter/proc/explode()
@@ -208,11 +204,6 @@
 
 	if(!istype(L)) 	//We are in a crate or somewhere that isn't turf, if we return to turf resume processing but for now.
 		return  //Yeah just stop.
-
-	if(power)
-		soundloop.volume = min(100, (round(power/7)+1))
-	else
-		soundloop.volume = 0
 
 	if(damage > explosion_point)
 		if(!exploded)

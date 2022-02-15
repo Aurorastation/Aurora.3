@@ -25,7 +25,7 @@
 /mob/living/simple_animal/hostile/rogue_drone/Initialize()
 	. = ..()
 	name = "[initial(name)] ([rand(100, 999)])"
-	eye_overlay = image(icon, "eyes-[icon_state]-emag", layer = EFFECTS_ABOVE_LIGHTING_LAYER)
+	eye_overlay = image(icon, "[icon_state]-eyes_emag", layer = EFFECTS_ABOVE_LIGHTING_LAYER)
 	eye_overlay.appearance_flags = KEEP_APART
 	add_overlay(eye_overlay)
 
