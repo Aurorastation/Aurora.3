@@ -78,6 +78,8 @@
 	var/datum/weakref/locked_obj
 	var/locked_obj_name
 
+	var/max_teleport_range = 4 //max overmap teleport distance
+
 /obj/machinery/teleport/station/Initialize()
 	. = ..()
 	find_pad()
@@ -98,7 +100,7 @@
 /obj/machinery/teleport/station/machinery_process()
 	var/old_engaged = engaged
 	if(locked_obj)
-		if(stat & (NOPOWER|BROKEN))
+		if(stat & (NOPOWER|BROKEN) || !within_range(locked_obj))
 			engaged = FALSE
 		else
 			engaged = TRUE
@@ -147,7 +149,10 @@
 		var/turf/BT = get_turf(R)
 		if(!BT)
 			continue
-		if(!isAdminLevel(z) && (isAdminLevel(BT.z) || !AreConnectedZLevels(z, BT.z)))
+		if(!isAdminLevel(z) && isAdminLevel(BT.z))
+			continue
+		if(!within_range(BT))
+			testing("Teleport beacon at [BT.x] [BT.y] [BT.z] is not in range.")
 			continue
 		var/tmpname = BT.loc.name
 		if(area_index[tmpname])
@@ -155,11 +160,11 @@
 		else
 			area_index[tmpname] = 1
 		var/list/teleporter_info = list(
-			"beacon_name" = tmpname,
+			"name" = tmpname,
 			"ref" = "\ref[R]",
 			"selected_beacon" = (selected_beacon == R) ? TRUE : FALSE
 			)
-		teleport_beacon_info[++teleport_beacon_info.len] = teleporter_info
+		teleport_beacon_info["\ref[R]"] = teleporter_info
 	data["teleport_beacons"] = teleport_beacon_info
 
 	var/list/teleport_implant_info = list()
@@ -181,14 +186,16 @@
 			else
 				area_index[tmpname] = 1
 			var/list/implant_info = list(
-				"implant_name" = tmpname,
+				"name" = tmpname,
 				"ref" = "\ref[I]",
 				"selected_implant" = (selected_beacon == I) ? TRUE : FALSE
 			)
-			teleport_implant_info[++teleport_implant_info.len] = implant_info
+			teleport_implant_info["\ref[I]"] = implant_info
 	data["teleport_implants"] = teleport_implant_info
 
 	return data
+
+#define UIDEBUG
 
 /obj/machinery/teleport/station/Topic(href, href_list)
 	if(..())
@@ -274,3 +281,29 @@
 /obj/machinery/teleport/station/Destroy()
 	pad = null
 	return ..()
+
+/obj/machinery/teleport/station/proc/within_range(var/target)
+	if (isweakref(target))
+		var/datum/weakref/target_ref = target
+		target = target_ref.resolve()
+	var/turf/T = get_turf(target)
+	if(T)
+		if (AreConnectedZLevels(z, T.z))
+			return TRUE
+		else if(current_map.use_overmap)
+			var/my_sector = map_sectors["[z]"]
+			if(!my_sector)
+				testing("Could not find my sector at [z].")
+			var/target_sector = map_sectors["[T.z]"]
+			if(!target_sector)
+				testing("Could not find my sector at [T.z].")
+			if (istype(my_sector, /obj/effect/overmap/visitable) && istype(target_sector, /obj/effect/overmap/visitable))
+				testing("Distance between sectors [my_sector] and [target_sector] is [get_dist(my_sector, target_sector)]")
+				if(get_dist(my_sector, target_sector) < max_teleport_range)
+					return TRUE
+				else
+					testing("My distance is greater than max teleport range")
+			else
+				testing("My types are not visitable")
+		else
+			testing("Not using overmap")
