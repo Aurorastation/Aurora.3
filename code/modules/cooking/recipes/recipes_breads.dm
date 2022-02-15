@@ -150,6 +150,37 @@
 //================================
 // Toasts and Toasted Sandwiches
 //================================
+/decl/recipe/toast
+	appliance = SKILLET
+	items = list(
+		/obj/item/reagent_containers/food/snacks/breadslice
+	)
+	result = /obj/item/reagent_containers/food/snacks/toast
+
+/decl/recipe/slimetoast_alt
+	appliance = MIX
+	reagents = list(/decl/reagent/slimejelly = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/toast
+	)
+	result = /obj/item/reagent_containers/food/snacks/jelliedtoast/slime
+
+/decl/recipe/jelliedtoast_alt
+	appliance = MIX
+	reagents = list(/decl/reagent/nutriment/cherryjelly = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/toast
+	)
+	result = /obj/item/reagent_containers/food/snacks/jelliedtoast/cherry
+
+/decl/recipe/pbtoast_alt
+	appliance = MIX
+	reagents = list(/decl/reagent/nutriment/peanutbutter = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/toast
+	)
+	result = /obj/item/reagent_containers/food/snacks/pbtoast
+
 /decl/recipe/slimetoast
 	appliance = SKILLET
 	reagents = list(/decl/reagent/slimejelly = 5)
@@ -166,6 +197,14 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/jelliedtoast/cherry
 
+/decl/recipe/pbtoast
+	appliance = SKILLET
+	reagents = list(/decl/reagent/nutriment/peanutbutter = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/breadslice
+	)
+	result = /obj/item/reagent_containers/food/snacks/pbtoast
+
 /decl/recipe/toastedsandwich
 	appliance = SKILLET
 	items = list(
@@ -181,3 +220,19 @@
 		/obj/item/reagent_containers/food/snacks/cheesewedge
 	)
 	result = /obj/item/reagent_containers/food/snacks/grilledcheese
+
+/decl/recipe/egginthebasket
+	appliance = SKILLET
+	items = list(
+		/obj/item/reagent_containers/food/snacks/egg,
+		/obj/item/reagent_containers/food/snacks/breadslice
+	)
+	result = /obj/item/reagent_containers/food/snacks/egginthebasket
+
+/decl/recipe/garlicbread
+	appliance = SKILLET
+	reagents = list(/decl/reagent/triglyceride/oil = 2, /decl/reagent/nutriment/garlicsauce = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/breadslice,
+	)
+	result = /obj/item/reagent_containers/food/snacks/garlicbread

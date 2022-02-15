@@ -1931,6 +1931,39 @@
 	reagent_data = list(/decl/reagent/nutriment = list("toasted bread" = 3, "cheese" = 3))
 	bitesize = 2
 
+/obj/item/reagent_containers/food/snacks/toast
+	name = "toasted bread"
+	desc = "Plain, but consistent and reliable toast."
+	icon_state = "toast"
+	trash = /obj/item/trash/plate
+	filling_color = "#D9BE29"
+	center_of_mass = list("x"=16, "y"=4)
+	reagents_to_add = list(/decl/reagent/nutriment = 2)
+	reagent_data = list(/decl/reagent/nutriment = list("toasted bread" = 2))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/egginthebasket
+	name = "egg in the basket"
+	desc = "Egg in the basket, also known as <i>egg in a hole</i>, or <i>bullseye egg</i>, or <i>egg in a nest</i>, or <i>framed egg</i>, or..."
+	icon_state = "egginthebasket"
+	trash = /obj/item/trash/plate
+	filling_color = "#D9BE29"
+	center_of_mass = list("x"=16, "y"=4)
+	reagents_to_add = list(/decl/reagent/nutriment = 2)
+	reagent_data = list(/decl/reagent/nutriment = list("toasted bread" = 2))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/garlicbread
+	name = "garlid bread"
+	desc = "Delicious garlic bread, but you probably shouldn't eat it for every meal."
+	icon_state = "garlicbread"
+	trash = /obj/item/trash/plate
+	filling_color = "#D9BE29"
+	center_of_mass = list("x"=16, "y"=4)
+	reagents_to_add = list(/decl/reagent/nutriment = 2)
+	reagent_data = list(/decl/reagent/nutriment = list("toasted bread" = 2))
+	bitesize = 2
+
 /obj/item/reagent_containers/food/snacks/grilledcheese
 	name = "grilled cheese sandwich"
 	desc = "Goes great with Tomato soup!"
@@ -1998,6 +2031,17 @@
 /obj/item/reagent_containers/food/snacks/jelliedtoast/cherry/reagents_to_add = list(/decl/reagent/nutriment/cherryjelly = 5)
 
 /obj/item/reagent_containers/food/snacks/jelliedtoast/slime/reagents_to_add = list(/decl/reagent/slimejelly = 5)
+
+/obj/item/reagent_containers/food/snacks/pbtoast
+	name = "peanut butter toast"
+	desc = "A slice of bread covered with appetizing peanut butter."
+	icon_state = "pbtoast"
+	trash = /obj/item/trash/plate
+	filling_color = "#B572AB"
+	center_of_mass = list("x"=16, "y"=8)
+	reagents_to_add = list(/decl/reagent/nutriment = 1)
+	reagent_data = list(/decl/reagent/nutriment = list("toasted bread" = 2))
+	bitesize = 3
 
 /obj/item/reagent_containers/food/snacks/burger/jelly
 	name = "jelly burger"
@@ -2180,6 +2224,17 @@
 /obj/item/reagent_containers/food/snacks/jellysandwich/slime/reagents_to_add = list(/decl/reagent/slimejelly = 5)
 
 /obj/item/reagent_containers/food/snacks/jellysandwich/cherry/reagents_to_add = list(/decl/reagent/nutriment/cherryjelly = 5)
+
+/obj/item/reagent_containers/food/snacks/pbjsandwich
+	name = "pbj sandwich"
+	desc = "A staple classic lunch of gooey jelly and peanut butter."
+	icon_state = "pbjsandwich"
+	trash = /obj/item/trash/plate
+	filling_color = "BB6A54"
+	center_of_mass = list("x"=16, "y"=8)
+	reagents_to_add = list(/decl/reagent/nutriment = 2)
+	reagent_data = list(/decl/reagent/nutriment = list("bread" = 2))
+	bitesize = 3	
 
 /obj/item/reagent_containers/food/snacks/mint
 	name = "mint"
@@ -4290,6 +4345,17 @@
 	reagents_to_add = list(/decl/reagent/nutriment = 20)
 	reagent_data = list(/decl/reagent/nutriment = list("guacmole" = 20))
 	filling_color = "#35961D"
+
+// Roasted Peanuts (under chips/nachos because finger food)
+/obj/item/reagent_containers/food/snacks/peanut_roast
+	name = "roasted peanuts"
+	desc = "Peanuts roasted to flavourful and rich perfection. For a more peanut-ful experience."
+	icon_state = "roast_peanuts"
+	trash = /obj/item/trash/dipbowl
+	bitesize = 2
+	reagents_to_add = list(/decl/reagent/nutriment/peanutbutter = 15, /decl/reagent/nutriment/triglyceride/oil/peanut = 5)
+	reagent_data = list(/decl/reagent/nutriment/peanutbutter = list("crunchy roasted peanuts" = 15))
+	filling_color = "#D89E37"
 
 //burritos
 /obj/item/reagent_containers/food/snacks/burrito
