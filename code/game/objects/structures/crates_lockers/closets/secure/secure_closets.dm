@@ -2,16 +2,22 @@
 	name = "secure locker"
 	desc = "It's an immobile card-locked storage unit."
 	icon = 'icons/obj/closet.dmi'
-	icon_state = "secure"
-	secure = TRUE
-	opened = FALSE
-	anchored = FALSE
-	locked = TRUE
-	var/large = TRUE
-	var/canbemoved = FALSE // if it can be moved by people using the right tools
-	var/screwed = TRUE // if its screwed in place
-	var/wrenched = TRUE // if its wrenched down
-	wall_mounted = FALSE //never solid (You can always pass over it)
+	icon_state = "secure1"
+	density = 1
+	opened = 0
+	anchored = 0
+	var/locked = 1
+	var/broken = 0
+	var/large = 1
+	icon_closed = "secure"
+	var/icon_locked = "secure1"
+	icon_opened = "secureopen"
+	var/icon_broken = "securebroken"
+	var/icon_off = "secureoff"
+	var/canbemoved = 0 // if it can be moved by people using the right tools
+	var/screwed = 1 // if its screwed in place
+	var/wrenched = 1 // if its wrenched down
+	wall_mounted = 0 //never solid (You can always pass over it)
 	health = 200
 
 /obj/structure/closet/secure_closet/can_open()
@@ -22,7 +28,7 @@
 /obj/structure/closet/secure_closet/close()
 	if(..())
 		if(broken)
-			update_icon()
+			icon_state = icon_off
 		return 1
 	else
 		return 0
@@ -203,8 +209,8 @@
 		broken = 1
 		locked = 0
 		desc = "It appears to be broken."
-		update_icon()
-		CUT_OVERLAY_IN("sparking", 4)
+		icon_state = icon_off
+		flick(icon_broken, src)
 
 		if(visual_feedback)
 			visible_message(visual_feedback, audible_feedback)
@@ -237,6 +243,19 @@
 	else
 		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
 
+/obj/structure/closet/secure_closet/update_icon()//Putting the welded stuff in update_icon() so it's easy to overwrite for special cases (Fridges, cabinets, and whatnot)
+	cut_overlays()
+	if(!opened)
+		if(locked)
+			icon_state = icon_locked
+		else
+			icon_state = icon_closed
+		if(welded)
+			add_overlay(welded_overlay_state)
+	else
+		icon_state = icon_opened
+
+
 /obj/structure/closet/secure_closet/req_breakout()
 	if(!opened && locked)
 		if (welded)
@@ -248,11 +267,15 @@
 
 /obj/structure/closet/secure_closet/break_open()
 	desc += " It appears to be broken."
-	add_overlay("sparking")
-	CUT_OVERLAY_IN("sparking", 8)
-	broken = TRUE
-	welded = FALSE
-	locked = FALSE
+	icon_state = icon_off
+	spawn()
+		flick(icon_broken, src)
+		sleep(10)
+		flick(icon_broken, src)
+		sleep(10)
+	broken = 1
+	welded = 0
+	locked = 0
 	update_icon()
 	//Do this to prevent contents from being opened into nullspace (read: bluespace)
 	if(istype(loc, /obj/structure/bigDelivery))

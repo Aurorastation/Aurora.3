@@ -2,6 +2,8 @@
 	name = "abandoned crate"
 	desc = "What could be inside?"
 	icon_state = "securecrate"
+	icon_opened = "securecrateopen"
+	icon_closed = "securecrate"
 	var/list/code = list()
 	var/list/lastattempt = list()
 	var/attempts = 15

@@ -5,16 +5,19 @@
 	desc = "A wall mounted storage locker."
 	name = "Wall Locker"
 	icon = 'icons/obj/walllocker.dmi'
-	icon_state = "walllocker" //...man, how OLD is this $#!?
-	door_anim_time = 0
+	icon_state = "wall-locker"
 	density = FALSE
 	anchored = TRUE
 	store_mobs = FALSE
+	icon_closed = "wall-locker"
+	icon_opened = "wall-lockeropen"
 
 /obj/structure/closet/walllocker/emerglocker
 	name = "emergency locker"
 	desc = "A wall mounted locker with emergency supplies."
 	icon_state = "emerg"
+	icon_closed = "emerg"
+	icon_opened = "emerg-open"
 
 /obj/structure/closet/walllocker/emerglocker/fill()
 	for(var/i = 1 to 3)

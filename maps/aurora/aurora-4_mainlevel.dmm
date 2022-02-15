@@ -59130,7 +59130,9 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/costume/imperium_monk,
 /obj/structure/closet{
-	icon_state = "cabinet"
+	icon_closed = "cabinet_closed";
+	icon_opened = "cabinet_open";
+	icon_state = "cabinet_closed"
 	},
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
@@ -61810,7 +61812,9 @@
 /obj/item/clothing/under/mime,
 /obj/item/toy/figure/mime,
 /obj/structure/closet{
-	icon_state = "cabinet"
+	icon_closed = "cabinet_closed";
+	icon_opened = "cabinet_open";
+	icon_state = "cabinet_closed"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
@@ -63382,7 +63386,9 @@
 /obj/effect/landmark/costume/commie,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet{
-	icon_state = "cabinet"
+	icon_closed = "cabinet_closed";
+	icon_opened = "cabinet_open";
+	icon_state = "cabinet_closed"
 	},
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
@@ -63591,7 +63597,9 @@
 "liM" = (
 /obj/item/toy/figure/clown,
 /obj/structure/closet{
-	icon_state = "cabinet"
+	icon_closed = "cabinet_closed";
+	icon_opened = "cabinet_open";
+	icon_state = "cabinet_closed"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
@@ -64018,7 +64026,9 @@
 /obj/item/pen/multi,
 /obj/item/device/camera,
 /obj/structure/closet/lawcloset{
-	icon_state = "cabinet"
+	icon_closed = "cabinet_closed";
+	icon_opened = "cabinet_open";
+	icon_state = "cabinet_closed"
 	},
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -65062,7 +65072,9 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/costume/gladiator,
 /obj/structure/closet{
-	icon_state = "cabinet"
+	icon_closed = "cabinet_closed";
+	icon_opened = "cabinet_open";
+	icon_state = "cabinet_closed"
 	},
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
@@ -67721,7 +67733,9 @@
 /obj/effect/landmark/costume/elpresidente,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet{
-	icon_state = "cabinet"
+	icon_closed = "cabinet_closed";
+	icon_opened = "cabinet_open";
+	icon_state = "cabinet_closed"
 	},
 /turf/simulated/floor/wood,
 /area/maintenance/bar)

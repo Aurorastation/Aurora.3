@@ -121,7 +121,8 @@
 /obj/structure/closet/lasertag
 	name = "red laser tag equipment"
 	desc = "It's a storage unit for laser tag equipment."
-	icon_door = "red"
+	icon_state = "red"
+	icon_closed = "red"
 	var/helmet_path = /obj/item/clothing/head/helmet/riot/laser_tag
 	var/armor_path = /obj/item/clothing/suit/armor/riot/laser_tag
 	var/gun_path = /obj/item/gun/energy/lasertag/red
@@ -136,7 +137,8 @@
 
 /obj/structure/closet/lasertag/blue
 	name = "blue laser tag equipment"
-	icon_door = "blue"
+	icon_state = "blue"
+	icon_closed = "blue"
 	helmet_path = /obj/item/clothing/head/helmet/riot/laser_tag/blue
 	armor_path = /obj/item/clothing/suit/armor/riot/laser_tag/blue
 	gun_path = /obj/item/gun/energy/lasertag/blue

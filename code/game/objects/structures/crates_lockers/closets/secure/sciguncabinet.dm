@@ -3,6 +3,11 @@
 	req_access = list(access_tox_storage)
 	icon = 'icons/obj/sciguncabinet.dmi'
 	icon_state = "base"
+	icon_off ="base"
+	icon_broken ="base"
+	icon_locked ="base"
+	icon_closed ="base"
+	icon_opened = "base"
 	anchored = 1
 	canbemoved = 1
 
@@ -42,7 +47,7 @@
 
 		add_overlay("door")
 		if(welded)
-			add_overlay(icon_welded)
+			add_overlay(welded_overlay_state)
 
 		if(broken)
 			add_overlay("broken")

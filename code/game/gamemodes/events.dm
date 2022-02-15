@@ -48,7 +48,7 @@ var/hadevent    = 0
 
 			for (var/obj/structure/closet/secure_closet/brig/temp_closet in A)
 				temp_closet.locked = 0
-				temp_closet.update_icon()
+				temp_closet.icon_state = temp_closet.icon_closed
 
 			for (var/obj/machinery/door/airlock/security/temp_airlock in A)
 				spawn(0) temp_airlock.prison_open()

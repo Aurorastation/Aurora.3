@@ -30114,7 +30114,9 @@
 /area/mine/unexplored)
 "jVc" = (
 /obj/structure/closet{
-	icon_state = "cabinet";
+	icon_closed = "cabinet_closed";
+	icon_opened = "cabinet_open";
+	icon_state = "cabinet_closed";
 	name = "Clothing Storage"
 	},
 /turf/simulated/floor/wood,

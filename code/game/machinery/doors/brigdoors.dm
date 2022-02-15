@@ -109,7 +109,7 @@
 		if(C.broken)	continue
 		if(C.opened && !C.close())	continue
 		C.locked = 1
-		C.update_icon()
+		C.icon_state = C.icon_locked
 
 	timing = 1
 
@@ -139,7 +139,7 @@
 		if(C.opened)
 			continue
 		C.locked = 0
-		C.update_icon()
+		C.icon_state = C.icon_closed
 
 	if(broadcast)
 		broadcast_security_hud_message("The timer for [id] has expired.", src)

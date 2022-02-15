@@ -1,7 +1,12 @@
 /obj/structure/closet/secure_closet/engineering_chief
 	name = "chief engineer's locker"
 	req_access = list(access_ce)
-	icon_state = "ce"
+	icon_state = "securece1"
+	icon_closed = "securece"
+	icon_locked = "securece1"
+	icon_opened = "secureceopen"
+	icon_broken = "securecebroken"
+	icon_off = "secureceoff"
 
 /obj/structure/closet/secure_closet/engineering_chief/fill()
 	if(prob(50))
@@ -34,7 +39,12 @@
 /obj/structure/closet/secure_closet/engineering_chief2
 	name = "chief engineer's attire"
 	req_access = list(access_ce)
-	icon_state = "ce"
+	icon_state = "securece1"
+	icon_closed = "securece"
+	icon_locked = "securece1"
+	icon_opened = "secureceopen"
+	icon_broken = "securecebroken"
+	icon_off = "secureceoff"
 
 /obj/structure/closet/secure_closet/engineering_chief2/fill()
 	new /obj/item/storage/backpack/industrial(src)
@@ -50,8 +60,12 @@
 /obj/structure/closet/secure_closet/engineering_electrical
 	name = "electrical supplies"
 	req_access = list(access_engine_equip)
-	icon_state = "eng"
-	icon_door = "eng_elec"
+	icon_state = "secureengelec1"
+	icon_closed = "secureengelec"
+	icon_locked = "secureengelec1"
+	icon_opened = "toolclosetopen"
+	icon_broken = "secureengelecbroken"
+	icon_off = "secureengelecoff"
 
 /obj/structure/closet/secure_closet/engineering_electrical/fill()
 	new /obj/item/clothing/gloves/yellow(src)
@@ -71,8 +85,12 @@
 /obj/structure/closet/secure_closet/engineering_welding
 	name = "welding supplies"
 	req_access = list(access_construction)
-	icon_state = "eng"
-	icon_door = "eng_weld"
+	icon_state = "secureengweld1"
+	icon_closed = "secureengweld"
+	icon_locked = "secureengweld1"
+	icon_opened = "toolclosetopen"
+	icon_broken = "secureengweldbroken"
+	icon_off = "secureengweldoff"
 
 /obj/structure/closet/secure_closet/engineering_welding/fill()
 	new /obj/item/clothing/head/welding(src)
@@ -88,7 +106,12 @@
 /obj/structure/closet/secure_closet/engineering_personal
 	name = "engineer's locker"
 	req_access = list(access_engine_equip)
-	icon_state = "eng_secure"
+	icon_state = "secureeng1"
+	icon_closed = "secureeng"
+	icon_locked = "secureeng1"
+	icon_opened = "secureengopen"
+	icon_broken = "secureengbroken"
+	icon_off = "secureengoff"
 
 /obj/structure/closet/secure_closet/engineering_personal/fill()
 	if(prob(50))
@@ -108,7 +131,12 @@
 /obj/structure/closet/secure_closet/atmos_personal
 	name = "atmospheric technician's locker"
 	req_access = list(access_atmospherics)
-	icon_state = "atmos"
+	icon_state = "secureatm1"
+	icon_closed = "secureatm"
+	icon_locked = "secureatm1"
+	icon_opened = "secureatmopen"
+	icon_broken = "secureatmbroken"
+	icon_off = "secureatmoff"
 
 /obj/structure/closet/secure_closet/atmos_personal/fill()
 	if(prob(50))

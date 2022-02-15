@@ -7,17 +7,13 @@
 	desc = "A rectangular steel crate."
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "crate"
+	icon_opened = "crateopen"
+	icon_closed = "crate"
 	climbable = 1
 	build_amt = 10
 	var/rigged = 0
 	var/tablestatus = 0
 	slowdown = 0
-
-	door_anim_time = 0 // no animation
-
-/obj/structure/closet/crate/update_icon()
-	icon_state = "[initial(icon_state)][opened ? "open" : ""]"
-	cut_overlays()
 
 /obj/structure/closet/crate/can_open()
 	if (tablestatus != UNDER_TABLE)//Can't be opened while under a table
@@ -60,7 +56,7 @@
 		else
 			M.visible_message(SPAN_DANGER("\The [M.name] tumbles out of the [src]!"))
 
-	update_icon()
+	icon_state = icon_opened
 	opened = 1
 	pass_flags = 0
 	return 1
@@ -85,9 +81,11 @@
 		O.forceMove(src)
 		itemcount++
 
-	update_icon()
+	icon_state = icon_closed
 	opened = 0
 	return 1
+
+
 
 
 /obj/structure/closet/crate/attackby(obj/item/W as obj, mob/user as mob)
@@ -254,21 +252,27 @@
 
 
 /obj/structure/closet/crate/secure
-	name = "secure crate"
 	desc = "A secure crate."
+	name = "Secure crate"
 	icon_state = "securecrate"
-	var/secure_type = "securecrate" // For snowflake security locks n' schiesse.
+	icon_opened = "securecrateopen"
+	icon_closed = "securecrate"
+	var/redlight = "securecrater"
+	var/greenlight = "securecrateg"
+	var/sparks = "securecratesparks"
+	var/emag = "securecrateemag"
+	var/broken = 0
+	var/locked = 1
 	health = 200
 
-/obj/structure/closet/crate/secure/update_icon()
-	..()
-	if(broken)
-		add_overlay("[secure_type]emag")
-	else if(locked)
-		add_overlay("[secure_type]r")
+/obj/structure/closet/crate/secure/Initialize()
+	. = ..()
+	if(locked)
+		cut_overlays()
+		add_overlay(redlight)
 	else
-		add_overlay("[secure_type]g")
-
+		cut_overlays()
+		add_overlay(greenlight)
 
 /obj/structure/closet/crate/secure/can_open()
 	if (..())
@@ -294,7 +298,8 @@
 	if(user)
 		for(var/mob/O in viewers(user, 3))
 			O.show_message( "<span class='notice'>The crate has been [locked ? null : "un"]locked by [user].</span>", 1)
-	update_icon()
+	cut_overlays()
+	add_overlay(locked ? redlight : greenlight)
 
 /obj/structure/closet/crate/secure/verb/verb_togglelock()
 	set src in oview(1) // One square distance
@@ -337,9 +342,9 @@
 /obj/structure/closet/crate/secure/emag_act(var/remaining_charges, var/mob/user)
 	if(!broken)
 		cut_overlays()
-		add_overlay("[secure_type]emag")
-		add_overlay("[secure_type]sparks")
-		CUT_OVERLAY_IN("[secure_type]sparks", 6)
+		add_overlay(emag)
+		add_overlay(sparks)
+		CUT_OVERLAY_IN(sparks, 6)
 		playsound(loc, /decl/sound_category/spark_sound, 60, 1)
 		locked = 0
 		broken = 1
@@ -353,13 +358,13 @@
 		if(!locked)
 			locked = 1
 			cut_overlays()
-			add_overlay("[secure_type]")
+			add_overlay(redlight)
 		else
 			cut_overlays()
-			add_overlay("[secure_type]emag")
-			add_overlay("[secure_type]sparks")
-			CUT_OVERLAY_IN("[secure_type]sparks", 6)
-			playsound(loc, /decl/sound_category/spark_sound, 75, 1)
+			add_overlay(emag)
+			add_overlay(sparks)
+			CUT_OVERLAY_IN(sparks, 6)
+			playsound(loc, 'sound/effects/sparks4.ogg', 75, 1)
 			locked = 0
 	if(!opened && prob(20/severity))
 		if(!locked)
@@ -373,16 +378,22 @@
 	name = "plastic crate"
 	desc = "A rectangular plastic crate."
 	icon_state = "plasticcrate"
+	icon_opened = "plasticcrateopen"
+	icon_closed = "plasticcrate"
 
 /obj/structure/closet/crate/internals
 	name = "internals crate"
 	desc = "A internals crate."
 	icon_state = "o2crate"
+	icon_opened = "o2crateopen"
+	icon_closed = "o2crate"
 
 /obj/structure/closet/crate/trashcart
 	name = "trash cart"
 	desc = "A heavy, metal trashcart with wheels."
 	icon_state = "trashcart"
+	icon_opened = "trashcartopen"
+	icon_closed = "trashcart"
 
 /*these aren't needed anymore
 /obj/structure/closet/crate/hat
@@ -404,10 +415,15 @@
 	name = "medical crate"
 	desc = "A medical crate."
 	icon_state = "medicalcrate"
+	icon_opened = "medicalcrateopen"
+	icon_closed = "medicalcrate"
+
 /obj/structure/closet/crate/rfd
 	name = "\improper RFD C-Class crate"
 	desc = "A crate with a Rapid-Fabrication-Device C-Class."
 	icon_state = "crate"
+	icon_opened = "crateopen"
+	icon_closed = "crate"
 
 /obj/structure/closet/crate/rfd/fill()
 	new /obj/item/rfd_ammo(src)
@@ -448,6 +464,8 @@
 	name = "freezer"
 	desc = "A freezer."
 	icon_state = "freezer"
+	icon_opened = "freezeropen"
+	icon_closed = "freezer"
 	var/target_temp = T0C - 40
 	var/cooling_power = 40
 
@@ -477,21 +495,29 @@
 	name = "large bin"
 	desc = "A large bin."
 	icon_state = "largebin"
+	icon_opened = "largebinopen"
+	icon_closed = "largebin"
 
 /obj/structure/closet/crate/drop
 	name = "drop crate"
 	desc = "A large, sturdy crate meant for airdrops."
 	icon_state = "dropcrate"
+	icon_opened = "dropcrate-open"
+	icon_closed = "dropcrate"
 
 /obj/structure/closet/crate/drop/grey
 	name = "drop crate"
 	desc = "A large, sturdy crate meant for airdrops."
 	icon_state = "dropcrate-grey"
+	icon_opened = "dropcrate-grey-open"
+	icon_closed = "dropcrate-grey"
 
 /obj/structure/closet/crate/radiation
 	name = "radioactive gear crate"
 	desc = "A crate with a radiation sign on it."
 	icon_state = "radiation"
+	icon_opened = "radiationopen"
+	icon_closed = "radiation"
 
 /obj/structure/closet/crate/radiation/fill()
 	new /obj/item/clothing/suit/radiation(src)
@@ -516,39 +542,56 @@
 	name = "weapons crate"
 	desc = "A secure weapons crate."
 	icon_state = "weaponcrate"
+	icon_opened = "weaponcrateopen"
+	icon_closed = "weaponcrate"
 
 /obj/structure/closet/crate/secure/legion
 	name = "foreign legion supply crate"
 	desc = "A secure supply crate, It carries the insignia of the Tau Ceti Foreign Legion. It appears quite scuffed."
 	icon_state = "tcflcrate"
+	icon_opened = "tcflcrateopen"
+	icon_closed = "tcflcrate"
 	req_access = list(access_legion)
 
 /obj/structure/closet/crate/secure/phoron
 	name = "phoron crate"
 	desc = "A secure phoron crate."
 	icon_state = "phoroncrate"
+	icon_opened = "phoroncrateopen"
+	icon_closed = "phoroncrate"
 
 /obj/structure/closet/crate/secure/gear
 	name = "gear crate"
 	desc = "A secure gear crate."
 	icon_state = "secgearcrate"
+	icon_opened = "secgearcrateopen"
+	icon_closed = "secgearcrate"
 
 /obj/structure/closet/crate/secure/hydrosec
 	name = "secure hydroponics crate"
 	desc = "A crate with a lock on it, painted in the scheme of the station's botanists."
 	icon_state = "hydrosecurecrate"
+	icon_opened = "hydrosecurecrateopen"
+	icon_closed = "hydrosecurecrate"
 
 /obj/structure/closet/crate/secure/bin
 	name = "secure bin"
 	desc = "A secure bin."
 	icon_state = "largebins"
-	secure_type = "largebin"
+	icon_opened = "largebinsopen"
+	icon_closed = "largebins"
+	redlight = "largebinr"
+	greenlight = "largebing"
+	sparks = "largebinsparks"
+	emag = "largebinemag"
 
 /obj/structure/closet/crate/large
 	name = "large crate"
 	desc = "A hefty metal crate."
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "largemetal"
+	icon_opened = "largemetalopen"
+	icon_closed = "largemetal"
 	health = 200
 
 /obj/structure/closet/crate/large/close()
@@ -574,7 +617,10 @@
 	desc = "A hefty metal crate with an electronic locking system."
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "largemetal"
-	secure_type = "largemetal"
+	icon_opened = "largemetalopen"
+	icon_closed = "largemetal"
+	redlight = "largemetalr"
+	greenlight = "largemetalg"
 	health = 400
 
 /obj/structure/closet/crate/secure/large/close()
@@ -599,11 +645,15 @@
 /obj/structure/closet/crate/secure/large/reinforced
 	desc = "A hefty, reinforced metal crate with an electronic locking system."
 	icon_state = "largermetal"
+	icon_opened = "largermetalopen"
+	icon_closed = "largermetal"
 
 /obj/structure/closet/crate/hydroponics
 	name = "hydroponics crate"
 	desc = "All you need to destroy those pesky weeds and pests."
 	icon_state = "hydrocrate"
+	icon_opened = "hydrocrateopen"
+	icon_closed = "hydrocrate"
 
 /obj/structure/closet/crate/hydroponics/prespawned
 	//This exists so the prespawned hydro crates spawn with their contents.
@@ -635,20 +685,20 @@
 //None of these are the standard grey crate sprite, and a few are currently unused ingame
 //This ensures that people stumbling across a lootbox will notice it's different and investigate
 	var/list/iconchoices = list(
-		"radiation",
-		"o2crate",
-		"freezer",
-		"weaponcrate",
-		"largebins",
-		"phoroncrate",
-		"trashcart",
-		"critter",
-		"largemetal",
-		"medicalcrate",
-		"tcflcrate",
-		"necrocrate",
-		"zenghucrate",
-		"hephcrate"
+		"radiation" = "radiationopen",
+		"o2crate" = "o2crateopen",
+		"freezer" = "freezeropen",
+		"weaponcrate" = "weaponcrateopen",
+		"largebins" = "largebinsopen",
+		"phoroncrate" = "phoroncrateopen",
+		"trashcart" = "trashcartopen",
+		"critter" = "critteropen",
+		"largemetal" = "largemetalopen",
+		"medicalcrate" = "medicalcrateopen",
+		"tcflcrate" = "tcflcrateopen",
+		"necrocrate" = "necrocrateopen",
+		"zenghucrate" = "zenghucrateopen",
+		"hephcrate" = "hephcrateopen"
 	)
 
 
@@ -661,7 +711,8 @@
 		"3" = (100 - ((STOCK_RARE_PROB * rarity) + (STOCK_UNCOMMON_PROB * rarity)))
 	)
 
-	icon_state = pick(iconchoices)
+	icon_closed = pick(iconchoices)
+	icon_opened = iconchoices[icon_closed]
 	update_icon()
 	for (var/i in 1 to quantity)
 		var/newtype = get_spawntype()
@@ -688,7 +739,10 @@
 /obj/structure/closet/crate/autakh
 	name = "aut'akh crate"
 	desc = "Contains a number of limbs and augmentations created by the Aut'akh Commune."
+	icon = 'icons/obj/storage.dmi'
 	icon_state = "autakh_crate"
+	icon_opened = "autakh_crateopen"
+	icon_closed = "autakh_crate"
 
 /obj/structure/closet/crate/autakh/fill()
 	new /obj/item/organ/external/arm/right/autakh(src)
