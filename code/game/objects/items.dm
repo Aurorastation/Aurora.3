@@ -425,7 +425,7 @@ var/list/global/slot_flags_enumeration = list(
 			return 0
 
 	//Next check that the slot is free
-	if(H.get_equipped_item(slot) && !bypass_blocked_check)
+	if(H.get_equipped_item(slot))
 		return 0
 
 	//Next check if the slot is accessible.
