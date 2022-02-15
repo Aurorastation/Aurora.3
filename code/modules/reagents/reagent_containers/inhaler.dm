@@ -35,8 +35,11 @@
 	return
 
 /obj/item/reagent_containers/inhaler/proc/inject(var/mob/living/carbon/human/H, var/mob/user, var/proximity)
-	if (!istype(H) || !proximity)
+	if (!istype(H))
 		return ..()
+
+	if(!proximity)
+		return
 
 	if(!reagents.total_volume)
 		to_chat(user,"<span class='warning'>\The [src] is empty.</span>")
