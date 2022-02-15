@@ -568,12 +568,10 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "aDv" = (
-/obj/machinery/atmospherics/binary/passive_gate/supply,
-/obj/machinery/atmospherics/binary/passive_gate/scrubbers{
-	dir = 1
-	},
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
 "aEl" = (
@@ -2461,14 +2459,14 @@
 /turf/space/dynamic,
 /area/template_noop)
 "cnV" = (
-/obj/machinery/atmospherics/binary/passive_gate/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/binary/passive_gate/scrubbers{
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
 "coo" = (
@@ -10354,11 +10352,8 @@
 /area/outpost/mining_main/refinery)
 "jpU" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/binary/passive_gate{
-	dir = 4;
-	name = "shuttle airlock pressure regulator";
-	target_pressure = 75;
-	unlocked = 1
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
@@ -15870,12 +15865,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
 "owP" = (
-/obj/machinery/atmospherics/binary/passive_gate/scrubbers{
-	dir = 1
-	},
-/obj/machinery/atmospherics/binary/passive_gate/supply,
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
 "owZ" = (
@@ -17137,13 +17130,13 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "pMq" = (
-/obj/machinery/atmospherics/binary/passive_gate/scrubbers{
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/binary/passive_gate/supply{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "pMA" = (
@@ -18284,16 +18277,14 @@
 /turf/simulated/floor/reinforced/nitrogen,
 /area/engineering/atmos/air)
 "qKo" = (
-/obj/machinery/atmospherics/binary/passive_gate/supply,
-/obj/machinery/atmospherics/binary/passive_gate/scrubbers{
-	dir = 1
-	},
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
 "qMM" = (
