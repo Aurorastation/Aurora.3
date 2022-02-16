@@ -1,7 +1,0 @@
-author: Vrow
-
-delete-after: True
-
-changes:
-  - rscadd: "Added a set transfer amount AltClick function for Hyposprays and Syringes."
-  - tweak: "Syringes also have a set transfer amount of 10u. Finally the 1, 2, 5, 10, 15 train is complete."
