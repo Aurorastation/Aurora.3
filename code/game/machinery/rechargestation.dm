@@ -154,6 +154,18 @@
 		else if(default_part_replacement(user, O))
 			return
 
+	if(istype(O, /obj/item/grab))
+		var/obj/item/grab/grab = O
+		var/mob/living/L = grab.affecting
+		if(!L.isSynthetic())
+			return
+		
+		user.visible_message(SPAN_NOTICE("[user] starts putting [L] into [src]."), SPAN_NOTICE("You start putting [L] into [src]."), range = 3)
+
+		if(do_mob(user, grab.affecting, 5 SECONDS))
+			if(go_in(L))
+				user.visible_message(SPAN_NOTICE("[user] puts [L] into [src]."), SPAN_NOTICE("You put [L] into [src]."), range = 3)
+			qdel(O)
 	..()
 
 /obj/machinery/recharge_station/RefreshParts()
@@ -292,6 +304,32 @@
 				return 1
 			else
 				to_chat(user, SPAN_DANGER("Failed loading [C] into the charger. Please ensure that [C] has a power cell and is not buckled down, and that the charger is functioning."))
+		else
+			to_chat(user, SPAN_DANGER("Cancelled loading [C] into the charger. You and [C] must stay still!"))
+		return
+	
+	else if(istype(C, /mob/living/carbon/human/machine)) // IPCs don't take as long
+		var/mob/living/carbon/human/machine/R = C
+		if(!user.Adjacent(R) || !Adjacent(user))
+			to_chat(user, SPAN_DANGER("You need to get closer if you want to put [C] into that charger!"))
+			return
+
+		var/bucklestatus = R.bucklecheck(user)
+		if(!bucklestatus)
+			return
+		if(bucklestatus == 2)
+			var/obj/structure/LB = R.buckled_to
+			LB.user_unbuckle(user)
+			return
+
+		user.face_atom(src)
+		user.visible_message(SPAN_DANGER("[user] starts putting [C] into the recharging unit!"), SPAN_DANGER("You start putting [C] into the recharger."))
+		if(do_mob(user, R, 5 SECONDS))
+			if(go_in(R))
+				user.visible_message(SPAN_NOTICE("After some effort, [user] manages to get [C] into the recharging unit!"))
+				return 1
+			else
+				to_chat(user, SPAN_DANGER("Failed loading [C] into charger. Please ensure that [C]'s limbs are safely within the charger and has a power cell, and that the charger is functioning."))
 		else
 			to_chat(user, SPAN_DANGER("Cancelled loading [C] into the charger. You and [C] must stay still!"))
 		return
