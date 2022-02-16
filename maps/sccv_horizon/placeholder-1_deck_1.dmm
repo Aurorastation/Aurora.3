@@ -9169,7 +9169,7 @@
 	},
 /obj/machinery/atmospherics/binary/pump{
 	name = "Air to Distro";
-	target_pressure = 200;
+	target_pressure = 2000;
 	use_power = 1
 	},
 /turf/simulated/floor/plating,
