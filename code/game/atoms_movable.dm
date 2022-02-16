@@ -1,6 +1,6 @@
 /atom/movable
 	layer = 3
-	glide_size = 8
+	glide_size = 6
 	var/last_move = null
 	var/anchored = 0
 	var/movable_flags
