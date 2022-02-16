@@ -437,6 +437,7 @@
 	new /obj/item/gun/energy/xray(src)
 	new /obj/item/clothing/accessory/holster/armpit/brown(src)
 	new /obj/item/gun/energy/crossbow/largecrossbow(src)
+	new /obj/item/melee/energy/sword/red(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/ninja/techno
 	associated_hardsuit = /obj/item/rig/light/offworlder/techno/ninja

@@ -330,7 +330,7 @@
 
 	// shouldn't be reachable if occupant is invalid
 	if(href_list["print"])
-		var/obj/item/paper/R = new(loc)
+		var/obj/item/paper/medscan/R = new(loc)
 		R.color = "#eeffe8"
 		R.set_content_unsafe("Scan ([connected.occupant])", format_occupant_data(connected.get_occupant_data()))
 

@@ -66,6 +66,7 @@
 	parent_organ = BP_CHEST
 	max_damage = 80
 	relative_size = 80
+	robotic_sprite = FALSE
 	var/open = FALSE
 	var/obj/item/cell/cell = /obj/item/cell/super
 	var/move_charge_factor = 1
@@ -164,6 +165,7 @@
 	organ_tag = "surge"
 	parent_organ = BP_CHEST
 	vital = FALSE
+	robotic_sprite = FALSE
 	var/surge_left = 0
 	var/broken = 0
 
@@ -202,6 +204,7 @@
 	icon = 'icons/obj/robot_component.dmi'
 	icon_state = "camera"
 	dead_icon = "camera_broken"
+	robotic_sprite = FALSE
 
 /obj/item/organ/internal/eyes/optical_sensor/Initialize()
 	robotize()
@@ -216,6 +219,7 @@
 	item_state = "ipc_tag"
 	dead_icon = "ipc_tag_dead"
 	contained_sprite = TRUE
+	robotic_sprite = FALSE
 	var/auto_generate = TRUE
 	var/serial_number = ""
 	var/ownership_info = IPC_OWNERSHIP_COMPANY
@@ -285,6 +289,7 @@
 	organ_tag = BP_BRAIN
 	parent_organ = BP_HEAD
 	vital = TRUE
+	robotic_sprite = FALSE
 	var/obj/item/device/mmi/stored_mmi
 
 /obj/item/organ/internal/mmi_holder/proc/update_from_mmi()
@@ -360,6 +365,7 @@
 	icon_state = "harddisk"
 	vital = FALSE
 	emp_coeff = 0.1
+	robotic_sprite = FALSE
 
 /obj/item/organ/internal/data/Initialize()
 	robotize()

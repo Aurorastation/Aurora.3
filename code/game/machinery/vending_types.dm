@@ -1199,30 +1199,31 @@
 	vend_id = "battlemonsters"
 	products = list(
 		/obj/item/book/manual/wiki/battlemonsters = 10,
-		/obj/item/battle_monsters/wrapped/basic = 5,
-		/obj/item/battle_monsters/wrapped = 10,
-		/obj/item/battle_monsters/wrapped/pro = 10,
-		/obj/item/battle_monsters/wrapped/species = 4, //Human monsters
-		/obj/item/battle_monsters/wrapped/species/lizard = 4, //Reptile Monsters
-		/obj/item/battle_monsters/wrapped/species/cat = 4, //Feline Monsters
-		/obj/item/battle_monsters/wrapped/species/ant = 4, //Ant Monsters
-		/obj/item/battle_monsters/wrapped/rare = 4
+		/obj/item/battle_monsters/wrapped/basic = 20,
+		/obj/item/battle_monsters/wrapped = 20,
+		/obj/item/battle_monsters/wrapped/pro = 20,
+		/obj/item/battle_monsters/wrapped/species = 10, //Human monsters
+		/obj/item/battle_monsters/wrapped/species/lizard = 10, //Reptile Monsters
+		/obj/item/battle_monsters/wrapped/species/cat = 10, //Feline Monsters
+		/obj/item/battle_monsters/wrapped/species/ant = 10, //Ant Monsters
+		/obj/item/battle_monsters/wrapped/rare = 10
 	)
 	prices = list(
 		/obj/item/book/manual/wiki/battlemonsters = 12,
 		/obj/item/battle_monsters/wrapped = 100,
 		/obj/item/battle_monsters/wrapped/pro = 75,
-		/obj/item/battle_monsters/wrapped/species = 100,
-		/obj/item/battle_monsters/wrapped/species/lizard = 125,
-		/obj/item/battle_monsters/wrapped/species/cat = 125,
-		/obj/item/battle_monsters/wrapped/species/ant = 125,
-		/obj/item/battle_monsters/wrapped/rare = 200
+		/obj/item/battle_monsters/wrapped/species = 50,
+		/obj/item/battle_monsters/wrapped/species/lizard = 50,
+		/obj/item/battle_monsters/wrapped/species/cat = 50,
+		/obj/item/battle_monsters/wrapped/species/ant = 50,
+		/obj/item/battle_monsters/wrapped/rare = 100
 	)
 	contraband = list(
-		/obj/item/battle_monsters/wrapped/legendary = 4
+		/obj/item/battle_monsters/wrapped/legendary = 5
 	)
 	premium = list(
 		/obj/item/coin/battlemonsters = 10
 	)
-	restock_items = 0
+	restock_items = FALSE
+	random_itemcount = FALSE
 	light_color = COLOR_BABY_BLUE

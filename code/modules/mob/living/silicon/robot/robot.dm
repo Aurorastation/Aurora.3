@@ -10,6 +10,9 @@
 	icon = 'icons/mob/robots.dmi'
 	icon_state = "robot"
 	var/icontype 				//Persistent icontype tracking allows for cleaner icon updates
+	var/chassistype				// Custom model icon. Also can be used to re-use icons to prevent copypasta, provided you listed them correctly in the list
+	var/paneltype				// Same as above, but for maintenance panel.
+	var/eyetype					// Same as above, but for eyes.
 	var/module_sprites[0] 		//Used to store the associations between sprite names and sprite index.
 	var/icon_selected = 0		//If icon selection has been completed yet
 	var/spawn_sound = 'sound/voice/liveagain.ogg'
@@ -142,13 +145,10 @@
 	robot_modules_background = new()
 	robot_modules_background.icon_state = "block"
 	robot_modules_background.layer = SCREEN_LAYER //Objects that appear on screen are on layer 20, UI should be just below it.
-	module_sprites["Basic"] = "robot"
-	icontype = "Basic"
 	updatename(mod_type)
 
 	if(!client)
 		stat = UNCONSCIOUS
-	setup_icon_cache()
 
 	if(mmi?.brainobj)
 		mmi.brainobj.prepared = TRUE
@@ -171,6 +171,7 @@
 
 	init()
 	initialize_components()
+	setup_icon_cache()
 
 	for(var/V in components)
 		if(V != "power cell" && V != "jetpack" && V != "surge") //We don't install the jetpack onstart
@@ -296,7 +297,7 @@
 				to_chat(src, SPAN_WARNING("Custom Sprite Sheet does not contain a valid icon_state for [sprite.synthicon]-[mod_type]"))
 		else
 			icontype = module_sprites[1]
-		icon_state = module_sprites[icontype]
+		icon_state = module_sprites[icontype][ROBOT_CHASSIS]
 	return module_sprites
 
 /mob/living/silicon/robot/proc/pick_module(var/set_module)
@@ -507,6 +508,7 @@
 			set_light(integrated_light_power)
 	else
 		set_light(0)
+	setup_eye_cache() //update eyes
 
 // this function displays jetpack pressure in the stat panel
 /mob/living/silicon/robot/proc/show_jetpack_pressure()
@@ -734,7 +736,7 @@
 				to_chat(user, SPAN_WARNING("\The [src] does not have a radio installed!"))
 				return
 		else if(W.GetID() || istype(W, /obj/item/card/robot))			// trying to unlock the interface with an ID card
-			if(emagged && !is_traitor()) //still allow them to open the cover. is_traitor() dodges this text as being made traitor sets emagged to TRUE. 
+			if(emagged && !is_traitor()) //still allow them to open the cover. is_traitor() dodges this text as being made traitor sets emagged to TRUE.
 				to_chat(user, SPAN_NOTICE("You notice that \the [src]'s interface appears to be damaged."))
 			if(opened)
 				to_chat(user, SPAN_WARNING("You must close the cover to swipe an ID card."))
@@ -1081,17 +1083,18 @@
 			return
 	else
 		var/list/options = list()
-		for(var/i in module_sprites)
-			var/image/radial_button = image(icon = src.icon, icon_state = module_sprites[i])
-			radial_button.overlays.Add(image(icon = src.icon, icon_state = "eyes-[module_sprites[i]]-help"))
+		for(var/i in module_sprites) // Gottverdamnt.
+			var/image/radial_button = image(icon = src.icon, icon_state = module_sprites[i][ROBOT_CHASSIS])
+			radial_button.overlays.Add(image(icon = src.icon, icon_state = "[module_sprites[i][ROBOT_EYES]]-eyes_help"))
 			options[i] = radial_button
 		icontype = show_radial_menu(src, src, options, radius = 42, tooltips = TRUE)
 
 	if(!icontype)
 		return
 
-	icon_state = module_sprites[icontype]
+	icon_state = module_sprites[icontype][ROBOT_CHASSIS]
 	icon_selected = TRUE
+
 	setup_icon_cache()
 	playsound(get_turf(src), 'sound/effects/pop.ogg', 10, TRUE)
 	spark(get_turf(src), 5, alldirs)
