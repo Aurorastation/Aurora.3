@@ -275,6 +275,13 @@
 	name = "Operations Maintenance"
 	icon_state = "maint_cargo"
 
+/area/maintenance/aux_atmospherics/deck_2/starboard
+	name = "Starboard Auxiliary Atmospherics"
+/area/maintenance/aux_atmospherics/deck_2/starboard/wing
+	name = "Starboard Wing Auxiliary Atmospherics"
+/area/maintenance/aux_atmospherics/deck_3
+	name = "Central Auxiliary Atmospherics"
+
 // Infrastructure
 
 /area/storage/shields
