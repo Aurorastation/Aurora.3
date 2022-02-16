@@ -679,3 +679,6 @@ Please note: Cell timers will \[b\]NOT\[/b\] function without a valid incident f
 /obj/item/paper/nka_pledge
 	name = "imperial volunteer Alam'ardii corps pledge"
 	info = "<center><b><u>Imperial Volunteer Alam'ardii Corps Pledge</u></b></center> <hr> <center><i><u>May the Gods bless his Kingdom and Dynasty</u></i></center> <hr> I, <field>, hereby declare, under a vow of loyalty and compromise, that I shall serve as a volunteer in the Imperial Volunteer Alam'ardii Corps, for the mininum duration of three years or until discharge. I accept the duty of aiding the New Kingdom of Adhomai and His Majesty, King Vahzirthaamro Azunja, in this struggle and I shall not relinquish this pledge. <hr> Volunteer Signature: <field> <hr> Recruiting Officer Stamp:"
+
+/obj/item/paper/medscan
+	icon_state = "medscan"

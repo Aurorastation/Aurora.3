@@ -344,10 +344,15 @@
 
 	pointing_effect = new /obj/effect/decal/point(tile)
 	pointing_effect.invisibility = invisibility
-	addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, pointing_effect), 2 SECONDS)
+	addtimer(CALLBACK(.proc/end_pointing_effect), 2 SECONDS)
 
 	face_atom(A)
 	return 1
+
+/mob/proc/end_pointing_effect()
+	if(pointing_effect)
+		qdel(pointing_effect)
+		pointing_effect = null
 
 /mob/verb/mode()
 	set name = "Activate Held Object"

@@ -547,8 +547,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = ITEMSIZE_NORMAL
 
 
-/obj/item/dice/fluff/baron_dice //BARON's Dice - BARON - iamcrystalclear
-	weighted = TRUE
+/obj/item/stack/dice/fluff/baron_dice //BARON's Dice - BARON - iamcrystalclear
+	weight_roll = 70
 	favored_number = 2
 
 
@@ -2039,11 +2039,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "sur_dbag"
 
 	starts_with = list(
-		/obj/item/dice/fluff/suraya_dice = 3,
-		/obj/item/dice/fluff/suraya_dice/alt = 3
+		/obj/item/stack/dice/fluff/suraya_dice = 3,
+		/obj/item/stack/dice/fluff/suraya_dice/alt = 3
 	)
 
-/obj/item/dice/fluff/suraya_dice
+/obj/item/stack/dice/fluff/suraya_dice
 	name = "blue adhomian die"
 	desc = "A blue-and-gold wooden die with six sides, beautifully carved and delicately painted. The single dot on the number one side is, on closer inspection, a miniature image of the god Rredouane."
 	icon = 'icons/obj/custom_items/suraya_dice.dmi'
@@ -2051,19 +2051,17 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "sur_b_d1"
 	base_icon = "sur_b_d"
 	favored_number = 1
-	weighted_value = 22
+	weight_roll = 22
 
-/obj/item/dice/fluff/suraya_dice/AltClick(mob/user)
-	weighted = !weighted
-
-	if(!weighted)
-		to_chat(user, SPAN_NOTICE("You jiggle the die rapidly in your hand, resetting the internal weighting."))
+/obj/item/stack/dice/fluff/suraya_dice/AltClick(mob/user)
+	if(!weight_roll)
+		user.visible_message("<b>\The [user]</b> jiggles \the [src] around in their hand for a second.", SPAN_NOTICE("You jiggle the die rapidly in your hand, resetting the internal weighting."))
+		weight_roll = 0
 	else
-		to_chat(user, SPAN_NOTICE("You carefully jiggle the die one way, then the other, allowing its internal weighting to lock into place."))
+		user.visible_message("<b>\The [user]</b> jiggles \the [src] around in their hand for a second.", SPAN_NOTICE("You carefully jiggle the die one way, then the other, allowing its internal weighting to lock into place."))
+		weight_roll = initial(weight_roll)
 
-	user.visible_message("<b>\The [user]</b> jiggles \the [src] around in their hand for a second.")
-
-/obj/item/dice/fluff/suraya_dice/alt
+/obj/item/stack/dice/fluff/suraya_dice/alt
 	name = "green adhomian die"
 	desc = "A green-and-silver wooden die with six sides, beautifully carved and delicately painted. The single dot on the number one side is, on closer inspection, a miniature image of the god Rredouane."
 	icon_state = "sur_g_d1"
@@ -2150,7 +2148,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 
 /obj/item/clothing/suit/storage/toggle/fluff/sezrak_coat //red Domelkoan Coat - Sezrak Han'san - captaingecko
-	name = "red Domelkoan Coa"
+	name = "red Domelkoan Coat"
 	desc = "A warm coat made in Domelkos. This red coat is stuffed with yupmi fur and made out of reinforced cloth-like synthetic materials, both to keep the wearer warm in the cold winters of \
 	Moroz, and to resist all but the rougher treatments... All the while remaining good-looking enough. Both shoulders on this coat feature the standard of the Han'san clan-house, presented in a \
 	gilded color."
@@ -2225,7 +2223,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "quoro_suit"
 	item_state = "quoro_suit"
 	contained_sprite = TRUE
-	
+
 
 /obj/item/clothing/accessory/poncho/shouldercape/qeblak/zeng/fluff/eden_cloak // Zeng-Hu Jargon division cloak - Eden Li - Huntime
 	name = "Zeng-Hu cloak: Jargon Division"
@@ -2235,3 +2233,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "ZH_cape_custom"
 	item_state = "ZH_cape_custom"
 
+/obj/item/clothing/head/welding/fluff/akara_mask //Steel Face Mask - Akara Seuseisak - aticius
+	name = "steel face mask"
+	desc = "A slab of steel that has been hammered into the shape of a full-face mask with crude tools. It seems quite old and an appreciable layer of rust has built up."
+	icon = 'icons/obj/custom_items/akara_mask.dmi'
+	icon_override = 'icons/obj/custom_items/akara_mask.dmi'
+	icon_state = "akara_mask"
+	item_state = "akara_mask"
+	contained_sprite = TRUE
+	action_button_name = "Adjust mask"
+	flash_protection = FLASH_PROTECTION_NONE
+	tint = TINT_NONE
