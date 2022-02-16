@@ -1,6 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes:
-  - bugfix: "Z-mimic will now update properly when something changes on the bottom visible turf."
