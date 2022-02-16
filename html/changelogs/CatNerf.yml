@@ -1,6 +1,0 @@
-author: listerla
-
-delete-after: True
-
-changes:
-  - rscdel: "Removed the ability of cats to see observers."
