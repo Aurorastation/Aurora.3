@@ -211,7 +211,7 @@
 	eyes_icons = 'icons/mob/human_face/eyes48x48.dmi'
 	eyes = "bulwark_eyes"
 
-	slowdown = 6
+	slowdown = 2
 
 	unarmed_types = list(/datum/unarmed_attack/claws/vaurca_bulwark)
 
@@ -240,6 +240,7 @@ Bulwarks are much larger and have significantly thicker carapaces than most Vaur
 	heat_level_3 = 800 //Default 1000
 
 	sprint_speed_factor = 1.4
+	stamina = 50
 
 /datum/species/bug/type_e/New()
 	..()

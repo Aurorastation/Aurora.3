@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Bulwarks now move faster, a bit slower than their other vaurca brethren. In exchange, their stamina has been halved."
