@@ -110,7 +110,7 @@ var/list/restricted_camera_networks = list(NETWORK_ERT,NETWORK_MERCENARY,"Secret
 #define ATMOS_DEFAULT_VOLUME_PUMP   200 // Liters.
 #define ATMOS_DEFAULT_VOLUME_FILTER 200 // L.
 #define ATMOS_DEFAULT_VOLUME_MIXER  200 // L.
-#define ATMOS_DEFAULT_VOLUME_PIPE   70  // L.
+#define ATMOS_DEFAULT_VOLUME_PIPE   7  // L.
 
 
 // Misc process flags.
