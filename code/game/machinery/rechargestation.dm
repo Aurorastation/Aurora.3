@@ -160,12 +160,8 @@
 		if(!L.isSynthetic())
 			return
 		
-		user.visible_message(SPAN_NOTICE("[user] starts putting [L] into [src]."), SPAN_NOTICE("You start putting [L] into [src]."), range = 3)
-
-		if(do_mob(user, grab.affecting, 5 SECONDS))
-			if(go_in(L))
-				user.visible_message(SPAN_NOTICE("[user] puts [L] into [src]."), SPAN_NOTICE("You put [L] into [src]."), range = 3)
-			qdel(O)
+		move_ipc(grab.affecting)
+		qdel(O)
 	..()
 
 /obj/machinery/recharge_station/RefreshParts()
@@ -268,6 +264,19 @@
 	occupant = null
 	update_icon()
 
+/obj/machinery/recharge_station/proc/move_ipc(var/mob/M) // For the grab/drag and drop
+	var/mob/living/R = M
+	usr.visible_message(SPAN_NOTICE("[usr] starts putting [R] into [src]."), SPAN_NOTICE("You start putting [R] into [src]."), range = 3)
+	if(do_mob(usr, R, 5 SECONDS))
+		if(go_in(R))
+			usr.visible_message(SPAN_NOTICE("After some effort, [usr] manages to get [R] into the recharging unit!"))
+			return 1
+		else
+			to_chat(usr, SPAN_DANGER("Failed loading [R] into charger. Please ensure that [R]'s limbs are safely within the charger and has a power cell, and that the charger is functioning."))
+	else
+		to_chat(usr, SPAN_DANGER("Cancelled loading [R] into the charger. You and [R] must stay still!"))
+	return
+
 /obj/machinery/recharge_station/verb/move_eject()
 	set category = "Object"
 	set name = "Eject Recharger"
@@ -289,7 +298,6 @@
 		return
 	go_in(usr)
 
-
 /obj/machinery/recharge_station/MouseDrop_T(var/atom/movable/C, mob/user)
 	if (istype(C, /mob/living/silicon/robot))
 		var/mob/living/silicon/robot/R = C
@@ -308,7 +316,7 @@
 			to_chat(user, SPAN_DANGER("Cancelled loading [C] into the charger. You and [C] must stay still!"))
 		return
 	
-	else if(istype(C, /mob/living/carbon/human/machine)) // IPCs don't take as long
+	else if(isipc(C)) // IPCs don't take as long
 		var/mob/living/carbon/human/machine/R = C
 		if(!user.Adjacent(R) || !Adjacent(user))
 			to_chat(user, SPAN_DANGER("You need to get closer if you want to put [C] into that charger!"))
@@ -323,14 +331,5 @@
 			return
 
 		user.face_atom(src)
-		user.visible_message(SPAN_DANGER("[user] starts putting [C] into the recharging unit!"), SPAN_DANGER("You start putting [C] into the recharger."))
-		if(do_mob(user, R, 5 SECONDS))
-			if(go_in(R))
-				user.visible_message(SPAN_NOTICE("After some effort, [user] manages to get [C] into the recharging unit!"))
-				return 1
-			else
-				to_chat(user, SPAN_DANGER("Failed loading [C] into charger. Please ensure that [C]'s limbs are safely within the charger and has a power cell, and that the charger is functioning."))
-		else
-			to_chat(user, SPAN_DANGER("Cancelled loading [C] into the charger. You and [C] must stay still!"))
-		return
+		move_ipc(R)
 	return ..()
