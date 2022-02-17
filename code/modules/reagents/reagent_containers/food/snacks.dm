@@ -1931,10 +1931,13 @@
 	reagent_data = list(/decl/reagent/nutriment = list("toasted bread" = 3, "cheese" = 3))
 	bitesize = 2
 
-/obj/item/reagent_containers/food/snacks/toast
+/obj/item/reagent_containers/food/snacks/toast // VTD: Check Reagents
 	name = "toasted bread"
 	desc = "Plain, but consistent and reliable toast."
 	icon_state = "toast"
+	item_state = "toast"
+	slot_flags = SLOT_MASK
+	contained_sprite = TRUE
 	trash = /obj/item/trash/plate
 	filling_color = "#D9BE29"
 	center_of_mass = list("x"=16, "y"=4)
@@ -1942,7 +1945,7 @@
 	reagent_data = list(/decl/reagent/nutriment = list("toasted bread" = 2))
 	bitesize = 2
 
-/obj/item/reagent_containers/food/snacks/egginthebasket
+/obj/item/reagent_containers/food/snacks/egginthebasket // VTD: Check Reagents
 	name = "egg in the basket"
 	desc = "Egg in the basket, also known as <i>egg in a hole</i>, or <i>bullseye egg</i>, or <i>egg in a nest</i>, or <i>framed egg</i>, or..."
 	icon_state = "egginthebasket"
@@ -1953,7 +1956,7 @@
 	reagent_data = list(/decl/reagent/nutriment = list("toasted bread" = 2))
 	bitesize = 2
 
-/obj/item/reagent_containers/food/snacks/garlicbread
+/obj/item/reagent_containers/food/snacks/garlicbread // VTD: Check Reagents
 	name = "garlid bread"
 	desc = "Delicious garlic bread, but you probably shouldn't eat it for every meal."
 	icon_state = "garlicbread"
@@ -2032,7 +2035,7 @@
 
 /obj/item/reagent_containers/food/snacks/jelliedtoast/slime/reagents_to_add = list(/decl/reagent/slimejelly = 5)
 
-/obj/item/reagent_containers/food/snacks/pbtoast
+/obj/item/reagent_containers/food/snacks/pbtoast // VTD: Check Reagents
 	name = "peanut butter toast"
 	desc = "A slice of bread covered with appetizing peanut butter."
 	icon_state = "pbtoast"
@@ -2225,7 +2228,7 @@
 
 /obj/item/reagent_containers/food/snacks/jellysandwich/cherry/reagents_to_add = list(/decl/reagent/nutriment/cherryjelly = 5)
 
-/obj/item/reagent_containers/food/snacks/pbjsandwich
+/obj/item/reagent_containers/food/snacks/pbjsandwich // VTD: Check Reagents
 	name = "pbj sandwich"
 	desc = "A staple classic lunch of gooey jelly and peanut butter."
 	icon_state = "pbjsandwich"
@@ -4347,14 +4350,23 @@
 	filling_color = "#35961D"
 
 // Roasted Peanuts (under chips/nachos because finger food)
-/obj/item/reagent_containers/food/snacks/peanut_roast
-	name = "roasted peanuts"
-	desc = "Peanuts roasted to flavourful and rich perfection. For a more peanut-ful experience."
-	icon_state = "roast_peanuts"
+/obj/item/reagent_containers/food/snacks/chipplate/peanut_roast
+	name = "bowl of roasted peanuts"
+	desc = "Peanuts roasted to flavourful and rich perfection."
+	icon_state = "roast_peanuts_bowl"
 	trash = /obj/item/trash/dipbowl
+	vendingobject = /obj/item/reagent_containers/food/snacks/roasted_peanut
+	bitesize = 4 // VTD: Figure out why the bitesize for the singular peanut doesn't actually output as 2
+	reagents_to_add = list(/decl/reagent/nutriment/peanutbutter = 15, /decl/reagent/nutriment/triglyceride/oil/peanut = 5) // VTD: Fix Peanut Butter's Taste
+	unitname = "roasted peanut"
+	filling_color = "#D89E37"
+
+/obj/item/reagent_containers/food/snacks/roasted_peanut
+	name = "roasted peanut"
+	desc = "A singular roasted peanut. How peanut-ful."
+	icon_state = "roast_peanut"
 	bitesize = 2
-	reagents_to_add = list(/decl/reagent/nutriment/peanutbutter = 15, /decl/reagent/nutriment/triglyceride/oil/peanut = 5)
-	reagent_data = list(/decl/reagent/nutriment/peanutbutter = list("crunchy roasted peanuts" = 15))
+	reagents_to_add = list(/decl/reagent/nutriment/peanutbutter = 1.5, /decl/reagent/nutriment/triglyceride/oil/peanut = 0.5)
 	filling_color = "#D89E37"
 
 //burritos
@@ -5402,3 +5414,24 @@
 	reagents_to_add = list(/decl/reagent/toxin/phoron = 25)
 	bitesize = 5
 	trash = /obj/item/trash/phoroncandy
+
+// VTD: Shuffle these later
+/obj/item/reagent_containers/food/snacks/sauerkraut
+	name = "sauerkraut"
+	desc = "" // VTD: Ask about the description
+	icon_state = "sauerkraut" // VTD: Need sprites
+	filling_color = "" // Will choose based on sprites
+	reagents_to_add = list(/decl/reagent/nutriment = 5) // VTD: AAAUGH
+	reagent_data = list(/decl/reagent/nutriment = list("taste" = 5))
+	bitesize = 3
+	trash = /obj/item/trash/snack_bowl
+
+/obj/item/reagent_containers/food/snacks/reubensandwich
+	name = "reuben sandwich"
+	desc = "" // VTD: Ask about the description
+	icon_state = "reubensandwich" // VTD: SPRITES
+	filling_color = "" // AAAAA
+	reagents_to_add = list(/decl/reagent/nutriment = 5) // VTD: This will be future's me problem
+	reagent_data = list(/decl/reagent/nutriment = list("taste" = 5)) // See above
+	bitesize = 3
+	trash = /obj/item/trash/plate

@@ -1551,6 +1551,13 @@
 	required_reagents = list(/decl/reagent/drink/garlicjuice = 1, /decl/reagent/nutriment/triglyceride/oil/corn = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/mayonnaise // VTD: Check Recipe
+	name = "Mayonnaise"
+	id = "mayonnaise"
+	result = /decl/reagent/nutriment/mayonnaise
+	required_reagents = list(/decl/reagent/nutriment/protein/egg = 3, /decl/reagent/drink/lemonjuice = 2, /decl/reagent/nutriment/triglyceride/oil/corn = 10)
+	result_amount = 15
+
 /datum/chemical_reaction/cheesewheel
 	name = "Cheesewheel"
 	id = "cheesewheel"
