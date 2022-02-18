@@ -168,9 +168,9 @@
 	var/minimum_temperature_difference = 300
 	var/thermal_conductivity = 0 //WALL_HEAT_TRANSFER_COEFFICIENT No
 
-	var/maximum_pressure = 50*ONE_ATMOSPHERE
-	var/fatigue_pressure = 40*ONE_ATMOSPHERE
-	alert_pressure = 40*ONE_ATMOSPHERE
+	var/maximum_pressure = ATMOS_DEFAULT_MAX_PRESSURE
+	var/fatigue_pressure = ATMOS_DEFAULT_FATIGUE_PRESSURE
+	alert_pressure = ATMOS_DEFAULT_ALERT_PRESSURE
 
 	level = 1
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
