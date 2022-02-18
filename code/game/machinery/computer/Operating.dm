@@ -158,6 +158,7 @@
 	if(src.stat & BROKEN)
 		qdel(input_scan)
 		qdel(internal_bodyscanner)
+		return PROCESS_KILL
 	if(src.table && (src.table.check_victim())) // Specific warning alarms for specific conditions. Times to be tweaked according to feedback
 		src.victim = src.table.victim
 		scan_slot = TRUE
