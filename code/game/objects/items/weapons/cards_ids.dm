@@ -118,6 +118,7 @@ var/const/NO_EMAG_ACT = -50
 	//alt titles are handled a bit weirdly in order to unobtrusively integrate into existing ID system
 	var/assignment = null	//can be alt title or the actual job
 	var/rank = null			//actual job
+	var/employer_faction = null
 	var/dorm = 0			// determines if this ID has claimed a dorm already
 	var/datum/ntnet_user/chat_user
 
@@ -173,6 +174,7 @@ var/const/NO_EMAG_ACT = -50
 	id_card.citizenship			= citizenship
 	id_card.religion 			= SSrecords.get_religion_record_name(religion)
 	id_card.mob					= src
+	id_card.employer_faction    = employer_faction
 
 /obj/item/card/id/proc/dat()
 	var/dat = ("<table><tr><td>")
@@ -529,7 +531,7 @@ var/const/NO_EMAG_ACT = -50
 /obj/item/card/id/distress/ap_eridani/New()
 	access = get_distress_access()
 	..()
- 
+
 /obj/item/card/id/distress/iac
 	name = "\improper Interstellar Aid Corps ID"
 	assignment = "Interstellar Aid Corps Responder"
