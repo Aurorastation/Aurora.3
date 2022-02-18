@@ -55,13 +55,9 @@ var/datum/controller/subsystem/mapping/SSmapping
 		var/datum/map_template/MT = new map_template_type()
 
 		if (banned_maps)
-			var/is_banned = FALSE
 			var/mappath = MT.mappath
 			if(list_find(banned_maps, mappath))
-				is_banned = TRUE
 				break
-			if (is_banned)
-				continue
 
 		map_templates[MT.name] = MT
 
