@@ -1,6 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes:
-  - bugfix: "Being assigned a special role now clears 'role_alt_title', which could lead to you getting an ID with your previous job on it when spawning as an antagonist."

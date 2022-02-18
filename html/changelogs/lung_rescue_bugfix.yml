@@ -1,8 +1,0 @@
-author: Vrow
-
-delete-after: True
-
-changes:
-  - bugfix: "Lung rescue properly clears the built up OxyLoss (but doesn't prevent it from increasing)."
-  - tweak: "Decreased pain caused by lung rescue from 75 to 50."
-  - rscadd: "Added a spam prevention to the syringes."
