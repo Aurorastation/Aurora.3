@@ -1924,7 +1924,7 @@
 	name = "reuben sandwich"
 	desc = "A toasted sandwich packed with savory, meat and sour goodness!"
 	icon_state = "reubensandwich"
-	filling_color = "BF8E60"
+	filling_color = "#BF8E60"
 	reagents_to_add = list(/decl/reagent/nutriment = 8, /decl/reagent/nutriment/protein = 4, /decl/reagent/nutriment/ketchup = 2, /decl/reagent/nutriment/mayonnaise = 2)
 	reagent_data = list(/decl/reagent/nutriment = list("a savory blend of sweet and salty ingredients" = 6, "toasted bread" = 2))
 	bitesize = 3
