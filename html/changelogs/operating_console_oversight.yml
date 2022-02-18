@@ -4,5 +4,5 @@ delete-after: True
 
 changes:
   - rscadd: "The Operating Console now automatically ejects the scan if the patient isn't on the table."
-  - bugfic: "Patched some oversights which would lead to some bugs."
+  - bugfix: "Patched some oversights which would lead to some bugs."
   - tweak: "Minor shuffling of the operating console code and adding a % to be Blood Oxygenation."
