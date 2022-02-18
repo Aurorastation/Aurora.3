@@ -35,6 +35,13 @@
 		S.use_power = FALSE
 		internal_bodyscanner = S
 
+/obj/machinery/computer/operating/Destroy()
+	if(table)
+		table.computer -= src
+	internal_bodyscanner -= src
+	input_scan -= src
+	return ..()
+
 /obj/machinery/computer/operating/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
