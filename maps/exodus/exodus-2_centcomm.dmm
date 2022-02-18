@@ -7329,7 +7329,7 @@
 "aBV" = (
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/dice,
+/obj/item/stack/dice,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -9626,7 +9626,7 @@
 /area/antag/wizard)
 "aKq" = (
 /obj/structure/table/wood,
-/obj/item/dice/d20,
+/obj/item/stack/dice/d20,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -9701,7 +9701,7 @@
 /area/antag/wizard)
 "aKA" = (
 /obj/structure/table/wood,
-/obj/item/dice,
+/obj/item/stack/dice,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"

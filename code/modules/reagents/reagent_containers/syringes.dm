@@ -20,7 +20,7 @@
 	center_of_mass = list("x" = 16,"y" = 14)
 	matter = list(MATERIAL_GLASS = 150)
 	amount_per_transfer_from_this = 5
-	possible_transfer_amounts = list(1, 2, 5, 15)
+	possible_transfer_amounts = list(1, 2, 5, 10, 15)
 	volume = 15
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS
@@ -54,6 +54,9 @@
 	if(dirtiness >= 75)
 		STOP_PROCESSING(SSprocessing, src)
 	return 1
+
+/obj/item/reagent_containers/syringe/AltClick(var/mob/user)
+	set_APTFT()
 
 /obj/item/reagent_containers/syringe/proc/infect_limb(var/obj/item/organ/external/eo)
 	eo.germ_level += dirtiness // only 75% of the way to an infection at max

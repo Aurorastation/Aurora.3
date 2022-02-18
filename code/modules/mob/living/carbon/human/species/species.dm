@@ -260,7 +260,7 @@
 
 	var/pass_flags = 0
 
-	var/obj/effect/decal/cleanable/blood/tracks/move_trail = /obj/effect/decal/cleanable/blood/tracks/footprints // What marks are left when walking
+	var/obj/effect/decal/cleanable/blood/tracks/move_trail = /obj/effect/decal/cleanable/blood/tracks/footprints/barefoot // What marks are left when walking
 
 	var/default_h_style = "Bald"
 	var/default_f_style = "Shaved"
@@ -269,7 +269,7 @@
 	var/list/allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI, CITIZENSHIP_DOMINIA)
 	var/list/allowed_religions = list(RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_JUDAISM, RELIGION_HINDU, RELIGION_BUDDHISM, RELIGION_MOROZ, RELIGION_TRINARY, RELIGION_SCARAB, RELIGION_TAOISM, RELIGION_LUCEISM)
 	var/default_citizenship = CITIZENSHIP_BIESEL
-	var/list/allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_MARTIAN, ACCENT_LUNA, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_JUPITER, ACCENT_COC, ACCENT_ELYRA, ACCENT_ERIDANI, ACCENT_ERIDANIREINSTATED,
+	var/list/allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_MARTIAN, ACCENT_LUNA, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_JUPITER, ACCENT_COC, ACCENT_ELYRA, ACCENT_PERSEPOLIS, ACCENT_MEDINA, ACCENT_AEMAQ, ACCENT_NEWSUEZ, ACCENT_DAMASCUS, ACCENT_ERIDANI, ACCENT_ERIDANIREINSTATED,
 									ACCENT_ERIDANIDREG, ACCENT_VYSOKA, ACCENT_HIMEO, ACCENT_PHONG, ACCENT_SILVERSUN_ORIGINAL, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_DOMINIA_HIGH, ACCENT_DOMINIA_VULGAR, ACCENT_KONYAN, ACCENT_EUROPA, ACCENT_EARTH, ACCENT_NCF, ACCENT_FISANDUH, ACCENT_GADPATHUR,
 									ACCENT_PLUTO, ACCENT_ASSUNZIONE, ACCENT_VISEGRAD, ACCENT_VALKYRIE, ACCENT_MICTLAN)
 	var/default_accent = ACCENT_CETI
@@ -636,6 +636,35 @@
 
 /datum/species/proc/can_breathe_water()
 	return FALSE
+
+/datum/species/proc/handle_trail(var/mob/living/carbon/human/H, var/turf/T)
+	var/list/trail_info = list()
+	if(H.shoes)
+		var/obj/item/clothing/shoes/S = H.shoes
+		if(istype(S))
+			S.handle_movement(T, H.m_intent == M_RUN ? TRUE : FALSE)
+			if(S.track_footprint)
+				if(S.blood_DNA)
+					trail_info["footprint_DNA"] = S.blood_DNA
+				trail_info["footprint_color"] = S.blood_color
+				S.track_footprint--
+	else
+		if(H.track_footprint)
+			if(H.feet_blood_DNA)
+				trail_info["footprint_DNA"] = H.feet_blood_DNA
+			trail_info["footprint_color"] = H.footprint_color
+			H.track_footprint--
+
+	return trail_info
+
+/datum/species/proc/deploy_trail(var/mob/living/carbon/human/H, var/turf/T)
+	var/list/trail_info = handle_trail(H, T)
+	if(length(trail_info))
+		var/track_path = trail_info["footprint_type"]
+		T.add_tracks(track_path ? track_path : H.species.get_move_trail(H), trail_info["footprint_DNA"], H.dir, 0, trail_info["footprint_color"]) // Coming
+		var/turf/simulated/from = get_step(H, reverse_direction(H.dir))
+		if(istype(from))
+			from.add_tracks(track_path ? track_path : H.species.get_move_trail(H), trail_info["footprint_DNA"], 0, H.dir, trail_info["footprint_color"]) // Going
 
 /datum/species/proc/get_move_trail(var/mob/living/carbon/human/H)
 	if(H.lying)

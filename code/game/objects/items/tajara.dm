@@ -232,14 +232,20 @@
 
 	add_fingerprint(user)
 
-/obj/item/dice/tajara
+/obj/item/flame/lighter/adhomai/AltClick(mob/user)
+	if(Adjacent(user) && !lit)
+		protection = !protection
+		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
+		update_icon()
+	
+/obj/item/stack/dice/tajara
 	name = "adhomian dice"
 	desc = "An adhomian dice made out of wood. Commonly used to play Suns and Moon."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "brother1"
 	base_icon = "brother"
 
-/obj/item/dice/tajara/alt
+/obj/item/stack/dice/tajara/alt
 	icon_state = "sister1"
 	base_icon = "sister"
 
@@ -251,6 +257,6 @@
 	of the rules has garnered it quite the reputation. Die will usually have an image of Rredouane fixed upon them. Parks will commonly have designated spots for people to play Suns and Moon. Disputes are \
 	also solved through this game."
 	starts_with = list(
-		/obj/item/dice/tajara = 3,
-		/obj/item/dice/tajara/alt = 3
+		/obj/item/stack/dice/tajara = 3,
+		/obj/item/stack/dice/tajara/alt = 3
 	)
