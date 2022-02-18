@@ -22915,12 +22915,8 @@
 /area/rnd/eva)
 "vfc" = (
 /obj/structure/table/rack,
-/obj/item/storage/briefcase{
-	layer = 2.99;
-	pixel_x = -1;
-	pixel_y = 4
-	},
-/obj/item/storage/briefcase,
+/obj/item/storage/bag/inflatable,
+/obj/item/storage/bag/inflatable,
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
 "vgw" = (
