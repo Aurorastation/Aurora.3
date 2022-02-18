@@ -1,0 +1,9 @@
+author: Vrow, Granodd
+
+delete-after: True
+
+changes:
+  - rscadd: "Added various bread-related recipes! Toast, Garlic Bread, Eggs-in-the-basket, Peanut Butter Toast, PBJ Sandwich, and Reuben Sandwich!"
+  - rscadd: "Added Sauerkraut, Mayonnaise, and Roasted Peanuts! You can also make Peanut Oil and Peanut Butter!"
+  - imageadd: "Added several more sprites for the new recipes and unique condiment bottle sprites for Mayonnaise, Peanut Butter, Ground Roasted Peanuts, and Peanut Oil."
+  - imageadd: "Ports the Garlic Bread sprite from tgstation."
