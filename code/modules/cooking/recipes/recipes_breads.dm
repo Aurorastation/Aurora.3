@@ -150,11 +150,13 @@
 //================================
 // Toasts and Toasted Sandwiches
 //================================
-/decl/recipe/toast // VTD: Check Reagents
+/decl/recipe/toast // Needs to be here otherwise it fucking kills itself
 	appliance = SKILLET
+	reagents = list(/decl/reagent/nutriment/triglyceride = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/breadslice
 	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/toast
 
 /decl/recipe/slimetoast_alt
@@ -221,7 +223,7 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/grilledcheese
 
-/decl/recipe/egginthebasket // VTD: Check Reagents
+/decl/recipe/egginthebasket
 	appliance = SKILLET
 	items = list(
 		/obj/item/reagent_containers/food/snacks/egg,
@@ -229,11 +231,12 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/egginthebasket
 
-/decl/recipe/garlicbread // VTD: Check Reagents
+/decl/recipe/garlicbread
 	appliance = SKILLET | OVEN
 	reagents = list(/decl/reagent/nutriment/garlicsauce = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/spreads/butter,
 		/obj/item/reagent_containers/food/snacks/breadslice
 	)
+	reagent_mix = RECIPE_REAGENT_REPLACE // Yeah that butter though
 	result = /obj/item/reagent_containers/food/snacks/garlicbread

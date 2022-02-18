@@ -315,12 +315,14 @@
 	result = /obj/item/reagent_containers/food/snacks/taco
 
 // Peanuts
-/decl/recipe/peanut_roast // VTD: Check if it works
+/decl/recipe/peanuts_bowl
 	appliance = OVEN
 	fruit = list("peanut" = 10)
-	result = /obj/item/reagent_containers/food/snacks/chipplate/peanut_roast
+	result = /obj/item/reagent_containers/food/snacks/chipplate/peanuts_bowl
+	reagent_mix = RECIPE_REAGENT_REPLACE // So the output isn't 40u total
 
-/decl/recipe/peanut_roast_dry
+/decl/recipe/peanuts_bowl_dry
 	appliance = OVEN
 	fruit = list("dried peanut" = 10)
-	result = /obj/item/reagent_containers/food/snacks/chipplate/peanut_roast
+	result = /obj/item/reagent_containers/food/snacks/chipplate/peanuts_bowl
+	reagent_mix = RECIPE_REAGENT_REPLACE

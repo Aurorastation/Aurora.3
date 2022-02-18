@@ -122,7 +122,7 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/bunbun
 
-/decl/recipe/reubensandwich // VTD: Need the sprite
+/decl/recipe/reubensandwich
 	reagents = list(/decl/reagent/nutriment/mayonnaise = 5, /decl/reagent/nutriment/ketchup = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/toast,
@@ -131,6 +131,7 @@
 		/obj/item/reagent_containers/food/snacks/cutlet,
 		/obj/item/reagent_containers/food/snacks/toast
 	)
+	reagent_mix = RECIPE_REAGENT_MIN
 	result = /obj/item/reagent_containers/food/snacks/reubensandwich
 
 /decl/recipe/superbiteburger
@@ -341,9 +342,9 @@
 	result = /obj/item/reagent_containers/food/snacks/lardwich
 	reagent_mix = RECIPE_REAGENT_REPLACE
 
-// VTD: Need the sprite
 /decl/recipe/sauerkraut
 	appliance = MIX
 	fruit = list("cabbage" = 1)
-	reagents = list(/decl/reagent/sodiumchloride = 2, /decl/reagent/enzyme = 5)
+	reagents = list(/decl/reagent/enzyme = 5)
 	result = /obj/item/reagent_containers/food/snacks/sauerkraut
+	reagent_mix = RECIPE_REAGENT_REPLACE
