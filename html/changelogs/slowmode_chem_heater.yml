@@ -1,7 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes:
-  - bugfix: "It is now possible to safely heat nitroglycerin without explosions. Use a large volume and heat it in small increments."
-  - rscadd: "Chem heaters now have a 'slow mode' option that will heat your chemical in very small steps."

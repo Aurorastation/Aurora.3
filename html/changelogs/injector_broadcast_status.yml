@@ -1,6 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes:
-  - bugfix: "Atmospherics consoles linked to injector outlets (e.g. Supermatter coolant control console) will no longer require you to click 'Search for input port' the first time you open it in a round, they will instead start with their mapped injector already linked properly."

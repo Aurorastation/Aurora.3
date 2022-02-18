@@ -1,7 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes:
-  - bugfix: "Crew Arrival Announcement/Records will now include a faction tag for valid factions, so your crew manifest listing can match everyone else's."
-  - tweak: "The Agent ID can now have a faction name set."
