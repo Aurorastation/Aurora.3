@@ -114,7 +114,7 @@
 
 /obj/structure/fuel_port/Initialize()
 	. = ..()
-	new /obj/item/tank/phoron(src)
+	new /obj/item/tank/phoron/shuttle(src) // Enough for four launches (one round trip)
 
 /obj/structure/fuel_port/attack_hand(mob/user)
 	if(!opened)
