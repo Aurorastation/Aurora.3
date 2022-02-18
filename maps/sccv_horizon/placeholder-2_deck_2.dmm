@@ -566,14 +566,14 @@
 	layer = 3.2;
 	name = "Mass Driver Interior Blast Door";
 	pixel_x = 25;
-	pixel_y = -7
+	pixel_y = 2
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "massdriverexterior";
 	layer = 3.2;
 	name = "Mass Driver Exterior Blast Door";
 	pixel_x = 25;
-	pixel_y = 2
+	pixel_y = -7
 	},
 /turf/simulated/floor/tiled,
 /area/chapel/office)
@@ -38263,7 +38263,7 @@
 /area/engineering/engine_room)
 "xIW" = (
 /obj/machinery/door/blast/regular{
-	id = "massdriveroutside"
+	id = "massdriverexterior"
 	},
 /turf/simulated/floor/reinforced,
 /area/chapel/office)
