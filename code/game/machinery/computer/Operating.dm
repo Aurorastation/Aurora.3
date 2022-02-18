@@ -36,10 +36,9 @@
 		internal_bodyscanner = S
 
 /obj/machinery/computer/operating/Destroy()
-	if(table)
-		table.computer -= src
-	internal_bodyscanner -= src
-	input_scan -= src
+	QDEL_NULL(table.computer)
+	QDEL_NULL(internal_bodyscanner)
+	QDEL_NULL(input_scan)
 	return ..()
 
 /obj/machinery/computer/operating/attack_ai(mob/user)
@@ -163,8 +162,8 @@
 	if(operable())
 		src.updateDialog()
 	if(src.stat & BROKEN)
-		qdel(input_scan)
-		qdel(internal_bodyscanner)
+		QDEL_NULL(input_scan)
+		QDEL_NULL(internal_bodyscanner)
 		return PROCESS_KILL
 	if(src.table && (src.table.check_victim())) // Specific warning alarms for specific conditions. Times to be tweaked according to feedback
 		src.victim = src.table.victim
