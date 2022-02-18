@@ -129,6 +129,7 @@
 	..()
 
 	set_frequency(frequency)
+	broadcast_status()
 
 /obj/machinery/atmospherics/unary/outlet_injector/receive_signal(datum/signal/signal)
 	if(!signal.data["tag"] || (signal.data["tag"] != id) || (signal.data["sigtype"]!="command"))
