@@ -1,6 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - tweak: "The hull shield generator now also create shields around the rock walls found on the asteroid to guarantee station safety."
