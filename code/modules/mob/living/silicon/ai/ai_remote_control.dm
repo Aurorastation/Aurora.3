@@ -4,6 +4,7 @@
 	networks = list(NETWORK_COMMAND)
 	languages = list(
 					LANGUAGE_SOL_COMMON =  TRUE,
+					LANGUAGE_ELYRAN_STANDARD = TRUE,
 					LANGUAGE_TRADEBAND =   TRUE,
 					LANGUAGE_UNATHI =      TRUE,
 					LANGUAGE_SIIK_MAAS =   TRUE,
@@ -19,7 +20,7 @@
 					LANGUAGE_YA_SSA =      FALSE
 					)
 
-	sprites = list("Basic" = "shell")
+	sprites = list("Basic" = list(ROBOT_CHASSIS = "shell", ROBOT_PANEL = "shell", ROBOT_EYES = "shell"))
 
 /obj/item/robot_module/aicontrol/Initialize()
 	. = ..()

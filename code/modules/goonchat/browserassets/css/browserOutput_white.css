@@ -353,8 +353,13 @@ h1.alert, h2.alert		{color: #000080;}
 .tajaran_signlang		{color: #941C1C;}
 .skrell					{color: #00CED1;}
 .vaurca					{color: #9e9e39;}
+.vaurca_zora		{color: #9e3939;}
+.vaurca_cthur		{color: #39719e;}
+.vaurca_klax		{color: #399e4a;}
+.vaurca_liidra	{color: #b350b3;}
 .soghun					{color: #228B22;}
 .solcom					{color: #22228B;}
+.elyran					{color: #c79322;}
 .soghun_alt				{color: #024402;}
 .changeling				{color: #800080;}
 .rough					{font-family: "Trebuchet MS", cursive, sans-serif;}

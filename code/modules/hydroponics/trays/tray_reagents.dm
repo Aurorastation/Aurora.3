@@ -128,29 +128,6 @@
 /obj/item/reagent_containers/glass/fertilizer/update_icon()
 	cut_overlays()
 
-	if(reagents.total_volume)
-		var/image/filling = image('icons/obj/reagentfillings.dmi', src, "plastic_jug10")
-
-		var/percent = round((reagents.total_volume / volume) * 100)
-		switch(percent)
-			if(1 to 10)
-				filling.icon_state = "plastic_jug-10"
-			if(11 to 29)
-				filling.icon_state = "plastic_jug25"
-			if(30 to 45)
-				filling.icon_state = "plastic_jug40"
-			if(46 to 61)
-				filling.icon_state = "plastic_jug55"
-			if(62 to 77)
-				filling.icon_state = "plastic_jug70"
-			if(78 to 92)
-				filling.icon_state = "plastic_jug85"
-			if(99 to INFINITY)
-				filling.icon_state = "plastic_jug100"
-
-		filling.color = reagents.get_color()
-		add_overlay(filling)
-
 	if(!is_open_container())
 		add_overlay("lid_jug")
 

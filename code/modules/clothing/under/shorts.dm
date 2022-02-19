@@ -29,6 +29,10 @@
 	icon_state = "greyshorts"
 	item_state = "greyshorts"
 
+/obj/item/clothing/under/shorts/color
+	icon_state = "colshorts"
+	item_state = "colshorts"
+
 /obj/item/clothing/under/shorts/scc
 	name = "Stellar Corporate Conglomerate shorts"
 	desc = "Shorts displaying the wearer's pride in their assigned corporate entity."

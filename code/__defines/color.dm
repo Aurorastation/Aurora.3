@@ -131,3 +131,5 @@
 #define BLOB_COLOR_SHIELD       "#9ed659"
 #define BLOB_COLOR_RAV          "#d65f42"
 #define BLOB_COLOR_PULS         "#b5ff5b"
+
+#define RANDOM_RGB rgb(rand(0,255), rand(0,255), rand(0,255))

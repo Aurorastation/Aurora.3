@@ -80,7 +80,7 @@
 	signlang_verb = list("signs", "gestures")
 	sing_verb = null
 	colour = "i"
-	key = "4"
+	key = "s"
 	flags = NO_STUTTER|SIGNLANG
 
 // Helper

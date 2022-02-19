@@ -9141,7 +9141,7 @@
 /area/security/prison)
 "aqN" = (
 /obj/structure/table/standard,
-/obj/item/dice,
+/obj/item/stack/dice,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aqO" = (
@@ -17590,8 +17590,8 @@
 	pixel_y = 25
 	},
 /obj/structure/table/wood,
-/obj/item/dice/d20,
-/obj/item/dice,
+/obj/item/stack/dice/d20,
+/obj/item/stack/dice,
 /turf/simulated/floor/wood,
 /area/library)
 "aHD" = (
@@ -53008,7 +53008,7 @@
 /area/engineering/break_room)
 "bWB" = (
 /obj/structure/table/wood,
-/obj/item/dice,
+/obj/item/stack/dice,
 /turf/simulated/floor/carpet,
 /area/engineering/break_room)
 "bWC" = (

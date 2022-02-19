@@ -7,6 +7,14 @@
 /*
  * Beds
  */
+
+#define CACHE_TYPE_PADDING "padding"
+#define CACHE_TYPE_OVER "over"
+#define CACHE_TYPE_PADDING_OVER "padding_over"
+#define CACHE_TYPE_ARMREST "armrest"
+#define CACHE_TYPE_PADDING_ARMREST "padding_armrest"
+#define CACHE_TYPE_SPECIAL "special" // Currently being used for shuttle chair special buckles.
+
 /obj/structure/bed
 	name = "bed"
 	desc = "This is used to lie in, sleep in or strap on."
@@ -32,7 +40,7 @@
 
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	var/makes_rolling_sound = FALSE
-	var/held_item = null // Set to null if you don't want people to pick this up. 
+	var/held_item = null // Set to null if you don't want people to pick this up.
 	slowdown = 5
 
 	var/driving = FALSE // Shit for wheelchairs. Doesn't really get used here, but it's for code cleanliness.
@@ -68,33 +76,39 @@
 
 // Reuse the cache/code from stools, todo maybe unify.
 /obj/structure/bed/update_icon()
+	generate_strings()
 	// Prep icon.
 	icon_state = ""
 	cut_overlays()
 	// Base icon.
-	var/list/furniture_cache = SSicon_cache.furniture_cache
 
-	var/cache_key = "[base_icon]-[material.name]"
-	if(!furniture_cache[cache_key])
-		var/image/I = image('icons/obj/furniture.dmi', base_icon)
-		if(material_alteration & MATERIAL_ALTERATION_COLOR)
-			I.color = material.icon_colour
-		furniture_cache[cache_key] = I
-	add_overlay(furniture_cache[cache_key])
+	generate_overlay_cache(material) //Generate base icon cache
 	// Padding overlay.
 	if(padding_material)
-		var/padding_cache_key = "[base_icon]-[padding_material.name]-padding"
-		if(!furniture_cache[padding_cache_key] || painted_colour) //avoid having to regenerate the image everytime unless painted.
-			var/image/I =  image(icon, "[base_icon]_padding")
-			if(material_alteration & MATERIAL_ALTERATION_COLOR)
-				if(painted_colour)
-					I.color = painted_colour
-				else
-					I.color = padding_material.icon_colour
-			furniture_cache[padding_cache_key] = I
-		add_overlay(furniture_cache[padding_cache_key])
+		generate_overlay_cache(padding_material, CACHE_TYPE_PADDING, apply_painted_colour = TRUE)
 
-	// Strings.
+/obj/structure/bed/proc/generate_overlay_cache(var/new_material, var/cache_type, var/cache_layer = layer, var/apply_painted_colour = FALSE) // Cache type refers to what cache we're making. Material type refers if we're taking from the padding or the chair material itself.
+	var/material/overlay_material = new_material
+	var/list/furniture_cache = SSicon_cache.furniture_cache
+	var/cache_key = "[base_icon]-[overlay_material.name]" // Basically, generates a cache key for an overlay.
+	if(cache_type)
+		cache_key += "-[cache_type]"
+		if(painted_colour && apply_painted_colour)
+			cache_key += "-[painted_colour]"
+		else if(overlay_material.icon_colour)
+			cache_key += "-[overlay_material.icon_colour]"
+	if(!furniture_cache[cache_key]) // Check for cache key. Generate if image does not exist yet.
+		var/cache_icon_state = cache_type ? "[base_icon]_[cache_type]" : "[base_icon]" // Modularized. Just change cache_type when calling the proc if you ever wanted to add a different overlay. Not like you'd need to.
+		var/image/I =  image(icon, cache_icon_state, layer = cache_layer) // Generate the icon.
+		if(material_alteration & MATERIAL_ALTERATION_COLOR)
+			if(painted_colour && apply_painted_colour) // apply_painted_color, when you only want the padding to be painted, NOT the chair itself.
+				I.color = painted_colour
+			else if(overlay_material.icon_colour) // Either that, or just fall back on the regular material color.
+				I.color = overlay_material.icon_colour
+		furniture_cache[cache_key] = I
+	add_overlay(furniture_cache[cache_key]) // Use image from cache key!
+
+/obj/structure/bed/proc/generate_strings()
 	if(material_alteration & MATERIAL_ALTERATION_NAME)
 		name = padding_material ? "[padding_material.adjective_name] [initial(name)]" : "[material.adjective_name] [initial(name)]" //this is not perfect but it will do for now.
 
@@ -340,7 +354,7 @@
 	slowdown = 0
 
 /obj/structure/bed/roller/Initialize()
-	..()
+	. = ..()
 	LAZYADD(can_buckle, /obj/structure/closet/body_bag)
 
 /obj/structure/bed/roller/Destroy()

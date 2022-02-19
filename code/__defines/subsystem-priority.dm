@@ -65,12 +65,13 @@
 #define SS_PRIORITY_AIRFLOW     10	// Handles object movement due to ZAS airflow.
 #define SS_PRIORITY_PING        10
 #define SS_PRIORITY_ZCOPY       10	// Z-mimic icon generation/updates.
+#define SS_PRIORITY_ARRIVALS    10	// Centcomm arrivals shuttle auto-launch. Usually asleep.
+
 
 // SS_BACKGROUND
 #define SS_PRIORITY_PROCESSING    50	// Generic datum processor. Replaces objects processor.
 //#define SS_PRIORITY_DEFAULT     50	// This is defined somewhere else.
 #define SS_PRIORITY_PSYCHICS      30
-#define SS_PRIORITY_ARRIVALS      30	// Centcomm arrivals shuttle auto-launch. Usually asleep.
 #define SS_PRIORITY_EVAC          30   // Processes the evac controller.
 #define SS_PRIORITY_EXPLOSIVES    20	// Explosion processor. Doesn't have much effect on explosion tick-checking.
 #define SS_PRIORITY_DISPOSALS     20	// Disposal holder movement.

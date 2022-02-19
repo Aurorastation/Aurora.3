@@ -22,6 +22,7 @@ var/global/list/robot_modules = list(
 	var/networks = list()
 	var/languages = list(							//Any listed language will be understandable. Any set to TRUE will be speakable
 					LANGUAGE_SOL_COMMON =  TRUE,
+					LANGUAGE_ELYRAN_STANDARD = TRUE,
 					LANGUAGE_TRADEBAND =   TRUE,
 					LANGUAGE_UNATHI =      FALSE,
 					LANGUAGE_SIIK_MAAS =   FALSE,
@@ -70,7 +71,6 @@ var/global/list/robot_modules = list(
 	R.set_module_sprites(sprites)
 	R.icon_selected = FALSE
 	R.choose_icon()
-	R.setup_icon_cache()
 
 /obj/item/robot_module/proc/handle_languages(var/mob/living/silicon/robot/R)
 	return
@@ -86,7 +86,6 @@ var/global/list/robot_modules = list(
 	R.set_module_sprites(list("Default" = "robot"))
 	R.icon_selected = FALSE
 	R.choose_icon()
-	R.setup_icon_cache()
 
 /obj/item/robot_module/Destroy()
 	for(var/module in modules)
@@ -192,19 +191,24 @@ var/global/list/robot_modules = list(
 	networks = list(NETWORK_MEDICAL)
 	can_be_pushed = FALSE
 	sprites = list(
-			"Basic" = "robotmedi",
-			"Landmate" = "landmatemedi",
-			"Treadmate" = "treadmatemedi",
-			"Treadhead" = "treadheadmedi",
-			"Arachnotronic" = "arachnotronicmedi",
-			"Toileto-tron" = "toiletbotmedi",
-			"Zeng-hu Droid" = "droidrecolormedi",
-			"HD-MAD" = "mcspizzytronmedi",
-			"SD-MAD" = "floatspizzytronmedi",
-			"Heph Droid" = "heavymedi",
-			"Venus Drone" = "dronerecolormedi",
-			"Unbranded-MAD" = "offfloatspizzytronmedi",
-			"Unbranded-Android" = "droid",
+			"Basic" = 	       list(ROBOT_CHASSIS = "robot_medi", ROBOT_PANEL = "robot_medi", ROBOT_EYES = "robot"),
+			"Landmate" =       list(ROBOT_CHASSIS = "landmate_medi", ROBOT_PANEL = "landmate_medi", ROBOT_EYES = "landmate"),
+			"Treadmate" =      list(ROBOT_CHASSIS = "treadmate_medi", ROBOT_PANEL = "treadmate_medi", ROBOT_EYES = "treadmate"),
+			"Treadhead" =      list(ROBOT_CHASSIS = "treadhead_medi", ROBOT_PANEL = "treadhead_medi", ROBOT_EYES = "treadhead"),
+			"Spiffy" = 	   	   list(ROBOT_CHASSIS = "mcspizzy_medi", ROBOT_PANEL = "mcspizzy_medi", ROBOT_EYES = "mcspizzy"),
+			"Tau-Ceti Drone" = list(ROBOT_CHASSIS = "tauceti_medi", ROBOT_PANEL = "tauceti_medi", ROBOT_EYES = "tauceti"),
+			"Sputnik" =        list(ROBOT_CHASSIS = "sputnik_medi", ROBOT_PANEL = "sputnik_medi", ROBOT_EYES = "sputnik"),
+			"Kent" =           list(ROBOT_CHASSIS = "kent_medi", ROBOT_PANEL = "kent_medi", ROBOT_EYES = "kent"),
+			"Wide" =           list(ROBOT_CHASSIS = "wide_medi", ROBOT_PANEL = "wide_medi", ROBOT_EYES = "wide"),
+			"Cricket" =        list(ROBOT_CHASSIS = "cricket_medi", ROBOT_PANEL = "cricket_medi", ROBOT_EYES = "cricket"),
+			"Quad-Dex" =       list(ROBOT_CHASSIS = "quaddex_medi", ROBOT_PANEL = "quaddex_medi", ROBOT_EYES = "quaddex"),
+			"Arthrodroid" =    list(ROBOT_CHASSIS = "arthrodroid_medi", ROBOT_PANEL = "arthrodroid_medi", ROBOT_EYES = "arthrodroid"),
+			"Spiderbot" =      list(ROBOT_CHASSIS = "spiderbot_medi", ROBOT_PANEL = "spiderbot_medi", ROBOT_EYES = "spiderbot"),
+			"Heavy" =          list(ROBOT_CHASSIS = "heavy_medi", ROBOT_PANEL = "heavy_medi", ROBOT_EYES = "heavy_medi"),
+			"Positron 03" =    list(ROBOT_CHASSIS = "positron03_medi", ROBOT_PANEL = "positron03_medi", ROBOT_EYES = "positron03"),
+			"Plantasonic" =    list(ROBOT_CHASSIS = "plantasonic_medi", ROBOT_PANEL = "plantasonic_medi", ROBOT_EYES = "plantasonic"),
+			"Cooler Master" =  list(ROBOT_CHASSIS = "coolermaster_medi", ROBOT_PANEL = "coolermaster_medi", ROBOT_EYES = "coolermaster"),
+			"Phage" =          list(ROBOT_CHASSIS = "phage_medi", ROBOT_PANEL = "phage_medi", ROBOT_EYES = "phage")
 			)
 
 /obj/item/robot_module/medical/general/Initialize()
@@ -273,21 +277,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/medical/rescue
 	name = "rescue robot module"
-	sprites = list(
-			"Basic" = "robotmedi",
-			"Landmate" = "landmatemedi",
-			"Treadmate" = "treadmatemedi",
-			"Treadhead" = "treadheadmedi",
-			"Arachnotronic" = "arachnotronicmedi",
-			"Toileto-tron" = "toiletbotmedi",
-			"Zeng-hu Droid" = "droidrecolormedi",
-			"HD-MAD" = "mcspizzytronmedi",
-			"SD-MAD" = "floatspizzytronmedi",
-			"Heph Droid" = "heavymedi",
-			"Venus Drone" = "dronerecolormedi",
-			"Unbranded-MAD" = "offfloatspizzytronmedi",
-			"Unbranded-Android" = "droid",
-			)
+// If anyone wants to make custom rescue robot sprites, be my guest.
 
 /obj/item/robot_module/medical/rescue/Initialize()
 	. = ..()
@@ -355,21 +345,25 @@ var/global/list/robot_modules = list(
 	networks = list(NETWORK_ENGINEERING)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 	sprites = list(
-			"Basic" = "robotengi",
-			"Landmate" = "landmateengi",
-			"Treadmate" = "treadmateengi",
-			"Treadhead" = "treadheadengi",
-			"Arachnotronic" = "arachnotronicengi",
-			"Toileto-tron" = "toiletbotengi",
-			"Zeng-hu Droid" = "droidrecolorengi",
-			"HD-MAD" = "mcspizzytronengi",
-			"SD-MAD" = "floatspizzytronengi",
-			"Heph Droid" = "heavyengi",
-			"Venus Drone" = "dronerecolorengi",
-			"Unbranded-MAD" = "offfloatspizzytronengi",
-			"Unbranded-Android" = "droid",
+			"Basic" =          list(ROBOT_CHASSIS = "robot_engi", ROBOT_PANEL = "robot", ROBOT_EYES = "robot"),
+			"Landmate" =       list(ROBOT_CHASSIS = "landmate_engi", ROBOT_PANEL = "landmate", ROBOT_EYES = "landmate"),
+			"Treadmate" =      list(ROBOT_CHASSIS = "treadmate_engi", ROBOT_PANEL = "treadmate", ROBOT_EYES = "treadmate"),
+			"Treadhead" =      list(ROBOT_CHASSIS = "treadhead_engi", ROBOT_PANEL = "treadhead", ROBOT_EYES = "treadhead"),
+			"Spiffy" =         list(ROBOT_CHASSIS = "mcspizzy_engi", ROBOT_PANEL = "mcspizzy", ROBOT_EYES = "mcspizzy"),
+			"Tau-Ceti Drone" = list(ROBOT_CHASSIS = "tauceti_engi", ROBOT_PANEL = "tauceti", ROBOT_EYES = "tauceti"),
+			"Sputnik" =        list(ROBOT_CHASSIS = "sputnik_engi", ROBOT_PANEL = "sputnik", ROBOT_EYES = "sputnik"),
+			"Kent" =           list(ROBOT_CHASSIS = "kent_engi", ROBOT_PANEL = "kent", ROBOT_EYES = "kent"),
+			"Wide" =           list(ROBOT_CHASSIS = "wide_engi", ROBOT_PANEL = "wide", ROBOT_EYES = "wide"),
+			"Cricket" =        list(ROBOT_CHASSIS = "cricket_engi", ROBOT_PANEL = "cricket", ROBOT_EYES = "cricket"),
+			"Quad-Dex" =       list(ROBOT_CHASSIS = "quaddex_engi", ROBOT_PANEL = "quaddex", ROBOT_EYES = "quaddex"),
+			"Arthrodroid" =    list(ROBOT_CHASSIS = "arthrodroid_engi", ROBOT_PANEL = "arthrodroid", ROBOT_EYES = "arthrodroid"),
+			"Spiderbot" =      list(ROBOT_CHASSIS = "spiderbot_engi", ROBOT_PANEL = "spiderbot", ROBOT_EYES = "spiderbot"),
+			"Heavy" =          list(ROBOT_CHASSIS = "heavy_engi",  ROBOT_PANEL = "heavy", ROBOT_EYES = "heavy_engi"),
+			"Positron 03" =    list(ROBOT_CHASSIS = "positron03_engi", ROBOT_PANEL = "positron03", ROBOT_EYES = "positron03"),
+			"Plantasonic" =    list(ROBOT_CHASSIS = "plantasonic_engi", ROBOT_PANEL = "plantasonic", ROBOT_EYES = "plantasonic"),
+			"Cooler Master" =  list(ROBOT_CHASSIS = "coolermaster_engi", ROBOT_PANEL = "coolermaster", ROBOT_EYES = "coolermaster"),
+			"Phage" =          list(ROBOT_CHASSIS = "phage_engi", ROBOT_PANEL = "phage", ROBOT_EYES = "phage")
 			)
-	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
 /obj/item/robot_module/engineering/construction
 	name = "construction robot module"
@@ -555,20 +549,26 @@ var/global/list/robot_modules = list(
 	channels = list(CHANNEL_SERVICE = TRUE)
 	networks = list(NETWORK_SERVICE)
 	sprites = list(
-			"Basic" = "robotjani",
-			"Landmate" = "landmatejani",
-			"Treadmate" = "treadmatejani",
-			"Treadhead" = "treadheadjani",
-			"Arachnotronic" = "arachnotronicjani",
-			"Toileto-tron" = "toiletbotjani",
-			"Zeng-hu Droid" = "droidrecolorjani",
-			"HD-MAD" = "mcspizzytronjani",
-			"SD-MAD" = "floatspizzytronjani",
-			"Heph Droid" = "heavyjani",
-			"Venus Drone" = "dronerecolorjani",
-			"Unbranded-MAD" = "offfloatspizzytronjani",
-			"Unbranded-Android" = "droid",
+			"Basic" =          list(ROBOT_CHASSIS = "robot_jani", ROBOT_PANEL = "robot", ROBOT_EYES = "robot"),
+			"Landmate" =       list(ROBOT_CHASSIS = "landmate_jani", ROBOT_PANEL = "landmate", ROBOT_EYES = "landmate"),
+			"Treadmate" =      list(ROBOT_CHASSIS = "treadmate_jani", ROBOT_PANEL = "treadmate", ROBOT_EYES = "treadmate"),
+			"Treadhead" =      list(ROBOT_CHASSIS = "treadhead_jani", ROBOT_PANEL = "treadhead", ROBOT_EYES = "treadhead"),
+			"Spiffy" =         list(ROBOT_CHASSIS = "mcspizzy_jani", ROBOT_PANEL = "mcspizzy", ROBOT_EYES = "mcspizzy"),
+			"Tau-Ceti Drone" = list(ROBOT_CHASSIS = "tauceti_jani", ROBOT_PANEL = "tauceti", ROBOT_EYES = "tauceti"),
+			"Sputnik" =        list(ROBOT_CHASSIS = "sputnik_jani", ROBOT_PANEL = "sputnik", ROBOT_EYES = "sputnik"),
+			"Kent" =           list(ROBOT_CHASSIS = "kent_jani", ROBOT_PANEL = "kent", ROBOT_EYES = "kent"),
+			"Wide" =           list(ROBOT_CHASSIS = "wide_jani", ROBOT_PANEL = "wide", ROBOT_EYES = "wide"),
+			"Cricket" =        list(ROBOT_CHASSIS = "cricket_jani", ROBOT_PANEL = "cricket", ROBOT_EYES = "cricket"),
+			"Quad-Dex" =       list(ROBOT_CHASSIS = "quaddex_jani", ROBOT_PANEL = "quaddex", ROBOT_EYES = "quaddex"),
+			"Arthrodroid" =    list(ROBOT_CHASSIS = "arthrodroid_jani", ROBOT_PANEL = "arthrodroid", ROBOT_EYES = "arthrodroid"),
+			"Spiderbot" =      list(ROBOT_CHASSIS = "spiderbot_jani", ROBOT_PANEL = "spiderbot", ROBOT_EYES = "spiderbot"),
+			"Heavy" =          list(ROBOT_CHASSIS = "heavy_jani",  ROBOT_PANEL = "heavy_jani", ROBOT_EYES = "heavy_jani"),
+			"Positron 03" =    list(ROBOT_CHASSIS = "positron03_jani", ROBOT_PANEL = "positron03", ROBOT_EYES = "positron03"),
+			"Plantasonic" =    list(ROBOT_CHASSIS = "plantasonic_jani", ROBOT_PANEL = "plantasonic", ROBOT_EYES = "plantasonic"),
+			"Cooler Master" =  list(ROBOT_CHASSIS = "coolermaster_jani", ROBOT_PANEL = "coolermaster", ROBOT_EYES = "coolermaster"),
+			"Phage" =          list(ROBOT_CHASSIS = "phage_jani", ROBOT_PANEL = "phage", ROBOT_EYES = "phage")
 			)
+
 	var/mopping = FALSE
 
 /obj/item/robot_module/janitor/Initialize()
@@ -608,6 +608,7 @@ var/global/list/robot_modules = list(
 	networks = list(NETWORK_SERVICE)
 	languages = list(
 					LANGUAGE_SOL_COMMON =  TRUE,
+					LANGUAGE_ELYRAN_STANDARD = TRUE,
 					LANGUAGE_TRADEBAND =   TRUE,
 					LANGUAGE_UNATHI =      TRUE,
 					LANGUAGE_SIIK_MAAS =   TRUE,
@@ -624,19 +625,24 @@ var/global/list/robot_modules = list(
 					)
 
 	sprites = list(
-			"Basic" = "robotserv",
-			"Landmate" = "landmateserv",
-			"Treadmate" = "treadmateserv",
-			"Treadhead" = "treadheadserv",
-			"Arachnotronic" = "arachnotronicserv",
-			"Toileto-tron" = "toiletbotserv",
-			"Zeng-hu Droid" = "droidrecolorserv",
-			"HD-MAD" = "mcspizzytronserv",
-			"SD-MAD" = "floatspizzytronserv",
-			"Heph Droid" = "heavyserv",
-			"Venus Drone" = "dronerecolorserv",
-			"Unbranded-MAD" = "offfloatspizzytronserv",
-			"Unbranded-Android" = "droid",
+			"Basic" =          list(ROBOT_CHASSIS = "robot_serv", ROBOT_PANEL = "robot", ROBOT_EYES = "robot"),
+			"Landmate" =       list(ROBOT_CHASSIS = "landmate_serv", ROBOT_PANEL = "landmate", ROBOT_EYES = "landmate"),
+			"Treadmate" =      list(ROBOT_CHASSIS = "treadmate_serv", ROBOT_PANEL = "treadmate", ROBOT_EYES = "treadmate"),
+			"Treadhead" =      list(ROBOT_CHASSIS = "treadhead_serv", ROBOT_PANEL = "treadhead", ROBOT_EYES = "treadhead"),
+			"Spiffy" =         list(ROBOT_CHASSIS = "mcspizzy_serv", ROBOT_PANEL = "mcspizzy", ROBOT_EYES = "mcspizzy"),
+			"Tau-Ceti Drone" = list(ROBOT_CHASSIS = "tauceti_serv", ROBOT_PANEL = "tauceti", ROBOT_EYES = "tauceti"),
+			"Sputnik" =        list(ROBOT_CHASSIS = "sputnik_serv", ROBOT_PANEL = "sputnik", ROBOT_EYES = "sputnik"),
+			"Kent" =           list(ROBOT_CHASSIS = "kent_serv", ROBOT_PANEL = "kent", ROBOT_EYES = "kent"),
+			"Wide" =           list(ROBOT_CHASSIS = "wide_serv", ROBOT_PANEL = "wide", ROBOT_EYES = "wide"),
+			"Cricket" =        list(ROBOT_CHASSIS = "cricket_serv", ROBOT_PANEL = "cricket", ROBOT_EYES = "cricket"),
+			"Quad-Dex" =       list(ROBOT_CHASSIS = "quaddex_serv", ROBOT_PANEL = "quaddex", ROBOT_EYES = "quaddex"),
+			"Arthrodroid" =    list(ROBOT_CHASSIS = "arthrodroid_serv", ROBOT_PANEL = "arthrodroid", ROBOT_EYES = "arthrodroid"),
+			"Spiderbot" =      list(ROBOT_CHASSIS = "spiderbot_serv", ROBOT_PANEL = "spiderbot", ROBOT_EYES = "spiderbot"),
+			"Heavy" =          list(ROBOT_CHASSIS = "heavy_serv",  ROBOT_PANEL = "heavy_serv", ROBOT_EYES = "heavy_serv"),
+			"Positron 03" =    list(ROBOT_CHASSIS = "positron03_serv", ROBOT_PANEL = "positron03", ROBOT_EYES = "positron03"),
+			"Plantasonic" =    list(ROBOT_CHASSIS = "plantasonic_serv", ROBOT_PANEL = "plantasonic", ROBOT_EYES = "plantasonic"),
+			"Cooler Master" =  list(ROBOT_CHASSIS = "coolermaster_serv", ROBOT_PANEL = "coolermaster", ROBOT_EYES = "coolermaster"),
+			"Phage" =          list(ROBOT_CHASSIS = "phage_serv", ROBOT_PANEL = "phage", ROBOT_EYES = "phage")
 			)
 
 /obj/item/robot_module/clerical/butler/Initialize()
@@ -708,20 +714,27 @@ var/global/list/robot_modules = list(
 	channels = list(CHANNEL_SUPPLY = TRUE)
 	networks = list(NETWORK_MINE)
 	sprites = list(
-			"Basic" = "robotmine",
-			"Landmate" = "landmatemine",
-			"Treadmate" = "treadmatemine",
-			"Treadhead" = "treadheadmine",
-			"Arachnotronic" = "arachnotronicmine",
-			"Toileto-tron" = "toiletbotmine",
-			"Zeng-hu Droid" = "droidrecolormine",
-			"HD-MAD" = "mcspizzytronmine",
-			"SD-MAD" = "floatspizzytronmine",
-			"Heph Droid" = "heavymine",
-			"Venus Drone" = "dronerecolormine",
-			"Unbranded-MAD" = "offfloatspizzytronmine",
-			"Unbranded-Android" = "droid",
+			"Basic" =          list(ROBOT_CHASSIS = "robot_mine", ROBOT_PANEL = "robot", ROBOT_EYES = "robot"),
+			"Landmate" =       list(ROBOT_CHASSIS = "landmate_mine", ROBOT_PANEL = "landmate", ROBOT_EYES = "landmate"),
+			"Treadmate" =      list(ROBOT_CHASSIS = "treadmate_mine", ROBOT_PANEL = "treadmate", ROBOT_EYES = "treadmate"),
+			"Treadhead" =      list(ROBOT_CHASSIS = "treadhead_mine", ROBOT_PANEL = "treadhead", ROBOT_EYES = "treadhead"),
+			"Spiffy" =         list(ROBOT_CHASSIS = "mcspizzy_mine", ROBOT_PANEL = "mcspizzy", ROBOT_EYES = "mcspizzy"),
+			"Tau-Ceti Drone" = list(ROBOT_CHASSIS = "tauceti_mine", ROBOT_PANEL = "tauceti", ROBOT_EYES = "tauceti"),
+			"Sputnik" =        list(ROBOT_CHASSIS = "sputnik_mine", ROBOT_PANEL = "sputnik", ROBOT_EYES = "sputnik"),
+			"Kent" =           list(ROBOT_CHASSIS = "kent_mine", ROBOT_PANEL = "kent", ROBOT_EYES = "kent"),
+			"Wide" =           list(ROBOT_CHASSIS = "wide_mine", ROBOT_PANEL = "wide", ROBOT_EYES = "wide"),
+			"Cricket" =        list(ROBOT_CHASSIS = "cricket_mine", ROBOT_PANEL = "cricket", ROBOT_EYES = "cricket"),
+			"Quad-Dex" =       list(ROBOT_CHASSIS = "quaddex_mine", ROBOT_PANEL = "quaddex", ROBOT_EYES = "quaddex"),
+			"Arthrodroid" =    list(ROBOT_CHASSIS = "arthrodroid_mine", ROBOT_PANEL = "arthrodroid", ROBOT_EYES = "arthrodroid"),
+			"Spiderbot" =      list(ROBOT_CHASSIS = "spiderbot_mine", ROBOT_PANEL = "spiderbot", ROBOT_EYES = "spiderbot"),
+			"Heavy" =          list(ROBOT_CHASSIS = "heavy_mine",  ROBOT_PANEL = "heavy_mine", ROBOT_EYES = "heavy_mine"),
+			"Positron 03" =    list(ROBOT_CHASSIS = "positron03_mine", ROBOT_PANEL = "positron03", ROBOT_EYES = "positron03"),
+			"Plantasonic" =    list(ROBOT_CHASSIS = "plantasonic_mine", ROBOT_PANEL = "plantasonic", ROBOT_EYES = "plantasonic"),
+			"Cooler Master" =  list(ROBOT_CHASSIS = "coolermaster_mine", ROBOT_PANEL = "coolermaster", ROBOT_EYES = "coolermaster"),
+			"Phage" =          list(ROBOT_CHASSIS = "phage_mine", ROBOT_PANEL = "phage", ROBOT_EYES = "phage")
 			)
+
+
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
 /obj/item/robot_module/miner/Initialize()
@@ -771,19 +784,24 @@ var/global/list/robot_modules = list(
 	channels = list(CHANNEL_SCIENCE = TRUE)
 	networks = list(NETWORK_RESEARCH)
 	sprites = list(
-			"Basic" = "robotsci",
-			"Landmate" = "landmatesci",
-			"Treadmate" = "treadmatesci",
-			"Treadhead" = "treadheadsci",
-			"Arachnotronic" = "arachnotronicsci",
-			"Toileto-tron" = "toiletbotsci",
-			"Zeng-hu Droid" = "droidrecolorsci",
-			"HD-MAD" = "mcspizzytronsci",
-			"SD-MAD" = "floatspizzytronsci",
-			"Heph Droid" = "heavysci",
-			"Venus Drone" = "dronerecolorsci",
-			"Unbranded-MAD" = "offfloatspizzytronsci",
-			"Unbranded-Android" = "droid",
+			"Basic" =          list(ROBOT_CHASSIS = "robot_sci", ROBOT_PANEL = "robot", ROBOT_EYES = "robot"),
+			"Landmate" =       list(ROBOT_CHASSIS = "landmate_sci", ROBOT_PANEL = "landmate", ROBOT_EYES = "landmate"),
+			"Treadmate" =      list(ROBOT_CHASSIS = "treadmate_sci", ROBOT_PANEL = "treadmate", ROBOT_EYES = "treadmate"),
+			"Treadhead" =      list(ROBOT_CHASSIS = "treadhead_sci", ROBOT_PANEL = "treadhead", ROBOT_EYES = "treadhead"),
+			"Spiffy" =         list(ROBOT_CHASSIS = "mcspizzy_sci", ROBOT_PANEL = "mcspizzy", ROBOT_EYES = "mcspizzy"),
+			"Tau-Ceti Drone" = list(ROBOT_CHASSIS = "tauceti_sci", ROBOT_PANEL = "tauceti", ROBOT_EYES = "tauceti"),
+			"Sputnik" =        list(ROBOT_CHASSIS = "sputnik_sci", ROBOT_PANEL = "sputnik", ROBOT_EYES = "sputnik"),
+			"Kent" =           list(ROBOT_CHASSIS = "kent_sci", ROBOT_PANEL = "kent", ROBOT_EYES = "kent"),
+			"Wide" =           list(ROBOT_CHASSIS = "wide_sci", ROBOT_PANEL = "wide", ROBOT_EYES = "wide"),
+			"Cricket" =        list(ROBOT_CHASSIS = "cricket_sci", ROBOT_PANEL = "cricket", ROBOT_EYES = "cricket"),
+			"Quad-Dex" =       list(ROBOT_CHASSIS = "quaddex_sci", ROBOT_PANEL = "quaddex", ROBOT_EYES = "quaddex"),
+			"Arthrodroid" =    list(ROBOT_CHASSIS = "arthrodroid_sci", ROBOT_PANEL = "arthrodroid", ROBOT_EYES = "arthrodroid"),
+			"Spiderbot" =      list(ROBOT_CHASSIS = "spiderbot_sci", ROBOT_PANEL = "spiderbot", ROBOT_EYES = "spiderbot"),
+			"Heavy" =          list(ROBOT_CHASSIS = "heavy_sci",  ROBOT_PANEL = "heavy_sci", ROBOT_EYES = "heavy_sci"),
+			"Positron 03" =    list(ROBOT_CHASSIS = "positron03_sci", ROBOT_PANEL = "positron03", ROBOT_EYES = "positron03"),
+			"Plantasonic" =    list(ROBOT_CHASSIS = "plantasonic_sci", ROBOT_PANEL = "plantasonic", ROBOT_EYES = "plantasonic"),
+			"Cooler Master" =  list(ROBOT_CHASSIS = "coolermaster_sci", ROBOT_PANEL = "coolermaster", ROBOT_EYES = "coolermaster"),
+			"Phage" =          list(ROBOT_CHASSIS = "phage_sci", ROBOT_PANEL = "phage", ROBOT_EYES = "phage")
 			)
 
 /obj/item/robot_module/research/Initialize()
@@ -839,6 +857,7 @@ var/global/list/robot_modules = list(
 	name = "syndicate robot module"
 	languages = list(
 					LANGUAGE_SOL_COMMON =  TRUE,
+					LANGUAGE_ELYRAN_STANDARD = TRUE,
 					LANGUAGE_TRADEBAND =   TRUE,
 					LANGUAGE_UNATHI =      TRUE,
 					LANGUAGE_SIIK_MAAS =   TRUE,
@@ -854,13 +873,26 @@ var/global/list/robot_modules = list(
 					LANGUAGE_YA_SSA =      FALSE
 					)
 	sprites = list(
-					"Bloodhound" = "syndie_bloodhound",
-					"Treadhound" = "syndie_treadhound",
-					"HD-MAD" = "mcspizzytronsyndi",
-					"Heph Droid" = "heavysyndi",
-					"Arachnotronic" = "arachnotronicsyndi",
-					"Toileto-tron" = "syndi-medi",
-					)
+			"Basic" = 	       list(ROBOT_CHASSIS = "robot_syndi", ROBOT_PANEL = "robot_syndi", ROBOT_EYES = "robot"),
+			"Bloodhound" =     list(ROBOT_CHASSIS = "bloodhound_syndi", ROBOT_PANEL = "bloodhound_syndi", ROBOT_EYES = "bloodhound"),
+			"Treadhound" =     list(ROBOT_CHASSIS = "treadhound_syndi", ROBOT_PANEL = "treadhound_syndi", ROBOT_EYES = "treadhound"),
+			"Treadhead" =      list(ROBOT_CHASSIS = "treadhead_syndi", ROBOT_PANEL = "treadhead_syndi", ROBOT_EYES = "treadhead"),
+			"Spiffy" = 	   	   list(ROBOT_CHASSIS = "mcspizzy_syndi", ROBOT_PANEL = "mcspizzy_syndi", ROBOT_EYES = "mcspizzy"),
+			"Tau-Ceti Drone" = list(ROBOT_CHASSIS = "tauceti_syndi", ROBOT_PANEL = "tauceti_syndi", ROBOT_EYES = "tauceti"),
+			"Sputnik" =        list(ROBOT_CHASSIS = "sputnik_syndi", ROBOT_PANEL = "sputnik_syndi", ROBOT_EYES = "sputnik"),
+			"Kent" =           list(ROBOT_CHASSIS = "kent_syndi", ROBOT_PANEL = "kent_syndi", ROBOT_EYES = "kent"),
+			"Wide" =           list(ROBOT_CHASSIS = "wide_syndi", ROBOT_PANEL = "wide_syndi", ROBOT_EYES = "wide"),
+			"Cricket" =        list(ROBOT_CHASSIS = "cricket_syndi", ROBOT_PANEL = "cricket_syndi", ROBOT_EYES = "cricket"),
+			"Quad-Dex" =       list(ROBOT_CHASSIS = "quaddex_syndi", ROBOT_PANEL = "quaddex_syndi", ROBOT_EYES = "quaddex"),
+			"Arthrodroid" =    list(ROBOT_CHASSIS = "arthrodroid_syndi", ROBOT_PANEL = "arthrodroid_syndi", ROBOT_EYES = "arthrodroid"),
+			"Spiderbot" =      list(ROBOT_CHASSIS = "spiderbot_syndi", ROBOT_PANEL = "spiderbot_syndi", ROBOT_EYES = "spiderbot"),
+			"Heavy" =          list(ROBOT_CHASSIS = "heavy_syndi", ROBOT_PANEL = "heavy_syndi", ROBOT_EYES = "heavy_syndi"),
+			"Positron 03" =    list(ROBOT_CHASSIS = "positron03_syndi", ROBOT_PANEL = "positron03_syndi", ROBOT_EYES = "positron03"),
+			"Plantasonic" =    list(ROBOT_CHASSIS = "plantasonic_syndi", ROBOT_PANEL = "plantasonic_syndi", ROBOT_EYES = "plantasonic"),
+			"Cooler Master" =  list(ROBOT_CHASSIS = "coolermaster_syndi", ROBOT_PANEL = "coolermaster_syndi", ROBOT_EYES = "coolermaster"),
+			"Phage" =          list(ROBOT_CHASSIS = "phage_syndi", ROBOT_PANEL = "phage_syndi", ROBOT_EYES = "phage")
+			)
+
 
 /obj/item/robot_module/syndicate/Initialize(mapload, mob/living/silicon/robot/R)
 	. = ..()
@@ -892,7 +924,10 @@ var/global/list/robot_modules = list(
 	name = "combat robot module"
 	channels = list(CHANNEL_SECURITY = TRUE)
 	networks = list(NETWORK_SECURITY)
-	sprites = list("Roller" = "droid-combat")
+	sprites = list(
+		"Roller" = list(ROBOT_CHASSIS = "droid-combat", ROBOT_PANEL = "heavy_syndi", ROBOT_EYES = "droid-combat"),
+		"Squats" = list(ROBOT_CHASSIS = "squats", ROBOT_PANEL = "heavy_syndi", ROBOT_EYES = "squats")
+		)
 	can_be_pushed = FALSE
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
@@ -1084,6 +1119,7 @@ var/global/list/robot_modules = list(
 	name = "bluespace robot module"
 	languages = list(
 					LANGUAGE_TCB =         TRUE,
+					LANGUAGE_ELYRAN_STANDARD = TRUE,
 					LANGUAGE_GUTTER =      TRUE,
 					LANGUAGE_SIGN =        TRUE,
 					LANGUAGE_TRADEBAND =   TRUE,
@@ -1113,7 +1149,7 @@ var/global/list/robot_modules = list(
 		CHANNEL_RESPONSE_TEAM = TRUE,
 		CHANNEL_AI_PRIVATE =    TRUE
 		)
-	sprites = list("Roller" = "droid-combat") //TMP // temp my left nut // temp my right nut
+	sprites = list("Roller" = list(ROBOT_CHASSIS = "droid-combat", ROBOT_PANEL = "heavy_syndi", ROBOT_EYES = "droid-combat")) //TMP // temp my left nut // temp my right nut
 	can_be_pushed = FALSE
 
 /obj/item/robot_module/bluespace/Initialize(mapload, mob/living/silicon/robot/R)

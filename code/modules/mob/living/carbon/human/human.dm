@@ -1291,10 +1291,11 @@
 			update_inv_gloves(1)
 		germ_level = 0
 
-	gunshot_residue = null
+	LAZYCLEARLIST(gunshot_residue)
 	if(clean_feet && !shoes)
 		footprint_color = null
 		feet_blood_DNA = null
+		track_footprint = 0
 		update_inv_shoes(1)
 
 	if(blood_color)
