@@ -250,6 +250,17 @@
 	icon_state = "hoodie_sleeveless"
 	item_state = "hoodie_sleeveless"
 
+/obj/item/clothing/suit/storage/hooded/wintercoat/konyang
+	name = "konyang village coat"
+	desc = "A highly prized hooded coat with unmatched breathability and insulation. Imported from Konyang, this garment is made with a weave derived from the feathers of indigenous birds."
+	icon_state = "konyang_village"
+	item_state = "konyang_village"
+	hoodtype = /obj/item/clothing/head/winterhood/konyang
+
+/obj/item/clothing/head/winterhood/konyang
+	name = "konyang village hood"
+	desc = "A light, waterproof hood attached to a Konyanger coat."
+
 /obj/item/clothing/suit/storage/hooded/wintercoat/mars
 	name = "martian hoodie"
 	desc = "An orange hoodie jacket featuring the face of Warrant Officer August 'Gus' Maldarth, typically worn as a symbol of both solidarity with Mars, and a sign of protest against the Sol Alliance government. \
@@ -274,4 +285,4 @@
 
 /obj/item/clothing/head/winterhood/colorable/update_icon(mob/user)
 	. = ..()
-	
+
