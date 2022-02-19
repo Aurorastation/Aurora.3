@@ -533,7 +533,7 @@ Class Procs:
 
 /obj/machinery/proc/on_user_login(mob/M)
 	return
-=======
+
 /obj/machinery/proc/set_emergency_state(var/new_security_level)
 	return
 
