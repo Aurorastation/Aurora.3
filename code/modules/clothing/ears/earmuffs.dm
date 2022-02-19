@@ -39,12 +39,10 @@
 
 /obj/item/clothing/ears/earmuffs/headphones/earphones
 	name = "earphones"
-	var/earphones_on = 0
 	icon_state = "earphones"
 	item_state = "earphones"
 
 /obj/item/clothing/ears/earmuffs/headphones/earphones/blue
 	name = "blue earphones"
 	icon_state = "earphones_blue"
-	var/earphones_blue_on = 0
 	item_state = "earphones_blue"
