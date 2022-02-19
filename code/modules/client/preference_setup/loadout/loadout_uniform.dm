@@ -68,6 +68,18 @@
 	skirts["jumper dress"] = /obj/item/clothing/under/skirt/jumper_highcut
 	gear_tweaks += new /datum/gear_tweak/path(skirts)
 
+/datum/gear/uniform/suitskirt
+	display_name = "skirtsuit (recolourable)"
+	description = "A recolourable skirtsuit."
+	path = /obj/item/clothing/under/suit_jacket/skirtsuit/color
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/uniform/command_suitskirt
+	display_name = "command skirtsuit"
+	description = "A skirtsuit for staff in a command role."
+	path = /obj/item/clothing/under/suit_jacket/skirtsuit_command
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
 /datum/gear/uniform/suit
 	display_name = "suit selection"
 	description = "A selection of formal suits."

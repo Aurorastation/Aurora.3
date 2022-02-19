@@ -218,6 +218,22 @@
 	worn_state = "nt_skirtsuit"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
+/obj/item/clothing/under/suit_jacket/skirtsuit/color
+	desc = "A black coat with an colour coordinated kerchief accompanied by a swept skirt with a tasteful stripe. Works for every occasion."
+	icon_state = "skirtsuit_recolourable"
+	item_state = "skirtsuit_recolourable"
+	worn_state = "skirtsuit_recolourable"
+	build_from_parts = TRUE
+	worn_overlay = "base"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+
+/obj/item/clothing/under/suit_jacket/skirtsuit_command
+	desc = "A black coat with a gold kerchief accompanied by a swept skirt with a respectable golden trim. Works only for people in power."
+	icon_state = "skirtsuit_command"
+	item_state = "skirtsuit_command"
+	worn_state = "skirtsuit_command"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+
 /obj/item/clothing/under/kilt
 	name = "kilt"
 	desc = "Includes shoes and plaid"
