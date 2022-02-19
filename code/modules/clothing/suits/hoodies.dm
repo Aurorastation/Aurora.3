@@ -241,9 +241,9 @@
 	desc = "A highly prized hooded coat with unmatched breathability and insulation. Imported from Konyang, this garment is made with a weave derived from the feathers of indigenous birds."
 	icon_state = "konyang_village"
 	item_state = "konyang_village"
-	hoodtype = /obj/item/clothing/head/winterhood/hoodie
+	hoodtype = /obj/item/clothing/head/winterhood/konyang
 
-/obj/item/clothing/head/winterhood/carp
+/obj/item/clothing/head/winterhood/konyang
 	name = "konyang village hood"
 	desc = "A light, waterproof hood attached to a Konyanger coat."
 
