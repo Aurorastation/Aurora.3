@@ -5,9 +5,8 @@
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel."
 	icon = 'icons/obj/syringe.dmi'
 	item_state = "autoinjector"
-	icon_state = "inhaler1"
+	icon_state = "autoinhaler"
 	center_of_mass = list("x" = 16,"y" = 11)
-	var/empty_state = "inhaler0"
 	unacidable = 1
 	amount_per_transfer_from_this = 5
 	volume = 5
@@ -16,20 +15,27 @@
 	flags = OPENCONTAINER
 	slot_flags = SLOT_BELT
 	center_of_mass = null
-	var/used = FALSE
+	var/name_label
+	var/spent = FALSE
 	matter = list(MATERIAL_GLASS = 400, DEFAULT_WALL_MATERIAL = 200)
 
 /obj/item/reagent_containers/inhaler/Initialize()
 	. =..()
-	icon_state = empty_state
+	if(name_label)
+		name_unlabel = name
+		name = "[name] ([name_label])"
+		verbs += /atom/proc/remove_label
+	if(reagents_to_add)
+		flags = 0
+		spent = FALSE
 	update_icon()
 
-/obj/item/reagent_containers/inhaler/afterattack(var/mob/living/carbon/human/H, var/mob/user, var/proximity)
+/obj/item/reagent_containers/inhaler/on_reagent_change()
+	update_icon()
+	return
 
-	if (!istype(H))
-		return ..()
-
-	if(!proximity)
+/obj/item/reagent_containers/inhaler/proc/inject(var/mob/living/carbon/human/H, var/mob/user, var/proximity)
+	if (!istype(H) || !proximity)
 		return
 
 	if(!reagents.total_volume)
@@ -47,7 +53,7 @@
 			playsound(src.loc, 'sound/items/stimpack.ogg', 50, 1)
 			user.visible_message("<span class='notice'>[user] accidentally sticks the [src] in [H]'s eyes!</span>","<span class='notice'>You accidentally stick the [src] in [H]'s eyes!</span>")
 			to_chat(user,"<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
-			used = TRUE
+			spent = TRUE
 			update_icon()
 		return
 
@@ -82,16 +88,25 @@
 		admin_inject_log(user, H, src, contained, temp, trans)
 		playsound(src.loc, 'sound/items/stimpack.ogg', 50, 1)
 		to_chat(user,"<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
-		used = TRUE
+		spent = TRUE
 
 	update_icon()
-
 	return TRUE
+
+/obj/item/reagent_containers/inhaler/afterattack(var/mob/living/carbon/human/H, var/mob/user, proximity)
+	if (!istype(H))
+		return ..()
+
+	if(!proximity)
+		return
 
 /obj/item/reagent_containers/inhaler/attack(mob/M as mob, mob/user as mob)
 	if(is_open_container())
 		to_chat(user,"<span class='notice'>You must secure the reagents inside \the [src] before using it!</span>")
 		return FALSE
+	
+	else
+		inject(M, user, M.Adjacent(user))
 	. = ..()
 
 /obj/item/reagent_containers/inhaler/attack_self(mob/user as mob)
@@ -99,6 +114,7 @@
 		if(LAZYLEN(reagents.reagent_volumes))
 			to_chat(user,"<span class='notice'>With a quick twist of \the [src]'s lid, you secure the reagents inside.</span>")
 			flags &= ~OPENCONTAINER
+			spent = FALSE
 			update_icon()
 		else
 			to_chat(user,"<span class='notice'>You can't secure \the [src] without putting reagents in!</span>")
@@ -115,10 +131,18 @@
 	. = ..()
 
 /obj/item/reagent_containers/inhaler/update_icon()
-	if(reagents.total_volume > 0 && !is_open_container())
-		icon_state = initial(icon_state)
-	else
-		icon_state = empty_state
+	cut_overlays()
+	if(!is_open_container())
+		var/mutable_appearance/backing_overlay = mutable_appearance(icon, "autoinhaler_secured")
+		add_overlay(backing_overlay)
+
+	icon_state = "[initial(icon_state)][spent]"
+	item_state = "[initial(item_state)][spent]"
+
+	if(reagents.total_volume)
+		var/mutable_appearance/reagent_overlay = mutable_appearance(icon, "autoinhaler_reagents")
+		reagent_overlay.color = reagents.get_color()
+		add_overlay(reagent_overlay)
 
 /obj/item/reagent_containers/inhaler/examine(mob/user)
 	..(user)
@@ -128,7 +152,7 @@
 		to_chat(user, "<span class='notice'>It is spent.</span>")
 
 /obj/item/reagent_containers/inhaler/dexalin
-	name = "autoinhaler (dexalin)"
+	name_label = "dexalin"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains dexalin."
 
 	Initialize()
@@ -138,7 +162,7 @@
 		return
 
 /obj/item/reagent_containers/inhaler/peridaxon
-	name = "autoinhaler (peridaxon)"
+	name_label = "peridaxon"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains peridaxon."
 
 	Initialize()
@@ -148,7 +172,7 @@
 		return
 
 /obj/item/reagent_containers/inhaler/hyperzine
-	name = "autoinhaler (hyperzine)"
+	name_label = "hyperzine"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains hyperzine."
 
 	Initialize()
@@ -158,7 +182,7 @@
 		return
 
 /obj/item/reagent_containers/inhaler/phoron
-	name = "autoinhaler (phoron)"
+	name_label = "phoron"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains phoron."
 
 	Initialize()
@@ -171,7 +195,7 @@
 	name = "vaurca autoinhaler (phoron)"
 	desc = "A strange device that contains some sort of heavy-duty bag and mouthpiece combo."
 	icon_state = "anthaler1"
-	empty_state = "anthaler0"
+	var/empty_state = "anthaler0"
 	volume = 10
 	Initialize()
 		. =..()
@@ -180,10 +204,8 @@
 		return
 
 /obj/item/reagent_containers/inhaler/soporific
-	name = "autoinhaler (soporific)"
+	name_label = "soporific"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains soporific."
-	icon_state = "so_inhaler1"
-	empty_state = "so_inhaler0"
 	volume = 10
 
 	Initialize()
@@ -193,7 +215,7 @@
 		return
 
 /obj/item/reagent_containers/inhaler/space_drugs
-	name = "autoinhaler (space drugs)"
+	name_label = "space drugs"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains space drugs."
 
 	Initialize()
@@ -203,7 +225,7 @@
 		return
 
 /obj/item/reagent_containers/inhaler/ammonia
-	name = "autoinhaler (ammonia)"
+	name_label = "ammonia"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains ammonia."
 
 	Initialize()
@@ -213,7 +235,7 @@
 		return
 
 /obj/item/reagent_containers/inhaler/pulmodeiectionem
-	name = "autoinhaler (pulmodeiectionem)"
+	name_label = "pulmodeiectionem"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains pulmodeiectionem."
 
 	Initialize()
@@ -223,10 +245,8 @@
 		return
 
 /obj/item/reagent_containers/inhaler/pneumalin
-	name = "autoinhaler (pneumalin)"
+	name_label = "pneumalin"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains pneumalin."
-	icon_state = "so_inhaler1"
-	empty_state = "so_inhaler0"
 	volume = 10
 
 	Initialize()
