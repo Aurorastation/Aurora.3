@@ -276,14 +276,12 @@
 	. =..()
 	if(!.)
 		return
-	if(!stat && prob(3) && eggsleft > 0)
+	if(!stat && prob(3) && eggsleft > 0 && chicken_count < MAX_CHICKENS)
 		visible_message("[src] [pick("lays an egg.","squats down and croons.","begins making a huge racket.","begins clucking raucously.")]")
 		eggsleft--
 		var/obj/item/reagent_containers/food/snacks/egg/E = new(get_turf(src))
 		E.pixel_x = rand(-6,6)
 		E.pixel_y = rand(-6,6)
-		if(chicken_count < MAX_CHICKENS && prob(10))
-			START_PROCESSING(SSprocessing, E)
 
 // Penguins
 

@@ -354,7 +354,7 @@
 	slowdown = 0
 
 /obj/structure/bed/roller/Initialize()
-	..()
+	. = ..()
 	LAZYADD(can_buckle, /obj/structure/closet/body_bag)
 
 /obj/structure/bed/roller/Destroy()
