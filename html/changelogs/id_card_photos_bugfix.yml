@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes:
+  - bugfix: "ID card photos will now face the correct directions instead of both being of the direction your character was facing when your ID card spawned."
