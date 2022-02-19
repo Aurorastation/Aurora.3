@@ -287,6 +287,7 @@
 	comics["comic book"] = /obj/item/toy/comic
 	comics["comic book"] = /obj/item/toy/comic/inspector
 	comics["comic book"] = /obj/item/toy/comic/stormman
+	gear_tweaks += new /datum/gear_tweak/path(comics)
 
 /datum/gear/toothpaste
 	display_name = "toothpaste and toothbrush"
