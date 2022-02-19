@@ -380,6 +380,7 @@
 	SearchVar(SSpipenet)
 	SearchVar(SSprocessing)
 	SearchVar(SSshuttle)
+	SearchVar(SSmapping)
 	SearchVar(base_law_type)
 	SearchVar(discord_bot)
 	SearchVar(diseases)

@@ -333,21 +333,27 @@
 	set name = "Point To"
 	set category = "Object"
 
-	if(!src || !isturf(src.loc) || !(A in range(world.view, get_turf(src))))
-		return 0
-	if(istype(A, /obj/effect/decal/point) || pointing_effect)
-		return 0
+	if(!isturf(src.loc) || !(A in range(world.view, get_turf(src))))
+		return FALSE
+	if(next_point_time >= world.time)
+		return FALSE
 
-	var/tile = get_turf(A)
-	if (!tile)
-		return 0
-
-	pointing_effect = new /obj/effect/decal/point(tile)
-	pointing_effect.invisibility = invisibility
-	addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, pointing_effect), 2 SECONDS)
-
+	next_point_time = world.time + 25
 	face_atom(A)
-	return 1
+	if(isturf(A))
+		if(pointing_effect)
+			end_pointing_effect()
+		pointing_effect = new /obj/effect/decal/point(A)
+		pointing_effect.invisibility = invisibility
+		addtimer(CALLBACK(src, .proc/end_pointing_effect, pointing_effect), 2 SECONDS)
+	else
+		var/atom/movable/M = A
+		M.add_filter("pointglow", 1, list(type = "drop_shadow", x = 0, y = -1, offset = 1, size = 1, color = "#F00"))
+		addtimer(CALLBACK(M, /atom/movable.proc/remove_filter, "pointglow"), 2 SECONDS)
+	return TRUE
+
+/mob/proc/end_pointing_effect()
+	QDEL_NULL(pointing_effect)
 
 /mob/verb/mode()
 	set name = "Activate Held Object"

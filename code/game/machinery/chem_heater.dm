@@ -1,3 +1,5 @@
+#define SLOW_MODE_MAX_TEMP_CHANGE 2 //C
+
 /obj/machinery/chem_heater
 	name = "chemical heater"
 	desc = "A simple device that can be used to heat the contents of a beaker to a precise temperature."
@@ -14,6 +16,7 @@
 	var/should_heat = TRUE
 	var/min_temperature = 100
 	var/max_temperature = 600
+	var/slow_mode = FALSE
 
 	component_types = list(
 		/obj/item/circuitboard/chem_heater,
@@ -56,6 +59,7 @@
 	var/dat = "<html>"
 
 	dat += "Power: <a href='?src=\ref[src];action=togglepower'>[use_power ? "On" : "Off"]</a>"
+	dat += "<p>Slow Heating Mode: <a href='?src=\ref[src];action=slowmode'>[slow_mode ? "On" : "Off"]</a>"
 
 	dat += "<p>Target Temp: [round(target_temperature)]K / [round(target_temperature - T0C,0.1)]C<br>"
 
@@ -102,6 +106,8 @@
 			target_temperature = max(min_temperature,min(target_temperature + text2num(href_list["power"]),max_temperature))
 			if(container)
 				should_heat = target_temperature >= container.get_temperature()
+		if("slowmode")
+			slow_mode = !slow_mode
 
 	updateUsrDialog()
 
@@ -115,6 +121,7 @@
 	if(container && container.reagents)
 
 		var/current_temperature = container.reagents.get_temperature()
+		var/target_temperature_limited = slow_mode ? current_temperature + SLOW_MODE_MAX_TEMP_CHANGE : target_temperature
 
 		if(should_heat && current_temperature >= target_temperature)
 			use_power = 0
@@ -128,7 +135,7 @@
 		var/joules_to_use = machine_strength * 1000
 		var/mod = should_heat ? 1 : -1
 		var/thermal_energy_change = 0
-		var/thermal_energy_limit = container.reagents.get_thermal_energy_change(current_temperature,target_temperature) //Don't go over the target temperature
+		var/thermal_energy_limit = container.reagents.get_thermal_energy_change(current_temperature,target_temperature_limited) //Don't go over the target temperature
 		var/thermal_energy_limit2 = container.reagents.get_thermal_energy_change(current_temperature,current_temperature + machine_strength*mod*5) //So small reagents don't go from 0 to 1000 in a few seconds.
 		if(mod > 0) //GOING UP
 			thermal_energy_change = min(joules_to_use,thermal_energy_limit,thermal_energy_limit2)
@@ -155,3 +162,4 @@
 
 
 
+#undef SLOW_MODE_MAX_TEMP_CHANGE

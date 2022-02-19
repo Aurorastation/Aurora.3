@@ -187,6 +187,8 @@
 	update_icon()
 
 /obj/structure/railing/CheckExit(var/atom/movable/O, var/turf/target)
+	if(istype(O) && CanPass(O, target))
+		return TRUE
 	if(get_dir(O.loc, target) == dir)
 		if(!density)
 			return TRUE

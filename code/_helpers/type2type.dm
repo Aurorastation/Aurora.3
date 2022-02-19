@@ -50,6 +50,14 @@
 	while (left-- > 0)
 		. = "0[.]"
 
+// Splits the text of a file at seperator and returns them in a list.
+/proc/file2list(filename, seperator="\n")
+	return splittext(file2text(filename) || "", seperator)
+
+//Splits the text of a file at seperator and returns them in a list.
+/world/proc/file2list(filename, seperator="\n")
+	return splittext(file2text(filename), seperator)
+
 // Slower then list2text (replaced with jointext), but correctly processes associative lists.
 proc/tg_list2text(list/list, glue=",")
 	if (!istype(list) || !list.len)
@@ -96,10 +104,6 @@ proc/tg_list2text(list/list, glue=",")
 	for(var/x in text2list(text, delimiter))
 		num_list += text2num(x)
 	return num_list
-
-// Splits the text of a file at seperator and returns them in a list.
-/proc/file2list(filename, seperator="\n")
-	return text2list(return_file_text(filename),seperator)
 
 // Turns a direction into text
 /proc/num2dir(direction)

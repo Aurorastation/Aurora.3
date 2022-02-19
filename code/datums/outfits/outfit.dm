@@ -369,7 +369,7 @@
 		var/obj/item/I = new id(H)
 		imprint_idcard(H,I)
 		if(istype(P) && P.card_slot)
-			addtimer(CALLBACK(src, .proc/register_pda, P, I), 1 SECOND)
+			addtimer(CALLBACK(src, .proc/register_pda, P, I), 2 SECOND)
 		else
 			H.equip_or_collect(I, slot_wear_id)
 

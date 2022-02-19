@@ -10,7 +10,7 @@
 /turf/unsimulated/floor/asteroid/ash,
 /area/exoplanet/barren/asteroid)
 "e" = (
-/mob/living/simple_animal/hostile/carp,
+/mob/living/simple_animal/hostile/carp/asteroid,
 /turf/unsimulated/floor/asteroid/ash,
 /area/exoplanet/barren/asteroid)
 "f" = (

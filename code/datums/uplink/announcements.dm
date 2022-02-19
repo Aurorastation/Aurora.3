@@ -46,18 +46,23 @@
 		random_record = new(user)
 
 	var/datum/record/general/record = random_record.Copy()
-	
+
 	if(I)
 		record.age = I.age
-		record.rank = I.assignment
-		record.real_rank = I.assignment
 		record.name = I.registered_name
 		record.sex = I.sex
+		record.employer = I.employer_faction
+		var/datum/faction/id_faction = SSjobs.name_factions[I.employer_faction]
+		var/faction_abbreviation = id_faction.title_suffix
+		var/assignment = "[I.assignment][ faction_abbreviation ? " ([faction_abbreviation])" : ""]"
+		record.rank = assignment
+		record.real_rank = assignment
 	else
 		var/mob/living/carbon/human/H
 		if(istype(user,/mob/living/carbon/human))
 			H = user
 			record.age = H.age
+			record.employer = H.employer_faction
 		else
 			record.age = initial(H.age)
 		var/assignment = GetAssignment(user)

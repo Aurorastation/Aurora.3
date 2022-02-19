@@ -178,6 +178,10 @@
 	listening_objects += src
 
 /obj/item/device/assembly_holder/Destroy()
+	if(a_left)
+		a_left.holder = null
+	if(a_right)
+		a_right.holder = null
 	listening_objects -= src
 	return ..()
 
