@@ -29,7 +29,7 @@
 				if (T == U)
 					continue
 
-				if (the_station_areas[U.loc])
+				if (the_station_areas[U.loc] || istype(U, /turf/simulated/mineral/surface))
 					out += T
 					break
 
