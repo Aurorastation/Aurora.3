@@ -1,0 +1,7 @@
+author: Vrow
+
+delete-after: True
+
+changes:
+  - tweak: "Tweaked various smoking item icons to fit Tajara and Unathi better."
+  - bugfix: "Fixed missing bone pipe sprites for Tajara and Unathi."
