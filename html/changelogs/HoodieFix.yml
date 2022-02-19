@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Hoodies and other suits with hoods can now be properly opened and closed again."
