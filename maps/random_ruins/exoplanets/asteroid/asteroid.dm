@@ -4,7 +4,7 @@
 	description = "An abandoned mining site. Some tools and materials were left behind."
 
 	spawn_weight = 1
-	cost = 2
+	spawn_cost = 2
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
 	suffix = "asteroid/mining_base.dmm"
 
@@ -16,7 +16,7 @@
 	description = "A nest of deadly space carps."
 
 	spawn_weight = 1
-	cost = 2
+	spawn_cost = 2
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
 	suffix = "asteroid/carp_nest.dmm"
 

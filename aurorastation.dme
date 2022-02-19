@@ -3079,6 +3079,7 @@
 #include "maps\exodus\code\exodus_shuttles.dm"
 #include "maps\exodus\code\exodus_unittest.dm"
 #include "maps\random_ruins\exoplanets\exoplanet_ruins.dm"
+#include "maps\random_ruins\exoplanets\asteroid\asteroid.dm"
 #include "maps\random_ruins\exoplanets\crashed_pod\crashed_pod.dm"
 #include "maps\random_ruins\space_ruins\space_ruins.dm"
 #include "maps\runtime\runtime_overmap.dm"
