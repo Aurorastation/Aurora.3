@@ -15,8 +15,10 @@
 		/obj/item/device/flashlight/pen,
 		/obj/item/seeds,
 		/obj/item/coin,
+		/obj/item/stack/dice,
 		/obj/item/disk,
 		/obj/item/implanter,
+		/obj/item/flame/lighter,
 		/obj/item/flame/match,
 		/obj/item/lipstick,
 		/obj/item/haircomb,
@@ -30,7 +32,8 @@
 		/obj/item/device/encryptionkey,
 		/obj/item/fluff,
 		/obj/item/storage/business_card_holder,
-		/obj/item/sample
+		/obj/item/sample,
+		/obj/item/key
 	)
 	slot_flags = SLOT_ID
 

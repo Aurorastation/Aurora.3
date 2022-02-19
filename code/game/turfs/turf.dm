@@ -104,6 +104,7 @@
 	changing_turf = FALSE
 	turfs -= src
 
+	remove_cleanables()
 	cleanup_roof()
 
 	if (ao_queued)
@@ -524,3 +525,8 @@ var/const/enterloopsanity = 100
 
 /turf/proc/is_floor()
 	return FALSE
+
+/turf/proc/remove_cleanables()
+	for(var/obj/effect/O in src)
+		if(istype(O,/obj/effect/rune) || istype(O,/obj/effect/decal/cleanable))
+			qdel(O)

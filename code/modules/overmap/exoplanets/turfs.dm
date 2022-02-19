@@ -152,7 +152,7 @@
 
 /turf/simulated/floor/exoplanet/desert/Initialize()
 	. = ..()
-	icon_state = "desert[rand(0,5)]"
+	icon_state = "desert[rand(0,4)]"
 
 //Concrete
 /turf/simulated/floor/exoplanet/concrete
