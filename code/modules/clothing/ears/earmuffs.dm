@@ -33,7 +33,7 @@
 	else
 		icon_state = "[initial(icon_state)]_on"
 		headphones_on = 1
-		to_chat(usr, "<span class='notice'>You turn the music on.</span>")
+		to_chat(usr, SPAN_NOTICE("You turn the music on."))
 
 	update_clothing_icon()
 
