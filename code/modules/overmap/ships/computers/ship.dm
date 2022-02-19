@@ -45,6 +45,8 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	user.reset_view()
 	if(user.client)
 		user.client.view = world.view
+		user.client.pixel_x = 0
+		user.client.pixel_y = 0
 	moved_event.unregister(user, src, /obj/machinery/computer/ship/proc/unlook)
 	LAZYREMOVE(viewers, WEAKREF(user))
 
@@ -69,6 +71,11 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	else
 		return 0
 
+/obj/machinery/computer/ship/Destroy()
+	if(linked)
+		LAZYREMOVE(linked.consoles, src)
+	. = ..()
+
 /obj/machinery/computer/ship/sensors/Destroy()
 	sensors = null
 	if(LAZYLEN(viewers))
@@ -77,3 +84,12 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 			if(M)
 				unlook(M)
 	. = ..()
+
+/obj/machinery/computer/ship/on_user_login(mob/M)
+	unlook(M)
+
+/obj/machinery/computer/ship/attempt_hook_up(obj/effect/overmap/visitable/ship/sector)
+	. = ..()
+
+	if(.)
+		LAZYSET(linked.consoles, src, TRUE)
