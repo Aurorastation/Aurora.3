@@ -1,7 +1,0 @@
-author: Vrow
-
-delete-after: True
-
-changes:
-  - rscadd: "You can now shove in IPCs via grabs or drag and drop into the rechargers."
-  - tweak: "Shoving them in via grabs/drag and drop doesn't take as long as stationbounds, but it does take around 5 seconds."
