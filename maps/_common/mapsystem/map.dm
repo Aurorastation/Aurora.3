@@ -109,8 +109,9 @@
 	var/list/planet_size  //dimensions of planet zlevel, defaults to world size. Due to how maps are generated, must be (2^n+1) e.g. 17,33,65,129 etc. Map will just round up to those if set to anything other.
 	var/min_offmap_players = 0
 	var/away_site_budget = 0
-	
+
 	var/allow_borgs_to_leave = FALSE //this controls if borgs can leave the station or ship without exploding
+	var/area/warehouse_basearea //this controls where the cargospawner tries to populate warehouse items
 
 /datum/map/New()
 	if(!map_levels)

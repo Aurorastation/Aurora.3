@@ -114,6 +114,8 @@
 
 	allow_borgs_to_leave = TRUE
 
+	warehouse_basearea = /area/operations/storage
+
 /datum/map/sccv_horizon/finalize_load()
 	// generate an empty space Z
 	world.maxz++

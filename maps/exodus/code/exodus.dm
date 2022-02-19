@@ -69,6 +69,8 @@
 		/datum/shuttle/autodock/ferry/merchant/exodus
 	)
 
+	warehouse_basearea = /area/quartermaster/storage
+
 /datum/map/exodus/generate_asteroid()
 	new /datum/random_map/automata/cave_system(null, 13, 32, 5, 217, 223)
 	new /datum/random_map/noise/ore(null, 13, 32, 5, 217, 223)
