@@ -608,6 +608,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
+"aFx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/wood,
+/area/shuttle/intrepid)
 "aFA" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -1374,6 +1383,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/loading)
+"blW" = (
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/intrepid)
 "bmn" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -1495,6 +1511,13 @@
 "brI" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/intrepid)
@@ -3432,7 +3455,6 @@
 	pixel_y = -6
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
 	frequency = 1380;
 	id_tag = "intrepid_shuttle_cargo_pump"
 	},
@@ -4033,7 +4055,7 @@
 	id = "intrepid_inner";
 	name = "Intrepid Shutter"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid)
 "dRh" = (
 /obj/machinery/recharger/wallcharger{
@@ -4320,10 +4342,11 @@
 	pixel_x = -24;
 	pixel_y = -10
 	},
-/obj/machinery/atmospherics/binary/passive_gate{
-	name = "shuttle airlock pressure regulator";
-	target_pressure = 75;
-	unlocked = 1
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid)
@@ -4708,8 +4731,14 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid)
@@ -5336,10 +5365,11 @@
 	},
 /obj/structure/window/reinforced,
 /obj/machinery/door/window/westright,
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/portables_connector{
 	dir = 8;
-	layer = 3.5
+	layer = 2.8
 	},
+/obj/machinery/portable_atmospherics/canister/empty,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid)
 "eVE" = (
@@ -6829,6 +6859,8 @@
 	name = "Intrepid Crew Area"
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid)
 "ggp" = (
@@ -6943,9 +6975,6 @@
 "ghP" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/computer/ship/engines{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -7373,11 +7402,6 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/obj/machinery/atmospherics/binary/passive_gate{
-	name = "shuttle airlock pressure regulator";
-	target_pressure = 75;
-	unlocked = 1
-	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1380;
@@ -7386,6 +7410,7 @@
 	pixel_x = 24;
 	pixel_y = -10
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid)
 "gBl" = (
@@ -8243,7 +8268,10 @@
 	name = "Intrepid Shutter"
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid)
 "hqC" = (
 /obj/structure/stairs/west,
@@ -8754,6 +8782,7 @@
 	name = "Intrepid Crew Area"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid)
 "hQO" = (
@@ -8941,10 +8970,10 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "hZr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/ramp,
 /area/shuttle/intrepid)
 "hZS" = (
@@ -9174,6 +9203,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
+"ijn" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/intrepid)
 "ijU" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -10405,6 +10446,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
+"jwo" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/intrepid)
 "jwL" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -10990,6 +11043,9 @@
 	icon_state = "door_locked";
 	id_tag = "intrepid_shuttle_cargo_in"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid)
 "jYy" = (
@@ -11356,6 +11412,8 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid)
 "ksI" = (
@@ -11608,6 +11666,18 @@
 /obj/structure/lattice,
 /turf/space/dynamic,
 /area/template_noop)
+"kDt" = (
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/intrepid)
 "kDE" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -11643,6 +11713,12 @@
 	id_tag = "intrepid_cockpit";
 	name = "Intrepid Cockpit";
 	req_access = list(73)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/shuttle/intrepid)
@@ -12278,6 +12354,12 @@
 	frequency = 1380;
 	id_tag = "intrepid_shuttle";
 	pixel_y = 28
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid)
@@ -14527,6 +14609,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/intrepid)
 "njB" = (
@@ -15247,6 +15332,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled,
 /area/shuttle/intrepid)
 "nRQ" = (
@@ -15326,11 +15412,17 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
-	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/machinery/atmospherics/binary/passive_gate/scrubbers{
+	dir = 1;
+	regulate_mode = 1;
+	target_pressure = 0;
+	unlocked = 0
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid)
@@ -15766,6 +15858,7 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid)
 "ows" = (
@@ -16618,6 +16711,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/intrepid)
 "psr" = (
@@ -16748,6 +16844,7 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid)
 "pAB" = (
@@ -17150,10 +17247,19 @@
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/engineering/atmos)
 "pTp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
-/turf/simulated/wall/shuttle/scc/cardinal,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "intrepid_shuttle_cargo_in"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid)
 "pTs" = (
 /obj/structure/railing/mapped{
@@ -17226,9 +17332,10 @@
 /area/outpost/mining_main/refinery)
 "pXu" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
 	},
+/obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid)
 "pXv" = (
@@ -17473,6 +17580,8 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid)
 "qfH" = (
@@ -17852,7 +17961,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid)
 "qxn" = (
@@ -18457,6 +18566,14 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/rnd/eva)
+"qWV" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/intrepid)
 "qWW" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
@@ -18720,6 +18837,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid)
 "riL" = (
@@ -19194,6 +19312,10 @@
 /area/hangar/control)
 "rHi" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/intrepid)
 "rHr" = (
@@ -19230,6 +19352,7 @@
 	dir = 9
 	},
 /obj/machinery/bluespace_beacon,
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled,
 /area/shuttle/intrepid)
 "rJZ" = (
@@ -19424,6 +19547,11 @@
 "rRE" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid)
@@ -19648,6 +19776,14 @@
 	},
 /turf/simulated/floor/bluegrid,
 /area/rnd/isolation_a)
+"sex" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/intrepid)
 "seU" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/purple,
 /obj/structure/lattice/catwalk/indoor,
@@ -20850,6 +20986,18 @@
 /obj/machinery/meter,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
+"tkX" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/intrepid)
 "tlx" = (
 /obj/structure/table/rack,
 /obj/item/stack/material/plasteel{
@@ -21179,6 +21327,21 @@
 	},
 /turf/simulated/floor/airless,
 /area/engineering/atmos)
+"tBX" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/intrepid)
 "tEc" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_mining{
@@ -21423,6 +21586,9 @@
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/intrepid)
@@ -21979,6 +22145,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -28
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid)
 "umt" = (
@@ -22021,6 +22191,8 @@
 	dir = 10
 	},
 /obj/effect/shuttle_landmark/intrepid/hangar,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid)
 "unZ" = (
@@ -23242,6 +23414,9 @@
 	name = "Station Intercom (General)";
 	pixel_y = 25
 	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid)
 "vsW" = (
@@ -24014,6 +24189,12 @@
 	pixel_x = -24;
 	pixel_y = 23
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid)
 "wjW" = (
@@ -24165,6 +24346,7 @@
 	pixel_x = -24;
 	pixel_y = 24
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled,
 /area/shuttle/intrepid)
 "wos" = (
@@ -25336,6 +25518,15 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid)
 "xpX" = (
@@ -25982,6 +26173,8 @@
 	dir = 9
 	},
 /obj/machinery/firealarm/west,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid)
 "xQI" = (
@@ -26404,6 +26597,10 @@
 	tag_chamber_sensor = "intrepid_shuttle_cargo_sensor";
 	tag_exterior_door = "intrepid_shuttle_cargo_out";
 	tag_interior_door = "intrepid_shuttle_cargo_in"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	frequency = 1380;
+	id_tag = "intrepid_shuttle_cargo_pump"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid)
@@ -46155,7 +46352,7 @@ rmT
 rmT
 rmT
 ccr
-xrp
+ijn
 uSd
 oxX
 rmT
@@ -46349,7 +46546,7 @@ oFN
 aRG
 rmT
 rmT
-pTp
+rmT
 rmT
 mwR
 dVS
@@ -46357,7 +46554,7 @@ elI
 psd
 dQP
 wjU
-xrp
+tkX
 hhv
 hBV
 rmT
@@ -46754,7 +46951,7 @@ ayq
 xvk
 nyz
 yib
-jXW
+pTp
 nxj
 vkB
 vkB
@@ -46763,9 +46960,9 @@ rmT
 exg
 unD
 rHi
-rHi
+blW
 vYi
-qeY
+kDt
 myR
 eLa
 qAI
@@ -46962,7 +47159,7 @@ csz
 qjt
 tNo
 ohO
-rRE
+tBX
 xrp
 mJn
 vMd
@@ -47165,11 +47362,11 @@ rmT
 rmT
 rmT
 xpT
-xrp
+sex
 ksy
 ksy
 xPX
-dnX
+aFx
 uSZ
 rmT
 gwA
@@ -47365,8 +47562,8 @@ gAi
 nUc
 gfb
 qeY
-uSd
-uSd
+qWV
+jwo
 ebd
 uSd
 uSd

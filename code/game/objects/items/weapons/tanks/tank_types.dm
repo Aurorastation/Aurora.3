@@ -85,6 +85,9 @@
 /obj/item/tank/phoron/adjust_initial_gas()
 	air_contents.adjust_gas(GAS_PHORON, (3*ONE_ATMOSPHERE)*70/(R_IDEAL_GAS_EQUATION*T20C))
 
+/obj/item/tank/phoron/shuttle/adjust_initial_gas()
+	air_contents.adjust_gas(GAS_PHORON, 4*(3*ONE_ATMOSPHERE)*70/(R_IDEAL_GAS_EQUATION*T20C))
+
 /obj/item/tank/phoron/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 
