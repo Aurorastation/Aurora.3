@@ -1,0 +1,6 @@
+author: Vrow
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed stationbounds's Medical Grippers being unable to hold inhaler cartridges."
