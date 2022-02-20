@@ -1864,6 +1864,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/hor)
+"aYO" = (
+/obj/machinery/atmospherics/pipe/simple/visible/universal,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/aux_atmospherics/deck_2/starboard)
 "aYP" = (
 /turf/simulated/floor/carpet,
 /area/library)
@@ -52138,7 +52146,7 @@ sIi
 kxP
 grQ
 fZz
-gUB
+aYO
 pKc
 hCW
 aXZ
