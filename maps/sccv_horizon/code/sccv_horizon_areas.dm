@@ -293,3 +293,11 @@
 /area/shuttle/intrepid
 	name = "Intrepid"
 	icon_state = "intrepid"
+
+// Exterior
+/area/horizonexterior
+	name = "Exterior"
+	icon_state = "exterior"
+	has_gravity = FALSE
+	base_turf = /turf/space
+	station_area = TRUE

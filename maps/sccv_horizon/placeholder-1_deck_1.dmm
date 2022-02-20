@@ -673,6 +673,19 @@
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod/pod4)
+"aHu" = (
+/obj/structure/shuttle_part{
+	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi';
+	icon_state = "mlw3"
+	},
+/obj/machinery/airlock_sensor/airlock_exterior{
+	frequency = 1380;
+	id_tag = "intrepid_shuttle_west_exterior_sensor";
+	pixel_x = -8;
+	pixel_y = 32
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/intrepid)
 "aHY" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/black{
@@ -4801,6 +4814,7 @@
 	tag_airpump = "intrepid_shuttle_west_pump";
 	tag_chamber_sensor = "intrepid_shuttle_west_sensor";
 	tag_exterior_door = "intrepid_shuttle_west_out";
+	tag_exterior_sensor = "intrepid_shuttle_west_exterior_sensor";
 	tag_interior_door = "intrepid_shuttle_west_in"
 	},
 /turf/simulated/floor/plating,
@@ -6506,6 +6520,7 @@
 	tag_airpump = "intrepid_shuttle_east_pump";
 	tag_chamber_sensor = "intrepid_shuttle_east_sensor";
 	tag_exterior_door = "intrepid_shuttle_east_out";
+	tag_exterior_sensor = "intrepid_shuttle_east_exterior_sensor";
 	tag_interior_door = "intrepid_shuttle_east_in"
 	},
 /obj/machinery/airlock_sensor{
@@ -14382,11 +14397,8 @@
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
 "mYb" = (
-/obj/machinery/atmospherics/binary/passive_gate{
-	dir = 8;
-	icon_state = "on";
-	target_pressure = 15000;
-	unlocked = 1
+/obj/machinery/atmospherics/binary/passive_gate/on/output/max{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
@@ -15590,6 +15602,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
+"ody" = (
+/obj/structure/shuttle_part{
+	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi';
+	icon_state = "mwr1"
+	},
+/obj/machinery/airlock_sensor/airlock_exterior{
+	frequency = 1380;
+	id_tag = "intrepid_shuttle_east_exterior_sensor";
+	pixel_x = 8;
+	pixel_y = -64
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/intrepid)
 "odK" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -16740,6 +16765,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
+"pvn" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/airlock_sensor/airlock_exterior{
+	frequency = 1380;
+	id_tag = "intrepid_shuttle_cargo_exterior_sensor";
+	pixel_x = -24
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/intrepid)
 "pvO" = (
 /obj/machinery/light{
 	dir = 1
@@ -26040,11 +26075,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
 "xMr" = (
-/obj/machinery/atmospherics/binary/passive_gate{
-	dir = 4;
-	icon_state = "on";
-	target_pressure = 15000;
-	unlocked = 1
+/obj/machinery/atmospherics/binary/passive_gate/on/output/max{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
@@ -26592,6 +26624,7 @@
 	tag_airpump = "intrepid_shuttle_cargo_pump";
 	tag_chamber_sensor = "intrepid_shuttle_cargo_sensor";
 	tag_exterior_door = "intrepid_shuttle_cargo_out";
+	tag_exterior_sensor = "intrepid_shuttle_cargo_exterior_sensor";
 	tag_interior_door = "intrepid_shuttle_cargo_in"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -45342,7 +45375,7 @@ rmT
 ifw
 ewy
 rmT
-amw
+aHu
 iRC
 iRC
 iRC
@@ -46741,7 +46774,7 @@ hYy
 apf
 uOO
 dhi
-ayq
+pvn
 xvk
 gDj
 dir
@@ -48158,7 +48191,7 @@ iRC
 iRC
 gwA
 yfK
-bBA
+ody
 rmT
 bLN
 ort

@@ -26,6 +26,18 @@
 
 	var/broadcast_status_next_process = FALSE
 
+/obj/machinery/atmospherics/binary/passive_gate/on
+	unlocked = 1
+/obj/machinery/atmospherics/binary/passive_gate/on/input
+	regulate_mode = REGULATE_INPUT
+
+/obj/machinery/atmospherics/binary/passive_gate/on/output/max/Initialize()
+	. = ..()
+	target_pressure = max_pressure_setting
+
+/obj/machinery/atmospherics/binary/passive_gate/on/input/max/Initialize()
+	. = ..()
+	target_pressure = max_pressure_setting
 /obj/machinery/atmospherics/binary/passive_gate/scrubbers
 	name = "scrubbers pressure regulator"
 	desc = "A one-way air valve that can be used to regulate input or output pressure, and flow rate. This is one is for scrubber pipes."
