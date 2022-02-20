@@ -27827,6 +27827,7 @@
 	dir = 10
 	},
 /obj/machinery/firealarm/south,
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
 "ryu" = (

@@ -5382,6 +5382,15 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/bridge)
+"mG" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hallway/primary/starboard)
 "mH" = (
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 8
@@ -40800,7 +40809,7 @@ YD
 KL
 Yg
 Yr
-xi
+mG
 LK
 VC
 VC
