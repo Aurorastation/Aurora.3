@@ -14397,11 +14397,8 @@
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
 "mYb" = (
-/obj/machinery/atmospherics/binary/passive_gate{
-	dir = 8;
-	icon_state = "on";
-	target_pressure = 15000;
-	unlocked = 1
+/obj/machinery/atmospherics/binary/passive_gate/on/output/max{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
@@ -26078,11 +26075,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
 "xMr" = (
-/obj/machinery/atmospherics/binary/passive_gate{
-	dir = 4;
-	icon_state = "on";
-	target_pressure = 15000;
-	unlocked = 1
+/obj/machinery/atmospherics/binary/passive_gate/on/output/max{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
