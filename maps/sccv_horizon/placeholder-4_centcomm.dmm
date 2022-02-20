@@ -34201,7 +34201,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/distress)
 "bCB" = (
-/obj/machinery/teleport/station,
+/obj/item/modular_computer/console/preset/command/teleporter,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},

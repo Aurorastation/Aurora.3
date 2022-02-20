@@ -38029,7 +38029,7 @@
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
 "xmF" = (
-/obj/machinery/teleport/station,
+/obj/item/modular_computer/console/preset/command/teleporter,
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/plating,
 /area/teleporter)

@@ -3985,7 +3985,7 @@
 	name = "\improper Ninja Base"
 	})
 "akN" = (
-/obj/machinery/teleport/station,
+/obj/item/modular_computer/console/preset/command/teleporter,
 /turf/unsimulated/floor{
 	name = "plating"
 	},
@@ -6223,7 +6223,7 @@
 /turf/simulated/floor/plating,
 /area/syndicate_station/start)
 "apq" = (
-/obj/machinery/teleport/station,
+/obj/item/modular_computer/console/preset/command/teleporter,
 /turf/simulated/floor/shuttle/dark_red,
 /area/syndicate_station/start)
 "apr" = (
@@ -7945,7 +7945,7 @@
 	},
 /area/centcom/living)
 "auV" = (
-/obj/machinery/teleport/station,
+/obj/item/modular_computer/console/preset/command/teleporter,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
