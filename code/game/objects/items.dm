@@ -336,6 +336,7 @@
 /obj/item/proc/dropped(var/mob/user)
 	if(zoom)
 		zoom(user) //binoculars, scope, etc
+	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE, src)
 
 // Called whenever an object is moved around inside the mob's contents.
 // Linker proc: mob/proc/prepare_for_slotmove, which is referenced in proc/handle_item_insertion and obj/item/attack_hand.
@@ -343,6 +344,7 @@
 /obj/item/proc/on_slotmove(var/mob/user, slot)
 	if(zoom)
 		zoom(user)
+	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE, src)
 
 // called just as an item is picked up (loc is not yet changed)
 /obj/item/proc/pickup(mob/user)

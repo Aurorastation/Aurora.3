@@ -159,6 +159,15 @@
 	desc = "Super comfortable white shoes, capable of keeping you on your feet during any station-wide disaster."
 	icon = 'icons/clothing/kit/captain_white.dmi'
 
+/obj/item/clothing/under/rank/captain/white_dress
+	name = "captain's white dress"
+	desc = "The white variant of feminine fashion for the style conscious captain."
+	icon = 'icons/clothing/kit/captain_white.dmi'
+	icon_state = "uniform_fem"
+	item_state = "uniform_fem"
+	worn_state = "uniform_fem"
+	is_open = -1
+
 /obj/item/storage/briefcase/nt/captain_white
 	name = "captain white uniform briefcase"
 	desc = "An NT-branded briefcase containing various pieces of the captain's white uniform, for use when wine spillage is unlikely."
@@ -167,7 +176,8 @@
 		/obj/item/clothing/head/caphat/cap/white = 1,
 		/obj/item/clothing/under/rank/captain/white = 1,
 		/obj/item/clothing/gloves/captain/white = 1,
-		/obj/item/clothing/shoes/captain/white = 1
+		/obj/item/clothing/shoes/captain/white = 1,
+		/obj/item/clothing/under/rank/captain/white_dress = 1
 	)
 
 // Formal

@@ -88,9 +88,12 @@
 				icon_state = H.pulse() ? "[modify_state]-active" : "[modify_state]-idle"
 				victim = H
 	if(victim && !victim.isSynthetic())
-		if(suppressing && victim.sleeping < 3)
-			victim.Sleeping(3 - victim.sleeping)
+		if(suppressing && victim.sleeping < 7)
+			victim.Sleeping(7 - victim.sleeping)
 			victim.willfully_sleeping = FALSE
+		icon_state = victim.pulse() ? "[modify_state]-active" : "[modify_state]-idle"
+		if(victim.stat == DEAD || victim.is_asystole() || victim.status_flags & FAKEDEATH)
+			icon_state = "[modify_state]-critical"
 		return TRUE
 	icon_state = "[modify_state]-idle"
 	return FALSE
@@ -113,6 +116,8 @@
 		var/mob/living/carbon/human/H = C
 		victim = H
 		icon_state = H.pulse() ? "[modify_state]-active" : "[modify_state]-idle"
+		if(H.stat == DEAD || H.is_asystole() || H.status_flags & FAKEDEATH)
+			icon_state = "[modify_state]-critical"
 	else
 		icon_state = "[modify_state]-idle"
 

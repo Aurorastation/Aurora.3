@@ -67,11 +67,11 @@
 		else if(contained_sprite)
 			tmp_icon_state = "[src.item_state][WORN_UNDER]"
 		accessory_mob_overlay = image("icon" = I, "icon_state" = "[tmp_icon_state]")
+		if(build_from_parts)
+			accessory_mob_overlay.cut_overlays()
+			accessory_mob_overlay.add_overlay(overlay_image(I, "[tmp_icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	if(color)
 		accessory_mob_overlay.color = color
-	if(build_from_parts)
-		accessory_mob_overlay.cut_overlays()
-		accessory_mob_overlay.add_overlay(overlay_image(I, "[icon_state][WORN_UNDER]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	accessory_mob_overlay.appearance_flags = RESET_ALPHA|RESET_COLOR
 	return accessory_mob_overlay
 
@@ -573,6 +573,19 @@
 	item_state = "qeblak_cape"
 	flippable = FALSE
 
+/obj/item/clothing/accessory/poncho/shouldercape/qeblak/zeng
+	name = "Jargon Division Zeng-Hu cloak"
+	desc = "This cloak is given to Zeng-Hu employees who have assisted or worked in collaboration with the Jargon Federation."
+	desc_fluff = "A cloak given to senior level doctors and researchers for Zeng-Hu who has \
+	in the past been given the privilege of working within or in collaboration with the Jargon Federation\
+	 as a show of goodwill between the corporation and federation."
+	icon = 'icons/obj/contained_items/accessories/ZH_cape.dmi'
+	icon_override = 'icons/obj/contained_items/accessories/ZH_cape.dmi'
+	icon_state = "ZH_cape"
+	item_state = "ZH_cape"
+	flippable = FALSE
+	contained_sprite = TRUE
+
 /obj/item/clothing/accessory/poncho/trinary
 	name = "trinary perfection cape"
 	desc = "A brilliant red and brown cape, commonly worn by those who serve the Trinary Perfection."
@@ -593,6 +606,30 @@
 	icon_state = "trinary_shouldercape"
 	item_state = "trinary_shouldercape"
 	overlay_state = "trinary_shouldercape"
+
+/obj/item/clothing/accessory/poncho/assunzione
+	name = "assunzione robe"
+	desc = "A simple purple robe commonly worn by adherents to Luceism, the predominant religion on Assunzione."
+	icon = 'icons/clothing/suits/capes/assunzione_robe.dmi'
+	icon_override = null
+	icon_state = "assunzione_robe"
+	item_state = "assunzione_robe"
+	overlay_state = "assunzione_robe"
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/poncho/assunzione/vine
+	desc = "A simple purple robe commonly worn by adherents to Luceism, the predominant religion on Assunzione. This one features a lux vine \
+	inlay that allows the symbol of the Luceian Square to be faintly seen, even in darkness."
+	icon_state = "assunzione_robe_vine"
+	item_state = "assunzione_robe_vine"
+	overlay_state = "assunzione_robe_vine"
+
+/obj/item/clothing/accessory/poncho/assunzione/gold
+	desc = "A simple purple robe commonly worn by adherents to Luceism, the predominant religion on Assunzione. The Luceian Square, Luceism's \
+	holy symbol is present on the back in gold fabric."
+	icon_state = "assunzione_robe_gold"
+	item_state = "assunzione_robe_gold"
+	overlay_state = "assunzione_robe_gold"
 
 //tau ceti legion ribbons
 /obj/item/clothing/accessory/legion

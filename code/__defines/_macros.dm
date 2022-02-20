@@ -1,6 +1,7 @@
 #define Clamp(x, low, high) 	max(low, min(high, x))
 #define CLAMP01(x) 		(Clamp(x, 0, 1))
 #define JOINTEXT(X) jointext(X, null)
+#define list_find(L, needle, LIMITS...) L.Find(needle, LIMITS)
 
 #define span(class, text) ("<span class='[class]'>" + text + "</span>")
 #define SPAN_NOTICE(X) ("<span class='notice'>" + X + "</span>")
@@ -34,6 +35,8 @@
 #define MATRIX_NOTICE(X) (FONT_LARGE(SPAN_NOTICE(X)))
 
 #define UNDERSCORE_OR_NULL(target) "[target ? "[target]_" : ""]"
+
+#define sequential_id(key) uniqueness_repository.Generate(/datum/uniqueness_generator/id_sequential, key)
 
 #define isAI(A) istype(A, /mob/living/silicon/ai)
 #define isDrone(A) istype(A, /mob/living/silicon/robot/drone)

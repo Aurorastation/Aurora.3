@@ -1359,9 +1359,9 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Skrell Eyes 2"
 			icon_state = "skrelleyes2"
 
-		cat_ears
-			name = "Cat Ears"
-			icon_state = "catears"
+		small_horns
+			name = "Small Horns"
+			icon_state = "smallhorns"
 
 		horny
 			name = "Horny"
@@ -4680,9 +4680,9 @@ Follow by example and make good judgement based on length which list to include 
 				name = "Skrell Eyes 2"
 				icon_state = "skrelleyes2"
 
-			cat_ears
-				name = "Skrell Eyes 2"
-				icon_state = "skrelleyes2"
+			small_horns
+				name = "Small Horns"
+				icon_state = "smallhorns"
 
 			horny
 				name = "Horny"

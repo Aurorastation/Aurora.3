@@ -7,8 +7,8 @@
 	drop_sound = 'sound/items/drop/hat.ogg'
 	pickup_sound = 'sound/items/pickup/hat.ogg'
 	starts_with = list(
-		/obj/item/dice = 1,
-		/obj/item/dice/d20 = 1
+		/obj/item/stack/dice = 12,
+		/obj/item/stack/dice/d20 = 4
 	)
 
 /obj/item/storage/pill_bottle/dice/gaming
@@ -16,11 +16,11 @@
 	desc = "It's a small container with gaming dice inside."
 	icon_state = "magicdicebag"
 	starts_with = list(
-		/obj/item/dice/d4 = 1,
-		/obj/item/dice/d8 = 1,
-		/obj/item/dice/d10 = 1,
-		/obj/item/dice/d12 = 1,
-		/obj/item/dice/d100 = 1
+		/obj/item/stack/dice/d4 = 4,
+		/obj/item/stack/dice/d8 = 4,
+		/obj/item/stack/dice/d10 = 4,
+		/obj/item/stack/dice/d12 = 4,
+		/obj/item/stack/dice/d100 = 4
 	)
 
 /obj/item/storage/card

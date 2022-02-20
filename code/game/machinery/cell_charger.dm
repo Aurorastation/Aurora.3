@@ -2,7 +2,7 @@
 	name = "heavy-duty cell charger"
 	desc = "A much more powerful version of the standard recharger that is specially designed for charging power cells."
 	icon = 'icons/obj/power.dmi'
-	icon_state = "ccharger0"
+	icon_state = "ccharger"
 	anchored = 1
 	use_power = 1
 	idle_power_usage = 5
@@ -25,6 +25,8 @@
 			cut_overlays()
 			add_overlay("ccharger-o[newlevel]")
 			chargelevel = newlevel
+		add_overlay(charging.icon_state)
+		add_overlay("cell-o2")
 		add_overlay("ccharger-on")
 	else
 		cut_overlays()

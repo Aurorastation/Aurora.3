@@ -46,6 +46,10 @@
 
 	click_catchers = create_click_catcher()
 
+	current_map.build_away_sites()
+
+	current_map.build_exoplanets()
+
 	..(timeofday)
 
 /proc/sorted_add_area(area/A)

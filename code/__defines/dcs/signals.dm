@@ -35,5 +35,13 @@
 #define COMSIG_SAY_MODIFIER "signal_say_modifier"
 
 // /obj signals
+/// when a hood is unequipped
+#define COMSIG_ITEM_REMOVE "item_remove"
+/// checks an item's state
+#define COMSIG_ITEM_STATE_CHECK "state_check"
+/// updates an item between several states
+#define COMSIG_ITEM_UPDATE_STATE "update_state"
+/// updates sprites
+#define COMSIG_ITEM_ICON_UPDATE "icon_update"
 
 /*******Component Specific Signals*******/
