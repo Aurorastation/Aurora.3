@@ -1965,7 +1965,7 @@
 	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/garlicbread
-	name = "garlid bread"
+	name = "garlic bread"
 	desc = "Delicious garlic bread, but you probably shouldn't eat it for every meal."
 	icon_state = "garlicbread"
 	trash = /obj/item/trash/plate
