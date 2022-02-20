@@ -273,6 +273,10 @@
 	display_name = "non la hat"
 	path = /obj/item/clothing/head/nonla
 
+/datum/gear/head/konyang
+	display_name = "gat"
+	path = /obj/item/clothing/head/konyang
+
 /datum/gear/head/iac
 	display_name = "IAC headgear selection"
 	description = "A selection of hats worn by Interstellar Aid Corps volunteers."

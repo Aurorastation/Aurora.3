@@ -154,6 +154,14 @@
 		else if(default_part_replacement(user, O))
 			return
 
+	if(istype(O, /obj/item/grab))
+		var/obj/item/grab/grab = O
+		var/mob/living/L = grab.affecting
+		if(!L.isSynthetic())
+			return
+		
+		move_ipc(grab.affecting)
+		qdel(O)
 	..()
 
 /obj/machinery/recharge_station/RefreshParts()
@@ -256,6 +264,19 @@
 	occupant = null
 	update_icon()
 
+/obj/machinery/recharge_station/proc/move_ipc(var/mob/M) // For the grab/drag and drop
+	var/mob/living/R = M
+	usr.visible_message(SPAN_NOTICE("[usr] starts putting [R] into [src]."), SPAN_NOTICE("You start putting [R] into [src]."), range = 3)
+	if(do_mob(usr, R, 5 SECONDS))
+		if(go_in(R))
+			usr.visible_message(SPAN_NOTICE("After some effort, [usr] manages to get [R] into the recharging unit!"))
+			return 1
+		else
+			to_chat(usr, SPAN_DANGER("Failed loading [R] into charger. Please ensure that [R]'s limbs are safely within the charger and has a power cell, and that the charger is functioning."))
+	else
+		to_chat(usr, SPAN_DANGER("Cancelled loading [R] into the charger. You and [R] must stay still!"))
+	return
+
 /obj/machinery/recharge_station/verb/move_eject()
 	set category = "Object"
 	set name = "Eject Recharger"
@@ -277,7 +298,6 @@
 		return
 	go_in(usr)
 
-
 /obj/machinery/recharge_station/MouseDrop_T(var/atom/movable/C, mob/user)
 	if (istype(C, /mob/living/silicon/robot))
 		var/mob/living/silicon/robot/R = C
@@ -295,4 +315,21 @@
 		else
 			to_chat(user, SPAN_DANGER("Cancelled loading [C] into the charger. You and [C] must stay still!"))
 		return
+	
+	else if(isipc(C)) // IPCs don't take as long
+		var/mob/living/carbon/human/machine/R = C
+		if(!user.Adjacent(R) || !Adjacent(user))
+			to_chat(user, SPAN_DANGER("You need to get closer if you want to put [C] into that charger!"))
+			return
+
+		var/bucklestatus = R.bucklecheck(user)
+		if(!bucklestatus)
+			return
+		if(bucklestatus == 2)
+			var/obj/structure/LB = R.buckled_to
+			LB.user_unbuckle(user)
+			return
+
+		user.face_atom(src)
+		move_ipc(R)
 	return ..()
