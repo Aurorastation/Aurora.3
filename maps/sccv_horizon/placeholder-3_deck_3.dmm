@@ -181,14 +181,18 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
 	},
-/obj/machinery/shield_gen,
+/obj/machinery/shield_gen{
+	anchored = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/shields)
 "av" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
-/obj/machinery/shield_capacitor/multiz,
+/obj/machinery/shield_capacitor/multiz{
+	anchored = 1
+	},
 /obj/structure/cable/cyan{
 	d2 = 4;
 	icon_state = "0-4"
@@ -357,6 +361,7 @@
 	dir = 4
 	},
 /obj/machinery/shield_capacitor/multiz{
+	anchored = 1;
 	dir = 1
 	},
 /obj/structure/cable/cyan{
@@ -391,7 +396,9 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
 	},
-/obj/machinery/shield_gen/external,
+/obj/machinery/shield_gen/external{
+	anchored = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/shields)
 "aR" = (
