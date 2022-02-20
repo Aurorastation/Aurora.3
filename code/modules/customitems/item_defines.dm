@@ -2342,7 +2342,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/fluff/iliasz_jacket
 	name = "naval pilot's jacket"
 	desc = "A sturdy grey-green neonomex-lined jacket, flame-resistant and sleek. A garment of choice for anyone who might be in the cockpit of something with a risk of catching fire. \
-	There's a name patch sewn onto the breast of this one, reading "JAJSZCZYK". It seems to be more rugged than a typical flight jacket, and also appears to have some waterproofing. \
+	There's a name patch sewn onto the breast of this one, reading \"JAJSZCZYK\". It seems to be more rugged than a typical flight jacket, and also appears to have some waterproofing. \
 	A Solarian flag in miniature rests on the right sleeve, the colors faded and worn."
 	icon = 'icons/obj/custom_items/iliasz_jacket.dmi'
 	icon_override = 'icons/obj/custom_items/iliasz_jacket.dmi'
