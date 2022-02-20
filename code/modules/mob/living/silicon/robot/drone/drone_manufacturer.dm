@@ -18,7 +18,7 @@
 	idle_power_usage = 20
 	active_power_usage = 5000
 
-	var/fabricator_tag = STATION_TAG
+	var/fabricator_tag
 	var/drone_progress = 0
 	var/produce_drones = TRUE
 	var/time_last_drone = 500
@@ -31,6 +31,7 @@
 /obj/machinery/drone_fabricator/Initialize()
 	. = ..()
 	check_add_to_late_firers()
+	fabricator_tag = current_map.station_short
 
 /obj/machinery/drone_fabricator/do_late_fire()
 	enable_drone_spawn()
