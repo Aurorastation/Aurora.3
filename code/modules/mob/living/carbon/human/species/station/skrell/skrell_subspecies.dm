@@ -15,7 +15,7 @@
 	tail = "axiori_tail"
 	eyes = "skrell_axiori_eyes_s"
 
-	sprint_speed_factor = 1.15 // Species default 1.25
+	sprint_speed_factor = 0.7 // Species default 0.9
 	low_pulse = 40 // Species default 30
 	norm_pulse = 60 // Species default 50
 	fast_pulse = 80 // Species default 70
