@@ -95,6 +95,8 @@ var/list/restricted_camera_networks = list(NETWORK_ERT,NETWORK_MERCENARY,"Secret
 #define MAX_SIPHON_FLOWRATE   2500 // L/s. This can be used to balance how fast a room is siphoned. Anything higher than CELL_VOLUME has no effect.
 #define MAX_SCRUBBER_FLOWRATE 200  // L/s. Max flow rate when scrubbing from a turf.
 
+#define ATMOS_PUMP_MAX_PRESSURE 15000
+
 // These balance how easy or hard it is to create huge pressure gradients with pumps and filters.
 // Lower values means it takes longer to create large pressures differences.
 // Has no effect on pumping gasses from high pressure to low, only from low to high.
@@ -110,12 +112,12 @@ var/list/restricted_camera_networks = list(NETWORK_ERT,NETWORK_MERCENARY,"Secret
 #define ATMOS_DEFAULT_VOLUME_PUMP   200 // Liters.
 #define ATMOS_DEFAULT_VOLUME_FILTER 200 // L.
 #define ATMOS_DEFAULT_VOLUME_MIXER  200 // L.
-#define ATMOS_DEFAULT_VOLUME_PIPE   7  // L.
+#define ATMOS_DEFAULT_VOLUME_PIPE   70  // L.
 #define ATMOS_DEFAULT_VOLUME_HE_PIPE 70 // L.
 
 // Default maximum pressure for simple pipes
-#define ATMOS_DEFAULT_MAX_PRESSURE     50*ONE_ATMOSPHERE
-#define ATMOS_DEFAULT_FATIGUE_PRESSURE 40*ONE_ATMOSPHERE
+#define ATMOS_DEFAULT_MAX_PRESSURE     70*ONE_ATMOSPHERE
+#define ATMOS_DEFAULT_FATIGUE_PRESSURE 55*ONE_ATMOSPHERE
 #define ATMOS_DEFAULT_ALERT_PRESSURE   ATMOS_DEFAULT_FATIGUE_PRESSURE
 
 // Misc process flags.
