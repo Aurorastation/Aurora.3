@@ -25679,7 +25679,7 @@
 /area/engineering/engine_room)
 "qkm" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(47)
+	req_access = list(12)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -25688,7 +25688,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
-/area/rnd/hallway)
+/area/maintenance/wing/port)
 "qkF" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
@@ -31921,7 +31921,7 @@
 /area/operations/lobby)
 "ucq" = (
 /obj/machinery/door/airlock/security{
-	name = "Security Equipment Room";
+	name = "Security Eqiuipment Room";
 	req_access = list(63)
 	},
 /obj/structure/cable/green{
@@ -68714,7 +68714,7 @@ rFn
 bDv
 daM
 rnA
-xxy
+wsW
 iwF
 iwF
 iwF
