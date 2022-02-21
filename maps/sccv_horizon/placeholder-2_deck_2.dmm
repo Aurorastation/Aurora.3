@@ -2052,6 +2052,7 @@
 	req_access = list(2)
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "bfB" = (
@@ -7178,7 +7179,7 @@
 	req_one_access = list(12,25)
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/crew_quarters/bar)
 "eCI" = (
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 10
@@ -13792,6 +13793,7 @@
 	opacity = 0
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "iJH" = (
@@ -14000,12 +14002,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
+	},
+/obj/structure/disposalpipe/junction{
+	dir = 4;
+	icon_state = "pipe-j2"
 	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
@@ -20171,6 +20173,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"mOu" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled,
+/area/security/brig)
 "mOH" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
@@ -25715,7 +25726,7 @@
 /area/horizonexterior)
 "qkm" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(47)
+	req_access = list(12)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -25724,7 +25735,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
-/area/rnd/hallway)
+/area/maintenance/wing/port)
 "qkF" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
@@ -26118,6 +26129,10 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
@@ -27850,6 +27865,10 @@
 "rxk" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "ryb" = (
@@ -33169,11 +33188,11 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/disposalpipe/junction{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "uJk" = (
@@ -35787,6 +35806,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "wiD" = (
@@ -36023,6 +36043,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
@@ -38834,6 +38858,7 @@
 "xZt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "xZw" = (
@@ -64937,7 +64962,7 @@ aHj
 sgp
 bZE
 uJa
-bZE
+mOu
 beK
 wiB
 qxp
@@ -68757,7 +68782,7 @@ rFn
 bDv
 daM
 rnA
-xxy
+wsW
 iwF
 iwF
 iwF
