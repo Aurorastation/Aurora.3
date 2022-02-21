@@ -70,7 +70,7 @@
 	ethanol_resistance = 0.5//gets drunk faster
 	taste_sensitivity = TASTE_SENSITIVE
 
-	stamina = 130
+	stamina = 110
 	sprint_cost_factor = 0.3
 	sprint_speed_factor = 0.9
 	bp_base_systolic = 100 // Default 120
