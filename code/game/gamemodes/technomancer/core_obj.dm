@@ -32,6 +32,8 @@
 
 	var/never_remove = FALSE		// whether it can ever be removed
 
+	var/global/list/chameleon_options
+
 /obj/item/technomancer_core/Initialize()
 	. = ..()
 	START_PROCESSING(SSprocessing, src)
@@ -39,6 +41,9 @@
 		verbs += /obj/item/technomancer_core/proc/toggle_lock
 	else
 		canremove = FALSE
+	if(!chameleon_options)
+		var/list/blocked = list(/obj/item/storage/backpack/satchel/withwallet)
+		chameleon_options = generate_chameleon_choices(/obj/item/storage/backpack, blocked, list(/obj/item/technomancer_core))
 
 /obj/item/technomancer_core/Destroy()
 	dismiss_all_summons()
@@ -137,6 +142,22 @@
 	for(var/mob/living/ward in wards_in_use)
 		wards_in_use -= ward
 		qdel(ward)
+
+/obj/item/technomancer_core/verb/change_appearance(picked in chameleon_options)
+	set name = "Change Core Appearance"
+	set category = "Chameleon Items"
+	set src in usr
+
+	if(!ispath(chameleon_options[picked]))
+		return
+
+	if(!usr.mind || !technomancers.is_technomancer(usr.mind))
+		to_chat(usr, SPAN_WARNING("You have no idea how to do this!"))
+		return
+
+	disguise(chameleon_options[picked])
+	usr.update_inv_back()
+	update_held_icon()
 
 // This is what is clicked on to place a spell in the user's hands.
 /obj/spellbutton
