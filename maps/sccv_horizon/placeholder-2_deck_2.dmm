@@ -7164,7 +7164,7 @@
 	req_one_access = list(12,25)
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/crew_quarters/bar)
 "eCI" = (
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 10
