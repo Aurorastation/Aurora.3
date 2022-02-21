@@ -31921,7 +31921,7 @@
 /area/operations/lobby)
 "ucq" = (
 /obj/machinery/door/airlock/security{
-	name = "Security Eqiuipment Room";
+	name = "Security Equipment Room";
 	req_access = list(63)
 	},
 /obj/structure/cable/green{
