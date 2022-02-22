@@ -1,7 +1,7 @@
 /obj/structure/closet/athletic_mixed
 	name = "athletic wardrobe"
 	desc = "It's a storage unit for athletic wear."
-	icon_state = "mixed"
+	icon_door = "mixed"
 
 /obj/structure/closet/athletic_mixed/fill()
 	new /obj/item/towel/random(src)
