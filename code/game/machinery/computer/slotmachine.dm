@@ -38,13 +38,13 @@
 	jackpots = rand(1, 4) //false hope
 	plays = rand(75, 200)
 
-	INVOKE_ASYNC(src, .proc/toggle_reel_spin, TRUE)//The reels won't spin unless we activate them
+	toggle_reel_spin(TRUE) //The reels won't spin unless we activate them
 
 	var/list/reel = reels[1]
 	for(var/i in 1 to reel.len) //Populate the reels.
 		randomize_reels()
 
-	INVOKE_ASYNC(src, .proc/toggle_reel_spin, FALSE)
+	toggle_reel_spin(FALSE)
 
 	for(cointype in typesof(/obj/item/coin))
 		var/obj/item/coin/C = new cointype
@@ -255,7 +255,6 @@
 		sleep(delay)
 
 /obj/machinery/computer/slot_machine/proc/randomize_reels()
-
 	for(var/reel in reels)
 		if(reels[reel])
 			reel[3] = reel[2]
