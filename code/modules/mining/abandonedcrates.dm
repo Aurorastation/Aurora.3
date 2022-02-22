@@ -1,7 +1,6 @@
 /obj/structure/closet/crate/secure/loot
 	name = "abandoned crate"
 	desc = "What could be inside?"
-	icon_state = "securecrate"
 	var/list/code = list()
 	var/list/lastattempt = list()
 	var/attempts = 15

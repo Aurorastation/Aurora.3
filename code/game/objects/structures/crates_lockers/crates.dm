@@ -559,7 +559,6 @@
 /obj/structure/closet/crate/secure/large
 	name = "large crate"
 	desc = "A hefty metal crate with an electronic locking system."
-	icon = 'icons/obj/storage.dmi'
 	icon_state = "largemetal"
 	icon_door_overlay = "largemetal"
 	health = 400
