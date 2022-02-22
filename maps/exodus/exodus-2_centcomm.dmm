@@ -8670,7 +8670,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
 "aGV" = (
-/obj/structure/closet/secure_closet/bar,
+/obj/structure/closet/secure_closet/cabinet/bar,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -9469,10 +9469,7 @@
 	},
 /area/antag/wizard)
 "aKa" = (
-/obj/structure/closet{
-	icon_state = "cabinet";
-  door_anim_time = 0;
-	},
+/obj/structure/closet/cabinet,
 /obj/item/clothing/suit/wizrobe/red,
 /obj/item/clothing/shoes/sandal,
 /obj/item/clothing/head/wizard/red,
@@ -9483,10 +9480,7 @@
 	},
 /area/antag/wizard)
 "aKb" = (
-/obj/structure/closet{
-	icon_state = "cabinet";
-  door_anim_time = 0;
-	},
+/obj/structure/closet/cabinet,
 /obj/item/clothing/suit/wizrobe/marisa,
 /obj/item/clothing/shoes/sandal/marisa,
 /obj/item/clothing/head/wizard/marisa,
@@ -9497,10 +9491,7 @@
 	},
 /area/antag/wizard)
 "aKc" = (
-/obj/structure/closet{
-	icon_state = "cabinet";
-  door_anim_time = 0;
-	},
+/obj/structure/closet/cabinet,
 /obj/item/clothing/suit/wizrobe/magusblue,
 /obj/item/clothing/head/wizard/magus,
 /obj/item/staff,
@@ -9564,10 +9555,7 @@
 	},
 /area/antag/wizard)
 "aKm" = (
-/obj/structure/closet{
-	icon_state = "cabinet";
-  door_anim_time = 0;
-	},
+/obj/structure/closet/cabinet,
 /obj/item/clothing/suit/wizrobe/psypurple,
 /obj/item/clothing/head/wizard/amp,
 /turf/unsimulated/floor{
@@ -9576,10 +9564,7 @@
 	},
 /area/antag/wizard)
 "aKn" = (
-/obj/structure/closet{
-	icon_state = "cabinet";
-  door_anim_time = 0;
-	},
+/obj/structure/closet/cabinet,
 /obj/item/clothing/shoes/sandal/marisa{
 	desc = "A set of fancy shoes that are as functional as they are comfortable.";
 	name = "Gentlemans Shoes"
@@ -9593,10 +9578,7 @@
 	},
 /area/antag/wizard)
 "aKo" = (
-/obj/structure/closet{
-	icon_state = "cabinet";
-  door_anim_time = 0;
-	},
+/obj/structure/closet/cabinet,
 /obj/item/clothing/suit/wizrobe/magusred,
 /obj/item/clothing/head/wizard/magus,
 /obj/item/staff,
@@ -10090,7 +10072,7 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "aLE" = (
-/obj/structure/closet/secure_closet/bar,
+/obj/structure/closet/secure_closet/cabinet/bar,
 /turf/unsimulated/floor{
 	icon_state = "grimy"
 	},
@@ -17401,10 +17383,7 @@
 	},
 /area/centcom/shared_dream)
 "gOW" = (
-/obj/structure/closet{
-	icon_state = "cabinet";
-  door_anim_time = 0;
-	},
+/obj/structure/closet/cabinet,
 /obj/item/clothing/accessory/legion,
 /obj/item/clothing/head/beret/legion,
 /obj/item/clothing/under/legion,
@@ -19956,10 +19935,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "unX" = (
-/obj/structure/closet{
-	icon_state = "cabinet";
-  door_anim_time = 0;
-	},
+/obj/structure/closet/cabinet,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},

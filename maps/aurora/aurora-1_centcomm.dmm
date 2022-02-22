@@ -2797,10 +2797,8 @@
 /turf/template_noop,
 /area/template_noop)
 "ala" = (
-/obj/structure/closet/secure_closet{
+/obj/structure/closet/secure_closet/cabinet{
 	anchored = 1;
-	icon_state = "cabinet";
-  door_anim_time = 0;
 	name = "legate's closet";
 	req_access = list(108,111)
 	},

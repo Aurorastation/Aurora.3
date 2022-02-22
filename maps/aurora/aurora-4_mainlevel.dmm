@@ -51587,7 +51587,7 @@
 /area/hallway/primary/aft)
 "bTn" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/structure/closet/secure_closet/bar,
+/obj/structure/closet/secure_closet/cabinet/bar,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bTo" = (
@@ -59129,10 +59129,7 @@
 "cJo" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/costume/imperium_monk,
-/obj/structure/closet{
-	icon_state = "cabinet";
-  door_anim_time = 0;
-	},
+/obj/structure/closet/cabinet,
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
 "cJN" = (
@@ -61810,10 +61807,7 @@
 /obj/item/clothing/shoes/mime,
 /obj/item/clothing/under/mime,
 /obj/item/toy/figure/mime,
-/obj/structure/closet{
-	icon_state = "cabinet";
-  door_anim_time = 0;
-	},
+/obj/structure/closet/cabinet,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
@@ -63383,10 +63377,7 @@
 "kQn" = (
 /obj/effect/landmark/costume/commie,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/closet{
-	icon_state = "cabinet";
-  door_anim_time = 0;
-	},
+/obj/structure/closet/cabinet,
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
 "kRp" = (
@@ -63593,10 +63584,7 @@
 /area/rnd/lab)
 "liM" = (
 /obj/item/toy/figure/clown,
-/obj/structure/closet{
-	icon_state = "cabinet";
-  door_anim_time = 0;
-	},
+/obj/structure/closet/cabinet,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
@@ -65066,10 +65054,7 @@
 "nXe" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/costume/gladiator,
-/obj/structure/closet{
-	icon_state = "cabinet";
-  door_anim_time = 0;
-	},
+/obj/structure/closet/cabinet,
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
 "nXX" = (
@@ -67726,10 +67711,7 @@
 "szC" = (
 /obj/effect/landmark/costume/elpresidente,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/closet{
-	icon_state = "cabinet";
-  door_anim_time = 0;
-	},
+/obj/structure/closet/cabinet,
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
 "sAC" = (
