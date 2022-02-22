@@ -30115,6 +30115,7 @@
 "jVc" = (
 /obj/structure/closet{
 	icon_state = "cabinet";
+  door_anim_time = 0;
 	name = "Clothing Storage"
 	},
 /turf/simulated/floor/wood,
