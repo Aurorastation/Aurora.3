@@ -169,7 +169,8 @@
 /obj/structure/closet/secure_closet/chemical
 	name = "chemistry equipment closet"
 	desc = "Contains equipment useful to chemists."
-	icon_state = "chemical"
+	icon_state = "med"
+	icon_door = "chemical"
 	req_access = list(access_pharmacy)
 
 /obj/structure/closet/secure_closet/chemical/fill()

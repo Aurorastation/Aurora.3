@@ -9470,7 +9470,8 @@
 /area/antag/wizard)
 "aKa" = (
 /obj/structure/closet{
-	icon_state = "cabinet"
+	icon_state = "cabinet";
+  door_anim_time = 0;
 	},
 /obj/item/clothing/suit/wizrobe/red,
 /obj/item/clothing/shoes/sandal,
@@ -9483,7 +9484,8 @@
 /area/antag/wizard)
 "aKb" = (
 /obj/structure/closet{
-	icon_state = "cabinet"
+	icon_state = "cabinet";
+  door_anim_time = 0;
 	},
 /obj/item/clothing/suit/wizrobe/marisa,
 /obj/item/clothing/shoes/sandal/marisa,
@@ -9496,7 +9498,8 @@
 /area/antag/wizard)
 "aKc" = (
 /obj/structure/closet{
-	icon_state = "cabinet"
+	icon_state = "cabinet";
+  door_anim_time = 0;
 	},
 /obj/item/clothing/suit/wizrobe/magusblue,
 /obj/item/clothing/head/wizard/magus,
@@ -9562,7 +9565,8 @@
 /area/antag/wizard)
 "aKm" = (
 /obj/structure/closet{
-	icon_state = "cabinet"
+	icon_state = "cabinet";
+  door_anim_time = 0;
 	},
 /obj/item/clothing/suit/wizrobe/psypurple,
 /obj/item/clothing/head/wizard/amp,
@@ -9573,7 +9577,8 @@
 /area/antag/wizard)
 "aKn" = (
 /obj/structure/closet{
-	icon_state = "cabinet"
+	icon_state = "cabinet";
+  door_anim_time = 0;
 	},
 /obj/item/clothing/shoes/sandal/marisa{
 	desc = "A set of fancy shoes that are as functional as they are comfortable.";
@@ -9589,7 +9594,8 @@
 /area/antag/wizard)
 "aKo" = (
 /obj/structure/closet{
-	icon_state = "cabinet"
+	icon_state = "cabinet";
+  door_anim_time = 0;
 	},
 /obj/item/clothing/suit/wizrobe/magusred,
 /obj/item/clothing/head/wizard/magus,
@@ -17396,7 +17402,8 @@
 /area/centcom/shared_dream)
 "gOW" = (
 /obj/structure/closet{
-	icon_state = "cabinet"
+	icon_state = "cabinet";
+  door_anim_time = 0;
 	},
 /obj/item/clothing/accessory/legion,
 /obj/item/clothing/head/beret/legion,
@@ -19950,7 +19957,8 @@
 /area/centcom/legion)
 "unX" = (
 /obj/structure/closet{
-	icon_state = "cabinet"
+	icon_state = "cabinet";
+  door_anim_time = 0;
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"

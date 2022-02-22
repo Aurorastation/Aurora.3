@@ -2800,6 +2800,7 @@
 /obj/structure/closet/secure_closet{
 	anchored = 1;
 	icon_state = "cabinet";
+  door_anim_time = 0;
 	name = "legate's closet";
 	req_access = list(108,111)
 	},

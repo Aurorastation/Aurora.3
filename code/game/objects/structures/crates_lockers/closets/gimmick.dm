@@ -3,6 +3,7 @@
 	desc = "Old will forever be in fashion."
 	icon_state = "cabinet"
 	storage_capacity = 45 //such a big closet deserves a little more capacity
+	door_anim_time = 0 // no animation
 
 /obj/structure/closet/cabinet/attackby(obj/item/W as obj, mob/user as mob)
 	if(opened)
