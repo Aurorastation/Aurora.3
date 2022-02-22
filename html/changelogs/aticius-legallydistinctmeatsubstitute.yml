@@ -7,4 +7,4 @@ delete-after: True
 
 changes:
   - rscadd: "Synthflesh can now be made at the Biogenerator."
-  - tweak: "Biomeat has been rebranded as "Meat Substitute" and is no longer implied to be biohazardous."
+  - rscadd: "Biomeat has been rebranded as "Meat Substitute" and is no longer implied to be biohazardous."
