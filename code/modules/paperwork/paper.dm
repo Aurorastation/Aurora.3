@@ -8,6 +8,7 @@
 	gender = NEUTER
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "paper"
+	var/base_state = "paper"
 	item_state = "paper"
 	contained_sprite = 1
 	throwforce = 0
@@ -42,8 +43,11 @@
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
 
+	var/can_change_icon_state = TRUE
+
 /obj/item/paper/Initialize(mapload, text, title)
 	. = ..()
+	base_state = initial(icon_state)
 	if (text || title)
 		set_content(title, text ? text : info)
 	else
@@ -79,12 +83,12 @@
 	updateinfolinks()
 
 /obj/item/paper/update_icon()
-	if(icon_state == "paper_talisman")
+	if(!can_change_icon_state)
 		return
 	else if (info && length(trim(info)))
-		icon_state = "[initial(icon_state)]_words"
+		icon_state = "[base_state]_words"
 	else
-		icon_state = "[initial(icon_state)]"
+		icon_state = "[base_state]"
 
 /obj/item/paper/proc/update_space(var/new_text)
 	if(new_text)
@@ -131,7 +135,7 @@
 		return
 
 	var/n_name = sanitizeSafe(input(usr, "What would you like to label the paper?", "Paper Labelling", null) as text, MAX_NAME_LEN)
-	
+
 	if(use_check_and_message(usr, USE_ALLOW_NON_ADJACENT))
 		return
 
@@ -184,7 +188,7 @@
 	if (user.a_intent == I_HELP && old_name && (icon_state == "paper_plane" || icon_state == "paper_swan"))
 		user.visible_message(SPAN_NOTICE("\The [user] unfolds \the [src]."), SPAN_NOTICE("You unfold \the [src]."), "You hear paper rustling.")
 		playsound(src, 'sound/bureaucracy/paperfold.ogg', 50, 1)
-		icon_state = initial(icon_state)
+		icon_state = base_state
 		throw_range = initial(throw_range)
 		name = old_name
 		old_name = null
@@ -409,7 +413,7 @@
 				. = replacetext(., written_lang_regex.match, "")
 			else
 				content = L.scramble(content)
-		
+
 		if(!language_check)
 			// Refer to paper/proc/show_content to edit the spans here.
 			. = replacetext(., written_lang_regex.match, "<span class='[L.written_style] [reader_understands ? "understood" : "scramble"]'>[L.short && reader_understands ? "([L.short]) [content]" : content]</span>")
@@ -679,3 +683,6 @@ Please note: Cell timers will \[b\]NOT\[/b\] function without a valid incident f
 /obj/item/paper/nka_pledge
 	name = "imperial volunteer Alam'ardii corps pledge"
 	info = "<center><b><u>Imperial Volunteer Alam'ardii Corps Pledge</u></b></center> <hr> <center><i><u>May the Gods bless his Kingdom and Dynasty</u></i></center> <hr> I, <field>, hereby declare, under a vow of loyalty and compromise, that I shall serve as a volunteer in the Imperial Volunteer Alam'ardii Corps, for the mininum duration of three years or until discharge. I accept the duty of aiding the New Kingdom of Adhomai and His Majesty, King Vahzirthaamro Azunja, in this struggle and I shall not relinquish this pledge. <hr> Volunteer Signature: <field> <hr> Recruiting Officer Stamp:"
+
+/obj/item/paper/medscan
+	icon_state = "medscan"

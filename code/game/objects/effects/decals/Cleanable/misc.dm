@@ -104,7 +104,7 @@
 	var/list/viruses = list()
 
 /obj/effect/decal/cleanable/vomit/Initialize()
-	..()
+	. = ..()
 	create_reagents(20, src)
 
 /obj/effect/decal/cleanable/tomato_smudge

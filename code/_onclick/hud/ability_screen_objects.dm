@@ -232,7 +232,7 @@
 
 /obj/screen/ability/verb_based/activate()
 	if(object_used && verb_to_call)
-		call(object_used,verb_to_call)(arguments_to_use) //TODOMATT: WHY GOD WHY
+		call(object_used,verb_to_call)(arguments_to_use)
 
 /obj/screen/movable/ability_master/proc/add_verb_ability(var/object_given, var/verb_given, var/name_given, var/ability_icon_given, var/arguments)
 	if(!object_given)

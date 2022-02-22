@@ -31,7 +31,6 @@
 
 	var/move_trail = /obj/effect/decal/cleanable/blood/tracks/footprints
 
-
 /obj/item/clothing/Initialize(var/mapload, var/material_key)
 	. = ..(mapload)
 	if(!material_key)
@@ -292,6 +291,15 @@
 			siemens_coefficient = between(0, material.conductivity / 10, 10)
 		slowdown = between(0, round(material.weight / 10, 0.1), 6)
 
+/obj/item/clothing/proc/get_accessory(var/typepath)
+	if(istype(src, typepath))
+		return src
+	if(LAZYLEN(accessories))
+		var/accessory = locate(typepath) in accessories
+		if(accessory)
+			return accessory
+	return null
+
 ///////////////////////////////////////////////////////////////////////
 // Ears: headsets, earmuffs and tiny objects
 /obj/item/clothing/ears
@@ -388,7 +396,7 @@
 
 /obj/item/clothing/gloves/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
-	if(blood_DNA)
+	if(blood_DNA && slot != slot_l_hand_str && slot != slot_r_hand_str)
 		var/image/bloodsies = image(H.species.blood_mask, "bloodyhands")
 		bloodsies.color = blood_color
 		I.add_overlay(bloodsies)
@@ -614,7 +622,7 @@
 
 /obj/item/clothing/head/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
-	if(blood_DNA)
+	if(blood_DNA && slot != slot_l_hand_str && slot != slot_r_hand_str)
 		var/image/bloodsies = image(H.species.blood_mask, icon_state = "helmetblood")
 		bloodsies.color = blood_color
 		bloodsies.appearance_flags = RESET_ALPHA
@@ -690,7 +698,7 @@
 
 /obj/item/clothing/mask/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
-	if(blood_DNA && has_blood_overlay)
+	if(blood_DNA && has_blood_overlay && slot != slot_l_hand_str && slot != slot_r_hand_str)
 		var/image/bloodsies = image(H.species.blood_mask, "maskblood")
 		bloodsies.color = blood_color
 		bloodsies.appearance_flags = RESET_ALPHA
@@ -851,7 +859,7 @@
 
 /obj/item/clothing/shoes/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
-	if(blood_DNA)
+	if(blood_DNA && slot != slot_l_hand_str && slot != slot_r_hand_str)
 		for(var/limb_tag in list(BP_L_FOOT, BP_R_FOOT))
 			var/obj/item/organ/external/E = H.get_organ(limb_tag)
 			if(E && !E.is_stump())
@@ -887,6 +895,10 @@
 
 /obj/item/clothing/shoes/clothing_class()
 	return "shoes"
+
+/obj/item/clothing/shoes/clean_blood()
+	. = ..()
+	track_footprint = 0
 
 ///////////////////////////////////////////////////////////////////////
 //Suit
@@ -937,7 +949,7 @@
 			var/image/accessory_image = A.get_accessory_mob_overlay(H)
 			I.add_overlay(accessory_image)
 
-	if(blood_DNA)
+	if(blood_DNA && slot != slot_l_hand_str && slot != slot_r_hand_str)
 		var/image/bloodsies = image(icon = H.species.blood_mask, icon_state = "[blood_overlay_type]blood")
 		bloodsies.color = blood_color
 		I.add_overlay(bloodsies)
@@ -1021,7 +1033,7 @@
 			var/image/accessory_image = A.get_accessory_mob_overlay(H)
 			I.add_overlay(accessory_image)
 
-	if(blood_DNA)
+	if(blood_DNA && slot != slot_l_hand_str && slot != slot_r_hand_str)
 		var/image/bloodsies = image(icon = H.species.blood_mask, icon_state = "uniformblood")
 		bloodsies.color = blood_color
 		I.add_overlay(bloodsies)

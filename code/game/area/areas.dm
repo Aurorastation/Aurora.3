@@ -47,6 +47,7 @@
 	var/turf/base_turf //The base turf type of the area, which can be used to override the z-level's base turf
 	var/no_light_control = 0		// if 1, lights in area cannot be toggled with light controller
 	var/allow_nightmode = 0	// if 1, lights in area will be darkened by the night mode controller
+	var/emergency_lights = FALSE 
 	var/station_area = 0
 	var/centcomm_area = 0
 	var/has_weird_power = FALSE	// If TRUE, SSmachinery will not use the inlined power checks and will call powered() and use_power() on this area.

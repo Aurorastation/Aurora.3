@@ -1431,6 +1431,10 @@
 		charge_mode = CHARGE_MODE_STABLE
 	last_time = world.time
 
+/obj/machinery/power/apc/proc/manage_emergency(var/new_security_level)
+	for(var/obj/machinery/M in area)
+		M.set_emergency_state(new_security_level)
+
 #undef UPDATE_CELL_IN
 #undef UPDATE_OPENED1
 #undef UPDATE_OPENED2
