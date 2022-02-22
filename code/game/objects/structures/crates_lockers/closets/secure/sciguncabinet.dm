@@ -43,7 +43,6 @@
 		add_overlay("door")
 		if(welded)
 			add_overlay("welded")
-
 		if(broken)
 			add_overlay("broken")
 		else if (locked)
