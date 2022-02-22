@@ -37,6 +37,7 @@
 	. = ..()
 	jackpots = rand(1, 4) //false hope
 	plays = rand(75, 200)
+	money = round(rand(2500, 3500), 5)
 
 	toggle_reel_spin(TRUE) //The reels won't spin unless we activate them
 
@@ -215,17 +216,19 @@
 	plays += 1
 	working = TRUE
 
-	toggle_reel_spin(1)
+	toggle_reel_spin(TRUE)
 	update_icon()
 	updateUsrDialog()
 
-	do_spin()
+	INVOKE_ASYNC(src, .proc/do_spin)
 
 	addtimer(CALLBACK(src, .proc/finish_spinning, user, the_name), SPIN_TIME - (REEL_DEACTIVATE_DELAY * reels.len)) //WARNING: no sanity checking for user since it's not needed and would complicate things (machine should still spin even if user is gone), be wary of this if you're changing this code.
 
 /obj/machinery/computer/slot_machine/proc/do_spin(mob/user, the_name)
-	randomize_reels()
-	updateDialog()
+	while(working)
+		randomize_reels()
+		updateUsrDialog()
+		sleep(2)
 
 /obj/machinery/computer/slot_machine/proc/finish_spinning(mob/user, the_name)
 	toggle_reel_spin(0, REEL_DEACTIVATE_DELAY)
