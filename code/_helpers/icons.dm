@@ -640,7 +640,7 @@ proc/ColorTone(rgb, tone)
 /// appearance system (overlays/underlays, etc.) is not available.
 ///
 /// Only the first argument is required.
-/proc/getFlatIcon(image/A, defdir, deficon, defstate, defblend, start = TRUE, no_anim = FALSE)
+/proc/getFlatIcon(image/A, defdir, deficon, defstate, defblend, start = TRUE, no_anim = FALSE, ignore_parent_dir = FALSE)
 	//Define... defines.
 	var/static/icon/flat_template = icon('icons/effects/effects.dmi', "nothing")
 
@@ -701,7 +701,7 @@ proc/ColorTone(rgb, tone)
 	var/base_icon_dir	//We'll use this to get the icon state to display if not null BUT NOT pass it to overlays as the dir we have
 
 	//These should use the parent's direction (most likely)
-	if(!A.dir || A.dir == SOUTH)
+	if(!A.dir || A.dir == SOUTH || ignore_parent_dir)
 		curdir = defdir
 	else
 		curdir = A.dir
