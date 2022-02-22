@@ -126,6 +126,12 @@
 	icon_state = "bottle-4"
 	reagents_to_add = list(/decl/reagent/acid/polyacid = 60)
 
+/obj/item/reagent_containers/glass/bottle/nitroglycerin
+	name = "nitroglycerin bottle"
+	desc = "A small bottle. Contains a small amount of Nitroglycerin."
+	icon_state = "bottle-4"
+	reagents_to_add = list(/decl/reagent/nitroglycerin = 60)
+
 /obj/item/reagent_containers/glass/bottle/adminordrazine
 	name = "adminordrazine bottle"
 	desc = "A small bottle. Contains the liquid essence of the gods."

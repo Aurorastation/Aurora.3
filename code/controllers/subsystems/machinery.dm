@@ -212,4 +212,18 @@
 /datum/controller/subsystem/machinery/ExplosionEnd()
 	wake()
 
+/datum/controller/subsystem/machinery/proc/setup_atmos_machinery(list/machines)
+	set background = TRUE
+	var/list/atmos_machines = list()
+	for (var/obj/machinery/atmospherics/machine in machines)
+		atmos_machines += machine
+	log_game("Initializing atmos machinery")
+	for (var/obj/machinery/atmospherics/machine as anything in atmos_machines)
+		machine.atmos_init()
+		CHECK_TICK
+	log_game("Initializing pipe networks")
+	for (var/obj/machinery/atmospherics/machine as anything in atmos_machines)
+		machine.build_network()
+		CHECK_TICK
+
 #undef MACHINERY_GO_TO_NEXT

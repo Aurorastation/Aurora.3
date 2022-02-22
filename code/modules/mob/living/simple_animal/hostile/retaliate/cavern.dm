@@ -88,6 +88,7 @@
 	ranged = 1
 	smart_ranged = TRUE
 	organ_names = list("core", "right fore wheel", "left fore wheel", "right rear wheel", "left rear wheel")
+	blood_type = COLOR_OIL
 	melee_damage_lower = 0
 	melee_damage_upper = 0
 	attacktext = "barrels into"

@@ -42,8 +42,7 @@
 	smoothing_iterations = 4
 	land_type = /turf/simulated/floor/exoplanet/desert
 
-	flora_prob = 5
-	flora_diversity = 4
+	flora_prob = 0
 	fauna_types = list(/mob/living/simple_animal/thinbug, /mob/living/simple_animal/tindalos)
 
 /datum/random_map/noise/exoplanet/desert/get_additional_spawns(var/value, var/turf/T)
@@ -52,7 +51,6 @@
 		return
 	var/v = noise2value(value)
 	if(v > 6)
-		T.icon_state = "desert[v-1]"
 		if(prob(10))
 			new/obj/structure/quicksand(T)
 

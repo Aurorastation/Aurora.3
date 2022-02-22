@@ -547,8 +547,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = ITEMSIZE_NORMAL
 
 
-/obj/item/dice/fluff/baron_dice //BARON's Dice - BARON - iamcrystalclear
-	weighted = TRUE
+/obj/item/stack/dice/fluff/baron_dice //BARON's Dice - BARON - iamcrystalclear
+	weight_roll = 70
 	favored_number = 2
 
 
@@ -1353,11 +1353,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/suit/storage/toggle/labcoat/fluff/mekesatis_labcoat //Biochemist Holocoat - Neith Mekesatis - vrow
 	name = "biochemist holocoat"
-	desc = "An Eridani Corporate Federation holocoat modelled after a standard biochemist labcoat. It is extremely well cared for."
+	desc = "An extremely cared for and high quality labcoat that protects against minor chemical spills. The material feels like it could shimmer. There is a pharmaceutical logo displayed on the front."
 	icon = 'icons/obj/custom_items/mekesatis_holocoat.dmi'
 	icon_override = 'icons/obj/custom_items/mekesatis_holocoat.dmi'
 	icon_state = "mekesatis_labcoat"
 	item_state = "mekesatis_labcoat"
+	var/holo_name = "eridanian holocoat"
+	var/holo_desc = "An impeccably designed and cared for dark Eridani Corporate Federation holocoat modelled after a high quality labcoat. It has a prominent animated logo of the ECF on the back, \
+	as well as a minor one across the front."
 	var/changed = FALSE
 	var/changing = FALSE
 
@@ -1368,14 +1371,17 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 
 	if(!(all_languages[LANGUAGE_TRADEBAND] in user.languages))
-		to_chat(user, SPAN_NOTICE("On the inside of the coat there are various sentences in Tradeband printed in an elegant blue font."))
+		to_chat(user, SPAN_NOTICE("On the inside of the coat there is a sentence in Tradeband printed in [changed ? "an elegant blue" : "a stylish red"] font."))
+		return
+
+	else if(!changed)
+		to_chat(user, SPAN_NOTICE("On the inside of the coat, the following words are printed in a stylish red font:<br><span style='font-family: Fixedsys; color: red'>Exclusive Time Limited Holocoat Deal from July 30, 2459. \
+		Now with graced with an animated Eridani Corporate Federation logo. For the Prosperity of all Eridanians - <i>Delta HoloTextiles. Sector Alpha's best wears.</i></span>"))
 		return
 
 	else
-		to_chat(user, SPAN_NOTICE("On the inside of the coat, the following words are printed in an elegant blue font:<br>Exclusive Time Limited Holocoat Deal from July 30, 2459. \
-		Now with graced with an animated Eridani Corporate Federation logo. For the Prosperity of all Eridanians - <i>Delta HoloTextiles. Sector Alpha's best \
-		wears.</i><br><small><i><font face='Courier New'>Every cloud has a silver lining, and you should be happy for yours. Congratulations on your \
-		graduation.</font> - <font face='Times New Roman'>Teremun A. M.</font></i></small>"))
+		to_chat(user, SPAN_NOTICE("On the inside of the coat, the following words are printed in an elegant blue font:<br><i><font face='Courier New'>Every cloud has a silver lining, \
+		and you should be grateful for yours. Congratulations on your graduation.</font> - <font face='Times New Roman'>Taiwo O. M.</font></i>"))
 		return
 
 /obj/item/clothing/suit/storage/toggle/labcoat/fluff/mekesatis_labcoat/toggle_open()
@@ -1398,15 +1404,17 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if(changing)
 		return
 
-	usr.visible_message("<span class='notice'>With a subtle gesture, [changed ? "the holocoat fades to a normal labcoat." : "the labcoat flickers in activity!"]</span>")
+	usr.visible_message("<span class='notice'>With a subtle gesture, [changed ? "the holocoat fades to a normal labcoat." : "the labcoat shimmers in activity!"]</span>")
 	icon_state = "mekesatis_[changed ? "labcoat_r" : "holocoat_t"][opened ? "_open" : ""]"
 	item_state = icon_state
+	name = "[changed ? initial(name) : holo_name]"
+	desc = "[changed ? initial(desc) : holo_desc]"
 	flick("mekesatis_[changed ? "labcoat_r" : "holocoat_t"][opened ? "_open" : ""]", src)
 
 	update_icon()
 	usr.update_inv_wear_suit()
 	changing = TRUE
-	addtimer(CALLBACK(src, .proc/finish_toggle, usr), 10 SECONDS)
+	addtimer(CALLBACK(src, .proc/finish_toggle, usr), 6 SECONDS)
 
 /obj/item/clothing/suit/storage/toggle/labcoat/fluff/mekesatis_labcoat/proc/finish_toggle(mob/user)
 	changed = !changed
@@ -2038,11 +2046,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "sur_dbag"
 
 	starts_with = list(
-		/obj/item/dice/fluff/suraya_dice = 3,
-		/obj/item/dice/fluff/suraya_dice/alt = 3
+		/obj/item/stack/dice/fluff/suraya_dice = 3,
+		/obj/item/stack/dice/fluff/suraya_dice/alt = 3
 	)
 
-/obj/item/dice/fluff/suraya_dice
+/obj/item/stack/dice/fluff/suraya_dice
 	name = "blue adhomian die"
 	desc = "A blue-and-gold wooden die with six sides, beautifully carved and delicately painted. The single dot on the number one side is, on closer inspection, a miniature image of the god Rredouane."
 	icon = 'icons/obj/custom_items/suraya_dice.dmi'
@@ -2050,19 +2058,17 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "sur_b_d1"
 	base_icon = "sur_b_d"
 	favored_number = 1
-	weighted_value = 22
+	weight_roll = 22
 
-/obj/item/dice/fluff/suraya_dice/AltClick(mob/user)
-	weighted = !weighted
-
-	if(!weighted)
-		to_chat(user, SPAN_NOTICE("You jiggle the die rapidly in your hand, resetting the internal weighting."))
+/obj/item/stack/dice/fluff/suraya_dice/AltClick(mob/user)
+	if(!weight_roll)
+		user.visible_message("<b>\The [user]</b> jiggles \the [src] around in their hand for a second.", SPAN_NOTICE("You jiggle the die rapidly in your hand, resetting the internal weighting."))
+		weight_roll = 0
 	else
-		to_chat(user, SPAN_NOTICE("You carefully jiggle the die one way, then the other, allowing its internal weighting to lock into place."))
+		user.visible_message("<b>\The [user]</b> jiggles \the [src] around in their hand for a second.", SPAN_NOTICE("You carefully jiggle the die one way, then the other, allowing its internal weighting to lock into place."))
+		weight_roll = initial(weight_roll)
 
-	user.visible_message("<b>\The [user]</b> jiggles \the [src] around in their hand for a second.")
-
-/obj/item/dice/fluff/suraya_dice/alt
+/obj/item/stack/dice/fluff/suraya_dice/alt
 	name = "green adhomian die"
 	desc = "A green-and-silver wooden die with six sides, beautifully carved and delicately painted. The single dot on the number one side is, on closer inspection, a miniature image of the god Rredouane."
 	icon_state = "sur_g_d1"
@@ -2095,6 +2101,35 @@ All custom items with worn sprites must follow the contained sprite system: http
 	var/desc2 = "A blue cloak with the symbol of the New Kingdom of Adhomai proudly displayed on the back.\nUpon closer examination it appears to be a patchwork of older textile and newer fabrics, with the inside of the cloak appearing to be colored differently."
 	var/changed = FALSE
 
+	var/hoodtype = /obj/item/clothing/head/winterhood/fluff/kathira_hood
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/Initialize()
+	. = ..()
+	new hoodtype(src)
+
+/obj/item/clothing/head/winterhood/fluff/kathira_hood
+	name = "handsewn hood"
+	desc = "A hood attached to a cloak."
+	icon = 'icons/obj/custom_items/kathira_cloak.dmi'
+	icon_override = 'icons/obj/custom_items/kathira_cloak.dmi'
+	icon_state = "idris_cloak_hood"
+	contained_sprite = TRUE
+	flags_inv = HIDEEARS | BLOCKHAIR | HIDEEARS
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/update_icon(var/hooded = FALSE)
+	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
+	K.icon_state = "[K.changed ? K.style : initial(K.icon_state)]"
+	SEND_SIGNAL(K, COMSIG_ITEM_STATE_CHECK, args)
+	K.item_state = "[K.icon_state][hooded ? "_up" : ""]"
+	K.name = "[K.changed ? K.name2 : initial(K.name)]"
+	K.desc = "[K.changed ? K.desc2 : initial(K.desc)]"
+	K.accessory_mob_overlay = null
+	. = ..()
+	SEND_SIGNAL(K, COMSIG_ITEM_ICON_UPDATE)
+	if(usr)
+		usr.update_inv_w_uniform()
+		usr.update_inv_wear_suit()
+
 /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_cloak()
 	set name = "Change Cloak"
 	set category = "Object"
@@ -2103,38 +2138,40 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if(use_check_and_message(usr))
 		return
 
-	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = null
-	if(istype(src, /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak))
-		K = src
-	if(!K && isclothing(src))
-		var/obj/item/clothing/S = src
-		if(LAZYLEN(S.accessories))
-			K = locate() in S.accessories
+	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
 	if(!K)
 		return
 
 	usr.visible_message(SPAN_NOTICE("[usr] swiftly pulls \the [K] inside out, changing its appearance."))
-	K.icon_state = "[K.changed ? initial(K.icon_state) : K.style]"
-	K.item_state = K.icon_state
-	K.name = "[K.changed ? initial(K.name) : K.name2]"
-	K.desc = "[K.changed ? initial(K.desc) : K.desc2]"
-	K.accessory_mob_overlay = null
-
 	K.changed = !K.changed
 	K.update_icon()
-	usr.update_icon()
-	usr.update_inv_w_uniform()
-	usr.update_inv_wear_suit()
+	SEND_SIGNAL(K, COMSIG_ITEM_REMOVE, K)
 
 /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/on_attached(obj/item/clothing/S, mob/user as mob)
 	..()
 	has_suit.verbs += /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_cloak
+	has_suit.verbs += /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_hood
 
 /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/on_removed(mob/user as mob)
 	if(has_suit)
 		has_suit.verbs -= /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_cloak
+		has_suit.verbs -= /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_hood
 	..()
 
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_hood()
+	set name = "Toggle Hood"
+	set category = "Object"
+	set src in usr
+
+	if(use_check_and_message(usr))
+		return
+
+	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
+	if(!K)
+		return
+
+	SEND_SIGNAL(K, COMSIG_ITEM_UPDATE_STATE, K)
+	K.update_icon()
 
 /obj/item/clothing/suit/storage/toggle/fluff/leonid_chokha //Old Rebel's Chokha - Leonid Myagmar - lucaken
 	name = "old rebel's chokha"
@@ -2147,9 +2184,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "leonid_chokha"
 	contained_sprite = TRUE
 
-
 /obj/item/clothing/suit/storage/toggle/fluff/sezrak_coat //red Domelkoan Coat - Sezrak Han'san - captaingecko
-	name = "red Domelkoan Coa"
+	name = "red Domelkoan Coat"
 	desc = "A warm coat made in Domelkos. This red coat is stuffed with yupmi fur and made out of reinforced cloth-like synthetic materials, both to keep the wearer warm in the cold winters of \
 	Moroz, and to resist all but the rougher treatments... All the while remaining good-looking enough. Both shoulders on this coat feature the standard of the Han'san clan-house, presented in a \
 	gilded color."
@@ -2179,11 +2215,68 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "mrakiizar_book"
 	item_state = "mrakiizar_book"
 	contained_sprite = TRUE
+	var/open_state = "mrakiizar_book1"
+	var/list/open_states = list("mrakiizar_book1", "mrakiizar_book2", "mrakiizar_book3", "mrakiizar_book4")
 
 /obj/item/journal/fluff/mrakiizar_book/update_icon()
-	..()
-	if(open)
-		icon_state = pick("mrakiizar_book1","mrakiizar_book2","mrakiizar_book3","mrakiizar_book4")
+	if(!open)
+		icon_state = "mrakiizar_book_closed"
+	else
+		icon_state = open_state
+
+	if(closed_desc)
+		desc = open ? initial(desc) + closed_desc : initial(desc)
+
+/obj/item/journal/fluff/mrakiizar_book/attack_hand(mob/user)
+	if(open && user.a_intent == I_HURT)
+		if(!LAZYLEN(indices))
+			to_chat(user, SPAN_WARNING("There aren't any indices to rip a paper out of!"))
+			return
+
+		var/list/viable_indices = list()
+		for(var/index in indices)
+			var/obj/item/folder/embedded/E = indices[index]
+			if(!(locate(/obj/item/paper) in E))
+				continue
+			viable_indices += index
+
+		if(!length(viable_indices))
+			to_chat(user, SPAN_WARNING("None of the indices in \the [src] contain a paper!"))
+			return
+
+		var/selected_folder = input(user, "Select an index to rip a paper out of.", "Rip Index Select") as null|anything in viable_indices
+		if(isnull(selected_folder))
+			return
+
+		var/obj/item/folder/embedded/E = indices[selected_folder]
+		var/list/papers = list()
+
+		for(var/obj/item/paper/P in E)
+			papers += P
+
+		var/obj/item/paper/selected_paper = input(user, "Select a paper to rip out.", "Rip Paper Select") as null|anything in papers
+		if(isnull(selected_paper))
+			return
+
+		user.visible_message(SPAN_WARNING("<b>[user]</b> rips \the [selected_paper] out of \the [src]."), SPAN_NOTICE("You rip \the [selected_paper] out of \the [src]."), range = 5)
+		if(selected_paper.can_change_icon_state)
+			selected_paper.icon = icon
+			selected_paper.base_state = "torn"
+			selected_paper.update_icon()
+		user.put_in_hands(selected_paper)
+		E.handle_post_remove()
+		playsound(loc, 'sound/items/poster_ripped.ogg', 50, FALSE)
+		return
+	return ..()
+
+/obj/item/journal/fluff/mrakiizar_book/CtrlClick(mob/user)
+	if(open && Adjacent(user))
+		open_state = next_in_list(icon_state, open_states)
+		user.visible_message("<b>[user]</b> flips a page in \the [src].", SPAN_NOTICE("You flip a page in \the [src]."), range = 3)
+		playsound(loc, 'sound/items/pickup/paper.ogg', 50, FALSE)
+		update_icon()
+		return
+	return ..()
 
 /obj/item/clothing/accessory/fluff/jaquelyn_necklace //Shrapnel Necklace - Jaquelyn Roberts - roostercat12
 	name = "shrapnel necklace"
@@ -2195,7 +2288,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "jaquelyn_necklace"
 	contained_sprite = TRUE
 	slot_flags = SLOT_EARS | SLOT_TIE
-
 
 /obj/item/clothing/under/fluff/quoro_robes //Black Robes - Quoro Wurri'Til - witchbells
 	name = "black robes"
@@ -2224,7 +2316,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "quoro_suit"
 	item_state = "quoro_suit"
 	contained_sprite = TRUE
-	
+
 
 /obj/item/clothing/accessory/poncho/shouldercape/qeblak/zeng/fluff/eden_cloak // Zeng-Hu Jargon division cloak - Eden Li - Huntime
 	name = "Zeng-Hu cloak: Jargon Division"
@@ -2234,3 +2326,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "ZH_cape_custom"
 	item_state = "ZH_cape_custom"
 
+/obj/item/clothing/head/welding/fluff/akara_mask //Steel Face Mask - Akara Seuseisak - aticius
+	name = "steel face mask"
+	desc = "A slab of steel that has been hammered into the shape of a full-face mask with crude tools. It seems quite old and an appreciable layer of rust has built up."
+	icon = 'icons/obj/custom_items/akara_mask.dmi'
+	icon_override = 'icons/obj/custom_items/akara_mask.dmi'
+	icon_state = "akara_mask"
+	item_state = "akara_mask"
+	contained_sprite = TRUE
+	action_button_name = "Adjust mask"
+	flash_protection = FLASH_PROTECTION_NONE
+	tint = TINT_NONE
