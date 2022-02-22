@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes:
+  - bugfix: "Mining rovers no longer have red blood."
