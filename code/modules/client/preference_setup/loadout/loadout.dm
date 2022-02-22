@@ -65,13 +65,21 @@ var/list/gear_datums = list()
 /datum/category_item/player_setup_item/loadout/proc/valid_gear_choices(var/max_cost)
 	. = list()
 	var/mob/preference_mob = preference_mob()
+	var/list/whitelist_cache = list()
+
+	if(preference_mob)
+		for(var/species in global.all_species)
+			var/datum/species/S = global.all_species[species]
+			if(is_alien_whitelisted(preference_mob, S))
+				whitelist_cache += S.name
+
 	for(var/gear_name in gear_datums)
 		var/datum/gear/G = gear_datums[gear_name]
 		if(max_cost && G.cost > max_cost)
 			continue
-		if(G.whitelisted && preference_mob)
+		else if(G.whitelisted && whitelist_cache.len)
 			for(var/species in G.whitelisted)
-				if(is_alien_whitelisted(preference_mob, global.all_species[species]))
+				if(species in whitelist_cache)
 					. += gear_name
 					break
 		else
@@ -112,11 +120,12 @@ var/list/gear_datums = list()
 		if(!(gear_name in gear_datums))
 			pref.gear -= gear_name
 	var/total_cost = 0
+	var/list/player_valid_gear_choices = valid_gear_choices()
 	for(var/gear_name in pref.gear)
 		if(!gear_datums[gear_name])
 			to_chat(preference_mob, "<span class='warning'>You cannot have more than one of the \the [gear_name]</span>")
 			pref.gear -= gear_name
-		else if(!(gear_name in valid_gear_choices()))
+		else if(!(gear_name in player_valid_gear_choices))
 			to_chat(preference_mob, "<span class='warning'>You cannot take \the [gear_name] as you are not whitelisted for the species.</span>")
 			pref.gear -= gear_name
 		else
@@ -168,8 +177,9 @@ var/list/gear_datums = list()
 	. += "<tr><td colspan=3><hr></td></tr>"
 	. += "<tr><td colspan=3><b><center>[LC.category]</center></b></td></tr>"
 	. += "<tr><td colspan=3><hr></td></tr>"
+	var/list/player_valid_gear_choices = valid_gear_choices()
 	for(var/gear_name in LC.gear)
-		if(!(gear_name in valid_gear_choices()))
+		if(!(gear_name in player_valid_gear_choices))
 			continue
 		var/datum/gear/G = LC.gear[gear_name]
 		var/ticked = (G.display_name in pref.gear)
