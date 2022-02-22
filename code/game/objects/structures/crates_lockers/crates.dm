@@ -5,7 +5,7 @@
 /obj/structure/closet/crate
 	name = "crate"
 	desc = "A rectangular steel crate."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/crate.dmi'
 	icon_state = "crate"
 	climbable = 1
 	build_amt = 10
@@ -14,10 +14,6 @@
 	slowdown = 0
 
 	door_anim_time = 0 // no animation
-
-/obj/structure/closet/crate/update_icon()
-	icon_state = "[initial(icon_state)][opened ? "open" : ""]"
-	cut_overlays()
 
 /obj/structure/closet/crate/can_open()
 	if (tablestatus != UNDER_TABLE)//Can't be opened while under a table
@@ -60,8 +56,8 @@
 		else
 			M.visible_message(SPAN_DANGER("\The [M.name] tumbles out of the [src]!"))
 
-	update_icon()
 	opened = 1
+	update_icon()
 	pass_flags = 0
 	return 1
 
@@ -85,8 +81,8 @@
 		O.forceMove(src)
 		itemcount++
 
-	update_icon()
 	opened = 0
+	update_icon()
 	return 1
 
 
@@ -256,19 +252,9 @@
 /obj/structure/closet/crate/secure
 	name = "secure crate"
 	desc = "A secure crate."
-	icon_state = "securecrate"
-	var/secure_type = "securecrate" // For snowflake security locks n' schiesse.
+	icon_state = "secure_crate"
+	secure = TRUE
 	health = 200
-
-/obj/structure/closet/crate/secure/update_icon()
-	..()
-	if(broken)
-		add_overlay("[secure_type]emag")
-	else if(locked)
-		add_overlay("[secure_type]r")
-	else
-		add_overlay("[secure_type]g")
-
 
 /obj/structure/closet/crate/secure/can_open()
 	if (..())
@@ -337,9 +323,9 @@
 /obj/structure/closet/crate/secure/emag_act(var/remaining_charges, var/mob/user)
 	if(!broken)
 		cut_overlays()
-		add_overlay("[secure_type]emag")
-		add_overlay("[secure_type]sparks")
-		CUT_OVERLAY_IN("[secure_type]sparks", 6)
+		add_overlay("[icon_door_overlay]emag")
+		add_overlay("[icon_door_overlay]sparks")
+		CUT_OVERLAY_IN("[icon_door_overlay]sparks", 6)
 		playsound(loc, /decl/sound_category/spark_sound, 60, 1)
 		locked = 0
 		broken = 1
@@ -353,12 +339,12 @@
 		if(!locked)
 			locked = 1
 			cut_overlays()
-			add_overlay("[secure_type]")
+			add_overlay("[icon_door_overlay]locked")
 		else
 			cut_overlays()
-			add_overlay("[secure_type]emag")
-			add_overlay("[secure_type]sparks")
-			CUT_OVERLAY_IN("[secure_type]sparks", 6)
+			add_overlay("[icon_door_overlay]emag")
+			add_overlay("[icon_door_overlay]sparks")
+			CUT_OVERLAY_IN("[icon_door_overlay]sparks", 6)
 			playsound(loc, /decl/sound_category/spark_sound, 75, 1)
 			locked = 0
 	if(!opened && prob(20/severity))
@@ -372,12 +358,12 @@
 /obj/structure/closet/crate/plastic
 	name = "plastic crate"
 	desc = "A rectangular plastic crate."
-	icon_state = "plasticcrate"
+	icon_state = "plastic_crate"
 
 /obj/structure/closet/crate/internals
 	name = "internals crate"
 	desc = "A internals crate."
-	icon_state = "o2crate"
+	icon_state = "o2_crate"
 
 /obj/structure/closet/crate/trashcart
 	name = "trash cart"
@@ -403,11 +389,11 @@
 /obj/structure/closet/crate/medical
 	name = "medical crate"
 	desc = "A medical crate."
-	icon_state = "medicalcrate"
+	icon_state = "medical_crate"
+
 /obj/structure/closet/crate/rfd
 	name = "\improper RFD C-Class crate"
 	desc = "A crate with a Rapid-Fabrication-Device C-Class."
-	icon_state = "crate"
 
 /obj/structure/closet/crate/rfd/fill()
 	new /obj/item/rfd_ammo(src)
@@ -481,12 +467,12 @@
 /obj/structure/closet/crate/drop
 	name = "drop crate"
 	desc = "A large, sturdy crate meant for airdrops."
-	icon_state = "dropcrate"
+	icon_state = "drop_crate"
 
 /obj/structure/closet/crate/drop/grey
 	name = "drop crate"
 	desc = "A large, sturdy crate meant for airdrops."
-	icon_state = "dropcrate-grey"
+	icon_state = "drop_crate-grey"
 
 /obj/structure/closet/crate/radiation
 	name = "radioactive gear crate"
@@ -515,34 +501,35 @@
 /obj/structure/closet/crate/secure/weapon
 	name = "weapons crate"
 	desc = "A secure weapons crate."
-	icon_state = "weaponcrate"
+	icon_state = "weapon_crate"
 
 /obj/structure/closet/crate/secure/legion
 	name = "foreign legion supply crate"
 	desc = "A secure supply crate, It carries the insignia of the Tau Ceti Foreign Legion. It appears quite scuffed."
-	icon_state = "tcflcrate"
+	icon_state = "tcfl_crate"
 	req_access = list(access_legion)
 
 /obj/structure/closet/crate/secure/phoron
 	name = "phoron crate"
 	desc = "A secure phoron crate."
-	icon_state = "phoroncrate"
+	icon_state = "phoron_crate"
 
 /obj/structure/closet/crate/secure/gear
 	name = "gear crate"
 	desc = "A secure gear crate."
-	icon_state = "secgearcrate"
+	icon_state = "secgear_crate"
 
 /obj/structure/closet/crate/secure/hydrosec
 	name = "secure hydroponics crate"
 	desc = "A crate with a lock on it, painted in the scheme of the station's botanists."
-	icon_state = "hydrosecurecrate"
+	icon_state = "hydro_secure_crate"
 
 /obj/structure/closet/crate/secure/bin
 	name = "secure bin"
 	desc = "A secure bin."
 	icon_state = "largebins"
-	secure_type = "largebin"
+	icon_door_overlay = "largebin"
+	icon_door = "largebin"
 
 /obj/structure/closet/crate/large
 	name = "large crate"
@@ -574,7 +561,7 @@
 	desc = "A hefty metal crate with an electronic locking system."
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "largemetal"
-	secure_type = "largemetal"
+	icon_door_overlay = "largemetal"
 	health = 400
 
 /obj/structure/closet/crate/secure/large/close()
@@ -603,7 +590,7 @@
 /obj/structure/closet/crate/hydroponics
 	name = "hydroponics crate"
 	desc = "All you need to destroy those pesky weeds and pests."
-	icon_state = "hydrocrate"
+	icon_state = "hydro_crate"
 
 /obj/structure/closet/crate/hydroponics/prespawned
 	//This exists so the prespawned hydro crates spawn with their contents.
@@ -636,21 +623,20 @@
 //This ensures that people stumbling across a lootbox will notice it's different and investigate
 	var/list/iconchoices = list(
 		"radiation",
-		"o2crate",
+		"o2_crate",
 		"freezer",
-		"weaponcrate",
+		"weapon_crate",
 		"largebins",
-		"phoroncrate",
+		"phoron_crate",
 		"trashcart",
 		"critter",
 		"largemetal",
-		"medicalcrate",
-		"tcflcrate",
-		"necrocrate",
-		"zenghucrate",
-		"hephcrate"
+		"medical_crate",
+		"tcfl_crate",
+		"necro_crate",
+		"zenghu_crate",
+		"heph_crate"
 	)
-
 
 /obj/structure/closet/crate/loot/Initialize(mapload)
 	. = ..()

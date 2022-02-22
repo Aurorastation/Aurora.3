@@ -42,7 +42,7 @@
 
 		add_overlay("door")
 		if(welded)
-			add_overlay(icon_welded)
+			add_overlay("welded")
 
 		if(broken)
 			add_overlay("broken")

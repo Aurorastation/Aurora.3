@@ -2,11 +2,11 @@
 	name = "closet"
 	desc = "It's a basic storage unit."
 	icon = 'icons/obj/closet.dmi'
-	icon_state = "closed"
+	icon_state = "generic"
 	density = TRUE
 	var/icon_door = null
 	var/icon_door_override = FALSE //override to have open overlay use icon different to its base's
-	var/icon_welded = "welded"
+	var/icon_door_overlay = "" //handles secure locker overlays like the locking lights
 
 	var/secure = FALSE //secure locker or not, also used if overriding a non-secure locker with a secure door overlay to add fancy lights
 	var/opened = FALSE
@@ -430,13 +430,16 @@
 				add_overlay("[icon_door]_door")
 			else
 				add_overlay("[icon_state]_door")
-			if(secure && !broken)
-				if(locked)
-					add_overlay("locked")
+			if(secure)
+				if(broken)
+					add_overlay("[icon_door_overlay]emag")
 				else
-					add_overlay("unlocked")
+					if(locked)
+						add_overlay("[icon_door_overlay]locked")
+					else
+						add_overlay("[icon_door_overlay]unlocked")
 			if(welded)
-				add_overlay(icon_welded)
+				add_overlay("[icon_door_overlay]welded")
 
 	else
 		layer = BELOW_OBJ_LAYER
