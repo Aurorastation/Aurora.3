@@ -477,7 +477,7 @@
 /obj/structure/closet/crate/radiation
 	name = "radioactive gear crate"
 	desc = "A crate with a radiation sign on it."
-	icon_state = "radiation"
+	icon_state = "radiation_crate"
 
 /obj/structure/closet/crate/radiation/fill()
 	new /obj/item/clothing/suit/radiation(src)
