@@ -277,3 +277,39 @@ datum/gear_tweak/social_credit/tweak_item(var/obj/item/clothing/accessory/badge/
 	workcloak["oqi cloak"] = /obj/item/clothing/accessory/poncho/shouldercape/cloak/oqi
 	workcloak["iqi cloak"] = /obj/item/clothing/accessory/poncho/shouldercape/cloak/iqi
 	gear_tweaks += new /datum/gear_tweak/path(workcloak)
+
+/datum/gear/accessory/skrell/tees
+	display_name = "skrellian t-shirts"
+	path = /obj/item/clothing/accessory/tshirt/skrell
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	sort_category = "Xenowear - Skrell"
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/skrell/tees/New()
+	..()
+	var/list/tees = list()
+	tees["ocean tee"] = /obj/item/clothing/accessory/tshirt/skrell/ocean
+	tees["maelstrom tee"] = /obj/item/clothing/accessory/tshirt/skrell/maelstrom
+	tees["reef tee"] = /obj/item/clothing/accessory/tshirt/skrell/reef
+	tees["pink skrellian hawaiian shirt"] = /obj/item/clothing/accessory/tshirt/skrell/hawaiian
+	tees["purple skrellian hawaiian shirt"] = /obj/item/clothing/accessory/tshirt/skrell/hawaiian/purple
+	tees["teal skrellian hawaiian shirt"] = /obj/item/clothing/accessory/tshirt/skrell/hawaiian/teal
+	tees["black skrellian hawaiian shirt"] = /obj/item/clothing/accessory/tshirt/skrell/hawaiian/black
+	tees["white skrellian hawaiian shirt"] = /obj/item/clothing/accessory/tshirt/skrell/hawaiian/white
+	tees["jargon skrellian hawaiian shirt"] = /obj/item/clothing/accessory/tshirt/skrell/hawaiian/jargon
+	gear_tweaks += new /datum/gear_tweak/path(tees)
+
+/datum/gear/accessory/skrell/dress
+	display_name = "skrellian dress shirts"
+	path = /obj/item/clothing/accessory/dressshirt/skrell
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	sort_category = "Xenowear - Skrell"
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/skrell/dress/New()
+	..()
+	var/list/dress = list()
+	dress["ocean dress shirt"] = /obj/item/clothing/accessory/dressshirt/skrell/ocean
+	dress["maelstrom dress shirt"] = /obj/item/clothing/accessory/dressshirt/skrell/maelstrom
+	dress["reef dress shirt"] = /obj/item/clothing/accessory/dressshirt/skrell/reef
+	gear_tweaks += new /datum/gear_tweak/path(dress)
