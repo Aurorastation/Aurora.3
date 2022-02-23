@@ -1,0 +1,6 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - tweak: "Injecting reagent containers with a syringe now sends a warning to those nearby. You'll need to be sneakier with your poisoning now!"

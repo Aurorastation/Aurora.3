@@ -251,8 +251,6 @@
 					user.visible_message("<b>[user]</b> fumbles with \the [src]!", SPAN_NOTICE("You fumble with \the [src]!"))
 					return
 
-				user.visible_message(SPAN_WARNING("[user] injects [target] with the syringe!"))
-
 			var/trans
 			if(ismob(target))
 				var/contained = reagentlist()
@@ -261,7 +259,13 @@
 				admin_inject_log(user, target, src, contained, reagents.get_temperature(), trans)
 			else
 				trans = reagents.trans_to(target, amount_per_transfer_from_this)
-			to_chat(user, SPAN_NOTICE("You inject [trans] units of the solution. The syringe now contains [src.reagents.total_volume] units."))
+			var/list/L = orange(1, user) //If you're next to the injector...
+			LAZYDISTINCTADD(L, orange(1, target)) //...Or the injectee...
+			for (var/mob/M in L) //...you get a message
+				if(M == user)
+					to_chat(user, SPAN_NOTICE("You inject [trans] units of the solution. The syringe now contains [src.reagents.total_volume] units."))
+				else
+					to_chat(M, SPAN_WARNING("[user] injects [target] with the syringe!"))
 			if (reagents.total_volume <= 0 && mode == SYRINGE_INJECT)
 				mode = SYRINGE_DRAW
 				update_icon()
