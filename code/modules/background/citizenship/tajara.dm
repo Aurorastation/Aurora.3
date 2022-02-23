@@ -165,3 +165,37 @@
 		/obj/item/storage/box/syndie_kit/spy/hidden = 1
 	)
 	accessory = /obj/item/clothing/accessory/nka_pin
+
+/datum/citizenship/free_council
+	name = CITIZENSHIP_FREE_COUNCIL
+	description = "The Free Tajaran Council is the largest Tajaran community in Himeo. Its origins can be traced back to the First Revolution-era revolutionaries that fled Adhomai. Built upon \
+	radical principles of equality and communal democracy, the Free Tajaran Council remained relatively isolated from the rest of the Tajaran community until the start of the Adhomian Cold War. \
+	Its population was granted a temporary citizenship status as part of an agreement between the Tajaran nations. While the council struggles to decide its future, some of its members travel \
+	the galaxy in search of aid and new allies for their ultimate masterplan."
+
+	job_species_blacklist = list(
+		"Consular Officer" = list(
+			SPECIES_HUMAN,
+			SPECIES_HUMAN_OFFWORLD,
+			SPECIES_IPC,
+			SPECIES_IPC_BISHOP,
+			SPECIES_IPC_G1,
+			SPECIES_IPC_G2,
+			SPECIES_IPC_SHELL,
+			SPECIES_IPC_UNBRANDED,
+			SPECIES_IPC_XION,
+			SPECIES_IPC_ZENGHU,
+			SPECIES_DIONA,
+			SPECIES_DIONA_COEUS,
+			SPECIES_SKRELL,
+			SPECIES_SKRELL_AXIORI,
+			SPECIES_UNATHI,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER,
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_TAJARA_MSAI
+		)
+	)
