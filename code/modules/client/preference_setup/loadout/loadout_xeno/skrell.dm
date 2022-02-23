@@ -291,12 +291,12 @@ datum/gear_tweak/social_credit/tweak_item(var/obj/item/clothing/accessory/badge/
 	tees["ocean tee"] = /obj/item/clothing/accessory/tshirt/skrell/ocean
 	tees["maelstrom tee"] = /obj/item/clothing/accessory/tshirt/skrell/maelstrom
 	tees["reef tee"] = /obj/item/clothing/accessory/tshirt/skrell/reef
-	tees["pink skrellian hawaiian shirt"] = /obj/item/clothing/accessory/tshirt/skrell/hawaiian
-	tees["purple skrellian hawaiian shirt"] = /obj/item/clothing/accessory/tshirt/skrell/hawaiian/purple
-	tees["teal skrellian hawaiian shirt"] = /obj/item/clothing/accessory/tshirt/skrell/hawaiian/teal
-	tees["black skrellian hawaiian shirt"] = /obj/item/clothing/accessory/tshirt/skrell/hawaiian/black
-	tees["white skrellian hawaiian shirt"] = /obj/item/clothing/accessory/tshirt/skrell/hawaiian/white
-	tees["jargon skrellian hawaiian shirt"] = /obj/item/clothing/accessory/tshirt/skrell/hawaiian/jargon
+	tees["pink skrellian nebula shirt"] = /obj/item/clothing/accessory/tshirt/skrell/nebula
+	tees["purple skrellian nebula shirt"] = /obj/item/clothing/accessory/tshirt/skrell/nebula/purple
+	tees["teal skrellian nebula shirt"] = /obj/item/clothing/accessory/tshirt/skrell/nebula/teal
+	tees["black skrellian nebula shirt"] = /obj/item/clothing/accessory/tshirt/skrell/nebula/black
+	tees["white skrellian nebula shirt"] = /obj/item/clothing/accessory/tshirt/skrell/nebula/white
+	tees["jargon skrellian nebula shirt"] = /obj/item/clothing/accessory/tshirt/skrell/nebula/jargon
 	gear_tweaks += new /datum/gear_tweak/path(tees)
 
 /datum/gear/accessory/skrell/dress
