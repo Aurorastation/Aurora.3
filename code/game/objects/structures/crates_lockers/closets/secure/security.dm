@@ -373,7 +373,7 @@
 	name = "wall locker"
 	req_access = list(access_security)
 	icon = 'icons/obj/walllocker.dmi'
-	icon_state = "wallocker"
+	icon_state = "walllocker"
 	icon_door = "walllocker_secure"
 	door_anim_time = 0
 	density = TRUE

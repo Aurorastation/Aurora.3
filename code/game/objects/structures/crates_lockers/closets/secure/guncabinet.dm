@@ -49,3 +49,9 @@
 			add_overlay("locked")
 		else
 			add_overlay("open")
+
+/obj/structure/closet/secure_closet/guncabinet/sci
+	name = "science gun cabinet"
+	req_access = list(access_tox_storage)
+	icon = 'icons/obj/sciguncabinet.dmi'
+	icon_state = "sci"

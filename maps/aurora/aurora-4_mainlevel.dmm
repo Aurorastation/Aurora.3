@@ -6056,7 +6056,7 @@
 /obj/effect/floor_decal/corner_wide/mauve/full{
 	dir = 8
 	},
-/obj/structure/closet/secure_closet/sciguncabinet,
+/obj/structure/closet/secure_closet/guncabinet/sci,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/strongroom)
 "amb" = (
