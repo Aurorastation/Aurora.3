@@ -25,6 +25,7 @@
 
 	var/can_hold_mob = FALSE
 	var/list/contained_mobs
+	appearance_flags = DEFAULT_APPEARANCE_FLAGS | TILE_BOUND
 
 // We don't really need this, and apparently defining it slows down GC.
 /*/atom/movable/Del()
@@ -232,7 +233,7 @@
 
 	if(anchored)
 		return
-	
+
 	if(!universe.OnTouchMapEdge(src))
 		return
 
