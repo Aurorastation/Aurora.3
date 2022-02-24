@@ -290,9 +290,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/operations/lower/machinist)
 "aqr" = (
-/obj/machinery/vending/assist,
-/turf/simulated/floor/plating,
-/area/engineering/storage/tech)
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/scc/cardinal,
+/area/shuttle/mining)
 "aqY" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -3002,10 +3004,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/loading)
-"cMA" = (
-/obj/structure/dispenser/oxygen,
-/turf/simulated/floor/plating,
-/area/engineering/storage/lower)
 "cNk" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -5580,14 +5578,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/loading)
-"fbf" = (
-/obj/structure/table/rack,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/engineering,
-/obj/item/clothing/head/helmet/space/void/engineering,
-/turf/simulated/floor/plating,
-/area/engineering/storage/lower)
 "fbu" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -17883,12 +17873,6 @@
 /obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
-"qqg" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 5
-	},
-/turf/simulated/wall/shuttle/scc/cardinal,
-/area/shuttle/mining)
 "qqH" = (
 /obj/machinery/status_display/supply_display{
 	pixel_y = 32
@@ -20342,14 +20326,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
-"sDA" = (
-/obj/structure/table/rack,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/atmos,
-/obj/item/clothing/head/helmet/space/void/atmos,
-/turf/simulated/floor/plating,
-/area/engineering/storage/lower)
 "sEw" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -40884,7 +40860,6 @@ awJ
 eSV
 awJ
 awJ
-
 oAi
 pxH
 lye
@@ -41944,7 +41919,7 @@ rcA
 bIe
 vHW
 vHW
-qqg
+xgk
 iuk
 iuk
 iuk
@@ -42146,7 +42121,7 @@ rcA
 iuk
 fdb
 qqS
-xgk
+aqr
 lho
 ucE
 sxP
@@ -42348,7 +42323,7 @@ sXU
 iuk
 fbJ
 jpU
-xgk
+aqr
 mnz
 rMm
 rMm

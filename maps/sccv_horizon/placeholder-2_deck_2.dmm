@@ -7892,6 +7892,8 @@
 	pixel_x = 3;
 	pixel_y = -3
 	},
+/obj/item/circuitboard/ship/helm,
+/obj/item/circuitboard/ship/sensors,
 /turf/simulated/floor/plating,
 /area/storage/tech)
 "eZZ" = (
