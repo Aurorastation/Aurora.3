@@ -1585,7 +1585,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "aTd" = (
 /obj/structure/closet/crate,
 /obj/random/loot,
@@ -3152,7 +3152,7 @@
 "bQd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "bQt" = (
 /obj/effect/map_effect/airlock/w_to_e,
 /turf/simulated/wall,
@@ -3352,7 +3352,7 @@
 	pixel_y = -3
 	},
 /turf/simulated/floor/plating,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "bWv" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -3425,7 +3425,7 @@
 	},
 /obj/structure/girder,
 /turf/simulated/floor/plating,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "bYB" = (
 /obj/machinery/power/apc{
 	dir = 8;
@@ -3913,7 +3913,7 @@
 /area/turret_protected/ai_upload)
 "cpl" = (
 /turf/simulated/wall,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "cpW" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -7660,7 +7660,7 @@
 "eUZ" = (
 /obj/structure/sign/securearea,
 /turf/simulated/wall/r_wall,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "eVf" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -7895,7 +7895,7 @@
 /obj/item/circuitboard/ship/helm,
 /obj/item/circuitboard/ship/sensors,
 /turf/simulated/floor/plating,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "eZZ" = (
 /obj/machinery/cryopod,
 /turf/simulated/floor/tiled,
@@ -9689,7 +9689,7 @@
 /obj/item/circuitboard/arcade/battle,
 /obj/item/circuitboard/arcade/orion_trail,
 /turf/simulated/floor/plating,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "gfN" = (
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload_foyer)
@@ -12230,7 +12230,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "hFm" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/green/full{
@@ -12805,7 +12805,7 @@
 /obj/structure/table/steel,
 /obj/machinery/light/small,
 /turf/simulated/floor/plating,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "ibU" = (
 /turf/simulated/wall/r_wall,
 /area/security/brig/processing)
@@ -16852,7 +16852,7 @@
 "kJw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "kJN" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -16939,7 +16939,7 @@
 	icon_state = "d2-1"
 	},
 /turf/simulated/wall,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "kLN" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -18116,7 +18116,7 @@
 	name = "HIGH VOLTAGE"
 	},
 /turf/simulated/wall/r_wall,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "lCV" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 9
@@ -18845,7 +18845,7 @@
 	pixel_y = 24
 	},
 /turf/simulated/floor/plating,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "lXO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -19376,7 +19376,7 @@
 	pixel_y = -3
 	},
 /turf/simulated/floor/plating,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "mpD" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -19397,7 +19397,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "mpX" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
@@ -20074,7 +20074,7 @@
 	},
 /obj/structure/girder,
 /turf/simulated/floor/plating,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "mLH" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light/small/emergency{
@@ -21148,7 +21148,7 @@
 /obj/item/airlock_electronics,
 /obj/structure/table/steel,
 /turf/simulated/floor/plating,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "noi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -21566,7 +21566,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "nCg" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -21701,7 +21701,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "nFT" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
@@ -22315,7 +22315,7 @@
 /obj/item/stock_parts/scanning_module,
 /obj/item/stock_parts/scanning_module,
 /turf/simulated/floor/plating,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "oeI" = (
 /obj/structure/table/standard,
 /obj/structure/window/reinforced,
@@ -22928,7 +22928,7 @@
 	req_access = list(23)
 	},
 /turf/simulated/floor/plating,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "oAq" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -23230,7 +23230,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "oGR" = (
 /obj/machinery/r_n_d/protolathe,
 /turf/simulated/floor/carpet/rubber,
@@ -23988,7 +23988,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/reinforced,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "pgi" = (
 /turf/simulated/floor/tiled,
 /area/chapel/office)
@@ -24201,7 +24201,7 @@
 	pixel_y = -1
 	},
 /turf/simulated/floor/plating,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "plL" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -26079,7 +26079,7 @@
 /obj/structure/closet/crate/software_backup,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/reinforced,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "qwq" = (
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -27047,7 +27047,7 @@
 /obj/item/aiModule/reset,
 /obj/structure/table/steel,
 /turf/simulated/floor/plating,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "rca" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/table/rack,
@@ -27869,7 +27869,7 @@
 "ryb" = (
 /obj/machinery/vending/assist,
 /turf/simulated/floor/plating,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "ryi" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 10
@@ -29103,7 +29103,7 @@
 /obj/item/device/t_scanner,
 /obj/item/device/multitool,
 /turf/simulated/floor/plating,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "smn" = (
 /obj/machinery/power/apc/low{
 	name = "south bump";
@@ -29498,7 +29498,7 @@
 /obj/item/device/multitool,
 /obj/structure/table/steel,
 /turf/simulated/floor/plating,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "sBr" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -31104,7 +31104,7 @@
 	pixel_y = -3
 	},
 /turf/simulated/floor/plating,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "tCP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -31503,7 +31503,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "tND" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 6
@@ -31808,7 +31808,7 @@
 	pixel_y = 8
 	},
 /turf/simulated/floor/plating,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "tXt" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -32246,7 +32246,7 @@
 /area/medical/icu)
 "ukM" = (
 /turf/simulated/wall/r_wall,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "ukV" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -32845,7 +32845,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/reinforced,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "uzL" = (
 /obj/structure/table/standard,
 /obj/item/modular_computer/laptop/preset/command/teleporter,
@@ -33108,7 +33108,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "uHN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -36157,7 +36157,7 @@
 	c_tag = "Engineering - Secure Technical Storage"
 	},
 /turf/simulated/floor/reinforced,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "wsV" = (
 /obj/structure/table/rack{
 	dir = 8;
@@ -36169,7 +36169,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/reinforced,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "wsW" = (
 /turf/simulated/wall,
 /area/maintenance/wing/port)
@@ -37548,7 +37548,7 @@
 	icon_state = "d2-2"
 	},
 /turf/simulated/wall,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "xhP" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1337;
@@ -37969,7 +37969,7 @@
 /area/engineering/smes/tesla)
 "xwo" = (
 /turf/simulated/floor/reinforced,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "xwU" = (
 /obj/structure/lattice/catwalk,
 /turf/simulated/floor/plating,
@@ -38686,7 +38686,7 @@
 /area/maintenance/hangar/port)
 "xTa" = (
 /turf/simulated/floor/plating,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "xTS" = (
 /obj/structure/shuttle_part/scc_space_ship{
 	icon_state = "d2-2"
@@ -39070,7 +39070,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/plating,
-/area/storage/tech)
+/area/engineering/storage/tech)
 "ydi" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
