@@ -64,6 +64,11 @@
 		else
 			to_chat(user, SPAN_WARNING("Access denied."))
 		return
+	if(istype(I, /obj/item/paper))
+		var/obj/item/paper/P = I
+        to_chat(user, SPAN_NOTICE("You scan \the [I.name] into \the [name]."))
+		menu_text = P.info
+		return
 	return ..()
 
 /obj/item/holomenu/examine(mob/user, distance)
