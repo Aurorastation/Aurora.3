@@ -1421,6 +1421,12 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
+"bni" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle/scc/cardinal,
+/area/shuttle/mining)
 "boB" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
@@ -5280,6 +5286,9 @@
 	icon_state = "door_locked";
 	id_tag = "mining_shuttle_in"
 	},
+/obj/machinery/atmospherics/pipe/manifold/visible/black{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "eQH" = (
@@ -5509,7 +5518,6 @@
 	dir = 4;
 	layer = 2.8
 	},
-/obj/machinery/portable_atmospherics/canister/hydrogen,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 8
@@ -5518,6 +5526,7 @@
 	dir = 1
 	},
 /obj/machinery/door/window/eastright,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid)
 "eZm" = (
@@ -6936,7 +6945,6 @@
 	dir = 8;
 	layer = 2.8
 	},
-/obj/machinery/portable_atmospherics/canister/hydrogen,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -6945,6 +6953,7 @@
 	},
 /obj/structure/window/reinforced,
 /obj/machinery/door/window/westright,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid)
 "ggZ" = (
@@ -9400,11 +9409,9 @@
 /turf/simulated/floor/tiled,
 /area/storage/eva)
 "isL" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/portables_connector{
+/obj/machinery/computer/ship/sensors{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "ity" = (
@@ -9484,6 +9491,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
+"iyD" = (
+/obj/structure/bed/stool/chair/shuttle,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/mining)
 "iyV" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 8
@@ -11380,9 +11391,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "kqT" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 4
-	},
 /obj/machinery/bluespace_beacon,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
@@ -12339,7 +12347,7 @@
 	pixel_y = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 10
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
@@ -16037,9 +16045,6 @@
 	name = "Station Intercom (General)";
 	pixel_x = -25
 	},
-/obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "oDv" = (
@@ -17863,10 +17868,12 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "qqg" = (
+/obj/structure/window/shuttle/scc,
+/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 9
+	dir = 4
 	},
-/turf/simulated/wall/shuttle/scc/cardinal,
+/turf/simulated/floor/plating,
 /area/shuttle/mining)
 "qqH" = (
 /obj/machinery/status_display/supply_display{
@@ -20214,10 +20221,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid/interstitial)
 "sxP" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black,
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 1
-	},
 /obj/machinery/light{
 	dir = 8
 	},
@@ -21119,9 +21122,6 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/engineering)
 "tqs" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 4
-	},
 /obj/machinery/camera/network/mining{
 	c_tag = "Mining - Shuttle";
 	dir = 8
@@ -21909,6 +21909,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
+"uar" = (
+/obj/effect/floor_decal/industrial/loading/yellow,
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/mining)
 "uaM" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
@@ -21960,10 +21967,11 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "ucE" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/black{
-	dir = 8
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
 	},
-/obj/machinery/computer/ship/sensors,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "ucG" = (
@@ -24395,6 +24403,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
+"wpp" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/mining)
 "wpC" = (
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner/white/diagonal,
@@ -25215,6 +25229,11 @@
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "xgk" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "mining_shuttle_in"
+	},
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
@@ -41939,8 +41958,8 @@ rcA
 bIe
 vHW
 vHW
-vHW
 gxJ
+iuk
 iuk
 iuk
 iuk
@@ -42141,7 +42160,7 @@ rcA
 iuk
 fdb
 qqS
-uUP
+qqg
 lho
 ucE
 sxP
@@ -42343,11 +42362,11 @@ sXU
 iuk
 fbJ
 jpU
-uUP
+qqg
+wpp
 rMm
-xgk
 rMm
-rMm
+iyD
 kWo
 uUP
 mwO
@@ -42546,7 +42565,7 @@ aNO
 lhE
 ozA
 ePy
-tzo
+uar
 kqT
 vhg
 bZC
@@ -42747,9 +42766,9 @@ qsC
 xij
 lhE
 ozA
-ePy
-tzo
 xgk
+tzo
+rMm
 rMm
 rMm
 dgD
@@ -42949,7 +42968,7 @@ fFb
 xij
 fjW
 mWV
-ePy
+xgk
 xpX
 tqs
 oSA
@@ -43151,9 +43170,9 @@ rcA
 bIe
 vHW
 vHW
-vHW
-vHW
-qqg
+bni
+iuk
+iuk
 iuk
 iuk
 iuk
