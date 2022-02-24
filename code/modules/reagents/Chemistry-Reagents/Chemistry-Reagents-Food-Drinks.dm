@@ -4618,7 +4618,7 @@
 			to_chat(M, SPAN_GOOD(pick("You feel great!", "You feel full of energy!", "You feel alert and focused!")))
 
 /decl/reagent/drink/zorasoda/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
-	if(!(alien == IS_DIONA || !(alien == IS_VAURCA)))
+	if(!(alien in list(IS_DIONA, IS_VAURCA))
 		M.make_jittery(5)
 		M.make_dizzy(5)
 
@@ -4662,7 +4662,7 @@
 
 /decl/reagent/drink/zorasoda/hozm/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
-	if(!(alien == IS_DIONA || !(alien == IS_VAURCA)))
+	if(!(alien in list(IS_DIONA, IS_VAURCA))
 		M.make_jittery(10)
 
 /decl/reagent/drink/zorasoda/kois
