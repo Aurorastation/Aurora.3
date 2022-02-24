@@ -4618,8 +4618,9 @@
 			to_chat(M, SPAN_GOOD(pick("You feel great!", "You feel full of energy!", "You feel alert and focused!")))
 
 /decl/reagent/drink/zorasoda/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
-	if(alien != IS_DIONA)
+	if(alien == !(IS_DIONA || IS_VAURCA)
 		M.make_jittery(5)
+		M.make_dizzy(5)
 
 /decl/reagent/drink/zorasoda/cherry
 	name = "Zo'ra Cherry"
@@ -4651,17 +4652,18 @@
 	color = "#100800"
 	taste_description = "fizzy acidic nettles"
 
-/decl/reagent/drink/zorasoda/hozm
+/decl/reagent/drink/zorasoda/hozm // "Contraband"
 	name = "Zo'ra High Octane Zorane Might"
 	description = "It feels like someone is driving a freezing cold spear through the bottom of your mouth."
 	color = "#365000"
+	overdose = 20
 	caffeine = 0.6
 	taste_description = "biting into an acidic lemon mixed with strong mint"
 
 /decl/reagent/drink/zorasoda/hozm/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
-	if(alien != IS_DIONA)
-		M.make_jittery(5)
+	if(alien == !(IS_DIONA || IS_VAURCA)
+		M.make_jittery(10)
 
 /decl/reagent/drink/zorasoda/kois
 	name = "Zo'ra K'ois Twist"
@@ -4670,7 +4672,7 @@
 	taste_description = "sugary cabbage"
 
 /decl/reagent/drink/zorasoda/drone
-	name = "Drone Fuel"
+	name = "Vaurca Drone Fuel"
 	description = "It's as thick as syrup and smells of gasoline. Why."
 	color = "#31004A"
 	taste_description = "viscous stale cola mixed with gasoline"
@@ -4686,14 +4688,13 @@
 		M.add_chemical_effect(CE_BLOODRESTORE, 2 * removed)
 		M.make_jittery(5)
 	else if(alien != IS_DIONA)
-		if (prob(10+M.chem_doses[type]))
-			to_chat(M, pick(SPAN_WARNING("You feel nauseous!"), SPAN_WARNING("Ugh... You're going to be sick!"), SPAN_WARNING("Your stomach churns uncomfortably!"), SPAN_WARNING("You feel like you're about to throw up!"), SPAN_WARNING("You feel queasy!")))
 		if (prob(M.chem_doses[type]))
+			to_chat(M, pick(SPAN_WARNING("You feel nauseous!"), SPAN_WARNING("Ugh... You're going to be sick!"), SPAN_WARNING("Your stomach churns uncomfortably!"), SPAN_WARNING("You feel like you're about to throw up!"), SPAN_WARNING("You feel queasy!")))
 			M.vomit()
 
 /decl/reagent/drink/zorasoda/jelly
-	name = "Royal Jelly"
-	description = "It looks like mucus, but tastes like heaven."
+	name = "Royal Vaurca Jelly"
+	description = "It looks like mucus, but tastes like heaven. Royal jelly is a nutritious concentrated substance commonly created by Caretaker Vaurca in order to feed larvae. It is known to have a stimulating effect in most, if not all, species."
 	color = "#FFFF00"
 	caffeine = 0.3
 	taste_description = "sweet flowers and nectar mixed with aromatic spices"

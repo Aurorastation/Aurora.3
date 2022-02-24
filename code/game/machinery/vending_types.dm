@@ -1169,12 +1169,14 @@
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/klax = 5,
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/cthur = 5,
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/venomgrass = 5,
-		/obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm = 3,
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/kois = 5,
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/drone = 5
 	)
+	contraband = list(
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm = 5
+	)
 	premium = list(
-		/obj/item/reagent_containers/food/drinks/cans/zorasoda/jelly = 3,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/jelly = 3
 	)
 	prices = list(
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/cherry = 29,
@@ -1182,7 +1184,6 @@
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/klax = 29,
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/cthur = 29,
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/venomgrass = 29,
-		/obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm = 49,
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/kois = 29,
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/drone = 29
 	)

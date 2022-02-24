@@ -385,9 +385,9 @@
 	icon_state = "sourvenomgrass"
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/venomgrass = 30)
 
-/obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm
+/obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm // "Contraband"
 	name = "\improper High Octane Zorane Might"
-	desc = "A can of mint flavoured Zo'ra Soda energy drink, with a lot of V'krexi additives. Tastes like impaling the roof of your mouth with a freezing cold spear laced with angry bees and road salt."
+	desc = "A can of mint flavoured Zo'ra Soda energy drink, with a lot of V'krexi additives. Tastes like impaling the roof of your mouth with a freezing cold spear laced with angry bees and road salt." + SPAN_DANGER(" WARNING: Not for the faint hearted!")
 	icon_state = "hozm"
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/hozm = 30)
 
@@ -399,13 +399,13 @@
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/drone
 	name = "\improper Vaurca Drone Fuel"
-	desc = "A can of industrial fluid flavoured Zo'ra Soda energy drink, with V'krexi additives, meant for Vaurca." + SPAN_WARNING(" NOTE: Known to induce vomiting in humans!")
+	desc = "A can of industrial fluid flavoured Zo'ra Soda energy drink, with V'krexi additives, meant for Vaurca." + SPAN_DANGER(" WARNING: Known to induce vomiting in humans!")
 	icon_state = "dronefuel"
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/drone = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/jelly
 	name = "\improper Royal Vaurca Jelly"
-	desc = "A can of..." + SPAN_ITALIC(" sludge?") + " You aren't sure, but it smells kind of pleasant."
+	desc = "A can of..." + SPAN_ITALIC(" sludge?") + " It smells kind of pleasant either way. Royal jelly is a nutritious concentrated substance commonly created by Caretaker Vaurca in order to feed larvae. It is known to have a stimulating effect in most, if not all, species."
 	icon_state = "royaljelly"
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/jelly = 30)
 

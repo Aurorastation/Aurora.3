@@ -10,3 +10,5 @@ changes:
   - rscdel: "The V'krexi Amino Acid Mixture chemical has been removed."
   - tweak: "And instead the effects have been merged with the Zo'ra Soda energy drink reagents."
   - rscdel: "Removed negative effects from Zo'ra Soda, except Drone Fuel, so it's actually drinkable in a casual manner."
+  - tweak: "High Octane Zorane Might is now a \"contraband\" item."
+  - tweak: "Vaurcae are immune to the overdose side effects of Zo'ra Soda energy drinks."
