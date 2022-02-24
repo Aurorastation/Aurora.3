@@ -1768,6 +1768,11 @@
 	if (doClickAction)
 		..()
 
+/mob/living/carbon/human/AltClick(mob/user)
+	. = ..()
+	if(hasHUD(user, MED_HUDTYPE))
+		Topic(src, list("triagetag"=1))
+
 /mob/living/carbon/human/verb/toggle_underwear()
 	set name = "Toggle Underwear"
 	set desc = "Shows/hides selected parts of your underwear."

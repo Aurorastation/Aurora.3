@@ -7,3 +7,4 @@ changes:
   - tweak: "The holomenu can now scan a sheet of paper and display its contents."
   - bugfix: "Fixed stripping mobs with an active item in your hand failing."
   - tweak: "Stripping an item off a mob now tries to put it in your hands first."
+  - tweak: "Allows you to Alt Click on a mob when you have a medHUD to set their triage tag."
