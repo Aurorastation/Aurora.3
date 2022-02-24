@@ -4620,7 +4620,6 @@
 /decl/reagent/drink/zorasoda/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	if(!(alien in list(IS_DIONA, IS_VAURCA)))
 		M.make_jittery(5)
-		M.make_dizzy(5)
 
 /decl/reagent/drink/zorasoda/cherry
 	name = "Zo'ra Cherry"
