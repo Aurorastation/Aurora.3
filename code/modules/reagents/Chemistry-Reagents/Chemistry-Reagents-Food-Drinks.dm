@@ -4614,7 +4614,7 @@
 
 /decl/reagent/drink/zorasoda/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien != IS_DIONA)
-		if(prob(5))
+		if(prob(2))
 			to_chat(M, SPAN_GOOD(pick("You feel great!", "You feel full of energy!", "You feel alert and focused!")))
 
 /decl/reagent/drink/zorasoda/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
