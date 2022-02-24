@@ -399,7 +399,7 @@
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/drone
 	name = "\improper Vaurca Drone Fuel"
-	desc = "A can of industrial fluid flavoured Zo'ra Soda energy drink, with V'krexi additives, meant for Vaurca." + SPAN_DANGER(" WARNING: Known to induce vomiting in all species except vaurcae and dionae!")
+	desc = "A can of industrial fluid flavoured Zo'ra Soda energy drink, with V'krexi additives, meant for Vaurca.<br/>" + SPAN_DANGER(" WARNING: Known to induce vomiting in all species except vaurcae and dionae!")
 	icon_state = "dronefuel"
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/drone = 30)
 
