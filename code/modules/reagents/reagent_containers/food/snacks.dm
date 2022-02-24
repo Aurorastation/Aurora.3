@@ -2240,7 +2240,7 @@
 	desc = "A staple classic lunch of gooey jelly and peanut butter."
 	icon_state = "pbjsandwich"
 	trash = /obj/item/trash/plate
-	filling_color = "BB6A54"
+	filling_color = "#BB6A54"
 	reagents_to_add = list(/decl/reagent/nutriment = 2)
 	reagent_data = list(/decl/reagent/nutriment = list("bread" = 2))
 	bitesize = 2	
@@ -5424,7 +5424,7 @@
 	name = "sauerkraut"
 	desc = "Finely cut and fermented cabbage. A light pickled delight!"
 	icon_state = "sauerkraut"
-	filling_color = "EBE699"
+	filling_color = "#EBE699"
 	reagents_to_add = list(/decl/reagent/nutriment = 4)
 	reagent_data = list(/decl/reagent/nutriment = list("pickled lettuce" = 4))
 	bitesize = 2
