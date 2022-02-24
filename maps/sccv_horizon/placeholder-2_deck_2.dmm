@@ -2954,9 +2954,6 @@
 /turf/simulated/open,
 /area/hallway/primary/central_two)
 "bJA" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -5182,6 +5179,9 @@
 /area/storage/secure)
 "dki" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/table/standard,
+/obj/item/storage/box/fancy/vials,
+/obj/item/reagent_containers/dropper,
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "dkp" = (
@@ -6061,9 +6061,13 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/door/airlock/maintenance{
+	name = "Research and Development Maintenance";
+	req_access = list(7);
+	req_one_access = null
+	},
 /turf/simulated/floor/plating,
-/area/maintenance/aft)
+/area/rnd/chemistry)
 "dNF" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/power/singularity_beacon/emergency{
@@ -6615,17 +6619,9 @@
 /turf/simulated/floor/tiled/ramp,
 /area/security/investigations)
 "elm" = (
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/plating,
-/area/maintenance/aft)
+/area/rnd/chemistry)
 "elz" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -7671,6 +7667,9 @@
 	},
 /obj/structure/railing/mapped{
 	dir = 4
+	},
+/obj/machinery/light/small/emergency{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
@@ -9367,9 +9366,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "fVX" = (
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -12662,6 +12658,11 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
+"hUB" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/machinery/smartfridge/secure/medbay,
+/turf/simulated/floor/tiled/white,
+/area/rnd/chemistry)
 "hUC" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -14415,8 +14416,6 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/structure/table/standard,
-/obj/machinery/reagentgrinder,
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "jeb" = (
@@ -16101,16 +16100,7 @@
 /turf/simulated/floor/tiled,
 /area/security/brig/processing_secondary)
 "kfE" = (
-/obj/structure/cable/green{
-	icon_state = "0-2"
-	},
-/obj/machinery/power/apc/low{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/structure/closet/bombcloset,
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "kfZ" = (
@@ -16395,12 +16385,16 @@
 /area/hallway/primary/central_two)
 "ktC" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/door/airlock/maintenance{
-	name = "Research and Development Maintenance";
-	req_access = list(7);
-	req_one_access = null
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/machinery/power/apc/low{
+	dir = 4;
+	name = "east bump";
+	pixel_x = 24
 	},
-/turf/simulated/floor/plating,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "ktM" = (
 /obj/structure/cable/green{
@@ -25397,9 +25391,8 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/maintenance/aft)
+/turf/simulated/wall,
+/area/rnd/chemistry)
 "pYU" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/loading/yellow,
@@ -27267,9 +27260,6 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "rhC" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 1;
 	icon_state = "pipe-c"
@@ -27281,6 +27271,9 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "rhT" = (
@@ -32831,8 +32824,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
 "uzh" = (
-/turf/simulated/wall,
-/area/maintenance/aft)
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/closet/bombcloset,
+/turf/simulated/floor/tiled/white,
+/area/rnd/chemistry)
 "uzr" = (
 /obj/structure/table/rack{
 	dir = 8;
@@ -37473,6 +37468,9 @@
 "xeF" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "xeR" = (
@@ -39331,12 +39329,11 @@
 "yjZ" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/table/standard,
-/obj/item/storage/box/fancy/vials,
-/obj/item/reagent_containers/dropper,
 /obj/machinery/camera/network/research{
 	c_tag = "Research - Exploratory Chemistry";
 	dir = 4
 	},
+/obj/machinery/reagentgrinder,
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "yka" = (
@@ -61096,7 +61093,7 @@ rls
 kpC
 wFh
 kpC
-wFh
+elm
 hDr
 hDr
 xuv
@@ -61298,8 +61295,8 @@ ybl
 opF
 uxE
 eVf
-elm
 xuv
+uzh
 jdH
 yjZ
 qJr
@@ -61501,7 +61498,7 @@ qFs
 kaz
 kaz
 pXP
-xuv
+hUB
 kfE
 bJA
 fVX
@@ -61904,7 +61901,7 @@ nAz
 lOH
 kRA
 rbf
-uzh
+xuv
 xuv
 fjl
 wqC
