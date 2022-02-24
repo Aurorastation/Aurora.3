@@ -103,7 +103,7 @@
 		visible_message("<span class='danger'>\The [user] is trying to put \a [held] on \the [src]!</span>")
 	if(!do_mob(user,src,HUMAN_STRIP_DELAY))
 		return 0
-	if(!stripping && user.get_active_hand() != held)
+	if(!stripping && )
 		return 0
 
 	if(stripping)
@@ -112,9 +112,10 @@
 			var/obj/item/clothing/ears/OE = (l_ear == target_slot ? r_ear : l_ear)
 			qdel(OE)
 		unEquip(target_slot)
-	else if(user.unEquip(held))
-		equip_to_slot_if_possible(held, text2num(slot_to_strip), FALSE, TRUE, TRUE, FALSE, TRUE)
-		if(held.loc != src)
+		user.put_in_hands(target_slot)
+	else if(user.get_active_hand() == held)
+		user.unEquip(held)
+		if(!equip_to_slot_if_possible(held, text2num(slot_to_strip), FALSE, TRUE, TRUE, FALSE, TRUE))
 			user.put_in_hands(held)
 	return 1
 

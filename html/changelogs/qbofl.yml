@@ -5,3 +5,5 @@ delete-after: True
 changes:
   - bugfix: "Fixed autoinhalers with reagents spawning unsecured"
   - tweak: "The holomenu can now scan a sheet of paper and display its contents."
+  - bugfix: "Fixed stripping mobs with an active item in your hand failing."
+  - tweak: "Stripping an item off a mob now tries to put it in your hands first."
