@@ -93,3 +93,10 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 
 	if(.)
 		LAZYSET(linked.consoles, src, TRUE)
+
+/obj/machinery/computer/ship/Initialize()
+	. = ..()
+	if(current_map.use_overmap && !linked)
+		var/my_sector = map_sectors["[z]"]
+		if (istype(my_sector, /obj/effect/overmap/visitable/ship))
+			attempt_hook_up(my_sector)
