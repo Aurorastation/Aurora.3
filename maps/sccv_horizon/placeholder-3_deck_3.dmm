@@ -2954,14 +2954,12 @@
 /turf/simulated/floor/tiled,
 /area/bridge/bridge_crew)
 "gL" = (
-/obj/item/paper_bin{
-	pixel_x = -3;
-	pixel_y = 7
-	},
-/obj/item/pen,
 /obj/structure/table/reinforced,
-/obj/item/paper_scanner,
-/obj/item/device/taperecorder,
+/obj/machinery/photocopier/faxmachine{
+	anchored = 0;
+	department = "SCCV Horizon Bridge";
+	pixel_y = 4
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/bridge)
 "gM" = (
@@ -9346,6 +9344,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
 	},
+/obj/item/device/taperecorder,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge)
 "wn" = (
@@ -18997,6 +18996,8 @@
 /obj/item/stack/wrapping_paper,
 /obj/item/device/hand_labeler,
 /obj/item/stack/packageWrap,
+/obj/item/paper_scanner,
+/obj/item/pen,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge)
 "Um" = (

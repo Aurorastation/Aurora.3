@@ -13,6 +13,7 @@
 	var/accellimit = 0.001 //manual limiter for acceleration
 
 	var/list/linked_helmets = list()
+	circuit = /obj/item/circuitboard/ship/helm
 
 /obj/machinery/computer/ship/helm/Initialize()
 	. = ..()
