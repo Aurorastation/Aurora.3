@@ -138,9 +138,7 @@
 
 	feed_sound(target)
 	bitecount++
-	on_consume(user, target)
-
-	return 1
+	return on_consume(user, target)
 
 /obj/item/reagent_containers/food/snacks/examine(mob/user)
 	if(!..(user, 1))
@@ -209,12 +207,10 @@
 				var/image/I = new(U.icon, "loadedfood")
 				I.color = src.filling_color
 				U.add_overlay(I)
-
 				reagents.trans_to_obj(U, min(reagents.total_volume,U.transfer_amt))
 				if(is_liquid)
 					U.is_liquid = TRUE
-				on_consume(user, user)
-				return
+				return on_consume(user, user)
 
 	if(is_sliceable())
 		//these are used to allow hiding edge items in food that is not on a table/tray
@@ -394,19 +390,17 @@
 		if(!SA.can_eat())
 			to_chat(user, SPAN_DANGER("You're too full to eat anymore!"))
 			return
-
 	if(reagents && user.reagents)
 		m_bitesize = min(m_bitesize, reagents.total_volume)
 		if(((user.reagents.maximum_volume - user.reagents.total_volume) < m_bitesize * 0.5)) //If the creature can't even stomach half a bite, then it eats nothing
 			to_chat(user, SPAN_DANGER("You're too full to eat anymore!"))
 			return
-
 	reagents.trans_to_mob(user, m_bitesize, CHEM_INGEST)
 	bitecount++
 	shake_animation()
 	playsound(loc, pick('sound/effects/creatures/nibble1.ogg','sound/effects/creatures/nibble2.ogg'), 30, 1)
 
-	on_consume(user, user) //mob is both user and target for on_consume since it is feeding itself in this instance
+	return on_consume(user, user) //mob is both user and target for on_consume since it is feeding itself in this instance
 
 /obj/item/reagent_containers/food/snacks/on_reagent_change()
 	update_icon()

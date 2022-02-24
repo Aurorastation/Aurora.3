@@ -28,6 +28,7 @@
 		playsound(user.loc, 'sound/items/eatfood.ogg', rand(10, 50), 1)
 
 /obj/item/reagent_containers/food/proc/on_consume(var/mob/user, var/mob/target)
+	var/obj/item/AfterItem = null
 	var/slot = target.get_inventory_slot(src)
 	if(!reagents.total_volume)
 		if(bitecount==1)
@@ -37,9 +38,12 @@
 		if(trash)
 			if(slot)
 				user.drop_from_inventory(src)	//so trash actually stays in the active hand.
-				var/obj/item/TrashItem = new trash(user)
-				user.put_in_hands(TrashItem)
+				AfterItem = new trash(user)
+				user.put_in_hands(AfterItem)
 			else
-				var/obj/item/TrashItem = new trash(user)
-				TrashItem.forceMove(get_turf(src))
+				AfterItem = new trash(user)
+				AfterItem.forceMove(get_turf(src))
 		qdel(src)
+	else
+		AfterItem = src
+	return AfterItem

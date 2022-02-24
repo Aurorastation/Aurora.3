@@ -60,10 +60,10 @@
 			return FALSE
 
 		if(!user.unEquip(I))
-			return
+			return FALSE
 		I.forceMove(src)
 		to_chat(user, SPAN_NOTICE("You put [I] [place_verb] [src]."))
-		return
+		return TRUE
 
 /obj/item/reagent_containers/cooking_container/verb/empty()
 	set src in oview(1)
@@ -249,10 +249,10 @@
 	return TRUE
 
 /obj/item/reagent_containers/cooking_container/plate
-	name = "serving plate"
-	shortname = "plate"
-	desc = "A plate. You plate foods on this plate."
-	icon_state = "plate"
+	name = "chopping board"
+	shortname = "board"
+	desc = "A board for preparing food. Not chopping. I'm sorry."
+	icon_state = "board"
 	appliancetype = MIX
 	flags = OPENCONTAINER // Will still react
 	volume = 15 // for things like jelly sandwiches etc
@@ -301,11 +301,24 @@
 	QDEL_NULL(temp) //delete buffer object
 	return ..()
 
+/obj/item/reagent_containers/cooking_container/plate/do_empty(mob/user)
+	. = ..()
+	icon_state = initial(icon_state)
+
+/obj/item/reagent_containers/cooking_container/plate/attackby(obj/item/I, mob/user)
+	. = ..()
+	if (length(contents)) //Only if something was actually added
+		icon_state = "[initial(icon_state)]_prep"
+
+/obj/item/reagent_containers/cooking_container/plate/on_reagent_change()
+	. = ..()
+	if (reagents.total_volume) //Only if something was actually added
+		icon_state = "[initial(icon_state)]_prep"
+
 /obj/item/reagent_containers/cooking_container/plate/bowl
-	name = "serving bowl"
+	name = "mixing bowl"
 	shortname = "bowl"
-	desc = "A bowl. You bowl foods... wait, what?"
-	icon = 'icons/obj/kitchen.dmi'
+	desc = "A bowl for mixing things in."
 	icon_state = "mixingbowl"
 	center_of_mass = list("x" = 17,"y" = 7)
 	max_space = 30
