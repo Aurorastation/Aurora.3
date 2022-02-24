@@ -290,16 +290,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/operations/lower/machinist)
 "aqr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/camera/network/supply{
-	c_tag = "Operations - Disposals, Upper";
-	dir = 1
-	},
+/obj/machinery/vending/assist,
 /turf/simulated/floor/plating,
-/area/maintenance/disposal)
+/area/engineering/storage/tech)
 "aqY" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -1244,14 +1237,18 @@
 /turf/space/dynamic,
 /area/template_noop)
 "beF" = (
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical -  Morgue"
+/obj/structure/table/rack{
+	dir = 8;
+	layer = 2.9
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
+/obj/item/storage/toolbox/electrical,
+/obj/item/storage/toolbox,
+/obj/item/device/flashlight{
+	pixel_x = 1;
+	pixel_y = 5
 	},
-/area/medical/morgue/lower)
+/turf/simulated/floor/plating,
+/area/engineering/storage/tech)
 "beP" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -7743,9 +7740,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
-	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical -  Lower Lift"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -16430,6 +16424,10 @@
 /area/crew_quarters/kitchen/freezer)
 "pep" = (
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/camera/network/supply{
+	c_tag = "Operations - Disposals, Upper";
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
 "pes" = (
@@ -16469,12 +16467,23 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "pfQ" = (
-/obj/machinery/camera/network/supply{
-	c_tag = "Operations - Lower Warehouse 4";
-	dir = 4
+/obj/structure/table/rack{
+	dir = 8;
+	layer = 2.9
 	},
-/turf/simulated/floor/tiled,
-/area/operations/storage)
+/obj/item/device/flash,
+/obj/item/device/flash,
+/obj/item/cell/high{
+	charge = 100;
+	maxcharge = 15000
+	},
+/obj/item/cell/high{
+	charge = 100;
+	maxcharge = 15000
+	},
+/obj/item/device/multitool,
+/turf/simulated/floor/plating,
+/area/engineering/storage/tech)
 "pfV" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -16943,10 +16952,6 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/random/junk,
-/obj/machinery/camera/network/first_deck{
-	c_tag = "First Deck - Research Entrance";
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "pCD" = (
@@ -24836,12 +24841,18 @@
 /turf/simulated/floor/plating,
 /area/hangar/auxiliary)
 "wOP" = (
-/obj/machinery/camera/network/supply{
-	c_tag = "Operations - Lower Warehouse 5";
-	dir = 4
+/obj/structure/morgue{
+	dir = 1
 	},
-/turf/simulated/floor/tiled,
-/area/operations/storage)
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Pre-Op 2";
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/medical/morgue/lower)
 "wPo" = (
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -25238,12 +25249,10 @@
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "xgk" = (
-/obj/structure/window/shuttle/scc,
-/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 4
+	dir = 5
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/wall/shuttle/scc/cardinal,
 /area/shuttle/mining)
 "xgE" = (
 /obj/structure/railing/mapped,
@@ -25681,10 +25690,6 @@
 /obj/machinery/alarm/freezer{
 	dir = 1;
 	pixel_y = -32
-	},
-/obj/machinery/camera/network/service{
-	c_tag = "Dinner - Freezer";
-	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
@@ -26572,32 +26577,6 @@
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod/pod3)
-"yeJ" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/camera/network/first_deck{
-	c_tag = "First Deck - Atmospheric Tanks Entrance";
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/research_port)
 "yff" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -36689,13 +36668,13 @@ fif
 qdE
 giX
 qQa
-wOP
+nCV
 tiV
 giX
 qdE
 giX
 qQa
-pfQ
+nCV
 tiV
 giX
 qdE
@@ -40905,6 +40884,7 @@ awJ
 eSV
 awJ
 awJ
+
 oAi
 pxH
 lye
@@ -40925,7 +40905,7 @@ lIg
 lIg
 lIg
 lIg
-beF
+rNH
 qEk
 lIg
 xgE
@@ -41715,9 +41695,9 @@ uPX
 awJ
 jZo
 uwB
-cMA
-fbf
-sDA
+beF
+oAi
+pfQ
 ldW
 dKB
 dKB
@@ -41733,7 +41713,7 @@ lIg
 jdm
 rNH
 rNH
-cuA
+wOP
 lIg
 lIg
 nnw
@@ -44536,7 +44516,7 @@ nEm
 oma
 pTF
 fzU
-aqr
+oYG
 rOV
 oxT
 ezt
@@ -50013,7 +49993,7 @@ mRk
 sxT
 iMY
 lvP
-yeJ
+mVU
 wRE
 hmn
 dlM
