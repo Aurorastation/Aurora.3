@@ -466,4 +466,4 @@
 	if(W)
 		W.handle_item_insertion(passport)
 
-	burglars.add_antagonist(H.mind, TRUE, TRUE, FALSE, TRUE)
+	burglars.add_antagonist(H.mind, TRUE, TRUE, FALSE, TRUE, TRUE)
