@@ -1,0 +1,6 @@
+author: mikomyazaki2
+
+delete-after: True
+
+changes:
+  - tweak: "Maintenance drones can now choose to swap their hat when clicking on a hat while wearing one, instead of receiving an error message about already wearing a hat."
