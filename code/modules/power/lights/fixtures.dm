@@ -477,29 +477,6 @@
 				shatter()
 				return
 
-	// make it burn hands if not wearing fire-insulated gloves
-	if(!stat)
-		var/prot = 0
-		var/mob/living/carbon/human/H = user
-
-		if(istype(H))
-			if(H.species.heat_level_1 > LIGHT_BULB_TEMPERATURE)
-				prot = 1
-			else if(H.gloves)
-				var/obj/item/clothing/gloves/G = H.gloves
-				if(G.max_heat_protection_temperature && G.max_heat_protection_temperature > LIGHT_BULB_TEMPERATURE)
-					prot = 1
-		else
-			prot = 1
-
-		if(prot || (COLD_RESISTANCE in user.mutations))
-			to_chat(user, SPAN_NOTICE("You remove the light [fitting]."))
-		else
-			to_chat(user, SPAN_WARNING("You try to remove the light [fitting], but it's too hot and you don't want to burn your hand."))
-			return				// if burned, don't remove the light
-	else
-		to_chat(user, SPAN_NOTICE("You remove the light [fitting]."))
-
 	// create a light tube/bulb item and put it in the user's hand
 	if(inserted_light)
 		var/obj/item/light/L = new inserted_light()
