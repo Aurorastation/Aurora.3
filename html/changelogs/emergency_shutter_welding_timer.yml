@@ -1,0 +1,6 @@
+author: SleepyGem
+
+delete-after: True
+
+changes:
+  - tweak: "Welding a emergency shutter now takes 2 seconds, to be in line with airlocks."

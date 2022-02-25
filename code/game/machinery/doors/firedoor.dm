@@ -259,14 +259,25 @@
 	if(!istype(C, /obj/item/forensics))
 		add_fingerprint(user)
 	if(operating)
-		return//Already doing something.
+		return // Already doing something.
 	if(C.iswelder() && !repairing)
 		var/obj/item/weldingtool/W = C
 		if(W.remove_fuel(0, user))
+			user.visible_message(
+				SPAN_WARNING("\The [user] starts [!blocked ? "welding \the [src] shut" : "cutting open \the [src]"]."),
+				SPAN_DANGER("You start [!blocked ? "welding \the [src] closed" : "cutting open \the [src]"]."),
+				SPAN_ITALIC("You hear welding.")
+			)
+			playsound(src, 'sound/items/welder.ogg', 100, 1)
+			if(do_after(user, 2 SECONDS, src))
+				if(!W.isOn())
+					return
 			blocked = !blocked
-			user.visible_message("<span class='danger'>\The [user] [blocked ? "welds" : "unwelds"] \the [src] with \a [W].</span>",\
-			"You [blocked ? "weld" : "unweld"] \the [src] with \the [W].",\
-			"You hear something being welded.")
+			user.visible_message(
+					SPAN_DANGER("\The [user] [blocked ? "welds \the [src] shut" : "cuts open \the [src]"]."),
+					SPAN_DANGER("You [blocked ? "weld shut" : "undo the welds on"] \the [src]."),
+					SPAN_ITALIC("You hear welding.")
+				)
 			playsound(src, 'sound/items/welder.ogg', 100, 1)
 			update_icon()
 			return
