@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed some name sanitization issues when picking a ghostspawner or becoming an antagonist, apostrophes will now work correctly."
-  - rscadd: "Quickees Plastic Surgeon or changer machines will now update your ID as well."
