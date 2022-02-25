@@ -324,8 +324,8 @@
 	if(!broken)
 		cut_overlays()
 		add_overlay("[icon_door_overlay]emag")
-		add_overlay("[icon_door_overlay]sparks")
-		CUT_OVERLAY_IN("[icon_door_overlay]sparks", 6)
+		add_overlay("[icon_door_overlay]sparking")
+		CUT_OVERLAY_IN("[icon_door_overlay]sparking", 6)
 		playsound(loc, /decl/sound_category/spark_sound, 60, 1)
 		locked = 0
 		broken = 1
@@ -343,8 +343,8 @@
 		else
 			cut_overlays()
 			add_overlay("[icon_door_overlay]emag")
-			add_overlay("[icon_door_overlay]sparks")
-			CUT_OVERLAY_IN("[icon_door_overlay]sparks", 6)
+			add_overlay("[icon_door_overlay]sparking")
+			CUT_OVERLAY_IN("[icon_door_overlay]sparking", 6)
 			playsound(loc, /decl/sound_category/spark_sound, 75, 1)
 			locked = 0
 	if(!opened && prob(20/severity))
