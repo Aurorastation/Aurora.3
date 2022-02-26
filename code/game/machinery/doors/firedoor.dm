@@ -274,7 +274,7 @@
 					return
 			blocked = !blocked
 			user.visible_message(
-					SPAN_DANGER("\[user] [blocked ? "welds [src] shut" : "cuts open [src]"]."),
+					SPAN_DANGER("[user] [blocked ? "welds [src] shut" : "cuts open [src]"]."),
 					SPAN_DANGER("You [blocked ? "weld shut" : "undo the welds on"] [src]."),
 					SPAN_ITALIC("You hear welding.")
 				)
