@@ -37,6 +37,8 @@
 	overmap_event_areas = 15
 	planet_size = list(255,255)
 
+	away_site_budget = 3
+
 	station_networks = list(
 		NETWORK_COMMAND,
 		NETWORK_ENGINE,

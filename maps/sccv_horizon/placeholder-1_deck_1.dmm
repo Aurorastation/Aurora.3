@@ -4095,6 +4095,7 @@
 	base_turf = /turf/simulated/floor/plating;
 	name = "Port Hangar"
 	},
+/obj/effect/shuttle_landmark/automatic,
 /turf/simulated/floor/plating,
 /area/hangar/auxiliary)
 "dUK" = (
@@ -17188,6 +17189,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
+/area/hangar/auxiliary)
+"pMP" = (
+/obj/effect/shuttle_landmark/automatic,
+/turf/simulated/floor/plating,
 /area/hangar/auxiliary)
 "pMX" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -51613,7 +51618,7 @@ bJa
 bJa
 bJa
 bJa
-bJa
+pMP
 bJa
 lnk
 bJa
