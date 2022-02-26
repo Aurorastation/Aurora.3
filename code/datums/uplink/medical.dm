@@ -4,10 +4,10 @@
 /datum/uplink_item/item/medical
 	category = /datum/uplink_category/medical
 
-/datum/uplink_item/item/medical/sinpockets
-	name = "Box of Sin-Pockets"
+/datum/uplink_item/item/medical/lunchbox
+	name = "Syndicate Lunchbox"
 	item_cost = 1
-	path = /obj/item/storage/box/sinpockets
+	path = /obj/item/storage/toolbox/lunchbox/syndicate/filled
 
 /datum/uplink_item/item/medical/combathypo
 	name = "Combat Hypospray"
