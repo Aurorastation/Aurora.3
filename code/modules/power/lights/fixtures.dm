@@ -458,7 +458,6 @@
 // attack with hand - remove tube/bulb
 // if hands aren't protected and the light is on, burn the player
 /obj/machinery/light/attack_hand(mob/user)
-
 	add_fingerprint(user)
 
 	if(status == LIGHT_EMPTY)
@@ -476,6 +475,11 @@
 				H.visible_message(SPAN_WARNING("\The [user] completely shatters \the [src]!"), SPAN_WARNING("You shatter \the [src] completely!"), SPAN_WARNING("You hear the tinkle of breaking glass."))
 				shatter()
 				return
+
+	if(!stat)
+		to_chat(user, SPAN_NOTICE("You remove the light [fitting]."))
+	else
+		return
 
 	// create a light tube/bulb item and put it in the user's hand
 	if(inserted_light)
