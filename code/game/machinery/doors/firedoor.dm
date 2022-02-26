@@ -269,7 +269,7 @@
 				SPAN_ITALIC("You hear welding.")
 			)
 			playsound(src, 'sound/items/welder.ogg', 100, 1)
-			if(do_after(user, 2 SECONDS, src))
+			if(do_after(user, 2/W.toolspeed SECONDS, src))
 				if(!W.isOn())
 					return
 			blocked = !blocked
