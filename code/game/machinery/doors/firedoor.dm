@@ -258,7 +258,7 @@
 /obj/machinery/door/firedoor/attackby(obj/item/C as obj, mob/user as mob)
 	if(!istype(C, /obj/item/forensics))
 		add_fingerprint(user)
-	if(!repairing && (C.iswelder() && !(src.operating > 0) && src.density))
+	if(!repairing && (C.iswelder() && !( src.operating > 0 ) && src.density))
 		var/obj/item/weldingtool/WT = C
 		if(!WT.isOn())
 			user.visible_message(
