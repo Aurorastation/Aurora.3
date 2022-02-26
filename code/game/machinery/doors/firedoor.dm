@@ -258,28 +258,30 @@
 /obj/machinery/door/firedoor/attackby(obj/item/C as obj, mob/user as mob)
 	if(!istype(C, /obj/item/forensics))
 		add_fingerprint(user)
-	if(operating)
-		return // Already doing something.
-	if(C.iswelder() && !repairing)
-		var/obj/item/weldingtool/W = C
-		if(W.remove_fuel(0, user))
+	if(!repairing && (C.iswelder() && !( src.operating > 0 ) && src.density))
+		var/obj/item/weldingtool/WT = C
+		if(!WT.isOn())
 			user.visible_message(
 				SPAN_WARNING("[user] starts [!blocked ? "welding [src] shut" : "cutting open [src]"]."),
 				SPAN_NOTICE("You start [!blocked ? "welding [src] closed" : "cutting open [src]"]."),
 				SPAN_ITALIC("You hear welding.")
 			)
-			playsound(src, 'sound/items/welder.ogg', 100, 1)
-			if(do_after(user, 2 SECONDS, src))
-				if(!W.isOn())
-					return
+			playsound(src, 'sound/items/welder.ogg', 50, 1)
+			if (!do_after(user, 2/C.toolspeed SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_open, src.density)))
+				return
+			if(!WT.remove_fuel(0,user))
+				to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
+				return
+			playsound(src, 'sound/items/welder_pry.ogg', 50, 1)
 			blocked = !blocked
 			user.visible_message(
-					SPAN_DANGER("[user] [blocked ? "welds [src] shut" : "cuts open [src]"]."),
-					SPAN_NOTICE("You [blocked ? "weld shut" : "undo the welds on"] [src]."),
-					SPAN_ITALIC("You hear welding.")
-				)
-			playsound(src, 'sound/items/welder.ogg', 100, 1)
+				SPAN_DANGER("[user] [blocked ? "welds [src] shut" : "cuts open [src]"]."),
+				SPAN_NOTICE("You [blocked ? "weld shut" : "undo the welds on"] [src]."),
+				SPAN_ITALIC("You hear welding.")
+			)
 			update_icon()
+			return
+		else
 			return
 
 	if(density && C.isscrewdriver())
