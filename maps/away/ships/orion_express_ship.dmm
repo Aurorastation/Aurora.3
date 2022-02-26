@@ -209,7 +209,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_express_ship)
 "bkQ" = (
-/obj/machinery/door/firedoor,
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille/diagonal{
 	dir = 1
@@ -258,7 +257,6 @@
 /turf/simulated/floor/wood,
 /area/shuttle/orion_express_ship)
 "cVA" = (
-/obj/machinery/door/firedoor,
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille/diagonal,
 /turf/simulated/floor/plating,
@@ -279,7 +277,6 @@
 /turf/simulated/floor/wood,
 /area/shuttle/orion_express_ship)
 "eaS" = (
-/obj/machinery/door/firedoor,
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille/diagonal{
 	dir = 4
@@ -420,6 +417,10 @@
 /obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/shuttle/orion_express_ship)
+"hai" = (
+/obj/effect/shuttle_landmark/orion_express_ship/start,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/orion_express_ship)
 "hdb" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -471,10 +472,6 @@
 	name = "Dock";
 	req_access = null
 	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
-"iiY" = (
-/obj/effect/shuttle_landmark/orion_express_ship/start,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_express_ship)
 "irX" = (
@@ -33260,7 +33257,7 @@ ccm
 ccm
 ccm
 ccm
-iiY
+hai
 ccm
 ccm
 ccm
@@ -33778,7 +33775,7 @@ pre
 yjk
 riA
 wji
-riA
+yjk
 riA
 krH
 riA

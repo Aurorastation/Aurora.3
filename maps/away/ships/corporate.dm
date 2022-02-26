@@ -35,6 +35,7 @@ decl/submap_archetype/orion_express_ship
 	vessel_mass = 5000
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_SMALL
+	shuttle = "Orion Express ship"
 
 	initial_restricted_waypoints = list(
 		"Orion Express Shuttle" = list("nav_orion_express_shuttle")
@@ -79,7 +80,7 @@ decl/submap_archetype/orion_express_ship
 	name = "Orion Express Shuttle"
 	move_time = 90
 	shuttle_area = list(/area/shuttle/orion_express_shuttle)
-	current_location = "orion_express_shuttle"
+	current_location = "nav_hangar_orion_express"
 	landmark_transition = "nav_transit_orion_express"
 	range = 1
 	fuel_consumption = 2
