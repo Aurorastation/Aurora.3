@@ -264,8 +264,8 @@
 		var/obj/item/weldingtool/W = C
 		if(W.remove_fuel(0, user))
 			user.visible_message(
-				SPAN_WARNING("\The [user] starts [!blocked ? "welding \the [src] shut" : "cutting open \the [src]"]."),
-				SPAN_DANGER("You start [!blocked ? "welding \the [src] closed" : "cutting open \the [src]"]."),
+				SPAN_WARNING("[user] starts [!blocked ? "welding [src] shut" : "cutting open [src]"]."),
+				SPAN_NOTICE("You start [!blocked ? "welding [src] closed" : "cutting open [src]"]."),
 				SPAN_ITALIC("You hear welding.")
 			)
 			playsound(src, 'sound/items/welder.ogg', 100, 1)
@@ -274,8 +274,8 @@
 					return
 			blocked = !blocked
 			user.visible_message(
-					SPAN_DANGER("\The [user] [blocked ? "welds \the [src] shut" : "cuts open \the [src]"]."),
-					SPAN_DANGER("You [blocked ? "weld shut" : "undo the welds on"] \the [src]."),
+					SPAN_WARNING("[user] begins welding [src] [welded ? "open" : "shut"]."),
+					SPAN_NOTICE("You begin welding [src] [welded ? "open" : "shut"]."),
 					SPAN_ITALIC("You hear welding.")
 				)
 			playsound(src, 'sound/items/welder.ogg', 100, 1)
