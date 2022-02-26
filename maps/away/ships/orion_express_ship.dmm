@@ -455,7 +455,7 @@
 /obj/effect/floor_decal/corner_wide/beige/full{
 	dir = 4
 	},
-/obj/machinery/computer/ship/engines{
+/obj/machinery/computer/shuttle_control/explore/orion_express_ship{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -471,6 +471,10 @@
 	name = "Dock";
 	req_access = null
 	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/orion_express_ship)
+"iiY" = (
+/obj/effect/shuttle_landmark/orion_express_ship/start,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_express_ship)
 "irX" = (
@@ -33256,7 +33260,7 @@ ccm
 ccm
 ccm
 ccm
-ccm
+iiY
 ccm
 ccm
 ccm
