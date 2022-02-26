@@ -11,10 +11,6 @@ decl/submap_archetype/orion_express_ship
 	map = "Orion Express ship"
 	descriptor = "A light ship belonging to the Orion Express corporation."
 
-/obj/effect/overmap/visitable/ship/landable/orion_express_ship
-	name = "Orion Express Ship"
-	desc = "A light trading ship."
-
 /obj/effect/overmap/visitable/ship/landable/orion_express_ship/New()
 	name = "OEV [pick("Messenger", "Traveler", "Highspeed", "Punctual","Unstoppable")]"
 	..()
@@ -55,11 +51,29 @@ decl/submap_archetype/orion_express_ship
 	vessel_size = SHIP_SIZE_TINY
 
 /obj/machinery/computer/shuttle_control/explore/orion_express_shuttle
-	name = "mining shuttle control console"
+	name = "shuttle control console"
 	shuttle_tag = "Orion Express Shuttle"
 	req_access = list(access_orion_exress_ship)
 
+/obj/machinery/computer/shuttle_control/explore/orion_express_ship
+	name = "ship control console"
+	shuttle_tag = "Orion Express Ship"
+	req_access = list(access_orion_exress_ship)
+
 //shuttle stuff
+
+/datum/shuttle/autodock/overmap/orion_express_ship
+	name = "Orion Express ship"
+	warmup_time = 5
+	range = 1
+	current_location = "nav_orion_express_ship_start"
+	shuttle_area = list(/area/shuttle/orion_express_shuttle,
+						/area/shuttle/orion_express_ship)
+	knockdown = FALSE
+
+/obj/effect/shuttle_landmark/orion_express_ship/start
+	name = "Uncharted Space"
+	landmark_tag = "nav_orion_express_ship_start"
 
 /datum/shuttle/autodock/overmap/orion_express_shuttle
 	name = "Orion Express Shuttle"
@@ -70,6 +84,7 @@ decl/submap_archetype/orion_express_ship
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_orion_express"
+	shuttle_area = list(/area/shuttle/orion_express_shuttle)
 
 /obj/effect/shuttle_landmark/orion_express_shuttle/hangar
 	name = "Orion Express Shuttle Hangar"
