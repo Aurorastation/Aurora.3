@@ -4784,7 +4784,7 @@
 
 /decl/reagent/drink/hrozamal_soda
 	name = "Hro'zamal Soda"
-	description = "A cabornated version of the herbal tea made with Hro'zamal Ras'Nifs powder."
+	description = "A carbonated version of the herbal tea made with Hro'zamal Ras'Nifs powder."
 	color = "#F0C56C"
 	adj_sleepy = -1
 	caffeine = 0.2
@@ -4793,7 +4793,7 @@
 
 	glass_icon_state = "hrozamal_soda_glass"
 	glass_name = "glass of Hro'zamal Soda"
-	glass_desc = "A cabornated version of the herbal tea made with Hro'zamal Ras'Nifs powder."
+	glass_desc = "A carbonated version of the herbal tea made with Hro'zamal Ras'Nifs powder."
 
 /decl/reagent/nutriment/vanilla
 	name = "Vanilla Extract"
