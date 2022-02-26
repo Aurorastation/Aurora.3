@@ -58,7 +58,7 @@
 /area/shuttle/orion_express_ship)
 "aou" = (
 /obj/effect/map_effect/airlock/s_to_n/long/square,
-/turf/simulated/wall/shuttle/scc_space_ship,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/shuttle/orion_express_ship)
 "aow" = (
 /obj/machinery/light/small,
@@ -208,6 +208,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_express_ship)
+"bkQ" = (
+/obj/machinery/door/firedoor,
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille/diagonal{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/orion_express_ship)
 "ble" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 5
@@ -249,6 +257,12 @@
 /obj/structure/bookcase/manuals,
 /turf/simulated/floor/wood,
 /area/shuttle/orion_express_ship)
+"cVA" = (
+/obj/machinery/door/firedoor,
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille/diagonal,
+/turf/simulated/floor/plating,
+/area/shuttle/orion_express_ship)
 "drY" = (
 /obj/machinery/light{
 	dir = 1;
@@ -263,6 +277,14 @@
 /obj/structure/table/wood,
 /obj/item/pizzabox/meat,
 /turf/simulated/floor/wood,
+/area/shuttle/orion_express_ship)
+"eaS" = (
+/obj/machinery/door/firedoor,
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
 /area/shuttle/orion_express_ship)
 "euz" = (
 /obj/machinery/atmospherics/portables_connector,
@@ -464,9 +486,6 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
-"ixZ" = (
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/shuttle/orion_express_ship)
 "iSh" = (
 /obj/machinery/door/airlock/external{
@@ -776,6 +795,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_express_ship)
+"sEA" = (
+/obj/machinery/door/firedoor,
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille/diagonal{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/orion_express_ship)
 "sGi" = (
 /obj/machinery/door/airlock/mining{
 	name = "Cockpit";
@@ -996,6 +1023,9 @@
 	dir = 4
 	},
 /turf/simulated/floor/wood,
+/area/shuttle/orion_express_ship)
+"yjk" = (
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/shuttle/orion_express_ship)
 
 (1,1,1) = {"
@@ -32723,8 +32753,8 @@ nTM
 riA
 mwP
 tCH
-gNW
-gNW
+bkQ
+eaS
 xRX
 xRX
 xRX
@@ -33475,7 +33505,7 @@ xRX
 riA
 riA
 riA
-riA
+yjk
 rtf
 aow
 riA
@@ -33741,7 +33771,7 @@ frn
 ccm
 lvc
 pre
-ixZ
+yjk
 riA
 wji
 riA
@@ -33751,8 +33781,8 @@ riA
 riA
 gcq
 tra
-gNW
-gNW
+sEA
+cVA
 xRX
 xRX
 xRX
