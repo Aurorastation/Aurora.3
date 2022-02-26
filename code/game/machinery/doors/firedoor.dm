@@ -275,7 +275,7 @@
 			blocked = !blocked
 			user.visible_message(
 					SPAN_DANGER("[user] [blocked ? "welds [src] shut" : "cuts open [src]"]."),
-					SPAN_DANGER("You [blocked ? "weld shut" : "undo the welds on"] [src]."),
+					SPAN_NOTICE("You [blocked ? "weld shut" : "undo the welds on"] [src]."),
 					SPAN_ITALIC("You hear welding.")
 				)
 			playsound(src, 'sound/items/welder.ogg', 100, 1)
