@@ -221,8 +221,6 @@
 	opacity = TRUE
 	hatch_colour = "#606061"
 	hashatch = FALSE
-	open_sound_powered = 'sound/machines/airlock/scp1o.ogg'
-	close_sound_powered = 'sound/machines/airlock/scp1c.ogg'
 
 /obj/machinery/door/airlock/centcom
 	icon = 'icons/obj/doors/Doorele.dmi'
@@ -534,8 +532,6 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	maxhealth = 600
 	insecure = 0
 	hashatch = FALSE
-	open_sound_powered = 'sound/machines/airlock/scp1o.ogg'
-	close_sound_powered = 'sound/machines/airlock/scp1c.ogg'
 
 /obj/machinery/door/airlock/skrell/grey
 	icon = 'icons/obj/doors/grey_skrell_door.dmi'
