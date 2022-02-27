@@ -3069,6 +3069,7 @@
 #include "maps\away\away_sites.dm"
 #include "maps\away\generic\derelict.dm"
 #include "maps\away\ships\corporate.dm"
+#include "maps\away\ships\corporate_ship_ghostroles.dm"
 #include "maps\event\code\event.dm"
 #include "maps\event\odin_departure\code\odin_departure_areas.dm"
 #include "maps\event\odin_departure\code\odin_depature.dm"
