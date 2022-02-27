@@ -567,9 +567,9 @@ var/const/access_kataphract_trader = 116
 	id = access_crate_cash
 	access_type = ACCESS_TYPE_NONE
 
-/var/const/access_orion_exress_ship = 201
+/var/const/access_orion_express_ship = 201
 /datum/access/exress_ship
-	id = access_orion_exress_ship
+	id = access_orion_express_ship
 	access_type = ACCESS_TYPE_CENTCOM
 
 /var/const/access_none = -1

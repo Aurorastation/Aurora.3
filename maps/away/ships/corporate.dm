@@ -6,8 +6,14 @@
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "orion_express_ship"
+	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/orion_express_ship, /datum/shuttle/autodock/overmap/orion_express_shuttle)
 
-decl/submap_archetype/orion_express_ship
+/obj/effect/overmap/visitable/sector/orion_express_ship
+	name = "empty sector"
+	desc = "A sector with faint hints of previous ship presence."
+	in_space = 1
+
+/decl/submap_archetype/orion_express_ship
 	map = "Orion Express ship"
 	descriptor = "A light ship belonging to the Orion Express corporation."
 
@@ -33,7 +39,11 @@ decl/submap_archetype/orion_express_ship
 	vessel_size = SHIP_SIZE_SMALL
 	shuttle = "Orion Express ship"
 	initial_restricted_waypoints = list(
-		"Orion Express Shuttle" = list("nav_skrellscoutsh_dock")
+		"Orion Express Shuttle" = list("nav_hangar_orion_express")
+	)
+
+	initial_generic_waypoints = list(
+		"nav_hangar_orion_express"
 	)
 
 
@@ -49,9 +59,9 @@ decl/submap_archetype/orion_express_ship
 	shuttle_area = list(/area/shuttle/orion_express_ship)
 	knockdown = FALSE
 
-	landmark_transition = "nav_transit_orion_express_ship"
 	fuel_consumption = 4
 	logging_home_tag = "nav_orion_express_ship_start"
+	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/orion_express_ship/start
 	name = "Uncharted Space"
@@ -64,7 +74,7 @@ decl/submap_archetype/orion_express_ship
 /obj/machinery/computer/shuttle_control/explore/orion_express_ship
 	name = "ship control console"
 	shuttle_tag = "Orion Express ship"
-	req_access = list(access_orion_exress_ship)
+	req_access = list(access_orion_express_ship)
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/orion_express_shuttle
@@ -80,7 +90,7 @@ decl/submap_archetype/orion_express_ship
 /obj/machinery/computer/shuttle_control/explore/orion_express_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Orion Express Shuttle"
-	req_access = list(access_orion_exress_ship)
+	req_access = list(access_orion_express_ship)
 
 
 /datum/shuttle/autodock/overmap/orion_express_shuttle
@@ -93,6 +103,8 @@ decl/submap_archetype/orion_express_ship
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_orion_express"
+	defer_initialisation = TRUE
+	mothershuttle = "Orion Express ship"
 
 /obj/effect/shuttle_landmark/orion_express_shuttle/hangar
 	name = "Orion Express Shuttle Hangar"
