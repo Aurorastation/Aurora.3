@@ -231,6 +231,7 @@
 
 /datum/gear/accessory/silversun
 	display_name = "silversun floral shirt selection"
+	description = "A selection of Silversun floral shirts."
 	path = /obj/item/clothing/accessory/silversun
 	flags = GEAR_HAS_DESC_SELECTION
 

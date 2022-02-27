@@ -1,0 +1,6 @@
+author: SleepyGem
+
+delete-after: True
+
+changes:
+  - bugfix: "Silversun shirt selection in the loadout no longer defaults to the description of the first shirt."
