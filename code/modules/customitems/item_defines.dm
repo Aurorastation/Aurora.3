@@ -2020,9 +2020,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "rajjurl_gloves"
 	contained_sprite = TRUE
 
-/obj/item/storage/backpack/fluff/pax_bag //Alqaana Backpack - Ka'Akaix'Pax C'thur - desven
+/obj/item/storage/backpack/fluff/pax_bag // Alqaana Backpack - Ka'Akaix'Pax C'thur - desven
 	name = "Alqaana backpack"
-	desc = "Known for her extravagant concerts, Alqaana is one of few idols that have draw inspiration from Solarian classical music over more contemporary skrellian genres. This is her, in bag form!"
+	desc = "Known for her extravagant concerts, Alqaana is one of the few idols that have drawn inspiration from Solarian classical music over more contemporary skrellian genres. This is her, in bag form!"
 	icon = 'icons/obj/custom_items/pax_bag.dmi'
 	icon_override = 'icons/obj/custom_items/pax_bag.dmi'
 	icon_state = "pax_bag"
