@@ -85,7 +85,7 @@
 	set_dir(direction)
 	if(dir != NORTH)
 		layer = 5
-	climbable = 0 //flipping tables allows them to be used as makeshift barriers
+	climbable = FALSE //flipping tables allows them to be used as makeshift barriers
 	flipped = 1
 	flags |= ON_BORDER
 	for(var/D in list(turn(direction, 90), turn(direction, -90)))

@@ -7,135 +7,23 @@
 	desc = "A rectangular steel crate."
 	icon = 'icons/obj/crate.dmi'
 	icon_state = "crate"
-	climbable = 1
+	climbable = TRUE
 	build_amt = 10
-	var/rigged = 0
-	var/tablestatus = 0
 	slowdown = 0
-
+	open_sound =  'sound/machines/click.ogg'
+	close_sound =  'sound/machines/click.ogg'
+	store_structure = TRUE
 	door_anim_time = 0 // no animation
 
+	var/tablestatus = 0
+
 /obj/structure/closet/crate/can_open()
-	if (tablestatus != UNDER_TABLE)//Can't be opened while under a table
+	if(tablestatus != UNDER_TABLE)//Can't be opened while under a table
 		return 1
-	return 0
+	..()
 
 /obj/structure/closet/crate/can_close()
 	return 1
-
-/obj/structure/closet/crate/open()
-	if(opened)
-		return 0
-	if(!can_open())
-		return 0
-
-	if(rigged && locate(/obj/item/device/radio/electropack) in src)
-		if(isliving(usr))
-			var/mob/living/L = usr
-			var/touchy_hand
-			if(L.hand)
-				touchy_hand = BP_R_HAND
-			else
-				touchy_hand = BP_L_HAND
-			if(L.electrocute_act(17, src, ground_zero = touchy_hand))
-				spark(src, 5, alldirs)
-				if(L.stunned)
-					return 2
-
-	playsound(loc, 'sound/machines/click.ogg', 15, 1, -3)
-	for(var/obj/O in src)
-		O.forceMove(get_turf(src))
-
-	if(climbable)
-		structure_shaken()
-
-	for (var/mob/M in src)
-		M.forceMove(get_turf(src))
-		if (M.stat == CONSCIOUS)
-			M.visible_message(SPAN_DANGER("\The [M.name] bursts out of the [src]!"), SPAN_DANGER("You burst out of the [src]!"))
-		else
-			M.visible_message(SPAN_DANGER("\The [M.name] tumbles out of the [src]!"))
-
-	opened = 1
-	update_icon()
-	pass_flags = 0
-	return 1
-
-/obj/structure/closet/crate/close()
-	if(!opened)
-		return 0
-	if(!can_close())
-		return 0
-
-	playsound(loc, 'sound/machines/click.ogg', 15, 1, -3)
-	var/itemcount = 0
-	for(var/obj/O in get_turf(src))
-		if(itemcount >= storage_capacity)
-			break
-		if(O.density || O.anchored || istype(O,/obj/structure/closet))
-			continue
-		if(istype(O, /obj/structure/bed)) //This is only necessary because of rollerbeds and swivel chairs.
-			var/obj/structure/bed/B = O
-			if(B.buckled)
-				continue
-		O.forceMove(src)
-		itemcount++
-
-	opened = 0
-	update_icon()
-	return 1
-
-
-/obj/structure/closet/crate/attackby(obj/item/W as obj, mob/user as mob)
-	if(opened)
-		return ..()
-	else if(istype(W, /obj/item/stack/packageWrap))
-		return
-	else if(W.iscoil())
-		var/obj/item/stack/cable_coil/C = W
-		if(rigged)
-			to_chat(user, "<span class='notice'>[src] is already rigged!</span>")
-			return
-		if (C.use(1))
-			to_chat(user, "<span class='notice'>You rig [src].</span>")
-			rigged = 1
-			return
-	else if(istype(W, /obj/item/device/radio/electropack))
-		if(rigged)
-			to_chat(user, "<span class='notice'>You attach [W] to [src].</span>")
-			user.drop_from_inventory(W,src)
-			return
-	else if(W.iswirecutter())
-		if(rigged)
-			to_chat(user, "<span class='notice'>You cut away the wiring.</span>")
-			playsound(loc, 'sound/items/wirecutter.ogg', 100, 1)
-			rigged = 0
-			return
-	else if(istype(W, /obj/item/device/hand_labeler))
-		var/obj/item/device/hand_labeler/HL = W
-		if (HL.mode == 1)
-			return
-		else
-			attack_hand(user)
-	else return attack_hand(user)
-
-/obj/structure/closet/crate/ex_act(severity)
-	switch(severity)
-		if(1)
-			health -= rand(120, 240)
-		if(2)
-			health -= rand(60, 120)
-		if(3)
-			health -= rand(30, 60)
-
-	if (health <= 0)
-		for (var/atom/movable/A as mob|obj in src)
-			A.forceMove(loc)
-			if (prob(50) && severity > 1)//Higher chance of breaking contents
-				A.ex_act(severity-1)
-			else
-				A.ex_act(severity)
-		qdel(src)
 
 /*
 ==========================
@@ -167,8 +55,8 @@
 			set_tablestatus(FALSE)
 
 /obj/structure/closet/crate/toggle(var/mob/user)
-	if (!opened && tablestatus == UNDER_TABLE)
-		to_chat(user, SPAN_WARNING("You can't open that while the lid is obstructed!"))
+	if(!opened && tablestatus == UNDER_TABLE)
+		to_chat(user, SPAN_WARNING("You can't open \the [src] while the lid is obstructed!"))
 		return FALSE
 	else
 		return ..()
@@ -248,112 +136,13 @@
 =====================
 */
 
-
 /obj/structure/closet/crate/secure
 	name = "secure crate"
 	desc = "A secure crate."
 	icon_state = "secure_crate"
 	secure = TRUE
+	secure_lights = TRUE
 	health = 200
-
-/obj/structure/closet/crate/secure/can_open()
-	if (..())
-		return !locked
-
-/obj/structure/closet/crate/secure/proc/togglelock(mob/user as mob)
-	if(opened)
-		to_chat(user, "<span class='notice'>Close the crate first.</span>")
-		return
-	if(broken)
-		to_chat(user, "<span class='warning'>The crate appears to be broken.</span>")
-		return
-	if(allowed(user))
-		set_locked(!locked, user)
-		return 1
-	else
-		to_chat(user, "<span class='notice'>Access Denied</span>")
-
-/obj/structure/closet/crate/secure/proc/set_locked(var/newlocked, mob/user = null)
-	if(locked == newlocked) return
-
-	locked = newlocked
-	if(user)
-		for(var/mob/O in viewers(user, 3))
-			O.show_message( "<span class='notice'>The crate has been [locked ? null : "un"]locked by [user].</span>", 1)
-	update_icon()
-
-/obj/structure/closet/crate/secure/verb/verb_togglelock()
-	set src in oview(1) // One square distance
-	set category = "Object"
-	set name = "Toggle Lock"
-
-	if(!usr.canmove || usr.stat || usr.restrained()) // Don't use it if you're not able to! Checks for stuns, ghost and restrain
-		return
-
-	if(ishuman(usr) || isrobot(usr))
-		add_fingerprint(usr)
-		togglelock(usr)
-	else
-		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
-
-/obj/structure/closet/crate/secure/attack_hand(mob/user as mob)
-	add_fingerprint(user)
-	if(locked)
-		return togglelock(user)
-	else
-		return toggle(user)
-
-/obj/structure/closet/crate/secure/attackby(obj/item/W as obj, mob/user as mob)
-	if(is_type_in_list(W, list(/obj/item/stack/packageWrap, /obj/item/stack/cable_coil, /obj/item/device/radio/electropack, /obj/item/wirecutters)))
-		return ..()
-	if(istype(W, /obj/item/melee/energy/blade))
-		emag_act(INFINITY, user)
-	if(istype(W, /obj/item/device/hand_labeler))
-		var/obj/item/device/hand_labeler/HL = W
-		if (HL.mode == 1)
-			return
-		else if(!opened)
-			togglelock(user)
-			return
-	else if(!opened)
-		togglelock(user)
-		return
-	return ..()
-
-/obj/structure/closet/crate/secure/emag_act(var/remaining_charges, var/mob/user)
-	if(!broken)
-		cut_overlays()
-		add_overlay("[icon_door_overlay]emag")
-		add_overlay("[icon_door_overlay]sparks")
-		CUT_OVERLAY_IN("[icon_door_overlay]sparks", 6)
-		playsound(loc, /decl/sound_category/spark_sound, 60, 1)
-		locked = 0
-		broken = 1
-		to_chat(user, "<span class='notice'>You unlock \the [src].</span>")
-		return 1
-
-/obj/structure/closet/crate/secure/emp_act(severity)
-	for(var/obj/O in src)
-		O.emp_act(severity)
-	if(!broken && !opened  && prob(50/severity))
-		if(!locked)
-			locked = 1
-			cut_overlays()
-			add_overlay("[icon_door_overlay]locked")
-		else
-			cut_overlays()
-			add_overlay("[icon_door_overlay]emag")
-			add_overlay("[icon_door_overlay]sparks")
-			CUT_OVERLAY_IN("[icon_door_overlay]sparks", 6)
-			playsound(loc, /decl/sound_category/spark_sound, 75, 1)
-			locked = 0
-	if(!opened && prob(20/severity))
-		if(!locked)
-			open()
-		else
-			req_access = list()
-			req_access += pick(get_all_station_access())
-	..()
 
 /obj/structure/closet/crate/plastic
 	name = "plastic crate"
@@ -528,8 +317,9 @@
 	name = "secure bin"
 	desc = "A secure bin."
 	icon_state = "largebins"
-	icon_door_overlay = "largebin"
 	icon_door = "largebin"
+	icon_door_override = TRUE
+	icon_door_overlay = "largebin"
 
 /obj/structure/closet/crate/large
 	name = "large crate"

@@ -3,9 +3,8 @@
 	req_access = list(access_armory)
 	icon = 'icons/obj/guncabinet.dmi'
 	icon_state = "base"
-	anchored = 1
-	canbemoved = 1
-
+	anchored = TRUE
+	canbemoved = TRUE
 
 /obj/structure/closet/secure_closet/guncabinet/Initialize()
 	..()

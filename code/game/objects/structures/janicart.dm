@@ -9,7 +9,7 @@
 	icon_state = "cart"
 	anchored = 0
 	density = 1
-	climbable = 1
+	climbable = TRUE
 	flags = OPENCONTAINER
 	build_amt = 15
 	//copypaste sorry

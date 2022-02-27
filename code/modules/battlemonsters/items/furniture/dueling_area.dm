@@ -3,7 +3,7 @@
 	icon = 'icons/obj/battle_monsters/furniture.dmi'
 	anchored = 1
 	density = 1
-	climbable = 1
+	climbable = TRUE
 	throwpass = 1
 
 /obj/structure/dueling_table/no_collide
