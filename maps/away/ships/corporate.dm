@@ -43,13 +43,16 @@
 	)
 
 	initial_generic_waypoints = list(
-		"nav_hangar_orion_express"
+		"nav_orion_express_ship_1"
 	)
-
 
 /obj/effect/overmap/visitable/ship/landable/orion_express_ship/New()
 	name = "OEV [pick("Messenger", "Traveler", "Highspeed", "Punctual","Unstoppable")]"
 	..()
+
+/obj/effect/shuttle_landmark/orion_express_ship/nav1
+	name = "Orion Express Ship #1"
+	landmark_tag = "nav_orion_express_ship_1"
 
 /datum/shuttle/autodock/overmap/orion_express_ship
 	name = "Orion Express Ship"

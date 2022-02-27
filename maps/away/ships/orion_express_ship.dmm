@@ -1071,7 +1071,7 @@
 /turf/simulated/floor,
 /area/shuttle/orion_express_ship)
 "vdX" = (
-/obj/effect/shuttle_landmark/automatic,
+/obj/effect/shuttle_landmark/orion_express_ship/nav1,
 /turf/template_noop,
 /area/space)
 "vwF" = (
@@ -40904,7 +40904,7 @@ xRX
 xRX
 xRX
 xRX
-vdX
+xRX
 xRX
 xRX
 xRX
@@ -42186,7 +42186,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+vdX
 xRX
 xRX
 xRX
