@@ -106,7 +106,9 @@
 		/datum/shuttle/autodock/overmap/intrepid,
 		/datum/shuttle/autodock/overmap/mining,
 		/datum/shuttle/autodock/ferry/merchant_aurora,
-		/datum/shuttle/autodock/ferry/autoreturn/ccia
+		/datum/shuttle/autodock/ferry/autoreturn/ccia,
+		/datum/shuttle/autodock/overmap/orion_express_shuttle,
+		/datum/shuttle/autodock/overmap/orion_express_ship
 	)
 
 	evac_controller_type = /datum/evacuation_controller/starship

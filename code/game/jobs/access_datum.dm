@@ -570,7 +570,7 @@ var/const/access_kataphract_trader = 116
 /var/const/access_orion_exress_ship = 201
 /datum/access/exress_ship
 	id = access_orion_exress_ship
-	access_type = ACCESS_TYPE_NONE
+	access_type = ACCESS_TYPE_CENTCOM
 
 /var/const/access_none = -1
 /datum/access/none
