@@ -109,8 +109,8 @@
 	name = "Orion Express Shuttle Hangar"
 	landmark_tag = "nav_hangar_orion_express"
 	docking_controller = "orion_express_shuttle_dock"
-	base_area = /area/hangar/intrepid
-	base_turf = /area/shuttle/orion_express_ship
+	base_area = /area/shuttle/orion_express_ship
+	base_turf = /turf/simulated/floor/plating
 
 /obj/effect/shuttle_landmark/orion_express_shuttle/transit
 	name = "In transit"
