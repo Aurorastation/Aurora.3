@@ -529,6 +529,7 @@
 	desc = "A secure bin."
 	icon_state = "largebins"
 	icon_door_overlay = "largebin"
+	icon_door_override = TRUE
 	icon_door = "largebin"
 
 /obj/structure/closet/crate/large
