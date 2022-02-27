@@ -29,6 +29,9 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
+/datum/outfit/admin/orion_express_courier/get_id_access()
+	return list(access_orion_express_ship, access_external_airlocks)
+
 /datum/ghostspawner/human/orion_express_courier/captain
 	short_name = "orion_express_captain"
 	name = "Orion Express Captain"
@@ -60,7 +63,5 @@
 
 /obj/item/card/id/orion_ship
 	name = "orion express ship id"
-
-/obj/item/card/id/orion_ship/New()
 	access = list(access_orion_express_ship, access_external_airlocks)
-	..()
+

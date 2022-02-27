@@ -33,7 +33,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/orion_express_ship)
 "ajL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/wall/shuttle/scc,
 /area/shuttle/orion_express_shuttle)
 "ams" = (
@@ -258,8 +258,11 @@
 /turf/simulated/floor/plating,
 /area/shuttle/orion_express_ship)
 "dqJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -25
+	},
+/obj/machinery/computer/ship/engines{
+	dir = 4
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/orion_express_shuttle)
@@ -436,7 +439,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_express_ship)
 "goI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/closet/walllocker/emerglocker/west,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/orion_express_shuttle)
 "gxW" = (
@@ -519,9 +522,7 @@
 /turf/template_noop,
 /area/space)
 "hFX" = (
-/obj/machinery/computer/ship/engines{
-	dir = 8
-	},
+/obj/machinery/atmospherics/binary/pump/high_power,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/orion_express_shuttle)
 "hJi" = (
@@ -554,21 +555,16 @@
 /turf/simulated/floor/tiled/white,
 /area/shuttle/orion_express_ship)
 "iiZ" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 8
-	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 25
-	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
 	id_tag = "orion_express_shuttle";
-	layer = 3.3;
+	name = "Port docking controller";
+	pixel_x = 6;
 	pixel_y = 28;
-	tag_airpump = null;
-	tag_chamber_sensor = null;
-	tag_exterior_door = "orion_express_shuttle_out";
-	tag_interior_door = null
+	tag_door = "orion_express_shuttle_out"
+	},
+/obj/machinery/computer/ship/sensors{
+	dir = 8
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/orion_express_shuttle)
@@ -718,7 +714,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_express_ship)
 "mCc" = (
-/obj/structure/bed/stool/chair/shuttle{
+/obj/machinery/computer/shuttle_control/explore/orion_express_shuttle{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/black,
@@ -802,9 +798,10 @@
 /turf/simulated/floor/tiled/white,
 /area/shuttle/orion_express_ship)
 "ofY" = (
-/obj/machinery/computer/ship/sensors{
-	dir = 8
+/obj/machinery/atmospherics/portables_connector{
+	layer = 2.8
 	},
+/obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/orion_express_shuttle)
 "ogz" = (
@@ -829,7 +826,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_express_ship)
 "pfE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/fuel_port{
 	pixel_x = -32
 	},
@@ -880,8 +876,8 @@
 	req_access = null
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 6
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/orion_express_shuttle)
@@ -935,14 +931,6 @@
 	},
 /turf/simulated/floor,
 /area/shuttle/orion_express_ship)
-"qHO" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
-	},
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/orion_express_shuttle)
 "rdB" = (
 /obj/machinery/computer/ship/sensors{
 	dir = 1
@@ -1064,7 +1052,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
-/obj/machinery/computer/shuttle_control/explore/orion_express_shuttle{
+/obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/black,
@@ -1123,7 +1111,7 @@
 /area/shuttle/orion_express_ship)
 "wfy" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/black,
@@ -1138,12 +1126,6 @@
 "wmd" = (
 /turf/simulated/floor/wood,
 /area/shuttle/orion_express_ship)
-"wrJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
-	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/orion_express_shuttle)
 "wBq" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -1151,13 +1133,11 @@
 /turf/simulated/floor,
 /area/shuttle/orion_express_ship)
 "wCo" = (
-/obj/structure/closet/walllocker/emerglocker/south{
-	pixel_y = -27
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 4
 	},
+/obj/machinery/meter,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/orion_express_shuttle)
 "wLs" = (
@@ -34474,9 +34454,9 @@ rtf
 wNk
 xoc
 mCc
-mCc
-inf
 dqJ
+inf
+inf
 goI
 pfE
 pDZ
@@ -34733,7 +34713,7 @@ xPN
 ive
 inf
 lpe
-wrJ
+inf
 inf
 inf
 wfy
@@ -34990,7 +34970,7 @@ xoc
 iiZ
 rNp
 uYP
-qHO
+rNp
 ofY
 hFX
 wCo
