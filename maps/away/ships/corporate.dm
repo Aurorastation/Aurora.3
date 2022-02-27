@@ -1,5 +1,5 @@
 /datum/map_template/ruin/away_site/orion_express_ship
-	name = "Orion Express ship"
+	name = "Orion Express Ship"
 	description = "A light ship belonging to the Orion Express corporation."
 	suffix = "ships/orion_express_ship.dmm"
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
@@ -30,14 +30,14 @@
 //ship stuff
 
 /obj/effect/overmap/visitable/ship/landable/orion_express_ship
-	name = "Orion Express ship"
+	name = "Orion Express Ship"
 	desc = "A light ship belonging to the Orion Express corporation."
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_SMALL
-	shuttle = "Orion Express ship"
+	shuttle = "Orion Express Ship"
 	initial_restricted_waypoints = list(
 		"Orion Express Shuttle" = list("nav_hangar_orion_express")
 	)
@@ -52,7 +52,7 @@
 	..()
 
 /datum/shuttle/autodock/overmap/orion_express_ship
-	name = "Orion Express ship"
+	name = "Orion Express Ship"
 	warmup_time = 5
 	range = 1
 	current_location = "nav_orion_express_ship_start"
@@ -73,7 +73,7 @@
 
 /obj/machinery/computer/shuttle_control/explore/orion_express_ship
 	name = "ship control console"
-	shuttle_tag = "Orion Express ship"
+	shuttle_tag = "Orion Express Ship"
 	req_access = list(access_orion_express_ship)
 
 //shuttle stuff
@@ -92,7 +92,6 @@
 	shuttle_tag = "Orion Express Shuttle"
 	req_access = list(access_orion_express_ship)
 
-
 /datum/shuttle/autodock/overmap/orion_express_shuttle
 	name = "Orion Express Shuttle"
 	move_time = 90
@@ -104,12 +103,12 @@
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_orion_express"
 	defer_initialisation = TRUE
-	mothershuttle = "Orion Express ship"
+	mothershuttle = "Orion Express Ship"
 
 /obj/effect/shuttle_landmark/orion_express_shuttle/hangar
 	name = "Orion Express Shuttle Hangar"
 	landmark_tag = "nav_hangar_orion_express"
-	docking_controller = "orion_express_shuttle"
+	docking_controller = "orion_express_shuttle_dock"
 	base_turf = /turf/simulated/floor/plating
 
 /obj/effect/shuttle_landmark/orion_express_shuttle/transit
