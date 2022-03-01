@@ -1,0 +1,6 @@
+author: SleepyGem
+
+delete-after: True
+
+changes:
+  - bugfix: "Removes leftover internal affairs agent code, since the job doesn't exist anymore."
