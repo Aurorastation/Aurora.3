@@ -1,0 +1,10 @@
+
+author: Aticius
+
+
+delete-after: True
+
+
+changes:
+  - rscadd: "Synthflesh can now be made at the Biogenerator."
+  - rscadd: "Biomeat has been rebranded as Meat Substitute and is no longer implied to be biohazardous."
