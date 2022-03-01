@@ -276,6 +276,7 @@
 	var/zombie_type	//What zombie species they become
 	var/list/character_color_presets
 	var/bodyfall_sound = /decl/sound_category/bodyfall_sound //default, can be used for species specific falling sounds
+	var/footsound = /decl/sound_category/blank_footsteps //same as above but for footsteps without shoes
 
 	var/list/alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH, BP_APPENDIX) //what internal organs can be changed in character setup
 	var/list/possible_external_organs_modifications = list("Normal","Amputated","Prosthesis")
