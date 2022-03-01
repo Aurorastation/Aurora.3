@@ -9,6 +9,7 @@
 	maxHealth = 15
 	melee_damage_lower = 10
 	melee_damage_upper = 15
+	armor_penetration = 20
 	density = 0
 	attacktext = "cut"
 	attack_sound = 'sound/weapons/bladeslice.ogg'
