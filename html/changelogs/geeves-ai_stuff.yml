@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "AI can now lock their hologram's facing direction with the face-direction macro."
+  - rscadd: "AI can now change their hologram's facing direction with the northface,southface,eastface,westface macros."
+  - tweak: "AI clicking on people's names to track them will no longer turn the link purple."
