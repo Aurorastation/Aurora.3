@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Unathi now have a take 10% less radiation damage."
-  - rscdel: "Unathi can now swallow small items by targeting their mouth and clicking themselves."
