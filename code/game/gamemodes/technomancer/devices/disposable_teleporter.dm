@@ -33,8 +33,8 @@
 	else
 		var/list/area/valid_areas
 		for(var/area/A as anything in the_station_areas)
-			if(~A.flags & NO_TELEPORT_ACCESS)
-				valid_areas |= A
+			if(!is_not_shuttle_area(A))
+				continue
 		var/area_wanted = input(user, "Area to teleport to", "Teleportation") in valid_areas
 		var/area/A = the_station_areas[area_wanted]
 		if(!A)

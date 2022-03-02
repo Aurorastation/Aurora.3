@@ -141,8 +141,7 @@
 #define FIRING_RANGE        	 BITFLAG(4)
 #define NO_CREW_EXPECTED    	 BITFLAG(5) // Areas where crew is not expected to ever be. Used to tell antag bases and such from crew-accessible areas on centcom level.
 #define PRISON              	 BITFLAG(6) // Marks prison area for purposes of checking if brigged/imprisoned
-#define NO_TELEPORT_ACCESS		 BITFLAG(7) // Marks whether a teleport item can have this location as its target
-#define NO_GHOST_TELEPORT_ACCESS BITFLAG(8) // Marks whether ghosts should not have teleport access to this area
+#define NO_GHOST_TELEPORT_ACCESS BITFLAG(7) // Marks whether ghosts should not have teleport access to this area
 
 // Convoluted setup so defines can be supplied by Bay12 main server compile script.
 // Should still work fine for people jamming the icons into their repo.
