@@ -40333,7 +40333,7 @@
 	c_tag = "Central Corridor";
 	dir = 1
 	},
-/obj/machinery/computer/HolodeckControl/Exodus{
+/obj/machinery/computer/HolodeckControl/Aurora{
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
