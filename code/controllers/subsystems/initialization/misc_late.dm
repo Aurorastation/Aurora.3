@@ -6,17 +6,12 @@
 	flags = SS_NO_FIRE | SS_NO_DISPLAY
 
 /datum/controller/subsystem/misc_late/Initialize(timeofday)
-	var/turf/picked
 	// Setup the teleport locs.
-	for (var/thing in all_areas)
-		var/area/AR = thing
-
-		if(istype(AR, /area/turret_protected/aisat) || istype(AR, /area/tdome) || istype(AR, /area/shuttle/specops))
-			ghostteleportlocs += AR.name
-			ghostteleportlocs[AR.name] = AR
-
-		picked = pick_area_turf(AR.type, list(/proc/is_station_turf))
-		if (picked)
+	for(var/area/AR as anything in the_station_areas)
+		if(AR.flags & NO_GHOST_TELEPORT_ACCESS)
+			continue
+		var/list/area_turfs = AR.contents
+		if (area_turfs.len) // Check the area is mapped
 			ghostteleportlocs += AR.name
 			ghostteleportlocs[AR.name] = AR
 
