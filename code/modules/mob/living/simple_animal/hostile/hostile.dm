@@ -192,7 +192,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	var/atom/target
 	if(isliving(target_mob))
 		var/mob/living/L = target_mob
-		L.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext)
+		L.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, armor_penetration, attack_flags)
 		on_attack_mob(L)
 		target = L
 	else if(istype(target_mob, /obj/machinery/bot))

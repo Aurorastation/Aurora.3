@@ -348,17 +348,10 @@ var/list/holder_mob_icon_cache = list()
 			sync(contained)
 
 /obj/item/holder/proc/sync(var/mob/living/M)
-	dir = SOUTH
-	cut_overlays()
-	icon = M.icon
-	icon_state = M.icon_state
-	item_state = M.item_state
-	color = M.color
 	name = M.name
-	desc = M.desc
-	overlays |= M.overlays
-
-	update_held_icon()
+	overlays = M.overlays
+	dir = M.dir
+	reagents = M.reagents
 
 //#TODO-MERGE
 //Port the reduced-duplication holder method from baystation upstream:

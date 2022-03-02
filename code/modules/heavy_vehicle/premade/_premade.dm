@@ -222,7 +222,7 @@
 	..()
 
 /mob/living/heavy_vehicle/premade/random/boring/Initialize(mapload, var/obj/structure/heavy_vehicle_frame/source_frame)
-	..(mapload, source_frame, using_boring_colours = TRUE)
+	. = ..(mapload, source_frame, using_boring_colours = TRUE)
 
 /mob/living/heavy_vehicle/premade/random/extra/Initialize(mapload, var/obj/structure/heavy_vehicle_frame/source_frame)
-	..(mapload, source_frame, super_random = TRUE)
+	. = ..(mapload, source_frame, super_random = TRUE)

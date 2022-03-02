@@ -93,7 +93,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	cut_overlays() //reset overlays
 
 	add_overlay(screen_overlays["newscaster-screen"])
-	set_light(1.4, 1, COLOR_CYAN)
+	set_light(1.4, 1.3, COLOR_CYAN)
 
 	if(!alert || !SSnews.wanted_issue) // since we're transparent I don't want overlay nonsense
 		add_overlay(screen_overlays["newscaster-title"])

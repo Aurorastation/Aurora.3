@@ -104,6 +104,7 @@
 	changing_turf = FALSE
 	turfs -= src
 
+	remove_cleanables()
 	cleanup_roof()
 
 	if (ao_queued)
@@ -246,36 +247,9 @@ var/const/enterloopsanity = 100
 
 		H.update_inv_shoes(TRUE)
 
-	if(istype(AM, /mob/living/carbon/human))
+	if(tracks_footprint && ishuman(AM))
 		var/mob/living/carbon/human/H = AM
-		// Tracking blood
-		var/list/footprint_DNA = list()
-		var/footprint_color
-		var/will_track = FALSE
-		if(H.shoes)
-			var/obj/item/clothing/shoes/S = H.shoes
-			if(istype(S))
-				S.handle_movement(src, H.m_intent == M_RUN ? TRUE : FALSE)
-				if(S.track_footprint)
-					if(S.blood_DNA)
-						footprint_DNA = S.blood_DNA
-					footprint_color = S.blood_color
-					S.track_footprint--
-					will_track = TRUE
-		else
-			if(H.track_footprint)
-				if(H.feet_blood_DNA)
-					footprint_DNA = H.feet_blood_DNA
-				footprint_color = H.footprint_color
-				H.track_footprint--
-				will_track = TRUE
-
-		if(tracks_footprint && will_track)
-			add_tracks(H.species.get_move_trail(H), footprint_DNA, H.dir, 0, footprint_color) // Coming
-			var/turf/simulated/from = get_step(H, reverse_direction(H.dir))
-			if(istype(from) && from)
-				from.add_tracks(H.species.get_move_trail(H), footprint_DNA, 0, H.dir, footprint_color) // Going
-			footprint_DNA = null
+		H.species.deploy_trail(H, src)
 
 	..()
 
@@ -551,3 +525,8 @@ var/const/enterloopsanity = 100
 
 /turf/proc/is_floor()
 	return FALSE
+
+/turf/proc/remove_cleanables()
+	for(var/obj/effect/O in src)
+		if(istype(O,/obj/effect/rune) || istype(O,/obj/effect/decal/cleanable))
+			qdel(O)

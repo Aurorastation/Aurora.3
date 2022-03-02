@@ -445,4 +445,8 @@
 #define ROBOT_PANEL_CELL     "cell"
 #define ROBOT_PANEL_NO_CELL  "no cell"
 
+#define ROBOT_CHASSIS	"chassistype"
+#define ROBOT_PANEL		"paneltype"
+#define ROBOT_EYES		"eyetype"
+
 #define BLOOD_REGEN_RATE 0.1

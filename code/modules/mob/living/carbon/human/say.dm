@@ -161,7 +161,7 @@
 		return headsets[headsets[1]]
 	return null
 
-/mob/living/carbon/human/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio, whisper)
+/mob/living/carbon/human/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio, whisper, var/is_singing = FALSE)
 	if(!whisper && (paralysis || InStasis()))
 		whisper(message, speaking)
 		return TRUE
@@ -218,12 +218,12 @@
 				if(R.talk_into(src,message,null,verb,speaking))
 					successful_radio += R
 		if("whisper")
-			whisper(message, speaking)
+			whisper(message, speaking, is_singing)
 			return TRUE
 		else if(message_mode)
 			var/obj/item/device/radio/R = get_radio()
 			if(R)
-				used_radios += l_ear
+				used_radios += R
 				if(R.talk_into(src, message, message_mode, verb, speaking))
 					successful_radio += R
 

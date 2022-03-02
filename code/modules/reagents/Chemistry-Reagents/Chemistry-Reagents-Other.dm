@@ -364,7 +364,7 @@
 
 /decl/reagent/nitroglycerin/on_heat_change(var/added_energy, var/datum/reagents/holder)
 	. = ..()
-	if(added_energy > (specific_heat * 5 / REAGENT_VOLUME(holder, type))) // heat shock
+	if(added_energy > (specific_heat * 5 * REAGENT_VOLUME(holder, type))) // heat shock
 		explode(holder)
 
 /decl/reagent/nitroglycerin/apply_force(var/force, var/datum/reagents/holder)

@@ -306,6 +306,13 @@ obj/item/clothing/suit/apron/overalls/blue
 	icon_state = "firstresponderjacket"
 	item_state = "firstresponderjacket"
 
+/obj/item/clothing/suit/storage/toggle/fr_jacket/zeng
+	desc = "A first responder jacket in the classic white and purple of Zeng-Hu Pharmaceuticals."
+	icon = 'icons/clothing/suits/coats/zeng_responder.dmi'
+	contained_sprite = TRUE
+	icon_state = "zengresponderjacket"
+	item_state = "zengresponderjacket"
+
 /obj/item/clothing/suit/storage/toggle/fr_jacket/ems
 	name = "\improper EMS jacket"
 	desc = "A dark blue, martian-pattern, EMS jacket. It sports high-visibility reflective stripes and a star of life on the back."

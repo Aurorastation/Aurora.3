@@ -25,7 +25,7 @@
 	var/mob/living/pulling
 
 /obj/structure/janitorialcart/full/Initialize()
-	..()
+	. = ..()
 	mybag = new /obj/item/storage/bag/trash(src)
 	mymop = new /obj/item/mop(src)
 	myspray = new /obj/item/reagent_containers/spray/cleaner(src)

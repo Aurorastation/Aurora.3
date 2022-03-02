@@ -17,7 +17,6 @@
 	SScult.add_rune(rune)
 
 /obj/effect/rune/Destroy()
-	SScult.remove_rune(rune)
 	QDEL_NULL(rune)
 	return ..()
 

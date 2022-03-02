@@ -496,8 +496,9 @@
 		if( "change_criminal" )
 			var/obj/item/card/id/C = usr.get_active_hand()
 			if( istype( C ))
-				if( incident && C.mob )
-					incident.criminal = C.mob
+				var/mob/living/carbon/human/M = C.mob_id.resolve()
+				if( incident && M )
+					incident.criminal = WEAKREF(M)
 					incident.card = WEAKREF(C)
 					ping( "\The [src] pings, \"Convict [C] verified.\"" )
 			else if( incident.criminal )
@@ -539,10 +540,11 @@
 			var/title = href_list["title"]
 			var/obj/item/card/id/C = usr.get_active_hand()
 			if( istype( C ))
-				if( incident && C.mob )
+				var/mob/living/carbon/human/M = C.mob_id.resolve()
+				if( incident && M )
 					var/error = incident.addArbiter( C, title )
 					if( !error )
-						ping( "\The [src] pings, \"[title] [C.mob] verified.\"" )
+						ping( "\The [src] pings, \"[title] [M] verified.\"" )
 					else
 						to_chat(usr, "<span class='alert'>\The [src] buzzes, \"[error]\"</span>")
 			else

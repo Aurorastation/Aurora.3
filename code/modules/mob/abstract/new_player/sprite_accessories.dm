@@ -1359,9 +1359,9 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Skrell Eyes 2"
 			icon_state = "skrelleyes2"
 
-		cat_ears
-			name = "Cat Ears"
-			icon_state = "catears"
+		small_horns
+			name = "Small Horns"
+			icon_state = "smallhorns"
 
 		horny
 			name = "Horny"
@@ -2218,6 +2218,55 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "unathi_chameleon"
 			length = 3
 			chatname = "small horns"
+
+		una_dilocrest
+			name = "Unathi Dilo Crest"
+			icon_state = "dilocrest"
+			length = 0
+			chatname = "crests"
+
+		una_monocrest
+			name = "Unathi Mono Crest"
+			icon_state = "monocrest"
+			length = 0
+			chatname = "crest"
+
+		una_cryocrest
+			name = "Unathi Cryo Crest"
+			icon_state = "cryocrest"
+			length = 0
+			chatname = "crest"
+
+		una_corycrest
+			name = "Unathi Cory Crest"
+			icon_state = "corycrest"
+			length = 0
+			chatname = "crest"
+
+		una_albertahorns
+			name = "Unathi Alberta Horns"
+			icon_state = "albertahorns"
+			length = 5
+			chatname = "small horns"
+
+		una_styrahorn
+			name = "Unathi Styra Horn"
+			icon_state = "styrahorn"
+			length = 5
+			chatname = "massive horn"
+
+		una_styracrest
+			name = "Unathi Styra Frill"
+			icon_state = "styrafrill"
+			length = 0
+			chatname = "frill"
+
+		una_pachyboss
+			name = "Unathi Pachy Boss"
+			icon_state = "pachylump"
+			length = 0
+			chatname = "lump"
+
 
 //skrell tentacles
 
@@ -3224,6 +3273,37 @@ Follow by example and make good judgement based on length which list to include 
 		una_chameleon
 			name = "Unathi Chameleon Horns"
 			icon_state = "facial_chameleon"
+
+		una_dilocrest
+			name = "Unathi Dilo Crest"
+			icon_state = "dilocrest"
+
+		una_monocrest
+			name = "Unathi Mono Crest"
+			icon_state = "monocrest"
+
+		una_cryocrest
+			name = "Unathi Cryo Crest"
+			icon_state = "cryocrest"
+
+		una_corycrest
+			name = "Unathi Cory Crest"
+			icon_state = "corycrest"
+
+		una_albertahorns
+			name = "Unathi Alberta Horns"
+			icon_state = "albertahorns"
+
+		una_styrahorn
+			name = "Unathi Styra Horn"
+			icon_state = "styrahorn"
+		una_styracrest
+			name = "Unathi Styra Frill"
+			icon_state = "styrafrill"
+
+		una_pachyboss
+			name = "Unathi Pachy Boss"
+			icon_state = "pachylump"
 
 //ipc screens
 
@@ -4680,9 +4760,9 @@ Follow by example and make good judgement based on length which list to include 
 				name = "Skrell Eyes 2"
 				icon_state = "skrelleyes2"
 
-			cat_ears
-				name = "Skrell Eyes 2"
-				icon_state = "skrelleyes2"
+			small_horns
+				name = "Small Horns"
+				icon_state = "smallhorns"
 
 			horny
 				name = "Horny"
