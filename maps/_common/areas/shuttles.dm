@@ -7,7 +7,7 @@
 	requires_power = 0
 	sound_env = SMALL_ENCLOSED
 	no_light_control = 1
-	flags = RAD_SHIELDED | SPAWN_ROOF
+	flags = RAD_SHIELDED | SPAWN_ROOF | NO_TELEPORT_ACCESS
 	centcomm_area = 1
 
 /area/shuttle/arrival

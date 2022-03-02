@@ -31,8 +31,12 @@
 		to_chat(user, "<span class='danger'>\The [src] has ran out of uses, and is now useless to you!</span>")
 		return
 	else
-		var/area_wanted = input(user, "Area to teleport to", "Teleportation") in teleportlocs
-		var/area/A = teleportlocs[area_wanted]
+		var/list/area/valid_areas
+		for(var/area/A as anything in the_station_areas)
+			if(~A.flags & NO_TELEPORT_ACCESS)
+				valid_areas |= A
+		var/area_wanted = input(user, "Area to teleport to", "Teleportation") in valid_areas
+		var/area/A = the_station_areas[area_wanted]
 		if(!A)
 			return
 
