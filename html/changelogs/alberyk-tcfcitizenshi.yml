@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes:
+  - rscadd: "Added the Free Tajaran Council temporary citizenship as an option in the character setup."

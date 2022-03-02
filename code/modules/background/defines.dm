@@ -14,6 +14,7 @@
 #define CITIZENSHIP_PRA "People's Republic of Adhomai"
 #define CITIZENSHIP_DPRA "Democratic People's Republic of Adhomai"
 #define CITIZENSHIP_NKA "New Kingdom of Adhomai"
+#define CITIZENSHIP_FREE_COUNCIL "Free Tajaran Council"
 
 #define CITIZENSHIP_ZORA "Zo'ra Hive"
 #define CITIZENSHIP_KLAX "K'lax Hive"
