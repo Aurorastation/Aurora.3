@@ -35,6 +35,7 @@
 	var/store_items = TRUE
 	var/store_mobs = TRUE
 	var/store_structure = FALSE
+	var/dense_when_open = FALSE
 	var/maximum_mob_size = 15
 
 	var/const/default_mob_size = 15

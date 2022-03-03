@@ -13,6 +13,7 @@
 	open_sound =  'sound/machines/click.ogg'
 	close_sound =  'sound/machines/click.ogg'
 	store_structure = TRUE
+	dense_when_open = TRUE
 	door_anim_time = 0 // no animation
 
 	var/tablestatus = 0
@@ -143,105 +144,6 @@
 	secure = TRUE
 	secure_lights = TRUE
 	health = 200
-
-/obj/structure/closet/crate/secure/can_open()
-	if (..())
-		return !locked
-
-/obj/structure/closet/crate/secure/proc/togglelock(mob/user as mob)
-	if(opened)
-		to_chat(user, "<span class='notice'>Close the crate first.</span>")
-		return
-	if(broken)
-		to_chat(user, "<span class='warning'>The crate appears to be broken.</span>")
-		return
-	if(allowed(user))
-		set_locked(!locked, user)
-		return 1
-	else
-		to_chat(user, "<span class='notice'>Access Denied</span>")
-
-/obj/structure/closet/crate/secure/proc/set_locked(var/newlocked, mob/user = null)
-	if(locked == newlocked) return
-
-	locked = newlocked
-	if(user)
-		for(var/mob/O in viewers(user, 3))
-			O.show_message( "<span class='notice'>The crate has been [locked ? null : "un"]locked by [user].</span>", 1)
-	update_icon()
-
-/obj/structure/closet/crate/secure/verb/verb_togglelock()
-	set src in oview(1) // One square distance
-	set category = "Object"
-	set name = "Toggle Lock"
-
-	if(!usr.canmove || usr.stat || usr.restrained()) // Don't use it if you're not able to! Checks for stuns, ghost and restrain
-		return
-
-	if(ishuman(usr) || isrobot(usr))
-		add_fingerprint(usr)
-		togglelock(usr)
-	else
-		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
-
-/obj/structure/closet/crate/secure/attack_hand(mob/user as mob)
-	add_fingerprint(user)
-	if(locked)
-		return togglelock(user)
-	else
-		return toggle(user)
-
-/obj/structure/closet/crate/secure/attackby(obj/item/W as obj, mob/user as mob)
-	if(is_type_in_list(W, list(/obj/item/stack/packageWrap, /obj/item/stack/cable_coil, /obj/item/device/radio/electropack, /obj/item/wirecutters)))
-		return ..()
-	if(istype(W, /obj/item/melee/energy/blade))
-		emag_act(INFINITY, user)
-	if(istype(W, /obj/item/device/hand_labeler))
-		var/obj/item/device/hand_labeler/HL = W
-		if (HL.mode == 1)
-			return
-		else if(!opened)
-			togglelock(user)
-			return
-	else if(!opened)
-		togglelock(user)
-		return
-	return ..()
-
-/obj/structure/closet/crate/secure/emag_act(var/remaining_charges, var/mob/user)
-	if(!broken)
-		cut_overlays()
-		add_overlay("[icon_door_overlay]emag")
-		add_overlay("[icon_door_overlay]sparking")
-		CUT_OVERLAY_IN("[icon_door_overlay]sparking", 6)
-		playsound(loc, /decl/sound_category/spark_sound, 60, 1)
-		locked = 0
-		broken = 1
-		to_chat(user, "<span class='notice'>You unlock \the [src].</span>")
-		return 1
-
-/obj/structure/closet/crate/secure/emp_act(severity)
-	for(var/obj/O in src)
-		O.emp_act(severity)
-	if(!broken && !opened  && prob(50/severity))
-		if(!locked)
-			locked = 1
-			cut_overlays()
-			add_overlay("[icon_door_overlay]locked")
-		else
-			cut_overlays()
-			add_overlay("[icon_door_overlay]emag")
-			add_overlay("[icon_door_overlay]sparking")
-			CUT_OVERLAY_IN("[icon_door_overlay]sparking", 6)
-			playsound(loc, /decl/sound_category/spark_sound, 75, 1)
-			locked = 0
-	if(!opened && prob(20/severity))
-		if(!locked)
-			open()
-		else
-			req_access = list()
-			req_access += pick(get_all_station_access())
-	..()
 
 /obj/structure/closet/crate/plastic
 	name = "plastic crate"
