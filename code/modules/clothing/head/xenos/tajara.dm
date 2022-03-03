@@ -81,7 +81,7 @@
 
 /obj/item/clothing/head/beret/tajaran/nka/officer
 	name = "new kingdom naval officer beret"
-	desc = "A formal black beret with a golden band. This is worn by members of the NKA naval officer corps. These are prised in the New Kingdom thanks to the Navy's popularity."
+	desc = "A formal black beret with a golden band. This is worn by members of the NKA naval officer corps. These are prized in the New Kingdom thanks to the Navy's popularity."
 	icon_state = "navalberetofficer"
 	item_state = "navalberetofficer"
 
