@@ -71,7 +71,7 @@
 	update_icon()
 	fill()
 	if(secure)
-		verbs += verb_togglelock()
+		verbs += /obj/structure/closet/proc/verb_togglelock
 	return mapload ? INITIALIZE_HINT_LATELOAD : INITIALIZE_HINT_NORMAL
 
 // Fill lockers with this.
@@ -154,7 +154,8 @@
 	animate_door(FALSE)
 	update_icon()
 	playsound(loc, open_sound, 25, 0, -3)
-	density = FALSE
+	if(!dense_when_open)
+		density = FALSE
 	return 1
 
 /obj/structure/closet/proc/close()
@@ -244,8 +245,8 @@
 	return added_units
 
 /obj/structure/closet/proc/toggle(mob/user as mob)
-	if(!(opened ? close() : open()))
-		to_chat(user, SPAN_NOTICE("It won't budge!"))
+	if(!(opened ? close(user) : open(user)))
+		to_chat(user, SPAN_WARNING("It won't budge!"))
 		return
 	return 1
 

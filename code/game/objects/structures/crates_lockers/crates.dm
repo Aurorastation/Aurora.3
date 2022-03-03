@@ -19,8 +19,8 @@
 	var/tablestatus = 0
 
 /obj/structure/closet/crate/can_open()
-	if(tablestatus != UNDER_TABLE)//Can't be opened while under a table
-		return 1
+	if(tablestatus == UNDER_TABLE)//Can't be opened while under a table
+		return 0
 	..()
 
 /obj/structure/closet/crate/can_close()
