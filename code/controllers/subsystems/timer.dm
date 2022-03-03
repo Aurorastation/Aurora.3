@@ -53,6 +53,9 @@ var/datum/controller/subsystem/timer/SStimer
 	var/static/bucket_auto_reset = TRUE
 	/// How many times bucket was reset
 	var/bucket_reset_count = 0
+	
+	var/datum/timedevent/current_timer
+	var/loop_loc = 0
 
 /datum/controller/subsystem/timer/New()
 	NEW_SS_GLOBAL(SStimer)
@@ -121,6 +124,9 @@ var/datum/controller/subsystem/timer/SStimer
 			next_clienttime_timer_index--
 			break
 
+		current_timer = ctime_timer
+		loop_loc = 1
+
 		var/datum/callback/callBack = ctime_timer.callBack
 		if (!callBack)
 			CRASH("Invalid timer: [get_timer_debug_string(ctime_timer)] world.time: [world.time], \
@@ -168,6 +174,9 @@ var/datum/controller/subsystem/timer/SStimer
 
 			timer.bucketEject() //pop the timer off of the bucket list.
 
+			current_timer = timer
+			loop_loc = 2
+
 			// Invoke callback if possible
 			if (!timer.spent)
 				timer.spent = world.time
@@ -194,6 +203,9 @@ var/datum/controller/subsystem/timer/SStimer
 				if (timer.timeToRun >= TIMER_MAX)
 					i--
 					break
+
+				current_timer = timer
+				loop_loc = 3
 
 				// Check for timers that are scheduled to run in the past
 				if (timer.timeToRun < head_offset)
