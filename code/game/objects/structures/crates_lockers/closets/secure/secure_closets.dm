@@ -4,7 +4,6 @@
 	icon = 'icons/obj/closet.dmi'
 	icon_state = "secure"
 	secure = TRUE
-	secure_lights = TRUE
 	opened = FALSE
 	anchored = FALSE
 	locked = TRUE
