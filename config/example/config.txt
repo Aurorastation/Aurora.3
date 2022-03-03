@@ -549,7 +549,7 @@ CURRENT_SPACE_SECTOR Romanovich Cloud
 #ROUNDS_UNTIL_HARD_RESTART -1
 
 # Any players that join after this time will not be subject to the double round roll feature | Measured in Deciseconds | Set to -1 to Disable
-DOUBLE_ROUND_ROLL_LIMIT 36000
+DOUBLE_ROUND_ROLL_LIMIT -1
 
 # NTSL2+ Connection Info
 NTSL_HOSTNAME localhost

@@ -287,7 +287,7 @@ var/list/gamemode_cache = list()
 
 	var/rounds_until_hard_restart = -1 // Changes how often a hard restart will be executed.
 
-	var/double_round_roll_limit = 1 HOUR // Any players that join after this time will not be subject to the double round roll feature
+	var/double_round_roll_limit = -1 // Any players that join after this time will not be subject to the double round roll feature
 
 	var/docs_load_docs_from
 	var/load_customsynths_from
