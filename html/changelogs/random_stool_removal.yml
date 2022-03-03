@@ -1,0 +1,6 @@
+author: SleepyGem
+
+delete-after: True
+
+changes:
+  - bugfix: "Removes a random stool stuck in a wall in the telecommunications lounge toilet."

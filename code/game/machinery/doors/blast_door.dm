@@ -188,7 +188,7 @@
 		return
 	if(stat & NOPOWER)
 		INVOKE_ASYNC(src, /obj/machinery/door/blast/.proc/force_close)
-		securitylock = TRUE
+		securitylock = !density // blast doors will only re-open when power is restored if they were open originally
 	else if(securitylock)
 		INVOKE_ASYNC(src, /obj/machinery/door/blast/.proc/force_open)
 		securitylock = FALSE

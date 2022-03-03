@@ -11,11 +11,16 @@
 	circuit = /obj/item/circuitboard/operating
 	var/mob/living/carbon/human/victim = null
 	var/obj/machinery/optable/table = null
+	var/obj/machinery/body_scanconsole/internal_bodyscanner = null
+	var/obj/item/paper/medscan/input_scan = null
+	var/scan_slot = FALSE
+
+	var/backup_victim = null // Backup data
+	var/backup_data = null
+
+	var/last_critical // Spam checks for the alarms
 	var/last_ba // Brain Activity
 	var/last_bo // Blood Oxygenation
-	var/last_critical
-	var/obj/item/paper/medscan/input_scan = null
-	var/obj/machinery/body_scanconsole/internal_bodyscanner = null
 
 /obj/machinery/computer/operating/Initialize()
 	. = ..()
@@ -30,6 +35,12 @@
 		S.use_power = FALSE
 		internal_bodyscanner = S
 
+/obj/machinery/computer/operating/Destroy()
+	QDEL_NULL(table.computer)
+	QDEL_NULL(internal_bodyscanner)
+	QDEL_NULL(input_scan)
+	return ..()
+
 /obj/machinery/computer/operating/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
@@ -38,7 +49,6 @@
 		return
 	interact(user)
 
-
 /obj/machinery/computer/operating/attack_hand(mob/user)
 	add_fingerprint(user)
 	if(stat & (BROKEN|NOPOWER))
@@ -46,20 +56,23 @@
 	interact(user)
 
 /obj/machinery/computer/operating/attackby(obj/item/O as obj, mob/user)
-	if(istype(O, /obj/item/paper/medscan))
+	if(!istype(O, /obj/item/paper/medscan))
+		return ..()
+	else if(scan_slot)
 		if(input_scan)
-			to_chat(usr, SPAN_NOTICE("There is already a [O] inside!"))
+			to_chat(usr, SPAN_NOTICE("You try to insert \the [O], but \the [src] buzzes. There is already a [O] inside!"))
+			playsound(src, 'sound/machines/buzz-sigh.ogg', 50, 1)
 			return
-		user.drop_from_inventory(O,src)
+		user.drop_from_inventory(O, src)
 		input_scan = O
 		input_scan.color = "#272727"
 		input_scan.set_content_unsafe("Scan ([victim])", operating_format(get_medical_data(victim)))
 		usr.visible_message("\The [src] pings, displaying \the [input_scan].")
 		to_chat(usr, SPAN_NOTICE("You insert \the [O] into [src]."))
 		playsound(src, 'sound/bureaucracy/scan.ogg', 50, 1)
+		return
 	else
-		to_chat(usr, SPAN_NOTICE("You try to insert \the [O], but \the [src] buzzes, unable to read it."))
-		playsound(src, 'sound/machines/buzz-sigh.ogg', 50, 1)
+		to_chat(usr, SPAN_WARNING("\The [src]'s scan slot is closed! Please put in a valid patient on the table to open it!"))
 		return
 
 /obj/machinery/computer/operating/interact(mob/user)
@@ -78,7 +91,7 @@
 	Brain Activity: <b>[victim.isFBP() ? "<span class='danger'>N/A</span>" : victim.get_brain_status()]</b><br>
 	Pulse: <b>[victim.get_pulse(GETPULSE_TOOL)]</b><br>
 	BP: <b>[victim.get_blood_pressure()]</b><br>
-	Blood Oxygenation: <b>[victim.get_blood_oxygenation()]</b><br>
+	Blood Oxygenation: <b>[victim.get_blood_oxygenation()]%</b><br>
 	Blood Volume: <b>[victim.get_blood_volume()]%</b><br>
 	"}
 		if(!input_scan)
@@ -95,7 +108,6 @@
 		src.victim = null
 		dat += {"
 <B>Patient Information:</B><BR>
-<BR>
 <B>No Patient Detected</B>
 "}
 	var/datum/browser/op_win = new(user, "op", capitalize_first_letters(name), 450, 800)
@@ -112,7 +124,7 @@
 			to_chat(user, SPAN_NOTICE("Brain Activity: [victim.isFBP() ? "N/A" : victim.get_brain_status()]"))
 			to_chat(user, SPAN_NOTICE("Pulse: [victim.get_pulse(GETPULSE_TOOL)]"))
 			to_chat(user, SPAN_NOTICE("BP: [victim.get_blood_pressure()]"))
-			to_chat(user, SPAN_NOTICE("Blood Oxygenation: [victim.get_blood_oxygenation()]"))
+			to_chat(user, SPAN_NOTICE("Blood Oxygenation: [victim.get_blood_oxygenation()]%"))
 			to_chat(user, SPAN_NOTICE("Blood Volume: [victim.get_blood_volume()]%"))
 			if(!input_scan)
 				to_chat(user, SPAN_NOTICE("Patient Scan: Scan not found. Please insert the Medical Scan."))
@@ -137,6 +149,7 @@
 				input_scan.forceMove(usr.loc)
 				usr.put_in_hands(input_scan)
 				input_scan = null
+				backup_clear()
 				playsound(src, 'sound/machines/twobeep.ogg', 50, 1)
 			if("print_new")
 				print_new()
@@ -148,8 +161,13 @@
 /obj/machinery/computer/operating/machinery_process()
 	if(operable())
 		src.updateDialog()
+	if(src.stat & BROKEN)
+		QDEL_NULL(input_scan)
+		QDEL_NULL(internal_bodyscanner)
+		return PROCESS_KILL
 	if(src.table && (src.table.check_victim())) // Specific warning alarms for specific conditions. Times to be tweaked according to feedback
 		src.victim = src.table.victim
+		scan_slot = TRUE
 		if(src.victim.stat != DEAD && !src.victim.is_diona())
 			if(victim.get_blood_oxygenation() < 30 && victim.get_brain_result() < 20)
 				if(world.time > last_critical + 25 SECONDS)
@@ -161,7 +179,15 @@
 					blood_oxygenation_alarm()
 				if(victim.get_brain_result() < 20 && victim.get_blood_oxygenation() > 30)
 					brain_activity_alarm()
-
+	else if(input_scan)
+		src.visible_message(SPAN_WARNING("Patient not found! Automatically ejecting the scan."))
+		playsound(src, 'sound/machines/twobeep.ogg', 50, 1)
+		input_scan.color = "#eeffe8"
+		input_scan.set_content_unsafe("Scan ([backup_victim])", internal_bodyscanner.format_occupant_data(backup_data)) // To do: Figure out how to re-format without doing more shitcode
+		input_scan.forceMove(src.loc)
+		input_scan = null
+		backup_clear()
+		scan_slot = FALSE
 
 /obj/machinery/computer/operating/proc/blood_oxygenation_alarm()
 	if(world.time > last_bo + 25 SECONDS)
@@ -174,6 +200,10 @@
 		last_ba = world.time
 		src.visible_message(SPAN_WARNING("Warning! <b>[victim]'s Brain Activity</b> is in critical condition!"))
 		playsound(src, 'sound/effects/alert.ogg', 50)
+
+/obj/machinery/computer/operating/proc/backup_clear()
+	backup_victim = null
+	backup_data = null
 
 // PRINTING SHENANIGANRY
 /obj/machinery/computer/operating/proc/print_new()
@@ -217,6 +247,8 @@
 		"internal_organs" = H.internal_organs.Copy(),
 		"species_organs" = H.species.has_organ
 		)
+	backup_victim = H.name
+	backup_data = medical_data
 	return medical_data
 
 /obj/machinery/computer/operating/proc/operating_format(var/list/occ) // Format to cut out redundant information

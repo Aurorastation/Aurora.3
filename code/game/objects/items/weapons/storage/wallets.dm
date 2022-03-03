@@ -90,6 +90,20 @@
 	else
 		return ..()
 
+
+/obj/item/storage/wallet/AltClick(mob/user)
+	if (user != loc || user.incapacitated() || !ishuman(user))
+		return ..()
+
+	var/obj/item/card/id/id = GetID()
+	if (istype(id))
+		remove_from_storage(id)
+		user.put_in_hands(id)
+		return
+
+	return ..()
+
+
 /obj/item/storage/wallet/random/fill()
 	..()
 	var/item1_type = pick(                \
