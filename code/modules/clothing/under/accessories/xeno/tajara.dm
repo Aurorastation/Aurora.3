@@ -341,7 +341,7 @@
 	Hand carved charms of them is considered a symbol of luck and as such many superstitious tajara keeps one around."
 
 /obj/item/clothing/accessory/tajaran/tanker_pin
-	name = "free tajaran council badge"
+	name = "golden sun pin"
 	desc = "Given to all members of the Hro'rammad tank corps is this sun pin. It is considered a symbol of how the tanker corps is the wrath of the God S'rendarr. It's rays are sharp not \
 	just so it can be easily pinned but also to represent how the tankers are the blades of S'rendarr himself. "
 	icon_state = "tanker_pin"

@@ -381,3 +381,18 @@
 	card["adhomaian blue party pin"] = /obj/item/clothing/accessory/tajaran/abparty_pin
 	card["amohdan free lodge party pin"] = /obj/item/clothing/accessory/tajaran/aflparty_pin
 	gear_tweaks += new /datum/gear_tweak/path(card)
+
+/datum/gear/accessory/tajaran_gen_accessorry
+	display_name = "tajaran accessories selection"
+	description = "A selection of tajaran related accessories."
+	path = /obj/item/clothing/accessory/tajaran/zbrojny_badge
+	sort_category = "Xenowear - Tajara"
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/tajaran_gen_accessorry/New()
+	..()
+	var/list/card = list()
+	card["zbrojny badge"] = /obj/item/clothing/accessory/tajaran/zbrojny_badge
+	card["golden sun pin"] = /obj/item/clothing/accessory/tajaran/tanker_pin
+	gear_tweaks += new /datum/gear_tweak/path(card)
