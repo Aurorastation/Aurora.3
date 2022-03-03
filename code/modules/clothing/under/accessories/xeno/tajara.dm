@@ -401,7 +401,7 @@
 
 /obj/item/clothing/accessory/tajaran/ftpparty_pin
 	name = "free tajaran people party pin"
-	desc = "A pin of the Free Tajaran's People Party. The two white rifles represent the party's fervor in crushing the two ideological enemies of the Tajara: Royalism and Hadiism. "
+	desc = "A pin of the Free Tajaran's People Party. The two white rifles represent the party's fervor in crushing the two ideological enemies of the Tajara: Royalism and Hadiism."
 	icon_state = "ftpparty_pin"
 	item_state = "ftpparty_pin"
 	overlay_state = "ftpparty_pin"
