@@ -476,11 +476,6 @@
 				shatter()
 				return
 
-	if(!stat)
-		to_chat(user, SPAN_NOTICE("You remove the light [fitting]."))
-	else
-		return
-
 	// create a light tube/bulb item and put it in the user's hand
 	if(inserted_light)
 		var/obj/item/light/L = new inserted_light()
@@ -498,6 +493,8 @@
 		L.add_fingerprint(user)
 
 		user.put_in_active_hand(L)	//puts it in our active hand
+
+		to_chat(user, SPAN_NOTICE("You remove the light [fitting]."))
 
 		inserted_light = null
 
