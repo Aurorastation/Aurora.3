@@ -315,9 +315,28 @@
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25,30,60,180)
 
+
+/obj/item/reagent_containers/cooking_container/plate/bowl/on_reagent_change()
+	update_icon()
+
+
+/obj/item/reagent_containers/cooking_container/plate/bowl/pickup(mob/user)
+	..()
+	update_icon()
+
+
+/obj/item/reagent_containers/cooking_container/plate/bowl/dropped(mob/user)
+	..()
+	update_icon()
+
+
+/obj/item/reagent_containers/cooking_container/plate/bowl/attack_hand()
+	..()
+	update_icon()
+
+
 /obj/item/reagent_containers/cooking_container/plate/bowl/update_icon()
 	cut_overlays()
-
 	if(reagents?.total_volume)
 		var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state][get_filling_state()]")
 		filling.color = reagents.get_color()
