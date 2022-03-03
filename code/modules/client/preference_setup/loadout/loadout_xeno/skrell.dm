@@ -288,15 +288,15 @@ datum/gear_tweak/social_credit/tweak_item(var/obj/item/clothing/accessory/badge/
 /datum/gear/accessory/skrell/tees/New()
 	..()
 	var/list/tees = list()
-	tees["ocean tee"] = /obj/item/clothing/accessory/tshirt/skrell/ocean
-	tees["maelstrom tee"] = /obj/item/clothing/accessory/tshirt/skrell/maelstrom
-	tees["reef tee"] = /obj/item/clothing/accessory/tshirt/skrell/reef
-	tees["pink skrellian nebula shirt"] = /obj/item/clothing/accessory/tshirt/skrell/nebula
-	tees["purple skrellian nebula shirt"] = /obj/item/clothing/accessory/tshirt/skrell/nebula/purple
-	tees["teal skrellian nebula shirt"] = /obj/item/clothing/accessory/tshirt/skrell/nebula/teal
-	tees["black skrellian nebula shirt"] = /obj/item/clothing/accessory/tshirt/skrell/nebula/black
-	tees["white skrellian nebula shirt"] = /obj/item/clothing/accessory/tshirt/skrell/nebula/white
-	tees["jargon skrellian nebula shirt"] = /obj/item/clothing/accessory/tshirt/skrell/nebula/jargon
+	tees["ocean wetshirt"] = /obj/item/clothing/accessory/tshirt/skrell/ocean
+	tees["maelstrom wetshirt"] = /obj/item/clothing/accessory/tshirt/skrell/maelstrom
+	tees["reef wetshirt"] = /obj/item/clothing/accessory/tshirt/skrell/reef
+	tees["pink eriuyushi nebula shirt"] = /obj/item/clothing/accessory/tshirt/skrell/nebula
+	tees["purple eriuyushi nebula shirt"] = /obj/item/clothing/accessory/tshirt/skrell/nebula/purple
+	tees["teal eriuyushi nebula shirt"] = /obj/item/clothing/accessory/tshirt/skrell/nebula/teal
+	tees["black eriuyushi nebula shirt"] = /obj/item/clothing/accessory/tshirt/skrell/nebula/black
+	tees["white eriuyushi nebula shirt"] = /obj/item/clothing/accessory/tshirt/skrell/nebula/white
+	tees["jargon eriuyushi nebula shirt"] = /obj/item/clothing/accessory/tshirt/skrell/nebula/jargon
 	gear_tweaks += new /datum/gear_tweak/path(tees)
 
 /datum/gear/accessory/skrell/dress
@@ -309,7 +309,7 @@ datum/gear_tweak/social_credit/tweak_item(var/obj/item/clothing/accessory/badge/
 /datum/gear/accessory/skrell/dress/New()
 	..()
 	var/list/dress = list()
-	dress["ocean dress shirt"] = /obj/item/clothing/accessory/dressshirt/skrell/ocean
-	dress["maelstrom dress shirt"] = /obj/item/clothing/accessory/dressshirt/skrell/maelstrom
-	dress["reef dress shirt"] = /obj/item/clothing/accessory/dressshirt/skrell/reef
+	dress["ocean formal wetshirt"] = /obj/item/clothing/accessory/dressshirt/skrell/ocean
+	dress["maelstrom formal wetshirt"] = /obj/item/clothing/accessory/dressshirt/skrell/maelstrom
+	dress["reef formal wetshirt"] = /obj/item/clothing/accessory/dressshirt/skrell/reef
 	gear_tweaks += new /datum/gear_tweak/path(dress)
