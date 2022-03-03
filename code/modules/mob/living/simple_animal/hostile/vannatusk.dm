@@ -20,6 +20,7 @@
 	harm_intent_damage = 5
 	melee_damage_lower = 30
 	melee_damage_upper = 30
+	armor_penetration = 15
 	resist_mod = 3
 	mob_size = 15
 	environment_smash = 2

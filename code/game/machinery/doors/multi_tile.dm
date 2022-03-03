@@ -4,6 +4,8 @@
 	dir = EAST
 	hatch_offset_x = 16
 	hatch_colour = "#d2d2d2"
+	open_sound_powered = 'sound/machines/airlock/wide1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/wide1c.ogg'
 
 /obj/machinery/door/airlock/multi_tile/Initialize()
 	. = ..()
