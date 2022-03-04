@@ -45,7 +45,7 @@
 	var/is_animating_door = FALSE
 	var/door_underlay = FALSE //used if you want to have an overlay below the door. used for guncabinets.
 	var/door_anim_squish = 0.12 // Multiplier on proc/get_door_transform. basically, how far you want this to swing out. value of 1 means the length of the door is unchanged (and will swing out of the tile), 0 means it will just slide back and forth.
-	var/door_anim_angle = 136
+	var/door_anim_angle = 147
 	var/door_hinge = -6.5 // for closets, x away from the centre of the closet. typically good to add a 0.5 so it's centered on the edge of the closet.
 	var/door_anim_time = 2.5 // set to 0 to make the door not animate at all
 
@@ -513,7 +513,6 @@
 /obj/structure/closet/update_icon()
 	if(!door_underlay)
 		cut_overlays()
-
 	if(!opened)
 		layer = OBJ_LAYER
 		if(!is_animating_door)
