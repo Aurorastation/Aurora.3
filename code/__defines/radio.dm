@@ -73,8 +73,7 @@ var/list/ANTAG_FREQS = list(
 	RAID_FREQ,
 	NINJ_FREQ,
 	BLSP_FREQ,
-	BURG_FREQ,
-	SHIP_FREQ
+	BURG_FREQ
 )
 
 var/list/ANTAG_FREQS_ASSOC = list(
@@ -95,7 +94,8 @@ var/list/DEPT_FREQS = list(
 	SCI_FREQ,
 	SRV_FREQ,
 	SUP_FREQ,
-	ENT_FREQ
+	ENT_FREQ,
+	SHIP_FREQ
 )
 
 var/list/DEPT_FREQS_ASSOC = list(

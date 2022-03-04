@@ -53,7 +53,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_express_ship)
 "aEB" = (
-/obj/structure/dispenser/oxygen,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_express_ship)
 "aHs" = (
@@ -150,11 +153,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_express_ship)
 "bkQ" = (
-/obj/machinery/telecomms/hub/preset,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/obj/structure/dispenser/oxygen,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_express_ship)
 "ble" = (
 /obj/effect/floor_decal/corner_wide/beige{
@@ -241,20 +241,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_express_ship)
-"dwe" = (
-/obj/machinery/telecomms/allinone,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
-/area/space)
 "dHA" = (
 /obj/structure/table/wood,
 /obj/item/pizzabox/meat,
 /turf/simulated/floor/wood,
 /area/shuttle/orion_express_ship)
-"dRK" = (
-/obj/machinery/telecomms/server/presets,
+"dQZ" = (
+/obj/machinery/telecomms/allinone/ship,
+/obj/machinery/light/small,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -265,13 +259,6 @@
 	name = "Hangar"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
-"eaS" = (
-/obj/machinery/telecomms/broadcaster,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
 /area/shuttle/orion_express_ship)
 "eiR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -679,13 +666,6 @@
 /obj/item/reagent_containers/toothpaste,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/orion_express_ship)
-"lJz" = (
-/obj/machinery/telecomms/receiver,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
-/area/shuttle/orion_express_ship)
 "mkb" = (
 /turf/simulated/floor,
 /area/shuttle/orion_express_ship)
@@ -882,13 +862,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_express_ship)
-"pIs" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
 "pJZ" = (
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -951,13 +924,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_express_ship)
-"rDv" = (
-/obj/machinery/light/small,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
-/area/shuttle/orion_express_ship)
 "rNp" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -986,13 +952,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_express_ship)
-"sEA" = (
-/obj/machinery/telecomms/bus,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
-/area/shuttle/orion_express_ship)
 "sGi" = (
 /obj/machinery/door/airlock/mining{
 	name = "Cockpit";
@@ -1016,13 +975,6 @@
 "ths" = (
 /obj/effect/shuttle_landmark/orion_express_ship/start,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
-"tpj" = (
-/obj/machinery/telecomms/processor,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
 /area/shuttle/orion_express_ship)
 "tra" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -29340,7 +29292,7 @@ xRX
 xRX
 xRX
 xRX
-dwe
+xRX
 xRX
 xRX
 xRX
@@ -30877,11 +30829,11 @@ xRX
 xRX
 xRX
 xRX
-riA
-riA
-riA
-riA
-riA
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -31134,11 +31086,11 @@ riA
 riA
 riA
 riA
-yjk
-bkQ
-sEA
-dRK
 riA
+riA
+riA
+riA
+xRX
 xRX
 xRX
 xRX
@@ -31393,8 +31345,8 @@ ccm
 ccm
 aaJ
 cVA
-cVA
-rDv
+dQZ
+riA
 riA
 riA
 riA
@@ -31647,11 +31599,11 @@ ccm
 cMo
 riA
 ccm
-ccm
+pbp
+yjk
+cVA
+cVA
 riA
-eaS
-lJz
-tpj
 riA
 iaK
 aSm
@@ -31904,7 +31856,7 @@ ccm
 vUu
 riA
 ccm
-pbp
+ccm
 yjk
 riA
 riA
@@ -32698,7 +32650,7 @@ riA
 riA
 riA
 riA
-riA
+xRX
 xRX
 xRX
 xRX
@@ -32933,10 +32885,10 @@ fZq
 riA
 eYX
 ccm
-pIs
-ccm
-ccm
 aEB
+ccm
+ccm
+bkQ
 yjk
 riA
 riA
@@ -34240,7 +34192,7 @@ riA
 riA
 riA
 riA
-riA
+xRX
 xRX
 xRX
 xRX
