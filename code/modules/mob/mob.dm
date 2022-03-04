@@ -346,7 +346,7 @@
 		pointing_effect = new /obj/effect/decal/point(A)
 		pointing_effect.invisibility = invisibility
 		addtimer(CALLBACK(src, .proc/end_pointing_effect, pointing_effect), 2 SECONDS)
-	else
+	else if(!invisibility)
 		var/atom/movable/M = A
 		M.add_filter("pointglow", 1, list(type = "drop_shadow", x = 0, y = -1, offset = 1, size = 1, color = "#F00"))
 		addtimer(CALLBACK(M, /atom/movable.proc/remove_filter, "pointglow"), 2 SECONDS)

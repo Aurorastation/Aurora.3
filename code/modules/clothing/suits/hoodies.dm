@@ -13,7 +13,7 @@
 
 /obj/item/clothing/suit/storage/hooded/update_icon(var/hooded = FALSE)
 	SEND_SIGNAL(src, COMSIG_ITEM_STATE_CHECK, args)
-	icon_state = "[initial(icon_state)][hooded ? "_t" : ""]"
+	icon_state = "[initial(icon_state)][opened ? "_open" : ""][hooded ? "_t" : ""]"
 	item_state = icon_state
 	. = ..()
 	if(usr)
@@ -224,8 +224,6 @@
 	opened = !opened
 	to_chat(usr, "You [opened ? "unzip" : "zip"] \the [src].")
 	playsound(src, 'sound/items/zip.ogg', EQUIP_SOUND_VOLUME, TRUE)
-	icon_state = "[initial(icon_state)][opened ? "_open" : ""]"
-	item_state = icon_state
 	update_icon()
 	update_clothing_icon()
 	usr.update_inv_head()
@@ -249,6 +247,17 @@
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/sleeveless
 	icon_state = "hoodie_sleeveless"
 	item_state = "hoodie_sleeveless"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/konyang
+	name = "konyang village coat"
+	desc = "A highly prized hooded coat with unmatched breathability and insulation. Imported from Konyang, this garment is made with a weave derived from the feathers of indigenous birds."
+	icon_state = "konyang_village"
+	item_state = "konyang_village"
+	hoodtype = /obj/item/clothing/head/winterhood/konyang
+
+/obj/item/clothing/head/winterhood/konyang
+	name = "konyang village hood"
+	desc = "A light, waterproof hood attached to a Konyanger coat."
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/mars
 	name = "martian hoodie"
@@ -274,4 +283,4 @@
 
 /obj/item/clothing/head/winterhood/colorable/update_icon(mob/user)
 	. = ..()
-	
+
