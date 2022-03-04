@@ -13,6 +13,7 @@
 #define NINJ_FREQ 1255
 #define BURG_FREQ 1257
 #define RAID_FREQ 1277
+#define SHIP_FREQ 1280
 #define ENT_FREQ 1461 //entertainment frequency. This is not a diona exclusive frequency.
 
 // department channels
@@ -49,7 +50,8 @@ var/list/radiochannels = list(
 	"AI Private"	= AI_FREQ,
 	"Entertainment" = ENT_FREQ,
 	"Medical (I)"	= MED_I_FREQ,
-	"Security (I)"	= SEC_I_FREQ
+	"Security (I)"	= SEC_I_FREQ,
+	"Ship"			= SHIP_FREQ
 )
 
 // The assoc variants are separate lists because they need the keys to be strings, but some code expects numbers.
@@ -57,7 +59,8 @@ var/list/radiochannels = list(
 // central command channels, i.e deathsquid & response teams
 var/list/CENT_FREQS = list(
 	ERT_FREQ,
-	DTH_FREQ
+	DTH_FREQ,
+	SHIP_FREQ
 )
 
 var/list/CENT_FREQS_ASSOC = list(

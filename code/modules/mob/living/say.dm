@@ -16,6 +16,7 @@ var/list/department_radio_keys = list(
 	  ":x" = "Raider",		".x" = "Raider",
 	  ":b" = "Burglar",		".b" = "Burglar",
 	  ":j" = "Bluespace",	".j" = "Bluespace",
+	  ":y" = "Ship",		".y" = "Ship",
 	  ":q" = "Ninja",		".q" = "Ninja",
 	  ":u" = "Operations",	".u" = "Operations",
 	  ":v" = "Service",		".v" = "Service",
@@ -38,6 +39,7 @@ var/list/department_radio_keys = list(
 	  ":X" = "Raider",		".X" = "Raider",
 	  ":B" = "Burglar",		".B" = "Burglar",
 	  ":J" = "Bluespace",	".J" = "Bluespace",
+	  ":Y" = "Ship",		".Y" = "Ship",
 	  ":Q" = "Ninja",		".Q" = "Ninja",
 	  ":U" = "Operations",	".U" = "Operations",
 	  ":V" = "Service",		".V" = "Service",
@@ -209,7 +211,7 @@ proc/get_radio_key_from_channel(var/channel)
 			return
 		speaking.broadcast(src,trim(message))
 		return 1
-	
+
 	if(!verb)
 		verb = say_quote(message, speaking, is_singing, whisper)
 

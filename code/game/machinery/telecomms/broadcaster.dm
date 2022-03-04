@@ -401,6 +401,8 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 					SSfeedback.msg_cargo += blackbox_msg
 				if(SRV_FREQ)
 					SSfeedback.msg_service += blackbox_msg
+				if(SHIP_FREQ)
+					SSfeedback.msg_ship += blackbox_msg
 				else
 					SSfeedback.messages += blackbox_msg
 
@@ -590,6 +592,8 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 					SSfeedback.msg_cargo += blackbox_msg
 				if(SRV_FREQ)
 					SSfeedback.msg_service += blackbox_msg
+				if(SHIP_FREQ)
+					SSfeedback.msg_ship += blackbox_msg
 				else
 					SSfeedback.messages += blackbox_msg
 
