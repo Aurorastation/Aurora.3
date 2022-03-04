@@ -318,7 +318,7 @@
 			return
 
 		var/armor = H.get_blocked_ratio(target_zone, BRUTE, damage_flags = DAM_SHARP, damage = 5)*100
-		if (target != user && armor > 50 && prob(50))
+		if (target != user && armor > 50)
 			user.visible_message(SPAN_DANGER("[user] tries to stab \the [target] in the [hit_area] with \the [src], but the attack is deflected by [target.get_pronoun("his")] armor!"), SPAN_WARNING("You try to stab \the [target] in the [hit_area] with \the [src], but the attack is deflected by [target.get_pronoun("his")] armor!"))
 			user.remove_from_mob(src)
 			qdel(src)
