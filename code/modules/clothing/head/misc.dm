@@ -666,7 +666,7 @@
 
 /obj/item/clothing/head/fancysummer
 	name = "fancy summer hat"
-	desc = "A fancy hat with a wide brim and a synthetic feather attached"
+	desc = "A fancy hat with a wide brim and a synthetic feather attached."
 	icon = 'icons/obj/contained_items/hats/summerhat.dmi'
 	icon_state = "summerhat"
 	item_state = "summerhat"
