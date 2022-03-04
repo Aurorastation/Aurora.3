@@ -279,7 +279,7 @@ datum/gear_tweak/social_credit/tweak_item(var/obj/item/clothing/accessory/badge/
 	gear_tweaks += new /datum/gear_tweak/path(workcloak)
 
 /datum/gear/accessory/skrell/tees
-	display_name = "skrellian t-shirts"
+	display_name = "skrellian wetshirts"
 	path = /obj/item/clothing/accessory/tshirt/skrell
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
