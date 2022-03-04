@@ -1,0 +1,6 @@
+author: Greenjoe
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds a fancy new summer hat to the loadout."

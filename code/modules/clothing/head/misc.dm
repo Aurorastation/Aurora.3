@@ -663,3 +663,36 @@
 	desc = "A paper sack with crude holes cut out for eyes and a sketchy smile drawn on the front. Not creepy at all."
 	icon_state = "papersack_smile"
 	flags_inv = BLOCKHEADHAIR
+
+/obj/item/clothing/head/fancysummer
+	name = "fancy summer hat"
+	desc = "A fancy hat with a wide brim and a synthetic feather attached"
+	icon = 'icons/obj/contained_items/hats/summerhat.dmi'
+	icon_state = "summerhat"
+	item_state = "summerhat"
+	contained_sprite = TRUE
+	build_from_parts = TRUE
+	var/additional_color = COLOR_GRAY
+
+/obj/item/clothing/head/fancysummer/update_icon()
+	cut_overlays()
+	var/image/feather = image(icon, null, "summerhat_feather")
+	feather.appearance_flags = RESET_COLOR
+	feather.color = additional_color
+	add_overlay(feather)
+
+/obj/item/clothing/head/fancysummer/worn_overlays(icon_file, slot)
+	. = ..()
+	if(slot == slot_head)
+		var/image/feather = image(icon_file, null, "summerhat_he_feather")
+		feather.appearance_flags = RESET_COLOR
+		feather.color = additional_color
+		. += feather
+
+/obj/item/clothing/head/fancysummer/get_mob_overlay(force)
+	var/image/base = ..()
+	var/image/feather = image(icon, null, "summerhat_he_feather")
+	feather.appearance_flags = RESET_COLOR
+	feather.color = additional_color
+	base.add_overlay(feather)
+	return base

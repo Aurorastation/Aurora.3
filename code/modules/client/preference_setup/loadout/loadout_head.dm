@@ -382,3 +382,8 @@ var/datum/gear_tweak/hair_block/gear_tweak_hair_block = new()
 			H.flags_inv |= BLOCKHEADHAIR
 		if("No")
 			H.flags_inv &= ~BLOCKHEADHAIR
+
+/datum/gear/head/summerhat
+	display_name = "fancy summer hat"
+	path = /obj/item/clothing/head/fancysummer
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ADDITIONAL_COLOR_SELECTION
