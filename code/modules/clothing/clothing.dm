@@ -555,32 +555,42 @@
 	if(!mob_wear_hat(user))
 		return ..()
 
+#define WEAR_HAT 1
+#define ALREADY_WEARING_HAT 2
 /obj/item/clothing/head/proc/mob_wear_hat(var/mob/user)
 	if(!Adjacent(user))
-		return 0
+		return FALSE
 	var/success
 	if(istype(user, /mob/living/silicon/robot/drone))
 		var/mob/living/silicon/robot/drone/D = user
 		if(D.hat)
-			success = 2
-		else
+			if(alert("You are already wearing a [D.hat]. Swap with [src]?",,"Yes","No") == "Yes")
+				D.hat.forceMove(get_turf(src))
+				D.hat = null
+				D.cut_overlay(D.hat_overlay)
+				success = WEAR_HAT
+			else
+				success = ALREADY_WEARING_HAT
+		if(success != ALREADY_WEARING_HAT)
 			D.wear_hat(src)
-			success = 1
+			success = WEAR_HAT
 	else if(istype(user, /mob/living/carbon/alien/diona))
 		var/mob/living/carbon/alien/diona/D = user
 		if(D.hat)
-			success = 2
+			success = ALREADY_WEARING_HAT
 		else
 			D.wear_hat(src)
-			success = 1
+			success = WEAR_HAT
 
 	if(!success)
-		return 0
-	else if(success == 2)
+		return FALSE
+	else if(success == ALREADY_WEARING_HAT)
 		to_chat(user, SPAN_WARNING("You are already wearing a hat."))
-	else if(success == 1)
+	else if(success == WEAR_HAT)
 		to_chat(user, SPAN_NOTICE("You crawl under \the [src]."))
-	return 1
+	return TRUE
+#undef WEAR_HAT
+#undef ALREADY_WEARING_HAT
 
 /obj/item/clothing/head/return_own_image()
 	var/image/our_image

@@ -37,6 +37,8 @@
 	overmap_event_areas = 15
 	planet_size = list(255,255)
 
+	away_site_budget = 3
+
 	station_networks = list(
 		NETWORK_COMMAND,
 		NETWORK_ENGINE,
@@ -104,7 +106,9 @@
 		/datum/shuttle/autodock/overmap/intrepid,
 		/datum/shuttle/autodock/overmap/mining,
 		/datum/shuttle/autodock/ferry/merchant_aurora,
-		/datum/shuttle/autodock/ferry/autoreturn/ccia
+		/datum/shuttle/autodock/ferry/autoreturn/ccia,
+		/datum/shuttle/autodock/overmap/orion_express_shuttle,
+		/datum/shuttle/autodock/overmap/orion_express_ship
 	)
 
 	evac_controller_type = /datum/evacuation_controller/starship

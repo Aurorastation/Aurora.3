@@ -56,6 +56,9 @@
 	var/noair_directions = 0
 	var/diffarea_directions = 0
 
+	var/open_sound = 'sound/machines/firelockopen.ogg'
+	var/close_sound = 'sound/machines/firelockclose.ogg'
+
 /obj/machinery/door/firedoor/Initialize(var/mapload)
 	. = ..()
 	for(var/obj/machinery/door/firedoor/F in loc)
@@ -259,18 +262,27 @@
 	if(!istype(C, /obj/item/forensics))
 		add_fingerprint(user)
 	if(operating)
-		return//Already doing something.
+		return // Already doing something.
 	if(C.iswelder() && !repairing)
-		var/obj/item/weldingtool/W = C
-		if(W.remove_fuel(0, user))
+		var/obj/item/weldingtool/WT = C
+		if(WT.isOn())
+			user.visible_message(
+				SPAN_WARNING("[user] begins welding [src] [blocked ? "open" : "shut"]."),
+				SPAN_NOTICE("You begin welding [src] [blocked ? "open" : "shut"]."),
+				SPAN_ITALIC("You hear a welding torch on metal.")
+			)
+			playsound(src, 'sound/items/welder.ogg', 50, 1)
+			if (!do_after(user, 2/C.toolspeed SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_open, src.density)))
+				return
+			if(!WT.remove_fuel(0,user))
+				to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
+				return
+			playsound(src, 'sound/items/welder_pry.ogg', 50, 1)
 			blocked = !blocked
-			user.visible_message("<span class='danger'>\The [user] [blocked ? "welds" : "unwelds"] \the [src] with \a [W].</span>",\
-			"You [blocked ? "weld" : "unweld"] \the [src] with \the [W].",\
-			"You hear something being welded.")
-			playsound(src, 'sound/items/welder.ogg', 100, 1)
 			update_icon()
 			return
-
+		else
+			return
 	if(density && C.isscrewdriver())
 		hatch_open = !hatch_open
 		user.visible_message("<span class='danger'>[user] has [hatch_open ? "opened" : "closed"] \the [src] maintenance panel.</span>",
@@ -438,8 +450,10 @@
 	switch(animation)
 		if("opening")
 			flick("door_opening", src)
+			playsound(src, open_sound, 37, 1)
 		if("closing")
 			flick("door_closing", src)
+			playsound(src, close_sound, 37, 1)
 
 /obj/machinery/door/firedoor/update_icon()
 	cut_overlays()
@@ -531,5 +545,7 @@
 	icon = 'icons/obj/doors/DoorHazard2x1.dmi'
 	width = 2
 	dir = EAST
-
 	enable_smart_generation = FALSE
+
+	open_sound = 'sound/machines/firewideopen.ogg'
+	close_sound = 'sound/machines/firewideclose.ogg'

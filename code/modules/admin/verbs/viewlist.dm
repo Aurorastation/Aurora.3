@@ -13,7 +13,7 @@
     ui_interact(user)
 
 /datum/vueui_module/list_viewer/ui_interact(mob/user)
-    if(!check_rights(R_VAREDIT|R_DEV)) return
+    if(!check_rights(R_VAREDIT|R_DEV|R_MOD)) return
 
     var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
     if(!ui)
