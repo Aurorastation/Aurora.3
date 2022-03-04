@@ -513,6 +513,7 @@
 /obj/structure/closet/update_icon()
 	if(!door_underlay)
 		cut_overlays()
+
 	if(!opened)
 		layer = OBJ_LAYER
 		if(!is_animating_door)
@@ -524,7 +525,7 @@
 				update_secure_overlays()
 			if(welded)
 				add_overlay("[icon_door_overlay]welded")
-	else
+	else if(opened)
 		layer = BELOW_OBJ_LAYER
 		if(!is_animating_door)
 			if(icon_door_override)
