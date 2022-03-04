@@ -59,8 +59,7 @@ var/list/radiochannels = list(
 // central command channels, i.e deathsquid & response teams
 var/list/CENT_FREQS = list(
 	ERT_FREQ,
-	DTH_FREQ,
-	SHIP_FREQ
+	DTH_FREQ
 )
 
 var/list/CENT_FREQS_ASSOC = list(
@@ -74,14 +73,16 @@ var/list/ANTAG_FREQS = list(
 	RAID_FREQ,
 	NINJ_FREQ,
 	BLSP_FREQ,
-	BURG_FREQ
+	BURG_FREQ,
+	SHIP_FREQ
 )
 
 var/list/ANTAG_FREQS_ASSOC = list(
 	"[SYND_FREQ]" = TRUE,
 	"[RAID_FREQ]" = TRUE,
 	"[NINJ_FREQ]" = TRUE,
-	"[BURG_FREQ]" = TRUE
+	"[BURG_FREQ]" = TRUE,
+	"[SHIP_FREQ]" = TRUE
 )
 
 //Department channels, arranged lexically

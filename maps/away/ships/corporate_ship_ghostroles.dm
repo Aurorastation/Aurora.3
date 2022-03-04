@@ -27,6 +27,8 @@
 
 	id = /obj/item/card/id/orion_ship
 
+	l_ear = /obj/item/device/radio/headset/ship
+
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
 /datum/outfit/admin/orion_express_courier/get_id_access()

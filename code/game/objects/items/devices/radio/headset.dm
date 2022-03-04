@@ -674,6 +674,7 @@
 /obj/item/device/radio/headset/ship
 	icon_state = "syn_headset"
 	ks1type = /obj/item/device/encryptionkey/ship
+	syndie = TRUE
 
 /obj/item/device/radio/headset/binary
 	origin_tech = list(TECH_ILLEGAL = 3)
