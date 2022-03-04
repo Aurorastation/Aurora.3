@@ -46,7 +46,7 @@
 	var/door_underlay = FALSE //used if you want to have an overlay below the door. used for guncabinets.
 	var/door_anim_squish = 0.12 // Multiplier on proc/get_door_transform. basically, how far you want this to swing out. value of 1 means the length of the door is unchanged (and will swing out of the tile), 0 means it will just slide back and forth.
 	var/door_anim_angle = 136
-	var/door_hinge_x = -6.5
+	var/door_hinge = -6.5 // for closets, x away from the centre of the closet. typically good to add a 0.5 so it's centered on the edge of the closet.
 	var/door_anim_time = 2.5 // set to 0 to make the door not animate at all
 
 
@@ -576,9 +576,9 @@
 
 /obj/structure/closet/proc/get_door_transform(angle)
 	var/matrix/M = matrix()
-	M.Translate(-door_hinge_x, 0)
+	M.Translate(-door_hinge, 0)
 	M.Multiply(matrix(cos(angle), 0, 0, -sin(angle) * door_anim_squish, 1, 0))
-	M.Translate(door_hinge_x, 0)
+	M.Translate(door_hinge, 0)
 	return M
 
 /obj/structure/closet/hear_talk(mob/M as mob, text, verb, datum/language/speaking)
