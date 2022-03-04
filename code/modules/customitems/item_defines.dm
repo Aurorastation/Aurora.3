@@ -2115,7 +2115,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/kathira_cloak.dmi'
 	icon_state = "idris_cloak_hood"
 	contained_sprite = TRUE
-	flags_inv = HIDEEARS | BLOCKHAIR | HIDEEARS
+	flags_inv = HIDEEARS | BLOCKHAIR
 
 /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/update_icon(var/hooded = FALSE)
 	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
@@ -2349,3 +2349,48 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "iliasz_jacket"
 	item_state = "iliasz_jacket"
 	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/dekel_smock // corporate smock - Dekel Mrrhazrughan - veterangary
+	name = "corporate smock"
+	desc = "A dark colored surplus winter smock repurposed for interstellar use. It still has a hood and a snow mask, shaded into corporate colors. A traditional Stellar Corporate Conglomerate star is embroidered on the back."
+	icon = 'icons/obj/custom_items/dekel_smock.dmi'
+	icon_override = 'icons/obj/custom_items/dekel_smock.dmi'
+	icon_state = "seccloak"
+	item_state = "seccloak"
+	var/hoodtype = /obj/item/clothing/head/winterhood/fluff/dekel_hood
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/dekel_smock/Initialize()
+	. = ..()
+	new hoodtype(src)
+
+/obj/item/clothing/head/winterhood/fluff/dekel_hood
+	name = "corporate hood"
+	desc = "A hood attached to a corporate smock."
+	icon = 'icons/obj/custom_items/dekel_smock.dmi'
+	icon_override = 'icons/obj/custom_items/dekel_smock.dmi'
+	icon_state = "seccloak_hood"
+	contained_sprite = TRUE
+	flags_inv = HIDEEARS | BLOCKHAIR
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/dekel_smock/on_attached(obj/item/clothing/S, mob/user as mob)
+	..()
+	has_suit.verbs += /obj/item/clothing/accessory/poncho/tajarancloak/fluff/dekel_smock/verb/change_hood
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/dekel_smock/on_removed(mob/user as mob)
+	if(has_suit)
+		has_suit.verbs -= /obj/item/clothing/accessory/poncho/tajarancloak/fluff/dekel_smock/verb/change_hood
+	..()
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/dekel_smock/verb/change_hood()
+	set name = "Toggle Hood"
+	set category = "Object"
+	set src in usr
+
+	if(use_check_and_message(usr))
+		return
+
+	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/dekel_smock/D = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/dekel_smock)
+	if(!D)
+		return
+
+	SEND_SIGNAL(D, COMSIG_ITEM_UPDATE_STATE, D)
