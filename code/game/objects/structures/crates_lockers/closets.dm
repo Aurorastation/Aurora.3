@@ -43,7 +43,8 @@
 
 	var/obj/effect/overlay/closet_door/door_obj
 	var/is_animating_door = FALSE
-	var/door_anim_squish = 0.12 // Multiplier on proc/get_door_transform. See fridge as example. I hope you like trigonometry.
+	var/door_underlay = FALSE //used if you want to have an overlay below the door. used for guncabinets.
+	var/door_anim_squish = 0.12 // Multiplier on proc/get_door_transform. basically, how far you want this to swing out. value of 1 means the length of the door is unchanged (and will swing out of the tile), 0 means it will just slide back and forth.
 	var/door_anim_angle = 136
 	var/door_hinge_x = -6.5
 	var/door_anim_time = 2.5 // set to 0 to make the door not animate at all
@@ -510,7 +511,8 @@
 		to_chat(usr, SPAN_WARNING("This mob type can't use this verb."))
 
 /obj/structure/closet/update_icon()
-	cut_overlays()
+	if(!door_underlay)
+		cut_overlays()
 	if(!opened)
 		layer = OBJ_LAYER
 		if(!is_animating_door)
@@ -567,8 +569,8 @@
 	addtimer(CALLBACK(src,.proc/end_door_animation),door_anim_time,TIMER_UNIQUE|TIMER_OVERRIDE)
 
 /obj/structure/closet/proc/end_door_animation()
-	is_animating_door = FALSE
-	vis_contents -= door_obj
+	is_animating_door = FALSE // comment this out and the line below to manually tweak the animation end state by fiddling with the door_anim vars to match the open door icon
+	vis_contents -= door_obj //
 	update_icon()
 	compile_overlays(src)
 
