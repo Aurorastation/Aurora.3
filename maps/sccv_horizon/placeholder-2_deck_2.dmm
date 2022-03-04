@@ -8754,10 +8754,14 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "fEI" = (
-/obj/structure/table/standard,
 /obj/machinery/camera/network/second_deck{
 	c_tag = "Second Deck - Garden";
 	dir = 8
+	},
+/obj/structure/sink/kitchen{
+	dir = 8;
+	name = "sink";
+	pixel_x = 20
 	},
 /turf/simulated/floor/wood,
 /area/hydroponics/garden)
