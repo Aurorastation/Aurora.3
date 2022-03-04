@@ -807,7 +807,7 @@
 	},
 /area/dungeon/crashed_ship)
 "qn" = (
-/obj/item/reagent_containers/cooking_container/plate/bowl{
+/obj/item/reagent_containers/cooking_container/board/bowl{
 	pixel_y = 8
 	},
 /obj/item/storage/box/fancy/cigarettes,

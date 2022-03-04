@@ -248,7 +248,7 @@
 		return FALSE
 	return TRUE
 
-/obj/item/reagent_containers/cooking_container/plate
+/obj/item/reagent_containers/cooking_container/board
 	name = "chopping board"
 	shortname = "board"
 	desc = "A board for preparing food. Not chopping. I'm sorry."
@@ -258,12 +258,12 @@
 	volume = 15 // for things like jelly sandwiches etc
 	max_space = 25
 
-/obj/item/reagent_containers/cooking_container/plate/examine(mob/user)
+/obj/item/reagent_containers/cooking_container/board/examine(mob/user)
 	. = ..()
 	if(length(contents) || reagents?.total_volume)
 		to_chat(user, SPAN_NOTICE("To attempt cooking; click and hold, then drag this onto your character"))
 
-/obj/item/reagent_containers/cooking_container/plate/MouseDrop(var/obj/over_obj)
+/obj/item/reagent_containers/cooking_container/board/MouseDrop(var/obj/over_obj)
 	if(over_obj != usr || use_check(usr))
 		return ..()
 	if(!(length(contents) || reagents?.total_volume))
@@ -301,21 +301,21 @@
 	QDEL_NULL(temp) //delete buffer object
 	return ..()
 
-/obj/item/reagent_containers/cooking_container/plate/do_empty(mob/user)
+/obj/item/reagent_containers/cooking_container/board/do_empty(mob/user)
 	. = ..()
 	icon_state = initial(icon_state)
 
-/obj/item/reagent_containers/cooking_container/plate/attackby(obj/item/I, mob/user)
+/obj/item/reagent_containers/cooking_container/board/attackby(obj/item/I, mob/user)
 	. = ..()
 	if (length(contents)) //Only if something was actually added
 		icon_state = "[initial(icon_state)]_prep"
 
-/obj/item/reagent_containers/cooking_container/plate/on_reagent_change()
+/obj/item/reagent_containers/cooking_container/board/on_reagent_change()
 	. = ..()
 	if (reagents.total_volume) //Only if something was actually added
 		icon_state = "[initial(icon_state)]_prep"
 
-/obj/item/reagent_containers/cooking_container/plate/bowl
+/obj/item/reagent_containers/cooking_container/board/bowl
 	name = "mixing bowl"
 	shortname = "bowl"
 	desc = "A bowl for mixing things in."

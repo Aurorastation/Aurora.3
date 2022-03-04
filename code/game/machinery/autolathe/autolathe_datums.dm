@@ -46,7 +46,7 @@
 
 /datum/autolathe/recipe/bowl
 	name = "bowl"
-	path = /obj/item/reagent_containers/cooking_container/plate/bowl
+	path = /obj/item/reagent_containers/cooking_container/board/bowl
 	category = "General"
 
 /datum/autolathe/recipe/crowbar
