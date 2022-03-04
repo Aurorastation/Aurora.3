@@ -372,7 +372,7 @@
 //dpra party badges
 
 /obj/item/clothing/accessory/tajaran/abparty_pin
-	name = "adhomaian blue party pin"
+	name = "adhomian blue party pin"
 	desc = "A pin of the Adhomian Blue Party. This symbol is a white hoe on a blue background representing the party's dedication to environmentalism and ruralism."
 	icon_state = "abparty_pin"
 	item_state = "abparty_pin"
