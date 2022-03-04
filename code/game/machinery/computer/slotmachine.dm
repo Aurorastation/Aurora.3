@@ -65,19 +65,11 @@
 	money += round(delta_time / 2) //SPESSH MAJICKS
 
 /obj/machinery/computer/slot_machine/update_icon()
-	if(stat & BROKEN)
-		icon_state = "slots_broken"
-		if(stat & NOPOWER)
-			return
-		else
-			icon_screen = "slots_screen_broken"
+	if(working)
+		icon_screen = "slots_screen_working"
 	else
-		icon_state = "slots"
-		if(working)
-			icon_screen = "slots_screen_working"
-		else
-			icon_screen = "slots_screen"
-	return ..()
+		icon_screen = "slots_screen"
+	. = ..()
 
 /obj/machinery/computer/slot_machine/attack_hand(mob/user)
 	add_fingerprint(user)
