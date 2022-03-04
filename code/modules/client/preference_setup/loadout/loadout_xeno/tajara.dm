@@ -378,7 +378,7 @@
 	card["national adhomai workers party pin"] = /obj/item/clothing/accessory/tajaran/nawparty_pin
 	card["free tajaran people party pin"] = /obj/item/clothing/accessory/tajaran/ftpparty_pin
 	card["followers of Nated party pin"] = /obj/item/clothing/accessory/tajaran/fonparty_pin
-	card["adhomaian blue party pin"] = /obj/item/clothing/accessory/tajaran/abparty_pin
+	card["adhomian blue party pin"] = /obj/item/clothing/accessory/tajaran/abparty_pin
 	card["amohdan free lodge party pin"] = /obj/item/clothing/accessory/tajaran/aflparty_pin
 	gear_tweaks += new /datum/gear_tweak/path(card)
 
