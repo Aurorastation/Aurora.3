@@ -8,6 +8,7 @@
 	icon_state = "m_garment"
 	item_state = "m_garment"
 	contained_sprite = 1
+	autodrobe_no_remove = TRUE
 
 /obj/item/clothing/mask/breath/vaurca/adjust_mask(mob/user)
 	to_chat(user, "This mask is too tight to adjust.")
