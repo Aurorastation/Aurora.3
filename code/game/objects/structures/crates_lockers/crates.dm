@@ -14,9 +14,21 @@
 	close_sound =  'sound/machines/click.ogg'
 	store_structure = TRUE
 	dense_when_open = TRUE
-	door_anim_time = 0 // no animation
-
+	door_anim_time = 3
+	door_anim_angle = 180
+	door_hinge = 3.5
 	var/tablestatus = 0
+
+	var/azimuth_angle_2 = 138 //in this context the azimuth angle for over 90 degree
+	var/radius_2 = 1.35
+	var/static/list/animation_math //assoc list with pre calculated values
+
+/obj/structure/closet/crate/Initialize()
+	. = ..()
+	if(animation_math == null) //checks if there is already a list for animation_math if not creates one to avoid runtimes
+		animation_math = new/list()
+	if(!door_anim_time == 0 && !animation_math["[door_anim_time]-[door_anim_angle]-[azimuth_angle_2]-[radius_2]-[door_hinge]"])
+		animation_list()
 
 /obj/structure/closet/crate/can_open()
 	if(tablestatus == UNDER_TABLE)//Can't be opened while under a table
@@ -25,6 +37,49 @@
 
 /obj/structure/closet/crate/can_close()
 	return 1
+
+/obj/structure/closet/crate/animate_door(var/closing = FALSE)
+	if(!door_anim_time)
+		return
+	if(!door_obj) door_obj = new
+	vis_contents |= door_obj
+	door_obj.icon = icon
+	door_obj.icon_state = "[icon_door || icon_state]_door"
+	is_animating_door = TRUE
+	var/num_steps = door_anim_time / world.tick_lag
+	var/list/animation_math_list = animation_math["[door_anim_time]-[door_anim_angle]-[azimuth_angle_2]-[radius_2]-[door_hinge]"]
+	for(var/I in 0 to num_steps)
+		var/door_state = I == (closing ? num_steps : 0) ? "[icon_door || icon_state]_door" : animation_math_list[closing ? 2 * num_steps - I : num_steps + I] <= 0 ? "[icon_door_override ? icon_door : icon_state]_back" : "[icon_door || icon_state]_door"
+		var/door_layer = I == (closing ? num_steps : 0) ? ABOVE_MOB_LAYER : animation_math_list[closing ? 2 * num_steps - I : num_steps + I] <= 0 ? FLOAT_LAYER : ABOVE_MOB_LAYER
+		var/matrix/M = get_door_transform(I == (closing ? num_steps : 0) ? 0 : animation_math_list[closing ? num_steps - I : I], I == (closing ? num_steps : 0) ? 1 : animation_math_list[closing ?  2 * num_steps - I : num_steps + I])
+		if(I == 0)
+			door_obj.transform = M
+			door_obj.icon_state = door_state
+			door_obj.layer = door_layer
+		else if(I == 1)
+			animate(door_obj, transform = M, icon_state = door_state, layer = door_layer, time = world.tick_lag, flags = ANIMATION_END_NOW)
+		else
+			animate(transform = M, icon_state = door_state, layer = door_layer, time = world.tick_lag)
+	addtimer(CALLBACK(src,.proc/end_door_animation),door_anim_time,TIMER_UNIQUE|TIMER_OVERRIDE)
+
+/obj/structure/closet/crate/get_door_transform(crateanim_1, crateanim_2)
+	var/matrix/M = matrix()
+	M.Translate(0, -door_hinge)
+	M.Multiply(matrix(1, crateanim_1, 0, 0, crateanim_2, 0))
+	M.Translate(0, door_hinge)
+	return M
+
+/obj/structure/closet/crate/proc/animation_list() //pre calculates a list of values for the crate animation cause byond not like math
+	var/num_steps_1 = door_anim_time / world.tick_lag
+	var/list/new_animation_math_sublist[num_steps_1 * 2]
+	for(var/I in 1 to num_steps_1) //loop to save the animation values into the lists
+		var/angle_1 = door_anim_angle * (I / num_steps_1)
+		var/polar_angle = abs(arcsin(cos(angle_1)))
+		var/azimuth_angle = angle_1 >= 90 ? azimuth_angle_2 : 0
+		var/radius_cr = angle_1 >= 90 ? radius_2 : 1
+		new_animation_math_sublist[I] = -sin(polar_angle) * sin(azimuth_angle) * radius_cr
+		new_animation_math_sublist[num_steps_1 + I] = cos(azimuth_angle) * sin(polar_angle) * radius_cr
+	animation_math["[door_anim_time]-[door_anim_angle]-[azimuth_angle_2]-[radius_2]-[door_hinge]"] = new_animation_math_sublist
 
 /*
 ==========================
@@ -224,6 +279,7 @@
 	name = "freezer"
 	desc = "A freezer."
 	icon_state = "freezer"
+	door_hinge = 4.5
 	var/target_temp = T0C - 40
 	var/cooling_power = 40
 
