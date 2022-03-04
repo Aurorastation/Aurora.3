@@ -23,7 +23,7 @@
 		// Ignore station areas.
 		if (the_station_areas[T.loc])
 			continue
-		else if (istype(T, /turf/space) || istype(T, /turf/unsimulated/floor/asteroid) || isopenturf(T) || istype(T, /turf/simulated/floor/reinforced) || istype(T, /turf/simulated/floor/plating))
+		else if (istype(T, /turf/space) || istype(T, /turf/unsimulated/floor/asteroid) || isopenturf(T) || istype(T, /turf/simulated/floor/reinforced))
 			for (var/uu in RANGE_TURFS(1, T))
 				U = uu
 				if (T == U)
@@ -49,7 +49,7 @@
 				// Ignore station areas.
 				if (the_station_areas[T.loc])
 					continue
-				else if (istype(T, /turf/space) || istype(T, /turf/unsimulated/floor/asteroid) || isopenturf(T) || istype(T, /turf/simulated/floor/reinforced) || istype(T, /turf/simulated/floor/plating))
+				else if (istype(T, /turf/space) || istype(T, /turf/unsimulated/floor/asteroid) || isopenturf(T) || istype(T, /turf/simulated/floor/reinforced))
 					for (var/uu in RANGE_TURFS(1, T))
 						U = uu
 						if (T == U)
@@ -59,27 +59,3 @@
 							out += T
 							break
 	return out
-
-/obj/machinery/shield_gen/external/proc/getzabove(var/turf/location)
-	var/connected = list()
-	var/turf/above = GetAbove(location)
-
-	if(above)
-		connected += above
-		var/connected_levels = getzabove(above)
-		for(var/turf/z as anything in connected_levels)
-			connected += z
-	
-	return connected
-
-/obj/machinery/shield_gen/external/proc/getzbelow(var/turf/location)
-	var/connected = list()
-	var/turf/below = GetBelow(location)
-
-	if(below)
-		connected += below
-		var/connected_levels = getzbelow(below)
-		for(var/turf/z as anything in connected_levels)
-			connected += z
-	
-	return connected

@@ -29,8 +29,8 @@
 	var/time_since_fail = 100
 	var/energy_conversion_rate = 0.0002	//how many renwicks per watt?
 	use_power = 0	//doesn't use APC power
-	var/multiz = FALSE
-	var/multi_unlocked = FALSE
+	var/multiz = TRUE
+	var/multi_unlocked = TRUE
 
 /obj/machinery/shield_gen/Initialize()
 	for(var/obj/machinery/shield_capacitor/possible_cap in range(1, src))
@@ -213,23 +213,35 @@
 
 	var/turf/T
 
-	for (var/x_offset = -field_radius; x_offset <= field_radius; x_offset++)
-		T = locate(gen_turf.x + x_offset, gen_turf.y - field_radius, gen_turf.z)
-		if (T)
-			. += T
+	var/connected_levels = list(gen_turf)
+	if(multiz)
+		var/turf/above = getzabove(src)
+		var/turf/below = getzbelow(src)
+		if(above)
+			for(var/turf/z in above)
+				connected_levels += z
+		if(below)
+			for(var/turf/z in below)
+				connected_levels += z
 
-		T = locate(gen_turf.x + x_offset, gen_turf.y + field_radius, gen_turf.z)
-		if (T)
-			. += T
+	for(var/turf/z_level in connected_levels)
+		for (var/x_offset = -field_radius; x_offset <= field_radius; x_offset++)
+			T = locate(z_level.x + x_offset, z_level.y - field_radius, z_level.z)
+			if (T)
+				. += T
 
-	for (var/y_offset = -field_radius+1; y_offset < field_radius; y_offset++)
-		T = locate(gen_turf.x - field_radius, gen_turf.y + y_offset, gen_turf.z)
-		if (T)
-			. += T
+			T = locate(z_level.x + x_offset, z_level.y + field_radius, z_level.z)
+			if (T)
+				. += T
 
-		T = locate(gen_turf.x + field_radius, gen_turf.y + y_offset, gen_turf.z)
-		if (T)
-			. += T
+		for (var/y_offset = -field_radius+1; y_offset < field_radius; y_offset++)
+			T = locate(z_level.x - field_radius, z_level.y + y_offset, z_level.z)
+			if (T)
+				. += T
+
+			T = locate(z_level.x + field_radius, z_level.y + y_offset, z_level.z)
+			if (T)
+				. += T
 
 /obj/machinery/shield_gen/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
@@ -281,3 +293,27 @@
 
 	src.add_fingerprint(usr)
 	return 1
+
+/obj/machinery/shield_gen/proc/getzabove(var/turf/location)
+	var/connected = list()
+	var/turf/above = GetAbove(location)
+
+	if(above)
+		connected += above
+		var/connected_levels = getzabove(above)
+		for(var/turf/z as anything in connected_levels)
+			connected += z
+
+	return connected
+
+/obj/machinery/shield_gen/proc/getzbelow(var/turf/location)
+	var/connected = list()
+	var/turf/below = GetBelow(location)
+
+	if(below)
+		connected += below
+		var/connected_levels = getzbelow(below)
+		for(var/turf/z as anything in connected_levels)
+			connected += z
+
+	return connected
