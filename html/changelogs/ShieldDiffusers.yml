@@ -1,0 +1,8 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Added shield diffusers. They are not currently mapped in."
+  - rscadd: "The bubble shield generator now have the option for multi-z shields."
+  - tweak: "Changed what kind of turfs hull shields make shields on. They should no longer make shields within the station/ship."
