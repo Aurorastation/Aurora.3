@@ -4604,9 +4604,9 @@
 	name = "Zo'ra Soda"
 	description = "Zo'ra Soda. You aren't supposed to see this."
 	color = "#000000"
-	adj_dizzy = -6
-	adj_drowsy = -4
-	adj_sleepy = -3
+	adj_dizzy = -5
+	adj_drowsy = -3
+	adj_sleepy = -2
 	overdose = 45
 	caffeine = 0.4
 	taste_description = "zo'ra soda"
