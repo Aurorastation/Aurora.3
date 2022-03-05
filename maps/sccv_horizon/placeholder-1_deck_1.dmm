@@ -2104,7 +2104,9 @@
 	},
 /obj/machinery/conveyor{
 	dir = 9;
-	id = "QMLoad"
+	id = "QMLoad";
+	layer = 2.9;
+	reversed = 1
 	},
 /turf/simulated/floor/plating,
 /area/operations/loading)
@@ -4091,11 +4093,7 @@
 	},
 /area/maintenance/wing/port/deck1)
 "dTk" = (
-/obj/effect/shuttle_landmark/distress/blue{
-	base_turf = /turf/simulated/floor/plating;
-	name = "Port Hangar"
-	},
-/obj/effect/shuttle_landmark/automatic,
+/obj/effect/shuttle_landmark/horizon/nav2,
 /turf/simulated/floor/plating,
 /area/hangar/auxiliary)
 "dUK" = (
@@ -4480,6 +4478,13 @@
 /obj/structure/cable/green,
 /turf/simulated/floor/plating,
 /area/maintenance/substation/engineering/lower)
+"ekm" = (
+/obj/effect/shuttle_landmark/distress/blue{
+	base_turf = /turf/simulated/floor/plating;
+	name = "Port Hangar"
+	},
+/turf/simulated/floor/plating,
+/area/hangar/auxiliary)
 "ekt" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -17191,7 +17196,7 @@
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
 "pMP" = (
-/obj/effect/shuttle_landmark/automatic,
+/obj/effect/shuttle_landmark/horizon/nav1,
 /turf/simulated/floor/plating,
 /area/hangar/auxiliary)
 "pMX" = (
@@ -53639,7 +53644,7 @@ bJa
 bJa
 bJa
 dTk
-bJa
+ekm
 bJa
 bJa
 bJa

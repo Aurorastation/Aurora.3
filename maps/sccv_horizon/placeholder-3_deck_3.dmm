@@ -6874,12 +6874,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
-"pV" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/security/investigations)
 "pW" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -47687,7 +47681,7 @@ Nr
 vq
 vq
 Nv
-pV
+vq
 vq
 ic
 JH

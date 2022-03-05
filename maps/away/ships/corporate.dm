@@ -73,6 +73,7 @@
 /obj/effect/shuttle_landmark/orion_express_ship/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_orion_express_ship"
+	base_turf = /turf/space/transit/south
 
 /obj/machinery/computer/shuttle_control/explore/orion_express_ship
 	name = "ship control console"
@@ -118,4 +119,5 @@
 /obj/effect/shuttle_landmark/orion_express_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_orion_express"
+	base_turf = /turf/space/transit/south
 
