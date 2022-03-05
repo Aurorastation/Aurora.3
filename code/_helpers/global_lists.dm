@@ -21,7 +21,6 @@ var/global/list/mechas_list = list()				//list of all mechs. Used by hostile mob
 var/global/list/joblist = list()					//list of all jobstypes, minus borg and AI
 var/global/list/brig_closets = list()				//list of all brig secure_closets. Used by brig timers. Probably should be converted to use SSwireless eventually.
 
-var/global/list/teleportlocs = list()
 var/global/list/ghostteleportlocs = list()
 var/global/list/centcom_areas = list()
 var/global/list/the_station_areas = list()
