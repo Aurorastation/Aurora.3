@@ -1,6 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes:
-  - bugfix: "Robots that go to cryo will now properly have their cameras removed from the camera network list."
