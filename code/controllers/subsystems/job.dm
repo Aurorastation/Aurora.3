@@ -720,10 +720,11 @@
 			H.mind.special_role = null
 
 	// Delete them from datacore.
-
-	if(!SSrecords.remove_record_by_field("fingerprint", H.get_full_print()))
-		// didn't find a record by fingerprint, fallback to deleting by name
-		SSrecords.remove_record_by_field("name", H.real_name)
+	if(ishuman(H))
+		SSrecords.remove_record_by_field("fingerprint", H.get_full_print())
+		if(H.species)
+			H.species.handle_despawn(H)
+	SSrecords.remove_record_by_field("name", H.real_name)
 	SSrecords.reset_manifest()
 
 	log_and_message_admins("([H.mind.role_alt_title]) entered cryostorage.", user = H)
@@ -732,8 +733,6 @@
 	H.ckey = null
 
 	// Delete the mob.
-	if(H.species)
-		H.species.handle_despawn(H)
 	qdel(H)
 
 // Equips a human-type with their custom loadout crap.
