@@ -62,7 +62,8 @@
 			var/area/A = get_area(M)
 			loc_display = A.name
 		if(T.malfunction)
-			loc_display = pick(teleportlocs)
+			var/area/location = pick(the_station_areas)
+			loc_display = location.name
 		var/list/tracker_info = list(
 			"id" = T.id,
 			"loc_display" = loc_display,

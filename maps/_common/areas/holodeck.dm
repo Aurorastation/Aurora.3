@@ -5,6 +5,7 @@
 	no_light_control = TRUE
 	station_area = TRUE
 	dynamic_lighting = FALSE
+	flags = NO_GHOST_TELEPORT_ACCESS
 
 /area/holodeck/alphadeck
 	name = "Holodeck Alpha"
