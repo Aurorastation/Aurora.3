@@ -8,6 +8,8 @@
 		)
 	icon_state = "dropper"
 	item_state = "dropper"
+	worn_overlay = "filling"
+	build_from_parts = TRUE
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = list(1,2,3,4,5)
 	w_class = ITEMSIZE_TINY
@@ -93,9 +95,9 @@
 /obj/item/reagent_containers/dropper/update_icon()
 	cut_overlays()
 	if(reagents)
-		var/image/filling = image('icons/obj/reagentfillings.dmi', src, "[icon_state]")
-		filling.color = reagents.get_color()
-		add_overlay(filling)
+		add_overlay(overlay_image('icons/obj/reagentfillings.dmi', "[icon_state]", color = reagents.get_color()))
+		worn_overlay_color = reagents.get_color() // handles inhands
+		update_held_icon()
 
 /obj/item/reagent_containers/dropper/AltClick(mob/user)
 	var/N = input("Amount per transfer from this:", "[src]") as null|anything in possible_transfer_amounts

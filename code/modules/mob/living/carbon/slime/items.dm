@@ -125,7 +125,12 @@
 	name = "docility potion"
 	desc = "A potent chemical mix that will nullify a slime's powers, causing it to become docile and tame."
 	icon = 'icons/obj/chemical.dmi'
-	icon_state = "bottle19"
+	icon_state = "bottle-1"
+
+/obj/item/slimepotion/Initialize() // Better than hardsprited in stuff.
+	var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state]-100")
+	filling.color = COLOR_PINK
+	add_overlay(filling)
 
 /obj/item/slimepotion/attack(var/mob/living/carbon/slime/M, var/mob/user)
 	if(!istype(M, /mob/living/carbon/slime)) //If target is not a slime.
@@ -159,7 +164,12 @@
 	name = "advanced docility potion"
 	desc = "A potent chemical mix that will nullify a slime's powers, causing it to become docile and tame. This one is meant for adult slimes"
 	icon = 'icons/obj/chemical.dmi'
-	icon_state = "bottle19"
+	icon_state = "bottle-1"
+
+/obj/item/slimepotion2/Initialize() // Better than hardsprited in stuff.
+	var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state]-100")
+	filling.color = COLOR_PINK
+	add_overlay(filling)
 
 /obj/item/slimepotion2/attack(mob/living/carbon/slime/M as mob, mob/user as mob)
 	if(!istype(M, /mob/living/carbon/slime/))//If target is not a slime.
@@ -190,7 +200,12 @@
 	name = "slime steroid"
 	desc = "A potent chemical mix that will cause a slime to generate more extract."
 	icon = 'icons/obj/chemical.dmi'
-	icon_state = "bottle16"
+	icon_state = "bottle-1"
+
+/obj/item/slimesteroid/Initialize() // Better than hardsprited in stuff.
+	var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state]-100")
+	filling.color = COLOR_GREEN
+	add_overlay(filling)
 
 /obj/item/slimesteroid/attack(mob/living/carbon/slime/M as mob, mob/user as mob)
 	if(!istype(M, /mob/living/carbon/slime)) //If target is not a slime.
@@ -214,7 +229,12 @@
 	name = "extract enhancer"
 	desc = "A potent chemical mix that will give a slime extract three uses."
 	icon = 'icons/obj/chemical.dmi'
-	icon_state = "bottle17"
+	icon_state = "bottle-1"
+
+/obj/item/slimesteroid2/Initialize() // Better than hardsprited in stuff.
+	var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state]-100")
+	filling.color = COLOR_BLUE
+	add_overlay(filling)
 
 /obj/effect/golemrune
 	anchored = TRUE

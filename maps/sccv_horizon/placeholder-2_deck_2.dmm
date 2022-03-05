@@ -21918,7 +21918,7 @@
 	},
 /obj/machinery/computer/shuttle_control/lift{
 	pixel_y = -1;
-	shuttle_tag = "Cargo Lift"
+	shuttle_tag = "Operations Lift"
 	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)

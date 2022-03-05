@@ -664,7 +664,6 @@ var/list/worths = list(
 					/obj/item/honey_frame = 15,
 					/obj/item/beehive_assembly = 100,
 					/obj/item/bee_pack = 200,
-					/obj/item/weedkiller = 30,
 					/obj/item/phylactery = 40000,
 					/obj/item/bluespace_crystal/artificial = 5000,
 					/obj/item/bluespace_crystal = 10000,

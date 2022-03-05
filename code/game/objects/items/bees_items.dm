@@ -18,10 +18,12 @@
 /obj/item/beezeez
 	name = "bottle of BeezEez"
 	icon = 'icons/obj/chemical.dmi'
-	icon_state = "bottle17"
-	New()
-		src.pixel_x = rand(-5.0, 5)
-		src.pixel_y = rand(-5.0, 5)
+	icon_state = "bottle-1"
+
+/obj/item/beezeez/Initialize() // Better than hardsprited in stuff.
+	var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state]-100")
+	filling.color = COLOR_BLUE
+	add_overlay(filling)
 
 /obj/item/reagent_containers/food/snacks/honeycomb
 	name = "honeycomb"

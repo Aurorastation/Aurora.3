@@ -6874,12 +6874,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
-"pV" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/security/investigations)
 "pW" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -18100,11 +18094,12 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/camera/network/security{
-	c_tag = "Security - Interrogation Observation";
-	dir = 4
-	},
 /obj/structure/reagent_dispensers/water_cooler,
+/obj/machinery/camera/network/security{
+	c_tag = "Security - Interrogation";
+	dir = 4;
+	network = list("Brig","Interrogation")
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/investigations)
 "RX" = (
@@ -47687,7 +47682,7 @@ Nr
 vq
 vq
 Nv
-pV
+vq
 vq
 ic
 JH
