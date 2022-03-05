@@ -53,6 +53,8 @@
 /obj/effect/shuttle_landmark/orion_express_ship/nav1
 	name = "Orion Express Ship #1"
 	landmark_tag = "nav_orion_express_ship_1"
+	base_turf = /turf/space/dynamic
+	base_area = /area/template_noop
 
 /datum/shuttle/autodock/overmap/orion_express_ship
 	name = "Orion Express Ship"
