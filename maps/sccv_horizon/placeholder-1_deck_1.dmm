@@ -4472,10 +4472,10 @@
 /obj/machinery/power/smes/buildable{
 	RCon_tag = "Substation - Engineering Lower Deck"
 	},
+/obj/structure/cable/green,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/structure/cable/green,
 /turf/simulated/floor/plating,
 /area/maintenance/substation/engineering/lower)
 "ekm" = (
@@ -22052,9 +22052,6 @@
 	dir = 4;
 	name = "east bump";
 	pixel_x = 24
-	},
-/obj/structure/cable/green{
-	icon_state = "0-2"
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"

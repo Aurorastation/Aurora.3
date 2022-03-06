@@ -16128,9 +16128,6 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "kgj" = (
-/obj/structure/cable/green{
-	icon_state = "12-0"
-	},
 /obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
 	id = "HoS Windows"
 	},
@@ -19116,10 +19113,8 @@
 /obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
 	id = "HoS Windows"
 	},
-/obj/structure/cable/green{
-	icon_state = "12-0"
-	},
 /obj/machinery/door/firedoor,
+/obj/structure/cable/green,
 /turf/simulated/floor,
 /area/crew_quarters/heads/hos)
 "mgg" = (
@@ -20235,7 +20230,10 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
-	icon_state = "4-8"
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/heads/hos)
@@ -33775,9 +33773,6 @@
 /turf/simulated/floor/tiled/dark/airless,
 /area/maintenance/wing/starboard)
 "vdy" = (
-/obj/structure/cable/green{
-	icon_state = "12-0"
-	},
 /obj/machinery/door/firedoor,
 /obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
 	id = "HoS Windows"
@@ -33785,6 +33780,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
+/obj/structure/cable/green,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/heads/hos)
 "vdQ" = (
@@ -38720,16 +38716,16 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "xVz" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
-/obj/structure/cable/green{
-	icon_state = "0-8"
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
+	id = "HoS Windows"
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
-	icon_state = "0-8"
+	icon_state = "0-2"
 	},
-/turf/simulated/floor/plating,
-/area/security/prison)
+/obj/structure/cable/green,
+/turf/simulated/floor/tiled,
+/area/crew_quarters/heads/hos)
 "xVB" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -63150,8 +63146,8 @@ efA
 kgj
 mPc
 vdy
-kgj
-kgj
+xVz
+xVz
 mfX
 vsS
 sGm
@@ -63961,7 +63957,7 @@ kkW
 aaa
 gDR
 jAp
-xVz
+fQA
 nFf
 gDR
 lKN
