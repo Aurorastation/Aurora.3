@@ -17649,7 +17649,6 @@
 "QI" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
-/obj/machinery/door/firedoor,
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/aux_atmospherics/deck_3)
 "QJ" = (
