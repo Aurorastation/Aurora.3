@@ -25,6 +25,8 @@
 
 /obj/structure/closet/secure_closet/personal/cabinet
 	icon_state = "cabinet"
+	open_sound = 'sound/machines/wooden_closet_open.ogg'
+	close_sound = 'sound/machines/wooden_closet_close.ogg'
 	door_anim_time = 0
 
 /obj/structure/closet/secure_closet/personal/cabinet/fill()

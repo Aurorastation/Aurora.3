@@ -9425,7 +9425,7 @@
 	subspace_transmission = 1;
 	syndie = 1
 	},
-/obj/structure/closet/coffin,
+/obj/structure/closet/crate/coffin,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"

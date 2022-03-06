@@ -30,6 +30,8 @@
 	//This is so that someone can't pack hundreds of items in a locker/crate then open it in a populated area to crash clients.
 	var/open_sound = 'sound/effects/closet_open.ogg'
 	var/close_sound = 'sound/effects/closet_close.ogg'
+	var/open_sound_volume = 35
+	var/close_sound_volume = 50
 
 	var/store_misc = TRUE
 	var/store_items = TRUE
@@ -68,7 +70,7 @@
 		storage_capacity = content_size + 5
 
 /obj/structure/closet/Initialize(mapload)
-	..()
+	. = ..()
 	update_icon()
 	fill()
 	if(secure)
@@ -154,7 +156,7 @@
 	dump_contents()
 	animate_door(FALSE)
 	update_icon()
-	playsound(loc, open_sound, 25, 0, -3)
+	playsound(loc, open_sound, open_sound_volume, 0, -3)
 	if(!dense_when_open)
 		density = FALSE
 	return 1
@@ -189,7 +191,7 @@
 		if(did_teleport)
 			linked_teleporter.last_use = world.time
 
-	playsound(get_turf(src), close_sound, 25, 0, -3)
+	playsound(get_turf(src), close_sound, close_sound_volume, 0, -3)
 	density = initial(density)
 	return TRUE
 
@@ -469,12 +471,17 @@
 		return
 	if(istype(O, /obj/structure/closet))
 		return
-	step_towards(O, loc)
 	if(user != O)
-		if(large)
-			user.visible_message(SPAN_DANGER("<b>[user]</b> stuffs \the [O] into \the [src]!"), SPAN_NOTICE("You stuff \the [O] into \the [src]."), range = 3)
+		var/turf/T = get_turf(src)
+		if(ismob(O))
+			if(large)
+				user.visible_message(SPAN_DANGER("<b>[user]</b> stuffs \the [O] into \the [src]!"), SPAN_NOTICE("You stuff \the [O] into \the [src]."), range = 3)
+				O.forceMove(T)
+				close()
+			else
+				to_chat(user,  SPAN_NOTICE("\The [src] is too small to stuff [O] into!"))
 		else
-			to_chat(user,  SPAN_NOTICE("\The [src] is too small to stuff [O] into!"))
+			O.forceMove(T)
 	add_fingerprint(user)
 	return
 
@@ -513,6 +520,7 @@
 /obj/structure/closet/update_icon()
 	if(!door_underlay)
 		cut_overlays()
+
 	if(!opened)
 		layer = OBJ_LAYER
 		if(!is_animating_door)

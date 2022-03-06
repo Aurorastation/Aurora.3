@@ -10,25 +10,21 @@
 	climbable = TRUE
 	build_amt = 10
 	slowdown = 0
-	open_sound =  'sound/machines/click.ogg'
-	close_sound =  'sound/machines/click.ogg'
+	open_sound = 'sound/machines/crate_open.ogg'
+	close_sound = 'sound/machines/crate_close.ogg'
+	open_sound_volume = 35
+	close_sound_volume = 50
 	store_structure = TRUE
 	dense_when_open = TRUE
+	door_anim_squish = 0.30
 	door_anim_time = 3
-	door_anim_angle = 180
+	door_anim_angle = 140
 	door_hinge = 3.5
 	var/tablestatus = 0
 
-	var/azimuth_angle_2 = 138 //in this context the azimuth angle for over 90 degree
+	var/azimuth_angle_2 = 180 //in this context the azimuth angle for over 90 degree
 	var/radius_2 = 1.35
 	var/static/list/animation_math //assoc list with pre calculated values
-
-/obj/structure/closet/crate/Initialize()
-	. = ..()
-	if(animation_math == null) //checks if there is already a list for animation_math if not creates one to avoid runtimes
-		animation_math = new/list()
-	if(!door_anim_time == 0 && !animation_math["[door_anim_time]-[door_anim_angle]-[azimuth_angle_2]-[radius_2]-[door_hinge]"])
-		animation_list()
 
 /obj/structure/closet/crate/can_open()
 	if(tablestatus == UNDER_TABLE)//Can't be opened while under a table
@@ -42,6 +38,10 @@
 	if(!door_anim_time)
 		return
 	if(!door_obj) door_obj = new
+	if(animation_math == null) //checks if there is already a list for animation_math if not creates one to avoid runtimes
+		animation_math = new/list()
+	if(!door_anim_time == 0 && !animation_math["[door_anim_time]-[door_anim_angle]-[azimuth_angle_2]-[radius_2]-[door_hinge]"])
+		animation_list()
 	vis_contents |= door_obj
 	door_obj.icon = icon
 	door_obj.icon_state = "[icon_door || icon_state]_door"
@@ -205,6 +205,20 @@
 	desc = "A rectangular plastic crate."
 	icon_state = "plastic_crate"
 
+/obj/structure/closet/crate/coffin
+	name = "coffin"
+	desc = "It's a burial receptacle for the dearly departed."
+	icon_state = "coffin"
+	build_amt = 5
+	open_sound = 'sound/machines/wooden_closet_open.ogg'
+	close_sound = 'sound/machines/wooden_closet_close.ogg'
+	open_sound_volume = 25
+	close_sound_volume = 50
+	door_anim_angle = 140
+	azimuth_angle_2 = 180
+	door_anim_time = 5
+	door_hinge = 5
+
 /obj/structure/closet/crate/internals
 	name = "internals crate"
 	desc = "A internals crate."
@@ -214,6 +228,13 @@
 	name = "trash cart"
 	desc = "A heavy, metal trashcart with wheels."
 	icon_state = "trashcart"
+	door_hinge = 2.5
+
+/obj/structure/closet/crate/miningcar
+	desc = "A mining car. This one doesn't work on rails, but has to be dragged."
+	name = "mining car"
+	icon_state = "miningcar"
+	door_hinge = 2.5
 
 /*these aren't needed anymore
 /obj/structure/closet/crate/hat
@@ -239,6 +260,9 @@
 /obj/structure/closet/crate/rfd
 	name = "\improper RFD C-Class crate"
 	desc = "A crate with a Rapid-Fabrication-Device C-Class."
+	icon_state = "eng_tool"
+	icon_door_override = TRUE
+	icon_door = "eng"
 
 /obj/structure/closet/crate/rfd/fill()
 	new /obj/item/rfd_ammo(src)
@@ -248,6 +272,9 @@
 
 /obj/structure/closet/crate/solar
 	name = "solar pack crate"
+	icon_state = "eng_elec"
+	icon_door_override = TRUE
+	icon_door = "eng"
 
 /obj/structure/closet/crate/solar/fill()
 	new /obj/item/solar_assembly(src)
@@ -314,18 +341,29 @@
 	name = "drop crate"
 	desc = "A large, sturdy crate meant for airdrops."
 	icon_state = "drop_crate"
+	door_hinge = 0.5
 
 /obj/structure/closet/crate/drop/grey
 	name = "drop crate"
 	desc = "A large, sturdy crate meant for airdrops."
 	icon_state = "drop_crate-grey"
+	door_hinge = 0.5
 
-/obj/structure/closet/crate/radiation
+/obj/structure/closet/crate/tool
+	name = "tool crate"
+	desc = "It's a crate for storing tools."
+	icon_state = "eng_tool"
+	icon_door_override = TRUE
+	icon_door = "eng"
+
+/obj/structure/closet/crate/rad
 	name = "radioactive gear crate"
 	desc = "A crate with a radiation sign on it."
-	icon_state = "radiation_crate"
+	icon_state = "eng_rad"
+	icon_door_override = TRUE
+	icon_door = "eng"
 
-/obj/structure/closet/crate/radiation/fill()
+/obj/structure/closet/crate/rad/gear/fill()
 	new /obj/item/clothing/suit/radiation(src)
 	new /obj/item/clothing/head/radiation(src)
 	new /obj/item/clothing/suit/radiation(src)
@@ -334,20 +372,48 @@
 	new /obj/item/clothing/head/radiation(src)
 	new /obj/item/clothing/suit/radiation(src)
 	new /obj/item/clothing/head/radiation(src)
+
+/obj/structure/closet/crate/elec
+	name = "electrical supplies crate"
+	desc = "It's a crate for storing electrical equipment."
+	icon_state = "eng_elec"
+	icon_door_override = TRUE
+	icon_door = "eng"
+
+/obj/structure/closet/crate/weld
+	name = "welding supplies crate"
+	desc = "It's a crate for storing welding tools."
+	icon_state = "eng_weld"
+	icon_door_override = TRUE
+	icon_door = "eng"
 
 /obj/structure/closet/crate/secure/aimodules
 	name = "AI modules crate"
 	desc = "A secure crate full of AI modules."
+	icon_state = "science_crate"
 	req_access = list(access_cent_specops)
 
 /obj/structure/closet/crate/secure/aimodules/fill()
 	for(var/moduletype in subtypesof(/obj/item/aiModule))
 		new moduletype(src)
 
+/obj/structure/closet/crate/weapon
+	name = "weapons crate"
+	desc = "A weapons crate."
+	icon_state = "syndi_crate" //haha this pun was totally worth it.
+
+/obj/structure/closet/crate/weapon/alt
+	icon_state = "syndi_crate1"
+
 /obj/structure/closet/crate/secure/weapon
 	name = "weapons crate"
 	desc = "A secure weapons crate."
-	icon_state = "weapon_crate"
+	icon_state = "syndi_secure_crate"
+	icon_door = "syndi_crate"
+
+/obj/structure/closet/crate/secure/weapon/alt
+	icon_state = "syndi_secure_crate1"
+	icon_door = "syndi_crate1"
 
 /obj/structure/closet/crate/secure/legion
 	name = "foreign legion supply crate"
@@ -359,6 +425,8 @@
 	name = "phoron crate"
 	desc = "A secure phoron crate."
 	icon_state = "phoron_crate"
+	open_sound = 'sound/machines/wooden_closet_open.ogg'
+	close_sound = 'sound/machines/wooden_closet_close.ogg'
 
 /obj/structure/closet/crate/secure/gear
 	name = "gear crate"
@@ -377,15 +445,13 @@
 	icon_door_overlay = "largebin"
 	icon_door_override = TRUE
 	icon_door = "largebin"
-	icon_door_override = TRUE
-	icon_door_overlay = "largebin"
 
 /obj/structure/closet/crate/large
 	name = "large crate"
 	desc = "A hefty metal crate."
-	icon = 'icons/obj/storage.dmi'
 	icon_state = "largemetal"
 	health = 200
+	door_anim_time = 0
 
 /obj/structure/closet/crate/large/close()
 	. = ..()
@@ -411,6 +477,8 @@
 	icon_state = "largemetal"
 	icon_door_overlay = "largemetal"
 	health = 400
+	secure_lights = FALSE
+	door_anim_time = 0
 
 /obj/structure/closet/crate/secure/large/close()
 	. = ..()
@@ -429,11 +497,6 @@
 					M.forceMove(src)
 					break
 	return
-
-//fluff variant
-/obj/structure/closet/crate/secure/large/reinforced
-	desc = "A hefty, reinforced metal crate with an electronic locking system."
-	icon_state = "largermetal"
 
 /obj/structure/closet/crate/hydroponics
 	name = "hydroponics crate"
@@ -460,31 +523,9 @@
 //Quantity of spawns is number of discrete selections from the loot lists, default 10
 
 /obj/structure/closet/crate/loot
-	name = "unusual container"
-	desc = "A mysterious container of unknown origins. What mysteries lie within?"
 	var/rarity = 1
 	var/quantity = 10
 	var/list/spawntypes
-
-//The crate chooses its icon randomly from a number of noticeable options.
-//None of these are the standard grey crate sprite, and a few are currently unused ingame
-//This ensures that people stumbling across a lootbox will notice it's different and investigate
-	var/list/iconchoices = list(
-		"radiation",
-		"o2_crate",
-		"freezer",
-		"weapon_crate",
-		"largebins",
-		"phoron_crate",
-		"trashcart",
-		"critter",
-		"largemetal",
-		"medical_crate",
-		"tcfl_crate",
-		"necro_crate",
-		"zenghu_crate",
-		"heph_crate"
-	)
 
 /obj/structure/closet/crate/loot/Initialize(mapload)
 	. = ..()
@@ -495,11 +536,19 @@
 		"3" = (100 - ((STOCK_RARE_PROB * rarity) + (STOCK_UNCOMMON_PROB * rarity)))
 	)
 
-	icon_state = pick(iconchoices)
-	update_icon()
-	for (var/i in 1 to quantity)
+	var/icontype = pick(typesof(/obj/structure/closet/crate) - typesof(/obj/structure/closet/crate/secure/gear_loadout))
+	var/obj/structure/closet/crate/C = new icontype(src.loc)
+
+	C.name = "unusual container"
+	C.desc = "A mysterious container of unknown origins. What mysteries lie within?"
+	if(C.secure)
+		C.secure = FALSE
+	C.update_icon()
+	for(var/i in 1 to quantity)
 		var/newtype = get_spawntype()
-		call(newtype)(src)
+		call(newtype)(C)
+
+	qdel(src)
 
 /obj/structure/closet/crate/loot/proc/get_spawntype()
 	var/stocktype = pickweight(spawntypes)
@@ -514,6 +563,7 @@
 /obj/structure/closet/crate/extinguisher_cartridges
 	name = "crate of extinguisher cartridges"
 	desc = "Contains a dozen empty extinguisher cartridges."
+	icon_state = "fire"
 
 /obj/structure/closet/crate/extinguisher_cartridges/fill()
 	for(var/a = 1 to 12)
@@ -545,3 +595,9 @@
 	new /obj/item/organ/external/hand/right/autakh/tool/mining(src)
 	new /obj/item/organ/external/hand/right/autakh/medical(src)
 	new /obj/item/organ/external/hand/right/autakh/security(src)
+
+/obj/structure/closet/crate/security
+	name = "security crate"
+	desc = "A secure security crate. Secure."
+	icon_state = "security_crate"
+	secure = TRUE

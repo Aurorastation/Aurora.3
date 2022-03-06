@@ -2,6 +2,8 @@
 	name = "cabinet"
 	desc = "Old will forever be in fashion."
 	icon_state = "cabinet"
+	open_sound = 'sound/machines/wooden_closet_open.ogg'
+	close_sound = 'sound/machines/wooden_closet_close.ogg'
 	storage_capacity = 45 //such a big closet deserves a little more capacity
 	door_anim_time = 0 // no animation
 

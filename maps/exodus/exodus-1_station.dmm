@@ -17658,7 +17658,7 @@
 /turf/simulated/floor/lino,
 /area/chapel/office)
 "aHL" = (
-/obj/structure/closet/coffin,
+/obj/structure/closet/crate/coffin,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -17673,7 +17673,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/chapel/office)
 "aHM" = (
-/obj/structure/closet/coffin,
+/obj/structure/closet/crate/coffin,
 /obj/machinery/door/window/eastleft{
 	name = "Coffin Storage";
 	req_access = list(22)
@@ -18420,7 +18420,7 @@
 /turf/simulated/floor/lino,
 /area/chapel/office)
 "aJu" = (
-/obj/structure/closet/coffin,
+/obj/structure/closet/crate/coffin,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -19190,7 +19190,7 @@
 /turf/simulated/floor/carpet,
 /area/chapel/office)
 "aKW" = (
-/obj/structure/closet/coffin,
+/obj/structure/closet/crate/coffin,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 2;

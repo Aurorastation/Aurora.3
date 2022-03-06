@@ -92,7 +92,7 @@
 	reward_high = 3000
 	required_count = 3
 	random_count = 1
-	wanted_types = list(/obj/structure/closet/coffin, /obj/item/material/urn)
+	wanted_types = list(/obj/structure/closet/crate/coffin, /obj/item/material/urn)
 
 /datum/bounty/item/engineer/pap
 	name = "Portable Air Pumps"
