@@ -12334,9 +12334,7 @@
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
 "hHM" = (
-/obj/structure/ladder/up{
-	pixel_y = 13
-	},
+/obj/structure/ladder,
 /turf/simulated/open,
 /area/turret_protected/ai)
 "hHV" = (
@@ -13560,6 +13558,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
@@ -25818,6 +25819,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "qqs" = (
@@ -27227,9 +27231,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/smes)
 "rgF" = (
-/obj/structure/ladder{
-	pixel_y = 16
-	},
+/obj/structure/ladder/up,
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
 "rgH" = (
@@ -34345,7 +34347,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/open,
 /area/maintenance/wing/starboard)
 "vxK" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
