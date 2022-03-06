@@ -3523,9 +3523,6 @@
 	name = "Security - Investigations Office"
 	})
 "ib" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
@@ -3535,6 +3532,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/locker)
 "ic" = (
@@ -4908,6 +4906,15 @@
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/lounge/secondary)
+"lx" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/locker)
 "ly" = (
 /obj/structure/table/wood,
 /obj/item/folder/sec{
@@ -6903,6 +6910,25 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
+"qb" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor,
+/area/maintenance/bridge)
 "qc" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
@@ -9324,6 +9350,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/crew_area)
+"wk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/locker)
 "wl" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -9588,6 +9626,19 @@
 /obj/structure/closet/secure_closet/xo,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop/xo)
+"wU" = (
+/obj/structure/railing/mapped,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/power/apc/low{
+	dir = 8;
+	name = "west bump";
+	pixel_x = -24
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor,
+/area/maintenance/bridge)
 "wV" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/carpet,
@@ -12674,6 +12725,25 @@
 "Fj" = (
 /turf/simulated/wall,
 /area/security/investigations_storage)
+"Fk" = (
+/obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "west bump";
+	pixel_x = -24
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/structure/cable/green,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/port)
 "Fl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -16999,6 +17069,16 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/maintenance/aux_atmospherics/deck_3)
+"Pp" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	external_pressure_bound = 102;
+	external_pressure_bound_default = 102;
+	icon_state = "map_vent_in";
+	pump_direction = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/locker)
 "Pq" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -36945,8 +37025,8 @@ CX
 km
 Um
 nZ
-DW
-Ny
+wk
+Pp
 Ny
 Ny
 Ec
@@ -37151,7 +37231,7 @@ DW
 yz
 yz
 yz
-Ec
+lx
 Da
 eX
 jM
@@ -40004,8 +40084,8 @@ dg
 mY
 SK
 cq
-pl
-yV
+wU
+qb
 VC
 VC
 VC
@@ -44423,7 +44503,7 @@ Fr
 Ss
 Sj
 ck
-Sj
+Fk
 fi
 hg
 Sj
