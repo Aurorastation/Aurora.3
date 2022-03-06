@@ -1,0 +1,6 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - rscadd: "You can now tip cowboy hats up, so that they don't block your eyes."

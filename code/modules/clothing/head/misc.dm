@@ -335,6 +335,18 @@
 	desc = "A wide-brimmed hat, in the prevalent style of the frontier."
 	icon_state = "cowboyhat"
 
+/obj/item/clothing/head/cowboy/verb/tip_hat()
+	set category = "Object"
+	set name = "Tip Hat"
+
+	if(icon_state == initial(icon_state))
+		icon_state = "[initial(icon_state)]_flipped"		
+	else
+		icon_state = initial(icon_state)
+	update_icon()
+	usr.update_inv_head()
+	usr.visible_message(SPAN_MESSAGE("[usr] tips their [src] [icon_state == initial(icon_state)?"up":"back down"]."),SPAN_MESSAGE("You tip your [src] [icon_state == initial(icon_state)?"up":"back down"]."))
+
 /obj/item/clothing/head/cowboy/wide
 	name = "wide-brimmed cowboy hat"
 	icon_state = "cowboy_wide"
