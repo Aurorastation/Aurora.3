@@ -2848,6 +2848,7 @@
 /area/crew_quarters/captain)
 "gy" = (
 /obj/machinery/atmospherics/unary/freezer{
+	dir = 8;
 	icon_state = "freezer_1";
 	set_temperature = 73;
 	use_power = 1
@@ -3455,7 +3456,7 @@
 "hV" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 4
+	dir = 9
 	},
 /turf/simulated/floor,
 /area/tcommsat/entrance)
@@ -19369,10 +19370,10 @@
 /area/security/vacantoffice2)
 "Vl" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
 /obj/machinery/light/small/emergency,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "Vm" = (
@@ -43802,7 +43803,7 @@ at
 at
 at
 em
-Fq
+EG
 DQ
 DQ
 DQ
@@ -44004,7 +44005,7 @@ at
 at
 at
 aK
-Fq
+EG
 DQ
 EZ
 oG
@@ -44206,7 +44207,7 @@ at
 at
 at
 aK
-Fq
+EG
 DQ
 Nf
 Bs
@@ -44408,7 +44409,7 @@ at
 at
 at
 aK
-Fq
+EG
 DQ
 Nd
 Xr
@@ -44610,7 +44611,7 @@ at
 at
 at
 em
-Fq
+EG
 DQ
 Rb
 CR
@@ -44812,7 +44813,7 @@ at
 at
 at
 em
-Fq
+EG
 DQ
 Fx
 CR
@@ -45216,7 +45217,7 @@ at
 at
 at
 em
-Fq
+EG
 DQ
 CJ
 CR
@@ -45418,7 +45419,7 @@ at
 at
 at
 em
-Fq
+EG
 DQ
 DQ
 DQ
