@@ -27,7 +27,7 @@
 	var/image/blood_overlay
 
 	var/bleeding = FALSE
-	var/blood_amount = 50			// set a limit to the amount of blood it can bleed, otherwise it will keep bleeding forever and crunk the server
+	var/blood_amount = 20			// set a limit to the amount of blood it can bleed, otherwise it will keep bleeding forever and crunk the server
 	var/previous_bleed_timer = 0	// they only bleed for as many seconds as force damage was applied to them
 	var/blood_timer_mod = 0.25		// tweak to change the amount of seconds a mob will bleed
 
