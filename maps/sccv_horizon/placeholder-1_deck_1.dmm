@@ -484,15 +484,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
-"aAl" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/hangar/control)
 "aAQ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 6
@@ -2144,7 +2135,7 @@
 	dir = 9;
 	id = "QMLoad";
 	layer = 2.9;
-	reversed = 1
+	reversed = null
 	},
 /turf/simulated/floor/plating,
 /area/operations/loading)
