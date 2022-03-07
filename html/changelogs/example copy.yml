@@ -1,0 +1,6 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - rscdel: "Removes rats from the ghostspawner menu, as they are disabled and likely won't be re-enabled again."
