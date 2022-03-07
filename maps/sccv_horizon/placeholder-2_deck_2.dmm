@@ -6903,6 +6903,11 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 28;
+	req_one_access = list(24,11,55)
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
 "eui" = (
@@ -13640,14 +13645,14 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "iEd" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
@@ -19462,9 +19467,6 @@
 /turf/simulated/floor/tiled,
 /area/operations/mail_room)
 "mlD" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -19473,6 +19475,9 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
@@ -26581,6 +26586,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/conference)
+"qFN" = (
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -28
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/or2)
 "qFQ" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -55748,7 +55760,7 @@ ibx
 jvV
 fsf
 oGm
-fai
+qFN
 tpy
 cVe
 hQa

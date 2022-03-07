@@ -5359,6 +5359,14 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
 	},
+/obj/machinery/requests_console{
+	department = "Bridge";
+	pixel_y = 32
+	},
+/obj/item/device/radio/intercom/department{
+	dir = 8;
+	pixel_x = 24
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/bridge)
 "mw" = (
@@ -17867,6 +17875,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/hallway/primary/starboard)
+"QV" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/carpet/rubber,
+/area/bridge)
 "QW" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -19296,6 +19308,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/random/soap,
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
 "UJ" = (
@@ -19840,6 +19853,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/random/soap,
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
 "We" = (
@@ -41774,7 +41788,7 @@ SH
 Fn
 US
 Xe
-Oo
+QV
 AQ
 Hg
 FQ
