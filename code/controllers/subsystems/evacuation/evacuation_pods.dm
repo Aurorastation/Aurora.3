@@ -8,8 +8,8 @@
 /datum/evacuation_controller/starship
 	name = "escape pod controller"
 
-	transfer_prep_additional_delay     = 5 MINUTES
-	autotransfer_prep_additional_delay = 5 MINUTES
+	transfer_prep_additional_delay     = 0 MINUTES
+	autotransfer_prep_additional_delay = 0 MINUTES
 	emergency_prep_additional_delay    = 0 MINUTES
 
 	evacuation_options = list(
