@@ -1797,6 +1797,9 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload)
 "aXX" = (
@@ -3271,6 +3274,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "bTy" = (
@@ -3918,6 +3924,9 @@
 	},
 /obj/machinery/computer/cryopod/robot{
 	pixel_y = 32
+	},
+/obj/structure/cable/orange{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/reinforced,
 /area/turret_protected/ai_upload)
@@ -4876,8 +4885,8 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/structure/cable/orange{
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload_foyer)
@@ -7111,6 +7120,9 @@
 	name = "AI core maintenance hatch";
 	opacity = 0
 	},
+/obj/structure/cable/orange{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/reinforced,
 /area/turret_protected/ai)
 "eAw" = (
@@ -7165,6 +7177,9 @@
 	req_access = list(47)
 	},
 /obj/machinery/door/firedoor/multi_tile,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/hallway)
 "eBy" = (
@@ -9463,9 +9478,6 @@
 /area/security/armory)
 "fZk" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
@@ -12253,7 +12265,7 @@
 "hEs" = (
 /obj/structure/lattice,
 /obj/structure/cable/orange{
-	icon_state = "1-2"
+	icon_state = "2-8"
 	},
 /turf/simulated/open,
 /area/turret_protected/ai)
@@ -12608,6 +12620,9 @@
 /obj/machinery/camera/network/command{
 	c_tag = "AI Core - Second Deck Airlock"
 	},
+/obj/structure/cable/orange{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/reinforced,
 /area/turret_protected/ai)
 "hSp" = (
@@ -12761,6 +12776,9 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
 "hYk" = (
+/obj/structure/cable/orange{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/reinforced,
 /area/turret_protected/ai)
 "hYo" = (
@@ -16024,6 +16042,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
+/obj/structure/cable/orange{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/reinforced,
 /area/turret_protected/ai_upload)
 "kat" = (
@@ -18049,7 +18070,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/cable/orange{
-	icon_state = "1-8"
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload_foyer)
@@ -18435,9 +18456,6 @@
 /turf/simulated/floor/plating,
 /area/crew_quarters/sleep/cryo/living_quarters_lift)
 "lJp" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -18992,6 +19010,9 @@
 	},
 /obj/machinery/camera/network/command{
 	c_tag = "AI Core - Main Core"
+	},
+/obj/structure/cable/orange{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai)
@@ -25691,6 +25712,9 @@
 /area/maintenance/wing/starboard)
 "qcc" = (
 /obj/structure/railing/mapped,
+/obj/structure/cable/orange{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/reinforced,
 /area/turret_protected/ai_upload)
 "qcs" = (
@@ -26380,6 +26404,9 @@
 	},
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/hallway)
@@ -27362,23 +27389,15 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "rfG" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/structure/lattice,
+/obj/machinery/light{
+	dir = 8
 	},
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/highsecurity{
-	name = "AI Upload Access";
-	req_access = list(16)
+/obj/structure/cable/orange{
+	icon_state = "1-4"
 	},
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "AICore";
-	name = "AI core maintenance hatch";
-	opacity = 0
-	},
-/turf/simulated/floor/tiled/dark,
-/area/turret_protected/ai_upload_foyer)
+/turf/simulated/open,
+/area/turret_protected/ai)
 "rfO" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/reagent_dispensers/watertank,
@@ -29461,7 +29480,7 @@
 	pixel_y = 25
 	},
 /obj/structure/cable/orange{
-	icon_state = "2-4"
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai)
@@ -29912,7 +29931,7 @@
 	pixel_y = 24
 	},
 /obj/structure/cable/orange{
-	icon_state = "0-2"
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/reinforced,
 /area/turret_protected/ai_upload)
@@ -31204,8 +31223,8 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark,
-/area/turret_protected/ai_upload_foyer)
+/turf/simulated/floor/tiled/ramp,
+/area/turret_protected/ai_upload)
 "tzf" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_atmos{
@@ -31325,6 +31344,9 @@
 "tCP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "tDc" = (
@@ -31694,7 +31716,7 @@
 	dir = 4
 	},
 /obj/structure/cable/orange{
-	icon_state = "1-4"
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload)
@@ -32675,22 +32697,16 @@
 /turf/simulated/open/airless,
 /area/horizonexterior)
 "upm" = (
-/obj/structure/window/shuttle/scc_space_ship,
-/obj/structure/grille,
 /obj/machinery/door/blast/regular{
-	density = 0;
 	dir = 4;
-	icon_state = "pdoor0";
-	id = "AICore";
-	name = "AI core maintenance hatch";
-	opacity = 0
+	id = "ai_upload";
+	name = "AI Upload Blast Doors"
 	},
-/obj/machinery/door/firedoor,
-/obj/structure/cable/orange{
+/obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
-/area/turret_protected/ai)
+/turf/simulated/floor/tiled,
+/area/turret_protected/ai_upload)
 "upn" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -33163,6 +33179,9 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/conference)
 "uDs" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload)
 "uEg" = (
@@ -34984,6 +35003,9 @@
 	},
 /obj/effect/landmark/start{
 	name = "Cyborg"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload)
@@ -37646,9 +37668,6 @@
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
-/obj/structure/cable/orange{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/ramp,
 /area/turret_protected/ai_upload)
 "xcK" = (
@@ -38319,10 +38338,10 @@
 	pixel_y = 24
 	},
 /obj/structure/cable/orange{
-	icon_state = "4-8"
+	icon_state = "0-4"
 	},
 /obj/structure/cable/orange{
-	icon_state = "0-4"
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai)
@@ -64812,8 +64831,8 @@ qcc
 uXX
 vJw
 uDs
-pEu
-obZ
+tyZ
+upm
 bTo
 tCP
 aXf
@@ -65614,8 +65633,8 @@ iXI
 jSY
 qnb
 ool
-qnb
-ool
+hEs
+rfG
 qnb
 iXI
 xdu
@@ -66020,8 +66039,8 @@ hHM
 iXI
 wLz
 spR
-hEs
-upm
+qnb
+cyG
 lxN
 iYw
 cyZ
@@ -66225,8 +66244,8 @@ xxw
 mQe
 mHH
 cZT
-tyZ
-rfG
+gfN
+cyZ
 lJp
 fZk
 xFR
