@@ -2844,6 +2844,15 @@
 "gx" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
+	},
 /turf/simulated/floor,
 /area/crew_quarters/captain)
 "gy" = (
@@ -3322,6 +3331,25 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/starboard)
+"hC" = (
+/obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "west bump";
+	pixel_x = -24
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/structure/cable/green,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/port)
 "hE" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -3405,6 +3433,18 @@
 /obj/structure/closet/secure_closet/personal,
 /obj/machinery/newscaster{
 	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/locker)
+"hQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/locker)
@@ -8987,15 +9027,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/starboard)
-"vc" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/crew_quarters/locker)
 "vd" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -10174,6 +10205,15 @@
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/lounge)
+"yq" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/locker)
 "yr" = (
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/wood,
@@ -14298,6 +14338,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/bridge_crew)
+"IV" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	external_pressure_bound = 102;
+	external_pressure_bound_default = 102;
+	icon_state = "map_vent_in";
+	pump_direction = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/locker)
 "IW" = (
 /obj/machinery/requests_console{
 	department = "Engineering";
@@ -14702,16 +14752,6 @@
 "JQ" = (
 /turf/simulated/wall/r_wall,
 /area/crew_quarters/captain)
-"JS" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1;
-	external_pressure_bound = 102;
-	external_pressure_bound_default = 102;
-	icon_state = "map_vent_in";
-	pump_direction = 0
-	},
-/turf/simulated/floor/tiled/dark,
-/area/crew_quarters/locker)
 "JT" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/carpet/rubber,
@@ -16302,25 +16342,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/starboard)
-"NH" = (
-/obj/structure/disposalpipe/segment,
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/structure/cable/green,
-/turf/simulated/floor/tiled,
-/area/hallway/primary/port)
 "NI" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -18255,18 +18276,6 @@
 	},
 /turf/simulated/open,
 /area/hallway/primary/starboard)
-"Si" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/crew_quarters/locker)
 "Sj" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/paleblue{
@@ -37025,8 +37034,8 @@ CX
 km
 Um
 nZ
-Si
-JS
+hQ
+IV
 Ny
 Ny
 Ec
@@ -37231,7 +37240,7 @@ DW
 yz
 yz
 yz
-vc
+yq
 Da
 eX
 jM
@@ -44503,7 +44512,7 @@ Fr
 Ss
 Sj
 ck
-NH
+hC
 fi
 hg
 Sj
