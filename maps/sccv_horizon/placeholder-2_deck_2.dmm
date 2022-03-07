@@ -35726,7 +35726,7 @@
 /area/maintenance/wing/starboard/far)
 "vZJ" = (
 /obj/structure/table/standard,
-/obj/structure/closet/crate/hydroponics,
+/obj/structure/closet/crate/hydroponics/prespawned,
 /turf/simulated/floor/wood,
 /area/hydroponics/garden)
 "vZY" = (
