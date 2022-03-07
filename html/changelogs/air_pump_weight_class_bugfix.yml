@@ -1,0 +1,6 @@
+author: SleepyGem
+
+delete-after: True
+
+changes:
+  - bugfix: "Changed the portable air pump- and scrubber weight classes to one representing their size more accurately."
