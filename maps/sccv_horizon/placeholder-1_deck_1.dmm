@@ -484,6 +484,15 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
+"aAl" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hangar/control)
 "aAQ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 6
@@ -1040,6 +1049,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
+"aXA" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/hangar/control)
 "aXC" = (
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -1494,15 +1516,6 @@
 	},
 /turf/simulated/floor/grass/alt,
 /area/maintenance/hangar/port)
-"bqg" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/hangar/control)
 "bqi" = (
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -4125,6 +4138,15 @@
 /obj/effect/shuttle_landmark/horizon/nav2,
 /turf/simulated/floor/plating,
 /area/hangar/auxiliary)
+"dTV" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hangar/control)
 "dUK" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -4443,15 +4465,6 @@
 	temperature = 278
 	},
 /area/medical/morgue/lower)
-"egk" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/hangar/control)
 "ehD" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -4783,14 +4796,14 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid)
@@ -7468,19 +7481,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid)
-"gAY" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/hangar/control)
 "gBl" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -9303,7 +9303,7 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -16869,6 +16869,15 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
+"psK" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hangar/control)
 "pth" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -21458,13 +21467,13 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -25651,14 +25660,14 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid)
@@ -49678,7 +49687,7 @@ lKY
 cBF
 aWP
 vai
-egk
+dTV
 ttK
 hTa
 vJe
@@ -49880,7 +49889,7 @@ tYN
 qgi
 gnn
 pYu
-gAY
+aXA
 tKi
 tKi
 fZX
@@ -50082,7 +50091,7 @@ xgP
 weO
 aWP
 rEl
-bqg
+psK
 aUg
 wSd
 vcp
