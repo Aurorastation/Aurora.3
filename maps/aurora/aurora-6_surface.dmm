@@ -13163,10 +13163,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/quartermaster/loading)
-"lxc" = (
-/obj/structure/bed/stool/padded/red,
-/turf/simulated/wall/r_wall,
-/area/tcommsat/lounge)
 "lxI" = (
 /obj/structure/cable/yellow{
 	d1 = 2;
@@ -41354,7 +41350,7 @@ ifb
 wKH
 nGc
 kyf
-lxc
+fwV
 cBe
 bPl
 bPW
