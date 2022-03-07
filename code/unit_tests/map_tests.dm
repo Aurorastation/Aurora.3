@@ -292,30 +292,30 @@
 
 /datum/unit_test/map_test/all_station_areas_shall_be_on_station_zlevels
 	name = "MAP: Station areas shall be on station z-levels"
-	var/exclude = list(
+	var/list/exclude = list(
 		/area/holodeck // These are necessarily mapped on a non-station z-level so they can be copied over to the holodeck on the station z-levels
 		)
 
 /datum/unit_test/map_test/all_station_areas_shall_be_on_station_zlevels/start_test()
 	var/checks = 0
 	var/failed_checks = 0
-
 	var/list/exclude_types = list()
-	for(var/excluded in typesof(exclude))
-		exclude_types += excluded
-	for(var/area/A as anything in the_station_areas - exclude_types)
+
+	for(var/excluded in exclude)
+		exclude_types += typesof(excluded)
+
+	for(var/area/A as anything in list_keys(the_station_areas))
+		if(A.type in exclude_types)
+			continue
 		checks++
-		if(!isarea(A))
-			log_unit_test("List 'the_station_areas' contained a non-area [A].")
+
+		var/list/turf/invalid_turfs = get_area_turfs(A, list(/proc/is_station_turf)) ^ get_area_turfs(A)
+		if(invalid_turfs.len)
 			failed_checks++
-		else
-			var/list/turf/invalid_turfs = get_area_turfs(A, list(/proc/is_station_turf)) ^ get_area_turfs(A)
-			if(invalid_turfs.len)
-				failed_checks++
-				var/list/failed_area_zlevels = list()
-				for(var/turf/T as anything in invalid_turfs)
-					failed_area_zlevels |= T.z
-				log_unit_test("Station area [A]: [invalid_turfs.len] turfs are not entirely mapped on station z-levels. Found turfs on non-station levels: [english_list(failed_area_zlevels)]")
+			var/list/failed_area_zlevels = list()
+			for(var/turf/T as anything in invalid_turfs)
+				failed_area_zlevels |= T.z
+			log_unit_test("Station area [A]: [invalid_turfs.len] turfs are not entirely mapped on station z-levels. Found turfs on non-station levels: [english_list(failed_area_zlevels)]")
 
 	if(failed_checks)
 		fail("\[[failed_checks] / [checks]\] Some station areas had turfs mapped outside station z-levels.")
