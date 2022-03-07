@@ -1804,7 +1804,6 @@
 #include "code\modules\ghostroles\spawner\human\responseteams\tajara\kosmostrelki.dm"
 #include "code\modules\ghostroles\spawner\human\responseteams\unathi\kataphracts.dm"
 #include "code\modules\ghostroles\spawner\simplemob\maintdrone.dm"
-#include "code\modules\ghostroles\spawner\simplemob\rat.dm"
 #include "code\modules\ghostroles\spawner\simplemob\reboot_maintdrone.dm"
 #include "code\modules\ghostroles\spawner\simplemob\simplemob.dm"
 #include "code\modules\ghostroles\spawner\simplemob\spider_queen.dm"
