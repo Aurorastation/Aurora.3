@@ -2172,6 +2172,7 @@
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/suit/space/void/atmos,
 /obj/item/clothing/head/helmet/space/void/atmos,
+/obj/item/storage/bag/inflatable,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/storage)
 "biZ" = (
@@ -6835,6 +6836,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
+"eqK" = (
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -28
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/or2)
 "eqR" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -10156,6 +10164,7 @@
 	dir = 10
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/aux_atmospherics/deck_2/starboard)
 "gsh" = (
@@ -11794,6 +11803,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/hallway)
+"hqC" = (
+/obj/structure/table/rack,
+/obj/random/loot,
+/obj/item/storage/bag/inflatable,
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/aux_atmospherics/deck_2/starboard)
 "hrf" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -12431,6 +12446,7 @@
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/plating,
 /area/maintenance/aux_atmospherics/deck_2/starboard)
 "hIV" = (
@@ -26586,13 +26602,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/conference)
-"qFN" = (
-/obj/machinery/alarm{
-	dir = 4;
-	pixel_x = -28
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/or2)
 "qFQ" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -28258,6 +28267,12 @@
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/tiled/white,
 /area/rnd/conference)
+"rDw" = (
+/obj/structure/closet/crate,
+/obj/random/loot,
+/obj/item/storage/bag/inflatable,
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/aux_atmospherics/deck_2/starboard)
 "rDH" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/alarm{
@@ -37398,6 +37413,7 @@
 /obj/item/clothing/suit/space/void/atmos,
 /obj/item/clothing/head/helmet/space/void/atmos,
 /obj/machinery/firealarm/west,
+/obj/item/storage/bag/inflatable,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/storage)
 "wSE" = (
@@ -47703,7 +47719,7 @@ qxy
 pEt
 pBB
 gyu
-rYx
+rDw
 sfk
 whe
 qgN
@@ -51916,7 +51932,7 @@ fxw
 bKd
 hGX
 vVv
-vVv
+hqC
 fdF
 bwR
 apd
@@ -55760,7 +55776,7 @@ ibx
 jvV
 fsf
 oGm
-qFN
+eqK
 tpy
 cVe
 hQa

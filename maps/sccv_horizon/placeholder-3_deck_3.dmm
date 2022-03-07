@@ -13225,6 +13225,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
+"Gq" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/carpet/rubber,
+/area/bridge)
 "Gr" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
@@ -14664,11 +14668,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/starboard)
 "JC" = (
-/obj/structure/table/rack,
-/obj/random/arcade,
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/aux_atmospherics/deck_3)
 "JD" = (
@@ -17177,6 +17180,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
+/obj/item/storage/bag/inflatable,
 /turf/simulated/floor,
 /area/maintenance/aux_atmospherics/deck_3)
 "Pw" = (
@@ -17875,10 +17879,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/hallway/primary/starboard)
-"QV" = (
-/obj/machinery/hologram/holopad,
-/turf/simulated/floor/carpet/rubber,
-/area/bridge)
 "QW" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -41788,7 +41788,7 @@ SH
 Fn
 US
 Xe
-QV
+Gq
 AQ
 Hg
 FQ
