@@ -717,12 +717,6 @@ var/list/gamemode_cache = list()
 				if("time_offset")
 					config.time_offset = text2num(value)
 
-				if("disable_player_rats")
-					config.disable_player_rats = 1
-
-				if("uneducated_rats")
-					config.uneducated_rats = 1
-
 				if("use_discord_pins")
 					config.use_discord_pins = 1
 
