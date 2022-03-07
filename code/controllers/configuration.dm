@@ -88,9 +88,6 @@ var/list/gamemode_cache = list()
 	var/allow_drone_spawn = 1				//assuming the admin allow them to.
 	var/drone_build_time = 1200				//A drone will become available every X ticks since last drone spawn. Default is 2 minutes.
 
-	var/disable_player_rats = 0
-	var/uneducated_rats = 0 //Set to 1 to prevent newly-spawned mice from understanding human speech
-
 	var/usealienwhitelist = 0
 	var/limitalienplayers = 0
 	var/alien_to_human_ratio = 0.5
