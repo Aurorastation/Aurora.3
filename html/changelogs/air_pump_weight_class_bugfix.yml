@@ -3,4 +3,4 @@ author: SleepyGem
 delete-after: True
 
 changes:
-  - bugfix: "Fixes a oversight regarding the portable air pump and air scrubber's sizes, which means they no longer fit in your bag or in lockers."
+  - bugfix: "Fixes a oversight regarding the portable air pump and air scrubber's sizes, which means they no longer fit in lockers and that their size is reflected appropriately in the code."
