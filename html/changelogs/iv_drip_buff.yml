@@ -5,7 +5,8 @@ delete-after: True
 changes:
   - imagedel: "Deleted old IV sprites."
   - imageadd: "Ported Eris's medical stand sprites and intensively edited them to fit Aurora, with additional tank gauge, screen displays, and a unique tipping over animation."
-  - rsadd: "Ported Eris's medical stand gas tank functionality and hammered it until it fit Aurora, with a unique Emergency Positive Pressure system in case the patient can't breathe."
-  - rsadd: "You can knock IV stands over, and you can also trip on them! Plus it'll bring down whoever is wearing the IV's mask!"
-  - rsadd: "You can choose which part of a body the IV needle will go into. Doesn't work for robotic limbs, like how hypos can't inject into them."
+  - rscadd: "Ported Eris's medical stand gas tank functionality and hammered it until it fit Aurora, with a unique Emergency Positive Pressure system in case the patient can't breathe."
+  - rscadd: "You can knock IV stands over, and you can also trip on them! Plus it'll bring down whoever is wearing the IV's mask!"
+  - rscadd: "You can choose which part of a body the IV needle will go into. Doesn't work for robotic limbs, like how hypos can't inject into them."
+  - rscadd: "Organized toggables into Normal Click, removables into Alt Click, and injecting IV/securing mask into Drag and Drop Radial Menus."
   - tweak: "Organized the iv_drip.dm code."
