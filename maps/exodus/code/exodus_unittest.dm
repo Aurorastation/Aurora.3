@@ -28,3 +28,10 @@
 		,/area/engineering/cooling
 		,/area/outpost/research/emergency_storage
 	)
+
+/datum/unit_test/map_test/all_station_areas_shall_be_on_station_zlevels/start_test()
+	if(current_map.name == "Exodus")
+		pass("Exodus skips this test.")
+	else
+		return ..()
+	return 1

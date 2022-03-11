@@ -249,7 +249,6 @@
 	pixel_x = 13;
 	pixel_y = 5
 	},
-/obj/item/weedkiller/triclopyr,
 /obj/item/reagent_containers/glass/fertilizer/ez,
 /turf/simulated/floor/plating,
 /area/outpost/research/chemistry)

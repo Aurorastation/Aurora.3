@@ -327,6 +327,15 @@
 	condiment_desc = "A delicious oil used in cooking. Made from corn."
 	condiment_icon_state = "oliveoil"
 
+/decl/reagent/nutriment/triglyceride/oil/peanut
+	name = "Peanut Oil"
+	description = "A flavourful oil derived from roasted peanuts."
+	color = "#ba8002"
+	taste_description = "smoky peanut oil"
+	taste_mult = 1
+	condiment_name = "peanut oil"
+	condiment_desc = "Tasteful and rich peanut oil used in cooking. Made from roasted peanuts."
+	condiment_icon_state = "peanutoil"
 
 /decl/reagent/nutriment/honey
 	name = "Honey"
@@ -462,6 +471,35 @@
 	color = "#801E28"
 	taste_description = "cherry"
 	taste_mult = 1.3
+	condiment_name = "cherry jelly jar"
+	condiment_desc = "Great with peanut butter!"
+	condiment_icon_state = "jellyjar"
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
+/decl/reagent/nutriment/peanutbutter
+	name = "Peanut Butter"
+	description = "Clearer the better spread, exception for those who are deathly allergic."
+	reagent_state = LIQUID
+	nutriment_factor = 5
+	color = "#AD7937"
+	taste_description = "peanut butter"
+	taste_mult = 2
+	condiment_name = "peanut butter jar"
+	condiment_desc = "Great with jelly!"
+	condiment_icon_state = "pbjar"
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
+/decl/reagent/nutriment/groundpeanuts
+	name = "Ground Roasted Peanuts"
+	description = "Roughly ground roasted peanuts."
+	reagent_state = SOLID
+	nutriment_factor = 5
+	color = "#AD7937"
+	taste_description = "roasted peanuts"
+	taste_mult = 2
+	condiment_name = "ground roasted peanuts sack"
+	condiment_icon_state = "peanut_sack"
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /decl/reagent/nutriment/virusfood
 	name = "Virus Food"
@@ -529,6 +567,18 @@
 	color = "#d8c045"
 	condiment_name = "garlic sauce"
 	condiment_desc = "Perfect for repelling vampires and/or potential dates."
+
+/decl/reagent/nutriment/mayonnaise
+	name = "Mayonnaise"
+	description = "Mayonnaise, a staple classic for sandwiches."
+	taste_description = "mayonnaise"
+	reagent_state = LIQUID
+	nutriment_factor = 4
+	color = "#F0EBD8"
+	condiment_name = "mayonnaise"
+	condiment_desc = "Great for sandwiches!"
+	condiment_icon_state = "mayojar"
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /* Non-food stuff like condiments */
 
@@ -4734,7 +4784,7 @@
 
 /decl/reagent/drink/hrozamal_soda
 	name = "Hro'zamal Soda"
-	description = "A cabornated version of the herbal tea made with Hro'zamal Ras'Nifs powder."
+	description = "A carbonated version of the herbal tea made with Hro'zamal Ras'Nifs powder."
 	color = "#F0C56C"
 	adj_sleepy = -1
 	caffeine = 0.2
@@ -4743,7 +4793,7 @@
 
 	glass_icon_state = "hrozamal_soda_glass"
 	glass_name = "glass of Hro'zamal Soda"
-	glass_desc = "A cabornated version of the herbal tea made with Hro'zamal Ras'Nifs powder."
+	glass_desc = "A carbonated version of the herbal tea made with Hro'zamal Ras'Nifs powder."
 
 /decl/reagent/nutriment/vanilla
 	name = "Vanilla Extract"
