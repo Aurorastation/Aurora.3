@@ -1,8 +1,0 @@
-author: Sparky_hotdog
-
-delete-after: True
-
-changes:
-  - rscadd: "Added new station bounced radio sprites, as well as some department specific ones."
-  - maptweak: "Added three station bounced radios to telescience."
-  - maptweak: "Removed the virology uplink phone from medical reception."
