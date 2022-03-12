@@ -25,6 +25,8 @@
 	harm_intent_damage = 4
 	melee_damage_lower = 15
 	melee_damage_upper = 15
+	armor_penetration = 15
+	attack_flags = DAM_EDGE
 	attacktext = "bitten"
 	attack_sound = 'sound/weapons/bite.ogg'
 

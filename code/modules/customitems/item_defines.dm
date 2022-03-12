@@ -2020,9 +2020,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "rajjurl_gloves"
 	contained_sprite = TRUE
 
-/obj/item/storage/backpack/fluff/pax_bag //Alqaana Backpack - Ka'Akaix'Pax C'thur - desven
+/obj/item/storage/backpack/fluff/pax_bag // Alqaana Backpack - Ka'Akaix'Pax C'thur - desven
 	name = "Alqaana backpack"
-	desc = "Known for her extravagant concerts, Alqaana is one of few idols that have draw inspiration from Solarian classical music over more contemporary skrellian genres. This is her, in bag form!"
+	desc = "Known for her extravagant concerts, Alqaana is one of the few idols that have drawn inspiration from Solarian classical music over more contemporary skrellian genres. This is her, in bag form!"
 	icon = 'icons/obj/custom_items/pax_bag.dmi'
 	icon_override = 'icons/obj/custom_items/pax_bag.dmi'
 	icon_state = "pax_bag"
@@ -2338,3 +2338,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 	action_button_name = "Adjust mask"
 	flash_protection = FLASH_PROTECTION_NONE
 	tint = TINT_NONE
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/fluff/iliasz_jacket
+	name = "naval pilot's jacket"
+	desc = "A sturdy grey-green neonomex-lined jacket, flame-resistant and sleek. A garment of choice for anyone who might be in the cockpit of something with a risk of catching fire. \
+	There's a name patch sewn onto the breast of this one, reading \"JAJSZCZYK\". It seems to be more rugged than a typical flight jacket, and also appears to have some waterproofing. \
+	A Solarian flag in miniature rests on the right sleeve, the colors faded and worn."
+	icon = 'icons/obj/custom_items/iliasz_jacket.dmi'
+	icon_override = 'icons/obj/custom_items/iliasz_jacket.dmi'
+	icon_state = "iliasz_jacket"
+	item_state = "iliasz_jacket"
+	contained_sprite = TRUE

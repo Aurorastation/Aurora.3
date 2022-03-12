@@ -48,7 +48,7 @@
 	gear_tweaks += new /datum/gear_tweak/reagents(lunchables_all_drink_reagents())
 
 /datum/gear/vacflask_cold
-	display_name = "cold vacuum-flask"
+	display_name = "cold vacuum flask"
 	path = /obj/item/reagent_containers/food/drinks/flask/vacuumflask
 
 /datum/gear/vacflask_cold/New()
@@ -62,7 +62,7 @@
 		spawned_flask.reagents.set_temperature(T0C + 5)
 
 /datum/gear/vacflask_hot
-	display_name = "hot vacuum-flask"
+	display_name = "hot vacuum flask"
 	path = /obj/item/reagent_containers/food/drinks/flask/vacuumflask
 
 /datum/gear/vacflask_hot/New()
@@ -285,8 +285,8 @@
 	..()
 	var/list/comics = list()
 	comics["comic book"] = /obj/item/toy/comic
-	comics["comic book"] = /obj/item/toy/comic/inspector
-	comics["comic book"] = /obj/item/toy/comic/stormman
+	comics["inspector 404 manga"] = /obj/item/toy/comic/inspector
+	comics["stormman manga"] = /obj/item/toy/comic/stormman
 	gear_tweaks += new /datum/gear_tweak/path(comics)
 
 /datum/gear/toothpaste

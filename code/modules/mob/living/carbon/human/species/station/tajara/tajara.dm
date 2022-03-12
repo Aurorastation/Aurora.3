@@ -90,7 +90,7 @@
 
 	default_h_style = "Tajaran Ears"
 
-	allowed_citizenships = list(CITIZENSHIP_PRA, CITIZENSHIP_DPRA, CITIZENSHIP_NKA)
+	allowed_citizenships = list(CITIZENSHIP_PRA, CITIZENSHIP_DPRA, CITIZENSHIP_NKA, CITIZENSHIP_FREE_COUNCIL)
 	default_citizenship = CITIZENSHIP_PRA
 	allowed_religions = list(RELIGION_TWINSUNS, RELIGION_MATAKE, RELIGION_RASKARA, RELIGION_NONE, RELIGION_OTHER)
 

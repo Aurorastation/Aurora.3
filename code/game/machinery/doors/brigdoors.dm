@@ -145,7 +145,8 @@
 		broadcast_security_hud_message("The timer for [id] has expired.", src)
 
 	if(istype(incident))
-		var/datum/record/general/R = SSrecords.find_record("name", incident.criminal.name)
+		var/mob/living/carbon/human/C = incident.criminal.resolve()
+		var/datum/record/general/R = SSrecords.find_record("name", C.name)
 		if(istype(R) && istype(R.security))
 			if(early == 1)
 				R.security.criminal = "Parolled"
@@ -346,7 +347,8 @@
 
 		if( "activate" )
 			src.timer_start()
-			var/datum/record/general/R = SSrecords.find_record("name", incident.criminal.name)
+			var/mob/living/carbon/human/C = incident.criminal.resolve()
+			var/datum/record/general/R = SSrecords.find_record("name", C.name)
 			if(R && R.security)
 				R.security.criminal = "Incarcerated"
 

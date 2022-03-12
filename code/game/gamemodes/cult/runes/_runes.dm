@@ -3,14 +3,20 @@
 #define HAS_SPECIAL_TALISMAN_ACTION  4
 
 /datum/rune
-	var/name          // The rune's name.
-	var/desc          // The rune's description. This and the name are used in the guide.
-	var/rune_flags    // Things like if it can be a talisman or not.
+	var/name            	  // The rune's name.
+	var/desc         		  // The rune's description. This and the name are used in the guide.
+	var/rune_flags   		  // Things like if it can be a talisman or not.
+	var/max_number_allowed    // Maximum number allowed of this rune.
 	var/atom/movable/parent
 
 /datum/rune/New(atom/owner)
 	..()
 	parent = owner
+
+/datum/rune/Destroy()
+	parent = null
+	SScult.remove_rune(src)
+	return ..()
 
 /datum/rune/proc/activate(var/mob/living/user, var/atom/movable/A)
 	if(!isliving(user))
