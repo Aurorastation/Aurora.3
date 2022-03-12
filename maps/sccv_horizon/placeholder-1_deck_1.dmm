@@ -4122,7 +4122,7 @@
 	},
 /area/maintenance/wing/port/deck1)
 "dTk" = (
-/obj/effect/shuttle_landmark/horizon/nav2,
+/obj/effect/shuttle_landmark/horizon/nav1,
 /turf/simulated/floor/plating,
 /area/hangar/auxiliary)
 "dUK" = (
@@ -4517,10 +4517,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/engineering/lower)
 "ekm" = (
-/obj/effect/shuttle_landmark/distress/blue{
-	base_turf = /turf/simulated/floor/plating;
-	name = "Port Hangar"
-	},
+/obj/effect/shuttle_landmark/horizon/nav2,
 /turf/simulated/floor/plating,
 /area/hangar/auxiliary)
 "ekt" = (
@@ -17285,7 +17282,10 @@
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
 "pMP" = (
-/obj/effect/shuttle_landmark/horizon/nav1,
+/obj/effect/shuttle_landmark/distress/blue{
+	base_turf = /turf/simulated/floor/plating;
+	name = "Port Hangar"
+	},
 /turf/simulated/floor/plating,
 /area/hangar/auxiliary)
 "pMX" = (
@@ -51703,8 +51703,8 @@ bJa
 bJa
 bJa
 bJa
+dTk
 bJa
-pMP
 bJa
 lnk
 bJa
@@ -53723,10 +53723,10 @@ bJa
 bJa
 bJa
 bJa
-bJa
-dTk
 ekm
 bJa
+bJa
+pMP
 bJa
 bJa
 bJa
