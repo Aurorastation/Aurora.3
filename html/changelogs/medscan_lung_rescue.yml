@@ -1,6 +1,0 @@
-author: Vrow
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed Medical Scan paper not having the small puncture wound to the lungs if they've been rescued."

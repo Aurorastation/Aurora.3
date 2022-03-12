@@ -1,6 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes:
-  - bugfix: "Blast doors will reopen when power is restored, if they were open before losing power."
