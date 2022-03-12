@@ -29,7 +29,7 @@
 
 	l_ear = /obj/item/device/radio/headset/ship
 
-	backpack_contents = list(/obj/item/storage/box/survival = 1)
+	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1)
 
 /datum/outfit/admin/orion_express_courier/get_id_access()
 	return list(access_orion_express_ship, access_external_airlocks)

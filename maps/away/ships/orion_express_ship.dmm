@@ -802,7 +802,9 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/orion_express_shuttle)
 "piw" = (
-/obj/structure/closet/secure_closet/freezer/kitchen,
+/obj/structure/closet/secure_closet/freezer/kitchen{
+	req_access = list(201)
+	},
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
@@ -1142,9 +1144,7 @@
 "xwj" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
-/obj/item/stack/material/cyborg/plasteel{
-	amount = 50
-	},
+/obj/item/stack/material/plasteel,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_express_ship)
 "xzv" = (
