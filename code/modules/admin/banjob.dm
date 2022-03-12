@@ -477,11 +477,6 @@ var/list/jobban_keylist = list() // Global jobban list.
 			jobs += "</tr><tr align='center'>"
 			counter = 0
 
-	if (jobban_isbanned(ckey, "Internal Affairs Agent"))
-		jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=Internal Affairs Agent;jobban_tgt=[ckey]'><font color=red>Internal Affairs Agent</font></a></td>"
-	else
-		jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=Internal Affairs Agent;jobban_tgt=[ckey]'>Internal Affairs Agent</a></td>"
-
 	jobs += "</tr></table>"
 
 	//Non-Human (Green)
