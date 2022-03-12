@@ -705,6 +705,7 @@ BREATH ANALYZER
 		"blood_amount" = REAGENT_VOLUME(H.vessel, /decl/reagent/blood),
 		"disabilities" = H.sdisabilities,
 		"lung_ruptured" = H.is_lung_ruptured(),
+		"lung_rescued" = H.is_lung_rescued(),
 		"external_organs" = H.organs.Copy(),
 		"internal_organs" = H.internal_organs.Copy(),
 		"species_organs" = H.species.has_organ

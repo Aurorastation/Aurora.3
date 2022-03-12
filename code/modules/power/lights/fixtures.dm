@@ -85,17 +85,21 @@
 	brightness_range = 6
 	brightness_power = 0.45
 	brightness_color = LIGHT_COLOR_EMERGENCY_SOFT
+	randomize_color = FALSE
 
 /obj/machinery/light/small/red
 	brightness_range = 2.5
 	brightness_power = 0.45
 	brightness_color = LIGHT_COLOR_RED
+	randomize_color = FALSE
 
 /obj/machinery/light/colored/blue
 	brightness_color = LIGHT_COLOR_BLUE
+	randomize_color = FALSE
 
 /obj/machinery/light/colored/red
 	brightness_color = LIGHT_COLOR_RED
+	randomize_color = FALSE
 
 /obj/machinery/light/spot
 	name = "spotlight"

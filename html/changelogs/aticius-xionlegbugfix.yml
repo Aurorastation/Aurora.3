@@ -1,9 +1,0 @@
-
-author: Aticius
-
-
-delete-after: True
-
-changes:
-  - bugfix: "The Xion left leg sprite will no longer give you two feet."
-

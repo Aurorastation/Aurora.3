@@ -218,3 +218,7 @@
 	if(height && istype(mover) && mover.checkpass(PASSTABLE)) //allow bullets, beams, thrown objects, rats, drones, and the like through.
 		return 1
 	return ..()
+
+/obj/machinery/iv_drip/AltClick(mob/user)
+	. = ..()
+	transfer_rate()

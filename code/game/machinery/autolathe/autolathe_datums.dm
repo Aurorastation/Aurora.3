@@ -288,6 +288,10 @@
 	path = /obj/item/reagent_containers/syringe
 	category = "Medical"
 
+/datum/autolathe/recipe/syringe/large
+	name = "large syringe"
+	path = /obj/item/reagent_containers/syringe/large
+
 /datum/autolathe/recipe/syringegun_ammo
 	name = "syringe gun cartridge"
 	path = /obj/item/syringe_cartridge

@@ -9,6 +9,11 @@
 	item_cost = 1
 	path = /obj/item/storage/box/sinpockets
 
+/datum/uplink_item/item/medical/lunchbox
+	name = "Syndicate Lunchbox"
+	item_cost = 1
+	path = /obj/item/storage/toolbox/lunchbox/syndicate/filled
+
 /datum/uplink_item/item/medical/combathypo
 	name = "Combat Hypospray"
 	item_cost = 1

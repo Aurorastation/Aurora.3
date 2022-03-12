@@ -500,7 +500,7 @@
 /mob/living/carbon/human/proc/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, inrange, params)
 	return
 
-/mob/living/carbon/human/attack_generic(var/mob/user, var/damage, var/attack_message)
+/mob/living/carbon/human/attack_generic(var/mob/user, var/damage, var/attack_message, var/armor_penetration, var/attack_flags)
 	if(!damage)
 		return
 
@@ -516,7 +516,7 @@
 	if(!dam_zone)
 		dam_zone = pick(organs)
 	var/obj/item/organ/external/affecting = get_organ(dam_zone)
-	apply_damage(damage, BRUTE, affecting)
+	apply_damage(damage, BRUTE, affecting, armor_pen = armor_penetration, damage_flags = attack_flags)
 	updatehealth()
 	return TRUE
 
