@@ -60,6 +60,7 @@ a {color: #0000ff;}
 a.visited {color: #ff00ff;}
 a:visited {color: #ff00ff;}
 a.popt {text-decoration: none;}
+.ai_tracking, .ai_tracking:link, .ai_tracking:visited, .ai_tracking:active, .ai_tracking:hover {color: #0000ff;}
 
 /*****************************************
 *
@@ -353,6 +354,10 @@ h1.alert, h2.alert		{color: #000080;}
 .tajaran_signlang		{color: #941C1C;}
 .skrell					{color: #00CED1;}
 .vaurca					{color: #9e9e39;}
+.vaurca_zora		{color: #9e3939;}
+.vaurca_cthur		{color: #39719e;}
+.vaurca_klax		{color: #399e4a;}
+.vaurca_liidra	{color: #b350b3;}
 .soghun					{color: #228B22;}
 .solcom					{color: #22228B;}
 .elyran					{color: #c79322;}

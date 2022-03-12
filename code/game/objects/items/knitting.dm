@@ -11,6 +11,29 @@
 	var/static/list/knitables = list(/obj/item/clothing/accessory/sweater, /obj/item/clothing/suit/storage/toggle/cardigan, /obj/item/clothing/suit/storage/toggle/cardigan/sweater, /obj/item/clothing/suit/storage/toggle/cardigan/argyle, /obj/item/clothing/accessory/sweatervest, /obj/item/clothing/accessory/sweaterturtleneck, /obj/item/clothing/gloves/fingerless/colour/knitted, /obj/item/clothing/gloves/knitted, /obj/item/clothing/accessory/bandanna/colorable/knitted, /obj/item/clothing/accessory/scarf)
 	var/static/list/name2knit
 
+/obj/item/knittingneedles/verb/remove_yarn()
+	set name = "Remove Yarn"
+	set category = "Object"
+	set src in usr
+
+	if(use_check_and_message(usr))
+		return
+
+	if(!ball)
+		to_chat(usr, SPAN_WARNING("There is no yarn on \the [src]!"))
+		return
+
+	if(working)
+		to_chat(usr, SPAN_WARNING("You can't remove \the [ball] while using \the [src]!"))
+		return
+
+	var/mob/living/carbon/human/H = usr
+
+	H.put_in_hands(ball)
+	ball = null
+	to_chat(usr, SPAN_NOTICE("You remove \the [ball] from \the [src]."))
+	update_icon()
+
 /obj/item/knittingneedles/Destroy()
 	if(ball)
 		QDEL_NULL(ball)
@@ -30,9 +53,15 @@
 		item_state = initial(item_state)
 
 	if(ball)
-		add_overlay("[ball.icon_state]")
+		var/mutable_appearance/yarn_overlay = mutable_appearance(icon, "[ball.icon_state]")
+		if(ball.color)
+			yarn_overlay.color = ball.color
+		else
+			yarn_overlay.appearance_flags = RESET_COLOR
+		add_overlay(yarn_overlay)
 	else
 		cut_overlays()
+	update_held_icon()
 
 /obj/item/knittingneedles/attackby(obj/item/O, mob/user)
 	if(istype(O, /obj/item/yarn))
@@ -62,6 +91,8 @@
 		var/image/radial_button = image(icon = initial(i.icon), icon_state = initial(i.icon_state))
 		options[initial(i.name)] = radial_button
 	var/knit_name = show_radial_menu(user, user, options, radius = 42, tooltips = TRUE)
+	if(!knit_name)
+		return
 	var/type_path = name2knit[knit_name]
 
 	user.visible_message("<b>[user]</b> begins knitting something soft and cozy.")

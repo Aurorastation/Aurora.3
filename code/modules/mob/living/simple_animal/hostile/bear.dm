@@ -26,6 +26,8 @@
 	maxHealth = 80
 	melee_damage_lower = 10
 	melee_damage_upper = 18
+	armor_penetration = 30 //Standard armor probably doesn't help against a bear, does it?
+	attack_flags = DAM_EDGE|DAM_SHARP
 	resist_mod = 4
 	break_stuff_probability = 80
 	mob_size = 17

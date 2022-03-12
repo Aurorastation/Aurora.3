@@ -19,12 +19,13 @@
 	)
 	primitive_form = SPECIES_MONKEY_UNATHI
 	darksight = 3
-	gluttonous = GLUT_MESSY
+	gluttonous = GLUT_MESSY|GLUT_ITEM_TINY
 	stomach_capacity = 7
 	slowdown = 0.5
 
 	brute_mod = 0.8
 	fall_mod = 1.2
+	radiation_mod = 0.9 // how else did they survive nuclear armageddon?
 	grab_mod = 1.25 // Huge, usually have horns
 	resist_mod = 2.5 // Arguably our strongest organic species
 
@@ -108,6 +109,8 @@
         BP_STOMACH =    /obj/item/organ/internal/stomach/unathi,
         BP_EYES =    /obj/item/organ/internal/eyes/unathi
     )
+
+	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH)
 
 	pain_emotes_with_pain_level = list(
 			list(/decl/emote/audible/wheeze, /decl/emote/audible/roar, /decl/emote/audible/bellow) = 80,

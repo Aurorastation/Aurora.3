@@ -135,12 +135,13 @@
 #define DEFAULT_JOB_TYPE /datum/job/assistant
 
 //Area flags, possibly more to come
-#define RAD_SHIELDED        1 //shielded from radiation, clearly
-#define SPAWN_ROOF          2 // if we should attempt to spawn a roof above us.
-#define HIDE_FROM_HOLOMAP   4 // if we shouldn't be drawn on station holomaps
-#define FIRING_RANGE        8
-#define NO_CREW_EXPECTED   16 // Areas where crew is not expected to ever be. Used to tell antag bases and such from crew-accessible areas on centcom level.
-#define PRISON             32 // Marks prison area for purposes of checking if brigged/imprisoned
+#define RAD_SHIELDED        	 BITFLAG(1) //shielded from radiation, clearly
+#define SPAWN_ROOF          	 BITFLAG(2) // if we should attempt to spawn a roof above us.
+#define HIDE_FROM_HOLOMAP   	 BITFLAG(3) // if we shouldn't be drawn on station holomaps
+#define FIRING_RANGE        	 BITFLAG(4)
+#define NO_CREW_EXPECTED    	 BITFLAG(5) // Areas where crew is not expected to ever be. Used to tell antag bases and such from crew-accessible areas on centcom level.
+#define PRISON              	 BITFLAG(6) // Marks prison area for purposes of checking if brigged/imprisoned
+#define NO_GHOST_TELEPORT_ACCESS BITFLAG(7) // Marks whether ghosts should not have teleport access to this area
 
 // Convoluted setup so defines can be supplied by Bay12 main server compile script.
 // Should still work fine for people jamming the icons into their repo.
@@ -492,6 +493,6 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define TEMPLATE_FLAG_SPAWN_GUARANTEED 2 // Makes it ignore away site budget and just spawn (only for away sites)
 #define TEMPLATE_FLAG_CLEAR_CONTENTS   4 // if it should destroy objects it spawns on top of
 #define TEMPLATE_FLAG_NO_RUINS         8 // if it should forbid ruins from spawning on top of it
-#define TEMPLATE_FLAG_NO_RADS          16// Removes all radiation from the template after spawning.
 
-
+//Ruin map template flags
+#define TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED 32  // Ruin is not available during spawning unless another ruin permits it.

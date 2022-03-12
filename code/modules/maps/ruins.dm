@@ -18,7 +18,7 @@ var/list/banned_ruin_ids = list()
 	for(var/datum/map_template/ruin/ruin in potentialRuins)
 		if (ruin.id in banned_ruin_ids)
 			continue
-		if(!(SSatlas.current_sector.name in ruin.sectors) && !length(ruin.sectors))
+		if(!(SSatlas.current_sector.name in ruin.sectors))
 			continue
 		available[ruin] = ruin.spawn_weight
 
@@ -27,7 +27,7 @@ var/list/banned_ruin_ids = list()
 
 	while (remaining > 0 && length(available))
 		var/datum/map_template/ruin/ruin = pickweight(available)
-		if (ruin.cost > budget)
+		if (ruin.spawn_cost > budget)
 			available -= ruin
 			continue
 
@@ -52,12 +52,12 @@ var/list/banned_ruin_ids = list()
 			if (!valid)
 				continue
 
-			log_admin("Ruin \"[ruin.name]\" placed at ([choice.x], [choice.y], [choice.z])")
+			log_admin("Ruin \"[ruin.name]\" placed at ([choice.x], [choice.y], [choice.z])!")
 
 			load_ruin(choice, ruin)
 			selected += ruin
-			if (ruin.cost > 0)
-				remaining -= ruin.cost
+			if (ruin.spawn_cost > 0)
+				remaining -= ruin.spawn_cost
 			if (!(ruin.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES))
 				banned_ruin_ids += ruin.id
 				available -= ruin
@@ -78,7 +78,7 @@ var/list/banned_ruin_ids = list()
 		var/turf/T = i
 		for(var/mob/living/simple_animal/monster in T)
 			qdel(monster)
-	template.load(central_turf,centered = TRUE)
+	template.load(central_turf, TRUE)
 	var/datum/map_template/ruin = template
 	if(istype(ruin))
 		new /obj/effect/landmark/ruin(central_turf, ruin)

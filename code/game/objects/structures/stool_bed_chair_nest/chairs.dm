@@ -26,51 +26,15 @@
 /obj/structure/bed/stool/chair/update_icon()
 	..()	// This handles all chair-specific funky stuff, such as chair backrests, armrests, padding and buckles.
 
-	var/list/furniture_cache = SSicon_cache.furniture_cache
-
-	var/cache_key = "[base_icon]-[material.name]-over"
-	if(!furniture_cache[cache_key])
-		var/image/I = image('icons/obj/furniture.dmi', "[base_icon]_over")
-		if(material_alteration & MATERIAL_ALTERATION_COLOR)
-			I.color = material.icon_colour
-		I.layer = FLY_LAYER
-		furniture_cache[cache_key] = I
-	add_overlay(furniture_cache[cache_key])
+	generate_overlay_cache(material, CACHE_TYPE_OVER, FLY_LAYER) // Generate overlay for backrest
 	// Padding overlay.
 	if(padding_material)
-		var/padding_cache_key = "[base_icon]-[padding_material.name]-padding-over"
-		if(!furniture_cache[padding_cache_key])
-			var/image/I =  image(icon, "[base_icon]_padding_over")
-			if(material_alteration & MATERIAL_ALTERATION_COLOR)
-				if(painted_colour)
-					I.color = painted_colour
-				else if(padding_material.icon_colour)
-					I.color = padding_material.icon_colour
-			I.layer = FLY_LAYER
-			furniture_cache[padding_cache_key] = I
-		add_overlay(furniture_cache[padding_cache_key])
+		generate_overlay_cache(padding_material, CACHE_TYPE_PADDING_OVER, FLY_LAYER, TRUE) // Generate padding overlay for backrest
 
 	if(buckled)
-		cache_key = "[base_icon]-[material.name]-armrest"
-		if(!furniture_cache[cache_key])
-			var/image/I = image(icon, "[base_icon]_armrest")
-			I.layer = FLY_LAYER
-			if(material_alteration & MATERIAL_ALTERATION_COLOR)
-				I.color = material.icon_colour
-			furniture_cache[cache_key] = I
-		add_overlay(furniture_cache[cache_key])
+		generate_overlay_cache(material, CACHE_TYPE_ARMREST, FLY_LAYER) // Generate armrests
 		if(padding_material)
-			cache_key = "[base_icon]-[padding_material.name]-padding-armrest"
-			if(!furniture_cache[cache_key])
-				var/image/I = image(icon, "[base_icon]_padding_armrest")
-				I.layer = FLY_LAYER
-				if(material_alteration & MATERIAL_ALTERATION_COLOR)
-					if(painted_colour)
-						I.color = painted_colour
-					else if(padding_material.icon_colour)
-						I.color = padding_material.icon_colour
-				furniture_cache[cache_key] = I
-			add_overlay(furniture_cache[cache_key])
+			generate_overlay_cache(padding_material, CACHE_TYPE_PADDING_ARMREST, FLY_LAYER, TRUE) // Generate padding overlay for armrest
 
 /obj/structure/bed/stool/chair/set_dir()
 	. = ..()
@@ -90,7 +54,7 @@
 		if(mover.density && isliving(mover) && (reverse_dir[dir] & angle2dir(Get_Angle(src, mover))))
 			return FALSE
 	return ..()
-	
+
 /obj/structure/bed/stool/chair/padded/brown/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_LEATHER)
 
@@ -400,11 +364,7 @@
 /obj/structure/bed/stool/chair/shuttle/update_icon()
 	..()
 	if(!buckled)
-		var/image/I = image(icon, "[base_icon]_special")
-		I.layer = ABOVE_MOB_LAYER
-		if(material_alteration & MATERIAL_ALTERATION_COLOR)
-			I.color = material.icon_colour
-		overlays |= I
+		generate_overlay_cache(material, CACHE_TYPE_SPECIAL, ABOVE_MOB_LAYER)
 
 // pool chair, to sit with your feet in the water. only works when facing south, because water overlays weirdly otherwise
 /obj/structure/bed/stool/chair/pool
@@ -457,6 +417,7 @@
 	item_state = "woodenchair"
 	base_icon = "wooden_chair"
 	origin_type = /obj/structure/bed/stool/chair/wood
+	applies_material_colour = FALSE
 
 /obj/item/material/stool/chair/wood/wings
 	icon_state = "wooden_chair_wings_item"

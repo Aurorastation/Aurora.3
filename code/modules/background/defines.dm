@@ -14,6 +14,7 @@
 #define CITIZENSHIP_PRA "People's Republic of Adhomai"
 #define CITIZENSHIP_DPRA "Democratic People's Republic of Adhomai"
 #define CITIZENSHIP_NKA "New Kingdom of Adhomai"
+#define CITIZENSHIP_FREE_COUNCIL "Free Tajaran Council"
 
 #define CITIZENSHIP_ZORA "Zo'ra Hive"
 #define CITIZENSHIP_KLAX "K'lax Hive"
@@ -55,6 +56,8 @@
 #define RELIGION_PILOTDREAM "Pilot Dream"
 
 #define RELIGION_ETERNAL "The Eternal"
+#define RELIGION_KSSHR "Ksshr"
+#define RELIGION_SHRKH "Shrkh"
 
 //accent defines
 
