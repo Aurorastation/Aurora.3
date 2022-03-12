@@ -131,6 +131,8 @@
 	else
 		pass("All mapped closets had valid icon states.")
 
+	return TRUE
+
 #define UNDERSCORE_OR_NULL(target) "[target ? "[target]_" : ""]"
 /datum/unit_test/icon_test/hardsuit_sprite_test
 	name = "ICON STATES: Hardsuit Sprite Test"
