@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes:
+  - bugfix: "Grippers will now properly remove items they are holding if that item should have been dropped / used up / otherwise deleted."
