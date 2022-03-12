@@ -161,7 +161,10 @@
 /datum/controller/subsystem/proc/StartInitialize(timeofday)
 	init_state = SS_INITSTATE_STARTED
 	init_start = timeofday
+	world.Profile(PROFILE_RESTART)
 	. = Initialize(timeofday)
+	var/profile_data = world.Profile(PROFILE_STOP)
+	log_ss_init(json_encode(profile_data))
 	init_finish = REALTIMEOFDAY
 	if (!init_time)
 		init_time = (init_finish - init_start) / 10
