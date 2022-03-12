@@ -9,7 +9,7 @@
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/orion_express_ship, /datum/shuttle/autodock/overmap/orion_express_shuttle)
 
 /obj/effect/overmap/visitable/sector/orion_express_ship
-	name = "empty sector"
+	name = "Empty sector"
 	desc = "A sector with faint hints of previous ship presence."
 	in_space = 1
 
