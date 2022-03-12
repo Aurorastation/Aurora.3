@@ -27,7 +27,7 @@
 #################################
 
 # Your name.
-author: Wowzewow (Wezzy)
+author: Wowzewow (Wezzy), monster860
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -42,3 +42,6 @@ changes:
   - soundadd: "Adds new sounds for opening and closing some cabinets and crates."
   - imageadd: "Resprites crates to look more swanky."
   - refactor: "Loot crates (A.K.A. Unusual Containers) should now spawn with more unique sprites."
+  - rscadd: "Adds animation to opening and closing lockers and body bags."
+  - refactor: "Refactors Crate and Locker code to be more internally consistent."
+  - rscdel: "Removed Electropack Crate rigging mechanic for being unused and eating cable coils."
