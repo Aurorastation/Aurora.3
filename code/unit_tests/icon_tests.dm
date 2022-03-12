@@ -1,15 +1,11 @@
 /datum/unit_test/icon_test
 	name = "ICON STATE template"
 
-/datum/unit_test/icon_test/closets/closets_shall_have_valid_icons_for_each_state
-	name = "ICON STATES: Closets shall have valid icons for each state"
-
-/datum/unit_test/icon_test/closets/closets_shall_have_valid_icons_for_each_state/start_test()
-	var/missing_states = 0
-	var/list/closet_paths = typesof(/obj/structure/closet)
-
+/datum/unit_test/icon_test/closets
+	name = "CLOSET template"
 	// Matches logic in /obj/structure/closet/update_icons()
 	var/list/closet_state_suffixes = list(
+		"nothing" = "",
 		"opened" = "_open",
 		"broken" = "_broken",
 		"door" = "_door",
@@ -19,6 +15,12 @@
 		"off" = "off",
 		"emag" = "emag"
 	)
+/datum/unit_test/icon_test/closets/closets_shall_have_valid_icons_for_each_state
+	name = "ICON STATES: Closets shall have valid icons for each state"
+
+/datum/unit_test/icon_test/closets/closets_shall_have_valid_icons_for_each_state/start_test()
+	var/missing_states = 0
+	var/list/closet_paths = typesof(/obj/structure/closet)
 
 	// If any closet types and their subtypes should be excluded from this test, include them here. Make sure they are covered by their own test.
 	var/list/exclude_closets = list(
@@ -106,6 +108,28 @@
 	else
 		pass("All related closet icon states exist.")
 	return TRUE
+
+/datum/unit_test/icon_test/closets/mapped_closets_shall_have_invalid_icon_states
+	name = "ICON STATES: Mapped closets shall not have altered icon states"
+
+/datum/unit_test/icon_test/closets/mapped_closets_shall_have_invalid_icon_states/start_test()
+	var/invalid_states = 0
+	var/checked_closets = 0
+	for(var/obj/structure/closet/C in world)
+		checked_closets++
+		var/list/valid_icon_states = list()
+		for(var/closet_suffix in closet_state_suffixes)
+			valid_icon_states |= "[initial(C.icon_state)][closet_state_suffixes[closet_suffix]]"
+		if(C.icon_state in valid_icon_states)
+			continue
+
+		invalid_states++
+		log_unit_test("Mapped closet [C] at [C.x], [C.y], [C.z] had an invalid icon_state defined: [C.icon_state]!")
+
+	if(invalid_states)
+		fail("Found [invalid_states] / [checked_closets] mapped closets with invalid mapped icon states!")
+	else
+		pass("All mapped closets had valid icon states.")
 
 #define UNDERSCORE_OR_NULL(target) "[target ? "[target]_" : ""]"
 /datum/unit_test/icon_test/hardsuit_sprite_test
