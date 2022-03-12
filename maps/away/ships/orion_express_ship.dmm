@@ -836,6 +836,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_express_ship)
+"pwR" = (
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
+	},
+/obj/effect/floor_decal/corner_wide/beige{
+	dir = 5
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/orion_express_ship)
 "pxS" = (
 /obj/effect/floor_decal/corner_wide/beige/full,
 /turf/simulated/floor/tiled/dark,
@@ -33675,7 +33688,7 @@ fRD
 ccm
 aUD
 riA
-drY
+pwR
 pjp
 hJi
 gNW
