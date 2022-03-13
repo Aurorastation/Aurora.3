@@ -286,6 +286,10 @@
 /mob/living/silicon/robot/drone/updatename()
 	return
 
+/mob/living/silicon/robot/drone/setup_icon_cache()
+	setup_eye_cache()
+	setup_panel_cache()
+
 /mob/living/silicon/robot/drone/setup_eye_cache()
 	cached_eye_overlays = list(
 		I_HELP = image(icon, "[icon_state]-eyes_help"),
