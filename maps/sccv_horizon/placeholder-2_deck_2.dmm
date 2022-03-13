@@ -11555,24 +11555,11 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/port/far)
 "hlu" = (
-/obj/structure/table/standard,
-/obj/item/device/radio{
-	anchored = 1;
-	canhear_range = 7;
-	frequency = 1487;
-	icon_state = "red_phone";
-	name = "Surgery Emergency Phone";
-	pixel_x = 5;
-	pixel_y = 5
-	},
 /obj/structure/window/reinforced{
 	dir = 4
 	},
 /obj/structure/window/reinforced,
-/obj/item/reagent_containers/spray/cleaner{
-	pixel_x = -7;
-	pixel_y = 4
-	},
+/obj/machinery/papershredder,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
 "hlK" = (
@@ -16416,6 +16403,7 @@
 	},
 /obj/item/paper_bin,
 /obj/item/pen,
+/obj/item/device/radio/phone/medbay,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
 "kqM" = (
@@ -22823,6 +22811,7 @@
 /area/maintenance/research_port)
 "oqN" = (
 /obj/structure/table/stone/marble,
+/obj/item/wirecutters/clippers,
 /turf/simulated/floor/wood,
 /area/hydroponics/garden)
 "oqW" = (
@@ -31075,6 +31064,11 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/maintenance/wing/starboard)
+"tsw" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/glass/bucket,
+/turf/simulated/floor/wood,
+/area/hydroponics/garden)
 "tsA" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -38297,6 +38291,10 @@
 /obj/structure/window/reinforced,
 /obj/machinery/recharger,
 /obj/structure/table/standard,
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = -7;
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
 "xvC" = (
@@ -38447,6 +38445,12 @@
 /obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
+"xBt" = (
+/obj/structure/table/stone/marble,
+/obj/item/material/hatchet,
+/obj/item/material/minihoe,
+/turf/simulated/floor/wood,
+/area/hydroponics/garden)
 "xBv" = (
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -61271,7 +61275,7 @@ xOo
 sdd
 kuG
 oqN
-oqN
+tsw
 cNz
 dvw
 cIN
@@ -61472,7 +61476,7 @@ veO
 hBz
 azB
 wBq
-oqN
+xBt
 gZt
 jHK
 tje
