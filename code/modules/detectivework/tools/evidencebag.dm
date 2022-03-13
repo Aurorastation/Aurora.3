@@ -3,17 +3,17 @@
 /obj/item/evidencebag
 	name = "evidence bag"
 	desc = "An empty evidence bag."
+	desc_info = "Click drag this onto an object to put it inside. Click it in-hand to remove an object from it."
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "evidenceobj"
 	item_state = ""
 	w_class = ITEMSIZE_SMALL
 	var/obj/item/stored_item = null
 	var/label_text = ""
-	var/base_name = ""
 
 /obj/item/evidencebag/Initialize()
 	. = ..()
-	base_name = name
+	AddComponent(/datum/component/base_name, name)
 
 /obj/item/evidencebag/MouseDrop(var/obj/item/I as obj)
 	if (!ishuman(usr))
@@ -102,8 +102,8 @@
 /obj/item/evidencebag/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.ispen() || istype(W, /obj/item/device/flashlight/pen))
 		var/tmp_label = sanitizeSafe(input(user, "Enter a label for [name]", "Label", label_text), MAX_NAME_LEN)
-		if(length(tmp_label) > 15)
-			to_chat(user, "<span class='notice'>The label can be at most 15 characters long.</span>")
+		if(length(tmp_label) > MAX_NAME_LEN)
+			to_chat(user, SPAN_NOTICE("The label can be at most [MAX_NAME_LEN] characters long."))
 		else
 			to_chat(user, "<span class='notice'>You set the label to \"[tmp_label]\".</span>")
 			label_text = tmp_label
@@ -111,7 +111,8 @@
 		return
 	. = ..() 
 
-/obj/item/evidencebag/proc/update_name_label()
+/obj/item/evidencebag/proc/update_name_label(var/base_name = initial(name))
+	SEND_SIGNAL(src, COMSIG_BASENAME_SETNAME, args)
 	if(label_text == "")
 		name = base_name
 	else

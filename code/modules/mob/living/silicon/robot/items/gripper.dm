@@ -272,6 +272,7 @@
 		/obj/item/reagent_containers/pill,
 		/obj/item/reagent_containers/spray,
 		/obj/item/personal_inhaler,
+		/obj/item/reagent_containers/personal_inhaler_cartridge,
 		/obj/item/reagent_containers/inhaler,
 		/obj/item/reagent_containers/hypospray,
 		/obj/item/storage/pill_bottle,

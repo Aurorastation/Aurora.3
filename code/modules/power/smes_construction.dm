@@ -63,25 +63,12 @@
 	component_parts += new /obj/item/smes_coil(src)
 
 /obj/machinery/power/smes/buildable/main_engine
-	cur_coils = 0
+	cur_coils = 4
 	input_attempt = TRUE
+	input_level = 500000
 	output_attempt = TRUE
-	output_level = 1300000 // calibrated to the NSS Aurora map
-
-/obj/machinery/power/smes/buildable/main_engine/Initialize()
-	. = ..()
-	component_parts += new /obj/item/smes_coil/super_capacity(src)
-	component_parts += new /obj/item/smes_coil/super_capacity(src)
-	component_parts += new /obj/item/smes_coil/super_capacity(src)
-	component_parts += new /obj/item/smes_coil/super_capacity(src)
-	component_parts += new /obj/item/smes_coil/super_io(src)
-	component_parts += new /obj/item/smes_coil/super_io(src)
-
-/obj/machinery/power/smes/buildable/main_engine/LateInitialize()
-	cur_coils = 6
-	. = ..()
-	charge = capacity
-	input_level = input_level_max
+	output_level = 500000
+	charge =1.5e+7
 
 // END SMES SUBTYPES
 
@@ -342,9 +329,10 @@
 // Parameters: None
 // Description: Allows us to use special icon overlay for critical SMESs
 /obj/machinery/power/smes/buildable/update_icon()
-	if (failing)
+	if(failing)
 		cut_overlays()
 		add_overlay("smes-crit")
+		add_overlay("smes-crit_screen")
 	else
 		..()
 

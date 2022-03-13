@@ -28,8 +28,10 @@
 			add_overlay(I.get_belt_overlay())
 	..()
 
-/obj/item/storage/belt/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+/obj/item/storage/belt/build_additional_parts(H, mob_icon, slot)
 	var/image/I = ..()
+	if(!I)
+		I = image(null)
 	for(var/obj/item/i in contents)
 		var/c_state
 		var/c_icon
@@ -98,6 +100,7 @@
 		/obj/item/weldingtool,
 		/obj/item/wirecutters,
 		/obj/item/wrench,
+		/obj/item/hammer,
 		/obj/item/device/multitool,
 		/obj/item/device/flashlight,
 		/obj/item/stack/cable_coil,
@@ -137,7 +140,8 @@
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters/toolbelt = 1,
 		/obj/item/stack/cable_coil/random = 1,
-		/obj/item/powerdrill = 1
+		/obj/item/powerdrill = 1,
+		/obj/item/hammer = 1
 	)
 
 /obj/item/storage/belt/utility/very_full
@@ -300,6 +304,15 @@
 		/obj/item/device/radio
 		)
 	content_overlays = TRUE
+
+/obj/item/storage/belt/security/full
+	starts_with = list(
+		/obj/item/melee/baton/loaded = 1,
+		/obj/item/reagent_containers/spray/pepper = 1,
+		/obj/item/handcuffs = 1,
+		/obj/item/device/flash = 1,
+		/obj/item/device/holowarrant = 1
+	)
 
 /obj/item/storage/belt/soulstone
 	name = "soul stone belt"

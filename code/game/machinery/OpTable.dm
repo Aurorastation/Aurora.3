@@ -65,7 +65,7 @@
 			to_chat(user, SPAN_WARNING("There is nobody on \the [src]. It would be pointless to turn the suppressor on."))
 
 		suppressing = !suppressing
-		user.visible_message(SPAN_NOTICE("\The [user] switches [suppressing ? "on" : "off"] \the [src]'s neural suppressor."))
+		user.visible_message(SPAN_NOTICE("\The [user] switches [suppressing ? "on" : "off"] \the [src]'s neural suppressor."), intent_message = BUTTON_FLICK)
 		playsound(loc, /decl/sound_category/switch_sound, 50, 1)
 
 /obj/machinery/optable/CanPass(atom/movable/mover, turf/target, height = 0, air_group = 0)
@@ -88,9 +88,12 @@
 				icon_state = H.pulse() ? "[modify_state]-active" : "[modify_state]-idle"
 				victim = H
 	if(victim && !victim.isSynthetic())
-		if(suppressing && victim.sleeping < 3)
-			victim.Sleeping(3 - victim.sleeping)
+		if(suppressing && victim.sleeping < 7)
+			victim.Sleeping(7 - victim.sleeping)
 			victim.willfully_sleeping = FALSE
+		icon_state = victim.pulse() ? "[modify_state]-active" : "[modify_state]-idle"
+		if(victim.stat == DEAD || victim.is_asystole() || victim.status_flags & FAKEDEATH)
+			icon_state = "[modify_state]-critical"
 		return TRUE
 	icon_state = "[modify_state]-idle"
 	return FALSE
@@ -113,6 +116,8 @@
 		var/mob/living/carbon/human/H = C
 		victim = H
 		icon_state = H.pulse() ? "[modify_state]-active" : "[modify_state]-idle"
+		if(H.stat == DEAD || H.is_asystole() || H.status_flags & FAKEDEATH)
+			icon_state = "[modify_state]-critical"
 	else
 		icon_state = "[modify_state]-idle"
 

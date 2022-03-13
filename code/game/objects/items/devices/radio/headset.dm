@@ -201,7 +201,7 @@
 	set src in usr
 
 	normal_layer = !normal_layer
-	to_chat(usr, SPAN_NOTICE("\The [src] will now layer [normal_layer ? "under" : "over"] your outerwear."))
+	to_chat(usr, SPAN_NOTICE("\The [src] will now layer [normal_layer ? "over" : "under"] your outerwear."))
 	if (ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_wrists()	
@@ -702,6 +702,12 @@
 	name = "representative bowman headset"
 	icon_state = "com_headset_alt"
 	item_state = "headset_alt"
+
+/obj/item/device/radio/headset/alt/double/command/representative
+	name = "soundproof representative headset"
+
+/obj/item/device/radio/headset/wrist/command/representative
+	name = "wristbound representative radio"
 
 /obj/item/device/radio/headset/heads/ai_integrated //No need to care about icons, it should be hidden inside the AI anyway.
 	name = "\improper AI subspace transceiver"

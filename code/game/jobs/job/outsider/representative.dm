@@ -16,6 +16,7 @@
 	access = list(access_lawyer, access_maint_tunnels)
 	minimal_access = list(access_lawyer)
 	outfit = /datum/outfit/job/representative
+	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/representative
 	name = "NanoTrasen Corporate Liaison"
@@ -32,6 +33,9 @@
 	glasses = /obj/item/clothing/glasses/sunglasses/big
 	headset = /obj/item/device/radio/headset/representative
 	bowman = /obj/item/device/radio/headset/representative/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/command/representative
+	wrist_radio = /obj/item/device/radio/headset/wrist/command/representative
+
 	l_hand =  /obj/item/storage/briefcase
 	backpack_contents = list(
 		/obj/item/device/camera = 1,
@@ -97,6 +101,7 @@
 	access = list(access_consular, access_maint_tunnels)
 	minimal_access = list(access_consular)
 	outfit = /datum/outfit/job/representative/consular
+	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
 
 /datum/job/consular/get_outfit(mob/living/carbon/human/H, alt_title = null)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]

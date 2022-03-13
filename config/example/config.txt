@@ -467,7 +467,7 @@ TIME_TO_CALL_EMERGENCY_SHUTTLE 36000
 ## Keep the list semi-colon separated, in format of MAJOR.MINOR;MAJOR.MINOR
 #CLIENT_BLACKLIST_VERSION 123.4567
 
-## Uncomment to enable simple Skype/Discord style markup over OOC, LOOC, and say.
+## Uncomment to enable simple Skype/Discord style markup over OOC, LOOC, say, and me.
 #ALLOW_CHAT_MARKUP
 
 ## Default language prefix keys, separated with spaces. Only single character keys are supported. If unset, defaults to , # and -
@@ -551,6 +551,7 @@ CURRENT_SPACE_SECTOR Romanovich Cloud
 # NTSL2+ Connection Info
 NTSL_HOSTNAME localhost
 NTSL_PORT 1945
+NTSL_DISABLED 1
 
 # Limit to how many hacked drones can AI have at the same time.
 # HACKED_DRONES_LIMIT 5

@@ -1,5 +1,6 @@
 /obj/item/organ/internal/augment
 	name = "augment"
+	icon = 'icons/obj/organs/augments.dmi'
 	icon_state = "augment"
 	parent_organ = BP_CHEST
 	organ_tag = "augment"
@@ -8,9 +9,10 @@
 	is_augment = TRUE
 	species_restricted = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,
 							SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI,
-							SPECIES_UNATHI, SPECIES_SKRELL, SPECIES_IPC, SPECIES_IPC_G1,
+							SPECIES_UNATHI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, SPECIES_IPC_G1,
 							SPECIES_IPC_G2, SPECIES_IPC_XION,
 							SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	robotic_sprite = FALSE
 	var/cooldown = 150
 	var/action_button_icon = "augment"
 	var/activable = FALSE
@@ -445,6 +447,11 @@
 	organ_tag = BP_AUG_CORDS
 	parent_organ = BP_HEAD
 
+/obj/item/organ/internal/augment/synthetic_cords/voice
+    desc = "An array of vocal cords. These appears to have been modified with a specific accent."
+    organ_tag = BP_AUG_ACC_CORDS
+    var/accent = ACCENT_TTS
+
 /obj/item/organ/internal/augment/synthetic_cords/replaced(var/mob/living/carbon/human/target, obj/item/organ/external/affected)
 	. = ..()
 	target.sdisabilities &= ~MUTE
@@ -563,10 +570,6 @@
 	cooldown = 30
 	activable = TRUE
 
-/obj/item/organ/internal/augment/enhanced_vision/Initialize()
-	. = ..()
-	set_light(3, 2, LIGHT_COLOR_TUNGSTEN, uv = 0, angle = LIGHT_WIDE)
-
 /obj/item/organ/internal/augment/enhanced_vision/attack_self(var/mob/user)
 	. = ..()
 
@@ -624,6 +627,9 @@
 	desc = " A clear sign of Zeng-Hu's best, this plate bearing the company's symbol is installed on those who prove themselves in the hyper-competitive environment."
 	icon_state = "zenghu_plate"
 	on_mob_icon = 'icons/mob/human_races/augments_external.dmi'
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/augments_external.dmi'
+	)
 	parent_organ = BP_HEAD
 
 /obj/item/organ/internal/augment/head_fluff

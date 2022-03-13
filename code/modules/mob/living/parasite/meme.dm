@@ -103,7 +103,7 @@ var/controlling
 	qdel(src)
 
 // When a meme speaks, it speaks through its host
-/mob/living/parasite/meme/say(message as text)
+/mob/living/parasite/meme/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
 	if(dormant)
 		to_chat(src, "<span class='notice'>You are dormant! </span>")
 		return

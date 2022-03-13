@@ -74,7 +74,7 @@
 	speech_verb = list("mrowls")
 	ask_verb = list("mrowls")
 	exclaim_verb = list("yowls")
-	sing_verb = list("mrowmbles")
+	sing_verb = list("mrowls")
 	colour = "tajaran"
 	written_style = "siikmaas"
 	key = "j"
@@ -117,7 +117,7 @@
 	exclaim_verb = list("yowls")
 	signlang_verb = list("moves their tail", "flicks their ears", "swivels their ears", "flicks their tail", "shifts their ears and tail")
 	sign_adv_length = list("", " briefly", " a few times", " several times in quick succession", " for a while")
-	sing_verb = list("mrowmbles")
+	sing_verb = list("mrowls")
 	colour = "tajaran_signlang"
 	key = "w"
 	flags = WHITELISTED | NONVERBAL
@@ -134,7 +134,7 @@
 	speech_verb = list("mrowls")
 	ask_verb = list("mrowls")
 	exclaim_verb = list("yowls")
-	sing_verb = list("mrowmbles")
+	sing_verb = list("mrowls")
 	colour = "yassa"
 	written_style = "yassa"
 	key = "r"
@@ -153,7 +153,7 @@
 	speech_verb = list("mrowls")
 	ask_verb = list("mrowls")
 	exclaim_verb = list("yowls")
-	sing_verb = list("mrowmbles")
+	sing_verb = list("mrowls")
 	colour = "delvahhi"
 	written_style = "delvahhi"
 	key = "n"
@@ -223,9 +223,9 @@
 	log_say("[key_name(speaker)] : ([name]) [message]",ckey=key_name(speaker))
 
 	if(!speaker_mask)
-		speaker_mask = speaker.name
+		speaker_mask = speaker.real_name
 
-	var/msg = "<i><span class='game say'>[name], <span class='name'>[speaker_mask]</span>[format_message(message, get_spoken_verb(message))]</span></i>"
+	var/msg = "<i><span class='game say'>[name], <span class='name'>[speaker_mask]</span>[format_message(message, get_spoken_verb(message), speaker_mask)]</span></i>"
 
 	if(isvaurca(speaker))
 		speaker.custom_emote(VISIBLE_MESSAGE, "[pick("twitches their antennae", "twitches their antennae rhythmically")].")
@@ -239,6 +239,22 @@
 	for(var/mob/player in player_list)
 		if(istype(player,/mob/abstract/observer) || ((src in player.languages && !within_jamming_range(player)) || check_special_condition(player)))
 			to_chat(player, msg)
+
+/datum/language/bug/format_message(message, verb, speaker_mask)
+	var/message_color = colour
+	var/list/speaker_surname = splittext(speaker_mask, " ")
+	switch(speaker_surname[2])
+		if("Zo'ra")
+			message_color = "vaurca_zora"
+		if("C'thur")
+			message_color = "vaurca_cthur"
+		if("K'lax")
+			message_color = "vaurca_klax"
+		if("Lii'dra")
+			message_color = "vaurca_liidra"
+	if(copytext(message, 1, 2) == "!")
+		return " projects <span class='message'><span class='[message_color]'>[copytext(message, 2)]</span></span>"
+	return "[verb], <span class='message'><span class='[message_color]'>\"[capitalize(message)]\"</span></span>"
 
 /datum/language/bug/check_special_condition(var/mob/other)
 	if(istype(other, /mob/living/silicon))
@@ -297,6 +313,20 @@
 			return capitalize(pick(first_names_male)) + " " + capitalize(pick(last_names))
 	else
 		return ..()
+
+//Placeholder stuff for now, a lot of it
+/datum/language/elyran
+	name = LANGUAGE_ELYRAN_STANDARD
+	short = "ELY"
+	desc = "Elyran Standard is the official tongue of the Republic of Elyra. Constructed using elements of Farsi, Arabic, and Turkish, influence from all three of these languages can be seen throughout its grammar and vocabulary."
+	colour = "elyran"
+	written_style = "elyranstandard"
+	key = "4"
+	flags = WHITELISTED | TCOMSSIM
+	syllables = list("af", "if", "ba", "ta", "tha", "id", "jem", "ha", "kha", "dal", "dhl", "ra", "zay", "sen", "um", "shn", "sid", "ad", "ta", "za", "ayn", "gha", "zir", "yn", "fa", "qaf", "iam", "mim", "al", "ja", "non", "ha", "waw", "ya",
+		"hem", "zah", "hml", "ks", "ini", "da", "ks", "iga", "ih", "la", "ulf", "xe", "ayw", "sit", "ah", "aarah", "jalaa", "sirt", "kurt", "turhk", "ust", "irk", "kir", "mir", "ach", "oglu", "bolu", "shek", "she", "ghoz", "miya", "ejdan", 
+		"haaz", "quq", "taab", "shanha", "an", "saa", "seh", "an'", "e'", "a'", "em'")
+	allow_accents = TRUE
 
 /datum/language/machine
 	name = LANGUAGE_EAL

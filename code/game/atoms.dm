@@ -292,7 +292,7 @@
 /atom/proc/emag_act(var/remaining_charges, var/mob/user, var/emag_source)
 	return NO_EMAG_ACT
 
-/atom/proc/fire_act()
+/atom/proc/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	return
 
 /atom/proc/melt()
@@ -543,7 +543,7 @@
 // Use for objects performing visible actions
 // message is output to anyone who can see, e.g. "The [src] does something!"
 // blind_message (optional) is what blind people will hear e.g. "You hear something!"
-/atom/proc/visible_message(var/message, var/blind_message, var/range = world.view)
+/atom/proc/visible_message(var/message, var/blind_message, var/range = world.view, var/intent_message = null, var/intent_range = 7)
 	var/turf/T = get_turf(src)
 	var/list/mobs = list()
 	var/list/objs = list()
@@ -560,12 +560,15 @@
 		else if(blind_message)
 			M.show_message(blind_message, 2)
 
+	if(intent_message)
+		intent_message(intent_message, intent_range)
+
 // Show a message to all mobs and objects in earshot of this atom
 // Use for objects performing audible actions
 // message is the message output to anyone who can hear.
 // deaf_message (optional) is what deaf people will see.
 // hearing_distance (optional) is the range, how many tiles away the message can be heard.
-/atom/proc/audible_message(var/message, var/deaf_message, var/hearing_distance)
+/atom/proc/audible_message(var/message, var/deaf_message, var/hearing_distance, var/intent_message = null, var/intent_range = 7)
 
 	var/range = world.view
 	if(hearing_distance)
@@ -581,6 +584,17 @@
 	for(var/o in objs)
 		var/obj/O = o
 		O.show_message(message,2,deaf_message,1)
+
+	if(intent_message)
+		intent_message(intent_message, intent_range)
+
+/atom/proc/intent_message(var/message, var/range = 7)
+	if(air_sound(src))
+		var/list/mobs = get_mobs_or_objects_in_view(range, src, include_objects = FALSE)
+		for(var/mob/living/carbon/human/H as anything in intent_listener)
+			if(!(H in mobs))
+				if(src.z == H.z && get_dist(src, H) <= range)
+					H.intent_listen(src, message)
 
 /atom/proc/change_area(var/area/oldarea, var/area/newarea)
 	change_area_name(oldarea.name, newarea.name)
@@ -636,3 +650,6 @@
 	if(degrees)
 		appearance_flags |= PIXEL_SCALE
 	transform = M
+
+/atom/proc/handle_middle_mouse_click(var/mob/user)
+	return FALSE

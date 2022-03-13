@@ -356,6 +356,14 @@
 	icon_state = "passcard_moon"
 	item_state = "passcard_moon"
 
+/obj/item/clothing/accessory/badge/passcard/sol/visegrad
+	name = "visegradi passcard"
+	desc = "A passcard issued to Solarian citizens from the outer ring planet Visegrad."
+	desc_fluff = "The Visegradi passcard is an unusual thing, as many Solarian outer ring planets did not issue passcards at all, especially high-quality holographic ones. Predominantly seen in the hands of the \
+	urban population who could justify paying the government fee to acquire one, their manufacture is still undertaken by the Southern Solarian Military District that now controls Visegrad."
+	icon_state = "passcard_visegrad"
+	item_state = "passcard_visegrad"
+
 /obj/item/clothing/accessory/badge/passcard/eridani
 	name = "eridani passcard"
 	desc = "A holographic passcard issued to residents of the Free Economic Zone of Epsilon Eridani."
@@ -443,9 +451,9 @@
 	icon_state = "passcard_techno"
 	item_state = "passcard_techno"
 
-/obj/item/clothing/accessory/badge/passcard/burszia
-	name = "burszian passcard"
-	desc = "A passcard issued to Burszian Hephaestus employees and- owned IPCs- working abroad."
+/obj/item/clothing/accessory/badge/passcard/burzsia
+	name = "burzsian passcard"
+	desc = "A passcard issued to Burzsian Hephaestus employees and- owned IPCs- working abroad."
 	desc_fluff = "Despite protest from the Himean representatives in government, Hephaestus Industries- citing their 'Home is where the Hephaestus is' initiative- is permitted to issue up to five thousand \
 	sponsored passcards to participating employees on a yearly basis, both to remind them of their home and to save on imported labor costs."
 	icon_state = "passcard_burs"

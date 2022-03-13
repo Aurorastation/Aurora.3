@@ -30,6 +30,8 @@
 		name = real_name
 		if(mind)
 			mind.name = real_name
+		if(get_hearing_sensitivity())
+			verbs += /mob/living/carbon/human/proc/listening_close
 
 	// Randomize nutrition and hydration. Defines are in __defines/mobs.dm
 	if(max_nutrition > 0)
@@ -91,8 +93,12 @@
 	pixel_x = species.icon_x_offset
 	pixel_y = species.icon_y_offset
 
+	if(length(species.unarmed_attacks))
+		set_default_attack(species.unarmed_attacks[1])
+
 /mob/living/carbon/human/Destroy()
 	human_mob_list -= src
+	intent_listener -= src
 	for(var/organ in organs)
 		qdel(organ)
 	organs = null
@@ -154,8 +160,6 @@
 					if(!silent)
 						to_chat(src, SPAN_WARNING("You need a tighter hold on \the [M]!"))
 					return FALSE
-		else
-			return FALSE
 
 	. = stomach.get_devour_time(victim) || ..()
 
@@ -244,16 +248,15 @@
 			f_loss = 60
 
 			if (!istype(l_ear, /obj/item/clothing/ears/earmuffs) && !istype(r_ear, /obj/item/clothing/ears/earmuffs))
-				ear_damage += 30
-				ear_deaf += 120
+				adjustEarDamage(30, 120)
+
 			if (prob(70))
 				Paralyse(10)
 
 		if(3.0)
 			b_loss = 30
 			if (!istype(l_ear, /obj/item/clothing/ears/earmuffs) && !istype(r_ear, /obj/item/clothing/ears/earmuffs))
-				ear_damage += 15
-				ear_deaf += 60
+				adjustEarDamage(15, 60)
 			if (prob(50))
 				Paralyse(10)
 
@@ -608,7 +611,8 @@
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
 			if(istype(R) && istype(R.security))
 				if(hasHUD(usr,"security"))
-					to_chat(usr, "<b>Name:</b> [R.name]]	<b>Criminal Status:</b> [R.security.criminal]")
+					to_chat(usr, "<b>Name:</b> [R.name]")
+					to_chat(usr, "<b>Criminal Status:</b> [R.security.criminal]")
 					to_chat(usr, "<b>Crimes:</b> [R.security.crimes]")
 					to_chat(usr, "<b>Notes:</b> [R.security.notes]")
 					to_chat(usr, "<a href='?src=\ref[src];secrecordComment=`'>\[View Comment Log\]</a>")
@@ -906,7 +910,7 @@
 	var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
 	var/nothing_to_puke = FALSE
 	if(should_have_organ(BP_STOMACH))
-		if(!istype(stomach) || (stomach.ingested.total_volume <= 3 && !length(stomach.contents)))
+		if(!istype(stomach) || (stomach.ingested.total_volume <= 3 && !length(stomach.contents)) && nutrition <= 50)
 			nothing_to_puke = TRUE
 	else if(!(locate(/mob) in contents))
 		nothing_to_puke = TRUE
@@ -944,6 +948,7 @@
 				A.dropInto(get_turf(src))
 			if((species.gluttonous & GLUT_PROJECTILE_VOMIT) && !vomitReceptacle)
 				A.throw_at(get_edge_target_turf(src,dir),7,7,src)
+		nutrition -= 20
 	else
 		for(var/mob/M in contents)
 			if(vomitReceptacle)
@@ -1252,6 +1257,11 @@
 		custom_pain("You feel a stabbing pain in your chest!", 50)
 		L.bruise()
 
+/mob/living/carbon/human/proc/is_lung_rescued()
+	var/species_organ = species.breathing_organ
+	var/obj/item/organ/internal/lungs/L = internal_organs_by_name[species_organ]
+	return L && L.rescued
+
 //returns 1 if made bloody, returns 0 otherwise
 /mob/living/carbon/human/add_blood(mob/living/carbon/C as mob)
 	if (!..())
@@ -1284,10 +1294,11 @@
 			update_inv_gloves(1)
 		germ_level = 0
 
-	gunshot_residue = null
+	LAZYCLEARLIST(gunshot_residue)
 	if(clean_feet && !shoes)
 		footprint_color = null
 		feet_blood_DNA = null
+		track_footprint = 0
 		update_inv_shoes(1)
 
 	if(blood_color)
@@ -1760,6 +1771,11 @@
 	if (doClickAction)
 		..()
 
+/mob/living/carbon/human/AltClick(mob/user)
+	. = ..()
+	if(hasHUD(user, MED_HUDTYPE))
+		Topic(src, list("triagetag"=1))
+
 /mob/living/carbon/human/verb/toggle_underwear()
 	set name = "Toggle Underwear"
 	set desc = "Shows/hides selected parts of your underwear."
@@ -1870,7 +1886,7 @@
 	// For a blood pressure, e.g. 120/80
 	var/systolic_alert // this is the top number '120' -- highest pressure when heart beats
 	var/diastolic_alert // this is the bottom number '80' -- lowest pressure when heart relaxes
-	
+
 	var/blood_pressure_systolic = bp_list[1]
 	if (blood_pressure_systolic)
 		if (blood_pressure_systolic >= (species.bp_base_systolic - BP_SYS_IDEAL_MOD) && blood_pressure_systolic <= (species.bp_base_systolic + HIGH_BP_MOD))
@@ -1916,6 +1932,9 @@
 
 /mob/living/carbon/human/should_have_organ(var/organ_check)
 	return (species?.has_organ[organ_check])
+
+/mob/living/carbon/human/should_have_limb(var/limb_check)
+	return (species?.has_limbs[limb_check])
 
 /mob/living/proc/resuscitate()
 	return FALSE
@@ -1978,6 +1997,9 @@
 				src.adjustToxLoss(-damage)
 			to_chat(src, SPAN_NOTICE("You can feel flow of energy which makes you regenerate."))
 
+		if(species.radiation_mod <= 0)
+			return
+
 		apply_damage((rand(15,30)), IRRADIATE, damage_flags = DAM_DISPERSED)
 		if(prob(4))
 			apply_damage((rand(20,60)), IRRADIATE, damage_flags = DAM_DISPERSED)
@@ -2000,6 +2022,10 @@
 		var/obj/item/rig/rig = back
 		if(rig.speech && rig.speech.voice_holder && rig.speech.voice_holder.active && rig.speech.voice_holder.current_accent)
 			used_accent = rig.speech.voice_holder.current_accent
+
+	var/obj/item/organ/internal/augment/synthetic_cords/voice/aug = internal_organs_by_name[BP_AUG_ACC_CORDS] //checks for augments, thanks grey
+	if(aug)
+		used_accent = aug.accent
 
 	for(var/obj/item/gear in list(wear_mask,wear_suit,head)) //checks for voice changers masks now
 		if(gear)
@@ -2071,3 +2097,50 @@
 		var/obj/item/organ/internal/eyes/night/N = E
 		if(N.night_vision )
 			N.disable_night_vision()
+
+/mob/living/carbon/human/adjustEarDamage(var/damage, var/deaf, var/ringing = FALSE)
+	if (damage > 0)
+		var/hearing_sensitivity = get_hearing_sensitivity()
+		if (hearing_sensitivity)
+			if (is_listening()) // if the person is listening in, the effect is way worse
+				if (hearing_sensitivity == HEARING_VERY_SENSITIVE)
+					damage *= 2
+				else
+					damage = round(damage *= 1.5, 1)
+				stop_listening()
+			else
+				if (hearing_sensitivity == HEARING_VERY_SENSITIVE)
+					damage = round(damage *= 1.4, 1)
+				else
+					damage = round(damage *= 1.2, 1)
+	return ..()
+
+// Intensity 1: mild, 2: hurts, 3: very painful, 4: extremely painful, 5: that's going to leave some damage
+// Sensitive_only: If yes, only those with sensitive hearing are affected
+// Listening_pain: Increases the intensity by the listed amount if the person is listening in
+/mob/living/carbon/human/proc/earpain(var/intensity, var/sensitive_only = FALSE, var/listening_pain = 0)
+	if (ear_deaf)
+		return
+	if (sensitive_only && !get_hearing_sensitivity())
+		return
+	if (listening_pain && is_listening())
+		intensity += listening_pain
+	else if (sensitive_only)
+		return
+
+	var/obj/item/organ/external/E = organs_by_name[BP_HEAD]
+	switch (intensity)
+		if (1)
+			custom_pain("Your ears hurt a little.", 5, FALSE, E, TRUE)
+		if (2)
+			custom_pain("Your ears hurt!", 10, TRUE, E, TRUE)
+		if (3)
+			custom_pain("Your ears hurt badly!", 40, TRUE, E, TRUE)
+		if (4)
+			custom_pain("Your ears begin to ring faintly from the pain!", 70, TRUE, E, TRUE)
+			adjustEarDamage(5, 0, FALSE)
+			stop_listening()
+		if (5)
+			custom_pain("YOUR EARS ARE DEAFENED BY THE PAIN!", 110, TRUE, E, FALSE)
+			adjustEarDamage(5, 5, FALSE)
+			stop_listening()

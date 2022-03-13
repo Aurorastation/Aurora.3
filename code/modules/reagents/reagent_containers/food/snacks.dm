@@ -145,12 +145,6 @@
 /obj/item/reagent_containers/food/snacks/examine(mob/user)
 	if(!..(user, 1))
 		return
-	if(name != initial(name))
-		if(istype(src, /obj/item/reagent_containers/food/snacks/grown))
-			var/obj/item/reagent_containers/food/snacks/grown/G = src
-			to_chat(user, SPAN_NOTICE("You know the item as [G.seed.seed_name], but a little piece of propped-up paper indicates it's \a [name]."))
-		else
-			to_chat(user, SPAN_NOTICE("You know the item as [initial(name)], but a little piece of propped-up paper indicates it's \a [name]."))
 	if (coating)
 		var/decl/reagent/coating_reagent = decls_repository.get_decl(coating)
 		to_chat(user, SPAN_NOTICE("It's coated in [coating_reagent.name]!"))
@@ -1736,6 +1730,20 @@
 	reagent_data = list(/decl/reagent/nutriment = list("diona delicacy" = 5))
 	reagents_to_add = list(/decl/reagent/nutriment = 11, /decl/reagent/water = 5, /decl/reagent/radium = 2)
 
+/obj/item/reagent_containers/food/snacks/soup/pozole
+	name = "dyn pozole"
+	desc = "The traditional Mictlanian pozole, incorporating dyn to add flavor."
+	icon_state = "dynpozole"
+	reagent_data = list(/decl/reagent/nutriment = list("peppermint" = 2, "salad" = 4, "hot stew" = 2))
+	reagents_to_add = list(/decl/reagent/nutriment = 8, /decl/reagent/water = 5, /decl/reagent/drink/dynjuice =2)
+
+/obj/item/reagent_containers/food/snacks/soup/brudet 
+	name = "morozian brudet"
+	desc = "The most popular dish from the Dominian Empire, this stew is a staple of Imperial cuisine."
+	icon_state = "brudet"
+	reagent_data = list(/decl/reagent/nutriment = list("hot stew" = 3, "spices" = 1, "vegetables" = 1, "fish" = 2))
+	reagents_to_add = list(/decl/reagent/nutriment = 8, /decl/reagent/water = 5)
+
 /obj/item/reagent_containers/food/snacks/hotchili
 	name = "hot chili"
 	desc = "A five alarm Texan Chili!"
@@ -1912,6 +1920,16 @@
 	reagent_data = list(/decl/reagent/nutriment = list("bread" = 3, "cheese" = 3))
 	bitesize = 2
 
+/obj/item/reagent_containers/food/snacks/reubensandwich
+	name = "reuben sandwich"
+	desc = "A toasted sandwich packed with savory, meat and sour goodness!"
+	icon_state = "reubensandwich"
+	filling_color = "#BF8E60"
+	reagents_to_add = list(/decl/reagent/nutriment = 8, /decl/reagent/nutriment/protein = 4, /decl/reagent/nutriment/ketchup = 2, /decl/reagent/nutriment/mayonnaise = 2)
+	reagent_data = list(/decl/reagent/nutriment = list("a savory blend of sweet and salty ingredients" = 6, "toasted bread" = 2))
+	bitesize = 3
+	trash = /obj/item/trash/plate
+
 /obj/item/reagent_containers/food/snacks/toastedsandwich
 	name = "toasted sandwich"
 	desc = "Now if you only had a pepper bar."
@@ -1922,6 +1940,39 @@
 	reagents_to_add = list(/decl/reagent/nutriment = 3, /decl/reagent/nutriment/protein = 3, /decl/reagent/carbon = 2)
 	reagent_data = list(/decl/reagent/nutriment = list("toasted bread" = 3, "cheese" = 3))
 	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/toast
+	name = "toasted bread"
+	desc = "Plain, but consistent and reliable toast."
+	icon_state = "toast"
+	item_state = "toast"
+	slot_flags = SLOT_MASK
+	contained_sprite = TRUE
+	trash = /obj/item/trash/plate
+	filling_color = "#D9BE29"
+	reagents_to_add = list(/decl/reagent/nutriment = 2)
+	reagent_data = list(/decl/reagent/nutriment = list("toasted bread" = 2))
+	bitesize = 1
+
+/obj/item/reagent_containers/food/snacks/egginthebasket
+	name = "egg in the basket"
+	desc = "Egg in the basket, also known as <i>egg in a hole</i>, or <i>bullseye egg</i>, or <i>egg in a nest</i>, or <i>framed egg</i>, or..."
+	icon_state = "egginthebasket"
+	trash = /obj/item/trash/plate
+	filling_color = "#D9BE29"
+	reagents_to_add = list(/decl/reagent/nutriment = 2)
+	reagent_data = list(/decl/reagent/nutriment = list("toasted bread" = 2))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/garlicbread
+	name = "garlic bread"
+	desc = "Delicious garlic bread, but you probably shouldn't eat it for every meal."
+	icon_state = "garlicbread"
+	trash = /obj/item/trash/plate
+	filling_color = "#D9BE29"
+	reagents_to_add = list(/decl/reagent/nutriment = 5, /decl/reagent/nutriment/garlicsauce = 3)
+	reagent_data = list(/decl/reagent/nutriment = list("toasted bread" = 2, "flavorful butter" = 3))
+	bitesize = 3
 
 /obj/item/reagent_containers/food/snacks/grilledcheese
 	name = "grilled cheese sandwich"
@@ -1990,6 +2041,17 @@
 /obj/item/reagent_containers/food/snacks/jelliedtoast/cherry/reagents_to_add = list(/decl/reagent/nutriment/cherryjelly = 5)
 
 /obj/item/reagent_containers/food/snacks/jelliedtoast/slime/reagents_to_add = list(/decl/reagent/slimejelly = 5)
+
+/obj/item/reagent_containers/food/snacks/pbtoast
+	name = "peanut butter toast"
+	desc = "A slice of bread covered with appetizing peanut butter."
+	icon_state = "pbtoast"
+	trash = /obj/item/trash/plate
+	filling_color = "#B572AB"
+	center_of_mass = list("x"=16, "y"=8)
+	reagents_to_add = list(/decl/reagent/nutriment = 1)
+	reagent_data = list(/decl/reagent/nutriment = list("toasted bread" = 2))
+	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/burger/jelly
 	name = "jelly burger"
@@ -2172,6 +2234,16 @@
 /obj/item/reagent_containers/food/snacks/jellysandwich/slime/reagents_to_add = list(/decl/reagent/slimejelly = 5)
 
 /obj/item/reagent_containers/food/snacks/jellysandwich/cherry/reagents_to_add = list(/decl/reagent/nutriment/cherryjelly = 5)
+
+/obj/item/reagent_containers/food/snacks/pbjsandwich
+	name = "pbj sandwich"
+	desc = "A staple classic lunch of gooey jelly and peanut butter."
+	icon_state = "pbjsandwich"
+	trash = /obj/item/trash/plate
+	filling_color = "#BB6A54"
+	reagents_to_add = list(/decl/reagent/nutriment = 2)
+	reagent_data = list(/decl/reagent/nutriment = list("bread" = 2))
+	bitesize = 2	
 
 /obj/item/reagent_containers/food/snacks/mint
 	name = "mint"
@@ -3666,6 +3738,16 @@
 	reagent_data = list(/decl/reagent/nutriment = list("bread" = 3))
 	filling_color = "#B89F61"
 
+/obj/item/reagent_containers/food/snacks/moroz_flatbread
+	name = "morozian flatbread"
+	desc = "One of the fundamental dishes of the Dominian Empire, also known as Imperial flatbread."
+	icon_state = "moroz_flatbread"
+	bitesize = 2
+	center_of_mass = list("x"=16, "y"=16)
+	reagents_to_add = list(/decl/reagent/nutriment = 10)
+	reagent_data = list(/decl/reagent/nutriment = list("bread" = 3))
+	filling_color = "#B89F61"
+
 // potato + knife = raw sticks
 /obj/item/reagent_containers/food/snacks/grown/potato/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/material/kitchen/utensil/knife))
@@ -3872,7 +3954,7 @@
 
 /obj/item/reagent_containers/food/snacks/xuqqil
 	name = "xuq'qil"
-	desc = "A large mushroom cap stuffed with cheese and crab meat."
+	desc = "A large mushroom cap stuffed with cheese and gnazillae. Originally from the Traverse, the recipe has been adapted for the enjoyment of Skrell with an appreciation for the flavors of human cuisine"
 	icon_state = "xuqqil"
 	filling_color = "#833D67"
 	center_of_mass = list("x"=16, "y"=13)
@@ -3885,7 +3967,7 @@
 	desc = "K'ois, freshly bathed in the radiation of a microwave."
 	icon_state = "friedkois"
 	filling_color = "#E6E600"
-	bitesize = 3
+	bitesize = 5
 	reagents_to_add = list(/decl/reagent/kois = 6, /decl/reagent/toxin/phoron = 9)
 
 /obj/item/reagent_containers/food/snacks/friedkois/attackby(obj/item/W as obj, mob/user as mob)
@@ -3945,7 +4027,7 @@
 	desc = "A thick K'ois goop, piled into a bowl."
 	icon_state = "koissoup"
 	filling_color = "#4E6E600"
-	bitesize = 2
+	bitesize = 6
 
 	reagents_to_add = list(/decl/reagent/kois = 15, /decl/reagent/toxin/phoron = 15)
 
@@ -3956,7 +4038,7 @@
 	trash = /obj/item/trash/waffles
 	drop_sound = /decl/sound_category/tray_hit_sound
 	filling_color = "#E6E600"
-	bitesize = 5
+	bitesize = 8
 	reagents_to_add = list(/decl/reagent/kois = 25, /decl/reagent/toxin/phoron = 15)
 
 /obj/item/reagent_containers/food/snacks/koisjelly
@@ -3964,7 +4046,7 @@
 	desc = "Enriched K'ois paste, filled to the brim with the good stuff."
 	icon_state = "koisjelly"
 	filling_color = "#E6E600"
-	bitesize = 5
+	bitesize = 10
 	reagents_to_add = list(/decl/reagent/kois = 25, /decl/reagent/oculine = 20, /decl/reagent/toxin/phoron = 25)
 
 //unathi snacks - sprites by Araskael
@@ -4272,6 +4354,25 @@
 	reagents_to_add = list(/decl/reagent/nutriment = 20)
 	reagent_data = list(/decl/reagent/nutriment = list("guacmole" = 20))
 	filling_color = "#35961D"
+
+// Roasted Peanuts (under chips/nachos because finger food)
+/obj/item/reagent_containers/food/snacks/roasted_peanut
+	name = "roasted peanut"
+	desc = "A singular roasted peanut. How peanut-ful."
+	icon_state = "roast_peanut"
+	bitesize = 2
+	filling_color = "#D89E37"
+
+/obj/item/reagent_containers/food/snacks/chipplate/peanuts_bowl
+	name = "bowl of roasted peanuts"
+	desc = "Peanuts roasted to flavourful and rich perfection."
+	icon_state = "roast_peanuts_bowl"
+	trash = /obj/item/trash/dipbowl
+	vendingobject = /obj/item/reagent_containers/food/snacks/roasted_peanut
+	bitesize = 4
+	reagents_to_add = list(/decl/reagent/nutriment/groundpeanuts = 15, /decl/reagent/nutriment/triglyceride/oil/peanut = 5)
+	unitname = "roasted peanut"
+	filling_color = "#D89E37"
 
 //burritos
 /obj/item/reagent_containers/food/snacks/burrito
@@ -5188,7 +5289,7 @@
 	icon_state = "kois_steak"
 	filling_color = "#dcd9cd"
 	reagents_to_add = list(/decl/reagent/kois = 20, /decl/reagent/toxin/phoron = 15)
-	bitesize = 3
+	bitesize = 7
 
 /obj/item/reagent_containers/food/snacks/donut/kois
 	name = "k'ois donut"
@@ -5197,7 +5298,7 @@
 	filling_color = "#dcd9cd"
 	overlay_state = "box-kois_donut"
 	reagents_to_add = list(/decl/reagent/kois = 15, /decl/reagent/toxin/phoron = 10)
-	bitesize = 3
+	bitesize = 5
 
 /obj/item/reagent_containers/food/snacks/koismuffin
 	name = "k'ois muffin"
@@ -5205,7 +5306,7 @@
 	icon_state = "kois_muffin"
 	filling_color = "#dcd9cd"
 	reagents_to_add = list(/decl/reagent/kois = 10, /decl/reagent/toxin/phoron = 15)
-	bitesize = 2
+	bitesize = 5
 
 /obj/item/reagent_containers/food/snacks/koisburger
 	name = "k'ois burger"
@@ -5213,7 +5314,7 @@
 	icon_state = "kois_burger"
 	filling_color = "#dcd9cd"
 	reagents_to_add = list(/decl/reagent/kois = 20, /decl/reagent/toxin/phoron = 20)
-	bitesize = 2
+	bitesize = 8
 
 /obj/item/storage/box/fancy/vkrexitaffy
 	name = "V'krexi Snax"
@@ -5221,6 +5322,10 @@
 	desc_fluff = "V'krexi, while edible, hold no nutritional value, either for humans or Vaurca. The V'krexi meat was mostly neglected until human food-processing techniques were introduced to the Zo'ra Hive."
 	icon = 'icons/obj/food.dmi'
 	icon_state = "vkrexitaffy"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_food.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_food.dmi',
+		)
 	item_state = "vkrexi"
 	icon_type = "vkrexi taffy"
 	storage_type = "packaging"
@@ -5305,3 +5410,22 @@
 	reagents_to_add = list(/decl/reagent/nutriment = 1, /decl/reagent/nutriment/protein = 1, /decl/reagent/blood = 6, /decl/reagent/nutriment/coco = 3)
 	reagent_data = list(/decl/reagent/nutriment = list("iron" = 3))
 	bitesize = 6
+  
+/obj/item/reagent_containers/food/snacks/phoroncandy
+	name = "phoron rock candy"
+	desc = "Rock candy popular in Flagsdale. Actually contains phoron."
+	icon_state = "rock_candy"
+	filling_color = "#ff22d9"
+	reagents_to_add = list(/decl/reagent/toxin/phoron = 25)
+	bitesize = 5
+	trash = /obj/item/trash/phoroncandy
+
+/obj/item/reagent_containers/food/snacks/sauerkraut
+	name = "sauerkraut"
+	desc = "Finely cut and fermented cabbage. A light pickled delight!"
+	icon_state = "sauerkraut"
+	filling_color = "#EBE699"
+	reagents_to_add = list(/decl/reagent/nutriment = 4)
+	reagent_data = list(/decl/reagent/nutriment = list("pickled lettuce" = 4))
+	bitesize = 2
+	trash = /obj/item/trash/plate

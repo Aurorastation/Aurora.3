@@ -120,7 +120,7 @@
 
 /obj/structure/closet/wardrobe/xenos/fill()
 	..()
-	new /obj/item/clothing/suit/unathi/mantle(src)
+	new /obj/item/clothing/accessory/poncho/unathimantle(src)
 	new /obj/item/clothing/suit/unathi/robe/beige(src)
 	new /obj/item/clothing/shoes/footwraps(src)
 	new /obj/item/clothing/shoes/footwraps(src)
@@ -324,8 +324,6 @@
 	new /obj/item/clothing/under/rank/geneticist(src)
 	new /obj/item/clothing/shoes/white(src)
 	new /obj/item/clothing/shoes/white(src)
-	new /obj/item/clothing/suit/storage/toggle/labcoat/genetics(src)
-	new /obj/item/clothing/suit/storage/toggle/labcoat/genetics(src)
 	return
 
 
@@ -340,8 +338,6 @@
 	new /obj/item/clothing/under/rank/virologist(src)
 	new /obj/item/clothing/shoes/biochem(src)
 	new /obj/item/clothing/shoes/biochem(src)
-	new /obj/item/clothing/suit/storage/toggle/labcoat/biochemist(src)
-	new /obj/item/clothing/suit/storage/toggle/labcoat/biochemist(src)
 	new /obj/item/clothing/mask/surgical(src)
 	new /obj/item/clothing/mask/surgical(src)
 	return

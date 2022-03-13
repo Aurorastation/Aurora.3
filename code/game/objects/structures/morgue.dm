@@ -38,6 +38,7 @@
 				var/mob/living/carbon/C = M
 				if(C.status_flags & FAKEDEATH)
 					icon_state = "morgue2"
+					break
 				switch(C.stat)
 					if(DEAD)
 						icon_state = "morgue2"

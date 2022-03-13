@@ -25,6 +25,7 @@
 	var/list/targets = list()
 	var/attacked_times = 0
 	var/list/target_type_validator_map = list()
+	var/list/tolerated_types = list()
 	var/attack_emote = "stares menacingly at"
 
 	var/smart_melee = TRUE   // This makes melee mobs try to stay two tiles away from their target in combat, lunging in to attack only
@@ -171,6 +172,9 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	else
 		return 0
 
+/mob/living/simple_animal/hostile/proc/on_attack_mob(var/mob/hit_mob)
+	return
+
 /mob/living/simple_animal/hostile/proc/AttackingTarget()
 	setClickCooldown(attack_delay)
 	if(!Adjacent(target_mob))
@@ -188,7 +192,8 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	var/atom/target
 	if(isliving(target_mob))
 		var/mob/living/L = target_mob
-		L.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext)
+		L.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, armor_penetration, attack_flags)
+		on_attack_mob(L)
 		target = L
 	else if(istype(target_mob, /obj/machinery/bot))
 		var/obj/machinery/bot/B = target_mob
@@ -409,6 +414,8 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 			current_health = M.health
 		if(L.health < current_health)
 			return TRUE
+	if(tolerated_types[L.type] == TRUE)
+		return FALSE
 	return FALSE
 
 /mob/living/simple_animal/hostile/proc/validator_bot(var/obj/machinery/bot/B, var/atom/current)

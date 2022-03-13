@@ -1,6 +1,7 @@
 #define Clamp(x, low, high) 	max(low, min(high, x))
 #define CLAMP01(x) 		(Clamp(x, 0, 1))
 #define JOINTEXT(X) jointext(X, null)
+#define list_find(L, needle, LIMITS...) L.Find(needle, LIMITS)
 
 #define span(class, text) ("<span class='[class]'>" + text + "</span>")
 #define SPAN_NOTICE(X) ("<span class='notice'>" + X + "</span>")
@@ -16,6 +17,7 @@
 #define SPAN_BOLD(X) ("<span class='bold'>" + X + "</span>")
 #define SPAN_SUBTLE(X) ("<span class='subtle'>" + X + "</span>")
 #define SPAN_SOGHUN(X) ("<span class='soghun'>" + X + "</span>")
+#define SPAN_VOTE(X) ("<span class='vote'>" + X + "</span>")
 
 #define FONT_SIZE_SMALL 1
 #define FONT_SIZE_NORMAL 2
@@ -29,10 +31,16 @@
 #define FONT_HUGE(X) ("<font size='4'>" + X + "</font>")
 #define FONT_GIANT(X) ("<font size='5'>" + X + "</font>")
 
+#define MATRIX_DANGER(X) (FONT_LARGE(SPAN_DANGER(X)))
+#define MATRIX_NOTICE(X) (FONT_LARGE(SPAN_NOTICE(X)))
+
 #define UNDERSCORE_OR_NULL(target) "[target ? "[target]_" : ""]"
+
+#define sequential_id(key) uniqueness_repository.Generate(/datum/uniqueness_generator/id_sequential, key)
 
 #define isAI(A) istype(A, /mob/living/silicon/ai)
 #define isDrone(A) istype(A, /mob/living/silicon/robot/drone)
+#define isMatriarchDrone(A) istype(A, /mob/living/silicon/robot/drone/construction/matriarch)
 
 #define isalien(A) istype(A, /mob/living/carbon/alien)
 
@@ -89,6 +97,8 @@
 #define isclient(A) istype(A, /client)
 
 #define isprojectile(A) istype(A, /obj/item/projectile)
+
+#define isclothing(A) istype(A, /obj/item/clothing)
 
 /// General I/O helpers
 #define to_target(target, payload)                          target << (payload)

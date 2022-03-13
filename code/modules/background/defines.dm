@@ -9,12 +9,16 @@
 #define CITIZENSHIP_IZWESKI "Izweski Hegemony"
 
 #define CITIZENSHIP_JARGON "Jargon Federation"
+#define CITIZENSHIP_EUM "Co-Operative Territories of EUM"
 
 #define CITIZENSHIP_PRA "People's Republic of Adhomai"
 #define CITIZENSHIP_DPRA "Democratic People's Republic of Adhomai"
 #define CITIZENSHIP_NKA "New Kingdom of Adhomai"
+#define CITIZENSHIP_FREE_COUNCIL "Free Tajaran Council"
 
 #define CITIZENSHIP_ZORA "Zo'ra Hive"
+#define CITIZENSHIP_KLAX "K'lax Hive"
+#define CITIZENSHIP_CTHUR "C'thur Hive"
 
 #define CITIZENSHIP_NONE "None"
 #define CITIZENSHIP_GOLDEN "Golden Deep"
@@ -52,6 +56,8 @@
 #define RELIGION_PILOTDREAM "Pilot Dream"
 
 #define RELIGION_ETERNAL "The Eternal"
+#define RELIGION_KSSHR "Ksshr"
+#define RELIGION_SHRKH "Shrkh"
 
 //accent defines
 
@@ -59,6 +65,7 @@
 #define ACCENT_COC "Frontiersfolk"
 #define ACCENT_ELYRA "Elyran"
 #define ACCENT_ERIDANI "Eridanian"
+#define ACCENT_ERIDANIREINSTATED "Reinstated Dreg"
 #define ACCENT_ERIDANIDREG "Eridanian Dreg"
 #define ACCENT_SOL "Solarian"
 #define ACCENT_SCARAB "Scarab Fleets"
@@ -83,6 +90,14 @@
 #define ACCENT_GADPATHUR "Gadpathurian"
 #define ACCENT_PLUTO "Plutonian"
 #define ACCENT_ASSUNZIONE "Assunzionii"
+#define ACCENT_VISEGRAD "Visegradi"
+#define ACCENT_VALKYRIE "Valkyrian"
+#define ACCENT_MICTLAN "Mictlanian"
+#define ACCENT_PERSEPOLIS "Persepolis"
+#define ACCENT_MEDINA "Medina"
+#define ACCENT_AEMAQ "Aemaq"
+#define ACCENT_NEWSUEZ "New Suez"
+#define ACCENT_DAMASCUS "Damascus II"
 
 #define ACCENT_REPUBICLANSIIK "Republican Siik'maas"
 #define ACCENT_NAZIRASIIK "Nazira Siik'maas"
@@ -96,6 +111,8 @@
 #define ACCENT_OLDYASSA "Old Ya'ssa"
 #define ACCENT_NORTHRASNRR "Northern Ras'nrr Siik'maas"
 #define ACCENT_DINAKK "Din'akk Mountains Siik'maas"
+#define ACCENT_HARRNRRI "Harr'nrri Siik'mas"
+#define ACCENT_ZARRJIRI "Zarr'jiri Siik'mas"
 
 #define ACCENT_HEGEMON_NOBLE "Noble Hegemonic"
 #define ACCENT_HEGEMON_PEASANT "Peasant Hegemonic"

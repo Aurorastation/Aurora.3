@@ -14,9 +14,8 @@
 		/obj/item/clothing/ring,
 		/obj/item/device/flashlight/pen,
 		/obj/item/seeds,
-		/obj/item/stack/medical,
 		/obj/item/coin,
-		/obj/item/dice,
+		/obj/item/stack/dice,
 		/obj/item/disk,
 		/obj/item/implanter,
 		/obj/item/flame/lighter,
@@ -27,18 +26,14 @@
 		/obj/item/paper_bundle,
 		/obj/item/pen,
 		/obj/item/photo,
-		/obj/item/reagent_containers/dropper,
-		/obj/item/reagent_containers/syringe,
 		/obj/item/reagent_containers/pill,
-		/obj/item/reagent_containers/hypospray/autoinjector,
-		/obj/item/screwdriver,
 		/obj/item/stamp,
 		/obj/item/device/paicard,
 		/obj/item/device/encryptionkey,
 		/obj/item/fluff,
 		/obj/item/storage/business_card_holder,
-		/obj/item/clothing/head/bandana,
-		/obj/item/sample
+		/obj/item/sample,
+		/obj/item/key
 	)
 	slot_flags = SLOT_ID
 
@@ -46,19 +41,24 @@
 	var/flipped = null
 	var/flippable = 1
 	var/wear_over_suit = 0
-	var/base_name = ""
 
 /obj/item/storage/wallet/Initialize()
 	. = ..()
-	base_name = name
+	AddComponent(/datum/component/base_name, name)
 
+/obj/item/storage/wallet/proc/update_name(var/base_name = initial(name))
+	SEND_SIGNAL(src, COMSIG_BASENAME_SETNAME, args)
+	if(front_id)
+		name = "[base_name] ([front_id])"
+	else
+		name = "[base_name]"
 
 /obj/item/storage/wallet/remove_from_storage(obj/item/W as obj, atom/new_location)
 	. = ..(W, new_location)
 	if(.)
 		if(W == front_id)
 			front_id = null
-			name = base_name
+			update_name()
 			update_icon()
 
 /obj/item/storage/wallet/handle_item_insertion(obj/item/W as obj, prevent_warning = 0)
@@ -66,7 +66,7 @@
 	if(.)
 		if(!front_id && istype(W, /obj/item/card/id))
 			front_id = W
-			name = "[name] ([front_id])"
+			update_name()
 			update_icon()
 
 /obj/item/storage/wallet/update_icon()
@@ -89,6 +89,20 @@
 		return I.GetAccess()
 	else
 		return ..()
+
+
+/obj/item/storage/wallet/AltClick(mob/user)
+	if (user != loc || user.incapacitated() || !ishuman(user))
+		return ..()
+
+	var/obj/item/card/id/id = GetID()
+	if (istype(id))
+		remove_from_storage(id)
+		user.put_in_hands(id)
+		return
+
+	return ..()
+
 
 /obj/item/storage/wallet/random/fill()
 	..()

@@ -4,6 +4,10 @@
 	slot = slot_head
 	sort_category = "Hats and Headwear"
 
+/datum/gear/head/New()
+	..()
+	gear_tweaks += list(gear_tweak_hair_block)
+
 /datum/gear/head/ushanka_grey
 	display_name = "ushanka, grey"
 	path = /obj/item/clothing/head/ushanka/grey
@@ -269,11 +273,23 @@
 	display_name = "non la hat"
 	path = /obj/item/clothing/head/nonla
 
-/datum/gear/head/iacberet
-	display_name = "IAC Beret"
+/datum/gear/head/konyang
+	display_name = "gat"
+	path = /obj/item/clothing/head/konyang
+
+/datum/gear/head/iac
+	display_name = "IAC headgear selection"
+	description = "A selection of hats worn by Interstellar Aid Corps volunteers."
 	path = /obj/item/clothing/head/softcap/iac
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
 	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/head/iac/New()
+	..()
+	var/list/iac = list()
+	iac["IAC cap"] = /obj/item/clothing/head/softcap/iac
+	iac["IAC beret"] = /obj/item/clothing/head/beret/iac
+	gear_tweaks += new /datum/gear_tweak/path(iac)
 
 /datum/gear/head/circuitry
 	display_name = "headwear, circuitry (empty)"
@@ -336,3 +352,33 @@
 	display_name = "dominian consular cap"
 	path = /obj/item/clothing/head/dominia
 	allowed_roles = list("Consular Officer")
+
+/datum/gear/head/hairnet
+	display_name = "hairnet"
+	path = /obj/item/clothing/head/surgery/hairnet
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/*
+	Block Hair Adjustment
+*/
+var/datum/gear_tweak/hair_block/gear_tweak_hair_block = new()
+
+/datum/gear_tweak/hair_block/get_contents(var/metadata)
+	return "Blocks Hair: [metadata]"
+
+/datum/gear_tweak/hair_block/get_default()
+	return "Default"
+
+/datum/gear_tweak/hair_block/get_metadata(var/user, var/metadata)
+	return input(user, "Choose whether you want your headgear to block hair, or use the headgear's default.", "Hair Blocking", metadata) as anything in list("Yes", "No", "Default")
+
+/datum/gear_tweak/hair_block/tweak_item(var/obj/item/clothing/head/H, var/metadata)
+	if(!istype(H))
+		return
+	if(!H.allow_hair_covering)
+		return
+	switch(metadata)
+		if("Yes")
+			H.flags_inv |= BLOCKHEADHAIR
+		if("No")
+			H.flags_inv &= ~BLOCKHEADHAIR

@@ -110,7 +110,7 @@
 // self_message (optional) is what the src mob sees  e.g. "You do something!"
 // blind_message (optional) is what blind people will hear e.g. "You hear something!"
 
-/mob/visible_message(var/message, var/self_message, var/blind_message, var/range = world.view, var/show_observers = TRUE)
+/mob/visible_message(var/message, var/self_message, var/blind_message, var/range = world.view, var/show_observers = TRUE, var/intent_message = null, var/intent_range = 7)
 	var/list/messageturfs = list() //List of turfs we broadcast to.
 	var/list/messagemobs = list() //List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
 	var/list/messageobjs = list() //list of objs nearby who can see it
@@ -150,6 +150,9 @@
 	for(var/o in messageobjs)
 		var/obj/O = o
 		O.see_emote(src, message)
+
+	if(intent_message)
+		intent_message(intent_message, intent_range)
 
 // Designed for mobs contained inside things, where a normal visible message wont actually be visible
 // Useful for visible actions by pAIs, and held mobs
@@ -330,56 +333,27 @@
 	set name = "Point To"
 	set category = "Object"
 
-	if(!src || !isturf(src.loc) || !(A in range(world.view, get_turf(src))))
-		return 0
-	if(istype(A, /obj/effect/decal/point) || pointing_effect)
-		return 0
+	if(!isturf(src.loc) || !(A in range(world.view, get_turf(src))))
+		return FALSE
+	if(next_point_time >= world.time)
+		return FALSE
 
-	var/tile = get_turf(A)
-	if (!tile)
-		return 0
-
-	pointing_effect = new /obj/effect/decal/point(tile)
-	pointing_effect.invisibility = invisibility
-	addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, pointing_effect), 2 SECONDS)
-
+	next_point_time = world.time + 25
 	face_atom(A)
-	return 1
-/datum/mobl	// I have no idea what the fuck this is, but it's better for it to be a datum than an /obj/effect.
-	var/list/container = list()
-	var/master
+	if(isturf(A))
+		if(pointing_effect)
+			end_pointing_effect()
+		pointing_effect = new /obj/effect/decal/point(A)
+		pointing_effect.invisibility = invisibility
+		addtimer(CALLBACK(src, .proc/end_pointing_effect, pointing_effect), 2 SECONDS)
+	else if(!invisibility)
+		var/atom/movable/M = A
+		M.add_filter("pointglow", 1, list(type = "drop_shadow", x = 0, y = -1, offset = 1, size = 1, color = "#F00"))
+		addtimer(CALLBACK(M, /atom/movable.proc/remove_filter, "pointglow"), 2 SECONDS)
+	return TRUE
 
-/mob/proc/ret_grab(datum/mobl/L, flag)
-	if ((!( istype(l_hand, /obj/item/grab) ) && !( istype(r_hand, /obj/item/grab) )))
-		if (!( L ))
-			return null
-		else
-			return L.container
-	else
-		if (!( L ))
-			L = new /datum/mobl
-			L.container += src
-			L.master = src
-		if (istype(l_hand, /obj/item/grab))
-			var/obj/item/grab/G = l_hand
-			if (!(L.container.Find(G.affecting)))
-				L.container += G.affecting
-				if (G.affecting)
-					G.affecting.ret_grab(L, 1)
-		if (istype(r_hand, /obj/item/grab))
-			var/obj/item/grab/G = r_hand
-			if (!(L.container.Find(G.affecting)))
-				L.container += G.affecting
-				if (G.affecting)
-					G.affecting.ret_grab(L, 1)
-		if (!( flag ))
-			if (L.master == src)
-				var/list/temp = L.container.Copy()
-				qdel(L)
-				return temp
-			else
-				return L.container
-	return
+/mob/proc/end_pointing_effect()
+	QDEL_NULL(pointing_effect)
 
 /mob/verb/mode()
 	set name = "Activate Held Object"

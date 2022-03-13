@@ -127,7 +127,7 @@
 	var/datum/asset/spritesheet/vending/v_asset
 
 	light_range = 2
-	light_power = 1
+	light_power = 1.3
 
 /obj/machinery/vending/Initialize(mapload)
 	. = ..()
@@ -715,6 +715,7 @@
 	if (src.icon_vend) //Show the vending animation if needed
 		flick(src.icon_vend,src)
 	playsound(src.loc, vending_sound, 100, 1)
+	intent_message(MACHINE_SOUND)
 	addtimer(CALLBACK(src, .proc/vend_product, R, user), vend_delay)
 
 /obj/machinery/vending/proc/vend_product(var/datum/data/vending_product/R, mob/user)
@@ -831,6 +832,7 @@
 		break
 	if(!throw_item)
 		return FALSE
+	intent_message(MACHINE_SOUND)
 	throw_item.vendor_action(src)
 	INVOKE_ASYNC(throw_item, /atom/movable.proc/throw_at, target, rand(3, 10), rand(1, 3), src)
 	src.visible_message("<span class='warning'>[src] launches [throw_item.name] at [target.name]!</span>")

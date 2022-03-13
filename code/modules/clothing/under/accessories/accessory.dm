@@ -13,6 +13,9 @@
 	var/image/accessory_mob_overlay = null
 	var/flippable = 0 //whether it has an attack_self proc which causes the icon to flip horizontally
 	var/flipped = 0
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/accessories.dmi'
+	)
 
 /obj/item/clothing/accessory/Destroy()
 	on_removed()
@@ -22,14 +25,16 @@
 	. = ..()
 	update_icon()
 
-/obj/item/clothing/accessory/proc/get_inv_overlay(var/force = FALSE)
+/obj/item/clothing/accessory/proc/get_inv_overlay(var/mob/M, var/force = FALSE)
 	if(!accessory_mob_overlay)
-		get_accessory_mob_overlay()
+		get_accessory_mob_overlay(M, force)
 	var/I = accessory_mob_overlay.icon
 	if(!inv_overlay || force)
 		var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
 		if(icon_override)
-			if("[tmp_icon_state]_tie" in icon_states(icon_override))
+			if(contained_sprite)
+				tmp_icon_state = "[tmp_icon_state]_w"
+			else if("[tmp_icon_state]_tie" in icon_states(icon_override))
 				tmp_icon_state = "[tmp_icon_state]_tie"
 		else if(contained_sprite)
 			tmp_icon_state = "[tmp_icon_state]_w"
@@ -41,21 +46,32 @@
 		inv_overlay.add_overlay(overlay_image(I, "[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	return inv_overlay
 
-/obj/item/clothing/accessory/proc/get_accessory_mob_overlay(var/force = FALSE)
-	var/I = icon_override ? icon_override : contained_sprite ? icon : INV_ACCESSORIES_DEF_ICON
+/obj/item/clothing/accessory/proc/get_accessory_mob_overlay(var/mob/living/carbon/human/M, var/force = FALSE)
+	var/I
+	if(icon_override)
+		I = icon_override
+	else if(istype(M) && (M.species.bodytype in sprite_sheets))
+		I = sprite_sheets[M.species.bodytype]
+		accessory_mob_overlay = null // reset the overlay
+	else if(contained_sprite)
+		I = icon
+	else
+		I = INV_ACCESSORIES_DEF_ICON
 	if(!accessory_mob_overlay || force)
 		var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
 		if(icon_override)
-			if("[tmp_icon_state]_mob" in icon_states(I))
+			if(contained_sprite)
+				tmp_icon_state = "[src.item_state][WORN_UNDER]"
+			else if("[tmp_icon_state]_mob" in icon_states(I))
 				tmp_icon_state = "[tmp_icon_state]_mob"
 		else if(contained_sprite)
 			tmp_icon_state = "[src.item_state][WORN_UNDER]"
 		accessory_mob_overlay = image("icon" = I, "icon_state" = "[tmp_icon_state]")
+		if(build_from_parts)
+			accessory_mob_overlay.cut_overlays()
+			accessory_mob_overlay.add_overlay(overlay_image(I, "[tmp_icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	if(color)
 		accessory_mob_overlay.color = color
-	if(build_from_parts)
-		accessory_mob_overlay.cut_overlays()
-		accessory_mob_overlay.add_overlay(overlay_image(I, "[icon_state][WORN_UNDER]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	accessory_mob_overlay.appearance_flags = RESET_ALPHA|RESET_COLOR
 	return accessory_mob_overlay
 
@@ -546,6 +562,30 @@
 	item_state = "galaxycape"
 	overlay_state = "galaxycape"
 
+/obj/item/clothing/accessory/poncho/shouldercape/qeblak
+	name = "qeblak mantle"
+	desc = "A mantle denoting the wearer as a member fo the Qeblak faith."
+	desc_fluff = "This mantle denotes the wearer as a member of the Qeblak faith. \
+	It is given to followers after they have completed their coming of age ceremony. \
+	The symbol on the back is of a protostar as it transitions into a main sequence star, \
+	representing the the wearer becoming an adult."
+	icon_state = "qeblak_cape"
+	item_state = "qeblak_cape"
+	flippable = FALSE
+
+/obj/item/clothing/accessory/poncho/shouldercape/qeblak/zeng
+	name = "Jargon Division Zeng-Hu cloak"
+	desc = "This cloak is given to Zeng-Hu employees who have assisted or worked in collaboration with the Jargon Federation."
+	desc_fluff = "A cloak given to senior level doctors and researchers for Zeng-Hu who has \
+	in the past been given the privilege of working within or in collaboration with the Jargon Federation\
+	 as a show of goodwill between the corporation and federation."
+	icon = 'icons/obj/contained_items/accessories/ZH_cape.dmi'
+	icon_override = 'icons/obj/contained_items/accessories/ZH_cape.dmi'
+	icon_state = "ZH_cape"
+	item_state = "ZH_cape"
+	flippable = FALSE
+	contained_sprite = TRUE
+
 /obj/item/clothing/accessory/poncho/trinary
 	name = "trinary perfection cape"
 	desc = "A brilliant red and brown cape, commonly worn by those who serve the Trinary Perfection."
@@ -566,6 +606,30 @@
 	icon_state = "trinary_shouldercape"
 	item_state = "trinary_shouldercape"
 	overlay_state = "trinary_shouldercape"
+
+/obj/item/clothing/accessory/poncho/assunzione
+	name = "assunzione robe"
+	desc = "A simple purple robe commonly worn by adherents to Luceism, the predominant religion on Assunzione."
+	icon = 'icons/clothing/suits/capes/assunzione_robe.dmi'
+	icon_override = null
+	icon_state = "assunzione_robe"
+	item_state = "assunzione_robe"
+	overlay_state = "assunzione_robe"
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/poncho/assunzione/vine
+	desc = "A simple purple robe commonly worn by adherents to Luceism, the predominant religion on Assunzione. This one features a lux vine \
+	inlay that allows the symbol of the Luceian Square to be faintly seen, even in darkness."
+	icon_state = "assunzione_robe_vine"
+	item_state = "assunzione_robe_vine"
+	overlay_state = "assunzione_robe_vine"
+
+/obj/item/clothing/accessory/poncho/assunzione/gold
+	desc = "A simple purple robe commonly worn by adherents to Luceism, the predominant religion on Assunzione. The Luceian Square, Luceism's \
+	holy symbol is present on the back in gold fabric."
+	icon_state = "assunzione_robe_gold"
+	item_state = "assunzione_robe_gold"
+	overlay_state = "assunzione_robe_gold"
 
 //tau ceti legion ribbons
 /obj/item/clothing/accessory/legion

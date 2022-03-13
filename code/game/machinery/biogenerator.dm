@@ -38,7 +38,7 @@
 	var/emag = FALSE
 
 /decl/biorecipe/food
-	name = "Bio Meat"
+	name = "Meat Substitute"
 	class = BIOGEN_FOOD
 	object = /obj/item/reagent_containers/food/snacks/meat/biogenerated
 	cost = 50
@@ -46,6 +46,10 @@
 /decl/biorecipe/food/fishfillet
 	name = "Fish Fillet"
 	object = /obj/item/reagent_containers/food/snacks/fish/fishfillet
+
+/decl/biorecipe/food/syntiflesh
+	name = "Synthetic Meat"
+	object = /obj/item/reagent_containers/food/snacks/meat/syntiflesh
 
 /decl/biorecipe/food/soywafers
 	name = "Soy Wafers"
@@ -132,6 +136,11 @@
 /decl/biorecipe/item/hydrobelt
 	name = "Hydroponic Belt"
 	object = /obj/item/storage/belt/hydro
+
+/decl/biorecipe/item/plantbag
+	name = "Plant Bag"
+	object = /obj/item/storage/bag/plants
+	cost = 500
 
 /decl/biorecipe/item/wallet
 	name = "Leather Wallet"
@@ -434,6 +443,7 @@
 		update_icon()
 		updateUsrDialog()
 		playsound(src.loc, 'sound/machines/juicer.ogg', 50, 1)
+		intent_message(MACHINE_SOUND)
 		use_power(S * 30)
 		sleep((S + 1.5 SECONDS) / eat_eff)
 		processing = 0
@@ -479,6 +489,7 @@
 			points -= totake
 			use_power(totake * 0.25)
 			playsound(src.loc, /decl/sound_category/switch_sound, 50, 1)
+			intent_message(PING_SOUND)
 			if(ispath(recipe.object, /obj/item/reagent_containers/pill))
 				if(!made_container)
 					made_container = new /obj/item/storage/pill_bottle(loc)

@@ -7,6 +7,9 @@
 	item_flags = NOSLIP
 	slowdown = 1
 	species_restricted = null
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi'
+	)
 	drop_sound = 'sound/items/drop/rubber.ogg'
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
 	sprite_sheets = list("Tajara" = 'icons/mob/species/tajaran/shoes.dmi')
@@ -31,6 +34,9 @@
 	desc = "Taller synthleather boots with an artificial shine."
 	icon_state = "kneeboots"
 	item_state = "kneeboots"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi'
+	)
 
 /obj/item/clothing/shoes/jackboots/thigh
 	name = "thigh-length black boots"
@@ -43,7 +49,7 @@
 	desc = "Modified pair of boots, particularly friendly to those species whose toes hold claws."
 	icon_state = "jackboots_toeless"
 	species_restricted = null
-	sprite_sheets = list(BODYTYPE_TAJARA = 'icons/mob/species/tajaran/shoes.dmi')
+	sprite_sheets = list(BODYTYPE_TAJARA = 'icons/mob/species/tajaran/shoes.dmi', BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi')
 
 /obj/item/clothing/shoes/jackboots/toeless/knee
 	name = "knee-high toeless black boots"
@@ -69,6 +75,9 @@
 		bomb = ARMOR_BOMB_MINOR,
 		rad = ARMOR_RAD_MINOR
 	)
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi'
+	)
 	siemens_coefficient = 0.75
 	can_hold_knife = TRUE
 	build_from_parts = TRUE
@@ -80,7 +89,7 @@
 	desc = "A pair of toeless work boots designed for use in industrial settings. Modified for species whose toes have claws."
 	icon_state = "workboots_toeless"
 	species_restricted = null
-	sprite_sheets = list(BODYTYPE_TAJARA = 'icons/mob/species/tajaran/shoes.dmi')
+	sprite_sheets = list(BODYTYPE_TAJARA = 'icons/mob/species/tajaran/shoes.dmi', BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi')
 
 /obj/item/clothing/shoes/workboots/grey
 	name = "grey workboots"

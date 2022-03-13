@@ -39,6 +39,7 @@
 
 // Species languages
 #define LANGUAGE_SOL_COMMON "Sol Common"
+#define LANGUAGE_ELYRAN_STANDARD "Elyran Standard"
 #define LANGUAGE_UNATHI "Sinta'unathi"
 #define LANGUAGE_SIIK_MAAS "Siik'maas"
 #define LANGUAGE_SIIK_TAJR "Siik'tajr"
@@ -74,7 +75,7 @@
 // Synth Languages
 #define LANGUAGE_ROBOT "Robot Talk"
 #define LANGUAGE_LOCAL_DRONE "Drone Transmission"
-#define LANGUAGE_DRONE "Drone Talk"
+#define LANGUAGE_DRONE "Matrix Weave"
 #define LANGUAGE_EAL "Encoded Audio Language"
 
 // Language flags.

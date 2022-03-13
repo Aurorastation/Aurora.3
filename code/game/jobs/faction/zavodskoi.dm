@@ -19,7 +19,7 @@
 	professional through-and-through, and consider yourself a (literal) cut above whatever washouts
 	NanoTrasen can hire as surgeons. Just remember, you need to prove that you're better than Zeng-Hu.
 	We need these medical contracts, lest we have to cut back the medical division just like the genetics one.</li>
-	<li><b>Personal Security Professional</b>:Excellent customer service and client
+	<li><b>Personal Security Professional</b>: Excellent customer service and client
 	care is why Zavodskoi's private security personnel win security contracts and
 	you know this. A cut above the rest, you are clear, calm, concise and polite when
 	working. As a security force you were voted the most professional private security
@@ -46,7 +46,10 @@
 		/datum/species/skrell,
 		/datum/species/unathi,
 		/datum/species/diona,
-		/datum/species/machine
+		/datum/species/machine,
+		/datum/species/bug = TRUE,
+		/datum/species/bug/type_b = TRUE,
+		/datum/species/bug/type_e = TRUE
 	)
 
 	job_species_blacklist = list(
@@ -61,7 +64,11 @@
 			SPECIES_UNATHI,
 			SPECIES_TAJARA,
 			SPECIES_TAJARA_MSAI,
-			SPECIES_TAJARA_ZHAN
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BREEDER,
+			SPECIES_VAURCA_BULWARK
 		)
 	)
 

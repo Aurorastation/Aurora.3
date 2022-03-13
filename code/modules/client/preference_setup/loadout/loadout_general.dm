@@ -48,7 +48,7 @@
 	gear_tweaks += new /datum/gear_tweak/reagents(lunchables_all_drink_reagents())
 
 /datum/gear/vacflask_cold
-	display_name = "cold vacuum-flask"
+	display_name = "cold vacuum flask"
 	path = /obj/item/reagent_containers/food/drinks/flask/vacuumflask
 
 /datum/gear/vacflask_cold/New()
@@ -62,7 +62,7 @@
 		spawned_flask.reagents.set_temperature(T0C + 5)
 
 /datum/gear/vacflask_hot
-	display_name = "hot vacuum-flask"
+	display_name = "hot vacuum flask"
 	path = /obj/item/reagent_containers/food/drinks/flask/vacuumflask
 
 /datum/gear/vacflask_hot/New()
@@ -107,8 +107,16 @@
 	coffeecups["NKA coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nka
 	coffeecups["PRA coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra
 	coffeecups["DPRA coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/dpra
-	coffeecups["sedantis coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/sedantis
+	coffeecups["Sedantis coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/sedantis
+	coffeecups["CoC coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/coc
+	coffeecups["Eridani coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/eridani
+	coffeecups["Elyra coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/elyra
+	coffeecups["Hegemony coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/hegemony
+	coffeecups["Jargon coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/jargon
 	coffeecups["NT coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nt
+	coffeecups["Hephaestus coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/hepht
+	coffeecups["Idris coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/idris
+	coffeecups["Zeng-Hu coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/zeng
 	coffeecups["TCFL coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcfl
 	coffeecups["#1 coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/one
 	coffeecups["#1 monkey coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/puni
@@ -268,6 +276,19 @@
 	plushies["plushie, Aphy"] = /obj/item/toy/plushie/ipc
 	gear_tweaks += new /datum/gear_tweak/path(plushies)
 
+/datum/gear/comic
+	display_name = "comic selection"
+	description = "A selection of comics and manga from across the Spur."
+	path = /obj/item/toy/comic
+
+/datum/gear/comic/New()
+	..()
+	var/list/comics = list()
+	comics["comic book"] = /obj/item/toy/comic
+	comics["inspector 404 manga"] = /obj/item/toy/comic/inspector
+	comics["stormman manga"] = /obj/item/toy/comic/stormman
+	gear_tweaks += new /datum/gear_tweak/path(comics)
+
 /datum/gear/toothpaste
 	display_name = "toothpaste and toothbrush"
 	path = /obj/item/storage/box/toothpaste
@@ -301,3 +322,7 @@
 	path =  /obj/item/storage/box/yarn
 	description = "A box containing yarn."
 	flags = null
+
+/datum/gear/gadbook
+	display_name = "gadpathurian morale manual"
+	path = /obj/item/device/litanybook/gadpathur

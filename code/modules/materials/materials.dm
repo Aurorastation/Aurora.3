@@ -893,48 +893,6 @@
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
 	weapon_hitsound = 'sound/weapons/towelwhip.ogg'
 
-/material/cloth/teal
-	name = MATERIAL_CLOTH_TEAL
-	display_name ="teal"
-	use_name = "teal cloth"
-	icon_colour = "#00EAFA"
-
-/material/cloth/black
-	name = MATERIAL_CLOTH_BLACK
-	display_name = "black"
-	use_name = "black cloth"
-	icon_colour = "#505050"
-
-/material/cloth/green
-	name = MATERIAL_CLOTH_GREEN
-	display_name = "green"
-	use_name = "green cloth"
-	icon_colour = "#01C608"
-
-/material/cloth/purple
-	name = MATERIAL_CLOTH_PURPLE
-	display_name = "purple"
-	use_name = "purple cloth"
-	icon_colour = "#9C56C4"
-
-/material/cloth/blue
-	name = MATERIAL_CLOTH_BLUE
-	display_name = "blue"
-	use_name = "blue cloth"
-	icon_colour = "#6B6FE3"
-
-/material/cloth/beige
-	name = MATERIAL_CLOTH_BEIGE
-	display_name = "beige"
-	use_name = "beige cloth"
-	icon_colour = "#E8E7C8"
-
-/material/cloth/lime
-	name = MATERIAL_CLOTH_LIME
-	display_name = "lime"
-	use_name = "lime cloth"
-	icon_colour = "#62E36C"
-
 /material/hide //TODO make different hides somewhat different among them
 	name = MATERIAL_HIDE
 	stack_origin_tech = list(TECH_MATERIAL = 2)

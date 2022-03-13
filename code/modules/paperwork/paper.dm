@@ -8,6 +8,7 @@
 	gender = NEUTER
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "paper"
+	var/base_state = "paper"
 	item_state = "paper"
 	contained_sprite = 1
 	throwforce = 0
@@ -31,6 +32,8 @@
 	var/rigged = 0
 	var/last_honk = 0
 	var/old_name		// The name of the paper before it was folded into a plane.
+	var/can_fold = TRUE		// If it can be folded into a plane or swan
+	var/paper_like = TRUE		// Is it made of paper and/or burnable material?
 
 	var/const/deffont = "Verdana"
 	var/const/signfont = "Times New Roman"
@@ -40,8 +43,11 @@
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
 
+	var/can_change_icon_state = TRUE
+
 /obj/item/paper/Initialize(mapload, text, title)
 	. = ..()
+	base_state = initial(icon_state)
 	if (text || title)
 		set_content(title, text ? text : info)
 	else
@@ -77,12 +83,12 @@
 	updateinfolinks()
 
 /obj/item/paper/update_icon()
-	if(icon_state == "paper_talisman")
+	if(!can_change_icon_state)
 		return
 	else if (info && length(trim(info)))
-		icon_state = "[initial(icon_state)]_words"
+		icon_state = "[base_state]_words"
 	else
-		icon_state = "[initial(icon_state)]"
+		icon_state = "[base_state]"
 
 /obj/item/paper/proc/update_space(var/new_text)
 	if(new_text)
@@ -90,16 +96,15 @@
 
 /obj/item/paper/examine(mob/user)
 	. = ..()
-	if (old_name && icon_state == "paper_plane" || icon_state == "paper_swan")
+	if (old_name && (icon_state == "paper_plane" || icon_state == "paper_swan"))
 		to_chat(user, SPAN_NOTICE("You're going to have to unfold it before you can read it."))
 		return
 	if(name != initial(name))
 		to_chat(user,"It's titled '[name]'.")
 	if(in_range(user, src) || isobserver(user) || in_slide_projector(user))
-		show_content(usr)
+		show_content(user)
 	else
 		to_chat(user, SPAN_NOTICE("You have to go closer if you want to read it."))
-
 
 /obj/item/paper/proc/show_content(mob/user, forceshow)
 	var/datum/browser/paper_win = new(user, name, null, 450, 500, null, TRUE)
@@ -130,7 +135,7 @@
 		return
 
 	var/n_name = sanitizeSafe(input(usr, "What would you like to label the paper?", "Paper Labelling", null) as text, MAX_NAME_LEN)
-	
+
 	if(use_check_and_message(usr, USE_ALLOW_NON_ADJACENT))
 		return
 
@@ -143,7 +148,7 @@
 		add_fingerprint(usr)
 
 /obj/item/paper/attack_self(mob/living/user as mob)
-	if(user.a_intent == I_HURT)
+	if(user.a_intent == I_HURT && paper_like)
 		if(icon_state == "scrap")
 			user.show_message(SPAN_WARNING("\The [src] is already crumpled."))
 			return
@@ -155,7 +160,7 @@
 		throw_range = 4 //you can now make epic paper ball hoops into the disposals (kinda dumb that you could only throw crumpled paper 1 tile) -wezzy
 		return
 
-	if (user.a_intent == I_GRAB && icon_state != "scrap" && !istype(src, /obj/item/paper/carbon))
+	if (user.a_intent == I_GRAB && icon_state != "scrap" && can_fold)
 		if (icon_state == "paper_plane")
 			user.show_message(SPAN_ALERT("The paper is already folded into a plane."))
 			return
@@ -168,7 +173,7 @@
 		name = "paper plane"
 		return
 
-	if (user.a_intent == I_DISARM && icon_state != "scrap" && !istype(src, /obj/item/paper/carbon))
+	if (user.a_intent == I_DISARM && icon_state != "scrap" && can_fold)
 		if (icon_state == "paper_swan")
 			user.show_message(SPAN_ALERT("The paper is already folded into a swan."))
 			return
@@ -180,20 +185,11 @@
 		name = "origami swan"
 		return
 
-	if (user.a_intent == I_HELP && old_name && icon_state == "paper_plane")
+	if (user.a_intent == I_HELP && old_name && (icon_state == "paper_plane" || icon_state == "paper_swan"))
 		user.visible_message(SPAN_NOTICE("\The [user] unfolds \the [src]."), SPAN_NOTICE("You unfold \the [src]."), "You hear paper rustling.")
 		playsound(src, 'sound/bureaucracy/paperfold.ogg', 50, 1)
-		icon_state = initial(icon_state)
+		icon_state = base_state
 		throw_range = initial(throw_range)
-		name = old_name
-		old_name = null
-		update_icon()
-		return
-
-	if (user.a_intent == I_HELP && old_name && icon_state == "paper_swan")
-		user.visible_message(SPAN_NOTICE("\The [user] unfolds \the [src]."), SPAN_NOTICE("You unfold \the [src]."), "You hear paper rustling.")
-		playsound(src, 'sound/bureaucracy/paperfold.ogg', 50, 1)
-		icon_state = initial(icon_state)
 		name = old_name
 		old_name = null
 		update_icon()
@@ -211,11 +207,11 @@
 
 /obj/item/paper/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(target_zone == BP_EYES)
-		user.visible_message(SPAN_NOTICE("You show the paper to [M]."), \
-			SPAN_NOTICE("[user] holds up a paper and shows it to [M]."))
+		user.visible_message(SPAN_NOTICE("You show \the [src] to [M]."), \
+			SPAN_NOTICE("[user] holds up \the [src] and shows it to [M]."))
 		M.examinate(src)
 
-	else if(target_zone == BP_MOUTH) // lipstick wiping
+	else if(target_zone == BP_MOUTH && paper_like) // lipstick wiping
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			if(H == user)
@@ -351,7 +347,7 @@
 
 /obj/item/paper/proc/burnpaper(obj/item/P, mob/user)
 	var/class = "warning"
-	if(!use_check_and_message(user))
+	if(!use_check_and_message(user) && paper_like)
 		if(istype(P, /obj/item/flame/lighter/zippo))
 			class = "rose"
 
@@ -417,7 +413,7 @@
 				. = replacetext(., written_lang_regex.match, "")
 			else
 				content = L.scramble(content)
-		
+
 		if(!language_check)
 			// Refer to paper/proc/show_content to edit the spans here.
 			. = replacetext(., written_lang_regex.match, "<span class='[L.written_style] [reader_understands ? "understood" : "scramble"]'>[L.short && reader_understands ? "([L.short]) [content]" : content]</span>")
@@ -521,7 +517,7 @@
 /obj/item/paper/attackby(var/obj/item/P, mob/user)
 	..()
 
-	if(istype(P, /obj/item/tape_roll))
+	if(istype(P, /obj/item/tape_roll) && !istype(src, /obj/item/paper/business_card))
 		var/obj/item/tape_roll/tape = P
 		tape.stick(src, user)
 		return
@@ -653,10 +649,11 @@
 	var/sentence = 1 // Is this form contain a sentence of guilty?
 
 /obj/item/paper/incident/New()
-	info = {"\[center\]\[logo_nt\]\[/center\]
+	var/T = parsepencode({"\[center\]\[logo_nt\]\[/center\]
 \[center\]\[b\]\[i\]Encoded NanoTrasen Security Incident Report\[/b\]\[/i\]\[hr\]
 \[small\]FOR USE BY SECURITY ONLY\[/small\]\[br\]
-\[barcode\]\[/center\]"}
+\[barcode\]\[/center\]"})
+	info = T
 
 	..()
 
@@ -665,7 +662,7 @@
 	icon_state = "pamphlet"
 
 /obj/item/paper/sentencing/New()
-	info = {"\[center\]\[logo_nt\]\[/center\]
+	var/T = parsepencode({"\[center\]\[logo_nt\]\[/center\]
 \[center\]\[b\]\[i\]Operation of Criminal Sentencing Computers\[/b\]\[/i\]\[hr\]
 \[small\]In compliance with new NanoTrasen criminal regulations, the \[b\][station_name()]\[/b\] has been equipped with state of the art sentencing computers. The operation of these terminals is quite simple:\[br\]
 \[br\]
@@ -675,7 +672,8 @@ After all the charges have been applied, the processing officer is invited to ad
 Simply press the option "Render Guilty", and the sentence is complete! The convict's records will be automatically updated to reflect their crimes. You should now insert the printed receipt into the cell timer, and begin processing.\[br\]
 \[hr\]
 Please note: Cell timers will \[b\]NOT\[/b\] function without a valid incident form receipt inserted into them.
-\[small\]FOR USE BY SECURITY ONLY\[/small\]\[br\]"}
+\[small\]FOR USE BY SECURITY ONLY\[/small\]\[br\]"})
+	info = T
 
 	..()
 
@@ -685,3 +683,6 @@ Please note: Cell timers will \[b\]NOT\[/b\] function without a valid incident f
 /obj/item/paper/nka_pledge
 	name = "imperial volunteer Alam'ardii corps pledge"
 	info = "<center><b><u>Imperial Volunteer Alam'ardii Corps Pledge</u></b></center> <hr> <center><i><u>May the Gods bless his Kingdom and Dynasty</u></i></center> <hr> I, <field>, hereby declare, under a vow of loyalty and compromise, that I shall serve as a volunteer in the Imperial Volunteer Alam'ardii Corps, for the mininum duration of three years or until discharge. I accept the duty of aiding the New Kingdom of Adhomai and His Majesty, King Vahzirthaamro Azunja, in this struggle and I shall not relinquish this pledge. <hr> Volunteer Signature: <field> <hr> Recruiting Officer Stamp:"
+
+/obj/item/paper/medscan
+	icon_state = "medscan"

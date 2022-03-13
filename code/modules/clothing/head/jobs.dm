@@ -5,6 +5,19 @@
 	icon_state = "chefhat"
 	item_state = "chefhat"
 
+/obj/item/clothing/head/surgery/hairnet
+	name = "hairnet"
+	desc = "A hairnet used to keep the hair out of the way and out of the food."
+	icon_state = "hairnet"
+	item_state = "hairnet"
+	sprite_sheets = list(
+		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi'
+		)
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand.dmi',
+		)
+
 //HOP
 /obj/item/clothing/head/caphat/hop
 	name = "crew resource's hat"

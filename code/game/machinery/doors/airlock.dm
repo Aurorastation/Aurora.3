@@ -49,8 +49,8 @@
 	var/obj/item/device/magnetic_lock/bracer = null
 	var/panel_visible_while_open = FALSE
 
-	var/open_sound_powered = 'sound/machines/airlock.ogg'
-	var/close_sound_powered = 'sound/machines/airlockclose.ogg'
+	var/open_sound_powered = 'sound/machines/airlock/covert1o.ogg'
+	var/close_sound_powered = 'sound/machines/airlock/covert1c.ogg'
 	var/open_sound_unpowered = 'sound/machines/airlock_open_force.ogg'
 	var/close_sound_unpowered = 'sound/machines/airlock_close_force.ogg'
 
@@ -142,34 +142,30 @@
 	return SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL)
 
 /obj/machinery/door/airlock/command
-	name = "Airlock"
 	icon = 'icons/obj/doors/Doorcom.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_com
 	hatch_colour = "#446892"
 
 /obj/machinery/door/airlock/sac
-	name = "Airlock"
 	icon = 'icons/obj/doors/DoorSAC.dmi'
 	assembly_type = null
 	aiControlDisabled = 1
 	hackProof = TRUE
 	electrified_until = -1
-	open_sound_powered = 'sound/machines/airlock_open_force.ogg'
+	open_sound_powered = 'sound/machines/airlock/space1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/space1c.ogg'
 
 /obj/machinery/door/airlock/security
-	name = "Airlock"
 	icon = 'icons/obj/doors/Doorsec.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_sec
 	hatch_colour = "#677c97"
 
 /obj/machinery/door/airlock/engineering
-	name = "Airlock"
 	icon = 'icons/obj/doors/Dooreng.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_eng
 	hatch_colour = "#caa638"
 
 /obj/machinery/door/airlock/medical
-	name = "Airlock"
 	icon = 'icons/obj/doors/Doormed.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_med
 	hatch_colour = "#d2d2d2"
@@ -179,6 +175,8 @@
 	icon = 'icons/obj/doors/Doormaint.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_mai
 	hatch_colour = "#7d7d7d"
+	open_sound_powered = 'sound/machines/airlock/door2o.ogg'
+	close_sound_powered = 'sound/machines/airlock/door2c.ogg'
 
 /obj/machinery/door/airlock/external
 	name = "External Airlock"
@@ -186,9 +184,10 @@
 	assembly_type = /obj/structure/door_assembly/door_assembly_ext
 	hashatch = FALSE
 	insecure = 0
+	open_sound_powered = 'sound/machines/airlock/space1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/space1c.ogg'
 
 /obj/machinery/door/airlock/science
-	name = "Airlock"
 	icon = 'icons/obj/doors/Doorsci.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_science
 	hatch_colour = "#d2d2d2"
@@ -200,19 +199,21 @@
 	assembly_type = /obj/structure/door_assembly/door_assembly_science
 	glass = 1
 	hatch_colour = "#d2d2d2"
+	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
+	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
 /obj/machinery/door/airlock/glass
 	name = "Glass Airlock"
 	icon = 'icons/obj/doors/Doorglass.dmi'
 	hitsound = 'sound/effects/glass_hit.ogg'
-	open_sound_powered = 'sound/machines/windowdoor.ogg'
-	close_sound_powered = 'sound/machines/windowdoor.ogg'
 	maxhealth = 300
 	explosion_resistance = 5
 	opacity = FALSE
 	glass = 1
 	panel_visible_while_open = TRUE
 	hatch_colour = "#eaeaea"
+	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
+	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
 /obj/machinery/door/airlock/vaurca
 	name = "Alien Biomass Airlock"
@@ -222,12 +223,13 @@
 	hashatch = FALSE
 
 /obj/machinery/door/airlock/centcom
-	name = "Airlock"
 	icon = 'icons/obj/doors/Doorele.dmi'
 	opacity = TRUE
 	hatch_colour = "#606061"
 	hashatch = FALSE
 	hackProof = TRUE
+	open_sound_powered = 'sound/machines/airlock/vault1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/vault1c.ogg'
 
 /obj/machinery/door/airlock/centcom/attackby(obj/item/I, mob/user)
 	if (operating)
@@ -259,13 +261,14 @@
 	return
 
 /obj/machinery/door/airlock/glass_centcom
-	name = "Airlock"
 	icon = 'icons/obj/doors/Dooreleglass.dmi'
 	opacity = FALSE
 	glass = 1
 	hatch_colour = "#606061"
 	hashatch = FALSE
 	hackProof = TRUE
+	open_sound_powered = 'sound/machines/airlock/vault1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/vault1c.ogg'
 
 obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	if (operating)
@@ -309,6 +312,8 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	insecure = 0
 	aiBoltingDelay = 12
 	aiUnBoltingDelay = 8
+	open_sound_powered = 'sound/machines/airlock/vault1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/vault1c.ogg'
 
 /obj/machinery/door/airlock/vault/bolted
 	icon_state = "door_locked"
@@ -342,6 +347,9 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	hatch_colour = "#5b5b5b"
 	var/hatch_colour_bolted = "#695a5a"
 	insecure = 0
+	open_sound_powered = 'sound/machines/airlock/hatchopen.ogg'
+	close_sound_powered = 'sound/machines/airlock/hatchclose.ogg'
+	open_sound_unpowered = 'sound/machines/airlock/hatchforced.ogg'
 
 /obj/machinery/door/airlock/hatch/update_icon()//Special hatch colour setting for this one snowflakey door that changes color when bolted
 	if (hashatch)
@@ -358,6 +366,9 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	opacity = TRUE
 	assembly_type = /obj/structure/door_assembly/door_assembly_mhatch
 	hatch_colour = "#7d7d7d"
+	open_sound_powered = 'sound/machines/airlock/hatchopen.ogg'
+	close_sound_powered = 'sound/machines/airlock/hatchclose.ogg'
+	open_sound_unpowered = 'sound/machines/airlock/hatchforced.ogg'
 
 /obj/machinery/door/airlock/glass_command
 	name = "Glass Airlock"
@@ -369,6 +380,8 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	assembly_type = /obj/structure/door_assembly/door_assembly_com
 	glass = 1
 	hatch_colour = "#3e638c"
+	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
+	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
 /obj/machinery/door/airlock/glass_engineering
 	name = "Glass Airlock"
@@ -380,6 +393,8 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	assembly_type = /obj/structure/door_assembly/door_assembly_eng
 	glass = 1
 	hatch_colour = "#caa638"
+	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
+	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
 /obj/machinery/door/airlock/glass_security
 	name = "Glass Airlock"
@@ -391,6 +406,8 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	assembly_type = /obj/structure/door_assembly/door_assembly_sec
 	glass = 1
 	hatch_colour = "#677c97"
+	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
+	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
 /obj/machinery/door/airlock/glass_medical
 	name = "Glass Airlock"
@@ -402,6 +419,8 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	assembly_type = /obj/structure/door_assembly/door_assembly_med
 	glass = 1
 	hatch_colour = "#d2d2d2"
+	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
+	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
 /obj/machinery/door/airlock/mining
 	name = "Mining Airlock"
@@ -432,6 +451,8 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	glass = 1
 	heat_proof = 1
 	hatch_colour = "#d2d2d2"
+	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
+	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
 /obj/machinery/door/airlock/glass_mining
 	name = "Glass Airlock"
@@ -443,6 +464,8 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	assembly_type = /obj/structure/door_assembly/door_assembly_min
 	glass = 1
 	hatch_colour = "#c29142"
+	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
+	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
 /obj/machinery/door/airlock/glass_atmos
 	name = "Glass Airlock"
@@ -454,6 +477,8 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	assembly_type = /obj/structure/door_assembly/door_assembly_atmo
 	glass = 1
 	hatch_colour = "#caa638"
+	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
+	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
 /obj/machinery/door/airlock/gold
 	name = "Gold Airlock"
@@ -496,6 +521,8 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	insecure = 0
 	aiBoltingDelay = 10
 	aiUnBoltingDelay = 5
+	open_sound_powered = 'sound/machines/airlock/secure1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/secure1c.ogg'
 
 /obj/machinery/door/airlock/skrell
 	name = "airlock"
@@ -937,21 +964,32 @@ About the new airlock wires panel:
 					user.visible_message(SPAN_WARNING("[user] headbutts the airlock. Good thing they're wearing a helmet."))
 				return
 
-		if(H.species.can_shred(H))
+		if(H.a_intent == I_HURT)
+			var/shredding = H.species.can_shred(H)
+			var/can_crowbar = H.default_attack?.crowbar_door && (stat & (BROKEN|NOPOWER))
+			if(shredding || can_crowbar)
+				if(!density)
+					return
 
-			if(!src.density)
+				H.visible_message("<b>[H]</b> begins to pry open \the [src]!", SPAN_NOTICE("You begin to pry open \the [src]!"), SPAN_WARNING("You hear the sound of an airlock being forced open."))
+
+				if(!do_after(H, 120, 1, act_target = src))
+					return
+
+				var/check = src.open(1)
+
+				if(shredding)
+					src.do_animate("spark")
+					src.stat |= BROKEN
+					H.visible_message("<b>[H]</b> slices \the [src]'s controls, [check ? "ripping it open" : "breaking it"]!", SPAN_NOTICE("You slice \the [src]'s controls, [check ? "ripping it open" : "breaking it"]!"), SPAN_WARNING("You hear something sparking."))
 				return
-
-			H.visible_message("<b>[H]</b> begins to pry open \the [src]!", SPAN_NOTICE("You begin to pry open \the [src]!"), SPAN_WARNING("You hear the sound of an airlock being forced open."))
-
-			if(!do_after(H, 120, 1, act_target = src))
+			if(H.default_attack?.attack_door && !(stat & (BROKEN|NOPOWER)))
+				user.visible_message(SPAN_DANGER("\The [user] forcefully strikes \the [src] with their [H.default_attack.attack_name]!"))
+				user.do_attack_animation(src, null)
+				playsound(loc, hitsound, 60, 1)
+				take_damage(H.default_attack.attack_door)
+				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				return
-
-			src.do_animate("spark")
-			src.stat |= BROKEN
-			var/check = src.open(1)
-			H.visible_message("<b>[H]</b> slices \the [src]'s controls, [check ? "ripping it open" : "breaking it"]!", SPAN_NOTICE("You slice \the [src]'s controls, [check ? "ripping it open" : "breaking it"]!"), SPAN_WARNING("You hear something sparking."))
-			return
 	if(src.p_open)
 		user.set_machine(src)
 		wires.Interact(user)
@@ -1413,9 +1451,9 @@ About the new airlock wires panel:
 
 	//if the door is unpowered then it doesn't make sense to hear the woosh of a pneumatic actuator
 	if(!forced && arePowerSystemsOn())
-		playsound(src.loc, open_sound_powered, 60, 1)
+		playsound(src.loc, open_sound_powered, 50, FALSE)
 	else
-		playsound(src.loc, open_sound_unpowered, 60, 1)
+		playsound(src.loc, open_sound_unpowered, 70, FALSE)
 
 	if(src.closeOther != null && istype(src.closeOther, /obj/machinery/door/airlock/) && !src.closeOther.density)
 		src.closeOther.close()

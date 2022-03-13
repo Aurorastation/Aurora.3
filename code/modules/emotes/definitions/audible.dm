@@ -163,11 +163,11 @@
 
 /decl/emote/audible/mumble
 	key = "mumble"
-	emote_message_3p = "USER mumbles!"
+	emote_message_3p = "USER mumbles."
 
 /decl/emote/audible/grumble
 	key = "grumble"
-	emote_message_3p = "USER grumbles!"
+	emote_message_3p = "USER grumbles."
 
 /decl/emote/audible/groan
 	key = "groan"
@@ -239,11 +239,17 @@
 	emote_message_3p_target = "USER hisses softly at TARGET."
 	emote_message_3p = "USER hisses softly."
 
-/decl/emote/audible/hiss/long
-	key = "hiss2"
+/decl/emote/audible/growl
+    key = "growl"
+    emote_message_3p_target = "USER growls at TARGET."
+    emote_message_3p = "USER growls."
+    emote_sound = 'sound/voice/Lizardgrowl.ogg'
 
-/decl/emote/audible/hiss/short
-	key = "hiss3"
+/decl/emote/audible/hiss/long
+    key = "hiss2"
+    emote_message_3p_target = "USER hisses loudly at TARGET!"
+    emote_message_3p = "USER hisses loudly!"
+    emote_sound = 'sound/voice/lizardhiss2.ogg'
 
 /decl/emote/audible/lizard_bellow
 	key = "bellow"
@@ -255,3 +261,18 @@
 	key = "warble"
 	emote_message_3p = "USER warbles!"
 	emote_sound = 'sound/voice/warble.ogg'
+
+/decl/emote/audible/croon
+	key = "croon"
+	emote_message_3p = "USER croons..."
+	emote_sound = list('sound/voice/croon1.ogg', 'sound/voice/croon2.ogg')
+
+/decl/emote/audible/lowarble
+	key = "lwarble"
+	emote_message_3p = "USER lets out a low, throaty warble!"
+	emote_sound = 'sound/voice/low warble.ogg'
+
+/decl/emote/audible/croak
+	key = "croak"
+	emote_message_3p = "USER croaks!"
+	emote_sound = 'sound/voice/croak.ogg'

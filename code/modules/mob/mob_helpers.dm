@@ -80,24 +80,38 @@
 		switch(A:get_species())
 			if (SPECIES_SKRELL)
 				return 1
+			if (SPECIES_SKRELL_AXIORI)
+				return 1
 			if (SPECIES_ZOMBIE_SKRELL)
 				return 1
 	return 0
 
-/proc/isvaurca(A)
+/proc/isvaurca(A, var/isbreeder = FALSE)
 	if(istype(A, /mob/living/carbon/human))
 		switch(A:get_species())
 			if(SPECIES_VAURCA_WORKER)
-				return 1
+				if(isbreeder)
+					return FALSE
+				return TRUE
 			if(SPECIES_VAURCA_WARRIOR)
-				return 1
+				if(isbreeder)
+					return FALSE
+				return TRUE
 			if(SPECIES_VAURCA_BREEDER)
-				return 1
+				return TRUE
+			if(SPECIES_VAURCA_BULWARK)
+				if(isbreeder)
+					return FALSE
+				return TRUE
 			if(SPECIES_VAURCA_WARFORM)
-				return 1
+				if(isbreeder)
+					return FALSE
+				return TRUE
 			if(SPECIES_MONKEY_VAURCA)
-				return 1
-	return 0
+				if(isbreeder)
+					return FALSE
+				return TRUE
+	return FALSE
 
 /proc/isipc(A)
 	. = 0
@@ -1052,7 +1066,7 @@ proc/is_blind(A)
 #undef SAFE_PERP
 
 /mob/proc/get_multitool(var/obj/P)
-	if(P.ismultitool())
+	if(P?.ismultitool())
 		return P
 
 /mob/abstract/observer/get_multitool()
@@ -1152,7 +1166,7 @@ proc/is_blind(A)
 	return species.handle_stance_damage(src, TRUE) >= 4
 
 /mob/living/carbon/human/proc/equip_wheelchair()
-	var/obj/structure/bed/chair/wheelchair/W = new(get_turf(src))
+	var/obj/structure/bed/stool/chair/office/wheelchair/W = new(get_turf(src))
 	if(isturf(loc))
 		buckled_to = W
 		update_canmove()
@@ -1230,21 +1244,6 @@ proc/is_blind(A)
 	if(ear && speaker_coverage[ear])
 		return TRUE
 
-/mob/proc/has_grab()
-	. = MOB_GRAB_NONE
-	if(istype(l_hand, /obj/item/grab))
-		var/obj/item/grab/l_grab = l_hand
-		if(l_grab.wielded)
-			. = max(MOB_GRAB_FIREMAN, .)
-		else
-			. = max(MOB_GRAB_NORMAL, .)
-	if(istype(r_hand, /obj/item/grab))
-		var/obj/item/grab/r_grab = r_hand
-		if(r_grab.wielded)
-			. = max(MOB_GRAB_FIREMAN, .)
-		else
-			. = max(MOB_GRAB_NORMAL, .)
-
 /mob/proc/handle_vision()
 	return
 
@@ -1275,3 +1274,6 @@ proc/is_blind(A)
 	//We also need to update name of internal camera.
 	if(camera)
 		camera.c_tag = real_name
+
+/mob/proc/get_talk_bubble()
+	return 'icons/mob/talk.dmi'

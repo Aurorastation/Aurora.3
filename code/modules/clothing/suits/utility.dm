@@ -15,6 +15,9 @@
 	icon = 'icons/clothing/kit/firefighter.dmi'
 	icon_state = "firesuit"
 	item_state = "firesuit"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/fire.dmi'
+	)
 	icon_auto_adapt = TRUE
 	icon_supported_species_tags = list("ada", "gol")
 	contained_sprite = TRUE
@@ -39,6 +42,9 @@
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE + 15000
 	icon_state = "atmos_firesuit"
 	item_state = "atmos_firesuit"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/fire.dmi'
+	)
 
 /*
  * Bomb protection

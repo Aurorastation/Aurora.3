@@ -103,7 +103,7 @@
 
 /obj/item/ammo_magazine/mc10mm
 	name = "magazine (10mm)"
-	icon_state = "5.56"
+	icon_state = "tommy-mag"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/c10mm
 	matter = list(DEFAULT_WALL_MATERIAL = 475) //metal costs are very roughly based around 1 .45 casing = 75 metal
@@ -236,7 +236,7 @@
 	max_ammo = 15
 
 /obj/item/ammo_magazine/a556/carbine/empty
-	max_ammo = 0
+	initial_ammo = 0
 
 /obj/item/ammo_magazine/a556/carbine/practice
 	name = "carbine magazine (5.56mm practice)"
@@ -247,6 +247,16 @@
 	icon_state = "5.56APc"
 	origin_tech = list(TECH_COMBAT = 3)
 	ammo_type = /obj/item/ammo_casing/a556/ap
+
+/obj/item/ammo_magazine/a556/makeshift
+	name = "makeshift magazine (5.56mm)"
+	icon_state = "5.56m"
+	origin_tech = list(TECH_COMBAT = 1)
+	matter = list(DEFAULT_WALL_MATERIAL = 600)
+	max_ammo = 7
+
+/obj/item/ammo_magazine/a556/makeshift/empty
+	initial_ammo = 0
 
 /obj/item/ammo_magazine/a50
 	name = "magazine (.50)"

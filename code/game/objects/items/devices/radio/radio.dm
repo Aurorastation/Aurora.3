@@ -453,11 +453,11 @@ var/global/list/default_medbay_channels = list(
 	  //#### Sending the signal to all subspace receivers ####//
 
 		for(var/obj/machinery/telecomms/receiver/R in telecomms_list)
-			R.receive_signal(signal)
+			INVOKE_ASYNC(R, /obj/proc/receive_signal, signal)
 
 		// Allinone can act as receivers.
 		for(var/obj/machinery/telecomms/allinone/R in telecomms_list)
-			R.receive_signal(signal)
+			INVOKE_ASYNC(R, /obj/proc/receive_signal, signal)
 
 		// Receiving code can be located in Telecommunications.dm
 		var/position_z_in_level = FALSE // this particular band-aid is required to make antag radios say "talks into" and not "tries to talk into" when using a radio, due to how their signals are made
@@ -513,7 +513,7 @@ var/global/list/default_medbay_channels = list(
 	signal.frequency = connection.frequency // Quick frequency set
 
 	for(var/obj/machinery/telecomms/receiver/R in telecomms_list)
-		R.receive_signal(signal)
+		INVOKE_ASYNC(R, /obj/proc/receive_signal, signal)
 
 
 	sleep(rand(10,25)) // wait a little...
@@ -613,6 +613,18 @@ var/global/list/default_medbay_channels = list(
 	for (var/ch_name in channels)
 		channels[ch_name] = 0
 	..()
+
+/obj/item/device/radio/med
+	icon_state = "walkietalkie-med"
+
+/obj/item/device/radio/sec
+	icon_state = "walkietalkie-sec"
+
+/obj/item/device/radio/eng
+	icon_state = "walkietalkie-eng"
+
+/obj/item/device/radio/sci
+	icon_state = "walkietalkie-sci"	
 
 ///////////////////////////////
 //////////Borg Radios//////////

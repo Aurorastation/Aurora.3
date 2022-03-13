@@ -5,7 +5,13 @@
 	contained_sprite = TRUE
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_HEAD | SLOT_EARS
-	species_restricted = list(SPECIES_SKRELL)
+	species_restricted = list(BODYTYPE_SKRELL)
+
+/obj/item/clothing/ears/skrell/get_ear_examine_text(var/mob/user, var/ear_text = "left")
+	return "on [user.get_pronoun("his")] headtails"
+
+/obj/item/clothing/ears/skrell/get_head_examine_text(var/mob/user)
+	return "on [user.get_pronoun("his")] headtails"
 
 /obj/item/clothing/ears/skrell/chain
 	name = "gold headtail chains"
@@ -262,3 +268,14 @@
 			if(hair_datum.scrunchy_style)
 				item_state = "scrunchy_[hair_datum.scrunchy_style]"
 	return ..()
+
+/obj/item/clothing/ears/skrell/workcap
+	name = "Worker's Cap"
+	desc = "A simple clothing item used by Skrell to cover their headtails. It comes with a main sleeve for the middle headtail, with smaller sleeves for the outer headtails to help keep it in place."
+	item_state = "skrell_cap"
+	icon_state = "skrell_cap_item"
+
+/obj/item/clothing/ears/skrell/workcap/long
+	name = "Long Worker's Cap"
+	desc = "A simple clothing item used by Skrell to cover their headtails. It comes with a main sleeve for the middle headtail, with smaller sleeves for the outer headtails to help keep it in place. This one is longer to account for Skrell with longer headtails."
+	item_state = "skrell_cap_long"

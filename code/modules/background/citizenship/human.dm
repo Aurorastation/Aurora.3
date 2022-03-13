@@ -9,7 +9,8 @@
 	job_species_blacklist = list(
 		"Consular Officer" = list(
 			SPECIES_VAURCA_WORKER,
-			SPECIES_VAURCA_WARRIOR
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK
 		)
 	)
 
@@ -65,13 +66,17 @@
 			SPECIES_IPC_XION,
 			SPECIES_IPC_ZENGHU,
 			SPECIES_DIONA,
+			SPECIES_DIONA_COEUS,
 			SPECIES_SKRELL,
+			SPECIES_SKRELL_AXIORI,
 			SPECIES_TAJARA,
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_WORKER,
-			SPECIES_VAURCA_WARRIOR
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER
 		)
 	)
 
@@ -110,6 +115,10 @@
 	and poor, yet free-willed and provocative Dregs. The Federation is controlled by several megacorporations, and although NanoTrasen is not one of them, it is a common former \
 	workplace of various contractors on board NSS Aurora."
 
+	job_species_blacklist = list(
+		"Consular Officer" = ALL_SPECIES
+	)
+
 /datum/citizenship/coalition
 	name = CITIZENSHIP_COALITION
 	description = "The Coalition of Colonies is a loose confederation of united \"entities\" within the human frontier. These entities range \
@@ -125,7 +134,9 @@
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_WORKER,
-			SPECIES_VAURCA_WARRIOR
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER
 		)
 	)
 
@@ -155,11 +166,10 @@
 
 /datum/citizenship/dominia
 	name = CITIZENSHIP_DOMINIA
-	description = "A heavily religious absolute monarchy with its capital, Nova Luxembourg, on the planet of Dominia in the X'yr Vharn'p system. This autocratic state is ruled by His \
-	Imperial Majesty Boleslaw Keeser. The Empire of Dominia was proclaimed in 2437 by Unathi raiders who invaded the planet of Moroz, a colony which had been isolated for hundreds of \
-	years. Imperial society is dominated by the Great and Minor Houses under the Emperor and is very socio-economically stratified due to the so-called blood debt, \
-	known as the Mor'iz'al. All citizens are born with the Mor'iz'al debt in exchange for the privileges of citizenship, a debt that takes a lifetime or more to pay off. \
-	Indebted citizens are known as Ma'zals, forming the massive underclass in Dominia. Many in the Empire follow a strict code of honor."
+	description = "A heavily religious absolute monarchy with its capital, Nova Luxembourg, on the planet of Moroz in the Mira Sancta system. This autocratic state is ruled by \
+	His Imperial Majesty Boleslaw Keeser. The Empire of Dominia was proclaimed in 2385 by then-Emperor Godwin Keeser, unifying a colony which had been isolated for hundreds of years. \
+	Imperial society is dominated by the Great and Minor Houses under the Emperor and is very socio-economically stratified due to the so-called blood debt, known as the Mor’iz’al."
+
 	consular_outfit = /datum/outfit/job/representative/consular/dominia
 
 	job_species_blacklist = list(
@@ -173,11 +183,14 @@
 			SPECIES_IPC_XION,
 			SPECIES_IPC_ZENGHU,
 			SPECIES_SKRELL,
+			SPECIES_SKRELL_AXIORI,
 			SPECIES_TAJARA,
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_VAURCA_WORKER,
-			SPECIES_VAURCA_WARRIOR
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER
 		)
 	)
 

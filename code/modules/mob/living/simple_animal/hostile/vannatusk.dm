@@ -20,6 +20,7 @@
 	harm_intent_damage = 5
 	melee_damage_lower = 30
 	melee_damage_upper = 30
+	armor_penetration = 15
 	resist_mod = 3
 	mob_size = 15
 	environment_smash = 2
@@ -41,6 +42,8 @@
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/vannatusk
 
 	var/crystal_harvested = FALSE
+
+	psi_pingable = FALSE
 
 /mob/living/simple_animal/hostile/vannatusk/Initialize()
 	. = ..()

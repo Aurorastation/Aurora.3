@@ -90,6 +90,11 @@
 
 	action_button_name = "Wield pick/drill"
 
+/obj/item/pickaxe/can_swap_hands(mob/user)
+	if(wielded)
+		return FALSE
+	return ..()
+
 /obj/item/pickaxe/proc/unwield()
 	wielded = FALSE
 	force = force_unwielded
@@ -441,7 +446,7 @@
 	anchored = TRUE
 
 /obj/item/stack/flag/red/planted/Initialize()
-	..()
+	. = ..()
 	base_state = "redflag"
 	set_light(2)
 

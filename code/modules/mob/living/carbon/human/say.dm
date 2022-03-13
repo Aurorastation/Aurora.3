@@ -109,12 +109,12 @@
    for it but just ignore it.
 */
 
-/mob/living/carbon/human/say_quote(var/message, var/datum/language/speaking = null, var/singing = FALSE)
+/mob/living/carbon/human/say_quote(var/message, var/datum/language/speaking = null, var/singing = FALSE, var/whisper = FALSE)
 	var/ending = copytext(message, length(message))
 	var/pre_ending = copytext(message, length(message) - 1, length(message))
 
 	if(speaking)
-		. = speaking.get_spoken_verb(ending, pre_ending, singing)
+		. = speaking.get_spoken_verb(ending, pre_ending, singing, whisper)
 	else
 		. = ..()
 
@@ -161,9 +161,9 @@
 		return headsets[headsets[1]]
 	return null
 
-/mob/living/carbon/human/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio)
-	if(paralysis || InStasis())
-		whisper_say(message, speaking, alt_name)
+/mob/living/carbon/human/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio, whisper, var/is_singing = FALSE)
+	if(!whisper && (paralysis || InStasis()))
+		whisper(message, speaking)
 		return TRUE
 	switch(message_mode)
 		if("intercom")
@@ -175,7 +175,7 @@
 		if("headset")
 			var/obj/item/device/radio/R = get_radio()
 			if(R)
-				used_radios += l_ear
+				used_radios += R
 				if(R.talk_into(src, message, null, verb, speaking))
 					successful_radio += R
 		if("right ear")
@@ -218,12 +218,12 @@
 				if(R.talk_into(src,message,null,verb,speaking))
 					successful_radio += R
 		if("whisper")
-			whisper_say(message, speaking, alt_name)
-			return 1
+			whisper(message, speaking, is_singing)
+			return TRUE
 		else if(message_mode)
 			var/obj/item/device/radio/R = get_radio()
 			if(R)
-				used_radios += l_ear
+				used_radios += R
 				if(R.talk_into(src, message, message_mode, verb, speaking))
 					successful_radio += R
 
@@ -322,3 +322,9 @@
 
 			message = "[prefix][jointext(words," ")]"
 	return message
+
+/mob/living/carbon/human/binarycheck()
+	for(var/obj/item/device/radio/headset/dongle in list(l_ear, r_ear))
+		if(dongle.translate_binary)
+			return TRUE
+	return FALSE

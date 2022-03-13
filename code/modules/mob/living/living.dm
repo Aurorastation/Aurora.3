@@ -10,29 +10,16 @@
 
 //mob verbs are faster than object verbs. See above.
 var/mob/living/next_point_time = 0
-/mob/living/pointed(atom/movable/A as mob|obj|turf in view())
-	if(!isturf(src.loc) || !(A in range(world.view, get_turf(src))))
-		return FALSE
+/mob/living/pointed(atom/A as mob|obj|turf in view())
 	if(src.stat || !src.canmove || src.restrained())
 		return FALSE
 	if(src.status_flags & FAKEDEATH)
 		return FALSE
-	if(next_point_time >= world.time)
-		return FALSE
+		
+	. = ..()
 
-	next_point_time = world.time + 25
-	face_atom(A)
-	if(isturf(A))
-		if(pointing_effect)
-			QDEL_NULL(pointing_effect)
-		pointing_effect = new /obj/effect/decal/point(A)
-		pointing_effect.invisibility = invisibility
-		addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, pointing_effect), 2 SECONDS)
-	else
-		A.add_filter("pointglow", 1, list(type = "drop_shadow", x = 0, y = -1, offset = 1, size = 1, color = "#F00"))
-		addtimer(CALLBACK(A, /atom/movable.proc/remove_filter, "pointglow"), 2 SECONDS)
-	visible_message("<b>\The [src]</b> points to \the [A].")
-	return TRUE
+	if(.)
+		visible_message("<b>\The [src]</b> points to \the [A].")
 
 /*one proc, four uses
 swapping: if it's 1, the mobs are trying to switch, if 0, non-passive is pushing passive
@@ -484,6 +471,7 @@ default behaviour is:
 	SetWeakened(0)
 
 	// shut down ongoing problems
+	stamina = max_stamina
 	total_radiation = 0
 	nutrition = 400
 	hydration = 400
@@ -845,11 +833,24 @@ default behaviour is:
 	..()
 
 //damage/heal the mob ears and adjust the deaf amount
-/mob/living/adjustEarDamage(var/damage, var/deaf)
+/mob/living/adjustEarDamage(var/damage, var/deaf, var/ringing = FALSE)
+	var/alreadydeaf = FALSE
+	if (ear_deaf)
+		alreadydeaf = TRUE
+
 	ear_damage = max(0, ear_damage + damage)
 	ear_deaf = max(0, ear_deaf + deaf)
 
+	if (ringing && !alreadydeaf)
+		if (ear_damage >= 5)
+			if (ear_damage >= 15)
+				to_chat(src, SPAN_DANGER("Your ears start to ring badly!"))
+			else
+				to_chat(src, SPAN_DANGER("Your ears start to ring!"))
+
+
 //pass a negative argument to skip one of the variable
+
 /mob/living/setEarDamage(var/damage, var/deaf)
 	if(damage >= 0)
 		ear_damage = damage

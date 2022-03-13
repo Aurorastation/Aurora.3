@@ -88,7 +88,8 @@ STOCK_ITEM_UNCOMMON(chempack, 5)
 	var/list/chems = decls_repository.get_decls_of_subtype(/decl/reagent/)
 	var/list/exclusion = list(/decl/reagent/drink, /decl/reagent, /decl/reagent/adminordrazine, /decl/reagent/polysomnine/beer2, /decl/reagent/azoth, /decl/reagent/elixir,\
 		/decl/reagent/liquid_fire, /decl/reagent/philosopher_stone, /decl/reagent/toxin/undead, /decl/reagent/love_potion, /decl/reagent/shapesand, /decl/reagent/usolve,\
-		/decl/reagent/sglue, /decl/reagent/black_matter, /decl/reagent/bottle_lightning, /decl/reagent/toxin/trioxin, /decl/reagent/toxin/nanites, /decl/reagent/nitroglycerin)
+		/decl/reagent/sglue, /decl/reagent/black_matter, /decl/reagent/bottle_lightning, /decl/reagent/toxin/trioxin, /decl/reagent/toxin/nanites, /decl/reagent/nitroglycerin, \
+		/decl/reagent/aslimetoxin)
 	chems -= exclusion
 	for (var/i in 1 to rand(2, 4))
 		var/obj/item/reagent_containers/chem_disp_cartridge/C = new /obj/item/reagent_containers/chem_disp_cartridge(L)
@@ -268,11 +269,16 @@ STOCK_ITEM_UNCOMMON(rped, 1)
 	new /obj/item/storage/part_replacer(L)
 
 STOCK_ITEM_UNCOMMON(briefcase, 2)
-	if(prob(20))
-		new /obj/item/storage/secure/briefcase(L)
-	else
-		var/obj/item/storage/briefcase/B = pick(typesof(/obj/item/storage/briefcase))
-		new B(L)
+	var/list/briefcases = list(
+		/obj/item/storage/briefcase = 1,
+		/obj/item/storage/briefcase/real = 0.8,
+		/obj/item/storage/briefcase/black = 0.8,
+		/obj/item/storage/briefcase/aluminium = 0.5,
+		/obj/item/storage/briefcase/nt = 0.5
+	)
+
+	var/type = pickweight(briefcases)
+	new type(L)
 
 STOCK_ITEM_UNCOMMON(blade, 1.2)
 	var/list/blades = list(

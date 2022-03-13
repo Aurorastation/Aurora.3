@@ -274,7 +274,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	character.lastarea = get_area(loc)
 	// Moving wheelchair if they have one
-	if(character.buckled_to && istype(character.buckled_to, /obj/structure/bed/chair/wheelchair))
+	if(character.buckled_to && istype(character.buckled_to, /obj/structure/bed/stool/chair/office/wheelchair))
 		character.buckled_to.forceMove(character.loc)
 		character.buckled_to.set_dir(character.dir)
 
@@ -379,7 +379,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	SSrecords.open_manifest_vueui(src)
 
 /mob/abstract/new_player/Move()
-	return 0
+	return TRUE
 
 /mob/abstract/new_player/proc/close_spawn_windows()
 	src << browse(null, "window=playersetup") //closes the player setup window

@@ -5,7 +5,7 @@
 	category_name = "Diona"
 	bodytype = BODYTYPE_DIONA
 	total_health = 240
-	age_min = 1
+	age_min = 30
 	age_max = 1000
 	default_genders = list(NEUTER)
 	selectable_pronouns = list(NEUTER, PLURAL)
@@ -36,7 +36,7 @@
 	num_alternate_languages = 2
 	name_language = LANGUAGE_ROOTSONG
 	ethanol_resistance = -1	//Can't get drunk
-	taste_sensitivity = TASTE_DULL
+	taste_sensitivity = TASTE_NUMB
 	mob_size = 12	//Worker gestalts are 150kg
 	remains_type = /obj/effect/decal/cleanable/ash //no bones, so, they just turn into dust
 	gluttonous = GLUT_ITEM_ANYTHING|GLUT_SMALLER
@@ -110,8 +110,8 @@
 
 	max_hydration_factor = -1
 
-	allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_JARGON, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_DOMINIA, CITIZENSHIP_IZWESKI, CITIZENSHIP_NONE)
-	allowed_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_MOROZ, RELIGION_THAKH, RELIGION_SKAKH, RELIGION_ETERNAL, RELIGION_NONE, RELIGION_OTHER)
+	allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_JARGON, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_DOMINIA, CITIZENSHIP_IZWESKI, CITIZENSHIP_EUM, CITIZENSHIP_NONE)
+	allowed_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_MOROZ, RELIGION_THAKH, RELIGION_SKAKH, RELIGION_ETERNAL, RELIGION_KSSHR, RELIGION_SHRKH, RELIGION_NONE, RELIGION_OTHER)
 
 	allowed_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG)
 	default_accent = ACCENT_ROOTSONG

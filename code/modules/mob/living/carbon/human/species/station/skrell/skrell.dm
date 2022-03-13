@@ -16,12 +16,13 @@
 	primitive_form = SPECIES_MONKEY_SKRELL
 	unarmed_types = list(/datum/unarmed_attack/punch, /datum/unarmed_attack/palm, /datum/unarmed_attack/stomp, /datum/unarmed_attack/kick)
 
-	blurb = "An amphibious species, Skrell come from the star system known as Nralakk, coined 'Jargon' by \
-	humanity.<br><br>Skrell are a highly advanced, ancient race who place knowledge as the highest ideal. \
-	A dedicated meritocracy, the Skrell strive for ever-expanding knowledge of the galaxy and their place \
-	in it. However, a cataclysmic AI rebellion by Glorsh and its associated atrocities in the far past has \
-	forever scarred the species and left them with a deep rooted suspicion of artificial intelligence. As \
-	such an ancient and venerable species, they often hold patronizing attitudes towards the younger races."
+	blurb = "Xiialt can be approximately translated to “coastals” or “land-dwellers”. These Skrell are the \
+	biological cousins of the Axiori. They tend to be somewhat short, but the stout nature of the Xiialt \
+	helped them traverse the rough nature of their biome with bipedal movement. Due to this, their feet are \
+	somewhat bigger than those of an Axiori and their leg muscles are more defined. It is theorized that this \
+	helped early Xiialt outrun predators on land. Xiialt also tend to be much leaner; this is due to their \
+	slightly higher metabolic rate due to the abundant presence of food on the surface. While Xiialt are better \
+	adapted to live on land they are still able to breathe and see underwater; however, their swimming is not as agile."
 
 	num_alternate_languages = 3
 	language = LANGUAGE_SKRELLIAN
@@ -34,6 +35,8 @@
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_SOCKS
 	flags = NO_SLIP
+
+	possible_external_organs_modifications = list("Normal","Amputated","Prosthesis", "Diona Nymph")
 
 	has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest),
@@ -56,9 +59,10 @@
 		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/skrell,
 		BP_BRAIN =    /obj/item/organ/internal/brain/skrell,
 		BP_STOMACH =  /obj/item/organ/internal/stomach,
-		BP_APPENDIX = /obj/item/organ/internal/appendix,
 		BP_EYES =     /obj/item/organ/internal/eyes/skrell
 		)
+
+	pain_messages = list("I can't feel my headtails", "You really need some painkillers", "Stars above, the pain")
 
 	flesh_color = "#8CD7A3"
 	blood_color = COLOR_SKRELL_BLOOD
@@ -81,16 +85,29 @@
 
 	default_h_style = "Skrell Short Tentacles"
 
-	allowed_citizenships = list(CITIZENSHIP_JARGON, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI)
+	allowed_citizenships = list(CITIZENSHIP_JARGON, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ERIDANI, CITIZENSHIP_EUM)
 	allowed_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_SUURKA, RELIGION_KIRGUL, RELIGION_NONE, RELIGION_OTHER)
 	default_citizenship = CITIZENSHIP_JARGON
 
 	default_accent = ACCENT_SKRELL
 	allowed_accents = list(ACCENT_SKRELL, ACCENT_HOMEWORLD, ACCENT_QERRMALIC, ACCENT_ALIOSE, ACCENT_AWEIJI, ACCENT_TRAVERSE, ACCENT_CETI, ACCENT_GIBSON, ACCENT_COC, ACCENT_ERIDANI,
-							ACCENT_ERIDANIDREG, ACCENT_VENUS, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_ELYRA, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_EUROPA)
+							ACCENT_ERIDANIDREG, ACCENT_VENUS, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_EUROPA, ACCENT_VALKYRIE, ACCENT_MICTLAN)
 
 	zombie_type = SPECIES_ZOMBIE_SKRELL
 	bodyfall_sound = /decl/sound_category/bodyfall_skrell_sound
+	footsound = /decl/sound_category/footstep_skrell_sound
+
+	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH)
+
+/datum/species/skrell/handle_trail(var/mob/living/carbon/human/H, var/turf/T)
+	var/list/trail_info = ..()
+	if(!length(trail_info) && !H.shoes)
+		var/list/blood_data = REAGENT_DATA(H.vessel, /decl/reagent/blood)
+		trail_info["footprint_DNA"] = list(blood_data["blood_DNA"] = blood_data["blood_type"])
+		trail_info["footprint_color"] = rgb(H.r_skin, H.g_skin, H.b_skin, 25)
+		trail_info["footprint_type"] = /obj/effect/decal/cleanable/blood/tracks/footprints/barefoot/del_dry // makes skrellprints del on dry
+
+	return trail_info
 
 /datum/species/skrell/handle_post_spawn(mob/living/carbon/human/H)
 	..()

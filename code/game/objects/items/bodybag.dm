@@ -8,12 +8,28 @@
 	w_class = ITEMSIZE_SMALL
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	var/deploy_type = /obj/structure/closet/body_bag
 
 /obj/item/bodybag/attack_self(mob/user)
-	var/obj/structure/closet/body_bag/R = new /obj/structure/closet/body_bag(user.loc)
+	deploy_bag(user, user.loc)
+
+/obj/item/bodybag/afterattack(obj/target, mob/user, proximity)
+	if(!proximity)
+		return
+	if(isturf(target))
+		var/turf/T = target
+		if(!T.density)
+			deploy_bag(user, target)
+
+/obj/item/bodybag/proc/deploy_bag(mob/user, atom/location)
+	var/obj/structure/closet/body_bag/R = new deploy_type(location)
 	R.add_fingerprint(user)
+	tweak_bag(R)
 	playsound(src, 'sound/items/drop/cloth.ogg', 30)
 	qdel(src)
+
+/obj/item/bodybag/proc/tweak_bag(var/obj/structure/closet/body_bag/BB)
+	return
 
 /obj/item/storage/box/bodybags
 	name = "body bags"
@@ -145,15 +161,12 @@
 	icon = 'icons/obj/cryobag.dmi'
 	icon_state = "bodybag_folded"
 	origin_tech = list(TECH_BIO = 4)
+	deploy_type = /obj/structure/closet/body_bag/cryobag
 	var/stasis_power
 
-/obj/item/bodybag/cryobag/attack_self(mob/user)
-	var/obj/structure/closet/body_bag/cryobag/R = new /obj/structure/closet/body_bag/cryobag(user.loc)
+/obj/item/bodybag/cryobag/tweak_bag(var/obj/structure/closet/body_bag/cryobag/C)
 	if(stasis_power)
-		R.stasis_power = stasis_power
-	R.update_icon()
-	R.add_fingerprint(user)
-	qdel(src)
+		C.stasis_power = stasis_power
 
 /obj/structure/closet/body_bag/cryobag
 	name = "stasis bag"

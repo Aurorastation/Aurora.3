@@ -21,6 +21,7 @@
 /mob/living/silicon/robot/drone
 	// Look and feel
 	name = "maintenance drone"
+	var/designation
 	var/desc_flavor = "It's a tiny little repair drone. The casing is stamped with an corporate logo and the subscript: '%MAPNAME% Recursive Repair Systems: Fixing Tomorrow's Problem, Today!'<br><br><b>OOC Info:</b><br><br>Drones are player-controlled synthetics which are lawed to maintain the station and not interact with anyone else, except for other drones.<br><br>They hold a wide array of tools to build, repair, maintain, and clean. They function similarly to other synthetics, in that they require recharging regularly, have laws, and are resilient to many hazards, such as fire, radiation, vacuum, and more.<br><br>Ghosts can join the round as a maintenance drone by accessing the 'Ghost Spawner' menu in the 'Ghost' tab. An inactive drone can be rebooted by swiping an ID card on it with engineering or robotics access, and an active drone can be shut down in the same manner.<br><br>An antagonist can use an Electromagnetic Sequencer to corrupt their laws and make them follow their orders."
 	icon = 'icons/mob/robots.dmi'
 	icon_state = "repairbot"
@@ -36,6 +37,9 @@
 	var/module_type = /obj/item/robot_module/drone
 	cell_emp_mult = 1
 	integrated_light_power = 3
+
+	var/upgrade_cooldown = 0
+	var/list/matrix_upgrades
 
 	// Interaction
 	universal_speak = FALSE
@@ -63,6 +67,7 @@
 	var/hacked = FALSE
 
 	// Laws
+	var/datum/drone_matrix/master_matrix
 	var/obj/machinery/drone_fabricator/master_fabricator
 	var/law_type = /datum/ai_laws/drone
 
@@ -77,10 +82,22 @@
 
 	var/can_swipe = TRUE
 	var/rebooting = FALSE
+	var/standard_drone = TRUE
 
 /mob/living/silicon/robot/drone/Initialize()
 	. = ..()
 	set_default_language(all_languages[LANGUAGE_LOCAL_DRONE])
+
+/mob/living/silicon/robot/drone/Destroy()
+	if(master_matrix)
+		master_matrix.remove_drone(WEAKREF(src))
+		master_matrix = null
+	return ..()
+
+/mob/living/silicon/robot/drone/death(gibbed)
+	if(master_matrix)
+		master_matrix.handle_death(src)
+	return ..()
 
 /mob/living/silicon/robot/drone/can_be_possessed_by(var/mob/abstract/observer/possessor)
 	if(!istype(possessor) || !possessor.client || !possessor.ckey)
@@ -118,6 +135,8 @@
 		hat.forceMove(get_turf(src))
 		hat = null
 		QDEL_NULL(hat_overlay)
+	master_matrix = null
+	master_fabricator = null
 	return ..()
 
 /mob/living/silicon/robot/drone/get_default_language()
@@ -145,6 +164,8 @@
 	// Hats!!
 	hat_x_offset = 1
 	hat_y_offset = -12
+
+	standard_drone = FALSE
 
 	var/my_home_z
 
@@ -180,6 +201,8 @@
 	law_type = /datum/ai_laws/matriarch_drone
 	can_swipe = FALSE
 
+	var/matrix_tag = STATION_TAG
+
 /mob/living/silicon/robot/drone/construction/matriarch/Initialize()
 	. = ..()
 	check_add_to_late_firers()
@@ -190,13 +213,24 @@
 /mob/living/silicon/robot/drone/construction/matriarch/assign_player(mob/user)
 	. = ..()
 	SSghostroles.remove_spawn_atom("matriarchmaintdrone", src)
+	assign_drone_to_matrix(src, matrix_tag)
+	master_matrix.message_drones(MATRIX_NOTICE("Energy surges through your circuits. The matriarch has come online."))
+
+/mob/living/silicon/robot/drone/construction/matriarch/do_possession(mob/abstract/observer/possessor)
+	. = ..()
+	SSghostroles.remove_spawn_atom("matriarchmaintdrone", src)
 
 /mob/living/silicon/robot/drone/construction/matriarch/ghostize(can_reenter_corpse, should_set_timer)
 	. = ..()
-	if(stat == DEAD)
+	if(can_reenter_corpse || stat == DEAD)
 		return
 	if(src in mob_list) // needs to exist to reopen spawn atom
+		if(master_matrix)
+			master_matrix.remove_drone(WEAKREF(src))
+			master_matrix.message_drones(MATRIX_NOTICE("Your circuits dull. The matriarch has gone offline."))
+			master_matrix = null
 		set_name(initial(name))
+		designation = null
 		request_player()
 
 /mob/living/silicon/robot/drone/construction/matriarch/Destroy()
@@ -253,16 +287,27 @@
 	return
 
 /mob/living/silicon/robot/drone/setup_icon_cache()
+	setup_eye_cache()
+	setup_panel_cache()
+
+/mob/living/silicon/robot/drone/setup_eye_cache()
 	cached_eye_overlays = list(
-		I_HELP = image(icon, "eyes-[icon_state]-help", layer = EFFECTS_ABOVE_LIGHTING_LAYER),
-		I_HURT = image(icon, "eyes-[icon_state]-harm", layer = EFFECTS_ABOVE_LIGHTING_LAYER),
-		"emag" = image(icon, "eyes-[icon_state]-emag", layer = EFFECTS_ABOVE_LIGHTING_LAYER)
+		I_HELP = image(icon, "[icon_state]-eyes_help"),
+		I_HURT = image(icon, "[icon_state]-eyes_harm"),
+		"emag" = image(icon, "[icon_state]-eyes_emag")
 	)
 	if(eye_overlay)
 		cut_overlay(eye_overlay)
 	eye_overlay = cached_eye_overlays[a_intent]
-	if(!stat)
-		add_overlay(eye_overlay)
+	add_overlay(eye_overlay)
+
+/mob/living/silicon/robot/drone/setup_panel_cache()
+	cached_panel_overlays = list(
+		ROBOT_PANEL_EXPOSED = image(icon, "[icon_state]-openpanel+w"),
+		ROBOT_PANEL_CELL = image(icon, "[icon_state]-openpanel+c"),
+		ROBOT_PANEL_NO_CELL = image(icon, "[icon_state]-openpanel-c")
+	)
+
 
 /mob/living/silicon/robot/drone/set_intent(var/set_intent)
 	a_intent = set_intent
@@ -350,6 +395,7 @@
 	hacked = FALSE
 	law_update = FALSE
 	connected_ai = null
+	standard_drone = FALSE
 	clear_supplied_laws()
 	clear_inherent_laws()
 	laws = new /datum/ai_laws/syndicate_override
@@ -517,7 +563,7 @@
 
 /mob/living/silicon/robot/drone/self_destruct()
 	gib()
-	
+
 /mob/living/silicon/robot/drone/examine(mob/user)
 	..()
 	var/msg

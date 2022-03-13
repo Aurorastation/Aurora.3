@@ -93,6 +93,18 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 /mob/living/carbon/human/type_big
 	layer = 5
 
+/mob/living/carbon/human/type_e/Initialize(mapload)
+	. = ..(mapload, SPECIES_VAURCA_BULWARK)
+
+/mob/living/carbon/human/type_e/equipped/Initialize(mapload)
+	. = ..(mapload, SPECIES_VAURCA_BULWARK)
+	species.before_equip(src)
+	species.after_equip(src)
+
+/mob/living/carbon/human/axiori_skrell/Initialize(mapload)
+	h_style = "Skrell Average Tentacles"
+	. = ..(mapload, SPECIES_SKRELL_AXIORI)
+
 /mob/living/carbon/human/msai_tajara/Initialize(mapload)
 	h_style = "Tajaran Ears"
 	. = ..(mapload, SPECIES_TAJARA_MSAI)
@@ -232,6 +244,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 /mob/living/carbon/human/terminator/Initialize(mapload)
 	. = ..(mapload, SPECIES_IPC_TERMINATOR)
 	add_language(LANGUAGE_SOL_COMMON, 1)
+	add_language(LANGUAGE_ELYRAN_STANDARD, 1)
 	add_language(LANGUAGE_UNATHI, 1)
 	add_language(LANGUAGE_SIIK_MAAS, 1)
 	add_language(LANGUAGE_SKRELLIAN, 1)

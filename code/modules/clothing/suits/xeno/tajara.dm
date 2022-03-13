@@ -4,7 +4,6 @@
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "medcoat"
 	item_state = "medcoat"
-	contained_sprite = TRUE
 	desc_fluff = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
 	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
 	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters can't stand against how undeniably effective and cheap \
@@ -56,6 +55,7 @@
 	icon_state = "messarobes"
 	item_state = "messarobes"
 	contained_sprite = TRUE
+	no_overheat = TRUE
 	desc_fluff = "The official religious body of the S'rendarr & Messa religion  is reffered to as \"Parivara\" or roughly translated \"Family\". This branch is further split into \
 	the female Sun Sisters and male Priest's of S'rendarr. Currently their main role is to act as mediator and to remain out of political matters, there is however a certain unspoken \
 	agitation about the religion of Mata'ke and S'rrendars position within that pantheon. Further the Parivara has called multiple summits over the courses of war, which usually result \
@@ -69,6 +69,7 @@
 	icon_state = "matakecoat"
 	item_state = "matakecoat"
 	contained_sprite = TRUE
+	no_overheat = TRUE
 	desc_fluff = "The priesthood of Mata'ke is comprised of only men and strangely enough, hunters. Like their patron, all priests of Mata'ke must prove themselves capable, \
 	practical, strong and masters of Adhomai wilderness. Every clan and temple of Mata'ke has a different way of testing its applicants and these tests are always kept as a strict \
 	secret, the only thing known is that the majority of applicants never return. After they're accepted, priests of Mata'ke dress in furs and carry silver \
@@ -80,6 +81,7 @@
 	desc = "Large and fancy robes worn by the priests of Azubarre."
 	icon_state = "azubarre"
 	item_state = "azubarre"
+	no_overheat = TRUE
 	desc_fluff = "The priests of Azubarre are often adored and many aspire to become one, their large flowing robes and beautiful faces often accompany carnivals, marriages, \
 	birthdays, births and many other social events making them the epitome of life. However, the selection for such priests is considered by most to be very shallow, as only those \
 	beautiful and joyous enough are selected as priests. "
@@ -105,7 +107,7 @@
 	item_state = "taj_cloak"
 	contained_sprite = TRUE
 	flags_inv = HIDETAIL
-	hoodtype = /obj/item/clothing/head/winterhood
+	no_overheat = TRUE
 	desc_fluff = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
 	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
 	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters can't stand against how undeniably effective and cheap \

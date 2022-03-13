@@ -142,6 +142,11 @@ obj/item/clothing/shoes/sandal/clogs
 /obj/item/clothing/shoes/laceup/brown/all_species
 	species_restricted = null
 
+/obj/item/clothing/shoes/laceup/colourable
+	name = "oxford shoes"
+	icon_state = "oxford_colour"
+	item_state = "oxford_colour"
+
 /obj/item/clothing/shoes/swimmingfins
 	desc = "Help you swim good."
 	name = "swimming fins"
@@ -213,6 +218,9 @@ obj/item/clothing/shoes/sandal/clogs
 			melee = ARMOR_MELEE_MINOR,
 			bio = ARMOR_BIO_MINOR
 			)
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi'
+	)
 	siemens_coefficient = 0.75
 	can_hold_knife = TRUE
 	build_from_parts = TRUE
