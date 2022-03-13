@@ -286,7 +286,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/dungeon/skrell_ship)
 "aZ" = (
-/obj/structure/closet/medical_wall{
+/obj/structure/closet/walllocker/medical{
 	desc = "It's wall-mounted storage unit for medical supplies. It has almost come off its mounts.";
 	name = "Dilapitated medical closet";
 	pixel_y = -32

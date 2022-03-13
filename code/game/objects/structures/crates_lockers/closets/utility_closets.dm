@@ -77,6 +77,22 @@
 	new /obj/item/tank/oxygen(src)
 	new /obj/item/clothing/mask/gas(src)
 
+/obj/structure/closet/emcloset/offworlder
+	name = "offworlder supplies"
+	desc = "It's a storage unit for offworlder breathing apparatus."
+
+/obj/structure/closet/emcloset/offworlder/fill()
+	new /obj/item/rig/light/offworlder
+	new /obj/item/rig/light/offworlder
+	new /obj/item/rig/light/offworlder
+	new /obj/item/clothing/accessory/offworlder/bracer
+	new /obj/item/clothing/accessory/offworlder/bracer
+	new /obj/item/clothing/accessory/offworlder/bracer
+	new /obj/item/storage/pill_bottle/rmt
+	new /obj/item/storage/pill_bottle/rmt
+	new /obj/item/storage/pill_bottle/rmt
+	new /obj/item/clothing/mask/offworlder
+
 /*
  * Fire Closet
  */
@@ -146,6 +162,8 @@
 	if(prob(40))
 		new /obj/item/clothing/head/hardhat(src)
 
+/obj/structure/closet/toolcloset/empty/fill()
+
 
 /*
  * Radiation Closet
@@ -190,38 +208,3 @@
 	new /obj/item/clothing/shoes/brown(src)
 	new /obj/item/clothing/head/bomb_hood/security(src)
 	new /obj/item/wirecutters/bomb(src)
-
-/*
- * Hydrant
- */
-/obj/structure/closet/hydrant //wall mounted fire closet
-	name = "fire-safety closet"
-	desc = "It's a storage unit for fire-fighting supplies."
-	icon = 'icons/obj/walllocker.dmi'
-	icon_state = "hydrant"
-	anchored = 1
-	density = 0
-	wall_mounted = 1
-
-/obj/structure/closet/hydrant/fill()
-	new /obj/item/clothing/head/hardhat/firefighter(src)
-	new /obj/item/clothing/suit/fire(src)
-	new /obj/item/clothing/mask/gas(src)
-	new /obj/item/device/flashlight(src)
-	new /obj/item/tank/oxygen/red(src)
-	new /obj/item/extinguisher(src)
-
-	if (prob(25))
-		new /obj/item/ladder_mobile(src)
-
-/*
- * First Aid
- */
-/obj/structure/closet/medical_wall //wall mounted medical closet
-	name = "first-aid closet"
-	desc = "It's wall-mounted storage unit for first aid supplies."
-	icon = 'icons/obj/walllocker.dmi'
-	icon_state = "medical_wall"
-	anchored = 1
-	density = 0
-	wall_mounted = 1

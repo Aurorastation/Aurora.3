@@ -5,7 +5,10 @@
 	open_sound = 'sound/machines/wooden_closet_open.ogg'
 	close_sound = 'sound/machines/wooden_closet_close.ogg'
 	storage_capacity = 45 //such a big closet deserves a little more capacity
-	door_anim_time = 0 // no animation
+	door_anim_angle = 160
+	door_anim_squish = 0.22
+	door_hinge_alt = 7.5
+	double_doors = TRUE
 
 /obj/structure/closet/cabinet/attackby(obj/item/W as obj, mob/user as mob)
 	if(opened)
@@ -32,9 +35,7 @@
 
 /obj/structure/closet/gimmick
 	name = "administrative supply closet"
-	desc = "It's a storage unit for things that have no right being here."
 	icon_state = "syndicate1"
-	anchored = 0
 
 /obj/structure/closet/gimmick/russian
 	name = "russian surplus closet"

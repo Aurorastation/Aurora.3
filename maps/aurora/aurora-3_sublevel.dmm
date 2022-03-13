@@ -10425,7 +10425,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_y = 32
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -10722,7 +10722,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "atC" = (
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_x = -30
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -32069,7 +32069,7 @@
 /area/maintenance/medsublevel)
 "nKe" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_x = 30
 	},
 /obj/item/storage/toolbox/emergency,

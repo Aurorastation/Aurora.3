@@ -1059,7 +1059,7 @@
 	unlocked = 1
 	},
 /obj/effect/decal/cleanable/liquid_fuel,
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_y = 30
 	},
 /turf/simulated/floor/plating,

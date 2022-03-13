@@ -43,12 +43,16 @@
 	var/const/default_mob_size = 15
 	var/obj/item/closet_teleporter/linked_teleporter
 
+	var/double_doors = FALSE
+
 	var/obj/effect/overlay/closet_door/door_obj
+	var/obj/effect/overlay/closet_door/door_obj_alt
 	var/is_animating_door = FALSE
 	var/door_underlay = FALSE //used if you want to have an overlay below the door. used for guncabinets.
 	var/door_anim_squish = 0.12 // Multiplier on proc/get_door_transform. basically, how far you want this to swing out. value of 1 means the length of the door is unchanged (and will swing out of the tile), 0 means it will just slide back and forth.
 	var/door_anim_angle = 147
 	var/door_hinge = -6.5 // for closets, x away from the centre of the closet. typically good to add a 0.5 so it's centered on the edge of the closet.
+	var/door_hinge_alt = 6.5 // for closets with two doors. why a seperate var? because some closets may be weirdly shaped or something.
 	var/door_anim_time = 2.5 // set to 0 to make the door not animate at all
 
 
@@ -127,7 +131,7 @@
 /obj/structure/closet/proc/can_close()
 	for(var/obj/structure/closet/closet in get_turf(src))
 		if(closet != src)
-			return 0
+			return 1
 	return 1
 
 /obj/structure/closet/dump_contents()
@@ -155,6 +159,8 @@
 	opened = TRUE
 	dump_contents()
 	animate_door(FALSE)
+	if(double_doors)
+		animate_door_alt(FALSE)
 	update_icon()
 	playsound(loc, open_sound, open_sound_volume, 0, -3)
 	if(!dense_when_open)
@@ -179,6 +185,8 @@
 		stored_units += store_structure(stored_units)
 	opened = FALSE
 	animate_door(TRUE)
+	if(double_doors)
+		animate_door_alt(TRUE)
 	update_icon()
 
 	if(linked_teleporter)
@@ -421,6 +429,8 @@
 			return
 		else
 			attack_hand(user)
+	else if(istype(W,/obj/item/card/id) && secure)
+		togglelock(user)
 
 // Secure locker cutting open stuff.
 	else if(!opened && secure)
@@ -523,33 +533,36 @@
 
 	if(!opened)
 		layer = OBJ_LAYER
+		if(welded)
+			add_overlay("[icon_door_overlay]welded")
 		if(!is_animating_door)
 			if(icon_door)
 				add_overlay("[icon_door]_door")
+				if(double_doors)
+					add_overlay("[icon_door]_door_alt")
+				if(secure)
+					update_secure_overlays()
 			else
 				add_overlay("[icon_state]_door")
-			if(secure)
-				update_secure_overlays()
-			if(welded)
-				add_overlay("[icon_door_overlay]welded")
+				if(double_doors)
+					add_overlay("[icon_state]_door_alt")
+				if(secure)
+					update_secure_overlays()
 	else if(opened)
 		layer = BELOW_OBJ_LAYER
 		if(!is_animating_door)
-			if(icon_door_override)
-				add_overlay("[icon_door]_open")
-			else
-				add_overlay("[icon_state]_open")
-			if(secure && secure_lights)
-				update_secure_overlays()
+			add_overlay("[icon_door_override ? icon_door : icon_state]_open")
+		if(secure && secure_lights)
+			update_secure_overlays()
 
 /obj/structure/closet/proc/update_secure_overlays()
 	if(broken)
-		add_overlay("[icon_door_overlay]emag")
+		add_overlay("[icon_door_overlay]emag", ABOVE_OBJ_LAYER)
 	else
 		if(locked)
-			add_overlay("[icon_door_overlay]locked")
+			add_overlay("[icon_door_overlay]locked", ABOVE_OBJ_LAYER)
 		else
-			add_overlay("[icon_door_overlay]unlocked")
+			add_overlay("[icon_door_overlay]unlocked", ABOVE_OBJ_LAYER)
 
 /obj/structure/closet/proc/animate_door(var/closing = FALSE)
 	if(!door_anim_time)
@@ -578,15 +591,47 @@
 
 /obj/structure/closet/proc/end_door_animation()
 	is_animating_door = FALSE // comment this out and the line below to manually tweak the animation end state by fiddling with the door_anim vars to match the open door icon
-	vis_contents -= door_obj //
+	vis_contents -= door_obj
 	update_icon()
 	compile_overlays(src)
 
-/obj/structure/closet/proc/get_door_transform(angle)
+/obj/structure/closet/proc/animate_door_alt(var/closing = FALSE)
+	if(!door_anim_time)
+		return
+	if(!door_obj_alt) door_obj_alt = new
+	vis_contents |= door_obj_alt
+	door_obj_alt.icon = icon
+	door_obj_alt.icon_state = "[icon_door || icon_state]_door_alt"
+	is_animating_door = TRUE
+	var/num_steps = door_anim_time / world.tick_lag
+	for(var/I in 0 to num_steps)
+		var/angle = door_anim_angle * (closing ? 1 - (I/num_steps) : (I/num_steps))
+		var/matrix/M = get_door_transform(angle, TRUE)
+		var/door_state = angle >= 90 ? "[icon_door_override ? icon_door : icon_state]_back_alt" : "[icon_door || icon_state]_door_alt"
+		var/door_layer = angle >= 90 ? FLOAT_LAYER : ABOVE_MOB_LAYER
+
+		if(I == 0)
+			door_obj_alt.transform = M
+			door_obj_alt.icon_state = door_state
+			door_obj_alt.layer = door_layer
+		else if(I == 1)
+			animate(door_obj_alt, transform = M, icon_state = door_state, layer = door_layer, time = world.tick_lag, flags = ANIMATION_END_NOW)
+		else
+			animate(transform = M, icon_state = door_state, layer = door_layer, time = world.tick_lag)
+	addtimer(CALLBACK(src,.proc/end_door_animation_alt),door_anim_time,TIMER_UNIQUE|TIMER_OVERRIDE)
+
+/obj/structure/closet/proc/end_door_animation_alt()
+	is_animating_door = FALSE // comment this out and the line below to manually tweak the animation end state by fiddling with the door_anim vars to match the open door icon
+	vis_contents -= door_obj_alt
+	update_icon()
+	compile_overlays(src)
+
+/obj/structure/closet/proc/get_door_transform(angle, var/inverse_hinge = FALSE)
 	var/matrix/M = matrix()
-	M.Translate(-door_hinge, 0)
-	M.Multiply(matrix(cos(angle), 0, 0, -sin(angle) * door_anim_squish, 1, 0))
-	M.Translate(door_hinge, 0)
+	var/matrix_door_hinge = inverse_hinge ? door_hinge_alt : door_hinge
+	M.Translate(-matrix_door_hinge, 0)
+	M.Multiply(matrix(cos(angle), 0, 0, ((matrix_door_hinge >= 0) ? sin(angle) : -sin(angle)) * door_anim_squish, 1, 0)) // this matrix door hinge >= 0 check is for door hinges on the right, so they swing out instead of upwards
+	M.Translate(matrix_door_hinge, 0)
 	return M
 
 /obj/structure/closet/hear_talk(mob/M as mob, text, verb, datum/language/speaking)

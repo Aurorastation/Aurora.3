@@ -2,7 +2,10 @@
 	icon_state = "cabinet"
 	open_sound = 'sound/machines/wooden_closet_open.ogg'
 	close_sound = 'sound/machines/wooden_closet_close.ogg'
-	door_anim_time = 0 // no animation
+	door_anim_angle = 160
+	door_anim_squish = 0.22
+	door_hinge_alt = 7.5
+	double_doors = TRUE
 
 /obj/structure/closet/secure_closet/cabinet/bar
 	name = "booze closet"

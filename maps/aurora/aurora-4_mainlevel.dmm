@@ -1757,7 +1757,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "adG" = (
-/obj/structure/closet/medical_wall{
+/obj/structure/closet/walllocker/medical{
 	pixel_y = 30
 	},
 /obj/item/stack/medical/ointment,
@@ -7628,7 +7628,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "aoW" = (
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_x = -32
 	},
 /turf/simulated/floor/plating,
@@ -8330,7 +8330,7 @@
 	c_tag = "Engineering - Atmospherics Locker Room";
 	dir = 8
 	},
-/obj/structure/closet/medical_wall{
+/obj/structure/closet/walllocker/medical{
 	pixel_x = 32
 	},
 /obj/item/stack/medical/bruise_pack,
@@ -11872,7 +11872,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "awa" = (
-/obj/structure/closet/medical_wall{
+/obj/structure/closet/walllocker/medical{
 	pixel_x = 32
 	},
 /obj/item/stack/medical/bruise_pack,
@@ -22328,7 +22328,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "aMB" = (
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_y = -32
 	},
 /turf/simulated/floor/plating,
@@ -23196,7 +23196,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "aOd" = (
-/obj/structure/closet/medical_wall{
+/obj/structure/closet/walllocker/medical{
 	pixel_y = -32
 	},
 /obj/item/stack/medical/bruise_pack,
@@ -26950,7 +26950,7 @@
 /area/maintenance/maintcentral)
 "aUt" = (
 /obj/random/junk,
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_x = 32
 	},
 /turf/simulated/floor/plating,
@@ -49310,7 +49310,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 "bMW" = (
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_x = -32
 	},
 /turf/simulated/floor/plating,
@@ -61366,7 +61366,7 @@
 /area/maintenance/cargo)
 "gHJ" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/medical_wall{
+/obj/structure/closet/walllocker/medical{
 	desc = "It's wall-mounted storage unit for medical supplies. It has almost come off its mounts.";
 	name = "Dilapitated medical closet";
 	pixel_y = -32
@@ -64009,10 +64009,17 @@
 /obj/item/clipboard,
 /obj/item/pen/multi,
 /obj/item/device/camera,
-/obj/structure/closet/lawcloset{
-	icon_state = "cabinet";
-  door_anim_time = 0;
+/obj/structure/closet/cabinet{
+	name = "legal closet";
+	desc = "It's a storage unit for courtroom apparel and items.";
 	},
+/obj/item/clothing/under/lawyer/black,
+/obj/item/clothing/under/lawyer/red,
+/obj/item/clothing/suit/storage/toggle/lawyer/bluejacket,
+/obj/item/clothing/under/lawyer/purple,
+/obj/item/clothing/suit/storage/lawyer/purpjacket,
+/obj/item/clothing/shoes/brown,
+/obj/item/clothing/shoes/black,
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
@@ -66995,7 +67002,6 @@
 /area/maintenance/security_starboard)
 "rlA" = (
 /obj/structure/closet/crate/trashcart{
-	icon_state = "trashcartopen";
 	opened = 1
 	},
 /obj/item/shreddedp,
@@ -70373,7 +70379,7 @@
 /turf/simulated/wall,
 /area/lawoffice/representative)
 "wzO" = (
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_x = -30
 	},
 /turf/simulated/floor/plating,

@@ -548,7 +548,7 @@
 			secondarytargets += L
 
 /obj/machinery/porta_turret/proc/assess_and_assign_closet(var/obj/structure/closet/C, var/list/targets, var/list/secondarytargets)
-	if(is_type_in_list(C,list(/obj/structure/closet/statue,/obj/structure/closet/hydrant,/obj/structure/closet/walllocker)))
+	if(is_type_in_list(C,list(/obj/structure/closet/statue,/obj/structure/closet/walllocker/firecloset,/obj/structure/closet/walllocker)))
 		return
 	if(!lethal)
 		return
