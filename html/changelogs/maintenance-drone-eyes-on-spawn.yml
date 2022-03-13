@@ -1,6 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes:
-  - bugfix: "Maintenance drones and subtypes will properly generate their eye icon when spawning."
