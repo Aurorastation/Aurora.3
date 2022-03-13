@@ -1248,21 +1248,18 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
 "aKv" = (
+/obj/structure/toilet,
 /obj/machinery/light/small{
-	dir = 4
-	},
-/obj/structure/sink{
-	dir = 8;
-	pixel_x = -12
+	dir = 8
 	},
 /obj/machinery/button/remote/airlock{
-	id = "main_unit_2";
+	dir = 8;
+	id = "arrivals_unit_2";
 	name = "Door Bolt Control";
-	pixel_x = -25;
-	req_access = null;
+	pixel_x = 24;
 	specialfunctions = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "aKL" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -3181,21 +3178,18 @@
 /turf/simulated/wall,
 /area/hydroponics)
 "bQv" = (
+/obj/structure/toilet,
 /obj/machinery/light/small{
-	dir = 8
-	},
-/obj/structure/sink{
-	dir = 4;
-	pixel_x = 12
+	dir = 4
 	},
 /obj/machinery/button/remote/airlock{
-	id = "main_unit_1";
+	dir = 4;
+	id = "arrivals_unit_1";
 	name = "Door Bolt Control";
-	pixel_x = 25;
-	req_access = null;
+	pixel_x = -24;
 	specialfunctions = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "bQx" = (
 /obj/structure/railing/mapped{
@@ -5288,13 +5282,16 @@
 /turf/simulated/floor/reinforced,
 /area/storage/secure)
 "dmD" = (
-/obj/structure/bed/stool/chair/padded/black{
-	dir = 8
-	},
 /obj/item/device/radio/intercom{
 	dir = 8;
 	pixel_x = 20;
 	pixel_y = 1
+	},
+/obj/structure/bed/stool/chair/padded/black{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
@@ -11284,10 +11281,9 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "haK" = (
-/turf/simulated/floor/tiled/ramp{
-	dir = 4
-	},
-/area/hallway/primary/central_two)
+/obj/effect/map_effect/wingrille_spawn/reinforced,
+/turf/simulated/floor/tiled,
+/area/operations/lobby)
 "hcF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -13380,7 +13376,6 @@
 /turf/simulated/floor/reinforced,
 /area/horizonexterior)
 "itX" = (
-/obj/machinery/hologram/holopad,
 /turf/simulated/floor/wood,
 /area/chapel/main)
 "iuP" = (
@@ -13916,12 +13911,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering/tesla)
-"iJW" = (
-/obj/structure/table/stone/marble,
-/obj/item/material/hatchet,
-/obj/item/material/minihoe,
-/turf/simulated/floor/wood,
-/area/hydroponics/garden)
 "iKg" = (
 /obj/effect/floor_decal/corner_wide/yellow/full{
 	dir = 4
@@ -15195,11 +15184,6 @@
 /obj/structure/trash_pile,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
-"jwp" = (
-/obj/structure/table/stone/marble,
-/obj/item/reagent_containers/glass/bucket,
-/turf/simulated/floor/wood,
-/area/hydroponics/garden)
 "jwY" = (
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 1
@@ -19831,11 +19815,8 @@
 	},
 /area/engineering/lobby)
 "mwH" = (
-/obj/machinery/door/airlock/freezer{
-	id_tag = "main_unit_2";
-	name = "Unit 2"
-	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
+/turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "mxh" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
@@ -20751,6 +20732,7 @@
 /area/engineering/engine_room)
 "mYx" = (
 /obj/structure/table/standard,
+/obj/item/material/ashtray,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "mYK" = (
@@ -24286,8 +24268,9 @@
 /turf/simulated/open,
 /area/hallway/primary/central_two)
 "pjQ" = (
-/obj/structure/window/reinforced{
-	dir = 1
+/obj/machinery/door/airlock/freezer{
+	id_tag = "arrivals_unit_2";
+	name = "Unit 2"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
@@ -24299,7 +24282,9 @@
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora)
 "pkH" = (
-/obj/structure/bed/stool/chair/padded/black,
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
 /obj/machinery/light{
 	dir = 1
 	},
@@ -25291,9 +25276,8 @@
 /area/engineering/atmos/storage)
 "pOl" = (
 /obj/structure/stairs/west,
-/turf/simulated/floor/tiled/ramp{
-	dir = 4
-	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "pOV" = (
 /obj/machinery/light,
@@ -25726,12 +25710,11 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "qbp" = (
-/obj/machinery/door/airlock/freezer{
-	id_tag = "main_unit_1";
-	name = "Unit 1"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/hallway/primary/central_two)
+/obj/structure/table/stone/marble,
+/obj/item/material/hatchet,
+/obj/item/material/minihoe,
+/turf/simulated/floor/wood,
+/area/hydroponics/garden)
 "qbq" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -26204,14 +26187,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload_foyer)
 "quh" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/glass/bucket,
+/turf/simulated/floor/wood,
+/area/hydroponics/garden)
 "quD" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1
@@ -26269,10 +26248,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "qvd" = (
-/obj/structure/toilet{
-	dir = 1
+/obj/machinery/door/airlock/freezer{
+	id_tag = "arrivals_unit_1";
+	name = "Unit 1"
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "qvl" = (
 /obj/effect/floor_decal/industrial/warning/full,
@@ -27524,13 +27504,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
-"rid" = (
-/obj/structure/bed/stool/chair/padded/black,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
 "riG" = (
 /obj/machinery/power/generator{
 	anchored = 1;
@@ -29765,6 +29738,7 @@
 /obj/machinery/newscaster{
 	pixel_y = 32
 	},
+/obj/item/storage/box/fancy/cigarettes,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "sAT" = (
@@ -35975,10 +35949,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
-"weO" = (
-/obj/machinery/door/airlock/glass,
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
 "weY" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -37495,9 +37465,6 @@
 "wUU" = (
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 8
-	},
-/obj/machinery/light{
-	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
@@ -54001,14 +53968,14 @@ rCR
 rCR
 jUP
 fhD
-rCR
+haK
 pOl
-quh
-qbp
+kAJ
+ayF
 bQv
 qvd
-ayF
-pkH
+gOH
+gOH
 cne
 hUe
 oGp
@@ -54203,14 +54170,14 @@ aXX
 dWk
 hfI
 ffT
-ayF
-haK
-pjQ
-ayF
-ayF
+mwH
+gOH
+gOH
 ayF
 ayF
-rid
+ayF
+pkH
+gOH
 eWm
 gOH
 ojd
@@ -54405,13 +54372,13 @@ gOH
 gOH
 ohQ
 fqr
-weO
+rfQ
 gOH
 gkB
-mwH
-aKv
-qvd
 ayF
+aKv
+pjQ
+gOH
 mYx
 dmD
 wUU
@@ -61283,7 +61250,7 @@ xOo
 sdd
 kuG
 oqN
-jwp
+quh
 cNz
 dvw
 cIN
@@ -61484,7 +61451,7 @@ veO
 hBz
 azB
 wBq
-iJW
+qbp
 gZt
 jHK
 tje
