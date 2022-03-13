@@ -27276,7 +27276,9 @@
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/hor)
 "rbL" = (
-/obj/random/junk,
+/obj/structure/table/rack,
+/obj/item/clothing/glasses/sunglasses,
+/obj/item/trash/koisbar,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "rbO" = (
@@ -36280,6 +36282,9 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/table/reinforced,
+/obj/item/clothing/glasses/sunglasses,
+/obj/item/screwdriver,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/port/far)
 "woK" = (
