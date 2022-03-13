@@ -10516,6 +10516,10 @@
 	pixel_x = -3;
 	pixel_y = 4
 	},
+/obj/item/clothing/accessory/holster/modular,
+/obj/item/clothing/accessory/holster/modular,
+/obj/item/clothing/accessory/holster/modular,
+/obj/item/clothing/accessory/holster/modular,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "gBM" = (
@@ -13912,6 +13916,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering/tesla)
+"iJW" = (
+/obj/structure/table/stone/marble,
+/obj/item/material/hatchet,
+/obj/item/material/minihoe,
+/turf/simulated/floor/wood,
+/area/hydroponics/garden)
 "iKg" = (
 /obj/effect/floor_decal/corner_wide/yellow/full{
 	dir = 4
@@ -15185,6 +15195,11 @@
 /obj/structure/trash_pile,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
+"jwp" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/glass/bucket,
+/turf/simulated/floor/wood,
+/area/hydroponics/garden)
 "jwY" = (
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 1
@@ -16403,7 +16418,11 @@
 	},
 /obj/item/paper_bin,
 /obj/item/pen,
-/obj/item/device/radio/phone/medbay,
+/obj/item/device/radio/phone/medbay{
+	canhear_range = 7;
+	frequency = 1487;
+	name = "Surgery Emergency Phone"
+	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
 "kqM" = (
@@ -31064,11 +31083,6 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/maintenance/wing/starboard)
-"tsw" = (
-/obj/structure/table/stone/marble,
-/obj/item/reagent_containers/glass/bucket,
-/turf/simulated/floor/wood,
-/area/hydroponics/garden)
 "tsA" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -38445,12 +38459,6 @@
 /obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
-"xBt" = (
-/obj/structure/table/stone/marble,
-/obj/item/material/hatchet,
-/obj/item/material/minihoe,
-/turf/simulated/floor/wood,
-/area/hydroponics/garden)
 "xBv" = (
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -61275,7 +61283,7 @@ xOo
 sdd
 kuG
 oqN
-tsw
+jwp
 cNz
 dvw
 cIN
@@ -61476,7 +61484,7 @@ veO
 hBz
 azB
 wBq
-xBt
+iJW
 gZt
 jHK
 tje
