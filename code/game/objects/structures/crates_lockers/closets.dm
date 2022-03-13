@@ -540,14 +540,14 @@
 				add_overlay("[icon_door]_door")
 				if(double_doors)
 					add_overlay("[icon_door]_door_alt")
-				if(secure)
-					update_secure_overlays()
-			else
+			if(!icon_door)
 				add_overlay("[icon_state]_door")
 				if(double_doors)
 					add_overlay("[icon_state]_door_alt")
-				if(secure)
-					update_secure_overlays()
+			if(secure)
+				update_secure_overlays()
+		if(secure && secure_lights)
+			update_secure_overlays()
 	else if(opened)
 		layer = BELOW_OBJ_LAYER
 		if(!is_animating_door)
@@ -557,12 +557,12 @@
 
 /obj/structure/closet/proc/update_secure_overlays()
 	if(broken)
-		add_overlay("[icon_door_overlay]emag", ABOVE_OBJ_LAYER)
+		add_overlay("[icon_door_overlay]emag")
 	else
 		if(locked)
-			add_overlay("[icon_door_overlay]locked", ABOVE_OBJ_LAYER)
+			add_overlay("[icon_door_overlay]locked")
 		else
-			add_overlay("[icon_door_overlay]unlocked", ABOVE_OBJ_LAYER)
+			add_overlay("[icon_door_overlay]unlocked")
 
 /obj/structure/closet/proc/animate_door(var/closing = FALSE)
 	if(!door_anim_time)
