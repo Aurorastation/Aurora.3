@@ -2191,18 +2191,6 @@
 "eE" = (
 /turf/simulated/floor,
 /area/hallway/crew_area)
-"eF" = (
-/obj/structure/lattice,
-/obj/structure/railing/mapped,
-/obj/structure/window/reinforced,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/structure/disposalpipe/segment,
-/turf/simulated/open,
-/area/hallway/crew_area)
 "eG" = (
 /obj/structure/bed/stool/chair/padded/brown{
 	dir = 8
@@ -2286,7 +2274,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/machinery/door/airlock/maintenance{
+	req_one_access = list(12)
+	},
 /turf/simulated/floor,
 /area/maintenance/bridge)
 "eP" = (
@@ -3796,6 +3786,12 @@
 	dir = 4;
 	icon_state = "pipe-c"
 	},
+/obj/structure/lattice/catwalk,
+/obj/structure/lattice/catwalk,
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /turf/simulated/open,
 /area/hallway/crew_area)
 "ix" = (
@@ -4189,6 +4185,11 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
 /turf/simulated/open,
 /area/hallway/crew_area)
 "jA" = (
@@ -5015,10 +5016,15 @@
 /turf/simulated/floor/reinforced,
 /area/crew_quarters/heads/cmo)
 "lD" = (
+/obj/structure/lattice,
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/open,
 /area/hallway/crew_area)
 "lE" = (
 /obj/machinery/light,
@@ -5072,6 +5078,13 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
 /turf/simulated/open,
 /area/hallway/crew_area)
 "lM" = (
@@ -8297,6 +8310,13 @@
 /area/security/investigations_storage)
 "tf" = (
 /obj/structure/lattice,
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
 /turf/simulated/open,
 /area/hallway/crew_area)
 "tg" = (
@@ -18771,10 +18791,10 @@
 /turf/simulated/floor/reinforced,
 /area/template_noop)
 "Ts" = (
+/obj/structure/lattice,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/structure/railing/mapped,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -18784,7 +18804,12 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/open,
 /area/hallway/crew_area)
 "Tu" = (
 /obj/machinery/door/firedoor,
@@ -20859,6 +20884,8 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk,
+/obj/structure/lattice/catwalk,
 /turf/simulated/open,
 /area/hallway/crew_area)
 "YO" = (
@@ -35708,8 +35735,8 @@ xb
 EN
 TF
 Yo
-Ts
-js
+oJ
+pm
 Hz
 KC
 KC
@@ -35907,11 +35934,11 @@ Hx
 Fm
 js
 js
-tf
+js
 js
 pZ
-Ts
-js
+oJ
+pm
 UO
 UO
 UO
@@ -36109,11 +36136,11 @@ iB
 Fm
 js
 js
-tf
+js
 js
 pZ
 oJ
-lD
+pm
 fk
 ud
 dG
@@ -36310,10 +36337,10 @@ ya
 Uy
 HD
 tf
-tf
+lD
 iw
 lL
-eF
+lL
 jE
 Ro
 ON
@@ -37523,7 +37550,7 @@ Mr
 ct
 js
 js
-YN
+Ts
 js
 js
 os
@@ -37725,7 +37752,7 @@ Xy
 ct
 js
 js
-YN
+Ts
 js
 js
 os
