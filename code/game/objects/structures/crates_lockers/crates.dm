@@ -230,10 +230,10 @@
 	icon_state = "trashcart"
 	door_hinge = 2.5
 
-/obj/structure/closet/crate/miningcar
-	desc = "A mining car. This one doesn't work on rails, but has to be dragged."
-	name = "mining car"
-	icon_state = "miningcar"
+/obj/structure/closet/crate/miningcart
+	desc = "A mining cart. This one doesn't work on rails, but has to be dragged."
+	name = "mining cart"
+	icon_state = "miningcart"
 	door_hinge = 2.5
 
 /*these aren't needed anymore
