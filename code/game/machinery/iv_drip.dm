@@ -10,6 +10,8 @@
 	density = FALSE
 	var/tipped = FALSE
 	var/last_creak // Spam check
+	var/last_full
+	var/last_warning
 
 	// Blood Stuff
 	var/mob/living/carbon/human/attached = null
@@ -126,6 +128,8 @@
 				add_overlay("light_green[tipped ? "_tipped" : ""]")
 			else
 				add_overlay("light_red[tipped ? "_tipped" : ""]")
+			if(blood_message_sent)
+				add_overlay("light_yellow[tipped ? "_tipped" : ""]")
 		else
 			add_overlay("iv_out[tipped ? "_tipped" : ""]")
 	if(tank)
@@ -257,8 +261,9 @@
 			var/amount = REAGENTS_FREE_SPACE(beaker.reagents)
 			amount = min(amount, transfer_amount)
 
-			if(amount == 0) // If the beaker is full, ping
-				if(prob(5))
+			if(amount == 0)
+				if(world.time > last_full + 10 SECONDS)
+					last_full = world.time
 					visible_message("\The <b>[src]</b> pings.")
 					playsound(src, 'sound/machines/ping.ogg', 100)
 				return
@@ -266,12 +271,17 @@
 				visible_message(SPAN_WARNING("\The <b>[src]</b> flashes a warning light!"))
 				playsound(src, 'sound/machines/buzz-two.ogg', 100)
 				blood_message_sent = TRUE
+			if(blood_message_sent)
+				if(world.time > last_warning + 5 SECONDS)
+					last_warning = world.time
+					visible_message(SPAN_WARNING("\The <b>[src]</b> flashes a warning light!"))
+					playsound(src, 'sound/machines/buzz-two.ogg', 100)
 			if(attached.take_blood(beaker, amount))
 				update_icon()
 
 /obj/machinery/iv_drip/MouseDrop(over_object, src_location, over_location)
 	..()
-	if(in_range(src, usr) && ishuman(over_object) && get_dist(over_object, src) <= 1)
+	if(in_range(src, usr) && ishuman(over_object) && in_range(over_object, src))
 		var/list/options = list(
 			"IV drip" = image('icons/mob/screen/radial.dmi', "iv_drip"),
 			"Breath mask" = image('icons/mob/screen/radial.dmi', "iv_mask"))
@@ -399,8 +409,6 @@
 			usr.put_in_hands(breath_mask)
 			breath_mask = null
 			update_icon()
-		else
-			return
 
 /obj/machinery/iv_drip/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/reagent_containers/blood/ripped))
@@ -458,9 +466,12 @@
 		return
 	return ..()
 
-/obj/machinery/iv_drip/attack_hand(mob/user as mob)
-	if(isAI(user))
+/obj/machinery/iv_drip/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
 		return
+	return attack_hand(user)
+
+/obj/machinery/iv_drip/attack_hand(mob/user as mob)
 	if(tipped)
 		usr.visible_message("<b>[usr]</b> pulls \the [src] upright.", "You pull \the [src] upright.")
 		icon_state = "iv_stand"
@@ -491,8 +502,6 @@
 			toggle_valve()
 		if("Toggle EPP")
 			toggle_epp()
-		else
-			return
 
 /obj/machinery/iv_drip/proc/do_crash()
 	cut_overlays()
@@ -557,9 +566,6 @@
 /obj/machinery/iv_drip/proc/toggle_check()
 	if(!ishuman(usr) && !issilicon(usr))
 		to_chat(usr, SPAN_WARNING("This mob cannot operate the controls!"))
-		return
-	if(!isliving(usr))
-		to_chat(usr, SPAN_WARNING("You can't do that."))
 		return
 	if(usr.stat || usr.incapacitated())
 		to_chat(usr, SPAN_WARNING("You are in no shape to do this."))
@@ -662,7 +668,7 @@
 
 /obj/machinery/iv_drip/examine(mob/user)
 	..(user)
-	if (!(user in view(2)) && user!=src.loc)
+	if (!(user in viewers(2, src)))
 		return
 	to_chat(user, SPAN_NOTICE("[src] is [mode ? "injecting" : "taking blood"] at a rate of [src.transfer_amount] u/sec, and the automatic injection stop mode is [toggle_stop ? "on" : "off"]."))
 	to_chat(user, SPAN_NOTICE("\The [src] [attached ? "is attached to [attached]'s [vein.name]" : "has no one attached"]."))
