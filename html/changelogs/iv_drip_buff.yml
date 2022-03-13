@@ -10,3 +10,4 @@ changes:
   - rscadd: "You can choose which part of a body the IV needle will go into. Doesn't work for robotic limbs, like how hypos can't inject into them."
   - rscadd: "Organized toggables into Normal Click, removables into Alt Click, and injecting IV/securing mask into Drag and Drop Radial Menus."
   - tweak: "Organized the iv_drip.dm code."
+  - tweak: "Moved defines in the .../tanks/tanks.dm to .../__defines/misc.dm"
