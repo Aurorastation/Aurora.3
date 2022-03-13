@@ -8,7 +8,11 @@
 	var/debug_string
 	var/checked_items = 0
 	var/failed_items = 0
-	for(var/datum/cargo_item/ci in SScargo.cargo_items)
+	log_unit_test("CARGO ITEMS: [SScargo.cargo_items.len]")
+	for(var/i in SScargo.cargo_items)
+		log_unit_test("Found entry [SScargo.cargo_items[i]]")
+	for(var/i in SScargo.cargo_items)
+		var/datum/cargo_item/ci = SScargo.cargo_items[i]
 		debug_string = ""
 		for(var/item in ci.items)
 			checked_items++
@@ -18,7 +22,8 @@
 					debug_string += "EXPORTABLE ITEM: [item] with EXPORT COST: [E.total_cost], "
 					total_export_cost += E.total_cost
 			var/import_cost_per_unit = ci.price / ci.item_mul
-			for(var/var_name in ci.items[name]["vars"])
+			log_unit_test("Checking item [item]")
+			for(var/var_name in ci.items[item]["vars"])
 				if(var_name == "amount")
 					import_cost_per_unit /= ci.items[item]["vars"][var_name]
 					break
