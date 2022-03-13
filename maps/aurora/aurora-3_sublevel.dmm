@@ -23668,33 +23668,21 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/medical)
 "bbS" = (
-/obj/item/device/radio{
-	frequency = 1487;
-	name = "Medbay Emergency Radio Link";
-	pixel_x = -5;
-	pixel_y = 5
-	},
-/obj/item/device/radio{
-	frequency = 1487;
-	name = "Medbay Emergency Radio Link";
-	pixel_x = 5;
-	pixel_y = 5
-	},
-/obj/item/device/radio{
-	frequency = 1487;
-	name = "Medbay Emergency Radio Link";
-	pixel_x = 5;
-	pixel_y = -5
-	},
-/obj/item/device/radio{
-	frequency = 1487;
-	name = "Medbay Emergency Radio Link";
-	pixel_x = -5;
-	pixel_y = -5
-	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
 /obj/machinery/firealarm/south,
+/obj/item/device/radio/med{
+	name = "Medbay Emergency Radio Link"
+	},
+/obj/item/device/radio/med{
+	name = "Medbay Emergency Radio Link"
+	},
+/obj/item/device/radio/med{
+	name = "Medbay Emergency Radio Link"
+	},
+/obj/item/device/radio/med{
+	name = "Medbay Emergency Radio Link"
+	},
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
 "bbT" = (
