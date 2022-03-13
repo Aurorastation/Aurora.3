@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Technomancer Cores can now be disguised like other chameleon gear. Getting EMPd will reset it to default."
