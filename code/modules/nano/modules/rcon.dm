@@ -71,9 +71,11 @@
 			SMES.set_output(outputset)
 	if(href_list["smes_in_max"])
 		var/obj/machinery/power/smes/buildable/SMES = GetSMESByTag(href_list["smes_in_max"])
+		if(SMES)
 			SMES.set_input(SMES.input_level_max)
 	if(href_list["smes_out_max"])
 		var/obj/machinery/power/smes/buildable/SMES = GetSMESByTag(href_list["smes_out_max"])
+		if(SMES)
 			SMES.set_output(SMES.output_level_max)
 
 	if(href_list["toggle_breaker"])
