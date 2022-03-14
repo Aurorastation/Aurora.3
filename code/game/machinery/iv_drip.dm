@@ -3,7 +3,7 @@
 	desc = "A professional standard intravenous stand with supplemental gas support for medical use."
 	desc_info = "IV drips can be supplied beakers/bloodpacks for reagent transfusions, as well as one breath mask and gas tank for supplemental gas therapy. \
 	<br>Click and Drag to attach/detach the IV or secure/remove the breath mask on your target. <br>Click the stand with an empty hand to toggle between \
-	various modes. Using a screwdriver when it has a tank installed will secure it. <br>Alt Click the stand to remove items contained in the stand."
+	various modes. Using a wrench when it has a tank installed will secure it. It can be upgraded.<br>Alt Click the stand to remove items contained in the stand."
 	icon = 'icons/obj/iv_drip.dmi'
 	icon_state = "iv_stand"
 	anchored = 0
@@ -17,10 +17,14 @@
 	var/mob/living/carbon/human/attached = null
 	var/obj/item/organ/external/vein = null
 	var/obj/item/reagent_containers/beaker = null
-	var/blood_message_sent = FALSE
+	var/transfer_amount = REM
+	var/transfer_limit = 4
 	var/mode = TRUE // TRUE is injecting, FALSE is taking blood.
 	var/toggle_stop = TRUE
-	var/transfer_amount = REM
+	var/blood_message_sent = FALSE
+	var/attach_delay = 5
+	var/armor_check = TRUE // VTD: I am so sorry everyone. I failed
+	var/adv_scan = FALSE
 
 	// Supplemental Gas Stuff
 	var/mob/living/carbon/human/breather = null
@@ -39,6 +43,13 @@
 		/obj/item/clothing/mask/breath/skrell,
 		/obj/item/clothing/mask/breath/lyodsuit,
 		/obj/item/clothing/mask/breath/infiltrator)
+
+	component_types = list(
+		/obj/item/circuitboard/iv_drip,
+		/obj/item/reagent_containers/syringe,
+		/obj/item/stock_parts/matter_bin,
+		/obj/item/stock_parts/manipulator,
+		/obj/item/stock_parts/scanning_module)
 
 /obj/machinery/iv_drip/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -72,7 +83,7 @@
 					if(prob(60))
 						if(breather)
 							src.visible_message(
-								SPAN_WARNING("[M] trips on \the [src]'s [breath_mask] cable, pulling \the [breather] down as well!"), 
+								SPAN_WARNING("[M] trips on \the [src]'s [breath_mask] cable, pulling \the [breather] down as well!"),
 								SPAN_WARNING("You trip on \the [src]'s [breath_mask] cable, pulling \the [breather] down as well!"))
 							shake_animation(4)
 							M.Weaken(3)
@@ -150,6 +161,8 @@
 			add_overlay("mask_off[tipped ? "_tipped" : ""]")
 		if(epp_active)
 			add_overlay("light_blue[tipped ? "_tipped" : ""]")
+	if(panel_open)
+		add_overlay("panel_open[tipped ? "_tipped" : ""]")
 
 /obj/machinery/iv_drip/proc/update_gauge()
 	var/gauge_pressure = 0
@@ -166,7 +179,16 @@
 	add_overlay("[tank.gauge_icon][(gauge_pressure == -1) ? "overload" : gauge_pressure][tipped ? "_tipped" : ""]")
 
 /obj/machinery/iv_drip/machinery_process()
-	if(istype(breather)) // Mask secured
+	breather_process()
+	attached_process()
+
+/obj/machinery/iv_drip/proc/breather_process()
+	if(istype(breather))
+		if(!tank)
+			return
+		if(breather.species.flags & NO_BREATHE)
+			return
+
 		if(!breather.Adjacent(src))
 			step_to(src, get_turf(breather), 1)
 			if(world.time > last_creak + 10 SECONDS)
@@ -181,22 +203,16 @@
 					do_crash()
 
 		if(valve_open)
-			if(breather.species.flags & NO_BREATHE)
-				src.visible_message(SPAN_NOTICE("\The [src] buzzes, automatically deactivating \the [tank]."))
-				playsound(src, 'sound/machines/buzz-two.ogg', 50)
-				tank_off()
-				update_icon()
-				return
 			var/obj/item/organ/internal/lungs/L = breather.internal_organs_by_name[BP_LUNGS]
-			var/safe_pressure_min = breather.species.breath_pressure + 5
-			safe_pressure_min *= 1 + rand(1,4) * L.damage/L.max_damage
-
 			if(!L)
 				src.visible_message(SPAN_NOTICE("\The [src] buzzes, automatically deactivating \the [tank]."))
 				playsound(src, 'sound/machines/buzz-two.ogg', 50)
 				tank_off()
 				update_icon()
 				return
+			var/safe_pressure_min = breather.species.breath_pressure + 5
+			safe_pressure_min *= 1 + rand(1,4) * L.damage/L.max_damage
+
 			if(!tank_active) // Activates and sets the kPa to a safe pressure. This keeps from it constantly resetting itself
 				tank.distribute_pressure = safe_pressure_min
 				src.visible_message(SPAN_NOTICE("\The [src] chimes and adjusts \the [tank]'s release pressure"))
@@ -230,7 +246,8 @@
 					to_chat(breather, SPAN_NOTICE("You feel fresh air being pushed into your lungs."))
 			update_icon()
 
-	if(istype(attached)) // IV attached
+/obj/machinery/iv_drip/proc/attached_process()
+	if(istype(attached))
 		if(!beaker)
 			return
 		if(!attached.dna)
@@ -299,21 +316,19 @@
 					return
 				attached = over_object
 				vein = attached.get_organ(usr.zone_sel.selecting)
-				if(!vein)
-					to_chat(usr, SPAN_WARNING("They don't have that limb!"))
-					attached = null
-					vein = null
-					return
-				if(vein.status & ORGAN_ROBOT)
-					if(vein.robotize_type == PROSTHETIC_SYNTHSKIN)
-						to_chat(usr, SPAN_WARNING("The needle can't pierce through [attached]'s [vein.name] skin!"))
+				if(armor_check)
+					var/checking = attached.can_inject(usr, TRUE, usr.zone_sel.selecting, armor_check)
+					if(!checking)
 						attached = null
 						vein = null
 						return
-					to_chat(usr, SPAN_NOTICE("You can't insert the needle in [attached]'s [vein.name]."))
-					attached = null
-					vein = null
-					return
+					var/attach_time = attach_delay
+					attach_time *= checking
+					if(!do_mob(usr, attached, attach_time))
+						to_chat(usr, SPAN_DANGER("Failed to insert \the [src]. You and [attached] must stay still!"))
+						attached = null
+						vein = null
+						return
 				visible_message("[usr] inserts \the [src] in \the [attached]'s [vein.name].")
 				update_icon()
 				return
@@ -390,7 +405,7 @@
 				to_chat(usr, SPAN_NOTICE("You cannot remove \the [tank] if someone's wearing the mask!"))
 				return
 			if(!is_loose)
-				to_chat(usr, SPAN_NOTICE("You must loosen the screws securing \the [tank] into place to remove it!"))
+				to_chat(usr, SPAN_NOTICE("You must loosen the nuts securing \the [tank] into place to remove it!"))
 				return
 			usr.visible_message(SPAN_NOTICE("[usr] removes \the [tank] from \the [src]."), SPAN_NOTICE("You remove \the [tank] from \the [src]."))
 			tank.forceMove(usr.loc)
@@ -451,7 +466,7 @@
 		usr.visible_message(SPAN_NOTICE("[usr] places \the [W] in \the [src]."), SPAN_NOTICE("You place \the [W] in \the [src]."))
 		update_icon()
 		return
-	if(W.isscrewdriver())
+	if(W.iswrench())
 		if(!tank)
 			to_chat(usr, "There isn't a tank installed for you to secure!")
 			return
@@ -459,10 +474,14 @@
 			to_chat(usr, "You can't properly secure this type of tank to \the [src]!")
 			return
 		usr.visible_message(
-			SPAN_NOTICE("[usr] [is_loose ? "tightens" : "loosens"] the screws on [src]."),
-			SPAN_NOTICE("You [is_loose ? "tighten" : "loosen"] the screws on [src], [is_loose ? "securing \the [tank]" : "allowing \the [tank] to be removed"]."))
-		playsound(src.loc, "sound/items/[pick("Screwdriver", "Screwdriver2")].ogg", 50, 1)
+			SPAN_NOTICE("[usr] [is_loose ? "tightens" : "loosens"] the nuts on [src]."),
+			SPAN_NOTICE("You [is_loose ? "tighten" : "loosen"] the nuts on [src], [is_loose ? "securing \the [tank]" : "allowing \the [tank] to be removed"]."))
+		playsound(src.loc, "sound/items/wrench.ogg", 50, 1)
 		is_loose = !is_loose
+		return
+	if(default_deconstruction_screwdriver(user, W))
+		return
+	if(default_part_replacement(user, W))
 		return
 	return ..()
 
@@ -656,9 +675,9 @@
 	if(!toggle_check())
 		return
 	set_rate:
-		var/amount = input("Set transfer rate as u/sec (between 4 and 0.001)") as num
-		if ((0.001 > amount || amount > 4) && amount != 0)
-			to_chat(usr, SPAN_WARNING("Entered value must be between 0.001 and 4."))
+		var/amount = input("Set transfer rate as u/sec (between [transfer_limit] and 0.001)") as num
+		if ((0.001 > amount || amount > transfer_limit) && amount != 0)
+			to_chat(usr, SPAN_WARNING("Entered value must be between 0.001 and [transfer_limit]."))
 			goto set_rate
 		if (transfer_amount == 0)
 			transfer_amount = REM
@@ -674,7 +693,7 @@
 	to_chat(user, SPAN_NOTICE("\The [src] [attached ? "is attached to [attached]'s [vein.name]" : "has no one attached"]."))
 	if(beaker)
 		if(LAZYLEN(beaker.reagents.reagent_volumes))
-			to_chat(user, SPAN_NOTICE("Attached is [icon2html(beaker, usr)] \a [beaker] with [beaker.reagents.total_volume] units of liquid."))
+			to_chat(user, SPAN_NOTICE("Attached is [icon2html(beaker, usr)] \a [beaker] with [adv_scan ? "[beaker.reagents.total_volume] units of primarily [beaker.reagents.get_primary_reagent_name()]" : "some liquid"]."))
 		else
 			to_chat(user, SPAN_NOTICE("Attached is [icon2html(beaker, usr)] \a [beaker]. It is empty."))
 	else
@@ -688,3 +707,21 @@
 		to_chat(user, SPAN_NOTICE("\The [src] has [icon2html(breath_mask, usr)] \a [breath_mask] installed. [breather ? breather : "No one"] is wearing it."))
 	else
 		to_chat(user, SPAN_NOTICE("No breath mask installed."))
+
+/obj/machinery/iv_drip/RefreshParts()
+	..()
+	var/manip = 0
+	var/scanner = 0
+	adv_scan = FALSE
+	armor_check = TRUE
+	transfer_limit = 4
+	for(var/obj/item/stock_parts/P in component_parts)
+		if(ismanipulator(P))
+			manip += P.rating
+			transfer_limit += P.rating
+		if(isscanner(P))
+			scanner += P.rating
+	if(manip >= 2)
+		armor_check = FALSE
+	if(scanner >= 2)
+		adv_scan = TRUE
