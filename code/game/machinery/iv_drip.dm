@@ -316,12 +316,12 @@
 					return
 				attached = over_object
 				vein = attached.get_organ(usr.zone_sel.selecting)
+				var/checking = attached.can_inject(usr, TRUE, usr.zone_sel.selecting, armor_check)
+				if(!checking)
+					attached = null
+					vein = null
+					return
 				if(armor_check)
-					var/checking = attached.can_inject(usr, TRUE, usr.zone_sel.selecting, armor_check)
-					if(!checking)
-						attached = null
-						vein = null
-						return
 					var/attach_time = attach_delay
 					attach_time *= checking
 					if(!do_mob(usr, attached, attach_time))
@@ -329,7 +329,7 @@
 						attached = null
 						vein = null
 						return
-				visible_message("[usr] inserts \the [src] in \the [attached]'s [vein.name].")
+				visible_message("[usr][armor_check ? "" : "swiftly "] inserts \the [src] in \the [attached]'s [vein.name].")
 				update_icon()
 				return
 			if("Breath mask")
