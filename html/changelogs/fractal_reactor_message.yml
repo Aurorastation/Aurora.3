@@ -1,0 +1,6 @@
+author: Vrow
+
+delete-after: True
+
+changes:
+  - tweak: "Changed the Fractal Reactor message to an admin log instead a to_world message."
