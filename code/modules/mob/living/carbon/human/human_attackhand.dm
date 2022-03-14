@@ -372,6 +372,26 @@
 								return M.attackby(W,src)
 
 			var/randn = rand(1, 100)
+			if(z_eye && z_eye.tile_shifted) //They're looking down in front of them.
+				var/turf/T = loc
+				var/obj/structure/railing/problem_railing
+				var/same_loc = FALSE
+				for(var/obj/structure/railing/R in T)
+					if(R.dir == dir)
+						problem_railing = R
+						break
+				for(var/obj/structure/railing/R in get_step(T, dir))
+					if(R.dir == reverse_dir[dir])
+						problem_railing = R
+						same_loc = TRUE
+						break
+				if(problem_railing)
+					if(!problem_railing.turf_is_crowded(TRUE))
+						visible_message(SPAN_DANGER("[src] is shoved over the railing by [H]!"), SPAN_DANGER("[H] shoves you over the railing!"))
+						apply_effect(5, WEAKEN)
+						forceMove(same_loc ? problem_railing.loc : problem_railing.get_destination_turf(src))
+						return
+						
 			if(randn <= 25)
 				if(H.gloves && istype(H.gloves,/obj/item/clothing/gloves/force))
 					apply_effect(6, WEAKEN)

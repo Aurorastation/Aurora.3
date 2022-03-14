@@ -945,6 +945,10 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/orion_express_shuttle)
+"spX" = (
+/obj/machinery/hologram/holopad/long_range,
+/turf/simulated/floor/wood,
+/area/shuttle/orion_express_ship)
 "szY" = (
 /obj/machinery/shipsensors/weak,
 /obj/structure/railing/mapped{
@@ -32656,7 +32660,7 @@ uaE
 uaE
 iNo
 wmd
-wmd
+spX
 wmd
 dHA
 riA
