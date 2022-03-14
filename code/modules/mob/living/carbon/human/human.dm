@@ -2154,7 +2154,7 @@
 		var/turf/above = GetAbove(src)
 		if(TURF_IS_MIMICING(above))
 			z_eye = new /atom/movable/z_observer/z_up(src, src)
-			to_chat(src, "<span class='notice'>You look up.</span>")
+			visible_message(SPAN_NOTICE("[src] looks up."), SPAN_NOTICE("You look up."))
 			reset_view(z_eye)
 			return
 		to_chat(src, "<span class='notice'>You can see \the [above ? above : "ceiling"].</span>")
@@ -2174,14 +2174,14 @@
 		var/turf/T = get_turf(src)
 		if(TURF_IS_MIMICING(T) && HasBelow(T.z))
 			z_eye = new /atom/movable/z_observer/z_down(src, src)
-			to_chat(src, "<span class='notice'>You look down.</span>")
+			visible_message(SPAN_NOTICE("[src] looks below."), SPAN_NOTICE("You look below."))
 			reset_view(z_eye)
 			return
 		else
 			T = get_step(T, dir)
 			if(TURF_IS_MIMICING(T) && HasBelow(T.z))
 				z_eye = new /atom/movable/z_observer/z_down(src, src, TRUE)
-				to_chat(src, "<span class='notice'>You lean over to look down in front of you.</span>")
+				visible_message(SPAN_NOTICE("[src] leans over to look below."), SPAN_NOTICE("You lean over to look below."))
 				reset_view(z_eye)
 				return
 		to_chat(src, "<span class='notice'>You can see \the [T ? T : "floor"].</span>")

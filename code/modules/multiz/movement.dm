@@ -780,12 +780,15 @@
 	anchored = TRUE
 	mouse_opacity = FALSE
 	var/mob/living/owner
+	var/tile_shifted = FALSE
 
 /atom/movable/z_observer/Initialize(mapload, var/mob/living/user, var/tile_shift = FALSE)
 	. = ..()
 	owner = user
 	if(tile_shift)
-		step(get_step(owner, owner.dir))
+		var/turf/T = get_step(owner, owner.dir)
+		forceMove(T)
+		tile_shifted = TRUE
 	follow()
 	moved_event.register(owner, src, /atom/movable/z_observer/proc/follow)
 
@@ -802,8 +805,8 @@
 	qdel(src)
 
 /atom/movable/z_observer/z_down/follow()
-	forceMove(get_step(owner, DOWN))
-	var/turf/T = get_turf(owner)
+	forceMove(get_step(tile_shifted ? src : owner, DOWN))
+	var/turf/T = get_turf(tile_shifted ? get_step(owner, owner.dir) : owner)
 	if(T && (T.flags & MIMIC_BELOW))
 		return
 	owner.reset_view(null)
