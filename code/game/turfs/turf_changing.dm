@@ -45,6 +45,7 @@
 	var/old_lighting_overlay = lighting_overlay
 	var/list/old_corners = corners
 	var/list/old_blueprints = blueprints
+	var/list/old_decals = decals
 
 	changing_turf = TRUE
 
@@ -106,6 +107,8 @@
 	for(var/image/I as anything in W.blueprints)
 		I.loc = W
 		I.plane = 0
+	
+	W.decals = old_decals
 
 	W.post_change()
 
@@ -120,6 +123,11 @@
 	src.icon = other.icon
 	src.overlays = other.overlays.Copy()
 	src.underlays = other.underlays.Copy()
+	if(other.decals)
+		src.decals = other.decals.Copy()
+		other.decals.Cut()
+		other.update_icon()
+		src.update_icon()
 	return 1
 
 //I would name this copy_from() but we remove the other turf from their air zone for some reason
