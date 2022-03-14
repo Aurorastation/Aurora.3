@@ -1,6 +1,0 @@
-author: Vrow
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed Invisible Blood Bags and Blood Bags not displaying their internal contents right."

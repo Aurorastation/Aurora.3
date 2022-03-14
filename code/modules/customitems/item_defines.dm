@@ -2062,7 +2062,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 	weight_roll = 22
 
 /obj/item/stack/dice/fluff/suraya_dice/AltClick(mob/user)
-	if(!weight_roll)
+	if(user.get_active_hand() != src)
+		return ..()
+
+	if(weight_roll)
 		user.visible_message("<b>\The [user]</b> jiggles \the [src] around in their hand for a second.", SPAN_NOTICE("You jiggle the die rapidly in your hand, resetting the internal weighting."))
 		weight_roll = 0
 	else
