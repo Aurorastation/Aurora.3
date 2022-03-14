@@ -2395,7 +2395,6 @@
 /turf/simulated/floor/carpet/rubber,
 /area/lawoffice/representative)
 "fk" = (
-/obj/structure/lattice,
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 4
@@ -3779,7 +3778,6 @@
 	},
 /area/tcommsat/chamber)
 "iw" = (
-/obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
@@ -3793,8 +3791,6 @@
 	dir = 4;
 	icon_state = "pipe-c"
 	},
-/obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk,
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 8
@@ -3980,6 +3976,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/item/material/ashtray/bronze,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/lounge/secondary)
 "iX" = (
@@ -4188,7 +4185,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/lattice,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -4382,7 +4378,6 @@
 /turf/simulated/floor,
 /area/tcommsat/entrance)
 "jU" = (
-/obj/structure/lattice,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -4976,6 +4971,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/item/storage/box/fancy/cigarettes,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/lounge/secondary)
 "ly" = (
@@ -5093,7 +5089,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
 "lL" = (
-/obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -8335,7 +8330,6 @@
 /turf/simulated/floor/tiled,
 /area/security/investigations_storage)
 "tf" = (
-/obj/structure/lattice,
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 8
@@ -20915,7 +20909,6 @@
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
 "YN" = (
-/obj/structure/lattice,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},

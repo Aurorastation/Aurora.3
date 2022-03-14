@@ -5287,12 +5287,10 @@
 	pixel_x = 20;
 	pixel_y = 1
 	},
-/obj/structure/bed/stool/chair/padded/black{
-	dir = 8
-	},
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/vending/coffee,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "dmK" = (
@@ -9923,10 +9921,6 @@
 	dir = 8;
 	pixel_x = 28
 	},
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 28
-	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "gkM" = (
@@ -11130,6 +11124,15 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/aux_atmospherics/deck_2/starboard)
+"gVn" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/bed/stool/chair/padded/black{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_two)
 "gVq" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -15078,6 +15081,7 @@
 	pixel_y = 4
 	},
 /obj/effect/floor_decal/corner/blue/full,
+/obj/item/storage/box/fancy/donut,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "jtf" = (
@@ -17769,9 +17773,8 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/bed/stool/chair/padded/black{
-	dir = 4
-	},
+/obj/structure/table/standard,
+/obj/item/material/ashtray/bronze,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "lkt" = (
@@ -20731,8 +20734,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "mYx" = (
-/obj/structure/table/standard,
-/obj/item/material/ashtray,
+/obj/machinery/vending/cola,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "mYK" = (
@@ -29731,14 +29733,13 @@
 /turf/simulated/wall/r_wall,
 /area/engineering/smes)
 "syk" = (
-/obj/structure/table/standard,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /obj/machinery/newscaster{
 	pixel_y = 32
 	},
-/obj/item/storage/box/fancy/cigarettes,
+/obj/structure/bed/stool/chair/padded/black,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "sAT" = (
@@ -37463,9 +37464,7 @@
 /turf/simulated/open,
 /area/hallway/primary/central_two)
 "wUU" = (
-/obj/structure/bed/stool/chair/padded/black{
-	dir = 8
-	},
+/obj/machinery/vending/snack,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "wVc" = (
@@ -53775,7 +53774,7 @@ ayF
 ayF
 syk
 ljF
-ljF
+gVn
 sXT
 aFJ
 udR
