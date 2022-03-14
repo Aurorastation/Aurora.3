@@ -290,11 +290,12 @@
 			send_link(usr, selected_report.public_topic)
 
 		//Ask them if there was antag involvement
-		var/a = input(user, "Were your actions influenced by antagonists?", "Antagonist involvement") in list("yes","no")
+		var/a = input(user, "Were your actions influenced by antagonists or OOC issues/concerns ?", "Antagonist involvement / OOC Issue") in list("yes","no")
 		if(a == "yes")
 			antag_involvement = TRUE
-			antag_involvement_text = sanitizeSafe(input("Describe how your actions were influenced by the antagonists.", "Antag involvement") as message|null)
-			message_cciaa("CCIA Interview: [user] claimed their actions were influenced by antagonists.", R_CCIAA)
+			antag_involvement_text = sanitizeSafe(input("Describe how your actions were influenced by the antagonists or OOC issues/concerns.", "Antag involvement / OOC Issue") as message|null)
+			message_cciaa("CCIA Interview: [user] claimed their actions were influenced by antagonists or OOC issues.", R_CCIAA)
+			message_cciaa("CCIA Interview: [antag_involvement_text]")
 		else
 			antag_involvement = FALSE
 
