@@ -23,7 +23,7 @@
 	var/toggle_stop = TRUE
 	var/blood_message_sent = FALSE
 	var/attach_delay = 5
-	var/armor_check = TRUE // VTD: I am so sorry everyone. I failed
+	var/armor_check = TRUE
 	var/adv_scan = FALSE
 
 	// Supplemental Gas Stuff
