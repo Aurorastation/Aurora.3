@@ -174,6 +174,7 @@
 /obj/effect/shuttle_landmark/intrepid/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_intrepid"
+	base_turf = /turf/space/transit
 
 /datum/shuttle/autodock/overmap/mining
 	name = "Mining Shuttle"
