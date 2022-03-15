@@ -180,6 +180,12 @@
 		target.attack_ai(user)
 	just_dropped = FALSE
 
+/obj/item/gripper/resolve_attackby(atom/A, mob/user, var/click_parameters)
+	if(wrapped)
+		return wrapped.resolve_attackby(A, user, click_parameters)
+	else
+		. = ..()
+
 /*
 	//Definitions of gripper subtypes
 */

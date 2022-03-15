@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed another issue with grippers not inserting their items into objects e.g. chem dispensers."
