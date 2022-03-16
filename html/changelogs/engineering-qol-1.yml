@@ -1,0 +1,7 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes:
+  - tweak: "Can now toggle atmospherics pumps & filters with AltClick."
+  - tweak: "RCON SMES control now includes a button to max SMES input/output without having to type in the number."
