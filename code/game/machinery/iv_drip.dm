@@ -183,7 +183,7 @@
 	attached_process()
 
 /obj/machinery/iv_drip/proc/breather_process()
-	if(istype(breather))
+	if(breather)
 		if(!tank)
 			return
 		if(breather.species.flags & NO_BREATHE)
@@ -247,7 +247,7 @@
 			update_icon()
 
 /obj/machinery/iv_drip/proc/attached_process()
-	if(istype(attached))
+	if(attached)
 		if(!beaker)
 			return
 		if(!attached.dna)
