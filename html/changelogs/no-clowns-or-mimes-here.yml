@@ -1,6 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes:
-  - tweak: "Removes the Clown and Mime PDA presets from the PDA preset types list."
