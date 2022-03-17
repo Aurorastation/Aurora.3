@@ -5,7 +5,6 @@
 	name = "hull shield generator"
 	multi_unlocked = TRUE
 
-//NOT MULTIZ COMPATIBLE
 //Search for space turfs within range that are adjacent to a simulated turf.
 /obj/machinery/shield_gen/external/get_shielded_turfs()
 	set background = 1
@@ -21,7 +20,7 @@
 	for (var/tt in RANGE_TURFS(field_radius, gen_turf))
 		T = tt
 		// Ignore station areas.
-		if (the_station_areas[T.loc])
+		if (the_station_areas[T.loc] || is_shuttle_area(T.loc))
 			continue
 		else if (istype(T, /turf/space) || istype(T, /turf/unsimulated/floor/asteroid) || isopenturf(T) || istype(T, /turf/simulated/floor/reinforced))
 			for (var/uu in RANGE_TURFS(1, T))
@@ -38,16 +37,16 @@
 		var/turf/above = getzabove(src)
 		var/turf/below = getzbelow(src)
 		if(above)
-			for(var/turf/z in above)
+			for(var/turf/z as anything in above)
 				connected_levels += z
 		if(below)
-			for(var/turf/z in below)
+			for(var/turf/z as anything in below)
 				connected_levels += z
 		for(var/turf/z in connected_levels)
 			for (var/tt in RANGE_TURFS(field_radius, z))
 				T = tt
 				// Ignore station areas.
-				if (the_station_areas[T.loc])
+				if (the_station_areas[T.loc] || istype(T.loc, /area/shuttle))
 					continue
 				else if (istype(T, /turf/space) || istype(T, /turf/unsimulated/floor/asteroid) || isopenturf(T) || istype(T, /turf/simulated/floor/reinforced))
 					for (var/uu in RANGE_TURFS(1, T))

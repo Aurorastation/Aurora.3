@@ -13,7 +13,10 @@
 	var/enabled = 1
 
 /obj/machinery/shield_diffuser/machinery_process()
-	if(!enabled || stat & BROKEN || stat & NOPOWER)
+	if(stat & BROKEN)
+		return PROCESS_KILL
+
+	if(!enabled || stat & NOPOWER)
 		return
 
 	for(var/tt in RANGE_TURFS(1, src))
