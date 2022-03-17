@@ -30699,9 +30699,6 @@
 /area/engineering/engine_room/tesla)
 "tfl" = (
 /obj/structure/bed/stool/padded/red,
-/obj/effect/landmark/start{
-	name = "Service Manager"
-	},
 /turf/simulated/floor/lino/grey,
 /area/crew_quarters/cafeteria)
 "tfr" = (
