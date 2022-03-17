@@ -91,6 +91,9 @@ datum/preferences
 	var/religion = "None"               //Religious association.
 	var/accent = "None"               //Character accent.
 
+	var/culture = /decl/origin_item/culture/biesel
+	var/origin = /decl/origin_item/origin/mendell_city
+
 	var/list/char_render_holders		//Should only be a key-value list of north/south/east/west = obj/screen.
 	var/static/list/preview_screen_locs = list(
 		"1" = "character_preview_map:1,5:-12",

@@ -266,12 +266,19 @@
 	var/default_f_style = "Shaved"
 	var/default_g_style = "None"
 
+	var/list/origins_data = list(
+		TAG_CULTURE = list(
+			/decl/origin_item/culture/biesel
+		)
+	)
+
 	var/list/allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI, CITIZENSHIP_DOMINIA)
 	var/list/allowed_religions = list(RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_JUDAISM, RELIGION_HINDU, RELIGION_BUDDHISM, RELIGION_MOROZ, RELIGION_TRINARY, RELIGION_SCARAB, RELIGION_TAOISM, RELIGION_LUCEISM)
 	var/default_citizenship = CITIZENSHIP_BIESEL
 	var/list/allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_MARTIAN, ACCENT_LUNA, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_JUPITER, ACCENT_COC, ACCENT_ELYRA, ACCENT_PERSEPOLIS, ACCENT_MEDINA, ACCENT_AEMAQ, ACCENT_NEWSUEZ, ACCENT_DAMASCUS, ACCENT_ERIDANI, ACCENT_ERIDANIREINSTATED,
 									ACCENT_ERIDANIDREG, ACCENT_VYSOKA, ACCENT_HIMEO, ACCENT_PHONG, ACCENT_SILVERSUN_ORIGINAL, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_DOMINIA_HIGH, ACCENT_DOMINIA_VULGAR, ACCENT_KONYAN, ACCENT_EUROPA, ACCENT_EARTH, ACCENT_NCF, ACCENT_FISANDUH, ACCENT_GADPATHUR,
 									ACCENT_PLUTO, ACCENT_ASSUNZIONE, ACCENT_VISEGRAD, ACCENT_VALKYRIE, ACCENT_MICTLAN)
+
 	var/default_accent = ACCENT_CETI
 	var/zombie_type	//What zombie species they become
 	var/list/character_color_presets
@@ -826,3 +833,24 @@
 
 /datum/species/proc/can_double_fireman_carry()
 	return FALSE
+
+//Mostly sanitization helpers.
+/datum/species/proc/get_culture()
+	var/list/possible_cultures = origins_data[TAG_CULTURE]
+	return pick(possible_cultures)
+
+/datum/species/proc/get_origin(var/culture_path)
+	var/decl/origin_item/culture/CR = decls_repository.get_decl(culture_path)
+	return pick(CR.possible_origins)
+
+/datum/species/proc/get_accent(var/origin_path)
+	var/decl/origin_item/origin/OR = decls_repository.get_decl(origin_path)
+	return pick(OR.possible_accents)
+
+/datum/species/proc/get_citizenship(var/origin_path)
+	var/decl/origin_item/origin/OR = decls_repository.get_decl(origin_path)
+	return pick(OR.possible_citizenships)
+
+/datum/species/proc/get_religion(var/origin_path)
+	var/decl/origin_item/origin/OR = decls_repository.get_decl(origin_path)
+	return pick(OR.possible_religions)
