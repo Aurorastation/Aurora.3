@@ -945,7 +945,7 @@
 	return 0
 
 //Autofire
-/obj/item/gun/proc/can_autofire()
+/obj/item/gun/proc/can_autofire(object, location, params)
 	return (can_autofire && world.time >= next_fire_time)
 
 /obj/item/gun/proc/update_maptext()
