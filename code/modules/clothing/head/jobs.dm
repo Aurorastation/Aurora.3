@@ -183,22 +183,6 @@
 	icon_state = "corp"
 	item_state = "corp"
 
-/obj/item/clothing/head/service_manager
-	name = "service manager fedora"
-	desc = "A hat issued to the service manager."
-
-/obj/item/clothing/head/service_manager/nt
-	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
-	contained_sprite = TRUE
-	icon_state = "nt_manager_fedora"
-	item_state = "nt_manager_fedora"
-
-/obj/item/clothing/head/service_manager/idris
-	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
-	contained_sprite = TRUE
-	icon_state = "idris_manager_fedora"
-	item_state = "idris_manager_fedora"
-
 /obj/item/clothing/head/flatcap/bartender
 	name = "bartender flatcap"
 	desc = "An simple hat issued to bartenders."

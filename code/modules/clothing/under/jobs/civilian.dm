@@ -342,24 +342,6 @@
 	item_state = "executive_officer"
 	contained_sprite = TRUE
 
-/obj/item/clothing/under/rank/service_manager
-	name = "service manager's jumpsuit"
-	desc = "The uniform worn by the managers of the ship service crew."
-	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
-	icon_state = "hop"
-	item_state = "b_suit"
-	contained_sprite = TRUE
-
-/obj/item/clothing/under/rank/service_manager/nt
-	icon_state = "nt_service_manager"
-	item_state = "nt_service_manager"
-	contained_sprite = TRUE
-
-/obj/item/clothing/under/rank/service_manager/idris
-	icon_state = "idris_service_manager"
-	item_state = "idris_service_manager"
-	contained_sprite = TRUE
-
 /obj/item/clothing/under/rank/machinist
 	name = "machinist's jumpsuit"
 	desc = "A practical uniform designed for industrial work."
