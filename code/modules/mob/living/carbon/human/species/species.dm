@@ -835,22 +835,10 @@
 	return FALSE
 
 //Mostly sanitization helpers.
-/datum/species/proc/get_culture()
+/datum/species/proc/get_default_culture()
 	var/list/possible_cultures = origins_data[TAG_CULTURE]
 	return pick(possible_cultures)
 
-/datum/species/proc/get_origin(var/culture_path)
+/datum/species/proc/get_default_origin(var/culture_path)
 	var/decl/origin_item/culture/CR = decls_repository.get_decl(culture_path)
 	return pick(CR.possible_origins)
-
-/datum/species/proc/get_accent(var/origin_path)
-	var/decl/origin_item/origin/OR = decls_repository.get_decl(origin_path)
-	return pick(OR.possible_accents)
-
-/datum/species/proc/get_citizenship(var/origin_path)
-	var/decl/origin_item/origin/OR = decls_repository.get_decl(origin_path)
-	return pick(OR.possible_citizenships)
-
-/datum/species/proc/get_religion(var/origin_path)
-	var/decl/origin_item/origin/OR = decls_repository.get_decl(origin_path)
-	return pick(OR.possible_religions)

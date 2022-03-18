@@ -63,20 +63,27 @@
 	)
 
 //Probably need to convert this to use text instead of types for culture stuff.
+//Maybe turn accents/religion/citizenship into decls?
 /datum/category_item/player_setup_item/origin/sanitize_character(var/sql_load = 0)
 	var/datum/species/S = all_species[pref.species]
-	pref.culture = S.get_culture()
-	pref.origin = S.get_origin(pref.culture)
-	to_world ("Species get accent: [S.get_accent(pref.origin)]")
-	var/datum/accent/A = SSrecords.accents[S.get_accent(pref.origin)]
-	pref.accent = A.name
-	var/datum/citizenship/C = SSrecords.citizenships[S.get_citizenship(pref.origin)]
-	pref.citizenship = C.name
-	var/datum/religion/R = SSrecords.religions[S.get_religion(pref.origin)]
-	pref.religion = R.name
+	pref.culture = S.get_default_culture()
+	pref.origin = S.get_default_origin(pref.culture)
+	if(!pref.citizenship)
+		pref.citizenship = S.default_citizenship
+	if(!pref.religion)
+		pref.religion = RELIGION_NONE
+	if(!(pref.citizenship in S.allowed_citizenships))
+		pref.citizenship = S.default_citizenship
+	if(!(pref.religion in S.allowed_religions))
+		pref.religion = RELIGION_NONE
+	if(!(pref.accent in S.allowed_accents))
+		pref.accent	= S.default_accent
+	pref.economic_status = sanitize_inlist(pref.economic_status, ECONOMIC_POSITIONS, initial(pref.economic_status))
 
 /datum/category_item/player_setup_item/origin/content(var/mob/user)
-	var/dat = list()
+	if(SSrecords.init_state != SS_INITSTATE_DONE)
+		return "<center><large>Records controller not initialized yet. Please wait a bit and reload this section.</large></center>"
+	var/list/dat = list()
 	var/decl/origin_item/culture/CL = decls_repository.get_decl(pref.culture)
 	var/decl/origin_item/origin/OR = decls_repository.get_decl(pref.origin)
 	dat += "<b>Culture: </b><a href='?src=\ref[src];open_culture_menu=1'>[CL.name]</a><br>"

@@ -51,24 +51,6 @@
 		"ckey" = PREF_CLIENT_CKEY
 	)
 
-/datum/category_item/player_setup_item/general/background/sanitize_character()
-	var/datum/species/S = all_species[pref.species]
-	if(!pref.citizenship)
-		pref.citizenship	= S.default_citizenship
-	if(!pref.religion)
-		pref.religion		= RELIGION_NONE
-
-	if(!(pref.citizenship in S.allowed_citizenships))
-		pref.citizenship	= S.default_citizenship
-
-	if(!(pref.religion in S.allowed_religions))
-		pref.religion	= RELIGION_NONE
-
-	if(!(pref.accent in S.allowed_accents))
-		pref.accent	=  S.default_accent
-
-	pref.economic_status = sanitize_inlist(pref.economic_status, ECONOMIC_POSITIONS, initial(pref.economic_status))
-
 /datum/category_item/player_setup_item/general/background/content(var/mob/user)
 	var/list/dat = list("<br/><b>Records</b>:<br/>")
 
