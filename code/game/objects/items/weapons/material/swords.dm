@@ -143,6 +143,10 @@
 	icon_state = "amohdan_sword"
 	item_state = "amohdan_sword"
 	slot_flags = SLOT_BELT
+	use_material_name = FALSE
+	applies_material_colour = FALSE
+	unbreakable = TRUE //amohdan steel is the finest in the spur
+
 
 // improvised sword
 /obj/item/material/sword/improvised_sword

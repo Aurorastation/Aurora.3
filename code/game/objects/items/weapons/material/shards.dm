@@ -16,7 +16,7 @@
 	attack_verb = list("stabbed", "slashed", "sliced", "cut")
 	default_material = "glass"
 	unbreakable = 1 //It's already broken.
-	drops_debris = 0
+	drops_debris = FALSE
 	drop_sound = 'sound/effects/glass_step.ogg'
 
 /obj/item/material/shard/set_material(var/new_material)
