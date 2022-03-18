@@ -35,7 +35,7 @@
 /obj/item/reagent_containers/glass/bottle/Initialize()
 	. = ..()
 	if(!icon_state)
-		icon_state = "bottle-[rand(1,4)]"
+		icon_state = "bottle-[rand(1,6)]"
 
 	update_icon()
 

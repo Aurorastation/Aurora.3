@@ -1,0 +1,10 @@
+author: Vrow
+
+delete-after: True
+
+changes:
+  - imagedel: "Deleted Eris-style chem bottles, medcup, beakers, cryostasis beaker, and bluespace beaker."
+  - tweak: "Tweaked the Eris-style vial sprite and pallete to be more consistent with the new sprites."
+  - imageadd: "Resprites the chem bottles, medcup, beakers, crystasis beaker, and bluespace beaker into something more fitting to Aurora. With a new lid style as well."
+  - rscadd: "Added two new types of chem bottles: a mini and a triangular one."
+  - refactor: "Re-paths the medcup from .../food/drinks to .../glass/beaker/medcup."

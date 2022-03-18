@@ -284,7 +284,6 @@
 		/obj/item/stack/material/phoron,
 		/obj/item/reagent_containers/blood,
 		/obj/item/reagent_containers/food/drinks/sillycup,
-		/obj/item/reagent_containers/food/drinks/medcup,
 		/obj/item/smallDelivery,
 		/obj/item/gift,
 		/obj/item/reagent_containers/chem_disp_cartridge
