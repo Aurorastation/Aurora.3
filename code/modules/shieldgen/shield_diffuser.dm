@@ -52,8 +52,5 @@
 	to_chat(user, "It is [enabled ? "enabled" : "disabled"].")
 
 /obj/machinery/shield_diffuser/power_change()
-	if(powered(power_channel))
-		stat &= ~NOPOWER
-	else
-		stat |= NOPOWER
+	..()
 	update_icon()
