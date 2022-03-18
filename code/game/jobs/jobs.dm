@@ -14,8 +14,7 @@ var/const/CYBORG			=(1<<9)
 var/const/INTERN_SEC		=(1<<10)
 var/const/INTERN_ENG		=(1<<11)
 var/const/BRIDGE_CREW		=(1<<12)
-var/const/SERVICE_MANAGER	=(1<<13)
-var/const/OPERATIONS_MANAGER =(1<<14)
+var/const/OPERATIONS_MANAGER =(1<<13)
 
 var/const/MEDSCI			=(1<<1)
 
