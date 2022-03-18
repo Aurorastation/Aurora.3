@@ -10,7 +10,7 @@
 	density = FALSE
 	level = 1
 
-	var/enabled = 1
+	var/enabled = TRUE
 
 /obj/machinery/shield_diffuser/machinery_process()
 	if(stat & BROKEN)
@@ -19,10 +19,8 @@
 	if(!enabled || stat & NOPOWER)
 		return
 
-	for(var/tt in RANGE_TURFS(1, src))
-		var/turf/simulated/shielded_tile = tt
-		for(var/obj/effect/energy_field/S in shielded_tile)
-			S.diffuse(5)
+	for(var/obj/effect/energy_field/S in range(1, src))
+		S.diffuse(5)
 
 /obj/machinery/shield_diffuser/update_icon()
 	if(stat & NOPOWER || stat & BROKEN || !enabled)
@@ -30,7 +28,7 @@
 	else
 		icon_state = "fdiffuser_on"
 
-/obj/machinery/shield_diffuser/attack_ai(user as mob)
+/obj/machinery/shield_diffuser/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
 	return attack_hand(user)
@@ -45,7 +43,6 @@
 
 	update_icon()
 	to_chat(user, "You turn \the [src] [enabled ? "on" : "off"].")
-	return
 
 /obj/machinery/shield_diffuser/examine(mob/user)
 	. = ..()
