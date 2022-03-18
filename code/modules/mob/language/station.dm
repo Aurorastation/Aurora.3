@@ -70,7 +70,7 @@
 /datum/language/tajaran
 	name = LANGUAGE_SIIK_MAAS
 	short = "MAAS"
-	desc = "The traditionally employed tongue of Adhomai, composed of expressive yowls and chirps. Native to the Tajara."
+	desc = "The traditionally employed tongue of Adhomai, comprised of expressive yowls and chirps. Native to the Tajara."
 	speech_verb = list("mrowls")
 	ask_verb = list("mrowls")
 	exclaim_verb = list("yowls")
@@ -83,7 +83,7 @@
 	"mi","jri","dynh","manq","rhe","zar","rrhaz","kal","chur","eech","thaa","dra","jurl","mah","sanu","dra","ii'r",
 	"ka","aasi","far","wa","baq","ara","qara","zir","sam","mak","hrar","nja","rir","khan","jun","dar","rik","kah",
 	"hal","ket","jurl","mah","tul","cresh","azu","ragh","mro","mra","mrro","mrra")
-	partial_understanding = list(LANGUAGE_SIIK_TAJR = 50, LANGUAGE_YA_SSA = 25, LANGUAGE_DELVAHII = 50)
+	partial_understanding = list(LANGUAGE_YA_SSA = 25, LANGUAGE_DELVAHII = 50)
 	allow_accents = TRUE
 
 /datum/language/tajaran/get_random_name(var/gender)
@@ -99,7 +99,7 @@
 
 /datum/language/tajaran_sign
 	name = LANGUAGE_SIGN_TAJARA
-	desc = "A sign language developed by Adhomai hunters"
+	desc = "A sign language developed by Adhomian hunters."
 	speech_verb = list("signs")
 	signlang_verb = list("moves their tail", "flicks their ears", "swivels their ears", "flicks their tail", "shifts their ears and tail")
 	sign_adv_length = list("", " briefly", " a few times", " several times in quick succession", " for a while")
@@ -107,11 +107,10 @@
 	colour = "i"
 	key = "i"
 	flags = NO_STUTTER | SIGNLANG | WHITELISTED
-	partial_understanding = list(LANGUAGE_SIIK_TAJR = 50)
 
 /datum/language/siik_tajr
 	name = LANGUAGE_SIIK_TAJR
-	desc = "A language native to the tajaran, it employes both verbal and non-verbal elements."
+	desc = "A language native to the Tajara, it employs both verbal and non-verbal elements."
 	speech_verb = list("mrowls")
 	ask_verb = list("mrowls")
 	exclaim_verb = list("yowls")
