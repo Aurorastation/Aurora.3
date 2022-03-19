@@ -387,10 +387,17 @@
 						break
 				if(problem_railing)
 					if(!problem_railing.turf_is_crowded(TRUE))
-						visible_message(SPAN_DANGER("[src] is shoved over the railing by [H]!"), SPAN_DANGER("[H] shoves you over the railing!"))
+						visible_message(SPAN_DANGER("[H] shoves [src] over the railing!"), SPAN_DANGER("[H] shoves you over the railing!"))
 						apply_effect(5, WEAKEN)
 						forceMove(same_loc ? problem_railing.loc : problem_railing.get_destination_turf(src))
 						return
+					else
+						to_chat(H, SPAN_NOTICE("It's too crowded, you can't push [src] off the railing!")) //No return is intentional - it'll continue with a normal shove.
+				else
+					visible_message(SPAN_DANGER("[H] pushes [src] forward!"), SPAN_DANGER("[H] pushes you forward!"))
+					apply_effect(5, WEAKEN)
+					forceMove(GetAbove(z_eye)) //We use GetAbove so people can't cheese it by turning their sprite.
+					return
 						
 			if(randn <= 25)
 				if(H.gloves && istype(H.gloves,/obj/item/clothing/gloves/force))
