@@ -256,7 +256,7 @@
 	..()
 
 /mob/living/simple_animal/rat/dust()
-	..(anim = "dust_[body_color]", remains = /obj/effect/decal/remains/rat, iconfile = 'icons/mob/npc/rat.dmi')
+	..(remains = /obj/effect/decal/remains/rat)
 
 /mob/living/simple_animal/rat/airlock_crush(var/crush_damage)
 	. = ..()
