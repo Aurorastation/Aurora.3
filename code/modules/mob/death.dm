@@ -34,7 +34,7 @@
 	flick(I, animation)
 
 	playsound(src, 'sound/weapons/sear.ogg', 50)
-	emote("scream",,, 1)
+	emote("scream")
 	death(1)
 	transforming = TRUE
 	canmove = 0
