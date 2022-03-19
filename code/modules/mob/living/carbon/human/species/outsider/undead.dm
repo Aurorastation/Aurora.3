@@ -194,6 +194,7 @@
 	blurb = "Once a living person, this unholy creature was created either by the power of science or necromancy."
 
 	remains_type = /obj/effect/decal/remains/human
+	dust_remains_type = /obj/effect/decal/remains/human/burned
 
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/undead
 
@@ -236,6 +237,7 @@
 	name_language = LANGUAGE_SIIK_MAAS
 
 	remains_type = /obj/effect/decal/remains/xeno
+	dust_remains_type = /obj/effect/decal/remains/xeno/burned
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/paw
 
@@ -263,6 +265,7 @@
 	name_language = LANGUAGE_UNATHI
 
 	remains_type = /obj/effect/decal/remains/xeno
+	dust_remains_type = /obj/effect/decal/remains/xeno/burned
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 
@@ -291,5 +294,6 @@
 	blood_color = "#1D2CBF"
 
 	remains_type = /obj/effect/decal/remains/xeno
+	dust_remains_type = /obj/effect/decal/remains/xeno/burned
 
 	default_h_style = "Skrell Short Tentacles"

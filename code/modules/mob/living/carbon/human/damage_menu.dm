@@ -149,3 +149,5 @@
 					H.death(FALSE)
 				if("gib")
 					H.gib()
+				if("dust")
+					H.dust()

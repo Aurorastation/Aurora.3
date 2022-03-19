@@ -26,32 +26,30 @@
 /mob/proc/get_gibs_type()
 	return /obj/effect/gibspawner/generic
 
-//This is the proc for turning a mob into ash. Mostly a copy of gib code (above).
-//Originally created for wizard disintegrate. I've removed the virus code since it's irrelevant here.
-//Dusting robots does not eject the MMI, so it's a bit more powerful than gib() /N
-/mob/proc/dust(anim="dust-m",remains=/obj/effect/decal/cleanable/ash, iconfile = 'icons/mob/mob.dmi')
-	death(1)
-	if (istype(loc, /obj/item/holder))
-		var/obj/item/holder/H = loc
-		H.release_mob()
+/mob/proc/dust_process()
+	var/icon/I = build_disappear_icon(src)
 	var/atom/movable/overlay/animation = null
-	transforming = 1
+	animation = new(loc)
+	animation.master = src
+	flick(I, animation)
+
+	playsound(src, 'sound/weapons/sear.ogg', 50)
+	emote("scream",,, 1)
+	death(1)
+	transforming = TRUE
 	canmove = 0
 	icon = null
 	invisibility = 101
 
-	animation = new(loc)
-	animation.icon_state = "blank"
-	animation.icon = iconfile
-	animation.master = src
+	QDEL_IN(animation, 20)
+	QDEL_IN(src, 20)
 
-	flick(anim, animation)
-	new remains(loc)
-
+/mob/proc/dust(remains)
+	dust_process()
+	new /obj/effect/decal/cleanable/ash(loc)
+	if(remains)
+		new remains(loc)
 	dead_mob_list -= src
-
-	QDEL_IN(animation, 15)
-	QDEL_IN(src, 15)
 
 /mob/proc/death(gibbed,deathmessage="seizes up and falls limp...", messagerange = world.view)
 
