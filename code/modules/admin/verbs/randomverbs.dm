@@ -777,17 +777,14 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		return
 
 	var/confirm = alert(src, "You sure?", "Confirm", "Yes", "No")
-	if(confirm != "Yes") return
-	//Due to the delay here its easy for something to have happened to the mob
-	if(!M)	return
+	if(confirm != "Yes")
+		if(istype(mob, /mob/abstract/observer))
+			return
+		else
+			mob.dust()
 
 	log_admin("[key_name(usr)] has annihilated [key_name(M)]")
 	message_admins("[key_name_admin(usr)] has annihilated [key_name_admin(M)]")
-
-	if(istype(M, /mob/abstract/observer))
-		return
-
-	M.dust()
 	feedback_add_details("admin_verb","DUST") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /*
