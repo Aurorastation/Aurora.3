@@ -225,6 +225,7 @@
 				breather.update_inv_wear_mask()
 				breath_mask.forceMove(src)
 				breath_mask.canremove = TRUE
+				breath_mask.adjustable = TRUE
 				tank_off()
 				update_icon()
 				return
@@ -342,6 +343,7 @@
 					breather.update_inv_wear_mask()
 					breath_mask.forceMove(src)
 					breath_mask.canremove = TRUE
+					breath_mask.adjustable = TRUE
 					breath_mask.slowdown = 0
 					breather = null
 					if(valve_open)
@@ -361,7 +363,7 @@
 					to_chat(usr, SPAN_WARNING("You must remove \the [breather]'s [breather.head] first!"))
 					breather = null
 					return
-				if(breather.wear_mask && !istype(breather.wear_mask, breath_mask))
+				if(breather.wear_mask && (!istype(breather.wear_mask, breath_mask) || is_type_in_list(breather.wear_mask, mask_blacklist))) // Temporary fix
 					to_chat(usr, SPAN_WARNING("You must remove \the [breather]'s [breather.wear_mask] first!"))
 					breather = null
 					return
@@ -371,6 +373,7 @@
 				breather.equip_to_slot(breath_mask, slot_wear_mask)
 				breather.update_inv_wear_mask()
 				breath_mask.canremove = FALSE
+				breath_mask.adjustable = FALSE
 				breath_mask.slowdown = 2
 				update_icon()
 				return
