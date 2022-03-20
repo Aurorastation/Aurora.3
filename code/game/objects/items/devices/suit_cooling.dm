@@ -5,6 +5,7 @@
 	icon = 'icons/obj/contained_items/tools/suitcooler.dmi'
 	icon_state = "suitcooler0"
 	item_state = "coolingpack"
+	action_button_name = "Toggle Cooling Unit"
 	contained_sprite = TRUE
 	slot_flags = SLOT_BACK	//you can carry it on your back if you want, but it won't do anything unless attached to suit storage
 

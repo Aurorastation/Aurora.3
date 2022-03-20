@@ -87,15 +87,18 @@
 	var/obj/item/clothing/shoes/magboots/boots = null // Deployable boots, if any.
 	var/obj/item/clothing/head/helmet/helmet = null   // Deployable helmet, if any.
 	var/obj/item/tank/tank = null              // Deployable tank, if any.
+	var/obj/item/device/suit_cooling_unit/cooler = null // Deployable suit cooler, if any
 
 /obj/item/clothing/suit/space/void/examine(user)
 	..(user)
 	var/list/part_list = new
-	for(var/obj/item/I in list(helmet,boots,tank))
+	for(var/obj/item/I in list(helmet,boots,tank,cooler))
 		part_list += "\a [I]"
 	to_chat(user, "\The [src] has [english_list(part_list)] installed.")
 	if(tank && in_range(src,user))
-		to_chat(user, "<span class='notice'>The wrist-mounted pressure gauge reads [max(round(tank.air_contents.return_pressure()),0)] kPa remaining in \the [tank].</span>")
+		to_chat(user, SPAN_NOTICE("The wrist-mounted pressure gauge reads [max(round(tank.air_contents.return_pressure()),0)] kPa remaining in \the [tank]."))
+	if (cooler && in_range(src,user))
+		to_chat(user, SPAN_NOTICE("The mounted cooler's battery charge reads [round(cooler.cell.percent())]%"))
 
 /obj/item/clothing/suit/space/void/refit_for_species(var/target_species)
 	..()
@@ -153,6 +156,10 @@
 	if(tank)
 		tank.canremove = 1
 		tank.forceMove(src)
+
+	if(cooler)
+		cooler.canremove = 1
+		cooler.forceMove(src)
 
 /obj/item/clothing/suit/space/void/on_slotmove()
 	..()
@@ -234,8 +241,8 @@
 		return
 
 	if(W.isscrewdriver())
-		if(helmet || boots || tank)
-			var/choice = input("What component would you like to remove?") as null|anything in list(helmet,boots,tank)
+		if(helmet || boots || tank || cooler)
+			var/choice = input("What component would you like to remove?") as null|anything in list(helmet,boots,tank,cooler)
 			if(!choice) return
 
 			playsound(src, 'sound/items/screwdriver.ogg', 50, 1)
@@ -244,13 +251,17 @@
 				tank.forceMove(get_turf(src))
 				src.tank = null
 			else if(choice == helmet)
-				to_chat(user, "You detatch \the [helmet] from \the [src]'s helmet mount.")
+				to_chat(user, "You detach \the [helmet] from \the [src]'s helmet mount.")
 				helmet.forceMove(get_turf(src))
 				src.helmet = null
 			else if(choice == boots)
-				to_chat(user, "You detatch \the [boots] from \the [src]'s boot mounts.")
+				to_chat(user, "You detach \the [boots] from \the [src]'s boot mounts.")
 				boots.forceMove(get_turf(src))
 				src.boots = null
+			else if (choice == cooler)
+				to_chat(user, "You detach \the [cooler] from \the [src]'s cooler mount.")
+				cooler.forceMove(get_turf(src))
+				src.cooler = null
 		else
 			to_chat(user, "\The [src] does not have anything installed.")
 		return
@@ -283,5 +294,13 @@
 			user.drop_from_inventory(W,src)
 			tank = W
 		return
-
+	else if (istype(W, obj/item/device/suit_cooling_unit))
+		if(cooler)
+			to_chat(user, "\The [src] already has a suit cooler installed.")
+		else
+			playsound(src, 'sound/items/Deconstruct.ogg', 30, 1)
+			to_chat(user, "You insert \the [W] into \the [src]'s storage compartment.")
+			user.drop_from_inventory(W,src)
+			cooler = W
+		return
 	..()
