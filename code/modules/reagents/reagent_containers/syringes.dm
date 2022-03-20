@@ -134,6 +134,9 @@
 			var/SM = (user == target) ? "your" : (target.name + "\'s")
 			if(!L)
 				return
+			if(isvaurca(target))
+				to_chat(usr, SPAN_WARNING("The needle won't pierce through [P] carapace!"))
+				return
 			if(L.rescued == TRUE)
 				to_chat(usr, SPAN_NOTICE("[H]'s ribs are already punctured!"))
 				return
