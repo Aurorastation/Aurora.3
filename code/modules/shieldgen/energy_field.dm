@@ -28,7 +28,7 @@
 	update_nearby_tiles()
 	return ..()
 
-obj/effect/energy_field/proc/diffuse(var/duration)
+/obj/effect/energy_field/proc/diffuse(var/duration)
 	diffused_for = max(duration, 0)
 
 /obj/effect/energy_field/attackby(obj/item/I, mob/user)
