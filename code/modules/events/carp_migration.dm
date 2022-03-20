@@ -23,7 +23,7 @@
 	for (var/zlevel in affecting_z)
 		if(zlevel in current_map.station_levels)
 			var/announcement = ""
-			var/soundfile = 'sound/AI/spacecarp.ogg'
+			var/soundfile = 'sound/AI/carp_migration.ogg'
 			if(severity == EVENT_LEVEL_MAJOR && deploy_drones)
 				announcement = "Massive migration of unknown biological entities has been detected near [location_name()], please stand-by. The NDV Icarus has dispatched combat drones to assist."
 				soundfile = 'sound/AI/massivespacecarp.ogg'
