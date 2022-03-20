@@ -136,6 +136,10 @@
 			to_chat(M, "The valve on your suit's installed tank safely engages.")
 			tank.canremove = 0
 
+	if(cooler)
+		if (H.equip_to_slot_if_possible(cooler, slot_s_store))
+			cooler.canremove = 0
+
 /obj/item/clothing/suit/space/void/proc/cleanup_from_mob()
 	var/mob/living/carbon/human/H
 

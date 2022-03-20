@@ -136,7 +136,6 @@
 		update_icon()
 		return
 	toggle_power(user)
-	user.update_action_buttons()
 
 /obj/item/device/suit_cooling_unit/AltClick(mob/user)
 	if(Adjacent(user))
@@ -149,6 +148,7 @@
 		turn_on()
 		if(on)
 			to_chat(user, SPAN_NOTICE("You switch on the [src]."))
+	user.update_action_buttons()
 
 /obj/item/device/suit_cooling_unit/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver())
