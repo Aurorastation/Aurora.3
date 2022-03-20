@@ -294,7 +294,7 @@
 			user.drop_from_inventory(W,src)
 			tank = W
 		return
-	else if (istype(W, obj/item/device/suit_cooling_unit))
+	else if (istype(W, /obj/item/device/suit_cooling_unit))
 		if(cooler)
 			to_chat(user, "\The [src] already has a suit cooler installed.")
 		else
