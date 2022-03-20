@@ -363,7 +363,7 @@
 					to_chat(usr, SPAN_WARNING("You must remove \the [breather]'s [breather.head] first!"))
 					breather = null
 					return
-				if(breather.wear_mask && (!istype(breather.wear_mask, breath_mask) || is_type_in_list(breather.wear_mask, mask_blacklist))) // Temporary fix
+				if(breather.wear_mask)
 					to_chat(usr, SPAN_WARNING("You must remove \the [breather]'s [breather.wear_mask] first!"))
 					breather = null
 					return
