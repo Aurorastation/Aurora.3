@@ -136,6 +136,7 @@
 		update_icon()
 		return
 	toggle_power(user)
+	user.update_action_buttons()
 
 /obj/item/device/suit_cooling_unit/AltClick(mob/user)
 	if(Adjacent(user))
