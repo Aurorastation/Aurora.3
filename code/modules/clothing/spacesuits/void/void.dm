@@ -220,7 +220,7 @@
 		to_chat(usr, "There is no tank inserted.")
 		return
 
-	to_chat(user, SPAN_INFO("You press the emergency release, ejecting \the [tank] from your suit."))
+	to_chat(user, SPAN_INFO("You press the emergency release lever, ejecting \the [tank] from your suit."))
 	tank.canremove = 1
 	playsound(src, 'sound/effects/air_seal.ogg', 50, 1)
 
@@ -244,7 +244,7 @@
 		to_chat(usr, "There is no suit cooler installed.")
 		return
 
-	to_chat(user, SPAN_INFO("You press the emergency release, ejecting \the [cooler] from your suit."))
+	to_chat(user, SPAN_INFO("You engage the release mechanism, ejecting \the [cooler] from your suit."))
 	cooler.canremove = 1
 	playsound(src, 'sound/items/Deconstruct.ogg', 30, 1)
 
