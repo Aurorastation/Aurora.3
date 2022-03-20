@@ -2811,10 +2811,6 @@
 /area/security/main)
 "afx" = (
 /obj/structure/table/standard,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
@@ -2822,8 +2818,11 @@
 	dir = 5
 	},
 /obj/machinery/firealarm/north,
-/obj/item/device/radio,
-/obj/item/device/radio,
+/obj/item/device/radio/sec,
+/obj/item/device/radio/sec,
+/obj/item/device/radio/sec,
+/obj/item/device/radio/sec,
+/obj/item/device/radio/sec,
 /turf/simulated/floor/tiled,
 /area/security/main)
 "afy" = (
@@ -7616,15 +7615,15 @@
 /area/engineering/atmos/storage)
 "aoV" = (
 /obj/structure/table/standard,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 4
 	},
+/obj/item/device/radio/eng,
+/obj/item/device/radio/eng,
+/obj/item/device/radio/eng,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "aoW" = (
@@ -19222,12 +19221,12 @@
 /area/engineering/storage_eva)
 "aHA" = (
 /obj/structure/table/standard,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
 /obj/item/device/flashlight/heavy,
+/obj/item/device/radio/eng,
+/obj/item/device/radio/eng,
+/obj/item/device/radio/eng,
+/obj/item/device/radio/eng,
+/obj/item/device/radio/eng,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_eva)
 "aHB" = (
@@ -38723,15 +38722,6 @@
 	dir = 8
 	},
 /obj/structure/table/standard,
-/obj/item/device/radio{
-	anchored = 1;
-	canhear_range = 1;
-	frequency = 1487;
-	icon_state = "red_phone";
-	name = "Virology Lab Emergency Phone";
-	pixel_x = 8;
-	pixel_y = -2
-	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
@@ -62393,6 +62383,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
+"ikn" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner_wide/mauve{
+	dir = 6
+	},
+/obj/item/device/radio/sci,
+/obj/item/device/radio/sci,
+/obj/item/device/radio/sci,
+/turf/simulated/floor/tiled/white,
+/area/rnd/telesci)
 "ikR" = (
 /obj/random/gloves,
 /turf/simulated/floor/plating,
@@ -93679,7 +93679,7 @@ aYh
 aEK
 auX
 bIN
-azR
+ikn
 azR
 ciy
 aCU

@@ -69,6 +69,14 @@
 		if(SMES)
 			var/outputset = input(usr, "Enter new output level (0-[SMES.output_level_max])", "SMES Input Power Control") as num
 			SMES.set_output(outputset)
+	if(href_list["smes_in_max"])
+		var/obj/machinery/power/smes/buildable/SMES = GetSMESByTag(href_list["smes_in_max"])
+		if(SMES)
+			SMES.set_input(SMES.input_level_max)
+	if(href_list["smes_out_max"])
+		var/obj/machinery/power/smes/buildable/SMES = GetSMESByTag(href_list["smes_out_max"])
+		if(SMES)
+			SMES.set_output(SMES.output_level_max)
 
 	if(href_list["toggle_breaker"])
 		var/obj/machinery/power/breakerbox/toggle = SSpower.rcon_breaker_units_by_tag[href_list["toggle_breaker"]]

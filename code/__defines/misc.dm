@@ -481,6 +481,11 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define COOK_CHECK_EXTRA	0
 #define COOK_CHECK_EXACT	1
 
+// Moved from tanks/tanks.dm
+#define TANK_MAX_RELEASE_PRESSURE 		(3*ONE_ATMOSPHERE)
+#define TANK_DEFAULT_RELEASE_PRESSURE 	24 // kPa
+#define TANK_IDEAL_PRESSURE 			1015 //Arbitrary.
+
 #define STATION_TAG "Aurora"
 
 //Planet habitability class

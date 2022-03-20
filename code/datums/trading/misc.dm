@@ -85,7 +85,6 @@
 	)
 
 	possible_trading_items = list(
-		/obj/item/modular_computer/handheld/pda/civilian/clown  = TRADER_THIS_TYPE,
 		/obj/item/stamp/clown                            = TRADER_THIS_TYPE,
 		/obj/item/bananapeel                             = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/food/snacks/pie     = TRADER_THIS_TYPE,
