@@ -220,7 +220,7 @@
 		to_chat(usr, "There is no tank inserted.")
 		return
 
-	to_chat(user, "<span class='info'>You press the emergency release, ejecting \the [tank] from your suit.</span>")
+	to_chat(user, SPAN_INFO("You press the emergency release, ejecting \the [tank] from your suit."))
 	tank.canremove = 1
 	playsound(src, 'sound/effects/air_seal.ogg', 50, 1)
 
@@ -229,6 +229,30 @@
 	else
 		tank.forceMove(get_turf(src))
 	src.tank = null
+
+/obj/item/clothing/suit/space/void/verb/eject_cooler()
+
+	set name = "Eject Suit Cooler"
+	set category = "Object"
+	set src in view(1)
+
+	var/mob/living/user = usr
+
+	if(use_check_and_message(user))	return
+
+	if(!cooler)
+		to_chat(usr, "There is no suit cooler installed.")
+		return
+
+	to_chat(user, SPAN_INFO("You press the emergency release, ejecting \the [cooler] from your suit."))
+	cooler.canremove = 1
+	playsound(src, 'sound/items/Deconstruct.ogg', 30, 1)
+
+	if(user.get_inventory_slot(src) == slot_wear_suit)
+		user.drop_from_inventory(cooler)
+	else
+		cooler.forceMove(get_turf(src))
+	src.cooler = null
 
 /obj/item/clothing/suit/space/void/attack_self()
 	toggle_helmet()
@@ -241,7 +265,7 @@
 		return ..()
 
 	if(user.get_inventory_slot(src) == slot_wear_suit)
-		to_chat(user, "<span class='warning'>You cannot modify \the [src] while it is being worn.</span>")
+		to_chat(user, SPAN_WARNING("You cannot modify \the [src] while it is being worn."))
 		return
 
 	if(W.isscrewdriver())

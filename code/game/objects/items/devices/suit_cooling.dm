@@ -147,8 +147,7 @@
 	else
 		turn_on()
 		if(on)
-			to_chat(user, SPAN_NOTICE("You switch on the [src]."))
-	user.update_action_buttons()
+			to_chat(user, SPAN_NOTICE("You switch on \the [src]."))
 
 /obj/item/device/suit_cooling_unit/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver())
@@ -209,6 +208,7 @@
 		var/mob/M = loc
 		M.update_inv_back()
 		M.update_inv_s_store()
+		user.update_action_buttons()
 
 /obj/item/device/suit_cooling_unit/examine(mob/user)
 	if(!..(user, 1))
