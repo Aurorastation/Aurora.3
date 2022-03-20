@@ -208,7 +208,6 @@
 		var/mob/M = loc
 		M.update_inv_back()
 		M.update_inv_s_store()
-		M.update_action_buttons()
 
 /obj/item/device/suit_cooling_unit/examine(mob/user)
 	if(!..(user, 1))
