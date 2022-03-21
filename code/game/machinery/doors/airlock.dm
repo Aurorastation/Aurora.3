@@ -1273,7 +1273,7 @@ About the new airlock wires panel:
 				"You hear a welding torch on metal."
 			)
 			playsound(src, 'sound/items/welder.ogg', 50, 1)
-			if(!WT.do_after(src, user, 20, volume = 50, extra_checks = CALLBACK(src, .proc/is_open, src.density)))
+			if(!WT.use_tool(src, user, 20, volume = 50, extra_checks = CALLBACK(src, .proc/is_open, src.density)))
 				return
 			if(!WT.use(0,user))
 				to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))

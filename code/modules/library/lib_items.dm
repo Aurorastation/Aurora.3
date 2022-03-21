@@ -27,7 +27,7 @@
 			I.forceMove(src)
 	update_icon()
 
-/obj/structure/bookcase/attackby(obj/O as obj, mob/user as mob)
+/obj/structure/bookcase/attackby(obj/item/O as obj, mob/user as mob)
 	if(istype(O, /obj/item/book))
 		user.drop_from_inventory(O,src)
 		update_icon()

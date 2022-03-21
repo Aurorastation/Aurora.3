@@ -70,7 +70,7 @@ obj/structure/windoor_assembly/Destroy()
 	//I really should have spread this out across more states but thin little windoors are hard to sprite.
 	switch(state)
 		if("01")
-			if(W.iswelder() && !anchored )
+			if(W.iswelder() && !anchored)
 				var/obj/item/weldingtool/WT = W
 				if (WT.use(0,user))
 					user.visible_message("[user] dissassembles the windoor assembly.", "You start to dissassemble the windoor assembly.")
@@ -121,7 +121,7 @@ obj/structure/windoor_assembly/Destroy()
 					return
 				to_chat(user, "<span class='notice'>You start to reinforce the windoor with rods.</span>")
 
-				if(W.use_tool(src, user, 40, volume = 50)) && !secure)
+				if(W.use_tool(src, user, 40, volume = 50) && !secure)
 					if (R.use(4))
 						to_chat(user, "<span class='notice'>You reinforce the windoor.</span>")
 						src.secure = "secure_"

@@ -95,7 +95,7 @@
 					"You hear a welding torch on metal."
 				)
 				playsound(loc, 'sound/items/welder_pry.ogg', 50, 1)
-				if(!W.use_tool(src, user, 20, volume = 50, extra_checks = CALLBACK(src, .proc/is_open))
+				if(!W.use_tool(src, user, 20, volume = 50, extra_checks = CALLBACK(src, .proc/is_open)))
 					return
 				if(!WT.use(0,user))
 					to_chat(user,  "<span class='notice'>You need more welding fuel to complete this task.</span>")
