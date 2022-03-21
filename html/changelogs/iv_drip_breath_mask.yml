@@ -1,7 +1,0 @@
-author: Vrow
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixes the IV drip overwriting Vaurca breath mask types."
-  - tweak: "Made the mask you place over patients with the IV mask non-adjustable to prevent strange behavior"
