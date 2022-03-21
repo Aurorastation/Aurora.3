@@ -23906,10 +23906,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
-"oXw" = (
-/obj/structure/bed/stool/padded/red,
-/turf/simulated/floor/lino/grey,
-/area/crew_quarters/cafeteria)
 "oXy" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/wall/r_wall,
@@ -59038,7 +59034,7 @@ pFr
 pFr
 ycL
 jFo
-oXw
+tfl
 kAo
 thy
 mZI
@@ -59236,10 +59232,10 @@ eSd
 txq
 mDD
 tfl
-oXw
-oXw
-oXw
-oXw
+tfl
+tfl
+tfl
+tfl
 kAo
 kAo
 vRV
