@@ -21,7 +21,7 @@
 /datum/event/meteor_wave/announce()
 	for (var/zlevel in affecting_z)
 		if(zlevel in current_map.station_levels)
-			command_announcement.Announce(current_map.meteors_detected_message, "Meteor Alert", new_sound = 'sound/AI/meteors.ogg')
+			command_announcement.Announce(current_map.meteors_detected_message, "Meteor Alert", new_sound = 'sound/AI/meteors_detected_message.ogg')
 			break
 
 /datum/event/meteor_wave/start()
