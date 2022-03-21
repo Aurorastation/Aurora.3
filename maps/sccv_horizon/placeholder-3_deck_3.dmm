@@ -22,6 +22,9 @@
 	dir = 4
 	},
 /obj/machinery/firealarm/south,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "af" = (
@@ -1407,8 +1410,7 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/junction{
-	dir = 8;
-	icon_state = "pipe-j2"
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
@@ -4120,8 +4122,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/disposalpipe/sortjunction{
-	dir = 4;
+/obj/structure/disposalpipe/sortjunction/flipped{
+	dir = 8;
 	name = "XO Office";
 	sortType = "XO Office"
 	},
@@ -4254,9 +4256,8 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/structure/disposalpipe/junction{
-	dir = 1;
-	icon_state = "pipe-j2"
+/obj/structure/disposalpipe/junction/yjunction{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/crew_area)
@@ -4273,6 +4274,7 @@
 	req_access = list(66)
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "jH" = (
@@ -4506,7 +4508,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/pool)
 "kn" = (
-/obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/medical{
 	id_tag = "EXdoor1";
@@ -5148,7 +5149,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/structure/disposalpipe/segment,
+/obj/structure/disposalpipe/junction{
+	dir = 1;
+	icon_state = "pipe-j2"
+	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "lT" = (
@@ -8990,8 +8994,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/structure/disposalpipe/sortjunction{
-	dir = 1;
+/obj/structure/disposalpipe/sortjunction/flipped{
 	name = "Journalist";
 	sortType = "Journalist"
 	},
@@ -9107,8 +9110,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/structure/disposalpipe/junction/yjunction{
-	dir = 4
+/obj/structure/disposalpipe/junction{
+	dir = 2;
+	icon_state = "pipe-j2"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
@@ -9827,8 +9831,7 @@
 	icon_state = "1-4"
 	},
 /obj/structure/disposalpipe/junction{
-	dir = 2;
-	icon_state = "pipe-j2"
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
@@ -10914,10 +10917,6 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/structure/disposalpipe/junction{
-	dir = 8;
-	icon_state = "pipe-j2"
-	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
@@ -10925,6 +10924,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/disposalpipe/junction/yjunction,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "Aa" = (
@@ -12341,6 +12341,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "conpipe-c"
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "DN" = (
@@ -12528,6 +12532,9 @@
 	name = "south bump";
 	pixel_y = -24
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "El" = (
@@ -12602,6 +12609,9 @@
 	req_access = list(66)
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "Ev" = (
@@ -12759,7 +12769,8 @@
 /obj/random/junk,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/disposalpipe/junction{
-	dir = 4
+	dir = 8;
+	icon_state = "pipe-j2"
 	},
 /turf/simulated/floor,
 /area/maintenance/bridge)
@@ -13007,9 +13018,8 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/structure/disposalpipe/junction{
-	dir = 4;
-	icon_state = "pipe-j2"
+/obj/structure/disposalpipe/junction/yjunction{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/crew_area)
@@ -13523,9 +13533,8 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/structure/disposalpipe/junction{
-	dir = 1;
-	icon_state = "pipe-j2"
+/obj/structure/disposalpipe/junction/yjunction{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/security/investigations)
@@ -14598,12 +14607,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/disposalpipe/junction{
-	dir = 2;
-	icon_state = "pipe-j2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/disposalpipe/junction{
+	dir = 1
 	},
 /turf/simulated/floor/lino/grey,
 /area/security/forensics_office{
@@ -14995,6 +15003,13 @@
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
+"Kj" = (
+/obj/effect/floor_decal/corner/grey/diagonal{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled/white,
+/area/medical/washroom)
 "Kl" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
@@ -15969,8 +15984,8 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
 	},
-/obj/structure/disposalpipe/sortjunction{
-	dir = 8;
+/obj/structure/disposalpipe/sortjunction/flipped{
+	dir = 4;
 	name = "CMO Office";
 	sortType = "CMO Office"
 	},
@@ -18718,6 +18733,9 @@
 /area/bridge)
 "Tb" = (
 /obj/machinery/disposal/small/south,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/medical/washroom)
 "Tc" = (
@@ -19039,6 +19057,10 @@
 /obj/machinery/button/remote/airlock{
 	dir = 8;
 	pixel_x = 24
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/medical/washroom)
@@ -19505,14 +19527,15 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
-/obj/structure/disposalpipe/junction{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
+	},
+/obj/structure/disposalpipe/junction{
+	dir = 8;
+	icon_state = "pipe-j2"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
@@ -34756,7 +34779,7 @@ lO
 TP
 wg
 DM
-TP
+Kj
 jG
 TS
 Ur

@@ -1805,6 +1805,15 @@
 /obj/item/stack/packageWrap,
 /turf/simulated/floor/tiled,
 /area/operations/storage)
+"bEk" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 9
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "bEm" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -4516,6 +4525,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/engineering/lower)
+"ekb" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/plating,
+/area/hallway/primary/aft)
 "ekm" = (
 /obj/effect/shuttle_landmark/horizon/nav2,
 /turf/simulated/floor/plating,
@@ -6149,6 +6163,9 @@
 	name = "Custodial Closet";
 	req_access = list(26)
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "fyz" = (
@@ -6482,6 +6499,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/xenoarch_atrium)
+"fOV" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/plating,
+/area/hallway/primary/aft)
 "fPF" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_atmos{
@@ -7026,6 +7051,9 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "ghw" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "ghP" = (
@@ -14993,6 +15021,7 @@
 	name = "Research Division Access";
 	req_access = list(47)
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
 "nwp" = (
@@ -16597,9 +16626,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
+/obj/structure/disposalpipe/junction{
+	dir = 2
 	},
 /turf/simulated/floor/plating,
 /area/hallway/primary/aft)
@@ -22174,6 +22202,9 @@
 /obj/item/storage/bag/trash,
 /obj/item/storage/bag/trash,
 /obj/item/storage/bag/trash,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "ujB" = (
@@ -25676,6 +25707,9 @@
 /area/shuttle/mining)
 "xqe" = (
 /obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "xqo" = (
@@ -46620,7 +46654,7 @@ jCK
 wXF
 bBD
 fvq
-ygx
+bEk
 ygx
 hDI
 uUZ
@@ -46822,9 +46856,9 @@ fPF
 kzs
 kzs
 kzs
-kzs
-kzs
-kzs
+fOV
+ekb
+ekb
 phs
 nMJ
 waN
