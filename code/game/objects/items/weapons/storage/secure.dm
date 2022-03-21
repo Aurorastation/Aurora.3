@@ -42,23 +42,23 @@
 				return
 
 			if (W.isscrewdriver())
-				if (do_after(user, 20/W.toolspeed))
+				if(W.use_tool(src, user, 20, volume = 50))
 					src.open =! src.open
-					user.show_message(text("<span class='notice'>You [] the service panel.</span>", (src.open ? "open" : "close")))
+					to_chat(user, SPAN_NOTICE("You [src.open ? "open" : "close"] the service panel."))
 				return
 			if ((W.ismultitool()) && (src.open == 1)&& (!src.l_hacking))
-				user.show_message("<span class='notice'>Now attempting to reset internal memory, please hold.</span>", 1)
+				to_chat(user, SPAN_NOTICE("Now attempting to reset internal memory, please hold."))
 				src.l_hacking = 1
 				if (do_after(usr, 100))
 					if (prob(40))
 						src.l_setshort = 1
 						src.l_set = 0
-						user.show_message("<span class='notice'>Internal memory reset. Please give it a few seconds to reinitialize.</span>", 1)
+						to_chat(user, SPAN_NOTICE("Internal memory reset. Please give it a few seconds to reinitialize."))
 						sleep(80)
 						src.l_setshort = 0
 						src.l_hacking = 0
 					else
-						user.show_message("<span class='warning'>Unable to reset internal memory.</span>", 1)
+						to_chat(user, SPAN_WARNING("Unable to reset internal memory."))
 						src.l_hacking = 0
 				else	src.l_hacking = 0
 				return

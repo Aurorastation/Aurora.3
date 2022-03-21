@@ -23,7 +23,7 @@
 			return
 
 		sawing_in_progress = TRUE
-		if(do_after(user, 30, act_target = src))	//SHIT IS STEALTHY EYYYYY
+		if(A.use_tool(src, user, 30, volume = 50))	//SHIT IS STEALTHY EYYYYY
 			sawing_in_progress = FALSE
 			saw_off(user, A)
 		else

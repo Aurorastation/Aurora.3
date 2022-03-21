@@ -147,8 +147,7 @@
 		var/obj/item/weldingtool/F = W
 		if(F.welding)
 			to_chat(user, "<span class='notice'>You begin reparing damage to \the [src].</span>")
-			playsound(src.loc, 'sound/items/welder.ogg', 50, 1)
-			if(!do_after(user, 20/W.toolspeed) || !F.remove_fuel(1, user))
+			if(!W.use_tool(src, user, 20, volume = 50) || !F.use(1, user))
 				return
 			user.visible_message("<span class='notice'>\The [user] repairs some damage to \the [src].</span>",
 			                              "<span class='notice'>You repair some damage to \the [src].</span>")
@@ -263,8 +262,7 @@
 	manipulating = TRUE
 	user.visible_message("<b>[user]</b> begins dismantling \the [src].",
 						SPAN_NOTICE("You begin dismantling \the [src]."))
-	playsound(src, W.usesound, 100, 1)
-	if(!do_after(user, 20 / W.toolspeed))
+	if(!W.use_tool(src, user, 20, volume = 50))
 		manipulating = FALSE
 		return
 	user.visible_message("\The [user] dismantles \the [src].",

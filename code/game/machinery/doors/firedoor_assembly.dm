@@ -28,10 +28,9 @@ obj/structure/firedoor_assembly/attackby(var/obj/item/C as obj, mob/user as mob)
 				to_chat(user, "<span class='notice'>You wire \the [src].</span>")
 
 	else if(C.iswirecutter() && wired )
-		playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
 		user.visible_message("[user] cuts the wires from \the [src].", "You start to cut the wires from \the [src].")
 
-		if(do_after(user, 40/C.toolspeed))
+		if(C.use_tool(src, user, 40, volume = 50))
 			if(!src) return
 			to_chat(user, "<span class='notice'>You cut the wires!</span>")
 			new/obj/item/stack/cable_coil(src.loc, 1)
@@ -55,10 +54,10 @@ obj/structure/firedoor_assembly/attackby(var/obj/item/C as obj, mob/user as mob)
 		update_icon()
 	else if(!anchored && C.iswelder())
 		var/obj/item/weldingtool/WT = C
-		if(WT.remove_fuel(0, user))
+		if(WT.use(0, user))
 			user.visible_message("<span class='warning'>[user] dissassembles \the [src].</span>",
 			"You start to dissassemble \the [src].")
-			if(do_after(user, 40/C.toolspeed))
+			if(C.use_tool(src, user, 40, volume = 50))
 				if(!src || !WT.isOn()) return
 				user.visible_message("<span class='warning'>[user] has dissassembled \the [src].</span>",
 									"You have dissassembled \the [src].")

@@ -31,11 +31,10 @@ var/list/floor_light_cache = list()
 		playsound(src.loc, 'sound/items/screwdriver.ogg', 100, 1)
 	else if(W.iswelder() && (damaged || (stat & BROKEN)))
 		var/obj/item/weldingtool/WT = W
-		if(!WT.remove_fuel(0, user))
+		if(!WT.use(0, user))
 			to_chat(user, "<span class='warning'>\The [src] must be on to complete this task.</span>")
 			return
-		playsound(src.loc, 'sound/items/welder.ogg', 50, 1)
-		if(!do_after(user, 20/W.toolspeed))
+		if(!W.use_tool(src, user, 20, volume = 50))
 			return
 		if(!src || !WT.isOn())
 			return

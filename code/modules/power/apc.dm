@@ -500,9 +500,8 @@
 			if (terminal)
 				to_chat(user, SPAN_WARNING("Disconnect wires first."))
 				return
-			playsound(loc, W.usesound, 50, 1)
 			to_chat(user, "You are trying to remove the power control board...")
-			if(do_after(user, 50/W.toolspeed))
+			if(W.use_tool(src, user, 50, volume = 50))
 				if (has_electronics == HAS_ELECTRONICS_CONNECT)
 					has_electronics = HAS_ELECTRONICS_NONE
 					if ((stat & BROKEN))
@@ -616,8 +615,7 @@
 			return
 		user.visible_message(SPAN_WARNING("[user.name] adds cables to the APC frame."), \
 							"You start adding cables to the APC frame...")
-		playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
-		if(do_after(user, 20/W.toolspeed))
+		if(W.use_tool(src, user, 20, volume = 50))
 			if (C.amount >= 10 && !terminal && opened != COVER_CLOSED && has_electronics != HAS_ELECTRONICS_SECURED)
 				var/obj/structure/cable/N = T.get_cable_node()
 				if (prob(50) && electrocute_mob(usr, N, N))
@@ -637,8 +635,7 @@
 			return
 		user.visible_message(SPAN_WARNING("[user.name] dismantles the power terminal from [src]."), \
 							"You begin to cut the cables...")
-		playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
-		if(do_after(user, 50/W.toolspeed))
+		if(W.use_tool(src, user, 50, volume = 50))
 			if(terminal && opened != COVER_CLOSED && has_electronics != HAS_ELECTRONICS_SECURED)
 				if (prob(50) && electrocute_mob(usr, terminal.powernet, terminal))
 					spark(src, 5, alldirs)
@@ -651,7 +648,7 @@
 		user.visible_message(SPAN_WARNING("[user.name] inserts the power control board into [src]."), \
 							"You start to insert the power control board into the frame...")
 		playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
-		if(do_after(user, 10/W.toolspeed))
+		if(W.use_tool(src, user, 10, volume = 50))
 			if(has_electronics == HAS_ELECTRONICS_NONE)
 				has_electronics = HAS_ELECTRONICS_CONNECT
 				to_chat(user, SPAN_NOTICE("You place the power control board inside the frame."))
@@ -669,8 +666,8 @@
 							"You start welding the APC frame...", \
 							"You hear welding.")
 		playsound(loc, 'sound/items/welder.ogg', 50, 1)
-		if(do_after(user, 50/W.toolspeed))
-			if(!src || !WT.remove_fuel(3, user))
+		if(W.use_tool(src, user, 50, volume = 50))
+			if(!src || !WT.use(3, user))
 				return
 			if (emagged || (stat & BROKEN) || opened == COVER_REMOVED)
 				new /obj/item/stack/material/steel(loc)
@@ -701,7 +698,7 @@
 			return
 		user.visible_message(SPAN_WARNING("[user.name] replaces the damaged APC frame with a new one."),\
 							"You begin to replace the damaged APC frame...")
-		if(do_after(user, 50/W.toolspeed))
+		if(W.use_tool(src, user, 50, volume = 50))
 			user.visible_message(\
 				SPAN_NOTICE("[user.name] has replaced the damaged APC frame with new one."),\
 				"You replace the damaged APC frame with new one.")
@@ -717,16 +714,16 @@
 	else if (istype(W, /obj/item/device/debugger))
 		if(emagged || hacker || infected)
 			to_chat(user, SPAN_WARNING("There is a software error with the device. Attempting to fix..."))
-			if(do_after(user, 5/W.toolspeed SECONDS, act_target = src))
+			if(W.use_tool(src, user, 50, volume = 50))
 				to_chat(user, SPAN_NOTICE("Problem diagnosed, searching for solution..."))
-				if(do_after(user, 15/W.toolspeed SECONDS, act_target = src))
+				if(W.use_tool(src, user, 150, volume = 50))
 					to_chat(user, SPAN_NOTICE("Solution found. Applying fixes..."))
-					if(do_after(user, 30/W.toolspeed SECONDS, act_target = src))
+					if(W.use_tool(src, user, 300, volume = 50))
 						if(prob(15))
 							to_chat(user, SPAN_WARNING("Error while applying fixes. Please try again."))
 							return
 					to_chat(user, SPAN_NOTICE("Applied default software. Restarting APC..."))
-					if(do_after(user, 5/W.toolspeed SECONDS, act_target = src))
+					if(W.use_tool(src, user, 50, volume = 50))
 						to_chat(user, SPAN_NOTICE("APC Reset. Fixes applied."))
 						if(hacker)
 							hacker.hacked_apcs -= src
@@ -754,8 +751,8 @@
 				to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
 				return
 			playsound(loc, 'sound/items/welder.ogg', 50, 1)
-			if(do_after(user, 10/W.toolspeed))
-				if(!src || !WT.remove_fuel(1, user))
+			if(W.use_tool(src, user, 10, volume = 50))
+				if(!src || !WT.use(1, user))
 					return
 				if ((stat & BROKEN))
 					new /obj/item/stack/material/steel(loc)

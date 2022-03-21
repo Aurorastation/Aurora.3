@@ -603,7 +603,7 @@
 			if(!WT.welding)
 				to_chat(user, SPAN_WARNING("Your welding tool is not lit!")) // it aint lit fam :fire:
 				return
-			if(WT.remove_fuel(1))
+			if(WT.use(1))
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				adjustBruteLoss(-30)
 				updatehealth()
@@ -625,7 +625,7 @@
 			if(opened)
 				if(cell)
 					user.visible_message(SPAN_NOTICE("\The [user] begins clasping shut \the [src]'s maintenance hatch."), SPAN_NOTICE("You begin closing up \the [src]'s maintenance hatch."))
-					if(do_after(user, 50 / W.toolspeed, act_target = src))
+					if(W.use_tool(src, user, 50, volume = 50))
 						if(!Adjacent(user))
 							to_chat(user, SPAN_WARNING("You are too far from \the [src] to close its hatch."))
 							return
@@ -638,7 +638,7 @@
 						to_chat(user, SPAN_WARNING("\The [src] has no brain to remove.")) // me irl - geeves
 						return
 					user.visible_message(SPAN_NOTICE("\The [user] begins ripping \the [mmi] from \the [src]."), SPAN_NOTICE("You jam the crowbar into the robot and begin levering out \the [mmi]."))
-					if(do_after(user, 50 / W.toolspeed, act_target = src))
+					if(W.use_tool(src, user, 50, volume = 50))
 						to_chat(user, SPAN_NOTICE("You damage some parts of the chassis, but eventually manage to rip out \the [mmi]!"))
 						new /obj/item/robot_parts/robot_suit/equipped(get_turf(src))
 						new /obj/item/robot_parts/chest(get_turf(src))
@@ -672,7 +672,7 @@
 					to_chat(user, SPAN_WARNING("The cover is locked and cannot be opened."))
 				else
 					user.visible_message(SPAN_NOTICE("\The [user] begins prying open \the [src]'s maintenance hatch."), SPAN_NOTICE("You start opening \the [src]'s maintenance hatch."))
-					if(do_after(user, 50 / W.toolspeed, act_target = src))
+					if(W.use_tool(src, user, 50, volume = 50))
 						if(!Adjacent(user))
 							to_chat(user, SPAN_NOTICE("You are too far from \the [src] to open its hatch."))
 							return

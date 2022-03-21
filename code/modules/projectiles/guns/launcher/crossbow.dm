@@ -242,7 +242,7 @@
 	else if(W.iswelder())
 		if(buildstate == 1)
 			var/obj/item/weldingtool/T = W
-			if(T.remove_fuel(0,user))
+			if(T.use(0,user))
 				if(!src || !T.isOn()) return
 				playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
 				to_chat(user, SPAN_NOTICE("You weld the rods into place."))

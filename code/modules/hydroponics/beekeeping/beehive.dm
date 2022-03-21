@@ -117,8 +117,7 @@
 		return
 	else if(I.isscrewdriver())
 		to_chat(user, SPAN_NOTICE("You start dismantling \the [src]. This will take a while..."))
-		playsound(get_turf(src), I.usesound, 50, TRUE)
-		if(do_after(user, 150 / I.toolspeed))
+		if(I.use_tool(src, user, 150, volume = 50))
 			user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."), SPAN_NOTICE("You dismantle \the [src]."))
 			if(bee_count)
 				visible_message(SPAN_WARNING("The bees are furious over the destruction of their home!"))

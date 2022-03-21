@@ -335,7 +335,7 @@
 		if(3)
 			if(W.iswelder())
 				var/obj/item/weldingtool/WT = W
-				if(WT.remove_fuel(0, user))
+				if(WT.use(0, user))
 					build_step++
 					name = "shielded frame assembly"
 					to_chat(user, "<span class='notice'>You welded the armor to [src].</span>")
@@ -369,7 +369,7 @@
 					to_chat(user, "<span class='warning'>You need one coil of wire to wire [src].</span>")
 					return
 				to_chat(user, "<span class='notice'>You start to wire [src].</span>")
-				if(do_after(user, 40) && build_step == 6)
+				if(W.use_tool(src, user, 40, volume = 50) && build_step == 6)
 					if(C.use(1))
 						build_step++
 						to_chat(user, "<span class='notice'>You wire the ED-209 assembly.</span>")
@@ -389,10 +389,9 @@
 
 		if(8)
 			if(W.isscrewdriver())
-				playsound(src.loc, W.usesound, 100, 1)
 				var/turf/T = get_turf(user)
 				to_chat(user, "<span class='notice'>Now attaching the gun to the frame...</span>")
-				sleep(40)
+				if(!W.use_tool(src, user, 40, volume = 50)) return
 				if(get_turf(user) == T && build_step == 8)
 					build_step++
 					name = "armed [name]"

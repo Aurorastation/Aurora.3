@@ -272,9 +272,9 @@
 				SPAN_ITALIC("You hear a welding torch on metal.")
 			)
 			playsound(src, 'sound/items/welder.ogg', 50, 1)
-			if (!do_after(user, 2/C.toolspeed SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_open, src.density)))
+			if(!WT.do_after(src, user, 20, volume = 50, extra_checks = CALLBACK(src, .proc/is_open, src.density)))
 				return
-			if(!WT.remove_fuel(0,user))
+			if(!WT.use(0,user))
 				to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
 				return
 			playsound(src, 'sound/items/welder_pry.ogg', 50, 1)
@@ -296,9 +296,8 @@
 		else
 			user.visible_message("<span class='danger'>[user] is removing the electronics from \the [src].</span>",
 									"You start to remove the electronics from [src].")
-			if(do_after(user,30/C.toolspeed))
+			if(C.use_tool(src, user, 30, volume = 50))
 				if(blocked && density && hatch_open)
-					playsound(src.loc, C.usesound, 100, 1)
 					user.visible_message("<span class='danger'>[user] has removed the electronics from \the [src].</span>",
 										"You have removed the electronics from [src].")
 
@@ -319,7 +318,7 @@
 		to_chat(user, "<span class='danger'>\The [src] is welded shut!</span>")
 		return
 
-	if(C.iscrowbar() || istype(C,/obj/item/material/twohanded/fireaxe) || (istype(C, /obj/item/melee/hammer)))
+	if(C.iscrowbar() || istype(C,/obj/item/material/twohanded/fireaxe) || C.ishammer())
 		if(operating)
 			return
 
@@ -337,8 +336,8 @@
 		user.visible_message("<span class='danger'>\The [user] starts to force \the [src] [density ? "open" : "closed"] with \a [C]!</span>",\
 				"You start forcing \the [src] [density ? "open" : "closed"] with \the [C]!",\
 				"You hear metal strain.")
-		if(do_after(user,30/C.toolspeed))
-			if(C.iscrowbar() || (istype(C, /obj/item/melee/hammer)))
+		if(C.use_tool(src, user, 30, volume = 50))
+			if(C.iscrowbar() || C.ishammer())
 				if(stat & (BROKEN|NOPOWER) || !density)
 					user.visible_message("<span class='danger'>\The [user] forces \the [src] [density ? "open" : "closed"] with \a [C]!</span>",\
 					"You force \the [src] [density ? "open" : "closed"] with \the [C]!",\

@@ -676,7 +676,7 @@
 	..()
 	if(O.iswelder() && !build_step)
 		var/obj/item/weldingtool/WT = O
-		if(WT.remove_fuel(0, user))
+		if(WT.use(0, user))
 			build_step = 1
 			add_overlay("hs_hole")
 			to_chat(user, "You weld a hole in \the [src].")

@@ -310,9 +310,8 @@
 			to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it is too exerted due to internal pressure."))
 			add_fingerprint(user)
 			return 1
-		playsound(src.loc, W.usesound, 50, 1)
 		to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src]..."))
-		if (do_after(user, 40/W.toolspeed, act_target = src))
+		if(W.use_tool(src, user, 40, volume = 50))
 			user.visible_message( \
 				SPAN_NOTICE("\The [user] unfastens \the [src]."), \
 				SPAN_NOTICE("You have unfastened \the [src]."), \
@@ -323,24 +322,26 @@
 
 	if(W.iswelder())
 		var/obj/item/weldingtool/WT = W
-		if (!WT.welding)
-			to_chat(user, SPAN_DANGER("\The [WT] must be turned on!"))
-		else if (WT.remove_fuel(0,user))
-			to_chat(user, SPAN_NOTICE("Now welding \the [src]."))
-			playsound(src, 'sound/items/welder.ogg', 50, 1)
-			if(do_after(user, 20/W.toolspeed, act_target = src))
-				if(!src || !WT.isOn())
-					return
-				welded = !welded
-				update_icon()
-				playsound(src, 'sound/items/welder_pry.ogg', 50, 1)
-				user.visible_message(SPAN_NOTICE("\The [user] [welded ? "welds \the [src] shut" : "unwelds \the [src]"]."), \
-									 SPAN_NOTICE("You [welded ? "weld \the [src] shut" : "unweld \the [src]"]."), \
-									 "You hear welding.")
-			else
-				to_chat(user, SPAN_NOTICE("You fail to complete the welding."))
-		else
+
+		if(!WT.isOn())
+			to_chat(user, SPAN_NOTICE("\The [WT] needs to be on to start this task."))
+			return
+
+		if(!WT.use(0, user))
 			to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
+			return
+
+		to_chat(user, SPAN_NOTICE("Now welding \the [src]..."))
+
+		if(!WT.use_tool(src, user, 20, volume = 50))
+			to_chat(user, SPAN_NOTICE("You must remain close to finish this task."))
+			return
+
+		welded = !welded
+		update_icon()
+		user.visible_message(SPAN_NOTICE("\The [user] [welded ? "welds \the [src] shut" : "unwelds \the [src]"]."), \
+							 SPAN_NOTICE("You [welded ? "weld \the [src] shut" : "unweld \the [src]"]."), \
+										 "You hear welding.")
 		return 1
 
 	if(istype(W, /obj/item/melee/arm_blade))

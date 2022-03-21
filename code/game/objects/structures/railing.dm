@@ -224,9 +224,8 @@
 	// Dismantle
 	if(W.iswrench())
 		if(!anchored)
-			playsound(get_turf(src), W.usesound, 50, TRUE)
 			user.visible_message(SPAN_NOTICE("\The [user] starts dismantling \the [src]..."), SPAN_NOTICE("You start dismantling \the [src]..."))
-			if(do_after(user, 20, src))
+			if(W.use_tool(src, user, 20, volume = 50))
 				if(anchored)
 					return
 				user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."), SPAN_NOTICE("You dismantle \the [src]."))

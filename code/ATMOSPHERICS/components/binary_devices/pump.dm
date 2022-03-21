@@ -232,9 +232,8 @@ Thus, the two variables affect pump operation are set in New():
 		return 1
 	else
 		to_chat(user, "<span class='warning'>You struggle to unwrench \the [src] with your pipe wrench.</span>")
-	playsound(src.loc, W.usesound, 50, 1)
 	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
-	if (do_after(user, istype(W, /obj/item/pipewrench) ? 80/W.toolspeed : 40/W.toolspeed, act_target = src))
+	if(W.use_tool(src, user, istype(W, /obj/item/pipewrench) ? 80 : 40, volume = 50))
 		user.visible_message( \
 			"<span class='notice'>\The [user] unfastens \the [src].</span>", \
 			"<span class='notice'>You have unfastened \the [src].</span>", \

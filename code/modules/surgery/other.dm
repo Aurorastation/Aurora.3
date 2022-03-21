@@ -245,7 +245,7 @@
 		return FALSE
 	if(tool.iswelder())
 		var/obj/item/weldingtool/welder = tool
-		if(!welder.isOn() || !welder.remove_fuel(1,user))
+		if(!welder.isOn() || !welder.use(1,user))
 			return FALSE
 	return (target_zone == BP_CHEST) && istype(target.back, /obj/item/rig) && !(target.back.canremove)
 

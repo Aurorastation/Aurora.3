@@ -179,11 +179,11 @@
 			to_chat(user, SPAN_WARNING("\The [src] isn't ready to be welded yet. It doesn't have any installed material to remove, and it has to be unsecured to deconstruct it."))
 			return
 		var/obj/item/weldingtool/WT = W
-		if(WT.remove_fuel(0, user))
+		if(WT.use(0, user))
 			playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
 			if(istext(glass))
 				user.visible_message("<b>[user]</b> starts welding the [glass] plating off the airlock assembly.", SPAN_NOTICE("You start welding the [glass] plating off the airlock assembly."))
-				if(do_after(user, 40 / W.toolspeed))
+				if(W.use_tool(src, user, 40, volume = 50))
 					if(!src || !WT.isOn())
 						return
 					to_chat(user, SPAN_NOTICE("You weld the [glass] plating off."))
@@ -192,7 +192,7 @@
 					glass = FALSE
 			else if(glass == TRUE)
 				user.visible_message("<b>[user]</b> starts welding the glass panel out of the airlock assembly.", SPAN_NOTICE("You start welding the glass panel out of the airlock assembly."))
-				if(do_after(user, 40 / W.toolspeed))
+				if(W.use_tool(src, user, 40, volume = 50))
 					if(!src || !WT.isOn())
 						return
 					to_chat(user, SPAN_NOTICE("You weld the glass panel out."))
@@ -200,7 +200,7 @@
 					glass = FALSE
 			else if(!anchored)
 				user.visible_message("<b>[user]</b> starts disassembling the airlock assembly.", SPAN_NOTICE("You start disassembling the airlock assembly."))
-				if(do_after(user, 40 / W.toolspeed))
+				if(W.use_tool(src, user, 40, volume = 50))
 					if(!src || !WT.isOn())
 						return
 					to_chat(user, SPAN_NOTICE("You disassemble the airlock assembly."))
@@ -214,8 +214,6 @@
 			to_chat(user, SPAN_WARNING("You have to remove the wiring before you can use the wrench on \the [src]."))
 			return
 
-		playsound(src.loc, W.usesound, 100, 1)
-	
 		if(anchored)
 			user.visible_message("<b>[user]</b> begins unsecuring the airlock assembly from the floor.", \
 								SPAN_NOTICE("You start unsecuring the airlock assembly from the floor."))
@@ -223,7 +221,7 @@
 			user.visible_message("<b>[user]</b> begins securing the airlock assembly to the floor.", \
 								SPAN_NOTICE("You start securing the airlock assembly to the floor."))
 
-		if(do_after(user, 40 / W.toolspeed))
+		if(W.use_tool(src, user, 40, volume = 50))
 			if(!src)
 				return
 			to_chat(user, SPAN_NOTICE("You [anchored? "un" : ""]secure \the [src]."))
@@ -241,7 +239,7 @@
 			to_chat(user, SPAN_WARNING("You need three lengths of coil to wire the airlock assembly."))
 			return
 		user.visible_message("<b>[user]</b> starts wiring the airlock assembly.", SPAN_NOTICE("You start wiring the airlock assembly."))
-		if(do_after(user, 40) && state == STATE_UNWIRED && anchored)
+		if(W.use_tool(src, user, 40, volume = 50) && state == STATE_UNWIRED && anchored)
 			if(C.use(3))
 				state = STATE_WIRED
 				to_chat(user, SPAN_NOTICE("You wire the airlock."))
@@ -257,7 +255,7 @@
 		playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
 		user.visible_message("<b>[user]</b> starts cutting the wires from the airlock assembly.", SPAN_NOTICE("You start cutting the wires from airlock assembly."))
 
-		if(do_after(user, 40 / W.toolspeed))
+		if(W.use_tool(src, user, 40, volume = 50))
 			if(!src)
 				return
 			to_chat(user, SPAN_NOTICE("You cut the airlock wires."))
@@ -276,7 +274,7 @@
 			playsound(src.loc, 'sound/items/screwdriver.ogg', 100, 1)
 			user.visible_message("<b>[user]</b> starts installing \the [EL] into the airlock assembly.", SPAN_NOTICE("You start installing \the [EL] into the airlock assembly."))
 			EL.is_installed = TRUE
-			if(do_after(user, 40 / W.toolspeed) && state == STATE_WIRED)
+			if(W.use_tool(src, user, 40, volume = 50) && state == STATE_WIRED)
 				EL.is_installed = FALSE
 				if(!src)
 					return
@@ -299,10 +297,9 @@
 			state = STATE_WIRED
 			return
 
-		playsound(src.loc, W.usesound, 100, 1)
 		user.visible_message("<b>[user]</b> starts removing the electronics from \the [src].", SPAN_NOTICE("You start removing the electronics from \the [src]."))
 
-		if(do_after(user, 40 / W.toolspeed))
+		if(W.use_tool(src, user, 40, volume = 50))
 			if(!src)
 				return
 			to_chat(user, SPAN_NOTICE("You remove \the [electronics]."))
@@ -319,9 +316,8 @@
 		if(S)
 			if(S.get_amount() >= 1)
 				if(material_name == "rglass")
-					playsound(src.loc, /decl/sound_category/crowbar_sound, 100, 1)
 					user.visible_message("<b>[user]</b> starts installing [S] into the airlock assembly.", "You start installing [S] into the airlock assembly.")
-					if(do_after(user, 40) && !glass)
+					if(W.use_tool(src, user, 40, volume = 50) && !glass)
 						if(S.use(1))
 							to_chat(user, SPAN_NOTICE("You install reinforced glass windows into the airlock assembly."))
 							glass = 1
@@ -333,7 +329,7 @@
 					if(S.get_amount() >= 2)
 						playsound(src.loc, /decl/sound_category/crowbar_sound, 100, 1)
 						user.visible_message("<b>[user]</b> starts installing [S] into the airlock assembly.", "You start installing [S] into the airlock assembly.")
-						if(do_after(user, 40) && !glass)
+						if(W.use_tool(src, user, 40, volume = 50) && !glass)
 							if (S.use(2))
 								to_chat(user, SPAN_NOTICE("You install [SSmaterials.material_display_name(material_name)] plating into the airlock assembly."))
 								glass = material_name
@@ -343,10 +339,9 @@
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have any electronics installed."))
 			return
 
-		playsound(src.loc, W.usesound, 100, 1)
 		user.visible_message("<b>[user]</b> starts finishing \the [src].", SPAN_NOTICE("You start finishing \the [src]."))
 
-		if(do_after(user, 40 / W.toolspeed))
+		if(W.use_tool(src, user, 40, volume = 50))
 			if(!src)
 				return
 			to_chat(user, SPAN_NOTICE("You finish the airlock!"))

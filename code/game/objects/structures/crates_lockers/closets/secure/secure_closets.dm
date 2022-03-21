@@ -95,9 +95,9 @@
 					"You hear a welding torch on metal."
 				)
 				playsound(loc, 'sound/items/welder_pry.ogg', 50, 1)
-				if (!do_after(user, 2/W.toolspeed SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_open)))
+				if(!W.use_tool(src, user, 20, volume = 50, extra_checks = CALLBACK(src, .proc/is_open))
 					return
-				if(!WT.remove_fuel(0,user))
+				if(!WT.use(0,user))
 					to_chat(user,  "<span class='notice'>You need more welding fuel to complete this task.</span>")
 					return
 				else
@@ -119,33 +119,26 @@
 	else if(W.isscrewdriver() && canbemoved)
 		if(screwed)
 			to_chat(user,  "<span class='notice'>You start to unscrew the locker from the floor...</span>")
-			playsound(loc, W.usesound, 50, 1)
-			if (do_after(user, 10/W.toolspeed SECONDS, act_target = src))
+			if(W.use_tool(src, user, 10, volume = 50))
 				to_chat(user,  "<span class='notice'>You unscrew the locker!</span>")
-				playsound(loc, W.usesound, 50, 1)
 				screwed = 0
 		else if(!screwed && wrenched)
 			to_chat(user,  "<span class='notice'>You start to screw the locker to the floor...</span>")
 			playsound(src, 'sound/items/welder.ogg', 80, 1)
-			if (do_after(user, 15/W.toolspeed SECONDS, act_target = src))
+			if(W.use_tool(src, user, 15, volume = 50))
 				to_chat(user,  "<span class='notice'>You screw the locker!</span>")
-				playsound(loc, W.usesound, 50, 1)
 				screwed = 1
 	else if(W.iswrench() && canbemoved)
 		if(wrenched && !screwed)
 			to_chat(user,  "<span class='notice'>You start to unfasten the bolts holding the locker in place...</span>")
-			playsound(loc, W.usesound, 50, 1)
-			if (do_after(user, 15/W.toolspeed SECONDS, act_target = src))
+			if(W.use_tool(src, user, 15, volume = 50))
 				to_chat(user,  "<span class='notice'>You unfasten the locker's bolts!</span>")
-				playsound(loc, W.usesound, 50, 1)
 				wrenched = 0
 				anchored = 0
 		else if(!wrenched)
 			to_chat(user,  "<span class='notice'>You start to fasten the bolts holding the locker in place...</span>")
-			playsound(loc, W.usesound, 50, 1)
-			if (do_after(user, 15/W.toolspeed SECONDS, act_target = src))
+			if(W.use_tool(src, user, 15, volume = 50))
 				to_chat(user,  "<span class='notice'>You fasten the locker's bolts!</span>")
-				playsound(loc, W.usesound, 50, 1)
 				wrenched = 1
 				anchored = 1
 	else if(istype(W, /obj/item/device/hand_labeler))
@@ -188,7 +181,7 @@
 				playsound(loc, 'sound/items/welder_pry.ogg', 50, 1)
 				if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
 					return
-				if(!WT.remove_fuel(0,user))
+				if(!WT.use(0,user))
 					to_chat(user,  "<span class='notice'>You need more welding fuel to complete this task.</span>")
 					return
 				welded = !welded

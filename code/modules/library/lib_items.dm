@@ -42,9 +42,8 @@
 		to_chat(user, (anchored ? "<span class='notice'>You unfasten \the [src] from the floor.</span>" : "<span class='notice'>You secure \the [src] to the floor.</span>"))
 		anchored = !anchored
 	else if(O.isscrewdriver())
-		playsound(loc, O.usesound, 75, 1)
 		to_chat(user, "<span class='notice'>You begin dismantling \the [src].</span>")
-		if(do_after(user,25))
+		if(O.use_tool(src, user, 25, volume = 50))
 			to_chat(user, "<span class='notice'>You dismantle \the [src].</span>")
 			for(var/obj/item/book/b in contents)
 				b.forceMove((get_turf(src)))
@@ -302,7 +301,7 @@
 	else if(istype(W, /obj/item/material/knife) || W.iswirecutter())
 		if(carved)	return
 		to_chat(user, "<span class='notice'>You begin to carve out [title].</span>")
-		if(do_after(user, 30/W.toolspeed))
+		if(W.use_tool(src, user, 30, volume = 50))
 			to_chat(user, "<span class='notice'>You carve out the pages from [title]! You didn't want to read it anyway.</span>")
 			playsound(loc, 'sound/bureaucracy/papercrumple.ogg', 50, 1)
 			new /obj/item/shreddedp(get_turf(src))
@@ -356,4 +355,3 @@
 		else
 			to_chat(user, "<span class='attack'>No associated computer found. Only local scans will function properly.</span>")
 		to_chat(user, "\n")
-

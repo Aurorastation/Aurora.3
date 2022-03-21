@@ -70,8 +70,7 @@
 					to_chat(user, "<span class='warning'>You need five coils of wire for this.</span>")
 			if(I.iscrowbar())
 				to_chat(user, "You begin prying out the circuit board other components...")
-				playsound(src.loc, I.usesound, 50, 1)
-				if(do_after(user,60/I.toolspeed))
+				if(I.use_tool(src, user, 60, volume = 50))
 					to_chat(user, "You finish prying out the components.")
 
 					// Drop all the component stuff

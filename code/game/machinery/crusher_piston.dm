@@ -105,7 +105,7 @@
 	if(panel_open)
 		if(O.iswrench())
 			to_chat(user, "<span class='notice'>You start [valve_open ? "closing" : "opening"] the pressure relief valve of [src].</span>")
-			if(do_after(user,50/O.toolspeed))
+			if(O.use_tool(src, user, 50, volume = 50))
 				valve_open = !valve_open
 				to_chat(user, "<span class='notice'>You [valve_open ? "open" : "close"] the pressure relief valve of [src].</span>")
 				if(valve_open)

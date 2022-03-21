@@ -17,8 +17,7 @@
 	switch(state)
 		if(0)
 			if(P.iswrench())
-				playsound(loc, P.usesound, 50, 1)
-				if(do_after(user, 20/P.toolspeed))
+				if(P.use_tool(src, user, 20, volume = 50))
 					to_chat(user, "<span class='notice'>You wrench the frame into place.</span>")
 					anchored = 1
 					state = 1
@@ -27,16 +26,14 @@
 				if(!WT.isOn())
 					to_chat(user, "The welder must be on for this task.")
 					return
-				playsound(loc, 'sound/items/welder.ogg', 50, 1)
-				if(do_after(user, 20/P.toolspeed))
-					if(!src || !WT.remove_fuel(0, user)) return
+				if(P.use_tool(src, user, 20, volume = 50))
+					if(!src || !WT.use(0, user)) return
 					to_chat(user, "<span class='notice'>You deconstruct the frame.</span>")
 					new /obj/item/stack/material/plasteel( loc, 4)
 					qdel(src)
 		if(1)
 			if(P.iswrench())
-				playsound(loc, P.usesound, 50, 1)
-				if(do_after(user, 20/P.toolspeed))
+				if(P.use_tool(src, user, 20, volume = 50))
 					to_chat(user, "<span class='notice'>You unfasten the frame.</span>")
 					anchored = 0
 					state = 0
@@ -225,7 +222,7 @@
 	else if(W.iswrench())
 		if(anchored)
 			user.visible_message("<span class='notice'>\The [user] starts to unbolt \the [src] from the plating...</span>")
-			if(!do_after(user,40/W.toolspeed))
+			if(!W.use_tool(src, user, 40, volume = 50))
 				user.visible_message("<span class='notice'>\The [user] decides not to unbolt \the [src].</span>")
 				return
 			user.visible_message("<span class='notice'>\The [user] finishes unfastening \the [src]!</span>")
@@ -233,7 +230,7 @@
 			return
 		else
 			user.visible_message("<span class='notice'>\The [user] starts to bolt \the [src] to the plating...</span>")
-			if(!do_after(user,40/W.toolspeed))
+			if(!W.use_tool(src, user, 40, volume = 50))
 				user.visible_message("<span class='notice'>\The [user] decides not to bolt \the [src].</span>")
 				return
 			user.visible_message("<span class='notice'>\The [user] finishes fastening down \the [src]!</span>")

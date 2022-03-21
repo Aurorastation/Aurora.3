@@ -703,3 +703,18 @@
 		'sound/effects/footstep_skrell5.ogg',
 		'sound/effects/footstep_skrell6.ogg'
 	)
+
+/decl/sound_category/hammer_sound
+	sounds = list(
+		'sound/items/tools/hammer1.ogg',
+		'sound/items/tools/hammer2.ogg',
+		'sound/items/tools/hammer3.ogg',
+		'sound/items/tools/hammer4.ogg'
+	)
+
+/decl/sound_category/shovel_sound
+	sounds = list(
+		'sound/items/tools/shovel1.ogg',
+		'sound/items/tools/shovel2.ogg',
+		'sound/items/tools/shovel3.ogg'
+	)

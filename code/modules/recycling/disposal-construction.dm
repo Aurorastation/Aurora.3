@@ -261,10 +261,9 @@
 	else if(I.iswelder())
 		if(anchored)
 			var/obj/item/weldingtool/W = I
-			if(W.remove_fuel(0,user))
-				playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
+			if(W.use(0,user))
 				to_chat(user, "Welding the [nicetype] in place.")
-				if(do_after(user, 20/W.toolspeed))
+				if(W.use_tool(src, user, 20, volume = 50))
 					if(!src || !W.isOn()) return
 					to_chat(user, "The [nicetype] has been welded in place!")
 					update() // TODO: Make this neat

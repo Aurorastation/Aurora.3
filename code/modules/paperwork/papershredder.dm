@@ -147,7 +147,7 @@
 			var/obj/item/weldingtool/F = P // NOW THAT'S WHAT I CALL RECYCLING - wezzy
 			if (!F.welding)
 				return
-			if (!F.remove_fuel(1, user))
+			if (!F.use(1, user))
 				return
 		else
 

@@ -114,7 +114,7 @@
 				set_cradle_state(STATE_NODIODES)
 			else if(I.iswelder())
 				var/obj/item/weldingtool/WT = I
-				if(WT.remove_fuel(0, user))
+				if(WT.use(0, user))
 					user.visible_message("<b>[user]</b> welds the two parts of the braincase together, permanently sealing \the [brainobj] inside.", SPAN_NOTICE("You weld the two parts of the braincase together, permanently sealing \the [brainobj] inside."))
 					to_chat(brainmob, SPAN_NOTICE("As the braincase comes online, you feel your sense of self ebbing away, your memories suppressed by the onboard software."))
 					set_cradle_state(STATE_SEALED)
@@ -125,7 +125,7 @@
 				return
 			else if(istype(I, /obj/item/surgery/circular_saw))
 				user.visible_message("<b>[user]</b> starts sawing \the [src] open...", SPAN_NOTICE("You start sawing \the [src] open, [SPAN_WARNING("this WILL destroy the brain inside")]."))
-				if(do_after(user, 3 SECONDS))
+				if(I.use_tool(src, user, 30, volume = 50))
 					user.visible_message("<b>[user]</b> saws \the [src] open, leaving \the [brainobj] a gory mess.", SPAN_NOTICE("You saw \the [src] open, leaving \the [brainobj] a gory mess."))
 					var/obj/item/organ/internal/brain/brain_holder = brainobj
 					transfer_mob_to_brain()

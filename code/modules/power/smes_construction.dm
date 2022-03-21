@@ -359,7 +359,7 @@
 			if(WT.get_fuel() < 2)
 				to_chat(user, SPAN_WARNING("You don't have enough fuel to repair \the [src]."))
 				return
-			if(do_after(user, 5 SECONDS) && WT.remove_fuel(2, user))
+			if(WT.use_tool(src, user, 50, volume = 50) && WT.use(2, user))
 				health = min(health + 100, initial(health))
 				to_chat(user, SPAN_NOTICE("You repair \the [src], it is now [round((health / initial(health)) * 100)]% repaired."))
 				if(health == initial(health))

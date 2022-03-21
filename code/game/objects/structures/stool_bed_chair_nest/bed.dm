@@ -241,9 +241,8 @@
 	update_icon()
 
 /obj/structure/bed/dismantle(obj/item/W, mob/user)
-	playsound(src.loc, W.usesound, 50, 1)
 	user.visible_message("<b>[user]</b> begins dismantling \the [src].", SPAN_NOTICE("You begin dismantling \the [src]."))
-	if(do_after(user, 20 / W.toolspeed))
+	if(W.use_tool(src, user, 20, volume = 50))
 		user.visible_message("\The [user] dismantles \the [src].", SPAN_NOTICE("You dismantle \the [src]."))
 		if(padding_material)
 			padding_material.place_sheet(get_turf(src))

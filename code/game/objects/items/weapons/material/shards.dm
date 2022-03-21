@@ -51,7 +51,7 @@
 /obj/item/material/shard/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.iswelder() && material.shard_can_repair)
 		var/obj/item/weldingtool/WT = W
-		if(WT.remove_fuel(0, user))
+		if(WT.use(0, user))
 			material.place_sheet(user.loc)
 			qdel(src)
 			return

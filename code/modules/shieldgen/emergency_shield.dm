@@ -296,7 +296,7 @@
 
 /obj/machinery/shieldgen/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.isscrewdriver())
-		playsound(src.loc, W.usesound, 100, 1)
+		playsound(src.loc, W.usesound, 50, 1)
 		if(is_open)
 			to_chat(user, "<span class='notice'>You close the panel.</span>")
 			is_open = FALSE
@@ -308,7 +308,7 @@
 		var/obj/item/stack/cable_coil/coil = W
 		to_chat(user, "<span class='notice'>You begin to replace the wires.</span>")
 		//if(do_after(user, min(60, round( ((maxhealth/health)*10)+(malfunction*10) ))) //Take longer to repair heavier damage
-		if(do_after(user, 30))
+		if(W.use_tool(src, user, 30, volume = 50))
 			if (coil.use(1))
 				health = initial(health)
 				malfunction = FALSE

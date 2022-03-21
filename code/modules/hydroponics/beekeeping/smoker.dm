@@ -34,7 +34,7 @@
 		if(B.closed)
 			to_chat(user, SPAN_WARNING("You need to open \the [B] with a crowbar before smoking the bees."))
 			return TRUE
-		if(!remove_fuel(1, user))
+		if(!use(1, user))
 			return TRUE
 		user.visible_message(SPAN_NOTICE("\The [user] smokes the bees in \the [B]."), SPAN_NOTICE("You smoke the bees in \the [B], which seems to calm them down."))
 		B.smoked = 30
@@ -53,7 +53,7 @@
 /obj/item/bee_smoker/proc/get_fuel()
 	return REAGENT_VOLUME(reagents, /decl/reagent/fuel)
 
-/obj/item/bee_smoker/proc/remove_fuel(var/amount = 1, var/mob/M = null)
+/obj/item/bee_smoker/use(var/amount = 1, var/mob/M = null)
 	if(get_fuel() >= amount)
 		reagents.remove_reagent(/decl/reagent/fuel, amount)
 		return TRUE
@@ -68,7 +68,7 @@
 
 	var/turf/T
 	var/mob/owner = get_holding_mob()
-	if(!remove_fuel(1.5, owner))
+	if(!use(1.5, owner))
 		return
 	var/direction = get_dir(get_turf(src), get_turf(A))
 

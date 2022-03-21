@@ -29,7 +29,7 @@
 	if(locate(/obj/effect/overlay/wallrot) in src)
 		if(W.iswelder() )
 			var/obj/item/weldingtool/WT = W
-			if( WT.remove_fuel(0,user) )
+			if( WT.use(0,user) )
 				to_chat(user, "<span class='notice'>You burn away the fungi with \the [WT].</span>")
 				playsound(src, 'sound/items/welder.ogg', 10, 1)
 				for(var/obj/effect/overlay/wallrot/WR in src)
@@ -43,7 +43,7 @@
 	if(thermite)
 		if(W.iswelder() )
 			var/obj/item/weldingtool/WT = W
-			if( WT.remove_fuel(0,user) )
+			if( WT.use(0,user) )
 				thermitemelt(user)
 				return
 

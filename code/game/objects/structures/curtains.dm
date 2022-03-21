@@ -45,10 +45,9 @@
 		manipulating = TRUE
 		visible_message(SPAN_NOTICE("[user] begins cutting down \the [src]."),
 					SPAN_NOTICE("You begin cutting down \the [src]."))
-		if(!do_after(user, 30/W.toolspeed))
+		if(!W.use_tool(src, user, 30, volume = 50))
 			manipulating = FALSE
 			return
-		playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
 		visible_message(SPAN_NOTICE("[user] cuts down \the [src]."),
 					SPAN_NOTICE("You cut down \the [src]."))
 		dismantle()

@@ -355,7 +355,7 @@ var/list/mineral_can_smooth_with = list(
 
 		to_chat(user, SPAN_NOTICE("You start chiselling \the [src] into a sculptable block."))
 
-		if(!do_after(user, 80 / W.toolspeed))
+		if(!W.use_tool(src, user, 80, volume = 50))
 			return
 
 		if(!istype(src, /turf/simulated/mineral))
@@ -671,7 +671,7 @@ var/list/asteroid_floor_smooth = list(
 			to_chat(user, SPAN_NOTICE("You start digging deeper."))
 			playsound(get_turf(user), 'sound/effects/stonedoor_openclose.ogg', 50, TRUE)
 			digging = TRUE
-			if(!do_after(user, 60 / W.toolspeed))
+			if(!W.use_tool(src, user, 60, volume = 50))
 				if(istype(src, /turf/unsimulated/floor/asteroid))
 					digging = FALSE
 				return

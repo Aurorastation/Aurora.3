@@ -320,7 +320,7 @@
 			//If the turret is destroyed, you can remove it with a crowbar to
 			//try and salvage its components
 			to_chat(user, "<span class='notice'>You begin prying the metal coverings off.</span>")
-			if(do_after(user, 20/I.toolspeed))
+			if(I.use_tool(src, user, 20, volume = 50))
 				if(prob(70) && !no_salvage)
 					to_chat(user, "<span class='notice'>You remove the turret and salvage some components.</span>")
 					if(installation)
@@ -355,7 +355,7 @@
 			)
 
 		wrenching = 1
-		if(do_after(user, 50/I.toolspeed))
+		if(I.use_tool(src, user, 50, volume = 50))
 			//This code handles moving the turret around. After all, it's a portable turret!
 			if(!anchored)
 				playsound(loc, I.usesound, 100, 1)
@@ -386,9 +386,9 @@
 		else if (health == maxhealth)
 			to_chat(user, "<span class='notice'>\The [src] is fully repaired.</span>")
 			return
-		else if (WT.remove_fuel(3, user))
+		else if (WT.use(3, user))
 			to_chat(user, "<span class='notice'>Now welding \the [src].</span>")
-			if(do_after(user, 5))
+			if(WT.use_tool(src, user, 5, volume = 50))
 				if(QDELETED(src) || !WT.isOn())
 					return
 				playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
@@ -874,8 +874,8 @@
 					return
 
 				playsound(loc, pick('sound/items/welder.ogg', 'sound/items/welder_pry.ogg'), 50, 1)
-				if(do_after(user, 20/I.toolspeed))
-					if(!src || !WT.remove_fuel(5, user)) return
+				if(I.use_tool(src, user, 20, volume = 50))
+					if(!src || !WT.use(5, user)) return
 					build_step = 1
 					to_chat(user, "You remove the turret's interior metal armor.")
 					new /obj/item/stack/material/steel( loc, 2)
@@ -963,8 +963,8 @@
 					to_chat(user, "<span class='notice'>You need more fuel to complete this task.</span>")
 
 				playsound(loc, pick('sound/items/welder.ogg', 'sound/items/welder_pry.ogg'), 50, 1)
-				if(do_after(user, 30/I.toolspeed))
-					if(!src || !WT.remove_fuel(5, user))
+				if(I.use_tool(src, user, 30, volume = 50))
+					if(!src || !WT.use(5, user))
 						return
 					build_step = 8
 					to_chat(user, "<span class='notice'>You weld the turret's armor down.</span>")

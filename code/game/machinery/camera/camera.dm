@@ -366,7 +366,7 @@
 	playsound(src.loc, 'sound/items/welder.ogg', 50, 1)
 	WT.eyecheck(user)
 	busy = 1
-	if(do_after(user, 100/WT.toolspeed))
+	if(WT.use_tool(src, user, 100, volume = 50))
 		busy = 0
 		if(!WT.isOn())
 			return 0

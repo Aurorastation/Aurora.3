@@ -23,7 +23,7 @@
 			to_chat(user, SPAN_NOTICE("\The [src] is fully repaired."))
 			return
 		var/obj/item/weldingtool/WT = W
-		if(WT.remove_fuel(0, user))
+		if(WT.use(0, user))
 			cut_overlays()
 			LAZYCLEARLIST(bullet_holes)
 			icon = initial(icon)

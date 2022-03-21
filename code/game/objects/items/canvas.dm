@@ -17,7 +17,7 @@
 	I.DrawBox(color, drawX, drawY)
 	return I
 
-/** 
+/**
  * Interface for easy drawing of one pixel on an atom.
  */
 /atom/proc/DrawPixelOn(color, drawX, drawY)
@@ -46,18 +46,17 @@
 	name = "23px by 23px canvas"
 	icon_state = "23x23"
 
-/** 
+/**
  * One pixel increments.
  */
 /obj/item/canvas/attackby(obj/item/I, mob/user, params)
 	if(I.iswrench())
-		playsound(src.loc, I.usesound, 100, 1)
 		to_chat(user, SPAN_NOTICE("You begin to [anchored ? "loosen" : "tighten"] \the [src]..."))
-		if(do_after(user, 40 / I.toolspeed))
+		if(I.use_tool(src, user, 40, volume = 50))
 			user.visible_message("<b>[user]</b> [anchored ? "loosens" : "tightens"] \the [src].", SPAN_NOTICE("You [anchored ? "loosen" : "tighten"] \the [src]."), SPAN_NOTICE("You hear a ratchet."))
 			anchored = !anchored
 		return
-	
+
 	// Click info.
 	var/list/click_params = params2list(params)
 	var/pixX = text2num(click_params["icon-x"])
@@ -89,7 +88,7 @@
 	else
 		return ..()
 
-/** 
+/**
  * Clean the whole canvas.
  */
 /obj/item/canvas/attack_self(mob/user)

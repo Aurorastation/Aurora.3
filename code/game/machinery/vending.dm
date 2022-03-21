@@ -231,7 +231,7 @@
 	if(istype(W, /obj/item/device/debugger))
 		if(!shut_up)
 			to_chat(user, SPAN_WARNING("\The [W] reads, \"Software error detected. Rectifying.\"."))
-			if(do_after(user, 100 / W.toolspeed, act_target = src))
+			if(W.use_tool(src, user, 100, volume = 50))
 				to_chat(user, SPAN_NOTICE("\The [W] reads, \"Solution found. Fix applied.\"."))
 				shut_up = TRUE
 		if(shoot_inventory)
@@ -239,7 +239,7 @@
 				to_chat(user, SPAN_WARNING("\The [W] reads, \"Hardware error detected. Manual repair required.\"."))
 				return
 			to_chat(user, SPAN_WARNING("\The [W] reads, \"Software error detected. Rectifying.\"."))
-			if(do_after(user, 100 / W.toolspeed, act_target = src))
+			if(W.use_tool(src, user, 100, volume = 50))
 				to_chat(user, SPAN_NOTICE("\The [W] reads, \"Solution found. Fix applied. Have a NanoTrasen day!\"."))
 				shoot_inventory = FALSE
 		else
@@ -305,13 +305,9 @@
 		if(!can_move)
 			return
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		playsound(src.loc, W.usesound, 100, 1)
-		if(anchored)
-			user.visible_message("<b>[user]</b> begins unsecuring \the [src] from the floor.", SPAN_NOTICE("You start unsecuring \the [src] from the floor."))
-		else
-			user.visible_message("<b>[user]</b> begins securing \the [src] to the floor.", SPAN_NOTICE("You start securing \the [src] to the floor."))
-
-		if(do_after(user, 20/W.toolspeed))
+		playsound(src.loc, W.usesound, 50, 1)
+		user.visible_message("<b>[user]</b> begins [anchored? "un" : ""]securing \the [src] [anchored? "from" : "to"] the floor.", SPAN_NOTICE("You start [anchored? "un" : ""]securing \the [src] [anchored? "from" : "to"] the floor."))
+		if(W.use_tool(src, user, 20, volume = 50))
 			if(!src) return
 			to_chat(user, "<span class='notice'>You [anchored? "un" : ""]secured \the [src]!</span>")
 			anchored = !anchored

@@ -807,8 +807,7 @@
 
 			else if(W.iscrowbar())
 				to_chat(user, "You start prying out the circuit.")
-				playsound(src.loc, W.usesound, 50, 1)
-				if(do_after(user,20/W.toolspeed))
+				if(W.use_tool(src, user, 20, volume = 50))
 					to_chat(user, "You pry out the circuit!")
 					var/obj/item/airalarm_electronics/circuit = new /obj/item/airalarm_electronics()
 					circuit.forceMove(user.loc)

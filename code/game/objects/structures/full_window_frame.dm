@@ -22,7 +22,7 @@
 		if(!WT.isOn())
 			to_chat(user, SPAN_WARNING("\The [WT] isn't turned on."))
 			return
-		if(WT.remove_fuel(0, user))
+		if(WT.use(0, user))
 			to_chat(user, SPAN_NOTICE("You use \the [WT] to remove \the [src]."))
 			playsound(src, WT.usesound, 80, 1)
 			new /obj/item/stack/material/steel(get_turf(src),rand(1,3))

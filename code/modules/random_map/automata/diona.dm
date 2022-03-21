@@ -24,7 +24,7 @@
 		if (!WT.welding)
 			to_chat(user, SPAN_WARNING("\The [WT] must be turned on!"))
 			return
-		else if (WT.remove_fuel(0,user))
+		else if (WT.use(0,user))
 			user.visible_message("<b>[user]</b> begins slicing through the skin of \the [src].", SPAN_NOTICE("You begin slicing through the skin of \the [src]."))
 			if(!do_after(user, 20/W.toolspeed, act_target = src))
 				return

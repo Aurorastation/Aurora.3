@@ -72,7 +72,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 			to_chat(user, "<span class='warning'>You need at least two rods to do this.</span>")
 			return
 
-		if(WT.remove_fuel(0,user))
+		if(WT.use(0,user))
 			var/obj/item/stack/material/steel/new_item = new(usr.loc)
 			new_item.add_to_stacks(usr)
 			for (var/mob/M in viewers(src))

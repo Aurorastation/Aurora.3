@@ -264,8 +264,7 @@
 			to_chat(user, SPAN_WARNING("You have to remove all the components from \the [src] before disassembling it."))
 			return
 		to_chat(user, SPAN_NOTICE("You begin to disassemble \the [src]."))
-		playsound(get_turf(src), W.usesound, 100, TRUE)
-		if (do_after(user, 20/W.toolspeed))
+		if(W.use_tool(src, user, 20, volume = 50))
 			new /obj/item/stack/material/steel(get_turf(src), steel_sheet_cost)
 			user.visible_message(SPAN_NOTICE("\The [user] disassembles \the [src]."), SPAN_NOTICE("You disassemble \the [src]."), SPAN_NOTICE("You hear a ratcheting noise."))
 			qdel(src)
@@ -282,7 +281,7 @@
 
 		to_chat(user, SPAN_NOTICE("You begin repairing the damage to \the [src]..."))
 		playsound(get_turf(src), 'sound/items/welder.ogg', 100, 1)
-		if(WT.remove_fuel(round(damage / 75)) && do_after(user, damage / 10))
+		if(WT.use(round(damage / 75)) && do_after(user, damage / 10))
 			damage = 0
 			to_chat(user, SPAN_NOTICE("You fully repair \the [src]."))
 		update_icon()
