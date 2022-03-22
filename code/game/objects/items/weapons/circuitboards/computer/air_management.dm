@@ -45,19 +45,6 @@
 	var/cutoff_temperature = 2000
 	var/on_temperature = 1200
 
-/obj/item/circuitboard/air_management/reaction_chamber
-	name = T_BOARD("tank control")
-	build_path = /obj/machinery/computer/general_air_control/reaction_chamber
-	frequency = 1442
-	var/input_tag
-	var/output_tag
-
-	var/list/input_info = list()
-	var/list/output_info = list()
-
-	var/input_flow_setting = 200
-	var/pressure_setting = ONE_ATMOSPHERE * 45
-
 /************
 * Construct *
 ************/
