@@ -18647,7 +18647,6 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/obj/effect/overmap/visitable/ship/landable/intrepid,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/intrepid)
 "qTO" = (
@@ -19321,6 +19320,10 @@
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload_foyer)
+"rsz" = (
+/obj/effect/overmap/visitable/ship/landable/intrepid,
+/turf/simulated/wall/shuttle/scc/cardinal,
+/area/shuttle/intrepid)
 "rsL" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/research_port)
@@ -47104,7 +47107,7 @@ nxj
 vkB
 vkB
 njr
-rmT
+rsz
 exg
 unD
 rHi
