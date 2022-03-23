@@ -8,6 +8,7 @@
 	icon_state = "m-1"
 
 	atmos_canpass = CANPASS_DENSITY
+	var/health = 1000
 
 /obj/structure/tank_wall/Initialize(mapload)
 	. = ..()
@@ -21,6 +22,12 @@
 /obj/structure/tank_wall/Destroy()
 	update_nearby_tiles()
 	return ..()
+
+/obj/structure/tank_wall/proc/take_damage(var/damage)
+	health -= damage
+	if(health <= 0)
+		visible_message(SPAN_WARNING("\The [src] falls apart!"))
+		qdel(src)
 
 /obj/structure/tank_wall/phoron
 	name = "phoron gas tank"
