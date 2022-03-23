@@ -953,13 +953,15 @@
 
 
 /mob/proc/facedir(var/ndir)
-	if(!canface() || (client && client.moving) || (client && world.time < client.move_delay))
+	if(!canface() || (client && client.moving))
 		return 0
+	if(facing_dir != ndir)
+		facing_dir = null
 	set_dir(ndir)
 	if(buckled_to && buckled_to.buckle_movable)
 		buckled_to.set_dir(ndir)
 	if (client)//Fixing a ton of runtime errors that came from checking client vars on an NPC
-		client.move_delay += movement_delay()
+		setMoveCooldown(movement_delay())
 	return 1
 
 

@@ -457,18 +457,6 @@
 	)
 	return _prg_list
 
-/datum/modular_computer_app_presets/civilian/clown
-	name = "clown"
-	display_name = "Clown"
-	description = "Contains programs for HONK!!!"
-	available = TRUE
-
-/datum/modular_computer_app_presets/civilian/mime
-	name = "mime"
-	display_name = "Mime"
-	description = "Contains programs for janitorial service."
-	available = TRUE
-
 /datum/modular_computer_app_presets/supply
 	name = "supply"
 	display_name = "Supply"
