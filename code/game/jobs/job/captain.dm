@@ -140,9 +140,9 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	selection_color = "#2b5bb5"
 	minimal_player_age = 20
 	economic_modifier = 10
-	ideal_character_age = 45
+	ideal_character_age = 30
 
-	minimum_character_age = 30
+	minimum_character_age = 25
 
 	outfit = /datum/outfit/job/bridge_crew
 
