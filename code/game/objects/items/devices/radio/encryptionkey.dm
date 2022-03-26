@@ -48,6 +48,10 @@
 	origin_tech = list(TECH_BLUESPACE = 3)
 	syndie = TRUE
 
+/obj/item/device/encryptionkey/ship
+	icon_state = "cypherkey"
+	additional_channels = list(CHANNEL_SHIP = TRUE)
+
 /obj/item/device/encryptionkey/binary
 	icon_state = "cypherkey"
 	translate_binary = TRUE

@@ -607,6 +607,30 @@
 	item_state = "trinary_shouldercape"
 	overlay_state = "trinary_shouldercape"
 
+/obj/item/clothing/accessory/poncho/assunzione
+	name = "assunzione robe"
+	desc = "A simple purple robe commonly worn by adherents to Luceism, the predominant religion on Assunzione."
+	icon = 'icons/clothing/suits/capes/assunzione_robe.dmi'
+	icon_override = null
+	icon_state = "assunzione_robe"
+	item_state = "assunzione_robe"
+	overlay_state = "assunzione_robe"
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/poncho/assunzione/vine
+	desc = "A simple purple robe commonly worn by adherents to Luceism, the predominant religion on Assunzione. This one features a lux vine \
+	inlay that allows the symbol of the Luceian Square to be faintly seen, even in darkness."
+	icon_state = "assunzione_robe_vine"
+	item_state = "assunzione_robe_vine"
+	overlay_state = "assunzione_robe_vine"
+
+/obj/item/clothing/accessory/poncho/assunzione/gold
+	desc = "A simple purple robe commonly worn by adherents to Luceism, the predominant religion on Assunzione. The Luceian Square, Luceism's \
+	holy symbol is present on the back in gold fabric."
+	icon_state = "assunzione_robe_gold"
+	item_state = "assunzione_robe_gold"
+	overlay_state = "assunzione_robe_gold"
+
 //tau ceti legion ribbons
 /obj/item/clothing/accessory/legion
 	name = "seniority ribbons"

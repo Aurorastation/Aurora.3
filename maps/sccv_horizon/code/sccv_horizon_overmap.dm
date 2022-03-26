@@ -7,13 +7,13 @@
 	base = TRUE
 
 	initial_restricted_waypoints = list(
-		"Intrepid" = list("nav_hangar_mining"), 	//can't have random shuttles popping inside the ship
-		"Mining Shuttle" = list("nav_hangar_intrepid")
+		"Mining Shuttle" = list("nav_hangar_mining"), 	//can't have random shuttles popping inside the ship
+		"Intrepid" = list("nav_hangar_intrepid")
 	)
 
 	initial_generic_waypoints = list(
-	"nav_hangar_mining",
-	"nav_hangar_intrepid"
+	"nav_hangar_horizon_1",
+	"nav_hangar_horizon_2"
 	)
 
 
@@ -46,3 +46,15 @@
 	name = "mining shuttle control console"
 	shuttle_tag = "Mining Shuttle"
 	req_access = list(access_mining)
+
+/obj/effect/shuttle_landmark/horizon/nav1
+	name = "SCCV Horizon Navpoint #1"
+	landmark_tag = "nav_hangar_horizon_1"
+	base_turf = /turf/simulated/floor/plating
+	base_area = /area/hangar/auxiliary
+
+/obj/effect/shuttle_landmark/horizon/nav2
+	name = "SCCV Horizon Navpoint #2"
+	landmark_tag = "nav_hangar_horizon_2"
+	base_turf = /turf/simulated/floor/plating
+	base_area = /area/hangar/auxiliary

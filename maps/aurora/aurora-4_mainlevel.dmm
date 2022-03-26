@@ -18867,7 +18867,7 @@
 /turf/simulated/floor/plating,
 /area/teleporter)
 "aGS" = (
-/obj/machinery/teleport/station,
+/obj/item/modular_computer/console/preset/command/teleporter,
 /turf/simulated/floor/plating,
 /area/teleporter)
 "aGT" = (

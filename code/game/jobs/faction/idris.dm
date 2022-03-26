@@ -50,7 +50,6 @@
 		"Gardener" = /datum/outfit/job/hydro/idris,
 		"Janitor" = /datum/outfit/job/janitor/idris,
 		"Librarian" = /datum/outfit/job/librarian/idris,
-		"Service Manager" = /datum/outfit/job/service_manager/idris,
 		"Corporate Liaison" = /datum/outfit/job/representative/idris
 	)
 
@@ -120,12 +119,6 @@
 
 	uniform = /obj/item/clothing/under/librarian/idris
 	id = /obj/item/card/id/idris
-
-/datum/outfit/job/service_manager/idris
-	name = "Service Manager - Idris"
-	jobtype = /datum/job/service_manager
-
-	uniform = /obj/item/clothing/under/rank/service_manager/idris
 
 /datum/outfit/job/representative/idris
 	name = "Idris Corporate Liaison"

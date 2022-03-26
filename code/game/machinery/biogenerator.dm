@@ -38,7 +38,7 @@
 	var/emag = FALSE
 
 /decl/biorecipe/food
-	name = "Bio Meat"
+	name = "Meat Substitute"
 	class = BIOGEN_FOOD
 	object = /obj/item/reagent_containers/food/snacks/meat/biogenerated
 	cost = 50
@@ -46,6 +46,10 @@
 /decl/biorecipe/food/fishfillet
 	name = "Fish Fillet"
 	object = /obj/item/reagent_containers/food/snacks/fish/fishfillet
+
+/decl/biorecipe/food/syntiflesh
+	name = "Synthetic Meat"
+	object = /obj/item/reagent_containers/food/snacks/meat/syntiflesh
 
 /decl/biorecipe/food/soywafers
 	name = "Soy Wafers"

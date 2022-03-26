@@ -52,8 +52,8 @@
 	reagents_to_add = list(/decl/reagent/nutriment/protein = 6, /decl/reagent/nutriment/triglyceride = 4)
 
 /obj/item/reagent_containers/food/snacks/meat/biogenerated
-	name = "bio meat"
-	desc = "Did this come from the Biogenerator, or is it a biohazard? Perhaps it is both."
+	name = "meat substitute"
+	desc = "A slab of extruded plant bits that pretends to be meat."
 	icon_state = "plantmeat"
 	filling_color = "#A8AA00"
 	reagents_to_add = list(/decl/reagent/nutriment = 6)
@@ -99,4 +99,4 @@
 	name = "bat wings"
 	desc = "Like chicken wings, but with even less meat!"
 	icon_state = "batmeat"
-	reagents_to_add = list(/decl/reagent/nutriment/protein = 1) 
+	reagents_to_add = list(/decl/reagent/nutriment/protein = 1)

@@ -15,9 +15,11 @@
 		,/area/supply/dock
 		,/area/turbolift
 		,/area/mine
+		,/area/horizonexterior
 	)
 	ut_apc_exempt_areas = list(/area/construction
 		,/area/medical/genetics
+		,/area/horizonexterior
 	)
 	ut_atmos_exempt_areas = list(/area/maintenance
 		,/area/storage
@@ -33,4 +35,22 @@
 		,/area/bridge/selfdestruct
 		,/area/medical/cryo
 		,/area/medical/patient_c
+		,/area/turret_protected/ai
+		,/area/engineering/engine_monitoring/tesla
+		,/area/engineering/smes
+		,/area/horizonexterior
+		,/area/tcommsat/mainlvl_tcomms__relay
+		,/area/tcommsat/mainlvl_tcomms__relay/second
+		,/area/medical/surgery
+		,/area/rnd/isolation_a
+		,/area/rnd/isolation_b
+		,/area/rnd/isolation_c
 	)
+
+/datum/unit_test/zas_area_test
+	name = "ZAS: Operations Bay"
+	area_path = /area/operations/storage
+
+/datum/unit_test/zas_area_test/arrival_maint
+	name = "ZAS: Arrival Maintenance"
+	area_path = /area/maintenance/arrivals

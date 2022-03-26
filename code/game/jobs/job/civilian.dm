@@ -1,41 +1,3 @@
-/datum/job/service_manager
-	title = "Service Manager"
-	flag = SERVICE_MANAGER
-	departments = list(DEPARTMENT_CIVILIAN = JOBROLE_SUPERVISOR)
-	department_flag = ENGSEC
-	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
-	supervisors = "the executive officer"
-	selection_color = "#90524b"
-	economic_modifier = 5
-
-	minimum_character_age = 25
-
-	access = list(access_bar, access_janitor, access_construction, access_crematorium, access_kitchen, access_hydroponics,access_chapel_office, access_library, access_janitor, access_journalist)
-	minimal_access = list(access_bar, access_janitor, access_construction, access_crematorium, access_kitchen, access_hydroponics,access_chapel_office, access_library, access_janitor, access_journalist)
-
-	ideal_character_age = 40
-
-	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
-	outfit = /datum/outfit/job/service_manager
-
-/datum/outfit/job/service_manager
-	name = "Service Manager"
-	jobtype = /datum/job/service_manager
-
-	uniform = /obj/item/clothing/under/rank/service_manager/nt
-	head = /obj/item/clothing/head/service_manager/nt
-
-	tab_pda = /obj/item/modular_computer/handheld/pda/civilian
-	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
-	tablet = /obj/item/modular_computer/handheld/preset/civilian
-
-	headset = /obj/item/device/radio/headset/headset_service
-	bowman = /obj/item/device/radio/headset/headset_service/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/service
-	wrist_radio = /obj/item/device/radio/headset/wrist/service
-
 /datum/job/bartender
 	title = "Bartender"
 	flag = BARTENDER
@@ -44,7 +6,7 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the service manager"
+	supervisors = "the executive officer"
 	selection_color = "#90524b"
 
 	minimum_character_age = 18
@@ -82,7 +44,7 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the service manager"
+	supervisors = "the executive officer"
 	selection_color = "#90524b"
 
 	minimum_character_age = 18
@@ -122,7 +84,7 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the service manager"
+	supervisors = "the executive officer"
 	selection_color = "#90524b"
 
 	minimum_character_age = 18
@@ -173,7 +135,7 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the service manager"
+	supervisors = "the executive officer"
 	selection_color = "#90524b"
 	access = list(access_janitor, access_maint_tunnels, access_engine, access_research, access_sec_doors, access_medical)
 	minimal_access = list(access_janitor, access_engine, access_research, access_sec_doors, access_medical)
@@ -263,7 +225,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the service manager"
+	supervisors = "the executive officer"
 	selection_color = "#90524b"
 	access = list(access_library, access_maint_tunnels)
 	minimal_access = list(access_library)
@@ -319,7 +281,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the service manager"
+	supervisors = "the executive officer"
 	selection_color = "#90524b"
 	access = list(access_morgue, access_chapel_office, access_crematorium, access_maint_tunnels)
 	minimal_access = list(access_morgue, access_chapel_office, access_crematorium)

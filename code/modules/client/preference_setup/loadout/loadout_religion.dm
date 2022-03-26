@@ -70,6 +70,19 @@
 	cape["tribunalist surcoat"] = /obj/item/clothing/accessory/poncho/dominia/red/surcoat
 	gear_tweaks += new /datum/gear_tweak/path(cape)
 
+/datum/gear/religion/assunzione/robe
+	display_name = "assunzione robe selection"
+	description = "A selection of robes worn by adherents to Luceism."
+	path = /obj/item/clothing/accessory/poncho/assunzione
+
+/datum/gear/religion/assunzione/robe/New()
+	..()
+	var/list/assunzionerobe = list()
+	assunzionerobe["assunzione robe"] = /obj/item/clothing/accessory/poncho/assunzione
+	assunzionerobe["assunzione vine-inlaid robe"] = /obj/item/clothing/accessory/poncho/assunzione/vine
+	assunzionerobe["assunzione gold-inlaid robe"] = /obj/item/clothing/accessory/poncho/assunzione/gold
+	gear_tweaks += new /datum/gear_tweak/path(assunzionerobe)
+
 /datum/gear/religion/dominia/accessory
 	display_name = "tribunal necklace"
 	path = /obj/item/clothing/accessory/dominia

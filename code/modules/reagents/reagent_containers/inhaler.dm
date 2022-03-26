@@ -154,103 +154,114 @@
 /obj/item/reagent_containers/inhaler/dexalin
 	name_label = "dexalin"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains dexalin."
+	flags = 0
 
-	Initialize()
-		. =..()
-		reagents.add_reagent(/decl/reagent/dexalin, volume)
-		update_icon()
-		return
+/obj/item/reagent_containers/inhaler/dexalin/Initialize()
+	. =..()
+	reagents.add_reagent(/decl/reagent/dexalin, volume)
+	update_icon()
+	return
 
 /obj/item/reagent_containers/inhaler/peridaxon
 	name_label = "peridaxon"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains peridaxon."
+	flags = 0
 
-	Initialize()
-		. =..()
-		reagents.add_reagent(/decl/reagent/peridaxon, volume)
-		update_icon()
-		return
+/obj/item/reagent_containers/inhaler/peridaxon/Initialize()
+	. =..()
+	reagents.add_reagent(/decl/reagent/peridaxon, volume)
+	update_icon()
+	return
 
 /obj/item/reagent_containers/inhaler/hyperzine
 	name_label = "hyperzine"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains hyperzine."
+	flags = 0
 
-	Initialize()
-		. =..()
-		reagents.add_reagent(/decl/reagent/hyperzine, volume)
-		update_icon()
-		return
+/obj/item/reagent_containers/inhaler/hyperzine/Initialize()
+	. =..()
+	reagents.add_reagent(/decl/reagent/hyperzine, volume)
+	update_icon()
+	return
 
 /obj/item/reagent_containers/inhaler/phoron
 	name_label = "phoron"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains phoron."
+	flags = 0
 
-	Initialize()
-		. =..()
-		reagents.add_reagent(/decl/reagent/toxin/phoron, volume)
-		update_icon()
-		return
+/obj/item/reagent_containers/inhaler/phoron/Initialize()
+	. =..()
+	reagents.add_reagent(/decl/reagent/toxin/phoron, volume)
+	update_icon()
+	return
 
 /obj/item/reagent_containers/inhaler/phoron_special
 	name = "vaurca autoinhaler (phoron)"
 	desc = "A strange device that contains some sort of heavy-duty bag and mouthpiece combo."
 	icon_state = "anthaler1"
-	var/empty_state = "anthaler0"
+	flags = 0
 	volume = 10
-	Initialize()
-		. =..()
-		reagents.add_reagent(/decl/reagent/toxin/phoron, volume)
-		update_icon()
-		return
+	var/empty_state = "anthaler0"
+
+/obj/item/reagent_containers/inhaler/phoron_special/Initialize()
+	. =..()
+	reagents.add_reagent(/decl/reagent/toxin/phoron, volume)
+	update_icon()
+	return
 
 /obj/item/reagent_containers/inhaler/soporific
 	name_label = "soporific"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains soporific."
 	volume = 10
+	flags = 0
 
-	Initialize()
-		. =..()
-		reagents.add_reagent(/decl/reagent/soporific, volume)
-		update_icon()
-		return
+/obj/item/reagent_containers/inhaler/soporific/Initialize()
+	. =..()
+	reagents.add_reagent(/decl/reagent/soporific, volume)
+	update_icon()
+	return
 
 /obj/item/reagent_containers/inhaler/space_drugs
 	name_label = "space drugs"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains space drugs."
+	flags = 0
 
-	Initialize()
-		. =..()
-		reagents.add_reagent(/decl/reagent/space_drugs, volume)
-		update_icon()
-		return
+/obj/item/reagent_containers/inhaler/space_drugs/Initialize()
+	. =..()
+	reagents.add_reagent(/decl/reagent/space_drugs, volume)
+	update_icon()
+	return
 
 /obj/item/reagent_containers/inhaler/ammonia
 	name_label = "ammonia"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains ammonia."
+	flags = 0
 
-	Initialize()
-		. =..()
-		reagents.add_reagent(/decl/reagent/ammonia, volume)
-		update_icon()
-		return
+/obj/item/reagent_containers/inhaler/ammonia/Initialize()
+	. =..()
+	reagents.add_reagent(/decl/reagent/ammonia, volume)
+	update_icon()
+	return
 
 /obj/item/reagent_containers/inhaler/pulmodeiectionem
 	name_label = "pulmodeiectionem"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains pulmodeiectionem."
+	flags = 0
 
-	Initialize()
-		. =..()
-		reagents.add_reagent(/decl/reagent/pulmodeiectionem, volume)
-		update_icon()
-		return
+/obj/item/reagent_containers/inhaler/pulmodeiectionem/Initialize()
+	. =..()
+	reagents.add_reagent(/decl/reagent/pulmodeiectionem, volume)
+	update_icon()
+	return
 
 /obj/item/reagent_containers/inhaler/pneumalin
 	name_label = "pneumalin"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains pneumalin."
 	volume = 10
+	flags = 0
 
-	Initialize()
-		. =..()
-		reagents.add_reagent(/decl/reagent/pneumalin, volume)
-		update_icon()
-		return
+/obj/item/reagent_containers/inhaler/pneumalin/Initialize()
+	. =..()
+	reagents.add_reagent(/decl/reagent/pneumalin, volume)
+	update_icon()
+	return

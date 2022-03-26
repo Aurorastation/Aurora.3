@@ -160,8 +160,6 @@
 					if(!silent)
 						to_chat(src, SPAN_WARNING("You need a tighter hold on \the [M]!"))
 					return FALSE
-		else
-			return FALSE
 
 	. = stomach.get_devour_time(victim) || ..()
 
@@ -251,7 +249,7 @@
 
 			if (!istype(l_ear, /obj/item/clothing/ears/earmuffs) && !istype(r_ear, /obj/item/clothing/ears/earmuffs))
 				adjustEarDamage(30, 120)
-				
+
 			if (prob(70))
 				Paralyse(10)
 
@@ -1768,6 +1766,11 @@
 	if (doClickAction)
 		..()
 
+/mob/living/carbon/human/AltClick(mob/user)
+	. = ..()
+	if(hasHUD(user, MED_HUDTYPE))
+		Topic(src, list("triagetag"=1))
+
 /mob/living/carbon/human/verb/toggle_underwear()
 	set name = "Toggle Underwear"
 	set desc = "Shows/hides selected parts of your underwear."
@@ -2018,7 +2021,7 @@
 	var/obj/item/organ/internal/augment/synthetic_cords/voice/aug = internal_organs_by_name[BP_AUG_ACC_CORDS] //checks for augments, thanks grey
 	if(aug)
 		used_accent = aug.accent
-	
+
 	for(var/obj/item/gear in list(wear_mask,wear_suit,head)) //checks for voice changers masks now
 		if(gear)
 			var/obj/item/voice_changer/changer = locate() in gear
@@ -2110,7 +2113,7 @@
 // Intensity 1: mild, 2: hurts, 3: very painful, 4: extremely painful, 5: that's going to leave some damage
 // Sensitive_only: If yes, only those with sensitive hearing are affected
 // Listening_pain: Increases the intensity by the listed amount if the person is listening in
-/mob/living/carbon/human/proc/earpain(var/intensity, var/sensitive_only = FALSE, var/listening_pain = 0) 
+/mob/living/carbon/human/proc/earpain(var/intensity, var/sensitive_only = FALSE, var/listening_pain = 0)
 	if (ear_deaf)
 		return
 	if (sensitive_only && !get_hearing_sensitivity())
@@ -2119,7 +2122,7 @@
 		intensity += listening_pain
 	else if (sensitive_only)
 		return
-	
+
 	var/obj/item/organ/external/E = organs_by_name[BP_HEAD]
 	switch (intensity)
 		if (1)
@@ -2136,3 +2139,51 @@
 			custom_pain("YOUR EARS ARE DEAFENED BY THE PAIN!", 110, TRUE, E, FALSE)
 			adjustEarDamage(5, 5, FALSE)
 			stop_listening()
+
+/mob/living/carbon/human/verb/lookup()
+	set name = "Look Up"
+	set desc = "If you want to know what's above."
+	set category = "IC"
+
+
+	if(client && !is_physically_disabled())
+		if(z_eye)
+			reset_view(null)
+			QDEL_NULL(z_eye)
+			return
+		var/turf/above = GetAbove(src)
+		if(TURF_IS_MIMICING(above))
+			z_eye = new /atom/movable/z_observer/z_up(src, src)
+			visible_message(SPAN_NOTICE("[src] looks up."), SPAN_NOTICE("You look up."))
+			reset_view(z_eye)
+			return
+		to_chat(src, "<span class='notice'>You can see \the [above ? above : "ceiling"].</span>")
+	else
+		to_chat(src, "<span class='notice'>You can't look up right now.</span>")
+
+/mob/living/verb/lookdown()
+	set name = "Look Down"
+	set desc = "If you want to know what's below."
+	set category = "IC"
+
+	if(client && !is_physically_disabled())
+		if(z_eye)
+			reset_view(null)
+			QDEL_NULL(z_eye)
+			return
+		var/turf/T = get_turf(src)
+		if(TURF_IS_MIMICING(T) && HasBelow(T.z))
+			z_eye = new /atom/movable/z_observer/z_down(src, src)
+			visible_message(SPAN_NOTICE("[src] looks below."), SPAN_NOTICE("You look below."))
+			reset_view(z_eye)
+			return
+		else
+			T = get_step(T, dir)
+			if(TURF_IS_MIMICING(T) && HasBelow(T.z))
+				z_eye = new /atom/movable/z_observer/z_down(src, src, TRUE)
+				visible_message(SPAN_NOTICE("[src] leans over to look below."), SPAN_NOTICE("You lean over to look below."))
+				reset_view(z_eye)
+				return
+		to_chat(src, "<span class='notice'>You can see \the [T ? T : "floor"].</span>")
+	else
+		to_chat(src, "<span class='notice'>You can't look below right now.</span>")

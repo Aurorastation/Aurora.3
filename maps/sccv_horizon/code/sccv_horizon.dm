@@ -37,6 +37,8 @@
 	overmap_event_areas = 15
 	planet_size = list(255,255)
 
+	away_site_budget = 3
+
 	station_networks = list(
 		NETWORK_COMMAND,
 		NETWORK_ENGINE,
@@ -55,16 +57,16 @@
 		NETWORK_INTREPID
 	)
 
-	shuttle_docked_message = "Attention all hands: Jump preparation complete. The bluespace drive is now spooling up, secure all stations for departure. Time to jump: approximately %ETA%."
-	shuttle_leaving_dock = "Attention all hands: Jump initiated, exiting bluespace in %ETA%."
-	shuttle_called_message = "Attention all hands: Jump sequence initiated. Transit procedures are now in effect. Jump in %ETA%."
-	shuttle_recall_message = "Attention all hands: Jump sequence aborted, return to normal operating conditions."
-	emergency_shuttle_docked_message = "The emergency evacuation has started. You have approximately %ETA% minutes to board the emergency pods."
-	emergency_shuttle_leaving_dock = "The emergency evacuatioon has been completed."
-	emergency_shuttle_recall_message = "The emergency evacuation has been canceled."
-	emergency_shuttle_called_message = "An emergency evacuation has been called. It will start in approximately %ETA%."
+	shuttle_docked_message = "Attention all hands: Bluespace jump preparation complete. The bluespace drive is now spooling up, secure all stations for departure. Time to jump: approximately %ETA%."
+	shuttle_leaving_dock = "Attention all hands: Bluespace jump initiated, exiting bluespace in %ETA%."
+	shuttle_called_message = "Attention all hands: Bluespace jump sequence initiated. Transit procedures are now in effect. Jump in %ETA%."
+	shuttle_recall_message = "Attention all hands: Bluespace jump sequence aborted, return to normal operating conditions."
+	emergency_shuttle_docked_message = "Attention all hands: the emergency evacuation has started. You have approximately %ETA% minutes to board the emergency pods."
+	emergency_shuttle_leaving_dock = "Attention all hands: the emergency evacuation has been completed."
+	emergency_shuttle_recall_message = "Attention all hands: the emergency evacuation has been canceled."
+	emergency_shuttle_called_message = "Attention all hands: an emergency evacuation has been called. It will start in approximately %ETA%."
 
-	meteors_detected_message = "A meteor storm has been detected on collision course with the ship. Estimated three minutes until impact, please activate station shields, and seek shelter in the central areas."
+	meteors_detected_message = "A meteor storm has been detected on collision course with the ship. Estimated three minutes until impact, please activate the shielding fields and seek shelter in the central areas."
 	meteor_contact_message = "Contact with meteor wave imminent, all hands brace for impact."
 	meteor_end_message = "The ship has cleared the meteor shower, please return to your stations."
 
@@ -104,7 +106,9 @@
 		/datum/shuttle/autodock/overmap/intrepid,
 		/datum/shuttle/autodock/overmap/mining,
 		/datum/shuttle/autodock/ferry/merchant_aurora,
-		/datum/shuttle/autodock/ferry/autoreturn/ccia
+		/datum/shuttle/autodock/ferry/autoreturn/ccia,
+		/datum/shuttle/autodock/overmap/orion_express_shuttle,
+		/datum/shuttle/autodock/overmap/orion_express_ship
 	)
 
 	evac_controller_type = /datum/evacuation_controller/starship
