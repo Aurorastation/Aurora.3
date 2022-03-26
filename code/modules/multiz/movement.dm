@@ -94,7 +94,7 @@
 		var/turf/T = GetAbove(src)
 		var/area/A = get_area(src)
 		if (locate(/obj/structure/lattice, T) || locate(/obj/structure/ladder, T))
-			if (A.has_gravity() && !CanAvoidGravity()) 
+			if (A.has_gravity() && !CanAvoidGravity() && direction == DOWN) 
 				if (!species.natural_climbing && (prob(8 * species.climb_coeff)))
 					T.visible_message(SPAN_WARNING("\The [src] slips while trying to descend!"))
 					to_chat(src, SPAN_DANGER("You slip while trying to descend!"))
