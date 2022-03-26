@@ -93,6 +93,7 @@
 	minimal_access = list(access_hydroponics)
 	outfit = /datum/outfit/job/hydro
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
+	alt_titles = list("Hydroponicist")
 
 /datum/outfit/job/hydro
 	name = "Gardener"

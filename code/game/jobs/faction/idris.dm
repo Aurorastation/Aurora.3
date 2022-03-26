@@ -48,6 +48,7 @@
 		"Bartender" = /datum/outfit/job/bartender/idris,
 		"Chef" = /datum/outfit/job/chef/idris,
 		"Gardener" = /datum/outfit/job/hydro/idris,
+		"Hydroponicist" = /datum/outfit/job/hydro/idris,
 		"Janitor" = /datum/outfit/job/janitor/idris,
 		"Librarian" = /datum/outfit/job/librarian/idris,
 		"Corporate Liaison" = /datum/outfit/job/representative/idris
