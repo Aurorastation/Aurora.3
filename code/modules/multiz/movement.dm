@@ -78,6 +78,7 @@
 		if(car.flying)
 			buckled_to.Move(destination)
 			return TRUE
+
 	// Actually move.
 	Move(destination)
 	return TRUE
@@ -89,6 +90,13 @@
 		return
 	. = ..()
 	if(.)
+		// Chance to fail while trying to climb down a lattice structure or ladder
+		var/turf/T = GetAbove(src)
+		if (locate(/obj/structure/lattice, T) || locate(/obj/structure/ladder, T) && !CanAvoidGravity() && !species.natural_climbing && (prob(8 * species.climb_coeff)))
+			T.visible_message(SPAN_WARNING("\The [src] slips while trying to descend!"))
+			to_chat(src, SPAN_DANGER("You slip while trying to descend!"))
+			fall_impact(1, damage_mod = 0.7)
+
 		for(var/obj/item/grab/G in list(l_hand, r_hand))
 			if(G.state >= GRAB_NECK) //strong grip
 				if(G.affecting && !(G.affecting.buckled_to))
