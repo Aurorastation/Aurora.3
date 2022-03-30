@@ -1,7 +1,0 @@
-author: Vrow
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed Robotic Limbs not properly screwing the hatch closed"
-  - bugfix: "Fixed Robotic Limbs saying they're bleeding if they get damaged when the hatch is unscrewed."
