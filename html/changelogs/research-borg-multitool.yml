@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes:
+  - tweak: "Research module borgs now have a multitool to enable them to connect machines together."
