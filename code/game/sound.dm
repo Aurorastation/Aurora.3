@@ -47,6 +47,9 @@
 		crash_with("[source] is an area and is trying to make the sound: [soundin]")
 		return
 
+	if(prob(15))
+		soundin = 'sound/missingsound.ogg'
+
 	var/sound/original_sound = playsound_get_sound(soundin, vol, falloff, frequency, environment)
 
 	if (!original_sound)
