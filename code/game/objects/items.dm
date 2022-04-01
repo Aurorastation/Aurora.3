@@ -895,7 +895,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 				return
 
 		else
-			if(!do_after(user, delay, target=target, extra_checks = tool_check))
+			if(!do_after(user, delay, target, extra_checks = tool_check))
 				return
 	else
 		// Invoke the extra checks once, just in case.
