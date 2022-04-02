@@ -59,6 +59,7 @@
 	uniform = /obj/item/clothing/under/rank/chef/idris
 	suit = /obj/item/clothing/suit/chef/idris
 	head = /obj/item/clothing/head/chefhat/idris
+	shoes = /obj/item/clothing/shoes/brown
 	back = /obj/item/storage/backpack/satchel
 
 	id = /obj/item/card/id/away_site

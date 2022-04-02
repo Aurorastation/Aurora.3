@@ -80,7 +80,7 @@
 "ani" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/closet/secure_closet/freezer/kitchen{
-	req_access = list(201)
+	req_access = list(202)
 	},
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/flour,
@@ -145,24 +145,12 @@
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/airlock/freezer{
 	name = "Kitchen Freezer";
-	req_access = list(201)
+	req_access = list(202)
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/space_bar)
-"aAG" = (
-/obj/structure/bed/stool/bar/padded/red,
-/obj/effect/floor_decal/spline/fancy/wood,
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
-	},
-/obj/effect/ghostspawpoint{
-	identifier = "space_bar_patron";
-	name = "igs - space_bar_patron"
-	},
-/turf/simulated/floor/carpet/rubber,
 /area/space_bar)
 "aDe" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -175,6 +163,10 @@
 	name = "cold storage tiles";
 	temperature = 278
 	},
+/area/space_bar)
+"aDG" = (
+/obj/structure/closet/crate/trashcart,
+/turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
 "aEq" = (
 /obj/machinery/gibber,
@@ -198,7 +190,7 @@
 "aHq" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Telecomms";
-	req_access = list(201)
+	req_access = list(202)
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor,
@@ -428,13 +420,9 @@
 "eIb" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Staff Room";
-	req_access = list(201)
+	req_access = list(202)
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
-"eJb" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/white,
 /area/space_bar)
 "eTH" = (
 /obj/structure/table/stone/marble,
@@ -479,6 +467,14 @@
 "frn" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/plating,
+/area/space_bar)
+"fGz" = (
+/obj/structure/bed/stool/bar/padded/red,
+/obj/effect/ghostspawpoint{
+	identifier = "space_bar_chef";
+	name = "igs - space_bar_chef"
+	},
+/turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
 "fSX" = (
 /obj/structure/toilet,
@@ -543,10 +539,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/wood,
-/area/space_bar)
-"gFt" = (
-/obj/effect/overmap/visitable/sector/space_bar,
-/turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
 "gHC" = (
 /obj/machinery/smartfridge/drinks{
@@ -623,14 +615,6 @@
 "hBd" = (
 /turf/simulated/floor/tiled/steel,
 /area/space_bar)
-"hEw" = (
-/obj/structure/bed/stool/bar/padded/red,
-/obj/effect/ghostspawpoint{
-	identifier = "space_bar_chef";
-	name = "igs - space_bar_chef"
-	},
-/turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
 "hFr" = (
 /obj/machinery/light{
 	dir = 8;
@@ -672,11 +656,6 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/holofloor/carpet,
 /area/space_bar)
-"hWe" = (
-/obj/effect/floor_decal/spline/fancy/wood,
-/obj/structure/bed/stool/bar/padded/red,
-/turf/simulated/floor/carpet/rubber,
-/area/space_bar)
 "hZq" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/bar_alc/full{
@@ -687,7 +666,7 @@
 "irX" = (
 /obj/machinery/vending/boozeomat{
 	opacity = 1;
-	req_access = list(201)
+	req_access = list(202)
 	},
 /turf/simulated/floor/lino/grey,
 /area/space_bar)
@@ -721,6 +700,9 @@
 	dir = 8
 	},
 /turf/simulated/floor/carpet,
+/area/space_bar)
+"iXO" = (
+/turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
 "iZD" = (
 /obj/effect/floor_decal/corner_wide/beige{
@@ -859,6 +841,10 @@
 /obj/structure/bed/stool/bar/padded/red,
 /turf/simulated/floor/carpet/rubber,
 /area/space_bar)
+"ndF" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space_bar)
 "nkV" = (
 /obj/structure/bed/stool/chair/sofa/red{
 	dir = 4
@@ -911,6 +897,18 @@
 	},
 /turf/simulated/floor/wood,
 /area/space_bar)
+"oZv" = (
+/obj/structure/bed/stool/bar/padded/red,
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "space_bar_patron";
+	name = "igs - space_bar_patron"
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/space_bar)
 "piw" = (
 /turf/simulated/floor/tiled/freezer,
 /area/space_bar)
@@ -919,10 +917,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
-/area/space_bar)
-"plR" = (
-/obj/structure/closet/crate/trashcart,
-/turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
 "pre" = (
 /obj/structure/flora/pottedplant/random,
@@ -972,6 +966,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/steel,
 /area/space_bar)
+"quQ" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/structure/bed/stool/bar/padded/red,
+/turf/simulated/floor/carpet/rubber,
+/area/space_bar)
 "qHu" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -996,7 +995,7 @@
 "rtf" = (
 /obj/machinery/door/window{
 	name = "Bar";
-	req_access = list(201)
+	req_access = list(202)
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/lino/grey,
@@ -1097,14 +1096,15 @@
 	},
 /turf/simulated/floor/wood,
 /area/space_bar)
+"tIy" = (
+/obj/effect/overmap/visitable/sector/space_bar,
+/turf/simulated/floor/holofloor/tiled,
+/area/space_bar)
 "tQq" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
-"tYK" = (
-/turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
 "uaE" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -1197,6 +1197,12 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
+"vWJ" = (
+/obj/item/mop,
+/obj/structure/mopbucket,
+/obj/item/reagent_containers/glass/bucket,
+/turf/simulated/floor/holofloor/tiled,
+/area/space_bar)
 "wfU" = (
 /obj/machinery/computer/slot_machine,
 /turf/simulated/floor/wood,
@@ -1216,15 +1222,10 @@
 /obj/machinery/vending/engivend,
 /turf/simulated/floor/tiled/steel,
 /area/space_bar)
-"wJG" = (
-/obj/item/mop,
-/obj/structure/mopbucket,
-/obj/item/reagent_containers/glass/bucket,
-/turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
 "wLs" = (
 /obj/structure/sign/double/barsign{
-	pixel_y = 32
+	pixel_y = 32;
+	req_access = list(202)
 	},
 /turf/simulated/floor/wood,
 /area/space_bar)
@@ -30534,20 +30535,20 @@ piw
 wNK
 ygr
 xSo
-tYK
-tYK
-tYK
-tYK
-tYK
-tYK
-tYK
-tYK
-tYK
-tYK
-tYK
-tYK
-tYK
-tYK
+iXO
+iXO
+iXO
+iXO
+iXO
+iXO
+iXO
+iXO
+iXO
+iXO
+iXO
+iXO
+iXO
+iXO
 ohm
 hBd
 aVe
@@ -30790,9 +30791,9 @@ piw
 piw
 piw
 lkB
-tYK
-tYK
-tYK
+iXO
+iXO
+iXO
 frf
 sth
 sth
@@ -31048,8 +31049,8 @@ piw
 wNK
 ygr
 iZD
-tYK
-tYK
+iXO
+iXO
 vJz
 ygr
 frn
@@ -31305,8 +31306,8 @@ vxN
 vxN
 ygr
 fat
-tYK
-tYK
+iXO
+iXO
 sqL
 ygr
 xRX
@@ -31562,8 +31563,8 @@ ygr
 ygr
 ygr
 gTv
-tYK
-tYK
+iXO
+iXO
 jaL
 frn
 xRX
@@ -31819,8 +31820,8 @@ vCD
 vth
 vth
 nGj
-tYK
-tYK
+iXO
+iXO
 aOJ
 frn
 xRX
@@ -32073,11 +32074,11 @@ xRX
 xRX
 frn
 vLp
-tYK
-tYK
-tYK
-tYK
-tYK
+iXO
+iXO
+iXO
+iXO
+iXO
 dkB
 frn
 xRX
@@ -32332,7 +32333,7 @@ frn
 wji
 sth
 jyw
-tYK
+iXO
 sth
 sth
 ixi
@@ -32836,8 +32837,8 @@ ygr
 aaP
 atj
 ygr
-wJG
-plR
+vWJ
+aDG
 ygr
 gbX
 lvc
@@ -33093,8 +33094,8 @@ ygr
 ajL
 ajL
 aHq
-tYK
-tYK
+iXO
+iXO
 eIb
 gfL
 gfL
@@ -33350,7 +33351,7 @@ ygr
 ygr
 ygr
 ygr
-tYK
+iXO
 ble
 ygr
 gxE
@@ -33605,9 +33606,9 @@ xRX
 xRX
 ygr
 alZ
-tYK
-tYK
-tYK
+iXO
+iXO
+iXO
 bGI
 ygr
 gxW
@@ -33861,10 +33862,10 @@ xRX
 xRX
 xRX
 ygr
-hEw
-tYK
-gFt
-tYK
+fGz
+iXO
+tIy
+iXO
 bVS
 ygr
 gHC
@@ -34119,9 +34120,9 @@ xRX
 xRX
 ygr
 ams
-tYK
-tYK
-tYK
+iXO
+iXO
+iXO
 ccm
 ygr
 hdb
@@ -34633,16 +34634,16 @@ xRX
 xRX
 ygr
 amt
-eJb
+ndF
 aHs
-eJb
-eJb
+ndF
+ndF
 ygr
 huE
 gfL
 gfL
 sBA
-aAG
+oZv
 xQS
 jMP
 hON
@@ -34890,9 +34891,9 @@ xRX
 xRX
 ygr
 amE
-eJb
-eJb
-eJb
+ndF
+ndF
+ndF
 ctQ
 ygr
 hME
@@ -35147,9 +35148,9 @@ xRX
 xRX
 ygr
 ani
-eJb
+ndF
 aHt
-eJb
+ndF
 cuQ
 ygr
 hZq
@@ -35404,9 +35405,9 @@ xRX
 xRX
 ygr
 aou
-eJb
+ndF
 aHv
-eJb
+ndF
 cLC
 ygr
 irX
@@ -35661,10 +35662,10 @@ xRX
 xRX
 ygr
 aow
-eJb
+ndF
 aHw
-eJb
-eJb
+ndF
+ndF
 eTH
 gfL
 gfL
@@ -35918,9 +35919,9 @@ xRX
 xRX
 ygr
 ari
-eJb
+ndF
 aIw
-eJb
+ndF
 euz
 ygr
 gfL
@@ -36175,9 +36176,9 @@ xRX
 xRX
 ygr
 arm
-eJb
+ndF
 aJd
-eJb
+ndF
 eCV
 ygr
 iSh
@@ -36431,11 +36432,11 @@ xRX
 xRX
 xRX
 ygr
-eJb
-eJb
-eJb
-eJb
-eJb
+ndF
+ndF
+ndF
+ndF
+ndF
 ygr
 jmo
 mhC
@@ -36691,8 +36692,8 @@ ygr
 ygr
 awG
 ygr
-eJb
-eJb
+ndF
+ndF
 ygr
 jnP
 jMP
@@ -36948,8 +36949,8 @@ aaI
 arY
 arY
 ygr
-eJb
-eJb
+ndF
+ndF
 fgm
 jMP
 jMP
@@ -37205,8 +37206,8 @@ aaJ
 arY
 aDe
 ygr
-eJb
-eJb
+ndF
+ndF
 fnY
 jMP
 jMP
@@ -38753,7 +38754,7 @@ frn
 kLy
 nVi
 ntt
-hWe
+quQ
 xQS
 jMP
 jMP
