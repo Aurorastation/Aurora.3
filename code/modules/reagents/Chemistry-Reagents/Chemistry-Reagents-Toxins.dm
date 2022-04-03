@@ -9,6 +9,7 @@
 	taste_description = "bitterness"
 	taste_mult = 1.2
 	fallback_specific_heat = 0.75
+	overdose = 10
 
 	var/target_organ // needs to be null by default
 	var/strength = 2 // How much damage it deals per unit
@@ -36,6 +37,7 @@
 					C.take_damage(removed * 2)
 		if(dam)
 			M.adjustToxLoss(target_organ ? (dam * 0.5) : dam)
+			M.add_chemical_effect(CE_TOXIN, removed * strength)
 
 /decl/reagent/toxin/plasticide
 	name = "Plasticide"
