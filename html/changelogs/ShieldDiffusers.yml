@@ -1,0 +1,8 @@
+author: TheGreyWolf, mikomyazaki
+
+delete-after: True
+
+changes:
+  - rscadd: "Added shield diffusers. They prevent shielding on adjacent turfs, allowing e.g. the supermatter to be ejected while shielding is online."
+  - rscadd: "The bubble shield generator now has the option for multi-z shields."
+  - tweak: "Changed what kind of turfs hull shields make shields on. They should no longer make shields within the station/ship."
