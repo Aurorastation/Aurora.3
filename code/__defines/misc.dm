@@ -480,6 +480,13 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define COOK_CHECK_EXTRA	0
 #define COOK_CHECK_EXACT	1
 
+// Moved from tanks/tanks.dm
+#define TANK_MAX_RELEASE_PRESSURE 		(3*ONE_ATMOSPHERE)
+#define TANK_DEFAULT_RELEASE_PRESSURE 	24 // kPa
+#define TANK_IDEAL_PRESSURE 			1015 //Arbitrary.
+
+#define STATION_TAG "Aurora"
+
 //Planet habitability class
 #define HABITABILITY_IDEAL  1
 #define HABITABILITY_OKAY  2
@@ -491,9 +498,5 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define TEMPLATE_FLAG_CLEAR_CONTENTS   4 // if it should destroy objects it spawns on top of
 #define TEMPLATE_FLAG_NO_RUINS         8 // if it should forbid ruins from spawning on top of it
 
-
-#define LANDING_ZONE_RADIUS 15 // Used for autoplacing landmarks on exoplanets
-
 //Ruin map template flags
 #define TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED 32  // Ruin is not available during spawning unless another ruin permits it.
-

@@ -53,31 +53,41 @@
 	icon_state = "raskara_mask"
 	item_state = "raskara_mask"
 
-/obj/item/clothing/head/beret/tajaran/pra
-	name = "republican army beret"
-	desc = "A green beret issued to republican soldiers."
+/obj/item/clothing/head/beret/tajaran
 	icon = 'icons/obj/tajara_items.dmi'
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/beret/tajaran/pra
+	name = "hadiist army beret"
+	desc = "A green beret issued to hadiist soldiers."
 	icon_state = "praberet"
 	item_state = "praberet"
-	contained_sprite = TRUE
 
 /obj/item/clothing/head/beret/tajaran/dpra
 	name = "liberation army beret"
 	desc = "A beret issued to liberation army soldiers."
-	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "alaberet"
 	item_state = "alaberet"
-	contained_sprite = TRUE
 
 /obj/item/clothing/head/beret/tajaran/dpra/alt
 	icon_state = "alaberetalt"
 	item_state = "alaberetalt"
 
+/obj/item/clothing/head/beret/tajaran/nka
+	name = "new kingdom naval beret"
+	desc = "A formal black beret with a blue band. This is worn by NKA naval servicemen and crewmen such as the Imperial Marines."
+	icon_state = "navalberetblue"
+	item_state = "navalberetblue"
+
+/obj/item/clothing/head/beret/tajaran/nka/officer
+	name = "new kingdom naval officer beret"
+	desc = "A formal black beret with a golden band. This is worn by members of the NKA naval officer corps. These are prized in the New Kingdom thanks to the Navy's popularity."
+	icon_state = "navalberetofficer"
+	item_state = "navalberetofficer"
+
 /obj/item/clothing/head/beret/tajaran/raakti_shariim
 	name = "\improper Raakti Shariim beret"
 	desc = "A blue beret with a pale-gold twin-suns insignia, signifying a Constable of the NKA's Raakti Shariim."
-	icon = 'icons/obj/tajara_items.dmi'
-	contained_sprite = TRUE
 	icon_state = "raakti_shariim_beret"
 	item_state = "raakti_shariim_beret"
 	desc_fluff = "The Raakti Shariim (Royal Peacekeepers in Ceti Basic) are the New Kingdom of Adhomai's policing and \

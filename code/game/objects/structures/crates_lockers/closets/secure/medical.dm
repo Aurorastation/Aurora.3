@@ -119,7 +119,7 @@
 	new /obj/item/device/gps(src)
 	new /obj/item/reagent_containers/hypospray(src)
 	new /obj/item/taperoll/medical(src)
-	new /obj/item/device/radio(src)
+	new /obj/item/device/radio/med(src)
 	new /obj/item/roller(src)
 	new /obj/item/crowbar/red(src)
 	new /obj/item/clothing/mask/gas/alt(src)

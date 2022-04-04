@@ -1734,7 +1734,7 @@ Follow by example and make good judgement based on length which list to include 
 	icon = 'icons/mob/hair_gradients.dmi'
 	species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,
 		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,
-		/datum/species/skrell, /datum/species/skrell/axiori, /datum/species/zombie/skrell, /datum/species/bug, /datum/species/bug/type_b)
+		/datum/species/skrell, /datum/species/skrell/axiori, /datum/species/zombie/skrell, /datum/species/bug, /datum/species/bug/type_b, /datum/species/unathi,/datum/species/zombie/unathi)
 
 	none
 		name = "None"
@@ -2266,6 +2266,18 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "pachylump"
 			length = 0
 			chatname = "lump"
+
+		una_droopy
+			name = "Unathi Droopy Dorsal Frill"
+			icon_state = "unathi_droopydorsal"
+			length = 0
+			chatname = "droopy frill"
+
+		una_regal
+			name = "Unathi Regal Frills"
+			icon_state = "unathi_regalfrills"
+			length = 6
+			chatname = "massive frills"
 
 
 //skrell tentacles
@@ -3304,6 +3316,14 @@ Follow by example and make good judgement based on length which list to include 
 		una_pachyboss
 			name = "Unathi Pachy Boss"
 			icon_state = "pachylump"
+
+		una_droopy
+			name = "Unathi Droopy Dorsal Frill"
+			icon_state = "unathi_droopydorsal"
+
+		una_regal
+			name = "Unathi Regal Frills"
+			icon_state = "unathi_regalfrills"
 
 //ipc screens
 
