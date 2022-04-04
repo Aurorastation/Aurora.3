@@ -550,31 +550,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/hallway)
 "aoC" = (
-/obj/structure/closet/coffin,
-/obj/structure/closet/coffin,
-/obj/structure/closet/coffin,
-/obj/structure/closet/coffin,
-/obj/structure/closet/coffin,
-/obj/item/mass_driver_button{
-	id = "chapel_driver";
-	layer = 3.5;
-	pixel_x = 25;
-	pixel_y = 10
-	},
-/obj/machinery/button/remote/blast_door{
-	id = "massdriver";
-	layer = 3.2;
-	name = "Mass Driver Interior Blast Door";
-	pixel_x = 25;
-	pixel_y = 2
-	},
-/obj/machinery/button/remote/blast_door{
-	id = "massdriverexterior";
-	layer = 3.2;
-	name = "Mass Driver Exterior Blast Door";
-	pixel_x = 25;
-	pixel_y = -7
-	},
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/tiled,
 /area/chapel/office)
 "aoD" = (
@@ -863,8 +839,15 @@
 /turf/simulated/floor/carpet,
 /area/library)
 "axL" = (
-/obj/machinery/door/blast/regular{
-	id = "massdriver"
+/obj/machinery/mass_driver{
+	_wifi_id = "chapel_driver";
+	id = "chapel_driver"
+	},
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/obj/machinery/light/small/red{
+	dir = 4
 	},
 /turf/simulated/floor/reinforced,
 /area/chapel/office)
@@ -1060,8 +1043,8 @@
 /turf/simulated/wall,
 /area/storage/primary)
 "aCS" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/warning/cee,
+/turf/simulated/floor/reinforced,
 /area/chapel/office)
 "aCU" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1310,18 +1293,28 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "aMa" = (
-/obj/effect/floor_decal/industrial/warning/cee,
-/turf/simulated/floor/reinforced,
+/obj/machinery/door/airlock/maintenance{
+	name = "Chaplain Office's Maintenance";
+	req_one_access = list(22)
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
 /area/chapel/office)
 "aMd" = (
-/obj/effect/floor_decal/industrial/warning/cee{
-	dir = 1
-	},
-/obj/machinery/light/small/red{
-	dir = 1
-	},
-/turf/simulated/floor/reinforced,
-/area/chapel/office)
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/maintenance/hangar/port)
 "aMl" = (
 /obj/structure/punching_bag,
 /obj/effect/floor_decal/corner/brown{
@@ -1849,19 +1842,22 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "aYE" = (
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
-	icon_state = "1-2"
+	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/disposalpipe/segment,
-/obj/machinery/door/airlock/maintenance{
-	name = "Chaplain Office's Maintenance";
-	req_one_access = list(22)
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
 /turf/simulated/floor/plating,
-/area/chapel/office)
+/area/maintenance/hangar/port)
 "aYI" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/window/reinforced{
@@ -2477,6 +2473,10 @@
 	dir = 5
 	},
 /obj/machinery/firealarm/north,
+/obj/machinery/camera/network/service{
+	c_tag = "Service - Chaplain Office";
+	dir = 8
+	},
 /turf/simulated/floor/wood,
 /area/chapel/office)
 "bsQ" = (
@@ -9274,6 +9274,14 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
+"fRc" = (
+/obj/machinery/door/blast/regular{
+	_wifi_id = "chapel_driver";
+	id = "chapel_driver"
+	},
+/obj/machinery/shield_diffuser,
+/turf/simulated/floor/reinforced,
+/area/chapel/office)
 "fRg" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -11095,6 +11103,7 @@
 	dir = 1
 	},
 /obj/structure/table/rack,
+/obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
 "gUA" = (
@@ -19349,6 +19358,9 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /turf/simulated/open,
 /area/maintenance/hangar/port)
 "mgJ" = (
@@ -23494,25 +23506,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/cafeteria)
 "oKE" = (
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
-	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood,
 /area/chapel/office)
 "oKH" = (
@@ -24183,6 +24183,9 @@
 /turf/simulated/floor/reinforced,
 /area/engineering/storage/tech)
 "pgi" = (
+/obj/machinery/door/blast/regular{
+	id = "massdriver"
+	},
 /turf/simulated/floor/tiled,
 /area/chapel/office)
 "pgj" = (
@@ -25798,6 +25801,7 @@
 /area/rnd/xenobiology/xenoflora)
 "qeZ" = (
 /obj/structure/lattice,
+/obj/machinery/shield_diffuser,
 /turf/template_noop,
 /area/horizonexterior)
 "qfw" = (
@@ -32016,20 +32020,10 @@
 /turf/simulated/floor/tiled,
 /area/security/security_office)
 "tWF" = (
-/obj/machinery/mass_driver{
-	id = "chapel_driver"
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/structure/sign/vacuum{
-	pixel_x = 32
-	},
-/turf/simulated/floor/reinforced,
-/area/chapel/office)
+/obj/random/loot,
+/obj/structure/table/rack,
+/turf/simulated/floor/plating,
+/area/maintenance/hangar/port)
 "tWH" = (
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
@@ -33216,28 +33210,23 @@
 /turf/simulated/wall/r_wall,
 /area/engineering/engine_monitoring/tesla)
 "uEu" = (
-/obj/structure/cable/green{
-	icon_state = "2-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
-	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 8
 	},
-/obj/machinery/camera/network/service{
-	c_tag = "Service - Chaplain Office";
-	dir = 8
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/chapel/office)
@@ -35541,21 +35530,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/lobby)
 "vWX" = (
-/obj/structure/curtain/black,
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/chapel/office)
+/obj/random/junk,
+/turf/simulated/floor/plating,
+/area/maintenance/hangar/port)
 "vXe" = (
 /obj/structure/shuttle_part/scc_space_ship{
 	icon_state = "d3-3"
@@ -37120,6 +37097,13 @@
 /area/rnd/xenobiology)
 "wLp" = (
 /obj/structure/curtain/black,
+/obj/machinery/button/mass_driver{
+	_wifi_id = "chapel_driver";
+	id = "chapel_driver";
+	layer = 3.2;
+	pixel_x = 24;
+	pixel_y = -22
+	},
 /turf/simulated/floor/tiled,
 /area/chapel/office)
 "wLz" = (
@@ -38649,10 +38633,27 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "xIW" = (
-/obj/machinery/door/blast/regular{
-	id = "massdriverexterior"
+/obj/structure/curtain/black,
+/obj/structure/closet/coffin,
+/obj/structure/closet/coffin,
+/obj/structure/closet/coffin,
+/obj/structure/closet/coffin,
+/obj/structure/closet/coffin,
+/obj/machinery/button/remote/blast_door{
+	id = "massdriver";
+	layer = 3.2;
+	name = "Mass Driver Interior Blast Door";
+	pixel_x = 25;
+	pixel_y = 2
 	},
-/turf/simulated/floor/reinforced,
+/obj/machinery/button/remote/blast_door{
+	id = "chapel_driver";
+	layer = 3.2;
+	name = "Mass Driver Exterior Blast Door";
+	pixel_x = 25;
+	pixel_y = -7
+	},
+/turf/simulated/floor/tiled,
 /area/chapel/office)
 "xJx" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee{
@@ -38703,22 +38704,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/medical)
-"xLh" = (
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/tiled,
-/area/chapel/office)
 "xLE" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/door/window/brigdoor/southright{
@@ -55797,10 +55782,10 @@ pSP
 pSP
 fol
 fol
+aMa
 fol
-vWX
 wLp
-wLp
+xIW
 lCF
 hUK
 hUK
@@ -56000,7 +55985,7 @@ dit
 jNk
 cKc
 aYE
-xLh
+fol
 pgi
 aoC
 lCF
@@ -56201,11 +56186,11 @@ pSP
 oCz
 jNk
 lQn
+qOM
 fol
-aCS
 axL
 aCS
-lNQ
+fRc
 hUK
 hUK
 hUK
@@ -56403,11 +56388,11 @@ pSP
 pSP
 jNk
 toe
-fol
-aMd
 tWF
-aMa
-xIW
+fol
+fol
+fol
+lNQ
 hUK
 hUK
 hUK
@@ -56605,11 +56590,11 @@ hEi
 nfL
 jNk
 toe
-fol
-fol
-fol
-fol
-lNQ
+qOM
+vWX
+qOM
+qOM
+aMd
 qzH
 hUK
 hUK
@@ -56808,7 +56793,7 @@ jQg
 jNk
 hvL
 pGb
-oHI
+wmp
 mgI
 gUn
 eeQ

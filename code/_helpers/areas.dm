@@ -94,8 +94,8 @@
 /proc/is_not_space_area(var/area/A)
 	. = !istype(A,/area/space)
 
-/proc/is_not_shuttle_area(var/area/A)
-	. = !istype(A,/area/shuttle)
+/proc/is_shuttle_area(var/area/A)
+	. = istype(A,/area/shuttle)
 
 /proc/is_area_with_turf(var/area/A)
 	. = isnum(A.x)
