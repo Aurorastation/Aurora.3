@@ -367,6 +367,7 @@
 	new /obj/item/device/laser_pointer/blue(src)
 	new /obj/item/device/camera/detective(src)
 	new /obj/item/device/camera_film(src)
+	new /obj/item/stamp/investigations(src)
 	//Belts
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/clothing/accessory/storage/pouches/black(src)
