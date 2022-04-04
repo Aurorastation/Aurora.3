@@ -1103,6 +1103,7 @@
 "aZP" = (
 /obj/structure/table/steel,
 /obj/machinery/button/mass_driver{
+	_wifi_id = "waste";
 	id = "waste"
 	},
 /turf/simulated/floor/plating,
@@ -2501,6 +2502,10 @@
 	},
 /turf/space/dynamic,
 /area/template_noop)
+"cnE" = (
+/obj/machinery/shield_diffuser,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/maintenance/disposal)
 "cnV" = (
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -8653,6 +8658,7 @@
 /area/maintenance/research_port)
 "hEZ" = (
 /obj/machinery/mass_driver{
+	_wifi_id = "waste";
 	dir = 1;
 	id = "waste"
 	},
@@ -10503,7 +10509,7 @@
 "jsq" = (
 /obj/structure/table/steel,
 /obj/machinery/button/remote/blast_door{
-	id = "waste_blast"
+	id = "waste"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
@@ -22630,7 +22636,8 @@
 /area/rnd/xenoarch_atrium)
 "uza" = (
 /obj/machinery/door/blast/regular{
-	id = "waste_blast"
+	_wifi_id = "waste";
+	id = "waste"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
@@ -44728,7 +44735,7 @@ eSV
 eSV
 eSV
 eSV
-nEm
+cnE
 oma
 pTF
 fzU
