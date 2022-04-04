@@ -13,6 +13,8 @@
 	density = 0
 	var/strength = 0
 	var/ticks_recovering = 10
+	var/diffused_for = 0
+	var/diffused = FALSE
 
 	var/is_strong = FALSE // if strength goes is 1 or above, this is set to TRUE, this is to prevent flickering and animate being called constantly
 
@@ -25,6 +27,9 @@
 /obj/effect/energy_field/Destroy()
 	update_nearby_tiles()
 	return ..()
+
+/obj/effect/energy_field/proc/diffuse(var/duration)
+	diffused_for = max(duration, 0)
 
 /obj/effect/energy_field/attackby(obj/item/I, mob/user)
 	user.do_attack_animation(src, I)
@@ -56,19 +61,37 @@
 	//if we take too much damage, drop out - the generator will bring us back up if we have enough power
 	ticks_recovering = min(ticks_recovering + 2, 10)
 	if(strength < 1 && is_strong)
-		alpha = 255
-		density = FALSE
-		mouse_opacity = 0
-		animate(src, 2 SECONDS, alpha = 0)
+		density_check(FALSE)
 		is_strong = FALSE
 		ticks_recovering = 10
 		strength = 0
 	else if(strength >= 1 && !is_strong)
-		alpha = 0
-		mouse_opacity = 1
-		density = TRUE
-		animate(src, 2 SECONDS, alpha = 255)
+		density_check(TRUE)
 		is_strong = TRUE
+
+//
+/obj/effect/energy_field/proc/density_check(var/turn_on)
+	if(turn_on && !diffused)
+		alpha = 0
+		density = TRUE
+		mouse_opacity = 1
+		animate(src, 2 SECONDS, alpha = 255)
+	else if(!turn_on)
+		alpha = 255
+		density = FALSE
+		mouse_opacity = 0
+		animate(src, 2 SECONDS, alpha = 0)
+
+/obj/effect/energy_field/proc/diffuse_check()
+	diffused_for = max(0, diffused_for - 1)
+
+	if(diffused_for && !diffused)
+		diffused = TRUE
+		if(is_strong)
+			density_check(FALSE)
+	else if(!diffused_for && diffused)
+		diffused = FALSE
+		density_check(TRUE)
 
 /obj/effect/energy_field/proc/Strengthen(var/severity)
 	strength += severity
@@ -78,20 +101,16 @@
 	//if we take too much damage, drop out - the generator will bring us back up if we have enough power
 	var/old_density = density
 	if(strength >= 1 && !is_strong)
-		alpha = 0
-		mouse_opacity = 1
-		density = TRUE
-		animate(src, 2 SECONDS, alpha = 255)
 		is_strong = TRUE
+		density_check(TRUE)
 	else if(strength < 1 && is_strong)
-		alpha = 255
-		density = FALSE
-		mouse_opacity = 0
-		animate(src, 2 SECONDS, alpha = 0)
 		is_strong = FALSE
+		density_check(FALSE)
 
 	if (density != old_density)
 		update_nearby_tiles()
+
+	diffuse_check()
 
 /obj/effect/energy_field/CanPass(atom/movable/mover, turf/target, height=1.5, air_group = 0)
 	//Purpose: Determines if the object (or airflow) can pass this atom.
