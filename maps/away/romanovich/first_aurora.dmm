@@ -7079,22 +7079,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
-"vL" = (
-/turf/simulated/wall/shuttle/dark/corner/underlay{
-	dir = 9;
-	icon_state = "wall3"
-	},
-/area/derelict/hallway/southwest)
-"vM" = (
-/turf/simulated/wall/shuttle/dark/cardinal,
-/area/derelict/hallway/southwest)
-"vN" = (
-/turf/simulated/floor/airless,
-/turf/simulated/wall/shuttle/dark/cardinal{
-	dir = 6;
-	icon_state = "diagonalWall3"
-	},
-/area/derelict/hallway/southwest)
 "vP" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -7109,41 +7093,6 @@
 	},
 /turf/template_noop,
 /area/derelict/hallway/southeast)
-"vQ" = (
-/turf/simulated/floor/shuttle/yellow,
-/turf/simulated/wall/shuttle/dark/corner{
-	dir = 6;
-	icon_state = "wall3"
-	},
-/area/derelict/hallway/southwest)
-"vR" = (
-/obj/machinery/artifact,
-/turf/simulated/floor/shuttle/yellow,
-/area/derelict/hallway/southwest)
-"vS" = (
-/turf/simulated/floor/airless,
-/turf/simulated/wall/shuttle/dark/cardinal{
-	dir = 4;
-	icon_state = "diagonalWall3"
-	},
-/area/derelict/hallway/southwest)
-"vT" = (
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronwindow0"
-	},
-/obj/structure/grille,
-/turf/simulated/floor/airless,
-/area/derelict/hallway/southwest)
-"vU" = (
-/turf/simulated/floor/shuttle/yellow,
-/area/derelict/hallway/southwest)
-"vV" = (
-/obj/machinery/door/airlock/hatch{
-	autoclose = 0;
-	icon_state = "door_open"
-	},
-/turf/simulated/floor/shuttle/yellow,
-/area/derelict/hallway/southwest)
 "vW" = (
 /obj/machinery/power/emitter{
 	anchored = 1;
@@ -7168,19 +7117,10 @@
 /obj/structure/girder,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
-"wa" = (
-/turf/simulated/wall/shuttle/dark/corner/underlay{
-	dir = 10;
-	icon_state = "wall3"
-	},
-/area/derelict/hallway/southwest)
 "wb" = (
-/turf/simulated/floor/shuttle/yellow,
-/turf/simulated/wall/shuttle/dark/corner{
-	dir = 5;
-	icon_state = "wall3"
-	},
-/area/derelict/hallway/southwest)
+/turf/template_noop,
+/turf/template_noop,
+/area/template_noop)
 "wc" = (
 /obj/machinery/door/blast/regular,
 /turf/simulated/floor/tiled/dark,
@@ -28721,9 +28661,9 @@ aa
 aa
 aa
 aa
-vL
-vT
-wa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -28977,11 +28917,11 @@ aa
 aa
 aa
 aa
-vL
-vQ
-vU
+aa
 wb
-wa
+aa
+wb
+aa
 aa
 aa
 aa
@@ -29234,11 +29174,11 @@ aa
 ac
 ac
 aa
-vM
-vR
-vU
-vU
-vM
+aa
+aa
+aa
+aa
+aa
 aa
 ac
 aa
@@ -29491,11 +29431,11 @@ aa
 aa
 ac
 ac
-vM
-vU
-vU
-vU
-vM
+aa
+aa
+aa
+aa
+aa
 ac
 ac
 aa
@@ -29748,11 +29688,11 @@ kQ
 kQ
 kQ
 kQ
-vM
-vU
-vU
-vU
-vM
+aa
+aa
+aa
+aa
+aa
 kQ
 aa
 aa
@@ -30005,11 +29945,11 @@ iq
 iq
 ac
 iq
-vM
-vM
-vV
-vM
-vM
+aa
+aa
+aa
+aa
+aa
 kQ
 aa
 aa
@@ -30262,11 +30202,11 @@ ac
 iq
 iq
 iq
-vN
-vS
-iq
-vN
-vS
+wb
+wb
+aa
+wb
+wb
 kQ
 aa
 aa
