@@ -51,11 +51,11 @@
 		active_warrant = null
 
 	if(href_list["editwarrant"])
-		. = TRUE
 		for(var/datum/record/warrant/W in SSrecords.warrants)
 			if(W.id == text2num(href_list["editwarrant"]))
 				active_warrant = W
 				break
+		return TRUE
 
 	// The following actions will only be possible if the user has an ID with security access equipped. This is in line with modular computer framework's authentication methods,
 	// which also use RFID scanning to allow or disallow access to some functions. Anyone can view warrants, editing requires ID.
