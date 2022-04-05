@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes:
+  - tweak: "Blast door buttons will synchronise state of the blast doors they control when pressed."

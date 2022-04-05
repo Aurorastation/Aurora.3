@@ -147,16 +147,15 @@
 	desc = "It controls blast doors, remotely."
 
 /obj/machinery/button/remote/blast_door/trigger()
+	var/new_state
 	for(var/obj/machinery/door/blast/M in SSmachinery.all_machines)
-		if(M.id == src.id)
-			if(M.density)
-				spawn(0)
-					M.open()
-					return
+		if(M.id == id)
+			if(isnull(new_state))
+				new_state = M.density
+			if(new_state)
+				M.open()
 			else
-				spawn(0)
-					M.close()
-					return
+				M.close()
 
 /obj/machinery/button/remote/blast_door/open_only/trigger()
 	for(var/obj/machinery/door/blast/M in SSmachinery.all_machines)
