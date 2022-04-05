@@ -64,8 +64,12 @@
 	if(!istype(user))
 		return
 	var/obj/item/card/id/I = user.GetIdCard()
-	if(!istype(I) || !I.registered_name || !(access_armory in I.access) || issilicon(user))
+	if(!istype(I) || !I.registered_name || !(access_security in I.access) || issilicon(user))
 		to_chat(user, SPAN_WARNING("Authentication error: Unable to locate ID with appropriate access to allow this operation."))
+		return
+	// Require higher access to edit warrants that have already been authorized
+	if(active_warrant && active_warrant.authorization != "Unauthorized" && !(access_armory in I.access))
+		to_chat(user, SPAN_WARNING("Authentication error: Unable to locate ID with appropriate access to adjust an authorized warrant."))
 		return
 
 	if(href_list["addwarrant"])
@@ -123,6 +127,9 @@
 			active_warrant.notes = new_charges
 
 	if(href_list["editwarrantauth"])
+		if(!(access_armory in I.access))
+			to_chat(user, SPAN_WARNING("Authentication error: Unable to locate ID with appropriate access to allow this operation."))
+			return
 		. = TRUE
 
 		active_warrant.authorization = "[I.registered_name] - [I.assignment ? I.assignment : "(Unknown)"]"
