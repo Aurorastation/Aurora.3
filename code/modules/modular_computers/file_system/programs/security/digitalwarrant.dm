@@ -92,6 +92,8 @@
 				W.notes = "No reason given"
 				W.authorization = "Unauthorized"
 				W.wtype = "search"
+			if(isnull(temp))
+				return
 			active_warrant = W
 
 	if(href_list["savewarrant"])
