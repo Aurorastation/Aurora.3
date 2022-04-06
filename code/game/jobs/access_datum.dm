@@ -572,6 +572,11 @@ var/const/access_kataphract_trader = 116
 	id = access_orion_express_ship
 	access_type = ACCESS_TYPE_CENTCOM
 
+/var/const/access_generic_away_site = 202
+/datum/access/generic_away_site
+	id = access_generic_away_site
+	access_type = ACCESS_TYPE_CENTCOM
+
 /var/const/access_none = -1
 /datum/access/none
 	id = access_none

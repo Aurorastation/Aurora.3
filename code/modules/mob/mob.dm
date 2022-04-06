@@ -818,6 +818,9 @@
 			stat("Game ID", game_id)
 			stat("Map", current_map.full_name)
 			stat("Current Space Sector", SSatlas.current_sector.name)
+			var/current_month = text2num(time2text(world.realtime, "MM"))
+			var/current_day = text2num(time2text(world.realtime, "DD"))
+			stat("Current Date", "[current_day]/[current_month]/[game_year]")
 			stat("Station Time", worldtime2text())
 			stat("Round Duration", get_round_duration_formatted())
 			stat("Last Transfer Vote", SSvote.last_transfer_vote ? time2text(SSvote.last_transfer_vote, "hh:mm") : "Never")
@@ -953,13 +956,15 @@
 
 
 /mob/proc/facedir(var/ndir)
-	if(!canface() || (client && client.moving) || (client && world.time < client.move_delay))
+	if(!canface() || (client && client.moving))
 		return 0
+	if(facing_dir != ndir)
+		facing_dir = null
 	set_dir(ndir)
 	if(buckled_to && buckled_to.buckle_movable)
 		buckled_to.set_dir(ndir)
 	if (client)//Fixing a ton of runtime errors that came from checking client vars on an NPC
-		client.move_delay += movement_delay()
+		setMoveCooldown(movement_delay())
 	return 1
 
 

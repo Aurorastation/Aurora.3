@@ -35,7 +35,6 @@
 	var/list/results = list()
 	for(var/i = 1 to amount)
 		if(weight_roll && prob(weight_roll))
-			message_admins("hit weight roll")
 			results += favored_number
 		else
 			results += rand(1, sides)

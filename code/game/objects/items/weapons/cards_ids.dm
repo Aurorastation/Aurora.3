@@ -628,3 +628,6 @@ var/const/NO_EMAG_ACT = -50
 				..()
 	else
 		..()
+
+/obj/item/card/id/away_site
+	access = list(access_generic_away_site, access_external_airlocks)

@@ -26,6 +26,7 @@
 	var/adminobs		= null
 	var/area			= null
 	var/time_died_as_rat = 0
+	var/list/autofire_aiming_at[2]
 
 	var/adminhelped = NOT_ADMINHELPED
 
