@@ -57,6 +57,11 @@
 				break
 		return TRUE
 
+	if(href_list["back"])
+		. = TRUE
+		active_warrant = null
+		return TRUE
+
 	// The following actions will only be possible if the user has an ID with security access equipped. This is in line with modular computer framework's authentication methods,
 	// which also use RFID scanning to allow or disallow access to some functions. Anyone can view warrants, editing requires ID.
 
@@ -67,10 +72,6 @@
 	if(!istype(I) || !I.registered_name || !(access_security in I.access) || issilicon(user))
 		to_chat(user, SPAN_WARNING("Authentication error: Unable to locate ID with appropriate access to allow this operation."))
 		return
-
-	if(href_list["back"])
-		. = TRUE
-		active_warrant = null
 
 	// Require higher access to edit warrants that have already been authorized
 	if(active_warrant && active_warrant.authorization != "Unauthorized" && !(access_armory in I.access))
