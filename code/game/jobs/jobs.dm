@@ -1,4 +1,4 @@
-var/const/NUM_JOB_DEPTS     = 3 //ENGSEC, MEDSCI and CIVILIAN
+var/const/NUM_JOB_DEPTS     = 3 //ENGSEC, MEDSCI and SERVICE
 var/const/ENGSEC			=(1<<0)
 
 var/const/CAPTAIN			=(1<<0)
@@ -33,7 +33,7 @@ var/const/INTERN_MED		=(1<<11)
 var/const/INTERN_SCI		=(1<<12)
 
 
-var/const/CIVILIAN			=(1<<2)
+var/const/SERVICE			=(1<<2)
 
 var/const/XO				=(1<<0)
 var/const/BARTENDER			=(1<<1)
@@ -98,7 +98,7 @@ var/list/cargo_positions = list(
 	"Machinist"
 )
 
-var/list/civilian_positions = list(
+var/list/service_positions = list(
 	"Corporate Liaison",
 	"Consular Officer",
 	"Bartender",

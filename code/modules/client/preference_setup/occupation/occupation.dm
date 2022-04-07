@@ -356,7 +356,7 @@
 			pref.job_engsec_high = 0
 
 	switch(job.department_flag)
-		if(CIVILIAN)
+		if(SERVICE)
 			switch(level)
 				if(2)
 					pref.job_civilian_high = job.flag
@@ -469,7 +469,7 @@
 	if(!job || !level)
 		return FALSE
 	switch(job.department_flag)
-		if(CIVILIAN)
+		if(SERVICE)
 			switch(level)
 				if(1)
 					return job_civilian_high
