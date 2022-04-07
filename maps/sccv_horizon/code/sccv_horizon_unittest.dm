@@ -47,10 +47,8 @@
 		,/area/rnd/isolation_c
 	)
 
-/datum/unit_test/zas_area_test
+/datum/unit_test/zas_area_test/sccv_horizon
+	map_path = "sccv_horizon"
+/datum/unit_test/zas_area_test/sccv_horizon/storage
 	name = "ZAS: Operations Bay"
 	area_path = /area/operations/storage
-
-/datum/unit_test/zas_area_test/arrival_maint
-	name = "ZAS: Arrival Maintenance"
-	area_path = /area/maintenance/arrivals
