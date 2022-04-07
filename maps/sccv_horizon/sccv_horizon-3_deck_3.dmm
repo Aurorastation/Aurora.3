@@ -12277,7 +12277,7 @@
 	},
 /obj/structure/table/standard,
 /obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck - Pool";
+	c_tag = "Third Deck - Pool South";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -13230,6 +13230,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
+"Ge" = (
+/obj/effect/floor_decal/corner_wide/blue{
+	dir = 5
+	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Hallway 8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hallway/primary/starboard)
 "Gf" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -13255,6 +13264,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/investigations_storage)
+"Gh" = (
+/obj/effect/floor_decal/corner_wide/blue{
+	dir = 6
+	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Pool North";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/fitness/pool)
 "Gi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -15739,6 +15758,10 @@
 /obj/effect/landmark/start{
 	name = "Passenger"
 	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Crew Lounge";
+	dir = 4
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/lounge)
 "LU" = (
@@ -17165,6 +17188,18 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/bridge)
+"Pk" = (
+/obj/effect/floor_decal/corner_wide/blue{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Hallway 7";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hallway/primary/starboard)
 "Pl" = (
 /obj/effect/floor_decal/corner/green/diagonal{
 	dir = 8
@@ -20802,6 +20837,12 @@
 /obj/effect/floor_decal/corner/beige/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
+"Yx" = (
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Secondary Crew Lounge"
+	},
+/turf/simulated/floor/wood,
+/area/crew_quarters/lounge/secondary)
 "Yy" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -35192,7 +35233,7 @@ IH
 Pa
 as
 Nq
-KJ
+Yx
 LV
 zl
 eG
@@ -38578,7 +38619,7 @@ at
 at
 QY
 fP
-AS
+Gh
 pQ
 rT
 ta
@@ -39798,7 +39839,7 @@ at
 at
 at
 SG
-Yz
+Ge
 JL
 xs
 Ye
@@ -41216,7 +41257,7 @@ Yz
 RZ
 ah
 JD
-Nw
+Pk
 Og
 Nw
 qu
