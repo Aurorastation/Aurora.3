@@ -153,7 +153,7 @@ var/list/department_funds = list(
 	"Science" = 10000,
 	"Security" = 10000,
 	"Operations" = 5000,
-	"Civilian" = 10000,
+	"Service" = 10000,
 	"Vendor" = 0
 	)
 

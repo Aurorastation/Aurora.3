@@ -229,7 +229,7 @@
 /datum/preferences/proc/return_chosen_high_job(var/title = FALSE)
 	var/datum/job/chosenJob
 	if(job_civilian_high)
-		chosenJob = SSjobs.bitflag_to_job["[CIVILIAN]"]["[job_civilian_high]"]
+		chosenJob = SSjobs.bitflag_to_job["[SERVICE]"]["[job_civilian_high]"]
 	else if(job_medsci_high)
 		chosenJob = SSjobs.bitflag_to_job["[MEDSCI]"]["[job_medsci_high]"]
 	else if(job_engsec_high)

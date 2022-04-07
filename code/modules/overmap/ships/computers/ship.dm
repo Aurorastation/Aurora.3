@@ -19,6 +19,12 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	user.set_machine(src)
 	ui_interact(user)
 
+/obj/machinery/computer/ship/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
+	src.add_hiddenprint(user)
+	ui_interact(user)
+
 /obj/machinery/computer/ship/Topic(href, href_list)
 	if(..())
 		return TOPIC_HANDLED

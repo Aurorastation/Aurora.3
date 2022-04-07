@@ -115,7 +115,7 @@
 #define DEPARTMENT_MEDICAL "Medical"
 #define DEPARTMENT_SCIENCE "Science"
 #define DEPARTMENT_CARGO "Operations"
-#define DEPARTMENT_CIVILIAN "Civilian"
+#define DEPARTMENT_SERVICE "Service"
 #define DEPARTMENT_EQUIPMENT "Equipment"
 #define DEPARTMENT_MISCELLANEOUS "Miscellaneous"
 #define DEPARTMENTS_LIST_INIT list(\
@@ -125,7 +125,7 @@
 	DEPARTMENT_MEDICAL = list(),\
 	DEPARTMENT_SCIENCE = list(),\
 	DEPARTMENT_CARGO = list(),\
-	DEPARTMENT_CIVILIAN = list(),\
+	DEPARTMENT_SERVICE = list(),\
 	DEPARTMENT_EQUIPMENT = list(),\
 	DEPARTMENT_MISCELLANEOUS = list(),\
 )
