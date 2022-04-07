@@ -14799,7 +14799,7 @@
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 10
 	},
-/obj/machinery/computer/HolodeckControl/Exodus{
+/obj/machinery/computer/HolodeckControl/Horizon{
 	pixel_y = -32
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
