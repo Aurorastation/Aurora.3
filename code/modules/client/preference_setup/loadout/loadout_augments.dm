@@ -40,6 +40,7 @@
 	description = "An augment that allows the user to deploy a robotic combitool."
 	path = /obj/item/organ/internal/augment/tool/combitool
 	cost = 5
+	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Roboticist")
 
 /datum/gear/augment/combitool/New()
 	..()
@@ -73,6 +74,7 @@
 	description = "An augment that allows the user scan their own health condition."
 	path = /obj/item/organ/internal/augment/health_scanner
 	cost = 3
+	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern")
 
 /datum/gear/augment/suspension
 	display_name = "calf suspension"
