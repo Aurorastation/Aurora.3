@@ -1,0 +1,7 @@
+author: mikomyazaki2
+
+delete-after: True
+
+changes:
+  - tweak: "Integrated healthscanner augments and toolset augments are now locked to medical and engineering jobs respectively."
+  - tweak: "Exo-stellar exosuit no longer starts with a health-scanner & medicine dispenser included."
