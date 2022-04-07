@@ -1,8 +1,8 @@
 /datum/job/assistant
 	title = "Assistant"
 	flag = ASSISTANT
-	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
-	department_flag = CIVILIAN
+	departments = SIMPLEDEPT(DEPARTMENT_SERVICE)
+	department_flag = SERVICE
 	faction = "Station"
 	total_positions = -1
 	spawn_positions = -1
@@ -31,8 +31,8 @@
 /datum/job/visitor
 	title = "Off-Duty Crew Member"
 	flag = VISITOR
-	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
-	department_flag = CIVILIAN
+	departments = SIMPLEDEPT(DEPARTMENT_SERVICE)
+	department_flag = SERVICE
 	faction = "Station"
 	total_positions = -1
 	spawn_positions = -1
@@ -54,8 +54,8 @@
 /datum/job/passenger
 	title = "Passenger"
 	flag = PASSENGER
-	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
-	department_flag = CIVILIAN
+	departments = SIMPLEDEPT(DEPARTMENT_SERVICE)
+	department_flag = SERVICE
 	faction = "Station"
 	total_positions = -1
 	spawn_positions = -1

@@ -2,7 +2,7 @@
 	title = "Merchant"
 	faction = "Station"
 	flag = MERCHANT
-	department_flag = CIVILIAN
+	department_flag = SERVICE
 	total_positions = 0
 	spawn_positions = 0
 	supervisors = "yourself and the market"

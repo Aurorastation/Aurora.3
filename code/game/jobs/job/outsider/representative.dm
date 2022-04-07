@@ -1,8 +1,8 @@
 /datum/job/representative
 	title = "Corporate Liaison"
 	flag = LAWYER
-	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
-	department_flag = CIVILIAN
+	departments = SIMPLEDEPT(DEPARTMENT_SERVICE)
+	department_flag = SERVICE
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
@@ -85,8 +85,8 @@
 /datum/job/consular
 	title = "Consular Officer"
 	flag = CONSULAR
-	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
-	department_flag = CIVILIAN
+	departments = SIMPLEDEPT(DEPARTMENT_SERVICE)
+	department_flag = SERVICE
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1

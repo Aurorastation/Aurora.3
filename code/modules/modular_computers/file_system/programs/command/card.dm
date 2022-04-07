@@ -46,7 +46,7 @@
 	data["science_jobs"] = format_jobs(science_positions)
 	data["security_jobs"] = format_jobs(security_positions)
 	data["cargo_jobs"] = format_jobs(cargo_positions)
-	data["civilian_jobs"] = format_jobs(civilian_positions)
+	data["civilian_jobs"] = format_jobs(service_positions)
 	data["centcom_jobs"] = format_jobs(get_all_centcom_jobs())
 
 	data["all_centcom_access"] = is_centcom ? get_accesses(1) : null

@@ -11,7 +11,7 @@
 	var/access_code = 0
 	var/editmode = 0
 	var/receipt = ""
-	var/destinationact = "Civilian"
+	var/destinationact = "Service"
 
 
 
@@ -221,10 +221,10 @@
 		if(editmode == 0)
 			to_chat(usr, SPAN_NOTICE("You don't have access to use this option."))
 			return 0
-		switch(input("What account would you like to select?", "Destination Account") as null|anything in list("Civilian", "Operations", "Command", "Medical", "Security", "Engineering", "Science"))
+		switch(input("What account would you like to select?", "Destination Account") as null|anything in list("Service", "Operations", "Command", "Medical", "Security", "Engineering", "Science"))
 
-			if("Civilian")
-				destinationact = "Civilian"
+			if("Service")
+				destinationact = "Service"
 			if("Operations")
 				destinationact = "Operations"
 			if("Command")

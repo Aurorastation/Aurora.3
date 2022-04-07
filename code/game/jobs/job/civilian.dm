@@ -1,8 +1,8 @@
 /datum/job/bartender
 	title = "Bartender"
 	flag = BARTENDER
-	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
-	department_flag = CIVILIAN
+	departments = SIMPLEDEPT(DEPARTMENT_SERVICE)
+	department_flag = SERVICE
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
@@ -39,8 +39,8 @@
 /datum/job/chef
 	title = "Chef"
 	flag = CHEF
-	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
-	department_flag = CIVILIAN
+	departments = SIMPLEDEPT(DEPARTMENT_SERVICE)
+	department_flag = SERVICE
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
@@ -79,8 +79,8 @@
 /datum/job/hydro
 	title = "Gardener"
 	flag = BOTANIST
-	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
-	department_flag = CIVILIAN
+	departments = SIMPLEDEPT(DEPARTMENT_SERVICE)
+	department_flag = SERVICE
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
@@ -131,8 +131,8 @@
 /datum/job/janitor
 	title = "Janitor"
 	flag = JANITOR
-	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
-	department_flag = CIVILIAN
+	departments = SIMPLEDEPT(DEPARTMENT_SERVICE)
+	department_flag = SERVICE
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
@@ -164,8 +164,8 @@
 /datum/job/journalist
 	title = "Corporate Reporter"
 	flag = JOURNALIST
-	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
-	department_flag = CIVILIAN
+	departments = SIMPLEDEPT(DEPARTMENT_SERVICE)
+	department_flag = SERVICE
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
@@ -221,8 +221,8 @@
 /datum/job/librarian
 	title = "Librarian"
 	flag = LIBRARIAN
-	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
-	department_flag = CIVILIAN
+	departments = SIMPLEDEPT(DEPARTMENT_SERVICE)
+	department_flag = SERVICE
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
@@ -277,8 +277,8 @@
 /datum/job/chaplain
 	title = "Chaplain"
 	flag = CHAPLAIN
-	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
-	department_flag = CIVILIAN
+	departments = SIMPLEDEPT(DEPARTMENT_SERVICE)
+	department_flag = SERVICE
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
@@ -382,7 +382,7 @@
 	title = "Hangar Technician"
 	flag = CARGOTECH
 	departments = SIMPLEDEPT(DEPARTMENT_CARGO)
-	department_flag = CIVILIAN
+	department_flag = SERVICE
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 3
@@ -419,7 +419,7 @@
 	title = "Shaft Miner"
 	flag = MINER
 	departments = SIMPLEDEPT(DEPARTMENT_CARGO)
-	department_flag = CIVILIAN
+	department_flag = SERVICE
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 3
