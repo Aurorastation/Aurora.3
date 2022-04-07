@@ -10973,6 +10973,9 @@
 /obj/machinery/newscaster{
 	pixel_y = 30
 	},
+/obj/machinery/camera/network/engineering{
+	c_tag = "Engineering - Lobby"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/lobby)
 "gPG" = (
@@ -35395,6 +35398,10 @@
 	name = "Engine Cooling Control";
 	output_tag = "cooling_out";
 	sensors = list("engine_sensor" = "Engine Core")
+	},
+/obj/machinery/camera/network/engineering{
+	c_tag = "Engineering - Engine Monitoring";
+	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/engine_monitoring)
