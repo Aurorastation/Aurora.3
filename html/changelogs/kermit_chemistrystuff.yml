@@ -48,4 +48,4 @@ changes:
   - rscadd: "Added Xu'xi Gas, a recreational drug hailing from Qerr'Malic that must be inhaled. It produces a mild high similar to Wulumunusha and is known to make users susceptible to persuasion. Recipe: 2 parts Dexalin, 2 parts Mercury Monolithium Sucrose, 1 part Truth Serum (reagents heated to 137'C)."
   - rscadd: "Added Co'qnixq Wuxi, a skrell nootropic/'smart drug' which enhances cognitive function & memory recollection/gain. It increases psionic stamina by 25% while metabolising. Recipe: 1 part Wulumunusha, 1 part Synaptizine, 1 part Emoxanyl."
   - tweak: "Tweaked glass bottle/beaker examine code to show whether the reagent is a gas/liquid/solid (before it only showed solids)."
-  - tweak: "A single dylovene autoinjector spawns in the emergency survival box. Wall Nano-Meds now also have dylovene autoinjectors alongside the inaprovaline autoinjectors."
+  - tweak: "Wall Nano-Meds now also have dylovene autoinjectors alongside the inaprovaline autoinjectors."
