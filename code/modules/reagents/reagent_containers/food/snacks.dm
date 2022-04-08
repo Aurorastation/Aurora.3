@@ -3175,7 +3175,7 @@
 	trash = /obj/item/trash/brownies
 	filling_color = "#301301"
 	center_of_mass = list("x"=15, "y"=9)
-	reagents_to_add = list(/decl/reagent/nutriment = 8, /decl/reagent/browniemix = 4, /decl/reagent/space_drugs = 4, /decl/reagent/bicaridine = 2, /decl/reagent/kelotane = 2, /decl/reagent/toxin = 2)
+	reagents_to_add = list(/decl/reagent/nutriment = 8, /decl/reagent/browniemix = 4, /decl/reagent/ambrosia_extract = 4, /decl/reagent/bicaridine = 2, /decl/reagent/kelotane = 2, /decl/reagent/toxin = 2)
 	reagent_data = list(/decl/reagent/nutriment = list("brownies" = 5))
 	bitesize = 3
 
@@ -3189,7 +3189,7 @@
 	center_of_mass = list("x"=16, "y"=12)
 
 /obj/item/reagent_containers/food/snacks/cosmicbrowniesslice/filled
-	reagents_to_add = list(/decl/reagent/nutriment = 1, /decl/reagent/browniemix = 1, /decl/reagent/space_drugs = 1, /decl/reagent/bicaridine = 1, /decl/reagent/kelotane = 1, /decl/reagent/toxin = 1)
+	reagents_to_add = list(/decl/reagent/nutriment = 1, /decl/reagent/browniemix = 1, /decl/reagent/ambrosia_extract = 1, /decl/reagent/bicaridine = 1, /decl/reagent/kelotane = 1, /decl/reagent/toxin = 1)
 	reagent_data = list(/decl/reagent/nutriment = list("brownies" = 2))
 
 /////////////////////////////////////////////////PIZZA////////////////////////////////////////

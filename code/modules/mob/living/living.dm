@@ -956,7 +956,7 @@ default behaviour is:
 /mob/living/proc/seizure()
 	if(!paralysis && stat == CONSCIOUS)
 		visible_message("<span class='danger'>\The [src] starts having a seizure!</span>")
-		Paralyse(rand(8,16))
+		Paralyse(rand(16,24))
 		make_jittery(rand(150,200))
 		adjustHalLoss(rand(50,60))
 

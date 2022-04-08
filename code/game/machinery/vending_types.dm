@@ -595,6 +595,7 @@
 		/obj/item/stack/medical/bruise_pack = 2,
 		/obj/item/stack/medical/ointment = 2,
 		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 4,
+		/obj/item/reagent_containers/hypospray/autoinjector/dylovene = 4,
 		/obj/item/device/healthanalyzer = 1,
 		/obj/item/device/breath_analyzer  = 1
 	)
