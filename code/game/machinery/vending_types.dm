@@ -595,6 +595,7 @@
 		/obj/item/stack/medical/bruise_pack = 2,
 		/obj/item/stack/medical/ointment = 2,
 		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 4,
+		/obj/item/reagent_containers/hypospray/autoinjector/dylovene = 4,
 		/obj/item/device/healthanalyzer = 1,
 		/obj/item/device/breath_analyzer  = 1
 	)
@@ -1171,34 +1172,34 @@
 	desc = "An energy drink vendor provided by the Getmore Corporation in partnership with the brood of Ta'Akaix'Xakt'yagz'isk Zo'ra."
 	icon_state = "zoda"
 	icon_vend = "zoda-vend"
-	product_slogans = "Safe for human consumption!;Made by hard-working bound drones!;The most refreshing taste in the sector!;A product of two thousand years!"
-	product_ads = "Refreshing!;Hope you're thirsty!;Thirsty? Why not Zora?;Please, have some!;Drink up!;ZZZOOODDDAAA!"
+	product_slogans = "Safe for consumption by all species!;Made by hard-working bound drones!;The most refreshing energy drink around!;A product of two thousand years!"
+	product_ads = "Tired? Try some Zo'ra Soda!;Thirsty? Why not Zo'ra Soda?;Bored? Have some Zo'ra Soda!;Zo'ra Soda. Drink up!;ZZZOOO'RRRAAA SSSOOODDDAAA!"
 	vend_id = "zora"
 	products = list(
-		/obj/item/reagent_containers/food/drinks/cans/zorasoda = 5,
-		/obj/item/reagent_containers/food/drinks/cans/zorakois = 5,
-		/obj/item/reagent_containers/food/drinks/cans/zoraklax = 4,
-		/obj/item/reagent_containers/food/drinks/cans/zoraphoron = 5,
-		/obj/item/reagent_containers/food/drinks/cans/zoravenom = 5,
-		/obj/item/reagent_containers/food/drinks/cans/zoradrone = 5,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/cherry = 5,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/phoron = 5,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/klax = 5,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/cthur = 5,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/venomgrass = 5,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/kois = 5,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/drone = 5
 	)
 	contraband = list(
-		/obj/item/reagent_containers/food/drinks/cans/zoracthur = 2,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm = 5
 	)
 	premium = list(
-		/obj/item/reagent_containers/food/drinks/cans/zorajelly = 2,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/jelly = 3
 	)
 	prices = list(
-		/obj/item/reagent_containers/food/drinks/cans/zorasoda = 30,
-		/obj/item/reagent_containers/food/drinks/cans/zorakois = 27,
-		/obj/item/reagent_containers/food/drinks/cans/zoraklax = 30,
-		/obj/item/reagent_containers/food/drinks/cans/zoraphoron = 30,
-		/obj/item/reagent_containers/food/drinks/cans/zoravenom = 30,
-		/obj/item/reagent_containers/food/drinks/cans/zorahozm = 50,
-		/obj/item/reagent_containers/food/drinks/cans/zoraklax = 31,
-		/obj/item/reagent_containers/food/drinks/cans/zoradrone = 30,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/cherry = 29,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/phoron = 29,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/klax = 29,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/cthur = 29,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/venomgrass = 29,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/kois = 29,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/drone = 29
 	)
-	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
+	idle_power_usage = 211
 	temperature_setting = -1
 	light_color = COLOR_CULT_REINFORCED
 
