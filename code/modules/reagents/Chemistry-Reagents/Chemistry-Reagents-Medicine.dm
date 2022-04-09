@@ -1123,33 +1123,6 @@
 /decl/reagent/mental/truthserum/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_PACIFIED, 1)
 
-/decl/reagent/mental/vaam
-	name = "V'krexi Amino Acid Mixture"
-	description = "A mixture of several high-energy amino acids, based on the secretions and saliva of V'krexi larvae."
-	reagent_state = LIQUID
-	color = "#bcd827"
-	metabolism = 0.4 * REM
-	taste_description = "bitterness"
-	metabolism_min = 0.5
-	breathe_mul = 0
-	goodmessage = list("You feel great!","You feel full of energy!","You feel alert and focused.")
-
-/decl/reagent/mental/vaam/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	. = ..()
-	M.add_chemical_effect(CE_PAINKILLER, 5)
-	M.drowsiness = 0
-
-/decl/reagent/mental/vaam/overdose(var/mob/living/carbon/human/M, var/alien, var/removed, var/scale, var/datum/reagents/holder)
-	. = ..()
-	M.adjustOxyLoss(1 * removed * scale)
-	M.Weaken(10 * removed * scale)
-	M.make_jittery(20)
-	M.make_dizzy(10)
-
-	if (prob(10))
-		to_chat(M, pick("You feel nauseous", "Ugghh....", "Your stomach churns uncomfortably", "You feel like you're about to throw up", "You feel queasy","You feel pressure in your abdomen"))
-
-
 /decl/reagent/mental/kokoreed
 	name = "Koko Reed Juice"
 	description = "Juice from the Koko reed plant. Causes unique mental effects in Unathi."
