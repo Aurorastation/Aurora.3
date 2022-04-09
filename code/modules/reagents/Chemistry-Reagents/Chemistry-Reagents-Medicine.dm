@@ -176,7 +176,7 @@
 
 //Hyperoxia causes brain and eye damage
 /decl/reagent/dexalin/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.add_chemical_effect(CE_NEUROTOXIC, removed * (strength / 6))
+	M.add_chemical_effect(CE_NEUROTOXIC, removed*0.5)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/internal/eyes/E = H.get_eyes(no_synthetic = TRUE)
@@ -294,7 +294,13 @@
 	metabolism_min = 0.005
 	breathe_mul = 0
 
+/decl/reagent/mortaphenyl/initial_effect(var/mob/living/carbon/human/M, var/alien, var/holder)
+	to_chat(M, SPAN_GOOD(pick("You lean back and begin to fall... and fall... and fall.", "A feeling of ecstasy builds within you.", "You're startled by just how amazing you suddenly feel.")))
+
 /decl/reagent/mortaphenyl/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(prob(3))
+		to_chat(M, SPAN_GOOD(pick("You feel soothed and at ease.", "You feel content and at peace.", "You feel a pleasant emptiness.", "You feel like sharing the wonderful memories and feelings you're experiencing.", "All your anxieties fade away.", "You feel like you're floating off the ground.", "You don't want this feeling to end.")))
+	
 	if(check_min_dose(M))
 		M.add_chemical_effect(CE_PAINKILLER, 50)
 		if(!M.chem_effects[CE_CLEARSIGHT])
@@ -314,10 +320,7 @@
 			M.losebreath++
 
 	if(REAGENT_VOLUME(M.reagents, /decl/reagent/oxycomorphine)) //Straight to overdose.
-		M.hallucination = max(M.hallucination, 40)
-		M.add_chemical_effect(CE_EMETIC, M.chem_doses[type]/6)
-		if(M.losebreath < 15)
-			M.losebreath++
+		overdose(M, alien, holder)
 
 /decl/reagent/mortaphenyl/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	..()
@@ -357,7 +360,13 @@
 	metabolism_min = 0.005
 	breathe_mul = 0
 
+/decl/reagent/oxycomorphine/initial_effect(var/mob/living/carbon/human/M, var/alien, var/holder)
+	to_chat(M, SPAN_GOOD(pick("You lean back and begin to fall... and fall... and fall.", "A feeling of ecstasy builds within you.", "You're startled by just how amazing you suddenly feel.")))
+
 /decl/reagent/oxycomorphine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(prob(3))
+		to_chat(M, SPAN_GOOD(pick("You feel soothed and at ease.", "You feel content and at peace.", "You feel a pleasant emptiness.", "You feel like sharing the wonderful memories and feelings you're experiencing.", "All your anxieties fade away.", "You feel like you're floating off the ground.", "You don't want this feeling to end.")))
+
 	if(check_min_dose(M))
 		M.add_chemical_effect(CE_PAINKILLER, 200)
 		if(!M.chem_effects[CE_CLEARSIGHT])
@@ -576,6 +585,7 @@
 /decl/reagent/hyperzine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(5))
 		M.emote(pick("twitch", "blink_r", "shiver"))
+		to_chat(M, SPAN_GOOD(pick("You feel pumped!", "Energy, energy, energy - so much energy!", "You could run a marathon!", "You can't sit still!", "It's difficult to focus right now... but that's not important!")))
 	if(check_min_dose(M, 0.5))
 		M.add_chemical_effect(CE_SPEEDBOOST, 1)
 		M.add_chemical_effect(CE_PULSE, 1)
@@ -584,7 +594,7 @@
 	M.adjustNutritionLoss(5*removed)
 	M.add_chemical_effect(CE_PULSE, 2)
 	if(prob(5))
-		to_chat(M, SPAN_DANGER(pick("Your heart is beating rapidly!", "Your chest hurts!")))
+		to_chat(M, SPAN_DANGER(pick("Your heart is beating rapidly!", "Your chest hurts!", "You've totally over-exerted yourself!")))
 	if(prob(M.chem_doses[type] / 3))
 		M.visible_message("<b>[M]</b> twitches violently, grimacing.", "You twitch violently and feel yourself sprain a joint.")
 		M.take_organ_damage(5 * removed, 0)
@@ -799,7 +809,7 @@
 	if(prob(7))
 		M.emote(pick("twitch", "drool", "moan", "giggle"))
 	if(prob(7))
-		M.add_chemical_effect(CE_NEUROTOXIC, 3 * removed)
+		M.add_chemical_effect(CE_NEUROTOXIC, 5)
 	if(prob(50))
 		M.drowsiness = max(M.drowsiness, 3)
 
@@ -853,6 +863,34 @@
 		I.was_bloodied = null
 	for(var/obj/effect/decal/cleanable/blood/B in T)
 		qdel(B)
+
+/decl/reagent/sterilizine/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(REAGENT_VOLUME(holder, type) > 15)
+		M.add_chemical_effect(CE_EMETIC, 5)
+		if(M.losebreath < 15)
+			M.losebreath++
+		if(prob(5))
+			to_chat(M, SPAN_WARNING(pick("Your throat burns!", "All you can taste is blood!", "Your insides are on fire!", "Your feel a burning pain in your gut!")))
+	else
+		if(prob(5))
+			to_chat(M, SPAN_WARNING(pick("Your throat stings a bit.", "You can taste something chemical.")))
+
+/decl/reagent/sterilizine/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(REAGENT_VOLUME(holder, type) > 15)
+		M.add_chemical_effect(CE_EMETIC, 5)
+		if(M.losebreath < 15)
+			M.losebreath++
+		if(prob(5))
+			to_chat(M, SPAN_WARNING(pick("Your throat burns!", "All you can taste is blood!", "Your insides are on fire!", "Your feel a burning pain in your gut!")))
+	else
+		if(prob(5))
+			to_chat(M, SPAN_NOTICE(pick("You get a strong whiff of sterilizine fumes - careful.")))
+
+/decl/reagent/sterilizine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(REAGENT_VOLUME(holder, type) > 15)
+		M.add_chemical_effect(CE_EMETIC, 5)
+		if(prob(25))
+			M.add_chemical_effect(CE_NEPHROTOXIC, 1)
 
 /decl/reagent/leporazine
 	name = "Leporazine"
@@ -1048,15 +1086,8 @@
 /decl/reagent/mental/neurapan/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_PACIFIED, 1)
 	M.eye_blurry = max(M.eye_blurry, 30)
-	if(REAGENT_VOLUME(M.reagents, /decl/reagent/oxycomorphine))
-		M.ear_deaf = 20
-		M.drowsiness = max(M.drowsiness, 10)
-		M.make_dizzy(15)
-		if(prob(3))
-			to_chat(M, SPAN_GOOD(pick("You lose all sense of connection to the real world.", "Everything is so tranquil.", "You feel dettached from reality.", "Your feel disconnected from your body.", "You are aware of nothing but your conscious thoughts.")))
-	else
-		if(prob(3))
-			to_chat(M, SPAN_GOOD(pick("Stress was an inconvenience that you are now free of.", "You feel somewhat dettached from reality.", "You can feel time passing by and it no longer bothers you.")))
+	if(prob(3))
+		to_chat(M, SPAN_GOOD(pick("Stress was an inconvenience that you are now free of.", "You feel somewhat dettached from reality.", "You can feel time passing by and it no longer bothers you.")))
 
 /decl/reagent/mental/nerospectan
 	name = "Nerospectan"
@@ -1091,33 +1122,6 @@
 
 /decl/reagent/mental/truthserum/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_PACIFIED, 1)
-
-/decl/reagent/mental/vaam
-	name = "V'krexi Amino Acid Mixture"
-	description = "A mixture of several high-energy amino acids, based on the secretions and saliva of V'krexi larvae."
-	reagent_state = LIQUID
-	color = "#bcd827"
-	metabolism = 0.4 * REM
-	taste_description = "bitterness"
-	metabolism_min = 0.5
-	breathe_mul = 0
-	goodmessage = list("You feel great!","You feel full of energy!","You feel alert and focused.")
-
-/decl/reagent/mental/vaam/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	. = ..()
-	M.add_chemical_effect(CE_PAINKILLER, 5)
-	M.drowsiness = 0
-
-/decl/reagent/mental/vaam/overdose(var/mob/living/carbon/human/M, var/alien, var/removed, var/scale, var/datum/reagents/holder)
-	. = ..()
-	M.adjustOxyLoss(1 * removed * scale)
-	M.Weaken(10 * removed * scale)
-	M.make_jittery(20)
-	M.make_dizzy(10)
-
-	if (prob(10))
-		to_chat(M, pick("You feel nauseous", "Ugghh....", "Your stomach churns uncomfortably", "You feel like you're about to throw up", "You feel queasy","You feel pressure in your abdomen"))
-
 
 /decl/reagent/mental/kokoreed
 	name = "Koko Reed Juice"
@@ -1400,6 +1404,8 @@
 	M.make_jittery(5)
 	if(prob(2))
 		M.emote("twitch")
+	if(prob(2))
+		to_chat(M, SPAN_WARNING(pick("You're beginning to lose your appetite.","Your mouth is so incredibly dry.","You feel really confused.","What was I just thinking of?","Where am I?","Your muscles are tingling.")))
 
 /decl/reagent/adrenaline
 	name = "Adrenaline"
