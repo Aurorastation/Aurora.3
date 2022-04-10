@@ -582,3 +582,7 @@ var/const/access_kataphract_trader = 116
 	id = access_none
 	access_type = ACCESS_TYPE_NONE
 
+/var/const/access_sfa_patrol_ship = 203
+/datum/access/sfa_patrol_ship
+	id = access_sfa_patrol_ship
+	access_type = ACCESS_TYPE_CENTCOM
