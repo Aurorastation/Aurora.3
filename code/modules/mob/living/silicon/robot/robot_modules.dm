@@ -208,7 +208,8 @@ var/global/list/robot_modules = list(
 			"Positron 03" =    list(ROBOT_CHASSIS = "positron03_medi", ROBOT_PANEL = "positron03_medi", ROBOT_EYES = "positron03"),
 			"Plantasonic" =    list(ROBOT_CHASSIS = "plantasonic_medi", ROBOT_PANEL = "plantasonic_medi", ROBOT_EYES = "plantasonic"),
 			"Cooler Master" =  list(ROBOT_CHASSIS = "coolermaster_medi", ROBOT_PANEL = "coolermaster_medi", ROBOT_EYES = "coolermaster"),
-			"Phage" =          list(ROBOT_CHASSIS = "phage_medi", ROBOT_PANEL = "phage_medi", ROBOT_EYES = "phage")
+			"Phage" =          list(ROBOT_CHASSIS = "phage_medi", ROBOT_PANEL = "phage_medi", ROBOT_EYES = "phage"),
+			"Micro" =          list(ROBOT_CHASSIS = "micro_medi", ROBOT_PANEL = "micro", ROBOT_EYES = "micro")
 			)
 
 /obj/item/robot_module/medical/general/Initialize()
@@ -362,7 +363,8 @@ var/global/list/robot_modules = list(
 			"Positron 03" =    list(ROBOT_CHASSIS = "positron03_engi", ROBOT_PANEL = "positron03", ROBOT_EYES = "positron03"),
 			"Plantasonic" =    list(ROBOT_CHASSIS = "plantasonic_engi", ROBOT_PANEL = "plantasonic", ROBOT_EYES = "plantasonic"),
 			"Cooler Master" =  list(ROBOT_CHASSIS = "coolermaster_engi", ROBOT_PANEL = "coolermaster", ROBOT_EYES = "coolermaster"),
-			"Phage" =          list(ROBOT_CHASSIS = "phage_engi", ROBOT_PANEL = "phage", ROBOT_EYES = "phage")
+			"Phage" =          list(ROBOT_CHASSIS = "phage_engi", ROBOT_PANEL = "phage", ROBOT_EYES = "phage"),
+			"Micro" =          list(ROBOT_CHASSIS = "micro_engi", ROBOT_PANEL = "micro", ROBOT_EYES = "micro")
 			)
 
 /obj/item/robot_module/engineering/construction
@@ -566,7 +568,8 @@ var/global/list/robot_modules = list(
 			"Positron 03" =    list(ROBOT_CHASSIS = "positron03_jani", ROBOT_PANEL = "positron03", ROBOT_EYES = "positron03"),
 			"Plantasonic" =    list(ROBOT_CHASSIS = "plantasonic_jani", ROBOT_PANEL = "plantasonic", ROBOT_EYES = "plantasonic"),
 			"Cooler Master" =  list(ROBOT_CHASSIS = "coolermaster_jani", ROBOT_PANEL = "coolermaster", ROBOT_EYES = "coolermaster"),
-			"Phage" =          list(ROBOT_CHASSIS = "phage_jani", ROBOT_PANEL = "phage", ROBOT_EYES = "phage")
+			"Phage" =          list(ROBOT_CHASSIS = "phage_jani", ROBOT_PANEL = "phage", ROBOT_EYES = "phage"),
+			"Micro" =          list(ROBOT_CHASSIS = "micro_jani", ROBOT_PANEL = "micro", ROBOT_EYES = "micro")
 			)
 
 	var/mopping = FALSE
@@ -642,7 +645,8 @@ var/global/list/robot_modules = list(
 			"Positron 03" =    list(ROBOT_CHASSIS = "positron03_serv", ROBOT_PANEL = "positron03", ROBOT_EYES = "positron03"),
 			"Plantasonic" =    list(ROBOT_CHASSIS = "plantasonic_serv", ROBOT_PANEL = "plantasonic", ROBOT_EYES = "plantasonic"),
 			"Cooler Master" =  list(ROBOT_CHASSIS = "coolermaster_serv", ROBOT_PANEL = "coolermaster", ROBOT_EYES = "coolermaster"),
-			"Phage" =          list(ROBOT_CHASSIS = "phage_serv", ROBOT_PANEL = "phage", ROBOT_EYES = "phage")
+			"Phage" =          list(ROBOT_CHASSIS = "phage_serv", ROBOT_PANEL = "phage", ROBOT_EYES = "phage"),
+			"Micro" =          list(ROBOT_CHASSIS = "micro_serv", ROBOT_PANEL = "micro", ROBOT_EYES = "micro")
 			)
 
 /obj/item/robot_module/clerical/butler/Initialize()
@@ -731,7 +735,8 @@ var/global/list/robot_modules = list(
 			"Positron 03" =    list(ROBOT_CHASSIS = "positron03_mine", ROBOT_PANEL = "positron03", ROBOT_EYES = "positron03"),
 			"Plantasonic" =    list(ROBOT_CHASSIS = "plantasonic_mine", ROBOT_PANEL = "plantasonic", ROBOT_EYES = "plantasonic"),
 			"Cooler Master" =  list(ROBOT_CHASSIS = "coolermaster_mine", ROBOT_PANEL = "coolermaster", ROBOT_EYES = "coolermaster"),
-			"Phage" =          list(ROBOT_CHASSIS = "phage_mine", ROBOT_PANEL = "phage", ROBOT_EYES = "phage")
+			"Phage" =          list(ROBOT_CHASSIS = "phage_mine", ROBOT_PANEL = "phage", ROBOT_EYES = "phage"),
+			"Micro" =          list(ROBOT_CHASSIS = "micro_mine", ROBOT_PANEL = "micro", ROBOT_EYES = "micro")
 			)
 
 
@@ -801,7 +806,8 @@ var/global/list/robot_modules = list(
 			"Positron 03" =    list(ROBOT_CHASSIS = "positron03_sci", ROBOT_PANEL = "positron03", ROBOT_EYES = "positron03"),
 			"Plantasonic" =    list(ROBOT_CHASSIS = "plantasonic_sci", ROBOT_PANEL = "plantasonic", ROBOT_EYES = "plantasonic"),
 			"Cooler Master" =  list(ROBOT_CHASSIS = "coolermaster_sci", ROBOT_PANEL = "coolermaster", ROBOT_EYES = "coolermaster"),
-			"Phage" =          list(ROBOT_CHASSIS = "phage_sci", ROBOT_PANEL = "phage", ROBOT_EYES = "phage")
+			"Phage" =          list(ROBOT_CHASSIS = "phage_sci", ROBOT_PANEL = "phage", ROBOT_EYES = "phage"),
+			"Micro" =          list(ROBOT_CHASSIS = "micro_sci", ROBOT_PANEL = "micro", ROBOT_EYES = "micro")
 			)
 
 /obj/item/robot_module/research/Initialize()
@@ -891,7 +897,8 @@ var/global/list/robot_modules = list(
 			"Positron 03" =    list(ROBOT_CHASSIS = "positron03_syndi", ROBOT_PANEL = "positron03_syndi", ROBOT_EYES = "positron03"),
 			"Plantasonic" =    list(ROBOT_CHASSIS = "plantasonic_syndi", ROBOT_PANEL = "plantasonic_syndi", ROBOT_EYES = "plantasonic"),
 			"Cooler Master" =  list(ROBOT_CHASSIS = "coolermaster_syndi", ROBOT_PANEL = "coolermaster_syndi", ROBOT_EYES = "coolermaster"),
-			"Phage" =          list(ROBOT_CHASSIS = "phage_syndi", ROBOT_PANEL = "phage_syndi", ROBOT_EYES = "phage")
+			"Phage" =          list(ROBOT_CHASSIS = "phage_syndi", ROBOT_PANEL = "phage_syndi", ROBOT_EYES = "phage"),
+			"Micro" =          list(ROBOT_CHASSIS = "micro_syndi", ROBOT_PANEL = "micro", ROBOT_EYES = "micro")
 			)
 
 
