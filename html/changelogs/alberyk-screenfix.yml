@@ -3,4 +3,4 @@ author: Alberyk
 delete-after: True
 
 changes:
-  - bugfix: "Fixed the Tajaran title screen having a missplaced black bar."
+  - bugfix: "Fixed the Tajaran title screen having a misplaced black bar."
