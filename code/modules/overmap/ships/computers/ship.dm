@@ -45,15 +45,30 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	if(user.client)
 		user.client.view = world.view + extra_view
 	moved_event.register(user, src, /obj/machinery/computer/ship/proc/unlook)
+	if(user.eyeobj)
+		moved_event.register(user.eyeobj, src, /obj/machinery/computer/ship/proc/unlook)
 	LAZYDISTINCTADD(viewers, WEAKREF(user))
 
 /obj/machinery/computer/ship/proc/unlook(var/mob/user)
 	user.reset_view()
-	if(user.client)
-		user.client.view = world.view
-		user.client.pixel_x = 0
-		user.client.pixel_y = 0
+	var/client/c = user.client
+
+	if(isEye(user))
+		var/mob/abstract/eye/E = user
+		E.reset_view()
+		c = E.owner.client
+
+	if(c)
+		c.view = world.view
+		c.pixel_x = 0
+		c.pixel_y = 0
+
 	moved_event.unregister(user, src, /obj/machinery/computer/ship/proc/unlook)
+
+	if(isEye(user)) // If we're an AI eye, the computer has our AI mob in its viewers list not the eye mob
+		var/mob/abstract/eye/E = user
+		moved_event.unregister(E.owner, src, /obj/machinery/computer/ship/proc/unlook)
+		LAZYREMOVE(viewers, WEAKREF(E.owner))
 	LAZYREMOVE(viewers, WEAKREF(user))
 
 /obj/machinery/computer/ship/proc/viewing_overmap(mob/user)
@@ -72,7 +87,8 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	if(!viewing_overmap(user))
 		return FALSE
 
-	if (use_check_and_message(user) || user.blinded || inoperable() || !linked)
+	var/flags = issilicon(user) ? USE_ALLOW_NON_ADJACENT : 0
+	if (use_check_and_message(user, flags) || user.blinded || inoperable() || !linked)
 		return -1
 	else
 		return 0
