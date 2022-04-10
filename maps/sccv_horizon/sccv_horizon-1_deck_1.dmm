@@ -3289,11 +3289,15 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/eva)
 "cWX" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 6
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/obj/machinery/atmospherics/tvalve/digital/bypass{
+	dir = 1;
+	name = "Starboard Thruster Propellant Input Switch"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
@@ -5156,6 +5160,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/purple{
 	dir = 4
 	},
+/obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion)
 "eKi" = (
@@ -5947,9 +5952,6 @@
 /obj/machinery/atmospherics/tvalve/digital{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
 "fnL" = (
@@ -6438,12 +6440,13 @@
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "fKe" = (
-/obj/machinery/meter,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/purple{
-	dir = 4
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/manifold/visible/purple{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
 "fKk" = (
 /obj/structure/table/steel,
@@ -7160,9 +7163,6 @@
 /turf/simulated/floor/plating,
 /area/hangar/control)
 "gnP" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
-	},
 /obj/machinery/atmospherics/binary/pump/high_power{
 	layer = 2.8
 	},
