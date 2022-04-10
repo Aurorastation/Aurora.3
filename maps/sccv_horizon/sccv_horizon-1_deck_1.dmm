@@ -2173,6 +2173,19 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/operations)
+"bSO" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled/dark,
+/area/operations/lower/machinist)
 "bUN" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -4300,6 +4313,7 @@
 /obj/effect/floor_decal/corner/white{
 	dir = 10
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/operations/lower/machinist)
 "eaO" = (
@@ -22686,6 +22700,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/storage/lower)
+"uBi" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled,
+/area/outpost/mining_main/refinery)
 "uCq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -42557,7 +42587,7 @@ pWZ
 cWd
 hhO
 tgR
-beP
+uBi
 tgR
 xwo
 eqk
@@ -45568,7 +45598,7 @@ sLn
 qIT
 iDw
 hYh
-wqs
+bSO
 fga
 wMO
 pYD
