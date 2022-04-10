@@ -18661,7 +18661,6 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/blast/regular/open,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering Hallway";
@@ -37803,7 +37802,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "xeV" = (
-/obj/machinery/door/blast/regular/open,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering Hallway";
