@@ -39,6 +39,7 @@ jobs:
     strategy:
       matrix:
         map: [runtime, aurora, sccv_horizon]
+      fail-fast: false
     runs-on: ubuntu-20.04
     needs: lint
     services:
