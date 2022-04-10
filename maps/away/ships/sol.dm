@@ -1,124 +1,124 @@
-/datum/map_template/ruin/away_site/orion_express_ship
-	name = "Orion Express Ship"
-	description = "A light ship belonging to the Orion Express corporation."
-	suffix = "ships/orion_express_ship.dmm"
+/datum/map_template/ruin/away_site/sfa_patrol_ship
+	name = "SFA Patrol Ship"
+	description = "A naval ship belonging to the now all-but-defunct Southern Fleet Administration, a Solarian warlord state."
+	suffix = "ships/sfa_patrol_ship.dmm"
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
 	spawn_weight = 1
 	spawn_cost = 1
-	id = "orion_express_ship"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/orion_express_ship, /datum/shuttle/autodock/overmap/orion_express_shuttle)
+	id = "sfa_patrol_ship"
+	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/sfa_patrol_ship, /datum/shuttle/autodock/overmap/sfa_shuttle)
 
-/obj/effect/overmap/visitable/sector/orion_express_ship
+/obj/effect/overmap/visitable/sector/sfa_patrol_ship
 	name = "faint ship activity"
-	desc = "A sector with faint hints of previous civilian ship presence."
+	desc = "A sector with faint hints of previous military ship presence."
 	in_space = 1
 
-/decl/submap_archetype/orion_express_ship
-	map = "Orion Express ship"
-	descriptor = "A light ship belonging to the Orion Express corporation."
+/decl/submap_archetype/sfa_patrol_ship
+	map = "SFA Patrol Ship"
+	descriptor = "A naval ship belonging to the now all-but-defunct Southern Fleet Administration, a Solarian warlord state."
 
 //areas
 
-/area/shuttle/orion_express_ship
-	name = "Orion Express Ship"
+/area/shuttle/sfa_patrol_ship
+	name = "SFA Patrol Ship"
 	icon_state = "shuttle"
 
-/area/shuttle/orion_express_shuttle
-	name = "Orion Express Shuttle"
+/area/shuttle/sfa_shuttle
+	name = "SFA Shuttle"
 	icon_state = "shuttle2"
 
 //ship stuff
 
-/obj/effect/overmap/visitable/ship/landable/orion_express_ship
-	name = "Orion Express Ship"
-	desc = "A light ship belonging to the Orion Express corporation."
+/obj/effect/overmap/visitable/ship/landable/sfa_patrol_ship
+	name = "SFA Patrol Ship"
+	desc = "A naval ship belonging to the now all-but-defunct Southern Fleet Administration, a Solarian warlord state."
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_SMALL
-	shuttle = "Orion Express Ship"
+	shuttle = "SFA Patrol Ship"
 	initial_restricted_waypoints = list(
-		"Orion Express Shuttle" = list("nav_hangar_orion_express")
+		"SFA Shuttle" = list("nav_hangar_sfa")
 	)
 
 	initial_generic_waypoints = list(
-		"nav_orion_express_ship_1"
+		"nav_sfa_patrol_ship_1"
 	)
 
-/obj/effect/overmap/visitable/ship/landable/orion_express_ship/New()
-	name = "OEV [pick("Messenger", "Traveler", "Highspeed", "Punctual","Unstoppable")]"
+/obj/effect/overmap/visitable/ship/landable/sfa_patrol_ship/New()
+	name = "SFAV [pick("Brigand", "Zheng Yi Sao", "Watchman", "Edward Teach", "Blackguard")]"
 	..()
 
-/obj/effect/shuttle_landmark/orion_express_ship/nav1
-	name = "Orion Express Ship #1"
-	landmark_tag = "nav_orion_express_ship_1"
+/obj/effect/shuttle_landmark/sfa_patrol_ship/nav1
+	name = "SFA Patrol Ship #1"
+	landmark_tag = "nav_sfa_patrol_ship_1"
 	base_turf = /turf/space/dynamic
 	base_area = /area/template_noop
 
-/datum/shuttle/autodock/overmap/orion_express_ship
-	name = "Orion Express Ship"
+/datum/shuttle/autodock/overmap/sfa_patrol_ship
+	name = "SFA Patrol Ship"
 	warmup_time = 5
 	range = 1
-	current_location = "nav_orion_express_ship_start"
-	shuttle_area = list(/area/shuttle/orion_express_ship)
+	current_location = "nav_sfa_patrol_ship_start"
+	shuttle_area = list(/area/shuttle/sfa_patrol_ship)
 	knockdown = FALSE
 
 	fuel_consumption = 4
-	logging_home_tag = "nav_orion_express_ship_start"
+	logging_home_tag = "nav_sfa_patrol_ship_start"
 	defer_initialisation = TRUE
 
-/obj/effect/shuttle_landmark/orion_express_ship/start
+/obj/effect/shuttle_landmark/sfa_patrol_ship/start
 	name = "Uncharted Space"
-	landmark_tag = "nav_orion_express_ship_start"
+	landmark_tag = "nav_sfa_patrol_ship_start"
 
-/obj/effect/shuttle_landmark/orion_express_ship/transit
+/obj/effect/shuttle_landmark/sfa_patrol_ship/transit
 	name = "In transit"
-	landmark_tag = "nav_transit_orion_express_ship"
+	landmark_tag = "nav_transit_sfa_patrol_ship"
 	base_turf = /turf/space/transit/south
 
-/obj/machinery/computer/shuttle_control/explore/orion_express_ship
+/obj/machinery/computer/shuttle_control/explore/sfa_patrol_ship
 	name = "ship control console"
-	shuttle_tag = "Orion Express Ship"
-	req_access = list(access_orion_express_ship)
+	shuttle_tag = "SFA Patrol Ship"
+	req_access = list(access_sfa_patrol_ship)
 
 //shuttle stuff
-/obj/effect/overmap/visitable/ship/landable/orion_express_shuttle
-	name = "Orion Express Shuttle"
-	desc = "A shuttle used by the Orion Express to deliver its goods."
-	shuttle = "Orion Express Shuttle"
+/obj/effect/overmap/visitable/ship/landable/sfa_shuttle
+	name = "SFA Shuttle"
+	desc = "A shuttle used by the SFA for boarding and interdiction purposes."
+	shuttle = "SFA Shuttle"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/orion_express_shuttle
+/obj/machinery/computer/shuttle_control/explore/sfa_shuttle
 	name = "shuttle control console"
-	shuttle_tag = "Orion Express Shuttle"
-	req_access = list(access_orion_express_ship)
+	shuttle_tag = "SFA Shuttle"
+	req_access = list(access_sfa_patrol_ship)
 
-/datum/shuttle/autodock/overmap/orion_express_shuttle
-	name = "Orion Express Shuttle"
+/datum/shuttle/autodock/overmap/sfa_shuttle
+	name = "SFA Shuttle"
 	move_time = 90
-	shuttle_area = list(/area/shuttle/orion_express_shuttle)
-	dock_target = "orion_express_shuttle"
-	current_location = "nav_hangar_orion_express"
-	landmark_transition = "nav_transit_orion_express"
+	shuttle_area = list(/area/shuttle/sfa_shuttle)
+	dock_target = "sfa_shuttle"
+	current_location = "nav_hangar_sfa"
+	landmark_transition = "nav_transit_sfa"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_orion_express"
+	logging_home_tag = "nav_hangar_sfa"
 	defer_initialisation = TRUE
-	mothershuttle = "Orion Express Ship"
+	mothershuttle = "SFA Patrol Ship"
 
-/obj/effect/shuttle_landmark/orion_express_shuttle/hangar
-	name = "Orion Express Shuttle Hangar"
-	landmark_tag = "nav_hangar_orion_express"
-	docking_controller = "orion_express_shuttle_dock"
-	base_area = /area/shuttle/orion_express_ship
+/obj/effect/shuttle_landmark/sfa_shuttle/hangar
+	name = "SFA Shuttle Hangar"
+	landmark_tag = "nav_hangar_sfa"
+	docking_controller = "sfa_shuttle_dock"
+	base_area = /area/shuttle/sfa_patrol_ship
 	base_turf = /turf/simulated/floor/plating
 
-/obj/effect/shuttle_landmark/orion_express_shuttle/transit
+/obj/effect/shuttle_landmark/sfa_shuttle/transit
 	name = "In transit"
-	landmark_tag = "nav_transit_orion_express"
+	landmark_tag = "nav_transit_sfa_shuttle"
 	base_turf = /turf/space/transit/south
