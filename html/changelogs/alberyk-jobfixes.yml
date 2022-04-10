@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes the dionae species having the incorrect species job species restriction."
+  - bugfix: "Fixes the operations manager not being whitelisted."
