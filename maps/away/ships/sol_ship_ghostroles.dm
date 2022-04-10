@@ -1,68 +1,120 @@
 //orion express ship
 
-/datum/ghostspawner/human/orion_express_courier
-	short_name = "orion_express_courier"
-	name = "Orion Express Courier"
-	desc = "Crew a Orion Express Ship and deliver parcels."
+/datum/ghostspawner/human/sfa_navy_crewman
+	short_name = "sfa_navy_crewman"
+	name = "SFA Navy Crewman"
+	desc = "Crew the Southern Fleet Administration patrol ship. Figure out what to do now that the warlord you serve is dead."
 	tags = list("External")
+	mob_name_prefix = "PO3. "
 
-	spawnpoints = list("orion_express_courier")
+	spawnpoints = list("sfa_navy_crewman")
 	max_count = 2
 
-	outfit = /datum/outfit/admin/orion_express_courier
-	possible_species = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN,SPECIES_UNATHI,SPECIES_VAURCA_WARRIOR,SPECIES_VAURCA_WORKER)
+	outfit = /datum/outfit/admin/sfa_navy_crewman
+	possible_species = list(SPECIES_HUMAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-	assigned_role = "Orion Express Courier"
-	special_role = "Orion Express Courier"
+	assigned_role = "SFA Navy Crewman"
+	special_role = "SFA Navy Crewman"
 	respawn_flag = null
 
 
-/datum/outfit/admin/orion_express_courier
-	name = "Orion Express Courier"
+/datum/outfit/admin/sfa_navy_crewman
+	name = "SFA Navy Crewman"
 
-	uniform = /obj/item/clothing/under/rank/hangar_technician/orion/ship
-	shoes = /obj/item/clothing/shoes/brown
-	back = /obj/item/storage/backpack/satchel
+	uniform = /obj/item/clothing/under/rank/fatigues/
+	shoes = /obj/item/clothing/shoes/jackboot
+	back = /obj/item/storage/backpack/satchel_norm
+	belt = /obj/item/storage/belt/utility/full
+	head = /obj/item/clothing/head/navy
+	accessory = /obj/item/clothing/accessory/storage/brown_vest
 
-	id = /obj/item/card/id/orion_ship
+	id = /obj/item/card/id/sfa_ship
 
 	l_ear = /obj/item/device/radio/headset/ship
 
-	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1)
+	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
 
-/datum/outfit/admin/orion_express_courier/get_id_access()
-	return list(access_orion_express_ship, access_external_airlocks)
+/datum/outfit/admin/sfa_navy_crewman/get_id_access()
+	return list(access_sfa_patrol_ship, access_external_airlocks)
 
-/datum/ghostspawner/human/orion_express_courier/captain
-	short_name = "orion_express_captain"
-	name = "Orion Express Captain"
-	desc = "Pilot and command an Orion Express Ship."
+/datum/ghostspawner/human/sfa_navy_officer
+	short_name = "sfa_navy_officer"
+	name = "SFA Navy Officer"
+	desc = "Pilot and command a Southern Fleet Administration patrol ship. Figure out what to do now that the warlord you serve is dead."
 	tags = list("External")
+	mob_name_prefix = "ENS. "
 
-	spawnpoints = list("orion_express_captain")
+	spawnpoints = list("orion_navy_officer")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/orion_express_courier/captain
+	outfit = /datum/outfit/admin/sfa_navy_officer
+	possible_species = list(SPECIES_HUMAN)
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-	assigned_role = "Orion Express Captain"
-	special_role = "Orion Express Captain"
+	assigned_role = "SFA Navy Officer"
+	special_role = "SFA Navy Officer"
+	respawn_flag = null
 
 
-/datum/outfit/admin/orion_express_courier/captain
-	name = "Orion Express Captain"
+/datum/outfit/admin/sfa_navy_officer
+	name = "SFA Navy Officer"
 
-	uniform = /obj/item/clothing/under/rank/operations_manager/orion_ship
-	glasses = /obj/item/clothing/glasses/sunglasses
+	uniform = /obj/item/clothing/under/rank/dress/subofficer
+	shoes = /obj/item/clothing/shoes/laceup
+	back = /obj/item/storage/backpack/satchel
+	head = /obj/item/clothing/head/dress
+	accessory = /obj/item/clothing/accessory/holster/hip/
+	
+	id = /obj/item/card/id/sfa_ship
+	
+	l_ear = /obj/item/device/radio/headset/ship
+	
+	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
+	
+/datum/outfit/admin/sfa_navy_officer/get_id_access()
+	return list(access_sfa_patrol_ship, access_external_airlocks)
+
+/datum/ghostspawner/human/sfa_marine
+	short_name = "sfa_marine"
+	name = "SFA Marine"
+	desc = "Protect the Southern Fleet Administration ship. Figure out what to do now that the warlord you serve is dead."
+	tags = list("External")
+	mob_name_prefix = "Pfc. "
+
+	spawnpoints = list("sfa_navy_crewman")
+	max_count = 1
+
+	outfit = /datum/outfit/admin/sfa_marine
+	possible_species = list(SPECIES_HUMAN)
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+
+	assigned_role = "SFA Marine"
+	special_role = "SFA Marine"
+	respawn_flag = null
+
+
+/datum/outfit/admin/sfa_marine
+	name = "SFA Marine"
+
+	uniform = /obj/item/clothing/under/rank/fatigues/marine
+	shoes = /obj/item/clothing/shoes/jackboot
+	back = /obj/item/storage/backpack/satchel_norm
+	belt = /obj/item/storage/belt/military
+	head = /obj/item/clothing/head/navy/marine
+	accessory = /obj/item/clothing/accessory/storage/brown_vest
+
+	id = /obj/item/card/id/sfa_ship
+
+	l_ear = /obj/item/device/radio/headset/ship
+
+	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
+
+/datum/outfit/admin/sfa_marine/get_id_access()
+	return list(access_sfa_patrol_ship, access_external_airlocks)
 
 //items
 
-/obj/item/clothing/under/rank/hangar_technician/orion/ship
-	name = "orion express courier uniform"
-
-/obj/item/clothing/under/rank/operations_manager/orion_ship
-	name = "orion express captain uniform"
-
-/obj/item/card/id/orion_ship
-	name = "orion express ship id"
-	access = list(access_orion_express_ship, access_external_airlocks)
+/obj/item/card/id/sfa_ship
+	name = "sfa patrol ship id"
+	access = list(access_sfa_patrol_ship, access_external_airlocks)
