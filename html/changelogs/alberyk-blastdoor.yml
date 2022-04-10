@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed some blastdoor having no control buttons."
+  - bugfix: "Emitters sound should no longer be heard at the AI core."
