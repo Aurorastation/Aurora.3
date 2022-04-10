@@ -68,7 +68,7 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1)
 
-/datum/outfit/admin/space_bar_bartender/get_id_access()
+/datum/outfit/admin/space_bar_chef/get_id_access()
 	return list(access_generic_away_site, access_external_airlocks)
 
 /datum/ghostspawner/human/space_bar_patron
