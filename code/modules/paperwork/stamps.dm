@@ -35,6 +35,10 @@
 	name = "chief medical officer's rubber stamp"
 	icon_state = "stamp-cmo"
 
+/obj/item/stamp/investigations
+	name = "case closed stamp"
+	icon_state = "stamp-investigator"
+
 /obj/item/stamp/denied
 	name = "\improper DENIED rubber stamp"
 	icon_state = "stamp-deny"
