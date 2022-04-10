@@ -1,8 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes:
-  - tweak: "Security Officers, Investigators and Security Cadets can now submit warrants for approval using the warrant program. They cannot authorize warrants or edit authorized warrants."
-  - rscadd: "Investigators now have a 'Case Closed' stamp in their lockers."
-  - rscadd: "The Telecomms Server Monitor can now print channel logs."
