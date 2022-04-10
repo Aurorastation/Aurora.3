@@ -1141,6 +1141,7 @@
 	layer = 2.9;
 	reversed = 1
 	},
+/obj/structure/plasticflaps,
 /turf/simulated/floor/plating,
 /area/operations/mail_room)
 "aHj" = (
@@ -27328,12 +27329,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
-"rel" = (
-/obj/structure/disposalpipe/trunk,
-/obj/effect/floor_decal/industrial/warning/full,
-/obj/structure/disposaloutlet,
-/turf/simulated/floor/plating,
-/area/operations/mail_room)
 "reo" = (
 /obj/structure/cable/orange{
 	icon_state = "1-2"
@@ -28985,6 +28980,13 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
+	},
+/obj/structure/plasticflaps,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/operations/mail_room)
@@ -31883,18 +31885,20 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
 "tQk" = (
-/obj/structure/disposalpipe/segment,
-/obj/effect/floor_decal/industrial/warning/corner{
+/obj/structure/disposaloutlet{
+	dir = 8
+	},
+/obj/structure/disposalpipe/trunk,
+/obj/structure/window/reinforced{
+	layer = 5;
+	name = "adjusted reinforced window"
+	},
+/obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/structure/window/reinforced{
 	dir = 4
-	},
-/obj/machinery/conveyor{
-	dir = 5;
-	id = "sorting";
-	layer = 2.9;
-	reversed = null
 	},
 /turf/simulated/floor/plating,
 /area/operations/mail_room)
@@ -53951,7 +53955,7 @@ bOV
 kUc
 nkK
 nIi
-rel
+iuP
 tQk
 eew
 pPO
