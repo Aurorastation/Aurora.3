@@ -23,7 +23,7 @@
 	name = "SFA Navy Crewman"
 
 	uniform = /obj/item/clothing/under/rank/fatigues/
-	shoes = /obj/item/clothing/shoes/jackboot
+	shoes = /obj/item/clothing/shoes/jackboots
 	back = /obj/item/storage/backpack/satchel_norm
 	belt = /obj/item/storage/belt/utility/full
 	head = /obj/item/clothing/head/navy
@@ -98,7 +98,7 @@
 	name = "SFA Marine"
 
 	uniform = /obj/item/clothing/under/rank/fatigues/marine
-	shoes = /obj/item/clothing/shoes/jackboot
+	shoes = /obj/item/clothing/shoes/jackboots
 	back = /obj/item/storage/backpack/satchel_norm
 	belt = /obj/item/storage/belt/military
 	head = /obj/item/clothing/head/navy/marine
