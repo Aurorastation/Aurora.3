@@ -20269,13 +20269,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/maintenance/bridge)
-"WV" = (
-/obj/machinery/door/blast/regular/open{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled,
-/area/bridge)
 "WW" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible,
 /turf/simulated/floor/tiled/dark,
@@ -42505,7 +42498,7 @@ xi
 xi
 Tc
 aH
-WV
+ZS
 aH
 dB
 vw
@@ -42707,7 +42700,7 @@ uk
 uk
 CN
 US
-WV
+ZS
 US
 KB
 mM
@@ -42909,7 +42902,7 @@ RJ
 RJ
 BW
 aH
-WV
+ZS
 EJ
 Ns
 BJ
