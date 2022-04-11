@@ -71,8 +71,8 @@
 
 /datum/ghostspawner/human/grand_romanovich_guard
 	short_name = "casino_guard"
-	name = "Grand Romanovich Staff"
-	desc = "Staff the Adhomian casino, the Grand Romanovich."
+	name = "Grand Romanovich Guard"
+	desc = "Guard the Adhomian casino, the Grand Romanovich."
 	tags = list("External")
 
 	spawnpoints = list("casino_guard")

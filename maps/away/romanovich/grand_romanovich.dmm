@@ -353,6 +353,7 @@
 /area/grand_romanovich)
 "bd" = (
 /obj/machinery/door/airlock/command{
+	name = "Vault";
 	req_one_access = list(202)
 	},
 /turf/simulated/floor/carpet/art,
@@ -5859,7 +5860,8 @@
 /area/grand_romanovich)
 "sF" = (
 /obj/machinery/door/airlock/glass{
-	req_one_access = list(150)
+	name = "Staff Area";
+	req_one_access = list(202)
 	},
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
@@ -5873,6 +5875,7 @@
 "sL" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/machinery/door/airlock/command{
+	name = "Administration";
 	req_one_access = list(202)
 	},
 /turf/simulated/floor/wood,
