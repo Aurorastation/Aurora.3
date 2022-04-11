@@ -68,7 +68,7 @@ var/datum/controller/subsystem/cargo/SScargo
 	ordernum = rand(1,8000)
 	shipmentnum = rand(500,700)
 
-	supply_account = SSeconomy.get_department_account("Cargo")
+	supply_account = SSeconomy.get_department_account("Operations")
 
 	//Load in the cargo items config
 	if(config.cargo_load_items_from == "sql")
@@ -498,7 +498,7 @@ var/datum/controller/subsystem/cargo/SScargo
 	if(!supply_account)
 		log_debug("SScargo: Warning Tried to charge supply account but supply acount doesnt exist")
 		return 0
-	return SSeconomy.charge_to_account(supply_account.account_number, "[commstation_name()] - Supply", "[charge_text]", "[commstation_name()] - Banking System", -charge_credits)
+	return SSeconomy.charge_to_account(supply_account.account_number, "[commstation_name()] - Operations", "[charge_text]", "[commstation_name()] - Banking System", -charge_credits)
 //Gets the pending shipment costs for the items that are about to be shipped to the station
 /datum/controller/subsystem/cargo/proc/get_pending_shipment_cost(var/status="approved")
 	//Loop through all the orders marked as shipped and get the suppliers into a list of involved suppliers

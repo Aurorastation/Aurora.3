@@ -1,3 +1,6 @@
+/obj/machinery/mineral
+	var/id //used for linking machines to consoles
+
 /**********************Mineral processing unit console**************************/
 
 /obj/machinery/mineral/processing_unit_console
@@ -45,7 +48,10 @@
 		var/area/A = get_area(src)
 		var/best_distance = INFINITY
 		for(var/obj/machinery/mineral/processing_unit/checked_machine in SSmachinery.all_machines)
-			if(A == get_area(checked_machine) && get_dist_euclidian(checked_machine, src) < best_distance)
+			if(id)
+				if(checked_machine.id == id)
+					machine = checked_machine
+			else if(!checked_machine.console && A == get_area(checked_machine) && get_dist_euclidian(checked_machine, src) < best_distance)
 				machine = checked_machine
 				best_distance = get_dist_euclidian(checked_machine, src)
 		if(machine)
@@ -138,7 +144,7 @@
 	dat += "</table><hr>"
 	dat += "Currently displaying [show_all_ores ? "all ore types" : "only available ore types"]. <A href='?src=\ref[src];toggle_ores=1'>\[[show_all_ores ? "show less" : "show more"]\]</a></br>"
 	dat += "The ore processor is currently <A href='?src=\ref[src];toggle_power=1'>[(machine.active ? "<font color='green'>processing</font>" : "<font color='red'>disabled</font>")]</a>."
-	
+
 	var/datum/browser/processor_win = new(user, "processor_console", capitalize_first_letters(name))
 	processor_win.set_content(dat)
 	processor_win.open()
@@ -272,7 +278,7 @@
 
 	dat += "Additional Notes: <span class=\"paper_field\"></span><br><br>"
 
-	dat += "Quartermaster's / Head of Personnel's / Captain's Stamp: </small>"
+	dat += "Operations Manager's / Captain's Stamp: </small>"
 
 	P.set_content(form_title, dat)
 

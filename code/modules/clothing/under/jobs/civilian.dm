@@ -7,6 +7,18 @@
 	item_state = "ba_suit"
 	worn_state = "ba_suit"
 
+/obj/item/clothing/under/rank/bartender/nt
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "nt_bartender"
+	item_state = "nt_bartender"
+
+/obj/item/clothing/under/rank/bartender/idris
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "idris_bartender"
+	item_state = "idris_bartender"
+
 /obj/item/clothing/under/rank/quartermaster
 	name = "quartermaster's jumpsuit"
 	desc = "It's a jumpsuit worn by the quartermaster. It's specially designed to prevent back injuries caused by pushing paper."
@@ -41,6 +53,18 @@
 	item_state = "w_suit"
 	worn_state = "chef"
 
+/obj/item/clothing/under/rank/chef/nt
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "nt_chef"
+	item_state = "nt_chef"
+
+/obj/item/clothing/under/rank/chef/idris
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "idris_chef"
+	item_state = "idris_chef"
+
 /obj/item/clothing/under/rank/head_of_personnel
 	desc = "It's a jumpsuit worn by someone who works in the position of \"Head of Personnel\"."
 	name = "head of personnel's jumpsuit"
@@ -63,6 +87,18 @@
 	worn_state = "hydroponics"
 	permeability_coefficient = 0.50
 
+/obj/item/clothing/under/rank/hydroponics/nt
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "nt_gardener"
+	item_state = "nt_gardener"
+
+/obj/item/clothing/under/rank/hydroponics/idris
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "idris_gardener"
+	item_state = "idris_gardener"
+
 /obj/item/clothing/under/rank/liaison
 	desc = "The plain, professional attire of a corporate liaison. The collar is <i>immaculately</i> starched."
 	name = "corporate liaison uniform"
@@ -79,6 +115,18 @@
 	armor = list(
 		bio = ARMOR_BIO_MINOR
 	)
+
+/obj/item/clothing/under/rank/janitor/nt
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "nt_janitor"
+	item_state = "nt_janitor"
+
+/obj/item/clothing/under/rank/janitor/idris
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "idris_janitor"
+	item_state = "idris_janitor"
 
 /obj/item/clothing/under/lawyer
 	desc = "Slick threads."
@@ -115,6 +163,18 @@
 	item_state = "lawyer_red"
 	worn_state = "red_suit"
 
+/obj/item/clothing/under/librarian/nt
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "nt_librarian"
+	item_state = "nt_librarian"
+
+/obj/item/clothing/under/librarian/idris
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "idris_librarian"
+	item_state = "idris_librarian"
+
 /obj/item/clothing/under/mime
 	name = "mime's outfit"
 	desc = "It's not very colourful."
@@ -124,10 +184,22 @@
 
 /obj/item/clothing/under/rank/miner
 	desc = "It's a snappy miner's jumpsuit, sans overalls and caked with dirt."
-	name = "shaft miner's jumpsuit"
+	name = "miner's jumpsuit"
 	icon_state = "miner"
 	item_state = "lb_suit"
 	worn_state = "miner"
+
+/obj/item/clothing/under/rank/miner/heph
+	icon = 'icons/obj/contained_items/department_uniforms/operations.dmi'
+	contained_sprite = TRUE
+	icon_state = "heph_miner"
+	item_state = "heph_miner"
+
+/obj/item/clothing/under/rank/miner/orion
+	icon = 'icons/obj/contained_items/department_uniforms/operations.dmi'
+	contained_sprite = TRUE
+	icon_state = "orion_miner"
+	item_state = "orion_miner"
 
 /obj/item/clothing/under/rank/hephaestus
 	name = "Hephaestus Industries engineer uniform"
@@ -226,3 +298,65 @@
 	armor = list(
 		bio = ARMOR_BIO_MINOR
 	)
+
+/obj/item/clothing/under/rank/operations_manager
+	name = "operations manager's jumpsuit"
+	desc = "A uniform worn by the operations manager. It has the SCC insignia on it."
+	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
+	icon_state = "operations_manager"
+	item_state = "operations_manager"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/hangar_technician
+	name = "hangar technician's jumpsuit"
+	desc = "A practical uniform used by hangar technicians."
+	icon_state = "cargo"
+	item_state = "lb_suit"
+	worn_state = "cargo"
+
+/obj/item/clothing/under/rank/hangar_technician/heph
+	icon = 'icons/obj/contained_items/department_uniforms/operations.dmi'
+	contained_sprite = TRUE
+	icon_state = "heph_tech"
+	item_state = "heph_tech"
+
+/obj/item/clothing/under/rank/hangar_technician/orion
+	icon = 'icons/obj/contained_items/department_uniforms/operations.dmi'
+	contained_sprite = TRUE
+	icon_state = "orion_tech"
+	item_state = "orion_tech"
+
+/obj/item/clothing/under/rank/bridge_crew
+	name = "bridge crew's jumpsuit"
+	desc = "The uniform worn by the SCC's bridge crew."
+	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
+	icon_state = "bridge_crew"
+	item_state = "bridge_crew"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/xo
+	name = "executive officer's jumpsuit"
+	desc = "The uniform worn by the SCC's executive officers."
+	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
+	icon_state = "executive_officer"
+	item_state = "executive_officer"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/machinist
+	name = "machinist's jumpsuit"
+	desc = "A practical uniform designed for industrial work."
+	icon_state = "hop"
+	item_state = "b_suit"
+	worn_state = "hop"
+
+/obj/item/clothing/under/rank/machinist/heph
+	icon = 'icons/obj/contained_items/department_uniforms/operations.dmi'
+	contained_sprite = TRUE
+	icon_state = "heph_machinist"
+	item_state = "heph_machinist"
+
+/obj/item/clothing/under/rank/machinist/orion
+	icon = 'icons/obj/contained_items/department_uniforms/operations.dmi'
+	contained_sprite = TRUE
+	icon_state = "orion_machinist"
+	item_state = "orion_machinist"

@@ -134,13 +134,13 @@
 	display_name = "eridani beret"
 	path = /obj/item/clothing/head/beret/security/eri
 	slot = slot_head
-	faction = "Eridani Private Military Contractors"
+	faction = "Private Military Contracting Group"
 
 /datum/gear/faction/eridani_cap
 	display_name = "eridani cap"
 	path = /obj/item/clothing/head/softcap/eri
 	slot = slot_head
-	faction = "Eridani Private Military Contractors"
+	faction = "Private Military Contracting Group"
 
 /datum/gear/faction/epmc_sunglasses
 	display_name = "EPMC security HUD selection"
@@ -148,7 +148,7 @@
 	path = /obj/item/clothing/glasses/sunglasses/sechud/epmc
 	slot = slot_glasses
 	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator")
-	faction = "Eridani Private Military Contractors"
+	faction = "Private Military Contracting Group"
 
 /datum/gear/faction/epmc_sunglasses/New()
 	..()
@@ -163,7 +163,7 @@
 	description = "A selection of EPMC labcoats."
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/epmc
 	slot = slot_wear_suit
-	faction = "Eridani Private Military Contractors"
+	faction = "Private Military Contracting Group"
 
 /datum/gear/faction/epmc_labcoat/New()
 	..()
@@ -240,7 +240,7 @@
 	display_name = "EPMC sleeve patch"
 	path = /obj/item/clothing/accessory/sleevepatch/erisec
 	slot = slot_tie
-	faction = "Eridani Private Military Contractors"
+	faction = "Private Military Contracting Group"
 
 /datum/gear/faction/idrissec_patch
 	display_name = "idris security sleeve patch"

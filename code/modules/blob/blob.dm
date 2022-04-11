@@ -99,6 +99,10 @@
 	if(GR)
 		qdel(GR)
 		return
+	var/obj/structure/tank_wall/TW = locate() in T
+	if(TW)
+		TW.take_damage(rand(5,20))
+		return
 	for(var/obj/machinery/door/D in T) // There can be several - and some of them can be open, locate() is not suitable
 		if(D.density)
 			attack_door(D)

@@ -18,7 +18,7 @@
 			return access_research
 		if(NETWORK_MINE,NETWORK_SUPPLY,NETWORK_CIVILIAN_WEST,NETWORK_EXPEDITION,NETWORK_CALYPSO,NETWORK_POD)
 			return access_mailsorting // Cargo office - all cargo staff should have access here.
-		if(NETWORK_COMMAND,NETWORK_TELECOM,NETWORK_CIVILIAN_EAST,NETWORK_CIVILIAN_MAIN,NETWORK_CIVILIAN_SURFACE,NETWORK_SERVICE)
+		if(NETWORK_COMMAND,NETWORK_TELECOM,NETWORK_CIVILIAN_EAST,NETWORK_CIVILIAN_MAIN,NETWORK_CIVILIAN_SURFACE, NETWORK_SERVICE, NETWORK_FIRST_DECK, NETWORK_SECOND_DECK, NETWORK_THIRD_DECK, NETWORK_INTREPID)
 			return access_heads
 		if(NETWORK_CRESCENT,NETWORK_ERT)
 			return access_cent_specops
@@ -29,7 +29,7 @@
 	filename = "cammon"
 	filedesc = "Camera Monitoring"
 	nanomodule_path = /datum/nano_module/camera_monitor
-	program_icon_state = "cameras"
+	program_icon_state = "sec_alarm"
 	extended_desc = "This program allows remote access to station's camera system. Some camera networks may have additional access requirements."
 	size = 12
 	available_on_ntnet = TRUE

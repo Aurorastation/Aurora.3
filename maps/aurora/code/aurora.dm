@@ -90,6 +90,8 @@
 		/datum/shuttle/autodock/multi/merc_aurora_elite
 	)
 
+	warehouse_basearea = /area/quartermaster/storage
+
 /datum/map/aurora/generate_asteroid()
 	// Create the chasms.
 	new /datum/random_map/automata/cave_system/chasms(null,0,0,3,255,255)

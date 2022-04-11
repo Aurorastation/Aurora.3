@@ -201,11 +201,12 @@
 	law_type = /datum/ai_laws/matriarch_drone
 	can_swipe = FALSE
 
-	var/matrix_tag = STATION_TAG
+	var/matrix_tag
 
 /mob/living/silicon/robot/drone/construction/matriarch/Initialize()
 	. = ..()
 	check_add_to_late_firers()
+	matrix_tag = current_map.station_short
 
 /mob/living/silicon/robot/drone/construction/matriarch/shut_down()
 	return

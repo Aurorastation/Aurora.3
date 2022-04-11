@@ -290,8 +290,14 @@
 	desc = "A heavy tungsten gauss slug."
 	caliber = "gauss"
 	icon_state = "tungstenslug"
+	spent_icon = "tungstenslug-spent"
 	projectile_type = /obj/item/projectile/bullet/gauss
 	max_stack = 2
+
+/obj/item/ammo_casing/gauss/carbine
+	name = "compact tungsten slug"
+	desc = "A heavy tungsten gauss slug. This one has a casing adapated for carbine models."
+	projectile_type = /obj/item/projectile/bullet/gauss/carbine
 
 /obj/item/ammo_casing/gauss/emp
 	name = "ion slug"

@@ -33,7 +33,7 @@
 		return src
 
 	// This makes sure that turfs are not changed to space when there's a multi-z turf below
-	if(N == /turf/space && HasBelow(z) && !ignore_override)
+	if(ispath(N, /turf/space) && HasBelow(z) && !ignore_override)
 		N = openspace_override_type || /turf/simulated/open/airless
 
 	var/obj/fire/old_fire = fire
@@ -45,6 +45,7 @@
 	var/old_lighting_overlay = lighting_overlay
 	var/list/old_corners = corners
 	var/list/old_blueprints = blueprints
+	var/list/old_decals = decals
 
 	changing_turf = TRUE
 
@@ -54,7 +55,7 @@
 	// So we call destroy.
 	qdel(src)
 
-	var/turf/simulated/W = new N(src)
+	var/turf/W = new N(src)
 
 #ifndef AO_USE_LIGHTING_OPACITY
 	// If we're using opacity-based AO, this is done in recalc_atom_opacity().
@@ -106,6 +107,8 @@
 	for(var/image/I as anything in W.blueprints)
 		I.loc = W
 		I.plane = 0
+	
+	W.decals = old_decals
 
 	W.post_change()
 
@@ -120,6 +123,11 @@
 	src.icon = other.icon
 	src.overlays = other.overlays.Copy()
 	src.underlays = other.underlays.Copy()
+	if(other.decals)
+		src.decals = other.decals.Copy()
+		other.decals.Cut()
+		other.update_icon()
+		src.update_icon()
 	return 1
 
 //I would name this copy_from() but we remove the other turf from their air zone for some reason
