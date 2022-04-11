@@ -23282,7 +23282,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/open,
 /area/maintenance/hangar/port)
 "oBZ" = (
 /obj/structure/cable/green{
