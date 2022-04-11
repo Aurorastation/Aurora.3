@@ -3072,6 +3072,7 @@
 #include "maps\away\generic\space_bar.dm"
 #include "maps\away\generic\space_bar_ghostroles.dm"
 #include "maps\away\romanovich\first_aurora.dm"
+#include "maps\away\romanovich\grand_romanovich.dm"
 #include "maps\away\ships\corporate.dm"
 #include "maps\away\ships\corporate_ship_ghostroles.dm"
 #include "maps\event\code\event.dm"
