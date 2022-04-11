@@ -16408,11 +16408,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"oUT" = (
-/obj/effect/floor_decal/corner/white/diagonal,
-/obj/machinery/hologram/holopad,
-/turf/simulated/floor/tiled/white,
-/area/operations/lower/machinist)
 "oVl" = (
 /turf/simulated/wall/r_wall,
 /area/rnd/test_range)
@@ -45782,7 +45777,7 @@ sfr
 pYD
 hPD
 ycX
-oUT
+ycX
 dsT
 mey
 ukF
