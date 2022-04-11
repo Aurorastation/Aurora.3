@@ -64,7 +64,7 @@
 	shoes = /obj/item/clothing/shoes/laceup
 	back = /obj/item/storage/backpack/satchel
 	head = /obj/item/clothing/head/dress
-	accessory = /obj/item/clothing/accessory/holster/hip/
+	accessory = /obj/item/clothing/accessory/holster/thigh
 
 	id = /obj/item/card/id/sfa_ship
 
