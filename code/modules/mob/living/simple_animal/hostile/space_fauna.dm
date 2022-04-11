@@ -189,6 +189,7 @@
 	melee_damage_lower = 20
 	melee_damage_upper = 20
 	armor_penetration = 30
+	
 /mob/living/simple_animal/hostile/carp/bloater	
 	name = "bloater"
 	desc = "A fat, mineral-devouring creature frequently herded for mining expeditions. Its actual ability to dig is less valuable than its volatile nature, however."
