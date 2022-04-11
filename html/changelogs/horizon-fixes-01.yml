@@ -1,0 +1,10 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes:
+    - bugfix: "AI can now use the sensors console fully."
+    - bugfix: "Operations mailing room no longer launches the rubbish off of the conveyor belt."
+    - bugfix: "Port Propulsion now has an additional valve to toggle that will send cold phoron to the starboard thruster if you wish to operate with cold propellant. Note that this mode will result in less thrust and it is preferable to use the burn chambers!"
+    - tweak: "D1 Operations areas now have some additional holopads."
+    - tweak: "CE and Journalist Officers are now better lit."
