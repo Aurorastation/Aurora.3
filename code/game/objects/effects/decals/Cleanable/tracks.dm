@@ -157,8 +157,9 @@
 	desc = "They look like still wet tracks left by bare feet."
 	drydesc = "They look like dried tracks left by bare feet."
 
-/obj/effect/decal/cleanable/blood/tracks/footprints/barefoot/del_dry/dry()
-	qdel(src)
+/obj/effect/decal/cleanable/blood/tracks/footprints/barefoot/del_dry/Initialize()
+	. = ..()
+	QDEL_IN(src, TRACKS_CRUSTIFY_TIME)
 
 /obj/effect/decal/cleanable/blood/tracks/wheels
 	name = "wet tracks"

@@ -202,3 +202,15 @@
 							"/obj/item/stock_parts/scanning_module" = 2,
 							"/obj/item/stock_parts/capacitor" = 1,
 							"/obj/item/stock_parts/console_screen" = 1)
+
+/obj/item/circuitboard/iv_drip
+	name = T_BOARD("IV drip")
+	desc = "The circuitboard for an IV drip."
+	build_path = /obj/machinery/iv_drip
+	origin_tech = list(TECH_DATA = 1, TECH_BIO = 2)
+	board_type = "machine"
+	req_components = list(
+							"/obj/item/reagent_containers/syringe" = 1,
+							"/obj/item/stock_parts/matter_bin" = 1,
+							"/obj/item/stock_parts/manipulator" = 1,
+							"/obj/item/stock_parts/scanning_module" = 1)

@@ -179,7 +179,7 @@
 		if(ACCESS_REGION_GENERAL) //station general
 			return "Station General"
 		if(ACCESS_REGION_SUPPLY) //supply
-			return "Supply"
+			return "Operations"
 
 /proc/get_access_desc(id)
 	var/list/AS = get_all_access_datums_by_id()

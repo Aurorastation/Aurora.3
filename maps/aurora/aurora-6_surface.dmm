@@ -1912,7 +1912,7 @@
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
 "byl" = (
-/obj/structure/closet/secure_closet/cargotech,
+/obj/structure/closet/secure_closet/hangartech,
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
 	},
@@ -5321,7 +5321,7 @@
 /turf/simulated/floor/tiled,
 /area/storage/shields)
 "eGQ" = (
-/obj/structure/closet/secure_closet/quartermaster,
+/obj/structure/closet/secure_closet/operation_manager,
 /turf/simulated/floor/tiled,
 /area/quartermaster/qm)
 "eHi" = (
@@ -9805,7 +9805,7 @@
 	},
 /area/mine/explored)
 "iwL" = (
-/obj/structure/closet/secure_closet/cargotech,
+/obj/structure/closet/secure_closet/hangartech,
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
@@ -13163,10 +13163,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/quartermaster/loading)
-"lxc" = (
-/obj/structure/bed/stool/padded/red,
-/turf/simulated/wall/r_wall,
-/area/tcommsat/lounge)
 "lxI" = (
 /obj/structure/cable/yellow{
 	d1 = 2;
@@ -16671,7 +16667,7 @@
 /turf/simulated/wall,
 /area/security/vacantoffice)
 "oBr" = (
-/obj/structure/closet/secure_closet/cargotech,
+/obj/structure/closet/secure_closet/hangartech,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
@@ -26502,7 +26498,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/structure/closet/secure_closet/cargotech,
+/obj/structure/closet/secure_closet/hangartech,
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "wHS" = (
@@ -41354,7 +41350,7 @@ ifb
 wKH
 nGc
 kyf
-lxc
+fwV
 cBe
 bPl
 bPW

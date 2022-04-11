@@ -102,7 +102,7 @@ var/datum/controller/subsystem/radio/SSradio
 /datum/controller/subsystem/radio
 	name = "Radio"
 	flags = SS_NO_FIRE | SS_NO_INIT
-	
+
 	var/list/datum/radio_frequency/frequencies = list()
 
 /datum/controller/subsystem/radio/New()
@@ -189,6 +189,8 @@ var/datum/controller/subsystem/radio/SSradio
 			. = "entradio"
 		if (BLSP_FREQ)
 			. = "bluespaceradio"
+		if (SHIP_FREQ)
+			. = "shipradio"
 		else
 			if(DEPT_FREQS_ASSOC[fstr])
 				. = "deptradio"

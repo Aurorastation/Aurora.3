@@ -1398,7 +1398,7 @@
 	name = "Guide to Custom Kinetic Accelerators"
 	icon_state = "rulebook"
 	item_state = "book1"
-	author = "Quartermaster Burgs"
+	author = "Quartermaster Longson"
 	title = "Guide to Custom Kinetic Accelerators"
 	dat = {"<html>
 				<head>
@@ -1413,7 +1413,7 @@
 				</head>
 				<body>
 					<h1>Metal Snowflake: Your Guide to Custom Kinetic Accelerators</h1>
-					<h2>by Quartermaster Burgs</h2>
+					<h2>by Quartermaster Longson</h2>
 					<br>
 					<p>So you want to make your own custom kinetic accelerator. While it may look simple to take apart, swap, and modify parts to fit your working needs, there are a few things to keep in mind before assembling.</p>
 

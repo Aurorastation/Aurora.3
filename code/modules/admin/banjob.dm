@@ -458,8 +458,8 @@ var/list/jobban_keylist = list() // Global jobban list.
 	//Civilian (Grey)
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='dddddd'><th colspan='[length(civilian_positions)]'><a href='?src=\ref[src];jobban_job=civiliandept;jobban_tgt=[ckey]'>Civilian Positions</a></th></tr><tr align='center'>"
-	for (var/jobPos in civilian_positions)
+	jobs += "<tr bgcolor='dddddd'><th colspan='[length(service_positions)]'><a href='?src=\ref[src];jobban_job=civiliandept;jobban_tgt=[ckey]'>Civilian Positions</a></th></tr><tr align='center'>"
+	for (var/jobPos in service_positions)
 		if (!jobPos)
 			continue
 		var/datum/job/job = SSjobs.GetJob(jobPos)
@@ -476,11 +476,6 @@ var/list/jobban_keylist = list() // Global jobban list.
 		if (counter >= 5) //So things dont get squiiiiished!
 			jobs += "</tr><tr align='center'>"
 			counter = 0
-
-	if (jobban_isbanned(ckey, "Internal Affairs Agent"))
-		jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=Internal Affairs Agent;jobban_tgt=[ckey]'><font color=red>Internal Affairs Agent</font></a></td>"
-	else
-		jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=Internal Affairs Agent;jobban_tgt=[ckey]'>Internal Affairs Agent</a></td>"
 
 	jobs += "</tr></table>"
 
@@ -634,7 +629,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 					continue
 				joblist += temp.title
 		if ("civiliandept")
-			for (var/jobPos in civilian_positions)
+			for (var/jobPos in service_positions)
 				if (!jobPos)
 					continue
 				var/datum/job/temp = SSjobs.GetJob(jobPos)

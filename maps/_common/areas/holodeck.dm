@@ -5,6 +5,7 @@
 	no_light_control = TRUE
 	station_area = TRUE
 	dynamic_lighting = FALSE
+	flags = NO_GHOST_TELEPORT_ACCESS
 
 /area/holodeck/alphadeck
 	name = "Holodeck Alpha"
@@ -86,3 +87,6 @@
 /area/holodeck/source_battlemonsters
 	name = "Holodeck - Battlemonsters Arena"
 	sound_env = ARENA
+
+/area/holodeck/source_chessboard
+	name = "Holodeck - Chessboard"

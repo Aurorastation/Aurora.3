@@ -30,6 +30,7 @@
 	species_restricted = null
 	gender = PLURAL
 	icon_base = null
+	footstep_sound_override = 'sound/machines/rig/rigstep.ogg'
 
 /obj/item/clothing/suit/space/rig
 	name = "chestpiece"

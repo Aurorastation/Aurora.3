@@ -16,11 +16,11 @@
 	access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
 			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_construction,
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_external_airlocks, access_research,
-			access_first_responder, access_maint_tunnels)
+			access_first_responder, access_maint_tunnels, access_intrepid)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
 			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_construction,
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_external_airlocks, access_research,
-			access_first_responder, access_maint_tunnels)
+			access_first_responder, access_maint_tunnels, access_intrepid)
 
 	minimal_player_age = 10
 	ideal_character_age = 50
@@ -97,7 +97,7 @@
 	base_name = "Physician"
 	jobtype = /datum/job/doctor
 
-	uniform = /obj/item/clothing/under/rank/medical
+	uniform = /obj/item/clothing/under/rank/medical/nt
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/medical
 	shoes = /obj/item/clothing/shoes/medical
 	id = /obj/item/card/id/white
@@ -121,7 +121,8 @@
 	name = "Surgeon"
 	jobtype = /datum/job/doctor
 
-	uniform = /obj/item/clothing/under/rank/medical/blue
+	head = /obj/item/clothing/head/surgery/nt
+	uniform = /obj/item/clothing/under/rank/medical/surgeon/nt
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/surgeon
 	shoes = /obj/item/clothing/shoes/surgeon
 
@@ -162,7 +163,7 @@
 	name = "Pharmacist"
 	jobtype = /datum/job/pharmacist
 
-	uniform = /obj/item/clothing/under/rank/pharmacist
+	uniform = /obj/item/clothing/under/rank/pharmacist/nt
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist
 	shoes = /obj/item/clothing/shoes/chemist
 	id = /obj/item/card/id/white
@@ -207,7 +208,7 @@
 	base_name = "Psychiatrist"
 	jobtype = /datum/job/psychiatrist
 
-	uniform = /obj/item/clothing/under/rank/psych
+	uniform = /obj/item/clothing/under/rank/psych/nt
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/psych
 	shoes = /obj/item/clothing/shoes/psych
 	id = /obj/item/card/id/white
@@ -250,7 +251,8 @@
 	base_name = "First Responder"
 	jobtype = /datum/job/med_tech
 
-	uniform = /obj/item/clothing/under/rank/medical/first_responder
+	head = /obj/item/clothing/head/softcap/medical/nt
+	uniform = /obj/item/clothing/under/rank/medical/first_responder/nt
 	shoes = /obj/item/clothing/shoes/jackboots
 	id = /obj/item/card/id/white
 
@@ -292,7 +294,7 @@
 	name = "Medical Intern"
 	jobtype = /datum/job/intern_med
 
-	uniform = /obj/item/clothing/under/rank/medical/intern
+	uniform = /obj/item/clothing/under/rank/medical/intern/nt
 	shoes = /obj/item/clothing/shoes/medical
 	headset = /obj/item/device/radio/headset/headset_med
 	bowman = /obj/item/device/radio/headset/headset_med/alt

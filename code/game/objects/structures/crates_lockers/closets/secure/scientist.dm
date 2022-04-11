@@ -32,8 +32,6 @@
 	new /obj/item/clothing/suit/bio_suit/scientist(src)
 	new /obj/item/clothing/head/bio_hood/scientist(src)
 	new /obj/item/clothing/under/rank/research_director(src)
-	new /obj/item/clothing/under/rank/research_director/rdalt(src)
-	new /obj/item/clothing/under/rank/research_director/dress_rd(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/shoes/science(src)
 	new /obj/item/clothing/shoes/laceup/brown(src)
@@ -61,8 +59,6 @@
 
 /obj/structure/closet/secure_closet/RD2/fill()
 	new /obj/item/clothing/under/rank/research_director(src)
-	new /obj/item/clothing/under/rank/research_director/rdalt(src)
-	new /obj/item/clothing/under/rank/research_director/dress_rd(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/shoes/science(src)
 	new /obj/item/clothing/shoes/laceup/brown(src)

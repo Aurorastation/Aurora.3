@@ -45,7 +45,7 @@
 	display_name = "flash-proof sunglasses selection (Security/Command)"
 	description = "A selection of flash-proof sunglasses."
 	path = /obj/item/clothing/glasses/sunglasses
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Captain", "Head of Personnel", "Quartermaster", "Internal Affairs Agent", "Investigator")
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Captain", "Executive Officer", "Operations Manager", "Investigator", "Bridge Crew")
 
 /datum/gear/eyes/sunglasses/New()
 	..()

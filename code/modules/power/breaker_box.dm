@@ -30,6 +30,17 @@
 	SSmachinery.queue_rcon_update()
 	return ..()
 
+/obj/machinery/power/breakerbox/activated
+	icon_state = "bbox_on"
+
+	// Enabled on server startup. Used in substations to keep them in bypass mode.
+/obj/machinery/power/breakerbox/activated/Initialize()
+	..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/power/breakerbox/activated/LateInitialize()
+	set_state(1)
+
 /obj/machinery/power/breakerbox/examine(mob/user)
 	..()
 	if(on)
@@ -130,8 +141,3 @@
 
 /obj/machinery/power/breakerbox/activated
 	icon_state = "bbox_on"
-
-	// Enabled on server startup. Used in substations to keep them in bypass mode.
-/obj/machinery/power/breakerbox/activated/Initialize()
-	. = ..()
-	set_state(1)

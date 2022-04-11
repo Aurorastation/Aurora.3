@@ -135,12 +135,13 @@
 #define DEFAULT_JOB_TYPE /datum/job/assistant
 
 //Area flags, possibly more to come
-#define RAD_SHIELDED        1 //shielded from radiation, clearly
-#define SPAWN_ROOF          2 // if we should attempt to spawn a roof above us.
-#define HIDE_FROM_HOLOMAP   4 // if we shouldn't be drawn on station holomaps
-#define FIRING_RANGE        8
-#define NO_CREW_EXPECTED   16 // Areas where crew is not expected to ever be. Used to tell antag bases and such from crew-accessible areas on centcom level.
-#define PRISON             32 // Marks prison area for purposes of checking if brigged/imprisoned
+#define RAD_SHIELDED        	 BITFLAG(1) //shielded from radiation, clearly
+#define SPAWN_ROOF          	 BITFLAG(2) // if we should attempt to spawn a roof above us.
+#define HIDE_FROM_HOLOMAP   	 BITFLAG(3) // if we shouldn't be drawn on station holomaps
+#define FIRING_RANGE        	 BITFLAG(4)
+#define NO_CREW_EXPECTED    	 BITFLAG(5) // Areas where crew is not expected to ever be. Used to tell antag bases and such from crew-accessible areas on centcom level.
+#define PRISON              	 BITFLAG(6) // Marks prison area for purposes of checking if brigged/imprisoned
+#define NO_GHOST_TELEPORT_ACCESS BITFLAG(7) // Marks whether ghosts should not have teleport access to this area
 
 // Convoluted setup so defines can be supplied by Bay12 main server compile script.
 // Should still work fine for people jamming the icons into their repo.
@@ -479,6 +480,11 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define COOK_CHECK_EXTRA	0
 #define COOK_CHECK_EXACT	1
 
+// Moved from tanks/tanks.dm
+#define TANK_MAX_RELEASE_PRESSURE 		(3*ONE_ATMOSPHERE)
+#define TANK_DEFAULT_RELEASE_PRESSURE 	24 // kPa
+#define TANK_IDEAL_PRESSURE 			1015 //Arbitrary.
+
 #define STATION_TAG "Aurora"
 
 //Planet habitability class
@@ -494,3 +500,5 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 
 //Ruin map template flags
 #define TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED 32  // Ruin is not available during spawning unless another ruin permits it.
+
+#define LANDING_ZONE_RADIUS 15 // Used for autoplacing landmarks on exoplanets

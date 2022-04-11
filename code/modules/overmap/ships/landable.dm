@@ -68,6 +68,7 @@
 	name = "Open Space"
 	landmark_tag = "ship"
 	flags = SLANDMARK_FLAG_AUTOSET | SLANDMARK_FLAG_ZERO_G
+	base_turf = /turf/space
 	var/shuttle_name
 	var/list/visitors // landmark -> visiting shuttle stationed there
 

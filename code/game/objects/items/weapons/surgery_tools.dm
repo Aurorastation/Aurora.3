@@ -26,7 +26,7 @@
  */
 /obj/item/surgery/retractor
 	name = "retractor"
-	desc = "Retracts stuff."
+	desc = "A surgical instrument which allows careful opening of incisions to reach inside someone."
 	icon_state = "retractor"
 	item_state = "retractor"
 	matter = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 5000)
@@ -38,7 +38,7 @@
  */
 /obj/item/surgery/hemostat
 	name = "hemostat"
-	desc = "You think you have seen this before."
+	desc = "Primarily utilized to control initial incision bleeding, this instrument allows for careful removal of objects inside someone."
 	icon_state = "hemostat"
 	item_state = "hemostat"
 	matter = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 2500)
@@ -51,7 +51,7 @@
  */
 /obj/item/surgery/cautery
 	name = "cautery"
-	desc = "This stops bleeding."
+	desc = "A specialized surgical tool which applies just enough heat to safely close surgical incisions, when used correctly at least."
 	icon_state = "cautery"
 	item_state = "cautery"
 	matter = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 2500)
@@ -64,7 +64,7 @@
  */
 /obj/item/surgery/surgicaldrill
 	name = "surgical drill"
-	desc = "You can drill using this item. You dig?"
+	desc = "A drill specialized for surgical use, capable of creating surgical cavities and safely breaching through Vaurcae carapace for initial incisions."
 	icon_state = "drill"
 	item_state = "drill"
 	hitsound = /decl/sound_category/drillhit_sound
@@ -82,7 +82,7 @@
  */
 /obj/item/surgery/scalpel
 	name = "scalpel"
-	desc = "Cut, cut, and once more cut."
+	desc = "A metallic scalpel with long-lasting edge. Used in a variety of surgical situations from incisions, to transplants, and to debridements."
 	icon_state = "scalpel"
 	item_state = "scalpel"
 	flags = CONDUCT
@@ -105,20 +105,20 @@
  */
 /obj/item/surgery/scalpel/laser1
 	name = "laser scalpel"
-	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field.  This one looks basic and could be improved."
+	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field. This one looks basic and could be improved."
 	icon_state = "scalpel_laser1"
 	damtype = "fire"
 
 /obj/item/surgery/scalpel/laser2
 	name = "laser scalpel"
-	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field.  This one looks somewhat advanced."
+	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field. This one looks somewhat advanced."
 	icon_state = "scalpel_laser2"
 	damtype = "fire"
 	force = 12.0
 
 /obj/item/surgery/scalpel/laser3
 	name = "laser scalpel"
-	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field.  This one looks to be the pinnacle of precision energy cutlery!"
+	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field. This one looks to be the pinnacle of precision energy cutlery!"
 	icon_state = "scalpel_laser3"
 	damtype = "fire"
 	force = 15.0
@@ -134,7 +134,7 @@
  */
 /obj/item/surgery/circular_saw
 	name = "circular saw"
-	desc = "For heavy duty cutting."
+	desc = "A circular bone saw specialized for cutting through bones, amputations, and even hardsuits if required."
 	icon_state = "saw"
 	item_state = "saw"
 	hitsound = 'sound/weapons/saw/circsawhit.ogg'
@@ -155,6 +155,7 @@
 //misc, formerly from code/defines/weapons.dm
 /obj/item/surgery/bonegel
 	name = "bone gel"
+	desc = "A highly specialized gel which promotes fast bone healing."
 	icon_state = "bone-gel"
 	item_state = "bone-gel"
 	force = 0
@@ -164,6 +165,7 @@
 
 /obj/item/surgery/FixOVein
 	name = "FixOVein"
+	desc = "A specialized surgical instrument capable of quickly and safely healing torn veins and arteries, being capable of repairing torn ligaments as well."
 	icon_state = "fixovein"
 	item_state = "fixovein"
 	force = 0
@@ -175,6 +177,7 @@
 
 /obj/item/surgery/bonesetter
 	name = "bone setter"
+	desc = "A surgical tool designed to firmly set damaged bones back together for proper healing."
 	icon_state = "bonesetter"
 	item_state = "bonesetter"
 	force = 8.0
@@ -318,4 +321,22 @@
 		/obj/item/device/mass_spectrometer,
 		/obj/item/reagent_containers/glass/beaker/vial,
 		/obj/item/reagent_containers/syringe
+	)
+
+/obj/item/storage/box/fancy/tray/robotics
+	starts_with = list(
+		/obj/item/surgery/circular_saw = 1,
+		/obj/item/surgery/hemostat = 1,
+		/obj/item/surgery/retractor = 1,
+		/obj/item/surgery/scalpel = 1,
+		/obj/item/surgery/surgicaldrill = 1
+	)
+
+	can_hold = list(
+		/obj/item/surgery/circular_saw,
+		/obj/item/surgery/circular_saw,
+		/obj/item/surgery/hemostat,
+		/obj/item/surgery/retractor,
+		/obj/item/surgery/scalpel,
+		/obj/item/surgery/surgicaldrill
 	)
