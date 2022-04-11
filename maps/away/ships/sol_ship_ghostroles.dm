@@ -45,7 +45,7 @@
 	tags = list("External")
 	mob_name_prefix = "ENS. "
 
-	spawnpoints = list("orion_navy_officer")
+	spawnpoints = list("sfa_navy_officer")
 	max_count = 1
 
 	outfit = /datum/outfit/admin/sfa_navy_officer
