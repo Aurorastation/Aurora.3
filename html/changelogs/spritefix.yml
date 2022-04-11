@@ -1,0 +1,6 @@
+author: RyverStyx
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed broken sprites so they line up with the body in the intended ways."
