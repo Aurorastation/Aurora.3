@@ -45,10 +45,11 @@
 /obj/item/storage/firstaid/regular
 	icon_state = "firstaid"
 	starts_with = list(
-		/obj/item/stack/medical/bruise_pack = 3,
+		/obj/item/stack/medical/bruise_pack = 2,
 		/obj/item/stack/medical/ointment = 2,
 		/obj/item/device/healthanalyzer = 1,
-		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1
+		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/dylovene = 1
 	)
 
 /obj/item/storage/firstaid/toxin

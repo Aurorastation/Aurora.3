@@ -107,7 +107,7 @@
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 	cost = 3
-	allowed_roles = list("Station Engineer", "Chief Engineer", "Atmospheric Technician", "Engineering Apprentice", "Roboticist")
+	allowed_roles = list("Engineer", "Chief Engineer", "Atmospheric Technician", "Engineering Apprentice", "Machinist")
 	flags = GEAR_NO_SELECTION
 
 /datum/gear/augment/autakh_mining
@@ -183,7 +183,7 @@
 	path = /obj/item/clothing/mask/gas/unathi
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
-	allowed_roles = list("Chaplain", "Roboticist")
+	allowed_roles = list("Chaplain", "Machinist")
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -192,7 +192,7 @@
 	path = /obj/item/clothing/suit/unathi/wrapping
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
-	allowed_roles = list("Chaplain", "Roboticist")
+	allowed_roles = list("Chaplain", "Machinist")
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -293,6 +293,6 @@
 	display_name = "jokfar vest"
 	path = /obj/item/clothing/suit/unathi/jokfar
 	cost = 1
-	whitelisted = list(SPECIES_UNATHI)	
+	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION

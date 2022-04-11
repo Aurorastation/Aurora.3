@@ -38,9 +38,12 @@
 		var/area/A = get_area(src)
 		var/best_distance = INFINITY
 		for(var/obj/machinery/mineral/stacking_machine/checked_machine in SSmachinery.all_machines)
-			if(A == get_area(checked_machine) && get_dist_euclidian(checked_machine,src) < best_distance)
+			if(id)
+				if(checked_machine.id == id)
+					machine = checked_machine
+			else if(!checked_machine.console && A == get_area(checked_machine) && get_dist_euclidian(checked_machine, src) < best_distance)
 				machine = checked_machine
-				best_distance = get_dist_euclidian(checked_machine,src)
+				best_distance = get_dist_euclidian(checked_machine, src)
 		if(machine)
 			machine.console = src
 		else if(user)

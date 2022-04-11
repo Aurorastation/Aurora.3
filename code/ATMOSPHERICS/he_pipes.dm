@@ -17,6 +17,8 @@
 
 	buckle_lying = 1
 
+	volume = ATMOS_DEFAULT_VOLUME_HE_PIPE
+
 	// BubbleWrap
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/Initialize()
 	. = ..()

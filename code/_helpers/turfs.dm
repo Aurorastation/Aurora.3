@@ -148,8 +148,10 @@
 		if(target)
 			if(base_area)
 				ChangeArea(target, get_area(source))
+				transport_turf_contents(source, target)
 				ChangeArea(source, base_area)
-			transport_turf_contents(source, target)
+			else
+				transport_turf_contents(source, target)
 
 	//change the old turfs
 	for(var/turf/source in translation)

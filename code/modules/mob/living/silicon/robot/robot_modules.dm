@@ -842,6 +842,7 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
 	modules += new /obj/item/storage/part_replacer(src)
+	modules += new /obj/item/device/multitool/robotic(src) // To enable them to connect machines that require multitools e.g. tech-processors
 	emag = new /obj/item/hand_tele(src)
 
 	var/datum/matter_synth/nanite = new /datum/matter_synth/nanite(10000)

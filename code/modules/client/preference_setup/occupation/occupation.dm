@@ -139,7 +139,7 @@
 	sanitize_faction()
 
 /datum/category_item/player_setup_item/occupation/content(mob/user, limit = 16, list/splitJobs = list("Chief Engineer", "Head of Security"))
-	if (SSjobs.init_state != SS_INITSTATE_DONE)
+	if (SSjobs.init_state != SS_INITSTATE_DONE && SSrecords.init_state != SS_INITSTATE_DONE)
 		return "<center><large>Jobs controller not initialized yet. Please wait a bit and reload this section.</large></center>"
 
 	var/list/dat = list(
@@ -356,7 +356,7 @@
 			pref.job_engsec_high = 0
 
 	switch(job.department_flag)
-		if(CIVILIAN)
+		if(SERVICE)
 			switch(level)
 				if(2)
 					pref.job_civilian_high = job.flag
@@ -469,7 +469,7 @@
 	if(!job || !level)
 		return FALSE
 	switch(job.department_flag)
-		if(CIVILIAN)
+		if(SERVICE)
 			switch(level)
 				if(1)
 					return job_civilian_high

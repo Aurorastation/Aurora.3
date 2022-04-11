@@ -419,9 +419,9 @@
 	return _prg_list
 
 /datum/modular_computer_app_presets/civilian
-	name = "civilian"
-	display_name = "Civilian"
-	description = "Contains the most common civilian programs."
+	name = "service"
+	display_name = "Service"
+	description = "Contains the most common service programs."
 	available = TRUE
 
 /datum/modular_computer_app_presets/civilian/return_install_programs(obj/item/modular_computer/comp)

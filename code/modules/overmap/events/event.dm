@@ -74,6 +74,7 @@
 		var/datum/event/E = new event_type(EM)
 		E.startWhen = 0
 		E.endWhen = INFINITY
+		E.affecting_z = ship.map_z
 		if("victim" in E.vars)//for meteors and other overmap events that uses ships//might need a better solution
 			E.vars["victim"] = ship
 		LAZYADD(ship_events[ship], E)
