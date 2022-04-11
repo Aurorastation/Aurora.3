@@ -2784,8 +2784,7 @@
 /turf/simulated/floor,
 /area/grand_romanovich)
 "gG" = (
-/obj/machinery/door/blast/regular,
-/turf/simulated/floor,
+/turf/unsimulated/wall/fakepdoor,
 /area/grand_romanovich)
 "gH" = (
 /obj/structure/table/wood,
