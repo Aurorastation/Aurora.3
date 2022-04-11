@@ -571,9 +571,9 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "iru_card"
 	overlay_state = "iru_card"
 
-/obj/item/card/id/eridani
-	name = "\improper Eridani identification card"
-	desc = "A high-tech holobadge, identifying the owner as a contractor from one of the many PMCs from the Eridani Corporate Federation."
+/obj/item/card/id/pmc
+	name = "\improper PMCG identification card"
+	desc = "A high-tech holobadge, identifying the owner as a contractor from one of the many PMCs from the Private Military Contracting Group."
 	icon_state = "erisec_card"
 	overlay_state = "erisec_card"
 
@@ -628,3 +628,6 @@ var/const/NO_EMAG_ACT = -50
 				..()
 	else
 		..()
+
+/obj/item/card/id/away_site
+	access = list(access_generic_away_site, access_external_airlocks)

@@ -1,9 +1,10 @@
 /obj/machinery/computer/ship/sensors
 	name = "sensors console"
-	icon_screen = "sensors"
+	icon_screen = "command"
 	light_color = "#77fff8"
 	extra_view = 4
 	var/obj/machinery/shipsensors/sensors
+	circuit = /obj/item/circuitboard/ship/sensors
 
 /obj/machinery/computer/ship/sensors/attempt_hook_up(obj/effect/overmap/visitable/ship/sector)
 	. = ..()
@@ -120,7 +121,7 @@
 	var/max_health = 200
 	var/health = 200
 	var/critical_heat = 50 // sparks and takes damage when active & above this heat
-	var/heat_reduction = 1.5 // mitigates this much heat per tick
+	var/heat_reduction = 0.5 // mitigates this much heat per tick - can sustain range 2
 	var/heat = 0
 	var/range = 1
 	idle_power_usage = 5000
@@ -194,7 +195,7 @@
 
 			take_damage(rand(10,50))
 			toggle()
-		heat += idle_power_usage/15000
+		heat += active_power_usage/15000
 
 	if (heat > 0)
 		heat = max(0, heat - heat_reduction)
@@ -219,6 +220,7 @@
 	if(use_power && health == 0)
 		toggle()
 
+// For small shuttles
 /obj/machinery/shipsensors/weak
-	heat_reduction = 0.2
+	heat_reduction = 0.35 // Can sustain range 1
 	desc = "Miniturized gravity scanner with various other sensors, used to detect irregularities in surrounding space. Can only run in vacuum to protect delicate quantum BS elements."

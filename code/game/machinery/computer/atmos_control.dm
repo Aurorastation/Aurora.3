@@ -5,8 +5,8 @@
 /obj/machinery/computer/atmoscontrol
 	name = "\improper Central Atmospherics Computer"
 
-	icon_screen = "comm_logs"
-	light_color = "#00b000"
+	icon_screen = "engi"
+	light_color = "#ffcc33"
 	density = 1
 	anchored = 1.0
 	circuit = /obj/item/circuitboard/atmoscontrol
@@ -18,6 +18,7 @@
 	name = "Atmospherics Laptop"
 	desc = "A cheap laptop."
 	icon_state = "medlaptop0"
+	light_color = "#00b000"
 
 	icon_screen = "atmoslaptop"
 	density = 0

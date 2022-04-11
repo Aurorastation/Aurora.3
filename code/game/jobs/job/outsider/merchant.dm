@@ -2,7 +2,7 @@
 	title = "Merchant"
 	faction = "Station"
 	flag = MERCHANT
-	department_flag = CIVILIAN
+	department_flag = SERVICE
 	total_positions = 0
 	spawn_positions = 0
 	supervisors = "yourself and the market"
@@ -14,6 +14,8 @@
 	account_allowed = TRUE
 	public_account = FALSE
 	initial_funds_override = 2500
+
+	selection_color = "#c9ad12"
 
 	access = list(access_merchant)
 	minimal_access = list(access_merchant)

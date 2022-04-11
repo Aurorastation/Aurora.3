@@ -846,7 +846,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		number_wounds += W.amount
 
 	//things tend to bleed if they are CUT OPEN
-	if (open && !clamped && (H && !(H.species.flags & NO_BLOOD)))
+	if (open && !clamped && (H && !(H.species.flags & NO_BLOOD) && !(status & ORGAN_ROBOT)))
 		status |= ORGAN_BLEEDING
 
 	if (istype(tendon))

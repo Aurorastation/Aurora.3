@@ -18866,7 +18866,7 @@
 /turf/simulated/floor/plating,
 /area/teleporter)
 "aGS" = (
-/obj/machinery/teleport/station,
+/obj/item/modular_computer/console/preset/command/teleporter,
 /turf/simulated/floor/plating,
 /area/teleporter)
 "aGT" = (
@@ -27024,7 +27024,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/structure/closet/secure_closet/hop2,
+/obj/structure/closet/secure_closet,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "aUB" = (
@@ -27748,7 +27748,7 @@
 /area/hallway/primary/starboard)
 "aVG" = (
 /obj/structure/table/reinforced,
-/obj/item/modular_computer/laptop/preset/command/hop,
+/obj/item/modular_computer/laptop/preset/command,
 /obj/item/paper_scanner{
 	pixel_x = 4;
 	pixel_y = 8
@@ -27765,7 +27765,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "aVJ" = (
-/obj/structure/closet/secure_closet/hop,
+/obj/structure/closet/secure_closet,
 /obj/item/storage/box/partypopper,
 /obj/item/book/manual/wiki/security_space_law,
 /turf/simulated/floor/wood,
@@ -31504,7 +31504,7 @@
 "bcx" = (
 /obj/structure/table/wood,
 /obj/item/folder/blue,
-/obj/item/stamp/hop,
+/obj/item/stamp,
 /obj/item/stamp/denied,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop)
@@ -69441,7 +69441,6 @@
 	dir = 1
 	},
 /obj/structure/reagent_dispensers/peppertank/luminol{
-	pixel_x = 0;
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/white,

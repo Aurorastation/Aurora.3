@@ -70,7 +70,7 @@
 	seed_name = "ambrosia vulgaris"
 	display_name = "ambrosia vulgaris"
 	mutants = list("ambrosiadeus")
-	chems = list(/decl/reagent/nutriment = list(1), /decl/reagent/space_drugs = list(1,8), /decl/reagent/kelotane = list(1,8,1), /decl/reagent/bicaridine = list(1,10,1), /decl/reagent/toxin = list(1,10))
+	chems = list(/decl/reagent/nutriment = list(1), /decl/reagent/ambrosia_extract = list(4,8), /decl/reagent/kelotane = list(1,8,1), /decl/reagent/bicaridine = list(1,10,1), /decl/reagent/toxin = list(1,10))
 	kitchen_tag = "ambrosia"
 
 /datum/seed/ambrosia/setup_traits()
@@ -93,7 +93,7 @@
 	seed_name = "ambrosia deus"
 	display_name = "ambrosia deus"
 	mutants = null
-	chems = list(/decl/reagent/nutriment = list(1), /decl/reagent/bicaridine = list(1,8), /decl/reagent/synaptizine = list(1,8,1), /decl/reagent/hyperzine = list(1,10,1), /decl/reagent/space_drugs = list(1,10))
+	chems = list(/decl/reagent/nutriment = list(1), /decl/reagent/bicaridine = list(1,8), /decl/reagent/synaptizine = list(1,8,1), /decl/reagent/ambrosia_extract = list(4,10))
 	kitchen_tag = "ambrosiadeus"
 
 /datum/seed/ambrosia/deus/setup_traits()

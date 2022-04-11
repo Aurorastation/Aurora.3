@@ -19,6 +19,12 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	user.set_machine(src)
 	ui_interact(user)
 
+/obj/machinery/computer/ship/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
+	src.add_hiddenprint(user)
+	ui_interact(user)
+
 /obj/machinery/computer/ship/Topic(href, href_list)
 	if(..())
 		return TOPIC_HANDLED
@@ -45,6 +51,8 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	user.reset_view()
 	if(user.client)
 		user.client.view = world.view
+		user.client.pixel_x = 0
+		user.client.pixel_y = 0
 	moved_event.unregister(user, src, /obj/machinery/computer/ship/proc/unlook)
 	LAZYREMOVE(viewers, WEAKREF(user))
 
@@ -69,6 +77,11 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	else
 		return 0
 
+/obj/machinery/computer/ship/Destroy()
+	if(linked)
+		LAZYREMOVE(linked.consoles, src)
+	. = ..()
+
 /obj/machinery/computer/ship/sensors/Destroy()
 	sensors = null
 	if(LAZYLEN(viewers))
@@ -77,3 +90,19 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 			if(M)
 				unlook(M)
 	. = ..()
+
+/obj/machinery/computer/ship/on_user_login(mob/M)
+	unlook(M)
+
+/obj/machinery/computer/ship/attempt_hook_up(obj/effect/overmap/visitable/ship/sector)
+	. = ..()
+
+	if(.)
+		LAZYSET(linked.consoles, src, TRUE)
+
+/obj/machinery/computer/ship/Initialize()
+	. = ..()
+	if(current_map.use_overmap && !linked)
+		var/my_sector = map_sectors["[z]"]
+		if (istype(my_sector, /obj/effect/overmap/visitable/ship))
+			attempt_hook_up(my_sector)

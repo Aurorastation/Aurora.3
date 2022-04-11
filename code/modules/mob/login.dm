@@ -91,6 +91,9 @@
 	update_client_color()
 	add_click_catcher()
 
+	if(machine)
+		machine.on_user_login(src)
+
 	// Check code/modules/admin/verbs/antag-ooc.dm for definition
 	client.add_aooc_if_necessary()
 
