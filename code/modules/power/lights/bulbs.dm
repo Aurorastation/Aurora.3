@@ -112,6 +112,9 @@
 	brightness_power = 0.4
 	lighttype = "tube"
 
+/obj/item/light/tube/colored
+	randomize_color = FALSE
+
 /obj/item/light/tube/colored/red
 	name = "red light tube"
 	brightness_color = LIGHT_COLOR_SCARLET
@@ -154,6 +157,9 @@
 	brightness_color = LIGHT_COLOR_TUNGSTEN
 	lighttype = "bulb"
 
+/obj/item/light/bulb/colored
+	randomize_color = FALSE
+
 /obj/item/light/bulb/colored/red
 	name = "red light bulb"
 	brightness_color = LIGHT_COLOR_SCARLET
@@ -191,3 +197,4 @@
 	brightness_range = 8
 	brightness_power = 0.45
 	randomize_range = FALSE
+	randomize_color = FALSE
