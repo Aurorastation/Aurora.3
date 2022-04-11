@@ -132,7 +132,7 @@
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
 	},
-/obj/machinery/telecomms/relay/preset/station,
+/obj/machinery/telecomms/allinone/ship,
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "ay" = (
