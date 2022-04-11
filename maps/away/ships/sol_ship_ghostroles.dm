@@ -65,13 +65,13 @@
 	back = /obj/item/storage/backpack/satchel
 	head = /obj/item/clothing/head/dress
 	accessory = /obj/item/clothing/accessory/holster/hip/
-	
+
 	id = /obj/item/card/id/sfa_ship
-	
+
 	l_ear = /obj/item/device/radio/headset/ship
-	
+
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
-	
+
 /datum/outfit/admin/sfa_navy_officer/get_id_access()
 	return list(access_sfa_patrol_ship, access_external_airlocks)
 
