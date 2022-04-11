@@ -62,12 +62,13 @@
 		"ckey" = PREF_CLIENT_CKEY
 	)
 
-//Probably need to convert this to use text instead of types for culture stuff.
 //Maybe turn accents/religion/citizenship into decls?
 /datum/category_item/player_setup_item/origin/sanitize_character(var/sql_load = 0)
 	var/datum/species/S = all_species[pref.species]
-	pref.culture = S.get_default_culture()
-	pref.origin = S.get_default_origin(pref.culture)
+	var/decl/origin_item/CI = S.get_default_culture()
+	pref.culture = CI.type
+	var/decl/origin_item/OI = S.get_default_origin(CI)
+	pref.origin = OI.type
 	if(!pref.citizenship)
 		pref.citizenship = S.default_citizenship
 	if(!pref.religion)
@@ -122,10 +123,10 @@
 		return TOPIC_REFRESH
 
 	if(href_list["set_culture_data"])
-		pref.culture = href_list["set_culture_data"]
+		pref.culture = html_decode(href_list["set_culture_data"])
 
 	if(href_list["set_origin_data"])
-		pref.origin = href_list["set_origin_data"]
+		pref.origin = html_decode(href_list["set_origin_data"])
 
 	if(href_list["economic_status"])
 		var/new_status = input(user, "Choose how wealthy your character is. Note that this applies a multiplier to a value that is also affected by your species and job.", "Character Preference", pref.economic_status)  as null|anything in ECONOMIC_POSITIONS
