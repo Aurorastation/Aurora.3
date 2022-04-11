@@ -110,7 +110,6 @@
 	logging_home_tag = "nav_hangar_sfa"
 	defer_initialisation = TRUE
 	mothershuttle = "SFA Patrol Ship"
-	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/sfa_shuttle/hangar
 	name = "SFA Shuttle Hangar"
@@ -118,6 +117,7 @@
 	docking_controller = "sfa_shuttle_dock"
 	base_area = /area/shuttle/sfa_patrol_ship
 	base_turf = /turf/simulated/floor/plating
+	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/sfa_shuttle/transit
 	name = "In transit"
