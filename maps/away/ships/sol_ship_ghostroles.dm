@@ -102,7 +102,7 @@
 	back = /obj/item/storage/backpack/satchel_norm
 	belt = /obj/item/storage/belt/military
 	head = /obj/item/clothing/head/navy/marine
-	accessory = /obj/item/clothing/accessory/storage/brown_vest
+	accessory = /obj/item/clothing/accessory/storage/pouches/black
 
 	id = /obj/item/card/id/sfa_ship
 
