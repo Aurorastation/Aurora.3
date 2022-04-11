@@ -47,7 +47,7 @@
 	)
 
 /obj/effect/overmap/visitable/ship/landable/sfa_patrol_ship/New()
-	name = "SFAV [pick("Brigand", "Zheng Yi Sao", "Watchman", "Edward Teach", "Blackguard")]"
+	name = "SFAV [pick("Brigand", "Zheng Yi Sao", "Watchman", "Edward Teach", "Beauchamp's Revenge", "Blackguard")]"
 	..()
 
 /obj/effect/shuttle_landmark/sfa_patrol_ship/nav1
