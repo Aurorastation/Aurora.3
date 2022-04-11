@@ -188,7 +188,7 @@
 
 	melee_damage_lower = 20
 	melee_damage_upper = 20
-	armor_penetration = 30
+	armor_penetration = 25
 	
 /mob/living/simple_animal/hostile/carp/bloater	
 	name = "bloater"
