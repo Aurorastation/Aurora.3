@@ -2,7 +2,7 @@
 	filename = "mlist"
 	filedesc = "Merchant's List"
 	extended_desc = "Allows communication and trade between passing vessels, even while jumping."
-	program_icon_state = "comm"
+	program_icon_state = "command"
 	nanomodule_path = /datum/nano_module/program/merchant
 	requires_ntnet = 0
 	available_on_ntnet = 0
@@ -82,12 +82,12 @@
 			bank -= response
 		return
 	last_comms = "PAD NOT CONNECTED"
-	
+
 /datum/computer_file/program/merchant/proc/bulk_offer(var/datum/trader/T, var/num)
 	var/BulkAmount = input("How many items? (Buy 1-50 items. 0 to cancel.)") as num
 	if(istext(BulkAmount))
 		last_comms = "ERROR: NUMBER EXPECTED"
-		return 
+		return
 	if(BulkAmount < 0 || BulkAmount > 50)
 		last_comms = "ERROR: POSITIVE NUMBER UP TO 50 EXPECTED"
 		return

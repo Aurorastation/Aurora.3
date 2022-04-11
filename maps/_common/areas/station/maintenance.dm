@@ -218,6 +218,10 @@
 	name = "Bridge - Interstitial"
 	icon_state = "maintcentral"
 
+/area/maintenance/bridge
+	name = "Bridge Maintenance"
+	icon_state = "maintcentral"
+
 /area/maintenance/interstitial_construction_site
 	name = "Construction Zone"
 	icon_state = "engineering_workshop"

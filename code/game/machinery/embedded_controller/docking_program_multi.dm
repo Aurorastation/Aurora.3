@@ -82,6 +82,7 @@
 
 	//tell children to prepare for undocking
 	for (var/child_tag in children_tags)
+		testing("Sending prepare_for_undocking command to [child_tag]")
 		send_docking_command(child_tag, "prepare_for_undocking")
 
 /datum/computer/file/embedded_program/docking/multi/ready_for_undocking()

@@ -3,7 +3,7 @@
 	desc = "Used to remotely lockdown or detonate linked cyborgs."
 	icon = 'icons/obj/computer.dmi'
 
-	icon_screen = "robot"
+	icon_screen = "sci"
 	light_color = "#a97faa"
 	req_access = list(access_robotics)
 	circuit = /obj/item/circuitboard/robotics
@@ -65,7 +65,7 @@
 			to_chat(target, "Extreme danger.  Termination codes detected.  Scrambling security codes and automatic AI unlink triggered.")
 			target.ResetSecurityCodes()
 			return
-			
+
 		if(target.emagged)
 			to_chat(user, "Access Denied. Safety protocols are disabled.")
 			return

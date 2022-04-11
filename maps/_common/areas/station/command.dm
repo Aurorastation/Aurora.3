@@ -18,6 +18,7 @@
 /area/bridge/aibunker
 	name = "Command - Bunker"
 	icon_state = "ai_foyer"
+	flags = RAD_SHIELDED
 
 /area/bridge/centcom_meetingroom
 	name = "Level A Meeting Room"

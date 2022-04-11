@@ -131,7 +131,10 @@ var/list/mineral_can_smooth_with = list(
 /turf/simulated/mineral/bullet_act(var/obj/item/projectile/Proj)
 	if(istype(Proj, /obj/item/projectile/beam/plasmacutter))
 		var/obj/item/projectile/beam/plasmacutter/PC_beam = Proj
-		. = PC_beam.pass_check(src)
+		var/list/cutter_results = PC_beam.pass_check(src)
+		. = cutter_results[1]
+		if(cutter_results[2]) // the cutter mined the turf, just pass on
+			return
 
 	// Emitter blasts
 	if(istype(Proj, /obj/item/projectile/beam/emitter))

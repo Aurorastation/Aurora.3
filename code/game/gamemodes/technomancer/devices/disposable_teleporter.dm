@@ -33,7 +33,7 @@
 	else
 		var/list/area/valid_areas = list()
 		for(var/area/A as anything in the_station_areas)
-			if(!is_not_shuttle_area(A))
+			if(is_shuttle_area(A))
 				continue
 			else
 				valid_areas += A

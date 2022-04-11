@@ -456,6 +456,8 @@
 			/decl/reagent/mortaphenyl,
 			/decl/reagent/water,
 			/decl/reagent/woodpulp,
+			/decl/reagent/ambrosia_extract,
+			/decl/reagent/skrell_nootropic
 			)
 
 		for(var/x=1;x<=additional_chems;x++)

@@ -14,7 +14,7 @@
 		possibleNets["Engineering"] = access_ce
 		possibleNets["SS13"] = access_hos
 		possibleNets["Mining"] = access_mining
-		possibleNets["Cargo"] = access_qm
+		possibleNets["Operations"] = access_qm
 		possibleNets["Research"] = access_rd
 		possibleNets["Medbay"] = access_cmo
 		..()
@@ -33,7 +33,7 @@
 					build_path = /obj/machinery/computer/security/research
 				if("Medbay")
 					build_path = /obj/machinery/computer/security/medbay
-				if("Cargo")
+				if("Operations")
 					build_path = /obj/machinery/computer/security/cargo
 
 	attackby(var/obj/item/I, var/mob/user)//if(health > 50)

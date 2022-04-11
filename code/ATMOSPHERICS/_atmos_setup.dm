@@ -13,13 +13,14 @@
 #define	PIPE_COLOR_GREEN	"#00ff00"
 #define	PIPE_COLOR_YELLOW	"#ffcc00"
 #define	PIPE_COLOR_BLACK	"#444444"
+#define	PIPE_COLOR_PURPLE	"#bb25af"
 
 #define CONNECT_TYPE_REGULAR	1
 #define CONNECT_TYPE_SUPPLY		2
 #define CONNECT_TYPE_SCRUBBER	4
 #define CONNECT_TYPE_HE			8
 
-var/global/list/pipe_colors = list("grey" = PIPE_COLOR_GREY, "red" = PIPE_COLOR_RED, "blue" = PIPE_COLOR_BLUE, "cyan" = PIPE_COLOR_CYAN, "green" = PIPE_COLOR_GREEN, "yellow" = PIPE_COLOR_YELLOW, "black" = PIPE_COLOR_BLACK)
+var/global/list/pipe_colors = list("grey" = PIPE_COLOR_GREY, "red" = PIPE_COLOR_RED, "blue" = PIPE_COLOR_BLUE, "cyan" = PIPE_COLOR_CYAN, "green" = PIPE_COLOR_GREEN, "yellow" = PIPE_COLOR_YELLOW, "black" = PIPE_COLOR_BLACK, "purple" = PIPE_COLOR_PURPLE)
 
 /proc/pipe_color_lookup(var/color)
 	for(var/C in pipe_colors)
