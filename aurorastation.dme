@@ -3074,6 +3074,8 @@
 #include "maps\away\romanovich\first_aurora.dm"
 #include "maps\away\ships\corporate.dm"
 #include "maps\away\ships\corporate_ship_ghostroles.dm"
+#include "maps\away\ships\sol.dm"
+#include "maps\away\ships\sol_ship_ghostroles.dm"
 #include "maps\event\code\event.dm"
 #include "maps\event\odin_departure\code\odin_departure_areas.dm"
 #include "maps\event\odin_departure\code\odin_depature.dm"
