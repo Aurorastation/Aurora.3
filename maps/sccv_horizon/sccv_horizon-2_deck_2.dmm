@@ -23239,13 +23239,11 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/chemical_dispenser/bar_alc/full{
-	pixel_y = 6
-	},
-/obj/machinery/chemical_dispenser/bar_soft/full{
-	pixel_y = -8
-	},
 /obj/machinery/door/firedoor,
+/obj/machinery/chemical_dispenser/coffeemaster/full{
+	pixel_x = 1
+	},
+/obj/structure/window/reinforced,
 /turf/simulated/floor/lino/grey,
 /area/crew_quarters/bar)
 "oAy" = (
@@ -35567,8 +35565,11 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/chemical_dispenser/coffeemaster/full{
-	pixel_y = 3
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	pixel_y = -10
+	},
+/obj/machinery/chemical_dispenser/bar_alc/full{
+	pixel_y = 5
 	},
 /turf/simulated/floor/lino/grey,
 /area/crew_quarters/bar)
@@ -37920,7 +37921,7 @@
 	dir = 1
 	},
 /obj/machinery/newscaster{
-	pixel_y = -32
+	pixel_y = -29
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
