@@ -591,3 +591,8 @@ var/const/access_kataphract_trader = 116
 /datum/access/tcfl_peacekeeper_ship
 	id = access_tcfl_peacekeeper_ship
 	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_ee_spy_ship = 205
+/datum/access/ee_spy_ship
+	id = access_ee_spy_ship
+	access_type = ACCESS_TYPE_CENTCOM
