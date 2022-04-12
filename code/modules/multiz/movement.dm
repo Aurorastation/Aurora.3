@@ -770,3 +770,66 @@
 
 /mob/fall_get_specs(levels_fallen)
 	return list(mob_size, throw_range)
+
+/mob/living
+	var/atom/movable/z_observer/z_eye
+
+/atom/movable/z_observer
+	name = ""
+	simulated = FALSE
+	anchored = TRUE
+	mouse_opacity = FALSE
+	var/mob/living/owner
+	var/tile_shifted = FALSE
+
+/atom/movable/z_observer/Initialize(mapload, var/mob/living/user, var/tile_shift = FALSE)
+	. = ..()
+	owner = user
+	if(tile_shift)
+		var/turf/T = get_step(owner, owner.dir)
+		forceMove(T)
+		tile_shifted = TRUE
+	follow()
+	moved_event.register(owner, src, /atom/movable/z_observer/proc/follow)
+
+/atom/movable/z_observer/proc/follow()
+
+/atom/movable/z_observer/z_up/follow()
+	forceMove(get_step(owner, UP))
+	if(isturf(src.loc))
+		var/turf/T = src.loc
+		if(T.flags & MIMIC_BELOW)
+			return
+	owner.reset_view(null)
+	owner.z_eye = null
+	qdel(src)
+
+/atom/movable/z_observer/z_down/follow()
+	forceMove(get_step(tile_shifted ? src : owner, DOWN))
+	var/turf/T = get_turf(tile_shifted ? get_step(owner, owner.dir) : owner)
+	if(T && (T.flags & MIMIC_BELOW))
+		return
+	owner.reset_view(null)
+	owner.z_eye = null
+	qdel(src)
+
+/atom/movable/z_observer/Destroy()
+	moved_event.unregister(owner, src, /atom/movable/z_observer/proc/follow)
+	owner = null
+	. = ..()
+
+/atom/movable/z_observer/can_fall()
+	return FALSE
+
+/atom/movable/z_observer/ex_act()
+	SHOULD_CALL_PARENT(FALSE)
+	return
+
+/atom/movable/z_observer/singularity_act()
+	return
+
+/atom/movable/z_observer/singularity_pull()
+	return
+
+/atom/movable/z_observer/singuloCanEat()
+	return

@@ -213,8 +213,6 @@
 		update_icon()
 		return 1
 	else
-		if(get_amount() < used)
-			return 0
 		for(var/i = 1 to charge_costs.len)
 			var/datum/matter_synth/S = synths[i]
 			if(!S.use_charge(charge_costs[i] * used)) // Doesn't need to be deleted

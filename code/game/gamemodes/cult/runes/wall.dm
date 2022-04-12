@@ -2,6 +2,7 @@
 	name = "wall rune"
 	desc = "This rune is used to create a wall that the unbelievers cannot go through."
 	rune_flags = NO_TALISMAN
+	max_number_allowed = 10
 
 /datum/rune/wall/do_rune_action(mob/living/user, atom/movable/A)
 	user.say("Khari'd! Eske'te tannin!")

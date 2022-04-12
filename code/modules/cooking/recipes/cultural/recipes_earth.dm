@@ -313,3 +313,16 @@
 		/obj/item/reagent_containers/food/snacks/cheesewedge
 	)
 	result = /obj/item/reagent_containers/food/snacks/taco
+
+// Peanuts
+/decl/recipe/peanuts_bowl
+	appliance = OVEN
+	fruit = list("peanut" = 10)
+	result = /obj/item/reagent_containers/food/snacks/chipplate/peanuts_bowl
+	reagent_mix = RECIPE_REAGENT_REPLACE // So the output isn't 40u total
+
+/decl/recipe/peanuts_bowl_dry
+	appliance = OVEN
+	fruit = list("dried peanut" = 10)
+	result = /obj/item/reagent_containers/food/snacks/chipplate/peanuts_bowl
+	reagent_mix = RECIPE_REAGENT_REPLACE

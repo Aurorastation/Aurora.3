@@ -84,7 +84,7 @@
 		if(slot_flags & SLOT_TWOEARS)
 			var/obj/item/clothing/ears/OE = (H.l_ear == src ? H.r_ear : H.l_ear)
 			qdel(OE)
-	
+
 	..()
 
 /obj/item/device/radio/headset/attackby(obj/item/W, mob/user)
@@ -204,7 +204,7 @@
 	to_chat(usr, SPAN_NOTICE("\The [src] will now layer [normal_layer ? "over" : "under"] your outerwear."))
 	if (ismob(src.loc))
 		var/mob/M = src.loc
-		M.update_inv_wrists()	
+		M.update_inv_wrists()
 
 /*
  * Civillian
@@ -233,28 +233,28 @@
 	item_state = "wristset_srv"
 	ks2type = /obj/item/device/encryptionkey/headset_service
 
-/obj/item/device/radio/headset/heads/hop
-	name = "head of personnel's headset"
+/obj/item/device/radio/headset/heads/xo
+	name = "executive officer's headset"
 	desc = "The headset of the guy who will one day be captain."
 	icon_state = "hop_headset"
-	ks2type = /obj/item/device/encryptionkey/heads/hop
+	ks2type = /obj/item/device/encryptionkey/heads/xo
 
-/obj/item/device/radio/headset/heads/hop/alt
-	name = "head of personnel's bowman headset"
+/obj/item/device/radio/headset/heads/xo/alt
+	name = "executive officer's bowman headset"
 	icon_state = "hop_headset_alt"
 	item_state = "headset_alt"
 
-/obj/item/device/radio/headset/alt/double/hop
-	name = "head of personnel's soundproof headset"
+/obj/item/device/radio/headset/alt/double/xo
+	name = "executive officer's soundproof headset"
 	icon_state = "earset_HoP"
 	item_state = "earset_HoP"
-	ks2type = /obj/item/device/encryptionkey/heads/hop
+	ks2type = /obj/item/device/encryptionkey/heads/xo
 
-/obj/item/device/radio/headset/wrist/hop
-	name = "head of personnel's wristbound radio"
+/obj/item/device/radio/headset/wrist/xo
+	name = "executive officer's wristbound radio"
 	icon_state = "wristset_HoP"
 	item_state = "wristset_HoP"
-	ks2type = /obj/item/device/encryptionkey/heads/hop
+	ks2type = /obj/item/device/encryptionkey/heads/xo
 
 /*
  * Engineering
@@ -313,7 +313,7 @@
 
 /obj/item/device/radio/headset/headset_cargo
 	name = "supply radio headset"
-	desc = "A headset used by the quartermaster's slaves."
+	desc = "A headset used by the operations manager's slaves."
 	icon_state = "cargo_headset"
 	ks2type = /obj/item/device/encryptionkey/headset_cargo
 
@@ -357,25 +357,25 @@
 	icon_state = "wristset_mine"
 	item_state = "wristset_mine"
 
-/obj/item/device/radio/headset/qm
-	name = "quartermaster's headset"
+/obj/item/device/radio/headset/operations_manager
+	name = "operations manager's headset"
 	desc = "A headset used by the head honcho of paper pushing."
 	icon_state = "qm_headset"
-	ks2type = /obj/item/device/encryptionkey/headset_cargo
+	ks2type = /obj/item/device/encryptionkey/headset_operations_manager
 
-/obj/item/device/radio/headset/qm/alt
-	name = "quartermaster bowman headset"
+/obj/item/device/radio/headset/operations_manager/alt
+	name = "operations manager bowman headset"
 	icon_state = "qm_headset_alt"
 	item_state = "headset_alt"
 
-/obj/item/device/radio/headset/alt/double/qm
-	name = "soundproof quartermaster headset"
+/obj/item/device/radio/headset/alt/double/operations_manager
+	name = "soundproof operations manager headset"
 	icon_state = "earset_QM"
 	item_state = "earset_QM"
-	ks2type = /obj/item/device/encryptionkey/headset_cargo
+	ks2type = /obj/item/device/encryptionkey/headset_operations_manager
 
-/obj/item/device/radio/headset/wrist/cargo/qm
-	name = "wristbound quartermaster radio"
+/obj/item/device/radio/headset/wrist/cargo/operations_manager
+	name = "wristbound operations manager radio"
 	icon_state = "wristset_QM"
 	item_state = "wristset_QM"
 
@@ -671,6 +671,11 @@
 	syndie = TRUE
 	ks1type = /obj/item/device/encryptionkey/bluespace
 
+/obj/item/device/radio/headset/ship
+	icon_state = "syn_headset"
+	ks1type = /obj/item/device/encryptionkey/ship
+	syndie = TRUE
+
 /obj/item/device/radio/headset/binary
 	origin_tech = list(TECH_ILLEGAL = 3)
 	ks2type = /obj/item/device/encryptionkey/binary
@@ -702,6 +707,12 @@
 	name = "representative bowman headset"
 	icon_state = "com_headset_alt"
 	item_state = "headset_alt"
+
+/obj/item/device/radio/headset/alt/double/command/representative
+	name = "soundproof representative headset"
+
+/obj/item/device/radio/headset/wrist/command/representative
+	name = "wristbound representative radio"
 
 /obj/item/device/radio/headset/heads/ai_integrated //No need to care about icons, it should be hidden inside the AI anyway.
 	name = "\improper AI subspace transceiver"

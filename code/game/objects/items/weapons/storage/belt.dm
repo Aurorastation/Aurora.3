@@ -305,6 +305,15 @@
 		)
 	content_overlays = TRUE
 
+/obj/item/storage/belt/security/full
+	starts_with = list(
+		/obj/item/melee/baton/loaded = 1,
+		/obj/item/reagent_containers/spray/pepper = 1,
+		/obj/item/handcuffs = 1,
+		/obj/item/device/flash = 1,
+		/obj/item/device/holowarrant = 1
+	)
+
 /obj/item/storage/belt/soulstone
 	name = "soul stone belt"
 	desc = "Designed for ease of access to the shards during a fight, as to not let a single enemy spirit slip away"

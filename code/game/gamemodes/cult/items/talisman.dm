@@ -1,5 +1,6 @@
 /obj/item/paper/talisman
 	icon_state = "paper_talisman"
+	can_change_icon_state = FALSE
 	var/uses = 1
 	var/datum/rune/rune
 	info = "<center><img src='talisman.png'></center><br/><br/>"

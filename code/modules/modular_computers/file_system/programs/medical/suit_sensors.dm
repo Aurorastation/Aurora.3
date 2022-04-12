@@ -1,7 +1,7 @@
 /datum/computer_file/program/suit_sensors
 	filename = "sensormonitor"
 	filedesc = "Suit Sensors Monitoring"
-	program_icon_state = "crew"
+	program_icon_state = "med"
 	extended_desc = "This program connects to life signs monitoring system to provide basic information on crew health."
 	required_access_run = access_medical
 	required_access_download = access_cmo
@@ -36,16 +36,16 @@
 	if(headerdata)
 		data["_PC"] = headerdata
 		. = data
-	
+
 	var/datum/signal/signal
-	signal = telecomms_process_active()
+	signal = telecomms_process_active(user.loc.z)
 
 	VUEUI_SET_CHECK(data["isAI"], isAI(user), ., data)
 	data["crewmembers"] = list()
 	if(signal.data["done"] == 1)
 		for(var/z_level in current_map.map_levels)
 			data["crewmembers"] += crew_repository.health_data(z_level)
-	
+
 	return data // This UI needs to constantly update
 
 

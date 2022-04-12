@@ -127,7 +127,7 @@
 	var/datum/asset/spritesheet/vending/v_asset
 
 	light_range = 2
-	light_power = 1
+	light_power = 1.3
 
 /obj/machinery/vending/Initialize(mapload)
 	. = ..()

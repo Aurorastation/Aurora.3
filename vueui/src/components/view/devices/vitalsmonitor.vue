@@ -7,6 +7,7 @@
         <vui-group-item label="Brain Activity:"><vui-progress :class="progressClass(brain_activity)" :value="brain_activity">{{brain_activity}}%</vui-progress></vui-group-item>
         <vui-group-item label="BP:" :style="{color:getPressureClass(blood_pressure_level)}">{{blood_pressure}}</vui-group-item>
         <vui-group-item label="Blood Oxygenation:"><vui-progress :class="progressClass(brain_activity)" :value="Math.round(blood_o2)">{{Math.round(blood_o2)}}%</vui-progress></vui-group-item>
+        <vui-group-item label="Blood Volume:"><vui-progress :class="progressClass(brain_activity)" :value="Math.round(blood_volume)">{{Math.round(blood_volume)}}%</vui-progress></vui-group-item>
       </vui-group>
     </template>
     <template v-else>

@@ -42,6 +42,8 @@
 	mob_bump_flag = HEAVY
 	mob_swap_flags = ~HEAVY
 	mob_push_flags = 0
+	
+	psi_pingable = FALSE
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/Initialize(mapload,mob/living/simple_animal/hostile/hivebot/hivebotbeacon)
 	if(hivebotbeacon)

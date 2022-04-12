@@ -51,6 +51,7 @@
           <vui-group>
             <vui-group-item label="BP:" :style="{color:getPressureClass(blood_pressure_level)}"> {{blood_pressure}} </vui-group-item>
             <vui-group-item label="Blood Oxygenation:"><vui-progress :class="progressClass(brain_activity)" :value="Math.round(blood_o2)">{{Math.round(blood_o2)}}%</vui-progress></vui-group-item>
+            <vui-group-item label="Blood Volume:"><vui-progress :class="progressClass(brain_activity)" :value="Math.round(blood_volume)">{{Math.round(blood_volume)}}%</vui-progress></vui-group-item>
             <vui-group-item label="Inaprovaline:" v-if="Math.round(norepiAmt)"> {{ Math.round(norepiAmt) }} unit(s)</vui-group-item>
             <vui-group-item label="Soporific:" v-if="Math.round(soporAmt)"> {{ Math.round(soporAmt) }} unit(s)</vui-group-item>
             <vui-group-item label="Bicaridine:" v-if="Math.round(bicardAmt)"> {{ Math.round(bicardAmt) }} unit(s)</vui-group-item>

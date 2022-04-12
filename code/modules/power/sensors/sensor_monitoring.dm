@@ -8,7 +8,7 @@
 	desc = "Computer designed to remotely monitor power levels around the station"
 	icon = 'icons/obj/computer.dmi'
 
-	icon_screen = "power"
+	icon_screen = "engi"
 	light_color = "#ffcc33"
 
 	//computer stuff
@@ -33,9 +33,9 @@
 	if(stat & NOPOWER)
 		icon_screen = null
 	else if(alerting)
-		icon_screen = "power_alert"
+		icon_screen = "engi_alarm_on"
 	else
-		icon_screen = "power"
+		icon_screen = "engi"
 	..()
 
 // On creation automatically connects to active sensors. This is delayed to ensure sensors already exist.

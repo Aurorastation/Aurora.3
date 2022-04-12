@@ -451,9 +451,9 @@
 	icon_state = "passcard_techno"
 	item_state = "passcard_techno"
 
-/obj/item/clothing/accessory/badge/passcard/burszia
-	name = "burszian passcard"
-	desc = "A passcard issued to Burszian Hephaestus employees and- owned IPCs- working abroad."
+/obj/item/clothing/accessory/badge/passcard/burzsia
+	name = "burzsian passcard"
+	desc = "A passcard issued to Burzsian Hephaestus employees and- owned IPCs- working abroad."
 	desc_fluff = "Despite protest from the Himean representatives in government, Hephaestus Industries- citing their 'Home is where the Hephaestus is' initiative- is permitted to issue up to five thousand \
 	sponsored passcards to participating employees on a yearly basis, both to remind them of their home and to save on imported labor costs."
 	icon_state = "passcard_burs"

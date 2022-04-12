@@ -184,6 +184,11 @@
 
 	update_held_icon()
 
+/obj/item/gun/can_swap_hands(mob/user)
+	if(wielded)
+		return FALSE
+	return ..()
+
 /obj/item/gun/proc/unique_action(var/mob/user)
 	return
 
@@ -940,7 +945,7 @@
 	return 0
 
 //Autofire
-/obj/item/gun/proc/can_autofire()
+/obj/item/gun/proc/can_autofire(object, location, params)
 	return (can_autofire && world.time >= next_fire_time)
 
 /obj/item/gun/proc/update_maptext()

@@ -1,7 +1,7 @@
 /datum/ghostspawner/simplemob/maintdrone
 	short_name = "maintdrone"
 	name = "Maintenance Drone"
-	desc = "Maintain and Improve the Systems on the Aurora."
+	desc = "Maintain and improve systems"
 	show_on_job_select = FALSE
 	tags = list("Simple Mobs")
 
@@ -10,6 +10,13 @@
 
 	//Vars regarding the mob to use
 	spawn_mob = /mob/living/silicon/robot/drone //The mob that should be spawned
+
+/datum/ghostspawner/simplemob/maintdrone/New()
+	. = ..()
+	if(current_map.station_name)
+		desc = "[desc] on the [current_map.station_name]."
+	else
+		desc = "[desc]."
 
 // we fake it here to ensure it pops up and gets added to SSghostroles.spawners, handling of the fabricators is done below
 /datum/ghostspawner/simplemob/maintdrone/select_spawnlocation()

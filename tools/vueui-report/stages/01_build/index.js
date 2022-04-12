@@ -3,5 +3,6 @@ const component = require('./component')
 module.exports = {
   name: () => 'Build',
   run,
-  component
+  component,
+  ci: false,
 }

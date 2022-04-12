@@ -14,6 +14,13 @@
 	path = /obj/item/clothing/accessory/wcoat_rec
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/accessory/waistcoat/New()
+	..()
+	var/list/waistcoats = list()
+	waistcoats["waistcoat"] = /obj/item/clothing/accessory/wcoat_rec
+	waistcoats["waistcoat, alt"] = /obj/item/clothing/accessory/silversun/wcoat
+	gear_tweaks += new /datum/gear_tweak/path(waistcoats)
+
 /datum/gear/accessory/chaps
 	display_name = "chaps selection"
 	path = /obj/item/clothing/accessory/chaps
@@ -35,7 +42,7 @@
 	armbands["Stellar Corporate Conglomerate armband"] = /obj/item/clothing/accessory/armband/scc
 	armbands["red armband"] = /obj/item/clothing/accessory/armband
 	armbands["security armband"] = /obj/item/clothing/accessory/armband/sec
-	armbands["cargo armband"] = /obj/item/clothing/accessory/armband/cargo
+	armbands["cargo armband"] = /obj/item/clothing/accessory/armband/operations
 	armbands["first responder armband"] = /obj/item/clothing/accessory/armband/medgreen
 	armbands["medical armband"] = /obj/item/clothing/accessory/armband/med
 	armbands["engineering armband"] = /obj/item/clothing/accessory/armband/engine
@@ -53,7 +60,7 @@
 /datum/gear/accessory/holster
 	display_name = "holster selection"
 	path = /obj/item/clothing/accessory/holster/armpit
-	allowed_roles = list("Captain", "Head of Personnel", "Security Officer", "Warden", "Head of Security","Investigator", "Security Cadet", "Corporate Liaison", "Consular Officer")
+	allowed_roles = list("Captain", "Executive Officer", "Bridge Crew", "Security Officer", "Warden", "Head of Security","Investigator", "Security Cadet", "Corporate Liaison", "Consular Officer")
 
 /datum/gear/accessory/holster/New()
 	..()
@@ -93,7 +100,7 @@
 /datum/gear/accessory/brown_vest
 	display_name = "webbing, engineering"
 	path = /obj/item/clothing/accessory/storage/brown_vest
-	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
+	allowed_roles = list("Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
 
 /datum/gear/accessory/black_vest
 	display_name = "webbing, security"
@@ -140,7 +147,7 @@
 /datum/gear/accessory/brown_pouches
 	display_name = "drop pouches, engineering"
 	path = /obj/item/clothing/accessory/storage/pouches/brown
-	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
+	allowed_roles = list("Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
 
 /datum/gear/accessory/black_pouches
 	display_name = "drop pouches, security"
@@ -167,7 +174,7 @@
 /datum/gear/accessory/overalls_engineer
 	display_name = "overalls, engineering"
 	path = /obj/item/clothing/accessory/storage/overalls/engineer
-	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
+	allowed_roles = list("Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
 	cost = 2
 
 /datum/gear/accessory/sweater
@@ -225,6 +232,7 @@
 /datum/gear/accessory/silversun
 	display_name = "silversun floral shirt selection"
 	path = /obj/item/clothing/accessory/silversun
+	description = "A selection of Silversun floral shirts."
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/accessory/silversun/New()
@@ -235,7 +243,7 @@
 	shirts["random colored silversun shirt"] = /obj/item/clothing/accessory/silversun/random
 	gear_tweaks += new /datum/gear_tweak/path(shirts)
 
-/datum/gear/accessory/university 
+/datum/gear/accessory/university
 	display_name = "university sweatshirt selection"
 	path = /obj/item/clothing/accessory/university
 	description = "A selection of university sweatshirts."
@@ -319,7 +327,7 @@
 /datum/gear/accessory/ribbon
 	display_name = "ribbon (colourable)"
 	path = /obj/item/clothing/accessory/ribbon
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION 
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/sleeve_patch
 	display_name = "shoulder sleeve patch"

@@ -417,8 +417,8 @@ var/bomb_set
 	qdel(src)
 
 /obj/machinery/nuclearbomb/station
-	name = "station authentication terminal"
-	desc = "An ominous looking terminal, designed for purposes unknown to the mere crewmember."
+	name = "scuttling device terminal"
+	desc = "An ominous looking terminal, designed to scuttle a spaceship."
 	icon = 'icons/obj/nuke_station.dmi'
 	anchored = 1
 	deployable = 1

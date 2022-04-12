@@ -25,7 +25,6 @@
 #define INCORPOREAL_SHADE   4 // Shady
 #define INCORPOREAL_MECH    5 // stripped down bstech
 
-#define MOB_GRAB_NONE 0
 #define MOB_GRAB_NORMAL 1
 #define MOB_GRAB_FIREMAN 2
 
@@ -445,5 +444,9 @@
 #define ROBOT_PANEL_EXPOSED  "exposed"
 #define ROBOT_PANEL_CELL     "cell"
 #define ROBOT_PANEL_NO_CELL  "no cell"
+
+#define ROBOT_CHASSIS	"chassistype"
+#define ROBOT_PANEL		"paneltype"
+#define ROBOT_EYES		"eyetype"
 
 #define BLOOD_REGEN_RATE 0.1

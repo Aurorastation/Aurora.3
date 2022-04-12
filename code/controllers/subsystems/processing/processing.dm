@@ -26,7 +26,7 @@ var/datum/controller/subsystem/processing/SSprocessing
 		var/datum/thing = current_run[current_run.len]
 		current_run.len--
 		if(!QDELETED(thing))
-			if (thing.process() == PROCESS_KILL)
+			if (thing.process(wait, times_fired) == PROCESS_KILL)
 				stop_processing(thing)
 		else
 			processing -= thing

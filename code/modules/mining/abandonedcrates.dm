@@ -125,7 +125,6 @@
 		if(95)
 			new /obj/item/clothing/under/mime(src)
 			new /obj/item/clothing/shoes/black(src)
-			new /obj/item/modular_computer/handheld/pda/civilian/mime(src)
 			new /obj/item/clothing/gloves/white(src)
 			new /obj/item/clothing/mask/gas/mime(src)
 			new /obj/item/clothing/head/beret/red(src)

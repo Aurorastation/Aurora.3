@@ -77,7 +77,14 @@
 	set category = "Object"
 	set src in oview(1)
 
-	do_climb(usr)
+	if(can_climb(usr))
+		do_climb(usr)
+
+/obj/structure/handle_middle_mouse_click(mob/user)
+	if(can_climb(user))
+		do_climb(usr)
+		return TRUE
+	return FALSE
 
 /obj/structure/MouseDrop_T(mob/target, mob/user)
 

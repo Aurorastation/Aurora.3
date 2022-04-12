@@ -67,6 +67,7 @@
 	entries[++entries.len] = list("name" = "Sex", 				"value" = sex)
 	entries[++entries.len] = list("name" = "Citizenship",		"value" = citizenship)
 	entries[++entries.len] = list("name" = "Religion",			"value" = religion)
+	entries[++entries.len] = list("name" = "Faction",			"value" = employer_faction)
 	entries[++entries.len] = list("name" = "Factory Reset",		"value" = "Use With Care")
 	data["electronic_warfare"] = electronic_warfare
 	data["entries"] = entries
@@ -229,6 +230,12 @@
 					src.religion = new_religion
 					to_chat(user, SPAN_NOTICE("Religion changed to '[new_religion]'."))
 					. = 1
+			if("Faction")
+				var/new_faction = sanitize(input(user,"Which faction would you like to put on this card?","Agent Card Faction", employer_faction) as null|text)
+				if(!isnull(new_faction) && CanUseTopic(user,state))
+					src.employer_faction = new_faction
+					to_chat(user, SPAN_NOTICE("Faction changed to '[new_faction]'."))
+					. = 1
 			if("Factory Reset")
 				if(alert("This will factory reset the card, including access and owner. Continue?", "Factory Reset", "No", "Yes") == "Yes" && CanUseTopic(user, state))
 					age = initial(age)
@@ -245,6 +252,7 @@
 					unset_registered_user()
 					religion = initial(religion)
 					sex = initial(sex)
+					employer_faction = initial(employer_faction)
 					to_chat(user, "<span class='notice'>All information has been deleted from \the [src].</span>")
 					. = 1
 

@@ -43,6 +43,9 @@
 		if("JoinLateCryoCommand")
 			latejoin_cryo_command += loc
 			delete_me = 1
+		if("JoinLateLift")
+			latejoin_living_quarters_lift += loc
+			delete_me = 1
 			return
 		if("JoinLateCyborg")
 			latejoin_cyborg += loc
@@ -267,3 +270,19 @@
 /obj/effect/landmark/force_spawnpoint/do_landmark_effect()
 	LAZYINITLIST(force_spawnpoints)
 	LAZYADD(force_spawnpoints[job_tag], loc)
+
+var/list/ruin_landmarks = list()
+
+/obj/effect/landmark/ruin
+	var/datum/map_template/ruin/ruin_template
+
+/obj/effect/landmark/ruin/New(loc, my_ruin_template)
+	name = "ruin_[sequential_id(/obj/effect/landmark/ruin)]"
+	..(loc)
+	ruin_template = my_ruin_template
+	ruin_landmarks |= src
+
+/obj/effect/landmark/ruin/Destroy()
+	ruin_landmarks -= src
+	ruin_template = null
+	. = ..()

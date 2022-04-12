@@ -6,8 +6,10 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
 		)
-	icon_state = "dropper0"
+	icon_state = "dropper"
 	item_state = "dropper"
+	worn_overlay = "filling"
+	build_from_parts = TRUE
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = list(1,2,3,4,5)
 	w_class = ITEMSIZE_TINY
@@ -91,10 +93,11 @@
 	update_icon()
 
 /obj/item/reagent_containers/dropper/update_icon()
-	if(reagents.total_volume)
-		icon_state = "dropper1"
-	else
-		icon_state = "dropper0"
+	cut_overlays()
+	if(reagents)
+		add_overlay(overlay_image('icons/obj/reagentfillings.dmi', "[icon_state]", color = reagents.get_color()))
+		worn_overlay_color = reagents.get_color() // handles inhands
+		update_held_icon()
 
 /obj/item/reagent_containers/dropper/AltClick(mob/user)
 	var/N = input("Amount per transfer from this:", "[src]") as null|anything in possible_transfer_amounts

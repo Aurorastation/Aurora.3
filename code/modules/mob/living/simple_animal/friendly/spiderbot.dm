@@ -46,6 +46,8 @@
 	speak_emote = list("beeps","clicks","chirps")
 	universal_understand = TRUE
 
+	psi_pingable = FALSE
+
 /mob/living/simple_animal/spiderbot/Initialize()
 	. = ..()
 	add_language(LANGUAGE_TCB)
@@ -314,8 +316,12 @@
 /mob/living/simple_animal/spiderbot/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
 
-/mob/living/simple_animal/spiderbot/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
+/mob/living/simple_animal/spiderbot/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio, whisper)
 	switch(message_mode)
+		if("whisper")
+			if(!whisper)
+				whisper(message, speaking)
+				return TRUE
 		if("headset")
 			radio.talk_into(src, message, null, verb, speaking)
 			used_radios += radio

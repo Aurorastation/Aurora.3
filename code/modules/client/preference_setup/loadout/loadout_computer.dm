@@ -13,7 +13,7 @@
 	var/list/tablets = list()
 	tablets["generic tablet"] = /obj/item/modular_computer/handheld/preset/generic
 	tablets["janitor tablet"] = /obj/item/modular_computer/handheld/preset/civilian/janitor
-	tablets["cargo tablet"] = /obj/item/modular_computer/handheld/preset/supply
+	tablets["operations tablet"] = /obj/item/modular_computer/handheld/preset/supply
 	tablets["engineering tablet"] = /obj/item/modular_computer/handheld/preset/engineering
 	tablets["atmos tablet"] = /obj/item/modular_computer/handheld/preset/engineering/atmos
 	tablets["medical tablet"] =/obj/item/modular_computer/handheld/preset/medical
@@ -32,7 +32,7 @@
 	var/list/wristbounds = list()
 	wristbounds["cheap generic wristbound"] = /obj/item/modular_computer/handheld/wristbound/preset/cheap/generic
 	wristbounds["expensive generic wristbound"] = /obj/item/modular_computer/handheld/wristbound/preset/advanced/generic
-	wristbounds["cargo wristbound"] = /obj/item/modular_computer/handheld/wristbound/preset/advanced/cargo
+	wristbounds["operations wristbound"] = /obj/item/modular_computer/handheld/wristbound/preset/advanced/cargo
 	wristbounds["engineering wristbound"] = /obj/item/modular_computer/handheld/wristbound/preset/advanced/engineering
 	wristbounds["medical wristbound"] = /obj/item/modular_computer/handheld/wristbound/preset/advanced/medical
 	wristbounds["security wristbound"] = /obj/item/modular_computer/handheld/wristbound/preset/advanced/security
@@ -55,10 +55,10 @@
 	path = /obj/item/modular_computer/handheld/wristbound/preset/advanced/command/cmo
 	allowed_roles = list("Chief Medical Officer")
 
-/datum/gear/computer/handheld/wristbound/hop
-	display_name = "wristbound computer (Head of Personnel)"
-	path = /obj/item/modular_computer/handheld/wristbound/preset/advanced/command/hop
-	allowed_roles = list("Head of Personnel")
+/datum/gear/computer/handheld/wristbound/xo
+	display_name = "wristbound computer (Executive Officer)"
+	path = /obj/item/modular_computer/handheld/wristbound/preset/advanced/command/xo
+	allowed_roles = list("Executive Officer")
 
 /datum/gear/computer/handheld/wristbound/hos
 	display_name = "wristbound computer (Head of Security)"

@@ -26,9 +26,9 @@
 		/mob/living/simple_animal/mushroom                           = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/tomato                             = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/rat/king                           = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/hostile/diyaab                     = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/hostile/shantak                    = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/hostile/samak                      = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/hostile/retaliate/diyaab                     = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/hostile/retaliate/shantak                    = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/hostile/retaliate/samak                      = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/hostile/bear                       = TRADER_ALL,
 		/mob/living/simple_animal/hostile/carp                       = TRADER_ALL,
 		/mob/living/simple_animal/hostile/biglizard                  = TRADER_THIS_TYPE,
@@ -85,7 +85,6 @@
 	)
 
 	possible_trading_items = list(
-		/obj/item/modular_computer/handheld/pda/civilian/clown  = TRADER_THIS_TYPE,
 		/obj/item/stamp/clown                            = TRADER_THIS_TYPE,
 		/obj/item/bananapeel                             = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/food/snacks/pie     = TRADER_THIS_TYPE,

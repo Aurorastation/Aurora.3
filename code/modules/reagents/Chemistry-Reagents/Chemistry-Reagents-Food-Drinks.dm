@@ -327,6 +327,15 @@
 	condiment_desc = "A delicious oil used in cooking. Made from corn."
 	condiment_icon_state = "oliveoil"
 
+/decl/reagent/nutriment/triglyceride/oil/peanut
+	name = "Peanut Oil"
+	description = "A flavourful oil derived from roasted peanuts."
+	color = "#ba8002"
+	taste_description = "smoky peanut oil"
+	taste_mult = 1
+	condiment_name = "peanut oil"
+	condiment_desc = "Tasteful and rich peanut oil used in cooking. Made from roasted peanuts."
+	condiment_icon_state = "peanutoil"
 
 /decl/reagent/nutriment/honey
 	name = "Honey"
@@ -462,6 +471,35 @@
 	color = "#801E28"
 	taste_description = "cherry"
 	taste_mult = 1.3
+	condiment_name = "cherry jelly jar"
+	condiment_desc = "Great with peanut butter!"
+	condiment_icon_state = "jellyjar"
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
+/decl/reagent/nutriment/peanutbutter
+	name = "Peanut Butter"
+	description = "Clearer the better spread, exception for those who are deathly allergic."
+	reagent_state = LIQUID
+	nutriment_factor = 5
+	color = "#AD7937"
+	taste_description = "peanut butter"
+	taste_mult = 2
+	condiment_name = "peanut butter jar"
+	condiment_desc = "Great with jelly!"
+	condiment_icon_state = "pbjar"
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
+/decl/reagent/nutriment/groundpeanuts
+	name = "Ground Roasted Peanuts"
+	description = "Roughly ground roasted peanuts."
+	reagent_state = SOLID
+	nutriment_factor = 5
+	color = "#AD7937"
+	taste_description = "roasted peanuts"
+	taste_mult = 2
+	condiment_name = "ground roasted peanuts sack"
+	condiment_icon_state = "peanut_sack"
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /decl/reagent/nutriment/virusfood
 	name = "Virus Food"
@@ -530,6 +568,18 @@
 	condiment_name = "garlic sauce"
 	condiment_desc = "Perfect for repelling vampires and/or potential dates."
 
+/decl/reagent/nutriment/mayonnaise
+	name = "Mayonnaise"
+	description = "Mayonnaise, a staple classic for sandwiches."
+	taste_description = "mayonnaise"
+	reagent_state = LIQUID
+	nutriment_factor = 4
+	color = "#F0EBD8"
+	condiment_name = "mayonnaise"
+	condiment_desc = "Great for sandwiches!"
+	condiment_icon_state = "mayojar"
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
 /* Non-food stuff like condiments */
 
 /decl/reagent/sodiumchloride
@@ -537,7 +587,7 @@
 	description = "A salt made of sodium chloride. Commonly used to season food."
 	reagent_state = SOLID
 	color = "#FFFFFF"
-	overdose = REAGENTS_OVERDOSE
+	overdose = 30
 	taste_description = "salt"
 	condiment_name = "salt shaker"
 	condiment_desc = "Salt. From space oceans, presumably."
@@ -549,9 +599,17 @@
 	M.adjustHydrationLoss(2*removed)
 
 /decl/reagent/sodiumchloride/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	overdose(M, alien, holder)
+
+/decl/reagent/sodiumchloride/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.intoxication -= min(M.intoxication,removed*20)
 	M.adjustHydrationLoss(20*removed)
 	M.adjustToxLoss(removed*2)
+	M.confused = max(M.confused, 20)
+	if(prob(2))
+		M.emote("twitch")
+	if(prob(5))
+		to_chat(M, SPAN_WARNING(pick("You're beginning to lose your appetite.","Your mouth is so incredibly dry.","You feel really confused.","What was I just thinking of?","Where am I?","Your muscles are tingling.")))
 
 /decl/reagent/blackpepper
 	name = "Black Pepper"
@@ -1069,12 +1127,12 @@
 
 /decl/reagent/drink/milk/adhomai/mutthir
 	name = "Mutthir"
-	description = "A beverage made with Fatshouters' yogurt mixed with Nm’shaan's sugar and sweet herbs."
+	description = "A beverage made with Fatshouters' yogurt mixed with Nm'shaan's sugar and sweet herbs."
 	taste_description = "sweet fatty yogurt"
 
 	glass_icon_state = "mutthir_glass"
 	glass_name = "glass of mutthir"
-	glass_desc = "A beverage made with Fatshouters' yogurt mixed with Nm’shaan's sugar and sweet herbs."
+	glass_desc = "A beverage made with Fatshouters' yogurt mixed with Nm'shaan's sugar and sweet herbs."
 
 /decl/reagent/drink/milk/beetle
 	name = "Hakhma Milk"
@@ -4599,105 +4657,82 @@
 	glass_name = "cup of xuizi pulque"
 	glass_desc = "A variation of Mictlanian pulque that is safe to consume for Unathi."
 
-//ZZZZOOOODDDDAAAAA
-
+// Zo'ra Sodas
 /decl/reagent/drink/zorasoda
-	name = "Zo'ra Soda Cherry"
-	description = "Zo'ra Soda, cherry edition. All good drinks come in cherry."
-	color = "#102000"
+	name = "Zo'ra Soda"
+	description = "Zo'ra Soda. You aren't supposed to see this."
+	color = "#000000"
+	adj_dizzy = -5
+	adj_drowsy = -3
 	adj_sleepy = -2
+	overdose = 45
 	caffeine = 0.4
-	taste_description = "electric cherry"
+	taste_description = "zo'ra soda"
 	carbonated = TRUE
+
+/decl/reagent/drink/zorasoda/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(alien != IS_DIONA)
+		if(prob(2))
+			to_chat(M, SPAN_GOOD(pick("You feel great!", "You feel full of energy!", "You feel alert and focused!")))
+
+/decl/reagent/drink/zorasoda/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
+	if(!(alien in list(IS_DIONA, IS_VAURCA)))
+		M.make_jittery(5)
+
+/decl/reagent/drink/zorasoda/cherry
+	name = "Zo'ra Cherry"
+	description = "Zo'ra Soda, cherry edition. All good energy drinks come in cherry."
+	color = "#102000"
+	taste_description = "bitter cherry"
 
 /decl/reagent/drink/zorasoda/phoron
-	name = "Zo'ra Soda Phoron Passion"
-	description = "Reported to taste nothing like phoron, but everything like grapes."
+	name = "Zo'ra Phoron Passion"
+	description = "Tastes nothing like phoron, but everything like grapes."
 	color = "#863333"
-	adj_sleepy = -2
-	caffeine = 0.4
-	taste_description = "electric grape"
-	carbonated = TRUE
-
-/decl/reagent/drink/zorasoda/kois
-	name = "Zo'ra Soda K'ois Twist"
-	description = "Whoever approved this in marketing needs to be drawn and quartered."
-	color = "#dcd9cd"
-	adj_sleepy = -2
-	caffeine = 0.4
-	taste_description = "sugary cabbage"
-	carbonated = TRUE
-
-/decl/reagent/drink/zorasoda/kois/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	..()
-	if(alien != IS_DIONA)
-		M.make_jittery(5)
-
-/decl/reagent/drink/zorasoda/hozm
-	name = "Zo'ra Soda High Octane Zorane Might"
-	description = "It feels like someone is just driving a freezing cold spear through the bottom of your mouth."
-	color = "#365000"
-	adj_sleepy = -3
-	caffeine = 0.6
-	taste_description = "a full-body bite into an acidic lemon"
-	carbonated = TRUE
-
-/decl/reagent/drink/zorasoda/hozm/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	..()
-	if(alien != IS_DIONA)
-		M.make_jittery(20)
-		M.dizziness += 5
-		M.drowsiness = 0
-
-/decl/reagent/drink/zorasoda/venomgrass
-	name = "Zo'ra Soda Sour Venom Grass"
-	description = "The 'diet' version of High Energy Zorane Might, still tastes like a cloud of stinging polytrinic bees."
-	color = "#100800"
-	adj_sleepy = -3
-	caffeine = 0.4
-	taste_description = "fizzy nettles"
-	carbonated = TRUE
-
-/decl/reagent/drink/zorasoda/venomgrass/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	..()
-	if(alien != IS_DIONA)
-		M.make_jittery(5)
+	taste_description = "fruity grape"
 
 /decl/reagent/drink/zorasoda/klax
-	name = "Klaxan Energy Crush"
-	description = "An orange, cream soda. It's a wonder it got here."
+	name = "K'laxan Energy Crush"
+	description = "An orange zest cream soda with a delicious smooth taste."
 	color = "#E78108"
-	adj_sleepy = -3
-	caffeine = 0.4
-	unaffected_species = IS_MACHINE
-	taste_description = "orange cream"
-	carbonated = TRUE
-
-/decl/reagent/drink/zorasoda/klax/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	..()
-	if(alien != IS_DIONA)
-		M.make_jittery(5)
+	taste_description = "fizzy and creamy orange zest"
 
 /decl/reagent/drink/zorasoda/cthur
 	name = "C'thur Rockin' Raspberry"
 	description = "A raspberry concoction you're pretty sure is already on recall."
 	color = "#0000CD"
-	adj_sleepy = -3
-	caffeine = 0.4
-	taste_description = "flat raspberry"
-	carbonated = TRUE
+	taste_description = "sweet flowery raspberry"
 
-/decl/reagent/drink/zorasoda/cthur/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/decl/reagent/drink/zorasoda/venomgrass
+	name = "Zo'ra Sour Venom Grass"
+	description = "The milder version of High Energy Zorane Might. Still tastes like a cloud of angry stinging acidic bees, though."
+	color = "#100800"
+	taste_description = "fizzy acidic nettles"
+
+/decl/reagent/drink/zorasoda/hozm // "Contraband"
+	name = "Zo'ra High Octane Zorane Might"
+	description = "It feels like someone is driving a freezing cold spear through the bottom of your mouth."
+	color = "#365000"
+	overdose = 20
+	caffeine = 0.6
+	taste_description = "biting into an acidic lemon mixed with strong mint"
+
+/decl/reagent/drink/zorasoda/hozm/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
-	if(alien != IS_DIONA)
-		M.make_jittery(15)
+	if(!(alien in list(IS_DIONA, IS_VAURCA)))
+		M.make_jittery(10)
+
+/decl/reagent/drink/zorasoda/kois
+	name = "Zo'ra K'ois Twist"
+	description = "Tastes exactly like how a kitchen smells after boiling brussel sprouts."
+	color = "#DCD9CD"
+	taste_description = "sugary cabbage"
 
 /decl/reagent/drink/zorasoda/drone
-	name = "Drone Fuel"
-	description = "It's thick as syrup and smells of gas. Why."
+	name = "Vaurca Drone Fuel"
+	description = "It's as thick as syrup and smells of gasoline. Why."
 	color = "#31004A"
-	adj_sleepy = -3
-	taste_description = "viscous cola"
+	taste_description = "viscous stale cola mixed with gasoline"
 	carbonated = TRUE
 
 /decl/reagent/drink/zorasoda/drone/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -4710,31 +4745,25 @@
 		M.add_chemical_effect(CE_BLOODRESTORE, 2 * removed)
 		M.make_jittery(5)
 	else if(alien != IS_DIONA)
-		if (prob(10+M.chem_doses[type]))
-			to_chat(M, pick("You feel nauseous!", "Ugh...", "Your stomach churns uncomfortably!", "You feel like you're about to throw up!", "You feel queasy!","You feel pressure in your abdomen!"))
-
 		if (prob(M.chem_doses[type]))
+			to_chat(M, pick(SPAN_WARNING("You feel nauseous!"), SPAN_WARNING("Ugh... You're going to be sick!"), SPAN_WARNING("Your stomach churns uncomfortably!"), SPAN_WARNING("You feel like you're about to throw up!"), SPAN_WARNING("You feel queasy!")))
 			M.vomit()
 
 /decl/reagent/drink/zorasoda/jelly
-	name = "Royal Jelly"
-	description = "It looks of mucus, but tastes like Heaven."
+	name = "Royal Vaurca Jelly"
+	description = "It looks like mucus, but tastes like heaven. Royal jelly is a nutritious concentrated substance commonly created by Caretaker Vaurca in order to feed larvae. It is known to have a stimulating effect in most, if not all, species."
 	color = "#FFFF00"
-	adj_sleepy = -3
 	caffeine = 0.3
-	taste_description = "a reassuring spectrum of color"
-	carbonated = TRUE
+	taste_description = "sweet flowers and nectar mixed with aromatic spices"
 
 /decl/reagent/drink/zorasoda/jelly/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
 	if(alien != IS_DIONA)
 		M.druggy = max(M.druggy, 30)
-		M.dizziness += 5
-		M.drowsiness = 0
 
 /decl/reagent/drink/hrozamal_soda
 	name = "Hro'zamal Soda"
-	description = "A cabornated version of the herbal tea made with Hro'zamal Ras'Nifs powder."
+	description = "A carbonated version of the herbal tea made with Hro'zamal Ras'Nifs powder."
 	color = "#F0C56C"
 	adj_sleepy = -1
 	caffeine = 0.2
@@ -4743,7 +4772,7 @@
 
 	glass_icon_state = "hrozamal_soda_glass"
 	glass_name = "glass of Hro'zamal Soda"
-	glass_desc = "A cabornated version of the herbal tea made with Hro'zamal Ras'Nifs powder."
+	glass_desc = "A carbonated version of the herbal tea made with Hro'zamal Ras'Nifs powder."
 
 /decl/reagent/nutriment/vanilla
 	name = "Vanilla Extract"

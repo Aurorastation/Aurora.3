@@ -37,9 +37,14 @@
 			pod.launch(src)
 
 	if(autopilot && shuttle.moving_status == SHUTTLE_IDLE)
-		evac_arrival_time = world.time + (shuttle.move_time*10) + (shuttle.warmup_time*10)
 		shuttle.launch(src)
-	// Announcements, state changes and such are handled by the shuttle itself to prevent desync.
+
+	state = EVAC_IN_TRANSIT
+
+	if (emergency_evacuation)
+		priority_announcement.Announce(replacetext(replacetext(current_map.emergency_shuttle_leaving_dock, "%dock%", "[current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
+	else
+		priority_announcement.Announce(replacetext(replacetext(current_map.shuttle_leaving_dock, "%dock%", "[current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
 
 /datum/evacuation_controller/shuttle/finish_preparing_evac()
 	departed = 1

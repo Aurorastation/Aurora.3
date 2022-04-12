@@ -76,6 +76,11 @@
 
 	return ..()
 
+/obj/item/material/twohanded/can_swap_hands(mob/user)
+	if(wielded)
+		return FALSE
+	return ..()
+
 /obj/item/material/twohanded/dropped(mob/user as mob)
 	//handles unwielding a twohanded weapon when dropped as well as clearing up the offhand
 	if(user)

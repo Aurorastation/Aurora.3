@@ -45,10 +45,11 @@
 /obj/item/storage/firstaid/regular
 	icon_state = "firstaid"
 	starts_with = list(
-		/obj/item/stack/medical/bruise_pack = 3,
+		/obj/item/stack/medical/bruise_pack = 2,
 		/obj/item/stack/medical/ointment = 2,
 		/obj/item/device/healthanalyzer = 1,
-		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1
+		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/dylovene = 1
 	)
 
 /obj/item/storage/firstaid/toxin
@@ -157,7 +158,7 @@
 	item_state = "pill_canister"
 	center_of_mass = list("x" = 16,"y" = 12)
 	w_class = ITEMSIZE_SMALL
-	can_hold = list(/obj/item/reagent_containers/pill,/obj/item/dice,/obj/item/paper)
+	can_hold = list(/obj/item/reagent_containers/pill,/obj/item/stack/dice,/obj/item/paper)
 	allow_quick_gather = 1
 	use_to_pickup = 1
 	use_sound = 'sound/items/storage/pillbottle.ogg'

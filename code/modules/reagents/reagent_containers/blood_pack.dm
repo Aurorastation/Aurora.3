@@ -17,7 +17,8 @@
 	name = "blood pack"
 	desc = "Contains blood used for transfusion."
 	icon = 'icons/obj/bloodpack.dmi'
-	icon_state = "empty"
+	icon_state = "bloodpack"
+	filling_states = "-10;10;25;50;75;80;100"
 	w_class = ITEMSIZE_SMALL
 	volume = 200
 
@@ -55,15 +56,12 @@
 
 /obj/item/reagent_containers/blood/update_icon()
 	cut_overlays()
-	if(volume)
-		var/percent = round(reagents.total_volume / volume * 100)
-		if(reagents.total_volume)
-			var/image/filling = image('icons/obj/bloodpack.dmi', "[round(percent,25)]")
-			filling.color = reagents.get_color()
-			add_overlay(filling)
-		add_overlay(image('icons/obj/bloodpack.dmi', "top"))
-		if(attached_mob)
-			add_overlay(image('icons/obj/bloodpack.dmi', "dongle"))
+
+	if(attached_mob)
+		add_overlay(image('icons/obj/bloodpack.dmi', "dongle"))
+
+	if(reagents && reagents.total_volume)
+		add_overlay(overlay_image('icons/obj/bloodpack.dmi', "[icon_state][get_filling_state()]", color = reagents.get_color()))
 
 /obj/item/reagent_containers/blood/attack(mob/living/carbon/human/M as mob, mob/living/carbon/human/user as mob, var/target_zone)
 	if(user == M && (MODE_VAMPIRE in user.mind?.antag_datums))
@@ -259,7 +257,7 @@
 /obj/item/reagent_containers/blood/empty
 	name = "empty blood pack"
 	desc = "Seems pretty useless... Maybe if there were a way to fill it?"
-	icon_state = "empty"
+	icon_state = "bloodpack"
 
 /obj/item/reagent_containers/blood/ripped
 	name = "ripped blood pack"

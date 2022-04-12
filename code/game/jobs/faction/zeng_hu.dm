@@ -10,36 +10,16 @@
 	Skrell, working closely with this alien species to pioneer cloning, a once
 	controversial field that is now more accepted today.
 	</p>
-	<p>Some character examples are:
+	<p>Zeng-Hu Pharmaceuticals employees can be in the following departments:
 	<ul>
-	<li><b>Senior Surgeon</b>: Zeng-Hu has some of the best medical staff in the world and you are one of them.
-	Highly-trained and highly-experienced you are better then the rest, aside from your colleagues in Zeng-Hu.
-	You expect to be heard and obeyed, as your coworkers really should be taking advice from you in the absence of
-	a chief medical officer. Your bedside manner is impeccable and far outclasses standard NanoTrasen training and
-	procedure. You are the product of the most rigorous employee hiring and training process for medical staff in the
-	Orion Spur, and are expected to act like it. Failure is something you will not tolerate.</li>
-	<li><b>Biomechanical Engineer</b>: Our ability to combine medical research with robotics
-	is the best and you know this. We do, after all, own Bishop Cybernetics - the
-	best premium augmentation subsidiary in the known galaxy. Unlike your medical cousins
-	you are much more likely to generate a friendly working atmosphere with non Zeng-Hu colleagues,
-	due to gaps in your training surrounding the exosuits Hephaestus' "well-trained roboticists"
-	love to build. Remember to be professional, effective, driven, and dedicated in your work.
-	Zeng-Hu expects the best from you, Doctor. Do not fail us or our shareholders in Eridani, or
-	you will find your career failing in short order.</li>
+	<li><b>Science</b>
+	<li><b>Medical</b>
 	</ul></p>"}
+
+
 	title_suffix = "Zeng"
 
-	allowed_role_types = list(
-		/datum/job/visitor,
-		/datum/job/doctor,
-		/datum/job/surgeon,
-		/datum/job/pharmacist,
-		/datum/job/psychiatrist,
-		/datum/job/med_tech,
-		/datum/job/roboticist,
-		/datum/job/xenobiologist,
-		/datum/job/representative
-	)
+	allowed_role_types = ZENG_ROLES
 
 	allowed_species_types = list(
 		/datum/species/human,
@@ -49,25 +29,6 @@
 		/datum/species/bug/type_b = TRUE,
 		/datum/species/bug/type_e = TRUE,
 		/datum/species/diona
-	)
-
-	titles_to_loadout = list(
-		"Physician" = /datum/outfit/job/doctor/zeng_hu,
-		"Surgeon" = /datum/outfit/job/doctor/zeng_hu,
-		"Trauma Physician" = /datum/outfit/job/doctor/zeng_hu,
-		"Nurse" = /datum/outfit/job/doctor/zeng_hu,
-		"Pharmacist" = /datum/outfit/job/pharmacist/zeng_hu,
-		"Chemist" = /datum/outfit/job/pharmacist/zeng_hu,
-		"Psychiatrist" = /datum/outfit/job/psychiatrist/zeng_hu,
-		"Psychologist" = /datum/outfit/job/psychiatrist/zeng_hu,
-		"Paramedic" = /datum/outfit/job/med_tech/paramed/zeng_hu,
-		"First Responder" = /datum/outfit/job/med_tech/paramed/zeng_hu,
-		"Roboticist" = /datum/outfit/job/roboticist/zeng_hu,
-		"Biomechanical Engineer" = /datum/outfit/job/roboticist/zeng_hu,
-		"Mechatronic Engineer" = /datum/outfit/job/roboticist/zeng_hu,
-		"Xenobiologist" = /datum/outfit/job/scientist/xenobiologist/zeng_hu,
-		"Xenobotanist" = /datum/outfit/job/scientist/xenobiologist/zeng_hu,
-		"Corporate Liaison" = /datum/outfit/job/representative/zeng_hu
 	)
 
 	job_species_blacklist = list(
@@ -83,43 +44,101 @@
 		)
 	)
 
+	titles_to_loadout = list(
+		"Physician" = /datum/outfit/job/doctor/zeng_hu,
+		"Surgeon" = /datum/outfit/job/doctor/surgeon/zeng_hu,
+		"Pharmacist" = /datum/outfit/job/pharmacist/zeng_hu,
+		"Psychiatrist" = /datum/outfit/job/psychiatrist/zeng_hu,
+		"Psychologist" = /datum/outfit/job/psychiatrist/zeng_hu,
+		"First Responder" = /datum/outfit/job/med_tech/zeng_hu,
+		"Medical Intern" = /datum/outfit/job/intern_med/zeng_hu,
+		"Scientist" = /datum/outfit/job/scientist/zeng_hu,
+		"Xenobiologist" = /datum/outfit/job/scientist/zeng_hu/xenobio,
+		"Xenobotanist" = /datum/outfit/job/scientist/zeng_hu,
+		"Xenobotanist" = /datum/outfit/job/scientist/zeng_hu,
+		"Lab Assistant" = /datum/outfit/job/intern_sci/zeng_hu,
+		"Xenoarcheologist"= /datum/outfit/job/scientist/xenoarcheologist/zeng_hu,
+		"Corporate Liaison" = /datum/outfit/job/representative/zeng_hu
+	)
+
 /datum/outfit/job/doctor/zeng_hu
 	name = "Physician - Zeng-Hu"
-	uniform = /obj/item/clothing/under/rank/zeng
+
+	uniform = /obj/item/clothing/under/rank/medical/zeng
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
 	id = /obj/item/card/id/zeng_hu
 
-/datum/outfit/job/roboticist/zeng_hu
-	name = "Roboticist - Zeng-Hu"
-	uniform = /obj/item/clothing/under/rank/zeng
+/datum/outfit/job/doctor/surgeon/zeng_hu
+	name = "Surgeon - Zeng-Hu"
+
+	uniform = /obj/item/clothing/under/rank/medical/surgeon/zeng
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
+	head = /obj/item/clothing/head/surgery/zeng
 	id = /obj/item/card/id/zeng_hu
 
 /datum/outfit/job/pharmacist/zeng_hu
 	name = "Pharmacist - Zeng-Hu"
-	uniform = /obj/item/clothing/under/rank/zeng
+
+	uniform = /obj/item/clothing/under/rank/pharmacist/zeng
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
 	id = /obj/item/card/id/zeng_hu
 
 /datum/outfit/job/psychiatrist/zeng_hu
 	name = "Psychiatrist - Zeng-Hu"
-	uniform = /obj/item/clothing/under/rank/zeng
+
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
+	uniform = /obj/item/clothing/under/rank/psych/zeng
 	id = /obj/item/card/id/zeng_hu
 
-/datum/outfit/job/psychiatrist/zeng_hu
-	name = "Psychiatrist - Zeng-Hu"
-	uniform = /obj/item/clothing/under/rank/zeng
+/datum/outfit/job/med_tech/zeng_hu
+	name = "First Responder - Zeng-Hu"
+
+	head = /obj/item/clothing/head/softcap/medical/pmc
+	suit = null
+	uniform = /obj/item/clothing/under/rank/medical/first_responder/zeng
 	id = /obj/item/card/id/zeng_hu
 
-/datum/outfit/job/med_tech/paramed/zeng_hu
-	name = "Paramedic - Zeng-Hu"
-	uniform = /obj/item/clothing/under/rank/zeng
+/datum/outfit/job/intern_med/zeng_hu
+	name = "Medical Intern - Zeng-Hu"
+
+	uniform = /obj/item/clothing/under/rank/medical/intern/zeng
 	id = /obj/item/card/id/zeng_hu
 
-/datum/outfit/job/scientist/xenobiologist/zeng_hu
+/datum/outfit/job/scientist/zeng_hu
+	name = "Scientist - Zeng-Hu"
+
+	uniform = /obj/item/clothing/under/rank/scientist/zeng
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
+	id = /obj/item/card/id/zeng_hu
+	suit = null
+
+/datum/outfit/job/scientist/zeng_hu/xenobio
 	name = "Xenobiologist - Zeng-Hu"
-	uniform = /obj/item/clothing/under/rank/zeng
+
+	uniform = /obj/item/clothing/under/rank/scientist/xenobio/zeng
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi
+	id = /obj/item/card/id/zavodskoi
+	suit = null
+
+
+/datum/outfit/job/scientist/xenoarcheologist/zeng_hu
+	name = "Xenoarcheologist - Zeng-Hu"
+
+	uniform = /obj/item/clothing/under/rank/xenoarcheologist/zeng
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
 	id = /obj/item/card/id/zeng_hu
+	suit = null
+
+/datum/outfit/job/intern_sci/zeng_hu
+	name = "Lab Assistant - Zeng-Hu"
+
+	uniform = /obj/item/clothing/under/rank/scientist/intern/zeng
+	id = /obj/item/card/id/zeng_hu
+	suit = null
 
 /datum/outfit/job/representative/zeng_hu
 	name = "Zeng-Hu Corporate Liaison"
+
 	uniform = /obj/item/clothing/under/rank/zeng/civilian
 	head = null
 	suit = null

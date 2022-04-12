@@ -15,7 +15,7 @@
 	var/icon_screen = "generic"
 	var/icon_scanline
 	var/light_range_on = 2
-	var/light_power_on = 1
+	var/light_power_on = 1.3
 	var/overlay_layer
 	var/is_holographic = TRUE
 	var/icon_broken = "broken"
@@ -63,7 +63,7 @@
 		set_light(0)
 		return
 	else
-		set_light(light_range_on, light_power_on)
+		set_light(light_range_on, light_power_on, COLOR_CYAN)
 
 	icon_state = initial(icon_state)
 
@@ -89,7 +89,7 @@
 	if(stat & NOPOWER)
 		set_light(0)
 	else
-		set_light(light_range_on, light_power_on)
+		set_light(light_range_on, light_power_on, COLOR_CYAN)
 
 
 /obj/machinery/computer/proc/set_broken()

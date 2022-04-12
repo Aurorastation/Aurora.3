@@ -112,8 +112,8 @@ BREATH ANALYZER
 	var/brain_result = H.get_brain_status()
 	dat += "Brain activity: [brain_result]."
 
-	if(H.stat == DEAD || (H.status_flags & FAKEDEATH))
-		dat += "<span class='scan_warning'>[b]Time of Death:[endb] [time2text(worldtime2text(H.timeofdeath), "hh:mm")]</span>"
+	if(H.stat == DEAD || H.status_flags & FAKEDEATH)
+		dat += "<span class='scan_warning'>[b]Time of Death:[endb] [worldtime2text(H.timeofdeath)]</span>"
 
 	// Pulse rate.
 	var/pulse_result = "normal"
@@ -169,7 +169,7 @@ BREATH ANALYZER
 	dat += temperature_string
 
 	// Traumatic shock.
-	if(H.is_asystole())
+	if(H.is_asystole() || (H.status_flags & FAKEDEATH))
 		dat += "<span class='scan_danger'>Patient is suffering from cardiovascular shock. Administer CPR immediately.</span>"
 	else if(H.shock_stage > 80)
 		dat += "<span class='scan_warning'>Patient is at serious risk of going into shock. Pain relief recommended.</span>"
@@ -667,7 +667,7 @@ BREATH ANALYZER
 		add_fingerprint(user)
 
 /obj/item/device/advanced_healthanalyzer/proc/print_scan(var/mob/M, var/mob/living/user)
-	var/obj/item/paper/R = new(user.loc)
+	var/obj/item/paper/medscan/R = new(user.loc)
 	R.color = "#eeffe8"
 	R.set_content_unsafe("Scan ([M.name])", internal_bodyscanner.format_occupant_data(get_medical_data(M)))
 
@@ -705,6 +705,7 @@ BREATH ANALYZER
 		"blood_amount" = REAGENT_VOLUME(H.vessel, /decl/reagent/blood),
 		"disabilities" = H.sdisabilities,
 		"lung_ruptured" = H.is_lung_ruptured(),
+		"lung_rescued" = H.is_lung_rescued(),
 		"external_organs" = H.organs.Copy(),
 		"internal_organs" = H.internal_organs.Copy(),
 		"species_organs" = H.species.has_organ

@@ -115,17 +115,3 @@
 		img.blend_mode = BLEND_MULTIPLY
 		img.alpha = (i * alpha_inc) - 1
 		damage_overlays[i] = img
-
-/turf/simulated/wall/calculate_adjacencies()
-	if(use_standard_smoothing)
-		return ..()
-	. = 0
-	if (!loc || !material)
-		return
-
-	var/turf/simulated/wall/W
-	var/our_icon_base = material.icon_base
-
-	CALCULATE_NEIGHBORS(src, ., W, istype(W) && (W.smooth || !W.density) && W.material && W.material.icon_base == our_icon_base)
-
-	cached_adjacency = .

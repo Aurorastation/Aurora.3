@@ -310,9 +310,7 @@
 	Debug("ER/([H]): Entry, joined_late=[joined_late],megavend=[megavend].")
 
 	if(SSatlas.current_sector.description)
-		var/sector_desc = "<hr><div align='center'><hr1><B>Current Sector: [SSatlas.current_sector.name]!</B></hr1><br>"
-		sector_desc += "<i>[SSatlas.current_sector.description]</i><hr></div>"
-		to_chat(H, sector_desc)
+		to_chat(H, SSatlas.current_sector.get_chat_description())
 
 	var/datum/job/job = GetJob(rank)
 	var/list/spawn_in_storage = list()
@@ -500,7 +498,7 @@
 			Debug("EP/([H]): Abort, H is AI.")
 			return EquipRank(H, rank, 1)
 
-	if(!current_map.command_spawn_enabled || spawning_at != "Arrivals Shuttle" && spawning_at != "Cryogenic Storage")
+	if(!current_map.command_spawn_enabled || spawning_at != "Arrivals Shuttle" && spawning_at != "Cryogenic Storage"  && spawning_at != "Living Quarters Lift")
 		return EquipRank(H, rank, 1)
 
 	H.centcomm_despawn_timer = addtimer(CALLBACK(H, /mob/living/.proc/centcomm_timeout), 10 MINUTES, TIMER_STOPPABLE)
@@ -509,7 +507,7 @@
 
 	H.job = rank
 
-	if(spawning_at != "Arrivals Shuttle" && spawning_at != "Cryogenic Storage" || job.latejoin_at_spawnpoints)
+	if(spawning_at != "Arrivals Shuttle" && spawning_at != "Cryogenic Storage" && spawning_at != "Living Quarters Lift" || job.latejoin_at_spawnpoints)
 		return EquipRank(H, rank, 1)
 
 	var/list/spawn_in_storage = list()
@@ -672,8 +670,14 @@
 
 		var/datum/spawnpoint/spawnpos
 
-		if(H.client.prefs.spawnpoint)
+		if(H.client.prefs.spawnpoint in SSatlas.spawn_locations)
 			spawnpos = SSatlas.spawn_locations[H.client.prefs.spawnpoint]
+
+		if(rank == "Cyborg")
+			spawnpos = new/datum/spawnpoint/cyborg
+
+		if(!spawnpos)
+			spawnpos = SSatlas.spawn_locations[current_map.default_spawn]
 
 		if(spawnpos && istype(spawnpos))
 			if(spawnpos.check_job_spawning(rank))
@@ -720,10 +724,11 @@
 			H.mind.special_role = null
 
 	// Delete them from datacore.
-
-	if(!SSrecords.remove_record_by_field("fingerprint", H.get_full_print()))
-		// didn't find a record by fingerprint, fallback to deleting by name
-		SSrecords.remove_record_by_field("name", H.real_name)
+	if(ishuman(H))
+		SSrecords.remove_record_by_field("fingerprint", H.get_full_print())
+		if(H.species)
+			H.species.handle_despawn(H)
+	SSrecords.remove_record_by_field("name", H.real_name)
 	SSrecords.reset_manifest()
 
 	log_and_message_admins("([H.mind.role_alt_title]) entered cryostorage.", user = H)
@@ -732,8 +737,6 @@
 	H.ckey = null
 
 	// Delete the mob.
-	if(H.species)
-		H.species.handle_despawn(H)
 	qdel(H)
 
 // Equips a human-type with their custom loadout crap.
@@ -949,8 +952,7 @@
 	set waitfor = 0
 
 	var/style = "font-family: 'Fixedsys'; -dm-text-outline: 1 black; font-size: 11px;"
-	var/area/A = get_area(C.mob)
-	var/text = "[worlddate2text()], [worldtime2text()]\n[station_name()], [A.name]"
+	var/text = "[worlddate2text()], [worldtime2text()]\n[station_name()], [SSatlas.current_sector.name]"
 	text = uppertext(text)
 
 	var/obj/effect/overlay/T = new()

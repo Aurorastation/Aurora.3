@@ -1,25 +1,26 @@
-#define SS_INIT_PERSISTENT_CONFIG 25
-#define SS_INIT_MISC_FIRST  24
-#define SS_INIT_SEEDS       23	// Plant controller setup.
-#define SS_INIT_MAPLOAD     21	// DMM parsing and load. Unless you know what you're doing, make sure this remains first.
-#define SS_INIT_JOBS        20
-#define SS_INIT_MAPFINALIZE 19	// Asteroid generation.
-#define SS_INIT_PARALLAX    18	// Parallax image cache generation. Must run before ghosts are able to join.
-#define SS_INIT_HOLOMAP     17
-#define SS_INIT_ATOMS       16	// World initialization. Will trigger lighting updates. Observers can join after this loads.
-#define SS_INIT_ASSETS      15	// Assets subsystem setup.
-#define SS_INIT_POWER       14	// Initial powernet build.
-#define SS_INIT_ECONOMY     13  // Cargo needs economy set up
-#define SS_INIT_CARGO       12	// Random warehouse generation. Runs after SSatoms because it assumes objects are initialized when it runs.
-#define SS_INIT_PIPENET     11	// Initial pipenet build.
-#define SS_INIT_MACHINERY   10	// Machinery prune and powernet build.
-#define SS_INIT_AIR         9	// Air setup and pre-bake.
-#define SS_INIT_NIGHT       8	// Nightmode controller. Will trigger lighting updates.
-#define SS_INIT_SMOOTHING   7	// Object icon smoothing. Creates overlays.
-#define SS_INIT_ICON_UPDATE 6	// Icon update queue flush. Should run before overlays.
-#define SS_INIT_AO          5	// Wall AO neighbour build.
-#define SS_INIT_OVERLAY     4	// Overlay flush.
-#define SS_INIT_MISC        3	// Subsystems without an explicitly set initialization order start here.
+#define SS_INIT_PERSISTENT_CONFIG 26
+#define SS_INIT_MISC_FIRST  25
+#define SS_INIT_SEEDS       24	// Plant controller setup.
+#define SS_INIT_MAPLOAD     22	// DMM parsing and load. Unless you know what you're doing, make sure this remains first.
+#define SS_INIT_JOBS        21
+#define SS_INIT_MAPFINALIZE 20	// Asteroid generation.
+#define SS_INIT_PARALLAX    19	// Parallax image cache generation. Must run before ghosts are able to join.
+#define SS_INIT_HOLOMAP     18
+#define SS_INIT_ATOMS       17	// World initialization. Will trigger lighting updates. Observers can join after this loads.
+#define SS_INIT_ASSETS      16	// Assets subsystem setup.
+#define SS_INIT_POWER       15	// Initial powernet build.
+#define SS_INIT_ECONOMY     14  // Cargo needs economy set up
+#define SS_INIT_CARGO       13	// Random warehouse generation. Runs after SSatoms because it assumes objects are initialized when it runs.
+#define SS_INIT_PIPENET     12	// Initial pipenet build.
+#define SS_INIT_MACHINERY   11	// Machinery prune and powernet build.
+#define SS_INIT_AIR         10	// Air setup and pre-bake.
+#define SS_INIT_NIGHT       9	// Nightmode controller. Will trigger lighting updates.
+#define SS_INIT_SMOOTHING   8	// Object icon smoothing. Creates overlays.
+#define SS_INIT_ICON_UPDATE 7	// Icon update queue flush. Should run before overlays.
+#define SS_INIT_AO          6	// Wall AO neighbour build.
+#define SS_INIT_OVERLAY     5	// Overlay flush.
+#define SS_INIT_MISC        4	// Subsystems without an explicitly set initialization order start here.
+#define SS_INIT_GHOSTROLES  3
 #define SS_INIT_SUNLIGHT    2	// Sunlight setup. Creates lots of lighting & SSzcopy updates.
 #define SS_INIT_LIGHTING    1	// Generation of lighting overlays and pre-bake. May cause openturf updates, should initialize before SSzcopy.
 #define SS_INIT_ZCOPY       0	// Z-mimic flush. Should run after SSoverlay & SSicon_smooth so it copies the smoothed sprites.
@@ -65,12 +66,13 @@
 #define SS_PRIORITY_AIRFLOW     10	// Handles object movement due to ZAS airflow.
 #define SS_PRIORITY_PING        10
 #define SS_PRIORITY_ZCOPY       10	// Z-mimic icon generation/updates.
+#define SS_PRIORITY_ARRIVALS    10	// Centcomm arrivals shuttle auto-launch. Usually asleep.
+
 
 // SS_BACKGROUND
 #define SS_PRIORITY_PROCESSING    50	// Generic datum processor. Replaces objects processor.
 //#define SS_PRIORITY_DEFAULT     50	// This is defined somewhere else.
 #define SS_PRIORITY_PSYCHICS      30
-#define SS_PRIORITY_ARRIVALS      30	// Centcomm arrivals shuttle auto-launch. Usually asleep.
 #define SS_PRIORITY_EVAC          30   // Processes the evac controller.
 #define SS_PRIORITY_EXPLOSIVES    20	// Explosion processor. Doesn't have much effect on explosion tick-checking.
 #define SS_PRIORITY_DISPOSALS     20	// Disposal holder movement.

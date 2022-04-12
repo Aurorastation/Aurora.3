@@ -326,6 +326,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	desc = "A plastic medicine cup. Like a shot glass for medicine."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "medcup"
+	filling_states = "25;50;75;100"
 	drop_sound = 'sound/items/drop/drinkglass.ogg'
 	pickup_sound = 'sound/items/pickup/drinkglass.ogg'
 	possible_transfer_amounts = null
@@ -341,26 +342,6 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 /obj/item/reagent_containers/food/drinks/medcup/dropped(mob/user)
 	..()
 	update_icon()
-
-/obj/item/reagent_containers/food/drinks/medcup/update_icon()
-	cut_overlays()
-
-	if(reagents.total_volume)
-		var/image/filling = image('icons/obj/reagentfillings.dmi', src, "[icon_state]25")
-
-		var/percent = round((reagents.total_volume / volume) * 100)
-		switch(percent) // offset by about 12.5 so it seems more gradual
-			if(0 to 37)
-				filling.icon_state = "[icon_state]25"
-			if(38 to 62)
-				filling.icon_state = "[icon_state]50"
-			if(63 to 87)
-				filling.icon_state = "[icon_state]75"
-			if(87 to INFINITY)
-				filling.icon_state = "[icon_state]100"
-
-		filling.color = reagents.get_color()
-		add_overlay(filling)
 
 //////////////////////////JUICES AND STUFF ///////////////////////
 
@@ -431,8 +412,8 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 /obj/item/reagent_containers/food/drinks/carton/mutthir
 	name = "mutthir carton"
 	icon_state = "mutthir"
-	desc = "A beverage made with Fatshouters' yogurt mixed with Nm’shaan's sugar and sweet herbs."
-	desc_fluff = "A beverage made with Fatshouters' yogurt mixed with Nm’shaan's sugar and sweet herbs. Mutthir is usually consumed during meals by both nobles and commoners. \
+	desc = "A beverage made with Fatshouters' yogurt mixed with Nm'shaan's sugar and sweet herbs."
+	desc_fluff = "A beverage made with Fatshouters' yogurt mixed with Nm'shaan's sugar and sweet herbs. Mutthir is usually consumed during meals by both nobles and commoners. \
 	The drink can also be smoked for flavor. Mutthir is believed to have originated from the worldwide appreciated Fatshouters' fermented milk. Rock Nomads living in the Nomadic Host \
 	were quick to adopt the drink to their diet."
 

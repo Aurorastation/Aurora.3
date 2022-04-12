@@ -31,15 +31,20 @@
 		to_chat(user, "<span class='danger'>\The [src] has ran out of uses, and is now useless to you!</span>")
 		return
 	else
-		var/area_wanted = input(user, "Area to teleport to", "Teleportation") in teleportlocs
-		var/area/A = teleportlocs[area_wanted]
-		if(!A)
+		var/list/area/valid_areas = list()
+		for(var/area/A as anything in the_station_areas)
+			if(is_shuttle_area(A))
+				continue
+			else
+				valid_areas += A
+		var/area/A = input(user, "Area to teleport to", "Teleportation") as area in valid_areas
+		if(!isarea(A) || !(A in the_station_areas))
 			return
 
 		if (user.stat || user.restrained())
 			return
 
-		if(!((user == loc || (in_range(src, user) && istype(src.loc, /turf)))))
+		if(!((user == loc || (in_range(src, user) && isturf(loc)))))
 			return
 
 		spark(src, 5, 0)

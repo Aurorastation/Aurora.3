@@ -320,7 +320,7 @@ Class Procs:
 	if(!detach_turf)
 		log_debug("[src] tried to drop a signaler, but it had no turf ([src.x]-[src.y]-[src.z])")
 		return
-	
+
 	var/obj/item/device/assembly/signaler/S = signaler
 
 	signaler.forceMove(detach_turf)
@@ -507,13 +507,15 @@ Class Procs:
 	return
 
 
-// A late init operation called in SSshuttle for ship computers, used to attach the thing to the right ship.
+// A late init operation called in SSshuttle for ship computers and holopads, used to attach the thing to the right ship.
 /obj/machinery/proc/attempt_hook_up(obj/effect/overmap/visitable/ship/sector)
+	SHOULD_CALL_PARENT(TRUE)
 	if(!istype(sector))
-		return
+		return FALSE
 	if(sector.check_ownership(src))
 		linked = sector
-		return 1
+		return TRUE
+	return FALSE
 
 /obj/machinery/proc/sync_linked()
 	var/obj/effect/overmap/visitable/ship/sector = map_sectors["[z]"]
@@ -527,3 +529,11 @@ Class Procs:
 	for(var/obj/effect/overmap/visitable/ship/candidate in sector)
 		if((. = .(candidate)))
 			return
+
+
+/obj/machinery/proc/on_user_login(mob/M)
+	return
+
+/obj/machinery/proc/set_emergency_state(var/new_security_level)
+	return
+

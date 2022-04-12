@@ -116,15 +116,16 @@
 
 	if(state <= GRAB_AGGRESSIVE)
 		allow_upgrade = 1
-		//disallow upgrading if we're grabbing more than one person
-		if((assailant.l_hand && assailant.l_hand != src && istype(assailant.l_hand, /obj/item/grab)))
-			var/obj/item/grab/G = assailant.l_hand
-			if(G.affecting != affecting)
-				allow_upgrade = 0
-		if((assailant.r_hand && assailant.r_hand != src && istype(assailant.r_hand, /obj/item/grab)))
-			var/obj/item/grab/G = assailant.r_hand
-			if(G.affecting != affecting)
-				allow_upgrade = 0
+		if(!assailant.species.can_double_fireman_carry())
+			//disallow upgrading if we're grabbing more than one person
+			if((assailant.l_hand && assailant.l_hand != src && istype(assailant.l_hand, /obj/item/grab)))
+				var/obj/item/grab/G = assailant.l_hand
+				if(G.affecting != affecting)
+					allow_upgrade = 0
+			if((assailant.r_hand && assailant.r_hand != src && istype(assailant.r_hand, /obj/item/grab)))
+				var/obj/item/grab/G = assailant.r_hand
+				if(G.affecting != affecting)
+					allow_upgrade = 0
 
 		//disallow upgrading past aggressive if we're being grabbed aggressively
 		for(var/obj/item/grab/G in affecting.grabbed_by)
@@ -448,7 +449,7 @@
 	if(state < GRAB_AGGRESSIVE)
 		to_chat(H, SPAN_WARNING("You need an aggressive grab before you can fireman carry someone!"))
 		return
-	if(H.get_inactive_hand())
+	if(H.get_inactive_hand() && !H.species.can_double_fireman_carry())
 		to_chat(H, SPAN_WARNING("Your other hand must be empty to fireman carry someone!"))
 		return
 
@@ -460,12 +461,15 @@
 	if(affecting.buckled_to)
 		return
 
-	if(H.get_inactive_hand())
+	if(H.get_inactive_hand() && !H.species.can_double_fireman_carry())
 		to_chat(H, SPAN_WARNING("Your other hand must be empty to fireman carry someone!"))
 		return
 
-	var/obj/item/grab/offhand/OH = new /obj/item/grab/offhand(H, H, affecting, src)
-	H.put_in_hands(OH)
+	if(H.species.can_double_fireman_carry())
+		set_wielding()
+	else
+		var/obj/item/grab/offhand/OH = new /obj/item/grab/offhand(H, H, affecting, src)
+		H.put_in_hands(OH)
 
 	H.visible_message("<b>[H]</b> lifts \the [affecting] onto their shoulders!", SPAN_NOTICE("You lift \the [affecting] onto your shoulders!"))
 
@@ -474,25 +478,40 @@
 	adjust_position()
 	moved_event.register(assailant, src, /obj/item/grab/proc/move_affecting)
 
+/obj/item/grab/proc/set_wielding()
+	wielded = TRUE
+	state = GRAB_AGGRESSIVE
+	icon_state = "!reinforce"
+	hud.icon_state = "!reinforce"
+
 /obj/item/grab/proc/move_affecting()
 	if(affecting && assailant.Adjacent(affecting)) // Only move if it's near us.
 		affecting.forceMove(assailant.loc)
+
+/obj/item/grab/can_swap_hands(mob/user)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.species.can_double_fireman_carry())
+			return TRUE
+	if(wielded)
+		return FALSE
+	return ..()
+
+/obj/item/grab/proc/get_grab_type()
+	if(wielded)
+		return MOB_GRAB_FIREMAN
+	return MOB_GRAB_NORMAL
 
 /obj/item/grab/offhand
 	icon_state = "!reinforce"
 
 /obj/item/grab/offhand/Initialize(mapload, mob/user, mob/victim, var/obj/item/grab/linked)
 	. = ..()
+
+	set_wielding()
 	linked_grab = linked
 	linked.linked_grab = src
-	linked_grab.wielded = TRUE
-
-	linked_grab.state = GRAB_AGGRESSIVE
-
-	icon_state = "!reinforce"
-	hud.icon_state = "!reinforce"
-	linked_grab.icon_state = "!reinforce"
-	linked_grab.hud.icon_state = "!reinforce"
+	linked_grab.set_wielding()
 
 /obj/item/grab/offhand/process()
 	return

@@ -170,7 +170,7 @@
 	icon_state = "law_rep"
 
 /area/quartermaster
-	name = "Quartermasters"
+	name = "Operations Manager"
 	icon_state = "quart"
 	station_area = 1
 	holomap_color = HOLOMAP_AREACOLOR_CARGO
@@ -202,7 +202,7 @@
 	icon_state = "quartloading"
 
 /area/quartermaster/qm
-	name = "Cargo - Quartermaster's Office"
+	name = "Cargo - Operations Manager's Office"
 	icon_state = "quart"
 	sound_env = SMALL_SOFTFLOOR
 

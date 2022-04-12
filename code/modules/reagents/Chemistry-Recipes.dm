@@ -208,7 +208,7 @@
 	result_amount = 3
 
 /datum/chemical_reaction/space_drugs
-	name = "Space Drugs"
+	name = "Mercury Monolithium Sucrose"
 	id = "space_drugs"
 	result = /decl/reagent/space_drugs
 	required_reagents = list(/decl/reagent/mercury = 1, /decl/reagent/sugar = 1, /decl/reagent/lithium = 1)
@@ -756,6 +756,28 @@
 	result = /decl/reagent/toxin/berserk
 	required_reagents = list(/decl/reagent/psilocybin = 1, /decl/reagent/alcohol/moonshine = 1)
 	result_amount = 1
+
+/datum/chemical_reaction/joy
+	name = "Joy"
+	id = "joy"
+	result = /decl/reagent/joy
+	required_reagents = list(/decl/reagent/mental/neurapan = 1, /decl/reagent/oxycomorphine = 2)
+	result_amount = 1
+
+/datum/chemical_reaction/xuxigas
+	name = "Xu'Xi Gas"
+	id = "xuxigas"
+	result = /decl/reagent/xuxigas
+	required_reagents = list(/decl/reagent/dexalin = 2, /decl/reagent/space_drugs = 2, /decl/reagent/mental/truthserum = 1)
+	required_temperature_min = T0C + 134
+	result_amount = 5
+
+/datum/chemical_reaction/skrell_nootropic
+	name = "Co'qnixq Wuxi"
+	id = "skrell_nootropic"
+	result = /decl/reagent/skrell_nootropic
+	required_reagents = list(/decl/reagent/wulumunusha = 1, /decl/reagent/synaptizine = 1, /decl/reagent/mental/emoxanyl = 1)
+	result_amount = 3
 
 /* Makeshift Chemicals and Drugs */
 
@@ -1550,6 +1572,20 @@
 	result = /decl/reagent/nutriment/garlicsauce
 	required_reagents = list(/decl/reagent/drink/garlicjuice = 1, /decl/reagent/nutriment/triglyceride/oil/corn = 1)
 	result_amount = 2
+
+/datum/chemical_reaction/peanutbutter // Yes, this doesn't make sense. No, I don't know how to do this better
+	name = "Peanut Butter"
+	id = "peanutbutter"
+	result = /decl/reagent/nutriment/peanutbutter
+	required_reagents = list(/decl/reagent/nutriment/groundpeanuts = 5, /decl/reagent/sugar = 1, /decl/reagent/sodiumchloride = 1)
+	result_amount = 5
+
+/datum/chemical_reaction/mayonnaise
+	name = "Mayonnaise"
+	id = "mayonnaise"
+	result = /decl/reagent/nutriment/mayonnaise
+	required_reagents = list(/decl/reagent/nutriment/protein/egg = 3, /decl/reagent/drink/lemonjuice = 2, /decl/reagent/nutriment/triglyceride/oil/corn = 10)
+	result_amount = 15
 
 /datum/chemical_reaction/cheesewheel
 	name = "Cheesewheel"

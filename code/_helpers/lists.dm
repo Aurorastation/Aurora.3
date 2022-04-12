@@ -547,35 +547,30 @@
 //returns a new list with only atoms that are in typecache L
 /proc/typecache_filter_list(list/atoms, list/typecache)
 	. = list()
-	for(var/thing in atoms)
-		var/atom/A = thing
+	for(var/atom/A as anything in atoms)
 		if (typecache[A.type])
 			. += A
 
 /proc/typecache_filter_list_reverse(list/atoms, list/typecache)
 	. = list()
-	for(var/thing in atoms)
-		var/atom/A = thing
+	for(var/atom/A as anything in atoms)
 		if(!typecache[A.type])
 			. += A
 
 /proc/typecache_filter_multi_list_exclusion(list/atoms, list/typecache_include, list/typecache_exclude)
 	. = list()
-	for(var/thing in atoms)
-		var/atom/A = thing
+	for(var/atom/A as anything in atoms)
 		if(typecache_include[A.type] && !typecache_exclude[A.type])
 			. += A
 
 /proc/range_in_typecache(dist, center, list/typecache)
-	for (var/thing in range(dist, center))
-		var/atom/A = thing
+	for(var/atom/A as anything in range(dist, center))
 		if (typecache[A.type])
 			return TRUE
 
 /proc/typecache_first_match(list/target, list/typecache)
-	for (var/thing in target)
-		var/datum/D = thing
-		if (typecache[D.type])
+	for(var/datum/D as anything in target)
+		if(typecache[D.type])
 			return D
 
 //Like typesof() or subtypesof(), but returns a typecache instead of a list

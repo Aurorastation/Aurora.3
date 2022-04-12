@@ -103,7 +103,7 @@
 
 /obj/item/ammo_magazine/mc10mm
 	name = "magazine (10mm)"
-	icon_state = "5.56"
+	icon_state = "tommy-mag"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/c10mm
 	matter = list(DEFAULT_WALL_MATERIAL = 475) //metal costs are very roughly based around 1 .45 casing = 75 metal

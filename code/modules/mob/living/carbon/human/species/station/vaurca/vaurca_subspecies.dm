@@ -211,7 +211,7 @@
 	eyes_icons = 'icons/mob/human_face/eyes48x48.dmi'
 	eyes = "bulwark_eyes"
 
-	slowdown = 6
+	slowdown = 2
 
 	unarmed_types = list(/datum/unarmed_attack/claws/vaurca_bulwark)
 
@@ -230,8 +230,8 @@
 
 	mob_size = 28
 	taste_sensitivity = TASTE_DULL
-	blurb = {"Type E Vaurca, otherwise known as the Bulwarks, are a new bodyform derived from the worker caste in a collaboration by the C’thur and Jargon scientists. Originally only the C’thur had access to these behemoths, but after a short amount of time, the bodyform started appearing in the ranks of the Zo’ra and K’lax as well, causing an even more strained relationship between the hives.<br>
-Similar to Workers, Bulwarks are generally passive, and prefer to flee a fight rather than resist. Though due to their speed, they may still choose to defend themselves should they be unable to properly escape a battle. The main exception to this is when another Vaurca is in danger. When this occurs, they tend to put themselves in between the attacker and the Vaurca, acting as a shield of sorts. They won’t go out of their way to take down the attacker, but will ensure the others get away safely.<br>
+	blurb = {"Type E Vaurca, otherwise known as the Bulwarks, are a new bodyform derived from the worker caste in a collaboration by the C'thur and Jargon scientists. Originally only the C'thur had access to these behemoths, but after a short amount of time, the bodyform started appearing in the ranks of the Zo'ra and K'lax as well, causing an even more strained relationship between the hives.<br>
+Similar to Workers, Bulwarks are generally passive, and prefer to flee a fight rather than resist. Though due to their speed, they may still choose to defend themselves should they be unable to properly escape a battle. The main exception to this is when another Vaurca is in danger. When this occurs, they tend to put themselves in between the attacker and the Vaurca, acting as a shield of sorts. They won't go out of their way to take down the attacker, but will ensure the others get away safely.<br>
 Bulwarks are much larger and have significantly thicker carapaces than most Vaurca, making them slow but resistant to most hits, including a complete immunity to radiation. Their powerful arms and claws grant them stronger punches, enough to bend metal, and is often used to pry open non-functional doors.<br>
 <b>Type E Vaurca are typically used for heavy lifting, agricultural and industrial work, thus they can typically be found as Engineers, Cargo Technicians, Miners and similar jobs, though they can also be found in positions such as janitor and Assistant should they be needed.</b>"}
 
@@ -240,6 +240,7 @@ Bulwarks are much larger and have significantly thicker carapaces than most Vaur
 	heat_level_3 = 800 //Default 1000
 
 	sprint_speed_factor = 1.4
+	stamina = 50
 
 /datum/species/bug/type_e/New()
 	..()
@@ -255,3 +256,6 @@ Bulwarks are much larger and have significantly thicker carapaces than most Vaur
 		slot_wrists_str  = list("[NORTH]" = list("x" = 15, "y" = 0), "[EAST]" = list("x" = 12, "y" = 0), "[SOUTH]" = list("x" = 4, "y" = 0),  "[WEST]" = list("x" = 9, "y" = 0)),
 		slot_shoes_str   = list("[NORTH]" = list("x" = 9, "y" = 0),  "[EAST]" = list("x" = 8, "y" = 0),  "[SOUTH]" = list("x" = 9, "y" = 0),  "[WEST]" = list("x" = 8, "y" = 0))
 	)
+
+/datum/species/bug/type_e/can_double_fireman_carry()
+	return TRUE

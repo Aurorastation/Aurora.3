@@ -3,6 +3,10 @@
 	desc = "A battery powered cigarette."
 	icon = 'icons/obj/ecig.dmi'
 	contained_sprite = TRUE
+	item_icons = null // Needs to nuke this because Contained Sprites and all
+	sprite_sheets = null // This as well
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("una", "taj")
 	var/active = FALSE
 	var/obj/item/cell/cig_cell
 	var/cell_type = /obj/item/cell/crap/cig

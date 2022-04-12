@@ -1,4 +1,4 @@
-var/const/NUM_JOB_DEPTS     = 3 //ENGSEC, MEDSCI and CIVILIAN
+var/const/NUM_JOB_DEPTS     = 3 //ENGSEC, MEDSCI and SERVICE
 var/const/ENGSEC			=(1<<0)
 
 var/const/CAPTAIN			=(1<<0)
@@ -13,6 +13,8 @@ var/const/AI				=(1<<8)
 var/const/CYBORG			=(1<<9)
 var/const/INTERN_SEC		=(1<<10)
 var/const/INTERN_ENG		=(1<<11)
+var/const/BRIDGE_CREW		=(1<<12)
+var/const/OPERATIONS_MANAGER =(1<<13)
 
 var/const/MEDSCI			=(1<<1)
 
@@ -31,15 +33,15 @@ var/const/INTERN_MED		=(1<<11)
 var/const/INTERN_SCI		=(1<<12)
 
 
-var/const/CIVILIAN			=(1<<2)
+var/const/SERVICE			=(1<<2)
 
-var/const/HOP				=(1<<0)
+var/const/XO				=(1<<0)
 var/const/BARTENDER			=(1<<1)
 var/const/BOTANIST			=(1<<2)
 var/const/CHEF				=(1<<3)
 var/const/JANITOR			=(1<<4)
 var/const/LIBRARIAN			=(1<<5)
-var/const/QUARTERMASTER		=(1<<6)
+var/const/PASSENGER			=(1<<6)
 var/const/CARGOTECH			=(1<<7)
 var/const/MINER				=(1<<8)
 var/const/LAWYER			=(1<<9)
@@ -53,17 +55,18 @@ var/const/ASSISTANT			=(1<<15)
 
 var/list/command_positions = list(
 	"Captain",
-	"Head of Personnel",
+	"Executive Officer",
 	"Head of Security",
 	"Chief Engineer",
 	"Research Director",
-	"Chief Medical Officer"
+	"Chief Medical Officer",
+	"Operations Manager"
 )
 
 
 var/list/engineering_positions = list(
 	"Chief Engineer",
-	"Station Engineer",
+	"Engineer",
 	"Atmospheric Technician",
 	"Engineering Apprentice"
 )
@@ -83,20 +86,19 @@ var/list/medical_positions = list(
 var/list/science_positions = list(
 	"Research Director",
 	"Scientist",
-	"Roboticist",
 	"Xenobiologist",
 	"Lab Assistant"
 )
 
 //BS12 EDIT
 var/list/cargo_positions = list(
-	"Quartermaster",
-	"Cargo Technician",
-	"Shaft Miner"
+	"Operations Manager",
+	"Hangar Technician",
+	"Shaft Miner",
+	"Machinist"
 )
 
-var/list/civilian_positions = list(
-	"Head of Personnel",
+var/list/service_positions = list(
 	"Corporate Liaison",
 	"Consular Officer",
 	"Bartender",
@@ -107,7 +109,9 @@ var/list/civilian_positions = list(
 	"Corporate Reporter",
 	"Chaplain",
 	"Assistant",
-	"Visitor"
+	"Bridge Crew",
+	"Off-Duty Crew Member",
+	"Passenger"
 )
 
 

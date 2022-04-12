@@ -31,22 +31,17 @@
 	</ul></p>"}
 	title_suffix = "Zavod"
 
-	allowed_role_types = list(
-		/datum/job/visitor,
-		/datum/job/officer,
-		/datum/job/warden,
-		/datum/job/scientist,
-		/datum/job/roboticist,
-		/datum/job/surgeon,
-		/datum/job/representative
-	)
+	allowed_role_types = ZAVOD_ROLES
 
 	allowed_species_types = list(
 		/datum/species/human,
 		/datum/species/skrell,
 		/datum/species/unathi,
 		/datum/species/diona,
-		/datum/species/machine
+		/datum/species/machine,
+		/datum/species/bug = TRUE,
+		/datum/species/bug/type_b = TRUE,
+		/datum/species/bug/type_e = TRUE
 	)
 
 	job_species_blacklist = list(
@@ -61,47 +56,106 @@
 			SPECIES_UNATHI,
 			SPECIES_TAJARA,
 			SPECIES_TAJARA_MSAI,
-			SPECIES_TAJARA_ZHAN
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BREEDER,
+			SPECIES_VAURCA_BULWARK
 		)
 	)
 
 	titles_to_loadout = list(
 		"Security Officer" = /datum/outfit/job/officer/zavodskoi,
-		"Surgeon" = /datum/outfit/job/doctor/zavodskoi,
 		"Warden" = /datum/outfit/job/warden/zavodskoi,
+		"Security Cadet" = /datum/outfit/job/intern_sec/zavodskoi,
+		"Investigator" =/datum/outfit/job/forensics/zavodskoi,
 		"Scientist" = /datum/outfit/job/scientist/zavodskoi,
-		"Phoron Researcher" = /datum/outfit/job/scientist/zavodskoi,
-		"Xenoarcheologist" = /datum/outfit/job/scientist/zavodskoi,
-		"Anomalist" = /datum/outfit/job/scientist/zavodskoi,
-		"Roboticist" = /datum/outfit/job/roboticist/zavodskoi,
-		"Biomechanical Engineer" = /datum/outfit/job/roboticist/zavodskoi,
-		"Mechatronic Engineer" = /datum/outfit/job/roboticist/zavodskoi,
+		"Xenobiologist" = /datum/outfit/job/scientist/zavodskoi/xenobio,
+		"Xenobotanist" = /datum/outfit/job/scientist/zavodskoi,
+		"Lab Assistant" = /datum/outfit/job/intern_sci/zavodskoi,
+		"Xenoarcheologist"= /datum/outfit/job/scientist/xenoarcheologist/zavodskoi,
+		"Engineer" = /datum/outfit/job/engineer/zavodskoi,
+		"Atmospheric Technician" = /datum/outfit/job/atmos/zavodskoi,
+		"Engineering Apprentice" = /datum/outfit/job/intern_eng/zavodskoi,
 		"Corporate Liaison" = /datum/outfit/job/representative/zavodskoi
 	)
 
 /datum/outfit/job/officer/zavodskoi
 	name = "Security Officer - Zavodskoi Interstellar"
-	uniform = /obj/item/clothing/under/rank/security/zavodskoi
+
+	uniform = /obj/item/clothing/under/rank/security/zavod
 	id = /obj/item/card/id/zavodskoi/sec
+	head = /obj/item/clothing/head/beret/security/zavodskoi/alt
 
 /datum/outfit/job/warden/zavodskoi
 	name = "Warden - Zavodskoi Interstellar"
-	uniform = /obj/item/clothing/under/rank/security/zavodskoi
+
+	uniform = /obj/item/clothing/under/rank/warden/zavod
 	id = /obj/item/card/id/zavodskoi/sec
+	head = /obj/item/clothing/head/warden/zavod
+
+/datum/outfit/job/intern_sec/zavodskoi
+	name = "Security Cadet - Zavodskoi Interstellar"
+
+	uniform = /obj/item/clothing/under/rank/cadet/zavod
+	id = /obj/item/card/id/zavodskoi/sec
+	suit = null
+	head = /obj/item/clothing/head/beret/security/zavodskoi/alt
+
+/datum/outfit/job/forensics/zavodskoi
+	name = "Investigator - Zavodskoi Interstellar"
+
+	id = /obj/item/card/id/zavodskoi/sec
+	uniform = /obj/item/clothing/under/det/zavod
+	suit = /obj/item/clothing/suit/storage/det_jacket/zavod
+	head = null
 
 /datum/outfit/job/scientist/zavodskoi
 	name = "Scientist - Zavodskoi Interstellar"
-	uniform = /obj/item/clothing/under/rank/zavodskoi/research
+
+	uniform = /obj/item/clothing/under/rank/scientist/zavod
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi
+	id = /obj/item/card/id/zavodskoi
+	suit = null
+
+/datum/outfit/job/scientist/zavodskoi/xenobio
+	name = "Xenobiologist - Zavodskoi Interstellar"
+
+	uniform = /obj/item/clothing/under/rank/scientist/xenobio/zavod
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi
+	id = /obj/item/card/id/zavodskoi
+	suit = null
+
+/datum/outfit/job/scientist/xenoarcheologist/zavodskoi
+	name = "Xenoarcheologist - Zavodskoi Interstellar"
+
+	uniform = /obj/item/clothing/under/rank/xenoarcheologist/zavod
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi
+	id = /obj/item/card/id/zavodskoi
+	suit = null
+
+/datum/outfit/job/intern_sci/zavodskoi
+	name = "Lab Assistant - Zavodskoi Interstellar"
+
+	uniform = /obj/item/clothing/under/rank/scientist/intern/zavod
 	id = /obj/item/card/id/zavodskoi
 
-/datum/outfit/job/roboticist/zavodskoi
-	name = "Roboticist - Zavodskoi Interstellar"
-	uniform = /obj/item/clothing/under/rank/zavodskoi/research
+/datum/outfit/job/engineer/zavodskoi
+	name = "Engineer - Zavodskoi Interstellar"
+
+	uniform = /obj/item/clothing/under/rank/engineer/zavod
 	id = /obj/item/card/id/zavodskoi
 
-/datum/outfit/job/doctor/zavodskoi
-	name = "Physician - Zavodskoi Interstellar"
-	uniform = /obj/item/clothing/under/rank/zavodskoi/research
+/datum/outfit/job/atmos/zavodskoi
+	name = "Atmospheric Technician - Zavodskoi Interstellar"
+
+	uniform = /obj/item/clothing/under/rank/atmospheric_technician/zavod
+	id = /obj/item/card/id/zavodskoi
+
+/datum/outfit/job/intern_eng/zavodskoi
+	name = "Engineering Apprentice - Zavodskoi Interstellar"
+
+	uniform = /obj/item/clothing/under/rank/engineer/apprentice/zavod
 	id = /obj/item/card/id/zavodskoi
 
 /datum/outfit/job/representative/zavodskoi

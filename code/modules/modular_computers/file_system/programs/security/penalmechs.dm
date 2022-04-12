@@ -1,7 +1,7 @@
 /datum/computer_file/program/penal_mechs
 	filename = "penalrobotics"
 	filedesc = "Remote Penal Monitoring"
-	program_icon_state = "security"
+	program_icon_state = "sec"
 	extended_desc = "This program allows monitoring and control of active penal robotics."
 	required_access_run = access_armory
 	required_access_download = access_armory
@@ -35,9 +35,9 @@
 
 	// Gather data for computer header
 	data["_PC"] = get_header_data(data["_PC"])
-	
+
 	var/datum/signal/signal
-	signal = telecomms_process_active()
+	signal = telecomms_process_active(user.loc.z)
 
 	var/list/mechs = list()
 	var/list/robots = list()

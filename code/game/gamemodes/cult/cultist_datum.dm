@@ -106,6 +106,13 @@
 
 	var/obj/effect/rune/R = new(get_turf(scribe), SScult.runes_by_name[chosen_rune])
 	to_chat(scribe, SPAN_CULT("You finish drawing the Geometer's markings."))
+	var/datum/rune/actual_rune = R.rune
+	if(actual_rune.max_number_allowed)
+		var/runes_allowed = SScult.limited_runes[actual_rune.type]
+		if(runes_allowed <= 0)
+			to_chat(scribe, SPAN_CULT("You can't draw any more of this rune!"))
+		else
+			to_chat(scribe, SPAN_CULT("You can only draw [runes_allowed] more of this rune."))
 	R.blood_DNA = list()
 	R.blood_DNA[scribe.dna.unique_enzymes] = scribe.dna.b_type
 	R.color = scribe.species.blood_color

@@ -8,6 +8,7 @@
 	var/amount_per_transfer_from_this = 5
 	var/possible_transfer_amounts = list(5,10,15,25,30)
 	var/volume = 30
+	var/filling_states				// List of percentages full that have icons
 	var/accuracy = 1
 	var/fragile = 0        // If nonzero, above what force do we shatter?
 	var/shatter_sound = /decl/sound_category/glass_break_sound
@@ -57,6 +58,21 @@
 
 /obj/item/reagent_containers/attack_self(mob/user)
 	return
+
+/obj/item/reagent_containers/proc/get_filling_state()
+	var/percent = round((reagents.total_volume / volume) * 100)
+	var/list/increments = cached_number_list_decode(filling_states)
+	if(!length(increments))
+		return
+
+	var/last_increment = increments[1]
+	for(var/increment in increments)
+		if(percent < increment)
+			break
+
+		last_increment = increment
+
+	return last_increment
 
 /obj/item/reagent_containers/throw_impact(atom/hit_atom, var/speed)
 	. = ..()

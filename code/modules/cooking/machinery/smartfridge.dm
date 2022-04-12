@@ -383,12 +383,9 @@
 ********************/
 
 /obj/machinery/smartfridge/ui_interact(mob/user)
-	user.set_machine(src)
-
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
-		ui = new(user, src, "machinery-smartfridge", 400, 500, name, state = interactive_state)
-
+		ui = new(user, src, "machinery-smartfridge", 400, 500, name)
 	ui.open()
 
 /obj/machinery/smartfridge/vueui_data_change(list/data, mob/user, datum/vueui/ui)

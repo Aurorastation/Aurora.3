@@ -323,14 +323,15 @@
 		status_overlays_lighting = new
 		status_overlays_environ = new
 
-		status_overlays_lock.len = 2
+		status_overlays_lock.len = 3
 		status_overlays_charging.len = 3
 		status_overlays_equipment.len = 4
 		status_overlays_lighting.len = 4
 		status_overlays_environ.len = 4
 
-		status_overlays_lock[1] = make_screen_overlay(icon, "apcox-0")    // 0=blue 1=red
-		status_overlays_lock[2] = make_screen_overlay(icon, "apcox-1")
+		status_overlays_lock[1] = make_screen_overlay(icon, "apcox-0") // none
+		status_overlays_lock[2] = make_screen_overlay(icon, "apcox-1") // coverlocked/locked
+		status_overlays_lock[3] = make_screen_overlay(icon, "apcox-2") // coverlocked + locked
 
 		status_overlays_charging[1] = make_screen_overlay(icon, "apco3-0")
 		status_overlays_charging[2] = make_screen_overlay(icon, "apco3-1")
@@ -384,7 +385,7 @@
 	if(update & 2)
 		cut_overlays()
 		if(!(stat & (BROKEN|MAINT)) && update_state & UPDATE_ALLGOOD)
-			add_overlay(status_overlays_lock[locked+1])
+			add_overlay(status_overlays_lock[locked+coverlocked+1])
 			add_overlay(status_overlays_charging[charging+1])
 			if(operating)
 				add_overlay(status_overlays_equipment[equipment+1])
@@ -1048,6 +1049,7 @@
 	if (href_list["lock"])
 		coverlocked = !coverlocked
 		intent_message(BUTTON_FLICK, 5)
+		update_icon()
 
 	else if (href_list["breaker"])
 		toggle_breaker()
@@ -1428,6 +1430,10 @@
 	else
 		charge_mode = CHARGE_MODE_STABLE
 	last_time = world.time
+
+/obj/machinery/power/apc/proc/manage_emergency(var/new_security_level)
+	for(var/obj/machinery/M in area)
+		M.set_emergency_state(new_security_level)
 
 #undef UPDATE_CELL_IN
 #undef UPDATE_OPENED1

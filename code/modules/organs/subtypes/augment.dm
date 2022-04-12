@@ -1,5 +1,6 @@
 /obj/item/organ/internal/augment
 	name = "augment"
+	icon = 'icons/obj/organs/augments.dmi'
 	icon_state = "augment"
 	parent_organ = BP_CHEST
 	organ_tag = "augment"
@@ -11,6 +12,7 @@
 							SPECIES_UNATHI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, SPECIES_IPC_G1,
 							SPECIES_IPC_G2, SPECIES_IPC_XION,
 							SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	robotic_sprite = FALSE
 	var/cooldown = 150
 	var/action_button_icon = "augment"
 	var/activable = FALSE
@@ -567,10 +569,6 @@
 	action_button_icon = "enhanced_vision"
 	cooldown = 30
 	activable = TRUE
-
-/obj/item/organ/internal/augment/enhanced_vision/Initialize()
-	. = ..()
-	set_light(3, 2, LIGHT_COLOR_TUNGSTEN, uv = 0, angle = LIGHT_WIDE)
 
 /obj/item/organ/internal/augment/enhanced_vision/attack_self(var/mob/user)
 	. = ..()

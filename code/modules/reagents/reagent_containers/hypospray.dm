@@ -31,6 +31,9 @@
 	. = ..()
 	update_icon()
 
+/obj/item/reagent_containers/hypospray/AltClick(var/mob/user)
+	set_APTFT()
+
 /obj/item/reagent_containers/hypospray/on_reagent_change()
 	update_icon()
 	return
@@ -113,6 +116,7 @@
 	desc_info = "Autoinjectors are spent after using them. To re-use, use a screwdriver to open the back panel, then simply pour any desired reagent inside. Use in-hand, or click it while it's in your active hand to prepare it for reuse."
 	icon_state = "autoinjector"
 	item_state = "autoinjector"
+	slot_flags = SLOT_EARS
 	var/name_label
 	var/spent = TRUE
 	amount_per_transfer_from_this = 5
@@ -189,6 +193,10 @@
 /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline
 	name_label = "inaprovaline"
 	reagents_to_add = list(/decl/reagent/inaprovaline = 5)
+
+/obj/item/reagent_containers/hypospray/autoinjector/dylovene
+	name_label = "dylovene"
+	reagents_to_add = list(/decl/reagent/dylovene = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/emergency
 	name_label = "emergency"

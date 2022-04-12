@@ -106,7 +106,7 @@ datum/gear/suit/colorvest
 	display_name = "surgical apron"
 	path = /obj/item/clothing/suit/apron/surgery
 	cost = 1
-	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Roboticist", "Research Director", "Investigator")
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Research Director", "Investigator")
 
 /datum/gear/suit/medical_outerwear
 	display_name = "medical outerwear (jackets, vests, rigs)"
@@ -134,7 +134,7 @@ datum/gear/suit/colorvest
 	iac_outerwear["IAC vest"] = /obj/item/clothing/suit/storage/iacvest
 	iac_outerwear["IAC labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/iac
 	gear_tweaks += new /datum/gear_tweak/path(iac_outerwear)
-	
+
 /datum/gear/suit/poncho
 	display_name = "poncho selection"
 	path = /obj/item/clothing/accessory/poncho
@@ -438,6 +438,23 @@ datum/gear/suit/colorvest
 	display_name = "submariner jacket"
 	path = /obj/item/clothing/suit/storage/toggle/overlay/submariner
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/suit/konyang
+	display_name = "konyanger outerwear selection"
+	description = "A selection of jackets and coats from the wind-beaten shores of Konyang."
+	path = /obj/item/clothing/suit/storage/hooded/wintercoat/konyang
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/suit/konyang/New()
+	..()
+	var/list/konyangcoat = list()
+	konyangcoat["konyang village coat"] = /obj/item/clothing/suit/storage/hooded/wintercoat/konyang
+	konyangcoat["red konyanger jacket"] = /obj/item/clothing/suit/storage/toggle/konyang
+	konyangcoat["red short-sleeved konyanger jacket"] = /obj/item/clothing/suit/storage/toggle/konyang/akira
+	konyangcoat["red konyanger jumpjacket"] = /obj/item/clothing/suit/storage/toggle/konyang/pants
+	konyangcoat["orange konyanger jumpjacket"] = /obj/item/clothing/suit/storage/toggle/konyang/orange
+	konyangcoat["blue konyanger jumpjacket"] = /obj/item/clothing/suit/storage/toggle/konyang/blue
+	gear_tweaks += new /datum/gear_tweak/path(konyangcoat)
 
 /datum/gear/suit/gadpathur
 	display_name = "gadpathurian coat selection"

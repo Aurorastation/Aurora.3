@@ -95,7 +95,7 @@ var/const/NO_EMAG_ACT = -50
 
 	var/list/access = list()
 	var/registered_name = "Unknown" // The name registered_name on the card
-	var/mob/living/carbon/human/mob
+	var/datum/weakref/mob_id
 	slot_flags = SLOT_ID
 
 	var/age = "\[UNSET\]"
@@ -118,13 +118,13 @@ var/const/NO_EMAG_ACT = -50
 	//alt titles are handled a bit weirdly in order to unobtrusively integrate into existing ID system
 	var/assignment = null	//can be alt title or the actual job
 	var/rank = null			//actual job
+	var/employer_faction = null
 	var/dorm = 0			// determines if this ID has claimed a dorm already
 	var/datum/ntnet_user/chat_user
 
 	var/iff_faction = IFF_DEFAULT
 
 /obj/item/card/id/Destroy()
-	mob = null
 	return ..()
 
 /obj/item/card/id/examine(mob/user)
@@ -150,9 +150,9 @@ var/const/NO_EMAG_ACT = -50
 		chat_user.username = chat_user.generateUsernameIdCard(src)
 
 /obj/item/card/id/proc/set_id_photo(var/mob/M)
-	front = getFlatIcon(M, SOUTH)
+	front = getFlatIcon(M, SOUTH, ignore_parent_dir = TRUE)
 	front.Scale(128, 128)
-	side = getFlatIcon(M, WEST)
+	side = getFlatIcon(M, WEST, ignore_parent_dir = TRUE)
 	side.Scale(128, 128)
 
 /mob/proc/set_id_info(var/obj/item/card/id/id_card)
@@ -172,7 +172,8 @@ var/const/NO_EMAG_ACT = -50
 	id_card.age 				= age
 	id_card.citizenship			= citizenship
 	id_card.religion 			= SSrecords.get_religion_record_name(religion)
-	id_card.mob					= src
+	id_card.mob_id				= WEAKREF(src)
+	id_card.employer_faction    = employer_faction
 
 /obj/item/card/id/proc/dat()
 	var/dat = ("<table><tr><td>")
@@ -201,7 +202,7 @@ var/const/NO_EMAG_ACT = -50
 				to_chat(user, "<span class='warning'>You cannot imprint [src] while wearing \the [H.gloves].</span>")
 				return
 			else
-				mob = H
+				mob_id = WEAKREF(H)
 				blood_type = H.dna.b_type
 				dna_hash = H.dna.unique_enzymes
 				fingerprint_hash = md5(H.dna.uni_identity)
@@ -264,7 +265,7 @@ var/const/NO_EMAG_ACT = -50
 					to_chat(user, "<span class='warning'>They don't have any hands.</span>")
 					return 1
 				user.visible_message("[user] imprints [src] with \the [H]'s biometrics.")
-				mob = H
+				mob_id = WEAKREF(H)
 				blood_type = H.dna.b_type
 				dna_hash = H.dna.unique_enzymes
 				fingerprint_hash = md5(H.dna.uni_identity)
@@ -529,7 +530,7 @@ var/const/NO_EMAG_ACT = -50
 /obj/item/card/id/distress/ap_eridani/New()
 	access = get_distress_access()
 	..()
- 
+
 /obj/item/card/id/distress/iac
 	name = "\improper Interstellar Aid Corps ID"
 	assignment = "Interstellar Aid Corps Responder"
@@ -570,9 +571,9 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "iru_card"
 	overlay_state = "iru_card"
 
-/obj/item/card/id/eridani
-	name = "\improper Eridani identification card"
-	desc = "A high-tech holobadge, identifying the owner as a contractor from one of the many PMCs from the Eridani Corporate Federation."
+/obj/item/card/id/pmc
+	name = "\improper PMCG identification card"
+	desc = "A high-tech holobadge, identifying the owner as a contractor from one of the many PMCs from the Private Military Contracting Group."
 	icon_state = "erisec_card"
 	overlay_state = "erisec_card"
 
@@ -627,3 +628,6 @@ var/const/NO_EMAG_ACT = -50
 				..()
 	else
 		..()
+
+/obj/item/card/id/away_site
+	access = list(access_generic_away_site, access_external_airlocks)

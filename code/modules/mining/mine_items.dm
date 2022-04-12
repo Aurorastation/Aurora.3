@@ -90,6 +90,11 @@
 
 	action_button_name = "Wield pick/drill"
 
+/obj/item/pickaxe/can_swap_hands(mob/user)
+	if(wielded)
+		return FALSE
+	return ..()
+
 /obj/item/pickaxe/proc/unwield()
 	wielded = FALSE
 	force = force_unwielded
@@ -441,7 +446,7 @@
 	anchored = TRUE
 
 /obj/item/stack/flag/red/planted/Initialize()
-	..()
+	. = ..()
 	base_state = "redflag"
 	set_light(2)
 
@@ -1343,7 +1348,7 @@ var/list/total_extraction_beacons = list()
 
 /obj/structure/punching_bag
 	name = "punching bag"
-	desc = "A punching bag. Better this than the Quartermaster."
+	desc = "A punching bag. Better this than the Operations Manager."
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "punchingbag"
 	anchored = TRUE

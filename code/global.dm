@@ -53,6 +53,7 @@ var/list/latejoin_cryo         = list()
 var/list/latejoin_cryo_command = list()
 var/list/latejoin_cyborg       = list()
 var/list/latejoin_merchant     = list()
+var/list/latejoin_living_quarters_lift     = list()
 var/list/kickoffsloc           = list()
 var/list/virtual_reality_spawn = list()
 
@@ -151,8 +152,8 @@ var/list/department_funds = list(
 	"Engineering" = 10000,
 	"Science" = 10000,
 	"Security" = 10000,
-	"Cargo" = 5000,
-	"Civilian" = 10000,
+	"Operations" = 5000,
+	"Service" = 10000,
 	"Vendor" = 0
 	)
 

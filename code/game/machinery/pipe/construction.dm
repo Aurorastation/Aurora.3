@@ -135,8 +135,10 @@ Buildable meters
 		else if(istype(make_from, /obj/machinery/atmospherics/unary/vent_scrubber))
 			src.pipe_type = PIPE_SCRUBBER
 		else if(istype(make_from, /obj/machinery/atmospherics/binary/passive_gate/scrubbers))
+			connect_types = CONNECT_TYPE_SCRUBBER
 			src.pipe_type = PIPE_PASSIVE_GATE_SCRUBBER
 		else if(istype(make_from, /obj/machinery/atmospherics/binary/passive_gate/supply))
+			connect_types = CONNECT_TYPE_SUPPLY
 			src.pipe_type = PIPE_PASSIVE_GATE_SUPPLY
 		else if(istype(make_from, /obj/machinery/atmospherics/binary/passive_gate))
 			src.pipe_type = PIPE_PASSIVE_GATE

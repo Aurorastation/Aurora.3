@@ -114,7 +114,7 @@
 
 /obj/structure/fuel_port/Initialize()
 	. = ..()
-	new /obj/item/tank/phoron(src)
+	new /obj/item/tank/phoron/shuttle(src) // Enough for four launches (one round trip)
 
 /obj/structure/fuel_port/attack_hand(mob/user)
 	if(!opened)
@@ -135,7 +135,7 @@
 		icon_state = icon_closed
 
 /obj/structure/fuel_port/attackby(obj/item/W, mob/user)
-	if(iscrowbar(W))
+	if(W.iscrowbar())
 		if(opened)
 			to_chat(user, SPAN_NOTICE("You close \the [src]."))
 			playsound(src.loc, 'sound/effects/closet_close.ogg', 25, 0, -3)
@@ -149,7 +149,7 @@
 			to_chat(user, SPAN_NOTICE("\The [src] isn't open!"))
 			return
 		if(contents.len == 0)
-			user.unEquip(W, src)
+			user.unEquip(W, TRUE, src)
 	update_icon()
 
 // Walls hide stuff inside them, but we want to be visible.

@@ -416,6 +416,12 @@
 	..()
 	update_icon()
 
+/obj/item/storage/lockbox/vials/forensic
+	icon_state = "vialbox6"
+	locked = FALSE
+	starts_with = list(/obj/item/reagent_containers/glass/beaker/vial = 6)
+	req_access = list(access_forensics_lockers)
+
 /obj/item/storage/box/fancy/chocolate_box
 	name = "chocolate box"
 	desc = "A lot like life, you never know what you're going to get."

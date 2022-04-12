@@ -5,7 +5,6 @@
 	organ_tag = BP_KIDNEYS
 	parent_organ = BP_GROIN
 	robotic_name = "prosthetic kidneys"
-	robotic_sprite = "kidneys-prosthetic"
 	min_bruised_damage = 25
 	min_broken_damage = 45
 	max_damage = 70

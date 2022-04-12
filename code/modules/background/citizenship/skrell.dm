@@ -55,3 +55,15 @@
 	name = "Jargon Consular Officer"
 
 	uniform = /obj/item/clothing/under/skrell
+
+/datum/citizenship/epsilon
+	name = CITIZENSHIP_EUM
+	description =  "An independent nation on the edge of Skrell space, the Co-Operative Territories of Epsilon Ursae Minoris, \
+	also known as the CT-EUM, is a nation primarily comprised of Dionae with a minority of skrell mostly situated \
+	in the city of Nral'Daaq. The CT-EUM is compromised of a myriad of smaller nations and city-states that make up \
+	the whole of the nation. While the nation is independent it does have heavy ties to the Jargon Federation, \
+	being instrumental in the nations' founding and contact with the rest of the galaxy. "
+
+	job_species_blacklist = list(
+		"Consular Officer" = ALL_SPECIES
+	)

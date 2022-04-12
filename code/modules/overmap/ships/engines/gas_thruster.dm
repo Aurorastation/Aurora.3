@@ -72,6 +72,19 @@
 	var/boot_time = 35
 	var/next_on
 	var/blockage
+	var/exhaust_offset = 1 // for engines that are longer
+	var/exhaust_width = 1 //for engines that are wider
+
+/obj/machinery/atmospherics/unary/engine/scc_ship_engine
+	name = "ship thruster"
+	icon = 'icons/atmos/scc_ship_engine.dmi'
+	icon_state = "engine_0"
+	opacity = FALSE
+	pixel_x = -64
+	exhaust_offset = 3
+
+/obj/machinery/atmospherics/unary/engine/scc_ship_engine/check_blockage()
+	return 0
 
 /obj/machinery/atmospherics/unary/engine/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	return 0
@@ -97,13 +110,13 @@
 	controller = new(src)
 	update_nearby_tiles(need_rebuild=1)
 
-	for(var/ship in SSshuttle.ships)
-		var/obj/effect/overmap/visitable/ship/S = ship
-		if(S.check_ownership(src))
-			S.engines |= controller
-			if(dir != S.fore_dir)
-				stat |= BROKEN
-			break
+	if(length(SSshuttle.shuttle_areas) && !length(SSshuttle.shuttles_to_initialize) && SSshuttle.init_state == SS_INITSTATE_DONE)
+		for(var/obj/effect/overmap/visitable/ship/S as anything in SSshuttle.ships)
+			if(S.check_ownership(src))
+				S.engines |= controller
+				if(dir != S.fore_dir)
+					stat |= BROKEN
+				break
 
 /obj/machinery/atmospherics/unary/engine/Destroy()
 	QDEL_NULL(controller)
@@ -148,7 +161,9 @@
 /obj/machinery/atmospherics/unary/engine/proc/check_blockage()
 	blockage = FALSE
 	var/exhaust_dir = reverse_direction(dir)
-	var/turf/A = get_step(src, exhaust_dir)
+	var/turf/A = get_turf(src)
+	for(var/i in 1 to exhaust_offset)
+		A = get_step(A, exhaust_dir)
 	var/turf/B = A
 	while(isturf(A) && !(isspace(A) || isopenspace(A)))
 		if((B.c_airblock(A)) & AIR_BLOCKED)
@@ -175,7 +190,9 @@
 		network.update = 1
 
 	var/exhaust_dir = reverse_direction(dir)
-	var/turf/T = get_step(src,exhaust_dir)
+	var/turf/T = get_turf(src)
+	for(var/i in 1 to exhaust_offset)
+		T = get_step(T, exhaust_dir)
 	if(T)
 		T.assume_air(removed)
 		new/obj/effect/engine_exhaust(T, exhaust_dir, air_contents.check_combustability() && air_contents.temperature >= PHORON_MINIMUM_BURN_TEMPERATURE)

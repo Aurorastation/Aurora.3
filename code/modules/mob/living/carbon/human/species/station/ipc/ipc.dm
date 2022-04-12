@@ -31,7 +31,7 @@
 
 	name_language = "Encoded Audio Language"
 	num_alternate_languages = 2
-	secondary_langs = list("Encoded Audio Language", "Sol Common")
+	secondary_langs = list("Encoded Audio Language", "Sol Common", "Elyran Standard")
 	ethanol_resistance = -1//Can't get drunk
 	radiation_mod = 0	// not affected by radiation
 	remains_type = /obj/effect/decal/remains/robot
@@ -120,7 +120,7 @@
 	default_citizenship = CITIZENSHIP_NONE
 	bodyfall_sound = /decl/sound_category/bodyfall_machine_sound
 
-	allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_ELYRA, ACCENT_KONYAN, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_LUNA,
+	allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_ELYRA, ACCENT_PERSEPOLIS, ACCENT_MEDINA, ACCENT_AEMAQ, ACCENT_NEWSUEZ, ACCENT_DAMASCUS, ACCENT_KONYAN, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_LUNA,
 							ACCENT_HIMEO, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_PHONG, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_TTS, ACCENT_EUROPA, ACCENT_EARTH, ACCENT_PLUTO, ACCENT_ASSUNZIONE, ACCENT_VALKYRIE)
 	allowed_religions = list(RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_JUDAISM, RELIGION_HINDU, RELIGION_BUDDHISM, RELIGION_TRINARY, RELIGION_SCARAB, RELIGION_TAOISM, RELIGION_LUCEISM)
 

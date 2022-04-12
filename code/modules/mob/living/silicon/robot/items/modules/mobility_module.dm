@@ -11,8 +11,9 @@
 	icon_state = "shock"
 
 /obj/item/borg/combat/mobility/on_module_activate(mob/living/silicon/robot/R)
-	R.icon_state = "[R.module_sprites[R.icontype]]-roll"
+	R.icon_state = "[R.module_sprites[R.icontype][ROBOT_CHASSIS]]-roll"
 	R.speed = -2
+	R.setup_eye_cache()
 
 /obj/item/borg/rescue/mobility/on_module_activate(mob/living/silicon/robot/R)
 	R.speed = -1
@@ -21,5 +22,6 @@
 	R.speed = initial(R.speed)
 
 /obj/item/borg/combat/mobility/on_module_deactivate(mob/living/silicon/robot/R)
-	R.icon_state = R.module_sprites[R.icontype]
+	R.icon_state = "[R.module_sprites[R.icontype][ROBOT_CHASSIS]]"
 	R.speed = initial(R.speed)
+	R.setup_eye_cache()

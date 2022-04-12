@@ -34,7 +34,7 @@ NTSL2 deamon management subsystem, responsible for handling events from deamon a
 			if(RUSTG_HTTP_METHOD_POST)
 				if(arguments)
 					body = json_encode(arguments)
-			
+
 		return http_create_request(method, url, body)
 	return FALSE
 
@@ -107,7 +107,7 @@ NTSL2 deamon management subsystem, responsible for handling events from deamon a
 	if(istype(cb))
 		cb.InvokeAsync(response)
 
-		
+
 
 /datum/controller/subsystem/processing/ntsl2/proc/is_complete(var/task_id)
 	if(!task_id)
@@ -115,9 +115,12 @@ NTSL2 deamon management subsystem, responsible for handling events from deamon a
 	if(tasks[task_id])
 		return FALSE
 	return TRUE
-	
+
 
 /datum/controller/subsystem/processing/ntsl2/proc/attempt_connect()
+	if(config.ntsl_disabled)
+		log_debug("NTSL2++ Daemon disabled via config")
+		return FALSE
 	var/res = sync_send("clear")
 	if(!res)
 		log_debug("NTSL2++ Daemon could not be connected to. Functionality will not be enabled.")

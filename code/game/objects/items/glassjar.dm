@@ -137,6 +137,7 @@
 		var/obj/item/holder/H = A
 		if(H.w_class <= ITEMSIZE_SMALL)
 			contains = JAR_HOLDER
+			user.drop_from_inventory(H)
 			scoop(H, user)
 		else
 			scoop_fail(H, user)
@@ -213,24 +214,21 @@
 
 /obj/item/glass_jar/gumball
 	contains = JAR_GUMBALL
+	var/gumball_path = /obj/item/clothing/mask/chewable/candy/gum/gumball
+
+/obj/item/glass_jar/gumball/medical
+	gumball_path = /obj/item/clothing/mask/chewable/candy/gum/gumball/medical
 
 /obj/item/glass_jar/gumball/Initialize()
 	..()
 	for(var/i = 1 to GUMBALL_MAX)
-		var/obj/item/clothing/mask/chewable/candy/gum/gumball/G = new(src)
+		var/obj/item/clothing/mask/chewable/candy/gum/gumball/G = new gumball_path(src)
 		contained += G
 
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/item/glass_jar/gumball/LateInitialize()
 	update_icon()
-
-/obj/item/glass_jar/gumball/medical/Initialize()
-	for(var/i = 1 to GUMBALL_MAX)
-		var/obj/item/clothing/mask/chewable/candy/gum/gumball/medical/G = new(src)
-		contained += G
-
-	return INITIALIZE_HINT_LATELOAD
 
 #undef JAR_NOTHING
 #undef JAR_MONEY

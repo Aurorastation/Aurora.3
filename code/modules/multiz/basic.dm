@@ -37,9 +37,9 @@
 /proc/GetConnectedZlevels(z)
 	. = list(z)
 	for(var/level = z, HAS_BELOW(level), level--)
-		. += level-1
+		. |= level-1
 	for(var/level = z, HAS_ABOVE(level), level++)
-		. += level+1
+		. |= level+1
 
 /proc/AreConnectedZLevels(var/zA, var/zB)
 	if (zA == zB)

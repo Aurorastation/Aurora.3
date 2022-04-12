@@ -214,7 +214,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_NOTICE("[user] has reattached the [affected.tendon_name] in [target]'s [affected.name] with \the [tool]."), \
 		SPAN_NOTICE("You have reattached the [affected.tendon_name] in [target]'s [affected.name] with \the [tool]."))
-	affected.tendon.heal()
+	affected.tendon.rejuvenate()
 	affected.update_damages()
 
 /decl/surgery_step/fix_tendon/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

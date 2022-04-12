@@ -4,33 +4,14 @@
 /obj/item/clothing/under/rank/research_director
 	desc = "It's a jumpsuit worn by those with the know-how to achieve the position of \"Research Director\". Its fabric provides minor protection from biological contaminants."
 	name = "research director's jumpsuit"
-	icon_state = "rd"
-	item_state = "lb_suit"
-	worn_state = "rd"
+	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
+	icon_state = "research_director"
+	item_state = "research_director"
+	contained_sprite = TRUE
 	armor = list(
 		bio = ARMOR_BIO_MINOR
 	)
 
-/obj/item/clothing/under/rank/research_director/rdalt
-	desc = "A dress suit and slacks stained with hard work and dedication to science. Perhaps other things as well, but mostly hard work and dedication."
-	name = "head researcher uniform"
-	icon_state = "rdalt"
-	item_state = "lb_suit"
-	worn_state = "rdalt"
-	armor = list(
-		bio = ARMOR_BIO_MINOR
-	)
-
-/obj/item/clothing/under/rank/research_director/dress_rd
-	name = "research director dress uniform"
-	desc = "Feminine fashion for the style concious RD. Its fabric provides minor protection from biological contaminants."
-	icon_state = "dress_rd"
-	item_state = "lb_suit"
-	worn_state = "dress_rd"
-	armor = list(
-		bio = ARMOR_BIO_MINOR
-	)
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
 /obj/item/clothing/under/rank/scientist
 	desc = "It's made of a special fiber that provides minor protection against biohazards. It has markings that denote the wearer as a scientist."
@@ -42,35 +23,65 @@
 	armor = list(
 		bio = ARMOR_BIO_MINOR
 	)
-/obj/item/clothing/under/rank/scientist/xenoarcheologist
-	desc = "It's made of a special fiber that provides minor protection against biohazards. It has markings that denote the wearer as a scientist."
-	name = "xenoarcheologist's jumpsuit"
-	icon_state = "xenoarcheology"
-	item_state = "w_suit"
-	worn_state = "xenoarcheology"
-	permeability_coefficient = 0.50
-	armor = list(
-		bio = ARMOR_BIO_MINOR
-	)
 
-/obj/item/clothing/under/rank/scientist/science_alt
-	desc = "It's made of a special fiber that provides minor protection against biohazards. It has markings that denote the wearer as a scientist."
-	name = "scientist's uniform"
-	icon_state = "science_alt"
-	item_state = "w_suit"
-	worn_state = "science_alt"
-	permeability_coefficient = 0.50
-	armor = list(
-		bio = ARMOR_BIO_MINOR
-	)
+/obj/item/clothing/under/rank/scientist/nt
+	icon = 'icons/obj/contained_items/department_uniforms/science.dmi'
+	icon_state = "nt_scientist"
+	item_state = "nt_scientist"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/scientist/zeng
+	icon = 'icons/obj/contained_items/department_uniforms/science.dmi'
+	icon_state = "zeng_scientist"
+	item_state = "zeng_scientist"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/scientist/zavod
+	icon = 'icons/obj/contained_items/department_uniforms/science.dmi'
+	icon_state = "zav_scientist"
+	item_state = "zav_scientist"
+	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/scientist/botany
 	desc = "It's made of a special fiber that provides minor protection against biohazards. Its colour denotes the wearer as a xenobotanist."
-	icon_state = "botany"
-	worn_state = "botany"
+	icon = 'icons/obj/contained_items/department_uniforms/science.dmi'
+	icon_state = "nt_xenob"
+	item_state = "nt_xenob"
+	contained_sprite = TRUE
 	armor = list(
 		bio = ARMOR_BIO_MINOR
 	)
+
+/obj/item/clothing/under/rank/scientist/botany/zeng
+	icon = 'icons/obj/contained_items/department_uniforms/science.dmi'
+	icon_state = "zeng_xenob"
+	item_state = "zeng_xenob"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/scientist/botany/zavod
+	icon = 'icons/obj/contained_items/department_uniforms/science.dmi'
+	icon_state = "zav_xenob"
+	item_state = "zav_xenob"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/scientist/xenobio
+	desc = "It's made of a special fiber that provides minor protection against biohazards. Its colour denotes the wearer as a xenobiologist."
+	icon = 'icons/obj/contained_items/department_uniforms/science.dmi'
+	icon_state = "nt_xenob"
+	item_state = "nt_xenob"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/scientist/xenobio/zeng
+	icon = 'icons/obj/contained_items/department_uniforms/science.dmi'
+	icon_state = "zeng_xenob"
+	item_state = "zeng_xenob"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/scientist/xenobio/zavod
+	icon = 'icons/obj/contained_items/department_uniforms/science.dmi'
+	icon_state = "zav_xenob"
+	item_state = "zav_xenob"
+	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/scientist/intern
 	desc = "It's made of a special fiber that provides minor protection against biohazards. It has markings that denote the wearer as a laboratory assistant."
@@ -78,16 +89,24 @@
 	icon_state = "intern_science"
 	worn_state = "intern_science"
 
-/obj/item/clothing/under/rank/pharmacist
-	desc = "It's made of a special fiber that gives special protection against biohazards. It has a pharmacist rank stripe on it."
-	name = "pharmacist's jumpsuit"
-	icon_state = "chemistry"
-	item_state = "w_suit"
-	worn_state = "chemistry"
-	permeability_coefficient = 0.50
-	armor = list(
-		bio = ARMOR_BIO_MINOR
-	)
+/obj/item/clothing/under/rank/scientist/intern/nt
+	icon = 'icons/obj/contained_items/department_uniforms/science.dmi'
+	icon_state = "nt_assistant"
+	item_state = "nt_assistant"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/scientist/intern/zeng
+	icon = 'icons/obj/contained_items/department_uniforms/science.dmi'
+	icon_state = "zeng_assistant"
+	item_state = "zeng_assistant"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/scientist/intern/zavod
+	icon = 'icons/obj/contained_items/department_uniforms/science.dmi'
+	icon_state = "zav_assistant"
+	item_state = "zav_assistant"
+	contained_sprite = TRUE
+
 
 /obj/item/clothing/under/rank/xenoarcheologist
 	desc = "It's made of a special fiber that provides minor protection against biohazards. It has markings that denote the wearer as a xenoarcheologist."
@@ -100,37 +119,34 @@
 		bomb = ARMOR_BOMB_MINOR
 	)
 
+/obj/item/clothing/under/rank/xenoarcheologist/nt
+	icon = 'icons/obj/contained_items/department_uniforms/science.dmi'
+	icon_state = "nt_xenoarch"
+	item_state = "nt_xenoarch"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/xenoarcheologist/zeng
+	icon = 'icons/obj/contained_items/department_uniforms/science.dmi'
+	icon_state = "zeng_xenoarch"
+	item_state = "zeng_xenoarch"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/xenoarcheologist/zavod
+	icon = 'icons/obj/contained_items/department_uniforms/science.dmi'
+	icon_state = "zav_xenoarch"
+	item_state = "zav_xenoarch"
+	contained_sprite = TRUE
+
 /*
  * Medical
  */
 /obj/item/clothing/under/rank/chief_medical_officer
 	desc = "It's a jumpsuit worn by those with the experience to be \"Chief Medical Officer\". It provides minor biological protection."
 	name = "chief medical officer's jumpsuit"
-	icon_state = "cmo"
-	item_state = "w_suit"
-	worn_state = "cmo"
-	permeability_coefficient = 0.50
-	armor = list(
-		bio = ARMOR_BIO_MINOR
-	)
-
-/obj/item/clothing/under/rank/geneticist
-	desc = "It's made of a special fiber that gives special protection against biohazards. It has a genetics rank stripe on it."
-	name = "geneticist's jumpsuit"
-	icon_state = "genetics"
-	item_state = "w_suit"
-	worn_state = "geneticswhite"
-	permeability_coefficient = 0.50
-	armor = list(
-		bio = ARMOR_BIO_MINOR
-	)
-
-/obj/item/clothing/under/rank/virologist
-	desc = "It's made of a special fiber that gives special protection against biohazards. It has a virologist rank stripe on it."
-	name = "virologist's jumpsuit"
-	icon_state = "virology"
-	item_state = "w_suit"
-	worn_state = "virology"
+	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
+	icon_state = "chief_medical_officer"
+	item_state = "chief_medical_officer"
+	contained_sprite = TRUE
 	permeability_coefficient = 0.50
 	armor = list(
 		bio = ARMOR_BIO_MINOR
@@ -163,6 +179,24 @@
 	icon_state = "intern_medical"
 	worn_state = "intern_medical"
 
+/obj/item/clothing/under/rank/medical/intern/zeng
+	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
+	icon_state = "zeng_intern"
+	item_state = "zeng_intern"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/medical/intern/nt
+	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
+	icon_state = "nt_intern"
+	item_state = "nt_intern"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/medical/intern/pmc
+	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
+	icon_state = "epmc_intern"
+	item_state = "epmc_intern"
+	contained_sprite = TRUE
+
 /obj/item/clothing/under/rank/medical/blue
 	name = "medical scrubs"
 	desc = "It's made of a special fiber that provides minor protection against biohazards. This one is in baby blue."
@@ -191,6 +225,24 @@
 	item_state = "bl_suit"
 	worn_state = "scrubsblack"
 
+/obj/item/clothing/under/rank/medical/zeng
+	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
+	icon_state = "zeng_phys"
+	item_state = "zeng_phys"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/medical/nt
+	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
+	icon_state = "nt_phys"
+	item_state = "nt_phys"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/medical/pmc
+	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
+	icon_state = "epmc_phys"
+	item_state = "epmc_phys"
+	contained_sprite = TRUE
+
 /obj/item/clothing/under/rank/medical/first_responder
 	name = "first responder jumpsuit"
 	desc = "A jumpsuit that denotes the wearer as a Nanotrasen First Responder."
@@ -200,6 +252,42 @@
 	item_state = "firstresponderjumpsuit"
 	worn_state = "firstresponderjumpsuit"
 
+/obj/item/clothing/under/rank/medical/first_responder/zeng
+	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
+	icon_state = "zeng_emt"
+	item_state = "zeng_emt"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/medical/first_responder/nt
+	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
+	icon_state = "nt_emt"
+	item_state = "nt_emt"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/medical/first_responder/pmc
+	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
+	icon_state = "epmc_emt"
+	item_state = "epmc_emt"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/medical/surgeon/zeng
+	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
+	icon_state = "zeng_surgeon"
+	item_state = "zeng_surgeon"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/medical/surgeon/nt
+	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
+	icon_state = "nt_surgeon"
+	item_state = "nt_surgeon"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/medical/surgeon/pmc
+	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
+	icon_state = "epmc_surgeon"
+	item_state = "epmc_surgeon"
+	contained_sprite = TRUE
+
 /obj/item/clothing/under/rank/psych
 	desc = "A basic white jumpsuit. It has turqouise markings that denote the wearer as a psychiatrist."
 	name = "psychiatrist's jumpsuit"
@@ -207,13 +295,49 @@
 	item_state = "w_suit"
 	worn_state = "psych"
 
-/obj/item/clothing/under/rank/biochemist
-	desc = "Made of a special fiber that gives increased protection against hazards."
-	name = "chemist's jumpsuit"
-	icon_state = "virology"
+/obj/item/clothing/under/rank/psych/zeng
+	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
+	icon_state = "zeng_psych"
+	item_state = "zeng_psych"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/psych/nt
+	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
+	icon_state = "nt_psych"
+	item_state = "nt_psych"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/psych/pmc
+	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
+	icon_state = "epmc_psych"
+	item_state = "epmc_psych"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/pharmacist
+	desc = "It's made of a special fiber that gives special protection against biohazards. It has a pharmacist rank stripe on it."
+	name = "pharmacist's jumpsuit"
+	icon_state = "chemistry"
 	item_state = "w_suit"
-	worn_state = "virology"
+	worn_state = "chemistry"
 	permeability_coefficient = 0.50
 	armor = list(
 		bio = ARMOR_BIO_MINOR
 	)
+
+/obj/item/clothing/under/rank/pharmacist/zeng
+	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
+	icon_state = "zeng_chemist"
+	item_state = "zeng_chemist"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/pharmacist/nt
+	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
+	icon_state = "nt_chemist"
+	item_state = "nt_chemist"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/pharmacist/pmc
+	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
+	icon_state = "epmc_chemist"
+	item_state = "epmc_chemist"
+	contained_sprite = TRUE

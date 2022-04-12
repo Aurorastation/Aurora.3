@@ -30,7 +30,7 @@
 	desc = "A computer to remotely control a gas turbine"
 	icon = 'icons/obj/computer.dmi'
 
-	icon_screen = "turbinecomp"
+	icon_screen = "command"
 	circuit = /obj/item/circuitboard/turbine_control
 	anchored = 1
 	density = 1

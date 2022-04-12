@@ -330,7 +330,7 @@
 
 	// shouldn't be reachable if occupant is invalid
 	if(href_list["print"])
-		var/obj/item/paper/R = new(loc)
+		var/obj/item/paper/medscan/R = new(loc)
 		R.color = "#eeffe8"
 		R.set_content_unsafe("Scan ([connected.occupant])", format_occupant_data(connected.get_occupant_data()))
 
@@ -660,6 +660,7 @@
 		"blood_amount" = REAGENT_VOLUME(H.vessel, /decl/reagent/blood),
 		"disabilities" = H.sdisabilities,
 		"lung_ruptured" = H.is_lung_ruptured(),
+		"lung_rescued" = H.is_lung_rescued(),
 		"external_organs" = H.organs.Copy(),
 		"internal_organs" = H.internal_organs.Copy(),
 		"species_organs" = H.species.has_organ //Just pass a reference for this, it shouldn't ever be modified outside of the datum.
@@ -673,6 +674,7 @@
 	dat += text("Brain Activity: []<br>", occ["brain_activity"])
 	dat += text("Blood Pressure: []<br>", occ["blood_pressure"])
 	dat += text("Blood Oxygenation: []%<br>", occ["blood_oxygenation"])
+	dat += text("Blood Volume: []%<br>", occ["blood_volume"])
 	dat += text("Physical Trauma: []<br>", occ["bruteloss"])
 	dat += text("Oxygen Deprivation: []<br>", occ["oxyloss"])
 	dat += text("Systemic Organ Failure: []<br>", occ["toxloss"])
@@ -769,20 +771,24 @@
 
 		var/infection = get_infection_level(i.germ_level)
 		if(infection == "")
-			infection = "No Infection"
+			infection = "No Infection."
 		else
-			infection = "[infection] infection"
+			infection = "[infection] infection."
 		if(i.rejecting)
-			infection += "(being rejected)"
+			infection += "(being rejected)."
 
 		var/necrotic = ""
 		if(i.get_scarring_level() > 0.01)
-			necrotic += ", [i.get_scarring_results()]"
+			necrotic += " [i.get_scarring_results()]."
 		if(i.status & ORGAN_DEAD)
-			necrotic = ", <span class='warning'>necrotic and decaying</span>"
+			necrotic = " <span class='warning'>Necrotic and decaying</span>."
+
+		var/rescued = ""
+		if(istype(i, /obj/item/organ/internal/lungs) && occ["lung_rescued"])
+			rescued = " Has a small puncture wound."
 
 		dat += "<tr>"
-		dat += "<td>[i.name]</td><td>N/A</td><td>[get_internal_damage(i)]</td><td>[infection], [mech][necrotic]</td><td></td>"
+		dat += "<td>[i.name]</td><td>N/A</td><td>[get_internal_damage(i)]</td><td>[infection][mech][necrotic][rescued]</td><td></td>"
 		dat += "</tr>"
 	dat += "</table>"
 

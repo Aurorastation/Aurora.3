@@ -39,6 +39,8 @@
 
 	faction = "carp"
 
+	psi_pingable = FALSE
+
 /mob/living/simple_animal/hostile/tree/FindTarget()
 	. = ..()
 	if(.)

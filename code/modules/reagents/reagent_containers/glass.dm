@@ -28,16 +28,22 @@
 	if(!..(user, 2))
 		return
 	if(LAZYLEN(reagents.reagent_volumes))
-		to_chat(user, "<span class='notice'>It contains [round(reagents.total_volume, accuracy)] units of liquid.</span>")
+		to_chat(user, SPAN_NOTICE("It contains [round(reagents.total_volume, accuracy)] units of a reagent."))
 		for(var/_T in reagents.reagent_volumes)
 			var/decl/reagent/T = decls_repository.get_decl(_T)
-			if(T.reagent_state == SOLID)
-				to_chat(user, "<span class='notice'>You see something solid in the beaker.</span>")
+			if(T.reagent_state == LIQUID)
+				to_chat(user, SPAN_NOTICE("You see something liquid in the beaker."))
 				break // to stop multiple messages of this
+			if(T.reagent_state == GAS)
+				to_chat(user, SPAN_NOTICE("You see something gaseous in the beaker."))
+				break
+			if(T.reagent_state == SOLID)
+				to_chat(user, SPAN_NOTICE("You see something solid in the beaker."))
+				break 
 	else
-		to_chat(user, "<span class='notice'>It is empty.</span>")
+		to_chat(user, SPAN_NOTICE("It is empty."))
 	if(!is_open_container())
-		to_chat(user, "<span class='notice'>Airtight lid seals it completely.</span>")
+		to_chat(user, SPAN_NOTICE("An airtight lid seals it completely."))
 
 /obj/item/reagent_containers/glass/get_additional_forensics_swab_info()
 	var/list/additional_evidence = ..()
@@ -78,6 +84,7 @@
 			to_chat(user, "<span class='notice'>You set the label to \"[tmp_label]\".</span>")
 			label_text = tmp_label
 			update_name_label()
+			update_icon()
 		return
 	. = ..() // in the case of nitroglycerin, explode BEFORE it shatters
 
@@ -98,6 +105,7 @@
 		)
 	icon_state = "beaker"
 	item_state = "beaker"
+	filling_states = "20;40;60;80;100"
 	center_of_mass = list("x" = 15,"y" = 11)
 	matter = list(MATERIAL_GLASS = 500)
 	drop_sound = 'sound/items/drop/drinkglass.ogg'
@@ -129,24 +137,20 @@
 /obj/item/reagent_containers/glass/beaker/update_icon()
 	cut_overlays()
 
-	if(reagents.total_volume)
-		var/image/filling = image('icons/obj/reagentfillings.dmi', src, "[icon_state]10")
-
-		var/percent = round((reagents.total_volume / volume) * 100)
-		switch(percent)
-			if(0 to 9)		filling.icon_state = "[icon_state]-10"
-			if(10 to 24) 	filling.icon_state = "[icon_state]10"
-			if(25 to 49)	filling.icon_state = "[icon_state]25"
-			if(50 to 74)	filling.icon_state = "[icon_state]50"
-			if(75 to 79)	filling.icon_state = "[icon_state]75"
-			if(80 to 90)	filling.icon_state = "[icon_state]80"
-			if(91 to INFINITY)	filling.icon_state = "[icon_state]100"
-
+	if(reagents?.total_volume)
+		var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state]-[get_filling_state()]")
 		filling.color = reagents.get_color()
 		add_overlay(filling)
 
-	if (!is_open_container())
-		add_overlay("lid_[initial(icon_state)]")
+	if(!is_open_container())
+		var/lid_icon = "lid_[icon_state]"
+		var/mutable_appearance/lid = mutable_appearance(icon, lid_icon)
+		add_overlay(lid)
+
+	if(label_text)
+		var/label_icon = "label_[icon_state]"
+		var/mutable_appearance/label = mutable_appearance(icon, label_icon)
+		add_overlay(label)
 
 /obj/item/reagent_containers/glass/beaker/large
 	name = "large beaker"

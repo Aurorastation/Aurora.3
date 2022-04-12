@@ -141,7 +141,7 @@ Frequency:
 /obj/item/hand_tele
 	name = "hand tele"
 	desc = "A hand-held bluespace teleporter that can rip open portals to a random nearby location, or lock onto a teleporter with a selected teleportation beacon."
-	desc_info = "Ctrl-click to choose which teleportation station to link to. Use in-hand or alt-click to deploy a portal. When not linked to a station, or the station isn't pointing at a beacon, it will choose a completely random teleportation destination."
+	desc_info = "Ctrl-click to choose which teleportation pad to link to. Use in-hand or alt-click to deploy a portal. When not linked to a pad, or the pad isn't pointing at a beacon, it will choose a completely random teleportation destination."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "hand_tele"
 	item_state = "electronic"
@@ -153,17 +153,18 @@ Frequency:
 	origin_tech = list(TECH_MAGNET = 1, TECH_BLUESPACE = 3)
 	matter = list(DEFAULT_WALL_MATERIAL = 10000)
 
-	var/obj/machinery/teleport/station/linked_station
+	var/obj/machinery/teleport/pad/linked_pad
 	var/list/active_teleporters
 
 	var/max_portals = 2
 
 /obj/item/hand_tele/examine(mob/user, distance)
 	. = ..()
-	if(linked_station)
-		to_chat(user, SPAN_NOTICE("\The [src] is linked to teleportation station [linked_station.id]."))
+	if(linked_pad)
+		var/area/A = get_area(linked_pad)
+		to_chat(user, SPAN_NOTICE("\The [src] is linked to a teleportation pad in [A.name]"))
 	else
-		to_chat(user, SPAN_WARNING("\The [src] isn't linked to any teleportation stations!"))
+		to_chat(user, SPAN_WARNING("\The [src] isn't linked to any teleportation pads!"))
 
 /obj/item/hand_tele/set_initial_maptext()
 	held_maptext = SMALL_FONTS(7, "Ready")
@@ -184,15 +185,15 @@ Frequency:
 		return
 
 	var/turf/teleport_turf
-	if(linked_station)
-		if(linked_station.stat & (NOPOWER|BROKEN))
-			to_chat(user, SPAN_WARNING("The station \the [src] is connected doesn't seem to be responding!"))
+	if(linked_pad)
+		if(linked_pad.stat & (NOPOWER|BROKEN))
+			to_chat(user, SPAN_WARNING("The pad \the [src] is connected doesn't seem to be responding!"))
 			return
-		if(!AreConnectedZLevels(current_location.z, linked_station.z))
-			to_chat(user, SPAN_WARNING("The station \the [src] is connected to isn't close enough to lock onto now!"))
+		if(!AreConnectedZLevels(current_location.z, linked_pad.z))
+			to_chat(user, SPAN_WARNING("The pad \the [src] is connected to isn't close enough to lock onto now!"))
 			return
-		if(linked_station.locked_obj)
-			teleport_turf = get_turf(linked_station.locked_obj.resolve())
+		if(linked_pad.locked_obj)
+			teleport_turf = get_turf(linked_pad.locked_obj.resolve())
 	else
 		var/list/potential_turfs = list()
 		for(var/turf/T in orange(10))
@@ -230,28 +231,29 @@ Frequency:
 	if(user == loc)
 		var/turf/current_location = get_turf(src)
 		var/list/teleport_options = list()
-		for(var/obj/machinery/teleport/station/S in SSmachinery.all_machines)
-			if(AreConnectedZLevels(current_location.z, S.z))
-				if(S.engaged)
-					teleport_options["[S.id] (Active)"] = S
+		for(var/obj/machinery/teleport/pad/P in SSmachinery.all_machines)
+			if(AreConnectedZLevels(current_location.z, P.z))
+				var/area/A = get_area(P)
+				if(P.engaged)
+					teleport_options["[A.name] (Active)"] = P
 				else
-					teleport_options["[S.id] (Inactive)"] = S
+					teleport_options["[A.name] (Inactive)"] = P
 		teleport_options["None (Dangerous)"] = null
 		var/teleport_choice = input(user, "Please select a teleporter to lock in on.", "Hand Teleporter") as null|anything in teleport_options
 		if(!teleport_choice)
 			return
-		var/old_station = linked_station
-		linked_station = teleport_options[teleport_choice]
-		if(linked_station)
-			destroyed_event.register(linked_station, src, /obj/item/hand_tele/proc/station_destroyed)
-		if(old_station && linked_station != old_station)
-			destroyed_event.unregister(old_station, src)
+		var/old_pad = linked_pad
+		linked_pad = teleport_options[teleport_choice]
+		if(linked_pad)
+			destroyed_event.register(linked_pad, src, /obj/item/hand_tele/proc/pad_destroyed)
+		if(old_pad && linked_pad != old_pad)
+			destroyed_event.unregister(old_pad, src)
 		return
 	return ..()
 
-/obj/item/hand_tele/proc/station_destroyed()
-	linked_station = null
-	audible_message("\The [src] beeps, \"Connected station destroyed, resetting to no-station.\"", null, 3)
+/obj/item/hand_tele/proc/pad_destroyed()
+	linked_pad = null
+	audible_message("\The [src] beeps, \"Connected pad destroyed, resetting to no-pad.\"", null, 3)
 
 /obj/item/hand_tele/proc/remove_portal(var/obj/effect/portal/P)
 	LAZYREMOVE(active_teleporters, P)

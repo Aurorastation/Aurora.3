@@ -35,7 +35,7 @@
 	var/_wifi_id
 	var/datum/wifi/receiver/button/door/wifi_receiver
 
-	var/securitylock = FALSE
+	var/securitylock = TRUE
 	var/is_critical = FALSE
 
 /obj/machinery/door/blast/Initialize()
@@ -187,8 +187,8 @@
 	if(src.operating || (stat & BROKEN) || is_critical)
 		return
 	if(stat & NOPOWER)
+		securitylock = !density // blast doors will only re-open when power is restored if they were open originally
 		INVOKE_ASYNC(src, /obj/machinery/door/blast/.proc/force_close)
-		securitylock = TRUE
 	else if(securitylock)
 		INVOKE_ASYNC(src, /obj/machinery/door/blast/.proc/force_open)
 		securitylock = FALSE

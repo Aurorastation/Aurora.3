@@ -321,7 +321,7 @@
 
 /mob/living/silicon/robot/proc/process_level_restrictions()
 	//Abort if they should not get blown
-	if(lock_charge || scrambled_codes || emagged)
+	if(lock_charge || scrambled_codes || emagged || current_map.allow_borgs_to_leave)
 		return FALSE
 	//Check if they are on a player level -> abort
 	var/turf/T = get_turf(src)

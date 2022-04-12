@@ -143,37 +143,6 @@ steps:
       - (! grep "runtime error:" log.txt)
       - echo "Unit Tests Completed"
 ---
-kind: pipeline
-type: docker
-name: dm-exodus
-
-node:
-  k: y
-
-clone:
-  depth: 50
-
-environment:
-  USE_MAP: exodus
-
-trigger:
-  branch:
-  - master #avoid double builds on PRs
-
-steps:
-  - name: "Exodus - Compile and Run Unit Tests"
-    image: aurorastation/dm-buildimage:latest
-    commands:
-      - export LD_LIBRARY_PATH=./:$PWD:$HOME/.byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
-      - cp config/example/* config/ && cp config/ut/config-nodb.txt config/config.txt
-      - scripts/dm.sh -DUNIT_TEST -M$USE_MAP aurorastation.dme
-      - grep "0 warnings" build_log.txt
-      - DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
-      - grep "All Unit Tests Passed" log.txt
-      - (! grep "runtime error:" log.txt)
-      - echo "Unit Tests Completed"
-
----
 kind: signature
 hmac: aa5f81d300bb1f01656d04254a788970d593b10792ac97b91161ec95ce622b1a
 

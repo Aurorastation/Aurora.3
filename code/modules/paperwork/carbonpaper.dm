@@ -4,7 +4,7 @@
 	item_state = "paper"
 	var/copied = FALSE
 	var/iscopy = FALSE
-
+	can_fold = FALSE
 
 /obj/item/paper/carbon/update_icon()
 	if(iscopy)

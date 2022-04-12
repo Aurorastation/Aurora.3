@@ -26,7 +26,6 @@
 		/decl/reagent/toxin/fertilizer/monoammoniumphosphate = 1,
 		/decl/reagent/saline = 2,
 		/decl/reagent/mental/kokoreed = 0.5,
-		/decl/reagent/mental/vaam = 0.5,
 		/decl/reagent/toxin/tobacco = 3,
 		/decl/reagent/stone_dust = 0.5,
 		/decl/reagent/crayon_dust = 1,
@@ -41,7 +40,10 @@
 		/decl/reagent/nutriment/protein/egg = 2,
 		/decl/reagent/serotrotium = 1,
 		/decl/reagent/psilocybin = 0.5,
-		/decl/reagent/toxin/spectrocybin = 0.1
+		/decl/reagent/toxin/spectrocybin = 0.1,
+		/decl/reagent/ambrosia_extract = 0.3,
+		/decl/reagent/skrell_nootropic = 0.5,
+		/decl/reagent/xuxigas = 2
 	)
 
 /datum/event/vent_clog/setup()

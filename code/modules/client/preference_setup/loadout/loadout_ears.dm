@@ -13,6 +13,18 @@
 	display_name = "headphones"
 	path = /obj/item/clothing/ears/earmuffs/headphones
 
+/datum/gear/ears/double/earphones
+	display_name = "earphones selection"
+	description = "A selection of earphones."
+	path = /obj/item/clothing/ears/earmuffs/headphones/earphones
+
+/datum/gear/ears/double/earphones/New()
+	..()
+	var/list/earphones = list()
+	earphones["earphones"] = /obj/item/clothing/ears/earmuffs/headphones/earphones
+	earphones["blue earphones"] = /obj/item/clothing/ears/earmuffs/headphones/earphones/blue
+	gear_tweaks += new /datum/gear_tweak/path(earphones)
+
 /datum/gear/ears/earrings
 	display_name = "earring selection"
 	description = "A selection of eye-catching earrings."

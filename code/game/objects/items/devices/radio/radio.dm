@@ -614,6 +614,18 @@ var/global/list/default_medbay_channels = list(
 		channels[ch_name] = 0
 	..()
 
+/obj/item/device/radio/med
+	icon_state = "walkietalkie-med"
+
+/obj/item/device/radio/sec
+	icon_state = "walkietalkie-sec"
+
+/obj/item/device/radio/eng
+	icon_state = "walkietalkie-eng"
+
+/obj/item/device/radio/sci
+	icon_state = "walkietalkie-sci"	
+
 ///////////////////////////////
 //////////Borg Radios//////////
 ///////////////////////////////

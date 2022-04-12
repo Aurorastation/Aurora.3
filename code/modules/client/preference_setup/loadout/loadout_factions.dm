@@ -134,13 +134,13 @@
 	display_name = "eridani beret"
 	path = /obj/item/clothing/head/beret/security/eri
 	slot = slot_head
-	faction = "Eridani Private Military Contractors"
+	faction = "Private Military Contracting Group"
 
 /datum/gear/faction/eridani_cap
 	display_name = "eridani cap"
 	path = /obj/item/clothing/head/softcap/eri
 	slot = slot_head
-	faction = "Eridani Private Military Contractors"
+	faction = "Private Military Contracting Group"
 
 /datum/gear/faction/epmc_sunglasses
 	display_name = "EPMC security HUD selection"
@@ -148,7 +148,7 @@
 	path = /obj/item/clothing/glasses/sunglasses/sechud/epmc
 	slot = slot_glasses
 	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator")
-	faction = "Eridani Private Military Contractors"
+	faction = "Private Military Contracting Group"
 
 /datum/gear/faction/epmc_sunglasses/New()
 	..()
@@ -163,7 +163,7 @@
 	description = "A selection of EPMC labcoats."
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/epmc
 	slot = slot_wear_suit
-	faction = "Eridani Private Military Contractors"
+	faction = "Private Military Contracting Group"
 
 /datum/gear/faction/epmc_labcoat/New()
 	..()
@@ -192,7 +192,7 @@
 	faction = "Zeng-Hu Pharmaceuticals"
 
 /datum/gear/faction/zenghu_labcoat
-	display_name = "zeng-hu labcoat selection"
+	display_name = "zeng-hu coat selection"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
 	slot = slot_wear_suit
 	faction = "Zeng-Hu Pharmaceuticals"
@@ -202,6 +202,7 @@
 	var/list/masks = list()
 	masks["zeng-hu labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
 	masks["zeng-hu labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
+	masks["zeng-hu first responder jacket"] = /obj/item/clothing/suit/storage/toggle/fr_jacket/zeng
 	gear_tweaks += new /datum/gear_tweak/path(masks)
 
 /datum/gear/faction/zenghu_apron
@@ -214,6 +215,12 @@
 	display_name = "zeng-hu vinyl gloves"
 	path = /obj/item/clothing/gloves/zeng
 	slot = slot_gloves
+	faction = "Zeng-Hu Pharmaceuticals"
+
+/datum/gear/faction/zenghu_cloak
+	display_name = "Zeng-Hu Jargon Division cloak"
+	path = /obj/item/clothing/accessory/poncho/shouldercape/qeblak/zeng
+	slot = slot_wear_suit
 	faction = "Zeng-Hu Pharmaceuticals"
 
 /datum/gear/faction/zavodskoi_patch
@@ -233,7 +240,7 @@
 	display_name = "EPMC sleeve patch"
 	path = /obj/item/clothing/accessory/sleevepatch/erisec
 	slot = slot_tie
-	faction = "Eridani Private Military Contractors"
+	faction = "Private Military Contracting Group"
 
 /datum/gear/faction/idrissec_patch
 	display_name = "idris security sleeve patch"
@@ -255,7 +262,7 @@
 	faction = "Hephaestus Industries"
 
 /datum/gear/faction/heph_passcard
-	display_name = "hephaestus burszia passcard"
-	path = /obj/item/clothing/accessory/badge/passcard/burszia
+	display_name = "hephaestus burzsia passcard"
+	path = /obj/item/clothing/accessory/badge/passcard/burzsia
 	slot = slot_tie
 	faction = "Hephaestus Industries"

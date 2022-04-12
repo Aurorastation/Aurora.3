@@ -9,6 +9,7 @@
 #define TURF_HAS_CORNERS        256
 #define TURF_IS_FRAGILE         512
 #define TURF_ACID_IMMUNE        1024
+#define TURF_NORUINS            2048
 
 // Roof related flags
 #define ROOF_FORCE_SPAWN        1

@@ -225,13 +225,13 @@
 		distance = 1
 	if (src.stat && !(src.species.flags & NO_BLOOD))	// No point checking pulse of a species that doesn't have one.
 		msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")]n't responding to anything around [get_pronoun("him")] and seems to be unconscious.</span>\n"
-		if((stat == DEAD || is_asystole() || src.losebreath) && distance <= 3)
+		if((stat == DEAD || is_asystole() || src.losebreath) && distance <= 3 || (status_flags & FAKEDEATH))
 			msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("does")] not appear to be breathing.</span>\n"
 		if(istype(user, /mob/living/carbon/human) && !user.stat && Adjacent(user))
 			spawn (0)
 				user.visible_message("<b>[user]</b> checks [src]'s pulse.", "You check [src]'s pulse.")
 				if (do_mob(user, src, 15))
-					if(pulse() == PULSE_NONE)
+					if(pulse() == PULSE_NONE || (status_flags & FAKEDEATH))
 						to_chat(user, "<span class='deadsay'>[get_pronoun("He")] [get_pronoun("has")] no pulse.</span>")
 					else
 						to_chat(user, "<span class='deadsay'>[get_pronoun("He")] [get_pronoun("has")] a pulse!</span>")
@@ -256,7 +256,7 @@
 		inactivity =  have_client ? bg.client.inactivity : null
 
 
-	if(species.show_ssd && (!species.has_organ[BP_BRAIN] || has_brain()) && stat != DEAD)
+	if(species.show_ssd && (!species.has_organ[BP_BRAIN] || has_brain()) && stat != DEAD && !(status_flags & FAKEDEATH))
 		if(!vr_mob && !key)
 			msg += "<span class='deadsay'>[get_pronoun("He")] [get_pronoun("is")] [species.show_ssd]. It doesn't look like [get_pronoun("he")] [get_pronoun("is")] waking up anytime soon.</span>\n"
 		else if(!vr_mob && !client && !bg)

@@ -1,6 +1,6 @@
 
 /obj/machinery/megavendor
-	name = "\improper NanoTrasen AutoDrobe"
+	name = "\improper AutoDrobe"
 	desc = "NanoTrasen science proudly brings to you the wardrobe of the future! No more hassle in getting dressed! Order one today!"
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "tele0"
@@ -69,7 +69,7 @@
 		var/obj/item/storage/backpack/B = H.back
 		if(!B.insert_into_storage(gearbox))
 			H.put_in_any_hand_if_possible(gearbox)
-	else		
+	else
 		H.put_in_any_hand_if_possible(gearbox)
 
 	for(var/obj/item/clothing/accessory/A as anything in AC)
@@ -81,7 +81,7 @@
 	return
 
 /obj/machinery/megavendor/vendor
-	name = "\improper NanoTrasen AutoDrobe Vendor"
+	name = "\improper AutoDrobe Vendor"
 	desc = "A NanoTrasen AutoDrobe machine to help through the trouble of getting dressed for work in the spur of a moment!"
 	icon_state = "clothing"
 	shut_up = TRUE

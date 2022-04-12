@@ -201,6 +201,7 @@ Proc for attack log creation, because really why not
 // Returns true if the mob was in neither the dead or living list
 /mob/proc/add_to_dead_mob_list()
 	return FALSE
+
 /mob/living/add_to_dead_mob_list()
 	if((src in living_mob_list) || (src in dead_mob_list))
 		return FALSE

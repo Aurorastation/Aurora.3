@@ -213,7 +213,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			return FALSE
 
 	var/datum/faction/faction = SSjobs.name_factions[client.prefs.faction] || SSjobs.default_faction
-	if (!(job.type in faction.allowed_role_types))
+	var/list/faction_allowed_roles = unpacklist(faction.allowed_role_types)
+	if (!(job.type in faction_allowed_roles))
 		return FALSE
 
 	if(!(client.prefs.GetPlayerAltTitle(job) in client.prefs.GetValidTitles(job))) // does age/species check for us!
@@ -379,7 +380,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	SSrecords.open_manifest_vueui(src)
 
 /mob/abstract/new_player/Move()
-	return 0
+	return TRUE
 
 /mob/abstract/new_player/proc/close_spawn_windows()
 	src << browse(null, "window=playersetup") //closes the player setup window

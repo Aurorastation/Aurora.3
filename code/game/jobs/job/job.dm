@@ -119,8 +119,8 @@
 			var/datum/faction/F = faction
 			if(!F.is_default)
 				var/new_outfit = F.titles_to_loadout[title]
-				var/datum/outfit/O = new new_outfit
-				if(O)
+				if(ispath(new_outfit))
+					var/datum/outfit/O = new new_outfit
 					O.pre_equip(H, TRUE)
 					O.equip(H, TRUE)
 					return
@@ -212,12 +212,12 @@
 	id = /obj/item/card/id
 	back = /obj/item/storage/backpack
 	shoes = /obj/item/clothing/shoes/black
-	
+
 	headset = /obj/item/device/radio/headset
 	bowman = /obj/item/device/radio/headset/alt
 	double_headset = /obj/item/device/radio/headset/alt/double
 	wrist_radio = /obj/item/device/radio/headset/wrist
-	
+
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
 	tablet = /obj/item/modular_computer/handheld/preset/civilian

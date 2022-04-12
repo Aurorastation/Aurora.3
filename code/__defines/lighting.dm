@@ -93,6 +93,13 @@
 #define LIGHT_COLOR_HALOGEN           "#C0C0CA" //Soft lighting for general-purpose light fixtures. rgb(192, 192, 202)
 #define LIGHT_COLOR_EMERGENCY         "#FF3232" //Red color used by emergency lighting. rgb(255, 50, 50)
 #define LIGHT_COLOR_EMERGENCY_SOFT    "#FA8282" //A softer emergency red, used for small bulbs. rgb(250, 130, 130)
+#define LIGHT_COLOUR_WHITE            "#FEFEFE" // Clinical white light bulbs
+#define LIGHT_COLOUR_WARM             "#FFFEE0" // Warm yellowish light bulbs
+
+#define LIGHT_STANDARD_COLORS list(LIGHT_COLOUR_WHITE, LIGHT_COLOUR_WARM, LIGHT_COLOR_HALOGEN) // List of standard light colors used for randomized lighting and selectable printed lights.
+
+#define LIGHT_MODE_RED      "red"
+#define LIGHT_MODE_DELTA    "delta"
 
 //Defines for lighting status, see power/lighting.dm
 #define LIGHT_OK     0
@@ -109,14 +116,14 @@
 #define LIGHT_NARROW 45
 
 // Some brightness/range defines for objects.
-#define L_WALLMOUNT_POWER 0.4
+#define L_WALLMOUNT_POWER 1.3
 #define L_WALLMOUNT_RANGE 2
 #define L_WALLMOUNT_HI_POWER 1	// For red/delta alert on fire alarms.
 #define L_WALLMOUNT_HI_RANGE 4
 // This controls by how much console sprites are dimmed before being overlayed.
-#define HOLOSCREEN_ADDITION_FACTOR 1
+#define HOLOSCREEN_ADDITION_FACTOR 0.5
 #define HOLOSCREEN_MULTIPLICATION_FACTOR 0.5
-#define HOLOSCREEN_ADDITION_OPACITY 0.8
+#define HOLOSCREEN_ADDITION_OPACITY 0.5
 #define HOLOSCREEN_MULTIPLICATION_OPACITY 1
 
 // Just so we can avoid unneeded proc calls when profiling is disabled.

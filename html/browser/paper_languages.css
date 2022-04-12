@@ -33,6 +33,9 @@
 .solcommon.understood { font-family: mo5v56; }
 .solcommon.scramble { font-family: ducados; }
 
+.elyranstandard.understood {font-family: gelasio; }
+.elyranstandard.scramble {font-family: mo5v56; }
+
 .tradeband.understood { font-family: gelasio; }
 .tradeband.scramble { font-family: gelasio; }
 
@@ -47,3 +50,13 @@
 
 .nralmalic.understood { font-family: bilboinc; font-size: 150%; }
 .nralmalic.scramble { font-family: runasans; }
+
+.redacted {
+  color: rgb(0, 0, 0);
+  background: black;
+
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

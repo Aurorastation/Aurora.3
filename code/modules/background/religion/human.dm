@@ -36,12 +36,14 @@
 
 /datum/religion/moroz
 	name = RELIGION_MOROZ
-	description = "A rapidly expanding religion that borrows from largly from the Sk'akh religion founded by former High Lord Precentor, Tribune Lien Jakaab and former Sk'akh Priest, \
-	Tribune Kasam Kaelesi. Worship revolves around a gender neutral supreme being known commonly as \"Goddess\" in all languages. As a gender neutral God the being is often \
-	called 'he' or 'she' interchangeably to represent that she/he is a collection of all the faithful. The elites of the religion are made up of the Tribunal who commune directly with \
-	the \"Goddess\". From their communions, the Tribunal create edicts to be followed by the faithful. Disobeying an edict can be met with the death penalty in the worse case, typically \
-	by firing squad or ritual suicide. Like Sk'akh, the Goddess can be either male or female and is often called Three of One because the spirits combine into three minor aspects within \
-	the Goddess: the Soldier, the Scholar, the Artisan. These three spirits are personifications of the most important aspects of Dominia society."
+	description = "The state religion of the Empire of Dominia, the Moroz Holy Tribunal is an eclectic mixture of old Earth faiths and the adaptations given to those faiths by the \
+	colonists of Moroz. More conservative members of the faith are known to adopt some traits from Sk'akh, a recently arrived faith in the Empire. Worship revolves around a \
+	female supreme being known commonly as 'Goddess' in all languages. The elites of the religion are made up of the Tribunal members that commune directly with the Goddess. \
+	From their communions, the Tribunal create edicts to be followed by the faithful. Disobeying an edict can be met with the death penalty in the worse case, typically \
+	by firing squad or ritual suicide. It is rumored by the faithful that the Tribunal possess psionic powers gifted to them by the Goddess. The Goddess is often called \
+	Three of One due to her three minor aspects: the Soldier, the Scholar, the Artisan. These three spirits are personifications of the most important aspects of Dominia society. \
+	Tribunal priests agree that all three are equally important, and that malign spirits can be attracted by an imbalance in the Great Three. Priests often stress the importance \
+	of balance, both in matters of spirit, in society, and in personal life."
 	book_name = "tribunal codex"
 
 /datum/religion/trinary
