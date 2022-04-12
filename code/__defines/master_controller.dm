@@ -42,7 +42,7 @@
 
 /** Subsystem only runs on spare cpu (after all non-background subsystems have ran that tick) */
 /// SS_BACKGROUND has its own priority bracket, this overrides SS_TICKER's priority bump
-#define SS_BACKGROUND 4
+#define SS_BACKGROUND 8
 
 //subsystem does not tick check, and should not run unless there is enough time (or its running behind (unless background))
 #define SS_NO_TICK_CHECK 16
