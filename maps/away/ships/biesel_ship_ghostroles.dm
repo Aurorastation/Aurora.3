@@ -123,7 +123,7 @@
 	desc = "Rot in the Tau Ceti Foreign Legion ship's holding cell. Try not to get bored - you're stuck in a room under armed guard."
 	tags = list("External")
 
-	spawnpoints = list("tcfl_prisoner")
+	spawnpoints = list("tcfl_detainee")
 	max_count = 2
 
 	outfit = /datum/outfit/admin/tcfl_detainee
