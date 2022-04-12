@@ -94,7 +94,6 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	back = /obj/item/storage/backpack/satchel_norm
 	belt = /obj/item/storage/belt/utility/full
-	head = /obj/item/clothing/head/softcap/engineering
 	accessory = /obj/item/clothing/accessory/storage/pouches/black
 
 	id = /obj/item/card/id/ee_ship
