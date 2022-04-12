@@ -246,6 +246,10 @@
 /obj/item/pizzabox/meat,
 /turf/simulated/floor/wood,
 /area/shuttle/orion_express_ship)
+"dKJ" = (
+/obj/machinery/cryopod,
+/turf/simulated/floor/wood,
+/area/shuttle/orion_express_ship)
 "dQZ" = (
 /obj/machinery/telecomms/allinone/ship,
 /obj/machinery/light/small,
@@ -35571,7 +35575,7 @@ ccm
 ccm
 pJZ
 riA
-uNN
+dKJ
 wmd
 riA
 xRX

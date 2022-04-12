@@ -14,4 +14,5 @@ changes:
   - tweak: "Orion Traveler holopad is in its cockpit now."
   - bugfix: "Orion Traveler cardinal navpoints for shuttles are in the right places now."
   - tweak: "Orion crew get proper voidsuits that can hold full oxygen tanks."
-  - bugfix: Orion Traveler airlock now cycles.
+  - bugfix: "Orion Traveler airlock now cycles."
+  - tweak: "Orion Traveler now has a cryo-pod in the dormitory."
