@@ -1,6 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed lobby ready names causing errors if no high-priority role was selected, or if assistant was enabled."
