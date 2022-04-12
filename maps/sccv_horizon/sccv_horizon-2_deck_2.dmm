@@ -37919,6 +37919,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/machinery/newscaster{
+	pixel_y = -32
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
 "xgX" = (
