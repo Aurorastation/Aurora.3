@@ -10291,7 +10291,7 @@
 	},
 /obj/item/flame/candle,
 /obj/machinery/door/firedoor,
-/obj/machinery/newscaster{
+/obj/structure/sign/double/barsign{
 	pixel_y = 30
 	},
 /turf/simulated/floor/lino/grey,
@@ -15983,9 +15983,8 @@
 /turf/simulated/open,
 /area/maintenance/wing/starboard)
 "jWh" = (
-/obj/effect/floor_decal/spline/fancy/wood/cee{
-	dir = 1
-	},
+/obj/structure/table/stone/marble,
+/obj/structure/curtain/black,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "jWj" = (
@@ -19741,10 +19740,12 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "muy" = (
-/obj/machinery/vending/boozeomat{
-	opacity = 1
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
 	},
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/structure/curtain/black,
+/turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "muz" = (
 /obj/machinery/portable_atmospherics/hydroponics,
@@ -22253,11 +22254,7 @@
 /area/hallway/engineering)
 "nUh" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
-/obj/structure/sign/double/barsign{
-	dir = 4;
-	pixel_x = -64
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
@@ -33925,6 +33922,9 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/newscaster{
+	pixel_x = -30
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/cafeteria)
 "uZs" = (
@@ -35497,6 +35497,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
+"vVo" = (
+/obj/machinery/vending/boozeomat{
+	opacity = 1
+	},
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
 "vVv" = (
 /obj/structure/table/rack,
 /obj/random/loot,
@@ -37834,7 +37840,7 @@
 	dir = 1
 	},
 /obj/machinery/newscaster{
-	pixel_y = -30
+	pixel_x = -30
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
@@ -58229,7 +58235,7 @@ aNL
 wSE
 wNI
 xPY
-jWh
+fOj
 gHR
 ygR
 ygR
@@ -58433,8 +58439,8 @@ faB
 sKJ
 muy
 sKJ
-sKJ
-sKJ
+vVo
+jWh
 sLu
 sKJ
 sKJ
@@ -58633,10 +58639,10 @@ ugc
 tBB
 wNI
 kxy
-fOj
+nUh
 oSp
 jes
-nUh
+jes
 sUD
 ulp
 uZh
