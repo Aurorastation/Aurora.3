@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - maptweak: "Expanded the western bar area. It's all been pushed one tile to the left so the bar could mirror its eastern portion. It should be more spacious now and ease navigation."
