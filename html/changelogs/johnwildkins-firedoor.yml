@@ -1,0 +1,4 @@
+author: JohnWildkins
+delete-after: True
+changes:
+  - bugfix: "Fixed double-wide firedoors not rendering their hatches correctly."
