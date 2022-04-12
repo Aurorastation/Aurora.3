@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes:
+  - bugfix: "Shuttles should now always properly simulate their atmospheres when landing on a space that has the same turf types as itself. (e.g. Intrepid airlock turfs are the same as the hangar turfs resulting in air not moving properly into the shuttle)"
