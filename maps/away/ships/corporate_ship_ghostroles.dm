@@ -67,3 +67,4 @@
 	name = "orion express ship id"
 	access = list(access_orion_express_ship, access_external_airlocks)
 
+//ee ship
