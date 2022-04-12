@@ -23233,7 +23233,6 @@
 	id = "bar_starboard";
 	name = "Starboard Bar Shutters"
 	},
-/obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -23244,8 +23243,9 @@
 	pixel_y = 6
 	},
 /obj/machinery/chemical_dispenser/bar_soft/full{
-	pixel_y = -10
+	pixel_y = -8
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/lino/grey,
 /area/crew_quarters/bar)
 "oAy" = (
@@ -37918,9 +37918,6 @@
 "xgH" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
-	},
-/obj/machinery/newscaster{
-	pixel_x = -30
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
