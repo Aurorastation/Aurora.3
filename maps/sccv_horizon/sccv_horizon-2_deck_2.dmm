@@ -7172,7 +7172,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_mining{
 	name = "Mech Bay";
-	req_one_access = list(29,47)
+	req_access = list(29)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -30933,7 +30933,7 @@
 "tlX" = (
 /obj/machinery/door/window/southright{
 	name = "Mech Bay";
-	req_one_access = list(29,47)
+	req_access = list(29)
 	},
 /turf/simulated/floor/reinforced,
 /area/assembly/chargebay)
@@ -35156,7 +35156,7 @@
 "vNZ" = (
 /obj/machinery/door/window/southleft{
 	name = "Mech Bay";
-	req_one_access = list(29,47)
+	req_access = list(29)
 	},
 /turf/simulated/floor/reinforced,
 /area/assembly/chargebay)
