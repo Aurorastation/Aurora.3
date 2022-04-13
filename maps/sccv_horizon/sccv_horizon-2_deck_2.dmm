@@ -23854,7 +23854,8 @@
 	},
 /obj/item/stamp{
 	pixel_x = -5;
-	pixel_y = 13
+	pixel_y = 13;
+	name = "Operation Manager's stamp"
 	},
 /obj/machinery/requests_console{
 	department = "Supply Manager";
