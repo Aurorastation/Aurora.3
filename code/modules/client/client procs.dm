@@ -758,14 +758,11 @@ var/list/localhost_addresses = list(
 
 // Byond seemingly calls stat, each tick.
 // Calling things each tick can get expensive real quick.
-// So we slow this down a little.
 // See: http://www.byond.com/docs/ref/info.html#/client/proc/Stat
 /client/Stat()
+	if(!usr)
+		return
 	. = ..()
-	if (holder)
-		sleep(1)
-	else
-		stoplag(5)
 
 /client/MouseDrag(src_object, over_object, src_location, over_location, src_control, over_control, params)
 	. = ..()
