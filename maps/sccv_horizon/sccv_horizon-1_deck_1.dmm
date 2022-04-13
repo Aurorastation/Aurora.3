@@ -2173,6 +2173,19 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/operations)
+"bSO" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled/dark,
+/area/operations/lower/machinist)
 "bUN" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -3289,11 +3302,15 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/eva)
 "cWX" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 6
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/obj/machinery/atmospherics/tvalve/digital/bypass{
+	dir = 1;
+	name = "Starboard Thruster Propellant Input Switch"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
@@ -4296,6 +4313,7 @@
 /obj/effect/floor_decal/corner/white{
 	dir = 10
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/operations/lower/machinist)
 "eaO" = (
@@ -5156,6 +5174,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/purple{
 	dir = 4
 	},
+/obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion)
 "eKi" = (
@@ -5947,9 +5966,6 @@
 /obj/machinery/atmospherics/tvalve/digital{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
 "fnL" = (
@@ -6438,12 +6454,13 @@
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "fKe" = (
-/obj/machinery/meter,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/purple{
-	dir = 4
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/manifold/visible/purple{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
 "fKk" = (
 /obj/structure/table/steel,
@@ -7160,9 +7177,6 @@
 /turf/simulated/floor/plating,
 /area/hangar/control)
 "gnP" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
-	},
 /obj/machinery/atmospherics/binary/pump/high_power{
 	layer = 2.8
 	},
@@ -22686,6 +22700,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/storage/lower)
+"uBi" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled,
+/area/outpost/mining_main/refinery)
 "uCq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -42557,7 +42587,7 @@ pWZ
 cWd
 hhO
 tgR
-beP
+uBi
 tgR
 xwo
 eqk
@@ -45568,7 +45598,7 @@ sLn
 qIT
 iDw
 hYh
-wqs
+bSO
 fga
 wMO
 pYD

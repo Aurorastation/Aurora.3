@@ -12446,6 +12446,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/vacantoffice2)
+"DZ" = (
+/obj/effect/floor_decal/corner/paleblue/full{
+	dir = 4
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark,
+/area/hallway/primary/starboard)
 "Ea" = (
 /obj/machinery/door/airlock/hatch{
 	desc = "It opens and closes. It has a small sign engraved: Bunker capacity: 6. Only facility's Command Staff is permitted.";
@@ -16266,9 +16273,6 @@
 /area/security/vacantoffice2)
 "Nj" = (
 /obj/structure/flora/pottedplant/random,
-/obj/machinery/light{
-	dir = 8
-	},
 /turf/simulated/floor/wood,
 /area/journalistoffice)
 "Nl" = (
@@ -16606,6 +16610,7 @@
 	name = "corkboard";
 	pixel_y = -26
 	},
+/obj/machinery/light,
 /turf/simulated/floor/carpet,
 /area/journalistoffice)
 "NV" = (
@@ -44916,7 +44921,7 @@ Od
 Tu
 Fz
 RJ
-BW
+DZ
 vx
 Oa
 Mt

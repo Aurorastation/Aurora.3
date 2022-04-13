@@ -35,8 +35,8 @@
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
-	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
+	fore_dir = SOUTH
 	shuttle = "Orion Express Ship"
 	initial_restricted_waypoints = list(
 		"Orion Express Shuttle" = list("nav_hangar_orion_express")
@@ -117,6 +117,7 @@
 	docking_controller = "orion_express_shuttle_dock"
 	base_area = /area/shuttle/orion_express_ship
 	base_turf = /turf/simulated/floor/plating
+	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/orion_express_shuttle/transit
 	name = "In transit"
