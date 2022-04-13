@@ -35,8 +35,8 @@
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
-	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_SMALL
+	fore_dir = SOUTH
 	shuttle = "Orion Express Ship"
 	initial_restricted_waypoints = list(
 		"Orion Express Shuttle" = list("nav_hangar_orion_express")
@@ -90,7 +90,7 @@
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
-	fore_dir = SOUTH
+	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
 /obj/machinery/computer/shuttle_control/explore/orion_express_shuttle
