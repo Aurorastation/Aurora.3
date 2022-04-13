@@ -1,6 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixes performance issue related to an unintended world loop in NTNRC code."
