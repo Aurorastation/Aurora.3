@@ -7170,9 +7170,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass_research{
+/obj/machinery/door/airlock/glass_mining{
 	name = "Mech Bay";
-	req_access = list(29)
+	req_one_access = list(29,47)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -30931,7 +30931,10 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "tlX" = (
-/obj/machinery/door/window/southright,
+/obj/machinery/door/window/southright{
+	name = "Mech Bay";
+	req_one_access = list(29,47)
+	},
 /turf/simulated/floor/reinforced,
 /area/assembly/chargebay)
 "tmG" = (
@@ -35151,7 +35154,10 @@
 /turf/simulated/floor/carpet,
 /area/library)
 "vNZ" = (
-/obj/machinery/door/window/southleft,
+/obj/machinery/door/window/southleft{
+	name = "Mech Bay";
+	req_one_access = list(29,47)
+	},
 /turf/simulated/floor/reinforced,
 /area/assembly/chargebay)
 "vOb" = (
