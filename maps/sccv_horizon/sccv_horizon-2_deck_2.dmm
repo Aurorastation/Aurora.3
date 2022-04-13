@@ -18248,6 +18248,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology)
+"lzC" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "lzI" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/machinery/light{
@@ -24035,6 +24044,9 @@
 /obj/item/clothing/gloves/latex/nitrile/unathi,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "oXw" = (
@@ -30392,10 +30404,10 @@
 /area/engineering/engine_room)
 "sSZ" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "sTu" = (
@@ -62911,7 +62923,7 @@ qPs
 pED
 tvk
 rGj
-qFQ
+lzC
 rGj
 rHj
 ssh
