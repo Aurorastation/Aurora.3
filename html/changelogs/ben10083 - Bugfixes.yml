@@ -40,5 +40,5 @@ delete-after: True
 changes:
   - maptweak: "Made it more obvious that Mech Bay is in operations department, not research."
   - bugfix: "Research lift now states correct deck when arriving to destination."
-  - rsadd: "Added Operation Manager's stamp to their office."
-  - rsadd: "Added brand new stamp for Warden."
+  - rscadd: "Added Operation Manager's stamp to their office."
+  - rscadd: "Added brand new stamp for Warden."
