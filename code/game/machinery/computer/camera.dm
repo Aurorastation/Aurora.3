@@ -2,7 +2,7 @@
 /obj/machinery/computer/security
 	name = "security camera monitor"
 	desc = "Used to access the various cameras on the station."
-	icon_screen = "cameras"
+	icon_screen = "sec"
 	light_color = "#a91515"
 	var/current_network = null
 	var/obj/machinery/camera/current_camera = null
@@ -256,7 +256,7 @@
 /obj/machinery/computer/security/mining
 	name = "outpost camera monitor"
 	desc = "Used to access the various cameras on the outpost."
-	icon_screen = "miningcameras"
+	icon_screen = "sec"
 	network = list("MINE")
 	circuit = /obj/item/circuitboard/security/mining
 	light_color = "#F9BBFC"
@@ -264,7 +264,7 @@
 /obj/machinery/computer/security/engineering
 	name = "engineering camera monitor"
 	desc = "Used to monitor fires and breaches."
-	icon_screen = "engineeringcameras"
+	icon_screen = "sec"
 	circuit = /obj/item/circuitboard/security/engineering
 	light_color = "#FAC54B"
 
@@ -276,7 +276,8 @@
 /obj/machinery/computer/security/nuclear
 	name = "head mounted camera monitor"
 	desc = "Used to access the built-in cameras in helmets."
-	icon_screen = "syndicam"
+	icon = 'icons/obj/primitive_computer.dmi'
+	icon_screen = "syndicate"
 	network = list(NETWORK_MERCENARY)
 	circuit = null
 	is_holographic = FALSE	// I mean, it is, but the holo effect looks terrible with the current merc shuttle floor.

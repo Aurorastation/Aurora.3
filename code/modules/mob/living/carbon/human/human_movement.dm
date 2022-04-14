@@ -146,6 +146,10 @@
 			return
 		last_x = x
 		last_y = y
+		if(shoes)
+			var/obj/item/clothing/shoes/S = shoes
+			if(S.do_special_footsteps(m_intent))
+				return
 		if (m_intent == M_RUN)
 			playsound(src, is_noisy ? footsound : species.footsound, 70, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
 		else

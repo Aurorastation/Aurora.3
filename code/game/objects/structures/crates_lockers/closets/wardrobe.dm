@@ -9,12 +9,12 @@
 
 /obj/structure/closet/wardrobe/red/fill()
 	..()
-	new /obj/item/clothing/under/rank/security(src)
-	new /obj/item/clothing/under/rank/security(src)
-	new /obj/item/clothing/under/rank/security(src)
-	new /obj/item/clothing/under/rank/cadet(src)
-	new /obj/item/clothing/under/rank/cadet(src)
-	new /obj/item/clothing/under/rank/cadet(src)
+	new /obj/item/clothing/under/rank/security/zavod(src)
+	new /obj/item/clothing/under/rank/security/pmc(src)
+	new /obj/item/clothing/under/rank/security/idris(src)
+	new /obj/item/clothing/under/rank/cadet/zavod(src)
+	new /obj/item/clothing/under/rank/cadet/pmc(src)
+	new /obj/item/clothing/under/rank/cadet/idris(src)
 	new /obj/item/clothing/gloves/black_leather(src)
 	new /obj/item/clothing/gloves/black_leather(src)
 	new /obj/item/clothing/gloves/black_leather(src)
@@ -160,9 +160,8 @@
 
 /obj/structure/closet/wardrobe/atmospherics_yellow/fill()
 	..()
-	new /obj/item/clothing/under/rank/atmospheric_technician(src)
-	new /obj/item/clothing/under/rank/atmospheric_technician(src)
-	new /obj/item/clothing/under/rank/atmospheric_technician(src)
+	new /obj/item/clothing/under/rank/atmospheric_technician/heph(src)
+	new /obj/item/clothing/under/rank/atmospheric_technician/zavod(src)
 	new /obj/item/clothing/shoes/black(src)
 	new /obj/item/clothing/shoes/black(src)
 	new /obj/item/clothing/shoes/black(src)
@@ -188,11 +187,10 @@
 
 /obj/structure/closet/wardrobe/engineering_yellow/fill()
 	..()
-	new /obj/item/clothing/under/rank/engineer(src)
-	new /obj/item/clothing/under/rank/engineer(src)
-	new /obj/item/clothing/under/rank/engineer(src)
-	new /obj/item/clothing/under/rank/engineer/apprentice(src)
-	new /obj/item/clothing/under/rank/engineer/apprentice(src)
+	new /obj/item/clothing/under/rank/engineer/heph(src)
+	new /obj/item/clothing/under/rank/engineer/zavod(src)
+	new /obj/item/clothing/under/rank/engineer/apprentice/heph(src)
+	new /obj/item/clothing/under/rank/engineer/apprentice/zavod(src)
 	new /obj/item/clothing/shoes/orange(src)
 	new /obj/item/clothing/shoes/orange(src)
 	new /obj/item/clothing/shoes/orange(src)
@@ -247,9 +245,9 @@
 
 /obj/structure/closet/wardrobe/toxins_white/fill()
 	..()
-	new /obj/item/clothing/under/rank/scientist(src)
-	new /obj/item/clothing/under/rank/scientist(src)
-	new /obj/item/clothing/under/rank/scientist(src)
+	new /obj/item/clothing/under/rank/scientist/zavod(src)
+	new /obj/item/clothing/under/rank/scientist/nt(src)
+	new /obj/item/clothing/under/rank/scientist/zeng(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
@@ -264,15 +262,14 @@
 	new /obj/item/clothing/head/bandana/science(src)
 	return
 
-
-/obj/structure/closet/wardrobe/robotics_black
-	name = "robotics wardrobe"
+/obj/structure/closet/wardrobe/machinist
+	name = "machinist wardrobe"
 	icon_door = "black"
 
 /obj/structure/closet/wardrobe/robotics_black/fill()
 	..()
-	new /obj/item/clothing/under/rank/roboticist(src)
-	new /obj/item/clothing/under/rank/roboticist(src)
+	new /obj/item/clothing/under/rank/machinist/orion(src)
+	new /obj/item/clothing/under/rank/machinist/heph(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/shoes/black(src)
@@ -288,27 +285,14 @@
 
 /obj/structure/closet/wardrobe/pharmacy_white/fill()
 	..()
-	new /obj/item/clothing/under/rank/pharmacist(src)
-	new /obj/item/clothing/under/rank/pharmacist(src)
+	new /obj/item/clothing/under/rank/pharmacist/zeng(src)
+	new /obj/item/clothing/under/rank/pharmacist/nt(src)
+	new /obj/item/clothing/under/rank/pharmacist/pmc(src)
 	new /obj/item/clothing/shoes/chemist(src)
 	new /obj/item/clothing/shoes/chemist(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist(src)
 	return
-
-
-/obj/structure/closet/wardrobe/genetics_white
-	name = "genetics wardrobe"
-	icon_door = "white"
-
-/obj/structure/closet/wardrobe/genetics_white/fill()
-	..()
-	new /obj/item/clothing/under/rank/geneticist(src)
-	new /obj/item/clothing/under/rank/geneticist(src)
-	new /obj/item/clothing/shoes/white(src)
-	new /obj/item/clothing/shoes/white(src)
-	return
-
 
 /obj/structure/closet/wardrobe/virology_white
 	name = "virology wardrobe"
@@ -316,8 +300,6 @@
 
 /obj/structure/closet/wardrobe/virology_white/fill()
 	..()
-	new /obj/item/clothing/under/rank/virologist(src)
-	new /obj/item/clothing/under/rank/virologist(src)
 	new /obj/item/clothing/shoes/biochem(src)
 	new /obj/item/clothing/shoes/biochem(src)
 	new /obj/item/clothing/mask/surgical(src)

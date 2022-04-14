@@ -377,8 +377,8 @@ var/global/dmm_suite/preloader/_preloader = new
 		SSatoms.map_loader_begin()
 
 /dmm_suite/proc/create_atom(path, crds)
-	set waitfor = FALSE
-	. = new path (crds)
+	// Doing this async is impossible, as we must return the ref.
+	return new path (crds)
 
 //text trimming (both directions) helper proc
 //optionally removes quotes before and after the text (for variable name)

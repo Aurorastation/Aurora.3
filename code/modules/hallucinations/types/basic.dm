@@ -10,7 +10,7 @@
 			hal_sender += H
 	switch(rand(1,15))
 		if(1)
-			sound_to(holder, 'sound/AI/radiation.ogg')
+			sound_to(holder, 'sound/AI/radiation_detected_message.ogg')
 			to_chat(holder, "<h2 class='alert'>Anomaly Break</h2>")
 			to_chat(holder, SPAN_ALERT("Comfortable levels of radiation detected near the station. [pick(SShallucinations.hallucinated_phrases)] Please cower among the shielded maintenance burrows."))	//hallucinated phrases contains the punctuation
 
@@ -25,7 +25,7 @@
 			to_chat(holder, SPAN_ALERT("The scrubbers network is expecting \an [pick(adjectives)] surge. Some ejection of [pick(adjectives)] contents will occur."))
 
 		if(4)
-			sound_to(holder, 'sound/AI/emergencyshuttlecalled.ogg')
+			sound_to(holder, 'sound/AI/emergency_shuttle_leaving_dock.ogg')
 			to_chat(holder, "<h2 class='alert'>Emergency Departure</h2>")
 			to_chat(holder, SPAN_ALERT("The emergency evacuation shuttle has arrived. It will depart in approximately two minutes. Please do not allow [holder] to board."))
 
@@ -35,17 +35,17 @@
 			to_chat(holder, SPAN_ALERT("We indicate that [pick("rats", "lizards", "hivebots", "children")] have nested nearby. Free them before this starts to affect longetivity."))
 
 		if(6)
-			sound_to(holder, 'sound/AI/outbreak7.ogg')
+			sound_to(holder, 'sound/AI/level_7_biohazard.ogg')
 			to_chat(holder, "<h2 class='alert'>What have you done?</h2>")
 			to_chat(holder, SPAN_ALERT("Confirmed outbreak of help level 17 viral biohazard aboard [holder]. Help me. All personnel must destroy the outbreak. What have you helpME done?"))
 			to_chat(holder, SPAN_ALERT("-[pick(hal_sender)]"))
 		if(7)
-			sound_to(holder, 'sound/AI/meteors.ogg')
+			sound_to(holder, 'sound/AI/meteors_detected_message.ogg')
 			to_chat(holder, "<h2 class='alert'>Meteor Alarm</h2>")
 			to_chat(holder, SPAN_ALERT("A [pick(adjectives)] meteor storm has been authorized for a destruction course with your station. Less than three minutes until impact, shields cannot help you; seek shelter in the upper level."))
 
 		if(8)
-			sound_to(holder, pick('sound/AI/fungi.ogg', 'sound/AI/funguy.ogg', 'sound/AI/fun_guy.ogg', 'sound/AI/fun_gi.ogg'))
+			sound_to(holder,'sound/AI/fungi.ogg')
 			to_chat(holder, "<h2 class='alert'>Biohealth Notice</h2>")
 			to_chat(holder, SPAN_ALERT("Healthy fungi detected on station. Your bodies may be contaminated. This is mandatory, [holder]."))
 

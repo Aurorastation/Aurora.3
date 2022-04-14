@@ -125,6 +125,20 @@ var/global/list/engineering_networks = list(
 	upgradeXRay()
 	upgradeMotion()
 
+//space ship cameras
+
+/obj/machinery/camera/network/first_deck
+	network = list(NETWORK_FIRST_DECK)
+
+/obj/machinery/camera/network/second_deck
+	network = list(NETWORK_SECOND_DECK)
+
+/obj/machinery/camera/network/third_deck
+	network = list(NETWORK_THIRD_DECK)
+
+/obj/machinery/camera/network/intrepid
+	network = list(NETWORK_INTREPID)
+
 // AUTONAME
 /obj/machinery/camera/autoname
 	var/number = 0 //camera number in area

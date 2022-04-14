@@ -316,6 +316,10 @@
 	icon_state = "psychbed"
 	base_icon = "psychbed"
 
+/obj/structure/bed/bunk
+	icon_state = "bunkbed"
+	base_icon = "bunkbed"
+
 /obj/structure/bed/psych/New(var/newloc)
 	..(newloc, MATERIAL_WOOD, MATERIAL_LEATHER)
 

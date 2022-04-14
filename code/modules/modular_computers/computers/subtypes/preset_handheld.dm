@@ -145,7 +145,7 @@
 /obj/item/modular_computer/handheld/preset/command/cciaa
 	_app_preset_type = /datum/modular_computer_app_presets/command
 
-/obj/item/modular_computer/handheld/preset/command/hop
+/obj/item/modular_computer/handheld/preset/command/xo
 	_app_preset_type = /datum/modular_computer_app_presets/command/hop
 
 /obj/item/modular_computer/handheld/preset/command/captain

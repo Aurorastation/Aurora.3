@@ -28,16 +28,22 @@
 	if(!..(user, 2))
 		return
 	if(LAZYLEN(reagents.reagent_volumes))
-		to_chat(user, "<span class='notice'>It contains [round(reagents.total_volume, accuracy)] units of liquid.</span>")
+		to_chat(user, SPAN_NOTICE("It contains [round(reagents.total_volume, accuracy)] units of a reagent."))
 		for(var/_T in reagents.reagent_volumes)
 			var/decl/reagent/T = decls_repository.get_decl(_T)
-			if(T.reagent_state == SOLID)
-				to_chat(user, "<span class='notice'>You see something solid in the beaker.</span>")
+			if(T.reagent_state == LIQUID)
+				to_chat(user, SPAN_NOTICE("You see something liquid in the beaker."))
 				break // to stop multiple messages of this
+			if(T.reagent_state == GAS)
+				to_chat(user, SPAN_NOTICE("You see something gaseous in the beaker."))
+				break
+			if(T.reagent_state == SOLID)
+				to_chat(user, SPAN_NOTICE("You see something solid in the beaker."))
+				break 
 	else
-		to_chat(user, "<span class='notice'>It is empty.</span>")
+		to_chat(user, SPAN_NOTICE("It is empty."))
 	if(!is_open_container())
-		to_chat(user, "<span class='notice'>Airtight lid seals it completely.</span>")
+		to_chat(user, SPAN_NOTICE("An airtight lid seals it completely."))
 
 /obj/item/reagent_containers/glass/get_additional_forensics_swab_info()
 	var/list/additional_evidence = ..()

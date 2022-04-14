@@ -2,6 +2,7 @@
 	filename = "cargocontrol"
 	filedesc = "Cargo Control"
 	extended_desc = "Application to Control Cargo Orders"
+	program_icon_state = "ops"
 	size = 12
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE

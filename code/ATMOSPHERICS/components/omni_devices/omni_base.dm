@@ -278,3 +278,9 @@
 	update_ports()
 
 	return null
+
+/obj/machinery/atmospherics/omni/AltClick(var/mob/user)
+	if(!allowed(user))
+		to_chat(user, SPAN_WARNING("Access denied."))
+		return
+	Topic(src, list("power" = "1"))

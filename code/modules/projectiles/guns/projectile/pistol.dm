@@ -180,7 +180,7 @@
 	sel_mode = 1
 
 	firemodes = list(
-		list(mode_name="semiauto", burst=1, fire_delay=0),
+		list(mode_name="semiauto", burst=1, fire_delay=0, fire_delay_wielded=0),
 		list(mode_name="3-round bursts", burst=3, burst_accuracy=list(1,0,0), dispersion=list(0, 10))
 		)
 

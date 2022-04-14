@@ -365,7 +365,7 @@
 	gear_tweaks += new /datum/gear_tweak/path(charm)
 
 /datum/gear/accessory/dpra_party_pin
-	display_name = "democratic people's republic party pins selection"
+	display_name = "democratic peoples republic party pins selection"
 	description = "A selection of DPRA party pins."
 	path = /obj/item/clothing/accessory/tajaran/nawparty_pin
 	sort_category = "Xenowear - Tajara"

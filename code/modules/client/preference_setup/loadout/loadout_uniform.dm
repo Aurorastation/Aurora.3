@@ -96,7 +96,7 @@
 /datum/gear/uniform/scrubs
 	display_name = "scrubs selection"
 	path = /obj/item/clothing/under/rank/medical/black
-	allowed_roles = list("Scientist","Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Roboticist", "Research Director", "Investigator")
+	allowed_roles = list("Scientist","Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Research Director", "Investigator")
 
 /datum/gear/uniform/scrubs/New()
 	..()
@@ -137,11 +137,6 @@
 	display_name = "uniform, captain dress"
 	path = /obj/item/clothing/under/dress/dress_cap
 	allowed_roles = list("Captain")
-
-/datum/gear/uniform/uniform_hop
-	display_name = "uniform, HoP dress"
-	path = /obj/item/clothing/under/dress/dress_hop
-	allowed_roles = list("Head of Personnel")
 
 /datum/gear/uniform/pants
 	display_name = "pants selection"
@@ -280,20 +275,6 @@
 	path = /obj/item/clothing/under/kimono
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/uniform/officer
-	display_name = "uniforms, (Security Officer)"
-	description = "A selection of officer uniforms."
-	path = /obj/item/clothing/under/rank/security
-	allowed_roles = list("Security Officer")
-
-/datum/gear/uniform/officer/New()
-	..()
-	var/list/uniform = list()
-	uniform["officer uniform, standard"] = /obj/item/clothing/under/rank/security
-	uniform["officer uniform, corporate"] = /obj/item/clothing/under/rank/security/corp
-	uniform["officer uniform, blue"] = /obj/item/clothing/under/rank/security/blue
-	gear_tweaks += new /datum/gear_tweak/path(uniform)
-
 /datum/gear/uniform/detective
 	display_name = "uniforms, (Investigations)"
 	description = "A selection of Investigations staff uniforms."
@@ -309,39 +290,9 @@
 	uniform["investigator uniform, brown"] = /obj/item/clothing/under/det/classic
 	gear_tweaks += new /datum/gear_tweak/path(uniform)
 
-/datum/gear/uniform/warden
-	display_name = "uniforms, (Warden)"
-	description = "A selection of Warden uniforms."
-	path = /obj/item/clothing/under/rank/warden
-	allowed_roles = list("Warden")
-
-/datum/gear/uniform/warden/New()
-	..()
-	var/list/uniform = list()
-	uniform["warden uniform, standard"] = /obj/item/clothing/under/rank/warden
-	uniform["warden uniform, corporate"] = /obj/item/clothing/under/rank/warden/corp
-	uniform["warden uniform, blue"] = /obj/item/clothing/under/rank/warden/blue
-	gear_tweaks += new /datum/gear_tweak/path(uniform)
-
-/datum/gear/uniform/hos
-	display_name = "uniform, corporate (Head of Security)"
-	path = /obj/item/clothing/under/rank/head_of_security/corp
-	allowed_roles = list("Head of Security")
-
 /datum/gear/uniform/circuitry
 	display_name = "jumpsuit, circuitry (empty)"
 	path = /obj/item/clothing/under/circuitry
-
-/datum/gear/uniform/science_alt
-	display_name = "scientist, alt"
-	path = /obj/item/clothing/under/rank/scientist/science_alt
-	allowed_roles = list("Scientist", "Xenobiologist")
-
-/datum/gear/uniform/cargo_alt
-	display_name = "cargo technician, shorts"
-	description = "For those that value leg-room."
-	path = /obj/item/clothing/under/rank/cargo/alt
-	allowed_roles = list("Cargo Technician", "Quartermaster")
 
 /datum/gear/uniform/pyjama
 	display_name = "pyjamas"

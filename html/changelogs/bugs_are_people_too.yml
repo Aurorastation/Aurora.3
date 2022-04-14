@@ -1,6 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes:
-  - bugfix: "Autodrobe no longer tries to poison Vaurca by putting their mandible garments into their bag when the rest of their gear spawns, instead the mandible garment stays on their face."

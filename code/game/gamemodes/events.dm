@@ -21,7 +21,7 @@ var/hadevent    = 0
 				randmutg(H)
 				domutcheck(H,null,MUTCHK_FORCED)
 	sleep(100)
-	command_announcement.Announce("High levels of radiation detected near the station. Please report to the Med-bay if you feel strange.", "Anomaly Alert", new_sound = 'sound/AI/radiation.ogg')
+	command_announcement.Announce("High levels of radiation detected near the station. Please report to the Med-bay if you feel strange.", "Anomaly Alert")
 
 
 
@@ -70,11 +70,11 @@ var/hadevent    = 0
 			new /mob/living/simple_animal/hostile/carp(C.loc)
 	//sleep(100)
 	spawn(rand(300, 600)) //Delayed announcements to keep the crew on their toes.
-		command_announcement.Announce("Unknown biological entities have been detected near [station_name()], please stand-by.", "Lifesign Alert", new_sound = 'sound/AI/commandreport.ogg')
+		command_announcement.Announce("Attention: unknown biological entities have been detected near the [station_name()]'s exterior.", "Lifesign Sensor Array Alert", new_sound = 'sound/AI/commandreport.ogg')
 
 /proc/lightsout(isEvent = 0, lightsoutAmount = 1,lightsoutRange = 25) //leave lightsoutAmount as 0 to break ALL lights
 	if(isEvent)
-		command_announcement.Announce("An Electrical storm has been detected in your area, please repair potential electronic overloads.","Electrical Storm Alert")
+		command_announcement.Announce("Attention: an electrical storm has been detected in your sector, please repair potential electronic overloads.", "Electrical Storm Alert")
 
 	if(lightsoutAmount)
 		var/list/epicentreList = list()
