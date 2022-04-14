@@ -477,7 +477,10 @@
 "fnY" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/item/holomenu,
+/obj/item/holomenu{
+	req_access = list(202);
+	req_one_access = null
+	},
 /obj/structure/noticeboard{
 	dir = 8;
 	pixel_x = 32
