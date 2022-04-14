@@ -143,7 +143,7 @@
 	icon_add = "h"
 	// detonate = 0
 
-/obj/item/modular_computer/handheld/pda/command/hop
+/obj/item/modular_computer/handheld/pda/command/xo
 	_app_preset_type = /datum/modular_computer_app_presets/command/hop
 	icon_add = "hop"
 

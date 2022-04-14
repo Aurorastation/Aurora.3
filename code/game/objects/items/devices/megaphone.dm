@@ -102,7 +102,7 @@
 /obj/item/device/megaphone/cargo
 	name = "supply megaphone"
 	desc = "To make people to push crates."
-	desc_fluff = "Only certified forklift operators will be able to handle the sheer power of this megaphone. Either that, or just be the Quartermaster."
+	desc_fluff = "Only certified forklift operators will be able to handle the sheer power of this megaphone. Either that, or just be the Operations Manager."
 	icon_state = "megaphone_cargo"
 	item_state = "megaphone_cargo"
 

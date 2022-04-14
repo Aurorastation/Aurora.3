@@ -207,7 +207,7 @@
 /obj/machinery/computer/scan_consolenew
 	name = "DNA Modifier Access Console"
 	desc = "Scand DNA."
-	icon_screen = "dna"
+	icon_screen = "med"
 	density = 1
 	circuit = /obj/item/circuitboard/scan_consolenew
 	var/selected_ui_block = 1.0

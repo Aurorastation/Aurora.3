@@ -138,7 +138,6 @@ STOCK_ITEM_RARE(rare_clothing, 1)
 		/obj/item/clothing/under/rank/fatigues/marine,
 		/obj/item/clothing/under/rank/dress/subofficer,
 		/obj/item/clothing/under/dominia/lyodsuit/hoodie,
-		/obj/item/clothing/under/rank/head_of_security/corp,
 		/obj/item/clothing/shoes/sandal/clogs,
 		/obj/item/clothing/under/lance,
 		/obj/item/clothing/under/dress/lance_dress/male,

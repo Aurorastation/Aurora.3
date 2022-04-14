@@ -3,7 +3,7 @@
 
 /obj/machinery/computer/ship/helm
 	name = "helm control console"
-	icon_screen = "helm"
+	icon_screen = "command"
 	light_color = "#7faaff"
 	var/autopilot = 0
 	var/list/known_sectors = list()
@@ -13,6 +13,7 @@
 	var/accellimit = 0.001 //manual limiter for acceleration
 
 	var/list/linked_helmets = list()
+	circuit = /obj/item/circuitboard/ship/helm
 
 /obj/machinery/computer/ship/helm/Initialize()
 	. = ..()
@@ -216,37 +217,42 @@
 		dx = 0
 		dy = 0
 
+	if (href_list["manual"])
+		viewing_overmap(usr) ? unlook(usr) : look(usr)
+
 	if (href_list["speedlimit"])
 		var/newlimit = input("Input new speed limit for autopilot (0 to brake)", "Autopilot speed limit", speedlimit*1000) as num|null
 		if(newlimit)
 			speedlimit = Clamp(newlimit/1000, 0, 100)
+
 	if (href_list["accellimit"])
 		var/newlimit = input("Input new acceleration limit", "Acceleration limit", accellimit*1000) as num|null
 		if(newlimit)
 			accellimit = max(newlimit/1000, 0)
 
-	if (href_list["move"])
-		var/ndir = text2num(href_list["move"])
-		linked.relaymove(usr, ndir, accellimit)
-		addtimer(CALLBACK(src, .proc/updateUsrDialog), linked.burn_delay + 1) // remove when turning into vueui
+	if(!issilicon(usr)) // AI and robots aren't allowed to pilot
+		if (href_list["move"])
+			var/ndir = text2num(href_list["move"])
+			linked.relaymove(usr, ndir, accellimit)
+			addtimer(CALLBACK(src, .proc/updateUsrDialog), linked.burn_delay + 1) // remove when turning into vueui
 
-	if (href_list["brake"])
-		linked.decelerate()
-		addtimer(CALLBACK(src, .proc/updateUsrDialog), linked.burn_delay + 1) // remove when turning into vueui
+		if (href_list["brake"])
+			linked.decelerate()
+			addtimer(CALLBACK(src, .proc/updateUsrDialog), linked.burn_delay + 1) // remove when turning into vueui
 
-	if (href_list["apilot"])
-		autopilot = !autopilot
-		check_processing()
-
-	if (href_list["manual"])
-		viewing_overmap(usr) ? unlook(usr) : look(usr)
+		if (href_list["apilot"])
+			autopilot = !autopilot
+			check_processing()
+	else
+		to_chat(usr, SPAN_WARNING("Your software does not allow you to interact with the piloting controls."))
+		return TOPIC_HANDLED
 
 	add_fingerprint(usr)
 	updateUsrDialog()
 
 /obj/machinery/computer/ship/navigation
 	name = "navigation console"
-	icon_screen = "nav"
+	icon_screen = "command"
 
 /obj/machinery/computer/ship/navigation/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	if(!linked)

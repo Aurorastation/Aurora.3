@@ -3,6 +3,7 @@
 /datum/controller/subsystem/ghostroles
 	name = "Ghost Roles"
 	flags = SS_NO_FIRE
+	init_order = SS_INIT_GHOSTROLES
 
 	var/list/list/spawnpoints = list() //List of the available spawnpoints by spawnpoint type
 		// -> type 1 -> spawnpoint 1

@@ -175,7 +175,7 @@
 	path = /obj/item/clothing/head/helmet/security/skrell
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
-	allowed_roles = list("Head of Security", "Warden", "Security Officer", "Investigator", "Head of Personnel", "Captain")
+	allowed_roles = list("Head of Security", "Warden", "Security Officer", "Investigator", "Executive Officer", "Captain")
 
 /*
 	Skrellian Social Score
@@ -277,3 +277,39 @@ datum/gear_tweak/social_credit/tweak_item(var/obj/item/clothing/accessory/badge/
 	workcloak["oqi cloak"] = /obj/item/clothing/accessory/poncho/shouldercape/cloak/oqi
 	workcloak["iqi cloak"] = /obj/item/clothing/accessory/poncho/shouldercape/cloak/iqi
 	gear_tweaks += new /datum/gear_tweak/path(workcloak)
+
+/datum/gear/accessory/skrell/tees
+	display_name = "skrellian wetshirts"
+	path = /obj/item/clothing/accessory/tshirt/skrell
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	sort_category = "Xenowear - Skrell"
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/skrell/tees/New()
+	..()
+	var/list/tees = list()
+	tees["ocean wetshirt"] = /obj/item/clothing/accessory/tshirt/skrell/ocean
+	tees["maelstrom wetshirt"] = /obj/item/clothing/accessory/tshirt/skrell/maelstrom
+	tees["reef wetshirt"] = /obj/item/clothing/accessory/tshirt/skrell/reef
+	tees["pink eriuyushi nebula shirt"] = /obj/item/clothing/accessory/tshirt/skrell/nebula
+	tees["purple eriuyushi nebula shirt"] = /obj/item/clothing/accessory/tshirt/skrell/nebula/purple
+	tees["teal eriuyushi nebula shirt"] = /obj/item/clothing/accessory/tshirt/skrell/nebula/teal
+	tees["black eriuyushi nebula shirt"] = /obj/item/clothing/accessory/tshirt/skrell/nebula/black
+	tees["white eriuyushi nebula shirt"] = /obj/item/clothing/accessory/tshirt/skrell/nebula/white
+	tees["jargon eriuyushi nebula shirt"] = /obj/item/clothing/accessory/tshirt/skrell/nebula/jargon
+	gear_tweaks += new /datum/gear_tweak/path(tees)
+
+/datum/gear/accessory/skrell/dress
+	display_name = "skrellian formal wetshirts"
+	path = /obj/item/clothing/accessory/dressshirt/skrell
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	sort_category = "Xenowear - Skrell"
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/skrell/dress/New()
+	..()
+	var/list/dress = list()
+	dress["ocean formal wetshirt"] = /obj/item/clothing/accessory/dressshirt/skrell/ocean
+	dress["maelstrom formal wetshirt"] = /obj/item/clothing/accessory/dressshirt/skrell/maelstrom
+	dress["reef formal wetshirt"] = /obj/item/clothing/accessory/dressshirt/skrell/reef
+	gear_tweaks += new /datum/gear_tweak/path(dress)

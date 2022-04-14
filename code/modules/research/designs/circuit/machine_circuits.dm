@@ -241,3 +241,8 @@
 	name = "Slime Extractor"
 	req_tech = list(TECH_BIO = 2, TECH_ENGINEERING = 1, TECH_BLUESPACE = 1)
 	build_path = /obj/item/circuitboard/slime_extractor
+
+/datum/design/circuit/machine/iv_drip
+	name = "IV drip"
+	req_tech = list(TECH_DATA = 1, TECH_BIO = 2)
+	build_path = /obj/item/circuitboard/iv_drip

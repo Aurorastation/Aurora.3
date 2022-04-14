@@ -1,3 +1,4 @@
+var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 #define SHIP_MOVE_RESOLUTION 0.00001
 #define MOVING(speed) abs(speed) >= min_speed
 #define SANITIZE_SPEED(speed) SIGN(speed) * Clamp(abs(speed), 0, max_speed)
@@ -21,18 +22,21 @@
 	var/min_speed = 1/(2 MINUTES)       // Below this, we round speed to 0 to avoid math errors.
 
 	var/list/speed = list(0,0)          //speed in x,y direction
-	var/last_burn = 0                   //worldtime when ship last acceleated
-	var/burn_delay = 1 SECOND           //how often ship can do burns
-	var/list/last_movement = list(0,0)  //worldtime when ship last moved in x,y direction
-	var/fore_dir = NORTH                //what dir ship flies towards for purpose of moving stars effect procs
+	var/list/position = list(0,0)       // position within a tile.
+	var/last_burn = 0                   // worldtime when ship last acceleated
+	var/burn_delay = 1 SECOND           // how often ship can do burns
+	var/fore_dir = NORTH                // what dir ship flies towards for purpose of moving stars effect procs
 
 	var/list/engines = list()
 	var/engines_state = 0 //global on/off toggle for all engines
 	var/thrust_limit = 1  //global thrust limit for all engines, 0..1
 	var/halted = 0        //admin halt or other stop.
 
+	var/list/consoles
+
 /obj/effect/overmap/visitable/ship/Initialize()
 	. = ..()
+	glide_size = world.icon_size
 	min_speed = round(min_speed, SHIP_MOVE_RESOLUTION)
 	max_speed = round(max_speed, SHIP_MOVE_RESOLUTION)
 	SSshuttle.ships += src
@@ -41,6 +45,14 @@
 /obj/effect/overmap/visitable/ship/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	SSshuttle.ships -= src
+
+	for(var/obj/machinery/computer/ship/S in SSmachinery.all_machines)
+		if(S.linked == src)
+			S.linked = null
+	for(var/obj/machinery/hologram/holopad/H as anything in SSmachinery.all_holopads)
+		if(H.linked == src)
+			H.linked = null
+
 	. = ..()
 
 /obj/effect/overmap/visitable/ship/relaymove(mob/user, direction, accel_limit)
@@ -131,22 +143,38 @@
 /obj/effect/overmap/visitable/ship/process()
 	if(!halted && !is_still())
 		var/list/deltas = list(0,0)
-		for(var/i=1, i<=2, i++)
-			if(MOVING(speed[i]) && world.time > last_movement[i] + 1/abs(speed[i]))
-				deltas[i] = SIGN(speed[i])
-				last_movement[i] = world.time
+		for(var/i = 1 to 2)
+			if(MOVING(speed[i]))
+				position[i] += speed[i] * OVERMAP_SPEED_CONSTANT
+				if(position[i] < 0)
+					deltas[i] = CEILING(position[i], 1)
+				else if(position[i] > 0)
+					deltas[i] = Floor(position[i])
+				if(deltas[i] != 0)
+					position[i] -= deltas[i]
+					position[i] += (deltas[i] > 0) ? -1 : 1
+
+		update_icon()
 		var/turf/newloc = locate(x + deltas[1], y + deltas[2], z)
-		if(newloc)
+		if(newloc && loc != newloc)
 			Move(newloc)
 			handle_wraparound()
-		update_icon()
 
 /obj/effect/overmap/visitable/ship/update_icon()
+	pixel_x = position[1] * (world.icon_size/2)
+	pixel_y = position[2] * (world.icon_size/2)
 	if(!is_still())
 		icon_state = moving_state
 		dir = get_heading()
 	else
 		icon_state = initial(icon_state)
+	for(var/obj/machinery/computer/ship/machine in consoles)
+		if(machine.z in map_z)
+			for(var/datum/weakref/W in machine.viewers)
+				var/mob/M = W.resolve()
+				if(istype(M) && M.client)
+					M.client.pixel_x = pixel_x
+					M.client.pixel_y = pixel_y
 	..()
 
 /obj/effect/overmap/visitable/ship/proc/burn()
@@ -168,12 +196,12 @@
 //deciseconds to next step
 /obj/effect/overmap/visitable/ship/proc/ETA()
 	. = INFINITY
-	for(var/i=1, i<=2, i++)
+	for(var/i = 1 to 2)
 		if(MOVING(speed[i]))
-			. = min(last_movement[i] - world.time + 1/abs(speed[i]), .)
+			. = min(., ((speed[i] > 0 ? 1 : -1) - position[i]) / speed[i])
 	if(. == INFINITY)
 		. = 0
-	. = max(.,0)
+	. = max(CEILING(., 1),0)
 
 /obj/effect/overmap/visitable/ship/proc/handle_wraparound()
 	var/nx = x
@@ -213,6 +241,8 @@
 	..()
 	for(var/obj/machinery/computer/ship/S in SSmachinery.all_machines)
 		S.attempt_hook_up(src)
+	for(var/obj/machinery/hologram/holopad/H as anything in SSmachinery.all_holopads)
+		H.attempt_hook_up(src)
 	for(var/datum/ship_engine/E in ship_engines)
 		if(check_ownership(E.holder))
 			engines |= E

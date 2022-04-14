@@ -73,8 +73,25 @@
 	canSmoothWith = null
 
 /turf/simulated/wall/shuttle/dark/cardinal
-	smooth = SMOOTH_TRUE
+	smooth = SMOOTH_MORE
+	canSmoothWith = list(
+		/turf/simulated/wall/shuttle/dark,
+		/obj/structure/shuttle_part/dark
+	)
+
+/turf/simulated/wall/shuttle/dark/long_diagonal_2
+	name = "test diagonal"
+	icon = 'icons/turf/smooth/shuttle_wall_dark.dmi'
+	icon_state = "d2-we-1"
+	use_set_icon_state = TRUE
+	smooth = null
 	canSmoothWith = null
+
+/obj/structure/shuttle_part/dark
+	name = "spaceship alloy wall"
+	icon = 'icons/turf/smooth/shuttle_wall_dark.dmi'
+	icon_state = "d2-we-1"
+	outside_part = FALSE
 
 /turf/simulated/wall/shuttle/dark/corner
 	icon = 'icons/turf/shuttle.dmi'
@@ -171,6 +188,19 @@
 
 /turf/simulated/wall/shuttle/scc/cardinal
 	smooth = SMOOTH_MORE
+
+/turf/simulated/wall/shuttle/space_ship
+	icon = 'icons/turf/smooth/generic_shuttle.dmi'
+
+/turf/simulated/wall/shuttle/space_ship/cardinal
+	smooth = SMOOTH_MORE
+
+/turf/simulated/wall/shuttle/space_ship/mercenary
+	color = "#5b5b5b"
+
+/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal
+	smooth = SMOOTH_MORE
+	color = "#5b5b5b"
 
 //--Unique Shuttles--//
 

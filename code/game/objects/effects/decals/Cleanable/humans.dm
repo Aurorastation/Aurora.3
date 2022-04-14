@@ -19,6 +19,7 @@
 	var/amount = 5
 	var/drytime
 	var/dries = TRUE
+	var/bleed_time
 
 /obj/effect/decal/cleanable/blood/no_dry
 	dries = FALSE
@@ -53,10 +54,15 @@
 						blood_DNA |= B.blood_DNA.Copy()
 					qdel(B)
 	drytime = DRYING_TIME * (amount+1)
-	if (dries && !mapload)
-		addtimer(CALLBACK(src, /obj/effect/decal/cleanable/blood/.proc/dry), drytime)
-	else if (dries)
-		dry()
+	bleed_time = world.time
+	if (dries)
+		animate(src, color = "#000000", time = drytime, loop = 0, flags = ANIMATION_RELATIVE)
+
+/obj/effect/decal/cleanable/blood/examine()
+	if(dries && world.time > (bleed_time + drytime))
+		name = dryname
+		desc = drydesc
+	. = ..()
 
 /obj/effect/decal/cleanable/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/gun/energy/rifle/cult))
@@ -70,6 +76,8 @@
 /obj/effect/decal/cleanable/blood/Crossed(mob/living/carbon/human/perp)
 	if (!istype(perp))
 		return
+	if(dries && world.time > (bleed_time + drytime))
+		amount = 0
 	if(amount < 1)
 		return
 
@@ -115,14 +123,10 @@
 	if(amount > 2 && prob(perp.slip_chance(perp.m_intent == M_RUN ? 20 : 5)))
 		perp.slip(src, 4)
 
-/obj/effect/decal/cleanable/blood/proc/dry()
-	name = dryname
-	desc = drydesc
-	color = adjust_brightness(color, -50)
-	amount = 0
-
 /obj/effect/decal/cleanable/blood/attack_hand(mob/living/carbon/human/user)
 	..()
+	if(dries && world.time > (bleed_time + drytime))
+		amount = 0
 	if (amount && istype(user))
 		add_fingerprint(user)
 		if (user.gloves)
@@ -254,11 +258,7 @@
 	random_icon_states = null
 
 	var/list/datum/disease2/disease/virus2 = list()
-	var/dry = 0 // Keeps the lag down
 
 /obj/effect/decal/cleanable/mucus/Initialize()
 	. = ..()
-	addtimer(CALLBACK(src, .proc/dry), DRYING_TIME * 2)
-
-/obj/effect/decal/cleanable/mucus/proc/dry()
-	dry = TRUE
+	animate(src, color = "#000000", time = DRYING_TIME * 2, loop = 0, flags = ANIMATION_RELATIVE)

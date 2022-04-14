@@ -168,9 +168,9 @@
 	var/minimum_temperature_difference = 300
 	var/thermal_conductivity = 0 //WALL_HEAT_TRANSFER_COEFFICIENT No
 
-	var/maximum_pressure = 70*ONE_ATMOSPHERE
-	var/fatigue_pressure = 55*ONE_ATMOSPHERE
-	alert_pressure = 55*ONE_ATMOSPHERE
+	var/maximum_pressure = ATMOS_DEFAULT_MAX_PRESSURE
+	var/fatigue_pressure = ATMOS_DEFAULT_FATIGUE_PRESSURE
+	alert_pressure = ATMOS_DEFAULT_ALERT_PRESSURE
 
 	level = 1
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
@@ -190,9 +190,9 @@
 	alpha = 255
 
 	switch(dir)
-		if(SOUTH || NORTH)
+		if(SOUTH, NORTH)
 			initialize_directions = SOUTH|NORTH
-		if(EAST || WEST)
+		if(EAST, WEST)
 			initialize_directions = EAST|WEST
 		if(NORTHEAST)
 			initialize_directions = NORTH|EAST
@@ -379,6 +379,8 @@
 /obj/machinery/atmospherics/pipe/simple/visible/blue
 	color = PIPE_COLOR_BLUE
 
+/obj/machinery/atmospherics/pipe/simple/visible/purple
+	color = PIPE_COLOR_PURPLE
 
 /obj/machinery/atmospherics/pipe/simple/hidden
 	icon_state = "intact"
@@ -424,6 +426,9 @@
 
 /obj/machinery/atmospherics/pipe/simple/hidden/blue
 	color = PIPE_COLOR_BLUE
+
+/obj/machinery/atmospherics/pipe/simple/hidden/purple
+	color = PIPE_COLOR_PURPLE
 
 /obj/machinery/atmospherics/pipe/simple/insulated
 	desc_info = "This is completely useless, use a normal pipe."
@@ -670,6 +675,8 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/blue
 	color = PIPE_COLOR_BLUE
 
+/obj/machinery/atmospherics/pipe/manifold/visible/purple
+	color = PIPE_COLOR_PURPLE
 
 /obj/machinery/atmospherics/pipe/manifold/hidden
 	icon_state = "map"
@@ -715,6 +722,9 @@
 
 /obj/machinery/atmospherics/pipe/manifold/hidden/blue
 	color = PIPE_COLOR_BLUE
+
+/obj/machinery/atmospherics/pipe/manifold/hidden/purple
+	color = PIPE_COLOR_PURPLE
 
 /obj/machinery/atmospherics/pipe/manifold4w
 	name = "4-way pipe manifold"
@@ -949,6 +959,9 @@
 /obj/machinery/atmospherics/pipe/manifold4w/visible/blue
 	color = PIPE_COLOR_BLUE
 
+/obj/machinery/atmospherics/pipe/manifold4w/visible/purple
+	color = PIPE_COLOR_PURPLE
+
 /obj/machinery/atmospherics/pipe/manifold4w/hidden
 	icon_state = "map_4way"
 	level = 1
@@ -993,6 +1006,9 @@
 
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/blue
 	color = PIPE_COLOR_BLUE
+
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/purple
+	color = PIPE_COLOR_PURPLE
 
 /obj/machinery/atmospherics/pipe/cap
 	name = "pipe endcap"

@@ -51,7 +51,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			for(var/mob/abstract/new_player/player in player_list)
 				totalPlayers++
 				if(player.ready)
-					stat("[copytext_char(player.client.prefs.real_name, 1, 18)]", ("[player.client.prefs.return_chosen_high_job(TRUE)]"))
+					var/job_ready = player.client.prefs.return_chosen_high_job(TRUE)
+					stat("[copytext_char(player.client.prefs.real_name, 1, 18)]", job_ready ? "[job_ready]" : "N/A")
 					totalPlayersReady++
 
 /mob/abstract/new_player/Topic(href, href_list[])
@@ -213,7 +214,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			return FALSE
 
 	var/datum/faction/faction = SSjobs.name_factions[client.prefs.faction] || SSjobs.default_faction
-	if (!(job.type in faction.allowed_role_types))
+	var/list/faction_allowed_roles = unpacklist(faction.allowed_role_types)
+	if (!(job.type in faction_allowed_roles))
 		return FALSE
 
 	if(!(client.prefs.GetPlayerAltTitle(job) in client.prefs.GetValidTitles(job))) // does age/species check for us!

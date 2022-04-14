@@ -10,8 +10,8 @@
 	desc = "An armband, worn by the crew to display which department they're assigned to. This one is navy blue."
 	icon_state = "sec"
 
-/obj/item/clothing/accessory/armband/cargo
-	name = "cargo armband"
+/obj/item/clothing/accessory/armband/operations
+	name = "operations armband"
 	desc = "An armband, worn by the crew to display which department they're assigned to. This one is brown."
 	icon_state = "cargo"
 
