@@ -1,0 +1,6 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - backend: "Optimized lighting updates, primarily in initialization."
