@@ -23852,10 +23852,9 @@
 	pixel_x = 5;
 	pixel_y = 13
 	},
-/obj/item/stamp{
+/obj/item/stamp/op{
 	pixel_x = -5;
-	pixel_y = 13;
-	name = "Operation Manager's stamp"
+	pixel_y = 13
 	},
 /obj/machinery/requests_console{
 	department = "Supply Manager";
@@ -36980,9 +36979,7 @@
 /obj/structure/table/standard,
 /obj/item/book/manual/wiki/security_space_law,
 /obj/item/folder/sec,
-/obj/item/stamp{
-	name = "warden's rubber stamp"
-	},
+/obj/item/stamp/warden,
 /obj/machinery/firealarm/south{
 	pixel_x = -32
 	},
