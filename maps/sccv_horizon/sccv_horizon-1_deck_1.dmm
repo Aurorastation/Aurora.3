@@ -7407,8 +7407,7 @@
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "gxS" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/reagent_dispensers/fueltank,
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/dark,
 /area/operations/lower/machinist)
 "gya" = (
@@ -26893,6 +26892,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled/dark,
 /area/operations/lower/machinist)
 "yiT" = (
