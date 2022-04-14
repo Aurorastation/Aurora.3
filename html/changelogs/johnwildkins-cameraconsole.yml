@@ -1,7 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "Camera consoles can now be used while buckled in non-office chairs, and should reset view properly when no longer in use."
-  - tweak: "Computer UIs will now close for cyborgs if they move beyond visual range. (They already disabled interaction in the past.)"
