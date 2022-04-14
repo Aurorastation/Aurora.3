@@ -62,11 +62,11 @@
 		<br>
 		<br><b>DIGITAL ARREST WARRANT</b></center>
 		<hr>
-		<b>Facility:</b>__<u>[current_map.station_name]</u>__<b>Date:</b>__<u>[worlddate2text()]__</u>
+		<b>Facility:</b>__<u>SCCV Horizon</u>__<b>Date:</b>__<u>[worlddate2text()]__</u>
 		<br>
 		<br><small><i>This document serves as a notice and permits the sanctioned arrest of
-		the denoted employee of the NanoTrasen Civilian Branch of Operation by the
-		Security Department of the denoted facility. </br>
+		the denoted employee of the SCC Civilian Branch of Operation by the
+		Security Department of the denoted vessel. </br>
 		In accordance with Corporate Regulations, the denoted employee must be presented with a signed and stamped or
 		digitally authorized warrant before the actions entailed can be conducted legally. </br>
 		The Suspect/Department staff are expected to offer full co-operation.</br>
