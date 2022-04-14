@@ -1,0 +1,7 @@
+author: FlamingLily
+
+delete-after: True
+
+changes:
+  - maptweak: "Disconnected the service and security subgrids from each other."
+  - maptweak: "Made the downwards cable to the freezer go through a catwalk, instead of solid floor."
