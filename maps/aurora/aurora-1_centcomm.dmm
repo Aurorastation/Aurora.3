@@ -23368,7 +23368,7 @@
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "kYI" = (
-/obj/machinery/teleport/station,
+/obj/item/modular_computer/console/preset/command/teleporter,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},

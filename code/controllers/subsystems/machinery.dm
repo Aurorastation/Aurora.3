@@ -19,6 +19,7 @@
 	var/tmp/powerusers_this_tick = 0
 
 	var/list/all_cameras = list()
+	var/list/obj/machinery/hologram/holopad/all_holopads = list()
 	var/list/all_status_displays = list()	// Note: This contains both ai_status_display and status_display.
 	var/list/gravity_generators = list()
 
@@ -32,6 +33,7 @@
 
 /datum/controller/subsystem/machinery/Recover()
 	all_cameras = SSmachinery.all_cameras
+	all_holopads = SSmachinery.all_holopads
 	recipe_datums = SSmachinery.recipe_datums
 
 /datum/controller/subsystem/machinery/proc/queue_rcon_update()

@@ -42,6 +42,11 @@
 	icon_state = "brig_proc"
 	no_light_control = 0
 
+/area/security/brig/processing_secondary
+	name = "Security - Brig Secondary Processing"
+	icon_state = "brig_proc_two"
+	no_light_control = 0
+
 /area/security/prison
 	name = "Security - Prison Wing"
 	lightswitch = TRUE

@@ -165,6 +165,7 @@
 	SearchVar(latejoin_cryo)
 	SearchVar(latejoin_cyborg)
 	SearchVar(latejoin_merchant)
+	SearchVar(latejoin_living_quarters_lift)
 	SearchVar(kickoffsloc)
 	SearchVar(prisonwarp)
 	SearchVar(holdingfacility)

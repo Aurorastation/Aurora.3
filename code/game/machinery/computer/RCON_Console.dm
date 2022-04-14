@@ -8,8 +8,8 @@
 	name = "\improper RCON console"
 	desc = "Console used to remotely control machinery on the station."
 
-	icon_screen = "ai-fixer"
-	light_color = "#a97faa"
+	icon_screen = "engi"
+	light_color = "#ffcc33"
 	circuit = /obj/item/circuitboard/rcon_console
 	req_one_access = list(access_engine)
 	var/current_tag = null
@@ -40,4 +40,4 @@
 /obj/machinery/computer/rcon/update_icon()
 	..()
 	if(is_operable())
-		holographic_overlay(src, src.icon, "ai-fixer-empty")
+		holographic_overlay(src, src.icon, "engi_alarm_off")

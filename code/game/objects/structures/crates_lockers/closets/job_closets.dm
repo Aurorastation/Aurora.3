@@ -43,7 +43,6 @@
 	icon_closed = "black"
 
 /obj/structure/closet/chefcloset/fill()
-	new /obj/item/clothing/under/sundress(src)
 	new /obj/item/clothing/under/waiter(src)
 	new /obj/item/clothing/under/waiter(src)
 	if(prob(1))
@@ -52,8 +51,10 @@
 	new /obj/item/device/radio/headset/headset_service(src)
 	new /obj/item/storage/box/gloves(src)
 	new /obj/item/storage/box/mousetraps(src)
-	new /obj/item/clothing/under/rank/chef(src)
-	new /obj/item/clothing/head/chefhat(src)
+	new /obj/item/clothing/under/rank/chef/nt(src)
+	new /obj/item/clothing/under/rank/chef/idris(src)
+	new /obj/item/clothing/head/chefhat/nt(src)
+	new /obj/item/clothing/head/chefhat/idris(src)
 	new /obj/item/clothing/head/surgery/hairnet(src)
 	new /obj/item/clothing/head/surgery/hairnet(src)
 
@@ -68,7 +69,8 @@
 	icon_opened = "janitorialopen"
 
 /obj/structure/closet/jcloset/fill()
-	new /obj/item/clothing/under/rank/janitor(src)
+	new /obj/item/clothing/under/rank/janitor/nt(src)
+	new /obj/item/clothing/under/rank/janitor/idris(src)
 	new /obj/item/device/radio/headset/headset_service(src)
 	new /obj/item/clothing/gloves/black(src)
 	new /obj/item/clothing/head/softcap/janitor(src)

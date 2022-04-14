@@ -544,6 +544,8 @@
 	t = replacetext(t, "\[logo_eridani\]", "<img src = eridanilogo.png>")
 	t = replacetext(t, "\[logo_zavod\]", "<img src = zavodlogo.png>")
 	t = replacetext(t, "\[logo_hp\]", "<img src = hplogo.png>")
+	t = replacetext(t, "\[logo_orion\]", "<img src = orionlogo.png>")
+	t = replacetext(t, "\[logo_pmcg\]", "<img src = pmcglogo.png>")
 	t = replacetext(t, "\[flag_be\]", "<img src = beflag.png>")
 	t = replacetext(t, "\[flag_elyra\]", "<img src = elyraflag.png>")
 	t = replacetext(t, "\[flag_sol\]", "<img src = solflag.png>")

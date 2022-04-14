@@ -269,14 +269,14 @@ LINEN BINS
 	icon_state = "sheetcmo"
 	item_state = "sheetcmo"
 
-/obj/item/bedsheet/qm
-	name = "quartermaster's bedsheet"
+/obj/item/bedsheet/operation_manager
+	name = "operation manager's bedsheet"
 	desc = "It is decorated with a crate emblem in silver lining.  It's rather tough, and just the thing to lie on after a hard day of pushing paper."
 	icon_state = "sheetqm"
 	item_state = "sheetqm"
 
-/obj/item/bedsheet/hop
-	name = "head of personnel's bedsheet"
+/obj/item/bedsheet/xo
+	name = "executive officer's bedsheet"
 	desc = "It is decorated with a key emblem. For those rare moments when you can rest and cuddle with Ian without someone screaming for you over the radio."
 	icon_state = "sheethop"
 	item_state = "sheethop"
