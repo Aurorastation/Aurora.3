@@ -3,6 +3,7 @@
 	icon_state = "empty"
 	anchored = 1
 	var/cult = 0
+	req_access = list(access_bar) //Has to initalize at first, this is updated by instance's req_access
 
 /obj/structure/sign/double/barsign/proc/get_valid_states(initial=1)
 	. = icon_states(icon)
@@ -34,7 +35,7 @@
 
 	var/obj/item/card/id/card = I.GetID()
 	if(istype(card))
-		if(access_bar in card.GetAccess())
+		if(check_access(card))
 			var/sign_type = input(user, "What would you like to change the barsign to?") as null|anything in get_valid_states(0)
 			if(!sign_type)
 				return

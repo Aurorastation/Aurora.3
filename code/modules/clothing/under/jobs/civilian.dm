@@ -345,9 +345,9 @@
 /obj/item/clothing/under/rank/machinist
 	name = "machinist's jumpsuit"
 	desc = "A practical uniform designed for industrial work."
-	icon_state = "hop"
+	icon_state = "mechanic"
 	item_state = "b_suit"
-	worn_state = "hop"
+	worn_state = "mechanic"
 
 /obj/item/clothing/under/rank/machinist/heph
 	icon = 'icons/obj/contained_items/department_uniforms/operations.dmi'
