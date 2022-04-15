@@ -1,0 +1,6 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "Carnivorous and weedy plants now properly check for nearby mobs to entangle and stab."
