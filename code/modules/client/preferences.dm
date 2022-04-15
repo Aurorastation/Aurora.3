@@ -91,8 +91,8 @@ datum/preferences
 	var/religion = "None"               //Religious association.
 	var/accent = "None"               //Character accent.
 
-	var/culture = /decl/origin_item/culture/biesel
-	var/origin = /decl/origin_item/origin/mendell_city
+	var/culture
+	var/origin
 
 	var/list/char_render_holders		//Should only be a key-value list of north/south/east/west = obj/screen.
 	var/static/list/preview_screen_locs = list(
@@ -464,6 +464,8 @@ datum/preferences
 	character.employer_faction = faction
 	character.religion = religion
 	character.accent = accent
+	character.origin = decls_repository.get_decl(text2path(origin))
+	character.culture = decls_repository.get_decl(text2path(culture))
 
 	character.skills = skills
 	character.used_skillpoints = used_skillpoints

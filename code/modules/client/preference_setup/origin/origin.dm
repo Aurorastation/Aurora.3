@@ -1,3 +1,7 @@
+/mob/living/carbon/human
+	var/decl/origin_item/culture/culture
+	var/decl/origin_item/origin/origin
+
 /datum/category_item/player_setup_item/origin
 	name = "Origin"
 	sort_order = 1
@@ -66,9 +70,18 @@
 /datum/category_item/player_setup_item/origin/sanitize_character(var/sql_load = 0)
 	var/datum/species/S = all_species[pref.species]
 	var/decl/origin_item/CI = S.get_default_culture()
-	pref.culture = CI.type
-	var/decl/origin_item/OI = S.get_default_origin(CI)
-	pref.origin = OI.type
+	if(!istext(pref.culture))
+		pref.culture = "[CI]"
+	var/decl/origin_item/culture/our_culture = decls_repository.get_decl(text2path(pref.culture))
+	if(!istext(pref.origin))
+		var/decl/origin_item/OI = S.get_default_origin(CI)
+		pref.origin = "[OI]"
+	else
+		var/decl/origin_item/origin/origin_check = text2path(pref.origin)
+		if(!origin_check in our_culture.possible_origins)
+			to_client_chat(SPAN_WARNING("Your origin has been reset due to it being incompatible with your culture!"))
+			var/decl/origin_item/OI = S.get_default_origin(CI)
+			pref.origin = "[OI]"
 	if(!pref.citizenship)
 		pref.citizenship = S.default_citizenship
 	if(!pref.religion)
@@ -85,8 +98,8 @@
 	if(SSrecords.init_state != SS_INITSTATE_DONE)
 		return "<center><large>Records controller not initialized yet. Please wait a bit and reload this section.</large></center>"
 	var/list/dat = list()
-	var/decl/origin_item/culture/CL = decls_repository.get_decl(pref.culture)
-	var/decl/origin_item/origin/OR = decls_repository.get_decl(pref.origin)
+	var/decl/origin_item/culture/CL = decls_repository.get_decl(text2path(pref.culture))
+	var/decl/origin_item/origin/OR = decls_repository.get_decl(text2path(pref.origin))
 	dat += "<b>Culture: </b><a href='?src=\ref[src];open_culture_menu=1'>[CL.name]</a><br>"
 	dat += "<i>- [CL.desc]</i><hr>"
 	dat += "<b>Origin: </b><a href='?src=\ref[src];open_origin_menu=1'>[OR.name]</a><br>"
@@ -112,21 +125,25 @@
 
 	if(href_list["open_origin_menu"])
 		var/list/options = list()
-		var/decl/origin_item/culture/our_culture = decls_repository.get_decl(pref.culture) //plutonians be like
+		var/decl/origin_item/culture/our_culture = decls_repository.get_decl(text2path(pref.culture)) //plutonians be like
 		var/list/decl/origin_item/origin/origins_list = decls_repository.get_decls(our_culture.possible_origins)
 		for(var/decl_type in origins_list)
 			var/decl/origin_item/origin/OR = origins_list[decl_type]
 			options[OR.name] = OR
 		var/result = input(user, "Choose your character's origin.", "Origins") as null|anything in options
 		var/decl/origin_item/origin/chosen_origin = options[result]
-		show_window(chosen_origin, "set_origin_data", user)
+		if(chosen_origin)
+			show_window(chosen_origin, "set_origin_data", user)
 		return TOPIC_REFRESH
 
 	if(href_list["set_culture_data"])
 		pref.culture = html_decode(href_list["set_culture_data"])
+		return TOPIC_REFRESH
 
 	if(href_list["set_origin_data"])
 		pref.origin = html_decode(href_list["set_origin_data"])
+		sanitize_character()
+		return TOPIC_REFRESH
 
 	if(href_list["economic_status"])
 		var/new_status = input(user, "Choose how wealthy your character is. Note that this applies a multiplier to a value that is also affected by your species and job.", "Character Preference", pref.economic_status)  as null|anything in ECONOMIC_POSITIONS
