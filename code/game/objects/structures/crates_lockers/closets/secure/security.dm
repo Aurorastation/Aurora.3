@@ -355,7 +355,7 @@
 	name = "bridge crew's locker"
 	req_access = list(access_bridge_crew)
 	icon_state = "sec"
-	icon_door = "hop_door
+	icon_door = "hop_door"
 
 /obj/structure/closet/secure_closet/bridge_crew/fill()
 	..()
@@ -370,7 +370,7 @@
 	name = "pilot's locker"
 	req_access = list(access_bridge_crew)
 	icon_state = "sec"
-	icon_door = "hop_door
+	icon_door = "hop_door"
 
 /obj/structure/closet/secure_closet/pilot/fill()
 	..()
