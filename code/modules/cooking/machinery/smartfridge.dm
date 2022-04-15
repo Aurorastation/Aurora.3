@@ -210,7 +210,6 @@
 	return
 
 /obj/machinery/smartfridge/machinery_process()
-	update_icon()
 	if(stat & (BROKEN|NOPOWER) || !anchored)
 		seconds_electrified = 0
 		update_use_power(0)
@@ -240,9 +239,10 @@
 			thermal_energy_change = max(-active_power_usage,I.reagents.get_thermal_energy_change(r_temperature,cooling_temperature))
 		I.reagents.add_thermal_energy(thermal_energy_change)
 		use_power(active_power_usage)
+
+/obj/machinery/smartfridge/update_use_power(var/new_use_power)
+	..()
 	update_icon()
-
-
 
 /obj/machinery/smartfridge/power_change()
 	var/old_stat = stat
