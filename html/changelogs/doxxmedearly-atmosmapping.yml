@@ -8,3 +8,4 @@ changes:
   - bugfix: "Removed some duplicated pipes in atmos."
   - bugfix: "The pump that supplies air to the station now begins the round turned on. Seems important."
   - bugfix: "Large gas tank monitors should no longer report the gas temperature as a percentage."
+  - bugfix: "Made the gas room of the starboard-side thrusters airless, to match the port side."

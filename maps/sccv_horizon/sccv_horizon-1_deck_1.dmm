@@ -3845,7 +3845,7 @@
 	id = "starboard_prop_igni";
 	pixel_x = -16
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/propulsion/starboard)
 "dDq" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -5021,7 +5021,7 @@
 	id_tag = "starboard_prop_sensor";
 	output = 31
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/propulsion/starboard)
 "eDV" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
@@ -6875,7 +6875,7 @@
 /area/hangar/control)
 "gal" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/propulsion/starboard)
 "gaC" = (
 /obj/structure/window/shuttle/scc_space_ship,
@@ -8397,7 +8397,7 @@
 	id = "starboard_prop_in";
 	tag = "starboard_prop_in"
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/propulsion/starboard)
 "hqV" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
@@ -9684,7 +9684,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 5
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/propulsion/starboard)
 "iCZ" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -22989,7 +22989,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/propulsion/starboard)
 "uQa" = (
 /obj/effect/decal/cleanable/dirt,
@@ -23207,7 +23207,7 @@
 	frequency = 1442;
 	id_tag = "starboard_prop_out"
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/propulsion/starboard)
 "vai" = (
 /obj/effect/floor_decal/industrial/outline,
@@ -23773,7 +23773,7 @@
 /obj/machinery/door/blast/regular{
 	id = "exteriorpropulsionstarboard"
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/propulsion/starboard)
 "vyK" = (
 /obj/effect/floor_decal/corner_wide/purple{
