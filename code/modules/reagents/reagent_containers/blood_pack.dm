@@ -163,7 +163,7 @@
 		if (REAGENT_VOLUME(reagents, /decl/reagent/blood) && name != "empty blood pack") //Stops people mucking with bloodpacks that are filled
 			to_chat(usr, "<span class='notice'>You can't relabel [name] until it is empty!</span>")
 			return
-		var/blood_name = input(usr, "What blood type would you like to label it as?", "Blood Types") in list("A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-", "Cancel")
+		var/blood_name = input(usr, "What blood type would you like to label it as?", "Blood Types") in list("A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-", Saline Plus "Cancel")
 		if (blood_name == "Cancel") return
 		var/obj/item/i = usr.get_active_hand()
 		if (!i.ispen() || !in_range(user, src)) return //Checks to see if pen is still held or bloodback is in range
