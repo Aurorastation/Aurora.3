@@ -1,9 +1,7 @@
-#define TAG_CULTURE "Culture"
-#define TAG_ORIGIN "Origin"
-
 /decl/origin_item
     var/name = "generic origin item"
     var/desc = "You shouldn't be seeing this."
+    var/important_information //Big red text. Should only be used if not following it would incur a bwoink.
 
 /decl/origin_item/culture
     name = "generic culture"

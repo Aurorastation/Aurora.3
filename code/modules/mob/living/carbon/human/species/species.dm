@@ -267,9 +267,7 @@
 	var/default_g_style = "None"
 
 	var/list/origins_data = list(
-		TAG_CULTURE = list(
-			/decl/origin_item/culture/biesel
-		)
+		/decl/origin_item/culture/biesel
 	)
 
 	var/list/allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI, CITIZENSHIP_DOMINIA)
@@ -836,7 +834,7 @@
 
 //Mostly sanitization helpers.
 /datum/species/proc/get_default_culture()
-	var/list/possible_cultures = origins_data[TAG_CULTURE]
+	var/list/possible_cultures = origins_data
 	return pick(possible_cultures)
 
 /datum/species/proc/get_default_origin(var/culture_path)

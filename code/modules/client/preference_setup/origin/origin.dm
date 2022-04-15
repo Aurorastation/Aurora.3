@@ -102,8 +102,13 @@
 	var/decl/origin_item/origin/OR = decls_repository.get_decl(text2path(pref.origin))
 	dat += "<b>Culture: </b><a href='?src=\ref[src];open_culture_menu=1'>[CL.name]</a><br>"
 	dat += "<i>- [CL.desc]</i><hr>"
+	if(CL.important_information)
+		dat += "<i>- <span class='danger'>[CL.important_information]</span></i>"
 	dat += "<b>Origin: </b><a href='?src=\ref[src];open_origin_menu=1'>[OR.name]</a><br>"
-	dat += "<i>- [OR.desc]</i><hr>"
+	dat += "<i>- [OR.desc]</i>"
+	if(OR.important_information)
+		dat += "<i>- <span class='danger'>[OR.important_information]</span></i>"
+	dat += "<hr>"
 	dat += "<b>Economic Status:</b> <a href='?src=\ref[src];economic_status=1'>[pref.economic_status]</a><br/>"
 	dat += "<b>Citizenship:</b> <a href='?src=\ref[src];citizenship=1'>[pref.citizenship]</a><br/>"
 	dat += "<b>Religion:</b> <a href='?src=\ref[src];religion=1'>[pref.religion]</a><br/>"
@@ -114,13 +119,14 @@
 	var/datum/species/S = all_species[pref.species]
 	if(href_list["open_culture_menu"])
 		var/list/options = list()
-		var/list/possible_cultures = decls_repository.get_decls(S.origins_data[TAG_CULTURE])
+		var/list/possible_cultures = decls_repository.get_decls(S.origins_data)
 		for(var/decl_type in possible_cultures) //todomatt: delete this tag?
 			var/decl/origin_item/culture/CL = possible_cultures[decl_type]
 			options[CL.name] = CL
 		var/result = input(user, "Choose your character's culture.", "Culture") as null|anything in options
 		var/decl/origin_item/culture/chosen_culture = options[result]
-		show_window(chosen_culture, "set_culture_data", user)
+		if(chosen_culture)
+			show_window(chosen_culture, "set_culture_data", user)
 		return TOPIC_REFRESH
 
 	if(href_list["open_origin_menu"])
@@ -176,7 +182,8 @@
 		return TOPIC_REFRESH
 
 	if(href_list["accent"])
-		var/choice = input(user, "Please choose an accent.", "Character Preference", pref.accent) as null|anything in S.allowed_accents
+		var/decl/origin_item/origin/OI = decls_repository.get_decl(text2path(pref.origin))
+		var/choice = input(user, "Please choose an accent.", "Character Preference", pref.accent) as null|anything in OI.possible_accents
 		if(!choice || !CanUseTopic(user))
 			return TOPIC_NOACTION
 		show_accent_menu(user, choice)
@@ -190,7 +197,9 @@
 /datum/category_item/player_setup_item/origin/proc/show_window(var/decl/origin_item/OI, var/topic_data, var/mob/user)
 	var/datum/browser/origin_win = new(user, topic_data, "Origins Selection")
 	var/dat = "<html><center><b>[OI.name]</center></b>"
-	dat += "<hr>[OI.desc]"
+	dat += "<hr>[OI.desc]<br>"
+	if(OI.important_information)
+		dat += "<span class='danger'>[OI.important_information]</span>"
 	dat += "<br><center>\[<a href='?src=\ref[src];[topic_data]=[html_encode(OI.type)]'>Select</a>\]</center>"
 	dat += "</html>"
 	origin_win.set_content(dat)
@@ -198,7 +207,6 @@
 
 /datum/category_item/player_setup_item/origin/proc/show_citizenship_menu(mob/user, selected_citizenship)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[selected_citizenship]
-
 	if(citizenship)
 		var/datum/browser/citizen_win = new(user, "citizen_win", "Citizenship")
 		var/dat = "<html><center><b>[citizenship.name]</center></b>"
@@ -211,7 +219,6 @@
 
 /datum/category_item/player_setup_item/origin/proc/show_religion_menu(mob/user, selected_religion)
 	var/datum/religion/religion = SSrecords.religions[selected_religion]
-
 	if(religion)
 		var/datum/browser/rel_win = new(user, "rel_win", "Religion")
 		var/dat = "<center><b>[religion.name]</center></b>"
@@ -223,7 +230,6 @@
 
 /datum/category_item/player_setup_item/origin/proc/show_accent_menu(mob/user, selected_accent)
 	var/datum/accent/accent = SSrecords.accents[selected_accent]
-
 	if(accent)
 		var/datum/browser/acc_win = new(user, "acc_win", "Accent")
 		var/dat = "<html><center><b>[accent.name]</center></b>"
