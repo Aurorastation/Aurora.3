@@ -3673,9 +3673,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/maintenance/substation/command)
-"ii" = (
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/template_noop)
 "ik" = (
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 6
@@ -4867,7 +4864,7 @@
 "kZ" = (
 /obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/freezer,
-/area/template_noop)
+/area/crew_quarters/toilet)
 "la" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -35870,8 +35867,8 @@ mf
 mf
 dY
 xF
-ii
-ii
+xF
+xF
 at
 Gy
 YS
@@ -36073,7 +36070,7 @@ mH
 mH
 Wn
 kZ
-ii
+xF
 at
 Gy
 AL
@@ -36273,8 +36270,8 @@ bD
 IA
 mH
 Wj
-xF
-xF
+rq
+rq
 xF
 at
 uA
