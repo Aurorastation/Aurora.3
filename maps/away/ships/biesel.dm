@@ -47,7 +47,7 @@
 	)
 
 /obj/effect/overmap/visitable/ship/landable/tcfl_peacekeeper_ship/New()
-	name = "BLV [pick("Castle", "Rook", "Gin Rummy", "Pawn", "Checkers", "Candle", "Blackjack", "Torch", "Liberty", "President Dorn")]"
+	name = "BLV [pick("Castle", "Rook", "Gin Rummy", "Pawn", "Checkers", "Solitaire", "Blackjack", "Torch", "Liberty", "President Dorn")]"
 	..()
 
 /obj/effect/shuttle_landmark/tcfl_peacekeeper_ship/nav1
