@@ -1,0 +1,140 @@
+"ay" = (/obj/effect/decal/cleanable/blood/drip,/obj/item/ammo_casing/shotgun/pellet{projectile_type = null},/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"aM" = (/obj/effect/decal/cleanable/blood/oil,/turf/simulated/floor/tiled/asteroid/airless,/area/exoplanet/barren/asteroid)
+"aY" = (/obj/effect/map_effect/airlock/long/square/engine/reversed,/turf/simulated/wall,/area/exoplanet/barren/asteroid)
+"bM" = (/mob/living/simple_animal/hostile/rogue_drone,/turf/unsimulated/floor/asteroid/ash,/area/exoplanet/barren/asteroid)
+"bN" = (/obj/effect/floor_decal/industrial/warning{dir = 10},/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"bO" = (/obj/structure/table/wood,/obj/random/medical,/obj/random/random_flag,/turf/simulated/floor/tiled/asteroid/airless,/area/exoplanet/barren/asteroid)
+"dd" = (/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"dq" = (/obj/machinery/atmospherics/valve{dir = 4},/turf/simulated/floor/plating,/area/exoplanet/barren/asteroid)
+"dH" = (/obj/effect/floor_decal/industrial/warning{dir = 1},/turf/simulated/floor/airless,/area/space)
+"dV" = (/obj/effect/landmark/corpse/miner,/obj/effect/decal/cleanable/blood/splatter,/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"fY" = (/obj/item/ammo_casing/shotgun/pellet{projectile_type = null},/turf/simulated/floor/tiled/asteroid/airless,/area/exoplanet/barren/asteroid)
+"hT" = (/obj/structure/cable{dir = 4},/obj/item/broken_device,/turf/simulated/floor/tiled/airless,/area/exoplanet/barren/asteroid)
+"jm" = (/turf/unsimulated/floor/asteroid/ash,/area/exoplanet/barren/asteroid)
+"jA" = (/obj/machinery/portable_atmospherics/canister/air/airlock,/obj/machinery/atmospherics/portables_connector{dir = 4},/turf/simulated/floor/plating,/area/exoplanet/barren/asteroid)
+"jC" = (/obj/item/gun/projectile/pirate,/turf/simulated/floor/tiled/asteroid/airless,/area/exoplanet/barren/asteroid)
+"jN" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/tiled/airless,/area/exoplanet/barren/asteroid)
+"kp" = (/turf/simulated/mineral,/area/exoplanet/barren/asteroid)
+"le" = (/obj/random/firstaid,/turf/simulated/floor/tiled/asteroid/airless,/area/exoplanet/barren/asteroid)
+"ls" = (/obj/item/ammo_casing/shotgun/pellet{projectile_type = null},/turf/unsimulated/floor/asteroid/ash,/area/exoplanet/barren/asteroid)
+"lK" = (/obj/effect/decal/cleanable/blood/tracks/footprints,/turf/simulated/floor/tiled/asteroid/airless,/area/exoplanet/barren/asteroid)
+"lW" = (/obj/structure/mech_wreckage/powerloader,/turf/simulated/floor/tiled/asteroid/airless,/area/exoplanet/barren/asteroid)
+"mJ" = (/obj/item/ammo_casing/shotgun/pellet{projectile_type = null},/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"nu" = (/obj/effect/map_effect/wingrille_spawn/full,/turf/simulated/wall,/area/exoplanet/barren/asteroid)
+"nz" = (/obj/structure/table/rack,/obj/structure/closet/crate/drop/grey{icon_state = "dropcrate-grey-open"; opened = 1},/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"nA" = (/obj/item/material/shard,/turf/simulated/floor/tiled/asteroid/airless,/area/exoplanet/barren/asteroid)
+"nD" = (/obj/structure/table/rack,/obj/structure/closet/crate/loot,/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"qv" = (/obj/effect/floor_decal/industrial/warning{dir = 5},/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"qB" = (/obj/structure/cable{dir = 8},/obj/item/trash/broken_electronics,/turf/simulated/floor/tiled/airless,/area/exoplanet/barren/asteroid)
+"qF" = (/obj/effect/gibspawner/robot,/turf/simulated/wall,/area/exoplanet/barren/asteroid)
+"rq" = (/obj/random/junk,/obj/random/finances,/turf/unsimulated/floor/asteroid/ash,/area/exoplanet/barren/asteroid)
+"rv" = (/obj/random/document/junk,/obj/item/trash/cigbutt/cigarbutt,/turf/unsimulated/floor/asteroid/ash,/area/exoplanet/barren/asteroid)
+"rw" = (/obj/effect/decal/cleanable/blood/gibs/limb,/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"sm" = (/obj/effect/floor_decal/industrial/warning,/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"st" = (/obj/item/mecha_equipment/mounted_system/combat/taser,/turf/simulated/floor/tiled/asteroid/airless,/area/exoplanet/barren/asteroid)
+"tA" = (/obj/effect/decal/cleanable/blood/gibs/body,/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"uq" = (/obj/effect/decal/cleanable/blood/oil/streak,/turf/simulated/floor/tiled/asteroid/airless,/area/exoplanet/barren/asteroid)
+"vh" = (/turf/simulated/wall/shuttle/dark,/area/exoplanet/barren/asteroid)
+"vV" = (/obj/random/melee,/turf/simulated/floor/tiled/asteroid/airless,/area/exoplanet/barren/asteroid)
+"wf" = (/obj/machinery/light/small/red{dir = 1},/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"xp" = (/obj/machinery/light/small/red{dir = 4},/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"xJ" = (/obj/effect/gibspawner/human,/obj/item/gun/projectile/shotgun/improvised/sawn,/turf/unsimulated/floor/asteroid/ash,/area/exoplanet/barren/asteroid)
+"xP" = (/obj/structure/trash_pile,/turf/unsimulated/floor/asteroid/ash,/area/exoplanet/barren/asteroid)
+"yw" = (/obj/random/junk,/turf/simulated/floor/tiled/asteroid/airless,/area/exoplanet/barren/asteroid)
+"yC" = (/obj/item/ammo_casing/c10mm{projectile_type = null},/obj/item/ammo_casing/c10mm{projectile_type = null},/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"yJ" = (/obj/item/ammo_casing/c10mm{projectile_type = null},/turf/simulated/floor/tiled/asteroid/airless,/area/exoplanet/barren/asteroid)
+"zg" = (/obj/effect/floor_decal/industrial/warning{dir = 8},/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"zM" = (/obj/effect/gibspawner/robot,/turf/unsimulated/floor/asteroid/ash,/area/exoplanet/barren/asteroid)
+"AQ" = (/obj/machinery/floodlight,/turf/unsimulated/floor/asteroid/ash,/area/exoplanet/barren/asteroid)
+"Ch" = (/mob/living/simple_animal/hostile/rogue_drone,/turf/simulated/floor/tiled/asteroid/airless,/area/exoplanet/barren/asteroid)
+"Cp" = (/obj/structure/droppod_door,/turf/simulated/wall/shuttle/dark,/area/exoplanet/barren/asteroid)
+"Cr" = (/obj/random/glowstick,/turf/simulated/floor/tiled/airless,/area/exoplanet/barren/asteroid)
+"CZ" = (/turf/simulated/floor/tiled/airless,/area/exoplanet/barren/asteroid)
+"DW" = (/obj/effect/floor_decal/industrial/warning{dir = 4},/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"Ej" = (/obj/machinery/chemical_dispenser/bar_alc/full{dir = 4; pixel_x = -4},/turf/simulated/floor/tiled/asteroid/airless,/area/exoplanet/barren/asteroid)
+"En" = (/obj/structure/closet/crate/trashcart,/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"EN" = (/obj/random/glowstick,/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"FB" = (/obj/effect/decal/cleanable/blood/gibs/robot,/obj/effect/decal/cleanable/blood/oil/streak,/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"Gg" = (/obj/structure/grille/broken,/turf/simulated/floor/plating,/area/exoplanet/barren/asteroid)
+"Gp" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 4},/turf/simulated/floor/plating,/area/exoplanet/barren/asteroid)
+"GH" = (/obj/effect/decal/cleanable/blood/drip,/obj/item/ammo_casing/c10mm{projectile_type = null},/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"Hc" = (/obj/machinery/light/small/red,/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"Hq" = (/obj/structure/table/wood,/obj/item/reagent_containers/food/drinks/drinkingglass,/obj/item/reagent_containers/food/drinks/drinkingglass,/obj/item/reagent_containers/food/drinks/drinkingglass,/turf/simulated/floor/tiled/asteroid/airless,/area/exoplanet/barren/asteroid)
+"IH" = (/obj/item/ammo_magazine/c38,/obj/item/ammo_casing/shotgun/pellet,/obj/item/gun/projectile/revolver/lemat,/turf/unsimulated/floor/asteroid/ash,/area/exoplanet/barren/asteroid)
+"IJ" = (/obj/random/junk,/turf/simulated/floor/tiled/airless,/area/exoplanet/barren/asteroid)
+"IK" = (/obj/effect/gibspawner/human,/turf/simulated/floor/tiled/asteroid/airless,/area/exoplanet/barren/asteroid)
+"KZ" = (/obj/random/junk,/obj/item/stack/cable_coil/cut,/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"Lc" = (/obj/effect/gibspawner/human,/turf/unsimulated/floor/asteroid/ash,/area/exoplanet/barren/asteroid)
+"Lm" = (/obj/item/ammo_casing/c10mm{projectile_type = null},/obj/item/ammo_casing/c10mm{projectile_type = null},/obj/item/ammo_casing/c10mm{projectile_type = null},/turf/simulated/floor/tiled/asteroid/airless,/area/exoplanet/barren/asteroid)
+"LW" = (/obj/machinery/light{dir = 1; icon_state = "tube1"},/turf/simulated/floor/tiled/asteroid/airless,/area/exoplanet/barren/asteroid)
+"Md" = (/obj/effect/decal/cleanable/blood/splatter,/obj/item/ammo_casing/c10mm{projectile_type = null},/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"Mi" = (/obj/item/trash/syndi_cakes,/turf/unsimulated/floor/asteroid/ash,/area/exoplanet/barren/asteroid)
+"MB" = (/obj/structure/bed/stool/chair/shuttle,/turf/simulated/floor/tiled/airless,/area/exoplanet/barren/asteroid)
+"MR" = (/obj/structure/closet/toolcloset,/turf/simulated/floor/tiled/airless,/area/exoplanet/barren/asteroid)
+"Nm" = (/obj/structure/grille/broken,/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"Od" = (/obj/effect/landmark/corpse/commander,/obj/effect/decal/cleanable/blood,/obj/item/gun/projectile/revolver/mateba,/obj/item/ammo_casing/a454{projectile_type = null},/turf/unsimulated/floor/asteroid/ash,/area/exoplanet/barren/asteroid)
+"OG" = (/obj/effect/decal/cleanable/blood/gibs,/obj/item/material/shard,/turf/simulated/floor/tiled/asteroid/airless,/area/exoplanet/barren/asteroid)
+"PW" = (/obj/effect/decal/cleanable/blood/gibs/robot/limb,/obj/effect/decal/cleanable/blood/oil/streak,/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"QI" = (/obj/structure/grille/broken,/obj/item/material/shard,/turf/simulated/floor/plating,/area/exoplanet/barren/asteroid)
+"QL" = (/obj/random/medical,/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"QY" = (/obj/structure/table/wood,/obj/item/reagent_containers/food/drinks/bottle/small/ale,/obj/item/reagent_containers/food/drinks/bottle/small/ale,/turf/simulated/floor/tiled/asteroid/airless,/area/exoplanet/barren/asteroid)
+"RK" = (/obj/random/melee,/turf/unsimulated/floor/asteroid/ash,/area/exoplanet/barren/asteroid)
+"RR" = (/obj/random/toolbox,/turf/simulated/floor/tiled/airless,/area/exoplanet/barren/asteroid)
+"Sm" = (/obj/structure/reagent_dispensers/keg/beerkeg,/turf/unsimulated/floor/asteroid/ash,/area/exoplanet/barren/asteroid)
+"SM" = (/turf/simulated/wall,/area/exoplanet/barren/asteroid)
+"Td" = (/obj/random/keg,/turf/unsimulated/floor/asteroid/ash,/area/exoplanet/barren/asteroid)
+"Ur" = (/turf/simulated/wall{can_open = 1},/area/exoplanet/barren/asteroid)
+"Uw" = (/obj/item/material/shard,/turf/unsimulated/floor/asteroid/ash,/area/exoplanet/barren/asteroid)
+"UF" = (/obj/structure/bed/stool/bar/wood,/turf/simulated/floor/tiled/asteroid/airless,/area/exoplanet/barren/asteroid)
+"UL" = (/obj/effect/gibspawner/robot,/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"UR" = (/mob/living/simple_animal/hostile/viscerator,/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"UX" = (/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled/asteroid/airless,/area/exoplanet/barren/asteroid)
+"Vg" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/effect/gibspawner/robot,/turf/simulated/floor/tiled/airless,/area/exoplanet/barren/asteroid)
+"Vk" = (/obj/structure/table/rack,/obj/structure/trash_pile,/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"Vp" = (/obj/structure/table/wood,/obj/item/reagent_containers/food/drinks/bottle/small/beer,/obj/item/reagent_containers/food/drinks/bottle/small/beer,/obj/item/reagent_containers/food/drinks/bottle/small/beer,/obj/item/reagent_containers/food/drinks/bottle/small/beer,/turf/simulated/floor/tiled/asteroid/airless,/area/exoplanet/barren/asteroid)
+"Vw" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 10},/turf/simulated/floor/plating,/area/exoplanet/barren/asteroid)
+"VQ" = (/obj/structure/table/rack,/obj/random/contraband,/obj/random/contraband,/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"Wi" = (/obj/structure/grille,/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"WD" = (/obj/random/junk,/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"WG" = (/turf/simulated/floor/tiled/asteroid/airless,/area/exoplanet/barren/asteroid)
+"WX" = (/obj/structure/bed/stool/chair/shuttle{dir = 4},/turf/simulated/floor/tiled/airless,/area/exoplanet/barren/asteroid)
+"Xa" = (/obj/effect/floor_decal/industrial/warning{dir = 6},/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"XJ" = (/obj/random/voidsuit/no_nanotrasen,/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"XQ" = (/obj/random/vendor,/turf/simulated/floor/tiled/asteroid/airless,/area/exoplanet/barren/asteroid)
+"Zj" = (/obj/structure/grille,/turf/simulated/floor/plating,/area/exoplanet/barren/asteroid)
+"Zr" = (/obj/effect/decal/cleanable/blood/splatter,/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+
+(1,1,1) = {"
+jmjmjmjmjmjmjmjmjmjmlsjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjm
+jmjmjmjmjmjmjmjmjmjmxJlsjmjmkpkpkpkpkpjmkpjmjmjmjmjmjmjmjmjmjmjm
+jmjmjmjmjmjmjmjmkpkpjmjmkpkpkpkpkpkpkpkpjmkpkpjmjmjmjmjmjmjmjmjm
+jmjmjmjmjmjmjmkpSMSMUrUrSMSMSMSMSMkpkpjmkpkpkpjmjmjmjmjmjmjmjmjm
+jmjmjmjmjmjmkpSMSMzgddddDWEnVkddSMkpkpjmkpkpkpkpUwjmjmjmjmjmjmjm
+jmjmjmjmjmkpSMSMwfbNsmsmXaddnDxpSMkpkpkpkpkpkpjmjmjmjmjmjmjmjmjm
+jmjmjmjmkpSMSMddddddWDddddWDVkddSMTdTdTdkpSMSMQISMGgGgSMnuSMSMjm
+jmjmjmkpSMSMddWDddnDddURVkddnDddSMrvOdrqkpSMEjnALWWGWGUXWGywSMjm
+jmjmjmkpSMddWDddZrnzdVULVkWDnDddSMSMUrSMSMSMHqQYVpbOWGywWGXQSMjm
+jmjmkpkpSMddddWDrwtAZrFBPWyCddMdGHWDrwZrayUryJUFUFUFfYIKjCWGGgjm
+jmjmkpkpqFddddURddddddddyCmJQLGHddZrHcayrwUrOGlKlKlKChWGfYXQSMjm
+jmjmjmkpSMddddddVQxpSMSMSMSMSMSMSMSMSMSMSMSMLmvVIKyJleWGstywSMjm
+jmjmjmkpSMdHqvddVkWDSMkpkpkpkpkpkpkpkpjmjmSMjAdqGpVwuquqaMlWZjjm
+jmbMjmjmUrddDWddnDddSMkpIHxPkpkpkpkpjmjmjmSMSMnuSMSMddSMnuGgGgjm
+jmLcRKjmUrddDWddVkddUrjmMiSmkpkpkpjmjmjmjmjmjmjmSMXJddSMjmjmjmjm
+jmjmjmkpSMsmXaddnDddSMkpkpkpkpjmjmjmjmjmjmjmjmjmSMddddSMjmjmjmjm
+jmkpkpkpSMSMSMSMSMSMSMkpkpkpkpjmjmjmjmjmjmjmAQjmaYSMjmSMjmbMjmjm
+jmjmkpkpkpkpkpkpkpkpkpkpjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjm
+jmjmkpkpkpkpjmkpjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjm
+jmkpkpjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjm
+jmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmzMjmjmjmjmjmjmjmjmjmjm
+jmjmjmjmjmjmjmjmjmjmjmvhvhvhvhNmNmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjm
+jmjmjmjmjmjmjmjmjmjmjmvhMBMBWXddddddjmjmjmjmjmjmjmjmjmjmjmjmjmjm
+jmjmjmjmjmjmjmjmjmjmjmNmCZCZCZENXJddNmjmjmjmjmjmjmjmjmjmjmjmjmjm
+jmjmjmjmjmjmjmjmjmjmjmNmCZCrCZIJCZMRvhjmjmjmjmjmjmjmjmjmjmjmjmjm
+jmjmjmjmjmjmjmjmjmjmjmNmqBKZjNVgjNhTvhjmjmjmjmjmjmjmjmjmjmjmjmjm
+jmjmjmjmjmjmjmjmjmjmjmWiRRCZIJddCZCZvhjmjmjmjmjmjmjmjmjmjmjmjmjm
+jmjmjmjmjmjmjmjmjmjmjmvhMRCZCZWDddCZvhjmjmjmjmjmjmjmjmjmjmjmjmjm
+jmjmjmjmjmjmjmjmjmjmjmvhvhCpCpCpvhNmvhjmjmjmjmjmjmjmjmjmjmjmjmjm
+jmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjm
+jmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjm
+jmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjm
+"}

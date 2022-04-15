@@ -24,6 +24,8 @@
 	. = ..()
 	if(ispath(projectile_type))
 		BB = new projectile_type(src)
+	else
+		expend() // allows spawning spent casings by nulling projectile_type
 	randpixel_xy()
 	transform = turn(transform,rand(0,360))
 
