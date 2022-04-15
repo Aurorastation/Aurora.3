@@ -138,7 +138,7 @@
 
 /obj/effect/overmap/visitable/sector/ee_spy_ship
 	name = "faint ship activity"
-	desc = "A sector with faint hints of previous military ship presence."
+	desc = "A sector with faint hints of previous civilian ship presence."
 	in_space = 1
 
 /decl/submap_archetype/ee_spy_ship
