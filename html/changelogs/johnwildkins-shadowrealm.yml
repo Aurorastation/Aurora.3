@@ -1,6 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - tweak: "Exiting vehicles (cargo trains, etc) will try to deposit you on solid ground where possible."

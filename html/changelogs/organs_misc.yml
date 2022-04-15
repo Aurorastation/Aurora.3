@@ -1,8 +1,0 @@
-author: Vrow
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed Medical Grippers being able to duplicate organs."
-  - bugfix: "Fixed Cable Synthesizers being unable to repair robotic limbs."
-  - bugfix: "Fixed being unable to see whether a robotic limb has their screws/panel off if it's not damaged."
