@@ -79,7 +79,7 @@
 	max_count = 3
 
 	outfit = /datum/outfit/admin/ee_crewman
-	possible_species = list(SPECIES_HUMAN)
+	possible_species = list(SPECIES_HUMAN, SPECIES_IPC_SHELL)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Einstein Engines Crewman"
