@@ -206,11 +206,14 @@
 	filling_states = "25;50;75;100"
 	center_of_mass = list("x" = 15,"y" = 9)
 	matter = list(MATERIAL_GLASS = 250)
-	volume = 20
+	volume = 15
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = null
 	flags = OPENCONTAINER
 	fragile = 1
+
+/obj/item/reagent_containers/glass/beaker/medcup/attack_self() // No lid for the medcup
+	return
 
 /obj/item/reagent_containers/glass/beaker/cryoxadone/reagents_to_add = list(/decl/reagent/cryoxadone = 30)
 
