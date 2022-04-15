@@ -260,7 +260,6 @@
 #include "code\controllers\subsystems\evacuation\~evac.dm"
 #include "code\controllers\subsystems\initialization\atlas.dm"
 #include "code\controllers\subsystems\initialization\atoms.dm"
-#include "code\controllers\subsystems\initialization\away_maps.dm"
 #include "code\controllers\subsystems\initialization\holomap.dm"
 #include "code\controllers\subsystems\initialization\map_finalization.dm"
 #include "code\controllers\subsystems\initialization\misc_early.dm"
